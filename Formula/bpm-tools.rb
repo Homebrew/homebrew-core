@@ -4,7 +4,7 @@ class BpmTools < Formula
   url "https://www.pogo.org.uk/~mark/bpm-tools/releases/bpm-tools-0.3.tar.gz"
   sha256 "37efe81ef594e9df17763e0a6fc29617769df12dfab6358f5e910d88f4723b94"
   license "GPL-2.0"
-  head "https://www.pogo.org.uk/~mark/bpm-tools.git"
+  head "https://www.pogo.org.uk/~mark/bpm-tools.git", branch: "master"
 
   bottle do
     rebuild 2
@@ -14,6 +14,7 @@ class BpmTools < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "56e3a889338b82d5b477c1564506e23549d9651b08260d9c9a38b5e6bd1555ab"
     sha256 cellar: :any_skip_relocation, high_sierra:   "422342ce8dd8a50853e8289ccc936747f4a77a20803850e6481498cf8c4a12c5"
     sha256 cellar: :any_skip_relocation, sierra:        "f1219d522f61e89606f3e607a636e406faf5f954846b48965e37cc25dbb29b87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e78a1d3a9c96635e57bf0ce8c329a88b8b3406a0e0ba4a19cb97e4b42727f6a0"
   end
 
   def install

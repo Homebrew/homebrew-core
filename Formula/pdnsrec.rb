@@ -1,8 +1,8 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.5.1.tar.bz2"
-  sha256 "3721a1d0e438a683735f518db1e91da6ace1b90fbfdb9c588adabdf164114e79"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.5.5.tar.bz2"
+  sha256 "a836a39b99fcc21873e4ba3a60aa9915a33fac7b44922696e9a257f551fe05fb"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,10 +11,11 @@ class Pdnsrec < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "31bbebfa2aa6ed5f7345c57154ae25d887780d4df370f20663ce804fc654f4a8"
-    sha256 big_sur:       "7e8f5d78e02e7b1b8ccbcc6ce48b13d1c3c8e7d3afaad732dea7845f5605a14d"
-    sha256 catalina:      "9bca064b267700534483628226e27cdd72fce306c1192e5baaf419a3b9221c97"
-    sha256 mojave:        "a259bd76eb77f13e463a88f2fef1b52d6de05a83ee7a102e7b5d223262388f54"
+    sha256 arm64_big_sur: "6d91a9a10c37e9957d9d54a9b1c7dfd053a590582078dedabe0c1b2c5583fbff"
+    sha256 big_sur:       "2e5c07a26540b304ae52a2ed4569a09a0f6f9641f93b3cdcc4ce81c14423936c"
+    sha256 catalina:      "0c3355b03b41fb4ad9d76bdb6d0f87f90ebe52c0f20fbf0721904e9393a33cca"
+    sha256 mojave:        "30bf6621caa349c712e84b8211877f55785c356dbdce558c390b6fdf19bf3ad7"
+    sha256 x86_64_linux:  "21af0d49fd6b901131459386156de07159a58110d3b37690fdc1fe55c43ae045"
   end
 
   depends_on "pkg-config" => :build
@@ -43,9 +44,7 @@ class Pdnsrec < Formula
   def install
     ENV.cxx11
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     args = %W[
       --prefix=#{prefix}

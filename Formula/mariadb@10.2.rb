@@ -1,8 +1,8 @@
 class MariadbAT102 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.37/source/mariadb-10.2.37.tar.gz"
-  sha256 "38c630485e3a5ed438e43257b9693f005f572d05e240ff25244d2fa7682250f5"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.40/source/mariadb-10.2.40.tar.gz"
+  sha256 "2fb5bbdb8c2c7afa01eecf3338001e338350a7efb1267af048e038c1ec658142"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,9 +11,10 @@ class MariadbAT102 < Formula
   end
 
   bottle do
-    sha256 big_sur:  "dbcc914f59b92c3e2932b711405a69778fa89e0a9787e098c743ec5cefe329a0"
-    sha256 catalina: "0d43e79d17d03994439f16f5de0f0b078d42f09cf0433ca9aeb05a858b0b78ae"
-    sha256 mojave:   "b148044246ad6fb3dcc89cc5189bd06814197c07b2b1bc28942ea912f0c72b12"
+    sha256 big_sur:      "73c9a73db7852d59b07da552d5d775f7e2a2adcbcfb815b42b306ed702080e4c"
+    sha256 catalina:     "c85b70d15bdb6e2aacaa27940a4edf54d044b3d68f9791eb3fce338b39a6315b"
+    sha256 mojave:       "e73586fb778dac70e938b5409914aebf80eda8028d9c4125d71c0da41ba9a9d9"
+    sha256 x86_64_linux: "b0fff6d2d809ca77b671a367250bc4051336c65d43011cf2b3ac5c2ec64ce8d5"
   end
 
   keg_only :versioned_formula
@@ -21,13 +22,38 @@ class MariadbAT102 < Formula
   # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-102/
   deprecate! date: "2022-05-01", because: :unsupported
 
+  depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "openssl@1.1"
+  depends_on "pcre2"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  on_macos do
+    # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
+    # file called VERSION
+    # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
+    # Originally reported upstream at https://jira.mariadb.org/browse/MDEV-7209,
+    # but only partially fixed.
+    patch :DATA
+  end
+
+  # This upstream commit was added for MariaDB 10.3+, but not 10.2. If it is not
+  # added in the next release, we should open an upstream PR to do so.
   on_linux do
+    depends_on "gcc"
     depends_on "linux-pam"
+  end
+
+  fails_with gcc: "5"
+
+  patch do
+    url "https://github.com/MariaDB/server/commit/9d5967f74bd0c471153c80ced240e586721e0e03.patch?full_index=1"
+    sha256 "f1b359c49dfd79182febe67f202bb13a8eaae66ca8474d197c0d6e56845f25d6"
   end
 
   def install
@@ -50,7 +76,6 @@ class MariadbAT102 < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_PCRE=bundled
       -DWITH_READLINE=yes
       -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
@@ -60,10 +85,17 @@ class MariadbAT102 < Formula
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
+    if OS.linux?
+      args << "-DWITH_NUMA=OFF"
+      args << "-DENABLE_DTRACE=NO"
+      args << "-DCONNECT_WITH_JDBC=OFF"
+    end
+
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
     system "cmake", ".", *std_cmake_args, *args
+
     system "make"
     system "make", "install"
 
@@ -98,7 +130,7 @@ class MariadbAT102 < Formula
       wsrep_sst_xtrabackup
       wsrep_sst_xtrabackup-v2
     ].each do |f|
-      inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
+      inreplace "#{bin}/#{f}", "$(dirname \"$0\")/wsrep_sst_common",
                                "#{libexec}/wsrep_sst_common"
     end
 
@@ -181,3 +213,19 @@ class MariadbAT102 < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+
+__END__
+diff --git a/storage/mroonga/CMakeLists.txt b/storage/mroonga/CMakeLists.txt
+index 555ab248751..cddb6f2f2a6 100644
+--- a/storage/mroonga/CMakeLists.txt
++++ b/storage/mroonga/CMakeLists.txt
+@@ -215,8 +215,7 @@ set(MYSQL_INCLUDE_DIRS
+   "${MYSQL_REGEX_INCLUDE_DIR}"
+   "${MYSQL_RAPIDJSON_INCLUDE_DIR}"
+   "${MYSQL_LIBBINLOGEVENTS_EXPORT_DIR}"
+-  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}"
+-  "${MYSQL_SOURCE_DIR}")
++  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}")
+
+ if(MRN_BUNDLED)
+   set(MYSQL_PLUGIN_DIR "${INSTALL_PLUGINDIR}")

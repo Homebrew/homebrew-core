@@ -5,7 +5,7 @@ class Sphinx < Formula
   sha256 "6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9"
   license "GPL-2.0"
   revision 3
-  head "https://github.com/sphinxsearch/sphinx.git"
+  head "https://github.com/sphinxsearch/sphinx.git", branch: "master"
 
   bottle do
     rebuild 2
@@ -14,6 +14,7 @@ class Sphinx < Formula
     sha256 catalina:      "f3d89ffcd2926373af5a35bb7ae6f16e59074699eeacfb4d358a0dc5742729cc"
     sha256 mojave:        "61f1ae14e253c8c84f0e8a9f3a26833ca4a1da887d97c0df8ecebb6096222546"
     sha256 high_sierra:   "3daf6e565c7c12803c13b6439a872e61335b3b27c06719ca6f8cec93dcd2176e"
+    sha256 x86_64_linux:  "3736780f2809b0449953cfb4ed85cc7d65b86e6c5c55aa98186062f8aff81d99"
   end
 
   depends_on "mysql@5.7"

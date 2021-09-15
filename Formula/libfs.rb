@@ -6,11 +6,12 @@ class Libfs < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3509ffdca42e13e77c8b0031cef59d661f0f2213ea3367b29ebfe738f4e9a715"
-    sha256 cellar: :any, big_sur:       "c12e8b46907935f4b59326c3d98372f9b4bd040e0ceb42af244a909fa5c09e17"
-    sha256 cellar: :any, catalina:      "6ccad0f27601c96ffffac5229d5a25c0ece882b0faf626ae115dfd57a1ac09cb"
-    sha256 cellar: :any, mojave:        "b8edb6c54600c14a791a33e7997927d394254b1212ea646ac786a667db263921"
-    sha256 cellar: :any, high_sierra:   "f62ce9b989c58747a5b5764478cab8acdf021b60d2a6d306547605305ad41f04"
+    sha256 cellar: :any,                 arm64_big_sur: "3509ffdca42e13e77c8b0031cef59d661f0f2213ea3367b29ebfe738f4e9a715"
+    sha256 cellar: :any,                 big_sur:       "c12e8b46907935f4b59326c3d98372f9b4bd040e0ceb42af244a909fa5c09e17"
+    sha256 cellar: :any,                 catalina:      "6ccad0f27601c96ffffac5229d5a25c0ece882b0faf626ae115dfd57a1ac09cb"
+    sha256 cellar: :any,                 mojave:        "b8edb6c54600c14a791a33e7997927d394254b1212ea646ac786a667db263921"
+    sha256 cellar: :any,                 high_sierra:   "f62ce9b989c58747a5b5764478cab8acdf021b60d2a6d306547605305ad41f04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75c0f9fb47e9a8a0f6b633252ba7c907a0eeb5935545f057f343f981d73ced56"
   end
 
   depends_on "pkg-config" => :build

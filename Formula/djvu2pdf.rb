@@ -9,7 +9,9 @@ class Djvu2pdf < Formula
     regex(/href=.*?djvu2pdf[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "712580b5fb3dc550722146cdce9ce17c9928565a29433bd0697cb231691e566f"
+  end
 
   depends_on "djvulibre"
   depends_on "ghostscript"

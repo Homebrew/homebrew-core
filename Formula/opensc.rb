@@ -1,10 +1,10 @@
 class Opensc < Formula
   desc "Tools and libraries for smart cards"
   homepage "https://github.com/OpenSC/OpenSC/wiki"
-  url "https://github.com/OpenSC/OpenSC/releases/download/0.21.0/opensc-0.21.0.tar.gz"
-  sha256 "2bfbbb1dcb4b8d8d75685a3e95c30798fb6411d4efab3690fd89d2cb25f3325e"
+  url "https://github.com/OpenSC/OpenSC/releases/download/0.22.0/opensc-0.22.0.tar.gz"
+  sha256 "8d4e5347195ebea332be585df61dcc470331c26969e4b0447c851fb0844c7186"
   license "LGPL-2.1-or-later"
-  head "https://github.com/OpenSC/OpenSC.git"
+  head "https://github.com/OpenSC/OpenSC.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,11 +12,11 @@ class Opensc < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_big_sur: "885a597c41199253c351ca6ff2e74e37d4e185689aa39f13427c23f9c0ec230d"
-    sha256 big_sur:       "c65a43909f56d856d4a3dea6ff2010d0f4933dd8508e6cc0ee1898884e802df9"
-    sha256 catalina:      "483b47da8bd5a8339fc4dc6b2498b6c662cb0783801e5dfa2651602d7153fd86"
-    sha256 mojave:        "32df51660a704109b38931903b89c88ca79e98ce806f83d59fff486275edfdab"
+    sha256 arm64_big_sur: "fb1e4fdfdca0bd35600e321fffd758aff4e8557957da8e2a467d4580b5f52092"
+    sha256 big_sur:       "308076bb86f51319361ac05d6abb0d546e021fdef0d85294cce641808dd74d24"
+    sha256 catalina:      "78c5529ee73f82e4c4830033a14a24befd358309fe74172e0d3b37b86a5c3e0e"
+    sha256 mojave:        "59f94582f376029a1d80d4a1a2dfe0a76efd5ae03c3ae73c620eea10434f43dc"
+    sha256 x86_64_linux:  "02841a26a99ee24f685e0ac37b9cec2a905ae85953ae04a59f7e9655c12e87d4"
   end
 
   depends_on "autoconf" => :build

@@ -6,7 +6,11 @@ class TomeePlume < Formula
   sha256 "fff4d98606f023b11c37bb7b4ceb74600552ff2953dc90fb484456236da34663"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "c95a98b18cab3b17572987e3c9c644519f7603118c073c4e0d68efe7f08398cf"
+  end
+
+  depends_on "openjdk"
 
   def install
     # Remove Windows scripts
@@ -17,7 +21,8 @@ class TomeePlume < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-plume-startup"
+    (bin/"tomee-plume-startup").write_env_script "#{libexec}/bin/startup.sh",
+                                                 Language::Java.overridable_java_home_env
   end
 
   def caveats
@@ -30,6 +35,7 @@ class TomeePlume < Formula
   end
 
   test do
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     system "#{opt_libexec}/bin/configtest.sh"
   end
 end

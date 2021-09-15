@@ -17,6 +17,7 @@ class B43Fwcutter < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d71a9a74998af98e4593b5593ff415aa4e6f868a9fe7b7fa4814fd27a4b6652d"
     sha256 cellar: :any_skip_relocation, catalina:      "65b60abba52b848bd47386245505719c4c2218429719cf008a6720a4fbcac36a"
     sha256 cellar: :any_skip_relocation, mojave:        "244e2363a7eff64ea8708724a386796d8fbf6d49677519a4132a2296faa0c411"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "730c1aaf1eca6cdcc4abab681ca38e7629699e85ac20bb0082b15abbf317a5ca"
   end
 
   def install

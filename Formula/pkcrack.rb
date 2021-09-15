@@ -4,6 +4,11 @@ class Pkcrack < Formula
   url "https://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack/pkcrack-1.2.2.tar.gz"
   sha256 "4d2dc193ffa4342ac2ed3a6311fdf770ae6a0771226b3ef453dca8d03e43895a"
 
+  livecheck do
+    url "https://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack/download1.html"
+    regex(/href=.*?pkcrack[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f4ee4c3916070396ad7bd3fdcf550cd150f33359381a177784015a06a4fed9e8"
@@ -14,6 +19,7 @@ class Pkcrack < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "264358646b08985192cd06c9bc032c16296eb00198dd9852521e0cfdfe1703ef"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9b46e1c0097cc4024d4f5b182ac8fdbc27e3caec52874b19d570aba6f946fc10"
     sha256 cellar: :any_skip_relocation, yosemite:      "47f2ffa2e27f0dc5e6df45de7335e316a8ea83288153b274ae5d8e11c7157055"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7166064fd3c5a549df696d4d889b4de6c5d2596f70c598de71a3d975a42a8f3c"
   end
 
   conflicts_with "csound", because: "both install `extract` binaries"

@@ -1,15 +1,15 @@
 class Amap < Formula
   desc "Perform application protocol detection"
-  homepage "https://github.com/vanhauser-thc/THC-Archive"
-  url "https://github.com/vanhauser-thc/THC-Archive/raw/master/Tools/amap-5.4.tar.gz"
+  homepage "https://github.com/hackerschoice/THC-Archive"
+  url "https://github.com/hackerschoice/THC-Archive/raw/master/Tools/amap-5.4.tar.gz"
   mirror "https://downloads.sourceforge.net/project/slackbuildsdirectlinks/amap/amap-5.4.tar.gz"
   sha256 "a75ea58de75034de6b10b0de0065ec88e32f9e9af11c7d69edbffc4da9a5b059"
   revision 3
 
   livecheck do
-    url "https://github.com/vanhauser-thc/THC-Archive/tree/master/Tools/"
-    strategy :page_match
+    url "https://github.com/hackerschoice/THC-Archive/tree/master/Tools/"
     regex(%r{href=.*?/amap[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    strategy :page_match
   end
 
   bottle do

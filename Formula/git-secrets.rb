@@ -13,6 +13,7 @@ class GitSecrets < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "d77761ee552d2963788f2bcab6c695d1b52f9d0c1d68dad65230901c750e63aa"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d77761ee552d2963788f2bcab6c695d1b52f9d0c1d68dad65230901c750e63aa"
     sha256 cellar: :any_skip_relocation, sierra:        "fc2745b24be00e6b8e4b82d6768632810823ffff3f80ad99ca9943b31d003003"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "375d6c697493099bc84e7b61eadeadbb75a34c05d724b558a3ff03d7e267d196"
   end
 
   def install

@@ -2,20 +2,27 @@ class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
   homepage "https://www.actor-framework.org/"
-  url "https://github.com/actor-framework/actor-framework/archive/0.18.3.tar.gz"
-  sha256 "da07d30002db67a178bc5ac5950cd47b74f86b6d63a99a382ba02769051e91a8"
+  url "https://github.com/actor-framework/actor-framework/archive/0.18.5.tar.gz"
+  sha256 "4c96f896f000218bb65890b4d7175451834add73750d5f33b0c7fe82b7d5a679"
   license "BSD-3-Clause"
-  head "https://github.com/actor-framework/actor-framework.git"
+  head "https://github.com/actor-framework/actor-framework.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2eb5251871e94fcab790645d0ade26bdd53405a5c3638378d86a887b1a4c4217"
-    sha256 cellar: :any, big_sur:       "78181544230244ed5103e328e09bc59a67fd9c31a333f492d3278f39646944be"
-    sha256 cellar: :any, catalina:      "6d278d761ac996928c2c26ef5dc30a8bc1b82a7ed112b878a329dbac0641170d"
-    sha256 cellar: :any, mojave:        "2c5155b10c92de8ea6273193175d9d65c32c5eed643d0a3a2adfa72ecef5964b"
+    sha256 cellar: :any,                 arm64_big_sur: "ab16a7c7af1cb9ebcf94b0f51185d2318de6c658e2c58fea826011eecd3e09f9"
+    sha256 cellar: :any,                 big_sur:       "804cec1ee5419983767ced84f1eaa357ea1d96676725be2f0db85245625c4a17"
+    sha256 cellar: :any,                 catalina:      "8f11ac81d1c3efdd0b4813478336c5e215df2d44d0bd04e770d04bddd598b02e"
+    sha256 cellar: :any,                 mojave:        "ef6ea69f637a890f191b6f584167f9cb9fbe990e040ccce147f64331d305bfda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9dd022da722c0bdecfbf643251d9529fde48b2b13576a95fc706df751941df2"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "gcc" # For C++17
+  end
+
+  fails_with gcc: "5"
 
   def install
     mkdir "build" do

@@ -6,7 +6,9 @@ class Luaver < Formula
   license "MIT"
   head "https://github.com/DhavalKapil/luaver.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "423d7c791335f69639c53e2eb5ccbfd0120deeb61984a2744a72d0ab635317af"
+  end
 
   depends_on "wget"
 
@@ -26,11 +28,6 @@ class Luaver < Formula
     lua_versions.each do |v|
       ENV.deparallelize { system ". #{bin}/luaver install #{v} < /dev/null" }
       system ". #{bin}/luaver use #{v} && lua -v"
-    end
-    luajit_versions = %w[2.0.4]
-    luajit_versions.each do |v|
-      system ". #{bin}/luaver install-luajit #{v} < /dev/null"
-      system ". #{bin}/luaver use-luajit #{v} && luajit -v"
     end
   end
 end

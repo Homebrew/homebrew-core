@@ -16,6 +16,7 @@ class Dcadec < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "7a51fb1bfa07f08c45176df419087429e9ffce945cbcd28d71e403c456762c74"
     sha256 cellar: :any_skip_relocation, el_capitan:    "89ddc5e9a5cfd72e604bdff54ee1f09f9ad4ec281fc79c93201971bbd380ccdd"
     sha256 cellar: :any_skip_relocation, yosemite:      "640914a5ce466bbb91b551bdb35a385e4a8b08c25f78509a16c016c654963805"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f727365cbd24d678682c06e73ff49a7fdf92b17a5a1c6b82068522e4d0e0b1f"
   end
 
   resource "sample" do

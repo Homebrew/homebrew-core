@@ -6,10 +6,11 @@ class Graphene < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "64f77c528bc4e693aef3a747f76eb2c63a1a25f37e730d46fda139c002271301"
-    sha256 cellar: :any, big_sur:       "20b41dfc4c7bf01973d14f33129db71d7968509e8dc0761f640e36400ae8127e"
-    sha256 cellar: :any, catalina:      "9a39689fd7d593fc8d5b86b077d153d863c51b470703e87dfd8cfd1ee157d742"
-    sha256 cellar: :any, mojave:        "d6e6d695f0b7c04b6b8b0b09a18a9cd39bd25ba0e64d5843fa12c0a56100ea06"
+    sha256 cellar: :any,                 arm64_big_sur: "64f77c528bc4e693aef3a747f76eb2c63a1a25f37e730d46fda139c002271301"
+    sha256 cellar: :any,                 big_sur:       "20b41dfc4c7bf01973d14f33129db71d7968509e8dc0761f640e36400ae8127e"
+    sha256 cellar: :any,                 catalina:      "9a39689fd7d593fc8d5b86b077d153d863c51b470703e87dfd8cfd1ee157d742"
+    sha256 cellar: :any,                 mojave:        "d6e6d695f0b7c04b6b8b0b09a18a9cd39bd25ba0e64d5843fa12c0a56100ea06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6345068270ee59e4b48206f62bed5d258f361aa273f7a20c3847d23daa67b46c"
   end
 
   depends_on "gobject-introspection" => :build

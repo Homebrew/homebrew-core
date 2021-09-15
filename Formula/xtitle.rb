@@ -4,7 +4,9 @@ class Xtitle < Formula
   url "https://www.cs.indiana.edu/~kinzler/xtitle/xtitle-1.0.4.tgz"
   sha256 "cadddef1389ba1c5e1dc7dd861545a5fe11cb397a3f692cd63881671340fcc15"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "c463ee3a0d4e7e17b1dbcdced8c6ed5eb50d2815a56cc28ac037848735fe1803"
+  end
 
   def install
     bin.install "xtitle.sh" => "xtitle"

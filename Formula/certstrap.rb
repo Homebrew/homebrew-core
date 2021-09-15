@@ -12,6 +12,7 @@ class Certstrap < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "52e68d4bcd2256bb1026aafefc9aef39c0e7945e1f26c06b3e09f3b7e7d9ab14"
     sha256 cellar: :any_skip_relocation, mojave:        "8f7fb0f6d8b559ee4d30972a68d5d76117a86c07233abc49237c516f45f07277"
     sha256 cellar: :any_skip_relocation, high_sierra:   "12fdf1f518c3f2944d30f4289813a82aa56580b844fc2cc1ad3383d8675c9882"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13724be9c67b61927d775d2e0eadd328a7b9c10922cd0660d5a0d002c4c8ead8"
   end
 
   depends_on "go" => :build

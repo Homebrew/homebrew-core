@@ -15,6 +15,7 @@ class Ford < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "1d645364d5ef8813745637cc83089a521306e319104eeccca786af71c3b937e8"
     sha256 cellar: :any_skip_relocation, mojave:        "0779dbcb80b7076526778d04d0ee35346973a34b5bc1eb945d26e0fe1c2beac3"
     sha256 cellar: :any_skip_relocation, high_sierra:   "3a4005e1f83a4c86dfde8adc54ef2e0bf592c347020e56b26e961cc71b88bf44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65412ed98b02e2db55e1b732a86d58f3272fa454129409fd5321c946fca6463f"
   end
 
   depends_on "graphviz"

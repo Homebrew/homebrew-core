@@ -11,17 +11,17 @@ class Zip < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a28e4c4c4a033c7ad60417a28a857bb9b85be17ef8e14a6eb5f0b2b7bc33c998"
-    sha256 cellar: :any_skip_relocation, big_sur:       "60bcaddc206cf96c70d8c466bfd0e7aab64f082c8594016e9c26f5032ebebff3"
-    sha256 cellar: :any_skip_relocation, catalina:      "0c942307306bb96e68bb0aba70d253b37ed1e519a882ba778c42d8ac9fd230f9"
-    sha256 cellar: :any_skip_relocation, mojave:        "b76c061fa0a226fb5b484fc790582bb07e5138648738f35726fa278ab5e8a612"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "d218e0b7d82c7864a1ead12186b5bc09b43c2aa3749651008ac8dbcf32ec0d7c"
-    sha256 cellar: :any_skip_relocation, sierra:        "be282c3dfde4da608ab090910b3fe3cbec914d435122854f17acc0f718cc3a15"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "54ea09b9be1a8c8a20b94e7cadff551ed243f5762a0d8da79f1aaedc4c9492a9"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9bed17ac27c80c0553f32c572561660637547075e0c566f95805e2088e5945fb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fac1760831eeaab6595e56b31f38d2c768de2e7c214a6f646a61ef16429a4b91"
+    sha256 cellar: :any_skip_relocation, catalina:      "36f8c3138ed2e1110de5dc4c9ffd3616572ee1e4ec1ea63a3925f6c45e889e0d"
+    sha256 cellar: :any_skip_relocation, mojave:        "16f22ea28d2c69d40772820c3e94c0a8510e6f05da4221ffd30b99b47fea5d7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce503e630831ea12bb87e28c2668a185cb12a94680f4f42b791b6e4a19af2e87"
   end
 
   keg_only :provided_by_macos
+
+  uses_from_macos "bzip2"
 
   # Upstream is unmaintained so we use the Debian patchset:
   # https://packages.debian.org/sid/zip

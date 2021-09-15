@@ -12,13 +12,15 @@ class Exa < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "caac7c603cded147f69fec0b64deb28017b747861cd6ec0f7aa1df9d6a1387e6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c3bc35df4c4957502d687da38bb7b4cdf1c2239b35bfdddebe004f05081c246e"
-    sha256 cellar: :any_skip_relocation, catalina:      "e1d7aae78877242d8b2678744940d4fcb56a393fd4d69b0290f7da54e08a8b2b"
-    sha256 cellar: :any_skip_relocation, mojave:        "935794d2a1521fc3645f48eaec3035748cde91b183a23bb0c68b069f1187aae9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b9cc70621644245ce1ab1b682e28efae4b8acdbf3bf4da9cf91ddbd786b8787"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d0c809ae7a8d3a43e0c907854b46725f5ad6bb14fa40a9857ff4e74f15c0b961"
+    sha256 cellar: :any_skip_relocation, catalina:      "dc183942b94bac912f4e0a6ca5c8859fa755a95de2808bd978dde3911690f0ae"
+    sha256 cellar: :any_skip_relocation, mojave:        "62fac977958ef8a9856e7a28fceac53d4f6e327e11764d1a077fb34ac83aced0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fad8013ab85b04c039c1b1be716bd621370dfcf810e3eb714e53711701b9aa45"
   end
 
-  depends_on "pandoc" => :build unless Hardware::CPU.arm?
+  depends_on "pandoc" => :build
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
@@ -30,22 +32,25 @@ class Exa < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_completion.install "completions/completions.bash" => "exa"
-    zsh_completion.install  "completions/completions.zsh"  => "_exa"
-    fish_completion.install "completions/completions.fish" => "exa.fish"
+    if build.head?
+      bash_completion.install "completions/bash/exa"
+      zsh_completion.install  "completions/zsh/_exa"
+      fish_completion.install "completions/fish/exa.fish"
+    else
+      # Remove after >0.10.1 build
+      bash_completion.install "completions/completions.bash" => "exa"
+      zsh_completion.install  "completions/completions.zsh"  => "_exa"
+      fish_completion.install "completions/completions.fish" => "exa.fish"
+    end
 
     args = %w[
       --standalone
       --to=man
     ]
-
-    unless Hardware::CPU.arm?
-      system "pandoc", *args, "man/exa.1.md", "-o", "exa.1"
-      system "pandoc", *args, "man/exa_colors.5.md", "-o", "exa_colors.5"
-
-      man1.install "exa.1"
-      man5.install "exa_colors.5"
-    end
+    system "pandoc", *args, "man/exa.1.md", "-o", "exa.1"
+    system "pandoc", *args, "man/exa_colors.5.md", "-o", "exa_colors.5"
+    man1.install "exa.1"
+    man5.install "exa_colors.5"
   end
 
   test do

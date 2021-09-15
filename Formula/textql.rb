@@ -14,6 +14,7 @@ class Textql < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "38cbf8cacc0dd7e29831c8c7fe9f0437473c164bee549defb8744d6ca3e53fcb"
     sha256 cellar: :any_skip_relocation, sierra:        "f7bcfcacbd0b3076037e4715dabd1d925ef52ec66a3018d7a0124d091a7711c5"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9950b83cf4d7bf59d3bf54711a845ddcf27f31dd004150acce3b8011ca2874a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d491cd48d7e35debc11c6c9ffacec4538ed039a22d5b88302b6eed0e0d62fd1"
   end
 
   depends_on "glide" => :build

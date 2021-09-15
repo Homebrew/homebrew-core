@@ -11,7 +11,11 @@ class Scalastyle < Formula
     regex(/href=.*?scalastyle[._-]v?\d+(?:\.\d+)+-(\d+(?:\.\d+)+)-batch\.jar/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "1bd0fb8e674062b23048501e43c440b1ae9644313a466489b3116da0435b2d68"
+  end
+
+  depends_on "openjdk"
 
   resource "default_config" do
     url "https://raw.githubusercontent.com/scalastyle/scalastyle/v1.0.0/lib/scalastyle_config.xml"

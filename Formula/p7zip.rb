@@ -10,16 +10,16 @@ class P7zip < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c4d62f05f0cba984aa6b5712debc4f7d3b2c3bece0c503633a588cb209c911c2"
     sha256 cellar: :any_skip_relocation, catalina:      "bea86999db7dee5f0cb78d3a72d875d822ec73ebb2a6e7d46cf27ae66243c645"
     sha256 cellar: :any_skip_relocation, mojave:        "1484f0f3a0a4812dccb5f388c6671a7e524b001872b0df6d7cabc160c2f03989"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d996780ca46e35a641f5f37284d19490cb5e0a990c9369045e92ba463d99430a"
   end
 
   # Remove non-free RAR sources
   patch :DATA
 
   def install
-    on_macos do
+    if OS.mac?
       mv "makefile.macosx_llvm_64bits", "makefile.machine"
-    end
-    on_linux do
+    else
       mv "makefile.linux_any_cpu", "makefile.machine"
     end
     system "make", "all3",
@@ -49,13 +49,13 @@ diff -u -r a/makefile b/makefile
 -	$(MAKE) -C CPP/7zip/Compress/Rar          depend
  	$(MAKE) -C CPP/7zip/UI/GUI                depend
  	$(MAKE) -C CPP/7zip/UI/FileManager        depend
- 
+
 @@ -42,7 +41,6 @@
  common7z:common
  	$(MKDIR) bin/Codecs
  	$(MAKE) -C CPP/7zip/Bundles/Format7zFree all
 -	$(MAKE) -C CPP/7zip/Compress/Rar         all
- 
+
  lzham:common
  	$(MKDIR) bin/Codecs
 @@ -67,7 +65,6 @@

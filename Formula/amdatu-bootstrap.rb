@@ -11,8 +11,11 @@ class AmdatuBootstrap < Formula
     regex(/href=.*?bootstrap[._-]v?(?:bin-)?r(\d+(?:\.\d+)*)(?:-bin)?\./i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "5830f2f6576ff4664c6d914679a5af1cfb5a1ab4d1fbb9afd4f4089e4d06b13d"
+  end
 
+  depends_on arch: :x86_64 # openjdk@8 doesn't support ARM
   depends_on "openjdk@8"
 
   def install

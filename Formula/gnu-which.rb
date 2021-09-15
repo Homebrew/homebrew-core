@@ -15,6 +15,7 @@ class GnuWhich < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "170008e80a4cc5f1e45b3445f9fb6f099d7700aa6dd825602f6d32316c27735b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "66446416b0dc367076ab38cfc9775d8c201fc571b1a2cd2fc0197daa6b83882a"
     sha256 cellar: :any_skip_relocation, sierra:        "68ea3522ec318c9b25d711ce4405b4cd6a41edca20b7df008adc499ab794c4fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf191a85d1f5684e84909ccf5d5df3ec3b9ffd7facc629bc2664f99078bf414e"
   end
 
   def install
@@ -23,13 +24,11 @@ class GnuWhich < Formula
       --disable-dependency-tracking
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gwhich" => "which"
       (libexec/"gnuman/man1").install_symlink man1/"gwhich.1" => "which.1"
     end

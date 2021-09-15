@@ -1,8 +1,8 @@
 class GtkMacIntegration < Formula
   desc "Integrates GTK macOS applications with the Mac desktop"
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
-  url "https://download.gnome.org/sources/gtk-mac-integration/3.0/gtk-mac-integration-3.0.0.tar.xz"
-  sha256 "af88bb3a284e24c550e15290e07e562fcd2a038ebb0fcc863dd069d3738952ae"
+  url "https://download.gnome.org/sources/gtk-mac-integration/3.0/gtk-mac-integration-3.0.1.tar.xz"
+  sha256 "f19e35bc4534963127bbe629b9b3ccb9677ef012fc7f8e97fd5e890873ceb22d"
   license "LGPL-2.1-only"
 
   # We use a common regex because gtk-mac-integration doesn't use GNOME's
@@ -13,10 +13,10 @@ class GtkMacIntegration < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "133b558e42113237d02387f4951aac3e64e9ed63c44ce17c0b7bfc4f1750ea57"
-    sha256 big_sur:       "4dbaba924b79a4b09e30cd27d1ae62f300d59231e972641efa3d35c863d907f0"
-    sha256 catalina:      "6409347cf27701ae7b9cc4a7eb3620291d1023c4b20cdaed899423fab9cc85e2"
-    sha256 mojave:        "33025ae0eb0f311ed92782f589e9ae36a528bcf2330e3b119d5225ba3f3db1af"
+    sha256 arm64_big_sur: "f3ab908832ae236c157fcb29c6178a7d0ce0c521990be382270fcb0233351774"
+    sha256 big_sur:       "11cd268c22f0c1e52774fbc4368d953915cf58d0a212719e01dd721f17c89162"
+    sha256 catalina:      "0c2b66f0715a364905ae8d61e1edd06dad96efc0ad72efa90dbdd756397468e0"
+    sha256 mojave:        "a6b21fe6cda9fd1a06aacd818ac646380e878969f95a6964729f950371e68255"
   end
 
   head do

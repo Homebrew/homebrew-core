@@ -6,7 +6,9 @@ class Testssl < Formula
   license "GPL-2.0"
   head "https://github.com/drwetter/testssl.sh.git", branch: "3.1dev"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "720715f209d47df4a0e54532a3d181e1294384855e709481e471244be517ea52"
+  end
 
   depends_on "openssl@1.1"
 

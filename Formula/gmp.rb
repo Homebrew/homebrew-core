@@ -12,11 +12,12 @@ class Gmp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ff4ad8d068ba4c14d146abb454991b6c4f246796ec2538593dc5f04ca7593eec"
-    sha256 cellar: :any, big_sur:       "6a44705536f25c4b9f8547d44d129ae3b3657755039966ad2b86b821e187c32c"
-    sha256 cellar: :any, catalina:      "35e9f82d80708ae8dea2d6b0646dcd86d692321b96effaa76b7fad4d6cffa5be"
-    sha256 cellar: :any, mojave:        "00fb998dc2abbd09ee9f2ad733ae1adc185924fb01be8814e69a57ef750b1a32"
-    sha256 cellar: :any, high_sierra:   "54191ce7fa888df64b9c52870531ac0ce2e8cbd40a7c4cdec74cb2c4a421af97"
+    sha256 cellar: :any,                 arm64_big_sur: "ff4ad8d068ba4c14d146abb454991b6c4f246796ec2538593dc5f04ca7593eec"
+    sha256 cellar: :any,                 big_sur:       "6a44705536f25c4b9f8547d44d129ae3b3657755039966ad2b86b821e187c32c"
+    sha256 cellar: :any,                 catalina:      "35e9f82d80708ae8dea2d6b0646dcd86d692321b96effaa76b7fad4d6cffa5be"
+    sha256 cellar: :any,                 mojave:        "00fb998dc2abbd09ee9f2ad733ae1adc185924fb01be8814e69a57ef750b1a32"
+    sha256 cellar: :any,                 high_sierra:   "54191ce7fa888df64b9c52870531ac0ce2e8cbd40a7c4cdec74cb2c4a421af97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6d4ed0cb050136a5d6a93406427ae3d9aff3287771dc9cefa7ea0dddbab27f8"
   end
 
   uses_from_macos "m4" => :build
@@ -28,12 +29,10 @@ class Gmp < Formula
     # Enable --with-pic to avoid linking issues with the static library
     args << "--with-pic"
 
-    on_macos do
+    if OS.mac?
       cpu = Hardware::CPU.arm? ? "aarch64" : Hardware.oldest_cpu
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
-    end
-
-    on_linux do
+    else
       args << "--build=core2-linux-gnu"
       args << "ABI=32" if Hardware::CPU.is_32_bit?
     end

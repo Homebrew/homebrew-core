@@ -1,8 +1,8 @@
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
   homepage "https://libzip.org/"
-  url "https://libzip.org/download/libzip-1.7.3.tar.xz"
-  sha256 "a60473ffdb7b4260c08bfa19c2ccea0438edac11193c3afbbb1f17fbcf6c6132"
+  url "https://libzip.org/download/libzip-1.8.0.tar.xz"
+  sha256 "f0763bda24ba947e80430be787c4b068d8b6aa6027a26a19923f0acfa3dac97e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,18 +11,18 @@ class Libzip < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "e58c6e33b3a74dc3cae81e1b3ab482e0df007fe65c561a62e4750e206c068688"
-    sha256 big_sur:       "261afbcf4c391242a760158dd337e0bc24dc4b34f764e5b8ae197580bc94db38"
-    sha256 catalina:      "e5a16cd6fef05a7f6f44852f1008a3e5d27796e661079278643d9c1f0912672c"
-    sha256 mojave:        "3554c0ba2bd6f663a10a1791b474d3634d8b72f9ee6d4ed818cca7fd17c40737"
-    sha256 high_sierra:   "b629e96fde8b5d27235d11a176c674630036cc9e8541e076d5ae4945a9b2cdf1"
+    sha256 cellar: :any,                 arm64_big_sur: "1634e10d0fbece803c007a5af63f3fbc9244ef4082640830039faeb7284a7ae1"
+    sha256 cellar: :any,                 big_sur:       "f5b0d74305b2f249a8389bbee71ab51e446fcc824c950b2a954860d21e4d61b4"
+    sha256 cellar: :any,                 catalina:      "cb8041e52eb6bdf4e06aa56823e4fe0ab8b008c25a84a8048b59e6c025cd2666"
+    sha256 cellar: :any,                 mojave:        "5c0afe4c42e50e695446433cc8f0de47592f207281a01e30b4b39bd6b43096ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cff3dfdbd2565f16d6504215a03dd55bb9cd587051e89ce44bb1c326f7152fb"
   end
 
   depends_on "cmake" => :build
 
   uses_from_macos "zip" => :test
   uses_from_macos "bzip2"
-  uses_from_macos "openssl@1.1"
+  uses_from_macos "openssl"
   uses_from_macos "xz"
   uses_from_macos "zlib"
 

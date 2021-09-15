@@ -5,6 +5,11 @@ class Liblzf < Formula
   mirror "https://deb.debian.org/debian/pool/main/libl/liblzf/liblzf_3.6.orig.tar.gz"
   sha256 "9c5de01f7b9ccae40c3f619d26a7abec9986c06c36d260c179cedd04b89fb46a"
 
+  livecheck do
+    url "http://dist.schmorp.de/liblzf/"
+    regex(/href=.*?liblzf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e321946e647108f4f478e84270ef6a49463e18d412fc94a4bc260c5009bd2dba"
@@ -12,6 +17,7 @@ class Liblzf < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "9aa8a1495947fe1fd6249abe33de7245f9ae4a58dcf900276253b013f7f148e8"
     sha256 cellar: :any_skip_relocation, mojave:        "62c558b1b9562038c49c1e83b73dfb08d8fca8b924eb36428a5c0bb566408f9d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "66c9ec26bce56b59ffb317d5a415e6358e8246588a3f247c33b8a8d24e714570"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04201793eebd3ab8a64694c1422e4d5801be13fd26d1ed257b6c31d4a231124c"
   end
 
   def install

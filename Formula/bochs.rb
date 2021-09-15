@@ -1,15 +1,21 @@
 class Bochs < Formula
   desc "Open source IA-32 (x86) PC emulator written in C++"
   homepage "https://bochs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.11/bochs-2.6.11.tar.gz"
-  sha256 "63897b41fbbbdfb1c492d3c4dee1edb4224282a07bbdf442a4a68c19bcc18862"
+  url "https://downloads.sourceforge.net/project/bochs/bochs/2.7/bochs-2.7.tar.gz"
+  sha256 "a010ab1bfdc72ac5a08d2e2412cd471c0febd66af1d9349bc0d796879de5b17a"
+  license "LGPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/bochs[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 arm64_big_sur: "6d5a614bcdfd6fd732e1d970a20cf41ef138544c2fc83c01e40fa76d182d4e7c"
-    sha256 big_sur:       "9fc8197b7d04be3b5eafcc970ea167d3a91997ad5e4b30a7d56c0725f61190d4"
-    sha256 catalina:      "b6d43a6a60360e0d84ebd2ad9ae7724c413a1f2332c59065fb09c2004d76b723"
-    sha256 mojave:        "74fb37178645c4d2b52eec5684931ca215dc2f75794e1cf45b3f6e2b85263819"
-    sha256 high_sierra:   "f8c79923292849eebece21d9c5ed1028db729d4d25dc1e045a7c8e0f0dcf450b"
+    sha256 arm64_big_sur: "413baabcb17f8a7da9b41306215280ef7fe9e898477c31eed66f483cfb15475a"
+    sha256 big_sur:       "6e644ff1b857016a22941d01d7136a94c39a790dd6ce0f358da5b5b5ab14af78"
+    sha256 catalina:      "a903d4549d08e804de103c69866708ac5a993f7a4006687e9465e67991494cb4"
+    sha256 mojave:        "8428e13cd552af48b539231826a222f4b74801688aa0e74c2de40c201cb68e30"
+    sha256 x86_64_linux:  "e681cbd2cb984ea659bad90239ba755b4fca333be1a4831513b53f461974a98b"
   end
 
   depends_on "pkg-config" => :build
@@ -17,15 +23,6 @@ class Bochs < Formula
   depends_on "sdl2"
 
   uses_from_macos "ncurses"
-
-  # Fix pointer cast issue
-  # https://sourceforge.net/p/bochs/patches/537/
-  if DevelopmentTools.clang_build_version >= 900
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9b520dd4c/bochs/xcode9.patch"
-      sha256 "373c670083a3e96f4012cfe7356d8b3584e2f0d10196b4294d56670124f5e5e7"
-    end
-  end
 
   def install
     args = %W[

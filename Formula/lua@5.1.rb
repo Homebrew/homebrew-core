@@ -9,29 +9,54 @@ class LuaAT51 < Formula
   revision 8
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "cde11765109e69c6484206f4b2a63081b535253f32233471343f03b52505a89b"
-    sha256 cellar: :any, big_sur:       "0d00a4c74d8e5fd3cd36621d318d2c1031a16c5701d2ae669223a2ca8a1a576d"
-    sha256 cellar: :any, catalina:      "bbc328f48c0cf137907ccabe206f75cc7ade66cf76cafe82ced3a5f885c73da8"
-    sha256 cellar: :any, mojave:        "4578b515c3e1a255f766d7fa542e632007ac2de8282e207b92192d0bb9bafd11"
-    sha256 cellar: :any, high_sierra:   "d374b94b3e4b9af93cb5c04086f4a9836c06953b4b1941c68a92986ba57356b1"
-    sha256 cellar: :any, sierra:        "67ce3661b56fe8dd0daf6f94b7da31a9516b00ae85d9bbe9eabd7ed2e1dbb324"
-    sha256 cellar: :any, el_capitan:    "e43d1c75fe4462c5dca2d95ebee9b0e4897c872f03c4331d5898a06a408cbcb3"
+    sha256 cellar: :any,                 arm64_big_sur: "cde11765109e69c6484206f4b2a63081b535253f32233471343f03b52505a89b"
+    sha256 cellar: :any,                 big_sur:       "0d00a4c74d8e5fd3cd36621d318d2c1031a16c5701d2ae669223a2ca8a1a576d"
+    sha256 cellar: :any,                 catalina:      "bbc328f48c0cf137907ccabe206f75cc7ade66cf76cafe82ced3a5f885c73da8"
+    sha256 cellar: :any,                 mojave:        "4578b515c3e1a255f766d7fa542e632007ac2de8282e207b92192d0bb9bafd11"
+    sha256 cellar: :any,                 high_sierra:   "d374b94b3e4b9af93cb5c04086f4a9836c06953b4b1941c68a92986ba57356b1"
+    sha256 cellar: :any,                 sierra:        "67ce3661b56fe8dd0daf6f94b7da31a9516b00ae85d9bbe9eabd7ed2e1dbb324"
+    sha256 cellar: :any,                 el_capitan:    "e43d1c75fe4462c5dca2d95ebee9b0e4897c872f03c4331d5898a06a408cbcb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b5ebc378db8f01127fdec3922b58252ede872cd6b70cbbde2adde311f1f699a"
   end
 
   deprecate! date: "2012-02-17", because: :unsupported
 
-  # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
-  # See: https://github.com/Homebrew/homebrew/pull/5043
-  patch :DATA
+  uses_from_macos "unzip"
+
+  on_macos do
+    # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
+    # See: https://github.com/Homebrew/homebrew/pull/5043
+    patch :DATA
+  end
+
+  on_linux do
+    depends_on "readline"
+
+    # Add shared library for linux
+    # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
+    patch do
+      url "https://gist.githubusercontent.com/iMichka/0f389e65e5abd63bfc6073bfa76082b0/raw/6e9c4c4690c737d93a376e053bcb82cdd69aac3b/lua5.1.5.patch"
+      sha256 "342b0d08eea9b9836be49fc88b3518cf207ee0e9aea09a248d3620c0b34e8e44"
+    end
+  end
 
   def install
+    if OS.linux?
+      # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
+      # when making a shared object; recompile with -fPIC
+      # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+      ENV.append_to_cflags "-fPIC"
+    end
+
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
-      s.gsub! "@LUA_PREFIX@", prefix
+      if OS.mac?
+        s.gsub! "@LUA_PREFIX@", prefix
+        s.sub! "MYCFLAGS_VAL", "-fno-common -DLUA_USE_LINUX"
+      end
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
-      s.sub! "MYCFLAGS_VAL", "-fno-common -DLUA_USE_LINUX"
     end
 
     # Fix path in the config header
@@ -46,8 +71,21 @@ class LuaAT51 < Formula
       s.gsub! "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua.5.1 -lm"
     end
 
-    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
+    os = if OS.mac?
+      "macosx"
+    else
+      "linux"
+    end
+
+    args = [
+      "INSTALL_TOP=#{prefix}",
+      "INSTALL_MAN=#{man1}",
+      "INSTALL_INC=#{include}/lua-5.1",
+    ]
+
+    system "make", os, *args
+    args << "TO_LIB=liblua.so.5.1.5" if OS.linux?
+    system "make", "install", *args
 
     (lib/"pkgconfig").install "etc/lua.pc"
 
@@ -65,6 +103,13 @@ class LuaAT51 < Formula
     include.install_symlink "lua-5.1" => "lua5.1"
     (lib/"pkgconfig").install_symlink "lua-5.1.pc" => "lua5.1.pc"
     (libexec/"lib/pkgconfig").install_symlink lib/"pkgconfig/lua-5.1.pc" => "lua.pc"
+
+    if OS.linux?
+      # Hack around wrong .so file naming
+      %w[.so.5.1 .5.1.5.so .5.1.so 5.1.so].each do |suffix|
+        lib.install_symlink "liblua.so.5.1.5" => "liblua#{suffix}"
+      end
+    end
   end
 
   def caveats

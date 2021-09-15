@@ -1,17 +1,17 @@
 class Libssh < Formula
   desc "C library SSHv1/SSHv2 client and server protocols"
   homepage "https://www.libssh.org/"
-  url "https://www.libssh.org/files/0.9/libssh-0.9.5.tar.xz"
-  sha256 "acffef2da98e761fc1fd9c4fddde0f3af60ab44c4f5af05cd1b2d60a3fa08718"
+  url "https://www.libssh.org/files/0.9/libssh-0.9.6.tar.xz"
+  sha256 "86bcf885bd9b80466fe0e05453c58b877df61afa8ba947a58c356d7f0fab829b"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://git.libssh.org/projects/libssh.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a51771f2d0aad1f496cece28cd55bf8e9577e68acc57e3c8b2fe2e5c16b82917"
-    sha256 cellar: :any, big_sur:       "ba9752b774a055a0df12b12cb76c8faed66b13de0f8ebbb8d415dae9f21a899d"
-    sha256 cellar: :any, catalina:      "85e25fa108135c48e655b4d26fb716430bea5795e13a7e61011d34c3f75be2dd"
-    sha256 cellar: :any, mojave:        "d5ae563dad7c55f63a2509838a98df08643b13c07e1febd9ddeddf79ecfe043a"
+    sha256 cellar: :any,                 arm64_big_sur: "d6c0de919fb07df2cc4c637eba40c85f2dd19808fae5d7dcabeeb8c9b8477de2"
+    sha256 cellar: :any,                 big_sur:       "cf2110fe6b71f0a5d59a2a4a7bc7badfa5bf53c59bfa2968ac1160519aa7285f"
+    sha256 cellar: :any,                 catalina:      "3aff6528d21c6844b4592862628ab197bb5e34e4c506008d24b63afacc116900"
+    sha256 cellar: :any,                 mojave:        "c230e01e4990691096acce9e33222f51f1db8fa21b93c8998b82efad871afcf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be12ab5dbd45956b1bd8c26c3c6f5e1a8d7ee20e7e60170a693969f2734309e2"
   end
 
   depends_on "cmake" => :build
@@ -42,8 +42,8 @@ class Libssh < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lssh",
-           testpath/"test.c", "-o", testpath/"test"
+    system ENV.cc, "-I#{include}", testpath/"test.c",
+           "-L#{lib}", "-lssh", "-o", testpath/"test"
     system "./test"
   end
 end

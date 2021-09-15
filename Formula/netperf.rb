@@ -3,7 +3,7 @@ class Netperf < Formula
   homepage "https://hewlettpackard.github.io/netperf/"
   url "https://github.com/HewlettPackard/netperf/archive/netperf-2.7.0.tar.gz"
   sha256 "4569bafa4cca3d548eb96a486755af40bd9ceb6ab7c6abd81cc6aa4875007c4e"
-  head "https://github.com/HewlettPackard/netperf.git"
+  head "https://github.com/HewlettPackard/netperf.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -14,6 +14,7 @@ class Netperf < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "cf086e0d276a572aba8318f7080cedc94b36a7b612cdbb4bcc3ceefef0080c53"
     sha256 cellar: :any_skip_relocation, sierra:        "4d3f648081c84ad697d608b56bcfce3237de7c34c4e4a53d9851628f9d50cd5d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c6e96625b1f83a7f83d3c9b53b8584ab65d73cfd59bc38672588ba82d37ecc1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00d6096bef2a2982df63f66cb5400c568b0b917efe598b60bc4df5b54aa24e59"
   end
 
   def install

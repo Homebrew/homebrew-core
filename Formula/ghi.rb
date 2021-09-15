@@ -15,6 +15,7 @@ class Ghi < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "9289e061f8a249130950ec212042e3d9adfaa96e3591f0eb2d6038c28ff0e6d6"
     sha256 cellar: :any_skip_relocation, sierra:        "d2b59c4b0326bd4d4b2de6da0310e1d5228cc63d57adb9eb37c5f5c5a9471131"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d2b59c4b0326bd4d4b2de6da0310e1d5228cc63d57adb9eb37c5f5c5a9471131"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31384887e9ccf6bca66b79aa8e0df82a6a67ba9e8849dbf0b0c0e0db75c944d7"
   end
 
   uses_from_macos "ruby"

@@ -1,11 +1,10 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.1/6.1.0/single/qt-everywhere-src-6.1.0.tar.xz"
-  sha256 "326a710b08b0973bb4f5306a786548d8b8dd656db75ce9f3f85ea32680d3c88a"
+  url "https://download.qt.io/official_releases/qt/6.1/6.1.3/single/qt-everywhere-src-6.1.3.tar.xz"
+  sha256 "552342a81fa76967656b0301233b4b586d36967fad5cd110765347aebe07413c"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
-  head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
+  head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
   # so we check the `head` repository tags instead.
@@ -15,10 +14,10 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "338330d35e7a444cf05719a568a9d2b7bf48c49607affc0d3e9966dd2d298af9"
-    sha256 cellar: :any, big_sur:       "adf38093a18c7c076383cda0471d2261938e09933fc3e1bbd93792dbf4533300"
-    sha256 cellar: :any, catalina:      "7f324783cd85a429b7d0e2c95c1d534d7b968651f673bcef5711c9e22cded52b"
-    sha256 cellar: :any, mojave:        "9ba1bbcde8afb46c441a1f3c92e6847df5c6083c73d61491b1b76d9c75a8048a"
+    sha256 cellar: :any, arm64_big_sur: "ab25be32463c05e36c5d666422c528f6400341e1d1cda03b7b3c4bf32c930e22"
+    sha256 cellar: :any, big_sur:       "e5e7ee99f8ad14e2b39cfb8ead227ba60c1837d3bbf0c275d468c35bb9b3e882"
+    sha256 cellar: :any, catalina:      "7ff0e85ccebd423a6796c68d80326d384626182360decf4f938f4ba9eb8bd524"
+    sha256 cellar: :any, mojave:        "787c45fca83b0a31b3ee19e28d1fd2a000cd1ee9dabe02e7a4818c8ffcb03470"
   end
 
   depends_on "cmake"      => [:build, :test]
@@ -32,12 +31,12 @@ class Qt < Formula
   depends_on "double-conversion"
   depends_on "freetype"
   depends_on "glib"
+  depends_on "hunspell"
   depends_on "icu4c"
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libb2"
   depends_on "libpng"
-  depends_on "libproxy"
   depends_on "libtiff"
   depends_on "pcre2"
   depends_on "python@3.9"
@@ -49,21 +48,6 @@ class Qt < Formula
   uses_from_macos "krb5"
   uses_from_macos "perl"
   uses_from_macos "zlib"
-
-  # TODO: remove them after 6.1.1
-  # macdeployqt: Fix plugin resolution bugs for non-standard installs
-  patch do
-    url "https://code.qt.io/cgit/qt/qttools.git/patch/?id=03abcbabbd4caa11048d19d95b23f165cd7a5361"
-    sha256 "b219a0e782b30b6942eed8ad5b0a5cf3be3dae08542a999e7c6f162cca24c4db"
-    directory "qttools"
-  end
-
-  # macdeployqt: Fix bug parsing otool output when deploying plugins
-  patch do
-    url "https://code.qt.io/cgit/qt/qttools.git/patch/?id=7f3bcf85f1041e7e56dba37593dcd80f2054c221"
-    sha256 "c34f4ef4d0047c7b60ec7ea40847bbfc3f8fa9a63a2f5ea9a38199caffdc7647"
-    directory "qttools"
-  end
 
   def install
     # FIXME: See https://bugreports.qt.io/browse/QTBUG-89559
@@ -84,7 +68,6 @@ class Qt < Formula
       -examplesdir share/qt/examples
       -testsdir share/qt/tests
 
-      -libproxy
       -no-feature-relocatable
       -system-sqlite
 
@@ -96,9 +79,8 @@ class Qt < Formula
     # TODO: remove `-DFEATURE_qt3d_system_assimp=ON`
     # and `-DTEST_assimp=ON` when Qt 6.2 is released.
     # See https://bugreports.qt.io/browse/QTBUG-91537
-    cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"]||s["CMAKE_FIND_FRAMEWORK"] } + %W[
+    cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
-      -DCMAKE_FIND_FRAMEWORK=FIRST
 
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
 
@@ -113,22 +95,23 @@ class Qt < Formula
 
     rm bin/"qt-cmake-private-install.cmake"
 
-    # Some config scripts will only find Qt in a "Frameworks" folder
-    frameworks.install_symlink Dir["#{lib}/*.framework"]
-
     inreplace lib/"cmake/Qt6/qt.toolchain.cmake", HOMEBREW_SHIMS_PATH/"mac/super", "/usr/bin"
 
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
     # the Frameworks' Headers folders.
-    Pathname.glob("#{lib}/*.framework/Headers") do |path|
-      include.install_symlink path => path.parent.basename(".framework")
+    # Tracking issues:
+    # https://bugreports.qt.io/browse/QTBUG-86080
+    # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/6363
+    lib.glob("*.framework") do |f|
+      # Some config scripts will only find Qt in a "Frameworks" folder
+      frameworks.install_symlink f
+      include.install_symlink f/"Headers" => f.stem
     end
 
-    mkdir libexec
-    Pathname.glob("#{bin}/*.app") do |app|
-      mv app, libexec
-      bin.write_exec_script "#{libexec/app.stem}.app/Contents/MacOS/#{app.stem}"
+    bin.glob("*.app") do |app|
+      libexec.install app
+      bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
     end
   end
 

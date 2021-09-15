@@ -4,14 +4,15 @@ class Jabba < Formula
   url "https://github.com/shyiko/jabba/archive/0.11.2.tar.gz"
   sha256 "33874c81387f03fe1a27c64cb6fb585a458c1a2c1548b4b86694da5f81164355"
   license "Apache-2.0"
-  head "https://github.com/shyiko/jabba.git"
+  head "https://github.com/shyiko/jabba.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, big_sur:     "a730868e347cb89b50393f96062b2c076f1d501b137ead1a795aa39e54ad4611"
-    sha256 cellar: :any_skip_relocation, catalina:    "7eddb409c7bb2784db21756e624a18b19977bb4df53ab547eaedd8abe876651e"
-    sha256 cellar: :any_skip_relocation, mojave:      "3101ea25ce49c3ed96b3c8595a5441fec3aeb536b56eca21c1dea56f6c1fd86b"
-    sha256 cellar: :any_skip_relocation, high_sierra: "8454f5aa9b8832908b1c889531118ea058b2e675ef7f7f37eeb282f454aeec1e"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "72cd725e75b0d214c6cbc03bc87fcb15d9b824ea24eba43f267cdfc768edf460"
+    sha256 cellar: :any_skip_relocation, big_sur:       "72c397a12fe10181efb7fca300d78d3244160c9a0a4dcbe2cd17c179df678db4"
+    sha256 cellar: :any_skip_relocation, catalina:      "146e37a3138b919c497da279eecd2d282d5f6f5e0f1b9aa94257df2fbf19efba"
+    sha256 cellar: :any_skip_relocation, mojave:        "6f2d27333e0b8d73ba2166c4abb960642d64a3efcd394ee5683e6c71b8d0c305"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "359b80689e628a11217fe33067133d61eb52970610e45d54ace41705ccb06b5d"
   end
 
   depends_on "glide" => :build
@@ -32,10 +33,15 @@ class Jabba < Formula
   end
 
   test do
+    jdk_version = "zulu@1.16.0-0"
+    version_check ='openjdk version "16'
+
     ENV["JABBA_HOME"] = testpath/"jabba_home"
-    system bin/"jabba", "install", "openjdk@1.14.0"
-    jdk_path = shell_output("#{bin}/jabba which openjdk@1.14.0").strip
-    assert_match 'openjdk version "14',
-                 shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
+
+    system bin/"jabba", "install", jdk_version
+    jdk_path = shell_output("#{bin}/jabba which #{jdk_version}").strip
+    jdk_path += "/Contents/Home" if OS.mac?
+    assert_match version_check,
+                 shell_output("#{jdk_path}/bin/java -version 2>&1")
   end
 end

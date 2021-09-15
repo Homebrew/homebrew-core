@@ -13,6 +13,7 @@ class Fex < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "e42328824017f1432ace562fdd70061e504c5524d2702f3d4b470c40b1bf105e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "952c166ae7efc5c7955bba3c54fefc1e5c18fe2296804b15554a8703285034e1"
     sha256 cellar: :any_skip_relocation, yosemite:      "2c20c6bf653b60b290d6e08aee9aaa46475754cfd61680e312d46678ea9a1f4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8ec5c054bfa085ae8e70f521aa235ddae7a2a481f4b9512751490c8a5166c09"
   end
 
   def install

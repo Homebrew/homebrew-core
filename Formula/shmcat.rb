@@ -18,6 +18,7 @@ class Shmcat < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "ff73e6df8b663b4f382098ce75a9ec4634d4658c5378b3ad122de135e30d44ab"
     sha256 cellar: :any_skip_relocation, sierra:        "5ee7bcafe69d653421e29b56cf2e48a55874dc1e092e817a83cb446cda4acf01"
     sha256 cellar: :any_skip_relocation, el_capitan:    "1b6ddaf528253df2e2d5b93e97b6f4ade717ff8f3f6bcf829ed7cf9d9e682539"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccb601cd0dfebcb5b7633bf1e8610ba8b1a3858b67feb9848020a3ad1152e780"
   end
 
   def install

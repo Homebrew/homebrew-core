@@ -1,16 +1,16 @@
 class Cpm < Formula
   desc "Fast CPAN module installer"
   homepage "https://metacpan.org/pod/cpm"
-  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.997003.tar.gz"
-  sha256 "3262f95ba38074834f0a80e6592d7025d9c6ef562a5e60b2d5039c73f1fa3469"
+  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.997006.tar.gz"
+  sha256 "3a5198daddf0f3c87834a3630bd11cf5ff314aa222c7dd36806ce140c25b04d6"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  head "https://github.com/skaji/cpm.git"
+  head "https://github.com/skaji/cpm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24e03d34f10f88d7a450d83a5061e15a3c0e2b9148591e55bef939841d509774"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c5e6faef15405105b73e63c6ac49b1b32b45a5d80b55eca399ad3ce37b06ea95"
-    sha256 cellar: :any_skip_relocation, catalina:      "085d3d7363f0e44b19fc5ba3eb5789dc65a928c60716d013520af3d515d03c74"
-    sha256 cellar: :any_skip_relocation, mojave:        "2425e1296cf3bd5e6afde77a2cf63975e048cd6f18f9809dc860a38f94202ba5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8ae7304a9f908a3a623b0d5ae9abd756eb6c04874be680059f693d051411642d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "36777566d2453ce79f3b0886a325ac34a4be13be841ded79f7cbc432af8a4550"
+    sha256 cellar: :any_skip_relocation, catalina:      "36777566d2453ce79f3b0886a325ac34a4be13be841ded79f7cbc432af8a4550"
+    sha256 cellar: :any_skip_relocation, mojave:        "36777566d2453ce79f3b0886a325ac34a4be13be841ded79f7cbc432af8a4550"
   end
 
   depends_on "perl"
@@ -110,6 +110,11 @@ class Cpm < Formula
     sha256 "88efbe2e9a642dceaa186430fedfcf999aaf0e06f6cced28a714b8e56b514921"
   end
 
+  resource "Module::cpmfile" do
+    url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/Module-cpmfile-0.001.tar.gz"
+    sha256 "0e93c700601a44b683367284c7a50290d69f3a5454c62e709d3c306996a00658"
+  end
+
   resource "Parallel::Pipes" do
     url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/Parallel-Pipes-0.005.tar.gz"
     sha256 "44bd9e2be33d7b314f81c9b886a95d53514689090635f9fad53181f2d3051fd5"
@@ -131,8 +136,8 @@ class Cpm < Formula
   end
 
   resource "URI" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.07.tar.gz"
-    sha256 "eeb6ed2ae212434e2021e29f7556f4024169421a5d8b001a89e65982944131ea"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz"
+    sha256 "03e63ada499d2645c435a57551f041f3943970492baa3b3338246dab6f1fae0a"
   end
 
   resource "Win32::ShellQuote" do
@@ -141,8 +146,8 @@ class Cpm < Formula
   end
 
   resource "YAML::PP" do
-    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-0.026.tar.gz"
-    sha256 "4b858e671cf3e966ecc54408e8031740c2f28f87c294ee9679fb02e02d5a45eb"
+    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-0.027.tar.gz"
+    sha256 "135813d44b58d6f2fb3edfcbac93f39818bb874f0b8ebe2b0f45cae435cc05a3"
   end
 
   resource "local::lib" do
@@ -155,6 +160,7 @@ class Cpm < Formula
 
     build_pl = [
       "Module::Build::Tiny",
+      "Module::cpmfile",
       "Command::Runner",
       "Parallel::Pipes",
     ]

@@ -1,22 +1,20 @@
 class Libxmp < Formula
   desc "C library for playback of module music (MOD, S3M, IT, etc)"
   homepage "https://xmp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.4.1/libxmp-4.4.1.tar.gz"
-  sha256 "353535cc84c8cddae8decec4e65fa4c51fc64f22eb0891bc3dae6eaf25f9cccf"
+  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.5.0/libxmp-4.5.0.tar.gz"
+  sha256 "7847d262112d14e8442f44e5ac6ed9ddbca54c251284720b563c852b31f26e75"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "edb417d203308a607caade02f7156391b9f44735d1ef2f4a310143effcb59ea3"
-    sha256 cellar: :any, big_sur:       "71a0df8a26851412202809597d08ec2eb9f7d8e5c5bbea62d21dea8f0205fe5a"
-    sha256 cellar: :any, catalina:      "4c1af5c4637210c681480ae62e67de516f0a9a3fa4deb2781013d40decc7cc38"
-    sha256 cellar: :any, mojave:        "d86f0bd86f2cada740f5a87d9f18216b30e2383d9d572200c5a684fd73b8a9a4"
-    sha256 cellar: :any, high_sierra:   "642c904938aa1797b3512f3f820283d4104a8153d2b0144003110accdc48a877"
-    sha256 cellar: :any, sierra:        "019ff8e51453bf527ba6ec46fd289acc5396208e230445afb0332a18752d72e2"
-    sha256 cellar: :any, el_capitan:    "8da81ed699c312c831be38295df20218663fef23aec1cab91afa7e425baaa4ab"
-    sha256 cellar: :any, yosemite:      "dd80b8a6786f265488503234bb7aecffa15ab0a5c099677fd0989fd3329709d2"
+    sha256 cellar: :any,                 arm64_big_sur: "434828daa308ed44a901c51be2e6b5a92e91e28267f77894aff8a5030c07d82c"
+    sha256 cellar: :any,                 big_sur:       "73e8a533ff1ea91a3b09adb60218a80b858ab627207f5193c053d030ccfd2ad0"
+    sha256 cellar: :any,                 catalina:      "60ad2fdda77476d1e2a902020ca9559e48a31f145de0d5fff0b382d3f1c07645"
+    sha256 cellar: :any,                 mojave:        "ac65679e55ab676a6f2b2a13d846c7929d7d111f9b252554753f31150bbc486e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90e4bd5ba020b26fa678be9791c012baf18305d87b208808502d9e3ced7ed064"
   end
 
   head do
-    url "https://git.code.sf.net/p/xmp/libxmp.git"
+    url "https://git.code.sf.net/p/xmp/libxmp.git", branch: "master"
     depends_on "autoconf" => :build
   end
 

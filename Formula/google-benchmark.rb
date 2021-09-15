@@ -1,16 +1,17 @@
 class GoogleBenchmark < Formula
   desc "C++ microbenchmark support library"
   homepage "https://github.com/google/benchmark"
-  url "https://github.com/google/benchmark/archive/v1.5.3.tar.gz"
-  sha256 "e4fbb85eec69e6668ad397ec71a3a3ab165903abe98a8327db920b94508f720e"
+  url "https://github.com/google/benchmark/archive/v1.6.0.tar.gz"
+  sha256 "1f71c72ce08d2c1310011ea6436b31e39ccab8c2db94186d26657d41747c85d6"
   license "Apache-2.0"
   head "https://github.com/google/benchmark.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d097de756dd4f5959334d033736f3046b841cfb834af92daf62f15b46dc82ba0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "93009a5d8090d75273b8a0e3cf0bce67508c97ff974b4e47f12a43a9020d1d2f"
-    sha256 cellar: :any_skip_relocation, catalina:      "0351832c3848ed1c885e88c41f36f26e25142603f81e13ec28dfab99fb74de40"
-    sha256 cellar: :any_skip_relocation, mojave:        "fb72bb473bf016fac7229f21a7c1f973b42cdbaf5f0bfac7ab29ecddeeabade2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ac2ad887a8ab80ef3f35f1649eea685fef772b3997d22571dd4079b0cbdaaac"
+    sha256 cellar: :any_skip_relocation, big_sur:       "51f30b3d6cc75e55817edf118fb3e3ff26326a6fda89ddfe825cc7ee14b0466f"
+    sha256 cellar: :any_skip_relocation, catalina:      "2bf63b419594d52b6bfd2a3a70bc972e8854a25df324de1fe9767dc3afd43b01"
+    sha256 cellar: :any_skip_relocation, mojave:        "2f53d7a2fb5622dc85f1d6fc08086395ea464b7ec538059b9b8b8d37e8b9bc0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eadb938649288a88f2e7f16cc78f27385c197aa72786de75d2d70a65b5861820"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +33,7 @@ class GoogleBenchmark < Formula
       BENCHMARK(BM_StringCreation);
       BENCHMARK_MAIN();
     EOS
-    flags = ["-stdlib=libc++", "-I#{include}", "-L#{lib}", "-lbenchmark"] + ENV.cflags.to_s.split
+    flags = ["-I#{include}", "-L#{lib}", "-lbenchmark", "-pthread"] + ENV.cflags.to_s.split
     system ENV.cxx, "-o", "test", "test.cpp", *flags
     system "./test"
   end

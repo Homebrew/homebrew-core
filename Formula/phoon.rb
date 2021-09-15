@@ -14,6 +14,7 @@ class Phoon < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "ef7e685f7a9894e894807a555c4a9d52dd947184c15986f0a5578a46d892e46a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ae91a1dc089678416ddeab9bd3dfbe76f0fd9f4789a86b187740167d0658926d"
     sha256 cellar: :any_skip_relocation, yosemite:      "d6f259769364eab6cacb4e45301f0ab8cd6edab369da99b4ecfbef7927791adc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "915e8751de7d3206d82f34273711cf49d09f646a16b7a7749a29867baf2028b8"
   end
 
   def install

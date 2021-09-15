@@ -11,10 +11,11 @@ class Libspectrum < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "72eec781fcd9e66de8e08da5aa323f9e5bd8de3ec64ad1202fead40e65b3c3c3"
-    sha256 cellar: :any, big_sur:       "4c73d5c70e9669a07ad7fcc97b5a967b3b818a764d4c5a00992095f93d8b5505"
-    sha256 cellar: :any, catalina:      "9c98e034990260a5011d0587aaf081c7d761c5dd90299c9d38bc93fd70bb4fac"
-    sha256 cellar: :any, mojave:        "256b58b14183966bc73f607b85f805571bbaf2f9c861cb6377636914faca2db0"
+    sha256 cellar: :any,                 arm64_big_sur: "72eec781fcd9e66de8e08da5aa323f9e5bd8de3ec64ad1202fead40e65b3c3c3"
+    sha256 cellar: :any,                 big_sur:       "4c73d5c70e9669a07ad7fcc97b5a967b3b818a764d4c5a00992095f93d8b5505"
+    sha256 cellar: :any,                 catalina:      "9c98e034990260a5011d0587aaf081c7d761c5dd90299c9d38bc93fd70bb4fac"
+    sha256 cellar: :any,                 mojave:        "256b58b14183966bc73f607b85f805571bbaf2f9c861cb6377636914faca2db0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53cabe107824fd8ee9d04b022176d5ae1a7901626fe54b7490eb31c8569725d7"
   end
 
   head do

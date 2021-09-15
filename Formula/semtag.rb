@@ -5,7 +5,9 @@ class Semtag < Formula
   sha256 "c7becf71c7c14cdef26d3980c3116cce8dad6cd9eb61abcc4d2ff04e2c0f8645"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "4d61d959bcec95146dc409dd098ed0dadaf578b7fec0df2d0f031838bad2f85b"
+  end
 
   def install
     bin.install "semtag"

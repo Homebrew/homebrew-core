@@ -1,16 +1,16 @@
 class Threadweaver < Formula
   desc "Helper for multithreaded programming"
   homepage "https://api.kde.org/frameworks/threadweaver/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.82/threadweaver-5.82.0.tar.xz"
-  sha256 "d5da9c6079deef0099f0b84d1fb31a388dc7bf4349dfd08df7baba1632251bdd"
+  url "https://download.kde.org/stable/frameworks/5.86/threadweaver-5.86.0.tar.xz"
+  sha256 "84dcbe648e2960084b13ad59a88dd7ed7fee0305351b015345d59848072e64be"
   license "LGPL-2.0-or-later"
-  head "https://invent.kde.org/frameworks/threadweaver.git"
+  head "https://invent.kde.org/frameworks/threadweaver.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "81d4390938e7398e9d78e31f8a14a5db91813d30b91a77c7e8c7c85a5665bc8a"
-    sha256 cellar: :any, big_sur:       "c47bf29a0e22eb0a5910e4d869840f5ba4747c2befa1beafb46df47c08bdf298"
-    sha256 cellar: :any, catalina:      "fc78c0c52cd4f00c2e056337425321b8b2a195b1e9520fc0d10ae8f9bfebe522"
-    sha256 cellar: :any, mojave:        "493aef2a49d5b480f2ee75bb94a78ec854d533154e9140b4a8b1f4718855c50f"
+    sha256 cellar: :any, arm64_big_sur: "ab63e8e0f342315945f3f44851abea4b9d6258041a2f8c93f02859fdc036deab"
+    sha256 cellar: :any, big_sur:       "3292d7fc2cb4932bd0fbda38d510c3e3e37c0a2007f822e912da164a4f2a17bf"
+    sha256 cellar: :any, catalina:      "dce58a4c3a347fff98c44a20ea89f7d3383f3e2126bc60284ebb1f335cae4723"
+    sha256 cellar: :any, mojave:        "6c2bcbafdb3a3e98ebff128ff609a4ce748bb6ad3bc7778964877dd97945af3f"
   end
 
   depends_on "cmake" => [:build, :test]

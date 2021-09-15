@@ -12,6 +12,7 @@ class Mpage < Formula
     sha256 high_sierra:   "fb22af4c695ec3b6e27980a8b180bf4a7904b81ce5ff51f46f0d5ccdc5da8d07"
     sha256 sierra:        "2d020c69ee688a3a2d82f5f2c531a9f7abaf3923f0024e3b5eb2f1466992d7c1"
     sha256 el_capitan:    "4b899cd8a7280c7317513a51f6b3227f88c6324c39712530341b9d108d829ee5"
+    sha256 x86_64_linux:  "d5e29f0b48f8fc99ce3f047abeb39bc95d4b316257b328b092d04191fb8bcfcc"
   end
 
   def install

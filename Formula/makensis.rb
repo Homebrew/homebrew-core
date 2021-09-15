@@ -1,40 +1,53 @@
 class Makensis < Formula
   desc "System to create Windows installers"
   homepage "https://nsis.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1-src.tar.bz2"
-  sha256 "9b5d68bf1874a7b393432410c7e8c376f174d2602179883845d2508152153ff0"
+  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.07/nsis-3.07-src.tar.bz2"
+  sha256 "4dfad3388589985b4cd91d20e18e1458aa31e7d139b5b8adf25c3a9c1015efba"
+  license "Zlib"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "aa8a346937316765bf9ffe7d532b08212fab4ae697aad7e23185baeabe280249"
-    sha256 cellar: :any_skip_relocation, catalina:    "889d630bf8637f68e90a9591a373ee44bde8d9d6a9395171e024fdced27f26ef"
-    sha256 cellar: :any_skip_relocation, mojave:      "b40f5a388f0dddeb2c3d274bdc43fbba6cc0a9f613d056f0981bc60350252448"
-    sha256 cellar: :any_skip_relocation, high_sierra: "fe92934c874a27ead142b769d1c1258c6fd3baa66f2f005cad3f57ccd759734f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b59325614e77c44159365a8539eedc26321f7fbefa85d93a3bb1088ad3fee817"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7a677ad617fbb58ca25a087f0fbd1463c794796029dd244cb005698799ca83af"
+    sha256 cellar: :any_skip_relocation, catalina:      "60ed29983ad57340f1eed7556a844bbb09781da190bd27bb16c59aeb5ba8a2b2"
+    sha256 cellar: :any_skip_relocation, mojave:        "6295b3cfb71161a0642636a711a2ca2b691f2c0e317caaa014f17484eebfa603"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aa50401f56ef67140d2538187216bb1af05483af0eb96494e82e7ce79cd1700"
   end
 
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
 
+  uses_from_macos "zlib"
+
   resource "nsis" do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1.zip"
-    sha256 "d463ad11aa191ab5ae64edb3a439a4a4a7a3e277fcb138254317254f7111fba7"
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.07/nsis-3.07.zip"
+    sha256 "04dde28896ae9ab36ea3035ff3a294e78053f00048064f6d22a6f1c02bcb6ec0"
   end
 
   def install
     args = [
       "CC=#{ENV.cc}",
       "CXX=#{ENV.cxx}",
+      "PREFIX=#{prefix}",
       "PREFIX_DOC=#{share}/nsis/Docs",
       "SKIPUTILS=Makensisw,NSIS Menu,zip2exe",
       # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
       "STRIP=0",
       "VERSION=#{version}",
     ]
+    args << "APPEND_LINKFLAGS=-Wl,-rpath,#{rpath}" if OS.linux?
+
     system "scons", "makensis", *args
     bin.install "build/urelease/makensis/makensis"
     (share/"nsis").install resource("nsis")
   end
 
   test do
+    # Workaround for https://sourceforge.net/p/nsis/bugs/1165/
+    ENV["LANG"] = "en_GB.UTF-8"
+    %w[COLLATE CTYPE MESSAGES MONETARY NUMERIC TIME].each do |lc_var|
+      ENV["LC_#{lc_var}"] = "en_GB.UTF-8"
+    end
+
     system "#{bin}/makensis", "-VERSION"
     system "#{bin}/makensis", "#{share}/nsis/Examples/bigtest.nsi", "-XOutfile /dev/null"
   end

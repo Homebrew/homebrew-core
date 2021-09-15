@@ -13,20 +13,20 @@ class Lmdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9f0fb7ee716181ea0197b4cd2731e1a7b68077168065cf40753fdeed7ad25b70"
-    sha256 cellar: :any, big_sur:       "df699787f64959d4990f90e2e5cd873b01038387f5bcda6a9a2e6dbc73d0262f"
-    sha256 cellar: :any, catalina:      "41941922c4e5f8367887ac21f632f132dd3b7eb19d749a61580364595cf1ccb4"
-    sha256 cellar: :any, mojave:        "6d59993e9a2ff698c7c658a2a6fd90e5f6afebd43bc155a70b2691991e1eb67b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "b5f47a30b05abdf0209b87cd8cf4732c45aa87e22623f0543319b6409c14e236"
+    sha256 cellar: :any,                 big_sur:       "c217caa7fc1ab0a1e734739a6a7aae31c9719198b47f487ea266ebcdd8b2c538"
+    sha256 cellar: :any,                 catalina:      "b724f5fd1c3a779c43b36426dba75fea12bec8bab0324e5037b45032133dddac"
+    sha256 cellar: :any,                 mojave:        "4385403822588575788671d0b2c22edc4543fd76b94ac3228c99fe516c7e4d7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76758cef0c1fec8530043507ced0c543727e6240654f1751925fc9857ccb6e8b"
   end
 
   def install
     cd "libraries/liblmdb" do
-      ext = ""
-      on_macos do
-        ext = "SOEXT=.dylib"
-      end
-      system "make", ext
-      system "make", "install", ext, "prefix=#{prefix}"
+      args = []
+      args << "SOEXT=.dylib" if OS.mac?
+      system "make", *args
+      system "make", "install", *args, "prefix=#{prefix}"
     end
   end
 

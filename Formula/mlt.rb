@@ -11,6 +11,7 @@ class Mlt < Formula
     sha256 cellar: :any, big_sur:       "e7301086e4ea074fc89d486c097a9199a4a6a5a0fb026729dd07f23a362ff134"
     sha256 cellar: :any, catalina:      "9fee3844b1061d73a16c713abda9f598ad68b69dc9425b82e9a1ee9a2737103a"
     sha256 cellar: :any, mojave:        "bb5e8a1b1f218ef5bdf899ee18023014ceecf9d9b360668f9fab2f1d15c49936"
+    sha256               x86_64_linux:  "5f5a888250ab01dddbb4742fa00c32dbb889d46b17dc050883db107d8817c57c"
   end
 
   depends_on "cmake" => :build
@@ -28,6 +29,12 @@ class Mlt < Formula
   depends_on "qt@5"
   depends_on "sdl2"
   depends_on "sox"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     args = std_cmake_args + %W[

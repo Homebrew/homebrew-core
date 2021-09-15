@@ -9,10 +9,11 @@ class AtomistCli < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "aa7a1df34f9d6914158696305ef167f422ac4571137e01483e00bc4f637c251c"
-    sha256 big_sur:       "6dd88e8522cd4cf5d53b17f796aef1eca9cbe1c602c00c892d2f30eb73db0d39"
-    sha256 catalina:      "c622ee3ba1742b49887892d30cead992cb34f4f28e68626b03b20a73bd88ba9d"
-    sha256 mojave:        "d5f0927cbfcf78438a0affe17488467727659c5caf9de3a65f9ed565bd23529c"
+    sha256                               arm64_big_sur: "aa7a1df34f9d6914158696305ef167f422ac4571137e01483e00bc4f637c251c"
+    sha256                               big_sur:       "6dd88e8522cd4cf5d53b17f796aef1eca9cbe1c602c00c892d2f30eb73db0d39"
+    sha256                               catalina:      "c622ee3ba1742b49887892d30cead992cb34f4f28e68626b03b20a73bd88ba9d"
+    sha256                               mojave:        "d5f0927cbfcf78438a0affe17488467727659c5caf9de3a65f9ed565bd23529c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08b42e1e9255b4ffe29eb1efdbeb718698d0faf5274b5799c220e040ea0ced6e"
   end
 
   depends_on "node"

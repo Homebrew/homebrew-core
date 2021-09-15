@@ -10,6 +10,7 @@ class Jd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "043e88ba4881d02947cd922f8be0d26d581afcf1b877d433f8bb2f53e724a245"
     sha256 cellar: :any_skip_relocation, catalina:      "bf662b680167c6d28e9adf4d28ac35bb13fe6838255b9e6d4cf49be0a05cb920"
     sha256 cellar: :any_skip_relocation, mojave:        "c9a9b7acbab08f9717cf464bf2b00d970728d014ccb738fcb28af7502e8ef6d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e13f39befda423ade478d2c2ea55b5e408cd45d841d87af81d597e6c93438a4f"
   end
 
   depends_on "go" => :build

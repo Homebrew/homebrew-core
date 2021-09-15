@@ -10,6 +10,10 @@ class Valgrind < Formula
     regex(/href=.*?valgrind[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 x86_64_linux: "7bd50b05a9edb01c54c2147fcb33a362a4cfb7ef9b53da0012047ec4c3b042b3"
+  end
+
   head do
     url "https://sourceware.org/git/valgrind.git"
 

@@ -1,20 +1,17 @@
 class TmuxMemCpuLoad < Formula
   desc "CPU, RAM memory, and load monitor for use with tmux"
   homepage "https://github.com/thewtex/tmux-mem-cpu-load"
-  url "https://github.com/thewtex/tmux-mem-cpu-load/archive/v3.4.0.tar.gz"
-  sha256 "a773994e160812a964abc7fc4e8ec16b7d9833edb0a66e5c67f287c7c5949ecb"
+  url "https://github.com/thewtex/tmux-mem-cpu-load/archive/v3.5.1.tar.gz"
+  sha256 "6b62197ba755eec775b3f494db617b239b5e9d79945e165a3c8bba3b9092d0d1"
   license "Apache-2.0"
-  head "https://github.com/thewtex/tmux-mem-cpu-load.git"
+  head "https://github.com/thewtex/tmux-mem-cpu-load.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebad3961141c5ef92cda90430a594587454b06464e4b386e7f5dae7158a18e97"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4c40768aa4599ae044cace8455205f9503441c64adaabb8f5c4c9fc221f89b27"
-    sha256 cellar: :any_skip_relocation, catalina:      "5006666230be68b50c097cdb4ce12e20c37ae565cb1de9163861918d42910834"
-    sha256 cellar: :any_skip_relocation, mojave:        "6da11cf3e7664d4b75de9a276c9b3823072a9d46855e2aaa2caeaa57ffdb9221"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "ac291740dbf05c7cae025836caf5c2ad1f375f9060fc871dfc5adf51abe2a4c2"
-    sha256 cellar: :any_skip_relocation, sierra:        "8743cb844ff2a55657f2f1eb7bfae300c02a3fdf255fdd5e8242d1a60103838d"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "9e2c7e5fd03feb98cead3f366a9cc35375cee80c30fd570c742440d69319c296"
-    sha256 cellar: :any_skip_relocation, yosemite:      "abd6293238671268ea1f0362518cd82c4b3133cb42b0327d579c93768ea81110"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c4a7b18971b2e0e9eeff0a08cc6279123274e0297cc5b713456b2fbfb535630a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "026c86f3e7a4d2bc843228e82589f1c3dbd722f2bdddd04f04984ef726343bf9"
+    sha256 cellar: :any_skip_relocation, catalina:      "03918a0cdaa2a2f270632b5bf91a778a9c393efe0d70f422142246489a5a320b"
+    sha256 cellar: :any_skip_relocation, mojave:        "27f3e497ef98401b7e5212e2f3ed4a255b37fd6f404b7f77c6e93a9f49201d04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a15d09da7dc4d4a50735f9e37006a754279140aa366781d5915c0774e2a7e398"
   end
 
   depends_on "cmake" => :build

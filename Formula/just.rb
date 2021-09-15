@@ -1,15 +1,17 @@
 class Just < Formula
   desc "Handy way to save and run project-specific commands"
   homepage "https://github.com/casey/just"
-  url "https://github.com/casey/just/archive/v0.9.3.tar.gz"
-  sha256 "bb3e99a2427357c63b568c8e64de76c2962b9c7282d1a5f3b7348deef49e21d9"
+  url "https://github.com/casey/just/archive/0.10.1.tar.gz"
+  sha256 "e60e61d34fdaaa94aa9c4fa6fc4cd5ce07628758db989d15f97ce7b70d36fecd"
   license "CC0-1.0"
+  head "https://github.com/casey/just.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5d8599a36a989fc060da5c98569946b127f530c3b3ee78133e1598915d5a3e21"
-    sha256 cellar: :any_skip_relocation, big_sur:       "57bff9eff00971dc329bc4dbe61b1da77ddadd017c1de0c3cbba28f5f99c5754"
-    sha256 cellar: :any_skip_relocation, catalina:      "b125c993c7fdb3e7ffa1415f09f191a625a395d70ff6a5584eff139f76128c96"
-    sha256 cellar: :any_skip_relocation, mojave:        "1fb9c2d34c7905ac05ee397e8a396a391ba03cba86a2d96201375b8da4e3657c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f388b34b790b68016f3d4747b13a0b4b93e3d1b7e9ed0ef547980c55f5e4c39c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7ec9c96724660c3512e2674006c948af0fbe4a2d04e40babeb2f7c5a84da7d0b"
+    sha256 cellar: :any_skip_relocation, catalina:      "5e2d3b2001b134af17acb873189b2463a0da3b24810bb725881e528116816f81"
+    sha256 cellar: :any_skip_relocation, mojave:        "c59317a5bbfa00d274f884bddb7369017d060783c1a6bfd84d13a30c2fad74a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8c397922197d0dc93e6794ae95c675eb49fcf108be8f30c50b7c1b8b901cb51"
   end
 
   depends_on "rust" => :build

@@ -15,6 +15,7 @@ class Scc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e55821dfc18b02de3be5dec72881c65085ffa0b5a446179b86a151db5780577c"
     sha256 cellar: :any_skip_relocation, catalina:      "8f425e7b1f10563d69e459bb5ce07e5cf87512c4eb0923acb2618e0b0f1184f8"
     sha256 cellar: :any_skip_relocation, mojave:        "81f89e5d3ba8358b052378b2c68bab24ade5d75ec8561b2e2b16b7de065c8d56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6444f4306b4998d2900fe528333b630b8ac92a94c0c9c5ce7c33d51a556e428f"
   end
 
   depends_on "go" => :build

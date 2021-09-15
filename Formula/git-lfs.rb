@@ -6,13 +6,16 @@ class GitLfs < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "af433100a9ba1c1b222d01bee070704eb74cdd75038b7c333a9ff6e8e335375c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "153252f96cb3d77c2980f18c5eab591f237b011f4426f1faf918ecdc51969a33"
-    sha256 cellar: :any_skip_relocation, catalina:      "c99996a1fbfee4c5d4d0ac3cd38d42d884224ab3f305566ed13309b6bc63b9b4"
-    sha256 cellar: :any_skip_relocation, mojave:        "69d6da76ac82d66f0cf36352f7c65af24918241241fbda5fe4ab74030094e597"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "def0547e1e83bda58b68b6880f3eb5a0a803df0addfb6e4915b6b76852735195"
+    sha256 cellar: :any_skip_relocation, big_sur:       "db355632f3236b7042d2900b7883edfe476d9fb467e62124bb5864ab2be88415"
+    sha256 cellar: :any_skip_relocation, catalina:      "b4c1b5d14562c7a1e0fbe210dc5e58888dff8437586ffc49425099c546a988b0"
+    sha256 cellar: :any_skip_relocation, mojave:        "0aaead90f98027ec8774eb318a58c6f5bef167342a52b115207ecb878f63e7f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "918e279cead08a4d34efccd29eb656849b727c46b4431287b326e8f0fe92f40b"
   end
 
   depends_on "go" => :build
+  depends_on "ronn" => :build
   depends_on "ruby" => :build
 
   def install
@@ -21,12 +24,9 @@ class GitLfs < Formula
 
     (buildpath/"src/github.com/git-lfs/git-lfs").install buildpath.children
     cd "src/github.com/git-lfs/git-lfs" do
-      ENV["GEM_HOME"] = ".gem_home"
-      system "gem", "install", "ronn"
-
       system "make", "vendor"
       system "make"
-      system "make", "man", "RONN=.gem_home/bin/ronn"
+      system "make", "man", "RONN=#{Formula["ronn"].bin}/ronn"
 
       bin.install "bin/git-lfs"
       man1.install Dir["man/*.1"]

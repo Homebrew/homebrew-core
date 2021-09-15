@@ -13,6 +13,7 @@ class Ttf2eot < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "7b44ec925ee2bbeeaba775befc77c0c22f2f690ecd94edb72e471c631da80f43"
     sha256 cellar: :any_skip_relocation, sierra:        "26f40d7a58de2ee396fc04dd47c41e9b65640570fa1ca8b71134dd88e6e88c06"
     sha256 cellar: :any_skip_relocation, el_capitan:    "5fc89e642b7d51c0c7965d9a952d1b697f94b4ec16d7711ff37387979ce47f5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20e9bce41da4284c7cb5a07cc7fa05f911457de66e3ddadf4b0cc1334773100d"
   end
 
   def install
@@ -21,9 +22,14 @@ class Ttf2eot < Formula
   end
 
   test do
-    font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
-    cp "/Library/Fonts/#{font_name}", testpath
-    system("#{bin}/ttf2eot < '#{font_name}' > Arial.eot")
-    assert_predicate testpath/"Arial.eot", :exist?
+    font_name = (MacOS.version >= :catalina) ? "Arial Unicode" : "Arial"
+    font_dir = "/Library/Fonts"
+    on_linux do
+      font_name = "DejaVuSans"
+      font_dir = "/usr/share/fonts/truetype/dejavu"
+    end
+    cp "#{font_dir}/#{font_name}.ttf", testpath
+    system("#{bin}/ttf2eot < '#{font_name}.ttf' > '#{font_name}.eot'")
+    assert_predicate testpath/"#{font_name}.eot", :exist?
   end
 end

@@ -5,7 +5,9 @@ class TeeClc < Formula
   sha256 "efc51f9b7cd8178d8f9c4c6897c98363e84cc1e44be42b7647d803c0059cffe4"
   license "MIT"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "9dd40c57c121a700b71b8b89136ec535c2783316d2be8b60f514dfeb9daab031"
+  end
 
   depends_on "openjdk"
 

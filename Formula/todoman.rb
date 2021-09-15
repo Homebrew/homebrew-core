@@ -6,13 +6,14 @@ class Todoman < Formula
   url "https://files.pythonhosted.org/packages/18/27/191a27737cc3f75836218d2d1f97740ec26083b3870726946fc54861373a/todoman-4.0.0.tar.gz"
   sha256 "4c4d0c6533da8d553f3dd170c9c4ff3752eb11fd7177ee391414a39adfef60ad"
   license "ISC"
-  head "https://github.com/pimutils/todoman.git"
+  head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b7ad318c91c4605aaf963c4649d6b4da7c2b91f02d0a0e82b0237468a81c8ff4"
     sha256 cellar: :any_skip_relocation, big_sur:       "3cff83b0ba438dd9336af01a9fe5a7f25d54749f3192e8ff3a86483df6c4bc08"
     sha256 cellar: :any_skip_relocation, catalina:      "85c8a6adc87637301cc986d2d044cee74f4503d826803b0effe8d67a214918eb"
     sha256 cellar: :any_skip_relocation, mojave:        "44ea3d0d4e8e165fbb9905b371c5c411de0f0d94eddc87a93060b60383ab1844"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71a443022b007961186278490daa28d7b93778bf026839b9c5a636ba6534ae24"
   end
 
   depends_on "python-tabulate"

@@ -1,26 +1,31 @@
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
-  url "https://skarnet.org/software/s6/s6-2.9.2.0.tar.gz"
-  sha256 "363db72af8fffba764b775c872b0749d052805b893b07888168f59a841e9dddd"
+  url "https://skarnet.org/software/s6/s6-2.10.0.3.tar.gz"
+  sha256 "1d21373151704150df0e8ed199f097f6ee5d2befb9a68aca4f20f3862e5d8757"
   license "ISC"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?s6[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 arm64_big_sur: "0b1fc08741d7984f569b1d9c00808c5dfb8e1ee065e97d8e0d8b55746fc6fe70"
-    sha256 big_sur:       "47924b409c4d52519acf0b7d7757f689e78ce1cb272c297822597a59a37c4275"
-    sha256 catalina:      "94906378d458e78a0909dc89bd5672ca8d33645b1b070be4974ac7ebe0f3aa15"
-    sha256 mojave:        "e4024234358147987f7f6f599b73ddfd9bbe5e5fd414efcbc53577045a1dbb78"
-    sha256 high_sierra:   "d6be4dd0697c711c1e35fe25e4f1365bcb1c198ab8fc8c3f3d7169b29ccb4372"
+    sha256 arm64_big_sur: "e2ef25cfe9cc6eeb4bb6c44c0b1b887531d582f0a277a60cb912f265198d3247"
+    sha256 big_sur:       "ec0bed5bcbfe3a75e9ad5e6d172b1b5f8bf531d46bfe8d00cfefddaf6477c67c"
+    sha256 catalina:      "827c8b3861623b6495317ecded680984800b3c6d222da2e613e3da7a02e8a502"
+    sha256 mojave:        "bfff5e8f2f1dfb93d87da55e1e1ce1bc8b444e8683f0e861eb7b7dac8952ba42"
+    sha256 x86_64_linux:  "917ae23b2f1333cb04ba3c539d4f67f5b72846094dce3aeb37e61c6df34049e0"
   end
 
   resource "skalibs" do
-    url "https://skarnet.org/software/skalibs/skalibs-2.9.2.1.tar.gz"
-    sha256 "250b99b53dd413172db944b31c1b930aa145ac79fe6c5d7e6869ef804228c539"
+    url "https://skarnet.org/software/skalibs/skalibs-2.10.0.3.tar.gz"
+    sha256 "b780b0ae650dda0c3ec5f8975174998af2d24c2a2e2be669b1bab46e73b1464d"
   end
 
   resource "execline" do
-    url "https://skarnet.org/software/execline/execline-2.6.1.0.tar.gz"
-    sha256 "a24c76f097ff44fe50b63b89bcde5d6ba9a481aecddbe88ee01b0e5a7b314556"
+    url "https://skarnet.org/software/execline/execline-2.8.0.1.tar.gz"
+    sha256 "a373f497d2335905d750e2f3be2ba47a028c11c4a7d5595dca9965c161e53aed"
   end
 
   def install
@@ -59,6 +64,7 @@ class S6 < Formula
     bin.env_script_all_files(libexec/"bin", PATH: "#{libexec}/execline:$PATH")
     sbin.env_script_all_files(libexec/"sbin", PATH: "#{libexec}/execline:$PATH")
     (bin/"execlineb").write_env_script libexec/"execline/execlineb", PATH: "#{libexec}/execline:$PATH"
+    doc.install Dir["doc/*"]
   end
 
   test do

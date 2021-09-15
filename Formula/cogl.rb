@@ -3,6 +3,7 @@ class Cogl < Formula
   homepage "https://developer.gnome.org/cogl/"
   url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.8.tar.xz"
   sha256 "a805b2b019184710ff53d0496f9f0ce6dcca420c141a0f4f6fcc02131581d759"
+  license all_of: ["MIT", "SGI-B-2.0", "BSD-3-Clause", :public_domain]
 
   bottle do
     sha256 arm64_big_sur: "9a487a4bf7fbe5fdec29d902ba668fe20cbbc05e66864cb8d9c5fe564373e586"
@@ -10,6 +11,7 @@ class Cogl < Formula
     sha256 catalina:      "37fdd46a2845adf0e8f4ce85d5a80384ea235e435ef5f42167622f5224e4e51f"
     sha256 mojave:        "eb37baaa178631afac43c8bb1c93cdf9b78dd7d44862c63dec598d54a51b201e"
     sha256 high_sierra:   "46de52386a1123e828d94598279a99a88e3819d8f1dac1a51f39850a321ff7f2"
+    sha256 x86_64_linux:  "2e1af63ab7d9ffcfca78804cdcab02d3b60969c52c038d89a7a7caa42afd4c00"
   end
 
   head do
@@ -38,9 +40,14 @@ class Cogl < Formula
       --prefix=#{prefix}
       --enable-cogl-pango=yes
       --enable-introspection=yes
-      --disable-glx
-      --without-x
     ]
+
+    if OS.mac?
+      args << "--disable-glx"
+      args << "--without-x"
+    else
+      args << "--enable-xlib-egl-platform=yes"
+    end
 
     system "./configure", *args
     system "make", "install"

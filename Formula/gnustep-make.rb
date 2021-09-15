@@ -15,6 +15,7 @@ class GnustepMake < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b0a74dcdffdd9331348c0215f53967dcd4ecd9b2f8c2fdbdff32f27c288136af"
     sha256 cellar: :any_skip_relocation, catalina:      "3fb00ffefe165c26880819f9d670468d5c874a055792a0a2b25ca47e4dcad43a"
     sha256 cellar: :any_skip_relocation, mojave:        "449a586b8998cc6e5e45ffde3f518c5352cf5e31bd126b102d1597d4b76d6985"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3fc8fa046eb3a370ecc6c263bba63257c570e9bad92bd2658fdea54c247f311"
   end
 
   def install

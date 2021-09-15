@@ -15,6 +15,7 @@ class Vttest < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "bcaa7bfde1caffa18b43a357d684b92e6cfc1db34e5f77a47fb4be22f9ed2051"
     sha256 cellar: :any_skip_relocation, catalina:      "07691c12896f2adfd4cae9ddd7f04b3fcd67ccd6727fe59b7ba79200e7f4961c"
     sha256 cellar: :any_skip_relocation, mojave:        "a73bba40a8459292c25b2999286c29278c9789cbaed70e5382fb1f2b116a0b21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e10da7578e73cafdf87514ae43ef35a68dcc39c7ee58e218f188443db20aae4"
   end
 
   def install

@@ -1,16 +1,16 @@
 class Libxo < Formula
   desc "Allows an application to generate text, XML, JSON, and HTML output"
   homepage "https://juniper.github.io/libxo/libxo-manual.html"
-  url "https://github.com/Juniper/libxo/releases/download/1.4.0/libxo-1.4.0.tar.gz"
-  sha256 "aa842d9374bc0c640d9526abdeb6f1dc75c1a14e892eafd3c9e0ee2e8dfc1c43"
+  url "https://github.com/Juniper/libxo/releases/download/1.6.0/libxo-1.6.0.tar.gz"
+  sha256 "9f2f276d7a5f25ff6fbfc0f38773d854c9356e7f985501627d0c0ee336c19006"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 arm64_big_sur: "c84ed94e5db633d8cfd3d1bf7a3391ee47b292f6ba92c8fefcc2c764e02cd380"
-    sha256 big_sur:       "b076f04180c037c1aa92d74773b8a2577b6a2af803ed05d3b7238a94c3eea17b"
-    sha256 catalina:      "3dffbef9394a617fa8c901c44ce7b31b8843c947762744a8ea1374780d5c1224"
-    sha256 mojave:        "9c137a2e9828de98fb201d4d8da74eda20e6a276d90a83d8d1fa3017ba7059d1"
-    sha256 high_sierra:   "59d5d434c2ec21fb06dd22b87780e82a31b6eebfd9db795fafece858bc1e4755"
+    sha256 arm64_big_sur: "56e3e01d82e65127da77eabfa5c109689c752aa039771ad9ec48b6de9910ddfd"
+    sha256 big_sur:       "4fcbf10d05037ee979e9b58ff784cf98528311a686bb4a5325701cd3fc90f784"
+    sha256 catalina:      "b77f42736665614730b6f1dfb0645c73a137451435914f5583148e67e265ec1b"
+    sha256 mojave:        "f33fe82b6bbdca65f2407dd57380ad0f7f420704a228b0c8344fd49c975115d5"
+    sha256 x86_64_linux:  "e4c71798bb2791b2d15a83bd4feb19b9a255bccd94ea14e86d9620871f1aa289"
   end
 
   depends_on "libtool" => :build

@@ -16,6 +16,7 @@ class Packetq < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e09c6588aa801951e518c10e09339d496fa23ab88c0a837a06b963bf6c6a5ba9"
     sha256 cellar: :any_skip_relocation, mojave:        "cf369b7e772dd7a390ca50f68e6b8eead2448414353ce313042ecaedb2f6ee88"
     sha256 cellar: :any_skip_relocation, high_sierra:   "58bfb682012318c49bb013b791771f94896d008d77f0ce1bb189d13ab55b20ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4aabb14f5045620a988da9e36766a4a755b80172bac18e328d6b8c97866b96c"
   end
 
   uses_from_macos "zlib"

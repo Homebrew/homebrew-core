@@ -14,6 +14,7 @@ class Docx2txt < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "001618f763145ba1027169c8b7f687cd1ceacd09bc5b4c7e64e61deaa2a1ec4c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c3a67138c91e968e6c2a6ff1033bca0fe8527ebdcaaa208194c073b4f75dd453"
     sha256 cellar: :any_skip_relocation, yosemite:      "78154a4b95613538a9d508c521d74d0bc6b398b005de4468b4cb4e62c3208b8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8149e29356c8f77acf1aa2f979db01443f112a0b7298910a2b1e386b3da1c8cf"
   end
 
   resource "sample_doc" do

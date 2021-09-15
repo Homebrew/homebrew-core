@@ -1,8 +1,8 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.2/tmux-3.2.tar.gz"
-  sha256 "664d345338c11cbe429d7ff939b92a5191e231a7c1ef42f381cebacb1e08a399"
+  url "https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz"
+  sha256 "551553a4f82beaa8dadc9256800bcc284d7c000081e47aa6ecbb6ff36eacd05f"
   license "ISC"
 
   livecheck do
@@ -12,10 +12,11 @@ class Tmux < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e1a77dad76e3fadd5202a4d86cfff9cd2669f9c68c08c2a982c6ed10d9054136"
-    sha256 cellar: :any, big_sur:       "f71d53c8050adaa30a80686879474421b8353c4edc9f0544823b8fc4eccb3b04"
-    sha256 cellar: :any, catalina:      "b871bb882d9d1336e2826d3bf569c8a7678e623f3854ac0a03b67ee634718213"
-    sha256 cellar: :any, mojave:        "231ea0bb8604dc2970cd5ff6066b71485d70951a37f69cfb597b37bc81a9168a"
+    sha256 cellar: :any,                 arm64_big_sur: "3138a67aceee5eea374c6a61e799073f661ce132f8b8ff2ee2b5cef06fb93725"
+    sha256 cellar: :any,                 big_sur:       "db717e09b9e53769b9bc6f277d25f20c8ec159eb90093a45c0ceefb54105509a"
+    sha256 cellar: :any,                 catalina:      "9aa7eba75f4f56f099182ecd7d41cad0117ce1a11f9fcbd8319a22015c317898"
+    sha256 cellar: :any,                 mojave:        "fa64cb30acc5300390f65f29ed95b4a816f1431b3dbd94051ee695243cf5c63e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c516a5986729c70f0a7ca385a41267b73e88694b8d705a3ec7272562c4958d60"
   end
 
   head do
@@ -69,6 +70,16 @@ class Tmux < Formula
   end
 
   test do
-    system "#{bin}/tmux", "-V"
+    system bin/"tmux", "-V"
+
+    require "pty"
+
+    socket = testpath/tap.user
+    PTY.spawn bin/"tmux", "-S", socket, "-f", "/dev/null"
+    sleep 10
+
+    assert_predicate socket, :exist?
+    assert_predicate socket, :socket?
+    assert_equal "no server running on #{socket}", shell_output("#{bin}/tmux -S#{socket} list-sessions 2>&1", 1).chomp
   end
 end

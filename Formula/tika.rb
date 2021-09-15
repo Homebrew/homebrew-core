@@ -1,18 +1,25 @@
 class Tika < Formula
   desc "Content analysis toolkit"
   homepage "https://tika.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tika/tika-app-1.26.jar"
-  mirror "https://archive.apache.org/dist/tika/tika-app-1.26.jar"
-  sha256 "6ed7332f02e8d80cebafb59907e6d370d9db3e9a81d547e4fc0d071d2cf0dc26"
+  url "https://www.apache.org/dyn/closer.lua?path=tika/2.1.0/tika-app-2.1.0.jar"
+  mirror "https://archive.apache.org/dist/tika/2.1.0/tika-app-2.1.0.jar"
+  sha256 "0a93cdffebe1f1f0aca5b203538cafd66579a65409a8d565b93d3b8150e4e69c"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8286072b39465e702e61c8992a642058310816112f82e126a43116c3c419d523"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8286072b39465e702e61c8992a642058310816112f82e126a43116c3c419d523"
+    sha256 cellar: :any_skip_relocation, catalina:      "8286072b39465e702e61c8992a642058310816112f82e126a43116c3c419d523"
+    sha256 cellar: :any_skip_relocation, mojave:        "8286072b39465e702e61c8992a642058310816112f82e126a43116c3c419d523"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55267fe3a78db796ced8d71ad0e0951c1b54937f6522bdf31178e16182ec8bbf"
+  end
 
   depends_on "openjdk"
 
   resource "server" do
-    url "https://downloads.apache.org/tika/tika-server-1.26.jar"
-    sha256 "18b5ec5b8a7f80a3ce253cf93c5ea5f031a3c17bc83e88ab0d29a516e8e73d95"
+    url "https://www.apache.org/dyn/closer.lua?path=tika/2.1.0/tika-server-standard-2.1.0.jar"
+    mirror "https://archive.apache.org/dist/tika/2.1.0/tika-server-standard-2.1.0.jar"
+    sha256 "845c3e2983255dd080bb140d4b7a8d3180c900c26f034ced1ab72530e81f5b61"
   end
 
   def install

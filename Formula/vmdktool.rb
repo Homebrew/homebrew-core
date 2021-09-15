@@ -3,6 +3,12 @@ class Vmdktool < Formula
   homepage "https://manned.org/vmdktool"
   url "https://people.freebsd.org/~brian/vmdktool/vmdktool-1.4.tar.gz"
   sha256 "981eb43d3db172144f2344886040424ef525e15c85f84023a7502b238aa7b89c"
+  license "BSD-2-Clause"
+
+  livecheck do
+    url "https://people.freebsd.org/~brian/vmdktool/"
+    regex(/href=.*?vmdktool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2a19ea885fcf69d6929cb155489aab52543b1b1f456eedf9f49f3f6eebf51ec9"
@@ -13,7 +19,10 @@ class Vmdktool < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "3fa294be9d6e9e6b56435526520262aaa86f5909cc10b9ccf9d9670ae3ac0e3c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8604a90f9ad0f3b04767c021a4d24dacdcabd788767df56a45e3913231d4336e"
     sha256 cellar: :any_skip_relocation, yosemite:      "f19ae3ac92ae4400c7139771f3a5ec07d32bf2e3ed49bfa7add445f8a680ef0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c1d93d16f35a13226a5b332895c50d04badd06732ff6b69094dc1844db8c98d"
   end
+
+  uses_from_macos "zlib"
 
   def install
     system "make", "CFLAGS='-D_GNU_SOURCE -g -O -pipe'"

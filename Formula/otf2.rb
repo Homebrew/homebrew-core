@@ -1,20 +1,25 @@
 class Otf2 < Formula
   desc "Open Trace Format 2 file handling library"
   homepage "https://www.vi-hps.org/projects/score-p/"
-  url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.2.tar.gz"
-  sha256 "d0519af93839dc778eddca2ce1447b1ee23002c41e60beac41ea7fe43117172d"
-  revision 2
+  url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-2.3/otf2-2.3.tar.gz"
+  sha256 "36957428d37c40d35b6b45208f050fb5cfe23c54e874189778a24b0e9219c7e3"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?otf2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 arm64_big_sur: "8c8c0f0f92d88b2439cdcb808ba2318a3cd54b7c929a6743a473105fd177fe38"
-    sha256 big_sur:       "bb192fd9ff10ead28b7025a1aa426b7cba4149dac8de2a873efa28f6ca804dbc"
-    sha256 catalina:      "9bbb9997272253be31bcefb9b398b6d46725ff18bc6d5097c16e59fab6fece0f"
-    sha256 mojave:        "befb628ab3134837d2d6f442ac9b12da47d813adb5b13f8839c66993c0b0e6cf"
-    sha256 high_sierra:   "5866bf0afb7c3fb48e718d209019f1ac3574c221c862b2e35ea9ea907ed91008"
+    sha256 arm64_big_sur: "8662b77af43c3692b6e46cc238971ec5fc7285611318dd22b6cf7494eeaab245"
+    sha256 big_sur:       "95502a9bcfe892e2d14c0915f81f1b1b80351496f31d049741b793b3de1343ef"
+    sha256 catalina:      "5d0dee1bdd5512982dc5aab82faf3f3d620e2d223c8e0924d6cebb345e054554"
+    sha256 mojave:        "6b6c453bf295b0c846a30341ab449e4584a5530c36a11092cf280d0722e86305"
+    sha256 x86_64_linux:  "1d50206940aff9bd6e75c8ee1ad88b274aa129bc8c3d7348f7e0d0064fd1673c"
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "python@3.9"
 

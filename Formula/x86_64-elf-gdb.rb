@@ -1,34 +1,52 @@
 class X8664ElfGdb < Formula
-  desc "GNU debugger for i386-elf cross development"
+  desc "GNU debugger for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-10.1.tar.xz"
-  sha256 "f82f1eceeec14a3afa2de8d9b0d3c91d5a3820e23e0a01bbb70ef9f0276b62c0"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-10.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-10.2.tar.xz"
+  sha256 "aaa1223d534c9b700a8bec952d9748ee1977513f178727e1bee520ee000b4f29"
   license "GPL-3.0-or-later"
-  head "https://sourceware.org/git/binutils-gdb.git"
+  revision 1
+  head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
-  bottle do
-    sha256 arm64_big_sur: "922a0ed485b4ff144fcf876db7c50465e1a60566b9ea1ee25b57bd356f159a59"
-    sha256 big_sur:       "d9c893cd48502f675e5ccfbf139c70dc811683ff8427ee12053af00d63800d4b"
-    sha256 catalina:      "fc5398cdb8a918f3e0153c3467074145e69112fd42866c3dc8fee5a66869e8da"
-    sha256 mojave:        "7f6d20cc6f1d7f23834614f2f159d8438732e31bb3375c380d64e8dd010232c1"
-    sha256 high_sierra:   "bc725f791779a9400ab2b11d485ebba7e71aced9e6cef3365db614dbb273205c"
+  livecheck do
+    formula "gdb"
   end
 
+  bottle do
+    sha256 arm64_big_sur: "c2ad5a848a586c732f9ef0d51c432a2606343336bafd226c909d832a66e63411"
+    sha256 big_sur:       "5c67cee5589f207de3b521fea5b1805e717b5101bb95d335752e74250e520abf"
+    sha256 catalina:      "9b795b9a0dfd2d16d96218650d55c4037c60631f90c2584300429d52273d352d"
+    sha256 mojave:        "0b742041c90c670607311c303bf59f1aeb5517dc1573d8690564736b01dcbca1"
+  end
+
+  depends_on "x86_64-elf-gcc" => :test
   depends_on "python@3.9"
   depends_on "xz"
 
-  conflicts_with "gdb", because: "both install include/gdb, share/gdb and share/info"
-  conflicts_with "i386-elf-gdb", because: "both install include/gdb, share/gdb and share/info"
+  uses_from_macos "zlib"
+
+  # Fix for https://sourceware.org/bugzilla/show_bug.cgi?id=26949#c8
+  # Remove when upstream includes this commit
+  # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=b413232211bf
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/242630de4b54d6c57721e12ce88988a0f4e41202/gdb/gdb-10.2.patch"
+    sha256 "36652e9d97037266650a3b31f9f39539c4b376d31016fa4fc325dc0aa7930acc"
+  end
 
   def install
+    target = "x86_64-elf"
     args = %W[
-      --target=x86_64-elf
+      --target=#{target}
       --prefix=#{prefix}
+      --datarootdir=#{share}/#{target}
+      --includedir=#{include}/#{target}
+      --infodir=#{info}/#{target}
+      --mandir=#{man}
       --disable-debug
       --disable-dependency-tracking
       --with-lzma
       --with-python=#{Formula["python@3.9"].opt_bin}/python3
+      --with-system-zlib
       --disable-binutils
     ]
 
@@ -41,6 +59,9 @@ class X8664ElfGdb < Formula
   end
 
   test do
-    system "#{bin}/x86_64-elf-gdb", "#{bin}/x86_64-elf-gdb", "-configuration"
+    (testpath/"test.c").write "void _start(void) {}"
+    system "#{Formula["x86_64-elf-gcc"].bin}/x86_64-elf-gcc", "-g", "-nostdlib", "test.c"
+    assert_match "Symbol \"_start\" is a function at address 0x",
+          shell_output("#{bin}/x86_64-elf-gdb -batch -ex 'info address _start' a.out")
   end
 end

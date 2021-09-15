@@ -6,8 +6,11 @@ class Jmxterm < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "3177e031b339938a69004d980fc337a6717dab9194b8077bd0de598d2952b9ae"
+  end
 
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install

@@ -1,16 +1,17 @@
 class Znapzend < Formula
   desc "ZFS backup with remote capabilities and mbuffer integration"
   homepage "https://www.znapzend.org/"
-  url "https://github.com/oetiker/znapzend/releases/download/v0.20.0/znapzend-0.20.0.tar.gz"
-  sha256 "c0a1ab9df5d6c4936560b5f8f08d393d4e99313da190fa404cd8ee5df420a7ca"
-  head "https://github.com/oetiker/znapzend.git"
+  url "https://github.com/oetiker/znapzend/releases/download/v0.21.0/znapzend-0.21.0.tar.gz"
+  sha256 "c9218f8540269a85d83b4d9159b7990ce074bac5f56566049ba355fd45ab16c5"
+  license "GPL-3.0-or-later"
+  head "https://github.com/oetiker/znapzend.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b2b88cca83d22ee9484aebd5f2643d4c9d40b8156ad75c86d480d6c14b30d40e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5f33411823e939c59d7c9b117f042654dc4b6eac4a9d7a0fa20c4f8df0d21385"
-    sha256 cellar: :any_skip_relocation, catalina:      "37b73cba5b7ed887b1e72175d3c601c08e449ed3bbcaa87668641704477889d1"
-    sha256 cellar: :any_skip_relocation, mojave:        "9a508c6a3fb15609b3552ce38369b16664f08515f635bd8a3dc92ed79d17d381"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "18e1269f3ab2964382c1cc7578fa8785ee7ba1412a1c247861d76accde2a6cc5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "712e06398c1865796cc896a7d8c0d6c0baf4c10a52ac5006cc4c8d69b6359fcb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "03e855b5e75b84add0bd121a3f729112c7874ee09c74c2408479e1df095bc96c"
+    sha256 cellar: :any_skip_relocation, catalina:      "d4a36c0209fcb921c565bc9430ecf7a13ef3cfd226e32090c67af215c67b28ca"
+    sha256 cellar: :any_skip_relocation, mojave:        "2435d387ff28213402b816f40fdbf34bb733db8216ca72e66459b188d9e25ae5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d434f71ee8faa538bbf39b2cc6c328274d9f45873098f03bd7f4b2b33b05da40"
   end
 
   uses_from_macos "perl"

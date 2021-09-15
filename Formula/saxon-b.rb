@@ -13,7 +13,9 @@ class SaxonB < Formula
     regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "f0d7ca97d0e55110811c6366183b021b8ec8906f323832ff2e7e302c288b5afc"
+  end
 
   def install
     (buildpath/"saxon-b").install Dir["*.jar", "doc", "notices"]

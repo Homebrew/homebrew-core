@@ -5,7 +5,7 @@ class Cgns < Formula
   sha256 "090ec6cb0916d90c16790183fc7c2bd2bd7e9a5e3764b36c8196ba37bf1dc817"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/CGNS/CGNS.git"
+  head "https://github.com/CGNS/CGNS.git", branch: "develop"
 
   livecheck do
     url :stable
@@ -20,7 +20,7 @@ class Cgns < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "hdf5"
   depends_on "szip"
 
@@ -40,7 +40,7 @@ class Cgns < Formula
     end
 
     # Avoid references to Homebrew shims
-    inreplace include/"cgnsBuild.defs", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    inreplace include/"cgnsBuild.defs", %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
   end
 
   test do

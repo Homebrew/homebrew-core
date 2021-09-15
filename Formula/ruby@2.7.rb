@@ -1,8 +1,8 @@
 class RubyAT27 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.3.tar.xz"
-  sha256 "5e91d1650857d43cd6852e05ac54683351e9c301811ee0bef43a67c4605e7db1"
+  url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.4.tar.xz"
+  sha256 "2a80824e0ad6100826b69b9890bf55cfc4cf2b61a1e1330fccbcb30c46cef8d7"
   license "Ruby"
 
   livecheck do
@@ -11,10 +11,11 @@ class RubyAT27 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "1dbccb05f68478ea9bab7d3c2b944f09c5c08f6ee9dc93e8e342a14fe6a3c06b"
-    sha256 big_sur:       "3b4cc55acc6b1df7d5dc812c026c428ac4e5d7fe87ad3c1c2dcd6d634c51eba1"
-    sha256 catalina:      "5645255c0672afd591440407b7ba58a43a2e2945e88d21208fa031704128f144"
-    sha256 mojave:        "04ae189062e37ddd4bda4b687ab3c6208b9643a181176b0fa822cbf6eace35a7"
+    sha256 arm64_big_sur: "c69d8b9a90e4ec60cbefc2dfea8bda47e4eb02102f00b527df040a1f822f2f6b"
+    sha256 big_sur:       "81b7afe251434a03c0da4654afc07bd0c2f36ecc16bc6c34847564b124167724"
+    sha256 catalina:      "f55efd7734e36bb91b3fda9d30819f9d6e9bd731ad32ea1bc775586723e1e201"
+    sha256 mojave:        "b297b0ae4295e6757efb79a9c6634a80c8fff68f5399bf45e5d179b1c25cbe8e"
+    sha256 x86_64_linux:  "4114feae001b41fe15163cfe307b241f1a9034988d745f49fb55380eb188f233"
   end
 
   keg_only :versioned_formula
@@ -30,8 +31,8 @@ class RubyAT27 < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.2.15.tgz"
-    sha256 "110f1c8e0d35b5646559b3d8f66a80b7dfdbef6aa736f532a276d1d2be7cf05c"
+    url "https://rubygems.org/rubygems/rubygems-3.2.22.tgz"
+    sha256 "368979ef8103b550a98fc6479543831f0d55c3567d5ee4622d5aa569ee17418b"
   end
 
   def api_version
@@ -56,9 +57,7 @@ class RubyAT27 < Formula
       --with-opt-dir=#{paths.join(":")}
       --without-gmp
     ]
-    on_macos do
-      args << "--disable-dtrace" unless MacOS::CLT.installed?
-    end
+    args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
 
     # Correct MJIT_CC to not use superenv shim
     args << "MJIT_CC=/usr/bin/#{DevelopmentTools.default_compiler}"

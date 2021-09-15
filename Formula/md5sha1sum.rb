@@ -12,12 +12,13 @@ class Md5sha1sum < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6d1aa8a6c57e734885363c8c2dec012e52716332706a7695f5d0994e75957fdf"
-    sha256 cellar: :any, big_sur:       "c3ce2a7048d5e035493c2f637249da99f726109a9a643498576441c4c9ec7d58"
-    sha256 cellar: :any, catalina:      "d498b282ccd1e70d8676184b3eda51eea4e99baacb92e6d69df2fd05a98d511f"
-    sha256 cellar: :any, mojave:        "b1dc1ded1df513c24b7eab764707b088f42661c2cf53395e42ee4e03c245ac5d"
-    sha256 cellar: :any, high_sierra:   "7ed564b5da0f1adf33c0242bffcd4e456d4e46540b578d3cdb810a9f6a28474b"
-    sha256 cellar: :any, sierra:        "66ff4c578f7eff04b561192dd7789e013714caed61dac322df99f5652790abc7"
+    sha256 cellar: :any,                 arm64_big_sur: "6d1aa8a6c57e734885363c8c2dec012e52716332706a7695f5d0994e75957fdf"
+    sha256 cellar: :any,                 big_sur:       "c3ce2a7048d5e035493c2f637249da99f726109a9a643498576441c4c9ec7d58"
+    sha256 cellar: :any,                 catalina:      "d498b282ccd1e70d8676184b3eda51eea4e99baacb92e6d69df2fd05a98d511f"
+    sha256 cellar: :any,                 mojave:        "b1dc1ded1df513c24b7eab764707b088f42661c2cf53395e42ee4e03c245ac5d"
+    sha256 cellar: :any,                 high_sierra:   "7ed564b5da0f1adf33c0242bffcd4e456d4e46540b578d3cdb810a9f6a28474b"
+    sha256 cellar: :any,                 sierra:        "66ff4c578f7eff04b561192dd7789e013714caed61dac322df99f5652790abc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c25d9290972bc2bcec287eb11b91349f3dd0e5db8ad3a24b35874f7715682cfa"
   end
 
   depends_on "openssl@1.1"

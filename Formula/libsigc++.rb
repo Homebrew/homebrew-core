@@ -6,10 +6,11 @@ class Libsigcxx < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8cec1498075efde0b642bc9fb942f3311fa06cba220abe9d362ee3a7d5e9e4b6"
-    sha256 cellar: :any, big_sur:       "a6cbe2301ae3a6453a595f8ef6af01178b2abac4509ab56056636d9d52ebee07"
-    sha256 cellar: :any, catalina:      "11a842cc1940fe07eac5f4c28de62348c9a4c2aa3ae7d024a44e0f16f83409f0"
-    sha256 cellar: :any, mojave:        "5329e6dd054b51c9dcae16be93635dab3af249f671717d4894b1866a5b5efdf4"
+    sha256 cellar: :any,                 arm64_big_sur: "8cec1498075efde0b642bc9fb942f3311fa06cba220abe9d362ee3a7d5e9e4b6"
+    sha256 cellar: :any,                 big_sur:       "a6cbe2301ae3a6453a595f8ef6af01178b2abac4509ab56056636d9d52ebee07"
+    sha256 cellar: :any,                 catalina:      "11a842cc1940fe07eac5f4c28de62348c9a4c2aa3ae7d024a44e0f16f83409f0"
+    sha256 cellar: :any,                 mojave:        "5329e6dd054b51c9dcae16be93635dab3af249f671717d4894b1866a5b5efdf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dfe2ea60d780948d5c7ca21d2750b41c2fc308f9279bc3eed852a7f096d8d57"
   end
 
   depends_on "meson" => :build
@@ -24,14 +25,13 @@ class Libsigcxx < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
-
     mkdir "build" do
       system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end
   end
+
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
@@ -51,10 +51,6 @@ class Libsigcxx < Formula
         return 0;
       }
     EOS
-
-    on_linux do
-      ENV["CXX"] = Formula["gcc"].opt_bin/"c++-10"
-    end
 
     system ENV.cxx, "-std=c++17", "test.cpp",
                    "-L#{lib}", "-lsigc-3.0", "-I#{include}/sigc++-3.0", "-I#{lib}/sigc++-3.0/include", "-o", "test"

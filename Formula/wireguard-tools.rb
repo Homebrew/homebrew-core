@@ -4,7 +4,7 @@ class WireguardTools < Formula
   url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20210424.tar.xz"
   sha256 "b288b0c43871d919629d7e77846ef0b47f8eeaa9ebc9cedeee8233fc6cc376ad"
   license "GPL-2.0-only"
-  head "https://git.zx2c4.com/wireguard-tools.git"
+  head "https://git.zx2c4.com/wireguard-tools.git", branch: "master"
 
   livecheck do
     url :head
@@ -16,6 +16,7 @@ class WireguardTools < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "1f153d66ddac6cbafa6877e29af6ae58b32abd63331c372f86fa72e5d0a6a0e9"
     sha256 cellar: :any_skip_relocation, catalina:      "59c67c1becf7d8d52f666094c71404e4f1bd133747bfdad717145a14a1c2a04f"
     sha256 cellar: :any_skip_relocation, mojave:        "99745e645ddbed286defa52eeb6862325a09be2aab48fa04b23dec6686513a1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fa851e7c42cc502f5525ddfc2cc6f4fe8133bb86b5600016dc1909631db831a"
   end
 
   depends_on "bash"

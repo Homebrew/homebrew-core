@@ -1,28 +1,15 @@
 class LibxmpLite < Formula
   desc "Lite libxmp"
   homepage "https://xmp.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.4.1/libxmp-lite-4.4.1.tar.gz"
-  sha256 "bce9cbdaa19234e08e62660c19ed9a190134262066e7f8c323ea8ad2ac20dc39"
+  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.5.0/libxmp-lite-4.5.0.tar.gz"
+  sha256 "19a019abd5a3ddf449cd20ca52cfe18970f6ab28abdffdd54cff563981a943bb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c0529347eb14021e29716dc96c5d275efa984fb5aa2394dd116547342878e6ed"
-    sha256 cellar: :any, big_sur:       "8fd127bc9b8ddefedf784c9387b9b901a70917b600ce5f4e4087d0abbba530d1"
-    sha256 cellar: :any, catalina:      "a155be151ab2b536aae7aa7cb44999b8e1dc5a210b06af6f18265eb4037fd6ab"
-    sha256 cellar: :any, mojave:        "d1956ebfe2812cededb97f6717925f21ca1a71dbd8b4211792369cb0a9f3c74f"
-    sha256 cellar: :any, high_sierra:   "e0b20b3d4fcd64e4c90b9d704ee5621739bf633bdf8bd71bd1b2cb713a2b0284"
-    sha256 cellar: :any, sierra:        "d1ed5c1803f622508c3e20bb9c48f9bc644d0d639574aaa298724dd0aa17262d"
-    sha256 cellar: :any, el_capitan:    "a8fcd7a5ab446a221b7444b90191656175f6060a0730a703e4f862c4f49690f4"
-    sha256 cellar: :any, yosemite:      "448d0a4bcd651c44551a1d3785de1c0181cce1ee374cd7903a629cb200a3011d"
-  end
-
-  # Remove for > 4.4.1
-  # Fix build failure "dyld: Symbol not found: _it_loader"
-  # Upstream commit "libxmp-lite building (wrong format loaders)"
-  # Already in master. Original PR 6 Nov 2016 https://github.com/cmatsuoka/libxmp/pull/82
-  patch :p2 do
-    url "https://github.com/cmatsuoka/libxmp/commit/a028835.patch?full_index=1"
-    sha256 "74b8689dcc23943168c6ae6afbda94dbcca78d08caae860b31ff573610ec5f92"
+    sha256 cellar: :any, arm64_big_sur: "3e5ad6d3a6c5e8f8e78055aa92d7b92bcc28faf2ae4904154b28d8d5cc83426e"
+    sha256 cellar: :any, big_sur:       "da41c0decc2231fc35a884c1bfa61240261958e6cde77d863c3d62dd34830d5f"
+    sha256 cellar: :any, catalina:      "2fd028d14695096bcb8fb8839758fb962c36d3edfd83e959a652bd735d4684b4"
+    sha256 cellar: :any, mojave:        "457442a50a49ab9267dfa586d7abeb3e3bebcdf1860a0d9ee0d0b34e341bf71a"
   end
 
   def install

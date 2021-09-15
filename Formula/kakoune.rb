@@ -1,10 +1,10 @@
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
-  url "https://github.com/mawww/kakoune/releases/download/v2020.09.01/kakoune-2020.09.01.tar.bz2"
-  sha256 "861a89c56b5d0ae39628cb706c37a8b55bc289bfbe3c72466ad0e2757ccf0175"
+  url "https://github.com/mawww/kakoune/releases/download/v2021.08.28/kakoune-2021.08.28.tar.bz2"
+  sha256 "6f6ed7dfd8c5723210dbd848708acf03af4b847016fd3ede96b2a89ad32276cb"
   license "Unlicense"
-  head "https://github.com/mawww/kakoune.git"
+  head "https://github.com/mawww/kakoune.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,11 +12,11 @@ class Kakoune < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "6a6af6d41f893e851691984867efeee176098f47c881d5fe77d8534bc4086375"
-    sha256 cellar: :any, big_sur:       "61064437727a2eb062b89941b25fb46c017d350e8947e867e72f51f591d030ad"
-    sha256 cellar: :any, catalina:      "9cb8ffd67651eab6f269daab2bbf4e66adf4f7dad4029a3285631a3615cf1514"
-    sha256 cellar: :any, mojave:        "00c9127f14d643eee79fc64d02874bc131dad426fb11580b5d4fa43a3a51007c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cf56529386ac094bf0cefac9c50a60a7234127c9d1c3ed22e853f8cf917dee91"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6fdb7731b67b916f43c85d1674982a5801af161878446eba999de72a492e586e"
+    sha256 cellar: :any_skip_relocation, catalina:      "cdd59d3c8978b2c8f2ca0899867be322ce4d23eac3600a3b0684e199d5020e42"
+    sha256 cellar: :any_skip_relocation, mojave:        "af3a8f431b72c684b26bbbd115bf08ad9d8c12b95e83f7c0cea3f8881946d6a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9797d57cd6184e1b12a2c6120ccbfc51bbb369cf932400c0e556d0f9074b5d8e"
   end
 
   depends_on macos: :high_sierra # needs C++17
@@ -26,7 +26,7 @@ class Kakoune < Formula
 
   on_linux do
     depends_on "binutils" => :build
-    depends_on "linux-headers" => :build
+    depends_on "linux-headers@4.4" => :build
     depends_on "pkg-config" => :build
     depends_on "gcc"
   end

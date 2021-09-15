@@ -12,6 +12,7 @@ class GitBug < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "26ead98df2569b14356aac45755b68397dceca6a0dc2cdb6ec00f1a4926fc669"
     sha256 cellar: :any_skip_relocation, catalina:      "60c08117214d4d8657e67f182d1380b291882944d69c54c9adaa0f8140e28993"
     sha256 cellar: :any_skip_relocation, mojave:        "6184e21ba0f2c4c28722dd7276004f2f430e02e4f2cf56462b4914d08df6f2f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "234a0d2749668c523e59bf359cdb0484d984fc4230cbe72c64c0ff585eaef6cc"
   end
 
   depends_on "go" => :build

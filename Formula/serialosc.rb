@@ -2,17 +2,16 @@ class Serialosc < Formula
   desc "Opensound control server for monome devices"
   homepage "https://github.com/monome/docs/blob/gh-pages/serialosc/osc.md"
   url "https://github.com/monome/serialosc.git",
-      tag:      "v1.4.1",
-      revision: "4fec6f11276dd302faf9ca8e0a8e126f273cf954"
+      tag:      "v1.4.3",
+      revision: "12fa410a14b2759617c6df2ff9088bc79b3ee8de"
   license "ISC"
-  head "https://github.com/monome/serialosc.git"
+  head "https://github.com/monome/serialosc.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "34c28ed9daba6253e5683b1843d4232991be7194b9121684c1e22e45f4f29fa6"
-    sha256 cellar: :any, big_sur:       "a67757d6de9663c606ae5baad6c98b1e05270f6ebc7dce5ee856cebd9359523e"
-    sha256 cellar: :any, catalina:      "652e246d1df70f602f497f545c7ef8d69bf7fcbd98fc0af43da944c983f72a32"
-    sha256 cellar: :any, mojave:        "88d5711e7c26674071d8f5b659c44bc5112edf2b0033b42dc04dba302a418ce5"
+    sha256 cellar: :any, arm64_big_sur: "5673c0c56aa3e2186f6e55b78113002271bec33965eebfb06cf05a7a747e86ae"
+    sha256 cellar: :any, big_sur:       "8be259522efad498f49fbd29b5ca2ea43280913573f100b032b488842385b7ed"
+    sha256 cellar: :any, catalina:      "34a644c3acf33d0c5bd2416a987e370ceb328024c0d51837c143784fa61dcd67"
+    sha256 cellar: :any, mojave:        "5a3de26553f48565604602e830be11e3334663dd839b83890a7545b5024631a2"
   end
 
   depends_on "confuse"

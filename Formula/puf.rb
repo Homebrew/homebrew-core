@@ -14,6 +14,7 @@ class Puf < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "3153e22f42620f0ceb69f11080e6ba113765d7847cbbb2672f30a7a6766db972"
     sha256 cellar: :any_skip_relocation, el_capitan:    "24952b79335eb08d7a8880a16714e6afe3b73a65f5f26c59b106020198c1b3f3"
     sha256 cellar: :any_skip_relocation, yosemite:      "d96385896fd7831b71af3b05d55f3c5cd2c3a9565f9083c2efe96309989dcf15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0dccb5f5a95571338a440abdc6df58db883ad1ce1b4a3ddc8bae95da82be9de"
   end
 
   def install

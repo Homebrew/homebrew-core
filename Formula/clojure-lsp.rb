@@ -2,11 +2,11 @@ class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/clojure-lsp/clojure-lsp"
   url "https://github.com/clojure-lsp/clojure-lsp.git",
-      tag:      "2021.05.14-15.26.02",
-      revision: "e5a377df84504adaeaa68a3a3a61bb637eb63fba"
-  version "20210514T152602"
+      tag:      "2021.08.16-19.02.30",
+      revision: "226fa911d10d332a2b1df9201cc8565a3002f642"
+  version "20210816T190230"
   license "MIT"
-  head "https://github.com/clojure-lsp/clojure-lsp.git"
+  head "https://github.com/clojure-lsp/clojure-lsp.git", branch: "master"
 
   livecheck do
     url :stable
@@ -18,10 +18,11 @@ class ClojureLsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "41c3d632d4f0023ed7bc73163103f0c05a0c6cbb820ec984883620e54974c796"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d5ae5b9ebe5228e6de7c5e7aa377e1b5c15ae0bcde9577cd7a6f439f5ea4893a"
-    sha256 cellar: :any_skip_relocation, catalina:      "af6e0975d10f208689a4b8c516eb9621304438db534c6d1dd3db9679260e31a4"
-    sha256 cellar: :any_skip_relocation, mojave:        "7ffd44c23974551b48ad2996b366d7aac01f092ceffeb154e6fc8fea2144c838"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "659173e001c1786eb50a9c8beef74c0ba6280c2b1ac76595e123aad636a3e3b1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "202351955dff5b6e65ebb1748c81514cd0dd3d3e9eb9d20a1d85733f6b841c41"
+    sha256 cellar: :any_skip_relocation, catalina:      "199800115e7f86fe0a9bfd5f623603cb929de928fc387d227ab72166af7ac042"
+    sha256 cellar: :any_skip_relocation, mojave:        "d833ec0f89a391ad22b56a4bae511b22e94fefe23733bac2150d4bc3f284d237"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8f150b92e9adc756bfa28bc955f719d7c429256543eaeed02eda13d5a793daf"
   end
 
   depends_on "clojure" => :build
@@ -29,7 +30,7 @@ class ClojureLsp < Formula
   depends_on "openjdk@11"
 
   def install
-    system "clojure", "-X:prod-jar"
+    system "make", "prod-bin"
     jar = "clojure-lsp.jar"
     libexec.install jar
     bin.write_jar_script libexec/jar, "clojure-lsp", java_version: "11"

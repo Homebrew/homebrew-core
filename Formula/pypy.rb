@@ -1,9 +1,10 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.4-src.tar.bz2"
-  sha256 "ff9b928237767efe08ccfba79dae489519b3c768fb6e3af52d39c2a8a1c21ca4"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.5-src.tar.bz2"
+  sha256 "c0444fd9873058c1c0d99e13a934e92285cb05992c9968bf523c32bf9bec0a9d"
   license "MIT"
+  revision 1
   head "https://foss.heptapod.net/pypy/pypy", using: :hg
 
   livecheck do
@@ -12,9 +13,10 @@ class Pypy < Formula
   end
 
   bottle do
-    sha256 big_sur:  "c92e910215c9d44708ce97f360851ff4878ce7a0f494bdef1c601a78596f4c41"
-    sha256 catalina: "c7da4bd5c5908efb24d85305d5f818392fad38a2a41de5e7e35d93dfbfd8f048"
-    sha256 mojave:   "12ad92759cd93a3994d7542b9717d904c77139596bea5d579ffe4ed24586a4cb"
+    sha256 cellar: :any,                 big_sur:      "4e49ed156a0d1242e5fadbd89eacfe8a7a14e06e5ae53e22f0862eac3bd934ac"
+    sha256 cellar: :any,                 catalina:     "c6c8c8aa81297c76bcc827e6ade41ff3ad0f578afec0be02a10bbdc915cd977d"
+    sha256 cellar: :any,                 mojave:       "a75798a7afffaa1ab7c2b6d41ae375d4df8184a35003b5c9056d4cfd7b4d149a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "96d1572f8a52e919b9436bcd7b16d5fdb457de9a6020f8980170a57f00aecf5b"
   end
 
   depends_on "pkg-config" => :build
@@ -24,8 +26,10 @@ class Pypy < Formula
   depends_on "sqlite"
   depends_on "tcl-tk"
 
+  uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "libffi"
+  uses_from_macos "ncurses"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
@@ -55,7 +59,19 @@ class Pypy < Formula
     sha256 "6773934e5f5fc3eaa8c5a44949b5b924fc122daa0a8aa9f80c835b4ca2a543fc"
   end
 
+  # Build fixes:
+  # - Disable Linux tcl-tk detection since the build script only searches system paths.
+  #   When tcl-tk is not found, it uses unversioned `-ltcl -ltk`, which breaks build.
+  # - Disable building cffi imports with `--embed-dependencies`, which compiles and
+  #   statically links a specific OpenSSL version.
+  # - Add flag `--no-make-portable` to package.py so that we can disable portable build.
+  #   Portable build is default on macOS and copies tcl-tk/sqlite dylibs into bottle.
+  patch :DATA
+
   def install
+    # The `tcl-tk` library paths are hardcoded and need to be modified for non-/usr/local prefix
+    inreplace "lib_pypy/_tkinter/tklib_build.py", "/usr/local/opt/tcl-tk/", Formula["tcl-tk"].opt_prefix/""
+
     # See https://github.com/Homebrew/homebrew/issues/24364
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
@@ -67,17 +83,21 @@ class Pypy < Formula
       system python, buildpath/"rpython/bin/rpython",
              "-Ojit", "--shared", "--cc", ENV.cc, "--verbose",
              "--make-jobs", ENV.make_jobs, "targetpypystandalone.py"
+
+      with_env(PYTHONPATH: buildpath) do
+        system "./pypy-c", buildpath/"lib_pypy/pypy_tools/build_cffi_imports.py"
+      end
     end
 
     libexec.mkpath
     cd "pypy/tool/release" do
-      package_args = %w[--archive-name pypy --targetdir .]
+      package_args = %w[--archive-name pypy --targetdir . --no-make-portable --no-embedded-dependencies]
       system python, "package.py", *package_args
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy.tar.bz2"
     end
 
     (libexec/"lib").install libexec/"bin/#{shared_library("libpypy-c")}"
-    on_macos do
+    if OS.mac?
       MachO::Tools.change_install_name("#{libexec}/bin/pypy",
                                        "@rpath/libpypy-c.dylib",
                                        "#{libexec}/lib/libpypy-c.dylib")
@@ -92,7 +112,7 @@ class Pypy < Formula
 
     # Delete two files shipped which we do not want to deliver
     # These files make patchelf fail
-    on_linux do
+    if OS.linux?
       rm_f libexec/"bin/libpypy-c.so.debug"
       rm_f libexec/"bin/pypy.debug"
     end
@@ -178,3 +198,44 @@ class Pypy < Formula
     system scripts_folder/"pip", "list"
   end
 end
+
+__END__
+--- a/lib_pypy/_tkinter/tklib_build.py
++++ b/lib_pypy/_tkinter/tklib_build.py
+@@ -17,12 +17,12 @@ elif sys.platform == 'win32':
+     incdirs = []
+     linklibs = ['tcl86t', 'tk86t']
+     libdirs = []
+-elif sys.platform == 'darwin':
++else:
+     # homebrew
+     incdirs = ['/usr/local/opt/tcl-tk/include']
+     linklibs = ['tcl8.6', 'tk8.6']
+     libdirs = ['/usr/local/opt/tcl-tk/lib']
+-else:
++if False: # disable Linux system tcl-tk detection
+     # On some Linux distributions, the tcl and tk libraries are
+     # stored in /usr/include, so we must check this case also
+     libdirs = []
+--- a/pypy/goal/targetpypystandalone.py
++++ b/pypy/goal/targetpypystandalone.py
+@@ -354,7 +354,7 @@ class PyPyTarget(object):
+             ''' Use cffi to compile cffi interfaces to modules'''
+             filename = join(pypydir, '..', 'lib_pypy', 'pypy_tools',
+                                    'build_cffi_imports.py')
+-            if sys.platform in ('darwin', 'linux', 'linux2'):
++            if False: # disable building static openssl
+                 argv = [filename, '--embed-dependencies']
+             else:
+                 argv = [filename,]
+--- a/pypy/tool/release/package.py
++++ b/pypy/tool/release/package.py
+@@ -351,7 +351,7 @@ def package(*args, **kwds):
+                         default=(ARCH in ('darwin', 'aarch64', 'x86_64')),
+                         help='whether to embed dependencies in CFFI modules '
+                         '(default on OS X)')
+-    parser.add_argument('--make-portable',
++    parser.add_argument('--make-portable', '--no-make-portable',
+                         dest='make_portable',
+                         action=NegateAction,
+                         default=(ARCH in ('darwin',)),

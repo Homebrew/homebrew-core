@@ -1,21 +1,27 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "https://fibjs.org/"
-  url "https://github.com/fibjs/fibjs/releases/download/v0.32.1/fullsrc.zip"
-  sha256 "e4fbe79ab8cfe9d33cb56771524a67d1231770b312bc677165344a0a9efb72dd"
+  url "https://github.com/fibjs/fibjs/releases/download/v0.34.0/fullsrc.zip"
+  sha256 "57ff82526307274a59cf5d373f57d2aa7690e5b3e4c31a916de4f048fd84bf04"
   license "GPL-3.0-only"
-  head "https://github.com/fibjs/fibjs.git"
+  head "https://github.com/fibjs/fibjs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "805081981e806be46cc919002806f1518c2c2cb2421fbe97bc2ca5a00e4fb621"
-    sha256 cellar: :any_skip_relocation, catalina: "93826d72189ebf83939879b05130ce6de9c9aa07465f89488b31a76248da2888"
-    sha256 cellar: :any_skip_relocation, mojave:   "c8af00dfa6f60530bec05341d3e7fec0591a6dfcb88ba4c74f0bb31a243d330f"
+    sha256 cellar: :any_skip_relocation, big_sur:      "5b94c5a2291ada6c8987b23357ea3c0be4306d2ead6caca2b236a73643947d7f"
+    sha256 cellar: :any_skip_relocation, catalina:     "74a446f80b494dee49981e4fa0dc68fc1653d81ba09dbf316e5bde3100360030"
+    sha256 cellar: :any_skip_relocation, mojave:       "0489b047454da54566d071fddfc011c91ca8c44620631a1aebe359c887fb65fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7992458fb9fc9ab2aab41cdf12f7f68896c21202c9499d9a0900b32d1dfc7dd0"
   end
 
   depends_on "cmake" => :build
 
+  # LLVM is added as a test dependency to work around limitation in Homebrew's
+  # test compiler selection when using fails_with. Can remove :test when fixed.
+  # Issue ref: https://github.com/Homebrew/brew/issues/11795
+  uses_from_macos "llvm" => [:build, :test]
+
   on_linux do
-    depends_on "llvm" => :build
+    depends_on "libx11"
   end
 
   # https://github.com/fibjs/fibjs/blob/master/BUILDING.md
@@ -24,19 +30,16 @@ class Fibjs < Formula
   end
 
   def install
+    # help find X11 headers: fatal error: 'X11/Xlib.h' file not found
+    ENV.append "CXXFLAGS", "-I#{HOMEBREW_PREFIX}/include" if OS.linux?
+
     # the build script breaks when CI is set by Homebrew
-    begin
-      env_ci = ENV.delete "CI"
+    with_env(CI: nil) do
       system "./build", "clean"
       system "./build", "release", "-j#{ENV.make_jobs}"
-    ensure
-      ENV["CI"] = env_ci
     end
 
-    os = "Darwin"
-    on_linux do
-      os = "Linux"
-    end
+    os = OS.mac? ? "Darwin" : "Linux"
     bin.install "bin/#{os}_amd64_release/fibjs"
   end
 

@@ -5,7 +5,9 @@ class Cqlkit < Formula
   sha256 "0574b4b6fe893078e993a80f95a183b89955129ab8929f5032b7faacf611952c"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "355be366040067ccf68d6bdaa4f212c8da622bacefad1ba9a61d33e680141ac5"
+  end
 
   depends_on "openjdk"
 

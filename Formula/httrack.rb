@@ -19,9 +19,12 @@ class Httrack < Formula
     sha256 mojave:        "6e0d2265e15d103a37b6b594f7f10c85af82012f1e3c1e25fc436e7430502b2c"
     sha256 high_sierra:   "612d8c3f9ee15fd7c4f42dbca3c5e3b58e968d626aa15f916f85c8cdb44ea31f"
     sha256 sierra:        "842d48bdb72573623a478a97a2c2abcafe34fb4b0443229216e35d30552dd27f"
+    sha256 x86_64_linux:  "cf514800be63c284276aa19e44b7d6822b182166a64b8ceb45dd96c4818504ee"
   end
 
   depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   def install
     ENV.deparallelize

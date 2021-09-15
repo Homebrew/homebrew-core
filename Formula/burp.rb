@@ -26,6 +26,7 @@ class Burp < Formula
     sha256 mojave:        "f45062f56a6cc3bc9ba09b84d9f44e599015387d6d31b0ae8a289fa74a904021"
     sha256 high_sierra:   "1855c5623a4d7ec1ed397f2646772d807a127f80f196c41dcae0efe7615afd8d"
     sha256 sierra:        "157aa6cc33291ec50b8597b3bd97b08e0a92f79e634ec122eb0911e86bc395c9"
+    sha256 x86_64_linux:  "938917e5c0bc5901f546caee65cb0a0f37284a00b5a6d0a9e2df78d0fd3161b5"
   end
 
   head do

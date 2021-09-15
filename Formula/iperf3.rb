@@ -1,16 +1,16 @@
 class Iperf3 < Formula
   desc "Update of iperf: measures TCP, UDP, and SCTP bandwidth"
   homepage "https://github.com/esnet/iperf"
-  url "https://github.com/esnet/iperf/archive/3.9.tar.gz"
-  sha256 "c6d8076b800f2b51f92dc941b0a9b77fbf2a867f623b5cb3cbf4754dabc40899"
+  url "https://github.com/esnet/iperf/archive/3.10.1.tar.gz"
+  sha256 "6a4bb4d5c124b3fa64dfbda469ab16857ad6565310bcaa3dd8cd32f96c2fc473"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e03780161e2186e71eee0c94c9e7e1cf771bf29eba0b7ee0e403e5c5a001ec72"
-    sha256 cellar: :any, big_sur:       "03bc9b67b96e6ce9aaa7a9b42a488821f2ac6aa886a4c705def1a4711040cbc9"
-    sha256 cellar: :any, catalina:      "de2b4908fa73a967a17802a38447db1292e77842635eb905cda9fb776544e4fd"
-    sha256 cellar: :any, mojave:        "a17ff5710f6dd6cf26d85044be605580b4174e03f4b655f37b18279bf072f10c"
-    sha256 cellar: :any, high_sierra:   "ab41072fd6fb38994bbcedd1fa1cd1ad78feef49ecf56e45d0dcc96812cdf666"
+    sha256 cellar: :any,                 arm64_big_sur: "7acd6b3fedf49e5614f825f928d24b035e93db311c25797d94b8ef880b78afe0"
+    sha256 cellar: :any,                 big_sur:       "3c7b4daa79c385333b89c08740c477c633d45eba240610f7d43f26a3397555b3"
+    sha256 cellar: :any,                 catalina:      "a3d90dab71e047c3c585dc6dfbb63b240b3842e02af8fdaee665bb13b3d71c82"
+    sha256 cellar: :any,                 mojave:        "dea44691e2528c58d8f30d5b0b60d2407bb3ba17db5c3d0327fc29442f911847"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d078e2b5840746763092d35eede028ccf1b0db86274597ce064c14e5652cae7"
   end
 
   head do

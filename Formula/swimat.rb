@@ -4,7 +4,7 @@ class Swimat < Formula
   url "https://github.com/Jintin/Swimat/archive/1.7.0.tar.gz"
   sha256 "ba18b628de8b0a679b9215fb77e313155430fbecd21b15ed5963434223b10046"
   license "MIT"
-  head "https://github.com/Jintin/Swimat.git"
+  head "https://github.com/Jintin/Swimat.git", branch: "master"
 
   livecheck do
     url :stable
@@ -19,6 +19,7 @@ class Swimat < Formula
   end
 
   depends_on xcode: ["10.2", :build]
+  depends_on :macos
 
   def install
     xcodebuild "-target", "CLI",

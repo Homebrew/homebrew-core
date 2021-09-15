@@ -12,6 +12,7 @@ class Bwctl < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "125c3592d5a34d3913dde26356ee894136716f6b224ab1d8bc14ab487fbd2633"
     sha256 cellar: :any_skip_relocation, mojave:        "b4e91dbfca063d51a0280dffde519e9d4e5d66d0e0a301936dbbe86239e295a3"
     sha256 cellar: :any_skip_relocation, high_sierra:   "2d326aaaa5c9031fd668569cbd68627d84884389b4883282d82259af152b12c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1baa7c580ca0122ac344d60c8884083c0b87ed3efb0b82b6e4af10c5c08257e"
   end
 
   # https://software.internet2.edu/bwctl/

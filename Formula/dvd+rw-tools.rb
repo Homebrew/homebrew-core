@@ -5,6 +5,11 @@ class DvdxrwTools < Formula
   sha256 "f8d60f822e914128bcbc5f64fbe3ed131cbff9045dca7e12c5b77b26edde72ca"
   license "GPL-2.0"
 
+  livecheck do
+    url "http://fy.chalmers.se/~appro/linux/DVD+RW/tools/"
+    regex(/href=.*?dvd\+rw-tools[._-]v?(\d+(?:[.-]\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "11ec6e949911cca76b2c3a940e362aff334523a7018dfd3bdcd232acb7b741d1"
     sha256 cellar: :any_skip_relocation, big_sur:       "c3d9ab88096123bd36acbad9f27cc21c07fd881f00ac45b49605f18de03262b1"

@@ -16,6 +16,7 @@ class Unixodbc < Formula
     sha256 big_sur:       "7e85c6cae69a18bc572ac63a624d44f5e1f71b84693cdf6acf165449b35f90b7"
     sha256 catalina:      "bd9ae8319552747572047c19a24ff3d55e3c59a51635ab799fd0959655d07459"
     sha256 mojave:        "e3b8eeab0c16a66f1aae4784e5248f46c1476460982113803d62840379116f07"
+    sha256 x86_64_linux:  "1fbd8485269b6801167ff9ab353296796755ec3c6e8d9e8cab19ac17136bf92b"
   end
 
   depends_on "libtool"

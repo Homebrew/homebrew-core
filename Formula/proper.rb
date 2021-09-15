@@ -10,6 +10,7 @@ class Proper < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "61e21e04eaa32a05b64b00906c02ebe92b561d5eb087ca044e95cc529b500fc3"
     sha256 cellar: :any_skip_relocation, catalina:      "06c64fa31d6e5adcf99fee3f9ed8351adb563404eb8c47bed79e6ba1bf4196f4"
     sha256 cellar: :any_skip_relocation, mojave:        "b658a49385aabd1ee1c7a081873367a5b2aeb12c9ea0804804cedc38b2731c96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f93b8f2a1a9c577ab5f29dc249da62eb8b7be0674eaec5875c74a50b16975ee2"
   end
 
   depends_on "rebar3" => :build

@@ -17,6 +17,7 @@ class Unzip < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "979c8a1705b3822f49391c2402e961e1a66c148017af85b1b54babe6463340c8"
     sha256 cellar: :any_skip_relocation, catalina:      "ab86dd48d398d55a9162032f0e17e6d33111d8807a9f157953fe30483ddf330e"
     sha256 cellar: :any_skip_relocation, mojave:        "76f80f74ec99ec7d8678ed1f8e3d13b495e50a3be65a37cad584804448d932b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f99196fb266de6a937959261b35f9b5e818455b7ca55d75d2818e7455781994b"
   end
 
   keg_only :provided_by_macos
@@ -68,9 +69,7 @@ class Unzip < Formula
       L_BZ2=-lbz2
       macosx
     ]
-    on_macos do
-      args << "LFLAGS1=-liconv"
-    end
+    args << "LFLAGS1=-liconv" if OS.mac?
     system "make", "-f", "unix/Makefile", *args
     system "make", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
   end

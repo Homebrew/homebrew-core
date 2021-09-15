@@ -7,10 +7,11 @@ class GitSeries < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ccf1c1e9a18629fe874987409d79f84da6e171fe802a6918147c3198b0047cce"
-    sha256 cellar: :any, big_sur:       "2193cb415148a398304ae5cde86bd8f672c62fef1028ad78057d66fa3ca0fd36"
-    sha256 cellar: :any, catalina:      "e273c21ef68060e010e42bc805bf1a2e5baf9a8e7ecec6338490175857713168"
-    sha256 cellar: :any, mojave:        "31c32b8df3a5a2c70c54786a0c222ce4fdeccace4cb3a5bf50f3a27d9f46167d"
+    sha256 cellar: :any,                 arm64_big_sur: "ccf1c1e9a18629fe874987409d79f84da6e171fe802a6918147c3198b0047cce"
+    sha256 cellar: :any,                 big_sur:       "2193cb415148a398304ae5cde86bd8f672c62fef1028ad78057d66fa3ca0fd36"
+    sha256 cellar: :any,                 catalina:      "e273c21ef68060e010e42bc805bf1a2e5baf9a8e7ecec6338490175857713168"
+    sha256 cellar: :any,                 mojave:        "31c32b8df3a5a2c70c54786a0c222ce4fdeccace4cb3a5bf50f3a27d9f46167d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30475b793ee6ea3a5a8291796f01628b735e50b2a796ffe47345a519e730fc7c"
   end
 
   depends_on "cmake" => :build
@@ -27,6 +28,8 @@ class GitSeries < Formula
     ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
 
+    # TODO: In the next version after 0.9.1, update this command as follows:
+    # system "cargo", "install", *std_cargo_args
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "git-series.1"
   end

@@ -18,6 +18,7 @@ class Dpkg < Formula
     sha256 big_sur:       "36fe071803813a6afff6cd69bbba249cd0321e3204302a1aee25f8f4873c934c"
     sha256 catalina:      "15bb579c5dc9c7d36879fa5a07fe682f7064cef68ecd45f46cbe3aec0120c837"
     sha256 mojave:        "422227f7e36fcdc361f8ba3fc5ba6c19603bd25ec3933cf6b5cef0eb5ccec523"
+    sha256 x86_64_linux:  "d1c09eb2e30e77d5a2d576c8a5ee2ab4eeff19dfce98dc5c6cc093e2c4512036"
   end
 
   depends_on "pkg-config" => :build
@@ -31,16 +32,19 @@ class Dpkg < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_linux do
+    keg_only "not linked to prevent conflicts with system dpkg"
+  end
+
   patch :DATA
 
   def install
     # We need to specify a recent gnutar, otherwise various dpkg C programs will
     # use the system "tar", which will fail because it lacks certain switches.
-    on_macos do
-      ENV["TAR"] = Formula["gnu-tar"].opt_bin/"gtar"
-    end
-    on_linux do
-      ENV["TAR"] = Formula["gnu-tar"].opt_bin/"tar"
+    ENV["TAR"] = if OS.mac?
+      Formula["gnu-tar"].opt_bin/"gtar"
+    else
+      Formula["gnu-tar"].opt_bin/"tar"
     end
 
     # Since 1.18.24 dpkg mandates the use of GNU patch to prevent occurrences

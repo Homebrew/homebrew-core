@@ -9,11 +9,12 @@ class Liblqr < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "5b55b5517f358ea17c882c7afcb02ef538fe032854a6a9e1f54785a35862adde"
-    sha256 cellar: :any, big_sur:       "94977eaf2a6b9c9d52f178267ba034bb2515cb2ba0a643006c10f83ab6a532b9"
-    sha256 cellar: :any, catalina:      "18803ed552ae07c1998c87ba6c4ebaee1ec5eaab843c2cfa2cc3775f0b55da23"
-    sha256 cellar: :any, mojave:        "83054ddb4fffb94ea12f609a90082220a451bfdc793284d104f1fdeaf4aa8fd6"
-    sha256 cellar: :any, high_sierra:   "43e9b4f518364d436b53c89b1ac42e2cfdcafc47fad1ba711bd6456122e47d62"
+    sha256 cellar: :any,                 arm64_big_sur: "5b55b5517f358ea17c882c7afcb02ef538fe032854a6a9e1f54785a35862adde"
+    sha256 cellar: :any,                 big_sur:       "94977eaf2a6b9c9d52f178267ba034bb2515cb2ba0a643006c10f83ab6a532b9"
+    sha256 cellar: :any,                 catalina:      "18803ed552ae07c1998c87ba6c4ebaee1ec5eaab843c2cfa2cc3775f0b55da23"
+    sha256 cellar: :any,                 mojave:        "83054ddb4fffb94ea12f609a90082220a451bfdc793284d104f1fdeaf4aa8fd6"
+    sha256 cellar: :any,                 high_sierra:   "43e9b4f518364d436b53c89b1ac42e2cfdcafc47fad1ba711bd6456122e47d62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f4d5b2822f5ceba9fff258d869110d23e2e6f2f06dd958a7a12d6333e8944c4"
   end
 
   depends_on "pkg-config" => :build

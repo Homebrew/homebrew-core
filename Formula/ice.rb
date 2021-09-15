@@ -1,8 +1,8 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.7.5.tar.gz"
-  sha256 "36bf45591a95e6ee7216153d45d8eca05ff00c1da35608f0c400e6ddc8049da9"
+  url "https://github.com/zeroc-ice/ice/archive/v3.7.6.tar.gz"
+  sha256 "75b18697c0c74f363bd0b85943f15638736e859c26778337cbfe72d31f5cfb47"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,13 @@ class Ice < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9f6864341db930e3fec14ee0e108e2c71d268441d6890c76f57e873475daaf99"
-    sha256 cellar: :any, big_sur:       "3a61df370da3e0ee676eaabe0470a0bc75296dc0dd3d4a62bd02e7a84829a50a"
-    sha256 cellar: :any, catalina:      "ce6660264a1b883917ca7437e173ec954d5b552f9f1fcbda82ae3a8594668dd4"
-    sha256 cellar: :any, mojave:        "d1b6db2cd443c0cf57990bea3651fefeca93e22a6542657967617560e483e78a"
+    sha256 cellar: :any, arm64_big_sur: "aba8e77b6144ab02730670f94205ea2de3efd4581b6e1f167ae1ae48bd5405ae"
+    sha256 cellar: :any, big_sur:       "0c63ce1c5ea37d98b1cd64411e5c6d9e445330c44ab6cb864bd1995b1d5fb91f"
+    sha256 cellar: :any, catalina:      "107f893606aa135531ca17cbb0328f1e664040d36c5373e83a856ba525ba3647"
   end
 
   depends_on "lmdb"
+  depends_on macos: :catalina
   depends_on "mcpp"
 
   def install
@@ -32,6 +32,7 @@ class Ice < Formula
       "SKIP=slice2confluence",
       "LANGUAGES=cpp objective-c",
     ]
+    inreplace "cpp/include/Ice/Object.h", /^#.+"-Wdeprecated-copy-dtor"+/, "" # fails with Xcode < 12.5
     system "make", "install", *args
 
     (libexec/"bin").mkpath

@@ -4,13 +4,15 @@ class Uriparser < Formula
   url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.5/uriparser-0.9.5.tar.bz2"
   sha256 "dd8061eba7f2e66c151722e6db0b27c972baa6215cf16f135dbe0f0a4bc6606c"
   license "BSD-3-Clause"
-  head "https://github.com/uriparser/uriparser.git"
+  head "https://github.com/uriparser/uriparser.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "a232c7c90f40e4d6bfe8b3c40a95ae3e1a94d6708aa760069e4b1342e2a381ea"
-    sha256 big_sur:       "767b99054e0df214d405118c1e89f8389160796417dfb4e8c90ea0201bb8c05a"
-    sha256 catalina:      "cbe548d6a30819a907fc66b3de6ef90e8329e6c7a000a72bf392c7ca127817f8"
-    sha256 mojave:        "9a8730ce5324d0e846cb7176b04856efadf5ba490638834a9a46502fc0dba715"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "3506704f47f1a78c9bb09c8b95fb5a0d3a99f6d0b55d8d9537ed1d3ce1d2dd0a"
+    sha256 cellar: :any,                 big_sur:       "850d83c937b7bef0e5008f58ecee310a788cd0e3a450e8d2f86eae406c2c82d4"
+    sha256 cellar: :any,                 catalina:      "aa27111b6106992b4324389e45bef8fc4da6bcba0ceaa94d867eeb320680e71c"
+    sha256 cellar: :any,                 mojave:        "b5c0c029eaf64eb39cd4b67be8fff8fff2ccb4dac09cda0bf42bbabd0ab39b3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1574e225d8e1ba59d30cbd072b8ea37f472e9bb60dc11e679dde6df2b7617c0c"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +22,7 @@ class Uriparser < Formula
   def install
     system "cmake", ".", "-DURIPARSER_BUILD_TESTS=OFF",
                          "-DURIPARSER_BUILD_DOCS=OFF",
-                         "-DCMAKE_INSTALL_RPATH=#{opt_lib}",
+                         "-DCMAKE_INSTALL_RPATH=#{rpath}",
                          *std_cmake_args
     system "make"
     system "make", "install"

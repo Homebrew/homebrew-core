@@ -1,18 +1,19 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-4.0.0/apache-arrow-4.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-4.0.0/apache-arrow-4.0.0.tar.gz"
-  sha256 "4a31d0bf702e953bdbcda67af10762a33308281bd247fcbd152ee177419649ae"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-5.0.0/apache-arrow-5.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-5.0.0/apache-arrow-5.0.0.tar.gz"
+  sha256 "c3b4313eca594c20f761a836719721aaf0760001af896baec3ab64420ff9910a"
   license "Apache-2.0"
-  revision 3
-  head "https://github.com/apache/arrow.git"
+  revision 1
+  head "https://github.com/apache/arrow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8dcc901158feff3b8acb26796ab6994a021cd503bf25010c48fed98f8f3015cc"
-    sha256 cellar: :any, big_sur:       "2f0a40cf758996e7cbe98f1568cd2efd4cb1c3682bd1750bd1e059aaba5f1054"
-    sha256 cellar: :any, catalina:      "647da248095ab2435f091b2a47c6fe60216065164f62da2ff0df402348a300b6"
-    sha256 cellar: :any, mojave:        "0c71ad2379d5db11edc0cf43949cf2b6325bdf4269b08b7defe9689119836f15"
+    sha256 cellar: :any,                 arm64_big_sur: "2fde45fd60e6e8ded9d49800c6c610504e8e79489ba1b458457593754e2cf951"
+    sha256 cellar: :any,                 big_sur:       "e0f9feb7dbe72ef09b646d4ca4a3ce75b8dcea072d4a2c1e13f8df85025ea205"
+    sha256 cellar: :any,                 catalina:      "a7e51898ea6da7655f11738ebbc98e45624b404981b0ee09266961e4a090a33c"
+    sha256 cellar: :any,                 mojave:        "4acd758fc7a032303ca2c8caff65d0ae2e195eccb6916b92912cfd6513edfc72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2257a9769d20f73b264def012c8db137cc32e5a0602ec25237bcda42e0671ec"
   end
 
   depends_on "boost" => :build
@@ -30,9 +31,13 @@ class ApacheArrow < Formula
   depends_on "re2"
   depends_on "snappy"
   depends_on "thrift"
+  depends_on "utf8proc"
   depends_on "zstd"
 
   def install
+    # https://github.com/Homebrew/homebrew-core/issues/76537
+    ENV.runtime_cpu_detection if Hardware::CPU.intel?
+
     # link against system libc++ instead of llvm provided libc++
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     args = %W[
@@ -51,6 +56,7 @@ class ApacheArrow < Formula
       -DARROW_WITH_LZ4=ON
       -DARROW_WITH_SNAPPY=ON
       -DARROW_WITH_BROTLI=ON
+      -DARROW_WITH_UTF8PROC=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].bin/"python3"}
     ]

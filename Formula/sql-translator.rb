@@ -15,6 +15,7 @@ class SqlTranslator < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "3d141958909ac51a8ba45a075db30100a447230d2a6e1bf08e44a8a677425afd"
     sha256 cellar: :any_skip_relocation, mojave:        "9293157476e7ed616067b1c378c811c9e05c5ec17d9c0ad14d1d785428945d80"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d9247d5d149363071ceecea045453779ebb5c0df249e0ef3b679b6c684acb453"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "950bde11b0c016ec277dab61ce3aea1f61aba2e7a069da3abce3ba3ba733bf08"
   end
 
   uses_from_macos "perl"

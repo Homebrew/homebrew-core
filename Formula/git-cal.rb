@@ -17,6 +17,7 @@ class GitCal < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "1d191bdf9da21ef2dbe3eeb3909fbf738df652931b5ee9876b9868b429644899"
     sha256 cellar: :any_skip_relocation, catalina:      "ee5e258bbc598978be1d2e3e3220c28b7ef1ff4d7e5a34bdcc852107f68b5f67"
     sha256 cellar: :any_skip_relocation, mojave:        "80bbebc06dc4f05e6aa34324276650f303a714efe857e72f67861d7cf9194451"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62d35c98bb021280c82914245ee51078760261e8ae8e877df3ddb7bfe8726231"
   end
 
   def install

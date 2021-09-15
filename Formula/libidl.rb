@@ -6,12 +6,13 @@ class Libidl < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8b4d33f25fe4a01c6924b42d64072cbf42ca133552e67d47c46412ca2e848867"
-    sha256 cellar: :any, big_sur:       "320ddc04b68934e51f31fc33223c11097d712869a83242ca6669d05ca112ede9"
-    sha256 cellar: :any, catalina:      "fc384a7b4357147c85196b681bd1a96a70e2a7e194c38b6e8afbef5bafc21efb"
-    sha256 cellar: :any, mojave:        "6221a3b0ea37b55c26bc1f83c84ce3e027a8925b92d63055a51fe3a7d6bdff19"
-    sha256 cellar: :any, high_sierra:   "9b07bec68567266f1bc065b05afdb9b034c0c70548145d7cdd963b5958c8da30"
-    sha256 cellar: :any, sierra:        "ecabcc1a9cd229a135557f0f8bc32a38d03d399ff6816b0fc897cc4bcf72cd1c"
+    sha256 cellar: :any,                 arm64_big_sur: "8b4d33f25fe4a01c6924b42d64072cbf42ca133552e67d47c46412ca2e848867"
+    sha256 cellar: :any,                 big_sur:       "320ddc04b68934e51f31fc33223c11097d712869a83242ca6669d05ca112ede9"
+    sha256 cellar: :any,                 catalina:      "fc384a7b4357147c85196b681bd1a96a70e2a7e194c38b6e8afbef5bafc21efb"
+    sha256 cellar: :any,                 mojave:        "6221a3b0ea37b55c26bc1f83c84ce3e027a8925b92d63055a51fe3a7d6bdff19"
+    sha256 cellar: :any,                 high_sierra:   "9b07bec68567266f1bc065b05afdb9b034c0c70548145d7cdd963b5958c8da30"
+    sha256 cellar: :any,                 sierra:        "ecabcc1a9cd229a135557f0f8bc32a38d03d399ff6816b0fc897cc4bcf72cd1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ede5070565f89d3e7f24f01d9da73d50b6c008fbf12f7247d3cd04b8076d842"
   end
 
   depends_on "pkg-config" => :build

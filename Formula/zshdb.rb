@@ -20,6 +20,7 @@ class Zshdb < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704"
     sha256 cellar: :any_skip_relocation, mojave:        "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704"
     sha256 cellar: :any_skip_relocation, high_sierra:   "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0095aa6ebce686ac4a2208a3e0dfdabd31d05d191e19dd81270621743d5e63c0"
   end
 
   head do

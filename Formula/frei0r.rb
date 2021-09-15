@@ -16,6 +16,7 @@ class Frei0r < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "5076041b5f3d76b94866ab2b97ad34523ee40cfa314e6f7d2bf460ce304de872"
     sha256 cellar: :any_skip_relocation, mojave:        "5e23b93a7ff4a2ee64c5a969b17bf6a52329e6da17c0612b46aa2ceec3fb5b39"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a6a4648e1ff6263616f532a4648e1eb56e68d510d04e768becb2caf5ca961e3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd92d047a4e4cf723f8b22eb120622bd026d7c016316b7dd15c61f787ca93924"
   end
 
   depends_on "cmake" => :build

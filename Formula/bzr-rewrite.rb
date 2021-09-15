@@ -4,7 +4,9 @@ class BzrRewrite < Formula
   url "https://launchpad.net/bzr-rewrite/trunk/0.6.3/+download/bzr-rewrite-0.6.3.tar.gz"
   sha256 "f4d0032a41a549a0bc3ac4248cd4599da859174ea33e56befcb095dd2c930794"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "766e43ea10eb6eae8ed9f177faa70b7e8f26be6d79367a060775da9e247b6d4c"
+  end
 
   depends_on "bazaar"
 

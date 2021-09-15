@@ -2,9 +2,10 @@ class PipCompletion < Formula
   desc "Bash completion for Pip"
   homepage "https://github.com/ekalinin/pip-bash-completion"
   url "https://github.com/ekalinin/pip-bash-completion.git",
-      revision: "f5a7216a5620c3da5ae1d4a2c6ce9b64009b31c2"
-  version "20190723"
-  head "https://github.com/ekalinin/pip-bash-completion.git"
+      revision: "321d8bd2c56bb1565ac20210367bd272a111a1aa"
+  version "20200731"
+  license "MIT"
+  head "https://github.com/ekalinin/pip-bash-completion.git", branch: "master"
 
   # There currently aren't any versions of pip-completion and the formula
   # simply uses a revision from the upstream GitHub repo. The YYYYMMDD version
@@ -15,7 +16,7 @@ class PipCompletion < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bc7e30fce37b2a96d9b4b5eaaa5d0c2749c9df9c0e8d98febdffad37049764c4"
+    sha256 cellar: :any_skip_relocation, all: "51b5af04de256b9399c94fc7665f601b9636ea48257936afd7f4517fb5cc4414"
   end
 
   def install

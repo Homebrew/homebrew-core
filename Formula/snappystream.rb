@@ -4,7 +4,7 @@ class Snappystream < Formula
   url "https://github.com/hoxnox/snappystream/archive/1.0.0.tar.gz"
   sha256 "a50a1765eac1999bf42d0afd46d8704e8c4040b6e6c05dcfdffae6dcd5c6c6b8"
   license "Apache-2.0"
-  head "https://github.com/hoxnox/snappystream.git"
+  head "https://github.com/hoxnox/snappystream.git", branch: "master"
 
   bottle do
     rebuild 1

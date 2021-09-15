@@ -4,13 +4,26 @@ class LuajitOpenresty < Formula
   url "https://github.com/openresty/luajit2/archive/refs/tags/v2.1-20210510.tar.gz"
   sha256 "1ee6dad809a5bb22efb45e6dac767f7ce544ad652d353a93d7f26b605f69fe3f"
   license "MIT"
+  version_scheme 1
   head "https://github.com/openresty/luajit2.git", branch: "v2.1-agentzh"
 
+  # The latest LuaJIT release is unstable (2.1.0-beta3, from 2017-05-01) and
+  # OpenResty is making releases using the latest LuaJIT Git commits. With this
+  # in mind, the regex below is very permissive and will match any tags
+  # starting with a numeric version, ensuring that we match unstable versions.
+  # We should consider restricting the regex to stable versions if it ever
+  # becomes feasible in the future.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:[.-]\d+)+[^{}]*)/i)
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1206d1abe22d5ce6c2be8899c5829172f25264ea2b888926116c0b5aa21eedbd"
-    sha256 cellar: :any, big_sur:       "c4058bf652e63d1fa42b1453a7f1f100f1c8702c874d778693318d2e903ce465"
-    sha256 cellar: :any, catalina:      "31b27b774a37110992c1f4430f2a5b5059dca29dd05e744654a16ae06adee76d"
-    sha256 cellar: :any, mojave:        "c9ab34e0917b1574651b031fc1d4488e91777e77ae9661d9afe30c0444996a5e"
+    sha256 cellar: :any,                 arm64_big_sur: "96e3a886e94e5db4b61c56abb5901143e33e532b4f12cd8da1a0afd92ec56fa1"
+    sha256 cellar: :any,                 big_sur:       "e25634b88ac6fac6a0b9b10d0ba3f3b44d2becdef2459e95bfab7c4367035e9f"
+    sha256 cellar: :any,                 catalina:      "6d969910e7805c1e4655a43321370e68f150efbb0825b12add00ecacdea75513"
+    sha256 cellar: :any,                 mojave:        "c80ab72984ae032b2a04cd4ac8d4c759ca3fe8a0a33f6b0252b2556cf4a3cc79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8be8074cdf1059884413badca8589ed6581828e6cae3fa94e59404c1a63bea2"
   end
 
   keg_only "it conflicts with the LuaJIT formula"

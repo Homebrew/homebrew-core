@@ -15,6 +15,7 @@ class DockerMachineDriverVultr < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "62f227cf1a4c854fc311024d892a40e71a061576a051818126a469f2213400ca"
     sha256 cellar: :any_skip_relocation, sierra:        "7af4e94255b4b0ffe451c7f73355adee8ca6fcc4e8a38ba7157acee1a3ba1409"
     sha256 cellar: :any_skip_relocation, el_capitan:    "50ae18bed6b26893049da20e16dbbcaaabbde2078df7fd6c9be6ce2e42f4f77a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60610ec215e212a442adf660b34f651db0c97a75cfe7ca908e00c8d450ccd8f4"
   end
 
   depends_on "go" => :build

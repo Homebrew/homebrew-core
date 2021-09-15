@@ -12,6 +12,7 @@ class GitNumber < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "d71548120a8d5d9db4b9b9ae71be947303c6a415e35380d0d8e36551765b827f"
     sha256 cellar: :any_skip_relocation, sierra:        "d71548120a8d5d9db4b9b9ae71be947303c6a415e35380d0d8e36551765b827f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d71548120a8d5d9db4b9b9ae71be947303c6a415e35380d0d8e36551765b827f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8bca68db296e388c3290a4c805720e710e74b38482db38cebc1d3c78c96b924"
   end
 
   def install

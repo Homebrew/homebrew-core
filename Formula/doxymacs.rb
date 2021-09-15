@@ -14,10 +14,12 @@ class Doxymacs < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2fd3dc59a8c0c8fdccf8195265d320aaa7b5d67e9a81b5a085f27cc287e7370e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "fb892db831aed57dbdcb2d3a81d78bd05c5b689376d4b7f14bffc56826205ce9"
     sha256 cellar: :any_skip_relocation, yosemite:      "09eb19921c2ecce5bb02b185c1040caef07d18706866006bdd5fa428bf6b8560"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00c2ebbdf243dded3a23783b3a22ee3705a53dd0ba50c292dcb190bb5bcebc9a"
   end
 
   head do
-    url "https://git.code.sf.net/p/doxymacs/code.git"
+    url "https://git.code.sf.net/p/doxymacs/code.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

@@ -9,7 +9,9 @@ class PutmailQueue < Formula
     regex(%r{url=.*?/putmail-queue[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "6fc472e77db929384f6f9e436b6a3433df05d86cc583e499f92bd69373d332c3"
+  end
 
   depends_on "putmail"
 

@@ -7,9 +7,11 @@ class Gofabric8 < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:  "4d4236c764b54c4699ceaf07831bb6fcd5709e99b343c8a2b5288ff3faa40f94"
-    sha256 cellar: :any_skip_relocation, catalina: "6400faecf5cfe3dfa54a04839869d327cc3f71d586aa5740d9f63e1e1f13c5f4"
-    sha256 cellar: :any_skip_relocation, mojave:   "6fefb818e47769d4c0811db307d5000aa7d3d48bcdae42e24b0a27272e01641f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "33dd12b78757e29d078afe1fbb57fc4530c71f804f88c96ec48452f8b2053ad2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4d4236c764b54c4699ceaf07831bb6fcd5709e99b343c8a2b5288ff3faa40f94"
+    sha256 cellar: :any_skip_relocation, catalina:      "6400faecf5cfe3dfa54a04839869d327cc3f71d586aa5740d9f63e1e1f13c5f4"
+    sha256 cellar: :any_skip_relocation, mojave:        "6fefb818e47769d4c0811db307d5000aa7d3d48bcdae42e24b0a27272e01641f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1bfb6f211dbd423cf15ea057c94f42afab57ec7b955b33057086dbc84b2c1f9"
   end
 
   deprecate! date: "2020-11-27", because: :repo_archived
@@ -18,6 +20,7 @@ class Gofabric8 < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     dir = buildpath/"src/github.com/fabric8io/gofabric8"
     dir.install buildpath.children
 

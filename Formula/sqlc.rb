@@ -1,16 +1,17 @@
 class Sqlc < Formula
   desc "Generate type safe Go from SQL"
   homepage "https://sqlc.dev/"
-  url "https://github.com/kyleconroy/sqlc/archive/v1.8.0.tar.gz"
-  sha256 "6374c213c0edce9a4f852ce6ef737784d1623189b724160e0429d84519f7744f"
+  url "https://github.com/kyleconroy/sqlc/archive/v1.10.0.tar.gz"
+  sha256 "04a52021bc11bc0c8a6f600e2c2c49c644e0f8ea2a77d9bf7f5c4339f9e717cb"
   license "MIT"
-  head "https://github.com/kyleconroy/sqlc.git"
+  head "https://github.com/kyleconroy/sqlc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3fb59db86e0b0d220bdb41fffe9682f46c4660190b9281d172629dd4e491c1c8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "954bd99e88d993edcb1ad0d17c6219068d8f67cc1c83ec14109c5c38ce1597ca"
-    sha256 cellar: :any_skip_relocation, catalina:      "6f3a224a2f222f69cc184770657b27e8690fb326818078e723ff08fadd27e695"
-    sha256 cellar: :any_skip_relocation, mojave:        "a207d10bd585d8a3362e9e823127836a4358ad0b861ab091913288b65b7a8b76"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3cb9142b29b5be3a4a051918c0f7105a54777ba34aab756e3ec30c32d4e54936"
+    sha256 cellar: :any_skip_relocation, big_sur:       "57822dbcd38cd5835b0e8d5ae8bed2ed010e925563b47cd0b406cc64f4055ef6"
+    sha256 cellar: :any_skip_relocation, catalina:      "7359588cc4700484e7a12867f93a289424100114d9d8af037f36d1a3231091ba"
+    sha256 cellar: :any_skip_relocation, mojave:        "4093ef305a8d00ad0acf13a87cd31340f17219560c58ac98b1d4ad2213e8fc89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0449046713f387fa8023eea6cb4e1a4d574e0897d15a28b27a4a3e3165112c89"
   end
 
   depends_on "go" => :build

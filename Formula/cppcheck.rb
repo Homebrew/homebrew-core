@@ -1,21 +1,24 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/2.4.1.tar.gz"
-  sha256 "11a9d9fe5305a105561655c45d2cd83cb30fbc87b41d0569de1b00a1a314867f"
+  url "https://github.com/danmar/cppcheck/archive/2.5.tar.gz"
+  sha256 "dc27154d799935c96903dcc46653c526c6f4148a6912b77d3a50cb35dabd82e1"
   license "GPL-3.0-or-later"
-  head "https://github.com/danmar/cppcheck.git"
+  revision 1
+  head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   bottle do
-    sha256 arm64_big_sur: "48768ad6f9d3eea1736bf2c91071d2c85883bf5485e0ceaf1cdf2d6f80c85743"
-    sha256 big_sur:       "4aa26128b5b22730d005a2c1faed82d2e5ff5072331765915f812bd6279e7077"
-    sha256 catalina:      "7522e2ef04467bbd45f23d50242b35bdac552c6f5bcdef795ae52f1122d83fad"
-    sha256 mojave:        "8bc9e90fb422973484d1df7338b0b4ecd3d4a4839d57c688079d597620dd8332"
+    sha256 arm64_big_sur: "7a9b2837b94a6ac5517dd8b4b204b940fff42e5b7d98fcfa3fe2f7ea5d3a7d45"
+    sha256 big_sur:       "292c9fa7b2a96ddce21cc2e2ba8ceebb26ccfaa8de3ca990575e82ed26a5e41b"
+    sha256 catalina:      "d0658603bf50226b7eeac77ea3f80f05ea0d49ac2003a92041d97f40e240a5d4"
+    sha256 mojave:        "3c7dd16e8e8924235ccecaf18f524b655c114058e9042322da4d9949ebb169b3"
+    sha256 x86_64_linux:  "b3c1b68736a1dfb24bcbe5cfbd5fb438a942f8f195967f78b912831d1706dc5c"
   end
 
   depends_on "cmake" => :build
   depends_on "python@3.9" => [:build, :test]
   depends_on "pcre"
+  depends_on "tinyxml2"
 
   uses_from_macos "libxml2"
 
@@ -23,6 +26,8 @@ class Cppcheck < Formula
     args = std_cmake_args + %W[
       -DHAVE_RULES=ON
       -DUSE_MATCHCOMPILER=ON
+      -DUSE_BUNDLED_TINYXML2=OFF
+      -DENABLE_OSS_FUZZ=OFF
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
     system "cmake", "-S", ".", "-B", "build", *args

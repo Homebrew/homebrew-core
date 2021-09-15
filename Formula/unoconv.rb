@@ -7,7 +7,7 @@ class Unoconv < Formula
   sha256 "308ebfd98e67d898834876348b27caf41470cd853fbe2681cc7dacd8fd5e6031"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/unoconv/unoconv.git"
+  head "https://github.com/unoconv/unoconv.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -15,6 +15,7 @@ class Unoconv < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "34695d78b10bb265c9164e262dca4d3321c18bf8f9622c59377f3b8f1e7771d0"
     sha256 cellar: :any_skip_relocation, catalina:      "21013d55757dbd1d67143f3a3d44dfad73a948a84bcbc323a9be2770d103702b"
     sha256 cellar: :any_skip_relocation, mojave:        "8f9de5f5019bfae60563a842de0894f8436bc6a988c87ab407eac02eee99188d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ece3a0399c4f7ea93b1d04e9cb01915b615f680116ab372bc33a27c20d0346a"
   end
 
   depends_on "python@3.9"

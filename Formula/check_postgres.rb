@@ -5,7 +5,7 @@ class CheckPostgres < Formula
   sha256 "11b52f86c44d6cc26e9a4129e67c2589071dbe1b8ac1f8895761517491c6e44b"
   license "BSD-2-Clause"
   revision 1
-  head "https://github.com/bucardo/check_postgres.git"
+  head "https://github.com/bucardo/check_postgres.git", branch: "master"
 
   livecheck do
     url "https://bucardo.org/check_postgres/"
@@ -17,6 +17,7 @@ class CheckPostgres < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4d3fab04056d9f73cbbf1687301e43993c696637d86146d4124b74a0222d321f"
     sha256 cellar: :any_skip_relocation, catalina:      "6a52850ba011c00b1daf005009ef0143d02d397cd2b212f69ffcc92f9c93e7a5"
     sha256 cellar: :any_skip_relocation, mojave:        "09f45361f23beae689194d98e4a8d4788e38d8a57f8be94c6fb5bcc5a7dd8950"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8213c30652e0d80ba84867c9b8db6924801a43c7b0df1273c20cafbd6ee4160"
   end
 
   depends_on "postgresql"

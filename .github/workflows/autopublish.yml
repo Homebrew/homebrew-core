@@ -6,6 +6,10 @@ on:
     # Once every hour
     - cron: "*/60 * * * *"
 
+concurrency:
+  group: autopublish
+  cancel-in-progress: true
+
 env:
   HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
 
@@ -21,4 +25,4 @@ jobs:
       - name: Run automerge
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-        run: brew pr-automerge --verbose --publish --autosquash
+        run: brew pr-automerge --verbose --publish

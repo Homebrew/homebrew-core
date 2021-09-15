@@ -5,14 +5,16 @@ class PyenvVirtualenv < Formula
   sha256 "27ae3de027a6f6dccdca4085225512e559c6b94b31625bd2b357a18890a1e618"
   license "MIT"
   version_scheme 1
-  head "https://github.com/pyenv/pyenv-virtualenv.git"
+  head "https://github.com/pyenv/pyenv-virtualenv.git", branch: "master"
 
   livecheck do
     url :stable
     strategy :github_latest
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "0e3bfba31c3d4bc538ff156e225ca3dbb1fd15e27cd8fd5885706eb0efdb4405"
+  end
 
   depends_on "pyenv"
 

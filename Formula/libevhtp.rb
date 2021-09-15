@@ -7,12 +7,15 @@ class Libevhtp < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "12b7dadd090f1b53ac313baf685f7bb73640aa6dc8bb34566cddf8ebdaf438f6"
-    sha256 cellar: :any, big_sur:       "388f9d507acbec7351f20395547744657ad1e83c2a82e83ecee8160da9ba6332"
-    sha256 cellar: :any, catalina:      "507466763ef1710ef11b82d02a5229d1445ba6393a553d75926b8fe5d727d871"
-    sha256 cellar: :any, mojave:        "bfd6cffbcad95d0db38d4b699af24dd3aab1a82b0bdfc7ea7136b212cecab37c"
-    sha256 cellar: :any, high_sierra:   "72be53d01a0ab668255e9ab605c4d7b6c16e4ca1a3f68b026c3c9ae1fe77af50"
+    sha256 cellar: :any,                 arm64_big_sur: "12b7dadd090f1b53ac313baf685f7bb73640aa6dc8bb34566cddf8ebdaf438f6"
+    sha256 cellar: :any,                 big_sur:       "388f9d507acbec7351f20395547744657ad1e83c2a82e83ecee8160da9ba6332"
+    sha256 cellar: :any,                 catalina:      "507466763ef1710ef11b82d02a5229d1445ba6393a553d75926b8fe5d727d871"
+    sha256 cellar: :any,                 mojave:        "bfd6cffbcad95d0db38d4b699af24dd3aab1a82b0bdfc7ea7136b212cecab37c"
+    sha256 cellar: :any,                 high_sierra:   "72be53d01a0ab668255e9ab605c4d7b6c16e4ca1a3f68b026c3c9ae1fe77af50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "944924e814dc284b4f34bd754190c976c55b9ec6cf8e614ae0950b45655ff86b"
   end
+
+  deprecate! date: "2021-07-13", because: :repo_removed
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build

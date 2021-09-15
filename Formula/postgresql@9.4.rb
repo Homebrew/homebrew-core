@@ -6,10 +6,11 @@ class PostgresqlAT94 < Formula
   license "PostgreSQL"
 
   bottle do
-    rebuild 3
-    sha256 catalina:    "15217a46087cd4bef0227f5ca941ed843a4e024aafa4e7c7a3ebf746ca8a1344"
-    sha256 mojave:      "4d24193f0f0931c246a86407d3d8208a48b514b8969dc4567b7d62de2becc3ec"
-    sha256 high_sierra: "2e09355d0bf2f70b5ea9c202f15aadee823902caad5cf35b64c882e4b969e70f"
+    rebuild 4
+    sha256 big_sur:      "0331cf3d1dcb6311ad144916317c520c0a442832d038c6d11da6f42c670e263f"
+    sha256 catalina:     "a72c3df7772799a0870db56245b192b655c7691984224f6eb0b9a3f839edb8a3"
+    sha256 mojave:       "64558f09195403c05cea3f52cb7c7162a61a0a01e24a40aaf297021fadf11fc9"
+    sha256 x86_64_linux: "fddd8da997370fa7185ce58a2cb5a2f3a95d4d24d9e20eae8dd368004682d1f9"
   end
 
   keg_only :versioned_formula
@@ -29,6 +30,13 @@ class PostgresqlAT94 < Formula
   on_linux do
     depends_on "linux-pam"
     depends_on "util-linux"
+
+    # configure patch to deal with OpenLDAP 2.5
+    depends_on "autoconf@2.69" => :build
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/10fe8d35eb7323bb882c909a0ec065ae01401626/postgresql/openldap-2.5.patch"
+      sha256 "7b1e1a88752482c59f6971dfd17a2144ed60e6ecace8538200377ee9b1b7938c"
+    end
   end
 
   def install
@@ -46,7 +54,6 @@ class PostgresqlAT94 < Formula
       --datadir=#{pkgshare}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
       --with-gssapi
       --with-ldap
       --with-openssl
@@ -57,14 +64,58 @@ class PostgresqlAT94 < Formula
       --with-uuid=e2fs
     ]
 
-    # The CLT is required to build tcl support on 10.7 and 10.8 because tclConfig.sh is not part of the SDK
-    args << "--with-tcl"
-    if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-      args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
+    if OS.mac?
+      args += %w[
+        --with-bonjour
+        --with-tcl
+      ]
+
+      # The CLT is required to build tcl support on 10.7 and 10.8 because tclConfig.sh is not part of the SDK
+      if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
+        args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
+      end
+
+      # configure issue with CLT 12+
+      if DevelopmentTools.clang_build_version >= 1200
+        inreplace "configure",
+                  "exit(! does_int64_work())",
+                  "return(! does_int64_work())"
+      end
+    else
+      # rebuild `configure` after patching
+      # (remove if patch block not needed)
+      system "autoreconf", "-ivf"
     end
 
     system "./configure", *args
-    system "make", "install-world"
+    system "make"
+
+    dirs = %W[datadir=#{pkgshare} libdir=#{lib} pkglibdir=#{lib}]
+
+    # Temporarily disable building/installing the documentation.
+    # Postgresql seems to "know" the build system has been altered and
+    # tries to regenerate the documentation when using `install-world`.
+    # This results in the build failing:
+    #  `ERROR: `osx' is missing on your system.`
+    # Attempting to fix that by adding a dependency on `open-sp` doesn't
+    # work and the build errors out on generating the documentation, so
+    # for now let's simply omit it so we can package Postgresql for Mojave.
+    if OS.mac?
+      if DevelopmentTools.clang_build_version >= 1000
+        system "make", "all"
+        system "make", "-C", "contrib", "install", "all", *dirs
+        system "make", "install", "all", *dirs
+      else
+        system "make", "install-world", *dirs
+      end
+    else
+      system "make", "all"
+      system "make", "-C", "contrib", "install", "all", *dirs
+      system "make", "install", "all", *dirs
+      inreplace lib/"pgxs/src/Makefile.global",
+                "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
+                "LD = #{HOMEBREW_PREFIX}/bin/ld"
+    end
   end
 
   def post_install
@@ -108,32 +159,18 @@ class PostgresqlAT94 < Formula
     EOS
   end
 
-  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
+  service do
+    run [opt_bin/"postgres", "-D", var/"postgresql@9.4"]
+    working_dir HOMEBREW_PREFIX
+    keep_alive true
+    run_type :immediate
+    error_log_path var/"log/postgresql@9.4.log"
+  end
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/postgres</string>
-          <string>-D</string>
-          <string>#{postgresql_datadir}</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardErrorPath</key>
-        <string>#{postgresql_log_path}</string>
-      </dict>
-      </plist>
-    EOS
+  test do
+    system "#{bin}/initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
+    assert_equal pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
+    assert_equal lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
+    assert_equal lib.to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp
   end
 end

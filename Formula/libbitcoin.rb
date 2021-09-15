@@ -4,13 +4,14 @@ class Libbitcoin < Formula
   url "https://github.com/libbitcoin/libbitcoin-system/archive/v3.6.0.tar.gz"
   sha256 "5bcc4c31b53acbc9c0d151ace95d684909db4bf946f8d724f76c711934c6775c"
   license "AGPL-3.0"
-  revision 6
+  revision 7
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ffa7dcb602fe16966e0a6b0814cbe7640a851aa783b0c34a8f0fc596fb654d66"
-    sha256 cellar: :any, big_sur:       "e082921a7292db532b49c3fe2ff70df87c90f7ac2e9b5e51fe3b4bb0c7461c19"
-    sha256 cellar: :any, catalina:      "98865b9471e441a3d3ee30c38c568b546bf338700953ab9a784daed2775ea7d7"
-    sha256 cellar: :any, mojave:        "d0a5c4652789897e610767855d1bb27923df8735084f1dd7820a0e6c435737c7"
+    sha256 cellar: :any,                 arm64_big_sur: "2599894cb2129c474077e7a76a0abf45a9eb328f6dbf8da16946c19781d1ee6b"
+    sha256 cellar: :any,                 big_sur:       "1244b027fc18f6dba8a0126a578165a09b1c01b1ebf87cba093f7a90b5083505"
+    sha256 cellar: :any,                 catalina:      "3229377e4e17745fff4d608d41397c786f6772574bc4957f999cb3bf693e4d4b"
+    sha256 cellar: :any,                 mojave:        "c17b574fa866c922c770dd70c9e08f5d55f2e24d5fabe5c366ffcf68f9bea946"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9584040cd459dca7dc4e830b4f2b854f9e881dc57d5d8cba2da6df1c51a63dbe"
   end
 
   depends_on "autoconf" => :build
@@ -27,6 +28,7 @@ class Libbitcoin < Formula
   end
 
   def install
+    ENV.cxx11
     resource("secp256k1").stage do
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
@@ -50,6 +52,7 @@ class Libbitcoin < Formula
   end
 
   test do
+    boost = Formula["boost"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/bitcoin.hpp>
       int main() {
@@ -63,7 +66,7 @@ class Libbitcoin < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lbitcoin",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_system",
+                    "-L#{boost.opt_lib}", "-lboost_system",
                     "-o", "test"
     system "./test"
   end

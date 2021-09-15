@@ -5,6 +5,11 @@ class MecabUnidic < Formula
   url "https://dotsrc.dl.osdn.net/osdn/unidic/58338/unidic-mecab-2.1.2_src.zip"
   sha256 "6cce98269214ce7de6159f61a25ffc5b436375c098cc86d6aa98c0605cbf90d4"
 
+  livecheck do
+    url "https://osdn.net/projects/unidic/releases/"
+    regex(%r{value=.*?/rel/unidic/unidic-mecab/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e2268e16ea3e293eface41c4f3693340dd784c15963ddc3693f3d48586e323d3"
@@ -15,6 +20,7 @@ class MecabUnidic < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "083c740c7c309410266eb793755477b6d37da6f6c85dddbb62e31b27dcbae135"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9ece990d89f8949c82003296bd256ebafddaf5d9caf03a63ea692f2009d52783"
     sha256 cellar: :any_skip_relocation, yosemite:      "f81fd4ff64eb6b7731fd4b818b17398b1eaea3d12d533a7340b9b12aa2331c0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "879c531b56d96abefea1809837e3309816fd442381766dea3675424ba7c6772e"
   end
 
   depends_on "mecab"

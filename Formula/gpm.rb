@@ -15,6 +15,7 @@ class Gpm < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "816976b12502697adb886dfbee31bbc2cfcbe2cff1302927f8da6cef4e4b08cf"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ba26a6b34e92b4333d636ae3d9e54d726f6bd3bbabdabbfbdd9c3fec569e10fe"
     sha256 cellar: :any_skip_relocation, yosemite:      "0ed200c92c086eebf306065403c6a18db6e55e6d2764904cbd53f442f3043179"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02b1f03f80d4477e80aaa5b1cc62e9a4be9288f4d4116a23c386bb9b6fcd3906"
   end
 
   depends_on "go"

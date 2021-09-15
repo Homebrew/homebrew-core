@@ -13,6 +13,7 @@ class Yasm < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "9aa61930f25fe305dc5364e72f539b0a225702b5f1dc222a9dde1216e901f7ab"
     sha256 cellar: :any_skip_relocation, mojave:        "0dc797b72ee3bad9c6a52276c871ac745207b5626722e805fa642d7a872847fc"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7f31deeff91c5929f2cd52eca6b636669f9c8966f6d4777e89fa4b04e541ad85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6d46adb6213bba936b7d62ef9564f752cc5b4268e19e91f0b67e136408ab30e"
   end
 
   head do
@@ -39,24 +40,57 @@ class Yasm < Formula
   end
 
   test do
-    (testpath/"test.asm").write <<~EOS
-      global start
-      section .text
-      start:
-          mov     rax, 0x2000004 ; write
-          mov     rdi, 1 ; stdout
-          mov     rsi, qword msg
-          mov     rdx, msg.len
-          syscall
-          mov     rax, 0x2000001 ; exit
-          mov     rdi, 0
-          syscall
-      section .data
-      msg:    db      "Hello, world!", 10
-      .len:   equ     $ - msg
+    (testpath/"foo.s").write <<~EOS
+      mov eax, 0
+      mov ebx, 0
+      int 0x80
     EOS
-    system "#{bin}/yasm", "-f", "macho64", "test.asm"
-    system "/usr/bin/ld", "-macosx_version_min", "10.8.0", "-static", "-o", "test", "test.o"
-    system "./test"
+    system "#{bin}/yasm", "foo.s"
+    code = File.open("foo", "rb") { |f| f.read.unpack("C*") }
+    expected = [0x66, 0xb8, 0x00, 0x00, 0x00, 0x00, 0x66, 0xbb,
+                0x00, 0x00, 0x00, 0x00, 0xcd, 0x80]
+    assert_equal expected, code
+
+    on_macos do
+      (testpath/"test.asm").write <<~EOS
+        global start
+        section .text
+        start:
+            mov     rax, 0x2000004 ; write
+            mov     rdi, 1 ; stdout
+            mov     rsi, qword msg
+            mov     rdx, msg.len
+            syscall
+            mov     rax, 0x2000001 ; exit
+            mov     rdi, 0
+            syscall
+        section .data
+        msg:    db      "Hello, world!", 10
+        .len:   equ     $ - msg
+      EOS
+      system "#{bin}/yasm", "-f", "macho64", "test.asm"
+      system "/usr/bin/ld", "-macosx_version_min", "10.8.0", "-static", "-o", "test", "test.o"
+    end
+    on_linux do
+      (testpath/"test.asm").write <<~EOS
+        global _start
+        section .text
+        _start:
+            mov     rax, 1
+            mov     rdi, 1
+            mov     rsi, msg
+            mov     rdx, msg.len
+            syscall
+            mov     rax, 60
+            mov     rdi, 0
+            syscall
+        section .data
+        msg:    db      "Hello, world!", 10
+        .len:   equ     $ - msg
+      EOS
+      system "#{bin}/yasm", "-f", "elf64", "test.asm"
+      system "/usr/bin/ld", "-static", "-o", "test", "test.o"
+    end
+    assert_equal "Hello, world!\n", shell_output("./test")
   end
 end

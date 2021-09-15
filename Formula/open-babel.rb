@@ -6,7 +6,7 @@ class OpenBabel < Formula
   sha256 "c97023ac6300d26176c97d4ef39957f06e68848d64f1a04b0b284ccff2744f02"
   license "GPL-2.0"
   revision 1
-  head "https://github.com/openbabel/openbabel.git"
+  head "https://github.com/openbabel/openbabel.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "990abdbe32d92c4d6e7a17f1d5a2c1c4cd979f4daba30a8eba4a9e20a3e0d099"
@@ -14,6 +14,7 @@ class OpenBabel < Formula
     sha256 catalina:      "770cdafc4dfdd0c216ca9308d5b5ae6b9b00be8d30b387dd2e86cbff82db5acd"
     sha256 mojave:        "6c44b3e574a786396b8099192e5154f1d751ee413ec265c99f8046fc5167876a"
     sha256 high_sierra:   "49d5dc2fc8c9a857bf08e6e6711fbaf48d8a0165c328cc400e904aa5a37080a4"
+    sha256 x86_64_linux:  "d71a0afa160bb08ca47f40b3081ee0655b0e4890604fe1a3434a8a13d86273c7"
   end
 
   depends_on "cmake" => :build

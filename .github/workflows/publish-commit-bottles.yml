@@ -11,7 +11,7 @@ on:
         default: ""
 
 env:
-  HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+  HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
 
 jobs:
   upload:

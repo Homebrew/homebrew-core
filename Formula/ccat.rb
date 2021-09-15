@@ -14,6 +14,7 @@ class Ccat < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "aab86cfae41d1f4f9c93ad3a1680f21a5a0e9fad61190101582235174e4e214c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "10eb7df98a05c968f006bbda2c6f690bd7d5053e4bb6d2c9c4a043616648a23b"
     sha256 cellar: :any_skip_relocation, yosemite:      "063b4cab434b5d16e8884aad6eb7d18068c33f9ec884fabf5ada3ad821428897"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "340dbf0c6e8f10d588a4a7c63edc14fe38c64cac809c2107f911d57f59a74f8c"
   end
 
   depends_on "go" => :build

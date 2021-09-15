@@ -4,12 +4,14 @@ class Libmatio < Formula
   url "https://downloads.sourceforge.net/project/matio/matio/1.5.21/matio-1.5.21.tar.gz"
   sha256 "21809177e55839e7c94dada744ee55c1dea7d757ddaab89605776d50122fb065"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fb9d717a8f88e9235218c3976be38b7ed0c5cab0ca43b8e6374355a85af435ba"
-    sha256 cellar: :any, big_sur:       "98a891d294f382a85d61c8d57381e02d1ecb0139af46c08335c8f2eaf5727d7d"
-    sha256 cellar: :any, catalina:      "bcb2ae92ff978e644dcc7c1469d452a5f65a1d1587c9a2f68de4ac88d0d8dbcb"
-    sha256 cellar: :any, mojave:        "a19666b0812ccbe6b83193694677075ec678433af8cd2aa6b8f728c0dab46700"
+    sha256 cellar: :any,                 arm64_big_sur: "b3a64b70d10cdfc86f00a4131724c3924e84d7cdc432eab12952859f368019f6"
+    sha256 cellar: :any,                 big_sur:       "06e8056f9862feace810dd233860e9b77af58e20e3eb916f48525c586e08eb42"
+    sha256 cellar: :any,                 catalina:      "84f08acf62972b2fda425f589809892255c401f268b4fbe9465cfdca1a03a3de"
+    sha256 cellar: :any,                 mojave:        "36629f8d449fa124cf0557deec222bb732c0ded477b5109011448726bd4f51d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5737ad4a0096f6ff36ec2d208baf1678f0c267b88c1d02a006fdf57172f966d"
   end
 
   depends_on "hdf5"

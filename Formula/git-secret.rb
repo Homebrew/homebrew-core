@@ -14,6 +14,7 @@ class GitSecret < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "2bd6c524c359601a854696aa0b7fed558e6c5dc45791feced47f33e06103dafe"
     sha256 cellar: :any_skip_relocation, catalina:      "2bd6c524c359601a854696aa0b7fed558e6c5dc45791feced47f33e06103dafe"
     sha256 cellar: :any_skip_relocation, mojave:        "2bd6c524c359601a854696aa0b7fed558e6c5dc45791feced47f33e06103dafe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28cf4e740681f14e15661f2d954c042cb78ba80e0f36c0eae8c9096915977f7a"
   end
 
   depends_on "gawk"

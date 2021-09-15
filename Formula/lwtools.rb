@@ -15,6 +15,7 @@ class Lwtools < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f8c0301704cd912e73419d49ac9d277b57d46cfa5dc7019c74bf12944a88dc75"
     sha256 cellar: :any_skip_relocation, catalina:      "412734981bb998d93accd7f4401ff21c6f9e2b33028c39c9e80e7651e19bed79"
     sha256 cellar: :any_skip_relocation, mojave:        "3f7c5497c74bb6f616e243d5d8f61d0f7365c6949148f558397d8798dda5bdd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "621fac2dcd0fe3cde337f666e109737aacb9ad3fcd5f5050a4625d311274ed04"
   end
 
   def install

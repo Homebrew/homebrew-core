@@ -11,6 +11,7 @@ class Jimtcl < Formula
     sha256 catalina:      "fc4750e0deaf8025402e6a2ed78bd28bcddb98f39012bf3d0c9c8413480505c7"
     sha256 mojave:        "d9ae5a5d397bf13c6c9c6f355a007454ef05d00e82938d75cdcc549fd7538c0d"
     sha256 high_sierra:   "4ba0d399f6622e3ce37433c43f314a5cb8546d0a08f2700cb45d67a04d6f1706"
+    sha256 x86_64_linux:  "ae69bc936ae765f61e0c14ccde362c95054c57492fc3650536df4b30b8674f5f"
   end
 
   depends_on "openssl@1.1"

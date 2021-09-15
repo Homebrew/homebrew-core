@@ -1,10 +1,10 @@
 class Squashfs < Formula
   desc "Compressed read-only file system for Linux"
   homepage "https://github.com/plougher/squashfs-tools"
-  url "https://github.com/plougher/squashfs-tools/archive/4.4.tar.gz"
-  sha256 "a7fa4845e9908523c38d4acf92f8a41fdfcd19def41bd5090d7ad767a6dc75c3"
+  url "https://github.com/plougher/squashfs-tools/archive/4.5.tar.gz"
+  sha256 "b9e16188e6dc1857fe312633920f7d71cc36b0162eb50f3ecb1f0040f02edddd"
   license "GPL-2.0"
-  head "https://github.com/plougher/squashfs-tools.git"
+  head "https://github.com/plougher/squashfs-tools.git", branch: "master"
 
   # Tags like `4.4-git.1` are not release versions and the regex omits these
   # (see: https://github.com/plougher/squashfs-tools/issues/96).
@@ -14,12 +14,11 @@ class Squashfs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2736438cecb39403db925177d00e14677b7505b608da61ca61c05289b58c6558"
-    sha256 cellar: :any, big_sur:       "4eaaf37caa9e67d1c53458418a0b9bfee298fbc61f1e22df33a99c10ccb1b499"
-    sha256 cellar: :any, catalina:      "e8657da9ab4faa089486fd3af04a3f0b63b13e609cdde57be57d92336592297a"
-    sha256 cellar: :any, mojave:        "f3e200ecf28cf1fec5fb11e1cd210d8e935db314c39bda62095614e08d9e7477"
-    sha256 cellar: :any, high_sierra:   "855306e06f9eeaa7b3cb8960f0c75fe097921a2b99efe8064a6cc97c8b2f579b"
-    sha256 cellar: :any, sierra:        "e318da56d36a0edbf1095a795f4a797d4919f8f859116fc8dc2448088ea0dfe1"
+    sha256 cellar: :any,                 arm64_big_sur: "55318dc9912602fe8452b595071511ebc10aec729429d101c4d87b0f11af23be"
+    sha256 cellar: :any,                 big_sur:       "6367ccf7c5ee95740026bf87f9c47b4cc430d03fe2c0bc4d4db78a029cd799b9"
+    sha256 cellar: :any,                 catalina:      "1821a023342782230162c1fd3b2a1a760952b1a171bd97482b8aaf9d3e2a4e38"
+    sha256 cellar: :any,                 mojave:        "0d78285daf5f932e2c8459242b340fd895a51195c2582c1e6ccc43f3f7f635c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5d319d1cafa8de74886f9e41623bcf1a1cb75307d9d62d143220f386d5b5206"
   end
 
   depends_on "lz4"
@@ -33,8 +32,8 @@ class Squashfs < Formula
   # Also clang fixes, extra endianness knowledge and a bundle of other macOS fixes.
   # Original patchset: https://github.com/plougher/squashfs-tools/pull/69
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/660ae1013be90a7ad70c862be60f9de87bbd25ca/squashfs/4.4.patch"
-    sha256 "eb399705d259346473ebe5d43b886b278abc66d822ee4193b7c65b4a2ca903da"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d75d6958612eb590580872d1878f26af6d2deb83/squashfs/4.5.patch"
+    sha256 "d90f3b167e016f44a87b84c2ccbb9bcfc47d28fc51b630857e7e27bd01b58084"
   end
 
   def install
@@ -57,7 +56,7 @@ class Squashfs < Formula
       bin.install %w[mksquashfs unsquashfs]
     end
 
-    doc.install %w[README-4.4 RELEASE-READMEs USAGE COPYING]
+    doc.install %W[README-#{version.major_minor} RELEASE-READMEs USAGE COPYING]
   end
 
   test do

@@ -4,7 +4,7 @@ class Bluetoothconnector < Formula
   url "https://github.com/lapfelix/BluetoothConnector/archive/2.0.0.tar.gz"
   sha256 "41474f185fd40602fb197e79df5cd4783ff57b92c1dfe2b8e2c4661af038ed9b"
   license "MIT"
-  head "https://github.com/lapfelix/BluetoothConnector.git"
+  head "https://github.com/lapfelix/BluetoothConnector.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b37f1ec5f2a36af25b4156b5d5abe9a43e7e541a6353075798e8daf523312deb"
@@ -14,6 +14,7 @@ class Bluetoothconnector < Formula
   end
 
   depends_on xcode: ["11.0", :build]
+  depends_on :macos
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "--static-swift-stdlib"

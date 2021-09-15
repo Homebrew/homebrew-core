@@ -11,12 +11,13 @@ class GitCrypt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b30c2ac4ab305cc72b8be7253b7bf3dcca3487a579ebf00e21da793d4afc8bd4"
-    sha256 cellar: :any, big_sur:       "7567932a504ce3c08a087f9d3d020f5ca8307f41fe2a16a843e7df862120abc9"
-    sha256 cellar: :any, catalina:      "f38bb645c3eff62cfb43802199370d85e4785fcf10c063e4d7453e032788bcba"
-    sha256 cellar: :any, mojave:        "89d2058a4dd5afc565696707c8e93621fd644f9ab303fe378727ae999783d156"
-    sha256 cellar: :any, high_sierra:   "0d2cf3c93ab2ca4059163f8da8a3ab845b566b13debf5e1b43a734dc86138a18"
-    sha256 cellar: :any, sierra:        "6b2c2773e5c327282d461f5d49600928ae97d432e5f4d8b7acfcaaa6e6d1ef68"
+    sha256 cellar: :any,                 arm64_big_sur: "b30c2ac4ab305cc72b8be7253b7bf3dcca3487a579ebf00e21da793d4afc8bd4"
+    sha256 cellar: :any,                 big_sur:       "7567932a504ce3c08a087f9d3d020f5ca8307f41fe2a16a843e7df862120abc9"
+    sha256 cellar: :any,                 catalina:      "f38bb645c3eff62cfb43802199370d85e4785fcf10c063e4d7453e032788bcba"
+    sha256 cellar: :any,                 mojave:        "89d2058a4dd5afc565696707c8e93621fd644f9ab303fe378727ae999783d156"
+    sha256 cellar: :any,                 high_sierra:   "0d2cf3c93ab2ca4059163f8da8a3ab845b566b13debf5e1b43a734dc86138a18"
+    sha256 cellar: :any,                 sierra:        "6b2c2773e5c327282d461f5d49600928ae97d432e5f4d8b7acfcaaa6e6d1ef68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13febdb36a936377e0ff5f78883dbaba43f70cb9f91ec7fee833d3057f92d85d"
   end
 
   depends_on "openssl@1.1"

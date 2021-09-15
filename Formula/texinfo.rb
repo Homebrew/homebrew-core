@@ -1,17 +1,17 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.xz"
-  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-6.7.tar.xz"
-  sha256 "988403c1542d15ad044600b909997ba3079b10e03224c61188117f3676b02caa"
+  url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.8.tar.xz"
+  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-6.8.tar.xz"
+  sha256 "8eb753ed28bca21f8f56c1a180362aed789229bd62fff58bf8368e9beb59fec4"
   license "GPL-3.0"
 
   bottle do
-    sha256 arm64_big_sur: "8767f78e25929771eeb011b44247b0d864765094e707aeaff9b4783385ba05a8"
-    sha256 big_sur:       "7332c7a1665fc64484fff626116928630d4ee21983f1e221bda360a4d590a396"
-    sha256 catalina:      "0686381d97b0448c10d11eaba59722c029d17c8423c17ad524b76ec086790f44"
-    sha256 mojave:        "419fccc89f850de008e954984c65eea9b7f82940178f7ee439e42c2c892a2e52"
-    sha256 high_sierra:   "a634a1bd15d3d7735e4934fcf26bfa295ce17108912ae7451d2761c6d578de6a"
+    sha256 arm64_big_sur: "d83beb6d79c93216c6f33021cd23aeea041d9691d4d5efc0bf43ab15562a3fed"
+    sha256 big_sur:       "93c4e7f7aa503611ad5907b1c702bb89d7fc9a5cfc0866b78378b7bef7a72480"
+    sha256 catalina:      "8cd8f1a20368b94f4de10dbfc4c39429cc9d1ad7680dcb160635be49afc598af"
+    sha256 mojave:        "9d2c152bff37873f4ac78165161c6f3e338599c3ae55782690f3f9a8a6d8d749"
+    sha256 x86_64_linux:  "9addf0b22ab845a8071f0d3dc742c65de4fde1a06a7f41df5cccb2e1c9f6afe2"
   end
 
   depends_on "gettext" if MacOS.version <= :high_sierra

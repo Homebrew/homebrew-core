@@ -1,10 +1,9 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "http://freeciv.org"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.4/freeciv-2.6.4.tar.bz2"
-  sha256 "40db957766acbd49c5af15afd1711da996b6681be7abee3352c5f2539c10c1ce"
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.5/freeciv-2.6.5.tar.bz2"
+  sha256 "2e64e1c74dae12acb17bbf5daa980efc7e9fd57820afed5135319ca95291ec59"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -12,10 +11,11 @@ class Freeciv < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "46ece65b979e2c82edc4b0a4f2ab74ca181974ac6b9935f0ead45b489f9663cf"
-    sha256 big_sur:       "df2c2a53344210424d78c3e1690c1151317b35a652ea38c061e74beb836729e2"
-    sha256 catalina:      "d844fedced4938a09144ea7ee5ff9f18f389cc48fc6a4faba997dd3d45c854ce"
-    sha256 mojave:        "e2f6896da8457c49e3b00433d05a9dce1eaf41d8c2a3de23b027b0224869db0f"
+    sha256 arm64_big_sur: "dc27602cdb795f299647d4262758409775599ee932606aad9fa34a78a8d102aa"
+    sha256 big_sur:       "fa1955a0573dfabfb99742ca216f2caad95053e5909975990504097063ff239f"
+    sha256 catalina:      "e93e825aebcb5c046e1b8114a366d8010f9e30a35120543327dbb7f14303cd75"
+    sha256 mojave:        "5365cbee42fe93a79db42fe7d1f9690f523090d9b612ef5f508a70ed83063179"
+    sha256 x86_64_linux:  "4da618352125e2a2fbe8a2567ca18e8ac55271a0c2e244a000b7f72867ebb620"
   end
 
   head do
@@ -45,7 +45,6 @@ class Freeciv < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "libiconv"
   uses_from_macos "zlib"
 
   def install

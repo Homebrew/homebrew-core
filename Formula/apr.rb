@@ -8,15 +8,16 @@ class Apr < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d8adb33071a6a845ff928b6166377dea6de5b642b412042002386416354932b9"
-    sha256 cellar: :any, big_sur:       "d9a9554a726ec60e124055a55747e6e7f4cff6310955d6340be340ac053ac097"
-    sha256 cellar: :any, catalina:      "3f5c1fa8f17715291ce9f66cf4eb4f518ac1aa856c485f0157036459ad63792c"
-    sha256 cellar: :any, mojave:        "4627416a5d9c651d2d4fbb7faa639d6f7a89c7c0558576eeac1f17a81a17f3bd"
+    sha256 cellar: :any,                 arm64_big_sur: "d8adb33071a6a845ff928b6166377dea6de5b642b412042002386416354932b9"
+    sha256 cellar: :any,                 big_sur:       "d9a9554a726ec60e124055a55747e6e7f4cff6310955d6340be340ac053ac097"
+    sha256 cellar: :any,                 catalina:      "3f5c1fa8f17715291ce9f66cf4eb4f518ac1aa856c485f0157036459ad63792c"
+    sha256 cellar: :any,                 mojave:        "4627416a5d9c651d2d4fbb7faa639d6f7a89c7c0558576eeac1f17a81a17f3bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc3b583e8e0773016a5749e947939f895043a1155968fdbab795d3fba9fe801c"
   end
 
   keg_only :provided_by_macos, "Apple's CLT provides apr"
 
-  depends_on "autoconf" => :build
+  depends_on "autoconf@2.69" => :build
 
   on_linux do
     depends_on "util-linux"
@@ -57,7 +58,7 @@ class Apr < Formula
     # No need for this to point to the versioned path.
     inreplace bin/"apr-#{version.major}-config", prefix, opt_prefix
 
-    on_linux do
+    if OS.linux?
       # Avoid references to the Homebrew shims directory
       inreplace prefix/"build-#{version.major}/libtool", HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
     end

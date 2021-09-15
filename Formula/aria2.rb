@@ -1,16 +1,16 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
-  url "https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.xz"
-  sha256 "1e2b7fd08d6af228856e51c07173cfcf987528f1ac97e04c5af4a47642617dfd"
+  url "https://github.com/aria2/aria2/releases/download/release-1.36.0/aria2-1.36.0.tar.xz"
+  sha256 "58d1e7608c12404f0229a3d9a4953d0d00c18040504498b483305bcb3de907a5"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3db6c6a53e4bfd72eec10dc53179c424f2e72f1321c3f96b1b1b0e8740790af1"
-    sha256 cellar: :any, big_sur:       "05ea0971d6834d9dc50df6a6ca62978ce0f8bf324758225f9d3df091b60fc875"
-    sha256 cellar: :any, catalina:      "9cc5e04be8b0a58d1f2b60b8abfc636168edbf23e7018003c40f1dd6952aab0c"
-    sha256 cellar: :any, mojave:        "761836ac608eb0a59d4a6f6065860c0e809ce454692e0937d9d0d89ad47f3ce4"
-    sha256 cellar: :any, high_sierra:   "70cc7566a23c283015368f92dfeaa0d119e53cfc7c1b2276a73ff9f6167b529d"
+    sha256 cellar: :any, arm64_big_sur: "22b11ee6f82f8d693fb2f6c0dd90a81174033640974003e63e4e8f98fbd3f145"
+    sha256 cellar: :any, big_sur:       "8960d7b6b56fb29e020fb96da5305c3340d266f3e5e0c552248759e8c6169244"
+    sha256 cellar: :any, catalina:      "1e9db3f9fd405ed7a303b89379c2a8f3f01c5f5aa92cfbc8ae560c4e28618f8e"
+    sha256 cellar: :any, mojave:        "3ecd30ea4573748ec438182dbba6fad002c1465da7ef9f7a32f227fdeddde464"
+    sha256               x86_64_linux:  "c7dacb09aaa9eb22baf6ee6ee198896fb8a851ddf69d7c534c968f1b79edd69d"
   end
 
   depends_on "pkg-config" => :build
@@ -35,11 +35,10 @@ class Aria2 < Formula
       --without-libnettle
       --without-libgcrypt
     ]
-    on_macos do
+    if OS.mac?
       args << "--with-appletls"
       args << "--without-openssl"
-    end
-    on_linux do
+    else
       args << "--without-appletls"
       args << "--with-openssl"
     end

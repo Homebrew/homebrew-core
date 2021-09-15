@@ -11,6 +11,7 @@ class Direnv < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "64680c7245384e3cd59c4e0b9a1f32e5f0a26f5591b77c3736ed9160191571c3"
     sha256 cellar: :any_skip_relocation, catalina:      "c10f6a3b721b2c5c12b8bb3604bba9af3946edcada447327afa074b6c39e6996"
     sha256 cellar: :any_skip_relocation, mojave:        "8f1a615929f583478efb0c6853754dba806f94d95ed67c43f36062d95e50c636"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4825370bfed48a27d68702df57dc7026d72d6329d14cd7f3722f09ad07021a1c"
   end
 
   depends_on "go" => :build

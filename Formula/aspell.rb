@@ -12,6 +12,7 @@ class Aspell < Formula
     sha256 big_sur:       "abf04f9f474e21d070e22667204cd122e7e099e90e60110dc7639fdaa5f5a66f"
     sha256 catalina:      "86b7d31eff12742ccb73464c088c8313998bd4c1e37f108754f936d51b6f49dd"
     sha256 mojave:        "aeded9b9861145353ad13bbf85772f23e556fe6dc0b263beebd555cf19762197"
+    sha256 x86_64_linux:  "5154c4a1e76b1f9ab21325d442cd9eaf80b83314792142ff837f84bcfb8cbb4a"
   end
 
   uses_from_macos "ncurses"

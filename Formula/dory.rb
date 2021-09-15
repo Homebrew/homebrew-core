@@ -10,6 +10,7 @@ class Dory < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0b772ed42dcb84a49c2a223a2fd8a899b942deb457291bef1c281a825fa7069b"
     sha256 cellar: :any_skip_relocation, catalina:      "0b772ed42dcb84a49c2a223a2fd8a899b942deb457291bef1c281a825fa7069b"
     sha256 cellar: :any_skip_relocation, mojave:        "52197dfd1668a9c0c3c2daa1cd7e808d89bbb4ba3f3500746e60b56cbc05058b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "858fd6ba202acedbc27ffea81e407ed0d25e6d77386e2809b412fb776a07e5d9"
   end
 
   depends_on "ruby@2.7"

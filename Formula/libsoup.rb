@@ -1,16 +1,16 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://wiki.gnome.org/Projects/libsoup"
-  url "https://download.gnome.org/sources/libsoup/2.72/libsoup-2.72.0.tar.xz"
-  sha256 "170c3f8446b0f65f8e4b93603349172b1085fb8917c181d10962f02bb85f5387"
+  url "https://download.gnome.org/sources/libsoup/2.74/libsoup-2.74.0.tar.xz"
+  sha256 "33b1d4e0d639456c675c227877e94a8078d731233e2d57689c11abcef7d3c48e"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "4ba31ecd333f8be6a5cb4eed23715fce9b478d79345bf51b88e172a2db0fb496"
-    sha256 big_sur:       "b135c1b3cf8a49f15afdb9d7c354b9175de2561c20a3e4ef8b91a8234f81fbe3"
-    sha256 catalina:      "b7f09cfabd4ef0210d181e54e74f2cff33518df0c81bc9e27764454e54cb6243"
-    sha256 mojave:        "14a5f08043cacb9f68a9f5d48e0175397c81184621fbcbec871aa764241509a6"
-    sha256 high_sierra:   "78a481740fc494934fdbafbd25f8c7141f57cd61d1ff713682fe3a5a4b91b840"
+    sha256 arm64_big_sur: "e7c59cf457c9f3d13dcd9f0d101b82a1fb9b446c31d4b88986822998f97a0c98"
+    sha256 big_sur:       "75b7a97c03c5eb93b5fa612d53189e35bc92d9455fdedf85e885a516c43f932e"
+    sha256 catalina:      "255b10e650d1c4892fb37643efe9e57c578d565a26ca024d14fa773bf067ff1c"
+    sha256 mojave:        "910b60a2602e8aab51bf9162590c6f28c34de1efab02c50549d4c41b0adbc106"
+    sha256 x86_64_linux:  "64e4b60673a0e428c261a715fffd9bfbca1798c3254f31f9ac80e591c2a53f57"
   end
 
   depends_on "gobject-introspection" => :build

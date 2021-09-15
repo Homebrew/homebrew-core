@@ -1,17 +1,17 @@
 class Cfssl < Formula
   desc "CloudFlare's PKI toolkit"
   homepage "https://cfssl.org/"
-  url "https://github.com/cloudflare/cfssl/archive/v1.5.0.tar.gz"
-  sha256 "5267164b18aa99a844e05adceaf4f62d1b96dcd326a9132098d65c515c180a91"
+  url "https://github.com/cloudflare/cfssl/archive/v1.6.1.tar.gz"
+  sha256 "00f5316e8f065a48eeb02b7359aa67699a5c1362b09c6e8faa19d8f35451c1d8"
   license "BSD-2-Clause"
-  revision 1
-  head "https://github.com/cloudflare/cfssl.git"
+  head "https://github.com/cloudflare/cfssl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "871db96ebb99fe15d2fa4879ede55acc81c6412b421969435e298c4b56de6bd7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5461bace7b3ba595fca81cd7d2bacb35fe349e1915d04dcfcb18c47e2e6d7c77"
-    sha256 cellar: :any_skip_relocation, catalina:      "8da797d63b4ee6f985b0bf1e2b4a44a08fcc4d5c1c4266fca178891c40cec83a"
-    sha256 cellar: :any_skip_relocation, mojave:        "9a0553b89f1058f0ede9aef4667fa1527e230a27c0d6e26af01f0b63c9f71409"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4299d4da1a34a95d8e236b78a45a64e0dd93a500f71263473840738012aa7995"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7d7e9bdd3cfa8ea3f7ae66942cbdc6569b2266a0fe915ce4daaf2b7cca4a3adb"
+    sha256 cellar: :any_skip_relocation, catalina:      "a08499a7f125f108ce9f3c6104056683da2dfbd106c6c1c6057cb824082d296a"
+    sha256 cellar: :any_skip_relocation, mojave:        "5d5340fd4e30e7361c57445bf7149a5358aa32a763c0c9319303d93234d47b77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b978de42ac26aa59b08c5c97225da7b62e3ecf6ffe25a2d9f18ac0a1eaabfd43"
   end
 
   depends_on "go" => :build

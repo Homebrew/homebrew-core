@@ -5,7 +5,13 @@ class Ec2ApiTools < Formula
   sha256 "851abe30403ee1c86a3ebdddf5b4bffd7ef4b587110530feadf00954d9ae2f3a"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d0cd307194a156731087035900c915777ac2e6068c879088fe41b754a260766"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b7cf3620699017c6f0b7ba925511319037313fa447361cb04d3add6d15de3c27"
+    sha256 cellar: :any_skip_relocation, catalina:      "b7cf3620699017c6f0b7ba925511319037313fa447361cb04d3add6d15de3c27"
+    sha256 cellar: :any_skip_relocation, mojave:        "b7cf3620699017c6f0b7ba925511319037313fa447361cb04d3add6d15de3c27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d0cd307194a156731087035900c915777ac2e6068c879088fe41b754a260766"
+  end
 
   # Deprecated upstream somewhere between 2017-12-24 and 2018-09-09 here:
   # https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html

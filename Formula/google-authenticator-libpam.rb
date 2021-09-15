@@ -11,6 +11,7 @@ class GoogleAuthenticatorLibpam < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "4ed85644559250923d4b21f5b99643cad08eb8bbb63afc3827d7ac225b4581d7"
     sha256 cellar: :any_skip_relocation, mojave:        "d62c1f21ec88406788b314bd7a06c0e37e7ab9dad4237f6832441f235723d3cb"
     sha256 cellar: :any_skip_relocation, high_sierra:   "33fa28d290cb0068a67c288d4889967180de64aa895f0ac1a3aedcc38d6a7d7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efb380cc5558a60396d25cabc8599511129b3ca44d4f232d7c9fd3e0e7b3a1ba"
   end
 
   depends_on "autoconf" => :build

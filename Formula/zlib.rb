@@ -13,14 +13,15 @@ class Zlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b480ed6baf10880f61b5a3097fb0921d44466857e1dde53a09e2ae4e378b1a8c"
-    sha256 cellar: :any, big_sur:       "b95aa332dfc7c6dfb5e86fd30068f78e2cf87ee0232e5bef0adddae8215f543d"
-    sha256 cellar: :any, catalina:      "8ec66cf6faa310712767efc3022fdd16568a79234439f64bf579acb628f893bc"
-    sha256 cellar: :any, mojave:        "245a43a59c57f83848e7382974bb80a46eac1d53bcaefb1bdebd1f85107d4169"
-    sha256 cellar: :any, high_sierra:   "30548658b43cf66979f2756680fbb32d3c19c967e478ceea22d07f536b22bbce"
-    sha256 cellar: :any, sierra:        "f822b4dbab4a15b889316b89248c7b4d15d6af9dc460bf209b9425b0accb7fa3"
-    sha256 cellar: :any, el_capitan:    "3f912f6f1ce6c586128ebde29756c883b89409e652ca7aa9a29a773c2d4d0915"
-    sha256 cellar: :any, yosemite:      "5b969eb38b90a3e31869586df9d62e59d359212b16c6a270aee690dd67caa491"
+    sha256 cellar: :any,                 arm64_big_sur: "b480ed6baf10880f61b5a3097fb0921d44466857e1dde53a09e2ae4e378b1a8c"
+    sha256 cellar: :any,                 big_sur:       "b95aa332dfc7c6dfb5e86fd30068f78e2cf87ee0232e5bef0adddae8215f543d"
+    sha256 cellar: :any,                 catalina:      "8ec66cf6faa310712767efc3022fdd16568a79234439f64bf579acb628f893bc"
+    sha256 cellar: :any,                 mojave:        "245a43a59c57f83848e7382974bb80a46eac1d53bcaefb1bdebd1f85107d4169"
+    sha256 cellar: :any,                 high_sierra:   "30548658b43cf66979f2756680fbb32d3c19c967e478ceea22d07f536b22bbce"
+    sha256 cellar: :any,                 sierra:        "f822b4dbab4a15b889316b89248c7b4d15d6af9dc460bf209b9425b0accb7fa3"
+    sha256 cellar: :any,                 el_capitan:    "3f912f6f1ce6c586128ebde29756c883b89409e652ca7aa9a29a773c2d4d0915"
+    sha256 cellar: :any,                 yosemite:      "5b969eb38b90a3e31869586df9d62e59d359212b16c6a270aee690dd67caa491"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db54bf590275839d3f4cdf31d9527aa3a4c19a8984b5605cedc3f7c22a65eea4"
   end
 
   keg_only :provided_by_macos

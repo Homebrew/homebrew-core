@@ -4,19 +4,26 @@ class Libprelude < Formula
   url "https://www.prelude-siem.org/attachments/download/1395/libprelude-5.2.0.tar.gz"
   sha256 "187e025a5d51219810123575b32aa0b40037709a073a775bc3e5a65aa6d6a66e"
   license "GPL-2.0-or-later"
+  revision 1
+
+  livecheck do
+    url "https://www.prelude-siem.org/projects/prelude/files"
+    regex(/href=.*?libprelude[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 arm64_big_sur: "7b7bd68152744ba511e577cbba513e86155f0b9734ed54591a462482d94c5679"
-    sha256 big_sur:       "6917b8d5d3ff58f90327fb818d920de6aea2b5ae78043f00368e3b927fd6ddcd"
-    sha256 catalina:      "6e8f95a1d163f021c7f6a7e09b92b9f695edd8de41e787dcbcafc87781380980"
-    sha256 mojave:        "0bb4d2090cb2f2aa0acb868402232a725e1ad51ead0786988bf1628a94491dde"
+    sha256 arm64_big_sur: "62a0baace0727b7e5bbbf6dbb826e54604f18c28a3e2d20dda6bad782b50ffde"
+    sha256 big_sur:       "c2e8d9d9c831ad24e13cd6d470a08c91c9dad1085ce7fe40e559df77b79a1503"
+    sha256 catalina:      "abd1ed78ae980d13cffbe2f7421179f3e416d63f0263b2df2749219bb4ade1ae"
+    sha256 mojave:        "99b39668c53d9e1514e8168db34402d897bd9159ecafdc3a377b097748945fb0"
+    sha256 x86_64_linux:  "282e13c10a69ba928d5f5597c5e88c33253caef9c5a221eae4f15dc670e125a7"
   end
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "libgpg-error"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     ENV["HAVE_CXX"] = "yes"
@@ -29,7 +36,7 @@ class Libprelude < Formula
       --without-perl
       --without-swig
       --without-python2
-      --with-python3=#{Formula["python@3.8"].opt_bin/"python3"}
+      --with-python3=python#{Formula["python@3.9"].version.major_minor}
       --with-libgnutls-prefix=#{Formula["gnutls"].opt_prefix}
     ]
 

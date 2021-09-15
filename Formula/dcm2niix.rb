@@ -13,9 +13,11 @@ class Dcm2niix < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "084829fb99291a81c2d1980c4bbfb1c22a43956ac912f4a47a1db23b1dff90b6"
-    sha256 cellar: :any_skip_relocation, catalina: "2583d8380bc1c50f2868cb490ce80505b297ef4258ff9256f892999a0b0b6b85"
-    sha256 cellar: :any_skip_relocation, mojave:   "eab67d24efc13b483a7b9e988bf44efd49aa3e40e12c4deb682832ceae9b7286"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e3dbe411fc4732bd4a022d67b31476f49880ddc946a6fab1b39466b2c013d54d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "084829fb99291a81c2d1980c4bbfb1c22a43956ac912f4a47a1db23b1dff90b6"
+    sha256 cellar: :any_skip_relocation, catalina:      "2583d8380bc1c50f2868cb490ce80505b297ef4258ff9256f892999a0b0b6b85"
+    sha256 cellar: :any_skip_relocation, mojave:        "eab67d24efc13b483a7b9e988bf44efd49aa3e40e12c4deb682832ceae9b7286"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecc2a14a090a22072454dd9cb8003a723fee867fe6ef524cfb2e7741888a26f9"
   end
 
   depends_on "cmake" => :build

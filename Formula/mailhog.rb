@@ -112,10 +112,12 @@ class Mailhog < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ff819388bc4d6c5fb1220b3a1739f74aee9db9e28b928f5231d074ceaa3782b7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f917aca265baff755eef3cba936e694f2bb214a0bc95e8bd9de08b283746d5cd"
-    sha256 cellar: :any_skip_relocation, catalina:      "baf343b697366b603e680e27d3642ffa8b2b62d1b1be1f394260f85a058b1b95"
-    sha256 cellar: :any_skip_relocation, mojave:        "7ebea41ba2db7c5bd144dd2844415800853c56ddefcd587d94717229196c5535"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bfe1d9cc4caa4037812957872b58eb2c350aae7adfac47d5f59c1b487b5bf709"
+    sha256 cellar: :any_skip_relocation, big_sur:       "400e7c11562a81beee0edd8d43a6dc034363e7f75f3dfdee2d478a37582143ec"
+    sha256 cellar: :any_skip_relocation, catalina:      "48bb0d6e01d939b592bfe53cc887ddeb0ff97d7d2fd8e2e1b59636e3ca7fb0c4"
+    sha256 cellar: :any_skip_relocation, mojave:        "a08feb4626c1b13559638f75f2a56e955b38293848de51a08bd672974f8105d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b70485ab9327cc9193ec21147192f707c550341fac85774bc1e79808c9a31268"
   end
 
   depends_on "go" => :build
@@ -137,31 +139,11 @@ class Mailhog < Formula
     end
   end
 
-  plist_options manual: "MailHog"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/MailHog</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/mailhog.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/mailhog.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"MailHog"
+    keep_alive true
+    log_path var/"log/mailhog.log"
+    error_log_path var/"log/mailhog.log"
   end
 
   test do

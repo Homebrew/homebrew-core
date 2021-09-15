@@ -7,12 +7,13 @@ class Gflags < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "3c47ffe18412eab890f339191cfe1b9142d7eb9d499d68ac4ac55db2707e6f3b"
-    sha256 cellar: :any, big_sur:       "013d34b7e3e9ef0b1ebae5c0bad9661cf1462a4fddec2e31c27dbacb5e8697b9"
-    sha256 cellar: :any, catalina:      "ebc7b6a9b5c14419f01a763f8b5d178525231d0fb4f5a4768673745a893f3b0b"
-    sha256 cellar: :any, mojave:        "e3176e449321b1e2070a9fabc796e6820f2f0f1f4db1c3916f58e6cdd52e510e"
-    sha256 cellar: :any, high_sierra:   "4beffa84f47bdfd9a1a90d9e591d9af4616db464d63046018ef0c58936d58366"
-    sha256 cellar: :any, sierra:        "6f06466ca55f2174daecbc935e0bca1f2aed9bfb94a92f21d52fb4db1e07cd4a"
+    sha256 cellar: :any,                 arm64_big_sur: "3c47ffe18412eab890f339191cfe1b9142d7eb9d499d68ac4ac55db2707e6f3b"
+    sha256 cellar: :any,                 big_sur:       "013d34b7e3e9ef0b1ebae5c0bad9661cf1462a4fddec2e31c27dbacb5e8697b9"
+    sha256 cellar: :any,                 catalina:      "ebc7b6a9b5c14419f01a763f8b5d178525231d0fb4f5a4768673745a893f3b0b"
+    sha256 cellar: :any,                 mojave:        "e3176e449321b1e2070a9fabc796e6820f2f0f1f4db1c3916f58e6cdd52e510e"
+    sha256 cellar: :any,                 high_sierra:   "4beffa84f47bdfd9a1a90d9e591d9af4616db464d63046018ef0c58936d58366"
+    sha256 cellar: :any,                 sierra:        "6f06466ca55f2174daecbc935e0bca1f2aed9bfb94a92f21d52fb4db1e07cd4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abf5d21a3d9ebed989bc047eec0c14b0b22a53ca0f1140149e158a89cd06a31f"
   end
 
   depends_on "cmake" => :build

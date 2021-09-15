@@ -2,21 +2,25 @@ class ArchiSteamFarm < Formula
   desc "Application for idling Steam cards from multiple accounts simultaneously"
   homepage "https://github.com/JustArchiNET/ArchiSteamFarm"
   url "https://github.com/JustArchiNET/ArchiSteamFarm.git",
-    tag:      "5.0.4.3",
-    revision: "c34812e4bc68ca53e690552723cddccf80e14a9b"
+      tag:      "5.1.2.4",
+      revision: "7ff747fb6ed26229101909f2b0abb0ca03b98988"
   license "Apache-2.0"
-  head "https://github.com/JustArchiNET/ArchiSteamFarm.git"
+  head "https://github.com/JustArchiNET/ArchiSteamFarm.git", branch: "main"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "0ba05734f4f927b6ebb873dfe4698fef273ab46f623878e29d852b9709032bf9"
-    sha256 cellar: :any_skip_relocation, catalina: "72b940f1684b1e46088e83f032f2bc92b2d79d39908e3fe37e9c7456461fa0b5"
-    sha256 cellar: :any_skip_relocation, mojave:   "8d6aca52f8cc198a2e866d1d348e89145d80cc65282217ffcd8ba34c8c975be1"
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "4b25ba81291d9798afa9f62ca63f535abcbf4318db19868d29610c21ed5b51f4"
+  end
+
+  depends_on arch: :x86_64 # dotnet does not support ARM
   depends_on "dotnet"
 
   def install
-    system "dotnet", "build", "ArchiSteamFarm",
+    system "dotnet", "publish", "ArchiSteamFarm",
            "--configuration", "Release",
            "--framework", "net#{Formula["dotnet"].version.major_minor}",
            "--output", libexec

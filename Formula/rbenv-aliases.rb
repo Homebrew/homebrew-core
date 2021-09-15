@@ -5,9 +5,11 @@ class RbenvAliases < Formula
   sha256 "12e89bc4499e85d8babac2b02bc8b66ceb0aa3f8047b26728a3eca8a6030273d"
   license "MIT"
   revision 1
-  head "https://github.com/tpope/rbenv-aliases.git"
+  head "https://github.com/tpope/rbenv-aliases.git", branch: "master"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "6f7cde3483899529f991977d389c5e6a41116ea4628377d97535fccddb306d9b"
+  end
 
   depends_on "rbenv"
 

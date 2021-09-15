@@ -1,11 +1,11 @@
 class Devspace < Formula
   desc "CLI helps develop/deploy/debug apps with Docker and k8s"
-  homepage "https://devspace.cloud/docs"
-  url "https://github.com/devspace-cloud/devspace.git",
-      tag:      "v5.13.0",
-      revision: "1d0bf3708a28679810fe453a23c25fd40eb1b3f6"
+  homepage "https://devspace.sh/"
+  url "https://github.com/loft-sh/devspace.git",
+      tag:      "v5.15.0",
+      revision: "cb571e2987658f3d1d1c755e22ab418259b3a2fe"
   license "Apache-2.0"
-  head "https://github.com/devspace-cloud/devspace.git"
+  head "https://github.com/loft-sh/devspace.git"
 
   livecheck do
     url :stable
@@ -13,14 +13,21 @@ class Devspace < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cf200c396b04b597e80af2feddd38c78563e57b15648d4be08e5b97ec13a6e6f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "864c57af56915bc4455a3683d385a3cec78cb4e7ed39f9fc114472ddf24cfd8d"
-    sha256 cellar: :any_skip_relocation, catalina:      "d5ada4e7e3539d07ba935aa28208bd03e03afbde24f9511c4b3685c2eab788fd"
-    sha256 cellar: :any_skip_relocation, mojave:        "936e189eb98a6dceff3f11670fc834f18e3503ee9fbe8a40cd801d50522be594"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1805cf86e2e135fd79ffe5f784f51b6e29107cf61934f8139b6f15f41808114c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "49739ccf043ed4ced63b48a5cb5f9d39df1ea9bd0277d46b2a90f4f4b5792df5"
+    sha256 cellar: :any_skip_relocation, catalina:      "684a12c86935bfcfc932abdcc61b613ef255b2fd84666ff11bceccb18a13cfed"
+    sha256 cellar: :any_skip_relocation, mojave:        "5e4d30e74bc2d46e3b1a5d698dbb0ce5eec30d8bf54c1289c7eaf14f91b9f336"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3eac00706fd4d55d196aab96960b3b01720a83424fec10e51753904e4a7dca84"
   end
 
   depends_on "go" => :build
   depends_on "kubernetes-cli"
+
+  # remove in next release
+  patch do
+    url "https://github.com/loft-sh/devspace/commit/51ce9934a921c648b34ee550b83f0e6a45f5d936.patch?full_index=1"
+    sha256 "ad0dd665a178099e7457ed71aac9b0dfa998c490233f26b7adb690cfce55b8de"
+  end
 
   def install
     ldflags = %W[

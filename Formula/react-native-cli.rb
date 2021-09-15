@@ -14,6 +14,7 @@ class ReactNativeCli < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "8e6e253c7801cc276f89f2988245866080c1409602c5903dbb2984b1a645746b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "387e6f8c0e9f20b4ae2007185d394ff73cc3392085a6a05045b669512780c55e"
     sha256 cellar: :any_skip_relocation, sierra:        "81ef6bdc246a412022d070b5020b567864b177a53fcfeb15c44f7be38e6130ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ef020f5bc207c84d9e2bab112724b0f31f0a865b852eca3cf73fba1fdfac1ae"
   end
 
   depends_on "node"

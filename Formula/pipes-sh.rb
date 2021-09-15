@@ -4,7 +4,7 @@ class PipesSh < Formula
   url "https://github.com/pipeseroni/pipes.sh/archive/v1.3.0.tar.gz"
   sha256 "532976dd8dc2d98330c45a8bcb6d7dc19e0b0e30bba8872dcce352361655a426"
   license "MIT"
-  head "https://github.com/pipeseroni/pipes.sh.git"
+  head "https://github.com/pipeseroni/pipes.sh.git", branch: "master"
 
   livecheck do
     url :stable
@@ -19,6 +19,7 @@ class PipesSh < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "2793ad5fb825b4f805a4731c7028cbcb2ca5e9dd904133df0cce7481c5961322"
     sha256 cellar: :any_skip_relocation, sierra:        "2793ad5fb825b4f805a4731c7028cbcb2ca5e9dd904133df0cce7481c5961322"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2793ad5fb825b4f805a4731c7028cbcb2ca5e9dd904133df0cce7481c5961322"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf4d651648f9ae9a9a26e64bfb729521d2448415ee8ebf633517eede0ba61849"
   end
 
   depends_on "bash"

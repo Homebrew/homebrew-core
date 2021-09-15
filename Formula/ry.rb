@@ -4,7 +4,7 @@ class Ry < Formula
   url "https://github.com/jayferd/ry/archive/v0.5.2.tar.gz"
   sha256 "b53b51569dfa31233654b282d091b76af9f6b8af266e889b832bb374beeb1f59"
   license "MIT"
-  head "https://github.com/jayferd/ry.git"
+  head "https://github.com/jayferd/ry.git", branch: "master"
 
   bottle do
     rebuild 2
@@ -14,6 +14,7 @@ class Ry < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "835c360df374f5ca94a753b1ce79ba61dfc9fc14e54a2bf064367b9094909677"
     sha256 cellar: :any_skip_relocation, high_sierra:   "3e2e0b1e4104b9856ef6f5ad05caa4100ba209850c84c1db759f788eed042740"
     sha256 cellar: :any_skip_relocation, sierra:        "3e2e0b1e4104b9856ef6f5ad05caa4100ba209850c84c1db759f788eed042740"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fff90c674fd9f8f96903b8e1d51a24fe2a201e9597a422b10828f867f99f939b"
   end
 
   depends_on "bash-completion"

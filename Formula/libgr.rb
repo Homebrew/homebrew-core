@@ -1,16 +1,15 @@
 class Libgr < Formula
   desc "GR framework: a graphics library for visualisation applications"
   homepage "https://gr-framework.org/"
-  url "https://github.com/sciapp/gr/archive/v0.57.2.tar.gz"
-  sha256 "74ad5a5d1f2d81a91d2ed65259902811df6db0fb4cec749efd8c57fcf6fd3ad4"
+  url "https://github.com/sciapp/gr/archive/v0.59.0.tar.gz"
+  sha256 "9027bceebd171641bb3f0c35398ddef529beea3c1cd6dc79dad18268f9cda50a"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "6c66283e9c990e1077410f05c7b495f5ea6029cf2aa3969585ff5df8493d853f"
-    sha256 big_sur:       "f9ef234e5777c8efd0e8ac3bd3a9ed8ff4c5eb2a6750fe5724b44e85fb0381bb"
-    sha256 catalina:      "36cddfa4f023961816b41dd1593dd7db3bcc621541d9c6493dc0cc6af76c6170"
-    sha256 mojave:        "daa503a2a9e1c8307ce062c581405f910f0da7369d3ab378842303544b3ee672"
+    sha256 arm64_big_sur: "1d9b2e1e142e7d19b4fbd305ec2c061806195937232ecfb36998c76f284b0edc"
+    sha256 big_sur:       "364bfd280c221e8b34f07c4e3f6186e40afe8d220b7dc07c90aa2f474183213e"
+    sha256 catalina:      "ade9f5cca0ef7f7a066fcf9133bbc0e3c543db3b8e79a1516e0c00d8d6f0c4fa"
+    sha256 mojave:        "4b6590cf7553028a32980b4c4ce3f8adfaa837b07bacc86d315cc15defa21b77"
   end
 
   depends_on "cmake" => :build

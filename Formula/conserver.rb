@@ -12,10 +12,11 @@ class Conserver < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "818c726d7aef2b761e3ae88b39650e01f74f757acf899f7f351bdd2815d27875"
-    sha256 cellar: :any, big_sur:       "84d3aa85edeae0dc29cf8e9f4dded552ab0f9b82dac3b711ecdb8a2bba94115a"
-    sha256 cellar: :any, catalina:      "59eded66b17cf4854626060c9c012efa25fe09c5fed47c0c162047a5aac1171e"
-    sha256 cellar: :any, mojave:        "ff0421a6796b9913159a910628f97878d2b22956f18e23e8d27bd400e6b611a8"
+    sha256 cellar: :any,                 arm64_big_sur: "818c726d7aef2b761e3ae88b39650e01f74f757acf899f7f351bdd2815d27875"
+    sha256 cellar: :any,                 big_sur:       "84d3aa85edeae0dc29cf8e9f4dded552ab0f9b82dac3b711ecdb8a2bba94115a"
+    sha256 cellar: :any,                 catalina:      "59eded66b17cf4854626060c9c012efa25fe09c5fed47c0c162047a5aac1171e"
+    sha256 cellar: :any,                 mojave:        "ff0421a6796b9913159a910628f97878d2b22956f18e23e8d27bd400e6b611a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d246f41155c74436f806dc614996631bf92ae385d88476f6b05a60c984574e3"
   end
 
   depends_on "openssl@1.1"

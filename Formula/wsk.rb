@@ -10,6 +10,7 @@ class Wsk < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e84a614165531b5d1d4d6ec04eaaa1231c1b829b8c32e64c57ed670c8ccbee29"
     sha256 cellar: :any_skip_relocation, catalina:      "0018d1080479df041f52d6bb92388048cdb6539864f686b8fd92107626a33227"
     sha256 cellar: :any_skip_relocation, mojave:        "ef1a2d5b366f2d0fef71e5f9a56cf764c8aff282677046de639efe254d1fc9d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7425098df98b8d73d3aa6f4d205fd0327c01a7f5e76fabe4cefe46a940f52deb"
   end
 
   depends_on "go" => :build

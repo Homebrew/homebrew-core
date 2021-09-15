@@ -10,6 +10,7 @@ class TesseractLang < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7a4a2646cf813ffa6778f4b110d98666144d2b44dde177f66a663de313f781bb"
     sha256 cellar: :any_skip_relocation, catalina:      "93f7d390e6f209f2f452a181a832d0d88e21b7afc171515cf9eeb3a9ba500ffd"
     sha256 cellar: :any_skip_relocation, mojave:        "28d91c5d2a8efc9f33d5ccc4d8eb76bf0c6649f604d1f9a52e06c3b8e3a2daef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "589b4e7851f76924cf8bd77155f53ffda95bb92cbb19327aed1766000a203760"
   end
 
   depends_on "tesseract"

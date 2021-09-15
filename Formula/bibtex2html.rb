@@ -16,6 +16,7 @@ class Bibtex2html < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e9c4f95aaae6ddb40473a8c4349dbd9455c58e71ea4f580c8aa268292578464d"
     sha256 cellar: :any_skip_relocation, mojave:        "1a56c6ff9929a75570f231a4fd8b1a4e367d82a8a632c4a45f126b1845ff8ff3"
     sha256 cellar: :any_skip_relocation, high_sierra:   "e2b32aea9dcfb51cff11b8014425975198b73b3a74f48c2f7103e01ef2ec7a9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad67db6800da40bac05bfa7e9158ca392d135241e82e300e58cded0533349a11"
   end
 
   head do

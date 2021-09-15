@@ -14,6 +14,7 @@ class GitOctopus < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "8d5bd1ae923518cd155c1e1ddf1a31b93d75af241e325087853657adc39eca85"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8d5bd1ae923518cd155c1e1ddf1a31b93d75af241e325087853657adc39eca85"
     sha256 cellar: :any_skip_relocation, yosemite:      "8d5bd1ae923518cd155c1e1ddf1a31b93d75af241e325087853657adc39eca85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06986d5465b1c7781cb3cfb2f64008ef3e91d240c97389dddbb90ffd3d3fdb4c"
   end
 
   def install

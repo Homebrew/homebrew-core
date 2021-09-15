@@ -3,15 +3,15 @@ class Networkit < Formula
 
   desc "Performance toolkit for large-scale network analysis"
   homepage "https://networkit.github.io"
-  url "https://github.com/networkit/networkit/archive/8.1.tar.gz"
-  sha256 "0a22eb839606b9fabfa68c7add12c4de5eee735c6f8bb34420e5916ce5d7f829"
+  url "https://github.com/networkit/networkit/archive/9.0.tar.gz"
+  sha256 "c574473bc7d86934f0f4b3049c0eeb9c4444cfa873e5fecda194ee5b1930f82c"
   license "MIT"
 
   bottle do
-    sha256 arm64_big_sur: "f31b0dd888f0f6f8b9a5150f6c77e43e51b1c636e82c55c035b1a2896c9843c0"
-    sha256 big_sur:       "ae370fdd0974d13ff6a572d2041e651738ae05da78f357c52ca32507a20cf137"
-    sha256 catalina:      "da73389019eb5285306e33e95e7bf3c223bef8a6037630ec11fe0bf7d3bc8f81"
-    sha256 mojave:        "a8fad9747011befa4f6995d09cfd21355649d57a99a969b63b8b15d1189336d4"
+    sha256 cellar: :any, arm64_big_sur: "6830b5a174f2faa428c162a31cbac98867ac91847e20c44fc0b942a054dc172c"
+    sha256 cellar: :any, big_sur:       "734ae79b47e434f3e3d1e8ddaf2ae0edef1b48b4e4a6bd2f82ba201abdb51cbe"
+    sha256 cellar: :any, catalina:      "05e4c80f053b211a5fc3bb905c93a96dfd488c2f078c926de6b6459aeb7409e4"
+    sha256 cellar: :any, mojave:        "f39d81732bf9dc5093bb3537b7f1436a23b02956fa5856fd4b46a8ac7de67a93"
   end
 
   depends_on "cmake" => :build

@@ -2,7 +2,8 @@ class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
   license "GPL-2.0-or-later"
-  head "https://github.com/unbit/uwsgi.git"
+  revision 1
+  head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   stable do
     url "https://files.pythonhosted.org/packages/c7/75/45234f7b441c59b1eefd31ba3d1041a7e3c89602af24488e2a22e11e7259/uWSGI-2.0.19.1.tar.gz"
@@ -17,10 +18,12 @@ class Uwsgi < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4128d2e3c32af1db0ca94dc74f30d07076b5190668630a68f68cb898441c0b9a"
-    sha256 big_sur:       "3ff3a21eaf20a4132dc2b2da9405129a9aae59584c422b57cfa6f6cdfa29937c"
-    sha256 catalina:      "339d8ce59b4cd8657a62b322b26e89649847d32c4c8a1ff149e2e16dd4cc4ff2"
-    sha256 mojave:        "f885fbd73900a196ff2438bc5c14771b0bc8c9cad0a7f59c1cbb39f484205ed5"
+    rebuild 2
+    sha256 arm64_big_sur: "4326330a1880f7901c4168d85134a37f44de0e786e5fe76a9e9ecd16ed833a58"
+    sha256 big_sur:       "dd093fa094a07dba5ac53f040eaed23a9b61adc80b6cc50de246d160fcff0a34"
+    sha256 catalina:      "8194d4a365e0ce4d3ee5fd9764d008c6d0aabf6c804414d5a6b0733295f9d101"
+    sha256 mojave:        "2def48a9cc74853449722f5dc51a0224956d21906d8ff35e73a45fab3fc3faef"
+    sha256 x86_64_linux:  "acb0c806523fc521f4c703b5fe952b488f473a5eac99d5c877ac2fec2a117782"
   end
 
   depends_on "pkg-config" => :build
@@ -60,7 +63,7 @@ class Uwsgi < Formula
 
     system "python3", "uwsgiconfig.py", "--verbose", "--build", "brew"
 
-    plugins = %w[airbrake alarm_curl alarm_speech asyncio cache
+    plugins = %w[airbrake alarm_curl asyncio cache
                  carbon cgi cheaper_backlog2 cheaper_busyness
                  corerouter curl_cron cplusplus dumbloop dummy
                  echo emperor_amqp fastrouter forkptyrouter gevent
@@ -76,6 +79,7 @@ class Uwsgi < Formula
                  transformation_chunked transformation_gzip
                  transformation_offload transformation_tofile
                  transformation_toupper ugreen webdav zergpool]
+    plugins << "alarm_speech" if OS.mac?
 
     (libexec/"uwsgi").mkpath
     plugins.each do |plugin|
@@ -87,40 +91,11 @@ class Uwsgi < Formula
     bin.install "uwsgi"
   end
 
-  plist_options manual: "uwsgi"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/uwsgi</string>
-              <string>--uid</string>
-              <string>_www</string>
-              <string>--gid</string>
-              <string>_www</string>
-              <string>--master</string>
-              <string>--die-on-term</string>
-              <string>--autoload</string>
-              <string>--logto</string>
-              <string>#{HOMEBREW_PREFIX}/var/log/uwsgi.log</string>
-              <string>--emperor</string>
-              <string>#{HOMEBREW_PREFIX}/etc/uwsgi/apps-enabled</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"uwsgi", "--uid", "_www", "--gid", "_www", "--master", "--die-on-term", "--autoload", "--logto",
+         HOMEBREW_PREFIX/"var/log/uwsgi.log", "--emperor", HOMEBREW_PREFIX/"etc/uwsgi/apps-enabled"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

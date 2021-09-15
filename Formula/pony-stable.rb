@@ -4,7 +4,7 @@ class PonyStable < Formula
   url "https://github.com/ponylang/pony-stable/archive/0.2.2.tar.gz"
   sha256 "8fca5f0f600e695d648200a7492c5d8cea82581f4e4e138f0bb621911d9e4c13"
   license "BSD-2-Clause"
-  head "https://github.com/ponylang/pony-stable.git"
+  head "https://github.com/ponylang/pony-stable.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "6989c2d99d5b71bbabcc3728f218c195c06ab03363a54a1e8493cb7715d518f5"

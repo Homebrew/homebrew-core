@@ -16,6 +16,7 @@ class SstpClient < Formula
     sha256 big_sur:       "4456c0d7626d757558f3e5916fa2ec6dc5d0e16bd70dffbf1d9856c88f9f57ed"
     sha256 catalina:      "9d745ca078013a4a01009fd2e5d713d9c26e26097f3ca00878068ae8137cc516"
     sha256 mojave:        "1bc3a7e3a40676213301589608312b18298ce0f430c4d49fc0cc0ff18297d54c"
+    sha256 x86_64_linux:  "0ab9094ef5d0a3c0e1b8936eef9d07d8e2adc460ff5a97e028402a944a4cf219"
   end
 
   depends_on "pkg-config" => :build

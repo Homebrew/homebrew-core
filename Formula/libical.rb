@@ -8,10 +8,11 @@ class Libical < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "d21ba9fd766b87b6b30b220e2fcd5b26f93e7a5618f6e38790402ac6f105aaa8"
-    sha256 cellar: :any, big_sur:       "9d900728f649ccb4c9e80df219089b8f608e9027f7cb313896115574acc8d93a"
-    sha256 cellar: :any, catalina:      "a76e728e573b3d72e288009edc4e3f6d792a3ef7b91fca78e9a6b5d12ee6cd3b"
-    sha256 cellar: :any, mojave:        "5c8fbf1cb846303940f183de67b538dc0c1139a3117d115db3aa3e02c25d0c28"
+    sha256 cellar: :any,                 arm64_big_sur: "d21ba9fd766b87b6b30b220e2fcd5b26f93e7a5618f6e38790402ac6f105aaa8"
+    sha256 cellar: :any,                 big_sur:       "9d900728f649ccb4c9e80df219089b8f608e9027f7cb313896115574acc8d93a"
+    sha256 cellar: :any,                 catalina:      "a76e728e573b3d72e288009edc4e3f6d792a3ef7b91fca78e9a6b5d12ee6cd3b"
+    sha256 cellar: :any,                 mojave:        "5c8fbf1cb846303940f183de67b538dc0c1139a3117d115db3aa3e02c25d0c28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cf5e25555b0770dd13c33a5c63c9799ca62292deac37c0ee2515946fe9c6d7d"
   end
 
   depends_on "cmake" => :build

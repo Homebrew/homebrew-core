@@ -1,8 +1,8 @@
 class Dtc < Formula
   desc "Device tree compiler"
   homepage "https://www.devicetree.org/"
-  url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.6.0.tar.xz"
-  sha256 "10503b0217e1b07933e29e8d347a00015b2431bea5f59afe0bed3af30340c82d"
+  url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.6.1.tar.xz"
+  sha256 "65cec529893659a49a89740bb362f507a3b94fc8cd791e76a8d6a2b6f3203473"
   license any_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
 
   livecheck do
@@ -11,11 +11,11 @@ class Dtc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d83175100dcc9a15426e6bd6de5e31a8d6ca3c7cb24c8ff4cc3bfdce9cf25ffd"
-    sha256 cellar: :any, big_sur:       "94b85edc6eca271107edecfa0b2f76b0d98b6bd41ea556c1c1ba150966d940bf"
-    sha256 cellar: :any, catalina:      "3cbdb48bb892f6cce39b9cc381f60a9ad8a785ad3582a4f324be8ec4caed7423"
-    sha256 cellar: :any, mojave:        "d80813f17abce4b20eb1e656919e9a5ee9d4fd10613b144c61217f3f1febf55c"
-    sha256 cellar: :any, high_sierra:   "00273c1cc191558075437f3e1938977cbc22cc84c58bb6b8920acc672d25b85d"
+    sha256 cellar: :any,                 arm64_big_sur: "3acf8dbcf556c2271a6162ee0d7e6aa4b1e2f2ffb8dd88541d44ed3a96eecdd5"
+    sha256 cellar: :any,                 big_sur:       "eed133a2432f709556facdfb154a34ce5d2bddd6b04c67de73421bee3eb35160"
+    sha256 cellar: :any,                 catalina:      "d1910b920613b43b1be2a70ad950139fcd5e908ab45bc9c68dbaba078c676599"
+    sha256 cellar: :any,                 mojave:        "98c38049acdae747c9939bbe271f4318e35d976687caaf6beea0527592e4274d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20225ca2fdcdf29d6fff97dddf7a26d39617bf4c6dc6adb3dc1da31f86de47fb"
   end
 
   depends_on "pkg-config" => :build

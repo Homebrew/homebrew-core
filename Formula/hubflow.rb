@@ -8,7 +8,9 @@ class Hubflow < Formula
   license "BSD-2-Clause"
   head "https://github.com/datasift/gitflow.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "5fcc66bfe17f292cb37ee437c016a60c9bc46ff63b8bc5ad5ac13cc649421a94"
+  end
 
   def install
     ENV["INSTALL_INTO"] = libexec

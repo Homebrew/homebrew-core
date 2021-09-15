@@ -10,7 +10,9 @@ class Mockserver < Formula
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "3ee84c853d1d2ecce352978200c6133696e9f7b8500186864cd130cdfa34d9d9"
+  end
 
   depends_on "openjdk"
 

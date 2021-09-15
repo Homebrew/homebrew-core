@@ -15,6 +15,7 @@ class Gphoto2 < Formula
     sha256 cellar: :any, big_sur:       "9c9b7500633f88d5d2301c8dd3dcc92941fcd7ec42ae09859f59a79d2c3b4061"
     sha256 cellar: :any, catalina:      "4f441bdceb481a8b91c29bff4e1bc559ea960b9b39e07d6253576b8c90590329"
     sha256 cellar: :any, mojave:        "cfb60930c36f3083c3913f07acb47ce2ebd3214e25ca6901862f9e6666e8d7cc"
+    sha256               x86_64_linux:  "3373ff2ef86c42f624ae10db3e34cc57678484d9e0210dc38a8713cdd135927f"
   end
 
   depends_on "pkg-config" => :build

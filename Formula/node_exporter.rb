@@ -1,10 +1,10 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/v1.1.2.tar.gz"
-  sha256 "edb40c783bd5767f174b916c89a768496ccae0f74811ba1d03c57c32cd250bbd"
+  url "https://github.com/prometheus/node_exporter/archive/v1.2.2.tar.gz"
+  sha256 "3b7b710dad97d9d2b4cb8c3f166ee1c86f629cce59062b09d4fb22459163ec86"
   license "Apache-2.0"
-  head "https://github.com/prometheus/node_exporter.git"
+  head "https://github.com/prometheus/node_exporter.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,10 +12,12 @@ class NodeExporter < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7726f4bfaf5eba298d186458d82a1f0d12a52b504166dd7c654e2809f25f1c05"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7324925afff81538c8d2b2449f6912d4d3d1f96296351ebe717cc9c1152b1fa0"
-    sha256 cellar: :any_skip_relocation, catalina:      "d4c48a7a7718fd39b7695a81bbe9364c94ec99d2a5d2d341493b71ddcf3e7405"
-    sha256 cellar: :any_skip_relocation, mojave:        "9562cf856db0b8259c81319b2d942f376de96bf7d51e17442b853bad4f11e0d2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "08defe8d74459977bc0bf5b5da1e0c09bada5943fd6bbb78d053deb0f6ad1505"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bbac191f8d01fe6a3cd41a389d02ac800e6b823ddb0a5bb9fc60f4d7e59da41c"
+    sha256 cellar: :any_skip_relocation, catalina:      "71aa1e6052258257c504b3968027c43238e62ab583efaf1937670ba25defce19"
+    sha256 cellar: :any_skip_relocation, mojave:        "d79d282260ddd651b834688c74b5255d74ccd0c67d9c504efe71882503ebd6a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5937f64800a35b0205c36e679d7d7f83042092e8e9cb5ef71fb145b22e4e296c"
   end
 
   depends_on "go" => :build
@@ -45,31 +47,11 @@ class NodeExporter < Formula
     EOS
   end
 
-  plist_options manual: "node_exporter"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/node_exporter_brew_services</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/node_exporter.err.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/node_exporter.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"node_exporter_brew_services"]
+    keep_alive false
+    log_path var/"log/node_exporter.log"
+    error_log_path var/"log/node_exporter.err.log"
   end
 
   test do

@@ -1,20 +1,28 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v2.1.0.tar.gz"
-  sha256 "641af0f602cfc7f5f5b1cfde0652252def2dfaf5f7962c2595cf598663637951"
+  url "https://github.com/homenc/HElib/archive/v2.2.0.tar.gz"
+  sha256 "2fb1fadb98a791925d529013a65d7e6eefd8accd5fd8953bd45278459b83d875"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f2b559e89169fe6c8f23b56ad688c1724d91e3c90f78d9d438a4d3a426cbd80b"
-    sha256 cellar: :any, big_sur:       "7b2ee7e1e1d7039d8beeaa65779600015432bfab192d6800b13aafb87dcc7e36"
-    sha256 cellar: :any, catalina:      "407acf9d3b8c3a9fdff58c1fd25ab37db3a415c9858497c6027dfaab750b053f"
-    sha256 cellar: :any, mojave:        "d471cba32715cf99e874200faba41d400df7fea5c8943e10466a468a6b97afd3"
+    sha256 cellar: :any,                 arm64_big_sur: "c936a42a04cd8ecaccef61dac38f5d673cd74233146f911bda2d262526b48f95"
+    sha256 cellar: :any,                 big_sur:       "a144420ebdab16c29f01c75b5f9feb352c26ef3ebc965c7c0e2ed9a720b57ca8"
+    sha256 cellar: :any,                 catalina:      "46dc6b6526ef92092229a6fc705b2b01a98197a3e44fc4b05229fe82ecc5e4e6"
+    sha256 cellar: :any,                 mojave:        "46c3e82b0ff78a3ada552097437c7be6e02622f1184f97c7bccaf5636e8ca9e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfccf5001726d1fe0c7618095469bd4794f1d910faabadbebeb778c2600868c8"
   end
 
   depends_on "cmake" => :build
   depends_on "bats-core" => :test
+  depends_on "gmp"
   depends_on "ntl"
+
+  on_linux do
+    depends_on "gcc" # for C++17
+  end
+
+  fails_with gcc: "5"
 
   def install
     mkdir "build" do
@@ -27,8 +35,8 @@ class Helib < Formula
   test do
     cp pkgshare/"examples/BGV_country_db_lookup/BGV_country_db_lookup.cpp", testpath/"test.cpp"
     mkdir "build"
-    system ENV.cxx, "-std=c++17", "-L#{lib}", "-L#{Formula["ntl"].opt_lib}",
-                    "-lhelib", "-lntl", "test.cpp", "-o", "build/BGV_country_db_lookup"
+    system ENV.cxx, "test.cpp", "-std=c++17", "-L#{lib}", "-L#{Formula["ntl"].opt_lib}",
+                    "-pthread", "-lhelib", "-lntl", "-o", "build/BGV_country_db_lookup"
 
     cp_r pkgshare/"examples/tests", testpath
     system "bats", "."

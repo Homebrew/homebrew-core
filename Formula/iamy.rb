@@ -12,6 +12,7 @@ class Iamy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "02aa2ecaab3e449d3ca641e88a22dca829a969d6984190146514b807cdf2b3a2"
     sha256 cellar: :any_skip_relocation, catalina:      "f5b5f5a4db400dc6021f206a23e90fbff7666f92cfdef296efe86b2db3ba9aa4"
     sha256 cellar: :any_skip_relocation, mojave:        "3f01263009a39e769d8144ba9c284d95421ab919c78f549f0e36cbf56985693c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6c4629eac1aff33871ecea23af3c61cd3033de783bce867b67269b0e7c28dc5"
   end
 
   depends_on "go" => :build

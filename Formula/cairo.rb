@@ -16,6 +16,7 @@ class Cairo < Formula
     sha256 big_sur:       "cb16c1bb070a7cdca7aaf8899a70e407d73636116d62225626b2c8d31aa8d2ff"
     sha256 catalina:      "4a117545953b9784f78db8261c03d71a1ae7af836dcd995abe7e6d710cdfd39c"
     sha256 mojave:        "38c7b7b0f6266632a5f04df12180dc36a1ce218a1c54b13cdca18ad024067311"
+    sha256 x86_64_linux:  "678c795a11134b3455002969fc41b8e2512e97cdaa084f792724ace7549a3407"
   end
 
   head do
@@ -58,11 +59,7 @@ class Cairo < Formula
       --enable-xlib
       --enable-xlib-xrender
     ]
-    on_macos do
-      args += %w[
-        --enable-quartz-image
-      ]
-    end
+    args << "--enable-quartz-image" if OS.mac?
 
     if build.head?
       ENV["NOCONFIGURE"] = "1"

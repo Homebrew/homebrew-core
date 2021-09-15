@@ -2,22 +2,20 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/inlets/inlets"
   url "https://github.com/inlets/inlets.git",
-      tag:      "3.0.1",
-      revision: "dbccc1ee8edfa0a06e4f7b258bbee4a959bc18af"
+      tag:      "3.0.2",
+      revision: "7b18a394b74390133e511957d954b1ba3b7d01a2"
   license "MIT"
   head "https://github.com/inlets/inlets.git"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "55fdb93d26dacaca8cbb42cc68b9387423e3b618220e57f9de67855209132eeb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5d6d55f2b32adc41a92f908ee15b263f9090dad596d137bf448d0d224288f365"
+    sha256 cellar: :any_skip_relocation, catalina:      "392626560257c399929a81954c6c20bc2f2485564b30597dd49ac85ffcb19a86"
+    sha256 cellar: :any_skip_relocation, mojave:        "f87a32ce9f00b128379a23e83e62e2d9e4c811303c1b760cdde9cad16a599e99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc3dc0b39ea492fd4d00bef8ff4b5019567eb1e5fda0db6e7d7b276f46de4b4a"
   end
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "49385530d15aed2d23ef0aed4f5f6b46cc6e6c49b0936a2b9995d95115cf88b8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "dd817356a0bccef76ee190e3ec5bd1a99965929b0e427697c8df0a4db088ab34"
-    sha256 cellar: :any_skip_relocation, catalina:      "ae0b7a7acdf69fce8d9305cbd125083aff5f98e7ec0d1bdcf96aa26a4319fca1"
-    sha256 cellar: :any_skip_relocation, mojave:        "1922d778ad53108052d204fe06122e7402ee5a28612c2e97f3ff78075b25cbae"
-  end
+  deprecate! date: "2021-07-11", because: :repo_archived
 
   depends_on "go" => :build
 

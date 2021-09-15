@@ -10,6 +10,7 @@ class TerraformLandscape < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "1bcd487a444cb78b3afdd394442ae24c4c1fa1fad393d76451a64c33b539b10f"
     sha256 cellar: :any_skip_relocation, catalina:      "af2918fc17765a6cbabaa0aae039afe3c5aa00821581570901a89e0edc850285"
     sha256 cellar: :any_skip_relocation, mojave:        "5afa045cd1b2974f6247f3a31ae1e0141e5e9091b4c81a2a4660d5d06c90ca20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4df8fb485f198c90e494bbc1b19d5c18f48c436e505f85de202cd1cc46f0c316"
   end
 
   depends_on "ruby"

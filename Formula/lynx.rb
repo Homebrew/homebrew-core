@@ -19,11 +19,13 @@ class Lynx < Formula
     sha256 mojave:        "3b4c3a636d19106a2fea571889a4159fd49b82fbd2694c206d4851b15281fddd"
     sha256 high_sierra:   "68eb083eff0962b83dc121e9194d430d4e9c2eb7d559cb998ba992da9b566479"
     sha256 sierra:        "b8ee13323a4e8760f21a82da3b579d3373e282398ff7efe56c7ec8ae9cb0d064"
+    sha256 x86_64_linux:  "7067fe13b0e2be8fed0b06b0f83ea0f5b44142db148a6f82866e77e1c90c6b68"
   end
 
   depends_on "openssl@1.1"
 
   uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     # Using --with-screen=ncurses to due to behaviour change in Big Sur

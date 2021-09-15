@@ -18,6 +18,7 @@ class Lrzsz < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "c23cc0b0c9a0a7fae5a2e3d69ba01a7e6d09ad5e5a7d06c76620b72773ffebed"
     sha256 cellar: :any_skip_relocation, sierra:        "997f5b81f84b7814b0f4f78f056404f6c309eba1e62136e5f8ddf4b34d953b59"
     sha256 cellar: :any_skip_relocation, el_capitan:    "1d6517842b64582f629f36e469b61ee91563e1ef1a1b1841a8a4634759dcb0f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f5db00a0b2cdc4920a809f4aa1f352eb6962980270d15e65dd418a99ac61ab2"
   end
 
   patch :p0 do

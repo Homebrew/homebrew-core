@@ -6,11 +6,12 @@ class Admesh < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ee008a3dc86478020116d2289fc6d78dfc44d87a95b7c12c6777e8ed6b053242"
-    sha256 cellar: :any, big_sur:       "e6f9a80ab0ef52a4027a6aa4cf1709f2088f0f9f51918d3f0361febe3c61a84d"
-    sha256 cellar: :any, catalina:      "d877dfc78d057e2124d06b4826e9044b2686f19de3e84fbab1cd19c07524e6df"
-    sha256 cellar: :any, mojave:        "86f1775a6dbca0e6309cdfed9fb83d068873f5e8183204f02cc871d013290f62"
-    sha256 cellar: :any, high_sierra:   "2f0fd4e6cda35b4e14f6c8ba627ad7d22ee93507875b6943ea5677c857c4ab36"
+    sha256 cellar: :any,                 arm64_big_sur: "ee008a3dc86478020116d2289fc6d78dfc44d87a95b7c12c6777e8ed6b053242"
+    sha256 cellar: :any,                 big_sur:       "e6f9a80ab0ef52a4027a6aa4cf1709f2088f0f9f51918d3f0361febe3c61a84d"
+    sha256 cellar: :any,                 catalina:      "d877dfc78d057e2124d06b4826e9044b2686f19de3e84fbab1cd19c07524e6df"
+    sha256 cellar: :any,                 mojave:        "86f1775a6dbca0e6309cdfed9fb83d068873f5e8183204f02cc871d013290f62"
+    sha256 cellar: :any,                 high_sierra:   "2f0fd4e6cda35b4e14f6c8ba627ad7d22ee93507875b6943ea5677c857c4ab36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f34afa551d708de7ff07bd9e1e0dd92a72813f325b0720132f15fbc329aae40"
   end
 
   def install

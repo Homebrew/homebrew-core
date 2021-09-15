@@ -18,6 +18,7 @@ class Bower < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7086bda09e7699d4feb9c105723fa332e5a97d0af7dbaba799394f95cda46a62"
     sha256 cellar: :any_skip_relocation, catalina:      "bc9d7b039ab0f4542330d662ea1af873f1d0313e7216ba5aa179ef6065e1eed0"
     sha256 cellar: :any_skip_relocation, mojave:        "aa51c9ec9aa6d785ff9973d81d9ece85decf852f3812fe82534f48a9c2f8dc23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e47dabe1136ca6b812906d803a17238002e9049a8b4b58a76a76b1c1f88824c7"
   end
 
   depends_on "node"

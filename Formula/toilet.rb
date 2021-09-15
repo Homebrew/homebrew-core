@@ -19,6 +19,7 @@ class Toilet < Formula
     sha256 sierra:        "24008d251358aa73e7e597b203e360857fec5b88278e6ea6de08d4eef3865f80"
     sha256 el_capitan:    "93822fde3d2e69f46143dcb9d8551e7e4301c7a470ae53b3fda8ec6cb44584dd"
     sha256 yosemite:      "7362333eea743740a9cdb064c5a74829e37b3f15645797622bb283b9cf3f3b1a"
+    sha256 x86_64_linux:  "774d107ea52b43b2224252e84eaf529d8b944fa34746935d34a9c4bb791a110e"
   end
 
   head do

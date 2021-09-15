@@ -7,7 +7,7 @@ class Asciinema < Formula
   sha256 "32f2c1a046564e030708e596f67e0405425d1eca9d5ec83cd917ef8da06bc423"
   license "GPL-3.0"
   revision 3
-  head "https://github.com/asciinema/asciinema.git"
+  head "https://github.com/asciinema/asciinema.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b681c70de003112e00b3c31555e06453e0d22483095713fd27cfe9113e5363c6"
@@ -15,6 +15,7 @@ class Asciinema < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "caa76523c644cf5916cde300c407d89282509a0291cfa9c4812d888c26ce7f77"
     sha256 cellar: :any_skip_relocation, mojave:        "b1a1aff9cf3f46328f0df80773a85898db70453fff4785e26e7ee4d6f12ef408"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4ce78d8edeeb635ad7cf2f5edd88770baaa72d623ecc471fb0e8f5e12efb0e04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acec6c4fc08e352c797826270ec89d4eeab169172912bb22ea4b785635f7481e"
   end
 
   depends_on "python@3.9"

@@ -5,7 +5,7 @@ class Tcpstat < Formula
   version "0.1"
   sha256 "366a221950759015378775862a7499aaf727a3a9de67b15463b0991c2362fdaf"
   license "BSD-2-Clause"
-  head "https://github.com/jtt/tcpstat.git"
+  head "https://github.com/jtt/tcpstat.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f5880a02d97d890364b5e98871dabb0682bf1d73d43f6a2cf92f0039f29619c"

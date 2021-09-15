@@ -1,17 +1,16 @@
 class Imageworsener < Formula
   desc "Utility and library for image scaling and processing"
   homepage "https://entropymine.com/imageworsener/"
-  url "https://entropymine.com/imageworsener/imageworsener-1.3.3.tar.gz"
-  sha256 "7c4b6e5f3da333e336f014805c441bc08aded652dd9dde2abd40be33b1aa3e25"
+  url "https://entropymine.com/imageworsener/imageworsener-1.3.4.tar.gz"
+  sha256 "bae0b2bb35e565133dd804a6f4af303992527f53068cd67b03e5d9961d8512b6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "aacd92bafc82b48324943219b9354ca99cef3e36c31f2ad82b12253d15cbd071"
-    sha256 cellar: :any, big_sur:       "3391e73af0da2054295db408889f460025d789d6088162dd92ce67229fdfb564"
-    sha256 cellar: :any, catalina:      "fd72a318b2e8b398544d23b384cc4070f181537816647a16129dbbb3628dcc4e"
-    sha256 cellar: :any, mojave:        "b5e6ce352f0e698cf10452d273ae0e61f50554565f77010de4e62a6fdddd911f"
-    sha256 cellar: :any, high_sierra:   "2332dd0ecedf78344ee5fbd3d00abb0eccc7b28b7e8609c9a18e8e6ab81669de"
-    sha256 cellar: :any, sierra:        "847f3211aba4095e280d589a87698234b7cd6e3ec77a6a50cf578a3fa6d0236e"
+    sha256 cellar: :any,                 arm64_big_sur: "0ee5c5f12bf988c164ce3ea06ce3c6a22af96427edaf241fb68f91c3e951d2de"
+    sha256 cellar: :any,                 big_sur:       "6e6ec999be6238848bc4c39f7e39419b39d060dc925273ddbaaa500d63a29f92"
+    sha256 cellar: :any,                 catalina:      "a2c33e599d1b1aa2500593919cdc4a9771f5afe71a7f6011a98b125dbfbd9c60"
+    sha256 cellar: :any,                 mojave:        "a529b6264397516c763640015683f35632d46befd85fb07a3433ff2ebf2fcd95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9018d0001a824d65d6e4205cffe1f745248df78b2341a0922e8a5254849bc672"
   end
 
   head do

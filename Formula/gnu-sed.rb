@@ -12,6 +12,7 @@ class GnuSed < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "726be75d6d7155820b408a10e5c1a5ba1406374a7fc167af62524a4f4bbbc099"
     sha256 cellar: :any_skip_relocation, mojave:        "093f16752e7dfb115c055f20aed090108b94edd47c40f5e50878d961359251b2"
     sha256 cellar: :any_skip_relocation, high_sierra:   "865abe618c67037a4a419a05e0df2c6814fb3abdd6f631ea546aeba0aaf8eb78"
+    sha256                               x86_64_linux:  "35d0116b6abaa8fe7e51fc955d4f940a3d4ee0fbb0155c3759e3af35cd38bfe2"
   end
 
   conflicts_with "ssed", because: "both install share/info/sed.info"
@@ -22,16 +23,15 @@ class GnuSed < Formula
       --disable-dependency-tracking
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
-    on_linux do
-      args << "--without-selinux"
+    args << if OS.mac?
+      "--program-prefix=g"
+    else
+      "--without-selinux"
     end
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gsed" =>"sed"
       (libexec/"gnuman/man1").install_symlink man1/"gsed.1" => "sed.1"
     end

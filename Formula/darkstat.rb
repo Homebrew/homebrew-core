@@ -4,6 +4,11 @@ class Darkstat < Formula
   url "https://unix4lyfe.org/darkstat/darkstat-3.0.719.tar.bz2"
   sha256 "aeaf909585f7f43dc032a75328fdb62114e58405b06a92a13c0d3653236dedd7"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?darkstat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f118133e9435512691870171effd65220c2340328860a7b22ae32ad1ba3c369e"

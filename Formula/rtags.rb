@@ -6,7 +6,7 @@ class Rtags < Formula
       revision: "9687ccdb9e539981e7934e768ea5c84464a61139"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/Andersbakken/rtags.git"
+  head "https://github.com/Andersbakken/rtags.git", branch: "master"
 
   livecheck do
     url :stable
@@ -18,6 +18,7 @@ class Rtags < Formula
     sha256 cellar: :any, big_sur:       "78858c44b0a41a2437f5b553069b14a9c612fd77b717e95dbaf1949f8629184a"
     sha256 cellar: :any, catalina:      "a421a220b9d412b03d094fc5ce869813534daf3df87271bc16b0fbf01b3cb305"
     sha256 cellar: :any, mojave:        "84995048fe27191b02332d264e02f7c51178fd5ae5b1f16e6f7be7849adbabcb"
+    sha256               x86_64_linux:  "4eafc513cdf548a06aa5756b0c70e5229d21f4d6a777ae9e327e423cc8deb5c4"
   end
 
   depends_on "cmake" => :build

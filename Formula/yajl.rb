@@ -7,14 +7,15 @@ class Yajl < Formula
 
   bottle do
     rebuild 4
-    sha256 cellar: :any, arm64_big_sur: "baefc7dc955217c4bdefd8dc798a6ad432131f449370a6249e31be6604842942"
-    sha256 cellar: :any, big_sur:       "18bd8c54e847441959876cc9580db5ddcb7e3b92f2fc37ca49ce27d17c050df3"
-    sha256 cellar: :any, catalina:      "65975afbeddbbd919282c04e53fccda191501eb4fa8992a2b4ab1b2be2e10151"
-    sha256 cellar: :any, mojave:        "ab562be70a8ff64861d52b170585f52af91a275e6b5974241eaabd0997b990f2"
-    sha256 cellar: :any, high_sierra:   "3213f11462b3c60a33209c4f5d36c96caf1a9409103012ffb427dd51770ac120"
-    sha256 cellar: :any, sierra:        "1f97e0bbc6680ad4735f0c7ecac20ec87531456c3ab1c93c480c5c5a93a33e1c"
-    sha256 cellar: :any, el_capitan:    "5cfd83bfdbd7c92402f1cecc6b66788e6db0c195880a40263365d8130e47db2f"
-    sha256 cellar: :any, yosemite:      "600fec6352ac23a66795cce22cb0a555df43eb464c87693299cb4fc2a1307833"
+    sha256 cellar: :any,                 arm64_big_sur: "baefc7dc955217c4bdefd8dc798a6ad432131f449370a6249e31be6604842942"
+    sha256 cellar: :any,                 big_sur:       "18bd8c54e847441959876cc9580db5ddcb7e3b92f2fc37ca49ce27d17c050df3"
+    sha256 cellar: :any,                 catalina:      "65975afbeddbbd919282c04e53fccda191501eb4fa8992a2b4ab1b2be2e10151"
+    sha256 cellar: :any,                 mojave:        "ab562be70a8ff64861d52b170585f52af91a275e6b5974241eaabd0997b990f2"
+    sha256 cellar: :any,                 high_sierra:   "3213f11462b3c60a33209c4f5d36c96caf1a9409103012ffb427dd51770ac120"
+    sha256 cellar: :any,                 sierra:        "1f97e0bbc6680ad4735f0c7ecac20ec87531456c3ab1c93c480c5c5a93a33e1c"
+    sha256 cellar: :any,                 el_capitan:    "5cfd83bfdbd7c92402f1cecc6b66788e6db0c195880a40263365d8130e47db2f"
+    sha256 cellar: :any,                 yosemite:      "600fec6352ac23a66795cce22cb0a555df43eb464c87693299cb4fc2a1307833"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c206281370fe7277f21d17ff50fe9511233aff74501238516918027006c9cbf3"
   end
 
   # Configure uses cmake internally

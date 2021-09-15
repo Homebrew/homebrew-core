@@ -16,6 +16,7 @@ class Z80dasm < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "5012e33c0fc342ec32a22462f9a75897fd69d44cf2918c64a593d268fa365c86"
     sha256 cellar: :any_skip_relocation, mojave:        "0650fc5eadf8ee791201886bd39356af1365f9258c2222e27824fe63500b6eac"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a6d8e1d4caa612567de07580a353c82040e5c8005a08117386633e9a11f0df2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6fe1126137b9a2626bb459fd6d67936ba11eacc8428f044f26c5b9cd1af1dd4f"
   end
 
   def install

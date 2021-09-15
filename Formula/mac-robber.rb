@@ -14,6 +14,7 @@ class MacRobber < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "160983c4988cb22bd68a0beeb48de91a8af3461722a42e65e523c4a6af08f444"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0647670a38eb3ae5d8085ad1126f8d70b6e9ac99b086c0ec2f3301ac51ecdb3f"
     sha256 cellar: :any_skip_relocation, yosemite:      "5e8b7656cafbab151ed82702cbd7e712ee30af62b6a6c031f9f440e95c174ed0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac53384d4cfcdf2b78d8abc6e8882ce7e6efd95304a9f09895a9e8a6108a4a9a"
   end
 
   def install

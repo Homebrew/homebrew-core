@@ -18,6 +18,7 @@ class Lensfun < Formula
     sha256 big_sur:       "48cd331c4214979daa6c122e2b776000af76208cb051562e27f4cef4f3aa3b93"
     sha256 catalina:      "b0d8cdbcf20af0b1d577626e04643687955030785f57911e9d0a708a7ef95997"
     sha256 mojave:        "526b6752883c94e7e2807fa06e6803e9dc45060189be102be5ed79c24b187af6"
+    sha256 x86_64_linux:  "d5758ba26c4bb2d4134bc733a302a30b6534f7b5e64dbd25ec519c39f5234c7a"
   end
 
   depends_on "cmake" => :build

@@ -6,13 +6,17 @@ class Sonic < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "cd8065c75076f377f02ff7c2b010f2eb653077c7c691bf12e0beb4ad2fbcae2c"
-    sha256 cellar: :any_skip_relocation, catalina:    "d22157b31f471d3b5a74018cef0fbcb5c5b6cf4f2a59df7b3cfe315090d3d3b4"
-    sha256 cellar: :any_skip_relocation, mojave:      "5e68bc4761ff25830382fe068ef89a38c71762f98958cf1b7f3dc1db8dc7cc26"
-    sha256 cellar: :any_skip_relocation, high_sierra: "184bf1ac4972c580d1a648f48a4aa6f01fecdc1aeefb2cd0bb6789232fc2ba22"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:      "96cada862d795baf29e21b10735b373117c4c0fa8058cd48f31b9dbe24e954bf"
+    sha256 cellar: :any_skip_relocation, catalina:     "fb2bb9eff6d9c7e20e6c86cd8279772d9d2be7d4969eb93bd8442ffac4a57663"
+    sha256 cellar: :any_skip_relocation, mojave:       "7b2e9de3bed6b681c2b2cb21b784841f5153c55085579fb0598e0c939a033a36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a6bced791e9b3429d6cc5cac6848ced5c83f397997d2ade7d8820ba2def863ab"
   end
 
   depends_on "rust" => :build
+
+  uses_from_macos "llvm" => :build
+  uses_from_macos "netcat" => :test
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -20,45 +24,19 @@ class Sonic < Formula
     etc.install "config.cfg" => "sonic.cfg"
   end
 
-  plist_options manual: "sonic -c #{HOMEBREW_PREFIX}/etc/sonic.cfg"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/sonic</string>
-            <string>-c</string>
-            <string>#{etc}/sonic.cfg</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/sonic.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/sonic.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"sonic", "-c", etc/"sonic.cfg"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/sonic.log"
+    error_log_path var/"log/sonic.log"
   end
 
   test do
     port = free_port
 
     cp etc/"sonic.cfg", testpath/"config.cfg"
-    inreplace "config.cfg", ":1491", ":#{port}"
+    inreplace "config.cfg", "[::1]:1491", "0.0.0.0:#{port}"
     inreplace "config.cfg", "#{var}/sonic", "."
 
     fork { exec bin/"sonic" }

@@ -11,6 +11,7 @@ class E2tools < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "93eab5f2d207ac8f27a9b27db13408b4b7f8a3cfee4ecbca9d9977a851a41576"
     sha256 cellar: :any_skip_relocation, mojave:        "1ad81d83b87fc67a54698e6af829dd0945119a41a445383268f1d0190ff7b38d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "069988a622ce0587927a4a50b70b778b461840d2db2e49259e1123123bf6a2ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc52ded6e99ba793baaf68c70a158ab156829f74e090b1182f9dc15d816357ba"
   end
 
   depends_on "autoconf" => :build

@@ -10,6 +10,7 @@ class Dopewars < Formula
     sha256 big_sur:       "390ce7a719041ebf745d790ea872db927cb587cfc91ddab183472fe2ceecec43"
     sha256 catalina:      "85d6516b31e2bd45f92d2e2c18f773ec2b2990b25da82155454274e8c65eaa3d"
     sha256 mojave:        "abe0910c15903b12be25d3b00f4544f39d10b894c5b773468b7b52e3c403893b"
+    sha256 x86_64_linux:  "d210ce88fedc57d16b0561b3bae36be8932ddfddf0bc56485194f0100996efcd"
   end
 
   depends_on "pkg-config" => :build

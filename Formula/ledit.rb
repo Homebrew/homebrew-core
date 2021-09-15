@@ -15,9 +15,10 @@ class Ledit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "2d404ace597c8a7062fbe96e15e9e7d1226ec5ca97e0c8981062c77fef10b4eb"
-    sha256 cellar: :any_skip_relocation, catalina: "158141ebf4edc253de428b8789d77eae0b19fdd4d8002e9910cf4c2486a12bb6"
-    sha256 cellar: :any_skip_relocation, mojave:   "463dd47cebd8510a630e39008b001e52659f64f1bcda7503bdc8a0f28e55adfc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "06141836398681d2250bf04d1bba965038f5f707482f0ecab1cc464c8a95bcfb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2d404ace597c8a7062fbe96e15e9e7d1226ec5ca97e0c8981062c77fef10b4eb"
+    sha256 cellar: :any_skip_relocation, catalina:      "158141ebf4edc253de428b8789d77eae0b19fdd4d8002e9910cf4c2486a12bb6"
+    sha256 cellar: :any_skip_relocation, mojave:        "463dd47cebd8510a630e39008b001e52659f64f1bcda7503bdc8a0f28e55adfc"
   end
 
   depends_on "camlp5"

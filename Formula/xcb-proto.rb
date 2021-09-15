@@ -10,6 +10,7 @@ class XcbProto < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b46e6d4bc878650fdf3a3e7b1ec9b9d9e80cf7d40d347d7ef8f9a244ff656fa1"
     sha256 cellar: :any_skip_relocation, catalina:      "b46e6d4bc878650fdf3a3e7b1ec9b9d9e80cf7d40d347d7ef8f9a244ff656fa1"
     sha256 cellar: :any_skip_relocation, mojave:        "24b88c1bf0f5ecc407136ed7139f0690167be335688c0c59990f2d393b6f75aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f77acc7eceef3071a6ad89edf2856aaee324d0986491e3b4cd512741ddd6385b"
   end
 
   depends_on "pkg-config" => [:build, :test]

@@ -8,10 +8,11 @@ class Inko < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "43926844caecb8ef58e68dbe731136c148bae98f4895fb1a0f749a2e0393a13a"
-    sha256 cellar: :any, big_sur:       "0541ff8865a88d0b293ed4a088245c9da57fb4535be08cdb141404bff07cacae"
-    sha256 cellar: :any, catalina:      "fe5852c91f891f3866d009793086ca265155b76874c9623cf233b5927962b667"
-    sha256 cellar: :any, mojave:        "6412cea3a6d18324476c2d3b2020f87e86959944048bd423c73fb1f46a959647"
+    sha256 cellar: :any,                 arm64_big_sur: "43926844caecb8ef58e68dbe731136c148bae98f4895fb1a0f749a2e0393a13a"
+    sha256 cellar: :any,                 big_sur:       "0541ff8865a88d0b293ed4a088245c9da57fb4535be08cdb141404bff07cacae"
+    sha256 cellar: :any,                 catalina:      "fe5852c91f891f3866d009793086ca265155b76874c9623cf233b5927962b667"
+    sha256 cellar: :any,                 mojave:        "6412cea3a6d18324476c2d3b2020f87e86959944048bd423c73fb1f46a959647"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75166f6f36d45da8e6b63908442b61e1065d623aec7303e36364da0e453b691d"
   end
 
   depends_on "coreutils" => :build

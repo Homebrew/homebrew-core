@@ -1,22 +1,23 @@
 class Terrascan < Formula
   desc "Detect compliance and security violations across Infrastructure as Code"
-  homepage "https://www.accurics.com/products/terrascan/"
-  url "https://github.com/accurics/terrascan/archive/v1.6.0.tar.gz"
-  sha256 "4ff014832f5d4e85ee275930639705a8ad9123eb4691591e6645fc76f1b0eb95"
+  homepage "https://github.com/accurics/terrascan"
+  url "https://github.com/accurics/terrascan/archive/v1.10.0.tar.gz"
+  sha256 "4fcfc99e64b081f7a202eb9b6edd4e31e9b477bbcc2c21b70090f94c636d0460"
   license "Apache-2.0"
-  head "https://github.com/accurics/terrascan.git"
+  head "https://github.com/accurics/terrascan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8715fbc3d5f142067d6b936305cfa10b46b844921ecb16834bcccb7e9992294b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5add2d64fec4d6deeaa155025546eea4815336e7ab9ff115f71dcd084fcb1251"
-    sha256 cellar: :any_skip_relocation, catalina:      "867486bf811cd044f2f54fbebf7d467f694ee9e6a8503c9c578f69fee7a62cb9"
-    sha256 cellar: :any_skip_relocation, mojave:        "28b3a265fdd191db24dd14b0da43f6c115ec378c04fdfff71b15f6d9f40f95fd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "566ae3a7be2f51b3e51d6756c84e5809e14af6c4b883eb9eb14b6e3e1784521c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a4f13faec599cfe1586d6ea8512052e98f72783578f09ff182e6d4d7f01088a3"
+    sha256 cellar: :any_skip_relocation, catalina:      "8a064db94da0f9eb0a3ec7e76983a8efae5f450e2537dbfc391688f9da487174"
+    sha256 cellar: :any_skip_relocation, mojave:        "eb86095118573dd1bf4435bb54eab1515ab3feb5699fbc8acf3875ecf8064671"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "565bf4e1b475f82f0b3e1dd2485bc787cbe651580b63a039a5e733391a42d6c5"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./cmd/terrascan"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/terrascan"
   end
 
   test do
@@ -35,15 +36,14 @@ class Terrascan < Formula
     EOS
 
     expected = <<~EOS
-      \tPolicies Validated  :\t203
       \tViolated Policies   :\t0
       \tLow                 :\t0
       \tMedium              :\t0
       \tHigh                :\t0
     EOS
 
-    assert_match expected, shell_output("#{bin}/terrascan scan -f #{testpath}/ami.tf -t aws")
-
-    assert_match "version: v#{version}", shell_output("#{bin}/terrascan version")
+    output = shell_output("#{bin}/terrascan scan -f #{testpath}/ami.tf -t aws")
+    assert_match expected, output
+    assert_match(/Policies Validated\s+:\s+\d+/, output)
   end
 end

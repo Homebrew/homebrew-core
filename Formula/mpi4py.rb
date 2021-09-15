@@ -1,16 +1,15 @@
 class Mpi4py < Formula
   desc "Python bindings for MPI"
   homepage "https://mpi4py.readthedocs.io"
-  url "https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.0.3.tar.gz"
-  sha256 "012d716c8b9ed1e513fcc4b18e5af16a8791f51e6d1716baccf988ad355c5a1f"
-  revision 2
+  url "https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.1.1.tar.gz"
+  sha256 "e11f8587a3b93bb24c8526addec664b586b965d83c0882b884c14dc3fd6b9f5c"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0f4729ca14721e02e752fa831f91c0463d32163e86c7097896843c553d0b8f30"
-    sha256 cellar: :any, big_sur:       "3b761d6032292468252ff3c8aa01c61f4e71cf945235a88e18eebd97d9bfd957"
-    sha256 cellar: :any, catalina:      "c6163dd690053dc5adcca25c63c54c5feb34d46248685e3d448ef673e907de36"
-    sha256 cellar: :any, mojave:        "e3bec47030124ee25c7d8d0bc31f24f6c317e81da4878e008ae8bb4cb26fb017"
-    sha256 cellar: :any, high_sierra:   "3c73ed25e9e29e5232bfe258147ebe87dd78ae5d295d4de6a1ec4f93475635a6"
+    sha256 cellar: :any, arm64_big_sur: "8b7ad2f636c83307d0e95c1e8810d81072354ca20c49726689fd09d053c671d0"
+    sha256 cellar: :any, big_sur:       "b7ca05b0d8ddcc698e1ee29e6108f169cff4f4552ca80842469a63c0a6e90de1"
+    sha256 cellar: :any, catalina:      "9019d4011822668326aec24352f2a743457e727d83d3903b1bee00a1bbfd6751"
+    sha256 cellar: :any, mojave:        "19b22755d25aab224777f996e12cbcb16a8156f1bf98123a607d648b676d7af4"
+    sha256               x86_64_linux:  "25b6d3d54394801fcbb646690cf145e0cae56c9aee9ed43da210c25f65cee914"
   end
 
   depends_on "cython" => :build
@@ -28,16 +27,15 @@ class Mpi4py < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3",
-           "-c", "import mpi4py"
-    system Formula["python@3.9"].opt_bin/"python3",
-           "-c", "import mpi4py.MPI"
-    system Formula["python@3.9"].opt_bin/"python3",
-           "-c", "import mpi4py.futures"
-    system "mpiexec", "-n", "4", Formula["python@3.9"].opt_bin/"python3",
-           "-m", "mpi4py.run", "-m", "mpi4py.bench", "helloworld"
-    system "mpiexec", "-n", "4", Formula["python@3.9"].opt_bin/"python3",
-           "-m", "mpi4py.run", "-m", "mpi4py.bench", "ringtest",
-           "-l", "10", "-n", "1024"
+    python = Formula["python@3.9"].opt_bin/"python3"
+
+    system python, "-c", "import mpi4py"
+    system python, "-c", "import mpi4py.MPI"
+    system python, "-c", "import mpi4py.futures"
+
+    system "mpiexec", "-n", ENV.make_jobs, "--use-hwthread-cpus",
+           python, "-m", "mpi4py.run", "-m", "mpi4py.bench", "helloworld"
+    system "mpiexec", "-n", ENV.make_jobs, "--use-hwthread-cpus",
+           python, "-m", "mpi4py.run", "-m", "mpi4py.bench", "ringtest", "-l", "10", "-n", "1024"
   end
 end

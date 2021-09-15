@@ -1,45 +1,38 @@
 class Lasso < Formula
   desc "Library for Liberty Alliance and SAML protocols"
   homepage "https://lasso.entrouvert.org/"
-  url "https://dev.entrouvert.org/releases/lasso/lasso-2.6.1.tar.gz"
-  sha256 "f8a8dbce238802f6bb9c3b8bd528b4dce2a1dc44e2d34d8d839aa54fbc8ed1de"
-  license "GPL-2.0"
-  revision 1
+  url "https://dev.entrouvert.org/releases/lasso/lasso-2.7.0.tar.gz"
+  sha256 "9282f2a546ee84b6d3a8236970fea3a47bea51cb247c31a05a374c22eb451d8d"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?lasso[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "aef8a4d9b81790ff84aad53da1c7d9a582ac69db8d775d930a30444174e186dc"
-    sha256 cellar: :any, big_sur:       "83fa7671b9b8635dbf79c5db616d72c0f8d53ca543a508effd4bf628f46af26e"
-    sha256 cellar: :any, catalina:      "bc1f4dc6fccff1c5631d37b4539d2d9a657357445488ce892756feccf98f660b"
-    sha256 cellar: :any, mojave:        "d4bfe838fe8fd0b32ff7e19a4601c85a3b98a49ed8e1f05dc796ed5adf89005b"
-    sha256 cellar: :any, high_sierra:   "8256178a39f08386db515226b334a93f895cb8d96c043acfe1a8d420efbb668f"
+    sha256 cellar: :any, arm64_big_sur: "9fa2831bd4c741367805ff5621489c3cc2ea3f19bafc5252817851cf9d5c0bde"
+    sha256 cellar: :any, big_sur:       "600c3e0dad28c4dadfd3c8aa880b3b652e6d7cf8d2bdeb22aa17f97eeb8bf43b"
+    sha256 cellar: :any, catalina:      "1b5faa0de1a45cb6d4965d17a1f8480716ab5e5af97ed6eeafa65d69a482e4e6"
+    sha256 cellar: :any, mojave:        "226e925072fb12e5009690fa8426c68dfad03fa9633464627a33b0991d29a5be"
   end
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+  depends_on "six" => :build
   depends_on "glib"
   depends_on "libxmlsec1"
   depends_on "openssl@1.1"
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
-  end
-
   def install
     xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-java",
                           "--disable-perl",
                           "--disable-php5",
+                          "--disable-php7",
                           "--disable-python",
                           "--prefix=#{prefix}",
                           "--with-pkg-config=#{ENV["PKG_CONFIG_PATH"]}"

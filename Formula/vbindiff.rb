@@ -3,6 +3,7 @@ class Vbindiff < Formula
   homepage "https://www.cjmweb.net/vbindiff/"
   url "https://www.cjmweb.net/vbindiff/vbindiff-3.0_beta5.tar.gz"
   sha256 "f04da97de993caf8b068dcb57f9de5a4e7e9641dc6c47f79b60b8138259133b8"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
@@ -17,7 +18,10 @@ class Vbindiff < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "c5d1025c94e7fe141a9522ed1460bfba8047393d63d59f54b391dec063c05c68"
     sha256 cellar: :any_skip_relocation, sierra:        "d6474b9e6a00c71f2c207c07dbfb015aa428d8f32e193b69c7b4a1f534f128db"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b2f557094c03f5870173b32cdf9e8ff8bd7fd74340adfea7f1db6b6eced367d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e67eb1ec328a7cdfc6a1ffa6f6b8cdf60f106040ef5714d6b1b15067a37f6214"
   end
+
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--disable-debug",

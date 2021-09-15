@@ -6,14 +6,15 @@ class Lrdf < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f8caf3278cac4e40b255d362d064ec73ea2f92f0580fa2c34f50165279219c49"
-    sha256 cellar: :any, big_sur:       "860779b7babd494a2fa8833581bf5b518a7a8ec9c9b9ad7815f33fca52087e57"
-    sha256 cellar: :any, catalina:      "38b2c487542d1e264b31f560eb582829f178f2aa1abb28ce055475c9dffce9f4"
-    sha256 cellar: :any, mojave:        "1940f0eb408453bc179cc15c2588ad90eedeef608ec830a10881faee75c00d87"
-    sha256 cellar: :any, high_sierra:   "e15d0f6129cd4ba502860f0ab0367eceadf2a377be9dd25af30c52ebffd064c6"
-    sha256 cellar: :any, sierra:        "27f0d95eed42b70eb6685ffe8608465b0f39b88b544dbee080fe3decf81512ed"
-    sha256 cellar: :any, el_capitan:    "f615e775140216eff74cd0fe751ace5993030c00921574da635a44b41d8bba57"
-    sha256 cellar: :any, yosemite:      "053602eb98310d03ea0ba7838cd0f746dd34a60759a35fcbae7c41ca08a2919f"
+    sha256 cellar: :any,                 arm64_big_sur: "f8caf3278cac4e40b255d362d064ec73ea2f92f0580fa2c34f50165279219c49"
+    sha256 cellar: :any,                 big_sur:       "860779b7babd494a2fa8833581bf5b518a7a8ec9c9b9ad7815f33fca52087e57"
+    sha256 cellar: :any,                 catalina:      "38b2c487542d1e264b31f560eb582829f178f2aa1abb28ce055475c9dffce9f4"
+    sha256 cellar: :any,                 mojave:        "1940f0eb408453bc179cc15c2588ad90eedeef608ec830a10881faee75c00d87"
+    sha256 cellar: :any,                 high_sierra:   "e15d0f6129cd4ba502860f0ab0367eceadf2a377be9dd25af30c52ebffd064c6"
+    sha256 cellar: :any,                 sierra:        "27f0d95eed42b70eb6685ffe8608465b0f39b88b544dbee080fe3decf81512ed"
+    sha256 cellar: :any,                 el_capitan:    "f615e775140216eff74cd0fe751ace5993030c00921574da635a44b41d8bba57"
+    sha256 cellar: :any,                 yosemite:      "053602eb98310d03ea0ba7838cd0f746dd34a60759a35fcbae7c41ca08a2919f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cb0169c0f75331b17aedb8d9f54283c5487230015b284429f6a6ee9f72344d2"
   end
 
   depends_on "autoconf" => :build

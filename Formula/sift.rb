@@ -16,6 +16,7 @@ class Sift < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "42fbf76075951fd28a27b4e2763b3af58eb93b0260c3a3c82719d7a32ef7baec"
     sha256 cellar: :any_skip_relocation, el_capitan:    "6ee1bdf8b60fe3c3528a4a2698f19518a7bf71838ceba58ab9a199a6624f3dba"
     sha256 cellar: :any_skip_relocation, yosemite:      "170f9861eb8843932556284268f1a00e3e0a0c455e35b55c11e44c5b325ced85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d9feea7d6e51c11b1a56043ed9b15731dac5440dd4eb492c1468ef0497a1af9"
   end
 
   depends_on "go" => :build

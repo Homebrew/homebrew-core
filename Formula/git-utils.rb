@@ -5,7 +5,9 @@ class GitUtils < Formula
   sha256 "a65252222222981d769fe2b19508e698fac4a0ce72e4ff07e74851e99a8fc813"
   head "https://github.com/ddollar/git-utils.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "7c7e5940ae9e46d0dfacb6b2b8db5dcf98626012d57d563a9ec1ca852bf9f0fb"
+  end
 
   conflicts_with "git-extras",
     because: "both install a `git-pull-request` script"

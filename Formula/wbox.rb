@@ -13,6 +13,7 @@ class Wbox < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "241edb51af197d72022a48cb8444506188269b335b057ceaa7bf952db86777d8"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0e813a0982d6b9228217f14352812d9e6880cce44757f8af9a0447bf5e4a1e63"
     sha256 cellar: :any_skip_relocation, yosemite:      "ee2bd7599a73c3a9f3fe9f8c2d441d753914981b2420e591050780d436bbf011"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7b840389d15d72983d68617019bc052ddcea1249468c939f53c70dc3d1dede3"
   end
 
   def install

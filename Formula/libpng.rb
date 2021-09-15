@@ -12,12 +12,13 @@ class Libpng < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "766a7136ee626b411fb63da0c7e5bc1e848afb6e224622f25ea305b2d1a4a0f1"
-    sha256 cellar: :any, big_sur:       "a8f1c35f9f004c4f7878c30027e35a9fb9551782df963f88deebd3dc29d94d51"
-    sha256 cellar: :any, catalina:      "c8e74da602c21f978cd7ee3d489979b4fc6681e71f678a1d99012943ee3a909f"
-    sha256 cellar: :any, mojave:        "53bbd14cc27c86c16605e256e7646a1b5656c253abca084958c5d80a2961cb01"
-    sha256 cellar: :any, high_sierra:   "bbdd94bdd5954bc50c096391486e67265dce5631efb913dcffe4469806a242b6"
-    sha256 cellar: :any, sierra:        "e66797079a9a8134f91bd36b58054c6c32f6a9cd161c1bd19f0192319edb80aa"
+    sha256 cellar: :any,                 arm64_big_sur: "766a7136ee626b411fb63da0c7e5bc1e848afb6e224622f25ea305b2d1a4a0f1"
+    sha256 cellar: :any,                 big_sur:       "a8f1c35f9f004c4f7878c30027e35a9fb9551782df963f88deebd3dc29d94d51"
+    sha256 cellar: :any,                 catalina:      "c8e74da602c21f978cd7ee3d489979b4fc6681e71f678a1d99012943ee3a909f"
+    sha256 cellar: :any,                 mojave:        "53bbd14cc27c86c16605e256e7646a1b5656c253abca084958c5d80a2961cb01"
+    sha256 cellar: :any,                 high_sierra:   "bbdd94bdd5954bc50c096391486e67265dce5631efb913dcffe4469806a242b6"
+    sha256 cellar: :any,                 sierra:        "e66797079a9a8134f91bd36b58054c6c32f6a9cd161c1bd19f0192319edb80aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aeb238f8b62e3e8923a032caf88152e287a4435ab4afd663fa98b4a57495d116"
   end
 
   head do

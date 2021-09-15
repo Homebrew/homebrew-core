@@ -1,16 +1,17 @@
 class Restic < Formula
   desc "Fast, efficient and secure backup program"
   homepage "https://restic.github.io/"
-  url "https://github.com/restic/restic/archive/v0.12.0.tar.gz"
-  sha256 "39b615a36a5082209a049cce188f0654c6435f0bc4178b7663672334594f10fe"
+  url "https://github.com/restic/restic/archive/v0.12.1.tar.gz"
+  sha256 "a9c88d5288ce04a6cc78afcda7590d3124966dab3daa9908de9b3e492e2925fb"
   license "BSD-2-Clause"
-  head "https://github.com/restic/restic.git"
+  head "https://github.com/restic/restic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2f1be439ee37bc32802e705b595541c849f08034cd74836c03e5a8cc9c674b6d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "62e870aa5d92ff24c3508c83a3a3097137127c6bcd567968cfd99a44d14ab068"
-    sha256 cellar: :any_skip_relocation, catalina:      "408932d412c7abf1592f07bebb6ec32eb6af2b0b9efc942dfd661027c839e6dd"
-    sha256 cellar: :any_skip_relocation, mojave:        "1e3fe2725e40ce54501167afa71979873a1d651beb0031a0c84dc923606ecb30"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c42f5dc067e1f3d2fc001bceb623564bff4b2bc692c486e2bc69911fc4db932e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b776b9a367a6a290d7ba970ecb560e1bca188534a868020ed37f5e7d8bcb33a7"
+    sha256 cellar: :any_skip_relocation, catalina:      "c8ad9c03fcad3d00e354208d4225f5a625185f2b7179e78f93f759748b80cf8f"
+    sha256 cellar: :any_skip_relocation, mojave:        "a3f6155d24196e1f49fda7cad19da3753428ce1cae63e283dc1b66e623a0c756"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ce82bf169c87af5f42b0b564179148d06ed6b19ae1bde13b10e04a8ccce5e3a"
   end
 
   depends_on "go" => :build

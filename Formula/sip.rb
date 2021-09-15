@@ -3,16 +3,17 @@ class Sip < Formula
 
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://files.pythonhosted.org/packages/44/76/d9722bb934c7ca31f4bcf471d5f781b7ffed3a60f10c858a676d3a9aa1a0/sip-6.1.0.tar.gz"
-  sha256 "f069d550dd819609e019e5dc58fc5193e081c7f3fb4f7dc8f9be734e34d4e56e"
+  url "https://files.pythonhosted.org/packages/f8/b2/fcd5e964eefce0737512fb4ea263308769c671c3b1b9b1e380a5008ffef0/sip-6.1.1.tar.gz"
+  sha256 "52d25af2fcd764c4e15cc9cd1350bdb0e63f52dfa2aa3c5e7679af7fde9f7e20"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6bcc4bde69def2e795e6a7e5b401071b922f7b2a8897beede724d4127feff8e3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a7976cf7293d2cf6d791099052307485f614937cc01cca67972d49ee73d9380e"
-    sha256 cellar: :any_skip_relocation, catalina:      "abe9be642f3380fe56aa8647d314cff964fadde180be5e8556fcdaa3fd9e5abb"
-    sha256 cellar: :any_skip_relocation, mojave:        "7b5c3b19640a10879a1c62b7be2be271fe55dd0139d0af9a7deed5ffe18fdf0f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6520df3269907002172ccb7991771fcb5fb6d00148f82914b0e6761352aa2ae1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3edb9829de62236f7846d7080ca433849e88c2b3efc00030464e33a55a378dc0"
+    sha256 cellar: :any_skip_relocation, catalina:      "7167e8060df4b6144b2852bf3893854d6ee0c9c2f4ba6101ff7f60e718f57b98"
+    sha256 cellar: :any_skip_relocation, mojave:        "b1cde0dc289c7cb45614808eeb567bfaa820360eeee87b76cbde3adb2d8b7f76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d68d3d0da661e632122a6aeca9483947b056838f216f95b9902d05693f3a7137"
   end
 
   depends_on "python@3.9"

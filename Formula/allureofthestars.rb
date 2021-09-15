@@ -4,12 +4,15 @@ class Allureofthestars < Formula
   url "https://hackage.haskell.org/package/Allure-0.10.2.0/Allure-0.10.2.0.tar.gz"
   sha256 "fcb9f38ea543d3277fa90eee004f7624d1168bf7f2c17902cda1870293b7c2f4"
   license all_of: ["AGPL-3.0-or-later", "GPL-2.0-or-later", "OFL-1.1", "MIT", :cannot_represent]
-  head "https://github.com/AllureOfTheStars/Allure.git"
+  revision 4
+  head "https://github.com/AllureOfTheStars/Allure.git", branch: "master"
 
   bottle do
-    sha256 big_sur:  "08e20dcd7cfc1614eccd6379f87eb90033744e7cd4b61fe16f74a7ac398dc024"
-    sha256 catalina: "f91e6b2d32786a3a3d9c8158d25bcdcc237522bf20c897db126c4637214719b4"
-    sha256 mojave:   "74bba1ecc12c907719e67be93e7ec10493684bb23f4f1c93c1325a12c9b36c2d"
+    sha256 arm64_big_sur: "35f81924e44e1dbb5b3afdb9447117622f6fa31388722f3ba4326641e3399eb7"
+    sha256 big_sur:       "07130a7da685c1df7dfc4231696b3819edac6ef3f4626796a4b7a01c9d8e1bba"
+    sha256 catalina:      "522ebd08dd14793bcf72c9cc260d2d1649a394c35941db6476baec2c7c441a85"
+    sha256 mojave:        "7f3af277723076c9b3dae13fbf597a24d92069cd2aca02e9628de915036a3f04"
+    sha256 x86_64_linux:  "96891cb7896bc936721f38f9d0ce62f3dc9675d245345d5e2ecf3bb68396763b"
   end
 
   depends_on "cabal-install" => :build
@@ -26,8 +29,8 @@ class Allureofthestars < Formula
   test do
     assert_equal "",
       shell_output("#{bin}/Allure --dbgMsgSer --dbgMsgCli --logPriority 0 --newGame 3 --maxFps 100000 " \
-                                 "--stopAfterFrames 50 --automateAll --keepAutomated --gameMode battle " \
-                                 "--setDungeonRng \"SMGen 7 7\" --setMainRng \"SMGen 7 7\"")
+                   "--stopAfterFrames 50 --automateAll --keepAutomated --gameMode battle " \
+                   "--setDungeonRng \"SMGen 7 7\" --setMainRng \"SMGen 7 7\"")
     assert_equal "", (testpath/".Allure/stderr.txt").read
     assert_match "Client FactionId 1 closed frontend.", (testpath/".Allure/stdout.txt").read
   end

@@ -5,6 +5,11 @@ class RegexOpt < Formula
   sha256 "128c8ba9570b1fd8a6a660233de2f5a4022740bc5ee300300709c3894413883f"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?regex-opt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0d8b19c7d0c896626944d9affc850e42f0073ecbfe82b6380f0ed494c13bc759"
@@ -13,6 +18,7 @@ class RegexOpt < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "76b26dc9e766e7a8b0806660e966e3a49c593591b94d90439f89b7cbc797d019"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0e46dec5d46b145e32ca597c00c75fea2e7097e57c5d3131be141e5bea2b96db"
     sha256 cellar: :any_skip_relocation, sierra:        "68b5f75c9fdb645334ae8a48a5b7e01620e19d5f103811579cb8bf96101c6ac7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cf554c9bf9c98356aef52dc0d2eeeb514020d2505ed41764458f937e662b95e"
   end
 
   def install

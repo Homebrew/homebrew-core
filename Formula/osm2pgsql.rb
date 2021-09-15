@@ -1,16 +1,17 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://osm2pgsql.org"
-  url "https://github.com/openstreetmap/osm2pgsql/archive/1.4.2.tar.gz"
-  sha256 "fc68283930ccd468ed9b28685150741b16083fec86800a4b011884ae22eb061c"
+  url "https://github.com/openstreetmap/osm2pgsql/archive/1.5.1.tar.gz"
+  sha256 "4df0d332e5d77a9d363f2f06f199da0ac23a0dc7890b3472ea1b5123ac363f6e"
   license "GPL-2.0-only"
-  revision 1
-  head "https://github.com/openstreetmap/osm2pgsql.git"
+  head "https://github.com/openstreetmap/osm2pgsql.git", branch: "master"
 
   bottle do
-    sha256 big_sur:  "a94f9cd80046d36cd58ff703a1f88f9fc96fc73387385fb7e6e0d0c5928b1762"
-    sha256 catalina: "b0e20e31f4cf92e0864317a89e6ca7dc27316a8e2f2c26b8b30098a39a524c95"
-    sha256 mojave:   "6d2aa48b84778add39e39e724c14d1861385721179615054a1c92a9a688f0d50"
+    sha256 arm64_big_sur: "ece6fdfa41191aa1f7f5c82b6c197e668e5550cfae6d72271bf0253f3a4d166f"
+    sha256 big_sur:       "3b55656f6199e13de0705586978e4fd6bbc24b8a4125d0380f7331ac171f5a2f"
+    sha256 catalina:      "f400b7edec6fcd957360a69c43212868a3a7a0dcd3b8c0a96a9cd1d3b725ec90"
+    sha256 mojave:        "e9b3b5a2cac886bb1afbfb9586cdda65c01a50248727a04c5e93ca2bd7e686f7"
+    sha256 x86_64_linux:  "bb9666b44020e017f3867c7a2d71d739988f0953a12eca0200c65955db994f5c"
   end
 
   depends_on "cmake" => :build

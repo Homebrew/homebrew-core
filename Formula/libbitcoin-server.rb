@@ -4,14 +4,13 @@ class LibbitcoinServer < Formula
   url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.6.0.tar.gz"
   sha256 "283fa7572fcde70a488c93e8298e57f7f9a8e8403e209ac232549b2c433674e1"
   license "AGPL-3.0"
-  revision 6
+  revision 7
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "20e59332917da2f92f60ed06e6a2c83516a0a24ca7deef6539723e4d4627cdbb"
-    sha256 big_sur:       "938cff4210a9af3dc898813c69d40de721907b6da1851d8fe5bd1245e1201a85"
-    sha256 catalina:      "a30c9b57cc0e7a513822cac708094844c9180d01ae46408d1e53c19ffd6a970f"
-    sha256 mojave:        "0cc3c97b8d11940fb5805b5d4c60a955e2b089be6f27666e3893c2cf7d617d18"
+    sha256 arm64_big_sur: "7efe8bcecf7a2d191790ed5ef7e7ed2035c5b21647c1cca030a485a20e1efbbe"
+    sha256 big_sur:       "14d83e9545bea5d9d4c6c794b0dca5b58d4e36c90773e1b82db2ce346cb8bce4"
+    sha256 catalina:      "03a1363d1b924bc9ce0cbbb4aa080e1c71b66374d6dd8def2b03023bff6595cb"
+    sha256 mojave:        "23a267d222b28729da3e7dfefe559aba8f97b668910e08ce33f4016b067d8dff"
   end
 
   depends_on "autoconf" => :build
@@ -22,6 +21,7 @@ class LibbitcoinServer < Formula
   depends_on "libbitcoin-protocol"
 
   def install
+    ENV.cxx11
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
 
     system "./autogen.sh"
@@ -35,6 +35,7 @@ class LibbitcoinServer < Formula
   end
 
   test do
+    boost = Formula["boost"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/server.hpp>
       int main() {
@@ -46,7 +47,7 @@ class LibbitcoinServer < Formula
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-lbitcoin-server",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
+                    "-L#{boost.opt_lib}", "-lboost_system"
     system "./test"
   end
 end

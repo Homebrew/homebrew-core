@@ -7,12 +7,12 @@ class Redshift < Formula
   revision 1
 
   bottle do
-    sha256 arm64_big_sur: "2c802664981ccedd90f69895e4389461fb631acc1766226b1d8ff3bc51be7988"
-    sha256 big_sur:       "0d12842206f6644ec971b204ecf5d4889f868e3c26f9596e541f1977eb901feb"
-    sha256 catalina:      "b40870e8bcb3d28fdc6fa5a1d7c232939973e4a73a38029afd0bc6f86c199b51"
-    sha256 mojave:        "197ca4060616fbb79a6e64b93760f60ef581d5d76f838ab099b97076e3e569fe"
-    sha256 high_sierra:   "f07311c326eb8c2310d509ffbcb5424d7783a1b0b675d47ac32026116086a39d"
-    sha256 sierra:        "89ab02396a2d3694923f8496217a5d5a47c1cc35e167205cf4bb74033de92ab3"
+    rebuild 1
+    sha256 arm64_big_sur: "043dc8ec9eff54763ea0fdf2c3ca325a9906d8fd1098568255ced2a497841315"
+    sha256 big_sur:       "8be47c6b6015ca4ccd2c706dd58541c49c4177a1d69144452a7aa483c977f805"
+    sha256 catalina:      "344ea69571839ab32210854f990474239fde828b10a019ec5e88695eb4c7ffcb"
+    sha256 mojave:        "71ec07212f543d7a4152f04627f2fe9cabcbc121caae584b24070f05101ae4dd"
+    sha256 x86_64_linux:  "12372cb33e04989848070b332096420b45539cd69e31026545543207d7d0cc9a"
   end
 
   head do
@@ -39,7 +39,7 @@ class Redshift < Formula
       --disable-gui
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-corelocation"
       args << "--enable-quartz"
     end
@@ -59,31 +59,11 @@ class Redshift < Formula
     EOS
   end
 
-  plist_options manual: "redshift"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/redshift</string>
-          </array>
-          <key>KeepAlive</key>
-          <true/>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>/dev/null</string>
-          <key>StandardOutPath</key>
-          <string>/dev/null</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"redshift"
+    keep_alive true
+    log_path "/dev/null"
+    error_log_path "/dev/null"
   end
 
   test do

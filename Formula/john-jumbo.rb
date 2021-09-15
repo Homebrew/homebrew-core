@@ -19,18 +19,16 @@ class JohnJumbo < Formula
     sha256 mojave:        "51f7b265d83da1db5c2a34e77d2f376e1fa7730ecde5c9cfcda181ccab084f8e"
     sha256 high_sierra:   "0719a701b7280ccd2bd1e2f834ffb6518d183f80c5df2afcb956f374e6d032c3"
     sha256 sierra:        "6349fe1f1c0524382ab6ed36a4ceeb795c67cacb310688e2759cf33efab82609"
+    sha256 x86_64_linux:  "7436d7bbfa99d24378592eb1444d05b06d8cf97ada9957aac8f15f1f0512f61e"
   end
 
   depends_on "pkg-config" => :build
   depends_on "gmp"
   depends_on "openssl@1.1"
 
-  conflicts_with "john", because: "both install the same binaries"
+  uses_from_macos "zlib"
 
-  # https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/doc/INSTALL#L133-L143
-  fails_with :gcc do
-    cause "Upstream have a hacky workaround for supporting gcc that we can't use."
-  end
+  conflicts_with "john", because: "both install the same binaries"
 
   # Fixed setup `-mno-sse4.1` for some machines.
   # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4100

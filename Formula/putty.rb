@@ -1,15 +1,16 @@
 class Putty < Formula
   desc "Implementation of Telnet and SSH"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/putty/"
-  url "https://the.earth.li/~sgtatham/putty/0.75/putty-0.75.tar.gz"
-  sha256 "d3173b037eddbe9349abe978101277b4ba9f9959e25dedd44f87e7b85cc8f9f5"
+  url "https://the.earth.li/~sgtatham/putty/0.76/putty-0.76.tar.gz"
+  sha256 "547cd97a8daa87ef71037fab0773bceb54a8abccb2f825a49ef8eba5e045713f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c133fac55c1f754b779ee81f4b8a5b1e21072c39409edcd0d96a723927dc7ac5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7c3cd8e013706720ba56fcc38107051dd05eb36daeaac785a46c93695641357b"
-    sha256 cellar: :any_skip_relocation, catalina:      "f7913ffc65271e850f1689f3b5cfa0105cfcb72f06697cc9e66a0850dd4dc9f6"
-    sha256 cellar: :any_skip_relocation, mojave:        "79b879541251665356f72102b11cced22a2ed6c56bf7131235b77ac8a91f555c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "adb57691d42b70e51a4336dc37126996c782f2bf66db5d0f05813ebd04178ebf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "75e23ad8100002d5ade0acf3745f4f40a9add28a25ea4814caafd0cb37be7cb8"
+    sha256 cellar: :any_skip_relocation, catalina:      "ab58a1de02894bd5364c31e4a5b864acb81cbc0160814d048f98077bfe01a4b1"
+    sha256 cellar: :any_skip_relocation, mojave:        "4aab22d3d6867678be1d1be95edb5fe41fcd7d807892b00b83d0280b6f356f46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51689b0cb6c740349175dad1786ac7786b639e78f5e5b3765272ae83162009d4"
   end
 
   head do
@@ -52,7 +53,7 @@ class Putty < Formula
 
   test do
     (testpath/"command.sh").write <<~EOS
-      #!/usr/bin/expect -f
+      #!/usr/bin/env expect
       set timeout -1
       spawn #{bin}/puttygen -t rsa -b 4096 -q -o test.key
       expect -exact "Enter passphrase to save key: "

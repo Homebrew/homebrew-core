@@ -4,7 +4,7 @@ class Publish < Formula
   url "https://github.com/JohnSundell/Publish/archive/0.8.0.tar.gz"
   sha256 "c807030d86490ebb633f8326319dac4036d41297598709670284e4f7044d7883"
   license "MIT"
-  head "https://github.com/JohnSundell/Publish.git"
+  head "https://github.com/JohnSundell/Publish.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "43e882a02f169464d3b72b91c4221e605658f7f6a8989e069caecfd1d2c4caf6"

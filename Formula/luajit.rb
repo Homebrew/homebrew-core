@@ -20,9 +20,10 @@ class Luajit < Formula
 
   bottle do
     rebuild 4
-    sha256 cellar: :any, big_sur:  "b3d7fd95cf9b72f89bc95cbc86e19786e9353b353c409e19b721d9ac98c9216b"
-    sha256 cellar: :any, catalina: "0a37eaa5b05ab2e30fcdbfb0355265404b7030655344d79394f9b957df4f317d"
-    sha256 cellar: :any, mojave:   "0b6cad395e49805dfa9b3dc70fd775c416d997ea4774ee8453e87deeaf5fdffa"
+    sha256 cellar: :any,                 big_sur:      "b3d7fd95cf9b72f89bc95cbc86e19786e9353b353c409e19b721d9ac98c9216b"
+    sha256 cellar: :any,                 catalina:     "0a37eaa5b05ab2e30fcdbfb0355265404b7030655344d79394f9b957df4f317d"
+    sha256 cellar: :any,                 mojave:       "0b6cad395e49805dfa9b3dc70fd775c416d997ea4774ee8453e87deeaf5fdffa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c958527ccb075bdc9e61adacd371a2372ffa731c53ffb191fe71f0889ea24869"
   end
 
   def install

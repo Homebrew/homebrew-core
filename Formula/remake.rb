@@ -24,6 +24,7 @@ class Remake < Formula
     sha256 catalina:      "310b2ef02888a953487fb4e3f7fd7101c209a9abd12286d6a8509669c3ed2909"
     sha256 mojave:        "05998e7ad1f8442b57e0826b5152894186f359b59d75e68634c1da1a96b0345f"
     sha256 high_sierra:   "b3c14a7963aeda5e8367e0e4375354fdd58b24a99c07d6cb3fd881dc8d1b1941"
+    sha256 x86_64_linux:  "1f2cd2a87eb12abde96e7a815352db577e6600ec495b261ef75cd61b8a744dc0"
   end
 
   depends_on "readline"

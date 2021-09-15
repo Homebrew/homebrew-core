@@ -4,7 +4,7 @@ class Rswift < Formula
   url "https://github.com/mac-cain13/R.swift/releases/download/v5.4.0/rswift-v5.4.0-source.tar.gz"
   sha256 "5153e7d122412ced4f04b6fc92c10dad0a861900858543a77ce1bf11850d4184"
   license "MIT"
-  head "https://github.com/mac-cain13/R.swift.git"
+  head "https://github.com/mac-cain13/R.swift.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b07728bea1baa0568381b1f41a34d66bbc283e7a1c5813e7078faf30a1c6a102"

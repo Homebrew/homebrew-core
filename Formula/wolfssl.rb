@@ -2,10 +2,10 @@ class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      tag:      "v4.7.0-stable",
-      revision: "830de9a9fb99e30f9ac9caa0a7f7bba29c3b4863"
+      tag:      "v4.8.1-stable",
+      revision: "723ed009ae5dc68acc14cd7664f93503d64cd51d"
   license "GPL-2.0-or-later"
-  head "https://github.com/wolfSSL/wolfssl.git"
+  head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
   livecheck do
     url :stable
@@ -14,10 +14,11 @@ class Wolfssl < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d3c1a0238f4bff3d6bbe97c95f28c0b48eba899acc86fdf780611f26ccb5f790"
-    sha256 cellar: :any, big_sur:       "d01ee339331c0c96fe0512667e879a442790e5c9af2a7629a8458a43901c1b9d"
-    sha256 cellar: :any, catalina:      "4bc15cd6d682ab0319e44bb002e33277e749764b13c1333d0c2f61fee8599eb0"
-    sha256 cellar: :any, mojave:        "495873f14e34b81d5d4e56b131b70678f1445495de50dc8fc897463b16e3652a"
+    sha256 cellar: :any,                 arm64_big_sur: "630d303a592f178e4af58d75c1d957b8330e1e72ffb8b815aebd059c768f2452"
+    sha256 cellar: :any,                 big_sur:       "753f16d4de6f2a439ecdf3a554608edeaa7af98b9f6e724421c786a23c64a8e7"
+    sha256 cellar: :any,                 catalina:      "2cffe3c281ead906a9449ec5f85a4c1d7be09ab7a90d4c37ecac0d76f81d2428"
+    sha256 cellar: :any,                 mojave:        "13dcbf8ef5cbccb7bf18aeb017e04d8a1ac116a4ec0eb3e44a842eabd91a0aa9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b23130ec9484bdd913cd3fb7e8ec1ca6800b4f2c60d635bf5e5a0e66a98c21e2"
   end
 
   depends_on "autoconf" => :build
@@ -79,7 +80,7 @@ class Wolfssl < Formula
       --enable-fasthugemath
     ]
 
-    on_macos do
+    if OS.mac?
       # Extra flag is stated as a needed for the Mac platform.
       # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
       # Also, only applies if fastmath is enabled.

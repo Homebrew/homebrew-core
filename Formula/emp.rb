@@ -13,6 +13,7 @@ class Emp < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "d96c6b3f2ee49480ddc0dac10484284e7620dce5499482bdaf12c26f42f93a13"
     sha256 cellar: :any_skip_relocation, sierra:        "2a45cd98d7345ff1872137576f97a028729ff4c0d62994d1ce6d573e3835e9db"
     sha256 cellar: :any_skip_relocation, el_capitan:    "af64990b64d29f8383db471092279e9d039c7c81b6294099bb456890b6b5161b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb37de82430eafff68026692172d7015a2a9462fbd52898980c3306fe39d74dc"
   end
 
   depends_on "go" => :build

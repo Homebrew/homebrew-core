@@ -4,7 +4,7 @@ class PinentryMac < Formula
   url "https://github.com/GPGTools/pinentry/archive/v1.1.1.1.tar.gz"
   sha256 "1a414f2e172cf8c18a121e60813413f27aedde891c5955151fbf8d50c46a9098"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
-  head "https://github.com/GPGTools/pinentry.git", branch: "dev"
+  head "https://github.com/GPGTools/pinentry.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "64958e3763e548e154a485382fdab8525e7df237c9198ce5b60e4966ba91fc41"

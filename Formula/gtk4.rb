@@ -15,6 +15,7 @@ class Gtk4 < Formula
     sha256 big_sur:       "320d37f84ff986624ccccd27511e5980324441052ee8568f1a2f6268f24cc346"
     sha256 catalina:      "2d2f1e05dfc833ee33197c6f0e5435a7613960575b7f39be12d865fec56881b2"
     sha256 mojave:        "0763960bb97db821d98e2bdd81b3bb1219b61f3e7a7732cf00cb0538ace000fc"
+    sha256 x86_64_linux:  "b933018ef1db05c649cf69954a7ed81731edc84eafd7aad37a12f2c31bd83e75"
   end
 
   depends_on "docbook" => :build
@@ -47,7 +48,7 @@ class Gtk4 < Formula
       -Dbuild-tests=false
     ]
 
-    on_macos do
+    if OS.mac?
       args << "-Dx11-backend=false"
       args << "-Dmacos-backend=true"
       args << "-Dprint-cups=disabled" if MacOS.version <= :mojave

@@ -11,6 +11,7 @@ class Antibody < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "572351da6247daf6bf29afbdcc8ff10c4fe47e9e413c2ae0df0dd249e855599d"
     sha256 cellar: :any_skip_relocation, mojave:        "c33467a9d42a9c767bd2d3382937e9f1dcf9bce2cb45fe3de6adb736ae2d6e89"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7af2bd8779f129597713ebd6155d493616f4ed4b2344cac9db84191b01f3110c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87285c55995d80af9cd4d1bd71a5879290bb67b2f08a7a492b4d94ddabb58455"
   end
 
   depends_on "go" => :build

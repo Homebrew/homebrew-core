@@ -12,11 +12,12 @@ class TransmissionCli < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "bf01d43e836a7108c64716df7acdcbbf7b7734e5bb7f10af10e3f276e450b225"
-    sha256 big_sur:       "b0a5765570ae2796c9c5fd7ab2272bb0b6b4add34d85894c99bad77aa38e81da"
-    sha256 catalina:      "576f0f5017a86da149292b6da4fde251ad7a77bd9a88e82639ed4fc586cb08e7"
-    sha256 mojave:        "d56c90e32e206cdcf5ec8591fcb79de80c9b41483946c354fac4b9f09020c236"
-    sha256 high_sierra:   "d8ded603c8aae8b4eaf59c1c078dfdfb44b97191d4ce42439f6b02984ccf16b3"
+    rebuild 1
+    sha256 arm64_big_sur: "07a84ee48fdee3046614731074c3e3f20f814011d644e6804a836e586a11f4a5"
+    sha256 big_sur:       "d536f415cf27818d83062e693c8ebde50057fbe36d120b81cda3bbb32e5396b7"
+    sha256 catalina:      "7640fdff8a0840356ea2d43d3ab0efe1d5da5c2840d9fe555deed3c9957705c1"
+    sha256 mojave:        "db2aa6896d89884e15d5dda0b35c152a96cd028703c69f7f8bd9288d0d61a838"
+    sha256 x86_64_linux:  "178d05964e9efd8d4541cf5589f4772ccdc59b8de83158f96b8ad7ffeff6b8d2"
   end
 
   depends_on "pkg-config" => :build
@@ -27,7 +28,7 @@ class TransmissionCli < Formula
   uses_from_macos "zlib"
 
   def install
-    on_macos do
+    if OS.mac?
       ENV.append "LDFLAGS", "-framework Foundation -prebind"
       ENV.append "LDFLAGS", "-liconv"
     end
@@ -58,36 +59,10 @@ class TransmissionCli < Formula
     EOS
   end
 
-  plist_options manual: "transmission-daemon --foreground"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/transmission-daemon</string>
-            <string>--foreground</string>
-            <string>--config-dir</string>
-            <string>#{var}/transmission/</string>
-            <string>--log-info</string>
-            <string>--logfile</string>
-            <string>#{var}/transmission/transmission-daemon.log</string>
-          </array>
-          <key>KeepAlive</key>
-          <dict>
-            <key>NetworkState</key>
-            <true/>
-          </dict>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"transmission-daemon", "--foreground", "--config-dir", var/"transmission/", "--log-info",
+         "--logfile", var/"transmission/transmission-daemon.log"]
+    keep_alive true
   end
 
   test do

@@ -1,21 +1,22 @@
 class Nauty < Formula
   desc "Automorphism groups of graphs and digraphs"
   homepage "https://pallini.di.uniroma1.it/"
-  url "https://pallini.di.uniroma1.it/nauty27r1.tar.gz"
-  version "27r1"
-  sha256 "76ca5d196e402c83a987f90c28ff706bcc5a333bb4a8fbb979a62d3b99c34e77"
+  url "https://pallini.di.uniroma1.it/nauty27r3.tar.gz"
+  version "2.7r3"
+  sha256 "4f0665b716a53f7a14ea2ae30059f23d064ce3fe4c12c013404ef6e1ee0b88c2"
+  version_scheme 1
 
   livecheck do
     url :homepage
-    regex(/href=.*?nauty[._-]?v?(\d+(?:\.\d+)*(?:r\d+)?)\.t/i)
+    regex(/Current\s+?version:\s*?v?(\d+(?:\.\d+)+(?:r\d+)?)/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6d7980d67e772addbc5220e4536a1193580253ae2a52fbc7182d12eb73573c6b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8714e05e1d050933e8571cca1c388a088d11170757fa5b1ae3fe5be7f490f6b5"
-    sha256 cellar: :any_skip_relocation, catalina:      "5d118260b6fdabceb476c1421e4b4dd41d3027943b623ff7a4dc81baf6e284b9"
-    sha256 cellar: :any_skip_relocation, mojave:        "2fa3783663f6e67d9a6e42c492c68412fdeeff7201d81e557b75927ff50b78f1"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "a5333c52eecb023c23be9638ebd916606db43f8f7ef1d7ada4877ca00355d65a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24e3993305e39ad51b60aee0b774455f00fb2401c4adc5dd7b9e2a7f29511caf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "05d688bbef85343ba6e0364b8efd4fff55f530507977e6adc8ffc35199e99567"
+    sha256 cellar: :any_skip_relocation, catalina:      "5b9b43de5bba3ab376010c30abe82223a251f6667a41e450e5c63cb8efb40155"
+    sha256 cellar: :any_skip_relocation, mojave:        "6041dd0f71e6b352fd896b3d0015aba126e8313f21a898d9545e4c90c84ccbc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cccafcd026447f505d5b928f33b8509940674690467610f8db7800a6b2a9757"
   end
 
   def install

@@ -6,7 +6,9 @@ class GitCredentialManager < Formula
   license "MIT"
   revision 2
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "f978fdd8c281d14ff2b28c380079db4b7927b585bc77432ac81339adc2d332c1"
+  end
 
   # "This project has been superceded by Git Credential Manager Core":
   # https://github.com/microsoft/Git-Credential-Manager-Core

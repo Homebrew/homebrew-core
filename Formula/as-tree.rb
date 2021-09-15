@@ -10,6 +10,7 @@ class AsTree < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7397711b05fca437e6cc9489ef118a2c5b997a16190ecfdd7df773b749f5903a"
     sha256 cellar: :any_skip_relocation, catalina:      "2a83bda57ef793c3c3316df0e365175d0207b7bfd9083aeb82120516713bfb77"
     sha256 cellar: :any_skip_relocation, mojave:        "f2d560a3a379e279de99857983c7857f5da4ed16f42ce890a727853cf71ec224"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93f78a6e3a07dc85804d25b5744891019d4baedf8266663443bb4052e9b5e133"
   end
 
   depends_on "rust" => :build

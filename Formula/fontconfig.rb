@@ -18,6 +18,7 @@ class Fontconfig < Formula
     sha256 high_sierra:   "3b763143a4d6e3c74b3a8b237d2e5a383696347ea3599d07957f73a3f6521d23"
     sha256 sierra:        "631531c4eb502bd97e4a5bef30760d1eef87dd50306ef2defb9460ac3338cfe1"
     sha256 el_capitan:    "40d70137a970e257de5cf1251b10d56d7db835faee88a9f4c020b4a4e4f82eb1"
+    sha256 x86_64_linux:  "eccabe463fb0ecc1537d19628240caec276095a4afbbbc80233ac03c841cd4fe"
   end
 
   head do
@@ -59,9 +60,7 @@ class Fontconfig < Formula
     font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max if MacOS.version >= :sierra
 
     system "autoreconf", "-iv" if build.head?
-    on_linux do
-      ENV["UUID_CFLAGS"] = "-I#{Formula["util-linux"].include}"
-    end
+    ENV["UUID_CFLAGS"] = "-I#{Formula["util-linux"].include}" if OS.linux?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",

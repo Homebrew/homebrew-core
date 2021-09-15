@@ -14,6 +14,7 @@ class Vip < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "12eec6f5294a94f2fb09c54f218470aab2fb7bad58570e8a82c789d8ba5e9639"
     sha256 cellar: :any_skip_relocation, el_capitan:    "1bf2041f43bcea1e8c503119a9b34f8849b751da767ec5b5094fd5fa8fe5f297"
     sha256 cellar: :any_skip_relocation, yosemite:      "8e60ec9a240192f872f5d730ca93c9bc9e73d4644e685173554ff786b634ef7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd1eaee76c43cbe5384907f794d619db9b4d044eb54e223e0666e4da73f007e8"
   end
 
   resource "man" do

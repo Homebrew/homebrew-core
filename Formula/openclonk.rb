@@ -5,7 +5,7 @@ class Openclonk < Formula
   sha256 "bc1a231d72774a7aa8819e54e1f79be27a21b579fb057609398f2aa5700b0732"
   license "ISC"
   revision 3
-  head "https://github.com/openclonk/openclonk.git"
+  head "https://github.com/openclonk/openclonk.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "ebd7f7efa0efc4c70b14071e98a5f2d314c16e5b6f28fe11257738619f0c813b"

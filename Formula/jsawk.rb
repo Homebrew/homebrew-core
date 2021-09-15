@@ -6,7 +6,9 @@ class Jsawk < Formula
   license "BSD-3-Clause"
   head "https://github.com/micha/jsawk.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "e99db0c7e694b8d1171c5ea012d12442f708b8a2808ae136cc38b63309f71899"
+  end
 
   depends_on "spidermonkey"
 

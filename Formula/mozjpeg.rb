@@ -11,10 +11,11 @@ class Mozjpeg < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "43d05f184bc2c2f0451913c9d6a437dd597c9da0fc675fd6a96859face7d8819"
-    sha256 big_sur:       "62b7cba57dec06208ee2af6a726b918c0131c0d4f4b735d32eab16df348e1852"
-    sha256 catalina:      "0664824dab3ebe497562d4b9fcb1fdafd011d7f0bcd6d50dc60bd73db57168cc"
-    sha256 mojave:        "0188f192ba8d6471e034d8144b321a84871d46cf110fb27bdebb67f2d9116baa"
+    sha256                               arm64_big_sur: "43d05f184bc2c2f0451913c9d6a437dd597c9da0fc675fd6a96859face7d8819"
+    sha256                               big_sur:       "62b7cba57dec06208ee2af6a726b918c0131c0d4f4b735d32eab16df348e1852"
+    sha256                               catalina:      "0664824dab3ebe497562d4b9fcb1fdafd011d7f0bcd6d50dc60bd73db57168cc"
+    sha256                               mojave:        "0188f192ba8d6471e034d8144b321a84871d46cf110fb27bdebb67f2d9116baa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfd4e10acdc52b050974be904ccb9c8cbcbaa563f7c2e29e64935534ba6d53e1"
   end
 
   keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg"

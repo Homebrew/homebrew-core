@@ -17,11 +17,12 @@ class Ghostscript < Formula
     sha256 big_sur:       "cfe91b44577a206ac0ef1106c5c3681d6eef7559e176cefd3452621d5b5bf974"
     sha256 catalina:      "b821f9923f8579229634edaa454cb127836f1af97f724a8941ec76c12896b4cd"
     sha256 mojave:        "23048bf2ec8c47dfe9a58476c7927464ea732af1b0d4fc5787ebef04bfa4f76e"
+    sha256 x86_64_linux:  "1251ef66be8c49f080ea119e5715b426b36a970cd48f7d14f1160bed36417c52"
   end
 
   head do
     # Can't use shallow clone. Doing so = fatal errors.
-    url "https://git.ghostscript.com/ghostpdl.git", shallow: false
+    url "https://git.ghostscript.com/ghostpdl.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

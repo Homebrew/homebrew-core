@@ -6,7 +6,9 @@ class Doubledown < Formula
   license "BSD-2-Clause"
   head "https://github.com/devstructure/doubledown.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "78f3d65bdfb3d5184fc3a10c8b161e9e41a4d14715c284d2a179ebf5fbe52209"
+  end
 
   def install
     bin.install Dir["bin/*"]

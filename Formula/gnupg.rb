@@ -1,8 +1,8 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.1.tar.bz2"
-  sha256 "c498db346a9b9a4b399e514c8f56dfc0a888ce8f327f10376ff984452cd154ec"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.2.tar.bz2"
+  sha256 "e1d953e0e296072fca284215103ef168885eaac596c4660c5039a36a83e3041b"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,10 +11,11 @@ class Gnupg < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "ad1799d3b4483929a125ae72dc7af4bb3015ca1e03cba98a14b24ffc275848df"
-    sha256 big_sur:       "dfd024ae4c3b74b275cd44ec0a95b9063eb3f270ea5eaa402932657421736176"
-    sha256 catalina:      "fcaf082ce7bf9165ac17efb53fa078b623794fe062f041b495041ab72f65de5d"
-    sha256 mojave:        "808efd7a7f741e67f293a75aed1934203cdc5ca779907882503f4325cb459181"
+    sha256 arm64_big_sur: "941069d6ef19f59b24dfe2f8851fea635f679eb740a595ff0a74ac007181bc99"
+    sha256 big_sur:       "ca228c2800845d8d0e020c3e3359201edc0bac8554cfc3a2e985617eb09b629a"
+    sha256 catalina:      "9d0e847588e735e9f1137b7ccfa73a9439a8653a6949d284e3192e6fb2fdf5a5"
+    sha256 mojave:        "a483dd421a3156007c163969705a617676c78e2780ed7bf9279cbcefc903b904"
+    sha256 x86_64_linux:  "cb12c6aab9f508b977047bf4053047b3f48d010988760c53d4c728d78ba7dae9"
   end
 
   depends_on "pkg-config" => :build
@@ -34,10 +35,6 @@ class Gnupg < Formula
     depends_on "libidn"
   end
 
-  # Fix tests for gnupg 2.3.1, remove in the next release
-  # Patch ref: https://dev.gnupg.org/rGd36c4dc95b72b780375d57311bdf4ae842fd54fa
-  patch :DATA
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -49,11 +46,21 @@ class Gnupg < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+
+    # Configure scdaemon as recommended by upstream developers
+    # https://dev.gnupg.org/T5415#145864
+    if OS.mac?
+      # write to buildpath then install to ensure existing files are not clobbered
+      (buildpath/"scdaemon.conf").write <<~EOS
+        disable-ccid
+      EOS
+      pkgetc.install "scdaemon.conf"
+    end
   end
 
   def post_install
     (var/"run").mkpath
-    quiet_system "killall", "gpg-agent"
+    quiet_system "gpgconf", "--reload", "all"
   end
 
   test do
@@ -78,17 +85,3 @@ class Gnupg < Formula
     end
   end
 end
-
-__END__
-diff --git a/tests/openpgp/defs.scm b/tests/openpgp/defs.scm
-index 768d479aa..86d312f82 100644
---- a/tests/openpgp/defs.scm
-+++ b/tests/openpgp/defs.scm
-@@ -338,6 +338,7 @@
-   (create-file "common.conf"
- 	       (if (flag "--use-keyboxd" *args*)
- 		   "use-keyboxd" "#use-keyboxd")
-+	       (string-append "keyboxd-program " (tool 'keyboxd))
- 	       )
-
-   (create-file "gpg.conf"

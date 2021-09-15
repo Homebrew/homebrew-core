@@ -1,20 +1,21 @@
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
   homepage "https://confluence.ecmwf.int/display/ECC"
-  url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.22.0-Source.tar.gz"
-  sha256 "c644a939f9f1fb46c01d7c69b2b3cf988158d03f1c8e11b0494d2b2236ed3448"
+  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.23.0-Source.tar.gz"
+  sha256 "cbdc8532537e9682f1a93ddb03440416b66906a4cc25dec3cbd73940d194bf0c"
   license "Apache-2.0"
 
   livecheck do
-    url "https://software.ecmwf.int/wiki/display/ECC/Releases"
+    url "https://confluence.ecmwf.int/display/ECC/Releases"
     regex(/href=.*?eccodes[._-]v?(\d+(?:\.\d+)+)-Source\.t/i)
   end
 
   bottle do
-    sha256 arm64_big_sur: "6f24b97b7b1d34d33e705983934f362b6c866b451ab49d633c6000ac345f6c5e"
-    sha256 big_sur:       "9b62e4fa0c735bb2a53b342ec94df6b918595bae35e331aca09eba54e75d7f9e"
-    sha256 catalina:      "7e265372d91110d9c9e315ebb711d481761a29d1409e79e59f483d4cd4b7a364"
-    sha256 mojave:        "e460ff92d1f1dde670f787c6b79afd41a043445a5f00ccd13ead2f4d53bd5d5c"
+    sha256 arm64_big_sur: "b16288b8e285a187f91ae6b7cec94face9fc1f28bfc888eb8e1bf50aa74a765b"
+    sha256 big_sur:       "b9bda6733d23098c49062f172ab721c2ccc56e37becf133c1e2d88fad17a904a"
+    sha256 catalina:      "0d7e1a89a8631e9683e5303098be30a549f1369b98350d6475020e2708789f71"
+    sha256 mojave:        "ec525f2dc9352dc64c33be76c8e0c6e24913caf6d7ec0302bc3e830305d6f9b9"
+    sha256 x86_64_linux:  "36ade0ba4eb6d09766097abba7d2cd9d76fdf4b2a4233f782deefc265c3a142b"
   end
 
   depends_on "cmake" => :build
@@ -24,10 +25,6 @@ class Eccodes < Formula
   depends_on "netcdf"
 
   def install
-    # Fix for GCC 10, remove with next version
-    # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=957159
-    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
-
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
     mkdir "build" do
@@ -38,9 +35,8 @@ class Eccodes < Formula
     end
 
     # Avoid references to Homebrew shims directory
-    inreplace include/"eccodes_ecbuild_config.h", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
-    inreplace lib/"pkgconfig/eccodes.pc", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
-    inreplace lib/"pkgconfig/eccodes_f90.pc", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    shim_references = [include/"eccodes_ecbuild_config.h", lib/"pkgconfig/eccodes.pc", lib/"pkgconfig/eccodes_f90.pc"]
+    inreplace shim_references, %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
   end
 
   test do

@@ -16,6 +16,7 @@ class BashCompletionAT2 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192"
     sha256 cellar: :any_skip_relocation, mojave:        "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192"
     sha256 cellar: :any_skip_relocation, high_sierra:   "3fe7e4021769be9a92eac055496e6189996c3527270db1dfdd4b0eb8cd7b4192"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4551dd2b4efcc64fe37febc7471365cba49648a46437972aeb57bb3ca0a3b08"
   end
 
   head do

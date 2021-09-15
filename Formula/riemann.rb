@@ -5,28 +5,21 @@ class Riemann < Formula
   sha256 "fa2e22b712ed53144bf3319a418a3cd502ed00fa8e6bcb50443039a2664ee643"
   license "EPL-1.0"
 
-  bottle :unneeded
-
-  def shim_script
-    <<~EOS
-      #!/bin/bash
-      if [ -z "$1" ]
-      then
-        config="#{etc}/riemann.config"
-      else
-        config=$@
-      fi
-      exec "#{libexec}/bin/riemann" $config
-    EOS
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4e28a04a6cd3f4cfec8480ccc4442ae5e9a34315c983aa1b2a0ddc1d9d9cf82b"
   end
 
+  depends_on "openjdk"
+
   def install
+    inreplace "bin/riemann", "$top/etc", etc
     etc.install "etc/riemann.config" => "riemann.config.guide"
 
     # Install jars in libexec to avoid conflicts
     libexec.install Dir["*"]
 
-    (bin+"riemann").write shim_script
+    (bin/"riemann").write_env_script libexec/"bin/riemann", Language::Java.overridable_java_home_env
   end
 
   def caveats
@@ -38,33 +31,11 @@ class Riemann < Formula
     EOS
   end
 
-  plist_options manual: "riemann"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <true/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/riemann</string>
-            <string>#{etc}/riemann.config</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/riemann.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/riemann.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"riemann", etc/"riemann.config"]
+    keep_alive true
+    log_path var/"log/riemann.log"
+    error_log_path var/"log/riemann.log"
   end
 
   test do

@@ -6,14 +6,15 @@ class FdkAac < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "cf0840a736c0cd0f009e7b3015545ac46fc6c5474163c4f04514065b6cc16454"
-    sha256 cellar: :any, big_sur:       "21df35d8501a3962ae713c598b4c94300938cabe8bded66021d0aff129fe00ef"
-    sha256 cellar: :any, catalina:      "b4e0f2728235e4763c6a4d95b0c4eafdb28119e5f4f22397e23e35dacb88e8a8"
-    sha256 cellar: :any, mojave:        "76e2a579c432470211d10a58284267edce7eae47ccfea7ed334426b9594d309a"
+    sha256 cellar: :any,                 arm64_big_sur: "cf0840a736c0cd0f009e7b3015545ac46fc6c5474163c4f04514065b6cc16454"
+    sha256 cellar: :any,                 big_sur:       "21df35d8501a3962ae713c598b4c94300938cabe8bded66021d0aff129fe00ef"
+    sha256 cellar: :any,                 catalina:      "b4e0f2728235e4763c6a4d95b0c4eafdb28119e5f4f22397e23e35dacb88e8a8"
+    sha256 cellar: :any,                 mojave:        "76e2a579c432470211d10a58284267edce7eae47ccfea7ed334426b9594d309a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e90cbfbfab43b0c65c9579d09096e76ccdba404bc39ddc94ee1e9df1deee5bc"
   end
 
   head do
-    url "https://git.code.sf.net/p/opencore-amr/fdk-aac.git"
+    url "https://git.code.sf.net/p/opencore-amr/fdk-aac.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

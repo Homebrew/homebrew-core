@@ -6,19 +6,21 @@ class CharmTools < Formula
   url "https://files.pythonhosted.org/packages/24/05/211a1656f72908afa84635c9a0b73aebf4edfcc1a3c5c0d71ec96bf20068/charm-tools-2.8.3.tar.gz"
   sha256 "ff03c7fd61ce1355f02845c9631ecd01828dfabc29a94566d74f2b35e6d3ea68"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b14eda65739706c3b18061b9ea08ce963f0d43d5c64829a0baeb42c95cf566f2"
-    sha256 cellar: :any, big_sur:       "b174a401458fb0574b263bd51ee4f055f0595a0a380d28ddebb6de0e201a8702"
-    sha256 cellar: :any, catalina:      "ec4c42bd27b33958b2fe10a0dc000147a099a72dde3a313e77d88640ca1b1a32"
-    sha256 cellar: :any, mojave:        "95ca45689f0233c756a6979e5e19404d14d705a2fd69b74c6b1cda6d3fe157c4"
+    sha256 cellar: :any,                 arm64_big_sur: "fa2b66df536d7dfcbc8a1c4bd39041d9ac81e020f73df6b35d4f2b11ddcd36bf"
+    sha256 cellar: :any,                 big_sur:       "52fb27e5b556bda249207b1454ea7f6675436bff7f8d2e8317b60be8923f6f05"
+    sha256 cellar: :any,                 catalina:      "c26679e35ae3c0bb6df73caa21f05a58b35980fc38015747f2b5975c19f7d9fc"
+    sha256 cellar: :any,                 mojave:        "6553133ded25bc0e4b5db4b94724414591ddf6d7d64eeaf90b21de3b2047d22d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e9e1063a73f6c451e2591012993c15605349c8bda4d229442d2c4fcea010987"
   end
 
   depends_on "rust" => :build
   depends_on "charm"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 

@@ -6,7 +6,7 @@ class X3270 < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "http://x3270.bgp.nu/download.html"
+    url "https://x3270.miraheze.org/wiki/Downloads"
     regex(/href=.*?suite3270[._-]v?(\d+(?:\.\d+)+(?:ga\d+)?)(?:-src)?\.t/i)
   end
 
@@ -15,6 +15,7 @@ class X3270 < Formula
     sha256 big_sur:       "0fb9e40a2f6d56e3f166d7cee9ef8eae4166e3e038c19b114ff840e33a3aad3e"
     sha256 catalina:      "1e8f59bedd3fbda46cab9db08944ab21b3549f9ca9002423590015da3cf75ce6"
     sha256 mojave:        "50108883c53cb6ef78dd63372952451db9d182d4409e340a31146397fbacaf93"
+    sha256 x86_64_linux:  "124969949fae4335c0239e9d77fa2daac3035b4313bcb1f17b0ff93d90fe9a89"
   end
 
   depends_on "readline"

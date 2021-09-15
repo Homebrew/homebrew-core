@@ -18,10 +18,11 @@ class Libcaca < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "49547bb139e2ed778c36c881a73d0ec51d3c0b978873db0587b3936b87c55d0b"
-    sha256 cellar: :any, big_sur:       "fca71650e2702ac497560f86779bbc77acb5fd8cf09c8219c2381be20af6d11e"
-    sha256 cellar: :any, catalina:      "3d2d080e206d0d7d9720687aadfce949e78588df510b9039ff1b8f4277015d6d"
-    sha256 cellar: :any, mojave:        "38488f0e4363948a80d60201da73c6c67856525ff0b67cfd53dc3caa16de602e"
+    sha256 cellar: :any,                 arm64_big_sur: "49547bb139e2ed778c36c881a73d0ec51d3c0b978873db0587b3936b87c55d0b"
+    sha256 cellar: :any,                 big_sur:       "fca71650e2702ac497560f86779bbc77acb5fd8cf09c8219c2381be20af6d11e"
+    sha256 cellar: :any,                 catalina:      "3d2d080e206d0d7d9720687aadfce949e78588df510b9039ff1b8f4277015d6d"
+    sha256 cellar: :any,                 mojave:        "38488f0e4363948a80d60201da73c6c67856525ff0b67cfd53dc3caa16de602e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "635b337217281620fd72e3ef25992d3c92b8212be752001a3a36f227df13cb51"
   end
 
   head do

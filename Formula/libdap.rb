@@ -15,6 +15,7 @@ class Libdap < Formula
     sha256 big_sur:       "660a8cd6c01ce10d30ec4dda70912cefe949b3aa5b56756c14cba5120b0f579e"
     sha256 catalina:      "7664a9d567e5c0304ce2430cb93d02fd3431ef480105170c130327cb09da014e"
     sha256 mojave:        "ab8664fda0c8a71409c54315011992d397315c15a5842f83771f7c30d2eafa8c"
+    sha256 x86_64_linux:  "fb03eae4d8b7b9f2adcd5719a5bfcc9350f44e9e9333c12ab6469debcc45317d"
   end
 
   head do

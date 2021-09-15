@@ -6,11 +6,12 @@ class Check < Formula
   license "LGPL-2.1"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ca05134bbcea8deffd6eabf0c11bed130f3b3bd4d9c917da88cc591220c469c8"
-    sha256 cellar: :any, big_sur:       "98151987096a97d4b1ffeada7645c42ea6784d01149455d4a26800b27ad3b8d7"
-    sha256 cellar: :any, catalina:      "83176da74de92f8ae589d98726f97466f7ccfa91e2b0b58603c4f909d8ce50a4"
-    sha256 cellar: :any, mojave:        "a54f974e1f874c0912d97d91b61b4ec411d6c9f74417a5c541a7fa1b4bdf7705"
-    sha256 cellar: :any, high_sierra:   "9613aefb32a1efad74a6ea90d58dfe7d68c2767a0e155d0afed3b3d5b8d40206"
+    sha256 cellar: :any,                 arm64_big_sur: "ca05134bbcea8deffd6eabf0c11bed130f3b3bd4d9c917da88cc591220c469c8"
+    sha256 cellar: :any,                 big_sur:       "98151987096a97d4b1ffeada7645c42ea6784d01149455d4a26800b27ad3b8d7"
+    sha256 cellar: :any,                 catalina:      "83176da74de92f8ae589d98726f97466f7ccfa91e2b0b58603c4f909d8ce50a4"
+    sha256 cellar: :any,                 mojave:        "a54f974e1f874c0912d97d91b61b4ec411d6c9f74417a5c541a7fa1b4bdf7705"
+    sha256 cellar: :any,                 high_sierra:   "9613aefb32a1efad74a6ea90d58dfe7d68c2767a0e155d0afed3b3d5b8d40206"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8c8c28c6d8e01000caec0a7705ee896a15be80f27ce3297fe7e2733fb58f6c5"
   end
 
   on_linux do

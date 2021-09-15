@@ -4,7 +4,7 @@ class Cocot < Formula
   url "https://github.com/vmi/cocot/archive/cocot-1.2-20171118.tar.gz"
   sha256 "b718630ce3ddf79624d7dcb625fc5a17944cbff0b76574d321fb80c61bb91e4c"
   license "BSD-3-Clause"
-  head "https://github.com/vmi/cocot.git"
+  head "https://github.com/vmi/cocot.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "835a54f7142add9b9a3ab35097a6821fc9c100568b54c2d7fa52c283fd5ca6af"
@@ -14,6 +14,7 @@ class Cocot < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "0070eb38e06043e3c1a4ad1b77205a6ed978ed300e8d0bb407391fecb191b050"
     sha256 cellar: :any_skip_relocation, sierra:        "a91ba93032e33b6a062b82f2df0b9170d5269cf0312d75eb6f16341fca54f9bd"
     sha256 cellar: :any_skip_relocation, el_capitan:    "60cbdadb074b019535319e5089d5c55c43b68e0b52a73b01cec3a9a8311e51a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2cd1dd3dbbe2f6474e43965f09859c3d9921a6b7e21507c2a2c70fe69335c01"
   end
 
   def install

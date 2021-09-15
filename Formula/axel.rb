@@ -4,13 +4,14 @@ class Axel < Formula
   url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.10/axel-2.17.10.tar.xz"
   sha256 "46eb4f10a11c4e50320ae6a034ef03ffe59dc11c3c6542a9867a3e4dc0c4b44e"
   license "GPL-2.0-or-later"
-  head "https://github.com/eribertomota/axel.git"
+  head "https://github.com/eribertomota/axel.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "43a36bca363fd2a2700dbaca686de5d92793ae79b1813e26e6ba1965e9d0acc7"
     sha256 cellar: :any, big_sur:       "94b9f93614705dab7c202df271f9bb1bcd30b4e1170f4ab4b160378e8e5c3a2f"
     sha256 cellar: :any, catalina:      "32832dd93a31589c7f98e510a2edc54e918ee6bab8eab18f4f4a1b953030f3f1"
     sha256 cellar: :any, mojave:        "2df5f78ceaccbdede61b29a191c514a5b86dfb3ab1fd5057506377299d9f8c65"
+    sha256               x86_64_linux:  "62718ba4c83d09d0c5b04150c9684aace1e805601b8f58da5b13db32123d8910"
   end
 
   depends_on "autoconf" => :build

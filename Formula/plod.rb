@@ -5,7 +5,13 @@ class Plod < Formula
   version "1.9"
   sha256 "1b7b8267c41b11c2f5413a8d6850099e0547b7506031b0c733121ed5e8d182f5"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"
+    sha256 cellar: :any_skip_relocation, catalina:      "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"
+    sha256 cellar: :any_skip_relocation, mojave:        "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"
+  end
 
   def install
     system "sh", "plod.shar"

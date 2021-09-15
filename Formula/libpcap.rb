@@ -1,8 +1,8 @@
 class Libpcap < Formula
   desc "Portable library for network traffic capture"
   homepage "https://www.tcpdump.org/"
-  url "https://www.tcpdump.org/release/libpcap-1.10.0.tar.gz"
-  sha256 "8d12b42623eeefee872f123bd0dc85d535b00df4d42e865f993c40f7bfc92b1e"
+  url "https://www.tcpdump.org/release/libpcap-1.10.1.tar.gz"
+  sha256 "ed285f4accaf05344f90975757b3dbfe772ba41d1c401c2648b7fa45b711bdd4"
   license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/libpcap.git"
 
@@ -12,10 +12,11 @@ class Libpcap < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ba095e539d7f5680521610f0d78c6000322f71ad6e922518bd32320ab2332f92"
-    sha256 cellar: :any, big_sur:       "19f6daea5e631f363f67d0d9a2c632367d839c400f7754f1e1f1812f0d926890"
-    sha256 cellar: :any, catalina:      "82aad50c8453472a11b848eeb8214c97fab2e78343bac0ba08c33af83cc82e63"
-    sha256 cellar: :any, mojave:        "d0f2461b7f0155e32d858eccd6c227064991eb2d44a023eb8759926af2481652"
+    sha256 cellar: :any,                 arm64_big_sur: "56f83e298a7906e44b44ac6d0c99f9a02d0be2ea4726089171a045543368ea9c"
+    sha256 cellar: :any,                 big_sur:       "0aee8b23fc3ede63cbd2cde3bbbaade84ffd6f2ac90315f9738fb872236a8c2f"
+    sha256 cellar: :any,                 catalina:      "8d57e7519f14cfec3a1104237e52b56e838faa33b07cdbac05572533e5ae7e07"
+    sha256 cellar: :any,                 mojave:        "a31646c901c2fdd953e648e5c5715ec2cdcf49c9e661725a8e56d9f6c38890dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f11278ffe1e2353d3acccbc3bf23999d08d9f14deaa86931adff289aed031caa"
   end
 
   keg_only :provided_by_macos

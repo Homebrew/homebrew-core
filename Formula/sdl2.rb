@@ -1,21 +1,21 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
-  url "https://libsdl.org/release/SDL2-2.0.14.tar.gz"
-  sha256 "d8215b571a581be1332d2106f8036fcb03d12a70bae01e20f424976d275432bc"
+  url "https://libsdl.org/release/SDL2-2.0.16.tar.gz"
+  sha256 "65be9ff6004034b5b2ce9927b5a4db1814930f169c4b2dae0a1e4697075f287b"
   license "Zlib"
-  revision 1
 
   livecheck do
     url "https://www.libsdl.org/download-2.0.php"
-    regex(/SDL2[._-]v?(\d+(?:\.\d+)*)/i)
+    regex(/href=.*?SDL2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2ae70b6025c4e241400643f2686c8e288d50e3f04311e63d8a1f8180ed4afb07"
-    sha256 cellar: :any, big_sur:       "ccde7145d4334d9274f9588e6b841bf3749729682e1d25f590bdcf7994dfdd89"
-    sha256 cellar: :any, catalina:      "d6ae3300160c5bb495b78a5c5c0fc995f9e797e9cdd4b04ef77d59d45d2d694d"
-    sha256 cellar: :any, mojave:        "4f3988fb3af0f370bc1648d6eb1d6573fd37381df0f3b9ee0874a49d6a7dec2e"
+    sha256 cellar: :any,                 arm64_big_sur: "6adac3ca2899ab923427b9b9322c8a4a412485ac7fe6448e276b4aae598f7a49"
+    sha256 cellar: :any,                 big_sur:       "71fe247bc197133b02186fac4e8f296d7f457a9507e0c77357b1069e5ee2ca61"
+    sha256 cellar: :any,                 catalina:      "4634185a35d9fc37c8fc07f884e45e7e2fbaa3fdec615171e647a9e02c395bd4"
+    sha256 cellar: :any,                 mojave:        "9966890d7d39147e75e92d6a7390ef5fb2f043b08f913e751638bdeef8c1c220"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "664cf8d5df1066a7d1bd4121e5805ac8bb7230e068237bbbb4654b7f085e7150"
   end
 
   head do
@@ -28,17 +28,41 @@ class Sdl2 < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "libice"
+    depends_on "libxcursor"
+    depends_on "libxscrnsaver"
+    depends_on "libxxf86vm"
+    depends_on "xinput"
+    depends_on "pulseaudio"
   end
 
   def install
-    # we have to do this because most build scripts assume that all SDL modules
+    # We have to do this because most build scripts assume that all SDL modules
     # are installed to the same prefix. Consequently SDL stuff cannot be
     # keg-only but I doubt that will be needed.
     inreplace %w[sdl2.pc.in sdl2-config.in], "@prefix@", HOMEBREW_PREFIX
 
     system "./autogen.sh" if build.head?
 
-    args = %W[--prefix=#{prefix} --without-x --enable-hidapi]
+    args = %W[--prefix=#{prefix} --enable-hidapi]
+    args << if OS.mac?
+      "--without-x"
+    else
+      args << "--with-x"
+      args << "--enable-pulseaudio"
+      args << "--enable-pulseaudio-shared"
+      args << "--enable-video-dummy"
+      args << "--enable-video-opengl"
+      args << "--enable-video-opengles"
+      args << "--enable-video-x11"
+      args << "--enable-video-x11-scrnsaver"
+      args << "--enable-video-x11-xcursor"
+      args << "--enable-video-x11-xinerama"
+      args << "--enable-video-x11-xinput"
+      args << "--enable-video-x11-xrandr"
+      args << "--enable-video-x11-xshape"
+      "--enable-x11-shared"
+    end
     system "./configure", *args
     system "make", "install"
   end

@@ -2,16 +2,16 @@ class Ilmbase < Formula
   desc "OpenEXR ILM Base libraries (high dynamic-range image file format)"
   homepage "https://www.openexr.com/"
   # NOTE: Please keep these values in sync with openexr.rb when updating.
-  url "https://github.com/openexr/openexr/archive/v2.5.5.tar.gz"
-  sha256 "59e98361cb31456a9634378d0f653a2b9554b8900f233450f2396ff495ea76b3"
+  url "https://github.com/openexr/openexr/archive/v2.5.7.tar.gz"
+  sha256 "36ecb2290cba6fc92b2ec9357f8dc0e364b4f9a90d727bf9a57c84760695272d"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "5a95c1ea57a08dde47723507b0406a408664e4170026a5a5771681f42ac3c6df"
-    sha256 big_sur:       "846c944f66f265e002af5f3ba3f2a989fbbc8a175e394d5e597d56b50b480f74"
-    sha256 catalina:      "bdb6dad0ee508d3bd86f50ced1eb15c0d0d25a1ffe1133659493f9cfccc41b52"
-    sha256 mojave:        "7ab7edd363f935a6411b038adea08d1aaf0e8eba1168cdd58fda21182346fc4a"
+    sha256 cellar: :any,                 arm64_big_sur: "972c5920255115ab63cc84c699e9cd032d120bbb85095f8a4d1f2865326ceaa8"
+    sha256 cellar: :any,                 big_sur:       "71c8e6cedb938d2c5ec99fea9343805f293013b070ad561e2fa652194f84a59c"
+    sha256 cellar: :any,                 catalina:      "e505a83ecb7ab3aee3f5cb38973612a559ec106a96d7142bc0f245556512a670"
+    sha256 cellar: :any,                 mojave:        "a3416415f8a68fc12922080e36e24481833343d89a06aad74ad57034b2200eb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de87ab59dcd306ea5dadae39afd1fa62304843e3af6cde221b197d9756005598"
   end
 
   keg_only "ilmbase conflicts with `openexr` and `imath`"

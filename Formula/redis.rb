@@ -1,8 +1,8 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-6.2.3.tar.gz"
-  sha256 "98ed7d532b5e9671f5df0825bb71f0f37483a16546364049384c63db8764512b"
+  url "https://download.redis.io/releases/redis-6.2.5.tar.gz"
+  sha256 "4b9a75709a1b74b3785e20a6c158cab94cf52298aa381eea947a678a60d551ae"
   license "BSD-3-Clause"
   head "https://github.com/redis/redis.git", branch: "unstable"
 
@@ -12,10 +12,11 @@ class Redis < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b2b3cfeca2d5f110507e9e7a7af8918786f2853e39e49b0b39de68762e5b5030"
-    sha256 cellar: :any, big_sur:       "d891c5b376746c3895098fd384fb4edba972b532848f63cbad5be20e611458ac"
-    sha256 cellar: :any, catalina:      "a269e87b26515775a7034d9d6cb996ed63d783b5a6d681b64bab92ce93bed55b"
-    sha256 cellar: :any, mojave:        "3373d834552eef5f6c71889299124693de6b5d5b887e520d6db96ab51da81020"
+    sha256 cellar: :any,                 arm64_big_sur: "080c05259d4b1d5b5a7fe9948b52271a3980c667e1d6fb3b09a31dbe781a036a"
+    sha256 cellar: :any,                 big_sur:       "fc47114ec01104559f63cd697eb25117ee37da92a5876a104c0d444a801e54f5"
+    sha256 cellar: :any,                 catalina:      "9f060dc1babfe353eb9fc6eae51f3d7440cb61db118b570d8beb36db76b9d781"
+    sha256 cellar: :any,                 mojave:        "6632ef23438714fd7b5ac1a3e26cc46aef45c572ea535b3a8ef204cbc2a939e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b0ef13645b8ac6d613623d86c726e7a5cdb023bbde5c7e841dca587527ee506"
   end
 
   depends_on "openssl@1.1"
@@ -36,38 +37,12 @@ class Redis < Formula
     etc.install "sentinel.conf" => "redis-sentinel.conf"
   end
 
-  plist_options manual: "redis-server #{HOMEBREW_PREFIX}/etc/redis.conf"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/redis-server</string>
-            <string>#{etc}/redis.conf</string>
-            <string>--daemonize no</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/redis.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/redis.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"redis-server", etc/"redis.conf"]
+    keep_alive true
+    error_log_path var/"log/redis.log"
+    log_path var/"log/redis.log"
+    working_dir var
   end
 
   test do

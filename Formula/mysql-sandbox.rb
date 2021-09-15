@@ -7,17 +7,15 @@ class MysqlSandbox < Formula
   revision 1
   head "https://github.com/datacharmer/mysql-sandbox.git"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7534bbd546393a62cfd0b6bf5022973094743219dee948d004e790b162152edb"
     sha256 cellar: :any_skip_relocation, big_sur:       "effaa2803c9302f19a2ed000d7fc6e07a718186102877822338a90c850b0ba69"
     sha256 cellar: :any_skip_relocation, catalina:      "0b01929ca2d5a53f9ea2c18dfcef7f4468b5d625ba75dcfcafe5f74ab8954bf6"
     sha256 cellar: :any_skip_relocation, mojave:        "dc52de83d9b8f7d85273c64665a80165a8d13e8e4654a0655017d3453fac97ed"
   end
+
+  # Replaced by dbdeployer: https://github.com/datacharmer/dbdeployer
+  deprecate! date: "2021-05-24", because: :repo_archived
 
   uses_from_macos "perl"
 

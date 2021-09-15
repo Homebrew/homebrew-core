@@ -3,17 +3,16 @@ class ReconNg < Formula
 
   desc "Web Reconnaissance Framework"
   homepage "https://github.com/lanmaster53/recon-ng"
-  url "https://github.com/lanmaster53/recon-ng/archive/v5.1.1.tar.gz"
-  sha256 "470e293e931c23a0dc76e6915098e04db7f2e254a0639bb2c0383e0758c4fbc2"
+  url "https://github.com/lanmaster53/recon-ng/archive/v5.1.2.tar.gz"
+  sha256 "18d05030b994c9b37f624628251d3376d590f3d1eec155f67aca88fa5f3490cc"
   license "GPL-3.0"
-  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "96b36eec2f0dcd83de144758e888da8c38536f7848c94fbdc202cfb1ce6657af"
-    sha256 cellar: :any, big_sur:       "94a4b2b9faaf91757a9fe7bba0714a00f05992d829b29caab8254304b69647e7"
-    sha256 cellar: :any, catalina:      "b93174a7fe5c779df7257c582718ae2558817a59e6c1a7d11ba13bcdf33306ec"
-    sha256 cellar: :any, mojave:        "40afc4b0ef762c32d86281ed20cd7d33b9424d0370e677a03277f303dc9b72b8"
-    sha256 cellar: :any, high_sierra:   "5ab42403952a0af2ac5e78e5dd779cd8ff380d678852e620215206bc63d3144e"
+    sha256 cellar: :any,                 arm64_big_sur: "1f46a001a83bde4267cc2790b666f212b13d69f03a52c8b8fd66892e14915063"
+    sha256 cellar: :any,                 big_sur:       "c59a7fe40f66a18e7bf3a1a1209ff8ed4b960742beda6bcb7647e4fd0e339fd3"
+    sha256 cellar: :any,                 catalina:      "cfb08fd27c9735d05c102fdb1f2bf26e4ee4d70d019891ef5145f748832a4ee3"
+    sha256 cellar: :any,                 mojave:        "eb58dafa4f0bb049b6b8cbd52a2481b378b184a4539f888a448bb41cf306fe94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd38564af758506cb3fef2faf01d69fbf6e0c16b2be714cf9bccbd24f14b5b28"
   end
 
   depends_on "libyaml"

@@ -11,11 +11,12 @@ class Pixman < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "da951aa8e872276034458036321dfa78e7c8b5c89b9de3844d3b546ff955c4c3"
-    sha256 cellar: :any, big_sur:       "0114710dd922d5e4839c9dea3b72cd5fbe6f00157dd63457c99ca15554cf8d7f"
-    sha256 cellar: :any, catalina:      "1862e6826a4bedb97af8dcb9ab849c69754226ed92e5ee19267fa33ee96f94f8"
-    sha256 cellar: :any, mojave:        "70a476e6b14fdfa42188d3df2797f8c13f25bd633528164b0d42c5fb70dfb431"
-    sha256 cellar: :any, high_sierra:   "e5b78e3dca71370ccc06a013ebda8b9f1c2b89a238e2f3ef11a8086560e3c07b"
+    sha256 cellar: :any,                 arm64_big_sur: "da951aa8e872276034458036321dfa78e7c8b5c89b9de3844d3b546ff955c4c3"
+    sha256 cellar: :any,                 big_sur:       "0114710dd922d5e4839c9dea3b72cd5fbe6f00157dd63457c99ca15554cf8d7f"
+    sha256 cellar: :any,                 catalina:      "1862e6826a4bedb97af8dcb9ab849c69754226ed92e5ee19267fa33ee96f94f8"
+    sha256 cellar: :any,                 mojave:        "70a476e6b14fdfa42188d3df2797f8c13f25bd633528164b0d42c5fb70dfb431"
+    sha256 cellar: :any,                 high_sierra:   "e5b78e3dca71370ccc06a013ebda8b9f1c2b89a238e2f3ef11a8086560e3c07b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b24ecddb5e7fe12c7a0b4458304542b4bacb1de51966f8f33d9dfdf9bd0c2b00"
   end
 
   depends_on "pkg-config" => :build

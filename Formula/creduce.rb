@@ -4,8 +4,8 @@ class Creduce < Formula
   url "https://embed.cs.utah.edu/creduce/creduce-2.10.0.tar.gz"
   sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
   license "BSD-3-Clause"
-  revision 1
-  head "https://github.com/csmith-project/creduce.git"
+  revision 2
+  head "https://github.com/csmith-project/creduce.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -13,9 +13,9 @@ class Creduce < Formula
   end
 
   bottle do
-    sha256 cellar: :any, catalina:    "d460655f84c09cc178e1d678bf0efc517dd10d1a0d8ad3d1c4688d94dac35bde"
-    sha256 cellar: :any, mojave:      "4af71fc62c556bb79a9013e23769d307a70df3db07b8f96b51870be05791b238"
-    sha256 cellar: :any, high_sierra: "04a55dcc4bb5ff291e902317955fa5bb5de5c9aab603d917851cdbd1288bdb11"
+    sha256 cellar: :any, big_sur:  "885805d75a7b94b42c75993af85ac92b3ac4c3e8a4fdd42e58e4ba14e7b33d48"
+    sha256 cellar: :any, catalina: "e6bc0e8e53ccfedfd4423a5b133621d68779b768242b19bef75bfdb4d43ba151"
+    sha256 cellar: :any, mojave:   "5f509b134d14e497243bfdd950a148bb50259b0bf8bfd788df9ebaf5823ef96f"
   end
 
   depends_on "astyle"
@@ -42,11 +42,6 @@ class Creduce < Formula
   resource "Regexp::Common" do
     url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2017060201.tar.gz"
     sha256 "ee07853aee06f310e040b6bf1a0199a18d81896d3219b9b35c9630d0eb69089b"
-  end
-
-  resource "Term::ReadKey" do
-    url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
-    sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
   end
 
   resource "URI::Escape" do

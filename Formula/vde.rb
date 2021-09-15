@@ -17,6 +17,7 @@ class Vde < Formula
     sha256 catalina:      "711f5b171e033b92505178b35a324a5c21e806ed5054a92ef02f26b3a38a760e"
     sha256 mojave:        "4f880ec345fe86fdfcfc53468c7c24d160261a17ee71a289ea3357a47b71416c"
     sha256 high_sierra:   "79ee1bbcca1f873e3740db401c1f8735f2366e785b56fcf6e0e4140e9048333b"
+    sha256 x86_64_linux:  "d0ecff46c013cef96a1a32d6fd45d415a32dbd300932d2eb352f969445ce251c"
   end
 
   def install

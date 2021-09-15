@@ -18,6 +18,7 @@ class Rcm < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "86ac10a7254567afb24c9816f6a80dd90a81bc8cd8619c112e59c0950929ef14"
     sha256 cellar: :any_skip_relocation, mojave:        "44c9524d9d5ce8ea5310fe6681b040d6c685cec693446f617686f82929d83c6b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7130060f9a26eda6a704eb06bda4c04a4cc0b0980f1c9d3fc5dce876fa5a3fdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e25ac856a6b3705687bb8ddff4e53bfaa698aca2b87b0d478b7d613aa8cea748"
   end
 
   def install

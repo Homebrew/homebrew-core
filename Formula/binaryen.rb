@@ -1,16 +1,17 @@
 class Binaryen < Formula
   desc "Compiler infrastructure and toolchain library for WebAssembly"
   homepage "https://webassembly.org/"
-  url "https://github.com/WebAssembly/binaryen/archive/version_101.tar.gz"
-  sha256 "5d7cdec89957549f01b7c93f080d08827c87bbd4789a34694c740d15d077c041"
+  url "https://github.com/WebAssembly/binaryen/archive/version_102.tar.gz"
+  sha256 "6197a8d7220d1510bb0694a2984bfae4f8b38abd6bdf4c724551c831786992f6"
   license "Apache-2.0"
-  head "https://github.com/WebAssembly/binaryen.git"
+  head "https://github.com/WebAssembly/binaryen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7c9f6e7464dd612d8fd5ecf97eb28be3a0e785807656971760355dbaee2ab308"
-    sha256 cellar: :any, big_sur:       "b5b7f3d6275bcbb2497135dbaa92856172def96355c2e1c4dd3f6d11cbdd4f77"
-    sha256 cellar: :any, catalina:      "3c1ec0bef52f4113e4898aec902fb3a631aa36b4ee82c4cbd9732357c5f6f79d"
-    sha256 cellar: :any, mojave:        "d69a70807fee88c855c53594d135d358e9b51a4a7d9b50518c7ea09b0df76dc6"
+    sha256 cellar: :any,                 arm64_big_sur: "e00fd13945ddfa707b35a2fd6b7bd20e5c1fa99fb4574ad7b52607160ead74f7"
+    sha256 cellar: :any,                 big_sur:       "580bcfb61bdf0ef6fea0b92af3428ee3484b47a87eb2bf9cee4602a5aec5b3c8"
+    sha256 cellar: :any,                 catalina:      "8dc80e3e1d1a6de47acfd1d107cdea836d2a81ea0bee7fe117423052eacc4558"
+    sha256 cellar: :any,                 mojave:        "3fbf167d4e89a81d052375286fd46f8e8604ef5875f96336c9ed13fd4a8737a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c03a84244f36a2760d5789240aed5a05c121411d2b85cc933d7ce4aa6c947295"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +33,7 @@ class Binaryen < Formula
   end
 
   test do
-    system "#{bin}/wasm-opt", "-O", "#{pkgshare}/test/passes/O.wast", "-o", "1.wast"
+    system "#{bin}/wasm-opt", "-O", "#{pkgshare}/test/passes/O1_print-stack-ir.wast", "-o", "1.wast"
+    assert_match "stacky-help", File.read("1.wast")
   end
 end

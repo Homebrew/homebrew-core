@@ -12,6 +12,7 @@ class GnomeCommon < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "079756ae6ef88387933614b1adcd2a76f239f779817f6128493cdac85c8f5baa"
     sha256 cellar: :any_skip_relocation, mojave:        "7c853c9cdcd84eddb2a3567d161182b27b42dd28c2d696005dc43cf27bdb7038"
     sha256 cellar: :any_skip_relocation, high_sierra:   "e0d511e98b09eff8a4e0a0511b421459b4610516d643fc9094a44c9e480a7771"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "186e36c90aadeb3fe96a17c685b1610b43ff5522d7cd4bad372d6f823938bb07"
   end
 
   conflicts_with "autoconf-archive", because: "both install ax_check_enable_debug.m4 and ax_code_coverage.m4"

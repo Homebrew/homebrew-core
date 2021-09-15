@@ -16,6 +16,7 @@ class Testdisk < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "325a572e2238e551d8415f58a463d80619850a9026b614d0c23da46838f2e9ea"
     sha256 cellar: :any_skip_relocation, catalina:      "b0035f42c03dbbe94000ae373b1a8c5f9bbb6f9534ea3d64b5754475ee8fbc7b"
     sha256 cellar: :any_skip_relocation, mojave:        "7431beee8948638cadaf5b7f439e32f798955caf403fdcfda5c9948afa5af3cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d22006b793a33a7cde952b4323410fea06ab20d49126159eccc6d187c7d0061"
   end
 
   uses_from_macos "ncurses"

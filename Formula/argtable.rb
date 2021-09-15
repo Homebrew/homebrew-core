@@ -6,14 +6,15 @@ class Argtable < Formula
   sha256 "8f77e8a7ced5301af6e22f47302fdbc3b1ff41f2b83c43c77ae5ca041771ddbf"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ef0f7424fe4d4ec76d19cfaa8a7d4ceda2abcdd13942939f2f708c57b878de1f"
-    sha256 cellar: :any, big_sur:       "b5bd39e72d347c2b73845caefb3c44cb9988f3b35ea4fe4b43e765e292b28de4"
-    sha256 cellar: :any, catalina:      "29bfa5bfd7e897512347ecf664c3e3a9bbe7ec585115c09167ca8b6c312be9d6"
-    sha256 cellar: :any, mojave:        "61ec2ac4b9e65f7965931dfd983848fae06130686c4f800eb9341f96a6f6d398"
-    sha256 cellar: :any, high_sierra:   "e68b3df66d638a024c3b57b069bcdebfbdabb230a9c851de886321c2b3df7099"
-    sha256 cellar: :any, sierra:        "9485d1e045ed40c0145eb867f9d24425ccedd53b4f0cb0ec949139b0c99507c7"
-    sha256 cellar: :any, el_capitan:    "0a720e738557215bf1b58fa642ec2fc51971da38e98b987862fcd05cc54756f7"
-    sha256 cellar: :any, yosemite:      "9e9d1451712580f090f0078ec7774a0daeb1057be3b1762e3d8465264d969432"
+    sha256 cellar: :any,                 arm64_big_sur: "ef0f7424fe4d4ec76d19cfaa8a7d4ceda2abcdd13942939f2f708c57b878de1f"
+    sha256 cellar: :any,                 big_sur:       "b5bd39e72d347c2b73845caefb3c44cb9988f3b35ea4fe4b43e765e292b28de4"
+    sha256 cellar: :any,                 catalina:      "29bfa5bfd7e897512347ecf664c3e3a9bbe7ec585115c09167ca8b6c312be9d6"
+    sha256 cellar: :any,                 mojave:        "61ec2ac4b9e65f7965931dfd983848fae06130686c4f800eb9341f96a6f6d398"
+    sha256 cellar: :any,                 high_sierra:   "e68b3df66d638a024c3b57b069bcdebfbdabb230a9c851de886321c2b3df7099"
+    sha256 cellar: :any,                 sierra:        "9485d1e045ed40c0145eb867f9d24425ccedd53b4f0cb0ec949139b0c99507c7"
+    sha256 cellar: :any,                 el_capitan:    "0a720e738557215bf1b58fa642ec2fc51971da38e98b987862fcd05cc54756f7"
+    sha256 cellar: :any,                 yosemite:      "9e9d1451712580f090f0078ec7774a0daeb1057be3b1762e3d8465264d969432"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "784464fba494301f0f28dfe309112e99267a2a9084243916283ba7c6e2db0a48"
   end
 
   def install

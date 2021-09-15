@@ -15,6 +15,7 @@ class Lzlib < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ebdc6759b366c12f7884ab27af11752c4d0348b91c3dfdd23f29d3e470dc94fa"
     sha256 cellar: :any_skip_relocation, catalina:      "bd80163e5b149eff8a652ee79b8551af09bba6410d9549c481d680ffb6c5dcb9"
     sha256 cellar: :any_skip_relocation, mojave:        "d351d2530ffa16a75df2afaf35cad291acca3a8a9374ab0b7b3edfcf1bd4f64d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b006ac595f6da4ef6ed21289317b78d69e3bb615f20906cf7eb9874ce30b0ae1"
   end
 
   def install

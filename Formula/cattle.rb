@@ -6,11 +6,12 @@ class Cattle < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "30cc03818912570ba2f48545b53a8217d2f8d0883e0308b55825d59aba1e342d"
-    sha256 big_sur:       "d6d17fed746c28274bd67416616df6ed87b7c6eae25593792d1ce815760458d3"
-    sha256 catalina:      "d721fea1c78f6b79eb7ae7e325442e276638919bdef0a21604e910501d4cc67f"
-    sha256 mojave:        "7ce0b67200025300e8e326dc890c79b94be12b627ebc4bbf230ae64437aa286d"
-    sha256 high_sierra:   "43b809e209b52621c0ac66810b751a22f43d1718f75f41c9c0364d6ecb762b83"
+    sha256                               arm64_big_sur: "30cc03818912570ba2f48545b53a8217d2f8d0883e0308b55825d59aba1e342d"
+    sha256                               big_sur:       "d6d17fed746c28274bd67416616df6ed87b7c6eae25593792d1ce815760458d3"
+    sha256                               catalina:      "d721fea1c78f6b79eb7ae7e325442e276638919bdef0a21604e910501d4cc67f"
+    sha256                               mojave:        "7ce0b67200025300e8e326dc890c79b94be12b627ebc4bbf230ae64437aa286d"
+    sha256                               high_sierra:   "43b809e209b52621c0ac66810b751a22f43d1718f75f41c9c0364d6ecb762b83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cc3ad88464fb616899345d986acd64a8108ad271e4cc9d09370cd8055a1774f"
   end
 
   head do

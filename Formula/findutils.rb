@@ -12,6 +12,7 @@ class Findutils < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ba06afcd59371297f232da8d59a68ebc2d66ce3ffdad3e83f65e2e9abb47a4c0"
     sha256 cellar: :any_skip_relocation, catalina:      "7e47d6ae1e52d796ce0fd989c17ac169f1b78206e62a28274fe25296185a8a66"
     sha256 cellar: :any_skip_relocation, mojave:        "78cf4e5b65633636743fd29b7fd3b48aebd20bed727203dc244192fdfa543f62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bcba0a1078da1c7c44ca826928def5e3429df58ecc854b3a156896118576575"
   end
 
   def install
@@ -38,13 +39,11 @@ class Findutils < Formula
       --with-packager-bug-reports=#{tap.issues_url}
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       [[prefix, bin], [share, man/"*"]].each do |base, path|
         Dir[path/"g*"].each do |p|
           f = Pathname.new(p)

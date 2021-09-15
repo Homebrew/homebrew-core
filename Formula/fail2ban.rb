@@ -11,9 +11,10 @@ class Fail2ban < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "dccbafae1bda5f12ef0ba27f74069fb179376e9a50adf0a597ff7d6d978c12f1"
-    sha256 cellar: :any_skip_relocation, catalina: "dc4e847cf92ddfbd7e70647f671de4e5f64a7752b7d9334455b528e0fc9318d9"
-    sha256 cellar: :any_skip_relocation, mojave:   "eb5646fd06a94a1638b44fc0afd4406bf88dc3bb4672ae68e264dc5455f10d05"
+    sha256 cellar: :any_skip_relocation, big_sur:      "dccbafae1bda5f12ef0ba27f74069fb179376e9a50adf0a597ff7d6d978c12f1"
+    sha256 cellar: :any_skip_relocation, catalina:     "dc4e847cf92ddfbd7e70647f671de4e5f64a7752b7d9334455b528e0fc9318d9"
+    sha256 cellar: :any_skip_relocation, mojave:       "eb5646fd06a94a1638b44fc0afd4406bf88dc3bb4672ae68e264dc5455f10d05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d2d8049b6513801a4b0706354b1165fd25a52f52d246e251af5cff8c46768d09"
   end
 
   depends_on "help2man" => :build
@@ -116,25 +117,8 @@ class Fail2ban < Formula
 
   plist_options startup: true
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/fail2ban-client</string>
-          <string>-x</string>
-          <string>start</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"fail2ban-client", "-x", "start"]
   end
 
   test do

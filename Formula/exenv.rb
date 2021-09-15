@@ -6,7 +6,9 @@ class Exenv < Formula
   license "MIT"
   head "https://github.com/mururu/exenv.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "ae3d33c35709202895d8d27bff0ea95075cd1455cc20207b139c43b73ca34322"
+  end
 
   def install
     inreplace "libexec/exenv", "/usr/local", HOMEBREW_PREFIX

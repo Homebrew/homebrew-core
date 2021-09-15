@@ -13,6 +13,7 @@ class Wllvm < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "946b4f71c813838a6bcf71992379dbc092fe1586374c8b372f70a5a9f007a4fd"
     sha256 cellar: :any_skip_relocation, catalina:      "946b4f71c813838a6bcf71992379dbc092fe1586374c8b372f70a5a9f007a4fd"
     sha256 cellar: :any_skip_relocation, mojave:        "d371b3aeaae37cdb1f250e536aaa6f52dd0da4e132bdddb02a238a702d130735"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05f8b627879dd34512b6423047ec04d5b668ac28dbde974c2e7df85ddb703a6b"
   end
 
   depends_on "llvm" => :test

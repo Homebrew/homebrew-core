@@ -1,15 +1,15 @@
 class Enkits < Formula
   desc "C and C++ Task Scheduler for creating parallel programs"
   homepage "https://github.com/dougbinks/enkiTS"
-  url "https://github.com/dougbinks/enkiTS/archive/refs/tags/v1.9.tar.gz"
-  sha256 "4678526aa3f1a0e93d23c5c381ea56509441f4574ddbdf1f9aa01c6b3e659afd"
+  url "https://github.com/dougbinks/enkiTS/archive/refs/tags/v1.10.tar.gz"
+  sha256 "578f285fc7c2744bf831548f35b855c6ab06c0d541d08c9cc50b6b72a250811a"
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e858429523c2b0db644ff13e896526965eb01ae88d93c1fec8ec0ba56d087a06"
-    sha256 cellar: :any, big_sur:       "ae4abf4aae65a0e7895c1a8ee14b64d619a7abd16456b4715811d169f8155e65"
-    sha256 cellar: :any, catalina:      "60125a7fe72094782ba4f69c0dc756604e388c8f0c7a386c71469f974b20c7f8"
-    sha256 cellar: :any, mojave:        "92d1e3e99ffc1146c4e18c921ba5dbf0085de90652d4caa12114968c40080dc6"
+    sha256 cellar: :any, arm64_big_sur: "a16d0e8f1b5ad4069eba83f3df23924dd498916b41a6f0f6a81c3dce22d42b7a"
+    sha256 cellar: :any, big_sur:       "52f4e994abed0b9c4d9a7ccc225b98d1cf4f4fe462aea61f2fd1b116f518c904"
+    sha256 cellar: :any, catalina:      "4b263189bb7bf94c1a1f9907fd4c988658c217db6a1897ad4d022354da32be56"
+    sha256 cellar: :any, mojave:        "be477295d82fdc58a9745c310c4a286fbaf77f74211a40ed9042cbed1f58810a"
   end
 
   depends_on "cmake" => :build

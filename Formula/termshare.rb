@@ -7,7 +7,7 @@ class Termshare < Formula
   sha256 "fa09a5492d6176feff32bbcdb3b2dc3ff1b5ab2d1cf37572cc60eb22eb531dcd"
   license "BSD-2-Clause"
   revision 1
-  head "https://github.com/progrium/termshare.git"
+  head "https://github.com/progrium/termshare.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -19,6 +19,7 @@ class Termshare < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "5d883c6747f478ab161ca648923a7397a782f437bb59d660df6a252b21f62e99"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c540732aab70ec29b60459c19bb4ee55c0584b3a63476473219a115d2ec380af"
     sha256 cellar: :any_skip_relocation, yosemite:      "c3b9c2784b02536ce97a2a3b3a205314e7ada8e727ac60b54577d933a04aa808"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e6403e077b20a2b771cc2d7e20407fc0f121688182ea2c6c660dd42f9cf118c"
   end
 
   depends_on "go" => :build

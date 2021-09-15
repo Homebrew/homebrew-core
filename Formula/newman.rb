@@ -3,15 +3,16 @@ require "language/node"
 class Newman < Formula
   desc "Command-line collection runner for Postman"
   homepage "https://www.getpostman.com"
-  url "https://registry.npmjs.org/newman/-/newman-5.2.3.tgz"
-  sha256 "b21c0f2dd4196eff73398c1619849b0c46ca51adb6d72b179b78e06a3eb72aa9"
+  url "https://registry.npmjs.org/newman/-/newman-5.3.0.tgz"
+  sha256 "ea4bba024f2c67a18c26db376d25d07039f782a591f333f85774c33df992f378"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "32b48aec1fb46467349b12f7330b2be84c626442fc84c51422026bb013b630cf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e2b0ff57bf37306d4b826dfaeb0492f21ff967602ce613590a6fa50996dda84a"
-    sha256 cellar: :any_skip_relocation, catalina:      "e2b0ff57bf37306d4b826dfaeb0492f21ff967602ce613590a6fa50996dda84a"
-    sha256 cellar: :any_skip_relocation, mojave:        "e2b0ff57bf37306d4b826dfaeb0492f21ff967602ce613590a6fa50996dda84a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f4cdf08e832543aea81630dfd577e6547897b6782201253803528634d9197a74"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b2f025e48984e411788de3fa5678e4e70ffc84487d61fb37095ab17a498523e0"
+    sha256 cellar: :any_skip_relocation, catalina:      "b2f025e48984e411788de3fa5678e4e70ffc84487d61fb37095ab17a498523e0"
+    sha256 cellar: :any_skip_relocation, mojave:        "b2f025e48984e411788de3fa5678e4e70ffc84487d61fb37095ab17a498523e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4cdf08e832543aea81630dfd577e6547897b6782201253803528634d9197a74"
   end
 
   depends_on "node"

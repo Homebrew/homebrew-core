@@ -10,6 +10,7 @@ class Fplll < Formula
     sha256 big_sur:       "6290a0d579e8ffba1dab159d70f9e10f58d6600cad8564469fe066b24aa8f170"
     sha256 catalina:      "bf39fa78c92642f571b4514a61ebe43c5aef39ff25d0e4de969cbf6bf323cc11"
     sha256 mojave:        "2219fe4523fced68e1f9a8038848cf54d0588cc652229bcbf2bf03e696f7b971"
+    sha256 x86_64_linux:  "fca671625e1f741805cc846d31b03a23506180343dcbe3393cb73a61282703df"
   end
 
   depends_on "automake" => :build

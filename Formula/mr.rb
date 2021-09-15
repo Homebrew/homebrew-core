@@ -14,6 +14,7 @@ class Mr < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "a41bcee5b050ec9f98cf5960a457421528b05773867d8c8dbb8eb32716e09fd5"
     sha256 cellar: :any_skip_relocation, sierra:        "bcac4176692f69d47a83cd961cee92e096f6b35f19cb7206973f77b15a1ba71c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "75fd9c6fbf6dcf833243e4dc9baf0afe81c422e55d3e251f5cfe040b8bc6a254"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe1931dfcaf7fd8500a523287de75c9a492a187c1b45c51e8a8565f2d52db70d"
   end
 
   resource("test-repo") do

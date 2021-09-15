@@ -6,7 +6,9 @@ class Ydiff < Formula
   license "BSD-3-Clause"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "07268262fb8e3fd7775b5129454d0aa7e08f32af397df64ab0d365d4cbae7cb0"
+  end
 
   depends_on "python@3.9"
 

@@ -4,7 +4,7 @@ class Armor < Formula
   url "https://github.com/labstack/armor/archive/v0.4.14.tar.gz"
   sha256 "bcaee0eaa1ef29ef439d5235b955516871c88d67c3ec5191e3421f65e364e4b8"
   license "MIT"
-  head "https://github.com/labstack/armor.git"
+  head "https://github.com/labstack/armor.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -13,6 +13,7 @@ class Armor < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "d0bbf39148c0dabb28f777b951492814a708dc64610106587b1315fcd6a08559"
     sha256 cellar: :any_skip_relocation, mojave:        "538f2c340ec151aa7c22847a61d3c8e1d255d121a2b2a75fe2fe7d22f5067347"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8fc3b2ebb6d8bc978f6dd04c92e2a43573b052e51d69398deb4f5a2b04e0f87d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "506a0b09767c4cd594f3b4e3d2d46d04c36ff95d46f318911bf72d95e88e20ed"
   end
 
   depends_on "go" => :build

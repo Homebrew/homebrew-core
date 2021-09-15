@@ -1,16 +1,21 @@
 class Bibclean < Formula
   desc "BibTeX bibliography file pretty printer and syntax checker"
   homepage "https://www.math.utah.edu/~beebe/software/bibclean/bibclean-03.html#HDR.3"
-  url "http://ftp.math.utah.edu/pub/bibclean/bibclean-3.04.tar.xz"
-  sha256 "4fa68bfd97611b0bb27b44a82df0984b300267583a313669c1217983b859b258"
-  license "GPL-2.0"
+  url "https://ftp.math.utah.edu/pub/bibclean/bibclean-3.06.tar.xz"
+  sha256 "6574f9b8042ba8fa05eae5416b3738a35c38d129f48e733e25878ecfbaaade43"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://ftp.math.utah.edu/pub/bibclean/"
+    regex(/href=.*?bibclean[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 arm64_big_sur: "1ca564c71ae986472ba45f55cee1dc9c2070513a908b5f3931d4cbd82ed1cd45"
-    sha256 big_sur:       "4b273f7061767e8e2a4776863f2da581ab726212ee1ae9b4d512a6bc228a6d7a"
-    sha256 catalina:      "15dbbabace79aafd93546976d8a899a393c6489d7951ce2bd2bb148a45f262a3"
-    sha256 mojave:        "82a7919c9d5054012b54d53eacf5a9c0785105071c4c65c83bc2ff428642b3e5"
-    sha256 high_sierra:   "9a2beadc688b6b12a22359890a6a85f20f3c79af561b5d4268e86069b806f585"
+    sha256 arm64_big_sur: "0323f9d9e011a7433a99c0fcc284b29163e3d864d55adf54063ac415fb718689"
+    sha256 big_sur:       "7210782187577201086e8a925fd1c3a3e53987aced4a65dbe6db190cbb9dff51"
+    sha256 catalina:      "27338b58717788a9e5d4edda61a255b4d7af2df8572f3dd835ebf6f68b11d3fe"
+    sha256 mojave:        "6a577a2f623ac6bd1f0d17bc0cb1ac97c445b9bee0264f7284ad53a283069dc4"
+    sha256 x86_64_linux:  "07ba72961d714e8146c03a61ebf78dde6d37dacdb2a2778ba747d6eaf0d61a27"
   end
 
   def install

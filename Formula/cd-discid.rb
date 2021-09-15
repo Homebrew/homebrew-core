@@ -3,7 +3,7 @@ class CdDiscid < Formula
   homepage "https://linukz.org/cd-discid.shtml"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/taem/cd-discid.git"
+  head "https://github.com/taem/cd-discid.git", branch: "master"
 
   stable do
     url "https://linukz.org/download/cd-discid-1.4.tar.gz"
@@ -27,6 +27,7 @@ class CdDiscid < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "6b0d9c55a1adfce8a2c6e9eabd00c37118a05b60678564e7a9695d876bca117b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f0c17cfc3c345c661104a6f29562b766cac2a80747feea0c26cda04ece3c8326"
     sha256 cellar: :any_skip_relocation, yosemite:      "3331be095997a1e5e6acb9f82f5e5473ed51c0f35976229371dc1d0c703c2e3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6e37cc61545d58bebb66ffffada804ca5e39e47e503684c7ed84cfa856dbb14"
   end
 
   def install

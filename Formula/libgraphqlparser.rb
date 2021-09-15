@@ -14,6 +14,8 @@ class Libgraphqlparser < Formula
     sha256 cellar: :any, high_sierra:   "64779ec3108d9eef789d279abfafa90437c6a76b2ed3973d45979cd1051dc170"
   end
 
+  deprecate! date: "2020-04-20", because: "requires Python 2 to build"
+
   depends_on "cmake" => :build
   depends_on :macos # Due to Python 2
 

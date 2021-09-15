@@ -4,29 +4,30 @@ class Dmd < Formula
   license "BSL-1.0"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.096.1.tar.gz"
-    sha256 "5f20a01739411d693d1cea092dc14e4d022048fe7a0ba787e4682d319f025cd5"
+    url "https://github.com/dlang/dmd/archive/v2.097.2.tar.gz"
+    sha256 "10e8fc9b99864bf68f384ca85f0c527221478be08d331ac477a90a2d83b71f4f"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.096.1.tar.gz"
-      sha256 "08fe19b949fcf368a052294f92b8128cd1a2157d633273c19a0d843dd1b2223e"
+      url "https://github.com/dlang/druntime/archive/v2.097.2.tar.gz"
+      sha256 "ee09d6e37887bba856c767b9aa36f61b290f2cfe0c470eb4a9ccd7f2e24d4bcd"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.096.1.tar.gz"
-      sha256 "7ca3909a10d06e01d063c6da9aadbeab5e47c168878669dcd5e9997257f2733a"
+      url "https://github.com/dlang/phobos/archive/v2.097.2.tar.gz"
+      sha256 "3f407f94d5d50a43498acf7f463f56a96f66534901068f8d6be850a1bd12135c"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.096.1.tar.gz"
-      sha256 "00bda5c8ac2eda67933f7bbfb1b5aa22b64afa646483eb436c9983d166ddb679"
+      url "https://github.com/dlang/tools/archive/v2.097.2.tar.gz"
+      sha256 "b04c7ebd16fa1b48aea4667f3906fdb62b4ff94c661eb216ba477f3310faf882"
     end
   end
 
   bottle do
-    sha256 big_sur:  "a69862b78ab828f5339a5c12841bad47ae4266e2abba8fe03e4af618295cd555"
-    sha256 catalina: "cd0e6df75c5ed352d99f443d4d90554971abbc882db4b0bd7ddf46c5b4d02b18"
-    sha256 mojave:   "9a1deb1735ba1301680e04485ac3727256bfd494fc2d3cc19b8a8719931b0038"
+    sha256 big_sur:      "3d9352cd4ce2ed8874c9da854540a6c3928b3bc81b77788c7e8a09c8580bfbe0"
+    sha256 catalina:     "c9fb6b53f38ca780febac7c9d343928a9a2e88bec7aa5a6b7a05b70949915ca2"
+    sha256 mojave:       "9ccdddbfac184379c83150a87c2e230863c51866dd099ad9609c4eb22cf4f107"
+    sha256 x86_64_linux: "4fe16fa1889fe81062e0484eca751883c06ebea11c0df177f2b9b6fc8a3a24d8"
   end
 
   head do
@@ -83,10 +84,9 @@ class Dmd < Formula
       system "make", "install", *make_args
     end
 
-    on_macos do
+    if OS.mac?
       bin.install "generated/osx/release/64/dmd"
-    end
-    on_linux do
+    else
       bin.install "generated/linux/release/64/dmd"
     end
     pkgshare.install "samples"

@@ -1,17 +1,17 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.8/passenger-6.0.8.tar.gz"
-  sha256 "1e73767025b299c6f8421c2a0df1ca7163b767de47ffab0c6239deb7b809d16d"
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.10/passenger-6.0.10.tar.gz"
+  sha256 "3eb2c52652c96a136cc69cf342e3a61a8dd0e92cdbe9310a7aae249ab1abe0d4"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/phusion/passenger.git", branch: "stable-6.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "90d075517637a179cc31640a9e1bcad4f59e2c92aeec1ed7753db1854d51ee3d"
-    sha256 cellar: :any, big_sur:       "f4e7d77ef21c07f2a03333a2190d5fe4c8c3a51dc603131a171e9f0b2b812591"
-    sha256 cellar: :any, catalina:      "c28d5417754fe2d985798595fd2f2e792ade03635ba35c77c621303f19ec462a"
-    sha256 cellar: :any, mojave:        "7f894527ee04c1e5772279f5fac912dd67587db4a4f8a7bb3f1692fba9fb4117"
+    sha256 cellar: :any, arm64_big_sur: "322a82e590f235bd5946ad7b6a782c0b1b2c0ce01785e77b2b310f0245c22070"
+    sha256 cellar: :any, big_sur:       "b5dad8756d80c5b6a4835d788ab7295ac8f8add33ad7d68b6cb97098989db36d"
+    sha256 cellar: :any, catalina:      "f58d1742fd4eb7bc4eeadab3cdb83b4e1b9c536fd57222882da6577edee581a3"
+    sha256 cellar: :any, mojave:        "b4e1db5f28e1aaae96813f446c260fefd81c22abfa5059421b0dadcf263126af"
   end
 
   # to build nginx module
@@ -84,6 +84,9 @@ class Passenger < Formula
 
     man1.install Dir["man/*.1"]
     man8.install Dir["man/*.8"]
+
+    # See https://github.com/Homebrew/homebrew-core/pull/84379#issuecomment-910179525
+    deuniversalize_machos
   end
 
   def caveats

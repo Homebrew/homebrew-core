@@ -11,14 +11,18 @@ class Rhino < Formula
     regex(%r{href=.*?/tag/.*?>Rhino (\d+(?:\.\d+)+)<}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "0ee2cee36979875331df35909efc3757c8734e540f6ed82f8449193d8579587d"
+  end
+
+  depends_on "openjdk@11"
 
   conflicts_with "nut", because: "both install `rhino` binaries"
 
   def install
     rhino_jar = "rhino-#{version}.jar"
     libexec.install "lib/#{rhino_jar}"
-    bin.write_jar_script libexec/rhino_jar, "rhino"
+    bin.write_jar_script libexec/rhino_jar, "rhino", java_version: "11"
     doc.install Dir["docs/*"]
   end
 

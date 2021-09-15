@@ -1,10 +1,10 @@
 class NetSnmp < Formula
   desc "Implements SNMP v1, v2c, and v3, using IPv4 and IPv6"
   homepage "http://www.net-snmp.org/"
-  url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9/net-snmp-5.9.tar.gz"
-  sha256 "04303a66f85d6d8b16d3cc53bde50428877c82ab524e17591dfceaeb94df6071"
+  url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9.1/net-snmp-5.9.1.tar.gz"
+  sha256 "eb7fd4a44de6cddbffd9a92a85ad1309e5c1054fb9d5a7dd93079c8953f48c3f"
   license "Net-SNMP"
-  head "https://github.com/net-snmp/net-snmp.git"
+  head "https://github.com/net-snmp/net-snmp.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,57 +12,42 @@ class NetSnmp < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_big_sur: "546fe0a8e74e43d8e8ba6d5526a73096aa7e4e92b9f66d910b6146206753e556"
-    sha256 big_sur:       "f76220e8e7bffba146b3886d46d61dca81e947d2d77937e8c756b1f6f242526d"
-    sha256 catalina:      "04210e391fad9e36b9fe9945e4a8b6436263e64aaf24ac0069202c6581c8d624"
-    sha256 mojave:        "1ac45c38fa251f876c70073ef1757c0a3b7659fb8f2ce7f5ec41af2febb1cac9"
+    sha256 arm64_big_sur: "78fa5061c6ba9240160cacfaa7b1c2f526d3a2dd8d3121ea4f6ba5bacced8a86"
+    sha256 big_sur:       "263ce5cfee921c1a75b0427e19cb15be78d6f65b2f2630d04ea4f5aac087f435"
+    sha256 catalina:      "7eaea9810b5847062284f67e1ac83a8f96739a3d9dec0428237717467aeec312"
+    sha256 mojave:        "8c57e53e0e45997e91c0071b9e7ee245d8610f935731b1ec6738b141274593eb"
+    sha256 x86_64_linux:  "177521069687eb0366887e0fedb1ebfec14a28d3dd139830cb8eca0664bfdebe"
   end
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@1.1"
-
-  # Fix "make install" bug with 5.9
-  patch do
-    url "https://github.com/net-snmp/net-snmp/commit/52d4a465dcd92db004c34c1ad6a86fe36726e61b.patch?full_index=1"
-    sha256 "669185758aa3a4815f4bbbe533795c4b6969c0c80c573f8c8abfa86911c57492"
-  end
-
-  # Clean up some Xcode 12 issues with ./configure
-  patch do
-    url "https://github.com/net-snmp/net-snmp/commit/a7c8c26c48c954a19bca5fdc6ba285396610d7aa.patch?full_index=1"
-    sha256 "8ccc46a3c15d145e5034c0749f3c0e7bd11eca451809ae7f2312dab459e07cec"
-  end
-
-  # Apple Silicon support
-  # https://github.com/net-snmp/net-snmp/issues/228
   if Hardware::CPU.arm?
-    patch do
-      url "https://github.com/net-snmp/net-snmp/commit/bcc654e7.patch?full_index=1"
-      sha256 "b5e35ef021e1962bd2fbf675f05eb43cc75bd7d417687d736a4c4b508a9eed47"
-    end
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
+  depends_on "openssl@1.1"
 
   def install
     # Workaround https://github.com/net-snmp/net-snmp/issues/226 in 5.9:
     inreplace "agent/mibgroup/mibII/icmp.h", "darwin10", "darwin"
 
-    args = %W[
-      --disable-debugging
-      --prefix=#{prefix}
-      --enable-ipv6
-      --with-defaults
-      --with-persistent-directory=#{var}/db/net-snmp
-      --with-logfile=#{var}/log/snmpd.log
-      --with-mib-modules=host\ ucd-snmp/diskio
-      --without-rpm
-      --without-kmem-usage
-      --disable-embedded-perl
-      --without-perl-modules
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+    args = [
+      "--disable-debugging",
+      "--prefix=#{prefix}",
+      "--enable-ipv6",
+      "--with-defaults",
+      "--with-persistent-directory=#{var}/db/net-snmp",
+      "--with-logfile=#{var}/log/snmpd.log",
+      "--with-mib-modules=host ucd-snmp/diskio",
+      "--without-rpm",
+      "--without-kmem-usage",
+      "--disable-embedded-perl",
+      "--without-perl-modules",
+      "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
     ]
 
+    system "autoreconf", "-fvi" if Hardware::CPU.arm?
     system "./configure", *args
     system "make"
     system "make", "install"

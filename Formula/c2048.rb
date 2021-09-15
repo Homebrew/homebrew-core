@@ -5,7 +5,7 @@ class C2048 < Formula
       revision: "578a5f314e1ce31b57e645a8c0a2c9d9d5539cde"
   version "0+20150805"
   license "MIT"
-  head "https://github.com/mevdschee/2048.c.git"
+  head "https://github.com/mevdschee/2048.c.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "89bc7f84063b8621271115ee8f9c84c836ae1e57a72db5533b11d8247d57e043"
@@ -16,6 +16,7 @@ class C2048 < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d2f33783cf7cd2ac69eaed113d940aca31e02e5863fcdb40e200e3fe9a4d0623"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8f9e75196f87718be0c572f731cecba0c8cd4e8dc35f8b3027392cd6e1c45f5d"
     sha256 cellar: :any_skip_relocation, yosemite:      "c06bde9e58788a1a4f16b6d0ace89be02cf07f86211e0c78af5fdaa7d70a3614"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a13bac58f461c8fff9257a3af3f01569d0bf819248ddbf5840bbf1fc9492adfa"
   end
 
   def install

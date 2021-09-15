@@ -11,23 +11,30 @@ class Fping < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "bd1255921afca543ba440bbf84f86f7c3b0b10db4bbf1aa659a2aa686496e4d5"
     sha256 cellar: :any_skip_relocation, mojave:        "47f38d4902f03da1e407331848e1f3a75a2b8692e4366d8a0a341e66f36962f1"
     sha256 cellar: :any_skip_relocation, high_sierra:   "e2d14a6c1de9032a244f7185ba8a629d61f8ed2964b96490890c87336ff4d521"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c021898c3eb3c2496cb915101a86618f895a8234b3281cee553531353300c71"
   end
 
   head do
-    url "https://github.com/schweikert/fping.git"
+    url "https://github.com/schweikert/fping.git", branch: "develop"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sbindir=#{bin}"
+    system "./configure", *std_configure_args, "--sbindir=#{bin}"
     system "make", "install"
   end
 
   test do
-    assert_equal "::1 is alive", shell_output("#{bin}/fping -A localhost").chomp
+    assert_match "Version #{version}", shell_output("#{bin}/fping --version")
+    assert_match "Probing options:", shell_output("#{bin}/fping --help")
+    on_macos do
+      assert_equal "::1 is alive", shell_output("#{bin}/fping -A localhost").chomp
+    end
+    on_linux do
+      assert_match "can't create socket", shell_output("#{bin}/fping -A localhost 2>&1", 4)
+    end
   end
 end

@@ -1,15 +1,16 @@
 class Vsh < Formula
   desc "HashiCorp Vault interactive shell"
   homepage "https://github.com/fishi0x01/vsh"
-  url "https://github.com/fishi0x01/vsh/archive/v0.11.0.tar.gz"
-  sha256 "942148e22ef18644815681f4a0b61c43cb67f88f4194a93d3b80ef9cd3116f30"
+  url "https://github.com/fishi0x01/vsh/archive/v0.12.0.tar.gz"
+  sha256 "59387d8512c7c2f9fe9a99508e2c913fcff6c5d8422ae90ba19c2c95895d2a3e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "395434d77f8be0aea32de54f9830c2e4cc492832d2ef5adb890d156af1e2070c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "071228bd8b0015e7f5589c85047b2bab1e13e08183b9f3490f629e4cc2808382"
-    sha256 cellar: :any_skip_relocation, catalina:      "21b2b865533d7ec601a3ea80718b9da6d0f2b634efc9beffeb06a216a2b6258b"
-    sha256 cellar: :any_skip_relocation, mojave:        "be78aad5e819aea94785ff0ce734a9ca673df656e2b0141b40da3d8d80f377f1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "014123ef3db65ca6c5ef44607b85f15d33456475161f0ba9a66654c6c9fabd87"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4d616d613324f4289d5ab4d51fe8fe4cbc44d676399f20c945a83e1b0291fdf3"
+    sha256 cellar: :any_skip_relocation, catalina:      "b63300d4db50898209cc4322973f692c49efb0670df5b72a816660e3941f9654"
+    sha256 cellar: :any_skip_relocation, mojave:        "9ac7a12b169868af589a1c4044db817b1ad1df20266299203f80f7135450313f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de5c2cde166c22abb15d2579d0d6be19454652eaf2563f8aa4270adfb26f6407"
   end
 
   depends_on "go" => :build

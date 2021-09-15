@@ -12,7 +12,8 @@ class Quex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8e53508d74a86c0ec8decef4bf4233f197a8612168cee8707295e22a7ed05b8b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8e53508d74a86c0ec8decef4bf4233f197a8612168cee8707295e22a7ed05b8b"
+    sha256 cellar: :any_skip_relocation, all:           "8e53508d74a86c0ec8decef4bf4233f197a8612168cee8707295e22a7ed05b8b"
   end
 
   depends_on "python@3.9"

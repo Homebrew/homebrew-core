@@ -13,6 +13,7 @@ class Avce00 < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "576b5ea62376b42733d56e7bd862522588c16160ac1abb5f382c1c12055248e1"
     sha256 cellar: :any_skip_relocation, el_capitan:    "45f18e289431af4de0d1e96c1fadd6a056e80907a1650654f8ee0dd1dafab401"
     sha256 cellar: :any_skip_relocation, yosemite:      "56e15b29411b2947d9a842d91ae713e16566aa59e297e06f7d4de4b301847e66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac93d6ed79eb10699125a47c23e8ece19290f75bd186a670dc25396ef32b1f86"
   end
 
   conflicts_with "gdal", because: "both install a cpl_conv.h header"

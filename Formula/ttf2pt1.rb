@@ -18,6 +18,7 @@ class Ttf2pt1 < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "e70efa3a1b28b212ea2366ac50b33fbf48e9b7922d03f1a6b86965af87244bee"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0ef606dfb439ad46c5442b35458f009e864ee3270145c7be940581a5d272bc54"
     sha256 cellar: :any_skip_relocation, yosemite:      "65c1456cab73a91161e4dddbc4f04842029a810a8e4e4c396e90fbf039e61f60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa39b65205b22d6c02893d9b5c503d0309edeb8884e0e9336c9d725dc049a666"
   end
 
   def install

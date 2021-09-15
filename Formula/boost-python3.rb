@@ -1,30 +1,26 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://boostorg.jfrog.io/artifactory/main/release/1.75.0/source/boost_1_75_0.tar.bz2"
-  sha256 "953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb"
+  url "https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2"
+  sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
   license "BSL-1.0"
-  head "https://github.com/boostorg/boost.git"
+  head "https://github.com/boostorg/boost.git", branch: "master"
+
+  livecheck do
+    formula "boost"
+  end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "a2c3334993fd0d0b32365afb3b07608e1716a5c558a9e54309d6d96c6a5cea24"
-    sha256 cellar: :any, big_sur:       "5a7b9abda6b57a79fbc3c0a0d1ad92e1955adee6cd88e4ec81a23e8be95d5f8a"
-    sha256 cellar: :any, catalina:      "0e6d214e6a1ca416d64d1d098e767a9429a90323aaaaaadf1ff58f77f1ac22c5"
-    sha256 cellar: :any, mojave:        "a14c587cfc74d561150bfca4884e3b179595dd7f113a2d39a5cb55b9ca7d8d0c"
+    sha256 cellar: :any,                 arm64_big_sur: "5c5d10ed0373c7e068e2ca80fa98ff39ac444392bbcf0d6932fe92259f0f9f4a"
+    sha256 cellar: :any,                 big_sur:       "031cfc31e2d655019467833a4c6ba4fcb7ed69f2e28798fead339cf5a1a84681"
+    sha256 cellar: :any,                 catalina:      "2f905a84c2f81d6037d16215e55e31feff2d5cccedb170e7294726d2ec3f80d9"
+    sha256 cellar: :any,                 mojave:        "9f4253a35144aabe0056e46b2c11c8c45d2fe4857b7d7cf4e2e728de19b8c044"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf25dc1ea9b2201258ff79c872dbbd8667ca52e7085f47164318631aae2f5ba1"
   end
 
   depends_on "numpy" => :build
   depends_on "boost"
   depends_on "python@3.9"
-
-  # Fix build system issues on Apple silicon. This change has aleady
-  # been merged upstream, remove this patch once it lands in a release.
-  patch do
-    url "https://github.com/boostorg/build/commit/456be0b7ecca065fbccf380c2f51e0985e608ba0.patch?full_index=1"
-    sha256 "e7a78145452fc145ea5d6e5f61e72df7dcab3a6eebb2cade6b4cfae815687f3a"
-    directory "tools/build"
-  end
 
   def install
     # "layout" should be synchronized with boost
@@ -50,14 +46,13 @@ class BoostPython3 < Formula
 
     pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
-    on_linux do
-      py_prefix = Formula["python@3.9"].opt_prefix
-    end
+    py_prefix = Formula["python@3.9"].opt_prefix if OS.linux?
 
     # Force boost to compile with the desired compiler
-    compiler_text = "using darwin : : #{ENV.cxx} ;"
-    on_linux do
-      compiler_text = "using gcc : : #{ENV.cxx} ;"
+    compiler_text = if OS.mac?
+      "using darwin : : #{ENV.cxx} ;"
+    else
+      "using gcc : : #{ENV.cxx} ;"
     end
     (buildpath/"user-config.jam").write <<~EOS
       #{compiler_text}

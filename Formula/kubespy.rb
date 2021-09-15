@@ -11,6 +11,7 @@ class Kubespy < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c803662722beea17aa638cfab61ca1b47326ca4e9c6fc8522d3e8776c43cb7bb"
     sha256 cellar: :any_skip_relocation, mojave:        "02dd7561ce07c576d9ab3de63dbcdf0c43ccc75a00260f44b56d036076059662"
     sha256 cellar: :any_skip_relocation, high_sierra:   "c573da0ba80217ac5ce529fa070b5ecfb398e1554c93f1d824b1df9bcc16c406"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa4dd3522e26e234773a2cdd5ba837ccadcbe4babb7f5889faf8c11dda1bb10d"
   end
 
   depends_on "go" => :build

@@ -1,18 +1,18 @@
 class Stubby < Formula
   desc "DNS privacy enabled stub resolver service based on getdns"
   homepage "https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Daemon+-+Stubby"
-  url "https://github.com/getdnsapi/stubby/archive/v0.3.0.tar.gz"
-  sha256 "b37a0e0ec2b7cfcdcb596066a6fd6109e91a2766b17a42c47d3703d9be41d000"
+  url "https://github.com/getdnsapi/stubby/archive/v0.4.0.tar.gz"
+  sha256 "8e6a4ba76f04b23612d58813c4998141b0cc6194432d87f8653f3ba5cf64152a"
   license "BSD-3-Clause"
   head "https://github.com/getdnsapi/stubby.git", branch: "develop"
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "c6223325a50e383b95f7658d15040027b2d45898aac7a4bc47d21393fdf43939"
-    sha256 big_sur:       "d158abd2fb311a487794a26f180426a98bd1c2e07b577196b43144d294e4bc71"
-    sha256 catalina:      "aaa2e665539768e5095b04cdbbf61b8b865334770e4608f144096f010631d47c"
-    sha256 mojave:        "be2d27bc1ceb52f5728c34b179ba4b57593ded2e66c87c4ab26fa6e89ac26ece"
-    sha256 high_sierra:   "437687f0eebd8218424dbefd61988a5ebb9c2a4487c779c36a329deaf2c2ad92"
+    sha256 arm64_big_sur: "aacda92701ecc4c275bfe6eb5ede29a6f07f6d0d85701f293146880437f448f8"
+    sha256 big_sur:       "435174729967fbf5bb4dc87a8e2ef440f6cec7e56c46a5373dfe6f5a6a6ec96c"
+    sha256 catalina:      "df3b7e64116093724ab01d7a6f3abee725e9ffebfd030a1255d9f6c8467101f2"
+    sha256 mojave:        "21530780a842976f9dbd45777c85900b841e15a063ab522d5c8d30f4bba74eec"
+    sha256 x86_64_linux:  "9e714d6c7b77449a65f7185ea9a86489a8b9019950ec11160987d5e9fa848b7a"
   end
 
   depends_on "cmake" => :build
@@ -20,35 +20,20 @@ class Stubby < Formula
   depends_on "getdns"
   depends_on "libyaml"
 
+  on_linux do
+    depends_on "bind" => :test
+  end
+
   def install
     system "cmake", "-DCMAKE_INSTALL_RUNSTATEDIR=#{HOMEBREW_PREFIX}/var/run/", \
                     "-DCMAKE_INSTALL_SYSCONFDIR=#{HOMEBREW_PREFIX}/etc", ".", *std_cmake_args
     system "make", "install"
   end
 
-  plist_options startup: true, manual: "sudo stubby -C #{HOMEBREW_PREFIX}/etc/stubby/stubby.yml"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/stubby</string>
-            <string>-C</string>
-            <string>#{etc}/stubby/stubby.yml</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"stubby", "-C", etc/"stubby/stubby.yml"]
+    keep_alive true
+    run_type :immediate
   end
 
   test do
@@ -75,7 +60,6 @@ class Stubby < Formula
     end
     sleep 2
 
-    output = shell_output("dig @127.0.0.1 -p 5553 getdnsapi.net")
-    assert_match "status: NOERROR", output
+    assert_match "status: NOERROR", shell_output("dig @127.0.0.1 -p 5553 getdnsapi.net")
   end
 end

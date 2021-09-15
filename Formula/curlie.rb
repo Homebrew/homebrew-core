@@ -1,15 +1,16 @@
 class Curlie < Formula
   desc "Power of curl, ease of use of httpie"
   homepage "https://curlie.io"
-  url "https://github.com/rs/curlie/archive/v1.6.0.tar.gz"
-  sha256 "7ed115d9d785e587f426e5d7f1e408ce687ed61389b63398fce0e60f3a5f3df8"
+  url "https://github.com/rs/curlie/archive/v1.6.2.tar.gz"
+  sha256 "4cf14accb5e027fc5ecc5804679a4b52f9aae076b4bdbe33a5c002fc84e0f437"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "254e5ce1014c934dc1a458a19ffa295ed88c5eb9ad876de204e4355a045152e9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ebca81b1aa110727edbf76008a810986242980f0ce2dd11e63f2da110fc94991"
-    sha256 cellar: :any_skip_relocation, catalina:      "8ee0a1f1762e51172f840f467df41b25db0087b5a97712e862388674e075ec89"
-    sha256 cellar: :any_skip_relocation, mojave:        "070bfb679705896f2b60fb44a8f94b18be862b654a394d254f2795a225173807"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c765bf3a15919c4452fb9cf470f30f274ecc77c39a1033e262aca4306b799981"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b9e22d8ea5d1459740bc0c0f7a8eac471fd81dc4411af99659fd0d7a36583922"
+    sha256 cellar: :any_skip_relocation, catalina:      "b9e22d8ea5d1459740bc0c0f7a8eac471fd81dc4411af99659fd0d7a36583922"
+    sha256 cellar: :any_skip_relocation, mojave:        "b9e22d8ea5d1459740bc0c0f7a8eac471fd81dc4411af99659fd0d7a36583922"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88e6f1236f129fd2268636d89dad87549739e55050fa23a966fbba5e33517aa4"
   end
 
   depends_on "go" => :build
@@ -17,7 +18,7 @@ class Curlie < Formula
   uses_from_macos "curl"
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do

@@ -11,6 +11,7 @@ class Swig < Formula
     sha256 catalina:      "530e80b7e7dcd28469b52fc3b668683a97b72642ebf2b6d4e6708d14f05e7286"
     sha256 mojave:        "50afb5930cb37af2e400f0369f6da15b1d4922c1f72f45d13e7e3f8bd9d6d27b"
     sha256 high_sierra:   "8bab440005b048ce454a3dd50ba608e1f85391edd73e9e40510269e923cad238"
+    sha256 x86_64_linux:  "2a5fe8e40d8ba5e09fd194e9e36f8fe4bd7a427e31d1456a99bb45539074c92a"
   end
 
   head do

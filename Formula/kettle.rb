@@ -1,17 +1,20 @@
 class Kettle < Formula
   desc "Pentaho Data Integration software"
   homepage "https://www.hitachivantara.com/en-us/products/data-management-analytics.html"
-  url "https://downloads.sourceforge.net/project/pentaho/Pentaho%209.1/client-tools/pdi-ce-9.1.0.0-324.zip"
-  sha256 "ffbcb7bba736af765bbb14ccb0a5f2ae239e75b5aebf0ecfee924a5738d2c530"
-  revision 1
+  url "https://downloads.sourceforge.net/project/pentaho/Pentaho-9.2/client-tools/pdi-ce-9.2.0.0-290.zip"
+  sha256 "8e64d1125b2403df66f212488762f1558968a3900d079c730b2f6943e346a7e7"
 
   livecheck do
     url :stable
     regex(%r{url=.*?/pdi-ce[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.(?:t|zip)}i)
   end
 
-  bottle :unneeded
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "eba9f1be1c6c891984132b99b107e654b6b6b269457bc7185373e6573bb852d7"
+  end
 
+  depends_on arch: :x86_64
   depends_on "openjdk@8"
 
   def install
@@ -31,38 +34,12 @@ class Kettle < Formula
     end
   end
 
-  plist_options manual: "pdicarte #{HOMEBREW_PREFIX}/etc/kettle/carte-config.xml"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/pdicarte</string>
-            <string>#{etc}/kettle/carte-config.xml</string>
-          </array>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>KETTLE_HOME</key>
-            <string>#{etc}/kettle</string>
-          </dict>
-          <key>WorkingDirectory</key>
-          <string>#{etc}/kettle</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/kettle/carte.log</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/kettle/carte.log</string>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"pdicarte", etc/"kettle/carte-config.xml"]
+    working_dir etc/"kettle"
+    log_path var/"log/kettle/carte.log"
+    error_log_path var/"log/kettle/carte.log"
+    environment_variables KETTLE_HOME: etc/"kettle"
   end
 
   test do

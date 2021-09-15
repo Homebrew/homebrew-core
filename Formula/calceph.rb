@@ -1,16 +1,21 @@
 class Calceph < Formula
   desc "C library to access the binary planetary ephemeris files"
   homepage "https://www.imcce.fr/inpop/calceph"
-  url "https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/calceph-3.4.7.tar.gz"
-  sha256 "99ff6c153c888cc514d9c4e8acfb99448ab0bdaff8ef5aaa398a1d4f00c8579f"
+  url "https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/calceph-3.5.0.tar.gz"
+  sha256 "2aa9ba47af6a73ab74ae10d1c8efbcfab9068d9d05f016a8a5fe695df7b52e00"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?calceph[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0466e27596cec26f2fcce66fe699f4366e8e2e3c020c9c69a86e3dfe5982c81c"
-    sha256 cellar: :any, big_sur:       "f5aa0d2c90d1bf0fdd1b01e7d540a243552054274634cc429c0364fdcbafb44a"
-    sha256 cellar: :any, catalina:      "2ce6fa8b2b26b317a0bb5896a7bbb8a492d85788f2f7eda43cac8cc2dde7a3a4"
-    sha256 cellar: :any, mojave:        "6fe017217defc0a4746d5881f8ced6f2ae0af262f0fa6aef33c94721f45b1742"
-    sha256 cellar: :any, high_sierra:   "8b2a7955298fe618abe12328de07a6c991a47d15805b27f11f2df2f0bf88de0d"
+    sha256 cellar: :any,                 arm64_big_sur: "9c3abdc353fa28b0f073f59579866f5f4ebe1394af3f48cceff39664077f2d67"
+    sha256 cellar: :any,                 big_sur:       "09f5d187d213d349fe8f0035cc26a08f8cee34e43efa691f1bd882df968540b2"
+    sha256 cellar: :any,                 catalina:      "36e5388c8789221831f181d7e9ec7d2ad822e4f76afca20533912508ca38913c"
+    sha256 cellar: :any,                 mojave:        "22799e0c12c14a7a50062e5d0c482460d1fd8317a32fbf8063aca797d7e83bc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6684443f24392f477d629d6d3da6a067d1bf73892dd465e6bd8421037118c54"
   end
 
   depends_on "gcc" # for gfortran

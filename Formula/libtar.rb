@@ -7,19 +7,22 @@ class Libtar < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "7481da1834936b6237f152fe8b7e22196ad5c76833af39c9e9f74eae6347c9a5"
-    sha256 cellar: :any, big_sur:       "7424cf8229c7aea825592a76227da3355f32a43b9fbc5e140a0cf1eb07d05c8e"
-    sha256 cellar: :any, catalina:      "35617f312e3c6fb1e473a5d20a559dcbd1815544bdd99c95419ac7e6e8abf9f6"
-    sha256 cellar: :any, mojave:        "070d9355e6d03dcb64ea33ecf7e3b99972e0b3ca5fc8e60e89616f0a061ee0e5"
-    sha256 cellar: :any, high_sierra:   "a263cfaa1499f0c82902009964df0a310e7841ddff29409c67ede0a79157c31e"
-    sha256 cellar: :any, sierra:        "68bdebde24477a815ea03289878ad57e8a1f719b417bef430bf477c2d760cad7"
-    sha256 cellar: :any, el_capitan:    "018f1c9897f52b783878db67db39a5933a4863a3f9dedc2af9b6bf13f2161957"
-    sha256 cellar: :any, yosemite:      "d8d138fb4c1cf8c33aaaf8633cd748e9a423e84f1df886ae1842d4816b1f34a0"
+    sha256 cellar: :any,                 arm64_big_sur: "7481da1834936b6237f152fe8b7e22196ad5c76833af39c9e9f74eae6347c9a5"
+    sha256 cellar: :any,                 big_sur:       "7424cf8229c7aea825592a76227da3355f32a43b9fbc5e140a0cf1eb07d05c8e"
+    sha256 cellar: :any,                 catalina:      "35617f312e3c6fb1e473a5d20a559dcbd1815544bdd99c95419ac7e6e8abf9f6"
+    sha256 cellar: :any,                 mojave:        "070d9355e6d03dcb64ea33ecf7e3b99972e0b3ca5fc8e60e89616f0a061ee0e5"
+    sha256 cellar: :any,                 high_sierra:   "a263cfaa1499f0c82902009964df0a310e7841ddff29409c67ede0a79157c31e"
+    sha256 cellar: :any,                 sierra:        "68bdebde24477a815ea03289878ad57e8a1f719b417bef430bf477c2d760cad7"
+    sha256 cellar: :any,                 el_capitan:    "018f1c9897f52b783878db67db39a5933a4863a3f9dedc2af9b6bf13f2161957"
+    sha256 cellar: :any,                 yosemite:      "d8d138fb4c1cf8c33aaaf8633cd748e9a423e84f1df886ae1842d4816b1f34a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5703c44aa7e1572385af551d05f17bafccf9a247eef56639a58dafd5aa8bdd46"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  uses_from_macos "zlib"
 
   def install
     system "autoreconf", "--force", "--install"

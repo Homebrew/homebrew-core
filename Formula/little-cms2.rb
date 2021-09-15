@@ -18,10 +18,11 @@ class LittleCms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "83c79aaa225d6363154151a6b1099bb23ee0c7c1ffed35cb4682b993e047f4a0"
-    sha256 cellar: :any, big_sur:       "70eaa9b280425731f7dcf104e75d4ae1e6a90421e1a741e0fe82859361c8ae84"
-    sha256 cellar: :any, catalina:      "0f782fa69d2e12e9c1765df4ae1b7bd87143402aa1840d483092f3b74f89ae19"
-    sha256 cellar: :any, mojave:        "69af639323557bdd2c09fdaf354d9830441014f98609609146a8c836c752ac10"
+    sha256 cellar: :any,                 arm64_big_sur: "83c79aaa225d6363154151a6b1099bb23ee0c7c1ffed35cb4682b993e047f4a0"
+    sha256 cellar: :any,                 big_sur:       "70eaa9b280425731f7dcf104e75d4ae1e6a90421e1a741e0fe82859361c8ae84"
+    sha256 cellar: :any,                 catalina:      "0f782fa69d2e12e9c1765df4ae1b7bd87143402aa1840d483092f3b74f89ae19"
+    sha256 cellar: :any,                 mojave:        "69af639323557bdd2c09fdaf354d9830441014f98609609146a8c836c752ac10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e5b2bda05c916175417f4f7db8e22d43e116d696177b399496c1f168b7cf834"
   end
 
   depends_on "jpeg"

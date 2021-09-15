@@ -4,7 +4,7 @@ class Confd < Formula
   url "https://github.com/kelseyhightower/confd/archive/v0.16.0.tar.gz"
   sha256 "4a6c4d87fab77aa9827370541024a365aa6b4c8c25a3a9cab52f95ba6b9a97ea"
   license "MIT"
-  head "https://github.com/kelseyhightower/confd.git"
+  head "https://github.com/kelseyhightower/confd.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f2eb5cdb05b9f92b2472331857765f5b4922183d4cde23e61c44d7bb3d080dfe"
@@ -12,6 +12,7 @@ class Confd < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "34d59b3c47493cd00685c62997ac0385f52f90a5d99adb9ed5c98576c6c02452"
     sha256 cellar: :any_skip_relocation, mojave:        "6c83fe2e7e744917d241e8fd51d76b83838ac08dcab31c2663c7b2c7703140cc"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8605d52c611da0530d31178fbb9805592113d70b3d496d21a34696ff499aac70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a67a6ca1953e416e2d1278d6426f8c98e778d829cbff9485d6e12cddd0067b50"
   end
 
   depends_on "go" => :build

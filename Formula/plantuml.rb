@@ -1,8 +1,8 @@
 class Plantuml < Formula
   desc "Draw UML diagrams"
   homepage "https://plantuml.com/"
-  url "https://downloads.sourceforge.net/project/plantuml/1.2021.7/plantuml.1.2021.7.jar"
-  sha256 "da1408c14a64c4b1c61be931f007a448a275a8ef229cbf319e4a347652c2d4a8"
+  url "https://downloads.sourceforge.net/project/plantuml/1.2021.10/plantuml.1.2021.10.jar"
+  sha256 "4bfab0743ca1825755f0be5d802def5bb5fd9d9331624a04a6263b6f1ef41007"
   license "GPL-3.0-or-later"
   version_scheme 1
 
@@ -11,7 +11,9 @@ class Plantuml < Formula
     regex(%r{url=.*?/plantuml[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "05d4572c1da56f8adee7611d21f527b42d814d5872325ee3a7f756aed64a984a"
+  end
 
   depends_on "graphviz"
   depends_on "openjdk"

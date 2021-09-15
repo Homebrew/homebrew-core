@@ -12,6 +12,7 @@ class Yapf < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f2961b0fc70a7c6606769d55ca60329902e9cd2d32b78d8551740870805cb232"
     sha256 cellar: :any_skip_relocation, catalina:      "758d20404a5f18909269e0264cc8138e8d8a91af9200ace5c1bb3ded925dfedb"
     sha256 cellar: :any_skip_relocation, mojave:        "0f417b3d8e112b8de9224583fb8fd0dd5fad955e167b2baae9c6d07a00733477"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb5ae98b024f3537b3273a1985b052796966890d9119bbe6e26db776750646c0"
   end
 
   depends_on "python@3.9"

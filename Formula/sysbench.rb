@@ -4,18 +4,22 @@ class Sysbench < Formula
   url "https://github.com/akopytov/sysbench/archive/1.0.20.tar.gz"
   sha256 "e8ee79b1f399b2d167e6a90de52ccc90e52408f7ade1b9b7135727efe181347f"
   license "GPL-2.0-or-later"
+  revision 1
+  head "https://github.com/akopytov/sysbench.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, big_sur:     "81f4b5aa43833246f85567c964707b1741b85439c7f85e41e9d7bad7b922f7b6"
-    sha256 cellar: :any, catalina:    "2ca0e854823e63ecf84b27d81d0ea722aeae784fed39b436fed738fcd4450489"
-    sha256 cellar: :any, mojave:      "ec55acf85be8a3cfbd57a72f1d67aad2104e545ec32464010d673c205075c809"
-    sha256 cellar: :any, high_sierra: "84363a4b7267f936a6e168fb4ed30fa21970ff1483bb81a5fba2bbe25d611cfc"
+    sha256 cellar: :any,                 arm64_big_sur: "8f5fd6827291b2eb5f3a5b4c842a059182802d2ad97dcbd894046e5b2750914f"
+    sha256 cellar: :any,                 big_sur:       "a9c638a46ddda6841018ad7354673315882a83e2aad7a480f46663db25e3c553"
+    sha256 cellar: :any,                 catalina:      "f85e28b078ef05d9a155d0655275e6a9418494d94ab3dd524607a9c6ca84806b"
+    sha256 cellar: :any,                 mojave:        "a29e37acd73943d5a1d72e6a5cb2f0812e2be3aeb061f919d271a8b31f2ac412"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f9cf704a34e18ddf2b4e826500a6b98b6e0df6e9b2dcf85e93dfe9f5fa2988f"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "luajit-openresty"
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
@@ -23,14 +27,7 @@ class Sysbench < Formula
 
   def install
     system "./autogen.sh"
-
-    # Fix for luajit build breakage.
-    # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
-    # is not set then it's forced to 10.4, which breaks compile on Mojave.
-    # https://github.com/LuaJIT/LuaJIT/issues/518: set to 10.14 to build on Catalina.
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = (DevelopmentTools.clang_build_version >= 1100) ? "10.14" : MacOS.version
-
-    system "./configure", "--prefix=#{prefix}", "--with-mysql"
+    system "./configure", "--prefix=#{prefix}", "--with-mysql", "--with-system-luajit"
     system "make", "install"
   end
 

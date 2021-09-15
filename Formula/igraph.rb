@@ -1,15 +1,16 @@
 class Igraph < Formula
   desc "Network analysis package"
   homepage "https://igraph.org/"
-  url "https://github.com/igraph/igraph/releases/download/0.9.3/igraph-0.9.3.tar.gz"
-  sha256 "0cb185df3bdf16895c012e37c4a01b01e01a7b81f630df7602070765511eda87"
+  url "https://github.com/igraph/igraph/releases/download/0.9.4/igraph-0.9.4.tar.gz"
+  sha256 "a3285cccf4f043c9ced2bc8d8d2609ff8398cb92ed49fdf86264ed91929137dd"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b40a82431e285a5a9785a51efb72e84e560f7c58d9d96fe5a45f04a28c74b099"
-    sha256 cellar: :any, big_sur:       "1f2fb048cbd22c54a606b3799461b17bc0710becdcd542e1bc69bec165bc74a5"
-    sha256 cellar: :any, catalina:      "a960eba0fb364d55fbb9db4205593ad5154ef8c3fb47067931d1170089362a02"
-    sha256 cellar: :any, mojave:        "adc724346d0c95b666305726d7e00e508be634e4b4b0ce912ca13420c0f4547b"
+    sha256 cellar: :any,                 arm64_big_sur: "ffe6765971d065e88c9d58b039b10288f0fa8987136eda974de21c356f4e9b29"
+    sha256 cellar: :any,                 big_sur:       "53d4b26764597f9e640a10f9f3376e42d57edd1ea028eda5462531a53a2777c3"
+    sha256 cellar: :any,                 catalina:      "bf6f483a1d959cb0a47a3bdb0bdca8ad097d4fb53b7093253694b6d1f93261f1"
+    sha256 cellar: :any,                 mojave:        "f0cb37d933ee52faf99446b21184f4301da5b08aee5ea6d8acfd8c15d0b10279"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20a04b22950e1647f19b9ddad67ecb9eefb0795c275fd5dcb6e3d30cc7a9d0c2"
   end
 
   depends_on "cmake" => :build

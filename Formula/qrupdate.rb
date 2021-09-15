@@ -11,10 +11,11 @@ class Qrupdate < Formula
   end
 
   bottle do
-    sha256               arm64_big_sur: "37f1e9c921973d004aa17330658a7e3b8eab48f8b0c3795aaf75acc36b0adad8"
-    sha256 cellar: :any, big_sur:       "bf048deb2737ada46b63c53b36bfb39cc1ba536d810ef6daad38e21a949777f9"
-    sha256 cellar: :any, catalina:      "ac9f87f4e27825031f0d15e097a6e1fd644fa0e6eac9e0f9e605c35c9e7c3ab6"
-    sha256 cellar: :any, mojave:        "02ae54ea1999c2df3d37ed9f07af0f2a038e35d528432143951bb9a2062af619"
+    sha256                               arm64_big_sur: "37f1e9c921973d004aa17330658a7e3b8eab48f8b0c3795aaf75acc36b0adad8"
+    sha256 cellar: :any,                 big_sur:       "bf048deb2737ada46b63c53b36bfb39cc1ba536d810ef6daad38e21a949777f9"
+    sha256 cellar: :any,                 catalina:      "ac9f87f4e27825031f0d15e097a6e1fd644fa0e6eac9e0f9e605c35c9e7c3ab6"
+    sha256 cellar: :any,                 mojave:        "02ae54ea1999c2df3d37ed9f07af0f2a038e35d528432143951bb9a2062af619"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f4e8ae6842fe139dfb889c7748d54660d9d30cb6b7c3314ab123e4270e34b82"
   end
 
   depends_on "gcc" # for gfortran

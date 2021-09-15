@@ -13,7 +13,9 @@ class Sqoop < Formula
     regex(%r{href=["']?v?((?!\d+\.9\d+)\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "04de1ca8398879433620c8bb66cda1c959fb3b724e6ed7638fd7e26d6e132483"
+  end
 
   depends_on "coreutils"
   depends_on "hadoop"

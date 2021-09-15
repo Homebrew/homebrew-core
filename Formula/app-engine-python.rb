@@ -4,7 +4,12 @@ class AppEnginePython < Formula
   url "https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.86.zip"
   sha256 "8a1d57f8819792a4c18bc337762f73f3bf207da986fd6028e3e591f24cfde9f2"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b856b6306476de51b4cd973eda2a6e8f1bca646b53c3ebc547db06a47ed7f84b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5b799bff8064c075f8950a27c73f1a1cfd18c57fd4fb2082b19f1bade4f61cc0"
+    sha256 cellar: :any_skip_relocation, catalina:      "5b799bff8064c075f8950a27c73f1a1cfd18c57fd4fb2082b19f1bade4f61cc0"
+    sha256 cellar: :any_skip_relocation, mojave:        "5b799bff8064c075f8950a27c73f1a1cfd18c57fd4fb2082b19f1bade4f61cc0"
+  end
 
   def install
     pkgshare.install Dir["*"]

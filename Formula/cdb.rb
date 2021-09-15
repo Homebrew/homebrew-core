@@ -4,6 +4,11 @@ class Cdb < Formula
   url "https://cr.yp.to/cdb/cdb-0.75.tar.gz"
   sha256 "1919577799a50c080a8a05a1cbfa5fa7e7abc823d8d7df2eeb181e624b7952c5"
 
+  livecheck do
+    url "https://cr.yp.to/cdb/install.html"
+    regex(/href=.*?cdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9136d67f3a62785add35b9b205169b9ace86da2c86edf4fe1c16cb833465bf5"

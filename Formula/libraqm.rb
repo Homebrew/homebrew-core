@@ -6,10 +6,11 @@ class Libraqm < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9f76c8377e47263458e8e09ed5e616687b25dc51821296dcefe386eb63f4eb05"
-    sha256 cellar: :any, big_sur:       "433cfa09f493996f697e288318dddb9f887caaa505e89f54e6258efca30c31c5"
-    sha256 cellar: :any, catalina:      "4c45ed51cac6ceb29ea7d7c6c7461b54b5e7f5ecc708e6fbba4396a26489c743"
-    sha256 cellar: :any, mojave:        "d104c74c838f567086230184854a18444c570437434a001adc6ada04ce9a68a9"
+    sha256 cellar: :any,                 arm64_big_sur: "9f76c8377e47263458e8e09ed5e616687b25dc51821296dcefe386eb63f4eb05"
+    sha256 cellar: :any,                 big_sur:       "433cfa09f493996f697e288318dddb9f887caaa505e89f54e6258efca30c31c5"
+    sha256 cellar: :any,                 catalina:      "4c45ed51cac6ceb29ea7d7c6c7461b54b5e7f5ecc708e6fbba4396a26489c743"
+    sha256 cellar: :any,                 mojave:        "d104c74c838f567086230184854a18444c570437434a001adc6ada04ce9a68a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af27b1207ed36d2a07d90f9cec96cc5c60b3cfd129af48411b134d2b99d12535"
   end
 
   depends_on "autoconf" => :build

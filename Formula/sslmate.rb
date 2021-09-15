@@ -5,9 +5,9 @@ class Sslmate < Formula
 
   desc "Buy SSL certs from the command-line"
   homepage "https://sslmate.com"
-  url "https://packages.sslmate.com/other/sslmate-1.7.1.tar.gz"
-  sha256 "454e19338910363189b349cfe3477351a20c34c6fda0f312ad143b1688faa6c4"
-  revision 1
+  url "https://packages.sslmate.com/other/sslmate-1.9.0.tar.gz"
+  sha256 "3e40122484491f59178de80e14ccf7e90cea4fea94056b25c7f89abe31685b98"
+  license "MIT"
 
   livecheck do
     url "https://packages.sslmate.com/other/"
@@ -15,11 +15,10 @@ class Sslmate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "98c1d69f485322c03fb5edab0ecdba7a358386093cd4656985fc95ac5c956540"
-    sha256 cellar: :any_skip_relocation, big_sur:       "61d7abbfa341a9d07f7c8b3f078d24f3b951e9d0093b57e662ef92c5d30767ae"
-    sha256 cellar: :any_skip_relocation, catalina:      "91ed7cfa14d48f01dae1c4d5d672ee43a0b3e769b938a1a6d53d8e2ba31df379"
-    sha256 cellar: :any_skip_relocation, mojave:        "39507ab1185187781a82869d1604f24f75cee165c64671ce7d003fac75e343db"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "5833c9efa844a9ba89f435581700186842dd484aed4a3f9e62bb92199e1ae906"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8365c733e5ee8edf15a06ede1010b9cfa54148547818102d8b741d8ea49600e9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "71a327da5a0c78c00fd8abcf364d801ac54c2390110d337c491d645337953aa7"
+    sha256 cellar: :any_skip_relocation, catalina:      "71a327da5a0c78c00fd8abcf364d801ac54c2390110d337c491d645337953aa7"
+    sha256 cellar: :any_skip_relocation, mojave:        "71a327da5a0c78c00fd8abcf364d801ac54c2390110d337c491d645337953aa7"
   end
 
   depends_on "python@3.9"

@@ -13,9 +13,10 @@ class Mplayer < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, big_sur:  "7482460cff2275c11a9a0249bd77b018a211d926cc2fde68912e1063b2769dbd"
-    sha256 cellar: :any, catalina: "cbbbc082ba6ceb67c119d97a4ecce0c2af5f7e19668e4361093e761cd981a6a6"
-    sha256 cellar: :any, mojave:   "2ee069c78251cc7e45bd3c1b6bd5941e927b01f43af5f6deeb4fcdd744dbc52b"
+    sha256 cellar: :any,                 big_sur:      "7482460cff2275c11a9a0249bd77b018a211d926cc2fde68912e1063b2769dbd"
+    sha256 cellar: :any,                 catalina:     "cbbbc082ba6ceb67c119d97a4ecce0c2af5f7e19668e4361093e761cd981a6a6"
+    sha256 cellar: :any,                 mojave:       "2ee069c78251cc7e45bd3c1b6bd5941e927b01f43af5f6deeb4fcdd744dbc52b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7f9423624070d5446b50c0770e8afefadf7283322eb5c83a2cb96d25d4cc8531"
   end
 
   head do

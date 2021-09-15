@@ -5,8 +5,8 @@ class Netcdf < Formula
   mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.8.0.tar.gz"
   sha256 "679635119a58165c79bb9736f7603e2c19792dd848f19195bf6881492246d6d5"
   license "BSD-3-Clause"
-  revision 1
-  head "https://github.com/Unidata/netcdf-c.git"
+  revision 2
+  head "https://github.com/Unidata/netcdf-c.git", branch: "main"
 
   livecheck do
     url "https://www.unidata.ucar.edu/downloads/netcdf/"
@@ -14,10 +14,11 @@ class Netcdf < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "870938057a2b09e0fa3aaaa39b74ad720e0ced7c001ecaaaf4eb99dea7d8f1f4"
-    sha256 big_sur:       "5d17807efcdad51a3bba144e55b003db3c04468e7b6f940501bb92fcae8258dd"
-    sha256 catalina:      "f913fd0f1c6b935c4bb072fded3439cf1d9f22af3acf68f209264be69b9bed09"
-    sha256 mojave:        "7d0569b3e8c8d3bf5573874965407e3209bbd6e43f6ddf36fb51f935544c8274"
+    sha256 cellar: :any,                 arm64_big_sur: "0c50d7fa0859656c1eb01da3de8be9eba53189c6038a901da6679746915fdb32"
+    sha256 cellar: :any,                 big_sur:       "71057c8d7e1ebb521973d2f5841f0b1d093df47cbd930091ee0add6f58e91f53"
+    sha256 cellar: :any,                 catalina:      "e75f036bc6f9a8979ab702b9293c5eaede59d7721f1e05ce62ff9b87cb224398"
+    sha256 cellar: :any,                 mojave:        "15488b7028f4b086ebe2e540cbbfd2e8c6109593ed33a14af467addc84faf9f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2ad1d7bc3c8aecd74b25592f154dc7290b6c607199212baf3e96a087025b0ef"
   end
 
   depends_on "cmake" => :build
@@ -102,9 +103,13 @@ class Netcdf < Formula
       lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
       lib/"cmake/netCDF/netCDFConfig.cmake",
       lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
-    ], HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    ], %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
 
-    on_macos do
+    if OS.linux?
+      inreplace bin/"ncxx4-config",
+                %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{Regexp.escape(ENV.cxx)}},
+                ENV.cxx
+    else
       # SIP causes system Python not to play nicely with @rpath
       libnetcdf = (lib/"libnetcdf.dylib").readlink
       macho = MachO.open("#{lib}/libnetcdf-cxx4.dylib")

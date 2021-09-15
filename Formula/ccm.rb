@@ -5,7 +5,7 @@ class Ccm < Formula
   sha256 "f07cc0a37116d2ce1b96c0d467f792668aa25835c73beb61639fa50a1954326c"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/pcmanus/ccm.git"
+  head "https://github.com/pcmanus/ccm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "955fd74e54ceaed0772238587c7fe45600813c685cdd4c1af19a5c0c99462a1f"
@@ -13,6 +13,7 @@ class Ccm < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "22fd6d245793ee81816df4ecce043c3a7bda47809f7afacb0eb7d12c6cf23fa5"
     sha256 cellar: :any_skip_relocation, mojave:        "59242833ff1017ca8c5fa4a18d0ad7c1c6179b323daa473716c990db2c3d2e2f"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d986995a2a6de7bce2eb538861c94c826bd7f0f38bd23fc999feef15204de8fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62aa5cd336cefb2e43e9bae72bd26a71de1bd007cf6573273c48d99f03f3cda4"
   end
 
   depends_on "python@3.9"

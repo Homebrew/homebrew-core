@@ -1,6 +1,6 @@
 class Spidermonkey < Formula
   desc "JavaScript-C Engine"
-  homepage "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey"
+  homepage "https://spidermonkey.dev"
   url "https://archive.mozilla.org/pub/mozilla.org/js/js185-1.0.0.tar.gz"
   version "1.8.5"
   sha256 "5d12f7e1f5b4a99436685d97b9b7b75f094d33580227aa998c406bbae6f2a687"
@@ -8,9 +8,11 @@ class Spidermonkey < Formula
   revision 4
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
+  # Spidermonkey versions use the same versions as Firefox, so we simply check
+  # Firefox release versions.
   livecheck do
-    url "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases"
-    regex(%r{href=.*?Releases/v?(\d+(?:\.\d+)*)["' >]}i)
+    url "https://www.mozilla.org/en-US/firefox/releases/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/releasenotes/?["' >]}i)
   end
 
   bottle do

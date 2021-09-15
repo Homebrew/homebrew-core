@@ -1,15 +1,16 @@
 class Onefetch < Formula
   desc "Git repository summary on your terminal"
   homepage "https://github.com/o2sh/onefetch"
-  url "https://github.com/o2sh/onefetch/archive/v2.9.1.tar.gz"
-  sha256 "33ac8e019e5b7412fec3c7593843e0c3780ca473498c31e36cbe95371fff943b"
+  url "https://github.com/o2sh/onefetch/archive/v2.10.2.tar.gz"
+  sha256 "6e4d4effcd4fd94ce21625a5e32da5da6446c8874200e40dd791e623b7aff7bb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0a11932b3795555ff253f46390d64d6926c9603883929c8b5dcc07ed5dfd7f9e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "460853143bb40faf7de7d49c64616d4eeea29b0de22e9c153f31af3f7c1605db"
-    sha256 cellar: :any_skip_relocation, catalina:      "0e9069d562ca1b387472e961493b8cc6f962bfa81d8de3cc86f06bc40bcd4d85"
-    sha256 cellar: :any_skip_relocation, mojave:        "1a6342771b768a51b042f1978b360a374cec75ac4ed2a9dd7317db6aff552127"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "058c97bfad7e60faeed7a6335ea8e9896f90f7a34fd0a17726d455643b16c0d5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3c478262017e9e019e0c2c42f8cef1be31ff8d336afdcf77476d0c72afe43810"
+    sha256 cellar: :any_skip_relocation, catalina:      "a79b95318ad14dbea71093af6dce7c2f5c945b2bfc6c5b44e2f0b54805e90d4f"
+    sha256 cellar: :any_skip_relocation, mojave:        "af8f091e15c4ffc30bd74e55b23710eabedd6f3217a7eb4afb5fc261687de42d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de7373759f68650076a23bf98cafc9910f22362b84fb2f001aca4d7c6e47383c"
   end
 
   depends_on "rust" => :build

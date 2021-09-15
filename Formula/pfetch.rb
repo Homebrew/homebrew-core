@@ -4,7 +4,7 @@ class Pfetch < Formula
   url "https://github.com/dylanaraps/pfetch/archive/0.6.0.tar.gz"
   sha256 "d1f611e61c1f8ae55bd14f8f6054d06fcb9a2d973095367c1626842db66b3182"
   license "MIT"
-  head "https://github.com/dylanaraps/pfetch.git"
+  head "https://github.com/dylanaraps/pfetch.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d3d84a024e20f9a85803389150748894f9a9dab94593af5c0ee3967a82ebe55a"
@@ -12,6 +12,7 @@ class Pfetch < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
     sha256 cellar: :any_skip_relocation, mojave:        "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfa6a98908cbd7ac49f1fd4813011ee6f18849130d84b4c4fa3c01282a33c568"
   end
 
   def install

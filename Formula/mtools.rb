@@ -1,16 +1,17 @@
 class Mtools < Formula
   desc "Tools for manipulating MSDOS files"
   homepage "https://www.gnu.org/software/mtools/"
-  url "https://ftp.gnu.org/gnu/mtools/mtools-4.0.27.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mtools/mtools-4.0.27.tar.gz"
-  sha256 "99a3279c2ea6353a7979b8bd7655114bfa568805549359a41ed7337f0698c9c5"
+  url "https://ftp.gnu.org/gnu/mtools/mtools-4.0.35.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mtools/mtools-4.0.35.tar.gz"
+  sha256 "27af3ebb1b5c6c74ca0b8276bf21b70c3fb497dd8eb1b605d74df7a761aedef5"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "28f0da8bedbd629658464e66be36fd569ed845e79d847d48f1d17e257dc5cbfd"
-    sha256 cellar: :any_skip_relocation, big_sur:       "13b156537deed820ee5817b958b3f07c3a790ce4b982b585593abbd88aa13215"
-    sha256 cellar: :any_skip_relocation, catalina:      "b5df224b8da7125f2e70caadee0a9a3352f84630e1d55136a968706f9df8ef88"
-    sha256 cellar: :any_skip_relocation, mojave:        "3ed5535b6c11e9abca58004348499df0f692ce86e2802e15e677474852d128ca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "18cddaa9135b9523b2bf852c66cebf108a52c665faabb4eceb1dc8038f7b3265"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5b327d09dd012e22085b77055ca713db9e2b0b054b58d2da0f446d977d4a7d17"
+    sha256 cellar: :any_skip_relocation, catalina:      "82f3ac919cf59793834c72e525d8b76f0249401a78c6bdc16eb70ea394f1b798"
+    sha256 cellar: :any_skip_relocation, mojave:        "eff0b4cc2fa5e3090634b2f25865593c240a654edeb0a0b21c628179ac8899d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56ebb016b728650f785c08f42c9ae191bcd163c34b5aaed9dae3352a394e5d97"
   end
 
   conflicts_with "multimarkdown", because: "both install `mmd` binaries"
@@ -20,12 +21,12 @@ class Mtools < Formula
 
   def install
     args = %W[
-      LIBS=-liconv
       --disable-debug
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --without-x
     ]
+    args << "LIBS=-liconv" if OS.mac?
 
     # The mtools configure script incorrectly detects stat64. This forces it off
     # to fix build errors on Apple Silicon. See stat(6) and pv.rb.

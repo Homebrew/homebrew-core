@@ -1,15 +1,15 @@
 class SimpleScan < Formula
   desc "GNOME document scanning application"
   homepage "https://gitlab.gnome.org/GNOME/simple-scan"
-  url "https://download.gnome.org/sources/simple-scan/40/simple-scan-40.tar.xz"
-  sha256 "49c407e1991677b9f6832d07a5a0c8a9bbf029b3d20d609dc318411e4a02b4ce"
+  url "https://download.gnome.org/sources/simple-scan/40/simple-scan-40.1.tar.xz"
+  sha256 "ebee39ab1fe4ca053c4ed2bd3a3ca76742ff109436dd0645d3415622132ba0b4"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "18cb5a5d20dd69352313d2e2a14ed272d09c58ddf5a3ed8fd4b786be25b3adab"
-    sha256 big_sur:       "37c93b97dcaeb03f8bd8522b6828643caee0102f56d844757779c562c01ca08c"
-    sha256 catalina:      "ebb1e3c10079ce920defbe258f1241f8c418094f566990a9076b73d467d5c857"
-    sha256 mojave:        "7d733dc8188d12eec8d5e36d036e5d56b9dff3f74ea50b386d0f671c94e9ed91"
+    sha256 arm64_big_sur: "a3682dd1d9b1f0c33f523469d8971286c6cb4300ae82eb31825bcbc0d2fd21c0"
+    sha256 big_sur:       "73592584299577d4567501ff336cb23ce39b1a7d74bfc05cbb22e74326a2cec8"
+    sha256 catalina:      "7a0a0234992e2dcb3e650d492456fc17bf0400c2bc36a99f4d8d3b011e0096f6"
+    sha256 mojave:        "47d31029f77ad42d17899786c4159201a5536227ffe52942b1ea490dcd9a8c7c"
   end
 
   depends_on "itstool" => :build

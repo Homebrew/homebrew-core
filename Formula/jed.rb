@@ -18,10 +18,12 @@ class Jed < Formula
     sha256 mojave:        "74df74658f783e6de97ed841b1e2532ead3681c7816d55c52e56d4d5056050b9"
     sha256 high_sierra:   "b8e8f13a1936067960fd2040019d30fc3cedabba4f5c3c22712990f64e09c752"
     sha256 sierra:        "caa1269eeac2bd84b2287426c77d501956632f01f92c44605bf8b5d76ab7550a"
+    sha256 x86_64_linux:  "4f1c9d8427fbce7053ed60f13fdcaa4b2dcde1398595d37cfc2fcce4a16669dc"
   end
 
   head do
-    url "git://git.jedsoft.org/git/jed.git"
+    url "git://git.jedsoft.org/git/jed.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

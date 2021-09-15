@@ -11,6 +11,7 @@ class RubyAT24 < Formula
     sha256 big_sur:       "155e0689032570a5832a6f26775037997748dd7e3e5fd458fc2ccb8c00a199ae"
     sha256 catalina:      "9e555e1492425fad0adc1288ce6bfaeff3b5845327f20c4924195a7020b9be4f"
     sha256 mojave:        "1e7496f7681fcd00ea19df6f7f15f65472bb18e86c47fc2c479af631304e6dbd"
+    sha256 x86_64_linux:  "dfe3b272b4da304aa27b4f3a24000670e530823795d04c5f199dbb3a2ae7952b"
   end
 
   keg_only :versioned_formula
@@ -46,9 +47,7 @@ class RubyAT24 < Formula
       --with-opt-dir=#{paths.join(":")}
       --without-gmp
     ]
-    on_macos do
-      args << "--disable-dtrace" unless MacOS::CLT.installed?
-    end
+    args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
 
     system "./configure", *args
 

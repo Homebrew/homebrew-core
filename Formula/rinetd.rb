@@ -6,7 +6,7 @@ class Rinetd < Formula
   license "GPL-2.0-or-later"
   # NOTE: Original (unversioned) tool is at https://github.com/boutell/rinetd
   #       Debian tracks the "samhocevar" fork so we follow suit
-  head "https://github.com/samhocevar/rinetd"
+  head "https://github.com/samhocevar/rinetd", branch: "main"
 
   livecheck do
     url :stable
@@ -18,6 +18,7 @@ class Rinetd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b73d5f5a82ad3371107eab67403b888e7e9e6f19f3c99909c8c72401a680c396"
     sha256 cellar: :any_skip_relocation, catalina:      "f2f6a19fcfc01cfde67148410a6bcf81c861fb373e860210e32294cb9df4fbcc"
     sha256 cellar: :any_skip_relocation, mojave:        "6a6f22a6081ac2dff01ca89a256a21c991a6f2171f2703b08e2acbd0d8c177a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fadcdad114c33040c9ca301f74a84d301eecf67b3ff722ddce9b8fbfac395399"
   end
 
   def install

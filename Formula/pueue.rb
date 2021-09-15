@@ -1,16 +1,17 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/v0.12.2.tar.gz"
-  sha256 "3acd923759d5731b69a9a4a16c83c16a1f33589767da2ab7eb0cbe49ea06eabd"
+  url "https://github.com/Nukesor/pueue/archive/v1.0.1.tar.gz"
+  sha256 "03f19e1c13ccd8ef4972ed3849df04741047f125302d66d92fa4f4a5ef669296"
   license "MIT"
-  head "https://github.com/Nukesor/pueue.git"
+  head "https://github.com/Nukesor/pueue.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a4d2d1c08cf929b069e09aafc633f2d6190f9fc72db7af1a528849c3d96617dd"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2602ff719f66993515cd06408672f4f91c5b79326635688af2f693592e7da447"
-    sha256 cellar: :any_skip_relocation, catalina:      "509da33221a8f04f7bfd9c30dd92b3a1c33e5b28be5f7d8d548a8ce9eea14c5a"
-    sha256 cellar: :any_skip_relocation, mojave:        "2813f83c83e78449efd26656232c4a1745f8f6bca2e97e8eb4e9c45c897747d4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4dea86eddf7b5b0084440c24c67ad521711ab25cf460ffa5a445799d8ffbfcf3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "49085ac5686357c70f74bdc89cbeddf8cecadbb2b936d578a557044db24d6d05"
+    sha256 cellar: :any_skip_relocation, catalina:      "9d09d556e85b45bb32dab174bcb89f5c1dcd36fd4db386f3657c37d5a7e99b4a"
+    sha256 cellar: :any_skip_relocation, mojave:        "5dc2b35000df32fdff268d99e17d9e0ae987b5d2e7d18b72d3f3999e4a1dc5f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7803f042c0efa3bd1a255c21fbfe34ae22215c0406f7d2a760a3a26bf4a4e3c2"
   end
 
   depends_on "rust" => :build
@@ -26,34 +27,12 @@ class Pueue < Formula
     prefix.install_metafiles
   end
 
-  plist_options manual: "pueued"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/pueued</string>
-            <string>--verbose</string>
-          </array>
-          <key>KeepAlive</key>
-          <false/>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/pueued.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/pueued.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"pueued", "--verbose"]
+    keep_alive false
+    working_dir var
+    log_path var/"log/pueued.log"
+    error_log_path var/"log/pueued.log"
   end
 
   test do

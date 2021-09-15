@@ -1,15 +1,15 @@
 class Kickstart < Formula
   desc "Scaffolding tool to get new projects up and running quickly"
   homepage "https://github.com/Keats/kickstart"
-  url "https://github.com/Keats/kickstart/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "f15f09467bf13f89dced49ba621c478857e2ee96fa87377ef0e922aae52e4677"
+  url "https://github.com/Keats/kickstart/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "98f25f870d6b1bff9bb22a485cf307d42a1d4243550080cf0d122c6d71c23ded"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1ac3f6c4f7c97bffa22c87b810fe651b83921526b8542dc163865d5582ffdea8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6f4c84c9b1cde4eb73d3c3a2fff74bb68e54dda1fecc761b417ff81cf874ea3f"
-    sha256 cellar: :any_skip_relocation, catalina:      "1ef6bda928d825729f0f981f4b49d9cb39dc445fabf46c49b4bddb660e1c58f8"
-    sha256 cellar: :any_skip_relocation, mojave:        "f06252c5f976a68a14056198525ba08977920c786de1d3969e3bc14ca202e1ae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa5e270b58a74bf343c3b4482c6f4fcb5badca3d552d50c37fbb2f51447dcea1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "312faa72771af3a139b1de745f164e7a95ac8705ab3db7f2bf6a7ddc451f372f"
+    sha256 cellar: :any_skip_relocation, catalina:      "6dbb7cc02996cbde1ead056a058e26adc420f6d7d8e0892ed072659c72e6d141"
+    sha256 cellar: :any_skip_relocation, mojave:        "ba2d8ea34e7bf6aa226c2c6dd5ffeea606a2046113250fdb85a3d92655456bbc"
   end
 
   depends_on "rust" => :build

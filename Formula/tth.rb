@@ -15,6 +15,7 @@ class Tth < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "eba438c9ec2902578cd3a043fdfbc1fa6bf22bedbde36e868c4fe02740448b06"
     sha256 cellar: :any_skip_relocation, mojave:        "a0fcd3029a8a43a59a530537c5fef4df45c0155924f41b07ac14ec2362d73ba7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "dc8224b651a9bbb3ab8a5f5dd2e213bfd42518962bd7132cb3d8a2db12ddd5bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa2cdf102a31eaee0fe9a64f9d5e0db28fc5284b02f0d005c2d91d473a574514"
   end
 
   def install

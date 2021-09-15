@@ -1,10 +1,10 @@
 class Never < Formula
   desc "Statically typed, embedded functional programming language"
   homepage "https://never-lang.readthedocs.io/"
-  url "https://github.com/never-lang/never/archive/v2.0.3.tar.gz"
-  sha256 "de4bf7f04c228f4f61e038f0c2befc41843f85c875f25922686c49c342b0f96d"
+  url "https://github.com/never-lang/never/archive/v2.1.8.tar.gz"
+  sha256 "3c03f8632c27456cd6bbcd238525cdfdc41197a26e1a4ff6ac0ef2cf01f4159b"
   license "MIT"
-  head "https://github.com/never-lang/never.git"
+  head "https://github.com/never-lang/never.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,16 +12,16 @@ class Never < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f54d3641b651b918ece0a629b57f6ad111766b28ab9da6ce240dbaa4eafed776"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c861febee970af49c7a0f6003f8cabedda1b6f09d262c6f10c184103f68df306"
-    sha256 cellar: :any_skip_relocation, catalina:      "27edab01757524441aafd95606dd1bea9d75e3e59e45b5ddbed4887eb15f0e60"
-    sha256 cellar: :any_skip_relocation, mojave:        "5daef4a51095d73edd0e2a4b4fbf3b26abb3f038c0da41aa9cba4d77d7c1fd4b"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "a4aae9a3453fd5b3a0014e071c9ccb5be132a442d9d5ae54e810289a21b4215d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "df34d4ced4bdcd4c56946166c0f4fafca87eafa475931644628ffb935236fec7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6eba6d82763dd636acc89082030bf414648263e876741c3168c70676f6a8f397"
+    sha256 cellar: :any_skip_relocation, catalina:      "8cd4e86723085d1957b1e86a4d62192ed66d3226e0c730c0cbe953d1e059a4c2"
+    sha256 cellar: :any_skip_relocation, mojave:        "e22182439c9a1fbe0ce7f5535c809bfb387df8ca105aef5a14de1b735aad433b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7215993532fc94fb14b7c1782f868e94f6f8eef0585bed6d77dd876e1d548b09"
   end
 
+  depends_on "bison" => :build
   depends_on "cmake" => :build
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libffi"
 

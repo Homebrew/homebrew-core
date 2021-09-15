@@ -1,13 +1,13 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
-  homepage "http://www.geeqie.org/"
-  url "http://www.geeqie.org/geeqie-1.6.tar.xz"
+  homepage "https://www.geeqie.org/"
+  url "https://github.com/BestImageViewer/geeqie/releases/download/v1.6/geeqie-1.6.tar.xz"
   sha256 "48f8a4474454d182353100e43878754b76227f3b8f30cfc258afc9d90a4e1920"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
-    url :homepage
-    regex(/href=.*?geeqie[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do

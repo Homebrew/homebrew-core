@@ -7,13 +7,14 @@ class S3cmd < Formula
   sha256 "966b0a494a916fc3b4324de38f089c86c70ee90e8e1cae6d59102103a4c0cc03"
   license "GPL-2.0-or-later"
   revision 3
-  head "https://github.com/s3tools/s3cmd.git"
+  head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f4629ce0910520b758907fb6e34ba11d541682518dcfdbc170f99892b86bfcd3"
     sha256 cellar: :any_skip_relocation, big_sur:       "1b8cacde3f02b35d2b7fbc0996fa66c6423b566a7d1165a630c7b3826518c4cf"
     sha256 cellar: :any_skip_relocation, catalina:      "5f553edd6ee20fe32966ef171dc21ac741c3ed466e9d4df1c6f787f161d0b71d"
     sha256 cellar: :any_skip_relocation, mojave:        "f1ef823594cb909fb04b0902b8d02bd1f372ea2f13d0094207e8139b0f2f439a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1ae3afd06194131ef14b5d4ce0c2f7234dcbb0214454cbf47f0923a6c04f563"
   end
 
   # s3cmd version 2.1.0 is not compatible with Python 3.9, know issues are:

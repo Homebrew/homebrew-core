@@ -16,6 +16,7 @@ class Asymptote < Formula
     sha256 big_sur:       "d6631cfaf7909cfd8a38c7e655411b69248d395531589f7562b66b36ad9ccedf"
     sha256 catalina:      "b906f3cbeda2861975792c6279df7c2e22738c8ae232bfb5e4cf4ec1a37c0725"
     sha256 mojave:        "c7d65e0093978726a703585d8155862b1b7e10ba47f531f907c106b65bead23c"
+    sha256 x86_64_linux:  "f3918cb9c194f0eb86d9b86d5ce4d6fcb721214a70b9e9e7658a547d6490e635"
   end
 
   depends_on "glm" => :build

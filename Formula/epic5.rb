@@ -1,9 +1,9 @@
 class Epic5 < Formula
   desc "Enhanced, programmable IRC client"
   homepage "http://www.epicsol.org/"
-  url "http://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/epic5-2.1.4.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/epic5/epic5-2.1.4.tar.xz"
-  sha256 "ddea079c9362fc446701c9fdeeae9ed8f6523fbc15ee75fbadb1d6ee292e11bf"
+  url "http://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/epic5-2.1.5.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/epic5/epic5-2.1.5.tar.xz"
+  sha256 "7ca53b9d266fa1b7ba7a1f68a23e65c57b1a89b94bce1a0ea56fafa7d6298cb4"
   license "BSD-3-Clause"
   head "http://git.epicsol.org/epic5.git"
 
@@ -13,10 +13,10 @@ class Epic5 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "7e6dfb759ac3bfd707d5b9cc048c115a17489e5e9813fdd249023fe302e3a218"
-    sha256 big_sur:       "b26ced9316978f9414cbd97fb0a120dee2b8c66775761b70433e8bb4093e76cb"
-    sha256 catalina:      "763db60447f783b7266cc2e4c7bf0199b01419d2db5755d5649c3b5d576bfe09"
-    sha256 mojave:        "a45d59473cbaab0e995edc804e615f2ea3708a3f147dc9397d93816c91fc43b9"
+    sha256 arm64_big_sur: "5bb21db35131a0fde56142e748c958d42b425c864739fa1707be11d7e7f39bdb"
+    sha256 big_sur:       "5aba4e571c8827f29799b6d74f7b21eeb722bd1e8a5527c77c1ac482f448ae8f"
+    sha256 catalina:      "101619ba687707c62ad66e26bc6a5c607996ca18146730bea9a6367ac9eaeb75"
+    sha256 mojave:        "33233d7cd4cbadfb333079083a746791797402df481411568b99c874582fd440"
   end
 
   depends_on "openssl@1.1"

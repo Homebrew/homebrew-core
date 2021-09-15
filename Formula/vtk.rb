@@ -1,17 +1,17 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/9.0/VTK-9.0.1.tar.gz"
-  sha256 "1b39a5e191c282861e7af4101eaa8585969a2de05f5646c9199a161213a622c7"
+  url "https://www.vtk.org/files/release/9.0/VTK-9.0.3.tar.gz"
+  sha256 "bc3eb9625b2b8dbfecb6052a2ab091fc91405de4333b0ec68f3323815154ed8a"
   license "BSD-3-Clause"
-  revision 9
-  head "https://github.com/Kitware/VTK.git"
+  head "https://github.com/Kitware/VTK.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "825c6b028057f775e3d8d413beadf0602ca165c67571b4d94fef4a653cb648a3"
-    sha256 big_sur:       "c209c5736a3dfad2543a13c7d96519504bf054126199f5e35cb291a6b451e1fb"
-    sha256 catalina:      "078997976ae896300e412516abc10951b2544d8741d8303ba445617b4a8712c3"
-    sha256 mojave:        "05b67385f9bc735ad59c311c1007815db1a7cb443ad82bf7e94a421f0b40c18d"
+    sha256                               arm64_big_sur: "fde272807de4be00a73385e08f95daa26568d82b2bd8e49c0632d908fbf14788"
+    sha256                               big_sur:       "030677a7748f0fc0d4116424db9225ecf3d805476c08da3d07e65e381ff21589"
+    sha256                               catalina:      "beb7e778df907e3763363ad51579b4e004b1b2b745a395621cbc1f2800340d81"
+    sha256                               mojave:        "d466d33fd7932aedd24fce9c5b791e7e97cf375db629180718171a2df4b97153"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9b8909326147db522b2da5ba80df9fac4d5836e776a9b5efa9ee7e0ade081ab"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -37,19 +37,41 @@ class Vtk < Formula
   depends_on "theora"
   depends_on "utf8cpp"
   depends_on "xz"
+
   uses_from_macos "expat"
   uses_from_macos "libxml2"
+  uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+    depends_on "szip"
+    depends_on "mesa-glu"
+
+    # Apply 2 upstream commits to fix build on GCC 11.
+    # Remove with next release.
+    patch do
+      url "https://github.com/Kitware/VTK/commit/c7d6a8d81367a4ed92163c059aa3181386eabc24.patch?full_index=1"
+      sha256 "fa292347cc0b157844cba128dae1a0fd16b6bc12e707f1b5c94b25fd41171d49"
+    end
+
+    patch do
+      url "https://github.com/Kitware/VTK/commit/e066c3f4fbbfe7470c6207db0fc3f3952db633cb.patch?full_index=1"
+      sha256 "d20fc3287c9c36f4f9b0a43148180ccbf7960f7b141e279eb537b94d97286250"
+    end
+  end
+
+  fails_with gcc: "5"
 
   def install
     # Do not record compiler path because it references the shim directory
-    inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", "clang++"
+    inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_TESTING:BOOL=OFF
-      -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
-      -DCMAKE_INSTALL_RPATH:STRING=#{lib}
+      -DCMAKE_INSTALL_NAME_DIR:STRING=#{opt_lib}
+      -DCMAKE_INSTALL_RPATH:STRING=#{rpath}
       -DVTK_WRAP_PYTHON:BOOL=ON
       -DVTK_PYTHON_VERSION:STRING=3
       -DVTK_LEGACY_REMOVE:BOOL=ON
@@ -80,9 +102,10 @@ class Vtk < Formula
       -DVTK_GROUP_ENABLE_Qt:STRING=YES
     ]
 
-    on_macos do
-      args << "-DVTK_USE_COCOA:BOOL=ON"
-    end
+    # https://github.com/Homebrew/linuxbrew-core/pull/21654#issuecomment-738549701
+    args << "-DOpenGL_GL_PREFERENCE=LEGACY"
+
+    args << "-DVTK_USE_COCOA:BOOL=ON" if OS.mac?
 
     mkdir "build" do
       system "cmake", "..", *args

@@ -47,6 +47,12 @@ class GoAT110 < Formula
   end
 
   def install
+    if OS.linux?
+      # Fixes: Error: Failure while executing: ../bin/ldd ../line-clang.elf: Permission denied
+      chmod "+x", Dir.glob("src/debug/dwarf/testdata/*.elf")
+      chmod "+x", Dir.glob("src/debug/elf/testdata/*-exec")
+    end
+
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 

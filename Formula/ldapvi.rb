@@ -4,7 +4,13 @@ class Ldapvi < Formula
   url "http://www.lichteblau.com/download/ldapvi-1.7.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7.orig.tar.gz"
   sha256 "6f62e92d20ff2ac0d06125024a914b8622e5b8a0a0c2d390bf3e7990cbd2e153"
+  license "GPL-2.0-or-later"
   revision 7
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?ldapvi[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "86cc23b1d8f7bf9b1cf46730d25e0774fa331015e024dfbb5091830c4f73aee0"

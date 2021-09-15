@@ -11,10 +11,11 @@
 CODEOWNERS            @MikeMcQuaid
 CONTRIBUTING.md       @MikeMcQuaid
 tap_migrations.json   @MikeMcQuaid
-.github/              @MikeMcQuaid
+.github/              @MikeMcQuaid @dawidd6
 cmd/                  @MikeMcQuaid
 
 LICENSE.txt           @Homebrew/plc @MikeMcQuaid
 
 audit_exceptions/permitted_formula_license_mismatches.json   @Homebrew/plc
 audit_exceptions/provided_by_macos_depends_on_allowlist.json @Homebrew/tsc
+audit_exceptions/universal_binary_allowlist.json             @carlocab

@@ -2,7 +2,7 @@ class Pit < Formula
   desc "Project manager from hell (integrates with Git)"
   homepage "https://github.com/michaeldv/pit"
   license "BSD-2-Clause"
-  head "https://github.com/michaeldv/pit.git"
+  head "https://github.com/michaeldv/pit.git", branch: "master"
 
   # upstream commit to allow PREFIX-ed installs
   stable do

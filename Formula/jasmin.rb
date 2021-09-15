@@ -6,7 +6,9 @@ class Jasmin < Formula
   license "BSD-4-Clause"
   revision 2
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "04f0b3384cb8024e17b69d12c65ac4940ef121511e09448cc3b54976db27f0eb"
+  end
 
   depends_on "openjdk"
 

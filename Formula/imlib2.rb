@@ -1,15 +1,16 @@
 class Imlib2 < Formula
   desc "Image loading and rendering library"
   homepage "https://sourceforge.net/projects/enlightenment/"
-  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.7.1/imlib2-1.7.1.tar.bz2"
-  sha256 "033a6a639dcbc8e03f65ff05e57068e7346d50ee2f2fff304bb9095a1b2bc407"
+  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.7.3/imlib2-1.7.3.tar.bz2"
+  sha256 "158d0b8c20bc11221af9e77a64a116fca7051b03cdea2c4f31d31f469382f997"
   license "Imlib2"
 
   bottle do
-    sha256 arm64_big_sur: "9455235701eb3e7228e8189f99b79c94c3034372d475c7c0ced4468418adafbb"
-    sha256 big_sur:       "d2af1ccb06b90d94c4a6e0502f722880a2947d126735c0e6e15bb2ec4600955d"
-    sha256 catalina:      "530114570c89b19a5b4383adca9168f85ae033ba75627f794c557bd5bb5179f6"
-    sha256 mojave:        "4e65ec5a0c3474e47a93b3c25048247c1062c62a5a92a2525842226c4ed238bb"
+    sha256 arm64_big_sur: "007b2a5fe1988a71c0b777005279529fc3ff424e93ddb245506f3e33f65f0d0b"
+    sha256 big_sur:       "094ebe201daab125409112a9ae7b94439409e8bba008fc6aeb47095b90a52ad4"
+    sha256 catalina:      "74a5fbf8693ed51834ff3739d231aa0c9e515b232b5493aaa24936f7ee91173d"
+    sha256 mojave:        "a86557a75ee60e00aa9443bb0aa04832f071b068d8064cf23c78e5c2e76169b5"
+    sha256 x86_64_linux:  "39bc543b39068aaf137b2671e8eb8b8609f0e809a36a445ab85cdfdd24782681"
   end
 
   depends_on "pkg-config" => :build

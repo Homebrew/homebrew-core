@@ -6,7 +6,9 @@ class Lorem < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/per9000/lorem.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "79e38b6949ebd14157f0177fae6331e780f1889c76594c86dea7d649ef5c9057"
+  end
 
   def install
     bin.install "lorem"

@@ -1,15 +1,16 @@
 class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
   homepage "https://github.com/vmware-tanzu/sonobuoy"
-  url "https://github.com/vmware-tanzu/sonobuoy/archive/v0.50.0.tar.gz"
-  sha256 "6ade7b7ecf1b0c6338ba6b404f68b76ed23a368d27317b39f3cf1d0f89057b6c"
+  url "https://github.com/vmware-tanzu/sonobuoy/archive/v0.53.2.tar.gz"
+  sha256 "b907c8723ca9549b31996ff95f72a9a6c1e002ac76943a2a16cccf1b4b2f68d1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "41847f6806b9c3eb24bcb9b4437dd07d7d10991bdb40b6946b9d37a79fa73191"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9bfd90b6aca121fdeb269cded36889258f5f3c29458f1a21f9c30ac28042bce9"
-    sha256 cellar: :any_skip_relocation, catalina:      "cce8b27a554fcfd2d75ffe9eb5c942bacfcff179cd88887c51c56f70f9bfe3dc"
-    sha256 cellar: :any_skip_relocation, mojave:        "77bdb5c7fe88f9df70d018aa12434a45ee1ef8cbe1ff91188ba396d4d4794693"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fb2cd2c8008283295ff7ce3629a3212a919356e0b25556b8446b3ab5cb426da9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b24c98f504099cc03ad9d2d90d430958956f25efee7e6c2d4aa6cfd423d9ca25"
+    sha256 cellar: :any_skip_relocation, catalina:      "8a8ee30fa5f0979bee6c648114fdfbe5dba2037c95ce61a6f7f92aeefb0c9f9c"
+    sha256 cellar: :any_skip_relocation, mojave:        "1ba00ef5fd5f066d1dedc654380e7a7766ea3e352ec7a418faf22300493c4d79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4e032c7d0e8fb23c309b5d4399553e98369c28c4637cd8115b3a2ea3210db22"
   end
 
   depends_on "go" => :build
@@ -20,15 +21,12 @@ class Sonobuoy < Formula
   end
 
   def install
-    system "go", "build", "-ldflags",
-                   "-s -w -X github.com/vmware-tanzu/sonobuoy/pkg/buildinfo.Version=v#{version}",
-                   *std_go_args
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/vmware-tanzu/sonobuoy/pkg/buildinfo.Version=v#{version}")
   end
 
   test do
     resources.each { |r| r.verify_download_integrity(r.fetch) }
-    assert_match "Sonobuoy is an introspective kubernetes component that generates reports on cluster conformance",
+    assert_match "Sonobuoy is a Kubernetes component that generates reports on cluster conformance",
       shell_output("#{bin}/sonobuoy 2>&1")
     assert_match version.to_s,
       shell_output("#{bin}/sonobuoy version 2>&1")

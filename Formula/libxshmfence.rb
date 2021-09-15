@@ -6,11 +6,12 @@ class Libxshmfence < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2651a6db4ef81559e17f4bb1e4ab5bbe246f54ec3cdce1f69ff9032f36789c36"
-    sha256 cellar: :any, big_sur:       "89043d871005cac00e19ea895e9a30046296d0bd14edc0cd879328e53b3750a0"
-    sha256 cellar: :any, catalina:      "b6edc10c83f07c28fdece7c98b9be2e7c85518b0357311874c5bd5cca1217922"
-    sha256 cellar: :any, mojave:        "9ba60796d9101ebe5fe01d5fcbbc7f685fa8619fc0ba51004b0fd68488af47c4"
-    sha256 cellar: :any, high_sierra:   "ed7509cbecb38ec5fb75ae80de12248c8d25b931cbaff12f94f3566d05b77238"
+    sha256 cellar: :any,                 arm64_big_sur: "2651a6db4ef81559e17f4bb1e4ab5bbe246f54ec3cdce1f69ff9032f36789c36"
+    sha256 cellar: :any,                 big_sur:       "89043d871005cac00e19ea895e9a30046296d0bd14edc0cd879328e53b3750a0"
+    sha256 cellar: :any,                 catalina:      "b6edc10c83f07c28fdece7c98b9be2e7c85518b0357311874c5bd5cca1217922"
+    sha256 cellar: :any,                 mojave:        "9ba60796d9101ebe5fe01d5fcbbc7f685fa8619fc0ba51004b0fd68488af47c4"
+    sha256 cellar: :any,                 high_sierra:   "ed7509cbecb38ec5fb75ae80de12248c8d25b931cbaff12f94f3566d05b77238"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e618baba61a3475e24f830b7cce59030f7298e9d255046465fee485efc25f42"
   end
 
   depends_on "pkg-config" => :build

@@ -1,18 +1,17 @@
 class Xdotool < Formula
   desc "Fake keyboard/mouse input and window management for X"
   homepage "https://www.semicomplete.com/projects/xdotool/"
-  url "https://github.com/jordansissel/xdotool/archive/v3.20160805.1.tar.gz"
-  sha256 "ddafca1239075c203769c17a5a184587731e56fbe0438c09d08f8af1704e117a"
+  url "https://github.com/jordansissel/xdotool/releases/download/v3.20210903.1/xdotool-3.20210903.1.tar.gz"
+  sha256 "9110198702d7549c4eccdab95f276d35a9fa9f540015d2739b62c55618d3b7b6"
   license "BSD-3-Clause"
-  revision 2
-  head "https://github.com/jordansissel/xdotool.git"
+  head "https://github.com/jordansissel/xdotool.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "a1b51b06df321f1fb0b43d81536bd0833579a0282aa6db5aab0d966c7ddcfd17"
-    sha256 big_sur:       "341d016062ad7e0ffe416e8d70636a912ea62e8cfeae6bfd420935ed740c70a2"
-    sha256 catalina:      "2a11b0772f3ae332186d8d257c9687e759772d4e3fbe8a42e6fa07e9a5f11329"
-    sha256 mojave:        "fd132f4ad55f7e709179a027878df3ee13d497d82ada355f323e2dd0b8f12409"
+    sha256 cellar: :any,                 arm64_big_sur: "b5ce445e70ccf9a65310630aede622b216f8cb272b660e9420205b862e01fab7"
+    sha256 cellar: :any,                 big_sur:       "f5210972a8352765068add40fd4c3fe77cf4a687cd3c81ddb719e24c739ffae2"
+    sha256 cellar: :any,                 catalina:      "fe7c50b395ca8d9b196deb24046e2d433812478f247d44738396c2c2f3745f1a"
+    sha256 cellar: :any,                 mojave:        "8d675d9a6391e70da34bcbea738af0a77b6a53a693fe8ed716f9ce6a4633aaff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cec125dd2493d3956a23e574283fab5bc60195ef3defd54088fc002a795f1e45"
   end
 
   depends_on "pkg-config" => :build
@@ -21,7 +20,7 @@ class Xdotool < Formula
   depends_on "libxkbcommon"
   depends_on "libxtst"
 
-  # Disable clock_gettime() workaround since the real API is available on OS/X >= 10.12
+  # Disable clock_gettime() workaround since the real API is available on macOS >= 10.12
   # Note that the PR from this patch was actually closed originally because of problems
   # caused on pre-10.12 environments, but that is no longer a concern.
   patch do

@@ -16,6 +16,7 @@ class Libnice < Formula
     sha256 cellar: :any, big_sur:       "af306d90fda80e3afe83851672ec34a679e55595431383b5ba246051fc827895"
     sha256 cellar: :any, catalina:      "eafa60c41c7d017627859714e5a1028151376432e1c5802b95f65f81a191016d"
     sha256 cellar: :any, mojave:        "657ffb5240531a8dc9e918c2aec1c74fca62af994524e002d674ce9fbe52e4c1"
+    sha256               x86_64_linux:  "5a9f6bdf5b31637f23cfa5bc3762a9931e46f35bef1da914f99d0c0555003b33"
   end
 
   depends_on "meson" => :build
@@ -76,7 +77,7 @@ class Libnice < Formula
     on_macos do
       flags << "-lintl"
     end
-    system ENV.cc, *flags, "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
 end

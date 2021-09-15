@@ -1,8 +1,8 @@
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
-  homepage "https://ethereum.github.io/go-ethereum/"
-  url "https://github.com/ethereum/go-ethereum/archive/v1.10.3.tar.gz"
-  sha256 "693d202e3ee4a989c753ffd5032572621e3ee243eb344e6d0bfad5e2fe4ffa0d"
+  homepage "https://geth.ethereum.org/"
+  url "https://github.com/ethereum/go-ethereum/archive/v1.10.8.tar.gz"
+  sha256 "d3bafdb34958463a2169eb93d8d106ae0ed3a29f2e1d42d8d3227806c9dc9bee"
   license "LGPL-3.0-or-later"
   head "https://github.com/ethereum/go-ethereum.git"
 
@@ -12,19 +12,19 @@ class Ethereum < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6cc701ead59d6c9c64bd7f144ce2578223f7c9861fadd7fa69cc3c0a19423f9f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cc41b9923218f988fcb50375840d55d097d224b1b895049c5eb38f065e5bef3a"
-    sha256 cellar: :any_skip_relocation, catalina:      "d04acc886604c978009c4c1ea6cee12eba388392863ef5050cbd63e449b113ba"
-    sha256 cellar: :any_skip_relocation, mojave:        "49b93b0076d62eb4ce3a7a4dffbc496a78a5700a58fba460e07c52ec0f95a466"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "09edd31847cbcc3bd080134a289e69fffd931c9d1caf5fb0f03561c0787e7da5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e4cc07a6b9f3ea0312d6a18c14a31aca03e9d71ef804b2699e0649900ca8b3b1"
+    sha256 cellar: :any_skip_relocation, catalina:      "3b81f6ac21a65419a51feb474c2e816df2158d9699fde426f8767d4e9128342e"
+    sha256 cellar: :any_skip_relocation, mojave:        "ac19938b0a69af4311b3ed66909d84a43cd000c2b602bc69a0a795de28f9f7e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f02de0f38664ee2ea38d46bc97c852bad878215454dd9c0e8106deed73d9214d"
   end
 
   depends_on "go" => :build
 
   def install
-    on_linux do
-      # See https://github.com/golang/go/issues/26487
-      ENV.O0
-    end
+    # See https://github.com/golang/go/issues/26487
+    ENV.O0 if OS.linux?
+
     system "make", "all"
     bin.install Dir["build/bin/*"]
   end

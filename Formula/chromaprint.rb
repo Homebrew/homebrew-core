@@ -7,17 +7,27 @@ class Chromaprint < Formula
   revision 6
 
   bottle do
-    sha256 cellar: :any, big_sur:  "9112d72906e765de84dee2414ec9b21761c7ed4fc357c54e715ed70041add089"
-    sha256 cellar: :any, catalina: "955a4681c1937d04e0e7608bc2514c4829b906c43bccf382b8451ad8624a2a77"
-    sha256 cellar: :any, mojave:   "1e6727215e5c9e04823b2edb8625ebeec16be87a4b32d7636b35448d2e2ee4d6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "7bab5925c514da172d5e0be59a8460155adb6e2fc37fe5bb6e5e1f767c2fbd83"
+    sha256 cellar: :any,                 big_sur:       "ec8dfe9d09099386fdea8b6728b2053fef7e9d29b76a488157fb347e93889751"
+    sha256 cellar: :any,                 catalina:      "f29e1e551b155aa74c43a6a7d200ccb13841727efba1f304eea914fa1c68b89d"
+    sha256 cellar: :any,                 mojave:        "8ed4d7976e0262efe480a6da3456bfb9344aac15119bce2fa594bcc0a828f5e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8ae4ca34ec11a20168dc3ff040144adce01a12f10898e57f7ef8df4b64889fa"
   end
 
   depends_on "cmake" => :build
   depends_on "ffmpeg"
 
   def install
-    system "cmake", "-DCMAKE_BUILD_TYPE=Release", "-DBUILD_TOOLS=ON", ".", *std_cmake_args
-    system "make", "install"
+    args = %W[
+      -DBUILD_TOOLS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+
+    mkdir "build" do
+      system "cmake", "..", *args, *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do

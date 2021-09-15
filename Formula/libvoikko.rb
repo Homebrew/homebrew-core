@@ -11,10 +11,11 @@ class Libvoikko < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b0a624c9b02009d2eac3b6adbf6db56c05d6cde859ea5cef7b6a06973afd8619"
-    sha256 cellar: :any, big_sur:       "02041f6b02bbdf49d1399b6c8b0f99e00a003a9f03bf13b57fe449759f98e27e"
-    sha256 cellar: :any, catalina:      "ffc0a9565f9806e59b80b69523230d550a9c3cdfacf6d892a13a7c3b11ac428e"
-    sha256 cellar: :any, mojave:        "79b5cb80a3e95beb1d57485d549724334d687dfdbc60520d3b437f5646ae756d"
+    sha256 cellar: :any,                 arm64_big_sur: "b0a624c9b02009d2eac3b6adbf6db56c05d6cde859ea5cef7b6a06973afd8619"
+    sha256 cellar: :any,                 big_sur:       "02041f6b02bbdf49d1399b6c8b0f99e00a003a9f03bf13b57fe449759f98e27e"
+    sha256 cellar: :any,                 catalina:      "ffc0a9565f9806e59b80b69523230d550a9c3cdfacf6d892a13a7c3b11ac428e"
+    sha256 cellar: :any,                 mojave:        "79b5cb80a3e95beb1d57485d549724334d687dfdbc60520d3b437f5646ae756d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee79fddd0811eb6bd7622a0a9f7ab8319e5306c91bcd3b54eee92e92734f2a98"
   end
 
   depends_on "foma" => :build

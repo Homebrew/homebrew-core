@@ -6,10 +6,11 @@ class Libgee < Formula
   license "LGPL-2.1"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1cf5cbaa60b52012e61477e1dbcb69b77e9cc16846dc456c855bcbc1d2252563"
-    sha256 cellar: :any, big_sur:       "0e8f110c3e14f4c45142ad2b215a803b70353e13429a73650e0641cfcda986d5"
-    sha256 cellar: :any, catalina:      "ce00019f9ca5b8dc93081d84d99b4587a66a3d87b726080ead7323bbec65f417"
-    sha256 cellar: :any, mojave:        "2d77bae2c373c426ae17050025de1ff6183e84673ebfa144c433a45cdbff8781"
+    sha256 cellar: :any,                 arm64_big_sur: "1cf5cbaa60b52012e61477e1dbcb69b77e9cc16846dc456c855bcbc1d2252563"
+    sha256 cellar: :any,                 big_sur:       "0e8f110c3e14f4c45142ad2b215a803b70353e13429a73650e0641cfcda986d5"
+    sha256 cellar: :any,                 catalina:      "ce00019f9ca5b8dc93081d84d99b4587a66a3d87b726080ead7323bbec65f417"
+    sha256 cellar: :any,                 mojave:        "2d77bae2c373c426ae17050025de1ff6183e84673ebfa144c433a45cdbff8781"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e064df49b26118cd962fb582add7ead458cec62f5bcdeefcd2f6a0a6c661e46"
   end
 
   depends_on "gobject-introspection" => :build

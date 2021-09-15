@@ -3,8 +3,8 @@ class Simgrid < Formula
 
   desc "Studies behavior of large-scale distributed systems"
   homepage "https://simgrid.org/"
-  url "https://framagit.org/simgrid/simgrid/uploads/b95690ca814bc12e905115e51e45112d/simgrid-3.27.tar.gz"
-  sha256 "51aeb9de0434066e5fec40e785f5ea9fa934afe7f6bfb4aa627246e765f1d6d7"
+  url "https://framagit.org/simgrid/simgrid/uploads/5d171dff8b988c639fe52baa24952a2c/simgrid-3.28.tar.gz"
+  sha256 "558276e7f8135ce520d98e1bafa029c6c0f5c2d0e221a3a5e42c378fe0c5ef2c"
 
   livecheck do
     url :homepage
@@ -12,10 +12,11 @@ class Simgrid < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "dbab289fbc454217f97b144d32d441b78fd349da13defaaf504d7f54c663f510"
-    sha256 big_sur:       "49e55f07772e9f9658a37ea9b6a81165b0b21848c9fde408a7ffaec0c1d99a1c"
-    sha256 catalina:      "42ffd1847e81c70671ca4d27e9068366231b3205b329a02d5f1e0a517bcf945d"
-    sha256 mojave:        "d94db131d78f63ff9494f528ca5ae2dff0ad0c9fbc080378080e826dfe368da5"
+    sha256 arm64_big_sur: "71d9b098d5fd0039bbc7005555d0f1abbc1af8d816a8946629f55046a1b47615"
+    sha256 big_sur:       "def3ab73795d0c11ce112ad3fb3abcd325815bda779637961c6a8b4c43e1ef06"
+    sha256 catalina:      "ee5bc62941284de0277bc1ea39467ea06c4cb611d8144a689c2060a1b2c3588e"
+    sha256 mojave:        "b7c787533f73e4a8fcfa07f50171879e949ffc1d615c680ccb98bd985e14de60"
+    sha256 x86_64_linux:  "4a050cf056536a6d8574c22d5c8aebf4a6b19b0874019596a171d58523a73eea"
   end
 
   depends_on "cmake" => :build
@@ -30,30 +31,11 @@ class Simgrid < Formula
     inreplace "src/smpi/smpicc.in", "@CMAKE_C_COMPILER@", "/usr/bin/clang"
     inreplace "src/smpi/smpicxx.in", "@CMAKE_CXX_COMPILER@", "/usr/bin/clang++"
 
-    # FindPythonInterp is broken in CMake 3.19+
-    # REMOVE ME AT VERSION BUMP (after 3.25)
-    # https://framagit.org/simgrid/simgrid/-/issues/59
-    # https://framagit.org/simgrid/simgrid/-/commit/3a987e0a881dc1a0bb5a6203814f7960a5f4b07e
-    inreplace "CMakeLists.txt", "include(FindPythonInterp)", ""
-    python = Formula["python@3.9"]
-    python_version = python.version
-    # We removed CMake's ability to find Python, so we have to point to it ourselves
-    args = %W[
-      -DPYTHONINTERP_FOUND=TRUE
-      -DPYTHON_EXECUTABLE=#{python.opt_bin}/python3
-      -DPYTHON_VERSION_STRING=#{python_version}
-      -DPYTHON_VERSION_MAJOR=#{python_version.major}
-      -DPYTHON_VERSION_MINOR=#{python_version.minor}
-      -DPYTHON_VERSION_PATCH=#{python_version.patch}
-    ]
-    # End of local workaround, remove the above at version bump
-
     system "cmake", ".",
                     "-Denable_debug=on",
                     "-Denable_compile_optimizations=off",
                     "-Denable_fortran=off",
-                    *std_cmake_args,
-                    *args # Part of workaround, remove at version bump
+                    *std_cmake_args
     system "make", "install"
 
     bin.find { |f| rewrite_shebang detected_python_shebang, f }

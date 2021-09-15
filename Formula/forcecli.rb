@@ -11,6 +11,7 @@ class Forcecli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d98583d24a4880dbf053009a10a6e488a7807d42b08530ffcbd74ebb49d3bc9a"
     sha256 cellar: :any_skip_relocation, catalina:      "b0c6175853456c60daee2cc32a5154ecbc0ae096d6be5da36387eef1e19a3db7"
     sha256 cellar: :any_skip_relocation, mojave:        "aacdcf8502f1a1d00f02dc4dabbf6b2099bfe1bea944987326b36279e906fddf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc1a2e1a280035116f6b7a31c67c902feb213b6bd84f8332c5f2bfc79ffe4611"
   end
 
   depends_on "go" => :build

@@ -13,6 +13,7 @@ class Kedge < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "ff1bf61801e5c5e17ba83abe714c4d30914a458291cdc0fc4654ee952a919c4c"
     sha256 cellar: :any_skip_relocation, sierra:        "39f193757913fc743191091a86b5d162b4cb4af618975db1ecd649dce7a08941"
     sha256 cellar: :any_skip_relocation, el_capitan:    "1ff9804be018e8bf5bd0668ce1e1a647ab04005b4ea34fb22f49c50c215b4e13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a20c3f832449db3fe778e682f6af6a6a19525c1b5d49a196f1e1728467f4b049"
   end
 
   # https://github.com/kedgeproject/kedge/issues/619

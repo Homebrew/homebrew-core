@@ -6,11 +6,12 @@ class Libxaw3d < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7119d857a0d3c8b77967422b134fa028a6adcc136dc76a29e78997405ecc0b1c"
-    sha256 cellar: :any, big_sur:       "4a5d334d3ed17d4fe8654edc1cc8e0168a282792e5a9e9c5e82b4d1ff1c260ba"
-    sha256 cellar: :any, catalina:      "e089705cc442b4076b7d3b9bc86a1379eb193b73cb57387d04809411876eb755"
-    sha256 cellar: :any, mojave:        "b5510c021114d1579116242eb88f4fbd6a9fd3d3a61292a17d6158c02ac71194"
-    sha256 cellar: :any, high_sierra:   "ccf2fd19db504f82ab9f280525a879bd0669934a51cdc69003238d0626735b52"
+    sha256 cellar: :any,                 arm64_big_sur: "7119d857a0d3c8b77967422b134fa028a6adcc136dc76a29e78997405ecc0b1c"
+    sha256 cellar: :any,                 big_sur:       "4a5d334d3ed17d4fe8654edc1cc8e0168a282792e5a9e9c5e82b4d1ff1c260ba"
+    sha256 cellar: :any,                 catalina:      "e089705cc442b4076b7d3b9bc86a1379eb193b73cb57387d04809411876eb755"
+    sha256 cellar: :any,                 mojave:        "b5510c021114d1579116242eb88f4fbd6a9fd3d3a61292a17d6158c02ac71194"
+    sha256 cellar: :any,                 high_sierra:   "ccf2fd19db504f82ab9f280525a879bd0669934a51cdc69003238d0626735b52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6596ac50fcdcdcafdb4e3cc616826bd3b48ebb05b4bccd84c1ca10db64df6160"
   end
 
   depends_on "pkg-config" => :build

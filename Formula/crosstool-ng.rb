@@ -5,7 +5,7 @@ class CrosstoolNg < Formula
   sha256 "804ced838ea7fe3fac1e82f0061269de940c82b05d0de672e7d424af98f22d2d"
   license "GPL-2.0-only"
   revision 2
-  head "https://github.com/crosstool-ng/crosstool-ng.git"
+  head "https://github.com/crosstool-ng/crosstool-ng.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6b511659323ff03bd405c20e8591cacb55dbb081fe8f2416666228d9ed4cf1a8"

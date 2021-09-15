@@ -1,8 +1,8 @@
 class CvsFastExport < Formula
   desc "Export an RCS or CVS history as a fast-import stream"
   homepage "http://www.catb.org/~esr/cvs-fast-export/"
-  url "http://www.catb.org/~esr/cvs-fast-export/cvs-fast-export-1.57.tar.gz"
-  sha256 "284a09f29fe1e385930941a1369a5846609d8caec2d69b95b629a8c7a2fe2e78"
+  url "http://www.catb.org/~esr/cvs-fast-export/cvs-fast-export-1.58.tar.gz"
+  sha256 "8d8fc65116ba5b350bc299e8a819b355074ae161fde6d7f9f6fd3bcbc8077963"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,11 @@ class CvsFastExport < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f70453ca80136a9a69052148d93fa038907a10021ae8803502958bbb72a8e96"
-    sha256 cellar: :any_skip_relocation, big_sur:       "71d68dd5f5f78951b3a8073145b95d11252553c0017c37790641b013cc987137"
-    sha256 cellar: :any_skip_relocation, catalina:      "c0e9f0fae2e3d2059389bb41964939618b8a1447a682396700f18125c3e6bf78"
-    sha256 cellar: :any_skip_relocation, mojave:        "b5da0899a17bde18f92dc8be26016fcc14a19da1c7f41fd09a8b70cf1a82dc2e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "66ac0fb37d3e4a33d2a1cf562d2297a36373a8017e0850f9cf1c3c4218c3f414"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2e22e212cd8aac46d6e4aad35afe9bc45fa79ac81f67b12bad4442f2adb0e691"
+    sha256 cellar: :any_skip_relocation, catalina:      "ffefb6abe0cc10db5a854cb25b51bec3b0506327695d69572d8e5c303272c182"
+    sha256 cellar: :any_skip_relocation, mojave:        "81d7a4592179d55d6e0a223c5678573e3fbdf53eb656f9be5537597c94d1c304"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "265a49c7aff2adf6cdaa534786bfd68281a9bdf9d924721aa70244b13868154b"
   end
 
   head do

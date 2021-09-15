@@ -1,16 +1,13 @@
 class Inja < Formula
   desc "Template engine for modern C++"
   homepage "https://pantor.github.io/inja/"
-  url "https://github.com/pantor/inja/archive/v3.2.0.tar.gz"
-  sha256 "825e1f0076504b5aac99cc9ad8c4cbfdc33e57c06c40353f2d7b93a33caae17d"
+  url "https://github.com/pantor/inja/archive/v3.3.0.tar.gz"
+  sha256 "e628d994762dcdaa9a97f63a9b8b73d9af51af0ffa5acea6bdbba0aceaf8ee25"
   license "MIT"
   head "https://github.com/pantor/inja.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3f5ebe5bbf698c4830d4c4aa2508053c085c2f531aa4255f3d1aa1040d5b01e3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fe3c6b65fe9f72935ac560e8c670b1dbe751fec0a02e9108a9898d6315ecd991"
-    sha256 cellar: :any_skip_relocation, catalina:      "99ce29b9041c1723c165118582179d0541f788549d68fa269ec71ab09fdebdb8"
-    sha256 cellar: :any_skip_relocation, mojave:        "0a912572fad4b9ac680aa0df36b4a0a24dd051af1534695f93922975f7e9fbc8"
+    sha256 cellar: :any_skip_relocation, all: "173097b1702c4d03d7f6010dba26a9163cde204d021762cc8108cb171a6e27b2"
   end
 
   depends_on "cmake" => :build

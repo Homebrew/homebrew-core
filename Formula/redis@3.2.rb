@@ -6,10 +6,11 @@ class RedisAT32 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "d016b698688c41f3a1157f61aaa44e4686cab2806ba8bb6b09a2d1f46eed255c"
-    sha256 cellar: :any_skip_relocation, catalina:    "e557bee10881f773cfb59d593a874f628b4f7d7239acea2d9cfc1ab394619fba"
-    sha256 cellar: :any_skip_relocation, mojave:      "b61b4867149efc9201c51c984a55edcd0809e8a045b372c4bbf00c3b119afea4"
-    sha256 cellar: :any_skip_relocation, high_sierra: "78a359ac74a02868ba481ae740d1d5046a89fc2e07020ddee6c73e491a162247"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:      "ebf02c105c998bee699b3cdd3a22f123d45b731303f579cc5c4eebb8d31cd4f1"
+    sha256 cellar: :any_skip_relocation, catalina:     "ab55e1c85d04427647265baa073ca34e994ce5e6199efc2d4ba9e9c9cb6699f5"
+    sha256 cellar: :any_skip_relocation, mojave:       "6437dda1d4ea2fa65609fa585a44cdf1a26e218ef35b3c47c80b6e2850b36d3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "139eac3e368bd84fd77338816503733351918b8ac044e60fba7dcda26eb3cbdc"
   end
 
   keg_only :versioned_formula
@@ -32,38 +33,12 @@ class RedisAT32 < Formula
     etc.install "sentinel.conf" => "redis-sentinel.conf"
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/redis@3.2/bin/redis-server #{HOMEBREW_PREFIX}/etc/redis.conf"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/redis-server</string>
-            <string>#{etc}/redis.conf</string>
-            <string>--daemonize no</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/redis.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/redis.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"redis-server", etc/"redis.conf", "--daemonize no"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/redis.log"
+    error_log_path var/"log/redis.log"
   end
 
   test do

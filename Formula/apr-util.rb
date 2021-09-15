@@ -14,6 +14,7 @@ class AprUtil < Formula
     sha256 mojave:        "b3b8376d8f481164a34b891b926ab22acdc2903e77c4cfbc04c0ba6363ca7597"
     sha256 high_sierra:   "20688bea4981567848393aeeb1964f2200847f63ee52eb8c68d8fff0e4dd8b45"
     sha256 sierra:        "16e812e4be2247d8e8f4f8a68ba6765ceb5a98e22a08dda288eb99dff2e41ae0"
+    sha256 x86_64_linux:  "aa37797eb7ff78caa64082bc7a1aceeb74f8b05a73ce17a4fdbe78770bde4fea"
   end
 
   keg_only :shadowed_by_macos, "Apple's CLT provides apr (but not apr-util)"

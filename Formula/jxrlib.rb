@@ -7,10 +7,11 @@ class Jxrlib < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5fed25d3e908ae5f825c8ef875363e5f191c8ba5e932ee4675747874c33f570a"
-    sha256 cellar: :any, big_sur:       "a2bd992f147e427f8021e0f12a1f228887a890b23cbab7cd734c3d016fb90dae"
-    sha256 cellar: :any, catalina:      "33134735fa04107eabadae73a3dffc8cabb8bcadf60dabe68321461366877c01"
-    sha256 cellar: :any, mojave:        "44b1eef414a2ed12f6a647dcdb0b4d01e55445188ea7e835eaa3968f4d7ea0cf"
+    sha256 cellar: :any,                 arm64_big_sur: "5fed25d3e908ae5f825c8ef875363e5f191c8ba5e932ee4675747874c33f570a"
+    sha256 cellar: :any,                 big_sur:       "a2bd992f147e427f8021e0f12a1f228887a890b23cbab7cd734c3d016fb90dae"
+    sha256 cellar: :any,                 catalina:      "33134735fa04107eabadae73a3dffc8cabb8bcadf60dabe68321461366877c01"
+    sha256 cellar: :any,                 mojave:        "44b1eef414a2ed12f6a647dcdb0b4d01e55445188ea7e835eaa3968f4d7ea0cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d156675a4fda8dca2c69c02a6e6b755954221d50cbff3b8bfc110238e26d7bef"
   end
 
   depends_on "cmake" => :build

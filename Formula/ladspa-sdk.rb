@@ -1,8 +1,8 @@
 class LadspaSdk < Formula
   desc "Linux Audio Developer's Simple Plugin"
   homepage "https://ladspa.org"
-  url "https://www.ladspa.org/download/ladspa_sdk_1.15.tgz"
-  sha256 "4229959b09d20c88c8c86f4aa76427843011705df22d9c28b38359fd1829fded"
+  url "https://www.ladspa.org/download/ladspa_sdk_1.17.tgz"
+  sha256 "d9d596171d93f9c226fcdb7e27c6f917422ac487efe2c05e0a18094df4268061"
   license "LGPL-2.1-only"
 
   livecheck do
@@ -10,6 +10,11 @@ class LadspaSdk < Formula
     regex(/href=.*?ladspa[._-]sdk[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 x86_64_linux: "72ba7e13eb469fb95d31f484047e2cef71faf60a965b91f8e2bdd6239db6c358"
+  end
+
+  depends_on "libsndfile"
   depends_on :linux
 
   def install

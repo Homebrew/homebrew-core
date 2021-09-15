@@ -10,6 +10,7 @@ class Charm < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6c5e1f0af81ab86774fe87eb7c793c390386cc45b255348dc6467ad030f740d8"
     sha256 cellar: :any_skip_relocation, catalina:      "2cfca124d8f2bdc973797c2a290b36f87e4d8d4d39e7ebb4358b552e12ac89eb"
     sha256 cellar: :any_skip_relocation, mojave:        "a50370e9787fc797efc1b7c0dcc45fff5fd2ee02fea66e2d7db5d132c2153665"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "623e2d62e1dc1210de466ff4e4ea1d8e0c8ea059dbdc491ff5b8f3ec1cc9603e"
   end
 
   depends_on "go" => :build

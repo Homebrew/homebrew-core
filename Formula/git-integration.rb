@@ -14,6 +14,7 @@ class GitIntegration < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "96f0e7501667f2951628535f307efe672aa51daeb8af2509e0f04d06eb22b0e6"
     sha256 cellar: :any_skip_relocation, high_sierra:   "30757baa47338aaa0e43240237d1dfefc1b59e397b55f36d5b7176ca978d7698"
     sha256 cellar: :any_skip_relocation, sierra:        "30757baa47338aaa0e43240237d1dfefc1b59e397b55f36d5b7176ca978d7698"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07b5ebb8403f9d421dccb3a4ab447d8f4b4f233282d9a5446434007104ec20e1"
   end
 
   def install

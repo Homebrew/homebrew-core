@@ -5,13 +5,14 @@ class Libtool < Formula
   mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
   sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "904c534919bf6dc14fb561dc56012b44af838f8c21fa4e948ff7a7a773b11f20"
-    sha256 cellar: :any, big_sur:       "a70ed5b9d74ec3b06bfc202ab36491c3ecd3da4ff2b602478675ba0c533aa466"
-    sha256 cellar: :any, catalina:      "9e4b12c13734a5f1b72dfd48aa71faa8fd81bbf2d16af90d1922556206caecc3"
-    sha256 cellar: :any, mojave:        "0aa094832dfcc51aadc22056ebf72af91144cb69369043fc6ccc6a052df577aa"
+    sha256 cellar: :any,                 arm64_big_sur: "a41a4872cdfaa34bb4723e728b73dd8c7a05725501a262bb41ad9af4e2fcd1d6"
+    sha256 cellar: :any,                 big_sur:       "dfb94265706b7204b346e3e5d48e149d7c7870063740f0c4ab2d6ec971260517"
+    sha256 cellar: :any,                 catalina:      "ad541ac37b9a8042f998fb3640fe60f70d38483fa6a0784953d880190e9cc762"
+    sha256 cellar: :any,                 mojave:        "35c8d3e024a2507d7d3244bcebdb0ccc61c25ae292e6df6025f78c7342a9799d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e91d7c9a8eac6eccecea681d94cec3acfd1a13056e36f4cd2a623ddaeacd49a"
   end
 
   depends_on "m4"
@@ -36,14 +37,20 @@ class Libtool < Formula
       --enable-ltdl-install
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
 
     system "./configure", *args
     system "make", "install"
 
-    on_linux do
+    if OS.mac?
+      %w[libtool libtoolize].each do |prog|
+        (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
+        (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
+      end
+      libexec.install_symlink "gnuman" => "man"
+    end
+
+    if OS.linux?
       bin.install_symlink "libtool" => "glibtool"
       bin.install_symlink "libtoolize" => "glibtoolize"
 
@@ -55,8 +62,10 @@ class Libtool < Formula
   def caveats
     on_macos do
       <<~EOS
-        In order to prevent conflicts with Apple's own libtool we have prepended a "g"
-        so, you have instead: glibtool and glibtoolize.
+        All commands have been installed with the prefix "g".
+        If you need to use these commands with their normal names, you
+        can add a "gnubin" directory to your PATH from your bashrc like:
+          PATH="#{opt_libexec}/gnubin:$PATH"
       EOS
     end
   end

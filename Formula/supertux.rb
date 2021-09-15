@@ -5,7 +5,7 @@ class Supertux < Formula
   sha256 "26a9e56ea2d284148849f3239177d777dda5b675a10ab2d76ee65854c91ff598"
   license "GPL-3.0-or-later"
   revision 2
-  head "https://github.com/SuperTux/supertux.git"
+  head "https://github.com/SuperTux/supertux.git", branch: "master"
 
   livecheck do
     url :stable

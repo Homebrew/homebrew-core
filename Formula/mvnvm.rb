@@ -6,7 +6,9 @@ class Mvnvm < Formula
   license "Apache-2.0"
   head "https://bitbucket.org/mjensen/mvnvm.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "9763a1f7e591758b1394ed6dc6cd9bbef82ee04b472f05a3cf37410aa5570f3d"
+  end
 
   depends_on "openjdk"
 

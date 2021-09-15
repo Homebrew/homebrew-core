@@ -14,6 +14,7 @@ class Apparix < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "889da718a73f128fa8baaca4a66ae80316ef6cb00ccc03937ea191c8eb781930"
     sha256 cellar: :any_skip_relocation, el_capitan:    "89d7d52f9f2e76f1dd6b91075f407fa71000be0b09bd4548c11a6fd820b87ab3"
     sha256 cellar: :any_skip_relocation, yosemite:      "9ff5a4568499ba2ca67b7c1bae689ab25576409da76798642b3c4caee489c878"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0597c7147ee8a66fe491ccb3e8c386e1580953cc1eedbc9ddbb0349037f312d7"
   end
 
   def install

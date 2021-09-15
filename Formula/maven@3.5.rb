@@ -7,7 +7,13 @@ class MavenAT35 < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any,                 arm64_big_sur: "395084c1ae2cf3ccfa343ed12c100155bb289658c0f82daa6dd1fd3b215c458d"
+    sha256 cellar: :any,                 big_sur:       "395c556575fb1c0d7b89559350c449ded3809b4f711efed178a559cd4d4cc535"
+    sha256 cellar: :any,                 catalina:      "395c556575fb1c0d7b89559350c449ded3809b4f711efed178a559cd4d4cc535"
+    sha256 cellar: :any,                 mojave:        "395c556575fb1c0d7b89559350c449ded3809b4f711efed178a559cd4d4cc535"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f291bcfaa6ed6d4a3c2a0c16dbe8342a55d528cd0c4c66c468f93b6ec7b3883"
+  end
 
   keg_only :versioned_formula
 

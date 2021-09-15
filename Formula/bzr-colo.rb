@@ -4,7 +4,9 @@ class BzrColo < Formula
   url "https://launchpad.net/bzr-colo/trunk/0.4.0/+download/bzr-colo-0.4.0.tar.gz"
   sha256 "f61c1abaf80f1e4a573fefd492b70938d27c4b8ca5611cdb0e0a4dc0ed71bbb3"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "3174aca6218d012389e14dba29a075e90201bb6436a42350164626b223f5818d"
+  end
 
   depends_on "bazaar"
 

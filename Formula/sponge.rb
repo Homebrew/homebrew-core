@@ -15,6 +15,7 @@ class Sponge < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5dbc5081ef6e8c4989be271a51888d61ddd264f5729c6e42a4b6e2ef1c921aa3"
     sha256 cellar: :any_skip_relocation, catalina:      "0d95bfe87988a49776eda4357bc5167478dcec5778df40948a1aa8509adb86fb"
     sha256 cellar: :any_skip_relocation, mojave:        "a7237e32f0c4afd058582c84b391a8acb44e880272cfbfbc122c5d45e690f961"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fce3d65ee17083d87c7bde42e7ca218087ce57d10bce2daa85ff0f8498964592"
   end
 
   conflicts_with "moreutils", because: "both install a `sponge` executable"

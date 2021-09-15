@@ -12,10 +12,11 @@ class Libassuan < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3120a9c83de1631e86002b899ce823abccfd8bcaf90a6f54cbc7cd9ae1fd1fa4"
-    sha256 cellar: :any, big_sur:       "3d14f187ed48aa40987fa5fdf3ed9cbc52ddf8d079c7e97553efe510e4a084a0"
-    sha256 cellar: :any, catalina:      "75a37cd9a2f103b1f552349ba537cec0bd2ecbb222583b35e237aa6ad90b84c5"
-    sha256 cellar: :any, mojave:        "81119eac40ec7e6cfd997631f8d5ed1b6a3646c0b3481acd1c6b98492a187d25"
+    sha256 cellar: :any,                 arm64_big_sur: "3120a9c83de1631e86002b899ce823abccfd8bcaf90a6f54cbc7cd9ae1fd1fa4"
+    sha256 cellar: :any,                 big_sur:       "3d14f187ed48aa40987fa5fdf3ed9cbc52ddf8d079c7e97553efe510e4a084a0"
+    sha256 cellar: :any,                 catalina:      "75a37cd9a2f103b1f552349ba537cec0bd2ecbb222583b35e237aa6ad90b84c5"
+    sha256 cellar: :any,                 mojave:        "81119eac40ec7e6cfd997631f8d5ed1b6a3646c0b3481acd1c6b98492a187d25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d754984c6d78eba446c4a1cf44ddb81ac492df990e61977aedfa195af814c671"
   end
 
   depends_on "libgpg-error"

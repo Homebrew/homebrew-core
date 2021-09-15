@@ -6,11 +6,12 @@ class Scrypt < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "452d9a1d1ebf709a71aebf1814646bf1fff3858d1ec9d4e1fd9ee802b93dd9e3"
-    sha256 cellar: :any, big_sur:       "1f89391f94ab6214697175294471c13003f638d7ca9ca57924f32a7aff223078"
-    sha256 cellar: :any, catalina:      "8f28f665fb701809fafc7f001d391c0139dd3f779317b0f2b82090577d189754"
-    sha256 cellar: :any, mojave:        "45a1cf76ba4ebb0708e3d751001e718f28bdbf659a020553742a17a688a91944"
-    sha256 cellar: :any, high_sierra:   "9c98acfbc8fc0def4b78d8f1101c236a15986ded5fabee93d1530ef17096817a"
+    sha256 cellar: :any,                 arm64_big_sur: "452d9a1d1ebf709a71aebf1814646bf1fff3858d1ec9d4e1fd9ee802b93dd9e3"
+    sha256 cellar: :any,                 big_sur:       "1f89391f94ab6214697175294471c13003f638d7ca9ca57924f32a7aff223078"
+    sha256 cellar: :any,                 catalina:      "8f28f665fb701809fafc7f001d391c0139dd3f779317b0f2b82090577d189754"
+    sha256 cellar: :any,                 mojave:        "45a1cf76ba4ebb0708e3d751001e718f28bdbf659a020553742a17a688a91944"
+    sha256 cellar: :any,                 high_sierra:   "9c98acfbc8fc0def4b78d8f1101c236a15986ded5fabee93d1530ef17096817a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45ecda30c356a01e3e084cb93bc0b791e8f6d8333bbcc0ad7b16a9d9b85c6d8a"
   end
 
   head do
@@ -22,6 +23,8 @@ class Scrypt < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "expect" => :test
+
   def install
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--prefix=#{prefix}"
@@ -29,8 +32,7 @@ class Scrypt < Formula
   end
 
   test do
-    (testpath/"test.sh").write <<~EOS
-      #!/usr/bin/expect -f
+    (testpath/"test.exp").write <<~EOS
       set timeout -1
       spawn #{bin}/scrypt enc homebrew.txt homebrew.txt.enc
       expect -exact "Please enter passphrase: "
@@ -40,10 +42,9 @@ class Scrypt < Formula
       send -- "Testing\n"
       expect eof
     EOS
-    chmod 0755, testpath/"test.sh"
     touch "homebrew.txt"
 
-    system "./test.sh"
+    system "expect", "-f", "test.exp"
     assert_predicate testpath/"homebrew.txt.enc", :exist?
   end
 end

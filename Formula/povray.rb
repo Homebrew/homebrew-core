@@ -1,11 +1,10 @@
 class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "https://www.povray.org/"
-  url "https://github.com/POV-Ray/povray/archive/v3.7.0.8.tar.gz"
-  sha256 "53d11ebd2972fc452af168a00eb83aefb61387662c10784e81b63e44aa575de4"
+  url "https://github.com/POV-Ray/povray/archive/v3.7.0.10.tar.gz"
+  sha256 "7bee83d9296b98b7956eb94210cf30aa5c1bbeada8ef6b93bb52228bbc83abff"
   license "AGPL-3.0-or-later"
-  revision 1
-  head "https://github.com/POV-Ray/povray.git"
+  head "https://github.com/POV-Ray/povray.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,20 +12,20 @@ class Povray < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_big_sur: "aa9bdecce6009e4bcf4c59c2d81c3b56aa0caa942e162dbe96e7440e9ee9b86e"
-    sha256 big_sur:       "11ca4524b9607133f05ec4a1bfc5068814c8f24c816457a15762068e0e53e108"
-    sha256 catalina:      "73110c4da834819acf4887efc1051cd0928e77cbaf773c76b891a92e28a68ac8"
-    sha256 mojave:        "02725cdedd6abd1239284729cdf3fac874f81d302b1d23f3016c69724a24bde4"
+    sha256 arm64_big_sur: "1d34756f9ee836d1d61acfc5650c5244afe44972cd3e2eb234b023b8af8fb4e6"
+    sha256 big_sur:       "8255395098744449c44cc26a30167fe767de560f202687cd4c089d4d926b8207"
+    sha256 catalina:      "04feb4dafdf3f36c668c5444e8b6fcb8253819afed158eab35f4ef26e27ef229"
+    sha256 mojave:        "bcdbae6ca75a38c84eef048ec9ca494d75d8b67f2abb054f31acf0e75dc84edc"
+    sha256 x86_64_linux:  "fbf5db051d3e55ab7e213e313167a539113595fcd214919f358f32c7a8c50b95"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "boost"
+  depends_on "imath"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-
   depends_on "openexr"
 
   def install
@@ -55,14 +54,6 @@ class Povray < Formula
     end
 
     system "./configure", *args
-
-    # The VERSION file in the root of the package is read by the autoconf bits.
-    # However, on a non-case-sensitive filesystem this breaks "#include <version>"
-    # deep inside the boost libraries.  See https://github.com/POV-Ray/povray/issues/403
-    rm "VERSION"
-    rm "unix/VERSION"
-    rm "libraries/tiff/VERSION"
-
     system "make", "install"
   end
 

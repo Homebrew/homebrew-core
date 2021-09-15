@@ -10,7 +10,9 @@ class Jflex < Formula
     regex(/href=.*?jflex[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "911e2fbccdc612cc006a804bc73d5b204f84393936660eb374a36ea3765a1ae5"
+  end
 
   depends_on "openjdk"
 

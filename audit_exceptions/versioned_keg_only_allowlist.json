@@ -16,11 +16,13 @@
   "libsigc++@2",
   "libxml++@4",
   "libxml++@5",
+  "linux-headers@4.4",
   "lua@5.1",
   "numpy@1.16",
   "openssl@1.1",
   "pangomm@2.46",
   "pyqt@5",
   "python@3.9",
-  "python-tk@3.9"
+  "python-tk@3.9",
+  "wxwidgets@3.0"
 ]

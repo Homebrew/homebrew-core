@@ -5,6 +5,11 @@ class Autobench < Formula
   sha256 "d8b4d30aaaf652df37dff18ee819d8f42751bc40272d288ee2a5d847eaf0423b"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?autobench[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c475644370c0f887d23d5fb77b4c3e24fc31ab21366e35395a8c1214c3f91143"
     sha256 cellar: :any_skip_relocation, big_sur:       "dde390cbcb35b87f2cf565a59e11ae4997400a37170abd9b276696460f81dbc4"
@@ -14,6 +19,7 @@ class Autobench < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "daecaaf9c3a733c7667c5414371ba948896b0c0eb47dfd1b1ce876921c829390"
     sha256 cellar: :any_skip_relocation, el_capitan:    "37bb6f40825953f9ba176522bc64d74a6375304d7963331aee937417e339964f"
     sha256 cellar: :any_skip_relocation, yosemite:      "9884556bd5f7ab7c29a0aa199328cbe609e04437b1ddce4703214ba65f15d40a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f33306a0edae89cab46f98344c30feeab7a3d9d03e1d6c21e578720c8cac794f"
   end
 
   depends_on "httperf"

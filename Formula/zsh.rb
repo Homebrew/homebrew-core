@@ -13,10 +13,11 @@ class Zsh < Formula
     sha256 catalina:      "aaf19f69f79ac2ef80ff31d3b2f0017f400bf40022f8626d5ae046990961a5f5"
     sha256 mojave:        "a40a54e4b686eb75f04e7dcc57391245a4f6b08a39825f7f6ebc9f76ebcbff46"
     sha256 high_sierra:   "edfbc09a9571fadf351e0f94e545a88aa33763518a3330c0bae497a6a259d63f"
+    sha256 x86_64_linux:  "f37a99a35ac7b20d78a5e0d83420b4ad74d63cedc426cfd3d964cebe79935183"
   end
 
   head do
-    url "https://git.code.sf.net/p/zsh/code.git"
+    url "https://git.code.sf.net/p/zsh/code.git", branch: "master"
     depends_on "autoconf" => :build
   end
 

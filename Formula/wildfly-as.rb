@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://www.wildfly.org/"
-  url "https://download.jboss.org/wildfly/23.0.2.Final/wildfly-23.0.2.Final.tar.gz"
-  sha256 "6525f6372a8dbddb84d7e3a466dbef1e046253c2bcd682c29fd0f4c1ec606fc4"
+  url "https://download.jboss.org/wildfly/24.0.0.Final/wildfly-24.0.0.Final.tar.gz"
+  sha256 "4b510847b41052a2509f78bf4099ef55b1a704dab344f9f433b706f96f62a00a"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -10,7 +10,12 @@ class WildflyAs < Formula
     regex(/href=.*?wildfly[._-]v?(\d+(?:\.\d+)+)\.Final\.t/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "325904b87bf110f9724a80bdbd90c3cc4cb838b50b7cc6fc7b4b1c6f97cc2d2e"
+    sha256 cellar: :any, big_sur:       "8229398830099182e0fc27356056d850e4f0be23722162d154be56687f8ea78c"
+    sha256 cellar: :any, catalina:      "8229398830099182e0fc27356056d850e4f0be23722162d154be56687f8ea78c"
+    sha256 cellar: :any, mojave:        "8229398830099182e0fc27356056d850e4f0be23722162d154be56687f8ea78c"
+  end
 
   depends_on "openjdk"
 

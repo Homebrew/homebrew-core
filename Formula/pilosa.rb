@@ -6,9 +6,10 @@ class Pilosa < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, catalina:    "703ee800aa37986fb22892672ae4f20020561df1aeccf60bc68f4f2c5807ec02"
-    sha256 cellar: :any_skip_relocation, mojave:      "486ace10d0957669478591911549112c22d812b26a746b3aca8cf00fee726fc8"
-    sha256 cellar: :any_skip_relocation, high_sierra: "f7cd715d06c813bf358b3151ddfe24c4a7664b464b3d7bd047b222189d603281"
+    sha256 cellar: :any_skip_relocation, catalina:     "703ee800aa37986fb22892672ae4f20020561df1aeccf60bc68f4f2c5807ec02"
+    sha256 cellar: :any_skip_relocation, mojave:       "486ace10d0957669478591911549112c22d812b26a746b3aca8cf00fee726fc8"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "f7cd715d06c813bf358b3151ddfe24c4a7664b464b3d7bd047b222189d603281"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "776da185052f34aa5c973e92bfefb27304168a7d24f5cbb1dd1a951e1330cd5e"
   end
 
   depends_on "go" => :build
@@ -23,33 +24,10 @@ class Pilosa < Formula
     end
   end
 
-  plist_options manual: "pilosa server"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/pilosa</string>
-              <string>server</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <dict>
-              <key>SuccessfulExit</key>
-              <false/>
-          </dict>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"pilosa", "server"]
+    keep_alive true
+    working_dir var
   end
 
   test do

@@ -1,9 +1,15 @@
 class Redland < Formula
   desc "RDF Library"
-  homepage "http://librdf.org/"
-  url "http://download.librdf.org/source/redland-1.0.17.tar.gz"
+  homepage "https://librdf.org/"
+  url "https://download.librdf.org/source/redland-1.0.17.tar.gz"
   sha256 "de1847f7b59021c16bdc72abb4d8e2d9187cd6124d69156f3326dd34ee043681"
+  license any_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later", "Apache-2.0"]
   revision 1
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?redland[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "f54c731eecd682be899b7b8b5ab3424db134a1a48fe7076f0113deedb9a7f057"
@@ -14,6 +20,7 @@ class Redland < Formula
     sha256 sierra:        "0ed03c897836946cbadf2e390bd25c79eeb6ad34ea1144ef69d8bf1dfbfaf2eb"
     sha256 el_capitan:    "38eac3bae25aa65cbb7b688ecfaae91ab79c0c292e7505596ffc3b409bc8ca3b"
     sha256 yosemite:      "6047842b51137c968df4787bbfcf2080b4f32b73bb9d3412fa117ee9c1ff22d2"
+    sha256 x86_64_linux:  "5439aed60715d12f7bce18e9292ce3301fc93b89cdb2eae2bd072a0a59a5fc6b"
   end
 
   depends_on "pkg-config" => :build
@@ -23,7 +30,7 @@ class Redland < Formula
   depends_on "unixodbc"
 
   resource "bindings" do
-    url "http://download.librdf.org/source/redland-bindings-1.0.17.1.tar.gz"
+    url "https://download.librdf.org/source/redland-bindings-1.0.17.1.tar.gz"
     sha256 "ff72b587ab55f09daf81799cb3f9d263708fad5df7a5458f0c28566a2563b7f5"
   end
 

@@ -1,16 +1,16 @@
 class Hexyl < Formula
   desc "Command-line hex viewer"
   homepage "https://github.com/sharkdp/hexyl"
-  url "https://github.com/sharkdp/hexyl/archive/v0.8.0.tar.gz"
-  sha256 "b2e69b4ca694afd580c7ce22ab83a207174d2bbc9dabbad020fee4a98a1205be"
+  url "https://github.com/sharkdp/hexyl/archive/v0.9.0.tar.gz"
+  sha256 "73f0dc1be1eaa1a34e3280bc1eeb4f86f34b024205fc7bf3c87d5a0bc4021a6a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "80188fd9d00fe87481bce6ba29cfd3e844f742d4978f4ebd11c61932c0adc245"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bba889ef6dae61053f47c70868cf511515e93e6157c3f232b60e879a293ead92"
-    sha256 cellar: :any_skip_relocation, catalina:      "2443b91247ef98143863f23724ab1ffe3b192aa65471d2198ab02ffa72936ce9"
-    sha256 cellar: :any_skip_relocation, mojave:        "465474b8dd2b6344efda4d611341a0d40c46965fabce4e3446bb3bc0a45c2392"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "8805fb02b8cc13ffe9ca11663140f502dfbcbe5a4cbdf1262bd88758bc88167f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b93b1b33e9915f766a189758d96f9383a661153908ac5043e13921445639e503"
+    sha256 cellar: :any_skip_relocation, big_sur:       "28782b657ead4ad2d73fb35036eae99bddb5b0c7abb949e9726159df1034bf1f"
+    sha256 cellar: :any_skip_relocation, catalina:      "e981e7f1b7c694e34184e99fa9c7b8e8196308868879c5c7925633f8b19ae122"
+    sha256 cellar: :any_skip_relocation, mojave:        "3cab619ac9a8f2de7809af2d5d84f8ae9ca556087a0cd7174fa1d8fc778256cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42b7331d7d933632adf804f454a9d53a8d509495f7d9fb81547eeee95db1c921"
   end
 
   depends_on "rust" => :build

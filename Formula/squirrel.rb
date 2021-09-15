@@ -20,6 +20,7 @@ class Squirrel < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "c57b21bbdcac5cbaf3d7319d64f08c150d16592138bdf1027e7032f579e10091"
     sha256 cellar: :any_skip_relocation, sierra:        "f4d3e6db56838a29cd7247f0933de64bb35a6dac581a9ade879205cbfc9d93f7"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0b6dab6fc2a9a9a9d68d8310977041bd20a492cfe91a6daef07638b0cea55aad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef0fb28b06ae9677d7f573189e5e2c8b012f1eb52d42b8d23d385117a826c2e5"
   end
 
   # Upstream patch to fix compilation with Xcode 9

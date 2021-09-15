@@ -12,6 +12,7 @@ class Halibut < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e9bd74c1ab130f4abc824906bf1f73f910032a4c7c0938798f7fbab2f1346020"
     sha256 cellar: :any_skip_relocation, mojave:        "05f0236c180aeab690979615812fb72642e7cdeaccb35ebb865a53aadb35e7c6"
     sha256 cellar: :any_skip_relocation, high_sierra:   "fe74b9670ae0d996a17de4a70a140365d057a83a643125dcbd16b33dacad9f6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f37d878d7f5d8a0869220fc00abdad12f298da1cdb1d2541b3f66793f749e9b4"
   end
 
   def install

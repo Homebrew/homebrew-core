@@ -17,6 +17,7 @@ class Dockward < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "50c2b838bbd89349e40050810a833cfea2803ac699cd006d47e796075be975b2"
     sha256 cellar: :any_skip_relocation, sierra:        "3dcac3afd57773d1c4b07b72f7f1bc9d66953dccccb0b3eadf7f40e43175d89b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b1b33f2b4db8242f9b422232d49bfde4c9b8fa0fa5053437366a9bc16795d9b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fab443a8e40b159ebd527d32138314a928589a52dd5fbfd69c52406ad3162ad9"
   end
 
   depends_on "go" => :build

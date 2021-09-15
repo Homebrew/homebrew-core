@@ -11,6 +11,7 @@ class Bvi < Formula
     sha256 catalina:      "83cfa7a1fe8848d8eab7f01da94a32e75eb7c57221854a3f3f06a05417975977"
     sha256 mojave:        "567e9512dfd4fcf7768c442a6e609f7b798b887e4cdd59c1b38970940b9c528f"
     sha256 high_sierra:   "28ba5db61217dfe797423fd55b5fce06def1d5760aa466685759f1e315459777"
+    sha256 x86_64_linux:  "39c71fb5ee3d1ed093cfd83332419494c0a4152fd7d75ed4aa7fa2d9f2ee6dc9"
   end
 
   uses_from_macos "ncurses"

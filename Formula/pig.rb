@@ -7,17 +7,32 @@ class Pig < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "05975bde330ef940fa753ee188f16b3a4136e22e05cb98d2aa0f566c0db08cda"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a5d6bc2bec7cfb14e8a398b3ff04ef5583a7c1a31d809ede5e2f7c5f2ae394fa"
+    sha256 cellar: :any_skip_relocation, catalina:      "a5d6bc2bec7cfb14e8a398b3ff04ef5583a7c1a31d809ede5e2f7c5f2ae394fa"
+    sha256 cellar: :any_skip_relocation, mojave:        "a5d6bc2bec7cfb14e8a398b3ff04ef5583a7c1a31d809ede5e2f7c5f2ae394fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12c02619e8fbfee0603e8d11ffa0facfed80717df4eae3f4176a9fe5b33a4076"
+  end
 
-  depends_on "openjdk"
+  if Hardware::CPU.arm?
+    depends_on "openjdk@11"
+  else
+    depends_on "openjdk"
+  end
 
   def install
     (libexec/"bin").install "bin/pig"
     libexec.install Dir["pig-#{version}-core-h*.jar"]
     libexec.install "lib"
-    (bin/"pig").write_env_script libexec/"bin/pig",
-                                 PIG_HOME:  libexec,
-                                 JAVA_HOME: Formula["openjdk"].opt_prefix
+
+    env = if Hardware::CPU.arm?
+      Language::Java.overridable_java_home_env("11")
+    else
+      Language::Java.overridable_java_home_env
+    end
+    env["PIG_HOME"] = libexec
+    (bin/"pig").write_env_script libexec/"bin/pig", env
   end
 
   test do

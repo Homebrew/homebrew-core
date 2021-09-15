@@ -14,6 +14,7 @@ class Gcalcli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6278e00d39dbbc91b98766cf7cc793117c3b6ed758907c7a5453847f350a0eb1"
     sha256 cellar: :any_skip_relocation, catalina:      "25245965cf728bda9fe9b9a01dab4eb78320cfcf462fa213fcce12cdcc16d6e3"
     sha256 cellar: :any_skip_relocation, mojave:        "183dbf701ff365b7f117d0736887e7d97b000041fad03a92aa004d2050fb4525"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a886166bf9de414ba7e71cba6ccca18fb87fdda5713bc4b8fe2b39b52d71ff5f"
   end
 
   depends_on "python@3.9"

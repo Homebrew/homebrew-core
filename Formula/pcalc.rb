@@ -10,6 +10,7 @@ class Pcalc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "109563ed8739d73cb64ceb8bfb35ceaa0e002d5af6cf0f63b1d52ca84fd4b8c6"
     sha256 cellar: :any_skip_relocation, catalina:      "afbf577c7349e107f117dc18d6f9247e8cc307601573c19f5f3c3aada892b867"
     sha256 cellar: :any_skip_relocation, mojave:        "c7b810b53b109c4bfa80ec2a2b834b9d56c129d5252c42cf6cce1693b9482d5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27301e52812906befad81cec82873a8fdc5de83deac99b6f80004876de6567d6"
   end
 
   uses_from_macos "ncurses"

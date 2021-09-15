@@ -7,14 +7,18 @@ class Httpflow < Formula
   head "https://github.com/six-ddc/httpflow.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4ad73cc6cd313d17634e78df0795ce7ad85b929e05efaf219768e9929950a663"
-    sha256 cellar: :any, big_sur:       "8fd53a648dc88731b9dc6dd03fbfa68302f287e8c3eb2685273f10d691aee13e"
-    sha256 cellar: :any, catalina:      "2b7b63f5d82139b4fc017b8848e3b29608738cd510ef1350710c6224a24079a3"
-    sha256 cellar: :any, mojave:        "6d911ff1c720035b0b23cf994fbbb37e7d1372dcd32eb60bc54924b78b444431"
-    sha256 cellar: :any, high_sierra:   "cf54de7d5e6fda49966d75a0c33580bb8e64d3d0fb6c39337a03e21fb20682d5"
+    sha256 cellar: :any,                 arm64_big_sur: "4ad73cc6cd313d17634e78df0795ce7ad85b929e05efaf219768e9929950a663"
+    sha256 cellar: :any,                 big_sur:       "8fd53a648dc88731b9dc6dd03fbfa68302f287e8c3eb2685273f10d691aee13e"
+    sha256 cellar: :any,                 catalina:      "2b7b63f5d82139b4fc017b8848e3b29608738cd510ef1350710c6224a24079a3"
+    sha256 cellar: :any,                 mojave:        "6d911ff1c720035b0b23cf994fbbb37e7d1372dcd32eb60bc54924b78b444431"
+    sha256 cellar: :any,                 high_sierra:   "cf54de7d5e6fda49966d75a0c33580bb8e64d3d0fb6c39337a03e21fb20682d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4974439a78ea50c5a49a972f340395f0f2a8305ff2980e9eab9bb27b94de9778"
   end
 
   depends_on "pcre"
+
+  uses_from_macos "libpcap"
+  uses_from_macos "zlib"
 
   def install
     system "make"

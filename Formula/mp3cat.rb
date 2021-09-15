@@ -12,6 +12,7 @@ class Mp3cat < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "e075f29990e6b5222d3e82ed27de698bed42257097e9bd59f0d60f64ea7ae46b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "91152cced755097c42117c72e71f3db9023716e2e9befd1e8a6630fd225e3cea"
     sha256 cellar: :any_skip_relocation, sierra:        "3954ad75806e1948a4e69efb74fb2e86a4920c7e6b61537ca48f696289ca998a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1644ebe7bba692667cae251c36c2d7c7d2d5aa49e53291a247831bf866ed2ba4"
   end
 
   def install

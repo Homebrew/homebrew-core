@@ -1,8 +1,8 @@
 class YubicoPivTool < Formula
   desc "Command-line tool for the YubiKey PIV application"
   homepage "https://developers.yubico.com/yubico-piv-tool/"
-  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.2.0.tar.gz"
-  sha256 "74cb2e03c7137c0dd529f35a230b4a598121cb71b10d7e55b91fd0cdefcac457"
+  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.2.1.tar.gz"
+  sha256 "b7ede4ddc3d6e31de67b2e2ddcd319b22b40cc2e0973b9866d052a754493b14e"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,10 +11,11 @@ class YubicoPivTool < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "a4819de1638f828cbd2e9c5e50f9830a91ed578fb42ae2fbb073d5bc66fbb38c"
-    sha256 big_sur:       "446b3d63b270dd3bdd27adec31503c02553a0e0d4fb2610082e392e85061d528"
-    sha256 catalina:      "72474492baf278c59ec478cb24f2c8730ff9f59f0e1963a473a6d7ad94df4e12"
-    sha256 mojave:        "395ffe7d667fab0964b4544bb9cc4476ddcbc77eedce706c3f4c5fa4524d0e14"
+    sha256 cellar: :any,                 arm64_big_sur: "010fd380069d1b30971f6dedc434ea2ab55a2db8b05ba0fcb74115b3e3b4a724"
+    sha256 cellar: :any,                 big_sur:       "886605cf401ac43e73fc09d7c443977e3fef3bf49dbcc49a68638f43705ad151"
+    sha256 cellar: :any,                 catalina:      "c5b6ce9eb6b9501d4dccff86ea593d6ff1451be89712dd01369eb3671ae7fcb8"
+    sha256 cellar: :any,                 mojave:        "21e6bea1407cf476c02575caa150e233674abc27abaa5a52d41f97365eb49a41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04df6364c57b50081bf17a12b220fe46e8a6b73c428e83f085641f6d98d92628"
   end
 
   depends_on "check" => :build

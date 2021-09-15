@@ -12,10 +12,11 @@ class Libid3tag < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "cd7f36377060c5d16d3ee4d4ef5696ef47be82f4f0807172eef36f589cfad246"
-    sha256 cellar: :any, big_sur:       "ef38d5804e95cf7f2096c9e8ec31e568170c6e238e43e7ddc3df914ded26f07b"
-    sha256 cellar: :any, catalina:      "93b071dac99b3d85dac56e59af42e28d5de959bed9fd37a9a2178c02c8b20f17"
-    sha256 cellar: :any, mojave:        "1186600473728830dbb65189d11912e2abf42dac5fcbf7ee38629784cc83b310"
+    sha256 cellar: :any,                 arm64_big_sur: "cd7f36377060c5d16d3ee4d4ef5696ef47be82f4f0807172eef36f589cfad246"
+    sha256 cellar: :any,                 big_sur:       "ef38d5804e95cf7f2096c9e8ec31e568170c6e238e43e7ddc3df914ded26f07b"
+    sha256 cellar: :any,                 catalina:      "93b071dac99b3d85dac56e59af42e28d5de959bed9fd37a9a2178c02c8b20f17"
+    sha256 cellar: :any,                 mojave:        "1186600473728830dbb65189d11912e2abf42dac5fcbf7ee38629784cc83b310"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f0ac4078c55cddf2f6bdb55ba09e81f32d982b0e62c27301d232627a0f31531"
   end
 
   depends_on "autoconf" => :build

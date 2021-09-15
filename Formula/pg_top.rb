@@ -15,16 +15,22 @@ class PgTop < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, big_sur:  "770ec08d04f5f88d91f99855fb5ac13466734b7b396a0bf499387a02490cc8b8"
-    sha256 cellar: :any, catalina: "00231ec96d368d18286b69104979b2d35307f02e2f5acf54293f97b7619803ff"
-    sha256 cellar: :any, mojave:   "1110da076403c8f3030421ce4fbb5acb51d61c71102564aa00db9611d08b50c8"
+    sha256 cellar: :any,                 arm64_big_sur: "70a878b8d6ae8f3fff2303ca0e50cf294ce7918dec0eca0050c983fa237f8e61"
+    sha256 cellar: :any,                 big_sur:       "770ec08d04f5f88d91f99855fb5ac13466734b7b396a0bf499387a02490cc8b8"
+    sha256 cellar: :any,                 catalina:      "00231ec96d368d18286b69104979b2d35307f02e2f5acf54293f97b7619803ff"
+    sha256 cellar: :any,                 mojave:        "1110da076403c8f3030421ce4fbb5acb51d61c71102564aa00db9611d08b50c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed92710360b1ef0e9c531dad918f72d69986cb128467c5124fe39908b44f5aa4"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "postgresql"
 
   uses_from_macos "ncurses"
 
   def install
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-postgresql=#{Formula["postgresql"].opt_prefix}"

@@ -1,15 +1,15 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://github.com/nickg/nvc"
-  url "https://github.com/nickg/nvc/releases/download/r1.5.1/nvc-1.5.1.tar.gz"
-  sha256 "2c418a19c60ee91c92865700be53907b8fbfaa3ea64bfc32aed996ed2c55df43"
+  url "https://github.com/nickg/nvc/releases/download/r1.5.2/nvc-1.5.2.tar.gz"
+  sha256 "56b71a091d9bebeaca28e2cffb1546de91068de8788d96a92d209cec7402349c"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "7c05a43adb8e06f4d7c476ee7648c98baf6cba58f964321c9d8035493168e88c"
-    sha256 big_sur:       "d4064f6d3d03798588a886d0c243184169b582d1228f344c97d1d380f4ec6767"
-    sha256 catalina:      "2164b0c823a884279abecb21ed79425cdc910ee472a771f99aa51c5db1134a78"
-    sha256 mojave:        "e6125afeec736628f6f02f3912d8aa0c412049b07b08ca4c2f7a88ca38b194c0"
+    sha256 arm64_big_sur: "ed81b83101417314e47d4c9e27c1efc2cd5aa8b2f6d360d16ff4ff4a39693dd7"
+    sha256 big_sur:       "878fc444b7f6694cbb12ec4d1f6e644d1c7f853d109915ab49c5e77b151100ee"
+    sha256 catalina:      "fe88883631d30f010b06fc8c7ff7f5ae7cd8a67cdcde8e28f262ad4f1fcb3e29"
+    sha256 mojave:        "5d42447afee153063a563b0b32d8d2a98c955aff3860bbbe30d994d8c82f4dac"
   end
 
   head do
@@ -25,7 +25,13 @@ class Nvc < Formula
 
   resource "vim-hdl-examples" do
     url "https://github.com/suoto/vim-hdl-examples.git",
-        revision: "c112c17f098f13719784df90c277683051b61d05"
+        revision: "fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b"
+  end
+
+  # remove in next release
+  patch do
+    url "https://github.com/nickg/nvc/commit/64c2521260e868224ed94e6913f378c306ef2909.patch?full_index=1"
+    sha256 "3bdb4770df20751079d7c6899a7546cfe43c4a3b56387d5a6188ecd7617bb23a"
   end
 
   def install

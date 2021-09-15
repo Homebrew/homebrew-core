@@ -1,8 +1,8 @@
 class Usbredir < Formula
   desc "USB traffic redirection library"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/usbredir/usbredir-0.9.0.tar.xz"
-  sha256 "a3e167bf42bc7fe02c3c9db27d7767f1b8ce41b99ad14a4b0d0a60abe8bf56a6"
+  url "https://www.spice-space.org/download/usbredir/usbredir-0.11.0.tar.xz"
+  sha256 "72dd5f3aa90dfbc0510b5149bb5b1654c8f21fdc405dfce7b5dc163dcff19cba"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
   livecheck do
@@ -11,34 +11,33 @@ class Usbredir < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e1b386db632be8bb241c1924f0d1ca892c069078f1d1928c7ea1f786e4a834e1"
-    sha256 cellar: :any, big_sur:       "5f2999d6b52b9ccc9aee6efc1417083d6fd3bb10b873cb56c2debcb02e4e9c82"
-    sha256 cellar: :any, catalina:      "a19338a4180caf513da9caeda32403311002715609ef7200d31c0d96f49e4fa1"
-    sha256 cellar: :any, mojave:        "7660673efa01fe1af1337ba2dc290a39c8a45a54287e1cfe5daa5efac583cc14"
+    sha256 cellar: :any, arm64_big_sur: "301a06eaf3c9f51d349f92b75d898857aeebb882ec2a1a83cbe1101cc2c3a58f"
+    sha256 cellar: :any, big_sur:       "1d29697803e3eec97d1d8ebe00d9dba354b1ad51122913414752380c0eedacd7"
+    sha256 cellar: :any, catalina:      "ac6f36424efd438cd495ac1f2309b3d058541a43a71cdd0477cd5d4f602c130e"
+    sha256 cellar: :any, mojave:        "16c79281da519d94bf5f10c1521e84f38e1465bc4f2835fa8ab9eb576af479cc"
+    sha256               x86_64_linux:  "73ba4b4154c70fb9e65a95c36e6cf6e2eb7cd09c90c8aa5f2d844bcfb8502694"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "glib"
   depends_on "libusb"
 
   def install
-    # Use meson from the release after 0.9.0
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "meson", *std_meson_args, ".", "build"
+    system "ninja", "-C", "build", "-v"
+    system "ninja", "-C", "build", "install"
   end
 
   test do
-    (testpath/"test.cpp").write <<~EOS
+    (testpath/"test.c").write <<~EOS
       #include <usbredirparser.h>
       int main() {
         return usbredirparser_create() ? 0 : 1;
       }
     EOS
-    system ENV.cc, "test.cpp",
+    system ENV.cc, "test.c",
                    "-L#{lib}",
                    "-lusbredirparser",
                    "-o", "test"

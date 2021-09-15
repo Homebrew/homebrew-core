@@ -6,13 +6,14 @@ class NeovimRemote < Formula
   url "https://files.pythonhosted.org/packages/cc/d8/82aec85fc7ad0853afca2c88e73ecc7d3a50c66988c44aa9748ccbc9b689/neovim-remote-2.4.0.tar.gz"
   sha256 "f199ebb61c3decf462feed4e7d467094ed38d8afaf43620736b5983a12fe2427"
   license "MIT"
-  head "https://github.com/mhinz/neovim-remote.git"
+  head "https://github.com/mhinz/neovim-remote.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "eb32806679e25729e2106e7ee35082d41b460a49305e51402121a21a013f8924"
     sha256 cellar: :any_skip_relocation, big_sur:       "f94e3d59bc081404b883cd5fa4e8ddd48e33d060fc25099c0070ba52e8ac9682"
     sha256 cellar: :any_skip_relocation, catalina:      "1bb77fdf6276df0833eed58107681ff725a0b0c6746a5e19c7c98428b903799d"
     sha256 cellar: :any_skip_relocation, mojave:        "a08d1b3bbae29235c707c59a345ce343a6994e4f9460bbcf16f8279a2e13683e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21360429be62c3459f9181cf4ea899bd8cc077de3758f7efed86e2b7d92d3f5e"
   end
 
   depends_on "neovim"

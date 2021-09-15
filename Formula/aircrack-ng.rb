@@ -11,10 +11,11 @@ class AircrackNg < Formula
   end
 
   bottle do
-    sha256 big_sur:     "8a131a99a89edd127981b9dc2c91df91ba7a03b7c0d6c74521392e1649fa7d09"
-    sha256 catalina:    "1b5ecf42ef840c108536eac5107cf63c514ca2f3d7e8c4f32e5b301f088729c1"
-    sha256 mojave:      "e6bbba9c16ac26aaacaad5ac4935100a79cf702ab8fcb35fa9797e806ec003fe"
-    sha256 high_sierra: "fad333ea8e2792d88305c22b62549f63900ea32aa3f856de57d6e8d70740cd49"
+    sha256                               big_sur:      "8a131a99a89edd127981b9dc2c91df91ba7a03b7c0d6c74521392e1649fa7d09"
+    sha256                               catalina:     "1b5ecf42ef840c108536eac5107cf63c514ca2f3d7e8c4f32e5b301f088729c1"
+    sha256                               mojave:       "e6bbba9c16ac26aaacaad5ac4935100a79cf702ab8fcb35fa9797e806ec003fe"
+    sha256                               high_sierra:  "fad333ea8e2792d88305c22b62549f63900ea32aa3f856de57d6e8d70740cd49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2d6c32f3dc5f82c6a897a4a5916c70f686ce40c3aeaf7585e8d449ef971a9d4a"
   end
 
   depends_on "autoconf" => :build

@@ -12,6 +12,7 @@ class Patchutils < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "3ee4d0c62b3f2b26e28fbf476c37eaeb8ccca9000c4f8f2766cd2c662de855bc"
     sha256 cellar: :any_skip_relocation, mojave:        "12cd388801c5c628db409cb043d6a2fc436f44ae8f01a754f430763380043af4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "84b5013e7c6647e1cda9faa1ab9b31834ed6e2ef6c1a48d21ab7c459dc4462b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3195e7dccef8379cfd2976c51bb7675cd170783f0017232749cd0a18487345ae"
   end
 
   head do

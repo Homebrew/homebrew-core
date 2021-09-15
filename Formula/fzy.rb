@@ -13,6 +13,7 @@ class Fzy < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "2f7d67a61ad3cf284ec15d95e2f5eedaf1cf0ecb63ea2a8994df9733160b3a2b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "fb173da3b703940c9dd8c942ced0db3c068f544be59fb01ccfe835f566d13cef"
     sha256 cellar: :any_skip_relocation, sierra:        "b478e2604e81faf0a2e7278afe2f811ff1739528f246fcf2556e05a81f1d3435"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "696df3c3d3296b1b03bcf0e75eb7d7bc73f004fd15fe7f7899aa10dca7d3e6f6"
   end
 
   def install

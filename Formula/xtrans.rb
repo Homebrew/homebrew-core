@@ -11,6 +11,7 @@ class Xtrans < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "74e4e5cf12976f0b9ef865052f6b40b6d3bb17fad1f6298f7cb54792aec3cb8e"
     sha256 cellar: :any_skip_relocation, mojave:        "a84a48c11a607fa66fa70119c46b6a590ee0b744ff600c22c2887a6bdedf73bf"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7bd1e64df9191e69567a8fe7f82e97e6c2aac7a39f3f3ad96661b3369978c861"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24285595cf66a05c9399cb7e9b3d1899ff2c494e0dbce260a2c6e4f748f76f0a"
   end
 
   depends_on "pkg-config" => :build

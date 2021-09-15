@@ -6,14 +6,16 @@ class Elm < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:  "04efe8b2f66b7904b05578e59a07300e8f070521a87ab0733433609da531f29d"
-    sha256 cellar: :any_skip_relocation, catalina: "bb6cd6a1bd9b3a7f280791b2ffba6631efa784f9068f48c4d6f9e64d756a4b2a"
-    sha256 cellar: :any_skip_relocation, mojave:   "03d2874b915186af4361360b5a3f3d9a9734046b97d46607b34a4e8f0d5228c2"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7efd5b1f3446827c5c06502a65c4bf80cabde7ecf11156e206a373d0c568af35"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8054bda935a4760f4cfd799f2bef0bb8fd2b25c10cc2d1fc1c0824625eaf30a3"
+    sha256 cellar: :any_skip_relocation, catalina:      "0df96547e648ed70d25f67cbec301e8b1e9af814da5dba059c0c54cb594d1d0d"
+    sha256 cellar: :any_skip_relocation, mojave:        "a826ba1bd9a92f3a5384a772533bf90c8d87e5f6c4ca8f30a6877c10ee9bab2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "810bfd7c5a40e9c6f4bae78af527acf2df4fbea11bc1af632526e90429fb68e0"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"

@@ -5,7 +5,9 @@ class GitTest < Formula
   sha256 "7c2331c8dc3c815e440ffa1a4dc7a9ff8a28a0a8cbfd195282f53c3e4cb2ee00"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "fee9ffb3bdf734e1fdbc4d6b5348ee774af974bf214a778944651231d13b5d55"
+  end
 
   def install
     bin.install "git-test"

@@ -17,6 +17,7 @@ class Tree < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "7152288c457dd893de50fa9d6ac9a8599748564e1b3586eec8eff7057089051a"
     sha256 cellar: :any_skip_relocation, high_sierra:   "107d965994381d34e90b58a62f1c306c1b8a698db2696cdd905ba65c801ecc3b"
     sha256 cellar: :any_skip_relocation, sierra:        "07d980571469a0cc699c69a8726eee338f782ba61c041e58f01ddb2924d08aeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02fb3aeb2c166a65c03a92641d05b553f963d4b0cecbf1f67c1eb8a0ba95a673"
   end
 
   def install

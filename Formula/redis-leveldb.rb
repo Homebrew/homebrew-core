@@ -4,7 +4,7 @@ class RedisLeveldb < Formula
   url "https://github.com/KDr2/redis-leveldb/archive/v1.4.tar.gz"
   sha256 "b34365ca5b788c47b116ea8f86a7a409b765440361b6c21a46161a66f631797c"
   revision 3
-  head "https://github.com/KDr2/redis-leveldb.git"
+  head "https://github.com/KDr2/redis-leveldb.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5e41ff1939788e1fa297df8345b1c515b4bdaf046fa7c0d54e853aa1f0030dc1"
@@ -16,6 +16,9 @@ class RedisLeveldb < Formula
     sha256 cellar: :any, el_capitan:    "5373414613caf193828f782883f835858a8c999943a542e9ec3ff735a918bb63"
     sha256 cellar: :any, yosemite:      "4cf802ff434be42c86043c45f539cfdb0f137cfd37df4815560e3495da5f9d1b"
   end
+
+  # https://github.com/KDr2/redis-leveldb/issues/17
+  disable! date: "2021-06-19", because: :no_license
 
   depends_on "gmp"
   depends_on "leveldb"

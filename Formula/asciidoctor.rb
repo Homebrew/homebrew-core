@@ -1,18 +1,20 @@
 class Asciidoctor < Formula
   desc "Text processor and publishing toolchain for AsciiDoc"
   homepage "https://asciidoctor.org/"
-  url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.13.tar.gz"
-  sha256 "4812dd15bb71b3ae8351e8e3c2df4528c7c40dd97ef1954a56442b56b59019a6"
+  url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.16.tar.gz"
+  sha256 "8fc1e3947012e22bccabe4d6faa31fee446f3719bb7478c79f45221b64fbd09f"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f9ca51b3374baec623240ec160ef48bf04d0cb49d734b1018b012431a0fda02"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8f92b4d6c5f6b8e67a70384ec47550fbe421cefbc6b5a308a36350f17f798efe"
-    sha256 cellar: :any_skip_relocation, catalina:      "003e71e052e20ad5ab951416aee18a722e2b613a0c5813199a03d80e531b12d2"
-    sha256 cellar: :any_skip_relocation, mojave:        "d42f558cba47e63b7bc75ec85f6124baad63395ee46ce812bac635be4e64d1ad"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fc2493fc3c30964474cbe495313fe66921f1495e72c3fe61381ac6aea70045b6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "16d6788131428a7fb9207f567061e657176422324da5a5aae3259ed42bd40861"
+    sha256 cellar: :any_skip_relocation, catalina:      "16d6788131428a7fb9207f567061e657176422324da5a5aae3259ed42bd40861"
+    sha256 cellar: :any_skip_relocation, mojave:        "3ee2e170d171c850e25d100c2a47fb2fdda7c3f3ca551bfd2b97896575379277"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78113a6630aa5287c960805549500b3e047d240db16c6e8752c856f4d97e4b74"
   end
 
-  depends_on "ruby@2.7" if MacOS.version <= :mojave
+  uses_from_macos "ruby", since: :catalina
 
   # All of these resources are for the asciidoctor-pdf, coderay and rouge gems. To update the asciidoctor-pdf
   # resources, check https://rubygems.org/gems/asciidoctor-pdf for the latest dependency versions. Make sure to select
@@ -20,42 +22,41 @@ class Asciidoctor < Formula
   # To help, click on "Show all transitive dependencies" for a tree view of all dependencies. I've added comments
   # above each resource to make updating them easier, but please update those comments as the dependencies change.
 
-  # asciidoctor-pdf requires concurrent-ruby ~> 1.1.0
+  # asciidoctor-pdf requires concurrent-ruby ~> 1.1
   resource "concurrent-ruby" do
     url "https://rubygems.org/gems/concurrent-ruby-1.1.8.gem"
     sha256 "e35169e8e01c33cddc9d322e4e793a9bc8c3c00c967d206d17457e0d301f2257"
   end
 
-  # prawn 2.2.0 requires pdf-core ~> 0.7.0
+  # prawn 2.4.0 requires pdf-core ~> 0.9.0
   resource "pdf-core" do
-    url "https://rubygems.org/gems/pdf-core-0.7.0.gem"
-    sha256 "c1afdbb79edaf7c9fea69fd4b8d3b2c68eeb7203ce4db0e80be5392e20e394a6"
+    url "https://rubygems.org/gems/pdf-core-0.9.0.gem"
+    sha256 "4f368b2f12b57ec979872d4bf4bd1a67e8648e0c81ab89801431d2fc89f4e0bb"
   end
 
-  # prawn 2.2.0 requires ttfunk ~> 1.5
-  # asciidoctor-pdf requires ttfunk ~> 1.5.0, >= 1.5.1
+  # prawn 2.4.0 requires ttfunk ~> 1.7
   # pdf-reader requires ttfunk
   resource "ttfunk" do
-    url "https://rubygems.org/downloads/ttfunk-1.5.1.gem"
-    sha256 "8da1c20cc9e010a4b083376e6ae6996c4aa517558420bb23d9a1d8a228b6f9d5"
+    url "https://rubygems.org/downloads/ttfunk-1.7.0.gem"
+    sha256 "2370ba484b1891c70bdcafd3448cfd82a32dd794802d81d720a64c15d3ef2a96"
   end
 
-  # asciidoctor-pdf requires prawn ~> 2.2.0
+  # asciidoctor-pdf requires prawn ~> 2.4.0
   # prawn-icon requires prawn >= 1.1.0, < 3.0.0
   # prawn-svg requires prawn >= 0.11.1, < 3
   # prawn-templates requires prawn ~> 2.2
   resource "prawn" do
-    url "https://rubygems.org/gems/prawn-2.2.2.gem"
-    sha256 "95284b761f0ea99334ef840ab85f577cfe2cc9448f769cc723843a6d7670b2e1"
+    url "https://rubygems.org/gems/prawn-2.4.0.gem"
+    sha256 "82062744f7126c2d77501da253a154271790254dfa8c309b8e52e79bc5de2abd"
   end
 
-  # asciidoctor-pdf requires prawn-icon ~> 2.5.0
+  # asciidoctor-pdf requires prawn-icon ~> 3.0.0
   resource "prawn-icon" do
-    url "https://rubygems.org/gems/prawn-icon-2.5.0.gem"
-    sha256 "dc88129676707c983e914ca2d2f066fb244e946075ed933c8422b996916b73c7"
+    url "https://rubygems.org/gems/prawn-icon-3.0.0.gem"
+    sha256 "dac8d481dee0f60a769c0cab0fd1baec7351b4806bf9ba959cd6c65f6694b6f5"
   end
 
-  # addressable requires public_suffix  >= 2.0.2, < 5.0
+  # addressable requires public_suffix >= 2.0.2, < 5.0
   resource "public_suffix" do
     url "https://rubygems.org/gems/public_suffix-4.0.6.gem"
     sha256 "a99967c7b2d1d2eb00e1142e60de06a1a6471e82af574b330e9af375e87c0cf7"
@@ -73,10 +74,16 @@ class Asciidoctor < Formula
     sha256 "a19cbe6edf9913b596c63bc285681b24288820bbe32c51564e09b49e9a8d4477"
   end
 
-  # asciidoctor-pdf requires prawn-svg ~> 0.31.0
+  # prawn-svq requires rexml ~> 3.2
+  resource "rexml" do
+    url "https://rubygems.org/gems/rexml-3.2.5.gem"
+    sha256 "a33c3bf95fda7983ec7f05054f3a985af41dbc25a0339843bd2479e93cabb123"
+  end
+
+  # asciidoctor-pdf requires prawn-svg ~> 0.32.0
   resource "prawn-svg" do
-    url "https://rubygems.org/gems/prawn-svg-0.31.0.gem"
-    sha256 "d40435a7880e76d7b6053c819c8033862ffa8c0fc5271ea9f11b1286658565e5"
+    url "https://rubygems.org/gems/prawn-svg-0.32.0.gem"
+    sha256 "66d1a20a93282528a25d5ad9e0db422dad4804a34e0892561b64c3930fff7d55"
   end
 
   # asciidoctor-pdf requires prawn-table ~> 0.2.0
@@ -127,12 +134,6 @@ class Asciidoctor < Formula
     sha256 "a6ac2d64b7eb027bdeeca1851fe7e7af0d668e133e8a88066a0c6f7087d9f848"
   end
 
-  # asciidoctor-pdf requries thread_safe ~> 0.3.0
-  resource "thread_safe" do
-    url "https://rubygems.org/gems/thread_safe-0.3.6.gem"
-    sha256 "9ed7072821b51c57e8d6b7011a8e282e25aeea3a4065eab326e43f66f063b05a"
-  end
-
   # treetop requries polyglot ~> 0.3
   resource "polyglot" do
     url "https://rubygems.org/gems/polyglot-0.3.5.gem"
@@ -146,8 +147,8 @@ class Asciidoctor < Formula
   end
 
   resource "asciidoctor-pdf" do
-    url "https://rubygems.org/gems/asciidoctor-pdf-1.5.4.gem"
-    sha256 "c7a8998e905770628829972320017415174e69dea29fd0717e08e49d69b2104d"
+    url "https://rubygems.org/gems/asciidoctor-pdf-1.6.0.gem"
+    sha256 "89c730499bbc4086710ae0c1b9ac1510b8457d6861b9b31495e64871f1f8ae6b"
   end
 
   resource "coderay" do

@@ -17,6 +17,7 @@ class Docbook < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3"
     sha256 cellar: :any_skip_relocation, mojave:        "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcab543bb0e0ae56e0aa106b61f77a111d52aa002c0418aae93f9fe6ac3cb332"
   end
 
   uses_from_macos "libxml2"

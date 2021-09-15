@@ -20,6 +20,7 @@ class GitFlowAvh < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "945e9ba05a169b32c86f5bd347542e803625791cf9a4b50a4a42fafb5e0b9c85"
     sha256 cellar: :any_skip_relocation, high_sierra:   "945e9ba05a169b32c86f5bd347542e803625791cf9a4b50a4a42fafb5e0b9c85"
     sha256 cellar: :any_skip_relocation, sierra:        "0e68b196dd24d9d41f9b0c5545d115c9ca8327dd799facbed2e619f8ceea221b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75416cf7069631b648859caefd1efd85ebfec2e4781acfeb4215889460439a69"
   end
 
   head do

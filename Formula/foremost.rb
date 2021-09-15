@@ -17,6 +17,7 @@ class Foremost < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "46ddc6fa415ef88bb90b4f14698b8051d6167a7e1763863bbdc4116eed590317"
     sha256 cellar: :any_skip_relocation, catalina:      "6be1f3b67ee3002ab30f9f7bc667f55b02d4311a99b4f974af34b6d0353a0139"
     sha256 cellar: :any_skip_relocation, mojave:        "a392a7045508e07e54fd7210de043758e9bf84ff0b0d13867a550a71665c51ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ef5c3ada1ea10d3c0a815cdac8f3bb5489897f81dcbd24fbb2edd49efe1188b"
   end
 
   def install
@@ -30,10 +31,9 @@ class Foremost < Formula
     # move it to etc instead
     inreplace "config.c", "/usr/local/etc/", "#{etc}/"
 
-    on_macos do
+    if OS.mac?
       system "make", "mac"
-    end
-    on_linux do
+    else
       system "make"
     end
 

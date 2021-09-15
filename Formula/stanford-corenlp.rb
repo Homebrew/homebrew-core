@@ -1,12 +1,17 @@
 class StanfordCorenlp < Formula
   desc "Java suite of core NLP tools"
   homepage "https://stanfordnlp.github.io/CoreNLP/"
-  url "https://nlp.stanford.edu/software/stanford-corenlp-4.2.0.zip"
-  sha256 "984aff1c431311a7dd5b4f0cb3bec4f5ba81da37aecc0d020b270571aafc5385"
+  url "https://nlp.stanford.edu/software/stanford-corenlp-4.2.2.zip"
+  sha256 "42f0bd84b815b15658a17aeabe5ab8c5ba1d4e5a3785969fe7be8588209f02cc"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?stanford-corenlp[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e1580a6e899a81fa4ff31dc192521b9fe028b8612a2973a9935b3578e999c89e"
+    sha256 cellar: :any_skip_relocation, all: "b1aef7cf97ac8eb8d3bf5dfde284ebf5ea812343217c27caa9ef2a051b87606c"
   end
 
   depends_on "openjdk"

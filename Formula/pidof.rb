@@ -4,6 +4,7 @@ class Pidof < Formula
   url "http://www.nightproductions.net/downloads/pidof_source.tar.gz"
   version "0.1.4"
   sha256 "2a2cd618c7b9130e1a1d9be0210e786b85cbc9849c9b6f0cad9cbde31541e1b8"
+  license :cannot_represent
 
   livecheck do
     url :homepage
@@ -20,6 +21,9 @@ class Pidof < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "6991d110a73724959f84edc398647e3cac5a029645daedef5f263ae51218130d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d02c826db5564d7750c0e309a771b164f7764250507955d0b87d09837c3c2ba6"
   end
+
+  # Hard dependency on sys/proc.h, which isn't available on Linux
+  depends_on :macos
 
   def install
     system "make", "all", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"

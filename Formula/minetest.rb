@@ -2,15 +2,14 @@ class Minetest < Formula
   desc "Free, open source voxel game engine and game"
   homepage "https://www.minetest.net/"
   license "LGPL-2.1-or-later"
-  revision 1
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.4.0.tar.gz"
-    sha256 "6e9b299e156651be9bcf973a9232cff32215de31dfae5ea770a71d1757cab014"
+    url "https://github.com/minetest/minetest/archive/5.4.1.tar.gz"
+    sha256 "de9e4410583c845c104b4be25f9d0b8743d8573c120149b8910ae2519f9ab14e"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/5.4.0.tar.gz"
-      sha256 "520d2056085ec11e8806cf5a8f928537797d27a86704770bf408c113ea9881cb"
+      url "https://github.com/minetest/minetest_game/archive/5.4.1.tar.gz"
+      sha256 "b4bfa0755b88230cf4bdb6af6a0951dd1248f6cdf87fecc340e43ac12c80b0b2"
     end
   end
 
@@ -20,9 +19,9 @@ class Minetest < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "fa39d78bcd7d5df96fabfba84e16564d0ae2950810cc30c3bf657ec7fc27ad37"
-    sha256               catalina: "f5c72cf858dfb63f981676ca03eab7c5b875107226adb179612d59b0e177992c"
-    sha256               mojave:   "5fc0d12bfbb4b9c6e9986a5ca403b0d3f0913ba0d17fb45c1ef1138c44247c42"
+    sha256 cellar: :any, big_sur:  "d391ffa3ef29483219449315ddf30ecd7d20e947bb5780081418dbb383ba938a"
+    sha256               catalina: "8c773aabb5faa6617c09f69915a9e3caa49734d2f2117d05ce455597c8803695"
+    sha256               mojave:   "e03ebb1d5ac5598e6c9273a89b98b30b95f9640bbb74d0b679e9b56621a06aca"
   end
 
   head do
@@ -49,6 +48,7 @@ class Minetest < Formula
     args << "-DBUILD_CLIENT=1" << "-DBUILD_SERVER=0"
     args << "-DENABLE_FREETYPE=1" << "-DCMAKE_EXE_LINKER_FLAGS='-L#{Formula["freetype"].opt_lib}'"
     args << "-DENABLE_GETTEXT=1" << "-DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}"
+    args << "-DIRRLICHT_LIBRARY=#{Formula["irrlicht"].opt_frameworks}/IrrFramework.framework"
 
     system "cmake", ".", *args
     system "make", "package"

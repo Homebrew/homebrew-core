@@ -1,8 +1,8 @@
 class Qd < Formula
   desc "C++/Fortran-90 double-double and quad-double package"
   homepage "https://www.davidhbailey.com/dhbsoftware/"
-  url "https://www.davidhbailey.com/dhbsoftware/qd-2.3.22.tar.gz"
-  sha256 "30c1ffe46b95a0e9fa91085949ee5fca85f97ff7b41cd5fe79f79bab730206d3"
+  url "https://www.davidhbailey.com/dhbsoftware/qd-2.3.23.tar.gz"
+  sha256 "b3eaf41ce413ec08f348ee73e606bd3ff9203e411c377c3c0467f89acf69ee26"
 
   livecheck do
     url :homepage
@@ -10,12 +10,11 @@ class Qd < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "a142fb3e68694ee7529043e985fd898069553ec2ca37483336b6ead7246e28bc"
-    sha256 cellar: :any, big_sur:       "380c30f837eed2027f1f1a353cfca4b5f71f551e504c26b2ab635cba4918681b"
-    sha256 cellar: :any, catalina:      "9700e6163692f31c736ddd74f535305fef730e021c4ca9f85b5860926397e330"
-    sha256 cellar: :any, mojave:        "53e4efc8ab2d1c18b1c4198bed031eb1b97b4431b1c0a4e8e4195c9b01659098"
-    sha256 cellar: :any, high_sierra:   "0ff67d07426a90d2897f0f69da0bd91bedb8a40ea52c0201c80225dd6c22510d"
+    sha256 cellar: :any,                 arm64_big_sur: "643d12788d9d0aae84284d8323dd768897ba709fc576f0d3344741f425082a32"
+    sha256 cellar: :any,                 big_sur:       "9d11d1a792bcd856fffed2a3266093113e5099e4b4f36ee8581bce5b7a36c78f"
+    sha256 cellar: :any,                 catalina:      "b7193beb4f8d9737d8f83b4d41c8703bfbf1ede0269630a783138fb3dec8b6a0"
+    sha256 cellar: :any,                 mojave:        "8a70f3bc3a2fc99bef85acf2c567cd3dc1013f7046c19c7ffa0ddc266df231df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "684f25257cfa7d3110c34652442759542ea8623333e30aab8e1426d9ef7c6bd5"
   end
 
   depends_on "gcc" # for gfortran

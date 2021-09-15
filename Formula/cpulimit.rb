@@ -4,7 +4,7 @@ class Cpulimit < Formula
   url "https://github.com/opsengine/cpulimit/archive/v0.2.tar.gz"
   sha256 "64312f9ac569ddcadb615593cd002c94b76e93a0d4625d3ce1abb49e08e2c2da"
   license "GPL-2.0"
-  head "https://github.com/opsengine/cpulimit.git"
+  head "https://github.com/opsengine/cpulimit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f09919436a14d7b1598720ca832435b2500aebe0839f5055a253f52c59642a5d"
@@ -15,6 +15,7 @@ class Cpulimit < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "fa5bc8d713837693c6bbd6139bec5e48b8a1d46ef669b2e042715dd1318b1655"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9d7320465152a12ba75ce924beada5a3ce365b14becaa75e08ee8334c2cb2f6a"
     sha256 cellar: :any_skip_relocation, yosemite:      "7ff9d929c5a1178b250b756cefcbecc4b202c72f03073e9eb43f4a47420930a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e7b26fdf597d68a1f482095c11f606dc5fc6f88a27e88bf14a3e976cec0998a"
   end
 
   def install

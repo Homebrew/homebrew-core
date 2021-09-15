@@ -1,8 +1,8 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "http://www.leptonica.org/source/leptonica-1.80.0.tar.gz"
-  sha256 "ec9c46c2aefbb960fb6a6b7f800fe39de48343437b6ce08e30a8d9688ed14ba4"
+  url "http://www.leptonica.org/source/leptonica-1.81.1.tar.gz"
+  sha256 "0f4eb315e9bdddd797f4c55fdea4e1f45fca7e3b358a2fc693fd957ce2c43ca9"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,11 +11,12 @@ class Leptonica < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2d7db56dad646ed732585242e50716dd3152882d16811f72a86de11ea651e0d8"
-    sha256 cellar: :any, big_sur:       "7cdcfbb0616b884ace6657b1a009f874ac249bf7c38e08ec8b43217584968e64"
-    sha256 cellar: :any, catalina:      "2772ab6d50bb48132db5bf6d2d7b4086058635c060392dc375b23769513ebca7"
-    sha256 cellar: :any, mojave:        "b6503796ec87ac555bb4c5278aa3c8bf6b5ef3c88d66da9a040c04e0cafdcade"
-    sha256 cellar: :any, high_sierra:   "01c2fe703b082f830fffec5f1d21d50d41c1c30967cb74e1bc0b744dcb72d50d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "ab4697cba5d08068caf5bba23b6ab820708e7e141ab2a31b75c5218e0af4d683"
+    sha256 cellar: :any,                 big_sur:       "584d359158d6c45de7caf2368f8fc5e3268b67511dbeb8531d6762b03a3efed9"
+    sha256 cellar: :any,                 catalina:      "f73dceda2c8430f107f7d134cebd189684de1723639be81be2fd79ec3db07c34"
+    sha256 cellar: :any,                 mojave:        "0009444bfbafb359608fef5bf861a275acb2cbbade511572c9c3d08043b7bac4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28826ccd4ae01f0b0dab2b5c8b1f6ed3aa569c0238822b419b125cde45bc9e32"
   end
 
   depends_on "pkg-config" => :build
@@ -44,7 +45,7 @@ class Leptonica < Formula
       #include <leptonica/allheaders.h>
 
       int main(int argc, char **argv) {
-          std::fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
+          fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
           return 0;
       }
     EOS

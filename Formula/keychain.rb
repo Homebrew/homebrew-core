@@ -10,7 +10,9 @@ class Keychain < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "38a9acfd004abd466201585d76285f1bc852b4e517d0324908f8b628ff8508ac"
+  end
 
   def install
     bin.install "keychain"

@@ -5,7 +5,7 @@ class Suil < Formula
   sha256 "750f08e6b7dc941a5e694c484aab02f69af5aa90edcc9fb2ffb4fb45f1574bfb"
   license "ISC"
   revision 1
-  head "https://gitlab.com/lv2/suil.git"
+  head "https://gitlab.com/lv2/suil.git", branch: "master"
 
   livecheck do
     url "https://download.drobilla.net/"

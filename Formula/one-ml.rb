@@ -13,6 +13,7 @@ class OneMl < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "309111ca64b6c6fa02f1a93dcdc83858d74bc4d7e6a1bcb898443b72e2fa62fc"
     sha256 cellar: :any_skip_relocation, mojave:        "ddd62944bea4f0182b771d405d2255c1d5cdd9e217a2bc00891018de9458b7c2"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d377a804f2f05d9f48869a6822bb42070be94b225d1d24ee0f4a3e23019532c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "924420564fa34eddc5c750e2d12b0cddb9326d7d2001eeeebfd70d6ca32ad63f"
   end
 
   depends_on "ocaml" => :build

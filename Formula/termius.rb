@@ -10,10 +10,11 @@ class Termius < Formula
   head "https://github.com/termius/termius-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "61c7d93bc10dda0c678c8c27223541c72b5be0ba25ca9be21823c3277dcc87a1"
-    sha256 cellar: :any, big_sur:       "604a373e98092e951cfd186d5312f0c86d01af48f13d190d7aad3a338863bc5a"
-    sha256 cellar: :any, catalina:      "8b32dde9daefefd5d170966e6a58c8c71a1c125172c80c138fba28cce4826ef6"
-    sha256 cellar: :any, mojave:        "937ccb6f7f995f4be6e8ba6db448333cafa4a49087098a564ca6bf5070a3c5e0"
+    sha256 cellar: :any,                 arm64_big_sur: "61c7d93bc10dda0c678c8c27223541c72b5be0ba25ca9be21823c3277dcc87a1"
+    sha256 cellar: :any,                 big_sur:       "604a373e98092e951cfd186d5312f0c86d01af48f13d190d7aad3a338863bc5a"
+    sha256 cellar: :any,                 catalina:      "8b32dde9daefefd5d170966e6a58c8c71a1c125172c80c138fba28cce4826ef6"
+    sha256 cellar: :any,                 mojave:        "937ccb6f7f995f4be6e8ba6db448333cafa4a49087098a564ca6bf5070a3c5e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e6d6c6494ebbabe398469d77700c388cb5b87c26ad7b1c60bb80746ca0ce3ba"
   end
 
   depends_on "rust" => :build

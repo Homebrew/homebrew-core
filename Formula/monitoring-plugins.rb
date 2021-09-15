@@ -4,6 +4,11 @@ class MonitoringPlugins < Formula
   url "https://www.monitoring-plugins.org/download/monitoring-plugins-2.3.1.tar.gz"
   sha256 "f56eb84871983fd719247249e3532228b37e2efaae657a3979bd14ac1f84a35b"
 
+  livecheck do
+    url "https://www.monitoring-plugins.org/download.html"
+    regex(/href=.*?monitoring-plugins[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5044511cc0f5a64f3424d4507559b6ca316669121f4b15d58ef6b9cec5bba3f8"
     sha256 cellar: :any, big_sur:       "a49576ad287d073c67e0da12be686ba737abe34e5f61813a2e308cd44c427017"

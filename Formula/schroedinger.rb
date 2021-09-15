@@ -7,14 +7,15 @@ class Schroedinger < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "eed0918ea3c7ff3e75968249865c6743b5dd6a444b1022f15926c9e0b3496cfb"
-    sha256 cellar: :any, big_sur:       "81ea2f319f7e300c222b2788fdb03bfc3b3177f5a8166caa88afc1b4538b291d"
-    sha256 cellar: :any, catalina:      "904f8940085832802e511565d1bcea91262a0ca871612509c1e521db37da4227"
-    sha256 cellar: :any, mojave:        "ab901d9879b3bc110eeb7eadd5ab815af7d7fc446b2f5577795737c410c3bf4e"
-    sha256 cellar: :any, high_sierra:   "1e9953cbef67e87a7ca9ebecfcc4af5f0eb2261d17f3a1195386b7512b9312be"
-    sha256 cellar: :any, sierra:        "7d2d6d343f571e21f27ce5c13645ebe7039e4d45d2b96dba550f6383185c18f6"
-    sha256 cellar: :any, el_capitan:    "1b990c49b7d72f3030bcee52bf70094a6cf16111867565cdb7541f670636cf05"
-    sha256 cellar: :any, yosemite:      "5b1355803b730a9727c959261f0e2afc217f77502eac88120f77941c5cf373db"
+    sha256 cellar: :any,                 arm64_big_sur: "eed0918ea3c7ff3e75968249865c6743b5dd6a444b1022f15926c9e0b3496cfb"
+    sha256 cellar: :any,                 big_sur:       "81ea2f319f7e300c222b2788fdb03bfc3b3177f5a8166caa88afc1b4538b291d"
+    sha256 cellar: :any,                 catalina:      "904f8940085832802e511565d1bcea91262a0ca871612509c1e521db37da4227"
+    sha256 cellar: :any,                 mojave:        "ab901d9879b3bc110eeb7eadd5ab815af7d7fc446b2f5577795737c410c3bf4e"
+    sha256 cellar: :any,                 high_sierra:   "1e9953cbef67e87a7ca9ebecfcc4af5f0eb2261d17f3a1195386b7512b9312be"
+    sha256 cellar: :any,                 sierra:        "7d2d6d343f571e21f27ce5c13645ebe7039e4d45d2b96dba550f6383185c18f6"
+    sha256 cellar: :any,                 el_capitan:    "1b990c49b7d72f3030bcee52bf70094a6cf16111867565cdb7541f670636cf05"
+    sha256 cellar: :any,                 yosemite:      "5b1355803b730a9727c959261f0e2afc217f77502eac88120f77941c5cf373db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32c7db0617f2a2d01b89d446860529fc3520f377e601a460fadc5e3ce2bc0baa"
   end
 
   head do

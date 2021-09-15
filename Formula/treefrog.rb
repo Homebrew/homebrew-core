@@ -1,10 +1,10 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "https://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.31.1.tar.gz"
-  sha256 "282197f1735f7766a804e1f06e29b45754e082db2eb596edcd929f8e308b2887"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v2.1.0.tar.gz"
+  sha256 "52ae63955230c73378701fa039da21c2879db5f9d7df20835ecb4c9b09ea95bb"
   license "BSD-3-Clause"
-  head "https://github.com/treefrogframework/treefrog-framework.git"
+  head "https://github.com/treefrogframework/treefrog-framework.git", branch: "master"
 
   livecheck do
     url :head
@@ -12,16 +12,19 @@ class Treefrog < Formula
   end
 
   bottle do
-    sha256 big_sur:  "d865266f65ca621ad8cc3f479ab5a80163b780d9a7507b95c0ce7d9dbda274ff"
-    sha256 catalina: "753c0f6725a75a4c61c50c9ba82c69d17a45adefc462c07942d8780e5fdb7080"
-    sha256 mojave:   "a3a7ed90190f54b848c92998924243bf376d9a4e13f44a03ef1212d4e83cd163"
+    sha256 arm64_big_sur: "1734d8c8739ea6565b7c55b0febf27d1ab3f2d596b79b24bdbfd242cd3b8a58a"
+    sha256 big_sur:       "fd6ee4faac0658730d5619f0fef1f6951c0ad3e9cbd02533a047f0756f63ae17"
+    sha256 catalina:      "b2ab9fe0c552a34c501c16e28863213ebaaad4dd1042b97252468d5831b2e084"
+    sha256 mojave:        "99089c0b5349dc91cef9d9b4835cc3a648eec2fc423b6b876d31d73473b05903"
   end
 
   depends_on xcode: :build
   depends_on "mongo-c-driver"
-  depends_on "qt@5"
+  depends_on "qt"
 
   def install
+    inreplace "src/corelib.pro", "/usr/local", HOMEBREW_PREFIX
+
     system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc"
 
     cd "src" do
@@ -41,7 +44,7 @@ class Treefrog < Formula
     assert_predicate testpath/"hello", :exist?
     cd "hello" do
       assert_predicate Pathname.pwd/"hello.pro", :exist?
-      system Formula["qt@5"].opt_bin/"qmake"
+      system Formula["qt"].opt_bin/"qmake"
       assert_predicate Pathname.pwd/"Makefile", :exist?
       system "make"
       system bin/"treefrog", "-v"

@@ -11,6 +11,7 @@ class DatetimeFortran < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "82d8b0e2a51fb7df321659ed4f5da43c24edd5aba81e5e05250508b541f2eb4b"
     sha256 cellar: :any_skip_relocation, mojave:        "ef59feabc30610c41a5ac4b2e594f1378d3edeb3b13dd7912825c48815d547e2"
     sha256 cellar: :any_skip_relocation, high_sierra:   "cf59b21c0539aa14f5e0274387669d13dae47b3e11267cdb1baed8545f2bd535"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "429f291ed9e56d7cd7abc05c3315466544d2cdecec92d583fceb880528676be1"
   end
 
   head do

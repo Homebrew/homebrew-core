@@ -6,11 +6,12 @@ class Libcbor < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0e6a7b38bc44a4fc07643b72b9bdaf91f00e0ae79d4f0539589c9500bb361ac6"
-    sha256 cellar: :any, big_sur:       "3bbc50d56f1418e3acd54c56b28322366b1f1ca306fd3f6fd21755f2848abaab"
-    sha256 cellar: :any, catalina:      "2860cc48fef2c42aaa50ae25aa90a683e22b81c3905a923e008871679aced20a"
-    sha256 cellar: :any, mojave:        "105d0a4b3b1a2556603e5e5619a3805183af2041ef06a85784660982c803b97e"
-    sha256 cellar: :any, high_sierra:   "5b20e9f902ca71c4f9a1c411c1e65eedb25f9c395d1e3ff691a0d3e7451cd6fd"
+    sha256 cellar: :any,                 arm64_big_sur: "0e6a7b38bc44a4fc07643b72b9bdaf91f00e0ae79d4f0539589c9500bb361ac6"
+    sha256 cellar: :any,                 big_sur:       "3bbc50d56f1418e3acd54c56b28322366b1f1ca306fd3f6fd21755f2848abaab"
+    sha256 cellar: :any,                 catalina:      "2860cc48fef2c42aaa50ae25aa90a683e22b81c3905a923e008871679aced20a"
+    sha256 cellar: :any,                 mojave:        "105d0a4b3b1a2556603e5e5619a3805183af2041ef06a85784660982c803b97e"
+    sha256 cellar: :any,                 high_sierra:   "5b20e9f902ca71c4f9a1c411c1e65eedb25f9c395d1e3ff691a0d3e7451cd6fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "116159c61a51bd56e58b4f732bcbefee898f9c45b8c8ecc5d6425293c49eca55"
   end
 
   depends_on "cmake" => :build

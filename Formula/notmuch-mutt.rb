@@ -1,27 +1,54 @@
 class NotmuchMutt < Formula
   desc "Notmuch integration for Mutt"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.32.1.tar.xz"
-  sha256 "a747ca4e8cc919d91feda6cadb97e63b72ff79119491989bbcea79ad47680615"
+  url "https://notmuchmail.org/releases/notmuch-0.33.1.tar.xz"
+  sha256 "2d905f03d9ee4abcd06dfae4c4d31e5fe623ed22b3ce4d9184cc0baed29b10d2"
   license "GPL-3.0-or-later"
-  head "https://git.notmuchmail.org/git/notmuch", using: :git
+  head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
-    url "https://notmuchmail.org/releases/"
-    regex(/href=.*?notmuch[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    formula "notmuch"
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c9debc8eb04a6da13f4657bdc16d5a2041b4ab4dcd464dc5a1392ed6d6ccfaa0"
-    sha256 cellar: :any, big_sur:       "4ef0b35915ec86d853979ba0616dc28bab592351da5d2cbb3711e2fd35075e53"
-    sha256 cellar: :any, catalina:      "c8b1e8d3c31d926dcec0351afaee1c8d99f8c1bfc7ed6d58f87f7eef12a31b50"
-    sha256 cellar: :any, mojave:        "13adc9c8d39911eefb433f644f265a62fd36c7c2dbcce02fcc313190844ca4a2"
+    sha256 cellar: :any,                 arm64_big_sur: "6b1e9381cb44b8d8cd484c36d2e63edd64faed3e9c5ba53c87c1e05b843d4b02"
+    sha256 cellar: :any,                 big_sur:       "8e16de13ecf1f6da7f07a6c2f7ff9e3c3d1b10995c1466c3d4a6c61931fabe2d"
+    sha256 cellar: :any,                 catalina:      "39fac49da85eca7e3fa8b510a60b8d6c4ea2f9c175f857fc8d4a8cf84c7f601b"
+    sha256 cellar: :any,                 mojave:        "577eb3798b8181251c8decd970c9564066be1fb6f11664a8e126b9b95b5c6ede"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5b447e8044fe7e28d7d53aa5aaf703c47a1af98abc6f909e3b18a94fadb8544"
   end
 
   depends_on "notmuch"
   depends_on "readline"
 
   uses_from_macos "perl"
+
+  on_linux do
+    resource "Date::Parse" do
+      url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/TimeDate-2.33.tar.gz"
+      sha256 "c0b69c4b039de6f501b0d9f13ec58c86b040c1f7e9b27ef249651c143d605eb2"
+    end
+
+    resource "IO::Lines" do
+      url "https://cpan.metacpan.org/authors/id/C/CA/CAPOEIRAB/IO-Stringy-2.113.tar.gz"
+      sha256 "51220fcaf9f66a639b69d251d7b0757bf4202f4f9debd45bdd341a6aca62fe4e"
+    end
+
+    resource "Devel::GlobalDestruction" do
+      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz"
+      sha256 "34b8a5f29991311468fe6913cadaba75fd5d2b0b3ee3bb41fe5b53efab9154ab"
+    end
+
+    resource "Sub::Exporter::Progressive" do
+      url "https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz"
+      sha256 "d535b7954d64da1ac1305b1fadf98202769e3599376854b2ced90c382beac056"
+    end
+
+    resource "File::Remove" do
+      url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/File-Remove-1.60.tar.gz"
+      sha256 "e86e2a40ffedc6d5697d071503fd6ba14a5f9b8220af3af022110d8e724f8ca6"
+    end
+  end
 
   resource "Term::ReadLine::Gnu" do
     url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.37.tar.gz"

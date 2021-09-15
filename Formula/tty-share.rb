@@ -10,6 +10,7 @@ class TtyShare < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "004c70273ec6b94d912745c657639878149b86cdf1f1296d9d5498460f8b01b4"
     sha256 cellar: :any_skip_relocation, catalina:      "e02d15913aa63a1cbff110af076743dacc3c4d56cf828a0b22cf94d4e025b6e8"
     sha256 cellar: :any_skip_relocation, mojave:        "1fe5cd2eb19d7a0b0ee61a9b0dbddc13805055752827de2af6221e53d42f1b9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2ceed45ef206a801e28d80ddb26c0cfd4767aa87cf07252ede2691a3eeef24b"
   end
 
   depends_on "go" => :build

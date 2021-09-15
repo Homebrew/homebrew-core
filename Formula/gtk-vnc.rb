@@ -1,16 +1,16 @@
 class GtkVnc < Formula
   desc "VNC viewer widget for GTK"
   homepage "https://wiki.gnome.org/Projects/gtk-vnc"
-  url "https://download.gnome.org/sources/gtk-vnc/1.0/gtk-vnc-1.0.0.tar.xz"
-  sha256 "a81a1f1a79ad4618027628ffac27d3391524c063d9411c7a36a5ec3380e6c080"
+  url "https://download.gnome.org/sources/gtk-vnc/1.2/gtk-vnc-1.2.0.tar.xz"
+  sha256 "7aaf80040d47134a963742fb6c94e970fcb6bf52dc975d7ae542b2ef5f34b94a"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "c4d93c7478a2c290005613240d088189785560435f8c4aa3031ec5af6c1196a3"
-    sha256 big_sur:       "959cf4a7bac1fee4f17fd571222b6bff7a3aa6b172b3abcc7af3088cd927b699"
-    sha256 catalina:      "f6e79e525133ea8c72d4be4b0719299141a8b206b9f547fd27b882b06a817f01"
-    sha256 mojave:        "1e932ef0f54e09e9cf107c6ef386ff49e1b1cfd107eca77e4d1c5569da71909d"
-    sha256 high_sierra:   "efb82f38076361165896bbf906881331c349082464fa8fc0b6b81f4c58b52f0a"
-    sha256 sierra:        "c244ffda67d3e559172ba2b9e2b1015011733630232c203f733f259d8a6dd485"
+    sha256 arm64_big_sur: "b07922526eaea0881a6394907b9cc332fc37852c5206a92692468243d13a2ac8"
+    sha256 big_sur:       "f4961c57ac8d69639f2f0a95d307ec85b0cee23f204666989853382158bf8986"
+    sha256 catalina:      "16cc1407520b9b5a6454507e1db7f7226d78320c353cd9f45130c9ba7883567c"
+    sha256 mojave:        "218453c1fa7ae8b188ecbfe0ca408beefff3fbf168fa1fdd397ac73c4336c031"
+    sha256 x86_64_linux:  "9ac4316ffc6dca96ef488bac50dae54d5a733f9bdd4f11da945fc90fc2f47981"
   end
 
   depends_on "gettext" => :build
@@ -22,12 +22,21 @@ class GtkVnc < Formula
   depends_on "gtk+3"
   depends_on "libgcrypt"
 
-  # submitted upstream at https://gitlab.gnome.org/GNOME/gtk-vnc/merge_requests/4
+  # Fix configuration failure with -Dwith-vala=disabled
+  # Remove in the next release.
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtk-vnc/-/commit/bdab05584bab5c2ecdd508df49b03e80aedd19fc.diff"
+    sha256 "1b260157be888d9d8e6053e6cfd7ae92a666c306f04f4f23a0a1ed68a06c777d"
+  end
+
+  # Fix compile failure in src/vncdisplaykeymap.c
+  # error: implicit declaration of function 'GDK_IS_QUARTZ_DISPLAY' is invalid in C99
+  # https://gitlab.gnome.org/GNOME/gtk-vnc/-/issues/16
   patch :DATA
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, "-Dwith-vala=false", ".."
+      system "meson", *std_meson_args, "-Dwith-vala=disabled", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
@@ -39,77 +48,16 @@ class GtkVnc < Formula
 end
 
 __END__
-diff --git a/src/meson.build b/src/meson.build
-index 956f189..e238bc3 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -89,7 +89,7 @@ else
- endif
-
- gvnc_link_args = []
--if host_machine.system() != 'windows'
-+if meson.get_compiler('c').has_link_argument('-Wl,--no-undefined')
-   gvnc_link_args += ['-Wl,--no-undefined']
- endif
-
-@@ -116,6 +116,15 @@ gvnc_inc = [
-   top_incdir,
- ]
-
-+c_args = []
+diff --git a/src/vncdisplaykeymap.c b/src/vncdisplaykeymap.c
+index 9c029af..8d3ec20 100644
+--- a/src/vncdisplaykeymap.c
++++ b/src/vncdisplaykeymap.c
+@@ -69,6 +69,8 @@
+ #endif
+ 
+ #ifdef GDK_WINDOWING_QUARTZ
++#include <gdk/gdkquartz.h>
 +
-+if host_machine.system() == 'darwin'
-+  # fix "The deprecated ucontext routines require _XOPEN_SOURCE to be defined"
-+  c_args += ['-D_XOPEN_SOURCE=600']
-+  # for MAP_ANON
-+  c_args += ['-D_DARWIN_C_SOURCE']
-+endif
-+
- gvnc = library(
-   'gvnc-1.0',
-   sources: gvnc_sources,
-@@ -123,8 +132,10 @@ gvnc = library(
-   include_directories: gvnc_inc,
-   link_args: gvnc_link_args,
-   version: '0.0.1',
-+  darwin_versions: ['1.0', '1.1'],
-   soversion: '0',
-   install: true,
-+  c_args: c_args,
- )
-
- gvnc_dep = declare_dependency(
-@@ -178,7 +189,7 @@ if libpulse_dep.found()
-   ]
-
-   gvncpulse_link_args = []
--  if host_machine.system() != 'windows'
-+  if meson.get_compiler('c').has_link_argument('-Wl,--no-undefined')
-     gvncpulse_link_args += ['-Wl,--no-undefined']
-   endif
-
-@@ -206,6 +217,7 @@ if libpulse_dep.found()
-     include_directories: gvncpulse_inc,
-     link_args: gvncpulse_link_args,
-     version: '0.0.1',
-+    darwin_versions: ['1.0', '1.1'],
-     soversion: '0',
-     install: true,
-   )
-@@ -337,7 +349,7 @@ endforeach
-
-
- gtk_vnc_link_args = []
--if host_machine.system() != 'windows'
-+if meson.get_compiler('c').has_link_argument('-Wl,--no-undefined')
-   gtk_vnc_link_args += ['-Wl,--no-undefined']
- endif
-
-@@ -369,6 +381,7 @@ gtk_vnc = library(
-   include_directories: gtk_vnc_inc,
-   link_args: gtk_vnc_link_args,
-   version: '0.0.2',
-+  darwin_versions: ['1.0', '1.2'],
-   soversion: '0',
-   install: true,
- )
+ /* OS-X native keycodes */
+ #include "vncdisplaykeymap_osx2qnum.h"
+ #endif

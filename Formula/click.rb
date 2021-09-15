@@ -1,16 +1,16 @@
 class Click < Formula
   desc "Command-line interactive controller for Kubernetes"
   homepage "https://github.com/databricks/click"
-  url "https://github.com/databricks/click/archive/v0.5.3.tar.gz"
-  sha256 "68feaa0d2a0c5b3a110eedd393949a89d6f80583eb25289161c0b91714097bed"
+  url "https://github.com/databricks/click/archive/v0.5.4.tar.gz"
+  sha256 "fa9b2cb3911ae8331217cafb941cdee52b09a27a58a5dccbdb52f408dc22f4f4"
   license "Apache-2.0"
-  head "https://github.com/databricks/click.git"
+  head "https://github.com/databricks/click.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "910783b8fcee53ee4e4773e7aec55599906c8f5dfde6cc4773c127f180229d5d"
-    sha256 cellar: :any_skip_relocation, catalina:    "6bced21af1d4a16b96986fccbab5781f1aae9d9816ce12fdbb299f70b8711229"
-    sha256 cellar: :any_skip_relocation, mojave:      "7ac283d05682f3cf9698b324fc749c7a3281048e3789ab0af61f01c649eebf7d"
-    sha256 cellar: :any_skip_relocation, high_sierra: "e1b015903b819bc7f0bde965ca968457f2cac039001abc040ed9652e642fabe7"
+    sha256 cellar: :any_skip_relocation, big_sur:      "aa74cec2f0d6854791b46d54adbdb96bff085b67278629695f0ac266eef54717"
+    sha256 cellar: :any_skip_relocation, catalina:     "59c72a4b00a3bf477cd3d65573175d6009112273b715b30d49be7bc694fdcf80"
+    sha256 cellar: :any_skip_relocation, mojave:       "b7f4b485ff0eb502694555d0f85096880e6a0355b7e69adf2bb5075d2396ade1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "553af140b3e4382834691f12fba51f61640eee9aa35ed2db8a20732a6ccd9488"
   end
 
   depends_on "rust" => :build

@@ -16,6 +16,7 @@ class Par2 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "26609c45028599a4845f68cda2a5cd08c2a0dc37ae3987d4abf86aed99499f50"
     sha256 cellar: :any_skip_relocation, mojave:        "cded10d8f18c5ab236ceb624854afb672681bd1a86f21e47d70de793db378580"
     sha256 cellar: :any_skip_relocation, high_sierra:   "35477bcfecd91b7fe885739737f576b63545aab51ba997bc60f9a74927b775dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68a34f74212b806d82f10515575e8f62a90eb2066d6fffb24c5f422a380854fb"
   end
 
   def install

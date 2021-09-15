@@ -3,6 +3,7 @@ class Sleepwatcher < Formula
   homepage "https://www.bernhard-baehr.de/"
   url "https://www.bernhard-baehr.de/sleepwatcher_2.2.1.tgz"
   sha256 "4bf1656702167871141fbc119a844d1363d89994e1a67027f0e773023ae9643e"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :homepage
@@ -10,13 +11,14 @@ class Sleepwatcher < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "172bfc7d967f6abbbe0770db635dd39d1d908a7aa1d3ab27cdd147acc793ca2a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "67579f4fdfb784d9769430c59e7b1deeca98324b6758e23be1ffb223c44cc183"
-    sha256 cellar: :any_skip_relocation, catalina:      "45c9c42ac76f9e9f85b0dbc2cb2251fe74448322196ac0ba10b93c416121db2a"
-    sha256 cellar: :any_skip_relocation, mojave:        "eb160c23f9d92aed8d4bdfa24607a5bb343ad65dd487cb7a8570ac479bd05dd7"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "2c050aa5845cdf24b06f17bc1b4191941e4cf57cf1092f17fe35fe0e7f28159a"
-    sha256 cellar: :any_skip_relocation, sierra:        "0cecea617ee9334f717a2e2e0424b944dedcc7cd403776c1cf6ff67352b96f4c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "01c66d5808a4c8defb52bb8c9acf2584dbe542940bf758a53cae0c4d68229c3e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ad8d8729a86763e64a3f555c4197ad6048ee5b8c6589ce4f2763d60b9826bb13"
+    sha256 cellar: :any_skip_relocation, catalina:      "6752791ceaab316af2e61c45a6ee5e1a7c05f326be64f31e4bfad412a216b413"
+    sha256 cellar: :any_skip_relocation, mojave:        "651f17a7622a05db38a14b133c15e20f441028c2f540af104421f204a766238d"
   end
+
+  depends_on :macos
 
   def install
     # Adjust Makefile to build native binary only
@@ -36,32 +38,21 @@ class Sleepwatcher < Formula
       mv "../sleepwatcher.8", "."
       system "make", "install", "PREFIX=#{prefix}"
     end
+  end
 
-    # Write the sleep/wakeup scripts
-    (prefix + "etc/sleepwatcher").install Dir["config/rc.*"]
-
-    # Write the launchd scripts
-    inreplace Dir["config/*.plist"], "/usr/local/sbin", HOMEBREW_PREFIX/"sbin"
-
-    inreplace "config/de.bernhard-baehr.sleepwatcher-20compatibility.plist",
-      "/etc", etc/"sleepwatcher"
-
-    prefix.install Dir["config/*.plist"]
+  service do
+    run [opt_sbin/"sleepwatcher", "-V", "-s", "#{ENV["HOME"]}/.sleep", "-w", "#{ENV["HOME"]}/.wakeup"]
+    run_type :immediate
+    keep_alive true
   end
 
   def caveats
     <<~EOS
-      For SleepWatcher to work, you will need to read the following:
+      For SleepWatcher to work, you will need to write sleep and
+      wakeup scripts, located here when using brew services:
 
-        #{prefix}/ReadMe.rtf
-
-      Ignore information about installing the binary and man page,
-      but read information regarding setup of the launchd files which
-      are installed here:
-
-        #{Dir["#{prefix}/*.plist"].join("\n      ")}
-
-      These are the examples provided by the author.
+        ~/.sleep
+        ~/.wakeup
     EOS
   end
 end

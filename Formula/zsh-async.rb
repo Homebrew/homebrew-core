@@ -6,11 +6,11 @@ class ZshAsync < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "290fae7722d9d181e362b5f5986085a3453a21a5d32adf5e7ea1aac1aaace462"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c1f30da09c587d1670b42fd489fa6507b3166633887565b17e7d5f4dc892f2ad"
-    sha256 cellar: :any_skip_relocation, catalina:      "5f7835aa0c6c9d73dd63f6a27655f359caa76d34caec5ae0465bca2390349e50"
-    sha256 cellar: :any_skip_relocation, mojave:        "bdf610a55644e4182b35307a946ecb6b3724fbade6dabae0dc1d655079b34614"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f120012d4d9940d9ef0560f4b623de7729af50d1b6e688fccff0663ce3c3da1a"
   end
+
+  uses_from_macos "zsh"
 
   def install
     zsh_function.install "async.zsh" => "async"

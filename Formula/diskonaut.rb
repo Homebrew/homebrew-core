@@ -11,6 +11,7 @@ class Diskonaut < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8386cdc8f2798b2d7dfe52982433a62d9a05ce04fc64e13c909324b9c1b623c7"
     sha256 cellar: :any_skip_relocation, mojave:        "75b42c75f32c0a70a681345ad60ed93f9ad4c54751a949c4efc15d859f60c6d1"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f1d1c2cf37df515ef13ddf5cfd6cc96c73a734911d682f24d1b45f60af93b20a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0adcbe8702fdbcc19e743a274d6037dc7513a8e8b812b2b9497724f496aa124f"
   end
 
   depends_on "rust" => :build

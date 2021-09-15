@@ -6,7 +6,7 @@ class Asciidoc < Formula
   url "https://github.com/asciidoc-py/asciidoc-py/archive/9.1.0.tar.gz"
   sha256 "5056c20157349f8dc74f005b6e88ccbf1078c4e26068876f13ca3d1d7d045fe7"
   license "GPL-2.0-only"
-  head "https://github.com/asciidoc-py/asciidoc-py.git"
+  head "https://github.com/asciidoc-py/asciidoc-py.git", branch: "main"
 
   livecheck do
     url :stable
@@ -19,6 +19,7 @@ class Asciidoc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "3cae7527216fda7e1e3f46ef2ba9db4bf713c524ee70399afd322200d4bbcd32"
     sha256 cellar: :any_skip_relocation, catalina:      "84d2a53471facc216cf0b1022e8e57c7b0d7a07be8bbb8af727d55dcbdba2991"
     sha256 cellar: :any_skip_relocation, mojave:        "f1af645cce45046ab1e15b53676efc14d306e088547db2ee64e2678efdeecc5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc2c9c2b55f399e8f87b0603dabcedceb2711320563c3aa0b0fb368dc023f2e4"
   end
 
   depends_on "autoconf" => :build

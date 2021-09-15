@@ -13,6 +13,7 @@ class Clean < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "925b26f91800733aeda229bdaee74ecf4a70e1c94cb4e1b33ac3fc4f3948186d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "7a433c07eb3c8a3846d352ddf27a6ac32fdc6528b6b2e6212f78318ff0f04a6a"
     sha256 cellar: :any_skip_relocation, yosemite:      "f06ca56bca5a139222603fac5d84555a1af9812a2dd669e44501b2022a16eef8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68f82459bafc17933f5010fe2f35355f8d967809ae62d1ac91e13409f7baec88"
   end
 
   def install

@@ -6,7 +6,7 @@ class Wego < Formula
   url "https://github.com/schachmat/wego/archive/2.0.tar.gz"
   sha256 "d63d79520b385c4ed921c7decc37a0b85c40af66600f8a5733514e04d3048075"
   license "ISC"
-  head "https://github.com/schachmat/wego.git"
+  head "https://github.com/schachmat/wego.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2dd22ca29b4b1c7ffd10d9780a4db4dfb9db52dcef73ba07fe85f23a14aa472b"
@@ -17,6 +17,7 @@ class Wego < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "504d831a34c22ec006a610f7af4d11000708570513e5391e2077d021ca6b3758"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ccdba75878ffe9b62b49265f6f4b375da80f44e6c5b7c5a40294501fda8903b1"
     sha256 cellar: :any_skip_relocation, yosemite:      "97e7c2edfa9b1a312a0f4f4bce9553b1c8e884409aca3f7acfed2dc99fcef05d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48f143251c87b71fcfaedb410aace7b51d56127c882bc023a7c8f28458d8ef89"
   end
 
   depends_on "go" => :build

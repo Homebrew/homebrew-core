@@ -11,6 +11,7 @@ class Libgsf < Formula
     sha256 catalina:      "82a2fce8b091d204302919c7541a0ad21a28a24fe8ad8a5d4ae7f50f3f190349"
     sha256 mojave:        "a051f21e80044277fafb60264c915cb79ce5f64059e9737f7a15795bc79ad3c8"
     sha256 high_sierra:   "c2cb9985014c2c727abe935f113ab827e5a7af1e4376c27261897381fc87a2ba"
+    sha256 x86_64_linux:  "8b124567389a546101a177fb6d53322316102ae8192fb47f0c4011652f116dbb"
   end
 
   head do

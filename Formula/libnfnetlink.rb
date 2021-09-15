@@ -5,6 +5,10 @@ class Libnfnetlink < Formula
   sha256 "f270e19de9127642d2a11589ef2ec97ef90a649a74f56cf9a96306b04817b51a"
   license "LGPL-2.1-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4cc0401b5074648aba2b0140000ad7728fafd440f8d100d6c868b6f5a9f524aa"
+  end
+
   depends_on :linux
 
   def install

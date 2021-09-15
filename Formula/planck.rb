@@ -5,7 +5,7 @@ class Planck < Formula
   sha256 "58a3f9b0e3d776bc4e28f1e78a8ce6ab1d98149bebeb5c5328cc14345b925a1f"
   license "EPL-1.0"
   revision 2
-  head "https://github.com/planck-repl/planck.git"
+  head "https://github.com/planck-repl/planck.git", branch: "master"
 
   bottle do
     rebuild 1

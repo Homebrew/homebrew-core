@@ -10,6 +10,7 @@ class CyrusSasl < Formula
     sha256 big_sur:       "383f79bf7d14b883c1b60a1356f3b94e1194ee90ad34b58b722f7ba06b4751d2"
     sha256 catalina:      "15c3df25dde7304adaf9ab246f6387e08029c49bfe4a52726f0d3d1add0452c7"
     sha256 mojave:        "5db405a2496c27205077235e0074767ae35fab10946325f108b425332f6c5c5e"
+    sha256 x86_64_linux:  "bcb51adaeb42ea301684ac43c7e7158c2f0998723d9b36e01b9ebc033ce646d0"
   end
 
   keg_only :provided_by_macos

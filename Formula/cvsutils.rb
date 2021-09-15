@@ -5,6 +5,11 @@ class Cvsutils < Formula
   sha256 "174bb632c4ed812a57225a73ecab5293fcbab0368c454d113bf3c039722695bb"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.red-bean.com/cvsutils/releases/"
+    regex(/href=.*?cvsutils[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b2a9644fe70816d7ca61c0497ce3baad7a81596e69254cf9d7d775d9e430f7f9"
     sha256 cellar: :any_skip_relocation, big_sur:       "f7173229e45bd423c11d21800ddf636afdb0903fff09e0514b21a3065ce8fba3"
@@ -14,6 +19,7 @@ class Cvsutils < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d1f2e13e0df6dbb767a04f7e206114c119f9e6435f227e07e14b4d200e6aba8f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f8e35c8b0ed2db868e7dd12f653c20d7d2709059fb5a773fd49084a2655f4ca0"
     sha256 cellar: :any_skip_relocation, yosemite:      "ccefce4b4a1053e9a32e4f43318c7bf73c7154f0bee1be1cf1777e8fd3e8eabf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adc4162b5c2691b48d6a65ad467eb32c3139787c1de0d42439063b1f3cd6f57f"
   end
 
   def install

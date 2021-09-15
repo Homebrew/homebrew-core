@@ -5,6 +5,10 @@ class Libmnl < Formula
   sha256 "171f89699f286a5854b72b91d06e8f8e3683064c5901fb09d954a9ab6f551f81"
   license "LGPL-2.1-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1ece867c29037eab669864263d1c09e53a590f105916b86bcd9673c279eb6462"
+  end
+
   depends_on :linux
 
   def install

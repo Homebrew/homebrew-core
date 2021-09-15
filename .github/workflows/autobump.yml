@@ -1,0 +1,103 @@
+name: Bump formulae on schedule or request
+
+on:
+  workflow_dispatch:
+    inputs:
+      formulae:
+        description: Custom list of formulae to livecheck and bump if outdated
+        required: false
+  schedule:
+    # Every day at 5am
+    - cron: '0 5 * * *'
+
+env:
+  HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+  FORMULAE: |
+    ack
+    apidoc
+    argo
+    artifactory
+    b3sum
+    buildkit
+    bundletool
+    chezmoi
+    cliclick
+    consul
+    consul-template
+    detekt
+    detox
+    devspace
+    dnscrypt-proxy
+    docker
+    docker-compose
+    docker-slim
+    doctl
+    envconsul
+    etcd
+    fennel
+    fuse-overlayfs
+    gitleaks
+    gofish
+    golang-migrate
+    goreleaser
+    gostatic
+    hcloud
+    helm
+    helmfile
+    ircd-hybrid
+    jfrog-cli
+    just
+    k3d
+    k9s
+    keydb
+    kubeaudit
+    kumactl
+    kustomize
+    lazydocker
+    lexbor
+    liboqs
+    mdbook
+    mdcat
+    micro
+    minikube
+    mmctl
+    neofetch
+    nng
+    nomad
+    nushell
+    okteto
+    pnpm
+    skaffold
+    skopeo
+    starship
+    stress-ng
+    syncthing
+    teleport
+    termshark
+    terraform-ls
+    traefik
+    vale
+    virgil
+
+jobs:
+  autobump:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu16.04:master
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Configure Git user
+        uses: Homebrew/actions/git-user-config@master
+        with:
+          username: BrewTestBot
+
+      - name: Bump formulae
+        uses: Homebrew/actions/bump-formulae@master
+        continue-on-error: true
+        with:
+          token: ${{secrets.HOMEBREW_CORE_REPO_WORKFLOW_TOKEN}}
+          formulae: ${{github.event.inputs.formulae || env.FORMULAE}}

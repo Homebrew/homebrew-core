@@ -11,10 +11,11 @@ class Renameutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:     "503b84eed8791b4a924e61fdfb0ea53cb6d349fe8a55c43ab7582c1e2a0985ba"
-    sha256 cellar: :any, catalina:    "2ec48c66fea9f53acf2b2ba3b726e6f7a9ff35778a3fb574fc59e7c6d01f681a"
-    sha256 cellar: :any, mojave:      "4f360267cba9842ef85e9cfbb1baaf73e9576dccfb924aade7f0ad6bbf0bf605"
-    sha256 cellar: :any, high_sierra: "d25dc64bcc5d30e7695c65a93f7285849b57fdbdb18bf7d5e7bc22f0786cb14c"
+    sha256 cellar: :any, big_sur:      "503b84eed8791b4a924e61fdfb0ea53cb6d349fe8a55c43ab7582c1e2a0985ba"
+    sha256 cellar: :any, catalina:     "2ec48c66fea9f53acf2b2ba3b726e6f7a9ff35778a3fb574fc59e7c6d01f681a"
+    sha256 cellar: :any, mojave:       "4f360267cba9842ef85e9cfbb1baaf73e9576dccfb924aade7f0ad6bbf0bf605"
+    sha256 cellar: :any, high_sierra:  "d25dc64bcc5d30e7695c65a93f7285849b57fdbdb18bf7d5e7bc22f0786cb14c"
+    sha256               x86_64_linux: "1a7ddae9fa3352ec89e73c91eaabedc5e941e3e752fdf5afda5b5098fb65cd7c"
   end
 
   depends_on "coreutils"

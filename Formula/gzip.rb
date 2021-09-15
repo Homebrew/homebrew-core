@@ -1,18 +1,17 @@
 class Gzip < Formula
   desc "Popular GNU data compression program"
   homepage "https://www.gnu.org/software/gzip"
-  url "https://ftp.gnu.org/gnu/gzip/gzip-1.10.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gzip/gzip-1.10.tar.gz"
-  sha256 "c91f74430bf7bc20402e1f657d0b252cb80aa66ba333a25704512af346633c68"
+  url "https://ftp.gnu.org/gnu/gzip/gzip-1.11.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gzip/gzip-1.11.tar.gz"
+  sha256 "3e8a0e0c45bad3009341dce17d71536c4c655d9313039021ce7554a26cd50ed9"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d064cf47cc31ea7238c17f5305a5ddfb0e464e0ecd9591632a18264ddf3b98c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c5193bef2b9a7974a169d32fd4e2191ea55b60aa31c3da5c4e2f8e132c0f71f7"
-    sha256 cellar: :any_skip_relocation, catalina:      "903289308ce89ae70f3f8116738834d2c18fed8c248c1da82fde69cdca2b34a9"
-    sha256 cellar: :any_skip_relocation, mojave:        "9391f27b1cf04c20abb2320ba55e1f8ac186db22b7c07bf51ebccfab073f85dd"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "d639fe5a95eb7c0e12aa1577ca9b230cdbbd31b0ef51794d57415f9a9fa68f08"
-    sha256 cellar: :any_skip_relocation, sierra:        "bfd50566283402c72d15cd87670a3fd8ea122ebbaf583bc8cfafc552340ecf70"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d996baa1c8f5384514e0a8ba4945cf07012664cfb481f2c9f7309d30053d5844"
+    sha256 cellar: :any_skip_relocation, big_sur:       "46d768ebba1aa240540fd620fe856d259b8e316567204b7002052dd6a6241696"
+    sha256 cellar: :any_skip_relocation, catalina:      "50c51fd0770177e688cf98f358b2383e2ebe250b0bd8bf25def80a1b8da1c318"
+    sha256 cellar: :any_skip_relocation, mojave:        "2eae57977bdfcade27141c865d01aac1ace6be66828e9e0294f12a473fd7a35d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7993153f7f73005baf13fa6ab5b1dfe011fdd92c188d4cd69aad9bee98e432de"
   end
 
   def install

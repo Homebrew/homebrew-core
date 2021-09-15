@@ -11,6 +11,7 @@ class Mkcert < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4dc2370651718c72f2484c81a6dd5813cb7fcf6a5ec6bb1bee94e1720d23d412"
     sha256 cellar: :any_skip_relocation, catalina:      "92ac9e87e65741d1cadb0372b259291dcd726fe1048715cfc993053cb62273e1"
     sha256 cellar: :any_skip_relocation, mojave:        "49c14e8620ffb1dc44d587eea2a6c329bac516f24d209d08b656b0c21af4e3ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8d0c2399c57a86fdcd2c46b043cf29ed9e7636dc0320dcbedcee1b8a30a125f"
   end
 
   depends_on "go" => :build

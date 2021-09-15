@@ -1,11 +1,21 @@
 class PamU2f < Formula
   desc "Provides an easy way to use U2F-compliant authenticators with PAM"
   homepage "https://developers.yubico.com/pam-u2f/"
-  url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.1.0.tar.gz"
-  sha256 "0dc3bf96ebb69c6e398b5f8991493b37a8ce1af792948af71e694f695d5edc05"
   license "BSD-2-Clause"
-  revision 1
-  head "https://github.com/Yubico/pam-u2f.git"
+  head "https://github.com/Yubico/pam-u2f.git", branch: "master"
+
+  # remove stable block on next release with merged patch
+  stable do
+    url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.1.1.tar.gz"
+    sha256 "b7d62340c4f49e19cca93a0d0f398e48befd3eea8f1d70cebb7f8b71f3bce38a"
+
+    # fix clang failure: `ld: unknown option: --wrap=strdup`
+    # remove in the next release
+    patch do
+      url "https://github.com/Yubico/pam-u2f/commit/5e5d600e557decbfc8c7b59b2dc165591bf7f1e5.patch?full_index=1"
+      sha256 "50a72cc10981713ea57fe2bacb547444d5c027cb79e9d58bb41e3616dd661737"
+    end
+  end
 
   livecheck do
     url "https://developers.yubico.com/pam-u2f/Releases/"
@@ -13,11 +23,10 @@ class PamU2f < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "506a178827a1b2b381815ba1a8ae693b0fcb68a6eb452044d2bd4adc1690154d"
-    sha256 cellar: :any, big_sur:       "f839f2092a454245e7d803c2173963be8eb084574707205277121d9047ec870b"
-    sha256 cellar: :any, catalina:      "cdc5fa2db8788501c8fe8c9142bc0686d5ad2b1e7c3cfb4dc35d95788cb58485"
-    sha256 cellar: :any, mojave:        "30cc76b0b4d582c076c9fed1ed880442b67b987973b57fd52e26a93356e5eef6"
-    sha256 cellar: :any, high_sierra:   "bfd1309cb6deff47c4473b0af86f645b0ee29eca712ebce67d031b770f742a24"
+    sha256 cellar: :any, arm64_big_sur: "afbea7ee93de559b1016b5a128d84b86c9d65cd8455a8238426959072839ae17"
+    sha256 cellar: :any, big_sur:       "6ac33b7d279a3362d62f9cb4573f3e32ba1d35569af5b555076bc273d077b0fa"
+    sha256 cellar: :any, catalina:      "13c6da51067328a93496e0c652f545f7f5a3e5aabf20129eff6c19ae66a841df"
+    sha256 cellar: :any, mojave:        "cbe60bcdf75fae3dc7c55f05cfcf19096b3099fe881e36d564b07526edfcea3b"
   end
 
   depends_on "asciidoc" => :build
@@ -26,8 +35,6 @@ class PamU2f < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libfido2"
-  depends_on "libu2f-host"
-  depends_on "libu2f-server"
 
   def install
     system "autoreconf", "--install"

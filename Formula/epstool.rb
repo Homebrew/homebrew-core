@@ -16,6 +16,7 @@ class Epstool < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "3ef026d6cc575da86e43741df6a9f5419269bea22e8db6c6296811112678c690"
     sha256 cellar: :any_skip_relocation, mojave:        "497608077aea90c569aab7929a8a9ea19d91ba70f4743d982bcb63c1d3a48d7b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "47ab226f0e5d93a3b91b43d519de370d046410946e280958ef9106fdbc4ef115"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c42db9d44c6ab04a5a969520692384bfe13b3c7c8e93d0fd47fae36b8cb59eb"
   end
 
   depends_on "ghostscript"

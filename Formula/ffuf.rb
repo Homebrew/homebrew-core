@@ -10,6 +10,7 @@ class Ffuf < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ccb35a18f2cdc4b3b0fe847b1a6fc89fce8744701aaf39fec630454c5e72b285"
     sha256 cellar: :any_skip_relocation, catalina:      "8d2faa6265f9c7703ad6f8d05abdb0d0a711b8e93db162fb205e46cfe577e920"
     sha256 cellar: :any_skip_relocation, mojave:        "fa307cbcfc231d2016659b76e8542f109377bfc4e865f1cff04825a608240e66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1aacb47fa59ac3de77745e7f23772950818b7f7fd462a8a44d90eb203d0ee27"
   end
 
   depends_on "go" => :build

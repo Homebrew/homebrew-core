@@ -4,16 +4,19 @@ class Cgrep < Formula
   url "https://github.com/awgn/cgrep/archive/v6.6.33.tar.gz"
   sha256 "f0d7114e9c26dc3ff3515711cce63864f3995ac06ed3743acf2560fc5a1eb78e"
   license "GPL-2.0-or-later"
-  head "https://github.com/awgn/cgrep.git"
+  head "https://github.com/awgn/cgrep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "4047191dea7a4ed298ec2b30bd9cd1a50b4a06f6cc6ab8c595a02df722c4cfa5"
-    sha256 cellar: :any, catalina: "917b7ccec03d60ae5fcd80da9544cd294db6d188ae7b14a894a39a51dd5459e1"
-    sha256 cellar: :any, mojave:   "0a3945e411e44e59e77e423caf8e445a6dbe06fef7724abb12612ae888707280"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "fad4cc03f990a4aa7488d89f306766e5a496adc92431c5b5de80e0f8c4d33a73"
+    sha256 cellar: :any,                 big_sur:       "cdb29911007db234f2480b8f4d7958a024f14d33c219b9de134fcc335d39357a"
+    sha256 cellar: :any,                 catalina:      "75e4aa890057e43801be25ca61531c74b22b8685a3ada1032c270b740e9a9cda"
+    sha256 cellar: :any,                 mojave:        "83e3c982a030617bc8d4b2dd329170e2c8ad7d77d40f715ecb83f7bdcba86135"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3b1169d4c9e8643d7b613bb7f9b16e7d773d65de726fbac7dc85323580b2f06"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.8" => :build
+  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre"
 

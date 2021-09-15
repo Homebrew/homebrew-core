@@ -5,6 +5,10 @@ class Numactl < Formula
   sha256 "826bd148c1b6231e1284e42a4db510207747484b112aee25ed6b1078756bcff6"
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", :public_domain, :cannot_represent]
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5684c37cc45e777cecb121708cbf2a18c879c4fdc31ad60d542d0c6f21fb3af8"
+  end
+
   depends_on :linux
 
   def install

@@ -1,11 +1,11 @@
 class Chuck < Formula
   desc "Concurrent, on-the-fly audio programming language"
   homepage "https://chuck.cs.princeton.edu/"
-  url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.0.1.tgz"
-  mirror "http://chuck.stanford.edu/release/files/chuck-1.4.0.1.tgz"
-  sha256 "11a20c34b385e132bf43d5ae6a562c652f631828cc6b1562a4c029bc9a850ed4"
+  url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.1.0.tgz"
+  mirror "http://chuck.stanford.edu/release/files/chuck-1.4.1.0.tgz"
+  sha256 "74bf99ad515e3113c55b833152936fad02a3cf006a54105ff11777c473194928"
   license "GPL-2.0-or-later"
-  head "https://github.com/ccrma/chuck.git"
+  head "https://github.com/ccrma/chuck.git", branch: "main"
 
   livecheck do
     url "https://chuck.cs.princeton.edu/release/files/"
@@ -13,20 +13,13 @@ class Chuck < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f22a34388deb237f78a2197aede95396de6b15f629c92969b75f326f004ee815"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0d7d491edff5d042134f2930bc4d66ed6c2a00f727ef3b9db26970b8f68a9c41"
-    sha256 cellar: :any_skip_relocation, catalina:      "dda91ec418bd79160d2e9167e5096f9a81075558fcf8943e509c355c5e827e98"
-    sha256 cellar: :any_skip_relocation, mojave:        "524a64579b8132a18d7a0ad9edd200a623ac954a72663b4ac229958e7a64541e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "15d78dc288ef27e39e5440230eee351b8bdd5b9a3600d4a3091b5449301ecaa4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f0c77148d868e250d5de2e454fa57b63d652c139017bbecdab93bb3083e15a27"
+    sha256 cellar: :any_skip_relocation, catalina:      "c5d475570562295a5ffd68ea6f43444ec6ca35c21d39d851e2dfda605d0f4d8e"
+    sha256 cellar: :any_skip_relocation, mojave:        "479931bcc4ed8b29d80ec7f259f01f113ac5f6a6a75be3228bca9c018b0ffe3d"
   end
 
   depends_on xcode: :build
-
-  # Big Sur compile fix https://github.com/ccrma/chuck/pull/158
-  patch do
-    url "https://github.com/ccrma/chuck/commit/51f8dfa2a6d0cf2fc8f39760cae8a754ccdaaee5.patch?full_index=1"
-    sha256 "f3853d6d107fe7ccd235ef5e02eb396f58ce55bb9e7ac7bd4043146af9d08536"
-  end
 
   def install
     system "make", "-C", "src", "osx"

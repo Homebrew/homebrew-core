@@ -17,6 +17,7 @@ class Ucommon < Formula
     sha256 high_sierra:   "650bda43b289012df676190269cde7bb3be3e1337f4f2eddc6f472ae38bbda1c"
     sha256 sierra:        "0546fbc44ac1e17d8757b41a67b2d68b15bc872b4b19fea649e5d7fe54a4d2d4"
     sha256 el_capitan:    "57756d7809936ed885ef8fc7a284498ab12a5be6cc1ad41ad148dd45074fc322"
+    sha256 x86_64_linux:  "f3624d1bf63f84175560167e9887d9fa88533aad863e697894683214091acb5b"
   end
 
   depends_on "pkg-config" => :build

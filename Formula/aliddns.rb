@@ -2,16 +2,17 @@ class Aliddns < Formula
   desc "Aliyun(Alibaba Cloud) ddns for golang"
   homepage "https://github.com/OpenIoTHub/aliddns"
   url "https://github.com/OpenIoTHub/aliddns.git",
-      tag:      "v0.0.9",
-      revision: "37e4f959092b0c286019cab29ce36a0e434c6455"
+      tag:      "v0.0.12",
+      revision: "adcb7cc3b57c254a43f696bd83122cc693cc7ad0"
   license "MIT"
-  head "https://github.com/OpenIoTHub/aliddns.git"
+  head "https://github.com/OpenIoTHub/aliddns.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "16e5bfb49b749adb380450cde6092020afd9ef4d6ed3fa030c8c6ede11a6bf9d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cb06193d5ebd8d4faa2e358f6d40589653a0a593e7265e21dfc15bfc99816cab"
-    sha256 cellar: :any_skip_relocation, catalina:      "5bb2c74ba522eaf8713fb5c04b5e726e0bca16c4cfc406d7b4523187646acfdb"
-    sha256 cellar: :any_skip_relocation, mojave:        "a5f4c51abd1deb28e02f1dc97ea2fb4bcde0d297e0da9d6c5a3b4cfb0bf6c135"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0dc04fa8aaf8dd3d48798a71300ddf0f4bb905fe2b97875e9734b7ac15c40218"
+    sha256 cellar: :any_skip_relocation, big_sur:       "af588333775b8a9b61968c14ea722882ec52a834550ca6821a4e6ae2ce1f97ad"
+    sha256 cellar: :any_skip_relocation, catalina:      "d2d282a93938640e7faa06e7e64c60650ff6f49e7e277a2a479c43254a00d903"
+    sha256 cellar: :any_skip_relocation, mojave:        "96a9f4243220aca10644e05801a43069fd9516f0b5f2dc2493c2fe5828f816bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f429badf39c7ff53bbb5f9ab029c90d02fab0d30bf8321ca3d23fb2c75416540"
   end
 
   depends_on "go" => :build

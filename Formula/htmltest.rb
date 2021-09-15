@@ -10,16 +10,17 @@ class Htmltest < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "56ada97849ef9e1c525838c0739c6034ea92c560576b18a22ce3089eba7cc340"
     sha256 cellar: :any_skip_relocation, catalina:      "046159e1bc0d2c590a9f38c00fe9628e8abd2ac5c5797f3bcd33c8387c21c378"
     sha256 cellar: :any_skip_relocation, mojave:        "496943d4cd10178d81ee420902f36e3691f7a97ac65ded868f88631235ac71c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c48eee74bcc5f63eac4bdaf9f07ef57c49fe1a80d7c7f49f49bdcd84363ca45d"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -X main.date=#{Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")}
+      -X main.date=#{time.iso8601}
       -X main.version=#{version}
     ].join(" ")
-    system "go", "build", *std_go_args, "-ldflags", ldflags
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do

@@ -11,6 +11,7 @@ class Xbitmaps < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "1f2ba4ed5d9c1347ae66b5721a0fc91fd63332a1602b6e6fd0899491e5e33bb9"
     sha256 cellar: :any_skip_relocation, mojave:        "012d091ea559b0d3fae3449d1f18b2ea05beb3ac2363b3bd67d5b27bc3b4567e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "2f3a3dbeeca8256a15c7902b5028791706cc999d9d7e1e080a940aa68c0622b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "083e1b56937bfb054ca53d8dac51201d2a7a8600ea550f13ee39a1809969313d"
   end
 
   depends_on "pkg-config" => :build

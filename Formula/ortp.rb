@@ -1,27 +1,27 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://www.linphone.org/technical-corner/ortp"
-  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.5.13/ortp-4.5.13.tar.bz2"
-  sha256 "57083126b4435c403d827408903266bba922eabec0dac64c037b5d6aba4ed0ed"
+  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.0.22/ortp-5.0.22.tar.bz2"
+  sha256 "103ce29e310fbb86d261acda9f6a505389247a82096c5666818f25ba3ad7079b"
   license "GPL-3.0-or-later"
-  head "https://gitlab.linphone.org/BC/public/ortp.git"
+  head "https://gitlab.linphone.org/BC/public/ortp.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "fa8bae5fcd6a930bf99e9e01bda2ef67b3af5316ca4991a9b59882ab6a1bf6c5"
-    sha256 big_sur:       "f00a002a02525c10e8ba8d47d6fe07b70a2c4065e66056735a5a3ba2de91859d"
-    sha256 catalina:      "ccb38d638b93297930e67dca4332b01f9d70e9b6410247b1808f9226494bcd7b"
-    sha256 mojave:        "7473eadec99209aa2b2cda6d81f658d6437157a28cfc168324babdc8475a9f31"
+    sha256 cellar: :any, arm64_big_sur: "a41f8a27984e61f7b90ce501b6ef4d7cf90a02816668396f58dbe11a4efe3aac"
+    sha256 cellar: :any, big_sur:       "710e7827d6808dc2cadd9a867c84b42cbb2dc856fb2ee0c1e79056164f4624a8"
+    sha256 cellar: :any, catalina:      "28b8267133f9d77be72851361454cb09e90a67bfa472aedaf0ace33f4862cdbd"
+    sha256 cellar: :any, mojave:        "98cbf54721d04bb914fe0235dc0eede809fe89b6fc085d36e3af9098607d8616"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "mbedtls"
+  depends_on "mbedtls@2"
 
   # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
   # https://github.com/BelledonneCommunications/bctoolbox
   resource "bctoolbox" do
-    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/4.5.13/bctoolbox-4.5.13.tar.bz2"
-    sha256 "05510aae43ba23d3443d6380fd6a23627f9db0bf940209fc9f09934779383014"
+    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.0.22/bctoolbox-5.0.22.tar.bz2"
+    sha256 "a9fcc7d617d001a9b035ff0834b2346a4a05a2d52f5af141a716f035bb8d1ff8"
   end
 
   def install

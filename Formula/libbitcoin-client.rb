@@ -4,14 +4,14 @@ class LibbitcoinClient < Formula
   url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.6.0.tar.gz"
   sha256 "75969ac0a358458491b101cae784de90452883b5684199d3e3df619707802420"
   license "AGPL-3.0"
-  revision 6
+  revision 7
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "9ec8c3681172a8043fbb24a321b2b07fbc100073a6bf6fd65d089389ef954b45"
-    sha256 cellar: :any, big_sur:       "8bfcea7f689c6fc88052ce69aba9d4f6697ebd87b437254c14a1fd42ffbc5cfa"
-    sha256 cellar: :any, catalina:      "536dcc26e62ab4b2f302e197e44976ef594da699aff73243581f6dbb723bf007"
-    sha256 cellar: :any, mojave:        "53775e2543b62055f7fa37824c51582e06999db7ae6e1934828e3f14165716b7"
+    sha256 cellar: :any,                 arm64_big_sur: "1436d1f380bb51199a8b92053c9822e314c0febac9bc8757bf0f4c51fbcc7798"
+    sha256 cellar: :any,                 big_sur:       "8c0a09aefcaf36a2b9831884c7ce698d2ad533f3aca8b4d30a4f63611022535a"
+    sha256 cellar: :any,                 catalina:      "d44ec063ad2da0e31a12d9f59c65962b03e60c1fedfbe002b62dbae6cedc727a"
+    sha256 cellar: :any,                 mojave:        "fed0d06847db159818373b9c8845f185dc58dbeaa761f0f8a8bc6267f3b4030a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2f962444775e331d8e13c937a16ea977b1080c32a2c10750bd304de03e4719e"
   end
 
   depends_on "autoconf" => :build
@@ -21,6 +21,7 @@ class LibbitcoinClient < Formula
   depends_on "libbitcoin-protocol"
 
   def install
+    ENV.cxx11
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
 
     system "./autogen.sh"
@@ -32,6 +33,7 @@ class LibbitcoinClient < Formula
   end
 
   test do
+    boost = Formula["boost"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/client.hpp>
       class stream_fixture
@@ -91,7 +93,7 @@ class LibbitcoinClient < Formula
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-lbitcoin-client",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
+                    "-L#{boost.opt_lib}", "-lboost_system"
     system "./test"
   end
 end

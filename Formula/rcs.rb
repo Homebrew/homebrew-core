@@ -12,7 +12,10 @@ class Rcs < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "a16720713ee2f30c3f126ca4716b4df5e1e5e68c24d31fd93ea312c2900d2b4f"
     sha256 cellar: :any_skip_relocation, mojave:        "fddb77e2b68d2f0f4f8264d7c44127cb0bd407a275e4123f5096f89be4734fa7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f429e435048ad65275519c990aa4c2c437fd3b5d682865c057fe7f001e93946f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ee1b4c1918545b5dfe786e9f3fb11a58d4da85ef4796fdc8fd925c7b7ae2d39"
   end
+
+  uses_from_macos "ed" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",

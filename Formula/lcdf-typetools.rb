@@ -3,7 +3,7 @@ class LcdfTypetools < Formula
   homepage "https://www.lcdf.org/type/"
   url "https://www.lcdf.org/type/lcdf-typetools-2.108.tar.gz"
   sha256 "fb09bf45d98fa9ab104687e58d6e8a6727c53937e451603662338a490cbbcb26"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/kohler/lcdf-typetools.git"
 
   livecheck do
@@ -18,6 +18,7 @@ class LcdfTypetools < Formula
     sha256 mojave:        "0fd983396dbcf027e560753e6f25797500d085762edcf59a1a2034cd55c24cfd"
     sha256 high_sierra:   "cdff1c16d03fd920033f85dd2e2180f91791057729fbd26b6f193ac7cd0ce9f4"
     sha256 sierra:        "2bfe28f9e869eec676cada56bcf6efe97024e0e1f93b126a7b26ac2a292db2af"
+    sha256 x86_64_linux:  "ba34cee40d5450d1deba4434cc43458d5407ef47b9f0563530b04dfac8fadc7a"
   end
 
   def install
@@ -28,7 +29,12 @@ class LcdfTypetools < Formula
   end
 
   test do
-    font_name = (MacOS.version >= :catalina) ? "Arial\\ Unicode.ttf" : "Arial.ttf"
-    assert_includes shell_output("#{bin}/otfinfo -p /Library/Fonts/#{font_name}"), "Arial"
+    font_name = (MacOS.version >= :catalina) ? "Arial Unicode" : "Arial"
+    font_dir = "/Library/Fonts"
+    on_linux do
+      font_name = "DejaVuSans"
+      font_dir = "/usr/share/fonts/truetype/dejavu"
+    end
+    assert_includes shell_output("#{bin}/otfinfo -p '#{font_dir}/#{font_name}.ttf'"), font_name.delete(" ")
   end
 end

@@ -3,12 +3,7 @@ class Qtfaststart < Formula
   homepage "https://libav.org/"
   url "https://libav.org/releases/libav-12.3.tar.gz"
   sha256 "115b659022dd387f662e26fbc5bc0cc14ec18daa100003ffd34f4da0479b272e"
-  license "LGPL-2.1"
-
-  livecheck do
-    url "https://libav.org/releases/"
-    regex(/href=.*?libav[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  license :public_domain
 
   bottle do
     rebuild 1
@@ -17,7 +12,11 @@ class Qtfaststart < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "abce3f470e0a8b62acd78aa2c58114a3e5b64d7b2117d8ffbaadc23c4eee186e"
     sha256 cellar: :any_skip_relocation, mojave:        "2fac027c66defdafcbaee5b346fd5c5e6c11b5e9a267de40d604b8e837f5d2c4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "073794a6af64b0fe9f2bc22480b4c605f9497c5ae9087d26fa8e51bdc0230b00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f62d45afa6c9944b5e6bcb230cc299c082284900b11b425aec88b04ccab5a52b"
   end
+
+  # See: https://lists.libav.org/pipermail/libav-devel/2020-April/086589.html
+  deprecate! date: "2020-04-16", because: :unmaintained
 
   resource "mov" do
     url "https://github.com/van7hu/fanca/raw/master/examples/kmplayer/samples/H264_test4_Talkingheadclipped_mov_480x320.mov"
@@ -32,8 +31,8 @@ class Qtfaststart < Formula
   test do
     input = "H264_test4_Talkingheadclipped_mov_480x320.mov"
     output = "out.mov"
-    resource("mov").stage testpath
-    system "#{bin}/qt-faststart", input, output
+    resource("mov").stage { testpath.install Dir["*"].first => input }
+    system bin/"qt-faststart", input, output
 
     assert_predicate testpath/output, :exist?
   end

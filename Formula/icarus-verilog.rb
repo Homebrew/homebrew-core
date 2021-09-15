@@ -4,7 +4,7 @@ class IcarusVerilog < Formula
   url "https://github.com/steveicarus/iverilog/archive/v11_0.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_11.0.orig.tar.gz"
   sha256 "6327fb900e66b46803d928b7ca439409a0dc32731d82143b20387be0833f1c95"
-  license "LGPL-2.1"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/steveicarus/iverilog.git"
 
   livecheck do
@@ -19,9 +19,13 @@ class IcarusVerilog < Formula
     sha256 catalina:      "99791a3fd0891487586c49112fa3293e65320e651bbf9c03f15a58b456e96e6e"
     sha256 mojave:        "92851adfb43caad0826da2bf74706c15e6fffc2e32b2b003e19659b0e6a4542b"
     sha256 high_sierra:   "a92f6fe981238a8c2b9f47b99d77c1e8596bc74235b8f6601835aae8f9ad70a1"
+    sha256 x86_64_linux:  "edee1d331189156e7929b50aa7c7515ad15e8721650d936028905aade9e8fccb"
   end
 
-  depends_on "autoconf" => :build
+  # support for autoconf >= 2.70 was added after the current release
+  # switch to `autoconf` in the next release
+  # ref: https://github.com/steveicarus/iverilog/commit/4b3e1099e5517333dd690ba948bce1236466a395
+  depends_on "autoconf@2.69" => :build
   # parser is subtly broken when processed with an old version of bison
   depends_on "bison" => :build
 

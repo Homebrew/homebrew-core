@@ -7,6 +7,11 @@ class Jbigkit < Formula
   license "GPL-2.0"
   head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit", using: :git
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?jbigkit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cda73dea9c469f1ad380c7fe90b75dfe22d1dcc9ba51593ba59493656cf76c94"
     sha256 cellar: :any_skip_relocation, big_sur:       "568ea0a6734dc1da5d50b5261f43753f7cf1089fae9c786e7859a8ec22562144"
@@ -16,6 +21,7 @@ class Jbigkit < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "831dd1ec7e8013ddc6c23641a21292eae26f397e8b61d95382a6240f18fc5602"
     sha256 cellar: :any_skip_relocation, el_capitan:    "bdec08cd92dd59183b698c6bbd9072881fdfce64b4ecb6182e405e0f2ad26c00"
     sha256 cellar: :any_skip_relocation, yosemite:      "764396342e87b84253aa06f5046f90c778cacca998ce970900cb2fdf1cfdc3fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d787da566c3d674b9ebc93fcf4291ca28325366fad703f3a90451bd6fbfbac1"
   end
 
   conflicts_with "netpbm", because: "both install `pbm.5` and `pgm.5` files"

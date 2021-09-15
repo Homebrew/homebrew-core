@@ -1,8 +1,8 @@
 class MesaGlu < Formula
   desc "Mesa OpenGL Utility library"
   homepage "https://cgit.freedesktop.org/mesa/glu"
-  url "ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz"
-  sha256 "fb5a4c2dd6ba6d1c21ab7c05129b0769544e1d68e1e3b0ffecb18e73c93055bc"
+  url "ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.2.tar.xz"
+  sha256 "6e7280ff585c6a1d9dfcdf2fca489251634b3377bfc33c29e4002466a38d02d4"
   license any_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "MIT", "SGI-B-2.0"]
 
   livecheck do
@@ -11,11 +11,11 @@ class MesaGlu < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "00b310b416ecb09febaca37fb246881c561ebea6dbe8676e7c46df7f76527261"
-    sha256 cellar: :any, big_sur:       "24874c910bd660366bdc961cf94cfc96a32b372993cffc02e6de5cfb2f14fe05"
-    sha256 cellar: :any, catalina:      "977fc1911d5d0334c56b9d287de0ee2f716fc23b5fde21404415bf89ce46cfce"
-    sha256 cellar: :any, mojave:        "ddfad217be6c1f0ea8f22d17348d901ad999365a01f824ab6f51a911eee654e1"
-    sha256 cellar: :any, high_sierra:   "598992b552b004eb5e06460a3c84de6ff39f6d7a7112be2819f99280d33f3fa9"
+    sha256 cellar: :any,                 arm64_big_sur: "07d2c0050058be9863654a240e70e838d8d497851f1f2bc116adc423b39fd247"
+    sha256 cellar: :any,                 big_sur:       "3fb17496bb13be70cbe441a71f77e61162bb8b01a3464d2792e8c72b1cfd31c5"
+    sha256 cellar: :any,                 catalina:      "191fec3a0b20031d5197dadf5cd64b6e2412db945e1ae5538fd324f3d98b483b"
+    sha256 cellar: :any,                 mojave:        "ea8524776d19e7dd04be3961865efae25e775fc252c9b28585f3da502a4b3d5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bec2f7c24c06aa55e01a60af4baacec6e1bb91d2804585cafb6096f8259409df"
   end
 
   head do

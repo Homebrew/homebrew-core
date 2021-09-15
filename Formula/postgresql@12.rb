@@ -1,8 +1,8 @@
 class PostgresqlAT12 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v12.7/postgresql-12.7.tar.bz2"
-  sha256 "8490741f47c88edc8b6624af009ce19fda4dc9b31c4469ce2551d84075d5d995"
+  url "https://ftp.postgresql.org/pub/source/v12.8/postgresql-12.8.tar.bz2"
+  sha256 "e26401e090c34ccb15ffb33a111f340833833535a7b7c5cd11cd88ab57d9c62a"
   license "PostgreSQL"
 
   livecheck do
@@ -11,10 +11,11 @@ class PostgresqlAT12 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "e8595744675d3d3ab1a7143198d50942eb74fb31d9eb91361dcbbd7450dc25b4"
-    sha256 big_sur:       "5a08c1b49dcc32f0e4b85b984f5e164eac9c16d98dd95b973b5b4eac57282c1b"
-    sha256 catalina:      "42fe02daa080f0a905fa4434c7af1fe2254fb0e1a3566ffcdcaff1930092d28a"
-    sha256 mojave:        "92693a4b81886203bf1ff8066a19e8b8a604a011db8765643e617e20d7c98e4b"
+    sha256 arm64_big_sur: "a494078486e4cd7669947928da386f1a28a7a30af2c912d58bf5100c35cd99cc"
+    sha256 big_sur:       "a774bc0a57c5352c656601267c0b14e8050375eed5fd7f1f10ba63e2b32b73cc"
+    sha256 catalina:      "415ceeef4d4c3fe947ae7e2e6052afeaef5bf1030bba4eec266862426d0100b2"
+    sha256 mojave:        "dd4acba981cefba1e0afed9523787b5a865e9e617b227f3e3b74a35b649ba643"
+    sha256 x86_64_linux:  "4bb4bf85f10336e20ce903f91125ce24efe7dd25b8c9d6e444cd3de156ed3581"
   end
 
   keg_only :versioned_formula
@@ -32,7 +33,6 @@ class PostgresqlAT12 < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
-  uses_from_macos "krb5"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "openldap"
@@ -56,7 +56,6 @@ class PostgresqlAT12 < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
       --with-gssapi
       --with-icu
       --with-ldap
@@ -65,9 +64,14 @@ class PostgresqlAT12 < Formula
       --with-openssl
       --with-pam
       --with-perl
-      --with-tcl
       --with-uuid=e2fs
     ]
+    if OS.mac?
+      args += %w[
+        --with-bonjour
+        --with-tcl
+      ]
+    end
 
     # PostgreSQL by default uses xcodebuild internally to determine this,
     # which does not work on CLT-only installs.
@@ -87,6 +91,12 @@ class PostgresqlAT12 < Formula
                                     "pkgincludedir=#{include}/postgresql",
                                     "includedir_server=#{include}/postgresql/server",
                                     "includedir_internal=#{include}/postgresql/internal"
+
+    if OS.linux?
+      inreplace lib/"postgresql/pgxs/src/Makefile.global",
+                "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
+                "LD = #{HOMEBREW_PREFIX}/bin/ld"
+    end
   end
 
   def post_install
@@ -172,35 +182,12 @@ class PostgresqlAT12 < Formula
     caveats
   end
 
-  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@12 start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/postgres</string>
-          <string>-D</string>
-          <string>#{postgresql_datadir}</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardOutPath</key>
-        <string>#{postgresql_log_path}</string>
-        <key>StandardErrorPath</key>
-        <string>#{postgresql_log_path}</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"postgres", "-D", var/"postgresql@12"]
+    keep_alive true
+    log_path var/"log/postgresql@12.log"
+    error_log_path var/"log/postgresql@12.log"
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

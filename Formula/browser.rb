@@ -11,6 +11,8 @@ class Browser < Formula
   end
 
   def install
+    # https://gist.github.com/defunkt/318247#gistcomment-3760018
+    inreplace "browser", "open", "xdg-open" if OS.linux?
     bin.install "browser"
   end
 

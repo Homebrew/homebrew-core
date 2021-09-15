@@ -20,6 +20,7 @@ class Figlet < Formula
     sha256 sierra:        "c53966c742bf88b8481f6ed0bde1a951ea11185af2c631fb02b84fa7120f2e17"
     sha256 el_capitan:    "943067dae95de58518b20334aec401cf5fd24866ff77315c0d7bd8b5d4ab0011"
     sha256 yosemite:      "0a1b051fb0143dbfca1da36c83eca8580c215ff155e0dc755a924ce1f53a4b46"
+    sha256 x86_64_linux:  "94ef53c9339ca8a3da5a92168fde47b97bdb992c8dfe6b6603f79bbe07a8acff"
   end
 
   resource "contrib" do

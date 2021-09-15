@@ -4,7 +4,7 @@ class Clog < Formula
   url "https://gothenburgbitfactory.org/download/clog-1.3.0.tar.gz"
   sha256 "fed44a8d398790ab0cf426c1b006e7246e20f3fcd56c0ec4132d24b05d5d2018"
   license "MIT"
-  head "https://github.com/GothenburgBitFactory/clog.git", branch: "1.4.0", shallow: false
+  head "https://github.com/GothenburgBitFactory/clog.git", branch: "1.4.0"
 
   livecheck do
     url "https://gothenburgbitfactory.org"
@@ -20,6 +20,7 @@ class Clog < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "97e07b94ea058c766f4d036cc503fc6ec08ca64cddced33d63723e4611534595"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8f42168b8e165c4c1f1265b410ef62087b370075cc27269f1908eb0f373645c5"
     sha256 cellar: :any_skip_relocation, yosemite:      "a6c42c7d0795252434a3e1fc0307fc40490a4f29a9186408fa3ed7d82ba5f02e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74b571a8740f2d0d8798ed8ee046d9239404ec6789987b98eb48b25c122c00e3"
   end
 
   depends_on "cmake" => :build

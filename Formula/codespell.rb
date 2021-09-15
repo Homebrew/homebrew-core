@@ -3,15 +3,16 @@ class Codespell < Formula
 
   desc "Fix common misspellings in source code and text files"
   homepage "https://github.com/codespell-project/codespell"
-  url "https://files.pythonhosted.org/packages/f3/d1/0553aad57ca850516c2a666690fd818fa9e80f1293e460be976eee4dcc86/codespell-2.0.0.tar.gz"
-  sha256 "dd9983e096b9f7ba89dd2d2466d1fc37231d060f19066331b9571341363c77b8"
+  url "https://files.pythonhosted.org/packages/26/37/c524f1750635cb8806240013af1fd4147a60019f9a80e788759e3d2fb644/codespell-2.1.0.tar.gz"
+  sha256 "19d3fe5644fef3425777e66f225a8c82d39059dcfe9edb3349a8a2cf48383ee5"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "75ab1ae15931e2358946065d9d9b53ec0a11516de94e69def4b097933207372e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c593fceba8be94074570221a350741dc1f11929f5c1176197e3962f34fb46363"
-    sha256 cellar: :any_skip_relocation, catalina:      "2d338cbcf31abc4712005bca0cd59543403a1525a24952b14fadc6592c2c7791"
-    sha256 cellar: :any_skip_relocation, mojave:        "c53e89d6f26521dac01d2f26952674a12228e8f70070c9a02abd0c31744d2128"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4d9b687cd4c5a54e31afc47b6c4e33e06f8408fda2d8a0ccc64172b82f83d1fe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bffb02505b16322acbf427d6aeaa7e0cd6dc13a62a4c6db6475a1560b98df76d"
+    sha256 cellar: :any_skip_relocation, catalina:      "bffb02505b16322acbf427d6aeaa7e0cd6dc13a62a4c6db6475a1560b98df76d"
+    sha256 cellar: :any_skip_relocation, mojave:        "bffb02505b16322acbf427d6aeaa7e0cd6dc13a62a4c6db6475a1560b98df76d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "000d9a448e8009aab61532ef00642afbef2baa61a70271f49793627bb9cfc5e3"
   end
 
   depends_on "python@3.9"

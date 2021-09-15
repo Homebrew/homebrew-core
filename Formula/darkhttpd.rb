@@ -10,6 +10,7 @@ class Darkhttpd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "1643b2894325e4ed51b6007c1f1c6a935cc0780f48f3d953620d7b0ab50d6dbc"
     sha256 cellar: :any_skip_relocation, catalina:      "161992a2da584f5704fc6923d26fe6675a2ac23b3a66d9c1bba154b2a5888833"
     sha256 cellar: :any_skip_relocation, mojave:        "fdc947505f7ee3885b23431afe3603cb6e75f7edeea9784dab45975b30956086"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dddd097bfb71ec14118ed242beb0e7feb31012cb3888a9c6f5ed0c6ecdeda830"
   end
 
   def install

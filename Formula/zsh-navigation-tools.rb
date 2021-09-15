@@ -14,6 +14,7 @@ class ZshNavigationTools < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1"
     sha256 cellar: :any_skip_relocation, el_capitan:    "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1"
     sha256 cellar: :any_skip_relocation, yosemite:      "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b5a0cee362c74dd8466a9551c20bdcdcef893f0c7a461ba7ac6b69f7e2b1b9f"
   end
 
   uses_from_macos "zsh"

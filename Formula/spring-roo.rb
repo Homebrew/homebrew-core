@@ -10,7 +10,9 @@ class SpringRoo < Formula
     regex(/href=.*?spring-roo[._-]v?(\d+(?:\.\d+)+)\.RELEASE\.zip/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "a81e84e71bc6ef221f312d8854cd852a7052516d3fbd6ea98820ddcd12e0d061"
+  end
 
   def install
     rm Dir["bin/*.bat"]

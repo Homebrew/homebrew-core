@@ -7,13 +7,15 @@ class Cgvg < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:     "b5d4e1695f676016451d89d502a534d4536449f77ca52091ca49fd0a83909b3c"
-    sha256 cellar: :any_skip_relocation, catalina:    "9ba7bdb16162f2ad7cb462cef5ad939ea15f93c759e272bc9fdf8eb9b1ad8df0"
-    sha256 cellar: :any_skip_relocation, mojave:      "9f1f8ad71fda5ecf4341a28420e5c1629a4b5285edb5d40fbe13ace1965ea239"
-    sha256 cellar: :any_skip_relocation, high_sierra: "05dcddf73d630ab2f67e00ea63af02f6b29b503c2e938829daa67d7f619fb556"
-    sha256 cellar: :any_skip_relocation, sierra:      "12b8a6abb31e2e8d7ba044663b33990884ec24d1b0c0776901480cbecd47113f"
-    sha256 cellar: :any_skip_relocation, el_capitan:  "a8232322755cb4c369193dca37fecb968ff689c6463611680e12f216f46507c4"
-    sha256 cellar: :any_skip_relocation, yosemite:    "de0c8b890aa68670097790093fdceccfe1d69598c18ea5385069efc2f73a3c5d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "db2e726fa0cc8e08dc89c030ea6aa2295b07a0559d7ec25d9ee159e5a917385e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b5d4e1695f676016451d89d502a534d4536449f77ca52091ca49fd0a83909b3c"
+    sha256 cellar: :any_skip_relocation, catalina:      "9ba7bdb16162f2ad7cb462cef5ad939ea15f93c759e272bc9fdf8eb9b1ad8df0"
+    sha256 cellar: :any_skip_relocation, mojave:        "9f1f8ad71fda5ecf4341a28420e5c1629a4b5285edb5d40fbe13ace1965ea239"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "05dcddf73d630ab2f67e00ea63af02f6b29b503c2e938829daa67d7f619fb556"
+    sha256 cellar: :any_skip_relocation, sierra:        "12b8a6abb31e2e8d7ba044663b33990884ec24d1b0c0776901480cbecd47113f"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "a8232322755cb4c369193dca37fecb968ff689c6463611680e12f216f46507c4"
+    sha256 cellar: :any_skip_relocation, yosemite:      "de0c8b890aa68670097790093fdceccfe1d69598c18ea5385069efc2f73a3c5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db2e726fa0cc8e08dc89c030ea6aa2295b07a0559d7ec25d9ee159e5a917385e"
   end
 
   def install

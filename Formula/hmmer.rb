@@ -11,9 +11,10 @@ class Hmmer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "af45073d7f7d1ce1231c03381c5e50af9de1d6773762a65200a6067b84590c9d"
-    sha256 cellar: :any_skip_relocation, catalina: "6bd9bbe8efab7ec335de773b059922574ec2a89d755afd09dc475f6b251fb886"
-    sha256 cellar: :any_skip_relocation, mojave:   "f170a16fcc45126a552ae1b0fdd3cbb25e73f77a53f10011e5c304afa69694fa"
+    sha256 cellar: :any_skip_relocation, big_sur:      "af45073d7f7d1ce1231c03381c5e50af9de1d6773762a65200a6067b84590c9d"
+    sha256 cellar: :any_skip_relocation, catalina:     "6bd9bbe8efab7ec335de773b059922574ec2a89d755afd09dc475f6b251fb886"
+    sha256 cellar: :any_skip_relocation, mojave:       "f170a16fcc45126a552ae1b0fdd3cbb25e73f77a53f10011e5c304afa69694fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3ae7f46facfc99d3247a3d30db78ea54bc79fcf255ed4c099eb4ddca023d7458"
   end
 
   def install

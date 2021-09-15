@@ -1,12 +1,14 @@
 class Autoenv < Formula
   desc "Per-project, per-directory shell environments"
-  homepage "https://github.com/kennethreitz/autoenv"
-  url "https://github.com/kennethreitz/autoenv/archive/v0.2.1.tar.gz"
-  sha256 "d10ee4d916a11a664453e60864294fec221c353f8ad798aa0aa6a2d2c5d5b318"
+  homepage "https://github.com/hyperupcall/autoenv"
+  url "https://github.com/hyperupcall/autoenv/archive/v0.3.0.tar.gz"
+  sha256 "1194322a0fd95e271bbfeb39e725ee33627154f80eb76620cf0cd01e0d5e3520"
   license "MIT"
-  head "https://github.com/kennethreitz/autoenv.git"
+  head "https://github.com/hyperupcall/autoenv.git", branch: "master"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "879dc65b4f4740aed9cf1960c2b2da66f877f10c4ad774084373e36097d8efb0"
+  end
 
   def install
     prefix.install "activate.sh"

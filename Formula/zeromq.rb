@@ -11,10 +11,11 @@ class Zeromq < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "eb0ee61f9c1e894c9ad5e55a5a8bc0b3859d56fab57179f82e3e41df6ca4b9f5"
-    sha256 cellar: :any, big_sur:       "579862174f4ce6883fe9871e52d0d4306c8daa67ecc7b5ab94c6174e29bb54bb"
-    sha256 cellar: :any, catalina:      "64bdc5d8d6cc656f1a086157bdbe565f658996f93e8d65af2ad222d80b23aa08"
-    sha256 cellar: :any, mojave:        "ee58ce5abf154406908cbc5104126d543ff47d62ae90319b4b7227726adb885b"
+    sha256 cellar: :any,                 arm64_big_sur: "eb0ee61f9c1e894c9ad5e55a5a8bc0b3859d56fab57179f82e3e41df6ca4b9f5"
+    sha256 cellar: :any,                 big_sur:       "579862174f4ce6883fe9871e52d0d4306c8daa67ecc7b5ab94c6174e29bb54bb"
+    sha256 cellar: :any,                 catalina:      "64bdc5d8d6cc656f1a086157bdbe565f658996f93e8d65af2ad222d80b23aa08"
+    sha256 cellar: :any,                 mojave:        "ee58ce5abf154406908cbc5104126d543ff47d62ae90319b4b7227726adb885b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f5ec18a6ea91285231ab20957ca570b5affa0a6f2bfa10e3c608580c2416293"
   end
 
   head do

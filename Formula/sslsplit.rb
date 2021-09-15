@@ -8,10 +8,12 @@ class Sslsplit < Formula
   head "https://github.com/droe/sslsplit.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any, big_sur:     "4d2d0096b82dfb0104f014f69363a34c1242e2bc32ef585466dc938677c33d26"
-    sha256 cellar: :any, catalina:    "a533ccfc4c05e2affcfa4c697c38d995239abfd1fe4c383ffaa1a8ed42a933e6"
-    sha256 cellar: :any, mojave:      "10534d989706ca1d29b7f1cbffc59ef07b02d0d755cb8aec5bdf9430c52769bb"
-    sha256 cellar: :any, high_sierra: "4f7a3cb7333641658889a55830a69d0ac64cf93dca8a6de32052d4080f477058"
+    sha256 cellar: :any,                 arm64_big_sur: "ccfd4cc54565e58d41ce627ab1ee785de30c96fa29ca3637c3ee6e84320499dc"
+    sha256 cellar: :any,                 big_sur:       "4d2d0096b82dfb0104f014f69363a34c1242e2bc32ef585466dc938677c33d26"
+    sha256 cellar: :any,                 catalina:      "a533ccfc4c05e2affcfa4c697c38d995239abfd1fe4c383ffaa1a8ed42a933e6"
+    sha256 cellar: :any,                 mojave:        "10534d989706ca1d29b7f1cbffc59ef07b02d0d755cb8aec5bdf9430c52769bb"
+    sha256 cellar: :any,                 high_sierra:   "4f7a3cb7333641658889a55830a69d0ac64cf93dca8a6de32052d4080f477058"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4d7b3870ce8a27f6040c4bd9ed85010a62d389c4ff08ab33ac1fa94adc49e79"
   end
 
   depends_on "check" => :build
@@ -22,6 +24,7 @@ class Sslsplit < Formula
   depends_on "openssl@1.1"
 
   def install
+    ENV["LIBNET_BASE"] = Formula["libnet"].opt_prefix
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end

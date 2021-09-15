@@ -15,6 +15,7 @@ class Lftp < Formula
     sha256 big_sur:       "68cdb9b693cf4ea5b7a8c9c0cdd02a2a2eb391c78df5e657767a59819dcbd9af"
     sha256 catalina:      "16e629365517da3f55e271f5e55c1d8ae759b5f2a2d7df669b87e93e05b948f9"
     sha256 mojave:        "7165e8f2ed29e55cc2cb819961d167fb7da7c8ebba7ababf4475c792b6f29afb"
+    sha256 x86_64_linux:  "0161820813581ff31e0e0cdf09830dad364357f874ad570bb67db570ab589b98"
   end
 
   depends_on "libidn2"

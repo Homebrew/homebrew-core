@@ -1,19 +1,16 @@
 class Nq < Formula
   desc "Unix command-line queue utility"
   homepage "https://github.com/chneukirchen/nq"
-  url "https://github.com/chneukirchen/nq/archive/v0.3.1.tar.gz"
-  sha256 "8897a747843fe246a6f8a43e181ae79ef286122a596214480781a02ef4ea304b"
+  url "https://github.com/chneukirchen/nq/archive/v0.4.tar.gz"
+  sha256 "287d6700063b64cfa9db51df95e2a046736eb38c0d3b6e0af0a8e7da6df8880b"
   license "CC0-1.0"
-  head "https://github.com/chneukirchen/nq.git"
+  head "https://github.com/chneukirchen/nq.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e20a81316a20ce81b4396831d87a88e5e7025a5d7792116352297882565875ec"
-    sha256 cellar: :any_skip_relocation, big_sur:       "97df5cbf63b142bf49bbbe683f869a96b003ab3c30eee3ae36ad0ee741744b1c"
-    sha256 cellar: :any_skip_relocation, catalina:      "95011ee6d48728704ee95480374c545d3c2bcea8f4482cecd9b8dbbab9a2407b"
-    sha256 cellar: :any_skip_relocation, mojave:        "b5b3f7b76cc79a5bc6d4a55e4fb3e018b08052dc7faa173300b1ddf2e16e6bee"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "a6d18f2d7f1fafd661a5d145599969707efe71969ccc6ac34593f3f60c59081a"
-    sha256 cellar: :any_skip_relocation, sierra:        "0e8d6557f7713be4c1e5074ea909d36cd12e2e17d85a1c0a1141ac64f06953d3"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "67374f5db8a35f877a16e0fdbd313276fb269db81ce49e7654fb61fa865417cd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "70578036134f31e789368935f42818ca3d081f24f35834e4a46a3aee4fe7e019"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c9b781b0ab4cfa2b90c9c64a7927cf37ab708c807fea1209f4e2e23a216b9b05"
+    sha256 cellar: :any_skip_relocation, catalina:      "4d04dbda77c205fd4f66723b26adb4b0068e3f507b0eba389a0829edb23bf787"
+    sha256 cellar: :any_skip_relocation, mojave:        "b72eb755d197833093fe7bf5f35c7d07fb6cee203354b48d38721885f7d94315"
   end
 
   def install

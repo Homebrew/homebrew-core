@@ -5,7 +5,12 @@ class Fits < Formula
   sha256 "1378a78892db103b3a00e45c510b58c70e19a1a401b3720ff4d64a51438bfe0b"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "18ae09e9e92d45f14502dd3b7a5323be6f1b1ac19fb45fd1c367b2417d9db929"
+    sha256 cellar: :any, big_sur:       "70a94bc9728e70e82c57d726ec958880da89dd5af6c2d65ae4351e6cf7543366"
+    sha256 cellar: :any, catalina:      "70a94bc9728e70e82c57d726ec958880da89dd5af6c2d65ae4351e6cf7543366"
+    sha256 cellar: :any, mojave:        "70a94bc9728e70e82c57d726ec958880da89dd5af6c2d65ae4351e6cf7543366"
+  end
 
   depends_on "openjdk"
 

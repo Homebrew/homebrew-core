@@ -10,11 +10,12 @@ class Freexl < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9ca72ad3d0fadf95435a288506a127a8f9ec814deb91f72c0fbeca4477d28c24"
-    sha256 cellar: :any, big_sur:       "5caea83326dab33d791db451df7a9add0f4d833e68f8bff36fdc4838ecd932ad"
-    sha256 cellar: :any, catalina:      "4bac859e3460476137f1596a36015e9c0d3e1d2b46a9aa47171cabf7af5f5d71"
-    sha256 cellar: :any, mojave:        "68d9f5926df0ca43cfda25423a405b837de81575eec025944f6ec67611422742"
-    sha256 cellar: :any, high_sierra:   "959ce4d49a7419b01acf9e66c9d0f77a213c067f723b87d08ac6aaa21d054fe9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "57d5fc25946a587bfebb8724bff578688f605edcabba8cd80b9ebbf5840616d0"
+    sha256 cellar: :any,                 big_sur:       "a20523355d18f1ed2259ae198b45c5aa93080fbd4926e0eb6969d2919b7a97ac"
+    sha256 cellar: :any,                 catalina:      "1bab8437de88ce5564702dcc3e30a9c2f9491aa9358e767aa3d8ec62ba76922d"
+    sha256 cellar: :any,                 mojave:        "003e9d848f354e7f12232f85240f4892f21e6136cd657022fbbc51b3bd286225"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2059ac999e20b72d31a6e586174327431066c01e10c25fca93c80ef5d10f5b4b"
   end
 
   depends_on "doxygen" => :build
@@ -41,7 +42,7 @@ class Freexl < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lfreexl", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lfreexl", "-o", "test"
     assert_equal version.to_s, shell_output("./test")
   end
 end

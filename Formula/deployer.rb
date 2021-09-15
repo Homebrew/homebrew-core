@@ -11,7 +11,9 @@ class Deployer < Formula
     regex(%r{\\?/releases\\?/v?(\d+(?:\.\d+)+)\\?/deployer\.phar}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "c8f15a518a11552ea9bdf2ff350918e20b14b4e31b1fab1c2471b24c6ee743f4"
+  end
 
   depends_on "php"
 

@@ -4,7 +4,7 @@ class Cuetools < Formula
   url "https://github.com/svend/cuetools/archive/1.4.1.tar.gz"
   sha256 "24a2420f100c69a6539a9feeb4130d19532f9f8a0428a8b9b289c6da761eb107"
   license "GPL-2.0"
-  head "https://github.com/svend/cuetools.git"
+  head "https://github.com/svend/cuetools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d6065775e7e6286464caa093613104c747720e1b9ea98f29f71abea5a365ac05"

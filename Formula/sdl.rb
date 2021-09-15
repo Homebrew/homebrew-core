@@ -37,34 +37,33 @@ class Sdl < Formula
     end
 
     # Fix audio initialization issues on Big Sur, upstream patch
-    # http://hg.libsdl.org/SDL/rev/45055c672931
+    # https://github.com/libsdl-org/SDL-1.2/commit/a2047dc403ffb58b89b717929637352045699743
     if MacOS.version >= :big_sur
       patch do
-        url "http://hg.libsdl.org/SDL/raw-rev/45055c672931"
-        sha256 "4bc838bcfe8f671e016d22d9319cb39ca94052b86ad45b805d9b4d32564ef836"
+        url "https://github.com/libsdl-org/SDL-1.2/commit/a2047dc403ffb58b89b717929637352045699743.patch?full_index=1"
+        sha256 "7684a923dfd0c13f1a78e09ca0cea2632850e4d41023867b504707946ec495d4"
       end
     end
   end
 
-  livecheck do
-    url "https://www.libsdl.org/release/"
-    regex(/href=.*?SDL[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c3fda7b3047ffff537ba6f2a5711fd03f50fa776546d7788f42a4df325944fcf"
-    sha256 cellar: :any, big_sur:       "d97aac056338f24b09ff065d8a80c6f5e9b6e16aed93003764054f6703093ecd"
-    sha256 cellar: :any, catalina:      "060c0297dd0af2e289196aa196341ece04f3ab4a3458d173e74f2a3865046a8f"
-    sha256 cellar: :any, mojave:        "683450f850acbc501144207d237d28a9c3d0af86533065db7bf7b23ae2d1f6e5"
+    sha256 cellar: :any,                 arm64_big_sur: "c3fda7b3047ffff537ba6f2a5711fd03f50fa776546d7788f42a4df325944fcf"
+    sha256 cellar: :any,                 big_sur:       "d97aac056338f24b09ff065d8a80c6f5e9b6e16aed93003764054f6703093ecd"
+    sha256 cellar: :any,                 catalina:      "060c0297dd0af2e289196aa196341ece04f3ab4a3458d173e74f2a3865046a8f"
+    sha256 cellar: :any,                 mojave:        "683450f850acbc501144207d237d28a9c3d0af86533065db7bf7b23ae2d1f6e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b620e55f97a2b9aa076a9e7f6ed3aa0ed42f3f0b2debd9f250bccce7cb7d8939"
   end
 
   head do
-    url "https://hg.libsdl.org/SDL", branch: "SDL-1.2", using: :hg
+    url "https://github.com/libsdl-org/SDL-1.2.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
+  deprecate! date: "2013-08-17", because: :deprecated_upstream
 
   def install
     # we have to do this because most build scripts assume that all sdl modules

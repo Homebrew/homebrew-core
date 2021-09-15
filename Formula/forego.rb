@@ -14,6 +14,7 @@ class Forego < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "5a855ce2b4f4bd2349b6814c11ec85f788a9be510aff4f18df582141dbc15295"
     sha256 cellar: :any_skip_relocation, sierra:        "5a4b9261fb91507df08c7c840134a21effb2b407aa5e84474b2900f8d436f3ca"
     sha256 cellar: :any_skip_relocation, el_capitan:    "77720ca90705c26a92248cd822d4a3b0cef329c5b16e2da62a7815cfd61f0ce2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab6668d38416f11e79a39db7a65ce6bc60bce14db6962ca7c06c104c2b69d456"
   end
 
   depends_on "go" => :build

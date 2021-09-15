@@ -1,15 +1,16 @@
 class Recode < Formula
   desc "Convert character set (charsets)"
   homepage "https://github.com/rrthomas/recode"
-  url "https://github.com/rrthomas/recode/releases/download/v3.7.8/recode-3.7.8.tar.gz"
-  sha256 "4fb75cacc7b80fda7147ea02580eafd2b4493461fb75159e9a49561d3e10cfa7"
+  url "https://github.com/rrthomas/recode/releases/download/v3.7.9/recode-3.7.9.tar.gz"
+  sha256 "e4320a6b0f5cd837cdb454fb5854018ddfa970911608e1f01cc2c65f633672c4"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c116a7d29975a1649b79f96067de047149050454d11fb09146066e617fadd13f"
-    sha256 cellar: :any, big_sur:       "6d53af7b188693ffa022df92beea56d3963482c8206d1608e25d47ca5bd88848"
-    sha256 cellar: :any, catalina:      "367ab01690803d0270de4734faf1ef5175c2e3df7528b9f64bdcc0c1a78f1668"
-    sha256 cellar: :any, mojave:        "34d0491040e447e2a0cbe304d021ea82be00040a7c5533ac82e43907771636b1"
+    sha256 cellar: :any,                 arm64_big_sur: "9bca3845a8c324b5f9546c2c9de7881ee2a91b47513a39188fbc65d5c119b3bd"
+    sha256 cellar: :any,                 big_sur:       "322571c853f461cd7f85afde9da5895996479b8aafddaa729081c10f4b319c57"
+    sha256 cellar: :any,                 catalina:      "e049f7705d6f397a3a4bb87e31cc43eeb8ab7f0958b5efb3daccbab2a77aaa96"
+    sha256 cellar: :any,                 mojave:        "27ba44840e12f588f741d2a7477ac8e6c6d3df22b09b426c617c87b98518d5c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4eaa20bd35e3d6937e2c8fa962572eda4998ef7504049b9592a62b3f133c1edd"
   end
 
   depends_on "libtool" => :build

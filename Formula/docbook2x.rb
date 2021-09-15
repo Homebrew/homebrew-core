@@ -18,6 +18,7 @@ class Docbook2x < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a1110d4bd90cecf9ce8edacc27a3edc84dfcd4db7ab50b67269af0eb6a9bb00a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "acfdd1c80cb523b213dea0125819b1b6fc783d6d740cc8fc0047f44756b57889"
     sha256 cellar: :any_skip_relocation, yosemite:      "e3efe4afe190e126174c6e3bec0a9feb4ad37ddd0ecaef778b1e8df8a60e8717"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e054b07a0d7e8817a58b2c656e8f435289cd1d2110d7fae083e1bf79eece522"
   end
 
   depends_on "docbook"
@@ -45,7 +46,7 @@ class Docbook2x < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
       resources.each do |res|
         res.stage do
@@ -62,9 +63,7 @@ class Docbook2x < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    on_linux do
-      bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
-    end
+    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"] if OS.linux?
   end
 
   test do

@@ -7,7 +7,9 @@ class Flamegraph < Formula
   revision 1
   head "https://github.com/brendangregg/FlameGraph.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "621349d1ff958232ca392b15d7154a7092ed3479a18521df49f6ef291fc40067"
+  end
 
   uses_from_macos "perl"
 

@@ -1,18 +1,18 @@
 class Nsq < Formula
   desc "Realtime distributed messaging platform"
   homepage "https://nsq.io/"
-  url "https://github.com/nsqio/nsq/archive/v1.2.0.tar.gz"
-  sha256 "98e24d748550f01dd8775e5e40f3ae657f5b513f875a15081cdcdc567b745480"
+  url "https://github.com/nsqio/nsq/archive/v1.2.1.tar.gz"
+  sha256 "5fd252be4e9bf5bc0962e5b67ef5ec840895e73b1748fd0c1610fa4950cb9ee1"
   license "MIT"
-  head "https://github.com/nsqio/nsq.git"
+  head "https://github.com/nsqio/nsq.git", branch: "master"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3085b1fbf198c51c7afb142f709bcaa183337b7cb7dbb59c2b5ef9991c2df88"
-    sha256 cellar: :any_skip_relocation, big_sur:       "105dd8083fcde66eb333a1495a8e06da2701f2e9cc6e17ed434dce0a7c38e162"
-    sha256 cellar: :any_skip_relocation, catalina:      "2aae6c19e55ebd926426301fa85dd5716bce20a04bfbc11a5519dbada6a67368"
-    sha256 cellar: :any_skip_relocation, mojave:        "bffff40b52e50eb181b9a02c8650b51924e45e8d650a5ed17051b8b1c0ce46cc"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "96ead21ddbb8f6f004141aac2e7c5a23d8740eaa5d4730eb4b0d6d94a0b63683"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "30543659d3c5990aa86f08346feea09adc2c7f5a388418f0c8eaff486cf388ec"
+    sha256 cellar: :any_skip_relocation, big_sur:       "daaf9729cff4ae0e02895d2c1fd398c592ee89f25b195be732c71a4b33f4a617"
+    sha256 cellar: :any_skip_relocation, catalina:      "533d1087999114a2a426dd589f4417d2b8cdb5a11b399a6004bca83f572aeb50"
+    sha256 cellar: :any_skip_relocation, mojave:        "154ac16069cd16a07ae6ca9ae2e432b26f52b2f2e79b5041322cbd726f3d7462"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53915ff129d853cb2b5622889c938a7fd5ce073b90b8bdea4dc503d84b336e15"
   end
 
   depends_on "go" => :build
@@ -27,34 +27,12 @@ class Nsq < Formula
     (var/"nsq").mkpath
   end
 
-  plist_options manual: "nsqd -data-path=#{HOMEBREW_PREFIX}/var/nsq"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{bin}/nsqd</string>
-          <string>-data-path=#{var}/nsq</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}/nsq</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/nsqd.error.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/nsqd.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [bin/"nsqd", "-data-path=#{var}/nsq"]
+    keep_alive true
+    working_dir var/"nsq"
+    log_path var/"log/nsqd.log"
+    error_log_path var/"log/nsqd.error.log"
   end
 
   test do

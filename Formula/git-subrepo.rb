@@ -16,6 +16,7 @@ class GitSubrepo < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "dc532b9259999534520c4695392ccb28d5762ab9b9ecfd37d0457be6029b4ce1"
     sha256 cellar: :any_skip_relocation, catalina:      "0e1c83339ad6f73952c8d4ae0c82b4cb0181d421d0a527a5e0a31f7cd3c3ac90"
     sha256 cellar: :any_skip_relocation, mojave:        "5465f88825a9a2361f0459d8e2dfb65a4e533c2106b2f8a644f295702085b711"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5519cc8d068994db11fa1c3427f780a77e9c1e1f4a39cf6b6724b6c1c6097d91"
   end
 
   depends_on "bash"

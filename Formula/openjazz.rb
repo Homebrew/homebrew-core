@@ -4,7 +4,7 @@ class Openjazz < Formula
   url "https://github.com/AlisterT/openjazz/archive/20190106.tar.gz"
   sha256 "27da3ab32cb6b806502a213c435e1b3b6ecebb9f099592f71caf6574135b1662"
   license "GPL-2.0"
-  head "https://github.com/AlisterT/openjazz.git"
+  head "https://github.com/AlisterT/openjazz.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0c93957029786455fa5dcaa7441408e0f1f5e4e5503019b056959638f54b082a"

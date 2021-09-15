@@ -17,6 +17,7 @@ class Acme < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "54080f9a08a3f958c5a024fd536c2308c392521a4a4092afb115f368b3256fd2"
     sha256 cellar: :any_skip_relocation, mojave:        "53ddd3c05dea30a12436e997a68ab50670bd9dbe771e3c3a6d7216c0240c6e07"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8ed3df0ed73b3f995ca33b357c00f54b03f16ec2effd61eca985b04a82eb40b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcb14a109abee4d1af24a79bc4991a851a6b1b75fd64999e815715fc54a4c834"
   end
 
   def install

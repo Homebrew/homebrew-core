@@ -16,6 +16,7 @@ class Gdcm < Formula
     sha256 big_sur:       "7bff75beab06c8250e57f71edc9db13deee5e8436b6601f04a5488bb2e1d4f5d"
     sha256 catalina:      "48c5d04a2a95db995522d31e5efffd9a9dcf97afb4896d64610a2347431a3481"
     sha256 mojave:        "6837489e4b3a300a96e15506c6e2bb092bda59f4b1e8d96448ecd923c9568317"
+    sha256 x86_64_linux:  "2e5f00fa60b4278b6546dfc2b580ecf67d675f3aa7256671b52a36d35e6c1d85"
   end
 
   depends_on "cmake" => :build
@@ -29,6 +30,18 @@ class Gdcm < Formula
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
+  # Fix build for GCC 11.  Remove with next release.
+  patch do
+    url "https://github.com/malaterre/GDCM/commit/1c971ff1697d29c63e404403d345f869768c0bdb.patch?full_index=1"
+    sha256 "ed6e5b75015b21a17eec55a0ae7bd3d62b39db234fc0d9e462f29b479a9c2c2a"
+  end
 
   def install
     ENV.cxx11
@@ -62,9 +75,7 @@ class Gdcm < Formula
     ]
 
     mkdir "build" do
-      on_macos do
-        ENV.append "LDFLAGS", "-undefined dynamic_lookup"
-      end
+      ENV.append "LDFLAGS", "-undefined dynamic_lookup" if OS.mac?
 
       system "cmake", "..", *args
       system "ninja"

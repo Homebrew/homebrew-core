@@ -1,22 +1,26 @@
 class DockerCompletion < Formula
   desc "Bash, Zsh and Fish completion for Docker"
   homepage "https://www.docker.com/"
-  url "https://github.com/docker/docker-ce.git",
-      tag:      "v19.03.15",
-      revision: "99e3ed89195c4e551e87aad1e7453b65456b03ad"
+  url "https://github.com/docker/cli.git",
+      tag:      "v20.10.8",
+      revision: "3967b7d28e15a020e4ee344283128ead633b3e0c"
   license "Apache-2.0"
 
+  livecheck do
+    formula "docker"
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "64e51f7a4d8adeccea99dec551a376c5c78a5f37ceafeb05fde4fd3dc4f95edf"
+    sha256 cellar: :any_skip_relocation, all: "90ed4550064c756f9cc165649143b5daf88a32af7c254ee20410cb1b26e7c064"
   end
 
   conflicts_with "docker",
     because: "docker already includes these completion scripts"
 
   def install
-    bash_completion.install "components/cli/contrib/completion/bash/docker"
-    fish_completion.install "components/cli/contrib/completion/fish/docker.fish"
-    zsh_completion.install "components/cli/contrib/completion/zsh/_docker"
+    bash_completion.install "contrib/completion/bash/docker"
+    fish_completion.install "contrib/completion/fish/docker.fish"
+    zsh_completion.install "contrib/completion/zsh/_docker"
   end
 
   test do

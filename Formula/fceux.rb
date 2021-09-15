@@ -2,17 +2,16 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   url "https://github.com/TASVideos/fceux.git",
-      tag:      "fceux-2.3.0",
-      revision: "65c5b0d2a1c08db75bb41340bfa5534578926944"
+      tag:      "fceux-2.4.0",
+      revision: "941da60ecb283263a3810ed199d80abf94bd6494"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/TASVideos/fceux.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2670e9ad02d6fcced8178967625bc9ad7e04772eadaf78a3a98cd4e2b452396c"
-    sha256 cellar: :any, big_sur:       "ab311b3b0e73d4cde15fd0c95ee221f6dfc0a239fb10c109c94c393cb0cc3782"
-    sha256 cellar: :any, catalina:      "bd7ddafbbe5357afa8db61d66004fb4ee3dafe67019a68646f7cf3653fc620ac"
-    sha256 cellar: :any, mojave:        "5e0d118e90f6333350a654e9c77627ef2703018cbda58589ea36580bf6542ced"
+    sha256 cellar: :any, arm64_big_sur: "3d03e8b04207f50eb560c5cb0343ec6600565bc24cf8b2dba1abb2f42e4ef288"
+    sha256 cellar: :any, big_sur:       "2d900d6d428da14dc3cc5a2cb651bbc61a840c56271aa85fee6eec76fe781935"
+    sha256 cellar: :any, catalina:      "c5eaa79f94834d5f38399293de563f292f03f175b5a7968251ae45887f07f120"
+    sha256 cellar: :any, mojave:        "536f893139bcd6fd413eaa457d996c9df6b184ca89f267253f01312971c6cb39"
   end
 
   depends_on "cmake" => :build
@@ -20,6 +19,7 @@ class Fceux < Formula
   depends_on "minizip"
   depends_on "qt@5"
   depends_on "sdl2"
+  depends_on "x264"
 
   def install
     ENV["CXXFLAGS"] = "-DPUBLIC_RELEASE=1" if build.stable?

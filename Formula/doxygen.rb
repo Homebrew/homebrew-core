@@ -1,23 +1,32 @@
 class Doxygen < Formula
   desc "Generate documentation for several programming languages"
   homepage "https://www.doxygen.org/"
-  url "https://doxygen.nl/files/doxygen-1.9.1.src.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.9.1/doxygen-1.9.1.src.tar.gz"
-  sha256 "67aeae1be4e1565519898f46f1f7092f1973cce8a767e93101ee0111717091d1"
+  url "https://doxygen.nl/files/doxygen-1.9.2.src.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.9.2/doxygen-1.9.2.src.tar.gz"
+  sha256 "060f254bcef48673cc7ccf542736b7455b67c110b30fdaa33512a5b09bbecee5"
   license "GPL-2.0-only"
   head "https://github.com/doxygen/doxygen.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b5b2de93ac8703785860bfaf3e14f3268a07dc29bac9def13172785bcac7c5f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b8e1ea1bb601d8cc7cd7cf66b67a544e9e5534c2793cee5ac90bef5d076ad1e5"
-    sha256 cellar: :any_skip_relocation, catalina:      "10e13f7bf6977bee6487366b3fc1dc55b4c191d5d505cb816997838504b3e0a4"
-    sha256 cellar: :any_skip_relocation, mojave:        "0422adc9bfa6e1558cdcca24f8f4266f0927cf4c10fe3e245fe8e3017a7717b5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1a7ba50b992a11544f4a94ab93374eddeaef6aea5cfb2dfefb0c27a2976ef644"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a3c10247d05fe6a007ad97b1131e522eec0729288bee680dfd3e5a4cca2ee5fb"
+    sha256 cellar: :any_skip_relocation, catalina:      "d4651ac184617629b57a0842ecb267adb25c34fc0b61b08296d80ee68928b66d"
+    sha256 cellar: :any_skip_relocation, mojave:        "cab7c99f874c1a498ce9b27ebd863a46dd9940b75a86da8782eef952d49e709a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12a835bf9986bbbebd0f4441a9e64ffd15413fbcfb8cb199640f29721665d022"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
 
   uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  # Need gcc>=7.2. See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66297
+  fails_with gcc: "5"
+  fails_with gcc: "6"
 
   def install
     mkdir "build" do

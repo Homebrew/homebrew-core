@@ -10,6 +10,7 @@ class Pygobject3 < Formula
     sha256 cellar: :any, big_sur:       "27af5bf268c1c2274d4f97b628b4df0c4fab81c092c8948bf3c6f5e875d6c45b"
     sha256 cellar: :any, catalina:      "e24bd991a052b651a4d7178dd54b4e6a1e25895c3550cb3b3a1e84dfad66ec34"
     sha256 cellar: :any, mojave:        "1a57d5580a83038a20d6256f0aa1398f79510c41eaf402cdbf4bba41a9154591"
+    sha256               x86_64_linux:  "87f44a0209b23e685fd8a19a85d76cad5ddfd32e3221c64dc2eaaff3b068c286"
   end
 
   depends_on "meson" => :build

@@ -15,6 +15,7 @@ class G2 < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "6bd5de5c1e1335c1be168bf5eec800c8ac5d0b4d16534a7e686d9c4e8d396417"
     sha256 cellar: :any_skip_relocation, el_capitan:    "45c2029c3fc914866ba32966a78cba39b8415ba7f191cd1eaaf604db798b6d3f"
     sha256 cellar: :any_skip_relocation, yosemite:      "5645b9c9401aa9f047082612de0e7bbd119ff7fd9fd49d94d45ce2adfbbfb69a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81a6e2069539abef38ec1f36d7c7f6db1a088d775c56e61c786bcaad4d1a6e25"
   end
 
   def install

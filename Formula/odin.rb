@@ -5,7 +5,7 @@ class Odin < Formula
   sha256 "ae88c4dcbb8fdf37f51abc701d94fb4b2a8270f65be71063e0f85a321d54cdf0"
   license "BSD-2-Clause"
   revision 1
-  head "https://github.com/odin-lang/Odin.git"
+  head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   livecheck do
     url :stable

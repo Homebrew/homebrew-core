@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-7.3.0.tar.xz"
-  sha256 "27bdbb85c0301475ab1f2ecd185c629ea0bfd5512bef3f6f1817b6c55d1dc1be"
+  url "https://libvirt.org/sources/libvirt-7.7.0.tar.xz"
+  sha256 "1b616099c18d14b9424a622f2a0bd3e0cfa286414f3416bd1a8173621b2252b2"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   livecheck do
@@ -11,10 +11,11 @@ class Libvirt < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f9c7bbd3452e17938808ece02b1c88008af541b20013cd74f14ba18a079297c3"
-    sha256 big_sur:       "ef6a22c3ff46dadcc35402d0d8952d4960b12f61fa61fb0130026468b64e15eb"
-    sha256 catalina:      "bb8451249b6c4de7a61cfcb72506c119f10791049d07d489b639db5ceae9d54a"
-    sha256 mojave:        "9ac4ed53171d5ff664c02f361620232acaa3e37bc3bda5a356a9b4195bb230e4"
+    sha256 arm64_big_sur: "c5018cfce8e96fa66feb439f00abff2fff2043e94cde5fac3fb50d033a1986b8"
+    sha256 big_sur:       "d0d3c1a8d8eed20cbce36ad2fc90c07583a682cbdfcb176d558151a4efb3ffa3"
+    sha256 catalina:      "ac9aba9184b948b8711f8c9ce73aa20381df8c8a82202966fb16eb36a0613be6"
+    sha256 mojave:        "d12670e71fb2f6e7144e47f605961758ac2e50995328020b2ccb89d62005c378"
+    sha256 x86_64_linux:  "ca4f29f548d2a0d4d08edeb9dd4deaf7197f56f9e3786013c1b7e46a3d1f9d45"
   end
 
   head do
@@ -63,34 +64,10 @@ class Libvirt < Formula
     end
   end
 
-  plist_options manual: "libvirtd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>PATH</key>
-            <string>#{HOMEBREW_PREFIX}/bin</string>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{sbin}/libvirtd</string>
-            <string>-f</string>
-            <string>#{etc}/libvirt/libvirtd.conf</string>
-          </array>
-          <key>KeepAlive</key>
-          <true/>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"libvirtd", "-f", etc/"libvirt/libvirtd.conf"]
+    keep_alive true
+    environment_variables PATH: HOMEBREW_PREFIX/"bin"
   end
 
   test do

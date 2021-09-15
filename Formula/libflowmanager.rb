@@ -3,7 +3,7 @@ class Libflowmanager < Formula
   homepage "https://research.wand.net.nz/software/libflowmanager.php"
   url "https://research.wand.net.nz/software/libflowmanager/libflowmanager-3.0.0.tar.gz"
   sha256 "0866adfcdc223426ba17d6133a657d94928b4f8e12392533a27387b982178373"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -11,11 +11,10 @@ class Libflowmanager < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "dca4907014f0df07603f8c1bd3e6239377cd9df7fcbdccd4ffe58dbbcf3ca037"
-    sha256 cellar: :any, big_sur:       "b5b2cf44362d857c11161d326e6b0a1721e9f2e2123351f06b242a3e3c7c0b9d"
-    sha256 cellar: :any, catalina:      "41c5f69289236b3362062b471654f0cc9446f93d90066c001a1bda56d9b9b4f3"
-    sha256 cellar: :any, mojave:        "64843e32762b175f497e00e332bee33dbe2c5e77384ccb64a0957e9a6c2bd40b"
-    sha256 cellar: :any, high_sierra:   "156b302b5feade664f79f10358bc7888f9db14da53bd3549f90864b1bd9056f5"
+    sha256 cellar: :any, arm64_big_sur: "0ee5ac027b4b6147a242372d436af6c842a715d8eda53a12520412bbbe68a833"
+    sha256 cellar: :any, big_sur:       "a72f919e29358d8c3698ba0b4677b4c46effef119591dc38b6e99c244731329e"
+    sha256 cellar: :any, catalina:      "3062037389000f22d292506d3129dd99575bbc9cb73d6a1e65483c2935e35329"
+    sha256 cellar: :any, mojave:        "5358da08e9444be464325d1b2745b808a26916b79a3eec2810a52068fc2ad7fc"
   end
 
   depends_on "libtrace"

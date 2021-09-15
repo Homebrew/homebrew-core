@@ -1,10 +1,10 @@
 class Scotch < Formula
   desc "Package for graph partitioning, graph clustering, and sparse matrix ordering"
   homepage "https://gitlab.inria.fr/scotch/scotch"
-  url "https://gitlab.inria.fr/scotch/scotch/-/archive/v6.1.0/scotch-v6.1.0.tar.bz2"
-  sha256 "c288b238b8e9b81d986c240993afd1604063061cc90d8f06872c8e1f70715835"
+  url "https://gitlab.inria.fr/scotch/scotch/-/archive/v6.1.1/scotch-v6.1.1.tar.bz2"
+  sha256 "543ab2f8998658e5a6123231bfb3736cfbb939f330c656f8a7913d967a933f00"
   license "CECILL-C"
-  head "https://gitlab.inria.fr/scotch/scotch.git"
+  head "https://gitlab.inria.fr/scotch/scotch.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,10 +12,11 @@ class Scotch < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "929c6ad41f026b0b91bcff864ad824e0fabdfb2eb902a4b94378f3513cbbd630"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a20b6a391ef73b1c77a8b2977d734fd310523eed368a96304e2580590c50578d"
-    sha256 cellar: :any_skip_relocation, catalina:      "e7d7f7d2027bb60ab03da59681fa0c01fd4046366e240ac9aa442ff0910ce032"
-    sha256 cellar: :any_skip_relocation, mojave:        "f89d43dd3271fd05fdc3377a00d412992c91e7a66f1a7a4b92c088df67d118e0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a2a88eca7948940c07bc2263143b35be2d0a6d4f66bf3f4bff93ead83a653921"
+    sha256 cellar: :any_skip_relocation, big_sur:       "54e1182e94e87f15ba4671dd4611efd9aaf6dfa4c480fc304f40633032a70a19"
+    sha256 cellar: :any_skip_relocation, catalina:      "47642fe1c6bfc3da89aa509ac9220d9e27071e30327fb6c607e6473d4cc4d7d4"
+    sha256 cellar: :any_skip_relocation, mojave:        "ec79906f2bc0c47ac0989a7d4dcc6a3a7a49021e8a330b1f04a973ed09d01b0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f93fe6e8bcdb31271f7d082915061d6fa2b9e415611a6f52929dbb45a48dd847"
   end
 
   depends_on "open-mpi" => :build

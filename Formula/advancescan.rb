@@ -14,6 +14,7 @@ class Advancescan < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "0bc4290c65271b84aec455adbaf85795857b19102e6efb152a64623420ae5757"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e4295866cda2370aa37cb1144ff1269ada4df6b76145a25efaf072d7a6b09b5c"
     sha256 cellar: :any_skip_relocation, yosemite:      "f91cbe31c7c8072fffffcd0cc8766e20df6f728abc73f66140f97c0a49d6f6c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a42de6a209af1dd02c8544621f7da76afabd415d46265b548b3e35b7667b45d"
   end
 
   uses_from_macos "zlib"

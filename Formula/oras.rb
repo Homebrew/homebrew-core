@@ -1,15 +1,16 @@
 class Oras < Formula
   desc "OCI Registry As Storage"
-  homepage "https://github.com/deislabs/oras"
-  url "https://github.com/deislabs/oras/archive/v0.11.1.tar.gz"
-  sha256 "40416acb056b187544c06d8595553251c77aed27e9e3d7cf455798bcb070f089"
+  homepage "https://github.com/oras-project/oras"
+  url "https://github.com/oras-project/oras/archive/v0.12.0.tar.gz"
+  sha256 "5e19d61683a57b414efd75bd1b0290c941b8faace5fcc9d488f5e4aa674bf03e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7df64201010ee88df6b42e9b4c7366c584db8f661f3892327333bc1d2b72b1b6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "58f25965a9deb06395e3c73b6526ce48c65b837c9173b56780084501626d038e"
-    sha256 cellar: :any_skip_relocation, catalina:      "4a71d2ffb060d9b66c3c21ebad5f40433cb544ef406714d0756eb5a72a639c13"
-    sha256 cellar: :any_skip_relocation, mojave:        "008def6b863c4c2d40408d6298f89146149bfa67d6845a8fe8990329b19f59fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0b3b53df6013d9b3ad1ab832a8d0daad2ae4fbb017adf387b7f6d13e5e2d76bd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "18d86fcc6965357bb00cc945ef6ee888f874eb487bb341a1389cf8f9cac626d1"
+    sha256 cellar: :any_skip_relocation, catalina:      "d08f9849ddb604f0fd61574afd8f2dad30fc38022b14b547c2abd50bb6ef97d9"
+    sha256 cellar: :any_skip_relocation, mojave:        "ef76f4634fe95c6c000f90c3ddb323b8edf694f60e5e6eed4e416bef3b874f15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64c8e274d78dad6bf79c17b8cdc2d5e31738ff761704bef3e7be4f550305ad9c"
   end
 
   depends_on "go" => :build
@@ -17,12 +18,10 @@ class Oras < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/deislabs/oras/internal/version.Version=#{version}
-      -X github.com/deislabs/oras/internal/version.BuildMetadata=Homebrew
+      -X github.com/oras-project/oras/internal/version.Version=#{version}
+      -X github.com/oras-project/oras/internal/version.BuildMetadata=Homebrew
     ]
-    system "go", "build", *std_go_args,
-                          "-ldflags", ldflags.join(" "),
-                          "./cmd/oras"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd/oras"
   end
 
   test do

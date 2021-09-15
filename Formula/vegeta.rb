@@ -11,20 +11,19 @@ class Vegeta < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "63b383f4cdff26cc0bf4ba3e24a84ea6d7485a9a61fe49ac62b09f39c5f01e13"
     sha256 cellar: :any_skip_relocation, mojave:        "76e2d89891ecee0bfa07e939619683cae2d954bca2c5524a6e87b84c105c6c25"
     sha256 cellar: :any_skip_relocation, high_sierra:   "df3853752133b68c20a9d054c12d36d531779fe595bc6011bb1e2d3245e9df2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cf44f8e5a57caff8a709f86cf6abb1c4da290afcdddc1b6088658b424c644b9"
   end
 
   depends_on "go" => :build
 
   def install
-    build_time = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
-
     ldflags = %W[
       -s -w
       -X main.Version=#{version}
-      -X main.Date=#{build_time}
-    ]
+      -X main.Date=#{time.iso8601}
+    ].join(" ")
 
-    system "go", "build", "-o", bin/"vegeta", "-ldflags", ldflags.join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do

@@ -10,10 +10,11 @@ class DbusGlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d87340d630e5e4e08fcaf5c557ad1577736069561e3903f763cb50396b417830"
-    sha256 cellar: :any, big_sur:       "b8b40647f906afbe0c3c35be698d77b02e22fe204cad83e1cda62842aba68ea2"
-    sha256 cellar: :any, catalina:      "5f964469ee5636271ebb40d0df69cd2e71dc292cf229b59be6b0a15543016373"
-    sha256 cellar: :any, mojave:        "ba4476464714dcde25a52ba1a3ae3a9646b9a293ab63ceb2f0ea5fc4192df97a"
+    sha256 cellar: :any,                 arm64_big_sur: "d87340d630e5e4e08fcaf5c557ad1577736069561e3903f763cb50396b417830"
+    sha256 cellar: :any,                 big_sur:       "b8b40647f906afbe0c3c35be698d77b02e22fe204cad83e1cda62842aba68ea2"
+    sha256 cellar: :any,                 catalina:      "5f964469ee5636271ebb40d0df69cd2e71dc292cf229b59be6b0a15543016373"
+    sha256 cellar: :any,                 mojave:        "ba4476464714dcde25a52ba1a3ae3a9646b9a293ab63ceb2f0ea5fc4192df97a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40299090266efbefb057847af56cbccedf7c96ba98107c86fe4c7c0b8254cf0c"
   end
 
   depends_on "pkg-config" => :build

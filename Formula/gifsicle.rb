@@ -1,17 +1,16 @@
 class Gifsicle < Formula
   desc "GIF image/animation creator/editor"
   homepage "https://www.lcdf.org/gifsicle/"
-  url "https://www.lcdf.org/gifsicle/gifsicle-1.92.tar.gz"
-  sha256 "5ab556c01d65fddf980749e3ccf50b7fd40de738b6df679999294cc5fabfce65"
-  license "GPL-2.0"
+  url "https://www.lcdf.org/gifsicle/gifsicle-1.93.tar.gz"
+  sha256 "92f67079732bf4c1da087e6ae0905205846e5ac777ba5caa66d12a73aa943447"
+  license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4196ed90bad0a312f4b899359d05f7f2dc454bd51ac3bd428598a9e9a9436b0a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cb3eefd1feccd5bda0979aa5ccf1cc1198b599654a43d33328912733c6644f91"
-    sha256 cellar: :any_skip_relocation, catalina:      "5c39ab6736846e30082db190167bc498e78d03e523f642057eadc29f854c71b1"
-    sha256 cellar: :any_skip_relocation, mojave:        "52be1cd49246909777199147dcbbeb6f490580558615138ae063b6149cfbe53c"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "a7cfb607906023c5bdb56a49f8a75ce0b3e2c76a971266bb530d04ed29be74f9"
-    sha256 cellar: :any_skip_relocation, sierra:        "746d071f268950c6af18704590b981f5f965d35e2adf6c202aa3df0f13e943e9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ad499b676a6a5e433964de6303f658838239c09b69e02ce2db62b6c5ffc1a017"
+    sha256 cellar: :any_skip_relocation, big_sur:       "75b269e600f8b3446694828d579f4425cfc1c49142e05441a902cdc48c39e143"
+    sha256 cellar: :any_skip_relocation, catalina:      "88ac00c8f5e523b04db223a555a0094c62e30c05760ed9abcc5d0f3aef676686"
+    sha256 cellar: :any_skip_relocation, mojave:        "383bac8506db87f8b84afc628ceac00fb168f2d1bb062d4aa77f7644e2c21c27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b528fa87110fdcb96e4557409a1c4cccc507e9b4d87288f280a0828b874b27e"
   end
 
   head do

@@ -1,9 +1,9 @@
 class Vsftpd < Formula
   desc "Secure FTP server for UNIX"
   homepage "https://security.appspot.com/vsftpd.html"
-  url "https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz"
-  mirror "https://fossies.org/linux/misc/vsftpd-3.0.3.tar.gz"
-  sha256 "9d4d2bf6e6e2884852ba4e69e157a2cecd68c5a7635d66a3a8cf8d898c955ef7"
+  url "https://security.appspot.com/downloads/vsftpd-3.0.5.tar.gz"
+  mirror "https://fossies.org/linux/misc/vsftpd-3.0.5.tar.gz"
+  sha256 "26b602ae454b0ba6d99ef44a09b6b9e0dfa7f67228106736df1f278c70bc91d3"
   license "GPL-2.0-only"
 
   livecheck do
@@ -12,11 +12,11 @@ class Vsftpd < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 arm64_big_sur: "b4db372cd088914a87f7c103eaed341550041af0d76e491a6d92b835f61285b6"
-    sha256 big_sur:       "40acdd9e273725a5338036bc7cb79af8c1978a9d18eefab2b735591b0bf5176d"
-    sha256 catalina:      "48478d6f73d9fa182c6597de7f195ab659879dbb301a70aa5e306d496331aebd"
-    sha256 mojave:        "156a4b41142d78d359c2a6c17b9aa3cca5a00e56fe01c2188dcc224735c0fdeb"
+    sha256 arm64_big_sur: "11589c537eaaaba8cfd68207f078d8d4d0485b40d8553c23ae7caf76ab5104d7"
+    sha256 big_sur:       "1ede9475ee1dc93ad54a413ca82bdd15d3b0f50b9d6f731cf7e3578cae8b0cbd"
+    sha256 catalina:      "79b378cfa6134e01ff2d253578c24601e5bb2d2514e7427da083a9af0446ac14"
+    sha256 mojave:        "d6ebf6f6f786c417698436901442203446bc6c64a9d50e6134b4035e2c0c5002"
+    sha256 x86_64_linux:  "124a191424c1d2f2261a858bc2d2a8319dc91572035f62c9f7065c08cdfd6e5b"
   end
 
   uses_from_macos "perl" => :build
@@ -52,26 +52,9 @@ class Vsftpd < Formula
     EOS
   end
 
-  plist_options startup: true, manual: "sudo vsftpd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/vsftpd</string>
-          <string>#{etc}/vsftpd.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_sbin/"vsftpd", etc/"vsftpd.conf"]
   end
 
   test do

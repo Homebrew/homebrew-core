@@ -6,11 +6,12 @@ class Stoken < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2f66cb207fe048720b4497e774752de500d005b4bcc7bd45ccb164ecd11fafc8"
-    sha256 cellar: :any, big_sur:       "701102c6cb8138920a8ccf7aae6d89ea247d259d17f7f4ce3e4af46cad516802"
-    sha256 cellar: :any, catalina:      "423dbce4e76710fe932fc4d86fa25b39ced8f138d781fcccbc3982ce83136216"
-    sha256 cellar: :any, mojave:        "59ee230b63a707bf9c1fd966ec003c14ca16c7e61a331b765e31a1ba4b7db867"
-    sha256 cellar: :any, high_sierra:   "6c6b704e5f9830e0192383c53717f64b0af48119d6f0d96d78de521820a6c84b"
+    sha256 cellar: :any,                 arm64_big_sur: "2f66cb207fe048720b4497e774752de500d005b4bcc7bd45ccb164ecd11fafc8"
+    sha256 cellar: :any,                 big_sur:       "701102c6cb8138920a8ccf7aae6d89ea247d259d17f7f4ce3e4af46cad516802"
+    sha256 cellar: :any,                 catalina:      "423dbce4e76710fe932fc4d86fa25b39ced8f138d781fcccbc3982ce83136216"
+    sha256 cellar: :any,                 mojave:        "59ee230b63a707bf9c1fd966ec003c14ca16c7e61a331b765e31a1ba4b7db867"
+    sha256 cellar: :any,                 high_sierra:   "6c6b704e5f9830e0192383c53717f64b0af48119d6f0d96d78de521820a6c84b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76dc36073ec825c62714e281e7e02cf6a159a5f43a27c2011440cc683cebb3ed"
   end
 
   depends_on "pkg-config" => :build

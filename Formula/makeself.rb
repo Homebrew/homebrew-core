@@ -1,13 +1,14 @@
 class Makeself < Formula
   desc "Generates a self-extracting compressed tar archive"
-  homepage "http://www.megastep.org/makeself/"
-  url "https://github.com/megastep/makeself/archive/release-2.4.3.tar.gz"
-  sha256 "b4c81c3d0a7c81459459319e9fc75320e057ea908430aa8a020be1993d6b74c8"
+  homepage "https://makeself.io/"
+  url "https://github.com/megastep/makeself/archive/release-2.4.5.tar.gz"
+  sha256 "91deafdbfddf130abe67d7546f0c50be6af6711bb1c351b768043bd527bd6e45"
   license "GPL-2.0-or-later"
   head "https://github.com/megastep/makeself.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "620fe1bac044be0d0cc0c37bd3683151f90ce479fcd2736bf27fcf59b0da2edc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f4662b6da2d3d6494554dabb44e7a21d13273a1283075689bf13d5056517b3c2"
   end
 
   def install
@@ -21,8 +22,16 @@ class Makeself < Formula
   end
 
   test do
-    touch "testfile"
-    system "tar", "cvzf", "testfile.tar.gz", "testfile"
-    system "#{bin}/makeself", ".", "testfile.run", '"A test file"', "echo"
+    source = testpath/"source"
+    source.mkdir
+    (source/"foo").write "bar"
+    (source/"script.sh").write <<~EOS
+      #!/bin/sh
+      echo 'Hello Homebrew!'
+    EOS
+    chmod 0755, source/"script.sh"
+    system bin/"makeself", source, "testfile.run", "'A test file'", "./script.sh"
+    assert_match "Hello Homebrew!", shell_output("./testfile.run --target output")
+    assert_equal (source/"foo").read, (testpath/"output/foo").read
   end
 end

@@ -6,13 +6,14 @@ class AnimeDownloader < Formula
   url "https://files.pythonhosted.org/packages/00/8b/2f354c0c2e56f1fe45e805698bd6a81c472473a48b814c44aaed2d41016d/anime-downloader-5.0.9.tar.gz"
   sha256 "40eaded9508a30f35993b2fc0f436c357d9939d58625a10bd595bfc11816ead4"
   license "Unlicense"
-  head "https://github.com/anime-dl/anime-downloader.git"
+  head "https://github.com/anime-dl/anime-downloader.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "51528ac11b71b803cec6866244164cc4b5e837fbc189c38cdb054bf189ef59f7"
     sha256 cellar: :any_skip_relocation, big_sur:       "4b7f8ef5058b22b72b3f5bda4ad9110c9d4ab4e7bc9aa5cf9691ca5f0c5ea558"
     sha256 cellar: :any_skip_relocation, catalina:      "ca0111a1386a2269340b3ce8b7d7a24766975cc680ab60e4c045cadae989e106"
     sha256 cellar: :any_skip_relocation, mojave:        "b561d3e6d9c25da1d6088154ce894985d5e6d0b08d317566e31ee9a970dc1754"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0f571445d312cada1fb7ce349655e378ef21cfd7e227780a8dad74a58671f7d"
   end
 
   depends_on "aria2"

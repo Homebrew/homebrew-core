@@ -2,16 +2,17 @@ class RustAnalyzer < Formula
   desc "Experimental Rust compiler front-end for IDEs"
   homepage "https://rust-analyzer.github.io/"
   url "https://github.com/rust-analyzer/rust-analyzer.git",
-       tag:      "2021-05-03",
-       revision: "eb741e895f1a73420a401f2495c711afe37d9d19"
-  version "2021-05-03"
+       tag:      "2021-09-06",
+       revision: "b73b321478d3b2a98d380eb79de717e01620c4e9"
+  version "2021-09-06"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6632d644cb106254ca88f407a96c7f0e17b22aaa2547795f15367b8a9b2f766c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c8f0a0a344b38633363622b2f54781143bfbe4f23c3345d43473fa91f95a4907"
-    sha256 cellar: :any_skip_relocation, catalina:      "7ab4e95624ebf25b1ad20ac04a1174205e831cb6c30f188722df2040c17f09e9"
-    sha256 cellar: :any_skip_relocation, mojave:        "2551e0180008ffcd87bcfb4bc4ce5945f07549836b6bb340dd018cd052c7bb0b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0e413b3fcd244e1eca674189f48d8ad5df31f0f25d2e05c4541082236d71a1ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "32c0e6dec4b25082e30cd01225fd4f50c853e31a0f78bce1e01d08063a09a64b"
+    sha256 cellar: :any_skip_relocation, catalina:      "497254e6af6c94e5079aa39f267bf7f6db41fb1c713d270beafed06b6065910e"
+    sha256 cellar: :any_skip_relocation, mojave:        "5e8263b373343154f421cfbe5a0841e664a2544653b19375584bc33015a74ae3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "379274b6453e861df6170aed4b823cd3437c449d64cca334eef194e66c598b61"
   end
 
   depends_on "rust" => :build
@@ -25,8 +26,8 @@ class RustAnalyzer < Formula
   test do
     def rpc(json)
       "Content-Length: #{json.size}\r\n" \
-      "\r\n" \
-      "#{json}"
+        "\r\n" \
+        "#{json}"
     end
 
     input = rpc <<-EOF

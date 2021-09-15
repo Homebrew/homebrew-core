@@ -1,15 +1,16 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2021.1.tar.gz"
-  sha256 "bd42f6d766ac50f1a1ab46ce96d59e24ab28fb9779a71fccfa8bad760842c274"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2021.3.tar.gz"
+  sha256 "b6b4194121ee8084c62b20f8d574c32f766e4e9237dfe60b0658b316d19c6b13"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6447d0c3e27b513115ef279846482de3eab7b7ab849d3e290fa6bf485763d790"
-    sha256 cellar: :any, big_sur:       "cf912a525b1c8191820d6f3d66f41c9a9b247c2b1f0ee3b515b4564b6d7b4a28"
-    sha256 cellar: :any, catalina:      "759cddd516c629938b4f45af5e285e9f3c4fe9bc602683a2503b5e79535333ae"
-    sha256 cellar: :any, mojave:        "2856a927e0af7af8e15c5f6a6402c7c91ea0bba0ee404f184ba26f43f9dcf68b"
+    sha256 cellar: :any,                 arm64_big_sur: "2a6a8dddfea9c6ec0e164d3bc91cd0e07dc2ce64a15f59e6ba2a5f851f34d373"
+    sha256 cellar: :any,                 big_sur:       "2c0679ffd907c528e88fea56a965bdba726327c40c5638080b185f79a0eafcb6"
+    sha256 cellar: :any,                 catalina:      "fe79aa02c8e46822aa429be46b842dc28876602a772a75c4cce8aa4d2bf8c32f"
+    sha256 cellar: :any,                 mojave:        "3075c62d7893812454a63ccf16f88c5db3b26569a33fcfed786c7a0d15c97d80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3f62ac74873e3278aded791b108256da0b90b9e1543ec7e5e580261dec5c16c"
   end
 
   depends_on "cmake" => :build
@@ -30,7 +31,7 @@ class SpirvTools < Formula
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "bcf55210f13a4fa3c3d0963b509ff1070e434c79"
+        revision: "e71feddb3f17c5586ff7f4cfb5ed1258b800574b"
   end
 
   def install
@@ -42,8 +43,7 @@ class SpirvTools < Formula
       system "cmake", "..", *std_cmake_args,
                             "-DBUILD_SHARED_LIBS=ON",
                             "-DSPIRV_SKIP_TESTS=ON",
-                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF",
-                            "-DEFFCEE_BUILD_TESTING=OFF"
+                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF"
       system "make", "install"
     end
 

@@ -6,14 +6,15 @@ class Libwandevent < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "57f916a1558f5b44462c12c98260ab27d0b4c5dd6b9df9502d9d8d19a480e437"
-    sha256 cellar: :any, big_sur:       "651aea239dab48e29f473c5a181f9dad8420350672a99e063419974599e26674"
-    sha256 cellar: :any, catalina:      "f175ecabb18921593ddd08bbd0b2aaa5e0a24c85d2964be230cd3a1f0ede22ee"
-    sha256 cellar: :any, mojave:        "1e1db4ade4de58ab9ca1f0545d91537b935b65e062d99737c288dd059a17da8e"
-    sha256 cellar: :any, high_sierra:   "7593e96a9e76e4b67fa3851a3491c8d7cbd458ad53ff65b3a34b64e2f697e75b"
-    sha256 cellar: :any, sierra:        "e4b00ade9387b8fdccf72bbe9edd0e334c69f23597f85dd1e6da02088703c286"
-    sha256 cellar: :any, el_capitan:    "f1459d39284b520c17443c6bef5ccb641dfe1e20266a4f34071f6a87cd9669e4"
-    sha256 cellar: :any, yosemite:      "b8c90b8dca1d0ded39036d7f23b4e33857c7914e178ba8ac8870ab702f96fa04"
+    sha256 cellar: :any,                 arm64_big_sur: "57f916a1558f5b44462c12c98260ab27d0b4c5dd6b9df9502d9d8d19a480e437"
+    sha256 cellar: :any,                 big_sur:       "651aea239dab48e29f473c5a181f9dad8420350672a99e063419974599e26674"
+    sha256 cellar: :any,                 catalina:      "f175ecabb18921593ddd08bbd0b2aaa5e0a24c85d2964be230cd3a1f0ede22ee"
+    sha256 cellar: :any,                 mojave:        "1e1db4ade4de58ab9ca1f0545d91537b935b65e062d99737c288dd059a17da8e"
+    sha256 cellar: :any,                 high_sierra:   "7593e96a9e76e4b67fa3851a3491c8d7cbd458ad53ff65b3a34b64e2f697e75b"
+    sha256 cellar: :any,                 sierra:        "e4b00ade9387b8fdccf72bbe9edd0e334c69f23597f85dd1e6da02088703c286"
+    sha256 cellar: :any,                 el_capitan:    "f1459d39284b520c17443c6bef5ccb641dfe1e20266a4f34071f6a87cd9669e4"
+    sha256 cellar: :any,                 yosemite:      "b8c90b8dca1d0ded39036d7f23b4e33857c7914e178ba8ac8870ab702f96fa04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa30ff4a09850d6c0611845c6a36c981a8648d1fb47afe428d09f28fa7dfa36f"
   end
 
   def install

@@ -1,19 +1,19 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
   homepage "https://www.pgbouncer.org/"
-  url "https://www.pgbouncer.org/downloads/files/1.15.0/pgbouncer-1.15.0.tar.gz"
-  sha256 "e05a9e158aa6256f60aacbcd9125d3109155c1001a1d1c15d33a37c685d31380"
+  url "https://www.pgbouncer.org/downloads/files/1.16.0/pgbouncer-1.16.0.tar.gz"
+  sha256 "a4a391618bb83caaee2a8cd9653974f4c1b98b95987d5cabbbeb801da6342652"
 
   livecheck do
     url "https://github.com/pgbouncer/pgbouncer"
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "8107249d240e1a53f6ae84587c08129acf5c294c4022f92d5f1c731ea6956ea3"
-    sha256 cellar: :any, big_sur:       "09f21ff3e7b2c125d793da2ba64110392227650ae8157ef987f041959af8fe7c"
-    sha256 cellar: :any, catalina:      "fad76f523bac43aaf7859fa0085ab7c6582f9d4aeb682e677db8f5acd9c4159a"
-    sha256 cellar: :any, mojave:        "4187ceded551fad5801a26f790e61dd7d654acc675de73a1b4bf2858920d0734"
+    sha256 cellar: :any,                 arm64_big_sur: "296a29f3cbfc6913fc9fdd0ebfd3a0f5475b74a781192b869fcb6757e919c879"
+    sha256 cellar: :any,                 big_sur:       "7d61dac174635767840b8dde46b2d9b4b25f6a36fc5ac950beb0868366fa87b8"
+    sha256 cellar: :any,                 catalina:      "e9bcdece7ed67566382ed196d34f6550fd093519e0283cb5e6170bd66645355f"
+    sha256 cellar: :any,                 mojave:        "d6e080c159196a61edd69c73ea234ce34bc91baeaf25e814633d2b35cabfb496"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26f5a2974400ec50e0727ce1b3054ceacd83e2e10e6b65e0e92296f412c65bfb"
   end
 
   depends_on "pkg-config" => :build
@@ -49,31 +49,10 @@ class Pgbouncer < Formula
     EOS
   end
 
-  plist_options manual: "pgbouncer -q #{HOMEBREW_PREFIX}/etc/pgbouncer.ini"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/pgbouncer</string>
-          <string>-q</string>
-          <string>#{etc}/pgbouncer.ini</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"pgbouncer", "-q", etc/"pgbouncer.ini"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

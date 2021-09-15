@@ -10,6 +10,9 @@ class TinyFugue < Formula
   livecheck do
     url :stable
     regex(%r{url=.*?/tf[._-]v?(\d+(?:\.\d+)*(?:[a-z]\d+?)?)\.t}i)
+    strategy :sourceforge do |page, regex|
+      page.scan(regex).map { |match| match.first.sub(/^(\d)(\d)([a-z])/i, '\1.\2\3') }
+    end
   end
 
   bottle do
@@ -18,6 +21,7 @@ class TinyFugue < Formula
     sha256 catalina:      "d10777dd98ae76a048caed1179f7a65f8ee59256dcb94cfcd89ac1da0e135209"
     sha256 mojave:        "ea162f2b1644a44d95a2847ec34133661008fff66306e3eda790a25f253f2165"
     sha256 high_sierra:   "b1ddefa5c2a52f3399f5a90c0586d65e5e7ccc9940715cbe682a1a30e8dc6e76"
+    sha256 x86_64_linux:  "c92a44ad82e402fb01b555a22f7e276a344d799b1b666ef76286a3397617770c"
   end
 
   depends_on "libnet"

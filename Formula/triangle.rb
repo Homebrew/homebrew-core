@@ -10,6 +10,7 @@ class Triangle < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0b51538505ae028c96c122c565345e97257aef8103614afb14ecce0e5feeafe7"
     sha256 cellar: :any_skip_relocation, catalina:      "5d3948f4093b5bc4f9b5410643eafd26a1d7c1bc87a2eb5ed7126447a46a675b"
     sha256 cellar: :any_skip_relocation, mojave:        "a2549fdd2296b72dc857cfc4fcb89f07f4cf71f2419133ddb06eef63e3c7a7f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1dd51ff7e1d80c1107c0c95b854db0168fda43a65a7e4bfca3201ad3d949e7ab"
   end
 
   depends_on "go" => :build

@@ -13,14 +13,14 @@ class Vpcs < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "ac52b231d875679e7bd4da3a09c6b5bc833e5b93fe5a77749dc834b1d82d21d5"
     sha256 cellar: :any_skip_relocation, sierra:        "78c7e415e9bcbdf28cfdda5d37fce9cc7d735b01d61400b41239e0cdee17ada5"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0f1a65e672fd1d2dbc866279835231ec3737e64c514f38a08bf409807e910222"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ee66bd58892962238c81873d186c5066fd53490328b2c0db6667532565db008"
   end
 
   def install
     cd "src" do
-      on_macos do
+      if OS.mac?
         system "make", "-f", "Makefile.osx"
-      end
-      on_linux do
+      else
         system "make", "-f", "Makefile.linux"
       end
       bin.install "vpcs"

@@ -10,6 +10,7 @@ class Wskdeploy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c77d6ad2c5fa8acec45bf9507d840f3de1a125edb5759f6de49427efb454fd38"
     sha256 cellar: :any_skip_relocation, catalina:      "17ff44da88c60d8c8c3a17fd4e2844c90d1bf7fe460928ae21731da5a7f52740"
     sha256 cellar: :any_skip_relocation, mojave:        "375d6f828a4a45d398ba11dcee4c60e64651697ee374917db7f2137b4c98cb77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eabf999a20dc7a3ce1b521b85e4a60731b740413ea133e5299ea534b0c44764a"
   end
 
   depends_on "go" => :build

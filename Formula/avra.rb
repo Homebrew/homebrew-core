@@ -11,6 +11,7 @@ class Avra < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "752edb7e9140387d4b763229ff05cdf973056a70c5a4799b63cce83c2ff18be5"
     sha256 cellar: :any_skip_relocation, mojave:        "cedf5547712134c47d3659e1cddde7d506643448eca98fb428734165fbb5afc7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f380ed5ddc18ece7b83f4c32290f56dfcc8a27065cc1a39423debfc482d369d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db5dc219fb53c28e191c9f2a4127efe2de53a27e7526b2b0d6b705c4ff57ee69"
   end
 
   depends_on "autoconf" => :build

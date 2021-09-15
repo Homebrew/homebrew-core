@@ -6,10 +6,13 @@ class JoobyBootstrap < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "3ca58a519ffa11530ab152b7a007c4b11e7bf76767b9296b84626e0516598c7b"
+  end
 
   deprecate! date: "2020-11-13", because: :unmaintained
 
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "maven"
   depends_on "openjdk@8"
 

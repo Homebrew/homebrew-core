@@ -7,16 +7,25 @@ class Sdl2Image < Formula
 
   livecheck do
     url :homepage
-    regex(/SDL2_image[._-]v?(\d+(?:\.\d+)*)/i)
+    regex(/href=.*?SDL2_image[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2a4cd10f3598553180559df330435f359703eaa02a77c12bf9667d953fa2b5a3"
-    sha256 cellar: :any, big_sur:       "d106f96771895c1b6faa9864e3605d301cdbe658672900108605c521616a8bf6"
-    sha256 cellar: :any, catalina:      "691d5407fef2bc374ac3b7c2fafbe46a6bc0f9ed609f98812b24fec33ab9bd27"
-    sha256 cellar: :any, mojave:        "1b3a464579d9ef25b3bdd9276119efffd0134fda5c5dc27051a35f1b21c00cfd"
-    sha256 cellar: :any, high_sierra:   "55c1f996fb523c2727d2b103f0a5ecfd7a073f55ff9a7230bb609d22bbf5a576"
-    sha256 cellar: :any, sierra:        "e3c9cf45d97099e818c667d23af8352e6d1bba0e3b609cdddee654f2a9da80cf"
+    sha256 cellar: :any,                 arm64_big_sur: "2a4cd10f3598553180559df330435f359703eaa02a77c12bf9667d953fa2b5a3"
+    sha256 cellar: :any,                 big_sur:       "d106f96771895c1b6faa9864e3605d301cdbe658672900108605c521616a8bf6"
+    sha256 cellar: :any,                 catalina:      "691d5407fef2bc374ac3b7c2fafbe46a6bc0f9ed609f98812b24fec33ab9bd27"
+    sha256 cellar: :any,                 mojave:        "1b3a464579d9ef25b3bdd9276119efffd0134fda5c5dc27051a35f1b21c00cfd"
+    sha256 cellar: :any,                 high_sierra:   "55c1f996fb523c2727d2b103f0a5ecfd7a073f55ff9a7230bb609d22bbf5a576"
+    sha256 cellar: :any,                 sierra:        "e3c9cf45d97099e818c667d23af8352e6d1bba0e3b609cdddee654f2a9da80cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "862dee72c17699cb5d0014116b98ae4de3998eead5bed93063d84b2b430147a5"
+  end
+
+  head do
+    url "https://github.com/libsdl-org/SDL_image.git", branch: "main"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
@@ -28,6 +37,8 @@ class Sdl2Image < Formula
 
   def install
     inreplace "SDL2_image.pc.in", "@prefix@", HOMEBREW_PREFIX
+
+    system "./autogen.sh" if build.head?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -50,7 +61,7 @@ class Sdl2Image < Formula
           return success;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lSDL2_image", "-o", "test"
+    system ENV.cc, "test.c", "-I#{Formula["sdl2"].opt_include}/SDL2", "-L#{lib}", "-lSDL2_image", "-o", "test"
     system "./test"
   end
 end

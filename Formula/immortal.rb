@@ -12,6 +12,7 @@ class Immortal < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "4b1f289dbe2b0998f091ebf9fbf6df2894f0eb3d447df2b5840915a53cdb3c09"
     sha256 cellar: :any_skip_relocation, mojave:        "c35c0718289bac0d3557ac5d17af6895765557d2c5a7124f389653163b40bb36"
     sha256 cellar: :any_skip_relocation, high_sierra:   "702cb544d23450cf258ef7b9287e99925e8cf715e1708513694f9068233a5cba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44afbe226bc53ce9abec4435e8057dc307d0f73bce4ffa804460801f66978917"
   end
 
   depends_on "go" => :build

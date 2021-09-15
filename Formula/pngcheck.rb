@@ -15,6 +15,7 @@ class Pngcheck < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "8a025005cde9e8423606279cea498d921810f2334fe17a7bf23a1eba6ee54aef"
     sha256 cellar: :any_skip_relocation, catalina:      "a4256bacc1a8025fa298b35d93af3ecf213449ab9118106530cdd29455293ead"
     sha256 cellar: :any_skip_relocation, mojave:        "6423830817d3166ce48ea9cb88f3a83f1f7e381d8a1039c4db153e465450d5c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bee1eb579044cbdf33c6e4f045a800debb49b2f9ca4d3517d718956872a58a97"
   end
 
   uses_from_macos "zlib"

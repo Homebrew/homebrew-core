@@ -15,6 +15,7 @@ class Deheader < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c90653b7e27554f27b48ea49cef85d433320ee50a6ca63b0e899a69d65f61074"
     sha256 cellar: :any_skip_relocation, mojave:        "a2f353a857e4fa0fecaf81e750bf9fd97ee8893e8e65f185f01c3c648f310724"
     sha256 cellar: :any_skip_relocation, high_sierra:   "78ca1d70d0f500b332964630528f2110534d3d8a1eb89e01c9b6bfa4ad0dd0f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38b5a87d326d710c2b81caee4f3666a6f30eebf24760739fdca2da8ed9be9432"
   end
 
   depends_on "xmlto" => :build

@@ -17,6 +17,7 @@ class Cgdb < Formula
     sha256 mojave:        "8f361fcad59ddf4825f4d42b516a099ba75bfffc0b885d42aeb875dbd1b2a1d4"
     sha256 high_sierra:   "9ab4c0a880cb71903094929b04eada3c279a48ddb00b651a8a93d55cd523d380"
     sha256 sierra:        "db6c63b20e2185ecaaf3ddef92d1ff052f0b0322c727f3f0429ef0d38ac9d269"
+    sha256 x86_64_linux:  "f9e24f895766eaa03642f236edb3a102cdd12102134b6dd087790b8fbadb85c5"
   end
 
   head do

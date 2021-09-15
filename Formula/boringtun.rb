@@ -4,13 +4,14 @@ class Boringtun < Formula
   url "https://github.com/cloudflare/boringtun/archive/v0.3.0.tar.gz"
   sha256 "1107b0170a33769db36876334261924edc71dfc1eb00f9b464c7d2ad6d5743d3"
   license "BSD-3-Clause"
-  head "https://github.com/cloudflare/boringtun.git"
+  head "https://github.com/cloudflare/boringtun.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "0de06cdb03839450dbe101b3f1042820f82aee7eda323039be0f48a0b2baf3e9"
-    sha256 cellar: :any_skip_relocation, catalina:    "dd119327645c4905c39a4b0e6f65472690d619e127088e62573b5a0c454cbb01"
-    sha256 cellar: :any_skip_relocation, mojave:      "c871b547c950e928ee065ce5dbe1442a41d65213b840654bb9e6922b7dedae0f"
-    sha256 cellar: :any_skip_relocation, high_sierra: "7e6fc1a3b6458d9df1b0c15ee53d14f0ea04e85494f306034fd8531d2ff4277c"
+    sha256 cellar: :any_skip_relocation, big_sur:      "0de06cdb03839450dbe101b3f1042820f82aee7eda323039be0f48a0b2baf3e9"
+    sha256 cellar: :any_skip_relocation, catalina:     "dd119327645c4905c39a4b0e6f65472690d619e127088e62573b5a0c454cbb01"
+    sha256 cellar: :any_skip_relocation, mojave:       "c871b547c950e928ee065ce5dbe1442a41d65213b840654bb9e6922b7dedae0f"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "7e6fc1a3b6458d9df1b0c15ee53d14f0ea04e85494f306034fd8531d2ff4277c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d7b49eed536d9c38b5f0c56a8ef447aac785af786f386d1510fb04bd7d894afe"
   end
 
   depends_on "rust" => :build

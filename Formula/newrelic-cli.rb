@@ -1,16 +1,17 @@
 class NewrelicCli < Formula
   desc "Command-line interface for New Relic"
   homepage "https://github.com/newrelic/newrelic-cli"
-  url "https://github.com/newrelic/newrelic-cli/archive/v0.27.3.tar.gz"
-  sha256 "528ac3479b09a5c5e6dbe274737e140b89c8d1607e82e0003bea99b5064fab54"
+  url "https://github.com/newrelic/newrelic-cli/archive/v0.34.39.tar.gz"
+  sha256 "b1558f644bf8532aabeee06af44412ed971e44da14d93b338a382fc15ce547c2"
   license "Apache-2.0"
-  head "https://github.com/newrelic/newrelic-cli.git"
+  head "https://github.com/newrelic/newrelic-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6297f2e4a50a30f679d3449487c456622810a44f5d58d601aa6e60dca260073b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4be78f60f79843797d07a1525db1e7657879bc1e87b69b410f9c1f26419efe6b"
-    sha256 cellar: :any_skip_relocation, catalina:      "7855b136f9b36b6a390df07a386b8fee12e3a33ee64a5c727558ca0d5e5a3599"
-    sha256 cellar: :any_skip_relocation, mojave:        "92f661d62c777c0695784b876be8a316f624db5cdf78255a4779e9c7709b3eb4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "be776154cb95683e89add935f64a2bb2eb09e19880b9628ea02191e841ac75b0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "11325ce8822cdbe6a17493b4f46de8a815dbf949cd057a850e52cdc4c4cfd562"
+    sha256 cellar: :any_skip_relocation, catalina:      "8570529a89d519567fb8fdfd18cef33ec6dbebf5f0a11d8ea8090ceb4133df8a"
+    sha256 cellar: :any_skip_relocation, mojave:        "4419b0b0e034c2daa483fda8f644655f6cf0bbb30c6478b79e0c8d33df887634"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77ebd751fd29f20f4998c367c454fdaa2400197a1d9767634e04d7610b0128df"
   end
 
   depends_on "go" => :build
@@ -18,7 +19,11 @@ class NewrelicCli < Formula
   def install
     ENV["PROJECT_VER"] = version
     system "make", "compile-only"
-    bin.install "bin/darwin/newrelic"
+    if OS.mac?
+      bin.install "bin/darwin/newrelic"
+    else
+      bin.install "bin/linux/newrelic"
+    end
 
     output = Utils.safe_popen_read("#{bin}/newrelic", "completion", "--shell", "bash")
     (bash_completion/"newrelic").write output
@@ -27,9 +32,10 @@ class NewrelicCli < Formula
   end
 
   test do
-    assert_match "pluginDir", shell_output("#{bin}/newrelic config list")
-    assert_match "logLevel", shell_output("#{bin}/newrelic config list")
-    assert_match "sendUsageData", shell_output("#{bin}/newrelic config list")
+    output = shell_output("#{bin}/newrelic config list")
+
+    assert_match "loglevel", output
+    assert_match "plugindir", output
     assert_match version.to_s, shell_output("#{bin}/newrelic version 2>&1")
   end
 end

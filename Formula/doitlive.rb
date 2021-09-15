@@ -15,6 +15,7 @@ class Doitlive < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "645c4c69758416768b1f853fba5d9e742c28985d8c1297aff866dcd05a84cce6"
     sha256 cellar: :any_skip_relocation, mojave:        "114d1d58d047ae404eb0a9280e11598359117b7cc832a993e2b4fd2a024a55e1"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d17d744e85a69fbe1dccd0433b208aa554e9791866969a1fff484780150e24c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04ccf705f4ff15d274b70629d45ac12d5fcb67b4e9a80183161860e0a16cddb0"
   end
 
   depends_on "python@3.9"

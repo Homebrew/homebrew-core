@@ -6,6 +6,11 @@ class Mhonarc < Formula
   license "GPL-2.0-or-later"
   revision 2
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?MHonArc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "d9a6c4bddb21af835cc9664460d4cd83dc46175de5d338f4d719d0012a7df45b"
   end

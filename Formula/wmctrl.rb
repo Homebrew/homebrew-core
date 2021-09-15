@@ -12,11 +12,12 @@ class Wmctrl < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "83b97edb3df52830587f710abc9bbfc53c0a7b3567a18f94c2161be6b988980a"
-    sha256 cellar: :any, big_sur:       "90c60692d669660d4d8037d2c6fa94cc13f14b6bb85e6909d0707f30644edde5"
-    sha256 cellar: :any, catalina:      "d585a38070e3343da1be66819f7d3f840140acee8dde1d3912542d682466ee48"
-    sha256 cellar: :any, mojave:        "49f4d10d0e8d8b4cfa2e5ba4240f5c623f01b66d4e466eace255c1496c627da5"
-    sha256 cellar: :any, high_sierra:   "10200373a514341920fd453d769c07040eae2ba01a691c418d10b6a1d44ec70b"
+    sha256 cellar: :any,                 arm64_big_sur: "83b97edb3df52830587f710abc9bbfc53c0a7b3567a18f94c2161be6b988980a"
+    sha256 cellar: :any,                 big_sur:       "90c60692d669660d4d8037d2c6fa94cc13f14b6bb85e6909d0707f30644edde5"
+    sha256 cellar: :any,                 catalina:      "d585a38070e3343da1be66819f7d3f840140acee8dde1d3912542d682466ee48"
+    sha256 cellar: :any,                 mojave:        "49f4d10d0e8d8b4cfa2e5ba4240f5c623f01b66d4e466eace255c1496c627da5"
+    sha256 cellar: :any,                 high_sierra:   "10200373a514341920fd453d769c07040eae2ba01a691c418d10b6a1d44ec70b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f35104a632334a639f0c7d233baea5a9177a2d43fe78cd563870c97b394d78bc"
   end
 
   depends_on "pkg-config" => :build

@@ -2,20 +2,20 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://project.carrot2.org"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.2.1",
-      revision: "936bcf7fa48e03fafffdf4e6f15b36074d161e6e"
+      tag:      "release/4.3.1",
+      revision: "5ee1bc852738bce97fe8be355720f5809fb4cdec"
   license "Apache-2.0"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, big_sur:  "378bc81bc95cdfc71b6b9e08058516e40f8bd8446d25fc65cc6e7d7a3840801e"
-    sha256 cellar: :any_skip_relocation, catalina: "7ade89023e00a6fc71b7aa5f3fd8d5c9e4a806248e5aec30cf47d0252d48c523"
-    sha256 cellar: :any_skip_relocation, mojave:   "cc31066d605e9319d118fa02ccabe747772151824e80c53d9940ed21a7853e42"
+    sha256 cellar: :any_skip_relocation, big_sur:      "46ec4d892dbe4c93519d0ab6c0dcb567398982bfd8e211985a9a4938351cb40d"
+    sha256 cellar: :any_skip_relocation, catalina:     "86d5724dded84fadd2e522cf97350500cbd9f2af46fd59735cb001a69187041d"
+    sha256 cellar: :any_skip_relocation, mojave:       "52a22394905c670f35257fd4c428fc1c5919957d8ab5642d8ee068286ca6703c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "66b3d79a8e8e5ef99f385a2b22c392a240cc3be1475d136eca377c4bf802c499"
   end
 
   # Switch to `gradle` when carrot2 supports Gradle 7+
   depends_on "gradle@6" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     # Make possible to build the formula with the latest available in Homebrew gradle
@@ -31,7 +31,7 @@ class Carrot2 < Formula
     end
 
     (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs",
-      JAVA_CMD:    "exec '#{Formula["openjdk"].opt_bin}/java'",
+      JAVA_CMD:    "exec '#{Formula["openjdk@11"].opt_bin}/java'",
       SCRIPT_HOME: libexec/"dcs"
   end
 
@@ -64,7 +64,7 @@ class Carrot2 < Formula
   test do
     port = free_port
     fork { exec bin/"carrot2", "--port", port.to_s }
-    sleep 5
+    sleep 20
     assert_match "Lingo", shell_output("curl -s localhost:#{port}/service/list")
   end
 end

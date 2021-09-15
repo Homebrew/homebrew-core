@@ -3,7 +3,12 @@ class Rzip < Formula
   homepage "https://rzip.samba.org/"
   url "https://rzip.samba.org/ftp/rzip/rzip-2.1.tar.gz"
   sha256 "4bb96f4d58ccf16749ed3f836957ce97dbcff3e3ee5fd50266229a48f89815b7"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://rzip.samba.org/ftp/rzip/"
+    regex(/href=.*?rzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "16c1e072a6f596e4bda1fb3bd99a743cdb1ef6c0ec552f1ea33224f24fb28047"
@@ -14,7 +19,10 @@ class Rzip < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "89a5e7ab518070df7c3f5091a18a412b72910b58a191222e915b1ed9db6ba570"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4eedb0ca975a72a4591d1e386d1ae01a546fb8401ea4f0b05c0fa71809e159db"
     sha256 cellar: :any_skip_relocation, yosemite:      "170150a7704b270df0a1cce7f1cfde689e245f9a9f628b5f0415df5ceae89e19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b409c08d9581b3013a05dc62ebe68c3d6bab99b342e8bc1f2911e9a342b18f0"
   end
+
+  uses_from_macos "bzip2"
 
   def install
     system "./configure", "--disable-debug",

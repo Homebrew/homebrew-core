@@ -11,11 +11,12 @@ class Gl2ps < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "02cad33d0c39773c7a0c0983f125fc04fe86d265b31cac034be45379265e65be"
-    sha256 cellar: :any, big_sur:       "4ad3d5fcf0a8393e77881e4ea73c160200f6573aa05f6db84e452d920a5f7185"
-    sha256 cellar: :any, catalina:      "dbdfe5d8458e1224941d6e5707b725ab6872333112dc408dbf35202eddbc8d15"
-    sha256 cellar: :any, mojave:        "bc857ec44c73448acf748dea7a699e1018a874196dec19659a63aa70a7b5e970"
-    sha256 cellar: :any, high_sierra:   "6c36dc780b0579f44057cadddb9e1a2e369e2ba9205b68d6c81ebd79defc45b4"
+    sha256 cellar: :any,                 arm64_big_sur: "02cad33d0c39773c7a0c0983f125fc04fe86d265b31cac034be45379265e65be"
+    sha256 cellar: :any,                 big_sur:       "4ad3d5fcf0a8393e77881e4ea73c160200f6573aa05f6db84e452d920a5f7185"
+    sha256 cellar: :any,                 catalina:      "dbdfe5d8458e1224941d6e5707b725ab6872333112dc408dbf35202eddbc8d15"
+    sha256 cellar: :any,                 mojave:        "bc857ec44c73448acf748dea7a699e1018a874196dec19659a63aa70a7b5e970"
+    sha256 cellar: :any,                 high_sierra:   "6c36dc780b0579f44057cadddb9e1a2e369e2ba9205b68d6c81ebd79defc45b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e85c3e2f25855ef919358e1912f3190ba8e6890cfd5329931638b595cab962d1"
   end
 
   depends_on "cmake" => :build

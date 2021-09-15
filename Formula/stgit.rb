@@ -4,7 +4,7 @@ class Stgit < Formula
   url "https://github.com/stacked-git/stgit/releases/download/v1.1/stgit-1.1.tar.gz"
   sha256 "fc9674943c8e5534122ad96646078b4f07b7b69fc202b57eaa9b430ee13f0d9b"
   license "GPL-2.0-only"
-  head "https://github.com/stacked-git/stgit.git"
+  head "https://github.com/stacked-git/stgit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "227e183a55224f7d8386a57330c37d7e3ef0d472b35603ed42b78ed04142dffa"

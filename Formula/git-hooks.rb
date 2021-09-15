@@ -20,6 +20,8 @@ class GitHooks < Formula
   # replacement: https://github.com/git-hooks/git-hooks
   deprecate! date: "2020-06-25", because: :repo_removed
 
+  conflicts_with "git-hooks-go", because: "both install `git-hooks` binaries"
+
   def install
     bin.install "git-hooks"
     (etc/"git-hooks").install "contrib"

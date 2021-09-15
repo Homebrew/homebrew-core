@@ -1,10 +1,12 @@
 class Pdnsd < Formula
   desc "Proxy DNS server with permanent caching"
-  homepage "http://members.home.nl/p.a.rombouts/pdnsd/"
-  url "http://members.home.nl/p.a.rombouts/pdnsd/releases/pdnsd-1.2.9a-par.tar.gz"
+  # The upstream urls are currently down, so temporarily use an archived copy.
+  homepage "https://web.archive.org/web/20201203080556/members.home.nl/p.a.rombouts/pdnsd/"
+  url "https://web.archive.org/web/20200323100335/members.home.nl/p.a.rombouts/pdnsd/releases/pdnsd-1.2.9a-par.tar.gz"
+  mirror "https://fossies.org/linux/misc/dns/pdnsd-1.2.9a-par.tar.gz"
   version "1.2.9a-par"
   sha256 "bb5835d0caa8c4b31679d6fd6a1a090b71bdf70950db3b1d0cea9cf9cb7e2a7b"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 2
@@ -15,6 +17,7 @@ class Pdnsd < Formula
     sha256 high_sierra:   "be218973e8fe1d807e7d9ec2762cab2a9968ce302fb46fb89974a686c1afcc43"
     sha256 sierra:        "81c4852b1093820909afc140f052f732cbd94e428d9aff261b90d74cb4935b09"
     sha256 el_capitan:    "1fa2f1f6ba9fc4fe710c1dc1d5bfb2b9663c557f5cdddf3a2fff8394f138a08f"
+    sha256 x86_64_linux:  "4402ca761308936338a2c45fd5642eb8d19c80ec6700b1bcb79203f4396d76c4"
   end
 
   def install

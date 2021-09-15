@@ -1,43 +1,23 @@
-require "language/go"
-
 class TerraformInventory < Formula
   desc "Terraform State → Ansible Dynamic Inventory"
   homepage "https://github.com/adammck/terraform-inventory"
-  url "https://github.com/adammck/terraform-inventory/archive/v0.9.tar.gz"
-  sha256 "e0f5876b2272ac3f9702e3599078aede1e448f617526beec147cd3fbbf0836bd"
+  url "https://github.com/adammck/terraform-inventory/archive/v0.10.tar.gz"
+  sha256 "8bd8956da925d4f24c45874bc7b9012eb6d8b4aa11cfc9b6b1b7b7c9321365ac"
   license "MIT"
-  head "https://github.com/adammck/terraform-inventory.git"
+  head "https://github.com/adammck/terraform-inventory.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1acd7cb77565f8b7838a0421529c24e48d2f703e0ec8d180f3b3f0a8bdb308f8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d17cfd5dce0dfbc136f1508da7c24894edf479492698be1e7fecd0787d6aefed"
-    sha256 cellar: :any_skip_relocation, catalina:      "a645460f72cd2fb823d603325439b39a7b8c493a2c3b833d87a484bbc0dfe7ba"
-    sha256 cellar: :any_skip_relocation, mojave:        "9f34bba5205c0fc87ddf7c95ce8532b85fc7cbb515dea9cc211f70fab2aeb643"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "a9500dab587c5078fe62ae2ab5eff2376ecad8d29208a60fe195debfdeea5e78"
-    sha256 cellar: :any_skip_relocation, sierra:        "6b30bf29fe2e83c3bb75c16ce83731c7b212f5f48c3db787501cf1fbb8c37d19"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "df26181ba3116beae2b5582eb6725c2c8d9ddad018be827f6d07d252cfc019c0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ab56b7c132afc5508e5e10cfa21b784aa2f84fa8a23d9985b7b45eb04c8bdae1"
+    sha256 cellar: :any_skip_relocation, catalina:      "ab56b7c132afc5508e5e10cfa21b784aa2f84fa8a23d9985b7b45eb04c8bdae1"
+    sha256 cellar: :any_skip_relocation, mojave:        "ab56b7c132afc5508e5e10cfa21b784aa2f84fa8a23d9985b7b45eb04c8bdae1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "853cf36916d4bb9834f0f6b491e347a109a2930d350a1a31b8e7b8233720c20b"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/adammck/venv" do
-    url "https://github.com/adammck/venv.git",
-        revision: "8a9c907a37d36a8f34fa1c5b81aaf80c2554a306"
-  end
-
-  go_resource "github.com/blang/vfs" do
-    url "https://github.com/blang/vfs.git",
-        revision: "2c3e2278e174a74f31ff8bf6f47b43ecb358a870"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-
-    mkdir_p buildpath/"src/github.com/adammck/"
-    ln_sf buildpath, buildpath/"src/github.com/adammck/terraform-inventory"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-o", bin/"terraform-inventory", "-ldflags", "-X main.build_version='#{version}'"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.build_version=#{version}")
   end
 
   test do

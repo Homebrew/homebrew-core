@@ -11,11 +11,12 @@ class Libev < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8ed86bdd0ff3b47f8802b251a9ca61770ffc4c9b0be964f41f50955256b5bb53"
-    sha256 cellar: :any, big_sur:       "95ddf4b85924a6a10d4a88b6eb52616fa8375e745c99d0752618d5bb82f5248a"
-    sha256 cellar: :any, catalina:      "e5481e2ba48282bffb5ecc059f0ddddd9807400593e849ed4b48b1fed3a14698"
-    sha256 cellar: :any, mojave:        "f6cfb8c6bb1219f4a54d36113ada7cc7e1e446d5a207bc77d69ac30d9cfe391f"
-    sha256 cellar: :any, high_sierra:   "f623fc2f4dc3a0980b4733945eb2025cd40636a6d4f5e5d75ae5f89e0b7b07bd"
+    sha256 cellar: :any,                 arm64_big_sur: "8ed86bdd0ff3b47f8802b251a9ca61770ffc4c9b0be964f41f50955256b5bb53"
+    sha256 cellar: :any,                 big_sur:       "95ddf4b85924a6a10d4a88b6eb52616fa8375e745c99d0752618d5bb82f5248a"
+    sha256 cellar: :any,                 catalina:      "e5481e2ba48282bffb5ecc059f0ddddd9807400593e849ed4b48b1fed3a14698"
+    sha256 cellar: :any,                 mojave:        "f6cfb8c6bb1219f4a54d36113ada7cc7e1e446d5a207bc77d69ac30d9cfe391f"
+    sha256 cellar: :any,                 high_sierra:   "f623fc2f4dc3a0980b4733945eb2025cd40636a6d4f5e5d75ae5f89e0b7b07bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a22fcf5d3733f1cd5814c5ae2c5a46c7c408195d408d3666b42696a0127f8bb5"
   end
 
   def install

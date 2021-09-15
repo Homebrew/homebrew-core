@@ -8,6 +8,10 @@ on:
     # Once every day at midnight UTC
     - cron: "0 0 * * *"
 
+concurrency:
+  group: remove-disabled-formulae
+  cancel-in-progress: true
+
 jobs:
   remove-disabled-formulae:
     if: startsWith(github.repository, 'Homebrew/')

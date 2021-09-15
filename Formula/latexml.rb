@@ -16,6 +16,7 @@ class Latexml < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5311fc896eb2d27a5fa149bea4d30e6be0f6693cde9da9709b32f11212f726e1"
     sha256 cellar: :any_skip_relocation, catalina:      "3af6c43c91d733210e1e75db13093c72aa91addc1cc8ae94cd716de6ec73ea37"
     sha256 cellar: :any_skip_relocation, mojave:        "f51f58dc03c62130191b1bf2bb223459da93cdb7a7a1c3052a227a4bdc67dfe9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8cfc70adb30f6d9427642a94fa48618b2242bcb2d11ec3c6256e6313fb12694"
   end
 
   uses_from_macos "libxml2"
@@ -187,9 +188,7 @@ class Latexml < Formula
     ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
     resources.each do |r|
       r.stage do
-        on_linux do
-          ENV["PERL_CANARY_STABILITY_NOPROMPT"] = "1"
-        end
+        ENV["PERL_CANARY_STABILITY_NOPROMPT"] = "1" if OS.linux?
 
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make"

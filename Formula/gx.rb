@@ -12,6 +12,7 @@ class Gx < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f737f5829c0e1ce2ff58c56515e77f3797c30d614a53ebbf663985d5564c62db"
     sha256 cellar: :any_skip_relocation, mojave:        "bd03f428c3e52561caefaa09c6abc92b21faa226ad02abeeb6c74217ca1dfbbf"
     sha256 cellar: :any_skip_relocation, high_sierra:   "e6634c1b68abcb48984a7d681248393ca26824a81496c567ef23029ff9a892f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40fe8e9f82a981fbf440651d85215bdc246ef4da138b5378da7318b4f3f04645"
   end
 
   depends_on "go" => :build

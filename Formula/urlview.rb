@@ -39,7 +39,7 @@ class Urlview < Formula
 
     man1.mkpath
 
-    on_linux do
+    if OS.linux?
       touch("NEWS") # autoreconf will fail if this file does not exist
       system "autoreconf", "-i"
     end

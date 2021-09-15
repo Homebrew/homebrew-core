@@ -1,12 +1,15 @@
 class CassandraReaper < Formula
   desc "Management interface for Cassandra"
   homepage "https://cassandra-reaper.io/"
-  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/2.2.4/cassandra-reaper-2.2.4-release.tar.gz"
-  sha256 "6623be08b8537f13c7259f2ab51a2de5f7b4cef10039e072ba19627dad2e0c19"
+  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/2.3.1/cassandra-reaper-2.3.1-release.tar.gz"
+  sha256 "3a6633e43ea99d295f61067f948d9918689589d70e09a541310c4c9fa9ecc268"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "fb19757d6d28a30eed71836a8e674e366ca4ac809fddc845f9f2a4f7cd602414"
+  end
 
+  depends_on arch: :x86_64 # openjdk@8 does not support ARM
   depends_on "openjdk@8"
 
   def install
@@ -16,36 +19,12 @@ class CassandraReaper < Formula
     inreplace Dir[etc/"cassandra-reaper/*.yaml"], " /var/log", " #{var}/log"
   end
 
-  plist_options manual: "cassandra-reaper"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/cassandra-reaper</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/cassandra-reaper/service.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/cassandra-reaper/service.err</string>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>JAVA_HOME</key>
-            <string>#{Formula["openjdk@8"].opt_prefix}</string>
-          </dict>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"cassandra-reaper"
+    environment_variables JAVA_HOME: Formula["openjdk@8"].opt_prefix
+    keep_alive true
+    error_log_path var/"log/cassandra-reaper/service.err"
+    log_path var/"log/cassandra-reaper/service.log"
   end
 
   test do

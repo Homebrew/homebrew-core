@@ -10,6 +10,7 @@ class CfnFormat < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d4907e241905aad8457ae6eaf09e1d45e300d27776d95c0a9ee658dc0551c1cc"
     sha256 cellar: :any_skip_relocation, catalina:      "4769eaf270502dce3598a91f2d2a67b4913f9ee2fdb17b715bcf5bd6e861bf72"
     sha256 cellar: :any_skip_relocation, mojave:        "53cc76c61dc8e73690794be8f04611a74e0eb9391855b1fdfbe2cc684604eb0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0e6bc6e76b5e2f86e578b6443dd8d98e3ab2b55ea5fa28a62266e74510a191d"
   end
 
   depends_on "go" => :build

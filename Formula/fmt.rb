@@ -1,15 +1,16 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmt.dev/"
-  url "https://github.com/fmtlib/fmt/archive/7.1.3.tar.gz"
-  sha256 "5cae7072042b3043e12d53d50ef404bbb76949dad1de368d7f993a15c8c05ecc"
+  url "https://github.com/fmtlib/fmt/archive/8.0.1.tar.gz"
+  sha256 "b06ca3130158c625848f3fb7418f235155a4d389b2abc3a6245fb01cb0eb1e01"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ca7feb7f642cd97750e7df4a46229c5c8bf5948673a5b2be5cec24a4e4981ec3"
-    sha256 cellar: :any, big_sur:       "030400184b37be2dbefd79244622b6ba1db79a7a082063c9731422d67c1ec689"
-    sha256 cellar: :any, catalina:      "bc10923606cbc09de72d80d4fa35f2834cd3661791b493936a8d2853e571ef9d"
-    sha256 cellar: :any, mojave:        "9ff67f083520e388e629e37267b87099e2335ff8bedecd7662779f3042f11f3e"
+    sha256 cellar: :any,                 arm64_big_sur: "f9b84ce76a3226dc6f7e892b844de4238b1ea278bd77949839afbbc4b0bdce57"
+    sha256 cellar: :any,                 big_sur:       "20e10af8ee859764717466c355812a03b4ed4e23b7e97f155b1bc0b391dfe2ba"
+    sha256 cellar: :any,                 catalina:      "08d31cecf8c989a946b205aec6e5cb305f2982a59ea345ba343a4349cef998b7"
+    sha256 cellar: :any,                 mojave:        "f0d905746ce5dc69067e240b33c2e37268c9f88889c65578fb96b7c373cc0e80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4edba06a41ddb0fcea04cfb3b71c95dd945df125aee3d1de2f22abfa2b65fd6b"
   end
 
   depends_on "cmake" => :build

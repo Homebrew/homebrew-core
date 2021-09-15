@@ -15,6 +15,7 @@ class SharedMimeInfo < Formula
     sha256 cellar: :any, big_sur:       "4857d9f38c0f3cbf23984d60c4ec6280d84b457123d34b9c01e96f3deb8b0bb2"
     sha256 cellar: :any, catalina:      "8cb87ae2f3014998ecebab2d8c37ac9ff364f1164417420c4d8778a38ca17d29"
     sha256 cellar: :any, mojave:        "786d1c053d03676c985de3a7c15d764b69626f5d12e7e36e4048055bdc36413c"
+    sha256               x86_64_linux:  "6099cf602b42eb8f23022b02c292b0bbdce2e22f4ff5b5e8f4d8a3c4575b298f"
   end
 
   head do

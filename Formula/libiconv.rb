@@ -4,7 +4,7 @@ class Libiconv < Formula
   url "https://ftp.gnu.org/gnu/libiconv/libiconv-1.16.tar.gz"
   mirror "https://ftpmirror.gnu.org/libiconv/libiconv-1.16.tar.gz"
   sha256 "e6a1b1b589654277ee790cce3734f07876ac4ccfaecbee8afa0b649cf529cc04"
-  license "GPL-3.0"
+  license all_of: ["GPL-3.0-or-later", "LGPL-2.0-or-later"]
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5d7976b37516995241432ab9c4cb14a0eba03f2e8af5b7bb110147ce045c9e1f"
@@ -16,6 +16,8 @@ class Libiconv < Formula
   end
 
   keg_only :provided_by_macos
+
+  depends_on :macos # is not needed on Linux, where iconv.h is provided by glibc
 
   patch do
     url "https://raw.githubusercontent.com/Homebrew/patches/9be2793af/libiconv/patch-utf8mac.diff"

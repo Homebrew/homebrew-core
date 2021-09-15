@@ -1,21 +1,10 @@
 class Unison < Formula
   desc "File synchronization tool for OSX"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
+  url "https://github.com/bcpierce00/unison/archive/v2.51.4.tar.gz"
+  sha256 "d1ecc7581aaf2ed0f3403d4960f468acd7b9f1d92838a17c96e6d1df79b802d5"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/bcpierce00/unison.git", branch: "master"
-
-  stable do
-    url "https://github.com/bcpierce00/unison/archive/v2.51.3.tar.gz"
-    sha256 "0c287d17f52729440b2bdc28edf4d19b2d5ea5869983d78e780d501c5866914b"
-
-    # Patch to fix build with ocaml 4.12. Remove in 2.51.4
-    # https://github.com/bcpierce00/unison/pull/481
-    patch do
-      url "https://github.com/bcpierce00/unison/commit/14b885316e0a4b41cb80fe3daef7950f88be5c8f.patch?full_index=1"
-      sha256 "6d498d5e21d77cbc83ffc533c93cfa2f2ea30ab1b991b16e612e1d09a20efc8e"
-    end
-  end
 
   # The "latest" release on GitHub sometimes points to unstable versions (e.g.,
   # release candidates), so we check the Git tags instead.
@@ -25,10 +14,11 @@ class Unison < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "886bb7cc21d57ba77aa8fd33c316868f97c1a4a6e2912d29773d73f79b2cf902"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9e558f5f50d452b848b7a1720610e774f1fb3a866e24ee1d106e06f03ce1a24d"
-    sha256 cellar: :any_skip_relocation, catalina:      "4c929941f77578e5d78f791078d71d5b8b6553118fa40b1738f433f7af81f486"
-    sha256 cellar: :any_skip_relocation, mojave:        "ca5cfeddcf93825743a793623de463d64f393eddfc0740cd530779af782c07d7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "38e7fb0ba3af85a957f7680b349fdcfcad50c47f6bd5970bbff40c52435550e9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4e0e92dbed77b5a10ccaf2ed146707fc92d1332d3063b7495f381aff79a312ee"
+    sha256 cellar: :any_skip_relocation, catalina:      "c792e2e2a701edd6f6a4f855ec0053567d4cdc424e369fcb51a9659563e8bd43"
+    sha256 cellar: :any_skip_relocation, mojave:        "f2df486827594d32b05b5ac1c1976aebd47938f7ea6d1c6ae6e70a19ab3e0588"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c336751c0cd7e7ec4c0a37c064033082ee8b7f2dc4fafa7c768c6aba2e75209"
   end
 
   depends_on "ocaml" => :build

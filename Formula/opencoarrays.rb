@@ -5,13 +5,14 @@ class Opencoarrays < Formula
   sha256 "6c200ca49808c75b0a2dfa984304643613b6bc77cc0044bee093f9afe03698f7"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/sourceryinstitute/opencoarrays.git"
+  head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "043b88d4bf48347702c50ba3438389965196d9970216b9464561fb31628a0b71"
-    sha256 cellar: :any, big_sur:       "837d197c743e950acdffe9ee52e63d4191c67226242c53ad7e9a26221a5e73f5"
-    sha256 cellar: :any, catalina:      "245e140d9b5b8301caab320267ab2ff0c83156f60433181afdfce370651292ab"
-    sha256 cellar: :any, mojave:        "cf781f8c51d7b6bf872e1c0879ad22f287ff3c22b49118eb5e1f3a172cfaedad"
+    sha256 cellar: :any,                 arm64_big_sur: "043b88d4bf48347702c50ba3438389965196d9970216b9464561fb31628a0b71"
+    sha256 cellar: :any,                 big_sur:       "837d197c743e950acdffe9ee52e63d4191c67226242c53ad7e9a26221a5e73f5"
+    sha256 cellar: :any,                 catalina:      "245e140d9b5b8301caab320267ab2ff0c83156f60433181afdfce370651292ab"
+    sha256 cellar: :any,                 mojave:        "cf781f8c51d7b6bf872e1c0879ad22f287ff3c22b49118eb5e1f3a172cfaedad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db09effd8c16b9cc640120bfd01ba6fc666d4086faa0f13efe20962c0072dd80"
   end
 
   depends_on "cmake" => :build

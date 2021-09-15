@@ -1,9 +1,9 @@
 class Libgnt < Formula
   desc "NCurses toolkit for creating text-mode graphical user interfaces"
   homepage "https://keep.imfreedom.org/libgnt/libgnt"
-  url "https://downloads.sourceforge.net/project/pidgin/libgnt/2.14.1/libgnt-2.14.1.tar.xz"
-  sha256 "5ec3e68e18f956e9998d79088b299fa3bca689bcc95c86001bc5da17c1eb4bd8"
-  license "GPL-2.0"
+  url "https://downloads.sourceforge.net/project/pidgin/libgnt/2.14.2/libgnt-2.14.2.tar.xz"
+  sha256 "61cf74b14eef10868b2d892e975aa78614f094c8f4d30dfd1aaedf52e6120e75"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://sourceforge.net/projects/pidgin/files/libgnt/"
@@ -12,10 +12,11 @@ class Libgnt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fb95e81366fa30eeba4c475a6ceb3a3b10e627f479dd5bc32b1d4ed55785a98a"
-    sha256 cellar: :any, big_sur:       "8af4cf0b8e2727ad0db525084fa644d80df9d1c3fbbada9700a988a5c651dc39"
-    sha256 cellar: :any, catalina:      "69c11afb2957571a907a82545da6ea8bed0f9d35193c9cc15d0e2063f82f976b"
-    sha256 cellar: :any, mojave:        "d805104397225f4c57b8f5c5310f3c77f5eea4f5870332b15c84717c465fb384"
+    sha256 cellar: :any, arm64_big_sur: "9f69a2025fb154ec282f75ea1adcfdaefcacc62d493c966b1febf8b52eac2f88"
+    sha256 cellar: :any, big_sur:       "4f5d3a4eac1bc6ced4b77e166d17c69ae675aafab501a1c6a160d96fb4d16767"
+    sha256 cellar: :any, catalina:      "97281ee7db978e4a605173bd5abf7fa88db1d641f374189f534db8072afa4e82"
+    sha256 cellar: :any, mojave:        "066da1b998539c7f36e25b57606d20621ca02be456b708ae9e6b59b99eccb7e5"
+    sha256               x86_64_linux:  "af9f29ebc47897bc9725ff680c35318503166e46faabd67172b48a532bacb904"
   end
 
   depends_on "gtk-doc" => :build
@@ -24,8 +25,19 @@ class Libgnt < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
+    # Work around for ERROR: Problem encountered: ncurses could not be found!
+    # Issue is build only checks for ncursesw headers under system prefix /usr
+    # Upstream issue: https://issues.imfreedom.org/issue/LIBGNT-15
+    if OS.linux?
+      inreplace "meson.build", "ncurses_sys_prefix = '/usr'",
+                               "ncurses_sys_prefix = '#{Formula["ncurses"].opt_prefix}'"
+    end
 
     mkdir "build" do
       system "meson", *std_meson_args, ".."

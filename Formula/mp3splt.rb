@@ -12,6 +12,7 @@ class Mp3splt < Formula
     sha256 mojave:        "fb9ec207370028ac673f0f4e067dbae93d19e567ca80ab46e9e49d895262ac81"
     sha256 high_sierra:   "5dac4b6a6632c234ad5137084275924e1fcc32833a333924cc55fc50da51afe3"
     sha256 sierra:        "86a18b472c2b9a7b603da79caa1e406c3ca73d717a508cf6999ae2c73a6b7870"
+    sha256 x86_64_linux:  "4166776da9e1e9dfab57b40acd74340e67d814db2815e15213a6ecf8f312bc82"
   end
 
   depends_on "pkg-config" => :build

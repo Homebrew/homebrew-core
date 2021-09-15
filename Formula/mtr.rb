@@ -12,6 +12,7 @@ class Mtr < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "6ec962809c1c2381b7723647e16c2283dbef8042ae04af14ad675fa63c38a859"
     sha256 cellar: :any_skip_relocation, mojave:        "6a768b9cd07026aec0276742fd3fb6723c0f545a8498dff1ab3bb5b9e23e85e0"
     sha256 cellar: :any_skip_relocation, high_sierra:   "9c9a9c995360d16581ef42b0a729a5d3c152e7195bcc88910cda9bd9315c3299"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b87f19c7e5247304ef5c147fd8656516601c1a6051b51fd5a27ad32a30ebc6b"
   end
 
   depends_on "autoconf" => :build

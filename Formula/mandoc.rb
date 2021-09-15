@@ -17,6 +17,7 @@ class Mandoc < Formula
     sha256 mojave:        "78ffbf8bee7e5135ea303bb861f432288f2d48d403d7e932753b1ef962348917"
     sha256 high_sierra:   "3236fdca9fe2cd8cca29d246d9252eaeea8ceeb7d8f5251574c2bc771a841647"
     sha256 sierra:        "6176fcab59057d2188db3047849f96170bcb2133bfbe1f8c94845895d6a89bec"
+    sha256 x86_64_linux:  "36a859c94b852164624ca7a3e52d5f71bae77171a276bc8b1d2a1e22d7cd5cac"
   end
 
   uses_from_macos "zlib"

@@ -1,8 +1,9 @@
 class Ntl < Formula
   desc "C++ number theory library"
   homepage "https://libntl.org"
-  url "https://libntl.org/ntl-11.4.4.tar.gz"
-  sha256 "9d7f6e82e11a409f151c0de2deb08c0d763baf9834fddfd432bf3d218f8021db"
+  url "https://libntl.org/ntl-11.5.1.tar.gz"
+  sha256 "210d06c31306cbc6eaf6814453c56c776d9d8e8df36d74eb306f6a523d1c6a8a"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://libntl.org/download.html"
@@ -10,10 +11,11 @@ class Ntl < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2e3fdf3214220bd1c2bad264029df96c1b3e6e6abb73741e4e6cfa1492a79c96"
-    sha256 cellar: :any, big_sur:       "01860b0c0190a6c5a1189ed0b1ab25c5ed06f8ac7025f3d50acccb6c1e134de6"
-    sha256 cellar: :any, catalina:      "3a9dd95ffa5e4467467b0955d9b8eef9cf79a264ac1973f13c088b7cf21d5d93"
-    sha256 cellar: :any, mojave:        "d0fc111707de1403ad34ad27ede466ac1f654287a96749e17398c3c4366a0cf5"
+    sha256 cellar: :any,                 arm64_big_sur: "972f6f6fdf45e71f8d852a5ab162189f14bb1f800692af4466b5672e75ff62cd"
+    sha256 cellar: :any,                 big_sur:       "e108c06f39537cdc58cd6e7f681395ae069c381af5e0c95abca97d1ccc90ec9e"
+    sha256 cellar: :any,                 catalina:      "b97739b3b8de3daabe0d76cec3e29ef47f4bc85e6197054aec6d10f6b8f1a4ae"
+    sha256 cellar: :any,                 mojave:        "bc2ffa687c16e3ee99c093dc0b55275df08c278e20c1d2281e798f1144816634"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0612d19a82889b93ddae2920ccd148644bee62f74c0c39662c20bb8447fe6c2"
   end
 
   depends_on "gmp"

@@ -13,6 +13,7 @@ class Advancecomp < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "798de4490c97283280259ffc1dc39159bd0ded85edb47f3212ad5ec9a174289e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "fdb2a72157445c33a462388f05580489c427f4f0d2a3d4cdc1b7867ef69e7e53"
     sha256 cellar: :any_skip_relocation, sierra:        "4ef3590e26c5ac96d64dc985b035ec7055f215c84d31dfb09542d958f6ec4e77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29cac996baf6556c934e02bc94147f051107656945dee2b35284601b67c5e50f"
   end
 
   depends_on "autoconf" => :build

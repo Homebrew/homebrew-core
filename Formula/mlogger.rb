@@ -14,6 +14,7 @@ class Mlogger < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "1f7392a3d16a2bf595487a4b35bf5c866fa00c0967629eef46f07cbf6e696ff4"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e1f78a9ef569085efcac8c41bd2a70feda85e7fcba5eb7b46a9ee5341cf8cb2d"
     sha256 cellar: :any_skip_relocation, yosemite:      "f64331a815b26047bc982340650aae806a568a10060adfc819e25d077059af2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "893dd3f909fe05978eef82de9222ba24cb05e208d73d63f5ef591098df8ceb56"
   end
 
   def install

@@ -7,8 +7,7 @@ class MupdfTools < Formula
   head "https://git.ghostscript.com/mupdf.git"
 
   livecheck do
-    url "https://mupdf.com/downloads/archive/?C=M&O=D"
-    regex(/href=.*?mupdf[._-]v?(\d+(?:\.\d+)+)-source\.(?:t|zip)/i)
+    formula "mupdf"
   end
 
   bottle do
@@ -17,6 +16,7 @@ class MupdfTools < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e985551872925ed4b66ce995c551fda59152c1e7f9cf2bdbd205ab749e867e17"
     sha256 cellar: :any_skip_relocation, mojave:        "50f1628c7c396fdfd65eb5ce84541a5b9a695bc6fe003cc7abc732e212762bc3"
     sha256 cellar: :any_skip_relocation, high_sierra:   "2a7a4799ca7e75e948331ce00f5799ae8cb6ae2f23e1143955b9d03d8eccbcd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6b1dc0ca4d5b77bc906f991f382f2f40c57a151e963b04ce87795a1f620e235"
   end
 
   conflicts_with "mupdf",

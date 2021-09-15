@@ -7,14 +7,15 @@ class GnuComplexity < Formula
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ae738fac097e00b3fec0355072eab9622f5d29f78ae465b25bee554916e07fec"
-    sha256 cellar: :any, big_sur:       "260cd84aa3d6cf2395aff51aaea06bfb6d1729b5a9c8423ad4c9de1a7ec0c195"
-    sha256 cellar: :any, catalina:      "8a83c1ada362279b8fbe66addd9fb0d646cb90f8c936959c7923a546f9cd0770"
-    sha256 cellar: :any, mojave:        "25474f8be313534736f5ccbe1c707969606ca3fa7360079df0cc8879cde0fbbb"
-    sha256 cellar: :any, high_sierra:   "94558c250d55d6d1c83e682d38481b0d75b12850d46e00dacdf81744be288229"
-    sha256 cellar: :any, sierra:        "3ea1d968a1eaa2ce6655fa8e33b721af3cd631075f960c6595ca68aecd0972c7"
-    sha256 cellar: :any, el_capitan:    "89b7043d1f51fc6ff7a1e96f8ed23bbac73bbb7196a04851a2cf29475b0803f7"
-    sha256 cellar: :any, yosemite:      "35a8ac468a12565af95b82c75d6b45c9c55c27fa769244f0bd87ec69b10742b1"
+    sha256 cellar: :any,                 arm64_big_sur: "ae738fac097e00b3fec0355072eab9622f5d29f78ae465b25bee554916e07fec"
+    sha256 cellar: :any,                 big_sur:       "260cd84aa3d6cf2395aff51aaea06bfb6d1729b5a9c8423ad4c9de1a7ec0c195"
+    sha256 cellar: :any,                 catalina:      "8a83c1ada362279b8fbe66addd9fb0d646cb90f8c936959c7923a546f9cd0770"
+    sha256 cellar: :any,                 mojave:        "25474f8be313534736f5ccbe1c707969606ca3fa7360079df0cc8879cde0fbbb"
+    sha256 cellar: :any,                 high_sierra:   "94558c250d55d6d1c83e682d38481b0d75b12850d46e00dacdf81744be288229"
+    sha256 cellar: :any,                 sierra:        "3ea1d968a1eaa2ce6655fa8e33b721af3cd631075f960c6595ca68aecd0972c7"
+    sha256 cellar: :any,                 el_capitan:    "89b7043d1f51fc6ff7a1e96f8ed23bbac73bbb7196a04851a2cf29475b0803f7"
+    sha256 cellar: :any,                 yosemite:      "35a8ac468a12565af95b82c75d6b45c9c55c27fa769244f0bd87ec69b10742b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bc40505bf964f2ac7ef30d2f65c8180832e709c49cf6872b8651caf6a84b1a1"
   end
 
   depends_on "autogen"

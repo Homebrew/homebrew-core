@@ -6,14 +6,20 @@ class Darcs < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "e43e743a8d663a7383a0c335548a8b2b80fa00844e9cb77da3eb0db67bda93d1"
-    sha256 cellar: :any_skip_relocation, catalina: "74b07f9931b43dfcffd9b7fc2756ca13fc4d1b283a86d20fcf336a1f0cd19bb5"
-    sha256 cellar: :any_skip_relocation, mojave:   "8c0805744fa94ec0e4467bc44de1fae811090d7987823485d57192cadea7bdd8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "26d3cc477f82644b7c0c37fafd113d9f78e54dbabf8693c50227b4423e5d193d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e320fccaf6483a2acad3853a76e812f797dd5c9f65c6dd314fb5a8a8f1c174a0"
+    sha256 cellar: :any_skip_relocation, catalina:      "312a9c5d7e0c4849fdccefc6c949ebbfb7d5aede071369225ac97f5699a32691"
+    sha256 cellar: :any_skip_relocation, mojave:        "e27c0d7e3a7999aabbf51fab11a27558e942848058e4bcffd2dd40a75b157e60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07bd38a471302315cec54794883dc078db6c37fb3b37885bcc879514759b2cfd"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "gmp"
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     system "cabal", "v2-update"

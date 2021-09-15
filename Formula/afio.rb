@@ -3,7 +3,7 @@ class Afio < Formula
   homepage "https://github.com/kholtman/afio"
   url "https://github.com/kholtman/afio/archive/v2.5.2.tar.gz"
   sha256 "c64ca14109df547e25702c9f3a9ca877881cd4bf38dcbe90fbd09c8d294f42b9"
-  head "https://github.com/kholtman/afio.git"
+  head "https://github.com/kholtman/afio.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -12,6 +12,7 @@ class Afio < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "28494133d10acea2c1a298fe858d26889ba8567422b9f431710b156a4a8ac858"
     sha256 cellar: :any_skip_relocation, mojave:        "733a4169a7be82dc173cc302994ad205493a9085580634b92faa38c96c84608b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "53dbb826f2c3e050bd70078945d92772a4c434b0aa75e1a71cb29e56ed8e62fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93dee32378176bea139dadf874fed07b411076443fee3a7ff33c84eadfc7760d"
   end
 
   def install

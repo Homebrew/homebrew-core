@@ -13,6 +13,7 @@ class Ired < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "f6af714455a74c02769c9726855a92832e43c37c79a0c589a0c7744beac8956c"
     sha256 cellar: :any_skip_relocation, sierra:        "5d10dfac87e4a4ca589a9fa76e8f9aff62625ef6358b6ab29360e79fe4a6dc35"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4fc558225913b629b144661385841e63ebb167beb9900475fadb0c0e886b4997"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3ddb4735af8b485b31fb3c9b2b8cc87c0aadfd1c3a2ae43df84bee8d5f16701"
   end
 
   def install

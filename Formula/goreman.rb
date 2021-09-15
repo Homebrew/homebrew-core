@@ -17,6 +17,7 @@ class Goreman < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8985d410d3b9c56064ceb7a01be4fd448e46c414f0a0b8c3a4f6ec7374c2f5b6"
     sha256 cellar: :any_skip_relocation, mojave:        "d7781e6ce9c1ab5844f06d77dbbb8355a5f749daa5cd3c2b12266385d73b9a77"
     sha256 cellar: :any_skip_relocation, high_sierra:   "df59dbb8a079d4eaf095b7a807dcbd0a96de11874dec3b6e560454617eed9b2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49363f66d05e2aaa57afa85118546980f4dd8be8484f6f862c813613326f83ae"
   end
 
   depends_on "go" => :build

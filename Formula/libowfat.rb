@@ -17,6 +17,7 @@ class Libowfat < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c5fcc5eed33299becabcd1144074b6971730d7edbacea54b22f0ed5c723a09bf"
     sha256 cellar: :any_skip_relocation, catalina:      "9fd957c443aa34237004dbcce7254377b164262df39bb3ba7ea8a8f1d70f5f59"
     sha256 cellar: :any_skip_relocation, mojave:        "2b1cffc2e679e98801f576358d42fb3b7217187f2551f5fe4460f5b29ffd485c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed6b06c82988da9cee1f3d4fc9f9e7b180fcf656cb1e508237b3cfe225257770"
   end
 
   patch do

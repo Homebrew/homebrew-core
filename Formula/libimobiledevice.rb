@@ -6,11 +6,12 @@ class Libimobiledevice < Formula
   license "LGPL-2.1"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "41a64c9856f7845bb4c21bba4f42eb55c640301b59c032eb4db416db19ecf97d"
-    sha256 cellar: :any, big_sur:       "0fe21433f470130b972354d411d05f43ab37d82198565bb6b947734a95e98c5d"
-    sha256 cellar: :any, catalina:      "eb7f28d86797461d5ef859d00629176e1ce3234790ef17b9ee3f9c9990a664e2"
-    sha256 cellar: :any, mojave:        "5143eaf34011a22dd1951f10495a7568e77a2e862fb9f4dbae9bab2f784f926e"
-    sha256 cellar: :any, high_sierra:   "072d224a0fa2a77bccde27eee39b65300a387613b41f07fc677108a7812ec003"
+    sha256 cellar: :any,                 arm64_big_sur: "41a64c9856f7845bb4c21bba4f42eb55c640301b59c032eb4db416db19ecf97d"
+    sha256 cellar: :any,                 big_sur:       "0fe21433f470130b972354d411d05f43ab37d82198565bb6b947734a95e98c5d"
+    sha256 cellar: :any,                 catalina:      "eb7f28d86797461d5ef859d00629176e1ce3234790ef17b9ee3f9c9990a664e2"
+    sha256 cellar: :any,                 mojave:        "5143eaf34011a22dd1951f10495a7568e77a2e862fb9f4dbae9bab2f784f926e"
+    sha256 cellar: :any,                 high_sierra:   "072d224a0fa2a77bccde27eee39b65300a387613b41f07fc677108a7812ec003"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3a744d1aa95788a31c40fa0029e5f70631e81b040375bf92f18c845371a7f4a"
   end
 
   head do

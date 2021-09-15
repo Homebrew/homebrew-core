@@ -1,8 +1,8 @@
 class Liboqs < Formula
   desc "Library for quantum-safe cryptography"
   homepage "https://openquantumsafe.org/"
-  url "https://github.com/open-quantum-safe/liboqs/archive/0.5.0.tar.gz"
-  sha256 "f677ea45ada4a1e97354bf2e734047ca6efe6183498224d8fc47b8b88c63a6b5"
+  url "https://github.com/open-quantum-safe/liboqs/archive/0.7.0.tar.gz"
+  sha256 "7a2b01d33637869b02475c5a7b3b31e8f7cebce491877719f27954a89f6d764e"
   license "MIT"
 
   livecheck do
@@ -11,9 +11,9 @@ class Liboqs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "12587ae63bddf86a3dfd68b4983e7b8957b0cc7edb194fe52ce1b111d7d53110"
-    sha256 cellar: :any, catalina: "7d917692f71d83f31df548ccd060a66dca0fb3abbf2e432f831e664e01073126"
-    sha256 cellar: :any, mojave:   "36d6d353e7c10b3ba42fd2afb9e3a4bbf4a61a2611ad13c39bec0c88e0fcea58"
+    sha256 cellar: :any, big_sur:  "db585740f314adb4728ac5964e2a65495c77b5db01f260b3eb6140d61cfb29d3"
+    sha256 cellar: :any, catalina: "4580d66dbd428f4851200f1800331b5b33b534677026312bfac4731a6d94f29c"
+    sha256 cellar: :any, mojave:   "c621f7603b90315a0605d56c6373f6d8542117e03512585153a7696e2349559e"
   end
 
   depends_on "cmake" => :build

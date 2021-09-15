@@ -15,6 +15,7 @@ class Calcurse < Formula
     sha256 big_sur:       "3ec58ced653c61f7205ee551d5ac6dddeeced2fdd1231c6fc6dae8c1d5532f48"
     sha256 catalina:      "edd3afddbdf8bcd68494332eeb6620a93530cd3a12541fb5db08470422715a4d"
     sha256 mojave:        "3ae0a4b707a783e4fc8be4e575d16701f45f3c69c0cd67b6882e49f86fc7f52f"
+    sha256 x86_64_linux:  "4ab43789ad00c84b0f4844c6dd836bc0a5623a28d80d04027554433d4fb362c4"
   end
 
   head do

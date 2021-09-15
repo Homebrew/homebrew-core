@@ -3,26 +3,39 @@ require "language/node"
 class Snowpack < Formula
   desc "Frontend build tool designed for the modern web"
   homepage "https://www.snowpack.dev"
-  url "https://registry.npmjs.org/snowpack/-/snowpack-3.5.1.tgz"
-  sha256 "d0fb516d730e8c28cf5a5ae78c2ac7bfd58ca12fb67bfe5d6bde49c92bb8916b"
+  url "https://registry.npmjs.org/snowpack/-/snowpack-3.8.8.tgz"
+  sha256 "0cf99f86955b29c3e40332131e488ff38f64045ef23ba649d0a20c2a7cd2d29e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "53eb82d97aafb220b00de720037e095831b90bf1a40d74b515ca79c96a14a16a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b45f29acb9e0d814afd75e5df26bd13635d37302c5dd5f030921f4f98540e697"
-    sha256 cellar: :any_skip_relocation, catalina:      "b45f29acb9e0d814afd75e5df26bd13635d37302c5dd5f030921f4f98540e697"
-    sha256 cellar: :any_skip_relocation, mojave:        "b45f29acb9e0d814afd75e5df26bd13635d37302c5dd5f030921f4f98540e697"
+    sha256                               arm64_big_sur: "424c198450962b4be8cf4314d570ff7e8febc23308b22430a47b8aaf0d4f3531"
+    sha256                               big_sur:       "fb13d64f32a7d9bdc58cf4dfd6776bf1254b09029b2778c6b6ae8aa1f3af5897"
+    sha256                               catalina:      "abed65f5debef77a9380822f5612b17933df211375766e800fb9e481f2829178"
+    sha256                               mojave:        "76e0af8a4e5f7fbc2d2095e8c6524c80a8e03ac2c9f9cbc2b8b319fff3dd7056"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78baacecc857f50f7a6fbe7643c4edad620c4e2c09a0f31e336fcfa52f0576e6"
   end
 
   depends_on "node"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink Dir[libexec/"bin/*"]
+
+    # Remove incompatible pre-built binaries
+    os = OS.mac? ? "darwin" : "linux"
+    arch = Hardware::CPU.arm? ? "arm64" : "x64"
+    libexec.glob("lib/node_modules/snowpack/node_modules/{bufferutil,utf-8-validate}/prebuilds/*")
+           .each { |dir| dir.rmtree if dir.basename.to_s != "#{os}-#{arch}" }
+    # `rollup` < 2.38.3 uses x86_64-specific `fsevents`. Can remove when `rollup` is updated.
+    (libexec/"lib/node_modules/snowpack/node_modules/rollup/node_modules/fsevents").rmtree if Hardware::CPU.arm?
+
+    # Replace universal binaries with their native slices
+    deuniversalize_machos
   end
 
   test do
     mkdir "work" do
+      system "npm", "init", "-y"
       system bin/"snowpack", "init"
       assert_predicate testpath/"work/snowpack.config.js", :exist?
 

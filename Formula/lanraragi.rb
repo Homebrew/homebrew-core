@@ -3,17 +3,16 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/v.0.7.6.tar.gz"
-  sha256 "2c498cc6a18b9fbb77c52ca41ba329c503aa5d4ec648075c3ebb72bfa7102099"
+  url "https://github.com/Difegue/LANraragi/archive/v.0.7.9.tar.gz"
+  sha256 "ca14c0d27d9ad28aba835f14c904406414c4094cab904d1d763a0c7608afa5b6"
   license "MIT"
-  revision 2
   head "https://github.com/Difegue/LANraragi.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2d9c7f0bfea1cbd362f8d11adc65bc87a94bcc8a840d7d31c1d267d66c408329"
-    sha256 cellar: :any, big_sur:       "818f42ce8f75cd917e28d369f80dcccb4ebb673ee9e5952489b4349f7ba60264"
-    sha256 cellar: :any, catalina:      "4979a536f207000148c91c6474e676785d10ae1199299cfb64f86fb7af0b4ed6"
-    sha256 cellar: :any, mojave:        "c6d74e2aec8212ddf582f358af89cf5c6bbc820c9f2fc68132bfd6d56ad54a6a"
+    sha256 cellar: :any, arm64_big_sur: "6618adee2d3b6a71b9cb220cb0907e106094a989784aea575a79978ccdb339a7"
+    sha256 cellar: :any, big_sur:       "3cfd0c8ae777152d21227e7b93f9d9b3a895bd2a14ee46667b8079b8dab4d9c1"
+    sha256 cellar: :any, catalina:      "73afcbc35062d26ac62ebb0edc0caf765af027fcbf26c4396b5ea1c7976f6b73"
+    sha256 cellar: :any, mojave:        "12051614f04822583ba7f352700991e885ee35f804fb60ff7d532b96d5863f00"
   end
 
   depends_on "pkg-config" => :build
@@ -27,16 +26,18 @@ class Lanraragi < Formula
   depends_on "openssl@1.1"
   depends_on "perl"
   depends_on "redis"
+  depends_on "zstd"
+
   uses_from_macos "libarchive"
 
   resource "Image::Magick" do
-    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/PerlMagick-7.0.10.tar.gz"
-    sha256 "1d5272d71b5cb44c30cd84b09b4dc5735b850de164a192ba191a9b35568305f4"
+    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/Image-Magick-7.0.11-1.tar.gz"
+    sha256 "734bee16656af5bca94000419d912518842ba6460ac2d0ff07e3e5a0103272e2"
   end
 
   resource "libarchive-headers" do
-    url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.40.4.tar.gz"
-    sha256 "20ad61b1301138bc7445e204dd9e9e49145987b6655bbac39f6cad3c75b10369"
+    url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.100.2.tar.gz"
+    sha256 "e54049be1b1d4f674f33488fdbcf5bb9f9390db5cc17a5b34cbeeb5f752b207a"
   end
 
   resource "Archive::Peek::Libarchive" do
@@ -48,7 +49,7 @@ class Lanraragi < Formula
     ENV.prepend_create_path "PERL5LIB", "#{libexec}/lib/perl5"
     ENV.prepend_path "PERL5LIB", "#{libexec}/lib"
     ENV["CFLAGS"] = "-I#{libexec}/include"
-    ENV["OPENSSL_PREFIX"] = "#{Formula["openssl@1.1"]}/1.1.1g"
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
 
     imagemagick = Formula["imagemagick"]
     resource("Image::Magick").stage do
@@ -99,6 +100,13 @@ class Lanraragi < Formula
   end
 
   test do
+    # Make sure lanraragi writes files to a path allowed by the sandbox
+    ENV["LRR_LOG_DIRECTORY"] = ENV["LRR_TEMP_DIRECTORY"] = testpath
+    %w[server.pid shinobu.pid minion.pid].each { |file| touch file }
+
+    # Set PERL5LIB as we're not calling the launcher script
+    ENV["PERL5LIB"] = libexec/"lib/perl5"
+
     # This can't have its _user-facing_ functionality tested in the `brew test`
     # environment because it needs Redis. It fails spectacularly tho with some
     # table flip emoji. So let's use those to confirm _some_ functionality.
@@ -108,6 +116,7 @@ class Lanraragi < Formula
       It appears your Redis database is currently not running.
       The program will cease functioning now.
     EOS
-    assert_match output, shell_output("#{bin}/lanraragi", 1)
+    # Execute through npm to avoid starting a redis-server
+    assert_match output, shell_output("npm start --prefix #{libexec}", 61)
   end
 end

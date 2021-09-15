@@ -1,8 +1,8 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.29.tar.xz"
-  sha256 "f57ec4ade8f15cab0c23a80dcaee85b876e70a8823d9105f067ce335a8268caa"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.30.tar.xz"
+  sha256 "ba75bfff320ad1f4cfbee92ba813ec336322cc3c660d406aad014b07087a3ba9"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,11 @@ class Gtkx3 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "2c25223fa2dd059afba57d35ee6b700b5911827df386df211af7150aac862ad4"
-    sha256 big_sur:       "4e6a45810d70045f5b538f0bce3858965ff65a5bf2a7765a2707fefad141a8d3"
-    sha256 catalina:      "a4960ef5af1ee4246fbcaee1edece012c72faca4cd86666066685597121edc15"
-    sha256 mojave:        "2d5a82e40154be62fc29cb91b14febd5e33cd06e61c1c1b1f0a038068135eca4"
+    sha256 arm64_big_sur: "50f08798c70f1ec428f8a577af2fedd2a8b5a7ffff09d4636d42f48e67873db7"
+    sha256 big_sur:       "af17c723acf1cb4f699ff55346c1443ad3e6d0803a403af8409cc766fb35e34a"
+    sha256 catalina:      "24a97ee2d3b5195d2e2b22213157bbbffce7e7cc89523bf5edb7ed41a01dc198"
+    sha256 mojave:        "e5af02a39f1bcd45f7668b43d3235524d3aeef3760a248eeea4c00b25ecbf761"
+    sha256 x86_64_linux:  "e99eb8f0774deae335e39954b464b5f2b5a47765d7a666692ee2043d693016b0"
   end
 
   depends_on "docbook" => :build
@@ -33,14 +34,27 @@ class Gtkx3 < Formula
 
   uses_from_macos "libxslt" => :build # for xsltproc
 
+  on_linux do
+    depends_on "cmake" => :build
+    depends_on "at-spi2-atk"
+    depends_on "cairo"
+    depends_on "iso-codes"
+    depends_on "libxkbcommon"
+    depends_on "xorgproto"
+    depends_on "wayland-protocols"
+  end
+
   def install
     args = std_meson_args + %w[
-      -Dx11_backend=false
-      -Dquartz_backend=true
       -Dgtk_doc=false
       -Dman=true
       -Dintrospection=true
     ]
+
+    if OS.mac?
+      args << "-Dquartz_backend=true"
+      args << "-Dx11_backend=false"
+    end
 
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"

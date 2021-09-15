@@ -1,8 +1,8 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://gnupg.org/related_software/libgcrypt/"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.9.3.tar.bz2"
-  sha256 "97ebe4f94e2f7e35b752194ce15a0f3c66324e0ff6af26659bbfb5ff2ec328fd"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.9.4.tar.bz2"
+  sha256 "ea849c83a72454e3ed4267697e8ca03390aee972ab421e7df69dfe42b65caaf7"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,11 +11,11 @@ class Libgcrypt < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "6ff63025955ee85e6ff10b955f32b1c583439860ad72da5d88acc60b1c9ecc73"
-    sha256 cellar: :any, big_sur:       "1848ca1e79f8c4315ba761eb4ad1022d237d6701d47a207130b09093d99f24ef"
-    sha256 cellar: :any, catalina:      "91ec702c7907c1ddd20998ff35299a63ac6108cb4f9a76df1c368a4c49da4a90"
-    sha256 cellar: :any, mojave:        "6a8fa532b2c12d89f2becc1a84e9b5d07fef25a080a607f2d7b341eea5e6081b"
+    sha256 cellar: :any,                 arm64_big_sur: "17c61d873adf2bd5aec0858dadeeacdf75ac1f9cce3d7acbd4d0b5c43a191f98"
+    sha256 cellar: :any,                 big_sur:       "c8c50af567c82a2c68f657b4ee3422bee39944c819a939d18b73617d8e5c0476"
+    sha256 cellar: :any,                 catalina:      "6393017fddac1c337f49fc066e5a900bfac896c94a6a0aaa73acd349a757b924"
+    sha256 cellar: :any,                 mojave:        "0c54acef4c1fe000909441cd946f60bebe636fc232edff73a88bbb9df2b10447"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "963a50f5a822f6edbdf8e22d07a2b10349223a60143343ae9a32a9f1b65ee8a9"
   end
 
   depends_on "libgpg-error"
@@ -26,14 +26,14 @@ class Libgcrypt < Formula
                           "--enable-static",
                           "--prefix=#{prefix}",
                           "--disable-asm",
-                          "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}",
-                          "--disable-jent-support" # Requires ENV.O0, which is unpleasant.
+                          "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"
+
+    # The jitter entropy collector must be built without optimisations
+    ENV.O0 { system "make", "-C", "random", "rndjent.o", "rndjent.lo" }
 
     # Parallel builds work, but only when run as separate steps
     system "make"
-    on_macos do
-      MachO.codesign!("#{buildpath}/tests/.libs/random") if Hardware::CPU.arm?
-    end
+    MachO.codesign!("#{buildpath}/tests/.libs/random") if OS.mac? && Hardware::CPU.arm?
 
     system "make", "check"
     system "make", "install"

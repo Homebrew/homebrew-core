@@ -1,15 +1,16 @@
 class So < Formula
   desc "Terminal interface for StackOverflow"
   homepage "https://github.com/samtay/so"
-  url "https://github.com/samtay/so/archive/v0.4.3.tar.gz"
-  sha256 "4e82cb8f6d31435eec03a74d0ea4297eb28ce3ee75d4612ca5b2233c27e19c2d"
+  url "https://github.com/samtay/so/archive/v0.4.5.tar.gz"
+  sha256 "e036d2690c1b35bdc092527f6f0d2ff46616350c3eb360badf58fb93ea730b45"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a1239eda940abb6aedef2fb2148e70ddad9ccf30e733ea1db043a1f3e35377ba"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2c871ccb23c125efc71cd7fbd422a5c53ee0b66154a91fe28a2fb2a39f38c4c8"
-    sha256 cellar: :any_skip_relocation, catalina:      "826d559e0fe079bbec1c8a43cbde4bd44a4d54d2d36d8a0c19e6ff43544d30b0"
-    sha256 cellar: :any_skip_relocation, mojave:        "061e084d661c9b1eddca4329492935a3ec1a1f3880399d7a21c63b58c8763be6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "610b5f0641c444faa1b1593ccb7555f2cf13d60753fec19fe12f73b32a1f7502"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9fd6e485c657d6fefe2309ef533cd9c199f1633d1a499d5bc9abcaabd6a831d7"
+    sha256 cellar: :any_skip_relocation, catalina:      "e6e42abbaeacfec3ae573d3851b3d223e9cc258b8b7da6f044c57ac9b4881299"
+    sha256 cellar: :any_skip_relocation, mojave:        "dcec7fc7c8093201de8c9b7e71d2b326198e6ab7a1d7df7d8fb57638b051ab5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8aa3bf1298fc5707ab57ffa6e44c9e98c5c8a75c83baabfad77424a76e28324"
   end
 
   depends_on "rust" => :build

@@ -6,7 +6,9 @@ class Betty < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "cdae1d186d5d81c47c8c3f603e379fb563e4d63844966a14c6c4c2f7319a5871"
+  end
 
   def install
     libexec.install "lib", "main.rb" => "betty"

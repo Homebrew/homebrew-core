@@ -4,7 +4,7 @@ class Log4c < Formula
   url "https://downloads.sourceforge.net/project/log4c/log4c/1.2.4/log4c-1.2.4.tar.gz"
   sha256 "5991020192f52cc40fa852fbf6bbf5bd5db5d5d00aa9905c67f6f0eadeed48ea"
   license "LGPL-2.1"
-  head "https://git.code.sf.net/p/log4c/log4c.git"
+  head "https://git.code.sf.net/p/log4c/log4c.git", branch: "master"
 
   livecheck do
     url :stable
@@ -20,6 +20,7 @@ class Log4c < Formula
     sha256 sierra:        "171a6c3f12f957d5442998f0f02df959aa4376ef543338765930ed4e062ef0ea"
     sha256 el_capitan:    "2334e58e3ae201b28362707d2b64701e2e1378695e915baad886956e4edea50a"
     sha256 yosemite:      "d345d0ab182855859fb21148c708893a395ecd416ba3f05d5e2a5a3111f2bc61"
+    sha256 x86_64_linux:  "5182c7b11972d29559087012a708f71137b9795294afb833aff1cf9d40168a9a"
   end
 
   def install

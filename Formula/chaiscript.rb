@@ -7,12 +7,14 @@ class Chaiscript < Formula
   head "https://github.com/ChaiScript/ChaiScript.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "60056d2144073414ba1ad75e67b2ced0280a0596e5b7eea36d4475d5109f5c5b"
-    sha256 cellar: :any_skip_relocation, catalina:    "d8f971e8ca36046cb2ddfa59c4a39091bce3cb1178f2be35d4f5a7a98ec2c932"
-    sha256 cellar: :any_skip_relocation, mojave:      "37f73c985ecbb3d1050f73c5020080fd6b8632780b3cacdc635c6198d9afd7d8"
-    sha256 cellar: :any_skip_relocation, high_sierra: "905850906c705182fe0c3011314d52b852585121f91c91a03ad20cc1b4a1a830"
-    sha256 cellar: :any_skip_relocation, sierra:      "ce45ec71bbf6917d01c5d3ac872b31637189b90216848166ec91df5c65a82d07"
-    sha256 cellar: :any_skip_relocation, el_capitan:  "18a4b79b3b413b01d2801e0a49b054137c3307bc0fc930353b63e0746e43c16d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cf3080dd47601b28622c198749587901d6d7eb59b5b3716a7bf72bc292be7cfe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "60056d2144073414ba1ad75e67b2ced0280a0596e5b7eea36d4475d5109f5c5b"
+    sha256 cellar: :any_skip_relocation, catalina:      "d8f971e8ca36046cb2ddfa59c4a39091bce3cb1178f2be35d4f5a7a98ec2c932"
+    sha256 cellar: :any_skip_relocation, mojave:        "37f73c985ecbb3d1050f73c5020080fd6b8632780b3cacdc635c6198d9afd7d8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "905850906c705182fe0c3011314d52b852585121f91c91a03ad20cc1b4a1a830"
+    sha256 cellar: :any_skip_relocation, sierra:        "ce45ec71bbf6917d01c5d3ac872b31637189b90216848166ec91df5c65a82d07"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "18a4b79b3b413b01d2801e0a49b054137c3307bc0fc930353b63e0746e43c16d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34af5a03731cb336dad74d83505e8c9485092a275b632da30ca2d34a73d31461"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +35,7 @@ class Chaiscript < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-std=c++14", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-ldl", "-lpthread", "-std=c++14", "-o", "test"
     system "./test"
   end
 end

@@ -11,6 +11,7 @@ class GuileAT2 < Formula
     sha256 catalina:      "2821f055df7815abc7467a42f1bd90a09672261a9aad4ce994111a59a2ce6dbe"
     sha256 mojave:        "78e5fd69581a54b8d7c701e1fc03d96660b80a2699d7dad701cdd2865a5f2442"
     sha256 high_sierra:   "2832668210b0ef94ae0596c7e27aca846f76453719df6a9103e34af9e885d031"
+    sha256 x86_64_linux:  "e627fcba45a96886eed35b4de21856df0ad3765f4314e03ee174453c31d32e28"
   end
 
   keg_only :versioned_formula

@@ -1,15 +1,16 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz"
-  sha256 "59ba0bdade9ad135eda581ae4e59a7a9f25e3a4bde6a5419632b31906120e26e"
+  url "https://ftp.gnu.org/gnu/wget/wget-1.21.2.tar.gz"
+  sha256 "e6d4c76be82c676dd7e8c61a29b2ac8510ae108a810b5d1d18fc9a1d2c9a2497"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "e9034fc9062d5d28972135be031876672aff18fa945ce37e9c2ee1e2c4287f3a"
-    sha256 big_sur:       "e6ea2a50b8196206f7072360e713535bb16fb786c8b5fe23cab05757e0f67b13"
-    sha256 catalina:      "88116cb28d6b85e441d1bb9df0a1454b84f8b9d0e8817a5bee0f228acc59e75a"
-    sha256 mojave:        "ae4e6f1dc4ecaf2bbed7700e8d64cdc671bf9d6c085ba335f119861fd15956fe"
+    sha256 arm64_big_sur: "4f8b66c5f181f01064522a80bfda72eabddd47299a8b88bc7d0022c457e72594"
+    sha256 big_sur:       "7a8e6512e0890076b9ebc4f8db6165d70b4bd05e04dfc0491519ba3c91a5c21e"
+    sha256 catalina:      "3b191bb28b5011e7a105ae76427f6dd21a1e12c33da2273b7e01ef2110f0f375"
+    sha256 mojave:        "e0d4b68c9e5abeaa6395241c43307c4bbd26133cd63d136321974535788c37e9"
+    sha256 x86_64_linux:  "1c102dc1129e508f7788824ea6ef4db4656fbab2a6a4b54419689925a5ed6855"
   end
 
   head do
@@ -35,7 +36,6 @@ class Wget < Formula
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
                           "--with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--disable-debug",
                           "--disable-pcre",
                           "--disable-pcre2",
                           "--without-libpsl",

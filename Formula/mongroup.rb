@@ -13,6 +13,7 @@ class Mongroup < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "230996b629ff1a72b405ba6c7fbb8cdd0fd06292b16bacf124bc2e30c5f9917e"
     sha256 cellar: :any_skip_relocation, sierra:        "d3065cb969df510f29b742e1d6606151328af2afe3542bb3ff3462e7551ade9b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8e801dac08ad7a776d698dc8bfc170f1df2fcb621561b86c789cc0e8098b1b38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16deb20baa844034c6a1c8bfcb61971a71f576fbebd0dd6170321aeed2866ee7"
   end
 
   depends_on "mon"

@@ -5,11 +5,13 @@ class Solarus < Formula
       tag:      "v1.6.5",
       revision: "3aec70b0556a8d7aed7903d1a3e4d9a18c5d1649"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, big_sur:  "8432227fe84cb749c77d45a9349c6d65793f0bff13fd77640266bcd51d564b95"
-    sha256 cellar: :any, catalina: "f50e6c02f9ca2a9a01314605b017e90cf6102b9b3d97e48f4fbd104a86cf37b6"
-    sha256 cellar: :any, mojave:   "df3043713901b3a842e612c3da8204e3fc830d2cbaa42f1f7f04b6a26b479c6b"
+    sha256 cellar: :any, arm64_big_sur: "f3b35b5252b2ee2c4068f7f4e2b952a1f88cbc9cacd4d84fb19680cea344bd7e"
+    sha256 cellar: :any, big_sur:       "21eb9b511e6d49a1f17830ba8a7adcab4f0e3265c63f02679efba837ff77c55b"
+    sha256 cellar: :any, catalina:      "819dc6f84e1b4e56ba679d8b798412b2a3f71350c0923cf340ab49e76075e202"
+    sha256 cellar: :any, mojave:        "417dff62c280dd7e9bb742eef82fbae408a6e5fefcf427daf8d2af5955cc660a"
   end
 
   depends_on "cmake" => :build
@@ -17,7 +19,7 @@ class Solarus < Formula
   depends_on "libmodplug"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "physfs"
   depends_on "sdl2"
   depends_on "sdl2_image"
@@ -28,6 +30,8 @@ class Solarus < Formula
       ENV.append_to_cflags "-I#{Formula["glm"].opt_include}"
       ENV.append_to_cflags "-I#{Formula["physfs"].opt_include}"
       system "cmake", "..",
+                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                      "-DSOLARUS_ARCH=#{Hardware::CPU.arch}",
                       "-DSOLARUS_GUI=OFF",
                       "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
                       "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}",

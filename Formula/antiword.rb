@@ -19,6 +19,7 @@ class Antiword < Formula
     sha256 sierra:        "6456be83a3f867a0df1121b7c7b6c413d94d1e38bc920c9c5fda73851265fb2e"
     sha256 el_capitan:    "ffc3b61781ffb2ae04537e34b28a19a4fe33683c534dd2d1504d2ec8d5ef4bef"
     sha256 yosemite:      "1397c95409d671da764658460eba612b2564d4a0403bfffa667510e05f2fb08a"
+    sha256 x86_64_linux:  "12935daff8ed3ffc2a68b8be542ea190bff6d7d2a2d46c854080d4023346d526"
   end
 
   resource "sample.doc" do

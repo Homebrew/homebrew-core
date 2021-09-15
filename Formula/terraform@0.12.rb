@@ -9,6 +9,7 @@ class TerraformAT012 < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "46b7341d0710f40ec6532bf16de55226e1df553408e99a97dce9aaa668efac27"
     sha256 cellar: :any_skip_relocation, big_sur:       "bcbadc631d4a94c210c5d2b7a82120dee050f6263abc8d2cda78eb5ad0c2cfc5"
     sha256 cellar: :any_skip_relocation, catalina:      "bcbadc631d4a94c210c5d2b7a82120dee050f6263abc8d2cda78eb5ad0c2cfc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75fd648fb8fd2dcb7e922d7ca2f5ca8c044c4967c625144a758e05368b4ace1c"
   end
 
   keg_only :versioned_formula

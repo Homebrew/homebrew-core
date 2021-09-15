@@ -4,6 +4,11 @@ class Mmix < Formula
   url "https://mmix.cs.hm.edu/src/mmix-20160804.tgz"
   sha256 "fad8e64fddf2d75cbcd5080616b47e11a2d292a428cdb0c12e579be680ecdee9"
 
+  livecheck do
+    url "https://mmix.cs.hm.edu/src/"
+    regex(/href=.*?mmix[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "03a6468d729fc0ccddb6187c50b8f0318dedbe2bf613ef2e86e95aada83daeac"
     sha256 cellar: :any_skip_relocation, big_sur:       "fa0a9dd7f5ea9520ffd9c4682df2d754462a7b7e6d7b30bc8ea84f39903fa29e"
@@ -13,6 +18,7 @@ class Mmix < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "b694920e61edf2dec094618910be78fcd4fbbcad22d4d37363555aad38ee0af0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c1e8e0d2d627b3ab2c2c68a8b358981dab07466c3c70f3a2e4df8557006deb92"
     sha256 cellar: :any_skip_relocation, yosemite:      "7675c2bc1253e4da2a126d52942449f71cabdd83c39874403d449b5a05ceb145"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1095cb1a943d20e2613c77874a67e1f41bc17eeccc3b503cfb5ce3f6215fd01f"
   end
 
   depends_on "cweb" => :build

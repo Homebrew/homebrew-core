@@ -6,11 +6,12 @@ class LibsignalProtocolC < Formula
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ae7936606ffb1bcc2cce9e6854bc6fa7cd6fcf44ae67b17b7a861158fa58ca7f"
-    sha256 cellar: :any, big_sur:       "16cbd5edd6e2d6a2905a6cf1d4b342deb3b356093c1945a9a4333038fbb3b60e"
-    sha256 cellar: :any, catalina:      "2ad98569b7c0543579c9a2596a78e86bb7a915fb17632850cea099feb9d2d674"
-    sha256 cellar: :any, mojave:        "95991e7aa3ef7fa4fdfb25f8f3ed588103e7343599bb5fd86c190e0a2b62ebf8"
-    sha256 cellar: :any, high_sierra:   "9dc54604cd42340d8e1ab2da73b54fd19d4cfdb87144921bdb6bcf03e2b41993"
+    sha256 cellar: :any,                 arm64_big_sur: "ae7936606ffb1bcc2cce9e6854bc6fa7cd6fcf44ae67b17b7a861158fa58ca7f"
+    sha256 cellar: :any,                 big_sur:       "16cbd5edd6e2d6a2905a6cf1d4b342deb3b356093c1945a9a4333038fbb3b60e"
+    sha256 cellar: :any,                 catalina:      "2ad98569b7c0543579c9a2596a78e86bb7a915fb17632850cea099feb9d2d674"
+    sha256 cellar: :any,                 mojave:        "95991e7aa3ef7fa4fdfb25f8f3ed588103e7343599bb5fd86c190e0a2b62ebf8"
+    sha256 cellar: :any,                 high_sierra:   "9dc54604cd42340d8e1ab2da73b54fd19d4cfdb87144921bdb6bcf03e2b41993"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d3f06b8dc3938b4dc6912a65606713000e6ad910c4bfcb4af4e9c0dca899e0c"
   end
 
   depends_on "cmake" => :build

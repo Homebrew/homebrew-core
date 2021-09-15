@@ -14,7 +14,10 @@ class Pbzip2 < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "c15b9c38b5302286033e54ff4be006c3b31ccb179f96641e44f1126958527d7e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "be653d724b6f061cb9939dbdbf457aebc275e16dbf599f598b9ff3999fdd5db3"
     sha256 cellar: :any_skip_relocation, yosemite:      "ad103aef3e2d72293cfed3fcc42999afee9b4fc332f8319e3c079758215411c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33c30ab657b712607e295bb648c8d7ce7c5590ec916aef948e2f38dc25c51551"
   end
+
+  uses_from_macos "bzip2"
 
   def install
     system "make", "PREFIX=#{prefix}",

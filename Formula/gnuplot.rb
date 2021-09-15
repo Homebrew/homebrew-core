@@ -1,20 +1,20 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.1/gnuplot-5.4.1.tar.gz"
-  sha256 "6b690485567eaeb938c26936e5e0681cf70c856d273cc2c45fabf64d8bc6590e"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.2/gnuplot-5.4.2.tar.gz"
+  sha256 "e57c75e1318133951d32a83bcdc4aff17fed28722c4e71f2305cfc2ae1cae7ba"
   license "gnuplot"
-  revision 2
 
   bottle do
-    sha256 arm64_big_sur: "b716ef439ed271b604f1f62a921f4134e25e10f4145eea6ba5fdb1f10e3369e9"
-    sha256 big_sur:       "71b95705ec9b7a5e03668d6491b75e66dbee794b4c7a02f20d54e4dfcbf4fa4e"
-    sha256 catalina:      "88f18dff95d0609b0cbf6eb53446869b1639998c69180b34a18c45c8a6bae520"
-    sha256 mojave:        "906aa3c73c481c21e252ace7653703f815ed15c71717baa1ff299f4004624368"
+    sha256 arm64_big_sur: "27a1fe2a1a18339f161cf3e8e5798864265bea2e7c826d2c4f73f644656b0098"
+    sha256 big_sur:       "c2ee49f0e0df611f3955e6380a30020d2d4a2b7cfff4a769d32f20b9bf46b250"
+    sha256 catalina:      "8419141f6d01b54a0df20e6f1606f8555fbb915bf236a0a225711eaea4886ac5"
+    sha256 mojave:        "a617cb5b3bcc7f961f1b107ee56d5da12108b51797f92b11081b2c1ff54c279e"
+    sha256 x86_64_linux:  "6fda7e17bb4f7ebab74bc77b43d8b63cf4386d319b0c29f476f61717da46851a"
   end
 
   head do
-    url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
+    url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -28,6 +28,12 @@ class Gnuplot < Formula
   depends_on "pango"
   depends_on "qt@5"
   depends_on "readline"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)

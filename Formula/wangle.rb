@@ -1,17 +1,17 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/releases/download/v2021.05.17.00/wangle-v2021.05.17.00.tar.gz"
-  sha256 "20e5570e50c86df5edc3ca9e1917bf17909bdf93d072518f87f5e6c8155560ef"
+  url "https://github.com/facebook/wangle/releases/download/v2021.09.06.00/wangle-v2021.09.06.00.tar.gz"
+  sha256 "e93acbe126a34ae641d152b988b46712d898eeaf1f6c945c67582ec63328b9a6"
   license "Apache-2.0"
-  revision 1
-  head "https://github.com/facebook/wangle.git"
+  head "https://github.com/facebook/wangle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5e991280151dba5964e14d33e77785cff1b31de99c7a29bce985487520dccc95"
-    sha256 cellar: :any, big_sur:       "d53cfe95fbdf9a67c7dd55dc0fa5196faf7f7127664ad295b9d41912af78e268"
-    sha256 cellar: :any, catalina:      "ab75a323ebdc1599a42da362b7cca9e382ab53f157644b19d73e99a82a1296e1"
-    sha256 cellar: :any, mojave:        "9049b1179e43735f088bb1cddfa93bc7ecfc1dc874c38d78769a447a5d3da509"
+    sha256 cellar: :any,                 arm64_big_sur: "d709890486ecf35cabd501a3ec2f1f0c3e1cc78b83f6b81aba89e151008aa71f"
+    sha256 cellar: :any,                 big_sur:       "c95c9893d7027759dd6943c6e990d32be5559ecc247428b54c10837c3e3e36e8"
+    sha256 cellar: :any,                 catalina:      "472b80c6d40b06419d600a4f73171f054f486974d9d33b2c6ef5972b15981357"
+    sha256 cellar: :any,                 mojave:        "ea2f78ecc2c7e0ba91a8bcb1b80e4c7ef03bb8a7270fe9bf3edaa152efd82c63"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "faf0d250f31243c99cd908c415063886ecba66a4de11ea2c2752d44f588f1d4b"
   end
 
   depends_on "cmake" => :build
@@ -31,6 +31,12 @@ class Wangle < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     cd "wangle" do
@@ -61,21 +67,35 @@ class Wangle < Formula
       -lfizz
       -lwangle
     ]
+    on_linux do
+      cxx_flags << "-L#{Formula["boost"].opt_lib}"
+      cxx_flags << "-lboost_context-mt"
+      cxx_flags << "-ldl"
+      cxx_flags << "-lpthread"
+    end
 
-    system ENV.cxx, *cxx_flags, "-o", "EchoClient", pkgshare/"EchoClient.cpp"
-    system ENV.cxx, *cxx_flags, "-o", "EchoServer", pkgshare/"EchoServer.cpp"
+    system ENV.cxx, pkgshare/"EchoClient.cpp", *cxx_flags, "-o", "EchoClient"
+    system ENV.cxx, pkgshare/"EchoServer.cpp", *cxx_flags, "-o", "EchoServer"
 
     port = free_port
-
+    ohai "Starting EchoServer on port #{port}"
     fork { exec testpath/"EchoServer", "-port", port.to_s }
-    sleep 2
+    sleep 3
 
     require "pty"
-    r, w, pid = PTY.spawn(testpath/"EchoClient", "-port", port.to_s)
-    w.write "Hello from Homebrew!\nAnother test line.\n"
-    sleep 1
-    Process.kill("TERM", pid)
-    output = r.read
+    output = ""
+    PTY.spawn(testpath/"EchoClient", "-port", port.to_s) do |r, w, pid|
+      ohai "Sending data via EchoClient"
+      w.write "Hello from Homebrew!\nAnother test line.\n"
+      sleep 3
+      Process.kill "TERM", pid
+      begin
+        ohai "Reading received data"
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+    end
     assert_match("Hello from Homebrew!", output)
     assert_match("Another test line.", output)
   end

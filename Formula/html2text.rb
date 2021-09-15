@@ -12,6 +12,7 @@ class Html2text < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "567d2c7e25a24c445ad54074e9ff3ee6edfce3fe7fe960966dcd49a488b2affb"
     sha256 cellar: :any_skip_relocation, mojave:        "55a8fe864bc8e05e7e2fa0085e22adb251fdeeee3fd463e326224a3dff78c773"
     sha256 cellar: :any_skip_relocation, high_sierra:   "b0c913f98f9169669395d57c28c45d7d6c1dc68c13fdb82ba52a04fefdb00bc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63b4e67b96d6ffb0699ee2b02d62b2f187c73cd2ca242d0ca3926a71695f45df"
   end
 
   def install

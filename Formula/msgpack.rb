@@ -1,28 +1,34 @@
 class Msgpack < Formula
   desc "Library for a binary-based efficient data interchange format"
   homepage "https://msgpack.org/"
-  url "https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz"
-  sha256 "6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b"
+  url "https://github.com/msgpack/msgpack-c/releases/download/c-4.0.0/msgpack-c-4.0.0.tar.gz"
+  sha256 "420fe35e7572f2a168d17e660ef981a589c9cbe77faa25eb34a520e1fcc032c8"
   license "BSL-1.0"
-  head "https://github.com/msgpack/msgpack-c.git"
+  head "https://github.com/msgpack/msgpack-c.git", branch: "c_master"
+
+  livecheck do
+    url :stable
+    regex(/^c[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 arm64_big_sur: "c66ea6e1ec61f9fa18e8146c9aa8306e39adcb0b31d2d6c6784ddd3d17a479f7"
-    sha256 big_sur:       "434fdf5aea4bdee584755531889cbbe40a093a4a85dbb993dcca60516a6aaeab"
-    sha256 catalina:      "bb3e3af7ce4994911518db90db9ff4747e72492832b3aa98ff7c82fd3d5990b2"
-    sha256 mojave:        "f418d11d056dd08160b27088d19ee12d4a9e36dbd913ffae8d2c9838a1449475"
-    sha256 high_sierra:   "7424d6d9dee3edd0f07c4ea6f11567255dea4f1bbffbb6c41f20c5412952028d"
+    sha256 cellar: :any,                 arm64_big_sur: "94519c5e879506abb6e665f65982df1b461e53e83904a4ff88bd9ef34a05db83"
+    sha256 cellar: :any,                 big_sur:       "a6922853180da9206a75c706502c24971bfa73abf6aeed7b8341a6824e179580"
+    sha256 cellar: :any,                 catalina:      "702f8b5c56c9f4111a68111d4e03466894ac98c43a9e3127ddfb74559bad201d"
+    sha256 cellar: :any,                 mojave:        "ae673e0c74680acca0996eba8d4a2d7d6048c1986706f85f12f64a3d53750db8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "542fb3791b98792a25705dd2de670e9d0ac492f4d03246614052a81ed4bc02d4"
   end
 
   depends_on "cmake" => :build
 
   def install
+    # C++ Headers are now in msgpack-cxx
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
   test do
-    # Reference: https://github.com/msgpack/msgpack-c/blob/HEAD/QUICKSTART-C.md
+    # Reference: https://github.com/msgpack/msgpack-c/blob/c_master/QUICKSTART-C.md
     (testpath/"test.c").write <<~EOS
       #include <msgpack.h>
       #include <stdio.h>

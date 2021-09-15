@@ -1,17 +1,17 @@
 class Zimg < Formula
   desc "Scaling, colorspace conversion, and dithering library"
   homepage "https://github.com/sekrit-twc/zimg"
-  url "https://github.com/sekrit-twc/zimg/archive/release-3.0.1.tar.gz"
-  sha256 "c50a0922f4adac4efad77427d13520ed89b8366eef0ef2fa379572951afcc73f"
+  url "https://github.com/sekrit-twc/zimg/archive/release-3.0.3.tar.gz"
+  sha256 "5e002992bfe8b9d2867fdc9266dc84faca46f0bfd931acc2ae0124972b6170a7"
   license "WTFPL"
-  head "https://github.com/sekrit-twc/zimg.git"
+  head "https://github.com/sekrit-twc/zimg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "88ce45e66e79aa6e2d0a9455272a3547601c6be259328b009d545b58f0200ce2"
-    sha256 cellar: :any, big_sur:       "b0b118d35db77d2a1cc8f02eb4b88349835ebe1e714d3bedf1157196a0e921b7"
-    sha256 cellar: :any, catalina:      "1b86d04d346e073a6f1f10de4df32d8ed38639589ab557f1ca926df3710cf7bf"
-    sha256 cellar: :any, mojave:        "5e02a6d87423b269cb3068e00fbf133eb0ae5ba519d817fa9b71f76e3d9a24f1"
-    sha256 cellar: :any, high_sierra:   "3aa550e35f7b18561cfcea1dff0c9e0d10fba0563f758b73b52f1767763bbec2"
+    sha256 cellar: :any,                 arm64_big_sur: "d08af43082dcea61fab045c0940352b810836287e9772e95af2caed2b24ee504"
+    sha256 cellar: :any,                 big_sur:       "ad43a31d0f773c0bb8283e80bbe5cbb81e6d310a4888a8e4f0c23dd64b173c4c"
+    sha256 cellar: :any,                 catalina:      "3d51338569e7aee53eb4e3296915277290644f306443d91227ab0e76b19d9fba"
+    sha256 cellar: :any,                 mojave:        "9988ced11c8fae0f4b506c1688ecacfffdd824531a150471c9694b8caf5736b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "961138b475fb316e2c692afe89b957fa341eec408207ce9c950e674411d1e990"
   end
 
   depends_on "autoconf" => :build

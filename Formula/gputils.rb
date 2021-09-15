@@ -19,6 +19,7 @@ class Gputils < Formula
     sha256 sierra:        "aba5cb544582e26bdb212f9782f911b0e9d36c5049d0aed3928c48ae9b74a6e9"
     sha256 el_capitan:    "ad3a6688ca0dac1da0a10db36d9119d9bedcd8d0f389920a45832cc0676c67a3"
     sha256 yosemite:      "dd69717c349e405ed04eebc07fc86dcc09d3763f892488514528b328a725a3f9"
+    sha256 x86_64_linux:  "040d2b02516d9469d2e90583e1d665dc1aacaaf4da5b153bad05797f24a4cb5d"
   end
 
   def install

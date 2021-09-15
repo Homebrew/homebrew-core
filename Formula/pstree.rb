@@ -27,6 +27,7 @@ class Pstree < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "063d2498a346002265c44bf9ad237ae47fd9923a10dd529575640d7d63bef2fa"
     sha256 cellar: :any_skip_relocation, el_capitan:    "624458274db8e826c170121061ad25547c5a245788c8108bd2bf0af4a3678dea"
     sha256 cellar: :any_skip_relocation, yosemite:      "127b605bf4b20cbddf63f875bd15f78ad5fc31eaebb57d9ce2051a3b856a8bd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "155f6be24263c4a454735605462b6281af661d1dd928621fa94a7d287c5af90a"
   end
 
   def install

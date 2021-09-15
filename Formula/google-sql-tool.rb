@@ -5,7 +5,11 @@ class GoogleSqlTool < Formula
   version "r10"
   sha256 "b7e993edab12da32772bfa90c13999df728f06792757c496140d729d230b03c3"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "a8a2db726882c0e8ce9a5dec8c040e9a6fbc66217a969cf4cede54df93f3c76b"
+  end
+
+  depends_on "openjdk"
 
   def install
     # Patch script to find jar
@@ -14,7 +18,7 @@ class GoogleSqlTool < Formula
                                "SQL_SH_DIR=\"#{libexec}\""
 
     libexec.install %w[google_sql.sh google_sql.jar]
-    bin.install_symlink libexec/"google_sql.sh" => "google_sql"
+    (bin/"google_sql").write_env_script libexec/"google_sql.sh", Language::Java.overridable_java_home_env
   end
 
   test do

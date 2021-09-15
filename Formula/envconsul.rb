@@ -7,9 +7,10 @@ class Envconsul < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "e377dbb6afa6b25649a4b4bbfc382a9a6b5a44f5f91ce7d41bbb154be102d746"
-    sha256 cellar: :any_skip_relocation, catalina: "179a94430ca555ec57a15d21e6b470616ed741a7ae8d636e4e3e72ea1b8f9b7b"
-    sha256 cellar: :any_skip_relocation, mojave:   "2bfcec63fd169c27ffc12ee5acea1da314de51a5be0a6185ef111655c3b79d9c"
+    sha256 cellar: :any_skip_relocation, big_sur:      "e377dbb6afa6b25649a4b4bbfc382a9a6b5a44f5f91ce7d41bbb154be102d746"
+    sha256 cellar: :any_skip_relocation, catalina:     "179a94430ca555ec57a15d21e6b470616ed741a7ae8d636e4e3e72ea1b8f9b7b"
+    sha256 cellar: :any_skip_relocation, mojave:       "2bfcec63fd169c27ffc12ee5acea1da314de51a5be0a6185ef111655c3b79d9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "46165ad07134b8d3efc9757016b4496b5fe12cfd15efd6e8fcd16c4bf90a4e50"
   end
 
   depends_on "go" => :build

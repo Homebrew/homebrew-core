@@ -12,11 +12,12 @@ class Clp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f1e732d364b18f48463953078d4ee367367728be52708473a0920b2f34313364"
-    sha256 cellar: :any, big_sur:       "a77023f98b927b7a449142765c542ad774e3c92939cc1a93d29126a08acc81fb"
-    sha256 cellar: :any, catalina:      "b68e1b527f9bd8a10c391f49835f379e973c4ad12fb68993d72e49604e4a21bb"
-    sha256 cellar: :any, mojave:        "db3e0b70a5a5435d2c01b8c25c54615288d15dd0aef1606bc6812099b7feb052"
-    sha256 cellar: :any, high_sierra:   "b279c98add833139bbdd65122391805109371eae1c2e99fbd35cbf9993e45ee5"
+    sha256 cellar: :any,                 arm64_big_sur: "f1e732d364b18f48463953078d4ee367367728be52708473a0920b2f34313364"
+    sha256 cellar: :any,                 big_sur:       "a77023f98b927b7a449142765c542ad774e3c92939cc1a93d29126a08acc81fb"
+    sha256 cellar: :any,                 catalina:      "b68e1b527f9bd8a10c391f49835f379e973c4ad12fb68993d72e49604e4a21bb"
+    sha256 cellar: :any,                 mojave:        "db3e0b70a5a5435d2c01b8c25c54615288d15dd0aef1606bc6812099b7feb052"
+    sha256 cellar: :any,                 high_sierra:   "b279c98add833139bbdd65122391805109371eae1c2e99fbd35cbf9993e45ee5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdc337e0f4b870eaae6f86ebf4b2ee986ef57cfd8e285245d788b412860b7ea5"
   end
 
   depends_on "pkg-config" => [:build, :test]

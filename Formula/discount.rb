@@ -20,6 +20,7 @@ class Discount < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "013c9e0bedb1a10f099e3b9a0c521c7e2f287602ae101284fc8d5bcbe76abfbf"
     sha256 cellar: :any_skip_relocation, catalina:      "dcec657eb504394b83d9d949f3e33463733a4410681d38826040aaf9084f8ed5"
     sha256 cellar: :any_skip_relocation, mojave:        "a5848add43adaee78666b9fc29de442944066e6bcbf7d547b68346dfa665c65f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "372b101acb6bcb3673a5e2056e4462f6fcec1d3c0a6af49a8a7c9c7d3375b250"
   end
 
   conflicts_with "markdown", because: "both install `markdown` binaries"

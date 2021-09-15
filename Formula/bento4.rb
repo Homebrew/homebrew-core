@@ -1,9 +1,10 @@
 class Bento4 < Formula
   desc "Full-featured MP4 format and MPEG DASH library and tools"
   homepage "https://www.bento4.com/"
-  url "https://www.bok.net/Bento4/source/Bento4-SRC-1-6-0-637.zip"
-  version "1.6.0-637"
-  sha256 "ac6628aa46836994d52823a7dddc604d4f32b04c08bde73dcbe5a446a7715420"
+  url "https://www.bok.net/Bento4/source/Bento4-SRC-1-6-0-639.zip"
+  version "1.6.0-639"
+  sha256 "3c6be48e38e142cf9b7d9ff2713e84db4e39e544a16c6b496a6c855f0b99cc56"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.bok.net/Bento4/source/"
@@ -11,14 +12,15 @@ class Bento4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fe8e42701b024238775a67bdbdcb25c212f2a083f1584cddc3cb7de6abba7814"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d08015d67e5e8ae84f6fc0e7fe51055cb1e2aa5834f31903573466cca45a6c97"
-    sha256 cellar: :any_skip_relocation, catalina:      "2efea32fecade412d22f6fd935b8cce2c551827b89525cabed6d6a4a2de75c31"
-    sha256 cellar: :any_skip_relocation, mojave:        "3263f0b113098ea8e9657b57b6bb6de2eba407239ca45b49c46004c1f2731e71"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "5a4aeeb90a41317022137325da9ca78acb8223a3af1ac019e135cbdb7972a251"
+    sha256 cellar: :any_skip_relocation, big_sur:      "df2c003b4246421f9125b976318bdfa47f1344561fd5702e7ae24dcdad945b47"
+    sha256 cellar: :any_skip_relocation, catalina:     "61d75b0e8d0c73c93d9630bd558f95330c23e0e476a39e742ebd86d80a6ae4ec"
+    sha256 cellar: :any_skip_relocation, mojave:       "1dae5f17d39f6ccf3dd59d8b755d67982fb272171dd790d7cc50585a7fcefc5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b275761b1d942027866b86d2c987d195f9bf6cc0536eb078a8b376da90f8571d"
   end
 
   depends_on xcode: :build
+  # artifact does not produce arm64 native binaries
+  depends_on arch: :x86_64
   depends_on "python@3.9"
 
   on_linux do
@@ -29,7 +31,7 @@ class Bento4 < Formula
   conflicts_with "mp4v2", because: "both install `mp4extract` and `mp4info` binaries"
 
   def install
-    on_macos do
+    if OS.mac?
       cd "Build/Targets/universal-apple-macosx" do
         xcodebuild "-target", "All", "-configuration", "Release", "SYMROOT=build"
         programs = Dir["build/Release/*"].select do |f|
@@ -40,8 +42,7 @@ class Bento4 < Formula
         end
         bin.install programs
       end
-    end
-    on_linux do
+    else
       mkdir "cmakebuild" do
         system "cmake", "..", *std_cmake_args
         system "make"

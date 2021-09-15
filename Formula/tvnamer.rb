@@ -4,13 +4,14 @@ class Tvnamer < Formula
   url "https://files.pythonhosted.org/packages/7e/07/688dc96a86cf212ffdb291d2f012bc4a41ee78324a2eda4c98f05f5e3062/tvnamer-3.0.4.tar.gz"
   sha256 "dc2ea8188df6ac56439343630466b874c57756dd0b2538dd8e7905048f425f04"
   license "Unlicense"
-  head "https://github.com/dbr/tvnamer.git"
+  head "https://github.com/dbr/tvnamer.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4491772fd6ec7a015ef66cfdd2e26b017a0954b00dcb6225c05e3918d4ebaf8f"
     sha256 cellar: :any_skip_relocation, big_sur:       "7482d3e40fae7da3a5a738ba27e891ab6313be37e2ca623ce3c6eabe8c07d261"
     sha256 cellar: :any_skip_relocation, catalina:      "7482d3e40fae7da3a5a738ba27e891ab6313be37e2ca623ce3c6eabe8c07d261"
     sha256 cellar: :any_skip_relocation, mojave:        "7482d3e40fae7da3a5a738ba27e891ab6313be37e2ca623ce3c6eabe8c07d261"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b055c3749deeee54611708e1e264cc631db2a675f1ff5ab2e8e7852a52f225ff"
   end
 
   depends_on "python@3.9"

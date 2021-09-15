@@ -1,11 +1,10 @@
 class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
-  url "https://github.com/hashicorp/consul.git",
-      tag:      "v1.9.5",
-      revision: "3c1c22679e9ca097211b3b6602da2e95a5d4401b"
+  url "https://github.com/hashicorp/consul/archive/refs/tags/v1.10.2.tar.gz"
+  sha256 "db627a521f123e6ba4021864b187f0adcb1248a37badaafc67f8e59f69232143"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/consul.git", shallow: false
+  head "https://github.com/hashicorp/consul.git", branch: "main"
 
   livecheck do
     url :stable
@@ -13,72 +12,31 @@ class Consul < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "043b458e21eae9cdfc7876df78cf7902629d63b17a2d3b95705e3e3181b7f1e7"
-    sha256 cellar: :any_skip_relocation, catalina: "233b60bc1fd40524e011cf99b0b41ebc3e924b6d0ea46866760eca6c7702f256"
-    sha256 cellar: :any_skip_relocation, mojave:   "db6e019e1ec3ba55f5ba82482d61870e35c016c9172d41ed540e8c946d43f6d1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eb2cfe661e24b3a42129cf35021563ccf67778d443bed32e1a5cf6753e66e2df"
+    sha256 cellar: :any_skip_relocation, big_sur:       "58584e3117cac7f421bd210233b3882932d4556c3a75ef997bef73c735beac49"
+    sha256 cellar: :any_skip_relocation, catalina:      "db0a636c306684b9029b44ceb57e1ec751cb20364623f5186c21b2c083e36672"
+    sha256 cellar: :any_skip_relocation, mojave:        "986f040e9b5facbf691c4a282a8be9066c7f0ddf0e486ed8a081d776102a13e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e7b3b5f7e9d42480d6d48fbfc70e8a8c65961874fd6e70fa81c7946a86a371d"
   end
 
   depends_on "go" => :build
-  depends_on "gox" => :build
 
-  uses_from_macos "zip" => :build
-
-  def install
-    # Specificy the OS, else all platforms will be built
-    on_macos do
-      ENV["XC_OS"] = "darwin"
-    end
-    on_linux do
-      ENV["XC_OS"] = "linux"
-    end
-    ENV["XC_ARCH"] = "amd64"
-    ENV["GOPATH"] = buildpath
-    contents = Dir["{*,.git,.gitignore}"]
-    (buildpath/"src/github.com/hashicorp/consul").install contents
-
-    (buildpath/"bin").mkpath
-
-    cd "src/github.com/hashicorp/consul" do
-      system "make"
-      bin.install "bin/consul"
-      prefix.install_metafiles
-    end
+  # Support go 1.17, remove after next release
+  patch do
+    url "https://github.com/hashicorp/consul/commit/e43cf462679b6fdd8b15ac7891747e970029ac4a.patch?full_index=1"
+    sha256 "4f0edde54f0caa4c7290b17f2888159a4e0b462b5c890e3068a41d4c3582ca2f"
   end
 
-  plist_options manual: "consul agent -dev -bind 127.0.0.1"
+  def install
+    system "go", "build", *std_go_args(ldflags: "-s -w")
+  end
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/consul</string>
-            <string>agent</string>
-            <string>-dev</string>
-            <string>-bind</string>
-            <string>127.0.0.1</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/consul.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/consul.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"consul", "agent", "-dev", "-bind", "127.0.0.1"]
+    keep_alive true
+    error_log_path var/"log/consul.log"
+    log_path var/"log/consul.log"
+    working_dir var
   end
 
   test do
@@ -86,7 +44,7 @@ class Consul < Formula
     fork do
       # most ports must be free, but are irrelevant to this test
       system(
-        "#{bin}/consul",
+        bin/"consul",
         "agent",
         "-dev",
         "-bind", "127.0.0.1",
@@ -104,7 +62,7 @@ class Consul < Formula
 
     k = "brew-formula-test"
     v = "value"
-    system "#{bin}/consul", "kv", "put", "-http-addr", "127.0.0.1:#{http_port}", k, v
-    assert_equal v, shell_output("#{bin}/consul kv get -http-addr 127.0.0.1:#{http_port} #{k}").chomp
+    system bin/"consul", "kv", "put", "-http-addr", "127.0.0.1:#{http_port}", k, v
+    assert_equal v, shell_output(bin/"consul kv get -http-addr 127.0.0.1:#{http_port} #{k}").chomp
   end
 end

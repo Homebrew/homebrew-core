@@ -4,6 +4,7 @@ class Augeas < Formula
   url "http://download.augeas.net/augeas-1.12.0.tar.gz"
   sha256 "321942c9cc32185e2e9cb72d0a70eea106635b50269075aca6714e3ec282cb87"
   license "LGPL-2.1"
+  revision 1
 
   livecheck do
     url "http://download.augeas.net/"
@@ -11,23 +12,21 @@ class Augeas < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "a470a4b47f5072f27cf308fac97ff3b9cdd30f88aa4a950fbc73a4527ec9c6ba"
-    sha256 big_sur:       "339c6898b7b3fd115fc3cc3c9a0cdb3eb6a1eab3f492e5f2de6513d7c6171c0e"
-    sha256 catalina:      "00a45b8b446df0a95c2c45cbe608410df2d7be7787247f4b3a8fc1c2c19b41b6"
-    sha256 mojave:        "9a561491e3574dfe2cfe7da2a618c12d02218f88f760de46722d9b603e4f27ba"
-    sha256 high_sierra:   "0e1477f692cf67442dfcaf7c20a24733838df072ec867f59322070a7eaf3f925"
-    sha256 sierra:        "55b3fab93f2ec4a703dc2bb3b3d58c47375456bdb5f0308e0856b231d309c02d"
+    sha256 arm64_big_sur: "9625e271fbbf7bb914bb7475eae95f97f99f5cbf9e71874f599ee620dd907432"
+    sha256 big_sur:       "83b60962039b8d9c8a2ff343c8eaf21454976394f60ee5f340901d8de6161bd8"
+    sha256 catalina:      "dc69497d1ac32d9f8203fb346965ad8e88f4498c120b7915a3f4dd0d7509d9e2"
+    sha256 mojave:        "446030ec8931aa24eabee1e051daf7365dbd6fb9e43b4f71998dc6d7d0f9fdda"
+    sha256 x86_64_linux:  "1d769bb0e887b5a321e5c89d15959e71fc7d616fb79c3e2e926ff2d1cefc106f"
   end
 
   head do
     url "https://github.com/hercules-team/augeas.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "libtool" => :build
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "bison" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "readline"
 
@@ -39,6 +38,9 @@ class Augeas < Formula
     if build.head?
       system "./autogen.sh", *args
     else
+      # autoreconf is needed to work around
+      # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=44605.
+      system "autoreconf", "--force", "--install"
       system "./configure", *args
     end
 

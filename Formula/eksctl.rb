@@ -2,16 +2,17 @@ class Eksctl < Formula
   desc "Simple command-line tool for creating clusters on Amazon EKS"
   homepage "https://eksctl.io"
   url "https://github.com/weaveworks/eksctl.git",
-      tag:      "0.51.0",
-      revision: "5cf431c8754e05e08eef27dcd0864963ccbaf2fd"
+      tag:      "0.66.0",
+      revision: "2c931c8bc3b0fd74246b282c2cd99a38304b0295"
   license "Apache-2.0"
-  head "https://github.com/weaveworks/eksctl.git"
+  head "https://github.com/weaveworks/eksctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f7f1efb868ce5964bbd4533fc07be5e0b20d5a9c7079c210f34f85dff8524988"
-    sha256 cellar: :any_skip_relocation, big_sur:       "afd6fc312512496ac9576d8e54dd4c7bc11c4bc6702f3d02717be314aa8cc292"
-    sha256 cellar: :any_skip_relocation, catalina:      "05fb48756a90b7bb568ffed40b921cd59791e7bee4e1c252cde30a7146cc92c4"
-    sha256 cellar: :any_skip_relocation, mojave:        "da015cbf6416c1eb8cb70acbbeff5c7f0b844c411003972a98b5e35d89480bc2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fb8e228e047a88791cd88671c9d97ef049d6cba3712498c9ef8479582cf4434c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "295bf319ceefe86fce441016d46e769763b6ea8461869f62eca61e38a7369b60"
+    sha256 cellar: :any_skip_relocation, catalina:      "092c3d64e244449a150ede99d05e78502d422057e3438c3ed22d2fd398060089"
+    sha256 cellar: :any_skip_relocation, mojave:        "2d938b00ddfa3ba875c4f8abbcf7cecacb4e37446be4b340d43eea32230bfeeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6d2ee8b7a25f5e3fc90611ec67f8e0f69ae8fe4b66bc2b450c8e045937f1bb6"
   end
 
   depends_on "counterfeiter" => :build
@@ -25,13 +26,12 @@ class Eksctl < Formula
     system "make", "build"
     bin.install "eksctl"
 
-    # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "bash")
-    (bash_completion/"eksctl").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "zsh")
-    (zsh_completion/"_eksctl").write output
+    bash_output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "bash")
+    (bash_completion/"eksctl").write bash_output
+    zsh_output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "zsh")
+    (zsh_completion/"_eksctl").write zsh_output
+    fish_output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "fish")
+    (zsh_completion/"eksctl.fish").write fish_output
   end
 
   test do

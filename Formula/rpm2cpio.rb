@@ -17,6 +17,7 @@ class Rpm2cpio < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "081902485154a2061d890e6421a55d15bfe5072c05109c79e0ef50f2a11b96e5"
     sha256 cellar: :any_skip_relocation, high_sierra:   "804dccff2726a9ac18a1002cd8adb06aacd07ce1fff93b995c042d4e78775176"
     sha256 cellar: :any_skip_relocation, sierra:        "05f2a6011c554efb2c2196fdf08bfc6f7c6fd6d4e32530399888aabcc73ca339"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5309dbce1d6af482193ea258b593b7f30c23036dd3dc6d56a1ea16edba480411"
   end
 
   depends_on "xz"

@@ -4,7 +4,7 @@ class Yh < Formula
   url "https://github.com/andreazorzetto/yh/archive/v0.4.0.tar.gz"
   sha256 "78ef799c500c00164ea05aacafc5c34dccc565e364285f05636c920c2c356d73"
   license "Apache-2.0"
-  head "https://github.com/andreazorzetto/yh.git"
+  head "https://github.com/andreazorzetto/yh.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1c7d591013f9ba22f605f81f1f058c3377f4125ef1d0f990651e9cdd12805cdc"
@@ -12,6 +12,7 @@ class Yh < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "1a2425d399a63df18758dfabf9d50da2559fb489c32bfb4462d7437f64fc0817"
     sha256 cellar: :any_skip_relocation, mojave:        "69f1ab9c740906f04924c780cb512ea26fa0c51bdf66be85c71c4cbaa9dc6ca1"
     sha256 cellar: :any_skip_relocation, high_sierra:   "184eb9a41954f7a3d11f3065dfab42085a724c617ec635681e05784eeebe6329"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d24c1a925e08cc62ccb741d0587e59fb79c76a34b4b5b23599c51fa58ad6dd2"
   end
 
   depends_on "go" => :build

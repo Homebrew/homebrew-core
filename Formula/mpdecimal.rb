@@ -11,10 +11,11 @@ class Mpdecimal < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "eebbc5c7e71710c848eb60b90f946aefdee1b5269c840c30b8098d6bb758500b"
-    sha256 cellar: :any, big_sur:       "255b6226cdcfaf0d40167012593e863e73dfed2884c10e7fc3eb4018e81712df"
-    sha256 cellar: :any, catalina:      "1a8314428019cec85756be0ea10bc4703cd754ef78a4cb560ddcc559af616a72"
-    sha256 cellar: :any, mojave:        "eebb16e048219e5e3d298db0e7ff8a7bfea60d54c4cf08af76efd81647f1b38b"
+    sha256 cellar: :any,                 arm64_big_sur: "eebbc5c7e71710c848eb60b90f946aefdee1b5269c840c30b8098d6bb758500b"
+    sha256 cellar: :any,                 big_sur:       "255b6226cdcfaf0d40167012593e863e73dfed2884c10e7fc3eb4018e81712df"
+    sha256 cellar: :any,                 catalina:      "1a8314428019cec85756be0ea10bc4703cd754ef78a4cb560ddcc559af616a72"
+    sha256 cellar: :any,                 mojave:        "eebb16e048219e5e3d298db0e7ff8a7bfea60d54c4cf08af76efd81647f1b38b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5d64a4dd47dc1b66887c0cecd884f0848a801cb2f684cde0f4664e709574067"
   end
 
   def install

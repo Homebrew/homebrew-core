@@ -11,6 +11,7 @@ class SwigAT3 < Formula
     sha256 mojave:        "28e5c0a5e8aac0c0d5f58e4dd69c590f57d3a450d92aa35b18aee037ab7d8b60"
     sha256 high_sierra:   "730bd728981cc1534664ef35d08d0b285e79756c286913d868af6afa43f60f4d"
     sha256 sierra:        "23275971784bb9272a734f44c9689dafecd5e6c4be917cd3d621064858cd76db"
+    sha256 x86_64_linux:  "8ba7debca7e99a4b12be8eef984ef4bf0826ad37baf171cd2ce36e55f23ee3da"
   end
 
   keg_only :versioned_formula
@@ -44,9 +45,25 @@ class SwigAT3 < Formula
       puts Test.add(1, 1)
     EOS
     system "#{bin}/swig", "-ruby", "test.i"
-    system ENV.cc, "-c", "test.c"
-    system ENV.cc, "-c", "test_wrap.c", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Ruby.framework/Headers/"
-    system ENV.cc, "-bundle", "-undefined", "dynamic_lookup", "test.o", "test_wrap.o", "-o", "test.bundle"
-    assert_equal "2", shell_output("/usr/bin/ruby run.rb").strip
+    on_macos do
+      system ENV.cc, "-c", "test.c"
+      system ENV.cc, "-c", "test_wrap.c",
+             "-I#{MacOS.sdk_path}/System/Library/Frameworks/Ruby.framework/Headers/"
+      system ENV.cc, "-bundle", "-undefined", "dynamic_lookup", "test.o",
+             "test_wrap.o", "-o", "test.bundle"
+    end
+    on_linux do
+      ruby = Formula["ruby"]
+      args = Utils.safe_popen_read(
+        ruby.opt_bin/"ruby", "-e", "'puts RbConfig::CONFIG[\"LIBRUBYARG\"]'"
+      ).chomp
+      system ENV.cc, "-c", "-fPIC", "test.c"
+      system ENV.cc, "-c", "-fPIC", "test_wrap.c",
+             "-I#{ruby.opt_include}/ruby-#{ruby.version.major_minor}.0",
+             "-I#{ruby.opt_include}/ruby-#{ruby.version.major_minor}.0/x86_64-linux/"
+      system ENV.cc, "-shared", "test.o", "test_wrap.o", "-o", "test.so",
+             *args.delete("'").split
+    end
+    assert_equal "2", shell_output("ruby run.rb").strip
   end
 end

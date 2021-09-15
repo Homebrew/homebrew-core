@@ -10,6 +10,7 @@ class Fsql < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "53d773ca5cba807627e4e3b7cdb36990c18c3b1944c847756c1acf95d99d6af6"
     sha256 cellar: :any_skip_relocation, catalina:      "c97d021f2047654b1141141bfdaceba40953a39cc150233cb9ec3bb85ee9b675"
     sha256 cellar: :any_skip_relocation, mojave:        "5d984747c498019e9950c57084e2549417dce8206ab489650fcba917ad7a30af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f54460f0a2744214e28ad7a8d9ef8f583ca32a91bf60588cb2dc2cc467aff56"
   end
 
   depends_on "go" => :build

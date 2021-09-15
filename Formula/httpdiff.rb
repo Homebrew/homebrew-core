@@ -15,6 +15,7 @@ class Httpdiff < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "39a0d685904aba4c3e55ff22b4d231b8890c022a1eb0366dc264bbabc410a117"
     sha256 cellar: :any_skip_relocation, el_capitan:    "59b46605118f8789c10facd53e9d4ce4c9f54c8de85611d423984c4316a169eb"
     sha256 cellar: :any_skip_relocation, yosemite:      "d5919069e31192cfd6f7d33dd4ff80d2142a8c36d23b50291e914c158d91ffac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b75213c432ca3754d283de01029ae208a75955949c8b5b9e04613c9da943f8c"
   end
 
   depends_on "go" => :build

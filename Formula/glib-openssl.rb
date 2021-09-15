@@ -11,6 +11,7 @@ class GlibOpenssl < Formula
     sha256 catalina:      "d3e3d452515afbf8ab39555e7c9e4add50f28aa89252321bee6ca021c7cb88a9"
     sha256 mojave:        "10b207a9c340bc6710e1df7f47ef4a0dba5a941c0cdb3330255718cf1884276c"
     sha256 high_sierra:   "04107ac3e021e4dd11feb50a3ac4024f3c73dd2b805f171ccfc22c1d7e3a665e"
+    sha256 x86_64_linux:  "4b583a88e518cdf39efb461edfd35d58fa8d549859a3cb112fee7beffb4705e0"
   end
 
   depends_on "pkg-config" => :build

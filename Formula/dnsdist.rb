@@ -3,6 +3,8 @@ class Dnsdist < Formula
   homepage "https://www.dnsdist.org/"
   url "https://downloads.powerdns.com/releases/dnsdist-1.6.0.tar.bz2"
   sha256 "a7783a04d8d4ad2b0168ffaaf85ef95d5f557057b0462280684dd799d0cdd292"
+  license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -10,9 +12,10 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 big_sur:  "21a26e9d34532f445a8d74c8e72e73ae651bee6cb15334cef5c724ff480e5816"
-    sha256 catalina: "be7966bd9808586a3cd621df9bb7a0810275827e91be1baf3b282461ea5c998d"
-    sha256 mojave:   "9baf86315d64a8f44b281af8e2eb331d0010c096e142aa30484736ac3a3fb08c"
+    sha256 arm64_big_sur: "81b870ee49e98a796ac239d1e2f3676ce38a7c5f02945102ca2a4a382d6411f3"
+    sha256 big_sur:       "48492b51a983e3b1c097d2debb98e4888fdf458543c3b19d6cdd5b62bdd0a2ff"
+    sha256 catalina:      "17065d7729a4cda1d599acf95b36ca657d27728ecbc202ea9594888487ba1190"
+    sha256 mojave:        "cd8f596aa6e4bb0b11d0a2bea8e1129ddda3ff47d8ee8e4a0dc699e318dd3d9b"
   end
 
   depends_on "boost" => :build
@@ -21,7 +24,7 @@ class Dnsdist < Formula
   depends_on "fstrm"
   depends_on "h2o"
   depends_on "libsodium"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "re2"

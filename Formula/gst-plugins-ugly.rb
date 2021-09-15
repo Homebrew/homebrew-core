@@ -4,6 +4,7 @@ class GstPluginsUgly < Formula
   url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.18.4.tar.xz"
   sha256 "218df0ce0d31e8ca9cdeb01a3b0c573172cc9c21bb3d41811c7820145623d13c"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-ugly.git"
 
   livecheck do
@@ -12,10 +13,11 @@ class GstPluginsUgly < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "d53193975b44bcf1cc770df6c7df5dec55c2a5813f6ede0b624d422aea132c94"
-    sha256 big_sur:       "378fcd8eccf1bffe8148b8ddd6eae10ac34fab4b4719ab02f3301de3806a711c"
-    sha256 catalina:      "47c0a93c8c1a818545a07941bec50103b9a1f61efd07ea3004be1e2183e63d23"
-    sha256 mojave:        "49de7f4a66957c008f299f303702524f2c09f8e678173400b0050137df11f75c"
+    sha256 arm64_big_sur: "93577cdbd18ee2cbdf026104ad07e9c9ae510c28a487a5fe4fbb18743ff596e8"
+    sha256 big_sur:       "0a6d18fa102bcea7e8e096a8b114fa415a32c2c6cd477fdaa68255ffb119ac28"
+    sha256 catalina:      "3bf8b148e0901057104047b7392c501986096858e287cc4f11299933f1708931"
+    sha256 mojave:        "beb6b703ebad1a546c0ca4a9e9253e20bdb78c3aeba4231fdd1a645ab8fd11dc"
+    sha256 x86_64_linux:  "4793a5155acb669f37d6e29f4fc48470b9f7ac8bb9332f9cfbba6a53e372f617"
   end
 
   depends_on "meson" => :build

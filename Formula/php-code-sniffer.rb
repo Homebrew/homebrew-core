@@ -6,7 +6,9 @@ class PhpCodeSniffer < Formula
   license "BSD-3-Clause"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "25ce66947a536c9a0901e068382f4e8cbb05c1515ff5258260be2869f9ae7500"
+  end
 
   resource "phpcbf.phar" do
     url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.6.0/phpcbf.phar"

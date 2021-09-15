@@ -9,10 +9,11 @@ class ProtocGenGrpcWeb < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8625843e386cf1aec90d4f750ad1480586f10e90fa5f8d2092037b92583379d3"
-    sha256 cellar: :any, big_sur:       "c706a6449039679963254536a30511f031fe11705ac36ed5d2f3ab2fd83a2aba"
-    sha256 cellar: :any, catalina:      "3917c4c2ff273a01472cd46265b5d12a6df0012e721cb271f4c512a894e3ccd5"
-    sha256 cellar: :any, mojave:        "b4486c699cd657005acd262ef592784f3bbf3b50408e90d2a84d42dcb5205853"
+    sha256 cellar: :any,                 arm64_big_sur: "8625843e386cf1aec90d4f750ad1480586f10e90fa5f8d2092037b92583379d3"
+    sha256 cellar: :any,                 big_sur:       "c706a6449039679963254536a30511f031fe11705ac36ed5d2f3ab2fd83a2aba"
+    sha256 cellar: :any,                 catalina:      "3917c4c2ff273a01472cd46265b5d12a6df0012e721cb271f4c512a894e3ccd5"
+    sha256 cellar: :any,                 mojave:        "b4486c699cd657005acd262ef592784f3bbf3b50408e90d2a84d42dcb5205853"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f57d007f37bd720b813f7254d32c6683257de8c1afe95a93f3dc23c9641c093"
   end
 
   depends_on "cmake" => :build
@@ -57,6 +58,7 @@ class ProtocGenGrpcWeb < Formula
     EOS
     (testpath/"test.ts").write testts
     system "npm", "install", *Language::Node.local_npm_install_args, "grpc-web", "@types/google-protobuf"
-    system "tsc", "test.ts"
+    # Specify including lib for `tsc` since `es6` is required for `@types/google-protobuf`.
+    system "tsc", "--lib", "es6", "test.ts"
   end
 end

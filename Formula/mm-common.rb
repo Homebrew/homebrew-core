@@ -10,6 +10,7 @@ class MmCommon < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f40a6de3865dbb9c453f82b2eae422bb54ae0e422ee287ad41cea24f4b084937"
     sha256 cellar: :any_skip_relocation, catalina:      "85f048b6c104120336d3d1e727ddef7faca85feaad37bb404f502202437d1a41"
     sha256 cellar: :any_skip_relocation, mojave:        "85f048b6c104120336d3d1e727ddef7faca85feaad37bb404f502202437d1a41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "015f6833761b100ad4610a505700d44fc1db448147f68ae502cc8e9383048ef9"
   end
 
   depends_on "meson" => :build

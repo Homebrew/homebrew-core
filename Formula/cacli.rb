@@ -1,8 +1,8 @@
 class Cacli < Formula
   desc "Train machine learning models from Cloud Annotations"
   homepage "https://cloud.annotations.ai"
-  url "https://github.com/cloud-annotations/training/archive/v1.3.2.tar.gz"
-  sha256 "9f164636367af848de93459cf0e7919aa099c408e6ad91a58874db6bc9986bfb"
+  url "https://github.com/cloud-annotations/cloud-annotations/archive/v1.3.2.tar.gz"
+  sha256 "e7d8fd54f16098a6ac9a612b021beea3218d9747672d49eff20a285cdee69101"
   license "MIT"
 
   livecheck do
@@ -16,6 +16,7 @@ class Cacli < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "63f761d1b56137cdb4a2d94e5894c7a43ac28f8d9f7f36c2011da7ea21445c9e"
     sha256 cellar: :any_skip_relocation, mojave:        "6b8148ab93f63cc8342a2b77356c1154d875f710edceacaac4258d36d1ccb108"
     sha256 cellar: :any_skip_relocation, high_sierra:   "6dbca926050f4ca29a073d05591e818690d9a3d3cae0dffc7d658aab9afef02d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bf9422e0ae9c895130c789b2261af291f1cb4126c72a299bb2c850ecc6266fc"
   end
 
   depends_on "go" => :build

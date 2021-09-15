@@ -14,6 +14,7 @@ class Tinysvm < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a6ad14c984b337bee83372ac6a29ffe7c0491180a302cfcd8f53b1a3ee6816e1"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2b84b75043ba1d97172e2756e3da870a8ec8e074167ab5402e7a4e1b4c923864"
     sha256 cellar: :any_skip_relocation, yosemite:      "ea90446332244176d4ec3bc4ff0c6175810c3a39d942f225bb55c0fb6252858d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8706fa788fd556b7f18b3c1aee12390a933b5eafaa909508304d6992f218e02d"
   end
 
   # Use correct compilation flag, via MacPorts.

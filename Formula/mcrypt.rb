@@ -11,6 +11,7 @@ class Mcrypt < Formula
     sha256 cellar: :any, big_sur:       "e3182ac2f12baccfab81146bb4c6944b05154259a65165d694ca64e43d1f03f7"
     sha256 cellar: :any, catalina:      "a52070083dfe080bbe0b8f71597a8a619c6b1421970c4670c6f40f5f2ba0fafe"
     sha256 cellar: :any, mojave:        "6a23409a37396e2b2256485737a8195b06dcdea3607583e509f1d87d6a75faec"
+    sha256               x86_64_linux:  "33da6d2acf84ccd0db1ae1f9b82b0068a97bb6e8ba1de5dd310fc31c949ed432"
   end
 
   # Added automake as a build dependency to update config files in libmcrypt.

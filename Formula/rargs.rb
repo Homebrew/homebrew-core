@@ -11,6 +11,7 @@ class Rargs < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "37d5a3c2a5608eb4a10df0814a1334b88602a7200fdf99db60113f7aea598489"
     sha256 cellar: :any_skip_relocation, mojave:        "1c24f60f8b91301cd167b0040e2c9ec7895fe818eeb21f13d40fca94e6f4f08b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "9cea3ec1abc342281b94649496e0d28275eead691238a2d03e47c2621afc9801"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4474dd7817ce2ea97b3ff510299c481f9cf0382a24a70e2596f76c5e881abdd4"
   end
 
   depends_on "rust" => :build

@@ -7,7 +7,7 @@ class Debianutils < Formula
 
   livecheck do
     url "https://packages.qa.debian.org/d/debianutils.html"
-    regex(/href=.*?debianutils[._-]v?(\d+(?:.\d+)+).dsc/i)
+    regex(/href=.*?debianutils[._-]v?(\d+(?:\.\d+)+).dsc/i)
   end
 
   bottle do
@@ -16,6 +16,7 @@ class Debianutils < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "b6a3110aa8113eb30d7b3dd71ac194d476969322e2a184172c8da9923c497c19"
     sha256 cellar: :any_skip_relocation, mojave:        "5d50261564a4696a8f9d0eed99ffa0ed8eebc8344a0365d5c9b4083a54d3b6de"
     sha256 cellar: :any_skip_relocation, high_sierra:   "be68111406f254d184ffecf06a181df3000525e05b18f9b072c4cdd0ef30b3c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6fd96fb4733f4fc575514e778d83ee69006440d867df416ed58b45bfb954ae30"
   end
 
   def install

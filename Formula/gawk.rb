@@ -12,6 +12,7 @@ class Gawk < Formula
     sha256 catalina:      "581b48f781104f0c3233edc30c47628f4eec8c2f1f2e191151f367ce26ec538a"
     sha256 mojave:        "ddbb56c56d66f375147769a27301e2ffd099abdc07f5dfc16389af22028e185b"
     sha256 high_sierra:   "eac1b8c97c682c32a1b6c589818aa8ffb8f09630258ed6f215c882368540713e"
+    sha256 x86_64_linux:  "9dbdb614ce8517ce0d43f4058ea96bdc9ab172fbb2a60160c3963109f19b3d71"
   end
 
   depends_on "gettext"
@@ -28,7 +29,11 @@ class Gawk < Formula
                           "--without-libsigsegv-prefix"
 
     system "make"
-    system "make", "check"
+    if which "cmp"
+      system "make", "check"
+    else
+      opoo "Skipping `make check` due to unavailable `cmp`"
+    end
     system "make", "install"
 
     (libexec/"gnubin").install_symlink bin/"gawk" => "awk"

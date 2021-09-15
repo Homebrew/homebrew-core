@@ -13,19 +13,21 @@ class Libsvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ae3fff4762882360a23280215cafdc93d3da1d598816d34cfb0e7b6a922180e3"
-    sha256 cellar: :any, big_sur:       "27481a34d2af64572b48b268c8e47d7700aab4ec9dc2978216c471d512a4cb81"
-    sha256 cellar: :any, catalina:      "ad8d34d17fdca6b25374eff11b5f2b1067d19894358b23c04b3b8ac0f82180b1"
-    sha256 cellar: :any, mojave:        "485eec232bd3cc0619494de50cac4ef4a5b65761d5d6a062c62e07d9a0007e31"
+    sha256 cellar: :any,                 arm64_big_sur: "ae3fff4762882360a23280215cafdc93d3da1d598816d34cfb0e7b6a922180e3"
+    sha256 cellar: :any,                 big_sur:       "27481a34d2af64572b48b268c8e47d7700aab4ec9dc2978216c471d512a4cb81"
+    sha256 cellar: :any,                 catalina:      "ad8d34d17fdca6b25374eff11b5f2b1067d19894358b23c04b3b8ac0f82180b1"
+    sha256 cellar: :any,                 mojave:        "485eec232bd3cc0619494de50cac4ef4a5b65761d5d6a062c62e07d9a0007e31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1383dac0311d28b61447e56c92affea59d3404c1a83abc5674276056ebe752c"
   end
 
   def install
+    ENV.append_to_cflags "-fPIC" if OS.linux?
     system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "lib"
     bin.install "svm-scale", "svm-train", "svm-predict"
-    lib.install "libsvm.so.2" => "libsvm.2.dylib"
-    lib.install_symlink "libsvm.2.dylib" => "libsvm.dylib"
-    MachO::Tools.change_dylib_id("#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib")
+    lib.install "libsvm.so.2" => shared_library("libsvm", 2)
+    lib.install_symlink shared_library("libsvm", 2) => shared_library("libsvm")
+    MachO::Tools.change_dylib_id("#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib") if OS.mac?
     include.install "svm.h"
   end
 

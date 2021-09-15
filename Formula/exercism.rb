@@ -18,6 +18,7 @@ class Exercism < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "9a4080f7e35f37dc4eb15e733692314cec32cba7e0f76e8f58eb99850f708cb1"
     sha256 cellar: :any_skip_relocation, mojave:        "7319920cfd6779984dfabbecdf3e15a37603f6bfbecfc1121bfa2a044fb8ed17"
     sha256 cellar: :any_skip_relocation, high_sierra:   "b094a8441575b02f312f04760589f94d9f2b1d76330c07a67f7d07a40ad561a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47b5b810e2eb74fa8d73c9ffca02e789f115faaab3a7547b3ded1b945bb96ba1"
   end
 
   depends_on "go" => :build

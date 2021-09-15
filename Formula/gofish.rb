@@ -11,6 +11,7 @@ class Gofish < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f860c600c7319d12ab83f32ddb9b4ddfb4217af80a49a3e77ee0b5db7901719d"
     sha256 cellar: :any_skip_relocation, catalina:      "3f039b3d2118be9f07571c23ebca418bbdfed67cd30a775651fa6af142be8665"
     sha256 cellar: :any_skip_relocation, mojave:        "a80b48b522048d266fa8d265d7901cb249fa15e43149deb3bfe24917a746edce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "757fbd2b35c402ecaa216f7a0c566b10a632483e62718c39204c22d5d7b7b467"
   end
 
   depends_on "go" => :build

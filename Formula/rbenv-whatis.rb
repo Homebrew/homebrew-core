@@ -5,7 +5,8 @@ class RbenvWhatis < Formula
   sha256 "1a09f824d1dcbca360565930fa66e93a9a2840c1bb45935e2ee989ce57d1f6e6"
   revision 1
 
-  bottle :unneeded
+  # https://github.com/rkh/rbenv-whatis/issues/4
+  disable! date: "2021-06-19", because: :no_license
 
   depends_on "rbenv"
 

@@ -6,10 +6,11 @@ class Leveldb < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "377ac4b779d9ac24295b99c5f859dc8f78f473e62a90849f09eeec7a72d872d2"
-    sha256 cellar: :any, big_sur:       "bb5f8bc871e315e4ae36f011052f2b92e35040cc03ef8d448093e7be1bdfe6ac"
-    sha256 cellar: :any, catalina:      "299f9004aa344b2ac164fdeee5a077c3e45335f3527cb8f2e67b46acf88b185a"
-    sha256 cellar: :any, mojave:        "b4d54e51eef8d5d538830f555561fa4cc5f1b275b45588eae364d79de6b1d716"
+    sha256 cellar: :any,                 arm64_big_sur: "377ac4b779d9ac24295b99c5f859dc8f78f473e62a90849f09eeec7a72d872d2"
+    sha256 cellar: :any,                 big_sur:       "bb5f8bc871e315e4ae36f011052f2b92e35040cc03ef8d448093e7be1bdfe6ac"
+    sha256 cellar: :any,                 catalina:      "299f9004aa344b2ac164fdeee5a077c3e45335f3527cb8f2e67b46acf88b185a"
+    sha256 cellar: :any,                 mojave:        "b4d54e51eef8d5d538830f555561fa4cc5f1b275b45588eae364d79de6b1d716"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c056f3b6a5e2b25d90b57255138ce65796615d0e66d7156821b13ebbe8f836cd"
   end
 
   depends_on "cmake" => :build

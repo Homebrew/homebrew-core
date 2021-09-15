@@ -1,20 +1,21 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
-  homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-6.0.2.tar.gz"
-  sha256 "5e4647a07cb31b5d6d0049972a45375c137de908a964a44e2d6d231fa3ad4b52"
+  homepage "https://suricata.io"
+  url "https://www.openinfosecfoundation.org/download/suricata-6.0.3.tar.gz"
+  sha256 "daf134bb2d7c980035e9ae60f7aaf313323a809340009f26e48110ccde81f602"
   license "GPL-2.0-only"
 
   livecheck do
-    url "https://suricata-ids.org/download/"
+    url "https://suricata.io/download/"
     regex(/href=.*?suricata[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_big_sur: "c33d9b4e2bf3ea8c1f1d5c6d9020142f6d7da3b60fcc51b7a49f16a92cf060bc"
-    sha256 big_sur:       "5751c86e66e385b9922f3e4eb0761df733ab00d1603c62e4534786e53e266634"
-    sha256 catalina:      "5fdfcd49565c97630df59a4c02f2f5c93ee0a65265d04024f2db9d265539c164"
-    sha256 mojave:        "a4c47459e160033762a12c8d613b70c3028e089e6e12db4cf3b03a10008b88f2"
+    sha256 arm64_big_sur: "d0561f0b1d46352fa3fd8978595f33db686fedb8b8477aeae7933afdf8170212"
+    sha256 big_sur:       "4094fdeeaf0aa94612e22df2d45475f0e8c4063d8e17acf187c40f1af3943445"
+    sha256 catalina:      "7e9a56df59a2627ae561819f21213583d2b68156bcfbf0a07de2b96db7f67f66"
+    sha256 mojave:        "0d03f52c6826445b736021546b5fe8df9baeb06f41e4c4ebdc66e030229213f9"
+    sha256 x86_64_linux:  "2dfc82962d8f0dace13037232917a5bac8a2e7a2f096025d5106db9291590485"
   end
 
   depends_on "pkg-config" => :build
@@ -74,13 +75,11 @@ class Suricata < Formula
       --with-libnet-libraries=#{libnet.opt_lib}
     ]
 
-    on_macos do
-      args << "--enable-ipfw"
-    end
-
-    on_linux do
+    args << if OS.mac?
+      "--enable-ipfw"
+    else
       args << "--with-libpcap-includes=#{Formula["libpcap"].opt_include}"
-      args << "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
+      "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
     end
 
     system "./configure", *args

@@ -13,6 +13,7 @@ class ChalkCli < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "3761c3a51544b65bfc8868207049ef0af1bf6d4c80f8fec674884c52f783007e"
     sha256 cellar: :any_skip_relocation, mojave:        "f3ddf504d4a6d55285398c1fda8c5b9b7d8ff0c7e7594afcd0288fa8adf3ab81"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a0966f5c0489b4edd61e8f733bd1571de8c80deec7c715cca6084f3fc72d2abf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92b331d66c6e1bd7f82217cb7ec4543cd10d61d2eaf8105c52a4999840f8fd1f"
   end
 
   depends_on "node"

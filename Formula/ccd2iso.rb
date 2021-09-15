@@ -14,6 +14,7 @@ class Ccd2iso < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "c855496f0265a8f806228cddc1c15d5a1d6e7186f4bb43c0a317a6256d8e8e85"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e74b2779ef3d832bc899422285c2d03ea33aa6ab979ca835914343999b444671"
     sha256 cellar: :any_skip_relocation, yosemite:      "020f198fa4476dc640fa14e8efa7ad04985143e7007c45610b890bdc7db47599"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eca2835beb5b622b6f0b2b781524e638e67a65b8d4f683cb0984c74c34c1603b"
   end
 
   def install

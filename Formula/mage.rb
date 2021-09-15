@@ -13,6 +13,7 @@ class Mage < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a3707826deeb07ceb26ba6c14a532fad9cdbb865931d248675aa468c16a4c2a9"
     sha256 cellar: :any_skip_relocation, catalina:      "e5abfae7ded7be5c6cb847a9237ff850620cf01a5d5ec086f8777ece37f12bc9"
     sha256 cellar: :any_skip_relocation, mojave:        "b116c4a96c95e42a0359976929f20ebe7ebfb8dfcb4f69b911948431da1f89ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4269eaaf9ff193b0f56e327acd9f38d2186006e918ae2ff2c267c106cd1d485e"
   end
 
   depends_on "go"
@@ -20,7 +21,7 @@ class Mage < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/magefile/mage/mage.timestamp=#{Date.today}
+      -X github.com/magefile/mage/mage.timestamp=#{time.rfc3339}
       -X github.com/magefile/mage/mage.commitHash=#{Utils.git_short_head}
       -X github.com/magefile/mage/mage.gitTag=#{version}
     ]

@@ -5,7 +5,9 @@ class Walkmod < Formula
   sha256 "7d83564b8b11ce02b5a0924e552a8f006524003a03749e5fe901c937cff3d544"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "532f649c7bad73761473554fca6bd1bb4ede5105775beda4e199e5cdeddfdd58"
+  end
 
   depends_on "openjdk"
 

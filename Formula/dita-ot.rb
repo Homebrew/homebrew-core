@@ -10,7 +10,13 @@ class DitaOt < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bb3c63160256f78fbbb2bb3dccfb80a4577f5116a00c00128652e7ce96194b88"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d2962c76fd1ab8527a8ca065d73abe37cf0898b647368826e6d1f39e3e59cd5f"
+    sha256 cellar: :any_skip_relocation, catalina:      "d2962c76fd1ab8527a8ca065d73abe37cf0898b647368826e6d1f39e3e59cd5f"
+    sha256 cellar: :any_skip_relocation, mojave:        "d2962c76fd1ab8527a8ca065d73abe37cf0898b647368826e6d1f39e3e59cd5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb3c63160256f78fbbb2bb3dccfb80a4577f5116a00c00128652e7ce96194b88"
+  end
 
   depends_on "openjdk"
 

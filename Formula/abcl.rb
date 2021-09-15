@@ -20,6 +20,7 @@ class Abcl < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "a289f1940cf66e136607417d82ea29ab1df61523f5e6bc6608989c683eba509f"
     sha256 cellar: :any_skip_relocation, mojave:        "69eae372ce01d3e1844747e79ea2dd68763e3997d5bcdbaaf8641fc6f398a23c"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a420b36787e573ecb71a14c9b45780881a25ba7d7897eb79ae74595eab21853d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac68a7ddfbd9dd2f1db04fc050965ab7a68ae2d4e39a1c7d6633b020dd32d5c1"
   end
 
   depends_on "ant"

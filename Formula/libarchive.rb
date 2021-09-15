@@ -1,10 +1,9 @@
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "https://www.libarchive.org"
-  url "https://www.libarchive.org/downloads/libarchive-3.5.1.tar.xz"
-  sha256 "0e17d3a8d0b206018693b27f08029b598f6ef03600c2b5d10c94ce58692e299b"
+  url "https://www.libarchive.org/downloads/libarchive-3.5.2.tar.xz"
+  sha256 "f0b19ff39c3c9a5898a219497ababbadab99d8178acc980155c7e1271089b5a0"
   license "BSD-2-Clause"
-  revision 1
 
   livecheck do
     url "https://libarchive.org/downloads/"
@@ -12,11 +11,11 @@ class Libarchive < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "70d00c2b7edaa2e7e84d8831edddfc07490f19016f7899bcde581d5d71040d67"
-    sha256 cellar: :any, big_sur:       "88826e185e60eba60ad004889a76dae4354a15533a5ba8254ecf0323075b34cd"
-    sha256 cellar: :any, catalina:      "616792d4660cc153ce5868fd612980af9b8b9e18d54c4199eb11e08bc9bb45da"
-    sha256 cellar: :any, mojave:        "b231516d40d35180e1f61a50175324e4ce28f71aec27769ecc4661dbe6e883d0"
+    sha256 cellar: :any,                 arm64_big_sur: "54ce08391c24b94f6a78380dcaa9829eb3c10b1cf7f9681fa51325034fc5e4a6"
+    sha256 cellar: :any,                 big_sur:       "465c65961a4bb3b17ad6c59ccc3077bf38ef7b3d862bd1d6b4cc4c08a9fdb086"
+    sha256 cellar: :any,                 catalina:      "b6a3b5424cfc25a2514c35988aaa4b1e274105cfeae3f6083ed5864a85c87b6e"
+    sha256 cellar: :any,                 mojave:        "6f5a155af0e351635e4f547c39b8a1a9aea845e043bc996f908b4b10b3385ae4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2628745c8bcf953cecd72ac4b7e0b9a1c3e7136525039aa6c91ee4535fd3cbf4"
   end
 
   keg_only :provided_by_macos

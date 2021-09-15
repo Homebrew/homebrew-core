@@ -19,6 +19,7 @@ class Grepcidr < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "12dfa49026bffb77ed1c4a08e9b60b56859eb183bbf791754d0b1d476ba6d795"
     sha256 cellar: :any_skip_relocation, el_capitan:    "31ccf6792cab3c5022530ef4576ea53e6dedd4855b939d11212fea0d7fa294dc"
     sha256 cellar: :any_skip_relocation, yosemite:      "d0024b81610b4a698de415aef87958e2a61f74a9f1f2b7acf875f2f3d50ecc05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb0c1384a2e7e8c25c10ca2c767732ba49a4b57d7e2249ce415d11b76c4dadc0"
   end
 
   def install

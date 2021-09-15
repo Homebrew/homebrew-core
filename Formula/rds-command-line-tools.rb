@@ -5,7 +5,9 @@ class RdsCommandLineTools < Formula
   sha256 "298c15ccd04bd91f1be457645d233455364992e7dd27e09c48230fbc20b5950c"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "d7d88e5f02da3ee3df182d04c09442a8374230655cccd26582900a7eaf93e263"
+  end
 
   depends_on "openjdk"
 

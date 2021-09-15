@@ -17,6 +17,7 @@ class Fortune < Formula
     sha256 catalina:      "9d1ed340349cd7995d1308fc09fc69c3520c96b329ab881dc0d96fce914e029c"
     sha256 mojave:        "9a7a866859df246c3fe9331cb1b131562359690dbc5bfed6ee4e8f5a4585025e"
     sha256 high_sierra:   "3421fe011b2f27d30ae6e56d880eba8a68cb1249d6c4cd063a04fd61022507be"
+    sha256 x86_64_linux:  "791d7f7963c86af2f2ef311f739f8faddcbd0448feb0b8213d2b3c2263fc317e"
   end
 
   def install

@@ -5,11 +5,17 @@ class Obfs4proxy < Formula
   sha256 "46f621f1d94d244e7b1d0b93dafea7abadb2428f8b1d0463559426362ea98eae"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :stable
+    regex(/^obfs4proxy[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4e7ffbf5b299d80b469fc0f4edbf44dcac2c698a7b5ac84f4d78632cc8888ce7"
     sha256 cellar: :any_skip_relocation, big_sur:       "5918cdc41743f14ee4110b132361abe21b20445fb7afd4a60859b4b1e594462a"
     sha256 cellar: :any_skip_relocation, catalina:      "4d22c53ebd7beaacc0c96b2af4fe3179f5b8a63f2f9bd624dc6d0d1d2867d40f"
     sha256 cellar: :any_skip_relocation, mojave:        "75715a8bfc51f3ab2a3dd4e56077c27626ffd802a83f18da300d394091fb79cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4406d6bb3e815416d79ccdec2df0217aadc212387dce0adf64ad2cb9f6e56d09"
   end
 
   depends_on "go" => :build

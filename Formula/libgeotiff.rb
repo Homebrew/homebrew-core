@@ -1,16 +1,21 @@
 class Libgeotiff < Formula
   desc "Library and tools for dealing with GeoTIFF"
   homepage "https://github.com/OSGeo/libgeotiff"
-  url "https://github.com/OSGeo/libgeotiff/releases/download/1.6.0/libgeotiff-1.6.0.tar.gz"
-  sha256 "9311017e5284cffb86f2c7b7a9df1fb5ebcdc61c30468fb2e6bca36e4272ebca"
+  url "https://github.com/OSGeo/libgeotiff/releases/download/1.7.0/libgeotiff-1.7.0.tar.gz"
+  sha256 "fc304d8839ca5947cfbeb63adb9d1aa47acef38fc6d6689e622926e672a99a7e"
   license "MIT"
-  revision 1
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "693599ceb6c27a406ef40a2132fd90736c92e639f09ba9fc73a914a692a7d302"
-    sha256 cellar: :any, big_sur:       "d799eaf361b8ae3a149e616376ccc2bd6c165666931d41bea939eb1d60fd84dc"
-    sha256 cellar: :any, catalina:      "46c76bb3d4807e703b47edbe613f8fcbacf62dbafa3f9c51bc3ea64ea04f76fc"
-    sha256 cellar: :any, mojave:        "f558aff9a210d09cd3b6fd64756ab852bdcf3650c6d377dc007fb276f5f29720"
+    sha256 cellar: :any,                 arm64_big_sur: "0f191bda555533ac59d14b262d66a7a874ed55f77a6dc96785150eed1e84f7fe"
+    sha256 cellar: :any,                 big_sur:       "0e37a3add2a8840aebaf25f5e3e365eaca77c0943722366f760d4bebbcbdfe95"
+    sha256 cellar: :any,                 catalina:      "20f4e9268c9c5154858452b5d4d1764c042de0e53f5ee7ee45fb889b3754e7ec"
+    sha256 cellar: :any,                 mojave:        "ae97cbd99b52140c77705d0acd1f2b1affd7ffd907e00d6f00f72eae2e61c292"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8731b70f84b1e9daa9ac6c8747232d87c760bcb2be7eb83643cc6582e1163cc"
   end
 
   head do

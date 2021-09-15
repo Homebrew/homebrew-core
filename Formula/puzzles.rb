@@ -2,10 +2,11 @@ class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
   # Extract https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.tar.gz to get the version number
-  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20210409.69b5e75.tar.gz"
-  version "20210409"
-  sha256 "6efc4939f8731d0613e47f9efdb01f0481d0a0c29c85435f59d78eae0fc444d1"
-  head "https://git.tartarus.org/simon/puzzles.git"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20210911.d204978.tar.gz"
+  version "20210911"
+  sha256 "a0aa6e1011b71afbf4a58419104c1f8f896ea627d2c59132a64e6e54c93b6694"
+  license "MIT"
+  head "https://git.tartarus.org/simon/puzzles.git", branch: "main"
 
   # There's no directory listing page and the homepage only lists an unversioned
   # tarball. The Git repository doesn't report any tags when we use that. The
@@ -17,10 +18,10 @@ class Puzzles < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "258181acee35e4ee0f90efc125a4eb9a59eeeabc65fcfc085359827627d0b39e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5bac5b3286d534c94c97ab731214461c396a796ecc94a303bdc1d7fb1d2781f2"
-    sha256 cellar: :any_skip_relocation, catalina:      "303ca9a896bb4c4bb3cfe9ee2d0f4114e189f4b120b90d8962f516ced1acde0f"
-    sha256 cellar: :any_skip_relocation, mojave:        "6661ea3b11959b5a9c07926bcd643c21b0809903155f385817c8bf4cc7522c4e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "16a0dc9713c38c493a8ce63b381b51fd6fb1f0367b2a3596e8b0525bc1115c2a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b5a737a48f3fa159f8b098f7d3e77c2c996d4f6e9032e3b6544062905af67f9e"
+    sha256 cellar: :any_skip_relocation, catalina:      "75cbaaffa4082480e6e7d25a7eb468bec35ada2b4a799b45060e21145396d3d2"
+    sha256 cellar: :any_skip_relocation, mojave:        "059b65105f85e908f01485c2c8f1310d1c0b43b6dfe75e704ffbf777b0e23b78"
   end
 
   depends_on "cmake" => :build
@@ -40,9 +41,7 @@ class Puzzles < Formula
     system "cmake", ".", *std_cmake_args
     system "make", "install"
 
-    on_macos do
-      bin.write_exec_script prefix/"Puzzles.app/Contents/MacOS/Puzzles"
-    end
+    bin.write_exec_script prefix/"Puzzles.app/Contents/MacOS/Puzzles" if OS.mac?
   end
 
   test do

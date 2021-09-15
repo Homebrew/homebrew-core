@@ -13,13 +13,15 @@ class Heimdal < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f029b8d8f63fc37340bce1402fe89626e599f8f8c2b95bab75745c2d0081baef"
-    sha256 big_sur:       "40012a079519d3ae58eb3874f1579b8224e0e2faff48670a0a870012da183c91"
-    sha256 catalina:      "05e2fd4f95a930dd60429f7787f4ef639cb0f417cec33eb120afff30ac5ed65e"
-    sha256 mojave:        "2c61f5b2f59be6f25a61e47514de55a7ae31697b496630de9c590d8b732329e4"
+    rebuild 1
+    sha256 arm64_big_sur: "4f9d35b8518b4dc64f3995d55a8afbc532a69d3129723ecda4afcfa874c4f371"
+    sha256 big_sur:       "8908f59611a4a8140e47e938019691611c5e2c168ae0df3060e3729f941dceab"
+    sha256 catalina:      "dc1ffe6fcbf8522c3c1720c44311fb6f183dfc2cf566a7a5ce0bc7064efa5db5"
+    sha256 mojave:        "8458b10c77f8db149e1c6853aa709c65551b2c00033ddc447e67b8d90665faad"
+    sha256 x86_64_linux:  "27274f62e9071aed890bcf71a83a7ecc8362904432e9e04734f9a0d86fa8cf99"
   end
 
-  keg_only :shadowed_by_macos, "macOS provides Kerberos"
+  keg_only "conflicts with Kerberos"
 
   depends_on "bison" => :build
   depends_on "berkeley-db"

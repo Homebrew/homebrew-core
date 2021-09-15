@@ -15,6 +15,7 @@ class Libfixbuf < Formula
     sha256 big_sur:       "1cafffbb92c6bba1c328d01d1c00fa4ed1191a93eec966a6a3dce31219ef0d05"
     sha256 catalina:      "4e7eb768bb5499147e8c630e4620c356abba37fff0c54d69daf8fe2c9f752771"
     sha256 mojave:        "576d20e23954424a4132ed8b1dd9387f78ce0cf3b401d1fa1ed0d436016a3713"
+    sha256 x86_64_linux:  "8a550fa7ab4938f3eb086fee7eb88c0a90acb477bb247c37c1cba63cdf3a3fc1"
   end
 
   depends_on "pkg-config" => :build

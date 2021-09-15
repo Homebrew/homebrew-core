@@ -9,7 +9,9 @@ class ZshLovers < Formula
     regex(/href=.*?zsh-lovers[._-]v?(\d+(?:\.\d+)+)[._-]all/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "a9a640ed5452e086874d853453e15cbd2e347a5a86d867db12a5245980f6aa54"
+  end
 
   def install
     system "tar", "xf", "zsh-lovers_#{version}_all.deb"

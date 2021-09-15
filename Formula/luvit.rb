@@ -1,16 +1,15 @@
 class Luvit < Formula
   desc "Asynchronous I/O for Lua"
   homepage "https://luvit.io"
-  url "https://github.com/luvit/luvit/archive/2.17.0.tar.gz"
-  sha256 "80657aa752322560fcde780212b6807b626b45d65aca3f3dae254e5c4fb0ee78"
+  url "https://github.com/luvit/luvit/archive/2.18.0.tar.gz"
+  sha256 "3c6824878189ca41059d6d4cd8b1646de0ec6b4be1de71b2084f98c36c38e84e"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/luvit/luvit.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "8c0a060b75b4f877e4df310e7ebe3c9159e7536bce244731b1c21f9bf96b4a60"
-    sha256 cellar: :any, catalina: "e5aa766db0f5760ebb217a462540f13b2ca221474ca22fd9cd710e79333a1bb6"
-    sha256 cellar: :any, mojave:   "2d0d77fceac6194e9329eba75f015c8b870ad9a32d2b76c4785126f7642fc665"
+    sha256 cellar: :any, big_sur:  "f5d4e01cac025c30275ca2caf6cd692565121a5c40674e82ed28264f3fcdfd94"
+    sha256 cellar: :any, catalina: "25f788eba25ec7dd095172eb94f9afb08b259040656fb26c8173bc784857e18b"
+    sha256 cellar: :any, mojave:   "e9d97bb1ea6f67020c8f02c3009edf46b45d249654df5ea134889526c082ba97"
   end
 
   depends_on "cmake" => :build
@@ -25,16 +24,16 @@ class Luvit < Formula
   # https://github.com/luvit/luvit/blob/#{version}/Makefile
   resource "lit" do
     url "https://github.com/luvit/lit.git",
-        tag:      "3.8.1",
-        revision: "27114d94b9299437b2229eac6a6c3a9ef41fa83a"
+        tag:      "3.8.5",
+        revision: "84fc5d729f1088b3b93bc9a55d1f7a245bca861d"
   end
 
   # To update this resource, check LUVI_VERSION in
   # https://github.com/luvit/lit/raw/$(LIT_VERSION)/get-lit.sh
   resource "luvi" do
     url "https://github.com/luvit/luvi.git",
-        tag:      "v2.11.0",
-        revision: "9da12caaf01337ef0609d07b2af9a5296c13922a"
+        tag:      "v2.12.0",
+        revision: "5d1052f11e813ff9edc3ec75b5282b3e6cb0f3bf"
   end
 
   def install

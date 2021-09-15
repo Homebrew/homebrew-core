@@ -16,6 +16,7 @@ class John < Formula
     sha256 catalina:      "bc61b94c66cd5e711cfb069f2f7dc8f448d717cd1179cbe2fed954f0786a0023"
     sha256 mojave:        "6bc29b809b272d370240703ab20715a7e57c651cdcf27b918a49cc9232c386eb"
     sha256 high_sierra:   "96fad56c615dad3f07b2c4babf9e03a0dce6533e3e4cc11e7c37e99ef9379253"
+    sha256 x86_64_linux:  "bdb9812c37929c373227f39150582a83711b083483631bad0fd1896b03b41c44"
   end
 
   conflicts_with "john-jumbo", because: "both install the same binaries"
@@ -35,9 +36,10 @@ class John < Formula
 
     ENV.deparallelize
 
-    target = "macosx-x86-64"
-    on_linux do
-      target = "linux-x86-64"
+    target = if OS.mac?
+      "macosx-x86-64"
+    else
+      "linux-x86-64"
     end
 
     system "make", "-C", "src", "clean", "CC=#{ENV.cc}", target

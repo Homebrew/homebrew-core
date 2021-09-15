@@ -10,6 +10,7 @@ class Multitime < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c744099831fd19d36e44e055b880803715fe570b7fd8b7879054ed83706b2625"
     sha256 cellar: :any_skip_relocation, catalina:      "ae01126fe74b8bb90f45b901a5e92665e6b392a5dad3af356313dae5835f70da"
     sha256 cellar: :any_skip_relocation, mojave:        "8d570dbc59cd06a441633d77bc126f0000c3b96a4b11abd48233b95ba403ab7d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7da1f67a4f35c418aaf3d63eb3afdeaea4ffbbba2465e68628d80b6e37464f26"
   end
 
   depends_on "autoconf" => :build

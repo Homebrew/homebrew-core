@@ -1,15 +1,15 @@
 class Vc < Formula
   desc "SIMD Vector Classes for C++"
   homepage "https://github.com/VcDevel/Vc"
-  url "https://github.com/VcDevel/Vc/releases/download/1.4.1/Vc-1.4.1.tar.gz"
-  sha256 "68e609a735326dc3625e98bd85258e1329fb2a26ce17f32c432723b750a4119f"
+  url "https://github.com/VcDevel/Vc/releases/download/1.4.2/Vc-1.4.2.tar.gz"
+  sha256 "50d3f151e40b0718666935aa71d299d6370fafa67411f0a9e249fbce3e6e3952"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "839b965a6be7efa1b509c0a8d353a04fbcc618c3af9463efd74277252f5fa302"
-    sha256 cellar: :any_skip_relocation, big_sur:       "528735327505bd30c949c2028ee60fd9fd7858162f4c1ceab2418ba2d40f4b06"
-    sha256 cellar: :any_skip_relocation, catalina:      "fc96abd9aab0fdd88d84cf0d56129b44d02fff3481078e332e4c3859661e66e6"
-    sha256 cellar: :any_skip_relocation, mojave:        "01f676787da9756b8a2b9ba58041596002d9c1ae5c4fac683db8d4d8af6f0a8b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "67e2a123067f4885b3779f9a8f005988ae16926c34298fc069d5f8c2f53f60e5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8850a8e86a3ff2810f491ce25af976ec85e49601ba0b094a6543e3c0b665540b"
+    sha256 cellar: :any_skip_relocation, catalina:      "b1f8a4e74cae6267405569a0e4c774c8c68cd258cb61e56e50208f4a32d65d2a"
+    sha256 cellar: :any_skip_relocation, mojave:        "b2b19a6798b4dd6db4355ab6d069e4b645dec1790c231a18c09e6a2a9ecf0a3f"
   end
 
   depends_on "cmake" => :build

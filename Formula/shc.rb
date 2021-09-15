@@ -4,7 +4,7 @@ class Shc < Formula
   url "https://github.com/neurobin/shc/archive/4.0.3.tar.gz"
   sha256 "7d7fa6a9f5f53d607ab851d739ae3d3b99ca86e2cb1425a6cab9299f673aee16"
   license "GPL-3.0"
-  head "https://github.com/neurobin/shc.git"
+  head "https://github.com/neurobin/shc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd153e413029832fb17b013fb15d43aab1e1e22b618d58c768a049ac31e0759c"
@@ -13,6 +13,7 @@ class Shc < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "ff3c55ef1d10c16066e97a20143dbd1e7781ceb9a2c5c8b46d140f6711bc79fa"
     sha256 cellar: :any_skip_relocation, high_sierra:   "c19f4586119be579006eace517045998138d83a17e2b5c8ec00ad73ea007b68c"
     sha256 cellar: :any_skip_relocation, sierra:        "6e1834ac7b4cc64ba972a59189512bb9ff9e0ec307df78f9e0fc1fee42378f6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a659b8f040806dcf7303f42a3cc50eb61acf894c9d2066acefd897dc71f1452"
   end
 
   def install

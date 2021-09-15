@@ -4,7 +4,11 @@ class Ioke < Formula
   url "https://ioke.org/dist/ioke-P-ikj-0.4.0.tar.gz"
   sha256 "701d24d8a8d0901cde64f11c79605c21d43cafbfb2bdd86765b664df13daec7c"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "f78a97e3add6cfc850a4e26c1adc46214b8ac9918a27ccc846b25d433f6b8ac0"
+  end
+
+  depends_on "openjdk"
 
   def install
     # Remove windows files
@@ -17,8 +21,8 @@ class Ioke < Formula
       s.change_make_var! "IOKE_HOME", libexec
     end
 
-    bin.install_symlink libexec/"bin/ioke",
-                        libexec/"bin/ispec",
+    (bin/"ioke").write_env_script libexec/"bin/ioke", Language::Java.overridable_java_home_env
+    bin.install_symlink libexec/"bin/ispec",
                         libexec/"bin/dokgen"
   end
 

@@ -1,10 +1,10 @@
 class Zint < Formula
   desc "Barcode encoding library supporting over 50 symbologies"
-  homepage "http://www.zint.org.uk/"
-  url "https://downloads.sourceforge.net/project/zint/zint/2.9.1/zint-2.9.1-src.tar.gz"
-  sha256 "bd286d863bc60d65a805ec3e46329c5273a13719724803b0ac02e5b5804c596a"
+  homepage "https://www.zint.org.uk/"
+  url "https://downloads.sourceforge.net/project/zint/zint/2.10.0/zint-2.10.0-src.tar.gz"
+  sha256 "bb97e98a32e140c344e92c8da84a9df413dca16083f2fcdc29791bec77350339"
   license "GPL-3.0-or-later"
-  head "https://git.code.sf.net/p/zint/code.git"
+  head "https://git.code.sf.net/p/zint/code.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,11 +12,11 @@ class Zint < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "047bb0ba1a7045832292a37e10e0fa68324081260e969928a5f4162ffc425f27"
-    sha256 cellar: :any, big_sur:       "3535dd6204bc2331673113f38ee7c213a8708a4958cbfca4bfe1cb074dd8eb2a"
-    sha256 cellar: :any, catalina:      "27a13b9022616484c612860ec1ac80146f765de23c32a52cf7f6f7a516727672"
-    sha256 cellar: :any, mojave:        "398f6493010f6b4778fe5ce80b559b745f53de2dcbd0c331f844431274a1d1ac"
-    sha256 cellar: :any, high_sierra:   "7142283083b90b3d185672f98fc987292337b8cb50cfb4e76cb61394df05781a"
+    sha256 cellar: :any,                 arm64_big_sur: "7e0a1464ff78c64c1be29694571dcfc6b5812ac7202706662a05fce7ba48717d"
+    sha256 cellar: :any,                 big_sur:       "aacdc432956a661f84eb7b1b31663b46f97087929a9d1f6aea3ae4a4441da56b"
+    sha256 cellar: :any,                 catalina:      "d23cc6ad59e245520ee185e971f9dab0f62630fc3b546d711716e32168967cca"
+    sha256 cellar: :any,                 mojave:        "9da4c9094f97924a5093044f6f3c59db2ccf2f6b0ff3d2c7bd75db1eac8b254d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64e38848f0b02b9eb42651b0693ab8bd0abe6b8bd69fefb8fa8fd555d1aaf265"
   end
 
   depends_on "cmake" => :build

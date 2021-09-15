@@ -6,10 +6,11 @@ class Bedtools < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d43458d5a8f50a7db0f7f728ed82c0a980d9202126624d594d17c99c2c9ea76d"
-    sha256 cellar: :any, big_sur:       "6554348743d3efba64e47294f8cb229229f168902234dd7e0ee0b4dfa85bb4d7"
-    sha256 cellar: :any, catalina:      "32d302a56df9044ce36d44db851318fc4fb45676086e48a6d913f2286ae3a756"
-    sha256 cellar: :any, mojave:        "69b80814d21b11edf9d45d67de8536d5db965dd6743e56079e1f3d6cf77bb6d2"
+    sha256 cellar: :any,                 arm64_big_sur: "d43458d5a8f50a7db0f7f728ed82c0a980d9202126624d594d17c99c2c9ea76d"
+    sha256 cellar: :any,                 big_sur:       "6554348743d3efba64e47294f8cb229229f168902234dd7e0ee0b4dfa85bb4d7"
+    sha256 cellar: :any,                 catalina:      "32d302a56df9044ce36d44db851318fc4fb45676086e48a6d913f2286ae3a756"
+    sha256 cellar: :any,                 mojave:        "69b80814d21b11edf9d45d67de8536d5db965dd6743e56079e1f3d6cf77bb6d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b255c530815fd12473089bb12c3adfa1cb290dc40c802a8e4716b1ef434de4b5"
   end
 
   depends_on "python@3.9" => :build

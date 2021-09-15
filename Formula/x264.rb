@@ -2,20 +2,20 @@ class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
   license "GPL-2.0-only"
-  head "https://code.videolan.org/videolan/x264.git"
+  head "https://code.videolan.org/videolan/x264.git", branch: "master"
 
   stable do
     # the latest commit on the stable branch
     url "https://code.videolan.org/videolan/x264.git",
-        revision: "55d517bc4569272a2c9a367a4106c234aba2ffbc"
-    version "r3049"
+        revision: "5db6aa6cab1b146e07b60cc1736a01f21da01154"
+    version "r3060"
   end
 
   # Cross-check the abbreviated commit hashes from the release filenames with
   # the latest commits in the `stable` Git branch:
   # https://code.videolan.org/videolan/x264/-/commits/stable
   livecheck do
-    url "https://artifacts.videolan.org/x264/release-macos/"
+    url "https://artifacts.videolan.org/x264/release-macos-arm64/"
     regex(%r{href=.*?x264[._-](r\d+)[._-]([\da-z]+)/?["' >]}i)
     strategy :page_match do |page, regex|
       # Match the version and abbreviated commit hash in filenames
@@ -23,11 +23,11 @@ class X264 < Formula
 
       # Fetch the `stable` Git branch Atom feed
       stable_page_data = Homebrew::Livecheck::Strategy.page_content("https://code.videolan.org/videolan/x264/-/commits/stable?format=atom")
-      return [] if stable_page_data[:content] && stable_page_data[:content].empty?
+      next [] if stable_page_data[:content].blank?
 
       # Extract commit hashes from the feed content
       commit_hashes = stable_page_data[:content].scan(%r{/commit/([\da-z]+)}i).flatten
-      return [] if commit_hashes.empty?
+      next [] if commit_hashes.blank?
 
       # Only keep versions with a matching commit hash in the `stable` branch
       matches.map do |match|
@@ -48,10 +48,11 @@ class X264 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "277e4c3771be77c6cc8629194b1af90144e118a70f30f9b388ed8fcc3b0bad3e"
-    sha256 cellar: :any, big_sur:       "6d74cd3f80239d92ce03b3ebccd7fdd3033552ed5ac637214d2c7e13e2aac7cd"
-    sha256 cellar: :any, catalina:      "e27bf38f83a8b23d3c73d85f3ccb0b5397dbb540a39b40634200c3077b0895f0"
-    sha256 cellar: :any, mojave:        "ecb12ab474f372bb0c0c137d4623f31f6daa70011489631f507b914ed38296d3"
+    sha256 cellar: :any,                 arm64_big_sur: "2f5442c86dc08c7c283a4de626e8a7e8ceb17621b2ce63c7674f8c31a47eaf2c"
+    sha256 cellar: :any,                 big_sur:       "dae0e0e0715c44a916170879eb71c942b673d9450c7c0db319ce7e56757e567f"
+    sha256 cellar: :any,                 catalina:      "2ffa8448569c0272db62789e0c1475330356956f570fea278a3fa0ca7739ab3b"
+    sha256 cellar: :any,                 mojave:        "6780344c98d8c614d8fb8039365747cc699cb6818f7c3d56b708d9e2c5afe388"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ed86de1b2e5af0136202b8479dde1935c46bbdd9da4c11afa52f1f18820e9a1"
   end
 
   depends_on "nasm" => :build

@@ -1,15 +1,16 @@
 class Condure < Formula
   desc "HTTP/WebSocket connection manager"
   homepage "https://github.com/fanout/condure"
-  url "https://github.com/fanout/condure/archive/1.2.0.tar.gz"
-  sha256 "0372b925558ed966df0657b18c0c91b1e1d1ed789c59e572728722569e504fb0"
+  url "https://github.com/fanout/condure/archive/1.3.1.tar.gz"
+  sha256 "26945c241c1fd352757d9e747ba7cc1906c9d17b1b8de5936b372a183c3bf5ba"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f5fe1e3d3986b9094cd4c9dd47c723c34be95569a48d17ea65f35772f82ea38d"
-    sha256 cellar: :any, big_sur:       "2daf0a91d666cdd8ac6defd4d603e86d1f8619e936b2c58299d86b2d08e9345e"
-    sha256 cellar: :any, catalina:      "369a5eac6c74ac9e579b3f52fea9ca7b7359499bc3f0926d96285fdce0ce6168"
-    sha256 cellar: :any, mojave:        "5bcbf91da877662c3407ef78db0eeaf8a42c9aa51885db95203fca9d3d01c955"
+    sha256 cellar: :any,                 arm64_big_sur: "0e2e6333e04b7815f37e06a34ef3fca4f7a3c6e74b2cbbfe393a45077392161f"
+    sha256 cellar: :any,                 big_sur:       "43695f08e129f583447199a2f7cc744aa85ae79a8944c3a09f2af273f6f86929"
+    sha256 cellar: :any,                 catalina:      "2bba408b0a94fad0d0444baec011db022fb3bd6cb3374d524f67bd9878f3cc4d"
+    sha256 cellar: :any,                 mojave:        "bbfd3f576f111e2793bc3976d8fa129410fb719cf7ff62352780a6df7e12c17f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd417c36ce2b305ca47c17bbd9a19960e2ac6f8b3e92d56120202205b8b9bc8e"
   end
 
   depends_on "pkg-config" => :build
@@ -19,8 +20,8 @@ class Condure < Formula
   depends_on "zeromq"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/a3/7a/561526861908d366ddc2764933a6090078654b0f2ff20c3c180dd5851554/pyzmq-22.0.3.tar.gz"
-    sha256 "f7f63ce127980d40f3e6a5fdb87abf17ce1a7c2bd8bf2c7560e1bbce8ab1f92d"
+    url "https://files.pythonhosted.org/packages/99/3b/69360102db726741053d1446cbe9f7f06df7e2a6d5b805ee71841abf1cdc/pyzmq-22.1.0.tar.gz"
+    sha256 "7040d6dd85ea65703904d023d7f57fab793d7ffee9ba9e14f3b897f34ff2415d"
   end
 
   resource "tnetstring3" do

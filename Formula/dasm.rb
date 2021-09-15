@@ -12,6 +12,7 @@ class Dasm < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "354cf4953e70e7518fc7ee0b0861a0be21fa80770a60d18a2c0ea0d31deb979d"
     sha256 cellar: :any_skip_relocation, mojave:        "43a9c82d0ed5d8466cdf1bd749c3a94710f76c5a1f1599a5a4538a58616bc95f"
     sha256 cellar: :any_skip_relocation, high_sierra:   "145c79491ba96ba7d21f4085ff3cedf482555e46c9c334fe6c9b2458202bfb8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "255217da42c9f1a4b35791323593c0107306e2090fcc69b471d5afb193de7355"
   end
 
   def install

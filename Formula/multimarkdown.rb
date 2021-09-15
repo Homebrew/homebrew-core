@@ -12,6 +12,7 @@ class Multimarkdown < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f4a26eb7603d38d0f67db4edbde56334fce2024c1c78fd5f49a7b8b69ba48683"
     sha256 cellar: :any_skip_relocation, mojave:        "f095caaf1f01dd0611afcdfc77252dc2f21a3d89f8e41210e4d00307b835eb2d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "308d597802afebc412f38df92dda2b98cef91845bb0e9c8e27d1bd2d38ee9d56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a385235978ad98fcd8a53d03ed59e101d257b835e49782ecd88d4d551fdbfec"
   end
 
   depends_on "cmake" => :build

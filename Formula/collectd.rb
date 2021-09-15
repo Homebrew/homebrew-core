@@ -4,13 +4,14 @@ class Collectd < Formula
   url "https://collectd.org/files/collectd-5.12.0.tar.bz2"
   sha256 "5bae043042c19c31f77eb8464e56a01a5454e0b39fa07cf7ad0f1bfc9c3a09d6"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "ae24e993f2be3d7618d2e7fa44862e7874c5b6d10a9891ae26767ec050f36f43"
-    sha256 big_sur:       "e4de278042d172443ddee7f7260ef14022a9e9632b8c4d212c27f76ef1eb184c"
-    sha256 catalina:      "ea61777a4d32690b2a1ddd53081f0888f7c83066cc9e0e5482f604e61c981fd9"
-    sha256 mojave:        "9efc5c99db4239be93afbad141938c697cc36c1442e117d92960a5265cfc57cf"
-    sha256 high_sierra:   "850edf925fa233181c03c7157cf6c89fca53906f930c511febd283358242f688"
+    sha256 arm64_big_sur: "c0a9e32a3407d094ae4fe5f8bf0fc19d0b4f5f0bb40f8ce6335fe4d2241a72b3"
+    sha256 big_sur:       "73233ee8e731722660a1098db2a72ae276508b8b09475f101f50a8d5ddc49251"
+    sha256 catalina:      "33f0fa042a98883dbf363865a66d64fd53e2eaebc330829257e2d5c87c7b5a4d"
+    sha256 mojave:        "a38f5912b4ed2b48e37e7285e0dd6e4f97d31799e5e7c47f438cddd7806a1252"
+    sha256 x86_64_linux:  "9b7b93198f1b6008763a8012fa7209c108b5e179a0b38da1599234b6fe06523a"
   end
 
   head do
@@ -45,34 +46,11 @@ class Collectd < Formula
     system "make", "install"
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/collectd -f -C #{HOMEBREW_PREFIX}/etc/collectd.conf"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <true/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{sbin}/collectd</string>
-            <string>-f</string>
-            <string>-C</string>
-            <string>#{etc}/collectd.conf</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/collectd.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/collectd.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"collectd", "-f", "-C", etc/"collectd.conf"]
+    keep_alive true
+    error_log_path var/"log/collectd.log"
+    log_path var/"log/collectd.log"
   end
 
   test do

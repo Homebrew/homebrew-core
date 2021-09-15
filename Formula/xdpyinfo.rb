@@ -7,10 +7,11 @@ class Xdpyinfo < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "233966c398633a07136501eab8fc263aaa97232c0fe27e76e8eb1fa59ed5440e"
-    sha256 cellar: :any, big_sur:       "128f9ce7c4fad4a7bdc313c02c7c2324fa311845cc6ccaf9e19cc835bbef83e6"
-    sha256 cellar: :any, catalina:      "dfb295a0259be51cd1ec75a16bda4582608569ad098a37ad257818616f70b81e"
-    sha256 cellar: :any, mojave:        "2f9c704633a4a7d7df952f4874a16bae0cc8890e6ba1fdf7cd1654bb4cad01c7"
+    sha256 cellar: :any,                 arm64_big_sur: "233966c398633a07136501eab8fc263aaa97232c0fe27e76e8eb1fa59ed5440e"
+    sha256 cellar: :any,                 big_sur:       "128f9ce7c4fad4a7bdc313c02c7c2324fa311845cc6ccaf9e19cc835bbef83e6"
+    sha256 cellar: :any,                 catalina:      "dfb295a0259be51cd1ec75a16bda4582608569ad098a37ad257818616f70b81e"
+    sha256 cellar: :any,                 mojave:        "2f9c704633a4a7d7df952f4874a16bae0cc8890e6ba1fdf7cd1654bb4cad01c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ad0f419da3316e1c46cb7f89af895d4ab2b7612a7806dba861b733b34b4b72a"
   end
 
   depends_on "pkg-config" => :build

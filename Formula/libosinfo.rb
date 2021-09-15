@@ -4,6 +4,7 @@ class Libosinfo < Formula
   url "https://releases.pagure.org/libosinfo/libosinfo-1.9.0.tar.xz"
   sha256 "b4f3418154ef3f43d9420827294916aea1827021afc06e1644fc56951830a359"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
@@ -11,22 +12,27 @@ class Libosinfo < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "628d18923f168d2ed454a5a6c3aacc9408f2f009046cee2c84ac7a872b66e428"
-    sha256 big_sur:       "c1eeea184883a96849938c8b71908bb8e5ebc4985c9b958f9671205a11199928"
-    sha256 catalina:      "c6423c62d06368ee03080aafaabefced7ddfd6c014c00ffddfab738e8aa76fad"
-    sha256 mojave:        "a0ecd6371b9940ee2c73b818cbeb1df7a001c4a4dea0508df2e4e2e885412881"
+    sha256 arm64_big_sur: "1199868b862e37760d20b26afb666460dd3d3104a9f21861b8265c86085e47c3"
+    sha256 big_sur:       "54aaddce26d9b06828248633b5e1eddfc670ec920c30fcf8bd8b2b7022e5243a"
+    sha256 catalina:      "dbdc6c6b8c1135795a1d160976da8d7c6f95de6cbf0533731e602472330bf92d"
+    sha256 mojave:        "b482b0cd02bf75b2d528cf2d691904ce85826512a0df03aa921564034eb4d1db"
+    sha256 x86_64_linux:  "c5d49269e114512e1a8248673054cf561f0bdbe8e2e15ee591238321496a6164"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "check"
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"
-  depends_on "libxml2"
+  depends_on "osinfo-db"
   depends_on "usb.ids"
+
+  uses_from_macos "pod2man" => :build
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "pci.ids" do
     url "https://raw.githubusercontent.com/pciutils/pciids/7906a7b1f2d046072fe5fed27236381cff4c5624/pci.ids"
@@ -46,7 +52,7 @@ class Libosinfo < Formula
       system "meson", *std_meson_args, *flags, ".."
       system "ninja", "install", "-v"
     end
-    (share/"osinfo/.keep").write ""
+    share.install_symlink HOMEBREW_PREFIX/"share/osinfo"
   end
 
   test do

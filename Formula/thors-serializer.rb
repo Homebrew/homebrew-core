@@ -2,19 +2,27 @@ class ThorsSerializer < Formula
   desc "Declarative serialization library (JSON/YAML) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
-      tag:      "2.2.0",
-      revision: "e51bb10e1f95a3d52391358c941a5e8dd92c1e4e"
+      tag:      "2.2.8",
+      revision: "f1f665fd55ca81acbea0cf9b081765586b194688"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6511e30afbe0f7e468d4b25d1d86ab9e2068e2c560605916822145fefd548dc2"
-    sha256 cellar: :any, big_sur:       "da64016e8475c07200f43ba4f5de2148795c2cd0ae0172d7e4e307be3dcb293a"
-    sha256 cellar: :any, catalina:      "99713ede7b47b2dbed13ac1312d52acbc4b20e7bb22e3171160f2ed063a7dec2"
-    sha256 cellar: :any, mojave:        "ba6eed10bc969358ba4b002a02bc76d97a048c30968cc18928b1b0261e2d91b5"
+    sha256 cellar: :any,                 arm64_big_sur: "6ace458d942191d9b1d5c47ee7f8f01384e5d03e234dbee2c061aba01f4cb61b"
+    sha256 cellar: :any,                 big_sur:       "d5045397ac4a47c33712f87b83b3ff7ca175820be9db331e22d1aed6e9df548b"
+    sha256 cellar: :any,                 catalina:      "b795c7bc69d7b80b57e886c4e62f7fd6cdf60d8c7d1b09fd3e3f68347c306fad"
+    sha256 cellar: :any,                 mojave:        "1363dd063032942dc5c8f280555d6bf47e77db1e40f63080d5ab7fce478b97ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f478a995575e84294e27888bb1bff89de2fda695dfb245690019fd87340ac6a"
   end
 
   depends_on "boost" => :build
+  depends_on "bzip2"
   depends_on "libyaml"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     ENV["COV"] = "gcov"
@@ -60,7 +68,7 @@ class ThorsSerializer < Formula
     EOS
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
            "-I#{Formula["boost"].opt_include}",
-           "-I#{include}", "-L#{lib}", "-lThorSerialize17", "-lThorsLogging17"
+           "-I#{include}", "-L#{lib}", "-lThorSerialize17", "-lThorsLogging17", "-ldl"
     system "./test"
   end
 end

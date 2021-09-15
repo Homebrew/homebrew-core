@@ -7,6 +7,11 @@ class Blastem < Formula
   revision 1
   head "https://www.retrodev.com/repos/blastem", using: :hg
 
+  livecheck do
+    url "https://www.retrodev.com/repos/blastem/json-tags"
+    regex(/["']tag["']:\s*?["']v?(\d+(?:\.\d+)+)["']/i)
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:     "003bbd7d1f5f9d81fb471d1fff692951c9400a8bf2f1511f0d83c9bea9cb8e63"
     sha256 cellar: :any, catalina:    "7b9652bffa8c28d6f23e1ad88534b5f2bbd49a916566650c3090366a556f11b2"

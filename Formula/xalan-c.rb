@@ -8,12 +8,13 @@ class XalanC < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, big_sur:     "13f549b9f924f4729458c3e78bf8c11d15c399aa2d73bccf574b18c2cdb3e110"
-    sha256 cellar: :any, catalina:    "6a6ac96e65ef391d660c295f6c3a5c349f11cfa0604a6d5111bc88fd0a017304"
-    sha256 cellar: :any, mojave:      "5b00fab72d4db7db40495ff5331e6cd9539b30f21d6b1357d9dcc2e7275421ae"
-    sha256 cellar: :any, high_sierra: "24ddfd8ff41dbe54a5570db2a004247f92ef4bc1c897554ea83dfe7c138a172f"
-    sha256 cellar: :any, sierra:      "dfe6413a8d4cba234c105d0936a671a34742d2ac0103db863a644bf78538c28c"
-    sha256 cellar: :any, el_capitan:  "0b99ebef6e23b1c0d1e67d4ed8130130ad5c7b6af03f43ea9248c2d78e19a5cc"
+    sha256 cellar: :any,                 big_sur:      "13f549b9f924f4729458c3e78bf8c11d15c399aa2d73bccf574b18c2cdb3e110"
+    sha256 cellar: :any,                 catalina:     "6a6ac96e65ef391d660c295f6c3a5c349f11cfa0604a6d5111bc88fd0a017304"
+    sha256 cellar: :any,                 mojave:       "5b00fab72d4db7db40495ff5331e6cd9539b30f21d6b1357d9dcc2e7275421ae"
+    sha256 cellar: :any,                 high_sierra:  "24ddfd8ff41dbe54a5570db2a004247f92ef4bc1c897554ea83dfe7c138a172f"
+    sha256 cellar: :any,                 sierra:       "dfe6413a8d4cba234c105d0936a671a34742d2ac0103db863a644bf78538c28c"
+    sha256 cellar: :any,                 el_capitan:   "0b99ebef6e23b1c0d1e67d4ed8130130ad5c7b6af03f43ea9248c2d78e19a5cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b1190a346ef882ca4c00f05ea0ccb72b1f148347e6200b6ccfed08613267823c"
   end
 
   depends_on "xerces-c"

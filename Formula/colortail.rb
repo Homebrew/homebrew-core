@@ -15,6 +15,7 @@ class Colortail < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "44e09610d285f503fbae67f930ae7bea894c737d1e2c9c634332188340a70e3e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e0c8c9af739ce911c0d09eaee26b615444c17f48de27c680cbaf27739e45d8f5"
     sha256 cellar: :any_skip_relocation, yosemite:      "1be1c0067a5621f5edcabf64ec06a775d334924e4ea01bccd1c42830f6c9d0c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bb6017dc4e925d2ac5de5eedf2202e6a45a1f59b941faa6518e3038acca544c"
   end
 
   depends_on "autoconf" => :build

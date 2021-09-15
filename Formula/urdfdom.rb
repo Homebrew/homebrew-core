@@ -11,11 +11,12 @@ class Urdfdom < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "66249dc05b3cb037ad4f7c5dd752ad35b2da7ecadc70600ad9b457edc54e6719"
-    sha256 cellar: :any, big_sur:       "72d208357f1a48a20ede8d70006a7d743e5409cd1e7f682468cbc88d7fbd8314"
-    sha256 cellar: :any, catalina:      "1a4cf15eac5ab20085f401c827511eddd6075f2d4511f9b4a72c7388d587a91b"
-    sha256 cellar: :any, mojave:        "8f9f55abf13706344949050a7fb077e4394daef2556a09b03deef1481eef432f"
-    sha256 cellar: :any, high_sierra:   "a80e9b0bb93db5384993499150c28c883cc1f839e4e9fa7e933bf85067be1818"
+    sha256 cellar: :any,                 arm64_big_sur: "66249dc05b3cb037ad4f7c5dd752ad35b2da7ecadc70600ad9b457edc54e6719"
+    sha256 cellar: :any,                 big_sur:       "72d208357f1a48a20ede8d70006a7d743e5409cd1e7f682468cbc88d7fbd8314"
+    sha256 cellar: :any,                 catalina:      "1a4cf15eac5ab20085f401c827511eddd6075f2d4511f9b4a72c7388d587a91b"
+    sha256 cellar: :any,                 mojave:        "8f9f55abf13706344949050a7fb077e4394daef2556a09b03deef1481eef432f"
+    sha256 cellar: :any,                 high_sierra:   "a80e9b0bb93db5384993499150c28c883cc1f839e4e9fa7e933bf85067be1818"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8f2b35273fcc8a666f1e7eeb6bc16265b554656f8e9f84dcb475100633ec08b"
   end
 
   depends_on "cmake" => :build

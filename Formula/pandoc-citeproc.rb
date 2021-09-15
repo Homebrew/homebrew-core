@@ -4,7 +4,7 @@ class PandocCiteproc < Formula
   url "https://hackage.haskell.org/package/pandoc-citeproc-0.17.0.2/pandoc-citeproc-0.17.0.2.tar.gz"
   sha256 "0b8846ca37547004a6a165ff7f47f58a07f783b01da32c8bf5740272fe37e1f2"
   license "BSD-3-Clause"
-  head "https://github.com/jgm/pandoc-citeproc.git"
+  head "https://github.com/jgm/pandoc-citeproc.git", branch: "master"
 
   bottle do
     sha256 catalina:    "518ed9646d3a165b413a4222d87d5148130891fc2505f2e71e20e05507131992"

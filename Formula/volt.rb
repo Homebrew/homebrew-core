@@ -4,7 +4,7 @@ class Volt < Formula
   url "https://github.com/vim-volt/volt.git",
       tag:      "v0.3.7",
       revision: "e604467d8b440c89793b2e113cd241915e431bf9"
-  head "https://github.com/vim-volt/volt.git"
+  head "https://github.com/vim-volt/volt.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "836f10188a9b461531bac4b6eb803e4f86057342e443df99c0c466e224af18b6"
@@ -13,9 +13,12 @@ class Volt < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "9db9e940c124e8e655cdd84b7d143f526535c588ebd6503acb3960143d08f905"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7fd8887efcdc3a9816b2dea510c2e3ba218e0e719390841d3b0b416fde53378e"
     sha256 cellar: :any_skip_relocation, sierra:        "4edc3f1130757ddbf0a7b3c018825f68f2ecb24417f3afc3fd54b532e8c72c46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe7d78905a357fa59f18330aab57269cce1fda6af521552918d54911fd075035"
   end
 
   depends_on "go" => :build
+
+  uses_from_macos "vim" => :test
 
   # Go 1.14+ compatibility.
   patch do

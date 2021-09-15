@@ -5,7 +5,7 @@ class Veclibfort < Formula
   sha256 "c61316632bffa1c76e3c7f92b11c9def4b6f41973ecf9e124d68de6ae37fbc85"
   license "BSL-1.0"
   revision 7
-  head "https://github.com/mcg1969/vecLibFort.git"
+  head "https://github.com/mcg1969/vecLibFort.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5127775a0d623365c007a460845d2dd1577e688418a105088a9c4e35e71cc7ff"

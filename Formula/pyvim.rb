@@ -14,6 +14,7 @@ class Pyvim < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "3ecf8e98474fabad21f04c32a9e746e608f4574a3041135093c9dfd4e333cd19"
     sha256 cellar: :any_skip_relocation, mojave:        "08cb6c9665bb39e581cd28cd3aad2971c8100735d0361382b98a910344bec2ff"
     sha256 cellar: :any_skip_relocation, high_sierra:   "28c123775817e3cf99d29ec4cb466efd46805731d29b46629a5b67e0a1dff690"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93f16fa899d01b499b126eb26fad62c66cd75c8e96fba88fb103ae3aac68a6a8"
   end
 
   depends_on "python@3.9"

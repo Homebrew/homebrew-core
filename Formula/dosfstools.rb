@@ -11,6 +11,7 @@ class Dosfstools < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c4f450bef47449fa57d911e1c3610cd65bf8d7fd661e3efc8a0a44c7d45510f5"
     sha256 cellar: :any_skip_relocation, catalina:      "df9afee3d6ec3da028a6fdd487b98800099f8aa248261c35ed2821e984b91a70"
     sha256 cellar: :any_skip_relocation, mojave:        "4d910d3f83352692379e5ead97f3c52ab845cc187a1d791f655ed02ef7b7b9e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "584daa5a52ed21b3b23eba4323ebec3fa8421062c9cac5d833e60b91da0a7636"
   end
 
   depends_on "autoconf" => :build

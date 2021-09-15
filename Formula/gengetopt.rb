@@ -12,6 +12,7 @@ class Gengetopt < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "2ae5eeef439a6abc4d1f65965e1bafa9ac5ad0620cb4ef5e9444a4b2dbef1872"
     sha256 cellar: :any_skip_relocation, high_sierra:   "00f2578e7697c01d060a422e1be0ce8f4c6d23b365967ff7b5501d5cd6306dd1"
     sha256 cellar: :any_skip_relocation, sierra:        "57acd0ca20988a1b4f0f16383edb985549597b8a5266316e3a314b7775bab3c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "379c0b354e21a5da13e62c6dbce3edfc1580561fb59015f015769c18cc804a60"
   end
 
   uses_from_macos "texinfo"

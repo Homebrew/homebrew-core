@@ -1,11 +1,10 @@
 class Mpich < Formula
   desc "Implementation of the MPI Message Passing Interface standard"
   homepage "https://www.mpich.org/"
-  url "https://www.mpich.org/static/downloads/3.4.1/mpich-3.4.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/mpich-3.4.1.tar.gz"
-  sha256 "8836939804ef6d492bcee7d54abafd6477d2beca247157d92688654d13779727"
+  url "https://www.mpich.org/static/downloads/3.4.2/mpich-3.4.2.tar.gz"
+  mirror "https://fossies.org/linux/misc/mpich-3.4.2.tar.gz"
+  sha256 "5c19bea8b84e8d74cca5f047e82b147ff3fba096144270e3911ad623d6c587bf"
   license "mpich2"
-  revision 3
 
   livecheck do
     url "https://www.mpich.org/static/downloads/"
@@ -13,10 +12,11 @@ class Mpich < Formula
   end
 
   bottle do
-    sha256               arm64_big_sur: "8fd55c57d5bc3fc77f56519e20ad2f1cf2fbbb619d107bbf8de585e41a53e4a2"
-    sha256 cellar: :any, big_sur:       "2a692da583852481fe12ebb2a7e347f662d5ec438c5fdd16c688e59b6fe4dcc4"
-    sha256 cellar: :any, catalina:      "9bab0f79aa0a5fa31546d070ccf952709cf3032a19f5556d1ca492a90adca2b1"
-    sha256 cellar: :any, mojave:        "af225373a5b3eed1566750adbf6179f8cc4cfbc6b426f581259082c8058e64eb"
+    sha256 cellar: :any,                 arm64_big_sur: "8c79cf6b224e90fbe5fbe111cdafb03d1b54f8f4a88c32a157af6d3ea29de7c4"
+    sha256 cellar: :any,                 big_sur:       "23d95423962812214194ca039fdd2d7dcca76626d291e02566989460b748a8df"
+    sha256 cellar: :any,                 catalina:      "3d5324ae766872fb9c2d6229ea97f49930c6a8239e38cc89bf5fb6a8f71d88d4"
+    sha256 cellar: :any,                 mojave:        "80d73225cb6e7242190049addb88898f920991a637f6dd7af07f13ffa28095fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36cc3d6dc61cf19eeea37e07ce456200353b034c89952abc89e8999e2c198274"
   end
 
   head do
@@ -79,7 +79,7 @@ class Mpich < Formula
     args << "CXXFLAGS=-Wno-deprecated"
     args << "CFLAGS=-fgnu89-inline -Wno-deprecated"
 
-    on_linux do
+    if OS.linux?
       # Use libfabric https://lists.mpich.org/pipermail/discuss/2021-January/006092.html
       args << "--with-device=ch4:ofi"
       args << "--with-libfabric=#{Formula["libfabric"].opt_prefix}"

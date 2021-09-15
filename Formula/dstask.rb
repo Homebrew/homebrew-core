@@ -1,16 +1,17 @@
 class Dstask < Formula
   desc "Git-powered personal task tracker"
   homepage "https://github.com/naggie/dstask"
-  url "https://github.com/naggie/dstask/archive/v0.24.1.tar.gz"
-  sha256 "35d46ade97f7b68e2bfb719b8bdb0db65e4b66b97e368849ecdecab1d58ef3d0"
+  url "https://github.com/naggie/dstask/archive/v0.25.tar.gz"
+  sha256 "7a8b4e9d2d3ce6a59551fa181201148a008c35505d43593f80b1fe80493fdb8c"
   license "MIT"
   head "https://github.com/naggie/dstask.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e3052c41bef447b00c185cd178e1c075612a489af4b7f2762db39ff44a0376e3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b3ff60735540a9d39f2e774a3086351e51c825e33c870983893b12dcc658c688"
-    sha256 cellar: :any_skip_relocation, catalina:      "0a6dda79900bb4ce66e3d00c62c725d0c3617ac8fee905670916ff45ef49993b"
-    sha256 cellar: :any_skip_relocation, mojave:        "3e64448e02e05ab6266650a98f6be252fb21389b217bd70e6a7d910290b1db21"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c4b84546f5c35f4bf4bed658a73ad1dd562cd4fa2340e9bf48cb6af55f2d8b55"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b1976a39a056f8bef4d354afefcc427c4612527fb578b56734fbfa8432cc6e25"
+    sha256 cellar: :any_skip_relocation, catalina:      "6db5f204f382f928f3890e5983f4c8531172080f3a90068a0b521435c7860e0b"
+    sha256 cellar: :any_skip_relocation, mojave:        "fbcb9d73ddf2619094cd64478112c73eb384a8d839a72aae3f16833087d3973c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e145f6d8d167f7024c4061a4ba5e9f523fd559f603310e03de1693ec99b1c56"
   end
 
   depends_on "go" => :build

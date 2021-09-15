@@ -1,15 +1,16 @@
 class Dateutils < Formula
   desc "Tools to manipulate dates with a focus on financial data"
   homepage "https://www.fresse.org/dateutils/"
-  url "https://github.com/hroptatyr/dateutils/releases/download/v0.4.8/dateutils-0.4.8.tar.xz"
-  sha256 "3f7054a24cf3e3ea2c32a6b1f7474334c25b54e9c45c96b03f75eaaecc70c100"
+  url "https://github.com/hroptatyr/dateutils/releases/download/v0.4.9/dateutils-0.4.9.tar.xz"
+  sha256 "790256d9949b96001fdcc3f7c42226dde4fcc87eb580717c7aabf51a1334c9c3"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 arm64_big_sur: "c70b9979cd1f117820f6aa531731115772b6320e22ffb779cddc1e248387a139"
-    sha256 big_sur:       "835ab3f87c6c6bf4a16b0e0f2e55fe16c4975ad63b1f8b7441786b9c75968c0f"
-    sha256 catalina:      "27ef93f0c6c9ceb68087939e3c4d8e8511a15fe59b78e50aab0ecdd6365db976"
-    sha256 mojave:        "e7649f49318c9f30cf4bc1c37bbf993b2a5471c7026bb4502000760c976d4892"
+    sha256 arm64_big_sur: "329fcec20635c81fa467d609492f7779ec14966333a637de9ccb5b3111b6e837"
+    sha256 big_sur:       "c7a4363a86d92e2b50d684c92b140a15a1561fe2c3d3893897e2373a4ff69cd1"
+    sha256 catalina:      "7063687db254af7470c99f53c9f48e32582339cc30da5e07b366e7dab9914b74"
+    sha256 mojave:        "562a3f8290f1d8f9f5ff0471d0e817375aa46914d34c38ea8ac68a22fe00b799"
+    sha256 x86_64_linux:  "4d9332e0514a4d7a08c135b329ec422343aa70c4d80d5dd91683dfd32b2e7c20"
   end
 
   head do

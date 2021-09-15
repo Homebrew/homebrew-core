@@ -6,7 +6,7 @@ class ArduinoCli < Formula
      revision: "d710b642ef7992a678053e9d68996c02f5863721"
   license "GPL-3.0-only"
   revision 1
-  head "https://github.com/arduino/arduino-cli.git"
+  head "https://github.com/arduino/arduino-cli.git", branch: "master"
 
   livecheck do
     url :stable
@@ -18,6 +18,7 @@ class ArduinoCli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "62fbd34ab3cc8fdb36699aedeba55b156981ce3bac5af3b2fc126d4b245f756f"
     sha256 cellar: :any_skip_relocation, catalina:      "7e7ed5fa0d59083c8d84731b0396266da843b9fca24c94ea4cea404be4909831"
     sha256 cellar: :any_skip_relocation, mojave:        "b0ca98cccef2f4b5b14baefa104514023a9142035f0f75937bc0a06d1926dd5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e18c5bf41053c43af9fe17ecd7a47b4fcb2b910c928e602260e09026e17650c"
   end
 
   depends_on "go" => :build
@@ -27,9 +28,9 @@ class ArduinoCli < Formula
       -s -w
       -X github.com/arduino/arduino-cli/version.versionString=#{version}
       -X github.com/arduino/arduino-cli/version.commit=#{Utils.git_head(length: 8)}
-      -X github.com/arduino/arduino-cli/version.date=#{Time.now.utc.iso8601}
-    ]
-    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
+      -X github.com/arduino/arduino-cli/version.date=#{time.iso8601}
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/arduino-cli", "completion", "bash")
     (bash_completion/"arduino-cli").write output

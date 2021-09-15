@@ -12,7 +12,13 @@ class Goenv < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "10f497d42374919dd532af5c7af60a1c25029720d3f807e00e5315ade65999c1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "05ca9b052b0ff4a3de3acb1d3b7c767ca60bf80cd756c8ecaea51f7f97734fed"
+    sha256 cellar: :any_skip_relocation, catalina:      "05ca9b052b0ff4a3de3acb1d3b7c767ca60bf80cd756c8ecaea51f7f97734fed"
+    sha256 cellar: :any_skip_relocation, mojave:        "05ca9b052b0ff4a3de3acb1d3b7c767ca60bf80cd756c8ecaea51f7f97734fed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "979222eb942ecefdcb16a2f009e3a78ea58a3197f6c12b4c4c2555dafcc4f41c"
+  end
 
   def install
     inreplace "libexec/goenv", "/usr/local", HOMEBREW_PREFIX

@@ -10,6 +10,7 @@ class Websocketd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "cbdc36c8c64cb2b0f1f149242a4c82e5d3eebff521e45bdfc88aa7dced9d2440"
     sha256 cellar: :any_skip_relocation, catalina:      "944c9e728f5f1a7ba098207a0acf50b1e19209010c9d87c8cdd18758ec9c71b2"
     sha256 cellar: :any_skip_relocation, mojave:        "28f0108f697e146faec81782988e8fd8bd7162b11e7703578f752f7a51f2b6db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74fdd936d2632aaf2e484ef2f796d8d2f4f281f643ab23c414708363116ca9b8"
   end
 
   depends_on "go" => :build

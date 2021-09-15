@@ -12,6 +12,7 @@ class Giflossy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ad63a534a7e83c162d536cb43c421a78b089ca9921e89ed598c8ae13fe7adb1f"
     sha256 cellar: :any_skip_relocation, catalina:      "de5ae53cff723bbb5cbe11028d088f028053ebc70a14b6497dd7f5f9ca9651b4"
     sha256 cellar: :any_skip_relocation, mojave:        "02eeb9a6b44178fdf1df803346dceedda853c7245cd51a1a6166290a73fb51f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34ab9b407a91767e47baf6c4a9a3ab6087ca82858ad46ad2db16ab6ef18cae3d"
   end
 
   # "This project has now been officially merged upstream into Gifsicle, so

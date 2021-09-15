@@ -14,6 +14,7 @@ class Yydecode < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "e2e7285f1f2b18b4b99800602d15932dba435f6480c5776e5b57b734727f652f"
     sha256 cellar: :any_skip_relocation, sierra:        "91dc4fe34931d45fcebaead39ce505116322c7866e786cf86a7065f9e57b42ac"
     sha256 cellar: :any_skip_relocation, el_capitan:    "07aa31cabc4f2533df3b5670beed1ba99e3e7dcc3ffb3cf55fff56866e7bf11e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bc48318a8c556b45209f4c7a8bb41c638767ba44166f219f8cc67b94b7be8a2"
   end
 
   def install

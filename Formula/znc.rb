@@ -11,6 +11,7 @@ class Znc < Formula
     sha256 big_sur:       "37a5eaf20286fab88bd11f0f6f44ebf5bd2bb787deac43529d01cde28ef94188"
     sha256 catalina:      "dc2145a17c2d550c367c1de12ab1e8c20bfc273cd92fe02da55678892b75a29c"
     sha256 mojave:        "85a43a2796ec9d97fbe224a09501b82ae5495202dfffcc1ce8f9515a399076a5"
+    sha256 x86_64_linux:  "c8705bab2cbf518a0f7a6abbbc6a40881f19b65073f3649df32e1dfd9962b040"
   end
 
   head do
@@ -36,7 +37,7 @@ class Znc < Formula
     ENV.append "CXXFLAGS", "-std=c++11"
     ENV.append "CXXFLAGS", "-stdlib=libc++" if ENV.compiler == :clang
 
-    on_linux do
+    if OS.linux?
       ENV.append "CXXFLAGS", "-I#{Formula["zlib"].opt_include}"
       ENV.append "LIBS", "-L#{Formula["zlib"].opt_lib}"
     end

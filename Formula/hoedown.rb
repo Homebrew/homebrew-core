@@ -14,6 +14,7 @@ class Hoedown < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "f940a418b3ca712a91e8b782d61618a2b1cf2c662a98f636e4df1318fbb9f508"
     sha256 cellar: :any_skip_relocation, el_capitan:    "7076f6f7c091919a3619a5a5655270d79dab42fdb6d7dfdc3f1324318ca4ec6d"
     sha256 cellar: :any_skip_relocation, yosemite:      "fc37aa79feca395a49b3e15348d8156721ba1713dfb740622c57a696d1ec5e58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d9c93dc9fcdfd9daa56e0dc4c410ec0003a11150b211124bc0c367098fb5132"
   end
 
   def install

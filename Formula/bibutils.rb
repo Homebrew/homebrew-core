@@ -16,6 +16,7 @@ class Bibutils < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "eeb586f94730c9030e089a45e4360c5cb3171c6e41ba738744fe4e5a30e31cb7"
     sha256 cellar: :any_skip_relocation, mojave:        "f420f3882e82a0bf4441c804ed065b5272ce1e5d03812392534d91b29814cd13"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4fb4ed2978195afedc30fff98661e2663120bd956633845b7e41967dd7a28621"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de894dd8cddc6632688cf6927e1935728e3bcc0b52f709b6ce0756acc15b73ef"
   end
 
   def install

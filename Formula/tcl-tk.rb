@@ -17,6 +17,7 @@ class TclTk < Formula
     sha256 big_sur:       "d9ffd39a32e602515594c4658aaab20224d9d57eeffa3aa10028736ff64ad40b"
     sha256 catalina:      "f4027cdfd4d797d769b027f13b53e0ad714b47cd94fa02f550ff1403294467da"
     sha256 mojave:        "23916830afd9e9fb7bf63b0c047f0b2a6f969cb746055d73ca6576e18c87e07f"
+    sha256 x86_64_linux:  "162207dfc77fccb02663352f88c14c1ace5bb1250072b037b05b75fb627ad79b"
   end
 
   keg_only :provided_by_macos
@@ -79,9 +80,7 @@ class TclTk < Formula
 
     resource("tk").stage do
       cd "unix" do
-        on_macos do
-          args << "--enable-aqua=yes"
-        end
+        args << "--enable-aqua=yes" if OS.mac?
         system "./configure", *args, "--without-x", "--with-tcl=#{lib}"
         system "make"
         system "make", "install"
@@ -97,14 +96,10 @@ class TclTk < Formula
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
-      on_macos do
-        ENV["SDKROOT"] = MacOS.sdk_path
-      end
+      ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
       system "make", "critcl"
       cp_r "modules/tcllibc", "#{lib}/"
-      on_macos do
-        ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64"
-      end
+      ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64" if OS.mac?
     end
 
     resource("tcltls").stage do

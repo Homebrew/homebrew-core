@@ -12,6 +12,7 @@ class Glui < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "24c323dbaa5f6f1b01fbf8f837c379ef503d323a448d2bb3d673c31ced622f0d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7cd9b9d6bffa3b6b6ff806c4041f495d5a7ef40296cb50097db25d17eb616265"
     sha256 cellar: :any_skip_relocation, sierra:        "c087de27b46b86a14d583904e0a9d293428af37d8710b521ae7aeeb5174fc8fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf4ce0caa6084beb02f121cf35dc27ea8cc5097fbc6368803e725e9c7aa5c48a"
   end
 
   on_linux do

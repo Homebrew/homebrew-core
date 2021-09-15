@@ -10,6 +10,7 @@ class ReginaRexx < Formula
     sha256 catalina:      "7d39d4158fe41ecbd85c8c05f27d1b291883730ae1b745e1920e14ab41dfa0dc"
     sha256 mojave:        "396fe213db316516ff28a135217b9c660969244494cb8807111e71b37d5451c9"
     sha256 high_sierra:   "c8e204d8fb1154c31a4be3d571f4bbcc9e9b9ec5406feb61be82f7c567f9c8a7"
+    sha256 x86_64_linux:  "42fe771604ffbc858e967789d60cb329536dcb0bc5e69df553de3ed85b823f45"
   end
 
   def install

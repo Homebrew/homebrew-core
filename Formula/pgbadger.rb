@@ -1,16 +1,17 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
   homepage "https://pgbadger.darold.net/"
-  url "https://github.com/darold/pgbadger/archive/v11.5.tar.gz"
-  sha256 "49ab18810a61353ebd7fee12b899ccb9adfd064be6099084670b945db5ff1186"
+  url "https://github.com/darold/pgbadger/archive/v11.6.tar.gz"
+  sha256 "9c8744f76123021c2d15da8521d77b3f529e50702fb3518c4d0e0311e457a3ec"
   license "PostgreSQL"
-  head "https://github.com/darold/pgbadger.git"
+  head "https://github.com/darold/pgbadger.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e746195e6003286f5ffc6e9af6445a3078d7e53b06351ba272e77efecda17041"
-    sha256 cellar: :any_skip_relocation, big_sur:       "47dd580296d42a158b6e11853790080a6ec9408ece3f69d66672050f89753a19"
-    sha256 cellar: :any_skip_relocation, catalina:      "751904911636d8e1e4c8714f6c41d0aa9b56b703fc78dd024e8df1b67807f977"
-    sha256 cellar: :any_skip_relocation, mojave:        "0684dc2d96a3e715f58050c0c05d037a185cced9d0a36d970d6e0f7feffe7d0a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fea3dce312139a44c49a6591af532b8463f798cfdaca19107b19a24e21a92d86"
+    sha256 cellar: :any_skip_relocation, big_sur:       "354a71298cbd1d666fd5680e1e146f151c9a64babc067530b9c23f06ac49c844"
+    sha256 cellar: :any_skip_relocation, catalina:      "70b715507e7d1a6daa76613ad2cd6a1fb41a54c7e0afc1a0789d0550b651de3c"
+    sha256 cellar: :any_skip_relocation, mojave:        "70b715507e7d1a6daa76613ad2cd6a1fb41a54c7e0afc1a0789d0550b651de3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bab9bbfdca9d66cfcd8eff69fc79c57e136dc66a8cb95475e888ce583fd27926"
   end
 
   def install
@@ -18,8 +19,13 @@ class Pgbadger < Formula
     system "make"
     system "make", "install"
 
+    man_dir = if OS.mac?
+      "share/man/man1"
+    else
+      "man/man1"
+    end
     bin.install "usr/local/bin/pgbadger"
-    man1.install "usr/local/share/man/man1/pgbadger.1p"
+    man1.install "usr/local/#{man_dir}/pgbadger.1p"
   end
 
   def caveats

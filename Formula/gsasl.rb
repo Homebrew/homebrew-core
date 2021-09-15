@@ -11,6 +11,7 @@ class Gsasl < Formula
     sha256 cellar: :any, big_sur:       "42ef3c24427817c75c74804f31cd0d039a9900c8da5f96dbf9ab7b76e2563168"
     sha256 cellar: :any, catalina:      "6f7aa6d0a2276a8d3434f2c16cfd7f60d85fbb4204194dcf6a678b7bb8c4e0f2"
     sha256 cellar: :any, mojave:        "f9518412c5a6f631a78ef1ed3ed8989914446f2be1bad0de786ad82dc4c190e1"
+    sha256               x86_64_linux:  "4b5524f680771e938f850d849bbb39e71f2f89fe95fe5626fe129f961a2e6505"
   end
 
   depends_on "libgcrypt"

@@ -1,18 +1,22 @@
 class Nopoll < Formula
   desc "Open-source C WebSocket toolkit"
   homepage "https://www.aspl.es/nopoll/"
-  url "https://www.aspl.es/nopoll/downloads/nopoll-0.4.6.b400.tar.gz"
-  version "0.4.6.b400"
-  sha256 "7f1b20f1d0525f30cdd2a4fc386d328b4cf98c6d11cef51fe62cd9491ba19ad9"
-  revision 1
+  url "https://www.aspl.es/nopoll/downloads/nopoll-0.4.7.b429.tar.gz"
+  version "0.4.7.b429"
+  sha256 "d5c020fec25e3fa486c308249833d06bed0d76bde9a72fd5d73cfb057c320366"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url "https://www.aspl.es/nopoll/downloads/"
+    regex(/href=.*?nopoll[._-]v?(\d+(?:\.\d+)+(?:\.b\d+)?)\.t/i)
+  end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e83bf8232d6018d6b7df08407aeeb44ba8ef4b0d740b0b1b849b303ef50ce27c"
-    sha256 cellar: :any, big_sur:       "ebfbacc4b27be046d30500356f15c6752ffc4d083e723017aa7ca5baa6fd9651"
-    sha256 cellar: :any, catalina:      "e2cb3119545fe042968b9df9d19a94cc5c02f9f3ab04fcdd91bc1a8670dfa496"
-    sha256 cellar: :any, mojave:        "dcd358fc9a1f1e106aae15d59b1190956f0ac4e7f52673d24833edca3c1146cb"
-    sha256 cellar: :any, high_sierra:   "16bde638c91fd329d946b5854cd44291cbf516af2888e7880c5fa47dcb777936"
-    sha256 cellar: :any, sierra:        "dd12a792cc0cb95a56cce2037d22b4c1141b85da48d2c511f6495914351ce2f0"
+    sha256 cellar: :any,                 arm64_big_sur: "56ca477a877be4c8fd8ad870f5a3b026e683b45e72b2d46446c9253ed4d458b1"
+    sha256 cellar: :any,                 big_sur:       "fa5ab01cd0a602131ef14964775eabfc6307b9f10fd98b4a92b18c32ea4d9cb5"
+    sha256 cellar: :any,                 catalina:      "53d32b361a7e9a2e7b5c6a302483145130a338e2348b9da0193375d2ccb4b049"
+    sha256 cellar: :any,                 mojave:        "ee81d7f293699e3a2cb8a5587d362c2236b321f291841718cc93c54fe0ccd19f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abbd47332ae6aa89803c11bff2f625ccaac60805dc200af683592d7d0dd3eef9"
   end
 
   depends_on "openssl@1.1"

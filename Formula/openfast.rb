@@ -1,31 +1,24 @@
 class Openfast < Formula
   desc "NREL-supported OpenFAST whole-turbine simulation code"
   homepage "https://openfast.readthedocs.io"
-  url "https://github.com/openfast/openfast/archive/v2.6.0.tar.gz"
-  sha256 "39e9f12ee41639b46ce317396fe88a6232ce362e63f56ec5e7ecdfc27e3d02e4"
+  url "https://github.com/openfast/openfast/archive/v3.0.0.tar.gz"
+  sha256 "9af57af054e4128b6e257a76da368dc4ad0c7fbb2b22d51fc7ea63cdf999c530"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "4e21b3523f9961dc2df5cf157146c72b779e2d2de31c2f458fa958129f636211"
-    sha256 cellar: :any, catalina: "23f399fbc549fabda1f1388f3ec5aa1a606e0f52a84371be4cbcc2dfb2b40c8e"
-    sha256 cellar: :any, mojave:   "a335f4d82ceaa2f89ef75dad03b2092cc3ff197f4c99efc6a37654e2b57a3390"
+    sha256 cellar: :any,                 big_sur:      "b577b71497f13a85ffe284abcf2b7177a1af238e76d11b111bdd0b597f97feda"
+    sha256 cellar: :any,                 catalina:     "58f36f20e6f92384c04a7c670d35f7021af09fcf62cbc59dde7854f28c8fddbd"
+    sha256 cellar: :any,                 mojave:       "ccf3899fac01fc1ad9fae9d697297bea3bd4f29e30334e181615c8194f28d585"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ead63206558470611c8998927868967021e555a67d64f2b06f5594e9454afba1"
   end
 
   depends_on "cmake" => :build
   depends_on "gcc"
   depends_on "openblas"
 
-  # Fix build on ARM
-  # https://github.com/OpenFAST/openfast/pull/744
-  patch do
-    url "https://github.com/OpenFAST/openfast/commit/2f5cb69efcaeebce099a814d6a338171b828ae0d.patch?full_index=1"
-    sha256 "77611167b092e8daef0650db82dab24127f829d060199bae8b191cac9e3c0b9a"
-  end
-
   def install
     args = std_cmake_args + %w[
       -DDOUBLE_PRECISION=OFF
-      -DCMAKE_BUILD_TYPE=RelWithDebInfo
       -DBLA_VENDOR=OpenBLAS
     ]
 

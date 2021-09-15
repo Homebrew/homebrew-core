@@ -4,7 +4,7 @@ class TtyClock < Formula
   url "https://github.com/xorg62/tty-clock/archive/v2.3.tar.gz"
   sha256 "343e119858db7d5622a545e15a3bbfde65c107440700b62f9df0926db8f57984"
   license "BSD-3-Clause"
-  head "https://github.com/xorg62/tty-clock.git"
+  head "https://github.com/xorg62/tty-clock.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fcae9d0e0eeaf68815b4a521f7f75c352d4188a38652b4841bd48b608120edce"
@@ -15,6 +15,7 @@ class TtyClock < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9b0e056ec6d86d9ba9cbd2abc02236607a6ad5601e7a656d10cad20182564315"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c0d981769811bf1c265e11702ea0d26bcf87102ac92896c04c14a91fbed1cc8c"
     sha256 cellar: :any_skip_relocation, yosemite:      "9341fb07070b665dc5f9593c1b4811ec734f7221afbde2547cee55fc9102aa1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b676f9ca583791e909a241667741a84289d4f75c5673fdd31176c48450ab701"
   end
 
   depends_on "pkg-config" => :build

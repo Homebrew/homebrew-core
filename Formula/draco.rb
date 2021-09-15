@@ -10,6 +10,7 @@ class Draco < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "8102f60a854f4b5bd365b10f1c5876459424191052811d0afb42aa037c0ada7d"
     sha256 cellar: :any_skip_relocation, catalina:      "4a1088d41275a89ed0238d3eacca9740d9455e9fd2fcbf79b3147ad72c942b4d"
     sha256 cellar: :any_skip_relocation, mojave:        "45e5548e468c702c7508ec6f2ef7aa2c4862e38af9130511b36d910c069271a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "951bf17a6a4f4509f1d53dff3cf22b834acb6af6c143f239c621801f59dcbd7a"
   end
 
   depends_on "cmake" => :build

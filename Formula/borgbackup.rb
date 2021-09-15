@@ -3,15 +3,15 @@ class Borgbackup < Formula
 
   desc "Deduplicating archiver with compression and authenticated encryption"
   homepage "https://borgbackup.org/"
-  url "https://files.pythonhosted.org/packages/d4/49/7f35a26124631ec87ee7467ae42b52c1381eb82c564108652dcb5edf99b9/borgbackup-1.1.16.tar.gz"
-  sha256 "bc569224d6320483e508c36ff2a651d01bbd0aaebf32305e2683a696b9c32d50"
+  url "https://files.pythonhosted.org/packages/c9/a8/7ce46b3ea57895164774644164089b63e0172ac72046f5fbbba5f135d7bb/borgbackup-1.1.17.tar.gz"
+  sha256 "7ab924fc017b24929bedceba0dcce16d56f9868bf9b5050d2aae2eb080671674"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1f09de37b5fe3241769883419c428101d33527d69a12fb87dd04d9a58f46e642"
-    sha256 cellar: :any, big_sur:       "ee9ea1c3ed3f90c2eeeed0b94d39045798c346b44a86f44cd23d2d1df071246c"
-    sha256 cellar: :any, catalina:      "bd51e4780ef2add38d62ab7ae288ae0c667520c86a7c271abbd380333b8ed029"
-    sha256 cellar: :any, mojave:        "f623b6ba4c9606d1b89bc1195ad0dc12695d126f37d47446e27f3c5f66b02fc0"
+    sha256 cellar: :any, arm64_big_sur: "2407cbfb1d2e093d34812a56bb1c8c48d0dab15d34e1663849916dc47a00e771"
+    sha256 cellar: :any, big_sur:       "077adc5c673ec0c7f8bcb629afa5f21f46393048db0e7e98e035fbccb5f7006f"
+    sha256 cellar: :any, catalina:      "0804ae6e2cedcfb94246eb2b93e765b338b7bb6eb971559cbf2b8118cf8bd532"
+    sha256 cellar: :any, mojave:        "f3187778ef7a0181b5d8ee731a8f2595a09fcf9aa19f726ee2a9cc9fc2c8e763"
   end
 
   depends_on "pkg-config" => :build
@@ -21,6 +21,16 @@ class Borgbackup < Formula
   depends_on "python@3.9"
   depends_on "xxhash"
   depends_on "zstd"
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
+    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+  end
 
   def install
     ENV["BORG_LIBB2_PREFIX"] = Formula["libb2"].prefix

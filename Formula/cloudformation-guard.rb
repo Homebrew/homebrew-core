@@ -1,15 +1,16 @@
 class CloudformationGuard < Formula
   desc "Checks CloudFormation templates for compliance using a declarative syntax"
   homepage "https://github.com/aws-cloudformation/cloudformation-guard"
-  url "https://github.com/aws-cloudformation/cloudformation-guard/archive/2.0.1.tar.gz"
-  sha256 "a3c8f02724bfddca54ea02ffd456f409839da7c9896f9631ed505890ce289ebc"
+  url "https://github.com/aws-cloudformation/cloudformation-guard/archive/2.0.3.tar.gz"
+  sha256 "a3bcd94d679cef01db21a2daa6b7042f9fbb3dd56388318ea534103c14c96930"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfae801ef1fa761b9a680003aab842dd144547cf1545a8edfe0ef89308d608a0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b4a4261ff5d1cb01a57952e0a708a82db9f4b0a20a2058f99fbd00eeeb285ef5"
-    sha256 cellar: :any_skip_relocation, catalina:      "51f2da33dfa429ac853feb9fc6122d7ff402c8bbd1e4e0ad7729e9a0dbff9a68"
-    sha256 cellar: :any_skip_relocation, mojave:        "b8bf78098c262aaeccba2b574925e6539fd78174a1dcfd7d27d2810952558ea9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "68ceb64498c4b499e1c5b9d8855a884a0ac4f389476d5bf6da0f151378c1ad4c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f8a125c4de3fc9e921df68c0ac957b785de73ea8e815d1fc0ea2cced5dfef881"
+    sha256 cellar: :any_skip_relocation, catalina:      "36b146ca21768e8aaef9c1b10d291488f5a776dabdb02a690107ab1d8383ce67"
+    sha256 cellar: :any_skip_relocation, mojave:        "c7e5b37de4696d225b5c550d2a82e9f48f1f726fce5d7af531a2d38f55eaad3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aceecc8eed7f44f26787420ded0984f8cd18ce01a90ce15b3878c00ba4af71f0"
   end
 
   depends_on "rust" => :build

@@ -13,6 +13,7 @@ class AutoconfAT213 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "d3b4d6e06ae6749fc60fa437f1f5c2ae85a91f6979ca897e08b854f920c222a0"
     sha256 cellar: :any_skip_relocation, mojave:        "5257ef101823cbf8d20693e27bf4505aec149c7d588459fedc2791a7906eb444"
     sha256 cellar: :any_skip_relocation, high_sierra:   "5257ef101823cbf8d20693e27bf4505aec149c7d588459fedc2791a7906eb444"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cccd5c06cf43a458be6dd0f07af79a3d63411aa6e3c350df0aae1e9a0b6b795"
   end
 
   uses_from_macos "m4"

@@ -4,7 +4,7 @@ class Omake < Formula
   url "https://github.com/ocaml-omake/omake/archive/omake-0.10.3.tar.gz"
   sha256 "5f42aabdb4088b5c4e86c7a08e235dc7d537fd6b3064852154303bb92f5df70e"
   license "GPL-2.0-only"
-  head "https://github.com/ocaml-omake/omake.git"
+  head "https://github.com/ocaml-omake/omake.git", branch: "master"
 
   livecheck do
     url :stable
@@ -17,6 +17,7 @@ class Omake < Formula
     sha256 catalina:      "21933568db9ed765a0bf8c1f04b9f38e5923b6a320372a570499b221fb2afe6d"
     sha256 mojave:        "f54a0498316969552424a646ef36b15c567162e689e04203c95a5f8a4536c589"
     sha256 high_sierra:   "587b563698dc29ea2c662ffa58458f45e212f131e3687a37d26d8f379f089588"
+    sha256 x86_64_linux:  "8fe2949b2aa964a4310791453c27f1d05f8f693750ba0c9b8fad4b0d79580182"
   end
 
   depends_on "ocaml" => [:build, :test]

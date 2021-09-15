@@ -24,18 +24,16 @@ class Ocaml < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "23d4a0ea99bad00b29387d05eef233fb1ce44a71e9031644f984850820f7b1fc"
-    sha256 cellar: :any, big_sur:       "98ee5c246e559e6d494ce7e2927a8a4c11ff3c47c26d7a2da19053ba97aa6158"
-    sha256 cellar: :any, catalina:      "f1f72000415627bc8ea540dffc7fd29c2d7ebc41c70e76b03a994c7e6e746284"
-    sha256 cellar: :any, mojave:        "9badb226c3d92ae196c9a2922c73075eaa45ee90f3c9b06180e29706e95f2f0b"
+    sha256 cellar: :any,                 arm64_big_sur: "23d4a0ea99bad00b29387d05eef233fb1ce44a71e9031644f984850820f7b1fc"
+    sha256 cellar: :any,                 big_sur:       "98ee5c246e559e6d494ce7e2927a8a4c11ff3c47c26d7a2da19053ba97aa6158"
+    sha256 cellar: :any,                 catalina:      "f1f72000415627bc8ea540dffc7fd29c2d7ebc41c70e76b03a994c7e6e746284"
+    sha256 cellar: :any,                 mojave:        "9badb226c3d92ae196c9a2922c73075eaa45ee90f3c9b06180e29706e95f2f0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dee41488645db27099a5cc8c7b59798f1371ea775ad13e3c326e362c690bf0e9"
   end
 
-  pour_bottle? do
-    # The ocaml compilers embed prefix information in weird ways that the default
-    # brew detection doesn't find, and so needs to be explicitly blacklisted.
-    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
-    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
-  end
+  # The ocaml compilers embed prefix information in weird ways that the default
+  # brew detection doesn't find, and so needs to be explicitly blocked.
+  pour_bottle? only_if: :default_prefix
 
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores

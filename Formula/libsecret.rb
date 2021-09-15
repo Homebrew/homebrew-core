@@ -11,6 +11,7 @@ class Libsecret < Formula
     sha256 catalina:      "8fc40fdf1fda5a1bd12661b96a1b0398cc0b600e9f43ef44384ffa82fa6b3133"
     sha256 mojave:        "80fa9108466d6fac5f752ce926a9f6175e4f701764d2b077a3cdee0109be8ba6"
     sha256 high_sierra:   "9663806ffb17b3c50eb015c43b2763ff47e12624e56d694d454f238748ea17e2"
+    sha256 x86_64_linux:  "4dbbaa5c11684e272e180de703dfac9da1e3931fb51ab73067a7fd58b572c1d4"
   end
 
   depends_on "docbook-xsl" => :build

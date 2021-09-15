@@ -13,6 +13,7 @@ class Livestreamer < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "fb66f50467554c547b0dc938621146994dce5069ac01f8b55badbb6363e8f11d"
     sha256 cellar: :any_skip_relocation, mojave:        "4e01e88af3e7134c460b64e0405093b345d3a60130a1792b7a3d371bac089370"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7d52881a8c42d16e27bd03a5b678b4b6a3ad8a93179dd9cee9507c8a9676859b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccf81deb5267b33afa7ca6d0b76bb77650aa09d4a5ac45bf23e9d9ed2c507900"
   end
 
   depends_on "python@3.9"

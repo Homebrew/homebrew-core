@@ -16,6 +16,7 @@ class Nuttcp < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "0f5e7a2b61f91360023ef643c0a77fa711855b34006ff07867f1283051aded5c"
     sha256 cellar: :any_skip_relocation, mojave:        "de0d1395983d9980dfff73de8282b76bf70c987fb36c68ff5e341f245507100a"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8d9ea3c88d5347b34cc4b3385b6898f942b8e4ff5a4f4a26897e4b66297e2692"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a45bf649ab4f28ef78699c00d3b71afa3655f26cafaeb01fb7f99fc9f133471"
   end
 
   def install

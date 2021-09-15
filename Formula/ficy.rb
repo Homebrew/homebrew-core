@@ -17,6 +17,7 @@ class Ficy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "eb6228a79e94bd6a6d37ec647da5b0ca1863ba03992d93bed90071858d0be55e"
     sha256 cellar: :any_skip_relocation, catalina:      "9974dd8c30bcfe482222a8e6f4040c6c5ccb21c7ef6b893dbbf3033f7e5a85ab"
     sha256 cellar: :any_skip_relocation, mojave:        "01d1a72a131cb19375bc8a068a59759d3207a60c84a4772cd8d52641ae1f8b8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b055098e6bef712df9dbcf449f550b5e9b47d9b5ddbda657815f224dd2326bb"
   end
 
   def install

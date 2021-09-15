@@ -12,10 +12,12 @@ class Htop < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e2b32da2189775e5a303b948bf2bf86224f2850786e849371efe002402f26c6f"
-    sha256 cellar: :any, big_sur:       "8f4e4c5d0ee34c41e008bb9a2ed4331303a42bd594ac358a822604a145c868ea"
-    sha256 cellar: :any, catalina:      "7dc2bf8825918876e3a853acbc9d7045786d1d418fdae2b0a4e6d4500006a08e"
-    sha256 cellar: :any, mojave:        "a009b141dcf7b95c60da3ef685ea0736be0c0a5e1e0de0945153697c6a032e2a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "4dd5d67e6a0ce026916e082e834a9a3e8e8e01c4ac3a79a3de29119dd6cc8393"
+    sha256 cellar: :any,                 big_sur:       "21f7d036b92a40bb57dc28c64249f137efcbec7489190944d8c38f940c86df9f"
+    sha256 cellar: :any,                 catalina:      "0b9cb4738ad23eed5e2d24bb2bdc10e662c3b54ba7feb22d798fd9107ace5e21"
+    sha256 cellar: :any,                 mojave:        "7be858d053b14ab834cd1a1832beaf367501639d17c7a43c5cc0e563c025a4af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3ecd7b41016d7c5deadd4255982b654c05bf46cc97792dbe38a0f71ff17d477"
   end
 
   depends_on "autoconf" => :build
@@ -25,9 +27,15 @@ class Htop < Formula
   depends_on "python@3.9" => :build
   depends_on "ncurses" # enables mouse scroll
 
+  on_linux do
+    depends_on "lm-sensors"
+  end
+
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}"
+    args = ["--prefix=#{prefix}"]
+    args << "--enable-sensors" if OS.linux?
+    system "./configure", *args
     system "make", "install"
   end
 

@@ -1,23 +1,23 @@
 class Libngspice < Formula
   desc "Spice circuit simulator as shared library"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/34/ngspice-34.tar.gz"
-  sha256 "2263fffc6694754972af7072ef01cfe62ac790800dad651bc290bfcae79bd7b5"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/35/ngspice-35.tar.gz"
+  sha256 "c1b7f5c276db579acb3f0a7afb64afdeb4362289a6cab502d4ca302d6e5279ec"
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/ngspice[._-]v?(\d+(?:\.\d+)*)\.t}i)
+    formula "ngspice"
   end
 
   bottle do
-    sha256 arm64_big_sur: "030028e4b85b595d98edaa642acbba72207f05d9ee7dc6f43ba2491398d128ab"
-    sha256 big_sur:       "a317cf13dd747369eb178e18f932ee4b0e3eebf8ffdb697f19cdaa1d100e20e8"
-    sha256 catalina:      "82d6d7ad4cf74d36b1f11741edc123b76bdd48279cb0af38d5eacfe155c8b7de"
-    sha256 mojave:        "908c45d65d80ad97d76a721ece430e09f8b828197999ee71152b2c12c5a4b231"
+    sha256 arm64_big_sur: "01054bb2006ea4677a5e1b95910e57b8ced84f9e778a89b01da3edb34d05725c"
+    sha256 big_sur:       "e131229e4c554e7831094bb19e1a4741385877eb0bf2cabfca9b6179476b9479"
+    sha256 catalina:      "17794a5f1e6e1b9a4bd8c45b4a45ab5cbf7755885eee0508948e1991e24cd2ec"
+    sha256 mojave:        "855fd851ca4492c2c8476763f8cc4ce6cc67681e37560d76786e685f61db18e2"
+    sha256 x86_64_linux:  "28f28030b9a69ccb91734230d407e3cdb04cf757c179e5cafbab6c7cf65af402"
   end
 
   head do
-    url "https://git.code.sf.net/p/ngspice/ngspice.git"
+    url "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

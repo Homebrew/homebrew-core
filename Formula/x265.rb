@@ -4,14 +4,15 @@ class X265 < Formula
   url "https://bitbucket.org/multicoreware/x265_git/get/3.5.tar.gz"
   sha256 "5ca3403c08de4716719575ec56c686b1eb55b078c0fe50a064dcf1ac20af1618"
   license "GPL-2.0-only"
-  head "https://bitbucket.org/multicoreware/x265_git.git"
+  head "https://bitbucket.org/multicoreware/x265_git.git", branch: "master"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "adc617eed2e065af669994fb5b538195fd46db4ac7b13c7ca2490dc8abaf6466"
-    sha256 cellar: :any, big_sur:       "55bb46a5dc1924e59b7fa7bc800a21c0cf21355e48cb38b941d8e786427c70a0"
-    sha256 cellar: :any, catalina:      "5e5bc106e1cf971a176dd5b37a61d28769e353f81102c011b4230cc8732eca7a"
-    sha256 cellar: :any, mojave:        "c61ebdf9dcd4aedf5da2a7eb2b3a5154fd355c105a19a0471d43a3aa67f3cb88"
+    sha256 cellar: :any,                 arm64_big_sur: "adc617eed2e065af669994fb5b538195fd46db4ac7b13c7ca2490dc8abaf6466"
+    sha256 cellar: :any,                 big_sur:       "55bb46a5dc1924e59b7fa7bc800a21c0cf21355e48cb38b941d8e786427c70a0"
+    sha256 cellar: :any,                 catalina:      "5e5bc106e1cf971a176dd5b37a61d28769e353f81102c011b4230cc8732eca7a"
+    sha256 cellar: :any,                 mojave:        "c61ebdf9dcd4aedf5da2a7eb2b3a5154fd355c105a19a0471d43a3aa67f3cb88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c80f18988caea25e95ca87dd648f5ff8b0856e24d26adc8d68ca68cc6d4faabf"
   end
 
   depends_on "cmake" => :build
@@ -49,12 +50,10 @@ class X265 < Formula
       system "make"
       mv "libx265.a", "libx265_main.a"
 
-      on_macos do
+      if OS.mac?
         system "libtool", "-static", "-o", "libx265.a", "libx265_main.a",
                           "libx265_main10.a", "libx265_main12.a"
-      end
-
-      on_linux do
+      else
         system "ar", "cr", "libx265.a", "libx265_main.a", "libx265_main10.a",
                            "libx265_main12.a"
         system "ranlib", "libx265.a"

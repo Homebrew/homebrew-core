@@ -1,16 +1,18 @@
 class Kcptun < Formula
   desc "Stable & Secure Tunnel based on KCP with N:M multiplexing and FEC"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/v20210103.tar.gz"
-  sha256 "0821b61b92041b764a1d621f750c1c693d913eed43051d3c109bd303d8f02472"
+  url "https://github.com/xtaci/kcptun/archive/v20210624.tar.gz"
+  sha256 "3f39eb2e6ee597751888b710afc83147b429c232591e91bc97565b32895f33a8"
   license "MIT"
   head "https://github.com/xtaci/kcptun.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8ab8b8114de4af975ace979ee4baefb67b7ae04b0895d0863993f08dc574f193"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cc75f03bc0f50c583a5e0f96213676e497488f1874d957807d894ca046ddda3a"
-    sha256 cellar: :any_skip_relocation, catalina:      "003ec31729751a51c32c13c44d8dcc255550d300d38a9267167b8e9455a79212"
-    sha256 cellar: :any_skip_relocation, mojave:        "dbc0ec286493d29d1df9c9c7bde3290339efa894bed73474caad58926e58c717"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0cbeb08ced20b11a0f40715c298145f09cb15a1df96193146495af783cc3c2e2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fceb1bc66a46428a08d59ceda920961969ab358b2e938e43140882c8d9bacbb6"
+    sha256 cellar: :any_skip_relocation, catalina:      "958b2f9440b0c9c760b766c7a5b8f523e5f3f182866cbf46abb1912e22947b6a"
+    sha256 cellar: :any_skip_relocation, mojave:        "3bbf3c2432c91de79cfae4e846973257d42b18d484244cfc74e454019f2ad264"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93ff4307e7a35cc96c2ccb7ca0fb6a057a082be0651193dae0903b5951c578b8"
   end
 
   depends_on "go" => :build
@@ -24,40 +26,11 @@ class Kcptun < Formula
     etc.install "examples/local.json" => "kcptun_client.json"
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/kcptun/bin/kcptun_client -c #{HOMEBREW_PREFIX}/etc/kcptun_client.json"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/kcptun_client</string>
-            <string>-c</string>
-            <string>#{etc}/kcptun_client.json</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <dict>
-            <key>Crashed</key>
-            <true/>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>ProcessType</key>
-          <string>Background</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/kcptun.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/kcptun.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"kcptun_client", "-c", etc/"kcptun_client.json"]
+    keep_alive true
+    log_path var/"log/kcptun.log"
+    error_log_path var/"log/kcptun.log"
   end
 
   test do

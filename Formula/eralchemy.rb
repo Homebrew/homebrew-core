@@ -9,11 +9,12 @@ class Eralchemy < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d925eb8686a32d2bbf7b9bab62f65f6b761952dcb32923ef7b6428f5325c11a1"
-    sha256 cellar: :any, big_sur:       "2a5ce41209235c75eeb092f0b6c17c6c46c03f2faada2b2a337fcda7f28a4288"
-    sha256 cellar: :any, catalina:      "e844701e7824dc9497969cc6592302bf56ac060d5aa18105e1ee2887411a5f12"
-    sha256 cellar: :any, mojave:        "cfb423a7299d1d307e58aa756675f26ea65ad405e6e2fb707727de49aa36eb64"
-    sha256 cellar: :any, high_sierra:   "cb2442baa298aa27c860ad7d80116131f286ea283625dbd809d4b518ba81707a"
+    sha256 cellar: :any,                 arm64_big_sur: "d925eb8686a32d2bbf7b9bab62f65f6b761952dcb32923ef7b6428f5325c11a1"
+    sha256 cellar: :any,                 big_sur:       "2a5ce41209235c75eeb092f0b6c17c6c46c03f2faada2b2a337fcda7f28a4288"
+    sha256 cellar: :any,                 catalina:      "e844701e7824dc9497969cc6592302bf56ac060d5aa18105e1ee2887411a5f12"
+    sha256 cellar: :any,                 mojave:        "cfb423a7299d1d307e58aa756675f26ea65ad405e6e2fb707727de49aa36eb64"
+    sha256 cellar: :any,                 high_sierra:   "cb2442baa298aa27c860ad7d80116131f286ea283625dbd809d4b518ba81707a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33457b7cd8520565ade9b63b2ea9597b0e695652ded2414d0da61425a2eb8744"
   end
 
   depends_on "pkg-config" => :build

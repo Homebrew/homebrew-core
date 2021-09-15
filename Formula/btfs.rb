@@ -4,7 +4,7 @@ class Btfs < Formula
   url "https://github.com/johang/btfs/archive/v2.22.tar.gz"
   sha256 "03ebfffd7cbd91e2113d0c43d8d129ad7851753c287c326416ecf622789c4a8d"
   license "GPL-3.0-only"
-  head "https://github.com/johang/btfs.git"
+  head "https://github.com/johang/btfs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, catalina:    "d5b103b5b9004549a555352be373c2160bcd5b9f6a8e7e8b030cbf113ae76fcd"
@@ -18,7 +18,7 @@ class Btfs < Formula
   depends_on "libtorrent-rasterbar"
 
   on_macos do
-    disable! date: "2021-04-08", because: "requires FUSE"
+    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
   end
 
   on_linux do
@@ -34,6 +34,18 @@ class Btfs < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        The reasons for disabling this formula can be found here:
+          https://github.com/Homebrew/homebrew-core/pull/64491
+
+        An external tap may provide a replacement formula. See:
+          https://docs.brew.sh/Interesting-Taps-and-Forks
+      EOS
+    end
   end
 
   test do

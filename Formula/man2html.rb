@@ -14,6 +14,7 @@ class Man2html < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "ced5194219735226831e611db4247de1affdec0c2e53e813d5c1a7c5d3bce928"
     sha256 cellar: :any_skip_relocation, el_capitan:    "37bfcf3cab42938fff23a66429872e935b59cf769caf238928bd4acc6544d8d4"
     sha256 cellar: :any_skip_relocation, yosemite:      "2e3cc12c0e7bc0ae5b194f397874015df1fe6b8a8ab52c6972e17ad992732463"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "481efdcde976cadff40796f063650a6926dff892b7e3753ee9cf65e669d8aab1"
   end
 
   def install

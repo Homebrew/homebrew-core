@@ -1,22 +1,24 @@
 class Autodiff < Formula
   desc "Automatic differentiation made easier for C++"
   homepage "https://autodiff.github.io"
-  url "https://github.com/autodiff/autodiff/archive/v0.5.13.tar.gz"
-  sha256 "a73dc571bcaad6b44f74865fed51af375f5a877db44321b5568d94a4358b77a1"
+  url "https://github.com/autodiff/autodiff/archive/v0.6.4.tar.gz"
+  sha256 "cfe0bb7c0de10979caff9d9bfdad7e6267faea2b8d875027397486b47a7edd75"
   license "MIT"
-  head "https://github.com/autodiff/autodiff.git"
+  head "https://github.com/autodiff/autodiff.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "09304dc3957c4d50a207bf31a7e734d0df28529e0e40226e140790f4fba94fde"
-    sha256 cellar: :any_skip_relocation, catalina: "59be27e76fd3845fb5f5592f8fcf610d767aea655eb00be72c2fd345604bc6db"
-    sha256 cellar: :any_skip_relocation, mojave:   "f7403731e18af4a75045afa8444af6d2e01c96df0fa2ea0305b59d9b389519cf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cb8dd848ff068721e8c8d0d58e7b62e031ad0eebacfea36d693bc7528264d5be"
+    sha256 cellar: :any_skip_relocation, big_sur:       "12bab4a6f997bd961b1b01c0d37a68f49b50ed5419940dec018dae4837bb5f31"
+    sha256 cellar: :any_skip_relocation, catalina:      "109cfe02558a837c81ec22bd9f77a9a7a9d63fa0f61d4dd21d2a3a8622161f74"
+    sha256 cellar: :any_skip_relocation, mojave:        "6485a71ec52617ecf4ecca6f435376354877896ba21a6b5d5d3514e6da996d97"
   end
 
   depends_on "cmake" => :build
   depends_on "eigen"
+  depends_on "pybind11"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DAUTODIFF_BUILD_TESTS=off"
     system "make", "install"
     (pkgshare/"test").install "examples/forward/example-forward-single-variable-function.cpp" => "forward.cpp"
     (pkgshare/"test").install "examples/reverse/example-reverse-single-variable-function.cpp" => "reverse.cpp"

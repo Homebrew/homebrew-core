@@ -4,10 +4,9 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v0.40.0",
-      revision: "b0514e3fe84b035005e0ad40655f24914e5df57a"
+      tag:      "v0.43.0",
+      revision: "f924d468136beca2d4820b09f76f11c24ca4ecc5"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
     url :stable
@@ -15,10 +14,11 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e4036546ad0eafcfe8395b56bd7736c29853f3bec7311724afbcb30aa6a4d779"
-    sha256 cellar: :any, big_sur:       "4b9bb17e054b199adc5231eb408d7e6999acc2f33027d2493b128d1b99eedb25"
-    sha256 cellar: :any, catalina:      "931e1885bc91841ab304916891b450fa86e4c6f774c555a410e1ee005ec7068a"
-    sha256 cellar: :any, mojave:        "40fd9622cc11e0470dbccd9bf7d4819e24418bd0adc94468b6495bb5826903c7"
+    sha256 cellar: :any,                 arm64_big_sur: "8e6175189387dcc15abbc9e760412d9ab5f0912c2ce3c573b94d92f1dfcae635"
+    sha256 cellar: :any,                 big_sur:       "cad9aef91a7128f70b64eacfd5069a08c1523c6a07adc4d1c09454636d62bb1b"
+    sha256 cellar: :any,                 catalina:      "f9be2935acd62913283501a7bedce9ae9e6d81ffb350b76f3fc50549e6f24d03"
+    sha256 cellar: :any,                 mojave:        "370ddcdbecb34fe78430cb7c043a12ae2a13bf79fe215234767d5e7d4040b1e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1b902ad4fd8c42bbbb81bc0969604c41641c78e210db35e4f378837e22b3c0a"
   end
 
   depends_on "cmake" => :build
@@ -40,6 +40,10 @@ class Mavsdk < Formula
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
   end
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   fails_with :clang do
     build 1100
     cause <<-EOS
@@ -48,37 +52,31 @@ class Mavsdk < Formula
     EOS
   end
 
+  fails_with gcc: "5"
+
   # To update the resources, use homebrew-pypi-poet on the PyPI package `protoc-gen-mavsdk`.
   # These resources are needed to install protoc-gen-mavsdk, which we use to regenerate protobuf headers.
   # This is needed when brewed protobuf is newer than upstream's vendored protobuf.
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/0c/23cbcf515b5394e9f59a3e6629f26e1142b92d474ee0725a26aa5a3bcf76/Jinja2-3.0.0.tar.gz"
-    sha256 "ea8d7dd814ce9df6de6a761ec7f1cac98afe305b8cdc4aaae4e114b8d8ce24c5"
+    url "https://files.pythonhosted.org/packages/39/11/8076571afd97303dfeb6e466f27187ca4970918d4b36d5326725514d3ed3/Jinja2-3.0.1.tar.gz"
+    sha256 "703f484b47a6af502e743c9122595cc812b0271f661722403114f71a79d0f5a4"
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/67/6a/5b3ed5c122e20c33d2562df06faf895a6b91b0a6b96a4626440ffe1d5c8e/MarkupSafe-2.0.0.tar.gz"
-    sha256 "4fae0677f712ee090721d8b17f412f1cbceefbf0dc180fe91bab3232f38b4527"
-  end
-
-  # Fix generate_from_protos.sh to use brewed deps
-  # https://github.com/mavlink/MAVSDK/pull/1438
-  patch do
-    url "https://github.com/mavlink/MAVSDK/commit/09b6c09ffcddde395f9b186c6766f417e2e265b3.patch?full_index=1"
-    sha256 "773720629fc75be9477aca395ceb83094f96f19422924802ccd5df7c28edc932"
+    url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
+    sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
   end
 
   def install
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    # Fix version being reported as `v#{version}-dirty`
+    inreplace "CMakeLists.txt", "OUTPUT_VARIABLE VERSION_STR", "OUTPUT_VARIABLE VERSION_STR_IGNORED"
+
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     # Install protoc-gen-mavsdk deps
     venv_dir = buildpath/"bootstrap"
     venv = virtualenv_create(venv_dir, "python3")
-    %w[Jinja2 MarkupSafe].each do |r|
-      venv.pip_install resource(r)
-    end
+    venv.pip_install resources
 
     # Install protoc-gen-mavsdk
     venv.pip_install "proto/pb_plugins"
@@ -86,7 +84,6 @@ class Mavsdk < Formula
     # Run generator script in an emulated virtual env.
     with_env(
       VIRTUAL_ENV: venv_dir,
-      PYTHONPATH:  Formula["six"].opt_prefix/Language::Python.site_packages("python3"),
       PATH:        "#{venv_dir}/bin:#{ENV["PATH"]}",
     ) do
       system "tools/generate_from_protos.sh"
@@ -100,6 +97,7 @@ class Mavsdk < Formula
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DBUILD_MAVSDK_SERVER=ON",
                     "-DBUILD_TESTS=OFF",
+                    "-DVERSION_STR=v#{version}-#{tap.user}",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-H."
     system "cmake", "--build", "build/default"
@@ -108,23 +106,20 @@ class Mavsdk < Formula
 
   test do
     # Force use of Clang on Mojave
-    on_macos { ENV.clang }
+    ENV.clang if OS.mac?
 
     (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
       #include <mavsdk/mavsdk.h>
-      #include <mavsdk/plugins/info/info.h>
       int main() {
           mavsdk::Mavsdk mavsdk;
-          mavsdk.version();
-          mavsdk::System& system = mavsdk.system();
-          auto info = std::make_shared<mavsdk::Info>(system);
+          std::cout << mavsdk.version() << std::endl;
           return 0;
       }
     EOS
     system ENV.cxx, "-std=c++17", testpath/"test.cpp", "-o", "test",
-                    "-I#{include}/mavsdk", "-L#{lib}",
-                    "-lmavsdk", "-lmavsdk_info"
-    system "./test"
+                    "-I#{include}", "-L#{lib}", "-lmavsdk"
+    assert_match "v#{version}-#{tap.user}", shell_output("./test").chomp
 
     assert_equal "Usage: #{bin}/mavsdk_server [-h | --help]",
                  shell_output("#{bin}/mavsdk_server --help").split("\n").first

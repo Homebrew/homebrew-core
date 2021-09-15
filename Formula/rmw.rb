@@ -1,33 +1,38 @@
 class Rmw < Formula
   desc "Safe-remove utility for the command-line"
   homepage "https://remove-to-waste.info/"
-  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.7.09/rmw-0.7.09.tar.gz"
-  sha256 "d0a85944d03e7ec2a94b25d6d6ac92880fd0d3f63d90bb9ed56b16418fd41c69"
+  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.8.0/rmw-0.8.0-2.tar.gz"
+  sha256 "a01b8472a7cbecc2bed5ba301e360f8defcd77821cef812051d68d4c38f12e95"
   license "GPL-3.0-or-later"
-  head "https://github.com/theimpossibleastronaut/rmw.git"
+  head "https://github.com/theimpossibleastronaut/rmw.git", branch: "master"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d+(?:[.-]\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "383d2b2a02e8fcfd416e4b2ba106049bef27bdb3fc3f37f8fcaeea62b827b2f4"
-    sha256 cellar: :any, big_sur:       "0f7135823daa0e0da7f172b24a173b31f39f9f44224fb0b1d623cdc9ef9a2077"
-    sha256 cellar: :any, catalina:      "1d7ad66efc9a6b312b58ba471ed53a7de0ef30e879a6b02d321794d0856a61e5"
-    sha256 cellar: :any, mojave:        "9ae98484dc5bc1bc0ecea7ef1c1edc42249a9841844283bac995cb5c6817375b"
+    sha256 arm64_big_sur: "ad98937dac5160507c46d8ee5b1534cd7eb05d67bc63aa53bf5f0f5a79fd63ef"
+    sha256 big_sur:       "23b5d0c9666688244a17288ed08968479d83069da180ff78e9dc19c78f218afd"
+    sha256 catalina:      "c3da3134ecd1edfad6bbd1c156e38161eb9ba1487e29efd4094ec42c503d66a4"
+    sha256 mojave:        "0f86e5bd748141d0b39e2fd5e399cf764d3aec6b0bd24b065f92c24e7e97f8cf"
+    sha256 x86_64_linux:  "8be94be0f19f65faa4c19ec1c0898af1439b5488ad51c81e59f30fed3d918a88"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+  depends_on "gettext"
   # Slightly buggy with system ncurses
   # https://github.com/theimpossibleastronaut/rmw/issues/205
   depends_on "ncurses"
 
   def install
-    system "./configure", "--enable-debug=no",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

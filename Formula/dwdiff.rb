@@ -16,6 +16,7 @@ class Dwdiff < Formula
     sha256 big_sur:       "c4527f38e48df252ac20b4bc6ebc7c24baf1c3f8f157c16a5218db5e17cbf22e"
     sha256 catalina:      "05fc8c8568063207dfb1d52149367cb2bbc960e41fecd09b63790e6b372ceb99"
     sha256 mojave:        "ee28eff81ca945f765afe6a62110e603d40108ac112c3db3ec6b859438fdbda3"
+    sha256 x86_64_linux:  "bb0d5aa169f1d00fdabe5bf26b4769b3cbdfc288b4c1dbeaf1592d6b9d09d7a4"
   end
 
   depends_on "pkg-config" => :build
@@ -26,7 +27,8 @@ class Dwdiff < Formula
     gettext = Formula["gettext"]
     icu4c = Formula["icu4c"]
     ENV.append "CFLAGS", "-I#{gettext.include} -I#{icu4c.include}"
-    ENV.append "LDFLAGS", "-L#{gettext.lib} -L#{icu4c.lib} -lintl"
+    ENV.append "LDFLAGS", "-L#{gettext.lib} -L#{icu4c.lib}"
+    ENV.append "LDFLAGS", "-lintl" if OS.mac?
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

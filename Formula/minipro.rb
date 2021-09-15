@@ -6,10 +6,12 @@ class Minipro < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "dbde068c2d684536d1015f7fbbf0de358c8fef018fb1a0101736698ce35dd1da"
-    sha256 cellar: :any, big_sur:       "e4b9881a816f2edc4361c95b1fc3fc583a23c7c4b402598f750958dfd5354367"
-    sha256 cellar: :any, catalina:      "669b628ec5ebd155f7f3d9128c29445f81805fe368ae080e39abf46e5610c592"
-    sha256 cellar: :any, mojave:        "65a9fbfcacac226dd5d0dfae7ca08dd2bb41340f9d7a02bcb224469ea280c0c7"
+    rebuild 1
+    sha256 arm64_big_sur: "3ba41fe3390795a6afd327ee42c709ca59cb6f7b4cfa2bf9bc150ddc9608b72f"
+    sha256 big_sur:       "0590a42c14ad858823a7839a745a812b921d0e458b64568a81ca17c6f0a5bb45"
+    sha256 catalina:      "c949912791a3b9c40f049a8c10f289062bbd9ede15da2f37a597c6c40c4d5f43"
+    sha256 mojave:        "d54e9413a92b7bd5118b1938215d61152ea06055f0860ddcb167d74924a828f9"
+    sha256 x86_64_linux:  "14ce0851d54333937203d4c75be5ec68b2f3635604b13eafe60d3d0889c33e10"
   end
 
   depends_on "pkg-config" => :build
@@ -17,7 +19,7 @@ class Minipro < Formula
   depends_on "srecord"
 
   def install
-    system "make", "CC=clang"
+    system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
     system "make", "PREFIX=#{prefix}", "MANDIR=#{share}", "install"
   end
 

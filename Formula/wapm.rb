@@ -4,7 +4,7 @@ class Wapm < Formula
   url "https://github.com/wasmerio/wapm-cli/archive/v0.5.1.tar.gz"
   sha256 "e01dcf040cfa32cfcd1ad7aa18a0cb40a7b8040fb34a58de8ebce2c47ad154a5"
   license "MIT"
-  head "https://github.com/wasmerio/wapm-cli.git"
+  head "https://github.com/wasmerio/wapm-cli.git", branch: "master"
 
   livecheck do
     url :stable
@@ -16,6 +16,7 @@ class Wapm < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ef83086768af8348415cc720b3b4241d20cc7b1c00946d6b4f09ecb4c8242e19"
     sha256 cellar: :any_skip_relocation, catalina:      "b9cecfbe7298d07700898408a94862c6caf0aa69e18322e404df87d0172001d5"
     sha256 cellar: :any_skip_relocation, mojave:        "15070099aa602582bcc3d701a1a6626f9f17bfce559ffab53c4a62eebcc2f170"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "005d9339f8a52dae6524b6b94fbef2a0d5032dca3bd6cd85d8963c0ed7943d75"
   end
 
   depends_on "rust" => :build

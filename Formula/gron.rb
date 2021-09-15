@@ -11,6 +11,7 @@ class Gron < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "18f72c72d99203bd58c670642d6c33fa9e1f67e6861212ba21f98b975df406f0"
     sha256 cellar: :any_skip_relocation, catalina:      "dc6b46a589f618ab5b2e9d4aea01bd75f0326f585085c3b1f12e266dda2e7e5d"
     sha256 cellar: :any_skip_relocation, mojave:        "2a0ad03c4c7dfd2098758be2c5b65f16107ce8c67b586a4679f9d871aaee09a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e59ac188f08b0d0bd3307b8a163ba4d27f8d33f687c57b1557139bcc7b530fc7"
   end
 
   depends_on "go" => :build

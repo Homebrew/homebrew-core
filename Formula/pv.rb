@@ -1,8 +1,8 @@
 class Pv < Formula
   desc "Monitor data's progress through a pipe"
   homepage "https://www.ivarch.com/programs/pv.shtml"
-  url "https://www.ivarch.com/programs/sources/pv-1.6.6.tar.bz2"
-  sha256 "608ef935f7a377e1439c181c4fc188d247da10d51a19ef79bcdee5043b0973f1"
+  url "https://www.ivarch.com/programs/sources/pv-1.6.20.tar.bz2"
+  sha256 "e831951eff0718fba9b1ef286128773b9d0e723e1fbfae88d5a3188814fdc603"
   license "Artistic-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Pv < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9fa320894a6ae215794b2952ea60165dcfb63bdf3dda557a1998daaf5304df6b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9a0c1c557a100dfb114c8fb3566c97f8d91c436fcc6f9f36a733f462945e4f95"
-    sha256 cellar: :any_skip_relocation, catalina:      "9bb586c4dab67989e7fa800e7c764d1d4ee153db8ad7a5ed3563270ca93a7497"
-    sha256 cellar: :any_skip_relocation, mojave:        "1877dffe8804fac2fe6f77582100e2b5ea3fbb7a305c1cfd025e251ede08c98e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c800d34963f021bdef3489cc9bc4adc2709ec1a364954d0babdbe532a28a126"
+    sha256 cellar: :any_skip_relocation, big_sur:       "99cd5022561f488b19844267da97a2e211fed36d9300661f3a4ef23c923c6178"
+    sha256 cellar: :any_skip_relocation, catalina:      "ac11cfd62d2bcd5e7191ce2fef6548269d466e50329e6b9c46887cd95ff1e9fc"
+    sha256 cellar: :any_skip_relocation, mojave:        "8dd7e214b710ac5224eb994ee0fec8e5af14f8ce67cff3c343bdeb3443fb2f30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f2992e31bcce7194a85d1a2677b8bcf3f5f3e1c6649c2c0b38197b243fc4465"
   end
 
   # Patch for macOS 11 on Apple Silicon support. Emailed to the maintainer in January 2021.
@@ -34,13 +34,13 @@ class Pv < Formula
 end
 __END__
 diff --git a/src/include/pv-internal.h b/src/include/pv-internal.h
-index 46d7496..fed25fe 100644
+index db65eaa..176fc86 100644
 --- a/src/include/pv-internal.h
 +++ b/src/include/pv-internal.h
 @@ -18,6 +18,14 @@
  #include <sys/time.h>
  #include <sys/stat.h>
- 
+
 +// Since macOS 10.6, stat64 variants are equivalent to plain stat, and the
 +// suffixed versions have been removed in macOS 11 on Apple Silicon. See stat(2).
 +#ifdef __APPLE__

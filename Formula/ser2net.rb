@@ -11,11 +11,12 @@ class Ser2net < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "61d93dbd74a72555d27f9f24e567f5c8a586e63ff348f429573d9f1246f02c63"
-    sha256 cellar: :any, big_sur:       "daff205c7e62f7a0ad6ce064b5005f80f4e8362b17a2cb3ad87676174d683ba7"
-    sha256 cellar: :any, catalina:      "3477841d573b2612fff98a0dd1fa8ac46e3d43fdc110ddfd3767f6b433b344a4"
-    sha256 cellar: :any, mojave:        "822c56bfd75eccbdcc8a447236c996ca146e5efe324eea471dbbc212611dc0be"
-    sha256 cellar: :any, high_sierra:   "b11cef34c33d9f40ac677c034ff1557444d69735f3d5c88e8eaaffd135237d7d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "1845d6644d7cd518e8b1c7f7abd4ab1d6515eb482690a062b8e17ddbc6eb7c4c"
+    sha256 cellar: :any,                 big_sur:       "03feeb3d9e3049231fccb29a8ca8bc7d79c0e4839381d1340c45cf932ddaea68"
+    sha256 cellar: :any,                 catalina:      "21a9c4c0a980b74a864c7db0782f71786e133cc2e3d62411fa9ea0f99c38e0b2"
+    sha256 cellar: :any,                 mojave:        "a2abbe3f823de5e70a863f521e63fcb079801b22d653f4bdb26a775c97fa4289"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c4726875c7f661b925b6fbd7d82eeaf89fd4b91a28ba34377860c8ebbb3f999"
   end
 
   depends_on "libyaml"
@@ -52,31 +53,10 @@ class Ser2net < Formula
     EOS
   end
 
-  plist_options manual: "ser2net -p 12345"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_sbin}/ser2net</string>
-              <string>-p</string>
-              <string>12345</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"ser2net", "-p", "12345"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

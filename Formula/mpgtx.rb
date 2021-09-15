@@ -19,6 +19,7 @@ class Mpgtx < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "70e1dfed0338fb8b8cda36ca05e05b8cd3fd456782db58408b18bbf2361f09aa"
     sha256 cellar: :any_skip_relocation, el_capitan:    "566ce06d938b4e3b7886a729d456bd3034325985acbdb5e21355b076d7acccf5"
     sha256 cellar: :any_skip_relocation, yosemite:      "dbe21236b1f2ae76dca4be4fa259c9dd902d2b109a6f0f0549cc7f6463945d06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "133e123b7b8f9956959847378b68fc0c68f1e591209bb060ab7c7d024426f343"
   end
 
   def install

@@ -14,6 +14,7 @@ class Ddate < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "61be1f5fc044574ede464807fba1e092bc165932a909a357f5cd71b0cbfd4726"
     sha256 cellar: :any_skip_relocation, el_capitan:    "fe87fe60ad1e8cbff1ebbcefd8be0f6f8ec87013a91e6385adbde0aebd45edea"
     sha256 cellar: :any_skip_relocation, yosemite:      "ad575dd84b5d2ac8395c9cd11c4ef811f28f105eb81510369bb33078164ec2e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75baa9706ec0453896edf597bc5a9c52c012ea9188555654f698794f578d9f62"
   end
 
   def install

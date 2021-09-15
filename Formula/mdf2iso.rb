@@ -18,6 +18,7 @@ class Mdf2iso < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "bc1358412281b1e486d9d1b6d25ae5665b02ac14f93f03603a966bd44ffda1d7"
     sha256 cellar: :any_skip_relocation, el_capitan:    "fbe092bfc501d4abf8b0df052e26307219ea4bb9fb4eddb20df8b7734ff7fdf5"
     sha256 cellar: :any_skip_relocation, yosemite:      "aab6c1b85c8f863016f7db7ca6b35c56cc7442a6bdf6876f7b9b8ba24b58e5a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a24e6b2c8771e9f5119bc4baa9bb8da4570df954d44782ba43e6b5c6f7e6a3a"
   end
 
   def install

@@ -11,6 +11,10 @@ class Attr < Formula
     regex(/href=.*?attr[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 x86_64_linux: "a05ee49c7e8fcf992d4cc1cf6f1a9f72a6800ddcfa11f70dbf6ab957ed847ff3"
+  end
+
   depends_on "gettext" => :build
   depends_on :linux
 

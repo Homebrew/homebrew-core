@@ -1,10 +1,10 @@
 class Pass < Formula
   desc "Password manager"
   homepage "https://www.passwordstore.org/"
-  url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.3.tar.xz"
-  sha256 "2b6c65846ebace9a15a118503dcd31b6440949a30d3b5291dfb5b1615b99a3f4"
-  license "GPL-2.0"
-  head "https://git.zx2c4.com/password-store.git"
+  url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.4.tar.xz"
+  sha256 "cfa9faf659f2ed6b38e7a7c3fb43e177d00edbacc6265e6e32215ff40e3793c0"
+  license "GPL-2.0-or-later"
+  head "https://git.zx2c4.com/password-store.git", branch: "master"
 
   livecheck do
     url :head
@@ -12,12 +12,11 @@ class Pass < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "05fce35468aa6e21cc355dcc0712d14e697e46714a3118a832c223bb8cee3365"
-    sha256 cellar: :any_skip_relocation, big_sur:       "57fb3a87752b1c26bd0bba8710787a1b522f0feeb445d02241aefce9df4f2965"
-    sha256 cellar: :any_skip_relocation, catalina:      "8130755986b8124ead30b7444bbab1f5b12b5481ddf914a310e221fdda736eb3"
-    sha256 cellar: :any_skip_relocation, mojave:        "8130755986b8124ead30b7444bbab1f5b12b5481ddf914a310e221fdda736eb3"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "8130755986b8124ead30b7444bbab1f5b12b5481ddf914a310e221fdda736eb3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dbf5e1b314720d846525cc81a51f30e7cf7319a943f2fb395fb62202eff2c95c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "80812f17b470ea37c9027851ed71a6a09a8d0be359e6770c9e836646c68ade9e"
+    sha256 cellar: :any_skip_relocation, catalina:      "80812f17b470ea37c9027851ed71a6a09a8d0be359e6770c9e836646c68ade9e"
+    sha256 cellar: :any_skip_relocation, mojave:        "80812f17b470ea37c9027851ed71a6a09a8d0be359e6770c9e836646c68ade9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59753aa6bb5027b238e43bcdf87f603c9850166b485b85b6e457ecc8f4aff25c"
   end
 
   depends_on "gnu-getopt"

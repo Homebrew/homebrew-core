@@ -5,6 +5,11 @@ class Rdate < Formula
   sha256 "6e800053eaac2b21ff4486ec42f0aca7214941c7e5fceedd593fa0be99b9227d"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?rdate[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3606f3683c8c1465c87a5c3fe427c4e067420f7de3ff4abdabb61871105e190"
@@ -15,6 +20,7 @@ class Rdate < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9f4a6300d6d3ebc9034abeb5388fd40face1f286a7b97610b6a40a1dcdf166b5"
     sha256 cellar: :any_skip_relocation, el_capitan:    "acb2ae5951a0f32cbdce39e02d86c63cdb85b41fd02aff74aac6ea4939d71d8d"
     sha256 cellar: :any_skip_relocation, yosemite:      "553782017635be9c8d80bbf6fd033f294cddcb427a2d83fe82af8c069c60867f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec0afe4b9ddec866160a04e76ce20f253c90a716c6a90c66c8185db9a32f5070"
   end
 
   def install

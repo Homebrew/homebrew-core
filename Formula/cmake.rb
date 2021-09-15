@@ -1,10 +1,10 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2.tar.gz"
-  sha256 "aecf6ecb975179eb3bb6a4a50cae192d41e92b9372b02300f9e8f1d5f559544e"
+  url "https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2.tar.gz"
+  sha256 "94275e0b61c84bb42710f5320a23c6dcb2c6ee032ae7d2a616f53f68b3d21659"
   license "BSD-3-Clause"
-  head "https://gitlab.kitware.com/cmake/cmake.git"
+  head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
   # The "latest" release on GitHub has been an unstable version before, so we
   # check the Git tags instead.
@@ -14,11 +14,11 @@ class Cmake < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ba0636abd0f4699b19f86bb0aa7ced422bf47e341f48fc7fb9363e7bd0985ad7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "dd3bad404e54c2066d947d409f72adb8b53ac9eeb58565480c194add9088aa12"
-    sha256 cellar: :any_skip_relocation, catalina:      "97703b1bf9ee5368c970eb72774b751cce23c23900c994f1fbdc3b27019115ee"
-    sha256 cellar: :any_skip_relocation, mojave:        "b3ba0a1115ea579e7b83ed54509c07cbefb0934085515726a00539ff626e1ee2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8c0a200641e3737b09d61f20850d2dfe6379533cbdefcd6c512bd8e7c1d20872"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dbece5192774308bf40ee7df06fdd4bba9ee6671e4e2e740072ec04cb9bef0c2"
+    sha256 cellar: :any_skip_relocation, catalina:      "a039c944e143dd97b05b87759d78cc491bc294336798ff4e141feec878303200"
+    sha256 cellar: :any_skip_relocation, mojave:        "878c2ea16ed5b0adefb421f62f22036179c340854a33d2b6a340c0c3f35e7932"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77dea47f34b872ebab95f095f1347e28ece1931c5d27f1295ad09e3295e5e014"
   end
 
   depends_on "sphinx-doc" => :build
@@ -27,11 +27,6 @@ class Cmake < Formula
 
   on_linux do
     depends_on "openssl@1.1"
-  end
-
-  patch do
-    url "https://github.com/Kitware/CMake/commit/fa8599e9a6297585513e9849f5ce086b81f42eb0.patch?full_index=1"
-    sha256 "d867b95fc6c9fe185f0fbd3f66fb74c09605d8896a52eafc9c9af0ffe13c3f70"
   end
 
   # The completions were removed because of problems with system bash
@@ -52,7 +47,7 @@ class Cmake < Formula
       --sphinx-html
       --sphinx-man
     ]
-    on_macos do
+    if OS.mac?
       args += %w[
         --system-zlib
         --system-bzip2
@@ -61,9 +56,14 @@ class Cmake < Formula
     end
 
     system "./bootstrap", *args, "--", *std_cmake_args,
-                                       "-DCMake_INSTALL_EMACS_DIR=#{elisp}"
+                                       "-DCMake_INSTALL_EMACS_DIR=#{elisp}",
+                                       "-DCMake_BUILD_LTO=ON"
     system "make"
     system "make", "install"
+
+    # Remove deprecated and unusable binary
+    # https://gitlab.kitware.com/cmake/cmake/-/issues/20235
+    (pkgshare/"Modules/Internal/CPack/CPack.OSXScriptLauncher.in").unlink
   end
 
   test do

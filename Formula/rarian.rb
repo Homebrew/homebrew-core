@@ -18,6 +18,7 @@ class Rarian < Formula
     sha256 sierra:        "9266addbd38ed67b7394d05702d2be69d44ccafeb8132ef75470a816614a9f8e"
     sha256 el_capitan:    "7784dc13b95c0c2f5818bc3657da52f0365bbe9c6ddf8871d81b8638cb89390c"
     sha256 yosemite:      "069ff9e17c252271d058e72f38eedb2e1196cee49598e1537c64bd45b7f356e6"
+    sha256 x86_64_linux:  "13a02a92eb31d5071c87d10e227c419a6a2506f1407f6bb6a08b7ca2581a9645"
   end
 
   conflicts_with "scrollkeeper",

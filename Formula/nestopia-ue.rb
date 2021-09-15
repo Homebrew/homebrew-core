@@ -1,27 +1,28 @@
 class NestopiaUe < Formula
   desc "NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
-  url "https://github.com/0ldsk00l/nestopia/archive/1.50.tar.gz"
-  sha256 "f0274f8b033852007c67237897c69725b811c0df8a6d0120f39c23e990662aae"
-  license "GPL-2.0"
-  head "https://github.com/0ldsk00l/nestopia.git"
+  url "https://github.com/0ldsk00l/nestopia/archive/1.51.1.tar.gz"
+  sha256 "6c2198ed5f885b160bf7e22a777a5e139a7625444ec47625cd07a36627e94b3f"
+  license "GPL-2.0-or-later"
+  head "https://github.com/0ldsk00l/nestopia.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "21dd1ec76826e208b26d981ebfafbef95d8c2f4a00330cd7556bc366e5bc7745"
-    sha256 big_sur:       "d6a31de30e416aaa7cb365b22c35555947fa4967d3f0d7b334694e63e70c08a8"
-    sha256 catalina:      "19acd9260a874dec614062d0362a5936a0d9322e9fe66f0f8426d0dec67a6dd6"
-    sha256 mojave:        "e41a57949e9ebeffd1fa72de619da0dc2bbc813adf1b83922a0151362a9b9f04"
-    sha256 high_sierra:   "dc7632deb424cbfd112350aa1ddad0d1b0715cce9ebfda0bbbd8e77640cea044"
+    sha256 arm64_big_sur: "48cc9146b538dde455e89b91882abc5cb6e0a3bb5272d546c747df16a7399379"
+    sha256 big_sur:       "c3b7a00feb7ccce40ed9edf2dc3a00aaea2c6422912a13917c481cd5389f4838"
+    sha256 catalina:      "8a08b57d2e7287b0792d3c0ae3688e563e6efd15a7069525ab62836ba8c6f924"
+    sha256 mojave:        "5fb8a05db0ae55c4d2bf0be06a88a825a0c502cdf289119c088eabe660e7eab2"
+    sha256 x86_64_linux:  "e4d3611733b865fb44f3edacf8963bb87a7ea31bc1a1f47b9d08fcd3678a7b43"
   end
 
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "libao"
+  depends_on "fltk"
   depends_on "libarchive"
-  depends_on "libepoxy"
   depends_on "sdl2"
+
+  uses_from_macos "zlib"
 
   def install
     system "autoreconf", "-fiv"

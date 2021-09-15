@@ -11,6 +11,7 @@ class Marcli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "218f3d8dac500e2af4a1f4f9a730017c9772f265879209fb76ca2808c8e9549a"
     sha256 cellar: :any_skip_relocation, catalina:      "218f3d8dac500e2af4a1f4f9a730017c9772f265879209fb76ca2808c8e9549a"
     sha256 cellar: :any_skip_relocation, mojave:        "ffea9a5b91b3ab12ffca3a7cb355ad973447e8c5f73be0331942b89ee0421f73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d3082e355aaeb672ded4fd24285bc2679d05d0f35ce314a9e02cf8240cc0240"
   end
 
   depends_on "go" => :build

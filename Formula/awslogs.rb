@@ -7,7 +7,7 @@ class Awslogs < Formula
   sha256 "1b249f87fa2adfae39b9867f3066ac00b9baf401f4783583ab28fcdea338f77e"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/jorgebastida/awslogs.git"
+  head "https://github.com/jorgebastida/awslogs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "38caa20a341705f9ef458157f2efcd340ebac1ed4a28a9f087fd362aeb10651b"
@@ -15,6 +15,7 @@ class Awslogs < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "54ac7491a722ea8c9139cb08ab8c8a157bbe90e5f634cd56c6f1def1e16f1635"
     sha256 cellar: :any_skip_relocation, mojave:        "0401664d4b96671c53d6491719942b92801805f90836f08d5fa8d0cfddf6be29"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4a58816b1c333a4592d50abb75e8dbb3779904e56389dec857d42c6166a6f1ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a8c91210a3e477fea50d9794dee0f7221f18e38797f7bddac25f6bb239b924c"
   end
 
   depends_on "python@3.9"

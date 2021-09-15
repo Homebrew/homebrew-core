@@ -11,6 +11,7 @@ class Tlx < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c27858a2595d4fe9444821160e85aa6924fcc7194e13baadd5fda0b79252b9a1"
     sha256 cellar: :any_skip_relocation, mojave:        "5038cd9dff7968390f0e4208059c02a667fb9c3308ce88f444bd57ef60bd8895"
     sha256 cellar: :any_skip_relocation, high_sierra:   "9a81855db3041742ac4e6ae96c3bc8bc9f15e0dc30436afbcbbf36bace3ef633"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "317d28d9c3979d8bff510eebf3dfadd74c8d2e5239fb04f7c03fce41b45fc4bb"
   end
 
   depends_on "cmake" => :build

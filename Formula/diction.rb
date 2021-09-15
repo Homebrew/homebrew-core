@@ -15,6 +15,7 @@ class Diction < Formula
     sha256 sierra:        "70dbde26567eb6b0093d897f9ceafb212eaf51d23028a925d39c0f53b803b5b9"
     sha256 el_capitan:    "858b8312ef527a7745a02b3bf40cd483c0212216e3342ac7eaddbfe6045893dd"
     sha256 yosemite:      "ce2b0d6b0f7184596753de94a3cbd171f5236c947f47536d3bf5be806c8ef804"
+    sha256 x86_64_linux:  "fa36156d5d431720a8bc0c8b05a1681e9231cfce822b2b012c602fa1a8e3e159"
   end
 
   def install

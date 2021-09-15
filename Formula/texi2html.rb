@@ -16,6 +16,7 @@ class Texi2html < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "10f6d76de400799fb21dc900a2344ef444d43658dd502f0c040ad7c0a4bf0fbb"
     sha256 cellar: :any_skip_relocation, mojave:        "10f6d76de400799fb21dc900a2344ef444d43658dd502f0c040ad7c0a4bf0fbb"
     sha256 cellar: :any_skip_relocation, high_sierra:   "10f6d76de400799fb21dc900a2344ef444d43658dd502f0c040ad7c0a4bf0fbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13d9124964d4e6a9c99ca57e763e34e40397871bf94b4064cddb5262bf501f47"
   end
 
   depends_on "gettext"

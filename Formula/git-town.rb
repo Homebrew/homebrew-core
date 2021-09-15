@@ -10,14 +10,17 @@ class GitTown < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "87d70a3cdbee842e1395da79b38de127234541c1bdade78a7b20148037af45d5"
     sha256 cellar: :any_skip_relocation, catalina:      "385eb3fecf752f8685c9ed0707ba0d960fe814cb486f5a6c078fdc8bcee89a07"
     sha256 cellar: :any_skip_relocation, mojave:        "279e89fd331b94bbe3f97b51d8a2015d03a72b1efef5934676d4220f69610778"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e92092182bf39195e1660c09891d127bae02041f4a999138725663393c0965d4"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags",
-           "-X github.com/git-town/git-town/src/cmd.version=v#{version} "\
-           "-X github.com/git-town/git-town/src/cmd.buildDate=#{Time.new.strftime("%Y/%m/%d")}"
+    ldflags = %W[
+      -X github.com/git-town/git-town/src/cmd.version=v#{version}
+      -X github.com/git-town/git-town/src/cmd.buildDate=#{time.strftime("%Y/%m/%d")}
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do

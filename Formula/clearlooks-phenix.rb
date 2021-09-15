@@ -5,9 +5,11 @@ class ClearlooksPhenix < Formula
   sha256 "2a9b21400f9960422e31dc4dabb4f320a16b76776a9574f0986bb00e97d357f4"
   license "GPL-3.0"
   revision 1
-  head "https://github.com/jpfleury/clearlooks-phenix.git"
+  head "https://github.com/jpfleury/clearlooks-phenix.git", branch: "master"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "0b785c8577696a7fdaa9d1c8f1130e7653972d7b1a497d0ae37ebbf1cb79cf30"
+  end
 
   depends_on "gtk+3"
 

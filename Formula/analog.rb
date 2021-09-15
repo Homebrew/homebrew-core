@@ -16,6 +16,7 @@ class Analog < Formula
     sha256 sierra:        "cb8cb25d3050dc3a08445987739c43b5fd7dad7a798342fb7538c016930a9978"
     sha256 el_capitan:    "097f11e7f53078e6b248e38fc326cded49b08cdbe75ab61e20ab7b2a6e770256"
     sha256 yosemite:      "f2f29ea2dcbb9e0576c72f009d8814b0c7f84efd49d6f005085c876c85fd29b9"
+    sha256 x86_64_linux:  "b1a70d6f217d54e77750a4cc79076b875d4ee8b864385a88eca04abbd4e15304"
   end
 
   depends_on "gd"
@@ -25,17 +26,16 @@ class Analog < Formula
   uses_from_macos "zlib"
 
   def install
-    args = %W[
-      CC=#{ENV.cc}
-      CFLAGS=#{ENV.cflags}
-      DEFS='-DLANGDIR="#{pkgshare}/lang/"'\ -DHAVE_ZLIB
-      LIBS=-lz\ -lm
+    args = [
+      "CC=#{ENV.cc}",
+      "CFLAGS=#{ENV.cflags}",
+      %Q(DEFS='-DLANGDIR="#{pkgshare}/lang/"' -DHAVE_ZLIB),
+      "LIBS=-lz -lm",
     ]
-    on_macos do
-      args << "OS=OSX"
-    end
-    on_linux do
-      args << "OS=UNIX"
+    args << if OS.mac?
+      "OS=OSX"
+    else
+      "OS=UNIX"
     end
     system "make", *args
 

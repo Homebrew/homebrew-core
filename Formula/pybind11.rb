@@ -1,15 +1,12 @@
 class Pybind11 < Formula
   desc "Seamless operability between C++11 and Python"
   homepage "https://github.com/pybind/pybind11"
-  url "https://github.com/pybind/pybind11/archive/v2.6.2.tar.gz"
-  sha256 "8ff2fff22df038f5cd02cea8af56622bc67f5b64534f1b83b9f133b8366acff2"
+  url "https://github.com/pybind/pybind11/archive/v2.7.1.tar.gz"
+  sha256 "616d1c42e4cf14fa27b2a4ff759d7d7b33006fdc5ad8fd603bb2c22622f27020"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "14da8f7bb353d43750a0a8d52186b8a244756fcd1d0c69375f75bb65d549c01a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6814212a1bfcd1dfcdfb1948844a779383af7d234f9abf4d0ee612881851258d"
-    sha256 cellar: :any_skip_relocation, catalina:      "af19160070703e3b77ba619488c0681e526c5ba0cbc09dc29fb76f64dc8ca516"
-    sha256 cellar: :any_skip_relocation, mojave:        "791c62f8620b29aba3210d3b8764f0edf85f89a7b886737e05ce6d9e94f452ed"
+    sha256 cellar: :any_skip_relocation, all: "d9c44c2b8b6a47806ba3a6cd8d338434cecb7c634faf88cc84e0c390e4fe85be"
   end
 
   depends_on "cmake" => :build
@@ -58,7 +55,7 @@ class Pybind11 < Formula
     site_packages = "lib/python#{version}/site-packages"
 
     python_flags = `#{Formula["python@3.9"].opt_bin}/python3-config --cflags --ldflags --embed`.split
-    system ENV.cxx, "-O3", "-shared", "-std=c++11", *python_flags, "example.cpp", "-o", "example.so"
+    system ENV.cxx, "-shared", "-fPIC", "-O3", "-std=c++11", "example.cpp", "-o", "example.so", *python_flags
     system Formula["python@3.9"].opt_bin/"python3", "example.py"
 
     test_module = shell_output("#{Formula["python@3.9"].opt_bin/"python3"} -m pybind11 --includes")

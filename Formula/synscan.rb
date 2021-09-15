@@ -6,12 +6,18 @@ class Synscan < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?synscan[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "86677760d68a0a9efc11560003b4291ff8510b55a03f76a06916c989ec1aa428"
-    sha256 cellar: :any, big_sur:       "df49f836a6552dfba8d127e53d4a87cf50030c63ab906dd1f5c40f549d32bf86"
-    sha256 cellar: :any, catalina:      "0e99e8f964f270377bd7dc6c0ecfae64682f3b2831776d7723f200c159623ac6"
-    sha256 cellar: :any, mojave:        "aba139d4f46b1248a796f26dccb6399fd6f6eadd94b7777f5218d3a0599f0bad"
-    sha256 cellar: :any, high_sierra:   "4364e517dd2b231cd711be4ccebdfe802e1ef6f7cacfaff46e987790c90c21f8"
+    sha256 cellar: :any,                 arm64_big_sur: "86677760d68a0a9efc11560003b4291ff8510b55a03f76a06916c989ec1aa428"
+    sha256 cellar: :any,                 big_sur:       "df49f836a6552dfba8d127e53d4a87cf50030c63ab906dd1f5c40f549d32bf86"
+    sha256 cellar: :any,                 catalina:      "0e99e8f964f270377bd7dc6c0ecfae64682f3b2831776d7723f200c159623ac6"
+    sha256 cellar: :any,                 mojave:        "aba139d4f46b1248a796f26dccb6399fd6f6eadd94b7777f5218d3a0599f0bad"
+    sha256 cellar: :any,                 high_sierra:   "4364e517dd2b231cd711be4ccebdfe802e1ef6f7cacfaff46e987790c90c21f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f3f43c87b2ace513582f4ac1b91374ca102a2ab8d0cbcad314d71cafb3f0c62"
   end
 
   depends_on "libpcap"
@@ -23,10 +29,9 @@ class Synscan < Formula
     ENV.append "LIBS", "-L#{Formula["libpcap"].opt_lib} -lpcap"
     system "./configure", "--prefix=#{prefix}",
                           "--with-libpcap=yes"
-    on_macos do
+    if OS.mac?
       system "make", "macos"
-    end
-    on_linux do
+    else
       system "make", "linux"
     end
     system "make", "install"

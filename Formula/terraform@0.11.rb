@@ -10,6 +10,7 @@ class TerraformAT011 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "66f418d06a3fe1d3ad02e6d77815992940fd712f1d8f6e9dcbefd82fec49b75a"
     sha256 cellar: :any_skip_relocation, catalina:      "af2485736328e4ef93a6fbf79d7e6dd4e1c9a01597abd22ee20218d1fe4cc762"
     sha256 cellar: :any_skip_relocation, mojave:        "1b3e7e7126b9410185ed5eae937bb0f814f8eb062d9c09d7e72d91b96d51b228"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67b1bce3e6f2f4a90c9f5416aa065e225805b161f4f32f392f7c71bd9cbb0f40"
   end
 
   keg_only :versioned_formula
@@ -18,6 +19,10 @@ class TerraformAT011 < Formula
 
   depends_on "go" => :build
   depends_on "gox" => :build
+
+  on_linux do
+    depends_on "zip" => :build
+  end
 
   def install
     ENV["GOPATH"] = buildpath
@@ -31,16 +36,17 @@ class TerraformAT011 < Formula
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      os = "darwin"
-      on_linux do
-        os = "linux"
+      os = if OS.mac?
+        "darwin"
+      else
+        "linux"
       end
       ENV["XC_OS"] = os
       ENV["XC_ARCH"] = "amd64"
       system "go", "mod", "vendor" # Needed for Go 1.14+
       system "make", "tools", "bin"
 
-      bin.install "pkg/darwin_amd64/terraform"
+      bin.install "pkg/#{os}_amd64/terraform"
       prefix.install_metafiles
     end
   end

@@ -2,9 +2,8 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.38.0",
-      revision: "54dc182082db941aa67c7c3f93ad858c99a16d7d",
-      shallow:  false
+      tag:      "v1.39.1",
+      revision: "2d6b8f61cfdd1c4d2d7c1aae65a4fbf00e3e0981"
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git"
 
@@ -14,10 +13,11 @@ class Grpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2d92a0d2b43ed5dbff6c023a80d22c275b2c55c504f1e0a6bde4d74df5d419cd"
-    sha256 cellar: :any, big_sur:       "4a8540c5de4d11a439c86d203e5e070d6ff5341a3c9656ac33f661489fe68e0e"
-    sha256 cellar: :any, catalina:      "8bd2c0a031f4f3f401b64baec713b1733f03418d691f408500daff5a86dcd924"
-    sha256 cellar: :any, mojave:        "3763b63015a4cac21d76335d73eaf3a046678c3f1122c4bf6588e9bab7285fce"
+    sha256 cellar: :any,                 arm64_big_sur: "fb85b55af2a6d56c790cd776ca2ddb5053422f97eec2cb0973f1eaec3eb2ce55"
+    sha256 cellar: :any,                 big_sur:       "e75d097487de766329a3b867e98bc2715c1887147e80517285f2e2a68526c09f"
+    sha256 cellar: :any,                 catalina:      "bb1674f7190928d0c4557367ea9ae93ce54f06ced9dbf6686de62832919e9186"
+    sha256 cellar: :any,                 mojave:        "9bbf5282420979603cb7902b043a2e905296f03d6b29985b953f0849ffc080fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8218c936d63155eb7c2240fc312db60d7ba2fd13cb30ac3d747cce9b6804b507"
   end
 
   depends_on "autoconf" => :build
@@ -44,9 +44,7 @@ class Grpc < Formula
 
   def install
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
     mkdir "cmake/build" do
       args = %W[
         ../..
@@ -78,7 +76,7 @@ class Grpc < Formula
       bin.install "grpc_cli"
       lib.install Dir[shared_library("libgrpc++_test_config", "*")]
 
-      on_macos do
+      if OS.mac?
         # These are installed manually, so need to be relocated manually as well
         MachO::Tools.add_rpath(bin/"grpc_cli", rpath)
         MachO::Tools.add_rpath(lib/shared_library("libgrpc++_test_config"), rpath)

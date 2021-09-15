@@ -3,7 +3,7 @@ class Xpdf < Formula
   homepage "https://www.xpdfreader.com/"
   url "https://dl.xpdfreader.com/xpdf-4.03.tar.gz"
   sha256 "0fe4274374c330feaadcebb7bd7700cb91203e153b26aa95952f02bf130be846"
-  license "GPL-2.0"
+  license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
   revision 1
 
   livecheck do

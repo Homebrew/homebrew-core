@@ -10,7 +10,9 @@ class Gpcslots2 < Formula
     regex(%r{url=.*?/gpcslots2[._-]v?(\d+(?:[._-]\d+)+[a-z]?)}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "4eb93c0df897b9c27e4df6c4238c2a70e6a983a7081a124f2bf59a575b2afddc"
+  end
 
   def install
     bin.install "gpcslots2_0-4-5b" => "gpcslots2"

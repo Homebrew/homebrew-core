@@ -7,12 +7,12 @@ class H2o < Formula
   revision 1
 
   bottle do
-    sha256 arm64_big_sur: "68375aeb216194e9731a44b1d794279e98c29f6280d4595e3ed0e5f2f40bdad0"
-    sha256 big_sur:       "00497d41695d9abaec982136824eb52b31aafc0727005f172ccf7510c41f0e65"
-    sha256 catalina:      "2a76dbab7292c0244c32e6a350f0c39dfb4d9b066de8510f2d8f3a9905c05f54"
-    sha256 mojave:        "4f8f5c326d24dcfc95faf48849ae89721f1e19a407968cfa67efbc99dba33f76"
-    sha256 high_sierra:   "80eac6a05ba27ce57142ad1a9211495fa3b044433623438b6319109e2852eb55"
-    sha256 sierra:        "049e412820e6495cfb0906101cb00cea928543583cfc1b6986e0a52d1d215d0c"
+    rebuild 1
+    sha256 arm64_big_sur: "235585aa8d60bdf07e3589282ae5704a7b417312e701a8774a12fbf407642aa1"
+    sha256 big_sur:       "44af35463fd8c70fa3cd4014dd8ec92c93e33b96a3dde07aa5e8c532f4ba15d3"
+    sha256 catalina:      "c3a59a760f51a19c8a6e946a49d7f689b81bef8f80d9157c9be5af628b6b2a1a"
+    sha256 mojave:        "7aa27f5811da60d7c51e4124ed8f54f102496c5e29585007fb2fe9cfee646bbe"
+    sha256 x86_64_linux:  "b33805c89af5cff42fd08df6fcd263a63721cbc04daf115e879fb0dc680aaa4f"
   end
 
   depends_on "cmake" => :build
@@ -59,29 +59,9 @@ class H2o < Formula
     EOS
   end
 
-  plist_options manual: "h2o"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/h2o</string>
-              <string>-c</string>
-              <string>#{etc}/h2o/h2o.conf</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"h2o", "-c", etc/"h2o/h2o.conf"]
+    keep_alive true
   end
 
   test do

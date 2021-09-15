@@ -7,13 +7,14 @@ class Libucl < Formula
 
   bottle do
     rebuild 3
-    sha256 cellar: :any, arm64_big_sur: "55fcc8229b3dece974f8dad4e4c27ff4777817d0a19fa8399c822b4c869d05c2"
-    sha256 cellar: :any, big_sur:       "bc12495d53c1480a146b64d6f4312fdbfe10b5e7c7dc5d465255aab13b0b510e"
-    sha256 cellar: :any, catalina:      "8ff53b6da5423f7b6e11b6173b4b720d3563b1a24243ea4f977cf269d67aeb4c"
-    sha256 cellar: :any, mojave:        "1ffddb657d95f504ba3b7331f5dbbd995c5d237cda3f736e99182a16a8e8181d"
-    sha256 cellar: :any, high_sierra:   "dd5dbb4eb7e3d37816acc4f3bc2842c8e91caeb4a6f058eed75cab9d72192315"
-    sha256 cellar: :any, sierra:        "5c477e0feb163dc955e89eabf97cae445fefc9c920fe46073c85af348535d7cd"
-    sha256 cellar: :any, el_capitan:    "93e7d66507c386c9fe720b5f4c77d3b719574b7c311319cddc09bcbda659bce7"
+    sha256 cellar: :any,                 arm64_big_sur: "55fcc8229b3dece974f8dad4e4c27ff4777817d0a19fa8399c822b4c869d05c2"
+    sha256 cellar: :any,                 big_sur:       "bc12495d53c1480a146b64d6f4312fdbfe10b5e7c7dc5d465255aab13b0b510e"
+    sha256 cellar: :any,                 catalina:      "8ff53b6da5423f7b6e11b6173b4b720d3563b1a24243ea4f977cf269d67aeb4c"
+    sha256 cellar: :any,                 mojave:        "1ffddb657d95f504ba3b7331f5dbbd995c5d237cda3f736e99182a16a8e8181d"
+    sha256 cellar: :any,                 high_sierra:   "dd5dbb4eb7e3d37816acc4f3bc2842c8e91caeb4a6f058eed75cab9d72192315"
+    sha256 cellar: :any,                 sierra:        "5c477e0feb163dc955e89eabf97cae445fefc9c920fe46073c85af348535d7cd"
+    sha256 cellar: :any,                 el_capitan:    "93e7d66507c386c9fe720b5f4c77d3b719574b7c311319cddc09bcbda659bce7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a6e2d1c37ece770a3fc50ee265d293175c5cc16370187a9356fa3dc92246b01"
   end
 
   depends_on "autoconf" => :build

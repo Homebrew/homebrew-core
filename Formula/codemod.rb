@@ -8,7 +8,7 @@ class Codemod < Formula
   license "Apache-2.0"
   revision 4
   version_scheme 1
-  head "https://github.com/facebook/codemod.git"
+  head "https://github.com/facebook/codemod.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cd163a10ae30dfc11ed64e45e746472360361c084339fb3c426fd97734cbf1c3"
@@ -16,7 +16,10 @@ class Codemod < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e0a2e42e92636a4b0ccb54fdfa45ca5e73870315357d57c5c673d7710e3ffb7a"
     sha256 cellar: :any_skip_relocation, mojave:        "07b7c3807d776ca2991a321f32846a9613d0af356f69482f2653a5c30b7304df"
     sha256 cellar: :any_skip_relocation, high_sierra:   "b7b6b35729c1e0e990f4dc2d09c197d6c07cd8fbdacaa3d81decfe16e8856cb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "203b7766cc8f2d804a1e4972bb20b96f61b0fe62509f533dbe0d460e013861a2"
   end
+
+  deprecate! date: "2021-07-13", because: :repo_archived
 
   depends_on "python@3.9"
 

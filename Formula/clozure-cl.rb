@@ -1,10 +1,10 @@
 class ClozureCl < Formula
   desc "Common Lisp implementation with a long history"
   homepage "https://ccl.clozure.com"
-  url "https://github.com/Clozure/ccl/archive/v1.12.tar.gz"
-  sha256 "774a06b4fb6dc4b51dfb26da8e1cc809c605e7706c12180805d1be6f2885bd52"
+  url "https://github.com/Clozure/ccl/archive/v1.12.1.tar.gz"
+  sha256 "bd005fdb24cee2f7b20077cbca5e9174c10a82d98013df5cc3eabc7f31ccd933"
   license "Apache-2.0"
-  head "https://github.com/Clozure/ccl.git"
+  head "https://github.com/Clozure/ccl.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,23 +12,13 @@ class ClozureCl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:  "8d92feb08987fc74fb3a105f94ec0e8664b587a31fa7077b95d1f3d5c86f6a7d"
-    sha256 cellar: :any_skip_relocation, catalina: "c3fbe11dec5f77264369a8b95a774599e5247771f4df475faeed1e589cf1033d"
+    sha256 cellar: :any_skip_relocation, big_sur:      "2e8a3a3d80b28ab52584b2b6314f4739e7b2747d4efb1fead8b66e18045826c8"
+    sha256 cellar: :any_skip_relocation, catalina:     "1a61c4c36d12ea0707ddffb61456a65a7b585e009f900daafa9745b292384fd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9d7ccfcd028e68959e5d105ef9f942febdd44ba2f47f18c93b259cae0a8c8806"
   end
 
   depends_on xcode: :build
   depends_on macos: :catalina # The GNU assembler frontend which ships macOS 10.14 is incompatible with clozure-ccl: https://github.com/Clozure/ccl/issues/271
-
-  # Patch to build heap image with linker shipped with Big Sur.  Remove for next version.
-  on_macos do
-    if MacOS.version >= :catalina
-      patch do
-        url "https://github.com/Clozure/ccl/commit/553c0f25f38b2b0d5922ca7b4f62f09eb85ace1c.patch?full_index=1"
-        sha256 "deb9e35df75d82c1694fec569a246388485fb64ab7bae3addff6ff3650160b04"
-      end
-    end
-  end
 
   on_linux do
     depends_on "m4"
@@ -36,13 +26,13 @@ class ClozureCl < Formula
 
   resource "bootstrap" do
     on_macos do
-      url "https://github.com/Clozure/ccl/releases/download/v1.12/darwinx86.tar.gz"
-      sha256 "9434fb5ebc01fc923625ad56726fdd217009e2d3c107cfa3c5435cb7692ba7ca"
+      url "https://github.com/Clozure/ccl/releases/download/v1.12.1/darwinx86.tar.gz"
+      sha256 "92c5776ba1ba8548361669b50ae1655d7f127ff01d6e2107d8dccb97f2a585cd"
     end
 
     on_linux do
-      url "https://github.com/Clozure/ccl/releases/download/v1.12/linuxx86.tar.gz"
-      sha256 "7fbdb04fb1b19f0307c517aa5ee329cb4a21ecc0a43afd1b77531e4594638796"
+      url "https://github.com/Clozure/ccl/releases/download/v1.12.1/linuxx86.tar.gz"
+      sha256 "ec98d881abc3826b7fd5ec811f01f9bb77e4491ac4eb7f1cea5e3b26d5098052"
     end
   end
 
@@ -50,15 +40,13 @@ class ClozureCl < Formula
     tmpdir = Pathname.new(Dir.mktmpdir)
     tmpdir.install resource("bootstrap")
 
-    on_macos do
+    if OS.mac?
       buildpath.install tmpdir/"dx86cl64.image"
       buildpath.install tmpdir/"darwin-x86-headers64"
       cd "lisp-kernel/darwinx8664" do
         system "make"
       end
-    end
-
-    on_linux do
+    else
       buildpath.install tmpdir/"lx86cl64"
       buildpath.install tmpdir/"lx86cl64.image"
       buildpath.install tmpdir/"x86-headers64"
@@ -66,16 +54,14 @@ class ClozureCl < Formula
 
     ENV["CCL_DEFAULT_DIRECTORY"] = buildpath
 
-    on_macos do
+    if OS.mac?
       system "./dx86cl64", "-n", "-l", "lib/x8664env.lisp",
             "-e", "(ccl:xload-level-0)",
             "-e", "(ccl:compile-ccl)",
             "-e", "(quit)"
       (buildpath/"image").write('(ccl:save-application "dx86cl64.image")\n(quit)\n')
       system "cat image | ./dx86cl64 -n --image-name x86-boot64.image"
-    end
-
-    on_linux do
+    else
       system "./lx86cl64", "-n", "-l", "lib/x8664env.lisp",
             "-e", "(ccl:rebuild-ccl :full t)",
             "-e", "(quit)"

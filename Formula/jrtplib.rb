@@ -9,11 +9,12 @@ class Jrtplib < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b00a6b5d09b1eb5d8e6a72e548cff53f2834b4b07d235f3cb4ee346b9d4a0dbc"
-    sha256 cellar: :any, big_sur:       "c025524ef889d74cc261768b9e12f8d3ffe57802adef254e2a01850db983e269"
-    sha256 cellar: :any, catalina:      "05fc5e0747f7d5f725f9dda22cf39d414e8ee751829d14e9c32fa12279834cfc"
-    sha256 cellar: :any, mojave:        "1b48b36e9011b4aa675f1d581e900c64bcad93ba15fc86d1e27db09ed2c75ce9"
-    sha256 cellar: :any, high_sierra:   "420016bd3f9981189dc8bf69dc7520da8d9cbde848147dde495792c1a5a984fa"
+    sha256 cellar: :any,                 arm64_big_sur: "b00a6b5d09b1eb5d8e6a72e548cff53f2834b4b07d235f3cb4ee346b9d4a0dbc"
+    sha256 cellar: :any,                 big_sur:       "c025524ef889d74cc261768b9e12f8d3ffe57802adef254e2a01850db983e269"
+    sha256 cellar: :any,                 catalina:      "05fc5e0747f7d5f725f9dda22cf39d414e8ee751829d14e9c32fa12279834cfc"
+    sha256 cellar: :any,                 mojave:        "1b48b36e9011b4aa675f1d581e900c64bcad93ba15fc86d1e27db09ed2c75ce9"
+    sha256 cellar: :any,                 high_sierra:   "420016bd3f9981189dc8bf69dc7520da8d9cbde848147dde495792c1a5a984fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c3a63a9f2e44c207522cb93a0bd93e429ed65937d74ea2b5d7a4110e46d9284"
   end
 
   depends_on "cmake" => :build

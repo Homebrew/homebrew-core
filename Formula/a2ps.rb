@@ -12,6 +12,7 @@ class A2ps < Formula
     sha256 big_sur:       "e87da2b47386fc7e3c6f20b3ff90c4bbe37b9e0aaa884440ffa216492dbc150b"
     sha256 catalina:      "82e64b2008971430d160a3f564e32593e98fb55c43d7748c7deb9d6f546e1102"
     sha256 mojave:        "8ca49b4797277f79e87e48ab4c6794601b64d1dde35b9eac556d4153b8237a51"
+    sha256 x86_64_linux:  "063b4b31a62c4d5bd905bc4faab09ac2a50c77291de52ab216fc6a7a56f8e406"
   end
 
   uses_from_macos "gperf"

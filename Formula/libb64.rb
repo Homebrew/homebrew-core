@@ -10,6 +10,7 @@ class Libb64 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "155001ff9b7e697215db86e40e861308d601c7077c6ec10ef99acf007558415c"
     sha256 cellar: :any_skip_relocation, catalina:      "f2bdf6ee59f94515b24aaf0a2feb4fdce2b93910b9a802973434d2c7e769bc42"
     sha256 cellar: :any_skip_relocation, mojave:        "6b4f2d282b1ed8e03c4f86a937bcdbf3c8f79679a88568462133440f06d349e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9686789b247dceb95c23ebaa41b61f2d87970e50bec70c99b413ebadd8772d1a"
   end
 
   def install

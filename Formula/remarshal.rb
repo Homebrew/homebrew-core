@@ -6,53 +6,54 @@ class Remarshal < Formula
   url "https://files.pythonhosted.org/packages/24/37/1f167687b2d9f3bac3e7e73508f86c7e6c1bf26a37ca5443182c8f596625/remarshal-0.14.0.tar.gz"
   sha256 "16425aa1575a271dd3705d812b06276eeedc3ac557e7fd28e06822ad14cd0667"
   license "MIT"
-  revision 1
-  head "https://github.com/dbohdan/remarshal.git"
+  revision 2
+  head "https://github.com/dbohdan/remarshal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b0c1b75665dca786bde756d4af9c520a8663cc940a9c7b10a105d447e14ec2c2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8521482cf34a60440f479a03265a6e7d8620ccf100496a6720f92eed4af11145"
-    sha256 cellar: :any_skip_relocation, catalina:      "204004c532be6254a8366067b285e5d900c0cb6961ad47e589d03f7cbd4eed55"
-    sha256 cellar: :any_skip_relocation, mojave:        "608a1f16ab92f54dc4fd3479633b86e62de3bf51df2f8f7b111f9312141576df"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "1a671dcd4a208faf7e12bc97154d6f67137b2463d2f4d17ed1841785c4cf41c6"
+    sha256 cellar: :any,                 arm64_big_sur: "5dbc82f8251611f4d764d4207a222e1c577004f8be4b068edac392a822e275e0"
+    sha256 cellar: :any,                 big_sur:       "e80acb98ffa9b1810221849012cbb256fb576c2eaa7751a15d837f51b3e753a1"
+    sha256 cellar: :any,                 catalina:      "c565d849e47622eb7a95f5a4dbbc560aeb706c4ebef9f916096137d316a544ed"
+    sha256 cellar: :any,                 mojave:        "0eeefb705f7d7c83e76004df5c907b643b4ee296c24ee383c39e75490762523f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2abab456e063ee532c1ae5a4634a93a8d2309b4b746ba1666efe25bc91ce0bf"
   end
 
+  depends_on "poetry" => :build
+  depends_on "libyaml" # for faster PyYAML
   depends_on "python@3.9"
+  depends_on "six"
 
   conflicts_with "msgpack-tools", because: "both install 'json2msgpack' binary"
 
   resource "cbor2" do
-    url "https://files.pythonhosted.org/packages/02/15/f4d7fb47753099fcd9d7f7c81920d422a3ab2e710400ec0f4a1b511b51ae/cbor2-5.2.0.tar.gz"
-    sha256 "a33aa2e5534fd74401ac95686886e655e3b2ce6383b3f958199b6e70a87c94bf"
+    url "https://files.pythonhosted.org/packages/9e/25/9dd432c051010faea6a702cb85d0b53dc9d5414513866b6a73b3ac954092/cbor2-5.4.1.tar.gz"
+    sha256 "a8bf432f6cb595f50aeb8fed2a4aa3b3f7caa7f135fb57e4378eaa39242feac9"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
-    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/64/e0/6c8c96024d118cb029a97752e9a6d70bd06e4fd4c8b00fd9446ad6178f1d/tomlkit-0.7.0.tar.gz"
-    sha256 "ac57f29693fab3e309ea789252fcce3061e19110085aa31af5446ca749325618"
+    url "https://files.pythonhosted.org/packages/65/ed/7b7216101bc48627b630693b03392f33827901b81d4e1360a76515e3abc4/tomlkit-0.7.2.tar.gz"
+    sha256 "d7a454f319a7e9bd2e249f239168729327e4dd2d27b17dc68be264ad1ce36754"
   end
 
   resource "u-msgpack-python" do
-    url "https://files.pythonhosted.org/packages/c5/2e/af1a0964bf3cb31559852ba0e82944bf3bdb70630480d49f262e5bf6e264/u-msgpack-python-2.7.0.tar.gz"
-    sha256 "996e4c4454771f0ff0fd2a7566b1a159d305d3611cd755addf444e3533e2bc54"
+    url "https://files.pythonhosted.org/packages/62/94/a4f485b628310534d377b3e7cb6f85b8066dc823dbff0e4421fb4227fb7e/u-msgpack-python-2.7.1.tar.gz"
+    sha256 "b7e7d433cab77171a4c752875d91836f3040306bab5063fb6dbe11f64ea69551"
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources
+    system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
+    venv.pip_install_and_link Dir["dist/remarshal-*.whl"].first
 
     %w[toml yaml json msgpack].permutation(2).each do |informat, outformat|
       bin.install_symlink "remarshal" => "#{informat}2#{outformat}"

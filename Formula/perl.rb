@@ -16,6 +16,7 @@ class Perl < Formula
     sha256 big_sur:       "5f86afbccd065524f92080bd7f35ffe6398b7dd40a8fef6f0a2a7982fd276dae"
     sha256 catalina:      "de0127c56612bbadc3621217b586571cab897c001344b7a1d63302a4f8f74a8e"
     sha256 mojave:        "2222c3f09bdcd10640720d2f52ba71e09408ead129bc77853b2fdf88fc381061"
+    sha256 x86_64_linux:  "cfd7c32f4076b6d9fbfb894bb6dc30cb14305a13e9b0fee93cd9b1ec2a768c92"
   end
 
   depends_on "berkeley-db"
@@ -41,9 +42,7 @@ class Perl < Formula
       -Duselargefiles
       -Dusethreads
     ]
-    on_macos do
-      args << "-Dsed=/usr/bin/sed"
-    end
+    args << "-Dsed=/usr/bin/sed" if OS.mac?
 
     args << "-Dusedevel" if build.head?
 
@@ -55,7 +54,7 @@ class Perl < Formula
   end
 
   def post_install
-    on_linux do
+    if OS.linux?
       perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
       perl_core = Pathname.new(perl_archlib)/"CORE"
       if File.readlines("#{perl_core}/perl.h").grep(/include <xlocale.h>/).any? &&

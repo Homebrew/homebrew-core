@@ -10,6 +10,7 @@ class YqAT3 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f4b71750b38057dd5d5df339859fb76a945c916b666c221098b95c1dda2508c5"
     sha256 cellar: :any_skip_relocation, catalina:      "2009fa7cc5c8aaa95856a401cea51c60ba2b21b49cc5d4227aab8f290a27e760"
     sha256 cellar: :any_skip_relocation, mojave:        "4180e832dac7686fc6e0db67ebde2aa4c28dc42934795fed810e657853b47ab2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b984fa4e2b4aee1bdec7d7ed60ed89e2ed3b2afdaffac772a696b1f857fae6a"
   end
 
   keg_only :versioned_formula

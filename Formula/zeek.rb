@@ -2,17 +2,17 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      tag:      "v4.0.1",
-      revision: "54e03d7f0e06e40f3064107debf64769a6bd5216"
+      tag:      "v4.1.0",
+      revision: "73783cc8a62017835208b54753dd69ea5667ef2f"
   license "BSD-3-Clause"
-  revision 1
-  head "https://github.com/zeek/zeek.git"
+  head "https://github.com/zeek/zeek.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "5b712a190869ada5453212866807ec6a1b5a0c91c19c213ac7a24a6bec5e6033"
-    sha256 big_sur:       "705edae6b7613c46b0df237c42a6c0cb464b6576c2509a15c57014657bc9801b"
-    sha256 catalina:      "9e734d3833b090eae430a100d499e17f2450e5df714940c95e7fcb0ff04423d3"
-    sha256 mojave:        "2adf7c742f4f98b8187f746eba1d3af6a97b64ac568fb8467234be7d2e17bff5"
+    sha256 arm64_big_sur: "7e26e7bef14bbfb5a198f618b53c9985c2f3f9059fd367238bc69f5dabf8e880"
+    sha256 big_sur:       "f495915276550ecc000d756466c923f9b59714e71b2ba27eed56c6918985f558"
+    sha256 catalina:      "964022f5acec17e81d4ccac974a01bb07c5623af24046a15a11fcb696b6d9bbc"
+    sha256 mojave:        "0d21a26a3785f6d3b34cefbf57273251a442d2ad2c53a1d0672ffdbe0d39404a"
+    sha256 x86_64_linux:  "2744c426f2b90b03919aa1b112ec19bcf0d30ebfe32f2ac1a813bc5af19db455"
   end
 
   depends_on "bison" => :build
@@ -29,12 +29,18 @@ class Zeek < Formula
   uses_from_macos "libpcap"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc" # For C++17
+  end
+
+  fails_with gcc: "5"
+
   def install
     # Remove SDK paths from zeek-config. This breaks usage with other SDKs.
     # https://github.com/corelight/zeek-community-id/issues/15
     inreplace "zeek-config.in" do |s|
-      s.gsub! ":@ZEEK_CONFIG_PCAP_INCLUDE_DIR@", ""
-      s.gsub! ":@ZEEK_CONFIG_ZLIB_INCLUDE_DIR@", ""
+      s.gsub! "@ZEEK_CONFIG_PCAP_INCLUDE_DIR@", ""
+      s.gsub! "@ZEEK_CONFIG_ZLIB_INCLUDE_DIR@", ""
     end
 
     mkdir "build" do

@@ -11,14 +11,15 @@ class Librevenge < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "12c1a58e87956b8c15090873bb46f21b6124e8728ba897f2442fc4b2167bea4f"
-    sha256 cellar: :any, big_sur:       "dcd836b2e1e671b9f072e0ea4ef910b3e84f91ce5c77b36d06a405f797fe6207"
-    sha256 cellar: :any, catalina:      "42b53d00d39a37a0173cf227f8a72915b8ae15c90d527ed87344800f63ba865b"
-    sha256 cellar: :any, mojave:        "8621d9448ed04170c2990e1e002822a5d609310a968701684cb17204f4db643c"
-    sha256 cellar: :any, high_sierra:   "807378d354736300cb44c4e5105b0fc0bff09a4fe14fcb3a0cae40c7bf167fee"
-    sha256 cellar: :any, sierra:        "2f8a2a371c35b578d181d1ce8d45084a2f699bbed95cabd10f5cd75977249542"
-    sha256 cellar: :any, el_capitan:    "827a37488cc92f16ba8f4d7343e7944c7faed4b8cf9d930f49d93e4104784c94"
-    sha256 cellar: :any, yosemite:      "a95c4fc2b7832e226d21a209811a2f149b8fde4962d07d354e3a6cb80b7f0a01"
+    sha256 cellar: :any,                 arm64_big_sur: "12c1a58e87956b8c15090873bb46f21b6124e8728ba897f2442fc4b2167bea4f"
+    sha256 cellar: :any,                 big_sur:       "dcd836b2e1e671b9f072e0ea4ef910b3e84f91ce5c77b36d06a405f797fe6207"
+    sha256 cellar: :any,                 catalina:      "42b53d00d39a37a0173cf227f8a72915b8ae15c90d527ed87344800f63ba865b"
+    sha256 cellar: :any,                 mojave:        "8621d9448ed04170c2990e1e002822a5d609310a968701684cb17204f4db643c"
+    sha256 cellar: :any,                 high_sierra:   "807378d354736300cb44c4e5105b0fc0bff09a4fe14fcb3a0cae40c7bf167fee"
+    sha256 cellar: :any,                 sierra:        "2f8a2a371c35b578d181d1ce8d45084a2f699bbed95cabd10f5cd75977249542"
+    sha256 cellar: :any,                 el_capitan:    "827a37488cc92f16ba8f4d7343e7944c7faed4b8cf9d930f49d93e4104784c94"
+    sha256 cellar: :any,                 yosemite:      "a95c4fc2b7832e226d21a209811a2f149b8fde4962d07d354e3a6cb80b7f0a01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "465e18ffccb273c5d2b3ab0922f2b6bfae6122c915e1ad8c0c85cb59289c0634"
   end
 
   depends_on "pkg-config" => :build

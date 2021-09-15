@@ -5,6 +5,11 @@ class Opencsg < Formula
   sha256 "d952ec5d3a2e46a30019c210963fcddff66813efc9c29603b72f9553adff4afb"
   revision 3
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?OpenCSG[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c06e0c8e9ceee5ad621e6f650a289f34f30428bce43f6a9efb95621fc7afdafb"
     sha256 cellar: :any, big_sur:       "f7e6296d4466eea7c516fdca9e382d30fad4194b73969a1158d3d399b59c9381"

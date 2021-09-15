@@ -4,14 +4,14 @@ class Libbi < Formula
   url "https://github.com/lawmurray/LibBi/archive/1.4.5.tar.gz"
   sha256 "af2b6d30e1502f99a3950d63ceaf7d7275a236f4d81eff337121c24fbb802fbe"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
   head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "34ee04c96378c8fa73672109a4746b207e18248c61e44dbbaa7d98c2c2c72067"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9c6abc863ba8197d0cdb660a71ea231afdeee7565742ffe3acca1994d35e2723"
-    sha256 cellar: :any_skip_relocation, catalina:      "bd89e2f8ed4bc533bd0b1b56184ef4ae43d6ae9b4cd17b6568b6087123894774"
-    sha256 cellar: :any_skip_relocation, mojave:        "fa7f5e4ae7a170128fdf8ada72551641779fcee8af3c3f7bcf41244f8ece0e0f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "95b9bd0f690a89f42ec6a1e670248a5464ba14fc7e80589a6bc4b28788a30f1d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9739fadb79161f0b2db4e73d8ff9bbe2c2bc3f9c40bebc6fb6cadc9387121741"
+    sha256 cellar: :any_skip_relocation, catalina:      "fa9a991443966cd592070a228cf2d8092b3e154eda52ac390ea756d03b30e670"
+    sha256 cellar: :any_skip_relocation, mojave:        "c90c7105c8eaa9bb53ce0fc9e608dc0c4df8d082361846ce764dfc0d141ec5b4"
   end
 
   depends_on "automake"

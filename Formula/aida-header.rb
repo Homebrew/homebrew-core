@@ -5,6 +5,11 @@ class AidaHeader < Formula
   sha256 "882d351bc09e830ae2eb512a2cbf44af5a82ef8efe31fbe0d047363da8314c81"
   license "LGPL-3.0-or-later"
 
+  livecheck do
+    url "https://aida.freehep.org/download.thtml"
+    regex(%r{href=.*?/AIDA/v?(\d+(?:\.\d+)+)/}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "dbbfb4a01fb14b65b959fe8666c25d894a3b0b0a6e2badb14346c8ba71673bf2"
     sha256 cellar: :any_skip_relocation, big_sur:       "eba4b33299b9ed8ed988c4c17fbffe1e17364a7d284878247c3b0a738fe2b340"

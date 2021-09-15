@@ -1,6 +1,6 @@
 class SolrAT77 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
-  homepage "https://lucene.apache.org/solr/"
+  homepage "https://solr.apache.org"
   url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/7.7.3/solr-7.7.3.tgz"
   mirror "https://archive.apache.org/dist/lucene/solr/7.7.3/solr-7.7.3.tgz"
   sha256 "3ec67fa430afa5b5eb43bb1cd4a659e56ee9f8541e0116d6080c0d783870baee"
@@ -9,13 +9,16 @@ class SolrAT77 < Formula
 
   # Remove the `livecheck` block (so the check is automatically skipped) once
   # the 7.7.x series is reported as EOL on the first-party downloads page:
-  # https://lucene.apache.org/solr/downloads.html#about-versions-and-support
+  # https://solr.apache.org/downloads.html#about-versions-and-support
   livecheck do
-    url "https://lucene.apache.org/solr/downloads.html"
+    url "https://solr.apache.org/downloads.html"
     regex(/href=.*?solr[._-]v?(7(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d6c1393dd7b6230c255ad1d2c632b542eb9a7d569e24661acf9d8cd14e5967c1"
+  end
 
   keg_only :versioned_formula
 
@@ -34,6 +37,8 @@ class SolrAT77 < Formula
     env["SOLR_PID_DIR"] = "${SOLR_PID_DIR:-#{var/"run/solr"}}"
     bin.env_script_all_files libexec, env
     (libexec/"bin").rmtree
+
+    inreplace libexec/"solr", "/usr/local/share/solr", pkgshare
   end
 
   def post_install
@@ -41,31 +46,9 @@ class SolrAT77 < Formula
     (var/"log/solr").mkpath
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/solr@7.7/bin/solr start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/solr</string>
-            <string>start</string>
-            <string>-f</string>
-          </array>
-          <key>ServiceDescription</key>
-          <string>#{name}</string>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-          <key>RunAtLoad</key>
-          <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"solr", "start", "-f"]
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

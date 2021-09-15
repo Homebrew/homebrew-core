@@ -11,6 +11,7 @@ class Nethogs < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "6f6124fdf95847d5a49d15733e1bebb0b7060995f7ad672863fcd89bb985ef1d"
     sha256 cellar: :any_skip_relocation, mojave:        "e61f5ad80657ad381414c992a391d454689f6845965387c7b803f115b5fd72b4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f994c61fe07025f7c18de9a15be44c3de107e12c19cde6e3cd53a892cc61b7b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50692e5123b3e36e79261ec859432dce8220e713f6296f3c664026cc82795fc5"
   end
 
   uses_from_macos "libpcap"

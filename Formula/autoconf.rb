@@ -14,13 +14,14 @@ class Autoconf < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0aa64f171bac19ce6ac0c0ca697f30658db78cf175550dfde3dbda907b7f2500"
     sha256 cellar: :any_skip_relocation, catalina:      "258a94bef23057c52818adf64d682af20bc6e09b46eac135047e2b87fc8206c7"
     sha256 cellar: :any_skip_relocation, mojave:        "e94578bf4b4832baef1c9bbb40cb4da5fdbd9c66be5ed8d070f78be5f0cca618"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f9a73292e64f19ec504459ee7f8b7f11f1e472d18252499705a9fc289c43f85"
   end
 
   depends_on "m4"
   uses_from_macos "perl"
 
   def install
-    on_macos do
+    if OS.mac?
       ENV["PERL"] = "/usr/bin/perl"
 
       # force autoreconf to look for and use our glibtoolize

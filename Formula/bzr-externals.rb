@@ -4,7 +4,9 @@ class BzrExternals < Formula
   url "https://launchpad.net/bzr-externals/trunk/1.3.3/+download/bzr-externals-1.3.3.tar.gz"
   sha256 "4ee33852f415cd5a982c4fa0bb548f86f2ae52368407c3e8d03d55bcfd7f3332"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "f99c72d0a05f987beb57d609527ab543e93fb1db7245c454193a932f6e5c01df"
+  end
 
   depends_on "bazaar"
 

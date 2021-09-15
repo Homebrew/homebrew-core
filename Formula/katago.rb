@@ -1,8 +1,8 @@
 class Katago < Formula
   desc "Neural Network Go engine with no human-provided knowledge"
   homepage "https://github.com/lightvector/KataGo"
-  url "https://github.com/lightvector/KataGo/archive/v1.8.2.tar.gz"
-  sha256 "4a3ae33debb220d3bbfe302bdf8689ea82f1236fe3d2c8b2ec91d407bc0bac67"
+  url "https://github.com/lightvector/KataGo/archive/v1.9.1.tar.gz"
+  sha256 "4992ddca600d19630692b8fd468187d872274493d2db2eed5576b7b550895cda"
   license "MIT"
 
   livecheck do
@@ -11,10 +11,12 @@ class Katago < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5fc123b94df821249122066d22b08bcb02e348f6e06ba48bbf20321a0c1147ad"
-    sha256 cellar: :any, big_sur:       "07abc11306ee69be6c355dff24d7ef8bd2b202657f69693ace8ead9c89afc8f1"
-    sha256 cellar: :any, catalina:      "9c0cf564eec57012ff01bd4a0b95d933e4430ddf6adf7b4cf04b5aea748f0b6a"
-    sha256 cellar: :any, mojave:        "3fa5d13812dd6aa7f3358fd250125f3b2a06df2ee609a1cdf52b5d1164e3a400"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "8b9ce57f58048bca92d019ab2df91152de094de9b7d44c195fe8aaf65ed8c04d"
+    sha256 cellar: :any,                 big_sur:       "837691d8ede674a8014670730d0ead7f8baf19e80ab6e9c4aac0696d3b1ea023"
+    sha256 cellar: :any,                 catalina:      "72adea451bc3894d56d79ac7ca70fe872fe06003fd2d272fea7453d1d4b693b3"
+    sha256 cellar: :any,                 mojave:        "deb04355924e2eb64d756110ea89f87fbeb81d09a1d4e5ba48a7612e163450a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dca36af81fecda82fc5cca6405ff3cf0118d3b9f1cfbfaf3f776c70fd1d58afa"
   end
 
   depends_on "cmake" => :build
@@ -39,8 +41,12 @@ class Katago < Formula
 
   def install
     cd "cpp" do
-      system "cmake", ".", "-DBUILD_MCTS=1", "-DUSE_BACKEND=OPENCL", "-DNO_GIT_REVISION=1",
-                           "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}", *std_cmake_args
+      args = %w[-DBUILD_MCTS=1 -DNO_GIT_REVISION=1]
+      if OS.mac?
+        args << "-DUSE_BACKEND=OPENCL"
+        args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
+      end
+      system "cmake", ".", *args, *std_cmake_args
       system "make"
       bin.install "katago"
       pkgshare.install "configs"

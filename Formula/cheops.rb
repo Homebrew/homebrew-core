@@ -15,6 +15,7 @@ class Cheops < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "f6087558b906474548d121bf3e745a7291dbc307d0c9ef16b3b6edd92d9dc830"
     sha256 cellar: :any_skip_relocation, el_capitan:    "3ed8f3d4920c6c44b4d25f16402564db5639acb1e3f104329f244cd52051a9f6"
     sha256 cellar: :any_skip_relocation, yosemite:      "de719231c43b1494c0a77fe0ef97868399bd67e3c3386fecfd6564f26f4acbdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94c3e683dcb5922d7060a9a8253825d79d5a699492770e3e59caca9674c9e09a"
   end
 
   def install

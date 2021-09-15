@@ -10,6 +10,7 @@ class PowerlineGo < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ba6d575617e53cb30d27ae91fad3715d1e8b3bf747503d575b3d8ad7bbfe12ed"
     sha256 cellar: :any_skip_relocation, catalina:      "8d390fa6247c60d921a9897f63a1fe9ed13c5cdedaa73cb0895c96108881d519"
     sha256 cellar: :any_skip_relocation, mojave:        "61fdd9581af5d9d1c44bd90d0e1c317d6b172c5105d8157eb0196b20136df05d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a5fdf6f50d1bd65e3253ed387fd7a9167552e6406c6e9eccd685dd8c328ed47"
   end
 
   depends_on "go" => :build

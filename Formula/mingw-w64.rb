@@ -1,10 +1,10 @@
 class MingwW64 < Formula
   desc "Minimalist GNU for Windows and GCC cross-compilers"
   homepage "https://sourceforge.net/projects/mingw-w64/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v8.0.2.tar.bz2"
-  sha256 "f00cf50951867a356d3dc0dcc7a9a9b422972302e23d54a33fc05ee7f73eee4d"
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v9.0.0.tar.bz2"
+  sha256 "1929b94b402f5ff4d7d37a9fe88daa9cc55515a6134805c104d1794ae22a4181"
   license "ZPL-2.1"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,9 +12,11 @@ class MingwW64 < Formula
   end
 
   bottle do
-    sha256 big_sur:  "4c1b1d4dd9a0be39baf2ba9ce99e89363c359d253e382e689022444f52234f3d"
-    sha256 catalina: "45d5df9885b865ab24dbefcb64d532876652ebf0b4cc75c641be5d125eec250e"
-    sha256 mojave:   "413b17e3a7e557b33ba6eac235b4f8afdeee8f55d6770a8c3453264db61c29ee"
+    sha256 arm64_big_sur: "6a226bcd216aa4689fb1426c3459caeaa7ee6a2403276c124956f222e9bdc6c9"
+    sha256 big_sur:       "0a48943bac581260148704b796a27aafc21d7650a0dd7b60c9d64dbec148be93"
+    sha256 catalina:      "780144a43e99c22058a07d76668e83107a2bb5e89b651d694c1756174ca65ca3"
+    sha256 mojave:        "55243318eb8179bb7f962c83cb0a35a03fa728e9e444848f4948e82f4e0039c8"
+    sha256 x86_64_linux:  "0976e76105c70de683c1f4f2283248bf70521858d3bd91737e0e6bd01099af17"
   end
 
   # Apple's makeinfo is old and has bugs
@@ -26,15 +28,24 @@ class MingwW64 < Formula
   depends_on "mpfr"
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.36.1.tar.xz"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.1.tar.xz"
-    sha256 "e81d9edf373f193af428a0f256674aea62a9d74dfe93f65192d4eae030b0f3b0"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.37.tar.xz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.37.tar.xz"
+    sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
   end
 
   resource "gcc" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
-    sha256 "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-11.2.0/gcc-11.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-11.2.0/gcc-11.2.0.tar.xz"
+    sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
+
+    # Remove when upstream has Apple Silicon support
+    if Hardware::CPU.arm?
+      patch do
+        # patch from gcc-11.1.0-arm branch
+        url "https://github.com/fxcoudert/gcc/commit/eea3046c5fa62d4dee47e074c7a758570d9da61c.patch?full_index=1"
+        sha256 "b55ca05a0ed32f69f63bbe708568df5ad62d938da0e34b515d601bb966d32d40"
+      end
+    end
   end
 
   def target_archs
@@ -148,6 +159,18 @@ class MingwW64 < Formula
         system "make", "install"
       end
 
+      args = %W[
+        --host=#{target}
+        --with-sysroot=#{arch_dir}/#{target}
+        --prefix=#{arch_dir}
+        --program-prefix=#{target}-
+      ]
+      mkdir "mingw-w64-tools/widl/build-#{arch}" do
+        system "../configure", *args
+        system "make"
+        system "make", "install"
+      end
+
       # Finish building GCC (runtime libraries)
       chdir "#{buildpath}/gcc/build-#{arch}" do
         system "make"
@@ -174,6 +197,22 @@ class MingwW64 < Formula
     (testpath/"hello.f90").write <<~EOS
       program hello ; print *, "Hello, world!" ; end program hello
     EOS
+    # https://docs.microsoft.com/en-us/windows/win32/rpc/using-midl
+    (testpath/"example.idl").write <<~EOS
+      [
+        uuid(ba209999-0c6c-11d2-97cf-00c04f8eea45),
+        version(1.0)
+      ]
+      interface MyInterface
+      {
+        const unsigned short INT_ARRAY_LEN = 100;
+
+        void MyRemoteProc(
+            [in] int param1,
+            [out] int outArray[INT_ARRAY_LEN]
+        );
+      }
+    EOS
 
     ENV["LC_ALL"] = "C"
     on_macos do
@@ -191,6 +230,9 @@ class MingwW64 < Formula
 
       system "#{bin}/#{target}-gfortran", "-o", "test.exe", "hello.f90"
       assert_match "file format pei-#{outarch}", shell_output("#{bin}/#{target}-objdump -a test.exe")
+
+      system "#{bin}/#{target}-widl", "example.idl"
+      assert_predicate testpath/"example_s.c", :exist?, "example_s.c should have been created"
     end
   end
 end

@@ -12,6 +12,7 @@ class Krew < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "72ec667db2da34fc298d32f376ae8a8a5769858a418185c5b581bec29458e394"
     sha256 cellar: :any_skip_relocation, catalina:      "59131bf3f0e3264dd96a4f788cbe44bef4d4c21056dc583d912c3788cd429670"
     sha256 cellar: :any_skip_relocation, mojave:        "677db3b345035e81dbd8ae57ef4c27e3693dcc0fafd279a508f20485a59d005c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8a57b4ff8bc90137b981cbd5baeccfc88573dca08a335e4af822c7a22079264"
   end
 
   depends_on "go" => :build

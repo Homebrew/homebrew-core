@@ -12,10 +12,11 @@ class Jags < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "ea0be62c30efa7d985684c3295af0fa972596ed029622af0cf409740d3658c2e"
-    sha256 cellar: :any, big_sur:       "72c2e292449224ec4b825399233be7de57fff2b810c7d31d738386c829a53098"
-    sha256 cellar: :any, catalina:      "11423ce61e9c8c567179c82e03179427ee9161808ff7256ffca47f72030359b7"
-    sha256 cellar: :any, mojave:        "9e1448b73ba0853385cdfd2861fd273588a6a8557522f0d3073f50154130e900"
+    sha256 cellar: :any,                 arm64_big_sur: "ea0be62c30efa7d985684c3295af0fa972596ed029622af0cf409740d3658c2e"
+    sha256 cellar: :any,                 big_sur:       "72c2e292449224ec4b825399233be7de57fff2b810c7d31d738386c829a53098"
+    sha256 cellar: :any,                 catalina:      "11423ce61e9c8c567179c82e03179427ee9161808ff7256ffca47f72030359b7"
+    sha256 cellar: :any,                 mojave:        "9e1448b73ba0853385cdfd2861fd273588a6a8557522f0d3073f50154130e900"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "291114d6ec1984a0942fe9f7421d481d92ef96e1a510ceaa4391ff88ac11a7e5"
   end
 
   depends_on "gcc" # for gfortran

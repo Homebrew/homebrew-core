@@ -2,9 +2,9 @@ class Minio < Formula
   desc "High Performance, Kubernetes Native Object Storage"
   homepage "https://min.io"
   url "https://github.com/minio/minio.git",
-      tag:      "RELEASE.2021-05-22T02-34-39Z",
-      revision: "c09fe2c40e80ef29b5a5ffec29dc11a6a09b29ee"
-  version "20210522023439"
+      tag:      "RELEASE.2021-09-09T21-37-07Z",
+      revision: "5c448b1b97887974bf7de575394d30f97a445785"
+  version "20210909213707"
   license "AGPL-3.0-or-later"
   head "https://github.com/minio/minio.git"
 
@@ -17,10 +17,11 @@ class Minio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7a14241b14d3ec746b713ab5fdf0b0528677eb39e65796f253cbaa3493c35a17"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b2e319ea6ce25ca5fe7f8b928e812ed20cbb81ba99d97b89e5bcb9e1f615421b"
-    sha256 cellar: :any_skip_relocation, catalina:      "fdccc607ca3fc844d04dbccfd133f2e9f016741131595bdfb6bee52e2fb3a53d"
-    sha256 cellar: :any_skip_relocation, mojave:        "717e8f34c4242349fa308b62d19eb5d97c3a8257a1412b718fd62252b52db6fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "27dd82c5009798f7286a079a1527ad64589b84d767e8e706b1d3d4f535f3b33f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0db1792b5a41092293709b288b15ab6c3e7fb04af1157ab30ec6bc91a895fe46"
+    sha256 cellar: :any_skip_relocation, catalina:      "327f0ad307b2e749ef3fd82ef56c49f8148493d1838c538c6efcebe598517e91"
+    sha256 cellar: :any_skip_relocation, mojave:        "517e4f018babca8d7b265258cbbeee2c388b57937edbb88fb604e7e5124c2553"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f0eedd16c0114926a158a4ad3bcf7a712678d75a63fcf0d7cf98330004bee6c"
   end
 
   depends_on "go" => :build
@@ -31,13 +32,15 @@ class Minio < Formula
     else
       release = `git tag --points-at HEAD`.chomp
       version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
-      proj = "github.com/minio/minio"
 
-      system "go", "build", *std_go_args, "-ldflags", <<~EOS
-        -X #{proj}/cmd.Version=#{version}
-        -X #{proj}/cmd.ReleaseTag=#{release}
-        -X #{proj}/cmd.CommitID=#{Utils.git_head}
-      EOS
+      ldflags = %W[
+        -s -w
+        -X github.com/minio/minio/cmd.Version=#{version}
+        -X github.com/minio/minio/cmd.ReleaseTag=#{release}
+        -X github.com/minio/minio/cmd.CommitID=#{Utils.git_head}
+      ]
+
+      system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
     end
   end
 
@@ -46,41 +49,12 @@ class Minio < Formula
     (etc/"minio").mkpath
   end
 
-  plist_options manual: "minio server"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <true/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/minio</string>
-            <string>server</string>
-            <string>--config-dir=#{etc}/minio</string>
-            <string>--address=:9000</string>
-            <string>#{var}/minio</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/minio.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/minio.log</string>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"minio", "server", "--config-dir=#{etc}/minio", "--address=:9000", var/"minio"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"log/minio.log"
+    error_log_path var/"log/minio.log"
   end
 
   test do

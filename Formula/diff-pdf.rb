@@ -4,12 +4,13 @@ class DiffPdf < Formula
   url "https://github.com/vslavik/diff-pdf/releases/download/v0.5/diff-pdf-0.5.tar.gz"
   sha256 "e7b8414ed68c838ddf6269d11abccdb1085d73aa08299c287a374d93041f172e"
   license "GPL-2.0-only"
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3abff1045972a9a20e5c151ffbb7a0bb9793b39374485987ffd00f8c0c8e9ebd"
-    sha256 cellar: :any, big_sur:       "09483c6a3648a715a8e1fda4d3c89658b59835af35ee075a767b919c94ff19ef"
-    sha256 cellar: :any, catalina:      "3b5b2064c54199351340d4a41a54cadc075daa683065c57eaaf98bdee4af3eca"
-    sha256 cellar: :any, mojave:        "807edca0450757b34c5524fd83b307ab55481095f09d7674c5e9f623596702f0"
+    sha256 cellar: :any, arm64_big_sur: "9fabdb16a81d678b97469aa757efb934f2e82eb10396aa6b08b47b69a91a8271"
+    sha256 cellar: :any, big_sur:       "f4150cbac5dc16b8b578cc83ceb5df99fbb3ec02abe9577ee4125c014757cb27"
+    sha256 cellar: :any, catalina:      "a835087ab9403ce734633acf93df500f3452e24fae0c9371b6bb28bff9627476"
+    sha256 cellar: :any, mojave:        "34bc0d51de3ab5360e02d5f8c360e44f05c5004c3d4de30bd6e93c4b01653a19"
   end
 
   depends_on "autoconf" => :build
@@ -18,7 +19,7 @@ class DiffPdf < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "poppler"
-  depends_on "wxmac"
+  depends_on "wxwidgets"
 
   def install
     system "./configure", "--disable-dependency-tracking",

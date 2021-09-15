@@ -6,13 +6,14 @@ class Bandit < Formula
   url "https://files.pythonhosted.org/packages/6c/a1/14b70b67ea9c69e863dd65386bbc948ae34a502512d6f36e2a5a9fd5513b/bandit-1.7.0.tar.gz"
   sha256 "8a4c7415254d75df8ff3c3b15cfe9042ecee628a1e40b44c15a98890fbfc2608"
   license "Apache-2.0"
-  head "https://github.com/PyCQA/bandit.git"
+  head "https://github.com/PyCQA/bandit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d2349695a19c779eaa47e3d79d80f2a762701722df47f268fe9bdd424ac64535"
     sha256 cellar: :any_skip_relocation, big_sur:       "5932b6d2df12cb8f1143cca2a81a7c34233e1cf55d3a609398454f234be617b2"
     sha256 cellar: :any_skip_relocation, catalina:      "1b4c66854a3bad10e011d81c6568a9ac5c7194275b7e62e28003af7fd2fadd09"
     sha256 cellar: :any_skip_relocation, mojave:        "abe9b77aca9be261aeb1c6f3c9539edbcb0c67509a36d45e7f0e565c796374bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5deeb1aa1fb844d4c8c8a1344cf0905f3eecfd4b7d1db24a8c37814cad685846"
   end
 
   depends_on "python@3.9"

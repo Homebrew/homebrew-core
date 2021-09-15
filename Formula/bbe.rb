@@ -14,6 +14,7 @@ class Bbe < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "4f533ae33e0c46a01bc11f1c8b99ef6baba62a376ddee1000de1fa199f18545a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d9c63d7b9657e6f1c0e53048564f275283177e3513e202a7a9cfc69571bb5008"
     sha256 cellar: :any_skip_relocation, yosemite:      "ae0aa826fcd9f11e93428e9eaeedb14a56c193c861f09123999a8ba0f3d7f9cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b683897c9241114a529a017dafad699e55a4bc3f19f1e3ef9bed408c8ee6c72f"
   end
 
   def install

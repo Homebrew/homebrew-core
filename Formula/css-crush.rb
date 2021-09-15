@@ -4,9 +4,11 @@ class CssCrush < Formula
   url "https://github.com/peteboere/css-crush/archive/v3.0.1.tar.gz"
   sha256 "6f24a857b496edccc2eaf261a6f34d64ae1dc2c288304df8dd4fcddb905d89d8"
   license "MIT"
-  head "https://github.com/peteboere/css-crush.git"
+  head "https://github.com/peteboere/css-crush.git", branch: "master"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "06eec82e0757d06c7780b1695c31946d52e02e17af3566434023ac8262ddc28b"
+  end
 
   def install
     libexec.install Dir["*"]

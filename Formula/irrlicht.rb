@@ -3,6 +3,10 @@ class Irrlicht < Formula
   homepage "https://irrlicht.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/irrlicht/Irrlicht%20SDK/1.8/1.8.4/irrlicht-1.8.4.zip"
   sha256 "f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433"
+  # Irrlicht is available under alternative license terms. See
+  # https://metadata.ftp-master.debian.org/changelogs//main/i/irrlicht/irrlicht_1.8.4+dfsg1-1.1_copyright
+  license "Zlib"
+  revision 1
   head "https://svn.code.sf.net/p/irrlicht/code/trunk"
 
   livecheck do
@@ -11,10 +15,11 @@ class Irrlicht < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, big_sur:  "a4e6536fe5a6e4e497585e5155b909878adc3005ef39f46ce4a5e5fdf4e6b9fd"
-    sha256 cellar: :any_skip_relocation, catalina: "da9222c61d7baf0d863ab4cad94c48342d99fb24cb636a88137d049ec8454c7b"
-    sha256 cellar: :any_skip_relocation, mojave:   "c2cb5b842490ab803c3faaaf4ddd28662ccc67fa72d1af73f95981b0d3371769"
+    sha256 cellar: :any,                 arm64_big_sur: "7c88c45cbe80a489a1881fd3c6bb74d159c9ca7bc7dd5880ad9bb58c91915a19"
+    sha256 cellar: :any,                 big_sur:       "4140548f2ba1485fe7d374e13b6a70d39d6855cf5bbf463af621288e955706d8"
+    sha256 cellar: :any,                 catalina:      "d9ad006ffc814a0a491d479bfb1232f2d905e8dafebbba1de18ce2c2201a73f8"
+    sha256 cellar: :any,                 mojave:        "45479dc7a13d745a69dccf51c8bf1ebc4cc49fda9fb9e2d0f3a5bd0d67c2a091"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "153ae52b4f2d95488105918318ebdc9e83ae257eed0a04e893063285da3ac15f"
   end
 
   depends_on xcode: :build
@@ -26,7 +31,7 @@ class Irrlicht < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac?
       # Fix "error: cannot initialize a parameter of type
       # 'id<NSApplicationDelegate> _Nullable' with an rvalue of type
       # 'id<NSFileManagerDelegate>'"
@@ -41,15 +46,29 @@ class Irrlicht < Formula
         "#  error ZLIB_VERNUM != PNG_ZLIB_VERNUM \\",
         "#  warning ZLIB_VERNUM != PNG_ZLIB_VERNUM \\"
 
+      extra_args = []
+
+      # Fix "Undefined symbols for architecture arm64: "_png_init_filter_functions_neon"
+      # Reported 18 Nov 2020 https://sourceforge.net/p/irrlicht/bugs/452/
+      extra_args << "GCC_PREPROCESSOR_DEFINITIONS='PNG_ARM_NEON_OPT=0'" if Hardware::CPU.arm?
+
+      xcodebuild "-project", "source/Irrlicht/MacOSX/MacOSX.xcodeproj",
+                 "-configuration", "Release",
+                 "-target", "IrrFramework",
+                 "SYMROOT=build",
+                 *extra_args
+
       xcodebuild "-project", "source/Irrlicht/MacOSX/MacOSX.xcodeproj",
                  "-configuration", "Release",
                  "-target", "libIrrlicht.a",
-                 "SYMROOT=build"
+                 "SYMROOT=build",
+                 *extra_args
+
+      frameworks.install "source/Irrlicht/MacOSX/build/Release/IrrFramework.framework"
+      lib.install_symlink frameworks/"IrrFramework.framework/Versions/A/IrrFramework" => "libIrrlicht.dylib"
       lib.install "source/Irrlicht/MacOSX/build/Release/libIrrlicht.a"
       include.install "include" => "irrlicht"
-    end
-
-    on_linux do
+    else
       cd "source/Irrlicht" do
         inreplace "Makefile" do |s|
           s.gsub! "/usr/X11R6/lib$(LIBSELECT)", Formula["libx11"].opt_lib
@@ -66,18 +85,14 @@ class Irrlicht < Formula
       lib.install "lib/Linux/libIrrlicht.a"
     end
 
-    on_linux do
-      (pkgshare/"examples").install "examples/01.HelloWorld"
-    end
+    (pkgshare/"examples").install "examples/01.HelloWorld"
   end
 
   test do
     on_macos do
-      assert_match "x86_64", shell_output("lipo -info #{lib}/libIrrlicht.a")
+      assert_match Hardware::CPU.arch.to_s, shell_output("lipo -info #{lib}/libIrrlicht.a")
     end
-    on_linux do
-      cp_r Dir["#{pkgshare}/examples/01.HelloWorld/*"], testpath
-      system ENV.cxx, "-I#{include}/irrlicht", "-L#{lib}", "-lIrrlicht", "main.cpp", "-o", "hello"
-    end
+    cp_r Dir["#{pkgshare}/examples/01.HelloWorld/*"], testpath
+    system ENV.cxx, "main.cpp", "-I#{include}/irrlicht", "-L#{lib}", "-lIrrlicht", "-o", "hello"
   end
 end

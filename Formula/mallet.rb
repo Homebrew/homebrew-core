@@ -5,7 +5,14 @@ class Mallet < Formula
   sha256 "5b2d6fb9bcf600b1836b09881821a6781dd45a7d3032e61d7500d027a5b34faf"
   revision 1
 
-  bottle :unneeded
+  livecheck do
+    url "http://mallet.cs.umass.edu/download.php"
+    regex(/href=.*?mallet[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "66fcc304b6625b390cd2ddb5d3ab99a3049c5b21789d3b54dcc18bf82fa3c009"
+  end
 
   depends_on "openjdk"
 

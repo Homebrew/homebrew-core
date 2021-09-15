@@ -7,12 +7,13 @@ class Mktorrent < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "52e68c18ada643d382daa660c5bc697a6a6559abeba4138e87b722054668edf8"
-    sha256 cellar: :any, big_sur:       "d4f6a644ffc64e3ffba7559569abc381de67f4cbc64245d6c1548ebb1cb5262d"
-    sha256 cellar: :any, catalina:      "3c9a180d450b8e49d1c4a6fc967df8599f602f955b7b27f8589b2052e0d77a91"
-    sha256 cellar: :any, mojave:        "22bc8649ce5fea25549610eec4110d45f3fa1d05335cfc982df82806ff34d71b"
-    sha256 cellar: :any, high_sierra:   "60be732dfea657c6faffa7e9d644f6ade7f974e7fea6ec46fa2941baac5eee80"
-    sha256 cellar: :any, sierra:        "3e7f91587dbea47713351b40a99b50728a878a9eb720eca14bd125541e62606f"
+    sha256 cellar: :any,                 arm64_big_sur: "52e68c18ada643d382daa660c5bc697a6a6559abeba4138e87b722054668edf8"
+    sha256 cellar: :any,                 big_sur:       "d4f6a644ffc64e3ffba7559569abc381de67f4cbc64245d6c1548ebb1cb5262d"
+    sha256 cellar: :any,                 catalina:      "3c9a180d450b8e49d1c4a6fc967df8599f602f955b7b27f8589b2052e0d77a91"
+    sha256 cellar: :any,                 mojave:        "22bc8649ce5fea25549610eec4110d45f3fa1d05335cfc982df82806ff34d71b"
+    sha256 cellar: :any,                 high_sierra:   "60be732dfea657c6faffa7e9d644f6ade7f974e7fea6ec46fa2941baac5eee80"
+    sha256 cellar: :any,                 sierra:        "3e7f91587dbea47713351b40a99b50728a878a9eb720eca14bd125541e62606f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e0e51078893e14e1ab8c491ad7e46058f67bf61a20d89c800df6ebd3857bab3"
   end
 
   depends_on "openssl@1.1"

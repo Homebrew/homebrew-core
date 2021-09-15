@@ -11,11 +11,12 @@ class Dps8m < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7b6df2db14bb9e099eb1b2003c0ba410e62d4bd81046e425f6db437894938e0c"
-    sha256 cellar: :any, big_sur:       "a8f615026cb8660c2d7684387b17d1f39e9b93c547a18adf125a88610d5466d8"
-    sha256 cellar: :any, catalina:      "d9d967a0c7dad0b63ea6327102cb5d83345ff6b0bcdbf754398c1a5cdb0b0916"
-    sha256 cellar: :any, mojave:        "2c148e6bcd3a83e91b6b327d285bcfbb6490a3f7d8f08c4d904a6b907fbe61cf"
-    sha256 cellar: :any, high_sierra:   "600be3242396b61b2e807ed850cd65fc30a4676993c44c5171488954be496ce4"
+    sha256 cellar: :any,                 arm64_big_sur: "7b6df2db14bb9e099eb1b2003c0ba410e62d4bd81046e425f6db437894938e0c"
+    sha256 cellar: :any,                 big_sur:       "a8f615026cb8660c2d7684387b17d1f39e9b93c547a18adf125a88610d5466d8"
+    sha256 cellar: :any,                 catalina:      "d9d967a0c7dad0b63ea6327102cb5d83345ff6b0bcdbf754398c1a5cdb0b0916"
+    sha256 cellar: :any,                 mojave:        "2c148e6bcd3a83e91b6b327d285bcfbb6490a3f7d8f08c4d904a6b907fbe61cf"
+    sha256 cellar: :any,                 high_sierra:   "600be3242396b61b2e807ed850cd65fc30a4676993c44c5171488954be496ce4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68382b2ed447d527096d1d3e796233859940e423b3d6263821f6454dee91c52c"
   end
 
   depends_on "libuv"

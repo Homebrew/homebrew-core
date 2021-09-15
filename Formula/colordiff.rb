@@ -17,6 +17,7 @@ class Colordiff < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "a591ec70f59b8f5ff3cde4c0a8cd58d920db324f9c3001e218bdcfc8966aca15"
     sha256 cellar: :any_skip_relocation, mojave:        "f5b78a778860c7d37a370287c3821e17243a37e5e568cf58fd2aa3df3e3ce409"
     sha256 cellar: :any_skip_relocation, high_sierra:   "305a7dfd6940d463d89473c1f2864c5f5b1bd7ed01f838929c3901ad94f4586d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2f240b24b42d70c44704e16ea74bab794666152afb7c992829956376e9d6cd2"
   end
 
   depends_on "coreutils" => :build # GNU install

@@ -7,11 +7,17 @@ class Adios2 < Formula
   revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 arm64_big_sur: "b6b6dbcbe7d3d1ad478d47b4004d9ac932707a2503f810439680672a87b89e2b"
     sha256 big_sur:       "7d1abe16be0173d2c1e645c51641b59fea8983c140c5caef132016d4e1416568"
     sha256 catalina:      "6826ba1d0cf70bd775a97a152fa2423b0091dfb196500d5a1eef0884f6e9d2f8"
     sha256 mojave:        "ec0da5f5869f0473b3c7b906cb4ea86d7673f4ff3bb479d6cf88621beb990507"
+    sha256 x86_64_linux:  "1ff13a5c092bdbecb0ae8e3b5ec7a0b7910550c22ac7376c41ec92708138b67e"
   end
 
   depends_on "cmake" => :build
@@ -29,8 +35,8 @@ class Adios2 < Formula
   def install
     # fix `include/adios2/common/ADIOSConfig.h` file audit failure
     inreplace "source/adios2/common/ADIOSConfig.h.in" do |s|
-      s.gsub! ": @CMAKE_C_COMPILER@", ": /usr/bin/clang"
-      s.gsub! ": @CMAKE_CXX_COMPILER@", ": /usr/bin/clang++"
+      s.gsub! ": @CMAKE_C_COMPILER@", ": #{ENV.cc}"
+      s.gsub! ": @CMAKE_CXX_COMPILER@", ": #{ENV.cxx}"
     end
 
     args = std_cmake_args + %W[
@@ -53,6 +59,7 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
       -DPython_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DCMAKE_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages("python3")}
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
     ]

@@ -3,13 +3,16 @@ class Sshguard < Formula
   homepage "https://www.sshguard.net/"
   url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.4.2/sshguard-2.4.2.tar.gz"
   sha256 "2770b776e5ea70a9bedfec4fd84d57400afa927f0f7522870d2dcbbe1ace37e8"
+  license "ISC"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bcbb7ce2c093e35cf9494102e4a110e67a0026838c28770d7880cfcd8d17bb10"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1ef26616b9c9967b8e8749af6c92d97d534b18a411d312ce07d61ddfc7ee0a8e"
-    sha256 cellar: :any_skip_relocation, catalina:      "287d98f822a15178d2cdb3f6cc11189e8ab13d9acd783f2a9b499768617b3ed4"
-    sha256 cellar: :any_skip_relocation, mojave:        "ab2bdc696ad7cc7f8ea83ea2819743699f8229e5bdb842aed39eb26b6840e46e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9d878d2defd31509f5248eb407a15b358e1b5e78e317cb4ecb58ea971eb0e21f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fbd36be947e48cf8617b3889334ac8c0941b51e03b4c5193027791a727588999"
+    sha256 cellar: :any_skip_relocation, catalina:      "02f3958ed46f151af475f82d9056fd4ba2d7cc6992f95d5ee35351ec0091256e"
+    sha256 cellar: :any_skip_relocation, mojave:        "ceeba24a2d30a5832d77dcdac07234d693294053198efefc220125b14082c0ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97303dd520d97f9dc3f9e66462093c982663df097e0665c9cba4bbdb9e3eefc6"
   end
 
   head do
@@ -53,32 +56,17 @@ class Sshguard < Formula
   end
 
   plist_options startup: true
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/sshguard</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"sshguard"]
+    keep_alive true
   end
 
   test do
     require "pty"
     PTY.spawn(sbin/"sshguard", "-v") do |r, _w, pid|
       assert_equal "SSHGuard #{version}", r.read.strip
+    rescue Errno::EIO
+      nil
     ensure
       Process.wait pid
     end

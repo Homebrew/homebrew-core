@@ -4,7 +4,8 @@ class Task < Formula
   url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v2.5.3/task-2.5.3.tar.gz"
   sha256 "7243d75e0911d9e2c9119ad94a61a87f041e4053e197f7280c42410aa1ee963b"
   license "MIT"
-  head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "2.6.0", shallow: false
+  revision 1
+  head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "2.6.0"
 
   livecheck do
     url :stable
@@ -12,17 +13,18 @@ class Task < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "188f5f1a5dda2cff99e1adf0be22980f5cfa72b3dbffdbef8d9648e65ce23641"
-    sha256 big_sur:       "13cbe306b15eda0b1a2edd707f3c1e2a18759bfa2613a4a5909f5945c7ac367c"
-    sha256 catalina:      "6b15062cfa4e67ba49cd6bcb88a1be453e49b86f4ab680acb171fe98e01e256b"
-    sha256 mojave:        "8ea578cb22e2a379478111ca18c735482c264a46d3733a866cfc959ce344c4f4"
+    sha256 arm64_big_sur: "f6cc717032d0b9fb61f160e18d0d529aaf140109493b749af8df0b67d9cfbeb2"
+    sha256 big_sur:       "6e39bda4bf09836a2c8957024008fb23c568d1f1793ec0cf75986616b1c6702c"
+    sha256 catalina:      "26985b801af3eb7ce1edb1a4294dd9258c869be2fedc694856bf8c1781dfdcd2"
+    sha256 mojave:        "8d4d6b2c44aa2d813bb34314f367679d3677ba60e264e06b235a094ac39f5b66"
+    sha256 x86_64_linux:  "e3db87ee3f43f83b61183ddae86f5149c6838dd32097dfe5e06c94441914dc3a"
   end
 
   depends_on "cmake" => :build
   depends_on "gnutls"
 
   on_linux do
-    depends_on "linux-headers"
+    depends_on "linux-headers@4.4"
     depends_on "readline"
     depends_on "util-linux"
   end

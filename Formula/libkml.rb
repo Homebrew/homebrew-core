@@ -16,6 +16,8 @@ class Libkml < Formula
     sha256 cellar: :any, yosemite:      "a3cdfca3ed0acbc93949683a8bb2862c36ec8bf06f20b9fe3752ac624667f455"
   end
 
+  conflicts_with "uriparser", because: "both install `liburiparser.dylib`"
+
   # Fix compilation with clang and gcc 4.7+
   # https://code.google.com/p/libkml/issues/detail?id=179
   patch :DATA

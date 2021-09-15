@@ -4,14 +4,14 @@ class LibbitcoinExplorer < Formula
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.6.0.tar.gz"
   sha256 "e1b3fa2723465f7366a6e8c55e14df53106e90b82cc977db638c78f9bc5c47db"
   license "AGPL-3.0"
-  revision 6
+  revision 7
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "a866aa41b640d5ec17b2195b6e020e90ff387ed463ae2e70f2a03fd8bd072896"
-    sha256 big_sur:       "24e7833731351a531a6f9c7e6a6ec0687498a138a5cfb3728ecb550ff60410e8"
-    sha256 catalina:      "bdc450751d9191cef4f000156ed8c3b393948035c6b0cd86b598094eed722998"
-    sha256 mojave:        "14108b07fc37f335a97fde46ce97c0ea4778fa013bbdce547265f9065f372af9"
+    sha256 arm64_big_sur: "34d709bfefd23505e07cabcbedacf3a2869f6220e706cd96267d70e89caf5479"
+    sha256 big_sur:       "bb1687e4d167c4468a50df06d4bfb9cabd6ce2deab7641ff5866f0d41e686eeb"
+    sha256 catalina:      "fc49fe144993aebd296479497a30ed2441da35a8c34e3e646bc07a93dbb59873"
+    sha256 mojave:        "a965f788815e2e420fb46603f62c9b455e8930258e5478becbba0280f9b5950c"
+    sha256 x86_64_linux:  "c96bb170eab0fe2bac4928ba3b866eeabdf69731a14f0a61e7afcd8a725ba975"
   end
 
   depends_on "autoconf" => :build
@@ -22,6 +22,7 @@ class LibbitcoinExplorer < Formula
   depends_on "libbitcoin-network"
 
   def install
+    ENV.cxx11
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
 
     system "./autogen.sh"

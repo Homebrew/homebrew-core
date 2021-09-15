@@ -8,12 +8,15 @@ class AnsibleAT28 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "abd5d1109b0593d60b05108569a2577d1fd4d7db867d44f3eb9c065026b039b0"
-    sha256 cellar: :any, catalina: "1f0aadb1cec6353c5adcc417b5a2d94017aabaffec889768187d6a421f2b60c3"
-    sha256 cellar: :any, mojave:   "488ac63c1996e2ed2674d6898453518475a38f2c9ca61513f06f5e8d98c79a43"
+    sha256 cellar: :any,                 big_sur:      "abd5d1109b0593d60b05108569a2577d1fd4d7db867d44f3eb9c065026b039b0"
+    sha256 cellar: :any,                 catalina:     "1f0aadb1cec6353c5adcc417b5a2d94017aabaffec889768187d6a421f2b60c3"
+    sha256 cellar: :any,                 mojave:       "488ac63c1996e2ed2674d6898453518475a38f2c9ca61513f06f5e8d98c79a43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "dfcf6338976ecdf5fbae8b1fccb6297f84c719a58ada4fdc3bfb71e5251d17ae"
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2021-04-12", because: :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
@@ -599,9 +602,9 @@ class AnsibleAT28 < Formula
   def install
     ENV.prepend_path "PATH", Formula["python@3.7"].opt_libexec/"bin"
 
-    on_macos do
+    if OS.mac? && (MacOS.version <= :sierra)
       # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
+      ENV["SDKROOT"] = MacOS.sdk_path
     end
 
     virtualenv_install_with_resources

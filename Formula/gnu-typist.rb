@@ -13,6 +13,7 @@ class GnuTypist < Formula
     sha256 mojave:        "9f0fcdd42b9a041408b132882778db2eb479749a7169b82f2caf1f4fd486b599"
     sha256 high_sierra:   "72503afd4efafe7a8485ea22332819937008263976a6f5f5b42818565d59edbf"
     sha256 sierra:        "d32708d6e8a640101ac618ceac23be6b9d1a6a4caa127c5fd12a44b4e57c09e9"
+    sha256 x86_64_linux:  "46bb2345984a78a4ff0bb6b91d3417311c54105ff5bc96e851f74919d78f86db"
   end
 
   depends_on "gettext"
@@ -25,10 +26,8 @@ class GnuTypist < Formula
   end
 
   def install
-    on_macos do
-      # libiconv is not linked properly without this
-      ENV.append "LDFLAGS", "-liconv"
-    end
+    # libiconv is not linked properly without this
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

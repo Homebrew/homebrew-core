@@ -5,7 +5,7 @@ class ZshSyntaxHighlighting < Formula
       tag:      "0.7.1",
       revision: "932e29a0c75411cb618f02995b66c0a4a25699bc"
   license "BSD-3-Clause"
-  head "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+  head "https://github.com/zsh-users/zsh-syntax-highlighting.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -14,6 +14,7 @@ class ZshSyntaxHighlighting < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8b240a93c28b0c190c427afee55b80a0195dc0ed0cdb2ec956871330e0b2f3a5"
     sha256 cellar: :any_skip_relocation, mojave:        "ab57b09a3770c0497b1704ca86bbd285d9bcab439316c0bd7f72ab72e8597d92"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f8e941c6208a3b895a174be341a9ef2c114a3d5efeb0e86b421825b2aee0b943"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "069a8cb00d623b12e284e1ee3e68adc1eea62068bf9743798a734806317e3984"
   end
 
   uses_from_macos "zsh" => [:build, :test]

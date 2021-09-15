@@ -11,6 +11,7 @@ class Pdf2json < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "035c69de85f1cad569ff743faef796a88b9f9a706be802bf111a83505858b366"
     sha256 cellar: :any_skip_relocation, mojave:        "abf950838b700f50ff4279501533176cb5a1929fb0b88c8ccf94b07ac362c66d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4bee4b8c61362c64d72a3f011f8c5ef223c5e80d269e442a18472adc42e108e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddf26e386ef0d0916e59bb3aea14ccbaf5e08e87fbc043692d7a445ff481f9d7"
   end
 
   def install

@@ -14,6 +14,7 @@ class GitAppraise < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "e515979b703cef062e19829399ddb441c91d835e25814614c938af36764fc0d4"
     sha256 cellar: :any_skip_relocation, sierra:        "c048f2cce708e7c85c74d18758e47d3959cce29e2f8e70bca021b1564e65092d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e12ce185286565f4f07f48f1deb2fd4a19043bcafb337de94b9ba7148291b91b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9278b7be50cae61a19d542f7294b3a822868fc3a7e35e3245b7758a44faa2db9"
   end
 
   depends_on "go" => :build

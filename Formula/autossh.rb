@@ -17,6 +17,7 @@ class Autossh < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "2674ee43690b5d99490a0979359fdefa52033650b935547a6353de726f916275"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f88fcb32499fff8aa2899c85fc39dc6678ebed2849791a4312d427d9073b6b98"
     sha256 cellar: :any_skip_relocation, sierra:        "78d258f52bc14a2539da8c6d3ce69db5c062bb70e95130d9f22113720f853c67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "382150d095c1ca848c38eabfd93635ecf9868291ec5cb85bdae6a16a53dc7ea9"
   end
 
   patch :DATA

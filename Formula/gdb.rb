@@ -5,27 +5,27 @@ class Gdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-10.2.tar.xz"
   sha256 "aaa1223d534c9b700a8bec952d9748ee1977513f178727e1bee520ee000b4f29"
   license "GPL-3.0-or-later"
-  head "https://sourceware.org/git/binutils-gdb.git"
+  head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
-    sha256 big_sur:  "31de67be9674e5bd363a554e7f02002687a5ac9734526983e0430b041acea042"
-    sha256 catalina: "66f0ab39e075db4f5de3403c0f8125b54be84b7d009491e0b8e040d774721c3b"
-    sha256 mojave:   "f1392338a52a0e3d74b3b4f9f1ad4e70977d80ad672789a1371bed545d5528e4"
+    sha256 big_sur:      "31de67be9674e5bd363a554e7f02002687a5ac9734526983e0430b041acea042"
+    sha256 catalina:     "66f0ab39e075db4f5de3403c0f8125b54be84b7d009491e0b8e040d774721c3b"
+    sha256 mojave:       "f1392338a52a0e3d74b3b4f9f1ad4e70977d80ad672789a1371bed545d5528e4"
+    sha256 x86_64_linux: "5f21f90491812fec4b5408fa7c0a308b3a7e60f12b435733364f635b9ae88cc9"
   end
 
   depends_on "python@3.9"
   depends_on "xz" # required for lzma support
 
+  uses_from_macos "texinfo" => :build
   uses_from_macos "expat"
   uses_from_macos "ncurses"
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "gcc"
     depends_on "guile"
   end
-
-  conflicts_with "i386-elf-gdb", because: "both install include/gdb, share/gdb and share/info"
-  conflicts_with "x86_64-elf-gdb", because: "both install include/gdb, share/gdb and share/info"
 
   fails_with :clang do
     build 800
@@ -34,6 +34,8 @@ class Gdb < Formula
       'const any_static_probe_ops' without a user-provided default constructor
     EOS
   end
+
+  fails_with gcc: "5"
 
   def install
     args = %W[
@@ -60,11 +62,7 @@ class Gdb < Formula
       gdb requires special privileges to access Mach ports.
       You will need to codesign the binary. For instructions, see:
 
-        https://sourceware.org/gdb/wiki/BuildingOnDarwin
-
-      On 10.12 (Sierra) or later with SIP, you need to run this:
-
-        echo "set startup-with-shell off" >> ~/.gdbinit
+        https://sourceware.org/gdb/wiki/PermissionsDarwin
     EOS
   end
 

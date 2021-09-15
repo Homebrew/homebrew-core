@@ -1,8 +1,8 @@
 class Faiss < Formula
   desc "Efficient similarity search and clustering of dense vectors"
   homepage "https://github.com/facebookresearch/faiss"
-  url "https://github.com/facebookresearch/faiss/archive/v1.7.0.tar.gz"
-  sha256 "f86d346ac9f409ee30abe37e52f6cce366b7f60d3924d65719f40aa07ceb4bec"
+  url "https://github.com/facebookresearch/faiss/archive/v1.7.1.tar.gz"
+  sha256 "d676d3107ad41203a49e0afda2630519299dc8666f8d23322cbe1eac0c431871"
   license "MIT"
 
   livecheck do
@@ -11,9 +11,10 @@ class Faiss < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "89ec9edffccfa90801a31fea3d5339b7e3c772a0184d950fb26b6ee8d10e0d5b"
-    sha256 cellar: :any, catalina: "12b6e1ba976aadc8b04cc0f6be7fa258e9b02d8fefe48abcc4ec0c2a413c819a"
-    sha256 cellar: :any, mojave:   "599117b399279c6a0030fa2c13f74fec22dd777c1c1f68eaa17b0055748d7ebe"
+    sha256 cellar: :any, arm64_big_sur: "6c6e739ef44832c1d17f1d3bd330dde1a8f1c68ca691362061f48672d0081fa7"
+    sha256 cellar: :any, big_sur:       "ca98be5aa73a7f48fb1e22bcae35687f0503a76f1ff00be7d56c88e0dcf6f111"
+    sha256 cellar: :any, catalina:      "d0ec19a749f8bf7a5a48cb828d7f6f1b7da9dff457d47c83b4a34cfedfb6d58a"
+    sha256 cellar: :any, mojave:        "a719758b2de8c7489bdcbd795b2d1c81780c82a191c3baf2477c71fb38c8ff2f"
   end
 
   depends_on "cmake" => :build

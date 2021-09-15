@@ -1,7 +1,7 @@
 class Dhcping < Formula
   desc "Perform a dhcp-request to check whether a dhcp-server is running"
-  homepage "https://www.mavetju.org/unix/general.php"
-  url "https://www.mavetju.org/download/dhcping-1.2.tar.gz"
+  homepage "http://www.mavetju.org/unix/general.php"
+  url "http://www.mavetju.org/download/dhcping-1.2.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/d/dhcping/dhcping_1.2.orig.tar.gz"
   sha256 "32ef86959b0bdce4b33d4b2b216eee7148f7de7037ced81b2116210bc7d3646a"
 
@@ -19,6 +19,7 @@ class Dhcping < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "5c41d596cb2a9835fc5f170ccd602294c98f163ba3f2a8d5c83bae252189817e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d3b03b1004d3a2d97b80fbbe9714bd29d006d9099a8f6baec343feb2833f3996"
     sha256 cellar: :any_skip_relocation, yosemite:      "7741adb9bc166ee2450e521f7468e2b023632e737eb4da065848c5e87b6bd35a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dad6d3c832c13d4199c87f8afb9bd93641b7145990edd3d0747612d3546b70cc"
   end
 
   def install

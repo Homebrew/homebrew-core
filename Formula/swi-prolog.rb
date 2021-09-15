@@ -4,7 +4,7 @@ class SwiProlog < Formula
   url "https://www.swi-prolog.org/download/stable/src/swipl-8.2.4.tar.gz"
   sha256 "f4bcc78437f9080ab089762e9e6afa7071df7f584c14999b92b9a90a4efbd7d8"
   license "BSD-2-Clause"
-  head "https://github.com/SWI-Prolog/swipl-devel.git"
+  head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
   livecheck do
     url "https://www.swi-prolog.org/download/stable/src/"
@@ -16,6 +16,7 @@ class SwiProlog < Formula
     sha256 big_sur:       "1a5384ec31ca1088eff1e16d1977a4120f12e8c15e3703ef3c80c564848e2e5c"
     sha256 catalina:      "06c31b007436027785e73cdbf16d82dd6356766b821580a4fceda8db5eb4c86c"
     sha256 mojave:        "1deeaab4064bf3da632a28e539f46790252cfec839ae932bc729ecc239e347c3"
+    sha256 x86_64_linux:  "ff38c8fe29849c427abfaa36dcf7193f379c0b0fe1e498ba597f7a44404351bf"
   end
 
   depends_on "cmake" => :build
@@ -31,6 +32,14 @@ class SwiProlog < Formula
   depends_on "unixodbc"
 
   def install
+    # Remove shim paths from binary files `swipl-ld` and `libswipl.so.*`
+    if OS.linux?
+      inreplace "cmake/Params.cmake" do |s|
+        s.gsub! "${CMAKE_C_COMPILER}", "\"gcc\""
+        s.gsub! "${CMAKE_CXX_COMPILER}", "\"g++\""
+      end
+    end
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                       "-DSWIPL_PACKAGES_JAVA=OFF",

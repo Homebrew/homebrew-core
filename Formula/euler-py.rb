@@ -13,6 +13,7 @@ class EulerPy < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "b5983d05f31d241d0fa6209c659076129f606aaaa8a6b34958822f80a194e56a"
     sha256 cellar: :any_skip_relocation, mojave:        "8aa6bb9a5d762c3b4836eb18b8a29428f451641af3ea21fe8bc5860b18fdbadb"
     sha256 cellar: :any_skip_relocation, high_sierra:   "ab94e651eff246074bb51d7984a5ba5e09f76ecbf2c8484e3f64409deb672de2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c8801fcfad597c9995007c5c782b5ff2ac5073f211f5f639ea6fe6f3f5e07bb"
   end
 
   depends_on "python@3.9"

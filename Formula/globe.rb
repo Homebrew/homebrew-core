@@ -5,6 +5,14 @@ class Globe < Formula
   version "0.0.20140814"
   sha256 "5507a4caaf3e3318fd895ab1f8edfa5887c9f64547cad70cff3249350caa6c86"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?globe[._-](\d{1,2}\w+\d{2,4})\.t/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| Date.parse(match.first)&.strftime("0.0.%Y%m%d") }
+    end
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d614010f862d04bbc2fc08ba4f220fde562ee07f08fe7f2fe15470afa2ad09c1"
     sha256 cellar: :any_skip_relocation, big_sur:       "d0c0291f6767d96e3e5e21dfbdd71f793e83208841de96b1d2907c509b5dc62d"
@@ -14,6 +22,7 @@ class Globe < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "20488fcd0137e0d2a05ea3bfa91adc2f45460f05bb01f26e41005ccafc3e8c54"
     sha256 cellar: :any_skip_relocation, el_capitan:    "11acded7be5d1ba22260d039e3daf4fdc4cac49ebcd234c879da655a1532c22f"
     sha256 cellar: :any_skip_relocation, yosemite:      "a3ccdf74813e704ab1c8d50bb32f3f9b3f62110c8a6a143e3df85eb6ab7ecd7d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45f34a09b90224f8c3026702be8b9eb682417c8efca350ae807faa2484b603da"
   end
 
   def install

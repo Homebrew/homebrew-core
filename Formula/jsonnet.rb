@@ -16,7 +16,10 @@ class Jsonnet < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "dd84e7d6175e98b4839c009120569ece03b5b98db3f152f97ca05b5ae7169843"
     sha256 cellar: :any_skip_relocation, catalina:      "4e06530634324040a69a9f22018e154febc71467cadf2498806d9ba07b06a1b3"
     sha256 cellar: :any_skip_relocation, mojave:        "1e4faf2a09e9a233275d78ede532a0e757d3f8cc9b0ab152326ff9ea9d244dba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e86d04d342629c577c07656417e91d7d9b5896a7e167bfbee4d2990c0b5ee94"
   end
+
+  conflicts_with "go-jsonnet", because: "both install binaries with the same name"
 
   def install
     ENV.cxx11

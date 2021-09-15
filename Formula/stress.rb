@@ -16,6 +16,7 @@ class Stress < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0e595d39f5d02ac50b4ef52311ef96bdd6d669fb1cff4fd9a9e99c105156a1c8"
     sha256 cellar: :any_skip_relocation, catalina:      "c5da803a76518e3441f5e7da17a6c1972f0db3d8e407edb95a364aee3d9f7c7e"
     sha256 cellar: :any_skip_relocation, mojave:        "6b20923f6f1f46c8e71b4e6a9546dff1f4b290d94805a35e8f3ddffad9cbbfbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72cd939f3cdd4d1982e891bf3b91aadd684cdce764ad9f52711dbe0ada2a0099"
   end
 
   def install

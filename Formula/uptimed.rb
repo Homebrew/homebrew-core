@@ -1,16 +1,16 @@
 class Uptimed < Formula
   desc "Utility to track your highest uptimes"
   homepage "https://github.com/rpodgorny/uptimed/"
-  url "https://github.com/rpodgorny/uptimed/archive/v0.4.3.tar.gz"
-  sha256 "11add61c39cb2a50f604266104c5ceb291ab830939ed7c84659c309be1e1e715"
+  url "https://github.com/rpodgorny/uptimed/archive/v0.4.4.tar.gz"
+  sha256 "041f59710c316c68907e9bd07db2606f3dc16bee908b5644715ff2be30c59453"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8efbddfdb0eef471f4d0f50a55cf791d422d918d1a4f10b68e8383f7408caa08"
-    sha256 cellar: :any, big_sur:       "fc45435953f14fc7a182884dfa4e2672213c71675c9e73fb6a3799a140e66caa"
-    sha256 cellar: :any, catalina:      "1e20c4955ff14a05da57be77e08e163e164e41995411c21aeaa5a5bf3919fb7c"
-    sha256 cellar: :any, mojave:        "d5d96957debd223a243d71dc0d9858d19179c94841f6640822b1db841c0bfd48"
-    sha256 cellar: :any, high_sierra:   "8585595184bf697772b292e123f63c97513e242c7d04194c9e1990d60fcef571"
+    sha256 cellar: :any,                 arm64_big_sur: "4e1ae62985ae67f3733325ee8c87c8aafcc3702f58d8e97257eaca2c19367e96"
+    sha256 cellar: :any,                 big_sur:       "a7b8ccdc3076867427de19187190942d9403468a6d793de109d1207f9dab873e"
+    sha256 cellar: :any,                 catalina:      "8c30d6732c2ce84262b94e38df3a6eaa6a9412d7a35faff593167fb5cdec8450"
+    sha256 cellar: :any,                 mojave:        "309c440655a5166596facdcbcdd2035fd7fa5a6b1263f4bd10a8d1aa1be612b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd27de8d758ab4c321995dcef58b156ecd302e70089bc6aa6e14bb802d8cb177"
   end
 
   depends_on "autoconf" => :build
@@ -29,32 +29,10 @@ class Uptimed < Formula
     system "make", "install"
   end
 
-  plist_options manual: "uptimed"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>WorkingDirectory</key>
-          <string>#{opt_prefix}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_sbin}/uptimed</string>
-            <string>-f</string>
-            <string>-p</string>
-            <string>#{var}/run/uptimed.pid</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"uptimed", "-f", "-p", var/"run/uptimed.pid"]
+    keep_alive false
+    working_dir opt_prefix
   end
 
   test do

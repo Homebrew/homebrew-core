@@ -11,6 +11,7 @@ class Hyperfine < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f00c3c13082cb07e6c40bace87ab0e1a03572d1296661d6d217fefc525f2075e"
     sha256 cellar: :any_skip_relocation, mojave:        "162a1fac5ab92895d620f85a2a9de1e77786ba3a5a02037cfee57a9d50048c72"
     sha256 cellar: :any_skip_relocation, high_sierra:   "588d7e8466b0fa4303eda838677bb68fe888521bbce1ce89dbf6f28b304ffbc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea1f3fa3105b1e97979fd912ab5f28dde6d6c221c3d1c8830b872a52efaf29a2"
   end
 
   depends_on "rust" => :build

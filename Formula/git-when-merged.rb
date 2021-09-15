@@ -5,7 +5,9 @@ class GitWhenMerged < Formula
   sha256 "3fb3ee2f186103c2dae1e4a2e104bc37199641f4ffdb38d85ca612cf16636982"
   license "GPL-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "67a1db2415c0aa7026ad1958a6966b909575ded3f7c5c63297aff72ca8eb76b0"
+  end
 
   def install
     bin.install "bin/git-when-merged"

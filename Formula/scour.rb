@@ -7,7 +7,7 @@ class Scour < Formula
   sha256 "6881ec26660c130c5ecd996ac6f6b03939dd574198f50773f2508b81a68e0daf"
   license "Apache-2.0"
   version_scheme 1
-  head "https://github.com/scour-project/scour.git"
+  head "https://github.com/scour-project/scour.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -15,6 +15,7 @@ class Scour < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a38cf4f698ba7237dc73aa677713794e8883d7c8618960ef70b951240a0c8dea"
     sha256 cellar: :any_skip_relocation, catalina:      "b2877da612f4182fe695b2bb925d9af530aae2927c0a02cb2a4a37cde04df5d1"
     sha256 cellar: :any_skip_relocation, mojave:        "d5c972cf38a4e907d47f6cd2c1b0c5a89d87483e8a7c78bd45465fcb9b5bfc23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8dde79fe550b075433c0a9e1850cdaa1fb86105af759dd6e385b462932ff5641"
   end
 
   depends_on "python@3.9"

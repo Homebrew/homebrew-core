@@ -11,6 +11,7 @@ class GoBindata < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "189c89dc1cc88cc5da16f0d9d9bcf21cc8e13ff7623db34e59c8bca73a1ead34"
     sha256 cellar: :any_skip_relocation, catalina:      "43ea329d2cf2f21b1f0829d0e651755cdc89c313729304219376796a0332bd55"
     sha256 cellar: :any_skip_relocation, mojave:        "5f8643d57a4de7d2925dd66b0949dfd634fdba6313f85d171ec34ebc69ededbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdd58e06e26c6a0d83d17f29b81cc54dd1177be42d00c303fc77c309ba791416"
   end
 
   depends_on "go"

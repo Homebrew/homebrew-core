@@ -5,13 +5,14 @@ class ParquetCli < Formula
       tag:      "apache-parquet-1.12.0",
       revision: "db75a6815f2ba1d1ee89d1a90aeb296f1f3a8f20"
   license "Apache-2.0"
-  head "https://github.com/apache/parquet-mr.git"
+  head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3c9cf0f2d194f6ea74d86187d07fea91b26a1dba7911d9648eaefa8b6039c6b"
     sha256 cellar: :any_skip_relocation, big_sur:       "a0b9c8859d7dfb3c6e66cef92b191b7a4861338e02be1694ba70f86c646e56db"
     sha256 cellar: :any_skip_relocation, catalina:      "1cd95d2c049e2d049e799f27dda903fb6497d4701f86924fec4ac8470455dae2"
     sha256 cellar: :any_skip_relocation, mojave:        "f1c5eb930f2c094ba7e3ef80856420b01f96ce197705f5da0b39039a54ffa498"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75ce0a3f58329686ecec3060d3ffd715265cdccfc0f80d443833d2a7bd03b812"
   end
 
   depends_on "maven" => :build

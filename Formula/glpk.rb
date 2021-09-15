@@ -7,10 +7,11 @@ class Glpk < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e05ebe154868c3ae41e25c6d2bff72596275dc93c74a4f6f1a88c15a553a9bf2"
-    sha256 cellar: :any, big_sur:       "3f577566f72aa88262e78c5df12974f25f76ebca6632f8e9ccecf7b5ff222d2b"
-    sha256 cellar: :any, catalina:      "dd6461053c93e0fc37577251f83a17de325efe8382805f5bc883c8a3a018e74b"
-    sha256 cellar: :any, mojave:        "2fbd223a7089b352aa9a6e424660aec34edbcaa8fbac7665fe7a9cab2b3f7aac"
+    sha256 cellar: :any,                 arm64_big_sur: "e05ebe154868c3ae41e25c6d2bff72596275dc93c74a4f6f1a88c15a553a9bf2"
+    sha256 cellar: :any,                 big_sur:       "3f577566f72aa88262e78c5df12974f25f76ebca6632f8e9ccecf7b5ff222d2b"
+    sha256 cellar: :any,                 catalina:      "dd6461053c93e0fc37577251f83a17de325efe8382805f5bc883c8a3a018e74b"
+    sha256 cellar: :any,                 mojave:        "2fbd223a7089b352aa9a6e424660aec34edbcaa8fbac7665fe7a9cab2b3f7aac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2917fa8ab16e56c8f786514f5334598dcc81a939aa7c6c13be41c21d4e1b283"
   end
 
   depends_on "gmp"

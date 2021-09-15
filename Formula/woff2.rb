@@ -7,13 +7,14 @@ class Woff2 < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "7ca5f49e0a75c2e9935606e2d065104bf7e29f48d767cdcd373e2f84a8a322b6"
-    sha256 cellar: :any, big_sur:       "1f49de0effd6a13416745b3b9329aa42cefb0801eaa4740931b9c6669d18e1c9"
-    sha256 cellar: :any, catalina:      "7df9b4ada2d8a72546c5395fc92a7c5071f68be2fa12d336a194cee44adad5a5"
-    sha256 cellar: :any, mojave:        "d3ccc0d5d910483c5fa385cf213bb352bfe886f1b824f8c182d050ae96e77fdd"
-    sha256 cellar: :any, high_sierra:   "f0a9cba72030b62b02336c277f2688ad96bf45c1720e58205cfa597be9860296"
-    sha256 cellar: :any, sierra:        "965310f79a417663d33d4917880b4dd2a9654ca85f5a9a243465e3e0e86a394d"
-    sha256 cellar: :any, el_capitan:    "59d4f6c77ae933445a0fde4b1445208a094169fa5dac784889dd6c8d4947c997"
+    sha256 cellar: :any,                 arm64_big_sur: "7ca5f49e0a75c2e9935606e2d065104bf7e29f48d767cdcd373e2f84a8a322b6"
+    sha256 cellar: :any,                 big_sur:       "1f49de0effd6a13416745b3b9329aa42cefb0801eaa4740931b9c6669d18e1c9"
+    sha256 cellar: :any,                 catalina:      "7df9b4ada2d8a72546c5395fc92a7c5071f68be2fa12d336a194cee44adad5a5"
+    sha256 cellar: :any,                 mojave:        "d3ccc0d5d910483c5fa385cf213bb352bfe886f1b824f8c182d050ae96e77fdd"
+    sha256 cellar: :any,                 high_sierra:   "f0a9cba72030b62b02336c277f2688ad96bf45c1720e58205cfa597be9860296"
+    sha256 cellar: :any,                 sierra:        "965310f79a417663d33d4917880b4dd2a9654ca85f5a9a243465e3e0e86a394d"
+    sha256 cellar: :any,                 el_capitan:    "59d4f6c77ae933445a0fde4b1445208a094169fa5dac784889dd6c8d4947c997"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc6bb16039075d8610786f74387551da3a4852d0d6227ebefe1c5ef9add29d43"
   end
 
   depends_on "cmake" => :build

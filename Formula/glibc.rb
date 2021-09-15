@@ -89,9 +89,13 @@ class Glibc < Formula
     skip "glibc is pinned to the version present in Homebrew CI"
   end
 
+  bottle do
+    sha256 x86_64_linux: "8f5509c5a5fe85b923c196da5bb969d759a70a6a0e228110c5440a8719dc4c8e"
+  end
+
   depends_on "binutils" => :build
   depends_on GawkRequirement => :build
-  depends_on "linux-headers" => :build
+  depends_on "linux-headers@4.4" => :build
   depends_on MakeRequirement => :build
   depends_on SedRequirement => :build
   depends_on BrewedGlibcNotOlderRequirement
@@ -103,7 +107,7 @@ class Glibc < Formula
 
   def install
     # Fix Error: `loc1@GLIBC_2.2.5' can't be versioned to common symbol 'loc1'
-    # See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=
+    # See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=869717
     # Fixed in glibc 2.24
     inreplace "misc/regexp.c", /^(char \*loc[12s]);$/, "\\1 __attribute__ ((nocommon));"
 
@@ -132,12 +136,12 @@ class Glibc < Formula
       system "make", "install"
       prefix.install_symlink "lib" => "lib64"
     end
-
-    # Install ld.so symlink.
-    ln_sf lib/"ld-linux-x86-64.so.2", HOMEBREW_PREFIX/"lib/ld.so"
   end
 
   def post_install
+    # Install ld.so symlink.
+    ln_sf lib/"ld-linux-x86-64.so.2", HOMEBREW_PREFIX/"lib/ld.so"
+
     # Compile locale definition files
     mkdir_p lib/"locale"
 

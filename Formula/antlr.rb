@@ -10,7 +10,9 @@ class Antlr < Formula
     regex(/href=.*?antlr[._-]v?(\d+(?:\.\d+)+)-complete\.jar/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "542849e6cbc769b0efa95629ebcfd2a68af5c61fb59c0b5d06aee2af4f9cfb62"
+  end
 
   depends_on "openjdk"
 

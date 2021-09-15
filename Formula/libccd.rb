@@ -7,10 +7,11 @@ class Libccd < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "69d8c269bc6c5f60d141eaebe6bdff9cf333f789c4d3b72cd69b1e61edff3ea3"
-    sha256 cellar: :any, big_sur:       "8257a7f8ab8f5eca8fced2e881b96a68202c08ce94a4aa169d1d80149b61eb0f"
-    sha256 cellar: :any, catalina:      "caa0aba8d2ba740998b54c73d3ab038747ac984e4d27797b9f768195a487dc4e"
-    sha256 cellar: :any, mojave:        "47c19c5f277ecc9016ef1e62a3ce1a0c4aafd1c91e6893fb4f251183ebd505ec"
+    sha256 cellar: :any,                 arm64_big_sur: "69d8c269bc6c5f60d141eaebe6bdff9cf333f789c4d3b72cd69b1e61edff3ea3"
+    sha256 cellar: :any,                 big_sur:       "8257a7f8ab8f5eca8fced2e881b96a68202c08ce94a4aa169d1d80149b61eb0f"
+    sha256 cellar: :any,                 catalina:      "caa0aba8d2ba740998b54c73d3ab038747ac984e4d27797b9f768195a487dc4e"
+    sha256 cellar: :any,                 mojave:        "47c19c5f277ecc9016ef1e62a3ce1a0c4aafd1c91e6893fb4f251183ebd505ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bee053612267522f0eb8c55c24a68dddb787126f46771fc8459d4d3460aa077"
   end
 
   depends_on "cmake" => :build

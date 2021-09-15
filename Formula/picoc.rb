@@ -3,7 +3,7 @@ class Picoc < Formula
   homepage "https://gitlab.com/zsaleeba/picoc"
   license "BSD-3-Clause"
   revision 1
-  head "https://gitlab.com/zsaleeba/picoc.git"
+  head "https://gitlab.com/zsaleeba/picoc.git", branch: "master"
 
   stable do
     url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/picoc/picoc-2.1.tar.bz2"

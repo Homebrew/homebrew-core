@@ -11,25 +11,30 @@ class Hercules < Formula
   end
 
   bottle do
-    sha256 big_sur:     "a499a1f1bcd830c4adcc099f791eef857f583e8d8603ced8087b179ea0dbf640"
-    sha256 catalina:    "2ba0ca1b3ed54b5fa9e782cd1d8e225f58203e32b29b98af642932ed0fddbf1b"
-    sha256 mojave:      "893e8854c92794377f2fc0b6cd96ad7f7ffd3d153a0a1678c6227468067d3696"
-    sha256 high_sierra: "f1feaf922ae9105c64ba207bc9e2d9b573ddcae8b6feaba501a6daf3068e9901"
-    sha256 sierra:      "a9ca5fff16a7aa506e2067d7bad9bbb8c54ede7af0e1102150f5d385a7097e9d"
-    sha256 el_capitan:  "cf3d8203cb207792e0c800aadc86ee78714795316e936870f5a4ceae53bfdacc"
+    rebuild 1
+    sha256 arm64_big_sur: "ba4b3fa347d63601909127c94c0a2b1e42d81bbcc154970a18d7dd4ad8b15bba"
+    sha256 big_sur:       "c85d96adaa0f5cc5a17d5927d4cd1b44f42003baba3e59ff11cee5ce444512fc"
+    sha256 catalina:      "aae09d5616cf146c74bf3bfae69c1490cf920404d75d43c7d8c28ac1aab176b8"
+    sha256 mojave:        "3c7535fa1d1e9385c9f2525e40445b931c3768ab611db4e6a2019c7910538c41"
   end
 
   head do
     url "https://github.com/hercules-390/hyperion.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   skip_clean :la
 
   def install
-    system "./autogen.sh" if build.head?
+    if build.head?
+      system "./autogen.sh"
+    elsif Hardware::CPU.arm?
+      system "autoreconf", "-fvi"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

@@ -4,14 +4,14 @@ class LibbitcoinProtocol < Formula
   url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.6.0.tar.gz"
   sha256 "fc41c64f6d3ee78bcccb63fd0879775c62bba5326f38c90b4c6804e2b9e8686e"
   license "AGPL-3.0"
-  revision 6
+  revision 7
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "cad8c088fda88ee6a4618a1196ff5e49a63cea4e2fd32f6a402dfd4851fbdae3"
-    sha256 cellar: :any, big_sur:       "1a9a04d1a5645f4f5820fb4fae0b4b03476a7554a070ac3495958525916fcffc"
-    sha256 cellar: :any, catalina:      "b89dd7742e774bf80a8c2dcab61ffaa25b53bf26e7de720e7724f5b1034cbd87"
-    sha256 cellar: :any, mojave:        "88406194bac447e36bdf8020f1a0899ac8206834996c48a38ee83d22c640e520"
+    sha256 cellar: :any,                 arm64_big_sur: "aafbba752b3be4a662fe4e1c3ee2bc915d323a41b9e51ec1dcced932c4cf1d7c"
+    sha256 cellar: :any,                 big_sur:       "aace6881bbd222da139ac545f8c1f77be1d6515a48a9153e4d7e605d242006cb"
+    sha256 cellar: :any,                 catalina:      "e04f1896d57ca53344e59c20372809419735fae379b3350cadaabc04a8c57780"
+    sha256 cellar: :any,                 mojave:        "af7dbd9acf2a65efa468e14e4923d33a69605e8ace1d91f697acf399ab6a6ca7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7353cdeff1b5ac4341580e031078ac5bc454fbc37d4d3dc448fb48dc6d909894"
   end
 
   depends_on "autoconf" => :build
@@ -22,6 +22,7 @@ class LibbitcoinProtocol < Formula
   depends_on "zeromq"
 
   def install
+    ENV.cxx11
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
 
     system "./autogen.sh"
@@ -33,6 +34,7 @@ class LibbitcoinProtocol < Formula
   end
 
   test do
+    boost = Formula["boost"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/protocol.hpp>
       int main() {
@@ -45,7 +47,7 @@ class LibbitcoinProtocol < Formula
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-lbitcoin-protocol",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
+                    "-L#{boost.opt_lib}", "-lboost_system"
     system "./test"
   end
 end

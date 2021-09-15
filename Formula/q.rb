@@ -6,29 +6,27 @@ class Q < Formula
   url "https://github.com/harelba/q/archive/2.0.19.tar.gz"
   sha256 "cd4c60923bc40f53d974b54849f76096bf9901407c618cd0a3ccbc322aacc97d"
   license "GPL-3.0-or-later"
-  revision 1
-  head "https://github.com/harelba/q.git"
+  revision 3
+  head "https://github.com/harelba/q.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eed7070fddc3dda4f3c49cff16ad03d15687348e80b0a04882789300d16e2ae8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "de0170c2e58f55aa49b81958b53c6ba2a22876f64c7e5782d5760d42a9437822"
-    sha256 cellar: :any_skip_relocation, catalina:      "c1ba50d0c4c47cddb88e3c2b1aa024b7c8f81810aa2c52c988e61d7115d1e708"
-    sha256 cellar: :any_skip_relocation, mojave:        "6676084cffd70aec2c8bb073189df32ae0617d7e039d39e4b13a7d6cb7dc05ca"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "a4976c08f89e618b70c73e96fd69bc8faebd193c4935a9d5b425012194c95af5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3d4d40c7c4eacc8abe3ea9d3ab9e34ea0019d93b696a8660d092507c16bfa07"
+    sha256 cellar: :any_skip_relocation, big_sur:       "df0790f33e2fc35de6454f038789eeeb51db774ff1c96f1fdf73da2291b13d64"
+    sha256 cellar: :any_skip_relocation, catalina:      "df0790f33e2fc35de6454f038789eeeb51db774ff1c96f1fdf73da2291b13d64"
+    sha256 cellar: :any_skip_relocation, mojave:        "df0790f33e2fc35de6454f038789eeeb51db774ff1c96f1fdf73da2291b13d64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26c5d5f054b1399bb5cdf22aab604873d00a11e5020ffd2427beec08da39fbb0"
   end
 
+  depends_on "ronn" => :build
   depends_on "python@3.9"
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
-  end
+  depends_on "six"
 
   def install
     # broken symlink, fixed in next version
     rm_f "bin/qtextasdata.py"
-
     virtualenv_install_with_resources
+    system "ronn", "--roff", "--section=1", "doc/USAGE.markdown"
+    man1.install "doc/USAGE.1" => "q.1"
   end
 
   test do

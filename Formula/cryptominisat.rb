@@ -15,10 +15,11 @@ class Cryptominisat < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "8b9940bdf5011a8f060de82576726b7138a60975f56fcd7113b692e026444021"
-    sha256 big_sur:       "ca952863f4a030cff0f60b3dc1b598c9a070460b5372577e63c8df577008e5eb"
-    sha256 catalina:      "9314367f35d7d82790d4840b04d744fba37196f068fa38b899c7ac4c7e8f987b"
-    sha256 mojave:        "2ad7c47169eae4780e42ddec65f1f6144fc59ee5585dd8d26ff5d270d25d9cc3"
+    sha256                               arm64_big_sur: "8b9940bdf5011a8f060de82576726b7138a60975f56fcd7113b692e026444021"
+    sha256                               big_sur:       "ca952863f4a030cff0f60b3dc1b598c9a070460b5372577e63c8df577008e5eb"
+    sha256                               catalina:      "9314367f35d7d82790d4840b04d744fba37196f068fa38b899c7ac4c7e8f987b"
+    sha256                               mojave:        "2ad7c47169eae4780e42ddec65f1f6144fc59ee5585dd8d26ff5d270d25d9cc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "add4bd75d5ec2f5a1ce559282d81e207e99cd6da2b90234a2971808e3e8a222b"
   end
 
   depends_on "cmake" => :build

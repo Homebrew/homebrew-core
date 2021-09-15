@@ -4,16 +4,15 @@ class Volk < Formula
   desc "Vector Optimized Library of Kernels"
   homepage "https://www.libvolk.org/"
   url "https://github.com/gnuradio/volk.git",
-      tag:      "v2.4.1",
-      revision: "797b0ac846858d081fbb53ed50e98765ec9cb6b2"
+      tag:      "v2.5.0",
+      revision: "237a6fc9242ea8c48d2bbd417a6ea14feaf7314a"
   license "GPL-3.0-or-later"
 
-  revision 1
-
   bottle do
-    sha256 big_sur:  "610c013ef274b1d760bfa8759d6499612e5cd2164ab9fc1afff5d1ea4663b755"
-    sha256 catalina: "cfaaedf9ff299ff8d6da4b73b1bdcc842e15c008d087483a38a6fa30529c1356"
-    sha256 mojave:   "c517239567cd00327372b732c1fa04300d566eddb13779f9736a6435eee9ec1d"
+    sha256 big_sur:      "13397948c2762d27f80e47fa13ef95930aea8a1b9221ca266f34de6f052890e8"
+    sha256 catalina:     "e1fce59ef2e0308beb2688319d62cce2086159f792838e97d82315fab965c24c"
+    sha256 mojave:       "7e2e2549521877c836c6b2c806f52c6256a9bc43c1d82b1f0edbbce0338bd512"
+    sha256 x86_64_linux: "676c8cf00523f1c0771276bbcb9c99e2d465b2bf8d9d887b4fe03b8a3a524618"
   end
 
   depends_on "cmake" => :build
@@ -21,6 +20,12 @@ class Volk < Formula
   depends_on "boost"
   depends_on "orc"
   depends_on "python@3.9"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # https://github.com/gnuradio/volk/issues/375
 
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"

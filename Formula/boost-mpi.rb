@@ -1,17 +1,21 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
-  url "https://boostorg.jfrog.io/artifactory/main/release/1.75.0/source/boost_1_75_0.tar.bz2"
-  sha256 "953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb"
+  url "https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2"
+  sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
   license "BSL-1.0"
-  head "https://github.com/boostorg/boost.git"
+  head "https://github.com/boostorg/boost.git", branch: "master"
+
+  livecheck do
+    formula "boost"
+  end
 
   bottle do
-    rebuild 2
-    sha256 arm64_big_sur: "38f6d5dddcdd925515838fd5f7bf55816443419e793fab9a145b4e6f2ce6148e"
-    sha256 big_sur:       "304716b2419c77790b2915ae8ea1df2c6290ce19db2526f497316dcde871d016"
-    sha256 catalina:      "c64692ab8cfde0cf5353806cfe5f2dd413e60864f07ee14524398288430f36c5"
-    sha256 mojave:        "541bcc69465a535743300f1548c4216ba7feea989e076abf00b0ddc98b5098c7"
+    sha256                               arm64_big_sur: "8289fe7bb5a684360ab11462bf4312024a620854714ce02d6553e32274e5bfeb"
+    sha256                               big_sur:       "76544350ace536b0af831854f3ce18a5c101155a132001685bcfa3ea411bbb94"
+    sha256                               catalina:      "d3e1dfd88b6d683581efb1c0d732076eaa634d42d6e8d3de05ebec949f512740"
+    sha256                               mojave:        "fc0b30274d5d1eaf5f66b7c733e8c516ddfc864beddc0932eb6ee3ddd2457e6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "925c67fecdd80283070e6483972dfb0b81cdae28f6a404c46e640bb95ee13a54"
   end
 
   # Test with cmake to avoid issues like:
@@ -19,14 +23,6 @@ class BoostMpi < Formula
   depends_on "cmake" => :test
   depends_on "boost"
   depends_on "open-mpi"
-
-  # Fix build system issues on Apple silicon. This change has aleady
-  # been merged upstream, remove this patch once it lands in a release.
-  patch do
-    url "https://github.com/boostorg/build/commit/456be0b7ecca065fbccf380c2f51e0985e608ba0.patch?full_index=1"
-    sha256 "e7a78145452fc145ea5d6e5f61e72df7dcab3a6eebb2cade6b4cfae815687f3a"
-    directory "tools/build"
-  end
 
   def install
     # "layout" should be synchronized with boost
@@ -46,10 +42,9 @@ class BoostMpi < Formula
     args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     open("user-config.jam", "a") do |file|
-      on_macos do
+      if OS.mac?
         file.write "using darwin : : #{ENV.cxx} ;\n"
-      end
-      on_linux do
+      else
         file.write "using gcc : : #{ENV.cxx} ;\n"
       end
       file.write "using mpi ;\n"
@@ -65,7 +60,7 @@ class BoostMpi < Formula
     lib.install Dir["install-mpi/lib/*mpi*"]
     (lib/"cmake").install Dir["install-mpi/lib/cmake/*mpi*"]
 
-    on_macos do
+    if OS.mac?
       # libboost_mpi links to libboost_serialization, which comes from the main boost formula
       boost = Formula["boost"]
       MachO::Tools.change_install_name("#{lib}/libboost_mpi-mt.dylib",
@@ -105,8 +100,19 @@ class BoostMpi < Formula
         return 0;
       }
     EOS
+
     boost = Formula["boost"]
-    system "mpic++", "test.cpp", "-L#{lib}", "-L#{boost.lib}", "-lboost_mpi", "-lboost_serialization", "-o", "test"
+    args = ["-L#{lib}",
+            "-L#{boost.lib}",
+            "-lboost_mpi-mt",
+            "-lboost_serialization"]
+
+    on_linux do
+      args << "-Wl,-rpath,#{lib}"
+      args << "-Wl,-rpath,#{boost.lib}"
+    end
+
+    system "mpic++", "test.cpp", *args, "-o", "test"
     system "mpirun", "-np", "2", "./test"
 
     (testpath/"CMakeLists.txt").write "find_package(Boost COMPONENTS mpi REQUIRED)"

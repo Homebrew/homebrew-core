@@ -7,13 +7,14 @@ class Libfixposix < Formula
   head "https://github.com/sionescu/libfixposix.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "091b714f986845a8c360b666155235dcb2f2b9db2bcdb76734656237135e5b74"
-    sha256 cellar: :any, big_sur:       "a4b0ddb0d3adfce835d9916672a92a9ae7c566e9abedcb602dc4f257b4a9ca5f"
-    sha256 cellar: :any, catalina:      "a87f0db9cf7ac7714d603eb0388127e0a20e1ac7ae1d7b2359de2cea71c330d6"
-    sha256 cellar: :any, mojave:        "4d8da5161cd9a60d02a086dc3f2a083277cad6a2116689015d9bbaf255eea4e8"
-    sha256 cellar: :any, high_sierra:   "eaf5641bda4184e3092f7f2b0c9e61afa120df85df837377ead98de643a7e21e"
-    sha256 cellar: :any, sierra:        "024855892877fd868e04eb8b0d2ef71485ffc48b2f441f88ceb61bcc57a56aea"
-    sha256 cellar: :any, el_capitan:    "89a3b36ff587c3eeaa7ba51471ba3d0bc294bdeb66abccd0a3ce446cf6f57e1b"
+    sha256 cellar: :any,                 arm64_big_sur: "091b714f986845a8c360b666155235dcb2f2b9db2bcdb76734656237135e5b74"
+    sha256 cellar: :any,                 big_sur:       "a4b0ddb0d3adfce835d9916672a92a9ae7c566e9abedcb602dc4f257b4a9ca5f"
+    sha256 cellar: :any,                 catalina:      "a87f0db9cf7ac7714d603eb0388127e0a20e1ac7ae1d7b2359de2cea71c330d6"
+    sha256 cellar: :any,                 mojave:        "4d8da5161cd9a60d02a086dc3f2a083277cad6a2116689015d9bbaf255eea4e8"
+    sha256 cellar: :any,                 high_sierra:   "eaf5641bda4184e3092f7f2b0c9e61afa120df85df837377ead98de643a7e21e"
+    sha256 cellar: :any,                 sierra:        "024855892877fd868e04eb8b0d2ef71485ffc48b2f441f88ceb61bcc57a56aea"
+    sha256 cellar: :any,                 el_capitan:    "89a3b36ff587c3eeaa7ba51471ba3d0bc294bdeb66abccd0a3ce446cf6f57e1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "297693b5e13c9962d840e690f3a776d46ad91d81ed6b790c768f7ff30481ffc4"
   end
 
   depends_on "autoconf" => :build

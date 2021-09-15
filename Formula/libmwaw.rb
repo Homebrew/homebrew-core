@@ -1,15 +1,16 @@
 class Libmwaw < Formula
   desc "Library for converting legacy Mac document formats"
   homepage "https://sourceforge.net/p/libmwaw/wiki/Home/"
-  url "https://downloads.sourceforge.net/project/libmwaw/libmwaw/libmwaw-0.3.19/libmwaw-0.3.19.tar.xz"
-  sha256 "b272e234eefc828c4bb8344af0f047a62e070f530e9e2fba11b04c8db8eda5af"
+  url "https://downloads.sourceforge.net/project/libmwaw/libmwaw/libmwaw-0.3.20/libmwaw-0.3.20.tar.xz"
+  sha256 "14c38b06214f277ccd1450e22e6e32648955018d7695896bc560165748c8cd21"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4ddbbeb71f424b659ab4f6f7d4c9d2bf94668c38c3f49a60ed9e26e7ce75a0e9"
-    sha256 cellar: :any, big_sur:       "c370cf36d334e14e9f464878ec3f871b1957d9553e5873b338e9f5e9c36c9de8"
-    sha256 cellar: :any, catalina:      "d012e7151f89ad3a2a05e9fc06eb916e7e3a306c36a983bdf39d6f5e66aaf38a"
-    sha256 cellar: :any, mojave:        "7b092ef5379479401b41e4984ba99292977738dc7f6c87512f7f68a9b6c7bfc6"
+    sha256 cellar: :any,                 arm64_big_sur: "19ee70bb69fcb13f204c761f6aab0aa65338920a0bb076f4b478e231432cc333"
+    sha256 cellar: :any,                 big_sur:       "d01b3328f59d9bae2b955b955825af7521ed97713735d2143e687367cf3b00e3"
+    sha256 cellar: :any,                 catalina:      "8f25e345c0fd4a4025d3bdcbcedb6325919d2c231de2f7a586440f3e95f18714"
+    sha256 cellar: :any,                 mojave:        "eac21b3e50dbac8d892fdfd629ae111a105c12b7b16d6397f535e202ea30f367"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c665a5811e38db40f415790baf26d066958ce0a99329db9ae837621b338ca434"
   end
 
   depends_on "pkg-config" => :build

@@ -1,16 +1,17 @@
 class Annie < Formula
   desc "Fast, simple and clean video downloader"
   homepage "https://github.com/iawia002/annie"
-  url "https://github.com/iawia002/annie/archive/0.10.3.tar.gz"
-  sha256 "a5252317113cf90e687a532b2e961126206b29829c61d6507fc69881e85d1d34"
+  url "https://github.com/iawia002/annie/archive/v0.11.0.tar.gz"
+  sha256 "6b3e005b6bc2519e2c7b4767fcf66a49dc3e8d34c19cd3c6c3d5517720d4f3ff"
   license "MIT"
+  head "https://github.com/iawia002/annie.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8cae955f23da39b7322ca960edd82ec3ff4f894e1331ed4661ae6e178b778d6d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "90806f04f7b95fbd43021e7efa9c9e02acef136fa03c731930db4c1a307a5f84"
-    sha256 cellar: :any_skip_relocation, catalina:      "8c608e9147c4f83c6ba931d16967d688e71afb82aaa1a1ba9807e7a23fde0437"
-    sha256 cellar: :any_skip_relocation, mojave:        "5da3e7ca14e3f6305f4b104490656e6d0edc94ec6e73d8d3eb5a6cf237819680"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "2187f28963dc9493cf35d9014eead0919e27ef77072f705787b6bd7d446ce03f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c771f2ab18245eb22665bfec9936d4d1964ef1676145ae03690d1b8d3336c712"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3d3af266455aa28ddcff1c11e05a90e1a279a97b3bad188352e998c1f25307c5"
+    sha256 cellar: :any_skip_relocation, catalina:      "e9d19a6e75fb37cd3cdcf8f93390efc424265faa56b8761333450ae838e51a47"
+    sha256 cellar: :any_skip_relocation, mojave:        "9fec9894f808c30cca4a7a09c99fa1980ab634dc0a08de3bae140e9de1ed8f79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38bc15fc3fd83383e3a48167997df800417b944ab36645b6acb53da122452eff"
   end
 
   depends_on "go" => :build

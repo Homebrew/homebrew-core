@@ -10,14 +10,15 @@ class Libmikmod < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "59bf02931bcc7553745595b3859277cbb471ef5cf6f644a9251ddde4fc8a9513"
-    sha256 cellar: :any, big_sur:       "7f99f24d853fa01e073fe73cecabf1a8ec8f871f354e21da5b5003bc2de85ad2"
-    sha256 cellar: :any, catalina:      "2151c9e70ca92a911af8cf769c18541c5d107df349b44987f716909c67216c59"
-    sha256 cellar: :any, mojave:        "c69fe0dbab9fb93187e1388d4e388c00c73930dfb3bdd668a0a60228cd8d681b"
-    sha256 cellar: :any, high_sierra:   "062f1a9e2c4d5ebc6cfb08e70abbdf4ebd85b06519345ed8bde301e62d0cd860"
-    sha256 cellar: :any, sierra:        "f7785b9a4f95ff28d55ffd022780ed1cd9bde139b3482cc4f52b862cd9abf247"
-    sha256 cellar: :any, el_capitan:    "202b59906b8113d694f9c1e81df7a5f00f8afbc9e66a2b1188674058a64ae206"
-    sha256 cellar: :any, yosemite:      "8276808d976d108dd2768cacb5b54bf570ef6662b8855e7d3537e0ffaaeb1a19"
+    sha256 cellar: :any,                 arm64_big_sur: "59bf02931bcc7553745595b3859277cbb471ef5cf6f644a9251ddde4fc8a9513"
+    sha256 cellar: :any,                 big_sur:       "7f99f24d853fa01e073fe73cecabf1a8ec8f871f354e21da5b5003bc2de85ad2"
+    sha256 cellar: :any,                 catalina:      "2151c9e70ca92a911af8cf769c18541c5d107df349b44987f716909c67216c59"
+    sha256 cellar: :any,                 mojave:        "c69fe0dbab9fb93187e1388d4e388c00c73930dfb3bdd668a0a60228cd8d681b"
+    sha256 cellar: :any,                 high_sierra:   "062f1a9e2c4d5ebc6cfb08e70abbdf4ebd85b06519345ed8bde301e62d0cd860"
+    sha256 cellar: :any,                 sierra:        "f7785b9a4f95ff28d55ffd022780ed1cd9bde139b3482cc4f52b862cd9abf247"
+    sha256 cellar: :any,                 el_capitan:    "202b59906b8113d694f9c1e81df7a5f00f8afbc9e66a2b1188674058a64ae206"
+    sha256 cellar: :any,                 yosemite:      "8276808d976d108dd2768cacb5b54bf570ef6662b8855e7d3537e0ffaaeb1a19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "389de6e5bc42ac2a6813b283c4ddbc2312d915beafe93305d8b2bd474deca2a9"
   end
 
   def install

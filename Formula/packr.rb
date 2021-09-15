@@ -11,6 +11,7 @@ class Packr < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "972c88a953ad8a1932f644f7cccd5c4f0d3909983192ed58f263855f36a28ddf"
     sha256 cellar: :any_skip_relocation, catalina:      "1cd8e38f05663594e4eb91e994da4f09865121814d4e04ebc414911550c0a02b"
     sha256 cellar: :any_skip_relocation, mojave:        "88a3cd339688b5ee3f30fe811691241f8daf6285ffaf6b772d216cfb4a961c3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b1a3af58213c6725820c48a835ca209f5eef51d1d0e24e47e8a82fc1a21bb08"
   end
 
   depends_on "go" => [:build, :test]
@@ -60,6 +61,7 @@ class Packr < Formula
 
     system "go", "mod", "init", "example"
     system "go", "mod", "edit", "-require=github.com/gobuffalo/packr/v2@v#{version}"
+    system "go", "mod", "tidy"
     system "go", "mod", "download"
     system bin/"packr2"
     system "go", "build"

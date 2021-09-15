@@ -10,11 +10,12 @@ class Giflib < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e9a78b55a43f68f2552f845fff27d1c247ed865b1dd653f4c8ab259594411f86"
-    sha256 cellar: :any, big_sur:       "dc23500f50d599c4dbfcea0107b643bef41538c2f5fd162b049f82d21e3d32d5"
-    sha256 cellar: :any, catalina:      "ad97d175fa77f7afb4a1c215538d8ae9eff30435de7feaa6a5d2e29fca7fef4d"
-    sha256 cellar: :any, mojave:        "42d2f8a6e9dbf9d4c22a2e64581c7170cc7dcb2a0e66df383efc67b7bc96238d"
-    sha256 cellar: :any, high_sierra:   "e1a30a20ad93cd9ec003027d7fba43a7e04ced0bff4156614818cccfc9dec6c9"
+    sha256 cellar: :any,                 arm64_big_sur: "e9a78b55a43f68f2552f845fff27d1c247ed865b1dd653f4c8ab259594411f86"
+    sha256 cellar: :any,                 big_sur:       "dc23500f50d599c4dbfcea0107b643bef41538c2f5fd162b049f82d21e3d32d5"
+    sha256 cellar: :any,                 catalina:      "ad97d175fa77f7afb4a1c215538d8ae9eff30435de7feaa6a5d2e29fca7fef4d"
+    sha256 cellar: :any,                 mojave:        "42d2f8a6e9dbf9d4c22a2e64581c7170cc7dcb2a0e66df383efc67b7bc96238d"
+    sha256 cellar: :any,                 high_sierra:   "e1a30a20ad93cd9ec003027d7fba43a7e04ced0bff4156614818cccfc9dec6c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d753208ed3a4bbd60b59e3ca4466196e4b935d4f434935b540fc6bfb5f3e0385"
   end
 
   # Upstream has stripped out the previous autotools-based build system and their

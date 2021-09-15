@@ -5,7 +5,7 @@ class Simh < Formula
   version "3.11.1"
   sha256 "c8a2fc62bfa9369f75935950512a4cac204fd813ce6a9a222b2c6a76503befdb"
   license "MIT"
-  head "https://github.com/simh/simh.git"
+  head "https://github.com/simh/simh.git", branch: "master"
 
   # At the time this check was added, the "latest" release on GitHub was several
   # versions behind the actual latest version, so we check the Git tags instead.
@@ -20,6 +20,7 @@ class Simh < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "790feb234cf193ae6de2c076ad10024e5d9bd6d301020392a79cffc7ff6ccb15"
     sha256 cellar: :any_skip_relocation, mojave:        "76246ba12f6771a031a092ccbc67f0f6fbe8dacda0e5c1e41bbaa8d4a7918680"
     sha256 cellar: :any_skip_relocation, high_sierra:   "77ac8e9ea8a1589d4caa38f2cc9f21de2f4e66a836d316117926378080d09124"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15786096ec6cd0995825d33e772e3af76b78d7277ab94b57e4ad30ca88df0b40"
   end
 
   def install

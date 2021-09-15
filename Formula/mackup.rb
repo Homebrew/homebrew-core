@@ -13,6 +13,7 @@ class Mackup < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "24dca4cbc991aad8990c672e7a88fd975f33fefcdb0dbb70f9e6e0b10a19841d"
     sha256 cellar: :any_skip_relocation, catalina:      "df736bcc51887e9621c00d2948c989db4f1d4b5234ab7e702b49933fc212705e"
     sha256 cellar: :any_skip_relocation, mojave:        "5f413d937d26828065204eaf532ab280c9d642448a0ee4f280fc667cb03fc9e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "122a129953b8f46cfa6bc82185cfc98b5d59498c76e80850ceb374160651ca51"
   end
 
   depends_on "python@3.9"

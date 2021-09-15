@@ -1,4 +1,4 @@
-name: Dispatch rebottle
+name: Dispatch rebottle (for all macOS versions)
 
 on:
   workflow_dispatch:
@@ -6,11 +6,19 @@ on:
       formula:
         description: Formula name
         required: true
+      timeout:
+        description: "Build timeout (in minutes, default: 60 minutes)"
+        default: "60"
+        required: true
       issue:
         description: Issue number, where comment on failure would be posted
         required: false
       upload:
         description: "Whether to upload built bottles or not (default: false)"
+        required: false
+      fail-fast:
+        description: "Whether to fail immediately on a single macOS version failure (default: true)"
+        default: "true"
         required: false
 
 env:
@@ -25,12 +33,12 @@ jobs:
     strategy:
       matrix:
         version: ["11-arm64", "11", "10.15", "10.14"]
-      fail-fast: false
+      fail-fast: ${{fromJson(github.event.inputs.fail-fast)}}
     runs-on: ${{ matrix.version }}
-    timeout-minutes: 4320
+    timeout-minutes: ${{fromJson(github.event.inputs.timeout)}}
     env:
       PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-      GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
+      GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK: 1
     steps:
@@ -50,17 +58,18 @@ jobs:
 
       - run: brew test-bot --only-setup
 
-      - name: Run brew test-bot --only-json-tab --only-formulae
+      - name: Run brew test-bot --only-formulae --only-json-tab --skip-dependents
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           mkdir bottles
           cd bottles
-          brew test-bot --only-json-tab --only-formulae ${{github.event.inputs.formula}}
+          brew test-bot --only-json-tab --only-formulae --skip-dependents ${{github.event.inputs.formula}}
 
-      - name: Output brew test-bot --only-json-tab --only-formulae failures
+      - name: Failures summary for brew test-bot --only-formulae
         if: always()
         run: |
+          touch bottles/steps_output.txt
           cat bottles/steps_output.txt
           rm bottles/steps_output.txt
 
@@ -120,7 +129,7 @@ jobs:
     needs: bottle
     if: github.event.inputs.upload
     env:
-      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+      HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
       - name: ${{github.event.inputs.formula}}
         id: print_details

@@ -1,7 +1,7 @@
 class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "https://networkupstools.org/"
-  license "GPL-3.0"
+  license "GPL-2.0-or-later"
   revision 2
 
   stable do
@@ -17,11 +17,12 @@ class Nut < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4a5c519bf1474df85186b1bbab6221549a3f668a9eae785bd0398aaf1b850f68"
-    sha256 big_sur:       "9df4cddf68b3d3aeb84b5762514a070f8685da5f0c02e0bf097c1cf0a33dcf47"
-    sha256 catalina:      "1586ba300fc949859b2bebb55af99bc634362db7633e91a0db30aad28bef9c09"
-    sha256 mojave:        "dde3a1e3dc4e86f77d01071c0d669ea600569b41f8e9f11bb16a6b19e39286ca"
-    sha256 high_sierra:   "6fda08463f3e551d255b80e6e467b1f2938c973ab016f81b1585dd73373da562"
+    rebuild 1
+    sha256 arm64_big_sur: "5f500dadf3f80933b8e36bb5570aea8a29a06e81e576fcd4e5680793d7506ba9"
+    sha256 big_sur:       "38d910d0eb58cccc15593aa6675aa9547710e88c39c31849053a48bcc9ec972d"
+    sha256 catalina:      "b77e56263a12f2159bce36d8d4e27ca87bc8b9d855e204051b4726237c06899f"
+    sha256 mojave:        "357f99b63af4a81516fb8e1775f3569aeed577e62bad7906136bd9f0906e7184"
+    sha256 x86_64_linux:  "ad7dfc16b500f03bbead324d23ddc4125ba416a504a5bc81e9515d807a741669"
   end
 
   head do
@@ -40,35 +41,42 @@ class Nut < Formula
 
   def install
     if build.head?
-      ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+      ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
       system "./autogen.sh"
     else
       # Regenerate configure, due to patch applied
       system "autoreconf", "-i"
     end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--localstatedir=#{var}",
-                          "--sysconfdir=#{etc}/nut",
-                          "--with-statepath=#{var}/state/ups",
-                          "--with-pidpath=#{var}/run",
-                          "--with-macosx_ups",
-                          "--with-openssl",
-                          "--with-serial",
-                          "--with-usb",
-                          "--without-avahi",
-                          "--without-cgi",
-                          "--without-dev",
-                          "--without-doc",
-                          "--without-ipmi",
-                          "--without-libltdl",
-                          "--without-neon",
-                          "--without-nss",
-                          "--without-powerman",
-                          "--without-snmp",
-                          "--without-wrap"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --localstatedir=#{var}
+      --sysconfdir=#{etc}/nut
+      --with-statepath=#{var}/state/ups
+      --with-pidpath=#{var}/run
+      --with-openssl
+      --with-serial
+      --with-usb
+      --without-avahi
+      --without-cgi
+      --without-dev
+      --without-doc
+      --without-ipmi
+      --without-libltdl
+      --without-neon
+      --without-nss
+      --without-powerman
+      --without-snmp
+      --without-wrap
+    ]
+    args << if OS.mac?
+      "--with-macosx_ups"
+    else
+      "--with-udev-dir=#{lib}/udev"
+    end
 
+    system "./configure", *args
     system "make", "install"
   end
 
@@ -77,27 +85,8 @@ class Nut < Formula
     (var/"run").mkpath
   end
 
-  plist_options manual: "upsmon -D"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_sbin}/upsmon</string>
-            <string>-D</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"upsmon", "-D"]
   end
 
   test do

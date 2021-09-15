@@ -6,7 +6,12 @@ class GerritTools < Formula
   license "Apache-2.0"
   head "https://github.com/indirect/gerrit-tools.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1d1eb15677d4ed0974a06c21e3ad17fe49b543acbea1ebc0052ef0b2900f65f0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e4094d8655a172f89aea151baea9298f35827c09fad7ea4d696e5c542d724c06"
+    sha256 cellar: :any_skip_relocation, catalina:      "e4094d8655a172f89aea151baea9298f35827c09fad7ea4d696e5c542d724c06"
+    sha256 cellar: :any_skip_relocation, mojave:        "e4094d8655a172f89aea151baea9298f35827c09fad7ea4d696e5c542d724c06"
+  end
 
   def install
     prefix.install "bin"

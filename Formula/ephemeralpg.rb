@@ -15,6 +15,7 @@ class Ephemeralpg < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "0ebc56c6b29ac11305a81437a0c8aa5e6b31f9ab58daad8b695e3560870f09a3"
     sha256 cellar: :any_skip_relocation, mojave:        "56d56bf1bac23530fcdeb3d9b0f2161cac9ae606fdb19d61a08617a825cf31a6"
     sha256 cellar: :any_skip_relocation, high_sierra:   "ff9f13d039de049edbc0b9c085e3d49b263fe1d1a2c0e1f4c8184f121e435c9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cfc5ecbe7ff3fd431e659143dc39b0cf7c81e5cde19fcbd0397ce6c2ab01edb"
   end
 
   depends_on "postgresql"

@@ -14,6 +14,7 @@ class Restview < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9470d4f0e710da0bda1cb188f6a26ea8300fad4273c67d8362b95655a3131436"
     sha256 cellar: :any_skip_relocation, catalina:      "51774d5ba45376854bbccc90a94252cedc5c7e22efbe933305aa55c077a755ed"
     sha256 cellar: :any_skip_relocation, mojave:        "9afe08d8d8f8f4cd5a64e2de7af17eff2de637442feccdedb36320afb8a0deb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "deffb0171b3411a93bac2ffa760adbcdf7939592f052c1bed930cc21946f05cf"
   end
 
   depends_on "python@3.9"

@@ -12,6 +12,7 @@ class Libtomcrypt < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "2ecaaf5a2d64b92c58498482c3aec69c84c7772ffa5f213ad43010199cd7dec8"
     sha256 cellar: :any_skip_relocation, mojave:        "fbc00f6bcb941ab719a45ca7a52192b6bda774de1e8997c070fbf025bc031f1a"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7dda8583b31d847e69406c4eebda576e6de8fd6a3a5461a73c890bcce3162c05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8957df3d2611c3979bf19a68c0b0f1cab117c3a434f979b0a6a5cf21f4bc560e"
   end
 
   def install

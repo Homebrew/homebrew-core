@@ -7,7 +7,7 @@ class Ydcv < Formula
   sha256 "53cd59501557496512470e7db5fb14e42ddcb411fe4fa45c00864d919393c1da"
   license "GPL-3.0"
   revision 3
-  head "https://github.com/felixonmars/ydcv.git"
+  head "https://github.com/felixonmars/ydcv.git", branch: "master"
 
   bottle do
     rebuild 2
@@ -15,6 +15,7 @@ class Ydcv < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "329fe285ec1d389d1dd876bd4775327be3781a2c4a336537790b5d43a0bf5449"
     sha256 cellar: :any_skip_relocation, catalina:      "f6984e690a8d4fab4b893cea60ead8c6cc53358066d1b255e7e49ff952f300cf"
     sha256 cellar: :any_skip_relocation, mojave:        "606b5e4d75d322b8c5ed787ccdd6729bbce88f7039731a958352d7d0445e1e1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edaaea652126f1ef0cc311d323ed5198c4b85ada95ab88e58b3ea0a01101fb34"
   end
 
   depends_on "python@3.9"

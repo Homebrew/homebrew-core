@@ -5,6 +5,13 @@ class Convertlit < Formula
   version "1.8"
   sha256 "d70a85f5b945104340d56f48ec17bcf544e3bb3c35b1b3d58d230be699e557ba"
 
+  # The archive filenames don't use periods in the version, so we have to match
+  # the version from the link text.
+  livecheck do
+    url "http://www.convertlit.com/download.php"
+    regex(/href=.*?clit[._-]?v?\d+(?:\.\d+)*src\.zip[^>]+>\s*?Convert LIT v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0ef0e8a30545af331a8acbc7280dfaa41fab75a0bb87a2bf05b84e5ebdc8db2e"
     sha256 cellar: :any_skip_relocation, big_sur:       "4a70dcf4f3bc3b2806794651f1cbbf9effe317ea3d29b06339595bae0d6e71b9"
@@ -14,6 +21,7 @@ class Convertlit < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "43e28e7711f27843223b29d351ba0ce03a4deee76bbc99c4bdac50969b8eaeb7"
     sha256 cellar: :any_skip_relocation, el_capitan:    "66b05c2c6371f16620c82b31b507413556b511b859644322c65f4ceea4a83a64"
     sha256 cellar: :any_skip_relocation, yosemite:      "024a9fdb4b58a3e04c12ec300facbac636b3510f8726726c4be93c60cf272ab1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "983bf456c2fed65ab702faeb6ada0265c9cf32f72fbee7fcd967e81f68b49b2f"
   end
 
   depends_on "libtommath"

@@ -19,11 +19,12 @@ class Audiofile < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "7d21073f62480d59fd0c48a8b1709fec138136d158edd393b4923f18b19e5e2b"
-    sha256 cellar: :any, big_sur:       "c5c43335ee45d57ae38dd1a8c762f7a9e288529942b356be9a1165d886fbacb4"
-    sha256 cellar: :any, catalina:      "86f668b5e2ddbbbb8c156a3145382431865936ba8e54469a565101e9b28de3a4"
-    sha256 cellar: :any, mojave:        "b3f405c20f331ae6ded75f702bd68e45994c3c81eaf23abf650233859a830769"
-    sha256 cellar: :any, high_sierra:   "daf0e362bb9e6c4fb3e6e04b0309a975d94893e5240bf394038693b9b1a2a024"
+    sha256 cellar: :any,                 arm64_big_sur: "7d21073f62480d59fd0c48a8b1709fec138136d158edd393b4923f18b19e5e2b"
+    sha256 cellar: :any,                 big_sur:       "c5c43335ee45d57ae38dd1a8c762f7a9e288529942b356be9a1165d886fbacb4"
+    sha256 cellar: :any,                 catalina:      "86f668b5e2ddbbbb8c156a3145382431865936ba8e54469a565101e9b28de3a4"
+    sha256 cellar: :any,                 mojave:        "b3f405c20f331ae6ded75f702bd68e45994c3c81eaf23abf650233859a830769"
+    sha256 cellar: :any,                 high_sierra:   "daf0e362bb9e6c4fb3e6e04b0309a975d94893e5240bf394038693b9b1a2a024"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcd26f7d57c2394175be368ead32f926b46f00e4424197096ddb4d5d8394dbe5"
   end
 
   head do

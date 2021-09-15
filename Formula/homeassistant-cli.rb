@@ -2,17 +2,18 @@ class HomeassistantCli < Formula
   include Language::Python::Virtualenv
 
   desc "Command-line utility for Home Assistant"
-  homepage "https://github.com/home-assistant/home-assistant-cli"
+  homepage "https://github.com/home-assistant-ecosystem/home-assistant-cli"
   url "https://files.pythonhosted.org/packages/f0/f5/a90000b810751a6094761ed5fed3a6cb746c3c8be3bd1c5ed525e77be69a/homeassistant-cli-0.9.3.tar.gz"
   sha256 "daf9c2a256cd2e63fc173c7c96b3462211f045a66639778302eb4f9d125b06a2"
   license "Apache-2.0"
-  head "https://github.com/home-assistant/home-assistant-cli.git"
+  head "https://github.com/home-assistant-ecosystem/home-assistant-cli.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "49b6cbed6efc6519e46174ca5995cdec46de5a5befd2aaf1a00189ce38ea7825"
     sha256 cellar: :any_skip_relocation, big_sur:       "abed34f4e38b3e9e73eacf758d0b9f5eb796d35fa3a494b73f1d5d5797ebf228"
     sha256 cellar: :any_skip_relocation, catalina:      "fd4ea47f108cb6af299188af230dda775c1888ae25835f030cdac86970c2ed97"
     sha256 cellar: :any_skip_relocation, mojave:        "c6374c6c62160c99c8e889b96286b6f65382dca2b06e5f6f328c1ffdbcb85918"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca2629624d6b699174fe4b031a0433f179338981eed37ae2344fd586ea9bbef5"
   end
 
   depends_on "python-tabulate"

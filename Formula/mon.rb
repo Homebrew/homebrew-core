@@ -14,6 +14,7 @@ class Mon < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "66fe59cb8307fd1371885fe1739a824d01becb1644a8480f8e27584726494f09"
     sha256 cellar: :any_skip_relocation, sierra:        "0d22815460538deda7a6a979d0b7dcdf38124ed9473764f6a90d8252cb9bf1aa"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4f2d05a85fac75167df3a445a0803f7d5eddb2bacf967b10738db5066955024a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98cf650f601c5c437802ac8a979d24bdd8fe39cef4a3937f440109c91cadd69a"
   end
 
   def install

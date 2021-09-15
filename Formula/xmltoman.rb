@@ -18,6 +18,7 @@ class Xmltoman < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "06a29d1545388d2111008cc244733f36971638e05408e1a7353fe9e142f91b76"
     sha256 cellar: :any_skip_relocation, el_capitan:    "010af030c01ebe6528bbdecfa1153fac5f6e082fa088e1803d0768bb268a509b"
     sha256 cellar: :any_skip_relocation, yosemite:      "6345ec17095eeec7fde97b609c0c88f07fcdd1e911fa7fd3b8db7f3e5b081b9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20b505270931bb3f16da16f43706a9bb5062948923b22d01a40709447c7c7f80"
   end
 
   uses_from_macos "perl"
@@ -30,7 +31,7 @@ class Xmltoman < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
       resources.each do |res|
@@ -53,9 +54,7 @@ class Xmltoman < Formula
     bin.install %w[xmltoman xmlmantohtml]
     pkgshare.install %w[xmltoman.xsl xmltoman.dtd xmltoman.css]
 
-    on_linux do
-      bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
-    end
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"]) if OS.linux?
   end
 
   def test_do

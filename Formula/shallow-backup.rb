@@ -7,7 +7,7 @@ class ShallowBackup < Formula
   sha256 "8c0a57e6a5004cf3dbc74a54da1a254e685077c973266e7198aca62441c72a0b"
   license "MIT"
   revision 1
-  head "https://github.com/alichtman/shallow-backup.git"
+  head "https://github.com/alichtman/shallow-backup.git", branch: "master"
 
   bottle do
     rebuild 2
@@ -15,6 +15,7 @@ class ShallowBackup < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e1ad3d711a2c18d700033fc80c16f21ebf40a1a0ba40d41352fe5c3e13339a5a"
     sha256 cellar: :any_skip_relocation, catalina:      "180c2239489893d858f7a12d729d07c47d0eed52bb77b0fc31dedba920697672"
     sha256 cellar: :any_skip_relocation, mojave:        "84fe6770d371202f7f6bda5e55b7dc1d54744faa38a25ed498d36eab4ef8be5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7f06faa5e61303fa3e2442245af5b07b3dfb8830e67a3c130ebe542ad4306f3"
   end
 
   depends_on "python@3.9"
@@ -84,7 +85,7 @@ class ShallowBackup < Formula
     # Creates a config file and adds a test file to it
     # There is colour in stdout, hence there are ANSI escape codes
     assert_equal "\e[34m\e[1mCreating config file at: \e[22m#{pwd}/.config/shallow-backup.conf\e[0m\n" \
-    "\e[34m\e[1mAdded: \e[22m#{test_fixtures("test.svg")}\e[0m",
+                 "\e[34m\e[1mAdded: \e[22m#{test_fixtures("test.svg")}\e[0m",
     shell_output("#{bin}/shallow-backup --add-dot #{test_fixtures("test.svg")}").strip
 
     # Checks if config file was created

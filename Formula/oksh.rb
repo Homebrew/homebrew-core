@@ -11,6 +11,7 @@ class Oksh < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b5bae682becb5abddfb85bf08a48c0acb5f932f6720f11a2dc6a4ee6e1623cb0"
     sha256 cellar: :any_skip_relocation, catalina:      "9dc5b1d08b077320bc7a91855656bec8afb5d84dd0d4673a8c98455098ef8ee4"
     sha256 cellar: :any_skip_relocation, mojave:        "197f0a93fb2989dde3cda1b2013c5b03521630d1e00a55af6de08dee354c3078"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b7253494ae15e5a016ee14b1a3315a15a90823077ecd00572530051b34c57c7"
   end
 
   def install

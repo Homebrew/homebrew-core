@@ -2,10 +2,9 @@ class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      tag:      "v0.17.2.0",
-      revision: "f6e63ef260e795aacd408c28008398785b84103a"
+      tag:      "v0.17.2.3",
+      revision: "2222bea92fdeef7e6449d2d784cdfc3012641ee1"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -13,10 +12,11 @@ class Monero < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "cd413eab5533597caacbf4159ee3865705f71b195a9f36dcfe8d641abc2519ec"
-    sha256 cellar: :any, big_sur:       "2099055930c3ef3d6d8cabd75a2c2e62a71541aac6fc2ac6ec00e1c0413f88ed"
-    sha256 cellar: :any, catalina:      "e5f060e06bbcefadf93f33285ecb2655ff5559f3b74d025903785b79f664e795"
-    sha256 cellar: :any, mojave:        "bff15f9246175f7e08d4c4bd50f10fbf7a3ad07cf995fe1d33658026fedc7446"
+    sha256 cellar: :any,                 arm64_big_sur: "13245ecf80fad0038bef6dedd713f9e97ef64c7d3985bc68dd4a8597646b4059"
+    sha256 cellar: :any,                 big_sur:       "bad7e328cceef655c092f5555e16a92c4c8841fc93ad8152058327be3bf8625d"
+    sha256 cellar: :any,                 catalina:      "b416b9387fd77c4b8041864c590b233d1dc6645e3a6cca6c23ba7bf233b16d3c"
+    sha256 cellar: :any,                 mojave:        "64fa20b4cf46cc810fd8aae3b28adaa346ba0f223a196489311eab03870df2fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d43bb2f040234a457f756d77ed4f6f596115fadd1189071e2a32f570d14ac233"
   end
 
   depends_on "cmake" => :build
@@ -41,35 +41,17 @@ class Monero < Formula
     rm lib/"libminiupnpc.a"
   end
 
-  plist_options manual: "monerod"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/monerod</string>
-          <string>--non-interactive</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"monerod", "--non-interactive"]
   end
 
   test do
     cmd = "yes '' | #{bin}/monero-wallet-cli --restore-deterministic-wallet " \
-      "--password brew-test --restore-height 1 --generate-new-wallet wallet " \
-      "--electrum-seed 'baptism cousin whole exquisite bobsled fuselage left " \
-      "scoop emerge puzzled diet reinvest basin feast nautical upon mullet " \
-      "ponies sixteen refer enhanced maul aztec bemused basin'" \
-      "--command address"
+          "--password brew-test --restore-height 1 --generate-new-wallet wallet " \
+          "--electrum-seed 'baptism cousin whole exquisite bobsled fuselage left " \
+          "scoop emerge puzzled diet reinvest basin feast nautical upon mullet " \
+          "ponies sixteen refer enhanced maul aztec bemused basin'" \
+          "--command address"
     address = "4BDtRc8Ym9wGzx8vpkQQvpejxBNVpjEmVBebBPCT4XqvMxW3YaCALFraiQibejyMAxUXB5zqn4pVgHVm3JzhP2WzVAJDpHf"
     assert_equal address, shell_output(cmd).lines.last.split[1]
   end

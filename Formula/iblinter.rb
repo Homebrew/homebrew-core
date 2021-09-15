@@ -1,16 +1,16 @@
 class Iblinter < Formula
   desc "Linter tool for Interface Builder"
   homepage "https://github.com/IBDecodable/IBLinter"
-  url "https://github.com/IBDecodable/IBLinter/archive/0.4.26.tar.gz"
-  sha256 "2297387aec09d9da9321118e75a50235e1df53c22826e4ac664784680908c21e"
+  url "https://github.com/IBDecodable/IBLinter/archive/0.4.27.tar.gz"
+  sha256 "1403d4b104d41a8cfbc66b8533b53f1f94255f00904dfb97e91a88230f07dcfc"
   license "MIT"
   head "https://github.com/IBDecodable/IBLinter.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eab89051e8c6e072b9cc757ed6bb5247dcdb3fde229a73af905d90d5fed06c32"
-    sha256 cellar: :any_skip_relocation, big_sur:       "83b2b578edbfb6af0a8ab6d5b893a41f946e0b4fd67e0eddc5a0bc6ad1846788"
-    sha256 cellar: :any_skip_relocation, catalina:      "4bcb4abe5aa009da4353934fa804a55e2b88b40743e198108f55861749aa4af8"
-    sha256 cellar: :any_skip_relocation, mojave:        "8846eaea01baa944e222217768747f9f80927349b0dfca5460e66fb0c34624e4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e8b7e60ab04bde225bb1a598f48f816a3672ae079262438de162678e2802e48d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "01a92d21d4bcafd3f50d095be30903dddbc6abfea1d05b2535a2d2b8a86d5048"
+    sha256 cellar: :any_skip_relocation, catalina:      "d1f695ee4af2122773fb1d5113cbc1ffc18520da4267a051ed275e3b01ff326d"
+    sha256 cellar: :any_skip_relocation, mojave:        "c8c64fb3319c716d4cd0d69cc383b1ae6c152112093eeaad5e7ee9aa07c50f20"
   end
 
   depends_on xcode: ["10.2", :build]

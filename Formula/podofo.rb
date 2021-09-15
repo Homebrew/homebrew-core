@@ -7,10 +7,11 @@ class Podofo < Formula
   head "svn://svn.code.sf.net/p/podofo/code/podofo/trunk"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3e52626a449c28973ad35209a5ce61969742879f1f88fe9cad56b4a93add49a1"
-    sha256 cellar: :any, big_sur:       "f9078444b3bfc33019cc26e01e07d636522553d51e3b415ebf16516f7802f08f"
-    sha256 cellar: :any, catalina:      "845cb7626c32ac0b2202acb6f2c42313b210b1bf281afabeec41292a86bca92c"
-    sha256 cellar: :any, mojave:        "f7e69aa8d5061863c85a0f5208781a8f42f31e38add04136cb9987a8c3477da9"
+    sha256 cellar: :any,                 arm64_big_sur: "3e52626a449c28973ad35209a5ce61969742879f1f88fe9cad56b4a93add49a1"
+    sha256 cellar: :any,                 big_sur:       "f9078444b3bfc33019cc26e01e07d636522553d51e3b415ebf16516f7802f08f"
+    sha256 cellar: :any,                 catalina:      "845cb7626c32ac0b2202acb6f2c42313b210b1bf281afabeec41292a86bca92c"
+    sha256 cellar: :any,                 mojave:        "f7e69aa8d5061863c85a0f5208781a8f42f31e38add04136cb9987a8c3477da9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0521b30dffbb805f3fcbb42e96e67c78bf114741b5b4d91badd5c10f86d99513"
   end
 
   depends_on "cmake" => :build

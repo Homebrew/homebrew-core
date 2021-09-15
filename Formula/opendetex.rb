@@ -10,6 +10,7 @@ class Opendetex < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ce26ea02e5c47385374aba395951434319d5e48e6dbda94f7ffa25e4632b54a6"
     sha256 cellar: :any_skip_relocation, catalina:      "46db3f033cb646e360fcabc83eb6fabba87b858eb1cc3e32d4bad78e73816bc6"
     sha256 cellar: :any_skip_relocation, mojave:        "92d55157d568aa004dd09342308f8e4be8dfb6a95f9719646c5d9792b677f7a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e88e075265c2480dd11436e5d6027a090fb8e199c51fb6e5ffb431db5bf1662c"
   end
 
   uses_from_macos "flex" => :build

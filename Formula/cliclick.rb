@@ -1,17 +1,19 @@
 class Cliclick < Formula
   desc "Tool for emulating mouse and keyboard events"
   homepage "https://www.bluem.net/jump/cliclick/"
-  url "https://github.com/BlueM/cliclick/archive/5.0.tar.gz"
-  sha256 "b013314702932c5cc3bf7d54d3966afb2ed6331c66e3d11235e8ea83c695e051"
+  url "https://github.com/BlueM/cliclick/archive/5.0.1.tar.gz"
+  sha256 "798fb8b26f6a42b5002ca58e018b91f7677162c4f035b38aee8d905829db64a7"
   license "BSD-3-Clause"
-  head "https://github.com/BlueM/cliclick.git"
+  head "https://github.com/BlueM/cliclick.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b69ae3c108b346648be43b6a4c20278a4ee2964351e43f677079757343aa23d2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7e6bcf10902d1e4b2da9d1b8a4bd3999ab5fe6257ee67175f9e124d479fedb0b"
-    sha256 cellar: :any_skip_relocation, catalina:      "4cc28069cf249576d31df617e2be6be38dacb9896f21967d7ad3797e9d65a87c"
-    sha256 cellar: :any_skip_relocation, mojave:        "7ff1aa3722085a9bbcdbd3fe496a84dcef9774a75b0374c0c3f404517aa79eca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "38bed03738e5b08fd7956b06168522bf50649b89d77f9db7f11ede0556c769f7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "40accabe00d35eba6b328cca78e2c1009be79bc0dada3c14689919b2fd72fa39"
+    sha256 cellar: :any_skip_relocation, catalina:      "f80bcf05d0c6e682ca479a2692288eb31021a9108043e2c80251bdc9d3ee31a5"
+    sha256 cellar: :any_skip_relocation, mojave:        "bfe0d98cf52c7e6b14ae1eafa1a8640880af33f9e121415599ff0528152c1b42"
   end
+
+  depends_on :macos
 
   def install
     system "make"

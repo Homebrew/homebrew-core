@@ -1,15 +1,16 @@
 class Watchexec < Formula
   desc "Execute commands when watched files change"
   homepage "https://github.com/watchexec/watchexec"
-  url "https://github.com/watchexec/watchexec/archive/cli-v1.16.1.tar.gz"
-  sha256 "d8e8e5ef6c11f4a7512f4841eff8960558edb39f54a563e5dda8e1058ff057b5"
+  url "https://github.com/watchexec/watchexec/archive/cli-v1.17.1.tar.gz"
+  sha256 "3bc82174729628010d29c85f2d2c61cc45cef5cc729f13153b1422c8f647d33f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3d595eb504c88c0105e641f6a3a984d4b3244da2f48f724cedf127ada1b7c109"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c66bdf49260814408a74fd51f658f28eb5398d61bb9f2fb422e269acc08a2c93"
-    sha256 cellar: :any_skip_relocation, catalina:      "b97efcba269149c456ab5b3913adc8d1e8458b1f3b1b880c6fc6789acd0cbd2f"
-    sha256 cellar: :any_skip_relocation, mojave:        "cb04ec9019c20c619cb8cbc2f056e17ad20fc13cf66e7db7440f7684127d4f69"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d83500db72a7e0dff3fc8fd8e2526e11e6d25a104ab155dc967fcc519a082b50"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dd7198eb2dbb92f608a8a8eeb254d2810182f3d647f303831a5bfeeab5ab51c8"
+    sha256 cellar: :any_skip_relocation, catalina:      "52aa742b6924b99190019d0347660734d5c846a8c0e79b5b1e5658f2c1b24659"
+    sha256 cellar: :any_skip_relocation, mojave:        "9d243c2296dc406c164045adbedee423c4b0a3b74f9a8aaad1676f1a96e16d8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ca6f89236f83d52799189baa14c733c7532e9245834ed31a07d4d367579a45d"
   end
 
   depends_on "rust" => :build

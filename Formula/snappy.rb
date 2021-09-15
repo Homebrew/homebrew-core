@@ -1,31 +1,65 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
   homepage "https://google.github.io/snappy/"
-  url "https://github.com/google/snappy/archive/1.1.8.tar.gz"
-  sha256 "16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f"
+  url "https://github.com/google/snappy/archive/1.1.9.tar.gz"
+  sha256 "75c1fbb3d618dd3a0483bff0e26d0a92b495bbe5059c8b4f1c962b478b6e06e7"
   license "BSD-3-Clause"
-  head "https://github.com/google/snappy.git"
+  head "https://github.com/google/snappy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f6d2b583adf7f67e01d6399acfd8960929df9ffeb8fb8a93e4570af4da9b799f"
-    sha256 cellar: :any, big_sur:       "b3ebf378db9b345341fc4695d1c6834433bd729a471d60b4f34306823312c464"
-    sha256 cellar: :any, catalina:      "b15a258346dc93bd5c6900a405ccb2e9e02ebfeb5b16607b340cc6a5a021eba3"
-    sha256 cellar: :any, mojave:        "e996c3b0dfac02c8cdd06d849db47e853800389ff7d18fa66526d7d51d305589"
-    sha256 cellar: :any, high_sierra:   "77276307037cc20bf44c86fef60b1745c1d8f84d6f963332535b34868f5fc2b4"
+    sha256 cellar: :any,                 arm64_big_sur: "19b5a3afc6646dcec7a1803921b44fb5c57b6734fc0e32f025633f14d1da05ec"
+    sha256 cellar: :any,                 big_sur:       "d73fd47c36e1559d49e1c4c4346c754a9d2ff2af9a0bef25631f52763f19f0ef"
+    sha256 cellar: :any,                 catalina:      "e62a5ab8aa407d6e7d8ddbecdc66fdd1fb256b87730dfe4abbdf8996b3db2869"
+    sha256 cellar: :any,                 mojave:        "b5c89925c1e54ea1e1992d076836092fa754681b373b4834766236abb779cfab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6708c99972bc8ff6d2ad298cf0cd498853d73b45f9ac95a9370fc70b2c59297"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
+  # Fix issue where Mojave clang fails due to entering a __GNUC__ block
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
+  end
+
+  on_linux do
+    # Fix for build failure. Remove with next release.
+    patch do
+      url "https://github.com/google/snappy/commit/0c716d435abe65250100c2caea0e5126ac4e14bd.patch?full_index=1"
+      sha256 "12ff7d1182a35298de3287db32ef8581b8ef600efd6d9509fcc894d3d2056c80"
+    end
+  end
+
+  fails_with :clang do
+    build 1100
+    cause "error: invalid output constraint '=@ccz' in asm"
+  end
+
+  # Fix issue where `snappy` setting -fno-rtti causes build issues on `folly`
+  # `folly` issue ref: https://github.com/facebook/folly/issues/1583
+  patch :DATA
+
   def install
-    system "cmake", ".", *std_cmake_args
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+
+    # Disable tests/benchmarks used for Snappy development
+    args = std_cmake_args + %w[
+      -DSNAPPY_BUILD_TESTS=OFF
+      -DSNAPPY_BUILD_BENCHMARKS=OFF
+    ]
+
+    system "cmake", ".", *args
     system "make", "install"
     system "make", "clean"
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *args
     system "make", "install"
   end
 
   test do
+    # Force use of Clang on Mojave
+    ENV.clang if OS.mac?
+
     (testpath/"test.cpp").write <<~EOS
       #include <assert.h>
       #include <snappy.h>
@@ -48,3 +82,20 @@ class Snappy < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 672561e..2f97b73 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -76,10 +76,6 @@ else(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+   # Disable C++ exceptions.
+   string(REGEX REPLACE "-fexceptions" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-exceptions")
+-
+-  # Disable RTTI.
+-  string(REGEX REPLACE "-frtti" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti")
+ endif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+
+ # BUILD_SHARED_LIBS is a standard CMake variable, but we declare it here to make

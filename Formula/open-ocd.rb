@@ -15,6 +15,7 @@ class OpenOcd < Formula
     sha256 big_sur:       "8c776e777a2587d45f7abc2ab9cb3d682a9e1d0c186c16d3beeec4b5dddcc637"
     sha256 catalina:      "70eeaab9796e8356a5ad08c8f69e9fc7a86f9ef3f7060248ab49722dfeb95794"
     sha256 mojave:        "31773a9703e8b217b5d6dc58dc670a8f8afd2b51e7735bbd499eef2daad357dd"
+    sha256 x86_64_linux:  "7a1e636fc79b084859ad0a60a6a8bcd358f190b7381e9bb8fc3c8c8823978fb8"
   end
 
   head do

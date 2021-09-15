@@ -4,6 +4,11 @@ class Grap < Formula
   url "https://www.lunabase.org/~faber/Vault/software/grap/grap-1.46.tar.gz"
   sha256 "7a8ecefdecfee96699913f2a412da68703911fa640bac3b964a413131f848bb4"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?grap[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "b881e8e5a9e9b93597d99ad6fc3ffa06e277855fa2b49ccb697c53d463ae597b"
     sha256 big_sur:       "a36a748595465d9a1a85db3613a4cbd6c1511e802e56b77408581f9af567326f"

@@ -5,6 +5,11 @@ class Uudeview < Formula
   sha256 "e49a510ddf272022af204e96605bd454bb53da0b3fe0be437115768710dae435"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?uudeview[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "93a098dc40d16b9785888c20c8d1707a62fe471938c99ea8074df042548cfed7"
@@ -12,6 +17,7 @@ class Uudeview < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "9b5990b5b763e90614bd2d074e670c20e834541d60082a4e78f90d67a65da5c3"
     sha256 cellar: :any_skip_relocation, mojave:        "2869df0b09975172227dc83be6d667b3d0f8e4f2cf0f6d9ec0cd3fdca02727f4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7bb4c57755efed1b4208d234a0017d785757da04ca8f8e43c92980f3fe16b85c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cdd9748ec5c1baf9934bade72dd8a3eea06b632d0f1c49e57b682663bbb8371"
   end
 
   # Fix function signatures (for clang)

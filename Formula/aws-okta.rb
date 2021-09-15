@@ -10,6 +10,7 @@ class AwsOkta < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "178f359eaabc71c8a677f89e1acb35fe73ae35ba4010a06876bdb630b66878b2"
     sha256 cellar: :any_skip_relocation, catalina:      "2edc4ebb817ff4f0a3188a0c0eea6416ce2a83a6d9b5cc5b3969034ee65e27ca"
     sha256 cellar: :any_skip_relocation, mojave:        "910418c2dd89b78a7d665cdd8082d9941de433c6c8db800ce0515dfb6c1eb25b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "108a796410008799835a58ab990dca87d12e602bff10a47f49b6b126f223b36c"
   end
 
   # See https://github.com/segmentio/aws-okta/issues/278

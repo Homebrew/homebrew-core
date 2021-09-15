@@ -5,6 +5,11 @@ class RandomizeLines < Formula
   sha256 "1cfca23d6a14acd190c5a6261923757d20cb94861c9b2066991ec7a7cae33bc8"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?rl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c107eea0fba80096a370db46e622320bdb9ea825b837280e46ad236b3a37bbd4"
     sha256 cellar: :any_skip_relocation, big_sur:       "05b5f772ee8d86ef341e30e91194b0a4b0cdbe5d3e16c8e319ed5e74a901e806"
@@ -14,6 +19,7 @@ class RandomizeLines < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "19f42b1930e7a523778b18834c9615eb3c891ee490a1cb41a73f61bc47c336f6"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e61c986a537a9f0c77b1382add72096e72f7447ef50ac8acc01320014681e691"
     sha256 cellar: :any_skip_relocation, yosemite:      "fbffa3106ec600894f313f9770f1336227e2bf149f10c487344f26b4bf8f1093"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d3ca6029fbd900632e5f09b68c583b1f441cf1bb711041ab00d519ee8fd323a"
   end
 
   def install
@@ -23,6 +29,11 @@ class RandomizeLines < Formula
   end
 
   test do
-    system "echo", "-e", "\" ""1\n2\n4\" | \"#{bin}/rl\" -c 1"
+    (testpath/"test.txt").write <<~EOS
+      1
+      2
+      4
+    EOS
+    system "#{bin}/rl", "-c", "1", testpath/"test.txt"
   end
 end

@@ -3,17 +3,16 @@ class Gupnp < Formula
 
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
-  url "https://download.gnome.org/sources/gupnp/1.2/gupnp-1.2.4.tar.xz"
-  sha256 "f7a0307ea51f5e44d1b832f493dd9045444a3a4e211ef85dfd9aa5dd6eaea7d1"
+  url "https://download.gnome.org/sources/gupnp/1.2/gupnp-1.2.7.tar.xz"
+  sha256 "8441276f1afd0176e6f595026a3a507eed1809abfa04026bad3f21622b3523ec"
   license "LGPL-2.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "42df277f75efd31c355901035cf70f440078d5ef973fe3998ea9e0e53f6ffb61"
-    sha256 cellar: :any, big_sur:       "40c8a74e84cbf2826c098c04e888989166cbe27a9f387754c69b046b3761e6e9"
-    sha256 cellar: :any, catalina:      "0cb0e21dccf7a4cd8105303569e1f11409f46be63893eea7523d59eeff5b2398"
-    sha256 cellar: :any, mojave:        "24070ef84b5cad5ed79d0349b4f1bb41a1097aa20f0c401ab80b1c5646bdd153"
-    sha256 cellar: :any, high_sierra:   "0f0c2eb53f1182cb2b81ae49ba947d87c4ce1d0f3028c8aa5df2c0dc120e3ee8"
+    sha256 cellar: :any, arm64_big_sur: "d9eb370676152358aab46a6eb4a2113c35393da0532e8777758fe86c58cfe68d"
+    sha256 cellar: :any, big_sur:       "2e6e2cf75b268a9b15ba5ab0218feb821b8fcfd3484b0392d1a61fbfb7b4024f"
+    sha256 cellar: :any, catalina:      "ad1eb9712b22a8cf129e2b1e655da5024904fbb4d9d05ac4642a74a169437e44"
+    sha256 cellar: :any, mojave:        "7a4029599f45eba6591d4dc62cfb4327e38ad97cd95f846ebc603b217d0e8939"
+    sha256               x86_64_linux:  "53a859d7651aeb8446bf5d16257dd40b640a1fba65eed609897fa65328295be4"
   end
 
   depends_on "docbook-xsl" => :build
@@ -62,7 +61,13 @@ class Gupnp < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/gupnp-1.2", "-L#{lib}", "-lgupnp-1.2",
+
+    libxml2 = "-I#{MacOS.sdk_path}/usr/include/libxml2"
+    on_linux do
+      libxml2 = "-I#{Formula["libxml2"].include}/libxml2"
+    end
+
+    system ENV.cc, testpath/"test.c", "-I#{include}/gupnp-1.2", "-L#{lib}", "-lgupnp-1.2",
            "-I#{Formula["gssdp"].opt_include}/gssdp-1.2",
            "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-1.2",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
@@ -70,8 +75,7 @@ class Gupnp < Formula
            "-L#{Formula["glib"].opt_lib}",
            "-lglib-2.0", "-lgobject-2.0",
            "-I#{Formula["libsoup"].opt_include}/libsoup-2.4",
-           "-I#{MacOS.sdk_path}/usr/include/libxml2",
-           testpath/"test.c", "-o", testpath/"test"
+           libxml2, "-o", testpath/"test"
     system "./test"
   end
 end

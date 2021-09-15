@@ -4,6 +4,11 @@ class Gzrt < Formula
   url "https://www.urbanophile.com/arenn/coding/gzrt/gzrt-0.8.tar.gz"
   sha256 "b0b7dc53dadd8309ad9f43d6d6be7ac502c68ef854f1f9a15bd7f543e4571fee"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?gzrt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b1bc6db3fef40f0c48ceac080ee84108364cf4ff1d94bb1423c1be5b2f14bc96"
     sha256 cellar: :any_skip_relocation, big_sur:       "6f9f146178364bb1306a145076a4c79f01f1ba08726b2e90a022597fe34b63f9"

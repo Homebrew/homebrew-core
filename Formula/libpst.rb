@@ -11,10 +11,11 @@ class Libpst < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d7b9d9f537b1575cbd299b56e2a82f38f661aff617cc8a3a03b44cf8acb1e3c0"
-    sha256 cellar: :any, big_sur:       "be3136353a0d0c538070a6c1261b75620abffda9d2cee435daf3debbc5fe2f8e"
-    sha256 cellar: :any, catalina:      "d6ec30b4b9ca7d8968c5155b98c2a32dca502910c6c95ac860dc50065de89f65"
-    sha256 cellar: :any, mojave:        "9ba873578452d668ac195f1e3b332f692f45ee5db1a6c55e68e57e8d08d3878a"
+    sha256 cellar: :any,                 arm64_big_sur: "d7b9d9f537b1575cbd299b56e2a82f38f661aff617cc8a3a03b44cf8acb1e3c0"
+    sha256 cellar: :any,                 big_sur:       "be3136353a0d0c538070a6c1261b75620abffda9d2cee435daf3debbc5fe2f8e"
+    sha256 cellar: :any,                 catalina:      "d6ec30b4b9ca7d8968c5155b98c2a32dca502910c6c95ac860dc50065de89f65"
+    sha256 cellar: :any,                 mojave:        "9ba873578452d668ac195f1e3b332f692f45ee5db1a6c55e68e57e8d08d3878a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ef7024943254ef22bbf082c8c96ce8d207c30a1b9fe77a8d6f4432d09f924aa"
   end
 
   depends_on "pkg-config" => :build

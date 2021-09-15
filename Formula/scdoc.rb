@@ -10,6 +10,7 @@ class Scdoc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "81dd4cefe0f4df18d14726d318b5dbcf8b42085041834e5da8852f6ec02e8b73"
     sha256 cellar: :any_skip_relocation, catalina:      "ea37af44324b83e8368af5965ef5cb198ef1a4b4dbabcd81e0da9297366a245b"
     sha256 cellar: :any_skip_relocation, mojave:        "9ad77b02592b8be119ceafd2286a24c383a537a3b1e169b91aba049e82d41dee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a2a6b095d84fc5b37fddb558cfd527d382cffb0186b42fa561d9e142562e9d9"
   end
 
   def install

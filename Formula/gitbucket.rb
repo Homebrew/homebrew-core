@@ -1,23 +1,25 @@
 class Gitbucket < Formula
   desc "Git platform powered by Scala offering"
   homepage "https://github.com/gitbucket/gitbucket"
-  url "https://github.com/gitbucket/gitbucket/releases/download/4.35.3/gitbucket.war"
-  sha256 "19cf2233f76171beda543fa11812365f409f807c07210ab83d57cb8252d66ebe"
+  url "https://github.com/gitbucket/gitbucket/releases/download/4.36.2/gitbucket.war"
+  sha256 "d22089c0ba131c82c70c55bc9427b2ec095098815f96ca31f88edd7c2882d62d"
   license "Apache-2.0"
 
-  head do
-    url "https://github.com/gitbucket/gitbucket.git"
-    depends_on "ant" => :build
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "e36a21cee810ab68ae0fa938fbbf070262a8d2d0032725d8fa6cc0a8648fa1da"
   end
 
-  bottle :unneeded
+  head do
+    url "https://github.com/gitbucket/gitbucket.git", branch: "master"
+    depends_on "sbt" => :build
+  end
 
   depends_on "openjdk"
 
   def install
     if build.head?
-      system "ant"
-      libexec.install "war/target/gitbucket.war", "."
+      system "sbt", "executable"
+      libexec.install "target/executable/gitbucket.war"
     else
       libexec.install "gitbucket.war"
     end
@@ -25,34 +27,13 @@ class Gitbucket < Formula
 
   def caveats
     <<~EOS
-      Note: When using launchctl the port will be 8080.
+      Note: When using `brew services` the port will be 8080.
     EOS
   end
 
-  plist_options manual: "java -jar #{HOMEBREW_PREFIX}/opt/gitbucket/libexec/gitbucket.war"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>gitbucket</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{Formula["openjdk"].opt_bin}/java</string>
-            <string>-Dmail.smtp.starttls.enable=true</string>
-            <string>-jar</string>
-            <string>#{opt_libexec}/gitbucket.war</string>
-            <string>--host=127.0.0.1</string>
-            <string>--port=8080</string>
-          </array>
-          <key>RunAtLoad</key>
-         <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [Formula["openjdk"].opt_bin/"java", "-Dmail.smtp.starttls.enable=true", "-jar", opt_libexec/"gitbucket.war",
+         "--host=127.0.0.1", "--port=8080"]
   end
 
   test do

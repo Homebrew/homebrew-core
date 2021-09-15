@@ -12,6 +12,7 @@ class Surfraw < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9"
     sha256 cellar: :any_skip_relocation, sierra:        "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9"
     sha256 cellar: :any_skip_relocation, el_capitan:    "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3928b063fffaf888f0c34a9ad0a4b943fa5c120bad110a1e4b5acc465965acf7"
   end
 
   def install

@@ -15,6 +15,7 @@ class Libgphoto2 < Formula
     sha256 big_sur:       "2771425b25fc5daacca8b5c2322f08440aafda9df085069f40fc05c9579972ce"
     sha256 catalina:      "69871cc5fc750b1ae1e73a51113dcc5a9c108df1b423c53f8a2e604df4911bc6"
     sha256 mojave:        "3d9bf09a1d548e7bac00461c93f67fcdd68a48b44f296afd361f2279a9fff175"
+    sha256 x86_64_linux:  "6cdad3241d77f35ab799532628c936a1d1917c290ad2ecba095bdbbfe2261db7"
   end
 
   head do

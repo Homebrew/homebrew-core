@@ -4,7 +4,7 @@ class ArpScan < Formula
   url "https://github.com/royhills/arp-scan/archive/1.9.7.tar.gz"
   sha256 "e03c36e4933c655bd0e4a841272554a347cd0136faf42c4a6564059e0761c039"
   license "GPL-3.0"
-  head "https://github.com/royhills/arp-scan.git"
+  head "https://github.com/royhills/arp-scan.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "bab165d30f8039bba63d086234d0c57c64152fe73d586081dfaa7eec177fcefd"
@@ -12,6 +12,7 @@ class ArpScan < Formula
     sha256 catalina:      "763b615392ea20ab1900bbc4a21fb0a9a978bbf50d3bbd8d5ff490437defc6f8"
     sha256 mojave:        "178196ab4312319611ad02c8e086e56fec2217981f9d91d9e7df8cddfeacda4e"
     sha256 high_sierra:   "f72f46496eecff4c1a86dbdbf3a295e195310827ef50cdc0b007bd7b6311495d"
+    sha256 x86_64_linux:  "4e1dce3dfb01c565542caec5dc02683850118f607a7e343e7dfff1eb08c7b627"
   end
 
   depends_on "autoconf" => :build

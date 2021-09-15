@@ -6,15 +6,11 @@ class Kite < Formula
   license "BSD-3-Clause"
   revision 3
 
-  livecheck do
-    url "http://www.kite-language.org/files/"
-    regex(/href=.*?kite[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
-    sha256 cellar: :any, big_sur:  "e42d72077eab99bf9765a87691d809c953ab94bd36c65b1dd51a6f681a3962fe"
-    sha256 cellar: :any, catalina: "34c4f01c0b9290e11773e9bd9f971bdefd47dba7d2bd9023aed4fb0b50738184"
-    sha256 cellar: :any, mojave:   "45a37540be7705e4daca4716415228a99a6ad77ec46d4916834cce0f71f7f08c"
+    sha256 cellar: :any, big_sur:      "e42d72077eab99bf9765a87691d809c953ab94bd36c65b1dd51a6f681a3962fe"
+    sha256 cellar: :any, catalina:     "34c4f01c0b9290e11773e9bd9f971bdefd47dba7d2bd9023aed4fb0b50738184"
+    sha256 cellar: :any, mojave:       "45a37540be7705e4daca4716415228a99a6ad77ec46d4916834cce0f71f7f08c"
+    sha256               x86_64_linux: "45184970c4f76d2230063944b65f3f8b48fa90c8860dc502f6f677db03269a63"
   end
 
   deprecate! date: "2021-02-12", because: :unmaintained

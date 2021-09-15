@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://www.openfaas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      tag:      "0.13.9",
-      revision: "2cec97955a254358de5443987bedf8ceee272cf8"
+      tag:      "0.13.13",
+      revision: "72816d486cf76c3089b915dfb0b66b85cf096634"
   license "MIT"
   head "https://github.com/openfaas/faas-cli.git"
 
@@ -13,20 +13,21 @@ class FaasCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ab1d53328d0fdac8c2bd7d573d83802d813baca9ea3851028957378d0d1f07a6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "64d0ac9b1dd6adc0ec65db4b964665049ae25753b80eb27a1ea285077f42aec3"
-    sha256 cellar: :any_skip_relocation, catalina:      "84993602a3a414e58bb0cfdc89fe9bd10d5a6798e0648c900ef6ba8404024b62"
-    sha256 cellar: :any_skip_relocation, mojave:        "fe89007a4997b4a7d4f8d8a138277b179ef207ef636534953e4ce042a6d63d2a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ad9ec0034403fce9774851822c992a81bdd83672a51b6a9e62d17211a64125f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5fa34425406dbec94aea6103568213cd4f6f53f6958c79f002b0cd97130c16b6"
+    sha256 cellar: :any_skip_relocation, catalina:      "92f0eacb01bfbc1e6630b92adca5a6a7ad25c18786481d1449b006def8524422"
+    sha256 cellar: :any_skip_relocation, mojave:        "976de92ce4afe1702a868d03f27165accc2ef00003ed0cb4b386aa60374061b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6396752fe835cc7254f5e59af86fec12cf8c9d1543a26df62a654e37c2319f6b"
   end
 
   depends_on "go" => :build
 
   def install
-    os = "darwin"
-    on_linux do
-      os = "linux"
+    ENV["XC_OS"] = if OS.mac?
+      "darwin"
+    else
+      "linux"
     end
-    ENV["XC_OS"] = os
     ENV["XC_ARCH"] = "amd64"
     project = "github.com/openfaas/faas-cli"
     ldflags = %W[
@@ -48,8 +49,8 @@ class FaasCli < Formula
         socket = server.accept
         response = "OK"
         socket.print "HTTP/1.1 200 OK\r\n" \
-                    "Content-Length: #{response.bytesize}\r\n" \
-                    "Connection: close\r\n"
+                     "Content-Length: #{response.bytesize}\r\n" \
+                     "Connection: close\r\n"
         socket.print "\r\n"
         socket.print response
         socket.close

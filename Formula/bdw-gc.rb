@@ -17,10 +17,11 @@ class BdwGc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ee743d115b619b02230863812224a1c33dc1d3430280728eb10990cc86caa994"
-    sha256 cellar: :any, big_sur:       "af8bfafe1425f3cc9923bd49a375f85c13255124ed7a952137fe924431adc1c4"
-    sha256 cellar: :any, catalina:      "73a3a75a47a0007a772fe229f11bc0710988af6a8603c56a0f7fae3d9a317149"
-    sha256 cellar: :any, mojave:        "960f60118f6f5cbf4e04a76e4c2103c7fb446e43e5db08362bca0b13763e137b"
+    sha256 cellar: :any,                 arm64_big_sur: "ee743d115b619b02230863812224a1c33dc1d3430280728eb10990cc86caa994"
+    sha256 cellar: :any,                 big_sur:       "af8bfafe1425f3cc9923bd49a375f85c13255124ed7a952137fe924431adc1c4"
+    sha256 cellar: :any,                 catalina:      "73a3a75a47a0007a772fe229f11bc0710988af6a8603c56a0f7fae3d9a317149"
+    sha256 cellar: :any,                 mojave:        "960f60118f6f5cbf4e04a76e4c2103c7fb446e43e5db08362bca0b13763e137b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05ea8f4b5dbc0329c01a525ff30a2c00f45bca54c03f2460e88d7f4d39e65686"
   end
 
   head do
@@ -72,7 +73,7 @@ class BdwGc < Formula
       }
     EOS
 
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lgc", "-o", "test", "test.c"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lgc", "-o", "test"
     system "./test"
   end
 end

@@ -11,6 +11,7 @@ class OpenJtalk < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "bed36f972fe3dc3d5f286eff5c1b1605a1bcfae6cc755b7b2aee57fc497f7913"
     sha256 cellar: :any_skip_relocation, high_sierra:   "cd50656bb81db4528b82b844c773440d6cdfec63e545a64002a473da05a7eb18"
     sha256 cellar: :any_skip_relocation, sierra:        "b015d173b77980d0da3a8eedad02fdff95ac919c790917ba9cb197db91207235"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09fa6df65a5004730ee6d41ca9580ccd58933ddc33c6b3f64f1ba732ce7f3ce8"
   end
 
   resource "hts_engine API" do

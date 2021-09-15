@@ -1,24 +1,27 @@
 class SwiftSh < Formula
   desc "Scripting with easy zero-conf dependency imports"
   homepage "https://github.com/mxcl/swift-sh"
-  url "https://github.com/mxcl/swift-sh/archive/2.2.0.tar.gz"
-  sha256 "e3204b3bf727ca27c951080c5eb90b1e193fa8fef0703f60ea068bdb57f39df4"
+  url "https://github.com/mxcl/swift-sh/archive/2.3.0.tar.gz"
+  sha256 "512ab6ba0899258673e040fa434a2ee4332128eb6ae47f63b146477667ea2d83"
   license "Unlicense"
-  head "https://github.com/mxcl/swift-sh.git"
+  head "https://github.com/mxcl/swift-sh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "368220eaccf4e5d1f52f2bb53c6029ba600dd321de54fef4fdfbe6c965c2716b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9a5f73b88dc332198e97b18c539c0298fbb60690ff61f01735f28c490b12f364"
-    sha256 cellar: :any_skip_relocation, catalina:      "999595646476e2704d01011e10440281c24c638d46bb61eeffad6c9f3d5b4619"
-    sha256 cellar: :any_skip_relocation, mojave:        "3e0f348e5ccb6c22e41e3dc819eb5f8c2228b4874bac5cd24a61a823c97fabad"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d90522741b5bfdac8d8d79375cce90984af0967bca1e84e8f5f9758b29e36616"
+    sha256 cellar: :any_skip_relocation, big_sur:       "490aaac152cd73af4711850ef3bf137d3db6ae8217f384dff4a9551dfafc5783"
+    sha256 cellar: :any_skip_relocation, catalina:      "d3993862ace65ec747846eadfad6110157e2de946e0b416355e6bbe321d7ca6a"
+    sha256 cellar: :any_skip_relocation, mojave:        "c7ece92d3a20f75c5a7551fb1a46b0750912e29021bae73a9e5e7f8d8e2397b3"
+    sha256                               x86_64_linux:  "f9eb4d26b5b8f46ec48f7e41c1d735427aa517bc2d00800d815138c734590495"
   end
 
   depends_on xcode: ["11.0", :build]
 
+  uses_from_macos "swift"
+
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/swift-sh"
-    bin.install ".build/release/swift-sh-edit"
+    bin.install ".build/release/swift-sh-edit" if OS.mac?
   end
 
   test do

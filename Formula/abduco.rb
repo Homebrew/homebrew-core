@@ -4,7 +4,7 @@ class Abduco < Formula
   url "https://github.com/martanne/abduco/releases/download/v0.6/abduco-0.6.tar.gz"
   sha256 "c90909e13fa95770b5afc3b59f311b3d3d2fdfae23f9569fa4f96a3e192a35f4"
   license "ISC"
-  head "https://github.com/martanne/abduco.git"
+  head "https://github.com/martanne/abduco.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e261303a69440aa46e09bfc3be3b7fb0c5cb6b2a3f6fbeb94338491a8538a90a"
@@ -15,6 +15,7 @@ class Abduco < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9367a86666aad4d14cecf2d7c20f897d3eb92d5cd913af43081d80b9452e19fd"
     sha256 cellar: :any_skip_relocation, el_capitan:    "62b4673f4fba1d3c5b201b972e220a2736ec053e0c83b1369bb4e5641a71f8e4"
     sha256 cellar: :any_skip_relocation, yosemite:      "17338a1f1f2cace2bfb40c79d746ad60c6604555e8fb34476ec4ef9a2f68234e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2129c6039968a818f71997e800575b581128b56f8783eeb32c990f8a5e8b81ad"
   end
 
   def install

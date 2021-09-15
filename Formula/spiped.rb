@@ -4,6 +4,11 @@ class Spiped < Formula
   url "https://www.tarsnap.com/spiped/spiped-1.6.1.tgz"
   sha256 "8d7089979db79a531a0ecc507b113ac6f2cf5f19305571eff1d3413e0ab33713"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?spiped[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "74e0d5955ee9754f9a88798d8d0c5a2b425756d3359378c312874ccb3959421d"
     sha256 cellar: :any, big_sur:       "c245e8cf440207b8a2d229b8f8644ebe25da6999b52f2b8b16835c55b7f04b6e"

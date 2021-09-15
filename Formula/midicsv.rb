@@ -1,8 +1,13 @@
 class Midicsv < Formula
   desc "Convert MIDI audio files to human-readable CSV format"
-  homepage "https://www.fourmilab.ch/webtools/midicsv"
+  homepage "https://www.fourmilab.ch/webtools/midicsv/"
   url "https://www.fourmilab.ch/webtools/midicsv/midicsv-1.1.tar.gz"
   sha256 "7c5a749ab5c4ebac4bd7361df0af65892f380245be57c838e08ec6e4ac9870ef"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?midicsv[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b4786091a3131f6ffafe70a561bc2a0ffcbab3ed7c651393bb1908e1bd00bad7"
@@ -13,6 +18,7 @@ class Midicsv < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "314a21ac6aaad39594a54bae4bf3ecc64e3ef0cd655e7c18c6ff05ebd72c9b86"
     sha256 cellar: :any_skip_relocation, el_capitan:    "230ba9ec9cbb40c2c128c1a063152fd07888210f59bf37f1f68bcd2f33d4d863"
     sha256 cellar: :any_skip_relocation, yosemite:      "f649e02908dee31c35e9b73954b8faad2da70e1c7e621fddb64f18dbad897036"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "683cf72afc59037843aed1da2bf95b0ba3927d8521aabcbc96702329bebf4ee4"
   end
 
   def install

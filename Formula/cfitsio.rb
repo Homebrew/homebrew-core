@@ -1,22 +1,23 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-3.49.tar.gz"
-  version "3.490"
-  sha256 "5b65a20d5c53494ec8f638267fca4a629836b7ac8dd0ef0266834eab270ed4b3"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.0.0.tar.gz"
+  sha256 "b2a8efba0b9f86d3e1bd619f662a476ec18112b4f27cc441cc680a4e3777425e"
 
   livecheck do
     url :homepage
-    regex(/Download the latest v?(\d+(?:\.\d+)+) version of CFITSIO/i)
+    regex(/href=.*?cfitsio[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e5e1b4c2c73622ff9302547e5bafc7e80a5b98ae2e46522efeeaab0c6531b80b"
-    sha256 cellar: :any, big_sur:       "95b7f8301997e3b9c7111b8dc395b917800121a5e98edfdd0efc0f3d9adebbd9"
-    sha256 cellar: :any, catalina:      "2abc3263aed574298efd50d60dd5fa07e69c5a39ed87772e3edaa727a293506a"
-    sha256 cellar: :any, mojave:        "07c4d1610f3e5d90cbedb238939f588f09150edfe006f41c5072d2fb4e01980a"
-    sha256 cellar: :any, high_sierra:   "ec8feab397612c13da91dd9c8e2c91289973ec1e7e10bf07f17023cf5db26745"
+    sha256 cellar: :any,                 arm64_big_sur: "663a708c8bc435958830dd4b3e703980a25892712098a53aa1e6cbd812cfecd1"
+    sha256 cellar: :any,                 big_sur:       "bfc9fd29dd3909123ab1ee9d1c0fa36543bfc4a330690826b8a94c545544888c"
+    sha256 cellar: :any,                 catalina:      "63e9df9a5660a778941cc264639547715cd2f264cba7c57731ffe399c2586ec1"
+    sha256 cellar: :any,                 mojave:        "d98bbd662f25cc6d961a8ba28c3c743474e0c05aaa8ea83b710c9469669de424"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c0e76dd62d49e3aa80004128ac6eb9c8f84cc3139efe3d07eed740b17a31ebe"
   end
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-reentrant"

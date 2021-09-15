@@ -6,10 +6,11 @@ class Openmama < Formula
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 arm64_big_sur: "ffa2cc7594c9a2f097bcbfe74884bc6675efe83ac80343bac9b46c1672555de3"
-    sha256 big_sur:       "70690e4a07aadfa4c28e9149fd615119e26336903bd182192ea64440df95012a"
-    sha256 catalina:      "a211e0f4ab73bd0b0d620797405b000e0bae0f043b068bac5244e389d8c38f87"
-    sha256 mojave:        "76d5eaf476206348c18eb981a5ff1c4d0b42a3ecf128e26df724d374e04d100d"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "e68c9fee04206d5f5b21d84889bf645c7f4b2b2922a886e9bbcc226a05faa183"
+    sha256 cellar: :any, big_sur:       "b3d28de466d5f2d17ddb57b2f5004e3defc7f8d48922814f61f733aa7015639c"
+    sha256 cellar: :any, catalina:      "50fe6f8436bd5d7729f9f20c21de8d398e50546754514708e24715a097bd21f1"
+    sha256 cellar: :any, mojave:        "b0a5d95139fce5f6f72b5a2906c5e2e6b604aef25e2b76e7c448ab1bfcefe6d6"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,7 @@ class Openmama < Formula
     mkdir "build" do
       system "cmake", "..", "-DAPR_ROOT=#{Formula["apr"].opt_prefix}",
                             "-DPROTON_ROOT=#{Formula["qpid-proton"].opt_prefix}",
-                            "-DCMAKE_INSTALL_RPATH=#{opt_lib}",
+                            "-DCMAKE_INSTALL_RPATH=#{rpath}",
                             "-DINSTALL_RUNTIME_DEPENDENCIES=OFF",
                             "-DWITH_TESTTOOLS=OFF",
                             *std_cmake_args

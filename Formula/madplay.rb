@@ -18,6 +18,7 @@ class Madplay < Formula
     sha256 sierra:        "a4a1b057547c65f8d793e874632e98ee10bfdae234ff011d16d99593c3fa7853"
     sha256 el_capitan:    "81dbc8781c5da50f7188a4031ed5d500b07c51a7589da6799c6bf3477bb90bf6"
     sha256 yosemite:      "4ab0b6303cafe408494e85c38b80a3c44964953995c024d2b65a019bc5608c05"
+    sha256 x86_64_linux:  "ec0f6f04859ba10663c5db4a57641807c0e8c3ae94cff3a2ef94983109314577"
   end
 
   depends_on "libid3tag"

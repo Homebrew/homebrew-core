@@ -1,15 +1,21 @@
 class Lgogdownloader < Formula
   desc "Unofficial downloader for GOG.com games"
   homepage "https://sites.google.com/site/gogdownloader/"
-  url "https://sites.google.com/site/gogdownloader/lgogdownloader-3.7.tar.gz"
-  sha256 "984859eb2e0802cfe6fe76b1fe4b90e7354e95d52c001b6b434e0a9f5ed23bf0"
-  revision 4
+  url "https://github.com/Sude-/lgogdownloader/releases/download/v3.8/lgogdownloader-3.8.tar.gz"
+  sha256 "2f4941f07b94f4e96557ca86f33f7d839042bbcac7535f6f9736092256d31eb5"
+  license "WTFPL"
+  head "https://github.com/Sude-/lgogdownloader.git"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?lgogdownloader[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4d1ffe227ab919193c96021c9fb5ea4b161335b7ffaa0ee4bceaf3fba94280ed"
-    sha256 cellar: :any, big_sur:       "e83c5d97b10c35f300f38b61330f777eb875e9f1c9234a14bdb9837db435fd21"
-    sha256 cellar: :any, catalina:      "ba061ec21041d85ec77a992106630eae9e764559074947d6c8a0f875d140b20b"
-    sha256 cellar: :any, mojave:        "f76cceb5381ca392f61d5398fdb93b87f253a8256e20f554ff5fae20f2d8ef8d"
+    sha256 cellar: :any, arm64_big_sur: "369c84e75a36b791769eb7cb84b888fd050a5ad16f9cb010e85c4bd28a17463c"
+    sha256 cellar: :any, big_sur:       "2fa1804d59145b057b02b32e358ba179246248d35ea69d53873e756d88ab95ff"
+    sha256 cellar: :any, catalina:      "850adc82be488503d799eb2211311ab455839ca65b1e9d65b94c3ce9a8f3ec97"
+    sha256 cellar: :any, mojave:        "3be4696256c82a16e5f30caaf0c9c2b7e99d465b3b96df2ff4e937ee7d3c78d7"
   end
 
   depends_on "cmake" => :build

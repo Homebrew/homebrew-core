@@ -4,13 +4,14 @@ class Progress < Formula
   url "https://github.com/Xfennec/progress/archive/v0.16.tar.gz"
   sha256 "59944ee35f8ae6d62ed4f9b643eee2ae6d03825da288d9779dc43de41164c834"
   license "GPL-3.0"
-  head "https://github.com/Xfennec/progress.git"
+  head "https://github.com/Xfennec/progress.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "97407ff56c65c8f77371ce073478868eb507742db82c11e107a43413bce646c3"
     sha256 cellar: :any_skip_relocation, big_sur:       "21a1663abf8e1a60baf99a3ae46d41883cd5136fabbe77dd07987e0730b08ec0"
     sha256 cellar: :any_skip_relocation, catalina:      "804256c3be440464694fe8f0e9b94f323860f9fa2304c8984dc0e8cbbce43fab"
     sha256 cellar: :any_skip_relocation, mojave:        "5c834228aa86062624e1d2f6f3c386607d3151842218eb9c70529e1485ee1e5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31559faf7e06989812f6ea8069a8baf8de1b1abcd68c41dba11f5f2004595f65"
   end
 
   uses_from_macos "ncurses"

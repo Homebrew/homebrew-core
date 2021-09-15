@@ -10,6 +10,7 @@ class Smali < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "508115afcebb6b4fe2b6491652cc386633144cb48669fd4624eb60542fa43fd8"
     sha256 cellar: :any_skip_relocation, catalina:      "95c45f88283b8e8e7a4563440bb9e3ed10f93dfe43eac5e927ae1ebae65dac0b"
     sha256 cellar: :any_skip_relocation, mojave:        "44fc500be24c9cc38b5c7031cf600019083c5385e18bd067eeacb1424061d0c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a674a05a86c284a8f15d82c01e73af0e1802b755659c6417d79157ff2108f82f"
   end
 
   depends_on "gradle" => :build

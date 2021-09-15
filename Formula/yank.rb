@@ -12,7 +12,10 @@ class Yank < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "60431f02c576c640597975986ce62f9d157c49f160d7d6e23f917dc321ca8bac"
     sha256 cellar: :any_skip_relocation, high_sierra:   "b87461e809f0bebd615d4da69c31509109de8f86d07d280dab07326293cc851f"
     sha256 cellar: :any_skip_relocation, sierra:        "70a5de45249c1656653733fea8d7a92c2496b9ba8e7540eef86b3f805d0e933a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f04ce62b6e440fa687142f18f0487c52936827cadbae0eff64bd9da3484e9f8a"
   end
+
+  uses_from_macos "expect" => :test
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "YANKCMD=pbcopy"

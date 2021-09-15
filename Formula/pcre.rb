@@ -1,9 +1,9 @@
 class Pcre < Formula
   desc "Perl compatible regular expressions library"
   homepage "https://www.pcre.org/"
-  url "https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.44.tar.bz2"
-  sha256 "19108658b23b3ec5058edc9f66ac545ea19f9537234be1ec62b714c84399366d"
+  url "https://ftp.pcre.org/pub/pcre/pcre-8.45.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.45.tar.bz2"
+  sha256 "4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,11 +12,11 @@ class Pcre < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e70ba0f6ae7f9ef638f4564d6b75b8d1e9db9f427057e9029e1686471e9174c6"
-    sha256 cellar: :any, big_sur:       "a67dd6141e117f849bbb7d3bde92ffb6485921939c1d64e39a3f7fd0dac3f523"
-    sha256 cellar: :any, catalina:      "f8ac266e04f984fa55091a43f0fdc39a40d57c2489d289a186c88ccedaba7eeb"
-    sha256 cellar: :any, mojave:        "ed9b483538da7bc6559d2e63dd36659736fab9510681661d970d707a18731de4"
-    sha256 cellar: :any, high_sierra:   "aeea1351e1439847d00c3cee54bd28639493e686f809568cf42fea7bb28da2a5"
+    sha256 cellar: :any,                 arm64_big_sur: "2d6bfcafce9da9739e32ee433087e69a78cda3f18291350953e6ad260fefc50b"
+    sha256 cellar: :any,                 big_sur:       "fb2fefbe1232706a603a6b385fc37253e5aafaf3536cb68b828ad1940b95e601"
+    sha256 cellar: :any,                 catalina:      "180d88dc2230e98162685b86d00436903db4349aac701f9769997d61adb78418"
+    sha256 cellar: :any,                 mojave:        "a42b79956773d18c4ac337868cfc15fadadf5e779d65c12ffd6f8fd379b5514c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "296026b6d5430399e40fb4f8074045a9a27d5374d83f2f6d4659c2647959f36d"
   end
 
   head do

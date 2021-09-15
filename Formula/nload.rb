@@ -17,6 +17,7 @@ class Nload < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "2e566035d80abd97c43955ac5fa05ba347b67dbbd10d0543faef3cf5cc7b0bfb"
     sha256 cellar: :any_skip_relocation, mojave:        "1dbf614f22611f66ee49efa6b1f5a1af29066be04e461d56e9766b84aeb68077"
     sha256 cellar: :any_skip_relocation, high_sierra:   "3bcdee6e4f2e404d0ec728620b025524de265f94fccc290b29fc81f04f85be36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b1d3e77437ea1f37ab063237a2b71318370b23248b8be6d6d10d07f786bed89"
   end
 
   depends_on "autoconf" => :build

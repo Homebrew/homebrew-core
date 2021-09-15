@@ -4,7 +4,7 @@ class Osxutils < Formula
   url "https://github.com/specious/osxutils/archive/v1.9.0.tar.gz"
   sha256 "9c11d989358ed5895d9af7644b9295a17128b37f41619453026f67e99cb7ecab"
   license "GPL-2.0"
-  head "https://github.com/specious/osxutils.git"
+  head "https://github.com/specious/osxutils.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5d4050cda7e5ede43231c7195ffa1eb06bf5e3b5a1efa6acf8243a0e8ee424a"
@@ -15,6 +15,8 @@ class Osxutils < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "8021183b4ad9c646920020e51446e555210bbb24e22da923557e1e0370353dfd"
     sha256 cellar: :any_skip_relocation, el_capitan:    "3bd65cf2550b709c111e31db7cb7d829a9260ed5dd35a682c370ed01593c1989"
   end
+
+  depends_on :macos
 
   def install
     system "make"

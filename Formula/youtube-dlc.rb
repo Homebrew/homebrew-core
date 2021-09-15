@@ -2,10 +2,9 @@ class YoutubeDlc < Formula
   desc "Media downloader supporting various sites such as youtube"
   homepage "https://github.com/blackjack4494/yt-dlc"
   url "https://github.com/blackjack4494/yt-dlc/archive/2020.11.11-3.tar.gz"
-  version "2020.11.11-3"
   sha256 "649f8ba9a6916ca45db0b81fbcec3485e79895cec0f29fd25ec33520ffffca84"
   license "Unlicense"
-  head "https://github.com/blackjack4494/yt-dlc.git"
+  head "https://github.com/blackjack4494/yt-dlc.git", branch: "master"
 
   livecheck do
     url :stable
@@ -15,9 +14,10 @@ class YoutubeDlc < Formula
 
   bottle do
     rebuild 3
-    sha256 cellar: :any_skip_relocation, big_sur:  "d5b0155e1929150e4a35fc02513fc105d25e03fe778edd6db94302d9c50dcdd3"
-    sha256 cellar: :any_skip_relocation, catalina: "d18e35ee7120d9d76932338981585f68f42ff16ef91268d02ef58de4fb9f5c42"
-    sha256 cellar: :any_skip_relocation, mojave:   "044a2108153ef9ce3e4e5e7b3e6602c5789ab6f4449511050dbdc4a805e6077e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "00c731f3aa0cac636ee980b19720eab0bf8e3fe19da5751addc8997bc491af08"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d5b0155e1929150e4a35fc02513fc105d25e03fe778edd6db94302d9c50dcdd3"
+    sha256 cellar: :any_skip_relocation, catalina:      "d18e35ee7120d9d76932338981585f68f42ff16ef91268d02ef58de4fb9f5c42"
+    sha256 cellar: :any_skip_relocation, mojave:        "044a2108153ef9ce3e4e5e7b3e6602c5789ab6f4449511050dbdc4a805e6077e"
   end
 
   depends_on "pandoc" => :build

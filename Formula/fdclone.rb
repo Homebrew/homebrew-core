@@ -15,6 +15,7 @@ class Fdclone < Formula
     sha256 catalina:      "6272d033132a7a2c355ab19629241021087c606de3114e2ebe4aa301e6bee840"
     sha256 mojave:        "b3a56f6b62622696f4da6554a487557a57c0875c2aba28705e300b7207f6a8ce"
     sha256 high_sierra:   "f894bed33d254c5c48341485e835f945b60e632a0ecbf484c818f12c61350122"
+    sha256 x86_64_linux:  "b7a4047ede40d7981d2496e42cf32f2886a9bb182a2275f4697b70f20ec5f7f3"
   end
 
   depends_on "nkf" => :build

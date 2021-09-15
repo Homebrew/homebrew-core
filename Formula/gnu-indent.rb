@@ -14,6 +14,7 @@ class GnuIndent < Formula
     sha256 mojave:        "e960e3f35f6a77daef487f54158953522f58a27caf27e39e0c17702754718ee1"
     sha256 high_sierra:   "3280e6e9fc0c5cc895367291fc328dccae5f2e36606dd503b5721d449bc33eb8"
     sha256 sierra:        "98bcdee2e49d7e165a07ce6468d2c1a3030db7205472d015ba516e43f5a1e0fd"
+    sha256 x86_64_linux:  "e3ef74b022310ffe3742480791e140ee05b61b315cfcb7de9fa6ebdac77a7b92"
   end
 
   depends_on "gettext"
@@ -28,13 +29,11 @@ class GnuIndent < Formula
       --mandir=#{man}
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gindent" => "indent"
       (libexec/"gnuman/man1").install_symlink man1/"gindent.1" => "indent.1"
     end

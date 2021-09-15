@@ -11,6 +11,7 @@ class Diffr < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "95c977ef5f56699e0007be2b869e12007afec6fabdd84b003825e04e66d52d74"
     sha256 cellar: :any_skip_relocation, mojave:        "b3d54c3e09b5b8a5a6de7b1d8c4511b4ff1d0b835250738343a45e3e872a0d08"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4b0ac077f6fd419d00c67dbfa100b8822dc041a8b12925cbda7a4d87a2c470fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "172f1672ee5047a32348bfb77e4d13b49681531ee2adeede6deaaade107f61ff"
   end
 
   depends_on "rust" => :build

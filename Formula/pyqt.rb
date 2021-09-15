@@ -1,15 +1,15 @@
 class Pyqt < Formula
   desc "Python bindings for v6 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/64/be/d2b48e53d5767f25d607fa5a598e2af6ef9e1e8475bd6bfc60b27a5f34ea/PyQt6-6.1.0.tar.gz"
-  sha256 "9b45df6c404d7297598b91378d1e3f9bdf0970553ebb53c192a9051576098f9b"
+  url "https://files.pythonhosted.org/packages/a0/07/0ae4f67768c1150af851572fae287aeaf956ed91b3b650b888a856274ae4/PyQt6-6.1.1.tar.gz"
+  sha256 "8775244fa73f94bfe8ae7672b624e2a903a22bc35d7ea42dd830949e2f9e43c7"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e7932ff8a349c6b277d82f30ad164c7635eaec0f8ea12b3413995ecd178eef34"
-    sha256 cellar: :any, big_sur:       "770aca2a80b9a49f422c0503896f2647d2b07c60bf07621f1b776e1d0d122407"
-    sha256 cellar: :any, catalina:      "5ae647f00f04a0af6152b4b21a6f6ba4b1cdb6a59f5b367e078ad6537093b4e8"
-    sha256 cellar: :any, mojave:        "d597e31a5f10125702e49739f9128f90b4011d0e32dc4c9a0dbe143837cacfdd"
+    sha256 cellar: :any, arm64_big_sur: "fea01af94d13d9a63aefa5196c41bdb6523ee9540ddab5b74cbdd7b04418d8a6"
+    sha256 cellar: :any, big_sur:       "c69056ae619b4767387d4cc75b5305bdf819fd857c5b72f39530a451202b4eca"
+    sha256 cellar: :any, catalina:      "255395daf91ee3e34ec61519d468ae2020fe2f244ded967dc3523473698a2933"
+    sha256 cellar: :any, mojave:        "04a213318ce8f6b223362d506aec2dbb5240b2a23b523530d97e1ccae7cc0fe9"
   end
 
   depends_on "pyqt-builder" => :build
@@ -25,23 +25,23 @@ class Pyqt < Formula
   end
 
   resource "3d" do
-    url "https://files.pythonhosted.org/packages/f7/06/6a2d193f36d2f115fcfaac6375f05737270bc8c133cd259a7a3431c38152/PyQt6_3D-6.1.0.tar.gz"
-    sha256 "8f04ffa5d8ba983434b0b12a63d06e8efab671a0b2002cee761bbd0ef443513c"
+    url "https://files.pythonhosted.org/packages/ea/5e/4c954451984d00dfc051eab5c4b40453923a85f5a0dfa9678511d06eec5e/PyQt6_3D-6.1.1.tar.gz"
+    sha256 "f0277c04ac62f065cdd3f740a2149d260a5909e51df9fbb63e5ed83cebbe44f4"
   end
 
   resource "charts" do
-    url "https://files.pythonhosted.org/packages/bd/d3/3c5ddec0e55f0776aa4d975574805c8035fa180458c902d0d1912c9f4094/PyQt6_Charts-6.1.0.tar.gz"
-    sha256 "46c83c1bf044c3d86cdc38c2eb37168432e0cc877e54fc3522af11f00021a7f4"
+    url "https://files.pythonhosted.org/packages/b9/ac/9c545186f3125b0fb02359938bddde0167344f3d4e14aee17fa122b5287a/PyQt6_Charts-6.1.1.tar.gz"
+    sha256 "258416a5c8148cc824dede64b37ede08f14e1f90ef7e3c11e411b1b03268fee2"
   end
 
   resource "datavis" do
-    url "https://files.pythonhosted.org/packages/90/38/32971bd2b41a29f80aff5571ea68bb4a42c6b3fd58110f116ec05eb596a9/PyQt6_DataVisualization-6.1.0.tar.gz"
-    sha256 "8d259abe586efcc970b606c167900e98847ed47b5b63fa0673758f7c9829cf2f"
+    url "https://files.pythonhosted.org/packages/56/8d/ddf81fe59263a0855d58b9f91d957e0956f3ea0aab17f0433f5cc69d4e8e/PyQt6_DataVisualization-6.1.1.tar.gz"
+    sha256 "d66f92b991468ac92d4a9391e41f6e544ec54fab3488db131287907397ac1baf"
   end
 
   resource "networkauth" do
-    url "https://files.pythonhosted.org/packages/92/3d/3088bcf0bcba3b586c401dad60f7706224966e8861653088e5786115f66c/PyQt6_NetworkAuth-6.1.0.tar.gz"
-    sha256 "11af1bb27a6b3686db8770cd9c089be408d4db93115ca77600e6c6415e3d318c"
+    url "https://files.pythonhosted.org/packages/04/cc/6e60bbc105992a9c2a98bb9135987baa4f35b27593a5e3ebf7ac2728ce0c/PyQt6_NetworkAuth-6.1.1.tar.gz"
+    sha256 "1590118cef920adcef55022246994d5dfcc64cb7504bdd17eac92ffeb4a21dbe"
   end
 
   def install

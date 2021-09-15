@@ -1,10 +1,9 @@
 class Libxmlxx < Formula
   desc "C++ wrapper for libxml"
   homepage "https://libxmlplusplus.sourceforge.io/"
-  url "https://download.gnome.org/sources/libxml++/2.42/libxml++-2.42.0.tar.xz"
-  sha256 "3d032aede98a033eb5e815b4bfa9fa7b4e745268e6fd1ce8b1d0f70bcaf4736d"
+  url "https://download.gnome.org/sources/libxml++/2.42/libxml++-2.42.1.tar.xz"
+  sha256 "9b59059abe5545d28ceb388a55e341095f197bd219c73e6623aeb6d801e00be8"
   license "LGPL-2.1-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -12,10 +11,11 @@ class Libxmlxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a9dc7eb652f1c83152920bae6d930f8692d443fe180eb77fcaa4e2cd33661a7d"
-    sha256 cellar: :any, big_sur:       "2fb9806be122c23fdb9968dc3cafcec7b52afb60e6e496c5d1597843b8a4b54a"
-    sha256 cellar: :any, catalina:      "8f9f3bdd2d4208725f0f76a602bc9e78d593becc10858b51d6c724e7ba1e7cfe"
-    sha256 cellar: :any, mojave:        "5fb122370076e5963c2be7c455d867e4e36a306b86cbb100433a266a1b621767"
+    sha256 cellar: :any, arm64_big_sur: "e2aba0455833404cb02800c272d4b1c8e4f8216da5bc15798f8e64c0d784ecb2"
+    sha256 cellar: :any, big_sur:       "2b16a17ecc1683587eb672acc18ba98ee88795c54cb7edac974ed4e3459bfc3a"
+    sha256 cellar: :any, catalina:      "d6e621d8511f48b17f1e33a87efb04fcc9b65a1afe6ca6d442f4d9e7ce98b3e4"
+    sha256 cellar: :any, mojave:        "f76bb4f5672bd0d2c50ba19efdc192e6eb31166043ace553a33fc9e7d4604cfb"
+    sha256               x86_64_linux:  "dc1b0fe9971c2cd23cc9dfc94b72e8052e4ab76f5e2fab39fe382bfd44e1f21f"
   end
 
   depends_on "meson" => :build

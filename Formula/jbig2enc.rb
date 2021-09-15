@@ -7,13 +7,14 @@ class Jbig2enc < Formula
   head "https://github.com/agl/jbig2enc.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a9971ddbeaf06085f531d9fb58f823360e73561f8703111d3c8ed0340413281a"
-    sha256 cellar: :any, big_sur:       "7fa06f2fcbf711d175510a4161ca495bb5ab41cee3052090a650cc9053008ff1"
-    sha256 cellar: :any, catalina:      "1c24750a1e84a128012a71d0cc47812c29c32136b31dc9c8a15d71d124701c90"
-    sha256 cellar: :any, mojave:        "62cbf2c1eab2eb5cfe0060887f96d8408fb05a4214580bef8da8a593962b436d"
-    sha256 cellar: :any, high_sierra:   "7431e5b6cf8354ab27bbb7710b2133eb3d381f3c6a30b7143332fba5e7fe82f7"
-    sha256 cellar: :any, sierra:        "53d757dc93193756cc90f94a6ca2f4bad2b77610e5b93d5d74f95899019771be"
-    sha256 cellar: :any, el_capitan:    "f903109f6f2da89af11e576c8776f10e16eadb71c0a60edb9f35157b965edd98"
+    sha256 cellar: :any,                 arm64_big_sur: "a9971ddbeaf06085f531d9fb58f823360e73561f8703111d3c8ed0340413281a"
+    sha256 cellar: :any,                 big_sur:       "7fa06f2fcbf711d175510a4161ca495bb5ab41cee3052090a650cc9053008ff1"
+    sha256 cellar: :any,                 catalina:      "1c24750a1e84a128012a71d0cc47812c29c32136b31dc9c8a15d71d124701c90"
+    sha256 cellar: :any,                 mojave:        "62cbf2c1eab2eb5cfe0060887f96d8408fb05a4214580bef8da8a593962b436d"
+    sha256 cellar: :any,                 high_sierra:   "7431e5b6cf8354ab27bbb7710b2133eb3d381f3c6a30b7143332fba5e7fe82f7"
+    sha256 cellar: :any,                 sierra:        "53d757dc93193756cc90f94a6ca2f4bad2b77610e5b93d5d74f95899019771be"
+    sha256 cellar: :any,                 el_capitan:    "f903109f6f2da89af11e576c8776f10e16eadb71c0a60edb9f35157b965edd98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7aa14b835f1ea7ce9ea69e1b08d7b7ea57a1ae9d8a32e94a1f7c57c73ec15f8b"
   end
 
   depends_on "autoconf" => :build

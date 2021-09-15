@@ -11,6 +11,7 @@ class Lazydocker < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9854a209f403c2e2fc43d69cbf8b42e3e80844992c31321c7b960f4f187d093e"
     sha256 cellar: :any_skip_relocation, catalina:      "ac9d6261cbc3e0827b4d7a96666340e0bcd13ed177bfd115a6248fcdb63926e0"
     sha256 cellar: :any_skip_relocation, mojave:        "99ffcce11cdc7e5e61e28d81255c9eba0dfe5c004919629dec01b3dc9a71f878"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "011b4cd8ae02e19eead518ce13329cab6afc53a13acc41b87c24142d34d2d1ea"
   end
 
   depends_on "go" => :build

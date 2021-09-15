@@ -4,9 +4,11 @@ class Colormake < Formula
   url "https://github.com/pagekite/Colormake/archive/0.9.20140503.tar.gz"
   sha256 "a3f9fae9a455ac96be1cce0371b28bda33a9af73b06fa8e4329aa2f693d68d22"
   license "GPL-2.0"
-  head "https://github.com/pagekite/Colormake.git"
+  head "https://github.com/pagekite/Colormake.git", branch: "master"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "0022e24dd1386f086be55a80bdcd0b7de7c2871995a4980f18db436c69dc4c63"
+  end
 
   def install
     inreplace "colormake", "colormake.pl", "#{libexec}/colormake.pl"

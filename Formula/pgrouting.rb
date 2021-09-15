@@ -1,10 +1,10 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "https://pgrouting.org/"
-  url "https://github.com/pgRouting/pgrouting/releases/download/v3.1.3/pgrouting-3.1.3.tar.gz"
-  sha256 "54b58e8c4ac997d130e894f6311a28238258b224bb824b83f5bfa0fb4ee79c60"
+  url "https://github.com/pgRouting/pgrouting/releases/download/v3.2.1/pgrouting-3.2.1.tar.gz"
+  sha256 "daeb7ba8703dde9b6cc84129eab64a0f2e1f819f00b9a9168a197c150583a5fd"
   license "GPL-2.0-or-later"
-  head "https://github.com/pgRouting/pgrouting.git"
+  head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
   livecheck do
     url :stable
@@ -12,10 +12,10 @@ class Pgrouting < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "287799f4aa536484337fae2c368adb56b956d24f9b8f5000b9de3ac766c3a86d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7424d8d1bdd429b880334d99310c96a818081dbd0ff7e53dba6b9c02d6ff255c"
-    sha256 cellar: :any_skip_relocation, catalina:      "e5405302217126a60aca29ba25e2329dccccce81295f56134e1aeda600502950"
-    sha256 cellar: :any_skip_relocation, mojave:        "ec66fa1e4d1251ddd476aeef4287cfee248991fb094472b7baf41b3e922bcb6b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03b5237e1971242e2b8af01514943c61d289f9fe8630653c7a99a8f39529c7a4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "402d0d183b3246c12fb45c74110a4e9d5607c3681a42f2e47debb2e50e02d2f2"
+    sha256 cellar: :any_skip_relocation, catalina:      "369e843e9c3c7eff94c0a94d13694d75c1f9024a9710763fc68c6834cec4d52d"
+    sha256 cellar: :any_skip_relocation, mojave:        "f4e8a237208ebf9264a442fa3fc1364d7ffd42cdee769c3206c028fb95975144"
   end
 
   depends_on "cmake" => :build

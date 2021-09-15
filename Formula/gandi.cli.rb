@@ -14,6 +14,7 @@ class GandiCli < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "727a9e7a6b1097d103b93edd2c65675d246a46fe8dbda706e686dc9c6da30958"
     sha256 cellar: :any_skip_relocation, mojave:        "edbce322c908304cd7cb672b8c5e6baaab8ada8f35e52f10ad5c6153fb57958c"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7adc68fbfb603f633d86c336220d743a5686bb0ab02e4b6f3ca37118c05c33be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "346d3098600caa9a0dc7a082ebf6daecfeba0618a00c660cd9e6da9cc7306309"
   end
 
   depends_on "python@3.9"

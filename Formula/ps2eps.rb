@@ -1,17 +1,19 @@
 class Ps2eps < Formula
   desc "Convert PostScript to EPS files"
   homepage "https://www.tm.uka.de/~bless/ps2eps"
-  url "https://www.tm.uka.de/~bless/ps2eps-1.68.tar.gz"
-  sha256 "b08f12eed88965d1891261fb70e87c7e3a3f3172ebc31bdb7994a7ce854dd925"
-  revision 1
+  url "https://www.tm.uka.de/~bless/ps2eps-1.70.tar.gz"
+  sha256 "3a6681c3177af9ae326459c57e84fe90829d529d247fc32ae7f66e8839e81b11"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?ps2eps[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ea18a4202cff91c750204e88f180d1f0d66a8a13fcece97ad2f8c0c618ea656"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a361baca3d793d245d06ac35fa86151f5f4947bde9968db541d16744b2c9708f"
-    sha256 cellar: :any_skip_relocation, catalina:      "77353530f3a9a9f4b3776087336b18f76186373f97efeb56f0d2d55e726198f4"
-    sha256 cellar: :any_skip_relocation, mojave:        "2d77404809045015e8de81dc40e5ac200fcdeab46cb04df65d6e3e50d1b9490e"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "d7f3f76cc2ef7b221c099811059dc7901feeb86eea6aad5fffe4dfc50448b80a"
-    sha256 cellar: :any_skip_relocation, sierra:        "eb9e2a32e389d61270e196d45bccf6ce78720ee5104487d16e4e906ec888c8d4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cb048bafbe5b44a17151bc81c5743045f3f4963d6f3cf2adf38685bba82c8c67"
+    sha256 cellar: :any_skip_relocation, big_sur:       "91e08e8ced4f5394ad3f4990a092fa61a547cce4264127350f97912c50dda5f3"
+    sha256 cellar: :any_skip_relocation, catalina:      "b2d84470b90f037632206b6318f87bf1024e0d0ed83fb8344e44642dc8751187"
+    sha256 cellar: :any_skip_relocation, mojave:        "170231b1c48914442e5c4eac304652b1aab7603c46d407f26b1383b932e3c2d9"
   end
 
   depends_on "ghostscript"

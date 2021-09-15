@@ -2,16 +2,17 @@ class Bazelisk < Formula
   desc "User-friendly launcher for Bazel"
   homepage "https://github.com/bazelbuild/bazelisk/"
   url "https://github.com/bazelbuild/bazelisk.git",
-      tag:      "v1.9.0",
-      revision: "1b471ee0935ebf91744bac1d7a51b72007167ddc"
+      tag:      "v1.10.1",
+      revision: "cf1205edacc5bc8a781786b36324922640ea6ac9"
   license "Apache-2.0"
-  head "https://github.com/bazelbuild/bazelisk.git"
+  head "https://github.com/bazelbuild/bazelisk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "516e65154591eb845b36666219782c5c6b384e5e13d143ea0a4e33e29fde4ba6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "35e01853fe87cbf9b034b3e04b3f84a8e0634625f76a9ee01c022ff46e4a395d"
-    sha256 cellar: :any_skip_relocation, catalina:      "3ebb8cdd8eaf5a8977ad328340b1ee408f67729cf91cb6dc856bcd4801850b75"
-    sha256 cellar: :any_skip_relocation, mojave:        "cd3141d86b7b78d9404664e2fd00174a800c14db2e98ff9bad8b9f85bd543593"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3aa568fb42d31462693efea8051e7ef2489e1f1f22a07500cfd513b0c7f97cf0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a0589844659d97147c7fab9b3a623192527cfbaed269bf4a502aee0dc2dcef18"
+    sha256 cellar: :any_skip_relocation, catalina:      "4b334992c7b2cd433074e100a3675bc07a7ab64de8fbb35beea250d229d12363"
+    sha256 cellar: :any_skip_relocation, mojave:        "f774b348b3e1403522e6a67126b9791f20245ea3002c23c4786094d82c9a9507"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49d53dd4a0f10c28bc430501cf4e16fbb90d9ad316076e42c12533ea0daf2261"
   end
 
   depends_on "go" => :build
@@ -24,7 +25,7 @@ class Bazelisk < Formula
   end
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-X main.BazeliskVersion=#{version}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.BazeliskVersion=#{version}")
 
     bin.install_symlink "bazelisk" => "bazel"
 

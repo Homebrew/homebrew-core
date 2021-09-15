@@ -1,14 +1,15 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.38.0.tar.gz"
-  sha256 "8452f5323795a1846d554096c08fffe5ac35897867b93a5079605df8f80a3089"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.39.0.tar.gz"
+  sha256 "3ffeb614cec826e13b50e8306177018ecb8d873668dfe66aadc733ca9fcaa568"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "4bea71d5c8dde3e276e828b87c9a520318fa8a196baffe47f9a6abfb0b685a1d"
-    sha256 cellar: :any, catalina: "9aaba9ce0fbda3d1df8b21ec9ef63706e20b375e44861594652f943842645eaa"
-    sha256 cellar: :any, mojave:   "9ec34112c5582b03b9016ee599d85ea95c8c69ed2d89d88be7132e68729e668b"
+    sha256 cellar: :any, arm64_big_sur: "9e13462dfd0f3cd5e6afc79979ed48c6b09a243c3c5242b399c7dee418a3e1eb"
+    sha256 cellar: :any, big_sur:       "e2c0afab1198c4bcdde3dd1e6559ddcb868b2e192bf0dc8cdec9c336ddfc9baa"
+    sha256 cellar: :any, catalina:      "4d3df93923c0489b44ca55cb3f7071962bd530ba73d778457cc9ae9d1602ba85"
+    sha256 cellar: :any, mojave:        "eab780040dd0391df1af3aed028ed140ab126b2f272caea80aed15bda675b36b"
   end
 
   depends_on "boost"
@@ -16,8 +17,16 @@ class I2pd < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "make", "install", "DEBUG=no", "HOMEBREW=1", "USE_UPNP=yes",
-                              "USE_AENSI=no", "USE_AVX=no", "PREFIX=#{prefix}"
+    args = %W[
+      DEBUG=no
+      HOMEBREW=1
+      USE_UPNP=yes
+      PREFIX=#{prefix}
+    ]
+
+    args << "USE_AESNI=no" if Hardware::CPU.arm?
+
+    system "make", "install", *args
 
     # preinstall to prevent overwriting changed by user configs
     confdir = etc/"i2pd"
@@ -43,31 +52,10 @@ class I2pd < Formula
     (var/"log/i2pd").mkpath
   end
 
-  plist_options manual: "i2pd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/i2pd</string>
-          <string>--datadir=#{var}/lib/i2pd</string>
-          <string>--conf=#{etc}/i2pd/i2pd.conf</string>
-          <string>--tunconf=#{etc}/i2pd/tunnels.conf</string>
-          <string>--log=file</string>
-          <string>--logfile=#{var}/log/i2pd/i2pd.log</string>
-          <string>--pidfile=#{var}/run/i2pd.pid</string>
-        </array>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"i2pd", "--datadir=#{var}/lib/i2pd", "--conf=#{etc}/i2pd/i2pd.conf",
+         "--tunconf=#{etc}/i2pd/tunnels.conf", "--log=file", "--logfile=#{var}/log/i2pd/i2pd.log",
+         "--pidfile=#{var}/run/i2pd.pid"]
   end
 
   test do

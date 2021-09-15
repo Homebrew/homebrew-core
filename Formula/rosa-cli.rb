@@ -1,10 +1,10 @@
 class RosaCli < Formula
   desc "RedHat OpenShift Service on AWS (ROSA) command-line interface"
   homepage "https://www.openshift.com/products/amazon-openshift"
-  url "https://github.com/openshift/rosa/archive/refs/tags/v1.0.7.tar.gz"
-  sha256 "dacf844b16ee968d64148292604c808c4017e3c94687d1753916a416492b8898"
+  url "https://github.com/openshift/rosa/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "5a42e93903ba553cdac6cc978a918f903f46cb63be7aaea82ae9a315ea13a23c"
   license "Apache-2.0"
-  head "https://github.com/openshift/rosa.git"
+  head "https://github.com/openshift/rosa.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,10 +13,11 @@ class RosaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a8c678701d01455e37834825e97e5653c1ed55c131798271374d185e7124523b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e3078b9b539cdd15cf752b41e531ce6294820764d98f191e3b42aedfe4b6f6ee"
-    sha256 cellar: :any_skip_relocation, catalina:      "90f6907318724ca1b7e5e62ce3c857df811c85d79086efbaca12a66cae668513"
-    sha256 cellar: :any_skip_relocation, mojave:        "51cf1246dfddbf42516676b40eec810165f15574ecb6d585d62adab52f0a2994"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "337796c684c76ae120c94ea37e0625825afbd2e00ecc396189827fa00bb1a9d4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "aae37624ab2ac396f1fa448af5d2444a2c42d5fc9accd4cf70088fee949da51a"
+    sha256 cellar: :any_skip_relocation, catalina:      "de19e2ac01291f7376a35652b3f0f3a20c449eb5956c414eaca929a81c89206e"
+    sha256 cellar: :any_skip_relocation, mojave:        "1168434b6c283d9e8a48ed38c53c325d4d27cae5f73a47df2bb9c604d2a0460a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "100c41e65be701c189cd73b6b589b860c9d24b34e4cff5a6c9561ed416504f4f"
   end
 
   depends_on "go" => :build
@@ -29,6 +30,6 @@ class RosaCli < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/rosa version")
-    assert_match "Error creating AWS client", shell_output("#{bin}/rosa create cluster 2<&1", 1)
+    assert_match "Not logged in, run the 'rosa login' command", shell_output("#{bin}/rosa create cluster 2<&1", 1)
   end
 end

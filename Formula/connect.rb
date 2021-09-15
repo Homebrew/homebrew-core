@@ -4,7 +4,7 @@ class Connect < Formula
   url "https://github.com/gotoh/ssh-connect/archive/1.105.tar.gz"
   sha256 "96c50fefe7ecf015cf64ba6cec9e421ffd3b18fef809f59961ef9229df528f3e"
   license "GPL-2.0-or-later"
-  head "https://github.com/gotoh/ssh-connect.git"
+  head "https://github.com/gotoh/ssh-connect.git", branch: "master"
 
   livecheck do
     url :stable
@@ -17,6 +17,7 @@ class Connect < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "90d0c91146180552a3a023ceba3850804139eb30b146151efe9c6d889ab9c99d"
     sha256 cellar: :any_skip_relocation, catalina:      "a08dfce847d75746d2b31ed3561e961fdcf950b051c5860e6d137ff5e1bcd1c7"
     sha256 cellar: :any_skip_relocation, mojave:        "cc0a39f7e2fea7672f6d691d2e1221d0c5963a9f7e0039317930418fc7c7ebfa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69ef58829a226ee7573f34e1b8a6282a7f26dfb8d730700eeff992f65a8f84ac"
   end
 
   def install

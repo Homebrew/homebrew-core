@@ -17,6 +17,7 @@ class Cabextract < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "cd27b939a0191d4dfff8ae13300b260b5ae01c563a21613718160012a982d5e8"
     sha256 cellar: :any_skip_relocation, high_sierra:   "c77caa7c32b4320f9e887abeea99261345e83f03e2c321ec9e99ddd9c75f5d98"
     sha256 cellar: :any_skip_relocation, sierra:        "c531546af69afda3101f07b509eb143cdaef00f4fdcbdd420e60287508a87e5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a5504109fb1efe70b9d92f53cb617486f9036597ca77c606ff71d9e4b373f4b"
   end
 
   def install

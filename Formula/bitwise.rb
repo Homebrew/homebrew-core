@@ -6,10 +6,11 @@ class Bitwise < Formula
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4301045752db45352b2f1554ae015a8263e77dea15d724aeb0d8a7bb3b78f1db"
-    sha256 cellar: :any, big_sur:       "ee1f6edfdc4b538a0017253af270a94fc28da00bdac5754efcef42ed8718e1dc"
-    sha256 cellar: :any, catalina:      "0f6da9c52d7e2185dc61708d5bdda296708d4bd398c525e01a699eaf58feac21"
-    sha256 cellar: :any, mojave:        "9844d7c02e06929bd6060454f93ccb115186f1f3418c3d4f1a93f2a0764ec0bc"
+    sha256 cellar: :any,                 arm64_big_sur: "4301045752db45352b2f1554ae015a8263e77dea15d724aeb0d8a7bb3b78f1db"
+    sha256 cellar: :any,                 big_sur:       "ee1f6edfdc4b538a0017253af270a94fc28da00bdac5754efcef42ed8718e1dc"
+    sha256 cellar: :any,                 catalina:      "0f6da9c52d7e2185dc61708d5bdda296708d4bd398c525e01a699eaf58feac21"
+    sha256 cellar: :any,                 mojave:        "9844d7c02e06929bd6060454f93ccb115186f1f3418c3d4f1a93f2a0764ec0bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "962189cb81bb6f94faa36609171829fed77481e21119fc93ee3e94bde82493bc"
   end
 
   depends_on "autoconf" => :build

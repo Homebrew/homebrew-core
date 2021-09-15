@@ -1,15 +1,16 @@
 class Uni < Formula
   desc "Unicode database query tool for the command-line"
   homepage "https://github.com/arp242/uni"
-  url "https://github.com/arp242/uni/archive/v2.1.0.tar.gz"
-  sha256 "79574395d83f628b0b325127b2dcea9b3e91dd6510dafd036679fae8998bcf6e"
+  url "https://github.com/arp242/uni/archive/v2.2.1.tar.gz"
+  sha256 "f6ec48009618d678f635e22600a1eac19560de99a62bfded9ad9859208e3fbde"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5fb3a2df6c300581e093bf8c3525c900a39a21d9767a7afde92bf2ab722da15d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c63cbc63ca7608a701da92d6ce3b62ad8af9ab29385a1af85a64ca582a37957b"
-    sha256 cellar: :any_skip_relocation, catalina:      "3a77a83a1c61aacdfbb4a2ab010e3149c90004ec305f9dda2c66d883d182513c"
-    sha256 cellar: :any_skip_relocation, mojave:        "a629b57b4b16fa825463b6d28ef102d36ec61fe407d17dde23fb423898cbef43"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c206aa381509410a5ec09b211a2525cf5460a382c459cb73997e9f695c98b1a8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5c17f77e18edbc5a7b25bb18978ed2615f2072e5c194b9eadc723979c6219ee9"
+    sha256 cellar: :any_skip_relocation, catalina:      "c839b0b932d6440cf5877e532276a7276b0b5c4921e3429a15d8cf6e059022d7"
+    sha256 cellar: :any_skip_relocation, mojave:        "31ff8bd67b8413298a8eb08a83ec35e9d17930fefbdbca090911970e64c065c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddff8f6996cdd636995a6492d42a6c6e6181a39337e8d1dd2c4044ab88d317dc"
   end
 
   depends_on "go" => :build

@@ -4,7 +4,12 @@ class Pbc < Formula
   url "https://crypto.stanford.edu/pbc/files/pbc-0.5.14.tar.gz"
   sha256 "772527404117587560080241cedaf441e5cac3269009cdde4c588a1dce4c23d2"
   license "LGPL-3.0"
-  head "https://repo.or.cz/pbc.git"
+  head "https://repo.or.cz/pbc.git", branch: "master"
+
+  livecheck do
+    url "https://crypto.stanford.edu/pbc/download.html"
+    regex(/href=.*?pbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 1

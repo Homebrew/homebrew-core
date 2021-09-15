@@ -11,11 +11,12 @@ class Libdnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "54a55ad8719e269c07cbef8a5c61924e2431a5a5c88cce4148dbeffede79a353"
-    sha256 cellar: :any, big_sur:       "8e5f269aa55ecbf1a5f6855ef355696159b6155ea338cfb1e3b3b4ae8409bb72"
-    sha256 cellar: :any, catalina:      "f8c9ace5eb112c484f50da7624df13c551b14114ece91a155ce2394b30e264b7"
-    sha256 cellar: :any, mojave:        "1e967ac6c5b9c70f72efba9082844c755dba2d62054a4c4dfbd5629da3cb0b76"
-    sha256 cellar: :any, high_sierra:   "fd53de5c1830dcdb52ecba97cf0c9c6afccf44037e6df6f64ef1d163d6c6adff"
+    sha256 cellar: :any,                 arm64_big_sur: "54a55ad8719e269c07cbef8a5c61924e2431a5a5c88cce4148dbeffede79a353"
+    sha256 cellar: :any,                 big_sur:       "8e5f269aa55ecbf1a5f6855ef355696159b6155ea338cfb1e3b3b4ae8409bb72"
+    sha256 cellar: :any,                 catalina:      "f8c9ace5eb112c484f50da7624df13c551b14114ece91a155ce2394b30e264b7"
+    sha256 cellar: :any,                 mojave:        "1e967ac6c5b9c70f72efba9082844c755dba2d62054a4c4dfbd5629da3cb0b76"
+    sha256 cellar: :any,                 high_sierra:   "fd53de5c1830dcdb52ecba97cf0c9c6afccf44037e6df6f64ef1d163d6c6adff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "310b847c745827989b5b5394342e28fbb5ae8a25babe9399867648bab637c779"
   end
 
   depends_on "autoconf" => :build

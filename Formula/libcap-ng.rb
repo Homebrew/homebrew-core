@@ -5,6 +5,10 @@ class LibcapNg < Formula
   sha256 "65b86885b8d873e55c05bd49427fd370d559b26f0c2089ac9194828e6a2fe233"
   license "LGPL-2.1-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c35e36a23f2446b0582c25f354e2758bd81092f82730d3570dee6a3417fd7da0"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

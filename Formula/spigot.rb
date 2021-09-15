@@ -1,9 +1,9 @@
 class Spigot < Formula
   desc "Command-line streaming exact real calculator"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20200901.9910e5b.tar.gz"
-  version "20200901"
-  sha256 "bada3eb5766c5bb804572b257b588362f8357bb38ec229561cca5f3c43501127"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20210527.7dd3cfd.tar.gz"
+  version "20210527"
+  sha256 "1014b79607cbb6cc8143c9b3a093f266144124d9a4552785e5779c1a072faadc"
   license "MIT"
 
   livecheck do
@@ -12,23 +12,26 @@ class Spigot < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c99b3b16920a75e920aacde3bc43c48367cc99f5d8a8552bd0c9434fae43954c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7906077fdbe6ebbcabd2f3127513a5f9d99a1f147bb19347ecc211e3d4612b93"
-    sha256 cellar: :any_skip_relocation, catalina:      "c0f39e9c1b93310f7a4c02a8c1be709dfd4f2dc83e32498b07a9deb4b30aaa32"
-    sha256 cellar: :any_skip_relocation, mojave:        "5c612e702e1610bcdbbc1f5c121017eb0b49b62c4f4f07b8dd3833fb8dfba550"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "885c712c8e738092e669b36cdbeadb354057bf8eb3f9af572a2716e61bab1d8c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ea601301d75ed829ff918c22884199fef4a35afcffbdc03da464d7051b55d3e1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "daf9a73394d08cdfc2b5746b367112ea1790f924169d36e2ec288b201433b148"
+    sha256 cellar: :any_skip_relocation, catalina:      "7a78a2d6416a800148fbd44f269865c3baacf150164f757459f9dbf622b41fa9"
+    sha256 cellar: :any_skip_relocation, mojave:        "f7f31fcf972afaecdb231e4b7e413a98a7ec8f05f7d3e4717cc9128c7cae0fab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0e15ff42ceacf124df8655ee07bebb44dcb0ee0a5f8785ab4da5c8b27ea1467"
   end
+
+  depends_on "cmake" => :build
+
+  uses_from_macos "ncurses"
 
   on_linux do
     depends_on "gmp"
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do

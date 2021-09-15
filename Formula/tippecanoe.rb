@@ -11,6 +11,7 @@ class Tippecanoe < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "466aeb229f38b9b549931dab6954786651aa62cd874bbd47b9c28cdb0856cb3d"
     sha256 cellar: :any_skip_relocation, mojave:        "6d5c1d7567f9a1754a93f844fb18168367437dcccbf7fb06efbce5e5ad9a6a56"
     sha256 cellar: :any_skip_relocation, high_sierra:   "2e696df5160edb776144d15805d4baff01db61eb8a5b729bdfd2322095808077"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a6bc1030442afe53969482619c9a31f9d9690e227cef2916a0af4d698cf2184"
   end
 
   uses_from_macos "sqlite"

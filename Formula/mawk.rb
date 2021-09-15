@@ -16,6 +16,7 @@ class Mawk < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "03f9aa87a079b35b6f93813e4016e85d102c578d8b65f2f967b0b7c5c5d869ad"
     sha256 cellar: :any_skip_relocation, mojave:        "802b3592430ca644c6590acad265f45ac892fe47fb37732e678afac13f8cf1f0"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d113f78e1c20c8bf86fcf5ce083e206aeca58ee857e7d0a3acb0158d2b01fb45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6fade81fd45be1fea56283969f7ae1c8973c18e750c7a7240c2be0d9399a37b"
   end
 
   def install

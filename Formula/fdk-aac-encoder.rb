@@ -6,10 +6,11 @@ class FdkAacEncoder < Formula
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "50284ef03649e17c800e516cb0f8bcbfc97f891e042e0e84b4e7c91495fcdb0d"
-    sha256 cellar: :any, big_sur:       "32240adad3bc3e6fe29d1c6a29909024a203aaa5167fd4a93b8b4383edb65186"
-    sha256 cellar: :any, catalina:      "c4da455a74f28dd39f1c2be168cc08711921c00a7fe2fc2779b80eb57e96af29"
-    sha256 cellar: :any, mojave:        "09c58b1dac4628d28a357542d9af2e000067804ad0523ece1121016172626c87"
+    sha256 cellar: :any,                 arm64_big_sur: "50284ef03649e17c800e516cb0f8bcbfc97f891e042e0e84b4e7c91495fcdb0d"
+    sha256 cellar: :any,                 big_sur:       "32240adad3bc3e6fe29d1c6a29909024a203aaa5167fd4a93b8b4383edb65186"
+    sha256 cellar: :any,                 catalina:      "c4da455a74f28dd39f1c2be168cc08711921c00a7fe2fc2779b80eb57e96af29"
+    sha256 cellar: :any,                 mojave:        "09c58b1dac4628d28a357542d9af2e000067804ad0523ece1121016172626c87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90035c40a5fe78912b589404d5cf5c28ac2c807d5299e681def8e29226d15d8e"
   end
 
   depends_on "autoconf" => :build

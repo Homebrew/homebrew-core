@@ -58,37 +58,11 @@ class CouchdbLucene < Formula
     EOS
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/couchdb-lucene/bin/cl_run"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-        "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>HOME</key>
-            <string>~</string>
-          </dict>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/cl_run</string>
-          </array>
-          <key>StandardOutPath</key>
-          <string>/dev/null</string>
-          <key>StandardErrorPath</key>
-          <string>/dev/null</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"cl_run"
+    environment_variables HOME: "~"
+    run_type :immediate
+    keep_alive true
   end
 
   test do

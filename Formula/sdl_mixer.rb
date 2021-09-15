@@ -1,15 +1,10 @@
 class SdlMixer < Formula
   desc "Sample multi-channel audio mixer library"
-  homepage "https://www.libsdl.org/projects/SDL_mixer/"
+  homepage "https://www.libsdl.org/projects/SDL_mixer/release-1.2.html"
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-1.2.12.tar.gz"
   sha256 "1644308279a975799049e4826af2cfc787cad2abb11aa14562e402521f86992a"
   license "Zlib"
   revision 4
-
-  livecheck do
-    url "https://www.libsdl.org/projects/SDL_mixer/release/"
-    regex(/href=.*?SDL_mixer[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "20d1beb530df525f4aa8d5e4716eb9acf5a54330076c6ba3c1784b88a9e9e3f8"
@@ -18,6 +13,17 @@ class SdlMixer < Formula
     sha256 cellar: :any, mojave:        "dd69b75165f502ff2540c6e6fa72645049b8bc25ed1794b36d3757a8bc74eb97"
     sha256 cellar: :any, high_sierra:   "a6e0ff3e96a41f88892cf1fcee7d8c21fd816094f48d376640f77184a8c78e06"
   end
+
+  head do
+    url "https://github.com/libsdl-org/SDL_mixer.git", branch: "SDL-1.2"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+  # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
+  deprecate! date: "2013-08-17", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "flac"
@@ -28,12 +34,14 @@ class SdlMixer < Formula
 
   # Source file for sdl_mixer example
   resource "playwave" do
-    url "https://hg.libsdl.org/SDL_mixer/raw-file/a4e9c53d9c30/playwave.c"
+    url "https://github.com/libsdl-org/SDL_mixer/raw/1a14d94ed4271e45435ecb5512d61792e1a42932/playwave.c"
     sha256 "92f686d313f603f3b58431ec1a3a6bf29a36e5f792fb78417ac3d5d5a72b76c9"
   end
 
   def install
     inreplace "SDL_mixer.pc.in", "@prefix@", HOMEBREW_PREFIX
+
+    system "./autogen.sh" if build.head?
 
     args = %W[
       --prefix=#{prefix}

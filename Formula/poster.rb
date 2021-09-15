@@ -14,6 +14,7 @@ class Poster < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "caa5474e5d7baf13ae6495c01a7530146d55531e41c88a469b0e44ee892c4be4"
     sha256 cellar: :any_skip_relocation, el_capitan:    "07702fc6f1d43a3875637f8ff9d3509d6eb913abda301c24c23d824a76a858b6"
     sha256 cellar: :any_skip_relocation, yosemite:      "718131fa123a69d0db610d95722d968fbda597da2477abe520146393ff0321c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "623f96d36fc59df594dd8ed5e0073b1d2892e083176346e93821436664351909"
   end
 
   def install

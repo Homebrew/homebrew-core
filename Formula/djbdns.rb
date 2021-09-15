@@ -4,6 +4,11 @@ class Djbdns < Formula
   url "https://cr.yp.to/djbdns/djbdns-1.05.tar.gz"
   sha256 "3ccd826a02f3cde39be088e1fc6aed9fd57756b8f970de5dc99fcd2d92536b48"
 
+  livecheck do
+    url "https://cr.yp.to/djbdns/install.html"
+    regex(/href=.*?djbdns[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 3
     sha256 arm64_big_sur: "62ab5e22e0c15787a98c84f23905dd569067cd4376dc8c472509ac5ee5d24955"

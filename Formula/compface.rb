@@ -15,6 +15,7 @@ class Compface < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "092d90367b0fa75ff8a1be3982cda127226fb9805c681170f66fe27c148c8d1b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "50200eb6f7cb61be39420d2e127eb4e2af9391a514f7cfbd26fa9203ca137d21"
     sha256 cellar: :any_skip_relocation, yosemite:      "4f7a202ead9c7b6ba1498be71c937500d64cad15ae451ec37c54a8fba70816a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "757cabab0597a55c8429031e4349fea9acd4c2d2ad576640aba11d80a1652bff"
   end
 
   def install

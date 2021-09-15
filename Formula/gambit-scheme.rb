@@ -17,6 +17,7 @@ class GambitScheme < Formula
     sha256 catalina:      "cc4d0841423822b27fd424f7eba3a0482f01266ef61c25ec4b1d49d211d6c50e"
     sha256 mojave:        "9fc086d950cb20c99d1d24947a0599fab72525c8a2dbd2d448f94791a5a8f481"
     sha256 high_sierra:   "8af81a5c228d029402bc150331cb03dc0695eeee8dd5a58ce497a7a49a19fa47"
+    sha256 x86_64_linux:  "279db92ba64c71c31bf9a57df2414b0b47f497b47fd1c7a2fc39657be3b47db4"
   end
 
   depends_on "openssl@1.1"

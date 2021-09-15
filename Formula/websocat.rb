@@ -15,6 +15,7 @@ class Websocat < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d451b36b4d3f0aa3b620503526355d3e8caafb61ce2b47a2254ce20946d4927b"
     sha256 cellar: :any_skip_relocation, catalina:      "3c36b35f1c940eec56fcc8b8dd5bd702ffb1d06d803ddbc1f9f1cae4777ad119"
     sha256 cellar: :any_skip_relocation, mojave:        "c0d4a665923aeedf7b754935295e4bdf64c44d2e8d08386459148cd061533c98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb98539452107609b0e0cd90654ef13b3fc0d4274d74733f3b2208ccdfa93749"
   end
 
   depends_on "pkg-config" => :build

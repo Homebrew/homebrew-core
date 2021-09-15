@@ -13,6 +13,7 @@ class Gnirehtet < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "6f65def77cc1708e7a1ae8e85dfe2cbede4717225e8a5c2f7a9f09c8271282f3"
     sha256 cellar: :any_skip_relocation, mojave:        "7ebc9b16c6d6856be8604388d4ca2bfc9cc2c4ec02e255f1a462be681283c6e8"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a57d5039af819db991968751511a63874cd0c20d1d10fe106ef92e83b216eb38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94166648cf3a8a072b85eed7436af2bddbcf5c2dfab939cd79590d4ff2b9a9c3"
   end
 
   depends_on "rust" => :build
@@ -26,7 +27,7 @@ class Gnirehtet < Formula
   def install
     resource("java_bundle").stage { libexec.install "gnirehtet.apk" }
 
-    system "cargo", "install", "--locked", "--root", libexec, "--path", "relay-rust"
+    system "cargo", "install", *std_cargo_args(root: libexec, path: "relay-rust")
     mv "#{libexec}/bin/gnirehtet", "#{libexec}/gnirehtet"
 
     (bin/"gnirehtet").write_env_script("#{libexec}/gnirehtet", GNIREHTET_APK: "#{libexec}/gnirehtet.apk")

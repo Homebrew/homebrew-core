@@ -6,12 +6,18 @@ class NumUtils < Formula
   sha256 "03592760fc7844492163b14ddc9bb4e4d6526e17b468b5317b4a702ea7f6c64e"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?num-utils[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a1d2623cf894f0d8838ee705b922933605c1fa0a43a6a1dc7e38f7f6ff994c3f"
     sha256 cellar: :any_skip_relocation, big_sur:       "a1d2623cf894f0d8838ee705b922933605c1fa0a43a6a1dc7e38f7f6ff994c3f"
     sha256 cellar: :any_skip_relocation, catalina:      "b2d299fe6c8307ddfaa2207a4e6ea2767e174d56d9b9cd0366ca00718f81e121"
     sha256 cellar: :any_skip_relocation, mojave:        "b2d299fe6c8307ddfaa2207a4e6ea2767e174d56d9b9cd0366ca00718f81e121"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6875dc90327cc2660d36f638c2909d9822f243e80ba837aab7e153de0723b71e"
   end
 
   depends_on "pod2man" => :build

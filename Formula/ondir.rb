@@ -4,7 +4,7 @@ class Ondir < Formula
   url "https://swapoff.org/files/ondir/ondir-0.2.3.tar.gz"
   sha256 "504a677e5b7c47c907f478d00f52c8ea629f2bf0d9134ac2a3bf0bbe64157ba3"
   license "GPL-2.0"
-  head "https://github.com/alecthomas/ondir.git"
+  head "https://github.com/alecthomas/ondir.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "135b0885a206244ce74e430ac0f2131b92742481d81f7774cc25377ca8da4b1e"
@@ -15,6 +15,7 @@ class Ondir < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "90e85060a76337368083c889379b71cda5994ab163b73337050819472f41800c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8d841a2a8b98a512265dc05deb3ea74e7458a4d5412da786f595c31420b7fadd"
     sha256 cellar: :any_skip_relocation, yosemite:      "3d7b419d963bcd2be6d04cb3f666c8c58866f9556251f6efcb2f0b6abcad5902"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95edf0af760fd088984a5f226ac2e61ee6b6280a313489acc9235f2fc381ad14"
   end
 
   def install

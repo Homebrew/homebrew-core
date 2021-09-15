@@ -3,7 +3,7 @@ class Qtads < Formula
   homepage "https://qtads.sourceforge.io/"
   license "GPL-3.0"
   revision 2
-  head "https://github.com/realnc/qtads.git"
+  head "https://github.com/realnc/qtads.git", branch: "master"
 
   stable do
     url "https://downloads.sourceforge.net/project/qtads/qtads-2.x/2.1.7/qtads-2.1.7.tar.bz2"

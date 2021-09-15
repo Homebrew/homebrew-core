@@ -1,15 +1,16 @@
 class Ipv6calc < Formula
   desc "Small utility for manipulating IPv6 addresses"
   homepage "https://www.deepspace6.net/projects/ipv6calc.html"
-  url "https://github.com/pbiering/ipv6calc/archive/3.1.1.tar.gz"
-  sha256 "bc2daa626fd1cf60d8a09e564d7b58efdc47eedd30aab442ec8a188fe12f1016"
+  url "https://github.com/pbiering/ipv6calc/archive/3.2.0.tar.gz"
+  sha256 "c73e1488a344d5ce3acdd009fb48068eec1bdf7562698011bdbbc7aaf33aa8f7"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8eeb311271874e67e665e0c1cc32fafd38805a4a81d30ea31197e1c2ceaf104c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c1bbb3371e2bf0c3364dc9edd87152aadb85e75342535646a7022f7324b607e0"
-    sha256 cellar: :any_skip_relocation, catalina:      "cbbfa59bb3d93e1954dd7c6ecb718baddb1063c6929d57655313c2f4fb29d88c"
-    sha256 cellar: :any_skip_relocation, mojave:        "20e5085d6ef92183355f83b5aa2097d4b740685dbfb2143ac355bc49bfe51eff"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8532274ecc261d17d7390821b9e8b432f56cdafe97ba34c583437b1fadfa7f27"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ee4ad9470fc4e89698937c724f1124d393289f6c3022a397cb3525562843fc53"
+    sha256 cellar: :any_skip_relocation, catalina:      "032973accb1642b43fcf7320e8dd76e621c8024f3b6b0caf2fb24e69d90429d7"
+    sha256 cellar: :any_skip_relocation, mojave:        "4a83aadc45974b755d94b59f2fd4e8fb4637139d527e4474122983a229731cb5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "748772297ce211e30da123ccab4c9204738703e62cfe1ab90238dac434d9fb70"
   end
 
   def install

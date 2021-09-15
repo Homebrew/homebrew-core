@@ -18,6 +18,7 @@ class Glm < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "9b661be1f704c2e946dbd4d4f96d58ae82427824ef88d7dd9f0f0cfc3fae2233"
     sha256 cellar: :any_skip_relocation, mojave:        "7210910c6f106de4c22874f3977b1457cea3db6bb03269ea6831ffae861bb80e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "ea41bb7f8f195c22d6f7834c57684412d752e2c72ff795b9056dd90aaebf9d84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5c2dbbad2a1f3c87f7dada3710c9404ec33953f84d6793fba3fc39dd2f683a4"
   end
 
   depends_on "cmake" => :build

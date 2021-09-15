@@ -7,7 +7,7 @@ class Rtv < Formula
   sha256 "c57a6cbb2525160b6aaa9180aec0293962b6969675f8ac0f2cfacff3cbd00d7c"
   license "MIT"
   revision 4
-  head "https://github.com/michael-lazar/rtv.git"
+  head "https://github.com/michael-lazar/rtv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa894b5babc332d7d0f0e06e7a82afb6053514515186fe2b35b1c604d545b6e2"
@@ -15,6 +15,7 @@ class Rtv < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c3a4eb9ce139d6d768a8ff6f3dfaaf6c24dee517fd18a8243ba88215df162650"
     sha256 cellar: :any_skip_relocation, mojave:        "aaffc3c8e0859424697554af41e79b82057e252b1d3ce5eb3e929a0695ed5785"
     sha256 cellar: :any_skip_relocation, high_sierra:   "76dd530c8986d96aa2417f565beb6b2db7662c84de06ff65e4953ceceff761d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06f7013a93251f013cb04c794127df9e731e7605e766c1712a4b3af1a601848c"
   end
 
   deprecate! date: "2019-06-02", because: :repo_archived

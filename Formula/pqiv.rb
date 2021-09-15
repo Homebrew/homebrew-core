@@ -4,14 +4,14 @@ class Pqiv < Formula
   url "https://github.com/phillipberndt/pqiv/archive/2.12.tar.gz"
   sha256 "1538128c88a70bbad2b83fbde327d83e4df9512a2fb560eaf5eaf1d8df99dbe5"
   license "GPL-3.0"
-  revision 2
-  head "https://github.com/phillipberndt/pqiv.git"
+  revision 3
+  head "https://github.com/phillipberndt/pqiv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a3b4f8442a0506243b3deda1b387132c9824def48e0f39d9af7a50c68bd5d4a4"
-    sha256 cellar: :any, big_sur:       "dbf7cd6604b78dcf082303f1c5ec3fd28416525d11deb01531a783be34b8cb09"
-    sha256 cellar: :any, catalina:      "bcb1f67978c8029a19e00d4332cf937dfd934306fd5d7446075f2bb888f4f78d"
-    sha256 cellar: :any, mojave:        "c233ef4784c19621962b361b36afbbe82b8a929c7af3cbe609702e7776de28dd"
+    sha256 cellar: :any, arm64_big_sur: "0c8a40ee1f88749e55e3aa975ea32bfe8e616cc6158fb022e38a9b69e8cff13d"
+    sha256 cellar: :any, big_sur:       "017d77592bb99e60753d51ec9a0ce8c90f77c39fd509f7f3c13c67014f5284ae"
+    sha256 cellar: :any, catalina:      "6433cfa629deffab7b4b107f04882c8be8bffcf544cd9559d08570d4da4d907c"
+    sha256 cellar: :any, mojave:        "5faf09fb2c5ce8f2d468b95a1c0b041ce3dcc0d6480159d2d5b1815e402a0ea9"
   end
 
   depends_on "pkg-config" => :build

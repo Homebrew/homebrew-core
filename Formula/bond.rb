@@ -6,9 +6,10 @@ class Bond < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "9cc49b023fbd14c296f04cd5ae537bf6098f9b09025812a350a99a72bed00fea"
-    sha256 cellar: :any, catalina: "5d78ce28f6865648b61de0d5fc449c13e6ebc3093209efe781073d560b1b29b7"
-    sha256 cellar: :any, mojave:   "54718f979d4ee63570fe76d4d96682f1c169791c3e1b91fc32471aee3bcccd0e"
+    sha256 cellar: :any,                 big_sur:      "9cc49b023fbd14c296f04cd5ae537bf6098f9b09025812a350a99a72bed00fea"
+    sha256 cellar: :any,                 catalina:     "5d78ce28f6865648b61de0d5fc449c13e6ebc3093209efe781073d560b1b29b7"
+    sha256 cellar: :any,                 mojave:       "54718f979d4ee63570fe76d4d96682f1c169791c3e1b91fc32471aee3bcccd0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6580ebb4d4dad6e1c0d77ea8799b5fb106f315664f27c4bad881fa3c6f667e6d"
   end
 
   depends_on "cmake" => :build

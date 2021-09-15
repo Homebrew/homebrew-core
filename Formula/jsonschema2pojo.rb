@@ -11,7 +11,9 @@ class Jsonschema2pojo < Formula
     regex(%r{href=.*?/tag/jsonschema2pojo[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "62bcd5f3f79672c2480a4c02bdca4d93941a4aeb8543f75ae999cd65ff1d341b"
+  end
 
   depends_on "openjdk"
 

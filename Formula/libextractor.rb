@@ -11,6 +11,7 @@ class Libextractor < Formula
     sha256 big_sur:       "c79547c7f5d513ede389034b436fce8a68898827dcbe814540b700286f0ad76b"
     sha256 catalina:      "ecd3a409a45003e3800c0c4e266a991ea7b2b2291e624d5e596f618a8ffbda84"
     sha256 mojave:        "82cfeb01761e5f1878e12a816b225cf8c769c0f8f63e0624fa873bc3994c598b"
+    sha256 x86_64_linux:  "ecb55dec4d90ae8056b228e2177f3490ee09d65a0cf2cac9278ad44ecb5bd291"
   end
 
   depends_on "pkg-config" => :build

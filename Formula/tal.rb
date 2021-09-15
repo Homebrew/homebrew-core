@@ -15,6 +15,7 @@ class Tal < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9c2c4e5f9d6922f9a9d434485dea4ddf321744728c83adcda822c3c314f6a86e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "bbdef6b2c92650352b7199cc2a9e3bc4698bf2a14fce46397eebcee72c1de419"
     sha256 cellar: :any_skip_relocation, yosemite:      "e6b6f315bc14f5e001893371d18fb0ba88bea4c4d76dd657820eecf509103f9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "568fa7d6db8a642d71501bd804351e281c512fa82f3c2757bc870e7e8d871ecd"
   end
 
   def install

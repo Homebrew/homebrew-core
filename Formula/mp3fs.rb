@@ -1,14 +1,12 @@
 class Mp3fs < Formula
   desc "Read-only FUSE file system: transcodes audio formats to MP3"
   homepage "https://khenriks.github.io/mp3fs/"
-  url "https://github.com/khenriks/mp3fs/releases/download/v1.0/mp3fs-1.0.tar.gz"
-  sha256 "cbb52062d712e8dfd3491d0b105e2e05715d493a0fd14b53a23919694a348069"
-  license "GPL-3.0"
+  url "https://github.com/khenriks/mp3fs/releases/download/v1.1.1/mp3fs-1.1.1.tar.gz"
+  sha256 "942b588fb623ea58ce8cac8844e6ff2829ad4bc9b4c163bba58e3fa9ebc15608"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, catalina:    "26d991c2fb34055035c01d12033f28b5a694954ad9b3f650658dfa1ebc9994ea"
-    sha256 cellar: :any, mojave:      "a9f6095147b767a892891bdc0a44b61eef40880e38bc50e54c0a30d96de89985"
-    sha256 cellar: :any, high_sierra: "b3b2e431e9a782dbde9d758505c372a0d6ed60eff44ebc21c9b979c01b0df189"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6d1586bc27d210c2ee54b09a26b369c48fb932e8aae2be48dc03f577e1299854"
   end
 
   depends_on "pkg-config" => :build
@@ -18,16 +16,28 @@ class Mp3fs < Formula
   depends_on "libvorbis"
 
   on_macos do
-    disable! date: "2021-04-08", because: "requires FUSE"
+    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
   end
 
   on_linux do
-    depends_on "libfuse"
+    depends_on "libfuse@2"
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        The reasons for disabling this formula can be found here:
+          https://github.com/Homebrew/homebrew-core/pull/64491
+
+        An external tap may provide a replacement formula. See:
+          https://docs.brew.sh/Interesting-Taps-and-Forks
+      EOS
+    end
   end
 
   test do

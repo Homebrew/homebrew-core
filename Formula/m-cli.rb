@@ -6,7 +6,12 @@ class MCli < Formula
   license "MIT"
   head "https://github.com/rgcr/m-cli.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "57f125ffaf0e6a50c2d820b23921c4d804349a51df9780e00f79f4a41b9e4e39"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5131627ba06d37f0e1512cd3bbc7cda2c696deec07a3495c98974553ba900fa9"
+    sha256 cellar: :any_skip_relocation, catalina:      "5131627ba06d37f0e1512cd3bbc7cda2c696deec07a3495c98974553ba900fa9"
+    sha256 cellar: :any_skip_relocation, mojave:        "5131627ba06d37f0e1512cd3bbc7cda2c696deec07a3495c98974553ba900fa9"
+  end
 
   depends_on :macos
 

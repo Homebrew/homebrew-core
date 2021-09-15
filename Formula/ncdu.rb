@@ -1,16 +1,16 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-1.15.1.tar.gz"
-  sha256 "b02ddc4dbf1db139cc6fbbe2f54a282770380f0ca5c17089855eab52a9ea3fb0"
+  url "https://dev.yorhel.nl/download/ncdu-1.16.tar.gz"
+  sha256 "2b915752a183fae014b5e5b1f0a135b4b408de7488c716e325217c2513980fd4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "26eb6537a378702dc900546a2069472b51822fe086f380d0793c29adcc71166f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0761e7d2ca14605c0b5d122521c5f9d63f536fd37bb3cf46ae1367b36d4f166f"
-    sha256 cellar: :any_skip_relocation, catalina:      "994f7f4e9624a0984ec7c37b5b15b9ae5c24663ebffaba19b0979f4e99919fee"
-    sha256 cellar: :any_skip_relocation, mojave:        "f7908eaf47c7842b15e56e17279583f4c938a9c920e1bae41f05d3e5506a99fb"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "d094385dbfd71831c5f2b03f0817a06df9471a44f5437aaf577676d2723bc865"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "110f61c5159ce8982f2086aebd7e55a1631c958c88fd69eec611242a83bd4577"
+    sha256 cellar: :any_skip_relocation, big_sur:       "af3c3320ea08a93b0cb7bd260a297305d7c0283f8a9881971ecfa2dcb5c270b0"
+    sha256 cellar: :any_skip_relocation, catalina:      "b201c2573ed203bbd41c801be8d0b63045e33b36b601bcf6b8c03b5598c9301f"
+    sha256 cellar: :any_skip_relocation, mojave:        "4f0851785b40c0035a3d60687bdb180d46f8ec364508220c36bc40dda90ba25f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48c1a3244bf54b0ea5246bfa45130f18710f4943a30b897c9c104435585d26ca"
   end
 
   head do

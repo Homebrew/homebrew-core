@@ -1,16 +1,16 @@
 class Libxft < Formula
   desc "X.Org: X FreeType library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXft-2.3.3.tar.bz2"
-  sha256 "225c68e616dd29dbb27809e45e9eadf18e4d74c50be43020ef20015274529216"
+  url "https://www.x.org/archive/individual/lib/libXft-2.3.4.tar.bz2"
+  sha256 "57dedaab20914002146bdae0cb0c769ba3f75214c4c91bd2613d6ef79fc9abdd"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f0b3ad1d1305417c5f3d8721a7a5cf1311b464cad8c99a94e4e1468cd756498d"
-    sha256 cellar: :any, big_sur:       "5351d66133130a06528dbb2c4e5f68b96b3373df1fe632436586143d2a99d3f6"
-    sha256 cellar: :any, catalina:      "468e6b59613df1504055545f7e1662141b159b158856b41288f017e2b975e852"
-    sha256 cellar: :any, mojave:        "c571235a69c34bf95279c8e415b34f8c8fad9a21eac4a05c55b1beec584f6757"
-    sha256 cellar: :any, high_sierra:   "d8a6efe662c060ebe7a638fcd4b1ffc3ba34beb53586827cef583948be17b802"
+    sha256 cellar: :any,                 arm64_big_sur: "78a5e3d5795d9a95a012e1b9cbdc431373d1a2b9215dd4cc467ed8fe8833c8fd"
+    sha256 cellar: :any,                 big_sur:       "1409b0b789f87502f146806ca110c91de010d4815a02d2a2b01a1fca8a9b34e1"
+    sha256 cellar: :any,                 catalina:      "59ee89bf143385cf4d64b79b2b324874cbe8b5a1ecdaef2a9739fe6104bf240e"
+    sha256 cellar: :any,                 mojave:        "b192514f22f8e6fe250afc95e471512622942dd02d3e58b7fbb0b085a281c667"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32e3761cd7474d9f427959ce47db1b7449a1d210e51ad08d664a2f6b2092e229"
   end
 
   depends_on "pkg-config" => :build

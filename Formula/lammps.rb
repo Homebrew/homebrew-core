@@ -22,10 +22,11 @@ class Lammps < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "cd8e88f101776028e6859211611d5f581f7020b3e806f53e98b831ab3d0eb9f5"
-    sha256 big_sur:       "9bd87a2b72f291229de3d436f8fc7b0706ab5fc245587936943284287457d1c0"
-    sha256 catalina:      "4cb389466954f5fdafc8a05a06eff9c8a17886b69e2ea6cc38c55cf3912980d0"
-    sha256 mojave:        "e1ef047d6c3155e5a8bb704a5f141beb7427194c61e6d16885610bdfd20ecf5c"
+    sha256                               arm64_big_sur: "cd8e88f101776028e6859211611d5f581f7020b3e806f53e98b831ab3d0eb9f5"
+    sha256                               big_sur:       "9bd87a2b72f291229de3d436f8fc7b0706ab5fc245587936943284287457d1c0"
+    sha256                               catalina:      "4cb389466954f5fdafc8a05a06eff9c8a17886b69e2ea6cc38c55cf3912980d0"
+    sha256                               mojave:        "e1ef047d6c3155e5a8bb704a5f141beb7427194c61e6d16885610bdfd20ecf5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "930043afd64c57fc5f7a421d282f8c799202f9c3176108d9f945483f31a0b29c"
   end
 
   depends_on "pkg-config" => :build

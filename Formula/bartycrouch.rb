@@ -2,18 +2,17 @@ class Bartycrouch < Formula
   desc "Incrementally update/translate your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
   url "https://github.com/Flinesoft/BartyCrouch.git",
-      tag:      "4.6.0",
-      revision: "771a4aeaab1cf262f0af51811379aaeea675e3cc"
+      tag:      "4.7.1",
+      revision: "c83fe72d329ffbe2afda6b980c62060699ef6bb7"
   license "MIT"
-  head "https://github.com/Flinesoft/BartyCrouch.git"
+  head "https://github.com/Flinesoft/BartyCrouch.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5ac9b15cd854432a11e43d2e73bafc0146a06107d62c6b8337a407ebc02614ff"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3573c8b0ae2893f825e5979a9f907be682735e29be39d2a3f69e7d6e0374332c"
-    sha256 cellar: :any_skip_relocation, catalina:      "c51eed14bfc9048dfbe4bdf6a2fd49c35b3a4a5f9f2c4a187c6e5a04269c44ca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2826920f37928bdc35e730257969a1b676b36864967a848c196df2b7edee80bd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4588599e70c69ce5f5e28c4946978cc09fad5f003368a309df251b45bfca2c5f"
   end
 
-  depends_on xcode: ["12.0", :build]
+  depends_on xcode: ["12.5", :build]
   depends_on :macos
 
   def install

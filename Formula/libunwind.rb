@@ -5,6 +5,13 @@ class Libunwind < Formula
   sha256 "90337653d92d4a13de590781371c604f9031cdb50520366aa1e3a91e1efb1017"
   license "MIT"
 
+  bottle do
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0dbcc161bfb5d2e20743f2bfcbf2fcf0e5583662f91d6c2ab4b0e0bea2e26a1d"
+  end
+
+  keg_only "libunwind conflicts with LLVM"
+
   depends_on :linux
 
   uses_from_macos "xz"

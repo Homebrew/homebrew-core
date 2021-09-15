@@ -7,7 +7,9 @@ class MavenAT33 < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "01312f11ae26710bfc86299357e9adb760bd6177ebe5d2f85d3e53bee572d19f"
+  end
 
   keg_only :versioned_formula
 

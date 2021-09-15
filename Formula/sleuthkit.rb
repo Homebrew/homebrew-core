@@ -1,9 +1,9 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.10.2/sleuthkit-4.10.2.tar.gz"
-  sha256 "c4836b7fd57b0a7a45432eeee18c41833027c8980fab3e4961c733b4e6867686"
-  license "GPL-2.0"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.11.0/sleuthkit-4.11.0.tar.gz"
+  sha256 "8d6b0ed7f6f0612e7ba10b3a9713bc9e4ec85b5fb77af06a9fbe16d1c1d433ee"
+  license all_of: ["IPL-1.0", "CPL-1.0", "GPL-2.0-or-later"]
 
   livecheck do
     url :stable
@@ -12,10 +12,11 @@ class Sleuthkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2019d39f5f7125a51c9b355d1106fb87a7ff69dd8468e4a7ac862f5ef4c63199"
-    sha256 cellar: :any, big_sur:       "c24c26b12e348409df732b847a5bf889dc9be429a0cb102595dc90576e0de320"
-    sha256 cellar: :any, catalina:      "be14b5b898b736334e74427335411f5ccaf05c462e45c367a61a1399155293f0"
-    sha256 cellar: :any, mojave:        "fa11e725245a2b893d8f781afc5b9e80e9e0c064a0030f87f45ac907fb2fb839"
+    sha256 cellar: :any,                 arm64_big_sur: "af763b17f8d5719e6b3707ee5f65c477afe98471bb82ba486922b46921d1d06e"
+    sha256 cellar: :any,                 big_sur:       "30758d782ad89676473e292682b9ec78dfef75e3ad974cde8154cc99e3f2386b"
+    sha256 cellar: :any,                 catalina:      "3e0ffa38afd90e47d953c8462df5a20408151ca0da75f2c03da333302d3a797d"
+    sha256 cellar: :any,                 mojave:        "6cc145c75c073678a80e07acdb0b7543917c39117b27ef6f7ed9f62fc0b533fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ae9d2f33d4abb4a291767c8b71687e25ee414b0813423dc11e39a3e838b6038"
   end
 
   depends_on "ant" => :build
@@ -26,13 +27,12 @@ class Sleuthkit < Formula
 
   uses_from_macos "sqlite"
 
-  conflicts_with "ffind",
-    because: "both install a `ffind` executable"
+  conflicts_with "ffind", because: "both install a `ffind` executable"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
-    ENV["ANT_FOUND"]=Formula["ant"].opt_bin/"ant"
-    ENV["SED"]="/usr/bin/sed"
+    ENV["SED"] = "/usr/bin/sed" if OS.mac?
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["ANT_FOUND"] = Formula["ant"].opt_bin/"ant"
     ENV.append_to_cflags "-DNDEBUG"
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
@@ -40,6 +40,11 @@ class Sleuthkit < Formula
 
     cd "bindings/java" do
       system "ant"
+
+      if OS.linux?
+        inreplace "Makefile", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/ld", "ld"
+        inreplace "jni/Makefile", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/ld", "ld"
+      end
     end
     prefix.install "bindings"
   end

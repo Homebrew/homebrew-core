@@ -16,6 +16,7 @@ class Rogue < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c6e8bb630a966cd8885e378242f9175ffd8327e26ec1ed679016302b437a5156"
     sha256 cellar: :any_skip_relocation, catalina:      "c576555f6857ff3ec7f0b2e39625d3c1f86989315b735a5e27d9416c095e5efc"
     sha256 cellar: :any_skip_relocation, mojave:        "7a7a380bb29967b8e795aa2407e8f205752b93952082491e20fff84394819294"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2edb3e1d6fb4af2f87d065012e68d09abda6035c5f4394d685336d0763f31869"
   end
 
   uses_from_macos "ncurses"
@@ -35,7 +36,7 @@ class Rogue < Formula
       s.gsub! "-if test ! -d $(man6dir) ; then $(INSTALL) -m 0644 rogue.6 $(DESTDIR)$(mandir)/$(PROGRAM).6 ; fi", ""
     end
 
-    on_linux do
+    if OS.linux?
       inreplace "mdport.c", "#ifdef NCURSES_VERSION",
         "#ifdef NCURSES_VERSION\nTERMTYPE *tp = (TERMTYPE *) (cur_term);"
       inreplace "mdport.c", "cur_term->type.Strings", "tp->Strings"

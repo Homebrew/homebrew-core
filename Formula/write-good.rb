@@ -12,6 +12,7 @@ class WriteGood < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9d0239747d4aaff293b839c0cd3d4ee175eb69260d965d810b33b4081a20845c"
     sha256 cellar: :any_skip_relocation, catalina:      "1bb59d5fc6bc1e3350b3ff45eef3aa3e78500e3cd9342c690f6dcf8b6163a77b"
     sha256 cellar: :any_skip_relocation, mojave:        "0850f0679ded1af752f6f62b3f88e80134563cfd6d313c9d9b7e42549d421d9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b0159ea80386272010aec12e84b6c7793b2a358b6f1320797cca326b2c61d61"
   end
 
   depends_on "node"

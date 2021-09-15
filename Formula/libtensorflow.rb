@@ -1,16 +1,14 @@
 class Libtensorflow < Formula
-  include Language::Python::Virtualenv
-
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "233875ea27fc357f6b714b2a0de5f6ff124b50c1ee9b3b41f9e726e9e677b86c"
+  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.6.0.tar.gz"
+  sha256 "41b32eeaddcbc02b0583660bcf508469550e4cd0f86b22d2abe72dfebeacde0f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "719af44e1d97ecb589aba04419a3f4298942896e6385bce5a6567496b50c3cc7"
-    sha256 cellar: :any, catalina: "303812a9cf84303d3135309662523642401d2b359ec164cc402982aa2d3c023f"
-    sha256 cellar: :any, mojave:   "0f7f36b06cb1e7e45b8c3d4c383373cae604be3bdee8c86d2b8dde619acbba7d"
+    sha256 cellar: :any, big_sur:  "69baf5524268e1d3d6ce4af15781d732ff3da465c779f1a90f1145560e365f90"
+    sha256 cellar: :any, catalina: "200274bd3af3bb4093f0a90f32e8561abd9b8328a3a04de0648ff66f2d028e68"
+    sha256 cellar: :any, mojave:   "73cde8bd727caae50b85fe9efe466a24d59453d231f234cba0103200d4d76707"
   end
 
   depends_on "bazel" => :build

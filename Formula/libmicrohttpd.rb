@@ -7,10 +7,11 @@ class Libmicrohttpd < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "92216bc689b42d660f2282fcb085394033b6cfcc251f8443650ec01be4e09176"
-    sha256 cellar: :any, big_sur:       "035f1dd8caeb642f47c82f8efeabde09d2476af9b5a73b7ef6337f0c6373090e"
-    sha256 cellar: :any, catalina:      "61f7cd6b76713ad189ac09c59b7f798cdda9383b022c55fdd5c48da1360ef6fb"
-    sha256 cellar: :any, mojave:        "eba382f3e0e66eb18e11bebc64c28d1adc9e1a34775a931a00ae1ff606d62f43"
+    sha256 cellar: :any,                 arm64_big_sur: "92216bc689b42d660f2282fcb085394033b6cfcc251f8443650ec01be4e09176"
+    sha256 cellar: :any,                 big_sur:       "035f1dd8caeb642f47c82f8efeabde09d2476af9b5a73b7ef6337f0c6373090e"
+    sha256 cellar: :any,                 catalina:      "61f7cd6b76713ad189ac09c59b7f798cdda9383b022c55fdd5c48da1360ef6fb"
+    sha256 cellar: :any,                 mojave:        "eba382f3e0e66eb18e11bebc64c28d1adc9e1a34775a931a00ae1ff606d62f43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b642a2233df4ded848a7d781b1733c18d02d300cd976b67fadaf8765a568a4a"
   end
 
   depends_on "gnutls"

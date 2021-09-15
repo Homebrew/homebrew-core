@@ -4,12 +4,13 @@ class Cryptol < Formula
   url "https://hackage.haskell.org/package/cryptol-2.11.0/cryptol-2.11.0.tar.gz"
   sha256 "43b7535f5cb792efccddbb3f4c09bd2e922777d19a6537cb3aa27adf69280716"
   license "BSD-3-Clause"
-  head "https://github.com/GaloisInc/cryptol.git"
+  head "https://github.com/GaloisInc/cryptol.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "7864c5659f35ee68c4c84683362063dfb2efd8c143b0bb507fbfc3f67661af87"
-    sha256 cellar: :any_skip_relocation, catalina: "be3298c8389c666439fc38f898e4cd16ea06fc3513977dc65a3cca684a28cde0"
-    sha256 cellar: :any_skip_relocation, mojave:   "105d72cd5224912dfa83599dbf41393878bc3bd71ce9ab5d8056f490bd18e3fd"
+    sha256 cellar: :any_skip_relocation, big_sur:      "7864c5659f35ee68c4c84683362063dfb2efd8c143b0bb507fbfc3f67661af87"
+    sha256 cellar: :any_skip_relocation, catalina:     "be3298c8389c666439fc38f898e4cd16ea06fc3513977dc65a3cca684a28cde0"
+    sha256 cellar: :any_skip_relocation, mojave:       "105d72cd5224912dfa83599dbf41393878bc3bd71ce9ab5d8056f490bd18e3fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6524a42a254b2d55ba3fedf12378a5663917bcc7180faa23aebff73a5f69c8a9"
   end
 
   depends_on "cabal-install" => :build

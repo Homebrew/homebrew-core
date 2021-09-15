@@ -8,15 +8,19 @@ class Libzzip < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "43fbba2b7e506170bf0f03a8c281c142b04cd1b95365392d36dcc014e5f24743"
-    sha256 cellar: :any, big_sur:       "f4471c0801590824b9fa2de9a5f25c14fc42dc8d87a5efcdf16144a116d5b997"
-    sha256 cellar: :any, catalina:      "0d0827679b5108d79b6bcbf8a3f1ede078d547bb1986d4b7808d6cdb77104023"
-    sha256 cellar: :any, mojave:        "f165f79a37ac61eeb25c2f9b4756848f4c3a9ddcb7250b9de0e6cc5640b00598"
+    sha256 cellar: :any,                 arm64_big_sur: "43fbba2b7e506170bf0f03a8c281c142b04cd1b95365392d36dcc014e5f24743"
+    sha256 cellar: :any,                 big_sur:       "f4471c0801590824b9fa2de9a5f25c14fc42dc8d87a5efcdf16144a116d5b997"
+    sha256 cellar: :any,                 catalina:      "0d0827679b5108d79b6bcbf8a3f1ede078d547bb1986d4b7808d6cdb77104023"
+    sha256 cellar: :any,                 mojave:        "f165f79a37ac61eeb25c2f9b4756848f4c3a9ddcb7250b9de0e6cc5640b00598"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8360520c0127acc397b30f0aac2213f717d37c023a2aa9a96d265a0d7b77d4ad"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+
+  uses_from_macos "zip" => :test
+  uses_from_macos "zlib"
 
   def install
     mkdir "build" do
@@ -28,7 +32,7 @@ class Libzzip < Formula
 
   test do
     (testpath/"README.txt").write("Hello World!")
-    system "/usr/bin/zip", "test.zip", "README.txt"
+    system "zip", "test.zip", "README.txt"
     assert_equal "Hello World!", shell_output("#{bin}/zzcat test/README.txt")
   end
 end

@@ -11,6 +11,7 @@ class Scmpuff < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0741427c472b244575c9d7735e85f971677645107ea91ae99f32cc0377dc93ca"
     sha256 cellar: :any_skip_relocation, catalina:      "0d673b2326d88ca0b4c952122f37d8c2cc269bf687e62f0161a9a75288b6ccbb"
     sha256 cellar: :any_skip_relocation, mojave:        "30853a0768a6b6c65bdd0522854ae335f50f80ea24bbc64fd16a5411fcd7f2d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96bc8fa5f1eb00d5214537d40ada1aca04ee64e4b9f6ca887f70d9cb1836bddf"
   end
 
   depends_on "go" => :build

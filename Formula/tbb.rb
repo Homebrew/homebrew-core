@@ -1,15 +1,16 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://github.com/oneapi-src/oneTBB"
-  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.2.0.tar.gz"
-  sha256 "cee20b0a71d977416f3e3b4ec643ee4f38cedeb2a9ff015303431dd9d8d79854"
+  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.3.0.tar.gz"
+  sha256 "8f616561603695bbb83871875d2c6051ea28f8187dbe59299961369904d1d49e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5d62feb0d5a41fb14d49a133375e39d7712da8c3cd659577b6fa276d9443b315"
-    sha256 cellar: :any, big_sur:       "d0077f75204853eb3cb03edb4b77c7eb480fc0817afbbbbc06c2e062ab3204d6"
-    sha256 cellar: :any, catalina:      "15243389ba219a58819d62be1d90b769cb7e78f0a21860539988e1a6582b781b"
-    sha256 cellar: :any, mojave:        "a0d90c33f249288339767ab72110d44950e82d8cdc1ddd6055c83645ebbfb848"
+    sha256 cellar: :any,                 arm64_big_sur: "0b38fba5657af959e0e2392daa9163309c51b469e7db92c5b70f535c554ab63a"
+    sha256 cellar: :any,                 big_sur:       "18d284f2fa0792ab119b10260eebc9a87fd00dc68cf0fdcd70ee00d6d7af5570"
+    sha256 cellar: :any,                 catalina:      "953989fa59711ea79f8690ae08a79a4a7722325fa36445ddffaf11c6729e25ee"
+    sha256 cellar: :any,                 mojave:        "e2c2e8c35d0df2fc1659c59c0b501b0e2420c43a6d8afe629c9f49afa1bae236"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "826e5e4bdbcdec6e72a99bb61a6d89eba61438d3f820af714e9e684cb0f085c9"
   end
 
   depends_on "cmake" => :build
@@ -34,10 +35,22 @@ class Tbb < Formula
 
     cd "python" do
       ENV.append_path "CMAKE_PREFIX_PATH", prefix.to_s
-      ENV["LDFLAGS"] = "-rpath #{opt_lib}"
+      ENV["LDFLAGS"] = "-rpath #{opt_lib}" if OS.mac?
 
       ENV["TBBROOT"] = prefix
       system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+    end
+
+    if OS.linux?
+      inreplace prefix/"rml/CMakeFiles/irml.dir/flags.make",
+                "#{HOMEBREW_LIBRARY}/Homebrew/shims/linux/super/g++-5",
+                "/usr/bin/c++"
+      inreplace prefix/"rml/CMakeFiles/irml.dir/build.make",
+                "#{HOMEBREW_LIBRARY}/Homebrew/shims/linux/super/g++-5",
+                "/usr/bin/c++"
+      inreplace prefix/"rml/CMakeFiles/irml.dir/link.txt",
+                "#{HOMEBREW_LIBRARY}/Homebrew/shims/linux/super/g++-5",
+                "/usr/bin/c++"
     end
   end
 
@@ -76,17 +89,14 @@ end
 
 __END__
 diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
-index da4f4f93..6c95bcde 100644
+index 1d2b05f..81ba8de 100644
 --- a/python/CMakeLists.txt
 +++ b/python/CMakeLists.txt
-@@ -49,8 +49,8 @@ add_test(NAME python_test
+@@ -49,7 +49,7 @@ add_test(NAME python_test
                   -DPYTHON_MODULE_BUILD_PATH=${PYTHON_BUILD_WORK_DIR}/build
                   -P ${PROJECT_SOURCE_DIR}/cmake/python/test_launcher.cmake)
 
--install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${PYTHON_BUILD_WORK_DIR}/build/lib/
--        DESTINATION ${CMAKE_INSTALL_LIBDIR}
+-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${PYTHON_BUILD_WORK_DIR}/build/
 +install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${PYTHON_BUILD_WORK_DIR}/
-+        DESTINATION .
+         DESTINATION .
          COMPONENT tbb4py)
-
- if (UNIX AND NOT APPLE)

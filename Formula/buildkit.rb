@@ -2,10 +2,10 @@ class Buildkit < Formula
   desc "Сoncurrent, cache-efficient, and Dockerfile-agnostic builder toolkit"
   homepage "https://github.com/moby/buildkit"
   url "https://github.com/moby/buildkit.git",
-      tag:      "v0.8.3",
-      revision: "81c2cbd8a418918d62b71e347a00034189eea455"
+      tag:      "v0.9.0",
+      revision: "c8bb937807d405d92be91f06ce2629e6202ac7a9"
   license "Apache-2.0"
-  head "https://github.com/moby/buildkit.git"
+  head "https://github.com/moby/buildkit.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,10 +13,11 @@ class Buildkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dfc1a7eb1b24c248f64d4925d4c52f4d88d6ec6c19502a9677becbf95a534dee"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3d8d9b69f4757bcfff266f90086a607d428b6dce9ef18fe19fc7d2dc9f1b9169"
-    sha256 cellar: :any_skip_relocation, catalina:      "c8f6f789e3ac8141f0229e9145f251093e06d072ac10110406844476a874a1b2"
-    sha256 cellar: :any_skip_relocation, mojave:        "4574312ef4f5f9c6d6d9beb6049c77cad27f316609f93ad556f969bed317d425"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd6929db7f70e9ef5eee31395e392eefff1e596b7f5f9048c3f405cd02401a52"
+    sha256 cellar: :any_skip_relocation, big_sur:       "76db05e2e242bdc332b0ece0c22c28cc2b1509a6c57b83516bf9700c71d27566"
+    sha256 cellar: :any_skip_relocation, catalina:      "f4a58c4aa6401635fba676aa36ddfb0e91dc6fa10c7246a0210e8dbf85f688db"
+    sha256 cellar: :any_skip_relocation, mojave:        "e7dee5f840be67e86e4e8a252ce18e1bccb5dc70385184be0b58b2f312f962ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cc283a28854f3a2ac0a47f3a5be50b18799408516aa45ec90f73e18bd755f5b"
   end
 
   depends_on "go" => :build

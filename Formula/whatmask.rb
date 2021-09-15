@@ -11,6 +11,7 @@ class Whatmask < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "55789adc6a9326b814965c6c0fcf41f912638f2e7d55d4167cbe404ec1a6938d"
     sha256 cellar: :any_skip_relocation, catalina:      "89a44972f8d27003b4c91f04a294f0be9a0d00628fb8db21faf46a55a0720cb2"
     sha256 cellar: :any_skip_relocation, mojave:        "a3a5a8887d1c7d43f83bf99c2f81f8900af0d83091978f5aac28447d0f093785"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bb2ab87b646751414698bd1bae28cbea1eecf7c147ae6a38fd02e9f3857a1c9"
   end
 
   depends_on "autoconf" => :build

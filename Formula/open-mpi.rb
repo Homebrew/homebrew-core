@@ -16,6 +16,7 @@ class OpenMpi < Formula
     sha256 big_sur:       "da310195e62c1a27aea7365b325cb15dd48f99dd673fd1f685f8b5247cfbb48d"
     sha256 catalina:      "27f25156376078df9cb6e41a57c370cb030f16092ee7dfe85d7a8000f252240e"
     sha256 mojave:        "4d57102ec2e06043bc97d34130ae5cd9115a6a1718331476f5fbd71d8bef149e"
+    sha256 x86_64_linux:  "0c6558437eedbf31810f41163ddff64c610ec5d5065bb4080e2559961ab3668d"
   end
 
   head do
@@ -25,7 +26,7 @@ class OpenMpi < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "hwloc"
   depends_on "libevent"
 

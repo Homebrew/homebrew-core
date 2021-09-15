@@ -5,6 +5,11 @@ class XmlCoreutils < Formula
   sha256 "7fb26d57bb17fa770452ccd33caf288deee1d757a0e0a484b90c109610d1b7df"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?xml-coreutils[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "7094a5673f2ab6ba2fa45c587397650f4d9b2ccea1ab66925f58ef776683298d"

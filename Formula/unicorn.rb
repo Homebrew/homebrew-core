@@ -1,15 +1,16 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
   homepage "https://www.unicorn-engine.org/"
-  url "https://github.com/unicorn-engine/unicorn/archive/1.0.2.tar.gz"
-  sha256 "6400e16f9211486fa5353b1870e6a82f8aa342e429718d1cbca08d609aaadc52"
-  revision 1
-  head "https://github.com/unicorn-engine/unicorn.git"
+  url "https://github.com/unicorn-engine/unicorn/archive/1.0.3.tar.gz"
+  sha256 "64fba177dec64baf3f11c046fbb70e91483e029793ec6a3e43b028ef14dc0d65"
+  head "https://github.com/unicorn-engine/unicorn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "0df92b5a73a27807376ab728337601fabf538e8c94e68e26436f5b4ef76c52c8"
-    sha256 cellar: :any, catalina: "db49e0948f773702635011471c36b5782c47f3b360986cc606050d2ea5d419c5"
-    sha256 cellar: :any, mojave:   "fd6267dea877a4ef1f949397195aff710c8aca8d4473db396731212043f665ac"
+    rebuild 1
+    sha256 cellar: :any,                 big_sur:      "8f7ec73074e986c355944923dfc2c4828b9a545e66f9112e92b20cd11cf3b1b4"
+    sha256 cellar: :any,                 catalina:     "11c4212e8e10b202eb2b9c4d4704d9c18619523d1ed31b98eb7eb5288a4ea7c1"
+    sha256 cellar: :any,                 mojave:       "3725cd02674803b1491af58d6552a842af5ed8e1bd16b2144dd1e971748502aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0e3136c1be33d317e52a1689c24ad785617a3102dcd69052fe0a43e63638c7cc"
   end
 
   depends_on "pkg-config" => :build
@@ -73,7 +74,7 @@ class Unicorn < Formula
       }
     EOS
     system ENV.cc, "-o", testpath/"test1", testpath/"test1.c",
-      "-lpthread", "-lm", "-L#{lib}", "-lunicorn"
+                   "-pthread", "-lpthread", "-lm", "-L#{lib}", "-lunicorn"
     system testpath/"test1"
 
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import unicorn; print(unicorn.__version__)"

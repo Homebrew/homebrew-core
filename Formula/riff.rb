@@ -14,6 +14,7 @@ class Riff < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "cb64974514f8c764d7479cce8f92cd0a2cbc940e96300b823c684f4752d5b734"
     sha256 cellar: :any_skip_relocation, mojave:        "dd08e62ae58c92239ea1c321b7a3eda01b83912660f2769291cb0443fd128f9d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "06f5da9420de8bf9aac4a16f93effeb2e3ceb83fedc44a5d1c375a2a6f9f52a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5556cf3db55be3101150a75d23d26b7ca675bae354bfb2f0024664cc9ad5ce51"
   end
 
   deprecate! date: "2021-03-15", because: :repo_archived

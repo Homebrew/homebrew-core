@@ -1,30 +1,23 @@
 class Gollum < Formula
   desc "Go n:m message multiplexer"
-  homepage "https://github.com/trivago/gollum"
-  url "https://github.com/trivago/gollum/archive/v0.5.4.tar.gz"
-  sha256 "ba2299c7946385704b7952a77f28e6a7bd243f350e31e7009e21586ec9ca5494"
+  homepage "https://gollum.readthedocs.io/en/latest/"
+  url "https://github.com/trivago/gollum/archive/0.6.0.tar.gz"
+  sha256 "2d9e7539342ccf5dabb272bbba8223d279a256c0901e4a27d858488dd4343c49"
   license "Apache-2.0"
   head "https://github.com/trivago/gollum.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5ee2cb96a94ee53e89242b117564bd62236193f1a32ed0a54658ecd1c31a0a0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a6d6cfa922dc4fab92280d6b608f73ed620b9042c16c2394ea28d439d7360db4"
-    sha256 cellar: :any_skip_relocation, catalina:      "bf987d3c10c67153ffc11b1926162882d00cdf23261516e614181dafb67eb70c"
-    sha256 cellar: :any_skip_relocation, mojave:        "d2d022b779e4290e98d0783232b00c79bf46fc08d9ad3bea0dd352071e2995f3"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "afaf112d706150eeb5f8e5152a7b88ef18fc944fdd01dc8a46357a3c8ce13f8b"
-    sha256 cellar: :any_skip_relocation, sierra:        "9e82aadccabe2a1224658cc824536e061d617355bb7f7eda5a889e117c3bb472"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1ee4392902517d8c01ccefd711b89658420b8ab2727473538db2c8781e3ece6f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "93b409a0df8ba538dc75783b349b6e3d9d3390aa9d2e89813513a0452e3eab3e"
+    sha256 cellar: :any_skip_relocation, catalina:      "a8f048a8431da205f8c35224d43b6818c73adcb1abf973e7d1274231df6cb562"
+    sha256 cellar: :any_skip_relocation, mojave:        "6e8d55c8f2e91d5c645dd1877f993765aa26e71b637754514c6aa285ffb617dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9069887fd837e33a18020e839a78fa28a76f3d4088e59596e0e75941031f7760"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/trivago/gollum").install buildpath.children
-    cd "src/github.com/trivago/gollum" do
-      system "go", "build", "-o", bin/"gollum"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-s -w -X gollum/core.versionString=#{version}")
   end
 
   test do

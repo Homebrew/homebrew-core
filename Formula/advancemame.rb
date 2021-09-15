@@ -7,7 +7,7 @@ class Advancemame < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -17,6 +17,7 @@ class Advancemame < Formula
     sha256 mojave:        "95f2cdff91ff98c3c9f65a0751d7948cefb3829d96e1977b5b8869163eba0790"
     sha256 high_sierra:   "9c5e0a9f81f43ec02eb951b82b4930639dafcdbacbeadf7bcc5e74f2e2ec7c45"
     sha256 sierra:        "6ba2c02db07a9ef7ddf561dbc2cde3904abe0b1b0ab9c9469020fdeced72e011"
+    sha256 x86_64_linux:  "d0bab1d3cfd93b32811ab90959ee6223f97528c6b4ac1e51c353f3dfad1579cc"
   end
 
   depends_on "pkg-config" => :build

@@ -12,10 +12,13 @@ class DockerMachine < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "720ea8bbbfdc6b9d0701f02014e09f6a46e6785bcbdb36ebe3e95bddd0849dfa"
     sha256 cellar: :any_skip_relocation, catalina:      "e27501077ccc67fc468ca8e2881366a9fc23260296ed93a3f436b4d12f41ec43"
     sha256 cellar: :any_skip_relocation, mojave:        "0cfe7d344bd6c2b3bc0d1c1de472c430162a45dd54454b268e82750094b9cf9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f08e7ba29eb793a79b8126631485ee4100cf07b9e1e5654a7c4db8c2d229d5af"
   end
 
   depends_on "automake" => :build
   depends_on "go" => :build
+
+  conflicts_with "docker-machine-completion", because: "docker-machine already includes completion scripts"
 
   def install
     ENV["GOPATH"] = buildpath

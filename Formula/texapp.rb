@@ -12,6 +12,7 @@ class Texapp < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "6615c40b9f733227163ad90b0082c40e7a5885c8ffa36dcb6c5892c09367c279"
     sha256 cellar: :any_skip_relocation, sierra:        "6615c40b9f733227163ad90b0082c40e7a5885c8ffa36dcb6c5892c09367c279"
     sha256 cellar: :any_skip_relocation, el_capitan:    "6615c40b9f733227163ad90b0082c40e7a5885c8ffa36dcb6c5892c09367c279"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3de41340c8be2327e079f024ac9c4cc0ebe27c937934f827b53c20869cebbf88"
   end
 
   def install

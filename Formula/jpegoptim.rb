@@ -7,13 +7,14 @@ class Jpegoptim < Formula
   head "https://github.com/tjko/jpegoptim.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "38149f489f36745c9be64ccaff694c53a07c6a8d4c98335703e7c1ba6206c5e0"
-    sha256 cellar: :any, big_sur:       "ca4714cf1b1ecbc166a78b8143648fa639b70495f54dc75bcd1a71b9a2c4e604"
-    sha256 cellar: :any, catalina:      "f6acdfbe5b3ff49f922bfccb936c39609bb1a0f9dbebd1289d1679bf7fe5b2a4"
-    sha256 cellar: :any, mojave:        "c60d59cfe20db5ad448c4da58d7c43ca072f15a31502b989a51b9020da445880"
-    sha256 cellar: :any, high_sierra:   "9588bffa63f2041939e480ff8dbce25a004ef2414fc7ea9d5b5177a38bfb8eaf"
-    sha256 cellar: :any, sierra:        "89b7f8465e95066c6bf19515affed14037841ea5d0a86b8c3d6cf026f507e938"
-    sha256 cellar: :any, el_capitan:    "cc6c60a27cba7bb5f0e1b4a7c8ae3567db4eeaf1e1384488b818da7a1409f837"
+    sha256 cellar: :any,                 arm64_big_sur: "38149f489f36745c9be64ccaff694c53a07c6a8d4c98335703e7c1ba6206c5e0"
+    sha256 cellar: :any,                 big_sur:       "ca4714cf1b1ecbc166a78b8143648fa639b70495f54dc75bcd1a71b9a2c4e604"
+    sha256 cellar: :any,                 catalina:      "f6acdfbe5b3ff49f922bfccb936c39609bb1a0f9dbebd1289d1679bf7fe5b2a4"
+    sha256 cellar: :any,                 mojave:        "c60d59cfe20db5ad448c4da58d7c43ca072f15a31502b989a51b9020da445880"
+    sha256 cellar: :any,                 high_sierra:   "9588bffa63f2041939e480ff8dbce25a004ef2414fc7ea9d5b5177a38bfb8eaf"
+    sha256 cellar: :any,                 sierra:        "89b7f8465e95066c6bf19515affed14037841ea5d0a86b8c3d6cf026f507e938"
+    sha256 cellar: :any,                 el_capitan:    "cc6c60a27cba7bb5f0e1b4a7c8ae3567db4eeaf1e1384488b818da7a1409f837"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9519adbc40ad2a3bdc57c0aef19e8e7accf1eaa3f862de4433569dbc293a0bfa"
   end
 
   depends_on "jpeg"

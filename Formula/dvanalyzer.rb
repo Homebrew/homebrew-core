@@ -12,7 +12,10 @@ class Dvanalyzer < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "59667b7174026e959f123ebbf8f8e30559dabb70814565f8bec8316c4b9c02b1"
     sha256 cellar: :any_skip_relocation, sierra:        "fb066074dde3b6e94ba30bf37bc85c2e17ef30a7e2b8f874b1a09f3aca2275f7"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0e138c105a1f4604dbb4b7c911e83c660f2078cb24af6ba0ba12564a6e93d9c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "439d718775ff2f2f2ae7f076c4cf120298b116b6a6fb0afdc4236823387948f0"
   end
+
+  uses_from_macos "zlib"
 
   def install
     cd "ZenLib/Project/GNU/Library" do

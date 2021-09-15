@@ -5,7 +5,7 @@ class Zenith < Formula
   sha256 "2b33892be95149550c84179b341e304c4222e3489bc121ea8c8346e075433aa6"
   license "MIT"
   version_scheme 1
-  head "https://github.com/bvaisvil/zenith.git"
+  head "https://github.com/bvaisvil/zenith.git", branch: "master"
 
   livecheck do
     url :stable

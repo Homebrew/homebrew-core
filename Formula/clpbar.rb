@@ -13,6 +13,7 @@ class Clpbar < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "769dbb64e877ab1f52a496063bbfdac32911f38e6e25b4fc70a5cfe937923f5f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b54fa0ce24de6dda141e3fc025b67f2e0216b01a3664ec5992a98f8087881ddd"
     sha256 cellar: :any_skip_relocation, yosemite:      "edaa21e4d80bbf174e3c040d3c786eb48e381ca8e9477dfbafb06b4ec0bfd19f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34f612cc13329af2cb8bb90f7457a5222538acbd7304ad2ebf0a16650bec2dfc"
   end
 
   def install

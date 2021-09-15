@@ -1,17 +1,17 @@
 class Peco < Formula
   desc "Simplistic interactive filtering tool"
   homepage "https://github.com/peco/peco"
-  url "https://github.com/peco/peco/archive/v0.5.8.tar.gz"
-  sha256 "90d87503265c12f8583f5c6bc19c83eba7a2e15219a6339d5041628aa48c4705"
+  url "https://github.com/peco/peco/archive/refs/tags/v0.5.10.tar.gz"
+  sha256 "781c2effc4f6a58d9ff96fb0fc8b0fba3aab56a91a34933d68c5de3aea5fe3f6"
   license "MIT"
-  head "https://github.com/peco/peco.git"
+  head "https://github.com/peco/peco.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "04e2f867f8c2e3668eafc4c3425905d49ba29858d9f31e8d778d46f3182b81d6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6b90dff9eb546601c85d7a4b50056bf0209470617b489c60e92cd6799c80d74c"
-    sha256 cellar: :any_skip_relocation, catalina:      "02aee47d2d6e04c17c5a8a0c0d4391004175b00d2c01550b37bec09be865953a"
-    sha256 cellar: :any_skip_relocation, mojave:        "f2c6e54d44a476bdfcab73c53789fceceeda94101e1b537525af870b1995a5aa"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "fb083704e02c7b00b740039da5a93c505ac4448b3e568fc04756902c28d68202"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d272601e901b030d5912749e56d9c27bc08ea42a47833658f5d0ceef3b3acf16"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dd707346be0be24e7f91aeca1bb9520a17d9632758e427dde0b66c4638944be2"
+    sha256 cellar: :any_skip_relocation, catalina:      "8c6e6459743f08e90e73f9b826505807b8d0d3f2ad2d818f580bcb2addf7c115"
+    sha256 cellar: :any_skip_relocation, mojave:        "7abf9bc7b046f07d3f2c53599c2f41cac7196945cda79f10295db4e61aa50397"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddca8855e36be24dbb661a5b306932f23fa3f29b6bbd831926d0548e025ba3c4"
   end
 
   depends_on "go" => :build

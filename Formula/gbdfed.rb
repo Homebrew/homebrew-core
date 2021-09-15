@@ -5,13 +5,19 @@ class Gbdfed < Formula
   sha256 "8042575d23a55a3c38192e67fcb5eafd8f7aa8d723012c374acb2e0a36022943"
   revision 3
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?gbdfed[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "636d528318fa5e5fc90bdc61665ca3e3dc220a5c034bb478bedda854017de83d"
-    sha256 cellar: :any, big_sur:       "0c060efda560aa9ab6addc8087cad336ca01f420b280f0e41b2460f4d74b06aa"
-    sha256 cellar: :any, catalina:      "ac131ff87dd812928b3f8136d5ce364370ab0a8ded3ffdf2fbf2a38e58998494"
-    sha256 cellar: :any, mojave:        "00b2376a043f6e90d777bc9e5805d84da21c046f446c4dcd649b482a01cbc6cf"
-    sha256 cellar: :any, high_sierra:   "945fc3ffa7573224e7a387e6dec353ca7f3b46829f3e3728774a97c26fb0923a"
-    sha256 cellar: :any, sierra:        "e32f2b72805a1dbe768f85e33ea10c0b603789f9101b21e0fbc750ab077a12e5"
+    sha256 cellar: :any,                 arm64_big_sur: "636d528318fa5e5fc90bdc61665ca3e3dc220a5c034bb478bedda854017de83d"
+    sha256 cellar: :any,                 big_sur:       "0c060efda560aa9ab6addc8087cad336ca01f420b280f0e41b2460f4d74b06aa"
+    sha256 cellar: :any,                 catalina:      "ac131ff87dd812928b3f8136d5ce364370ab0a8ded3ffdf2fbf2a38e58998494"
+    sha256 cellar: :any,                 mojave:        "00b2376a043f6e90d777bc9e5805d84da21c046f446c4dcd649b482a01cbc6cf"
+    sha256 cellar: :any,                 high_sierra:   "945fc3ffa7573224e7a387e6dec353ca7f3b46829f3e3728774a97c26fb0923a"
+    sha256 cellar: :any,                 sierra:        "e32f2b72805a1dbe768f85e33ea10c0b603789f9101b21e0fbc750ab077a12e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "169641bfd1cbcfdc5303a6eb45e061547095d9fb194f4400ca51cf14b9d70d1b"
   end
 
   depends_on "pkg-config" => :build

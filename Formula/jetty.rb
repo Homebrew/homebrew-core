@@ -1,9 +1,9 @@
 class Jetty < Formula
   desc "Java servlet engine and webserver"
   homepage "https://www.eclipse.org/jetty/"
-  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/9.4.41.v20210516/jetty-distribution-9.4.41.v20210516.tar.gz"
-  version "9.4.41.v20210516"
-  sha256 "845402d548aa65b6efc8c7f5142ddeaaf5606b741d3d68747dba2d6ad9151c12"
+  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/9.4.43.v20210629/jetty-distribution-9.4.43.v20210629.tar.gz"
+  version "9.4.43.v20210629"
+  sha256 "01fae654b09932e446019aa859e7af6e05e27dbade12b54cd7bae3249fc723d9"
   license any_of: ["Apache-2.0", "EPL-1.0"]
 
   livecheck do
@@ -11,7 +11,12 @@ class Jetty < Formula
     regex(/href=.*?jetty-distribution[._-]v?(\d+(?:\.\d+)+(?:\.v\d+)?)\.t/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "02ca9582b60cb87f4a41e9498d10b5e8f2d0ad62cf801b2312ffead4ec6f58eb"
+    sha256 cellar: :any, big_sur:       "48ad1144981f0fe4371ef1324e00e75dd0eabc5b595f38655d2a47de1cee4720"
+    sha256 cellar: :any, catalina:      "48ad1144981f0fe4371ef1324e00e75dd0eabc5b595f38655d2a47de1cee4720"
+    sha256 cellar: :any, mojave:        "48ad1144981f0fe4371ef1324e00e75dd0eabc5b595f38655d2a47de1cee4720"
+  end
 
   depends_on "openjdk"
 

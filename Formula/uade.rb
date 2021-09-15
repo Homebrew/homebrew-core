@@ -19,6 +19,7 @@ class Uade < Formula
     sha256 sierra:        "432a5f95b33416c9bfc29ef4d81ea6d4fab2a568c71c00a9bda034985ed1276b"
     sha256 el_capitan:    "59ddaa5a6d841f436a5d297330ff62b613e446785ad17666c8fb4157d3a7c8db"
     sha256 yosemite:      "454945f35580b0b2bc8f0c7ddeecfae091634f54ee3a367eb14acce7251e5779"
+    sha256 x86_64_linux:  "4e9995eda253cbfa248aa486080c04cca295f348e1682d2c10b7ec45a967d46f"
   end
 
   depends_on "pkg-config" => :build

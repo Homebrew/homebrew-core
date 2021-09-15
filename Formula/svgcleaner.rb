@@ -4,7 +4,7 @@ class Svgcleaner < Formula
   url "https://github.com/RazrFalcon/svgcleaner/archive/v0.9.5.tar.gz"
   sha256 "dcf8dbc8939699e2e82141cb86688b6cd09da8cae5e18232ef14085c2366290c"
   license "GPL-2.0"
-  head "https://github.com/RazrFalcon/svgcleaner.git"
+  head "https://github.com/RazrFalcon/svgcleaner.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -13,6 +13,7 @@ class Svgcleaner < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "43533727baf2ed09cdce9fe64357c1bc1f70fed57d70f37cfd824b664ab1266f"
     sha256 cellar: :any_skip_relocation, mojave:        "bf18c353316b7a46ed2cecad188a638e359ce77acdcf501f578e5f96149ed667"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7e6df86bb8f994b157ff6de9bb7f43605b813a6a476f6f2d3af4d3483c1b6483"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "faae5c691c1bbb241aa001e912458be50a1aaf6eea241591b6a34148d3d93228"
   end
 
   depends_on "rust" => :build

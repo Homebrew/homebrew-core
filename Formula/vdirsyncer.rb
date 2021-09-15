@@ -7,7 +7,7 @@ class Vdirsyncer < Formula
       tag:      "0.16.8",
       revision: "b5dd0929d009b7b07f72903dd6fb82815f45bdd8"
   revision 2
-  head "https://github.com/pimutils/vdirsyncer.git"
+  head "https://github.com/pimutils/vdirsyncer.git", branch: "master"
 
   livecheck do
     url :stable
@@ -20,6 +20,7 @@ class Vdirsyncer < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "d87dd5b19a013e2099aa915c02caea1bf5ba5bce1ed9fdb1c599900da98f1574"
     sha256 cellar: :any_skip_relocation, mojave:        "999dcfe149cd6cb2a072006159ce83e680e2da30431d28b380a0dd3549b59d98"
     sha256 cellar: :any_skip_relocation, high_sierra:   "b48980fb7b1f225d07e847ab50b2a6c6e6bdca56386f902982163d7cfb11f6e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "963693a854e1cc7f1b67cbb1cad6fdb7054b621e37fc2130ba7cba938fd643f7"
   end
 
   depends_on "python@3.9"

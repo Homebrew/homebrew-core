@@ -23,6 +23,7 @@ class Mpssh < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "90d758a0f7accf0b63755c3de8100a880b500e732fc8924123ab2a1c7ce688f8"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e5ac485861dfca0be2bb1ca2eb5826b5ca5977c0d2abb12dc58de011c18046f1"
     sha256 cellar: :any_skip_relocation, yosemite:      "2b91c9a9dbae19e99b8b8735bb3292cc056dcf8e06472c0b2d354f64896a4186"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5eabc527317cd3a5091e6efabe168b926693d6eb64644fec082a251a99725669"
   end
 
   def install

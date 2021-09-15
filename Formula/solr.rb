@@ -1,12 +1,15 @@
 class Solr < Formula
   desc "Enterprise search platform from the Apache Lucene project"
-  homepage "https://lucene.apache.org/solr/"
-  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/8.8.2/solr-8.8.2.tgz"
-  mirror "https://archive.apache.org/dist/lucene/solr/8.8.2/solr-8.8.2.tgz"
-  sha256 "16b43f25192ab0c3165e86cf6e6f1fda5e5895c15208b7fb7ad0db95bfdecf7e"
+  homepage "https://solr.apache.org/"
+  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/8.9.0/solr-8.9.0.tgz"
+  mirror "https://archive.apache.org/dist/lucene/solr/8.9.0/solr-8.9.0.tgz"
+  sha256 "c9c970e0603318eac1ca5bae24e9a85e917d012266159237e572e636c5a3da62"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8ff79e58d0a6a7c2fa574aa7fd9c08c491ed6f36c325613d2c276a7722abd296"
+  end
 
   depends_on "openjdk"
 
@@ -23,6 +26,8 @@ class Solr < Formula
     env["SOLR_PID_DIR"] = "${SOLR_PID_DIR:-#{var/"run/solr"}}"
     bin.env_script_all_files libexec, env
     (libexec/"bin").rmtree
+
+    inreplace libexec/"solr", "/usr/local/share/solr", pkgshare
   end
 
   def post_install
@@ -30,33 +35,9 @@ class Solr < Formula
     (var/"log/solr").mkpath
   end
 
-  plist_options manual: "solr start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/solr</string>
-            <string>start</string>
-            <string>-f</string>
-            <string>-s</string>
-            <string>#{HOMEBREW_PREFIX}/var/lib/solr</string>
-          </array>
-          <key>ServiceDescription</key>
-          <string>#{name}</string>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-          <key>RunAtLoad</key>
-          <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"solr", "start", "-f", "-s", HOMEBREW_PREFIX/"var/lib/solr"]
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

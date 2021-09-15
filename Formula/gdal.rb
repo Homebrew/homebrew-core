@@ -1,8 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/3.3.0/gdal-3.3.0.tar.xz"
-  sha256 "190c8f4b56afc767f43836b2a5cd53cc52ee7fdc25eb78c6079c5a244e28efa7"
+  url "https://download.osgeo.org/gdal/3.3.2/gdal-3.3.2.tar.xz"
+  sha256 "630e34141cf398c3078d7d8f08bb44e804c65bbf09807b3610dcbfbc37115cc3"
   license "MIT"
   revision 1
 
@@ -12,10 +12,11 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "a4ff6604a70966105427573703e555f45bbee90fafee4b31cd4b474378e5acca"
-    sha256 big_sur:       "dcade6589d3ec0a13543ae9d58cdd6f4e28cf9b7fb90371fae21b8127c8d6d2b"
-    sha256 catalina:      "1e52bee36f36cec0379aea8fc7fa27a5b99eadf026e027708cd263a1417575e6"
-    sha256 mojave:        "ced85858cbf314c4e8c0e67620447caf5d188861205863fc26a94b6d83c3fa3f"
+    sha256 arm64_big_sur: "72f7220df76a90c04bd1e826ad0d6463ab7b61cb1128a3c08d32712136fdb5c6"
+    sha256 big_sur:       "6f8659ce0da1c3c8ac3994be67466c5f139891b83f4982d59330c18342b3ddfc"
+    sha256 catalina:      "48fd66ffea1d97b787383277d49cf311b0313f19513db548443222ca4b95d57a"
+    sha256 mojave:        "c41d900d63b27f77de72d456130fa599f2ea6ec34ebb8a7c2317d5bb151051e8"
+    sha256 x86_64_linux:  "26ec8a3d6c2dfb8cc2ec2f782802b88fa3699c001c2a465a8c32a3d6eea3e147"
   end
 
   head do
@@ -24,7 +25,6 @@ class Gdal < Formula
   end
 
   depends_on "pkg-config" => :build
-
   depends_on "cfitsio"
   depends_on "epsilon"
   depends_on "expat"
@@ -45,7 +45,7 @@ class Gdal < Formula
   depends_on "numpy"
   depends_on "openjpeg"
   depends_on "pcre"
-  depends_on "poppler"
+  depends_on "poppler-qt5"
   depends_on "proj@7"
   depends_on "python@3.9"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
@@ -58,10 +58,14 @@ class Gdal < Formula
   uses_from_macos "curl"
 
   on_linux do
-    depends_on "bash-completion"
+    depends_on "util-linux"
+    depends_on "gcc"
   end
 
+  conflicts_with "avce00", because: "both install a cpl_conv.h header"
   conflicts_with "cpl", because: "both install cpl_error.h"
+
+  fails_with gcc: "5"
 
   def install
     args = [
@@ -71,7 +75,6 @@ class Gdal < Formula
       "--disable-debug",
       "--with-libtool",
       "--with-local=#{prefix}",
-      "--with-opencl",
       "--with-threads",
 
       # GDAL native backends
@@ -141,11 +144,16 @@ class Gdal < Formula
       "--without-sosi",
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--with-curl=/usr/bin/curl-config"
-    end
-    on_linux do
+      args << "--with-opencl"
+    else
       args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
+
+      # The python build needs libgdal.so, which is located in .libs
+      ENV.append "LDFLAGS", "-L#{buildpath}/.libs"
+      # The python build needs gnm headers, which are located in the gnm folder
+      ENV.append "CFLAGS", "-I#{buildpath}/gnm"
     end
 
     system "./configure", *args

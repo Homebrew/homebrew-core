@@ -3,7 +3,7 @@ class Mp3info < Formula
   homepage "https://www.ibiblio.org/mp3info/"
   url "https://www.ibiblio.org/pub/linux/apps/sound/mp3-utils/mp3info/mp3info-0.8.5a.tgz"
   sha256 "0438ac68e9f04947fb14ca5573d27c62454cb9db3a93b7f1d2c226cd3e0b4e10"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.ibiblio.org/pub/linux/apps/sound/mp3-utils/mp3info/"
@@ -19,7 +19,10 @@ class Mp3info < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "9b966553a2ed76afb888577cad6ae8f359cde30e445bb0742a87ff2c5d5dfa85"
     sha256 cellar: :any_skip_relocation, sierra:        "dd9e2ab142307a9587ca28f8ca574cf3115f380f2692f1eb1e38e24d4e5a1008"
     sha256 cellar: :any_skip_relocation, el_capitan:    "30c85d8b2afd6e6ad03e473de3bd83ef9c6c607b979570798cfc778ad887b902"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cfece9c5d6614f0c1139161f6ca6ced317514cc45a7b13d06ecf0316b53656f"
   end
+
+  uses_from_macos "ncurses"
 
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/bedf6f8/mp3info/patch-mp3tech.c.diff"

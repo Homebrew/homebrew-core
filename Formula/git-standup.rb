@@ -12,6 +12,7 @@ class GitStandup < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "0a75c65615d92237a59492ac00867d12ab4a23865d85d5cb464d9deb1f6d8ee8"
     sha256 cellar: :any_skip_relocation, mojave:        "0a75c65615d92237a59492ac00867d12ab4a23865d85d5cb464d9deb1f6d8ee8"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0a75c65615d92237a59492ac00867d12ab4a23865d85d5cb464d9deb1f6d8ee8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae8506033ad25380d08f3159fc5a3f52a0dc16f124683b50bb1f061703050968"
   end
 
   def install

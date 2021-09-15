@@ -4,24 +4,32 @@ class Mytop < Formula
   url "https://web.archive.org/web/20150602163826/www.mysqlfanboy.com/mytop-3/mytop-1.9.1.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
-  revision 8
+  license "GPL-2.0-or-later"
+  revision 9
 
   livecheck do
     skip "Upstream is gone and the formula uses archive.org URLs"
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1b5b8d90532a1d9712a2f0212374975af97603ccdcf7e452bc13178aedfce966"
-    sha256 cellar: :any, big_sur:       "ea2f5229c929cb23466f75964d1bf294130381b27efd55cf2ce91cb248c43732"
-    sha256 cellar: :any, catalina:      "69930f7d5c68b0d6ce75c89820732f269d3b3c6651358875b0db58ae1ead38f0"
-    sha256 cellar: :any, mojave:        "ac13ecf239ff9d4bb1d39ad584c46ac9a5c95f3b96b3991bf9108280b30c0a19"
-    sha256 cellar: :any, high_sierra:   "2862de7630947648898e1ef348a8357fdd25622310c9af03450c40ea33fc925c"
+    sha256 cellar: :any,                 arm64_big_sur: "0443f8710ab6f1be3e60afc59c15546091982df6f76e31855ff16a1bd86fcb4b"
+    sha256 cellar: :any,                 big_sur:       "7bbece0e0eeb32f4c8217c232d190990290625e16fa9e542fd6c68dd8aad1727"
+    sha256 cellar: :any,                 catalina:      "8ec423770dabfb5da68e626af379f73290cd7e04c118db9608d2ce5decf0e489"
+    sha256 cellar: :any,                 mojave:        "a7512239e490916ef7753a380e638e383b2dd0e0967b6b560c48adf6597b491b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01929f92371862962f1be2d9e8cf99dc19c80cfedc6472deffa06a9e2b7537b7"
   end
 
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
   uses_from_macos "perl"
+
+  on_linux do
+    resource "Term::ReadKey" do
+      url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
+      sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
+    end
+  end
 
   conflicts_with "mariadb", because: "both install `mytop` binaries"
 
@@ -35,12 +43,9 @@ class Mytop < Formula
     sha256 "d6d38a416da79de874c5f1825221f22e972ad500b6527d190cc6e9ebc45194b4"
   end
 
-  # In Mojave, this is not part of the system Perl anymore
-  if MacOS.version >= :mojave
-    resource "DBI" do
-      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
-      sha256 "5509e532cdd0e3d91eda550578deaac29e2f008a12b64576e8c261bb92e8c2c1"
-    end
+  resource "DBI" do
+    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
+    sha256 "5509e532cdd0e3d91eda550578deaac29e2f008a12b64576e8c261bb92e8c2c1"
   end
 
   resource "DBD::mysql" do
@@ -67,8 +72,14 @@ class Mytop < Formula
   end
 
   def install
+    res = resources
+    if OS.mac? && (MacOS.version < :mojave)
+      # Before Mojave, DBI was part of the system Perl
+      res -= [resource("DBI")]
+    end
+
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-    resources.each do |r|
+    res.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make", "install"
@@ -76,9 +87,9 @@ class Mytop < Formula
     end
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
-    system "make", "test", "install"
+    system "make", "install"
     share.install prefix/"man"
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
   end
 
   test do

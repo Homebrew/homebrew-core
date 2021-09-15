@@ -6,7 +6,9 @@ class AwsCfnTools < Formula
   sha256 "382e3e951833fd77235fae41c1742224d68bdf165e1ace4200ee88c01ac29a90"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "62fe9878c486068d70c77637c2b2ce55d3f4fbb07b6aba7c65ecd8f1aaaee7c4"
+  end
 
   depends_on "ec2-api-tools"
   depends_on "openjdk"

@@ -1,10 +1,9 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.2.2/fish-3.2.2.tar.xz"
-  sha256 "5944da1a8893d11b0828a4fd9136ee174549daffb3d0adfdd8917856fe6b4009"
+  url "https://github.com/fish-shell/fish-shell/releases/download/3.3.1/fish-3.3.1.tar.xz"
+  sha256 "b5b4ee1a5269762cbbe993a4bd6507e675e4100ce9bbe84214a5eeb2b19fae89"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,14 +11,15 @@ class Fish < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f43a181738a3c32a204606ca1795a80e5c1cf60c0944a2fc7ac7cfda5fd1696e"
-    sha256 cellar: :any, big_sur:       "81df0f00e919fbdd42ab36fbb13bc7c5eca27b6c3c085a525db6e3f18d03775d"
-    sha256 cellar: :any, catalina:      "2d6e8210d1ebfc5e06c0e73294df22adc6607bd5980d26e59ddeba9d3fca8d6b"
-    sha256 cellar: :any, mojave:        "862fac70a5d143b7ac017f9d6b13f899bd6944f41fde25e8e31de4c70393b387"
+    sha256 cellar: :any,                 arm64_big_sur: "b38561f401a18c3347b34cfee074d812728bc027fc351eaab95a872564f102d9"
+    sha256 cellar: :any,                 big_sur:       "eb6c0068f4a2fce0992048d31f1204ebaad31237a17e2ada18843a54afea162c"
+    sha256 cellar: :any,                 catalina:      "50b1d13f3cf765f6b7933b317e48c76bcd42ce65fb5cbd5eeb1279229d6937a7"
+    sha256 cellar: :any,                 mojave:        "25119dc2f23d89aad5666dcd6ebdf58a1c250c5a86942c187a65b72ab19e287c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13846c25ad06b9327782e430ed9e7e1d7faec4712704a28001b65ba5073df84c"
   end
 
   head do
-    url "https://github.com/fish-shell/fish-shell.git", shallow: false
+    url "https://github.com/fish-shell/fish-shell.git"
 
     depends_on "sphinx-doc" => :build
   end

@@ -6,7 +6,9 @@ class Galen < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "06511320c97eebfab1746d201f7f748b8e2d33d8d6ea4da597b1510b004a40e2"
+  end
 
   depends_on "openjdk"
 

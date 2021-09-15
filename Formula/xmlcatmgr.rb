@@ -11,6 +11,7 @@ class Xmlcatmgr < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ae788970290574145fa3ca20e389469f1a8582c8b604a50e3e506b7ffcb9faa4"
     sha256 cellar: :any_skip_relocation, mojave:        "eb8b0acfdaed325cce3e6b7befb53a675f9f7f6dc8aa5d058b4ebecea2d50e53"
     sha256 cellar: :any_skip_relocation, high_sierra:   "bbb201365fe9f89dc036d97e7bcb05d5b299e32f2ad427266f1d73934fd03cb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52185546f22943c4a693619db91532acbac6e555e8d747156515af72542c0c43"
   end
 
   def install

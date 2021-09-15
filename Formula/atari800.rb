@@ -12,11 +12,12 @@ class Atari800 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "48470ef79c6f3917d2af5cd4fbf76a6dd2b3ff8f88304765c10d81fa2ef5d647"
-    sha256 cellar: :any, big_sur:       "b2ea1619d6fba699f3936cfb82c28b6d73aafc9d41ad39ee51e9bd49a5840ab2"
-    sha256 cellar: :any, catalina:      "5bc2d96418e21a76809abfa2513f630cb207848b0894f27cda34b2f55bace81c"
-    sha256 cellar: :any, mojave:        "f5508c8a0021a0fcbd1e35d7a4313d8c9ba52ab937d0fde59ccc5f81e3c49ac0"
-    sha256 cellar: :any, high_sierra:   "497ce17afc99e76180b94b76b08c1aca973eab554ee3ccecfd14818c71e97035"
+    sha256 cellar: :any,                 arm64_big_sur: "48470ef79c6f3917d2af5cd4fbf76a6dd2b3ff8f88304765c10d81fa2ef5d647"
+    sha256 cellar: :any,                 big_sur:       "b2ea1619d6fba699f3936cfb82c28b6d73aafc9d41ad39ee51e9bd49a5840ab2"
+    sha256 cellar: :any,                 catalina:      "5bc2d96418e21a76809abfa2513f630cb207848b0894f27cda34b2f55bace81c"
+    sha256 cellar: :any,                 mojave:        "f5508c8a0021a0fcbd1e35d7a4313d8c9ba52ab937d0fde59ccc5f81e3c49ac0"
+    sha256 cellar: :any,                 high_sierra:   "497ce17afc99e76180b94b76b08c1aca973eab554ee3ccecfd14818c71e97035"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86b93a07278133bc50a98dc5ca69f96a9f50951b9663905697d26adbcac8e879"
   end
 
   depends_on "libpng"

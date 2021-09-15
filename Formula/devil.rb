@@ -33,10 +33,11 @@ class Devil < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5091d86828c5b1c88ba853fdcf0fa90a8ff6b3ba0d682330ecb3740b91453d37"
-    sha256 cellar: :any, big_sur:       "620f8f3092f690123ed2365fec5c39a1258e0705e8b5df5de5120102e6fca007"
-    sha256 cellar: :any, catalina:      "4ab10b6765d5417246c6a7cf2a6fef05969c7216fe353c0ee5a9b562afe03d3e"
-    sha256 cellar: :any, mojave:        "3031f881197694ff89cbe658af6e15a4abe11d995cd280eb38e1c5b1ba622b82"
+    sha256 cellar: :any,                 arm64_big_sur: "5091d86828c5b1c88ba853fdcf0fa90a8ff6b3ba0d682330ecb3740b91453d37"
+    sha256 cellar: :any,                 big_sur:       "620f8f3092f690123ed2365fec5c39a1258e0705e8b5df5de5120102e6fca007"
+    sha256 cellar: :any,                 catalina:      "4ab10b6765d5417246c6a7cf2a6fef05969c7216fe353c0ee5a9b562afe03d3e"
+    sha256 cellar: :any,                 mojave:        "3031f881197694ff89cbe658af6e15a4abe11d995cd280eb38e1c5b1ba622b82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd9ed2926be7a68693079bed2d54d506619b5d84b18f22281a0fb503c5dab7d5"
   end
 
   depends_on "cmake" => :build

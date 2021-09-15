@@ -1,10 +1,10 @@
 class Libcello < Formula
   desc "Higher-level programming in C"
-  homepage "http://libcello.org/"
-  url "http://libcello.org/static/libCello-2.1.0.tar.gz"
+  homepage "https://libcello.org/"
+  url "https://libcello.org/static/libCello-2.1.0.tar.gz"
   sha256 "49acf6525ac6808c49f2125ecdc101626801cffe87da16736afb80684b172b28"
   license "BSD-2-Clause"
-  head "https://github.com/orangeduck/libCello.git"
+  head "https://github.com/orangeduck/libCello.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -19,6 +19,7 @@ class Libcello < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "1c7719b74c5507dfd84ec93c043c11a4113e13a66f06e9d6f32349ec83042ad2"
     sha256 cellar: :any_skip_relocation, sierra:        "561319859455b756f53013090f91d6b06b1093c00d59593519ec09210f6bf830"
     sha256 cellar: :any_skip_relocation, el_capitan:    "05384667bb4d98a603406b3bc35962651af06d44eb55f2080c80f8dd979a9d80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d935c25174d4315105cccb0a72dd60f184881d7929f9ca51aaaea2dd7262f28b"
   end
 
   def install
@@ -40,7 +41,7 @@ class Libcello < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lCello", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lCello", "-lpthread", "-o", "test"
     system "./test"
   end
 end

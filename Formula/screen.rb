@@ -1,7 +1,7 @@
 class Screen < Formula
   desc "Terminal multiplexer with VT100/ANSI terminal emulation"
   homepage "https://www.gnu.org/software/screen"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   stable do
     url "https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz"
@@ -22,30 +22,36 @@ class Screen < Formula
     sha256 catalina:      "f3787a0e1c889106ab14d89c4f1bed001716ce1eb79e44e56b20e71b7448e172"
     sha256 mojave:        "30dfe7b1bc6c74d64be57224852e50ebd5d4c6d4939872eaceac5f06d9935208"
     sha256 high_sierra:   "1e63b4fd4ae798111980a7d9ed47c3fcb867cbad2c4253164b55722efc65d53e"
+    sha256 x86_64_linux:  "a9c0638b44b8fc6852effac19a000d7f75f5901631e5336891e805b969e34145"
   end
 
   head do
     url "https://git.savannah.gnu.org/git/screen.git"
-  end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+    depends_on "autoconf@2.69" => :build
+    depends_on "automake" => :build
+  end
 
   uses_from_macos "ncurses"
 
   def install
-    cd "src" if build.head?
+    if build.head?
+      cd "src"
+      system "./autogen.sh"
+    end
 
     # With parallel build, it fails
     # because of trying to compile files which depend osdef.h
     # before osdef.sh script generates it.
     ENV.deparallelize
 
+    # Fix error: dereferencing pointer to incomplete type 'struct utmp'
+    ENV.append_to_cflags "-include utmp.h"
+
     # Fix for Xcode 12 build errors.
     # https://savannah.gnu.org/bugs/index.php?59465
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
-    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--infodir=#{info}",

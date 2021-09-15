@@ -11,11 +11,12 @@ class Uftp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "b38ccf77d80d8b662c86abd4c11b3c94e6a1a166b011392f16261289ebb1d923"
-    sha256 cellar: :any, big_sur:       "8bb1c997a162785aae612d640fb4e9a69c22af980b38d82484b899041c024f1b"
-    sha256 cellar: :any, catalina:      "9a5f0d2a7fd5887a164733d78a5d57ded16f398284d58b258ca7221f3e5287e6"
-    sha256 cellar: :any, mojave:        "7193614091b37c59942a9d0cdf0cca676083b83062cc3db48c15a097734cc1d3"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_big_sur: "114882e78afa5b2cce141e3e19b01022a4eeb3c4e1cbae7934d36ce99df7f1ff"
+    sha256 cellar: :any,                 big_sur:       "6ea6e3b9e53d1040ebc6f1a25b58247ebe5972e1479002100e6b5d167b2c5e54"
+    sha256 cellar: :any,                 catalina:      "ef74aa1112e9f5b325bb1403de71fa604532806dadfd97368e778be187ddee13"
+    sha256 cellar: :any,                 mojave:        "17253bb38570db26a53eab4cc75d809b32bff3db8ecdf48d9dfb03b453866ac0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d550e280c49503b83b5bc2f30092dedc67e8b0ff0937dcbc487e475c0f1ee02"
   end
 
   depends_on "openssl@1.1"
@@ -28,30 +29,10 @@ class Uftp < Formula
     (prefix/"usr").unlink
   end
 
-  plist_options manual: "uftpd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/uftpd</string>
-          <string>-d</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"uftpd", "-d"]
+    keep_alive true
+    working_dir var
   end
 
   test do

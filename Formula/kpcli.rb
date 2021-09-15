@@ -8,7 +8,7 @@ class Kpcli < Formula
   url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.6.pl"
   sha256 "01f23882d458dfffc176fe5f268ced13c667de22b7fbf60d488eca87f3362deb"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -16,15 +16,35 @@ class Kpcli < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ada893ae300554a13c7b56fce7bc91716d45294078a0f2006175a10e581eddc0"
-    sha256 cellar: :any, big_sur:       "0918f51306694d5a21d117030f32ce49e08a4da4b47d0106d8542b826db03ce6"
-    sha256 cellar: :any, catalina:      "8b88064bbd450ba7b3a7e902a85ac926d2d57b38b74b8a79f4cb72cc9a43aee9"
-    sha256 cellar: :any, mojave:        "6cbffa6128e72f200e5216a6df39b07586048d165e69e45a8cb4821928b98a5d"
+    sha256 cellar: :any,                 arm64_big_sur: "793a7e8ce3bf2a0beae2b0a51b14e3915df7f8ba05f20b4bf26c5ed3dba11e98"
+    sha256 cellar: :any,                 big_sur:       "8431834a984e31a2bb567913b8bd82ec97e616879f058c10e1b0af77fc9528e8"
+    sha256 cellar: :any,                 catalina:      "ef0dcac2509419af4f99407cd40d7072a44d53472cb692afa49bae06bb91fb71"
+    sha256 cellar: :any,                 mojave:        "7635208158e7c7a7dd1e7a4e28d51d2c836d6e2bd9f6c329c265cebdf4b69939"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a340307dd0234be2d5db82bfb5a949a5547fd2a83b239766c535aef2237e195"
   end
 
   depends_on "readline"
 
   uses_from_macos "perl"
+
+  on_macos do
+    resource "Mac::Pasteboard" do
+      url "https://cpan.metacpan.org/authors/id/W/WY/WYANT/Mac-Pasteboard-0.011.tar.gz"
+      sha256 "bd8c4510b1e805c43e4b55155c0beaf002b649fe30b6a7841ff05e7399ba02a9"
+    end
+  end
+
+  on_linux do
+    resource "Clone" do
+      url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.45.tar.gz"
+      sha256 "cbb6ee348afa95432e4878893b46752549e70dc68fe6d9e430d1d2e99079a9e6"
+    end
+
+    resource "TermReadKey" do
+      url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
+      sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
+    end
+  end
 
   resource "Module::Build" do
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
@@ -66,11 +86,6 @@ class Kpcli < Formula
     sha256 "886ae43dc8538f9bfc4e07fdbcf09b7fbd6ee59c31f364618c859de14953c58a"
   end
 
-  resource "Mac::Pasteboard" do
-    url "https://cpan.metacpan.org/authors/id/W/WY/WYANT/Mac-Pasteboard-0.011.tar.gz"
-    sha256 "bd8c4510b1e805c43e4b55155c0beaf002b649fe30b6a7841ff05e7399ba02a9"
-  end
-
   resource "Capture::Tiny" do
     url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz"
     sha256 "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
@@ -80,17 +95,8 @@ class Kpcli < Formula
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
 
-    resources = [
-      "Module::Build",
-      "File::KeePass",
-      "Crypt::Rijndael",
-      "Sort::Naturally",
-      "Term::ShellUI",
-      "Data::Password",
-      "Mac::Pasteboard",
-      "Capture::Tiny",
-    ]
-    resources.each do |r|
+    res = resources.map(&:name).to_set - ["Clipboard", "Term::Readline::Gnu"]
+    res.each do |r|
       resource(r).stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make", "install"

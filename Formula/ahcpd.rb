@@ -5,22 +5,27 @@ class Ahcpd < Formula
   sha256 "a4622e817d2b2a9b878653f085585bd57f3838cc546cca6028d3b73ffcac0d52"
   license "MIT"
 
+  livecheck do
+    url "https://www.irif.fr/~jch/software/files/"
+    regex(/href=.*?ahcpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "49ef92eb18038f60e6419a5dfecd11be62f3b69cb4778c473050e5443e72ac06"
     sha256 cellar: :any_skip_relocation, big_sur:       "3f3e332726a04e2cb6a639b18d0092a80cf8d83a9363e75c6579d73ba8ac4d16"
     sha256 cellar: :any_skip_relocation, catalina:      "9320f1465296a364f0d55ffca9342f087b781f0853ad2213b278189bfc062202"
     sha256 cellar: :any_skip_relocation, mojave:        "22a512b076e972064d6b0af3eb696a5d2ee62c06aadd2aea01a0bec886d28379"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2007cca57256875a13c8dc554e48d2bbfc9b061101bbd2f24f07910b75f0aa00"
   end
 
   patch :DATA
 
   def install
-    on_macos do
+    if OS.mac?
       # LDLIBS='' fixes: ld: library not found for -lrt
       system "make", "LDLIBS=''"
-    end
-    on_linux do
+    else
       system "make"
     end
     system "make", "install", "PREFIX=", "TARGET=#{prefix}"

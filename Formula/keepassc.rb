@@ -1,6 +1,6 @@
 class Keepassc < Formula
   desc "Curses-based password manager for KeePass v.1.x and KeePassX"
-  homepage "https://raymontag.github.com/keepassc/"
+  homepage "https://github.com/raymontag/keepassc"
   url "https://files.pythonhosted.org/packages/c8/87/a7d40d4a884039e9c967fb2289aa2aefe7165110a425c4fb74ea758e9074/keepassc-1.8.2.tar.gz"
   sha256 "2e1fc6ccd5325c6f745f2d0a3bb2be26851b90d2095402dd1481a5c197a7b24e"
   license "ISC"
@@ -11,6 +11,7 @@ class Keepassc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "8ba0332d53b90b3922beae741ea4ef144610c633a5852050c60d7876a158c1c3"
     sha256 cellar: :any_skip_relocation, catalina:      "71632bb4ea2f91ca573ad5b52ddb233725b2c99b55866d743dda638e69b0c712"
     sha256 cellar: :any_skip_relocation, mojave:        "b2771b8b9ff6592959e6cde59e6f3f7fd30ad3380f8b2e84911179f1fb0bc3d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f796e436efb238dc9f1396fa0160fe32befdc978d3a904b15cf8a31ef42fd784"
   end
 
   depends_on "python@3.9"
@@ -27,7 +28,7 @@ class Keepassc < Formula
 
   def install
     pyver = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python#{pyver}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
     install_args = %W[setup.py install --prefix=#{libexec}]
 
     resource("pycryptodomex").stage do
@@ -43,12 +44,12 @@ class Keepassc < Formula
     man1.install Dir["*.1"]
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec+"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"]
   end
 
   test do
     # Fetching help is the only non-interactive action we can perform, and since
     # interactive actions are un-scriptable, there nothing more we can do.
-    system "#{bin}/keepassc", "--help"
+    system bin/"keepassc", "--help"
   end
 end

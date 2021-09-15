@@ -12,6 +12,7 @@ class GoJsonnet < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e79f3ad29f00746532ded81842fae95a980fba36980e8d6299aa7195eb0de0da"
     sha256 cellar: :any_skip_relocation, catalina:      "9e5ee375c84608de8566d017c9e8a0f9b3806c44156b56650918b78ffc0db9f9"
     sha256 cellar: :any_skip_relocation, mojave:        "83baf9f7af774dcdc0fb3484eef18c74d6ee20b2ca1e2c1b37f470c76d8d5d21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3318e83a2961f88e5859e1a6700cd0ec09b2c93744460c968bfb1582ef204c2f"
   end
 
   depends_on "go" => :build

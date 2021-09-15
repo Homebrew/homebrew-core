@@ -17,6 +17,7 @@ class Terrahub < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "2701a88dd0f650440fc3dfd89f5f3a7fc92be873af5d52f9ead161565f890718"
     sha256 cellar: :any_skip_relocation, catalina:      "cc78150685716c025d3ce250560a740adb9c3a31fa18ba77ef9a4e941c0f8ab1"
     sha256 cellar: :any_skip_relocation, mojave:        "1a309ff327dde46de69818a4f4daf2d2a4589e3c0a353830e4b77e862898c85d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cad3a9b36145aba080dd2f2ea2fee44464f98707dba6c254ea773298abcf47f"
   end
 
   depends_on "node"

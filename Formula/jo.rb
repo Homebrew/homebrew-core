@@ -11,6 +11,7 @@ class Jo < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "15bee62d31331c60c1768949ca11916d242fbe96aafcdc7a66a8359c0f4a9c3c"
     sha256 cellar: :any_skip_relocation, mojave:        "6741c18bb9a9519e325ac4b30989cdd0c735107ee34772097d3d8fde103880eb"
     sha256 cellar: :any_skip_relocation, high_sierra:   "bd19a24ded348995844cf428f74729dc91b3c23a9f144ca1b117108c3d3b5401"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cba7692fdbb89e05db0125becd99b851bb1009d1da5fa9f19e6fa42187c02c16"
   end
 
   head do

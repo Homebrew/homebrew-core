@@ -7,12 +7,13 @@ class Netcat6 < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "233f4e4769def17cb05da043221a3bb3460b984b570cd4ebbcce7342e7ab6c05"
-    sha256 big_sur:       "746665ead519a4bbeb2984d7d83d8ea8425441f922bb199e0328da562e870144"
-    sha256 catalina:      "fbba0de060d7d38efc84e3a098de48d127467fd8e6d90edf2ed96bc20b5e38df"
-    sha256 mojave:        "aba098730e397f84b6ed7534b41bd7f65f5f6182189d890ac93216faff2fe9b7"
-    sha256 high_sierra:   "b3fe44c42b33bc668cdaa0f05eb10a5f9b67891b1947b98abe9cad6464182835"
-    sha256 sierra:        "bdb853a9a63a03555682eae734d9d9a7725591dfd16128cf59f208968ef16ef2"
+    sha256                               arm64_big_sur: "233f4e4769def17cb05da043221a3bb3460b984b570cd4ebbcce7342e7ab6c05"
+    sha256                               big_sur:       "746665ead519a4bbeb2984d7d83d8ea8425441f922bb199e0328da562e870144"
+    sha256                               catalina:      "fbba0de060d7d38efc84e3a098de48d127467fd8e6d90edf2ed96bc20b5e38df"
+    sha256                               mojave:        "aba098730e397f84b6ed7534b41bd7f65f5f6182189d890ac93216faff2fe9b7"
+    sha256                               high_sierra:   "b3fe44c42b33bc668cdaa0f05eb10a5f9b67891b1947b98abe9cad6464182835"
+    sha256                               sierra:        "bdb853a9a63a03555682eae734d9d9a7725591dfd16128cf59f208968ef16ef2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19b2eee0d231005d4431ed016b681cca59d381bd1c29747ef4ded584f109827a"
   end
 
   # Upstream appears to have stopped developing netcat6 and instead recommends

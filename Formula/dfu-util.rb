@@ -1,19 +1,21 @@
 class DfuUtil < Formula
   desc "USB programmer"
   homepage "https://dfu-util.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/dfu-util/dfu-util-0.10.tar.gz"
-  sha256 "a03dc58dfc79c056819c0544b2a5970537566460102b3d82cfb038c60e619b42"
-  license "GPL-2.0"
+  url "https://downloads.sourceforge.net/project/dfu-util/dfu-util-0.11.tar.gz"
+  sha256 "b4b53ba21a82ef7e3d4c47df2952adf5fa494f499b6b0b57c58c5d04ae8ff19e"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "387d614558287e0b5b7f6911d30f0f362d37771f21e7ee11f678859c0447ecea"
-    sha256 cellar: :any, big_sur:       "1e960a2b57fd6fa0fbfe5a9bb7aa0e35e24664ee65d686eb8fbef724152bc0d0"
-    sha256 cellar: :any, catalina:      "3baa1c97498ad73a60b12c1d1ffa192a9b57946be6ced7ab826f3e1135113a74"
-    sha256 cellar: :any, mojave:        "6bc199867512701a02e09aeea49adfefb5d38f413e8401b35025a827fbcc4036"
+    sha256 cellar: :any,                 arm64_big_sur: "c7dd53f422003b99c57f565aad8371e8cef1aa3de825f36cd927cd61ed64249d"
+    sha256 cellar: :any,                 big_sur:       "b970a649e90f3e080af2143e8479e0616959e35650defea16b96288c4af011dc"
+    sha256 cellar: :any,                 catalina:      "5a5d86794a00b9559ffc819715c297da4f477296d20a92c804aefc426795d0b0"
+    sha256 cellar: :any,                 mojave:        "1ded847895f4d2a86a4a7754fa711014d09c334044ccc03aa97d89059ae58604"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13c26d1ebc67dd60446845d51e3ff92bcded0ae223852dc104e897c8c3423f71"
   end
 
   head do
-    url "https://git.code.sf.net/p/dfu-util/dfu-util.git"
+    url "https://git.code.sf.net/p/dfu-util/dfu-util.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

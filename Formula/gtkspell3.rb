@@ -3,6 +3,7 @@ class Gtkspell3 < Formula
   homepage "https://gtkspell.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gtkspell/3.0.10/gtkspell3-3.0.10.tar.xz"
   sha256 "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
+  license "GPL-2.0-or-later"
   revision 3
 
   bottle do
@@ -16,6 +17,7 @@ class Gtkspell3 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "gtk-doc" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build

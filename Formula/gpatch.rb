@@ -14,6 +14,7 @@ class Gpatch < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "418d7ea9c3948a5d70bdca202bd56e5554eef7f105fc25449f041331db7f4f96"
     sha256 cellar: :any_skip_relocation, sierra:        "81e0fb63928b01d60b9d7a1f0bdbf262679888556bd055fd02f4f57a70cb87ad"
     sha256 cellar: :any_skip_relocation, el_capitan:    "bd67af8b9c24fa785a2da2a1d3475305593dbc183331aed657313e4066de3259"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f49b09a0cf8b312de84a07f7dee7029a0965277baa080f5e4eb57c1457539325"
   end
 
   def install

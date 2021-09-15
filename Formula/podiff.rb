@@ -15,6 +15,7 @@ class Podiff < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "cf8359a976f7bccc111f28c41d2b33fdd5ee3bb28077d25c79f3c5fedb5c7286"
     sha256 cellar: :any_skip_relocation, catalina:      "8178fa230e77c829fce5aed7fc48dd3727dea6a3247008094cfc0d8fb5209964"
     sha256 cellar: :any_skip_relocation, mojave:        "421503a19273f2dc2149549229d6a51508f23c6b9151ed6046afdcef9a54bfce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "499d50ac3ad81f197ca3c7e158e488d00cd2fbfcf76c194b7799d85a5a89dd1c"
   end
 
   def install

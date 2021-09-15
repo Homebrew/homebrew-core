@@ -4,7 +4,7 @@ class Bgpq3 < Formula
   url "https://github.com/snar/bgpq3/archive/v0.1.35.tar.gz"
   sha256 "571b99dc4186618ad3c77317eef2c20a8e601ce665a6b0f1ffca6e3d8d804cde"
   license "BSD-2-Clause"
-  head "https://github.com/snar/bgpq3.git"
+  head "https://github.com/snar/bgpq3.git", branch: "master"
 
   livecheck do
     url :stable
@@ -18,6 +18,7 @@ class Bgpq3 < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "a16c482aa8e1a821d6747b2871174109ccbcf407e5799794f6307303fcffafcb"
     sha256 cellar: :any_skip_relocation, high_sierra:   "2bf730bec0bca51bd9a3db7a3cd5e4bf36199717a8190db270a5f4751bb1a5e1"
     sha256 cellar: :any_skip_relocation, sierra:        "052fb1ae9a1546b13f865b25f4ff5879f4a7c77350d14720442fc6cd898d833d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e677c99a35fcedcf1022bbd06eac0f3868327d8bf8f16cf87c4d2cf867fb8f75"
   end
 
   # Makefile: upstream has been informed of the patch through email (multiple

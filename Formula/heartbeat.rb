@@ -2,16 +2,16 @@ class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/beats/heartbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.12.1",
-      revision: "651a2ad1225f3d4420a22eba847de385b71f711d"
+      tag:      "v7.14.1",
+      revision: "703d589a09cfdbfd7f84c1d990b50b6b7f62ac29"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d72e221a40214c507a5af6e250081253a068c079c792b24e0bfdec669137eea"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a1b94ad473315bd0a2ba03b089293667bc23cb4a9f9b8d4bc70d42242e86494a"
-    sha256 cellar: :any_skip_relocation, catalina:      "b744f10f6c1ca22690286aa4a62e20eb44858e5b97fe71aad6dcbea23bda6abe"
-    sha256 cellar: :any_skip_relocation, mojave:        "460782f3ee1d216f54494c657304b3cf97e275913c35e5ad6521ea3b25f38679"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "641e7059af35f1c202f773e1dd3c324daf413a858e287f22edc696214f6ffa1e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0d847254f75e8cd096c1a3ce68e63aa0ba23d9af5d7208e622fcd4b8057c4239"
+    sha256 cellar: :any_skip_relocation, catalina:      "50d89f3858e6a1422bf2aa8d2e059063240901dda66176c3483dc21b29f0172d"
+    sha256 cellar: :any_skip_relocation, mojave:        "7bdd01eeb8523e60c5ea2925fc216c9f7668203b4ef28e4c1fb783b371f3113e"
   end
 
   depends_on "go" => :build
@@ -49,24 +49,8 @@ class Heartbeat < Formula
     (var/"log/heartbeat").mkpath
   end
 
-  plist_options manual: "heartbeat"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>Program</key>
-          <string>#{opt_bin}/heartbeat</string>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"heartbeat"
   end
 
   test do

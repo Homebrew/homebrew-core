@@ -26,11 +26,18 @@ class Libelf < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a771e35555810a4910304e3ca5967ea3e4f8cbe45576e5b2dc6b80cd9c1f0f13"
     sha256 cellar: :any_skip_relocation, el_capitan:    "a06b058c7e401942f442f573b63aa2cdd548b45d38b02b7af92393c67093f56e"
     sha256 cellar: :any_skip_relocation, yosemite:      "3b4ea9ab20228d9e912f80a330b6d6d093f9bb65a712208c83cd49bdcc4fc9ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c72de6e960f70dd98ea52b419d6e254362813c899d4859c4778d385a7c80e0dd"
   end
+
+  deprecate! date: "2019-05-17", because: :unmaintained # and upstream site is gone
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  on_linux do
+    keg_only "it conflicts with elfutils, which installs a maintained libelf.a"
+  end
 
   def install
     # Workaround for ancient config files not recognising aarch64 macos.
@@ -52,9 +59,9 @@ class Libelf < Formula
 
   test do
     elf_content =  "7F454C460101010000000000000000000200030001000000548004083" \
-      "4000000000000000000000034002000010000000000000001000000000000000080040" \
-      "80080040874000000740000000500000000100000B00431DB43B96980040831D2B20CC" \
-      "D8031C040CD8048656C6C6F20776F726C640A"
+                   "4000000000000000000000034002000010000000000000001000000000000000080040" \
+                   "80080040874000000740000000500000000100000B00431DB43B96980040831D2B20CC" \
+                   "D8031C040CD8048656C6C6F20776F726C640A"
     File.open(testpath/"elf", "w+b") do |file|
       file.write([elf_content].pack("H*"))
     end

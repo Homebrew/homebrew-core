@@ -5,7 +5,11 @@ class ExcelCompare < Formula
   sha256 "9da80954db03f23ebcb6571fdd24520a020a0ea05f46fbe4aba8e2af54c6048c"
   license "MIT"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "9fb9c234a52f1039d1f3ce60f339feb29020cd7a82b7b6c6fd45fcf6c694478a"
+  end
+
+  depends_on "openjdk"
 
   resource "sample_workbook" do
     url "https://github.com/na-ka-na/ExcelCompare/raw/0.6.1/test/resources/ss1.xlsx"
@@ -16,8 +20,9 @@ class ExcelCompare < Formula
     libexec.install Dir["bin/dist/*"]
 
     (bin/"excel_cmp").write <<~EOS
-      #!/bin/sh
-      java -ea -Xmx512m -cp "#{libexec}/*" com.ka.spreadsheet.diff.SpreadSheetDiffer "$@"
+      #!/bin/bash
+      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      exec "${JAVA_HOME}/bin/java" -ea -Xmx512m -cp "#{libexec}/*" com.ka.spreadsheet.diff.SpreadSheetDiffer "$@"
     EOS
   end
 

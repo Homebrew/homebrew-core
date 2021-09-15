@@ -11,6 +11,7 @@ class Libusrsctp < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ca45d1d9431028ad9b7025e6d5486a10f98c6c49e39dd1a4e1d033c75bee6135"
     sha256 cellar: :any_skip_relocation, catalina:      "5c2a6b26e354c0498e0e3ef590dfc9f9651f70ce36112f196baec64ef76aec31"
     sha256 cellar: :any_skip_relocation, mojave:        "fe831b138df6c6b80d260d8a224bf1b1114af51d1b14186e9d714fd99f035e30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7b8b7629549478dc7d3b0ca0498cd6c181ce4a94e5dfddb19b34de124621ef8"
   end
 
   depends_on "cmake" => :build
@@ -30,7 +31,7 @@ class Libusrsctp < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lusrsctp", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lusrsctp", "-lpthread", "-o", "test"
     system "./test"
   end
 end

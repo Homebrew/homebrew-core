@@ -11,7 +11,9 @@ class Kawa < Formula
     regex(/href=.*?kawa[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "4832b73db70b9b1c74289522820b9ba04c2eab1bf03285e4bfdfc76962c1123c"
+  end
 
   depends_on "openjdk"
 

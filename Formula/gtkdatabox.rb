@@ -1,20 +1,19 @@
 class Gtkdatabox < Formula
   desc "Widget for live display of large amounts of changing data"
   homepage "https://sourceforge.net/projects/gtkdatabox/"
-  url "https://downloads.sourceforge.net/project/gtkdatabox/gtkdatabox/0.9.3.1/gtkdatabox-0.9.3.1.tar.gz"
-  sha256 "d04938d969d5458bd0df1b4fa22f647fb2eeeef75555a71f967e6c039fb4bde5"
-  license "LGPL-2.1"
-  revision 1
+  url "https://downloads.sourceforge.net/project/gtkdatabox/gtkdatabox-1/gtkdatabox-1.0.0.tar.gz"
+  sha256 "8bee70206494a422ecfec9a88d32d914c50bb7a0c0e8fedc4512f5154aa9d3e3"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6159b963d83a085b13210a728e559a4f9fdb1a54f6887ed198792772d0c9c222"
-    sha256 cellar: :any, big_sur:       "0653f694493bb5cda05df1dde2b340014e5c51e46d7f0c9351092cbc9c9d45fa"
-    sha256 cellar: :any, catalina:      "5bbfa821a847ebaad507380489df974dd82fd7ed99fef8966cd8e27549671fe4"
-    sha256 cellar: :any, mojave:        "af155aeb3a3df37027681ffb4873d0ab87263a34e1268d8b87e45f76c6824750"
+    sha256 cellar: :any, arm64_big_sur: "23e28de98208139a408ecdca12fbe9a7008bbbbca2929a4cc7a85b29bf57edf6"
+    sha256 cellar: :any, big_sur:       "534fd2192131f7d6a3b07e75bc02e1f184996f3bcadc01ef396cad541946f518"
+    sha256 cellar: :any, catalina:      "c9dc8748b00eddcc57d4d006c1f36bec576b4180bcd33458766e6c17d029c47b"
+    sha256 cellar: :any, mojave:        "7bd730c346c35c5a87d693e4c9bb4f87ae38031204bed90391027ad18c2786be"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gtk+"
+  depends_on "gtk+3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -27,6 +26,7 @@ class Gtkdatabox < Formula
       #include <gtkdatabox.h>
 
       int main(int argc, char *argv[]) {
+        gtk_init(&argc, &argv);
         GtkWidget *db = gtk_databox_new();
         return 0;
       }
@@ -38,7 +38,7 @@ class Gtkdatabox < Formula
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    gtkx = Formula["gtk+"]
+    gtkx = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -52,8 +52,8 @@ class Gtkdatabox < Formula
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gtkx.opt_include}/gtk-2.0
-      -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{gtkx.opt_include}/gtk-3.0
+      -I#{gtkx.opt_lib}/gtk-3.0/include
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}
       -I#{libpng.opt_include}/libpng16
@@ -70,12 +70,12 @@ class Gtkdatabox < Formula
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
+      -lgdk-3
       -lgdk_pixbuf-2.0
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
+      -lgtk-3
       -lgtkdatabox
       -lpango-1.0
       -lpangocairo-1.0

@@ -7,23 +7,22 @@ class Libfaketime < Formula
   head "https://github.com/wolfcw/libfaketime.git"
 
   bottle do
-    sha256 big_sur:  "cf7b4559e89a7ea8049e9cfef460f7cf1f6e9403f743562e26010d4ef2705454"
-    sha256 catalina: "b5e7ab51f854c78569b3bd6b52f3a668cf2b99e38fb5324f6a195c073f62f950"
-    sha256 mojave:   "e35274e338e72a603ed6b338437d09fc58427b65077a09e0159514e4df249317"
+    sha256 big_sur:      "cf7b4559e89a7ea8049e9cfef460f7cf1f6e9403f743562e26010d4ef2705454"
+    sha256 catalina:     "b5e7ab51f854c78569b3bd6b52f3a668cf2b99e38fb5324f6a195c073f62f950"
+    sha256 mojave:       "e35274e338e72a603ed6b338437d09fc58427b65077a09e0159514e4df249317"
+    sha256 x86_64_linux: "56e8541e3caa6c07d631991e8034232244f4251d7b8bcbdcc4a718e83d64faf8"
   end
 
-  # The `faketime` command needs GNU `gdate` not BSD `date`.
-  # See https://github.com/wolfcw/libfaketime/issues/158 and
-  # https://github.com/Homebrew/homebrew-core/issues/26568
-  depends_on "coreutils"
-
-  depends_on macos: :sierra
+  on_macos do
+    # The `faketime` command needs GNU `gdate` not BSD `date`.
+    # See https://github.com/wolfcw/libfaketime/issues/158 and
+    # https://github.com/Homebrew/homebrew-core/issues/26568
+    depends_on "coreutils"
+    depends_on macos: :sierra
+  end
 
   def install
-    system "make", "-C", "src", "-f", "Makefile.OSX", "PREFIX=#{prefix}"
-    bin.install "src/faketime"
-    (lib/"faketime").install "src/libfaketime.1.dylib"
-    man1.install "man/faketime.1"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do

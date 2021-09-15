@@ -1,9 +1,9 @@
 class Rdfind < Formula
   desc "Find duplicate files based on content (NOT file names)"
   homepage "https://rdfind.pauldreik.se/"
-  url "https://rdfind.pauldreik.se/rdfind-1.4.1.tar.gz"
-  sha256 "30c613ec26eba48b188d2520cfbe64244f3b1a541e60909ce9ed2efb381f5e8c"
-  revision 1
+  url "https://rdfind.pauldreik.se/rdfind-1.5.0.tar.gz"
+  sha256 "4150ed1256f7b12b928c65113c485761552b9496c433778aac3f9afc3e767080"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
@@ -11,16 +11,17 @@ class Rdfind < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "354f66f386e4ea54db4efcdeca59c897fa985ec2567ec7677eb62e1d975bbf6c"
-    sha256 cellar: :any, big_sur:       "ade2aaffee4c52e143fdcd0a22fae933e60e4c3d5057e4bc74a9aaffaf3c2146"
-    sha256 cellar: :any, catalina:      "e890406a4cbbd8d026a4c583644efa537433ac71c095a1e582b0454d85a87d00"
-    sha256 cellar: :any, mojave:        "489e104d2c5e5d939439f5b100cd97e19ed070181d355b49fbd1ad2b3320d789"
-    sha256 cellar: :any, high_sierra:   "2ce91e3b8a129c0fadb57fba46074e74e0d896287c23eb1844cd99e5eef093b1"
+    sha256 cellar: :any,                 arm64_big_sur: "0231ca8fc326ec9888c3da9f07eef767ce69efd947614a0d19b3d4f1e4051192"
+    sha256 cellar: :any,                 big_sur:       "db5e30a0195c38a79630c88cc32a37e0f837ece980dd039a042c4879d9365c4b"
+    sha256 cellar: :any,                 catalina:      "b25d141342e3ebb09d42f528fd2dcb253c6f729665bc39f58ff1fbe4ca757c72"
+    sha256 cellar: :any,                 mojave:        "d704696e7f9ab9c095ce6f59db3725576ea7ac4a540e115a3928feca3cb75b28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "787feec863b81e78f378a46b60505051c4b8b29b25c19e3d41b5c94c8ce88562"
   end
 
   depends_on "nettle"
 
   def install
+    ENV.cxx11
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

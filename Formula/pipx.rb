@@ -1,16 +1,17 @@
 class Pipx < Formula
   desc "Execute binaries from Python packages in isolated environments"
-  homepage "https://github.com/pipxproject/pipx"
-  url "https://files.pythonhosted.org/packages/92/09/c4afd1d89677871c3a69657b9aa34c12328b2fb409b068e3933a6e8c2fa4/pipx-0.16.2.1.tar.gz"
-  sha256 "805319eab100c0c36e349b76103bbe903445229a60ebb0010d7cf7590ff5ba20"
+  homepage "https://github.com/pypa/pipx"
+  url "https://files.pythonhosted.org/packages/8c/38/b9cbadcccc01be38f7fd47e52acc623657a0ecfc51eb43129c3825efc84c/pipx-0.16.4.tar.gz"
+  sha256 "992e78082c0b33c7bc708176ce9e0df9bac9ae3b08bf111c368571bc32e723d6"
   license "MIT"
-  head "https://github.com/pipxproject/pipx.git"
+  head "https://github.com/pypa/pipx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a6dde65154b456011d4157a3dded90f118266af5f1447a1601044d219706e164"
-    sha256 cellar: :any_skip_relocation, big_sur:       "61219c287997023648711a74f6a88ed74cc8696a5a8cdca4db23ab9c4c0c51cb"
-    sha256 cellar: :any_skip_relocation, catalina:      "61219c287997023648711a74f6a88ed74cc8696a5a8cdca4db23ab9c4c0c51cb"
-    sha256 cellar: :any_skip_relocation, mojave:        "61219c287997023648711a74f6a88ed74cc8696a5a8cdca4db23ab9c4c0c51cb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a7792c215704d5427b5d23d7e1a0147b486d4889847219cdd343bb9d9345e576"
+    sha256 cellar: :any_skip_relocation, big_sur:       "909ab05f7e210097d488df3f87bdc50bd3fcd08f2761ba7fad929c7c452d268f"
+    sha256 cellar: :any_skip_relocation, catalina:      "909ab05f7e210097d488df3f87bdc50bd3fcd08f2761ba7fad929c7c452d268f"
+    sha256 cellar: :any_skip_relocation, mojave:        "909ab05f7e210097d488df3f87bdc50bd3fcd08f2761ba7fad929c7c452d268f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69c38c16c99cbc0feae14e081c5c46b2233d10faf32617ca8357b1ba652a71f3"
   end
 
   depends_on "python@3.9"
@@ -21,25 +22,20 @@ class Pipx < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
-    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
-  end
-
-  resource "colorama" do
-    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
-    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
+    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
   end
 
   resource "distro" do
     on_linux do
-      url "https://files.pythonhosted.org/packages/a6/a4/75064c334d8ae433445a20816b788700db1651f21bdb0af33db2aab142fe/distro-1.5.0.tar.gz"
-      sha256 "0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92"
+      url "https://files.pythonhosted.org/packages/a5/26/256fa167fe1bf8b97130b4609464be20331af8a3af190fb636a8a7efd7a2/distro-1.6.0.tar.gz"
+      sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
     end
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz"
-    sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
+    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
+    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
   end
 
   resource "pyparsing" do
@@ -48,8 +44,8 @@ class Pipx < Formula
   end
 
   resource "userpath" do
-    url "https://files.pythonhosted.org/packages/f0/1b/d2bccd0b855484e3b419c0d87990e6f588793fb7b233d8ea26fa620936fb/userpath-1.4.2.tar.gz"
-    sha256 "dd4b5496e4ef2c1a3bbb103ffefa7738fa4ba15f23580918bb9f949dcd61a8a7"
+    url "https://files.pythonhosted.org/packages/60/2c/0620bacd069a14a601b0a5ba4578b223fa6ae34b9dd97e5508798b7f3dee/userpath-1.7.0.tar.gz"
+    sha256 "dcd66c5fa9b1a3c12362f309bbb5bc7992bac8af86d17b4e6b1a4b166a11c43f"
   end
 
   def install
@@ -66,6 +62,13 @@ class Pipx < Formula
     (bin/"pipx").write_env_script(libexec/"bin/pipx", PYTHONPATH: ENV["PYTHONPATH"])
     (bin/"register-python-argcomplete").write_env_script(libexec/"bin/register-python-argcomplete",
       PYTHONPATH: ENV["PYTHONPATH"])
+
+    # Install shell completions
+    output = Utils.safe_popen_read(libexec/"bin/register-python-argcomplete", "--shell=bash", "pipx")
+    (bash_completion/"pipx").write output
+
+    output = Utils.safe_popen_read(libexec/"bin/register-python-argcomplete", "--shell=fish", "pipx")
+    (fish_completion/"pipx.fish").write output
   end
 
   test do

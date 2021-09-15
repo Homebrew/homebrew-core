@@ -14,6 +14,7 @@ class Netcat < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "879d9c32f09e9ef31cb672983707f9d95341f6639bb8a4db54d7a6ea0878b946"
     sha256 cellar: :any_skip_relocation, sierra:        "9027fd429d5407fba0b3206bd0cd198c669f4744155efcf8e0dbdd6ba69b6d34"
     sha256 cellar: :any_skip_relocation, el_capitan:    "1f346605e0236ea7880258da2abf0bde1d7d8d8735a07d6d32feaf12425ff6da"
+    sha256                               x86_64_linux:  "713b509412561ffe59ef45f828278384180ffc219547d9495409908ba421e259"
   end
 
   depends_on "autoconf" => :build

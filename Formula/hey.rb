@@ -11,6 +11,7 @@ class Hey < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "972cc3f6a520467db11ab9cef3aa5311c6813c203c23bb0173363a00a45cfc07"
     sha256 cellar: :any_skip_relocation, mojave:        "af9934ac04900c142879a97bcc9b376e25f4928239c0bb9bd68fdad0e4174ead"
     sha256 cellar: :any_skip_relocation, high_sierra:   "67fbe5a4b3574ea9025607e02b56c49572d4f184bcf1ae49fb5cb3eb05ede26c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5454552b0eb8d412645a0a5211b0566a41d13fc238149177bfddea36ace56e4"
   end
 
   depends_on "go" => :build

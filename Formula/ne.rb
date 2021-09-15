@@ -4,7 +4,7 @@ class Ne < Formula
   url "https://github.com/vigna/ne/archive/3.3.1.tar.gz"
   sha256 "931f01380b48e539b06d65d80ddf313cce67aab6d7b62462a548253ab9b3e10a"
   license "GPL-3.0"
-  head "https://github.com/vigna/ne.git"
+  head "https://github.com/vigna/ne.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "b55c5eec667c1297570a6ef49e989061983a068c4daad9c8e27a85898556b58d"

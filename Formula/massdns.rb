@@ -10,6 +10,7 @@ class Massdns < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6cf600e96f9f6e9e693b17894f59e8a14f5cddb2d9690719bbd8553b39b81a0b"
     sha256 cellar: :any_skip_relocation, catalina:      "d24888b27f7a3d0cc3d235e62094d985c378adad90b57939bccf96a14823803c"
     sha256 cellar: :any_skip_relocation, mojave:        "82647b382b8f2c95e7e2186bdc5e85466377c98f09c4320bb6722031114ff7a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26c1c368ecea9de403a35522764bd47c5f7d5e0560aec3cdea56c4e8cd059c63"
   end
 
   depends_on "cmake" => :build

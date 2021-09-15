@@ -3,14 +3,15 @@ class OpenSceneGraph < Formula
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
   url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.5.tar.gz"
   sha256 "aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12"
-  head "https://github.com/openscenegraph/OpenSceneGraph.git"
+  license "LGPL-2.1-or-later" => { with: "WxWindows-exception-3.1" }
+  revision 1
+  head "https://github.com/openscenegraph/OpenSceneGraph.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "9a11319c94de36501730bd964da993853f111d9c5f4410dc31c2e7c6a0330d11"
-    sha256 big_sur:       "95b41df9411f5d26f4607b8ccdd2fa750ce6b7be88bb38906a48cc61eec20ff8"
-    sha256 catalina:      "a5af0114a8096d9bdc63682eb7a913b1a72b6f0d6cc20f526c0734b8111b7499"
-    sha256 mojave:        "35070bb7f3ac7460d14df196d7d0e9110fbdf84e61fa10b0ed2613d697310aa0"
-    sha256 high_sierra:   "9bbb98357b02428b90ffd8eadb5da85afcc2360aee2c8de8820fbed241f94a1d"
+    sha256 arm64_big_sur: "83350482064d3e55281b5c4a808f4629ce0c243a49fb57e68e5f63d2d5a411c4"
+    sha256 big_sur:       "77b57e3edeb952002a4c43c90af2c2ada2813bb35d45b24a07720da89fa389cf"
+    sha256 catalina:      "dfa6322ce7e63ce9194a42d3dc1d630572ff7d818ac21e3533017a0bcf5821b6"
+    sha256 mojave:        "e347cc9ef89cd9b1e8fea9a6c14a4693f30cd2b43ab4754c61724e229c62849c"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +21,7 @@ class OpenSceneGraph < Formula
   depends_on "freetype"
   depends_on "gtkglext"
   depends_on "jpeg-turbo"
-  depends_on "sdl"
+  depends_on "sdl2"
 
   # patch necessary to ensure support for gtkglext-quartz
   # filed as an issue to the developers https://github.com/openscenegraph/OpenSceneGraph/issues/34
@@ -37,6 +38,7 @@ class OpenSceneGraph < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_OpenEXR=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_SDL=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON
       -DCMAKE_CXX_FLAGS=-Wno-error=narrowing
       -DCMAKE_OSX_ARCHITECTURES=x86_64

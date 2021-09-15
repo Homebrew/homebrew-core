@@ -7,19 +7,19 @@ class LpSolve < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "064364e4edd599066792e63f44649f9986d3b3ef10e83b91c68d756aaac2f543"
-    sha256 cellar: :any, big_sur:       "04e8e54a2c3c58d7430337dc2b0f9ca6c2db2d144bb98a6b91312cd63faf834d"
-    sha256 cellar: :any, catalina:      "ac4e07a9e144e2ef6ed34e340a9d9eb769ae7184723df790a8b78ef32d46e753"
-    sha256 cellar: :any, mojave:        "4abc54efe795496f3114edcdaaf3b90e55632bbe92c5816b5372b9743366e62f"
+    sha256 cellar: :any,                 arm64_big_sur: "064364e4edd599066792e63f44649f9986d3b3ef10e83b91c68d756aaac2f543"
+    sha256 cellar: :any,                 big_sur:       "04e8e54a2c3c58d7430337dc2b0f9ca6c2db2d144bb98a6b91312cd63faf834d"
+    sha256 cellar: :any,                 catalina:      "ac4e07a9e144e2ef6ed34e340a9d9eb769ae7184723df790a8b78ef32d46e753"
+    sha256 cellar: :any,                 mojave:        "4abc54efe795496f3114edcdaaf3b90e55632bbe92c5816b5372b9743366e62f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "866347d7fd1625067ac3643d61249354dbe64c38fc9028f0e0a576968437460a"
   end
 
   def install
-    target = ""
-    subdir = "ux64"
-
-    on_macos do
+    subdir = if OS.mac?
       target = ".osx"
-      subdir = "osx64"
+      "osx64"
+    else
+      "ux64"
     end
 
     cd "lpsolve55" do

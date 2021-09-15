@@ -3,8 +3,18 @@ class Kestrel < Formula
   homepage "https://twitter-archive.github.io/kestrel/"
   url "https://twitter-archive.github.io/kestrel/download/kestrel-2.4.1.zip"
   sha256 "5d72a301737cc6cc3908483ce73d4bdb6e96521f3f8c96f93b732d740aaea80c"
+  license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "57b8c7f3a898f32a556efc9f79f1944f8739a458f07b671664357239d6a5b7e8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8106b504796e7c73733c4206d00e2d7f7213e998729a9fe6c56a6016b14b822d"
+    sha256 cellar: :any_skip_relocation, catalina:      "8106b504796e7c73733c4206d00e2d7f7213e998729a9fe6c56a6016b14b822d"
+    sha256 cellar: :any_skip_relocation, mojave:        "8106b504796e7c73733c4206d00e2d7f7213e998729a9fe6c56a6016b14b822d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57b8c7f3a898f32a556efc9f79f1944f8739a458f07b671664357239d6a5b7e8"
+  end
+
+  # See: https://github.com/twitter-archive/kestrel#status
+  deprecate! date: "2016-01-22", because: :deprecated_upstream
 
   def install
     inreplace "scripts/kestrel.sh" do |s|

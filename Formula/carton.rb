@@ -5,13 +5,14 @@ class Carton < Formula
   sha256 "77d42b92732bcfc18a59d341e56ce476205b1c4d380eab3a07224f5745c23e45"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   revision 2
-  head "https://github.com/perl-carton/carton.git"
+  head "https://github.com/perl-carton/carton.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ce1ddd8777839a7c6335edb8aeccb0603e7199f77e8535039888e4f17c1c16b"
     sha256 cellar: :any_skip_relocation, big_sur:       "a8346120d0c0c90969deffae1f9f6a62cd801b85d960236a027ac01a66bb8764"
     sha256 cellar: :any_skip_relocation, catalina:      "089c962c1d804848a5b1c00d424b840f4f97d56c9bc36628b660af9cf4d2ab13"
     sha256 cellar: :any_skip_relocation, mojave:        "151b0beef68a8538b731e39e8bea4325279b2912f491c2be5f0a8ab8fde68123"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80f86c001f8fb0a49b809d66d3223db970ed12cba4e20e6af7c073e85842a34f"
   end
 
   depends_on "perl"

@@ -6,13 +6,14 @@ class ChartTesting < Formula
       revision: "68a43ac09699ef9473266457e893a7ddd7ef6b5b"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/helm/chart-testing.git"
+  head "https://github.com/helm/chart-testing.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "66bd1f0419bfcf97ce06a3a91f107735563ee94e1e5953bcad7e48d5f1a31e9f"
     sha256 cellar: :any_skip_relocation, big_sur:       "a6179e0090f93f5bf67f92cd13fa391f898496211f7e1b58a1d3989f9b37b22c"
     sha256 cellar: :any_skip_relocation, catalina:      "556430cab62f842bfdcac97db34b96448bad3588a359aec2e2f9f21c5339f363"
     sha256 cellar: :any_skip_relocation, mojave:        "65760b4336f5f2005cdb7d001d3902c16530ed0dd6eeb68bdaab2d6389f63d0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f3e74a28ac59c912d7f8fcb685305937f3b59d5757c60c4f5b434ace478de2d"
   end
 
   depends_on "go" => :build
@@ -25,7 +26,7 @@ class ChartTesting < Formula
     ldflags = %W[
       -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.Version=#{version}
       -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.GitCommit=#{Utils.git_head}
-      -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.BuildDate=#{Date.today}
+      -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.BuildDate=#{time.strftime("%F")}
     ].join(" ")
     system "go", "build", *std_go_args, "-ldflags", ldflags, "-o", bin/"ct", "./ct/main.go"
     etc.install "etc" => "ct"

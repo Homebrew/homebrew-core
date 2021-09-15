@@ -10,7 +10,9 @@ class StanfordParser < Formula
     regex(/href=.*?stanford-parser[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "daf92097e7a2003ec918d2886b142ac6515755300082015c5c6e4b36e80b22d3"
+  end
 
   depends_on "openjdk"
 

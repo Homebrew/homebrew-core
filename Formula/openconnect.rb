@@ -17,10 +17,12 @@ class Openconnect < Formula
     sha256 catalina:      "b4144970e695adc8f049319408cd431c96eb2ca4714feb903e0f01f3926dfd1f"
     sha256 mojave:        "5f4d9cb8a0a39983205bad4e1e6d7a2ae586f0725571fa83eac6421b8d6f4b9a"
     sha256 high_sierra:   "4d306766b4a334c7dcc8497b0684005c9011cd8913131b25bae2f56f3b3217d1"
+    sha256 x86_64_linux:  "405f966a059349a5ad2fdc8b3ae96bada1e34d466838d90611f284cb46909d0c"
   end
 
   head do
-    url "git://git.infradead.org/users/dwmw2/openconnect.git", shallow: false
+    url "git://git.infradead.org/users/dwmw2/openconnect.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

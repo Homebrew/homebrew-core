@@ -2,7 +2,7 @@ class Bitlbee < Formula
   desc "IRC to other chat networks gateway"
   homepage "https://www.bitlbee.org/"
   license "GPL-2.0"
-  head "https://github.com/bitlbee/bitlbee.git"
+  head "https://github.com/bitlbee/bitlbee.git", branch: "master"
 
   stable do
     url "https://get.bitlbee.org/src/bitlbee-3.6.tar.gz"
@@ -20,6 +20,7 @@ class Bitlbee < Formula
     sha256 catalina:      "52da03d26df7e96ae71125343859b754e24146c8ad5e6c58bc33eb634862ef40"
     sha256 mojave:        "d6f39cdbf633e779a47d625e8c62393d75fe1656d4d1d8cbe342940fb65cba53"
     sha256 high_sierra:   "cefcf70546bf4746913b64ee8c282deb9ca15ffb61a0e564f3f1dc8da09fb447"
+    sha256 x86_64_linux:  "47b82ca433b0a6735e7941751f0cd4b50cbb097bca45069a2f95f1e4503ed770"
   end
 
   depends_on "pkg-config" => :build

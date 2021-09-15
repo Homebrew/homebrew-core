@@ -11,6 +11,7 @@ class Leiningen < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c6a3bca012d22ac2bfd31f2d63e1205f3e8b14a1a9c273efc4b812233adc1920"
     sha256 cellar: :any_skip_relocation, catalina:      "c6a3bca012d22ac2bfd31f2d63e1205f3e8b14a1a9c273efc4b812233adc1920"
     sha256 cellar: :any_skip_relocation, mojave:        "d144459a1bff33c0adbc0de79e97135be0b6fd768a3a7468f5ad484a3c1486f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de0a514ea1a62334532c988bd8d633c65655279073dd80ab8beac826d7dccec4"
   end
 
   depends_on "openjdk"

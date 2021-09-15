@@ -5,7 +5,7 @@ class Ocamlbuild < Formula
   sha256 "87b29ce96958096c0a1a8eeafeb6268077b2d11e1bf2b3de0f5ebc9cf8d42e78"
   license "LGPL-2.0"
   revision 2
-  head "https://github.com/ocaml/ocamlbuild.git"
+  head "https://github.com/ocaml/ocamlbuild.git", branch: "master"
 
   livecheck do
     url :stable
@@ -18,6 +18,7 @@ class Ocamlbuild < Formula
     sha256 catalina:      "8f6fc7e7413b24faa041b7651349a3128f9eadefae5c9aa0c50f0d1a56e010f6"
     sha256 mojave:        "04fed811edb4dd3903f742ec6678643f9959e85c4fcb763972c8779dec059515"
     sha256 high_sierra:   "e4cd0274f9657874e29add30545055af4ea8697d426ed95f799ddce63aef5cfe"
+    sha256 x86_64_linux:  "6b0804c980c27a7df543c4b31811a9b1509d88692d1b9da5f44eb1297da9aa76"
   end
 
   depends_on "ocaml"

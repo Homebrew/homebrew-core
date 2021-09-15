@@ -1,17 +1,17 @@
 class Grep < Formula
   desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
-  url "https://ftp.gnu.org/gnu/grep/grep-3.6.tar.xz"
-  mirror "https://ftpmirror.gnu.org/grep/grep-3.6.tar.xz"
-  sha256 "667e15e8afe189e93f9f21a7cd3a7b3f776202f417330b248c2ad4f997d9373e"
+  url "https://ftp.gnu.org/gnu/grep/grep-3.7.tar.xz"
+  mirror "https://ftpmirror.gnu.org/grep/grep-3.7.tar.xz"
+  sha256 "5c10da312460aec721984d5d83246d24520ec438dd48d7ab5a05dbc0d6d6823c"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a48ab26324b25a6033372f26490b09e7e0569f76a4b7f85bdd0aa9a3fc996537"
-    sha256 cellar: :any, big_sur:       "6ee2dac30a5250d7d218b6520392b4cb8e7a806149f900e11637e556e6a9237a"
-    sha256 cellar: :any, catalina:      "78c2b965ced34a99ac47d3058a3971b9696a6157215c82edd16562d6ec6fc689"
-    sha256 cellar: :any, mojave:        "80a62eaefb57437bcb3aeb1d8489b9bf062ec77184624249da27afc578be1315"
-    sha256 cellar: :any, high_sierra:   "ae3cfbe66d6391edd32153f9b02e3da1286482dd196a18da017903a0bd4e7cf7"
+    sha256 cellar: :any,                 arm64_big_sur: "af56aab63748f26589f0af9fb269df366f526ece09aee13cb73f9705a7664e25"
+    sha256 cellar: :any,                 big_sur:       "0ca6e4d8a78798fa84b9bc96be28efb0f815996a2bc3c291773467f016e874e9"
+    sha256 cellar: :any,                 catalina:      "f41a618521eb9f55c50de5e6fe0c0e76df83962236cf076deff2107911fb0bdc"
+    sha256 cellar: :any,                 mojave:        "180f055eeacb118cd73e2c3dbb0fda9d71fcbe0d4ee613b799a130085d6db76f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b842a12e018e675333c0cfd93602c5ef1c7889e0fa7314610182419cd73327af"
   end
 
   depends_on "pkg-config" => :build
@@ -27,14 +27,12 @@ class Grep < Formula
       --with-packager=Homebrew
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make"
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       %w[grep egrep fgrep].each do |prog|
         (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
         (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"

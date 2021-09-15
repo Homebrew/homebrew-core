@@ -5,7 +5,8 @@ class RbenvUse < Formula
   sha256 "f831dc9b8a43e30499e62928d13f5d354bf4c505b3f6b7fc1a1a9956ed9e538c"
   revision 1
 
-  bottle :unneeded
+  # https://github.com/rkh/rbenv-use/issues/9
+  disable! date: "2021-06-19", because: :no_license
 
   depends_on "rbenv"
   depends_on "rbenv-whatis"

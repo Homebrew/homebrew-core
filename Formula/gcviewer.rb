@@ -11,7 +11,9 @@ class Gcviewer < Formula
     regex(%r{url=.*?/gcviewer[._-]v?(\d+(?:\.\d+)+)\.jar}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "7d865411895953fdfe7f5bd70c844a93bb1c24470e36e0904aedef305e79ab7a"
+  end
 
   depends_on "openjdk"
 

@@ -4,9 +4,11 @@ class Zplug < Formula
   url "https://github.com/zplug/zplug/archive/2.4.2.tar.gz"
   sha256 "82a51e8c388844acbfb64196623bede07eee2384f1fc30966eac880373aa9030"
   license "MIT"
-  head "https://github.com/zplug/zplug.git"
+  head "https://github.com/zplug/zplug.git", branch: "master"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "88f086071ba188267046f170817aee4ad59fcdd9d9b7ad183b639306c5b8ef29"
+  end
 
   def install
     bin.install Dir["bin/*"]

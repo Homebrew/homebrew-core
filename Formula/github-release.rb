@@ -12,6 +12,7 @@ class GithubRelease < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d7770942546f2a49c7b44104fe69ad7cf724cc1eac39280d1217af66ccd97e3b"
     sha256 cellar: :any_skip_relocation, catalina:      "6dc8bf5543967949480fb9bf3f24e149a5ef52857cc38877125f9ad6281eeb58"
     sha256 cellar: :any_skip_relocation, mojave:        "745fcc9458243936c5e482098357c5f83d44e5126e5346f1f6c6ca90ee55a4c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8a0776dbf6e7156af66a6ce7aefff22e5f12ab47f310748fe75fa6aba8edd3d"
   end
 
   depends_on "go" => :build

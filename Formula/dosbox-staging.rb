@@ -1,21 +1,20 @@
 class DosboxStaging < Formula
   desc "Modernized DOSBox soft-fork"
   homepage "https://dosbox-staging.github.io/"
-  url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.76.0.tar.gz"
-  sha256 "7df53c22f7ce78c70afb60b26b06742b90193b56c510219979bf12e0bb2dc6c7"
+  url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.77.1.tar.gz"
+  sha256 "85359efb7cd5c5c0336d88bdf023b7b462a8233490e00274fef0b85cca2f5f3c"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/dosbox-staging/dosbox-staging.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fb8f0447f5090363a78aba9bc2d454706b5c0fb509ac7fd5887d1f893640c8ee"
-    sha256 cellar: :any, big_sur:       "3b309a468fd37f2f5acd86dfdc13ba761a2dba9b3844c67d7a726761408997ff"
-    sha256 cellar: :any, catalina:      "634724b72b5fcdd54c0bc29bd37bbb00457a4a3762a896f1b743c7d9175c398a"
-    sha256 cellar: :any, mojave:        "403eba84e98409729480a474508c66b259b4125a80efede453da0021f6893611"
+    sha256 cellar: :any, arm64_big_sur: "7dd4f286588301620a44495e5810974739ab4fd32cccd5b5f2396bdab0553a23"
+    sha256 cellar: :any, big_sur:       "e2e63248f71bed815d467f3afecf49983470a3579490dd7ff60afbae1383625d"
+    sha256 cellar: :any, catalina:      "01c1cf45fb8d75aeb5b81174bc02693093c047ca138ae3cf1a880c5ad1ca35eb"
+    sha256 cellar: :any, mojave:        "e56e6203ef35b2402396029baba105d93127531dcc92acf5182edf06ee747f2c"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "fluid-synth"
   depends_on "libpng"
@@ -24,16 +23,11 @@ class DosboxStaging < Formula
   depends_on "sdl2_net"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --disable-sdltest
-      --enable-core-inline
-    ]
-
-    system "./autogen.sh"
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Duse_mt32emu=false", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
     mv bin/"dosbox", bin/"dosbox-staging"
     mv man1/"dosbox.1", man1/"dosbox-staging.1"
   end

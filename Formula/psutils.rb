@@ -28,6 +28,7 @@ class Psutils < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "1319662888a509ceee3993bf17e7fb2f9dfaea5ce25c983c0bcda13283b5d612"
     sha256 cellar: :any_skip_relocation, el_capitan:    "def5b3fc8cef9b4c532cc26ae216d1c6b0dae54da5a39acbdb818d53a04bf697"
     sha256 cellar: :any_skip_relocation, yosemite:      "8fedc8290fdcbd5cb5f8042cc83e4c10c6c2a29888c2a89f72280d3b5b53946d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3596c25429993fbcfa470fae16bafaa3da785fb610cacf9063d2b8ee26300d42"
   end
 
   def install

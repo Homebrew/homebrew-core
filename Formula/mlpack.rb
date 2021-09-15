@@ -4,7 +4,7 @@ class Mlpack < Formula
   url "https://mlpack.org/files/mlpack-3.4.2.tar.gz"
   sha256 "9e5c4af5c276c86a0dcc553289f6fe7b1b340d61c1e59844b53da0debedbb171"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
-  revision 2
+  revision 3
 
   livecheck do
     url "https://mlpack.org/files/"
@@ -12,11 +12,11 @@ class Mlpack < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "7d72d55cb3e88ee5ea2c2fb459c9677f9666d38c59cb9dbe9df40f9a12cc92d2"
-    sha256 cellar: :any, big_sur:       "17810ae8730f736691263d205df67d013c812f00edf0ec5ecce7a18611b59716"
-    sha256 cellar: :any, catalina:      "5980cb24352e2b3c2a42c21d0d58370efa5185e44571f01953dd986df3a9bdf1"
-    sha256 cellar: :any, mojave:        "6de39cd1a291271dd254eeaa6056c64d315d2207e494605065b54a462b81e7c1"
+    sha256 cellar: :any,                 arm64_big_sur: "826d26c907780f6b8edc30180c6f6ae0885811534dec61bdbcfda3b7d75a42f2"
+    sha256 cellar: :any,                 big_sur:       "5aa83e0eb31c4355e128e5d7185710cbefe9ec4afcbe32e38229815428a58817"
+    sha256 cellar: :any,                 catalina:      "c6024d74fc22e20c8075c05501864e998cb36b5cb4c8f1d133ea82166c0e0b95"
+    sha256 cellar: :any,                 mojave:        "3445bbce49bef30c1818523cdf044ad15c9638d960002185144c6d71578e3600"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecad09f96c51721fd59dc7d0f10c146e79176234af215a3b4965565bf61605fe"
   end
 
   depends_on "cmake" => :build

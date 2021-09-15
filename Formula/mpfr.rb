@@ -7,11 +7,12 @@ class Mpfr < Formula
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9df11560dd3650ffae35c134cef6e0e91aad0e862f5c8895c568b828cf0598d5"
-    sha256 cellar: :any, big_sur:       "1e8eb0326f62d3461d420d98af6fc088daca481cae89fd77a75b420d2e76d776"
-    sha256 cellar: :any, catalina:      "5fcf57834f58c18761c6c7b0eb961eb7f9fc54325b5361bf3a17c4dee6ebc08a"
-    sha256 cellar: :any, mojave:        "93c0d2ca093819f125300002cd34c1d1b4dfb7a1403729205861bec21388ff12"
-    sha256 cellar: :any, high_sierra:   "77581a1df66fb1ef55ffb19777d08b0b60fbc3d2d7ad491a8aceb3a6a4bf7ffd"
+    sha256 cellar: :any,                 arm64_big_sur: "9df11560dd3650ffae35c134cef6e0e91aad0e862f5c8895c568b828cf0598d5"
+    sha256 cellar: :any,                 big_sur:       "1e8eb0326f62d3461d420d98af6fc088daca481cae89fd77a75b420d2e76d776"
+    sha256 cellar: :any,                 catalina:      "5fcf57834f58c18761c6c7b0eb961eb7f9fc54325b5361bf3a17c4dee6ebc08a"
+    sha256 cellar: :any,                 mojave:        "93c0d2ca093819f125300002cd34c1d1b4dfb7a1403729205861bec21388ff12"
+    sha256 cellar: :any,                 high_sierra:   "77581a1df66fb1ef55ffb19777d08b0b60fbc3d2d7ad491a8aceb3a6a4bf7ffd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c5f1cfd038e8fbd640795e34e5e23c11244be3eca7781979600ec0d50bb9c0b"
   end
 
   depends_on "gmp"

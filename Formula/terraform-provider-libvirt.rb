@@ -1,15 +1,16 @@
 class TerraformProviderLibvirt < Formula
   desc "Terraform provisioning with Linux KVM using libvirt"
   homepage "https://github.com/dmacvicar/terraform-provider-libvirt"
-  url "https://github.com/dmacvicar/terraform-provider-libvirt/archive/v0.6.3.tar.gz"
-  sha256 "5ddd180da79629ec36a26f7ff9caa39b5682c2f39e110f8e9c70d3a22b4ea125"
+  url "https://github.com/dmacvicar/terraform-provider-libvirt/archive/v0.6.11.tar.gz"
+  sha256 "1b13a64d52ee672178b278cd705ebb4529e06e3692ed5dbddd1a09f2ef8e5e4f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "eecaaacbb135635d9195891b42da2946155bc435426d2d199eaf5fb5de8973a6"
-    sha256 cellar: :any, big_sur:       "16ae4512f40a98056d05c21077bac05f96a6356e17362bfcff28e3649548f254"
-    sha256 cellar: :any, catalina:      "d9b1288e730298acd13c72661eaab16cec9d1f435032f9a3d12340910a6cb85a"
-    sha256 cellar: :any, mojave:        "9d54585dbad9de738460f1cf773aefcf1d557e5edadb1e245f8cf618edbc6152"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ab4ad2414c19304136f40737e4106480fa4a9263529b88631033c1a1029943f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a3edd031a2893cad825db3a00140cb6ffb949cd20e1d8c7d7f4de64aafbcd6be"
+    sha256 cellar: :any_skip_relocation, catalina:      "c2783859d88adbd62994dc3a1c81d19ac363429636fff8f6e84658c6ccdab115"
+    sha256 cellar: :any_skip_relocation, mojave:        "a9a2db100d57c0485bb9b807d819c5b942bba212d88b10845cdda1f18bf54e2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb290f4b615487538a06594679e884eb06789c707c6ca5fe9626927b4e2392b4"
   end
 
   depends_on "go" => :build
@@ -19,7 +20,7 @@ class TerraformProviderLibvirt < Formula
   depends_on "terraform"
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
   end
 
   test do

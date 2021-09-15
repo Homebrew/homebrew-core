@@ -5,7 +5,7 @@ class Befunge93 < Formula
   version "2.25"
   sha256 "93a11fbc98d559f2bf9d862b9ffd2932cbe7193236036169812eb8e72fd69b19"
   license "BSD-3-Clause"
-  head "https://github.com/catseye/Befunge-93.git"
+  head "https://github.com/catseye/Befunge-93.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -14,6 +14,7 @@ class Befunge93 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "190fa82b0fef31f096a102f3b33205112cb206f578813f7ac78f78617c7d73d3"
     sha256 cellar: :any_skip_relocation, mojave:        "23dd470caf59b04ffb652e46061760701269a8a79ce93c3afd71318da000112d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "c8a1e2085413dd0da3036462eeffed2f01198da92f128f4951c0885bf69a0149"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f71eb1910501903b8af94c21352759032696046be49995beb95caead85a8398"
   end
 
   def install

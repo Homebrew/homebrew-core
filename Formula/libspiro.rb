@@ -7,11 +7,12 @@ class Libspiro < Formula
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4415d981f900b8187bbe5aeb94c4e6f14e2131277f0adaccef5fa2e793067918"
-    sha256 cellar: :any, big_sur:       "76ef3ec2cffe248bceafb680e741fc062d1c3b115d5b105632678d34eeb62f20"
-    sha256 cellar: :any, catalina:      "238761be2cd640f6c3f59f0461ce7f5b73dc71c9613236e180bc55f4231e167b"
-    sha256 cellar: :any, mojave:        "fb1b2e548eddc684a5b615cedabc2c6403e0c87409fdb419369ca40e2b70aa52"
-    sha256 cellar: :any, high_sierra:   "b7155fe14b9909a06a9044ca2d3275f5b2cbcd9aac23583b3819ba53898ff120"
+    sha256 cellar: :any,                 arm64_big_sur: "4415d981f900b8187bbe5aeb94c4e6f14e2131277f0adaccef5fa2e793067918"
+    sha256 cellar: :any,                 big_sur:       "76ef3ec2cffe248bceafb680e741fc062d1c3b115d5b105632678d34eeb62f20"
+    sha256 cellar: :any,                 catalina:      "238761be2cd640f6c3f59f0461ce7f5b73dc71c9613236e180bc55f4231e167b"
+    sha256 cellar: :any,                 mojave:        "fb1b2e548eddc684a5b615cedabc2c6403e0c87409fdb419369ca40e2b70aa52"
+    sha256 cellar: :any,                 high_sierra:   "b7155fe14b9909a06a9044ca2d3275f5b2cbcd9aac23583b3819ba53898ff120"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75b6528d51d32b13be0f7fb68b72407f877cce2c89c774ca7c1da1dfbcbea786"
   end
 
   head do

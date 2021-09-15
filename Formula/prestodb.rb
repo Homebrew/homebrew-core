@@ -1,32 +1,27 @@
 class Prestodb < Formula
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.253/presto-server-0.253.tar.gz"
-  sha256 "b9c3afefe5845ea720d7a3c21d4cd9a5e9e0e378247d60b8b894ce7ab6898987"
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.260.1/presto-server-0.260.1.tar.gz"
+  sha256 "8ca0e18365e78f5617bcc0554e18d37494b1ac6c6a4362c86f5caa485658701a"
   license "Apache-2.0"
 
-  # The source of the Presto download page at https://prestodb.io/download.html
-  # contains old version information. The current version information is loaded
-  # from the JavaScript file below, so we check that instead. We don't check
-  # Maven because sometimes the directory listing page contains a newer version
-  # that hasn't been released yet and we probably don't want to upgrade until
-  # it's official on the first-party website, etc.
+  # Upstream has said that we should check Maven for Presto version information
+  # and the highest version found there is newest:
+  # https://github.com/prestodb/presto/issues/16200
   livecheck do
-    url "https://prestodb.io/static/js/version.js"
-    regex(/latest_presto_version.*?(\d+(?:\.\d+)+)/i)
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0d5b03ed8dc6cefdfde380a7a778213f25313529731e644e40ea094e0ba832ad"
+    sha256 cellar: :any_skip_relocation, all: "c20b42cc039e8ad87b18e8b73ed76788fc42ad2d55376c943dd7401e3d641e1b"
   end
 
   depends_on "openjdk"
 
-  conflicts_with "prestosql", because: "both install `presto` and `presto-server` binaries"
-
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.253/presto-cli-0.253-executable.jar"
-    sha256 "d2ddf100213f70a657029c8beda621960c2431292dc77231875eaa10444fad73"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.260.1/presto-cli-0.260.1-executable.jar"
+    sha256 "c28a4b36dc8f786ede66e9aa653563adc895285f37f2f305f78b4b71dd67fafc"
   end
 
   def install
@@ -83,31 +78,9 @@ class Prestodb < Formula
     EOS
   end
 
-  plist_options manual: "presto-server run"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>AbandonProcessGroup</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{opt_libexec}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/presto-server</string>
-            <string>run</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"presto-server", "run"]
+    working_dir opt_libexec
   end
 
   test do

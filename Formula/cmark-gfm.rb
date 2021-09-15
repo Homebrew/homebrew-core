@@ -9,10 +9,11 @@ class CmarkGfm < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "5704adaff97225f3119dc9249b6d0fd6655c323aa6389473066435ad0a6b1e40"
-    sha256 cellar: :any, big_sur:       "718e29fe5b922ee5c55dae56a8614832bd6dccb974bd83bb0aee39f02f20db31"
-    sha256 cellar: :any, catalina:      "c5a339c14cee2d08621b8ce8913462e24193b3bb9247a5a207c6b60c0b9a28de"
-    sha256 cellar: :any, mojave:        "27144ced3954fbd19c2f7a12ce91c86cc1d8b91425109457b06a87fded64741d"
+    sha256 cellar: :any,                 arm64_big_sur: "5704adaff97225f3119dc9249b6d0fd6655c323aa6389473066435ad0a6b1e40"
+    sha256 cellar: :any,                 big_sur:       "718e29fe5b922ee5c55dae56a8614832bd6dccb974bd83bb0aee39f02f20db31"
+    sha256 cellar: :any,                 catalina:      "c5a339c14cee2d08621b8ce8913462e24193b3bb9247a5a207c6b60c0b9a28de"
+    sha256 cellar: :any,                 mojave:        "27144ced3954fbd19c2f7a12ce91c86cc1d8b91425109457b06a87fded64741d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d3486676c02016e58b30ba0f4d9fd7e968d0766b0a961d4d9a3b403997fb5c9"
   end
 
   depends_on "cmake" => :build

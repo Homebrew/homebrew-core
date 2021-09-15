@@ -6,7 +6,9 @@ class Ditaa < Formula
   license "LGPL-3.0"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "d436c5a9b3d8ccd94a2c4da1ed06ae544e71278d32e911db402f51fd5f2db089"
+  end
 
   depends_on "openjdk"
 

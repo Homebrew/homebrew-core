@@ -6,10 +6,11 @@ class Librsync < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "e2672691faeaba727acde6252c3dba8a39b9a0703f942f8f830d6e5514e15bb3"
-    sha256 big_sur:       "7561cdbc8327f77db0647112ae1496ca544c659a04dfe83e703c9edeee890869"
-    sha256 catalina:      "4d38d5dbea74b9eac4624877d7c7e29f08c38d68dedaaf9dadbdc5e3a820678b"
-    sha256 mojave:        "5796b96a6fc4781e134879993d0fa23816994c424d9984ec0584ae6b0bea2963"
+    sha256                               arm64_big_sur: "e2672691faeaba727acde6252c3dba8a39b9a0703f942f8f830d6e5514e15bb3"
+    sha256                               big_sur:       "7561cdbc8327f77db0647112ae1496ca544c659a04dfe83e703c9edeee890869"
+    sha256                               catalina:      "4d38d5dbea74b9eac4624877d7c7e29f08c38d68dedaaf9dadbdc5e3a820678b"
+    sha256                               mojave:        "5796b96a6fc4781e134879993d0fa23816994c424d9984ec0584ae6b0bea2963"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae437eeb42f5d9cde1bdafc1fc8fdcdca1dc940d638c4225f9303a9ae439a2fa"
   end
 
   depends_on "cmake" => :build

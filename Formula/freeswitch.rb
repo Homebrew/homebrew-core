@@ -151,6 +151,10 @@ class Freeswitch < Formula
   end
 
   def install
+    # Fix build error "use of undeclared identifier 'NSIG'"
+    # Remove when fixed upstream: https://github.com/signalwire/freeswitch/issues/1145
+    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac?
+
     resource("spandsp").stage do
       system "./bootstrap.sh"
       system "./configure", "--disable-debug",
@@ -206,31 +210,9 @@ class Freeswitch < Formula
     end
   end
 
-  plist_options manual: "freeswitch -nc -nonat"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-          <true/>
-        <key>Label</key>
-          <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/freeswitch</string>
-            <string>-nc</string>
-            <string>-nonat</string>
-          </array>
-        <key>RunAtLoad</key>
-          <true/>
-        <key>ServiceIPC</key>
-          <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"freeswitch", "-nc", "-nonat"]
+    keep_alive true
   end
 
   test do

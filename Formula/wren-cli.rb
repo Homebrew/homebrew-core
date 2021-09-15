@@ -11,13 +11,13 @@ class WrenCli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a24574abd51e1ddd58d41e2dbbd89fc0a85f27087541e1c9a982daa601bcdb39"
     sha256 cellar: :any_skip_relocation, catalina:      "bf9368948d1953ceef3246ff6e4d4d142b8d86d9d62d3f0f432a6f5d241f10b2"
     sha256 cellar: :any_skip_relocation, mojave:        "e11eb478ca480716c938c8f88af228bbdeaf394b6e11738606fbd57dff86a25d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89cafae2a7e1fe07ae5a6b907e787dc2e4c5487992667c4b423e6ac7731c29f1"
   end
 
   def install
-    on_macos do
+    if OS.mac?
       system "make", "-C", "projects/make.mac"
-    end
-    on_linux do
+    else
       system "make", "-C", "projects/make"
     end
     bin.install "bin/wren_cli"

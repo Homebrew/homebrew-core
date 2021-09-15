@@ -14,6 +14,7 @@ class Lxsplit < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "f4d271c94546ca73b9e5262ff53bf7b51dcde2a83998d5a2e4b663109f2f69d8"
     sha256 cellar: :any_skip_relocation, el_capitan:    "25699d54183a01f446015fb02521a50b3967ef2d250e56bb1fe3fd0a5aaec2e1"
     sha256 cellar: :any_skip_relocation, yosemite:      "d7d8d9eb204599056a4e109c63114c90e3be797d2be700e114cc3675d8eba0bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5be1da254e8200601318c6258e63e4052dea5d43446d10872f8aab55e83abd4b"
   end
 
   def install

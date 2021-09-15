@@ -15,6 +15,7 @@ class Jdupes < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5261ed3efa79bfe31ae62a82c90b656495ebd63bdf727b2cba5ef18a16347c1f"
     sha256 cellar: :any_skip_relocation, catalina:      "fae0c446827755c4fae47ad83f20f9930574eb2f29a50a2b7d286696e1e9a623"
     sha256 cellar: :any_skip_relocation, mojave:        "949dbf283660112a5540f412f061ec3ff08bc0a9a8649a976335fd678b6cfe0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c33c50a33b28b155ebb50140698f5ef14e7211ac1ada0dd3e0aaafab056cde5b"
   end
 
   def install

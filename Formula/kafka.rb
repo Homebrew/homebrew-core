@@ -7,9 +7,11 @@ class Kafka < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "2419e9580114e1927801684919abd741fa1b90dc05b458209e40848da97f536f"
-    sha256 cellar: :any_skip_relocation, catalina: "2419e9580114e1927801684919abd741fa1b90dc05b458209e40848da97f536f"
-    sha256 cellar: :any_skip_relocation, mojave:   "0dcd62ccde3266e7e2719e06bc40c8f9ec837e9d37dcffc18bd9b8d78c1536b7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:      "b3057db03fb73b120e48fb99a2310add57b92427d8f003569a19455fce45c2e8"
+    sha256 cellar: :any_skip_relocation, catalina:     "b3057db03fb73b120e48fb99a2310add57b92427d8f003569a19455fce45c2e8"
+    sha256 cellar: :any_skip_relocation, mojave:       "b3057db03fb73b120e48fb99a2310add57b92427d8f003569a19455fce45c2e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f1e857fb03756014713ddeb8c240e10cf57cda6cc58e43879a346836d83cad03"
   end
 
   depends_on "openjdk"
@@ -40,34 +42,12 @@ class Kafka < Formula
     (var+"log/kafka").mkpath
   end
 
-  plist_options manual: "zookeeper-server-start -daemon #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties & kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/kafka-server-start</string>
-              <string>#{etc}/kafka/server.properties</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/kafka/kafka_output.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/kafka/kafka_output.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"kafka-server-start", etc/"kafka/server.properties"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"log/kafka/kafka_output.log"
+    error_log_path var/"log/kafka/kafka_output.log"
   end
 
   test do

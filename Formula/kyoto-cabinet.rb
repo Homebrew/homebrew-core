@@ -5,11 +5,17 @@ class KyotoCabinet < Formula
   sha256 "67fb1da4ae2a86f15bb9305f26caa1a7c0c27d525464c71fd732660a95ae3e1d"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url "https://dbmx.net/kyotocabinet/pkg/"
+    regex(/href=.*?kyotocabinet[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "fa9322ae66dc8295d2f60365999a371c6602bcfd98f050e0897992e745c53d93"
     sha256 big_sur:       "8a7873835b5790ece37b54d398daf834e7aa75570202cd7a174ba7e5ebecf6a3"
     sha256 catalina:      "c78b84f7dc1e82f12a8bdbeb934abeb9858968fa8c53dee9a405b1e55b49155d"
     sha256 mojave:        "214ade984ae17b36058ceca13c37fb5612da6daa0c7cbd919e635c1c714a4a1b"
+    sha256 x86_64_linux:  "4e6693149609f558bf30685031113391e230fab20a738ab0ad98c08ef8bc1545"
   end
 
   uses_from_macos "zlib"

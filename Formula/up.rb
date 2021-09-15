@@ -11,6 +11,7 @@ class Up < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "48e91e5ef814e94a40749a9765a17eea031cc3e7b20edf4161187d454a1291da"
     sha256 cellar: :any_skip_relocation, catalina:      "1389b7f7a0c33f8563bacc20c09ba7781440a9fdd0b42a357a944e64dc65e3dc"
     sha256 cellar: :any_skip_relocation, mojave:        "e9a517e8c51a5da04f070628b327a24344b8a7d093bee13cb1efa8ed6a8a944f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9571f93607c8448f5dc5cc3cffa29dbd87c44f255d6339ca0c119d970f39b051"
   end
 
   depends_on "go" => :build

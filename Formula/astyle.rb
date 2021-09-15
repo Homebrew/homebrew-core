@@ -17,6 +17,7 @@ class Astyle < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a327f191b54d199962e6de529a18dd99a6ff5fea0afb30db813fd66da80ed358"
     sha256 cellar: :any_skip_relocation, catalina:      "bb1c58888bd7c8de8876e9a9aa27985d30e4c2a5c420ebaaf237fe3ee13c2900"
     sha256 cellar: :any_skip_relocation, mojave:        "7df95dd20d813717a1de8d5696d93eaaa8977d713738c2c83c16b7ba0f4eb1c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "280458c2e6508194d0f355cbc7b88e6c0a272a0b43caba8da9519e3c028f314e"
   end
 
   def install

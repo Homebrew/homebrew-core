@@ -7,11 +7,12 @@ class LibpqxxAT6 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b6f56911155c390dfbe7351fda8334b1dd47d7fed3d7001e767228144e45cc67"
-    sha256 cellar: :any, big_sur:       "e21e51c071cc9cb879d7ab688f3fba8cf8e32cf14f34779b04db95ec67d1289b"
-    sha256 cellar: :any, catalina:      "29def17a973940490a25c20f5722f6ea4d0551e41cd7986b9025abef40b1534e"
-    sha256 cellar: :any, mojave:        "4b544c65887866135d96226e2bf7c2b586664f8e1a049f6d3dbeca7195884a6f"
-    sha256 cellar: :any, high_sierra:   "39aa6c090c8341c0e9be80d055345c8322ee6a9a908a0f7863479784cbd609f5"
+    sha256 cellar: :any,                 arm64_big_sur: "b6f56911155c390dfbe7351fda8334b1dd47d7fed3d7001e767228144e45cc67"
+    sha256 cellar: :any,                 big_sur:       "e21e51c071cc9cb879d7ab688f3fba8cf8e32cf14f34779b04db95ec67d1289b"
+    sha256 cellar: :any,                 catalina:      "29def17a973940490a25c20f5722f6ea4d0551e41cd7986b9025abef40b1534e"
+    sha256 cellar: :any,                 mojave:        "4b544c65887866135d96226e2bf7c2b586664f8e1a049f6d3dbeca7195884a6f"
+    sha256 cellar: :any,                 high_sierra:   "39aa6c090c8341c0e9be80d055345c8322ee6a9a908a0f7863479784cbd609f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "048e4249607f887c9787a40ca3b4b2092e5ffa8adc649f52940af42406fe5080"
   end
 
   keg_only :versioned_formula

@@ -5,13 +5,14 @@ class Blaze < Formula
   sha256 "dfaae1a3a9fea0b3cc92e78c9858dcc6c93301d59f67de5d388a3a41c8a629ae"
   license "BSD-3-Clause"
   revision 1
-  head "https://bitbucket.org/blaze-lib/blaze.git"
+  head "https://bitbucket.org/blaze-lib/blaze.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "c05e15582afef1b0d7961736731a844b1939a8c99c1d60aa412aee5c5c5507f0"
-    sha256 cellar: :any_skip_relocation, catalina:    "a0ee08be16bbc07c8c3447d05768a736d577a78fdf8ad920cf4cf071cecb4ce4"
-    sha256 cellar: :any_skip_relocation, mojave:      "d4c4f3f85b1d9f7759fa7fa9a9c850fd031fd5204b3b0beff5caa879a9561ea8"
-    sha256 cellar: :any_skip_relocation, high_sierra: "4cd2aa850c2749e6b8b9c82687e377bf48b0c97e55dba47c99182439677d042b"
+    sha256 cellar: :any_skip_relocation, big_sur:      "c05e15582afef1b0d7961736731a844b1939a8c99c1d60aa412aee5c5c5507f0"
+    sha256 cellar: :any_skip_relocation, catalina:     "a0ee08be16bbc07c8c3447d05768a736d577a78fdf8ad920cf4cf071cecb4ce4"
+    sha256 cellar: :any_skip_relocation, mojave:       "d4c4f3f85b1d9f7759fa7fa9a9c850fd031fd5204b3b0beff5caa879a9561ea8"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "4cd2aa850c2749e6b8b9c82687e377bf48b0c97e55dba47c99182439677d042b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3ff47ebef0f77fa62899a10829de9949ca752fb3bb8d921eeb363a67c8a080b4"
   end
 
   depends_on "cmake" => :build
@@ -44,8 +45,11 @@ class Blaze < Formula
       }
     EOS
 
-    expected = "C =\n(           -1           -1 )" \
-                  "\n(            0           -4 )\n"
+    expected = <<~EOS
+      C =
+      (           -1           -1 )
+      (            0           -4 )
+    EOS
 
     system ENV.cxx, "test.cpp", "-std=c++14", "-I#{include}", "-o", "test"
     assert_equal expected, shell_output(testpath/"test")

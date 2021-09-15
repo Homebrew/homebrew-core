@@ -7,12 +7,14 @@ class Mahout < Formula
   license "Apache-2.0"
   revision 1
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "baaec00c1e35a0a264b4ef3d0e7e5043f4ea8dfb264d3df278bd5fc629d7faf0"
+  end
+
   head do
     url "https://github.com/apache/mahout.git"
     depends_on "maven" => :build
   end
-
-  bottle :unneeded
 
   depends_on "hadoop"
   depends_on "openjdk"

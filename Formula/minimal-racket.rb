@@ -1,8 +1,8 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/8.1/racket-minimal-8.1-src.tgz"
-  sha256 "53043e3e7f5647d296de2759aea56b56faebfe693ca08191cfb642a04db0a4e0"
+  url "https://mirror.racket-lang.org/installers/8.2/racket-minimal-8.2-src.tgz"
+  sha256 "6f4dcbb17493898c954973ddde3daee1f18aa3197e6ece0d3e48dc2d4cfa84c7"
   license any_of: ["MIT", "Apache-2.0"]
 
   # File links on the download page are created using JavaScript, so we parse
@@ -15,11 +15,11 @@ class MinimalRacket < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "6234285fe74146dfa7077605ae98569ccfa46990120216454c8484a100ce7308"
-    sha256 cellar: :any, big_sur:       "a14efabedba4ab25fa1caceed9dca519a14209320973d01a98124450537eab01"
-    sha256 cellar: :any, catalina:      "949d23dbde6f1be019e5ddd6e0400dea79b9a4967104308b6dec9af8a5ee2947"
-    sha256 cellar: :any, mojave:        "bbfce452b9bed295d01e0efb309e8ad0016b810659a9ce9220dc699e13e6eee7"
+    sha256 arm64_big_sur: "2fcbd22adcdf16e1a8a1618f3c06022cc4081752b0802767b4e48469b22f4f36"
+    sha256 big_sur:       "2549795768caa35126b4464af7dd15bd4d3f11755f9853ffc3f248d061e7b457"
+    sha256 catalina:      "a79ff7f036256aae9159f89897e32629641d889b4bd37c98e91b216a7f3085f5"
+    sha256 mojave:        "56d2c05a1f17765404dad099fa7565883447be394f2ecbe2b74a19c13d6b7ded"
+    sha256 x86_64_linux:  "5649130e99166343b0147b8fc992d1004f1dfd8529e8de0f284c0912217aa0c8"
   end
 
   depends_on "openssl@1.1"
@@ -47,9 +47,7 @@ class MinimalRacket < Formula
       ]
 
       ENV["LDFLAGS"] = "-rpath #{Formula["openssl@1.1"].opt_lib}"
-      on_linux do
-        ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@1.1"].opt_lib}"
-      end
+      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@1.1"].opt_lib}" if OS.linux?
 
       system "./configure", *args
       system "make"

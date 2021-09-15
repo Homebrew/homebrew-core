@@ -15,6 +15,7 @@ class Gperf < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "3cbaa18692ac53ce98a754d46e07e89d6dddca4bef3bbb312e762abf5a30093d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "27f661ef9546ff113279654e92c08bb8d8ab837f7dc8b308c1a2beeafdcebc76"
     sha256 cellar: :any_skip_relocation, yosemite:      "263440c302dddec69c2140e8df2e4c00a76b76137243e712e8e8756140e0eaf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a91b89f648c21ae225074e0a9f4e54154b4f2744cc0a37e8421e84ee7ac61a95"
   end
 
   def install

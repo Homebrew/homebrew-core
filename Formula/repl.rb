@@ -5,7 +5,9 @@ class Repl < Formula
   sha256 "d0542404f03159b0d6eb22a1aa4a509714c87c8594fca5121c578d50d950307d"
   license "MIT"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "497a5e7b673fbd288181f823e1b1a7ba71770b6d3da82bd66ac100c60b0295b3"
+  end
 
   def install
     bin.install "bin/repl"

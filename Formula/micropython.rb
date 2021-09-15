@@ -2,14 +2,16 @@ class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
   url "https://github.com/micropython/micropython.git",
-      tag:      "v1.15",
-      revision: "321d1897c34f16243edf2c94913d7cf877a013d1"
+      tag:      "v1.17",
+      revision: "7c54b6428058a236b8a48c93c255948ece7e718b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "7189071c553ab2ea57ae669e94eea6a24f3d2f942a95c37a2ffeece24f87b290"
-    sha256 cellar: :any, catalina: "85748d870424a6f6d30d2e921e613419f8d46320576d86ca6a563dbe3f8e69ca"
-    sha256 cellar: :any, mojave:   "00fe3b2e6e7373ee4528fa536c23352c85a4f8c135da0c7066fd3cabefcd711f"
+    sha256 cellar: :any,                 arm64_big_sur: "895f218115da8beafc09bb3f6d12054f768130f9cd277ceea8ef80e74ea5926f"
+    sha256 cellar: :any,                 big_sur:       "a4edf2dea151e9d75df897e28a8bbe79ffaa9d28e288a958ce963ca062eca4d9"
+    sha256 cellar: :any,                 catalina:      "4bdae46a88ef9337b619931ad80578189fec96f955cd7c0d4736498db208a96f"
+    sha256 cellar: :any,                 mojave:        "ac856567d0576d050da683f656ab0cd4d04f7ca5fa51eb5905cf948e6c2ec504"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49292f085f5962dc6539d22c8bdddfb2255aa720b6f48cecdce5266f5a94bb63"
   end
 
   depends_on "pkg-config" => :build

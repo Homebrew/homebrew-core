@@ -1,24 +1,24 @@
 class Kind < Formula
   desc "Run local Kubernetes cluster in Docker"
   homepage "https://kind.sigs.k8s.io/"
-  url "https://github.com/kubernetes-sigs/kind/archive/v0.11.0.tar.gz"
-  sha256 "c78bed3a39afd2e523b38256b7f16445d0ad4b8b25f18b5766005e095af772cd"
+  url "https://github.com/kubernetes-sigs/kind/archive/v0.11.1.tar.gz"
+  sha256 "95ce0e7b01c00be149e5bd777936cef3f79ba7f1f3e5872e7ed60595858a2491"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kind.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef444e0ee20b8bc341b430aa8d3eced29b5ecfeb16b8754449d7e3a67c9d8f1b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f0447bc4b8145224995dbcde38f218e6ad3eddf7cec43cc30103d9e89fa8f595"
-    sha256 cellar: :any_skip_relocation, catalina:      "872579a3058f9d1e65261effc0b527b80a06fab5c6ea993645a136c19c282d7b"
-    sha256 cellar: :any_skip_relocation, mojave:        "ef9d4fb28756c10b4702fd8721ca3c1286af8e2667ac67742b221d2b480eeebd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "29920822e416eea3f363200b64666756a2979aa186e067b3794bb5466aeaaf35"
+    sha256 cellar: :any_skip_relocation, big_sur:       "116a1749c6aee8ad7282caf3a3d2616d11e6193c839c8797cde045cddd0e1138"
+    sha256 cellar: :any_skip_relocation, catalina:      "15aa1527c8886da5ce345ae84f255fd33ee9726acef8c6ba1f33c2f5af8d6a96"
+    sha256 cellar: :any_skip_relocation, mojave:        "f506e71e34e0e43f48425a733b77d4f7f574861d52041d6c3a8a7220ae49943f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03aa8a4879c9b3b3e234a37275b3c4dd9c9c50f1b3b8e0859ef92d0bee54eb59"
   end
 
   depends_on "go" => :build
   depends_on "docker" => :test
 
   def install
-    system "go", "build", "-o", bin/"kind"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args
 
     # Install bash completion
     output = Utils.safe_popen_read("#{bin}/kind", "completion", "bash")

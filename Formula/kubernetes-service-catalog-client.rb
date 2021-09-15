@@ -11,6 +11,7 @@ class KubernetesServiceCatalogClient < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "a6f26e163ee15f601fef1b974e3c55f22a4c7333aea3ddf6ce009f386b58db18"
     sha256 cellar: :any_skip_relocation, mojave:        "9d29ae7fed57216e663459a4964c9946475329bdd4a6aa0666d69019840c6abf"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a6b37292f716de1ba860d6e38905aa80063120ca8018d58b0bd05bca7475a253"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c41818d0040c8d3943167a585393487deef56e651c0308ef50cde5cf0692e3ae"
   end
 
   depends_on "go" => :build

@@ -6,10 +6,11 @@ class XcbUtilRenderutil < Formula
   license all_of: ["X11", "HPND-sell-variant"]
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7091c73aa3571aa8c4cc2568175f91b3dffe7714dbb1ab334c86da174395d2e1"
-    sha256 cellar: :any, big_sur:       "0941200260ef409b5daa61664cad100fe69b08e99b8cb440297079387e2dadff"
-    sha256 cellar: :any, catalina:      "5fb7ef030a443af89504e74d04fccf3000ac04bf152798e7d4242247e2378ae2"
-    sha256 cellar: :any, mojave:        "b0a2c992673650129ee49fcb4fbe6873ef4b8d29a5677ae873a27e05fc7a0d27"
+    sha256 cellar: :any,                 arm64_big_sur: "7091c73aa3571aa8c4cc2568175f91b3dffe7714dbb1ab334c86da174395d2e1"
+    sha256 cellar: :any,                 big_sur:       "0941200260ef409b5daa61664cad100fe69b08e99b8cb440297079387e2dadff"
+    sha256 cellar: :any,                 catalina:      "5fb7ef030a443af89504e74d04fccf3000ac04bf152798e7d4242247e2378ae2"
+    sha256 cellar: :any,                 mojave:        "b0a2c992673650129ee49fcb4fbe6873ef4b8d29a5677ae873a27e05fc7a0d27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a38fd262818572bab58fd490775a5628a982b510850b0fddc48da6e37077823d"
   end
 
   head do

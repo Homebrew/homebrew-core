@@ -5,7 +5,9 @@ class MavenShell < Formula
   sha256 "584008d726bf6f90271f4ccd03b549773cbbe62ba7e92bf131e67df3ac5a41ac"
   license "EPL-1.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "07937b1a530b436e89a72f73244f782228dc02ee2b31e761e052e5367704a39e"
+  end
 
   def install
     # Remove windows files.

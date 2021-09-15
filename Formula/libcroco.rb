@@ -6,12 +6,13 @@ class Libcroco < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d6cced1a48822aac65fbb995159f26ed0552217d125969bcae4bd61bdf223407"
-    sha256 cellar: :any, big_sur:       "001998f7977aa0e07aa26ab431422e56b2de76dcb7b75dee392f0d0f3674197a"
-    sha256 cellar: :any, catalina:      "bc64de8725726ae0188ec23dc9946759565f06e45d3eb10e510d5d42d0888e28"
-    sha256 cellar: :any, mojave:        "edf97f493296bfe01b2a8cfe156f1e8052e181bed6ea34cabaf18ed59ef28b17"
-    sha256 cellar: :any, high_sierra:   "f6e7d7d608dfcf6e57eaad77eef3cca27c15db0746e102f6dc33cccdd5a8a7bc"
-    sha256 cellar: :any, sierra:        "a95e3733bd72b789cc9a3cb9dfc9a92153939b984c4d1d47b8aa806e99e99552"
+    sha256 cellar: :any,                 arm64_big_sur: "d6cced1a48822aac65fbb995159f26ed0552217d125969bcae4bd61bdf223407"
+    sha256 cellar: :any,                 big_sur:       "001998f7977aa0e07aa26ab431422e56b2de76dcb7b75dee392f0d0f3674197a"
+    sha256 cellar: :any,                 catalina:      "bc64de8725726ae0188ec23dc9946759565f06e45d3eb10e510d5d42d0888e28"
+    sha256 cellar: :any,                 mojave:        "edf97f493296bfe01b2a8cfe156f1e8052e181bed6ea34cabaf18ed59ef28b17"
+    sha256 cellar: :any,                 high_sierra:   "f6e7d7d608dfcf6e57eaad77eef3cca27c15db0746e102f6dc33cccdd5a8a7bc"
+    sha256 cellar: :any,                 sierra:        "a95e3733bd72b789cc9a3cb9dfc9a92153939b984c4d1d47b8aa806e99e99552"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0b5c4b0de56d524a572a2bd8c93f65ed827c80093776bfd7681fd6351df6e13"
   end
 
   depends_on "intltool" => :build

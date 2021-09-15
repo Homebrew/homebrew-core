@@ -17,16 +17,18 @@ class Libdc1394 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8af168268139e714a725ab1d4384a34ef092a3e50e081baba66fdf583fef3711"
-    sha256 cellar: :any, big_sur:       "7eef59a97b33666b144d68181b081eba93c4c23c58f159a67684d2ed2d043080"
-    sha256 cellar: :any, catalina:      "57080908a5da9abb2c0d83d4ad25450a507de8140a812112d9e5751f4004e4d0"
-    sha256 cellar: :any, mojave:        "6cf02c5500f83fa2ccd1ff9b880f44f9652d68b0e90a2345d6c62fb92a988f0a"
-    sha256 cellar: :any, high_sierra:   "536cbd34a43886d63a3dba41e7877ed63ad0fbe1a5e21cde499bd2c9e1e37e52"
-    sha256 cellar: :any, sierra:        "ff1d7c6b07f21d8cd485574b10091eb21c2316390a7d4cfa84d29cccce8097e6"
+    sha256 cellar: :any,                 arm64_big_sur: "8af168268139e714a725ab1d4384a34ef092a3e50e081baba66fdf583fef3711"
+    sha256 cellar: :any,                 big_sur:       "7eef59a97b33666b144d68181b081eba93c4c23c58f159a67684d2ed2d043080"
+    sha256 cellar: :any,                 catalina:      "57080908a5da9abb2c0d83d4ad25450a507de8140a812112d9e5751f4004e4d0"
+    sha256 cellar: :any,                 mojave:        "6cf02c5500f83fa2ccd1ff9b880f44f9652d68b0e90a2345d6c62fb92a988f0a"
+    sha256 cellar: :any,                 high_sierra:   "536cbd34a43886d63a3dba41e7877ed63ad0fbe1a5e21cde499bd2c9e1e37e52"
+    sha256 cellar: :any,                 sierra:        "ff1d7c6b07f21d8cd485574b10091eb21c2316390a7d4cfa84d29cccce8097e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c95c1747f8a7b05bb423f16a0a2fa2106e6b1413e7424f2fee4a2ed07a92f54a"
   end
 
   head do
-    url "https://git.code.sf.net/p/libdc1394/code.git"
+    url "https://git.code.sf.net/p/libdc1394/code.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

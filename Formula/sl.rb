@@ -4,7 +4,7 @@ class Sl < Formula
   url "https://github.com/mtoyoda/sl/archive/5.02.tar.gz"
   sha256 "1e5996757f879c81f202a18ad8e982195cf51c41727d3fea4af01fdcbbb5563a"
   license "MIT"
-  head "https://github.com/mtoyoda/sl.git"
+  head "https://github.com/mtoyoda/sl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d8ab2f34483a0a595350f949b1a0a4386b3836ce624245365c7bce6664bb283a"
@@ -15,6 +15,7 @@ class Sl < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "afd30cb3a99d238a8ac52810834244d5f47fc2ff597db9ad61012bd2014395b9"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f186cb86f4d48929aa671434dbd6be0a861069608098a30dc952697bcca85972"
     sha256 cellar: :any_skip_relocation, yosemite:      "696104243a18e08279d461e66e6a696791e6c36b67df43e361ad6f6de1200440"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2afd20ebfe0276c9b39a77ef22611e8815eb936c3c21abb31cfd8f097f161476"
   end
 
   uses_from_macos "ncurses"

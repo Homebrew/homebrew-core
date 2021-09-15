@@ -13,6 +13,7 @@ class Daemonize < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "bc501e9e4ba9fd11390fa9749a7b9a38a70353edaf75499bd969c45921d06bfe"
     sha256 cellar: :any_skip_relocation, sierra:        "d4d5109292158ef32eb73a37b9b6a037dcae620e234be945410ea927322bb998"
     sha256 cellar: :any_skip_relocation, el_capitan:    "5e05991cf0462e4fe32dd70354d2520a378831d2b1c0fc2cf0b4fbca8dc85489"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccae89928e0e598a4b36e6077c509bb4a36020519b4aa49aa3bd58b42de2a3ce"
   end
 
   def install

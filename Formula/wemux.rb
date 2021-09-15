@@ -4,7 +4,7 @@ class Wemux < Formula
   url "https://github.com/zolrath/wemux/archive/v3.2.0.tar.gz"
   sha256 "8de6607df116b86e2efddfe3740fc5eef002674e551668e5dde23e21b469b06c"
   license "MIT"
-  head "https://github.com/zolrath/wemux.git"
+  head "https://github.com/zolrath/wemux.git", branch: "master"
 
   bottle do
     rebuild 3
@@ -13,6 +13,7 @@ class Wemux < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
     sha256 cellar: :any_skip_relocation, mojave:        "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
     sha256 cellar: :any_skip_relocation, high_sierra:   "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0141da5136178a7dd857688ba9ec076c9a03f04bbe2710cd925619561885e947"
   end
 
   depends_on "tmux"

@@ -17,6 +17,7 @@ class Cntlm < Formula
     sha256 catalina:      "7239fa52155edd2040ed7bff62b954351bb5e96fd226b4f0e1f7e956c64223d7"
     sha256 mojave:        "79b1221fa60196d7670bb3cbcd6bab63490ba780222e7faf84404a57ac52d6ba"
     sha256 high_sierra:   "9a1bafd1930ba3ade9b8df892d9fd28a0c414750ee728a791886dd9c999d0173"
+    sha256 x86_64_linux:  "523184cb07c5b9c17d65a2a36f767ed37726570ec5ac3239ae49be84e12c5f6b"
   end
 
   def install
@@ -34,30 +35,8 @@ class Cntlm < Formula
 
   plist_options startup: true
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/cntlm</string>
-            <string>-f</string>
-          </array>
-          <key>KeepAlive</key>
-          <false/>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>/dev/null</string>
-          <key>StandardOutPath</key>
-          <string>/dev/null</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"cntlm", "-f"]
   end
 
   test do

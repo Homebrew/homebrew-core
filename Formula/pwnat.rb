@@ -4,7 +4,7 @@ class Pwnat < Formula
   url "https://samy.pl/pwnat/pwnat-0.3-beta.tgz"
   sha256 "d5d6ea14f1cf0d52e4f946be5c3630d6440f8389e7467c0117d1fe33b9d130a2"
   license "GPL-3.0"
-  head "https://github.com/samyk/pwnat.git"
+  head "https://github.com/samyk/pwnat.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "25630303a2d2434a840a95274ff3063d8cdc702d00d31907d12cc8f1befb7180"
@@ -15,6 +15,7 @@ class Pwnat < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "f8319cece67a334c14129e706f9d1b249d7905cf1ad62df9b5ee9553dbb8d001"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0149fc977622f2fd55db5845a377437028df31bb847230d3fd73d548e481e289"
     sha256 cellar: :any_skip_relocation, yosemite:      "cf17568c4053240ffe61594bcc618577c0d0c569abda8b3b956a4e4b441a755e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b7755c5424f3e0441efa1345c45c6fec439be2a06ba88d633aaf60f9c239731"
   end
 
   def install

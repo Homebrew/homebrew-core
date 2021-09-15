@@ -6,13 +6,14 @@ class Cookiecutter < Formula
   url "https://files.pythonhosted.org/packages/58/f5/6f41fa38e6efe4a0e85771f99a4ad8c33b4c14f03b4cc53b459aac4a629a/cookiecutter-1.7.3.tar.gz"
   sha256 "6b9a4d72882e243be077a7397d0f1f76fe66cf3df91f3115dbb5330e214fa457"
   license "BSD-3-Clause"
-  head "https://github.com/cookiecutter/cookiecutter.git"
+  head "https://github.com/cookiecutter/cookiecutter.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "48c4107866f0afcb5084b0da38170546238c59776cb9d313b7a88de73852a0f0"
     sha256 cellar: :any_skip_relocation, big_sur:       "6ebf932a9ffa0a2e4ddbe0e8d1c7979a90fac8d3902df2daa9de46fd856b43ab"
     sha256 cellar: :any_skip_relocation, catalina:      "48ec90f110d561ec949280584f7862b00f3c4d08d8bf66229e5747933f8b8ef3"
     sha256 cellar: :any_skip_relocation, mojave:        "c5a596bce9b722d11f974cb2e23c3ed77ba246244d8888df4226bc0e15d4e104"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4566473349385e6e308c201ea9e33ecac8e474014f5e69aedf6ab8bb7ff92d27"
   end
 
   depends_on "python@3.9"

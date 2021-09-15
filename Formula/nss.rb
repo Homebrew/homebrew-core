@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_65_RTM/src/nss-3.65.tar.gz"
-  sha256 "32170f6c188212a78bf9fdacffa2eeed0d564ef8faae63fd8ae971b208e8c637"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_70_RTM/src/nss-3.70.tar.gz"
+  sha256 "2b89abb8601ee405be8ac5b5703d71f1fb38a51c3a64a3d834387f78b325511b"
   license "MPL-2.0"
 
   livecheck do
@@ -11,10 +11,11 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b16d1670d4f0b5ae7d71893aca2afa08ee40c6f8cff4208d5f62796ce100c723"
-    sha256 cellar: :any, big_sur:       "5b4d99ae3c10ed2bbeead0a13a361927cf60e273b307bcd83740187ec153176a"
-    sha256 cellar: :any, catalina:      "10400ca658396e06b0447c2ea8341be116f48c7817db8e5fa31ec88319d5304d"
-    sha256 cellar: :any, mojave:        "aec92f322b5b10a3141a467fde711680b82897e9155b700a7670fa29fd64f4e3"
+    sha256 cellar: :any,                 arm64_big_sur: "03024d02dc3d7dd24f3157fc08d4b98de3b1496b75ac2bfb7d223c5af4301b63"
+    sha256 cellar: :any,                 big_sur:       "238f33223e0a09ce14313f7e434b6379a727d8c2737a6d676c2d48ee38b9cfa4"
+    sha256 cellar: :any,                 catalina:      "95478e75c9909c3f470956b402fc21775884e5ab35507c79de4c821f44a1c374"
+    sha256 cellar: :any,                 mojave:        "c080c770c52a84fcc426e20e3934d4b5e244207aab071a726a667136881e4c43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3891b7a2ad945d43e57efae905cd9548ebb7e2145d35b71b0d3dadf85f34b9e7"
   end
 
   depends_on "nspr"
@@ -49,7 +50,12 @@ class Nss < Formula
     # rather than copying the referenced file.
     cd "../dist"
     bin.mkpath
-    Dir.glob("Darwin*/bin/*") do |file|
+    os = if OS.mac?
+      "Darwin"
+    else
+      "Linux"
+    end
+    Dir.glob("#{os}*/bin/*") do |file|
       cp file, bin unless file.include? ".dylib"
     end
 
@@ -59,7 +65,7 @@ class Nss < Formula
 
     lib.mkpath
     libexec.mkpath
-    Dir.glob("Darwin*/lib/*") do |file|
+    Dir.glob("#{os}*/lib/*") do |file|
       if file.include? ".chk"
         cp file, libexec
       else

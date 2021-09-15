@@ -1,21 +1,21 @@
 class Lemon < Formula
   desc "LALR(1) parser generator like yacc or bison"
   homepage "https://www.hwaci.com/sw/lemon/"
-  url "https://sqlite.org/2021/sqlite-src-3350200.zip"
-  version "3.35.2"
-  sha256 "6af39632ed596ff3294f35caff4d671745f81894135f9789ceecf696dfc38703"
+  url "https://www.sqlite.org/2021/sqlite-src-3360000.zip"
+  version "3.36.0"
+  sha256 "25a3b9d08066b3a9003f06a96b2a8d1348994c29cc912535401154501d875324"
   license "blessing"
 
   livecheck do
-    url "https://sqlite.org/news.html"
-    regex(%r{v?(\d+(?:\.\d+)+)</h3>}i)
+    formula "sqlite"
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a287b615e9706e1819125b9ab9648bc437f9e932f378af9c023b23f428020b4b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4ce45a0aa918930d58d30cf6a4c729aecb403ee11016449c95f869eafc5acccc"
-    sha256 cellar: :any_skip_relocation, catalina:      "0ce20136a56424d8cc07162171d4a46701a713bcead271d241db135b274d53d3"
-    sha256 cellar: :any_skip_relocation, mojave:        "21b0c4309efc6b7c2be0b580806b403034e8c978081f2340a5d887d095f1963d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9895753eefde9fd60263be373f014f1cb77bbd4065ff1c2c6fca12450bbc138"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e6b34bdbe078fb14319d9ece2baf5e8525755681b0746533614beae982c60c47"
+    sha256 cellar: :any_skip_relocation, catalina:      "33b24b43065b09972b1920ef895cea10367a24c62d868fec55fefc77b87cf5c9"
+    sha256 cellar: :any_skip_relocation, mojave:        "02cb0c5dfe67351858960a11708173a226d62e4085635a692b41525607ab1454"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29561eac80c7a860cde7c8ec83241778ce0f73fed5056e27eb477a3695c810af"
   end
 
   def install

@@ -1,16 +1,17 @@
 class Okteto < Formula
   desc "Build better apps by developing and testing code directly in Kubernetes"
   homepage "https://okteto.com"
-  url "https://github.com/okteto/okteto/archive/1.12.12.tar.gz"
-  sha256 "32a88432fc028ce389e06d97f89d8ddcd79d94f7e762c990f3ec7ffd0b74bf3f"
+  url "https://github.com/okteto/okteto/archive/1.13.11.tar.gz"
+  sha256 "e5d05c91b3af30ed66ef86ce90a0a5fb1ed85f4abdfc2ea3a26b6ec904c8c663"
   license "Apache-2.0"
-  head "https://github.com/okteto/okteto.git"
+  head "https://github.com/okteto/okteto.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6f80d94ac2a2263542dc37b192dcaf423754984cbf5531cb03ba74b16996b873"
-    sha256 cellar: :any_skip_relocation, big_sur:       "33b4c43e30ee61f3e5266945ce37f0143df8d59f62468e096461782775c7f173"
-    sha256 cellar: :any_skip_relocation, catalina:      "ca31ae6407ac952966612a511378174655560562fd2391227ff98c48e5fce39d"
-    sha256 cellar: :any_skip_relocation, mojave:        "1c8bb6274191261f5ea020bd99153b4e3de1dcd00997febe350d4f0e3d8797c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bf3b8a6a995a2ceb77276e624569b74b66d2b6e06888a9465228c0e2ea52abe1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d903ac730b86d77e4098a2ab8f0809aa1fe3619de117f3fd241cbdad5718d5e2"
+    sha256 cellar: :any_skip_relocation, catalina:      "9b765eecc84acd0f3264effdbe470f1180f16739f03a9a4e92db5309f1289445"
+    sha256 cellar: :any_skip_relocation, mojave:        "9d85fed99bfa9b3cad7f1be8fc051619dca741a0327d965f7b27a2b50cfd6b95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1178e86bfc7591142ed6914d88ca4d01203bcfc8299cdc98314fc55488212dd5"
   end
 
   depends_on "go" => :build
@@ -18,7 +19,7 @@ class Okteto < Formula
   def install
     ldflags = "-s -w -X github.com/okteto/okteto/pkg/config.VersionString=#{version}"
     tags = "osusergo netgo static_build"
-    system "go", "build", *std_go_args, "-ldflags", ldflags, "-tags", tags
+    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", tags
   end
 
   test do

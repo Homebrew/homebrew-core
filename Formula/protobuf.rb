@@ -1,10 +1,9 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.17.0/protobuf-all-3.17.0.tar.gz"
-  sha256 "96da1cb0648c7c1b2e68ef7089149dce18ecf8d0582a171315b3991a59e629c6"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.17.3/protobuf-all-3.17.3.tar.gz"
+  sha256 "77ad26d3f65222fd96ccc18b055632b0bfedf295cb748b712a98ba1ac0b704b2"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,10 +11,11 @@ class Protobuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8e5a79968dc5b41f8cc8e28e5ef4bc683d1dbb45748ab3e02fdffe440ad6c6b3"
-    sha256 cellar: :any, big_sur:       "854c7a9b9eb7db2b9bd43a0946b3569c59435797a48e23071daa8490a7c9c58e"
-    sha256 cellar: :any, catalina:      "b7fbbd221a4a4b75a4560b08c6f9c1c70b306543c9304b096639d1c3fb919fcb"
-    sha256 cellar: :any, mojave:        "3957b43ba872e74ebd6483eb510646a6398766f8b3774f542b713463c3a99f35"
+    sha256 cellar: :any,                 arm64_big_sur: "ef7a56961e918e7626e099d18ad87d2ad5414ccc2086211d5dd4f6509d7f4de5"
+    sha256 cellar: :any,                 big_sur:       "d1060a6f73000c9c46a1954397a6375fb41c409d7b3cb7206fc69488313b4855"
+    sha256 cellar: :any,                 catalina:      "2f25a4051028d54de1b5527826f39815858b89040f39f14866472c8aa6bfb4e1"
+    sha256 cellar: :any,                 mojave:        "7e6d2eb1baee925d8a0776e9dc9fbcb267e1de5c45d2b648b6a60457f0519667"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a7178716cb915c19725d6e21bde91b8c7059e0cf6ffd7e3ab2cd1746a1a2d32"
   end
 
   head do
@@ -28,6 +28,8 @@ class Protobuf < Formula
 
   depends_on "python@3.9" => [:build, :test]
   depends_on "six"
+
+  uses_from_macos "zlib"
 
   def install
     # Don't build in debug mode. See:

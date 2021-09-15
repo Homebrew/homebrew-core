@@ -6,9 +6,10 @@ class TerraformAT013 < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "a9071c87b749036c6b9b0287af782e80e0282e7428718355ae8a2cea2c70bdb6"
-    sha256 cellar: :any_skip_relocation, catalina: "59fb34b8e85bbfc049a2e2950539abab123904d101bf572c85cd963e901ed1a6"
-    sha256 cellar: :any_skip_relocation, mojave:   "ad5aad95ca700df4f9c61ec68734952e6a72b223a7cf2762eb7aa3b03b6c7b69"
+    sha256 cellar: :any_skip_relocation, big_sur:      "a9071c87b749036c6b9b0287af782e80e0282e7428718355ae8a2cea2c70bdb6"
+    sha256 cellar: :any_skip_relocation, catalina:     "59fb34b8e85bbfc049a2e2950539abab123904d101bf572c85cd963e901ed1a6"
+    sha256 cellar: :any_skip_relocation, mojave:       "ad5aad95ca700df4f9c61ec68734952e6a72b223a7cf2762eb7aa3b03b6c7b69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4f7a689aa70f30e171b26de7bc1ef214f1ddb9c60950865c1530833f99e609a8"
   end
 
   keg_only :versioned_formula

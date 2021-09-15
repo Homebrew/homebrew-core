@@ -14,6 +14,7 @@ class Atdtool < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ed0bcc8c78addd4e072c55d8476e8ed4d5d5b4942df5c48b359c483a6dc2949f"
     sha256 cellar: :any_skip_relocation, catalina:      "df0ff285c54b4368cb9e6731a025551c7e73f76a61f38b1e03cf86d8768735fb"
     sha256 cellar: :any_skip_relocation, mojave:        "267d97304c449f94707c4fac451331d1c9e38e07b774cc4fd78043a0bc94c197"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cdd57cf16b53626ffb5ad6a7a4f2c93069355665c4799a5922983464895a9a2"
   end
 
   deprecate! date: "2020-11-18", because: :repo_archived

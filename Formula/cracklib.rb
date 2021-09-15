@@ -12,12 +12,13 @@ class Cracklib < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ffc09f71e17accfb3b76513b8fe6220aa683bfce4132e182eaa8e47993f9d3df"
-    sha256 cellar: :any, big_sur:       "308feca305163e5333e84e3fbbfa497c0b483b13f99ed62971e1d503dd137150"
-    sha256 cellar: :any, catalina:      "6b22a44df4e1602edc9d248bd1ef58a638c1d04cfdfcbc745f331d05ea91d8ac"
-    sha256 cellar: :any, mojave:        "cdf8e3240e77e574df95271024c7b260ef5eafea27dfa6f6188c1a686dd1b9be"
-    sha256 cellar: :any, high_sierra:   "210b950eee847fdccdb388c14d87eb425182282e581187302daa91dfa166fb78"
-    sha256 cellar: :any, sierra:        "3e74c66c810e5faa99833fc89d375945d0059ddc4b13b5f57128de70cff9dfef"
+    sha256 cellar: :any,                 arm64_big_sur: "ffc09f71e17accfb3b76513b8fe6220aa683bfce4132e182eaa8e47993f9d3df"
+    sha256 cellar: :any,                 big_sur:       "308feca305163e5333e84e3fbbfa497c0b483b13f99ed62971e1d503dd137150"
+    sha256 cellar: :any,                 catalina:      "6b22a44df4e1602edc9d248bd1ef58a638c1d04cfdfcbc745f331d05ea91d8ac"
+    sha256 cellar: :any,                 mojave:        "cdf8e3240e77e574df95271024c7b260ef5eafea27dfa6f6188c1a686dd1b9be"
+    sha256 cellar: :any,                 high_sierra:   "210b950eee847fdccdb388c14d87eb425182282e581187302daa91dfa166fb78"
+    sha256 cellar: :any,                 sierra:        "3e74c66c810e5faa99833fc89d375945d0059ddc4b13b5f57128de70cff9dfef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "453522bad648a4fe745e92c977ba9b5810c1246aeb9ba12efa81ac8680fc137a"
   end
 
   depends_on "gettext"

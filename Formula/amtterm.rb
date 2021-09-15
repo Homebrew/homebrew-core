@@ -4,7 +4,12 @@ class Amtterm < Formula
   url "https://www.kraxel.org/releases/amtterm/amtterm-1.6.tar.gz"
   sha256 "1242cea467827aa1e2e91b41846229ca0a5b3f3e09260b0df9d78dc875075590"
   license "GPL-2.0"
-  head "https://git.kraxel.org/git/amtterm/", using: :git
+  head "https://git.kraxel.org/git/amtterm/", branch: "master", using: :git
+
+  livecheck do
+    url "https://www.kraxel.org/releases/amtterm/"
+    regex(/href=.*?amtterm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 1

@@ -14,6 +14,7 @@ class Libunistring < Formula
     sha256 cellar: :any, high_sierra:   "5eeec8fdede3d6ae2c1082179879a41d3b600a36e7d83acc5ea0587ad85d5a9d"
     sha256 cellar: :any, sierra:        "3a7a0e8737c19995bc8a263724a90a26b418b177deee90b4e6746c353b348e12"
     sha256 cellar: :any, el_capitan:    "df01e794e8d11926ea023798f9f95d516a6c28009cbdfd29ea1d1a9107812d66"
+    sha256               x86_64_linux:  "9559d7f4530f0b0e3c78dfa051368fccbb36acfdc1aa50b4feaa3b43be6aa10c"
   end
 
   def install

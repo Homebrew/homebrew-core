@@ -20,6 +20,7 @@ class Peg < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "15dfb147f388a8a486714d17d519a1ad1195f79bad5843d37726e8efaab1ae79"
     sha256 cellar: :any_skip_relocation, el_capitan:    "44d0ab83d1bc3ee71294d328dc70dd14206b8d8ddf05a195f2cdf354d746d5dc"
     sha256 cellar: :any_skip_relocation, yosemite:      "9abe69e43c8e2672aa7b5b26df5c80976c2d0365b5d85d672e8948cebe88646f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2844f0cc79cb84f523def0ec75eb6821a5613e7ed7f19390e7574e04b943303a"
   end
 
   def install

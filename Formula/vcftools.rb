@@ -13,6 +13,7 @@ class Vcftools < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "2fc4ca7c7c23841a1eed8539910737b5986079be6d22d1ff8375f052266bf478"
     sha256 cellar: :any_skip_relocation, sierra:        "32c81874b5d34dee1e36f2dd628cb7eaba8ecef3d612985d7c02c61d6790c5b6"
     sha256 cellar: :any_skip_relocation, el_capitan:    "866bc9927660b97ae5bc34dc38db397212163ab289b3284db2d8c610b2aff3d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12d75148c3b77914e113d975b122966b5936d05870330f66dc7aa6dc81def2f0"
   end
 
   depends_on "pkg-config" => :build

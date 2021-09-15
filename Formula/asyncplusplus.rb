@@ -6,11 +6,12 @@ class Asyncplusplus < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c44cc09dbae0270a7e13b87eb4a9e5b0af39ba3e7ba13032e37065014e621be9"
-    sha256 cellar: :any, big_sur:       "c825975d9087a779f70d1daee59e259ac781353c0bdf169dc2255b19afaab447"
-    sha256 cellar: :any, catalina:      "8116d1e5d9aefd7de88cb70633fdc91181460f7f0279bcc356f8d020a590510b"
-    sha256 cellar: :any, mojave:        "805297c643ba0c1fe0d774ea606f6e0925112b1a364b74122c877d51f1e729fb"
-    sha256 cellar: :any, high_sierra:   "ac6212a38c5aa391ee1eb547879615437a830967444deb15674e748c63f0b5b1"
+    sha256 cellar: :any,                 arm64_big_sur: "c44cc09dbae0270a7e13b87eb4a9e5b0af39ba3e7ba13032e37065014e621be9"
+    sha256 cellar: :any,                 big_sur:       "c825975d9087a779f70d1daee59e259ac781353c0bdf169dc2255b19afaab447"
+    sha256 cellar: :any,                 catalina:      "8116d1e5d9aefd7de88cb70633fdc91181460f7f0279bcc356f8d020a590510b"
+    sha256 cellar: :any,                 mojave:        "805297c643ba0c1fe0d774ea606f6e0925112b1a364b74122c877d51f1e729fb"
+    sha256 cellar: :any,                 high_sierra:   "ac6212a38c5aa391ee1eb547879615437a830967444deb15674e748c63f0b5b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79a9f2c4744ed1a2aca8a323ac6be7753bb3efd5fc4ac06ef999b7c99ada77ed"
   end
 
   depends_on "cmake" => :build
@@ -63,10 +64,10 @@ class Asyncplusplus < Formula
           int r = async::parallel_reduce({1, 2, 3, 4}, 0, [](int x, int y) {
               return x + y;
           });
-          std::cout << "The sum of {1, 2, 3, 4} is " << r << std::endl;
+          std::cout << "The sum of {1, 2, 3, 4} is" << std::endl << r << std::endl;
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lasync++", "--std=c++11", "test.cpp", "-o", "test"
-    system "./test"
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lasync++", "--std=c++11", "-o", "test"
+    assert_equal "10", shell_output("./test").chomp.lines.last
   end
 end

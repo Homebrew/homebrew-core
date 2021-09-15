@@ -11,14 +11,15 @@ class Spandsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "79f15cdc3b76b6348f828252f94d0f6f1408a9c68d11b139e9da930015c4ca12"
-    sha256 cellar: :any, big_sur:       "05ff257a953dbb0d88f955fc2f467c7dcf47784a55c53e7b9f9d564767225bf8"
-    sha256 cellar: :any, catalina:      "8a34a25e8108c8a5343d00a031d52c1003422a5ad84186ded83fbed819a834e5"
-    sha256 cellar: :any, mojave:        "d38722be71b9d6b3311ee51cb85bc406b2bc34eaf5741851c3b4ed432aecacf2"
-    sha256 cellar: :any, high_sierra:   "0b4bb6795c931452181252754da3db80189e6557c344e743296de823cb711efa"
-    sha256 cellar: :any, sierra:        "c0b8349525680304f99e464d328df804279be85398969974f2b708e5167c89fe"
-    sha256 cellar: :any, el_capitan:    "428120be3841ca77961f2d19fe8f98f1615972db4f568e3cfa2c0a44cae44e77"
-    sha256 cellar: :any, yosemite:      "65fd095ea758180f18ca9c39864dbd3432115610b0db2439dbc923d3c0002f7b"
+    sha256 cellar: :any,                 arm64_big_sur: "79f15cdc3b76b6348f828252f94d0f6f1408a9c68d11b139e9da930015c4ca12"
+    sha256 cellar: :any,                 big_sur:       "05ff257a953dbb0d88f955fc2f467c7dcf47784a55c53e7b9f9d564767225bf8"
+    sha256 cellar: :any,                 catalina:      "8a34a25e8108c8a5343d00a031d52c1003422a5ad84186ded83fbed819a834e5"
+    sha256 cellar: :any,                 mojave:        "d38722be71b9d6b3311ee51cb85bc406b2bc34eaf5741851c3b4ed432aecacf2"
+    sha256 cellar: :any,                 high_sierra:   "0b4bb6795c931452181252754da3db80189e6557c344e743296de823cb711efa"
+    sha256 cellar: :any,                 sierra:        "c0b8349525680304f99e464d328df804279be85398969974f2b708e5167c89fe"
+    sha256 cellar: :any,                 el_capitan:    "428120be3841ca77961f2d19fe8f98f1615972db4f568e3cfa2c0a44cae44e77"
+    sha256 cellar: :any,                 yosemite:      "65fd095ea758180f18ca9c39864dbd3432115610b0db2439dbc923d3c0002f7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40a9fe616eb15d9ce66c1144c1f56ebabbbae50783ad188f9674b387b5725324"
   end
 
   depends_on "libtiff"

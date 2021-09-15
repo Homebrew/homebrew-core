@@ -9,11 +9,12 @@ class JujuWait < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e6b5a2374dcc6b496d184050039dcb233fdc695219518949ccb7b9d65ca98ef6"
-    sha256 cellar: :any, big_sur:       "6e73b48dd92446f5cb69ec22117b9907aeff53ea52524fc5a2a095425430e5a3"
-    sha256 cellar: :any, catalina:      "82f581e595e843682782737000c28646f59ce7ceda2572a094c616aeddf26709"
-    sha256 cellar: :any, mojave:        "3d09fe21c6290f6a055cae35c06e4cdd7682111b295eea2551430df1f618b3d0"
-    sha256 cellar: :any, high_sierra:   "5d6a6e8f8fe65ec7f7e0b132b75d85d3b918ec850f9f9b8d0f5742ab6d37f552"
+    sha256 cellar: :any,                 arm64_big_sur: "e6b5a2374dcc6b496d184050039dcb233fdc695219518949ccb7b9d65ca98ef6"
+    sha256 cellar: :any,                 big_sur:       "6e73b48dd92446f5cb69ec22117b9907aeff53ea52524fc5a2a095425430e5a3"
+    sha256 cellar: :any,                 catalina:      "82f581e595e843682782737000c28646f59ce7ceda2572a094c616aeddf26709"
+    sha256 cellar: :any,                 mojave:        "3d09fe21c6290f6a055cae35c06e4cdd7682111b295eea2551430df1f618b3d0"
+    sha256 cellar: :any,                 high_sierra:   "5d6a6e8f8fe65ec7f7e0b132b75d85d3b918ec850f9f9b8d0f5742ab6d37f552"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3aaa7755893eb4a178332afd8e340209f533bb54cd164701e7e3abcc9726f033"
   end
 
   depends_on "juju"

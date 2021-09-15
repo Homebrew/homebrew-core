@@ -6,7 +6,7 @@ class Vint < Formula
   url "https://files.pythonhosted.org/packages/9c/c7/d5fbe5f778edee83cba3aea8cc3308db327e4c161e0656e861b9cc2cb859/vim-vint-0.3.21.tar.gz"
   sha256 "5dc59b2e5c2a746c88f5f51f3fafea3d639c6b0fdbb116bb74af27bf1c820d97"
   license "MIT"
-  head "https://github.com/Vimjas/vint.git"
+  head "https://github.com/Vimjas/vint.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -15,6 +15,7 @@ class Vint < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8848e8f89f352b4bbcfb875438c09e4dbae683bc1a5044b30d254ee1700ec0e3"
     sha256 cellar: :any_skip_relocation, mojave:        "8e4f3863fcdd29a7c727e4117dbb8731606c97ad25bf5a80ddbad65d96a43dd7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4719b1fd512613b97246d52968fe3a7dfe6d45b7c9749bad87bd22bf4841fc0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4cfe976521087dee6a5435d8f574f36ba70e315ab07dc444058965357a9eae0"
   end
 
   depends_on "python@3.9"

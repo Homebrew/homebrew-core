@@ -7,10 +7,11 @@ class Libhttpserver < Formula
   head "https://github.com/etr/libhttpserver.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fdec5ac92f5b5d22d3b8a335938b23b9e20605b475dc3c1b2e9ced920b0b33e0"
-    sha256 cellar: :any, big_sur:       "17103a950045c06e959eb1d034f0a1cee89531084940f8844f1dcd4331beb4aa"
-    sha256 cellar: :any, catalina:      "6684db18245d033c86c7887feca8dba18cd3e07c5dbd9a9379c4107331f68a14"
-    sha256 cellar: :any, mojave:        "755c274617ee811c4fda5ee110ba46dd3f171cc4bac67925ca159cfefcdb0b99"
+    sha256 cellar: :any,                 arm64_big_sur: "fdec5ac92f5b5d22d3b8a335938b23b9e20605b475dc3c1b2e9ced920b0b33e0"
+    sha256 cellar: :any,                 big_sur:       "17103a950045c06e959eb1d034f0a1cee89531084940f8844f1dcd4331beb4aa"
+    sha256 cellar: :any,                 catalina:      "6684db18245d033c86c7887feca8dba18cd3e07c5dbd9a9379c4107331f68a14"
+    sha256 cellar: :any,                 mojave:        "755c274617ee811c4fda5ee110ba46dd3f171cc4bac67925ca159cfefcdb0b99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52afb93c01b3fd69b8f589e696c7ce8d4dd35d0c04af4c1467c441da96ca3dac"
   end
 
   depends_on "autoconf" => :build

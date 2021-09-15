@@ -6,12 +6,13 @@ class Libltc < Formula
   license "LGPL-3.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ee2457189224ff2af56fb6696e81f2b1ecf4cb285b9e7d20f2f70c4fc762b446"
-    sha256 cellar: :any, big_sur:       "2c69d93b07e1af11b703f6598bfedd51995f84c691ae5e3cdd88e31b614d67f7"
-    sha256 cellar: :any, catalina:      "c73e9da760961fc899dcd41c52f4e74cf2e29fb8ea619920c06c9ace25f717ab"
-    sha256 cellar: :any, mojave:        "aecfd413335e0981c5ac452bc0b81bee57d3a4e5974237f5b6a64aae734369cf"
-    sha256 cellar: :any, high_sierra:   "30f7ddada1d191c63214d44d9acec4862e71bca2ee67368c8546ec7240f65a9a"
-    sha256 cellar: :any, sierra:        "1c51db3447916e208601775d43fb248bdc76f3b29b6f309ccc74eddc0a11c9c6"
+    sha256 cellar: :any,                 arm64_big_sur: "ee2457189224ff2af56fb6696e81f2b1ecf4cb285b9e7d20f2f70c4fc762b446"
+    sha256 cellar: :any,                 big_sur:       "2c69d93b07e1af11b703f6598bfedd51995f84c691ae5e3cdd88e31b614d67f7"
+    sha256 cellar: :any,                 catalina:      "c73e9da760961fc899dcd41c52f4e74cf2e29fb8ea619920c06c9ace25f717ab"
+    sha256 cellar: :any,                 mojave:        "aecfd413335e0981c5ac452bc0b81bee57d3a4e5974237f5b6a64aae734369cf"
+    sha256 cellar: :any,                 high_sierra:   "30f7ddada1d191c63214d44d9acec4862e71bca2ee67368c8546ec7240f65a9a"
+    sha256 cellar: :any,                 sierra:        "1c51db3447916e208601775d43fb248bdc76f3b29b6f309ccc74eddc0a11c9c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee1e76f2fee2534cfee95a78186c162f5d21a8e5efcdaa36c6aa483cab747e4d"
   end
 
   def install

@@ -6,7 +6,9 @@ class ClosureStylesheets < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "7e1f8c96098f6c2fd2cba714bce4da004aa5687ca5a4a1d745460f53f337b982"
+  end
 
   depends_on "openjdk"
 

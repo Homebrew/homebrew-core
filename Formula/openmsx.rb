@@ -1,11 +1,10 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "https://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_15_0/openmsx-0.15.0.tar.gz"
-  sha256 "93f209d8fed2e04e62526469bb6bb431b82ea4d07ecdc45dab2b8cc4ca21d62a"
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_17_0/openmsx-17.0.tar.gz"
+  sha256 "70ec6859522d8e3bbc97227abb98c87256ecda555b016d1da85cdd99072ce564"
   license "GPL-2.0"
-  revision 1
-  head "https://github.com/openMSX/openMSX.git"
+  head "https://github.com/openMSX/openMSX.git", branch: "master"
 
   livecheck do
     url :stable
@@ -14,37 +13,45 @@ class Openmsx < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:     "891284f2b5294dee367eb2db61f34f7940d2dd4ba26bcfa5e287a58b6419d019"
-    sha256 cellar: :any, catalina:    "10c3e39c22efbd11e11b352f8fabfcea03633088cb16fe24611ed631325ed05c"
-    sha256 cellar: :any, mojave:      "ed24d06d8f8913236fa619f0d92396e2a2a8d2f40afb5e56c609ecdf332b4ca4"
-    sha256 cellar: :any, high_sierra: "86fff1a90fff96cb0398184ef7ebdeb804edda4c9d34ee5e7278159df64b10e3"
+    sha256 cellar: :any, arm64_big_sur: "1a4c53f573b29eaef8b6454622bd18e02b0369b8bc9c5e51493d0b2022b10b9b"
+    sha256 cellar: :any, big_sur:       "7204df7abcba41b2a74ba2d6b969b610a56bf36e332a9f25c280bd74c88ddc87"
+    sha256 cellar: :any, catalina:      "1a5c7befdf1a6faa24d6a1043c6bc2ee722cb118b8bb788323f01434d15e94b3"
+    sha256 cellar: :any, mojave:        "57e29bb1e9e2ed95d628b7933c1929eb99da46f9bfc4885bc9b072a94afd6c0e"
   end
 
+  depends_on "python@3.9" => :build
   depends_on "freetype"
   depends_on "glew"
+  depends_on "libogg"
   depends_on "libpng"
-  depends_on "sdl"
-  depends_on "sdl_ttf"
+  depends_on "libvorbis"
+  depends_on "sdl2"
+  depends_on "sdl2_ttf"
+  depends_on "theora"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
 
   def install
-    # Fixes a clang crash; this is an LLVM/Apple bug, not an openmsx bug
-    # https://github.com/Homebrew/homebrew-core/pull/9753
-    # Filed with Apple: rdar://30475877
-    ENV.O0
-
     # Hardcode prefix
     inreplace "build/custom.mk", "/opt/openMSX", prefix
+    inreplace "build/probe.py", "/usr/local", HOMEBREW_PREFIX
 
     # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
-    inreplace "build/libraries.py" do |s|
-      s.gsub!(/\((distroRoot), \)/, "(\\1, '/usr', '#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework')")
-      s.gsub! "lib/tcl", "."
-    end
+    ENV["TCL_CONFIG"] = "#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework" if OS.mac?
 
     system "./configure"
     system "make"
-    prefix.install Dir["derived/**/openMSX.app"]
-    bin.write_exec_script "#{prefix}/openMSX.app/Contents/MacOS/openmsx"
+
+    if OS.mac?
+      prefix.install Dir["derived/**/openMSX.app"]
+      bin.write_exec_script "#{prefix}/openMSX.app/Contents/MacOS/openmsx"
+    else
+      system "make", "install"
+    end
   end
 
   test do

@@ -5,6 +5,11 @@ class Wgetpaste < Formula
   sha256 "e3ec35f1ff49f2204864e3b4d784f6c032cdddb62cadf69263900c67a4896592"
   license "MIT"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?wgetpaste[._-]v?(\d+(?:\.\d+)+)\.(?:t|bz)/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "e0344acd685dd364fe3d0d09fb4f872e400b83360b6a7917e2afca40f7225b6d"
   end

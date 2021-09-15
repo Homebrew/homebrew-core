@@ -1,19 +1,26 @@
-name: Dispatch build bottle
+name: Dispatch build bottle (for a single OS/version)
 
 on:
   workflow_dispatch:
     inputs:
-      macos:
-        description: macOS version
+      runner:
+        description: Build runner (macOS version or Linux)
         required: true
       formula:
         description: Formula name
+        required: true
+      timeout:
+        description: "Build timeout (in minutes, default: 60 minutes)"
+        default: "60"
         required: true
       issue:
         description: Issue number, where comment on failure would be posted
         required: false
       upload:
         description: "Whether to upload built bottles or not (default: false)"
+        required: false
+      wheezy:
+        description: Whether to build the bottle in Debian Wheezy container
         required: false
 
 env:
@@ -25,41 +32,91 @@ env:
 
 jobs:
   bottle:
-    runs-on: ${{github.event.inputs.macos}}
-    timeout-minutes: 4320
+    runs-on: ${{github.event.inputs.runner}}
+    timeout-minutes: ${{fromJson(github.event.inputs.timeout)}}
+    defaults:
+      run:
+        shell: /bin/bash -e {0}
     env:
-      PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-      GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: ${{github.event.inputs.formula}}
         id: print_details
         run: |
           echo sender=${{github.event.sender.login}}
           echo formula=${{github.event.inputs.formula}}
-          echo version=${{github.event.inputs.macos}}
+          echo runner=${{github.event.inputs.runner}}
           echo issue=${{github.event.inputs.issue}}
           echo upload=${{github.event.inputs.upload}}
+          echo wheezy=${{github.event.inputs.wheezy}}
+
+      - name: Set environment variables
+        run: |
+          if [ "$RUNNER_OS" = 'macOS' ]; then
+            echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
+            echo 'GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED=1' >> $GITHUB_ENV
+          else
+            # No PATH needed on Linux as set by Docker
+            echo 'HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1' >> $GITHUB_ENV
+          fi
+
+      - name: Run Docker container
+        if: runner.os == 'Linux'
+        env:
+          TAP_PATH: /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+        run: |
+          docker run \
+            --detach \
+            --user linuxbrew \
+            --name ${{github.sha}} \
+            --env-file <(env | egrep 'HOMEBREW|GITHUB') \
+            --workdir /tmp/bottles \
+            --pull always \
+            ${{github.event.inputs.wheezy && 'homebrew/debian7:latest' || 'ghcr.io/homebrew/ubuntu16.04:master'}} \
+            sleep inf
+          # Fix working directory permissions
+          docker exec --user root ${{github.sha}} chmod 777 /tmp/bottles
+
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git remote set-url origin ${{github.event.repository.html_url}}
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git fetch origin ${{github.sha}} '+refs/heads/*:refs/remotes/origin/*'
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git remote set-head origin --auto
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git checkout --force -B master FETCH_HEAD
 
       - name: Set up Homebrew
         id: set-up-homebrew
+        if: runner.os == 'macOS'
         uses: Homebrew/actions/setup-homebrew@master
 
-      - run: brew test-bot --only-cleanup-before
+      - if: runner.os == 'macOS'
+        run: brew test-bot --only-cleanup-before
 
-      - run: brew test-bot --only-setup
-
-      - name: Run brew test-bot --keep-old --only-json-tab
-        env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Run brew test-bot --only-setup
         run: |
-          mkdir bottles
-          cd bottles
-          brew test-bot --keep-old --only-json-tab --only-formulae ${{github.event.inputs.formula}}
+          if [ "$RUNNER_OS" = 'macOS' ]; then
+            brew test-bot --only-setup
+          else
+            docker exec ${{github.sha}} brew test-bot --only-setup
+          fi
 
-      - name: Output brew test-bot --keep-old --only-json-tab failures
+      - name: Run brew test-bot --only-formulae --keep-old --only-json-tab --skip-dependents ${{github.event.inputs.formula}}
+        run: |
+          if [ "$RUNNER_OS" = 'macOS' ]; then
+            mkdir bottles
+            cd bottles
+            brew test-bot --keep-old --only-json-tab --only-formulae --skip-dependents ${{github.event.inputs.formula}}
+          else
+            docker exec ${{github.sha}} brew test-bot --keep-old --only-json-tab --only-formulae --skip-dependents ${{github.event.inputs.formula}}
+          fi
+
+      - name: Copy bottles from container
+        if: always() && runner.os == 'Linux'
+        run: docker cp ${{github.sha}}:/tmp/bottles .
+
+      - name: Failures summary for brew test-bot --only-formulae
         if: always()
         run: |
+          touch bottles/steps_output.txt
           cat bottles/steps_output.txt
           rm bottles/steps_output.txt
 
@@ -98,12 +155,15 @@ jobs:
           name: bottles
           path: bottles
 
-      - run: brew test-bot --only-cleanup-after
+      - name: Post cleanup
         if: always()
-
-      - name: Post Cleanup
-        if: always()
-        run: rm -rvf bottles
+        run: |
+          if [ "$RUNNER_OS" = 'Linux' ]; then
+            docker rm -f ${{github.sha}}
+          else
+            brew test-bot --only-cleanup-after
+          fi
+          rm -rvf bottles
 
       - name: Post comment on failure
         if: ${{!success() && github.event.inputs.issue > 0}}
@@ -119,17 +179,8 @@ jobs:
     needs: bottle
     if: github.event.inputs.upload
     env:
-      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+      HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
-      - name: ${{github.event.inputs.formula}}
-        id: print_details
-        run: |
-          echo sender=${{github.event.sender.login}}
-          echo formula=${{github.event.inputs.formula}}
-          echo version=${{github.event.inputs.macos}}
-          echo issue=${{github.event.inputs.issue}}
-          echo upload=${{github.event.inputs.upload}}
-
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -140,7 +191,31 @@ jobs:
           name: bottles
           path: ~/bottles/
 
-      - name: Setup git
+      # Workaround until the `cache` action uses the changes from
+      # https://github.com/actions/toolkit/pull/580.
+      - name: Unlink workspace
+        run: |
+          mv "${GITHUB_WORKSPACE}" "${GITHUB_WORKSPACE}-link"
+          mkdir "${GITHUB_WORKSPACE}"
+
+      - name: Cache gems
+        uses: actions/cache@v2
+        with:
+          path: ${{steps.set-up-homebrew.outputs.gems-path}}
+          key: ${{runner.os}}-rubygems-v2-${{steps.set-up-homebrew.outputs.gems-hash}}
+          restore-keys: ${{runner.os}}-rubygems-v2-
+
+      # Workaround until the `cache` action uses the changes from
+      # https://github.com/actions/toolkit/pull/580.
+      - name: Re-link workspace
+        run: |
+          rmdir "${GITHUB_WORKSPACE}"
+          mv "${GITHUB_WORKSPACE}-link" "${GITHUB_WORKSPACE}"
+
+      - name: Install gems
+        run: brew install-bundler-gems
+
+      - name: Configure Git user
         uses: Homebrew/actions/git-user-config@master
 
       - name: Set up commit signing
@@ -176,3 +251,10 @@ jobs:
           body: ":x: @${{github.actor}} bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
           bot_body: ":x: Bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
           bot: BrewTestBot
+
+      # Workaround until the `cache` action uses the changes from
+      # https://github.com/actions/toolkit/pull/580.
+      - name: Unlink workspace
+        run: |
+          rm "${GITHUB_WORKSPACE}"
+          mkdir "${GITHUB_WORKSPACE}"

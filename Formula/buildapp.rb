@@ -5,7 +5,7 @@ class Buildapp < Formula
   sha256 "d77fb6c151605da660b909af058206f7fe7d9faf972e2c30876d42cb03d6a3ed"
   license "BSD-2-Clause"
   revision 3
-  head "https://github.com/xach/buildapp.git"
+  head "https://github.com/xach/buildapp.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "3a4d0ac54096f853b8b271e02369dd2666e5b69c975d3b3f18ae6e54b4adf966"

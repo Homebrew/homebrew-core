@@ -36,9 +36,7 @@ class Gource < Formula
     # clang on Mt. Lion will try to build against libstdc++,
     # despite -std=gnu++0x
     ENV.libcxx
-    on_linux do
-      ENV.append "LDFLAGS", "-lpthread"
-    end
+    ENV.append "LDFLAGS", "-lpthread" if OS.linux?
 
     system "autoreconf", "-f", "-i" if build.head?
 

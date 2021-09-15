@@ -13,6 +13,7 @@ class Massren < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "99afbeedc3d8ab1e3cf8ca525ac22f1b02efefbfd75b145b342f773cea639be6"
     sha256 cellar: :any_skip_relocation, sierra:        "14874a768ef7f34aa638cdbd62aa32d2b07fc5c0e6668c86f6f080f172f0fe45"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ea67caccb6dacdbed8979f3dc243e224ff1900928dedf1ea8800f5256f3456b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f63c928b2484ba780645184394e99b663b30d7035c45b9dc0a32212d24c41d0"
   end
 
   depends_on "go" => :build

@@ -12,6 +12,7 @@ class Hub < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "fdf05855839a9d7ec6e7bee6796e3cb5fc473500cffc002366cf98c09a805b69"
     sha256 cellar: :any_skip_relocation, mojave:        "bcbae9c683d76f3395665467ba0f0c00c60c12c84022f72faba4b8981724b563"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8800cda4532784bf764ea6116a06c81d8d90bb3d36d8ecf295e64f9dd647c4ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "213636e856404251ffd7897357ab91cc9519d3852e4b28cbb43575988d9bbc1b"
   end
 
   depends_on "go" => :build

@@ -11,6 +11,7 @@ class Tnef < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ff92eb820b2efae9e87e42491a590601f400160f27ea2804b176b02b1648be66"
     sha256 cellar: :any_skip_relocation, mojave:        "2700f31ebcc1e2ba9219d6b6ac040846eba21ccc25baca4fea8b7d630b6673d2"
     sha256 cellar: :any_skip_relocation, high_sierra:   "842ba6bbe666302bd39c1cf7d29caa7d5180c20757b8dfe91b99d3fe1d3da841"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a295c834fdb6ae952708260a5a49bfd9771538ca5b6eda6014eeccaa1956dbbd"
   end
 
   depends_on "autoconf" => :build

@@ -5,6 +5,10 @@ class Libmd < Formula
   sha256 "5a02097f95cc250a3f1001865e4dbba5f1d15554120f95693c0541923c52af4a"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a28b50ea0316b085a78d43d3fa424d2be7b555eae07cbddc561b21f8a325be52"
+  end
+
   depends_on :linux
 
   def install

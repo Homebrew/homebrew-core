@@ -1,21 +1,21 @@
 class Dnsmasq < Formula
   desc "Lightweight DNS forwarder and DHCP server"
-  homepage "https://www.thekelleys.org.uk/dnsmasq/doc.html"
-  url "https://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.85.tar.gz"
-  sha256 "f36b93ecac9397c15f461de9b1689ee5a2ed6b5135db0085916233053ff3f886"
+  homepage "https://thekelleys.org.uk/dnsmasq/doc.html"
+  url "https://thekelleys.org.uk/dnsmasq/dnsmasq-2.86.tar.gz"
+  sha256 "ef15f608a83ee2b1d1d2c1f11d089a7e0ac401ffb0991de73fc01ce5f290e512"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
-    url "http://www.thekelleys.org.uk/dnsmasq/"
+    url "https://thekelleys.org.uk/dnsmasq/"
     regex(/href=.*?dnsmasq[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "a5dff893836bb30d9dd1b2ae17a3b5c57936a570014babd188d6d6935fb8cd25"
-    sha256 big_sur:       "d277d696e1432881e4bbbc0d68443fbdec125d0dd83c9041d5d58bcab0acae5e"
-    sha256 catalina:      "945ab265756b63a2040d5bdcc4f8c2c24e379d60ed2e21249b77eade885630ff"
-    sha256 mojave:        "6054ac54814f919df6733c9f8180444b3b199321cbb0616b5ae084afa0ceaf66"
+    sha256 arm64_big_sur: "958b73b470c3fad28aa5144afd18cbc423448d70bb74ecd45ee296384f97b37e"
+    sha256 big_sur:       "ebcab796c2876217e0bcaa2db862ce407a784c81f8d5d2c2b625122945e13944"
+    sha256 catalina:      "fb1bbf13dd64a0fd3e4d75773795cd7edc4345bbdf3290399ebaca6f08d645ad"
+    sha256 mojave:        "4ea6a7c2ab644ee388a5489307c3c4bb2b358f7eafeb32676fd1cdcc89aeb33d"
+    sha256 x86_64_linux:  "b5ae5a7152ef11bbcdc2a8444d3c4f830da1228b484eb98b1e2db8e0ce6e19f5"
   end
 
   depends_on "pkg-config" => :build
@@ -60,30 +60,9 @@ class Dnsmasq < Formula
 
   plist_options startup: true
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_sbin}/dnsmasq</string>
-            <string>--keep-in-foreground</string>
-            <string>-C</string>
-            <string>#{etc}/dnsmasq.conf</string>
-            <string>-7</string>
-            <string>#{etc}/dnsmasq.d,*.conf</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"dnsmasq", "--keep-in-foreground", "-C", etc/"dnsmasq.conf", "-7", etc/"dnsmasq.d,*.conf"]
+    keep_alive true
   end
 
   test do

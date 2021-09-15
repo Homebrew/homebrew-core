@@ -11,10 +11,12 @@ class Ngt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c7f4a9c7a1119ce686f0d4c1337ae356a04c149599c6fa0dc4a98a1e3f4f8c44"
-    sha256 cellar: :any, big_sur:       "71df6d084a4d4cc69024f1c3260c41b78af143062872c314f21aecd7f95ac07d"
-    sha256 cellar: :any, catalina:      "127743274a8220c01f082604735482020a35dba8ebfc6cd08a32372e319df1e6"
-    sha256 cellar: :any, mojave:        "02d52576abd5791ec271e0ab271de9889302a12800947041b37c18465ff15af6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "a8afc60cb99ba0d670e544ffd24fda92f2154bb7075b8ed2b994de17ca5a5293"
+    sha256 cellar: :any,                 big_sur:       "97c08cfd1f04afd27b09bde575124c5a60b19e6057ccb07f26ea3f4f4f85f3a6"
+    sha256 cellar: :any,                 catalina:      "6d4de1454b7aaad5c8eb14420039fcc974a82fcd970f1bb92e07ad90b26ecef1"
+    sha256 cellar: :any,                 mojave:        "96650e0eea4d200761d8fc239c47fa04a6f20b6237896fd2fa014ddcb16fb5f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "292dde44ae3ca838e1e37f6787add85d9cb4ea66872b1ea425b2e789eeefa8f1"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +24,7 @@ class Ngt < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{lib}"
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make"
       system "make", "install"
     end

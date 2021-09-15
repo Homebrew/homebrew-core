@@ -3,16 +3,17 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/2f/95/72634c119aada75b816cbd319a2ae44ee69639588a149579059fd77df037/yubikey-manager-4.0.3.tar.gz"
-  sha256 "a7bb6ffdb8fa3cc0a7094e63f15862eb42f12e23e64750ae7fcc5574356d66f4"
+  url "https://files.pythonhosted.org/packages/53/6a/a3ff56677f0ebb14d56c43bce4b6cc9b494920e470b45c385285ebfca3fe/yubikey-manager-4.0.7.tar.gz"
+  sha256 "9972db8a1c7c13eb1a618015a8ad8011c03a045a08fee248e5de4f120f55fc4f"
   license "BSD-2-Clause"
-  head "https://github.com/Yubico/yubikey-manager.git"
+  head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e8f7b0f43cddea4340ef004a655b9266c54fc7de654da661e9fa021339c72089"
-    sha256 cellar: :any, big_sur:       "c1b30a71bba7dcd8c5fc71e35ef011b4665586de129762a72afe00a551f0672b"
-    sha256 cellar: :any, catalina:      "46aca102b3c8cdad01b5366849893f8476f78c37bef9853b8f22d4e2eda50b88"
-    sha256 cellar: :any, mojave:        "66b2cfd1a7c3fc74f75d450eb114e128f8fe2c9c2721d905e74ada4515f0599f"
+    sha256 cellar: :any,                 arm64_big_sur: "bf1c6a2abc542c17e855310faa3b7556af3a00b2102e1e4441775698e2334c12"
+    sha256 cellar: :any,                 big_sur:       "3951c41b15282af752b2b2cdb13fd3553b39c4e690ebfc52b5b4c0e5ff727db8"
+    sha256 cellar: :any,                 catalina:      "cb1d3418303dbdf5e4c652bf452c3c940eca9cf894f46438875ccf8afb9fe2b9"
+    sha256 cellar: :any,                 mojave:        "d979a0fd0c625fcd30b82de7979cf11b96c41c3cc94e7183e527006c3dd081be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57eb7a870aa161ce802c05e2eed6d2dee208556abde5685e96febb38cebc63d2"
   end
 
   depends_on "rust" => :build
@@ -28,18 +29,18 @@ class Ykman < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
-    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
+    url "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz"
+    sha256 "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/d5/99/286fd2fdfb501620a9341319ba47444040c7b3094d3b6c797d7281469bf8/click-8.0.0.tar.gz"
-    sha256 "7d8c289ee437bcb0316820ccee14aefcb056e58d31830ecab8e47eda6540e136"
+    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
+    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "fido2" do
@@ -58,8 +59,8 @@ class Ykman < Formula
   end
 
   resource "pyscard" do
-    url "https://files.pythonhosted.org/packages/2b/98/fd2a827eed42ca3dcd7a433ee75a9868bfe3fc1428839a2831ab9dd90c69/pyscard-2.0.0.tar.gz"
-    sha256 "b364d9d9186e793c1c4709eb72a4d29e09067d36ca463b2c2abd995bd1055779"
+    url "https://files.pythonhosted.org/packages/23/e2/42e3de90edfe9a7a0bde2d0a303aac447a4022778e8e552965db5a74ea8f/pyscard-2.0.1.tar.gz"
+    sha256 "2ba5ed0db0ed3c98e95f9e34016aa3a57de1bc42dd9030b77a546036ee7e46d8"
   end
 
   resource "six" do
@@ -68,7 +69,7 @@ class Ykman < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Fixes: smartcard/scard/helpers.c:28:22: fatal error: winscard.h: No such file or directory
       ENV.append "CFLAGS", "-I#{Formula["pcsc-lite"].opt_include}/PCSC"
     end

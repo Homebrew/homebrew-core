@@ -13,9 +13,12 @@ class Fava < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "19d3cb104b4adc01097daf2b937625db6064bd7bf086aa15a094ef8b56192d6d"
     sha256 cellar: :any_skip_relocation, catalina:      "a794505141c72cba2422fa14b6d4e920c3adc0a6a49f381c95bd6eb3506bd7b6"
     sha256 cellar: :any_skip_relocation, mojave:        "08ba12fdc47ed16c4e9b161f6e5258c87ea93c7f71879d5604321925ee7cfec9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0bbe67fce5d9a2d02a8c83bd92c2da31e425dc6bab053d965f58f4a0243f83b"
   end
 
   depends_on "python@3.9"
+
+  uses_from_macos "libxslt"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
@@ -274,7 +277,7 @@ class Fava < Formula
     EOS
 
     fork do
-      exec "#{bin}/fava", "--port=#{port}", "#{testpath}/example.ledger"
+      exec bin/"fava", "--port=#{port}", testpath/"example.ledger"
     end
 
     # Wait for fava to start up

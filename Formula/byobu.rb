@@ -11,6 +11,7 @@ class Byobu < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6"
     sha256 cellar: :any_skip_relocation, mojave:        "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6"
     sha256 cellar: :any_skip_relocation, high_sierra:   "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f84ea55ef2950c34c48f77609c4d00d9a35bd5ca13140aa98b8175ea1a04cf2f"
   end
 
   head do

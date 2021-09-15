@@ -6,7 +6,9 @@ class Distribution < Formula
   license "GPL-2.0"
   head "https://github.com/philovivero/distribution.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "46e6afa7ee3cdc08f4fde478e6235b1df80813391abe507505e1452926d5aff2"
+  end
 
   def install
     bin.install "distribution.py" => "distribution"

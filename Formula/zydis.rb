@@ -3,10 +3,9 @@ class Zydis < Formula
   homepage "https://zydis.re"
   url "https://github.com/zyantific/zydis.git",
       tag:      "v3.1.0",
-      revision: "bfee99f49274a0eec3ffea16ede3a5bda9cda88f",
-      shallow:  false
+      revision: "bfee99f49274a0eec3ffea16ede3a5bda9cda88f"
   license "MIT"
-  head "https://github.com/zyantific/zydis.git"
+  head "https://github.com/zyantific/zydis.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "914a4009a2c3ee6e7b039574f2b294e919571b68d4e7687a3c01c06e16c4f36a"
@@ -14,6 +13,7 @@ class Zydis < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ceffe3459006c374498e06809f8d75e9f512d5a43482d9b4d3973bbe4b2e3944"
     sha256 cellar: :any_skip_relocation, mojave:        "a51c744f89ed204c66e0699a960a3c58625a5f46f16f3710e68a4746bbc0fb7e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "cefab7b097b79ae4c04616c235e572ffc5416296eba2a10bd7b07c6f18148313"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32dd9b3a1efafe0d3c47a7c74677781d93e8af4d9786a9367c17209c24216ce4"
   end
 
   depends_on "cmake" => :build

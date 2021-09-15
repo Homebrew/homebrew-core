@@ -9,7 +9,14 @@ class Term < Formula
     skip "Cannot reliably check for new releases upstream"
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f243e5462a56dc1847cea21bc43517688daa6f82bffac8aafd8c68258cfafa7f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "98c1bad8f19eab761b3917c8b065830d296f2d700670ffcdf0fee0fa322fa1f1"
+    sha256 cellar: :any_skip_relocation, catalina:      "06049c5857c19cb0ca6e794c44ca0f10974dbba5f1da561e6af0fb3fe1b019e7"
+    sha256 cellar: :any_skip_relocation, mojave:        "bd69041cc6a4321552e29381fbdb0d5cbb09d84e89be8344a3ed90611ba7d51a"
+  end
+
+  depends_on :macos
 
   def install
     bin.install "term"

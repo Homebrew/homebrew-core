@@ -7,7 +7,9 @@ class FregeRepl < Formula
   license "BSD-3-Clause"
   revision 2
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "188a05871382d1dcc4a846b2a84c56acdacce44a7de3abf9ddc7060dca387c01"
+  end
 
   depends_on "openjdk"
 

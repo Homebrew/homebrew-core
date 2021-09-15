@@ -1,11 +1,11 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
-  homepage "https://algernon.roboticoverlords.org/"
-  url "https://github.com/xyproto/algernon/archive/1.12.12.tar.gz"
-  sha256 "6127eb975da960fd8aa7732c82f3b5e62d14ea763801778552bdbeec28846bf7"
+  homepage "https://github.com/xyproto/algernon"
+  url "https://github.com/xyproto/algernon/archive/1.12.14.tar.gz"
+  sha256 "cab5b01923142e0326ea2a01797814bb2e8ea9f7c6c41a3ea0ae7df3b667e86e"
   license "MIT"
   version_scheme 1
-  head "https://github.com/xyproto/algernon.git"
+  head "https://github.com/xyproto/algernon.git", branch: "main"
 
   livecheck do
     url :stable
@@ -13,10 +13,11 @@ class Algernon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d6ba614c6586b6d582e06b863298ea48256dd6e6b4e96cb009b663cf6198afe1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4cf045c65143ce6cd0b8eac6014609840a8ea8a524cbf1b1fc01a324300fa36a"
-    sha256 cellar: :any_skip_relocation, catalina:      "5cb0074f58de14fd079892387ed83de4636faf52ef0081714b7c1f0f9b7469c5"
-    sha256 cellar: :any_skip_relocation, mojave:        "0fd0ffd941bb3399a63e38c20d9a3606fb390ae3b76e79fa055fbd77a71939ac"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0eaa6910677a3aa0a1be868af31c73e7390d420f41c7950e905d6d52556bde0b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ffe7eed6b3576166e41b66beecdccc47aabed4644119190a1534ec8210fb25cc"
+    sha256 cellar: :any_skip_relocation, catalina:      "57e11ff2b146da5e254189058ec5502bda66d7213996daf8846756cca5de38ec"
+    sha256 cellar: :any_skip_relocation, mojave:        "c06af8b3677a3d46e7be0160533e8da8b7512b848a24105d498c0a9b1d381125"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccdca9ac607c215c4981e35dc13101c5acc0533edd1a5441bd3c874dea275b2a"
   end
 
   depends_on "go" => :build

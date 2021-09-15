@@ -11,6 +11,7 @@ class GnuTar < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a6ab3eb4a49d609f5f1dde43710b847fd827ebc03195aee052c7aeb528aa9bcc"
     sha256 cellar: :any_skip_relocation, catalina:      "53b9fc4011ca3ca3e669aa96a95a5394ef45138b9b2d52c76c3a17fceb432229"
     sha256 cellar: :any_skip_relocation, mojave:        "c4f9fcc7bdbb2bc5591a6650cf3bbfc1aa791e85f6d299f165a9466c235c83ae"
+    sha256                               x86_64_linux:  "f4206b84b3b5d4a8244b6cae99226877cf3e4927b149465ab44cbb1edce8b382"
   end
 
   head do
@@ -39,14 +40,16 @@ class GnuTar < Formula
       --mandir=#{man}
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
+    args << if OS.mac?
+      "--program-prefix=g"
+    else
+      "--without-selinux"
     end
     system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       # Symlink the executable into libexec/gnubin as "tar"
       (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
       (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"

@@ -1,9 +1,9 @@
 class Chkrootkit < Formula
   desc "Rootkit detector"
   homepage "http://www.chkrootkit.org/"
-  url "ftp://ftp.pangeia.com.br/pub/seg/pac/chkrootkit-0.54.tar.gz"
-  mirror "https://fossies.org/linux/misc/chkrootkit-0.54.tar.gz"
-  sha256 "154c926921f53db60728a7cbc97ca88658b694c14b7d288efe383e0849915607"
+  url "ftp://ftp.pangeia.com.br/pub/seg/pac/chkrootkit-0.55.tar.gz"
+  mirror "https://fossies.org/linux/misc/chkrootkit-0.55.tar.gz"
+  sha256 "a81c0286ec449313f953701202a00e81b204fc2cf43e278585a11c12a5e0258b"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,11 +12,11 @@ class Chkrootkit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "63b5d12ee1f886330021355cf5e735d35a41614f1b90ce417b59168763479034"
-    sha256 cellar: :any_skip_relocation, big_sur:       "63febac78a6eceecb7b3875b05810363448ddb25aa781b0d3ee30f32068696b9"
-    sha256 cellar: :any_skip_relocation, catalina:      "db64fdae3055ce77b6771ef8b67362d68c11ef099373b71490204b135e4d84c3"
-    sha256 cellar: :any_skip_relocation, mojave:        "6eb199dd0a6e307e5dc8ead5bc7b4981ac8697ebb3e8bd1ec3c34390b1cbcbd5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7a0131227a3d12132068de046c3a7fa851a452bae907c635a92a484868977104"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7fac603ca267b72c2882d460a458957f843a5e821fb0406d6230d42f1fe0557b"
+    sha256 cellar: :any_skip_relocation, catalina:      "a181e6fe3a682bfb24742eac3823e3be8fa531e18954e99b02098bb7c43323fb"
+    sha256 cellar: :any_skip_relocation, mojave:        "dcb47fe6461d30ac9088466a4681eca173863767a6336965dee128e35bcf8c91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a1d5b23f87e71487ee2a4594ad9e9293791761158867903c574bfd89c9f2ba0"
   end
 
   def install

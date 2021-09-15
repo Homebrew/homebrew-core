@@ -1,8 +1,8 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.6.9.tar.gz"
-  sha256 "d5a62ce377314dbffdb37c4467e7763e3abae376a16171e613cbe69956f092d1"
+  url "https://www.memcached.org/files/memcached-1.6.10.tar.gz"
+  sha256 "ef46ac33c55d3a0f1c5ae8eb654677d84669913997db5d0c422c5eaffd694a92"
   license "BSD-3-Clause"
   head "https://github.com/memcached/memcached.git"
 
@@ -12,10 +12,12 @@ class Memcached < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c18d3d914a52d960a1ad33be43e2ebc35faaf3aca9b2db0fb682989cb5c57693"
-    sha256 cellar: :any, big_sur:       "147059ed93b823666bfd59911d7c2ccc51081b16a49ac72edf50efe7beedadc7"
-    sha256 cellar: :any, catalina:      "b816ef4b112d8a01b0b6c1fbf05b2eb4577640e2712ad6c0ce0e87899e246d9a"
-    sha256 cellar: :any, mojave:        "e307cfaa852e8fcda1210aadbfa07cb0331640ec7c930e03ac0cc2e98736d70d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "fbdd2bbefa53d607c9240a758d3a0bfe9509a2c2e58f7d20f91b11ad9b3d82b9"
+    sha256 cellar: :any,                 big_sur:       "f5910b6ea6ec8669064e79e28f8fbcf9f155b016e874dad889816ad7c99f5918"
+    sha256 cellar: :any,                 catalina:      "7a7c30fed3e7578b4274ccdf77da74a2e6810859f07aa5ab5d43f904a9ab6cff"
+    sha256 cellar: :any,                 mojave:        "84357e4c1510a651435e4b662124bb4654cc5427dc0ebbcbd45a70934a509257"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7238835a0524500a08914f166d3a35874163b5cd9a4caee382c724f13dc234e4"
   end
 
   depends_on "libevent"
@@ -25,36 +27,26 @@ class Memcached < Formula
     system "make", "install"
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/memcached/bin/memcached"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/memcached</string>
-          <string>-l</string>
-          <string>localhost</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"memcached", "-l", "localhost"]
+    working_dir HOMEBREW_PREFIX
+    keep_alive true
+    run_type :immediate
   end
 
   test do
     pidfile = testpath/"memcached.pid"
-    system bin/"memcached", "--listen=localhost:#{free_port}", "--daemon", "--pidfile=#{pidfile}"
+    port = free_port
+    args = %W[
+      --listen=127.0.0.1
+      --port=#{port}
+      --daemon
+      --pidfile=#{pidfile}
+    ]
+    on_linux do
+      args << "--user=#{ENV["USER"]}" if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+    system bin/"memcached", *args
     sleep 1
     assert_predicate pidfile, :exist?, "Failed to start memcached daemon"
     pid = (testpath/"memcached.pid").read.chomp.to_i

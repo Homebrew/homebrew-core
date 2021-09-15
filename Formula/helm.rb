@@ -2,26 +2,23 @@ class Helm < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      tag:      "v3.5.4",
-      revision: "1b5edb69df3d3a08df77c9902dc17af864ff05d1"
+      tag:      "v3.6.3",
+      revision: "d506314abfb5d21419df8c7e7e68012379db2354"
   license "Apache-2.0"
-  head "https://github.com/helm/helm.git"
+  head "https://github.com/helm/helm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d6f4109759e44e84ef71053a5346739b30b05eb43eedc3d811d729c893c1bb85"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5dac5803c1ad2db3a91b0928fc472aaf80a48821a0293fea78f392a5c604772b"
-    sha256 cellar: :any_skip_relocation, catalina:      "4462d2d90ea756ae5fcaa3550053542748678baf91a74ee9e26e5e101c3389c7"
-    sha256 cellar: :any_skip_relocation, mojave:        "abe29810ff4a9099ef48fbc240b5b4b06359d7422efd66418b2c82682367fccc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "981dd0b115b8c58c445f44a2960b79b7f9709639161d8e911014da09a1b2404a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "45fd0dfb23a1d0873a605c114151e4737fbbf097aec401fe03d5b0045bd2201d"
+    sha256 cellar: :any_skip_relocation, catalina:      "c875589d2f82757fc1c9f3d08035deb1845f4d7e5587eaecbbce368c0156ebba"
+    sha256 cellar: :any_skip_relocation, mojave:        "731bd2ab02448ff37f0bd0ef285ef330c78ad47114ede11c90444c0411933247"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e592f9b5de73fdc1956d4714adc3ab05e05ad76077d233f474133fa4893fcdf"
   end
 
   depends_on "go" => :build
 
   def install
-    # See https://github.com/helm/helm/pull/9486, remove with next release (3.5.4)
-    on_linux do
-      system "go", "mod", "tidy"
-    end
-
     system "make", "build"
     bin.install "bin/helm"
 
@@ -30,11 +27,14 @@ class Helm < Formula
       man1.install Dir["*"]
     end
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"helm", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"helm", "completion", "bash")
     (bash_completion/"helm").write output
 
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"helm", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"helm", "completion", "zsh")
     (zsh_completion/"_helm").write output
+
+    output = Utils.safe_popen_read(bin/"helm", "completion", "fish")
+    (fish_completion/"helm.fish").write output
   end
 
   test do

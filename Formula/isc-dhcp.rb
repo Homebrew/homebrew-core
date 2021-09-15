@@ -1,8 +1,9 @@
 class IscDhcp < Formula
   desc "Production-grade DHCP solution"
   homepage "https://www.isc.org/dhcp"
-  url "https://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz"
-  sha256 "1a7ccd64a16e5e68f7b5e0f527fd07240a2892ea53fe245620f4f5f607004521"
+  url "https://ftp.isc.org/isc/dhcp/4.4.2-P1/dhcp-4.4.2-P1.tar.gz"
+  version "4.4.2-P1"
+  sha256 "b05e04337539545a8faa0d6ac518defc61a07e5aec66a857f455e7f218c85a1a"
   license "MPL-2.0"
 
   livecheck do
@@ -11,11 +12,11 @@ class IscDhcp < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "57e20694baa6af4bc0858faca8d937ac50629a9e9d34d35c367ee154511cfe4c"
-    sha256 big_sur:       "d5e8627307133d4039211383156348ffdd1c343e2d4246f024e773e69531ed64"
-    sha256 catalina:      "26591c29130891dfe5a7ebe686c800bda76fdf5113885a801c3a30730a119130"
-    sha256 mojave:        "0d61b17cc0bbac751ded99a66948e880c64fe6ba47a8d1613c470ee6c4e54fec"
-    sha256 high_sierra:   "b0894db278d509c8615da4df71e26bce91daf300bba6380095f291bd2daa642c"
+    sha256 arm64_big_sur: "e994c20125e327516a98e9e7ea2f335dea02475c5b0307fb5b0a4ba172db0de6"
+    sha256 big_sur:       "5a7fa9501471abcbcfa6b16fdea099147b7c4540d3e75a91deba3c4385d4a897"
+    sha256 catalina:      "e2e473a84b9aa792d7f69be63c53cd32977fd9382346c4065edc60fafecef2cc"
+    sha256 mojave:        "1f4db32d6c086309ec633241b3106bfcf3cb13902eb529318b7f7b881258024a"
+    sha256 x86_64_linux:  "71ee54c56a1e20e9a7c3b745fd5abb2987dfe09ab5ef6f8759dd8ab7ade01df2"
   end
 
   def install
@@ -145,5 +146,10 @@ class IscDhcp < Formula
       </dict>
       </plist>
     EOS
+  end
+
+  test do
+    cp etc/"dhcpd.conf.example.sample", testpath/"dhcpd.conf"
+    system sbin/"dhcpd", "-cf", "#{testpath}/dhcpd.conf", "-t"
   end
 end

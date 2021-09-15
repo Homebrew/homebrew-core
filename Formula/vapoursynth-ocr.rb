@@ -1,16 +1,20 @@
 class VapoursynthOcr < Formula
   desc "VapourSynth filters - Tesseract OCR filter"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R52.tar.gz"
-  sha256 "4d5dc7950f4357da695d29708bc98013bc3e0bd72fc5d697f8c91ce3c4a4b2ac"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R54.tar.gz"
+  sha256 "ad0c446adcb3877c253dc8c1372a053ad35022bcf42600889b927d2797c5330b"
   license "ISC"
-  head "https://github.com/vapoursynth/vapoursynth.git"
+  head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
+
+  livecheck do
+    formula "vapoursynth"
+  end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3b6b3405284238de9480db45bafd9a3e73ef6eddc8d23b6de1e629e67dd49bf9"
-    sha256 cellar: :any, big_sur:       "823ad4d448f1ee19d8ba111a6e36a4ac3f1b0064cea6e3ab6e30c0a8f15c6a91"
-    sha256 cellar: :any, catalina:      "ace9bfac33026748bfe2a1465d9a58b597bd85f001153ce3952760889e9aff74"
-    sha256 cellar: :any, mojave:        "268aed99192b8df1d673a6a64a0de4d8289c7a2316b19ed429b330ee3eb110b1"
+    sha256 cellar: :any, arm64_big_sur: "0ee61239f71e594c05f6a93b675b9863ab53227715c355ef9b75ca1f92e577d5"
+    sha256 cellar: :any, big_sur:       "c73eea38acf6dde0e271aa71393020d8f76c9c1c48607048c14b2ca53616d629"
+    sha256 cellar: :any, catalina:      "939098378976ede311e6b3158928a64bdf2fc1283655c2349501bec9bcd3d2d8"
+    sha256 cellar: :any, mojave:        "708071510107a61e077d3ff47019c32120c65cfcc91e8265ae2e692f04d490f3"
   end
 
   depends_on "autoconf" => :build

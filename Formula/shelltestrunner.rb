@@ -7,14 +7,16 @@ class Shelltestrunner < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "a2fc10b7cb762bc726a29922a3e17a78bbd397cb3c54be5a7a1827dedeef2a55"
-    sha256 cellar: :any_skip_relocation, catalina:    "f4b8567777ed9313c913b29a45874c02cc517d5cf379a67e22797993e6b264c2"
-    sha256 cellar: :any_skip_relocation, mojave:      "4e47bf2909e2092bfcb53f03314ee83fd4011c703fddbca74451546aed6a09f0"
-    sha256 cellar: :any_skip_relocation, high_sierra: "8f5b11e3b03a9e1b10623aad6aa7783f3b51975bc516fbe93df44867e34b3371"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "58f03249e05d5808baff4da11f784b37bd818f35c3243855bdc467562526ff76"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e42bf02d5f462aca20fe7a9b80ba6e2431b15940b81f5304ff1611665a29bac0"
+    sha256 cellar: :any_skip_relocation, catalina:      "d425959bf27c059fb22a6e2f916f839645c0e79f180903b2c99c189ba52f4d96"
+    sha256 cellar: :any_skip_relocation, mojave:        "15ccce4fe40fe20c6f9c97442fb37079a6925351f725d4e6840541004375520c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "380d1768a50c99b9ececeea2044324a869ccb4248609ccee61adc5f6c34ef363"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.8" => :build
+  depends_on "ghc" => :build
 
   def install
     system "cabal", "v2-update"

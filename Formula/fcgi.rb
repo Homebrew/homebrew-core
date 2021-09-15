@@ -7,11 +7,12 @@ class Fcgi < Formula
   license "OML"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f690a0cd985561930532baa0676c10f954f5c4d3500a8ec40733a28debfd0656"
-    sha256 cellar: :any, big_sur:       "62ab01d728067324cc5466d20d28e6a6920514c0a1f379df290cbc3b79cb442d"
-    sha256 cellar: :any, catalina:      "3905f7f3dec32a296b831f224a4f2cc75089c60b8a0137ce0b25e37466ffba8a"
-    sha256 cellar: :any, mojave:        "a43c52588cc652fcc1d9be4d89393212875732349bd4dbdda4068f985db10628"
-    sha256 cellar: :any, high_sierra:   "3ee3183f46dd8f38eee932f685e8d6a52fd0c0c2a1797bb25d62ad973b1405ed"
+    sha256 cellar: :any,                 arm64_big_sur: "f690a0cd985561930532baa0676c10f954f5c4d3500a8ec40733a28debfd0656"
+    sha256 cellar: :any,                 big_sur:       "62ab01d728067324cc5466d20d28e6a6920514c0a1f379df290cbc3b79cb442d"
+    sha256 cellar: :any,                 catalina:      "3905f7f3dec32a296b831f224a4f2cc75089c60b8a0137ce0b25e37466ffba8a"
+    sha256 cellar: :any,                 mojave:        "a43c52588cc652fcc1d9be4d89393212875732349bd4dbdda4068f985db10628"
+    sha256 cellar: :any,                 high_sierra:   "3ee3183f46dd8f38eee932f685e8d6a52fd0c0c2a1797bb25d62ad973b1405ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19a2286c8c9debc8d9d2a49269e30acd519d404537e4663cc17bc9f3ad35c25c"
   end
 
   depends_on "autoconf" => :build

@@ -7,13 +7,15 @@ class Pillar < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "4edab61108a48ddf41f90c46872bbced08a6fb600ed84b8faa2a270be2d4eea4"
-    sha256 cellar: :any_skip_relocation, catalina:    "8aac25711310b56913c1838c9d6b4ef72af78ade7b20ca0f5b8519805854e285"
-    sha256 cellar: :any_skip_relocation, mojave:      "935f68b739a2d86174a045032b5606fffb8c1fa4f7ef74fd0aabc6608dfe068a"
-    sha256 cellar: :any_skip_relocation, high_sierra: "74bd2dde375b70f3a6ad14c7c55bc511d372998d4901daebd627f0ca5200c6bd"
+    sha256 cellar: :any_skip_relocation, big_sur:      "4edab61108a48ddf41f90c46872bbced08a6fb600ed84b8faa2a270be2d4eea4"
+    sha256 cellar: :any_skip_relocation, catalina:     "8aac25711310b56913c1838c9d6b4ef72af78ade7b20ca0f5b8519805854e285"
+    sha256 cellar: :any_skip_relocation, mojave:       "935f68b739a2d86174a045032b5606fffb8c1fa4f7ef74fd0aabc6608dfe068a"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "74bd2dde375b70f3a6ad14c7c55bc511d372998d4901daebd627f0ca5200c6bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4b7faa8f2febab2a7b0b5e035f08ba4b7bad74574806d5dfc15fdeef735589ef"
   end
 
   depends_on "sbt" => :build
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install

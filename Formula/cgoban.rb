@@ -7,11 +7,12 @@ class Cgoban < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4cbe85bec961d2960ef76b905fac08ef7c01bb01ad5b380934dbc365f3a17768"
-    sha256 cellar: :any, big_sur:       "a224cfdd74e8cc232edf360168bc0a7061abf5ce58b8c0723e5df156cb00604d"
-    sha256 cellar: :any, catalina:      "e61d461ae44716ab681151657ff73af5b438f306419142a247543b14de951ab4"
-    sha256 cellar: :any, mojave:        "65a58482e8da31098a71ed49467b069bff5a6172df8304bb1bccd579301abca2"
-    sha256 cellar: :any, high_sierra:   "4fc05de2c69a98f7c1dbd55303a508ac50e6bb3a3b6297ebd43ec4bf5a79c14d"
+    sha256 cellar: :any,                 arm64_big_sur: "4cbe85bec961d2960ef76b905fac08ef7c01bb01ad5b380934dbc365f3a17768"
+    sha256 cellar: :any,                 big_sur:       "a224cfdd74e8cc232edf360168bc0a7061abf5ce58b8c0723e5df156cb00604d"
+    sha256 cellar: :any,                 catalina:      "e61d461ae44716ab681151657ff73af5b438f306419142a247543b14de951ab4"
+    sha256 cellar: :any,                 mojave:        "65a58482e8da31098a71ed49467b069bff5a6172df8304bb1bccd579301abca2"
+    sha256 cellar: :any,                 high_sierra:   "4fc05de2c69a98f7c1dbd55303a508ac50e6bb3a3b6297ebd43ec4bf5a79c14d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19e955a8b73f238d18ccfe0737230ad8db200a27e7f00ae1f27ade5d5f8568b2"
   end
 
   depends_on "libice"

@@ -6,10 +6,11 @@ class Unibilium < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "312df6bed7c751800af40d85f409f7b96296aa0968cc9a0d415f9fe4114a506c"
-    sha256 cellar: :any, big_sur:       "6f0c7e2db3067e24f4480566d9cf80b9f47ef6099386205ca472a8ede717d3e8"
-    sha256 cellar: :any, catalina:      "06ca0a9cc4c001e5136b14b210c7a37ff7ecb85e2f1c348a3655b325094ac697"
-    sha256 cellar: :any, mojave:        "e2757e5acea92e205a10e738d6a084b37347a3be3e08f8a481607e9c48d22e95"
+    sha256 cellar: :any,                 arm64_big_sur: "312df6bed7c751800af40d85f409f7b96296aa0968cc9a0d415f9fe4114a506c"
+    sha256 cellar: :any,                 big_sur:       "6f0c7e2db3067e24f4480566d9cf80b9f47ef6099386205ca472a8ede717d3e8"
+    sha256 cellar: :any,                 catalina:      "06ca0a9cc4c001e5136b14b210c7a37ff7ecb85e2f1c348a3655b325094ac697"
+    sha256 cellar: :any,                 mojave:        "e2757e5acea92e205a10e738d6a084b37347a3be3e08f8a481607e9c48d22e95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c212b093e54c12a0b8c8afdde6e56fd04fa15182a9a95633c72bcf5ec9b10388"
   end
 
   depends_on "libtool" => :build

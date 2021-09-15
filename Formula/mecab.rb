@@ -19,6 +19,7 @@ class Mecab < Formula
     sha256 high_sierra:   "d48340df17075e4a6237ffb87306a42566f8eabb736c546d790586266758f387"
     sha256 sierra:        "d98686ec62189de50f6ed5b7e682d59b90239c8dfd08cf32fd23543466586232"
     sha256 el_capitan:    "03df92bdd092065a7cbca5953a0e352c16cadfff5c9f186bbe1ee882258e56d3"
+    sha256 x86_64_linux:  "47d2d29a34af53a9343cc99277fd19df64d0148e80007a19a2215e79b201a2a4"
   end
 
   conflicts_with "mecab-ko", because: "both install mecab binaries"

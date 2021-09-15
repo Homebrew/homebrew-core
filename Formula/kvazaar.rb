@@ -12,11 +12,12 @@ class Kvazaar < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "68cbd47ca58bca7528f9e9a86cd3f6fed66481432f57731f6bc0c8e3e10f25b9"
-    sha256 cellar: :any, big_sur:       "294a8c34175f2338af524ca7b7cf134d9893405013314c006ad3e075160e28b6"
-    sha256 cellar: :any, catalina:      "75467ab21cc9bb1a3f81f41949a0312300f9d470b4547e827111379b94a237d8"
-    sha256 cellar: :any, mojave:        "d146e6aa5dda30a3353f72bae18356622fe613e1a7a43ae6d5d5e2fa8bfc2aba"
-    sha256 cellar: :any, high_sierra:   "50723e7fbe1dfb25f2ba39b84f4059b208bed481ae0832d00f24c7221bdde905"
+    sha256 cellar: :any,                 arm64_big_sur: "68cbd47ca58bca7528f9e9a86cd3f6fed66481432f57731f6bc0c8e3e10f25b9"
+    sha256 cellar: :any,                 big_sur:       "294a8c34175f2338af524ca7b7cf134d9893405013314c006ad3e075160e28b6"
+    sha256 cellar: :any,                 catalina:      "75467ab21cc9bb1a3f81f41949a0312300f9d470b4547e827111379b94a237d8"
+    sha256 cellar: :any,                 mojave:        "d146e6aa5dda30a3353f72bae18356622fe613e1a7a43ae6d5d5e2fa8bfc2aba"
+    sha256 cellar: :any,                 high_sierra:   "50723e7fbe1dfb25f2ba39b84f4059b208bed481ae0832d00f24c7221bdde905"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "708fb79e330e9bed6ae833277613676d5600145b2eb39acfba985e7ce881cd22"
   end
 
   depends_on "autoconf" => :build

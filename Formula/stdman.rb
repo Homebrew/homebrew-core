@@ -5,7 +5,7 @@ class Stdman < Formula
   sha256 "6e96634c67349e402339b1faa8f99e47f4145aa110e2ad492e00676b28bb05e2"
   license "MIT"
   version_scheme 1
-  head "https://github.com/jeaye/stdman.git"
+  head "https://github.com/jeaye/stdman.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f865e4982fe6eeb4674df33b984ad994c863d26e1ef209c13ed688ae2bda30b7"

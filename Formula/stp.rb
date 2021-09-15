@@ -4,7 +4,12 @@ class Stp < Formula
   url "https://github.com/stp/stp/archive/refs/tags/2.3.3.tar.gz"
   sha256 "ea6115c0fc11312c797a4b7c4db8734afcfce4908d078f386616189e01b4fffa"
   license "MIT"
-  head "https://github.com/stp/stp.git"
+  head "https://github.com/stp/stp.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^(?:stp[._-])?v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c85797a1bcf17ff2ee089ca7deffb73cb366073342c80805fb5d96f01b6862a8"

@@ -16,10 +16,11 @@ class Ncview < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "891d85685f499d86b5666a688f1fed2e406a05082a0bd3916b5da325230d6c4b"
-    sha256 big_sur:       "6129b591b2b0238a0e61ec86ebc5d875a494e677963656b679300e67f874c13c"
-    sha256 catalina:      "93d6850d0542b7ea67b442f1ea80d63b80a04c872f0c4d25d0713f3fba5b92a2"
-    sha256 mojave:        "0b8b3c63895071a605b80ab1c1576356d1bfe634857e78f2cf3cb22742de09c2"
+    sha256                               arm64_big_sur: "891d85685f499d86b5666a688f1fed2e406a05082a0bd3916b5da325230d6c4b"
+    sha256                               big_sur:       "6129b591b2b0238a0e61ec86ebc5d875a494e677963656b679300e67f874c13c"
+    sha256                               catalina:      "93d6850d0542b7ea67b442f1ea80d63b80a04c872f0c4d25d0713f3fba5b92a2"
+    sha256                               mojave:        "0b8b3c63895071a605b80ab1c1576356d1bfe634857e78f2cf3cb22742de09c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c78f5b727f31fc213d111d63aa8a7f27193746a4dd3657c8a21ed33cb5a02423"
   end
 
   depends_on "libice"

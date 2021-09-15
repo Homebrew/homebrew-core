@@ -14,6 +14,7 @@ class Diceware < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "79f18254a3631e1cd5e3f1454ba1e8bdb543d40bf3ac32ae7e16a140e1a05691"
     sha256 cellar: :any_skip_relocation, catalina:      "fd0844df14a177f46686016e0c0c1a3b741da092efc17ee312c1a808c3026ae6"
     sha256 cellar: :any_skip_relocation, mojave:        "cedb8a95fb39b3de33096f5c42b67c7aa92a79441d09d0477ecaaaeec007fc19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fb5a144eb5ddefeda40f9426a52b23e789822fbf35168c059d978425143e892"
   end
 
   depends_on "python@3.9"

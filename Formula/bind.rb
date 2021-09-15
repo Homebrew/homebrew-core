@@ -8,11 +8,11 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://downloads.isc.org/isc/bind9/9.16.16/bind-9.16.16.tar.xz"
-  sha256 "6c913902adf878e7dc5e229cea94faefc9d40f44775a30213edd08860f761d7b"
+  url "https://downloads.isc.org/isc/bind9/9.16.20/bind-9.16.20.tar.xz"
+  sha256 "4d0d93c0d0b63080609e84625f24ff8777f8d164e78a75b1c19c334ce42d5b58"
   license "MPL-2.0"
   version_scheme 1
-  head "https://gitlab.isc.org/isc-projects/bind9.git"
+  head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
 
   # BIND indicates stable releases with an even-numbered minor (e.g., x.2.x)
   # and the regex below only matches these versions.
@@ -22,10 +22,11 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "1760d6ca4c7828dba00ee1e08d8e5aa29c45e8b6989909e376a6c5addec1cb49"
-    sha256 big_sur:       "d461b3f29beff84605e9de44c3f28bdc5c3623e532c8123c36120c8ea042cf5b"
-    sha256 catalina:      "c92e452d281ea1e8007c398f705c403b186ea2d855250282dd0d7dc43586db35"
-    sha256 mojave:        "574b9afb50b52e8530968ddb03958c156692138943491de472354605c4dd4142"
+    sha256 arm64_big_sur: "19958ee65cc7f72a5b208e87842d3794906e9274631a86cdde81a32284bf2e8a"
+    sha256 big_sur:       "aa31f3f084e61749d94b67a6888a8a9d2b978600c42b77b580037911ed4a4c5c"
+    sha256 catalina:      "5c610e1e4d8dadc5bab1492fb0b5ca477d62795bc11be2836ba2c5b89f0d2cb9"
+    sha256 mojave:        "b9a0030ed5645ccd7d2e82669e38f5f4a36f96a333a171ea7f6bbb19604f1f1d"
+    sha256 x86_64_linux:  "924639762a30df80035676a7ba9d5185ffc44d3f99763c52e1706e0aaf8f46fb"
   end
 
   depends_on "pkg-config" => :build
@@ -64,9 +65,7 @@ class Bind < Formula
       "--without-lmdb",
       "--with-libidn2=#{Formula["libidn2"].opt_prefix}",
     ]
-    on_linux do
-      args << "--disable-linux-caps"
-    end
+    args << "--disable-linux-caps" if OS.linux?
     system "./configure", *args
 
     system "make"
@@ -103,30 +102,8 @@ class Bind < Formula
 
   plist_options startup: true
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>EnableTransactions</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/named</string>
-          <string>-f</string>
-          <string>-L</string>
-          <string>#{var}/log/named/named.log</string>
-        </array>
-        <key>ServiceIPC</key>
-        <false/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"named", "-f", "-L", var/"log/named/named.log"]
   end
 
   test do

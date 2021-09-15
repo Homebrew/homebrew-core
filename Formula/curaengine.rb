@@ -1,11 +1,11 @@
 class Curaengine < Formula
   desc "C++ 3D printing GCode generator"
   homepage "https://github.com/Ultimaker/CuraEngine"
-  url "https://github.com/Ultimaker/CuraEngine/archive/4.9.1.tar.gz"
-  sha256 "eb422ef388bee09d26bbf3bade489359bf1fd59fd04d8452ac5d6ab3ba5e3894"
+  url "https://github.com/Ultimaker/CuraEngine/archive/4.11.0.tar.gz"
+  sha256 "d654c2e0397f87d75d4481591f9d7f5e252a4fb4bc61cf84a477223618674f80"
   license "AGPL-3.0-or-later"
   version_scheme 1
-  head "https://github.com/Ultimaker/CuraEngine.git"
+  head "https://github.com/Ultimaker/CuraEngine.git", branch: "master"
 
   # Releases like xx.xx or xx.xx.x are older than releases like x.x.x, so we
   # work around this less-than-ideal situation by restricting the major version
@@ -18,24 +18,31 @@ class Curaengine < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7551b87adf579e74e8469e37e4af3e5e57e5d132b02828a4b8331e3b93bdb0ab"
-    sha256 cellar: :any, big_sur:       "fd8acf73caf3d14af5fe1d4cbcbb486a315f352139a6dbc4b836ea4568955d55"
-    sha256 cellar: :any, catalina:      "0087d26cdeaa2a02e0d3ef8e4e5eb577c18e0d74f90047e5dd509c4eea903c31"
-    sha256 cellar: :any, mojave:        "aa47077792c283be3ecda128bbad0f9686db11dce5dcf08ac3dbb34e1bfd2ea5"
+    sha256 cellar: :any,                 arm64_big_sur: "65db3e5bd79cd6d05b9f1b1977f4ac9cd4f5086bc2fb8805a2380cea66336823"
+    sha256 cellar: :any,                 big_sur:       "ecf3e469cedce0fc986b2648df563997806a9156c5cab3db8da2351fa0d0e07e"
+    sha256 cellar: :any,                 catalina:      "ba5a690f2febe148e2fa836a840c996e6e41701379c152f8a32a2b5074e263fa"
+    sha256 cellar: :any,                 mojave:        "bac60b2b7e9c50c1ea5dcb939d4dec14d7dedde5b0d972817a3fd17ba5a08ed4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d9f51fbe4721b8dc596e4d1b1ae2ac90f27a592f3422d177e538860b3034fc0"
   end
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   # The version tag in these resources (e.g., `/1.2.3/`) should be changed as
   # part of updating this formula to a new version.
   resource "fdmextruder_defaults" do
-    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.9.1/resources/definitions/fdmextruder.def.json"
-    sha256 "d9b38fdf02d1dcdc6ee7401118ca9468236adb860786361e453f1eeb54c95b1f"
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.11.0/resources/definitions/fdmextruder.def.json"
+    sha256 "331c3e203eaf012b19b62795235becec9f1da8939e96fc6834213291269c769e"
   end
 
   resource "fdmprinter_defaults" do
-    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.9.1/resources/definitions/fdmprinter.def.json"
-    sha256 "bc4ed29f1c4191ccf6fa76b0a2857aca7ab6ed2a5f526364f52910f330dfa6a6"
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.11.0/resources/definitions/fdmprinter.def.json"
+    sha256 "7e6d73c6165c6d50e09ed2b6cd417ebb82fe6832e99ebfec19f7584224ffd60c"
   end
 
   def install

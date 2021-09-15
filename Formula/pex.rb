@@ -14,6 +14,7 @@ class Pex < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72"
     sha256 cellar: :any_skip_relocation, sierra:        "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59626635064ff1c2378a5eb62df32fc06657919d4afe141b545d0e41c51fd1cd"
   end
 
   depends_on "postgresql"

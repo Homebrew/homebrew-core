@@ -4,6 +4,11 @@ class Exiftags < Formula
   url "https://johnst.org/sw/exiftags/exiftags-1.01.tar.gz"
   sha256 "d95744de5f609f1562045f1c2aae610e8f694a4c9042897a51a22f0f0d7591a4"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?exiftags[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2229163e3493c0fae8cf83479f5c5258b926437b353038cd738d7f7d50fc20f9"
     sha256 cellar: :any_skip_relocation, big_sur:       "e6f10871b2577320dd9c219faa1e1b31fac8a311cde68810d233aaafa79a5a08"
@@ -13,6 +18,7 @@ class Exiftags < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "7aaa2a8e78b03e4f842c84a46ce7fb5ed8ff1a956ababde1f26bc716431a67e0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "47d75e83f89d0db4a54d779d9c9820fbb788c102738824e86b83a441d9a60af8"
     sha256 cellar: :any_skip_relocation, yosemite:      "23a94f2c2694d52ef393e751e23a01c4ed23c0ca7004b6597546047310e73f53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bb2331fd48ad529d9fe2c1cda8f11370d2982afbcebe6403ed18333d6a86416"
   end
 
   def install

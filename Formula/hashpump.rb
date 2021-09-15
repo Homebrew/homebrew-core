@@ -12,11 +12,12 @@ class Hashpump < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f927c386e75aa33a6116249b4853db671cee00beadd86c5f76c78641c59254ba"
-    sha256 cellar: :any, big_sur:       "ad196de95f0c2a2c8edb6d2be9ee24652c44aeeb981c4103964a583fad3bf6da"
-    sha256 cellar: :any, catalina:      "96dc135554b1dfa6b432120e716ab925ed28f9ea570ee2741816bb3309fbc9bb"
-    sha256 cellar: :any, mojave:        "0f9dc011b37341b4b0c6817738811d4825910aab7f25c6a34fe62e85e679281a"
-    sha256 cellar: :any, high_sierra:   "9ca69bd8f3c736e915db2f5b80de0b804170f6f2a71876fa4656c788187db6e7"
+    sha256 cellar: :any,                 arm64_big_sur: "f927c386e75aa33a6116249b4853db671cee00beadd86c5f76c78641c59254ba"
+    sha256 cellar: :any,                 big_sur:       "ad196de95f0c2a2c8edb6d2be9ee24652c44aeeb981c4103964a583fad3bf6da"
+    sha256 cellar: :any,                 catalina:      "96dc135554b1dfa6b432120e716ab925ed28f9ea570ee2741816bb3309fbc9bb"
+    sha256 cellar: :any,                 mojave:        "0f9dc011b37341b4b0c6817738811d4825910aab7f25c6a34fe62e85e679281a"
+    sha256 cellar: :any,                 high_sierra:   "9ca69bd8f3c736e915db2f5b80de0b804170f6f2a71876fa4656c788187db6e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "436a71c492e005771238b818e594bd3b3fd66b3e9e2bdaa32222bc95776d03e0"
   end
 
   depends_on "openssl@1.1"

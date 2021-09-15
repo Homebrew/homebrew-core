@@ -13,13 +13,14 @@ class Chmlib < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any, big_sur:     "af369d3e427b36281f053f65a0d5be2a269c2a0fb80c87443baa066892d0652c"
-    sha256 cellar: :any, catalina:    "96d7cb33260c72012f24f383054b7f2505f815f0e3e24298229b5712f8a66cfa"
-    sha256 cellar: :any, mojave:      "1718a0a9343788718b4207596ebff457f5214879319292cc1608254374720944"
-    sha256 cellar: :any, high_sierra: "426b95744d071ad76399ee240400ab74bcec9057735cbfeb2d433501105060ef"
-    sha256 cellar: :any, sierra:      "9781c76f933beca002df542d2db0644e51766568d9399f9e73dc39b9e896f539"
-    sha256 cellar: :any, el_capitan:  "6b834a6ae6e95f8daaa726fd6ae1a2d3e60335f98862fea9e790c24e5a6411d1"
-    sha256 cellar: :any, yosemite:    "bdc19058cbf1690e960bd88d06f6c8b2ff47f8b743947eb82c259ba394881a65"
+    sha256 cellar: :any,                 big_sur:      "af369d3e427b36281f053f65a0d5be2a269c2a0fb80c87443baa066892d0652c"
+    sha256 cellar: :any,                 catalina:     "96d7cb33260c72012f24f383054b7f2505f815f0e3e24298229b5712f8a66cfa"
+    sha256 cellar: :any,                 mojave:       "1718a0a9343788718b4207596ebff457f5214879319292cc1608254374720944"
+    sha256 cellar: :any,                 high_sierra:  "426b95744d071ad76399ee240400ab74bcec9057735cbfeb2d433501105060ef"
+    sha256 cellar: :any,                 sierra:       "9781c76f933beca002df542d2db0644e51766568d9399f9e73dc39b9e896f539"
+    sha256 cellar: :any,                 el_capitan:   "6b834a6ae6e95f8daaa726fd6ae1a2d3e60335f98862fea9e790c24e5a6411d1"
+    sha256 cellar: :any,                 yosemite:     "bdc19058cbf1690e960bd88d06f6c8b2ff47f8b743947eb82c259ba394881a65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "61a085287bba377e847d027575fd848cbadc0f6b5bd8f2efc008cc54d8f32d32"
   end
 
   def install

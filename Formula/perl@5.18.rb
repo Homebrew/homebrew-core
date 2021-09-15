@@ -17,6 +17,7 @@ class PerlAT518 < Formula
     sha256 catalina:      "45b388773570fd4ef892caa7a0bb0312fd05dfcb3f73245a03eed16bf9187cc9"
     sha256 mojave:        "3e80537039afd47db55b42a09f34c2b1e6fc2a24581c16d09d76b5ad85997ed6"
     sha256 high_sierra:   "4ebffdb24ede27bf2fb4f844c87f4adc962942d399c6762b3c6cf90b929fa50a"
+    sha256 x86_64_linux:  "e4ce31234d1576e6c5af1bf1054487b7a0a740d1cba234a8bde56dc72e0250b2"
   end
 
   keg_only :versioned_formula
@@ -33,9 +34,7 @@ class PerlAT518 < Formula
       -Duselargefiles
       -Dusethreads
     ]
-    on_macos do
-      args << "-Dsed=/usr/bin/sed"
-    end
+    args << "-Dsed=/usr/bin/sed" if OS.mac?
 
     system "./Configure", *args
     system "make"

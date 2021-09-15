@@ -7,7 +7,12 @@ class Trace2html < Formula
   license "BSD-3-Clause"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "32764a563ad476d574353f8c911c341d8831a6154bda4c068f6c7524724e640d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cbe734ca273dc6851bca4b52646389d9593608f92f777abed4a7df97e3314a67"
+    sha256 cellar: :any_skip_relocation, catalina:      "cbe734ca273dc6851bca4b52646389d9593608f92f777abed4a7df97e3314a67"
+    sha256 cellar: :any_skip_relocation, mojave:        "cbe734ca273dc6851bca4b52646389d9593608f92f777abed4a7df97e3314a67"
+  end
 
   # https://github.com/google/trace-viewer/commit/5f708803
   deprecate! date: "2015-09-03", because: "has moved upstream repositories"

@@ -1,8 +1,8 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
-  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.4.tgz"
-  sha256 "61c03c078d70cd859e504fa9555d7d52426eed4b29e6a39e828afc213e4fb356"
+  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.7.tgz"
+  sha256 "ea9757001bc36295037f0030ede16810a1bb7438bbe8f871a35cc2a2b439d9ab"
   license "OLDAP-2.8"
 
   livecheck do
@@ -11,10 +11,11 @@ class Openldap < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "8810cadba32515088aad764a5b3d27e78e8f9b39c5bc1d272f4518757de75230"
-    sha256 big_sur:       "3cd664ef4e02c7034c0fbded6a9ce81d7995e7785547b4e2b4258be2c6ac2727"
-    sha256 catalina:      "2a09c420f6510ca308e88839f6479f4578f93915224852c9b0ee23f8ac9a0c80"
-    sha256 mojave:        "2aeca689b082906b3f9c655581bbc0d9b0642a93fe05f6b20d534a068e29d8c2"
+    sha256 arm64_big_sur: "c4d9a59ec4d441285110a2dfa0d67f51f5c3143bae306312f2b452a9f3f48225"
+    sha256 big_sur:       "84724691666b037bc57a88be1c76a9ff30c8559c89780fea8cac439f5350e499"
+    sha256 catalina:      "b8ab256ce13cd4e4ab969f086cb37dc4a192ed9fe65fd476ff4085d2b29855e5"
+    sha256 mojave:        "44112f8f14f19d469c98eecf0c390fa8205e69a14429df199ae86c5b9a835ba9"
+    sha256 x86_64_linux:  "b107a8e433dbe115672a023a3b9466f5cbad67a5314cfb9b660627a2d679d360"
   end
 
   keg_only :provided_by_macos
@@ -22,7 +23,6 @@ class Openldap < Formula
   depends_on "openssl@1.1"
 
   on_linux do
-    depends_on "groff" => :build
     depends_on "util-linux"
   end
 
@@ -51,6 +51,16 @@ class Openldap < Formula
       --enable-unique
       --enable-valsort
     ]
+
+    if OS.linux?
+      args << "--without-systemd"
+
+      # Disable manpage generation, because it requires groff which has a huge
+      # dependency tree on Linux
+      inreplace "Makefile.in" do |s|
+        s.change_make_var! "SUBDIRS", "include libraries clients servers"
+      end
+    end
 
     system "./configure", *args
     system "make", "install"

@@ -15,6 +15,7 @@ class GxGo < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "8c86c8465cde5c6189e67f2d3b758604ef579d064f398cd48eff6ab6ce092bdb"
     sha256 cellar: :any_skip_relocation, high_sierra:   "57eb4c948ce99ebca79f938539c1b5e096aef6c16554c30f5744b4e1fc93016d"
     sha256 cellar: :any_skip_relocation, sierra:        "7eb7a89b575a1cb12464f1a0a4d14c5983333a79fb6e4fbb9c5b5240e540020d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "692e3553ebcc2909c27897f5fc6c74a7937af1e8cee2819daab8c6573e0bf8b5"
   end
 
   depends_on "go" => :build

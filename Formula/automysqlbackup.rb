@@ -10,7 +10,13 @@ class Automysqlbackup < Formula
     regex(%r{url=.*?/automysqlbackup[._-]v?(\d+(?:\.\d+)+(?:[._-]?rc\d+)?)\.t}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6499ee140c9ecc7517483b77dd3cdbd9b810c78ccd669e4160b13743d947be33"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
+    sha256 cellar: :any_skip_relocation, catalina:      "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
+    sha256 cellar: :any_skip_relocation, mojave:        "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6499ee140c9ecc7517483b77dd3cdbd9b810c78ccd669e4160b13743d947be33"
+  end
 
   def install
     inreplace "automysqlbackup" do |s|

@@ -5,14 +5,15 @@ class RiemannClient < Formula
   sha256 "334874f0b9a507a8abbc7138df719cba4f28f12c02c39d5e55090b8edb86f9d2"
   license "LGPL-3.0"
   revision 1
-  head "https://github.com/algernon/riemann-c-client.git"
+  head "https://github.com/algernon/riemann-c-client.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0d4d437c6d0f17a436d78d7d0a31e2031e049a3a4d822a72bbb587da6f65d25b"
-    sha256 cellar: :any, big_sur:       "d0fc546788b990e07850b71d51326cfa79fbdb753415acccf21d85239931831b"
-    sha256 cellar: :any, catalina:      "3227f7774fb1ff0e7daeb4b8c75c0e976a928593b85a8ef2726542ef3bab634b"
-    sha256 cellar: :any, mojave:        "1a11eb37bbb1021c3aee0e2e5173dba58fb48172418cf632e76811f08483a39d"
-    sha256 cellar: :any, high_sierra:   "245fe4d845c711bc9d1b99f0697d1cb98811633a608c62f415a4e2c0f05ebd1a"
+    sha256 cellar: :any,                 arm64_big_sur: "0d4d437c6d0f17a436d78d7d0a31e2031e049a3a4d822a72bbb587da6f65d25b"
+    sha256 cellar: :any,                 big_sur:       "d0fc546788b990e07850b71d51326cfa79fbdb753415acccf21d85239931831b"
+    sha256 cellar: :any,                 catalina:      "3227f7774fb1ff0e7daeb4b8c75c0e976a928593b85a8ef2726542ef3bab634b"
+    sha256 cellar: :any,                 mojave:        "1a11eb37bbb1021c3aee0e2e5173dba58fb48172418cf632e76811f08483a39d"
+    sha256 cellar: :any,                 high_sierra:   "245fe4d845c711bc9d1b99f0697d1cb98811633a608c62f415a4e2c0f05ebd1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c8c3422e98e2f0b6bd891d3afc90afb256bc29062f20260d57019af1c000265"
   end
 
   depends_on "autoconf" => :build

@@ -19,6 +19,7 @@ class Ragel < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "69d6d65c2ef3da7b829e3391fd17b1ef088b92c2baf64979707033e2a7dd8c01"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f4ea3a8c0476fd82000223fae69170ac9f266cd36334bd60d9d6cf4fab3273c1"
     sha256 cellar: :any_skip_relocation, yosemite:      "dd8469ac3e08d5d8a257ce7fc7de05de398e8521abff83eceea0741099685b38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2306dd1c44d304bc0e86093e9f87e0e885d0d9ce03579ab55d7a6c9bf2ada95b"
   end
 
   resource "pdf" do

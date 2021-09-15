@@ -5,14 +5,15 @@ class Quasi88 < Formula
   sha256 "2c4329f9f77e02a1e1f23c941be07fbe6e4a32353b5d012531f53b06996881ff"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d62e6a88ff70815e139f210668f4e8e433ba5c00124f1ec1464c71d29afd6fb0"
-    sha256 cellar: :any, big_sur:       "0666b5a2b84dede66965c0085d397c05bbd44f09338076c7860baa3790eb84ef"
-    sha256 cellar: :any, catalina:      "2a1d1f01c210c06e49f3091dcebb2a30e62e14596e23bc43f349e151e3771d09"
-    sha256 cellar: :any, mojave:        "8b16ac77e4b8c6481fb7f518d5f7f446ff3b8b39465fa99d7bcbb8b28a3c745f"
-    sha256 cellar: :any, high_sierra:   "8199a69a8ecad4247752091f3eeaf5181eaa1dd0e4b2670059e21df807c646c6"
-    sha256 cellar: :any, sierra:        "d9ff4c5657c4179371d60317e0455cbadd59d45d81d0cc71d62d14d681619e95"
-    sha256 cellar: :any, el_capitan:    "4bef6f92d4fcdf3547e0e7b9d699f392de0ff4764bbed0d8b23ea37e22e33f78"
-    sha256 cellar: :any, yosemite:      "f9b4ef36396de67507df8148ad22ecca3940505c40468656df03ac685930b2d9"
+    sha256 cellar: :any,                 arm64_big_sur: "d62e6a88ff70815e139f210668f4e8e433ba5c00124f1ec1464c71d29afd6fb0"
+    sha256 cellar: :any,                 big_sur:       "0666b5a2b84dede66965c0085d397c05bbd44f09338076c7860baa3790eb84ef"
+    sha256 cellar: :any,                 catalina:      "2a1d1f01c210c06e49f3091dcebb2a30e62e14596e23bc43f349e151e3771d09"
+    sha256 cellar: :any,                 mojave:        "8b16ac77e4b8c6481fb7f518d5f7f446ff3b8b39465fa99d7bcbb8b28a3c745f"
+    sha256 cellar: :any,                 high_sierra:   "8199a69a8ecad4247752091f3eeaf5181eaa1dd0e4b2670059e21df807c646c6"
+    sha256 cellar: :any,                 sierra:        "d9ff4c5657c4179371d60317e0455cbadd59d45d81d0cc71d62d14d681619e95"
+    sha256 cellar: :any,                 el_capitan:    "4bef6f92d4fcdf3547e0e7b9d699f392de0ff4764bbed0d8b23ea37e22e33f78"
+    sha256 cellar: :any,                 yosemite:      "f9b4ef36396de67507df8148ad22ecca3940505c40468656df03ac685930b2d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96d4f4f49723f1a6309bfa403c2cee367425301794c7da4cc7ffb51f3d802927"
   end
 
   depends_on "sdl"

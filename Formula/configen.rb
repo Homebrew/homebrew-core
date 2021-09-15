@@ -4,7 +4,7 @@ class Configen < Formula
   url "https://github.com/theappbusiness/ConfigGenerator/archive/1.1.2.tar.gz"
   sha256 "24a0d51f90b36d56c2f75ced9653cf34fe396fd687305903b31eeb822d520608"
   license "MIT"
-  head "https://github.com/theappbusiness/ConfigGenerator.git"
+  head "https://github.com/theappbusiness/ConfigGenerator.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d7aa87ea082759093c1192bf7e0ee69c1146ef4626534731ff506a83ec682641"

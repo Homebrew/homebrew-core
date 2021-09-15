@@ -16,6 +16,7 @@ class Expect < Formula
     sha256 big_sur:       "b7824e3cc83c7b063198bb7505bbd723481327ff40d36ac91ba8950621bcbc49"
     sha256 catalina:      "366066798dba96afbfbbf5b262bb3df9e6405e79b1e4d7160dd9610308ec4b3e"
     sha256 mojave:        "da69b859dd682d61f2380523c3e1afbed2d06e453d4e88e0ce6bb5566df24082"
+    sha256 x86_64_linux:  "518fab49b38bf1b7ce6118907dec39e476c4f57e0c1a3dbfc2113d95a6c1760b"
   end
 
   # Autotools are introduced here to regenerate configure script. Remove

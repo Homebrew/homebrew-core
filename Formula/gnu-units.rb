@@ -11,6 +11,7 @@ class GnuUnits < Formula
     sha256 big_sur:       "67c4941efc8a2b0b2b76193f28a83381cea01b74a2e981fb51222cc87e497aca"
     sha256 catalina:      "9a3735d1c7a52c9c4a1e2f81e1b0219a2621c3d32be663a085c5a1c48299a6d5"
     sha256 mojave:        "720dc5aea47a82932ca0cb33b4a45ec3b4ac5c7910274c0dc925a371493f3b32"
+    sha256 x86_64_linux:  "d5a3a5af1eeb39c44a19c10af79f557cc926a686753674c42424365eb4f6cc1c"
   end
 
   depends_on "readline"
@@ -21,13 +22,11 @@ class GnuUnits < Formula
       --with-installed-readline
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gunits" => "units"
       (libexec/"gnubin").install_symlink bin/"gunits_cur" => "units_cur"
       (libexec/"gnuman/man1").install_symlink man1/"gunits.1" => "units.1"

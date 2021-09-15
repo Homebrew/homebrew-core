@@ -8,7 +8,14 @@ class NicovideoDl < Formula
   sha256 "886980d154953bc5ff5d44758f352ce34d814566a83ceb0b412b8d2d51f52197"
   revision 2
 
-  bottle :unneeded
+  livecheck do
+    url "https://osdn.net/projects/nicovideo-dl/releases/"
+    regex(%r{value=.*?/rel/nicovideo-dl/v?(\d+(?:\.\d+)+)["']}i)
+  end
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "5c4b76aa62fa658eed10b7224c5f53e25e8b29f764766a9ab4a7d80b9ff79850"
+  end
 
   depends_on "python@3.9"
 

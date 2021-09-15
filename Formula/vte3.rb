@@ -1,27 +1,36 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.64/vte-0.64.1.tar.xz"
-  sha256 "12fb41a9ff8e03c5f1711b46560910a4b9b3102aec3e9e7609ceef4dfa98aa2a"
+  url "https://download.gnome.org/sources/vte/0.64/vte-0.64.2.tar.xz"
+  sha256 "2b3c820b65a667c1d8859ba20478be626d1519cc3159dac25f703330c6d07e18"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "91e744700ac9855ef57a93807a6f7f4e1720ca87745629c6746be5e9dc74740d"
-    sha256 big_sur:       "43d4809d5c7aef292f8dc93f8995db4b975b44dad6b9ae3162726c6a8146c5fc"
-    sha256 catalina:      "109c97eac1201728617c68b80220f582aa633243102edfb29ca4b2376da7f6fc"
-    sha256 mojave:        "1ec759cc8562c245ec0537c1ad51c3ff77cde6ca9c33d58522eb2a7cfc2010f4"
+    sha256 arm64_big_sur: "805b98e4a5b77ac8385fdf15c555bdbc6cfa19fa586e140d7f030366c80b1f69"
+    sha256 big_sur:       "80db6f9c0b62cd99beaf9eaadde7be8cfe3c09a54eb9b385bd103891d7a12af8"
+    sha256 catalina:      "ad7a7e195ce43afdf30eff81f83e606b79e78db8e6ed39f0370ef34ebeeb39e4"
+    sha256 mojave:        "2404d321dc1eb3e61c5f6282c214395beae288e97ae62d6d6b5afe3edd9b7adf"
+    sha256 x86_64_linux:  "fb813f9bc1317086d4e1374aa003f0796084aeabc85fa077a40e0a785b877a54"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on macos: :mojave
   depends_on "pcre2"
-  depends_on "vala"
+
+  on_linux do
+    depends_on "linux-headers@4.15" => :build
+    depends_on "gcc" # for C++17
+    depends_on "systemd"
+  end
+
+  fails_with gcc: "5"
 
   # submitted upstream as https://gitlab.gnome.org/tschoonj/vte/merge_requests/1
   patch :DATA

@@ -1,15 +1,16 @@
 class Dav1d < Formula
   desc "AV1 decoder targeted to be small and fast"
   homepage "https://code.videolan.org/videolan/dav1d"
-  url "https://code.videolan.org/videolan/dav1d/-/archive/0.9.0/dav1d-0.9.0.tar.bz2"
-  sha256 "e0cb645f170e7a087bc76e501324177be51a8db21df22ad37b43d289d7d1f7b5"
+  url "https://code.videolan.org/videolan/dav1d/-/archive/0.9.2/dav1d-0.9.2.tar.bz2"
+  sha256 "0d198c4fe63fe7f0395b1b17de75b21c8c4508cd3204996229355759efa30ef8"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3ef3442e8d669abaa81207d3338b8718b5d0e11cc5293fd54cb87ba26e4ebb77"
-    sha256 cellar: :any, big_sur:       "75ba2b6a51de06183c444e6193e33b581858cbdb60913db8e04830612fe2c202"
-    sha256 cellar: :any, catalina:      "c8448e4ca0c2b1f394d10bf846f53fd36ed2eef78c72bdbb5c3241e602f16ac1"
-    sha256 cellar: :any, mojave:        "b6b810290ca73343d4e8ff7505bd30431d04dbf1375eb1e84668ce93861a164f"
+    sha256 cellar: :any,                 arm64_big_sur: "d03b6fb80959882f28f578b0cadb330a3ebbedd511ed47315990f733c9dd5db4"
+    sha256 cellar: :any,                 big_sur:       "32baa0d1898c4640842e29e743fd7ce4a9bc7c5c3e8937086b1eed267d20c938"
+    sha256 cellar: :any,                 catalina:      "6bbb978d3c3b20a7b2df2b27e1a41cbd60a81fe4baa248f128de98133a400576"
+    sha256 cellar: :any,                 mojave:        "88b9800aa5a7263d58e690aaf39e51a759f71dd84da49138c9aba23bff80d3a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fcc7b43ce7dbeebb86ebd2e90f5669bc748ce5138d5fcb8452aae9b606a3cb4"
   end
 
   depends_on "meson" => :build

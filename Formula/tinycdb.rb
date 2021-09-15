@@ -18,6 +18,7 @@ class Tinycdb < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a1b2de0589b4530d51f33060657d5c7f08a46d1e90b60f2c2a03f499ff944a4e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4f4341c31d1ed6eddce4dfa57360e339f27f37a0db5b5b6df8df46f5ccda65c2"
     sha256 cellar: :any_skip_relocation, yosemite:      "d73abbd1439c1579c3ab925d2110fee60f287bb9b262850e030c74f7c356bcaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c42225707daf30f28b9da534b084d065d93424c628a5df1ca64de5224221ca81"
   end
 
   def install

@@ -19,6 +19,7 @@ class Libwmf < Formula
     sha256 sierra:        "9df806eb6a4a3ca1a2b4b656ff02623175892981fbf136c89d4df5b5853bd20c"
     sha256 el_capitan:    "205bf519460576ecf73e9314ba1171542be58ea22cea81c26424d661734f2d2f"
     sha256 yosemite:      "3554c19cc80eb6435ad630587a38dd094a3f33008c11a93a622f1eb62b2a3e2e"
+    sha256 x86_64_linux:  "601eaf0675dc226c04cb3b52179f8af294317b51307de9067d6506ae60e0dbbb"
   end
 
   depends_on "pkg-config" => :build

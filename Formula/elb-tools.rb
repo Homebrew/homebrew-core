@@ -6,7 +6,9 @@ class ElbTools < Formula
   sha256 "31d9aa0ca579c270f8e3579f967b6048bc070802b7b41a30a9fa090fbffba62b"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "8dd3007e8367fe8e0c4b4b85889a68d7196a954a27add9cb163c5965daa51da1"
+  end
 
   depends_on "ec2-api-tools"
   depends_on "openjdk"

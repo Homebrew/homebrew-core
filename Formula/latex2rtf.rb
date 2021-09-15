@@ -15,6 +15,7 @@ class Latex2rtf < Formula
     sha256 big_sur:       "fedf28c8cd7113f639a32776b9b55bbbae3ccfa7aa15e142d08004d39cf56d23"
     sha256 catalina:      "a4f536a8f9a6001fe955727e7d9473b5294daf416b422dab70b489067dad35f3"
     sha256 mojave:        "e57496652dd135bddb2d28f88d96e6207b69551f040ac4436cb6d043557e90c3"
+    sha256 x86_64_linux:  "4614b529d342e3e532c2c36fc3b6090dd889261c05ba3ea21847a276a063e4c5"
   end
 
   def install

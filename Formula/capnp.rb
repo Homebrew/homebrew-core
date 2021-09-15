@@ -4,7 +4,7 @@ class Capnp < Formula
   url "https://capnproto.org/capnproto-c++-0.8.0.tar.gz"
   sha256 "d1f40e47574c65700f0ec98bf66729378efabe3c72bc0cda795037498541c10d"
   license "MIT"
-  head "https://github.com/capnproto/capnproto.git"
+  head "https://github.com/capnproto/capnproto.git", branch: "master"
 
   livecheck do
     url "https://capnproto.org/install.html"
@@ -17,6 +17,7 @@ class Capnp < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "741c2079361cdb5881a60684190bc4aa98ff9cc6f8d29aa46880e809ac1b06c3"
     sha256 cellar: :any_skip_relocation, mojave:        "f389012b8211b70af4fa7d2eed8db8ad399ef2bdc98e286fb57a4b1beb93dfe4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "9c3beb8d8db3b372e4d2fd07d99a553fde6ff53824c6cfec82c3db41e212bc5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "116a68bdec163a2a46dad2e2b12526dd223fa1afce688cd9db8881189ac72fe9"
   end
 
   depends_on "cmake" => :build

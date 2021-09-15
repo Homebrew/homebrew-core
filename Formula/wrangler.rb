@@ -2,7 +2,7 @@ class Wrangler < Formula
   desc "Refactoring tool for Erlang with emacs and Eclipse integration"
   homepage "https://www.cs.kent.ac.uk/projects/wrangler/Wrangler/"
   revision 3
-  head "https://github.com/RefactoringTools/wrangler.git"
+  head "https://github.com/RefactoringTools/wrangler.git", branch: "master"
 
   stable do
     url "https://github.com/RefactoringTools/wrangler/archive/wrangler1.2.tar.gz"
@@ -27,6 +27,7 @@ class Wrangler < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8d67285352be09f209dba8e1fe678bb9e88a77c74e5178687f890cf5ba19c8ca"
     sha256 cellar: :any_skip_relocation, mojave:        "1f122b48da35f344074d239e3d23fcf3d66e309dd0425062547d080bd3285a12"
     sha256 cellar: :any_skip_relocation, high_sierra:   "b3aa1c943b1de15308be2cf7ac540daa95b4a843788a662fcdf34ed30e2ec29d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c8a35606fb2501dd17a67ea29bcf606444c84526256e386d4351134869f60f3"
   end
 
   depends_on "erlang@22"

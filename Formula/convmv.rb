@@ -17,6 +17,7 @@ class Convmv < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "856021a73afb22052e496ced9eb1a7386d810a6d75903aac99feb98298801ea8"
     sha256 cellar: :any_skip_relocation, sierra:        "cc6cf7ff9cfd8909a76e29dd6ddbdddc9ad95638e154b72a36fe6c255e3a367d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "43278a7c7ef7720e20fed3179ff8519230678d3fd4e98f4b0e8e796b5fdb40ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fa873d27984fa5cd6b1b3df0b75273172c8a25a4a74d4c756305af54e72b6bc"
   end
 
   def install

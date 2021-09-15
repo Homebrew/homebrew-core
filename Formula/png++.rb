@@ -16,6 +16,7 @@ class Pngxx < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "536f9c2dd05cfd2ae8a4f7f5d0c5c38575cf91609498f98bd6c3f97c4de2c520"
     sha256 cellar: :any_skip_relocation, high_sierra:   "536f9c2dd05cfd2ae8a4f7f5d0c5c38575cf91609498f98bd6c3f97c4de2c520"
     sha256 cellar: :any_skip_relocation, sierra:        "cee110f568bae723e8e5172e8bab36c8f4c5adb8bf339a444926a572bfa13f89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ede8356bf0fad95a8d5e0ff94f9e586bcca7ca67ef24097d50bb69e3bc20173"
   end
 
   depends_on "libpng"

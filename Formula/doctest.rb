@@ -10,6 +10,7 @@ class Doctest < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "48897cfd764b2b3b241c67a8aa8d6f0d203846fa42939a35b2de64e96aff5031"
     sha256 cellar: :any_skip_relocation, catalina:      "d72ed1e3e4f5897da6e9686cd048f38ad22307d0414b9cbc7496ca9d1f161c63"
     sha256 cellar: :any_skip_relocation, mojave:        "54e5a4919e7fb93c7eb8cf7001cccf0fc90cac50531138c3966d2c4174953283"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2e9c84fbfb8698c529078bf132aef8686cc65931ea8f0ca86e0bc8e8e2317ef"
   end
 
   depends_on "cmake" => :build

@@ -1,9 +1,8 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.23-16/source/tarball/percona-xtrabackup-8.0.23-16.tar.gz"
-  sha256 "ca834acf940a79981366eb874d1b71df794e237c8936da86d03415771604be7e"
-  revision 1
+  url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.25-17/source/tarball/percona-xtrabackup-8.0.25-17.tar.gz"
+  sha256 "9f59d6d6a781043291c69c1a14e888f64b32ad95bead2eafc2940e3d984793df"
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
@@ -11,21 +10,36 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f37f29f4e54c87c68809b3b21caf3764ed97180c729fa8a7e116275e8a0b492d"
-    sha256 big_sur:       "a2fde831a45845367f31dd064937839776364c9e363f729652d0e9acce70153a"
-    sha256 catalina:      "a5523f5a64e0a226c255dfd1c7d94deac6612f21fe05976295225752dba3da3f"
-    sha256 mojave:        "f233229c815dda2cc223de08a68c3932afb6ed289b1da7ceaa0262673552332e"
+    sha256 arm64_big_sur: "45e372cb3dbc06e4598b9730a2d966b7b5acdbf26f1cdd1fec476c9343a76264"
+    sha256 big_sur:       "7678afb4036a12a8a57ecc72544ad01ee8daf1987da5e6b9fd15644e13e163e0"
+    sha256 catalina:      "ac2777de2bced8fc020ef76f1275da999f11cb3c60481d97006f8cbac9403a97"
+    sha256 mojave:        "880abb4be9f118120660818a079cdc4562cc7411a1a9070d3ef005c8aee23f35"
+    sha256 x86_64_linux:  "bbe0e5b72dc9bd03415c999aaa45a8ed4d30294f56bad35200fbdbc8d1f552df"
   end
 
   depends_on "cmake" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "icu4c"
   depends_on "libev"
+  depends_on "libevent"
   depends_on "libgcrypt"
+  depends_on "lz4"
   depends_on "mysql-client"
   depends_on "openssl@1.1"
   depends_on "protobuf"
+  depends_on "zstd"
 
+  uses_from_macos "vim" => :build # needed for xxd
+  uses_from_macos "curl"
+  uses_from_macos "cyrus-sasl"
+  uses_from_macos "libedit"
   uses_from_macos "perl"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "patchelf" => :build
+    depends_on "libaio"
+  end
 
   # Should be installed before DBD::mysql
   resource "Devel::CheckLib" do
@@ -33,12 +47,10 @@ class PerconaXtrabackup < Formula
     sha256 "f21c5e299ad3ce0fdc0cb0f41378dca85a70e8d6c9a7599f0e56a957200ec294"
   end
 
-  # In Mojave, this is not part of the system Perl anymore
-  if MacOS.version >= :mojave
-    resource "DBI" do
-      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
-      sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
-    end
+  # This is not part of the system Perl on Linux and on macOS since Mojave
+  resource "DBI" do
+    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
+    sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
   end
 
   resource "DBD::mysql" do
@@ -60,8 +72,14 @@ class PerconaXtrabackup < Formula
       -DINSTALL_MANDIR=share/man
       -DWITH_MAN_PAGES=ON
       -DINSTALL_MYSQLTESTDIR=
-      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
+      -DWITH_EDITLINE=system
+      -DWITH_ICU=system
+      -DWITH_LIBEVENT=system
+      -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
+      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
+      -DWITH_ZLIB=system
+      -DWITH_ZSTD=system
     ]
 
     # macOS has this value empty by default.
@@ -85,7 +103,7 @@ class PerconaXtrabackup < Formula
     # remove conflicting library that is already installed by mysql
     rm lib/"libmysqlservices.a"
 
-    on_macos do
+    if OS.mac?
       # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
       rm lib/"libssl.dylib"
       rm lib/"libssl.1.1.dylib"
@@ -102,8 +120,8 @@ class PerconaXtrabackup < Formula
 
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
-    # In Mojave, this is not part of the system Perl anymore
-    if MacOS.version >= :mojave
+    # This is not part of the system Perl on Linux and on macOS since Mojave
+    if OS.linux? || MacOS.version >= :mojave
       resource("DBI").stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make", "install"

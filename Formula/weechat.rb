@@ -1,17 +1,17 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-3.1.tar.xz"
-  sha256 "a55a2975aa119f76983412507e3ddb3fe68d0744e08739681ddc17744e77a4f7"
+  url "https://weechat.org/files/src/weechat-3.2.1.tar.xz"
+  sha256 "2bb3a708e006f2d22df9e813f3567569178f30ba4082fd8fb06ca0f6f4d1613f"
   license "GPL-3.0-or-later"
-  revision 1
-  head "https://github.com/weechat/weechat.git"
+  head "https://github.com/weechat/weechat.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "8f7cd8d76ae449f66703e7da1e57ca27f9a6635742e18937092b2b173fff50af"
-    sha256 big_sur:       "d94b5b25150947e9f1cd5343206859971acdf740d5ceee7d4d7a33b7e0f9485b"
-    sha256 catalina:      "cc6b05e6233b5cc7f1d8e05d2844ed9981f8a35c3a330ae5eb96af50b39daf2c"
-    sha256 mojave:        "643e7c45958a9ea3d42a1a9b67dab4d58f185c275a025916f75b9cb54f316ee0"
+    sha256 arm64_big_sur: "011ded88c3b1e1e8019b1e27ae3aafefc038d5cda13b72364c909c9e9f4c97e4"
+    sha256 big_sur:       "33535ba198766d65e0e6aa113eec1fcbb7b42ee10fd95599bc293def1861a2b1"
+    sha256 catalina:      "d133800b9ff2027f6f8efe11c457f57e3033f963bc71fb1368bc6a6263c34aa0"
+    sha256 mojave:        "c64d2e4761b4bae1c617c04f9d74f674d00a8b22f1da9701a9160ffe9ece52e2"
+    sha256 x86_64_linux:  "06c45c9d62ac7dabff1cb9ecc2b4a94ebc4143bda709ef8d1993fac880286deb"
   end
 
   depends_on "asciidoctor" => :build

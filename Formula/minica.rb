@@ -11,6 +11,7 @@ class Minica < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "6ed3047835593e51bddc2f1150ca3db84f736c4714442140ed693e23561053ee"
     sha256 cellar: :any_skip_relocation, mojave:        "3665f724fc7ca7da303894232bceda5f53b3aa75d6fe010f77635f75062212d7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "898ae6355e98099a2692f397b58c497dbed656a7859ed8bfb9e045fc4af56a0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2be226df1e804807e87055c5637b7d750684c744cad1aeccbe4b031c9a980c82"
   end
 
   depends_on "go" => :build

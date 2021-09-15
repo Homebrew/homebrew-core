@@ -11,6 +11,7 @@ class Tunnel < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "b13e5a208e756bc66a56f9e85ed2d5f1456b5a58055213b1c1579223da0c4ba3"
     sha256 cellar: :any_skip_relocation, mojave:        "d4d2c6b802eb2f4fb03628481ec7251b52fb05e536ef161ae9e6eb96d4afb8b1"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8425650fbc2fad854ab561a0590e4a899e235882a72f40d95fae4bcb1115c094"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3964669aa7c99a6eb5ea3b5d0fe3b9ea13083e04db6e2aa82e8996c2750a0e8"
   end
 
   depends_on "go" => :build
@@ -21,6 +22,6 @@ class Tunnel < Formula
   end
 
   test do
-    system bin/"tunnel", "ping"
+    assert_match "you need an api key", shell_output(bin/"tunnel 8080", 1)
   end
 end

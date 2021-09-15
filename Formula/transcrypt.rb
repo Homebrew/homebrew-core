@@ -4,9 +4,11 @@ class Transcrypt < Formula
   url "https://github.com/elasticdog/transcrypt/archive/v2.1.0.tar.gz"
   sha256 "0075a25f7fb48ddfcfb33dd834a5f12fe0644ed4fb5ab0a5f2f7dca06e9ed48c"
   license "MIT"
-  head "https://github.com/elasticdog/transcrypt.git"
+  head "https://github.com/elasticdog/transcrypt.git", branch: "main"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "a5cfd2ec236ba342258bf5119e96dd721c5669370094192ef3389146a62ae53b"
+  end
 
   def install
     bin.install "transcrypt"

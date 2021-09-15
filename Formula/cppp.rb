@@ -4,6 +4,11 @@ class Cppp < Formula
   url "https://www.muppetlabs.com/~breadbox/pub/software/cppp-2.6.tar.gz"
   sha256 "d42cd410882c3b660c77122b232f96c209026fe0a38d819c391307761e651935"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cppp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "24b206e97713f4f12168a2c1a29fe546b931e2da5b72b8ed050170522b1fabf5"
     sha256 cellar: :any_skip_relocation, big_sur:       "e4e6c9586586b0c2d014cf83cd3cf0e1434f2643667900b0dfd4cb194f4f5b1c"
@@ -13,6 +18,7 @@ class Cppp < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "af58094ee1d80d6d09163b42755d827aa5b8be15b636a6ad087b334978ad2e38"
     sha256 cellar: :any_skip_relocation, el_capitan:    "3bb773301b97402f783e506f3ccc339d7363df6e292d255d6b3209e5be8d1c1a"
     sha256 cellar: :any_skip_relocation, yosemite:      "7c18c1844a89ca3a0ee7084b06c908de2288378eaeac09c7872b0eae97129fc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "506ed1937e454dfd18842feaa90e2873eacad66b4920cfae8cba78f5b323f874"
   end
 
   def install

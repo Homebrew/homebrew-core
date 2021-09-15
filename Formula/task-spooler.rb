@@ -15,6 +15,7 @@ class TaskSpooler < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0ee61ba4a007adce01bfe9d70b025770ba444b016a40271241db9a86f82ef505"
     sha256 cellar: :any_skip_relocation, catalina:      "095b74d3cbad466cf63f40b1fb26face89ea2e9046d377fb8fc5e05eb9293012"
     sha256 cellar: :any_skip_relocation, mojave:        "ced31018d86983a844fd5a4d0ba2f0b390ba78b4c9840c0f1a2f8cddfd4242b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bc1df082506d11046c1684da356951de0d79e59bbb9ace04a2c221647117787"
   end
 
   conflicts_with "moreutils", because: "both install a `ts` executable"

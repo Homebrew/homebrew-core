@@ -15,6 +15,7 @@ class Silk < Formula
     sha256 catalina:      "4a88b111ce742a948b91b9441f2bbc7e821ffd3691673086ff46e8e27fbda31e"
     sha256 mojave:        "923bc8b774f207d23073195b49befba72e378e79846b6809066f55f3df87c329"
     sha256 high_sierra:   "663d2a858210750b8650e4f0e516dd6530fb5d08a7c501f8daa937572d8a81ee"
+    sha256 x86_64_linux:  "260d96b7167b57d9fb2be97dd9632a6e8877633cce28331ea2b9d6fe21ff5019"
   end
 
   depends_on "pkg-config" => :build

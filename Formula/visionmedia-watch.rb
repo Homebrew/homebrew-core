@@ -3,7 +3,7 @@ class VisionmediaWatch < Formula
   homepage "https://github.com/visionmedia/watch"
   url "https://github.com/visionmedia/watch/archive/0.3.1.tar.gz"
   sha256 "769196a9f33d069b1d6c9c89e982e5fdae9cfccd1fd4000d8da85e9620faf5a6"
-  head "https://github.com/visionmedia/watch.git"
+  head "https://github.com/visionmedia/watch.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -15,6 +15,7 @@ class VisionmediaWatch < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2d0df99a4e8b377f064c393a4e349cf12374df139a3cf04f76dd8b69f2558d39"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b43dbb305fcb6c681d2208456a1f39dd0aa5b97790b629ac907a666869119f20"
     sha256 cellar: :any_skip_relocation, yosemite:      "4d31b501672801394c687aa45a44741f3461fb4730e96fe94197a1e7952fe2e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e82a88a59028602931d4e41d3b67372d5693cea67242bd3525a600c2fd6a8307"
   end
 
   conflicts_with "watch"

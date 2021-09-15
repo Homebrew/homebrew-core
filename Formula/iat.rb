@@ -14,6 +14,7 @@ class Iat < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "97d378d0b0ee8bb685272d126a54c833ad8d9f7f3ab34631198d054d2f1d0bdf"
     sha256 cellar: :any_skip_relocation, el_capitan:    "baadc7c40697b28b46c7541d617f65ee318b78efbdc4156c6527490616fd2dee"
     sha256 cellar: :any_skip_relocation, yosemite:      "db517ebd84afdeabaf2e130faccb88f33f359d13eab3bfbb5e19013051ca7827"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f6c91342941bb21b0ac060ac56c8453578655e499ef758ab2c7366ce2052d47"
   end
 
   def install

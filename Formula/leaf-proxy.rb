@@ -11,6 +11,7 @@ class LeafProxy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "3acdb89d85419f3f767b19782bd3442c74baad9b0527471ab83bd9f74efa8dd9"
     sha256 cellar: :any_skip_relocation, catalina:      "31c45ca626144ad34a3bcf09440077cbaeb793851538e2046c581122f378ebe9"
     sha256 cellar: :any_skip_relocation, mojave:        "e0ea5b75bd333e98c716f9f9782aadb47e4e8d9c6b0e8f087f782eb8c67a58bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9473c11cdbfee47a2c7a8f6b8b803413a48f135378c747ac74de4d12dedf5a0c"
   end
 
   depends_on "rust" => :build
@@ -20,6 +21,11 @@ class LeafProxy < Formula
   resource "lwip" do
     url "https://github.com/eycorsican/lwip-leaf.git",
         revision: "86632e2747c926a75d32be8bd9af059aa38ae75e"
+  end
+
+  patch do
+    url "https://github.com/eycorsican/leaf/commit/cfaf9736f42cd7c4e6eb6f3b696d0343834aec7c.patch?full_index=1"
+    sha256 "4403b66732e84d9faedd5a7dae7b32caa32a46099a63af22139640f30a66b3ed"
   end
 
   def install

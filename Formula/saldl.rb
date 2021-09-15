@@ -4,7 +4,7 @@ class Saldl < Formula
   url "https://github.com/saldl/saldl/archive/v41.tar.gz"
   sha256 "fc9980922f1556fd54a8c04fd671933fdc5b1e6847c1493a5fec89e164722d8e"
   license "AGPL-3.0"
-  head "https://github.com/saldl/saldl.git", shallow: false
+  head "https://github.com/saldl/saldl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2b965040a5e53c33801a86f8090a3339b8967903b1a11c3cc5b8bfca9e9de33c"

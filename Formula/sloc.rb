@@ -14,6 +14,7 @@ class Sloc < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "f241a7bf03cb7bb97bb061f5f46442d7a40de893697a5335c821049d471e9466"
     sha256 cellar: :any_skip_relocation, high_sierra:   "345308d671b83edb390c143554c64958135cf37bc7cd365ce613011da682a8b7"
     sha256 cellar: :any_skip_relocation, sierra:        "1386a024efebe74829d85c8d75d07ae9f09f8c8a8104aa41424a5ea8c425fca5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48646678b61d6a776462692734af1f5048d0c31faf8e2c6118e452ab48b553d4"
   end
 
   depends_on "node"

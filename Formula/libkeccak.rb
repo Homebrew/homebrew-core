@@ -1,27 +1,29 @@
 class Libkeccak < Formula
   desc "Keccak-family hashing library"
   homepage "https://github.com/maandree/libkeccak"
-  url "https://github.com/maandree/libkeccak/archive/1.2.tar.gz"
-  sha256 "a9fa976a601b749499f24975756f98c28edddfb5e6828c681ccde7cfcb95d5f8"
+  url "https://github.com/maandree/libkeccak/archive/1.2.2.tar.gz"
+  sha256 "ed77d762199e9a2617325d6fe1ab88dbf53d8149a9952622298835e8c39bb706"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "84fb31a4ef00ac981fea8c37354ee9a6460c93f2756fffed8f3511126c3c7107"
-    sha256 cellar: :any, big_sur:       "0eb4bb61482f4985919fa6a5a1907090eb1a7c3ac507e384f112fce9c7afc146"
-    sha256 cellar: :any, catalina:      "a6c562298b9f840a535e67c4a1af2cd2cee7a64b148867dffbd5c43abe449fac"
-    sha256 cellar: :any, mojave:        "62bef7ab66b3080369802009fce876879f6a756fc6f2734de0e33a514fa8bf93"
-    sha256 cellar: :any, high_sierra:   "802c42ae842ebed113639b7e647da9eb09d8fddde91b9d2938652849f2543a06"
-    sha256 cellar: :any, sierra:        "0c505d90e236906a294afbd5989a79e503c4ae2afbfa3a8727ffb96969b4a6c9"
+    sha256 cellar: :any,                 arm64_big_sur: "bce1f455cd7594f5f8c9681b54b06fe169ee72acc7825726bbe536405c4eef4b"
+    sha256 cellar: :any,                 big_sur:       "57c3066f8d5fd20faff6aa81dfbd926cb60fbdfeacc26770ddfae0f46b6872da"
+    sha256 cellar: :any,                 catalina:      "9e1a251941325262eeeb42b3f30404150d794e7a3f223bba1b7557a1458b99aa"
+    sha256 cellar: :any,                 mojave:        "bbacd3d46362bb80a2ead391e7f5f614b5be9c89ef3967b1aa287d00e48deba3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e84e22d037e4b81b753523341be53590c805682ff723089a00c89e974df250f"
   end
 
   def install
-    system "make", "install", "OSCONFIGFILE=macos.mk", "PREFIX=#{prefix}"
+    args = ["PREFIX=#{prefix}"]
+    args << "OSCONFIGFILE=macos.mk" if OS.mac?
+
+    system "make", "install", *args
     pkgshare.install %w[.testfile test.c]
   end
 
   test do
     cp_r pkgshare/".testfile", testpath
-    system ENV.cc, "-std=c99", "-O3", "-o", "test", pkgshare/"test.c", "-L#{lib}", "-lkeccak", "-s"
+    system ENV.cc, pkgshare/"test.c", "-std=c99", "-O3", "-I#{include}", "-L#{lib}", "-lkeccak", "-o", "test"
     system "./test"
   end
 end

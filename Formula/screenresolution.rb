@@ -4,7 +4,7 @@ class Screenresolution < Formula
   url "https://github.com/jhford/screenresolution/archive/v1.6.tar.gz"
   sha256 "d3761663eaf585b014391a30a77c9494a6404e78e8a4863383e12c59b0f539eb"
   license "GPL-2.0-only"
-  head "https://github.com/jhford/screenresolution.git"
+  head "https://github.com/jhford/screenresolution.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "65567f2a43d8744ca821b29e001d92b18f25750267714f4b42df0b2c24cfd3a9"

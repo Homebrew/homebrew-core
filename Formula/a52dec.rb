@@ -13,20 +13,19 @@ class A52dec < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "a9a4752a7b6d4872abf06a725a44b94d1701e4621c0e4226002e371df53ff366"
-    sha256 cellar: :any, big_sur:       "f5b95a6c1f7758e29cc04160d3635fce074c6c527cb3ac209877d8e4d1b4935c"
-    sha256 cellar: :any, catalina:      "949600b627a44697bc12713538c5aed594fc8201694f5c453c8ca5f9f8cd335a"
-    sha256 cellar: :any, mojave:        "a47f3248a481d224edcbec3e266793ff73f2e94bb607732df2166a0c6f442596"
+    sha256 cellar: :any,                 arm64_big_sur: "a9a4752a7b6d4872abf06a725a44b94d1701e4621c0e4226002e371df53ff366"
+    sha256 cellar: :any,                 big_sur:       "f5b95a6c1f7758e29cc04160d3635fce074c6c527cb3ac209877d8e4d1b4935c"
+    sha256 cellar: :any,                 catalina:      "949600b627a44697bc12713538c5aed594fc8201694f5c453c8ca5f9f8cd335a"
+    sha256 cellar: :any,                 mojave:        "a47f3248a481d224edcbec3e266793ff73f2e94bb607732df2166a0c6f442596"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ba162f41f0366039355b26d363506794d39f75cbb48d8ba5879337f6c5394eb"
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Fix error ld: imdct.lo: relocation R_X86_64_32 against `.bss' can not be
       # used when making a shared object; recompile with -fPIC
       ENV.append_to_cflags "-fPIC"
-    end
-
-    on_macos do
+    else
       # Fixes duplicate symbols errors on arm64
       ENV.append_to_cflags "-std=gnu89"
     end

@@ -14,10 +14,11 @@ class Ssldump < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "51fc5984a5f7dbef4c4299458e60a8ebdbe88d69c3422a8883863fafa63b9854"
-    sha256 cellar: :any, big_sur:       "27b04d713522d2937232b457ee32a2293cc9c633acee5efc147ae3fa84741da2"
-    sha256 cellar: :any, catalina:      "4f05ecf010a75b92ce19c9889759484f7f4e337e2659516be3c87fe02d99c9ed"
-    sha256 cellar: :any, mojave:        "3c9186ee97ff509fd83a0e81acc06e621d50701bcf94e15ce61e4edbbb1b9796"
+    sha256 cellar: :any,                 arm64_big_sur: "51fc5984a5f7dbef4c4299458e60a8ebdbe88d69c3422a8883863fafa63b9854"
+    sha256 cellar: :any,                 big_sur:       "27b04d713522d2937232b457ee32a2293cc9c633acee5efc147ae3fa84741da2"
+    sha256 cellar: :any,                 catalina:      "4f05ecf010a75b92ce19c9889759484f7f4e337e2659516be3c87fe02d99c9ed"
+    sha256 cellar: :any,                 mojave:        "3c9186ee97ff509fd83a0e81acc06e621d50701bcf94e15ce61e4edbbb1b9796"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "101d9148eb4db18bc3993815a813ae25ba23f5babaa7c67a3db739ca40f77e87"
   end
 
   depends_on "autoconf" => :build
@@ -71,10 +72,10 @@ __END__
  static char *RCSSTRING="$Id: pcap-snoop.c,v 1.14 2002/09/09 21:02:58 ekr Exp $";
 
 -
-+#include <net/bpf.h>
  #include <pcap.h>
  #include <unistd.h>
 -#include <net/bpf.h>
++#include <pcap-bpf.h>
  #ifndef _WIN32
  #include <sys/param.h>
  #endif

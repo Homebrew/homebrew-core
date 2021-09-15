@@ -4,7 +4,7 @@ class ThePlatinumSearcher < Formula
   url "https://github.com/monochromegane/the_platinum_searcher/archive/v2.2.0.tar.gz"
   sha256 "3d5412208644b13723b2b7ca4af0870d25c654e3a76feee846164c51b88240b0"
   license "MIT"
-  head "https://github.com/monochromegane/the_platinum_searcher.git"
+  head "https://github.com/monochromegane/the_platinum_searcher.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -12,6 +12,7 @@ class ThePlatinumSearcher < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "63cc973af4c1fc612acb86c7a928f1680f84db7edfae52f374b95925c00761dc"
     sha256 cellar: :any_skip_relocation, catalina:      "79066cac44fd6cd21b8feadc9737045f98846832f15bd2a2e1fdaae3a8165e6d"
     sha256 cellar: :any_skip_relocation, mojave:        "6b7fb2ff2ca2b5a0d264a7733a59eb0e1b68e211d15a261f6bbcab5664bb6ff7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6ba21397a0538c990656c24ba157c5650ea62a26da823afdba238da37226d3b"
   end
 
   depends_on "go" => :build

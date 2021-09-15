@@ -7,7 +7,7 @@ class XbeeComm < Formula
   url "https://github.com/guyzmo/xbee-comm/archive/v1.5.tar.gz"
   sha256 "c474d22feae5d9c05b3ec167b839c8fded512587da0f020ca682d60db174f24a"
   license "GPL-3.0"
-  head "https://github.com/guyzmo/xbee-comm.git"
+  head "https://github.com/guyzmo/xbee-comm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a4dda0f81a92b04ac242a71d3b233da85abdcc767b8c5ec956e3285565eef994"
@@ -18,6 +18,7 @@ class XbeeComm < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9f6d626176e06f69934f3a3a3c56ddfa6a02be4f49d2e53dbce9d92b17f9eeb0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "64b15ac79da143e2b092db702fd22c92ef064093be1c4c81cb60fd5b08f44075"
     sha256 cellar: :any_skip_relocation, yosemite:      "805e99d4e700a2e9993f26fbc48cae17c1bf16e6ff9ce63b5c7195358fcb052c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf23d16b599dc5427dd3552004d307bacd82b77b89ac2bd0a018bf1f986fc720"
   end
 
   depends_on "autoconf" => :build

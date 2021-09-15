@@ -9,13 +9,17 @@ class Gitfs < Formula
   revision 5
   head "https://github.com/presslabs/gitfs.git"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "638b675aefc6f064d3549d78273b4d28a9b6e2fd6ce1ed5e5c8fe32c1cc0fe0e"
+  end
+
   depends_on "libgit2"
   depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
   on_macos do
-    disable! date: "2021-04-08", because: "requires FUSE"
+    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
   end
 
   on_linux do
@@ -44,8 +48,8 @@ class Gitfs < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/1d/c4/e0ba65178512a724a86b39565d7f9286c16d7f8e45e2f665973065c4a495/pygit2-1.1.1.tar.gz"
-    sha256 "9255d507d5d87bf22dfd57997a78908010331fc21f9a83eca121a53f657beb3c"
+    url "https://files.pythonhosted.org/packages/6b/23/a8c5b726a58282fe2cadcc63faaddd4be147c3c8e0bd38b233114adf98fd/pygit2-1.6.1.tar.gz"
+    sha256 "c3303776f774d3e0115c1c4f6e1fc35470d15f113a7ae9401a0b90acfa1661ac"
   end
 
   resource "six" do
@@ -68,12 +72,20 @@ class Gitfs < Formula
   end
 
   def caveats
+    on_macos do
+      return <<~EOS
+        The reasons for disabling this formula can be found here:
+          https://github.com/Homebrew/homebrew-core/pull/64491
+
+        An external tap may provide a replacement formula. See:
+          https://docs.brew.sh/Interesting-Taps-and-Forks
+      EOS
+    end
+
     <<~EOS
       gitfs clones repos in /var/lib/gitfs. You can either create it with
       sudo mkdir -m 1777 /var/lib/gitfs or use another folder with the
       repo_path argument.
-
-      Also make sure OSXFUSE is properly installed by running brew info osxfuse.
     EOS
   end
 

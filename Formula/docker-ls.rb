@@ -11,6 +11,7 @@ class DockerLs < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "69d17d15d79bfa1813ad39ae3a0250ddd919a36b4d3923412cfbc17be56316dc"
     sha256 cellar: :any_skip_relocation, catalina:      "47231e20bcc919d92de35c537c87c54f52bbcdaa85cf2bb9b27bc03a69f25587"
     sha256 cellar: :any_skip_relocation, mojave:        "38eb334f22797271ae8e121030133f6fc3e33cd178cd938940d4ead6565e0225"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0002977a8ff7a2a2607098a743ec898e1aec0efee43095c06b56b873fbfcda15"
   end
 
   depends_on "go" => :build

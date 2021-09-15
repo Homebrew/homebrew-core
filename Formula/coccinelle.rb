@@ -3,10 +3,10 @@ class Coccinelle < Formula
   homepage "http://coccinelle.lip6.fr/"
   url "https://github.com/coccinelle/coccinelle.git",
       tag:      "1.1.0",
-      revision: "e84d3ddc7d4131b7e7e70c29d49eca09d35fabb6"
+      revision: "25e7cee77b4b6efbabf60ffaa8bccd72500ba8bd"
   license "GPL-2.0-only"
   revision 1
-  head "https://github.com/coccinelle/coccinelle.git"
+  head "https://github.com/coccinelle/coccinelle.git", branch: "master"
 
   livecheck do
     url :stable
@@ -14,10 +14,11 @@ class Coccinelle < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b5ca24e58034e0508e39b726b79b5c357251d98e7901bd4b7f2e4ff2ad378cb0"
-    sha256 cellar: :any, big_sur:       "f2ae96a0c2ae00d31ba0c1014b960af9ac6e283559f4dad9e0576e0356bfc750"
-    sha256 cellar: :any, catalina:      "808ea650f39c39e91f0699864651762b4f5dbbb51e68c6a6503662b650509dae"
-    sha256 cellar: :any, mojave:        "90144f713b2f9b3658889689bfae1ce5e75aab916fbd0196edbfe3c5969567d5"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "73d90cfa6837ada22b780c32a9140f390f4c1edf75efaead1611451e499af0a2"
+    sha256 cellar: :any, big_sur:       "93341040702939158171021a18b27284b50c44b61df0b23aa61f9bf86cba771c"
+    sha256 cellar: :any, catalina:      "3033a6317a08b4816a46c61d2b07ceeabde0a24ff226634ce4c206af2b718b7a"
+    sha256 cellar: :any, mojave:        "ee53ae5fa8349a8d1c26bc21fdfd073586c83cf0831eec4880558b0c5f743a68"
   end
 
   depends_on "autoconf" => :build
@@ -25,7 +26,9 @@ class Coccinelle < Formula
   depends_on "hevea" => :build
   depends_on "ocaml-findlib" => :build
   depends_on "opam" => :build
+  depends_on "pkg-config" => :build
   depends_on "ocaml"
+  depends_on "pcre"
 
   # Bootstap resource for Ocaml 4.12 compatibility.
   # Remove when Coccinelle supports Ocaml 4.12 natively

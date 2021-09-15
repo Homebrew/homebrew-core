@@ -6,12 +6,13 @@ class Pms < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c119951216c45f24ff265bb5046631b6cbd5730300b8f4d441e7ac2be1363fcd"
-    sha256 cellar: :any, big_sur:       "61b7be3d89ec3436b9e14733936d31564c6989bccb05cb675e529383ba799924"
-    sha256 cellar: :any, catalina:      "de929bc53474adfa2a300f8954e0597489f88c22a29661e85c66d1ea8cc619ff"
-    sha256 cellar: :any, mojave:        "0c43ee20313b6616c6ececb9c906da12720b035862a894a3f9dd11984c640b30"
-    sha256 cellar: :any, high_sierra:   "f01d2f4db91f6b6bcf35f86c7a0d2b0fbed17941d9556fe0ba71e855c7667638"
-    sha256 cellar: :any, sierra:        "fa90afc92fc9d1e57a9a0a74dc63d3ec5ba92f1430caf5cad8fa54362b0da298"
+    sha256 cellar: :any,                 arm64_big_sur: "c119951216c45f24ff265bb5046631b6cbd5730300b8f4d441e7ac2be1363fcd"
+    sha256 cellar: :any,                 big_sur:       "61b7be3d89ec3436b9e14733936d31564c6989bccb05cb675e529383ba799924"
+    sha256 cellar: :any,                 catalina:      "de929bc53474adfa2a300f8954e0597489f88c22a29661e85c66d1ea8cc619ff"
+    sha256 cellar: :any,                 mojave:        "0c43ee20313b6616c6ececb9c906da12720b035862a894a3f9dd11984c640b30"
+    sha256 cellar: :any,                 high_sierra:   "f01d2f4db91f6b6bcf35f86c7a0d2b0fbed17941d9556fe0ba71e855c7667638"
+    sha256 cellar: :any,                 sierra:        "fa90afc92fc9d1e57a9a0a74dc63d3ec5ba92f1430caf5cad8fa54362b0da298"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c3d1cf4ac839cd2c6ae549d4c303dfeed70951bf0473b4919bcbe62a2530961"
   end
 
   depends_on "pkg-config" => :build

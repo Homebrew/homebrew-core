@@ -15,6 +15,7 @@ class Blazeblogger < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "8e6e405d5b586a95006ab1f47d2f5cef961a2dbdaa9759fb4427663edcd12adf"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0d6bf439fa6f880cb9457581da66082f49f514f8b0fd4b57ac81180948aaa5e1"
     sha256 cellar: :any_skip_relocation, yosemite:      "bac92237da25ffb0b9b31bd78fea353bf717cfb6f1381fbb0df333f555fbab91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "534e43639b7ee566bbc9f675f94043e4579b0e01ba1b8b5651dcd308f640a182"
   end
 
   def install

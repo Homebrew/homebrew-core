@@ -1,9 +1,14 @@
 class Dieharder < Formula
   desc "Random number test suite"
-  homepage "https://www.phy.duke.edu/~rgb/General/dieharder.php"
-  url "https://www.phy.duke.edu/~rgb/General/dieharder/dieharder-3.31.1.tgz"
+  homepage "https://webhome.phy.duke.edu/~rgb/General/dieharder.php"
+  url "https://webhome.phy.duke.edu/~rgb/General/dieharder/dieharder-3.31.1.tgz"
   sha256 "6cff0ff8394c553549ac7433359ccfc955fb26794260314620dfa5e4cd4b727f"
   revision 3
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?dieharder[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e0650468410dbd840acddb2cebc9e28e7bdd0293d5c442abb8c95d50c8524735"

@@ -14,6 +14,7 @@ class Asn1c < Formula
     sha256 sierra:        "432aa83cf3a3f9db86435fe75330902b556885605446a477a3f55e9e0ac13806"
     sha256 el_capitan:    "be0a7e18cf6c2a3cf04831fb854247b26b6da96d3b56b3f8b3088fe3bd5c7668"
     sha256 yosemite:      "c9f31dc8f2f27a99370713ad9d5dfc1969ced862045bfa3680b48e85080277b5"
+    sha256 x86_64_linux:  "ed036934421098b70439fb08246d7cb2c5cad95c2a97de80c13571e19b21c596"
   end
 
   head do

@@ -11,10 +11,11 @@ class Yaf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "76f4110e69d43358fe777fb8592a1b70a7d559f5907f7e8a49498ceffaefb58a"
-    sha256 cellar: :any, big_sur:       "c1b74fbe1059282892a5b6ffaa20ab78a2a826e012dd9660ca3d47620cf5c5c4"
-    sha256 cellar: :any, catalina:      "916e896ce18eac857a04e804dd1e71b5db9d35bb140c07dbf6da3db392022ca9"
-    sha256 cellar: :any, mojave:        "a3cc7c4da5056644725dfe0316140886199c6151bf868e62765ba4c2fe07d0e1"
+    sha256 cellar: :any,                 arm64_big_sur: "76f4110e69d43358fe777fb8592a1b70a7d559f5907f7e8a49498ceffaefb58a"
+    sha256 cellar: :any,                 big_sur:       "c1b74fbe1059282892a5b6ffaa20ab78a2a826e012dd9660ca3d47620cf5c5c4"
+    sha256 cellar: :any,                 catalina:      "916e896ce18eac857a04e804dd1e71b5db9d35bb140c07dbf6da3db392022ca9"
+    sha256 cellar: :any,                 mojave:        "a3cc7c4da5056644725dfe0316140886199c6151bf868e62765ba4c2fe07d0e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce2ba016231be6eaf8916076815ac8c0d5b3cc9c75eb2d2b06580c8153f8cd2e"
   end
 
   depends_on "pkg-config" => :build

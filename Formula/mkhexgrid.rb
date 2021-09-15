@@ -1,9 +1,14 @@
 class Mkhexgrid < Formula
   desc "Fully-configurable hex grid generator"
-  homepage "http://www.nomic.net/~uckelman/mkhexgrid/"
-  url "http://www.nomic.net/~uckelman/mkhexgrid/releases/mkhexgrid-0.1.1.src.tar.bz2"
+  homepage "https://www.nomic.net/~uckelman/mkhexgrid/"
+  url "https://www.nomic.net/~uckelman/mkhexgrid/releases/mkhexgrid-0.1.1.src.tar.bz2"
   sha256 "122609261cc91c2063ab5315d4316a27c9a0ab164f663a6cb781dd87310be3dc"
   license "GPL-2.0"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?mkhexgrid[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "488eb3b7fa3023c4326755bd7bd3546b926d3e03e353063d700c3f15c41e59f1"

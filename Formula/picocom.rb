@@ -13,6 +13,7 @@ class Picocom < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "7fec5e767653710fa87d0be9d97735550af70aeb32fdcba1c7c0159e9078ee1a"
     sha256 cellar: :any_skip_relocation, sierra:        "fb1bd439cb84f2667feee5e5c125ec9a51698e7d153c56decf95502848edc621"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ec353723ddf1f785bd75bb3a0e9bd5e92adacbe5b4a86ed5dabe53d20b1a362c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5efdd0b93eaac77e24ef389d941f63ffa072fac37f49b2a47a2c2abbbbfacf2b"
   end
 
   def install

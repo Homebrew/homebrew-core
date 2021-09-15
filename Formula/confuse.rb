@@ -11,6 +11,7 @@ class Confuse < Formula
     sha256 cellar: :any, catalina:      "13ad01ca606e746ab7f6bcd42b0da08abdcc29ccaaa9e8106f9d28bfe96bffd7"
     sha256 cellar: :any, mojave:        "d6038fe2a7fcfea4ba6e3c29174cb6201ce7d05e22ef4c76b881b9f12dabcff6"
     sha256 cellar: :any, high_sierra:   "371f699488d7e4459251c55e4ef4d9087b08e07b4fedfc553476bc30070ca9c1"
+    sha256               x86_64_linux:  "a5fbe815c75f10344684dab03501ecab39cec4b157e46d955f6e2c70062d120b"
   end
 
   depends_on "pkg-config" => :build

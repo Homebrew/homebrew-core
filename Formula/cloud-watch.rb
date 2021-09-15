@@ -6,7 +6,9 @@ class CloudWatch < Formula
   sha256 "7b241dc6b49ea2aafdeb66f859be9d30128fb0ab5833074f6596762c9bd84417"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "97caa527e08a03964f9b132cd491ab653bd0640ad4f81508aa65644a77cd711b"
+  end
 
   depends_on "openjdk"
 

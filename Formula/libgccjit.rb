@@ -6,32 +6,25 @@ class Libgccjit < Formula
     # backported with his help to gcc-11 branch. Too big for a patch.
     url "https://github.com/fxcoudert/gcc/archive/refs/tags/gcc-11.1.0-arm-20210504.tar.gz"
     sha256 "ce862b4a4bdc8f36c9240736d23cd625a48af82c2332d2915df0e16e1609a74c"
-    version "11.1.0"
+    version "11.2.0"
   else
-    url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
-    sha256 "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-11.2.0/gcc-11.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-11.2.0/gcc-11.2.0.tar.xz"
+    sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   end
   homepage "https://gcc.gnu.org/"
-  license "GPL-3.0-or-later" => {
-    with: "GCC-exception-3.1",
-  }
+  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
-    # Should be
-    # url :stable
-    # but that does not work with the ARM-specific branch above
-    url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0"
-    regex(%r{href=.*?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+    formula "gcc"
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "2355d93ae4c5b11d46dab907d4efcbfec1b3709cb43a109e7154380ea85c3f50"
-    sha256 big_sur:       "c989e946e04eca805211b334f29cb31324754b411bff322bffd7201bcf308365"
-    sha256 catalina:      "1930af2cbcf23a92ef2b8961d179f8ce14bc2648f4ce6d8f94f1e55eac5d17db"
-    sha256 mojave:        "d2f6470ba1f348962768fb2d4cd12fbbc3508062ffbd91d14269a68ad59ffbed"
+    sha256 arm64_big_sur: "7ea976a3eac574118aa769d054443ffb1c1987c6ca431d2ea6b2a91c05e99604"
+    sha256 big_sur:       "a2aea5ac05ce16b497cd7f508ecda8f592aa387e8efc1544e8ed5ca5d72a535f"
+    sha256 catalina:      "2aaa68904eff16c3608e20f71ffc167c3e47df6db8c403acd706cc5c38b1c960"
+    sha256 mojave:        "47ae6d2fc53939abf4fe94dc282f280a64d2268091c0b8497aba3bea0c8157eb"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

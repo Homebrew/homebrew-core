@@ -1,6 +1,4 @@
 class Six < Formula
-  include Language::Python::Virtualenv
-
   desc "Python 2 and 3 compatibility utilities"
   homepage "https://github.com/benjaminp/six"
   url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
@@ -13,6 +11,7 @@ class Six < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6068e58ff59ea70f491671ad3257b129ed7d5b90a5c678348c3dfdaa14953cdd"
     sha256 cellar: :any_skip_relocation, catalina:      "6068e58ff59ea70f491671ad3257b129ed7d5b90a5c678348c3dfdaa14953cdd"
     sha256 cellar: :any_skip_relocation, mojave:        "6068e58ff59ea70f491671ad3257b129ed7d5b90a5c678348c3dfdaa14953cdd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dee4622aebde5a4458f7fb814e9d91b591318c1ccd78f1657c3ae8e6dc047dcd"
   end
 
   depends_on "python@3.7" => [:build, :test] unless Hardware::CPU.arm?

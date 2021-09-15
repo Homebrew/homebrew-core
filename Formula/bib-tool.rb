@@ -11,6 +11,7 @@ class BibTool < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "26f2121d720fa6ffc20547b0bfc6754930f6b8660b51f634c686279dae7e73ce"
     sha256 cellar: :any_skip_relocation, mojave:        "d75a1a60204b002cc06acc025cfdc74db76a563b9bb508876d0e45d771f61dc8"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0d92e3fead68380fc84cbf5517d2ed2eecdfcbfc1fc14c6343f51ee60d43f948"
+    sha256                               x86_64_linux:  "26d038986c5f22a7fd14898391052bd93ac18d34374c2662624efd50ff86a137"
   end
 
   def install

@@ -7,11 +7,12 @@ class Xclip < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2a9e42621fbc329856454f299e2da20b8776de9136cf1233a97ec4662ef2b5fe"
-    sha256 cellar: :any, big_sur:       "4b3d034f8770dd75585b98910ce1ad1c0bbe010f91f61c814f9b655cc978e122"
-    sha256 cellar: :any, catalina:      "2229de2d3139a5a916be1d7e6c3227ef989ff20ce4322f0881eaeb22ee34caf1"
-    sha256 cellar: :any, mojave:        "7bacdf14b8a248a969952c6cba098e01b15d63b280b95a453164d2b0117400dc"
-    sha256 cellar: :any, high_sierra:   "4ff44edecff889254b56f12f261127e90f20c8b0f8d10e0d7f6b41788be0b2e4"
+    sha256 cellar: :any,                 arm64_big_sur: "2a9e42621fbc329856454f299e2da20b8776de9136cf1233a97ec4662ef2b5fe"
+    sha256 cellar: :any,                 big_sur:       "4b3d034f8770dd75585b98910ce1ad1c0bbe010f91f61c814f9b655cc978e122"
+    sha256 cellar: :any,                 catalina:      "2229de2d3139a5a916be1d7e6c3227ef989ff20ce4322f0881eaeb22ee34caf1"
+    sha256 cellar: :any,                 mojave:        "7bacdf14b8a248a969952c6cba098e01b15d63b280b95a453164d2b0117400dc"
+    sha256 cellar: :any,                 high_sierra:   "4ff44edecff889254b56f12f261127e90f20c8b0f8d10e0d7f6b41788be0b2e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "532e6b67cb0b23908b5c0d4df6157810fdb4ce8c7268e289df9cce2578230f21"
   end
 
   depends_on "autoconf" => :build

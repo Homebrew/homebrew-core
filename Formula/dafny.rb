@@ -1,8 +1,8 @@
 class Dafny < Formula
   desc "Verification-aware programming language"
   homepage "https://github.com/dafny-lang/dafny/blob/master/README.md"
-  url "https://github.com/dafny-lang/dafny/archive/v3.1.0.tar.gz"
-  sha256 "6cecba54e4190094b805fa6462538413226dca44f288a8500003884878f1cc7a"
+  url "https://github.com/dafny-lang/dafny/archive/v3.2.0.tar.gz"
+  sha256 "5d9ce0a7bb7d4700747923cff82cf50b5e3961772f37de9fe71790979ac0b8fe"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,16 @@ class Dafny < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "b5dee124b89d1626cfcc7bf5b10301aa4b313b4987dfae22f7ec446c02473117"
-    sha256 cellar: :any_skip_relocation, catalina: "f9152b697e18c3e5f2e1cb464bbfe1cb889925b87e15d1f795a10144367eaf2a"
-    sha256 cellar: :any_skip_relocation, mojave:   "65372686b3f7864c048023e166fa49e2409b93904659de4fcc0dc52ce93a347a"
+    sha256 cellar: :any_skip_relocation, big_sur:  "39e904e85d58a288eada056755ecd434adcd31a055bf5194cd7462c2559814c4"
+    sha256 cellar: :any_skip_relocation, catalina: "4d953365e4bbe8393168707689777e4d06c7f760e0d5ba63bc2289be42b2c3d6"
+    sha256 cellar: :any_skip_relocation, mojave:   "e0a573f263cf2cc50a0e64c27e88b8ae3c7849efd136276c45ab1cc1366a1c41"
   end
 
   depends_on "gradle" => :build
   depends_on "nuget" => :build
+  depends_on arch: :x86_64 # dotnet does not support ARM
   depends_on "dotnet"
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   # Use the following along with the z3 build below, as long as dafny
   # cannot build with latest z3 (https://github.com/dafny-lang/dafny/issues/810)

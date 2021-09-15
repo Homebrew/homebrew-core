@@ -4,6 +4,7 @@ class Enscript < Formula
   url "https://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz"
   mirror "https://ftpmirror.gnu.org/enscript/enscript-1.6.6.tar.gz"
   sha256 "6d56bada6934d055b34b6c90399aa85975e66457ac5bf513427ae7fc77f5c0bb"
+  license "GPL-3.0-or-later"
   revision 1
   head "https://git.savannah.gnu.org/git/enscript.git"
 
@@ -14,6 +15,7 @@ class Enscript < Formula
     sha256 mojave:        "a8bbba8f7d64eed40dd59a9db980b049ec786e148d31a0aeb92556959b4ad0b0"
     sha256 high_sierra:   "00045dff3bdf7ac98a19236838d7af7101cc1fc002e55550312042bb2e4d7426"
     sha256 sierra:        "c14fad6cfd67fa782beb7a425eb03c3ed0b8090ed751c37f5f5ec426808df25c"
+    sha256 x86_64_linux:  "d968c97391029600c54ace8362e7293202ca6227421d626dced22f21b2ccfa26"
   end
 
   depends_on "gettext"
@@ -27,7 +29,6 @@ class Enscript < Formula
   end
 
   test do
-    assert_match "GNU Enscript #{Regexp.escape(version)}",
-                 shell_output("#{bin}/enscript -V")
+    assert_match "GNU Enscript #{version}", shell_output("#{bin}/enscript -V")
   end
 end

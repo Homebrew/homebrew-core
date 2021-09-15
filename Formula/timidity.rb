@@ -11,11 +11,16 @@ class Timidity < Formula
   end
 
   bottle do
-    sha256 big_sur:     "b7f6a933b163f87baad3e1799160fc42bf1b14829a5223e903ae38a26dc2c4c2"
-    sha256 catalina:    "4ebc752f9ca4fcfa88ade5f6806037678d855d97470adb5507c1290527fe6260"
-    sha256 mojave:      "2cae56b69dc38af0de2d80816539ac5d6c78da535d20d63a2103dcf907ec9b80"
-    sha256 high_sierra: "563d4ffe26aff2b7b4453d5cb159cc596bae4f804cc977978cb01856184ed9c7"
+    rebuild 1
+    sha256 arm64_big_sur: "b6a5b9258ca86e58a8f535a3d7d2c8c51faf608df5bc119b37d99dccfb549142"
+    sha256 big_sur:       "513868c11a5ecbc1b8044eea517c19490858173d6b61f0245c54f9b061956237"
+    sha256 catalina:      "31a2aaefcf9e293bbfce210de4a0521bdf6df205f4fb5bb009f98ad1c01bd6f1"
+    sha256 mojave:        "9dec67aa3004c6ad228dd143eea25c2db9fc568269cae1f80320c00addc3c782"
   end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   depends_on "flac"
   depends_on "libao"
@@ -29,6 +34,7 @@ class Timidity < Formula
   end
 
   def install
+    system "./autogen.sh" if Hardware::CPU.arm?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",

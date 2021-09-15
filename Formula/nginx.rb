@@ -3,30 +3,33 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.19.10.tar.gz"
-  sha256 "e8d0290ff561986ad7cd6c33307e12e11b137186c4403a6a5ccdb4914c082d88"
+  url "https://nginx.org/download/nginx-1.21.3.tar.gz"
+  sha256 "14774aae0d151da350417efc4afda5cce5035056e71894836797e1f6e2d1175a"
   license "BSD-2-Clause"
   head "https://hg.nginx.org/nginx/", using: :hg
 
   livecheck do
     url :homepage
-    regex(%r{nginx[._-]v?(\d+(?:\.\d+)+)</a>\nmainline version has been released}i)
+    regex(%r{nginx[._-]v?(\d+(?:\.\d+)+)</a>\nmainline version}i)
   end
 
   bottle do
-    sha256 arm64_big_sur: "de4a909768a67c8159115b9c3d2ea6286e32117ab4010c1df863131f38ec4683"
-    sha256 big_sur:       "03ef939ecbbbd4908b330d58917e4236abf895fbebd371e88d5ed48baa60810c"
-    sha256 catalina:      "168a26055a04b21a9068bd722879c7873b7f7f1449cc7372bc9e0a07723f7d04"
-    sha256 mojave:        "680a503b0c1564700b1d6c0e8b36f97516c810adb02353332dbf2f2c852fafb2"
+    sha256 arm64_big_sur: "4060ccd3d6d64aebb74c0f0b4bd8f5d1e8218561bd8fcfd75c76f00b0f28735f"
+    sha256 big_sur:       "f26befe4e1b89ea7635fc96526f8770c92c88349e2fa696d1836d173beed0554"
+    sha256 catalina:      "8002b3221c5428be509f727892dbd185245354a15259308055a97c9818a889f1"
+    sha256 mojave:        "f5ee76946462f2a88d63993bb1241b5cd3a0ad8da95e8bfbf7dcd58495811a7c"
+    sha256 x86_64_linux:  "6c0d7245f21d7d421f75e071480ad51bdea69c49b3795cb30269bb7d6daffaaf"
   end
 
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  uses_from_macos "xz" => :build
+
   def install
     # keep clean copy of source for compiling dynamic modules e.g. passenger
     (pkgshare/"src").mkpath
-    system "tar", "-cJf", (pkgshare/"src/src.tar.xz"), "--options", "compression-level=9", "."
+    system "tar", "-cJf", (pkgshare/"src/src.tar.xz"), "."
 
     # Changes default port to 8080
     inreplace "conf/nginx.conf" do |s|
@@ -138,31 +141,10 @@ class Nginx < Formula
     EOS
   end
 
-  plist_options manual: "nginx"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/nginx</string>
-              <string>-g</string>
-              <string>daemon off;</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"nginx", "-g", "daemon off;"]
+    keep_alive false
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

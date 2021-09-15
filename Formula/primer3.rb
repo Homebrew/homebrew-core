@@ -18,6 +18,7 @@ class Primer3 < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "f72fac01bb380b5ea55b41249b2d6bc2f799e9cb7cef55fae0a1f92e1de7ba64"
     sha256 cellar: :any_skip_relocation, sierra:        "0337aa96c5d5f25caa15177236c5f5d269adaaad01cb63a77c933eb01f7a6ed0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "45ca3618888becc12b4d6be0ab9957ba5c8fdf2e818f74dc5312900c641b06c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e1869f3223dcec1add22b56adf91c9c6e2db4ff1920c73f8d056eeef5ef661b"
   end
 
   def install

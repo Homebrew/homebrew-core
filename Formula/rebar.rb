@@ -4,7 +4,7 @@ class Rebar < Formula
   url "https://github.com/rebar/rebar/archive/2.6.4.tar.gz"
   sha256 "577246bafa2eb2b2c3f1d0c157408650446884555bf87901508ce71d5cc0bd07"
   license "Apache-2.0"
-  head "https://github.com/rebar/rebar.git"
+  head "https://github.com/rebar/rebar.git", branch: "master"
 
   bottle do
     rebuild 2
@@ -12,6 +12,7 @@ class Rebar < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "17b587b45197068cb021a40a4b8a82c69aac233a5f259986d7ad6bc8c41244b8"
     sha256 cellar: :any_skip_relocation, catalina:      "1dca4b3d2760f3806569c7a455beb73508409177fd9a6f22816653f14e80fdee"
     sha256 cellar: :any_skip_relocation, mojave:        "265cfa8851de8a55ff46346167f8670df48d8a731c427d51fe0da16cf2ee8b78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "521320b0d04fb8f9110d7941676344932cc88db4f5c757a3598bf7504d6bda5e"
   end
 
   # Deprecated upstream on 2016-04-13 in favor of rebar3:

@@ -4,16 +4,22 @@ class GnomeLatex < Formula
   url "https://download.gnome.org/sources/gnome-latex/3.38/gnome-latex-3.38.0.tar.xz"
   sha256 "a82a9fc6f056929ea18d6dffd121e71b2c21768808c86ef1f34da0f86e220d77"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "8ea1216cd53e87eb4c9667c90e29cfc007f115129070ef1dd205f2a2480900f9"
-    sha256 big_sur:       "dc38c7827663f49f553996a757415dfe20d92c8c0dea83c462c887c8daf69f5f"
-    sha256 catalina:      "f1dbea254436194246d1ea3fcd47a5b08b394efb3a08f48a9a3decd85120ce90"
-    sha256 mojave:        "c8f5a18378b6a759f3f4614baedf693814b61da0dfecd2f0d8d6ad93bef3fa25"
-    sha256 high_sierra:   "7a9d3285f2457fecacc4e0840e32ac940b0e77041dd30839e6a7af7ad55453dd"
+    sha256 arm64_big_sur: "118ac80bf869460f820e12a63bf8808b7ad9158eeb3ee594e494e344d54cc97c"
+    sha256 big_sur:       "91916490eae6b8b5e9c8717ea9a37a2e8e383c6504a3d59c7d4f209d2f2e5db0"
+    sha256 catalina:      "34723bd50c23bc34d54750606f99247544a222f8d32ee1017422a618e7d8255c"
+    sha256 mojave:        "282a45a8580c354c10f112895d0448cc97e206da12460f75b6dbcc8906401314"
   end
 
+  # See: https://gitlab.gnome.org/Archive/gnome-latex
+  deprecate! date: "2021-05-25", because: :repo_archived
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "gtk-doc" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
@@ -24,7 +30,14 @@ class GnomeLatex < Formula
   depends_on "libgee"
   depends_on "tepl"
 
+  # Add commit to port to Tepl 6
+  patch do
+    url "https://gitlab.gnome.org/Archive/gnome-latex/-/commit/e1b01186f8a4e5d3fee4c9ccfbedd6d098517df9.diff"
+    sha256 "0d54059732cb3092f52bfb8bca6ebad24a08b86036baafb31e06aca2415517ca"
+  end
+
   def install
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-schemas-compile",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

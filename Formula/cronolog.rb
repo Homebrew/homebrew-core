@@ -16,6 +16,7 @@ class Cronolog < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "66ad5bfa0080775875d2b72cc2bbd66bc8ee8de7ca1d482217414ba5b805f977"
     sha256 cellar: :any_skip_relocation, el_capitan:    "964df15660a5c0ec25bedec56aeb128ae93794a8ad721c1c600e377df9be1c2d"
     sha256 cellar: :any_skip_relocation, yosemite:      "f3f485105f7466422a507bafef3acfd741f18b8ab26438c267d10dbf4701282e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b7e0546314cd92d44b009de1894f4739f75865da5f95d425e305cf6ffeac10d"
   end
 
   def install

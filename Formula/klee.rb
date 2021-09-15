@@ -4,21 +4,22 @@ class Klee < Formula
   url "https://github.com/klee/klee/archive/v2.2.tar.gz"
   sha256 "1ff2e37ed3128e005b89920fad7bcf98c7792a11a589dd443186658f5eb91362"
   license "NCSA"
-  revision 1
+  revision 2
   head "https://github.com/klee/klee.git"
 
   bottle do
-    sha256 big_sur:  "68926d21ba91e49e600c58329c81ffbe552ceac655b9c57ae6043e0df4ca926a"
-    sha256 catalina: "d601b6ef40172702659f7efe267d766fe1c82a627afed9017467c4714e3aac52"
-    sha256 mojave:   "30147bcef9d3993cb28f0e4235d0e0cb061b1f03dbfd6d698d7fd3ab214dc712"
+    sha256 big_sur:  "395c191dfd9034b29af9776a42f5a7371e174888e49dd1a67d8f07b7063f1500"
+    sha256 catalina: "8876845fa423cc6ff77f4d24303d6fb718c44ad81b6403f006781edbfdaf72cf"
+    sha256 mojave:   "18d715686c847555290fd2458df2e88a14f8ef33bcde0de2ed990cd54bb914ac"
   end
 
   depends_on "cmake" => :build
   depends_on "gperftools"
-  depends_on "llvm@11"
+  depends_on "llvm"
   depends_on "python-tabulate"
   depends_on "python@3.9"
   depends_on "sqlite"
+  depends_on "stp"
   depends_on "wllvm"
   depends_on "z3"
 
@@ -26,13 +27,37 @@ class Klee < Formula
 
   # klee needs a version of libc++ compiled with wllvm
   resource "libcxx" do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/llvm-project-11.1.0.src.tar.xz"
-    sha256 "74d2529159fd118c3eac6f90107b5611bccc6f647fdea104024183e8d5e25831"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.0/llvm-project-12.0.0.src.tar.xz"
+    sha256 "9ed1688943a4402d7c904cc4515798cdb20080066efa010fe7e1f2551b423628"
+  end
+
+  # Patches for LLVM 12 Support
+  # https://github.com/klee/klee/pull/1389
+  patch do
+    url "https://github.com/klee/klee/commit/74ea9e5e63c5933ca2d5d7f846858c4de6e86b81.patch?full_index=1"
+    sha256 "5af19fb3dbc609a180014f89a78bd007316e1384f3b23bf64fcd15621951b130"
+  end
+
+  patch do
+    url "https://github.com/klee/klee/commit/a34fb8961649bf3a065ec8f0eb4bc58715fd1d57.patch?full_index=1"
+    sha256 "beb18d3e74c8a580e2c3785e7224cacfb878b527fc4f261f7acb2ebecec93fb0"
+  end
+
+  patch do
+    url "https://github.com/klee/klee/commit/2b29d86a39421ac76421b888b96613173bc18851.patch?full_index=1"
+    sha256 "34515f7841dc3bc6e68888aa98492e3e003131fdc43018f4923799b0e2ff32fd"
+  end
+
+  patch do
+    url "https://github.com/klee/klee/commit/c0b10c6f7a00d81cfce24115168dd06888685f87.patch?full_index=1"
+    sha256 "d970235981e6f96f408b5943f80877b633a01cf098e1b4be2c19967b5412eff5"
+  end
+
+  def llvm
+    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
   end
 
   def install
-    llvm = Formula["llvm@11"]
-
     libcxx_install_dir = libexec/"libcxx"
     libcxx_src_dir = buildpath/"libcxx"
     resource("libcxx").stage libcxx_src_dir
@@ -52,11 +77,10 @@ class Klee < Formula
         -DLIBCXX_ENABLE_SHARED:BOOL=ON
         -DLIBCXXABI_ENABLE_THREADS:BOOL=OFF
       ]
-      on_macos do
-        libcxx_args << "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=OFF"
-      end
-      on_linux do
-        libcxx_args << "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=ON"
+      libcxx_args << if OS.mac?
+        "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=OFF"
+      else
+        "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=ON"
       end
 
       mkdir "llvm/build" do
@@ -81,23 +105,23 @@ class Klee < Formula
     # https://github.com/klee/klee/blob/v#{version}/README-CMake.md
     args = std_cmake_args + %W[
       -DKLEE_RUNTIME_BUILD_TYPE=Release
+      -DKLEE_LIBCXX_DIR=#{libcxx_install_dir}
+      -DKLEE_LIBCXX_INCLUDE_DIR=#{libcxx_install_dir}/include/c++/v1
+      -DKLEE_LIBCXXABI_SRC_DIR=#{libcxx_src_dir}/libcxxabi
       -DLLVM_CONFIG_BINARY=#{llvm.opt_bin}/llvm-config
-      -DENABLE_DOCS=OFF
-      -DENABLE_SYSTEM_TESTS=OFF
       -DENABLE_KLEE_ASSERTS=ON
       -DENABLE_KLEE_LIBCXX=ON
+      -DENABLE_SOLVER_STP=ON
+      -DENABLE_TCMALLOC=ON
+      -DENABLE_SOLVER_Z3=ON
+      -DENABLE_ZLIB=ON
+      -DENABLE_DOCS=OFF
+      -DENABLE_SYSTEM_TESTS=OFF
       -DENABLE_KLEE_EH_CXX=OFF
       -DENABLE_KLEE_UCLIBC=OFF
       -DENABLE_POSIX_RUNTIME=OFF
       -DENABLE_SOLVER_METASMT=OFF
-      -DENABLE_SOLVER_STP=OFF
       -DENABLE_UNIT_TESTS=OFF
-      -DENABLE_TCMALLOC=ON
-      -DENABLE_SOLVER_Z3=ON
-      -DENABLE_ZLIB=ON
-      -DKLEE_LIBCXX_DIR=#{libcxx_install_dir}
-      -DKLEE_LIBCXX_INCLUDE_DIR=#{libcxx_install_dir}/include/c++/v1
-      -DKLEE_LIBCXXABI_SRC_DIR=#{libcxx_src_dir}/libcxxabi
     ]
 
     mkdir "build" do
@@ -110,8 +134,6 @@ class Klee < Formula
   # Test adapted from
   # http://klee.github.io/tutorials/testing-function/
   test do
-    llvm = Formula["llvm@11"]
-
     (testpath/"get_sign.c").write <<~EOS
       #include "klee/klee.h"
 

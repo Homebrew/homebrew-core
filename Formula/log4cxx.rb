@@ -7,14 +7,21 @@ class Log4cxx < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5654067019235ef0ea4d7d2dda99116a5f59eb9de503d02c2831c1f54e971d88"
-    sha256 cellar: :any, big_sur:       "c7c19a708049c810cea3514308e52316d25c02f8ffc1fd2eb3f80485d34bb916"
-    sha256 cellar: :any, catalina:      "6cfbf907bb67c4ffb62c71e91343d894e0ead3534856933801df942f60ffc3a5"
-    sha256 cellar: :any, mojave:        "1c56033e73bf61b3c5742d7b9f64f65c3d2e4223edbb30a3fef45287f3efe883"
+    sha256 cellar: :any,                 arm64_big_sur: "5654067019235ef0ea4d7d2dda99116a5f59eb9de503d02c2831c1f54e971d88"
+    sha256 cellar: :any,                 big_sur:       "c7c19a708049c810cea3514308e52316d25c02f8ffc1fd2eb3f80485d34bb916"
+    sha256 cellar: :any,                 catalina:      "6cfbf907bb67c4ffb62c71e91343d894e0ead3534856933801df942f60ffc3a5"
+    sha256 cellar: :any,                 mojave:        "1c56033e73bf61b3c5742d7b9f64f65c3d2e4223edbb30a3fef45287f3efe883"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb8304107efd616f1beef853a933c31dd0839321266f9b2dda1ebdb632304f8f"
   end
 
   depends_on "cmake" => :build
   depends_on "apr-util"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # needs C++17 or Boost
 
   def install
     mkdir "build" do

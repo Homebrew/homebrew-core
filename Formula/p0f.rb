@@ -16,6 +16,7 @@ class P0f < Formula
     sha256 big_sur:       "333bc8a70dec845a21858507a78babe80e6c7cd15b1a2f4ea3c4715daeef331f"
     sha256 catalina:      "e92f0c171b9cf2c80436092412916c98391d6fdc9f37ec16ab2243ad4539b288"
     sha256 mojave:        "7c69ba2615e5ac9c84dba65ed8a208c7b3cc8b68d1f11b07ae3c5db17103557d"
+    sha256 x86_64_linux:  "d24c287755ee5a370ba3676590241e2ad2bf01ca672aecfa108725a165288d87"
   end
 
   uses_from_macos "libpcap"

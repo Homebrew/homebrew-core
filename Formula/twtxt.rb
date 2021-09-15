@@ -12,6 +12,7 @@ class Twtxt < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f02a3756e562ada9942eeac14cadb2113f22b67935b4d1e3a30a2890b3312855"
     sha256 cellar: :any_skip_relocation, mojave:        "42f444d72bfcb08a0f105628d4883e03c5ff522b6eda4f390f9434b79bc1fdb6"
     sha256 cellar: :any_skip_relocation, high_sierra:   "93e9cd335a6dd161246501db8e5fcbc9d38d5c4ab07136e47a3742359c043c59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df7580b38b109f4b1fd9e7e3c9bb13c23d2c795d088eaf4ca9b259ac0f2e0606"
   end
 
   depends_on "python@3.8"

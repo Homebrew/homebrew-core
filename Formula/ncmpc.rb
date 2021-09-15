@@ -11,10 +11,12 @@ class Ncmpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "982287b4dcffb2e5534640b77f22b5f73865f8c0a521089252001557f3fe402a"
-    sha256 cellar: :any, big_sur:       "212ca11a9b74741334dca03a195c1d46898d6d7036708d48cf3ef704f29ddde6"
-    sha256 cellar: :any, catalina:      "6df55c912cf6f466378b548d9752793a9d2b6eb42c55c7cf2c1bc156fd29743c"
-    sha256 cellar: :any, mojave:        "972c8c9f233312353c16e416ecdd8c643fb5d805946c5ca7cdd1e9fae8c792a7"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "a64c5c10fe80ddd0ed8b2be3c18b9e372d9ed4d67a2d80bd28f6190721c92b89"
+    sha256 cellar: :any, big_sur:       "fa933f289d06e2e37bf1b94d897fe86b20f294e5910f5782fc5a2bd0be20e75c"
+    sha256 cellar: :any, catalina:      "70b5ffcaebc6ff5cf99f6a3b2ef2c4533457fe43b62e9107be991f8367be6785"
+    sha256 cellar: :any, mojave:        "ae2e4bb23568d6a807defe05f4d5256ca265c9aa7657b8ad073dc4f71e1c62ca"
+    sha256               x86_64_linux:  "a2078dbe3f31bc48f25389018cb28fadb64b303d4671dedea214e98a37c34dc7"
   end
 
   depends_on "boost" => :build
@@ -24,6 +26,12 @@ class Ncmpc < Formula
   depends_on "gettext"
   depends_on "libmpdclient"
   depends_on "pcre"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     mkdir "build" do

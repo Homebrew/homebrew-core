@@ -1,20 +1,25 @@
 class Lychee < Formula
   desc "Fast, async, resource-friendly link checker"
   homepage "https://github.com/lycheeverse/lychee"
-  url "https://github.com/lycheeverse/lychee/archive/0.7.0.tar.gz"
-  sha256 "bd0873e088701eecdcf6eeb254eed7a4dbe3dd71728e272505c1b8f92c3eebe9"
+  url "https://github.com/lycheeverse/lychee/archive/v0.7.1.tar.gz"
+  sha256 "f6acf92987aae006273b5fd211cb5c6a2f30036b7fd69ac36ecffb2b28cc3101"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/lycheeverse/lychee.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "557cbb8aa12ce8173aba69f12c5cfee97b31e489a08661b002bbcc8480032ae3"
-    sha256 cellar: :any, big_sur:       "851c0881b1a76ce34c018c231248e6a17f11a7703ece7d0ea24c9ca36f69826d"
-    sha256 cellar: :any, catalina:      "1174396eb8beb8828a66e0c5fe25cf4ecf177d305ec57404d1620fa5243f5d9d"
-    sha256 cellar: :any, mojave:        "e36701a4a372cd127f0b02f0dee5ff51cd6a98ee1df6e828af36b7865677ec91"
+    sha256 cellar: :any,                 arm64_big_sur: "ef9c905779258881a49a492d250422c5b3c5d7564fd30a7273b89ed79fdc0433"
+    sha256 cellar: :any,                 big_sur:       "82f1909185e475cf9c373e49772f869e2bd97ba867485cbe63a4e2424b0abba0"
+    sha256 cellar: :any,                 catalina:      "80e63594eb599cb688b13dc483ce3ca8ae24d7c5bc6ef35337914a9577fef160"
+    sha256 cellar: :any,                 mojave:        "26b8aeec96efbea9c8cd2966a0f58c6d57ced02d0b4f9a5b86b58992062ef247"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5da3098c89bc54301f1e2622ef178cc47366aa56a9d8068e153e77ba01693756"
   end
 
   depends_on "rust" => :build
   depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
     cd "lychee-bin" do

@@ -11,10 +11,11 @@ class Geos < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "55162eaa549fb0b551ddbd6fa2e7e25da1f9c4cf9772ed62d077f0f8bf03ecbe"
-    sha256 cellar: :any, big_sur:       "763727a2a096dd9a5ba2735672f2ff2ee58c7c1efd8b2db8d79dc2e5e6989cbe"
-    sha256 cellar: :any, catalina:      "6ebbc7afe80b38660e33be4b95a47654d0d4dc067b13076f1b88d06c52dd717a"
-    sha256 cellar: :any, mojave:        "ff5f29ff0856fdc987c5338a066ddbaa2eb3e231ff1a87bc7c166be73dcac892"
+    sha256 cellar: :any,                 arm64_big_sur: "55162eaa549fb0b551ddbd6fa2e7e25da1f9c4cf9772ed62d077f0f8bf03ecbe"
+    sha256 cellar: :any,                 big_sur:       "763727a2a096dd9a5ba2735672f2ff2ee58c7c1efd8b2db8d79dc2e5e6989cbe"
+    sha256 cellar: :any,                 catalina:      "6ebbc7afe80b38660e33be4b95a47654d0d4dc067b13076f1b88d06c52dd717a"
+    sha256 cellar: :any,                 mojave:        "ff5f29ff0856fdc987c5338a066ddbaa2eb3e231ff1a87bc7c166be73dcac892"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88c1238afa2af41abed21be1069ce32fb5732d3b64317cb96087bdf4c23cbf15"
   end
 
   depends_on "swig" => :build

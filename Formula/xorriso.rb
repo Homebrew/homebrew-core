@@ -11,6 +11,7 @@ class Xorriso < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b54ce0eca9d92f9ffa571edf065baf3212cc1584ca20dbf1cbbf23f51f4ce5f7"
     sha256 cellar: :any_skip_relocation, catalina:      "e8282de999460c934b95defa41efd358c93da2d62ca38ce2829c8185eb49b4db"
     sha256 cellar: :any_skip_relocation, mojave:        "dc5357e7efc3bd95ef0c5e69c8320bd6bbfdf24fad9314beda71cce5445a5b7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5435d8e359d0a0de51cf398a53322d1de3d9f86d8e836564323c9719da171fea"
   end
 
   uses_from_macos "zlib"

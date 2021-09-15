@@ -1,9 +1,9 @@
 class GnuChess < Formula
   desc "Chess-playing program"
   homepage "https://www.gnu.org/software/chess/"
-  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.8.tar.gz"
-  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.8.tar.gz"
-  sha256 "d50446cda8012240321da39cddbb4df4d08458a8d538a4738882814139583847"
+  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.9.tar.gz"
+  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.9.tar.gz"
+  sha256 "ddfcc20bdd756900a9ab6c42c7daf90a2893bf7f19ce347420ce36baebc41890"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,10 +12,11 @@ class GnuChess < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "9f6f4e4be12a9b4a543077dfeff7220216c5b50076b3fe502452726654c588b3"
-    sha256 big_sur:       "4049d5fe6c4ae97e9756faae5f8a25e4f20d2af9ae97999a79ffeb9fe4a0dc85"
-    sha256 catalina:      "31f8d094109dfff455ac3ec6ccd46c5b109b105bd0a6f348778c4ff4469cb304"
-    sha256 mojave:        "64398f15fb0e590834f9970a8eff17744e3f038b56709c7e54923181ddaa8934"
+    sha256 arm64_big_sur: "8e356eccb6a541eee641342bc7f923b35271fd51c094ca6b83e8abdecd7226a1"
+    sha256 big_sur:       "11997b7b97ab58380f07e491fc9b75649f52ab6d7edfdfbdbf025a3a12d81d3a"
+    sha256 catalina:      "d3dcc4bec287a4b09dbb0dba0f7fc51943812fed43eeda21a5f3d314ae77dbf6"
+    sha256 mojave:        "03d9103b7fbbfeaf487d3b6dbac291eaacd51299052b62ddd3564eaedc513f08"
+    sha256 x86_64_linux:  "ef91217fa368cd712df9a7c4c6def92eeb5a26b37d5c0e9ee51e13a3ab7cca26"
   end
 
   head do

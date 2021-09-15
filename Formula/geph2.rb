@@ -13,6 +13,9 @@ class Geph2 < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "392a4199771a8ff4c5aa1c45bd3225640d9949aa1e2a9af915e488093fe84ff9"
   end
 
+  # Geph has been rewritten in Rust: https://github.com/geph-official/geph4
+  deprecate! date: "2020-04-24", because: :repo_archived
+
   depends_on "go" => :build
 
   def install

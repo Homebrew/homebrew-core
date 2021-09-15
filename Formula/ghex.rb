@@ -11,6 +11,7 @@ class Ghex < Formula
     sha256 catalina:      "b152b5f03f5bc0d7a50a834fef582ea7fb477dd7560afb4a0b1f4df88e229970"
     sha256 mojave:        "c2e68caac31470d6dbc66050b2dc42333b3dfc6956ee7453fba9032b5cf894a4"
     sha256 high_sierra:   "4de4a0a7ee3f81c7f7b36d7368380b2ff2a063c5d444302cd5979ee33727fb1c"
+    sha256 x86_64_linux:  "162e20b386fe920b63142876b0e0100a471d69b9737c516a9c30ed04b27d5801"
   end
 
   depends_on "itstool" => :build

@@ -4,7 +4,7 @@ class Weighttp < Formula
   url "https://github.com/lighttpd/weighttp/archive/weighttp-0.4.tar.gz"
   sha256 "b4954f2a1eca118260ffd503a8e3504dd32942e2e61d0fa18ccb6b8166594447"
   license "MIT"
-  head "https://git.lighttpd.net/lighttpd/weighttp.git"
+  head "https://git.lighttpd.net/lighttpd/weighttp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "61bd26ebdcd743d1078d4bd2138f55bcd943900c85acf567ccfda9fe4fc89379"

@@ -1,25 +1,28 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.36/libgweather-3.36.1.tar.xz"
-  sha256 "de2709f0ee233b20116d5fa9861d406071798c4aa37830ca25f5ef2c0083e450"
-  revision 2
+  url "https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz"
+  sha256 "ca4e8f2a4baaa9fc6d75d8856adb57056ef1cd6e55c775ba878ae141b6276ee6"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 arm64_big_sur: "ea89b381f0cb180a44a1ab0d106693a8874fb785221cc6840092da07ed4960ec"
-    sha256 big_sur:       "fbed23f116de31b6c729671e719bb88246ed66007f779fef5289be3519de3223"
-    sha256 catalina:      "46c6e704f4d42d0032888a87cd2d0ce2fd2ce0a9b8027123976857d242c1b0f3"
-    sha256 mojave:        "b8db1057908c9723c708b919330b9a58cdbdb9e6a6c7b053242fb8c965171eff"
-    sha256 high_sierra:   "267bff5a8951012a4df193baed3816552028de9c44ae26d977e932a75a655d88"
+    sha256 arm64_big_sur: "bbe49cb0dd95750275208f4fa95369c3acbd03bdafe50a582a501b61141092a8"
+    sha256 big_sur:       "4f178ade88811f2a868a3d7e07c3d323f6277f91b70230c4fd0295598eed534a"
+    sha256 catalina:      "e66d6757c99298133ca9de4bcb28429a126de2ec9172f11d05bb86bcf037ccca"
+    sha256 mojave:        "5b0afebfe3d3307607ccedac1fdedbc768c73971261a0169f57808249f49ad47"
+    sha256 x86_64_linux:  "4c1aa45018953ff6447ec59900426783c7831a2b067b3e7d74eb9e594742194a"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "pygobject3" => :build
   depends_on "geocode-glib"
   depends_on "gtk+3"
   depends_on "libsoup"
+
+  uses_from_macos "libxml2"
 
   def install
     ENV["DESTDIR"] = "/"
@@ -96,10 +99,12 @@ class Libgweather < Formula
       -lgobject-2.0
       -lgtk-3
       -lgweather-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE=1", "test.c", "-o", "test", *flags
     system "./test"
   end

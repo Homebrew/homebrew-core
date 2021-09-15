@@ -2,42 +2,40 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://istio.io/"
   url "https://github.com/istio/istio.git",
-      tag:      "1.10.0",
-      revision: "d26cba7e341587453ffeb978f5cf6fbc32f346f8"
+      tag:      "1.11.2",
+      revision: "96710172e1e47cee227e7e8dd591a318fdfe0326"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c0fc8e651038356614e134e42ce7d937b55ba7c79049ffd722e8deb74ce73216"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6d5246331142294f9705709fe3004154f92067900af7f885276bf798284a259b"
-    sha256 cellar: :any_skip_relocation, catalina:      "6d5246331142294f9705709fe3004154f92067900af7f885276bf798284a259b"
-    sha256 cellar: :any_skip_relocation, mojave:        "6d5246331142294f9705709fe3004154f92067900af7f885276bf798284a259b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5126a75578ed19cedc6e67ec10febd083cf4e8667a91e60a64c4edde35b7a6d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "822f03e4a1143b90dd99c42298f70678c255b31e0c35a301c101952e669e7972"
+    sha256 cellar: :any_skip_relocation, catalina:      "822f03e4a1143b90dd99c42298f70678c255b31e0c35a301c101952e669e7972"
+    sha256 cellar: :any_skip_relocation, mojave:        "822f03e4a1143b90dd99c42298f70678c255b31e0c35a301c101952e669e7972"
   end
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
   def install
+    # make parallelization should be fixed in version > 1.11.2
+    ENV.deparallelize
     ENV["VERSION"] = version.to_s
     ENV["TAG"] = version.to_s
     ENV["ISTIO_VERSION"] = version.to_s
     ENV["HUB"] = "docker.io/istio"
     ENV["BUILD_WITH_CONTAINER"] = "0"
 
-    dirpath = nil
-    on_macos do
-      if Hardware::CPU.arm?
-        # Fix missing "amd64" for macOS ARM in istio/common/scripts/setup_env.sh
-        # Can remove when upstream adds logic to detect `$(uname -m) == "arm64"`
-        ENV["TARGET_ARCH"] = "arm64"
+    dirpath = if OS.linux?
+      "linux_amd64"
+    elsif Hardware::CPU.arm?
+      # Fix missing "amd64" for macOS ARM in istio/common/scripts/setup_env.sh
+      # Can remove when upstream adds logic to detect `$(uname -m) == "arm64"`
+      ENV["TARGET_ARCH"] = "arm64"
 
-        dirpath = "darwin_arm64"
-      else
-        dirpath = "darwin_amd64"
-      end
-    end
-    on_linux do
-      dirpath = "linux_amd64"
+      "darwin_arm64"
+    else
+      "darwin_amd64"
     end
 
     system "make", "istioctl", "istioctl.completion"

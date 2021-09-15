@@ -18,6 +18,7 @@ class Markdown < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "47715f7beb1f434a5d52e6977c7f6ad584be7b0d970dacb00ef5965bd162858d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "a5b025bc09c8b274507cfc5c86da6350560477f24ce109dd5a79f2dafa97d805"
     sha256 cellar: :any_skip_relocation, yosemite:      "5e1b8b5388f1b4ceefe3fae528ae83e2fa3f9ed9f27668e8faded36b9ec3274e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81a249345ca5c8dac30337b38257abfe4e5479f8174998ac6cf3dee9dfab4a9d"
   end
 
   conflicts_with "discount", because: "both install `markdown` binaries"

@@ -1,8 +1,8 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
   homepage "https://www.dns-oarc.net/tools/dnsperf"
-  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.5.2.tar.gz"
-  sha256 "0c3b7b51521a7fbd1ac54d73cf883f048197343ea1bb7b3eaf244952284ac0cf"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.7.0.tar.gz"
+  sha256 "6e38c182bfa9b33d7708dd59c33355fb5184af975a55fc9de91a2728f5342a6a"
   license "Apache-2.0"
 
   livecheck do
@@ -11,15 +11,17 @@ class Dnsperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2378d55fd33b60e2753a9722f6bbca621431f8a61371cd6ab76f07408de1a134"
-    sha256 cellar: :any, big_sur:       "a77ae80a638db1c98cfef90545786ee5d2a1e9c1b7c23f2799d49d8ee31120b4"
-    sha256 cellar: :any, catalina:      "81a1ab59e0d6c431444e136ddb7d2936d58c881c4306a6d9ecf6e631240326a3"
-    sha256 cellar: :any, mojave:        "d5397fd90812d3317bc0e981db16435a1a74dbbb112d7ff2a3f96c94b903b84b"
+    sha256 cellar: :any,                 arm64_big_sur: "348a04545e3345fd768f6f8c16cbc952547f458e50c6800c8ba48a1fb5242848"
+    sha256 cellar: :any,                 big_sur:       "130c06cfb1bbb0fee4dd985ec258f7a4b458692e1935b70635d0f6f9677dfa1a"
+    sha256 cellar: :any,                 catalina:      "63b074a7b0417853d711728a1cf512d8beb0e380bedbdb74542762f717d15ba9"
+    sha256 cellar: :any,                 mojave:        "9a254bee84416f31a8166f334b6f3f9c4fe387432ec967e643c29058133ea38a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e73f40d98bf9f5e2c0e084697d1fb5b57efcd039ea417e91fbae95d498ae263"
   end
 
   depends_on "pkg-config" => :build
   depends_on "concurrencykit"
   depends_on "ldns"
+  depends_on "nghttp2"
   depends_on "openssl@1.1"
 
   def install

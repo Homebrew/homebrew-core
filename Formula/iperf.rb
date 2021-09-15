@@ -1,8 +1,9 @@
 class Iperf < Formula
   desc "Tool to measure maximum TCP and UDP bandwidth"
   homepage "https://sourceforge.net/projects/iperf2/"
-  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.0.13.tar.gz"
-  sha256 "c88adec966096a81136dda91b4bd19c27aae06df4d45a7f547a8e50d723778ad"
+  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.1.4.tar.gz"
+  sha256 "062b392e87b8e227aca74fef0a99b04fe0382d4518957041b508a56885b4d4f9"
+  license "BSD-3-Clause"
 
   livecheck do
     url :stable
@@ -10,12 +11,11 @@ class Iperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7718be6a70d76b120eb4e8891a79e727053ec366f4cdf710ff4d8960a22c62f6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9cc3f80f4761d70123eb53b490f7922a6373675d4abc4417b0c576433fcfd4d2"
-    sha256 cellar: :any_skip_relocation, catalina:      "0b9b36d65f113055e86b158f62daa64bf5c177e27abec34c51cbb60bf2a7d4d7"
-    sha256 cellar: :any_skip_relocation, mojave:        "8c24a0392dcda9d134c1d1121671875da4b67905321eb6e67053d6e965f92bee"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "7cee5824d4c70a302b3830eaf6615f52e5a1b41fdcbfbcabb46c5dd3ee00ec2c"
-    sha256 cellar: :any_skip_relocation, sierra:        "4b29283a8f69c773d307501a5f89af2a0f5804ce62874b7bd2e6ea89145cf73a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "812372e578bb83c3eb62ecb76cfd87c839207e9411de51ea496ac2bb09523827"
+    sha256 cellar: :any_skip_relocation, big_sur:       "16d9f9d50980aacc22fac001af878095e3efbaf582a04f52da93167473cab36c"
+    sha256 cellar: :any_skip_relocation, catalina:      "9fb7611a6dc048ab405a7c106aaec36706d23d0a7b6f355efbdc668fab35eb4f"
+    sha256 cellar: :any_skip_relocation, mojave:        "b2dd31430255e3759cec63173a58f5dbad1289c7c95358ed4c11d25e4ef52d1b"
   end
 
   def install

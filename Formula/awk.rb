@@ -5,7 +5,7 @@ class Awk < Formula
   sha256 "c9232d23410c715234d0c26131a43ae6087462e999a61f038f1790598ce4807f"
   # https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT#Standard_ML_of_New_Jersey_Variant
   license "MIT"
-  head "https://github.com/onetrueawk/awk.git"
+  head "https://github.com/onetrueawk/awk.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -13,6 +13,7 @@ class Awk < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a73059712fb0cc9a57389f72596ca5c52978ad54bf9dce04baedbf653b154022"
     sha256 cellar: :any_skip_relocation, catalina:      "681acac2c4bac4b8f275f640abf46e5391216d800ff34ad8c57c8d116674fae6"
     sha256 cellar: :any_skip_relocation, mojave:        "202e81f1562d8b46d4b932f91c64ab58fc6017f6cdd2cc3f2a636038abc76fc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a6d47998c2945313c463fb2736c6381f2bb6bfa725d902e17b7dded8f3025bb"
   end
 
   uses_from_macos "bison"

@@ -14,6 +14,7 @@ class Apollo < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd"
     sha256 cellar: :any_skip_relocation, mojave:        "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd"
     sha256 cellar: :any_skip_relocation, high_sierra:   "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1978b717fd23a11b86f8fae8608aadf8d2a1bf41570c70e3dfe7b9051562e476"
   end
 
   # https://github.com/apache/activemq-apollo/commit/049d68bf3f94cdf62ded5426d3cad4ef3e3c56ca

@@ -5,12 +5,14 @@ class Zookeeper < Formula
   mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.7.0/apache-zookeeper-3.7.0.tar.gz"
   sha256 "cb3980f61b66babe550dcb717c940160ba813512c0aca26c2b8a718fac5d465d"
   license "Apache-2.0"
-  head "https://gitbox.apache.org/repos/asf/zookeeper.git"
+  revision 1
+  head "https://gitbox.apache.org/repos/asf/zookeeper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "7dbe1fb25e88aa574a0772d60f5e6cac74c9d6973d2a6fd985ed57bb8ba04064"
-    sha256 cellar: :any, catalina: "8ee9ba9ef8f089b3b1e5c399e8240b1c53582f7232be43f86e9d1f4db9b33c05"
-    sha256 cellar: :any, mojave:   "89e29710ba842ed9f5ea5dd4a88cadc356e9216e6bad238a6774b7da8ab90ac2"
+    sha256 cellar: :any,                 big_sur:      "7a09b012f9b2e0c6dde46dfebf2f66846ab86e154087310b99198572d4a37321"
+    sha256 cellar: :any,                 catalina:     "d48b7491b18e95751276fd57f4a3ffdf837f174dc43ae537da6f32f4d67d96d4"
+    sha256 cellar: :any,                 mojave:       "edf3e23f9959c9b8dbd0e4ddea4e659a3cfc32737d5e57b0333f60a2e47d51da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "dcc5154ebfb3479ec0762842b789dab164c7278ca8376264bdedcb6345b5b2c5"
   end
 
   depends_on "autoconf" => :build
@@ -71,10 +73,12 @@ class Zookeeper < Formula
       EOS
     end
 
-    inreplace "conf/zoo_sample.cfg",
-              /^dataDir=.*/, "dataDir=#{var}/run/zookeeper/data"
     cp "conf/zoo_sample.cfg", "conf/zoo.cfg"
-    (etc/"zookeeper").install ["conf/zoo.cfg", "conf/zoo_sample.cfg"]
+    inreplace "conf/zoo.cfg",
+              /^dataDir=.*/, "dataDir=#{var}/run/zookeeper/data"
+    (etc/"zookeeper").install "conf/zoo.cfg"
+
+    (pkgshare/"examples").install "conf/log4j.properties", "conf/zoo_sample.cfg"
   end
 
   def post_install

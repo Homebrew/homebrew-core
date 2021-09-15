@@ -1,25 +1,30 @@
 class Lci < Formula
   desc "Interpreter for the lambda calculus"
-  homepage "https://lci.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/lci/lci/0.6/lci-0.6.tar.gz"
-  sha256 "204f1ca5e2f56247d71ab320246811c220ed511bf08c9cb7f305cf180a93948e"
-  license "GPL-2.0"
+  homepage "https://www.chatzi.org/lci/"
+  url "https://github.com/chatziko/lci/releases/download/v1.0/lci-1.0.tar.gz"
+  sha256 "1bcf40d738ce2af7ca5116f02dfb0f4ed21d7e467e3618e071c8199a1285331e"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "10cf9d298c08ffd7dbc86b99853c79013027b0f6e8598f9687d679a312ce3f66"
-    sha256 big_sur:       "bcdd98bead994b6b6c4551bb89575bfd154dcfff597d94da15a1f6158ca42f11"
-    sha256 catalina:      "a666107791ca81169da0ef403abeb77f5081baa97347d589c49c41c36650db7e"
-    sha256 mojave:        "b2bf5e93bb4fdf90b6169b03fe046500fbc196c6d13068160bc92585e66384b3"
-    sha256 high_sierra:   "f6a6d06cb581a5b3c00b05f8785ee33b2c9b69d5b920e8a7234aab3374ca988b"
-    sha256 sierra:        "207ba1b6eec2e084af44e03c96a25db72fc6fc6a265824a8aad0550bd3178167"
-    sha256 el_capitan:    "88603e7d22fa41138940318a9ce703087062a5466e796a17d636f9ca212a9fc3"
-    sha256 yosemite:      "46a84d5644606edb37c1f915df039901ac96d6728345bb95d57ed52fe783a34d"
+    sha256                               arm64_big_sur: "6540439b0f6ea5653aab7ac697f708bf3effa3135f2b8a8d2d98a08e137fab15"
+    sha256                               big_sur:       "f531babdee7254e6bcf5a04f44e388d7b398925d7b9529f0a6fba11e3dae4ced"
+    sha256                               catalina:      "a55400bf771e5c89f5357fc9847929c0bac34e0164ed306b6ea9f3be3a700ebc"
+    sha256                               mojave:        "a1c26ba18c1080a20edc4baf966c579aab841ca73d8f81760df7ca0b32830e71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca80c45e5eca084c3ec55f3d7a0d140f94ae8cf3e5277341875bbac99186ef0e"
   end
+
+  depends_on "cmake" => :build
 
   conflicts_with "lolcode", because: "both install `lci` binaries"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
+  end
+
+  test do
+    assert_match "[I, 2]", pipe_output("#{bin}/lci", "Append [1] [2]\n")
   end
 end

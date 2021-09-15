@@ -2,9 +2,9 @@ class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://goreplay.org"
   url "https://github.com/buger/goreplay.git",
-      tag:      "v1.2.0",
-      revision: "2b73ea1f0ceee50bd96f705e23af3885f990daa3"
-  license "LGPL-3.0"
+      tag:      "v1.3.2",
+      revision: "05ed82129775549a4f8349edaaad11ec2d5aa791"
+  license "LGPL-3.0-only"
   head "https://github.com/buger/goreplay.git"
 
   livecheck do
@@ -13,15 +13,16 @@ class Gor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5cb3c8f00af6a0ef7a8d1c24c4de59563c85bc51bb8a9f878ad4c283aa1954b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b02c8cacea6257c1faf97f6c3a686f09fc1519e54cbd80713b19c95b9c03ced2"
-    sha256 cellar: :any_skip_relocation, catalina:      "0a2c7715c47fa3fb9ba70494b1bf20a4216cabb09d909702f86d810a07c58f17"
-    sha256 cellar: :any_skip_relocation, mojave:        "347fab444ceaee3d2dae0f23cedcd924267bbbba95a099ad5602ba3051fd5c1f"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "0e07f5bf90d57b9bd1b0ccb961e6ee240fd8346a923c45d075b66cd7c4714a63"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a644ae3099e15971976fbfd1500abc91384cab76ab7dce1a142cd2a8b7062209"
+    sha256 cellar: :any_skip_relocation, big_sur:       "91229d9994e4e18c0f5ef3677db46d9ff88fadd996b614b1d54d3b5060c02f44"
+    sha256 cellar: :any_skip_relocation, catalina:      "184110bd3cc16c192d4389a12cc2b96b515e0839b0b59a2120fae4c6abe6e7a7"
+    sha256 cellar: :any_skip_relocation, mojave:        "3b95b1e0101ca612faaca34ab4d4a1e4e291a14d71be890921d1af16d1a59664"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd0ca7bb9a0e13f6e05e92a22c1ebebdfb32cf02df1d87aa8ba614dcdd877196"
   end
 
   depends_on "go" => :build
 
+  uses_from_macos "netcat" => :test
   uses_from_macos "libpcap"
 
   def install

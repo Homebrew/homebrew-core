@@ -3,7 +3,12 @@ class Unnethack < Formula
   homepage "https://unnethack.wordpress.com/"
   url "https://github.com/UnNetHack/UnNetHack/archive/5.3.2.tar.gz"
   sha256 "a32a2c0e758eb91842033d53d43f718f3bc719a346e993d9b23bac06f0ac9004"
-  head "https://github.com/UnNetHack/UnNetHack.git"
+  head "https://github.com/UnNetHack/UnNetHack.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:[._-]\d{6,8})?)$/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "5b4386eee78f20075e693b6ad437df496c8c914518161d8901991c1c4a6ee1f9"

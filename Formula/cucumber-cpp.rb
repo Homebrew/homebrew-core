@@ -4,14 +4,14 @@ class CucumberCpp < Formula
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.5.tar.gz"
   sha256 "9e1b5546187290b265e43f47f67d4ce7bf817ae86ee2bc5fb338115b533f8438"
   license "MIT"
-  revision 8
+  revision 9
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d8e4ee459e5958caea72acc108997caadf550d9a4436b4f8e27623a79befd2bd"
-    sha256 cellar: :any_skip_relocation, big_sur:       "530841b3b6fe59be5a5ea5fdb4fd3fea2acdf69945b20fc8aa8bf9a7c3d625aa"
-    sha256 cellar: :any_skip_relocation, catalina:      "c7ef7cd101beced9c438b3186da6993b5732f2098c7d7e03735d01687ec7655e"
-    sha256 cellar: :any_skip_relocation, mojave:        "754750a86eb2236fca926fcae27d58976798d7f817e97cc5263673be3dbce3ea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "15ddb1214407ec67e52c157bee09c87582e6b990da1d887ea9209d9fb84f15cb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d4190f94dc9bf646da7651b40e74f169665d8d24e5b9eefa21b8665f4df00317"
+    sha256 cellar: :any_skip_relocation, catalina:      "e6ae6448b0ba7195587da376f2ed1385112601c40b8dbcc3fc4bbd9dcafe7576"
+    sha256 cellar: :any_skip_relocation, mojave:        "2590c06bdaf51baa254dc3982d853e7d0fb247fd13182db1a8f4ba1f7c07f4db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f5fb64963eb741e323475d8720c3ae0ebd98e932b5a82371277e0e82a05c4e3"
   end
 
   depends_on "cmake" => :build
@@ -24,6 +24,7 @@ class CucumberCpp < Formula
       -DCUKE_DISABLE_CPPSPEC=on
       -DCUKE_DISABLE_FUNCTIONAL=on
       -DCUKE_DISABLE_BOOST_TEST=on
+      -DCMAKE_CXX_STANDARD=11
     ]
 
     system "cmake", ".", *args
@@ -32,6 +33,7 @@ class CucumberCpp < Formula
   end
 
   test do
+    boost = Formula["boost"]
     ENV.prepend_path "PATH", Formula["ruby"].opt_bin
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
@@ -59,8 +61,8 @@ class CucumberCpp < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}",
-           "-lcucumber-cpp", "-I#{Formula["boost"].opt_include}",
-           "-L#{Formula["boost"].opt_lib}", "-lboost_regex", "-lboost_system",
+           "-lcucumber-cpp", "-I#{boost.opt_include}",
+           "-L#{boost.opt_lib}", "-lboost_regex", "-lboost_system",
            "-lboost_program_options", "-lboost_filesystem", "-lboost_chrono",
            "-pthread"
     begin

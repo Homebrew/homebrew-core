@@ -1,18 +1,25 @@
 class Libstatgrab < Formula
   desc "Provides cross-platform access to statistics about the system"
-  homepage "https://www.i-scream.org/libstatgrab/"
-  url "https://ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz"
-  mirror "https://www.mirrorservice.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz"
-  sha256 "5bf1906aff9ffc3eeacf32567270f4d819055d8386d98b9c8c05519012d5a196"
-  license "GPL-2.0"
+  homepage "https://libstatgrab.org/"
+  url "https://github.com/libstatgrab/libstatgrab/releases/download/LIBSTATGRAB_0_92_1/libstatgrab-0.92.1.tar.gz"
+  mirror "https://www.mirrorservice.org/pub/i-scream/libstatgrab/libstatgrab-0.92.1.tar.gz"
+  sha256 "5688aa4a685547d7174a8a373ea9d8ee927e766e3cc302bdee34523c2c5d6c11"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+
+  livecheck do
+    url :stable
+    regex(/^LIBSTATGRAB[._-]v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
+  end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8aaf22584aedf2494b757faa7aa85b3a449b7b0a1f1e1bca3ac099e880e49248"
-    sha256 cellar: :any, big_sur:       "116a88f47d3d5125d68fdd30918f70abfba59ab7e31b2df71698bbaa0673616a"
-    sha256 cellar: :any, catalina:      "d3a41dfe112e21467ce51134b576e14678f982f1c838b6b624d96ad46edc7c88"
-    sha256 cellar: :any, mojave:        "bb1778c08b1b91cff873016e3a6f314d3a97a55db378e0870354bb64337ea50b"
-    sha256 cellar: :any, high_sierra:   "d7d932298fe68980389bf5b2c8f1d6ef41a6037630b4951996139c2277fbf6f4"
-    sha256 cellar: :any, sierra:        "17efc663227f42859add13c81e0b5fac1f3f3a0418c3d15b83363ea90c0b4a91"
+    sha256 cellar: :any,                 arm64_big_sur: "ce70f4a494445f8afde960c4ceea838e48b98fcf4c4d9513f705afae83193433"
+    sha256 cellar: :any,                 big_sur:       "08aba9012402bf7611ddc2fb0f6e0dfcb31c97ce067dd83d6ae73830b5d30aeb"
+    sha256 cellar: :any,                 catalina:      "802d07a3f0948bf0f3a60bb174b1ee56e028b4b24f9eb121e9f90e5926e689c0"
+    sha256 cellar: :any,                 mojave:        "8ce7e1320ee7e3d10764ace6801eecb28cac49dadef648de79258e1d254da06c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8984abcb585701a695fedbebd0c13cd61b08b95240c22485c75e2aac1575c57a"
   end
 
   def install

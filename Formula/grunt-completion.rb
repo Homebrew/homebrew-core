@@ -1,13 +1,13 @@
 class GruntCompletion < Formula
   desc "Bash and Zsh completion for Grunt"
   homepage "https://gruntjs.com/"
-  url "https://github.com/gruntjs/grunt-cli/archive/v1.4.2.tar.gz"
-  sha256 "ee02d056f5bc1c5628c2ac6c1c34546b9d9ee86b8360ec62ec360bf05d97d693"
+  url "https://github.com/gruntjs/grunt-cli/archive/v1.4.3.tar.gz"
+  sha256 "3bf07d807d61adbf04fa93589a7dd58fbc4da7a5f1febfd8a99b3ccb0d682009"
   license "MIT"
   head "https://github.com/gruntjs/grunt-cli.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1b513fa077792ccc90de98bfdf8f4ce6f13f10930979e84694dde159d37781fb"
+    sha256 cellar: :any_skip_relocation, all: "3d2fd1dd2be3cbc084c78eb81679d279e05b83db13604eebc7670467a04b1da1"
   end
 
   def install

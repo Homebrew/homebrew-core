@@ -10,6 +10,7 @@ class Plplot < Formula
     sha256 big_sur:       "68234fbf98737c25674da67d4a207a52bb19119e3e71eaf6d4e5948167502fc5"
     sha256 catalina:      "3f1ac3dcde8f3eec89b1abc4237e0eb386a2e8c72f08515c52f185e083fd3c73"
     sha256 mojave:        "6adc5277a905f281ec0498843ecfcf16a6300fa656f749173ac7c8af28dab157"
+    sha256 x86_64_linux:  "61fcc3fc9e8109fe643af6a9f4367ff5e8c20fb77cb0754b6ee074fad5af33c2"
   end
 
   depends_on "cmake" => :build

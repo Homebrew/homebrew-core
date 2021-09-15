@@ -10,6 +10,7 @@ class Ipmiutil < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ad8fc089b714a2286884168e7ce78e4cfb9a2c045e7daf9ee77eae3524bb0f8f"
     sha256 cellar: :any_skip_relocation, mojave:        "af41d4e3592cea0b3151276cff34bfabc810b47af165dc16436e8af30877e52e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "502b711bfa0411d970ac6fc5dabd65e04a0a80b0bf0adead2fa1e965f2079050"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed08858c9437926761cfa4989285194d32f137fe3097eedde464cce544b6768e"
   end
 
   depends_on "autoconf" => :build

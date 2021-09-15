@@ -11,6 +11,7 @@ class DesktopFileUtils < Formula
     sha256 catalina:      "fba87a1749b744c74510df1a49ed7627615ab10a2398922eac1389f4e35a5cb8"
     sha256 mojave:        "2e6548daf5b3fd3f038205986130d39390fd4b22955ed07ad06f6378d5e6e5f2"
     sha256 high_sierra:   "12e7bfe0f9a579f826f7c74f5a67d41ed4dee469f1cf0f3b4be89ef9e884996e"
+    sha256 x86_64_linux:  "6431879e86450d555446ffbb3b1ffa1bc2cfee91c38a170dfcff7d09fb88253c"
   end
 
   depends_on "meson" => :build

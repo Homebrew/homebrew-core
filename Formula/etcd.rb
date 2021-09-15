@@ -2,29 +2,24 @@ class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
   url "https://github.com/etcd-io/etcd.git",
-      tag:      "v3.4.16",
-      revision: "d19fbe541bf9c81e2d69d71d1068bd40c04de200"
+      tag:      "v3.5.0",
+      revision: "946a5a6f25c3b6b89408ab447852731bde6e6289"
   license "Apache-2.0"
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "98d4d3db7514d67bc1c202e0b21238d6f62d4ec89ffe73bbe92eff2e0827765a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "09635a11e558befedc4768acc4f4541586564e5e5da7c5dfcb7a5deaf623df39"
-    sha256 cellar: :any_skip_relocation, catalina:      "4729678ad915171849e0185c73d24c48162c7f28af056faa40a2d31e0c8bb87b"
-    sha256 cellar: :any_skip_relocation, mojave:        "185eafd66633ad22b38155677003d5fadec6e6e72087a1ead2adfed4c99d13aa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ce8803e6623bf9c2ce139f0b3a1cd94d2fd44a95c982197258fcb50b0d81d6a0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6d61d2f48b71a9d79abe75c16601e5e19c73618ccee420e7ef7ca4544a30d740"
+    sha256 cellar: :any_skip_relocation, catalina:      "286156f3543c75daaf30aae4da338c4382e16b3dd22ad1bf05ee90898e373843"
+    sha256 cellar: :any_skip_relocation, mojave:        "e3faeef31e8635edcc01a1940421e8110405a7c04e5058d4c2392584bfa03315"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3702d7060ada44249dc7d051ac5dde7786801bff1f898c3b3c121d967db1da76"
   end
 
   depends_on "go" => :build
 
   def install
-    # Fix vendored deps issue (remove this in the next release)
-    system "go", "mod", "vendor"
-
-    system "go", "build", "-mod=vendor", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o",
-      bin/"etcd"
-    system "go", "build", "-mod=vendor", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o",
-      bin/"etcdctl", "etcdctl/main.go"
-    prefix.install_metafiles
+    system "make", "build"
+    bin.install Dir[buildpath/"bin/*"]
   end
 
   plist_options manual: "etcd"

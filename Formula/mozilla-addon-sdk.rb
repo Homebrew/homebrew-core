@@ -5,8 +5,6 @@ class MozillaAddonSdk < Formula
   sha256 "16e29d92214a556c8422db156b541fb8c47addfcb3cd879e0a4ca879d6a31f65"
   license "MPL-2.0"
 
-  bottle :unneeded
-
   disable! date: "2021-03-24", because: :unsupported
 
   def install

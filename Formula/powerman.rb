@@ -11,6 +11,7 @@ class Powerman < Formula
     sha256 catalina:      "aaa93f0be2fa1d4092c2d06cec0b7fbcc00d4817ff2d6dc4601301a8cb3917fc"
     sha256 mojave:        "a2d26575a0a9816dc1f8b0b212531c8ea455a6c8322a42d5fb2630e3a2f85b1b"
     sha256 high_sierra:   "9dd898b2222ba55a6c2aeb4e4414d6eb68d9c9e19794da533b4d1bd6970e6469"
+    sha256 x86_64_linux:  "22d8c104f089a2a5ba9655e2e86cd77929d7f6bab010249884362d6827b25f3a"
   end
 
   head do

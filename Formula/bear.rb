@@ -3,17 +3,17 @@ class Bear < Formula
 
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/3.0.11.tar.gz"
-  sha256 "3f426b5b22cab1ed6146aaba1dd612cd387b7298915ca58a72386bc8c1c9d9da"
+  url "https://github.com/rizsotto/Bear/archive/3.0.15.tar.gz"
+  sha256 "a121ef68f58fdd0cc9fade11a98ae87c7d4d69cbf8d05b3c19624095d23b9a39"
   license "GPL-3.0-or-later"
-  revision 4
-  head "https://github.com/rizsotto/Bear.git"
+  head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "9a7e6d3bb1f8fed6384eafbeda5cf7fb7b31e831e15175e2bf58a338bb11d2d8"
-    sha256 big_sur:       "c1d9a8f941a55c6722a76340f5be73829441755be5b0d18fa67ccdf840ce58f9"
-    sha256 catalina:      "77a6b3c6f89da6ed600b59086ce9aef52a1ce680e1a517591b5061336dbdc2f7"
-    sha256 mojave:        "28966dcb02c8ffc75c0eba1ab4a226080a29b53f4943efb61b98dd6078fe08c0"
+    sha256 arm64_big_sur: "48b2bd5e46303c7dd4cdedb28d25127e03d5cec00f3456b4728c4992b5b399ad"
+    sha256 big_sur:       "0ce5508b28ee29d4c12549a90851c706346af973009f74a05912112349afbe80"
+    sha256 catalina:      "8e8e3f971f40c7437446d4e9d58e72d89d690b501bea378886020a50e1d76cd4"
+    sha256 mojave:        "3d19f93fafcf129b1f7572f6e6544c949646c80357eed9fc63bc121672506e7d"
+    sha256 x86_64_linux:  "a9b2b3c0eef25c08eb4d18247d6c3bf0d7199308afaedf661966b19899c5e0f2"
   end
 
   depends_on "cmake" => :build
@@ -46,9 +46,7 @@ class Bear < Formula
   end
 
   def install
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     args = std_cmake_args + %w[
       -DENABLE_UNIT_TESTS=OFF

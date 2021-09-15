@@ -1,16 +1,16 @@
 class Cjson < Formula
   desc "Ultralightweight JSON parser in ANSI C"
   homepage "https://github.com/DaveGamble/cJSON"
-  url "https://github.com/DaveGamble/cJSON/archive/v1.7.14.tar.gz"
-  sha256 "fb50a663eefdc76bafa80c82bc045af13b1363e8f45cec8b442007aef6a41343"
+  url "https://github.com/DaveGamble/cJSON/archive/v1.7.15.tar.gz"
+  sha256 "5308fd4bd90cef7aa060558514de6a1a4a0819974a26e6ed13973c5f624c24b2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1fa282ceccaeb65e3af86a5787cc5ff413ce6b97ecca802c9c562b85b1850804"
-    sha256 cellar: :any, big_sur:       "9d85bfec25eec9244a4e99807bcb976b72afd47e3c740f37f3d7033b910d6abc"
-    sha256 cellar: :any, catalina:      "19da0211d4aabe7a2bf7cf489682d8a9ec57f7d5749cdd39f81491354017a9b9"
-    sha256 cellar: :any, mojave:        "32192c80f7a8dea4988342342dd80aabba292e8200e52f9cd2a2a35fc202b671"
-    sha256 cellar: :any, high_sierra:   "0dfc85831529da5d33e07b46c08fbca4ed673f3879c4025a982b7612a0a05b7c"
+    sha256 cellar: :any,                 arm64_big_sur: "5cee282ea9e05f687010993884e90b1f89980af0909fe2f8c376d520cb3a1cd7"
+    sha256 cellar: :any,                 big_sur:       "6a836d6f194756f36b0007b1c9bb8881c8bec86f41b9987a436524d1b2c66271"
+    sha256 cellar: :any,                 catalina:      "523569912fcfe553fa50f9b856a3de0bbca49d573d750c44a9ed08af01eb8606"
+    sha256 cellar: :any,                 mojave:        "13b34d77585c933b3d22c8b060fcc67758f38bfe6422ede3e312b0079d2b7476"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50eda10d20f7d2c51b32dad782185f38ba97fb5794c5902edf50c22167f4e2e2"
   end
 
   depends_on "cmake" => :build
@@ -41,7 +41,7 @@ class Cjson < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lcjson", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lcjson", "-o", "test"
     system "./test"
   end
 end

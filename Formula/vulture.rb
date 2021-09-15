@@ -6,13 +6,14 @@ class Vulture < Formula
   url "https://files.pythonhosted.org/packages/30/8b/bf4765866521da744ca081f09184657c0dc4fd8ee910a2fd1043d2c7cd6e/vulture-2.3.tar.gz"
   sha256 "03d5a62bcbe9ceb9a9b0575f42d71a2d414070229f2e6f95fa6e7c71aaaed967"
   license "MIT"
-  head "https://github.com/jendrikseipp/vulture.git"
+  head "https://github.com/jendrikseipp/vulture.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c98aa924262650ff457d153e7b0452a22d8a6b69543bc4712832728837af256"
     sha256 cellar: :any_skip_relocation, big_sur:       "b4f0c8d4d327b6d8687ef63b370a82332a25cea64be3eea8a55e20508d2072d2"
     sha256 cellar: :any_skip_relocation, catalina:      "b5e8ebd31bc7aee0bd3c547db9e49d6e91af523213488bdb99ac6435c5404cf9"
     sha256 cellar: :any_skip_relocation, mojave:        "0c6278066d30cedf4c077cb351c750d295ba566a32107580243820970d3f787b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5196eb208b7a2e59b000e0c47a7f3c28c0b166539c0c2a4b0fb5eb76e34946c8"
   end
 
   depends_on "python@3.9"

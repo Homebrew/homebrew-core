@@ -7,15 +7,20 @@ class HopenpgpTools < Formula
   head "https://salsa.debian.org/clint/hOpenPGP.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "2055a599363bac4729fdb4313373b505fc2172a38061c84b5088ba1ca2785a3b"
-    sha256 cellar: :any_skip_relocation, catalina: "dfe8f2f9e6aa6b58482f94a6735323aaf3d25815bec18efed443a93d57b02b4b"
-    sha256 cellar: :any_skip_relocation, mojave:   "6264bd67ac890655b532d0c9e65afcc830d3197cf8bd3669166561a1686e8837"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "17ba6c71d6b2c1841bb4ea381a128e8a9cb590a751214a15b646602eab496e10"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b6bbc4e108cb054f5723c0196bfffbef88ccd30242f01ea223525ed30efd83a9"
+    sha256 cellar: :any_skip_relocation, catalina:      "11ee2dc0b5f625cef483385dea031640b8762367281f7382989d999ac4719655"
+    sha256 cellar: :any_skip_relocation, mojave:        "0bd4820b9761e5e89d6751ade75a1d2ff6d7b192b71189294a78fe7f8215d95b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25189440b68e211dcb2ab3cd04349a761e461462e21691305b6c0217e6984f96"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
   depends_on "nettle"
+
+  uses_from_macos "zlib"
 
   resource "homebrew-key.gpg" do
     url "https://gist.githubusercontent.com/zmwangx/be307671d11cd78985bd3a96182f15ea/raw/c7e803814efc4ca96cc9a56632aa542ea4ccf5b3/homebrew-key.gpg"
