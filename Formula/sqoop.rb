@@ -17,6 +17,9 @@ class Sqoop < Formula
     sha256 cellar: :any_skip_relocation, all: "04de1ca8398879433620c8bb66cda1c959fb3b724e6ed7638fd7e26d6e132483"
   end
 
+  # See https://attic.apache.org/projects/sqoop.html
+  deprecate! date: "2021-06-16", because: :deprecated_upstream
+
   depends_on "coreutils"
   depends_on "hadoop"
   depends_on "hbase"
