@@ -20,12 +20,15 @@ class ArcadeLearningEnvironment < Formula
   depends_on "cmake" => :build
   depends_on "numpy"
   depends_on "python@3.9"
-  depends_on "sdl"
+  depends_on "sdl2"
+  uses_from_macos "zlib"
 
   def install
     args = %W[
       -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
       -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
+      -DSDL_SUPPORT=ON
+      -DSDL_DYNLOAD=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
