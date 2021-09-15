@@ -4,7 +4,7 @@ class Julia < Formula
   url "https://github.com/JuliaLang/julia/releases/download/v1.6.2/julia-1.6.2.tar.gz"
   sha256 "d56422ac75cbd00a9f69ca9ffd5b6b35c8aeded8312134ef45ffbba828918b5e"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  revision 1
+  revision 2
   head "https://github.com/JuliaLang/julia.git"
 
   bottle do
@@ -47,6 +47,12 @@ class Julia < Formula
 
   fails_with gcc: "5"
 
+  # Fix compatibility with LibGit2 1.2.0+
+  patch do
+    url "https://raw.githubusercontent.com/archlinux/svntogit-community/cec6c2023b66d88c013677bfa9965cce8e49e7ab/trunk/julia-libgit-1.2.patch"
+    sha256 "c57ea92a11fa8dac72229e6a912d2372ec0d98d63486426fe3bdeeb795de48f7"
+  end
+
   def install
     # Build documentation available at
     # https://github.com/JuliaLang/julia/blob/v#{version}/doc/build/build.md
@@ -57,6 +63,7 @@ class Julia < Formula
       VERBOSE=1
       USE_BINARYBUILDER=0
       prefix=#{prefix}
+      sysconfdir=#{etc}
       USE_SYSTEM_CSL=1
       USE_SYSTEM_LLVM=1
       USE_SYSTEM_PCRE=1
@@ -138,7 +145,7 @@ class Julia < Formula
 
     # Remove library versions from MbedTLS_jll, nghttp2_jll and libLLVM_jll
     # https://git.archlinux.org/svntogit/community.git/tree/trunk/julia-hardcoded-libs.patch?h=packages/julia
-    %w[MbedTLS nghttp2].each do |dep|
+    %w[MbedTLS nghttp2 LibGit2 OpenLibm].each do |dep|
       (buildpath/"stdlib").glob("**/#{dep}_jll.jl") do |jll|
         inreplace jll, %r{@rpath/lib(\w+)(\.\d+)*\.dylib}, "@rpath/lib\\1.dylib"
         inreplace jll, /lib(\w+)\.so(\.\d+)*/, "lib\\1.so"
