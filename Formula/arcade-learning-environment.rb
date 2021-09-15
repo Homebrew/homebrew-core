@@ -23,12 +23,15 @@ class ArcadeLearningEnvironment < Formula
   depends_on "sdl"
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
       -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
     ]
-    system "cmake", ".", *args
-    system "make", "install"
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
