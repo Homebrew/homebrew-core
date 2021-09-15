@@ -33,6 +33,6 @@ class Fheroes2 < Formula
   end
 
   test do
-    assert_match "help", shell_output("#{bin}/fheroes2 -h")
+    assert_match "help", shell_output("#{bin}/fheroes2 -h 2>&1")
   end
 end
