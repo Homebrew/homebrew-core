@@ -24,6 +24,6 @@ class ChalkCli < Formula
   end
 
   test do
-    assert_match "hello, world!", pipe_output("#{bin}/chalk bold cyan", "hello, world!")
+    assert_match "hello, world!", pipe_output("#{bin}/chalk bold cyan --stdin", "hello, world!")
   end
 end
