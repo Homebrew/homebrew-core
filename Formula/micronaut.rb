@@ -4,6 +4,7 @@ class Micronaut < Formula
   url "https://github.com/micronaut-projects/micronaut-starter/archive/v3.0.1.tar.gz"
   sha256 "61b58f5fd46c2986929aba75add112e20fe69d80b1425f6eb4389edead36887f"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,11 +19,8 @@ class Micronaut < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb624d4ca8307aee1aa6a6197a5f5550d185f0d9d85b32ef9b5f77270988c671"
   end
 
-  if Hardware::CPU.arm?
-    depends_on "openjdk@11"
-  else
-    depends_on "openjdk"
-  end
+  # Uses a hardcoded list of supported JDKs. Try switching to `openjdk` on update.
+  depends_on "openjdk@11"
 
   def install
     system "./gradlew", "micronaut-cli:assemble", "-x", "test"
@@ -32,7 +30,7 @@ class Micronaut < Formula
     mv "starter-cli/build/exploded/lib", libexec/"lib"
 
     bash_completion.install "starter-cli/build/exploded/bin/mn_completion"
-    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env
+    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env("11")
   end
 
   test do
