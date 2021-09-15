@@ -1,8 +1,8 @@
 class Zim < Formula
   desc "Graphical text editor used to maintain a collection of wiki pages"
   homepage "https://zim-wiki.org/"
-  url "https://github.com/zim-desktop-wiki/zim-desktop-wiki/archive/0.73.5.tar.gz"
-  sha256 "9f983fac9655a61bfe1fa6f9e8cfa59bef099dadfdc4c003913999b184ed1342"
+  url "https://github.com/zim-desktop-wiki/zim-desktop-wiki/archive/0.74.0.tar.gz"
+  sha256 "3e7d05c20d97a1775ce1c6488285a3ecc1b2cec3c83696409774f8218478b7e3"
   license "GPL-2.0-or-later"
   head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git", branch: "master"
 
