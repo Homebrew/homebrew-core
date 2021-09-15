@@ -49,6 +49,40 @@ class Qt < Formula
   uses_from_macos "perl"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "at-spi2-core"
+    depends_on "fontconfig"
+    depends_on "gcc"
+    depends_on "gperf"
+    depends_on "libxkbcommon"
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libxcomposite"
+    depends_on "libdrm"
+    depends_on "mesa"
+    depends_on "pulseaudio"
+    depends_on "sdl2"
+    depends_on "systemd"
+    depends_on "xcb-util"
+    depends_on "xcb-util-image"
+    depends_on "xcb-util-keysyms"
+    depends_on "xcb-util-renderutil"
+    depends_on "xcb-util-wm"
+    depends_on "wayland"
+
+    # Apply upstream patch to fix building vendored assimp with GCC 11.
+    # Due to https://bugreports.qt.io/browse/QTBUG-91537, vendored assimp
+    # is built even when -system-assimp is set.
+    # Remove with release 6.2.
+    patch do
+      url "https://github.com/assimp/assimp/commit/6ebae5e67c49097b1c55a51f4ead053bc33d8255.patch?full_index=1"
+      sha256 "dca6be29d685bfb37d4b4a5f46b81c96da1996f120c8d54a738324daa20cc879"
+      directory "qtquick3d/src/3rdparty/assimp/src"
+    end
+  end
+
+  fails_with gcc: "5"
+
   def install
     # FIXME: See https://bugreports.qt.io/browse/QTBUG-89559
     # and https://codereview.qt-project.org/c/qt/qtbase/+/327393
@@ -61,7 +95,6 @@ class Qt < Formula
 
       -prefix #{HOMEBREW_PREFIX}
       -extprefix #{prefix}
-      -sysroot #{MacOS.sdk_path}
 
       -archdatadir share/qt
       -datadir share/qt
@@ -76,6 +109,8 @@ class Qt < Formula
       -no-sql-psql
     ]
 
+    config_args << "-sysroot" << MacOS.sdk_path.to_s if OS.mac?
+
     # TODO: remove `-DFEATURE_qt3d_system_assimp=ON`
     # and `-DTEST_assimp=ON` when Qt 6.2 is released.
     # See https://bugreports.qt.io/browse/QTBUG-91537
@@ -89,13 +124,23 @@ class Qt < Formula
       -DTEST_assimp=ON
     ]
 
+    if OS.linux?
+      # Explicitly specify QT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX so
+      # that cmake does not think $HOMEBREW_PREFIX/lib is the install prefix.
+      cmake_args << "-DQT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX=#{prefix}"
+
+      # Change default mkspec for qmake on Linux to use brewed GCC
+      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}gcc", ENV.cc
+      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}g++", ENV.cxx
+    end
+
     system "./configure", *config_args, "--", *cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."
 
     rm bin/"qt-cmake-private-install.cmake"
 
-    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", Superenv.shims_path, "/usr/bin"
+    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", Superenv.shims_path, ""
 
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
@@ -109,9 +154,11 @@ class Qt < Formula
       include.install_symlink f/"Headers" => f.stem
     end
 
-    bin.glob("*.app") do |app|
-      libexec.install app
-      bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
+    if OS.mac?
+      bin.glob("*.app") do |app|
+        libexec.install app
+        bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
+      end
     end
   end
 
@@ -173,7 +220,10 @@ class Qt < Formula
         delete root; root = nullptr;
         Q_ASSERT(QSqlDatabase::isDriverAvailable("QSQLITE"));
         const auto &list = QImageReader::supportedImageFormats();
-        for(const char* fmt:{"bmp", "cur", "gif", "heic", "heif",
+        for(const char* fmt:{"bmp", "cur", "gif",
+          #ifdef __APPLE__
+            "heic", "heif",
+          #endif
           "icns", "ico", "jp2", "jpeg", "jpg", "pbm", "pgm", "png",
           "ppm", "svg", "svgz", "tga", "tif", "tiff", "wbmp", "webp",
           "xbm", "xpm"}) {
