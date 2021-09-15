@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/9e/58/93afb756967b466f014cebd92312c024288afdd4c33fca0c900c83027f27/datalad-0.14.8.tar.gz"
-  sha256 "a233594e14b10a68580c04efd2133e49c5ebd4309f13a777a37022983cd09005"
+  url "https://files.pythonhosted.org/packages/7b/10/4907a8528359d262641c6d37801b01fa520eff311307cd0d5a98b4ebac2b/datalad-0.15.0.tar.gz"
+  sha256 "73cd16a2c3fd6f0cbbe277cdf467756afaea41719d24f6692d9fc9e15313cf56"
   license "MIT"
 
   bottle do
@@ -49,8 +49,8 @@ class Datalad < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/68/32/95ddb68b9abeb89efd461852cdff5791d42fc5e4c528536f541091ffded3/charset-normalizer-2.0.5.tar.gz"
+    sha256 "7098e7e862f6370a2a8d1a6398cd359815c45d12626267652c3f13dec58e2367"
   end
 
   resource "Deprecated" do
@@ -91,11 +91,6 @@ class Datalad < Formula
   resource "iso8601" do
     url "https://files.pythonhosted.org/packages/45/66/a943f702763c879e2754b46089a136ee1e58f0f720c58fa640c00281d3fd/iso8601-0.1.16.tar.gz"
     sha256 "36532f77cc800594e8f16641edae7f1baf7932f05d8e508545b95fc53c6dc85b"
-  end
-
-  resource "jsmin" do
-    url "https://files.pythonhosted.org/packages/17/73/615d1267a82ed26cd7c124108c3c61169d8e40c36d393883eaee3a561852/jsmin-2.2.2.tar.gz"
-    sha256 "b6df99b2cd1c75d9d342e4335b535789b8da9107ec748212706ef7bbe5c2553b"
   end
 
   resource "keyring" do
