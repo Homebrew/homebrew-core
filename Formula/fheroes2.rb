@@ -9,7 +9,7 @@ class Fheroes2 < Formula
   livecheck do
     url :stable
     strategy :git
-    regex(/^((\d+\.)+(\d)+)$/)
+    regex(/^((\d+\.)+(\d)+)$/i)
   end
 
   depends_on "cmake" => :build
