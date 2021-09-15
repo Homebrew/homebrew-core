@@ -12,6 +12,6 @@ class RedTldr < Formula
   end
 
   test do
-    system "red-tldr", "search", "mimikatz"
+    assert_match "privilege", shell_output("#{bin}/red-tldr search mimikatz")
   end
 end
