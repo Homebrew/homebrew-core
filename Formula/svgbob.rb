@@ -17,7 +17,9 @@ class Svgbob < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "svgbob_cli")
+    cd "cli" do
+      system "cargo", "install", *std_cargo_args(path: "svgbob_cli")
+    end
   end
 
   test do
