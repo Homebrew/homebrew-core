@@ -4,6 +4,11 @@ class Tcpsplit < Formula
   url "https://www.icir.org/mallman/software/tcpsplit/tcpsplit-0.2.tar.gz"
   sha256 "885a6609d04eb35f31f1c6f06a0b9afd88776d85dec0caa33a86cef3f3c09d1d"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?tcpsplit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f40f957faef51ed496030a97cda8ca0eb0716826969872185080bb8e94780f36"
     sha256 cellar: :any_skip_relocation, big_sur:       "49781c99d1496c5c0c8ec3e56e2edc604f5e8643f36e93b0ff8b974d448363d1"
