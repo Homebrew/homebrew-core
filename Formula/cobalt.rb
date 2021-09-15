@@ -1,8 +1,8 @@
 class Cobalt < Formula
   desc "Static site generator written in Rust"
   homepage "https://cobalt-org.github.io/"
-  url "https://github.com/cobalt-org/cobalt.rs/archive/v0.16.5.tar.gz"
-  sha256 "2586568420d2d75c0b2c23467e6bdce7fef653f5823c8ef223d0699611efc96e"
+  url "https://github.com/cobalt-org/cobalt.rs/archive/v0.17.4.tar.gz"
+  sha256 "c50f06a6561f8e5ac5e5eb5c13cbd612ef810fc9e57d470d7793e69e243b4a52"
   license "MIT"
 
   bottle do
