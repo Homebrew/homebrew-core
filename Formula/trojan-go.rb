@@ -2,8 +2,8 @@ class TrojanGo < Formula
   desc "Trojan proxy in Go"
   homepage "https://p4gefau1t.github.io/trojan-go/"
   url "https://github.com/p4gefau1t/trojan-go.git",
-      tag:      "v0.10.5",
-      revision: "98cfe1813143abaae15d125c48bce28c3a3fdc8f"
+      tag:      "v0.10.6",
+      revision: "2dc60f52e79ff8b910e78e444f1e80678e936450"
   license "GPL-3.0-only"
   head "https://github.com/p4gefau1t/trojan-go.git", branch: "master"
 
