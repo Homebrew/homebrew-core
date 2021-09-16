@@ -5,7 +5,7 @@ class Shogun < Formula
       tag:      "shogun_6.1.4",
       revision: "ab274e7ab6bf24dd598c1daf1e626cb686d6e1cc"
   license "BSD-3-Clause"
-  revision 11
+  revision 12
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "4e39c797d38f15383d76c312d84313ce3757b33d6cb42393de432db7a9ee6391"
