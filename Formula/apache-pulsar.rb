@@ -38,7 +38,6 @@ class ApachePulsar < Formula
     libexec.install "#{binpfx}/bin", "#{binpfx}/lib", "#{binpfx}/instances", "#{binpfx}/conf"
     (libexec/"lib/presto/bin/procname/Linux-ppc64le").rmtree
     pkgshare.install "#{binpfx}/examples", "#{binpfx}/licenses"
-    (var/"log/pulsar").mkpath
     (etc/"pulsar").install_symlink libexec/"conf"
 
     libexec.glob("bin/*") do |path|
