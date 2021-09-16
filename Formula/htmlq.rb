@@ -1,8 +1,8 @@
 class Htmlq < Formula
   desc "Uses CSS selectors to extract bits content from HTML files"
   homepage "https://github.com/mgdm/htmlq"
-  url "https://github.com/mgdm/htmlq/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "559f4ff25b0b8014d5b4e72cd06c20f40e5f0cf07a88dc0467418a6b2d7d5075"
+  url "https://github.com/mgdm/htmlq/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "df07a3afbd61824d382961620782c10b0c839d33dbd4d9a2dda261091c830f60"
   license "MIT"
   head "https://github.com/mgdm/htmlq.git", branch: "master"
 
