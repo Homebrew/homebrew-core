@@ -9,6 +9,9 @@ class Nauty < Formula
   livecheck do
     url :homepage
     regex(/Current\s+?version:\s*?v?(\d+(?:\.\d+)+(?:r\d+)?)/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match.first.tr("R", "r") }
+    end
   end
 
   bottle do
