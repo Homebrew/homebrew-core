@@ -352,6 +352,9 @@
   "todoman": {
     "exclude_packages": ["tabulate"]
   },
+  "tox": {
+    "exclude_packages": ["six"]
+  },
   "twarc": {
     "exclude_packages": ["six"]
   },
