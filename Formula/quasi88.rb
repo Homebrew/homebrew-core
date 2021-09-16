@@ -4,6 +4,11 @@ class Quasi88 < Formula
   url "https://www.eonet.ne.jp/~showtime/quasi88/release/quasi88-0.6.4.tgz"
   sha256 "2c4329f9f77e02a1e1f23c941be07fbe6e4a32353b5d012531f53b06996881ff"
 
+  livecheck do
+    url "https://www.eonet.ne.jp/~showtime/quasi88/download.html"
+    regex(/href=.*?quasi88[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "d62e6a88ff70815e139f210668f4e8e433ba5c00124f1ec1464c71d29afd6fb0"
     sha256 cellar: :any,                 big_sur:       "0666b5a2b84dede66965c0085d397c05bbd44f09338076c7860baa3790eb84ef"
