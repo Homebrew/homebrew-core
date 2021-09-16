@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.22.1",
-      revision: "632ed300f2c34f6d6d15ca4cef3d3c7073412212"
+      tag:      "v1.22.2",
+      revision: "8b5a19147530eaac9476b0ab82980b4088bbc1b2"
   license "Apache-2.0"
   head "https://github.com/kubernetes/kubernetes.git"
 
@@ -21,7 +21,7 @@ class KubernetesCli < Formula
 
   depends_on "bash" => :build
   depends_on "coreutils" => :build
-  depends_on "go" => :build
+  depends_on "go@1.16" => :build
 
   uses_from_macos "rsync" => :build
 
