@@ -4,6 +4,7 @@ class ScIm < Formula
   url "https://github.com/andmarti1424/sc-im/archive/v0.8.2.tar.gz"
   sha256 "7f00c98601e7f7709431fb4cbb83707c87016a3b015d48e5a7c2f018eff4b7f7"
   license "BSD-4-Clause"
+  revision 1
   head "https://github.com/andmarti1424/sc-im.git", branch: "main"
 
   bottle do
@@ -14,6 +15,9 @@ class ScIm < Formula
     sha256 x86_64_linux:  "fc3af3d6197b5e2c768266c82efe9b55e80a645d1288cfd9caea53ed353516fc"
   end
 
+  depends_on "libxlsxwriter"
+  depends_on "libxml2"
+  depends_on "libzip"
   depends_on "ncurses"
 
   uses_from_macos "bison" => :build
