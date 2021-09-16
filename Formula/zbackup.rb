@@ -16,7 +16,7 @@ class Zbackup < Formula
   end
 
   # No new commits since 2016, no sign a activity since 2020
-  deprecate! date: "2021-10-21", because: :unmaintained
+  disable! date: "2021-12-16", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "lzo"
