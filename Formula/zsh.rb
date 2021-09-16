@@ -7,6 +7,11 @@ class Zsh < Formula
   license "MIT-Modern-Variant"
   revision 1
 
+  livecheck do
+    url :head
+    regex(/^zsh[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "01ae59e3ea21dd7691120aec89552e4f4c10c6489a24b9cc23256129e3cbe7b6"
     sha256 big_sur:       "a93717bcbb1a41829ac7549f7dea0e2be4bb11985be734f03801150338d6b8e6"
