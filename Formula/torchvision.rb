@@ -4,6 +4,7 @@ class Torchvision < Formula
   url "https://github.com/pytorch/vision/archive/refs/tags/v0.11.2.tar.gz"
   sha256 "55689c57c29f82438a133d0af3315991037be59c8e02471bdcaa31731154a714"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "bfab82b88e99434924a3b803398b86d6591564234d7b6cf07b4d4207c9b927de"
