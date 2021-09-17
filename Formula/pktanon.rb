@@ -5,6 +5,14 @@ class Pktanon < Formula
   sha256 "db3f437bcb8ddb40323ddef7a9de25a465c5f6b4cce078202060f661d4b97ba3"
   revision 2
 
+  # The regex below matches development versions, as a stable version isn't yet
+  # available. If stable versions appear in the future, we should modify the
+  # regex to omit development versions (i.e., remove `(?:[._-]dev)?`).
+  livecheck do
+    url "https://www.tm.uka.de/software/pktanon/download/index.html"
+    regex(/href=.*?pktanon[._-]v?(\d+(?:\.\d+)+)(?:[._-]dev)?\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e853faa62dd62e2663e5d9b551e79cd492927baab2b472aca01d981a6ef7913c"
     sha256 cellar: :any, big_sur:       "53338eaa0e9e00d44d1084d7aee1aacfd498b568c5a145edc8da2da4b7054177"
