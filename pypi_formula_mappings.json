@@ -358,6 +358,9 @@
   "twarc": {
     "exclude_packages": ["six"]
   },
+  "virtualenv": {
+    "exclude_packages": ["six"]
+  },
   "woob": {
     "exclude_packages": ["pillow", "six"],
     "extra_packages": ["colorama"]

@@ -3,8 +3,8 @@ class Virtualenv < Formula
 
   desc "Tool for creating isolated virtual python environments"
   homepage "https://virtualenv.pypa.io/"
-  url "https://files.pythonhosted.org/packages/6d/89/9691b0d0521c069bd238585ccb7f4035b8393d843a50491270e7dae0209e/virtualenv-20.7.2.tar.gz"
-  sha256 "9ef4e8ee4710826e98ff3075c9a4739e2cb1040de6a2a8d35db0055840dc96a0"
+  url "https://files.pythonhosted.org/packages/39/2f/84439468561782ed91d9f9499738fb52a84e4d65f164849e7050db7834e5/virtualenv-20.8.0.tar.gz"
+  sha256 "4da4ac43888e97de9cf4fdd870f48ed864bbfd133d2c46cbdec941fed4a25aef"
   license "MIT"
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
@@ -17,6 +17,7 @@ class Virtualenv < Formula
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "backports.entry-points-selectable" do
     url "https://files.pythonhosted.org/packages/e4/7e/249120b1ba54c70cf988a8eb8069af1a31fd29d42e3e05b9236a34533533/backports.entry_points_selectable-1.1.0.tar.gz"
@@ -34,13 +35,8 @@ class Virtualenv < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/cb/ee4234464290e3dee893cf37d1adc87c24ade86ff6fc55f04a9bf9f1ec4f/platformdirs-2.2.0.tar.gz"
-    sha256 "632daad3ab546bd8e6af0537d09805cec458dce201bccfe23012df73332e181e"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/e2/d4/c6ffe89de09851892b1418dc22f6ab019b7b6f362532ab813c262e1722bb/platformdirs-2.3.0.tar.gz"
+    sha256 "15b056538719b1c94bdaccb29e5f81879c7f7f0f4a153f46086d155dffcd4f0f"
   end
 
   def install
