@@ -5,6 +5,11 @@ class IrcdIrc2 < Formula
   version "2.11.2p3"
   sha256 "be94051845f9be7da0e558699c4af7963af7e647745d339351985a697eca2c81"
 
+  livecheck do
+    url "http://www.irc.org/ftp/irc/server/"
+    regex(/href=.*?irc[._-]?v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "ed3eac7c4635484c94d12579948947bff1eb6a671846fcd9273dd5ed226759fa"
