@@ -1,9 +1,14 @@
 class Hyperestraier < Formula
   desc "Full-text search system for communities"
-  homepage "https://fallabs.com/hyperestraier/"
-  url "https://fallabs.com/hyperestraier/hyperestraier-1.4.13.tar.gz"
+  homepage "https://dbmx.net/hyperestraier/"
+  url "https://dbmx.net/hyperestraier/hyperestraier-1.4.13.tar.gz"
   sha256 "496f21190fa0e0d8c29da4fd22cf5a2ce0c4a1d0bd34ef70f9ec66ff5fbf63e2"
   license "LGPL-2.1"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?hyperestraier[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, big_sur:     "98338e8f67c7cba1df436607f09415415e39a38f695805ddd94720326eae9212"
