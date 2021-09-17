@@ -3,8 +3,8 @@ class Sail < Formula
 
   desc "CLI toolkit to provision and deploy WordPress applications to DigitalOcean"
   homepage "https://sailed.io"
-  url "https://files.pythonhosted.org/packages/5e/79/5c982ede183bac8dd1ce30cb6e309315d95b0bc534010f0a7df0c6c6265b/sailed.io-0.9.12.tar.gz"
-  sha256 "d372e4949cfa7830bf0438577511b71621f4604e89c500fa5d27df181535c590"
+  url "https://files.pythonhosted.org/packages/e5/18/ffe88ce1d22a58c5741e86984ff1beb9151870821d2eafb5b0d9077dab75/sailed.io-0.9.13.tar.gz"
+  sha256 "2c19bc467eeabedb675da4433df3f9ad41ec9803862665de22358a622dd36f32"
   license "GPL-3.0-only"
 
   bottle do
@@ -23,8 +23,8 @@ class Sail < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/68/32/95ddb68b9abeb89efd461852cdff5791d42fc5e4c528536f541091ffded3/charset-normalizer-2.0.5.tar.gz"
+    sha256 "7098e7e862f6370a2a8d1a6398cd359815c45d12626267652c3f13dec58e2367"
   end
 
   resource "click" do
@@ -40,6 +40,11 @@ class Sail < Formula
   resource "prettytable" do
     url "https://files.pythonhosted.org/packages/00/8d/95441120aa870aa800f8b4c6cf650bf0739d7a41883fe81769ab593556c9/prettytable-2.2.0.tar.gz"
     sha256 "bd81678c108e6c73d4f1e47cd4283de301faaa6ff6220bcd1d4022038c56b416"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "requests" do
