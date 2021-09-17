@@ -5,6 +5,11 @@ class Teapot < Formula
   sha256 "580e0cb416ae3fb3df87bc6e92e43bf72929d47b65ea2b50bc09acea3bff0b65"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?teapot[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebe49b24ad7903b64f8cc19a560a58b5cb1e704bcf923a79275e0264607f3541"
