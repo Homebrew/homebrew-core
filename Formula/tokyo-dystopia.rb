@@ -1,9 +1,14 @@
 class TokyoDystopia < Formula
   desc "Lightweight full-text search system"
-  homepage "https://fallabs.com/tokyodystopia/"
-  url "https://fallabs.com/tokyodystopia/tokyodystopia-0.9.15.tar.gz"
+  homepage "https://dbmx.net/tokyodystopia/"
+  url "https://dbmx.net/tokyodystopia/tokyodystopia-0.9.15.tar.gz"
   sha256 "28b43c592a127d1c9168eac98f680aa49d1137b4c14b8d078389bbad1a81830a"
   license "LGPL-2.1"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?tokyodystopia[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "9e0c8988268eec1f5fe33f5d7f494f636c64690f417e179e37a83f9b4880b315"
@@ -22,7 +27,6 @@ class TokyoDystopia < Formula
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 
