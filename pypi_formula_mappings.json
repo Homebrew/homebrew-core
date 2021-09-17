@@ -27,6 +27,9 @@
   "awscli@1": {
     "exclude_packages": ["six"]
   },
+  "b2-tools": {
+    "exclude_packages": ["six"]
+  },
   "black": "black[d]",
   "bpytop": "bpytop",
   "breezy": {
