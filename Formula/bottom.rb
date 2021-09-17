@@ -1,9 +1,10 @@
 class Bottom < Formula
   desc "Yet another cross-platform graphical process/system monitor"
   homepage "https://clementtsang.github.io/bottom/"
-  url "https://github.com/ClementTsang/bottom/archive/refs/tags/0.6.4.tar.gz"
+  url "https://github.com/ClementTsang/bottom/archive/0.6.4.tar.gz"
   sha256 "ee949805515a1b491f9434927ac3d297b9d5d9d261e3c39e036b725d807b10de"
   license "MIT"
+  head "https://github.com/ClementTsang/bottom.git", branch: "master"
 
   depends_on "rust" => :build
 
