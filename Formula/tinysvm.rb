@@ -5,6 +5,11 @@ class Tinysvm < Formula
   sha256 "e377f7ede3e022247da31774a4f75f3595ce768bc1afe3de9fc8e962242c7ab8"
   license "LGPL-2.1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?TinySVM[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0bc765f1a83890ba72ab3ddd3b7c43d947b4f8e2aaac19807e7703c6ee58158b"
     sha256 cellar: :any_skip_relocation, big_sur:       "2ead575e862216b468d3f55c0b20789405f25e03667838da0fadeb0bd3931d37"
