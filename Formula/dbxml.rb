@@ -5,6 +5,11 @@ class Dbxml < Formula
   sha256 "a8fc8f5e0c3b6e42741fa4dfc3b878c982ff8f5e5f14843f6a7e20d22e64251a"
   revision 3
 
+  livecheck do
+    url "https://www.oracle.com/database/technologies/related/berkeleydb-downloads.html"
+    regex(/href=.*?dbxml[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "04e8d59d289cdfeded395a021516b357e5bb63eed09e49aca28ed262c8c31128"
     sha256 big_sur:       "e53e40e0184768fdac585276000c0224a04cfa9284ce94be1ab80380d2b79965"
