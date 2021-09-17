@@ -1,7 +1,7 @@
 class Uade < Formula
   desc "Play Amiga tunes through UAE emulation"
   homepage "https://zakalwe.fi/uade/"
-  head "https://gitlab.com/uade-music-player/uade.git"
+  head "https://gitlab.com/uade-music-player/uade.git", branch: "master"
 
   stable do
     url "https://zakalwe.fi/uade/uade2/uade-2.13.tar.bz2"
@@ -10,6 +10,12 @@ class Uade < Formula
     # Upstream patch to fix compiler detection under superenv
     patch :DATA
   end
+
+  livecheck do
+    url "https://zakalwe.fi/uade/download.html"
+    regex(/href=.*?uade[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "44ebe9c6fddd5da6043eccad2c2cca7a55862d4b020b348ab579b88125e43938"
     sha256 big_sur:       "f3df21df8b0f5533248f1a23323c24ce9933b1500bb8b15f26bb430385d05f95"
@@ -26,7 +32,7 @@ class Uade < Formula
   depends_on "libao"
 
   resource "bencode-tools" do
-    url "https://github.com/heikkiorsila/bencode-tools.git"
+    url "https://github.com/heikkiorsila/bencode-tools.git", branch: "master"
   end
 
   def install
