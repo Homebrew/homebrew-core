@@ -1,9 +1,14 @@
 class Libswiften < Formula
   desc "C++ library for implementing XMPP applications"
-  homepage "https://swift.im/swiften"
+  homepage "https://swift.im/swiften.html"
   url "https://swift.im/downloads/releases/swift-4.0/swift-4.0.tar.gz"
   sha256 "50b7b2069005b1474147110956f66fdde0afb2cbcca3d3cf47de56dc61217319"
   revision 4
+
+  livecheck do
+    url "https://swift.im/downloads.html"
+    regex(/href=.*?swift[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, catalina:    "919e570b27576a942a2dd08c190f188cf8f0deb00950dc0b5956478da38091ed"
