@@ -5,6 +5,11 @@ class Flickcurl < Formula
   sha256 "ff42a36c7c1c7d368246f6bc9b7d792ed298348e5f0f5d432e49f6803562f5a3"
   license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?flickcurl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "49065801b7dfe7880206948a41c58ae5f190b50e3acbbe7d14ff24d29a30db0c"
     sha256 cellar: :any,                 big_sur:       "90c210da66773047b62e3f5922382d97a7da8d4b17b178b25149a07d910c6f4a"
