@@ -5,6 +5,11 @@ class Quotatool < Formula
   sha256 "e53adc480d54ae873d160dc0e88d78095f95d9131e528749fd982245513ea090"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://quotatool.ekenberg.se/index.php?node=download"
+    regex(/href=.*?quotatool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "33cf581ce810cb4704669a05ee01b5cc963008f02393db65453ef06216ed257f"
     sha256 cellar: :any_skip_relocation, big_sur:       "e5dbc4f83caec774f6f05d65515c51bd8963c28415020698666d534030e91b23"
