@@ -1,9 +1,15 @@
 class Libquantum < Formula
   desc "C library for the simulation of quantum mechanics"
   homepage "http://www.libquantum.de/"
-  url "http://www.libquantum.de/files/libquantum-1.1.1.tar.gz"
-  sha256 "d8e3c4407076558f87640f1e618501ec85bc5f4c5a84db4117ceaec7105046e5"
+  url "http://www.libquantum.de/files/libquantum-1.0.0.tar.gz"
+  sha256 "b0f1a5ec9768457ac9835bd52c3017d279ac99cc0dffe6ce2adf8ac762997b2c"
   license "GPL-3.0-or-later"
+  version_scheme 1
+
+  livecheck do
+    url "http://www.libquantum.de/downloads"
+    regex(/href=.*?libquantum[._-]v?(\d+\.[02468](?:\.\d+)*)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1788ce1a3fad430fe6579257b4f8144fc72dea392510f170a0c8f0c213d70d80"
