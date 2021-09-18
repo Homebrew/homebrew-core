@@ -4,6 +4,7 @@ class Verilator < Formula
   url "https://github.com/verilator/verilator/archive/refs/tags/v4.212.tar.gz"
   sha256 "7b655859e4e75c9673141aede8f5a20f47e4c380055d1a588d5be60cbbc73619"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
+  head "https://git.veripool.org/git/verilator", using: :git, branch: "master"
 
   livecheck do
     url "https://github.com/verilator/verilator.git"
@@ -18,12 +19,8 @@ class Verilator < Formula
     sha256 x86_64_linux:  "6eb4b51aeef84c2dc4a6bb9a8becd6ab31fa8ee0d569a1bfc3bc82db1a2c5393"
   end
 
-  head do
-    url "https://git.veripool.org/git/verilator", using: :git
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "python@3.9" => :build
 
   uses_from_macos "bison"
@@ -33,7 +30,7 @@ class Verilator < Formula
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
   def install
-    system "autoconf" if build.head?
+    system "autoconf"
     system "./configure", "--prefix=#{prefix}"
     # `make` and `make install` need to be separate for parallel builds
     system "make"
