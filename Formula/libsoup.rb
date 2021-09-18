@@ -4,6 +4,7 @@ class Libsoup < Formula
   url "https://download.gnome.org/sources/libsoup/2.74/libsoup-2.74.0.tar.xz"
   sha256 "33b1d4e0d639456c675c227877e94a8078d731233e2d57689c11abcef7d3c48e"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "e7c59cf457c9f3d13dcd9f0d101b82a1fb9b446c31d4b88986822998f97a0c98"
@@ -17,10 +18,10 @@ class Libsoup < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "glib-networking"
   depends_on "gnutls"
   depends_on "libpsl"
-  depends_on "vala"
 
   uses_from_macos "krb5"
   uses_from_macos "libxml2"
