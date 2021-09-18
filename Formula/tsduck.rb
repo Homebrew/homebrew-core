@@ -15,11 +15,31 @@ class Tsduck < Formula
   depends_on "srt"
 
   def install
-    system "make", "NOGITHUB=1", "NOTEST=1", "-j8"
+    system "make", "NOGITHUB=1", "NOTEST=1"
     system "make", "NOGITHUB=1", "NOTEST=1", "install", "SYSPREFIX=#{prefix}"
   end
 
   test do
     assert_match "TSDuck - The MPEG Transport Stream Toolkit", shell_output("#{bin}/tsp --version 2>&1")
+    input = shell_output("#{bin}/tsp --list=input 2>&1")
+    assert_match "craft:", input
+    assert_match "file:", input
+    assert_match "hls:", input
+    assert_match "http:", input
+    assert_match "srt:", input
+    assert_match "rist:", input
+    output = shell_output("#{bin}/tsp --list=output 2>&1")
+    assert_match "ip:", output
+    assert_match "file:", output
+    assert_match "hls:", output
+    assert_match "srt:", output
+    assert_match "rist:", output
+    packet = shell_output("#{bin}/tsp --list=packet 2>&1")
+    assert_match "fork:", packet
+    assert_match "tables:", packet
+    assert_match "analyze:", packet
+    assert_match "sdt:", packet
+    assert_match "timeshift:", packet
+    assert_match "nitscan:", packet
   end
 end
