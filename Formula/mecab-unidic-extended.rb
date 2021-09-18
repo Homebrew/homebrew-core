@@ -5,6 +5,14 @@ class MecabUnidicExtended < Formula
   url "https://dotsrc.dl.osdn.net/osdn/unidic/58338/unidic-mecab_kana-accent-2.1.2_src.zip"
   sha256 "70793cacda81b403eda71736cc180f3144303623755a612b13e1dffeb6554591"
 
+  # The OSDN releases page asynchronously fetches separate HTML for each
+  # release, so we can't easily check the related archive file names.
+  # NOTE: If/when a new version appears, please manually check the releases
+  # page to confirm an appropriate archive is available for this formula.
+  livecheck do
+    formula "mecab-unidic"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3afff6a9a967b7c92eb79ca6efcaf3289596c331214ba6130989d757cd7757b2"
     sha256 cellar: :any_skip_relocation, big_sur:       "7566096a08a09b4c695c2f59766dc3d8ed5156d87180a3da1d504be9e038a30b"
