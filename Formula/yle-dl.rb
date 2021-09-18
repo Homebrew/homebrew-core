@@ -1,17 +1,17 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://files.pythonhosted.org/packages/fa/bb/3e89fa9214d97d2d590fbde45c1ad9e9975aa5dc69a86f7d2d8d3fa20c85/yle-dl-20210808.tar.gz"
-  sha256 "b6dbd89162bec4dc2e6c5eaa50c98eb32a09724417140d74f6630a214c52336a"
+  url "https://files.pythonhosted.org/packages/c0/71/c24158ee110712569f2a4ff995a8b37d834c686474c11c95389b1d506b74/yle-dl-20210917.tar.gz"
+  sha256 "22e3a1417fdfbfe788d59cf608e131d7f0b90c799d0dd129a6d98f019f100776"
   license "GPL-3.0-or-later"
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1abfd53bec86856e959f687bb71b23ae01459e8cf6b5a8aaeb2d25f8b6ea691f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "374da8b0a09e1b48725341aad408fbd483cee68d8b1f747119650c5f4ea7c7c2"
-    sha256 cellar: :any_skip_relocation, catalina:      "131c2664663464e07f059d7dbad05599fc30322a3923916c1bc914fe3a523eba"
-    sha256 cellar: :any_skip_relocation, mojave:        "9d18878bc755d839901e9431e27dc0913ab28881c66b8dc93361106bc3623cc7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1625aad885be75572725cd9e8b13443b319af28f75094ca11f6bc3786e357e22"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0227df9cc74fa2378e5f96d3cf021a1b242840621d21d1891e3448d470f76d12"
+    sha256 cellar: :any_skip_relocation, big_sur:       "74de7ba58e7fb1acac55cc45315c7ec39b60ec060349374c81baff6c0282af7b"
+    sha256 cellar: :any_skip_relocation, catalina:      "e2c69ab631d4248163131a3f52f5e4807768066d17f26df0245cea49c5cbc0be"
+    sha256 cellar: :any_skip_relocation, mojave:        "b6dac24972fca38490b5e18dfa37d926b597b05bc68ecb0a8c3bf82e50028014"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c42bf1e861338903291495ff808cef49fd4c4ebb00f082adfec6011a692c82fb"
   end
 
   depends_on "ffmpeg"
@@ -45,8 +45,8 @@ class YleDl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
+    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
   end
 
   resource "ConfigArgParse" do
