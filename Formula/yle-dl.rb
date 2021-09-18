@@ -1,8 +1,8 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://files.pythonhosted.org/packages/fa/bb/3e89fa9214d97d2d590fbde45c1ad9e9975aa5dc69a86f7d2d8d3fa20c85/yle-dl-20210808.tar.gz"
-  sha256 "b6dbd89162bec4dc2e6c5eaa50c98eb32a09724417140d74f6630a214c52336a"
+  url "https://files.pythonhosted.org/packages/c0/71/c24158ee110712569f2a4ff995a8b37d834c686474c11c95389b1d506b74/yle-dl-20210917.tar.gz"
+  sha256 "22e3a1417fdfbfe788d59cf608e131d7f0b90c799d0dd129a6d98f019f100776"
   license "GPL-3.0-or-later"
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
@@ -45,8 +45,8 @@ class YleDl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
+    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
   end
 
   resource "ConfigArgParse" do
