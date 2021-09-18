@@ -35,6 +35,7 @@ class ArcadeLearningEnvironment < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
+    ENV["ALE_BUILD_VERSION"] = version unless build.head?
     system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
