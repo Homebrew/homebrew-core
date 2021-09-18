@@ -54,6 +54,13 @@ class OpensslAT11 < Formula
     sha256 "dd5498c0910c0ae91738fe8e796f4deb4767b08217c1a859fe390147f24809c6"
   end
 
+  # Fix build on older macOS versions.
+  # Remove with the next version.
+  patch do
+    url "https://github.com/openssl/openssl/commit/2f3b120401533db82e99ed28de5fc8aab1b76b33.patch?full_index=1"
+    sha256 "a66dcd4a3a291858deefaf260ffd8f2f55da953724e7a14db9c4523d8b7ef383"
+  end
+
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
   # be obvious to everyone, so explicitly state it for now to
