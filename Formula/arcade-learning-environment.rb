@@ -21,7 +21,14 @@ class ArcadeLearningEnvironment < Formula
   depends_on "numpy"
   depends_on "python@3.9"
   depends_on "sdl2"
+
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     args = %W[
