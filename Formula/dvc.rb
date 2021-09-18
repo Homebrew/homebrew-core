@@ -29,12 +29,6 @@ class Dvc < Formula
   # When updating, check that the extra packages in pypi_formula_mappings.json
   # correctly reflects the following extra packages in setup.py:
   # gs, s3, azure, oss, ssh, gdrive, webdav (hdfs is provided by apache-arrow)
-
-  # when updating dvc, comment out this `grandalf` resource block
-  # and run `brew update-python-resources dvc`
-  # The root cause is with no tarbal file for 0.7 release on pypi index
-  # upstream issue tracker, https://github.com/bdcht/grandalf/issues/26
-  # https://github.com/iterative/dvc/blob/f3010d1d65bf2eb181c63f4bf0c3ca01b837f50b/requirements/default.txt#L13-L14
   resource "adal" do
     url "https://files.pythonhosted.org/packages/90/d7/a829bc5e8ff28f82f9e2dc9b363f3b7b9c1194766d5a75105e3885bfa9a8/adal-1.2.7.tar.gz"
     sha256 "d74f45b81317454d96e982fd1c50e6fb5c99ac2223728aea8764433a39f566f1"
