@@ -10,8 +10,7 @@ class ClickhouseOdbc < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
-
-  uses_from_macos "icu4c"
+  depends_on "icu4c"
 
   on_macos do
     depends_on "libiodbc"
