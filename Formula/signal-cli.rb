@@ -29,9 +29,9 @@ class SignalCli < Formula
 
   resource "libzkgroup" do
     # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libzkgroup
-    # we want the latest release version
-    url "https://github.com/signalapp/zkgroup/archive/refs/tags/v0.7.3.tar.gz"
-    sha256 "a2df7cf3959d424d894c837f7e0062bcd819b31355196fc5bf3de4602c69e2e0"
+    # we want to use the same version signal-cli uses; see 'signal-cli-X.X.X/lib/zkgroup-java-X.X.X.jar'
+    url "https://github.com/signalapp/zkgroup/archive/refs/tags/v0.7.0.tar.gz"
+    sha256 "6479d00f7b4f5acab3694c6970849502879f6fa82a74ab2879d7128d79a42007"
   end
 
   def install
