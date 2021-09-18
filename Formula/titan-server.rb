@@ -2,7 +2,13 @@ class TitanServer < Formula
   desc "Distributed graph database"
   homepage "https://thinkaurelius.github.io/titan/"
   url "http://s3.thinkaurelius.com/downloads/titan/titan-1.0.0-hadoop1.zip"
+  version "1.0.0"
   sha256 "67538e231db5be75821b40dd026bafd0cd7451cdd7e225a2dc31e124471bb8ef"
+
+  livecheck do
+    url "https://github.com/thinkaurelius/titan.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fc2d13173bd41bf1167fdecdff4f638e62cf91c2fbfb20aa19c91163ec465c81"
