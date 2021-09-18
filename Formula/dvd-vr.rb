@@ -5,6 +5,11 @@ class DvdVr < Formula
   sha256 "19d085669aa59409e8862571c29e5635b6b6d3badf8a05886a3e0336546c938f"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dvd-vr[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "34cfb579dcddb0ded88010dea55a3b5bb4d78628ab6c0bc0e7f70d93882b2156"
     sha256 cellar: :any_skip_relocation, big_sur:       "4c1ab9eca5fcff27e5aa6185a9b908c1c4c0569ceede8ef574d8365da6f1d914"
