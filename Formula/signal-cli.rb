@@ -77,7 +77,12 @@ class SignalCli < Formula
         "libzkgroup"
       end
       system "make", target
-      cd Hardware::CPU.arm? "target/release" : "ffi/java/src/main/resources" do
+      location = if Hardware::CPU.arm?
+        "target/release"
+      else
+        "ffi/java/src/main/resources"
+      end
+      cd location do
         system "zip", "-u", zkgroup_jar, shared_library("libzkgroup")
       end
     end
