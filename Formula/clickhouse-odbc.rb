@@ -45,14 +45,6 @@ class ClickhouseOdbc < Formula
   end
 
   test do
-    so_suf = if OS.mac?
-      "dylib"
-    elsif OS.linux?
-      "so"
-    else
-      "x"
-    end
-
     (testpath/"my.odbcinst.ini").write <<~EOS
       [ODBC Drivers]
       ClickHouse ODBC Test Driver A = Installed
