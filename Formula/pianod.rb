@@ -1,10 +1,14 @@
 class Pianod < Formula
   desc "Pandora client with multiple control interfaces"
   homepage "https://deviousfish.com/pianod/"
-  url "https://deviousfish.com/Downloads/pianod2/Devel/pianod2-301.tar.gz"
-  sha256 "d6fa01d786af65fe3b4e6f4f97fa048db6619b9443e23f655d3ea8ab4766caee"
+  url "https://deviousfish.com/Downloads/pianod2/pianod2-376.tar.gz"
+  sha256 "ac00655c1e3c7507ff89f283d8c339510f50e9ddd5a44cb1df7ebcb2e147e6d1"
   license "MIT"
-  revision 1
+
+  livecheck do
+    url "https://deviousfish.com/Downloads/pianod2/"
+    regex(/href=.*?pianod2[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "75ead4e63a967f75b1348d5f3edc024fb18b64298546ca6574aeba99c043237c"
@@ -20,15 +24,22 @@ class Pianod < Formula
   depends_on "libao"
   depends_on "libgcrypt"
 
+  on_macos do
+    depends_on "ncurses"
+  end
+
   on_linux do
     # pianod uses avfoundation on macOS, ffmpeg on Linux
     depends_on "ffmpeg"
+    depends_on "gcc"
     depends_on "gnutls"
     depends_on "libbsd"
   end
 
+  fails_with gcc: "5"
+
   def install
-    ENV["OBJCXXFLAGS"] = "-std=c++11"
+    ENV["OBJCXXFLAGS"] = "-std=c++14"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
