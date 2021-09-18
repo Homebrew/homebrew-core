@@ -22,9 +22,9 @@ class SignalCli < Formula
 
   resource "libsignal-client" do
     # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libsignal-client
-    # we want the specific libsignal-client version from 'signal-cli-0.8.1/lib/signal-client-XXXX-X.X.X.jar'
-    url "https://github.com/signalapp/libsignal-client/archive/refs/tags/v0.8.1.tar.gz"
-    sha256 "549d3607919f537649aa3f179681161a2ea0a08786a684c4faf2afdc7fd60aaa"
+    # we want the specific libsignal-client version from 'signal-cli-0.9.0/lib/signal-client-XXXX-X.X.X.jar'
+    url "https://github.com/signalapp/libsignal-client/archive/refs/tags/v0.9.0.tar.gz"
+    sha256 "7caa3a337190d473052a7e84cb7b2cfdb83b59209bfab30ed68b2c346637d54e"
   end
 
   resource "libzkgroup" do
