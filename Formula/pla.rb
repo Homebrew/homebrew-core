@@ -5,6 +5,11 @@ class Pla < Formula
   sha256 "a342bfe064257487c6f55e049301cc7d06c84b08390a38fd42c901e962fc4a89"
   license "GPL-2.0-only"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?pla[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2cf83294bbf3d2bd6679e81eb248c588a413ddeadac46ceb24de6affb368aa06"
     sha256 cellar: :any, big_sur:       "a40094ed802100f73d1ba8fedf5e536649c7fcae1e8a1bed9e240abdc690f221"
