@@ -2,11 +2,10 @@ class ClickhouseOdbc < Formula
   desc "Official ODBC driver implementation for accessing ClickHouse as a data source"
   homepage "https://github.com/ClickHouse/clickhouse-odbc#readme"
   url "https://github.com/ClickHouse/clickhouse-odbc.git",
-    tag:      "v1.1.10.20210822",
-    revision: "c7aaff6860e448acee523f5f7d3ee97862fd07d2"
+      tag:      "v1.1.10.20210822",
+      revision: "c7aaff6860e448acee523f5f7d3ee97862fd07d2"
   license "Apache-2.0"
-  head "https://github.com/ClickHouse/clickhouse-odbc.git",
-    branch:   "master"
+  head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -58,8 +57,8 @@ class ClickhouseOdbc < Formula
 
       [ClickHouse ODBC Test Driver W]
       Description = ODBC Driver for ClickHouse (Unicode)
-      Driver      = #{lib}/libclickhouseodbcw.#{so_suf}
-      Setup       = #{lib}/libclickhouseodbcw.#{so_suf}
+      Driver      = #{lib/shared_library("libclickhouseodbcw")}
+      Setup       = #{lib/shared_library("libclickhouseodbcw")}
       UsageCount  = 1
     EOS
 
@@ -85,11 +84,18 @@ class ClickhouseOdbc < Formula
 
     if OS.mac?
       ENV["ODBCINSTINI"] = "#{ENV["ODBCSYSINI"]}/#{ENV["ODBCINSTINI"]}"
-      assert_match("SQL>", pipe_output("#{Formula["libiodbc"].bin}/iodbctest 'DSN=ClickHouse ODBC Test DSN A'", "exit")
-      assert_match("SQL>", pipe_output("#{Formula["libiodbc"].bin}/iodbctestw 'DSN=ClickHouse ODBC Test DSN W'", "exit")
+
+      assert_match "SQL>",
+        pipe_output("#{Formula["libiodbc"].bin}/iodbctest 'DSN=ClickHouse ODBC Test DSN A'", "exit\n")
+
+      assert_match "SQL>",
+        pipe_output("#{Formula["libiodbc"].bin}/iodbctestw 'DSN=ClickHouse ODBC Test DSN W'", "exit\n")
     elsif OS.linux?
-      assert_match("Connected!", `echo quit | #{Formula["unixodbc"].bin}/isql "ClickHouse ODBC Test DSN A"`)
-      assert_match("Connected!", `echo quit | #{Formula["unixodbc"].bin}/iusql "ClickHouse ODBC Test DSN W"`)
+      assert_match "Connected!",
+        pipe_output("#{Formula["unixodbc"].bin}/isql 'ClickHouse ODBC Test DSN A'", "quit\n")
+
+      assert_match "Connected!",
+        pipe_output("#{Formula["unixodbc"].bin}/iusql 'ClickHouse ODBC Test DSN W'", "quit\n")
     end
   end
 end
