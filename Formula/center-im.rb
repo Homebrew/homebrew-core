@@ -1,9 +1,16 @@
 class CenterIm < Formula
   desc "Text-mode multi-protocol instant messaging client"
-  homepage "https://www.centerim.org/index.php/Main_Page"
+  homepage "https://github.com/petrpavlu/centerim5"
   url "https://www.centerim.org/download/releases/centerim-4.22.10.tar.gz"
   sha256 "93ce15eb9c834a4939b5aa0846d5c6023ec2953214daf8dc26c85ceaa4413f6e"
   revision 2
+
+  # Modify this to use `url :stable` if/when the formula is updated to use an
+  # archive from GitHub in the future.
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     rebuild 1
