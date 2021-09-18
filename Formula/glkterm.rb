@@ -5,6 +5,11 @@ class Glkterm < Formula
   version "1.0.4"
   sha256 "473d6ef74defdacade2ef0c3f26644383e8f73b4f1b348e37a9bb669a94d927e"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?glkterm[._-]v?(?:\d+(?:\.\d+)*)\.t[^>]+?>\s*?GlkTerm library v?(\d+(?:\.\d+)+)/im)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "dfa6c028a6b6c70b258e19faa4f274c5c993ee55d8fa21e7574aa1df32e6cd2c"
     sha256 cellar: :any_skip_relocation, big_sur:       "a82e9471f88cd16b842beb87305959fcdec9fbc083cb7e4b6b213cb7f7c9f701"
