@@ -13,8 +13,10 @@ class Tsduck < Formula
   depends_on "librist"
   depends_on "pcsc-lite"
   depends_on "srt"
+  uses_from_macos "curl"
 
   def install
+    ENV.append_to_cflags "-I#{Formula["pcsc-lite"].opt_include}/PCSC" if OS.linux?
     system "make", "NOGITHUB=1", "NOTEST=1"
     system "make", "NOGITHUB=1", "NOTEST=1", "install", "SYSPREFIX=#{prefix}"
   end
@@ -22,24 +24,16 @@ class Tsduck < Formula
   test do
     assert_match "TSDuck - The MPEG Transport Stream Toolkit", shell_output("#{bin}/tsp --version 2>&1")
     input = shell_output("#{bin}/tsp --list=input 2>&1")
-    assert_match "craft:", input
-    assert_match "file:", input
-    assert_match "hls:", input
-    assert_match "http:", input
-    assert_match "srt:", input
-    assert_match "rist:", input
+    %w[craft file hls http srt rist].each do |str|
+      assert_match "#{str}:", input
+    end
     output = shell_output("#{bin}/tsp --list=output 2>&1")
-    assert_match "ip:", output
-    assert_match "file:", output
-    assert_match "hls:", output
-    assert_match "srt:", output
-    assert_match "rist:", output
+    %w[ip file hls srt rist].each do |str|
+      assert_match "#{str}:", output
+    end
     packet = shell_output("#{bin}/tsp --list=packet 2>&1")
-    assert_match "fork:", packet
-    assert_match "tables:", packet
-    assert_match "analyze:", packet
-    assert_match "sdt:", packet
-    assert_match "timeshift:", packet
-    assert_match "nitscan:", packet
+    %w[fork tables analyze sdt timeshift nitscan].each do |str|
+      assert_match "#{str}:", packet
+    end
   end
 end
