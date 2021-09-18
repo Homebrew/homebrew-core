@@ -72,6 +72,6 @@ class ClickhouseCpp < Formula
     system "cmake", "-S", testpath, "-B", (testpath/"build"), *std_cmake_args
     system "cmake", "--build", (testpath/"build")
 
-    assert `#{testpath/"build"/"test-client"}`.start_with?("Exception: fail to connect: ")
+    assert_match "Exception: fail to connect: ", shell_output(testpath/"build"/"test-client")
   end
 end
