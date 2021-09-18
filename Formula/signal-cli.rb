@@ -67,10 +67,8 @@ class SignalCli < Formula
       system "zip", "-d", zkgroup_jar, "libzkgroup.so"
 
       # https://github.com/Homebrew/homebrew-core/pull/83322#issuecomment-918945146
-      # this fix is needed until signal-cli updates to zkgroup v0.7.3 
-      if Hardware::CPU.arm?
-        inreplace "rust-toolchain", "1.41.1", "nightly"
-      end
+      # this fix is needed until signal-cli updates to zkgroup v0.7.3
+      inreplace "rust-toolchain", "1.41.1", "nightly" if Hardware::CPU.arm?
 
       # build & embed library for current platform
       target = if OS.mac? && !Hardware::CPU.arm?
@@ -79,7 +77,7 @@ class SignalCli < Formula
         "libzkgroup"
       end
       system "make", target
-      cd "ffi/java/src/main/resources" do
+      cd "target/release" do
         system "zip", "-u", zkgroup_jar, shared_library("libzkgroup")
       end
     end
