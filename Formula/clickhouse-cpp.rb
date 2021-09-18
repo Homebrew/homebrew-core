@@ -7,7 +7,7 @@ class ClickhouseCpp < Formula
   license "Apache-2.0"
   head "https://github.com/ClickHouse/clickhouse-cpp.git", branch: "master"
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
