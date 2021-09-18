@@ -5,6 +5,13 @@ class Opendbx < Formula
   sha256 "2246a03812c7d90f10194ad01c2213a7646e383000a800277c6fb8d2bf81497c"
   revision 2
 
+  # The download page includes a `libopendbx` development release, so we use a
+  # leading forward slash to only match `opendbx` versions.
+  livecheck do
+    url "https://linuxnetworks.de/doc/index.php?title=OpenDBX/Download"
+    regex(%r{href=.*?/opendbx[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "a849ec13147c5cb08b03376eae868b6c82ec075a60388bf7e6742fbb9f56b467"
     sha256 big_sur:       "80d655556c77aeb341dd0fc52d70e61dfd8a3518cf689bcb68af6f0aacc04bd5"
