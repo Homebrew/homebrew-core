@@ -93,8 +93,8 @@ class ClickhouseOdbc < Formula
 
     if OS.mac?
       ENV["ODBCINSTINI"] = "#{ENV["ODBCSYSINI"]}/#{ENV["ODBCINSTINI"]}"
-      assert_match("SQL>", `echo exit | #{Formula["libiodbc"].bin}/iodbctest "DSN=ClickHouse ODBC Test DSN A"`)
-      assert_match("SQL>", `echo exit | #{Formula["libiodbc"].bin}/iodbctestw "DSN=ClickHouse ODBC Test DSN W"`)
+      assert_match("SQL>", pipe_output("#{Formula["libiodbc"].bin}/iodbctest 'DSN=ClickHouse ODBC Test DSN A'", "exit")
+      assert_match("SQL>", pipe_output("#{Formula["libiodbc"].bin}/iodbctestw 'DSN=ClickHouse ODBC Test DSN W'", "exit")
     elsif OS.linux?
       assert_match("Connected!", `echo quit | #{Formula["unixodbc"].bin}/isql "ClickHouse ODBC Test DSN A"`)
       assert_match("Connected!", `echo quit | #{Formula["unixodbc"].bin}/iusql "ClickHouse ODBC Test DSN W"`)
