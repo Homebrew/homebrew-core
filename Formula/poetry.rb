@@ -3,8 +3,8 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/86/c2/8fb98b8197ff6a96263eb3f39029942a412c5148c03f319c31eee8f4b03e/poetry-1.1.8.tar.gz"
-  sha256 "6dc82e85d919ab99a0b18baea1933a00a40d85eedce24f80a6099909e387914e"
+  url "https://files.pythonhosted.org/packages/f5/b0/0f95f7dae0093ca13a23f1285b0a74f4b25827dcf026c37f762a061fc581/poetry-1.1.9.tar.gz"
+  sha256 "481c6264cecf907c47e82216205e7f8486d70e4d54c721b8c3fc651364b0d0ca"
   license "MIT"
 
   bottle do
@@ -16,6 +16,7 @@ class Poetry < Formula
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "backports.entry-points-selectable" do
     url "https://files.pythonhosted.org/packages/e4/7e/249120b1ba54c70cf988a8eb8069af1a31fd29d42e3e05b9236a34533533/backports.entry_points_selectable-1.1.0.tar.gz"
@@ -38,8 +39,8 @@ class Poetry < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
+    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
   end
 
   resource "cleo" do
@@ -78,8 +79,8 @@ class Poetry < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/aa/b9/514816064db3028d7370f2ce02e8e8f5d9bc68f6f9a41b04d19176aba70e/importlib_metadata-4.6.4.tar.gz"
-    sha256 "7b30a78db2922d78a6f47fb30683156a14f3c6aa5cc23f77cc8967e9ab2d002f"
+    url "https://files.pythonhosted.org/packages/f0/70/ca3dd67cdd368b957e73a8156f7e1a10339f9813e314cb8b4549526070da/importlib_metadata-4.8.1.tar.gz"
+    sha256 "f284b3e11256ad1e5d03ab86bb2ccd6f5339688ff17a4d797a0fe7df326f23b1"
   end
 
   resource "keyring" do
@@ -118,13 +119,13 @@ class Poetry < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/cb/ee4234464290e3dee893cf37d1adc87c24ade86ff6fc55f04a9bf9f1ec4f/platformdirs-2.2.0.tar.gz"
-    sha256 "632daad3ab546bd8e6af0537d09805cec458dce201bccfe23012df73332e181e"
+    url "https://files.pythonhosted.org/packages/e2/d4/c6ffe89de09851892b1418dc22f6ab019b7b6f362532ab813c262e1722bb/platformdirs-2.3.0.tar.gz"
+    sha256 "15b056538719b1c94bdaccb29e5f81879c7f7f0f4a153f46086d155dffcd4f0f"
   end
 
   resource "poetry-core" do
-    url "https://files.pythonhosted.org/packages/05/a5/87320d85c550bfaed61bd9bdd6c8b7170147995a7513c9defd8df24982fd/poetry-core-1.0.4.tar.gz"
-    sha256 "4b3847ad3e7b5deb88a35b23fa19762b9cef26828770cef3a5b47ffb508119c1"
+    url "https://files.pythonhosted.org/packages/2b/2a/432ab88b00510e8bac644a57c1446519ab0b517688d033629a7e352d4fcd/poetry-core-1.0.5.tar.gz"
+    sha256 "8cad9893ea70e344b2ce1a75d3834ba3fb1bac8123f89aad758e59e2a5d67805"
   end
 
   resource "ptyprocess" do
@@ -157,19 +158,14 @@ class Poetry < Formula
     sha256 "4855c2458d6904829bd34c299f11fdeed7cfefbf8a2c522e4caea6cd76b3171e"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "tomlkit" do
     url "https://files.pythonhosted.org/packages/65/ed/7b7216101bc48627b630693b03392f33827901b81d4e1360a76515e3abc4/tomlkit-0.7.2.tar.gz"
     sha256 "d7a454f319a7e9bd2e249f239168729327e4dd2d27b17dc68be264ad1ce36754"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/aa/55/62e2d4934c282a60b4243a950c9dbfa01ae7cac0e8d6c0b5315b87432c81/typing_extensions-3.10.0.0.tar.gz"
-    sha256 "50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"
+    url "https://files.pythonhosted.org/packages/ed/12/c5079a15cf5c01d7f4252b473b00f7e68ee711be605b9f001528f0298b98/typing_extensions-3.10.0.2.tar.gz"
+    sha256 "49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e"
   end
 
   resource "urllib3" do
@@ -178,8 +174,8 @@ class Poetry < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/6d/89/9691b0d0521c069bd238585ccb7f4035b8393d843a50491270e7dae0209e/virtualenv-20.7.2.tar.gz"
-    sha256 "9ef4e8ee4710826e98ff3075c9a4739e2cb1040de6a2a8d35db0055840dc96a0"
+    url "https://files.pythonhosted.org/packages/39/2f/84439468561782ed91d9f9499738fb52a84e4d65f164849e7050db7834e5/virtualenv-20.8.0.tar.gz"
+    sha256 "4da4ac43888e97de9cf4fdd870f48ed864bbfd133d2c46cbdec941fed4a25aef"
   end
 
   resource "webencodings" do
