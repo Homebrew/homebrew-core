@@ -60,8 +60,8 @@ class ClickhouseOdbc < Formula
 
       [ClickHouse ODBC Test Driver A]
       Description = ODBC Driver for ClickHouse (ANSI)
-      Driver      = #{lib}/libclickhouseodbc.#{so_suf}
-      Setup       = #{lib}/libclickhouseodbc.#{so_suf}
+      Driver      = #{lib/shared_library("libclickhouseodbc")}
+      Setup       = #{lib/shared_library("libclickhouseodbc")}
       UsageCount  = 1
 
       [ClickHouse ODBC Test Driver W]
