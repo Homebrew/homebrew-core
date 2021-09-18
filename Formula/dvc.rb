@@ -3,17 +3,16 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/c9/d1/8de16e75fd470c42fe86e102ad6db73f75f6dfac65ff60b052ba71f01493/dvc-2.7.3.tar.gz"
-  sha256 "d55724f35eea7b0c033022702fcd5405dc98c68a19c6b31e123b315fb783eced"
+  url "https://files.pythonhosted.org/packages/98/11/c869eff8e743d85b67757e9287b6eb557aeb6901ef5723bda59b3a82655a/dvc-2.7.4.tar.gz"
+  sha256 "754e2c4e0a79e610a1a9da4cebec56c51fba39430334a6dc2e0583bd44f4a89b"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "8eb5eccb4f2ca78706d7c5fe7db6a101021e0dbf3b31294785fad18289834800"
-    sha256 cellar: :any,                 big_sur:       "da49a53c5cf3fdadb4b86be09426337ec6d4654879ae01024a25395e15f1e900"
-    sha256 cellar: :any,                 catalina:      "cfa93fdb3d7bb498f09bb1652abebc7b3f74ebdb320736ed840097988355963f"
-    sha256 cellar: :any,                 mojave:        "685ba0f767660cb7279781956c0616a3703ba2a6ce2c309ea80a4963c6419de4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aec6cf5aa4fa01a33467e2644de88add3da40ce188c6ebc7a7d79fc9c5ade261"
+    sha256 cellar: :any,                 arm64_big_sur: "47fb11989ef4450dc445653c2c0c8922eb2c3d567197daf7b6180544263c9501"
+    sha256 cellar: :any,                 big_sur:       "bcf4bf3790ded2f80f7a5094209d5cd45786f3527884586e866bfa0c0c522364"
+    sha256 cellar: :any,                 catalina:      "eface1eec932f6fa999354c2306200567aa25ef4c7245c8bdb35187304e1b7f3"
+    sha256 cellar: :any,                 mojave:        "38370c7d107318f04f1496579664df0a6fe100a7f258cb82b0fcc2673e919206"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6378c1c9f11e2926ad26a64bb92c702a10ff91d6822858b8b7d1f1f686ca16d"
   end
 
   depends_on "pkg-config" => :build
@@ -30,17 +29,6 @@ class Dvc < Formula
   # When updating, check that the extra packages in pypi_formula_mappings.json
   # correctly reflects the following extra packages in setup.py:
   # gs, s3, azure, oss, ssh, gdrive, webdav (hdfs is provided by apache-arrow)
-
-  # when updating dvc, comment out this `grandalf` resource block
-  # and run `brew update-python-resources dvc`
-  # The root cause is with no tarbal file for 0.7 release on pypi index
-  # upstream issue tracker, https://github.com/bdcht/grandalf/issues/26
-  # https://github.com/iterative/dvc/blob/f3010d1d65bf2eb181c63f4bf0c3ca01b837f50b/requirements/default.txt#L13-L14
-  resource "grandalf" do
-    url "https://files.pythonhosted.org/packages/a2/3f/df0618a962a1744e932f2a4547cb786f5a93df7e2476c99e7f7dbd68039f/grandalf-0.6.tar.gz"
-    sha256 "7471db231bd7338bc0035b16edf0dc0c900c82d23060f4b4d0c4304caedda6e4"
-  end
-
   resource "adal" do
     url "https://files.pythonhosted.org/packages/90/d7/a829bc5e8ff28f82f9e2dc9b363f3b7b9c1194766d5a75105e3885bfa9a8/adal-1.2.7.tar.gz"
     sha256 "d74f45b81317454d96e982fd1c50e6fb5c99ac2223728aea8764433a39f566f1"
@@ -167,8 +155,8 @@ class Dvc < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/68/32/95ddb68b9abeb89efd461852cdff5791d42fc5e4c528536f541091ffded3/charset-normalizer-2.0.5.tar.gz"
-    sha256 "7098e7e862f6370a2a8d1a6398cd359815c45d12626267652c3f13dec58e2367"
+    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
+    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
   end
 
   resource "colorama" do
@@ -251,6 +239,11 @@ class Dvc < Formula
     sha256 "2775409b7dc9106283f1224d97e6df5f2c02e7291c8caed72764f5a115dffb50"
   end
 
+  resource "future" do
+    url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
+    sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
+  end
+
   resource "gcsfs" do
     url "https://files.pythonhosted.org/packages/1e/b8/2cb11cbb5a772be91dbe2fe7b32425f0ff4a18c7213ad77af9bc635e47c9/gcsfs-2021.8.1.tar.gz"
     sha256 "93822b5cfec4f374091cfdf95133f0a51c3970c9d08f3bd6599897ad7c000f78"
@@ -262,8 +255,8 @@ class Dvc < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/24/70/2709f2f08265ff9d09dbacadceef7d6b2756223e38aca3a0daf65f1fd301/GitPython-3.1.23.tar.gz"
-    sha256 "aaae7a3bfdf0a6db30dc1f3aeae47b71cd326d86b936fe2e158aa925fdf1471c"
+    url "https://files.pythonhosted.org/packages/34/cc/aaa7a0d066ac9e94fbffa5fcf0738f5742dd7095bdde950bd582fca01f5a/GitPython-3.1.24.tar.gz"
+    sha256 "df83fdf5e684fef7c6ee2c02fc68a5ceb7e7e759d08b694088d0cacb4eba59e5"
   end
 
   resource "google-api-core" do
@@ -442,8 +435,8 @@ class Dvc < Formula
   end
 
   resource "PyDrive2" do
-    url "https://files.pythonhosted.org/packages/eb/b9/e07f54bba950ec44275c054933c110ea64c33c1381f1ef220c3d282e4ed9/PyDrive2-1.9.3.tar.gz"
-    sha256 "c90ac6e52285755a0271b76c8b59a0acc53315a43828d66d1d5d6ae5b8909ca2"
+    url "https://files.pythonhosted.org/packages/e9/aa/fc5e3df79063f8dd75dafb8a5310fa076354e98906dfc4b78cd812b16521/PyDrive2-1.9.4.tar.gz"
+    sha256 "7ec594d2a3ae142fc0d137153424b61631f0a2eaf7c6ba3647f42edc460b9139"
   end
 
   resource "pygit2" do
@@ -517,8 +510,8 @@ class Dvc < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/55/84/7edede78686a4ca67a1bb9d8eba31a99d4a2a0a670e80c9febbbc18a7076/rich-10.9.0.tar.gz"
-    sha256 "ba285f1c519519490034284e6a9d2e6e3f16dc7690f2de3d9140737d81304d22"
+    url "https://files.pythonhosted.org/packages/f9/4b/f57f3d4c8d66370a7405b656aa459551fcbdfb5f974f069fae135c4db5c1/rich-10.10.0.tar.gz"
+    sha256 "bacf58b25fea6b920446fe4e7abdc6c7664c4530c4098e7a1bc79b16b8551dfa"
   end
 
   resource "rsa" do
@@ -612,8 +605,8 @@ class Dvc < Formula
   end
 
   resource "webdav4" do
-    url "https://files.pythonhosted.org/packages/d7/15/a5c2cb387a9639751c5ebb32477c3db55f6b36fc1fd5a3e67cf674fb8c1d/webdav4-0.9.1.tar.gz"
-    sha256 "a9428ea5061fdabcdfff799891046400ece576fd57cf5b7cab75fa65a8e28ab5"
+    url "https://files.pythonhosted.org/packages/63/1f/eee4f528021226a75bc2df1afc3d9c8f15fff1ba291b1f44d1beee763378/webdav4-0.9.2.tar.gz"
+    sha256 "ac326e03f3401ca7106b96d0910e358c4e5f6c13b19bfd17f641a45594c40f7d"
   end
 
   resource "wrapt" do
