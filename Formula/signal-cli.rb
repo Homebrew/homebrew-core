@@ -66,8 +66,14 @@ class SignalCli < Formula
       # rm originally-embedded libzkgroup library
       system "zip", "-d", zkgroup_jar, "libzkgroup.so"
 
+      # https://github.com/Homebrew/homebrew-core/pull/83322#issuecomment-918945146
+      # this fix is needed until signal-cli updates to zkgroup v0.7.3 
+      if Hardware::CPU.arm?
+        inreplace "rust-toolchain", "1.41.1", "nightly"
+      end
+
       # build & embed library for current platform
-      target = if OS.mac?
+      target = if OS.mac? && !Hardware::CPU.arm?
         "mac_dylib"
       else
         "libzkgroup"
