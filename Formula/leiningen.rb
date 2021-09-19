@@ -22,10 +22,8 @@ class Leiningen < Formula
   end
 
   def install
+    libexec.install resource("jar")
     jar = "leiningen-#{version}-standalone.jar"
-    resource("jar").stage do
-      libexec.install "leiningen-#{version}-standalone.zip" => jar
-    end
 
     # bin/lein autoinstalls and autoupdates, which doesn't work too well for us
     inreplace "bin/lein-pkg" do |s|
