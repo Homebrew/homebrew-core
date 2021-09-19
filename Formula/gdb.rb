@@ -14,6 +14,7 @@ class Gdb < Formula
     sha256 x86_64_linux: "5f21f90491812fec4b5408fa7c0a308b3a7e60f12b435733364f635b9ae88cc9"
   end
 
+  depends_on "gmp"
   depends_on "python@3.9"
   depends_on "xz" # required for lzma support
 
