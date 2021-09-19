@@ -21,17 +21,11 @@ class Kapacitor < Formula
   end
 
   depends_on "go" => :build
+  depends_on "pkg-config-wrapper" => :build
   depends_on "rust" => :build
 
   on_linux do
     depends_on "pkg-config" => :build # for `pkg-config-wrapper`
-  end
-
-  # NOTE: The version here is specified in the go.mod of kapacitor.
-  # If you're upgrading to a newer kapacitor version, check to see if this needs upgraded too.
-  resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/v0.2.7.tar.gz"
-    sha256 "9bfe2c06b09fe7f3274f4ff8da1d87c9102640285bb38dad9a8c26dd5b9fe5af"
   end
 
   # Temporary resource using version specified in the go.mod of kapacitor.
@@ -49,11 +43,6 @@ class Kapacitor < Formula
   end
 
   def install
-    resource("pkg-config-wrapper").stage do
-      system "go", "build", *std_go_args, "-o", buildpath/"bootstrap/pkg-config"
-    end
-    ENV.prepend_path "PATH", buildpath/"bootstrap"
-
     # Fix build with Rust v1.54+. Remove when flux in go.mod is updated to v0.124+.
     r = resource("flux")
     (buildpath/"flux").install r
@@ -147,12 +136,12 @@ index c35771a6..6430654c 100644
 +++ b/libflux/flux-core/src/parser/mod.rs
 @@ -32,7 +32,6 @@ pub fn parse_string(name: &str, s: &str) -> File {
  }
- 
+
  struct TokenError {
 -    pub message: String,
      pub token: Token,
  }
- 
+
 @@ -1398,7 +1397,7 @@ impl Parser {
                                  value,
                              }));
