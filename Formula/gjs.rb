@@ -17,12 +17,12 @@ class Gjs < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.8" => :build
   depends_on "rust" => :build
+  depends_on "six" => :build
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "llvm"
   depends_on "nspr"
   depends_on "readline"
-  depends_on "six"
 
   resource "mozjs78" do
     url "https://archive.mozilla.org/pub/firefox/releases/78.10.1esr/source/firefox-78.10.1esr.source.tar.xz"
@@ -31,10 +31,6 @@ class Gjs < Formula
 
   def install
     ENV.cxx11
-
-    resource("six").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
-    end
 
     resource("mozjs78").stage do
       inreplace "build/moz.configure/toolchain.configure",
@@ -46,9 +42,7 @@ class Gjs < Formula
       inreplace "old-configure", "-Wl,-executable_path,${DIST}/bin", ""
 
       mkdir("build") do
-        xy = Language::Python.major_minor_version "python3"
-        ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
-        ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+        ENV["PYTHON"] = which("python3")
         ENV["_MACOSX_DEPLOYMENT_TARGET"] = ENV["MACOSX_DEPLOYMENT_TARGET"]
         ENV["CC"] = Formula["llvm"].opt_bin/"clang"
         ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
