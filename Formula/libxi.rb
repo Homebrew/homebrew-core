@@ -1,8 +1,8 @@
 class Libxi < Formula
   desc "X.Org: Library for the X Input Extension"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXi-1.7.10.tar.bz2"
-  sha256 "36a30d8f6383a72e7ce060298b4b181fd298bc3a135c8e201b7ca847f5f81061"
+  url "https://www.x.org/archive/individual/lib/libXi-1.8.tar.bz2"
+  sha256 "2ed181446a61c7337576467870bc5336fc9e222a281122d96c4d39a3298bba00"
   license "MIT"
 
   bottle do
