@@ -4,6 +4,7 @@ class GupnpTools < Formula
   url "https://download.gnome.org/sources/gupnp-tools/0.10/gupnp-tools-0.10.1.tar.xz"
   sha256 "4ea96d167462b3a548efc4fc4ea089fe518d7d29be349d1cce8982b9ffb53b4a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "d56367e5b3d25701a48cf3d5201df841117e4d25003094766ff3e2267f81bc48"
