@@ -1,9 +1,9 @@
 class Saxon < Formula
   desc "XSLT and XQuery processor"
   homepage "https://saxon.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/saxon/Saxon-HE/10/Java/SaxonHE10-5J.zip"
-  version "10.5"
-  sha256 "2e400e33facc77eb6a31aae93f68525e3203be8639685c0d6e55507605709b1d"
+  url "https://downloads.sourceforge.net/project/saxon/Saxon-HE/10/Java/SaxonHE10-6J.zip"
+  version "10.6"
+  sha256 "0e590ede60eef6d8a98e759f72769c20417173f99191ebbc2f9ec4e331dbc296"
 
   livecheck do
     url :stable
