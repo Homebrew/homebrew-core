@@ -1,4 +1,5 @@
 [
   "apache-arrow",
+  "fftw",
   "openblas"
 ]
