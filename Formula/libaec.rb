@@ -19,8 +19,10 @@ class Libaec < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      # We run `make test` for libraries
+      system "cmake", "..", *std_cmake_args, "-DBUILD_TESTING=ON"
       system "make", "install"
+      system "make", "test"
     end
   end
 
