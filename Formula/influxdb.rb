@@ -23,16 +23,10 @@ class Influxdb < Formula
   depends_on "bazaar" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
+  depends_on "pkg-config-wrapper" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
   depends_on "influxdb-cli"
-
-  # NOTE: The version here is specified in the go.mod of influxdb.
-  # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
-  resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.8.tar.gz"
-    sha256 "9d3f3bbcac7c787f6e8846e70172d06bd4d7394b4bcd0b8572fe2f1d03edc11b"
-  end
 
   # NOTE: The version/URL here is specified in scripts/fetch-ui-assets.sh in influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
@@ -42,13 +36,6 @@ class Influxdb < Formula
   end
 
   def install
-    # Set up the influxdata pkg-config wrapper to enable just-in-time compilation & linking
-    # of the Rust components in the server.
-    resource("pkg-config-wrapper").stage do
-      system "go", "build", *std_go_args, "-o", buildpath/"bootstrap/pkg-config"
-    end
-    ENV.prepend_path "PATH", buildpath/"bootstrap"
-
     # Extract pre-build UI resources to the location expected by go-bindata.
     resource("ui-assets").stage(buildpath/"static/data/build")
 
