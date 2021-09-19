@@ -1,8 +1,8 @@
 class Libaec < Formula
   desc "Adaptive Entropy Coding implementing Golomb-Rice algorithm"
   homepage "https://gitlab.dkrz.de/k202009/libaec"
-  url "https://gitlab.dkrz.de/k202009/libaec/-/archive/v1.0.5/libaec-v1.0.5.tar.bz2"
-  sha256 "49cc260c3321a358a8d854444584eec58382c26cda3c4bcd156b4ba396075ae7"
+  url "https://gitlab.dkrz.de/k202009/libaec/-/archive/v1.0.6/libaec-v1.0.6.tar.bz2"
+  sha256 "31fb65b31e835e1a0f3b682d64920957b6e4407ee5bbf42ca49549438795a288"
   license "BSD-2-Clause"
   head "https://gitlab.dkrz.de/k202009/libaec.git", branch: "master"
 
