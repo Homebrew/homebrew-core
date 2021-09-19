@@ -34,8 +34,8 @@ class YelpTools < Formula
   end
 
   resource "yelp-xsl" do
-    url "https://download.gnome.org/sources/yelp-xsl/40/yelp-xsl-40.0.tar.xz"
-    sha256 "361ecd4d33fccdb3bb08a687f60e5c3e909d2e9e3b022d844e049820d0cf62b0"
+    url "https://download.gnome.org/sources/yelp-xsl/41/yelp-xsl-41.0.tar.xz"
+    sha256 "c8cd64c093bbd8c5d5e47fd38864e90831b5f9cf7403530870206fa96636a4a5"
   end
 
   def install
