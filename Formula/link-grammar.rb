@@ -2,7 +2,7 @@ class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
   url "https://www.abisource.com/downloads/link-grammar/5.10.2/link-grammar-5.10.2.tar.gz"
-  sha256 "dfe01cd4a979c120462c1ac417be2eb82ab573925487577997164c1007b360a0"
+  sha256 "28cec752eaa0e3897ae961333b6927459f8b69fefe68c2aa5272983d7db869b6"
   license "LGPL-2.1"
   head "https://github.com/opencog/link-grammar.git", branch: "master"
 
