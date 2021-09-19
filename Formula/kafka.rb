@@ -6,6 +6,11 @@ class Kafka < Formula
   sha256 "3fa380ae5d1385111ee9c83b0d1806172924ffec2e29399fd1a42671a97492c6"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://kafka.apache.org/downloads"
+    regex(/href=.*?kafka[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, big_sur:      "b3057db03fb73b120e48fb99a2310add57b92427d8f003569a19455fce45c2e8"
