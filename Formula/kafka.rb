@@ -8,7 +8,7 @@ class Kafka < Formula
 
   livecheck do
     url "https://kafka.apache.org/downloads"
-    regex(/href=.*?kafka[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
+    regex(/href=.*?kafka[._-]v?\d+(?:\.\d+)+-(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
