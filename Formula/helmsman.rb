@@ -2,8 +2,8 @@ class Helmsman < Formula
   desc "Helm Charts as Code tool"
   homepage "https://github.com/Praqma/helmsman"
   url "https://github.com/Praqma/helmsman.git",
-      tag:      "v3.7.3",
-      revision: "2f769b053751d36e0c255a9f0ed369582bc5e0e3"
+      tag:      "v3.7.4",
+      revision: "679adf3f50dbd74c3721ff5b2c3f1eade9c67913"
   license "MIT"
   head "https://github.com/Praqma/helmsman.git", branch: "master"
 
