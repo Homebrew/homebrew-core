@@ -2,7 +2,7 @@ class HaruhiDl < Formula
   include Language::Python::Virtualenv
 
   desc "Fork of youtube-dl, focused on bringing a fast, steady stream of updates"
-  homepage "https://haruhi.download"
+  homepage "https://git.sakamoto.pl/laudom/haruhi-dl"
   url "https://files.pythonhosted.org/packages/24/f2/a2d22274cfa8f09c849495e8a5106cf72365091b58d55a45c2c91d9f79b9/haruhi_dl-2021.8.1.tar.gz"
   sha256 "069dc4a5f82f98861a291c7edd8bb1ca01eb74602dd36220343a75cb7bb617a8"
   license "LGPL-3.0-or-later"
