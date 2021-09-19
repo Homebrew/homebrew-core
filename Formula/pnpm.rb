@@ -20,7 +20,7 @@ class Pnpm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0d669c48801ee9a3f0a49d99f81f2a50dcd1e879526b77a1367c1ae6daa9811"
   end
 
-  depends_on "node@14" => :build
+  depends_on "node" => :build
 
   # Described in https://github.com/pnpm/pnpm#installation
   # Managed by https://github.com/pnpm/get
@@ -37,7 +37,7 @@ class Pnpm < Formula
     buildtime_bin = buildpath/"buildtime-bin"
     resource("pnpm-buildtime").stage do |r|
       buildtime_bin.install "v#{r.version}.js"
-      (buildtime_bin/"pnpm").write_env_script "#{Formula["node@14"].bin}/node",
+      (buildtime_bin/"pnpm").write_env_script "#{Formula["node"].bin}/node",
         buildpath/"buildtime-bin/v#{r.version}.js", {}
       chmod 0755, buildtime_bin/"pnpm"
     end
