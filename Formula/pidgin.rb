@@ -1,8 +1,8 @@
 class Pidgin < Formula
   desc "Multi-protocol chat client"
   homepage "https://pidgin.im/"
-  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.6/pidgin-2.14.6.tar.bz2"
-  sha256 "bb45f7c032f9efd6922a5dbf2840995775e5584771b23992d04f6eff7dff5336"
+  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.7/pidgin-2.14.7.tar.bz2"
+  sha256 "fea6ab4f0572fe24646049c2b3fecbdca27abca6d06e95bd655e44db99bd69fe"
   license "GPL-2.0-or-later"
 
   livecheck do
