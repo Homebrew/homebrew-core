@@ -75,6 +75,25 @@ class Pnpm < Formula
     end
   end
 
+  def caveats
+    on_macos do
+      <<~EOS
+        Add the following to #{shell_profile} or your desired shell
+        configuration file if you would like global packages in PATH:
+
+          export PATH="$HOME/Library/pnpm:$PATH"
+      EOS
+    end
+    on_linux do
+      <<~EOS
+        Add the following to #{shell_profile} or your desired shell
+        configuration file if you would like global packages in PATH:
+
+          export PATH="$HOME/.local/pnpm:$PATH"
+      EOS
+    end
+  end
+
   test do
     ENV.prepend_path "PATH", testpath/"Library/pnpm" if OS.mac?
     ENV.prepend_path "PATH", testpath/".local/pnpm" if OS.linux?
