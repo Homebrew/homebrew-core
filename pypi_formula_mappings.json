@@ -89,6 +89,9 @@
     "exclude_packages": ["six"],
     "extra_packages": ["ipykernel"]
   },
+  "fava": {
+    "exclude_packages": ["six"]
+  },
   "fdroidserver": {
     "exclude_packages": ["numpy", "pillow"],
     "extra_packages": ["wheel"]
