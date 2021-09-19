@@ -3,8 +3,8 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/09/b0/045f72ac95cd8e2a0e457fb383022e032dc86c040f9b6eaba67968b001e3/black-21.8b0.tar.gz"
-  sha256 "570608d28aa3af1792b98c4a337dbac6367877b47b12b88ab42095cfc1a627c2"
+  url "https://files.pythonhosted.org/packages/b9/11/bde767284a6a15bf85b53ad696c3658eb3ead74e4697ecda2d07cec106ec/black-21.9b0.tar.gz"
+  sha256 "7de4cfc7eb6b710de325712d40125689101d21d25283eed7e9998722cf10eb91"
   license "MIT"
 
   livecheck do
@@ -13,11 +13,11 @@ class Black < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c6d03b10d17d8b535214c823ea079a672d0b9ff1a8a1ae317f3b656753f167ce"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f7d70f82deb8cae4f91e5abeff974f3a612a26559bfaff463f3401e392229975"
-    sha256 cellar: :any_skip_relocation, catalina:      "7e7dcd6b40c9253ae05c7c141ddd3fc9234868397966a0f4e2c66455bc9985e7"
-    sha256 cellar: :any_skip_relocation, mojave:        "14285e5573f258da711d215b72389062143c2420684c4b6dc93abea14c8c1412"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4759d0c5f58f23165560ea44c5ba74d0be721b1fa230f800471888f11fcd14ca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "143074017e3c4ea2fba3cd65cd613d826b960be6ab1ab3953c0acbc9bdbf2450"
+    sha256 cellar: :any_skip_relocation, big_sur:       "190e78bbb4145eab86f3242c789580e423dba088a5d77e26fa13ccf2e4f89e01"
+    sha256 cellar: :any_skip_relocation, catalina:      "d9403ab95736e25d827aa2094e5f4feff1a78305e3aae6fc5a9603769a2c04b1"
+    sha256 cellar: :any_skip_relocation, mojave:        "845a64efd7b564bffa601acedd5c2615a268346de5369ed5c6d0840e0166ae4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "048e40e12e76f5b714cd9a048ce243b9f7c96764542f87c13a941e0c9836cc39"
   end
 
   depends_on "python@3.9"
@@ -73,8 +73,8 @@ class Black < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/cb/ee4234464290e3dee893cf37d1adc87c24ade86ff6fc55f04a9bf9f1ec4f/platformdirs-2.2.0.tar.gz"
-    sha256 "632daad3ab546bd8e6af0537d09805cec458dce201bccfe23012df73332e181e"
+    url "https://files.pythonhosted.org/packages/e2/d4/c6ffe89de09851892b1418dc22f6ab019b7b6f362532ab813c262e1722bb/platformdirs-2.3.0.tar.gz"
+    sha256 "15b056538719b1c94bdaccb29e5f81879c7f7f0f4a153f46086d155dffcd4f0f"
   end
 
   resource "regex" do
@@ -88,8 +88,8 @@ class Black < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/a5/50/6fbfb5a45d4d8024222849f0731f8d8ddc5c7fe657a8f799bd4c605e93e0/typing_extensions-3.10.0.1.tar.gz"
-    sha256 "83af6730a045fda60f46510f7f1f094776d90321caa4d97d20ef38871bef4bd3"
+    url "https://files.pythonhosted.org/packages/ed/12/c5079a15cf5c01d7f4252b473b00f7e68ee711be605b9f001528f0298b98/typing_extensions-3.10.0.2.tar.gz"
+    sha256 "49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e"
   end
 
   resource "yarl" do

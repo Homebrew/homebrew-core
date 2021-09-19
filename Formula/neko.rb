@@ -5,7 +5,7 @@ class Neko < Formula
   sha256 "850e7e317bdaf24ed652efeff89c1cb21380ca19f20e68a296c84f6bad4ee995"
   license "MIT"
   revision 6
-  head "https://github.com/HaxeFoundation/neko.git"
+  head "https://github.com/HaxeFoundation/neko.git", branch: "master"
 
   bottle do
     sha256                               arm64_big_sur: "db3b62ea32c9b528423997eb79bab7b96463f3074e5452499a1ea87f742129f0"

@@ -4,7 +4,7 @@ class Nq < Formula
   url "https://github.com/chneukirchen/nq/archive/v0.4.tar.gz"
   sha256 "287d6700063b64cfa9db51df95e2a046736eb38c0d3b6e0af0a8e7da6df8880b"
   license "CC0-1.0"
-  head "https://github.com/chneukirchen/nq.git"
+  head "https://github.com/chneukirchen/nq.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "70578036134f31e789368935f42818ca3d081f24f35834e4a46a3aee4fe7e019"

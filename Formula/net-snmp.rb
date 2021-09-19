@@ -4,7 +4,7 @@ class NetSnmp < Formula
   url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9.1/net-snmp-5.9.1.tar.gz"
   sha256 "eb7fd4a44de6cddbffd9a92a85ad1309e5c1054fb9d5a7dd93079c8953f48c3f"
   license "Net-SNMP"
-  head "https://github.com/net-snmp/net-snmp.git"
+  head "https://github.com/net-snmp/net-snmp.git", branch: "master"
 
   livecheck do
     url :stable

@@ -1,16 +1,16 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://www.linphone.org/technical-corner/ortp"
-  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.0.18/ortp-5.0.18.tar.bz2"
-  sha256 "5740e5f1de912a1dd7d580027f46383364f6f1316ffbbe9a8c2658423f214234"
+  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.0.22/ortp-5.0.22.tar.bz2"
+  sha256 "103ce29e310fbb86d261acda9f6a505389247a82096c5666818f25ba3ad7079b"
   license "GPL-3.0-or-later"
   head "https://gitlab.linphone.org/BC/public/ortp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b36b7bb24c4e641fc0dd87b21cbbb2a63d476e91fc797e7ee6ca2c579a3595f0"
-    sha256 cellar: :any, big_sur:       "b09156988e2029491ee22113c2f393a794bc52e1948a049c4840aa8a443f7c36"
-    sha256 cellar: :any, catalina:      "f06cf89eb0e56109d12deb012967267e22e97781153013ab2b34d814853b5f56"
-    sha256 cellar: :any, mojave:        "48fffa9b46ee7eebf085e7ff91d63eb54b292a966c50180b573d0a9cd8a45afb"
+    sha256 cellar: :any, arm64_big_sur: "a41f8a27984e61f7b90ce501b6ef4d7cf90a02816668396f58dbe11a4efe3aac"
+    sha256 cellar: :any, big_sur:       "710e7827d6808dc2cadd9a867c84b42cbb2dc856fb2ee0c1e79056164f4624a8"
+    sha256 cellar: :any, catalina:      "28b8267133f9d77be72851361454cb09e90a67bfa472aedaf0ace33f4862cdbd"
+    sha256 cellar: :any, mojave:        "98cbf54721d04bb914fe0235dc0eede809fe89b6fc085d36e3af9098607d8616"
   end
 
   depends_on "cmake" => :build
@@ -20,8 +20,8 @@ class Ortp < Formula
   # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
   # https://github.com/BelledonneCommunications/bctoolbox
   resource "bctoolbox" do
-    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.0.18/bctoolbox-5.0.18.tar.bz2"
-    sha256 "45b8b17936d30f35dc066629ad7e3bf9c90f5efd5f66466f9e0af30a339741d7"
+    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.0.22/bctoolbox-5.0.22.tar.bz2"
+    sha256 "a9fcc7d617d001a9b035ff0834b2346a4a05a2d52f5af141a716f035bb8d1ff8"
   end
 
   def install

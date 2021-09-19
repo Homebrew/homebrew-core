@@ -40,9 +40,9 @@ class Openvpn < Formula
                           "--prefix=#{prefix}"
     inreplace "sample/sample-plugins/Makefile" do |s|
       if OS.mac?
-        s.gsub! HOMEBREW_SHIMS_PATH/"mac/super/pkg-config", Formula["pkg-config"].opt_bin/"pkg-config"
+        s.gsub! Superenv.shims_path/"pkg-config", Formula["pkg-config"].opt_bin/"pkg-config"
       else
-        s.gsub! HOMEBREW_SHIMS_PATH/"linux/super/ld", "ld"
+        s.gsub! Superenv.shims_path/"ld", "ld"
       end
     end
     system "make", "install"

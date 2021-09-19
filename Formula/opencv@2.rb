@@ -72,7 +72,7 @@ class OpencvAT2 < Formula
 
     mkdir "build" do
       system "cmake", "..", *args
-      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+      inreplace "modules/core/version_string.inc", Superenv.shims_path, ""
       system "make"
       system "make", "install"
     end

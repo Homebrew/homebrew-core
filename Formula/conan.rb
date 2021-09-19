@@ -3,17 +3,17 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/8b/32/649a96ff51d99733746f13213a6543f9d471df7383d78acc5dae1a8b072a/conan-1.40.0.tar.gz"
-  sha256 "73528ed6517635c37b61876b13e63eefbbb3d634421f4821e080f5ab39467ccb"
+  url "https://files.pythonhosted.org/packages/8d/b4/d2b7844886b7eeb0c61d6397e0e89c684d48a7ad03c8a442a025ed94c7f3/conan-1.40.1.tar.gz"
+  sha256 "d03a2e8427fbeebf16bf2326aa5265ea6fa02b8ba54471bea7e1a129092a266e"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "632e5e007921abc94fdca47e6874c0d5929562c1401cb186304f28cd37dc339c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a0d3bca8214d7fd5a4a8c83211a255a55504cd9683ddcf3c2c02a090830925be"
-    sha256 cellar: :any_skip_relocation, catalina:      "142858272e726321647cb4ba3c3cbe1ca848eb38601f2abf39fe1faccf152964"
-    sha256 cellar: :any_skip_relocation, mojave:        "990b91b185e739d09ddfe8b72c16675ac393d71dbe360343a701de9832aeff0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75ca410d2319f28319e2a8f8848eddc67828f4598d3244b615d5fdcfde36b210"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c4d3990eb5633cff6982d8459b5aa70bf40720fef0b99a26a44911e8527b0d96"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3405c66aaa2391f658d067f6dc5879c8169f9ed46c9b50b6c177842e4974de59"
+    sha256 cellar: :any_skip_relocation, catalina:      "a45563f8be97da482d5f18565313a29ece7158ad05d4daf317479abff945de89"
+    sha256 cellar: :any_skip_relocation, mojave:        "daa1d6f63b82723fd723444f1101a71720b41eab6c80867b9033075c84807b06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a463103df5936419820316c8607b705462996708257374fad96f5d138b652d6"
   end
 
   depends_on "pkg-config" => :build
@@ -33,8 +33,8 @@ class Conan < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/68/32/95ddb68b9abeb89efd461852cdff5791d42fc5e4c528536f541091ffded3/charset-normalizer-2.0.5.tar.gz"
+    sha256 "7098e7e862f6370a2a8d1a6398cd359815c45d12626267652c3f13dec58e2367"
   end
 
   resource "colorama" do

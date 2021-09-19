@@ -4,7 +4,7 @@ class NodeExporter < Formula
   url "https://github.com/prometheus/node_exporter/archive/v1.2.2.tar.gz"
   sha256 "3b7b710dad97d9d2b4cb8c3f166ee1c86f629cce59062b09d4fb22459163ec86"
   license "Apache-2.0"
-  head "https://github.com/prometheus/node_exporter.git"
+  head "https://github.com/prometheus/node_exporter.git", branch: "master"
 
   livecheck do
     url :stable

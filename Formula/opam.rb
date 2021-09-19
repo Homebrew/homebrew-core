@@ -4,7 +4,7 @@ class Opam < Formula
   url "https://github.com/ocaml/opam/releases/download/2.1.0/opam-full-2.1.0.tar.gz"
   sha256 "6102131a9b65536b713efba7f5498acb3802ae15fec3171cc2c98427cfc3926f"
   license "LGPL-2.1-only"
-  head "https://github.com/ocaml/opam.git"
+  head "https://github.com/ocaml/opam.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "123479f1d339a12438b69a3989fe7a071afb27199e0fc43c03dd48a931a16d87"

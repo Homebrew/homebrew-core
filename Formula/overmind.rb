@@ -4,7 +4,7 @@ class Overmind < Formula
   url "https://github.com/DarthSim/overmind/archive/v2.2.2.tar.gz"
   sha256 "1d8afd960f91dcbb9e3c529f69aa3f1be89931b2c888a78ad69915faeb523f47"
   license "MIT"
-  head "https://github.com/DarthSim/overmind.git"
+  head "https://github.com/DarthSim/overmind.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "00af66eeee076ae3bccba58a690dc73f908b6af7ea0bfebf1fc6b81c5a88c445"

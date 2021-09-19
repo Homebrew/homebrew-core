@@ -4,13 +4,14 @@ class Handbrake < Formula
   url "https://github.com/HandBrake/HandBrake/releases/download/1.4.1/HandBrake-1.4.1-source.tar.bz2"
   sha256 "39a0aecac8f26de1d88ccaca0a39dfca4af52029a792a78f93a42057a54c18f6"
   license "GPL-2.0-only"
-  head "https://github.com/HandBrake/HandBrake.git"
+  head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "037e8b1be2b8264f233aef92208ba264072a66cfdf26591dedd8a40ad44c5796"
     sha256 cellar: :any_skip_relocation, big_sur:       "6d8f7a87b12e402d23142a3b4940170126a9e85ed6e218fe9af93aaf57f8eba2"
     sha256 cellar: :any_skip_relocation, catalina:      "3fe4097ce9a1f0ef6c22212eba9059ee3d181eb8a1875577994efff1d8be4d57"
     sha256 cellar: :any_skip_relocation, mojave:        "e4cedfb355baeed4c7b9ad6017db1be6f6cf2c666f4120a1a8eb95066b23a88b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "268c727839cac0f0d7044355ebc90ca8ee86ad1e44cc41bcf00eb766f37337f6"
   end
 
   depends_on "autoconf" => :build
@@ -26,12 +27,23 @@ class Handbrake < Formula
   depends_on "yasm" => :build
 
   uses_from_macos "m4" => :build
+  uses_from_macos "bzip2"
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "jansson"
+    depends_on "jpeg-turbo"
+    depends_on "lame"
+    depends_on "libass"
+    depends_on "libvorbis"
+    depends_on "libvpx"
     depends_on "numactl"
     depends_on "opus"
+    depends_on "speex"
+    depends_on "theora"
+    depends_on "x264"
+    depends_on "xz"
   end
 
   # Fix missing linker flag `-framework DiskArbitration`

@@ -1,8 +1,8 @@
 class S2n < Formula
   desc "Implementation of the TLS/SSL protocols"
   homepage "https://github.com/aws/s2n-tls"
-  url "https://github.com/aws/s2n-tls/archive/v1.0.17.tar.gz"
-  sha256 "e548c1208205a8959c68f8389eac721fc37fc99d3600790430783972272c9452"
+  url "https://github.com/aws/s2n-tls/archive/v1.0.18.tar.gz"
+  sha256 "74a01db4dec9ddec8fb17de98c8d47add6b6998fe512aed462ffd871691baa32"
   license "Apache-2.0"
   head "https://github.com/aws/s2n-tls.git", branch: "main"
 
@@ -12,10 +12,10 @@ class S2n < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5adc2344c1c109dda1fa466f0734e6b39abef615789d32332bea5a3a17e2d20f"
-    sha256 cellar: :any, big_sur:       "27b11c4ad14d2fab9eb837c33facf1d3a30bc85b4ef87268f924da6b9f3c940b"
-    sha256 cellar: :any, catalina:      "724b42f554c283c057ca973e90a0c9384988e9ab170a755d32cc3f64135d6b8a"
-    sha256 cellar: :any, mojave:        "94db1a6ba997ab639a2a15b4a22af8f44212b5fb253142ad253fff11e20b59c8"
+    sha256 cellar: :any, arm64_big_sur: "27dbdbcb0fd105f64749cccd2a0284a8bd706e8c2ccff25814151a438aa16e9d"
+    sha256 cellar: :any, big_sur:       "5a37830132af8966a6032d227a69b098f1995104ec3babe8853f7ccf7f6ce7e5"
+    sha256 cellar: :any, catalina:      "b629343d6c9ffd1ee408f5f439dc548cc6951b30f301ed3acd059cbd39810210"
+    sha256 cellar: :any, mojave:        "4d95a1ccfb5515713498e4a08cf6ac0fd195f51e887cf2e3403170fafb7697e1"
   end
 
   depends_on "cmake" => :build

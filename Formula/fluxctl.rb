@@ -3,7 +3,7 @@ class Fluxctl < Formula
   homepage "https://github.com/fluxcd/flux"
   url "https://github.com/fluxcd/flux.git",
       tag:      "1.24.1",
-      revision: "3b794b7063337a604290f538dcad65621cabda35"
+      revision: "13b3e660ed198b81a9dcd11457664827294074b8"
   license "Apache-2.0"
 
   livecheck do

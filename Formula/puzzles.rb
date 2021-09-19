@@ -2,9 +2,9 @@ class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
   # Extract https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.tar.gz to get the version number
-  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20210907.6691ad1.tar.gz"
-  version "20210907"
-  sha256 "f65ff02d50ee53c9cd64221d54f5dff8cc1ac47405a5ec5532294ca218e127ec"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20210911.d204978.tar.gz"
+  version "20210911"
+  sha256 "a0aa6e1011b71afbf4a58419104c1f8f896ea627d2c59132a64e6e54c93b6694"
   license "MIT"
   head "https://git.tartarus.org/simon/puzzles.git", branch: "main"
 
@@ -18,10 +18,10 @@ class Puzzles < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "320f100c895ac11b07ae06d27f3f6175504f2e73e60f5f9ae67aad8e636c06ba"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8c0b6e15d1c1535640dc292caf28d2fa57ce8e0c1e8ffcf953f6351ceeb59f19"
-    sha256 cellar: :any_skip_relocation, catalina:      "dbe2e28663f7916ddd0c0d0ff9a9935acad93a4439028084ef9690f5006240fe"
-    sha256 cellar: :any_skip_relocation, mojave:        "b25de2654e4a9279d1d28746e52f243cbb3b82e1d65a7d63bcd23e4ea7dc4fa4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "16a0dc9713c38c493a8ce63b381b51fd6fb1f0367b2a3596e8b0525bc1115c2a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b5a737a48f3fa159f8b098f7d3e77c2c996d4f6e9032e3b6544062905af67f9e"
+    sha256 cellar: :any_skip_relocation, catalina:      "75cbaaffa4082480e6e7d25a7eb468bec35ada2b4a799b45060e21145396d3d2"
+    sha256 cellar: :any_skip_relocation, mojave:        "059b65105f85e908f01485c2c8f1310d1c0b43b6dfe75e704ffbf777b0e23b78"
   end
 
   depends_on "cmake" => :build

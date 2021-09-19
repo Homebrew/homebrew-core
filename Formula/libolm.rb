@@ -1,16 +1,16 @@
 class Libolm < Formula
   desc "Implementation of the Double Ratchet cryptographic ratchet"
   homepage "https://gitlab.matrix.org/matrix-org/olm"
-  url "https://gitlab.matrix.org/matrix-org/olm/-/archive/3.2.4/olm-3.2.4.tar.gz"
-  sha256 "d6033363fe27bb1ad88940f2acfff5517b1ba9e32b556f5b0fa4c365e5ec892a"
+  url "https://gitlab.matrix.org/matrix-org/olm/-/archive/3.2.6/olm-3.2.6.tar.gz"
+  sha256 "9b61bd9182bb0ae0c5a800a8b0496b69600a0a22e3a21fce0aad119d2b1c99ae"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "045f0bc56bafeaae9744901421f656bead5039c6cb4a21188aebb35add7f2066"
-    sha256 cellar: :any,                 big_sur:       "82e30127cb2da730a3e88d37122a3d9bcf1766a4f17bc446f9c9a2964213f6b5"
-    sha256 cellar: :any,                 catalina:      "b9b37a7a344e2d0fd81b2c534f5ee1847620c7ee27dfca3eddbc98124795f818"
-    sha256 cellar: :any,                 mojave:        "ec54d3a11b1bfa84653372af1a9b9adf9e599b9413dde97ee7085bf9e6a79f11"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e45084c5396fd83c5e6031e681686f80d92d8d5a6bc3d772d074a4f5d311eda"
+    sha256 cellar: :any,                 arm64_big_sur: "a0d40c19dde560b6c429ede66a7c549f46c36f58872a055e6fcacb24b565d72f"
+    sha256 cellar: :any,                 big_sur:       "9b0fa6f2b8bcf26a480b43cf8fd38bdd474f2296d1a13a378228468811ba3876"
+    sha256 cellar: :any,                 catalina:      "dbc06704bf32fedbfd2c8aad88ba9d504e44d055c553d22677298ec877f40c8a"
+    sha256 cellar: :any,                 mojave:        "be9653954751491a58c54ea5f9c0e6284af4975a8d09f0c4248d14ec735e0d5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fcdb358514800ef0cf2248b20b36e57ee1faf258936514a05b2d821e5322bfd"
   end
 
   depends_on "cmake" => :build

@@ -4,7 +4,7 @@ class Oha < Formula
   url "https://github.com/hatoo/oha/archive/v0.4.6.tar.gz"
   sha256 "b08f4953c6f77a80882dd9b13735ca4a63f14ada1b51d619f17e58a6fa085262"
   license "MIT"
-  head "https://github.com/hatoo/oha.git"
+  head "https://github.com/hatoo/oha.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "18b6d423dff719f2c56939eca2416d8a6235f1493e92529932f637a4286427fb"
@@ -16,7 +16,7 @@ class Oha < Formula
 
   depends_on "rust" => :build
 
-  uses_from_macos "openssl@1.1"
+  uses_from_macos "openssl"
 
   on_linux do
     depends_on "pkg-config" => :build

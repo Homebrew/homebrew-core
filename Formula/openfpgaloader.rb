@@ -4,7 +4,7 @@ class Openfpgaloader < Formula
   url "https://github.com/trabucayre/openFPGALoader/archive/v0.5.0.tar.gz"
   sha256 "39c9686bdfcfa96b6bb1d8b37a8a53732372c16cda562036abe9930b61b29e97"
   license "Apache-2.0"
-  head "https://github.com/trabucayre/openFPGALoader.git"
+  head "https://github.com/trabucayre/openFPGALoader.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "77483712fb4bc07885f71696245d13d3bbb34255db2e94188588345b52f81866"

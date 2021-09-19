@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.64.0",
-      revision: "1e4e0d7443faa21df3dd4de49c246c492f209409"
+      tag:      "v0.65.0",
+      revision: "5a421f4a4bacf8143dcfbd68e3ee030034f6791e"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,11 +15,11 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a3ba9af694c8c0055f5f0498210dc323608da5d6662133265ac79b01fc3d6699"
-    sha256 cellar: :any, big_sur:       "efd82946980dfb38333cf76725e8a2dfc89ee9ee2b1c366f1b5781ec4fc53b7e"
-    sha256 cellar: :any, catalina:      "50aa2b80bd8447d92d39caa4b984bac874dbca8cd8202dcb527d5f728ddadc61"
-    sha256 cellar: :any, mojave:        "fc56768f3922ad89d8643bead957e4bfe11260b788511ced1d08a5064ec7befe"
-    sha256               x86_64_linux:  "c7a60fcb2ad6cebebeb9e70fad6fda1bcad3137faa6872450c7254a5500c381b"
+    sha256 cellar: :any, arm64_big_sur: "9b360b41d516e757100e1df80e2e4599d5d383dc34a7245c2d4a858eb923f6df"
+    sha256 cellar: :any, big_sur:       "ee1ff183ceb041c3a813b2126e4585b06d7c9de4ab26d753d46a612dbeb43cc7"
+    sha256 cellar: :any, catalina:      "52fb611946ada865925761056e3a53e2a72f81720697e72b6a1a749d3364824c"
+    sha256 cellar: :any, mojave:        "2fa678595d024f64547cf9959f7587745fbd9567f2a7825ea0d16ed3aaa8f045"
+    sha256               x86_64_linux:  "382e969019d284aea6e26445c2804bbf709f3d27b25636d1bd20e15c6225fb0f"
   end
 
   depends_on "cmake" => :build
@@ -58,6 +58,16 @@ class Semgrep < Formula
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
     sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+  end
+
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
+    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+  end
+
+  resource "click-option-group" do
+    url "https://files.pythonhosted.org/packages/3c/86/5de6d909d9dcc85627a178788ec3e8c3ef81cda175badb48ad0bb582628d/click-option-group-0.5.3.tar.gz"
+    sha256 "a6e924f3c46b657feb5b72679f7e930f8e5b224b766ab35c91ae4019b4e0615e"
   end
 
   resource "colorama" do

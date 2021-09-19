@@ -4,16 +4,16 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/04/c4/334063a233898ab1a461c5193d1f2df89913d7602e4bde946ca43e77ee9a/checkov-2.0.405.tar.gz"
-  sha256 "8a09a109184d1a8b177ae09f95648506bc0302b9c2f97484131b465f600557c3"
+  url "https://files.pythonhosted.org/packages/09/fb/3b50311c0f8450d30d8e7dccdf32905f6aab0b052a3caa6a54f3214d2817/checkov-2.0.420.tar.gz"
+  sha256 "cb271993c60e3d34bce418faaa7d5b7239f36a47911cbbe7b4db16467c7f8596"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a11f7f9a5b1f6b9dce2c8db46eda921d28d48f8db057aaf67b28bdd847bf2315"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8e1a14de5dfac58c32fe458f42c4cda9000fb1bc38718ac007d75d8dbefc7918"
-    sha256 cellar: :any_skip_relocation, catalina:      "dbc2d3cef225fc127a187be00261bde5583386cf3e3019af1f422e67a2fff61d"
-    sha256 cellar: :any_skip_relocation, mojave:        "0fbc55beaebf559c6cd208b610b9176f187e6114088d7b6d6b4225ff3f675cee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d95fcd1a947991190ec9b34aea5c74530687b39958ae25857e346feecc04be29"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5cb09ab24e072d600698329b61d67249022d6977f4cadf0f7226564627641ca0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a3a10e0b2a881c6031f8a558eb5c1836e80778dd6599d68f7298dc28bbad6533"
+    sha256 cellar: :any_skip_relocation, catalina:      "20cd1b3f9516fbf4a410773c488208aacf3ab42a0be567ff89c98aac08c6afb3"
+    sha256 cellar: :any_skip_relocation, mojave:        "356080897ec6032a3e7a2224b3e26cbe64d7564ad5b8f4b92767b34fe215f237"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cddebb1e9f95b851211dafaf637d6f9823fa5dfc77e1a7cb6c58bf7356934a64"
   end
 
   depends_on "python-tabulate"
@@ -45,14 +45,19 @@ class Checkov < Formula
     sha256 "9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"
   end
 
+  resource "cachetools" do
+    url "https://files.pythonhosted.org/packages/52/ba/619250fa6bc11ce6aa4de0604d45843090a53cd7d10d7253b89669313370/cachetools-4.2.2.tar.gz"
+    sha256 "61b5ed1e22a0924aed1d23b478f37e8d52549ff8a961de2909c69bf950020cff"
+  end
+
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
     sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
+    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
   end
 
   resource "click" do
@@ -116,8 +121,8 @@ class Checkov < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/ed/6a/c45c610dab3259d7059f028e34e1e708d5fe2bda886dc1f1564083339316/GitPython-3.1.20.tar.gz"
-    sha256 "df0e072a200703a65387b0cfdf0466e3bab729c0458cf6b7349d0e9877636519"
+    url "https://files.pythonhosted.org/packages/34/cc/aaa7a0d066ac9e94fbffa5fcf0738f5742dd7095bdde950bd582fca01f5a/GitPython-3.1.24.tar.gz"
+    sha256 "df83fdf5e684fef7c6ee2c02fc68a5ceb7e7e759d08b694088d0cacb4eba59e5"
   end
 
   resource "idna" do

@@ -22,7 +22,7 @@ class Curlpp < Formula
     ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-    inreplace bin/"curlpp-config", %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc.to_s
+    inreplace bin/"curlpp-config", Superenv.shims_path/ENV.cc, ENV.cc
   end
 
   test do

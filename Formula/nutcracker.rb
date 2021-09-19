@@ -5,7 +5,7 @@ class Nutcracker < Formula
   sha256 "73f305d8525abbaaa6a5f203c1fba438f99319711bfcb2bb8b2f06f0d63d1633"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/twitter/twemproxy.git"
+  head "https://github.com/twitter/twemproxy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "5063c8fb5c2f1327bb0979be76cf05be72b879113b69667d9d6548d1db6da44b"

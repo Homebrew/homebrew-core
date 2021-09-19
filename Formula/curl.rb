@@ -1,8 +1,8 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
-  url "https://curl.se/download/curl-7.78.0.tar.bz2"
-  sha256 "98530b317dc95ccb324bbe4f834f07bb642fbc393b794ddf3434f246a71ea44a"
+  url "https://curl.se/download/curl-7.79.0.tar.bz2"
+  sha256 "d607a677f473f79f96c964100327125a6204a39d835dc00dab7fc0129b959f42"
   license "curl"
 
   livecheck do
@@ -11,11 +11,11 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "5b3ffcee1ea579b665fedfc19841ace3f068f0b065d9362bb093cf6fb30a743e"
-    sha256 cellar: :any,                 big_sur:       "875acbe04343e88db8fae96aab1d178b5e71cb39f737dd60472c9f18b7b60129"
-    sha256 cellar: :any,                 catalina:      "d64577e04b6f1aa1279034d64a5634c8619b1c0f0da038539284dc71c119b0d6"
-    sha256 cellar: :any,                 mojave:        "ff5c7e7cd9ac4b61a482d733ab9081f540ca38d3a875f00106cf3a0f8c6db3bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce92e4bb455dd60dbcc197602fcd2935e1f0e9083ea224ab859917d72e828f20"
+    sha256 cellar: :any,                 arm64_big_sur: "716c1bdff59df7c308dae76a32b66b4bb568a6c49d718593c6618d12a2e911f2"
+    sha256 cellar: :any,                 big_sur:       "b3fa91eaa148fd67283c97a3cd8f7ae501a62e830cdb4a8d514079dafc31400c"
+    sha256 cellar: :any,                 catalina:      "288ceac412ec97d4dad5e80b3c0afe847dab5d7d148a7906478fc13d485ed7af"
+    sha256 cellar: :any,                 mojave:        "d1a82b42913a6df82d7fc00018185aa6c74ca24ddeb24fc96702a35004a6723e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a8b1a9a79c2c624a2a40a075b140698f7567d36273fd6a0345b303371c321a7"
   end
 
   head do

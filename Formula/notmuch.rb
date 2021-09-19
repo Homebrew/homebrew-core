@@ -1,10 +1,10 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.33.tar.xz"
-  sha256 "883e045b4bfa2c48c9a4671062a40603a7f6165724dd54618beeba100549d26c"
+  url "https://notmuchmail.org/releases/notmuch-0.33.1.tar.xz"
+  sha256 "2d905f03d9ee4abcd06dfae4c4d31e5fe623ed22b3ce4d9184cc0baed29b10d2"
   license "GPL-3.0-or-later"
-  head "https://git.notmuchmail.org/git/notmuch", using: :git
+  head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
     url "https://notmuchmail.org/releases/"
@@ -12,11 +12,11 @@ class Notmuch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3fa40bf8c58affd001dc4c64f3e6a731a6c232bb06b2958a66042d0380dab0a0"
-    sha256 cellar: :any,                 big_sur:       "cf51647b086dd579c17c0c7e56a8b5fa1cafb02895190626512ced2fb5569c70"
-    sha256 cellar: :any,                 catalina:      "aa3c2334da5e702dbc88e30fad35031d09d344aa15a1950feba3355c11c36e4f"
-    sha256 cellar: :any,                 mojave:        "3a35145438205210e9f7b5385e92a5ac48b8462fae271c477372d5c1632cd849"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad24970987ca638b528e69c55c8f59bf1b4e4c57226d4f45a8a12d6a282bfea3"
+    sha256 cellar: :any,                 arm64_big_sur: "851421aeb5af6e1463f8bfc4b186f2a338976f485c63d4a9e5513048f712e729"
+    sha256 cellar: :any,                 big_sur:       "4a28959d38283bede10d68633d4404c771bed42fa40674142a16741c2b1b3a5f"
+    sha256 cellar: :any,                 catalina:      "42493f2b2bdbd8d95272119463b5e71794cfbbbc6b4462898298b072aa67023b"
+    sha256 cellar: :any,                 mojave:        "2f63c867cb56de0501c19b81849c3ebdb96f002f79620743d3c1f1f7b21356fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1144a79475eaac42977ec227c233830a3853dbe7816800a181c278e545e71c81"
   end
 
   depends_on "doxygen" => :build

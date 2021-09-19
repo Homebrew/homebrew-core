@@ -5,7 +5,7 @@ class Ocproxy < Formula
   sha256 "a7367647f07df33869e2f79da66b6f104f6495ae806b12a8b8d9ca82fb7899ac"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/cernekee/ocproxy.git"
+  head "https://github.com/cernekee/ocproxy.git", branch: "master"
 
   livecheck do
     url :stable

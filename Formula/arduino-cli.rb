@@ -2,10 +2,9 @@ class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
   url "https://github.com/arduino/arduino-cli.git",
-     tag:      "0.18.3",
-     revision: "d710b642ef7992a678053e9d68996c02f5863721"
+      tag:      "0.19.0",
+      revision: "56419ecdd533e096439f554d80492a2426fed6a9"
   license "GPL-3.0-only"
-  revision 1
   head "https://github.com/arduino/arduino-cli.git", branch: "master"
 
   livecheck do
@@ -14,14 +13,15 @@ class ArduinoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5b440af68597c335014f1af418f2ea7b18a71eeae8eff50f15972642c296507"
-    sha256 cellar: :any_skip_relocation, big_sur:       "62fbd34ab3cc8fdb36699aedeba55b156981ce3bac5af3b2fc126d4b245f756f"
-    sha256 cellar: :any_skip_relocation, catalina:      "7e7ed5fa0d59083c8d84731b0396266da843b9fca24c94ea4cea404be4909831"
-    sha256 cellar: :any_skip_relocation, mojave:        "b0ca98cccef2f4b5b14baefa104514023a9142035f0f75937bc0a06d1926dd5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e18c5bf41053c43af9fe17ecd7a47b4fcb2b910c928e602260e09026e17650c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bced5c9040397a8bac1a68d407331cf7cd27b8ad79514d9931f3e4c18873ae4c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2f28e331cc9eece46ab63afbd580fa0c6ce55a62e4a598c9dc48970078c7440f"
+    sha256 cellar: :any_skip_relocation, catalina:      "b7a6f3a9e843f5cbcba4410f7c345d2af498677a960343fc27b7c35f7b57ef07"
+    sha256 cellar: :any_skip_relocation, mojave:        "2321ece4cf8dea0dd910c03c879cd5a8ac0a787f343da4c59b52fac28a5355c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75b518012a7b7effcb78e7ae232d823e3d8c4223c5a811795e6670e828789e7a"
   end
 
-  depends_on "go" => :build
+  # Switch to Go 1.17 at version bump
+  depends_on "go@1.16" => :build
 
   def install
     ldflags = %W[
@@ -32,13 +32,13 @@ class ArduinoCli < Formula
     ].join(" ")
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/arduino-cli", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"arduino-cli", "completion", "bash")
     (bash_completion/"arduino-cli").write output
 
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/arduino-cli", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"arduino-cli", "completion", "zsh")
     (zsh_completion/"_arduino-cli").write output
 
-    output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/arduino-cli", "completion", "fish")
+    output = Utils.safe_popen_read(bin/"arduino-cli", "completion", "fish")
     (fish_completion/"arduino-cli.fish").write output
   end
 

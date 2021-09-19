@@ -104,7 +104,7 @@ class Arangodb < Formula
               "--server.arangod", "#{sbin}/arangod",
               "--server.js-dir", "#{share}/arangodb3/js") do |r, _, pid|
       loop do
-        available = IO.select([r], [], [], 60)
+        available = r.wait_readable(60)
         refute_equal available, nil
 
         line = r.readline.strip

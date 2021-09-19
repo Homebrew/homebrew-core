@@ -49,7 +49,7 @@ class SpeechTools < Formula
     ptcfile = "#{basename}.ptc"
 
     File.open(txtfile, "w") do |f|
-      scale = 2 ** 15 - 1
+      scale = (2 ** 15) - 1
       samples = Array.new(duration_secs * rate_hz) do |i|
         (scale * Math.sin(frequency_hz * 2 * Math::PI * i / rate_hz)).to_i
       end

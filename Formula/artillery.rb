@@ -3,16 +3,16 @@ require "language/node"
 class Artillery < Formula
   desc "Cloud-native performance & reliability testing for developers and SREs"
   homepage "https://artillery.io/"
-  url "https://registry.npmjs.org/artillery/-/artillery-1.7.8.tgz"
-  sha256 "e96d6b70a0d1cb65b0ab17352d55bce7cd3cf069119177fc5e81c16151dd884e"
+  url "https://registry.npmjs.org/artillery/-/artillery-1.7.9.tgz"
+  sha256 "94bed2af244b0e1d4978100d2dfed5ecee64f11c99d4a19a496c9dd38d9f7e83"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6e2d6826445ac2658e775242a95058724fa0e8d1ba2573bb6afc13e487cf01bc"
-    sha256 cellar: :any_skip_relocation, big_sur:       "917c441ab7a5f109f002b42250d42a6065ba93a01dbc379d50ad720f29f08697"
-    sha256 cellar: :any_skip_relocation, catalina:      "917c441ab7a5f109f002b42250d42a6065ba93a01dbc379d50ad720f29f08697"
-    sha256 cellar: :any_skip_relocation, mojave:        "917c441ab7a5f109f002b42250d42a6065ba93a01dbc379d50ad720f29f08697"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e84b54f7ed0aef5123f9bf03d126f690632a25a644c9ff12a91347622029806"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5b4ca42c0271c2257d1da68652023309cbaf7a45411e59fda3e214f0e2d1e06f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "19009ef3f41fe90b0647df579a1a2065bffe7a1a67d6c32c91b7512225f16da5"
+    sha256 cellar: :any_skip_relocation, catalina:      "19009ef3f41fe90b0647df579a1a2065bffe7a1a67d6c32c91b7512225f16da5"
+    sha256 cellar: :any_skip_relocation, mojave:        "19009ef3f41fe90b0647df579a1a2065bffe7a1a67d6c32c91b7512225f16da5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09db551a48e31d05654d8510cfb5e2c555fa4ea6b719d9e8899db72f553d2ecf"
   end
 
   depends_on "node"

@@ -27,6 +27,9 @@
   "awscli@1": {
     "exclude_packages": ["six"]
   },
+  "b2-tools": {
+    "exclude_packages": ["six"]
+  },
   "black": "black[d]",
   "bpytop": "bpytop",
   "breezy": {
@@ -74,10 +77,10 @@
   "dvc": {
     "extra_packages": [
         "gcsfs", "pydrive2", "adlfs", "azure-identity", "knack",
-        "oss2", "pycryptodome", "paramiko[invoke]", "webdav4",
+        "oss2", "pycryptodome", "sshfs", "webdav4",
         "s3fs", "aiobotocore[boto3]"
     ],
-    "exclude_packages": ["protobuf", "six", "tabulate"]
+    "exclude_packages": ["grandalf", "protobuf", "six", "tabulate"]
   },
   "dxpy": {
     "exclude_packages": ["six"]
@@ -166,6 +169,7 @@
     "exclude_packages": ["tabulate"]
   },
   "poetry": {
+    "exclude_packages": ["six"],
     "extra_packages": ["importlib-metadata", "typing-extensions"]
   },
   "pre-commit": {
@@ -352,7 +356,13 @@
   "todoman": {
     "exclude_packages": ["tabulate"]
   },
+  "tox": {
+    "exclude_packages": ["six"]
+  },
   "twarc": {
+    "exclude_packages": ["six"]
+  },
+  "virtualenv": {
     "exclude_packages": ["six"]
   },
   "woob": {

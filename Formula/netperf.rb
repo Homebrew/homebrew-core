@@ -3,7 +3,7 @@ class Netperf < Formula
   homepage "https://hewlettpackard.github.io/netperf/"
   url "https://github.com/HewlettPackard/netperf/archive/netperf-2.7.0.tar.gz"
   sha256 "4569bafa4cca3d548eb96a486755af40bd9ceb6ab7c6abd81cc6aa4875007c4e"
-  head "https://github.com/HewlettPackard/netperf.git"
+  head "https://github.com/HewlettPackard/netperf.git", branch: "master"
 
   bottle do
     rebuild 1

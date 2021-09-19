@@ -1,10 +1,18 @@
 class Libstatgrab < Formula
   desc "Provides cross-platform access to statistics about the system"
-  homepage "https://www.i-scream.org/libstatgrab/"
-  url "https://ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.92.1.tar.gz"
+  homepage "https://libstatgrab.org/"
+  url "https://github.com/libstatgrab/libstatgrab/releases/download/LIBSTATGRAB_0_92_1/libstatgrab-0.92.1.tar.gz"
   mirror "https://www.mirrorservice.org/pub/i-scream/libstatgrab/libstatgrab-0.92.1.tar.gz"
   sha256 "5688aa4a685547d7174a8a373ea9d8ee927e766e3cc302bdee34523c2c5d6c11"
-  license "GPL-2.0"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+
+  livecheck do
+    url :stable
+    regex(/^LIBSTATGRAB[._-]v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ce70f4a494445f8afde960c4ceea838e48b98fcf4c4d9513f705afae83193433"

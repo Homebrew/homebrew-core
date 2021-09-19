@@ -6,13 +6,14 @@ class Standardese < Formula
       tag:      "0.5.2",
       revision: "0b23537e235690e01ba7f8362a22d45125e7b675"
   license "MIT"
+  revision 1
   head "https://github.com/standardese/standardese.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "541c269d263b5f362e2717dab9697a9428b5bcb5bb29287f99288d3b9478ad1e"
-    sha256 big_sur:       "eb7a0d594647919811f286fa81be6a711540c970d02823faa1fefb5489bf0676"
-    sha256 catalina:      "72677bf1b529d0ce4d9d4e2490a90fa6f83b3ad8ef569b062ced1c10d24586d0"
-    sha256 mojave:        "1749ef2fcdead436a08b9daaa8207b93611a5b08ca56de9fc5049172e77eb9fb"
+    sha256 arm64_big_sur: "dcbd0428ede56003262bcdc1aad10ea18ee72124d058e377d3aa9fdb5d748d4b"
+    sha256 big_sur:       "0dd379d8c2a1c79b8a19a1d4de29f37c9e0b737b115ce61086ae5159ade36517"
+    sha256 catalina:      "a98d4debd779b1eae894c1db1cd78b0f0b5f263af49ae66525ce0fc516c8ba23"
+    sha256 mojave:        "2c97460e5c2fc0c27abd6b28159da88f013e3423dd7fb7f91bd6b0739beec46a"
   end
 
   depends_on "cmake" => :build

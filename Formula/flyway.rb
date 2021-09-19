@@ -6,8 +6,8 @@ class Flyway < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://flywaydb.org/documentation/usage/maven/"
-    regex(/&lt;version&gt;.*?v?(\d+(?:\.\d+)+)&lt;/im)
+    url "https://search.maven.org/remotecontent?filepath=org/flywaydb/flyway-commandline/maven-metadata.xml"
+    regex(%r{<version>v?(\d+(?:\.\d+)+)</version>}i)
   end
 
   bottle do

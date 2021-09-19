@@ -3,17 +3,17 @@ class Pythran < Formula
 
   desc "Ahead of Time compiler for numeric kernels"
   homepage "https://pythran.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/c6/e6/986a967dcca91d89e36f4d4a2f69a052030bce01a7cd48a6b7fba1a50189/pythran-0.9.12.post1.tar.gz"
-  sha256 "e7589cf83b0befa9a1b55e98223caf89aff887d9e3f14be912cf8703a717f185"
+  url "https://files.pythonhosted.org/packages/c4/92/94b344b88bb010186caa65e5730509b4a6d2b1ab59e512ea11a2cbbb36fc/pythran-0.10.0.tar.gz"
+  sha256 "9dac8e1d50f33d4676003e350b1f0c878ce113e6f907920e92dc103352cac5bf"
   license "BSD-3-Clause"
   head "https://github.com/serge-sans-paille/pythran.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eb3289e9d8326e8ac6b2df366e9ef20245d2c830f166044a6f110f4e87dd5291"
-    sha256 cellar: :any_skip_relocation, big_sur:       "74ebdde670663491d2c5c590159de3f655c9b36110dc223cfe06c64f06003cae"
-    sha256 cellar: :any_skip_relocation, catalina:      "74ebdde670663491d2c5c590159de3f655c9b36110dc223cfe06c64f06003cae"
-    sha256 cellar: :any_skip_relocation, mojave:        "74ebdde670663491d2c5c590159de3f655c9b36110dc223cfe06c64f06003cae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecbf76fbaa393c2b28143bb5d2c6cc0461d798ba9bb56fa3ab380538fccdf409"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fdbcb4eb077761c2c810aab42dec6713be785afacf09ce597d9c7368691888f6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d6f83dfa73268cf39ff35f47326b13554d3f01b58be68aa6fd7652311a360af4"
+    sha256 cellar: :any_skip_relocation, catalina:      "d6f83dfa73268cf39ff35f47326b13554d3f01b58be68aa6fd7652311a360af4"
+    sha256 cellar: :any_skip_relocation, mojave:        "d6f83dfa73268cf39ff35f47326b13554d3f01b58be68aa6fd7652311a360af4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d663943eb426f509e571ac4e29abfdda8a6d969c52e0d9535efceefa3192e2f0"
   end
 
   depends_on "gcc" # for OpenMP

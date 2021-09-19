@@ -67,12 +67,7 @@ class MysqlAT56 < Formula
     system "make", "install"
 
     # Avoid references to the Homebrew shims directory
-    os = if OS.mac?
-      "mac"
-    else
-      "linux"
-    end
-    inreplace bin/"mysqlbug", HOMEBREW_SHIMS_PATH/"#{os}/super/", ""
+    inreplace bin/"mysqlbug", "#{Superenv.shims_path}/", ""
 
     (prefix/"mysql-test").cd do
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"

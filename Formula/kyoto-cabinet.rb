@@ -1,7 +1,7 @@
 class KyotoCabinet < Formula
   desc "Library of routines for managing a database"
-  homepage "https://fallabs.com/kyotocabinet/"
-  url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.79.tar.gz"
+  homepage "https://dbmx.net/kyotocabinet/"
+  url "https://dbmx.net/kyotocabinet/pkg/kyotocabinet-1.2.79.tar.gz"
   sha256 "67fb1da4ae2a86f15bb9305f26caa1a7c0c27d525464c71fd732660a95ae3e1d"
   license "GPL-3.0-or-later"
 

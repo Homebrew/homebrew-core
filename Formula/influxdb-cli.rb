@@ -5,7 +5,7 @@ class InfluxdbCli < Formula
       tag:      "v2.1.0",
       revision: "e6cad1b4aa05a801e1206496c3369246794555e0"
   license "MIT"
-  head "https://github.com/influxdata/influx-cli.git"
+  head "https://github.com/influxdata/influx-cli.git", branch: "main"
 
   livecheck do
     url :stable

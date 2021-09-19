@@ -1,17 +1,17 @@
 class Htmlq < Formula
   desc "Uses CSS selectors to extract bits content from HTML files"
   homepage "https://github.com/mgdm/htmlq"
-  url "https://github.com/mgdm/htmlq/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "559f4ff25b0b8014d5b4e72cd06c20f40e5f0cf07a88dc0467418a6b2d7d5075"
+  url "https://github.com/mgdm/htmlq/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "df07a3afbd61824d382961620782c10b0c839d33dbd4d9a2dda261091c830f60"
   license "MIT"
   head "https://github.com/mgdm/htmlq.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "870d5212cca94a0bd9cfadfeb02b729ff2b248acd3aff5a54b2d2497e2e1a90f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "612666a8de0e0f57bdebac0382abbf2b561985f68d9dcd09ca81f66da7529d20"
-    sha256 cellar: :any_skip_relocation, catalina:      "78efcef9657905e874fc01828c64a9a16532bb7941ce7e84e2745538d78a646d"
-    sha256 cellar: :any_skip_relocation, mojave:        "f9829e731e39ec1e08570ddf6112c186df0f2c76e4ea96941858bf86eae95764"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a405ebf5e98497ecc0ecea210e68bce8b20339d7403eec97a451f2e8ce8cad7c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "155a5d20ec52baa51c8d5f70f3224ff7707c860a49bc51f020b2afdf8ea1ad2c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8ec8b00331597e951f4f449394d26549d47c1090d2a1562047268c9ed0397580"
+    sha256 cellar: :any_skip_relocation, catalina:      "9be3c8684ee2f1666837195233bfccd29975555f9c7ae36ca1d3870fe0a5ccfc"
+    sha256 cellar: :any_skip_relocation, mojave:        "568439b3497a88d0d2fc3b6d7b0e3330c2b93e6a0e0c9df8de17768321a7e9df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee7e22902b6f9bfe4f9403430dfd16fc242d87ee99e59c99358dcbe3a34a1be2"
   end
 
   depends_on "rust" => :build

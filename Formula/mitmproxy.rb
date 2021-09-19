@@ -3,17 +3,17 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/v7.0.2.tar.gz"
-  sha256 "091579659e14e60841eaf5510a28cd990424764b4e6e9fe6dca5df0f959df863"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v7.0.3.tar.gz"
+  sha256 "d71aa946df9f7470865c0d5746ee7c1ec5958ef519c682ea828115f044da10f0"
   license "MIT"
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "d3be4f44cdcb9daaacf740639ecefa5fcecee9ffc1867327b84ba245a1b39384"
-    sha256 cellar: :any,                 big_sur:       "68d627341d9af1505d96e3dc8c9a63e9e6b38727904da480612da84fbc776fcc"
-    sha256 cellar: :any,                 catalina:      "b153a12bdd68f094c5f856b822dd524e9925021c845e6fc6a73bf0557122e2c9"
-    sha256 cellar: :any,                 mojave:        "e636f877af077ca4fe86164619979ce10296fa101bdc062ea929b4e5ec77feb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6e6d876b1beb5f40ec98de4e2a33a2be51652d39bd24dce978f55f86559c9e0"
+    sha256 cellar: :any,                 arm64_big_sur: "23d60932782d35a8784f74850ad850538608064ad0d3e46dd070fad898372969"
+    sha256 cellar: :any,                 big_sur:       "48e46e1ed5c5f891c843ee7be36ac4c8ef4f7ad77c6ce022960c1f7724695175"
+    sha256 cellar: :any,                 catalina:      "172d959647e13ff410aebeb3babd4886584c607477f1cce213fae0a2fa4a4876"
+    sha256 cellar: :any,                 mojave:        "cfaee239b65413d5faa2bbeed51d1bbc9700c386bc03a3bc5cfe9dc4b16fc8a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8ce6cd9c8ebb5da23f91333833bb269b556d908fb85700f106b28b19effd1c1"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -59,8 +59,8 @@ class Mitmproxy < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "Flask" do
@@ -154,8 +154,8 @@ class Mitmproxy < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/83/59/4f576abb336d30b3d47061717224be714a9dc39c774061c34cb41c1795cf/ruamel.yaml-0.17.10.tar.gz"
-    sha256 "106bc8d6dc6a0ff7c9196a47570432036f41d556b779c6b4e618085f57e39e67"
+    url "https://files.pythonhosted.org/packages/71/81/f597606e81f53eb69330e3f8287e9b5a3f7ed0481824036d550da705cd82/ruamel.yaml-0.17.16.tar.gz"
+    sha256 "1a771fc92d3823682b7f0893ad56cb5a5c87c48e62b5399d6f42c8759a583b33"
   end
 
   resource "ruamel.yaml.clib" do

@@ -1,17 +1,17 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v4.4/ccache-4.4.tar.xz"
-  sha256 "b40bea2ecf88fc15d4431f0d5fb8babf018d7218eaded0f40e07d4c18c667561"
+  url "https://github.com/ccache/ccache/releases/download/v4.4.1/ccache-4.4.1.tar.xz"
+  sha256 "ebd6dfb5b15dfe39310e1f5834bafbe6ab526c71df8ad08a508e8a242bad8159"
   license "GPL-3.0-or-later"
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c7da75f26f701903246a5c842dcaf2d4832ad333f445a001df09e0746c233733"
-    sha256 cellar: :any,                 big_sur:       "01a6eb140be4b65cd4309e5248dea5cb715ffb790bada58a0b1bbca569660543"
-    sha256 cellar: :any,                 catalina:      "d9f4da69ace3c9ace3ce16caed6f5eef19b8adb7e83acfa6eed80282384c2cfa"
-    sha256 cellar: :any,                 mojave:        "3d73453a7262b646f5dabd071b3a70bf1520f28452dc87b8d786f8c22039a235"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3f06b7820de6995da85d7c05d0678ab1dff05ff06c71300192c1167c45a3f5b"
+    sha256 cellar: :any,                 arm64_big_sur: "8b080397271209e799d28ff1d9224d9dae710c93a742b0fd25410694c34495a0"
+    sha256 cellar: :any,                 big_sur:       "56c36dccabd0d36973c1ade740b4d75abe7fe8755f96c2a03add7667548bbfde"
+    sha256 cellar: :any,                 catalina:      "4ffcd0418bf19aadfee527d033a5f1e079348184d71194a40c74e09682e9865c"
+    sha256 cellar: :any,                 mojave:        "d7c3dc21b248c0d2a4f57cec9d8a9517a0b79720e2aad7303c992e6b5472bcc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2744b2cd82df0e29310f5c32d713ed3b5bc7f82e6bd4f469cb743b0c6c5f2794"
   end
 
   depends_on "asciidoctor" => :build
@@ -28,8 +28,19 @@ class Ccache < Formula
   fails_with gcc: "5"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DENABLE_IPO=TRUE"
+    system "cmake", "--build", "build"
+
+    # Homebrew compiler shim actively prevents ccache usage (see caveats), which will break the test suite.
+    # We run the test suite for ccache because it provides a more in-depth functional test of the software
+    # (especially with IPO enabled), adds negligible time to the build process, and we don't actually test
+    # this formula properly in the test block since doing so would be too complicated.
+    # See https://github.com/Homebrew/homebrew-core/pull/83900#issuecomment-90624064
+    with_env(CC: DevelopmentTools.locate(DevelopmentTools.default_compiler)) do
+      system "ctest", "-j#{ENV.make_jobs}", "--test-dir", "build"
+    end
+
+    system "cmake", "--install", "build"
 
     libexec.mkpath
 

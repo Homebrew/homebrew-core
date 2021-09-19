@@ -1,8 +1,8 @@
 class Fnm < Formula
   desc "Fast and simple Node.js version manager"
   homepage "https://fnm.vercel.app"
-  url "https://github.com/Schniz/fnm/archive/v1.26.0.tar.gz"
-  sha256 "fedb9745d6c82fa6e0593856b1b995b286782f52f3497861839c6ee46559c881"
+  url "https://github.com/Schniz/fnm/archive/v1.27.0.tar.gz"
+  sha256 "e0509c768be40094f01e0cee903d0ac2a02c064a5987c0bbc7208996686b98cd"
   license "GPL-3.0-only"
   head "https://github.com/Schniz/fnm.git"
 
@@ -12,11 +12,11 @@ class Fnm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f222bc246bb34b6e6b01287cbdcb52f78fd1cf9c0220ca79e0db2307c84cd8ed"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ef6680b7f1c89f9864e8fbbb7ceed6dac81d237ddf001f4808200a2524c3e005"
-    sha256 cellar: :any_skip_relocation, catalina:      "3e6d64efd270f7d081de052f6380ded8a1ebb436cba26fbb41d1a32098652f5b"
-    sha256 cellar: :any_skip_relocation, mojave:        "ce025c6632c739424486532bcd3c460571366e9933392b31d153bc5a8084eae4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75b4b360ff4565c3a6ceed6381373702b3cec7b842d5170fe6d39b57116618d5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8a7b6d36aa0cf64fb42f99a57686c7e771690b6b97eb19f6e65486365b9e262d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1ed1913f1c9f70bcc703bac59e9e46540cb2030c5e42e0fb8cfe42eb1754ee75"
+    sha256 cellar: :any_skip_relocation, catalina:      "3195625f6b556c8eeee0894ba516b7a91a7fddd1fd31090867b942bcb583e917"
+    sha256 cellar: :any_skip_relocation, mojave:        "9921bb97be053afe96cb9a18bdcfd95fb34faa9a00dee89d0735938b52ea0a40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a237dc5807cb312d8cde5f0d937046cc10a4c58d3d941d82064fe6fa49f0b96"
   end
 
   depends_on "rust" => :build

@@ -4,7 +4,7 @@ class Overdrive < Formula
   url "https://github.com/chbrown/overdrive/archive/2.1.1.tar.gz"
   sha256 "74ec42df2c5dda56bfe04c0f8b831d21fd1511c0ef2839dd2bd84d1fda2b8b6b"
   license "MIT"
-  head "https://github.com/chbrown/overdrive.git"
+  head "https://github.com/chbrown/overdrive.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "9d056c2fed436d64d6269fa28f7cd821a75ee74bb7d8f3240b9509145b4a4c95"

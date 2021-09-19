@@ -5,7 +5,7 @@ class Influxdb < Formula
       tag:      "v2.0.8",
       revision: "e91d41810f3f44061db544e771f0fc14515aff84"
   license "MIT"
-  head "https://github.com/influxdata/influxdb.git"
+  head "https://github.com/influxdata/influxdb.git", branch: "master"
 
   # The regex below omits a rogue `v9.9.9` tag that breaks version comparison.
   livecheck do

@@ -1,8 +1,8 @@
 class PythonAT37 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.7.11/Python-3.7.11.tar.xz"
-  sha256 "ddb4196ab5c4f69e895920a422cb60d42b46e2de2b173ce7fd57f1435459a734"
+  url "https://www.python.org/ftp/python/3.7.12/Python-3.7.12.tar.xz"
+  sha256 "f77bf7fb47839f213e5cbf7827281078ea90de7e72b44f10d7ef385ea8c43210"
   license "Python-2.0"
 
   livecheck do
@@ -11,10 +11,10 @@ class PythonAT37 < Formula
   end
 
   bottle do
-    sha256 big_sur:      "26fa6036e2d40a47902c48d79c5a2a38fde2fa941b3f5efb3e1c0dda37445022"
-    sha256 catalina:     "765777095eac56c241fa82ac13f16e9de1974a4e6cd9c5217ca8f4fbfed10f70"
-    sha256 mojave:       "a2b71ac7208d22c643af119ac2da265bc1863db24830e4664b74746444b7215d"
-    sha256 x86_64_linux: "b4a67a9f47b74fa3653a6656c42eeb0bfe877921cc515de9519ff3b35f116504"
+    sha256 big_sur:      "824a94e0bfe344d05e0810c3715a953c35e23f58ebfa6f814a97933f37683a8d"
+    sha256 catalina:     "f9bc333cca18553838db35952999b20195d286117c9fa72c136d7da79ee66961"
+    sha256 mojave:       "02a3ed43255ba748b5ea7fb3318d177e4ee7c91627e09ea78a8e1669b717ed89"
+    sha256 x86_64_linux: "cdf05915ce91b9746e4e4a19bea683c8746d0cbb52f586fe2a018f5268e114d7"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -43,18 +43,18 @@ class PythonAT37 < Formula
              "bin/easy_install-3.6", "bin/easy_install-3.7"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/cf/79/1a19c2f792da00cbead7b6caa176afdddf517522cb9163ce39576025b050/setuptools-57.1.0.tar.gz"
-    sha256 "cfca9c97e7eebbc8abe18d5e5e962a08dcad55bb63afddd82d681de4d22a597b"
+    url "https://files.pythonhosted.org/packages/9a/74/de4d8c69466b6413b1616048b39f8b73d65f98c15f6202b68ccfc9550f1f/setuptools-58.0.4.tar.gz"
+    sha256 "f10059f0152e0b7fb6b2edd77bcb1ecd4c9ed7048a826eb2d79f72fd2e6e237b"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/4d/0c/3b63fe024414a8a48661cf04f0993d4b2b8ef92daed45636474c018cd5b7/pip-21.1.3.tar.gz"
-    sha256 "b5b1eb91b36894bd01b8e5a56a422c2f3838573da0b0a1c63a096bb454e3b23f"
+    url "https://files.pythonhosted.org/packages/52/e1/06c018197d8151383f66ebf6979d951995cf495629fc54149491f5d157d0/pip-21.2.4.tar.gz"
+    sha256 "0eb8a1516c3d138ae8689c0c1a60fde7143310832f9dc77e11d8a4bc62de193b"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/ed/46/e298a50dde405e1c202e316fa6a3015ff9288423661d7ea5e8f22f589071/wheel-0.36.2.tar.gz"
-    sha256 "e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e"
+    url "https://files.pythonhosted.org/packages/4e/be/8139f127b4db2f79c8b117c80af56a3078cc4824b5b94250c7f81a70e03b/wheel-0.37.0.tar.gz"
+    sha256 "e2ef7239991699e3355d54f8e968a21bb940a1dbf34a4d226741e64462516fad"
   end
 
   resource "importlib-metadata" do
@@ -63,8 +63,8 @@ class PythonAT37 < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/ce/b0/757db659e8b91cb3ea47d90350d7735817fe1df36086afc77c1c4610d559/zipp-3.4.0.tar.gz"
-    sha256 "ed5eee1974372595f9e416cc7bbeeb12335201d8081ca8a0743c954d4446e5cb"
+    url "https://files.pythonhosted.org/packages/3a/9f/1d4b62cbe8d222539a84089eeab603d8e45ee1f897803a0ae0860400d6e7/zipp-3.5.0.tar.gz"
+    sha256 "f5812b1e007e48cff63449a5e9f4e7ebea716b4111f9c4f9a645f91d579bf0c4"
   end
 
   # Patch for MACOSX_DEPLOYMENT_TARGET on Big Sur. Upstream currently does

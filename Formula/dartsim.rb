@@ -4,12 +4,13 @@ class Dartsim < Formula
   url "https://github.com/dartsim/dart/archive/v6.11.1.tar.gz"
   sha256 "1a59b9d8f55433ad111089431826cd8abbec71f61c72a8558b655d92164f8de4"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "e78dc5a0caf61ba16024aaf6b166ad2ac79720ee6b822f20b2bd799928f482d0"
-    sha256 big_sur:       "b456a6e2ba1b6261ba46595702a232a27d489fa27e99598f2a4bea05e0ba7ba5"
-    sha256 catalina:      "b96bca2cfe1481d17c4545d3b3666522d71278635e0883ee60054992afe2d960"
-    sha256 mojave:        "23b84cec2916360cfc23fd2f5c338b05a38017863a21321555bc325172c4310c"
+    sha256 arm64_big_sur: "5070a3440374bc2e297198cd0cd2e0da7176f84fcf96efebe2c349ef41a98866"
+    sha256 big_sur:       "e56b5670f3dad559c425d84805fdf865cc243ac3174b7e359e5dd578327e4173"
+    sha256 catalina:      "b191f73551ec54bec354249620cf40e9ef99002f0d4a1b239aae5667ad58981a"
+    sha256 mojave:        "0c8ae1513a9a671caddc3b8379fe2b5751c86041c488c2db9a1fef6c230da333"
   end
 
   depends_on "cmake" => :build

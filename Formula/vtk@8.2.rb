@@ -133,7 +133,7 @@ class VtkAT82 < Formula
       lib/"cmake/vtk-#{version.major_minor}/VTKConfig.cmake",
       lib/"cmake/vtk-#{version.major_minor}/Modules/vtkPython.cmake",
     ]
-    inreplace_cmake_modules << lib/"cmake/vtk-#{version.major_minor}/VTKTargets-release.cmake" if OS.mac?
+    inreplace_cmake_modules << (lib/"cmake/vtk-#{version.major_minor}/VTKTargets-release.cmake") if OS.mac?
 
     inreplace inreplace_cmake_modules, prefix, opt_prefix
   end

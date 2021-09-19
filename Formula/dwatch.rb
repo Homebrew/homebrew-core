@@ -5,6 +5,11 @@ class Dwatch < Formula
   sha256 "ba093d11414e629b4d4c18c84cc90e4eb079a3ba4cfba8afe5026b96bf25d007"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://siag.nu/pub/dwatch/"
+    regex(/href=.*?dwatch[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 arm64_big_sur: "d685c1a752eea0246f6d5f5cc26a6594f36f1950112a3ed65934a52eb37185e9"

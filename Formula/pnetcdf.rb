@@ -30,8 +30,7 @@ class Pnetcdf < Formula
 
     cd "src/utils" do
       # Avoid references to Homebrew shims
-      inreplace ["pnetcdf-config", "pnetcdf_version/Makefile"], "#{HOMEBREW_SHIMS_PATH}/mac/super/",
-                                                                "/usr/bin/"
+      inreplace ["pnetcdf-config", "pnetcdf_version/Makefile"], Superenv.shims_path, "/usr/bin"
     end
 
     system "make", "install"

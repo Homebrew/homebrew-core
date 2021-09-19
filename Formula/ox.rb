@@ -4,7 +4,7 @@ class Ox < Formula
   url "https://github.com/curlpipe/ox/archive/0.2.5.tar.gz"
   sha256 "873eb447029508bc3fd1d7dda8803d79a7b107a7a903399947f4eac6ae671176"
   license "GPL-2.0-only"
-  head "https://github.com/curlpipe/ox.git"
+  head "https://github.com/curlpipe/ox.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b2d8f1cf845e18a1068b939792814aaa0de01557bf62f55a54f399fbfec397f6"

@@ -1,16 +1,16 @@
 class Libpinyin < Formula
   desc "Library to deal with pinyin"
   homepage "https://github.com/libpinyin/libpinyin"
-  url "https://github.com/libpinyin/libpinyin/archive/2.6.0.tar.gz"
-  sha256 "2b52f617a99567a8ace478ee82ccc62d1761e3d1db2f1e05ba05b416708c35d2"
+  url "https://github.com/libpinyin/libpinyin/archive/2.6.1.tar.gz"
+  sha256 "936c756bf57205f064eb7731772289b2e9769ba5b52d6be957a17a9d3b4d5d0f"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ccce070c15525539c1b1573e1ade80fc81a70007a08377698b30f0180384db59"
-    sha256 cellar: :any,                 big_sur:       "e4ffe7193d01eb5e040da9f4a9f8b53f214a989b0f07553cce636e31325032a2"
-    sha256 cellar: :any,                 catalina:      "134f8fe1749c65e65c222f14dbd0d2b758e82df5dc5193d31e6fda2b43056773"
-    sha256 cellar: :any,                 mojave:        "b9a8e06f0534bb5e9c15f27be8d4bd78be2082e3ea241d2d3500c9357e5a786b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47c0d9be686245a121ae2bd5f1f023d4cf324eccf6a40194694a2dfbe69ef160"
+    sha256 cellar: :any,                 arm64_big_sur: "318f5f316d2d49d3c0cafac9a911e7e0b4c281e5112e523cab7c7ee9ece570ae"
+    sha256 cellar: :any,                 big_sur:       "758fc82d1e5f0458f23e00cc3b9f38cf4b30099d7ecdef3d969fc40de334787b"
+    sha256 cellar: :any,                 catalina:      "7f84e4aa3ca24a3c722a06aedc7a18a16cb188884e2c665c949dbe160506b8c6"
+    sha256 cellar: :any,                 mojave:        "f2673713072b32704d2017f4643edc1071b49e8766659831287da96e0c29e783"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abad6e2cc1bd2707aa4cce999da7d924ea075fe3cf6fdc39fa0352ee86288ce2"
   end
 
   depends_on "autoconf" => :build
@@ -29,6 +29,9 @@ class Libpinyin < Formula
   end
 
   def install
+    # Fix linker flags used in building/linking libzhuyin: https://github.com/libpinyin/libpinyin/pull/151
+    inreplace "src/Makefile.am", "-exported_symbols_list=$(srcdir)", "-exported_symbols_list,$(srcdir)"
+
     resource("model").stage buildpath/"data"
     system "./autogen.sh", "--enable-libzhuyin=yes",
                            "--prefix=#{prefix}"

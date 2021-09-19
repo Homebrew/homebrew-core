@@ -4,7 +4,7 @@ class Nsq < Formula
   url "https://github.com/nsqio/nsq/archive/v1.2.1.tar.gz"
   sha256 "5fd252be4e9bf5bc0962e5b67ef5ec840895e73b1748fd0c1610fa4950cb9ee1"
   license "MIT"
-  head "https://github.com/nsqio/nsq.git"
+  head "https://github.com/nsqio/nsq.git", branch: "master"
 
   bottle do
     rebuild 1

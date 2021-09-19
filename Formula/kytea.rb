@@ -5,6 +5,11 @@ class Kytea < Formula
   sha256 "534a33d40c4dc5421f053c71a75695c377df737169f965573175df5d2cff9f46"
   license "Apache-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?kytea[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "e6507d77b03cee09e01eed90d0eb1c724c8acce9ffb7ad0d75a4dfc7ba434fe8"
     sha256 big_sur:       "2efc4bc6d1c77859c5012819331672e30b9e8c4491c696aac132e8356e08b483"

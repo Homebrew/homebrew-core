@@ -4,7 +4,7 @@ class NatsServer < Formula
   url "https://github.com/nats-io/nats-server/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "6c0274798a63bc6cc8e9c6251cc615d55e58352b0c3124feb9dd5a1b48b6b4bc"
   license "Apache-2.0"
-  head "https://github.com/nats-io/nats-server.git"
+  head "https://github.com/nats-io/nats-server.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9261b328cde6c7723cef7acd7c4eb735fe1f33e935ea66af5ba931e4bdecd6e"

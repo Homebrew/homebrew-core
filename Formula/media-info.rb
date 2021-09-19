@@ -1,8 +1,8 @@
 class MediaInfo < Formula
   desc "Unified display of technical and tag data for audio/video"
   homepage "https://mediaarea.net/"
-  url "https://mediaarea.net/download/binary/mediainfo/21.03/MediaInfo_CLI_21.03_GNU_FromSource.tar.bz2"
-  sha256 "75adafad4f1bd3259354a50ae491de6929649c14c71998cf5a2ed176d298b011"
+  url "https://mediaarea.net/download/binary/mediainfo/21.09/MediaInfo_CLI_21.09_GNU_FromSource.tar.bz2"
+  sha256 "cced70fc0f23a3e95a5d602099c86547d5b291ff0aef78ea7aaff03908b4d3c5"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,11 +11,11 @@ class MediaInfo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "58327daa2bf57fde48a3732800db64c12ac787db06841e11e53a41fcd55b7559"
-    sha256 cellar: :any,                 big_sur:       "cd0ec2b21f22cb356f5e93dfa14e67d3d9a94e12923a1c84d58b1f74d0160c20"
-    sha256 cellar: :any,                 catalina:      "83b8a3b1b8708fe1c1ec7c1e2856d29a074e14441cf7aecfe7b6cae2292253fc"
-    sha256 cellar: :any,                 mojave:        "f67aa010d9fc345917e29ea1cbe232360396851bbe9b770af084f49fdd70dfd2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6edd256ab76a2fb6659bcbbd30d086431331a16d7322ad30263496c13606f8e0"
+    sha256 cellar: :any,                 arm64_big_sur: "a867be2d48af32254cf7d789bc1180453caf7966126b2388d80da99a6aaa4f9e"
+    sha256 cellar: :any,                 big_sur:       "75c84b8b3d32e058bafeee2a086c739e190ee94a92c987bb2928a093eff48e35"
+    sha256 cellar: :any,                 catalina:      "5bf600f4122b3922d0935e0c40c1c598a7884d1fb89aead60b27b5c9d2aecd37"
+    sha256 cellar: :any,                 mojave:        "207f0ed70033e804e776765b3ba9afd85a50731685441985b9598c225be8c958"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "821008db0d750423722c9f694c4b95374ea023844afb6019a09170e2534307ef"
   end
 
   depends_on "pkg-config" => :build

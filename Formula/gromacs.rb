@@ -11,11 +11,12 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "b3c9be4744dbe1768f69f04aa02efccdfc947bb2441b0a17d551cb62ce12e06c"
-    sha256 big_sur:       "821b3771187dd1d56bce2a23e7a5c93a141b423de5776737a9c0969d041fed73"
-    sha256 catalina:      "fecdced4dbd979a8216425314de6d9d3eccd2a1de8113a6fc95dc71a0580e21a"
-    sha256 mojave:        "87a22dd24d97b8b4b3d3c13c5e37bce8c60b3deee4a8e28325161843ac03e0f7"
-    sha256 x86_64_linux:  "6e6e605e063d99f7335c4ca78e601e0d2008336b3f7bad891b0ca70bcf1beb2c"
+    rebuild 1
+    sha256 arm64_big_sur: "7eb394d589b30f8842352abe3b0fea9916c4b8105a44e8f1fbfb3936b583f7fc"
+    sha256 big_sur:       "fdc9c850650ffe6509c8e7e28d6ed4e92de5b967f3ac4ccc3ec5a2feb4aea8fd"
+    sha256 catalina:      "6af6a5ec7c57941799723a3b8777619932105e486b9ffa75920d996123ae9b61"
+    sha256 mojave:        "a01c61b1eb54a9d11d056dce98b60e048dcf4fb744d5c681f3b517f2c5bcb71b"
+    sha256 x86_64_linux:  "dc8e2742a55b1993b481c2ed9c1695c596f92cbac7abe87a24530090eb4b1811"
   end
 
   depends_on "cmake" => :build
@@ -50,7 +51,8 @@ class Gromacs < Formula
     inreplace "src/gromacs/gromacs-config.cmake.cmakein", "@GROMACS_CXX_COMPILER@", cxx
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DGROMACS_CXX_COMPILER=#{cxx}"
+      system "cmake", "..", *std_cmake_args, "-DGROMACS_CXX_COMPILER=#{cxx}",
+                                             "-DGMX_VERSION_STRING_OF_FORK=#{tap.user}"
       system "make", "install"
     end
 

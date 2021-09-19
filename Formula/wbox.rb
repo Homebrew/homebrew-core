@@ -4,6 +4,11 @@ class Wbox < Formula
   url "http://www.hping.org/wbox/wbox-5.tar.gz"
   sha256 "1589d85e83c8ee78383a491d89e768ab9aab9f433c5f5e035cfb5eed17efaa19"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?wbox[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e87df4ac144cb716bd7528c15170376927aebc7f50d72dcd704ff4a5d3b45246"
     sha256 cellar: :any_skip_relocation, big_sur:       "21c7d9bd3cdbc504149109c8f9c1b3245ce31cc1a34536e326703b4e108e4c8b"

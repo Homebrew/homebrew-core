@@ -5,7 +5,7 @@ class Ola < Formula
   sha256 "102aa3114562a2a71dbf7f77d2a0fb9fc47acc35d6248a70b6e831365ca71b13"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/OpenLightingProject/ola.git"
+  head "https://github.com/OpenLightingProject/ola.git", branch: "master"
 
   bottle do
     sha256 big_sur:  "6c53064698383dd904dab9489cd0a5fe7f0c623f9f469f3580913bf6c16ed463"

@@ -1,17 +1,22 @@
 class Libquantum < Formula
   desc "C library for the simulation of quantum mechanics"
   homepage "http://www.libquantum.de/"
-  url "http://www.libquantum.de/files/libquantum-1.1.1.tar.gz"
-  sha256 "d8e3c4407076558f87640f1e618501ec85bc5f4c5a84db4117ceaec7105046e5"
+  url "http://www.libquantum.de/files/libquantum-1.0.0.tar.gz"
+  sha256 "b0f1a5ec9768457ac9835bd52c3017d279ac99cc0dffe6ce2adf8ac762997b2c"
   license "GPL-3.0-or-later"
+  version_scheme 1
+
+  livecheck do
+    url "http://www.libquantum.de/downloads"
+    regex(/href=.*?libquantum[._-]v?(\d+\.[02468](?:\.\d+)*)\.t/i)
+  end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1788ce1a3fad430fe6579257b4f8144fc72dea392510f170a0c8f0c213d70d80"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2d1e30b2ce9d0c775b23a46fb5eee3e19d6a610e800bdf4c740cecc64e18f74f"
-    sha256 cellar: :any_skip_relocation, catalina:      "0a58575e3f577ad9f8157546913669bac571462dd34d32e54c37e2935b126bed"
-    sha256 cellar: :any_skip_relocation, mojave:        "0c7724330a9a2741d5b52521482fb4c4516d5dc7115538f6131894e4d2b31e10"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "1a93bf4fd93f8a68412b622fcf94eddd2fa9a86ada64dd8eb4cca27ccfaa8ce1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e03d35e9d9dada3cce1d24d778dae7f4038accc0eaf0013868ba86675e21e98"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5d0d8ffd59105af7232222c76c283dfe0ea6c117eef683669875c9d3d4fb32cb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e0c15e357005695499960424b1588ce47b248eb54ba7101cd47d7b0e5427a3b4"
+    sha256 cellar: :any_skip_relocation, catalina:      "d4a76e92f03a3ba478985c12c7a4d5fbe815b7b67d8a2d691eadcf43ed5eb1d6"
+    sha256 cellar: :any_skip_relocation, mojave:        "437375451fc36404181dd6086f662b0305543fc8765042133706755c804c1217"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a528197ff682bb96434f58a4739f933e9010f7e76b368f43d1788fe22468deb"
   end
 
   def install

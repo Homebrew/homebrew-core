@@ -1,12 +1,12 @@
 class Libssh2 < Formula
   desc "C library implementing the SSH2 protocol"
-  homepage "https://libssh2.org/"
-  url "https://libssh2.org/download/libssh2-1.10.0.tar.gz"
+  homepage "https://www.libssh2.org/"
+  url "https://www.libssh2.org/download/libssh2-1.10.0.tar.gz"
   sha256 "2d64e90f3ded394b91d3a2e774ca203a4179f69aebee03003e5a6fa621e41d51"
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://libssh2.org/download/"
+    url "https://www.libssh2.org/download/"
     regex(/href=.*?libssh2[._-]v?(\d+(?:\.\d+)+)\./i)
   end
 

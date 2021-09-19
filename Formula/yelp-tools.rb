@@ -3,17 +3,16 @@ class YelpTools < Formula
 
   desc "Tools that help create and edit Mallard or DocBook documentation"
   homepage "https://github.com/GNOME/yelp-tools"
-  url "https://download.gnome.org/sources/yelp-tools/40/yelp-tools-40.0.tar.xz"
-  sha256 "664bacf2f3dd65ef00a43f79487351ab64a6c4c629c56ac0ceb1723c2eb66aae"
+  url "https://download.gnome.org/sources/yelp-tools/41/yelp-tools-41.0.tar.xz"
+  sha256 "37f1acc02bcbe68a31b86e07c129a839bd3276e656dc89eb7fc0a92746eff272"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "b226bcfda6e2cea725cbc95a9ee19d017ac300a032aeb1efa227ea8454164b41"
-    sha256 cellar: :any,                 big_sur:       "10ba9813e3d96f6a4350b4d0fe92bde1ab9be7f871cca7a9b45139027e02cc05"
-    sha256 cellar: :any,                 catalina:      "1fee7bdc0cb753d08c14bf9e0136f5088532345e093fb7ede23db66ffadfe9af"
-    sha256 cellar: :any,                 mojave:        "194957f1bf5b821459ba59d5f2df603c2e0da4afcd491b1154f861681bd17b3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8b94b048a17e0d5b9641ee47935ee05d8b6b781998d6b60c955ea7b8edf3662"
+    sha256 cellar: :any,                 arm64_big_sur: "7023c23ea27f57ff8a89a378643ecdbb643f5350126ce1971bb575d9d773f739"
+    sha256 cellar: :any,                 big_sur:       "1102fbc8573c51525f22bfc069c2cad50402012c80699d958130c6ddf153c924"
+    sha256 cellar: :any,                 catalina:      "7ed33af3a9d9c7256c06357b30f9f1ef577ae7409c376e60f8c9e10ff5d0b55d"
+    sha256 cellar: :any,                 mojave:        "533c8b568d6390cf108b222ec3334a048c5b038a59d29b53cf17e55b0191d734"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cab7be797b38e41c06681e07624a044dc4d75f837649e244062b9795e773b3a3"
   end
 
   depends_on "gettext" => :build
@@ -34,8 +33,8 @@ class YelpTools < Formula
   end
 
   resource "yelp-xsl" do
-    url "https://download.gnome.org/sources/yelp-xsl/40/yelp-xsl-40.0.tar.xz"
-    sha256 "361ecd4d33fccdb3bb08a687f60e5c3e909d2e9e3b022d844e049820d0cf62b0"
+    url "https://download.gnome.org/sources/yelp-xsl/41/yelp-xsl-41.0.tar.xz"
+    sha256 "c8cd64c093bbd8c5d5e47fd38864e90831b5f9cf7403530870206fa96636a4a5"
   end
 
   def install

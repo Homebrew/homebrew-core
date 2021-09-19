@@ -1,17 +1,17 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
-  url "https://humdi.net/vnstat/vnstat-2.7.tar.gz"
-  sha256 "4c28a1d8bc03c2b6e7ab96c876e07dd8ea174b7cad73b7190ecb2b9501e83e9e"
-  license "GPL-2.0"
+  url "https://humdi.net/vnstat/vnstat-2.8.tar.gz"
+  sha256 "03f858a7abf6bd85bb8cd595f3541fc3bd31f8f400ec092ef3034825ccb77c25"
+  license "GPL-2.0-only"
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do
-    sha256 arm64_big_sur: "31160d2bd7a24af3e788d29b9465399ec27bcfe5b44bdf9a9d2176b540245fe9"
-    sha256 big_sur:       "817351cc1ffa85d14ea28c820837e9077d77302f0e2439a9686e22d0ebbc1093"
-    sha256 catalina:      "5167bdbf374cb87411a3b3aa5b431f2777a90bff8fec599079794f06f0511dbb"
-    sha256 mojave:        "7c13d764a6f0fc06d1ea7a7800c568c2cab8f02ed2f50b12d62cef720c7baad9"
-    sha256 x86_64_linux:  "e4c902e80f8d1c70a08b266d7dc5440b67135fa5803a72559413a551a35e7816"
+    sha256 arm64_big_sur: "1b3dd9ca73892c5a80eaf5be1e7e71a8ec7035a8539ebefff3108c169b264871"
+    sha256 big_sur:       "fd1ec9717260fdab127a4bedc0b37fa8e7ddf7cbf98f580d4a09ee83c8732fa8"
+    sha256 catalina:      "f77d3b9d0d6255cb9e25bf8d55f4b77e65bb4d042e4967994694f86f02efc403"
+    sha256 mojave:        "6dcdff6ebc18f04db1c1774a170111147a30a2b9b1fa9c3aede34ef0af7ed683"
+    sha256 x86_64_linux:  "6741cfc8070a737a45db2a57c4a9fc3b9a6e505e4a1cbf97be5b37bbeb33a58e"
   end
 
   depends_on "gd"
@@ -24,7 +24,9 @@ class Vnstat < Formula
       s.gsub! "/etc/vnstat.conf", "#{etc}/vnstat.conf", false
       s.gsub! "/var/", "#{var}/", false
       s.gsub! "var/lib", "var/db", false
-      s.gsub! "\"eth0\"", "\"en0\"", false
+      # https://github.com/Homebrew/homebrew-core/pull/84695#issuecomment-913043888
+      # network interface difference between macos and linux
+      s.gsub! "\"eth0\"", "\"en0\"", false if OS.mac?
     end
 
     system "./configure", "--disable-dependency-tracking",

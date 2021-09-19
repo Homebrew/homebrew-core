@@ -14,10 +14,12 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ab25be32463c05e36c5d666422c528f6400341e1d1cda03b7b3c4bf32c930e22"
-    sha256 cellar: :any, big_sur:       "e5e7ee99f8ad14e2b39cfb8ead227ba60c1837d3bbf0c275d468c35bb9b3e882"
-    sha256 cellar: :any, catalina:      "7ff0e85ccebd423a6796c68d80326d384626182360decf4f938f4ba9eb8bd524"
-    sha256 cellar: :any, mojave:        "787c45fca83b0a31b3ee19e28d1fd2a000cd1ee9dabe02e7a4818c8ffcb03470"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "65f03b8d9ab3923064d509e22a7ae9689d696687854f7d5943cae28eb892c438"
+    sha256 cellar: :any,                 big_sur:       "9e29391e63edc3f3d0891f8b3ecd6814cc314e2748dc25c9dc43b60a417ecb69"
+    sha256 cellar: :any,                 catalina:      "c24b067cb5fa13ddcb5839bd0cbd94d92cec4d2fef276022a273426d2045013a"
+    sha256 cellar: :any,                 mojave:        "ce491f8e34efe83ffaa18f188ccd1030aeaa5c9ed479c4ddaad5c313ffeb47dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1821e5b810f4eeb9d274328aa3a067b2ce70b1ce35775555df5fcb7faf4a12a8"
   end
 
   depends_on "cmake"      => [:build, :test]
@@ -49,6 +51,40 @@ class Qt < Formula
   uses_from_macos "perl"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "at-spi2-core"
+    depends_on "fontconfig"
+    depends_on "gcc"
+    depends_on "gperf"
+    depends_on "libxkbcommon"
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libxcomposite"
+    depends_on "libdrm"
+    depends_on "mesa"
+    depends_on "pulseaudio"
+    depends_on "sdl2"
+    depends_on "systemd"
+    depends_on "xcb-util"
+    depends_on "xcb-util-image"
+    depends_on "xcb-util-keysyms"
+    depends_on "xcb-util-renderutil"
+    depends_on "xcb-util-wm"
+    depends_on "wayland"
+
+    # Apply upstream patch to fix building vendored assimp with GCC 11.
+    # Due to https://bugreports.qt.io/browse/QTBUG-91537, vendored assimp
+    # is built even when -system-assimp is set.
+    # Remove with release 6.2.
+    patch do
+      url "https://github.com/assimp/assimp/commit/6ebae5e67c49097b1c55a51f4ead053bc33d8255.patch?full_index=1"
+      sha256 "dca6be29d685bfb37d4b4a5f46b81c96da1996f120c8d54a738324daa20cc879"
+      directory "qtquick3d/src/3rdparty/assimp/src"
+    end
+  end
+
+  fails_with gcc: "5"
+
   def install
     # FIXME: See https://bugreports.qt.io/browse/QTBUG-89559
     # and https://codereview.qt-project.org/c/qt/qtbase/+/327393
@@ -61,7 +97,6 @@ class Qt < Formula
 
       -prefix #{HOMEBREW_PREFIX}
       -extprefix #{prefix}
-      -sysroot #{MacOS.sdk_path}
 
       -archdatadir share/qt
       -datadir share/qt
@@ -76,6 +111,8 @@ class Qt < Formula
       -no-sql-psql
     ]
 
+    config_args << "-sysroot" << MacOS.sdk_path.to_s if OS.mac?
+
     # TODO: remove `-DFEATURE_qt3d_system_assimp=ON`
     # and `-DTEST_assimp=ON` when Qt 6.2 is released.
     # See https://bugreports.qt.io/browse/QTBUG-91537
@@ -89,13 +126,23 @@ class Qt < Formula
       -DTEST_assimp=ON
     ]
 
+    if OS.linux?
+      # Explicitly specify QT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX so
+      # that cmake does not think $HOMEBREW_PREFIX/lib is the install prefix.
+      cmake_args << "-DQT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX=#{prefix}"
+
+      # Change default mkspec for qmake on Linux to use brewed GCC
+      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}gcc", ENV.cc
+      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}g++", ENV.cxx
+    end
+
     system "./configure", *config_args, "--", *cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."
 
     rm bin/"qt-cmake-private-install.cmake"
 
-    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", HOMEBREW_SHIMS_PATH/"mac/super", "/usr/bin"
+    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", Superenv.shims_path, ""
 
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
@@ -109,9 +156,11 @@ class Qt < Formula
       include.install_symlink f/"Headers" => f.stem
     end
 
-    bin.glob("*.app") do |app|
-      libexec.install app
-      bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
+    if OS.mac?
+      bin.glob("*.app") do |app|
+        libexec.install app
+        bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
+      end
     end
   end
 
@@ -173,7 +222,10 @@ class Qt < Formula
         delete root; root = nullptr;
         Q_ASSERT(QSqlDatabase::isDriverAvailable("QSQLITE"));
         const auto &list = QImageReader::supportedImageFormats();
-        for(const char* fmt:{"bmp", "cur", "gif", "heic", "heif",
+        for(const char* fmt:{"bmp", "cur", "gif",
+          #ifdef __APPLE__
+            "heic", "heif",
+          #endif
           "icns", "ico", "jp2", "jpeg", "jpg", "pbm", "pgm", "png",
           "ppm", "svg", "svgz", "tga", "tif", "tiff", "wbmp", "webp",
           "xbm", "xpm"}) {

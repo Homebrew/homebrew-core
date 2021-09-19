@@ -63,7 +63,7 @@ class Rpm < Formula
                           "__LD=/usr/bin/ld"
     system "make", "install"
 
-    inreplace lib/"rpm/macros", "#{HOMEBREW_SHIMS_PATH}/mac/super/", "" if OS.mac?
+    inreplace lib/"rpm/macros", Superenv.shims_path, "" if OS.mac?
   end
 
   def post_install

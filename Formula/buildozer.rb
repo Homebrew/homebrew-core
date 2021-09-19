@@ -1,17 +1,17 @@
 class Buildozer < Formula
   desc "Rewrite bazel BUILD files using standard commands"
   homepage "https://github.com/bazelbuild/buildtools"
-  url "https://github.com/bazelbuild/buildtools/archive/4.2.0.tar.gz"
-  sha256 "d49976b0b1e81146d79072f10cabe6634afcd318b1bd86b0102d5967121c43c1"
+  url "https://github.com/bazelbuild/buildtools/archive/4.2.1.tar.gz"
+  sha256 "b8b69615e8d9ade79f3612311b8d0c4dfe01017420c90eed11db15e9e7c9ff3c"
   license "Apache-2.0"
   head "https://github.com/bazelbuild/buildtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c1bedbb3305b3e492ac9b8f84ce653e7e9daa8efa21e82f96278f865849d4759"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c101f965a5430d204d3449f8389f42cc48cd1fdd751ff000aa353e044cf38030"
-    sha256 cellar: :any_skip_relocation, catalina:      "c101f965a5430d204d3449f8389f42cc48cd1fdd751ff000aa353e044cf38030"
-    sha256 cellar: :any_skip_relocation, mojave:        "c101f965a5430d204d3449f8389f42cc48cd1fdd751ff000aa353e044cf38030"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f3e9521c6adb3a5135b9ce749b57720463bc94bc9c51f7f5428b101e801e4f6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "40db542ce34379d25c83a7baff75d87aa4f953646605cf4812c0c83e30c0105d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9b5c3912596e4518555351c5f5675a15bbf5c0fa12682c17cc1850afea5e6b22"
+    sha256 cellar: :any_skip_relocation, catalina:      "9b5c3912596e4518555351c5f5675a15bbf5c0fa12682c17cc1850afea5e6b22"
+    sha256 cellar: :any_skip_relocation, mojave:        "9b5c3912596e4518555351c5f5675a15bbf5c0fa12682c17cc1850afea5e6b22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf14c4de5e3ac6e2f1cd44ecd8c9c3eb9b25b1e5a99cbc4feea75ca4c8effb1f"
   end
 
   depends_on "go" => :build

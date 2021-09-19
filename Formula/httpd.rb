@@ -1,18 +1,17 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=httpd/httpd-2.4.48.tar.bz2"
-  mirror "https://archive.apache.org/dist/httpd/httpd-2.4.48.tar.bz2"
-  sha256 "1bc826e7b2e88108c7e4bf43c026636f77a41d849cfb667aa7b5c0b86dbf966c"
+  url "https://www.apache.org/dyn/closer.lua?path=httpd/httpd-2.4.49.tar.bz2"
+  mirror "https://archive.apache.org/dist/httpd/httpd-2.4.49.tar.bz2"
+  sha256 "65b965d6890ea90d9706595e4b7b9365b5060bec8ea723449480b4769974133b"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "51a6c522ddeb1cb3a306a31c97d8711fbc8a485cda066adda63b3cf4fa09ef88"
-    sha256 big_sur:       "98e4dd6f6f5a5703ceda01113a0e712946bcd299872ea97b54eb55952d5d2fbf"
-    sha256 catalina:      "88b47898aa5933e66564b76b53365d52bdcf05aba6738a13c5f6c54973d63c9f"
-    sha256 mojave:        "9a498201ae55ce42f3f072572c181b31593e3ed4c8290556939283495a7d9fc7"
-    sha256 x86_64_linux:  "08b378464786b56467ef0ea35d46eebd3a7afabe5f65fd3a43917636c6bed8cd"
+    sha256 arm64_big_sur: "e6ebcb4a1307a3e8c9c8dcb41d5a702398b38ca537e14502dc898acce3c78000"
+    sha256 big_sur:       "ade7dbaf67d42a5e71e08fb34d771df23f2b8be478507679ba6ca9593ca74673"
+    sha256 catalina:      "657cba33ccfe3498613f48112b1e28181237fa56674e3d29bc4be5ab4e6218d6"
+    sha256 mojave:        "645aca6e1cf953f13bc527bb434c765025b270a9b65f52cc4522673a16a2101b"
+    sha256 x86_64_linux:  "fb5df0ba244a0f95ee0e78a81b6322e684d9c53a4a9daf987f306c3956239b04"
   end
 
   depends_on "apr"
@@ -97,7 +96,7 @@ class Httpd < Formula
       #{include}/httpd/ap_config_layout.h
       #{lib}/httpd/build/config_vars.mk
     ] do |s|
-      s.gsub! "#{lib}/httpd/modules", "#{HOMEBREW_PREFIX}/lib/httpd/modules"
+      s.gsub! lib/"httpd/modules", HOMEBREW_PREFIX/"lib/httpd/modules"
     end
 
     inreplace %W[
@@ -111,18 +110,11 @@ class Httpd < Formula
       s.gsub! prefix, opt_prefix
     end
 
-    os = if OS.mac?
-      "mac"
-    else
-      "linux"
-    end
     inreplace "#{lib}/httpd/build/config_vars.mk" do |s|
       pcre = Formula["pcre"]
       s.gsub! pcre.prefix.realpath, pcre.opt_prefix
-      s.gsub! "${prefix}/lib/httpd/modules",
-              "#{HOMEBREW_PREFIX}/lib/httpd/modules"
-      s.gsub! "#{HOMEBREW_SHIMS_PATH}/#{os}/super",
-              "#{HOMEBREW_PREFIX}/bin"
+      s.gsub! "${prefix}/lib/httpd/modules", HOMEBREW_PREFIX/"lib/httpd/modules"
+      s.gsub! Superenv.shims_path, HOMEBREW_PREFIX/"bin"
     end
   end
 

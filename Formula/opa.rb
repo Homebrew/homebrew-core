@@ -4,7 +4,7 @@ class Opa < Formula
   url "https://github.com/open-policy-agent/opa/archive/v0.32.0.tar.gz"
   sha256 "307b256e8361199cc941c65476aaf1f40e0ca83b23b1cc32583d8e93d5e2cf4c"
   license "Apache-2.0"
-  head "https://github.com/open-policy-agent/opa.git"
+  head "https://github.com/open-policy-agent/opa.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3fa8abc73bbe90449ab11e85dfab6bebb8696f79074c32b89cd53223f1956d2"

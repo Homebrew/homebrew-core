@@ -2,7 +2,7 @@ class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
   license "Apache-2.0"
-  head "https://github.com/openshift/oc.git"
+  head "https://github.com/openshift/oc.git", branch: "master"
 
   stable do
     url "https://github.com/openshift/oc.git",

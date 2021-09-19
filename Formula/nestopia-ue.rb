@@ -4,7 +4,7 @@ class NestopiaUe < Formula
   url "https://github.com/0ldsk00l/nestopia/archive/1.51.1.tar.gz"
   sha256 "6c2198ed5f885b160bf7e22a777a5e139a7625444ec47625cd07a36627e94b3f"
   license "GPL-2.0-or-later"
-  head "https://github.com/0ldsk00l/nestopia.git"
+  head "https://github.com/0ldsk00l/nestopia.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "48cc9146b538dde455e89b91882abc5cb6e0a3bb5272d546c747df16a7399379"

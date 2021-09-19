@@ -3,17 +3,16 @@ class Sqlparse < Formula
 
   desc "Non-validating SQL parser"
   homepage "https://github.com/andialbrecht/sqlparse"
-  url "https://files.pythonhosted.org/packages/a2/54/da10f9a0235681179144a5ca02147428f955745e9393f859dec8d0d05b41/sqlparse-0.4.1.tar.gz"
-  sha256 "0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"
+  url "https://files.pythonhosted.org/packages/32/fe/8a8575debfd924c8160295686a7ea661107fc34d831429cce212b6442edb/sqlparse-0.4.2.tar.gz"
+  sha256 "0c00730c74263a94e5a9919ade150dfc3b19c574389985446148402998287dae"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "23a704c78e708e33de4370e6a8bdff580be8cf707ac0d7708905c0618f6c4d4c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "223cb7df4d5a5024e7006b8584edf6c98ab4d7715c1a5e78cc87d9c989d254bb"
-    sha256 cellar: :any_skip_relocation, catalina:      "474e731b38baa47c6db75bf1ca957e6814148dd166941c70967836eeb3be844e"
-    sha256 cellar: :any_skip_relocation, mojave:        "fe9331f9ef485b2b110cf72fb36a9344d5744efb79b4652b4f8e37c1c43facc6"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "743a16f18f46d93b073e9dcf01164c1347314fbbbced824d86906a345324e29a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5957d8d75a70dc8b2b8bb6f881d82025bd0ebec7839dcbb0664e3ceb129d187b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1a984ac437bd907f5eac3e62965dd8cf78859965304d74cab2c9c240d9c7d17a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "361c451cebe6f78c03e55929ed30d1d98781025e65f5bad09d2f41d55d15a52d"
+    sha256 cellar: :any_skip_relocation, catalina:      "361c451cebe6f78c03e55929ed30d1d98781025e65f5bad09d2f41d55d15a52d"
+    sha256 cellar: :any_skip_relocation, mojave:        "361c451cebe6f78c03e55929ed30d1d98781025e65f5bad09d2f41d55d15a52d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "180b65725243b7b0746ce80b98d4e4d3522ed720e38f6f02d0c6f98a849e9a33"
   end
 
   depends_on "python@3.9"

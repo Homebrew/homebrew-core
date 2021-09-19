@@ -4,7 +4,7 @@ class Nodebrew < Formula
   url "https://github.com/hokaccha/nodebrew/archive/v1.1.0.tar.gz"
   sha256 "b2046d97392ed971254bee2026cfcf8fb59225f51b566ec4b77e9355a861c8a7"
   license "MIT"
-  head "https://github.com/hokaccha/nodebrew.git"
+  head "https://github.com/hokaccha/nodebrew.git", branch: "master"
 
   bottle do
     rebuild 1

@@ -5,7 +5,7 @@ class OperatorSdk < Formula
       tag:      "v1.12.0",
       revision: "d3b2761afdb78f629a7eaf4461b0fb8ae3b02860"
   license "Apache-2.0"
-  head "https://github.com/operator-framework/operator-sdk.git"
+  head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
   livecheck do
     url :stable

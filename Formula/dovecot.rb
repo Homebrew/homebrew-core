@@ -6,7 +6,7 @@ class Dovecot < Formula
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
 
   livecheck do
-    url "https://dovecot.org/download"
+    url "https://www.dovecot.org/download/"
     regex(/href=.*?dovecot[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

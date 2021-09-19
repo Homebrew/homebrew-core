@@ -5,7 +5,7 @@ class Osm2pgrouting < Formula
   sha256 "e3a58bcacf0c8811e0dcf3cf3791a4a7cc5ea2a901276133eacf227b30fd8355"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/pgRouting/osm2pgrouting.git"
+  head "https://github.com/pgRouting/osm2pgrouting.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "9bcbb99b700443c680e3d1bf0c150228022afbb390f85a0a8374362ff43ebdd5"

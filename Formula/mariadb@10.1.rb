@@ -67,7 +67,7 @@ class MariadbAT101 < Formula
     system "make", "install"
 
     # Avoid references to the Homebrew shims directory
-    inreplace bin/"mysqlbug", HOMEBREW_SHIMS_PATH/"mac/super/", ""
+    inreplace bin/"mysqlbug", "#{Superenv.shims_path}/", ""
 
     # Fix my.cnf to point to #{etc} instead of /etc
     (etc/"my.cnf.d").mkpath

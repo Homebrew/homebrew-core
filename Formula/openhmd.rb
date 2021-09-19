@@ -4,7 +4,7 @@ class Openhmd < Formula
   url "https://github.com/OpenHMD/OpenHMD/archive/0.3.0.tar.gz"
   sha256 "ec5c97ab456046a8aef3cde6d59e474603af398f1d064a66e364fe3c0b26a0fa"
   license "BSL-1.0"
-  head "https://github.com/OpenHMD/OpenHMD.git"
+  head "https://github.com/OpenHMD/OpenHMD.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "19e9b946bbefe306dc41aa803e5cb48aec3ab62bf334b8975e660f4a3644c0c7"

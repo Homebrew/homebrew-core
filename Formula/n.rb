@@ -4,7 +4,7 @@ class N < Formula
   url "https://github.com/tj/n/archive/v7.3.1.tar.gz"
   sha256 "92754b32607571e4a8d610ac6df18f43bbe7380927d79e1ef640c516eca88458"
   license "MIT"
-  head "https://github.com/tj/n.git"
+  head "https://github.com/tj/n.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ff4148c324c6bba661668a8506f0cfa189d3ce2f62cab6ad548e5bf686af72b7"

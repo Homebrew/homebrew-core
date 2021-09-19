@@ -3,16 +3,16 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/66/1f/2a25267d9b3c5052b3c52f256a40a318bf33069677e2268e364b8639560b/commitizen-2.18.0.tar.gz"
-  sha256 "f24a22eb6734e1791046e817dff72505b515e9a1f282577a82423cf7563201d7"
+  url "https://files.pythonhosted.org/packages/19/66/8ce356d2cddaf83b201d6115b3bd9c596de9489d1cc19947254e3d4ae836/commitizen-2.18.1.tar.gz"
+  sha256 "76b83d2e0f00e5aeef823dd8d4b289c92da980cb4233065f4a8c59bf3078ef18"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "391c069b524a408ae1815f4f7b9dfc16e24e29d9854bdf8432364bc7ffdfaf98"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e8f44064f987cde9667c349230fe43452dd2891937d33403a76b276a49e04f88"
-    sha256 cellar: :any_skip_relocation, catalina:      "090a4c91479683903b46ecdef4e9f28a8c9283c8d24939ff9e3d4e5ed2d55bcb"
-    sha256 cellar: :any_skip_relocation, mojave:        "f8ee4f06b2873ffa9b477e9a5c7d82e6bfeb326c2849538329366c0c1bfaff75"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "960a238fc1682740c05dd6d2a52a641b45330416a2d164bccb48bf3ecb2556e6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f9ebb66ac412337437202968b41365cda02919de37c91eca4f4ac1c6a897af49"
+    sha256 cellar: :any_skip_relocation, catalina:      "2f27475d2fe3e52eb1309d5a3ba063703388cd78d882f05b00bd98e3b8b1696d"
+    sha256 cellar: :any_skip_relocation, mojave:        "d778282d6d084818d12c7245e875549f9fbb66ee0fc08a548f6b406e621d892f"
   end
 
   depends_on "python@3.9"
@@ -48,8 +48,8 @@ class Commitizen < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/88/4b/2c0f9e2b52297bdeede91c8917c51575b125006da5d0485521fa2b1e0b75/prompt_toolkit-3.0.19.tar.gz"
-    sha256 "08360ee3a3148bdb5163621709ee322ec34fc4375099afa4bbf751e9b7b7fa4f"
+    url "https://files.pythonhosted.org/packages/b4/56/9ab5868f34ab2657fba7e2192f41316252ab04edbbeb2a8583759960a1a7/prompt_toolkit-3.0.20.tar.gz"
+    sha256 "eb71d5a6b72ce6db177af4a7d4d7085b99756bf656d98ffcc4fecd36850eea6c"
   end
 
   resource "pyparsing" do

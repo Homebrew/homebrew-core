@@ -5,7 +5,7 @@ class Natalie < Formula
   sha256 "f7959915595495ce922b2b6987368118fa28ba7d13ac3961fd513ec8dfdb21c8"
   license "MIT"
   revision 1
-  head "https://github.com/krzyzanowskim/Natalie.git"
+  head "https://github.com/krzyzanowskim/Natalie.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "df7c39d8bcb8d60b095d9b9b90207042791d994f22a53c97e709aa16768a9b28"

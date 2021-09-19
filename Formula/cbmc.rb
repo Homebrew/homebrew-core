@@ -5,18 +5,20 @@ class Cbmc < Formula
       tag:      "cbmc-5.38.0",
       revision: "667858fb799e82df7f6cafca53b13ed996824b64"
   license "BSD-4-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6ae0c663a340ee634c711112bf3ef842e2aa7673c3a4d8e41b5a3128206eb9b5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0783827cb05a349c4af6ac4da4a2684f7c663c05f7e4d5370372b5647bdbff40"
-    sha256 cellar: :any_skip_relocation, catalina:      "ae28dfaf328d6563bf49b631deae3dcea5d85ff9b76973e71c238c7450fc4584"
-    sha256 cellar: :any_skip_relocation, mojave:        "319b650757af4b99cc976236c2158e011d6b0226e6134f3a341329d9fbf983a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "566db205fae9f0b2b6e5cd9114e5569654ad5fad7e3344a8cfa4163bafea376a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "83e6399a382670759dbe25376d39309153394541b693d960b2782dcfdb446e22"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8fa637bb5b7196a033ffab22b0c990bc4ce1df436d3bf9245b574c89788f6011"
+    sha256 cellar: :any_skip_relocation, catalina:      "8dd7e6dc6d426549ba53432026d36d5b11c49533b659f91e40bca531a0d416dc"
+    sha256 cellar: :any_skip_relocation, mojave:        "a3487712a1633ece2e59a046c3e70555daf10d34056602da9bd69a5229d1615c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6a6ddad09e6789292cc639e37337eff3b4a0ba119f027bbe9a1649ee4abd61c"
   end
 
   depends_on "cmake" => :build
   depends_on "maven" => :build
-  depends_on "openjdk" => :build
+  # Java front-end fails to build with openjdk>=17
+  depends_on "openjdk@11" => :build
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -28,21 +30,18 @@ class Cbmc < Formula
   fails_with gcc: "5"
 
   def install
-    args = []
+    ENV["JAVA_HOME"] = Language::Java.java_home("11")
 
+    args = []
     # Workaround borrowed from https://github.com/diffblue/cbmc/issues/4956
     args << "-DCMAKE_C_COMPILER=/usr/bin/clang" if OS.mac?
-    # Java front-end fails to build on ARM
-    args << "-DWITH_JBMC=OFF" if Hardware::CPU.arm?
 
-    mkdir "build" do
-      system "cmake", "..", *args, *std_cmake_args
-      system "cmake", "--build", "."
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # lib contains only `jar` files
-    libexec.install lib unless Hardware::CPU.arm?
+    libexec.install lib
   end
 
   test do

@@ -24,8 +24,9 @@ class Croc < Formula
     fork do
       exec bin/"croc", "send", "--code=homebrew-test", "--text=mytext"
     end
-    sleep 1
+    sleep 5
 
-    assert_match shell_output("#{bin}/croc --yes homebrew-test").chomp, "mytext"
+    assert_match "mytext", pipe_output(bin/"croc --yes homebrew-test", "y\n") if OS.mac?
+    assert_match shell_output("#{bin}/croc --yes homebrew-test").chomp, "mytext" if OS.linux?
   end
 end

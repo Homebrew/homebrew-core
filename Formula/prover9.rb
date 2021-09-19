@@ -6,6 +6,11 @@ class Prover9 < Formula
   sha256 "c32bed5807000c0b7161c276e50d9ca0af0cb248df2c1affb2f6fc02471b51d0"
   license "GPL-2.0-only"
 
+  livecheck do
+    url "https://www.cs.unm.edu/~mccune/prover9/download/"
+    regex(/href=.*?LADR[._-]v?(\d+(?:[.-]\d+[A-Z]?)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3d5bf0492b97661c22bc8077463c7f577971e1a6f2db5a70f0bb86337c8de02f"
     sha256 cellar: :any_skip_relocation, big_sur:       "a81af1adbb27059709ec9bd9afd30e7819fbd750ea18736c079640058e9ca5b0"

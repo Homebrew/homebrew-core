@@ -1,17 +1,17 @@
 class Libxkbcommon < Formula
   desc "Keyboard handling library"
   homepage "https://xkbcommon.org/"
-  url "https://xkbcommon.org/download/libxkbcommon-1.3.0.tar.xz"
-  sha256 "7b09e098ea69bc3054f0c57a9a25fda571c4df22398811606e32b5fffeb75e7b"
+  url "https://xkbcommon.org/download/libxkbcommon-1.3.1.tar.xz"
+  sha256 "b3c710d27a2630054e1e1399c85b7f330ef03359b460f0c1b3b587fd01fe9234"
   license "MIT"
   head "https://github.com/xkbcommon/libxkbcommon.git"
 
   bottle do
-    sha256 arm64_big_sur: "4d90728ce58c3e91ceb8f184bf78b0dcde24b8d80f64820f788f116d4d621ba8"
-    sha256 big_sur:       "d70f333837f2e6f3c4ff279c8a5811fde4ac7fc7ee20c01f71531ffc669a7ce5"
-    sha256 catalina:      "91d714d117af4e8b2c8c6a044b32dbcb4d88afe8fcf8eab44060e3025e4c5da0"
-    sha256 mojave:        "366af8c0fc612df3d5dd13aee882a46e4d962299b62fccc0de3a5ec903bf24de"
-    sha256 x86_64_linux:  "3f8c39c75716d2fd4bb13e041b9cc0de39c47fb19959f377b101008905721beb"
+    sha256 arm64_big_sur: "1eb1269f05403fc56cde1b2ba18316db80c3d7bc06343c744856df94a35fca05"
+    sha256 big_sur:       "725ffc225899f82dd3e8af9faeb901fbc688e4d420ceb4f935f48110e178e68c"
+    sha256 catalina:      "87cb22b633159f05b819d5642dfecebcfb5a9151a1745d3643288732b648eaa7"
+    sha256 mojave:        "330abe48ff8ed73dd8233435f3ed05ef0e9cfaf003c9c9e08d68eb1d3c3def23"
+    sha256 x86_64_linux:  "8ea3f2ea30b4160fe4f1ce40fba19837890e1976b73da41e9f87f09d68ee897b"
   end
 
   depends_on "bison" => :build

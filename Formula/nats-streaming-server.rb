@@ -4,7 +4,7 @@ class NatsStreamingServer < Formula
   url "https://github.com/nats-io/nats-streaming-server/archive/refs/tags/v0.22.1.tar.gz"
   sha256 "116035f0c3c7e6154b7b1352d53ab16bd90b89afbce4afb70fe5d686ca4f24b0"
   license "Apache-2.0"
-  head "https://github.com/nats-io/nats-streaming-server.git"
+  head "https://github.com/nats-io/nats-streaming-server.git", branch: "main"
 
   bottle do
     rebuild 1

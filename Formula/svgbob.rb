@@ -1,23 +1,23 @@
 class Svgbob < Formula
   desc "Convert your ascii diagram scribbles into happy little SVG"
   homepage "https://ivanceras.github.io/svgbob-editor/"
-  url "https://github.com/ivanceras/svgbob/archive/0.6.1.tar.gz"
-  sha256 "0207ccfd7b6432705f56d87da40536d8c5dd86fa8f10577de4522a16c4b6b992"
+  url "https://github.com/ivanceras/svgbob/archive/0.6.2.tar.gz"
+  sha256 "bf4a545ad18b721b5d9d56947329fd1aab4179431a147a0fe445d43aebecf94a"
   license "Apache-2.0"
   head "https://github.com/ivanceras/svgbob.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b9c3733b17fd814e888c9cac06df9760cd76f9cb45e3cedc75d42385e987254b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6f9676ab8effa5a091ea9fdce5e9afc438d0c35b9174580cfd1e090a765909a7"
-    sha256 cellar: :any_skip_relocation, catalina:      "e7a40e48c48082fdc20009ca1ab4a916929053a450021fecbbcd1cca00eaf38d"
-    sha256 cellar: :any_skip_relocation, mojave:        "cfe41298ae2497a7a5014388229d3ca9fe40888458ae3a191410a44eb768fcb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98bd45da6e9c8ff5664d7f672ebde7fba711b01e40774ab0f8c9144673371824"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "809e9e605211d42102857ac57f3e37636b852babc2e525534c5c863af36d5b59"
+    sha256 cellar: :any_skip_relocation, big_sur:       "19911583205a4ffd4be502cab52f491aa280b096059005ef8acc54993479f2b6"
+    sha256 cellar: :any_skip_relocation, catalina:      "dff771f864d9a9c735c173facbfeb608f686cc050ac4c7a61c0f22ca720db800"
+    sha256 cellar: :any_skip_relocation, mojave:        "5d42a1aefc9b2b1a72d7ebe39478c3e18a6fe0cabc43ad7ccff2109ac7fc7c04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81a73a2b6818ae5fb97f8a4bff7078d95ec19b20bac3c8ced0b1b8b3aafd0804"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "svgbob_cli")
+    system "cargo", "install", *std_cargo_args(path: "packages/cli")
   end
 
   test do

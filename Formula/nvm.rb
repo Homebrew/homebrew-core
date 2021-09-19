@@ -4,7 +4,7 @@ class Nvm < Formula
   url "https://github.com/creationix/nvm/archive/v0.38.0.tar.gz"
   sha256 "35bb7bc74bf9efacde270ee5f52ef3c41fd585c5f8ddd57ca6e8e07e4f29fc74"
   license "MIT"
-  head "https://github.com/nvm-sh/nvm.git"
+  head "https://github.com/nvm-sh/nvm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "f3cd481b024f9e46a56450d6aaf43c83875e8e7796db6838a6441195b039a368"

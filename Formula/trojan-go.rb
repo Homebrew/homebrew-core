@@ -2,43 +2,45 @@ class TrojanGo < Formula
   desc "Trojan proxy in Go"
   homepage "https://p4gefau1t.github.io/trojan-go/"
   url "https://github.com/p4gefau1t/trojan-go.git",
-      tag:      "v0.10.5",
-      revision: "98cfe1813143abaae15d125c48bce28c3a3fdc8f"
+      tag:      "v0.10.6",
+      revision: "2dc60f52e79ff8b910e78e444f1e80678e936450"
   license "GPL-3.0-only"
   head "https://github.com/p4gefau1t/trojan-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7a27d4127ade04f1df37610525f60dfe80bb6647fa2bf789c9fb40834a5ca470"
-    sha256 cellar: :any_skip_relocation, big_sur:       "40dc5b734715a7bd6481b35a8a83f7baed65b3c937e6ea448bf572bd1114fe8d"
-    sha256 cellar: :any_skip_relocation, catalina:      "8f861e3af6b0a8ca7f9fbcd051e5ecc2931c1ee140740c704932075f2d063db7"
-    sha256 cellar: :any_skip_relocation, mojave:        "defedd1f45e3317677a9b26ef16d84f171f409ac3a25f173a97358d3583f72f4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9762f85a824ff74c47da792549bee3b227c3abdc0cdb0e240cbedd353aefdfc1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dbd2c6728ed016b1edec17347f6afb7b2c963838785e9579c597a84c84760782"
+    sha256 cellar: :any_skip_relocation, catalina:      "032789eb1b094143bb9e0ff9ff2e322b4bed0e14e5a475459637dea749771a2a"
+    sha256 cellar: :any_skip_relocation, mojave:        "938d529de6c2e30510d85e21a15507d1dd25c2775e4f15a23f3ebfe341403d9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d97afc587b2f38bb0bd46c0ed9adaf6d76346ac92c42b7cee5b959f4a0f0b7b"
   end
 
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202108260024/geoip.dat"
-    sha256 "7e008571f6c11c2f7ba0d48d208022ae972bf5576571204b3018950985d14120"
+    url "https://github.com/v2fly/geoip/releases/download/202109102251/geoip.dat"
+    sha256 "ca9de5837b4ac6ceeb2a3f50d0996318011c0c7f8b5e11cb1fca6a5381f30862"
   end
 
   resource "geoip-only-cn-private" do
-    url "https://github.com/v2fly/geoip/releases/download/202108260024/geoip-only-cn-private.dat"
-    sha256 "b21465a5566d2103413c92de9b0ae9e229e4e4a7034f91832ce2f4c62bab0a1f"
+    url "https://github.com/v2fly/geoip/releases/download/202109102251/geoip-only-cn-private.dat"
+    sha256 "5af05c2ba255e0388f9630fcd40e05314e1cf89b8228ce4d319c45b1de36bd7c"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20210816014827/dlc.dat"
-    sha256 "dcea8ef9b4ba59c8355b194b072a81b9ca55db7df608b7849f7b6c7db4730ff6"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20210910080130/dlc.dat"
+    sha256 "96376220c7e78076bfde7254ee138b7c620902c7731c1e642a8ac15a74fecb34"
   end
 
   def install
     execpath = libexec/name
     ldflags = %W[
+      -s -w
       -X github.com/p4gefau1t/trojan-go/constant.Version=v#{version}
       -X github.com/p4gefau1t/trojan-go/constant.Commit=#{Utils.git_head}
-    ]
+    ].join(" ")
 
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "-o", execpath, "-tags=full"
+    system "go", "build", *std_go_args(ldflags: ldflags), "-o", execpath, "-tags=full"
     (bin/"trojan-go").write_env_script execpath,
       TROJAN_GO_LOCATION_ASSET: "${TROJAN_GO_LOCATION_ASSET:-#{pkgshare}}"
 

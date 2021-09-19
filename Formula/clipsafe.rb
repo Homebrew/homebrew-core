@@ -5,6 +5,11 @@ class Clipsafe < Formula
   sha256 "7a70b4f467094693a58814a42d272e98387916588c6337963fa7258bda7a3e48"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?clipsafe[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, catalina:    "1a8a00c232a748d9b45271239043f5d155666acfdcb79670efc816e26c740221"
     sha256 cellar: :any_skip_relocation, mojave:      "c3c42621d02672ee0cabd443b871760320c1b82ba61b48bca61076acab10d097"

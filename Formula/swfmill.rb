@@ -1,9 +1,14 @@
 class Swfmill < Formula
   desc "Processor of xml2swf and swf2xml"
-  homepage "https://swfmill.org"
+  homepage "https://www.swfmill.org/"
   url "https://www.swfmill.org/releases/swfmill-0.3.6.tar.gz"
   sha256 "db24f63963957faec02bb14b8b61cdaf7096774f8cfdeb9d3573e2e19231548e"
   license "GPL-2.0"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?swfmill[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "be6e61f096ab129607f537e0bc37fd87214f01cfbfa097ab4bfb348614ffa83c"

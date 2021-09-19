@@ -1,9 +1,14 @@
 class Libmpd < Formula
   desc "Higher level access to MPD functions"
-  homepage "https://gmpc.wikia.com/wiki/Gnome_Music_Player_Client"
+  homepage "https://gmpc.fandom.com/wiki/Gnome_Music_Player_Client"
   url "https://www.musicpd.org/download/libmpd/11.8.17/libmpd-11.8.17.tar.gz"
   sha256 "fe20326b0d10641f71c4673fae637bf9222a96e1712f71f170fca2fc34bf7a83"
   revision 1
+
+  livecheck do
+    url "https://www.musicpd.org/download/libmpd/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "782e0fccf8dbe605e9fd7740427335d5b7c2340f7506402c17b747560dea4852"

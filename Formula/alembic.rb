@@ -1,17 +1,17 @@
 class Alembic < Formula
   desc "Open computer graphics interchange framework"
   homepage "http://alembic.io"
-  url "https://github.com/alembic/alembic/archive/1.8.2.tar.gz"
-  sha256 "3f1c466ee1600578689b32b1f2587066d3259704ec7ed1fcf80c324d01274f48"
+  url "https://github.com/alembic/alembic/archive/1.8.3.tar.gz"
+  sha256 "b0bc74833bff118a869e81e6acb810a58797e77ef63143954b2f8e817c7f65cb"
   license "BSD-3-Clause"
   head "https://github.com/alembic/alembic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "46c5f8566ef35e3e8e9142fc17b7d9427158a71fc5d9c6438cfa6c54a3bfff27"
-    sha256 cellar: :any,                 big_sur:       "2eb888ba085f317e78cf98b90d1e550ed9184e9c4ffe9ccf335b2103daa4d746"
-    sha256 cellar: :any,                 catalina:      "0b67c411fc9eb77667cba798784169274cd82ce4e2d85be274b161870b3c05aa"
-    sha256 cellar: :any,                 mojave:        "54f37a4687cce1e482a238ad5c7302f580bb630434dd0279f311d1423d02db4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4dd5488dd07a9200aa47f0d3c4ffedb6e9b76cb382a2f5bcb3e841074b92d63"
+    sha256 cellar: :any,                 arm64_big_sur: "1c7b635a35b4444ad15e39a62e41acb55b895b06e6acf4d82bd0dfb3b06306c3"
+    sha256 cellar: :any,                 big_sur:       "978c247938f12a2f093e3e3caa0d9506186fc2fc922b63c328a9be08c660cc67"
+    sha256 cellar: :any,                 catalina:      "b6d5ec59340dde30d36865eb37eb667459d0c5ca8bffbd220ca580ccd9b41a29"
+    sha256 cellar: :any,                 mojave:        "c10d048c3c97a4dbd228f9c42b8b2c54e9b6eb4ffceb39e300f5676013547c25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16bb62b32e9e5ad09de62602a5b31c262610d4be59bc862f00b8fc669da1add3"
   end
 
   depends_on "cmake" => :build

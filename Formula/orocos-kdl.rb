@@ -1,16 +1,16 @@
 class OrocosKdl < Formula
   desc "Orocos Kinematics and Dynamics C++ library"
   homepage "https://orocos.org/"
-  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.5.0.tar.gz"
-  sha256 "6d4b04c465f0974286fbb419c40e3aca145f616571f2462e2696b830288234a9"
-  license "LGPL-2.1"
+  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.5.1.tar.gz"
+  sha256 "5acb90acd82b10971717aca6c17874390762ecdaa3a8e4db04984ea1d4a2af9b"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c576e606256440c65e04cc0fd2aed93362c357ad25a46fc0f72aac022b0eec44"
-    sha256 cellar: :any,                 big_sur:       "615f504ff88df9e2e465dcbef63eb273499bc46227e3d68d23e074d91cc1ea51"
-    sha256 cellar: :any,                 catalina:      "4d1e1513aab353a9007de15aa819123cbb6593a9878e34bb951daea6ab8193c7"
-    sha256 cellar: :any,                 mojave:        "bce9b01c40d1c6f2ecf4362e98466ced1fffc587d9ca8e08af2da301a8852431"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b877b036ac882aaa9cece53e6ec4d6869520076e268af49c6bdece0d44d84f4"
+    sha256 cellar: :any,                 arm64_big_sur: "70f546d7391dea4d7005d93f3720cde06f14e53b3cc7c514d67376ea05ac6493"
+    sha256 cellar: :any,                 big_sur:       "1c7f7a1fc384bd107acd0d3b8d302beed12c89198617f19b2c74d89e437e3ee8"
+    sha256 cellar: :any,                 catalina:      "4318687278abffc43d727c33539957387dbbab41f7ec9c08a4f5ff7a6061abd1"
+    sha256 cellar: :any,                 mojave:        "be089171fe396309561089d802e13ec101e56e91a5d2141207d588c1f703f52b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76ca5a86d809b86783da8111f4d3aa54f0f3cf6e2eb09dc499e0b5de4e6257f9"
   end
 
   depends_on "cmake" => :build

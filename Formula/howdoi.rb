@@ -3,16 +3,16 @@ class Howdoi < Formula
 
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
-  url "https://files.pythonhosted.org/packages/1b/f9/363eaf858d39140bbddfd9c67c3ec582cb479994d44686a0bf67b3431eaf/howdoi-2.0.18.tar.gz"
-  sha256 "2b276ce5dc6be2c5072f51498e0c0953735cfcbd2d76d75137d52efa2b49704c"
+  url "https://files.pythonhosted.org/packages/50/0c/bcc0913772484a46edbf2f6544e2fb651ea8188e268767f21bbd2415ee3b/howdoi-2.0.19.tar.gz"
+  sha256 "4baa5270a98e9d001094d873a5a1b6a32eac021009cfc40cd9aeede633cb7556"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0a4068e01a5b078e286279c509a8f9b050b6de7d725c27c1d4154f23709066b1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5ec7dd23d88ea19116bbcc9c3a5aa0b3840675d0353a314854930e0a8227152b"
-    sha256 cellar: :any_skip_relocation, catalina:      "15317308a1b98d205a6b38c96377aa11ebd1d1e2f02251794fb899729b2c6be1"
-    sha256 cellar: :any_skip_relocation, mojave:        "8926ad0782573fa9de99de3215d402b80531f8ce2a93f5a8649998c1623acd28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66597231648f385ac78b68f394f28f3603d1e7930ca6bc8054ecc8ef2b89a2c5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6cf2eb706a3bbd36ec9a48893cd3a9ee2270a3899fd80214d4314b4dc7757d70"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1d07020b85c4187414effc6176813e733dbb3aad37391aa2915da20dfe01147f"
+    sha256 cellar: :any_skip_relocation, catalina:      "de80fcefdc263b4b7c19348da3841233af0cadd838ced9a8916809041341cfce"
+    sha256 cellar: :any_skip_relocation, mojave:        "f251951caf4a75895448db6e4fded90315dd59bd13f6cd56a921bb8a675a5316"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c79f2c22eccd2e5f44c89e2c73fd00fd0245d4008256fde4662c16b03c4f206a"
   end
 
   depends_on "python@3.9"
@@ -42,8 +42,8 @@ class Howdoi < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
+    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
   end
 
   resource "click" do
@@ -57,8 +57,8 @@ class Howdoi < Formula
   end
 
   resource "Deprecated" do
-    url "https://files.pythonhosted.org/packages/52/ab/30ae1f10e27385b3d2a4120b8edbcb187ba9ae2c4daf811f4f823aa4f0e2/Deprecated-1.2.12.tar.gz"
-    sha256 "6d2de2de7931a968874481ef30208fd4e08da39177d61d3d4ebdf4366e7dbca1"
+    url "https://files.pythonhosted.org/packages/c8/d1/e412abc2a358a6b9334250629565fe12697ca1cdee4826239eddf944ddd0/Deprecated-1.2.13.tar.gz"
+    sha256 "43ac5335da90c31c24ba028af536a91d41d53f9e6901ddb021bcc572ce44e38d"
   end
 
   resource "idna" do

@@ -4,7 +4,7 @@ class Nodenv < Formula
   url "https://github.com/nodenv/nodenv/archive/v1.4.0.tar.gz"
   sha256 "33e2f3e467219695ba114f75a7c769f3ee4e29b29c1c97a852aa001327ca9713"
   license "MIT"
-  head "https://github.com/nodenv/nodenv.git"
+  head "https://github.com/nodenv/nodenv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c86512e5a1505eb10c79a4aeb618db66cc08a48ac855e9c0f9fb9fba7868d5e7"

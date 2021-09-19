@@ -4,7 +4,7 @@ class Nfdump < Formula
   url "https://github.com/phaag/nfdump/archive/v1.6.23.tar.gz"
   sha256 "8c5a7959e66bb90fcbd8ad508933a14ebde4ccf7f4ae638d8f18c9473c63af33"
   license "BSD-3-Clause"
-  head "https://github.com/phaag/nfdump.git"
+  head "https://github.com/phaag/nfdump.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0166cf87b2fac3b3d48f54a7b5d3dd2433e43fd0aa21500f485167e035b09d49"

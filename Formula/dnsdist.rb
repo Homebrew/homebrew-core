@@ -1,10 +1,9 @@
 class Dnsdist < Formula
   desc "Highly DNS-, DoS- and abuse-aware loadbalancer"
   homepage "https://www.dnsdist.org/"
-  url "https://downloads.powerdns.com/releases/dnsdist-1.6.0.tar.bz2"
-  sha256 "a7783a04d8d4ad2b0168ffaaf85ef95d5f557057b0462280684dd799d0cdd292"
+  url "https://downloads.powerdns.com/releases/dnsdist-1.6.1.tar.bz2"
+  sha256 "29040a43982ae1ad5b7313f081e26519ab3a58af6bced438311da3a65370a3a5"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -12,10 +11,10 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "81b870ee49e98a796ac239d1e2f3676ce38a7c5f02945102ca2a4a382d6411f3"
-    sha256 big_sur:       "48492b51a983e3b1c097d2debb98e4888fdf458543c3b19d6cdd5b62bdd0a2ff"
-    sha256 catalina:      "17065d7729a4cda1d599acf95b36ca657d27728ecbc202ea9594888487ba1190"
-    sha256 mojave:        "cd8f596aa6e4bb0b11d0a2bea8e1129ddda3ff47d8ee8e4a0dc699e318dd3d9b"
+    sha256 arm64_big_sur: "869de3f18ef4fd38bf91b7c1c41d38c67e5f83bf58fd891f3360549c3b6523d3"
+    sha256 big_sur:       "977b8f7e4fc0869f95b4cbee33446117eff314802034a2320523d8aefbbaf51e"
+    sha256 catalina:      "6701dd21d4fee82fa13705db5f4280bb63d5c7087fee38bdcb05b338fdf6556e"
+    sha256 mojave:        "13d58a2f2ff183ae418825f54c454bf960bd9dddc6d357ce5c08025f7d1c23be"
   end
 
   depends_on "boost" => :build

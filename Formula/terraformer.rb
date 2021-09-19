@@ -1,17 +1,17 @@
 class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
-  url "https://github.com/GoogleCloudPlatform/terraformer/archive/0.8.16.tar.gz"
-  sha256 "22884dc28a169be3e286486cd9d9a3d719fe71ae1965d2cc27e29aec4adadb71"
+  url "https://github.com/GoogleCloudPlatform/terraformer/archive/0.8.17.tar.gz"
+  sha256 "a14a3e275a585f921c937ee923291733c9cafa19d774aab90535818ad21ccdef"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/terraformer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f072b8f1edc429d4fd4460d30a5c44452155990dfd928547f1cea42504a32f2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fb97d2eed304edc133a91eff53f87e4cec35bac1ccc7814b7746eca7d07ba708"
-    sha256 cellar: :any_skip_relocation, catalina:      "6a192d733c5b7dba65944589cc20d2a66b8901146e516abd844fe6eb2ad532e4"
-    sha256 cellar: :any_skip_relocation, mojave:        "d7b08f233a6bb41166601731200ca692df8e1534d937a4f484ed9a0a7d8a706e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9e4e4c61cfa1619c4301e8355397b7da3c82991339775cb1156c55bfce9eacd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fb79921417b4b1b600fc3c388e6c079534530a85f74010471ab4a934448cebd4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6f7162524b79c10ca65ab282ac3d5136fe2f551b6f817f2bff33b39b1bdb1f53"
+    sha256 cellar: :any_skip_relocation, catalina:      "d7242977949b612a277f6e2e521cc03543e87f8341a57dd0c91f0c8f32bcd142"
+    sha256 cellar: :any_skip_relocation, mojave:        "4eb013369d13e3af1be9b663d975935441448b11db93c6a9bc30ae909ace0bfd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d874c2f6982b0f1ace309161d07dce00e4cb9ebf16426916e4d30c32c7e227c4"
   end
 
   depends_on "go" => :build

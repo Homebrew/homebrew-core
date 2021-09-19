@@ -1,16 +1,16 @@
 class Stylua < Formula
   desc "Opinionated Lua code formatter"
   homepage "https://github.com/JohnnyMorganz/StyLua"
-  url "https://github.com/JohnnyMorganz/StyLua/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "03999c22779f4dcf68fdf92d143a95afccd6c6554da27af308fd826179db80f9"
+  url "https://github.com/JohnnyMorganz/StyLua/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "39f0bad4cc175202eae2551e4ddaf3dd6a229943e8da3e462d4fa15a024fd0fa"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f7796d48f5b77c1dd290b08edbca2b67b9639a358ab91517038d151ffce4159d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1186ebcd3b943a9f88291525818ed51563191b7c5267a96de6acdc461648f19f"
-    sha256 cellar: :any_skip_relocation, catalina:      "0477d5b24df2e95e38e411a4425ec5bc5cca022fb5776afa2a0303d06db311f1"
-    sha256 cellar: :any_skip_relocation, mojave:        "cccc5e26fbb5337499443e10d68f4a3548ec40a468c4ea56779c4e40342e81ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f306cbddf496c065664ef07c327b61b2a1168927f9c24cc8aefe68cedbb96f64"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "80f08e2bf510ad8ececd7186b471e712dc51c008015294fddc48922d9ccdbd19"
+    sha256 cellar: :any_skip_relocation, big_sur:       "de01dc3c21e4caf37da549b4af85f2ddd87683520dd389e197d4524a0ffd0f86"
+    sha256 cellar: :any_skip_relocation, catalina:      "4461d096324b07260fa450d7e518ac69858748be894039abb51253a4876d3768"
+    sha256 cellar: :any_skip_relocation, mojave:        "4f3e7f59632fc4c4346967bf5eebbdb19592b570475fb10b3f93c0543b5961bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b9f834432551fae3c9bfedbfdc42e7895b7fa03f3235c5e94ea007f39ef7c0e"
   end
 
   depends_on "rust" => :build

@@ -4,7 +4,7 @@ class Nlopt < Formula
   url "https://github.com/stevengj/nlopt/archive/v2.7.0.tar.gz"
   sha256 "b881cc2a5face5139f1c5a30caf26b7d3cb43d69d5e423c9d78392f99844499f"
   license "LGPL-2.1"
-  head "https://github.com/stevengj/nlopt.git"
+  head "https://github.com/stevengj/nlopt.git", branch: "master"
 
   bottle do
     sha256                               arm64_big_sur: "ff00418c72bb7cd562a176f90eeb9a4a4a4a98ea070e10c5ff83515f57a55e58"

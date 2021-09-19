@@ -4,6 +4,11 @@ class Ratfor < Formula
   url "http://www.dgate.org/ratfor/tars/ratfor-1.05.tar.gz"
   sha256 "826278c5cec11f8956984f146e982137e90b0722af5dde9e8c5bf1fef614853c"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ratfor[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "86d1de3e075edcc1e493b46fc7186bd21906644ba69a7032f3bc827487eb9449"
     sha256 cellar: :any_skip_relocation, big_sur:       "0d9bfcd885197bf8bbfbd38469cd831e16f2dceb6cb6155acf075f0dfebcf095"

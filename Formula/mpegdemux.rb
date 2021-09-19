@@ -5,6 +5,11 @@ class Mpegdemux < Formula
   sha256 "0067c31398ed08d3a4f62713bbcc6e4a83591290a599c66cdd8f5a3e4c410419"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?mpegdemux[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b69d0d03885830c30bc529606bf3f7c95181512714bca1a12e4e8aaa4a83b1cc"
     sha256 cellar: :any_skip_relocation, big_sur:       "7e9ee9336d84bb82b1ee8f5b415b534ea7a8b859638cedc074875c13be16e40e"

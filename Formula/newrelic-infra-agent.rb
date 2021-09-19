@@ -1,32 +1,36 @@
 class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
-  url "https://github.com/newrelic/infrastructure-agent/archive/refs/tags/1.20.2.tar.gz"
-  sha256 "83f521ed6ed903d9fdbeed8eb59b6b488ce5492fe305d38a7096d4c2f017138d"
+  url "https://github.com/newrelic/infrastructure-agent.git",
+      tag:      "1.20.2",
+      revision: "d30d434995dc539e38ab84f8324f1a07d0f552ff"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/newrelic/infrastructure-agent.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "4106b38ed2037ceebb6e984b9e53b9e4c03353bd306a8db75c2122da6ef8cb41"
-    sha256 cellar: :any_skip_relocation, catalina:     "0db6721dc524dbbdfa5a7e27d51dca6691466e7b3be621f46909d55cf1c81fc1"
-    sha256 cellar: :any_skip_relocation, mojave:       "0ebf0c24dcf57bf8c872354d924b8076b83b4e771a351527629734d1c896f402"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "80a1f2d22913a89ec427d20a8e03579b6de3f74e23ecf7db99546d513eec35f6"
+    sha256 cellar: :any_skip_relocation, big_sur:      "e2cc3d32941798e5f4dd0e8aad7f50214ba4b6863e863cb210d973b028977ae7"
+    sha256 cellar: :any_skip_relocation, catalina:     "ed5d80ba8cef45ccd7b3ac75fef36642c08c9e2ec56c09f08fddb09109f0623c"
+    sha256 cellar: :any_skip_relocation, mojave:       "567ac22418bafde0e9908aeb52ba66477b9e2f58982e466d283c3685a357d2f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "688145f81ded66d1e52023e9e94ea745c138237bfca5156f7f0377900cb28396"
   end
 
-  depends_on "go" => :build
+  # https://github.com/newrelic/infrastructure-agent/issues/723
+  depends_on "go@1.16" => :build
   # https://github.com/newrelic/infrastructure-agent/issues/695
   depends_on arch: :x86_64
 
   def install
     goarch = Hardware::CPU.arm? ? "arm64" : "amd64"
     ENV["VERSION"] = version.to_s
-    ENV["GOOS"] = if OS.mac?
+    os = if OS.mac?
       ENV["CGO_ENABLED"] = "1"
       "darwin"
     else
       ENV["CGO_ENABLED"] = "0"
       "linux"
     end
+    ENV["GOOS"] = os
     system "make", "dist-for-os"
     bin.install "dist/#{os}-newrelic-infra_#{os}_#{goarch}/newrelic-infra"
     bin.install "dist/#{os}-newrelic-infra-ctl_#{os}_#{goarch}/newrelic-infra-ctl"

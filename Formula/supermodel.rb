@@ -5,6 +5,11 @@ class Supermodel < Formula
   sha256 "ecaf3e7fc466593e02cbf824b722587d295a7189654acb8206ce433dcff5497b"
   head "https://svn.code.sf.net/p/model3emu/code/trunk"
 
+  livecheck do
+    url "https://www.supermodel3.com/Download.html"
+    regex(/href=.*?Supermodel[._-]v?(\d+(?:\.\d+)+[a-z]?)[._-]Src\.zip/i)
+  end
+
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "ad8d438a1f18582da559bc8474e8219b81c695afba907bd99f40c1d960957687"
