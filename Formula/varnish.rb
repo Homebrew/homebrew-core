@@ -24,7 +24,7 @@ class Varnish < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "pcre"
+  depends_on "pcre2"
 
   def install
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
