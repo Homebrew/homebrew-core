@@ -3,8 +3,8 @@ class Asciidoc < Formula
 
   desc "Formatter/translator for text files to numerous formats. Includes a2x"
   homepage "https://asciidoc.org/"
-  url "https://github.com/asciidoc-py/asciidoc-py/archive/9.1.0.tar.gz"
-  sha256 "5056c20157349f8dc74f005b6e88ccbf1078c4e26068876f13ca3d1d7d045fe7"
+  url "https://github.com/asciidoc-py/asciidoc-py/archive/9.1.1.tar.gz"
+  sha256 "914dfc1542c30bd47faa0aaaae0985cb57d0ca584015729ccd1b94d90da3a616"
   license "GPL-2.0-only"
   head "https://github.com/asciidoc-py/asciidoc-py.git", branch: "main"
 
