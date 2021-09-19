@@ -1,10 +1,14 @@
 class YazeAg < Formula
   desc "Yet Another Z80 Emulator (by AG)"
   homepage "http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/"
-  url "http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/devel/yaze-ag-2.40.5_with_keytrans.tar.gz"
-  version "2.40.5"
-  sha256 "d46c861eb0725b87dd5567062f277860b98d538fca477d8686f17b36ef39d9bd"
-  license "GPL-2.0"
+  url "http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/devel/yaze-ag-2.51.1.1.tar.gz"
+  sha256 "9144d3f2522bc369fab3b215868ef504a86452a3636f1a3c435349ea1f57125f"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?yaze-ag[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "ee904628f8d8bdcafb50f18e4909d0d5a3cffe73f864ae66214fa91c8fabaa92"
@@ -17,9 +21,13 @@ class YazeAg < Formula
   end
 
   def install
-    inreplace "Makefile_solaris_gcc", "md5sum -b", "md5"
+    if OS.mac?
+      inreplace "Makefile_solaris_gcc-x86_64", "md5sum -b", "md5"
+      inreplace "Makefile_solaris_gcc-x86_64", /(LIBS\s+=\s+-lrt)/, '#\1'
+    end
+
     bin.mkpath
-    system "make", "-f", "Makefile_solaris_gcc",
+    system "make", "-f", "Makefile_solaris_gcc-x86_64",
                    "BINDIR=#{bin}",
                    "MANDIR=#{man1}",
                    "LIBDIR=#{lib}/yaze",
