@@ -1,8 +1,8 @@
 class Qthreads < Formula
   desc "Lightweight locality-aware user-level threading runtime"
   homepage "https://github.com/Qthreads/qthreads"
-  url "https://github.com/Qthreads/qthreads/releases/download/1.16/qthread-1.16.tar.bz2"
-  sha256 "923d58f3ecf7d838a18c3616948ea32ddace7196c6805518d052c51a27219970"
+  url "https://github.com/Qthreads/qthreads/releases/download/1.17/qthread-1.17.tar.gz"
+  sha256 "619a89c29c9271eac119f8bdad0964cefdebe7f9276330e81e3a527e83d9e359"
   license "BSD-3-Clause"
   head "https://github.com/Qthreads/qthreads.git", branch: "main"
 
