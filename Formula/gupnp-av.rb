@@ -16,15 +16,18 @@ class GupnpAv < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
 
   def install
-    ENV["ax_cv_check_cflags__Wl___no_as_needed"] = "no"
-
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 end
