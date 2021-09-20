@@ -22,6 +22,10 @@ class Gssdp < Formula
   depends_on "glib"
   depends_on "libsoup"
 
+  on_linux do
+    depends_on "vala"
+  end
+
   def install
     mkdir "build" do
       system "meson", *std_meson_args, "-Dsniffer=false", ".."
