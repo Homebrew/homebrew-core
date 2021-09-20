@@ -4,6 +4,7 @@ class Libgweather < Formula
   url "https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz"
   sha256 "ca4e8f2a4baaa9fc6d75d8856adb57056ef1cd6e55c775ba878ae141b6276ee6"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "bbe49cb0dd95750275208f4fa95369c3acbd03bdafe50a582a501b61141092a8"
@@ -20,7 +21,7 @@ class Libgweather < Formula
   depends_on "pygobject3" => :build
   depends_on "geocode-glib"
   depends_on "gtk+3"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
 
   uses_from_macos "libxml2"
 
@@ -59,7 +60,7 @@ class Libgweather < Formula
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
-    libsoup = Formula["libsoup"]
+    libsoup = Formula["libsoup@2"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
     flags = %W[
