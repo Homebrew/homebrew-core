@@ -22,7 +22,7 @@ class Gleam < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "compiler-cli")
   end
 
   test do
