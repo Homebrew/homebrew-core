@@ -4,6 +4,11 @@ class Cdlabelgen < Formula
   url "https://www.aczoom.com/pub/tools/cdlabelgen-4.3.0.tgz"
   sha256 "94202a33bd6b19cc3c1cbf6a8e1779d7c72d8b3b48b96267f97d61ced4e1753f"
 
+  livecheck do
+    url "https://www.aczoom.com/pub/tools/"
+    regex(/href=.*?cdlabelgen[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "8c1096a23f2ce2b8db912fcb9786c2f9d76b7ece60d2269512e90fa9505d0d9e"
     sha256 cellar: :any_skip_relocation, catalina:    "5facce52a8f22279160a388513b2a9406f427f3ab231e119fbc0b074dc7028f9"
