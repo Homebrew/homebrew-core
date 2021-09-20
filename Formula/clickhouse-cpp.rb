@@ -7,6 +7,7 @@ class ClickhouseCpp < Formula
   head "https://github.com/ClickHouse/clickhouse-cpp.git", branch: "master"
 
   depends_on "cmake" => [:build, :test]
+  depends_on "abseil"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
