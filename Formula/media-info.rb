@@ -6,8 +6,8 @@ class MediaInfo < Formula
   license "BSD-2-Clause"
 
   livecheck do
-    url "https://mediaarea.net/download/binary/mediainfo/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    url "https://mediaarea.net/en/MediaInfo/Download/Source"
+    regex(/href=.*?mediainfo[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
