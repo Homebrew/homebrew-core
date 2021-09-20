@@ -10,7 +10,7 @@ class ClickhouseCpp < Formula
   depends_on "abseil"
 
   on_linux do
-    depends_on "gcc"
+    depends_on "gcc" => [:build, :test]
   end
 
   fails_with gcc: "5"
