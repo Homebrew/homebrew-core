@@ -4,6 +4,7 @@ class Homebank < Formula
   url "http://homebank.free.fr/public/homebank-5.5.3.tar.gz"
   sha256 "073607918a9610087791f36f59e70d1261fee8e4e1146a5cfd5871a1d2d91093"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "http://homebank.free.fr/public/"
@@ -27,7 +28,7 @@ class Homebank < Formula
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
   depends_on "libofx"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
 
   def install
     if OS.linux?
