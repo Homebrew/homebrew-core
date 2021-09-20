@@ -1,8 +1,8 @@
 class Jhead < Formula
   desc "Extract Digicam setting info from EXIF JPEG headers"
   homepage "https://www.sentex.net/~mwandel/jhead/"
-  url "https://www.sentex.net/~mwandel/jhead/jhead-3.04.tar.gz"
-  sha256 "ef89bbcf4f6c25ed88088cf242a47a6aedfff4f08cc7dc205bf3e2c0f10a03c9"
+  url "https://github.com/Matthias-Wandel/jhead/archive/refs/tags/3.06.0.1.tar.gz"
+  sha256 "5c5258c3d7a840bf831e22174e4a24cb1de3baf442f7cb73d5ab31b4ae0b0058"
 
   livecheck do
     url :homepage
@@ -18,12 +18,13 @@ class Jhead < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a03c048668f9098da980076c2f7594ef6a53c7cd38dffdf0ba6fa4cecb51a05"
   end
 
-  # Patch to provide a proper install target to the Makefile. The patch has
-  # been submitted upstream through email. We need to carry this patch until
-  # upstream decides to incorporate it.
+  # Patch to provide a proper install target to the Makefile. A variation
+  # of this patch has been submitted upstream at
+  # https://github.com/Matthias-Wandel/jhead/pull/45. We need to
+  # carry this patch until upstream decides to incorporate it.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e37226eb9575636a728461fdc469c6706d81f564/jhead/3.04.patch"
-    sha256 "2812e109fff8c0215faaa5a443d4b0aaa2b3a913aaac6b42c106903f1d62381b"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e3288f753931921027d0def5e8d2c3dbf7073b10/jhead/3.06.0.1.patch"
+    sha256 "520929fe37097fde24f36d7e0fd59ded889d1a3cbea684133398492b14628179"
   end
 
   def install
