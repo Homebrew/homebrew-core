@@ -4,7 +4,7 @@ class Ldns < Formula
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz"
   sha256 "8ac84c16bdca60e710eea75782356f3ac3b55680d40e1530d7cea474ac208229"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.
@@ -37,6 +37,7 @@ class Ldns < Formula
       --with-pyldns
       PYTHON_SITE_PKG=#{lib}/python3.9/site-packages
       --disable-dane-verify
+      --without-xcode-sdk
     ]
 
     # Fixes: ./contrib/python/ldns_wrapper.c:2746:10: fatal error: 'ldns.h' file not found
