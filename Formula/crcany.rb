@@ -29,15 +29,13 @@ class Crcany < Formula
     (testpath/filename).write input
 
     expected = <<~EOS
-      CRC-3/GSM
-      0x0
+      CRC-3/GSM: 0x0
     EOS
     assert_equal expected, pipe_output("#{bin}/crcany -3gsm", input)
     assert_equal expected, shell_output("#{bin}/crcany -3gsm #{filename}")
 
     expected = <<~EOS
-      CRC-64/XZ
-      0xfa15fda7c10c75a5
+      CRC-64/XZ: 0xfa15fda7c10c75a5
     EOS
     assert_equal expected, pipe_output("#{bin}/crcany -64xz", input)
     assert_equal expected, shell_output("#{bin}/crcany -64xz #{filename}")
