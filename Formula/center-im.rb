@@ -1,9 +1,8 @@
 class CenterIm < Formula
   desc "Text-mode multi-protocol instant messaging client"
   homepage "https://github.com/petrpavlu/centerim5"
-  url "https://www.centerim.org/download/releases/centerim-4.22.10.tar.gz"
-  sha256 "93ce15eb9c834a4939b5aa0846d5c6023ec2953214daf8dc26c85ceaa4413f6e"
-  revision 2
+  url "https://www.centerim.org/download/releases/centerim-5.0.1.tar.gz"
+  sha256 "8d0689facd5e0b8803fb81ffa168c3c2022723f9d9e802ab0ea78b2157665f56"
 
   # Modify this to use `url :stable` if/when the formula is updated to use an
   # archive from GitHub in the future.
