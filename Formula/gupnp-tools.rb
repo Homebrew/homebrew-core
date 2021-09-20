@@ -4,7 +4,7 @@ class GupnpTools < Formula
   url "https://download.gnome.org/sources/gupnp-tools/0.10/gupnp-tools-0.10.1.tar.xz"
   sha256 "4ea96d167462b3a548efc4fc4ea089fe518d7d29be349d1cce8982b9ffb53b4a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_big_sur: "d274a21bebdd1eecbb3663acc978b7db9a02fa82dd1bf6a6ae580d6342b41d86"
@@ -22,7 +22,7 @@ class GupnpTools < Formula
   depends_on "gtksourceview4"
   depends_on "gupnp"
   depends_on "gupnp-av"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
 
   def install
     mkdir "build" do
