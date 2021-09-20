@@ -1,8 +1,8 @@
 class Crcany < Formula
   desc "Compute any CRC, a bit at a time, a byte at a time, and a word at a time"
   homepage "https://github.com/madler/crcany"
-  url "https://github.com/madler/crcany/archive/v2.0.tar.gz"
-  sha256 "33dbe92f05a0cd9b9e133d0a6f864793d96c5c6055845e0f7220bdf3372aa5bf"
+  url "https://github.com/madler/crcany/archive/v2.1.tar.gz"
+  sha256 "e07cf86f2d167ea628e6c773369166770512f54a34a3d5c0acd495eb947d8a1b"
   license "Zlib"
   head "https://github.com/madler/crcany.git", branch: "master"
 
