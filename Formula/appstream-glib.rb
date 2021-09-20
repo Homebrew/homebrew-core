@@ -4,6 +4,7 @@ class AppstreamGlib < Formula
   url "https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_18.tar.gz"
   sha256 "73b8c10273c4cdd8f6de03c2524fedad64e34ccae08ee847dba804bb15461f6e"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "9e362ed34b12416f44409293c6048caf732fadcfdafb9e2e03b66212505a145d"
@@ -23,7 +24,7 @@ class AppstreamGlib < Formula
   depends_on "glib"
   depends_on "json-glib"
   depends_on "libarchive"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
   depends_on "util-linux"
 
   # see https://github.com/hughsie/appstream-glib/issues/258
