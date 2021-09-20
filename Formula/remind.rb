@@ -4,7 +4,7 @@ class Remind < Formula
   url "https://dianne.skoll.ca/projects/remind/download/remind-03.03.08.tar.gz"
   sha256 "25ea12cd914b7d4aecc5731b5bcb81295c0e3df963d86b9171a4eca145b7b788"
   license "GPL-2.0-only"
-  head "https://dianne.skoll.ca/projects/remind/git/Remind.git"
+  head "https://git.skoll.ca/Skollsoft-Public/Remind.git", branch: "master"
 
   livecheck do
     url :homepage
