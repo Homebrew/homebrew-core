@@ -73,12 +73,12 @@ class ClickhouseOdbc < Formula
       [ClickHouse ODBC Test DSN A]
       Driver      = ClickHouse ODBC Test Driver A
       Description = DSN for ClickHouse ODBC Test Driver (ANSI)
-      Url         = https://default:password@localhost:8443/query?database=default
+      Url         = https://default:password@example.com:8443/query?database=default
 
       [ClickHouse ODBC Test DSN W]
       Driver      = ClickHouse ODBC Test Driver W
       Description = DSN for ClickHouse ODBC Test Driver (Unicode)
-      Url         = https://default:password@localhost:8443/query?database=default
+      Url         = https://default:password@example.com:8443/query?database=default
     EOS
 
     ENV["ODBCSYSINI"] = testpath
