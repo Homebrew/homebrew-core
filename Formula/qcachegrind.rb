@@ -22,28 +22,32 @@ class Qcachegrind < Formula
   depends_on "graphviz"
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = ["-config", "release", "-spec"]
-    spec = if OS.linux?
-      "linux-g++"
-    elsif ENV.compiler == :clang
-      "macx-clang"
+    os = OS.mac? ? "macx" : OS.kernel_name.downcase
+    compiler = case ENV.compiler
+    when :gcc
+      "g++"
     else
-      "macx-g++"
+      ENV.compiler
     end
-    spec << "-arm64" if Hardware::CPU.arm?
-    args << spec
+    arch = Hardware::CPU.intel? ? "" : "-#{Hardware::CPU.arch}"
+    args << "#{os}-#{compiler}#{arch}"
 
-    qt5 = Formula["qt@5"].opt_prefix
-    system "#{qt5}/bin/qmake", *args
+    system Formula["qt@5"].opt_bin/"qmake", *args
     system "make"
-    cd "qcachegrind" do
-      if OS.mac?
-        prefix.install "qcachegrind.app"
-        bin.install_symlink prefix/"qcachegrind.app/Contents/MacOS/qcachegrind"
-      else
-        bin.install "qcachegrind"
-      end
+
+    if OS.mac?
+      prefix.install "qcachegrind/qcachegrind.app"
+      bin.install_symlink prefix/"qcachegrind.app/Contents/MacOS/qcachegrind"
+    else
+      bin.install "qcachegrind/qcachegrind"
     end
   end
 end
