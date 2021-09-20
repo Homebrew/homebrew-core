@@ -4,7 +4,7 @@ class Libosinfo < Formula
   url "https://releases.pagure.org/libosinfo/libosinfo-1.9.0.tar.xz"
   sha256 "b4f3418154ef3f43d9420827294916aea1827021afc06e1644fc56951830a359"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
@@ -26,7 +26,7 @@ class Libosinfo < Formula
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
   depends_on "osinfo-db"
   depends_on "usb.ids"
 
