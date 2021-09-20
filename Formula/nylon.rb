@@ -6,6 +6,10 @@ class Nylon < Formula
   license "BSD-3-Clause"
   revision 2
 
+  livecheck do
+    skip "No version information available to check"
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "26d58c80e5db471ca253930300316cfc77dd1b53fae4ebd38502a48e69d4af8a"
     sha256 cellar: :any,                 big_sur:       "dffadaeddcde173302400dfc71686048edf9944a3543ac578ce634d9f283870d"
