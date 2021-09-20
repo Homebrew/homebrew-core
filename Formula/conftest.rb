@@ -20,13 +20,13 @@ class Conftest < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-X github.com/open-policy-agent/conftest/internal/commands.version=#{version}")
 
-    bash_output = Utils.safe_popen_read("#{bin}/conftest", "completion", "bash")
+    bash_output = Utils.safe_popen_read(bin/"conftest", "completion", "bash")
     (bash_completion/"conftest").write bash_output
 
-    zsh_output = Utils.safe_popen_read("#{bin}/conftest", "completion", "zsh")
+    zsh_output = Utils.safe_popen_read(bin/"conftest", "completion", "zsh")
     (zsh_completion/"_conftest").write zsh_output
 
-    fish_output = Utils.safe_popen_read("#{bin}/conftest", "completion", "fish")
+    fish_output = Utils.safe_popen_read(bin/"conftest", "completion", "fish")
     (fish_completion/"conftest.fish").write fish_output
   end
 
