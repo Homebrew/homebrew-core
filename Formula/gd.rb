@@ -60,7 +60,7 @@ class Gd < Formula
         gdImageDestroy(im);
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lgd", "-o", "test"
     system "./test"
     assert_path_exists "#{testpath}/test.png"
   end
