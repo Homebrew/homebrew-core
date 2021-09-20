@@ -76,24 +76,19 @@ class Pnpm < Formula
   end
 
   def caveats
-    message = nil
+    pnpm_path = nil
     on_macos do
-      message = <<~EOS
-        Add the following to #{shell_profile} or your desired shell
-        configuration file if you would like global packages in PATH:
-
-          export PATH="$HOME/Library/pnpm:$PATH"
-      EOS
+      pnpm_path = "$HOME/Library/pnpm"
     end
     on_linux do
-      message = <<~EOS
-        Add the following to #{shell_profile} or your desired shell
-        configuration file if you would like global packages in PATH:
-
-          export PATH="$HOME/.local/pnpm:$PATH"
-      EOS
+      pnpm_path = "$HOME/.local/pnpm"
     end
-    message
+    <<~EOS if pnpm_path
+      Add the following to #{shell_profile} or your desired shell
+      configuration file if you would like global packages in PATH:
+
+        export PATH="#{pnpm_path}:$PATH"
+    EOS
   end
 
   test do
