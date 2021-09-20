@@ -4,6 +4,7 @@ class Conftest < Formula
   url "https://github.com/open-policy-agent/conftest/archive/v0.28.0.tar.gz"
   sha256 "0dd7314cd5c37c8184991d6834dc8a01c1d2f399e76b365a788054c2c5d53115"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/open-policy-agent/conftest.git", branch: "master"
 
   bottle do
@@ -18,6 +19,15 @@ class Conftest < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-X github.com/open-policy-agent/conftest/internal/commands.version=#{version}")
+
+    bash_output = Utils.safe_popen_read("#{bin}/conftest", "completion", "bash")
+    (bash_completion/"conftest").write bash_output
+
+    zsh_output = Utils.safe_popen_read("#{bin}/conftest", "completion", "zsh")
+    (zsh_completion/"_conftest").write zsh_output
+
+    fish_output = Utils.safe_popen_read("#{bin}/conftest", "completion", "fish")
+    (fish_completion/"conftest.fish").write fish_output
   end
 
   test do
