@@ -68,7 +68,8 @@ class SignalCli < Formula
 
       # https://github.com/Homebrew/homebrew-core/pull/83322#issuecomment-918945146
       # this fix is needed until signal-cli updates to zkgroup v0.7.3
-      inreplace "rust-toolchain", "1.41.1", "nightly" if Hardware::CPU.arm?
+      # use the same version of the rust-toolchain used in libsignal-client
+      inreplace "rust-toolchain", "1.41.1", "nightly-2021-06-08" if Hardware::CPU.arm?
 
       # build & embed library for current platform
       target = if OS.mac? && !Hardware::CPU.arm?
