@@ -1,9 +1,14 @@
 class Tractorgen < Formula
   desc "Generates ASCII tractor art"
-  homepage "http://www.kfish.org/software/tractorgen/"
-  url "http://www.kfish.org/software/tractorgen/dl/tractorgen-0.31.7.tar.gz"
+  homepage "http://www.vergenet.net/~conrad/software/tractorgen/"
+  url "http://www.vergenet.net/~conrad/software/tractorgen/dl/tractorgen-0.31.7.tar.gz"
   sha256 "469917e1462c8c3585a328d035ac9f00515725301a682ada1edb3d72a5995a8f"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?tractorgen[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cc7c0c6f2a31533393973e0931d984d1ceff57e2ee1f49c03a8633d33ecfde7b"
