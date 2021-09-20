@@ -17,7 +17,7 @@ class TerraformAT011 < Formula
 
   deprecate! date: "2021-04-14", because: :unsupported
 
-  depends_on "go" => :build
+  depends_on "go@1.16" => :build
   depends_on "gox" => :build
 
   on_linux do
