@@ -3,6 +3,7 @@ class Gssdp < Formula
   homepage "https://wiki.gnome.org/GUPnP/"
   url "https://download.gnome.org/sources/gssdp/1.4/gssdp-1.4.0.1.tar.xz"
   sha256 "8676849d57fb822b8728856dbadebf3867f89ee47a0ec47a20045d011f431582"
+  revision 1
 
   bottle do
     rebuild 1
@@ -20,9 +21,13 @@ class Gssdp < Formula
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
+    ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
+    ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
+
     mkdir "build" do
       system "meson", *std_meson_args, "-Dsniffer=false", ".."
       system "ninja"
