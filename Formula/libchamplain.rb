@@ -4,7 +4,7 @@ class Libchamplain < Formula
   url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz"
   sha256 "0232b4bfcd130a1c5bda7b6aec266bf2d06e701e8093df1886f1e26bc1ba3066"
   license "LGPL-2.1"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0d8f75014270cd171c9d059fe9aa9583c5ac7f8d4156d69cf685789218ab8246"
@@ -22,11 +22,11 @@ class Libchamplain < Formula
   depends_on "clutter"
   depends_on "clutter-gtk"
   depends_on "gtk+3"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, "-Ddocs=false", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end
@@ -56,7 +56,7 @@ class Libchamplain < Formula
     json_glib = Formula["json-glib"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
-    libsoup = Formula["libsoup"]
+    libsoup = Formula["libsoup@2"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
     flags = %W[
