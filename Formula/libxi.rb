@@ -1,17 +1,16 @@
 class Libxi < Formula
   desc "X.Org: Library for the X Input Extension"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXi-1.7.10.tar.bz2"
-  sha256 "36a30d8f6383a72e7ce060298b4b181fd298bc3a135c8e201b7ca847f5f81061"
+  url "https://www.x.org/archive/individual/lib/libXi-1.8.tar.bz2"
+  sha256 "2ed181446a61c7337576467870bc5336fc9e222a281122d96c4d39a3298bba00"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "59e52427d65052b2a30b59cacb165118f828b03922fe3ac99490701fc4374f02"
-    sha256 cellar: :any,                 big_sur:       "ef121c80170a695096e8505424820959c31a757659d282507b3933ab109a6a96"
-    sha256 cellar: :any,                 catalina:      "a0fddd9dcb30077a6a2736540bf2d1cee8bf44fb8291d8b6ad1207086bf6f63e"
-    sha256 cellar: :any,                 mojave:        "c6745a3e9274dd78e9c4372ebca168ca1ae83600fd5c5ac68a59cc4dc60f3d6a"
-    sha256 cellar: :any,                 high_sierra:   "641cd78fbe4d389ce51c071deb60b62da482aa623e49bf0fe1b765b67d1380ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72a21d9cf9f87e8f518cbc539969c0e643054ae67e8c315be2d47bc36ab4d4d3"
+    sha256 cellar: :any,                 arm64_big_sur: "44a124946d8d522eb9ef39f5ec913354e7fba982b31e46743e87fe4a9a0984ed"
+    sha256 cellar: :any,                 big_sur:       "29a8ae9f7812ea8ec985367dd8c3bf061bd18a689e3b3c4ff0503773263ac923"
+    sha256 cellar: :any,                 catalina:      "63cc1eba03c04eda56ed89aea690805f6dbcaaa7ea82166b64d7ec5d7d7f2bc1"
+    sha256 cellar: :any,                 mojave:        "11c296a17b8842fd23ca1ac58c17b3eaca8e91ecea322fc5b19eab91233ca891"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1026c8936f13ff85a1c93091cf37e488510361bdfb69d0c0ec15234a7d281ed5"
   end
 
   depends_on "pkg-config" => :build

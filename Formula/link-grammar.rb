@@ -1,9 +1,10 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
-  url "https://www.abisource.com/downloads/link-grammar/5.9.1/link-grammar-5.9.1.tar.gz"
-  sha256 "e03febaa820696f47eabb033f04d713d849040c24c45579133d1d021b8ecb0ba"
+  url "https://www.abisource.com/downloads/link-grammar/5.10.2/link-grammar-5.10.2.tar.gz"
+  sha256 "28cec752eaa0e3897ae961333b6927459f8b69fefe68c2aa5272983d7db869b6"
   license "LGPL-2.1"
+  head "https://github.com/opencog/link-grammar.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -11,11 +12,11 @@ class LinkGrammar < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "93066eeefacc4e8095976cd3fc192dd4d9c9f3f6b6d24a7ad49d1de501ba92ac"
-    sha256 big_sur:       "c80d1bef9073e1761f04074d636936036657c7347c12b1f313dbb16d3e3971db"
-    sha256 catalina:      "dbd8dee3d34417e1be978ff916f7159ba77036c9a2af069d8dab23dc11243a38"
-    sha256 mojave:        "8eb72ea314d9e6d5b99df22a0e7635eb5fa26e809010bdcaf2cd5f53ae6ebdc1"
-    sha256 x86_64_linux:  "cf949ec99c89825d66a94e83b4cb183a49d172d4a73acf66ee95db8279245e7d"
+    sha256 arm64_big_sur: "a6de3d0c3f02e8ca2347cac43ff3498785ae4e5071ee217fae3e9b52b859d571"
+    sha256 big_sur:       "8241b4a41adb497f60591729036512f86eb11976bf3b2277d90b0c30e144d62e"
+    sha256 catalina:      "024139fa467dc7c8826e092a9eb22c5f30bba6ada219cf552d60b709b77a04da"
+    sha256 mojave:        "0697d8408060f2367970378d5166b311a57d8a0b6fa03eea4e9668b99dc10df4"
+    sha256 x86_64_linux:  "82f640caade0e547641890ecda4967c19146366b2b071cc608b20cbc2590d18d"
   end
 
   depends_on "ant" => :build
@@ -30,15 +31,16 @@ class LinkGrammar < Formula
 
   def install
     ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
-    inreplace "bindings/python/Makefile.am",
-      "$(PYTHON_LDFLAGS) -module -no-undefined",
-      "$(PYTHON_LDFLAGS) -module"
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-regexlib=c"
-    system "make", "install"
+    inreplace "bindings/python/Makefile.am", "$(PYTHON_LDFLAGS) -module -no-undefined",
+                                             "$(PYTHON_LDFLAGS) -module"
+    system "autoreconf", "--verbose", "--install", "--force"
+    system "./configure", *std_configure_args, "--with-regexlib=c"
+
+    # Work around error due to install using detected path inside Python formula.
+    # install: .../site-packages/linkgrammar.pth: Operation not permitted
+    site_packages = prefix/Language::Python.site_packages("python3")
+    system "make", "install", "pythondir=#{site_packages}",
+                              "pyexecdir=#{site_packages}"
   end
 
   test do
