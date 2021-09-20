@@ -40,7 +40,28 @@ class Gd < Formula
   end
 
   test do
-    system "#{bin}/pngtogd", test_fixtures("test.png"), "gd_test.gd"
-    system "#{bin}/gdtopng", "gd_test.gd", "gd_test.png"
+    (testpath/"test.c").write <<~EOS
+      #include "gd.h"
+      #include <stdio.h>
+
+      int main() {
+        gdImagePtr im;
+        FILE *pngout;
+        int black;
+        int white;
+
+        im = gdImageCreate(64, 64);
+        black = gdImageColorAllocate(im, 0, 0, 0);
+        white = gdImageColorAllocate(im, 255, 255, 255);
+        gdImageLine(im, 0, 0, 63, 63, white);
+        pngout = fopen("test.png", "wb");
+        gdImagePng(im, pngout);
+        fclose(pngout);
+        gdImageDestroy(im);
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-o", "test"
+    system "./test"
+    assert_path_exists "#{testpath}/test.png"
   end
 end
