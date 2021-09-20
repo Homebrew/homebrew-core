@@ -4,6 +4,7 @@ class Libgdata < Formula
   url "https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.1.tar.xz"
   sha256 "dd8592eeb6512ad0a8cf5c8be8c72e76f74bfe6b23e4dd93f0756ee0716804c7"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "f890b86a1e19fe8c0135094bc869356a6dc6279d84e6267742d2f817994c9708"
@@ -21,9 +22,13 @@ class Libgdata < Formula
   depends_on "gtk+3"
   depends_on "json-glib"
   depends_on "liboauth"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
+    ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
+    ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
+
     mkdir "build" do
       system "meson", *std_meson_args,
         "-Dintrospection=true",
@@ -53,7 +58,7 @@ class Libgdata < Formula
     glib = Formula["glib"]
     json_glib = Formula["json-glib"]
     liboauth = Formula["liboauth"]
-    libsoup = Formula["libsoup"]
+    libsoup = Formula["libsoup@2"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
