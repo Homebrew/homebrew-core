@@ -4,6 +4,11 @@ class Regldg < Formula
   url "https://regldg.com/regldg-1.0.0.tar.gz"
   sha256 "cd550592cc7a2f29f5882dcd9cf892875dd4e84840d8fe87133df9814c8003f1"
 
+  livecheck do
+    url "https://regldg.com/download.php"
+    regex(/href=.*?regldg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d6456b6abf558106d2cae0459145d3070b07dc37d3757f84d325f11aaa7badf4"
     sha256 cellar: :any_skip_relocation, big_sur:       "30966f99bf5fa0f3af539ce5b8eaca2666db734ac561d2b3a261532636b2a54c"
