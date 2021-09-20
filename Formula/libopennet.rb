@@ -5,6 +5,11 @@ class Libopennet < Formula
   sha256 "d1350abe17ac507ffb50d360c5bf8290e97c6843f569a1d740f9c1d369200096"
   license "LGPL-2.1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libopennet[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 big_sur:      "1c514ff48871809fd77cadcded9c2dc71f7913fde66c81fe3a9c6488b927d17f"
     sha256 cellar: :any,                 catalina:     "0f9b40e9c906fce8df8abc866680bf6fbe60cadc5af24dac309e1d51a0f5e99d"
