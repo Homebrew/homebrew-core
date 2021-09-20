@@ -4,6 +4,7 @@ class JpegXl < Formula
   url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.5/jpeg-xl-v0.5.tar.bz2"
   sha256 "43ae213b9ff28f672beb4f50dbee0834be2afe0015a62bf525d35ee2e7e89d6c"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "96c7e3fb74af26795318c88c155f39d9a83dbebcbc7f1a60484b6a5e08271ddf"
@@ -12,6 +13,7 @@ class JpegXl < Formula
     sha256 cellar: :any, mojave:        "7801c452701a99cfb8fb8b78192c345a01070492285acabd6746cc40314765e0"
   end
 
+  depends_on "asciidoc" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "brotli"
@@ -45,6 +47,10 @@ class JpegXl < Formula
   end
 
   def install
+    # When building man pages, a2x calls xmllint --nonet,
+    # which needs this to find the schema or fails otherwise.
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
     resources.each { |r| r.stage buildpath/"third_party"/r.name }
     mkdir "build" do
       system "cmake", "..", "-DBUILD_TESTING=OFF", *std_cmake_args
