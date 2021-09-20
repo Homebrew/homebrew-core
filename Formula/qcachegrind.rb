@@ -31,11 +31,7 @@ class Qcachegrind < Formula
   def install
     args = ["-config", "release", "-spec"]
     os = OS.mac? ? "macx" : OS.kernel_name.downcase
-    compiler = if ENV.compiler.to_s.start_with?("gcc")
-      "g++"
-    else
-      ENV.compiler
-    end
+    compiler = ENV.compiler.to_s.start_with?("gcc") ? "g++" : ENV.compiler
     arch = Hardware::CPU.intel? ? "" : "-#{Hardware::CPU.arch}"
     args << "#{os}-#{compiler}#{arch}"
 
