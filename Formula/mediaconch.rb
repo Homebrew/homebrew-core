@@ -7,7 +7,7 @@ class Mediaconch < Formula
 
   livecheck do
     url "https://mediaarea.net/MediaConch/Download/Source"
-    regex(/href=.*?MediaConch[._-]CLI[._-]v?(\d+(?:\.\d+)+)[._-]GNU[._-]FromSource\.t/i)
+    regex(/href=.*?mediaconch[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
