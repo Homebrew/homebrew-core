@@ -18,7 +18,11 @@ class ClickhouseOdbc < Formula
 
   on_linux do
     depends_on "unixodbc"
+    depends_on "gcc" => :build
   end
+
+  fails_with gcc: "5"
+  fails_with gcc: "6"
 
   def install
     cmake_args = std_cmake_args.dup
