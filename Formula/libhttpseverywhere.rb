@@ -15,6 +15,9 @@ class Libhttpseverywhere < Formula
     sha256               x86_64_linux:  "e3e753458877d02da2c1d83c10f70ba493198f799026225ea2d250214311af55"
   end
 
+  # https://www.eff.org/deeplinks/2021/09/https-actually-everywhere
+  disable! date: "2021-09-21", because: :unmaintained
+
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -24,7 +27,7 @@ class Libhttpseverywhere < Formula
   depends_on "json-glib"
   depends_on "libarchive"
   depends_on "libgee"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
 
   # see https://gitlab.gnome.org/GNOME/libhttpseverywhere/issues/1
   # remove when next version is released
@@ -34,6 +37,10 @@ class Libhttpseverywhere < Formula
   end
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
+    ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
+    ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
+
     mkdir "build" do
       system "meson", *std_meson_args, ".."
       system "ninja"
@@ -56,7 +63,7 @@ class Libhttpseverywhere < Formula
     json_glib = Formula["json-glib"]
     libarchive = Formula["libarchive"]
     libgee = Formula["libgee"]
-    libsoup = Formula["libsoup"]
+    libsoup = Formula["libsoup@2"]
     pcre = Formula["pcre"]
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
     flags += %W[
