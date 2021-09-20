@@ -4,6 +4,7 @@ class Gtranslator < Formula
   url "https://download.gnome.org/sources/gtranslator/40/gtranslator-40.0.tar.xz"
   sha256 "ec3eba36dee1c549377d1475aef71748dbaebd295005e1990ea9821f02b38834"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "b90853dc169f42e8f9b1dddcc3af59a52c6809c07a011ec74676676e1aa34c61"
@@ -26,7 +27,7 @@ class Gtranslator < Formula
   depends_on "libdazzle"
   depends_on "libgda"
   depends_on "libhandy"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
 
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
