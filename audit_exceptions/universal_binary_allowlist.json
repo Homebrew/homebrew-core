@@ -17,7 +17,6 @@
   "marp-cli",
   "netlify-cli",
   "node-sass",
-  "openjdk",
   "openjdk@11",
   "serverless",
   "sourcery",
