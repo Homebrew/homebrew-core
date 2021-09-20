@@ -76,8 +76,9 @@ class Pnpm < Formula
   end
 
   def caveats
+    message = nil
     on_macos do
-      <<~EOS
+      message = <<~EOS
         Add the following to #{shell_profile} or your desired shell
         configuration file if you would like global packages in PATH:
 
@@ -85,13 +86,14 @@ class Pnpm < Formula
       EOS
     end
     on_linux do
-      <<~EOS
+      message = <<~EOS
         Add the following to #{shell_profile} or your desired shell
         configuration file if you would like global packages in PATH:
 
           export PATH="$HOME/.local/pnpm:$PATH"
       EOS
     end
+    message
   end
 
   test do
