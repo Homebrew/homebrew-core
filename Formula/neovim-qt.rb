@@ -37,8 +37,8 @@ class NeovimQt < Formula
     # testfile.write("Hello World from Vim!!")
 
     testfile = testpath/"test.txt"
-    testserver = "localhost:9999"
-    #testserver = testpath/"nvim.sock"
+    #testserver = "localhost:9999"
+    testserver = testpath/"nvim.sock"
 
     testcommand = "s/Vim/Neovim/g"
     testinput = "Hello World from Vim!!"
@@ -47,8 +47,11 @@ class NeovimQt < Formula
 
     nvr_opts = ["--nostart", "--servername", testserver]
 
+    puts "#{bin}/nvim-qt --nofork -- --listen #{testserver}"
     nvimqt_pid = spawn bin/"nvim-qt", "--nofork", "--", "--listen", testserver
-    system "nvr", *nvr_opts, "--remote", testfile, "-c", testcommand, "-c", "w"
+    system "nvr", *nvr_opts, "--remote", testfile
+    system "nvr", *nvr_opts, "-c", testcommand
+    system "nvr", *nvr_opts, "-c", "w"
     assert_equal testexpected, testfile.read.chomp
     system "nvr", *nvr_opts, "-c", "call GuiClose()"
     Process.wait nvimqt_pid
