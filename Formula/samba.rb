@@ -4,10 +4,9 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.14.7.tar.gz"
-  sha256 "6f50353f9602aa20245eb18ceb00e7e5ec793df0974aebd5254c38f16d8f1906"
+  url "https://download.samba.org/pub/samba/stable/samba-4.15.0.tar.gz"
+  sha256 "b1f3470838623156283733e6295f49cd6ae44a7e61bb9c346315d1e668d24640"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.samba.org/samba/download/"
@@ -26,6 +25,7 @@ class Samba < Formula
   depends_on "python@3.9" => :build
   depends_on "gnutls"
 
+  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
 
@@ -36,6 +36,7 @@ class Samba < Formula
 
   # Workaround for "charset_macosxfs.c:278:4: error: implicit declaration of function 'DEBUG' is invalid in C99"
   # Can be removed when https://bugzilla.samba.org/show_bug.cgi?id=14680 gets resolved.
+  # Merge request: https://gitlab.com/samba-team/samba/-/merge_requests/2160
   patch do
     url "https://attachments.samba.org/attachment.cgi?id=16579"
     sha256 "86fce5306349d1c8f3732ca978a31065df643c8770114dc9d068b7b4dfa7d282"
@@ -62,27 +63,26 @@ class Samba < Formula
            "--without-acl-support",
            "--without-ad-dc",
            "--without-ads",
-           "--without-dnsupdate",
            "--without-ldap",
            "--without-libarchive",
            "--without-json",
-           "--without-ntvfs-fileserver",
            "--without-pam",
            "--without-regedit",
            "--without-syslog",
            "--without-utmp",
            "--without-winbind",
            "--with-shared-modules=!vfs_snapper",
-           "--prefix=#{prefix}"
+           "--prefix=#{prefix}",
+           "--sysconfdir=#{etc}",
+           "--localstatedir=#{var}"
     system "make"
     system "make", "install"
     if OS.mac?
       # macOS has its own SMB daemon as /usr/sbin/smbd, so rename our smbd to samba-dot-org-smbd to avoid conflict.
       # samba-dot-org-smbd is used by qemu.rb .
-      # Rename mdfind and profiles as well to avoid conflicting with /usr/bin/{mdfind,profiles}
-      { sbin => "smbd", bin => "mdfind", bin => "profiles" }.each do |dir, cmd|
-        mv dir/cmd, dir/"samba-dot-org-#{cmd}"
-      end
+      # Rename profiles as well to avoid conflicting with /usr/bin/profiles
+      mv sbin/"smbd", sbin/"samba-dot-org-smbd"
+      mv bin/"profiles", bin/"samba-dot-org-profiles"
     end
   end
 
@@ -91,10 +91,7 @@ class Samba < Formula
       <<~EOS
         To avoid conflicting with macOS system binaries, some files were installed with non-standard name:
         - smbd:     #{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd
-        - mdfind:   #{HOMEBREW_PREFIX}/bin/samba-dot-org-mdfind
         - profiles: #{HOMEBREW_PREFIX}/bin/samba-dot-org-profiles
-
-        On macOS, Samba should be executed as a non-root user: https://bugzilla.samba.org/show_bug.cgi?id=8773
       EOS
     end
   end
@@ -105,7 +102,7 @@ class Samba < Formula
       smbd = "#{sbin}/samba-dot-org-smbd"
     end
 
-    system smbd, "--build-options"
+    system smbd, "--build-options", "--configfile=/dev/null"
     system smbd, "--version"
 
     mkdir_p "samba/state"
@@ -140,7 +137,7 @@ class Samba < Formula
     EOS
 
     port = free_port
-    spawn smbd, "-S", "-F", "--configfile=smb.conf", "--port=#{port}", "--debuglevel=4", in: "/dev/null"
+    spawn smbd, "--debug-stdout", "-F", "--configfile=smb.conf", "--port=#{port}", "--debuglevel=4", in: "/dev/null"
 
     sleep 5
     mkdir_p "got"
