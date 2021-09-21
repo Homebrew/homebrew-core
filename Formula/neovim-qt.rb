@@ -6,7 +6,7 @@ class NeovimQt < Formula
   head "https://github.com/equalsraf/neovim-qt.git"
 
   depends_on "cmake" => :build
-  # depends_on "neovim-remove" => :test
+  depends_on "neovim-remote" => :test
   depends_on "neovim"
   depends_on "qt@5"
 
@@ -26,19 +26,50 @@ class NeovimQt < Formula
 
   test do
     # Same test as Formula/neovim.rb
-    testfile = testpath/"test.txt"
-    testfile.write("Hello World from Vim!!")
-    system bin/"nvim-qt", "--nofork", testfile, "--", "-i", "NONE", "-u", "NONE", "+s/Vim/Neovim/g", "+wq"
-    assert_equal "Hello World from Neovim!!", testfile.read.chomp
 
-    # (testpath/"test.txt").write("Hello World from Vim!!")
     # testfile = testpath/"test.txt"
-    # testhost = "localhost:9999"
     # testfile.write("Hello World from Vim!!")
-    # nvim_pid = nvim_pid = spawn bin/"nvim", "-i", "NONE", "-u", "NONE", "--headless", "--listen", testhost
-    # system bin/"nvim-qt", "--server", testhost, testfile
-    # system bin/"nvr", "--servername", testhost, "--remote", testfile, "-c", "+s/Vim/Neovim/g", "-c", "q"
+    # system bin/"nvim-qt", "--nofork", testfile, "--", "-i", "NONE", "-u", "NONE", "+s/Vim/Neovim/g", "+wq"
     # assert_equal "Hello World from Neovim!!", testfile.read.chomp
+
+    # testfile = testpath/"test.txt"
+    # testserver = "localhost:9999"
+    # testfile.write("Hello World from Vim!!")
+
+    testfile = testpath/"test.txt"
+    testserver = "localhost:9999"
+    #testserver = testpath/"nvim.sock"
+
+    testcommand = "s/Vim/Neovim/g"
+    testinput = "Hello World from Vim!!"
+    testexpected = "Hello World from Neovim!!"
+    testfile.write(testinput)
+
+    nvr_opts = ["--nostart", "--servername", testserver]
+
+    nvimqt_pid = spawn bin/"nvim-qt", "--nofork", "--", "--listen", testserver
+    system "nvr", *nvr_opts, "--remote", testfile, "-c", testcommand, "-c", "w"
+    assert_equal testexpected, testfile.read.chomp
+    system "nvr", *nvr_opts, "-c", "call GuiClose()"
+    Process.wait nvimqt_pid
+
+    #system "sh", "-c", "nvr --servername #{testserver} --remote '#{testfile}' -c '#{testcommand}' -c 'call GuiClose()' || true"
+    #system "nvr", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "w", "-c", "call GuiClose()", "-c", "qa"
+    #system "nvr", "--nostart", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "wq"
+    #system "nvr", "--servername", testserver, "-c", "call GuiClose()", "-c", "qa"
+
+
+    # nvim_pid = nvim_pid = spawn "nvim", "-i", "NONE", "-u", "NONE", "--headless", "--listen", testserver
+    # nvimqt_pid = spawn bin/"nvim-qt", "--server", testserver
+    # sleep(1.0)
+    # system "nvr", "--servername", testserver, "--remote", testfile, "-c", "s/Vim/Neovim/g", "-c", "w"
+    # #system "nvr", "--servername", testserver, "-c", "call GuiClose()"
+    # system "nvr", "--servername", testserver, "-c", "call rpcnotify(0, 'Gui', 'Close', v:exiting)"
+    # Process.wait nvimqt_pid
+    # system "nvr", "--servername", testserver, "-c", "q"
+    # Process.wait nvim_pid
+    # assert_equal "Hello World from Neovim!!", testfile.read.chomp
+
   end
 
 end
