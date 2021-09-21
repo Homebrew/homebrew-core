@@ -6,6 +6,11 @@ class PkgConfigWrapper < Formula
   license "MIT"
   head "https://github.com/influxdata/pkg-config.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "132d305934de84c9d98d82912312f0cbb7204dbf203277730fd1ef2238ee5621"
     sha256 cellar: :any_skip_relocation, big_sur:       "0c13ac5e30bafee95d4190ba733305bf481195299cc07d665bf25c7b34183f63"
