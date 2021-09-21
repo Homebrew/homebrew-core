@@ -3,8 +3,8 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/f5/b0/0f95f7dae0093ca13a23f1285b0a74f4b25827dcf026c37f762a061fc581/poetry-1.1.9.tar.gz"
-  sha256 "481c6264cecf907c47e82216205e7f8486d70e4d54c721b8c3fc651364b0d0ca"
+  url "https://files.pythonhosted.org/packages/10/04/e89c2691d998955b0c1568be1a034d9568eef700067aa19a28b433ea20f1/poetry-1.1.10.tar.gz"
+  sha256 "284ab7685a2b0549bd34161db0ee3c51d67991f53054564293391a0c8a346b7c"
   license "MIT"
 
   bottle do
@@ -124,8 +124,8 @@ class Poetry < Formula
   end
 
   resource "poetry-core" do
-    url "https://files.pythonhosted.org/packages/2b/2a/432ab88b00510e8bac644a57c1446519ab0b517688d033629a7e352d4fcd/poetry-core-1.0.5.tar.gz"
-    sha256 "8cad9893ea70e344b2ce1a75d3834ba3fb1bac8123f89aad758e59e2a5d67805"
+    url "https://files.pythonhosted.org/packages/c8/8a/33c9d7cde6fab76b6978d01be4f8e1cfe2c9ad28fa07d1557e32bf6b0755/poetry-core-1.0.6.tar.gz"
+    sha256 "dd3c97003579242236890306836f2acc86d9741e6bea320dda6f844f16b0d845"
   end
 
   resource "ptyprocess" do
