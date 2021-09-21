@@ -5,6 +5,7 @@ class Clusterctl < Formula
       tag:      "v0.4.3",
       revision: "a3e4b37c40ef8bc8ca1748fecb9b98c88b868e1f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/kubernetes-sigs/cluster-api.git", branch: "master"
 
   # Upstream creates releases on GitHub for the two most recent major/minor
@@ -34,6 +35,12 @@ class Clusterctl < Formula
 
     system "make", "clusterctl"
     prefix.install "bin"
+
+    bash_output = Utils.safe_popen_read(bin/"clusterctl", "completion", "bash")
+    (bash_completion/"clusterctl").write bash_output
+
+    zsh_output = Utils.safe_popen_read(bin/"clusterctl", "completion", "zsh")
+    (zsh_completion/"_clusterctl").write zsh_output
   end
 
   test do
