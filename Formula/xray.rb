@@ -17,13 +17,13 @@ class Xray < Formula
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202109060310/geoip.dat"
-    sha256 "ed94122961f358abede9f1954722039d5a0300b614c77cc27d92618c08b97bb8"
+    url "https://github.com/v2fly/geoip/releases/download/202109160028/geoip.dat"
+    sha256 "530c8a8490f51eb5c2b9d24e4f4f114341f015a5193422aa20df0cf0cb2f50ca"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20210906031055/dlc.dat"
-    sha256 "7618b876fd5a1066d0b44c1c8ce04608495ae991806890f8b1cbfafe79caf6c1"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20210921134551/dlc.dat"
+    sha256 "b1742d32a7d9bd38625679dca5c9e2b4d57356b2c38dd0855eac7c0235a5441d"
   end
 
   resource "example_config" do
