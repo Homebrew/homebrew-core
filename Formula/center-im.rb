@@ -18,11 +18,6 @@ class CenterIm < Formula
   depends_on "gettext"
   depends_on "openssl@1.1"
 
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/677cb38/center-im/patch-libjabber_jconn.c.diff"
-    sha256 "ed8d10075c23c7dec2a782214cb53be05b11c04e617350f6f559f3c3bf803cfe"
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
