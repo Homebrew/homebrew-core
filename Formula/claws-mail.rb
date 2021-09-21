@@ -1,10 +1,9 @@
 class ClawsMail < Formula
   desc "User-friendly, lightweight, and fast email client"
   homepage "https://www.claws-mail.org/"
-  url "https://www.claws-mail.org/releases/claws-mail-3.17.8.tar.gz"
-  sha256 "50d40789d33063c16b38b4177be88ffb1d499e75007e8630670996fa2cb25f20"
+  url "https://www.claws-mail.org/releases/claws-mail-3.18.0.tar.gz"
+  sha256 "f107deec1f0debfae77f7f0022aef713f85a5b1f7d0b1a0e98f6eebe1e3556f2"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.claws-mail.org/releases.php"
