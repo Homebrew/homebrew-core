@@ -1,14 +1,9 @@
 class Jansson < Formula
   desc "C library for encoding, decoding, and manipulating JSON"
   homepage "https://digip.org/jansson/"
-  url "https://digip.org/jansson/releases/jansson-2.13.1.tar.gz"
-  sha256 "f4f377da17b10201a60c1108613e78ee15df6b12016b116b6de42209f47a474f"
+  url "https://github.com/akheron/jansson/releases/download/v2.14/jansson-2.14.tar.gz"
+  sha256 "5798d010e41cf8d76b66236cfb2f2543c8d082181d16bc3085ab49538d4b9929"
   license "MIT"
-
-  livecheck do
-    url "https://digip.org/jansson/releases/"
-    regex(/href=.*?jansson[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "8e2f0225f8aa78bf75a1c61c8ee85e7dbd0292ca0aa9f186c9da960cdeb2b85a"
@@ -20,8 +15,7 @@ class Jansson < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
