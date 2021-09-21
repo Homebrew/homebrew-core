@@ -4,13 +4,6 @@ class CenterIm < Formula
   url "https://github.com/petrpavlu/centerim5/releases/download/v5.0.1/centerim5-5.0.1.tar.gz"
   sha256 "b80b999e0174b81206255556cf00de6548ea29fa6f3ea9deb1f9ab59d8318313"
 
-  # Modify this to use `url :stable` if/when the formula is updated to use an
-  # archive from GitHub in the future.
-  livecheck do
-    url :homepage
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "182513b7096a23e8888d0d76858ad1c1d2ef92648f8f3d4140e291c41224ccbb"
