@@ -6,6 +6,11 @@ class Librist < Formula
   license "BSD-2-Clause"
   head "https://code.videolan.org/rist/librist.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "33edba89ab01a727ae17d5c76742a20e61030c0dc5b46c5063a07fd31ec16214"
     sha256 cellar: :any,                 big_sur:       "32ca4949e0b34daff4eac02cef3fc018a08a29b531a16c5199c5549317292b84"
