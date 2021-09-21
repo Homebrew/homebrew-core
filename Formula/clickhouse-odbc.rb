@@ -7,6 +7,11 @@ class ClickhouseOdbc < Formula
   license "Apache-2.0"
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
