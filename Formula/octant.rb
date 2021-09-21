@@ -2,8 +2,8 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      tag:      "v0.23.0",
-      revision: "fbe2be3b687b3e2199ea32753281c9de1f334171"
+      tag:      "v0.24.0",
+      revision: "5a8648921cc2779eb62a0ac11147f12aa29f831c"
   license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git", branch: "master"
 
@@ -22,6 +22,10 @@ class Octant < Formula
 
   depends_on "go" => :build
   depends_on "node" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
     ENV["GOPATH"] = buildpath
@@ -42,7 +46,10 @@ class Octant < Formula
                  "-X \"main.gitCommit=#{Utils.git_head}\"",
                  "-X \"main.buildTime=#{time.iso8601}\""].join(" ")
 
-      system "go", "build", "-tags", "embedded", *std_go_args(ldflags: ldflags), "-v", "./cmd/octant"
+      tags = "embedded exclude_graphdriver_devicemapper exclude_graphdriver_btrfs containers_image_openpgp"
+
+      system "go", "build", *std_go_args(ldflags: ldflags),
+             "-tags", tags, "-v", "./cmd/octant"
     end
   end
 
