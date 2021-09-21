@@ -2,8 +2,8 @@ class NeovimQt < Formula
   desc "Neovim GUI, in Qt5"
   homepage "https://github.com/equalsraf/neovim-qt"
   url "https://github.com/equalsraf/neovim-qt/archive/v0.2.16.1.tar.gz"
-  license "ISC"
   sha256 "971d4597b40df2756b313afe1996f07915643e8bf10efe416b64cc337e4faf2a"
+  license "ISC"
   head "https://github.com/equalsraf/neovim-qt.git"
 
   depends_on "cmake" => :build
@@ -38,7 +38,7 @@ class NeovimQt < Formula
     # testfile.write("Hello World from Vim!!")
 
     testfile = testpath/"test.txt"
-    #testserver = "localhost:9999"
+    # testserver = "localhost:9999"
     testserver = testpath/"nvim.sock"
 
     testcommand = "s/Vim/Neovim/g"
@@ -58,11 +58,10 @@ class NeovimQt < Formula
     system "nvr", *nvr_opts, "-c", "call GuiClose()"
     Process.wait nvimqt_pid
 
-    #system "sh", "-c", "nvr --servername #{testserver} --remote '#{testfile}' -c '#{testcommand}' -c 'call GuiClose()' || true"
-    #system "nvr", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "w", "-c", "call GuiClose()", "-c", "qa"
-    #system "nvr", "--nostart", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "wq"
-    #system "nvr", "--servername", testserver, "-c", "call GuiClose()", "-c", "qa"
-
+    # system "sh", "-c", "nvr --servername #{testserver} --remote '#{testfile}' -c '#{testcommand}' -c 'call GuiClose()' || true"
+    # system "nvr", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "w", "-c", "call GuiClose()", "-c", "qa"
+    # system "nvr", "--nostart", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "wq"
+    # system "nvr", "--servername", testserver, "-c", "call GuiClose()", "-c", "qa"
 
     # nvim_pid = nvim_pid = spawn "nvim", "-i", "NONE", "-u", "NONE", "--headless", "--listen", testserver
     # nvimqt_pid = spawn bin/"nvim-qt", "--server", testserver
@@ -74,7 +73,5 @@ class NeovimQt < Formula
     # system "nvr", "--servername", testserver, "-c", "q"
     # Process.wait nvim_pid
     # assert_equal "Hello World from Neovim!!", testfile.read.chomp
-
   end
-
 end
