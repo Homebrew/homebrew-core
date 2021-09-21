@@ -5,6 +5,11 @@ class Solana < Formula
   sha256 "2627cefead751effa89ab88655e312e78742afd17834eb63fb923a50273f317b"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6468ec8ebdd518b43470073a843b8915a11bd707da9c8814056f09078a3890e5"
     sha256 cellar: :any_skip_relocation, big_sur:       "6254f037bc60fd0a9e96ce5cea6a44882ad01659ce6981c59fde1896835b1b55"
