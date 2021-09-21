@@ -6,6 +6,11 @@ class VespaCli < Formula
   sha256 "87e309fbdac0bef174ef3ac1bf094d551a54dd2da57ecc52e19880d0d81a9cda"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^vespa[._-](\d+(?:\.\d+)+)(?:-\d+)?$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2545137bd5211b28a97ad6b63b19f5c89abc61512424a05fdb115a07dad0f17b"
     sha256 cellar: :any_skip_relocation, big_sur:       "04245ebcc2c5c9d2792fc166ad08829c6b4f48281333a4eeeeba8d8b57d5947e"
