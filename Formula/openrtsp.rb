@@ -1,10 +1,10 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "http://www.live555.com/liveMedia/public/live.2020.11.05.tar.gz"
-  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2020.11.05.tar.gz"
+  url "http://www.live555.com/liveMedia/public/live.2021.08.24.tar.gz"
+  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2021.08.24.tar.gz"
   # Keep a mirror as upstream tarballs are removed after each version
-  sha256 "89bdfba7fd215e16be2c9d46a797bf85c5f7f7c46b53dc8af2d1171a658da5b7"
+  sha256 "ce95a1c79f6d18e959f9dc129b8529b711c60e76754acc285e60946303b923ec"
   license "LGPL-3.0-or-later"
 
   bottle do
@@ -15,10 +15,6 @@ class Openrtsp < Formula
     sha256 cellar: :any, high_sierra:   "c99d793ff2f28434edbadc70d466a7316ef7d7b8095002d78090218a9b4abe76"
   end
 
-  # could not get it build since 2020.11.22
-  # upstream open issue, https://github.com/rgaufman/live555/issues/29
-  disable! date: "2021-11-22", because: :does_not_build
-
   depends_on "openssl@1.1"
 
   def install
@@ -28,7 +24,7 @@ class Openrtsp < Formula
       Formula["openssl@1.1"].opt_lib/"libssl.dylib",
     ]
 
-    system "./genMakefiles", "macosx"
+    system "./genMakefiles", "macosx-no-openssl"
     system "make", "PREFIX=#{prefix}",
            "LIBS_FOR_CONSOLE_APPLICATION=#{libs.join(" ")}", "install"
 
