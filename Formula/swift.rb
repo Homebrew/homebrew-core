@@ -4,8 +4,8 @@ class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://swift.org"
   # NOTE: Keep version in sync with resources below
-  url "https://github.com/apple/swift/archive/swift-5.4.3-RELEASE.tar.gz"
-  sha256 "b5eed91bff7667e469b13803a57d60f87c7ec136f4ebb01ae433b3ebc2b6c28b"
+  url "https://github.com/apple/swift/archive/swift-5.5-RELEASE.tar.gz"
+  sha256 "0f76c429e65f24d48a2a18b18e7b380a5c97be0d4370271ac3623e436332fd35"
   license "Apache-2.0"
 
   livecheck do
@@ -27,7 +27,7 @@ class Swift < Formula
 
   # Has strict requirements on the minimum version of Xcode
   # https://github.com/apple/swift/tree/swift-#{version}-RELEASE/docs/HowToGuides/GettingStarted.md#macos
-  depends_on xcode: ["12.2", :build]
+  depends_on xcode: ["12.3", :build]
 
   depends_on "python@3.9"
 
@@ -46,18 +46,18 @@ class Swift < Formula
     depends_on "six" => :build
 
     resource "swift-corelibs-foundation" do
-      url "https://github.com/apple/swift-corelibs-foundation/archive/swift-5.4.3-RELEASE.tar.gz"
-      sha256 "75b4a9098867cb85c54430cd9645f42ef4cb6946de8cd84ebdde6e70a451d8bb"
+      url "https://github.com/apple/swift-corelibs-foundation/archive/swift-5.5-RELEASE.tar.gz"
+      sha256 "4d58bd3ed05f8b2bf836e4868034f01272dddbd3c0385ddc6f2afc93da033464"
     end
 
     resource "swift-corelibs-libdispatch" do
-      url "https://github.com/apple/swift-corelibs-libdispatch/archive/swift-5.4.3-RELEASE.tar.gz"
-      sha256 "4e78210507236a523038f489d660ca66e168bfd6d005d4df0a79f466a19206aa"
+      url "https://github.com/apple/swift-corelibs-libdispatch/archive/swift-5.5-RELEASE.tar.gz"
+      sha256 "5efdfa1d2897c598acea42fc00776477bb3713645686774f5ff0818b26649e62"
     end
 
     resource "swift-corelibs-xctest" do
-      url "https://github.com/apple/swift-corelibs-xctest/archive/swift-5.4.3-RELEASE.tar.gz"
-      sha256 "94154379381274e483caeb32f7b33b88906be7f78ac0413929dbeb4464bef02c"
+      url "https://github.com/apple/swift-corelibs-xctest/archive/swift-5.5-RELEASE.tar.gz"
+      sha256 "4dd3a3096c51b52817b0876ce18ea921cb0f71adf1992019e984d0d45e49b840"
     end
   end
 
@@ -65,8 +65,8 @@ class Swift < Formula
   fails_with :gcc
 
   resource "llvm-project" do
-    url "https://github.com/apple/llvm-project/archive/swift-5.4.3-RELEASE.tar.gz"
-    sha256 "efa12cb20f894ef34aaab9eb3cdc7fa6b94633ebb65db0fcf2a1f26f3bccab0d"
+    url "https://github.com/apple/llvm-project/archive/swift-5.5-RELEASE.tar.gz"
+    sha256 "87955764fb6cd83cb24e0421f249ce3fc817400edd3c0015eb840fe7fd7cf5e3"
 
     # Fix handling of arm64e in REPL mode.
     # Remove with Swift 5.6.
@@ -84,64 +84,78 @@ class Swift < Formula
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/swift-5.4.3-RELEASE.tar.gz"
-    sha256 "5cac6b095878105fc871fb268f22d6f3b4a3d3d5ed44c018c817c77d3d1ea724"
+    url "https://github.com/apple/swift-cmark/archive/swift-5.5-RELEASE.tar.gz"
+    sha256 "689865cafeb0bd7eb1297cdd8ba06c43d072af921d36bdbdf6dbe3817b3bb27f"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/swift-5.4.3-RELEASE.tar.gz"
-    sha256 "69ab1466d79b0f95a04adf7c9c299aeedffde1d517b64a4c64e6c76b1f530556"
+    url "https://github.com/apple/swift-llbuild/archive/swift-5.5-RELEASE.tar.gz"
+    sha256 "09e774c4a97bbb7473ab2b69ef2a547036660ce7d5d2c67802974de3e23381f8"
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/swift-5.4.3-RELEASE.tar.gz"
-    sha256 "298ec9390941d50b2a71833ce1224bd8c4c1b5c68cc19fd83da4331f07f0e5c6"
+    url "https://github.com/apple/swift-package-manager/archive/swift-5.5-RELEASE.tar.gz"
+    sha256 "89b240810b1c2adb86ba83a70ec384b75608a737f9af09f469c8ca968a85a30e"
   end
 
   resource "indexstore-db" do
-    url "https://github.com/apple/indexstore-db/archive/swift-5.4.3-RELEASE.tar.gz"
-    sha256 "d7194e45286af4cc1d29ce1c84ed7a7a6864cba07df01a4984b4bd5a56ab9463"
+    url "https://github.com/apple/indexstore-db/archive/swift-5.5-RELEASE.tar.gz"
+    sha256 "191711ad5d7638091b8c813335a7831c7e549a82b3fd480e368ed8ad7801d62d"
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.4.3-RELEASE.tar.gz"
-    sha256 "eaf1f655d887eb2a3a6ead8c0624accbd222659e01da844a6bfd2d23c1fbb1f7"
+    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.5-RELEASE.tar.gz"
+    sha256 "21bca4b8a84a4b687dc9ab1090fd3433915d7555445687ad82f1eaf3ec23c738"
   end
 
   resource "swift-driver" do
-    url "https://github.com/apple/swift-driver/archive/swift-5.4.3-RELEASE.tar.gz"
-    sha256 "16a1161ca78c184f40937d07a997b2045abdd7cc8cf62102e3cda6249e329fd6"
+    url "https://github.com/apple/swift-driver/archive/swift-5.5-RELEASE.tar.gz"
+    sha256 "e6c8ec5fc41f05ffd4c04b409278d0b4ec098402304b20d2997f06ea2ed2e4ed"
   end
 
   resource "swift-tools-support-core" do
-    url "https://github.com/apple/swift-tools-support-core/archive/swift-5.4.3-RELEASE.tar.gz"
-    sha256 "7f8271fd9f9af2e1f889d918d7cd53bf7fad34ca04e0ab2a9a7a6cc1d3ad2cbe"
+    url "https://github.com/apple/swift-tools-support-core/archive/swift-5.5-RELEASE.tar.gz"
+    sha256 "4ae77edeb30a311d6d4bd5a4ed5ce7286d8fb3305d962a702a985297c82053d0"
   end
 
   # To find the version to use, check the release/#{version.major_minor} entry of:
   # https://github.com/apple/swift/blob/swift-#{version}-RELEASE/utils/update_checkout/update-checkout-config.json
   resource "swift-argument-parser" do
-    url "https://github.com/apple/swift-argument-parser/archive/0.4.1.tar.gz"
-    sha256 "6743338612be50a5a32127df0a3dd1c34e695f5071b1213f128e6e2b27c4364a"
+    url "https://github.com/apple/swift-argument-parser/archive/0.4.3.tar.gz"
+    sha256 "9dfcb236f599e309e49af145610957648f8a59d9527b4202bc5bdda0068556d7"
   end
 
-  # Similar scenario as above - see the above file to find the version to use here.
+  # As above: refer to update-checkout-config.json
   resource "yams" do
     url "https://github.com/jpsim/Yams/archive/4.0.2.tar.gz"
     sha256 "8bbb28ef994f60afe54668093d652e4d40831c79885fa92b1c2cd0e17e26735a"
   end
 
-  # Don't build and install some test binaries.
-  # Remove with Swift 5.5.
+  # As above: refer to update-checkout-config.json
+  resource "swift-crypto" do
+    url "https://github.com/apple/swift-crypto/archive/1.1.5.tar.gz"
+    sha256 "86d6c22c9f89394fd579e967b0d5d0b6ce33cdbf52ba70f82fa313baf70c759f"
+  end
+
+  # Homebrew-specific patch to make the default resource directory use opt rather than Cellar.
+  # This fixes output binaries from `swiftc` having a runpath pointing to the Cellar.
+  # This should only be removed if an alternative solution is implemented.
   patch do
-    url "https://github.com/apple/swift/commit/86c40574f594f4f7b4b25bb02cc2389e1328c200.patch?full_index=1"
-    sha256 "6d22d159b8c16ec14c4ec1e7ea258ffa489f932842b0f4be930d0f9660cbe9b4"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5e4d9bb4d04c7c9004e95fecba362a843dc00bdd/swift/homebrew-resource-dir.diff"
+    sha256 "5210ca0fd95b960d596c058f5ac76412a6987d2badf5394856bb9e31d3c68833"
+  end
+
+  # Fix shim and Clang headers not being copied when stdlib isn't built.
+  # https://github.com/apple/swift/pull/39405
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/939cc44b01a7f4c0c0ae1c9f037867de38ef5239/swift/5.5-copy_shim_headers.diff"
+    sha256 "0e2c2dc96895931e4444f90533cb2b8e1b04c2591f9a2c0492145661efab1760"
   end
 
   # Fix arm64 build not being able to use the arm64e standard library.
-  # Based on https://github.com/apple/swift/pull/39083.
-  # This patch has been adapted for Swift 5.4
-  # and should be updated with Swift 5.5 to more closely match the upstream PR.
+  # https://github.com/apple/swift/pull/39083
+  # https://github.com/apple/swift/pull/39315
+  # Remove with Swift 5.6.
   patch :DATA
 
   def install
@@ -174,7 +188,7 @@ class Swift < Formula
     inreplace helpers_using_swiftpm, "swiftpm_args = [", "\\0'--disable-sandbox',"
 
     # Fix finding of brewed sqlite3.h.
-    if OS.linux?
+    unless OS.mac?
       inreplace workspace/"swift-tools-support-core/Sources/TSCclibc/include/module.modulemap",
                 "header \"csqlite3.h\"",
                 "header \"#{Formula["sqlite3"].opt_include/"sqlite3.h"}\""
@@ -188,13 +202,18 @@ class Swift < Formula
               "-DCMAKE_CXX_COMPILER:=clang++",
               "-DCMAKE_CXX_COMPILER:=#{which(ENV.cxx)}"
 
+    # Build SwiftPM and dependents in release mode
+    inreplace workspace/"swiftpm/Utilities/bootstrap",
+              "-DCMAKE_BUILD_TYPE:=Debug",
+              "-DCMAKE_BUILD_TYPE:=Release"
+
     mkdir build do
       # List of components to build
       swift_components = %w[
         compiler clang-resource-dir-symlink tools
         editor-integration toolchain-tools license
         sourcekit-xpc-service swift-remote-mirror
-        swift-remote-mirror-headers parser-lib
+        swift-remote-mirror-headers parser-lib stdlib
       ]
       llvm_components = %w[
         llvm-cov llvm-profdata IndexStore clang
@@ -204,14 +223,14 @@ class Swift < Formula
       llvm_components << "dsymutil" if OS.mac?
       if OS.linux?
         swift_components += %w[
-          stdlib sdk-overlay
+          sdk-overlay
           autolink-driver
           sourcekit-inproc
         ]
         llvm_components << "lld"
       end
 
-      pre_args = %W[
+      args = %W[
         --host-cc=#{which(ENV.cc)}
         --host-cxx=#{which(ENV.cxx)}
         --release --assertions
@@ -221,14 +240,14 @@ class Swift < Formula
         --indexstore-db --sourcekit-lsp
         --jobs=#{ENV.make_jobs}
         --verbose-build
-      ]
-      post_args = %W[
+
         --workspace=#{workspace}
         --install-destdir=#{prefix}
         --toolchain-prefix=#{toolchain_prefix}
         --install-prefix=#{install_prefix}
         --swift-include-tests=0
         --llvm-include-tests=0
+        --skip-build-benchmarks
         --install-swift
         --swift-install-components=#{swift_components.join(";")}
         --install-llvm
@@ -242,8 +261,11 @@ class Swift < Formula
       extra_cmake_options = []
 
       if OS.mac?
-        post_args += %W[
+        args += %W[
           --host-target=macosx-#{Hardware::CPU.arch}
+          --build-swift-dynamic-stdlib=0
+          --build-swift-dynamic-sdk-overlay=0
+          --stdlib-deployment-targets=
           --swift-darwin-supported-archs=#{Hardware::CPU.arch}
           --swift-darwin-module-archs=#{Hardware::CPU.arch}
           --lldb-no-debugserver
@@ -253,43 +275,38 @@ class Swift < Formula
           -DLLDB_FRAMEWORK_COPY_SWIFT_RESOURCES=0
           -DCMAKE_INSTALL_RPATH=@loader_path
         ]
+        # Needed until back-deploy concurrency lands.
+        extra_cmake_options << "-DSWIFT_IMPLICIT_CONCURRENCY_IMPORT=OFF" if MacOS.version < :monterey
       end
       if OS.linux?
-        pre_args += %w[
+        args += %W[
           --libcxx
           --foundation
           --libdispatch
           --xctest
-        ]
-        post_args += %W[
+
           --host-target=linux-#{Hardware::CPU.arch}
-          --build-swift-dynamic-stdlib
-          --build-swift-dynamic-sdk-overlay
-          --build-swift-stdlib-unittest-extra
           --stdlib-deployment-targets=linux-#{Hardware::CPU.arch}
           --install-libcxx
           --install-foundation
           --install-libdispatch
           --install-xctest
-          --swift-cmake-options=-DCMAKE_INSTALL_RPATH=$ORIGIN/../lib:$ORIGIN/../lib/swift/linux
-          --xctest-cmake-options=-DCMAKE_INSTALL_RPATH=$ORIGIN
         ]
         extra_cmake_options += %W[
           -DSWIFT_LINUX_#{Hardware::CPU.arch}_ICU_UC_INCLUDE=#{Formula["icu4c"].opt_include}
           -DSWIFT_LINUX_#{Hardware::CPU.arch}_ICU_UC=#{Formula["icu4c"].opt_lib}/libicuuc.so
           -DSWIFT_LINUX_#{Hardware::CPU.arch}_ICU_I18N_INCLUDE=#{Formula["icu4c"].opt_include}
           -DSWIFT_LINUX_#{Hardware::CPU.arch}_ICU_I18N=#{Formula["icu4c"].opt_lib}/libicui18n.so
+          -DCMAKE_INSTALL_RPATH=$ORIGIN:$ORIGIN/../lib:$ORIGIN/../lib/swift/linux
         ]
 
         ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
       end
 
-      post_args += %W[
-        --extra-cmake-options=#{extra_cmake_options.join(" ")}
-      ]
+      args << "--extra-cmake-options=#{extra_cmake_options.join(" ")}"
 
       ENV["SKIP_XCODE_VERSION_CHECK"] = "1"
-      system "#{workspace}/swift/utils/build-script", *pre_args, "--", *post_args
+      system "#{workspace}/swift/utils/build-script", *args
     end
 
     if OS.mac?
@@ -313,6 +330,12 @@ class Swift < Formula
         MachO.codesign!("#{binary}-tmp")
         mv "#{binary}-tmp", binary, force: true
       end
+    else
+      # Strip debugging info to make the bottle relocatable.
+      binaries_to_strip = Pathname.glob("#{prefix}#{install_prefix}/{bin,lib/swift/pm}/**/*").select do |f|
+        f.file? && f.elf?
+      end
+      system "strip", "--strip-debug", "--preserve-dates", *binaries_to_strip
     end
 
     bin.install_symlink Dir["#{prefix}#{install_prefix}/bin/{swift,sil,sourcekit}*"]
@@ -379,6 +402,15 @@ class Swift < Formula
       system "#{bin}/swift", "build", "-v", "--disable-sandbox"
       assert_match "swift.org\n", shell_output("#{bin}/swift run --disable-sandbox")
     end
+
+    # Make sure the default resource directory is not using a Cellar path
+    default_resource_dir = JSON.parse(shell_output("#{bin}/swift -print-target-info"))["paths"]["runtimeResourcePath"]
+    expected_resource_dir = if OS.mac?
+      (opt_prefix/"Swift-#{version.major_minor}.xctoolchain/usr/lib/swift").to_s
+    else
+      (opt_libexec/"lib/swift").to_s
+    end
+    assert_equal expected_resource_dir, default_resource_dir
   end
 end
 
@@ -387,21 +419,23 @@ diff --git a/lib/Serialization/SerializedModuleLoader.cpp b/lib/Serialization/Se
 index 5ba5de6eeebfc..02b21af921d04 100644
 --- a/lib/Serialization/SerializedModuleLoader.cpp
 +++ b/lib/Serialization/SerializedModuleLoader.cpp
-@@ -46,8 +46,21 @@ namespace {
+@@ -46,8 +46,23 @@ namespace {
  void forEachTargetModuleBasename(const ASTContext &Ctx,
                                   llvm::function_ref<void(StringRef)> body) {
    auto normalizedTarget = getTargetSpecificModuleTriple(Ctx.LangOpts.Target);
 +
 +  // An arm64 module can import an arm64e module.
 +  Optional<llvm::Triple> normalizedAltTarget;
-+  if (normalizedTarget.getArch() == llvm::Triple::ArchType::aarch64) {
++  if ((normalizedTarget.getArch() == llvm::Triple::ArchType::aarch64) &&
++      (normalizedTarget.getSubArch() !=
++       llvm::Triple::SubArchType::AArch64SubArch_arm64e)) {
 +    auto altTarget = normalizedTarget;
 +    altTarget.setArchName("arm64e");
 +    normalizedAltTarget = getTargetSpecificModuleTriple(altTarget);
 +  }
 +
    body(normalizedTarget.str());
-
+ 
 +  if (normalizedAltTarget) {
 +    body(normalizedAltTarget->str());
 +  }
@@ -418,3 +452,43 @@ index 5ba5de6eeebfc..02b21af921d04 100644
 +    body(normalizedAltTarget->getArchName());
 +  }
  }
+ 
+ enum class SearchPathKind {
+diff --git a/lib/Frontend/ModuleInterfaceLoader.cpp b/lib/Frontend/ModuleInterfaceLoader.cpp
+index 85156db2d9ded..537db48daa6e0 100644
+--- a/lib/Frontend/ModuleInterfaceLoader.cpp
++++ b/lib/Frontend/ModuleInterfaceLoader.cpp
+@@ -1604,6 +1604,10 @@ InterfaceSubContextDelegateImpl::runInSubCompilerInstance(StringRef moduleName,
+   // arguments in the textual interface file. So copy to use a new compiler
+   // invocation.
+   CompilerInvocation subInvocation = genericSubInvocation;
++
++  // Save the target triple from the original context.
++  llvm::Triple originalTargetTriple(subInvocation.getLangOptions().Target);
++
+   std::vector<StringRef> BuildArgs(GenericArgs.begin(), GenericArgs.end());
+   assert(BuildArgs.size() == GenericArgs.size());
+   // Configure inputs
+@@ -1653,6 +1657,22 @@ InterfaceSubContextDelegateImpl::runInSubCompilerInstance(StringRef moduleName,
+   if (subInvocation.parseArgs(SubArgs, *Diags)) {
+     return std::make_error_code(std::errc::not_supported);
+   }
++
++  // If the target triple parsed from the Swift interface file differs
++  // only in subarchitecture from the original target triple, then
++  // we have loaded a Swift interface from a different-but-compatible
++  // architecture slice. Use the original subarchitecture.
++  llvm::Triple parsedTargetTriple(subInvocation.getTargetTriple());
++  if (parsedTargetTriple.getSubArch() != originalTargetTriple.getSubArch() &&
++      parsedTargetTriple.getArch() == originalTargetTriple.getArch() &&
++      parsedTargetTriple.getVendor() == originalTargetTriple.getVendor() &&
++      parsedTargetTriple.getOS() == originalTargetTriple.getOS() &&
++      parsedTargetTriple.getEnvironment()
++        == originalTargetTriple.getEnvironment()) {
++    parsedTargetTriple.setArchName(originalTargetTriple.getArchName());
++    subInvocation.setTargetTriple(parsedTargetTriple.str());
++  }
++
+   CompilerInstance subInstance;
+   SubCompilerInstanceInfo info;
+   info.Instance = &subInstance;
