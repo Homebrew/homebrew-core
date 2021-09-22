@@ -1,8 +1,8 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
-  url "https://curl.se/download/curl-7.79.0.tar.bz2"
-  sha256 "d607a677f473f79f96c964100327125a6204a39d835dc00dab7fc0129b959f42"
+  url "https://curl.se/download/curl-7.79.1.tar.bz2"
+  sha256 "de62c4ab9a9316393962e8b94777a570bb9f71feb580fb4475e412f2f9387851"
   license "curl"
 
   livecheck do
