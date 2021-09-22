@@ -16,8 +16,7 @@ class Cbmc < Formula
 
   depends_on "cmake" => :build
   depends_on "maven" => :build
-  # Java front-end fails to build with openjdk>=17
-  depends_on "openjdk@11" => :build
+  depends_on "openjdk" => :build
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -29,8 +28,6 @@ class Cbmc < Formula
   fails_with gcc: "5"
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home("11")
-
     args = []
     # Workaround borrowed from https://github.com/diffblue/cbmc/issues/4956
     args << "-DCMAKE_C_COMPILER=/usr/bin/clang" if OS.mac?
