@@ -26,7 +26,7 @@ class Skylighting < Formula
     mv buildpath/"skylighting.cabal.temp-loc", buildpath/"skylighting/skylighting.cabal"
 
     cd "skylighting" do
-      system bin/"skylighting-extract", *Dir[buildpath/"skylighting-core/xml/*.xml"]
+      system bin/"skylighting-extract", buildpath/"skylighting-core/xml"
     end
     system "cabal", "v2-install", buildpath/"skylighting", "-fexecutable", *std_cabal_v2_args
   end
