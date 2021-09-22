@@ -24,6 +24,7 @@ class Jhead < Formula
   end
 
   def install
+    ENV.deparallelize
     system "make", "install", "PREFIX=#{prefix}"
   end
 
