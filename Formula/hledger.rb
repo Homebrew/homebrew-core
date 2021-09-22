@@ -28,8 +28,8 @@ class Hledger < Formula
   uses_from_macos "zlib"
 
   resource "hledger-lib" do
-    url "https://hackage.haskell.org/package/hledger-lib-1.3/hledger-lib-1.23.tar.gz"
-    sha256 "40de7f98b832e8354e1b74a2e6dddccf315c7f54db1735e6589d67ac1d5adc02"
+    url "https://hackage.haskell.org/package/hledger-lib-1.23/hledger-lib-1.23.tar.gz"
+    sha256 "2c54ed631a23ef05531327b93d334d5303edf9831b598b71f60bab4b5c5257a0"
   end
 
   resource "hledger-ui" do
