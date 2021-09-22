@@ -31,9 +31,9 @@ class Erlang < Formula
   depends_on "wxwidgets" # for GUI apps like observer
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_24.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_24.0.tar.gz"
-    sha256 "6ceaa2cec97fa5a631779544a3c59afe9e146084e560725b823c476035716e73"
+    url "https://www.erlang.org/download/otp_doc_html_24.1.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_24.1.tar.gz"
+    sha256 "b81e39420e5eda1a9b784bc7e73009dc98a6dca1f669c7e0d1041f9487a76d7c"
   end
 
   def install
