@@ -58,8 +58,6 @@ class NeovimQt < Formula
     system "nvr", *nvr_opts, "-c", "call GuiClose()"
     Process.wait nvimqt_pid
 
-    # system "sh", "-c", "nvr --servername #{testserver} --remote '#{testfile}' -c '#{testcommand}' -c 'call GuiClose()' || true"
-    # system "nvr", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "w", "-c", "call GuiClose()", "-c", "qa"
     # system "nvr", "--nostart", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "wq"
     # system "nvr", "--servername", testserver, "-c", "call GuiClose()", "-c", "qa"
 
