@@ -3,8 +3,8 @@ class Sail < Formula
 
   desc "CLI toolkit to provision and deploy WordPress applications to DigitalOcean"
   homepage "https://sailed.io"
-  url "https://files.pythonhosted.org/packages/e5/18/ffe88ce1d22a58c5741e86984ff1beb9151870821d2eafb5b0d9077dab75/sailed.io-0.9.13.tar.gz"
-  sha256 "2c19bc467eeabedb675da4433df3f9ad41ec9803862665de22358a622dd36f32"
+  url "https://files.pythonhosted.org/packages/be/bb/ae362ed80eccff1dc7b36139ecabb6a8eabdbed29dce1f8d5ac32231ab1f/sailed.io-0.9.14.tar.gz"
+  sha256 "b4dae70770bab424c0deea2056ad8734098d22dce75971a61b6eb03c1147e487"
   license "GPL-3.0-only"
 
   bottle do
