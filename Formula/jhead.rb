@@ -3,6 +3,7 @@ class Jhead < Formula
   homepage "https://github.com/Matthias-Wandel/jhead"
   url "https://github.com/Matthias-Wandel/jhead/archive/3.06.0.1.tar.gz"
   sha256 "5c5258c3d7a840bf831e22174e4a24cb1de3baf442f7cb73d5ab31b4ae0b0058"
+  license :public_domain
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fb488dd088278d8ab847a8a1c1c30b39839b98110de83129966a598e520b6c56"
