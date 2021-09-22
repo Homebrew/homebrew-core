@@ -167,8 +167,8 @@ class HomeassistantCli < Formula
   def install
     virtualenv_install_with_resources
     bin.install_symlink libexec/"bin/hass-cli"
-    (bash_completion/"hass-cli").write Utils.safe_popen_read("#{bin}/hass-cli", "completion", "bash")
-    (zsh_completion/"_hass-cli").write Utils.safe_popen_read("#{bin}/hass-cli", "completion", "zsh")
+    (bash_completion/"hass-cli").write Utils.safe_popen_read(bin/"hass-cli", "completion", "bash")
+    (zsh_completion/"_hass-cli").write Utils.safe_popen_read(bin/"hass-cli", "completion", "zsh")
   end
 
   test do
