@@ -6,6 +6,7 @@ class AzureCli < Formula
   url "https://github.com/Azure/azure-cli/archive/azure-cli-2.28.0.tar.gz"
   sha256 "25db8848a8b9279e317d347bbce873cbd48c8ce4032b2546b7f19aa325165860"
   license "MIT"
+  revision 1
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
   livecheck do
@@ -747,7 +748,7 @@ class AzureCli < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3", system_site_packages: false)
     venv.pip_install resources
 
     # Get the CLI components we'll install
