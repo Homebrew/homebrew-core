@@ -11,17 +11,21 @@ class NeovimQt < Formula
   depends_on "neovim"
   depends_on "qt@5"
 
-  def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
-      system "make"
+  on_linux do
+    depends_on "gcc"
+  end
 
-      if OS.mac?
-        prefix.install "bin/nvim-qt.app"
-        bin.install_symlink prefix/"nvim-qt.app/Contents/MacOS/nvim-qt"
-      else
-        bin.install "bin/nvim-qt"
-      end
+  fails_with gcc: "5" # Qt needs GCC
+
+  def install
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
+    system "cmake", "--build", "build"
+
+    if OS.mac?
+      prefix.install "build/bin/nvim-qt.app"
+      bin.install_symlink prefix/"nvim-qt.app/Contents/MacOS/nvim-qt"
+    else
+      bin.install "build/bin/nvim-qt"
     end
   end
 
@@ -50,7 +54,7 @@ class NeovimQt < Formula
 
     puts "#{bin}/nvim-qt --nofork -- --listen #{testserver}"
     nvimqt_pid = spawn bin/"nvim-qt", "--nofork", "--", "--listen", testserver
-    sleep 2.0
+    sleep 10
     system "nvr", *nvr_opts, "--remote", testfile
     system "nvr", *nvr_opts, "-c", testcommand
     system "nvr", *nvr_opts, "-c", "w"
