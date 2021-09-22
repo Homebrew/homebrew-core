@@ -11,13 +11,6 @@ class Ketch < Formula
   def install
     system "make", "generate"
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/ketch/"
-
-    bash_output = Utils.safe_popen_read(bin/"ketch", "completion", "bash")
-    (bash_completion/"ketch").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"ketch", "completion", "zsh")
-    (zsh_completion/"_ketch").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"ketch", "completion", "fish")
-    (fish_completion/"ketch.fish").write fish_output
   end
 
   test do
