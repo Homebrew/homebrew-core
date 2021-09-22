@@ -59,6 +59,9 @@
     "exclude_packages": ["junit-xml", "six", "tabulate"],
     "extra_packages": ["junit-xml-2"]
   },
+  "conan": {
+    "exclude_packages": ["six"]
+  },
   "datalad": {
     "exclude_packages": ["six"]
   },
