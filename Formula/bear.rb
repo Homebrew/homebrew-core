@@ -1,6 +1,4 @@
 class Bear < Formula
-  include Language::Python::Shebang
-
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
   url "https://github.com/rizsotto/Bear/archive/3.0.15.tar.gz"
@@ -21,9 +19,7 @@ class Bear < Formula
   depends_on "fmt"
   depends_on "grpc"
   depends_on "nlohmann-json"
-  depends_on "python@3.9"
   depends_on "spdlog"
-  depends_on "sqlite"
 
   uses_from_macos "llvm" => :test
 
@@ -48,18 +44,16 @@ class Bear < Formula
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
-    args = std_cmake_args + %w[
+    args = %w[
       -DENABLE_UNIT_TESTS=OFF
       -DENABLE_FUNC_TESTS=OFF
     ]
 
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *args, *std_cmake_args
       system "make", "all"
       system "make", "install"
     end
-
-    rewrite_shebang detected_python_shebang, bin/"bear"
   end
 
   test do
@@ -70,7 +64,7 @@ class Bear < Formula
         return 0;
       }
     EOS
-    system "#{bin}/bear", "--", "clang", "test.c"
+    system bin/"bear", "--", "clang", "test.c"
     assert_predicate testpath/"compile_commands.json", :exist?
   end
 end
