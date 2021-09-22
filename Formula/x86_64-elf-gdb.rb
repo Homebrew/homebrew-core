@@ -2,11 +2,10 @@ class X8664ElfGdb < Formula
   desc "GNU debugger for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
   # Please add to synced_versions_formulae.json once version synced with gdb
-  url "https://ftp.gnu.org/gnu/gdb/gdb-10.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-10.2.tar.xz"
-  sha256 "aaa1223d534c9b700a8bec952d9748ee1977513f178727e1bee520ee000b4f29"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-11.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-11.2.tar.xz"
+  sha256 "1497c36a71881b8671a9a84a0ee40faab788ca30d7ba19d8463c3cc787152e32"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   livecheck do
@@ -22,18 +21,11 @@ class X8664ElfGdb < Formula
   end
 
   depends_on "x86_64-elf-gcc" => :test
+  depends_on "gmp"
   depends_on "python@3.10"
   depends_on "xz"
 
   uses_from_macos "zlib"
-
-  # Fix for https://sourceware.org/bugzilla/show_bug.cgi?id=26949#c8
-  # Remove when upstream includes this commit
-  # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=b413232211bf
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/242630de4b54d6c57721e12ce88988a0f4e41202/gdb/gdb-10.2.patch"
-    sha256 "36652e9d97037266650a3b31f9f39539c4b376d31016fa4fc325dc0aa7930acc"
-  end
 
   def install
     target = "x86_64-elf"
@@ -54,8 +46,8 @@ class X8664ElfGdb < Formula
 
     mkdir "build" do
       system "../configure", *args
+      ENV.deparallelize # Error: common/version.c-stamp.tmp: No such file or directory
       system "make"
-
       system "make", "install-gdb"
     end
   end
