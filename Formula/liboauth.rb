@@ -3,7 +3,7 @@ class Liboauth < Formula
   homepage "https://liboauth.sourceforge.io"
   url "https://downloads.sourceforge.net/project/liboauth/liboauth-1.0.3.tar.gz"
   sha256 "0df60157b052f0e774ade8a8bac59d6e8d4b464058cc55f9208d72e41156811f"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "e843a7ac1cf285dfadcb2ebe515dc842d73a3035aa7ceede90b940d4036459ac"
@@ -15,7 +15,7 @@ class Liboauth < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d4b6121635263809e6c2294ac2852c0e8a2680cdcc0fec733e01bc83da7ac6a"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Patch for compatibility with OpenSSL 1.1
   patch :p0 do
