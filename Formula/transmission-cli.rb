@@ -4,6 +4,7 @@ class TransmissionCli < Formula
   url "https://github.com/transmission/transmission-releases/raw/d5ccf14/transmission-3.00.tar.xz"
   sha256 "9144652fe742f7f7dd6657716e378da60b751aaeda8bef8344b3eefc4db255f2"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  revision 1
 
   livecheck do
     url "https://github.com/transmission/transmission-releases/"
@@ -22,7 +23,7 @@ class TransmissionCli < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
