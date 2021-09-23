@@ -4,6 +4,7 @@ class RubyAT27 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.4.tar.xz"
   sha256 "2a80824e0ad6100826b69b9890bf55cfc4cf2b61a1e1330fccbcb30c46cef8d7"
   license "Ruby"
+  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
@@ -22,7 +23,7 @@ class RubyAT27 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -47,7 +48,7 @@ class RubyAT27 < Formula
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 
-    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@3 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
