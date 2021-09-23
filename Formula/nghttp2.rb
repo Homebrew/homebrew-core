@@ -4,6 +4,7 @@ class Nghttp2 < Formula
   url "https://github.com/nghttp2/nghttp2/releases/download/v1.45.1/nghttp2-1.45.1.tar.xz"
   sha256 "abdc4addccadbc7d89abe27c4d6427d78e57d139f69c1f45749227393c68bf79"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "6e5425c819ee58479d4b2b2504dcff2ee53f5ed1ba79d16a10d41830734caac9"
@@ -25,7 +26,7 @@ class Nghttp2 < Formula
   depends_on "c-ares"
   depends_on "jemalloc"
   depends_on "libev"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
