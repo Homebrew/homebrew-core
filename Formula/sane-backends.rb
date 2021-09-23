@@ -4,6 +4,7 @@ class SaneBackends < Formula
   url "https://gitlab.com/sane-project/backends/uploads/104f09c07d35519cc8e72e604f11643f/sane-backends-1.0.32.tar.gz"
   sha256 "3a28c237c0a72767086202379f6dc92dbb63ec08dfbab22312cba80e238bb114"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :head
@@ -34,7 +35,7 @@ class SaneBackends < Formula
   depends_on "libtiff"
   depends_on "libusb"
   depends_on "net-snmp"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxml2"
 
