@@ -6,6 +6,7 @@ class AnsibleAT29 < Formula
   url "https://files.pythonhosted.org/packages/f1/88/fb2f7f2fad49c5a774e9fee209245821e4c02cf963b5e58ed0ffb8688091/ansible-2.9.26.tar.gz"
   sha256 "3ae02aad2bbedcfb419ce75ebd2a648e9deb73e9e2d8de86c82d6047b1bdeb63"
   license "GPL-3.0-or-later"
+  revision 1
 
   # The newest PyPI release won't be a 2.9.x version, so we match versions from
   # the links in the "Release History" section.
@@ -27,7 +28,7 @@ class AnsibleAT29 < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
   depends_on "six"
 
