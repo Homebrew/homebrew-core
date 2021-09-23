@@ -3,7 +3,7 @@ class Sylpheed < Formula
   homepage "https://sylpheed.sraoss.jp/en/"
   url "https://sylpheed.sraoss.jp/sylpheed/v3.7/sylpheed-3.7.0.tar.bz2"
   sha256 "eb23e6bda2c02095dfb0130668cf7c75d1f256904e3a7337815b4da5cb72eb04"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://sylpheed.sraoss.jp/en/download.html"
@@ -21,7 +21,7 @@ class Sylpheed < Formula
   depends_on "pkg-config" => :build
   depends_on "gpgme"
   depends_on "gtk+"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
