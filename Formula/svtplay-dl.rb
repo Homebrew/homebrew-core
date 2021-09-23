@@ -6,6 +6,7 @@ class SvtplayDl < Formula
   url "https://files.pythonhosted.org/packages/14/a4/58237e928c7d9c3318149526a60fc8d2fe2a2a38d9d61fdb3980bfdaec1d/svtplay-dl-4.5.tar.gz"
   sha256 "d9a4993ba0763efd6a49115e4ee98b5517d73c95748c2da6cb36b9d544b67e3b"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "e574e69de27a7b041950dc4650dd34d04ff76eb2658fd7d785abd6b545de1dcc"
@@ -16,7 +17,7 @@ class SvtplayDl < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   resource "certifi" do
