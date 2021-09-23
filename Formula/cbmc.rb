@@ -29,8 +29,6 @@ class Cbmc < Formula
 
   def install
     args = []
-    # Workaround borrowed from https://github.com/diffblue/cbmc/issues/4956
-    args << "-DCMAKE_C_COMPILER=/usr/bin/clang" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
