@@ -2,7 +2,7 @@ class SwiftOutputUhooi < Formula
   desc "Uhooi speak the phrase"
   homepage "https://github.com/uhooi/swift-output-uhooi"
   url "https://github.com/uhooi/swift-output-uhooi.git",
-    tag: "0.1.0",
+    tag:      "0.1.0",
     revision: "c64a25feac6b4ae87e510a2f19eeaad457659ac9"
   license "MIT"
   head "https://github.com/uhooi/swift-output-uhooi.git", branch: "main"
