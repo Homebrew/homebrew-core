@@ -6,6 +6,7 @@ class Awsume < Formula
   url "https://files.pythonhosted.org/packages/2f/d4/2f9621851aa22e06b0242d1c5dc2fbeb6267d5beca92c0adf875438793c2/awsume-4.5.3.tar.gz"
   sha256 "e94cc4c1d0f3cc0db8270572e2880c0641ce14cf226355bf42440b726bf453ef"
   license "MIT"
+  revision 1
   head "https://github.com/trek10inc/awsume.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Awsume < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6437dc79d71a6e7127217c2b233285b2ab0a3fd84ffa0a99ab7edb0d5c1ca9b8"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   uses_from_macos "sqlite"
