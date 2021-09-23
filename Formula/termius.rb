@@ -6,7 +6,7 @@ class Termius < Formula
   url "https://github.com/termius/termius-cli/archive/v1.2.15.tar.gz"
   sha256 "ac1a43e0f485a0a4541cae6385d344e767cc2df239a06b78577a3eb87fe3aecf"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/termius/termius-cli.git", branch: "master"
 
   bottle do
@@ -19,7 +19,7 @@ class Termius < Formula
 
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   uses_from_macos "libffi"
