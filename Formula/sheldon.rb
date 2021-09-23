@@ -4,6 +4,7 @@ class Sheldon < Formula
   url "https://github.com/rossmacarthur/sheldon/archive/0.6.4.tar.gz"
   sha256 "9d352f8fd29fcd16545218e46c1524a43549c9049d2dd8d54ddda138d598961a"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/rossmacarthur/sheldon.git", branch: "trunk"
 
   bottle do
@@ -15,7 +16,7 @@ class Sheldon < Formula
 
   depends_on "rust" => :build
   depends_on "curl"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cargo", "install", *std_cargo_args
