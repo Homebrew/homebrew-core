@@ -4,6 +4,7 @@ class Krb5 < Formula
   url "https://kerberos.org/dist/krb5/1.19/krb5-1.19.2.tar.gz"
   sha256 "10453fee4e3a8f8ce6129059e5c050b8a65dab1c257df68b99b3112eaa0cdf6a"
   license :cannot_represent
+  revision 1
 
   livecheck do
     url :homepage
@@ -20,7 +21,7 @@ class Krb5 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bison"
 
