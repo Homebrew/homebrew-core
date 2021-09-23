@@ -4,6 +4,7 @@ class Condure < Formula
   url "https://github.com/fanout/condure/archive/1.3.1.tar.gz"
   sha256 "26945c241c1fd352757d9e747ba7cc1906c9d17b1b8de5936b372a183c3bf5ba"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "0e2e6333e04b7815f37e06a34ef3fca4f7a3c6e74b2cbbfe393a45077392161f"
@@ -16,7 +17,7 @@ class Condure < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "python@3.9" => :test
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "zeromq"
 
   resource "pyzmq" do
