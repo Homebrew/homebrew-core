@@ -4,6 +4,7 @@ class Xrootd < Formula
   url "https://xrootd.slac.stanford.edu/download/v5.3.1/xrootd-5.3.1.tar.gz"
   sha256 "7ea3a112ae9d8915eb3a06616141e5a0ee366ce9a5e4d92407b846b37704ee98"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   livecheck do
@@ -20,7 +21,7 @@ class Xrootd < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "libxml2"
