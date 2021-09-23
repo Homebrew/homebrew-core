@@ -68,7 +68,6 @@ class Pnpm < Formula
           (Regexp.last_match(2).to_i + offset).to_s.ljust(Regexp.last_match(1).size)
         end
         executable.atomic_write binary
-        marker.atomic_write ""
       end
     end
   end
