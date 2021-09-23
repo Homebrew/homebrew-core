@@ -6,6 +6,7 @@ class Conan < Formula
   url "https://files.pythonhosted.org/packages/f6/62/0a978b762933b6c15db8b4f9c0e2d748f24d104084d22a940eef88500dc3/conan-1.40.2.tar.gz"
   sha256 "2dde4e484261f588167a2789874d26f518f13dab3217062d5cecd89f106cd181"
   license "MIT"
+  revision 1
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
@@ -19,7 +20,7 @@ class Conan < Formula
   depends_on "pkg-config" => :build
   depends_on "cmake" => :test
   depends_on "libffi"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
   depends_on "six"
 
