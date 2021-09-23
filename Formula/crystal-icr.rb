@@ -4,6 +4,7 @@ class CrystalIcr < Formula
   url "https://github.com/crystal-community/icr/archive/v0.8.0.tar.gz"
   sha256 "8c7825dd035bbb4bc6499873d4bd125185a01cae10dc8dd6f98e6e013def381c"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -16,7 +17,7 @@ class CrystalIcr < Formula
   depends_on "crystal"
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Fix build: src/icr/cli.cr:69:14: Error: undefined method 'parse!' for OptionParser.class
   # Remove in the next release.
