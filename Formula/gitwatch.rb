@@ -21,9 +21,9 @@ class Gitwatch < Formula
     repo = testpath/"repo"
     system "git", "init", repo
     pid = spawn "gitwatch", "-m", "Update", repo, pgroup: true
-    sleep 5
+    sleep 15
     touch repo/"file"
-    sleep 5
+    sleep 15
     begin
       assert_match "Update", shell_output("git -C #{repo} log -1")
     ensure
