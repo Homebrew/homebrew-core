@@ -5,7 +5,7 @@ class Wownero < Formula
       tag:      "v0.10.1.0",
       revision: "8ab87421d9321d0b61992c924cfa6e3918118ad0"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ef39a53fc330916136257fa2f8e2019063e544770789b09503b53e4505bea918"
@@ -20,7 +20,7 @@ class Wownero < Formula
   depends_on "boost"
   depends_on "hidapi"
   depends_on "libsodium"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf"
   depends_on "readline"
   depends_on "unbound"
