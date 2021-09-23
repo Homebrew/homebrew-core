@@ -4,6 +4,7 @@ class Nsd < Formula
   url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.3.7.tar.gz"
   sha256 "fd3b9ec53bbd168d567a0bfcdf140c966511fdaf78bd539d091c1a13c13be8ad"
   license "BSD-3-Clause"
+  revision 1
 
   # We check the GitHub repo tags instead of
   # https://www.nlnetlabs.nl/downloads/nsd/ since the first-party site has a
@@ -22,14 +23,14 @@ class Nsd < Formula
   end
 
   depends_on "libevent"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
                           "--with-libevent=#{Formula["libevent"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
