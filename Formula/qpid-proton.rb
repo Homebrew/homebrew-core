@@ -5,6 +5,7 @@ class QpidProton < Formula
   mirror "https://archive.apache.org/dist/qpid/proton/0.35.0/qpid-proton-0.35.0.tar.gz"
   sha256 "a2d21cd9612dd79332ca18b794e372256e9b8eb12195cd8ffcb69043e32b5926"
   license "Apache-2.0"
+  revision 1
   head "https://gitbox.apache.org/repos/asf/qpid-proton.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class QpidProton < Formula
 
   depends_on "cmake" => :build
   depends_on "libuv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     mkdir "build" do
