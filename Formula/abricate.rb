@@ -4,6 +4,7 @@ class Abricate < Formula
   url "https://github.com/tseemann/abricate/archive/v1.0.1.tar.gz"
   sha256 "5edc6b45a0ff73dcb4f1489a64cb3385d065a6f29185406197379522226a5d20"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/tseemann/abricate.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Abricate < Formula
   depends_on "cpanminus" => :build
   depends_on "bioperl"
   depends_on "blast"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "perl"
 
   uses_from_macos "unzip"
@@ -35,7 +36,7 @@ class Abricate < Formula
     ENV.prepend "PERL5LIB", Formula["bioperl"].libexec/"lib/perl5"
     ENV.prepend_create_path "PERL5LIB", libexec/"perl5/lib/perl5"
 
-    ENV["OPENSSL_PREFIX"] = Formula["openssl"].opt_prefix # for Net::SSLeay
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix # for Net::SSLeay
 
     pms = %w[JSON Path::Tiny List::MoreUtils LWP::Simple]
     system "cpanm", "--self-contained", "-l", libexec/"perl5", *pms
