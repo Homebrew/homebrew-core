@@ -4,6 +4,7 @@ class SwiProlog < Formula
   url "https://www.swi-prolog.org/download/stable/src/swipl-8.2.4.tar.gz"
   sha256 "f4bcc78437f9080ab089762e9e6afa7071df7f584c14999b92b9a90a4efbd7d8"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
   livecheck do
@@ -26,7 +27,7 @@ class SwiProlog < Formula
   depends_on "jpeg"
   depends_on "libarchive"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "readline"
   depends_on "unixodbc"
