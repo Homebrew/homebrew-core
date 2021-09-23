@@ -4,6 +4,7 @@ class Libgda < Formula
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.10.tar.xz"
   sha256 "6f6cdf7b8053f553b907e0c88a6064eb48cf2751852eb24323dcf027792334c8"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "993a414772b41e1f0b2cffe21f9af240dbcd7e2b6de5d62a0e51b89a8144e40a"
@@ -21,7 +22,7 @@ class Libgda < Formula
   depends_on "glib"
   depends_on "libgcrypt"
   depends_on "libgee"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   def install
