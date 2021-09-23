@@ -4,7 +4,7 @@ class Irssi < Formula
   url "https://github.com/irssi/irssi/releases/download/1.2.3/irssi-1.2.3.tar.xz"
   sha256 "a647bfefed14d2221fa77b6edac594934dc672c4a560417b1abcbbc6b88d769f"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://irssi.org/download/"
@@ -29,7 +29,7 @@ class Irssi < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "ncurses"
   uses_from_macos "perl"
