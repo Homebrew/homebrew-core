@@ -6,6 +6,7 @@ class Mitmproxy < Formula
   url "https://github.com/mitmproxy/mitmproxy/archive/v7.0.3.tar.gz"
   sha256 "d71aa946df9f7470865c0d5746ee7c1ec5958ef519c682ea828115f044da10f0"
   license "MIT"
+  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Mitmproxy < Formula
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf"
   depends_on "python@3.9"
   depends_on "six"
