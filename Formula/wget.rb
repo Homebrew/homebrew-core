@@ -4,6 +4,7 @@ class Wget < Formula
   url "https://ftp.gnu.org/gnu/wget/wget-1.21.2.tar.gz"
   sha256 "e6d4c76be82c676dd7e8c61a29b2ac8510ae108a810b5d1d18fc9a1d2c9a2497"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "4f8b66c5f181f01064522a80bfda72eabddd47299a8b88bc7d0022c457e72594"
@@ -24,7 +25,7 @@ class Wget < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libidn2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "util-linux"
@@ -35,7 +36,7 @@ class Wget < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
-                          "--with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-libssl-prefix=#{Formula["openssl@3"].opt_prefix}",
                           "--disable-pcre",
                           "--disable-pcre2",
                           "--without-libpsl",
