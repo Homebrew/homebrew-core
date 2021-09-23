@@ -4,6 +4,7 @@ class Libstrophe < Formula
   url "https://github.com/strophe/libstrophe/archive/0.10.1.tar.gz"
   sha256 "5bf0bbc555cb6059008f1b748370d4d2ee1e1fabd3eeab68475263556405ba39"
   license any_of: ["GPL-3.0", "MIT"]
+  revision 1
   head "https://github.com/strophe/libstrophe.git"
 
   bottle do
@@ -20,7 +21,7 @@ class Libstrophe < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "check"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "expat"
   uses_from_macos "libxml2"
