@@ -28,6 +28,12 @@ class Gd < Formula
   depends_on "libtiff"
   depends_on "webp"
 
+  # revert breaking changes in 2.3.3, remove in next release
+  patch do
+    url "https://github.com/libgd/libgd/commit/f4bc1f5c26925548662946ed7cfa473c190a104a.patch?full_index=1"
+    sha256 "1015f6e125f139a1e922ac4bc2a18abbc498b0142193fa692846bf0f344a3691"
+  end
+
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
