@@ -9,6 +9,7 @@ class OpensslAT11 < Formula
   mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1m.tar.gz"
   sha256 "f89199be8b23ca45fc7cb9f1d8d3ee67312318286ad030f5316aca6462db6c96"
   license "OpenSSL"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -25,7 +26,7 @@ class OpensslAT11 < Formula
     sha256 x86_64_linux:   "b34cfd21863fcb600c0193b5509776e676f5144eeda0fad641710ab81f7cf4dd"
   end
 
-  keg_only :shadowed_by_macos, "macOS provides LibreSSL"
+  keg_only :versioned_formula
 
   depends_on "ca-certificates"
 
@@ -37,15 +38,15 @@ class OpensslAT11 < Formula
     end
 
     resource "Test::More" do
-      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
-      sha256 "c8c8f5c51ad6d7a858c3b61b8b658d8e789d3da5d300065df0633875b0075e49"
+      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302188.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302188.tar.gz"
+      sha256 "0b7a0e304ca24d657d79b73c9ff3f381dc460f356e4044de326ed03ddab16c95"
     end
 
     resource "ExtUtils::MakeMaker" do
-      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
-      sha256 "94e64a630fc37e80c0ca02480dccfa5f2f4ca4b0dd4eeecc1d65acd321c68289"
+      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.62.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.62.tar.gz"
+      sha256 "5022ad857fd76bd3f6b16af099fe2324639d9932e08f21e891fb313d9cae1705"
     end
   end
 
