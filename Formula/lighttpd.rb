@@ -4,7 +4,7 @@ class Lighttpd < Formula
   url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.59.tar.xz"
   sha256 "fb953db273daef08edb6e202556cae8a3d07eed6081c96bd9903db957d1084d5"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.lighttpd.net/lighttpd/releases-1.4.x/"
@@ -24,7 +24,7 @@ class Lighttpd < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openldap"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   # default max. file descriptors; this option will be ignored if the server is not started as root
