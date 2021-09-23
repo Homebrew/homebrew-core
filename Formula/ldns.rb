@@ -4,7 +4,7 @@ class Ldns < Formula
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz"
   sha256 "8ac84c16bdca60e710eea75782356f3ac3b55680d40e1530d7cea474ac208229"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.
@@ -22,7 +22,7 @@ class Ldns < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   conflicts_with "drill", because: "both install a `drill` binary"
@@ -32,7 +32,7 @@ class Ldns < Formula
       --prefix=#{prefix}
       --with-drill
       --with-examples
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --with-pyldns
       PYTHON_SITE_PKG=#{lib}/python3.9/site-packages
       --disable-dane-verify
