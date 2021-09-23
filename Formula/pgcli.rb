@@ -6,6 +6,7 @@ class Pgcli < Formula
   url "https://files.pythonhosted.org/packages/8e/ec/b82a438e70bb29c66489fcacd442458c59e3d560ec061bac7092b2f1a861/pgcli-3.2.0.tar.gz"
   sha256 "6cde97e71996bf910a40b579e5285483c10ea04962a08def01c12433d5f7c6b7"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a84512d680d97f3817bca3d15c1aa6f0826cfafc282938d63eeef91df1ac9bd8"
@@ -17,7 +18,7 @@ class Pgcli < Formula
 
   depends_on "poetry" => :build
   depends_on "libpq"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python-tabulate"
   depends_on "python@3.9"
   depends_on "six"
