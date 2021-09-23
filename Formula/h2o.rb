@@ -4,7 +4,7 @@ class H2o < Formula
   url "https://github.com/h2o/h2o/archive/v2.2.6.tar.gz"
   sha256 "f8cbc1b530d85ff098f6efc2c3fdbc5e29baffb30614caac59d5c710f7bda201"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -17,7 +17,7 @@ class H2o < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -28,7 +28,7 @@ class H2o < Formula
 
     system "cmake", *std_cmake_args,
                     "-DWITH_BUNDLED_SSL=OFF",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
 
     (etc/"h2o").mkpath
