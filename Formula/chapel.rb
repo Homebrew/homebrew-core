@@ -1,8 +1,8 @@
 class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.24.1/chapel-1.24.1.tar.gz"
-  sha256 "f898f266fccaa34d937b38730a361d42efb20753ba43a95e5682816e008ce5e4"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.25.0/chapel-1.25.0.tar.gz"
+  sha256 "39f43fc6de98e3b1dcee9694fdd4abbfb96cc941eff97bbaa86ee8ad88e9349b"
   license "Apache-2.0"
 
   bottle do
@@ -12,6 +12,7 @@ class Chapel < Formula
     sha256 x86_64_linux: "ca34ea32e25b7c9fea13bf25a09ac8b3151f45f8b8ac2dfeebfc0d18773783ba"
   end
 
+  depends_on "llvm@11"
   depends_on "python@3.9"
 
   def install
@@ -19,16 +20,28 @@ class Chapel < Formula
     # Chapel uses this ENV to work out where to install.
     ENV["CHPL_HOME"] = libexec
     # This is for mason
-    ENV["CHPL_REGEXP"] = "re2"
+    ENV["CHPL_RE2"] = "bundled"
 
     # Must be built from within CHPL_HOME to prevent build bugs.
     # https://github.com/Homebrew/legacy-homebrew/pull/35166
     cd libexec do
+      system "./util/printchplenv", "--all"
+      system "make"
+      # Need to let chapel choose target compiler with llvm
+      ENV["CHPL_HOST_CC"] = ENV["CC"]
+      ENV["CHPL_HOST_CXX"] = ENV["CXX"]
+      ENV.delete("CC")
+      ENV.delete("CXX")
+      system "./util/printchplenv", "--all"
       system "make"
       system "make", "chpldoc"
       system "make", "mason"
       system "make", "cleanall"
       rm_rf("third-party/llvm/llvm-src/")
+      rm_rf("third-party/gasnet/gasnet-src")
+      rm_rf("third-party/libfabric/libfabric-src")
+      rm_rf("third-party/fltk/fltk-1.3.5-source.tar.gz")
+      rm_rf("third-party/libunwind/libunwind-1.1.tar.gz")
     end
 
     prefix.install_metafiles
