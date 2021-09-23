@@ -4,6 +4,7 @@ class Mysql < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.26.tar.gz"
   sha256 "209442c1001c37bcbc001845e1dc623d654cefb555b47b528742a53bf21c0b4d"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -24,7 +25,7 @@ class Mysql < Formula
   depends_on "icu4c"
   depends_on "libevent"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf"
   depends_on "zstd"
 
