@@ -4,7 +4,7 @@ class GitSeries < Formula
   url "https://github.com/git-series/git-series/archive/0.9.1.tar.gz"
   sha256 "c0362e19d3fa168a7cb0e260fcdecfe070853b163c9f2dfd2ad8213289bc7e5f"
   license "MIT"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "fdac441611169844e14d3493eebede474b613b926744bf2d55f1268107683ed2"
@@ -18,12 +18,12 @@ class GitSeries < Formula
   depends_on "rust" => :build
   depends_on "libgit2"
   depends_on "libssh2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
 
     ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
