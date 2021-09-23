@@ -28,9 +28,7 @@ class Cbmc < Formula
   fails_with gcc: "5"
 
   def install
-    args = []
-
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
