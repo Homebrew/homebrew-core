@@ -4,7 +4,7 @@ class Pypy3 < Formula
   url "https://downloads.python.org/pypy/pypy3.7-v7.3.5-src.tar.bz2"
   sha256 "d920fe409a9ecad9d074aa8568ca5f3ed3581be66f66e5d8988b7ec66e6d99a2"
   license "MIT"
-  revision 1
+  revision 2
   head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.7"
 
   livecheck do
@@ -23,7 +23,7 @@ class Pypy3 < Formula
   depends_on "pypy" => :build
   depends_on arch: :x86_64
   depends_on "gdbm"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "sqlite"
   depends_on "tcl-tk"
   depends_on "xz"
