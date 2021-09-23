@@ -5,6 +5,7 @@ class Dotnet < Formula
       tag:      "v5.0.206-SDK",
       revision: "7422fa72e3e3cb32cfad37ccb3ad5a2d9c05d857"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class Dotnet < Formula
   depends_on arch: :x86_64
   depends_on "curl"
   depends_on "icu4c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "krb5"
   uses_from_macos "zlib"
