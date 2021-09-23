@@ -2,7 +2,7 @@ class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   stable do
@@ -27,7 +27,7 @@ class Uwsgi < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "python@3.9"
   depends_on "yajl"
@@ -46,7 +46,7 @@ class Uwsgi < Formula
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
-    openssl = Formula["openssl@1.1"]
+    openssl = Formula["openssl@3"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 
