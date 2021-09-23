@@ -4,6 +4,7 @@ class Profanity < Formula
   url "https://profanity-im.github.io/profanity-0.11.0.tar.gz"
   sha256 "3fc9809816f69186dbb860b27183f6cd2aef0a52a7d14e20e4ef6c3a7f0f3606"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 big_sur:      "969adf8ec31291af0845c5908d3aff338fd941dc3b938ece43a1962357f53622"
@@ -30,7 +31,7 @@ class Profanity < Formula
   depends_on "libotr"
   depends_on "libsignal-protocol-c"
   depends_on "libstrophe"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   on_macos do
