@@ -4,6 +4,7 @@ class Wangle < Formula
   url "https://github.com/facebook/wangle/releases/download/v2021.09.13.00/wangle-v2021.09.13.00.tar.gz"
   sha256 "faf3ac554cdf2145afad68039a4b8ee0d6c2a905dd05d00d8bb40184a94345e1"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/facebook/wangle.git", branch: "master"
 
   bottle do
@@ -25,7 +26,7 @@ class Wangle < Formula
   depends_on "libevent"
   depends_on "libsodium"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "snappy"
   depends_on "zstd"
 
@@ -55,7 +56,7 @@ class Wangle < Formula
     cxx_flags = %W[
       -std=c++14
       -I#{include}
-      -I#{Formula["openssl@1.1"].opt_include}
+      -I#{Formula["openssl@3"].opt_include}
       -L#{Formula["gflags"].opt_lib}
       -L#{Formula["glog"].opt_lib}
       -L#{Formula["folly"].opt_lib}
