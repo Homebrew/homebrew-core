@@ -4,6 +4,7 @@ class MongoCDriver < Formula
   url "https://github.com/mongodb/mongo-c-driver/releases/download/1.19.0/mongo-c-driver-1.19.0.tar.gz"
   sha256 "23c365d319f0a53af81dd7d56f35e90c24ec32a21823c2f36c5d8c2d1edcdd6f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/mongodb/mongo-c-driver.git"
 
   bottle do
@@ -17,7 +18,7 @@ class MongoCDriver < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
