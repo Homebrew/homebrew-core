@@ -4,7 +4,7 @@ class Neomutt < Formula
   url "https://github.com/neomutt/neomutt/archive/20210205.tar.gz"
   sha256 "77e177780fc2d8abb475d9cac4342c7e61d53c243f6ce2f9bc86d819fc962cdb"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/neomutt/neomutt.git", branch: "master"
 
   bottle do
@@ -22,7 +22,7 @@ class Neomutt < Formula
   depends_on "lmdb"
   depends_on "lua"
   depends_on "notmuch"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "tokyo-cabinet"
 
   uses_from_macos "libxslt" => :build # for xsltproc
@@ -49,7 +49,7 @@ class Neomutt < Formula
       --tokyocabinet
       --with-gpgme=#{Formula["gpgme"].opt_prefix}
       --with-lua=#{Formula["lua"].opt_prefix}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --with-ui=ncurses
     ]
 
