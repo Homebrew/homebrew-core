@@ -5,6 +5,7 @@ class Zeek < Formula
       tag:      "v4.1.0",
       revision: "73783cc8a62017835208b54753dd69ea5667ef2f"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/zeek/zeek.git", branch: "master"
 
   bottle do
@@ -22,7 +23,7 @@ class Zeek < Formula
   depends_on "geoip"
   depends_on "libmaxminddb"
   depends_on macos: :mojave
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   uses_from_macos "flex"
@@ -51,7 +52,7 @@ class Zeek < Formula
                       "-DINSTALL_ZEEKCTL=on",
                       "-DUSE_GEOIP=on",
                       "-DCAF_ROOT=#{Formula["caf"].opt_prefix}",
-                      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
                       "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                       "-DZEEK_LOCAL_STATE_DIR=#{var}"
       system "make", "install"
