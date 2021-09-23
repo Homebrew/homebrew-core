@@ -3,7 +3,7 @@ class Afflib < Formula
   homepage "https://github.com/sshock/AFFLIBv3"
   url "https://github.com/sshock/AFFLIBv3/archive/v3.7.19.tar.gz"
   sha256 "d358b07153dd08df3f35376bab0202c6103808686bab5e8486c78a18b24e2665"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "4ebc86660cab0964031b14ee14a710a8d83222389ba9e263463f7b7610582b3b"
@@ -18,7 +18,7 @@ class Afflib < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   uses_from_macos "curl"
