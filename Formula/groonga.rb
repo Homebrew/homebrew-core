@@ -4,6 +4,7 @@ class Groonga < Formula
   url "https://packages.groonga.org/source/groonga/groonga-11.0.6.tar.gz"
   sha256 "456d2515896d8e77b120052b093257c2f6ca3435a1dd2c7c72b803b4652f51a9"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -29,7 +30,7 @@ class Groonga < Formula
   depends_on "mecab"
   depends_on "mecab-ipadic"
   depends_on "msgpack"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   on_linux do
