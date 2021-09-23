@@ -4,6 +4,7 @@ class Ruby < Formula
   url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.2.tar.xz"
   sha256 "570e7773100f625599575f363831166d91d49a1ab97d3ab6495af44774155c40"
   license "Ruby"
+  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
@@ -27,7 +28,7 @@ class Ruby < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "libffi"
@@ -55,7 +56,7 @@ class Ruby < Formula
 
     system "autoconf" if build.head?
 
-    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@3 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
