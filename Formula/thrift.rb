@@ -5,6 +5,7 @@ class Thrift < Formula
   mirror "https://archive.apache.org/dist/thrift/0.15.0/thrift-0.15.0.tar.gz"
   sha256 "d5883566d161f8f6ddd4e21f3a9e3e6b8272799d054820f1c25b11e86718f86b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "8352c16aaef3267d863dc31aa6e6562ab59ce5823b61296a0a2dfe62fb747112"
@@ -25,7 +26,7 @@ class Thrift < Formula
 
   depends_on "bison" => :build
   depends_on "boost" => [:build, :test]
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./bootstrap.sh" unless build.stable?
@@ -35,7 +36,7 @@ class Thrift < Formula
       --disable-tests
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --without-erlang
       --without-haskell
       --without-java
