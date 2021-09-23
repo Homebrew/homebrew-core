@@ -12,6 +12,7 @@ class Gpac < Formula
   url "https://github.com/gpac/gpac/archive/v1.0.1.tar.gz"
   sha256 "3b0ffba73c68ea8847027c23f45cd81d705110ec47cf3c36f60e669de867e0af"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/gpac/gpac.git"
 
   bottle do
@@ -24,7 +25,7 @@ class Gpac < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
