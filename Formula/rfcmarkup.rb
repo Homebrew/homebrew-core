@@ -1,8 +1,14 @@
 class Rfcmarkup < Formula
   desc "Add HTML markup and links to internet-drafts and RFCs"
   homepage "https://tools.ietf.org/tools/rfcmarkup/"
-  url "https://tools.ietf.org/tools/rfcmarkup/rfcmarkup-1.119.tgz"
-  sha256 "46c5522f3cba0d430019a60de0e995adbc12f055970b6b341f45181cf8deed8e"
+  url "https://tools.ietf.org/tools/rfcmarkup/rfcmarkup-1.129.tgz"
+  sha256 "369d1b1e6ed27930150b7b0e51a5fc4e068a8980c59924abc0ece10758c6cfd7"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(%r{>\s*Version:\s*</i>\s*v?(\d+(?:\.\d+)+)}im)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7e74ed6e344dd26f4bb0674b13bf65b9333c29ac7f3552627578b98eb97be599"
@@ -14,6 +20,8 @@ class Rfcmarkup < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "a15f3c6be0c5eb4b38c4801c6151d4a12b2f206ab6e9c7f11dd0cd94ba7f9e9d"
     sha256 cellar: :any_skip_relocation, yosemite:      "5eaeed274aca3e64cbc2407a6b9b531efed736fec325d15109b308bdbea971b4"
   end
+
+  depends_on :macos # Due to Python 2
 
   def install
     bin.install "rfcmarkup"
