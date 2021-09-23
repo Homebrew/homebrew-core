@@ -4,6 +4,7 @@ class PostgresqlAT12 < Formula
   url "https://ftp.postgresql.org/pub/source/v12.8/postgresql-12.8.tar.bz2"
   sha256 "e26401e090c34ccb15ffb33a111f340833833535a7b7c5cd11cd88ab57d9c62a"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -30,7 +31,7 @@ class PostgresqlAT12 < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "libxml2"
@@ -44,8 +45,8 @@ class PostgresqlAT12 < Formula
   end
 
   def install
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
 
     args = %W[
       --disable-debug
