@@ -18,13 +18,38 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  tap_syntax:
+  tap_syntax_macos:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/homebrew/ubuntu16.04:master
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - run: brew test-bot --only-tap-syntax
+
+  tap_syntax_linux:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu16.04:master
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - run: brew test-bot --only-tap-syntax
+
+  formulae_detect:
+    if: github.event_name == 'pull_request' && github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu16.04:master
+    needs: [tap_syntax_macos, tap_syntax_linux]
     outputs:
       testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
       added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
@@ -34,16 +59,13 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - run: brew test-bot --only-tap-syntax
-
       - run: brew test-bot --only-formulae-detect
-        if: github.event_name == 'pull_request'
         id: formulae-detect
 
   setup_tests:
     if: github.event_name == 'pull_request' && github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
-    needs: tap_syntax
+    needs: formulae_detect
     outputs:
       syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
       runners: ${{ steps.check-labels.outputs.runners }}
