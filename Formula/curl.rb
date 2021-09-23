@@ -4,6 +4,7 @@ class Curl < Formula
   url "https://curl.se/download/curl-7.79.1.tar.bz2"
   sha256 "de62c4ab9a9316393962e8b94777a570bb9f71feb580fb4475e412f2f9387851"
   license "curl"
+  revision 1
 
   livecheck do
     url "https://curl.se/download/"
@@ -34,7 +35,7 @@ class Curl < Formula
   depends_on "libssh2"
   depends_on "nghttp2"
   depends_on "openldap"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "rtmpdump"
   depends_on "zstd"
 
@@ -49,7 +50,7 @@ class Curl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback
