@@ -6,7 +6,7 @@ class Cadaver < Formula
   mirror "https://web.archive.org/web/20170629224036/www.webdav.org/cadaver/cadaver-0.23.3.tar.gz"
   sha256 "fd4ce68a3230ba459a92bcb747fc6afa91e46d803c1d5ffe964b661793c13fca"
   license "GPL-2.0-or-later"
-  revision 5
+  revision 6
   head "https://github.com/notroj/cadaver.git", branch: "master"
 
   livecheck do
@@ -26,7 +26,7 @@ class Cadaver < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "neon"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   # enable build with the latest neon
@@ -35,7 +35,7 @@ class Cadaver < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-libs=#{Formula["openssl@3"].opt_prefix}",
                           "--with-neon=#{Formula["neon"].opt_prefix}"
     system "make", "-C", "lib/intl"
     system "make", "install"
