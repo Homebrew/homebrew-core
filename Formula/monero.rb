@@ -5,6 +5,7 @@ class Monero < Formula
       tag:      "v0.17.2.3",
       revision: "2222bea92fdeef7e6449d2d784cdfc3012641ee1"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class Monero < Formula
   depends_on "boost"
   depends_on "hidapi"
   depends_on "libsodium"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf"
   depends_on "readline"
   depends_on "unbound"
