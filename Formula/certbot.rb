@@ -6,6 +6,7 @@ class Certbot < Formula
   url "https://files.pythonhosted.org/packages/e4/9a/affc25d8d52e2977bd58dc79b6825a62a0d4c315048cb4c5144dcd71371a/certbot-1.19.0.tar.gz"
   sha256 "015cbe210498a01f38b04ca32502c9142ba0e8aeea74bb6ba81a985df14a072c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/certbot/certbot.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class Certbot < Formula
   depends_on "rust" => :build # for cryptography
   depends_on "augeas"
   depends_on "dialog"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   uses_from_macos "libffi"
