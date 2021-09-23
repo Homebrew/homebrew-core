@@ -4,6 +4,7 @@ class Links < Formula
   url "http://links.twibright.com/download/links-2.24.tar.bz2"
   sha256 "9b12f5ba2d068306d7ff7385b520cdcafdc0e55c87eec877abb0e78288525430"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "http://links.twibright.com/download.php"
@@ -22,7 +23,7 @@ class Links < Formula
   depends_on "jpeg"
   depends_on "librsvg"
   depends_on "libtiff"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     args = %W[
@@ -30,7 +31,7 @@ class Links < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-lzma
     ]
 
