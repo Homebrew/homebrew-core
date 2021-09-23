@@ -2,6 +2,7 @@ class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/cruppstahl/upscaledb.git", branch: "master"
 
   stable do
@@ -33,7 +34,7 @@ class Upscaledb < Formula
   depends_on "boost"
   depends_on "gnutls"
   depends_on "openjdk"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     ENV.cxx11
