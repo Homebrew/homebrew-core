@@ -6,6 +6,7 @@ class SpiceGtk < Formula
   url "https://www.spice-space.org/download/gtk/spice-gtk-0.39.tar.xz"
   sha256 "23acbee197eaaec9bce6e6bfd885bd8f79708332639243ff04833020865713cd"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+  revision 1
 
   livecheck do
     url "https://www.spice-space.org/download/gtk/"
@@ -44,7 +45,7 @@ class SpiceGtk < Formula
   depends_on "json-glib"
   depends_on "libusb"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "opus"
   depends_on "pango"
   depends_on "pixman"
