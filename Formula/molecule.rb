@@ -6,6 +6,7 @@ class Molecule < Formula
   url "https://files.pythonhosted.org/packages/9a/a3/8c4202b7662a41f40414cccb45e8ea511a68d83663e51ff8218c67b940ee/molecule-3.5.1.tar.gz"
   sha256 "cd0833f6902ff485a8fd607b7409dd1bbcde7b7cf334b1f6a1211add8703f96d"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "064816a491e2b87873fe06dc9d0e0900abf7b136b5a4107cb1c7a7212fc1e865"
@@ -17,7 +18,7 @@ class Molecule < Formula
 
   depends_on "rust" => :build
   depends_on "ansible"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
   depends_on "six"
 
