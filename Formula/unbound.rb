@@ -4,6 +4,7 @@ class Unbound < Formula
   url "https://nlnetlabs.nl/downloads/unbound/unbound-1.13.2.tar.gz"
   sha256 "0a13b547f3b92a026b5ebd0423f54c991e5718037fd9f72445817f6a040e1a83"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/NLnetLabs/unbound.git", branch: "master"
 
   # We check the GitHub repo tags instead of
@@ -24,7 +25,7 @@ class Unbound < Formula
 
   depends_on "libevent"
   depends_on "nghttp2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "expat"
 
@@ -37,7 +38,7 @@ class Unbound < Formula
       --enable-tfo-server
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-libnghttp2=#{Formula["nghttp2"].opt_prefix}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
     ]
 
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" if OS.mac? && MacOS.sdk_path_if_needed
