@@ -4,6 +4,7 @@ class Libzip < Formula
   url "https://libzip.org/download/libzip-1.8.0.tar.xz"
   sha256 "f0763bda24ba947e80430be787c4b068d8b6aa6027a26a19923f0acfa3dac97e"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://libzip.org/download/"
@@ -19,18 +20,30 @@ class Libzip < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "zstd"
 
   uses_from_macos "zip" => :test
   uses_from_macos "bzip2"
-  uses_from_macos "openssl"
   uses_from_macos "xz"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openssl@1.1"
+  end
 
   conflicts_with "libtcod", "minizip-ng",
     because: "libtcod, libzip and minizip-ng install a `zip.h` header"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    crypto_args = %w[
+      -DENABLE_GNUTLS=OFF
+      -DENABLE_MBEDTLS=OFF
+    ]
+    crypto_args << "-DENABLE_OPENSSL=OFF" if OS.mac? # Use CommonCrypto instead.
+    system "cmake", ".", *std_cmake_args,
+                         *crypto_args,
+                         "-DBUILD_REGRESS=OFF",
+                         "-DBUILD_EXAMPLES=OFF"
     system "make", "install"
   end
 
