@@ -4,7 +4,7 @@ class CargoC < Formula
   url "https://github.com/lu-zero/cargo-c/archive/v0.9.3.tar.gz"
   sha256 "0e0e7d1f6490e47195f8d02e6b6eda058ec815756fab1ec8c811e1f644cc68f5"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "524f0b3e2e1911dffac72dbe2e19b2aa721faafb59c018ca676d5206ecc64084"
@@ -17,7 +17,7 @@ class CargoC < Formula
   depends_on "rust" => :build
   depends_on "libgit2"
   depends_on "libssh2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
