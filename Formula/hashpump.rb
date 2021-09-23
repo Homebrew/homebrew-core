@@ -4,7 +4,7 @@ class Hashpump < Formula
   url "https://github.com/bwall/HashPump/archive/v1.2.0.tar.gz"
   sha256 "d002e24541c6604e5243e5325ef152e65f9fcd00168a9fa7a06ad130e28b811b"
   license "MIT"
-  revision 5
+  revision 6
 
   livecheck do
     url :stable
@@ -20,7 +20,7 @@ class Hashpump < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "436a71c492e005771238b818e594bd3b3fd66b3e9e2bdaa32222bc95776d03e0"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   # Remove on next release
