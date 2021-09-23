@@ -4,6 +4,7 @@ class Gwenhywfar < Formula
   url "https://www.aquamaniac.de/rdm/attachments/download/384/gwenhywfar-5.7.2.tar.gz"
   sha256 "49af73b7ceda74ed2d87caddfda8d18ec5ce3f9dc1ca98aec38a4bbc9f3d35ea"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/files"
@@ -24,7 +25,7 @@ class Gwenhywfar < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pkg-config" # gwenhywfar-config needs pkg-config for execution
   depends_on "qt@5"
 
