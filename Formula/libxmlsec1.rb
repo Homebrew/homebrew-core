@@ -4,6 +4,7 @@ class Libxmlsec1 < Formula
   url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.32.tar.gz"
   sha256 "e383702853236004e5b08e424b8afe9b53fe9f31aaa7a5382f39d9533eb7c043"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://www.aleksey.com/xmlsec/download/"
@@ -22,7 +23,7 @@ class Libxmlsec1 < Formula
   depends_on "gnutls" # Yes, it wants both ssl/tls variations
   depends_on "libgcrypt"
   depends_on "libxml2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_macos do
     depends_on xcode: :build
@@ -36,7 +37,7 @@ class Libxmlsec1 < Formula
             "--prefix=#{prefix}",
             "--disable-crypto-dl",
             "--disable-apps-crypto-dl",
-            "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"]
+            "--with-openssl=#{Formula["openssl@3"].opt_prefix}"]
 
     system "./configure", *args
     system "make", "install"
