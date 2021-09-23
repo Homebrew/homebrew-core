@@ -5,7 +5,7 @@ class AprUtil < Formula
   mirror "https://archive.apache.org/dist/apr/apr-util-1.6.1.tar.bz2"
   sha256 "d3e12f7b6ad12687572a3a39475545a072608f4ba03a6ce8a3778f607dd0035b"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 arm64_big_sur: "29ffec15c99813b879d9410e2040044b02ee8e219492d065043b4bb65cf30741"
@@ -20,7 +20,7 @@ class AprUtil < Formula
   keg_only :shadowed_by_macos, "Apple's CLT provides apr (but not apr-util)"
 
   depends_on "apr"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "expat"
   uses_from_macos "sqlite"
@@ -34,7 +34,7 @@ class AprUtil < Formula
     system "./configure", *std_configure_args,
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-crypto",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
                           "--without-pgsql"
 
     system "make"
