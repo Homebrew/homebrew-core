@@ -4,6 +4,7 @@ class Redis < Formula
   url "https://download.redis.io/releases/redis-6.2.5.tar.gz"
   sha256 "4b9a75709a1b74b3785e20a6c158cab94cf52298aa381eea947a678a60d551ae"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/redis/redis.git", branch: "unstable"
 
   livecheck do
@@ -19,7 +20,7 @@ class Redis < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b0ef13645b8ac6d613623d86c726e7a5cdb023bbde5c7e841dca587527ee506"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
