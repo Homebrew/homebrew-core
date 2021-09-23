@@ -6,6 +6,7 @@ class Osc < Formula
   url "https://github.com/openSUSE/osc/archive/0.174.0.tar.gz"
   sha256 "9be35b347fa07ac1235aa364b0e1229c00d5e98e202923d7a8a796e3ca2756ad"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Osc < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   uses_from_macos "curl"
@@ -33,7 +34,7 @@ class Osc < Formula
   end
 
   def install
-    openssl = Formula["openssl@1.1"]
+    openssl = Formula["openssl@3"]
     ENV["SWIG_FEATURES"] = "-I#{openssl.opt_include}"
 
     inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{openssl.pkgetc}/cert.pem'"
