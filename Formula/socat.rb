@@ -4,6 +4,7 @@ class Socat < Formula
   url "http://www.dest-unreach.org/socat/download/socat-1.7.4.1.tar.gz"
   sha256 "0c7e635070af1b9037fd96869fc45eacf9845cb54547681de9d885044538736d"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "http://www.dest-unreach.org/socat/download/"
@@ -18,7 +19,7 @@ class Socat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "78a1e71516e40d992644374d24b33013d23b2e92e7c000783f3d5fd517282994"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   def install
