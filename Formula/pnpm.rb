@@ -54,10 +54,8 @@ class Pnpm < Formula
 
   def post_install
     if OS.linux?
-      lib.mkpath
-      marker = lib/"SHIFTED"
-      unless marker.exist?
-        executable = bin/"pnpm"
+      executable = bin/"pnpm"
+      unless (system_command executable).success?
         default_interpreter_size = 27 # /lib64/ld-linux-x86-64.so.2
         return if executable.interpreter.size <= default_interpreter_size
 
