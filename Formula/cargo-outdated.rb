@@ -4,7 +4,7 @@ class CargoOutdated < Formula
   url "https://github.com/kbknapp/cargo-outdated/archive/v0.9.17.tar.gz"
   sha256 "9311409ce07bad0883439fdba4bfb160e8d0c7a63d84e45dc0c71fbeb5ac673a"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
@@ -15,7 +15,7 @@ class CargoOutdated < Formula
   end
 
   depends_on "libgit2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "rust"
 
   # Update `libgit2-sys` crate for Libgit2 1.2.0 support
@@ -56,7 +56,7 @@ index 6302b41..06ef1ce 100644
 --- a/Cargo.lock
 +++ b/Cargo.lock
 @@ -591,9 +591,9 @@ checksum = "8916b1f6ca17130ec6568feccee27c156ad12037880833a3b842a823236502e7"
- 
+
  [[package]]
  name = "libgit2-sys"
 -version = "0.12.18+1.1.0"
