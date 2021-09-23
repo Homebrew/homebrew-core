@@ -4,6 +4,7 @@ class Davix < Formula
   url "https://github.com/cern-fts/davix/releases/download/R_0_7_6/davix-0.7.6.tar.gz"
   sha256 "a2e7fdff29f7ba247a3bcdb08ab1db6d6ed745de2d3971b46526986caf360673"
   license "LGPL-2.1"
+  revision 1
   head "https://github.com/cern-fts/davix.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Davix < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxml2"
 
