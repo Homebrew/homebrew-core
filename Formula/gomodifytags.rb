@@ -1,8 +1,8 @@
 class Gomodifytags < Formula
   desc "Go tool to modify struct field tags"
   homepage "https://github.com/fatih/gomodifytags"
-  url "https://github.com/fatih/gomodifytags/archive/refs/tags/v1.15.0.tar.gz"
-  sha256 "6180e1416733886df2cfcd342796353c8d0560cd311f7fe519d24c3b323f0977"
+  url "https://github.com/fatih/gomodifytags/archive/refs/tags/v1.16.0.tar.gz"
+  sha256 "276526aede6e42c3d540cdaa5fe67cbd276837acfea5d9f5ca19c3a8d16a82ed"
   license "BSD-3-Clause"
 
   bottle do
