@@ -6,6 +6,7 @@ class Lanraragi < Formula
   url "https://github.com/Difegue/LANraragi/archive/v.0.7.9.tar.gz"
   sha256 "ca14c0d27d9ad28aba835f14c904406414c4094cab904d1d763a0c7608afa5b6"
   license "MIT"
+  revision 1
   head "https://github.com/Difegue/LANraragi.git"
 
   bottle do
@@ -23,7 +24,7 @@ class Lanraragi < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "node"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "perl"
   depends_on "redis"
   depends_on "zstd"
@@ -49,7 +50,7 @@ class Lanraragi < Formula
     ENV.prepend_create_path "PERL5LIB", "#{libexec}/lib/perl5"
     ENV.prepend_path "PERL5LIB", "#{libexec}/lib"
     ENV["CFLAGS"] = "-I#{libexec}/include"
-    ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
 
     imagemagick = Formula["imagemagick"]
     resource("Image::Magick").stage do
