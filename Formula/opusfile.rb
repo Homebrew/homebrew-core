@@ -5,6 +5,7 @@ class Opusfile < Formula
   mirror "https://ftp.osuosl.org/pub/xiph/releases/opus/opusfile-0.12.tar.gz"
   sha256 "118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "4274c0f9758385bbf30fabde125317dcf4934e5188d86b791cb1292efb9e26fd"
@@ -25,7 +26,7 @@ class Opusfile < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libogg"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "opus"
 
   resource "sample" do
