@@ -4,6 +4,7 @@ class Mydumper < Formula
   url "https://github.com/maxbube/mydumper/archive/v0.10.7-2.tar.gz"
   sha256 "2e7cbd5e22422c418f2803755e1735878c060a2eff61c036799b2fc1443c751c"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "1921386bcc29a182633c60e570e8cd2fe64bc657a8fd043094bfdaba3066e1d1"
@@ -18,7 +19,7 @@ class Mydumper < Formula
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "mysql-client"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   uses_from_macos "zlib"
