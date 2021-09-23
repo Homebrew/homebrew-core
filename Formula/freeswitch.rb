@@ -2,7 +2,7 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   license "MPL-1.1"
-  revision 4
+  revision 5
   head "https://github.com/signalwire/freeswitch.git"
 
   stable do
@@ -63,7 +63,7 @@ class Freeswitch < Formula
   depends_on "libsndfile"
   depends_on "libtiff"
   depends_on "lua"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "opus"
   depends_on "pcre"
   depends_on "sofia-sip"
