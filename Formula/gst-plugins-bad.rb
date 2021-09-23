@@ -4,6 +4,7 @@ class GstPluginsBad < Formula
   url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.18.4.tar.xz"
   sha256 "74e806bc5595b18c70e9ca93571e27e79dfb808e5d2e7967afa952b52e99c85f"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad.git"
 
   livecheck do
@@ -31,7 +32,7 @@ class GstPluginsBad < Formula
   depends_on "libnice"
   depends_on "libusrsctp"
   depends_on "musepack"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "opus"
   depends_on "orc"
   depends_on "rtmpdump"
