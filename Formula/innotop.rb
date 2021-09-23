@@ -4,7 +4,7 @@ class Innotop < Formula
   url "https://github.com/innotop/innotop/archive/v1.13.0.tar.gz"
   sha256 "6ec91568e32bda3126661523d9917c7fbbd4b9f85db79224c01b2a740727a65c"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
-  revision 1
+  revision 2
   head "https://github.com/innotop/innotop.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Innotop < Formula
   end
 
   depends_on "mysql-client"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "perl"
 
