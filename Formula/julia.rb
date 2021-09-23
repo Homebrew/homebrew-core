@@ -4,7 +4,7 @@ class Julia < Formula
   url "https://github.com/JuliaLang/julia/releases/download/v1.6.2/julia-1.6.2.tar.gz"
   sha256 "d56422ac75cbd00a9f69ca9ffd5b6b35c8aeded8312134ef45ffbba828918b5e"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  revision 3
+  revision 5
   head "https://github.com/JuliaLang/julia.git"
 
   bottle do
@@ -153,7 +153,7 @@ class Julia < Formula
     inreplace (buildpath/"stdlib").glob("**/libLLVM_jll.jl"), /libLLVM-\d+jl\.so/, "libLLVM.so"
 
     # Make Julia use a CA cert from OpenSSL
-    (buildpath/"usr/share/julia").install_symlink Formula["openssl@1.1"].pkgetc/"cert.pem"
+    (buildpath/"usr/share/julia").install_symlink Formula["openssl@3"].pkgetc/"cert.pem"
 
     system "make", *args, "install"
 
@@ -183,7 +183,7 @@ class Julia < Formula
     (lib/"julia").install_symlink shared_library("libopenblas") => shared_library("libopenblas64_")
 
     # Keep Julia's CA cert in sync with OpenSSL's
-    pkgshare.install_symlink Formula["openssl@1.1"].pkgetc/"cert.pem"
+    pkgshare.install_symlink Formula["openssl@3"].pkgetc/"cert.pem"
   end
 
   test do
