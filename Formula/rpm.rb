@@ -5,6 +5,7 @@ class Rpm < Formula
   mirror "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.16.x/rpm-4.16.1.3.tar.bz2"
   sha256 "513dc7f972b6e7ccfc9fc7f9c01d5310cc56ee853892e4314fa2cad71478e21d"
   license "GPL-2.0-only"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -25,7 +26,7 @@ class Rpm < Formula
   depends_on "libmagic"
   depends_on "libomp"
   depends_on "lua"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pkg-config"
   depends_on "popt"
   depends_on "xz"
