@@ -5,6 +5,7 @@ class TrustDns < Formula
   sha256 "1766f59ea28e1c1289fcd370d455ae73416814035bad1de313528391cbf8454a"
   license "MIT"
 
+  depends_on "bind" => :test
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
