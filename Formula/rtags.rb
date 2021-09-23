@@ -5,7 +5,7 @@ class Rtags < Formula
       tag:      "v2.38",
       revision: "9687ccdb9e539981e7934e768ea5c84464a61139"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/Andersbakken/rtags.git", branch: "master"
 
   livecheck do
@@ -24,7 +24,7 @@ class Rtags < Formula
   depends_on "cmake" => :build
   depends_on "emacs"
   depends_on "llvm"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "gcc"
