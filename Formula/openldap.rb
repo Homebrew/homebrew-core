@@ -4,6 +4,7 @@ class Openldap < Formula
   url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.7.tgz"
   sha256 "ea9757001bc36295037f0030ede16810a1bb7438bbe8f871a35cc2a2b439d9ab"
   license "OLDAP-2.8"
+  revision 1
 
   livecheck do
     url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/"
@@ -20,7 +21,7 @@ class Openldap < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "util-linux"
