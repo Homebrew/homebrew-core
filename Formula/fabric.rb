@@ -6,7 +6,7 @@ class Fabric < Formula
   url "https://files.pythonhosted.org/packages/32/61/9a26b8f3dcdb5cb17daff57c9a85be6d5963d50488f45319d64a413da762/fabric-2.6.0.tar.gz"
   sha256 "47f184b070272796fd2f9f0436799e18f2ccba4ee8ee587796fca192acd46cd2"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/fabric/fabric.git"
 
   bottle do
@@ -18,7 +18,7 @@ class Fabric < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   resource "bcrypt" do
