@@ -1,10 +1,9 @@
 class Spack < Formula
   desc "Package manager that builds multiple versions and configurations of software"
   homepage "https://spack.io"
-  url "https://github.com/spack/spack/archive/v0.16.2.tar.gz"
-  sha256 "ed3e5d479732b0ba82489435b4e0f9088571604e789f7ab9bc5ce89030793350"
+  url "https://github.com/spack/spack/archive/v0.16.3.tar.gz"
+  sha256 "26636a2e2cc066184f12651ac6949f978fc041990dba73934960a4c9c1ea383d"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
   head "https://github.com/spack/spack.git", branch: "develop"
 
   livecheck do
@@ -23,13 +22,6 @@ class Spack < Formula
 
   depends_on "python@3.9"
 
-  # Fix incompatibility with Python 3.9.6+, remove with next release
-  # https://github.com/spack/spack/issues/24644
-  patch do
-    url "https://github.com/spack/spack/commit/3b94e22ad44a5921b639dfc5a59a7626562457c7.patch?full_index=1"
-    sha256 "77d9e48ecde83595a249b1859d62a2e94fda5c4aa9ed7cd1bc441f6083388132"
-  end
-
   def install
     prefix.install Dir["*"]
   end
@@ -39,7 +31,7 @@ class Spack < Formula
   end
 
   test do
-    system "#{bin}/spack", "--version"
+    system bin/"spack", "--version"
     assert_match "zlib", shell_output("#{bin}/spack list zlib")
 
     # Set up configuration file and build paths
@@ -58,7 +50,7 @@ class Spack < Formula
     EOS
 
     # spack install using the config file
-    system "#{bin}/spack", "-C", "#{testpath}/cfg-store", "install", "--no-cache", "zlib"
+    system bin/"spack", "-C", testpath/"cfg-store", "install", "--no-cache", "zlib"
 
     # Get the path to one of the compiled library files
     zlib_prefix = shell_output("#{bin}/spack -ddd -C #{testpath}/cfg-store find --format={prefix} zlib").strip
