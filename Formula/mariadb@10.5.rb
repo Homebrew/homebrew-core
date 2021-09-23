@@ -4,6 +4,7 @@ class MariadbAT105 < Formula
   url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.12/source/mariadb-10.5.12.tar.gz"
   sha256 "ab4f1ca69a30c5372e191a68e8b543a74168327680fb1f4067e8cc0a5582e4bd"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/"
@@ -27,7 +28,7 @@ class MariadbAT105 < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
 
   uses_from_macos "bzip2"
