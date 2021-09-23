@@ -3,6 +3,7 @@ class Pgbouncer < Formula
   homepage "https://www.pgbouncer.org/"
   url "https://www.pgbouncer.org/downloads/files/1.16.0/pgbouncer-1.16.0.tar.gz"
   sha256 "a4a391618bb83caaee2a8cd9653974f4c1b98b95987d5cabbbeb801da6342652"
+  revision 1
 
   livecheck do
     url "https://github.com/pgbouncer/pgbouncer"
@@ -18,7 +19,7 @@ class Pgbouncer < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--disable-debug",
