@@ -4,6 +4,7 @@ class MariadbAT104 < Formula
   url "https://downloads.mariadb.org/f/mariadb-10.4.21/source/mariadb-10.4.21.tar.gz"
   sha256 "94dd2e6f5d286de8a7dccffe984015d4253a0568281c7440e772cfbe098a291d"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/"
@@ -26,7 +27,7 @@ class MariadbAT104 < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
 
   uses_from_macos "bzip2"
