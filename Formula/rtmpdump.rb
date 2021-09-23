@@ -5,7 +5,7 @@ class Rtmpdump < Formula
   version "2.4+20151223"
   sha256 "5c032f5c8cc2937eb55a81a94effdfed3b0a0304b6376147b86f951e225e3ab5"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  revision 2
   head "https://git.ffmpeg.org/rtmpdump.git"
 
   livecheck do
@@ -23,7 +23,7 @@ class Rtmpdump < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1d50c3dc8938a0e69c86d29046c924c3e9f7d80c567c8bd848fe368ae0a992e"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
