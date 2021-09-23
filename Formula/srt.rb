@@ -4,6 +4,7 @@ class Srt < Formula
   url "https://github.com/Haivision/srt/archive/v1.4.3.tar.gz"
   sha256 "c06e05664c71d635c37207a2b5a444f2c4a95950a3548402b3e0c524f735b33d"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/Haivision/srt.git", branch: "master"
 
   bottle do
@@ -16,10 +17,10 @@ class Srt < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    openssl = Formula["openssl@1.1"]
+    openssl = Formula["openssl@3"]
     system "cmake", ".", "-DWITH_OPENSSL_INCLUDEDIR=#{openssl.opt_include}",
                          "-DWITH_OPENSSL_LIBDIR=#{openssl.opt_lib}",
                          "-DCMAKE_INSTALL_BINDIR=bin",
