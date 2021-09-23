@@ -5,7 +5,7 @@ class Subversion < Formula
   mirror "https://archive.apache.org/dist/subversion/subversion-1.14.1.tar.bz2"
   sha256 "2c5da93c255d2e5569fa91d92457fdb65396b0666fad4fd59b22e154d986e1a9"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   bottle do
     sha256 arm64_big_sur: "34f8d1862f1480c068ff3798c8e1cd90f833b43c33d1731aca15f1d875b16834"
@@ -35,7 +35,7 @@ class Subversion < Formula
   # gettext, lz4 and utf8proc for consistency
   depends_on "gettext"
   depends_on "lz4"
-  depends_on "openssl@1.1" # For Serf
+  depends_on "openssl@3" # For Serf
   depends_on "utf8proc"
 
   uses_from_macos "expat"
@@ -99,7 +99,7 @@ class Subversion < Formula
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=#{krb5} CC=#{ENV.cc}
         CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
-        OPENSSL=#{Formula["openssl@1.1"].opt_prefix}
+        OPENSSL=#{Formula["openssl@3"].opt_prefix}
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
       ]
