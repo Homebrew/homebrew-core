@@ -4,6 +4,7 @@ class Xmrig < Formula
   url "https://github.com/xmrig/xmrig/archive/v6.15.0.tar.gz"
   sha256 "155ce4b921839525f03ff7fe3ce9d6ecddf4f2a32cae1b0b83b3808c9db39880"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/xmrig/xmrig.git", branch: "master"
 
   livecheck do
@@ -23,7 +24,7 @@ class Xmrig < Formula
   depends_on "hwloc"
   depends_on "libmicrohttpd"
   depends_on "libuv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     mkdir "build" do
