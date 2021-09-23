@@ -4,7 +4,7 @@ class Libzdb < Formula
   url "https://tildeslash.com/libzdb/dist/libzdb-3.2.2.tar.gz"
   sha256 "d51e4e21ee1ee84ac8763de91bf485360cd76860b951ca998e891824c4f195ae"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -21,7 +21,7 @@ class Libzdb < Formula
 
   depends_on macos: :high_sierra # C++ 17 is required
   depends_on "mysql-client"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "postgresql"
   depends_on "sqlite"
 
