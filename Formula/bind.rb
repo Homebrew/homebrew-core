@@ -11,6 +11,7 @@ class Bind < Formula
   url "https://downloads.isc.org/isc/bind9/9.16.21/bind-9.16.21.tar.xz"
   sha256 "65da5fd4fb80b7d0d7452876f81fd6d67cdcee54a5e3c1d65610334665dfa815"
   license "MPL-2.0"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
 
@@ -33,7 +34,7 @@ class Bind < Formula
   depends_on "json-c"
   depends_on "libidn2"
   depends_on "libuv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   resource "ply" do
@@ -58,7 +59,7 @@ class Bind < Formula
       "--prefix=#{prefix}",
       "--sysconfdir=#{pkgetc}",
       "--with-json-c",
-      "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+      "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
       "--with-libjson=#{Formula["json-c"].opt_prefix}",
       "--with-python-install-dir=#{vendor_site_packages}",
       "--with-python=#{Formula["python@3.9"].opt_bin}/python3",
