@@ -6,7 +6,7 @@ class Openssh < Formula
   version "8.7p1"
   sha256 "7ca34b8bb24ae9e50f33792b7091b3841d7e1b440ff57bc9fabddf01e2ed1e24"
   license "SSH-OpenSSH"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
@@ -27,7 +27,7 @@ class Openssh < Formula
   depends_on "pkg-config" => :build
   depends_on "ldns"
   depends_on "libfido2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "lsof" => :test
   uses_from_macos "krb5"
@@ -72,7 +72,7 @@ class Openssh < Formula
       --with-libedit
       --with-kerberos5
       --with-pam
-      --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl-dir=#{Formula["openssl@3"].opt_prefix}
       --with-security-key-builtin
     ]
 
