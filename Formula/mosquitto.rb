@@ -6,7 +6,7 @@ class Mosquitto < Formula
   # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is not in the SPDX list
   license "EPL-1.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -26,7 +26,7 @@ class Mosquitto < Formula
   depends_on "pkg-config" => :build
   depends_on "cjson"
   depends_on "libwebsockets"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxslt" => :build
 
