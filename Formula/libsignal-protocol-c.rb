@@ -4,6 +4,7 @@ class LibsignalProtocolC < Formula
   url "https://github.com/signalapp/libsignal-protocol-c/archive/v2.3.3.tar.gz"
   sha256 "c22e7690546e24d46210ca92dd808f17c3102e1344cd2f9a370136a96d22319d"
   license "GPL-3.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ae7936606ffb1bcc2cce9e6854bc6fa7cd6fcf44ae67b17b7a861158fa58ca7f"
@@ -16,7 +17,7 @@ class LibsignalProtocolC < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
