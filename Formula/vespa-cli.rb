@@ -8,7 +8,8 @@ class VespaCli < Formula
 
   livecheck do
     url :stable
-    regex(/^vespa[._-](\d+(?:\.\d+)+)(?:-\d+)?$/i)
+    regex(%r{href=.*?/tag/\D*?(\d+(?:\.\d+)+)(?:-\d+)?["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
