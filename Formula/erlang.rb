@@ -5,6 +5,7 @@ class Erlang < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-24.1/otp_src_24.1.tar.gz"
   sha256 "72945f5e1b508903fb747e1c903aa2ccdff307843e65426a5e583ea81aa162ef"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -27,7 +28,7 @@ class Erlang < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "wxwidgets" # for GUI apps like observer
 
   resource "html" do
@@ -54,7 +55,7 @@ class Erlang < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-javac
     ]
 
