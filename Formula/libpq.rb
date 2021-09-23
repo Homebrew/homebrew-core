@@ -4,6 +4,7 @@ class Libpq < Formula
   url "https://ftp.postgresql.org/pub/source/v13.4/postgresql-13.4.tar.bz2"
   sha256 "ea93e10390245f1ce461a54eb5f99a48d8cabd3a08ce4d652ec2169a357bc0cd"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     formula "postgresql"
@@ -23,7 +24,7 @@ class Libpq < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "readline"
