@@ -4,6 +4,7 @@ class Hydra < Formula
   url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.2.tar.gz"
   sha256 "1a28f064763f9144f8ec574416a56ef51c0ab1ae2276e35a89ceed4f594ec5d2"
   license "AGPL-3.0-only"
+  revision 1
   head "https://github.com/vanhauser-thc/thc-hydra.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Hydra < Formula
   depends_on "pkg-config" => :build
   depends_on "libssh"
   depends_on "mysql-client"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   conflicts_with "ory-hydra", because: "both install `hydra` binaries"
 
@@ -25,9 +26,9 @@ class Hydra < Formula
     inreplace "configure" do |s|
       # Link against our OpenSSL
       # https://github.com/vanhauser-thc/thc-hydra/issues/80
-      s.gsub! "/opt/local/lib", Formula["openssl@1.1"].opt_lib
-      s.gsub! "/opt/local/*ssl", Formula["openssl@1.1"].opt_lib
-      s.gsub! "/opt/*ssl/include", Formula["openssl@1.1"].opt_include
+      s.gsub! "/opt/local/lib", Formula["openssl@3"].opt_lib
+      s.gsub! "/opt/local/*ssl", Formula["openssl@3"].opt_lib
+      s.gsub! "/opt/*ssl/include", Formula["openssl@3"].opt_include
       # Avoid opportunistic linking of everything
       %w[
         gtk+-2.0
