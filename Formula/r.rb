@@ -63,7 +63,7 @@ class R < Formula
       args << "--without-x"
       args << "--with-aqua"
     else
-      c args << "--libdir=#{lib}" # avoid using lib64 on CentOS
+      args << "--libdir=#{lib}" # avoid using lib64 on CentOS
 
       # Avoid references to homebrew shims
       args << "LD=ld"
