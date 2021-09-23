@@ -4,6 +4,7 @@ class Lasso < Formula
   url "https://dev.entrouvert.org/releases/lasso/lasso-2.7.0.tar.gz"
   sha256 "9282f2a546ee84b6d3a8236970fea3a47bea51cb247c31a05a374c22eb451d8d"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -22,7 +23,7 @@ class Lasso < Formula
   depends_on "six" => :build
   depends_on "glib"
   depends_on "libxmlsec1"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     xy = Language::Python.major_minor_version "python3"
