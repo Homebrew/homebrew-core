@@ -4,7 +4,7 @@ class Pypy < Formula
   url "https://downloads.python.org/pypy/pypy2.7-v7.3.5-src.tar.bz2"
   sha256 "c0444fd9873058c1c0d99e13a934e92285cb05992c9968bf523c32bf9bec0a9d"
   license "MIT"
-  revision 1
+  revision 2
   head "https://foss.heptapod.net/pypy/pypy", using: :hg
 
   livecheck do
@@ -22,7 +22,7 @@ class Pypy < Formula
   depends_on "pkg-config" => :build
   depends_on arch: :x86_64
   depends_on "gdbm"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "sqlite"
   depends_on "tcl-tk"
 
