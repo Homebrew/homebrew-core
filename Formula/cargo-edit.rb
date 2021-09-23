@@ -4,7 +4,7 @@ class CargoEdit < Formula
   url "https://github.com/killercup/cargo-edit/archive/v0.7.0.tar.gz"
   sha256 "56b51ef8d52d8b414b5c4001053fa196dc7710fea9b1140171a314bc527a2ea2"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "eb04c951480fec71b299c9cdda64fb0a3e7fc84a349fb185b7a193116d74ee4a"
@@ -15,7 +15,7 @@ class CargoEdit < Formula
 
   depends_on "rust" => [:build, :test]
   depends_on "libgit2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cargo", "install", *std_cargo_args
