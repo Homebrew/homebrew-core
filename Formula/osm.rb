@@ -15,6 +15,7 @@ class Osm < Formula
   end
 
   depends_on "go" => :build
+  depends_on "helm" => :build
 
   def install
     ENV["VERSION"] = "v"+version
