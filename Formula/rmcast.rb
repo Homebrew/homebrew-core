@@ -4,6 +4,11 @@ class Rmcast < Formula
   url "http://www.land.ufrj.br/tools/rmcast/download/rmcast-2.0.0.tar.gz"
   sha256 "79ccbdbe4a299fd122521574eaf9b3e2d524dd5e074d9bc3eb521f1d934a59b1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?rmcast[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "7edab23a8770a245b0f06197b2d46c4777b8fdac0f39842ce619c56d74f1eef4"
     sha256 cellar: :any,                 big_sur:       "b2cc007eec98b5e422a7948e9e680f3a0d7c622eb4703f9b2bae6c867635107f"
