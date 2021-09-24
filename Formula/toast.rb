@@ -24,6 +24,7 @@ class Toast < Formula
       image: alpine
       tasks:
         homebrew_test:
+          description: brewtest
           command: echo hello
     EOS
 
