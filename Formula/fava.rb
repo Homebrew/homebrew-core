@@ -3,8 +3,8 @@ class Fava < Formula
 
   desc "Web interface for the double-entry bookkeeping software Beancount"
   homepage "https://beancount.github.io/fava/"
-  url "https://files.pythonhosted.org/packages/5e/1d/fac85c0e333b7c647a228500675db73ad29ba8f5032c93d3e3ba66b29166/fava-1.20.tar.gz"
-  sha256 "d76a1b2cd2959860120848221e915c8a13f0311192a43f4a40c36e5075620c68"
+  url "https://files.pythonhosted.org/packages/25/01/582f2db4c4c4337b39dfdc9f3a323796cad673658975621173588071cb97/fava-1.20.1.tar.gz"
+  sha256 "e2d13041acfeab9a63addb2a56678b126476a277badac6a9fec0b2944f61a037"
   license "MIT"
   head "https://github.com/beancount/fava.git"
 
@@ -92,8 +92,8 @@ class Fava < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/ab/63/e9a707841231885772b70e918364c3ed2b380f6ac395391737262ed48ba8/google-api-python-client-2.21.0.tar.gz"
-    sha256 "0c8e81bec3a5f7c8bff8b8680f1a45c2ab34dcb445809dd5b1f8226dc56cc9c4"
+    url "https://files.pythonhosted.org/packages/58/ee/5abde1f3fb697466664c220bc4a1dc4dcb2527b6fc46bd6a7b81f086ac1e/google-api-python-client-2.22.0.tar.gz"
+    sha256 "835892df0dcaac64aef20929d817290bc89a671ea3a91b28fb9f9489b12f069f"
   end
 
   resource "google-auth" do
@@ -252,8 +252,8 @@ class Fava < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
-    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
+    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
+    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
   end
 
   resource "Werkzeug" do
