@@ -18,13 +18,13 @@ class Ncspot < Formula
   depends_on "portaudio"
 
   uses_from_macos "ncurses"
-  uses_from_macos "openssl"
 
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "alsa-lib"
     depends_on "dbus"
     depends_on "libxcb"
+    depends_on "openssl@1.1" # Uses Secure Transport on macOS
   end
 
   def install
