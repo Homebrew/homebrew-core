@@ -16,7 +16,6 @@ class Trunk < Formula
 
   depends_on "rust" => :build
 
-  uses_from_macos "openssl"
   uses_from_macos "zlib"
 
   on_linux do
