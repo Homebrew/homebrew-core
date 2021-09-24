@@ -1,9 +1,9 @@
 class Gpsd < Formula
   desc "Global Positioning System (GPS) daemon"
   homepage "https://gpsd.gitlab.io/gpsd/"
-  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.23.tar.xz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.23.tar.xz"
-  sha256 "e36429b9f6fc42004894dff3dc4453f5b43f95af8533b96d3d135987418da9df"
+  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.23.1.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.23.1.tar.xz"
+  sha256 "ca2c466df783c57b8a07ad3f5c67943186d05befdc377de938ed111d1358a8c1"
   license "BSD-2-Clause"
 
   livecheck do
