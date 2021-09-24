@@ -2,8 +2,8 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      tag:      "v4.1.0",
-      revision: "73783cc8a62017835208b54753dd69ea5667ef2f"
+      tag:      "v4.1.1",
+      revision: "70e95dde8817f7d891cf63592b49b88fad21beb9"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
