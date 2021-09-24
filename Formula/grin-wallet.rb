@@ -15,10 +15,10 @@ class GrinWallet < Formula
   depends_on "rust" => :build
 
   uses_from_macos "llvm" => :build # for libclang
-  uses_from_macos "openssl"
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "openssl@1.1" # Uses Secure Transport on macOS
   end
 
   # Fix build on Rust 1.53.0+. Remove in the next release.
