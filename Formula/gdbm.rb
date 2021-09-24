@@ -5,6 +5,7 @@ class Gdbm < Formula
   mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.21.tar.gz"
   sha256 "b0b7dbdefd798de7ddccdd8edf6693a30494f7789777838042991ef107339cc2"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "15e097602373e698a4c89507a781215eac68f83ff28cf8d2a25d637340e1d179"
@@ -16,10 +17,10 @@ class Gdbm < Formula
 
   # Fix build failure on macOS. Merged upstream as
   # https://git.gnu.org.ua/gdbm.git/commit/?id=32517af75ac8c32b3ff4870e14ff28418696c554
-  #
-  # Patch taken from:
-  # https://puszcza.gnu.org.ua/bugs/?521
-  patch :p0, :DATA
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ad16d309923dd7839d239e05c7fdd86d9b6e5207/gdbm/fix-st_mtim.diff"
+    sha256 "09813e4a01a74fb1c510abbd98abd53c18f5dfb4e66475969f4b173b4ff96935"
+  end
 
   # --enable-libgdbm-compat for dbm.h / gdbm-ndbm.h compatibility:
   #   https://www.gnu.org.ua/software/gdbm/manual/html_chapter/gdbm_19.html
@@ -48,22 +49,3 @@ class Gdbm < Formula
     assert_match "2", pipe_output("#{bin}/gdbmtool --norc test", "fetch 1\nquit\n")
   end
 end
-
-__END__
---- src/gdbmshell.c.orig
-+++ src/gdbmshell.c
-@@ -1010,7 +1010,13 @@ print_snapshot (char const *snapname, FILE *fp)
-       fprintf (fp, "%s: ", snapname);
-       fprintf (fp, "%03o %s ", st.st_mode & 0777,
- 	       decode_mode (st.st_mode, buf));
--      fprintf (fp, "%ld.%09ld", st.st_mtim.tv_sec, st.st_mtim.tv_nsec);
-+      struct timespec mtimespec;
-+#ifdef __APPLE__
-+      mtimespec = st.st_mtimespec;
-+#else
-+      mtimespec = st.st_mtim;
-+#endif
-+      fprintf (fp, "%ld.%09ld", mtimespec.tv_sec, mtimespec.tv_nsec);
-       if (S_ISREG (st.st_mode))
- 	{
- 	  GDBM_FILE dbf;
