@@ -45,7 +45,6 @@ class Pnpm < Formula
   end
 
   test do
-    pnpm_path = nil
     pnpm_path = OS.mac? ? testpath/"Library/pnpm" : testpath/".local/pnpm"
     pnpm_path.mkpath
     ENV.prepend_path "PATH", pnpm_path
