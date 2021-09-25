@@ -14,7 +14,7 @@ class Ketch < Formula
   end
 
   test do
-    assert_match "no matches for kind \"App\" in version \"theketch.io/v1beta1\"",
+    assert_match "failed to create kubernetes client",
       shell_output(bin/"ketch cname add brew --app brewtest 2>&1", 1)
 
     assert_match version.to_s, shell_output(bin/"ketch --version")
