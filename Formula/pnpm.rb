@@ -23,9 +23,8 @@ class Pnpm < Formula
   depends_on "node"
 
   def install
-    (prefix/"etc").mkpath
-    (prefix/"etc/npmrc").atomic_write "global-bin-dir = ${HOME}/Library/pnpm\n" if OS.mac?
-    (prefix/"etc/npmrc").atomic_write "global-bin-dir = ${HOME}/.local/pnpm\n" if OS.linux?
+    npmrc = if OS.mac? ? "global-bin-dir = ${HOME}/Library/pnpm\n" : "global-bin-dir = ${HOME}/.local/pnpm\n"
+    (prefix/"etc/npmrc").write npmrc
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
@@ -47,9 +46,7 @@ class Pnpm < Formula
 
   test do
     pnpm_path = nil
-    pnpm_path = testpath/"Library/pnpm" if OS.mac?
-    pnpm_path = testpath/".local/pnpm" if OS.linux?
-    assert !pnpm_path.nil?, "cannot determine os"
+    pnpm_path = OS.mac? ? testpath/"Library/pnpm" : testpath/".local/pnpm"
     pnpm_path.mkpath
     ENV.prepend_path "PATH", pnpm_path
     system "#{bin}/pnpm", "env", "use", "--global", "16"
