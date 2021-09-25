@@ -1,8 +1,8 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.1/llvm-project-12.0.1.src.tar.xz"
-  sha256 "129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/llvm-project-13.0.0.src.tar.xz"
+  sha256 "6075ad30f1ac0e15f07c1bf062c1e1268c241d674f11bd32cdf0e040c71f2bf3"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -44,31 +44,11 @@ class Llvm < Formula
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
-
-    # Apply patches slated for the 12.0.x release stream
-    # to allow building with GCC 5 and 6. Upstream bug:
-    # https://bugs.llvm.org/show_bug.cgi?id=50732
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f0b8ff8b7ad4c2e1d474b214cd615a98e0caa796/llvm/llvm.patch"
-      sha256 "084adce7711b07d94197a75fb2162b253186b38d612996eeb6e2bc9ce5b1e6e2"
-    end
+    depends_on "gcc"
   end
 
-  # Fix crash in clangd when built with GCC <6. Remove in LLVM 13
-  # https://github.com/clangd/clangd/issues/800
-  # https://github.com/Homebrew/homebrew-core/issues/84365
-  patch do
-    url "https://github.com/llvm/llvm-project/commit/ec1fb9533305e9bd69294ede7e5e7d9befbb2225.patch?full_index=1"
-    sha256 "b80a5718420c789588f3392366ac15485e43bea8e81adb14424c3cad4afa7315"
-  end
-
-  # Fix parallel builds. Remove in LLVM 13.
-  # https://reviews.llvm.org/D106305
-  # https://lists.llvm.org/pipermail/llvm-dev/2021-July/151665.html
-  patch do
-    url "https://github.com/llvm/llvm-project/commit/b31080c596246bc26d2493cfd5e07f053cf9541c.patch?full_index=1"
-    sha256 "b4576303404e68100dc396d2414d6740c5bfd0162979d22152a688d1e7307379"
-  end
+  # Fails at building LLDB
+  fails_with gcc: "5"
 
   def install
     projects = %w[
@@ -186,6 +166,9 @@ class Llvm < Formula
         -DLIBUNWIND_USE_COMPILER_RT=ON
       ]
       args << "-DRUNTIMES_CMAKE_ARGS=#{runtime_args.join(";")}"
+
+      # Prevent compiler-rt from building i386 targets, as this is not portable.
+      args << "-DBUILTINS_CMAKE_ARGS=-DCOMPILER_RT_DEFAULT_TARGET_ONLY=ON"
     end
 
     llvmpath = buildpath/"llvm"
