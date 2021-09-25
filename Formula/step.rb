@@ -1,8 +1,8 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.17.2/step_0.17.2.tar.gz"
-  sha256 "a44ae9db467284c924f91f965a292ecadf404f3ffcde8953abb6b158fa518d91"
+  url "https://github.com/smallstep/cli/releases/download/v0.17.4/step_0.17.4.tar.gz"
+  sha256 "7e18dfd3315d3b8c62dbf92d6e2bd6867f9e3d9e333a942127b2b434b8dc90d7"
   license "Apache-2.0"
 
   bottle do
@@ -16,12 +16,13 @@ class Step < Formula
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.17.2/step-ca_0.17.2.tar.gz"
-    sha256 "78e32437a200a563046510f5adec085f29e744db150e88a2b214905d4f423ef2"
+    url "https://github.com/smallstep/certificates/releases/download/v0.17.3/step-ca_0.17.3.tar.gz"
+    sha256 "56a7a2a1e0aec520ab62ae10da659bae329b3325c5023d6de332c6320e0f8d3e"
   end
 
   def install
     ENV["VERSION"] = version.to_s
+    ENV["CGO_OVERRIDE"] = "CGO_ENABLED=1"
     system "make", "build"
     bin.install "bin/step" => "step"
     bash_completion.install "autocomplete/bash_autocomplete" => "step"
@@ -29,6 +30,7 @@ class Step < Formula
 
     resource("certificates").stage do |r|
       ENV["VERSION"] = r.version.to_s
+      ENV["CGO_OVERRIDE"] = "CGO_ENABLED=1"
       system "make", "build"
       bin.install "bin/step-ca" => "step-ca"
     end
