@@ -3,8 +3,8 @@ class Ola < Formula
   homepage "https://www.openlighting.org/ola/"
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz"
   sha256 "102aa3114562a2a71dbf7f77d2a0fb9fc47acc35d6248a70b6e831365ca71b13"
-  license "GPL-2.0"
-  revision 2
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 3
   head "https://github.com/OpenLightingProject/ola.git", branch: "master"
 
   bottle do
@@ -31,10 +31,6 @@ class Ola < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
-    protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python#{xy}/site-packages/homebrew-protobuf.pth"
-    (buildpath/".brew_home/Library/Python/#{xy}/lib/python/site-packages").install_symlink protobuf_pth
-
     args = %W[
       --disable-fatal-warnings
       --disable-dependency-tracking
@@ -43,9 +39,11 @@ class Ola < Formula
       --disable-unittests
       --enable-python-libs
       --enable-rdm-tests
+      --with-python_prefix=#{prefix}
+      --with-python_exec_prefix=#{prefix}
     ]
 
-    ENV["PYTHON"] = Formula["python@3.9"].bin/"python3"
+    ENV["PYTHON"] = "python3"
     system "autoreconf", "-fvi"
     system "./configure", *args
     system "make", "install"
@@ -53,5 +51,6 @@ class Ola < Formula
 
   test do
     system bin/"ola_plugin_info"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "from ola.ClientWrapper import ClientWrapper"
   end
 end
