@@ -1,9 +1,8 @@
 class Libswiften < Formula
   desc "C++ library for implementing XMPP applications"
   homepage "https://swift.im/swiften.html"
-  url "https://swift.im/downloads/releases/swift-4.0/swift-4.0.tar.gz"
-  sha256 "50b7b2069005b1474147110956f66fdde0afb2cbcca3d3cf47de56dc61217319"
-  revision 4
+  url "https://swift.im/downloads/releases/swift-4.0.2/swift-4.0.2.tar.gz"
+  sha256 "1c7c9fb981ecb9b589890c36523dbbabde2f0a708f71a66eb71e9526bf8e0a70"
 
   livecheck do
     url "https://swift.im/downloads.html"
