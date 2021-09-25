@@ -1,8 +1,8 @@
 class Arb < Formula
   desc "C library for arbitrary-precision interval arithmetic"
   homepage "https://arblib.org"
-  url "https://github.com/fredrik-johansson/arb/archive/2.20.0.tar.gz"
-  sha256 "d2f186b10590c622c11d1ca190c01c3da08bac9bc04e84cb591534b917faffe7"
+  url "https://github.com/fredrik-johansson/arb/archive/2.21.0.tar.gz"
+  sha256 "6493ebcfb1772458db4ca66da4c5536968484a3815cf75d2bb33c600b4471910"
   license "LGPL-2.1-or-later"
   head "https://github.com/fredrik-johansson/arb.git", branch: "master"
 
