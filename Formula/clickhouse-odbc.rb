@@ -47,8 +47,8 @@ class ClickhouseOdbc < Formula
     end
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args
-    system "cmake", "--build", "build", "--config", "RelWithDebInfo"
-    system "cmake", "--install", "build", "--config", "RelWithDebInfo"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
