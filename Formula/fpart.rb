@@ -1,8 +1,8 @@
 class Fpart < Formula
   desc "Sorts file trees and packs them into bags"
   homepage "https://github.com/martymac/fpart/"
-  url "https://github.com/martymac/fpart/archive/fpart-1.2.0.tar.gz"
-  sha256 "ced59d68236d960473b5d9481f3d0c083f10a7be806c33125cc490ef2c1705f8"
+  url "https://github.com/martymac/fpart/archive/fpart-1.4.0.tar.gz"
+  sha256 "da4cd97365a2ebb3d0ee7e634c022eb21321ee5b6ab213d796fcbb01f28d9759"
   license "BSD-2-Clause"
 
   bottle do
