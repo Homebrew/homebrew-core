@@ -15,10 +15,8 @@ class AliyunCli < Formula
   end
 
   depends_on "go" => :build
-  depends_on "go-bindata" => :build
 
   def install
-    system "make", "metas"
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/aliyun/aliyun-cli/cli.Version=#{version}"),
                           "-o", bin/"aliyun", "main/main.go"
   end
