@@ -2,7 +2,7 @@ class Urlview < Formula
   desc "URL extractor/launcher"
   homepage "https://packages.debian.org/sid/misc/urlview"
   url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9.orig.tar.gz"
-  version "0.9-21"
+  version "0.9-22"
   sha256 "746ff540ccf601645f500ee7743f443caf987d6380e61e5249fc15f7a455ed42"
   license "GPL-2.0-or-later"
 
@@ -27,8 +27,8 @@ class Urlview < Formula
   end
 
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9-21.diff.gz"
-    sha256 "efdf6a279d123952820dd6185ab9399ee1bf081ea3dd613dc96933cd1827a9e9"
+    url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9-22.diff.gz"
+    sha256 "9a72630a6afa6b848d2c5db72f8dee8710678ff4d97145491465562c0f80ed46"
   end
 
   def install
