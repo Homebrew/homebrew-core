@@ -1,9 +1,9 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/3.1.12.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort3-3.1.12.0.tar.gz"
-  sha256 "767c8987ddefbb6be18e340d1cefd15cc3de09fb37e5d4adf438cb12b56762b9"
+  url "https://github.com/snort3/snort3/archive/3.1.13.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.1.13.0.tar.gz"
+  sha256 "297c9fb6598f473c8aad1c544a6a9b241a74c084074801c035fc0c5cc24680ec"
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
