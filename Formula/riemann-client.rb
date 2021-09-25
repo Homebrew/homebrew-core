@@ -3,7 +3,7 @@ class RiemannClient < Formula
   homepage "https://github.com/algernon/riemann-c-client"
   url "https://github.com/algernon/riemann-c-client/archive/riemann-c-client-1.10.5.tar.gz"
   sha256 "568416d854d1c1e5eac743c9f56db6fa0d6a8144daa74a799d0556bb6b50e679"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
   head "https://github.com/algernon/riemann-c-client.git", branch: "master"
 
   bottle do
