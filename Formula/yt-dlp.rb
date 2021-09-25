@@ -3,8 +3,8 @@ class YtDlp < Formula
 
   desc "Fork of youtube-dl with additional features and fixes"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/10/4b/7ac9cced452f67f3d75ea460eb07c8dd377b8cc60337b6ae465e38f6b2d7/yt-dlp-2021.9.2.tar.gz"
-  sha256 "ca7e77cdb055ba2683df5b0807aab1c1e120cbe02c8f35d9d3293d94dbdaea63"
+  url "https://files.pythonhosted.org/packages/ad/2a/19788cdbce56ea05600068bf342f91c91fd5acc6c6486e16d498b0ec533a/yt-dlp-2021.9.25.tar.gz"
+  sha256 "e7b8dd0ee9498abbd80eb38d9753696d6ca3d02f64980322ab3bf39ba1bc31ee"
   license "Unlicense"
   head "https://github.com/yt-dlp/yt-dlp.git", branch: "master"
 
@@ -24,13 +24,13 @@ class YtDlp < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/88/7f/740b99ffb8173ba9d20eb890cc05187677df90219649645aca7e44eb8ff4/pycryptodome-3.10.1.tar.gz"
-    sha256 "3e2e3a06580c5f190df843cdb90ea28d61099cf4924334d5297a995de68e4673"
+    url "https://files.pythonhosted.org/packages/f8/8e/14a8238190bcf1bab3d58432cd795c859edbc2f5abd8460f80438046a799/pycryptodome-3.10.4.tar.gz"
+    sha256 "40083b0d7f277452c7f2dd4841801f058cc12a74c219ee4110d65774c6a58bef"
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/0d/bd/5262054455ab2067e51de331bfbc53a1dfa9071af7c424cf7c0793c4349a/websockets-9.1.tar.gz"
-    sha256 "276d2339ebf0df4f45df453923ebd2270b87900eda5dfd4a6b0cfa15f82111c3"
+    url "https://files.pythonhosted.org/packages/1c/f4/61aee1eb4baadf8477fb7f3bc6b04a50fe683ef8ad2f60282806821e4b3b/websockets-10.0.tar.gz"
+    sha256 "c4fc9a1d242317892590abe5b61a9127f1a61740477bfb121743f290b8054002"
   end
 
   def install
