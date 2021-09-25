@@ -1,8 +1,8 @@
 class Libmtp < Formula
   desc "Implementation of Microsoft's Media Transfer Protocol (MTP)"
   homepage "https://libmtp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.18/libmtp-1.1.18.tar.gz"
-  sha256 "7280fe50c044c818a06667f45eabca884deab3193caa8682e0b581e847a281f0"
+  url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.19/libmtp-1.1.19.tar.gz"
+  sha256 "deb4af6f63f5e71215cfa7fb961795262920b4ec6cb4b627f55b30b18aa33228"
   license "LGPL-2.1-or-later"
 
   bottle do
