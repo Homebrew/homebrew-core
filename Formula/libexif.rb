@@ -1,8 +1,8 @@
 class Libexif < Formula
   desc "EXIF parsing library"
   homepage "https://libexif.github.io/"
-  url "https://github.com/libexif/libexif/releases/download/libexif-0_6_22-release/libexif-0.6.22.tar.xz"
-  sha256 "5048f1c8fc509cc636c2f97f4b40c293338b6041a5652082d5ee2cf54b530c56"
+  url "https://github.com/libexif/libexif/releases/download/v0.6.23/libexif-0.6.23.tar.xz"
+  sha256 "a740a99920eb81ae0aa802bb46e683ce6e0cde061c210f5d5bde5b8572380431"
   license "LGPL-2.1"
 
   bottle do
