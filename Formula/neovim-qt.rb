@@ -12,17 +12,15 @@ class NeovimQt < Formula
   depends_on "qt@5"
 
   def install
-    mkdir "build" do
-      system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
-      #system "cmake", "--build", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
-      system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
+    #system "cmake", "--build", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
+    system "cmake", "--install", "build"
 
-      if OS.mac?
-        prefix.install "bin/nvim-qt.app"
-        bin.install_symlink prefix/"nvim-qt.app/Contents/MacOS/nvim-qt"
-      else
-        bin.install "bin/nvim-qt"
-      end
+    if OS.mac?
+      prefix.install "bin/nvim-qt.app"
+      bin.install_symlink prefix/"nvim-qt.app/Contents/MacOS/nvim-qt"
+    else
+      bin.install "bin/nvim-qt"
     end
   end
 
