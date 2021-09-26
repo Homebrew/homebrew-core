@@ -42,7 +42,12 @@ class Podman < Formula
       bin.install "bin/gvproxy"
     end
 
-    system "make", "install-podman-remote-#{os}-docs"
+    if build.head?
+      system "make", "podman-remote-#{os}-docs"
+    else
+      system "make", "install-podman-remote-#{os}-docs"
+    end
+
     man1.install Dir["docs/build/remote/#{os}/*.1"]
 
     bash_completion.install "completions/bash/podman"
