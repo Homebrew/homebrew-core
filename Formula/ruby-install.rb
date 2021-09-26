@@ -16,9 +16,17 @@ class RubyInstall < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+
+    # Ensure uniform bottles across prefixes
+    inreplace man1/"ruby-install.1", "/usr/local", "$HOMEBREW_PREFIX"
+    inreplace [
+      pkgshare/"ruby-install.sh",
+      pkgshare/"truffleruby/functions.sh",
+      pkgshare/"truffleruby-graalvm/functions.sh",
+    ], "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
-    system "#{bin}/ruby-install"
+    system bin/"ruby-install"
   end
 end
