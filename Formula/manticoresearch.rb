@@ -1,9 +1,9 @@
 class Manticoresearch < Formula
   desc "Open source database for search"
   homepage "https://www.manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/4.0.2.zip"
+  url "https://github.com/manticoresoftware/manticoresearch/archive/manticore-4.0.2.zip"
   version "4.0.2"
-  sha256 "03523123eec337537c1acab916a277481c8841f0cca5551ed485e983a2c603df"
+  sha256 "d7d601b951ae92f90e7d9cbe39d664f0ec0040b30f38d3716445b644557ffa1d"
   license "GPL-2.0-only"
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
@@ -18,16 +18,18 @@ class Manticoresearch < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "icu4c" => :build
   depends_on "libpq" => :build
   depends_on "mysql" => :build
+  depends_on "postgresql" => :build
   depends_on "openssl@1.1"
 
   conflicts_with "sphinx", because: "manticoresearch is a fork of sphinx"
 
   def install
     args = %W[
+      -DCMAKE_INSTALL_PREFIX=#{prefix}
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
+      -DWITH_ICU_FORCE_STATIC=0
       -DDISTR_BUILD=macosbrew
       -DBoost_NO_BOOST_CMAKE=ON
       -DWITH_ODBC=OFF
