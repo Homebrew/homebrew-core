@@ -1,9 +1,9 @@
 class Manticoresearch < Formula
   desc "Open source database for search"
   homepage "https://www.manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/manticore-4.0.2.zip"
+  url "https://github.com/manticoresoftware/manticoresearch/archive/manticore-4.0.2.tar.gz"
   version "4.0.2"
-  sha256 "d7d601b951ae92f90e7d9cbe39d664f0ec0040b30f38d3716445b644557ffa1d"
+  sha256 "705100781c00d9784eb284db1fa71a80e12a330b7aa905b81ab947099eac4936"
   license "GPL-2.0-only"
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
