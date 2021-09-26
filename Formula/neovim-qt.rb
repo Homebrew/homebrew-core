@@ -13,7 +13,8 @@ class NeovimQt < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "-S", ".", "--build", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
+      system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
+      #system "cmake", "--build", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
       system "cmake", "--install", "build"
 
       if OS.mac?
