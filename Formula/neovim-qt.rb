@@ -4,7 +4,7 @@ class NeovimQt < Formula
   url "https://github.com/equalsraf/neovim-qt/archive/v0.2.16.1.tar.gz"
   sha256 "971d4597b40df2756b313afe1996f07915643e8bf10efe416b64cc337e4faf2a"
   license "ISC"
-  head "https://github.com/equalsraf/neovim-qt.git"
+  head "https://github.com/equalsraf/neovim-qt.git", branch: "master"
 
   depends_on "cmake" => :build
   depends_on "neovim-remote" => :test
