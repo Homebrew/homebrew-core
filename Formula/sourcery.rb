@@ -12,7 +12,8 @@ class Sourcery < Formula
     sha256 cellar: :any, catalina:      "d5904bbdafedb7a8922b663f4716be4a7be923b16851595531835ab17a3bd1a8"
   end
 
-  depends_on xcode: "12.0"
+  depends_on xcode: "13.0"
+
   uses_from_macos "ruby" => :build
 
   def install
