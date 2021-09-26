@@ -39,9 +39,10 @@ class InfluxdbAT1 < Formula
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
     ldflags = "-s -w -X main.version=#{version}"
+    tags = "netgo osusergo static_build"
 
     %w[influxd influx influx_inspect].each do |f|
-      system "go", "build", "-ldflags", ldflags, *std_go_args, "-o", bin/f, "./cmd/#{f}"
+      system "go", "build", "-ldflags", ldflags, "-tags", tags, *std_go_args, "-o", bin/f, "./cmd/#{f}"
     end
 
     etc.install "etc/config.sample.toml" => "influxdb.conf"
