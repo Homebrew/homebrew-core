@@ -13,6 +13,7 @@ class NeovimQt < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
+    system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     if OS.mac?
       bin.install_symlink prefix/"nvim-qt.app/Contents/MacOS/nvim-qt"
