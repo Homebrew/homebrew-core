@@ -5,7 +5,7 @@ class Mas < Formula
       tag:      "v1.8.3",
       revision: "aeeb1c508e98d657769ef4e368a113be7822d92e"
   license "MIT"
-  head "https://github.com/mas-cli/mas.git"
+  head "https://github.com/mas-cli/mas.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6498917d8d2106fa582aa0fd0714cd87ad7d091023c7b3c6b2db3a6051a2fb5b"
