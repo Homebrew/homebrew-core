@@ -2,7 +2,6 @@ class Manticoresearch < Formula
   desc "Open source database for search"
   homepage "https://www.manticoresearch.com"
   url "https://github.com/manticoresoftware/manticoresearch/archive/manticore-4.0.2.tar.gz"
-  version "4.0.2"
   sha256 "705100781c00d9784eb284db1fa71a80e12a330b7aa905b81ab947099eac4936"
   license "GPL-2.0-only"
   version_scheme 1
@@ -27,9 +26,7 @@ class Manticoresearch < Formula
 
   def install
     args = %W[
-      -DCMAKE_INSTALL_PREFIX=#{prefix}
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
-      -DWITH_ICU_FORCE_STATIC=0
       -DDISTR_BUILD=macosbrew
       -DBoost_NO_BOOST_CMAKE=ON
       -DWITH_ODBC=OFF
