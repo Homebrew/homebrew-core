@@ -22,6 +22,7 @@ class Neon < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "xmlto" => :build
   depends_on "openssl@1.1"
 
   uses_from_macos "libxml2"
@@ -35,6 +36,7 @@ class Neon < Formula
   def install
     # Work around configure issues with Xcode 12
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
