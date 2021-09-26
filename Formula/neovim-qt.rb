@@ -26,20 +26,13 @@ class NeovimQt < Formula
   end
 
   test do
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"] # qt.qpa.xcb: could not connect to display
+    # Disable tests in CI environment:
+    #   qt.qpa.xcb: could not connect to display
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     # Same test as Formula/neovim.rb
 
-    # testfile = testpath/"test.txt"
-    # testfile.write("Hello World from Vim!!")
-    # system bin/"nvim-qt", "--nofork", testfile, "--", "-i", "NONE", "-u", "NONE", "+s/Vim/Neovim/g", "+wq"
-    # assert_equal "Hello World from Neovim!!", testfile.read.chomp
-
-    # testfile = testpath/"test.txt"
-    # testserver = "localhost:9999"
-    # testfile.write("Hello World from Vim!!")
-
     testfile = testpath/"test.txt"
-    # testserver = "localhost:9999"
     testserver = testpath/"nvim.sock"
 
     testcommand = "s/Vim/Neovim/g"
@@ -58,21 +51,5 @@ class NeovimQt < Formula
     assert_equal testexpected, testfile.read.chomp
     system "nvr", *nvr_opts, "-c", "call GuiClose()"
     Process.wait nvimqt_pid
-
-    # system "sh", "-c", "nvr --servername #{testserver} --remote '#{testfile}' -c '#{testcommand}' -c 'call GuiClose()' || true"
-    # system "nvr", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "w", "-c", "call GuiClose()", "-c", "qa"
-    # system "nvr", "--nostart", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "wq"
-    # system "nvr", "--servername", testserver, "-c", "call GuiClose()", "-c", "qa"
-
-    # nvim_pid = nvim_pid = spawn "nvim", "-i", "NONE", "-u", "NONE", "--headless", "--listen", testserver
-    # nvimqt_pid = spawn bin/"nvim-qt", "--server", testserver
-    # sleep(1.0)
-    # system "nvr", "--servername", testserver, "--remote", testfile, "-c", "s/Vim/Neovim/g", "-c", "w"
-    # #system "nvr", "--servername", testserver, "-c", "call GuiClose()"
-    # system "nvr", "--servername", testserver, "-c", "call rpcnotify(0, 'Gui', 'Close', v:exiting)"
-    # Process.wait nvimqt_pid
-    # system "nvr", "--servername", testserver, "-c", "q"
-    # Process.wait nvim_pid
-    # assert_equal "Hello World from Neovim!!", testfile.read.chomp
   end
 end
