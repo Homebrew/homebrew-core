@@ -21,9 +21,6 @@ class Dar < Formula
   depends_on "lzo"
 
   def install
-    # Need to set due to upstream issue: https://github.com/Edrusb/DAR/issues/29
-    ENV.append "CXXFLAGS", "-std=c++14"
-
     system "./configure", "--prefix=#{prefix}",
                           "--disable-build-html",
                           "--disable-dar-static",
