@@ -6,11 +6,6 @@ class GoAT115 < Formula
   sha256 "0662ae3813330280d5f1a97a2ee23bbdbe3a5a7cfa6001b24a9873a19a0dc7ec"
   license "BSD-3-Clause"
 
-  livecheck do
-    url "https://golang.org/dl/"
-    regex(/href=.*?go[._-]?v?(1\.15(?:\.\d+)*)[._-]src\.t/i)
-  end
-
   bottle do
     sha256 big_sur:      "964306dbdbee74e9a1cf731e20132e49ad7827dd6baeaf75382337c854e15cd2"
     sha256 catalina:     "9ef40146c7742f26d93e612f7bef94dc4bfcde58d962f1fd2ec1fe441c12a09b"
@@ -19,6 +14,8 @@ class GoAT115 < Formula
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2021-08-16", because: :unsupported
 
   depends_on arch: :x86_64
 
