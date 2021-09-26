@@ -20,6 +20,7 @@ class InfluxdbAT1 < Formula
   keg_only :versioned_formula
 
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
