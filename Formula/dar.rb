@@ -19,6 +19,7 @@ class Dar < Formula
   depends_on "upx" => :build
   depends_on "libgcrypt"
   depends_on "lzo"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}",
