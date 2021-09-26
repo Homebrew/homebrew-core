@@ -52,7 +52,7 @@ class Cctz < Formula
         std::cout << format("UTC: %Y-%m-%d %H:%M:%S\\n", tm_utc) << format("Local: %Y-%m-%d %H:%M:%S\\n", tm_local);
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lcctz", "test.cc", "-o", "test"
+    system ENV.cxx, "test.cc", "-I#{include}", "-L#{lib}", "-std=c++11", "-lcctz", "-o", "test"
     system testpath/"test"
   end
 end
