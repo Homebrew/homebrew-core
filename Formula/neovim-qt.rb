@@ -4,28 +4,25 @@ class NeovimQt < Formula
   url "https://github.com/equalsraf/neovim-qt/archive/v0.2.16.1.tar.gz"
   sha256 "971d4597b40df2756b313afe1996f07915643e8bf10efe416b64cc337e4faf2a"
   license "ISC"
-  head "https://github.com/equalsraf/neovim-qt.git", branch: "master"
+  head "https://github.com/equalsraf/neovim-qt.git"
 
   depends_on "cmake" => :build
   depends_on "neovim-remote" => :test
   depends_on "neovim"
   depends_on "qt@5"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
-  fails_with gcc: "5" # Qt needs GCC
-
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
-    system "cmake", "--build", "build"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
+      system "make", "all"
+      system "make", "install"
 
-    if OS.mac?
-      prefix.install "build/bin/nvim-qt.app"
-      bin.install_symlink prefix/"nvim-qt.app/Contents/MacOS/nvim-qt"
-    else
-      bin.install "build/bin/nvim-qt"
+      if OS.mac?
+        prefix.install "bin/nvim-qt.app"
+        bin.install_symlink prefix/"nvim-qt.app/Contents/MacOS/nvim-qt"
+      else
+        bin.install "bin/nvim-qt"
+      end
     end
   end
 
@@ -54,7 +51,7 @@ class NeovimQt < Formula
 
     puts "#{bin}/nvim-qt --nofork -- --listen #{testserver}"
     nvimqt_pid = spawn bin/"nvim-qt", "--nofork", "--", "--listen", testserver
-    sleep 10
+    sleep 2.0
     system "nvr", *nvr_opts, "--remote", testfile
     system "nvr", *nvr_opts, "-c", testcommand
     system "nvr", *nvr_opts, "-c", "w"
@@ -62,6 +59,8 @@ class NeovimQt < Formula
     system "nvr", *nvr_opts, "-c", "call GuiClose()"
     Process.wait nvimqt_pid
 
+    # system "sh", "-c", "nvr --servername #{testserver} --remote '#{testfile}' -c '#{testcommand}' -c 'call GuiClose()' || true"
+    # system "nvr", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "w", "-c", "call GuiClose()", "-c", "qa"
     # system "nvr", "--nostart", "--servername", testserver, "--remote", testfile, "-c", testcommand, "-c", "wq"
     # system "nvr", "--servername", testserver, "-c", "call GuiClose()", "-c", "qa"
 
