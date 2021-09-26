@@ -32,11 +32,17 @@ class MbedtlsAT2 < Formula
       s.gsub! "//#define MBEDTLS_THREADING_C", "#define MBEDTLS_THREADING_C"
     end
 
-    system "cmake", "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
                     "-DPython3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
                     *std_cmake_args
-    system "make"
-    system "make", "install"
+    system "cmake", "--build", "build"
+    # We run CTest because this is a crypto library. Running tests in parallel causes failures.
+    # https://github.com/ARMmbed/mbedtls/issues/4980
+    with_env(CC: DevelopmentTools.locate(DevelopmentTools.default_compiler)) do
+      system "ctest", "--parallel", "1", "--test-dir", "build", "--rerun-failed", "--output-on-failure"
+    end
+    system "cmake", "--install", "build"
 
     # Why does Mbedtls ship with a "Hello World" executable. Let's remove that.
     rm_f bin/"hello"
