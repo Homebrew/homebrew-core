@@ -33,6 +33,7 @@ class Wxwidgets < Formula
   def install
     args = [
       "--prefix=#{prefix}",
+      "--enable-compat28",
       "--enable-clipboard",
       "--enable-controls",
       "--enable-dataviewctrl",
