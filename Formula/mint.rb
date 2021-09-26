@@ -14,7 +14,8 @@ class Mint < Formula
   depends_on xcode: ["12.0", :build]
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "swift", "build", "--disable-sandbox", "-c", "release"
+    bin.install ".build/release/#{name}"
   end
 
   test do
