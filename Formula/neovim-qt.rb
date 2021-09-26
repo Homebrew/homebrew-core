@@ -15,8 +15,10 @@ class NeovimQt < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
     if OS.mac?
-      bin.install_symlink prefix/"bin/nvim-qt.app/Contents/MacOS/nvim-qt"
+      prefix.install bin/"nvim-qt.app"
+      bin.install_symlink prefix/"nvim-qt.app/Contents/MacOS/nvim-qt"
     end
   end
 
@@ -37,9 +39,9 @@ class NeovimQt < Formula
 
     nvr_opts = ["--nostart", "--servername", testserver]
 
-    puts "#{bin}/nvim-qt --nofork -- --listen #{testserver}"
+    ohai "#{bin}/nvim-qt --nofork -- --listen #{testserver}"
     nvimqt_pid = spawn bin/"nvim-qt", "--nofork", "--", "--listen", testserver
-    sleep 2.0
+    sleep 10
     system "nvr", *nvr_opts, "--remote", testfile
     system "nvr", *nvr_opts, "-c", testcommand
     system "nvr", *nvr_opts, "-c", "w"
