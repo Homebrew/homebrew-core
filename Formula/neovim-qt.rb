@@ -27,6 +27,7 @@ class NeovimQt < Formula
   end
 
   test do
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"] # qt.qpa.xcb: could not connect to display
     # Same test as Formula/neovim.rb
 
     # testfile = testpath/"test.txt"
