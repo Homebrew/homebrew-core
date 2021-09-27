@@ -8,7 +8,6 @@ class Fheroes2 < Formula
 
   livecheck do
     url :stable
-    strategy :git
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
