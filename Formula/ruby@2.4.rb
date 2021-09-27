@@ -4,6 +4,7 @@ class RubyAT24 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.10.tar.xz"
   sha256 "d5668ed11544db034f70aec37d11e157538d639ed0d0a968e2f587191fc530df"
   license "Ruby"
+  revision 1
 
   bottle do
     rebuild 1
@@ -20,7 +21,7 @@ class RubyAT24 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -37,7 +38,7 @@ class RubyAT24 < Formula
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 
-    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@3 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
