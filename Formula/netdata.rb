@@ -4,6 +4,7 @@ class Netdata < Formula
   url "https://github.com/netdata/netdata/releases/download/v1.29.3/netdata-v1.29.3.tar.gz"
   sha256 "eeba8b18519a9123a3cc8b450dcd042e23a3b145a78a7017a14c47ed36d923df"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +26,7 @@ class Netdata < Formula
   depends_on "json-c"
   depends_on "libuv"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
