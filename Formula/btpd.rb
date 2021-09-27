@@ -4,7 +4,7 @@ class Btpd < Formula
   url "https://github.com/downloads/btpd/btpd/btpd-0.16.tar.gz"
   sha256 "296bdb718eaba9ca938bee56f0976622006c956980ab7fc7a339530d88f51eb8"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "899a1e60fbe73ab6ed57bfec2e6903b76a52e7831cb0280c6a34d689473def17"
@@ -16,7 +16,7 @@ class Btpd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b2e4da63e65ec96199c8152d3e5e45f5c10c80d2f1e407c9cff9cd26a761ba9"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
