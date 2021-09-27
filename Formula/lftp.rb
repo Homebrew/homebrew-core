@@ -4,7 +4,7 @@ class Lftp < Formula
   url "https://lftp.yar.ru/ftp/lftp-4.9.2.tar.xz"
   sha256 "c517c4f4f9c39bd415d7313088a2b1e313b2d386867fe40b7692b83a20f0670d"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://github.com/lavv17/lftp.git"
@@ -19,7 +19,7 @@ class Lftp < Formula
   end
 
   depends_on "libidn2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -37,7 +37,7 @@ class Lftp < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}",
                           "--with-libidn2=#{Formula["libidn2"].opt_prefix}"
 
