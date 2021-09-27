@@ -4,6 +4,7 @@ class CargoInstruments < Formula
   url "https://github.com/cmyr/cargo-instruments/archive/v0.4.3.tar.gz"
   sha256 "f78146e82a6a1cf40d2c7d6f84652b2671f7c771ebe4ebdd9a798380c1e9c39c"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "4337fa71363264075999d4089113ff7fa3920d6a46ddede5505ed73cd66ae188"
@@ -14,7 +15,7 @@ class CargoInstruments < Formula
 
   depends_on "rust" => :build
   depends_on :macos
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cargo", "install", *std_cargo_args
