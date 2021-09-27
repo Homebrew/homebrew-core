@@ -1,10 +1,9 @@
 class OpencvAT3 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/refs/tags/3.4.14.tar.gz"
-  sha256 "dfeb91c93d494be590afbe342ebb61742381f901fe2e0376987b1581f74948d1"
+  url "https://github.com/opencv/opencv/archive/3.4.15.tar.gz"
+  sha256 "b1e8470b18e9e793bf70b4ae051bbc9bf81fa45f8cbfee1e6c88858c90be8ff7"
   license "BSD-3-Clause"
-  revision 3
 
   bottle do
     sha256 arm64_big_sur: "384848fdeaa1840c9a4466de415d51976b3a0880082707db1d3a51d48d8c75c5"
@@ -32,8 +31,8 @@ class OpencvAT3 < Formula
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.4.14.tar.gz"
-    sha256 "f8394bc68b70c57e54fc7706a4d2b7ef33e514c385f338c4cb470fe37d0dc243"
+    url "https://github.com/opencv/opencv_contrib/archive/3.4.15.tar.gz"
+    sha256 "5004024f2e92e520d324f235dc30a80878fd501fb03ca1f98ca3cbd53d27b6fb"
   end
 
   # tbb 2021 support. Backport of
