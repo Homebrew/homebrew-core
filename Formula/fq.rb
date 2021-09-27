@@ -4,6 +4,7 @@ class Fq < Formula
   url "https://github.com/circonus-labs/fq/archive/v0.13.10.tar.gz"
   sha256 "fe304987145ec7ce0103a3d06a75ead38ad68044c0f609ad0bcc20c06cbfd62e"
   license "MIT"
+  revision 1
   head "https://github.com/circonus-labs/fq.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Fq < Formula
 
   depends_on "concurrencykit"
   depends_on "jlog"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     ENV.append_to_cflags "-DNO_BCD=1"
