@@ -4,6 +4,7 @@ class AmqpCpp < Formula
   url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.3.14.tar.gz"
   sha256 "6ac69a407c0edf9f8f56fdbb56acb4e5e9b331e3243cb95f26b861ae794549f4"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git", branch: "master"
 
   livecheck do
@@ -20,7 +21,7 @@ class AmqpCpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Fix missing include. Patch accepted upstream, remove on next release.
   patch do
