@@ -4,7 +4,7 @@ class Sipp < Formula
   url "https://github.com/SIPp/sipp/releases/download/v3.6.1/sipp-3.6.1.tar.gz"
   sha256 "6a560e83aff982f331ddbcadfb3bd530c5896cd5b757dd6eb682133cc860ecb1"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "75316a2ff92ad29fb3d2ab4c660f3d4ef2901982826ee269f37a9e58df5cefe2"
@@ -15,7 +15,7 @@ class Sipp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libpcap"
   uses_from_macos "ncurses"
