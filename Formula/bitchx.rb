@@ -3,7 +3,7 @@ class Bitchx < Formula
   homepage "https://bitchx.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/bitchx/ircii-pana/bitchx-1.2.1/bitchx-1.2.1.tar.gz"
   sha256 "2d270500dd42b5e2b191980d584f6587ca8a0dbda26b35ce7fadb519f53c83e2"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_big_sur: "628166ae821a5f6e24e522aacf347d3789f4c16deeb060e234ba333432ee6dd7"
@@ -14,7 +14,7 @@ class Bitchx < Formula
     sha256 sierra:        "0c9e7fcf39a8fb0c80f867495cf1d6776fbe4aec6010a1986edbca820ed7a6f0"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Patch to fix OpenSSL detection with OpenSSL 1.1
