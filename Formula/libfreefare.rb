@@ -4,7 +4,7 @@ class Libfreefare < Formula
   url "https://github.com/nfc-tools/libfreefare/releases/download/libfreefare-0.4.0/libfreefare-0.4.0.tar.bz2"
   sha256 "bfa31d14a99a1247f5ed49195d6373de512e3eb75bf1627658b40cf7f876bc64"
   license "LGPL-3.0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c66fe7ad412745ebd9c10784f9ef7de563a5c1ef7582a72915ad7b50324a65c5"
@@ -17,7 +17,7 @@ class Libfreefare < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libnfc"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Upstream commit for endianness-related functions, fixes
   # https://github.com/nfc-tools/libfreefare/issues/55
