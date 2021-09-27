@@ -4,6 +4,7 @@ class Exim < Formula
   url "https://ftp.exim.org/pub/exim/exim4/exim-4.94.2.tar.xz"
   sha256 "051861fc89f06205162f12129fb7ebfe473383bb6194bf8642952bfd50329274"
   license "GPL-2.0-or-later"
+  revision 1
 
   # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
   # to check both the main `exim4` directory and the `fixes` subdirectory to
@@ -37,7 +38,7 @@ class Exim < Formula
   end
 
   depends_on "berkeley-db@4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   def install
