@@ -59,7 +59,7 @@ class Wget2 < Formula
                           "--without-libmicrohttpd"
     if build.head?
       system "make"
-    elsif os.linux?
+    elsif OS.linux?
       system "make", "LIBS+=-lgpgme"
     else
       system "make", "LIBS+=-framework CoreFoundation"
