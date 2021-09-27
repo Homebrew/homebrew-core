@@ -4,6 +4,7 @@ class CassandraCppDriver < Formula
   url "https://github.com/datastax/cpp-driver/archive/2.16.1.tar.gz"
   sha256 "168d6fe9f3cf61be82cf5817024b92a186d7f944f0d390ed546f521bdabfc32e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/datastax/cpp-driver.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class CassandraCppDriver < Formula
 
   depends_on "cmake" => :build
   depends_on "libuv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
