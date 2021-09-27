@@ -4,7 +4,7 @@ class Slowhttptest < Formula
   url "https://github.com/shekyan/slowhttptest/archive/v1.8.2.tar.gz"
   sha256 "faa83dc45e55c28a88d3cca53d2904d4059fe46d86eca9fde7ee9061f37c0d80"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/shekyan/slowhttptest.git", branch: "master"
 
   bottle do
@@ -20,7 +20,7 @@ class Slowhttptest < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     inreplace "configure.ac", "1.8.1", "1.8.2"
