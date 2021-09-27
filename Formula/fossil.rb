@@ -4,6 +4,7 @@ class Fossil < Formula
   url "https://fossil-scm.org/home/tarball/version-2.16/fossil-src-2.16.tar.gz"
   sha256 "fab37e8093932b06b586e99a792bf9b20d00d530764b5bddb1d9a63c8cdafa14"
   license "BSD-2-Clause"
+  revision 1
   head "https://www.fossil-scm.org/", using: :fossil
 
   livecheck do
@@ -19,7 +20,7 @@ class Fossil < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3a5e435b6d4fc982e4c700463d9ff8d3009b5f514ff0e776cd8eed0b68922f9"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   uses_from_macos "zlib"
 
   def install
