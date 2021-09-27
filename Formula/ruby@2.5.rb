@@ -4,6 +4,7 @@ class RubyAT25 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.9.tar.xz"
   sha256 "a87f2fa901408cc77652c1a55ff976695bbe54830ff240e370039eca14b358f0"
   license "Ruby"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "deb2ee5e006f4fc7b3829dfcdb377300f3dc5f339562a6a1c1b4dec48ed21ae6"
@@ -19,7 +20,7 @@ class RubyAT25 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -36,7 +37,7 @@ class RubyAT25 < Formula
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 
-    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@3 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
