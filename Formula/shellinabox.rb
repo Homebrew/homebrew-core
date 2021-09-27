@@ -4,7 +4,7 @@ class Shellinabox < Formula
   url "https://github.com/shellinabox/shellinabox/archive/v2.20.tar.gz"
   sha256 "27a5ec6c3439f87aee238c47cc56e7357a6249e5ca9ed0f044f0057ef389d81e"
   license "GPL-2.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -18,7 +18,7 @@ class Shellinabox < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Upstream (Debian) patch for OpenSSL 1.1 compatibility
   # Original patch cluster: https://github.com/shellinabox/shellinabox/pull/467
