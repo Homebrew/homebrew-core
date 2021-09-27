@@ -4,6 +4,7 @@ class Rover < Formula
   url "https://github.com/apollographql/rover/archive/v0.3.0.tar.gz"
   sha256 "1ba8ef546cfef89517a8ee9932aae683cab523d212ea8d3d4fe1359a15aa3be6"
   license "MIT"
+  revision 1
   head "https://github.com/apollographql/rover.git", branch: "main"
 
   bottle do
@@ -14,7 +15,7 @@ class Rover < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cargo", "install", *std_cargo_args
