@@ -4,6 +4,7 @@ class Authoscope < Formula
   url "https://github.com/kpcyrd/authoscope/archive/v0.8.0.tar.gz"
   sha256 "977df6f08a2fece7076f362bc9db6686b829de93ed3c29806d7b841a50bd9d1c"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1d62f93b6ba4ca88798e510ee70fa66c2c4b280ff20eabc5aaacc59166b3a83d"
@@ -14,14 +15,14 @@ class Authoscope < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
 
     system "cargo", "install", *std_cargo_args
     man1.install "docs/authoscope.1"
