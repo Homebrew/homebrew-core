@@ -38,6 +38,10 @@ class Blast < Formula
     cd "c++" do
       # Boost is only used for unit tests.
       args = %W[--prefix=#{prefix}
+                --with-bin-release
+                --with-mt
+                --with-strip
+                --with-experimental=Int8GI
                 --without-debug
                 --without-boost]
 
