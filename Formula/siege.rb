@@ -4,6 +4,7 @@ class Siege < Formula
   url "http://download.joedog.org/siege/siege-4.1.1.tar.gz"
   sha256 "143c25727b9bb2c439486c35121602f4d963385305aab4ed1ff9851581bfe4a8"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "http://download.joedog.org/siege/?C=M&O=D"
@@ -18,7 +19,7 @@ class Siege < Formula
     sha256 x86_64_linux:  "14d0a4594a88c19185f06de0bc12a626b2dde2740868250bc58312e57dabbc74"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -29,7 +30,7 @@ class Siege < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--localstatedir=#{var}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
     system "make", "install"
   end
