@@ -4,6 +4,7 @@ class Virtuoso < Formula
   url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.6.1/virtuoso-opensource-7.2.6.tar.gz"
   sha256 "38fd3c037aef62fcc7c28de5c0d6c2577d4bb19809e71421fc42093ed4d1c753"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 big_sur:      "d35c507e655a9b900986b609bb232f30c811cbfb4f3ec20d60d1146059ba5305"
@@ -22,7 +23,7 @@ class Virtuoso < Formula
 
   # If gawk isn't found, make fails deep into the process.
   depends_on "gawk" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
