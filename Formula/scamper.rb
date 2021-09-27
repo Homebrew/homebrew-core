@@ -4,6 +4,7 @@ class Scamper < Formula
   url "https://www.caida.org/catalog/software/scamper/code/scamper-cvs-20210324.tar.gz"
   sha256 "332dce11a707c03045dd3c3faea4daf8b9d5debb8ac122aea8257f6bd2cf4404"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://www.caida.org/catalog/software/scamper/code/?C=M&O=D"
@@ -19,7 +20,7 @@ class Scamper < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
