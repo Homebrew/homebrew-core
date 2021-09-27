@@ -3,7 +3,7 @@ class Web100clt < Formula
   homepage "https://software.internet2.edu/ndt/"
   url "https://software.internet2.edu/sources/ndt/ndt-3.7.0.2.tar.gz"
   sha256 "bd298eb333d4c13f191ce3e9386162dd0de07cddde8fe39e9a74fde4e072cdd9"
-  revision 1
+  revision 2
 
   # This page gives a 403 Forbidden response over HTTPS, so we use HTTP.
   livecheck do
@@ -23,7 +23,7 @@ class Web100clt < Formula
 
   depends_on "i2util"
   depends_on "jansson"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # fixes issue with new default secure strlcpy/strlcat functions in 10.9
   # https://github.com/ndt-project/ndt/issues/106
@@ -37,7 +37,7 @@ class Web100clt < Formula
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
 
     # we only want to build the web100clt client so we need
     # to change to the src directory before installing.
