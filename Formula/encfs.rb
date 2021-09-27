@@ -6,7 +6,7 @@ class Encfs < Formula
   # The code comprising the EncFS library (libencfs) is licensed under the LGPL.
   # The main programs (encfs, encfsctl, etc) are licensed under the GPL.
   license "GPL-3.0"
-  revision 3
+  revision 4
   head "https://github.com/vgough/encfs.git"
 
   bottle do
@@ -20,7 +20,7 @@ class Encfs < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_macos do
     disable! date: "2021-04-08", because: "requires closed-source macFUSE"
