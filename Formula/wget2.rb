@@ -57,10 +57,8 @@ class Wget2 < Formula
                           "--without-libpcre",
                           "--without-libpcre2",
                           "--without-libmicrohttpd"
-    if build.head?
+    if build.head? || !OS.mac?
       system "make"
-    elsif OS.linux?
-      system "make", "LIBS+=-lgpgme"
     else
       system "make", "LIBS+=-framework CoreFoundation"
     end
