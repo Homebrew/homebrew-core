@@ -4,6 +4,11 @@ class Dcled < Formula
   url "https://www.jeffrika.com/~malakai/dcled/dcled-2.2.tgz"
   sha256 "0da78c04e1aa42d16fa3df985cf54b0fbadf2d8ff338b9bf59bfe103c2a959c6"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dcled[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "bd8fb1848c3296e5eaadf1436f891a2a6ab8142135947a2806db1d2e5212695d"
     sha256 cellar: :any,                 big_sur:       "5c36acee3c790871237cb7a3400c6fe4e37daa90258c10b89043ac2aad3a6dc4"
