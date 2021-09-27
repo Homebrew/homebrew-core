@@ -4,6 +4,7 @@ class AircrackNg < Formula
   url "https://download.aircrack-ng.org/aircrack-ng-1.6.tar.gz"
   sha256 "4f0bfd486efc6ea7229f7fbc54340ff8b2094a0d73e9f617e0a39f878999a247"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause", "OpenSSL"]
+  revision 1
 
   livecheck do
     url :homepage
@@ -22,7 +23,7 @@ class AircrackNg < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "sqlite"
 
