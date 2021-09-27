@@ -4,6 +4,7 @@ class Openfortivpn < Formula
   url "https://github.com/adrienverge/openfortivpn/archive/v1.17.1.tar.gz"
   sha256 "c674c59cf3201a55d56cb503053982752fb641b13a85ea406b8a7e7df301e30f"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "c4748e81cb20fb01c9d414e0ed293fc368e564301a5bd30a12331c874110386f"
@@ -16,7 +17,7 @@ class Openfortivpn < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./autogen.sh"
