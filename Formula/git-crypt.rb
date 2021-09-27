@@ -3,7 +3,7 @@ class GitCrypt < Formula
   homepage "https://www.agwa.name/projects/git-crypt/"
   url "https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.6.0.tar.gz"
   sha256 "6d30fcd99442d50f4b3c8d554067ff1d980cdf9f3120ee774131172dba98fd6f"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -20,7 +20,7 @@ class GitCrypt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "13febdb36a936377e0ff5f78883dbaba43f70cb9f91ec7fee833d3057f92d85d"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "make"
