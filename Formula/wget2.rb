@@ -33,6 +33,9 @@ class Wget2 < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
     # bootstrap only for git repo
     if build.head?
@@ -56,6 +59,8 @@ class Wget2 < Formula
                           "--without-libmicrohttpd"
     if build.head?
       system "make"
+    elsif os.linux?
+      system "make", "LIBS+=-lgpgme"
     else
       system "make", "LIBS+=-framework CoreFoundation"
     end
