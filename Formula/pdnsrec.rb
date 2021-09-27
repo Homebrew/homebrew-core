@@ -4,6 +4,7 @@ class Pdnsrec < Formula
   url "https://downloads.powerdns.com/releases/pdns-recursor-4.5.5.tar.bz2"
   sha256 "a836a39b99fcc21873e4ba3a60aa9915a33fac7b44922696e9a257f551fe05fb"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -21,7 +22,7 @@ class Pdnsrec < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "lua"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
@@ -51,7 +52,7 @@ class Pdnsrec < Formula
       --sysconfdir=#{etc}/powerdns
       --disable-silent-rules
       --with-boost=#{Formula["boost"].opt_prefix}
-      --with-libcrypto=#{Formula["openssl@1.1"].opt_prefix}
+      --with-libcrypto=#{Formula["openssl@3"].opt_prefix}
       --with-lua
       --without-net-snmp
     ]
