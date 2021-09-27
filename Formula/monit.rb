@@ -4,6 +4,7 @@ class Monit < Formula
   url "https://mmonit.com/monit/dist/monit-5.29.0.tar.gz"
   sha256 "f665e6dd1f26a74b5682899a877934167de2b2582e048652ecf036318477885f"
   license "AGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://mmonit.com/monit/dist/"
@@ -18,7 +19,7 @@ class Monit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "99573601eeb2e8d7377fad27e08e1a31a002eec231d84a492ec59532bfdeb49e"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "linux-pam"
@@ -28,7 +29,7 @@ class Monit < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}/monit",
                           "--sysconfdir=#{etc}/monit",
-                          "--with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-ssl-dir=#{Formula["openssl@3"].opt_prefix}"
     system "make"
     system "make", "install"
     etc.install "monitrc"
