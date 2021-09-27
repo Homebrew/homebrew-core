@@ -3,7 +3,7 @@ class Sdhash < Formula
   homepage "http://roussev.net/sdhash/sdhash.html"
   url "http://roussev.net/sdhash/releases/packages/sdhash-3.1.tar.gz"
   sha256 "b991d38533d02ae56e0c7aeb230f844e45a39f2867f70fab30002cfa34ba449c"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, catalina:    "2b9a824cc177fe984f61eb756447e77f947b993317c6c5909fc5e56f52d7ab5f"
@@ -21,7 +21,7 @@ class Sdhash < Formula
   # but for now it seems dead.
   disable! date: "2020-12-06", because: :does_not_build
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     inreplace "Makefile" do |s|
