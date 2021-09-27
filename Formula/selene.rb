@@ -4,6 +4,7 @@ class Selene < Formula
   url "https://github.com/Kampfkarren/selene/archive/0.14.0.tar.gz"
   sha256 "7accab1f2e2c32af7ca3a28da91f0f3ff89a9437a4d6008a9514f13009912fe3"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "db9ad90c61edc0bdd85f36287a857c881ce85488df4a545c7f43623ba3306c06"
@@ -14,7 +15,7 @@ class Selene < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "pkg-config" => :build
