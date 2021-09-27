@@ -3,7 +3,7 @@ class Elinks < Formula
   homepage "http://elinks.or.cz/"
   url "http://elinks.or.cz/download/elinks-0.11.7.tar.bz2"
   sha256 "456db6f704c591b1298b0cd80105f459ff8a1fc07a0ec1156a36c4da6f898979"
-  revision 3
+  revision 4
 
   livecheck do
     url "http://elinks.or.cz/download/"
@@ -28,7 +28,7 @@ class Elinks < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
