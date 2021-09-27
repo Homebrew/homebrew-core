@@ -4,6 +4,7 @@ class MysqlAT56 < Formula
   url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.51.tar.gz"
   sha256 "262ccaf2930fca1f33787505dd125a7a04844f40d3421289a51974b5935d9abc"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     rebuild 1
@@ -18,7 +19,7 @@ class MysqlAT56 < Formula
   deprecate! date: "2021-02-01", because: :unsupported
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libedit"
 
