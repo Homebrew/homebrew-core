@@ -4,6 +4,7 @@ class Haproxy < Formula
   url "https://www.haproxy.org/download/2.4/src/haproxy-2.4.4.tar.gz"
   sha256 "116b7329cebee5dab8ba47ad70feeabd0c91680d9ef68c28e41c34869920d1fe"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
+  revision 1
 
   livecheck do
     url :homepage
@@ -18,7 +19,7 @@ class Haproxy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7c8dcf12200833be51a117599d05325d69a384646a31695cff659d43f2450f4"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   uses_from_macos "zlib"
