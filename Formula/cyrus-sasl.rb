@@ -4,6 +4,7 @@ class CyrusSasl < Formula
   url "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz"
   sha256 "26866b1549b00ffd020f188a43c258017fa1c382b3ddadd8201536f72efb05d5"
   license "BSD-3-Clause-Attribution"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "bf65079be801e9e99253d9b2329f42dcf50ce38a76fe0b9cfd0a776651764765"
@@ -15,7 +16,7 @@ class CyrusSasl < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure",
