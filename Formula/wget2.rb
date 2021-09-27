@@ -3,7 +3,7 @@ class Wget2 < Formula
   homepage "https://gitlab.com/gnuwget/wget2/"
   url "https://ftp.gnu.org/gnu/wget/wget2-2.0.0.tar.gz"
   sha256 "4fe2fba0abb653ecc1cc180bea7f04212c17e8fe05c85aaac8baeac4cd241544"
-  license "GPL-3.0-or-later"
+  license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   # NOTE: no optional or recommended
   head do
@@ -12,25 +12,26 @@ class Wget2 < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    depends_on "lzip" => :build
   end
 
   # Question: which are required for running and which are build-only?
   # python, tar, texinfo, libz, libiconv, flex are provided by macOS, not writting requirements for Linux now
   # what compress do we need?
   # disable PCRE/PCRE2 since wget did that
-  depends_on "brotli" => :build
+  depends_on "pkg-config" => :build # this is just recommended, but Wget use it, so listed
+  depends_on "rsync" => :build
+
+  depends_on "brotli"
   depends_on "gettext"
   depends_on "gnutls" # libgnutls
   depends_on "gpgme" # automatic signature verification
   depends_on "libidn2"
   depends_on "libpsl"
-  depends_on "nettle" => :build
+  depends_on "lzip"
+  depends_on "nettle"
   depends_on "nghttp2" # HTTP/2 support
-  depends_on "pkg-config" => :build # this is just recommended, but Wget use it, so listed
-  depends_on "rsync" => :build
-  depends_on "xz" => :build
-  depends_on "zstd" => :build
+  depends_on "xz"
+  depends_on "zstd"
 
   def install
     # bootstrap only for git repo
