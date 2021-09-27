@@ -4,7 +4,7 @@ class Unshield < Formula
   url "https://github.com/twogood/unshield/archive/1.4.3.tar.gz"
   sha256 "aa8c978dc0eb1158d266eaddcd1852d6d71620ddfc82807fe4bf2e19022b7bab"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/twogood/unshield.git", branch: "master"
 
   bottle do
@@ -17,7 +17,7 @@ class Unshield < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cmake", ".", *std_cmake_args
