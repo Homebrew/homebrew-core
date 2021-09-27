@@ -4,7 +4,7 @@ class SshPermitA38 < Formula
   url "https://github.com/ierror/ssh-permit-a38/archive/v0.2.0.tar.gz"
   sha256 "cb8d94954c0e68eb86e3009d6f067b92464f9c095b6a7754459cfce329576bd9"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -18,14 +18,14 @@ class SshPermitA38 < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
 
     system "cargo", "install", *std_cargo_args
   end
