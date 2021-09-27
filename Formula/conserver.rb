@@ -4,7 +4,7 @@ class Conserver < Formula
   url "https://github.com/conserver/conserver/releases/download/v8.2.6/conserver-8.2.6.tar.gz"
   sha256 "33b976a909c6bce8a1290810e26e92bfa16c39bca19e1f8e06d5d768ae940734"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -19,7 +19,7 @@ class Conserver < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d246f41155c74436f806dc614996631bf92ae385d88476f6b05a60c984574e3"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-openssl", "--with-ipv6"
