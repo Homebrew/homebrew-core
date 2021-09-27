@@ -5,6 +5,7 @@ class Snort < Formula
   mirror "https://fossies.org/linux/misc/snort3-3.1.13.0.tar.gz"
   sha256 "297c9fb6598f473c8aad1c544a6a9b241a74c084074801c035fc0c5cc24680ec"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/snort3/snort3.git", branch: "master"
 
   bottle do
@@ -27,7 +28,7 @@ class Snort < Formula
   depends_on "libdnet"
   depends_on "libpcap" # macOS version segfaults
   depends_on "luajit-openresty"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "xz" # for lzma.h
 
