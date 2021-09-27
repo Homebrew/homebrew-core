@@ -4,6 +4,7 @@ class Jimtcl < Formula
   url "https://github.com/msteveb/jimtcl/archive/0.80.tar.gz"
   sha256 "9e79a960de925552eeb4df51121f0ea017e34409568117b1ac461f4c3071289e"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "194b77f5eaea45ef59c1c4f7c458a6cb2840867aab53fda18201a9034beab3d9"
@@ -14,7 +15,7 @@ class Jimtcl < Formula
     sha256 x86_64_linux:  "ae69bc936ae765f61e0c14ccde362c95054c57492fc3650536df4b30b8674f5f"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "sqlite"
