@@ -39,7 +39,7 @@ class InfluxdbAT1 < Formula
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
     ldflags = "-s -w -X main.version=#{version}"
-    tags = "netgo osusergo static_build"
+    tags = "netgo osusergo"
 
     %w[influxd influx influx_inspect].each do |f|
       system "go", "build", "-ldflags", ldflags, "-tags", tags, *std_go_args, "-o", bin/f, "./cmd/#{f}"
