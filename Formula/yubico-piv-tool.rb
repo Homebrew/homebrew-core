@@ -4,6 +4,7 @@ class YubicoPivTool < Formula
   url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.2.1.tar.gz"
   sha256 "b7ede4ddc3d6e31de67b2e2ddcd319b22b40cc2e0973b9866d052a754493b14e"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://developers.yubico.com/yubico-piv-tool/Releases/"
@@ -25,7 +26,7 @@ class YubicoPivTool < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "check"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcsc-lite"
 
   def install
