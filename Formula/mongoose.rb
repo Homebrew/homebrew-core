@@ -4,6 +4,7 @@ class Mongoose < Formula
   url "https://github.com/cesanta/mongoose/archive/7.3.tar.gz"
   sha256 "9166cf794e98d352df775f10119fc45b9dcedaf07b0d5f6e1a0791d5cb3c899c"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "be10036a119761682e5c9f32c3bd978acf276ecd06563b82d4cde8a8c011fee2"
@@ -13,7 +14,7 @@ class Mongoose < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "17f1e400a66f7be82e5ad2c774674efb308733e5302b91c75aa0924644fb01e2"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   conflicts_with "suite-sparse", because: "suite-sparse vendors libmongoose.dylib"
 
