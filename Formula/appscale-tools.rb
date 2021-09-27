@@ -4,7 +4,7 @@ class AppscaleTools < Formula
   url "https://github.com/AppScale/appscale-tools/archive/3.5.3.tar.gz"
   sha256 "ae3f373626d5d88d38cf17fef8bd5faaf92234bc6421d5f5c49cf5788acbe93a"
   license "Apache-2.0"
-  revision 3
+  revision 4
   head "https://github.com/AppScale/appscale-tools.git", branch: "master"
 
   bottle do
@@ -16,7 +16,7 @@ class AppscaleTools < Formula
 
   depends_on "libyaml"
   depends_on :macos # Due to Python 2 (Uses SOAPPy, which does not support Python 3)
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libffi"
   uses_from_macos "ssh-copy-id"
