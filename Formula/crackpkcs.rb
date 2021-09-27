@@ -4,6 +4,7 @@ class Crackpkcs < Formula
   url "https://download.sourceforge.net/project/crackpkcs12/0.2.11/crackpkcs12-0.2.11.tar.gz"
   sha256 "9cfd0aa1160545810404fff60234c7b6372ce7fcf9df392a7944366cae3fbf25"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c78cddbd0a61219de5e403a5cf43c710a5a50141ccb3c66767823f0fb8941a70"
@@ -13,7 +14,7 @@ class Crackpkcs < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   resource "cert.p12" do
     url "https://github.com/crackpkcs12/crackpkcs12/raw/9f7375fdc7358451add8b31aaf928ecd025d63d9/misc/utils/certs/usr0052-exportado_desde_firefox.p12"
@@ -24,7 +25,7 @@ class Crackpkcs < Formula
     system "./configure",
             *std_configure_args,
             "--disable-silent-rules",
-            "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+            "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
