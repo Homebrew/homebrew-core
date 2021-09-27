@@ -5,7 +5,7 @@ class Ekg2 < Formula
   mirror "https://web.archive.org/web/20161227025528/pl.ekg2.org/ekg2-0.3.1.tar.gz"
   sha256 "6ad360f8ca788d4f5baff226200f56922031ceda1ce0814e650fa4d877099c63"
   license "GPL-2.0"
-  revision 4
+  revision 5
 
   livecheck do
     url :homepage
@@ -23,7 +23,7 @@ class Ekg2 < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   # Fix the build on OS X 10.9+
