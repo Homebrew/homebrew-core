@@ -4,6 +4,7 @@ class Opensc < Formula
   url "https://github.com/OpenSC/OpenSC/releases/download/0.22.0/opensc-0.22.0.tar.gz"
   sha256 "8d4e5347195ebea332be585df61dcc470331c26969e4b0447c851fb0844c7186"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/OpenSC/OpenSC.git", branch: "master"
 
   livecheck do
@@ -24,7 +25,7 @@ class Opensc < Formula
   depends_on "docbook-xsl" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "pcsc-lite"
 
