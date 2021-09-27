@@ -4,6 +4,7 @@ class Nushell < Formula
   url "https://github.com/nushell/nushell/archive/0.37.0.tar.gz"
   sha256 "1e8f36a4825e52b28993eec1c63d878f426ee8f091942d6bfc17e60546d5959b"
   license "MIT"
+  revision 1
   head "https://github.com/nushell/nushell.git", branch: "main"
 
   livecheck do
@@ -21,7 +22,7 @@ class Nushell < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
