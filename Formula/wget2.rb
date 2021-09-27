@@ -20,13 +20,13 @@ class Wget2 < Formula
   # what compress do we need?
   # disable PCRE/PCRE2 since wget did that
   depends_on "brotli" => :build
-  depends_on "gettext" => :build
-  depends_on "gnutls" => :build # libgnutls
-  depends_on "gpgme" => :build # automatic signature verification
-  depends_on "libidn2" => :build
-  depends_on "libpsl" => :build
+  depends_on "gettext"
+  depends_on "gnutls" # libgnutls
+  depends_on "gpgme" # automatic signature verification
+  depends_on "libidn2"
+  depends_on "libpsl"
   depends_on "nettle" => :build
-  depends_on "nghttp2" => :build # HTTP/2 support
+  depends_on "nghttp2" # HTTP/2 support
   depends_on "pkg-config" => :build # this is just recommended, but Wget use it, so listed
   depends_on "rsync" => :build
   depends_on "xz" => :build
