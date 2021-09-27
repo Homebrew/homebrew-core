@@ -4,6 +4,7 @@ class Jose < Formula
   url "https://github.com/latchset/jose/releases/download/v11/jose-11.tar.xz"
   sha256 "e272afe7717e22790c383f3164480627a567c714ccb80c1ee96f62c9929d8225"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "a3a76d8b25def2f572513ddf580cd35f575a45c1b505c0ac781ea47d0bac4cab"
@@ -17,7 +18,7 @@ class Jose < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "jansson"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
