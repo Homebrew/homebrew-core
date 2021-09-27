@@ -5,6 +5,7 @@ class Nopoll < Formula
   version "0.4.7.b429"
   sha256 "d5c020fec25e3fa486c308249833d06bed0d76bde9a72fd5d73cfb057c320366"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://www.aspl.es/nopoll/downloads/"
@@ -19,7 +20,7 @@ class Nopoll < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "abbd47332ae6aa89803c11bff2f625ccaac60805dc200af683592d7d0dd3eef9"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
