@@ -3,6 +3,7 @@ class BaculaFd < Formula
   homepage "https://www.bacula.org/"
   url "https://downloads.sourceforge.net/project/bacula/bacula/11.0.5/bacula-11.0.5.tar.gz"
   sha256 "ef5b3b67810442201b80dc1d47ccef77b5ed378fe1285406f3a73401b6e8111a"
+  revision 1
 
   bottle do
     sha256                               arm64_big_sur: "90c424f536aadb83c4532a7b32c2e1e63d3fb1bafc561b9746cfbc27cda3a39e"
@@ -12,7 +13,7 @@ class BaculaFd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "49bdfa04ce4520b84cd06dcc07a45720712866d2a76c0a93bf0905712f45edf4"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "zlib"
