@@ -50,7 +50,7 @@ class Ola < Formula
   end
 
   test do
-    system bin/"ola_plugin_info"
+    system bin/"ola_plugin_state", "-h"
     system Formula["python@3.9"].opt_bin/"python3", "-c", "from ola.ClientWrapper import ClientWrapper"
   end
 end
