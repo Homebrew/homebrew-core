@@ -4,6 +4,7 @@ class Xidel < Formula
   url "https://github.com/benibela/xidel/releases/download/Xidel_0.9.8/xidel-0.9.8.src.tar.gz"
   sha256 "72b5b1a2fc44a0a61831e268c45bc6a6c28e3533b5445151bfbdeaf1562af39c"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -15,7 +16,7 @@ class Xidel < Formula
   disable! date: "2020-12-08", because: :unmaintained
 
   depends_on "fpc"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     cd "programs/internet/xidel" do
