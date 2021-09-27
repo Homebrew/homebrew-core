@@ -4,7 +4,7 @@ class Libmowgli < Formula
   url "https://github.com/atheme/libmowgli-2/archive/v2.1.3.tar.gz"
   sha256 "b7faab2fb9f46366a52b51443054a2ed4ecdd04774c65754bf807c5e9bdda477"
   license "ISC"
-  revision 1
+  revision 2
   head "https://github.com/atheme/libmowgli-2.git"
 
   bottle do
@@ -17,11 +17,11 @@ class Libmowgli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7646bd88a24aa8d426ec1cbbf4b32504f0f0c062f257c71b445349667f6bf34"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make"
     system "make", "install"
   end
