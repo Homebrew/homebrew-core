@@ -4,6 +4,7 @@ class Sccache < Formula
   url "https://github.com/mozilla/sccache/archive/v0.2.15.tar.gz"
   sha256 "7dbe71012f9b0b57d8475de6b36a9a3b4802e44a135e886f32c5ad1b0eb506e0"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/mozilla/sccache.git", branch: "master"
 
   bottle do
@@ -15,12 +16,12 @@ class Sccache < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
 
     system "cargo", "install", "--features", "all", *std_cargo_args
   end
