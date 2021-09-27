@@ -4,6 +4,7 @@ class Liboqs < Formula
   url "https://github.com/open-quantum-safe/liboqs/archive/0.7.0.tar.gz"
   sha256 "7a2b01d33637869b02475c5a7b3b31e8f7cebce491877719f27954a89f6d764e"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class Liboqs < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "ninja" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     mkdir "build" do
