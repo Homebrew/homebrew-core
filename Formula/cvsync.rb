@@ -3,6 +3,7 @@ class Cvsync < Formula
   homepage "https://www.cvsync.org/"
   url "https://www.cvsync.org/dist/cvsync-0.24.19.tar.gz"
   sha256 "75d99fc387612cb47141de4d59cb3ba1d2965157230f10015fbaa3a1c3b27560"
+  revision 1
 
   livecheck do
     url :homepage
@@ -19,7 +20,7 @@ class Cvsync < Formula
     sha256 cellar: :any, sierra:        "4e92dd3b6a74831724c2da74f761660fa25630d9c44be9d80a0d72dc522e1fae"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     ENV["PREFIX"] = prefix
