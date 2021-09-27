@@ -4,6 +4,7 @@ class S3Backer < Formula
   url "https://archie-public.s3.amazonaws.com/s3backer/s3backer-1.5.6.tar.gz"
   sha256 "deea48205347b24d1298fa16bf3252d9348d0fe81dde9cb20f40071b8de60519"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, catalina:    "f54a33c549b57b056808803b4cc722596a89bb9413d135161952903de975a3f5"
@@ -12,7 +13,7 @@ class S3Backer < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_macos do
     disable! date: "2021-04-08", because: "requires closed-source macFUSE"
