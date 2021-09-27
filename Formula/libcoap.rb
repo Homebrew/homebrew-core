@@ -4,6 +4,7 @@ class Libcoap < Formula
   url "https://github.com/obgm/libcoap/archive/v4.3.0.tar.gz"
   sha256 "1a195adacd6188d3b71c476e7b21706fef7f3663ab1fb138652e8da49a9ec556"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "57300cff98f6ad59e6c4cf95de26bf0a4dbcf0fb64d2d911d6bdddadf63da1dc"
@@ -18,7 +19,7 @@ class Libcoap < Formula
   depends_on "doxygen" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./autogen.sh"
@@ -32,8 +33,8 @@ class Libcoap < Formula
   test do
     %w[coap-client coap-server].each do |src|
       system ENV.cc, pkgshare/"examples/#{src}.c",
-        "-I#{Formula["openssl@1.1"].opt_include}", "-I#{include}",
-        "-L#{Formula["openssl@1.1"].opt_lib}", "-L#{lib}",
+        "-I#{Formula["openssl@3"].opt_include}", "-I#{include}",
+        "-L#{Formula["openssl@3"].opt_lib}", "-L#{lib}",
         "-lcrypto", "-lssl", "-lcoap-3-openssl", "-o", src
     end
 
