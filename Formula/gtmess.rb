@@ -4,7 +4,7 @@ class Gtmess < Formula
   url "https://downloads.sourceforge.net/project/gtmess/gtmess/0.97/gtmess-0.97.tar.gz"
   sha256 "606379bb06fa70196e5336cbd421a69d7ebb4b27f93aa1dfd23a6420b3c6f5c6"
   license "GPL-2.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_big_sur: "107b687b5c567bfec9de27d948f1ead0a9c97e7c2a1abfc3d1a819f756bf508d"
@@ -23,13 +23,13 @@ class Gtmess < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
