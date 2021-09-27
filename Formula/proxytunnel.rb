@@ -4,6 +4,7 @@ class Proxytunnel < Formula
   url "https://github.com/proxytunnel/proxytunnel/archive/v1.10.20210604.tar.gz"
   sha256 "47b7ef7acd36881744db233837e7e6be3ad38e45dc49d2488934882fa2c591c3"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "97ccd9b616094e055755979daed8216f418d2aeb4639cf978b5df289d1c7e4ea"
@@ -15,7 +16,7 @@ class Proxytunnel < Formula
 
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
