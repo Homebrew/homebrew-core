@@ -2,7 +2,7 @@ class Libcapn < Formula
   desc "C library to send push notifications to Apple devices"
   homepage "https://web.archive.org/web/20181220090839/libcapn.org/"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/adobkin/libcapn.git"
 
   stable do
@@ -25,7 +25,7 @@ class Libcapn < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Compatibility with OpenSSL 1.1
   # Original: https://github.com/adobkin/libcapn/pull/46.diff?full_index=1
@@ -41,7 +41,7 @@ class Libcapn < Formula
   def install
     # head gets jansson as a git submodule
     (buildpath/"src/third_party/jansson").install resource("jansson") if build.stable?
-    system "cmake", ".", "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+    system "cmake", ".", "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
                          *std_cmake_args
     system "make", "install"
     pkgshare.install "examples"
@@ -50,7 +50,7 @@ class Libcapn < Formula
   test do
     system ENV.cc, pkgshare/"examples/send_push_message.c",
                    "-o", "send_push_message",
-                   "-I#{Formula["openssl@1.1"].opt_include}",
+                   "-I#{Formula["openssl@3"].opt_include}",
                    "-L#{lib}/capn", "-lcapn"
     output = shell_output("./send_push_message", 255)
     assert_match "unable to use specified PKCS12 file (errno: 9012)", output
