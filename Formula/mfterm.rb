@@ -4,7 +4,7 @@ class Mfterm < Formula
   url "https://github.com/4ZM/mfterm/releases/download/v1.0.7/mfterm-1.0.7.tar.gz"
   sha256 "b6bb74a7ec1f12314dee42973eb5f458055b66b1b41316ae0c5380292b86b248"
   license "GPL-3.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e7dffabd037eaff9a07ef2adb7c5731bd6270f04e5f3590280293fc25d478ddb"
@@ -23,11 +23,11 @@ class Mfterm < Formula
 
   depends_on "libnfc"
   depends_on "libusb"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include}"
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib}"
 
     if build.head?
       chmod 0755, "./autogen.sh"
