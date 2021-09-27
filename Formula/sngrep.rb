@@ -4,6 +4,7 @@ class Sngrep < Formula
   url "https://github.com/irontec/sngrep/archive/v1.4.9.tar.gz"
   sha256 "3c6f28b5c795a5b1844a8997aa430aba72e083c8bd52939990900450c5f4c85a"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "449af17f3cb8673ec2beb158ba5a48bfc620739bac89bce15eeaea4297c65972"
@@ -16,7 +17,7 @@ class Sngrep < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libpcap"
   uses_from_macos "ncurses"
@@ -29,7 +30,7 @@ class Sngrep < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
