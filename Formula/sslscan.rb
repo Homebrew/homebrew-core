@@ -4,6 +4,7 @@ class Sslscan < Formula
   url "https://github.com/rbsec/sslscan/archive/2.0.10.tar.gz"
   sha256 "bb7bb0ff037aa5579b3ee0cf91aa41ab04ac073592b5d95ad3fab820f5000f6e"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/rbsec/sslscan.git", branch: "master"
 
   livecheck do
@@ -19,12 +20,12 @@ class Sslscan < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4922f8701dfe20d818eee4fcf6ba010b7da4c927ad0389e00181eb993a4d0d71"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    # use `libcrypto.dylib|so` built from `openssl@1.1`
+    # use `libcrypto.dylib|so` built from `openssl@3`
     inreplace "Makefile", "static: openssl/libcrypto.a",
-                          "static: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libcrypto")}"
+                          "static: #{Formula["openssl@3"].opt_lib}/#{shared_library("libcrypto")}"
 
     system "make", "static"
     system "make", "install", "PREFIX=#{prefix}"
