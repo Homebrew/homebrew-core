@@ -4,6 +4,7 @@ class Arangodb < Formula
   url "https://download.arangodb.com/Source/ArangoDB-3.8.1.tar.gz"
   sha256 "31a17e09cd7fdec94430b8a97864009f24a142e35cdf185068fe148ae781c3a9"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
   bottle do
@@ -17,7 +18,7 @@ class Arangodb < Formula
   depends_on "go@1.13" => :build
   depends_on "python@3.9" => :build
   depends_on macos: :mojave
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # the ArangoStarter is in a separate github repository;
   # it is used to easily start single server and clusters
@@ -50,7 +51,7 @@ class Arangodb < Formula
     end
 
     mkdir "build" do
-      openssl = Formula["openssl@1.1"]
+      openssl = Formula["openssl@3"]
       args = std_cmake_args + %W[
         -DHOMEBREW=ON
         -DCMAKE_BUILD_TYPE=RelWithDebInfo
