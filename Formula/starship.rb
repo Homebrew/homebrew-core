@@ -4,6 +4,7 @@ class Starship < Formula
   url "https://github.com/starship/starship/archive/v0.58.0.tar.gz"
   sha256 "8bd4cfad4bcf9694633f228de0c7dc6cfab6bb6955e2a7299ed28dd8c4d6f5e4"
   license "ISC"
+  revision 1
   head "https://github.com/starship/starship.git", branch: "master"
 
   bottle do
@@ -15,7 +16,7 @@ class Starship < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
