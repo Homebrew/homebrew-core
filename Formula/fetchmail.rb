@@ -10,6 +10,7 @@ class Fetchmail < Formula
     :public_domain,
     "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" },
   ]
+  revision 1
 
   livecheck do
     url :stable
@@ -24,12 +25,12 @@ class Fetchmail < Formula
     sha256               x86_64_linux:  "19abe963e79a93c7a422681b01dc49a39bca05676cc97c94be5028562d1708ab"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
