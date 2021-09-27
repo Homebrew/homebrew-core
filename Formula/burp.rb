@@ -2,7 +2,7 @@ class Burp < Formula
   desc "Network backup and restore"
   homepage "https://burp.grke.org/"
   license "AGPL-3.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://downloads.sourceforge.net/project/burp/burp-2.2.18/burp-2.2.18.tar.bz2"
@@ -43,7 +43,7 @@ class Burp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "librsync"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   uses_from_macos "zlib"
 
   def install
