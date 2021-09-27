@@ -5,6 +5,7 @@ class Ngircd < Formula
   mirror "https://ngircd.sourceforge.io/pub/ngircd/ngircd-26.1.tar.xz"
   sha256 "55c16fd26009f6fc6a007df4efac87a02e122f680612cda1ce26e17a18d86254"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ngircd.barton.de/download.php"
@@ -19,7 +20,7 @@ class Ngircd < Formula
   end
 
   depends_on "libident"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
