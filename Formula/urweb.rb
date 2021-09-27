@@ -3,7 +3,7 @@ class Urweb < Formula
   homepage "http://www.impredicative.com/ur/"
   url "https://github.com/urweb/urweb/releases/download/20200209/urweb-20200209.tar.gz"
   sha256 "ac3010c57f8d90f09f49dfcd6b2dc4d5da1cdbb41cbf12cb386e96e93ae30662"
-  revision 4
+  revision 5
 
   bottle do
     sha256 big_sur:  "f50d69d970a627bff0607a8be0766c12bdc49394e457776731a5dfd40531f82f"
@@ -17,7 +17,7 @@ class Urweb < Formula
   depends_on "mlton" => :build
   depends_on "gmp"
   depends_on "icu4c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Patch to fix build for icu4c 68.2
   patch do
@@ -30,7 +30,7 @@ class Urweb < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --prefix=#{prefix}
       SITELISP=$prefix/share/emacs/site-lisp/urweb
       ICU_INCLUDES=-I#{Formula["icu4c"].opt_include}
