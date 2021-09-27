@@ -4,6 +4,7 @@ class Iperf3 < Formula
   url "https://github.com/esnet/iperf/archive/3.10.1.tar.gz"
   sha256 "6a4bb4d5c124b3fa64dfbda469ab16857ad6565310bcaa3dd8cd32f96c2fc473"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "7acd6b3fedf49e5614f825f928d24b035e93db311c25797d94b8ef880b78afe0"
@@ -21,13 +22,13 @@ class Iperf3 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--disable-profiling",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "clean" # there are pre-compiled files in the tarball
     system "make", "install"
   end
