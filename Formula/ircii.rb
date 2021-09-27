@@ -11,6 +11,7 @@ class Ircii < Formula
     "MIT",
     :public_domain,
   ]
+  revision 1
 
   livecheck do
     url "https://ircii.warped.com/"
@@ -24,7 +25,7 @@ class Ircii < Formula
     sha256 mojave:        "758aa15d57d51e9f2c97115e837cd10c9879bfeb46c84823380291a76573f669"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     ENV.append "LIBS", "-liconv"
