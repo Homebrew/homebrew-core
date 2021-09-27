@@ -4,6 +4,7 @@ class MinimalRacket < Formula
   url "https://mirror.racket-lang.org/installers/8.2/racket-minimal-8.2-src.tgz"
   sha256 "6f4dcbb17493898c954973ddde3daee1f18aa3197e6ece0d3e48dc2d4cfa84c7"
   license any_of: ["MIT", "Apache-2.0"]
+  revision 1
 
   # File links on the download page are created using JavaScript, so we parse
   # the filename from a string in an object. We match the version from the
@@ -22,7 +23,7 @@ class MinimalRacket < Formula
     sha256 x86_64_linux:  "5649130e99166343b0147b8fc992d1004f1dfd8529e8de0f284c0912217aa0c8"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libffi"
 
@@ -46,8 +47,8 @@ class MinimalRacket < Formula
         --enable-useprefix
       ]
 
-      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@1.1"].opt_lib}"
-      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@1.1"].opt_lib}" if OS.linux?
+      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@3"].opt_lib}"
+      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@3"].opt_lib}" if OS.linux?
 
       system "./configure", *args
       system "make"
@@ -91,7 +92,7 @@ class MinimalRacket < Formula
     end
     on_linux do
       output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match "init: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libssl")}", output
+      assert_match "init: #{Formula["openssl@3"].opt_lib}/#{shared_library("libssl")}", output
     end
   end
 end
