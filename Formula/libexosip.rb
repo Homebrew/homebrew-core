@@ -5,6 +5,7 @@ class Libexosip < Formula
   mirror "https://download-mirror.savannah.gnu.org/releases/exosip/libexosip2-5.2.1.tar.gz"
   sha256 "87256b45a406f3c038e1e75e31372d526820366527c2af3bb89329bafd87ec42"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/exosip/"
@@ -21,7 +22,7 @@ class Libexosip < Formula
   depends_on "pkg-config" => :build
   depends_on "c-ares"
   depends_on "libosip"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Extra linker flags are needed to build this on macOS. See:
