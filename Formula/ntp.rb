@@ -4,6 +4,7 @@ class Ntp < Formula
   url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p15.tar.gz"
   version "4.2.8p15"
   sha256 "f65840deab68614d5d7ceb2d0bb9304ff70dcdedd09abb79754a87536b849c19"
+  revision 1
 
   livecheck do
     url "https://www.ntp.org/downloads.html"
@@ -18,7 +19,7 @@ class Ntp < Formula
     sha256 cellar: :any, high_sierra:   "9f7ce9c3ff545ff738fcf4049445923c968ec807cf1ecde451be76412442e6f1"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     args = %W[
@@ -26,8 +27,8 @@ class Ntp < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-openssl-libdir=#{Formula["openssl@1.1"].lib}
-      --with-openssl-incdir=#{Formula["openssl@1.1"].include}
+      --with-openssl-libdir=#{Formula["openssl@3"].lib}
+      --with-openssl-incdir=#{Formula["openssl@3"].include}
       --with-net-snmp-config=no
     ]
 
