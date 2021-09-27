@@ -3,7 +3,7 @@ class CenterIm < Formula
   homepage "https://github.com/petrpavlu/centerim5"
   url "https://www.centerim.org/download/releases/centerim-4.22.10.tar.gz"
   sha256 "93ce15eb9c834a4939b5aa0846d5c6023ec2953214daf8dc26c85ceaa4413f6e"
-  revision 2
+  revision 3
 
   # Modify this to use `url :stable` if/when the formula is updated to use an
   # archive from GitHub in the future.
@@ -24,7 +24,7 @@ class CenterIm < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Fix build with clang; 4.22.10 is an outdated release and 5.0 is a rewrite,
   # so this is not reported upstream
@@ -39,7 +39,7 @@ class CenterIm < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-msn",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
 
     # /bin/gawk does not exist on macOS
