@@ -4,6 +4,7 @@ class Xaric < Formula
   url "https://xaric.org/software/xaric/releases/xaric-0.13.9.tar.gz"
   sha256 "cb6c23fd20b9f54e663fff7cab22e8c11088319c95c90904175accf125d2fc11"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://xaric.org/software/xaric/releases/"
@@ -17,14 +18,14 @@ class Xaric < Formula
     sha256 mojave:        "e8c40aad03fec80e9566a1bb9c7100cbb3a4e0fca3dbc9f79f65271d3e29631f"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "ncurses"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
