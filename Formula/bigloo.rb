@@ -4,6 +4,7 @@ class Bigloo < Formula
   url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4b.tar.gz"
   sha256 "a313922702969b0a3b3d803099ea05aca698758be6bd0aae597caeb6895ce3cf"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www-sop.inria.fr/indes/fp/Bigloo/download.html"
@@ -26,7 +27,7 @@ class Bigloo < Formula
   depends_on "libunistring"
   depends_on "libuv"
   depends_on "openjdk"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   # Fix a configure script bug. Remove when this lands in a release:
