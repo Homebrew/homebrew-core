@@ -5,6 +5,7 @@ class Manticoresearch < Formula
   version "3.6.0"
   sha256 "320a19c837caf827a75e19e11755a9586487435aeb8b8aa80e8bef552fd5e1f5"
   license "GPL-2.0-only"
+  revision 1
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
 
@@ -21,7 +22,7 @@ class Manticoresearch < Formula
   depends_on "icu4c" => :build
   depends_on "libpq" => :build
   depends_on "mysql" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   conflicts_with "sphinx", because: "manticoresearch is a fork of sphinx"
 
