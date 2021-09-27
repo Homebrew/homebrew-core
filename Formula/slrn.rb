@@ -4,7 +4,7 @@ class Slrn < Formula
   url "https://jedsoft.org/releases/slrn/slrn-1.0.3a.tar.bz2"
   sha256 "3ba8a4d549201640f2b82d53fb1bec1250f908052a7983f0061c983c634c2dac"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "git://git.jedsoft.org/git/slrn.git", branch: "master"
 
   livecheck do
@@ -21,7 +21,7 @@ class Slrn < Formula
     sha256 x86_64_linux:  "e9f1013ef2eb1b03c54754621b7669de769a87f412f025d5f83d8c1ee2efe5c9"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "s-lang"
 
   def install
@@ -35,7 +35,7 @@ class Slrn < Formula
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-slrnpull=#{var}/spool/news/slrnpull",
                           "--with-slang=#{HOMEBREW_PREFIX}"
     system "make", "all", "slrnpull"
