@@ -4,7 +4,7 @@ class Httping < Formula
   url "https://www.vanheusden.com/httping/httping-2.5.tgz"
   sha256 "3e895a0a6d7bd79de25a255a1376d4da88eb09c34efdd0476ab5a907e75bfaf8"
   license "GPL-2.0"
-  revision 2
+  revision 3
   head "https://github.com/flok99/httping.git"
 
   bottle do
@@ -19,7 +19,7 @@ class Httping < Formula
   deprecate! date: "2021-05-20", because: "Upstream website has disappeared"
 
   depends_on "gettext"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Reported upstream, see: https://github.com/Homebrew/homebrew/pull/28653
