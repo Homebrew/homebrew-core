@@ -4,6 +4,7 @@ class Libtins < Formula
   url "https://github.com/mfontanini/libtins/archive/v4.3.tar.gz"
   sha256 "c70bce5a41a27258bf0e3ad535d8238fb747d909a4b87ea14620f25dd65828fd"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/mfontanini/libtins.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Libtins < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libpcap"
 
