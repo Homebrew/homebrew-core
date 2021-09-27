@@ -4,6 +4,7 @@ class Gsoap < Formula
   url "https://downloads.sourceforge.net/project/gsoap2/gsoap_2.8.117.zip"
   sha256 "7cadf8808cfd982629948fe09e4fa6cd18e23cafd40df0aaaff1b1f5b695c442"
   license any_of: ["GPL-2.0-or-later", "gSOAP-1.3b"]
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class Gsoap < Formula
   end
 
   depends_on "autoconf" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bison"
   uses_from_macos "flex"
