@@ -4,6 +4,7 @@ class UBootTools < Formula
   url "https://ftp.denx.de/pub/u-boot/u-boot-2021.07.tar.bz2"
   sha256 "312b7eeae44581d1362c3a3f02c28d806647756c82ba8c72241c7cdbe68ba77e"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later", "BSD-3-Clause"]
+  revision 1
 
   livecheck do
     url "https://ftp.denx.de/pub/u-boot/"
@@ -19,7 +20,7 @@ class UBootTools < Formula
   end
 
   depends_on "coreutils" => :build # Makefile needs $(gdate)
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
