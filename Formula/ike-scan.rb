@@ -4,7 +4,7 @@ class IkeScan < Formula
   url "https://github.com/royhills/ike-scan/archive/1.9.4.tar.gz"
   sha256 "2865014185c129ac443beb7bf80f3c5eb93adb504cd307c5b6709199abf7c121"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   head "https://github.com/royhills/ike-scan.git"
 
@@ -20,7 +20,7 @@ class IkeScan < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Fix Xcode 12 build: https://github.com/royhills/ike-scan/pull/32
   patch do
@@ -33,7 +33,7 @@ class IkeScan < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
