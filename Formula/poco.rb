@@ -4,6 +4,7 @@ class Poco < Formula
   url "https://pocoproject.org/releases/poco-1.11.0/poco-1.11.0-all.tar.gz"
   sha256 "9a29a86bb9b889fc4cc5fb45f4ab065a48700ad71ff842340e13d32759281db9"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/pocoproject/poco.git", branch: "master"
 
   livecheck do
@@ -20,7 +21,7 @@ class Poco < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     mkdir "build" do
