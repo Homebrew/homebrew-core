@@ -4,6 +4,7 @@ class EasyRsa < Formula
   url "https://github.com/OpenVPN/easy-rsa/archive/v3.0.8.tar.gz"
   sha256 "fd6b67d867c3b8afd53efa2ca015477f6658a02323e1799432083472ac0dd200"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/OpenVPN/easy-rsa.git"
 
   bottle do
@@ -15,13 +16,13 @@ class EasyRsa < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb9ed69d68b06a1af68732fcb9722e2016b562b3196d3017416805c81f5f977a"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     libexec.install "easyrsa3/easyrsa"
     (bin/"easyrsa").write_env_script libexec/"easyrsa",
       EASYRSA:         etc/name,
-      EASYRSA_OPENSSL: Formula["openssl@1.1"].bin/"openssl",
+      EASYRSA_OPENSSL: Formula["openssl@3"].bin/"openssl",
       EASYRSA_PKI:     "${EASYRSA_PKI:-#{etc}/pki}"
 
     (etc/name).install %w[
