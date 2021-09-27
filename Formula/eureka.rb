@@ -4,6 +4,7 @@ class Eureka < Formula
   url "https://github.com/simeg/eureka/archive/v1.8.1.tar.gz"
   sha256 "d10d412c71dea51b4973c3ded5de1503a4c5de8751be5050de989ac08eb0455e"
   license "MIT"
+  revision 1
   head "https://github.com/simeg/eureka.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Eureka < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
