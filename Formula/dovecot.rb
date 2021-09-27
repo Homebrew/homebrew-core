@@ -4,6 +4,7 @@ class Dovecot < Formula
   url "https://dovecot.org/releases/2.3/dovecot-2.3.16.tar.gz"
   sha256 "03a71d53055bd9ec528d55e07afaf15c09dec9856cba734904bfd05acbc6cf12"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
+  revision 1
 
   livecheck do
     url "https://www.dovecot.org/download/"
@@ -18,7 +19,7 @@ class Dovecot < Formula
     sha256 x86_64_linux:  "c4c1beb8368da32f6743e58c7a0db23397081c366ceddedf026598a4d215241e"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bzip2"
   uses_from_macos "sqlite"
