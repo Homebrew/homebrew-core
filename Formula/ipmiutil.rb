@@ -3,6 +3,7 @@ class Ipmiutil < Formula
   homepage "https://ipmiutil.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.7.tar.gz"
   sha256 "911fd6f8b33651b98863d57e678d2fc593bc43fcd2a21f5dc7d5db8f92128a9a"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d2870b00ddad6b22295009482c51e7d699dd8d0d0c32fafe3a5699c6b30e3f45"
@@ -16,7 +17,7 @@ class Ipmiutil < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   conflicts_with "renameutils", because: "both install `icmd` binaries"
 
