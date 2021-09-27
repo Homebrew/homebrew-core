@@ -3,6 +3,7 @@ class MonitoringPlugins < Formula
   homepage "https://www.monitoring-plugins.org"
   url "https://www.monitoring-plugins.org/download/monitoring-plugins-2.3.1.tar.gz"
   sha256 "f56eb84871983fd719247249e3532228b37e2efaae657a3979bd14ac1f84a35b"
+  revision 1
 
   livecheck do
     url "https://www.monitoring-plugins.org/download.html"
@@ -16,7 +17,7 @@ class MonitoringPlugins < Formula
     sha256 cellar: :any, mojave:        "883707c4b2fe29a6d0b8453d4d19005128761d5d6952b9fe21292ec4b4cb2b11"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   conflicts_with "nagios-plugins", because: "both install their plugins to the same folder"
 
@@ -25,7 +26,7 @@ class MonitoringPlugins < Formula
       --disable-dependency-tracking
       --prefix=#{libexec}
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
     ]
 
     system "./configure", *args
