@@ -4,6 +4,7 @@ class Podofo < Formula
   url "https://downloads.sourceforge.net/project/podofo/podofo/0.9.7/podofo-0.9.7.tar.gz"
   sha256 "7cf2e716daaef89647c54ffcd08940492fd40c385ef040ce7529396bfadc1eb8"
   license all_of: ["LGPL-2.0-only", "GPL-2.0-only"]
+  revision 1
   head "svn://svn.code.sf.net/p/podofo/code/podofo/trunk"
 
   bottle do
@@ -21,7 +22,7 @@ class Podofo < Formula
   depends_on "libidn"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     args = std_cmake_args + %W[
