@@ -4,6 +4,7 @@ class Tcpflow < Formula
   url "https://downloads.digitalcorpora.org/downloads/tcpflow/tcpflow-1.6.1.tar.gz"
   sha256 "436f93b1141be0abe593710947307d8f91129a5353c3a8c3c29e2ba0355e171e"
   license "GPL-3.0"
+  revision 1
 
   livecheck do
     url "https://downloads.digitalcorpora.org/downloads/tcpflow/"
@@ -26,7 +27,7 @@ class Tcpflow < Formula
   end
 
   depends_on "boost" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bzip2"
   uses_from_macos "libpcap"
