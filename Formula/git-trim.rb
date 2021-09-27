@@ -4,6 +4,7 @@ class GitTrim < Formula
   url "https://github.com/foriequal0/git-trim/archive/v0.4.2.tar.gz"
   sha256 "0f728c7f49cc8ffb0c485547a114c94bdebd7eead9466b1b43f486ef583a3d73"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 big_sur:      "5c52fe8dd74e83a4a7048ae8a4f42661c2738718ea40ebede07ecf83771ba5ff"
@@ -14,7 +15,7 @@ class GitTrim < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
