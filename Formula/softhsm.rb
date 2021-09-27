@@ -4,6 +4,7 @@ class Softhsm < Formula
   url "https://dist.opendnssec.org/source/softhsm-2.6.1.tar.gz"
   sha256 "61249473054bcd1811519ef9a989a880a7bdcc36d317c9c25457fc614df475f2"
   license "BSD-2-Clause"
+  revision 1
 
   # We check the GitHub repo tags instead of https://dist.opendnssec.org/source/
   # since the aforementioned first-party URL has a tendency to lead to an
@@ -32,7 +33,7 @@ class Softhsm < Formula
     depends_on "pkg-config" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "sh", "./autogen.sh" if build.head?
@@ -42,7 +43,7 @@ class Softhsm < Formula
                           "--sysconfdir=#{etc}/softhsm",
                           "--localstatedir=#{var}",
                           "--with-crypto-backend=openssl",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
                           "--disable-gost"
     system "make", "install"
   end
