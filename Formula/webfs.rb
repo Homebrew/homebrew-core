@@ -3,7 +3,7 @@ class Webfs < Formula
   homepage "https://linux.bytesex.org/misc/webfs.html"
   url "https://www.kraxel.org/releases/webfs/webfs-1.21.tar.gz"
   sha256 "98c1cb93473df08e166e848e549f86402e94a2f727366925b1c54ab31064a62a"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -15,7 +15,7 @@ class Webfs < Formula
     sha256 cellar: :any, sierra:        "9e678532e4546e4fabb9a96b9eb141769e00e330e15c9e5b453001141448c9fb"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   patch :p0 do
     url "https://github.com/Homebrew/formula-patches/raw/0518a6d1ed821aebf0de4de78e39b57d6e60e296/webfs/patch-ls.c"
