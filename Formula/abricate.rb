@@ -35,7 +35,7 @@ class Abricate < Formula
     ENV.prepend "PERL5LIB", Formula["bioperl"].libexec/"lib/perl5"
     ENV.prepend_create_path "PERL5LIB", libexec/"perl5/lib/perl5"
 
-    ENV["OPENSSL_PREFIX"] = Formula["openssl"].opt_prefix # for Net::SSLeay
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix # for Net::SSLeay
 
     pms = %w[JSON Path::Tiny List::MoreUtils LWP::Simple]
     system "cpanm", "--self-contained", "-l", libexec/"perl5", *pms
