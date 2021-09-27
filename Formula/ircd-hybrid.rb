@@ -4,6 +4,7 @@ class IrcdHybrid < Formula
   url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.39/ircd-hybrid-8.2.39.tgz"
   sha256 "035d271f6b0dd451157f80146d189bc1c9b84cc9ba1b7ad06fd72ee5108e6e4d"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class IrcdHybrid < Formula
     sha256 x86_64_linux:  "fc31f26e809d59c021617055aa26a5f318ba101ce8311c18afbb08233c959627"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   conflicts_with "ircd-irc2", because: "both install an `ircd` binary"
 
@@ -32,7 +33,7 @@ class IrcdHybrid < Formula
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
-                          "--enable-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--enable-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
     etc.install "doc/reference.conf" => "ircd.conf"
   end
