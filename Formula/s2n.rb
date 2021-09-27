@@ -4,6 +4,7 @@ class S2n < Formula
   url "https://github.com/aws/s2n-tls/archive/v1.1.0.tar.gz"
   sha256 "e094fd1f2044cfaeedb534ef1d7e4fd8745d8c07a247ce383cd8a6a5288e195c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/aws/s2n-tls.git", branch: "main"
 
   livecheck do
@@ -19,7 +20,7 @@ class S2n < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
