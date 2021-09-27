@@ -3,6 +3,7 @@ class MysqlClientAT57 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
   url "https://cdn.mysql.com/archives/mysql-5.7/mysql-boost-5.7.34.tar.gz"
   sha256 "5bc2c7c0bb944b5bb219480dde3c1caeb049e7351b5bba94c3b00ac207929c7b"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "36dad98547a79e55ee6402bcfe841ab90e4f3ed8a0f22004a5d8e7b7e832ad3b"
@@ -16,7 +17,7 @@ class MysqlClientAT57 < Formula
 
   depends_on "cmake" => :build
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libedit"
 
