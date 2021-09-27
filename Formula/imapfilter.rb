@@ -4,6 +4,7 @@ class Imapfilter < Formula
   url "https://github.com/lefcha/imapfilter/archive/v2.7.5.tar.gz"
   sha256 "ab19f840712e6951e51c29e44c43b3b2fa42e93693f98f8969cc763a4fad56bf"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "e49fed469e38c13b29df94f07ce45bb40bdcf167961ba08e7199192346ce8cd7"
@@ -13,7 +14,7 @@ class Imapfilter < Formula
   end
 
   depends_on "lua"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
 
   def install
