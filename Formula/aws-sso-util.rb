@@ -92,16 +92,15 @@ class AwsSsoUtil < Formula
           " --account-id 000000000000 --role-name InvalidRole" \
           " --region eu-west-1 --non-interactive"
 
-    expected = [
-      "",
-      "[profile invalid]",
-      "sso_start_url = https://example.com/start",
-      "sso_region = eu-west-1",
-      "sso_account_id = 000000000000",
-      "sso_role_name = InvalidRole",
-      "region = eu-west-1",
-      "credential_process = aws-sso-util credential-process --profile invalid",
-    ]
+    expected = <<~EOS
+      [profile invalid]
+      sso_start_url = https://example.com/start
+      sso_region = eu-west-1
+      sso_account_id = 000000000000
+      sso_role_name = InvalidRole
+      region = eu-west-1
+      credential_process = aws-sso-util credential-process --profile invalid
+    EOS
 
     auth_process = IO.popen(env, cmd)
 
