@@ -5,6 +5,7 @@ class JohnJumbo < Formula
   version "1.9.0"
   sha256 "f5d123f82983c53d8cc598e174394b074be7a77756f5fb5ed8515918c81e7f3b"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://github.com/magnumripper/JohnTheRipper.git"
@@ -24,7 +25,7 @@ class JohnJumbo < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gmp"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -37,7 +38,7 @@ class JohnJumbo < Formula
     sha256 "bb6cfff297f1223dd1177a515657b8f1f780c55f790e5b6e6518bb2cb0986b7b"
   end
 
-  # Fixed setup of openssl@1.1 over series of patches
+  # Fixed setup of openssl@3 over series of patches
   # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4101
   patch do
     url "https://github.com/magnumripper/JohnTheRipper/commit/4844c79bf43dbdbb6ae3717001173355b3de5517.patch?full_index=1"
@@ -72,8 +73,8 @@ class JohnJumbo < Formula
     # Apple's M1 chip has no support for SSE 4.1.
     ENV.append "CFLAGS", "-mno-sse4.1" if Hardware::CPU.intel? && !MacOS.version.requires_sse4?
 
-    ENV["OPENSSL_LIBS"] = "-L#{Formula["openssl@1.1"].opt_lib}"
-    ENV["OPENSSL_CFLAGS"] = "-I#{Formula["openssl@1.1"].opt_include}"
+    ENV["OPENSSL_LIBS"] = "-L#{Formula["openssl@3"].opt_lib}"
+    ENV["OPENSSL_CFLAGS"] = "-I#{Formula["openssl@3"].opt_include}"
 
     cd "src" do
       system "./configure", "--disable-native-tests"
