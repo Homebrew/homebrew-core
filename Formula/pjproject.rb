@@ -4,6 +4,7 @@ class Pjproject < Formula
   url "https://github.com/pjsip/pjproject/archive/2.10.tar.gz"
   sha256 "936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/pjsip/pjproject.git", branch: "master"
 
   livecheck do
@@ -21,7 +22,7 @@ class Pjproject < Formula
   end
 
   depends_on macos: :high_sierra # Uses Security framework API enum cases introduced in 10.13.4
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--prefix=#{prefix}"
