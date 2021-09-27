@@ -4,6 +4,7 @@ class CargoAudit < Formula
   url "https://github.com/RustSec/rustsec/archive/cargo-audit/v0.15.2.tar.gz"
   sha256 "ed330d33f86036acd27ab8f717903aa515c306d02217aa217c95e2a5fdab1f8e"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/RustSec/rustsec.git", branch: "main"
 
   livecheck do
@@ -20,7 +21,7 @@ class CargoAudit < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
