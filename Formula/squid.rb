@@ -4,6 +4,7 @@ class Squid < Formula
   url "http://www.squid-cache.org/Versions/v4/squid-4.16.tar.xz"
   sha256 "7e00e891757c1c02dae546c9898f440c6031b684d8c243d6edab529076e3ba63"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "http://www.squid-cache.org/Versions/v4/"
@@ -26,7 +27,7 @@ class Squid < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # https://stackoverflow.com/questions/20910109/building-squid-cache-on-os-x-mavericks
