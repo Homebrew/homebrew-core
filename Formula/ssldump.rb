@@ -3,7 +3,7 @@ class Ssldump < Formula
   homepage "https://ssldump.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ssldump/ssldump/0.9b3/ssldump-0.9b3.tar.gz"
   sha256 "6422c16718d27c270bbcfcc1272c4f9bd3c0799c351f1d6dd54fdc162afdab1e"
-  revision 2
+  revision 3
 
   # This regex intentionally matches unstable versions, as only a beta version
   # (0.9b3) is available at the time of writing.
@@ -24,7 +24,7 @@ class Ssldump < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libpcap"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # reorder include files
   # https://sourceforge.net/p/ssldump/bugs/40/
