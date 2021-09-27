@@ -3,7 +3,7 @@ class PureFtpd < Formula
   homepage "https://www.pureftpd.org/"
   url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.49.tar.gz"
   sha256 "767bf458c70b24f80c0bb7a1bbc89823399e75a0a7da141d30051a2b8cc892a5"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.pureftpd.org/pub/pure-ftpd/releases/"
@@ -20,7 +20,7 @@ class PureFtpd < Formula
   end
 
   depends_on "libsodium"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     args = %W[
