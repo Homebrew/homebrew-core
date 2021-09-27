@@ -4,6 +4,7 @@ class Pev < Formula
   url "https://downloads.sourceforge.net/project/pev/pev-0.81/pev-0.81.tar.gz"
   sha256 "921b2831ca956aedc272d8580b2ff1a2cb54fb895cabeb81c907fe62b6ac83fb"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/merces/pev.git", branch: "master"
 
   bottle do
@@ -13,7 +14,7 @@ class Pev < Formula
     sha256 mojave:        "0ff3ab7fe514f498dd088d42fd60e63bbd5c7fb3d94222aac68c5a4302404f2f"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   def install
