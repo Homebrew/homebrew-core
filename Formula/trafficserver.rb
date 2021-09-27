@@ -5,6 +5,7 @@ class Trafficserver < Formula
   mirror "https://archive.apache.org/dist/trafficserver/trafficserver-9.1.0.tar.bz2"
   sha256 "f1cb90bcf4afaba8ad1395c4d5a824b9909a5cac3abda74788540fdb48d8df21"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 catalina: "8eca27b1c4f7ac994d609270b426eaeb270f11fcedd450c37dcfc47a008a7fc1"
@@ -27,7 +28,7 @@ class Trafficserver < Formula
   depends_on "pkg-config" => :build
   depends_on "hwloc"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "yaml-cpp"
 
@@ -41,7 +42,7 @@ class Trafficserver < Formula
       --mandir=#{man}
       --localstatedir=#{var}
       --sysconfdir=#{etc}/trafficserver
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-yaml-cpp=#{Formula["yaml-cpp"].opt_prefix}
       --with-group=admin
       --disable-silent-rules
