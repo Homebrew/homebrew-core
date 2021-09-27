@@ -14,7 +14,6 @@ class Ko < Formula
   end
 
   depends_on "go" => :build
-  depends_on "docker" => :test
 
   def install
     system "go", "build", *std_go_args, "-ldflags",
@@ -24,9 +23,5 @@ class Ko < Formula
   test do
     output = shell_output("#{bin}/ko login reg.example.com -u brew -p test 2>&1")
     assert_match "logged in via #{testpath}/.docker/config.json", output
-
-    ENV["KO_DOCKER_REPO"] = "ko.local"
-    output = shell_output("#{bin}/ko run github.com/mattmoor/examples/http/cmd/helloworld 2>&1", 1)
-    assert_match "failed to publish images", output
   end
 end
