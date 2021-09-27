@@ -6,6 +6,7 @@ class Nginx < Formula
   url "https://nginx.org/download/nginx-1.21.3.tar.gz"
   sha256 "14774aae0d151da350417efc4afda5cce5035056e71894836797e1f6e2d1175a"
   license "BSD-2-Clause"
+  revision 1
   head "https://hg.nginx.org/nginx/", using: :hg
 
   livecheck do
@@ -21,7 +22,7 @@ class Nginx < Formula
     sha256 x86_64_linux:  "6c0d7245f21d7d421f75e071480ad51bdea69c49b3795cb30269bb7d6daffaaf"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   uses_from_macos "xz" => :build
@@ -37,7 +38,7 @@ class Nginx < Formula
       s.gsub! "    #}\n\n}", "    #}\n    include servers/*;\n}"
     end
 
-    openssl = Formula["openssl@1.1"]
+    openssl = Formula["openssl@3"]
     pcre = Formula["pcre"]
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
