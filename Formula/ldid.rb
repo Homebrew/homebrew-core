@@ -5,6 +5,7 @@ class Ldid < Formula
       tag:      "v2.1.5",
       revision: "a23f0faadd29ec00a6b7fb2498c3d15af15a7100"
   license "AGPL-3.0-or-later"
+  revision 1
   head "https://git.saurik.com/ldid.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Ldid < Formula
   end
 
   depends_on "libplist"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system ENV.cc, "-c",
