@@ -4,6 +4,7 @@ class Libjwt < Formula
   url "https://github.com/benmcollins/libjwt/archive/v1.13.1.tar.gz"
   sha256 "4df55ac89c6692adaf3badb43daf3241fd876612c9ab627e250dfc4bb59993d9"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "4d89729e216bebd3dcd95d7edca9050b125387a122e1525f2b647175074154aa"
@@ -18,7 +19,7 @@ class Libjwt < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "jansson"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "autoreconf", "-fiv"
