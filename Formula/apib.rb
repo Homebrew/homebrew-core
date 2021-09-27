@@ -4,6 +4,7 @@ class Apib < Formula
   url "https://github.com/apigee/apib/archive/APIB_1_2_1.tar.gz"
   sha256 "e47f639aa6ffc14a2e5b03bf95e8b0edc390fa0bb2594a521f779d6e17afc14c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apigee/apib.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Apib < Formula
 
   depends_on "cmake" => :build
   depends_on "libev"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cmake", ".", *std_cmake_args
