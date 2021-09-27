@@ -4,6 +4,7 @@ class Axel < Formula
   url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.10/axel-2.17.10.tar.xz"
   sha256 "46eb4f10a11c4e50320ae6a034ef03ffe59dc11c3c6542a9867a3e4dc0c4b44e"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/eribertomota/axel.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class Axel < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
