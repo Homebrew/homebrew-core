@@ -5,7 +5,7 @@ class Httrack < Formula
   # link to download.httrack.com will break on next HTTrack update.
   url "https://mirror.httrack.com/historical/httrack-3.49.2.tar.gz"
   sha256 "3477a0e5568e241c63c9899accbfcdb6aadef2812fcce0173688567b4c7d4025"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://mirror.httrack.com/historical/"
@@ -22,7 +22,7 @@ class Httrack < Formula
     sha256 x86_64_linux:  "cf514800be63c284276aa19e44b7d6822b182166a64b8ceb45dd96c4818504ee"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
