@@ -4,6 +4,7 @@ class Zabbix < Formula
   url "https://cdn.zabbix.com/zabbix/sources/stable/5.4/zabbix-5.4.4.tar.gz"
   sha256 "de9985978cf9638d7cb208f7f65d93141b4e1256ead56df1b95d7bda41d6a672"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/zabbix/zabbix.git", branch: "master"
 
   bottle do
@@ -14,7 +15,7 @@ class Zabbix < Formula
     sha256 x86_64_linux:  "e5cd2090baa1c65ae91bbfea560f5075ef4c52eac14c4a051aa82fc0ce888c21"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   def install
@@ -24,7 +25,7 @@ class Zabbix < Formula
       --sysconfdir=#{etc}/zabbix
       --enable-agent
       --with-libpcre=#{Formula["pcre"].opt_prefix}
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
     ]
 
     if OS.mac?
