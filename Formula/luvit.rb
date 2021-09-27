@@ -4,6 +4,7 @@ class Luvit < Formula
   url "https://github.com/luvit/luvit/archive/2.18.0.tar.gz"
   sha256 "3c6824878189ca41059d6d4cd8b1646de0ec6b4be1de71b2084f98c36c38e84e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/luvit/luvit.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Luvit < Formula
   depends_on "luv" => :build
   depends_on "pkg-config" => :build
   depends_on "libuv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   # To update this resource, check LIT_VERSION in the Makefile:
