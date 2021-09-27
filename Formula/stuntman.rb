@@ -4,6 +4,7 @@ class Stuntman < Formula
   url "http://www.stunprotocol.org/stunserver-1.2.16.tgz"
   sha256 "4479e1ae070651dfc4836a998267c7ac2fba4f011abcfdca3b8ccd7736d4fd26"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/jselbie/stunserver.git", branch: "master"
 
   livecheck do
@@ -21,7 +22,7 @@ class Stuntman < Formula
   end
 
   depends_on "boost" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "make"
