@@ -4,6 +4,7 @@ class Monolith < Formula
   url "https://github.com/Y2Z/monolith/archive/v2.6.1.tar.gz"
   sha256 "dc08e6fa786c2cdfc7a8f6c307022c368d875c172737b695222c2b2f3bfe2a72"
   license "CC0-1.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f8d25cc101ab57a7b2392d748815de0d2dbf36654a4ef592b5eedf992846f17a"
@@ -15,7 +16,7 @@ class Monolith < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cargo", "install", *std_cargo_args
