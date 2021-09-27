@@ -5,7 +5,7 @@ class ActivemqCpp < Formula
   mirror "https://archive.apache.org/dist/activemq/activemq-cpp/3.9.5/activemq-cpp-library-3.9.5-src.tar.bz2"
   sha256 "6bd794818ae5b5567dbdaeb30f0508cc7d03808a4b04e0d24695b2501ba70c15"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "972d1a36b67866aa3181868044bce04ec8b70cc65e5ebf3e638d5b666c6585f5"
@@ -19,7 +19,7 @@ class ActivemqCpp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "apr"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--prefix=#{prefix}"
