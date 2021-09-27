@@ -6,6 +6,7 @@ class Rsync < Formula
   mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.3.tar.gz"
   sha256 "becc3c504ceea499f4167a260040ccf4d9f2ef9499ad5683c179a697146ce50e"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://rsync.samba.org/ftp/rsync/?C=M&O=D"
@@ -22,7 +23,7 @@ class Rsync < Formula
   end
 
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "popt"
   depends_on "xxhash"
   depends_on "zstd"
