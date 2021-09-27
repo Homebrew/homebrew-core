@@ -6,6 +6,7 @@ class Openrtsp < Formula
   # Keep a mirror as upstream tarballs are removed after each version
   sha256 "ce95a1c79f6d18e959f9dc129b8529b711c60e76754acc285e60946303b923ec"
   license "LGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "037bd7b7f6b47749662992483a26c35707c8242bddfa35f58f2c7bb8d6d0da2e"
@@ -14,13 +15,13 @@ class Openrtsp < Formula
     sha256 cellar: :any, mojave:        "3cfb1652550415fd0b7fb9e9c5ea6e1841dbc4b3b70910e0bb34866f8c8500fc"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Avoid linkage to system OpenSSL
     libs = [
-      Formula["openssl@1.1"].opt_lib/"libcrypto.dylib",
-      Formula["openssl@1.1"].opt_lib/"libssl.dylib",
+      Formula["openssl@3"].opt_lib/"libcrypto.dylib",
+      Formula["openssl@3"].opt_lib/"libssl.dylib",
     ]
 
     system "./genMakefiles", "macosx-no-openssl"
