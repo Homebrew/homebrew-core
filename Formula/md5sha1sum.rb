@@ -4,7 +4,7 @@ class Md5sha1sum < Formula
   url "http://microbrew.org/tools/md5sha1sum/md5sha1sum-0.9.5.tar.gz"
   mirror "https://mirrorservice.org/sites/distfiles.macports.org/md5sha1sum/md5sha1sum-0.9.5.tar.gz"
   sha256 "2fe6b4846cb3e343ed4e361d1fd98fdca6e6bf88e0bba5b767b0fdc5b299f37b"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -21,12 +21,12 @@ class Md5sha1sum < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c25d9290972bc2bcec287eb11b91349f3dd0e5db8ad3a24b35874f7715682cfa"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   conflicts_with "coreutils", because: "both install `md5sum` and `sha1sum` binaries"
 
   def install
-    openssl = Formula["openssl@1.1"]
+    openssl = Formula["openssl@3"]
     ENV["SSLINCPATH"] = openssl.opt_include
     ENV["SSLLIBPATH"] = openssl.opt_lib
 
