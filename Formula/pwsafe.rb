@@ -4,7 +4,7 @@ class Pwsafe < Formula
   url "https://src.fedoraproject.org/repo/pkgs/pwsafe/pwsafe-0.2.0.tar.gz/4bb36538a2772ecbf1a542bc7d4746c0/pwsafe-0.2.0.tar.gz"
   sha256 "61e91dc5114fe014a49afabd574eda5ff49b36c81a6d492c03fcb10ba6af47b7"
   license "GPL-2.0"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://src.fedoraproject.org/repo/pkgs/pwsafe/"
@@ -21,7 +21,7 @@ class Pwsafe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "45c3ced398e2ae04a1449deb1bf23b033a9d82a44d00d1d7da788ce04f81fde1"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   # A password database for testing is provided upstream. How nice!
