@@ -4,6 +4,7 @@ class DuoUnix < Formula
   url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.11.4.tar.gz"
   sha256 "2fcba3e50fd477699d013c789ffc73a0b10c204d25c455abe7c81a2ecd886579"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "https://github.com/duosecurity/duo_unix.git"
@@ -21,7 +22,7 @@ class DuoUnix < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "linux-pam"
@@ -34,7 +35,7 @@ class DuoUnix < Formula
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--includedir=#{include}/duo",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-pam=#{lib}/pam/"
     system "make", "install"
   end
