@@ -4,7 +4,7 @@ class Shairport < Formula
   url "https://github.com/abrasive/shairport/archive/1.1.1.tar.gz"
   sha256 "1b60df6d40bab874c1220d7daecd68fcff3e47bda7c6d7f91db0a5b5c43c0c72"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/abrasive/shairport.git", branch: "master"
 
   bottle do
@@ -18,7 +18,7 @@ class Shairport < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure"
