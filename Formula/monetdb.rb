@@ -4,6 +4,7 @@ class Monetdb < Formula
   url "https://www.monetdb.org/downloads/sources/Jul2021/MonetDB-11.41.5.tar.xz"
   sha256 "6f2efd5f6de2273d2f2e3f61ea149236bee3568c227db1cd9769ea5488a9b6e5"
   license "MPL-2.0"
+  revision 1
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
   livecheck do
@@ -24,7 +25,7 @@ class Monetdb < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "readline" # Compilation fails with libedit
   depends_on "xz"
@@ -53,7 +54,7 @@ class Monetdb < Formula
                       "-DWITH_SNAPPY=OFF",
                       "-DWITH_XML2=ON",
                       "-DWITH_ZLIB=ON",
-                      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
                       "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
       # remove reference to shims directory from compilation/linking info
       inreplace "tools/mserver/monet_version.c", %r{"/[^ ]*/}, "\""
