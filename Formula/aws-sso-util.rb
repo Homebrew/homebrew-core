@@ -86,13 +86,13 @@ class AwsSsoUtil < Formula
   end
 
   test do
-    env = { "AWS_CONFIG_FILE" => "#{testpath}/config" }
     cmd = "#{bin}/aws-sso-util configure profile invalid"\
           " --sso-start-url https://example.com/start --sso-region eu-west-1" \
           " --account-id 000000000000 --role-name InvalidRole" \
           " --region eu-west-1 --non-interactive"
 
     expected = <<~EOS
+
       [profile invalid]
       sso_start_url = https://example.com/start
       sso_region = eu-west-1
@@ -102,12 +102,12 @@ class AwsSsoUtil < Formula
       credential_process = aws-sso-util credential-process --profile invalid
     EOS
 
-    auth_process = IO.popen(env, cmd)
+    output = shell_output "AWS_CONFIG_FILE=#{testpath}/config #{cmd}"
 
-    assert_match "", auth_process.read
+    assert_empty output
+
     assert_predicate testpath/"config", :exist?
-    File.open(testpath/"config").readlines.each do |line|
-      assert_includes expected, line.chomp
-    end
+
+    assert_equal expected, (testpath/"config").read
   end
 end
