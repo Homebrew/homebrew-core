@@ -4,6 +4,7 @@ class Libp11 < Formula
   url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.11/libp11-0.4.11.tar.gz"
   sha256 "57d47a12a76fd92664ae30032cf969284ebac1dfc25bf824999d74b016d51366"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -26,7 +27,7 @@ class Libp11 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libtool"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./bootstrap" if build.head?
@@ -38,8 +39,8 @@ class Libp11 < Formula
   end
 
   test do
-    system ENV.cc, "-I#{Formula["openssl@1.1"].include}", "-L#{lib}",
-                   "-L#{Formula["openssl@1.1"].lib}", "-lp11", "-lcrypto",
+    system ENV.cc, "-I#{Formula["openssl@3"].include}", "-L#{lib}",
+                   "-L#{Formula["openssl@3"].lib}", "-lp11", "-lcrypto",
                    pkgshare/"auth.c", "-o", "test"
   end
 end
