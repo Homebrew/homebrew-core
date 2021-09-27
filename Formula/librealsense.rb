@@ -4,6 +4,7 @@ class Librealsense < Formula
   url "https://github.com/IntelRealSense/librealsense/archive/v2.49.0.tar.gz"
   sha256 "2578ea0e75546aeebd908da732f52e0122bf37750d5a45f3adf92945a673aefd"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/IntelRealSense/librealsense.git"
 
   livecheck do
@@ -22,10 +23,10 @@ class Librealsense < Formula
   depends_on "pkg-config" => :build
   depends_on "glfw"
   depends_on "libusb"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@1.1"].prefix
+    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].prefix
 
     args = std_cmake_args
     args << "-DENABLE_CCACHE=OFF"
