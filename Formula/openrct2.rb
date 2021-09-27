@@ -5,6 +5,7 @@ class Openrct2 < Formula
       tag:      "v0.3.4.1",
       revision: "5087e77032e1342006021f680eb9cad2dc6dabef"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
@@ -23,7 +24,7 @@ class Openrct2 < Formula
   depends_on "libzip"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
   depends_on "nlohmann-json"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
   depends_on "speexdsp"
