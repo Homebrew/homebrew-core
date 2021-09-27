@@ -4,6 +4,7 @@ class Lychee < Formula
   url "https://github.com/lycheeverse/lychee/archive/v0.7.1.tar.gz"
   sha256 "f6acf92987aae006273b5fd211cb5c6a2f30036b7fd69ac36ecffb2b28cc3101"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/lycheeverse/lychee.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Lychee < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "pkg-config" => :build
