@@ -5,6 +5,7 @@ class TomcatNative < Formula
   mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.31/source/tomcat-native-1.2.31-src.tar.gz"
   sha256 "acc0e6e342fbdda54b029564405322823c93d83f9d64363737c1cbcc3af1c1fd"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c6f4dd11e7fbf16ad6f7e11b7d4c81e1ee6159bc025e0464430d920588fd1f24"
@@ -17,14 +18,14 @@ class TomcatNative < Formula
   depends_on "libtool" => :build
   depends_on "apr"
   depends_on "openjdk"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     cd "native" do
       system "./configure", "--prefix=#{prefix}",
                             "--with-apr=#{Formula["apr"].opt_prefix}",
                             "--with-java-home=#{Formula["openjdk"].opt_prefix}",
-                            "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
+                            "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
 
       # fixes occasional compiling issue: glibtool: compile: specify a tag with `--tag'
       args = ["LIBTOOL=glibtool --tag=CC"]
