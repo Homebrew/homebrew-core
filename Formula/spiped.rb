@@ -3,6 +3,7 @@ class Spiped < Formula
   homepage "https://www.tarsnap.com/spiped.html"
   url "https://www.tarsnap.com/spiped/spiped-1.6.1.tgz"
   sha256 "8d7089979db79a531a0ecc507b113ac6f2cf5f19305571eff1d3413e0ab33713"
+  revision 1
 
   livecheck do
     url :homepage
@@ -18,7 +19,7 @@ class Spiped < Formula
   end
 
   depends_on "bsdmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     man1.mkpath
