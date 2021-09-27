@@ -4,7 +4,7 @@ class Getxbook < Formula
   url "https://njw.name/getxbook/getxbook-1.2.tar.xz"
   sha256 "7a4b1636ecb6dace814b818d9ff6a68167799b81ac6fc4dca1485efd48cf1c46"
   license "ISC"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -21,7 +21,7 @@ class Getxbook < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "14dc92ce6828cfccce34307bfa2f750faf8612ef92f126797cd5b86e6fb5978b"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
