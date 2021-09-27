@@ -3,6 +3,7 @@ class Wrk < Formula
   homepage "https://github.com/wg/wrk"
   url "https://github.com/wg/wrk/archive/4.1.0.tar.gz"
   sha256 "6fa1020494de8c337913fd139d7aa1acb9a020de6f7eb9190753aa4b1e74271e"
+  revision 1
   head "https://github.com/wg/wrk.git", branch: "master"
 
   bottle do
@@ -15,7 +16,7 @@ class Wrk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "12af637f910bcdb74321e372ebf0d2b11206cc1dde29938cc48cb3eb3b4a03b1"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "makedepend" => :build
