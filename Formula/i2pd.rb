@@ -4,6 +4,7 @@ class I2pd < Formula
   url "https://github.com/PurpleI2P/i2pd/archive/2.39.0.tar.gz"
   sha256 "3ffeb614cec826e13b50e8306177018ecb8d873668dfe66aadc733ca9fcaa568"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "9e13462dfd0f3cd5e6afc79979ed48c6b09a243c3c5242b399c7dee418a3e1eb"
@@ -14,7 +15,7 @@ class I2pd < Formula
 
   depends_on "boost"
   depends_on "miniupnpc"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     args = %W[
