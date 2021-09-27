@@ -4,7 +4,7 @@ class Asdf < Formula
   url "https://github.com/asdf-vm/asdf/archive/v0.8.1.tar.gz"
   sha256 "6ca280287dcb687ec12f0c37e4e193de390cdab68f2b2a0e271e3a4f1e20bd2e"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/asdf-vm/asdf.git", branch: "master"
 
   bottle do
@@ -16,7 +16,7 @@ class Asdf < Formula
   depends_on "coreutils"
   depends_on "libtool"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
   depends_on "unixodbc"
 
