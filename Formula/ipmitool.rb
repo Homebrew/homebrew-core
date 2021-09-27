@@ -5,7 +5,7 @@ class Ipmitool < Formula
   mirror "https://deb.debian.org/debian/pool/main/i/ipmitool/ipmitool_1.8.18.orig.tar.bz2"
   sha256 "0c1ba3b1555edefb7c32ae8cd6a3e04322056bc087918f07189eeedfc8b81e01"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "3223279b0188313a5d87ede24617f6bda5921acc1ce135c30c7c43823f14913f"
@@ -17,7 +17,7 @@ class Ipmitool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "34d7e08574ee45e07c513a90b38c7de24636f7889e940daf8f0d87c3a9739977"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # https://sourceforge.net/p/ipmitool/bugs/433/#89ea and
   # https://sourceforge.net/p/ipmitool/bugs/436/ (prematurely closed):
