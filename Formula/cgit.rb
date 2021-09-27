@@ -4,6 +4,7 @@ class Cgit < Formula
   url "https://git.zx2c4.com/cgit/snapshot/cgit-1.2.3.tar.xz"
   sha256 "5a5f12d2f66bd3629c8bc103ec8ec2301b292e97155d30a9a61884ea414a6da4"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://git.zx2c4.com/cgit/refs/tags"
@@ -19,7 +20,7 @@ class Cgit < Formula
   end
 
   depends_on "gettext"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # git version is mandated by cgit: see GIT_VER variable in Makefile
   # https://git.zx2c4.com/cgit/tree/Makefile?h=v1.2#n17
