@@ -1,10 +1,14 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.16.src.tar.gz"
-  sha256 "8d6fc9b255343bc1e5ec459e39512df1d51c60e03562985e0076036119ff5a1c"
   license "NCSA"
-  revision 1
+  revision 2
+
+  stable do
+    url "https://include-what-you-use.org/downloads/include-what-you-use-0.16.src.tar.gz"
+    sha256 "8d6fc9b255343bc1e5ec459e39512df1d51c60e03562985e0076036119ff5a1c"
+    depends_on "llvm@12" # include-what-you-use 0.16 is compatible with llvm 12.0
+  end
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
   # version scheme like `Clang+LLVM 3.5` (25 November 2014). The current
@@ -23,15 +27,21 @@ class IncludeWhatYouUse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbca09d4ae951ffb3be87b585ba20f5c82f4cb5a8f15f14bc9a72ba2ee378507"
   end
 
+  head do
+    url "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
+    depends_on "llvm"
+  end
+
   depends_on "cmake" => :build
-  depends_on "llvm" # include-what-you-use 0.16 is compatible with llvm 12.0
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  def install
-    llvm = Formula["llvm"]
+  def llvm
+    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+  end
 
+  def install
     # We do not want to symlink clang or libc++ headers into HOMEBREW_PREFIX,
     # so install to libexec to ensure that the resource path, which is always
     # computed relative to the location of the include-what-you-use executable
@@ -39,7 +49,6 @@ class IncludeWhatYouUse < Formula
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_PREFIX=#{libexec}
       -DCMAKE_PREFIX_PATH=#{llvm.opt_lib}
-      -DCMAKE_CXX_FLAGS=-std=gnu++14
     ]
 
     mkdir "build" do
@@ -58,9 +67,9 @@ class IncludeWhatYouUse < Formula
     # locate stddef.h and/or stdlib.h when running the test block below.
     # https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
     (libexec/"lib").mkpath
-    ln_sf llvm.opt_lib.relative_path_from(libexec/"lib")/"clang", libexec/"lib"
+    ln_sf (llvm.opt_lib/"clang").relative_path_from(libexec/"lib"), libexec/"lib"
     (libexec/"include").mkpath
-    ln_sf llvm.opt_include.relative_path_from(libexec/"include")/"c++", libexec/"include"
+    ln_sf (llvm.opt_include/"c++").relative_path_from(libexec/"include"), libexec/"include"
   end
 
   test do
