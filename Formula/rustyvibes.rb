@@ -6,7 +6,6 @@ class Rustyvibes < Formula
   sha256 "41d0e0116a9a9ade346ee4bd4ba776d5e133fff41c249ab10994605cf35aacc9"
 
   def install
-      bin.install "rustyvibes"
+    bin.install "rustyvibes"
   end
-  
 end
