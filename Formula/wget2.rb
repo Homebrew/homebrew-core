@@ -47,8 +47,7 @@ class Wget2 < Formula
     end
 
     # should we disable libidn, libpsl, or specify ssl to use openssl here?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
                           "--disable-doc",
                           "--without-included-regex",
@@ -57,11 +56,7 @@ class Wget2 < Formula
                           "--without-libpcre",
                           "--without-libpcre2",
                           "--without-libmicrohttpd"
-    if build.head? || !OS.mac?
-      system "make"
-    else
-      system "make", "LIBS+=-framework CoreFoundation"
-    end
+    system "make"
     system "make", "install"
   end
 
