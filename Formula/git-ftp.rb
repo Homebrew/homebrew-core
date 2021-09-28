@@ -21,8 +21,8 @@ class GitFtp < Formula
   uses_from_macos "zlib"
 
   resource "curl" do
-    url "https://curl.haxx.se/download/curl-7.69.0.tar.bz2"
-    mirror "https://curl.askapache.com/download/curl-7.69.0.tar.bz2"
+    url "https://curl.se/download/curl-7.69.0.tar.bz2"
+    mirror "https://curl.askapache.com/curl-7.69.0.tar.bz2"
     sha256 "668d451108a7316cff040b23c79bc766e7ed84122074e44f662b8982f2e76739"
   end
 
