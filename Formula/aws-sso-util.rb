@@ -102,9 +102,7 @@ class AwsSsoUtil < Formula
       credential_process = aws-sso-util credential-process --profile invalid
     EOS
 
-    output = shell_output "AWS_CONFIG_FILE=#{testpath}/config #{cmd}"
-
-    assert_empty output
+    assert_empty shell_output "AWS_CONFIG_FILE=#{testpath}/config #{cmd}"
 
     assert_predicate testpath/"config", :exist?
 
