@@ -91,6 +91,10 @@ class AwsSsoUtil < Formula
           " --account-id 000000000000 --role-name InvalidRole" \
           " --region eu-west-1 --non-interactive"
 
+    assert_empty shell_output "AWS_CONFIG_FILE=#{testpath}/config #{cmd}"
+
+    assert_predicate testpath/"config", :exist?
+
     expected = <<~EOS
 
       [profile invalid]
@@ -101,10 +105,6 @@ class AwsSsoUtil < Formula
       region = eu-west-1
       credential_process = aws-sso-util credential-process --profile invalid
     EOS
-
-    assert_empty shell_output "AWS_CONFIG_FILE=#{testpath}/config #{cmd}"
-
-    assert_predicate testpath/"config", :exist?
 
     assert_equal expected, (testpath/"config").read
   end
