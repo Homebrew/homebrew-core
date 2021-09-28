@@ -4,6 +4,7 @@ class SpirvLlvmTranslator < Formula
   url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v12.0.0.tar.gz"
   sha256 "6e4fad04203f25fcde4c308c53e9f59bd05a390978992db3212d4b63aff62108"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "df1209c7d04d52204ae1a6eb36c86043cc721cda2de4716fffe936351599eec5"
@@ -14,8 +15,7 @@ class SpirvLlvmTranslator < Formula
   end
 
   depends_on "cmake" => :build
-
-  depends_on "llvm"
+  depends_on "llvm@12"
 
   on_linux do
     depends_on "gcc"
@@ -24,21 +24,17 @@ class SpirvLlvmTranslator < Formula
   # See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=56480
   fails_with gcc: "5"
 
+  def llvm
+    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+  end
+
   def install
-    cmake_args = std_cmake_args + %w[
-      -D LLVM_BUILD_TOOLS=ON
-
-      -S .
-      -B build
-    ]
-
-    system "cmake", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DLLVM_BUILD_TOOLS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
-    llvm = Formula["llvm"]
     (testpath/"test.ll").write <<~EOS
       target datalayout = "e-i64:64-v16:16-v24:32-v32:32-v48:64-v96:128-v192:256-v256:256-v512:512-v1024:1024"
       target triple = "spir64-unknown-unknown"
