@@ -6,8 +6,8 @@ class Awscli < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/aws/aws-cli/archive/2.2.41.tar.gz"
-    sha256 "8d1636326e30475a862dc9a72071b9ebfa24020932fc08eb312fd15d15679c09"
+    url "https://github.com/aws/aws-cli/archive/2.2.42.tar.gz"
+    sha256 "362e0df7e8fd884a60f2101da2b3e16cefbc1cae457ba381e16d935f56dc7101"
 
     # Botocore v2 is not available on PyPI and version commits are not tagged. One way to update:
     # 1. Get `botocore` version at https://github.com/aws/aws-cli/blob/#{version}/setup.py
