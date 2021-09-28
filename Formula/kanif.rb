@@ -5,6 +5,11 @@ class Kanif < Formula
   sha256 "3f0c549428dfe88457c1db293cfac2a22b203f872904c3abf372651ac12e5879"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://gforge.inria.fr/frs/?group_id=274"
+    regex(/href=.*?kanif[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfc06314d243173b2b0f0de1188570adde896ef6002dcbb75e7ce9fe056ae172"
     sha256 cellar: :any_skip_relocation, big_sur:       "ea9c4a641227762b26e89a7015aa328d16fdfdb23796c29abcdb83ab19638b59"
