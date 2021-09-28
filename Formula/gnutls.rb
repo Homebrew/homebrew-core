@@ -35,8 +35,8 @@ class Gnutls < Formula
     depends_on "autogen"
 
     resource "cacert" do
-      # homepage "http://curl.haxx.se/docs/caextract.html"
-      url "https://curl.haxx.se/ca/cacert-2020-01-01.pem"
+      # homepage "https://curl.se/docs/caextract.html"
+      url "https://curl.se/ca/cacert-2020-01-01.pem"
       mirror "https://gist.githubusercontent.com/dawidd6/16d94180a019f31fd31bc679365387bc/raw/ef02c78b9d6427585d756528964d18a2b9e318f7/cacert-2020-01-01.pem"
       sha256 "adf770dfd574a0d6026bfaa270cb6879b063957177a991d453ff1d302c02081f"
     end
@@ -138,7 +138,7 @@ class Gnutls < Formula
   end
 
   def linux_post_install
-    # Download and install cacert.pem from curl.haxx.se
+    # Download and install cacert.pem from curl.se
     cacert = resource("cacert")
     cacert.fetch
 
