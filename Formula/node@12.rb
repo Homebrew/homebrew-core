@@ -70,7 +70,7 @@ class NodeAT12 < Formula
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system "#{bin}/npm", *npm_args, "install", "npm@latest"
-    system "#{bin}/npm", *npm_args, "install", "bufferutil"
+    system "#{bin}/npm", *npm_args, "install", "ref-napi"
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")
