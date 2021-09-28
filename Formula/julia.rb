@@ -4,7 +4,7 @@ class Julia < Formula
   url "https://github.com/JuliaLang/julia/releases/download/v1.6.3/julia-1.6.3.tar.gz"
   sha256 "2593def8cc9ef81663d1c6bfb8addc3f10502dd9a1d5a559728316a11dea2594"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  revision 2
+  revision 3
   head "https://github.com/JuliaLang/julia.git"
 
   bottle do
@@ -23,7 +23,7 @@ class Julia < Formula
   depends_on "libgit2"
   depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "llvm"
+  depends_on "llvm@12"
   depends_on "mbedtls@2"
   depends_on "mpfr"
   depends_on "openblas"
@@ -116,26 +116,28 @@ class Julia < Formula
 
     args << "TAGGED_RELEASE_BANNER=Built by #{tap.user} (v#{pkg_version})"
 
+    # Help Julia find keg-only dependencies
+    deps.map(&:to_formula).select(&:keg_only?).map(&:opt_lib).each do |libdir|
+      ENV.append "LDFLAGS", "-Wl,-rpath,#{libdir}"
+
+      next unless OS.linux?
+
+      libdir.glob(shared_library("*")) do |so|
+        (buildpath/"usr/lib").install_symlink so
+        (lib/"julia").install_symlink so
+      end
+    end
+
     gcc = Formula["gcc"]
     gcclibdir = gcc.opt_lib/"gcc"/gcc.any_installed_version.major
     if OS.mac?
-      deps.map(&:to_formula).select(&:keg_only?).map(&:opt_lib).each do |libdir|
-        ENV.append "LDFLAGS", "-Wl,-rpath,#{libdir}"
-      end
       ENV.append "LDFLAGS", "-Wl,-rpath,#{gcclibdir}"
       # List these two last, since we want keg-only libraries to be found first
       ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
       ENV.append "LDFLAGS", "-Wl,-rpath,/usr/lib"
     else
-      ENV.append "LDFLAGS", "-Wl,-rpath,#{opt_lib}"
-      ENV.append "LDFLAGS", "-Wl,-rpath,#{opt_lib}/julia"
-
-      # Help Julia find our libunwind. Remove when upstream replace this with LLVM libunwind.
-      (lib/"julia").mkpath
-      Formula["libunwind"].opt_lib.glob(shared_library("libunwind", "*")) do |so|
-        (buildpath/"usr/lib").install_symlink so
-        (lib/"julia").install_symlink so
-      end
+      ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}"
+      ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/julia"
     end
 
     inreplace "Make.inc" do |s|
@@ -160,10 +162,10 @@ class Julia < Formula
     if OS.linux?
       # Replace symlinks referencing Cellar paths with ones using opt paths
       deps.reject(&:build?).map(&:to_formula).map(&:opt_lib).each do |libdir|
-        (lib/"julia").children.each do |so|
-          next unless (libdir/so.basename).exist?
+        libdir.glob(shared_library("*")) do |so|
+          next unless (lib/"julia"/so.basename).exist?
 
-          ln_sf (libdir/so.basename).relative_path_from(lib/"julia"), lib/"julia"
+          ln_sf so.relative_path_from(lib/"julia"), lib/"julia"
         end
       end
     end
@@ -206,6 +208,13 @@ class Julia < Formula
       LibSSH2_jll LibCURL_jll libLLVM_jll PCRE2_jll
     ]
     system bin/"julia", *args, "--eval", "using #{jlls.join(", ")}"
+
+    # FIXME: The test below will try, and fail, to load the unversioned LLVM's
+    #        libraries since LLVM is not keg-only on Linux, but that's not what
+    #        we want when Julia depends on a keg-only LLVM (which it currently does).
+    llvm = deps.map(&:to_formula)
+               .find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)$/) }
+    return if OS.linux? && llvm.keg_only?
 
     # Check that Julia can load libraries in lib/"julia".
     # Most of these are symlinks to Homebrew-provided libraries.
