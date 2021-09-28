@@ -4,7 +4,7 @@ class Klee < Formula
   url "https://github.com/klee/klee/archive/v2.2.tar.gz"
   sha256 "1ff2e37ed3128e005b89920fad7bcf98c7792a11a589dd443186658f5eb91362"
   license "NCSA"
-  revision 2
+  revision 3
   head "https://github.com/klee/klee.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Klee < Formula
 
   depends_on "cmake" => :build
   depends_on "gperftools"
-  depends_on "llvm"
+  depends_on "llvm@12"
   depends_on "python-tabulate"
   depends_on "python@3.9"
   depends_on "sqlite"
@@ -27,30 +27,30 @@ class Klee < Formula
 
   # klee needs a version of libc++ compiled with wllvm
   resource "libcxx" do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.0/llvm-project-12.0.0.src.tar.xz"
-    sha256 "9ed1688943a4402d7c904cc4515798cdb20080066efa010fe7e1f2551b423628"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.1/llvm-project-12.0.1.src.tar.xz"
+    sha256 "129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e"
   end
 
   # Patches for LLVM 12 Support
   # https://github.com/klee/klee/pull/1389
   patch do
-    url "https://github.com/klee/klee/commit/74ea9e5e63c5933ca2d5d7f846858c4de6e86b81.patch?full_index=1"
-    sha256 "5af19fb3dbc609a180014f89a78bd007316e1384f3b23bf64fcd15621951b130"
+    url "https://github.com/klee/klee/commit/8ac323db7d367799fba9435b64fe715c603e60ba.patch?full_index=1"
+    sha256 "e8c325ebe471b4f36eabd9d041f3ad9461061cc261c898e078d4dd211a1f3632"
   end
 
   patch do
-    url "https://github.com/klee/klee/commit/a34fb8961649bf3a065ec8f0eb4bc58715fd1d57.patch?full_index=1"
-    sha256 "beb18d3e74c8a580e2c3785e7224cacfb878b527fc4f261f7acb2ebecec93fb0"
+    url "https://github.com/klee/klee/commit/96aa751760b4efc3424a82b573057008bc639c3b.patch?full_index=1"
+    sha256 "1cbc17d413992f211f077687c4187f70b82d7129594fb178c7694fe1d897dac1"
   end
 
   patch do
-    url "https://github.com/klee/klee/commit/2b29d86a39421ac76421b888b96613173bc18851.patch?full_index=1"
-    sha256 "34515f7841dc3bc6e68888aa98492e3e003131fdc43018f4923799b0e2ff32fd"
+    url "https://github.com/klee/klee/commit/3d7c05a7e86a72a4fc8df115591bd1e7a50f9d84.patch?full_index=1"
+    sha256 "6eb99a36c25eaf311bcf666d4b893f9e9bdfd06b72cca63d570b6f3e8a8013bc"
   end
 
   patch do
-    url "https://github.com/klee/klee/commit/c0b10c6f7a00d81cfce24115168dd06888685f87.patch?full_index=1"
-    sha256 "d970235981e6f96f408b5943f80877b633a01cf098e1b4be2c19967b5412eff5"
+    url "https://github.com/klee/klee/commit/8775b9cf6c716f51fe90d668e734a1288c8b5404.patch?full_index=1"
+    sha256 "baefa3e332b2fb699d5329ba2e7c0d87485654dd7ae0a49e6da3a71102ef4ca0"
   end
 
   def llvm
