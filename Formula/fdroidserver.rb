@@ -6,7 +6,7 @@ class Fdroidserver < Formula
   url "https://files.pythonhosted.org/packages/16/2c/b301fe0f1dbc40fa00bf16891bf01549c0c99e9eb6eaac7febcea58dd30c/fdroidserver-2.0.3.tar.gz"
   sha256 "220ea8dd563229fcb2c3f6d6d7da0c7854b46a08e7b4b8a5be05576c83c72ebf"
   license "AGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "965470f82e41611d7468954099ba32f34fe81708a49caca6977115c8d065ed82"
@@ -18,6 +18,7 @@ class Fdroidserver < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "libffi"
   depends_on "numpy"
   depends_on "openssl@1.1"
   depends_on "pillow"
