@@ -77,7 +77,7 @@ jobs:
         uses: dessant/lock-threads@e460dfeb36e731f3aeb214be6b0c9a9d9a67eda6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-lock-inactive-days: 30
-          issue-lock-labels: outdated
-          pr-lock-inactive-days: 30
-          pr-lock-labels: outdated
+          issue-inactive-days: 30
+          add-issue-labels: outdated
+          pr-inactive-days: 30
+          add-pr-labels: outdated
