@@ -1,8 +1,8 @@
 class Nnn < Formula
   desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v4.2.tar.gz"
-  sha256 "5675f9fe53bddfd92681ef88bf6c0fab3ad897f9e74dd6cdff32fe1fa62c687f"
+  url "https://github.com/jarun/nnn/archive/v4.3.tar.gz"
+  sha256 "b6df8e262e5613dd192bac610a6da711306627d56573f1a770a173ef078953bb"
   license "BSD-2-Clause"
   head "https://github.com/jarun/nnn.git", branch: "master"
 
@@ -39,9 +39,8 @@ class Nnn < Formula
 
     (testpath/"testdir").mkdir
     cd testpath/"testdir" do
-      PTY.spawn(bin/"nnn") do |r, w, _pid|
-        w.write "q"
-        assert_match "~/testdir", r.read
+      PTY.spawn(bin/"nnn", "-V") do |r, _w, _pid|
+        assert_match "4.3", r.read
       end
     end
   end
