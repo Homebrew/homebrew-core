@@ -6,7 +6,7 @@ class Salt < Formula
   url "https://files.pythonhosted.org/packages/71/8a/02f957ad4ebfe28002ceef891c8fa0780c4bd75d4882af8c0228dbd2084d/salt-3003.3.tar.gz"
   sha256 "a6f9c8c8b5e2600ea8620b4a67371de17611beb4f8d97e4bb9b0b308a37ed1e2"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/saltstack/salt.git", branch: "master"
 
   bottle do
@@ -177,11 +177,11 @@ class Salt < Formula
     url "https://files.pythonhosted.org/packages/6b/23/a8c5b726a58282fe2cadcc63faaddd4be147c3c8e0bd38b233114adf98fd/pygit2-1.6.1.tar.gz"
     sha256 "c3303776f774d3e0115c1c4f6e1fc35470d15f113a7ae9401a0b90acfa1661ac"
 
-    # libgit2 1.2+ support
+    # libgit2 1.3 support
     # https://github.com/libgit2/pygit2/pull/1089
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bf370d7782f7686a4a61d8d7d28068e78e28e48c/pygit2/libgit2-1.2.0.patch"
-      sha256 "b5acca41ff7752ea25adb050d7494939fc6d471f4f91d94a06f4afc9902f4117"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/54d3a0d1f241fdd4e9229312ced0d8da85d964b1/pygit2/libgit2-1.3.0.patch"
+      sha256 "4d501c09d6642d50d89a1a4d691980e3a4a2ebcb6de7b45d22cce16a451b9839"
     end
   end
 
