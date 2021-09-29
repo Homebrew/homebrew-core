@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/9c/2f/1c2b41ef20cf1e9ecb851809e8512b8f11712810ee2b604500618eae510f/checkov-2.0.435.tar.gz"
-  sha256 "feb9af3c21c710e45e665fd6dda1d7ef44ef9d757c14347cfbed9a770a687ca4"
+  url "https://files.pythonhosted.org/packages/17/1a/9f194c8e21f39fc6dea3ef497cd2cf826dae21c7bb00593df7117bdc5980/checkov-2.0.450.tar.gz"
+  sha256 "b30546c70e6dab2dcff0dde9b15c8c198fece9cd84d13eee18d33957c83d9e57"
   license "Apache-2.0"
 
   bottle do
@@ -21,8 +21,8 @@ class Checkov < Formula
   depends_on "six"
 
   resource "bc-python-hcl2" do
-    url "https://files.pythonhosted.org/packages/d8/3d/a845c2cba6a3c799cd9192aa32a44884ec51395dd37ba683ebd38d7e66a2/bc-python-hcl2-0.3.21.tar.gz"
-    sha256 "513fd5d1ce53cc44c4b687cefcb058a7b85ad959042e6b8aa612dde8ffa45faa"
+    url "https://files.pythonhosted.org/packages/c7/6f/622978d9d98ea2ad9272afb76cb3f0075dcd628b1855ce0a07446c42e9d0/bc-python-hcl2-0.3.24.tar.gz"
+    sha256 "62c88c9133d148a478e75d5cb093aff7f25fd5bdd355433b3769489de8dd36b4"
   end
 
   resource "beautifulsoup4" do
@@ -46,8 +46,8 @@ class Checkov < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/52/ba/619250fa6bc11ce6aa4de0604d45843090a53cd7d10d7253b89669313370/cachetools-4.2.2.tar.gz"
-    sha256 "61b5ed1e22a0924aed1d23b478f37e8d52549ff8a961de2909c69bf950020cff"
+    url "https://files.pythonhosted.org/packages/d7/ed/9798dbc96a968c286911fb17406710a4662456c69b6934bac76bfa2030ff/cachetools-4.2.3.tar.gz"
+    sha256 "0a3d3556c2c3befdbba2f93b78792c199c66201c999e97947ea0b7437758246b"
   end
 
   resource "certifi" do
@@ -171,8 +171,8 @@ class Checkov < Formula
   end
 
   resource "policy-sentry" do
-    url "https://files.pythonhosted.org/packages/3e/8e/e0503e50b071efa2703e14f2fd70cb43662c11914b1dd3663bbd670f0513/policy_sentry-0.11.16.tar.gz"
-    sha256 "8b88cb58a390ae7e0e06db13b3bbb5ece0d32d7d7c38a92259eb9c4722198fb5"
+    url "https://files.pythonhosted.org/packages/d1/ef/033029dfe81e914525a6e339d8090ff34c7c9fb9be4e5f550bc50617c914/policy_sentry-0.11.18.tar.gz"
+    sha256 "fdeb53644195ee0404b0983ebd0bc1d2ea8c6b29266f8036d880285f4562560e"
   end
 
   resource "policyuniverse" do
