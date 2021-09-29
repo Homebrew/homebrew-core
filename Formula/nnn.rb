@@ -39,8 +39,7 @@ class Nnn < Formula
 
     (testpath/"testdir").mkdir
     cd testpath/"testdir" do
-      PTY.spawn(bin/"nnn", "-V") do |r, w, _pid|
-        w.write "q"
+      PTY.spawn(bin/"nnn", "-V") do |r, _w, _pid|
         assert_match "4.3", r.read
       end
     end
