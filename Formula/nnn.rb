@@ -39,7 +39,7 @@ class Nnn < Formula
 
     (testpath/"testdir").mkdir
     cd testpath/"testdir" do
-      PTY.spawn(bin/"nnn") do |r, w, _pid|
+      PTY.spawn(bin/"nnn") do |_r, w, _pid|
         w.write "q"
       end
     end
