@@ -54,7 +54,7 @@ class Macvim < Formula
                           "--with-macarchs=#{Hardware::CPU.arch}"
     system "make"
 
-    rm_rf Dir["src/MacVim/build/Release/MacVim.app/Contents/Frameworks/Sparkle.framework"]
+    (buildpath/"src/MacVim/build/Release/MacVim.app/Contents/Frameworks/Sparkle.framework").rmtree
     prefix.install "src/MacVim/build/Release/MacVim.app"
     bin.install_symlink prefix/"MacVim.app/Contents/bin/mvim"
 
