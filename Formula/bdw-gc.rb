@@ -1,20 +1,9 @@
 class BdwGc < Formula
   desc "Garbage collector for C and C++"
   homepage "https://www.hboehm.info/gc/"
+  url "https://github.com/ivmai/bdwgc/releases/download/v8.0.6/gc-8.0.6.tar.gz"
+  sha256 "3b4914abc9fa76593596773e4da671d7ed4d5390e3d46fbf2e5f155e121bea11"
   license "MIT"
-  revision 2
-
-  stable do
-    url "https://github.com/ivmai/bdwgc/releases/download/v8.0.4/gc-8.0.4.tar.gz"
-    sha256 "436a0ddc67b1ac0b0405b61a9675bca9e075c8156f4debd1d06f3a56c7cd289d"
-
-    # Extension to handle multithreading
-    # https://github.com/ivmai/bdwgc/pull/277
-    patch do
-      url "https://github.com/ivmai/bdwgc/commit/5668de71107022a316ee967162bc16c10754b9ce.patch?full_index=1"
-      sha256 "5c42d4b37cf4997bb6af3f9b00f5513644e1287c322607dc980a1955a09246e3"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ee743d115b619b02230863812224a1c33dc1d3430280728eb10990cc86caa994"
@@ -25,7 +14,7 @@ class BdwGc < Formula
   end
 
   head do
-    url "https://github.com/ivmai/bdwgc.git"
+    url "https://github.com/ivmai/bdwgc.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool"  => :build
