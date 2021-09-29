@@ -153,6 +153,9 @@
   "howdoi": {
     "exclude_packages": ["six"]
   },
+  "http-prompt": {
+    "exclude_packages": ["six"]
+  },
   "internetarchive": {
     "exclude_packages": ["six"]
   },
