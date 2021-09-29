@@ -2,7 +2,6 @@ class Goredo < Formula
   desc "Go implementation of djb's redo, a Makefile replacement that sucks less"
   homepage "http://www.goredo.cypherpunks.ru/"
   url "http://www.goredo.cypherpunks.ru/download/goredo-1.14.0.tar.zst"
-  version "1.14.0"
   sha256 "17608c98b39e0030043b1862edb0ae7c162da3743ddf87330db0301a4fd61bf5"
   license "GPL-3.0-only"
 
@@ -20,16 +19,15 @@ class Goredo < Formula
   end
 
   depends_on "go" => :build
-  depends_on "zstd" => :build
 
   def install
-    goredo_prefix = "goredo-#{version}"
-    system "tar", "--use-compress-program", "unzstd", "-xvf", "#{goredo_prefix}.tar.zst"
-    cd "#{goredo_prefix}/src" do
+    cd "src" do
       system "go", "build", *std_go_args, "-mod=vendor"
     end
+
+    ENV.prepend_path "PATH", bin
     cd bin do
-      system "./goredo", "-symlinks"
+      system "goredo", "-symlinks"
     end
   end
 
