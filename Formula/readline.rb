@@ -17,9 +17,36 @@ class Readline < Formula
     end
   end
 
+  # We're not using `url :stable` here because we need `url` to be a string
+  # when we use it in the `strategy` block.
   livecheck do
-    url :stable
+    url "https://ftp.gnu.org/gnu/readline/"
     regex(/href=.*?readline[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    strategy :gnu do |page, regex|
+      # Match versions from files
+      versions = page.scan(regex).flatten.uniq.sort
+      next versions if versions.blank?
+
+      # Assume the last-sorted version is newest
+      newest_version = Version.new(versions.last)
+
+      # Simply return the found versions if there isn't a patches directory
+      # for the "newest" version
+      patches_directory = page.match(%r{href=.*?(readline[._-]v?#{newest_version.major_minor}[._-]patches/?)["' >]}i)
+      next versions if patches_directory.blank?
+
+      # Fetch the page for the patches directory
+      patches_page = Homebrew::Livecheck::Strategy.page_content(URI.join(@url, patches_directory[1]).to_s)
+      next versions if patches_page[:content].blank?
+
+      # Generate additional major.minor.patch versions from the patch files in
+      # the directory and add those to the versions array
+      patches_page[:content].scan(/href=.*?readline[._-]?v?\d+(?:\.\d+)*[._-]0*(\d+)["' >]/i).each do |match|
+        versions << "#{newest_version.major_minor}.#{match[0]}"
+      end
+
+      versions
+    end
   end
 
   bottle do
