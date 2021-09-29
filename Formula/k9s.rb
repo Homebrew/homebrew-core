@@ -5,6 +5,7 @@ class K9s < Formula
       tag:      "v0.24.15",
       revision: "8e41b76edf15f7eddc46cd75fd45d27a30dc9ebe"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/derailed/k9s.git"
 
   bottle do
@@ -22,6 +23,15 @@ class K9s < Formula
              "-s -w -X github.com/derailed/k9s/cmd.version=#{version}
              -X github.com/derailed/k9s/cmd.commit=#{Utils.git_head}",
              *std_go_args
+
+    bash_output = Utils.safe_popen_read(bin/"k9s", "completion", "bash")
+    (bash_completion/"k9s").write bash_output
+
+    zsh_output = Utils.safe_popen_read(bin/"k9s", "completion", "zsh")
+    (zsh_completion/"_k9s").write zsh_output
+
+    fish_output = Utils.safe_popen_read(bin/"k9s", "completion", "fish")
+    (fish_completion/"k9s.fish").write fish_output
   end
 
   test do
