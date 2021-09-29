@@ -4,6 +4,7 @@ class CargoEdit < Formula
   url "https://github.com/killercup/cargo-edit/archive/v0.8.0.tar.gz"
   sha256 "4a08e914c17204cb3ab303b62362ca30d44cf457b3b1d7bde117b8ab4cb2fa64"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0a5aa956f016b7259afed58cc085a4d97f45c44f6cdfb5d2ef46275befc04d49"
