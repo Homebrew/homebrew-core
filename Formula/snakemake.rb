@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/af/c1/b6985236808399ff395f93111d69241d4722b486b5576d40f8cacf4d4d02/snakemake-6.8.1.tar.gz"
-  sha256 "3f1dd331d8162ebde78e41290f6a51204caa4ffe77b619b4847809b9dc8c3cd0"
+  url "https://files.pythonhosted.org/packages/6a/96/1aa490d9a89bd5c7e271eea05552c0ee8c4af11cd2b64e189a3ffccad307/snakemake-6.9.0.tar.gz"
+  sha256 "26efa7db6bb6fce6cc090fe7b077c7ca01fc60c214214ece0e8fda198aef3036"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -60,8 +60,8 @@ class Snakemake < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/14/ec/6ee2168387ce0154632f856d5cc5592328e9cf93127c5c9aeca92c8c16cb/filelock-3.0.12.tar.gz"
-    sha256 "18d82244ee114f543149c66a6e0c14e9c4f8a1044b5cdaadd0f82159d6a6ff59"
+    url "https://files.pythonhosted.org/packages/40/6e/75062649204602805de42a1faa614e16a57ee3d3331302a1de2d7c4db4e3/filelock-3.1.0.tar.gz"
+    sha256 "78925788ce8c8945fac28a68c1d05cf33a6a6c4fba14fe02835122c53268ceef"
   end
 
   resource "gitdb" do
@@ -105,8 +105,8 @@ class Snakemake < Formula
   end
 
   resource "PuLP" do
-    url "https://files.pythonhosted.org/packages/1e/99/f0c049b5e7b06535aa2fe7e3b8d821de6f7c4aa6bf4bb27ddce0ab2d7db2/PuLP-2.5.0.tar.gz"
-    sha256 "5dc7d76bfb1da06ac048066ced75603340d0d7ba8a7dbfce4040d6f126eda0d5"
+    url "https://files.pythonhosted.org/packages/14/7b/8b6d9ab49067ef2f19d383a31d3d373fba7faf106e759743fb58699114f1/PuLP-2.5.1.tar.gz"
+    sha256 "27c2a87a98ea0e9a08c7c46e6df47d6d4e753ad9991fea2901892425d89c99a6"
   end
 
   resource "pyrsistent" do
@@ -155,8 +155,8 @@ class Snakemake < Formula
   end
 
   resource "toposort" do
-    url "https://files.pythonhosted.org/packages/b5/15/a657e32bddf72f69691aa0223df918b5f372eeee709cf8da9be134eac020/toposort-1.6.tar.gz"
-    sha256 "a7428f56ef844f5055bb9e9e44b343983773ae6dce0fe5b101e08e27ffbd50ac"
+    url "https://files.pythonhosted.org/packages/b2/be/67bec9a73041616dd359f06e997d56c9c99d252460a3f035411d97c96c48/toposort-1.7.tar.gz"
+    sha256 "ddc2182c42912a440511bd7ff5d3e6a1cabc3accbc674a3258c8c41cbfbb2125"
   end
 
   resource "traitlets" do
