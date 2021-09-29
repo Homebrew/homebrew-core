@@ -41,7 +41,6 @@ class Nnn < Formula
     cd testpath/"testdir" do
       PTY.spawn(bin/"nnn") do |r, w, _pid|
         w.write "q"
-        assert_match "~/testdir", r.read
       end
     end
   end
