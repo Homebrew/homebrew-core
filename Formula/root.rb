@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.24.04.source.tar.gz"
   sha256 "4a416f3d7aa25dba46d05b641505eb074c5f07b3ec1d21911451046adaea3ee7"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
@@ -26,13 +27,16 @@ class Root < Formula
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "gl2ps"
+  depends_on "glew"
   depends_on "graphviz"
   depends_on "gsl"
   depends_on "lz4"
   depends_on "numpy" # for tmva
+  depends_on "openblas"
   depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python@3.9"
+  depends_on "sqlite"
   depends_on "tbb"
   depends_on :xcode if MacOS.version <= :catalina
   depends_on "xrootd"
@@ -40,26 +44,25 @@ class Root < Formula
   depends_on "zstd"
 
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libxft"
     depends_on "libxpm"
   end
 
-  conflicts_with "glew", because: "root ships its own copy of glew"
-
   skip_clean "bin"
 
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root" if OS.linux?
 
-    # Freetype/afterimage/gl2ps/lz4 are vendored in the tarball, so are fine.
-    # However, this is still permitting the build process to make remote
-    # connections. As a hack, since upstream support it, we inreplace
-    # this file to "encourage" the connection over HTTPS rather than HTTP.
-    inreplace "cmake/modules/SearchInstalledSoftware.cmake",
-              "http://lcgpackages",
-              "https://lcgpackages"
+    inreplace "cmake/modules/SearchInstalledSoftware.cmake" do |s|
+      # Enforce secure downloads of vendored dependencies. These are
+      # checksummed in the cmake file with sha256.
+      s.gsub! "http://lcgpackages", "https://lcgpackages"
+      # Patch out check that skips using brewed glew.
+      s.gsub! "CMAKE_VERSION VERSION_GREATER 3.15", "CMAKE_VERSION VERSION_GREATER 99.99"
+    end
 
     args = std_cmake_args + %W[
       -DCLING_CXX_PATH=clang++
@@ -67,7 +70,7 @@ class Root < Formula
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
-      -Dbuiltin_glew=ON
+      -Dbuiltin_glew=OFF
       -Ddavix=ON
       -Dfftw3=ON
       -Dfitsio=ON
