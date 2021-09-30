@@ -2,8 +2,8 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v2.1.2",
-      revision: "7af9dfb3524c13e941ab604e36e49a617fe47d2e"
+      tag:      "v2.1.3",
+      revision: "d855831540e51d8a90b1006d2eb9f49ab1b088af"
   license "Apache-2.0"
 
   bottle do
@@ -15,8 +15,17 @@ class Argocd < Formula
   end
 
   depends_on "go" => :build
+  depends_on "node@14" => :build
+  depends_on "yarn" => :build
 
   def install
+    system "make", "dep-ui-local"
+    with_env(
+      NODE_ENV:        "production",
+      NODE_ONLINE_ENV: "online",
+    ) do
+      system "yarn", "--cwd", "ui", "build"
+    end
     system "make", "cli-local"
     bin.install "dist/argocd"
 
