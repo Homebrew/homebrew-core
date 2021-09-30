@@ -21,8 +21,6 @@ class MavenAT381 < Formula
 
   depends_on "openjdk"
 
-  keg_only maven@3.8.1
-
   def install
     # Remove windows files
     rm_f Dir["bin/*.cmd"]
