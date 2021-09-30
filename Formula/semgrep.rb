@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.66.0",
-      revision: "37bf58ae87b4c6616cf0e91a10ab291edb1dc43e"
+      tag:      "v0.67.0",
+      revision: "625390dbaeefea034122ff5d8424e215107f2133"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -28,6 +28,9 @@ class Semgrep < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
+  # Temporary fix for curl cert issues.
+  # TODO: Remove when Mojave curl issue is fixed.
+  depends_on "wget" => :build
   depends_on "pcre"
   depends_on "python@3.9"
   depends_on "tree-sitter"
