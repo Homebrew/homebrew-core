@@ -11,6 +11,12 @@ class C2ffi < Formula
   depends_on "llvm@11"
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # needs C++17
+
   def install
     ENV["LDFLAGS"] = "-L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib"
     system(
