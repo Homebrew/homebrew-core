@@ -21,7 +21,7 @@ class Maven < Formula
 
   depends_on "openjdk"
 
-  conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
+  keg_only maven@3.8.1
 
   def install
     # Remove windows files
