@@ -1,4 +1,4 @@
-class Maven < Formula
+class MavenAT36 < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
   url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
@@ -9,9 +9,11 @@ class Maven < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  keg_only :versioned_formula
 
-  conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
+  # 3.1+ are not EOL yet, 3.6.X is in widespread use: https://maven.apache.org/docs/history.html
+
+  depends_on "openjdk"
 
   def install
     # Remove windows files
