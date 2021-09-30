@@ -1,8 +1,8 @@
 class Htmltest < Formula
   desc "HTML validator written in Go"
   homepage "https://github.com/wjdp/htmltest"
-  url "https://github.com/wjdp/htmltest/archive/v0.14.0.tar.gz"
-  sha256 "add922cf1dd957afba2927d401184c1d2331983a6d8ed96dd10f5001930cebf8"
+  url "https://github.com/wjdp/htmltest/archive/v0.15.0.tar.gz"
+  sha256 "d8a8fa1f7ce6cf7a05401fa7ae3f1dd85e4abb2f0354f8825a2e628d4824df9b"
   license "MIT"
 
   bottle do
