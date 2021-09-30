@@ -1,8 +1,8 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/containers/podman/archive/v3.3.1.tar.gz"
-  sha256 "6e3c57f5fd4199bc7603effb8c34268ee7f65fcd30c7b0d4778396b69388ae1f"
+  url "https://github.com/containers/podman/archive/v3.4.0.tar.gz"
+  sha256 "558dcc8fbf72095aa1ec8abeb84ca2093dd0d51b77f0115ef855e640e2f03146"
   license "Apache-2.0"
   head "https://github.com/containers/podman.git", branch: "main"
 
@@ -15,7 +15,7 @@ class Podman < Formula
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
-  depends_on "qemu" if Hardware::CPU.intel?
+  depends_on "qemu"
 
   resource "gvproxy" do
     url "https://github.com/containers/gvisor-tap-vsock/archive/v0.1.0.tar.gz"
@@ -39,7 +39,7 @@ class Podman < Formula
 
     resource("gvproxy").stage do
       system "make"
-      bin.install "bin/gvproxy"
+      libexec.install "bin/gvproxy"
     end
 
     if build.head?
@@ -57,7 +57,7 @@ class Podman < Formula
 
   test do
     assert_match "podman-remote version #{version}", shell_output("#{bin}/podman-remote -v")
-    assert_match(/Error: Cannot connect to the Podman socket/i, shell_output("#{bin}/podman-remote info 2>&1", 125))
+    assert_match(/Cannot connect to Podman/i, shell_output("#{bin}/podman-remote info 2>&1", 125))
     if Hardware::CPU.intel?
       machineinit_output = shell_output("podman-remote machine init --image-path fake-testi123 fake-testvm 2>&1", 125)
       assert_match "Error: open fake-testi123: no such file or directory", machineinit_output
