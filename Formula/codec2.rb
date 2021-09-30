@@ -18,7 +18,7 @@ class Codec2 < Formula
 
   def install
     mkdir "build_osx" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}"
       system "make", "install"
 
       bin.install "demo/c2demo"
