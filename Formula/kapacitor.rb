@@ -30,8 +30,8 @@ class Kapacitor < Formula
   # NOTE: The version here is specified in the go.mod of kapacitor.
   # If you're upgrading to a newer kapacitor version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/v0.2.7.tar.gz"
-    sha256 "9bfe2c06b09fe7f3274f4ff8da1d87c9102640285bb38dad9a8c26dd5b9fe5af"
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.8.tar.gz"
+    sha256 "9d3f3bbcac7c787f6e8846e70172d06bd4d7394b4bcd0b8572fe2f1d03edc11b"
   end
 
   def install
