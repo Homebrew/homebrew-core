@@ -2,9 +2,9 @@ class Codec2 < Formula
   desc "Open source speech codec"
   homepage "https://www.rowetel.com/?page_id=452"
   # Linked from https://freedv.org/
-  url "https://github.com/drowe67/codec2/archive/v0.9.2.tar.gz"
-  sha256 "19181a446f4df3e6d616b50cabdac4485abb9cd3242cf312a0785f892ed4c76c"
-  license "LGPL-2.1"
+  url "https://github.com/drowe67/codec2/archive/v1.0.1.tar.gz"
+  sha256 "14227963940d79e0ec5af810f37101b30e1c7e8555abd96c56b3c0473abac8ef"
+  license "LGPL-2.1-only"
 
   bottle do
     sha256 cellar: :any,                 big_sur:      "c28da7a7d230e8505859eafa28d9238ccadd97c4847f5ee5c269ffa24245ba49"
@@ -20,6 +20,9 @@ class Codec2 < Formula
     mkdir "build_osx" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
+
+      bin.install "demo/c2demo"
+      bin.install Dir["src/c2*"]
     end
   end
 
