@@ -5,8 +5,8 @@ class BdwGc < Formula
 
   # Remove stable block when patch is removed
   stable do
-    url "https://github.com/ivmai/bdwgc/releases/download/v8.0.6/gc-8.0.6.tar.gz"
-    sha256 "3b4914abc9fa76593596773e4da671d7ed4d5390e3d46fbf2e5f155e121bea11"
+    url "https://github.com/ivmai/bdwgc/releases/download/v8.2.0/gc-8.2.0.tar.gz"
+    sha256 "2540f7356cb74f6c5b75326c6d38a066edd796361fd7d4ed26e494d9856fed8f"
 
     # Extension to handle multithreading. Remove in v8.2.0.
     # https://github.com/ivmai/bdwgc/pull/277
