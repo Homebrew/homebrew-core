@@ -4,6 +4,7 @@ class Hdf5Mpi < Formula
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.1/src/hdf5-1.12.1.tar.bz2"
   sha256 "aaf9f532b3eda83d3d3adc9f8b40a9b763152218fa45349c3bc77502ca1f8f1c"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     formula "hdf5"
@@ -52,6 +53,7 @@ class Hdf5Mpi < Formula
       --enable-build-mode=production
       --enable-fortran
       --enable-parallel
+      --enable-hl
       CC=mpicc
       CXX=mpic++
       FC=mpifort
