@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/6a/96/1aa490d9a89bd5c7e271eea05552c0ee8c4af11cd2b64e189a3ffccad307/snakemake-6.9.0.tar.gz"
-  sha256 "26efa7db6bb6fce6cc090fe7b077c7ca01fc60c214214ece0e8fda198aef3036"
+  url "https://files.pythonhosted.org/packages/d4/25/3a3cce415c4745f64525f984685df7decaeb8a94b07b0522f828484a0230/snakemake-6.9.1.tar.gz"
+  sha256 "8a8d196324cb93f5516c277360a5b46eee133e81b4eacdd74935212806e61c0f"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -60,8 +60,8 @@ class Snakemake < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/40/6e/75062649204602805de42a1faa614e16a57ee3d3331302a1de2d7c4db4e3/filelock-3.1.0.tar.gz"
-    sha256 "78925788ce8c8945fac28a68c1d05cf33a6a6c4fba14fe02835122c53268ceef"
+    url "https://files.pythonhosted.org/packages/18/3d/82769bc929807a11e455265a402c9012a31dacd72a1b85795f337bb0c3fe/filelock-3.2.0.tar.gz"
+    sha256 "85ecb30757aa19d06bfcdad29cc332b9a3e4851bf59976aea1e8dadcbd9ef883"
   end
 
   resource "gitdb" do
@@ -85,8 +85,8 @@ class Snakemake < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
-    sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
+    url "https://files.pythonhosted.org/packages/97/e6/314e86934570970658bdcffd4aa5bb0376a9d97a8e43971740292c3c0054/jsonschema-4.0.1.tar.gz"
+    sha256 "48f4e74f8bec0c2f75e9fcfffa264e78342873e1b57e2cfeae54864cc5e9e4dd"
   end
 
   resource "jupyter-core" do
@@ -127,11 +127,6 @@ class Snakemake < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
     sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "smart-open" do
