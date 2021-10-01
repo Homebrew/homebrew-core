@@ -7,6 +7,7 @@ class Curl < Formula
   mirror "http://fresh-center.net/linux/www/legacy/curl-7.79.1.tar.bz2"
   sha256 "de62c4ab9a9316393962e8b94777a570bb9f71feb580fb4475e412f2f9387851"
   license "curl"
+  revision 1
 
   livecheck do
     url "https://curl.se/download/"
@@ -34,8 +35,8 @@ class Curl < Formula
   depends_on "pkg-config" => :build
   depends_on "brotli"
   depends_on "libidn2"
+  depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "nghttp2"
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "rtmpdump"
