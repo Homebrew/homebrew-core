@@ -4,6 +4,7 @@ class Libvirt < Formula
   url "https://libvirt.org/sources/libvirt-7.8.0.tar.xz"
   sha256 "a727cd0a47bfa24fa7de2874d23f3a9f9f02ceb6b49ba15288f6d9a098b19921"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  head "https://github.com/libvirt/libvirt.git", branch: "master"
 
   livecheck do
     url "https://libvirt.org/sources/"
@@ -18,9 +19,6 @@ class Libvirt < Formula
     sha256 x86_64_linux:  "ca4f29f548d2a0d4d08edeb9dd4deaf7197f56f9e3786013c1b7e46a3d1f9d45"
   end
 
-  head do
-    url "https://github.com/libvirt/libvirt.git"
-  end
   depends_on "docutils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
