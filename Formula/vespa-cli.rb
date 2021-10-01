@@ -1,9 +1,8 @@
 class VespaCli < Formula
   desc "Command-line tool for Vespa.ai"
   homepage "https://vespa.ai"
-  url "https://github.com/vespa-engine/vespa/archive/vespa-7.469.18-1.tar.gz"
-  version "7.469.18"
-  sha256 "d718dc93491ea05304d576d3115f408acb149e568f884a5c01321b13780698a0"
+  url "https://github.com/vespa-engine/vespa/archive/v7.475.17.tar.gz"
+  sha256 "cb03a77cbbdbbbaa142a4a3fae7ef9d5e0508515a4537fdb4281e589145df335"
   license "Apache-2.0"
 
   livecheck do
@@ -38,8 +37,8 @@ class VespaCli < Formula
   test do
     ENV["VESPA_CLI_HOME"] = testpath
     assert_match "vespa version #{version}", shell_output("#{bin}/vespa version")
-    query = "yql=select * from sources * where title contains 'foo';"
-    assert_match "Error: Services unavailable", shell_output("#{bin}/vespa query -t local '#{query}' hits=5", 1)
+    doc_id = "id:mynamespace:music::a-head-full-of-dreams"
+    assert_match "Error: Request failed", shell_output("#{bin}/vespa document get #{doc_id} 2>&1", 1)
     system "#{bin}/vespa", "config", "set", "target", "cloud"
     assert_match "target = cloud", shell_output("#{bin}/vespa config get target")
   end
