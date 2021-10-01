@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/1a/9f/f984a4ffeef0b0917080ec92c3aa2505a17bd004e2ee3ecce6aca0f71902/ansible-lint-5.1.3.tar.gz"
-  sha256 "795665532fea000568eef18644aa43341a5c51b8690e7c559e273162278566d0"
+  url "https://files.pythonhosted.org/packages/5b/b8/5783737f4f6d0a46e38985990d87076fa3e0b312d5b0e22b144507fd5609/ansible-lint-5.2.0.tar.gz"
+  sha256 "79020356d93f503d2cc869a7270e3c04316d510e33b6264edc08c7d0db0e8061"
   license "MIT"
 
   bottle do
@@ -61,8 +61,8 @@ class AnsibleLint < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/55/84/7edede78686a4ca67a1bb9d8eba31a99d4a2a0a670e80c9febbbc18a7076/rich-10.9.0.tar.gz"
-    sha256 "ba285f1c519519490034284e6a9d2e6e3f16dc7690f2de3d9140737d81304d22"
+    url "https://files.pythonhosted.org/packages/57/3f/a8ba181148dcb9184cb0afac66d075fce60f06f926ce9cdab3dc61fd6497/rich-10.11.0.tar.gz"
+    sha256 "016fa105f34b69c434e7f908bb5bd7fefa9616efdb218a2917117683a6394ce5"
   end
 
   resource "ruamel.yaml" do
