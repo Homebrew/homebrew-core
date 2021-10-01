@@ -5,6 +5,7 @@ class Httpd < Formula
   mirror "https://archive.apache.org/dist/httpd/httpd-2.4.49.tar.bz2"
   sha256 "65b965d6890ea90d9706595e4b7b9365b5060bec8ea723449480b4769974133b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "e6ebcb4a1307a3e8c9c8dcb41d5a702398b38ca537e14502dc898acce3c78000"
@@ -17,7 +18,7 @@ class Httpd < Formula
   depends_on "apr"
   depends_on "apr-util"
   depends_on "brotli"
-  depends_on "nghttp2"
+  depends_on "libnghttp2"
   depends_on "openssl@1.1"
   depends_on "pcre"
 
@@ -74,7 +75,7 @@ class Httpd < Formula
                           "--with-brotli=#{Formula["brotli"].opt_prefix}",
                           "--with-libxml2=#{libxml2}",
                           "--with-mpm=prefork",
-                          "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
+                          "--with-nghttp2=#{Formula["libnghttp2"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}",
                           "--with-z=#{zlib}",
