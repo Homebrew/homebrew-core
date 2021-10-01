@@ -4,6 +4,7 @@ class Faust < Formula
   url "https://github.com/grame-cncm/faust/releases/download/2.33.1/faust-2.33.1.tar.gz"
   sha256 "7185b43615588e4e52fac5f455ae0078661e20f87da806b31c4942ca377f9a0a"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "408e07036801864f2e41bef989fcf378789a286d205cab9d2299e40d7d92ccf4"
@@ -16,7 +17,7 @@ class Faust < Formula
   depends_on "pkg-config" => :build
   depends_on "libmicrohttpd"
   depends_on "libsndfile"
-  depends_on "llvm"
+  depends_on "llvm@12"
 
   def install
     system "make", "world"
