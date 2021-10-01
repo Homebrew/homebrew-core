@@ -1,9 +1,14 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v2.2.0.tar.gz"
-  sha256 "2fb1fadb98a791925d529013a65d7e6eefd8accd5fd8953bd45278459b83d875"
+  url "https://github.com/homenc/HElib/archive/v2.2.1.tar.gz"
+  sha256 "d69023d1d0ab6a22be86b4f59d449422bc5efd9121868f4e284d6042e52f682e"
   license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c936a42a04cd8ecaccef61dac38f5d673cd74233146f911bda2d262526b48f95"
