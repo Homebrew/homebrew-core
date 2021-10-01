@@ -1,9 +1,11 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
+  # Keep in sync with libnghttp2.
   url "https://github.com/nghttp2/nghttp2/releases/download/v1.45.1/nghttp2-1.45.1.tar.xz"
   sha256 "abdc4addccadbc7d89abe27c4d6427d78e57d139f69c1f45749227393c68bf79"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "6e5425c819ee58479d4b2b2504dcff2ee53f5ed1ba79d16a10d41830734caac9"
@@ -14,7 +16,7 @@ class Nghttp2 < Formula
   end
 
   head do
-    url "https://github.com/nghttp2/nghttp2.git"
+    url "https://github.com/nghttp2/nghttp2.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -25,6 +27,7 @@ class Nghttp2 < Formula
   depends_on "c-ares"
   depends_on "jemalloc"
   depends_on "libev"
+  depends_on "libnghttp2"
   depends_on "openssl@1.1"
 
   uses_from_macos "libxml2"
@@ -45,6 +48,14 @@ class Nghttp2 < Formula
     # https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
     inreplace "src/shrpx_client_handler.cc", "return dconn;", "return std::move(dconn);"
 
+    # Don't build nghttp2 library - use the previously built one.
+    inreplace "Makefile.in", /(SUBDIRS =) lib/, "\\1"
+    inreplace Dir["**/Makefile.in"] do |s|
+      # These don't exist in all files, hence audit_result being false.
+      s.gsub!(%r{^(LDADD = )\$[({]top_builddir[)}]/lib/libnghttp2\.la}, "\\1-lnghttp2", false)
+      s.gsub!(%r{\$[({]top_builddir[)}]/lib/libnghttp2\.la}, "", false)
+    end
+
     args = %W[
       --prefix=#{prefix}
       --disable-silent-rules
@@ -63,5 +74,6 @@ class Nghttp2 < Formula
 
   test do
     system bin/"nghttp", "-nv", "https://nghttp2.org"
+    refute_path_exists lib
   end
 end
