@@ -13,9 +13,6 @@ class Truffle < Formula
     sha256 mojave:   "5b19919e36101ef6cf0020a3a75b8087a5a766644138ebd8a08893b9765503cf"
   end
 
-  # the formula does not build any binaries for arm64
-  # see upstream issue report, https://github.com/trufflesuite/truffle/issues/4266
-  depends_on arch: :x86_64
   depends_on "node"
 
   def install
