@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v16.10.0/node-v16.10.0.tar.xz"
   sha256 "97dc1aca232b4911e0b9e5a23a03200ab8ef05157e03c732315b579481bf7912"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "master"
 
   livecheck do
@@ -24,8 +25,8 @@ class Node < Formula
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
+  depends_on "libnghttp2"
   depends_on "libuv"
-  depends_on "nghttp2"
   depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
@@ -77,14 +78,15 @@ class Node < Formula
       --shared-cares
       --shared-libuv-includes=#{Formula["libuv"].include}
       --shared-libuv-libpath=#{Formula["libuv"].lib}
-      --shared-nghttp2-includes=#{Formula["nghttp2"].include}
-      --shared-nghttp2-libpath=#{Formula["nghttp2"].lib}
+      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
+      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
       --shared-openssl-includes=#{Formula["openssl@1.1"].include}
       --shared-openssl-libpath=#{Formula["openssl@1.1"].lib}
       --shared-brotli-includes=#{Formula["brotli"].include}
       --shared-brotli-libpath=#{Formula["brotli"].lib}
       --shared-cares-includes=#{Formula["c-ares"].include}
       --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --openssl-use-def-ca-store
     ]
     args << "--tag=head" if build.head?
 
@@ -158,7 +160,7 @@ class Node < Formula
     assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
-    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bufferutil" unless head?
+    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "ref-napi" unless head?
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --yes cowsay hello")
