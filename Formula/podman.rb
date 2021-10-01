@@ -4,6 +4,7 @@ class Podman < Formula
   url "https://github.com/containers/podman/archive/v3.4.0.tar.gz"
   sha256 "558dcc8fbf72095aa1ec8abeb84ca2093dd0d51b77f0115ef855e640e2f03146"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
@@ -20,6 +21,11 @@ class Podman < Formula
   resource "gvproxy" do
     url "https://github.com/containers/gvisor-tap-vsock/archive/v0.1.0.tar.gz"
     sha256 "e1e1bec2fc42039da1ae68d382d4560a27c04bbe2aae535837294dd6773e88e0"
+  end
+
+  patch do
+    url "https://github.com/containers/podman/commit/cd4e10fdf93009f8ecba5f0c82c1c2a4a46f3e4f.patch?full_index=1"
+    sha256 "d173f27ff530022244cc6895bfd08fbb7546e1457b2edee0854732200aabfde5"
   end
 
   def install
@@ -58,9 +64,8 @@ class Podman < Formula
   test do
     assert_match "podman-remote version #{version}", shell_output("#{bin}/podman-remote -v")
     assert_match(/Cannot connect to Podman/i, shell_output("#{bin}/podman-remote info 2>&1", 125))
-    if Hardware::CPU.intel?
-      machineinit_output = shell_output("podman-remote machine init --image-path fake-testi123 fake-testvm 2>&1", 125)
-      assert_match "Error: open fake-testi123: no such file or directory", machineinit_output
-    end
+
+    machineinit_output = shell_output("podman-remote machine init --image-path fake-testi123 fake-testvm 2>&1", 125)
+    assert_match "Error: open fake-testi123: no such file or directory", machineinit_output
   end
 end
