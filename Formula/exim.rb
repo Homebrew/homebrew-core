@@ -1,8 +1,8 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.94.2.tar.xz"
-  sha256 "051861fc89f06205162f12129fb7ebfe473383bb6194bf8642952bfd50329274"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.95.tar.xz"
+  sha256 "cc9cb653fff2ea947c3702680b59c99ac0bd1bbf19976d37e22a463cd804f167"
   license "GPL-2.0-or-later"
 
   # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
@@ -65,6 +65,8 @@ class Exim < Formula
 
     bdb4 = Formula["berkeley-db@4"]
 
+    cp "OS/unsupported/Makefile-Darwin", "OS/Makefile-Darwin"
+    cp "OS/unsupported/os.h-Darwin", "OS/os.h-Darwin"
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]
       # Add include and lib paths for BDB 4
