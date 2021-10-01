@@ -3,6 +3,9 @@ class CAres < Formula
   homepage "https://c-ares.org/"
   # Check whether patch for `node.rb` can be removed at version bump
   url "https://c-ares.org/download/c-ares-1.17.2.tar.gz"
+  mirror "https://github.com/c-ares/c-ares/releases/download/cares-1_17_2/c-ares-1.17.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/dns/c-ares-1.17.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/dns/legacy/c-ares-1.17.2.tar.gz"
   sha256 "4803c844ce20ce510ef0eb83f8ea41fa24ecaae9d280c468c582d2bb25b3913d"
   license "MIT"
   head "https://github.com/c-ares/c-ares.git", branch: "main"
@@ -21,14 +24,11 @@ class CAres < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ninja" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-GNinja", *std_cmake_args
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
