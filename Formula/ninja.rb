@@ -20,9 +20,8 @@ class Ninja < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ec37aa6d5145de2f396926c75891b578883e2a078989969c011548cae2005cf"
   end
 
-  depends_on "python@3.9"
-
-  uses_from_macos "curl" => :test
+  # Ninja only needs Python for some non-core functionality.
+  depends_on "python@3.9" => [:build, :test]
 
   def install
     py = Formula["python@3.9"].opt_bin/"python3"
@@ -31,6 +30,9 @@ class Ninja < Formula
     bin.install "ninja"
     bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
     zsh_completion.install "misc/zsh-completion" => "_ninja"
+    doc.install "doc/manual.asciidoc"
+    elisp.install "misc/ninja-mode.el"
+    (share/"vim/vimfiles/syntax").install "misc/ninja.vim"
   end
 
   test do
