@@ -3,8 +3,8 @@ class Pygitup < Formula
 
   desc "Nicer 'git pull'"
   homepage "https://github.com/msiemens/PyGitUp"
-  url "https://files.pythonhosted.org/packages/ea/5d/8d49f2e19afd899d305ab3c04ec3c4e488b7a6d52acd221e3e1f18b11a75/git-up-2.0.3.tar.gz"
-  sha256 "6c37820cc3829a5d95260f5e6dae9cee447b3a5ce1057ff7945d15602cf24ff8"
+  url "https://files.pythonhosted.org/packages/89/a3/35f7460cfaf7353ceb23442e5c250fda249cb9b8e26197cf801fa4f63786/git-up-2.1.0.tar.gz"
+  sha256 "6e677d91aeb4de37e62bdc166042243313ec873c3caf9938911ac2e7f52a0652"
   license "MIT"
 
   bottle do
@@ -17,11 +17,6 @@ class Pygitup < Formula
 
   depends_on "poetry" => :build
   depends_on "python@3.9"
-
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
-  end
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
