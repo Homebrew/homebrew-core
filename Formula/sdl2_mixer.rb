@@ -4,7 +4,7 @@ class Sdl2Mixer < Formula
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz"
   sha256 "b4cf5a382c061cd75081cf246c2aa2f9df8db04bdda8dcdc6b6cca55bede2419"
   license "Zlib"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -31,6 +31,7 @@ class Sdl2Mixer < Formula
   depends_on "flac"
   depends_on "libmodplug"
   depends_on "libvorbis"
+  depends_on "mpg123"
   depends_on "sdl2"
 
   def install
@@ -50,13 +51,12 @@ class Sdl2Mixer < Formula
       --disable-music-midi-fluidsynth-shared
       --disable-music-mod-mikmod-shared
       --disable-music-mod-modplug-shared
-      --disable-music-mp3-mpg123
       --disable-music-mp3-mpg123-shared
-      --disable-music-mp3-smpeg
       --disable-music-ogg-shared
       --enable-music-mod-mikmod
       --enable-music-mod-modplug
       --enable-music-ogg
+      --enable-music-mp3-mpg123
     ]
 
     system "./configure", *args
