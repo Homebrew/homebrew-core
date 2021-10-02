@@ -2,6 +2,8 @@ class Brotli < Formula
   desc "Generic-purpose lossless compression algorithm by Google"
   homepage "https://github.com/google/brotli"
   url "https://github.com/google/brotli/archive/v1.0.9.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/brotli-1.0.9.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/brotli-1.0.9.tar.gz"
   sha256 "f9e8d81d0405ba66d181529af42a3354f838c939095ff99930da6aa9cdf6fe46"
   license "MIT"
   head "https://github.com/google/brotli.git", branch: "master"
