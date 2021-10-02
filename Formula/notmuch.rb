@@ -1,6 +1,7 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
+  # NOTE: Keep this in sync with notmuch-mutt.
   url "https://notmuchmail.org/releases/notmuch-0.33.2.tar.xz"
   sha256 "244892f6ab52a84f6b013b387cd6652d461effd36b14ef9e576604b5850b2cae"
   license "GPL-3.0-or-later"
