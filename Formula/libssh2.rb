@@ -2,6 +2,8 @@ class Libssh2 < Formula
   desc "C library implementing the SSH2 protocol"
   homepage "https://www.libssh2.org/"
   url "https://www.libssh2.org/download/libssh2-1.10.0.tar.gz"
+  mirror "https://github.com/libssh2/libssh2/releases/download/libssh2-1.10.0/libssh2-1.10.0.tar.gz"
+  mirror "http://download.openpkg.org/components/cache/libssh2/libssh2-1.10.0.tar.gz"
   sha256 "2d64e90f3ded394b91d3a2e774ca203a4179f69aebee03003e5a6fa621e41d51"
   license "BSD-3-Clause"
 
