@@ -6,11 +6,6 @@ class Cli11 < Formula
   license "BSD-3-Clause"
   head "https://github.com/CLIUtils/CLI11.git", branch: "master"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "14e40203b7a5a2a7aba74846647ed01780ba2ebf97fbaeb78f9a82ec2a12a543"
   end
