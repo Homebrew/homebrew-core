@@ -16,15 +16,15 @@ class Ns3 < Formula
   depends_on "boost" => :build
   depends_on "python@3.9" => [:build, :test]
 
+  uses_from_macos "libxml2"
+  uses_from_macos "sqlite"
+
   on_linux do
     depends_on "gcc"
   end
 
   # `gcc version 5.4.0 older than minimum supported version 7.0.0`
   fails_with gcc: "5"
-
-  uses_from_macos "libxml2"
-  uses_from_macos "sqlite"
 
   resource "pybindgen" do
     url "https://files.pythonhosted.org/packages/7a/c6/14a9359621000ee5b7d5620af679be23f72c0ed17887b15228327427f97d/PyBindGen-0.22.0.tar.gz"
