@@ -1,8 +1,8 @@
 class Hidapi < Formula
   desc "Library for communicating with USB and Bluetooth HID devices"
   homepage "https://github.com/libusb/hidapi"
-  url "https://github.com/libusb/hidapi/archive/hidapi-0.10.1.tar.gz"
-  sha256 "f71dd8a1f46979c17ee521bc2117573872bbf040f8a4750e492271fc141f2644"
+  url "https://github.com/libusb/hidapi/archive/hidapi-0.11.0.tar.gz"
+  sha256 "391d8e52f2d6a5cf76e2b0c079cfefe25497ba1d4659131297081fc0cd744632"
   license :cannot_represent
   head "https://github.com/libusb/hidapi.git"
 
@@ -14,12 +14,7 @@ class Hidapi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9973b200a49570955bd79accce1237d5751434f26ec17ace47580313dae882f"
   end
 
-  # autoconf 2.70 fails with: configure.ac:16: error: AC_CONFIG_MACRO_DIR can only be used once
-  # See https://github.com/libusb/hidapi/issues/264#issuecomment-830914402
-  # Move to "autoconf" when updating to the next release
-  depends_on "autoconf@2.69" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
   on_linux do
@@ -28,12 +23,13 @@ class Hidapi < Formula
   end
 
   def install
-    system "./bootstrap"
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DHIDAPI_BUILD_HIDTEST=ON"
+      system "make", "install"
 
-    # hidtest/.libs/hidtest does not exist for Linux, install it for macOS only
-    bin.install "hidtest/.libs/hidtest" if OS.mac?
+      # hidtest/.libs/hidtest does not exist for Linux, install it for macOS only
+      bin.install "hidtest/hidtest" if OS.mac?
+    end
   end
 
   test do
