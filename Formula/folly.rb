@@ -55,6 +55,9 @@ class Folly < Formula
         -DFOLLY_USE_JEMALLOC=OFF
       ]
 
+      # Enable 128-bit integer macros and templates.
+      args += %w[-DFOLLY_HAVE_INT128_T=ON] if OS.mac?
+
       system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON"
       system "make"
       system "make", "install"
