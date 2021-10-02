@@ -1,8 +1,8 @@
 class GitCliff < Formula
   desc "Highly customizable changelog generator"
   homepage "https://github.com/orhun/git-cliff"
-  url "https://github.com/orhun/git-cliff/archive/v0.3.0.tar.gz"
-  sha256 "a2961e97837c40e3b3b00a31e3221585932ac65981bc31d0c20d061c003e9462"
+  url "https://github.com/orhun/git-cliff/archive/v0.4.0.tar.gz"
+  sha256 "a02e75d49c10103c9b07169e264479e1b6ca2a5387594057be6dd6953dd2bbe6"
   license "GPL-3.0-only"
 
   bottle do
@@ -14,6 +14,8 @@ class GitCliff < Formula
   end
 
   depends_on "rust" => :build
+
+  uses_from_macos "zlib"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "git-cliff")
