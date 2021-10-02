@@ -4,7 +4,7 @@ class DockerComposeCompletion < Formula
   url "https://github.com/docker/compose/archive/v2.0.1.tar.gz"
   sha256 "5a1b1fdb9681c6f4b39fceab7d7dca12285e72cb55e3d35c31f4659cc939cd2b"
   license "Apache-2.0"
-  head "https://github.com/docker/compose.git"
+  head "https://github.com/docker/compose.git", branch: "v2"
 
   livecheck do
     url :stable
