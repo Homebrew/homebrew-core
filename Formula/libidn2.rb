@@ -3,6 +3,7 @@ class Libidn2 < Formula
   homepage "https://www.gnu.org/software/libidn/#libidn2"
   url "https://ftp.gnu.org/gnu/libidn/libidn2-2.3.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.3.2.tar.gz"
+  mirror "http://ftp.gnu.org/gnu/libidn/libidn2-2.3.2.tar.gz"
   sha256 "76940cd4e778e8093579a9d195b25fff5e936e9dc6242068528b437a76764f91"
   license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
