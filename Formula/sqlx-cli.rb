@@ -21,7 +21,8 @@ class SqlxCli < Formula
   end
 
   test do
-    assert_match "error: The DATABASE_URL environment variable", shell_output("#{bin}/sqlx prepare 2>&1", 1)
+    assert_match "error: The following required arguments were not provided",
+      shell_output("#{bin}/sqlx prepare 2>&1", 2)
 
     ENV["DATABASE_URL"] = "postgres://postgres@localhost/my_database"
     assert_match "error: while resolving migrations: No such file or directory",
