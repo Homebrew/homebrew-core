@@ -5,11 +5,6 @@ class Helib < Formula
   sha256 "cbe030c752c915f1ece09681cadfbe4f140f6752414ab000b4cf076b6c3019e4"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c936a42a04cd8ecaccef61dac38f5d673cd74233146f911bda2d262526b48f95"
     sha256 cellar: :any,                 big_sur:       "a144420ebdab16c29f01c75b5f9feb352c26ef3ebc965c7c0e2ed9a720b57ca8"
