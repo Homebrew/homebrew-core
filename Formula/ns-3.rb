@@ -16,6 +16,13 @@ class Ns3 < Formula
   depends_on "boost" => :build
   depends_on "python@3.9" => [:build, :test]
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  # `gcc version 5.4.0 older than minimum supported version 7.0.0`
+  fails_with gcc: "5"
+
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
 
