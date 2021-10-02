@@ -1,9 +1,9 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.14.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.14.1.tar.gz"
-  sha256 "4a3205c570c30756f1a8b1ad0f1a63d078a92f0fac8e543471d54f4552da18c2"
+  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.15.3.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.15.3.tar.gz"
+  sha256 "d62669a8f41e078eaa220ce77a32f4f3f801e3099357ae8c705498fe73884ec5"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -22,20 +22,20 @@ class Gnunet < Formula
   depends_on "libgcrypt"
   depends_on "libidn2"
   depends_on "libmicrohttpd"
-  depends_on "libmpc"
   depends_on "libsodium"
   depends_on "libunistring"
-  depends_on "unbound"
 
   uses_from_macos "curl"
   uses_from_macos "sqlite"
 
   def install
+    ENV.deparallelize if OS.linux?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
+    system "#{bin}/gnunet-config", "--rewrite"
     output = shell_output("#{bin}/gnunet-config -s arm")
     assert_match "BINARY = gnunet-service-arm", output
   end
