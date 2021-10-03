@@ -46,10 +46,6 @@ class Handbrake < Formula
     depends_on "xz"
   end
 
-  # Fix missing linker flag `-framework DiskArbitration`
-  # Upstream PR: https://github.com/HandBrake/HandBrake/pull/3790
-  patch :DATA
-
   def install
     inreplace "contrib/ffmpeg/module.defs", "$(FFMPEG.GCC.gcc)", "cc"
 
@@ -66,18 +62,3 @@ class Handbrake < Formula
     system bin/"HandBrakeCLI", "--help"
   end
 end
-
-__END__
-diff --git a/test/module.defs b/test/module.defs
-index 011b17fb2..84a92fe5d 100644
---- a/test/module.defs
-+++ b/test/module.defs
-@@ -62,7 +62,7 @@ endif
- TEST.GCC.I += $(LIBHB.GCC.I)
- 
- ifeq ($(HOST.system),darwin)
--    TEST.GCC.f += IOKit CoreServices CoreText CoreGraphics AudioToolbox VideoToolbox CoreMedia CoreVideo Foundation
-+    TEST.GCC.f += IOKit CoreServices CoreText CoreGraphics AudioToolbox VideoToolbox CoreMedia CoreVideo Foundation DiskArbitration
-     TEST.GCC.l += iconv
- else ifeq ($(HOST.system),linux)
-     TEST.GCC.l += pthread dl m
