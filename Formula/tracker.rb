@@ -26,6 +26,8 @@ class Tracker < Formula
   depends_on "dbus"
   depends_on "json-glib"
   depends_on "libsoup"
+  depends_on "pygobject3"
+  depends_on "python@3.9"
 
   uses_from_macos "icu4c"
 
