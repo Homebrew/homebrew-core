@@ -17,6 +17,12 @@ class Uncrustify < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   # patches from https://github.com/uncrustify/uncrustify/pull/3178
   # and https://github.com/uncrustify/uncrustify/pull/3179 that fix build failures
   # can be removed for 0.74.0
