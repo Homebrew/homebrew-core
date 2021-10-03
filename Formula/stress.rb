@@ -20,6 +20,7 @@ class Stress < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
     system "./autogen.sh"
