@@ -4,6 +4,7 @@ class Murex < Formula
   url "https://github.com/lmorg/murex/archive/v2.3.4000.tar.gz"
   sha256 "d96bad1e575556d710693ace4286c9a5ec840046b6aa2c20e3e2369b6be1711a"
   license "GPL-2.0-only"
+  head "https://github.com/lmorg/murex.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "83874ad97ca2cca6096409522d706a658f279ad2742bcffd561451129af40be0"
@@ -16,7 +17,7 @@ class Murex < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
