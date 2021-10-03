@@ -1,8 +1,8 @@
 class Tracker < Formula
-  desc "Library and daemon that is an efficient search engine and triplestore"
+  desc "Efficient search engine and distributed database middleware"
   homepage "https://gnome.pages.gitlab.gnome.org/tracker/"
-  url "https://download.gnome.org/sources/tracker/3.1/tracker-3.1.2.tar.xz"
-  sha256 "da368962665d587bb2e4f164d75919a81dacb35c7d4cfae6f93a94c60f60ec8f"
+  url "https://download.gnome.org/sources/tracker/3.2/tracker-3.2.0.tar.xz"
+  sha256 "f117a52875d4a4d09c7aa993f8c8a8d06468d5dcfb153eb8daa51eb13844513a"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   # Tracker doesn't follow GNOME's "even-numbered minor is stable" version scheme.
@@ -26,6 +26,7 @@ class Tracker < Formula
   depends_on "dbus"
   depends_on "json-glib"
   depends_on "libsoup"
+
   uses_from_macos "icu4c"
 
   def install
