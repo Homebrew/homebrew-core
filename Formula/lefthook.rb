@@ -4,6 +4,7 @@ class Lefthook < Formula
   url "https://github.com/evilmartians/lefthook/archive/refs/tags/v0.7.7.tar.gz"
   sha256 "4653b79a1d5cc4675da579f885726b4b6b6379777744723f84f45296d5e04c14"
   license "MIT"
+  head "https://github.com/evilmartians/lefthook.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c2b9173da09e8b067e4da09f9aeeb83e9eb941c8f8b5a1a64212ee73e95a38f6"
