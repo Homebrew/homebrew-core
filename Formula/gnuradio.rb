@@ -34,9 +34,9 @@ class Gnuradio < Formula
   depends_on "numpy"
   depends_on "portaudio"
   depends_on "pygobject3"
-  depends_on "pyqt@5"
+  depends_on "pyqt"
   depends_on "python@3.9"
-  depends_on "qt@5"
+  depends_on "qt"
   depends_on "qwt"
   depends_on "six"
   depends_on "soapyrtlsdr"
@@ -72,6 +72,13 @@ class Gnuradio < Formula
   resource "cppzmq" do
     url "https://raw.githubusercontent.com/zeromq/cppzmq/46fc0572c5e9f09a32a23d6f22fd79b841f77e00/zmq.hpp"
     sha256 "964031c0944f913933f55ad1610938105a6657a69d1ac5a6dd50e16a679104d5"
+  end
+
+  # patch to build with qt6
+  # PR ref, https://github.com/gnuradio/gnuradio/pull/5034
+  patch do
+    url "https://github.com/gnuradio/gnuradio/pull/5034/commits/74bb3881c044d0fe9bb498ede8bcd17f0a27574c.patch?full_index=1"
+    sha256 "7b023422a55407d3cc38583e9d7543ed180b98b6e897630d91fbffc9ea3dc673"
   end
 
   def install
