@@ -8,11 +8,6 @@ class Mesa < Formula
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
-  livecheck do
-    url "https://mesa.freedesktop.org/archive/"
-    regex(/href=.*?mesa[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 arm64_big_sur: "647680c6c57f129e8a468a24b1e3a292806e58678268eaaa7c041850e959b46a"
     sha256 big_sur:       "0a32b4ff6af04519287fcc66da4942dc312bd42729ddfaa88014dea8fa8ccb23"
