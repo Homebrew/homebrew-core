@@ -19,7 +19,10 @@ class Stress < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "72cd939f3cdd4d1982e891bf3b91aadd684cdce764ad9f52711dbe0ada2a0099"
   end
 
+  depends_on "autoconf" => :build
+
   def install
+    system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
