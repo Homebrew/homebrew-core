@@ -39,8 +39,8 @@ class Latexml < Formula
 
   resource "Path::Tiny" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.108.tar.gz"
-      sha256 "3c49482be2b3eb7ddd7e73a5b90cff648393f5d5de334ff126ce7a3632723ff5"
+      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.118.tar.gz"
+      sha256 "32138d8d0f4c9c1a84d2a8f91bc5e913d37d8a7edefbb15a10961bfed560b0fd"
     end
   end
 
@@ -67,36 +67,36 @@ class Latexml < Formula
 
   resource "File::Which" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz"
-      sha256 "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
+      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.27.tar.gz"
+      sha256 "3201f1a60e3f16484082e6045c896842261fc345de9fb2e620fd2a2c7af3a93a"
     end
   end
 
   resource "Archive::Zip" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.64.tar.gz"
-      sha256 "de5f84f2148038363d557b1fa33f58edc208111f789f7299fe3d8f6e11b4d17d"
+      url "https://cpan.metacpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.68.tar.gz"
+      sha256 "984e185d785baf6129c6e75f8eb44411745ac00bf6122fb1c8e822a3861ec650"
     end
   end
 
   resource "Alien::Build" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-1.78.tar.gz"
-      sha256 "132c71bbf4248af401a4780308ac98d98471f6efae2f4f56aea5ef3677406fc9"
+      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.42.tar.gz"
+      sha256 "517c99c69fd236e106c1827896bd8562d7768043cc11bfbc399d55e95a63b791"
     end
   end
 
   resource "Alien::LibXML2" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.09.tar.gz"
-      sha256 "926e43bfcdd70bc111795b78bc41dd3a5c80f466eec5841d32aa6a497228dcba"
+      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.17.tar.gz"
+      sha256 "73b45244f0b5c36e5332c33569b82a1ab2c33e263f1d00785d2003bcaec68db3"
     end
   end
 
   resource "LWP" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.39.tar.gz"
-      sha256 "9a8d7747938aa75d7d524c71574ae7f99ca66a5dac8255a7f7759f373e7774d5"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.57.tar.gz"
+      sha256 "30c242359cb808f3fe2b115fb90712410557f0786ad74844f9801fd719bc42f8"
     end
   end
 
@@ -109,8 +109,8 @@ class Latexml < Formula
 
   resource "XML::LibXML" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0201.tar.gz"
-      sha256 "e008700732502b3f1f0890696ec6e2dc70abf526cd710efd9ab7675cae199bc2"
+      url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0207.tar.gz"
+      sha256 "903436c9859875bef5593243aae85ced329ad0fb4b57bbf45975e32547c50c15"
     end
   end
 
@@ -123,22 +123,22 @@ class Latexml < Formula
 
   resource "XML::LibXSLT" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.96.tar.gz"
-      sha256 "2a5e374edaa2e9f9d26b432265bfea9b4bb7a94c9fbfef9047b298fce844d473"
+      url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.99.tar.gz"
+      sha256 "127e17a877fb61e47b9e8b87bf8daad31339a62a00121f9751d522b438b0f7f0"
     end
   end
 
   resource "URI" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz"
-      sha256 "b2c98e1d50d6f572483ee538a6f4ccc8d9185f91f0073fd8af7390898254413e"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz"
+      sha256 "03e63ada499d2645c435a57551f041f3943970492baa3b3338246dab6f1fae0a"
     end
   end
 
   resource "HTTP::Request" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz"
-      sha256 "d060d170d388b694c58c14f4d13ed908a2807f0e581146cef45726641d809112"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.33.tar.gz"
+      sha256 "23b967f71b852cb209ec92a1af6bac89a141dff1650d69824d29a345c1eceef7"
     end
   end
 
