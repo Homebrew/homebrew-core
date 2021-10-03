@@ -34,9 +34,9 @@ class Gnuradio < Formula
   depends_on "numpy"
   depends_on "portaudio"
   depends_on "pygobject3"
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "qwt"
   depends_on "six"
   depends_on "soapyrtlsdr"
@@ -77,8 +77,8 @@ class Gnuradio < Formula
   # patch to build with qt6
   # PR ref, https://github.com/gnuradio/gnuradio/pull/5034
   patch do
-    url "https://github.com/gnuradio/gnuradio/pull/5034/commits/74bb3881c044d0fe9bb498ede8bcd17f0a27574c.patch?full_index=1"
-    sha256 "7b023422a55407d3cc38583e9d7543ed180b98b6e897630d91fbffc9ea3dc673"
+    url "https://github.com/gnuradio/gnuradio/commit/74bb3881c044d0fe9bb498ede8bcd17f0a27574c.patch?full_index=1"
+    sha256 "d5a76e38e9c50ce28d6efddde2ad3612f602879a7edc5161aa8fa7b93756edfd"
   end
 
   def install
