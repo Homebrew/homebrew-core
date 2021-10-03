@@ -1,8 +1,8 @@
 class Terracognita < Formula
   desc "Reads from existing Cloud Providers and generates Terraform code"
   homepage "https://github.com/cycloidio/terracognita"
-  url "https://github.com/cycloidio/terracognita/archive/v0.6.4.tar.gz"
-  sha256 "b9282055bf2235e0f8b9fbc1ae31c22909986ee3b3df5cc64e644b34f6513485"
+  url "https://github.com/cycloidio/terracognita/archive/v0.7.4.tar.gz"
+  sha256 "7027103c899d29b86dd1dc72e1e2d6d685bec6311673f7fbd31c8127ccd62c82"
   license "MIT"
   head "https://github.com/cycloidio/terracognita.git", branch: "master"
 
@@ -23,10 +23,8 @@ class Terracognita < Formula
 
   test do
     assert_match "v#{version}", shell_output("#{bin}/terracognita version")
-
     assert_match "Error: one of --module, --hcl  or --tfstate are required",
       shell_output("#{bin}/terracognita aws 2>&1", 1)
-
     assert_match "aws_instance", shell_output("#{bin}/terracognita aws resources")
   end
 end
