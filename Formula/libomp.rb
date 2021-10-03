@@ -19,6 +19,7 @@ class Libomp < Formula
   end
 
   depends_on "cmake" => :build
+  uses_from_macos "llvm" => :build
 
   on_linux do
     keg_only "provided by LLVM, which is not keg-only on Linux"
