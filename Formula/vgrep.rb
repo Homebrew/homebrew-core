@@ -3,7 +3,8 @@ class Vgrep < Formula
   homepage "https://github.com/vrothberg/vgrep"
   url "https://github.com/vrothberg/vgrep/archive/v5.2.2.tar.gz"
   sha256 "5132ef6b254bfb8535b4021c297aaeafa1e641de5ab3d1ba0e1748586f97d192"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
+  head "https://github.com/vrothberg/vgrep.git", branch: "main"
 
   livecheck do
     url :stable
