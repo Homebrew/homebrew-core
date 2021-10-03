@@ -1,9 +1,9 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.16.x/rpm-4.16.1.3.tar.bz2"
-  mirror "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.16.x/rpm-4.16.1.3.tar.bz2"
-  sha256 "513dc7f972b6e7ccfc9fc7f9c01d5310cc56ee853892e4314fa2cad71478e21d"
+  url "http://ftp.rpm.org/releases/rpm-4.17.x/rpm-4.17.0.tar.bz2"
+  mirror "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.17.x/rpm-4.17.0.tar.bz2"
+  sha256 "2e0d220b24749b17810ed181ac1ed005a56bbb6bc8ac429c21f314068dc65e6a"
   license "GPL-2.0-only"
   version_scheme 1
 
@@ -28,6 +28,7 @@ class Rpm < Formula
   depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "popt"
+  depends_on "sqlite"
   depends_on "xz"
   depends_on "zstd"
 
@@ -115,8 +116,8 @@ class Rpm < Formula
     EOS
 
     system "#{bin}/rpm", "-vv", "-qa", "--dbpath=#{testpath}/var/lib/rpm"
-    assert_predicate testpath/"var/lib/rpm/Packages", :exist?,
-                     "Failed to create 'Packages' file!"
+    assert_predicate testpath/"var/lib/rpm/rpmdb.sqlite", :exist?,
+                     "Failed to create 'rpmdb.sqlite' file"
     rpmdir("%_builddir").mkpath
     specfile = rpmdir("%_specdir")+"test.spec"
     specfile.write(test_spec)
