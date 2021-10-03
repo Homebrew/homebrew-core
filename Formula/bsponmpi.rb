@@ -17,6 +17,7 @@ class Bsponmpi < Formula
   deprecate! date: "2021-08-08", because: :does_not_build
 
   depends_on "scons" => :build
+  depends_on :macos
   depends_on "open-mpi"
 
   def install
