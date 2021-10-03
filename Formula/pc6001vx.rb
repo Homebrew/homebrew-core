@@ -1,8 +1,8 @@
 class Pc6001vx < Formula
   desc "PC-6001 emulator"
   homepage "https://eighttails.seesaa.net/"
-  url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.8.0_src.tar.gz"
-  sha256 "8e649062d410f565bbd92843766bd135676c7a1fc3cd1d941e967658cad17e3f"
+  url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.8.2_src.tar.gz"
+  sha256 "7abe9b10aa6f683eda279794bc03ee05e1b0b2239e38718860333d35f91b4858"
   license "LGPL-2.1-or-later"
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
@@ -32,5 +32,18 @@ class Pc6001vx < Formula
     system "make"
     prefix.install "PC6001VX.app"
     bin.write_exec_script "#{prefix}/PC6001VX.app/Contents/MacOS/PC6001VX"
+  end
+
+  test do
+    user_config_dir = testpath/".pc6001vx"
+    user_config_dir.mkpath
+    pid = fork do
+      exec bin/"PC6001VX"
+    end
+    sleep 5
+    assert_predicate user_config_dir/"pc6001vx.ini",
+                     :exist?, "User config directory should exist"
+  ensure
+    Process.kill("TERM", pid)
   end
 end
