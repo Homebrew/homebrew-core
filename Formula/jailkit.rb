@@ -3,6 +3,7 @@ class Jailkit < Formula
   homepage "https://olivier.sessink.nl/jailkit/"
   url "https://olivier.sessink.nl/jailkit/jailkit-2.23.tar.bz2"
   sha256 "aa27dc1b2dbbbfcec2b970731f44ced7079afc973dc066757cea1beb4e8ce59c"
+  license all_of: ["BSD-3-Clause", "LGPL-2.0-or-later"]
 
   livecheck do
     url :homepage
