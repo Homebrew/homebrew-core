@@ -28,10 +28,12 @@ class Libomp < Formula
   def install
     # Disable LIBOMP_INSTALL_ALIASES, otherwise the library is installed as
     # libgomp alias which can conflict with GCC's libgomp.
-    system "cmake", ".", *std_cmake_args, "-DLIBOMP_INSTALL_ALIASES=OFF"
+    args = ["-DLIBOMP_INSTALL_ALIASES=OFF"]
+    args << "-DOPENMP_ENABLE_LIBOMPTARGET=OFF" if OS.linux?
+
+    system "cmake", ".", *std_cmake_args, *args
     system "make", "install"
-    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args,
-                         "-DLIBOMP_INSTALL_ALIASES=OFF"
+    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args, *args
     system "make", "install"
   end
 
