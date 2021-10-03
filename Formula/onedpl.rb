@@ -18,19 +18,8 @@ class Onedpl < Formula
   depends_on "cmake" => :build
   depends_on "tbb"
 
-  # CMake: add install instructions
-  patch do
-    url "https://github.com/oneapi-src/oneDPL/commit/008dd241e4766bda87e439ebe64a0f91d795b181.patch?full_index=1"
-    sha256 "a7e588130b3016a609082b95352a716267ea49c316b7cf1977d010b241fcc0ef"
-  end
-
   def install
-    cmake_args = std_cmake_args + %w[
-      -S .
-      -B build
-    ]
-
-    system "cmake", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     # `cmake --build build` is for tests
     system "cmake", "--install", "build"
   end
