@@ -22,12 +22,12 @@ class Tracker < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "pygobject3" => :build
+  depends_on "python@3.9" => :build
   depends_on "vala" => :build
   depends_on "dbus"
   depends_on "json-glib"
   depends_on "libsoup"
-  depends_on "pygobject3"
-  depends_on "python@3.9"
 
   uses_from_macos "icu4c"
 
@@ -44,6 +44,7 @@ class Tracker < Formula
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
+    bash_completion.install "share/bash-completion/completions" => "tracker"
   end
 
   def post_install
