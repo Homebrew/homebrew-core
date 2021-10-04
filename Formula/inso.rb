@@ -7,9 +7,8 @@ class Inso < Formula
   sha256 "3ae32671053f87957b508f40a2ffd5a610b03cae85ecffd801432c8288abcc03"
   license "MIT"
 
+  depends_on "curl"
   depends_on "node"
-
-  uses_from_macos "curl"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
