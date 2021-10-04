@@ -28,7 +28,7 @@ class Swiftgen < Formula
 
     # Install SwiftGen in `libexec` (because of our resource bundle)
     # Then create a symbolic link in `bin`
-    system "bundle", "exec", "rake", "cli:install[#{libexec}]"
+    system "bundle", "exec", "rake", "cli:install[#{libexec},true]"
     bin.install_symlink "#{libexec}/swiftgen"
 
     # Install test fixtures
@@ -55,6 +55,9 @@ class Swiftgen < Formula
       "#{fixtures}/Generated/XCAssets/swift5/all.swift"                   => "xcassets.swift",
       "#{fixtures}/Generated/YAML/inline-swift5/all.swift"                => "yaml.swift",
     })
+
+    # Temporary fix until our build scripts support building 1 slice
+    deuniversalize_machos
   end
 
   test do
