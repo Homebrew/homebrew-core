@@ -24,13 +24,13 @@ class IncludeWhatYouUse < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" # include-what-you-use 0.16 is compatible with llvm 12.0
+  depends_on "llvm@12" # include-what-you-use 0.16 is compatible with llvm 12.0
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   def install
-    llvm = Formula["llvm"]
+    llvm = Formula["llvm@12"]
 
     # We do not want to symlink clang or libc++ headers into HOMEBREW_PREFIX,
     # so install to libexec to ensure that the resource path, which is always
