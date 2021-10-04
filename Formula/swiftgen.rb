@@ -2,8 +2,8 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      tag:      "6.5.0",
-      revision: "3b26e254b095d44f3dad06110bcb948b318898d6"
+      tag:      "6.5.1",
+      revision: "d498d285867f42ef0c74c5ebd9ddced747831372"
   license "MIT"
   head "https://github.com/SwiftGen/SwiftGen.git", branch: "develop"
 
@@ -55,9 +55,6 @@ class Swiftgen < Formula
       "#{fixtures}/Generated/XCAssets/swift5/all.swift"                   => "xcassets.swift",
       "#{fixtures}/Generated/YAML/inline-swift5/all.swift"                => "yaml.swift",
     })
-
-    # Temporary fix until our build scripts support building 1 slice
-    deuniversalize_machos
   end
 
   test do
