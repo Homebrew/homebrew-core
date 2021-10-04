@@ -23,8 +23,14 @@ class Xpdf < Formula
   depends_on "freetype"
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   conflicts_with "pdf2image", "pdftohtml", "poppler",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", ".", *std_cmake_args
