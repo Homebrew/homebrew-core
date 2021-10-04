@@ -5,6 +5,11 @@ class WaylandProtocols < Formula
   sha256 "6c0af1915f96f615927a6270d025bd973ff1c58e521e4ca1fc9abfc914633f76"
   license "MIT"
 
+  livecheck do
+    url "https://wayland.freedesktop.org/releases.html"
+    regex(/href=.*?wayland-protocols[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "46ff9ea4c52643e3a0c7291e4dcf3badcb3adc64648e6c3e3c949fdca53b4f49"
   end
