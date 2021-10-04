@@ -4,7 +4,7 @@ class EyeD3 < Formula
   desc "Work with ID3 metadata in .mp3 files"
   homepage "https://eyed3.nicfit.net/"
   url "https://eyed3.nicfit.net/releases/eyeD3-0.9.6.tar.gz"
-  mirror "https://files.pythonhosted.org/packages/3a/7a/07fc7a0e4f7913f599dae950ea5024f006ccef2bc1bbffba288ed8fdfcab/eyeD3-0.9.6.tar.gz"
+  mirror "https://files.pythonhosted.org/packages/fb/f2/27b42a10b5668df27ce87aa22407e5115af7fce9b1d68f09a6d26c3874ec/eyeD3-0.9.6.tar.gz"
   sha256 "4b5064ec0fb3999294cca0020d4a27ffe4f29149e8292fdf7b2de9b9cabb7518"
   license "GPL-3.0-or-later"
 
@@ -56,8 +56,17 @@ class EyeD3 < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+    python_path = libexec/Language::Python.site_packages("python3")
+    ENV.prepend_path "PYTHONPATH", python_path
+
+    venv.pip_install resources
+    system "python3", "setup.py", "build"
+    system "python3", "setup.py", "install", "--prefix=#{libexec}",
+      "--single-version-externally-managed", "--root=/"
     share.install Dir["docs/*"]
+
+    (bin/"eyeD3").write_env_script(libexec/"bin/eyeD3", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do
