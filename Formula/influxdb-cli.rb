@@ -5,6 +5,7 @@ class InfluxdbCli < Formula
       tag:      "v2.1.1",
       revision: "535183b228b79ae4f0f0a7f4289d62e733be8184"
   license "MIT"
+  revision 1
   head "https://github.com/influxdata/influx-cli.git", branch: "main"
 
   livecheck do
@@ -33,6 +34,14 @@ class InfluxdbCli < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags),
            "-o", bin/"influx", "./cmd/influx"
+
+    bash_complete = buildpath/"bash-completion"
+    bash_complete.write Utils.safe_popen_read(bin/"influx", "completion", "bash")
+    bash_completion.install bash_complete => "influx"
+
+    zsh_complete = buildpath/"zsh-completion"
+    zsh_complete.write Utils.safe_popen_read(bin/"influx", "completion", "zsh")
+    zsh_completion.install zsh_complete => "_influx"
   end
 
   test do
