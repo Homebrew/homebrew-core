@@ -4,6 +4,7 @@ class Getdns < Formula
   url "https://getdnsapi.net/releases/getdns-1-7-0/getdns-1.7.0.tar.gz"
   sha256 "ea8713ce5e077ac76b1418ceb6afd25e6d4e39e9600f6f5e81d3a3a13a60f652"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/getdnsapi/getdns.git", branch: "develop"
 
   # We check the GitHub releases instead of https://getdnsapi.net/releases/,
@@ -23,8 +24,10 @@ class Getdns < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "libev"
   depends_on "libevent"
   depends_on "libidn2"
+  depends_on "libuv"
   depends_on "openssl@1.1"
   depends_on "unbound"
 
