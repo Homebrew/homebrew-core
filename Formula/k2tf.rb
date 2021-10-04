@@ -23,7 +23,7 @@ class K2tf < Formula
     cp pkgshare/"test-fixtures/service.yaml", testpath
     testpath.install resource("test")
     system bin/"k2tf", "-f", "service.yaml", "-o", testpath/"service.tf"
-    assert_equal File.read(testpath/"service.tf.golden"), File.read(testpath/"service.tf")
+    assert compare_file(testpath/"service.tf.golden", testpath/"service.tf")
 
     assert_match version.to_s, shell_output(bin/"k2tf --version")
   end
