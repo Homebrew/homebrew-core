@@ -3,7 +3,7 @@ class Pdfgrep < Formula
   homepage "https://pdfgrep.org/"
   url "https://pdfgrep.org/download/pdfgrep-2.1.2.tar.gz"
   sha256 "0ef3dca1d749323f08112ffe68e6f4eb7bc25f56f90a2e933db477261b082aba"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   revision 1
 
   bottle do
@@ -24,6 +24,12 @@ class Pdfgrep < Formula
   depends_on "libgcrypt"
   depends_on "pcre"
   depends_on "poppler"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     ENV.cxx11
