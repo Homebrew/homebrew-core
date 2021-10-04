@@ -2,8 +2,6 @@ class CaCertificates < Formula
   desc "Mozilla CA certificate store"
   homepage "https://curl.se/docs/caextract.html"
   url "https://curl.se/ca/cacert-2021-09-30.pem"
-  # Ideally we'd have a HTTP mirror, but a GitHub-hosted one is second best.
-  mirror "https://raw.githubusercontent.com/Homebrew/formula-patches/7b48d2482eecb5aa64f591f79eda46565d0da29d/ca-certificates/cacert-2021-09-30.pem"
   sha256 "f524fc21859b776e18df01a87880efa198112214e13494275dbcbd9bcb71d976"
   license "MPL-2.0"
 
