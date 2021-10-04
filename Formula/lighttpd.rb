@@ -1,10 +1,9 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.59.tar.xz"
-  sha256 "fb953db273daef08edb6e202556cae8a3d07eed6081c96bd9903db957d1084d5"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.60.tar.xz"
+  sha256 "4bb1dd859e541a3131e5be101557d2e1195b4129d3a849a3a6fbd21fe1c946f0"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://download.lighttpd.net/lighttpd/releases-1.4.x/"
