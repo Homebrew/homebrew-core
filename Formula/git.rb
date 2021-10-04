@@ -5,6 +5,7 @@ class Git < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.0.tar.xz"
   sha256 "bf3c6ab5f82e072aad4768f647cfb1ef60aece39855f83f080f9c0222dd20c4f"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/git/git.git"
 
   livecheck do
@@ -23,7 +24,7 @@ class Git < Formula
   depends_on "gettext"
   depends_on "pcre2"
 
-  uses_from_macos "curl"
+  uses_from_macos "curl", since: :catalina # macOS < 10.15.6 has broken cert path logic
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
@@ -68,13 +69,6 @@ class Git < Formula
       ].uniq.map do |p|
         "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
       end.join(":")
-    end
-
-    # Ensure we are using the correct system headers (for curl) to workaround
-    # mismatched Xcode/CLT versions:
-    # https://github.com/Homebrew/homebrew-core/issues/46466
-    if MacOS.version == :mojave && MacOS::CLT.installed? && MacOS::CLT.provides_sdk?
-      ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
 
     # The git-gui and gitk tools are installed by a separate formula (git-gui)
