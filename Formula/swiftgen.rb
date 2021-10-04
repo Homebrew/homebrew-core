@@ -16,6 +16,13 @@ class Swiftgen < Formula
   depends_on xcode: ["13.0", :build]
   depends_on :macos
 
+  resource("testdata") do
+    url "https://github.com/SwiftGen/SwiftGen.git",
+      tag:      "6.5.1",
+      revision: "d498d285867f42ef0c74c5ebd9ddced747831372",
+      branch:   "develop"
+  end
+
   def install
     # Install bundler (needed for our rake tasks)
     ENV["GEM_HOME"] = buildpath/"gem_home"
@@ -31,56 +38,35 @@ class Swiftgen < Formula
     system "bundle", "exec", "rake", "cli:install[#{libexec},true]"
     bin.install_symlink "#{libexec}/swiftgen"
 
-    # Install test fixtures
-    fixtures = "Sources/TestUtils/Fixtures"
-    (pkgshare/"test-fixtures").install({
-      "#{fixtures}/Resources/Colors/colors.xml"                           => "colors.xml",
-      "#{fixtures}/Resources/CoreData/Model.xcdatamodeld"                 => "Model.xcdatamodeld",
-      "#{fixtures}/Resources/Files"                                       => "Files",
-      "#{fixtures}/Resources/Fonts"                                       => "Fonts",
-      "#{fixtures}/Resources/JSON"                                        => "JSON",
-      "#{fixtures}/Resources/IB-iOS"                                      => "IB-iOS",
-      "#{fixtures}/Resources/Plist/good"                                  => "Plist",
-      "#{fixtures}/Resources/Strings/Localizable.strings"                 => "Localizable.strings",
-      "#{fixtures}/Resources/XCAssets"                                    => "XCAssets",
-      "#{fixtures}/Resources/YAML/good"                                   => "YAML",
-      "#{fixtures}/Generated/Colors/swift5/defaults.swift"                => "colors.swift",
-      "#{fixtures}/Generated/CoreData/swift5/defaults.swift"              => "coredata.swift",
-      "#{fixtures}/Generated/Files/structured-swift5/defaults.swift"      => "files.swift",
-      "#{fixtures}/Generated/Fonts/swift5/defaults.swift"                 => "fonts.swift",
-      "#{fixtures}/Generated/IB-iOS/scenes-swift5/all.swift"              => "ib.swift",
-      "#{fixtures}/Generated/JSON/runtime-swift5/all.swift"               => "json.swift",
-      "#{fixtures}/Generated/Plist/runtime-swift5/all.swift"              => "plist.swift",
-      "#{fixtures}/Generated/Strings/structured-swift5/localizable.swift" => "strings.swift",
-      "#{fixtures}/Generated/XCAssets/swift5/all.swift"                   => "xcassets.swift",
-      "#{fixtures}/Generated/YAML/inline-swift5/all.swift"                => "yaml.swift",
-    })
-
     # Temporary fix until our build scripts support building 1 slice
     deuniversalize_machos
   end
 
   test do
-    fixtures = pkgshare/"test-fixtures"
-    test_command = lambda { |command, template, fixture, params = nil|
+    # prepare test data
+    resource("testdata").stage testpath
+    fixtures = testpath/"Sources/TestUtils/Fixtures"
+    test_command = lambda { |command, template, resource_group, generated, fixture, params = nil|
       assert_equal(
-        (fixtures/"#{command}.swift").read.strip,
+        (fixtures/"Generated/#{resource_group}/#{template}/#{generated}").read.strip,
         shell_output("#{bin}/swiftgen run #{command} " \
-                     "--templateName #{template} #{params} #{fixtures}/#{fixture}").strip,
+                     "--templateName #{template} #{params} #{fixtures}/Resources/#{resource_group}/#{fixture}").strip,
         "swiftgen run #{command} failed",
       )
     }
 
     system bin/"swiftgen", "--version"
-    test_command.call "colors", "swift5", "colors.xml"
-    test_command.call "coredata", "swift5", "Model.xcdatamodeld"
-    test_command.call "files", "structured-swift5", "Files"
-    test_command.call "fonts", "swift5", "Fonts"
-    test_command.call "ib", "scenes-swift5", "IB-iOS", "--param module=SwiftGen"
-    test_command.call "json", "runtime-swift5", "JSON"
-    test_command.call "plist", "runtime-swift5", "Plist"
-    test_command.call "strings", "structured-swift5", "Localizable.strings"
-    test_command.call "xcassets", "swift5", "XCAssets"
-    test_command.call "yaml", "inline-swift5", "YAML"
+
+    #                 command     template             rsrc_group  generated            fixture & params
+    test_command.call "colors",   "swift5",            "Colors",   "defaults.swift",    "colors.xml"
+    test_command.call "coredata", "swift5",            "CoreData", "defaults.swift",    "Model.xcdatamodeld"
+    test_command.call "files",    "structured-swift5", "Files",    "defaults.swift",    ""
+    test_command.call "fonts",    "swift5",            "Fonts",    "defaults.swift",    ""
+    test_command.call "ib",       "scenes-swift5",     "IB-iOS",   "all.swift",         "", "--param module=SwiftGen"
+    test_command.call "json",     "runtime-swift5",    "JSON",     "all.swift",         ""
+    test_command.call "plist",    "runtime-swift5",    "Plist",    "all.swift",         "good"
+    test_command.call "strings",  "structured-swift5", "Strings",  "localizable.swift", "Localizable.strings"
+    test_command.call "xcassets", "swift5",            "XCAssets", "all.swift",         ""
+    test_command.call "yaml",     "inline-swift5",     "YAML",     "all.swift",         "good"
   end
 end
