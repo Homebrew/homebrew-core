@@ -34,12 +34,9 @@ class Swiftgen < Formula
     ENV["NO_CODE_LINT"] = "1"
 
     # Install SwiftGen in `libexec` (because of our resource bundle)
-    # Then create a symbolic link in `bin`
-    system "bundle", "exec", "rake", "cli:install[#{libexec},true]"
-    bin.install_symlink "#{libexec}/swiftgen"
-
-    # Temporary fix until our build scripts support building 1 slice
-    deuniversalize_machos
+    # Then create a script to invoke it
+    system "bundle", "exec", "rake", "cli:install[#{libexec}]"
+    bin.write_exec_script "#{libexec}/swiftgen"
   end
 
   test do
