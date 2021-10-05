@@ -34,11 +34,12 @@ class Copilot < Formula
 
     bin.install "bin/local/copilot"
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/copilot", "completion", "bash")
-    (bash_completion/"copilot").write output
-
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/copilot", "completion", "zsh")
-    (zsh_completion/"_copilot").write output
+    bash_output = Utils.safe_popen_read("#{bin}/copilot", "completion", "bash")
+    (bash_completion/"copilot").write bash_output
+    zsh_output = Utils.safe_popen_read("#{bin}/copilot", "completion", "zsh")
+    (zsh_completion/"_copilot").write zsh_output
+    fish_output = Utils.safe_popen_read("#{bin}/copilot", "completion", "fish")
+    (zsh_completion/"copilot.fish").write fish_output
   end
 
   test do
