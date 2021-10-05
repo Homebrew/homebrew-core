@@ -4,6 +4,7 @@ class NodeAT12 < Formula
   url "https://nodejs.org/dist/v12.22.6/node-v12.22.6.tar.gz"
   sha256 "02763dcf6532a997143b03c1f7d23552a3bd19ddcad1fd2425956db7596cbc9c"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -22,17 +23,53 @@ class NodeAT12 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+  depends_on "brotli"
+  depends_on "c-ares"
   depends_on "icu4c"
+  depends_on "libnghttp2"
+  depends_on "libuv"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "macos-term-size"
   end
 
+  # Fix build with brewed c-ares.
+  # https://github.com/nodejs/node/pull/39739
+  #
+  # Remove when the following lands in a *c-ares* release:
+  # https://github.com/c-ares/c-ares/commit/7712fcd17847998cf1ee3071284ec50c5b3c1978
+  # https://github.com/c-ares/c-ares/pull/417
+  patch :DATA
+
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = which("python3")
 
-    system "python3", "configure.py", "--prefix=#{prefix}", "--with-intl=system-icu"
+    args = %W[
+      --prefix=#{prefix}
+      --with-intl=system-icu
+      --shared-libuv
+      --shared-nghttp2
+      --shared-openssl
+      --shared-zlib
+      --shared-brotli
+      --shared-cares
+      --shared-libuv-includes=#{Formula["libuv"].include}
+      --shared-libuv-libpath=#{Formula["libuv"].lib}
+      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
+      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
+      --shared-openssl-includes=#{Formula["openssl@1.1"].include}
+      --shared-openssl-libpath=#{Formula["openssl@1.1"].lib}
+      --shared-brotli-includes=#{Formula["brotli"].include}
+      --shared-brotli-libpath=#{Formula["brotli"].lib}
+      --shared-cares-includes=#{Formula["c-ares"].include}
+      --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --openssl-use-def-ca-store
+    ]
+    system "python3", "configure.py", *args
     system "make", "install"
 
     term_size_vendor_dir = lib/"node_modules/npm/node_modules/term-size/vendor"
@@ -70,9 +107,22 @@ class NodeAT12 < Formula
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system "#{bin}/npm", *npm_args, "install", "npm@latest"
-    system "#{bin}/npm", *npm_args, "install", "bufferutil"
+    system "#{bin}/npm", *npm_args, "install", "ref-napi"
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")
   end
 end
+
+__END__
+--- a/src/cares_wrap.cc
++++ b/src/cares_wrap.cc
+@@ -39,7 +39,7 @@
+ # include <netdb.h>
+ #endif  // __POSIX__
+ 
+-# include <ares_nameser.h>
++# include <arpa/nameser.h>
+ 
+ // OpenBSD does not define these
+ #ifndef AI_ALL
