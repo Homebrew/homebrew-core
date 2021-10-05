@@ -5,6 +5,7 @@ class PythonTkAT310 < Formula
   url "https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz"
   sha256 "c4e0cbad57c90690cb813fb4663ef670b4d0f587d8171e2c42bd4c9245bd2758"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     formula "python@3.10"
@@ -17,6 +18,8 @@ class PythonTkAT310 < Formula
     sha256 cellar: :any, mojave:        "47aff48291f42c9116239982196d36264afb9b6afbebca2e3f0e8f706960d569"
     sha256               x86_64_linux:  "33e5057494f2cbbeba821221aa97de4c3729c825cf2f47e583081d5bff55267b"
   end
+
+  keg_only :versioned_formula
 
   depends_on "python@3.10"
   depends_on "tcl-tk"
