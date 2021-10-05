@@ -3,18 +3,17 @@ class Theharvester < Formula
 
   desc "Gather materials from public sources (for pen testers)"
   homepage "http://www.edge-security.com/theharvester.php"
-  url "https://github.com/laramies/theHarvester/archive/4.0.0.tar.gz"
-  sha256 "7c7a33202634f9cfc2cce33733ed20a913a6668d0b06846c3ec278b3b02e2a45"
+  url "https://github.com/laramies/theHarvester/archive/4.0.1.tar.gz"
+  sha256 "99bce3c0bfd5337f646f9721dc58f4782c2c0d4da73422c6ed3c95dff67d7e7e"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "d29ea553706590fd001fc775b15d565bc50fb3e2bd2613b9e96b1c1d74c7ce41"
-    sha256 cellar: :any,                 big_sur:       "b31b34ebfc82383b20230ba131fff8e4d7049fa8f3e99b24534d93686fe83741"
-    sha256 cellar: :any,                 catalina:      "8d7cbd34f4507680cbe136a700e8cf00da3c0600406f53100e056450530e8f75"
-    sha256 cellar: :any,                 mojave:        "f88476b73130cf586e9a6c2a8ad92ac8cf03e5968e1baf29754f93338b45e034"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c15ed17ce5fc25c8cb2604c7416a749aca889cc5897f8b8dc8480850b4160c2f"
+    sha256 cellar: :any,                 arm64_big_sur: "52039062c91260b658fb3a10f747fca420c98624431dde70342c3df7309d8bbd"
+    sha256 cellar: :any,                 big_sur:       "106c03d6bed333ba9457e5d26ad27352f2fc8d6f73bed71d92c88a4a8c06c063"
+    sha256 cellar: :any,                 catalina:      "8474b55c72ea0a7ce1254202f5e2fdb5fff358c47f9d6e48bc46a19b4fcdbb58"
+    sha256 cellar: :any,                 mojave:        "55153d82c76a87d178397d7dee39893db40945a8dd5dbb5d28f4c9cf9c8ccb9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33405c081ffd2d0f1ff51522bb891cb7f5836b6b948ff7fb9c619dbb9e4774ea"
   end
 
   depends_on "maturin" => :build

@@ -3,10 +3,9 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.2.0.tar.gz"
-  sha256 "d7271022559bfb486a9462ed5e7d1ffb52a010a197f5dfdef27f70a931907dce"
+  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.3.0.tar.gz"
+  sha256 "4073ac72524f95fed4bda7dd553cb946f66d2e00bd07c4ae7758f1b787d507e0"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/gnuradio/gnuradio.git"
 
   livecheck do
@@ -15,9 +14,9 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "169b966d6e031d0270bfc2649ee48220bc54b9d3e5d2b01c29e874bcc06f2c86"
-    sha256 cellar: :any, catalina: "d33ce40c50bd7b50545671e68b9b16c95f425196b6696fce1e77b2d6f12ab727"
-    sha256 cellar: :any, mojave:   "6849a16834c277e9e72021fb2d70a1a7ebab2f0c6ce55eb7ce073f5c33d4421d"
+    sha256 cellar: :any, big_sur:  "a65903558ee54755cc2cb8716ed7213204ce19a8db27a529512d264f8da8d3ab"
+    sha256 cellar: :any, catalina: "8272a1d9328a0daa040d1c0fedc5c05d11028dca906b53d5d513bc537662c8be"
+    sha256 cellar: :any, mojave:   "d9528d4cf8ffb264226ab2acf437a95dfe93e29f90b577a80d04b5297c4263ca"
   end
 
   depends_on "cmake" => :build
@@ -61,8 +60,8 @@ class Gnuradio < Formula
   end
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
-    sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
+    url "https://files.pythonhosted.org/packages/d1/42/ff293411e980debfc647be9306d89840c8b82ea24571b014f1a35b2ad80f/Mako-1.1.5.tar.gz"
+    sha256 "169fa52af22a91900d852e937400e79f535496191c63712e3b9fda5a9bed6fc3"
   end
 
   resource "PyYAML" do
@@ -73,6 +72,13 @@ class Gnuradio < Formula
   resource "cppzmq" do
     url "https://raw.githubusercontent.com/zeromq/cppzmq/46fc0572c5e9f09a32a23d6f22fd79b841f77e00/zmq.hpp"
     sha256 "964031c0944f913933f55ad1610938105a6657a69d1ac5a6dd50e16a679104d5"
+  end
+
+  # patch to build with qt6
+  # PR ref, https://github.com/gnuradio/gnuradio/pull/5034
+  patch do
+    url "https://github.com/gnuradio/gnuradio/commit/74bb3881c044d0fe9bb498ede8bcd17f0a27574c.patch?full_index=1"
+    sha256 "d5a76e38e9c50ce28d6efddde2ad3612f602879a7edc5161aa8fa7b93756edfd"
   end
 
   def install
