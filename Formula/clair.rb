@@ -1,8 +1,8 @@
 class Clair < Formula
   desc "Vulnerability Static Analysis for Containers"
   homepage "https://github.com/quay/clair"
-  url "https://github.com/quay/clair/archive/v4.2.3.tar.gz"
-  sha256 "a89f1af08adb30ffa1500706f4f7ce7c33be57a15daada81e0c422b2a479d2e2"
+  url "https://github.com/quay/clair/archive/v4.3.0.tar.gz"
+  sha256 "56684ae29ce3fd2ad611978f459eaf232718bae1b8e584fba5830a44a2c103d7"
   license "Apache-2.0"
 
   livecheck do
@@ -11,10 +11,10 @@ class Clair < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "3d4a0ec7a32854f77acd4bf30481e38d7d95eeb629fe01542f505c2bbd92f464"
-    sha256 cellar: :any_skip_relocation, catalina:     "5d0b4f8885fb38090a32f6f9b4d5f5b32b9b545ddfea2f690b8f92f595cbbd4e"
-    sha256 cellar: :any_skip_relocation, mojave:       "6793c8d1f5379482ff305b1003e317995697772605087c2ec9c6557a2c6cef57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2585e66a9e530b8e2cbfc00dd5a8daa016f42528795e2c31139314ef12c6dfb3"
+    sha256 cellar: :any_skip_relocation, big_sur:      "64d39f7432c6753108c81d593294d14142a61e98a8fa8bcb173480a97b88e592"
+    sha256 cellar: :any_skip_relocation, catalina:     "60c03d370fe34583680ec75c405c3ba770b3ce4efc3e71ee406569829a706618"
+    sha256 cellar: :any_skip_relocation, mojave:       "37ec0796fbb2aa4adbda9a70c4fd3e59241fc4a29c2d7fd4efb7ff3f4f1265a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "947c6a051cc12db2362b1d41dea970ef176c9fede5bbd4803b52d88255439378"
   end
 
   depends_on "go" => :build

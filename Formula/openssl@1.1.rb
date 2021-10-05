@@ -3,9 +3,14 @@ class OpensslAT11 < Formula
   homepage "https://openssl.org/"
   url "https://www.openssl.org/source/openssl-1.1.1l.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1l.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1l.tar.gz"
+  # These are for when a new version is released and the old URL stops working:
   mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1l.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1l.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1l.tar.gz"
   sha256 "0b7a3e5e59c34827fe0c3a74b7ec8baef302b98fa80088d7f9153aa16fa76bd1"
   license "OpenSSL"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -14,35 +19,33 @@ class OpensslAT11 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "9acf35f49127e7db9a1190c0c19330cd51f925bc3c482b699aaad802be2fea2b"
-    sha256 big_sur:       "ff8b2a965c680b4d9baccd60e799d0989e7dc562d2ba81696a9996bab256a6ad"
-    sha256 catalina:      "9c8490c19c5e18a5c9f92c3410b501ad456b348f711f760b2932fd763d0d0c14"
-    sha256 mojave:        "e310413752934299a0b8277b5aca3ceeddad0a2cecbcf2a9b81277c2219312b8"
-    sha256 x86_64_linux:  "4e8d3bcafe560d3d3ae2e0a29b98fa009101d72c249cd5b99892d706ac23e6dc"
+    sha256 arm64_big_sur: "e3d8556cec907ad1e0ea00aebd0b0b516dde06ea3bf24308290ad785cb360a04"
+    sha256 big_sur:       "64d4d83f7d3216f2d3107f966b223d11401a2e9391707d959fbdb5c1bd5fbe0c"
+    sha256 catalina:      "eb4e1d96f1a9eac8d096220550e3ca97a46d59747ec2324e2ff74351f8319c2b"
+    sha256 mojave:        "add58d2bb5059599029e687d5baf6fd737dff1e5cef7b6c5f4e0fe11b9c8e588"
+    sha256 x86_64_linux:  "84bc9412c1620f5607161c5fe2b6e11ff49de96d704595523f7f7c15f1883cf2"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
 
-  on_linux do
-    resource "cacert" do
-      # homepage "http://curl.haxx.se/docs/caextract.html"
-      url "https://curl.haxx.se/ca/cacert-2020-01-01.pem"
-      mirror "https://gist.githubusercontent.com/dawidd6/16d94180a019f31fd31bc679365387bc/raw/ef02c78b9d6427585d756528964d18a2b9e318f7/cacert-2020-01-01.pem"
-      sha256 "adf770dfd574a0d6026bfaa270cb6879b063957177a991d453ff1d302c02081f"
-    end
+  depends_on "ca-certificates"
 
+  on_linux do
     resource "Test::Harness" do
       url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
       sha256 "0fd90d4efea82d6e262e6933759e85d27cbcfa4091b14bf4042ae20bab528e53"
     end
 
     resource "Test::More" do
       url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
       sha256 "c8c8f5c51ad6d7a858c3b61b8b658d8e789d3da5d300065df0633875b0075e49"
     end
 
     resource "ExtUtils::MakeMaker" do
       url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
       sha256 "94e64a630fc37e80c0ca02480dccfa5f2f4ca4b0dd4eeecc1d65acd321c68289"
     end
   end
@@ -123,64 +126,8 @@ class OpensslAT11 < Formula
   end
 
   def post_install
-    if OS.mac?
-      macos_post_install
-    else
-      linux_post_install
-    end
-  end
-
-  def macos_post_install
-    ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
-
-    keychains = %w[
-      /Library/Keychains/System.keychain
-      /System/Library/Keychains/SystemRootCertificates.keychain
-    ]
-
-    certs_list = `/usr/bin/security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
-
-    # Check that the certificate has not expired
-    valid_certs = certs.select do |cert|
-      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout &>/dev/null", "w") do |openssl_io|
-        openssl_io.write(cert)
-        openssl_io.close_write
-      end
-
-      $CHILD_STATUS.success?
-    end
-
-    # Check that the certificate is trusted in keychain
-    trusted_certs = begin
-      tmpfile = Tempfile.new
-
-      valid_certs.select do |cert|
-        tmpfile.rewind
-        tmpfile.write cert
-        tmpfile.truncate cert.size
-        tmpfile.flush
-        IO.popen("/usr/bin/security verify-cert -l -L -R offline -c #{tmpfile.path} &>/dev/null")
-
-        $CHILD_STATUS.success?
-      end
-    ensure
-      tmpfile&.close!
-    end
-
-    openssldir.mkpath
-    (openssldir/"cert.pem").atomic_write(trusted_certs.join("\n") << "\n")
-  end
-
-  def linux_post_install
-    # Download and install cacert.pem from curl.haxx.se
-    cacert = resource("cacert")
-    cacert.fetch
     rm_f openssldir/"cert.pem"
-    filename = Pathname.new(cacert.url).basename
-    openssldir.install cacert.files(filename => "cert.pem")
+    openssldir.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
   end
 
   def caveats

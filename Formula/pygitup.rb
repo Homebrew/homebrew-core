@@ -3,25 +3,20 @@ class Pygitup < Formula
 
   desc "Nicer 'git pull'"
   homepage "https://github.com/msiemens/PyGitUp"
-  url "https://files.pythonhosted.org/packages/ea/5d/8d49f2e19afd899d305ab3c04ec3c4e488b7a6d52acd221e3e1f18b11a75/git-up-2.0.3.tar.gz"
-  sha256 "6c37820cc3829a5d95260f5e6dae9cee447b3a5ce1057ff7945d15602cf24ff8"
+  url "https://files.pythonhosted.org/packages/89/a3/35f7460cfaf7353ceb23442e5c250fda249cb9b8e26197cf801fa4f63786/git-up-2.1.0.tar.gz"
+  sha256 "6e677d91aeb4de37e62bdc166042243313ec873c3caf9938911ac2e7f52a0652"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "daf5855249d42c8b52dd76ac695b2bc951e943732e19ad5a0c65cd9623e29dfc"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7a08869ce896671ffc13dd2bc7e5fe1e9d484e57b093d31eae6d4a63072f41ed"
-    sha256 cellar: :any_skip_relocation, catalina:      "a59e96070484e5df94de77ea7573c3903e4a92aac5c24ef4043ab073b5e6962c"
-    sha256 cellar: :any_skip_relocation, mojave:        "d7893c789fffb3c8a346360ff7e46ec417db4f5bd60cf688fa4edc91dc646006"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "841dcd32da5af7d085cac5507317dc4ce92664c31b3e3ed34288bb86a9f294fe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "691cecd76ff02753813853585aa00200c059a91cc729def69d4b3249b8045989"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a420f93c1cadfb852e6e38735b0990ee3981bfe9a7daa413e0a2a5901e07ded9"
+    sha256 cellar: :any_skip_relocation, catalina:      "0bb8b6b27418770fd4073ba87ca325aff9402bade15bd914dbdbb0b6181f0a65"
+    sha256 cellar: :any_skip_relocation, mojave:        "1728a7aaeaef7bb0f4fd323df92427d81a7fb274443cd9624a5e3009463ae563"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f56cfd288b6c4c06519cfd4502adb34803da2a30beb6de0535ec5e5a6d54a49"
   end
 
   depends_on "poetry" => :build
   depends_on "python@3.9"
-
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
-  end
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"

@@ -3,6 +3,7 @@ class Libunistring < Formula
   homepage "https://www.gnu.org/software/libunistring/"
   url "https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz"
   mirror "https://ftpmirror.gnu.org/libunistring/libunistring-0.9.10.tar.xz"
+  mirror "http://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz"
   sha256 "eb8fb2c3e4b6e2d336608377050892b54c3c983b646c561836550863003c05d7"
   license any_of: ["GPL-2.0-only", "LGPL-3.0-or-later"]
 

@@ -1,8 +1,8 @@
 class NodeAT14 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v14.17.6/node-v14.17.6.tar.gz"
-  sha256 "f64559c87faa2f1ce93c3d2cd09723af254ec320a53cbfd1a2ba8fba28e488d0"
+  url "https://nodejs.org/dist/v14.18.0/node-v14.18.0.tar.gz"
+  sha256 "2272312d7eb48a28e982af395142d916385b0572380d07c89f9abd9c97810189"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,11 @@ class NodeAT14 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "41d3ab74c536b1c88e15df92e1991d64e7d7f8f845555074ee61b7d4fa8f5c9c"
-    sha256 cellar: :any,                 big_sur:       "cd0c93868bf70ac6a51e2ea7e7ca52d405dba808a35564625695d5385402c289"
-    sha256 cellar: :any,                 catalina:      "32b944c89b4274a5eb5053b84d540e012043f1b41cf096133739d2fab9784beb"
-    sha256 cellar: :any,                 mojave:        "503373b72c753e8eb3506a962f52e861221ba375cc40720aa46bec002fc5900d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e937005988d228479d4ee5825aacf2769e467286836eae790c032a83981fae6d"
+    sha256 cellar: :any,                 arm64_big_sur: "35ef1403101a2ff361051d7617fc6c1a3b8dd905e37cb7b77b2b5bb7de5c4ee4"
+    sha256 cellar: :any,                 big_sur:       "a4d534988d6b9d80cb5420982ab7a7bf757a8b860171bca0ac3529f8b5a43bfc"
+    sha256 cellar: :any,                 catalina:      "a4926228d9e56b669edfa56a6bb69fc8c1f8a84fc3bf93e29b577a1d159d1a63"
+    sha256 cellar: :any,                 mojave:        "12255e38d951ce3933c898b4921ab24206b524055cc3f837a3acfbe748fb7be2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04c7a12b8e7a59e37f57c1c22d9bab4df86680dad7f67fb7e52f587f1dd3f517"
   end
 
   keg_only :versioned_formula
@@ -70,7 +70,8 @@ class NodeAT14 < Formula
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system "#{bin}/npm", *npm_args, "install", "npm@latest"
-    system "#{bin}/npm", *npm_args, "install", "bufferutil"
+    # FIXME: See https://github.com/Homebrew/homebrew-core/pull/86090
+    # system "#{bin}/npm", *npm_args, "install", "bufferutil"
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")

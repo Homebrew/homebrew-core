@@ -7,9 +7,10 @@ class Cwlogs < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:  "40fdfc79d6533963798aed789fe8026f30d44e87c3e6e9ecd602d531ed1fb7c2"
-    sha256 cellar: :any_skip_relocation, catalina: "975da66abe1ce9ff42eb63453c52acc31aeeffff435a2c0aab9d1bd3008be280"
-    sha256 cellar: :any_skip_relocation, mojave:   "d0e1bda71db260a905c5f88da3fce0074ab59576ef6c12948eeae2ae5faf6435"
+    sha256 cellar: :any_skip_relocation, big_sur:      "40fdfc79d6533963798aed789fe8026f30d44e87c3e6e9ecd602d531ed1fb7c2"
+    sha256 cellar: :any_skip_relocation, catalina:     "975da66abe1ce9ff42eb63453c52acc31aeeffff435a2c0aab9d1bd3008be280"
+    sha256 cellar: :any_skip_relocation, mojave:       "d0e1bda71db260a905c5f88da3fce0074ab59576ef6c12948eeae2ae5faf6435"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "30b6f2f4d84caf8e71cfb50c710030af0321585ef3de7ba3e3055381f16b7a6e"
   end
 
   # https://github.com/segmentio/cwlogs/issues/37

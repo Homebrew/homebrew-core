@@ -1,9 +1,10 @@
 class Vgrep < Formula
   desc "User-friendly pager for grep"
   homepage "https://github.com/vrothberg/vgrep"
-  url "https://github.com/vrothberg/vgrep/archive/v2.5.1.tar.gz"
-  sha256 "7516d16d87c118c081f43ec74e091d02c194afa984e7dc63a46cb24b149896c4"
-  license "GPL-3.0"
+  url "https://github.com/vrothberg/vgrep/archive/v5.2.2.tar.gz"
+  sha256 "5132ef6b254bfb8535b4021c297aaeafa1e641de5ab3d1ba0e1748586f97d192"
+  license "GPL-3.0-only"
+  head "https://github.com/vrothberg/vgrep.git", branch: "main"
 
   livecheck do
     url :stable
@@ -11,10 +12,10 @@ class Vgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d7347207e722a5edac6595fce5baa9f64a1bcd10d310d25c62517e88c0c125fb"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ba0b220e0e1e204c54685f83bf0b2e8bf6922b95c0833c68b6fa116c857f6281"
-    sha256 cellar: :any_skip_relocation, catalina:      "c7ef6771646891c23fff3120f0a8b3075abaeb13540e57a89ee81d46ae4f2e81"
-    sha256 cellar: :any_skip_relocation, mojave:        "a4d5cc61d723389a58dd952b1d9caad009948983c11899e8d8adb79418e814ee"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "94b39cbb6b11fac3e42b7c96d93ab7895118118fa0d75ecdbffba5a1e08730a8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "93b8c6ed478b9fa4cd65679f0f63c19753142c681aa4d931336ae60af413318a"
+    sha256 cellar: :any_skip_relocation, catalina:      "c1ea5da55551b0b8760c11aeec6b7b8adba693283cc3ae5e9d32c95cdec52f69"
+    sha256 cellar: :any_skip_relocation, mojave:        "9238fc3977669ac584eeb19857b681c28fa980d28f1e163328cd30c8304ac6ce"
   end
 
   depends_on "go" => :build

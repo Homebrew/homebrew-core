@@ -5,6 +5,7 @@ class InfluxdbCli < Formula
       tag:      "v2.1.1",
       revision: "535183b228b79ae4f0f0a7f4289d62e733be8184"
   license "MIT"
+  revision 1
   head "https://github.com/influxdata/influx-cli.git", branch: "main"
 
   livecheck do
@@ -13,10 +14,10 @@ class InfluxdbCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dc289f1883d9af726cf7c3fd2194bab010724c35e94fcef3d822883c3ae0da3a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "79766c5f360e64d189d9bb1779a439937df0f31103238011acf035870bdab414"
-    sha256 cellar: :any_skip_relocation, catalina:      "7139d36b911a2d2de59b3aaae2a15be89c16cdb4c5e1f9df348f0b0b663565fa"
-    sha256 cellar: :any_skip_relocation, mojave:        "d0205c6302aa63526d202ab224e565790a71d5c52e43082b24bddbb22c7b6ee2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c68717a9178651388486b28256fe84fa9537b1412e199fa73e9137f9600d6810"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2dcafad4c721935f50afc5b61e33638af2b0c94cfddb6b03a9bab42530ac3fb5"
+    sha256 cellar: :any_skip_relocation, catalina:      "cf3752b72a1fd20dd08061ea34e27d6043ad366cecb55c397ce3326e032422ae"
+    sha256 cellar: :any_skip_relocation, mojave:        "e902f0bf5027cce2b066ded945a406c6b49c1a6dbcea95d2e26ba223843812a7"
   end
 
   depends_on "go" => :build
@@ -33,6 +34,14 @@ class InfluxdbCli < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags),
            "-o", bin/"influx", "./cmd/influx"
+
+    bash_complete = buildpath/"bash-completion"
+    bash_complete.write Utils.safe_popen_read(bin/"influx", "completion", "bash")
+    bash_completion.install bash_complete => "influx"
+
+    zsh_complete = buildpath/"zsh-completion"
+    zsh_complete.write Utils.safe_popen_read(bin/"influx", "completion", "zsh")
+    zsh_completion.install zsh_complete => "_influx"
   end
 
   test do

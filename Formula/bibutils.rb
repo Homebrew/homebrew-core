@@ -1,9 +1,9 @@
 class Bibutils < Formula
   desc "Bibliography conversion utilities"
   homepage "https://sourceforge.net/p/bibutils/home/Bibutils/"
-  url "https://downloads.sourceforge.net/project/bibutils/bibutils_6.10_src.tgz"
-  sha256 "8656c042fa1371443aa4e1a58bcab5fcea0b236eb39182e4004fc348ce56e496"
-  license "GPL-2.0"
+  url "https://downloads.sourceforge.net/project/bibutils/bibutils_7.1_src.tgz"
+  sha256 "b4a4e8e900fe113887a8d9730b47d8bb55926f973486defc233436676271ae6c"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -11,12 +11,11 @@ class Bibutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9d3274c2d4d3a340f0c7032d5d2b47e9e4e25327ea00082f260cca3eb76aa95"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2c80f9ec43e7cc9eef54326523a45b908a791fea211bb3304659cd4032c8f006"
-    sha256 cellar: :any_skip_relocation, catalina:      "eeb586f94730c9030e089a45e4360c5cb3171c6e41ba738744fe4e5a30e31cb7"
-    sha256 cellar: :any_skip_relocation, mojave:        "f420f3882e82a0bf4441c804ed065b5272ce1e5d03812392534d91b29814cd13"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "4fb4ed2978195afedc30fff98661e2663120bd956633845b7e41967dd7a28621"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de894dd8cddc6632688cf6927e1935728e3bcc0b52f709b6ce0756acc15b73ef"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fe797d92065d5b0ef0f16511bfea5ba2567d2f877038109cb5e30f0d796a0f57"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a8989477b91d3423deea04a5833b83cea7eee836ad197dfb30db9ce9599788b2"
+    sha256 cellar: :any_skip_relocation, catalina:      "4f3cd7ce2f12a53e6afd35f92990968e6463a674dc4082315709c295e4869bb6"
+    sha256 cellar: :any_skip_relocation, mojave:        "866724d8735e42aa3c62cb4b47e8be77bb41490d23ca2d83f0096ee2b9b4e5fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf0f79873c4ce317aed31c0c1516552e937ccddc191f951d3acf8cc3f2e9ca06"
   end
 
   def install

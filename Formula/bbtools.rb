@@ -1,16 +1,16 @@
 class Bbtools < Formula
   desc "Brian Bushnell's tools for manipulating reads"
   homepage "https://jgi.doe.gov/data-and-tools/bbtools/"
-  url "https://downloads.sourceforge.net/bbmap/BBMap_38.93.tar.gz"
-  sha256 "e2700cc6bfa6ff0868bb2887850f1e514bc6e44cd71ca933e23ae5ce3c630605"
+  url "https://downloads.sourceforge.net/bbmap/BBMap_38.94.tar.gz"
+  sha256 "be616aed9babf4c99f7d95307e3c5ae449b253626d00f2928a679dfb263a6405"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "d48cb8fda86fc26b8743176a105d971a93fcf6d9c104e17da711af9431176e8b"
-    sha256 cellar: :any,                 big_sur:       "c58e0dd12480d053b2773d379595113306413a1232b8e6f06c16a21200336910"
-    sha256 cellar: :any,                 catalina:      "55871cc98ba20e53a2719d19db44914b0805087b1a07d35dfe3416c34d8a5560"
-    sha256 cellar: :any,                 mojave:        "2f4d3beb9b4a22f244efd09fe6f0fcb3e0fce712e2b82047cf884559a0d65fa7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69ede7fab3159235bc54da642e9e7f97e5d99c26edcd9700abf9a3b8a9aed71a"
+    sha256 cellar: :any,                 arm64_big_sur: "a5f09dc1b4fbab274212e09dbcf37eb86ad96353f1451da8cd6d0cee13c24ea8"
+    sha256 cellar: :any,                 big_sur:       "63c494be4d54b01b8fdbbae8d1c9a3479cc00a47d082bf8c43a721d86fda48ff"
+    sha256 cellar: :any,                 catalina:      "34ac2edaa8cd697f60e9858d483f2cd0dca2d17bfe2ecd986d8391b50a161348"
+    sha256 cellar: :any,                 mojave:        "3548c29585c5b320bc7855f3a33c49639e8035d5fad9757fb24784c46aa17486"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e8caeefe2ac57585f7cda44463836caeab85f3f92f066e755d74234116b6a37"
   end
 
   depends_on "openjdk"

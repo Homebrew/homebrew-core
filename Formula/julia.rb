@@ -187,13 +187,45 @@ class Julia < Formula
   end
 
   test do
-    assert_equal "4", shell_output("#{bin}/julia -E '2 + 2'").chomp
-    system bin/"julia", "-e", 'Base.runtests("core")'
+    args = %W[
+      --startup-file=no
+      --history-file=no
+      --project=#{testpath}
+      --procs #{ENV.make_jobs}
+    ]
 
-    (lib/"julia").children.each do |so|
-      next unless so.symlink?
+    assert_equal "4", shell_output("#{bin}/julia #{args.join(" ")} --print '2 + 2'").chomp
+    system bin/"julia", *args, "--eval", 'Base.runtests("core")'
 
-      assert_predicate so, :exist?, "Broken linkage with #{so.basename}"
-    end
+    # Check that Julia can load stdlibs that load non-Julia code.
+    # Most of these also check that Julia can load Homebrew-provided libraries.
+    jlls = %w[
+      MPFR_jll SuiteSparse_jll Zlib_jll OpenLibm_jll
+      nghttp2_jll MbedTLS_jll LibGit2_jll GMP_jll
+      OpenBLAS_jll CompilerSupportLibraries_jll dSFMT_jll LibUV_jll
+      LibSSH2_jll LibCURL_jll libLLVM_jll PCRE2_jll
+    ]
+    system bin/"julia", *args, "--eval", "using #{jlls.join(", ")}"
+
+    # Check that Julia can load libraries in lib/"julia".
+    # Most of these are symlinks to Homebrew-provided libraries.
+    # This also checks that these libraries can be loaded even when
+    # the symlinks are broken (e.g. by version bumps).
+    dlext = shared_library("").sub(".", "")
+    libs = (lib/"julia").children
+                        .reject(&:directory?)
+                        .map(&:basename)
+                        .map(&:to_s)
+                        .select { |s| s.start_with?("lib") && s.end_with?(dlext) }
+
+    (testpath/"library_test.jl").write <<~EOS
+      using Libdl
+      libraries = #{libs}
+      for lib in libraries
+        handle = dlopen(lib)
+        @assert dlclose(handle) "Unable to close $(lib)!"
+      end
+    EOS
+    system bin/"julia", *args, "library_test.jl"
   end
 end

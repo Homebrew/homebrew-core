@@ -1,16 +1,16 @@
 class Yq < Formula
   desc "Process YAML documents from the CLI"
   homepage "https://github.com/mikefarah/yq"
-  url "https://github.com/mikefarah/yq/archive/v4.13.2.tar.gz"
-  sha256 "7a7275b9c67cfcb9de9dd94496510861319590f82fa42340777ab92999e6adb9"
+  url "https://github.com/mikefarah/yq/archive/v4.13.3.tar.gz"
+  sha256 "4b1f9e204375abf7c3d6c9f66d0c2bf5a64d00f6fdc8b2828168394431a1a2f7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4dba98d234b071ae4771626bb66880e5698d1488386441b0feb4f9e8b2cc6f0c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1a27e336f9253a49f8ca84413c4bb65a8bb68346ff8eaae7710634633c9ad2db"
-    sha256 cellar: :any_skip_relocation, catalina:      "653d837aa25dcdad6fe6a04158d796fe1f3ec5c32b372a068feac084c9eb9783"
-    sha256 cellar: :any_skip_relocation, mojave:        "fc5857fdac7f1e53a5eb9fc2dc4be05f53f100b8507deebeb19a6f9891c4c63e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbaea8d7da4db2e483f192191fdc3a9b5070cc4fd2e8fe747821c2afc53eff97"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9fba13c4869747b891013f65a3dfc377e6ae2ae9e36b1611a18dd908480b7b56"
+    sha256 cellar: :any_skip_relocation, big_sur:       "062d0754bcf667c47ba9129a73a4426307fb6dcc05c8bc2e67099f1b18a9035a"
+    sha256 cellar: :any_skip_relocation, catalina:      "45a702bedf2d6645825aaeb9a7d0cba25b1745399260ac95292046eec82397ab"
+    sha256 cellar: :any_skip_relocation, mojave:        "d6012c74cc8b0e8e8de2e079cecef8a25bca4e9a01d1b8986094059df1120f14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c59bbee899a43ce7a2c6677cf39c77cf4a66ffdd0e3bd2ce1b03674df765099b"
   end
 
   depends_on "go" => :build

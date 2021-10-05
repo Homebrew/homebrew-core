@@ -1,16 +1,16 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.4.2.tar.gz"
-  sha256 "f73bd2d3ec40d91729578b0a74c3228159bafcb09424cad85d9ba3fe18a2dca0"
+  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.4.4.tar.gz"
+  sha256 "dcd084b8ff516defd10840936aebec9b822fb622f0232cc79be7b8826252aad5"
 
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "e8009e1962f45a26cdebab9ffe478563e14e9e37f06b9ff040302bb576f9b911"
-    sha256 big_sur:       "a5142076093a30494edabf7fcf2b647f21ee6a7b224d3d2eb3843640dcdd33d1"
-    sha256 catalina:      "f81ca79f14c688112cdfda74318d361a26322e54ff17b076f90d995181eed9f8"
-    sha256 mojave:        "3e649c5830954bca7261f4e3e1b6e06f1ad8838dd4d01fdfdd6e85d5bfdd9af8"
+    sha256 arm64_big_sur: "233eb89ad9d009096410b6f2c676f702e58579ac6bdcf4a08e125a36c76cb187"
+    sha256 big_sur:       "d6743e6f6cbc283e1c092abf4ebfabce4fcf9fc91e8b70785d1b2d157a9e7080"
+    sha256 catalina:      "c34b4fdf0dec52d264626776aa9994a8ac82e80f107816d8b5d4247853569bb4"
+    sha256 mojave:        "477d6e5b7df4fefcdc35ccabb87bb724b4a8c7e591bbaa9c93f24562cdadcc64"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +20,6 @@ class Notcurses < Formula
   depends_on "ffmpeg"
   depends_on "libunistring"
   depends_on "ncurses"
-  depends_on "readline"
   uses_from_macos "zlib"
 
   fails_with gcc: "5"

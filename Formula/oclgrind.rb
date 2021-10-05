@@ -12,6 +12,7 @@ class Oclgrind < Formula
   end
 
   bottle do
+    sha256 cellar: :any, big_sur:     "bff14e3999ba19724251c6a49b4e3d593f3378f10bb0ef87e1e0bb51d8430c16"
     sha256 cellar: :any, catalina:    "1fd792bb90fa78dd58cc2d7ffe824084b80caf2211363096b14a3d9a6f3411c9"
     sha256 cellar: :any, mojave:      "f6728b30db78fa358b2136d4c1e51dbcafa79b4a9ddbf3a601f28c01e0e26805"
     sha256 cellar: :any, high_sierra: "fe3d0a3798f2ac0092e8469a6f824bdfb29b0fb92f0d3b3fa0edeb8875f54ee6"

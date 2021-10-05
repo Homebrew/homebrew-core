@@ -8,11 +8,12 @@ class Abcde < Formula
   head "https://git.einval.com/git/abcde.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4240ff000419b4ca9c0d275d70fccb10255ea17718906768892ba3a2d7ecb444"
-    sha256 cellar: :any, big_sur:       "c9668232e677e92b51210a0563c2156f030837b1fb221de60d16c83c466620b2"
-    sha256 cellar: :any, catalina:      "fa00c7fc4b6b4ab794439f619ba00961358a4e5684a0ae2412fbd78ba2497df1"
-    sha256 cellar: :any, mojave:        "c2ef29d1b906767727d858047ddab9516f14c70073b30174a6222b1300446432"
-    sha256 cellar: :any, high_sierra:   "2a81af2921befb14f0a96e66ebc3884bd33f8bab156f7dc27e2816a956d033cb"
+    sha256 cellar: :any,                 arm64_big_sur: "4240ff000419b4ca9c0d275d70fccb10255ea17718906768892ba3a2d7ecb444"
+    sha256 cellar: :any,                 big_sur:       "c9668232e677e92b51210a0563c2156f030837b1fb221de60d16c83c466620b2"
+    sha256 cellar: :any,                 catalina:      "fa00c7fc4b6b4ab794439f619ba00961358a4e5684a0ae2412fbd78ba2497df1"
+    sha256 cellar: :any,                 mojave:        "c2ef29d1b906767727d858047ddab9516f14c70073b30174a6222b1300446432"
+    sha256 cellar: :any,                 high_sierra:   "2a81af2921befb14f0a96e66ebc3884bd33f8bab156f7dc27e2816a956d033cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93e3d734fe73f1ca3edeab8e4f25794a28acbdde6df9f3ffd7d01b2e16ce31a2"
   end
 
   depends_on "pkg-config" => :build

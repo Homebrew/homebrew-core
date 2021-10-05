@@ -5,11 +5,6 @@ class Hardlink < Formula
   sha256 "e8c93dfcb24aeb44a75281ed73757cb862cc63b225d565db1c270af9dbb7300f"
   license "MIT"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?hardlink[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "fe5acfbc7a123db425beb0257ca23f4286b3260bd76b81027ee7528cc05bfdfd"
     sha256 cellar: :any,                 big_sur:       "1c2d9bd0578affd02e5b3ea25f09167665f555b652254cea27aabf1b704bf294"

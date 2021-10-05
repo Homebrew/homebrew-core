@@ -5,6 +5,7 @@ class Git < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.0.tar.xz"
   sha256 "bf3c6ab5f82e072aad4768f647cfb1ef60aece39855f83f080f9c0222dd20c4f"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/git/git.git"
 
   livecheck do
@@ -13,17 +14,17 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "06e9cc3e274380b2494451ed2e3c6acf1e091facdf2ce02da57921fbc6a3115a"
-    sha256 big_sur:       "1b89ec39f7a4b865b3c671f9b2495ec85992595112b74a5dc3ac78beae33ff0d"
-    sha256 catalina:      "4aaced15f34f02a7a965f9cee42b78ef471034e4d9cf3bbbe8bf2ab8f4f72678"
-    sha256 mojave:        "5e85e4d8c9aaa398420993cb9c2561db79d3a71a12b79b8631ee0de5b0d86c67"
-    sha256 x86_64_linux:  "06340f727c9e234bbe7fb940307c7ec2545b8186ed1bfbb9c20cf9763cb2d22c"
+    sha256 arm64_big_sur: "037c3cbd910200eea187054d8e66667a13d7c96c4853f0a03cb5472a7d312ab3"
+    sha256 big_sur:       "8fc2e1399a07679cbb10cb372df2039d54588ff46449d9cdf110ef1451e0cdda"
+    sha256 catalina:      "3536885eb4f7e392f6f37916d3488c0db6c34c8e78d23eec03ecad29ef63d24c"
+    sha256 mojave:        "a95073a02c60df1067475a59c8282bb287b5a2ebd5fd33f2f65796b278045229"
+    sha256 x86_64_linux:  "13fcfb955b755aee931e440659afdb73d111f1b281b01ce661928412644a79c5"
   end
 
   depends_on "gettext"
   depends_on "pcre2"
 
-  uses_from_macos "curl"
+  uses_from_macos "curl", since: :catalina # macOS < 10.15.6 has broken cert path logic
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
@@ -68,13 +69,6 @@ class Git < Formula
       ].uniq.map do |p|
         "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
       end.join(":")
-    end
-
-    # Ensure we are using the correct system headers (for curl) to workaround
-    # mismatched Xcode/CLT versions:
-    # https://github.com/Homebrew/homebrew-core/issues/46466
-    if MacOS.version == :mojave && MacOS::CLT.installed? && MacOS::CLT.provides_sdk?
-      ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
 
     # The git-gui and gitk tools are installed by a separate formula (git-gui)

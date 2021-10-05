@@ -1,17 +1,17 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/releases/download/v2021.09.27.00/wangle-v2021.09.27.00.tar.gz"
-  sha256 "c23840578f73a0316ef58cd0e95ed001dbf5e893740d72c157f579ac2342558a"
+  url "https://github.com/facebook/wangle/releases/download/v2021.10.04.00/wangle-v2021.10.04.00.tar.gz"
+  sha256 "7b95f76e9377e733e5ff3bc2ef860fea352d35c847f6ee1f164483e115c98355"
   license "Apache-2.0"
   head "https://github.com/facebook/wangle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "49bfbd4664d9a349d6b721cffbf144aee4fbc6bc7cb8c315d4313d234996f1e3"
-    sha256 cellar: :any,                 big_sur:       "6cb44fa77d4014e5a2f1dc2978dc8368ca71b97e0a3705278c31c0044bb948f8"
-    sha256 cellar: :any,                 catalina:      "467066e9c01790758560384384ae09f0e845670406d354b78206699f9d67b0ae"
-    sha256 cellar: :any,                 mojave:        "9814e4d63c4d91902e75f1be7054a4ebc7cd79843b8e512d5ff5cb29179e76cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbe37e8cabde712d8a70262edb862158845b1bf37ad961748191ea2b7a70d140"
+    sha256 cellar: :any,                 arm64_big_sur: "003396fdf81ce5d38019682b6092996793b8fc2fe5a84140c340032b108f7ca1"
+    sha256 cellar: :any,                 big_sur:       "46101c077d9db73a79d0ba51dd4414d7004a42ba30df80bc20423cf70aaa9769"
+    sha256 cellar: :any,                 catalina:      "ba040bd66a20b6ea0563370757f5d74014ada184215c9ad757d3f7557514459a"
+    sha256 cellar: :any,                 mojave:        "d87ff9028f5cae30921238c1b1aa52015e51ab407151dfe12ea7c5f839dbb3a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afaf31d2c5785beaf62a95653ad4eab1c16d359df927f1eec73a2a3f12ea9c2c"
   end
 
   depends_on "cmake" => :build
