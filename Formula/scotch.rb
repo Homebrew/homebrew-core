@@ -29,6 +29,7 @@ class Scotch < Formula
     cd "src"
     (buildpath/"src").install_symlink "Make.inc/Makefile.inc.i686_mac_darwin10" => "Makefile.inc"
     system "make"
+    system "make", "ptscotch"
     system "make", "prefix=#{prefix}", "install"
   end
 
