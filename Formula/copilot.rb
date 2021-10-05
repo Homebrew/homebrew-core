@@ -45,7 +45,7 @@ class Copilot < Formula
   test do
     begin
       _, stdout, wait_thr = Open3.popen2("#{bin}/copilot init 2>&1")
-      assert_match "Note: It's best to run this command in the root of your Git repository", stdout.gets("\n")
+      assert_match "It looks like your AWS region configuration is missing", stdout.gets("\n")
     ensure
       Process.kill 9, wait_thr.pid
     end
