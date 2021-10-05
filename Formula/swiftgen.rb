@@ -1,11 +1,10 @@
 class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
-  url "https://github.com/SwiftGen/SwiftGen.git",
-      tag:      "6.5.1",
-      revision: "d498d285867f42ef0c74c5ebd9ddced747831372"
+  url "https://github.com/SwiftGen/SwiftGen/archive/6.5.1.tar.gz"
+  sha256 "bcd52ddc581eea94070eaaab7b94218971f7424b7800696f6be0a1accfc7a0a9"
   license "MIT"
-  head "https://github.com/SwiftGen/SwiftGen.git", branch: "develop"
+  head "https://github.com/SwiftGen/SwiftGen/archive/develop.tar.gz"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "27f76732f927b0cbdc3ce8b00c3ccb5c0c0ffaaa60d3c2360897b58f4a52d5bd"
@@ -17,10 +16,8 @@ class Swiftgen < Formula
   depends_on :macos
 
   resource("testdata") do
-    url "https://github.com/SwiftGen/SwiftGen.git",
-      tag:      "6.5.1",
-      revision: "d498d285867f42ef0c74c5ebd9ddced747831372",
-      branch:   "develop"
+    url "https://github.com/SwiftGen/SwiftGen/archive/6.5.1.tar.gz"
+    sha256 "bcd52ddc581eea94070eaaab7b94218971f7424b7800696f6be0a1accfc7a0a9"
   end
 
   def install
