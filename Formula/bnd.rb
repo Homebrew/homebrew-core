@@ -3,6 +3,7 @@ class Bnd < Formula
   homepage "https://bnd.bndtools.org/"
   url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/6.0.0/biz.aQute.bnd-6.0.0.jar"
   sha256 "6ca070c9d33fb7756aff64813cb49d258e4664a9c3d4953c797da394e2348112"
+  license any_of: ["Apache-2.0", "EPL-2.0"]
 
   livecheck do
     url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/maven-metadata.xml"
