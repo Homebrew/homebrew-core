@@ -1,8 +1,8 @@
 class K2tf < Formula
   desc "Kubernetes YAML to Terraform HCL converter"
   homepage "https://github.com/sl1pm4t/k2tf"
-  url "https://github.com/sl1pm4t/k2tf/archive/v0.6.0.tar.gz"
-  sha256 "f1ec058c18dfdcdf2cfd26694b39910548e346087c80ad11aced74566040ad99"
+  url "https://github.com/sl1pm4t/k2tf/archive/v0.6.2.tar.gz"
+  sha256 "e8971e6e7783e8e96014939f67d81570042f147f027fb1eb4c2f524632a68403"
   license "MPL-2.0"
   head "https://github.com/sl1pm4t/k2tf.git", branch: "master"
 
