@@ -13,8 +13,14 @@ class PscPackage < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
   depends_on "purescript"
+
+  # Apply upstream patch to fix build. Remove with next release.
+  patch do
+    url "https://github.com/purescript/psc-package/commit/2817cfd7bbc29de790d2ab7bee582cd6167c16b5.patch?full_index=1"
+    sha256 "e49585ff8127ccca0b35dc8a7caa04551de1638edfd9ac38e031d1148212091c"
+  end
 
   def install
     system "cabal", "v2-update"
