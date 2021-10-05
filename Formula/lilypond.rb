@@ -3,7 +3,14 @@ class Lilypond < Formula
   homepage "https://lilypond.org"
   url "https://lilypond.org/download/sources/v2.22/lilypond-2.22.1.tar.gz"
   sha256 "72ac2d54c310c3141c0b782d4e0bef9002d5519cf46632759b1f03ef6969cc30"
-  license "GPL-3.0-or-later"
+  license all_of: [
+    "GPL-3.0-or-later",
+    "GPL-3.0-only",
+    "OFL-1.1-RFN",
+    "GFDL-1.3-no-invariants-or-later",
+    :public_domain,
+    "MIT",
+  ]
 
   livecheck do
     url "https://lilypond.org/source.html"
@@ -18,16 +25,18 @@ class Lilypond < Formula
     sha256 x86_64_linux:  "588d9bb3fea1eb39d0f206acd25c517984d149577927c19a1772c2a17bfef63e"
   end
 
-  depends_on "bison" => :build # Lilypond requires bison 2.4.1 or above
+  head do
+    url "https://git.savannah.gnu.org/git/lilypond.git", branch: "master"
+    mirror "https://github.com/lilypond/lilypond.git"
+  end
+
+  depends_on "bison" => :build # bison >= 2.4.1 is required
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
-  depends_on "glib" => :build
-  depends_on "perl" => :build
   depends_on "pkg-config" => :build
   depends_on "t1utils" => :build
-  depends_on "texinfo" => :build # lilypond requires texinfo 6.1 or above
+  depends_on "texinfo" => :build # makeinfo >= 6.1 is required
   depends_on "texlive" => :build
-
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "ghostscript"
@@ -36,6 +45,7 @@ class Lilypond < Formula
   depends_on "python@3.9"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "perl" => :build
 
   def install
     system "./configure",
@@ -43,7 +53,7 @@ class Lilypond < Formula
             "--datadir=#{share}",
             "--with-texgyre-dir=#{Formula["texlive"].opt_share}/texmf-dist/fonts/opentype/public/tex-gyre",
             "--disable-documentation"
-    ENV.prepend_path "LTDL_LIBRARY_PATH", Formula["guile@2"].lib
+    ENV.prepend_path "LTDL_LIBRARY_PATH", Formula["guile@2"].opt_lib
     system "make"
     system "make", "install"
 
@@ -57,14 +67,7 @@ class Lilypond < Formula
   end
 
   test do
-    (testpath/"test.ly").write <<~EOS
-      traLaLa = { c'4 d'4 }
-      #(define newLa (map ly:music-deep-copy
-        (list traLaLa traLaLa)))
-      #(define twice
-        (make-sequential-music newLa))
-      \\twice
-    EOS
+    (testpath/"test.ly").write "\\relative { c' d e f g a b c }"
     system bin/"lilypond", "--loglevel=ERROR", "test.ly"
     assert_predicate testpath/"test.pdf", :exist?
   end
