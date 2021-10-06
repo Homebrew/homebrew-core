@@ -4,7 +4,7 @@ class Keepassc < Formula
   url "https://files.pythonhosted.org/packages/c8/87/a7d40d4a884039e9c967fb2289aa2aefe7165110a425c4fb74ea758e9074/keepassc-1.8.2.tar.gz"
   sha256 "2e1fc6ccd5325c6f745f2d0a3bb2be26851b90d2095402dd1481a5c197a7b24e"
   license "ISC"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1fda05aa9860777fc35146d01c2828b50ea58e297301b6403ffe49a10538fd35"
@@ -14,7 +14,7 @@ class Keepassc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f796e436efb238dc9f1396fa0160fe32befdc978d3a904b15cf8a31ef42fd784"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "kppy" do
     url "https://files.pythonhosted.org/packages/c8/d9/6ced04177b4790ccb1ba44e466c5b67f3a1cfe4152fb05ef5f990678f94f/kppy-1.5.2.tar.gz"
