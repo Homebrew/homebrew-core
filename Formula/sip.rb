@@ -6,6 +6,7 @@ class Sip < Formula
   url "https://files.pythonhosted.org/packages/98/3a/f1b69503d6129ba3b06cf066740f5188aa20bd32cfd2e788ca58c073b2ba/sip-6.2.0.tar.gz"
   sha256 "34d2270b4ed8d7f8e55cc4ba821d718ee40d9bb2449c6b5cf8a10139d5c121ac"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  revision 1
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
   bottle do
@@ -16,7 +17,7 @@ class Sip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b0319ea1fb2a7a66d239dad066eb6b215e1a2af7184ca57863f67df9ad24063"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
@@ -34,7 +35,7 @@ class Sip < Formula
   end
 
   def install
-    python = Formula["python@3.9"]
+    python = Formula["python@3.10"]
     venv = virtualenv_create(libexec, python.bin/"python3")
     resources.each do |r|
       venv.pip_install r
