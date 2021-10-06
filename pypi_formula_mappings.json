@@ -344,6 +344,9 @@
       "six"
    	]
   },
+  "rtv": {
+    "exclude_packages": ["six"]
+  },
   "sceptre": {
     "exclude_packages": ["six"]
   },
