@@ -6,6 +6,7 @@ class Pydocstyle < Formula
   url "https://files.pythonhosted.org/packages/4c/30/4cdea3c8342ad343d41603afc1372167c224a04dc5dc0bf4193ccb39b370/pydocstyle-6.1.1.tar.gz"
   sha256 "1d41b7c459ba0ee6c345f2eb9ae827cab14a7533a88c5c6f7e94923f72df92dc"
   license "MIT"
+  revision 1
   head "https://github.com/PyCQA/pydocstyle.git", branch: "master"
 
   bottle do
@@ -15,7 +16,7 @@ class Pydocstyle < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "66244942f557879c00ed156a7f9bd70a70230ece72b6e22d5f0ef9800e4a07e5"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "snowballstemmer" do
     url "https://files.pythonhosted.org/packages/a3/3d/d305c9112f35df6efb51e5acd0db7009b74d86f35580e033451b5994a0a9/snowballstemmer-2.1.0.tar.gz"
