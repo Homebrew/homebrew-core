@@ -6,6 +6,7 @@ class CfnFlip < Formula
   url "https://files.pythonhosted.org/packages/76/5a/314a934b75f2f52d1845e4344b9bbdacdd76d82784b678ec27c2ed57fd2c/cfn_flip-1.2.3.tar.gz"
   sha256 "2bed32a1f4dca26dc64178d52511fd4ef778b5ccbcf32559cac884ace75bde6a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c697eb2c6521e79bbdf5a834866914b9316383789a8ac885d7f1439b2c2774d2"
@@ -16,7 +17,7 @@ class CfnFlip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a130a6bf6e84bb608f7246b039227db3857d2a5397d7deca6c397100d23a53da"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
