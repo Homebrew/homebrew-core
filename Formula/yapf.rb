@@ -6,6 +6,7 @@ class Yapf < Formula
   url "https://files.pythonhosted.org/packages/85/60/8532f7ca17cea13de00e80e2fe1e6bd59a9379856706a027536b19daf0d3/yapf-0.31.0.tar.gz"
   sha256 "408fb9a2b254c302f49db83c59f9aa0b4b0fd0ec25be3a5c51181327922ff63d"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "47e90fbe675d07d273b421a8313d1321104ae9edb8287a16b4cf14faa4ca5cf7"
@@ -15,7 +16,7 @@ class Yapf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb5ae98b024f3537b3273a1985b052796966890d9119bbe6e26db776750646c0"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
