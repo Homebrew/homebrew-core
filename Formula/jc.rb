@@ -6,6 +6,7 @@ class Jc < Formula
   url "https://files.pythonhosted.org/packages/76/6d/3510650186393a964cb594748e33c6edba23d261ea2e8b9e0dc78aa6d19e/jc-1.17.0.tar.gz"
   sha256 "b6c62020ad770ce4be249a7422044e7eac39130213b0ce63c80746087c34f5f2"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c06509b2c7765b3a0025225089826cff9ff1a342e3f91cabbecdead2345249c"
@@ -15,7 +16,7 @@ class Jc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "28ebb8a0c31f23e0e582d5952976369ef0428365ab429ea86ca5db599cd165e2"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
