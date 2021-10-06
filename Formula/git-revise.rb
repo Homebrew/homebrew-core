@@ -6,7 +6,7 @@ class GitRevise < Formula
   url "https://files.pythonhosted.org/packages/8e/80/97eae3a7d93f8c17127ac5722ffb5a0f3b3bfd18525569865d2bfb5d27a1/git-revise-0.6.0.tar.gz"
   sha256 "21e89eba6602e8bea38b34ac6ec747acba2aee876f2e73ca0472476109e82bf4"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/mystor/git-revise.git"
 
   bottle do
@@ -18,7 +18,7 @@ class GitRevise < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "78545577b4be3e4f1b7fe5cd9706215f543ac0d21519120770554d2b5702331c"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
