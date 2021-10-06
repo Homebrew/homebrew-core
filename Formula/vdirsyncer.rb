@@ -4,15 +4,10 @@ class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
   url "https://github.com/pimutils/vdirsyncer.git",
-      tag:      "0.16.8",
-      revision: "b5dd0929d009b7b07f72903dd6fb82815f45bdd8"
-  revision 2
+      tag:      "0.18.0",
+      revision: "3191886658f7717c00ec013eb778bc1ced5cef0c"
+  license "BSD-3-Clause"
   head "https://github.com/pimutils/vdirsyncer.git", branch: "master"
-
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a516d7f9f4a99067fe1908faf3cd09849ad0164bfb56a05e11b249c10b13123e"
@@ -23,17 +18,11 @@ class Vdirsyncer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "963693a854e1cc7f1b67cbb1cad6fdb7054b621e37fc2130ba7cba938fd643f7"
   end
 
-  depends_on "python@3.9"
-
-  # from https://github.com/pimutils/vdirsyncer/pull/830
-  # remove in next release
-  patch do
-    url "https://github.com/pimutils/vdirsyncer/commit/7577fa21177442aacc2d86640ef28cebf1c4aaef.patch?full_index=1"
-    sha256 "3fe0b07e6a1f5210a51af4240e54ee2fe32936680f7ae518e40424531b657844"
-  end
+  depends_on "python@3.10"
 
   def install
-    venv = virtualenv_create(libexec, "python3.9")
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
+    venv = virtualenv_create(libexec, "python#{xy}")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", "requests-oauthlib",
                               buildpath
