@@ -382,6 +382,9 @@
   "sqlite-utils": {
     "exclude_packages": ["tabulate", "six"]
   },
+  "stormssh": {
+    "exclude_packages": ["six"]
+  },
   "tarsnapper": {
     "exclude_packages": ["six"]
   },
