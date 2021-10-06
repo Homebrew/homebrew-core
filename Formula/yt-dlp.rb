@@ -6,6 +6,7 @@ class YtDlp < Formula
   url "https://files.pythonhosted.org/packages/ad/2a/19788cdbce56ea05600068bf342f91c91fd5acc6c6486e16d498b0ec533a/yt-dlp-2021.9.25.tar.gz"
   sha256 "e7b8dd0ee9498abbd80eb38d9753696d6ca3d02f64980322ab3bf39ba1bc31ee"
   license "Unlicense"
+  revision 1
   head "https://github.com/yt-dlp/yt-dlp.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class YtDlp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4b520ba19435e8a4d00aadc232c06b03def95fc8f630a471c1ccb02cb270bcf"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "mutagen" do
     url "https://files.pythonhosted.org/packages/f3/d9/2232a4cb9a98e2d2501f7e58d193bc49c956ef23756d7423ba1bd87e386d/mutagen-1.45.1.tar.gz"
