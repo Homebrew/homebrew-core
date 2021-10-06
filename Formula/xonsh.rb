@@ -6,6 +6,7 @@ class Xonsh < Formula
   url "https://files.pythonhosted.org/packages/e8/7d/ca09bfc9882d5d467568f8683252130c9eacf615ab6646f3ad229865a104/xonsh-0.10.1.tar.gz"
   sha256 "00409804fc38111800dbca40274224e069e4ef5af6020c27ad58f966ca3025e3"
   license "BSD-2-Clause-Views"
+  revision 1
   head "https://github.com/xonsh/xonsh.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class Xonsh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "52e156607d5c1ced17090d426ceff44594c4cffd2a42782b29302363f0a9823e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # Resources based on `pip3 install xonsh[ptk,pygments,proctitle]`
   # See https://xon.sh/osx.html#dependencies
