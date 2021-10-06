@@ -6,6 +6,7 @@ class Pyinvoke < Formula
   url "https://files.pythonhosted.org/packages/37/b3/0b88358ee07789688d17ec7074a656da68ced50a122183187be12928b535/invoke-1.6.0.tar.gz"
   sha256 "374d1e2ecf78981da94bfaf95366216aaec27c2d6a7b7d5818d92da55aa258d3"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/pyinvoke/invoke.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Pyinvoke < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7347fdf05d5924430baa47e9936cda6d96f7c873200c7516fa81ac9888938339"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
