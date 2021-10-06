@@ -4,7 +4,7 @@ class Honcho < Formula
   url "https://files.pythonhosted.org/packages/a2/8b/c404bce050eba79a996f6901f35445a53c1133b0424b33e58a4ad225bc37/honcho-1.0.1.tar.gz"
   sha256 "c189402ad2e337777283c6a12d0f4f61dc6dd20c254c9a3a4af5087fc66cea6e"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/nickstenning/honcho.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Honcho < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "48bffce8ba11ecb7d545b5f0a84718cb606f48fc693cc11511f229e64caf42f0"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     xy = Language::Python.major_minor_version "python3"
