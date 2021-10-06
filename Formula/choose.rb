@@ -4,7 +4,7 @@ class Choose < Formula
   url "https://github.com/geier/choose/archive/v0.1.0.tar.gz"
   sha256 "d09a679920480e66bff36c76dd4d33e8ad739a53eace505d01051c114a829633"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/geier/choose.git", branch: "master"
 
   bottle do
@@ -16,7 +16,7 @@ class Choose < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f694deea45cc55594ec470f3246e4181479b1365ade491f14f24aa6d5886f72"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "choose-gui", because: "both install a `choose` binary"
   conflicts_with "choose-rust", because: "both install a `choose` binary"
