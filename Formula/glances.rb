@@ -4,6 +4,7 @@ class Glances < Formula
   url "https://files.pythonhosted.org/packages/2a/93/c2175c56cb4f7c36460058c6f43e733ed85dfa0616c8a2cbfeac528d6d7f/Glances-3.1.7.tar.gz"
   sha256 "bd282e35df3f29dd1f3f6955489eb7b73b56d92059f6939b1e15ac8cd1581b08"
   license "LGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6629143967722b197afdee82768109ab9d7990cbcc3b113e91f6bd6ebc9bad78"
@@ -13,7 +14,7 @@ class Glances < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "44cfc2c7eb67c3b93ae5a1efa0399e77ffbea3e789418937896be7b9fd5b9eea"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "future" do
     url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
