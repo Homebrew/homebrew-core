@@ -4,7 +4,7 @@ class Fades < Formula
   url "https://files.pythonhosted.org/packages/cd/b0/381b14139b36dcbd317349ce7c2bd2e2a66bfc772d13e568d71f3d98d977/fades-9.0.tar.gz"
   sha256 "77192b76efbd08dfabce65fe6012805a2383ec1b893c12091efe35fbfd9677f6"
   license "GPL-3.0"
-  revision 1
+  revision 2
   head "https://github.com/PyAr/fades.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Fades < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e209c3c2fc903f929364f82a9675d50d568cd552aa1dba48989fac249ffb2154"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     pyver = Language::Python.major_minor_version "python3"
