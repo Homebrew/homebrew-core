@@ -6,6 +6,7 @@ class Coconut < Formula
   url "https://files.pythonhosted.org/packages/3a/85/7697306188fc03809e794a65a2a745fdde052065b83571bdc36de7fe5a77/coconut-1.5.0.tar.gz"
   sha256 "cb2263fb9e1aa4c6bb7e3051ae26e1444297ecc5e8762c4f8547873b6a0d861d"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7484ead0243f9c769178519ca22664f3697fa0eff7eb33c3f9690a8f6543e572"
@@ -15,7 +16,7 @@ class Coconut < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a50c22b032bd2aeb4f571c971b8a037d706f6b2f5db4f0a62c7c72987609b6fe"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "cPyparsing" do
     url "https://files.pythonhosted.org/packages/7e/08/00b11cc1c195301e5c9710b399a769e18fb6c7f8082b4f49c1aec78023eb/cPyparsing-2.4.5.0.1.2.tar.gz"
