@@ -6,6 +6,7 @@ class Sqlparse < Formula
   url "https://files.pythonhosted.org/packages/32/fe/8a8575debfd924c8160295686a7ea661107fc34d831429cce212b6442edb/sqlparse-0.4.2.tar.gz"
   sha256 "0c00730c74263a94e5a9919ade150dfc3b19c574389985446148402998287dae"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1a984ac437bd907f5eac3e62965dd8cf78859965304d74cab2c9c240d9c7d17a"
@@ -15,7 +16,7 @@ class Sqlparse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "180b65725243b7b0746ce80b98d4e4d3522ed720e38f6f02d0c6f98a849e9a33"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
