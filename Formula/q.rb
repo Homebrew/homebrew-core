@@ -17,12 +17,10 @@ class Q < Formula
   end
 
   depends_on "ronn" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   def install
-    # broken symlink, fixed in next version
-    rm_f "bin/qtextasdata.py"
     virtualenv_install_with_resources
     system "ronn", "--roff", "--section=1", "doc/USAGE.markdown"
     man1.install "doc/USAGE.1" => "q.1"
