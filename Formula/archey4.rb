@@ -6,6 +6,7 @@ class Archey4 < Formula
   url "https://files.pythonhosted.org/packages/54/60/212f5018cc4671fd6b288faf2018ff74e8fcf68703c72e31bcea9ca6217a/archey4-4.13.1.tar.gz"
   sha256 "80abe635c31ae02750c873c12621db56403641db9a04f8a775eb22012fa90f21"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef7f2d3afefe0ab6b360de49ab593b1889338a243ab34ec259a468680369657a"
@@ -15,7 +16,7 @@ class Archey4 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec5410a13db4510efa484b0497ee6f39c81100e4ade702df47fa53680b74b3c6"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "archey", because: "both install `archey` binaries"
 
