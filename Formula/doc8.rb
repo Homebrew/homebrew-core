@@ -6,6 +6,7 @@ class Doc8 < Formula
   url "https://files.pythonhosted.org/packages/bb/fd/a39b9b8ce02f38777a24ce06d886b1dd23cea46f14b0f0c0418a03e5254d/doc8-0.9.1.tar.gz"
   sha256 "0e967db31ea10699667dd07790f98cf9d612ee6864df162c64e4954a8e30f90d"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
   bottle do
@@ -15,7 +16,7 @@ class Doc8 < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "58a049b070b9a53e1584048308bd9983e94c08e237f95afbbe47d07442c0032b"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/4c/17/559b4d020f4b46e0287a2eddf2d8ebf76318fd3bd495f1625414b052fdc9/docutils-0.17.1.tar.gz"
