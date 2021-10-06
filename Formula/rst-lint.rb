@@ -6,6 +6,7 @@ class RstLint < Formula
   url "https://files.pythonhosted.org/packages/45/69/5e43d0e8c2ca903aaa2def7f755b97a3aedc5793630abbd004f2afc3b295/restructuredtext_lint-1.3.2.tar.gz"
   sha256 "d3b10a1fe2ecac537e51ae6d151b223b78de9fafdd50e5eb6b08c243df173c80"
   license "Unlicense"
+  revision 1
 
   bottle do
     rebuild 2
@@ -16,7 +17,7 @@ class RstLint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "061745ebccbb1e881785cc42b95a4e792172482176c36db4cc63990a939a2cf3"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz"
