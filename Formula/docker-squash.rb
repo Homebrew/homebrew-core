@@ -6,7 +6,7 @@ class DockerSquash < Formula
   url "https://files.pythonhosted.org/packages/8c/b4/429be44bdb8ad42bbca4ab4a813f771ef517b00a8d733feb6d62716c4209/docker-squash-1.0.8.tar.gz"
   sha256 "f677bc9129d1156516454b0b334cdc2642f7b9a3328dca3a7477c43ac5ee23a9"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "99a172715fd8867c336673dd127525bcf10074050d0d97173e26abdbe393d0c5"
@@ -17,7 +17,7 @@ class DockerSquash < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a4e91660d75019c32a5f7fbf28e565b0e703df688f0020c5d4a4574267bea33"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"
