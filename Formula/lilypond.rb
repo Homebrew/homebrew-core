@@ -28,6 +28,8 @@ class Lilypond < Formula
   head do
     url "https://git.savannah.gnu.org/git/lilypond.git", branch: "master"
     mirror "https://github.com/lilypond/lilypond.git"
+
+    depends_on "autoconf" => :build
   end
 
   depends_on "bison" => :build # bison >= 2.4.1 is required
@@ -48,6 +50,7 @@ class Lilypond < Formula
   uses_from_macos "perl" => :build
 
   def install
+    system "./autogen.sh", "--noconfigure" if build.head?
     system "./configure",
             "--prefix=#{prefix}",
             "--datadir=#{share}",
