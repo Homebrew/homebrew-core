@@ -21,10 +21,6 @@ class Nvm < Formula
       nvm via Homebrew is unsupported by them and you should check any
       problems against the standard nvm install method prior to reporting.
 
-      You should create NVM's working directory if it doesn't exist:
-
-        mkdir ~/.nvm
-
       Add the following to #{shell_profile} or your desired shell
       configuration file:
 
