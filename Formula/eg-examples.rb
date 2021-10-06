@@ -6,6 +6,7 @@ class EgExamples < Formula
   url "https://files.pythonhosted.org/packages/8b/b7/88e0333b9a3633ec686246b5f1c1ee4cad27246ab5206b511fd5127e506f/eg-1.2.1.tar.gz"
   sha256 "e3608ec0b05fffa0faec0b01baeb85c128e0b3c836477063ee507077a2b2dc0c"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3c3fb055e2133a02b36bf18841ff7cd10d6d769ef77d255ddf07e8485362c256"
@@ -15,7 +16,7 @@ class EgExamples < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "47e5aa4e411d7ddd2e29309e26a73959c9dc02110b7559c4e1ef7dde147124f3"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
