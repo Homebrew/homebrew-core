@@ -6,6 +6,7 @@ class Ptpython < Formula
   url "https://files.pythonhosted.org/packages/00/df/223017f2565336078c872f700ebe1c893a051e4d7b472fd0b68289ab3acb/ptpython-3.0.20.tar.gz"
   sha256 "eafd4ced27ca5dc370881d4358d1ab5041b32d88d31af8e3c24167fe4af64ed6"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/prompt-toolkit/ptpython.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Ptpython < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bf23b96b379d267d6d343eac9ec6d6377d5eaaf4afd505de242ae4719582927"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -49,18 +50,7 @@ class Ptpython < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
-    venv.pip_install resources
-    venv.pip_install buildpath
-
-    # Make the Homebrew site-packages available in the interpreter environment
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_path "PYTHONPATH", HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
-    ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    combined_pythonpath = ENV["PYTHONPATH"] + "${PYTHONPATH:+:}$PYTHONPATH"
-    %w[ptipython ptipython3 ptipython3.9 ptpython ptpython3 ptpython3.9].each do |cmd|
-      (bin/cmd).write_env_script libexec/"bin/#{cmd}", PYTHONPATH: combined_pythonpath
-    end
+    virtualenv_install_with_resources
   end
 
   test do
