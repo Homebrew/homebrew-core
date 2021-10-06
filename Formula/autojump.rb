@@ -4,7 +4,7 @@ class Autojump < Formula
   url "https://github.com/wting/autojump/archive/release-v22.5.3.tar.gz"
   sha256 "00daf3698e17ac3ac788d529877c03ee80c3790472a85d0ed063ac3a354c37b1"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/wting/autojump.git", branch: "master"
 
   bottle do
@@ -16,17 +16,17 @@ class Autojump < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "155704b3dbb470bf4b4e21e713e808a6c4aa0428447cd1869c6cc75c56bf0517"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    system Formula["python@3.9"].opt_bin/"python3", "install.py", "-d", prefix, "-z", zsh_completion
+    system Formula["python@3.10"].opt_bin/"python3", "install.py", "-d", prefix, "-z", zsh_completion
 
     # Backwards compatibility for users that have the old path in .bash_profile
     # or .zshrc
     (prefix/"etc").install_symlink prefix/"etc/profile.d/autojump.sh"
 
     libexec.install bin
-    (bin/"autojump").write_env_script libexec/"bin/autojump", PATH: "#{Formula["python@3.9"].libexec}/bin:$PATH"
+    (bin/"autojump").write_env_script libexec/"bin/autojump", PATH: "#{Formula["python@3.10"].libexec}/bin:$PATH"
   end
 
   def caveats
