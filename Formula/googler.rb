@@ -6,6 +6,7 @@ class Googler < Formula
   url "https://github.com/jarun/googler/archive/v4.3.2.tar.gz"
   sha256 "bd59af407e9a45c8a6fcbeb720790cb9eccff21dc7e184716a60e29f14c68d54"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/jarun/googler.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Googler < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "198a84d6d6de97d35b45f726315cd8aaae307347539b42f793e0647b7d668acb"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     rewrite_shebang detected_python_shebang, "googler"
