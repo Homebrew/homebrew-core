@@ -6,6 +6,7 @@ class ReorderPythonImports < Formula
   url "https://files.pythonhosted.org/packages/f8/8c/447338a4a8098f28bed79b264a43fbfae4d5d70ec2cc034fc4bc4cfaa827/reorder_python_imports-2.6.0.tar.gz"
   sha256 "f4dc03142bdb57625e64299aea80e9055ce0f8b719f8f19c217a487c9fa9379e"
   license "MIT"
+  revision 1
   head "https://github.com/asottile/reorder_python_imports.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class ReorderPythonImports < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c3589386939e21d865702c30a745d7f7ff7da8d0656992392e1b6fc3478b10e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "aspy.refactor-imports" do
     url "https://files.pythonhosted.org/packages/a9/e9/cabb3bd114aa24877084f2bb6ecad8bd77f87724d239d360efd08f6fe9db/aspy.refactor_imports-2.2.0.tar.gz"
