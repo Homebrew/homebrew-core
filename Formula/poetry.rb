@@ -15,7 +15,7 @@ class Poetry < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e33f71e0e2507519a6f11ecf51fc9657f932d01676ddf98186c55931441d4116"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "backports.entry-points-selectable" do
@@ -189,19 +189,19 @@ class Poetry < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
 
     vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
-        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     site_packages = libexec/"lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", site_packages
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+    system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
 
     # We don't hardcode Homebrew Python here on purpose. See
     # https://github.com/Homebrew/homebrew-core/issues/62910
