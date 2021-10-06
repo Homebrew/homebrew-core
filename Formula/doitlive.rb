@@ -6,7 +6,7 @@ class Doitlive < Formula
   url "https://files.pythonhosted.org/packages/e5/d9/4ce969d98f521c253ec3b15a0c759104a01061ac90fb9d8636b015bcb4ea/doitlive-4.3.0.tar.gz"
   sha256 "4cb1030e082d8649f10a61d599d3ff3bcad7f775e08f0e68ee06882e06d0190f"
   license "MIT"
-  revision 9
+  revision 10
   head "https://github.com/sloria/doitlive.git", branch: "dev"
 
   bottle do
@@ -18,7 +18,7 @@ class Doitlive < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "04ccf705f4ff15d274b70629d45ac12d5fcb67b4e9a80183161860e0a16cddb0"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz"
