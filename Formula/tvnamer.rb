@@ -4,6 +4,7 @@ class Tvnamer < Formula
   url "https://files.pythonhosted.org/packages/7e/07/688dc96a86cf212ffdb291d2f012bc4a41ee78324a2eda4c98f05f5e3062/tvnamer-3.0.4.tar.gz"
   sha256 "dc2ea8188df6ac56439343630466b874c57756dd0b2538dd8e7905048f425f04"
   license "Unlicense"
+  revision 1
   head "https://github.com/dbr/tvnamer.git", branch: "master"
 
   bottle do
@@ -14,7 +15,7 @@ class Tvnamer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b055c3749deeee54611708e1e264cc631db2a675f1ff5ab2e8e7852a52f225ff"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
