@@ -6,7 +6,7 @@ class FbiServefiles < Formula
   url "https://github.com/Steveice10/FBI/archive/2.6.0.tar.gz"
   sha256 "4948d4c53d754cc411b51edbf35c609ba514ae21d9d0e8f4b66a26d5c666be68"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9fbd3f0ebcc23402e58614577e7973829b471508ad1bf0e00be09ad196f5226"
@@ -18,10 +18,10 @@ class FbiServefiles < Formula
 
   deprecate! date: "2020-11-12", because: :repo_archived
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
     venv.pip_install_and_link buildpath/"servefiles"
   end
 
