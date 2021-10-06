@@ -6,7 +6,7 @@ class Codemod < Formula
   url "https://files.pythonhosted.org/packages/9b/e3/cb31bfcf14f976060ea7b7f34135ebc796cde65eba923f6a0c4b71f15cc2/codemod-1.0.0.tar.gz"
   sha256 "06e8c75f2b45210dd8270e30a6a88ae464b39abd6d0cab58a3d7bfd1c094e588"
   license "Apache-2.0"
-  revision 4
+  revision 5
   version_scheme 1
   head "https://github.com/facebook/codemod.git", branch: "master"
 
@@ -21,7 +21,7 @@ class Codemod < Formula
 
   deprecate! date: "2021-07-13", because: :repo_archived
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
