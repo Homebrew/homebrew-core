@@ -6,6 +6,7 @@ class Grokmirror < Formula
   url "https://files.pythonhosted.org/packages/b0/ef/ffad6177d84dafb7403ccaca2fef735745d5d43200167896a2068422ae89/grokmirror-2.0.11.tar.gz"
   sha256 "6bc1310dc9a0e97836201e6bb14ecbbee332b0f812b9ff345a8386cb267c908c"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/mricon/grokmirror.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Grokmirror < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "801646256b6ee8e12a5c968818aa7a5de0f83c02012b2014fbb165ee6b80a6ab"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
