@@ -6,6 +6,7 @@ class SshAudit < Formula
   url "https://files.pythonhosted.org/packages/ae/72/44b29342575dee57470a11b92b12430b3afb63a963aa356c356b0b747522/ssh-audit-2.5.0.tar.gz"
   sha256 "3397f751bc7b9997e4236aece2d41973c766f1e44b15bc6d51a1420a14bf05b6"
   license "MIT"
+  revision 1
   head "https://github.com/jtesta/ssh-audit.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class SshAudit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f6daec517b07e1a575ea7ae6f77f4f2ca6d5b50ae10b8013166682db38a514c"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
