@@ -6,6 +6,7 @@ class Gitlint < Formula
   url "https://files.pythonhosted.org/packages/3e/bd/31f661a621a22094c0f905a228142dd463dacdc71ed2b2a570956062b64e/gitlint-0.15.1.tar.gz"
   sha256 "4b22916dcbdca381244aee6cb8d8743756cfd98f27e7d1f02e78733f07c3c21c"
   license "MIT"
+  revision 1
   head "https://github.com/jorisroovers/gitlint.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class Gitlint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ac6012949c127b182719deae1e9098b8986fa28a5acfd9db1a0c0a566417730"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/f6/72/e8c899f0eef9c0131ffdb1bc25d79ff65c60411f831ab17d29e3809f5812/arrow-1.0.3.tar.gz"
