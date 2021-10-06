@@ -4,7 +4,7 @@ class Ccm < Formula
   url "https://files.pythonhosted.org/packages/f1/12/091e82033d53b3802e1ead6b16045c5ecfb03374f8586a4ae4673a914c1a/ccm-3.1.5.tar.gz"
   sha256 "f07cc0a37116d2ce1b96c0d467f792668aa25835c73beb61639fa50a1954326c"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/pcmanus/ccm.git", branch: "master"
 
   bottle do
@@ -16,7 +16,7 @@ class Ccm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "62aa5cd336cefb2e43e9bae72bd26a71de1bd007cf6573273c48d99f03f3cda4"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
