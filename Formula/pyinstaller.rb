@@ -6,6 +6,7 @@ class Pyinstaller < Formula
   url "https://files.pythonhosted.org/packages/a9/d9/9fdfb0ac2354d059e466d562689dbe53a23c4062019da2057f0eaed635e0/pyinstaller-4.5.1.tar.gz"
   sha256 "30733baaf8971902286a0ddf77e5499ac5f7bf8e7c39163e83d4f8c696ef265e"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
   bottle do
@@ -16,7 +17,7 @@ class Pyinstaller < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd94131c0b3c6bc8938c00b9c0a9dd1e00a7718b3a92fde29babaf60c5f5e600"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "altgraph" do
     url "https://files.pythonhosted.org/packages/22/5a/ac50b52581bbf0d8f6fd50ad77d20faac19a2263b43c60e7f3af8d1ec880/altgraph-0.17.tar.gz"
