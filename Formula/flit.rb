@@ -6,6 +6,7 @@ class Flit < Formula
   url "https://files.pythonhosted.org/packages/b6/86/4f55f5476c1b4aeb8825e4dcac71038b60bad8feb9d3635b5ecfcbbf98dd/flit-3.3.0.tar.gz"
   sha256 "65fbe22aaa7f880b776b20814bd80b0afbf91d1f95b17235b608aa256325ce57"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/takluyver/flit.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Flit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "52ffa8ef6b43f7b331e1eac9a1426db8c699566de08c4dc0a2db9c609ebb15ff"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
