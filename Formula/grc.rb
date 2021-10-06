@@ -6,13 +6,14 @@ class Grc < Formula
   url "https://github.com/garabik/grc/archive/v1.13.tar.gz"
   sha256 "a7b10d4316b59ca50f6b749f1d080cea0b41cb3b7258099c3eb195659d1f144f"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/garabik/grc.git", branch: "devel"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "5032986a02da858c72ea6124457e83ba43710a6ae6a027d6e2d2350176eae51d"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "cc65", because: "both install `grc` binaries"
 
