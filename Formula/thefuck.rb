@@ -6,6 +6,7 @@ class Thefuck < Formula
   url "https://files.pythonhosted.org/packages/21/d2/f5194c2d51b2aab4bda6de97c5eb1ca5a547ad9b9f778ab5bf4ce19fba88/thefuck-3.31.tar.gz"
   sha256 "6e6083e6c94fe948fcb9c6083baee30ba4cf3f09ffd30cd9564d6473db271941"
   license "MIT"
+  revision 1
   head "https://github.com/nvbn/thefuck.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Thefuck < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a78e51d257dfb6c1c8097bd1178642e40f2c3ffa04335b95bcce638d3e0a5ca3"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
