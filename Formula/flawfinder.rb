@@ -6,6 +6,7 @@ class Flawfinder < Formula
   url "https://dwheeler.com/flawfinder/flawfinder-2.0.19.tar.gz"
   sha256 "fe550981d370abfa0a29671346cc0b038229a9bd90b239eab0f01f12212df618"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/david-a-wheeler/flawfinder.git"
 
   livecheck do
@@ -21,7 +22,7 @@ class Flawfinder < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d66b65f5681f260ed454465b9b5176d3325e971f8092a1275776c80515d76be"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     rewrite_shebang detected_python_shebang, "flawfinder.py"
