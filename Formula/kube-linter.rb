@@ -1,8 +1,8 @@
 class KubeLinter < Formula
   desc "Static analysis tool for Kubernetes YAML files and Helm charts"
   homepage "https://github.com/stackrox/kube-linter"
-  url "https://github.com/stackrox/kube-linter/archive/0.2.4.tar.gz"
-  sha256 "476e00beb16b5f36e3fe8aa91667822095ebd73898e82e9db0389f2e0472e9b1"
+  url "https://github.com/stackrox/kube-linter/archive/0.2.5.tar.gz"
+  sha256 "5d2e724e291b00b6a61ebd2bd97f3f3c26298f890be2b555b60f0fb719c5384f"
   license "Apache-2.0"
   head "https://github.com/stackrox/kube-linter.git"
 
