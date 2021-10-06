@@ -6,7 +6,7 @@ class Airshare < Formula
   url "https://files.pythonhosted.org/packages/cb/a2/d59c18cd6a143bf860c29acb70552b7351fd7e0f56213be86b624601106b/Airshare-0.1.6.tar.gz"
   sha256 "138976933bcf2c0bc99f18901242544919e9fafe43735b4f83b19d4ae5964be7"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "39e35bc89e09e6c7b106712658d222bb85640adb528d7dac368b9a728be17438"
@@ -17,7 +17,7 @@ class Airshare < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "172e15bfa0cfe6a346b09d84e0938aa512dc95dc05c0d95ae8b86d01b3621d77"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "aiohttp" do
     url "https://files.pythonhosted.org/packages/00/94/f9fa18e8d7124d7850a5715a0b9c0584f7b9375d331d35e157cee50f27cc/aiohttp-3.6.2.tar.gz"
