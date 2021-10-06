@@ -7,7 +7,7 @@ class Bpytop < Formula
   url "https://github.com/aristocratos/bpytop/archive/v1.0.67.tar.gz"
   sha256 "e3f0267bd40a58016b5ac81ed6424f1c8d953b33a537546b22dd1a2b01b07a97"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2628a4b51b898319842f449e0e6ccc33eca3559b4a828cb72713cc7523c42e08"
@@ -17,7 +17,7 @@ class Bpytop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2e9a290e3973226449e28ea5a41e388a5bb9e3548a65c29837b00206e6e91dc"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   on_macos do
     depends_on "osx-cpu-temp"
   end
