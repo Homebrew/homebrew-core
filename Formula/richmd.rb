@@ -6,6 +6,7 @@ class Richmd < Formula
   url "https://files.pythonhosted.org/packages/57/3f/a8ba181148dcb9184cb0afac66d075fce60f06f926ce9cdab3dc61fd6497/rich-10.11.0.tar.gz"
   sha256 "016fa105f34b69c434e7f908bb5bd7fefa9616efdb218a2917117683a6394ce5"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "84b0b7effcabf0da687498d844ed3f57c3149eb510732a08b71391f1888d3dea"
@@ -15,7 +16,7 @@ class Richmd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "69313cfad19790a4eb0905b3e5a22168aef1aca7ba06e5930b758645bd2de912"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
