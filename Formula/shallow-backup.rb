@@ -6,7 +6,7 @@ class ShallowBackup < Formula
   url "https://files.pythonhosted.org/packages/42/fc/4ecead7b7539b0fd29ef97fb6c3134327d1702936bb38797352862d0a924/shallow-backup-5.0.1.tar.gz"
   sha256 "8c0a57e6a5004cf3dbc74a54da1a254e685077c973266e7198aca62441c72a0b"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/alichtman/shallow-backup.git", branch: "master"
 
   bottle do
@@ -18,7 +18,7 @@ class ShallowBackup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7f06faa5e61303fa3e2442245af5b07b3dfb8830e67a3c130ebe542ad4306f3"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/20/6b/80d2704532134a0acf513a2804d342686a66a779d28822eb48346dc2a861/blessed-1.17.6.tar.gz"
