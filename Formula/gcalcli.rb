@@ -6,6 +6,7 @@ class Gcalcli < Formula
   url "https://files.pythonhosted.org/packages/e8/d9/9d1f03b9b47c3082bf664a2f789a3aded0674dca9e0b894540d754b937cc/gcalcli-4.3.0.tar.gz"
   sha256 "d00081460276027196e8fb957880b29ba4f22ea43136f9e232a9408016abc110"
   license "MIT"
+  revision 1
   head "https://github.com/insanum/gcalcli.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Gcalcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a886166bf9de414ba7e71cba6ccca18fb87fdda5713bc4b8fe2b39b52d71ff5f"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "cachetools" do
     url "https://files.pythonhosted.org/packages/fc/c8/0b52cf3132b4b85c9e83faa3e4d375575afeb3a1710c40b2b2cd2a3e5635/cachetools-4.1.1.tar.gz"
