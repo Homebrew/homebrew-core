@@ -5,7 +5,7 @@ class Goolabs < Formula
   homepage "https://pypi.python.org/pypi/goolabs"
   url "https://files.pythonhosted.org/packages/ce/86/2d3b5bd85311ee3a7ae7a661b3619095431503cd0cae03048c646b700cad/goolabs-0.4.0.tar.gz"
   sha256 "4f768a5b98960c507f5ba4e1ca14d45e3139388669148a2750d415c312281527"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "df1ef2c9f6b3c72ab941aa3445575ecaf95aae6bfa1dd3e1ad96bd468f5d6f52"
@@ -16,7 +16,7 @@ class Goolabs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "32db89afb1ea07aa25ddcd74c90c8275f414a60b6afe55e83ff78b0b6cf5a226"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
