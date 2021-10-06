@@ -6,7 +6,7 @@ class ZabbixCli < Formula
   url "https://github.com/unioslo/zabbix-cli/archive/2.2.1.tar.gz"
   sha256 "884ecd2a4a4c7f68a080bb7e0936dd208c813284ec3ed60b948ce90a1be7c828"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
   livecheck do
@@ -23,7 +23,7 @@ class ZabbixCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c79288da31a228a3d8657e962028e537b31e083cd8ac93783a94cd21392fbf76"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   ## direct dependencies
 
@@ -57,6 +57,12 @@ class ZabbixCli < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
     sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
+  end
+
+  # Support python@3.10, remove with next release
+  patch do
+    url "https://github.com/unioslo/zabbix-cli/commit/656fdbbd6c4415b52f7ad42a29124b15387458de.patch?full_index=1"
+    sha256 "21d574e0d2500d140591c494e513d81552d5f7e259cc0084cc9fa0488532a55c"
   end
 
   def install
