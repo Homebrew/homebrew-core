@@ -6,6 +6,7 @@ class Bandit < Formula
   url "https://files.pythonhosted.org/packages/6c/a1/14b70b67ea9c69e863dd65386bbc948ae34a502512d6f36e2a5a9fd5513b/bandit-1.7.0.tar.gz"
   sha256 "8a4c7415254d75df8ff3c3b15cfe9042ecee628a1e40b44c15a98890fbfc2608"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/PyCQA/bandit.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Bandit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5deeb1aa1fb844d4c8c8a1344cf0905f3eecfd4b7d1db24a8c37814cad685846"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "gitdb" do
     url "https://files.pythonhosted.org/packages/d1/05/eaf2ac564344030d8b3ce870b116d7bb559020163e80d9aa4a3d75f3e820/gitdb-4.0.5.tar.gz"
