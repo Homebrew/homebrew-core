@@ -6,6 +6,7 @@ class Flake8 < Formula
   url "https://files.pythonhosted.org/packages/9e/47/15b267dfe7e03dca4c4c06e7eadbd55ef4dfd368b13a0bab36d708b14366/flake8-3.9.2.tar.gz"
   sha256 "07528381786f2a6237b061f6e96610a4167b226cb926e2aa2b6b1d78057c576b"
   license "MIT"
+  revision 1
   head "https://gitlab.com/PyCQA/flake8.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Flake8 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcb176172dfc6e92d7e7c0c3746929de31d1021e3873ab9be3b84073e213a91e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "mccabe" do
     url "https://files.pythonhosted.org/packages/06/18/fa675aa501e11d6d6ca0ae73a101b2f3571a565e0f7d38e062eec18a91ee/mccabe-0.6.1.tar.gz"
