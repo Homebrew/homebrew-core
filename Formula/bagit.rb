@@ -6,6 +6,7 @@ class Bagit < Formula
   url "https://files.pythonhosted.org/packages/e5/99/927b704237a1286f1022ea02a2fdfd82d5567cfbca97a4c343e2de7e37c4/bagit-1.8.1.tar.gz"
   sha256 "37df1330d2e8640c8dee8ab6d0073ac701f0614d25f5252f9e05263409cee60c"
   license "CC0-1.0"
+  revision 1
   version_scheme 1
   head "https://github.com/LibraryOfCongress/bagit-python.git", branch: "master"
 
@@ -22,7 +23,7 @@ class Bagit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f04c2f68abc63b374410d0414544df8fb304d77e2c6c3624554f48c1c8bac5e9"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
