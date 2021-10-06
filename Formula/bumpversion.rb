@@ -8,6 +8,7 @@ class Bumpversion < Formula
   url "https://files.pythonhosted.org/packages/29/2a/688aca6eeebfe8941235be53f4da780c6edee05dbbea5d7abaa3aab6fad2/bump2version-1.0.1.tar.gz"
   sha256 "762cb2bfad61f4ec8e2bdf452c7c267416f8c70dd9ecb1653fd0bbb01fa936e6"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 2
@@ -18,7 +19,7 @@ class Bumpversion < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "98bc2e4d4aab87c22a59e3aad2778e18a7b69810de3ac7bb94053b07e3eb6ae6"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
