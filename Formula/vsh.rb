@@ -1,8 +1,8 @@
 class Vsh < Formula
   desc "HashiCorp Vault interactive shell"
   homepage "https://github.com/fishi0x01/vsh"
-  url "https://github.com/fishi0x01/vsh/archive/v0.12.0.tar.gz"
-  sha256 "59387d8512c7c2f9fe9a99508e2c913fcff6c5d8422ae90ba19c2c95895d2a3e"
+  url "https://github.com/fishi0x01/vsh/archive/v0.12.1.tar.gz"
+  sha256 "bba0012dda672d1c23e414f6a5da30a241dc8a0a212ff49236f880fcdf68e446"
   license "MIT"
 
   bottle do
