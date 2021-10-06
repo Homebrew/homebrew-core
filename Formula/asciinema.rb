@@ -6,7 +6,7 @@ class Asciinema < Formula
   url "https://files.pythonhosted.org/packages/a7/71/771c859795e02c71c187546f34f7535487b97425bc1dad1e5f6ad2651357/asciinema-2.0.2.tar.gz"
   sha256 "32f2c1a046564e030708e596f67e0405425d1eca9d5ec83cd917ef8da06bc423"
   license "GPL-3.0"
-  revision 3
+  revision 4
   head "https://github.com/asciinema/asciinema.git", branch: "develop"
 
   bottle do
@@ -18,7 +18,7 @@ class Asciinema < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "acec6c4fc08e352c797826270ec89d4eeab169172912bb22ea4b785635f7481e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
