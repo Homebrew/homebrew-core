@@ -6,6 +6,7 @@ class TwinePypi < Formula
   url "https://files.pythonhosted.org/packages/19/a8/2277f24ce422d820378c1fd49bc0d5dc89d99761f184693fba5a2f283174/twine-3.4.2.tar.gz"
   sha256 "4caec0f1ed78dc4c9b83ad537e453d03ce485725f2aea57f1bb3fdde78dae936"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/pypa/twine.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class TwinePypi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7e84cd8357d6d4437839b556d2a7d768c923112b872fa4b2b2ce796a4ebc447"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/61/f0/39ba27d82f7f5c8b4a8002876ea0c3465bc8a0c067e043d9b1bcbb8bfb3e/bleach-3.3.1.tar.gz"
