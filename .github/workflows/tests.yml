@@ -236,6 +236,8 @@ jobs:
           else
             docker exec ${{github.sha}} brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
           fi
+        env:
+          HOMEBREW_TEMP: $GITHUB_WORKSPACE/tmp
 
       - name: Copy results from container
         if: always() && runner.os == 'Linux'
