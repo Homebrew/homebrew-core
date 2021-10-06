@@ -6,6 +6,7 @@ class AwsShell < Formula
   url "https://files.pythonhosted.org/packages/01/31/ee166a91c865a855af4f15e393974eadf57762629fc2a163a3eb3f470ac5/aws-shell-0.2.2.tar.gz"
   sha256 "fd1699ea5f201e7cbaacaeb34bf1eb88c8fe6dc6b248bce1b3d22b3e099a41e5"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9581121be45392c0cc78938f568562f61127966428e08635a8ea69f615d0c477"
@@ -16,7 +17,7 @@ class AwsShell < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1714b1fefa7ec59ac0259a9a436265468becb30204ffa480ba2081fefbd210dd"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "awscli" do
     url "https://files.pythonhosted.org/packages/8d/49/278de10b22bba018b0ab657fcc28862a38543f8abd3e215018db6b742326/awscli-1.18.157.tar.gz"
