@@ -6,6 +6,7 @@ class Commitizen < Formula
   url "https://files.pythonhosted.org/packages/a9/54/216553c2f2bcc4375c7aa739619dc72c5de0081c5f7e8545e883bfb6b966/commitizen-2.19.0.tar.gz"
   sha256 "cf5b8ad49624847e90e390b8604d439a27c84bff5a70aaf6a0da6dc35addbfc1"
   license "MIT"
+  revision 1
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
@@ -15,7 +16,7 @@ class Commitizen < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "c9736960d209fa5ff081afc2a7b1842727570e9b86a46ebf35adb64b7f268ba3"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/6a/b4/3b1d48b61be122c95f4a770b2f42fc2552857616feba4d51f34611bd1352/argcomplete-1.12.3.tar.gz"
