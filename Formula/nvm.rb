@@ -29,8 +29,8 @@ class Nvm < Formula
       configuration file:
 
         export NVM_DIR="$HOME/.nvm"
-        [ -s "#{opt_prefix}/nvm.sh" ] && \. "#{opt_prefix}/nvm.sh"  # This loads nvm
-        [ -s "#{opt_prefix}/etc/bash_completion.d/nvm" ] && \. "#{opt_prefix}/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+        [ -s "#{opt_prefix}/nvm.sh" ] && \\. "#{opt_prefix}/nvm.sh"  # This loads nvm
+        [ -s "#{opt_prefix}/etc/bash_completion.d/nvm" ] && \\. "#{opt_prefix}/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
       You can set $NVM_DIR to any location, but leaving it unchanged from
       #{prefix} will destroy any nvm-installed Node installations
