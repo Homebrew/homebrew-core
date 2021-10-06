@@ -15,18 +15,32 @@ class Six < Formula
   end
 
   depends_on "python@3.10" => [:build, :test]
-  depends_on "python@3.7" => [:build, :test] unless Hardware::CPU.arm?
   depends_on "python@3.8" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
 
+  def pythons
+    deps.map(&:to_formula).sort_by(&:version)
+  end
+
   def install
-    deps.map(&:to_formula).each do |python|
+    pythons.each do |python|
       system python.opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
+  def caveats
+    python_versions = pythons.map { |p| p.version.major_minor }
+                             .map(&:to_s)
+                             .join(", ")
+
+    <<~EOS
+      This formula provides the `six` module for Python #{python_versions}.
+      If you need `six` for a different version of Python, use pip.
+    EOS
+  end
+
   test do
-    deps.map(&:to_formula).each do |python|
+    pythons.each do |python|
       system python.opt_bin/"python3", "-c", <<~EOS
         import six
         assert not six.PY2
