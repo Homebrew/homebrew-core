@@ -1,3 +1,5 @@
+require "language/node"
+
 class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
@@ -28,29 +30,21 @@ class Octant < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
     ENV["GOFLAGS"] = "-mod=vendor"
 
-    ENV.append_path "PATH", HOMEBREW_PREFIX/"bin"
+    Language::Node.setup_npm_environment
 
-    dir = buildpath/"src/github.com/vmware-tanzu/octant"
-    dir.install buildpath.children
+    system "go", "run", "build.go", "go-install"
+    system "go", "run", "build.go", "web-build"
 
-    cd "src/github.com/vmware-tanzu/octant" do
-      system "go", "run", "build.go", "go-install"
-      ENV.prepend_path "PATH", buildpath/"bin"
+    ldflags = ["-X main.version=#{version}",
+               "-X main.gitCommit=#{Utils.git_head}",
+               "-X main.buildTime=#{time.iso8601}"].join(" ")
 
-      system "go", "run", "build.go", "web-build"
+    tags = "embedded exclude_graphdriver_devicemapper exclude_graphdriver_btrfs containers_image_openpgp"
 
-      ldflags = ["-X \"main.version=#{version}\"",
-                 "-X \"main.gitCommit=#{Utils.git_head}\"",
-                 "-X \"main.buildTime=#{time.iso8601}\""].join(" ")
-
-      tags = "embedded exclude_graphdriver_devicemapper exclude_graphdriver_btrfs containers_image_openpgp"
-
-      system "go", "build", *std_go_args(ldflags: ldflags),
-             "-tags", tags, "-v", "./cmd/octant"
-    end
+    system "go", "build", *std_go_args(ldflags: ldflags),
+           "-tags", tags, "-v", "./cmd/octant"
   end
 
   test do
