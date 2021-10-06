@@ -6,6 +6,7 @@ class Vint < Formula
   url "https://files.pythonhosted.org/packages/9c/c7/d5fbe5f778edee83cba3aea8cc3308db327e4c161e0656e861b9cc2cb859/vim-vint-0.3.21.tar.gz"
   sha256 "5dc59b2e5c2a746c88f5f51f3fafea3d639c6b0fdbb116bb74af27bf1c820d97"
   license "MIT"
+  revision 1
   head "https://github.com/Vimjas/vint.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Vint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4cfe976521087dee6a5435d8f574f36ba70e315ab07dc444058965357a9eae0"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "ansicolor" do
     url "https://files.pythonhosted.org/packages/e0/00/90593d0c3078760bc3ed530f3be381c16329e80a2b47b8e6230c1288ff77/ansicolor-0.2.6.tar.gz"
