@@ -6,6 +6,7 @@ class Ranger < Formula
   url "https://ranger.github.io/ranger-1.9.3.tar.gz"
   sha256 "ce088a04c91c25263a9675dc5c43514b7ec1b38c8ea43d9a9d00923ff6cdd251"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/ranger/ranger.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Ranger < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9757fe41fe8386ec511d183afa2262b88d2c6eae261c422f309fb2096492d5d3"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     man1.install "doc/ranger.1"
