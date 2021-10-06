@@ -6,6 +6,7 @@ class Cpplint < Formula
   url "https://files.pythonhosted.org/packages/70/d5/3792cd3cf5681b8d8bc145c55812c2462e42b497e2f12b76bda6d81d965c/cpplint-1.5.5.tar.gz"
   sha256 "18e768d8a4e0c329d88f1272b0283bbc3beafce76f48ee0caeb44ddbf505bba5"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "08731fd0f48c494b903cc4d56565595e7005cb7c2187d6480a9390ac28f107dd"
@@ -15,7 +16,7 @@ class Cpplint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0011ea0fff4ec9c6ab2968b532ebd70a4cbc4d4e74efe84518f3ae88789ee8fe"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
