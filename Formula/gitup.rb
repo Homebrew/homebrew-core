@@ -6,7 +6,7 @@ class Gitup < Formula
   url "https://files.pythonhosted.org/packages/7f/07/4835f8f4de5924b5f38b816c648bde284f0cec9a9ae65bd7e5b7f5867638/gitup-0.5.1.tar.gz"
   sha256 "4f787079cd65d8f60c5842181204635e1b72d3533ae91f0c619624c6b20846dd"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/earwig/git-repo-updater.git"
 
   bottle do
@@ -17,7 +17,7 @@ class Gitup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffd9d75739ea219cf727d12c46dc0f4dacab636f75378ed22c883c514ad29e49"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
