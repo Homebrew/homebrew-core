@@ -6,7 +6,7 @@ class Ydcv < Formula
   url "https://files.pythonhosted.org/packages/1f/29/17124ebfdea8d810774977474a8652018c04c4a6db1ca413189f7e5b9d52/ydcv-0.7.tar.gz"
   sha256 "53cd59501557496512470e7db5fb14e42ddcb411fe4fa45c00864d919393c1da"
   license "GPL-3.0"
-  revision 3
+  revision 4
   head "https://github.com/felixonmars/ydcv.git", branch: "master"
 
   bottle do
@@ -18,7 +18,7 @@ class Ydcv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "edaaea652126f1ef0cc311d323ed5198c4b85ada95ab88e58b3ea0a01101fb34"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION"] = version
