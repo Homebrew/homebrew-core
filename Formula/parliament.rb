@@ -6,6 +6,7 @@ class Parliament < Formula
   url "https://files.pythonhosted.org/packages/1a/29/e8c814819571c78c1f1e25dbe20f995fb86b854aa59db4fbab20a641a346/parliament-1.4.0.tar.gz"
   sha256 "cf40d5f5732bcf831fdb1a13f71c3cf4f3bdb8c8d9685592ecdd6d84675b947e"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/duo-labs/parliament.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class Parliament < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b49f599b5b557d4fb45bdaed4f874f70bedaba7f087ee3ec851d4cd44b29edd"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/f4/ba/150dd700298b386152dc17582f4d62b0ccd1cb0431a6f0bb63c37cb76b8a/boto3-1.17.29.tar.gz"
