@@ -23,7 +23,7 @@ class Nvm < Formula
 
       You should create NVM's working directory if it doesn't exist:
 
-         mkdir ~/.nvm
+        mkdir ~/.nvm
 
       Add the following to #{shell_profile} or your desired shell
       configuration file:
