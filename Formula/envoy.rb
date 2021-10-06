@@ -4,8 +4,8 @@ class Envoy < Formula
   # Switch to a tarball when the following issue is resolved:
   # https://github.com/envoyproxy/envoy/issues/17859
   url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.19.1",
-      revision: "a2a1e3eed4214a38608ec223859fcfa8fb679b14"
+      tag:      "v1.20.0",
+      revision: "96701cb24611b0f3aac1cc0dd8bf8589fbdf8e9e"
   license "Apache-2.0"
 
   # Apple M1/arm64 is pending envoyproxy/envoy#16482
