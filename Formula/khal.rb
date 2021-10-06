@@ -6,6 +6,7 @@ class Khal < Formula
   url "https://files.pythonhosted.org/packages/7a/d8/9718385de260ebc07ff48c838e22fde6b05d143f1f8ab81ff1c8718d7102/khal-0.10.4.tar.gz"
   sha256 "3fdb980a9a61c0206d7a82b16f77b408a4f341a2b866b9c9fcf6a641850d129f"
   license "MIT"
+  revision 1
   head "https://github.com/pimutils/khal.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Khal < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ef7db0d2c3f33865d8ad1288141de2c313d8407f2c90325ef6d3975aff5249b"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/55/8d/74a75635f2c3c914ab5b3850112fd4b0c8039975ecb320e4449aa363ba54/atomicwrites-1.4.0.tar.gz"
