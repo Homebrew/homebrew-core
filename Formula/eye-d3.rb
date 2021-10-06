@@ -7,6 +7,7 @@ class EyeD3 < Formula
   mirror "https://files.pythonhosted.org/packages/fb/f2/27b42a10b5668df27ce87aa22407e5115af7fce9b1d68f09a6d26c3874ec/eyeD3-0.9.6.tar.gz"
   sha256 "4b5064ec0fb3999294cca0020d4a27ffe4f29149e8292fdf7b2de9b9cabb7518"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://github.com/nicfit/eyeD3.git"
@@ -21,7 +22,7 @@ class EyeD3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a85e5aba1fe2b28c9b7587e06cbea8b65585b0d5eb958a22fb760948092b0826"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # Looking for documentation? Please submit a PR to build some!
   # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
