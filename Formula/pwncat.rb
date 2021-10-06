@@ -6,6 +6,7 @@ class Pwncat < Formula
   url "https://files.pythonhosted.org/packages/e0/cd/f7c7a2d468fdf8355c574ac65f189da87a469c393ec704d8f3fa83613aa5/pwncat-0.1.1.tar.gz"
   sha256 "62e625e9061f037cfca7b7455a4f7db4213c1d1302e73d4c475c63f924f1805f"
   license "MIT"
+  revision 1
   head "https://github.com/cytopia/pwncat.git", branch: "master"
 
   bottle do
@@ -16,10 +17,10 @@ class Pwncat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cee0a58cef0ab5f64059cd262a154c5da65d96be6c7d886a12d5a5912b9df6fe"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
     virtualenv_install_with_resources
   end
 
