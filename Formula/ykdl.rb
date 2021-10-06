@@ -6,6 +6,7 @@ class Ykdl < Formula
   url "https://files.pythonhosted.org/packages/bb/15/ab7977a060f55a90f5cffb86dbc1327f3eaffbfdf88f0844a04add1199a8/ykdl-1.7.2.tar.gz"
   sha256 "abef7b5f3fbdbfc240fe3a6222b3feecc8d1f71969ad09d5f82779088272b9a8"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "23495a922f681f2d85daea61ddd4938d2d4c820a81454f997f010319f7fad3e7"
@@ -15,7 +16,7 @@ class Ykdl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "40e4dcc21492708f0d8b008377174530e86b0558df67cfbd08a48eaebe8f8faa"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "iso8601" do
     url "https://files.pythonhosted.org/packages/45/66/a943f702763c879e2754b46089a136ee1e58f0f720c58fa640c00281d3fd/iso8601-0.1.16.tar.gz"
