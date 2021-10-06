@@ -46,25 +46,20 @@ class OpenshiftCli < Formula
 
       "linux"
     end
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/openshift/oc"
-    dir.install buildpath.children - [buildpath/".brew_home"]
 
-    cd dir do
-      args = ["cross-build-#{os}-#{arch}"]
-      args << if build.stable?
-        "WHAT=cmd/oc"
-      else
-        "WHAT=staging/src/github.com/openshift/oc/cmd/oc"
-      end
-      args << "SHELL=/bin/bash" if OS.linux?
-
-      system "make", *args
-      bin.install "_output/bin/#{os}_#{arch}/oc"
-
-      bash_completion.install "contrib/completions/bash/oc"
-      zsh_completion.install "contrib/completions/zsh/oc" => "_oc"
+    args = ["cross-build-#{os}-#{arch}"]
+    args << if build.stable?
+      "WHAT=cmd/oc"
+    else
+      "WHAT=staging/src/github.com/openshift/oc/cmd/oc"
     end
+    args << "SHELL=/bin/bash" if OS.linux?
+
+    system "make", *args
+    bin.install "_output/bin/#{os}_#{arch}/oc"
+
+    bash_completion.install "contrib/completions/bash/oc"
+    zsh_completion.install "contrib/completions/zsh/oc" => "_oc"
   end
 
   test do
