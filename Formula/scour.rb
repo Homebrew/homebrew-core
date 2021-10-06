@@ -6,6 +6,7 @@ class Scour < Formula
   url "https://files.pythonhosted.org/packages/75/19/f519ef8aa2f379935a44212c5744e2b3a46173bf04e0110fb7f4af4028c9/scour-0.38.2.tar.gz"
   sha256 "6881ec26660c130c5ecd996ac6f6b03939dd574198f50773f2508b81a68e0daf"
   license "Apache-2.0"
+  revision 1
   version_scheme 1
   head "https://github.com/scour-project/scour.git", branch: "master"
 
@@ -18,7 +19,7 @@ class Scour < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8dde79fe550b075433c0a9e1850cdaa1fb86105af759dd6e385b462932ff5641"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
