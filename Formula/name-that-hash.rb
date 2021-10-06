@@ -6,6 +6,7 @@ class NameThatHash < Formula
   url "https://files.pythonhosted.org/packages/32/58/1f4052bd4999c5aceb51c813cc8ef32838561c8fb18f90cf4b86df6bd818/name-that-hash-1.10.0.tar.gz"
   sha256 "aabe1a3e23f5f8ca1ef6522eb1adcd5c69b5fed3961371ed84a22fc86ee648a2"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/HashPals/Name-That-Hash.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class NameThatHash < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e29ecd7413d4bea43ad49916aed2fca964b691bd3abe8b7613088edd0d07b341"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
@@ -46,7 +47,7 @@ class NameThatHash < Formula
   def install
     virtualenv_install_with_resources
 
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     site_packages = "lib/python#{xy}/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-name_that_hash.pth").write pth_contents
@@ -58,6 +59,6 @@ class NameThatHash < Formula
     assert_match "#{hash}\n", output
     assert_match "MD5, HC: 0 JtR: raw-md5 Summary: Used for Linux Shadow files.\n", output
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "from name_that_hash import runner"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "from name_that_hash import runner"
   end
 end
