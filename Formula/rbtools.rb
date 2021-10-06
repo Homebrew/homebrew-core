@@ -6,6 +6,7 @@ class Rbtools < Formula
   url "https://files.pythonhosted.org/packages/be/83/969a103b00d7075e3f76b197f63edcca4b10c2e65000c4d48cef31a8c5c0/RBTools-2.0.1.tar.gz"
   sha256 "df8d5e834ad291c6e743907e27e50fc2f6006cdc6b8a4f9035acc86b87dcba31"
   license "MIT"
+  revision 1
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Rbtools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dad0b80439778e3a82edf03958b1b9c86465609800c0e3105be39e1a354c1c25"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
