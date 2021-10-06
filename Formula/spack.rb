@@ -4,6 +4,7 @@ class Spack < Formula
   url "https://github.com/spack/spack/archive/v0.16.3.tar.gz"
   sha256 "26636a2e2cc066184f12651ac6949f978fc041990dba73934960a4c9c1ea383d"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/spack/spack.git", branch: "develop"
 
   livecheck do
@@ -19,7 +20,7 @@ class Spack < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e88b8b7697764e9336ac1f849be0e8647627e38299671b208689949071bb0192"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     prefix.install Dir["*"]
