@@ -22,11 +22,18 @@ class Feroxbuster < Formula
     (testpath/"web/a.txt").write "a"
     (testpath/"web/b.txt").write "b"
 
-    fork do
-      exec "miniserve", testpath/"web"
+    port = free_port
+    pid = fork do
+      exec "miniserve", testpath/"web", "-i", "127.0.0.1", "--port", port.to_s
     end
-    sleep 2
 
-    system bin/"feroxbuster", "-w", testpath/"wordlist", "-u", "http://127.0.0.1:8080"
+    sleep 1
+
+    begin
+      exec bin/"feroxbuster", "-q", "-w", testpath/"wordlist", "-u", "http://127.0.0.1:#{port}"
+    ensure
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end
