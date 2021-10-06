@@ -6,6 +6,7 @@ class Watson < Formula
   url "https://files.pythonhosted.org/packages/59/fc/cd80b0504fec73821ccbdbb276e0ea2092d1be62f0a7ca7722d8a0cc4368/td-watson-2.0.1.tar.gz"
   sha256 "a665775a76fb3ac464153e10991577a38ca938adae2142a24c9d1b1234db95f0"
   license "MIT"
+  revision 1
   head "https://github.com/TailorDev/Watson.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Watson < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "781861e077399e7ccd716de21800e741749f50f44c0be1e774159b943560f09f"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/0a/97/e58a3cd2207cb9cb7aa9b91f3bc4df3b4e13eafc88d75b1a9f4535ea6e1f/arrow-1.1.0.tar.gz"
