@@ -6,6 +6,7 @@ class Sqlmap < Formula
   url "https://github.com/sqlmapproject/sqlmap/archive/1.5.10.tar.gz"
   sha256 "7147ba8c9ac98fe55daa4928c34f7b6e314bfa7fa60a4f073689f70533128bcb"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/sqlmapproject/sqlmap.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Sqlmap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1623f01d924e179556e3dc108af2cb96ec90a4af3bbb4be59a4c457515ec70ef"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "sqlite" => :test
 
