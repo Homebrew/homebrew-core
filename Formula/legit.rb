@@ -6,7 +6,7 @@ class Legit < Formula
   url "https://files.pythonhosted.org/packages/cb/e4/8cc5904c486241bf2edc4dd84f357fa96686dc85f48eedb835af65f821bf/legit-1.2.0.post0.tar.gz"
   sha256 "949396b68029a8af405ab20c901902341ef6bd55c7fec6dab71141d63d406b11"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/frostming/legit.git", branch: "master"
 
   bottle do
@@ -18,7 +18,7 @@ class Legit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e8a3d6da33bb967073a65a2e870f8326fa803719eb3e32a5e46a9a667be1a1d"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"
