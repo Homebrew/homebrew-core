@@ -383,6 +383,9 @@
   "sqlite-utils": {
     "exclude_packages": ["tabulate", "six"]
   },
+  "subliminal": {
+    "exclude_packages": ["six"]
+  },
   "tarsnapper": {
     "exclude_packages": ["six"]
   },
