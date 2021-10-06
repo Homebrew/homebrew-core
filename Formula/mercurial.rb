@@ -6,6 +6,7 @@ class Mercurial < Formula
   url "https://www.mercurial-scm.org/release/mercurial-5.9.1.tar.gz"
   sha256 "32eff9433c62d781dc93e5a6103327264d897ad2bbce3ecb5d2d78a93cf49f27"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.mercurial-scm.org/release/"
@@ -20,7 +21,7 @@ class Mercurial < Formula
     sha256 x86_64_linux:  "b06e527613794c717c2ec1702eabeb42b957d747af3d0884185104decca40204"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     ENV["HGPYTHON3"] = "1"
