@@ -6,13 +6,14 @@ class Icdiff < Formula
   url "https://github.com/jeffkaufman/icdiff/archive/release-2.0.4.tar.gz"
   sha256 "ec21632b64159990a1bcedc8b25f96b476e7a6d9e18b75422420c0ae9b694eac"
   license "PSF-2.0"
+  revision 1
   head "https://github.com/jeffkaufman/icdiff.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "8517c1903b9fd1fe987d62fa7fb4c1345a8ad77e4b5b7372f9833cd3db20ce9e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     rewrite_shebang detected_python_shebang, "icdiff"
