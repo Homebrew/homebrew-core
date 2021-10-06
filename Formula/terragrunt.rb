@@ -1,8 +1,8 @@
 class Terragrunt < Formula
   desc "Thin wrapper for Terraform e.g. for locking state"
   homepage "https://terragrunt.gruntwork.io/"
-  url "https://github.com/gruntwork-io/terragrunt/archive/v0.34.0.tar.gz"
-  sha256 "21e2171fda6d2ac940c8cd46be09f02609f886e0fcaacbda6adbedd2127bc43f"
+  url "https://github.com/gruntwork-io/terragrunt/archive/v0.34.1.tar.gz"
+  sha256 "bad7c877cb55d35d4e95c29f9e540b1ee4a85871f6006d3eed53a238ad3cee6a"
   license "MIT"
 
   bottle do
