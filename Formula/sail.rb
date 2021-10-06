@@ -6,6 +6,7 @@ class Sail < Formula
   url "https://files.pythonhosted.org/packages/5d/fa/b27aac232947ae87e96a859d00e184fe185c5726c27db9a2a12bb7edeb96/sailed.io-0.9.15.tar.gz"
   sha256 "373bac378122edbd39f2676e8a0df59f810d8f0fbb597213cee91249b6d57a0b"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "caecc14745b667baa52f0e13ff01a87f854e17a5fac983a3880366f9e5eaa3ad"
@@ -15,7 +16,7 @@ class Sail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f26b2051a8588774a9f2d1da5d0e2504fc8a85cbaeb9174edca5155db8594234"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
