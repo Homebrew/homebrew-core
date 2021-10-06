@@ -6,6 +6,7 @@ class Fonttools < Formula
   url "https://files.pythonhosted.org/packages/37/8b/867cdac69d5212b3eee781e40cfe539c4d9d7b2d4c9290bcdecd2d218176/fonttools-4.27.1.zip"
   sha256 "6e483f77dc5b862452c2888ec944fca5b79cffb741c7469786a442360681b4e8"
   license "MIT"
+  revision 1
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Fonttools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "318e514ff22eda960d316d6783ec219e4631422573ed00332b09fe1fb1abeecf"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
