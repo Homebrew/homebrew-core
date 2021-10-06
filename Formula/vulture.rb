@@ -6,6 +6,7 @@ class Vulture < Formula
   url "https://files.pythonhosted.org/packages/30/8b/bf4765866521da744ca081f09184657c0dc4fd8ee910a2fd1043d2c7cd6e/vulture-2.3.tar.gz"
   sha256 "03d5a62bcbe9ceb9a9b0575f42d71a2d414070229f2e6f95fa6e7c71aaaed967"
   license "MIT"
+  revision 1
   head "https://github.com/jendrikseipp/vulture.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Vulture < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5196eb208b7a2e59b000e0c47a7f3c28c0b166539c0c2a4b0fb5eb76e34946c8"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "toml" do
     url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
