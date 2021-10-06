@@ -6,7 +6,7 @@ class Grip < Formula
   url "https://files.pythonhosted.org/packages/3c/ea/2a475ed37e1b6476182e71223c98667f51704bdbc919608372b203c7ea04/grip-4.5.2.tar.gz"
   sha256 "048b7e5c738ed80bee345bd10840f27eb31687eb67132b40f2473dc1cf67aa0f"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4dad17672896ca2ca357ba82c4779b9def18535b3a14ba460724d3a764329b13"
@@ -17,7 +17,7 @@ class Grip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c70d5eaccd880210253e3488066a41896ce09c1b05871c68329675249fdeeb63"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
