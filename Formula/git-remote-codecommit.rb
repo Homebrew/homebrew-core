@@ -6,7 +6,7 @@ class GitRemoteCodecommit < Formula
   url "https://files.pythonhosted.org/packages/1f/82/7c22f218a7fd3177def489febc9b8c262a3b2bcb6785d05e15d435ddcab8/git-remote-codecommit-1.15.1.tar.gz"
   sha256 "cd99d44a94f9adf8c5f15110d830f62af5fe644030fecc0df68cbda4880a5214"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/aws/git-remote-codecommit.git"
 
   bottle do
@@ -18,7 +18,7 @@ class GitRemoteCodecommit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3279e60ba5c5f62fc437188c4cf007d1a01088f3771fb78efc9e075b686cbf3"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "botocore" do
     url "https://files.pythonhosted.org/packages/a7/10/d9bbdbee6d3ea63897e468dddabb3edb7b7360a901e3eee249cdb132a78a/botocore-1.17.43.tar.gz"
