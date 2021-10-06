@@ -6,6 +6,7 @@ class Darglint < Formula
   url "https://files.pythonhosted.org/packages/8d/1a/86f981066bc6f9d90d73da0ce09d2084abf1a0fafa9f28fb5130b7186da2/darglint-1.8.0.tar.gz"
   sha256 "aa605ef47817a6d14797d32b390466edab621768ea4ca5cc0f3c54f6d8dcaec8"
   license "MIT"
+  revision 1
   head "https://github.com/terrencepreilly/darglint.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Darglint < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "4df445fe8a9aeb76d8ea3da5eaedca03f42bf39f4c227064e8ab447ab68ba362"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
