@@ -6,6 +6,7 @@ class Streamlink < Formula
   url "https://files.pythonhosted.org/packages/32/5b/bf70fe6937eb47c301329262abf1fb779e99b60eedaa99787b6dcba30d7c/streamlink-2.4.0.tar.gz"
   sha256 "e95588e222d1a7bd51e3171cd4bce84fd6f646418537aff37993d40f597810af"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Streamlink < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ec7cca4a5cef9fec5c04a48e053e4235f8acbe49f895a75e8fec8d632921eee"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
