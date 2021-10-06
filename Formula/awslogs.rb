@@ -6,7 +6,7 @@ class Awslogs < Formula
   url "https://files.pythonhosted.org/packages/96/7b/20bff9839d6679e25d989f94ca4320466ec94f3441972aadaafbad50560f/awslogs-0.14.0.tar.gz"
   sha256 "1b249f87fa2adfae39b9867f3066ac00b9baf401f4783583ab28fcdea338f77e"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/jorgebastida/awslogs.git", branch: "master"
 
   bottle do
@@ -18,7 +18,7 @@ class Awslogs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a8c91210a3e477fea50d9794dee0f7221f18e38797f7bddac25f6bb239b924c"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "zlib"
 
