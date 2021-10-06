@@ -5,7 +5,7 @@ class Nyx < Formula
   homepage "https://nyx.torproject.org/"
   url "https://files.pythonhosted.org/packages/f4/da/68419425cb0f64f996e2150045c7043c2bb61f77b5928c2156c26a21db88/nyx-2.1.0.tar.gz"
   sha256 "88521488d1c9052e457b9e66498a4acfaaa3adf3adc5a199892632f129a5390b"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0588b4c6b3df71714a500b85096f5b83d2773cff86bec2d77ae11139117385ed"
@@ -15,7 +15,7 @@ class Nyx < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "50bf36b910c98d16a0bdee31c76ec4ba1a0ef4b8f6ad1cad7ebdb035f05fd286"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "stem" do
     url "https://files.pythonhosted.org/packages/71/bd/ab05ffcbfe74dca704e860312e00c53ef690b1ddcb23be7a4d9ea4f40260/stem-1.8.0.tar.gz"
