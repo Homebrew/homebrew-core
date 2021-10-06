@@ -11,13 +11,6 @@ class Feroxbuster < Formula
     system "cargo", "install", *std_cargo_args
   end
 
-  def caveats
-    <<~EOS
-      To use feroxbuster, additional wordlists are required.
-      A good source is: https://github.com/danielmiessler/SecLists
-    EOS
-  end
-
   test do
     system bin/"feroxbuster", "-h"
   end
