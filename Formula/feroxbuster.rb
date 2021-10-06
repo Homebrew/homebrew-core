@@ -6,12 +6,27 @@ class Feroxbuster < Formula
   license "MIT"
 
   depends_on "rust" => :build
+  depends_on "miniserve" => :test
 
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    system bin/"feroxbuster", "-h"
+    (testpath/"wordlist").write <<~EOS
+      a.txt
+      b.txt
+    EOS
+
+    (testpath/"web").mkpath
+    (testpath/"web/a.txt").write "a"
+    (testpath/"web/b.txt").write "b"
+
+    fork do
+      exec "miniserve", testpath/"web"
+    end
+    sleep 2
+
+    system bin/"feroxbuster", "-w", testpath/"wordlist", "-u", "http://127.0.0.1:8080"
   end
 end
