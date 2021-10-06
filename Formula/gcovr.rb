@@ -6,6 +6,7 @@ class Gcovr < Formula
   url "https://files.pythonhosted.org/packages/83/0d/d8409c79412baa30717e6d18942251bc18d8cf43447b153f92056be99053/gcovr-5.0.tar.gz"
   sha256 "1d80264cbaadff356b3dda71b8c62b3aa803e5b3eb6d526a24932cd6660a2576"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/gcovr/gcovr.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Gcovr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "aba343a506313d94d5291969fdc4dc055a93b7b5a71563d024843ec657aa0616"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
