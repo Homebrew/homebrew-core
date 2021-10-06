@@ -6,6 +6,7 @@ class Hy < Formula
   url "https://files.pythonhosted.org/packages/2d/80/c9de6ace090a06f42ef68e746f1430d0074a33d21e46839813c764934d64/hy-0.20.0.tar.gz"
   sha256 "1b72863754fb57e2dd275a9775bf621cb50a565e76733a2e74e9954e7fbb060e"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "98b24099b57bdb1322de0e0a20885853a3cc6ddeeb21b833293c3372a600f005"
@@ -15,7 +16,7 @@ class Hy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7e161e87fe9e19ee309ddfceb1cfb56f9d16394cff58b402b920f75e0ef0bc6"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -38,8 +39,8 @@ class Hy < Formula
   end
 
   resource "rply" do
-    url "https://files.pythonhosted.org/packages/71/04/e52242871e606389f232f07042747567fb354a91d9449cad7fa9febbe3b3/rply-0.7.7.tar.gz"
-    sha256 "4d6d25703efd28fb3d5707f7b3bd4fe66c306159a5c25af10ba26d206a66d00d"
+    url "https://files.pythonhosted.org/packages/29/44/96b3e8e6426b1f21f90d73cff83a6df94ef8a57ce8102db6c582d0cb3b2e/rply-0.7.8.tar.gz"
+    sha256 "2a808ac25a4580a9991fc304d64434e299a8fc75760574492f242cbb5bb301c9"
   end
 
   def install
@@ -50,6 +51,6 @@ class Hy < Formula
     (testpath/"test.hy").write "(print (+ 2 2))"
     assert_match "4", shell_output("#{bin}/hy test.hy")
     (testpath/"test.py").write shell_output("#{bin}/hy2py test.hy")
-    assert_match "4", shell_output("#{Formula["python@3.9"].bin}/python3 test.py")
+    assert_match "4", shell_output("#{Formula["python@3.10"].bin}/python3 test.py")
   end
 end
