@@ -6,6 +6,7 @@ class GitImerge < Formula
   url "https://files.pythonhosted.org/packages/be/f6/ea97fb920d7c3469e4817cfbf9202db98b4a4cdf71d8740e274af57d728c/git-imerge-1.2.0.tar.gz"
   sha256 "df5818f40164b916eb089a004a47e5b8febae2b4471a827e3aaa4ebec3831a3f"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mhagger/git-imerge.git"
 
   bottle do
@@ -16,7 +17,7 @@ class GitImerge < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8602c8141fc021386ea95c3b184de32920aa3190ddf30af08feaa51c92bd0ff6"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # PR ref, https://github.com/mhagger/git-imerge/pull/176
   # remove in next release
