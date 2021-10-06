@@ -6,7 +6,7 @@ class Notifiers < Formula
   url "https://files.pythonhosted.org/packages/4f/36/4c300f55949b9be84284d51253ae48d564dc2c4f2bffb94f26c8c1485f07/notifiers-1.2.1.tar.gz"
   sha256 "34625af405f4aa19293eaaefe145ccc92c6018ae9798f53a03a7fcc996e541aa"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f096119adfb8ff779aa65d43189c91d2ffa4fe2b108d974cc75a78b777b273d"
@@ -17,7 +17,7 @@ class Notifiers < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1455a58e57586a13377c4ca97a640e8443c8883bf0c9f2bbf8cc79f2d912fbb"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
