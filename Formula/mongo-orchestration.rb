@@ -6,6 +6,7 @@ class MongoOrchestration < Formula
   url "https://files.pythonhosted.org/packages/7a/df/245a0f19b54dbd8852b29f53d3448fd89df5283165eb9fe90a83bf59708e/mongo-orchestration-0.7.0.tar.gz"
   sha256 "f297a1fb81d742ab8397257da5b1cf1fd43153afcc2261c66801126b78973982"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/10gen/mongo-orchestration.git"
 
   bottle do
@@ -17,7 +18,7 @@ class MongoOrchestration < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9e71f7fdfe63ac2bcd8ac7646d1cda17bf96e06fe2b780cc04af67ab29eb9a5"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/ea/80/3d2dca1562ffa1929017c74635b4cb3645a352588de89e90d0bb53af3317/bottle-0.12.19.tar.gz"
