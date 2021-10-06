@@ -20,7 +20,7 @@ class Conan < Formula
   depends_on "cmake" => :test
   depends_on "libffi"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "bottle" do
