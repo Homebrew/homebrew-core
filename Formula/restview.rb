@@ -6,7 +6,7 @@ class Restview < Formula
   url "https://files.pythonhosted.org/packages/e6/40/b4ef5c90297b9d37248090b9fde3a9aa1ef25e87ebd17b363760fec39a78/restview-2.9.2.tar.gz"
   sha256 "790097eb587c0465126dde73ca06c7a22c5007ce1be4a1de449a13c0767b32dc"
   license "GPL-3.0"
-  revision 3
+  revision 4
 
   bottle do
     rebuild 2
@@ -17,7 +17,7 @@ class Restview < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "deffb0171b3411a93bac2ffa760adbcdf7939592f052c1bed930cc21946f05cf"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/a9/ac/dc881fca3ac66d6f2c4c3ac46633af4e9c05ed5a0aa2e7e36dc096687dd7/bleach-3.1.5.tar.gz"
