@@ -7,6 +7,7 @@ class Swift < Formula
   url "https://github.com/apple/swift/archive/swift-5.5-RELEASE.tar.gz"
   sha256 "0f76c429e65f24d48a2a18b18e7b380a5c97be0d4370271ac3623e436332fd35"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://swift.org/download/"
@@ -29,7 +30,7 @@ class Swift < Formula
   # https://github.com/apple/swift/tree/swift-#{version}-RELEASE/docs/HowToGuides/GettingStarted.md#macos
   depends_on xcode: ["12.3", :build]
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # HACK: this should not be a test dependency but is due to a limitation with fails_with
   uses_from_macos "llvm" => [:build, :test]
@@ -300,7 +301,7 @@ class Swift < Formula
           -DCMAKE_INSTALL_RPATH=$ORIGIN:$ORIGIN/../lib:$ORIGIN/../lib/swift/linux
         ]
 
-        ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+        ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
       end
 
       args << "--extra-cmake-options=#{extra_cmake_options.join(" ")}"
