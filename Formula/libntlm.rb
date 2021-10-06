@@ -3,7 +3,7 @@ class Libntlm < Formula
   homepage "https://www.nongnu.org/libntlm/"
   url "https://www.nongnu.org/libntlm/releases/libntlm-1.6.tar.gz"
   sha256 "f2376b87b06d8755aa3498bb1226083fdb1d2cf4460c3982b05a9aa0b51d6821"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://www.nongnu.org/libntlm/releases/"
@@ -24,7 +24,8 @@ class Libntlm < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
-    pkgshare.install "config.h", "test_ntlm.c", "test.txt", "gl/byteswap.h", "gl/md4.c", "gl/md4.h"
+    pkgshare.install "config.h", "test_ntlm.c", "test.txt", "gl/md4.c", "gl/md4.h"
+    pkgshare.install "gl/byteswap.h" if OS.mac?
   end
 
   test do
