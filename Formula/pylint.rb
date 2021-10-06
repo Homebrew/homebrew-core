@@ -6,6 +6,7 @@ class Pylint < Formula
   url "https://files.pythonhosted.org/packages/61/c0/752d9f4c506457f2f6969c3ea0e2d62809ac34d16e8d00502894f164bded/pylint-2.11.1.tar.gz"
   sha256 "2c9843fff1a88ca0ad98a256806c82c5a8f86086e7ccbdb93297d86c3f90c436"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7cc62a0a4cc1d87f292e3cc738f9735bd79d8743e0a32c2c905c8c6eda2a88ce"
@@ -15,7 +16,7 @@ class Pylint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ecda86046a8de15db20dbbe5798b5c4715c8785812ade84b59b516423cfca95"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "astroid" do
     url "https://files.pythonhosted.org/packages/ac/d9/e64c49b9ef308505d7cb9f5e2b8e0af01933e7553c76b76d3dd183661428/astroid-2.8.0.tar.gz"
