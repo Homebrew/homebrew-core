@@ -6,7 +6,7 @@ class Diceware < Formula
   url "https://files.pythonhosted.org/packages/d7/af/85373be6b11706fa1392e52d7fcd47df47f661e238251c931d469e62c5bf/diceware-0.9.6.tar.gz"
   sha256 "7ef924ca05ece8eaa5e2746246ab94600b831f1428c70d231790fee5b5078b4e"
   license "GPL-3.0"
-  revision 3
+  revision 4
 
   bottle do
     rebuild 2
@@ -17,7 +17,7 @@ class Diceware < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fb5a144eb5ddefeda40f9426a52b23e789822fbf35168c059d978425143e892"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
