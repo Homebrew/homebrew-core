@@ -6,6 +6,7 @@ class B2Tools < Formula
   url "https://files.pythonhosted.org/packages/47/c5/e05b32109452201938a9154d726e0df896962b755f33b29cbdc511ef5f85/b2-3.0.3.tar.gz"
   sha256 "6acae18a700d1a54ec4816ed193a0ec5344619209ffb57385569e81377b3a080"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "29ebb7627d56b1e368f39f1996136a344a1390e03ee7f259a809374ca75e823e"
@@ -15,7 +16,7 @@ class B2Tools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f59c61c7e3d4dec4af4e644bc80ae4e6f78dfa7aa2d570130e93c72db873cbbf"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   conflicts_with "boost-build", because: "both install `b2` binaries"
