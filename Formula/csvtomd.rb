@@ -6,7 +6,7 @@ class Csvtomd < Formula
   url "https://files.pythonhosted.org/packages/9d/59/ea3c8b102f9c72e5d276a169f7f343432213441c39a6eac7a8f444c66681/csvtomd-0.3.0.tar.gz"
   sha256 "a1fbf1db86d4b7b62a75dc259807719b2301ed01db5d1d7d9bb49c4a8858778b"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6fd3c11c69283da1a7eea9160e5935a3ecb9b4e940d7522c7e10253bbbd8b93f"
@@ -17,7 +17,7 @@ class Csvtomd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbb87c2b28519a4f8cbeb66c48d0674d122926dbc4999bccf792067346eab316"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
