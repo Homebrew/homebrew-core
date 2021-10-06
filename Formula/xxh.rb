@@ -6,6 +6,7 @@ class Xxh < Formula
   url "https://files.pythonhosted.org/packages/2d/71/3fbc4861cc5dbf9bdc0515aa98526fe1dfd0d666a90252a43f922f74a174/xxh-xxh-0.8.7.tar.gz"
   sha256 "3608144e2035b7d3a8a24873b3dd74ea1b4460892971e265506fd46274ad2973"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ddbbe49d738c38af8064d668d0a7aa32653a3c7709011e3f7a6c863fa02f8052"
@@ -15,7 +16,7 @@ class Xxh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6aff1a95baaf066ffe25886e39dea34d64d847a2e8301e6930961eb4f72d8653"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "pexpect" do
     url "https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz"
