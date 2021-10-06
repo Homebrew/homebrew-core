@@ -6,14 +6,14 @@ class GitArchiveAll < Formula
   url "https://github.com/Kentzo/git-archive-all/archive/1.23.0.tar.gz"
   sha256 "25f36948b704e57c47c98a33280df271de7fbfb74753b4984612eabb08fb2ab1"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/Kentzo/git-archive-all.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "2c5a291b77ebe4a1f5fc2f3a0a2de81bf6b25478940494f8e314f8f267debd04"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     rewrite_shebang detected_python_shebang, "*.py"
