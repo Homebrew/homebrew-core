@@ -62,6 +62,9 @@
   "conan": {
     "exclude_packages": ["six"]
   },
+  "cppman": {
+    "exclude_packages": ["six"]
+  },
   "datalad": {
     "exclude_packages": ["six"]
   },
