@@ -5,6 +5,11 @@ class Pcre2 < Formula
   sha256 "7d95aa7c8a7b0749bf03c4bd73626ab61dece7e3986b5a57f5ec39eebef6b07c"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    regex(/pcre2-(\d+\.\d+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "eeda1a0642a9e2a3f32d0588605f29e2a5671dc6bd9e45394c3026cd79786c64"
     sha256 cellar: :any,                 big_sur:       "2e885570c4dc2eaa61e7a02c66631f9333bbb42f8602d8293e7ce022861ae11e"
