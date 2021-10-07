@@ -28,9 +28,6 @@ class Semgrep < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
-  # Temporary fix for curl cert issues.
-  # TODO: Remove when Mojave curl issue is fixed.
-  depends_on "wget" => :build
   depends_on "pcre"
   depends_on "python@3.9"
   depends_on "tree-sitter"
