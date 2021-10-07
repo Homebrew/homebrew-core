@@ -6,6 +6,7 @@ class Litecli < Formula
   url "https://files.pythonhosted.org/packages/cd/c2/4a061e7d6aeec8ae0a8da1da77827cd100b0199adf3f9ac771fdc585621d/litecli-1.6.0.tar.gz"
   sha256 "4d274e1475b4d3bb32384838830bc4a8388992b7cb8119aa8cffc7ffaa0167f9"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1e8e191643ac0d4592595de0d0a3f73c268f3c9a73df85f48803b90e9ff64896"
@@ -15,7 +16,7 @@ class Litecli < Formula
   end
 
   depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "sqlite"
 
