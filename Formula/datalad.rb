@@ -16,7 +16,7 @@ class Datalad < Formula
 
   depends_on "git-annex"
   depends_on "p7zip"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "annexremote" do
