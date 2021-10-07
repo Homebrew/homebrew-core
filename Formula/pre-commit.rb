@@ -6,6 +6,7 @@ class PreCommit < Formula
   url "https://files.pythonhosted.org/packages/63/9e/f139fe6176b417e8c725f0ecfe5021e2edc88c5e00358aacbf812f3224ed/pre_commit-2.15.0.tar.gz"
   sha256 "3c25add78dbdfb6a28a651780d5c311ac40dd17f160eb3954a0c59da40a505a7"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "013932b6c31d3f82d7b99bd8f49afdbbedd0464d711cddfc09a484330c665069"
@@ -16,7 +17,7 @@ class PreCommit < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "backports.entry-points-selectable" do
@@ -88,7 +89,7 @@ class PreCommit < Formula
 
   # Avoid relative paths
   def post_install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     dirs_to_fix = [libexec/"lib/python#{xy}"]
     dirs_to_fix << (libexec/"bin") if OS.linux?
     dirs_to_fix.each do |folder|
