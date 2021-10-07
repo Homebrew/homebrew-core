@@ -53,7 +53,7 @@ class Ruby < Formula
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 
-    system "autoconf" if build.head?
+    system "./autogen.sh" if build.head?
 
     paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
