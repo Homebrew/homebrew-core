@@ -7,7 +7,7 @@ class CaCertificates < Formula
 
   livecheck do
     url :homepage
-    regex(%r{href=.*?/ca/cacert-(\d{4}-\d{2}-\d{2})\.pem}i)
+    regex(%r{href=.*?cacert[._-](\d{4}-\d{2}-\d{2})\.pem}i)
   end
 
   bottle do
