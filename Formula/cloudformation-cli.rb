@@ -16,7 +16,7 @@ class CloudformationCli < Formula
   end
 
   depends_on "go" => :test
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "expect" => :test
