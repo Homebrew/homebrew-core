@@ -1,9 +1,9 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://dlcdn.apache.org/httpd/httpd-2.4.50.tar.bz2"
-  mirror "https://downloads.apache.org/httpd/httpd-2.4.50.tar.bz2"
-  sha256 "6a2817c070c606682eb53ed963511407d3c3d7a379cdf855971467b00fb3890f"
+  url "https://dlcdn.apache.org/httpd/httpd-2.4.51.tar.bz2"
+  mirror "https://downloads.apache.org/httpd/httpd-2.4.51.tar.bz2"
+  sha256 "20e01d81fecf077690a4439e3969a9b22a09a8d43c525356e863407741b838f4"
   license "Apache-2.0"
 
   bottle do
