@@ -6,6 +6,7 @@ class Virtualenv < Formula
   url "https://files.pythonhosted.org/packages/dd/40/9bc1b32521f78c293c1f8ca423c725737dfa9d09640dbeec61cebca7c5f2/virtualenv-20.8.1.tar.gz"
   sha256 "bcc17f0b3a29670dd777d6f0755a4c04f28815395bca279cdcb213b97199a6b8"
   license "MIT"
+  revision 1
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class Virtualenv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cac916f3adfd339a467a03ee2f48f8bc94420f64802d226a096693737fd53c6"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "backports.entry-points-selectable" do
