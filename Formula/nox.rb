@@ -6,6 +6,7 @@ class Nox < Formula
   url "https://files.pythonhosted.org/packages/11/46/c6f4944a1ffdec93a96f942bddd9b8308c2f90fe37a6512bbd2d420283ac/nox-2021.10.1.tar.gz"
   sha256 "0a1c735d5e90fa234046b58a5ad61d08bc13ae77ab213da9b58d5cc2d25023ae"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "35d84c9284482eddf64d28fb8058cc78ab5cf51bb056513d0d36f9df1ba33233"
@@ -15,7 +16,7 @@ class Nox < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "80dbb04af51196b615b7c22f51d46b2cf142491d8609290633bfc43b7d2a4b06"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "argcomplete" do
