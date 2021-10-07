@@ -1,9 +1,18 @@
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
-  url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.38/pcre2-10.38.tar.bz2"
-  sha256 "7d95aa7c8a7b0749bf03c4bd73626ab61dece7e3986b5a57f5ec39eebef6b07c"
   license "BSD-3-Clause"
+
+  stable do
+    url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.38/pcre2-10.38.tar.bz2"
+    sha256 "7d95aa7c8a7b0749bf03c4bd73626ab61dece7e3986b5a57f5ec39eebef6b07c"
+    # fix incorrect detection of alternatives in first character search with JIT
+    # remove in the next release
+    patch do
+      url "https://github.com/PhilipHazel/pcre2/commit/51ec2c9893e7dac762b70033b85f55801b01176c.patch?full_index=1"
+      sha256 "0e91049d9d2afaff3169ddf8b0d95a9cd968793f2875af8064e0ab572c594007"
+    end
+  end
 
   livecheck do
     url :stable
@@ -18,15 +27,16 @@ class Pcre2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6ec10a997623297bbbf00d0d5854235694c7326ea0296690f89416d7e32ddba"
   end
 
+  head do
+    url "https://github.com/PhilipHazel/pcre2.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
-
-  # fix incorrect detection of alternatives in first character search with JIT
-  # remove in the next release
-  patch do
-    url "https://github.com/PhilipHazel/pcre2/commit/51ec2c9893e7dac762b70033b85f55801b01176c.patch?full_index=1"
-    sha256 "0e91049d9d2afaff3169ddf8b0d95a9cd968793f2875af8064e0ab572c594007"
-  end
 
   def install
     args = %W[
@@ -40,6 +50,8 @@ class Pcre2 < Formula
 
     # JIT not currently supported for Apple Silicon
     args << "--enable-jit" unless Hardware::CPU.arm?
+
+    system "./autogen.sh" if build.head?
 
     system "./configure", *args
     system "make"
