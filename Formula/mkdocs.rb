@@ -6,6 +6,7 @@ class Mkdocs < Formula
   url "https://files.pythonhosted.org/packages/ff/cf/724004ec05e9a5558fcdd5787d6c2d6828fa5a4957c5a1d305689ab6c172/mkdocs-1.2.2.tar.gz"
   sha256 "a334f5bd98ec960638511366eb8c5abc9c99b9083a0ed2401d8791b112d6b078"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d827ace0c933a234b28172df26bc8a1dfe000b4c038654d4f7c63069ca769911"
@@ -15,7 +16,7 @@ class Mkdocs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8464f886388957053c9c807285eb055a1a42cb7922a37090af89957e24bfe459"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "click" do
