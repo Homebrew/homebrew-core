@@ -4,6 +4,7 @@ class PythonYq < Formula
   url "https://files.pythonhosted.org/packages/c0/1b/fe6b9ab599384e95c9b7a63e4801409170fccfc107d03573cc4bb5df49f0/yq-2.12.2.tar.gz"
   sha256 "2f156d0724b61487ac8752ed4eaa702a5737b804d5afa46fa55866951cd106d2"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6f7369da386d517f765231a0f2c44950821857474f745c5093a640681efc7257"
@@ -14,7 +15,7 @@ class PythonYq < Formula
   end
 
   depends_on "jq"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "yq", because: "both install `yq` executables"
 
