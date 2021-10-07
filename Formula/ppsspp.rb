@@ -49,7 +49,7 @@ class Ppsspp < Formula
     end
 
     # Replace bundled MoltenVK dylib with symlink to Homebrew-managed dylib
-    rm "MoltenVK/macOS/Frameworks/libMoltenVK.dylib"
+    rm "ext/vulkan/macOS/Frameworks/libMoltenVK.dylib"
     (buildpath/"MoltenVK/macOS/Frameworks").install_symlink Formula["molten-vk"].opt_lib/"libMoltenVK.dylib"
 
     mkdir "build" do
