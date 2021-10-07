@@ -6,7 +6,7 @@ class Dvc < Formula
   url "https://files.pythonhosted.org/packages/98/11/c869eff8e743d85b67757e9287b6eb557aeb6901ef5723bda59b3a82655a/dvc-2.7.4.tar.gz"
   sha256 "754e2c4e0a79e610a1a9da4cebec56c51fba39430334a6dc2e0583bd44f4a89b"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "e24575338fe0d2cff72b9b4da5843f788970c89421e73fd4bd4d1d666f599b45"
@@ -24,7 +24,7 @@ class Dvc < Formula
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   # When updating, check that the extra packages in pypi_formula_mappings.json
@@ -638,7 +638,7 @@ class Dvc < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
     venv.pip_install resources
 
     # NOTE: dvc uses this file [1] to know which package it was installed from,
