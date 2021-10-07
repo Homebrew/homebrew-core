@@ -4,6 +4,7 @@ class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://github.com/aws/aws-cli/archive/2.2.43.tar.gz"
@@ -36,7 +37,7 @@ class Awscli < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "groff"
