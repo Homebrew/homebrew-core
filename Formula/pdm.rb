@@ -6,6 +6,7 @@ class Pdm < Formula
   url "https://files.pythonhosted.org/packages/80/8f/5cc28c1ea23b12fa06e4167bd4261dc0b34cb62a24607cdc281da7b30b9c/pdm-1.8.5.tar.gz"
   sha256 "91c50a792b0af21c6e8b82c344281b4ce7e1f518010c362bee6a4b7434b5b97e"
   license "MIT"
+  revision 1
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class Pdm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf2449d02c2182befc10745a90345ce0f833a1677e42ab83e837cf6e668173ba"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "appdirs" do
