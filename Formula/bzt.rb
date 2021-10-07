@@ -216,7 +216,7 @@ class Bzt < Formula
   end
 
   test do
-    cmd = "#{bin}/bzt -v -o execution.executor=apiritif -o execution.iterations=1 -o execution.scenario.requests.0=https://gettaurus.org/"
+    cmd = "#{bin}/bzt -v -o execution.executor=locust -o execution.iterations=1 -o execution.scenario.requests.0=https://gettaurus.org/"
     # assert_match /INFO: Samples count: 1, .*% failures/, shell_output(cmd)
     system(cmd)
   end
