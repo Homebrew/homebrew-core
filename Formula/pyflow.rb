@@ -4,6 +4,7 @@ class Pyflow < Formula
   url "https://github.com/David-OConnor/pyflow/archive/0.3.1.tar.gz"
   sha256 "36be46aaebf7bc77d2f250b3646024fb1f2f04d92113d3ce46ea5846f7e4c4f4"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "88f8e4c0528d6b4eea13d4bda9cabd3dafc7fb85b044bc0fe660530fb00f77e5"
@@ -14,15 +15,15 @@ class Pyflow < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.9" => :test
+  depends_on "python@3.10" => :test
 
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
-    pipe_output("#{bin}/pyflow init", "#{Formula["python@3.9"].version}\n1")
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+    pipe_output("#{bin}/pyflow init", "#{Formula["python@3.10"].version}\n1")
     system bin/"pyflow", "install", "boto3"
 
     assert_predicate testpath/"pyproject.toml", :exist?
