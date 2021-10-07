@@ -26,6 +26,7 @@ class Grafana < Formula
   end
 
   def install
+    system "make", "gen-go"
     system "go", "run", "build.go", "build"
 
     system "yarn", "install", "--ignore-engines", "--network-concurrency", "1"
