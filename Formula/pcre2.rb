@@ -1,25 +1,9 @@
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
+  url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.38/pcre2-10.38.tar.bz2"
+  sha256 "7d95aa7c8a7b0749bf03c4bd73626ab61dece7e3986b5a57f5ec39eebef6b07c"
   license "BSD-3-Clause"
-  revision 1
-  head "svn://vcs.exim.org/pcre2/code/trunk"
-
-  # remove stable block on next release with merged patch
-  stable do
-    url "https://ftp.pcre.org/pub/pcre/pcre2-10.37.tar.bz2"
-    sha256 "4d95a96e8b80529893b4562be12648d798b957b1ba1aae39606bbc2ab956d270"
-
-    # fix invalid single character repetition issues in JIT
-    # upstream revision: https://vcs.pcre.org/pcre2?view=revision&revision=1315
-    # remove in the next release
-    patch :DATA
-  end
-
-  livecheck do
-    url "https://ftp.pcre.org/pub/pcre/"
-    regex(/href=.*?pcre2[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "eeda1a0642a9e2a3f32d0588605f29e2a5671dc6bd9e45394c3026cd79786c64"
@@ -31,6 +15,13 @@ class Pcre2 < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # fix incorrect detection of alternatives in first character search with JIT
+  # remove in the next release
+  patch do
+    url "https://github.com/PhilipHazel/pcre2/commit/51ec2c9893e7dac762b70033b85f55801b01176c.patch?full_index=1"
+    sha256 "0e91049d9d2afaff3169ddf8b0d95a9cd968793f2875af8064e0ab572c594007"
+  end
 
   def install
     args = %W[
@@ -54,52 +45,3 @@ class Pcre2 < Formula
     system bin/"pcre2grep", "regular expression", prefix/"README"
   end
 end
-
-__END__
---- a/src/pcre2_jit_compile.c
-+++ b/src/pcre2_jit_compile.c
-@@ -1236,15 +1236,16 @@ start:
- 
- return: current number of iterators enhanced with fast fail
- */
--static int detect_early_fail(compiler_common *common, PCRE2_SPTR cc, int *private_data_start, sljit_s32 depth, int start)
-+static int detect_early_fail(compiler_common *common, PCRE2_SPTR cc, int *private_data_start,
-+   sljit_s32 depth, int start, BOOL fast_forward_allowed)
- {
- PCRE2_SPTR begin = cc;
- PCRE2_SPTR next_alt;
- PCRE2_SPTR end;
- PCRE2_SPTR accelerated_start;
-+BOOL prev_fast_forward_allowed;
- int result = 0;
- int count;
--BOOL fast_forward_allowed = TRUE;
- 
- SLJIT_ASSERT(*cc == OP_ONCE || *cc == OP_BRA || *cc == OP_CBRA);
- SLJIT_ASSERT(*cc != OP_CBRA || common->optimized_cbracket[GET2(cc, 1 + LINK_SIZE)] != 0);
-@@ -1476,6 +1477,7 @@ do
-       case OP_CBRA:
-       end = cc + GET(cc, 1);
- 
-+      prev_fast_forward_allowed = fast_forward_allowed;
-       fast_forward_allowed = FALSE;
-       if (depth >= 4)
-         break;
-@@ -1484,7 +1486,7 @@ do
-       if (*end != OP_KET || (*cc == OP_CBRA && common->optimized_cbracket[GET2(cc, 1 + LINK_SIZE)] == 0))
-         break;
- 
--      count = detect_early_fail(common, cc, private_data_start, depth + 1, count);
-+      count = detect_early_fail(common, cc, private_data_start, depth + 1, count, prev_fast_forward_allowed);
- 
-       if (PRIVATE_DATA(cc) != 0)
-         common->private_data_ptrs[begin - common->start] = 1;
-@@ -13657,7 +13659,7 @@ memset(common->private_data_ptrs, 0, total_length * sizeof(sljit_s32));
- private_data_size = common->cbra_ptr + (re->top_bracket + 1) * sizeof(sljit_sw);
- 
- if ((re->overall_options & PCRE2_ANCHORED) == 0 && (re->overall_options & PCRE2_NO_START_OPTIMIZE) == 0 && !common->has_skip_in_assert_back)
--  detect_early_fail(common, common->start, &private_data_size, 0, 0);
-+  detect_early_fail(common, common->start, &private_data_size, 0, 0, TRUE);
- 
- set_private_data_ptrs(common, &private_data_size, ccend);
- 
