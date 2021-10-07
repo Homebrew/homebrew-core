@@ -4,6 +4,7 @@ class Bazel < Formula
   url "https://github.com/bazelbuild/bazel/releases/download/4.2.1/bazel-4.2.1-dist.zip"
   sha256 "12ea7aa11e2bdb12de1dceb9939a22e96f5a480437cb17c123379d8e0fdf5e82"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Bazel < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7163d2a9b29e72e8303327f88e8e3a8567d32cdee03a91313030b360c64f4d8"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "openjdk@11"
 
   uses_from_macos "unzip"
@@ -34,7 +35,7 @@ class Bazel < Formula
     ENV["EXTRA_BAZEL_ARGS"] = "--host_javabase=@local_jdk//:jdk"
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
     # Force Bazel to use Homebrew python
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
 
     # Bazel clears environment variables other than PATH during build, which
     # breaks Homebrew shim scripts. We don't see this issue on macOS since
