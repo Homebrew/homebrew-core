@@ -17,7 +17,7 @@ class Jupyterlab < Formula
 
   depends_on "node"
   depends_on "pandoc"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
   depends_on "zeromq"
 
