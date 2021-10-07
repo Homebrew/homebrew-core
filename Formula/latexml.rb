@@ -122,10 +122,8 @@ class Latexml < Formula
   end
 
   resource "XML::LibXSLT" do
-    on_linux do
-      url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.99.tar.gz"
-      sha256 "127e17a877fb61e47b9e8b87bf8daad31339a62a00121f9751d522b438b0f7f0"
-    end
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.99.tar.gz"
+    sha256 "127e17a877fb61e47b9e8b87bf8daad31339a62a00121f9751d522b438b0f7f0"
   end
 
   resource "URI" do
@@ -185,8 +183,10 @@ class Latexml < Formula
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     resources.each do |r|
+      next if r.name == "XML::LibXSLT" && OS.mac? && MacOS.version < :big_sur
+
       r.stage do
         ENV["PERL_CANARY_STABILITY_NOPROMPT"] = "1" if OS.linux?
 
@@ -199,11 +199,11 @@ class Latexml < Formula
     system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
     system "make", "install"
     doc.install "manual.pdf"
-    (libexec+"bin").find.each do |path|
+    (libexec/"bin").find.each do |path|
       next if path.directory?
 
       program = path.basename
-      (bin+program).write_env_script("#{libexec}/bin/#{program}", PERL5LIB: ENV["PERL5LIB"])
+      (bin/program).write_env_script(libexec/"bin"/program, PERL5LIB: ENV["PERL5LIB"])
     end
   end
 
