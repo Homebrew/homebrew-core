@@ -2,23 +2,16 @@ class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
   license "BSD-3-Clause"
-  revision 1
-  head "svn://vcs.exim.org/pcre2/code/trunk"
 
   # remove stable block on next release with merged patch
   stable do
-    url "https://ftp.pcre.org/pub/pcre/pcre2-10.37.tar.bz2"
-    sha256 "4d95a96e8b80529893b4562be12648d798b957b1ba1aae39606bbc2ab956d270"
+    url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.38/pcre2-10.38.tar.bz2"
+    sha256 "7d95aa7c8a7b0749bf03c4bd73626ab61dece7e3986b5a57f5ec39eebef6b07c"
 
-    # fix invalid single character repetition issues in JIT
-    # upstream revision: https://vcs.pcre.org/pcre2?view=revision&revision=1315
+    # fix incorrect detection of alternatives in first character search with JIT
+    # upstream revision: https://github.com/PhilipHazel/pcre2/commit/e7af7efaa11f71b187b0432e9e60f18ba4d90a0c
     # remove in the next release
     patch :DATA
-  end
-
-  livecheck do
-    url "https://ftp.pcre.org/pub/pcre/"
-    regex(/href=.*?pcre2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
@@ -33,6 +26,7 @@ class Pcre2 < Formula
   uses_from_macos "zlib"
 
   def install
+    system "./autogen.sh" if build.head?
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -56,50 +50,41 @@ class Pcre2 < Formula
 end
 
 __END__
+diff --git a/src/pcre2_jit_compile.c b/src/pcre2_jit_compile.c
+index 495920de..2c614065 100644
 --- a/src/pcre2_jit_compile.c
 +++ b/src/pcre2_jit_compile.c
-@@ -1236,15 +1236,16 @@ start:
- 
- return: current number of iterators enhanced with fast fail
- */
--static int detect_early_fail(compiler_common *common, PCRE2_SPTR cc, int *private_data_start, sljit_s32 depth, int start)
-+static int detect_early_fail(compiler_common *common, PCRE2_SPTR cc, int *private_data_start,
-+   sljit_s32 depth, int start, BOOL fast_forward_allowed)
- {
- PCRE2_SPTR begin = cc;
- PCRE2_SPTR next_alt;
- PCRE2_SPTR end;
- PCRE2_SPTR accelerated_start;
-+BOOL prev_fast_forward_allowed;
- int result = 0;
- int count;
--BOOL fast_forward_allowed = TRUE;
- 
- SLJIT_ASSERT(*cc == OP_ONCE || *cc == OP_BRA || *cc == OP_CBRA);
+@@ -1251,10 +1251,13 @@ SLJIT_ASSERT(*cc == OP_ONCE || *cc == OP_BRA || *cc == OP_CBRA);
  SLJIT_ASSERT(*cc != OP_CBRA || common->optimized_cbracket[GET2(cc, 1 + LINK_SIZE)] != 0);
-@@ -1476,6 +1477,7 @@ do
-       case OP_CBRA:
-       end = cc + GET(cc, 1);
+ SLJIT_ASSERT(start < EARLY_FAIL_ENHANCE_MAX);
  
-+      prev_fast_forward_allowed = fast_forward_allowed;
-       fast_forward_allowed = FALSE;
-       if (depth >= 4)
-         break;
-@@ -1484,7 +1486,7 @@ do
-       if (*end != OP_KET || (*cc == OP_CBRA && common->optimized_cbracket[GET2(cc, 1 + LINK_SIZE)] == 0))
-         break;
++next_alt = cc + GET(cc, 1);
++if (*next_alt == OP_ALT)
++  fast_forward_allowed = FALSE;
++
+ do
+   {
+   count = start;
+-  next_alt = cc + GET(cc, 1);
+   cc += 1 + LINK_SIZE + ((*cc == OP_CBRA) ? IMM2_SIZE : 0);
  
--      count = detect_early_fail(common, cc, private_data_start, depth + 1, count);
-+      count = detect_early_fail(common, cc, private_data_start, depth + 1, count, prev_fast_forward_allowed);
+   while (TRUE)
+@@ -1512,7 +1515,7 @@ do
+         {
+         count++;
  
-       if (PRIVATE_DATA(cc) != 0)
-         common->private_data_ptrs[begin - common->start] = 1;
-@@ -13657,7 +13659,7 @@ memset(common->private_data_ptrs, 0, total_length * sizeof(sljit_s32));
- private_data_size = common->cbra_ptr + (re->top_bracket + 1) * sizeof(sljit_sw);
+-        if (fast_forward_allowed && *next_alt == OP_KET)
++        if (fast_forward_allowed)
+           {
+           common->fast_forward_bc_ptr = accelerated_start;
+           common->private_data_ptrs[(accelerated_start + 1) - common->start] = ((*private_data_start) << 3) | type_skip;
+@@ -1562,8 +1565,8 @@ do
+   else if (result < count)
+     result = count;
  
- if ((re->overall_options & PCRE2_ANCHORED) == 0 && (re->overall_options & PCRE2_NO_START_OPTIMIZE) == 0 && !common->has_skip_in_assert_back)
--  detect_early_fail(common, common->start, &private_data_size, 0, 0);
-+  detect_early_fail(common, common->start, &private_data_size, 0, 0, TRUE);
- 
- set_private_data_ptrs(common, &private_data_size, ccend);
+-  fast_forward_allowed = FALSE;
+   cc = next_alt;
++  next_alt = cc + GET(cc, 1);
+   }
+ while (*cc == OP_ALT);
  
