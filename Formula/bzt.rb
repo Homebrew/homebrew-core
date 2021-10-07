@@ -3,7 +3,7 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org"
-  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.16.0.tar.gz"
+  url "https://files.pythonhosted.org/packages/97/6a/a0acb0b422877d3cc2ff4bb3759752b173b59fcb6b88e4bb9f1ca8ba0a80/bzt-1.16.0.tar.gz"
   sha256 "00fac04eabc1349dd759cb9f32e8bab5f7cf2b08ce1c0d3ee25ba9adf9e66d60"
   license "Apache-2.0"
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
@@ -23,7 +23,7 @@ class Bzt < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
-resource "aiodogstatsd" do
+  resource "aiodogstatsd" do
     url "https://files.pythonhosted.org/packages/5d/97/7c671c6f6007aab9864787c9cf2ac7f97c04b928711312d41c9748a09691/aiodogstatsd-0.15.0.tar.gz"
     sha256 "f315ef90510440c2653c7123ddeb67163425cf35ebd39690e921b812c75dfdb8"
   end
