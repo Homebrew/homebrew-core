@@ -6,6 +6,7 @@ class Iredis < Formula
   url "https://github.com/laixintao/iredis/archive/refs/tags/v1.9.4.tar.gz"
   sha256 "628479debd444c671cba866e96877b266ce1581c632d78a243549906db1ef946"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/laixintao/iredis.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Iredis < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "01730609934362b5a1a75e021af671efe2d5d6afc4d3a3bbcdf90680ee4abc18"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "click" do
