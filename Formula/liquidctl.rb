@@ -18,7 +18,7 @@ class Liquidctl < Formula
 
   depends_on "hidapi"
   depends_on "libusb"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "i2c-tools"
