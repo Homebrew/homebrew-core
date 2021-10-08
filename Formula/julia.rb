@@ -47,6 +47,7 @@ class Julia < Formula
   fails_with gcc: "5"
 
   # Fix compatibility with LibGit2 1.2.0+
+  # https://github.com/JuliaLang/julia/pull/42209
   patch do
     url "https://raw.githubusercontent.com/archlinux/svntogit-community/cec6c2023b66d88c013677bfa9965cce8e49e7ab/trunk/julia-libgit-1.2.patch"
     sha256 "c57ea92a11fa8dac72229e6a912d2372ec0d98d63486426fe3bdeeb795de48f7"
