@@ -15,6 +15,7 @@ class Pyflow < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "cmake" => :test
   depends_on "python@3.10" => :test
 
   def install
