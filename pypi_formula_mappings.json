@@ -167,6 +167,9 @@
   "nicotine-plus": {
     "exclude_packages": ["pycairo", "PyGObject"]
   },
+  "parliament": {
+    "exclude_packages": ["six"]
+  },
   "pdm": {
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
