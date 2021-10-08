@@ -6,9 +6,7 @@ class Fpocket2 < Formula
   license "GPL-3.0-or-later"
 
   def install
-    on_linux do
-      system "sed -i s/\$(LFLAGS) \$\^ -o \$@/\$\^ -o \$@ \$(LFLAGS)/g' makefile"
-    end
+    system "sed -i 's/\$(LFLAGS) \$\^ -o \$@/\$\^ -o \$@ \$(LFLAGS)/g' makefile" if OS.linux?
     system "make"
     bin.install Dir["bin/*pocket"]
     bin.install "bin/pcheck"
