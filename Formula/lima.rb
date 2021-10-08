@@ -1,8 +1,8 @@
 class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://github.com/lima-vm/lima"
-  url "https://github.com/lima-vm/lima/archive/v0.6.4.tar.gz"
-  sha256 "3795568924c0c5eabbc6528b457a0c120383717a7f5c9a64252f032070da5afd"
+  url "https://github.com/lima-vm/lima/archive/v0.7.1.tar.gz"
+  sha256 "635d03bde3a8e592350394d45f06b9bdea1dffe747b5a9739711d6e937f2faab"
   license "Apache-2.0"
 
   bottle do
@@ -22,9 +22,13 @@ class Lima < Formula
     bin.install Dir["_output/bin/*"]
     share.install Dir["_output/share/*"]
 
-    # Install bash completion
+    # Install shell completions
     output = Utils.safe_popen_read("#{bin}/limactl", "completion", "bash")
     (bash_completion/"limactl").write output
+    output = Utils.safe_popen_read("#{bin}/limactl", "completion", "zsh")
+    (zsh_completion/"_limactl").write output
+    output = Utils.safe_popen_read("#{bin}/limactl", "completion", "fish")
+    (fish_completion/"limactl.fish").write output
   end
 
   test do
