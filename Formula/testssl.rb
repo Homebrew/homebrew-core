@@ -3,7 +3,7 @@ class Testssl < Formula
   homepage "https://testssl.sh/"
   url "https://github.com/drwetter/testssl.sh/archive/v3.0.6.tar.gz"
   sha256 "05768444d6cf3dc5812f8fb88695d17a82668089deddd6aaf969041ba4c10b10"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/drwetter/testssl.sh.git", branch: "3.1dev"
 
   bottle do
