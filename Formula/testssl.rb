@@ -12,6 +12,10 @@ class Testssl < Formula
 
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "util-linux" # for `hexdump`
+  end
+
   def install
     bin.install "testssl.sh"
     man1.install "doc/testssl.1"
