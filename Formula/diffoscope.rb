@@ -17,7 +17,7 @@ class Diffoscope < Formula
 
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # Use resources from diffoscope[cmdline]
   resource "argcomplete" do
