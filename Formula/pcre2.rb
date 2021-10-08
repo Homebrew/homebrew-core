@@ -3,9 +3,11 @@ class Pcre2 < Formula
   homepage "https://www.pcre.org/"
   license "BSD-3-Clause"
 
+  # Remove `stable` block when patch is no longer needed
   stable do
     url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.38/pcre2-10.38.tar.bz2"
     sha256 "7d95aa7c8a7b0749bf03c4bd73626ab61dece7e3986b5a57f5ec39eebef6b07c"
+
     # fix incorrect detection of alternatives in first character search with JIT
     # remove in the next release
     patch do
@@ -16,7 +18,7 @@ class Pcre2 < Formula
 
   livecheck do
     url :stable
-    regex(/pcre2-(\d+\.\d+)$/i)
+    regex(/pcre2[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
