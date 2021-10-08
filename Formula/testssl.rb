@@ -13,6 +13,7 @@ class Testssl < Formula
   depends_on "openssl@1.1"
 
   on_linux do
+    depends_on "bind" => :test # can also use `drill` or `ldns`
     depends_on "util-linux" # for `hexdump`
   end
 
