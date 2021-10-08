@@ -18,7 +18,7 @@ class Pcre2 < Formula
 
   livecheck do
     url :stable
-    regex(/pcre2[._-]v?(\d+(?:\.\d+)+)$/i)
+    regex(/^pcre2[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
