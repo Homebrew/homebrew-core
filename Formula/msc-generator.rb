@@ -20,7 +20,6 @@ class MscGenerator < Formula
   depends_on "cairo"
   depends_on "glpk"
   depends_on "graphviz"
-  depends_on "bison"
   depends_on "sdl2"
 
   def install
