@@ -21,7 +21,10 @@ class MscGenerator < Formula
   depends_on "glpk"
   depends_on "graphviz"
   depends_on "sdl2"
-
+  depends_on "gcc"
+  
+  fails_with :clang # needs std::ranges
+  
   def install
     system "./configure", "--prefix=#{prefix}"
     # Dance around upstream trying to build everything in doc/ which we don't do for now
