@@ -5,6 +5,7 @@ class Datasette < Formula
   url "https://files.pythonhosted.org/packages/4b/9a/37a1ee041ffdbd2b25793bfe487e71d7def794adf3bb17d0bc82742814e4/datasette-0.58.1.tar.gz"
   sha256 "6a798cd11d15bfaa9cd25c3ccee8ef4b6a1ad91dda517a1dd9b39bbb6b727896"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/simonw/datasette.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Datasette < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "548a8fca893596682abf538b0e7eaa6b9b3d6251fe9172a9af6355eff012b780"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/06/f0/af90f3fb4066b0707b6a5af3ffd5fd9b3809bbb52f0153a3c7550e594de3/aiofiles-0.7.0.tar.gz"
