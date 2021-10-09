@@ -65,6 +65,9 @@
   "cppman": {
     "exclude_packages": ["six"]
   },
+  "csvkit": {
+    "exclude_packages": ["six"]
+  },
   "datalad": {
     "exclude_packages": ["six"]
   },
