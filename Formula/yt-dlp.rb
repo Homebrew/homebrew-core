@@ -3,10 +3,9 @@ class YtDlp < Formula
 
   desc "Fork of youtube-dl with additional features and fixes"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/ad/2a/19788cdbce56ea05600068bf342f91c91fd5acc6c6486e16d498b0ec533a/yt-dlp-2021.9.25.tar.gz"
-  sha256 "e7b8dd0ee9498abbd80eb38d9753696d6ca3d02f64980322ab3bf39ba1bc31ee"
+  url "https://files.pythonhosted.org/packages/ee/8c/559a72b790e20660dd71bf8d7e638cb811d7df41c11f335b17d358546126/yt-dlp-2021.10.9.tar.gz"
+  sha256 "dc6c290ac208b2feda5c6760c20883d9c8128da37630a72894a63b08cf411f29"
   license "Unlicense"
-  revision 1
   head "https://github.com/yt-dlp/yt-dlp.git", branch: "master"
 
   bottle do
@@ -24,9 +23,9 @@ class YtDlp < Formula
     sha256 "6397602efb3c2d7baebd2166ed85731ae1c1d475abca22090b7141ff5034b3e1"
   end
 
-  resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/f8/8e/14a8238190bcf1bab3d58432cd795c859edbc2f5abd8460f80438046a799/pycryptodome-3.10.4.tar.gz"
-    sha256 "40083b0d7f277452c7f2dd4841801f058cc12a74c219ee4110d65774c6a58bef"
+  resource "pycryptodomex" do
+    url "https://files.pythonhosted.org/packages/47/14/dd9ad29cd29ea4cc521286f2cb401ca7ac6fd5db0791c5e9bacaf2c9ac78/pycryptodomex-3.11.0.tar.gz"
+    sha256 "0398366656bb55ebdb1d1d493a7175fc48ade449283086db254ac44c7d318d6d"
   end
 
   resource "websockets" do
