@@ -20,6 +20,8 @@ class MscGenerator < Formula
   depends_on "cairo"
   depends_on "glpk"
   depends_on "graphviz"
+  depends_on "sdl2"
+  depends_on "bison"
 
   def install
     system "./configure", "--prefix=#{prefix}"
