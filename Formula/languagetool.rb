@@ -2,8 +2,8 @@ class Languagetool < Formula
   desc "Style and grammar checker"
   homepage "https://www.languagetool.org/"
   url "https://github.com/languagetool-org/languagetool.git",
-      tag:      "v5.4",
-      revision: "43924315823e3cf7324f03ad2a95f541ccf12cbf"
+      tag:      "v5.5",
+      revision: "5e782cc63ab86c9e6c353157dc22f6ea2477c0d7"
   license "LGPL-2.1-or-later"
   head "https://github.com/languagetool-org/languagetool.git"
 
