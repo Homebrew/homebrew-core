@@ -17,14 +17,13 @@ class MscGenerator < Formula
   depends_on "bison" => :build
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
+  depends_on "gcc"
   depends_on "cairo"
   depends_on "glpk"
   depends_on "graphviz"
   depends_on "sdl2"
-  depends_on "gcc"
-  
-  fails_with :clang # needs std::ranges
-  
+  fails_with :clang # needs std::range
+
   def install
     system "./configure", "--prefix=#{prefix}"
     # Dance around upstream trying to build everything in doc/ which we don't do for now
