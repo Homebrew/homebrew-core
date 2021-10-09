@@ -4,8 +4,8 @@ class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular/React applications"
   homepage "https://www.jhipster.tech/"
   # Check if this can be switched to the newest `node` at version bump
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-7.2.0.tgz"
-  sha256 "98b95b4b379750822e596fd937c215a21e85345eaf83c0bcdd7d4c755520f785"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-7.3.0.tgz"
+  sha256 "254ec00025dd856e22360a9dc4acceaeeaafb27d5538d4877dbd39959c5e44b1"
   license "Apache-2.0"
 
   bottle do
