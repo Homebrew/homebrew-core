@@ -1,10 +1,9 @@
 class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
-  url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.5/jpeg-xl-v0.5.tar.bz2"
-  sha256 "43ae213b9ff28f672beb4f50dbee0834be2afe0015a62bf525d35ee2e7e89d6c"
+  url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.6/jpeg-xl-v0.6.tar.bz2"
+  sha256 "5e7685ad08259234c9142bd87fd7bd58d635913292e5d0ed12d0ac46a944d876"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "37a9eb58bb2e1d55f9691161544bdcd6c615787204f7426436087af5037749f8"
