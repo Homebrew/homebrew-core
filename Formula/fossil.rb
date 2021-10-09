@@ -1,8 +1,8 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/home/"
-  url "https://fossil-scm.org/home/tarball/version-2.16/fossil-src-2.16.tar.gz"
-  sha256 "fab37e8093932b06b586e99a792bf9b20d00d530764b5bddb1d9a63c8cdafa14"
+  url "https://fossil-scm.org/home/tarball/version-2.17/fossil-src-2.17.tar.gz"
+  sha256 "5c7f1c73f7b5e2af24e10e40f0e07391909c1230b9e284a9d548059e7f377dbf"
   license "BSD-2-Clause"
   head "https://www.fossil-scm.org/", using: :fossil
 
