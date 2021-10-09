@@ -4,7 +4,7 @@ class CrosstoolNg < Formula
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.tar.xz"
   sha256 "804ced838ea7fe3fac1e82f0061269de940c82b05d0de672e7d424af98f22d2d"
   license "GPL-2.0-only"
-  revision 2
+  revision 3
   head "https://github.com/crosstool-ng/crosstool-ng.git", branch: "master"
 
   bottle do
@@ -31,7 +31,7 @@ class CrosstoolNg < Formula
   depends_on "m4"
   depends_on "make"
   depends_on "ncurses"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "xz"
 
   uses_from_macos "flex" => :build
@@ -45,7 +45,7 @@ class CrosstoolNg < Formula
     ENV["BISON"] = "#{Formula["bison"].opt_bin}/bison"
     ENV["M4"] = "#{Formula["m4"].opt_bin}/m4"
     ENV["MAKE"] = "#{Formula["make"].opt_bin}/gmake"
-    ENV["PYTHON"] = "#{Formula["python@3.9"].opt_bin}/python3"
+    ENV["PYTHON"] = "#{Formula["python@3.10"].opt_bin}/python3"
     ENV.append "LDFLAGS", "-lintl"
 
     system "./configure", "--prefix=#{prefix}"
