@@ -35,14 +35,14 @@ class JpegXl < Formula
         revision: "48e5364ef48ec2408f44c727657ac1b6703185f8"
   end
 
-  resource "sjpeg" do
-    url "https://github.com/webmproject/sjpeg.git",
-        revision: "868ab558fad70fcbe8863ba4e85179eeb81cc840"
-  end
-
   resource "skcms" do
     url "https://skia.googlesource.com/skcms.git",
         revision: "64374756e03700d649f897dbd98c95e78c30c7da"
+  end
+
+  resource "sjpeg" do
+    url "https://github.com/webmproject/sjpeg.git",
+        revision: "868ab558fad70fcbe8863ba4e85179eeb81cc840"
   end
 
   def install
