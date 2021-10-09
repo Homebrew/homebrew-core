@@ -4,6 +4,7 @@ class Botan < Formula
   url "https://botan.randombit.net/releases/Botan-2.18.1.tar.xz"
   sha256 "f8c7b46222a857168a754a5cc329bb780504122b270018dda5304c98db28ae29"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/randombit/botan.git", branch: "master"
 
   bottle do
@@ -15,7 +16,7 @@ class Botan < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
