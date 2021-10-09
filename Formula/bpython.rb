@@ -6,6 +6,7 @@ class Bpython < Formula
   url "https://files.pythonhosted.org/packages/8f/34/7bdeba9999d2dfe5c0682291966bfa7edcedf2859885fa0037b8a38d0878/bpython-0.21.tar.gz"
   sha256 "88aa9b89974f6a7726499a2608fa7ded216d84c69e78114ab2ef996a45709487"
   license "MIT"
+  revision 1
   head "https://github.com/bpython/bpython.git", branch: "main"
 
   bottle do
@@ -15,7 +16,7 @@ class Bpython < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "cbf4b82ab3f8f26ac6c7363a411aa3b692b9f2464a390e634dc5b4f61f2da0b7"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "blessings" do
     url "https://files.pythonhosted.org/packages/5c/f8/9f5e69a63a9243448350b44c87fae74588aa634979e6c0c501f26a4f6df7/blessings-1.7.tar.gz"
@@ -78,12 +79,12 @@ class Bpython < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
     venv.pip_install resources
     venv.pip_install buildpath
 
     # Make the Homebrew site-packages available in the interpreter environment
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
     ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     combined_pythonpath = ENV["PYTHONPATH"] + "${PYTHONPATH:+:}$PYTHONPATH"
