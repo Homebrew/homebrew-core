@@ -6,7 +6,7 @@ class Borgbackup < Formula
   url "https://files.pythonhosted.org/packages/c9/a8/7ce46b3ea57895164774644164089b63e0172ac72046f5fbbba5f135d7bb/borgbackup-1.1.17.tar.gz"
   sha256 "7ab924fc017b24929bedceba0dcce16d56f9868bf9b5050d2aae2eb080671674"
   license "BSD-3-Clause"
-  revision 2
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2407cbfb1d2e093d34812a56bb1c8c48d0dab15d34e1663849916dc47a00e771"
