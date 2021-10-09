@@ -1,9 +1,9 @@
 class Glassfish < Formula
   desc "Java EE application server"
   homepage "https://glassfish.org/"
-  url "https://download.eclipse.org/ee4j/glassfish/glassfish-6.2.1.zip"
-  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/6.2.1/glassfish-6.2.1.zip"
-  sha256 "088f6ed8115af1e1ad0bec00ce3eaffe3624ee6a40583776c97c7fd933cde51d"
+  url "https://download.eclipse.org/ee4j/glassfish/glassfish-6.2.2.zip"
+  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/6.2.2/glassfish-6.2.2.zip"
+  sha256 "9cb2a35e639f83d90b78d36d88779bebc258da75485f68f23cfa6823e78b04c0"
   license "EPL-2.0"
 
   livecheck do
