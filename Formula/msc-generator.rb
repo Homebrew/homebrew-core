@@ -17,8 +17,8 @@ class MscGenerator < Formula
   depends_on "bison" => :build
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
-  depends_on "gcc"
   depends_on "cairo"
+  depends_on "gcc"
   depends_on "glpk"
   depends_on "graphviz"
   depends_on "sdl2"
