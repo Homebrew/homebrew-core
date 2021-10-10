@@ -4,8 +4,8 @@ class Sratoolkit < Formula
   license all_of: [:public_domain, "GPL-3.0-or-later", "MIT"]
 
   stable do
-    url "https://github.com/ncbi/sra-tools/archive/2.11.1.tar.gz"
-    sha256 "725b368562217c145e6e1e062560617fb5f8099d09e64470dffc0873f43636a1"
+    url "https://github.com/ncbi/sra-tools/archive/2.11.2.tar.gz"
+    sha256 "17ff39d3a905142be63477a206bac3aa76a417e40979f06a8f1eed49fe8c43d4"
 
     resource "ngs-sdk" do
       url "https://github.com/ncbi/ngs/archive/2.11.1.tar.gz"
