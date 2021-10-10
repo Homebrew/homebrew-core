@@ -15,10 +15,12 @@ class Libirecovery < Formula
   end
 
   head do
-    url "https://git.libimobiledevice.org/libirecovery.git"
+    url "https://git.libimobiledevice.org/libirecovery.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+    # Only future versions require this lib, so do not treat it as a main dependency yet
+    depends_on "libimobiledevice-glue"
   end
 
   on_linux do
