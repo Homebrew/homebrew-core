@@ -6,7 +6,7 @@ class Yazpp < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url :homepage
+    url "https://ftp.indexdata.com/pub/yazpp/"
     regex(/href=.*?yazpp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
