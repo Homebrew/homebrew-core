@@ -75,7 +75,7 @@ class Dnstwist < Formula
   def install
     ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path_if_needed}/usr/include/ffi"
 
-    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
 
     (libexec/"bin").install "dnstwist.py" => "dnstwist"
