@@ -3,7 +3,7 @@ class Libimobiledevice < Formula
   homepage "https://www.libimobiledevice.org/"
   url "https://github.com/libimobiledevice/libimobiledevice/releases/download/1.3.0/libimobiledevice-1.3.0.tar.bz2"
   sha256 "53f2640c6365cd9f302a6248f531822dc94a6cced3f17128d4479a77bd75b0f6"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "41a64c9856f7845bb4c21bba4f42eb55c640301b59c032eb4db416db19ecf97d"
@@ -15,10 +15,12 @@ class Libimobiledevice < Formula
   end
 
   head do
-    url "https://git.libimobiledevice.org/libimobiledevice.git"
+    url "https://git.libimobiledevice.org/libimobiledevice.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+    # Only future versions require this lib, so do not treat it as a main dependency yet
+    depends_on "libimobiledevice-glue"
   end
 
   depends_on "pkg-config" => :build
