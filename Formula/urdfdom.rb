@@ -3,6 +3,7 @@ class Urdfdom < Formula
   homepage "https://wiki.ros.org/urdf/"
   url "https://github.com/ros/urdfdom/archive/3.0.0.tar.gz"
   sha256 "3c780132d9a0331eb2116ea5dac6fa53ad2af86cb09f37258c34febf526d52b4"
+  license "BSD-3-Clause"
 
   livecheck do
     url :stable
