@@ -4,7 +4,6 @@ class Libusbmuxd < Formula
   url "https://github.com/libimobiledevice/libusbmuxd/archive/2.0.2.tar.gz"
   sha256 "8ae3e1d9340177f8f3a785be276435869363de79f491d05d8a84a59efc8a8fdc"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  head "https://github.com/libimobiledevice/libusbmuxd.git"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "9cd9d1df802799e026f09775bbde2c4bf0557fb3e1f5919f14a5b0def0b0255e"
@@ -13,6 +12,12 @@ class Libusbmuxd < Formula
     sha256 cellar: :any,                 mojave:        "132ee76aa823e51abb97c92c53ab8a30819720ced7020080f949cf4fd937f6ea"
     sha256 cellar: :any,                 high_sierra:   "67c3d43cb2a1ebfd68fba1c9b51b419288fedefc93f101adeea1b5f6bdf1ad77"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1f289531042024ef7fb1f87cad05f36a1c68ece14614266cf0564e32b3565ac"
+  end
+
+  head do
+    url "https://git.libimobiledevice.org/libusbmuxd.git", branch: "master"
+    # Only future versions require this lib, so do not treat it as a main dependency yet
+    depends_on "libimobiledevice-glue"
   end
 
   depends_on "autoconf" => :build
