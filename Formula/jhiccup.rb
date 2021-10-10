@@ -6,7 +6,7 @@ class Jhiccup < Formula
 
   livecheck do
     url :homepage
-    regex(/href=.*?jHiccup[._-]v?(\d+(?:\.\d+)+)-dist\.zip/i)
+    regex(/href=.*?jHiccup[._-]v?(\d+(?:\.\d+)+)-dist(?:-\d+)?\.zip/i)
   end
 
   bottle do
