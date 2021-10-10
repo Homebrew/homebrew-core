@@ -4,6 +4,7 @@ class Distcc < Formula
   url "https://github.com/distcc/distcc/releases/download/v3.4/distcc-3.4.tar.gz"
   sha256 "2b99edda9dad9dbf283933a02eace6de7423fe5650daa4a728c950e5cd37bd7d"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/distcc/distcc.git"
 
   livecheck do
@@ -21,7 +22,7 @@ class Distcc < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "libiberty" do
     url "https://ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20210106.orig.tar.xz"
