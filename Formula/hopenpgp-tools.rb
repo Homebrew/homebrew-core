@@ -28,8 +28,13 @@ class HopenpgpTools < Formula
   end
 
   def install
+    # hOpenPGPTools's dependency hOpenPGP has conflict instance (Hashable Set) w/ hashable above 1.3.4.0
+    # remove when hOpenPGP remove conflict instance or add upper bound of hashable
+    # aeson has breaking change of 2.0.0.0
+    # remove when hopenpgp-tools adopt aeson 2.0.0.0 or add upper bound of aeson
+    cabal_args = std_cabal_v2_args + ["--constraint=hashable<1.3.4.0", "--constraint=aeson<2.0.0.0"]
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", *cabal_args
   end
 
   test do
