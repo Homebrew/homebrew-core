@@ -24,12 +24,6 @@ class Urdfdom < Formula
   depends_on "tinyxml"
   depends_on "urdfdom_headers"
 
-  patch do
-    # Fix for finding console_bridge 1.0
-    url "https://github.com/ros/urdfdom/commit/6faba176d41cf39114785a3e029013f941ed5a0e.patch?full_index=1"
-    sha256 "7aa3fdd462b47326bac6f8f94187be18459dcbad568cefb239625103d7b31239"
-  end
-
   def install
     ENV.cxx11
     system "cmake", ".", *std_cmake_args
