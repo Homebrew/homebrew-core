@@ -1,10 +1,9 @@
 class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
-  url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.5/jpeg-xl-v0.5.tar.bz2"
-  sha256 "43ae213b9ff28f672beb4f50dbee0834be2afe0015a62bf525d35ee2e7e89d6c"
-  license "Apache-2.0"
-  revision 1
+  url "https://github.com/libjxl/libjxl/archive/v0.6.1.tar.gz"
+  sha256 "ccbd5a729d730152303be399f033b905e608309d5802d77a61a95faa092592c5"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "f9e47df2a8feecf79234e815761ec21619370807db3ff431f5aba99bbb628f22"
@@ -15,7 +14,6 @@ class JpegXl < Formula
     sha256 cellar: :any, mojave:         "b7e4f3c64f8fe63c0ed2771f8e94ab69c58a3bbc9e716cfda6278682a51b450c"
   end
 
-  depends_on "asciidoc" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "brotli"
@@ -26,8 +24,18 @@ class JpegXl < Formula
   depends_on "openexr"
   depends_on "webp"
 
+  uses_from_macos "libxml2" => :build
+  uses_from_macos "libxslt" => :build # for xsltproc
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+  fails_with gcc: "6"
+
   # These resources are versioned according to the script supplied with jpeg-xl to download the dependencies:
-  # https://gitlab.com/wg1/jpeg-xl/-/blob/v#{version}/deps.sh
+  # https://github.com/libjxl/libjxl/tree/v#{version}/third_party
   resource "highway" do
     url "https://github.com/google/highway.git",
         revision: "e2397743fe092df68b760d358253773699a16c93"
@@ -48,14 +56,22 @@ class JpegXl < Formula
         revision: "64374756e03700d649f897dbd98c95e78c30c7da"
   end
 
-  def install
-    # When building man pages, a2x calls xmllint --nonet,
-    # which needs this to find the schema or fails otherwise.
-    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+  # remove when https://github.com/libjxl/libjxl/commit/88fe3fff3dc70c72405f57c69feffd9823930034 is in a tag
+  patch do
+    url "https://github.com/libjxl/libjxl/commit/88fe3fff3dc70c72405f57c69feffd9823930034.patch?full_index=1"
+    sha256 "a1dba15e75093dea2d16d4fb1341e1ba8ba8400be723cb887a190d4d525ce9a6"
+  end
 
+  def install
     resources.each { |r| r.stage buildpath/"third_party"/r.name }
     mkdir "build" do
-      system "cmake", "..", "-DBUILD_TESTING=OFF", *std_cmake_args
+      # disable manpages due to problems with asciidoc 10
+      system "cmake", "..", "-DBUILD_TESTING=OFF",
+        "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON",
+        "-DJPEGXL_ENABLE_JNI=OFF",
+        "-DJPEGXL_VERSION=#{version}",
+        "-DJPEGXL_ENABLE_MANPAGES=OFF",
+        *std_cmake_args
       system "cmake", "--build", "."
       system "cmake", "--build", ".", "--target", "install"
     end
