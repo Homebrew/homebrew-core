@@ -16,6 +16,7 @@ class Trino < Formula
 
   depends_on "gnu-tar" => :build
   depends_on arch: :x86_64
+  depends_on :macos # test fails on Linux
   depends_on "openjdk"
 
   resource "trino-src" do
