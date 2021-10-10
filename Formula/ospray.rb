@@ -30,8 +30,8 @@ class Ospray < Formula
   end
 
   resource "openvkl" do
-    url "https://github.com/openvkl/openvkl/archive/v1.0.0.tar.gz"
-    sha256 "81ccae679bfa2feefc4d4b1ce72bcd242ba34d2618fbb418a1c2a05d640d16b4"
+    url "https://github.com/openvkl/openvkl/archive/v1.0.1.tar.gz"
+    sha256 "55a7c2b1dcf4641b523ae999e3c1cded305814067d6145cc8911e70a3e956ba6"
   end
 
   def install
