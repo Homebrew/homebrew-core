@@ -8,6 +8,10 @@ class Libnghttp2 < Formula
   sha256 "2379ebeff7b02e14b9a414551d73540ddce5442bbecda2748417e8505916f3e7"
   license "MIT"
 
+  livecheck do
+    formula "nghttp2"
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "75ed9aea6aad424ff9406f7c8849d340d5f2fb36b05c9352f8416201fe03d1df"
     sha256 cellar: :any,                 big_sur:       "6edccdb5f700fa3602caa4ed902c18cdab02e64f33bdaf318a867b30b972a472"
