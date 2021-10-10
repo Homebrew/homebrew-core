@@ -3,7 +3,8 @@ class Fail2ban < Formula
   homepage "https://www.fail2ban.org/"
   url "https://github.com/fail2ban/fail2ban/archive/0.11.2.tar.gz"
   sha256 "383108e5f8644cefb288537950923b7520f642e7e114efb843f6e7ea9268b1e0"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,11 +20,23 @@ class Fail2ban < Formula
 
   depends_on "help2man" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+
+  # fixes https://github.com/fail2ban/fail2ban/issues/3098 remove in the next release
+  patch do
+    url "https://github.com/fail2ban/fail2ban/commit/5ac303df8a171f748330d4c645ccbf1c2c7f3497.patch?full_index=1"
+    sha256 "4f22a39ae708b0c0fb59d29054e86b7c3f478a79925508833fd21f000b86aadb"
+  end
+
+  # fixes https://github.com/fail2ban/fail2ban/issues/2931 remove in the next release
+  patch do
+    url "https://github.com/fail2ban/fail2ban/commit/2b6bb2c1bed8f7009631e8f8c306fa3160324a49.patch?full_index=1"
+    sha256 "ff0aa188dbcfedaff6f882dba00963f4faf3fa774da9cfeb7f96030050e9d8e3"
+  end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.9/site-packages"
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3")
+    ENV["PYTHON"] = which("python3")
 
     rm "setup.cfg"
     Dir["config/paths-*.conf"].each do |r|
