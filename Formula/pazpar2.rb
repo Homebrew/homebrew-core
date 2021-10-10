@@ -1,13 +1,12 @@
 class Pazpar2 < Formula
   desc "Metasearching middleware webservice"
   homepage "https://www.indexdata.com/resources/software/pazpar2/"
-  url "https://ftp.indexdata.com/pub/pazpar2/pazpar2-1.14.0.tar.gz"
-  sha256 "3b0012450c66d6932009ac0decb72436690cc939af33e2ad96c0fec85863d13d"
+  url "https://ftp.indexdata.com/pub/pazpar2/pazpar2-1.14.1.tar.gz"
+  sha256 "9baf590adb52cd796eccf01144eeaaf7353db1fd05ae436bdb174fe24362db53"
   license "GPL-2.0-or-later"
-  revision 4
 
   livecheck do
-    url :homepage
+    url "https://ftp.indexdata.com/pub/pazpar2/"
     regex(/href=.*?pazpar2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
@@ -19,7 +18,7 @@ class Pazpar2 < Formula
   end
 
   head do
-    url "https://github.com/indexdata/pazpar2.git"
+    url "https://github.com/indexdata/pazpar2.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
