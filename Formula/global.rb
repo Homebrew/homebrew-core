@@ -7,7 +7,7 @@ class Global < Formula
   mirror "https://ftpmirror.gnu.org/global/global-6.6.7.tar.gz"
   sha256 "69a0f77f53827c5568176c1d382166df361e74263a047f0b3058aa2f2ad58a3c"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_big_sur: "f2481ae1cb5d8077d7ac769ca1cda9c34a6cb8d0e89eeb831a452f3992dab6e0"
@@ -33,7 +33,7 @@ class Global < Formula
   depends_on "ctags"
   depends_on "libtool"
   depends_on "ncurses"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sqlite"
 
   skip_clean "lib/gtags"
