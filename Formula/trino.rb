@@ -38,8 +38,8 @@ class Trino < Formula
       ENV.prepend_path "PATH", Formula["gnu-tar"].opt_libexec/"gnubin"
       system "tar", "-xzf", "trino-#{r.version}.tar.gz"
       (libexec/"etc").install Dir["trino-#{r.version}/core/docker/default/etc/*"]
-      inreplace libexec/"etc/node.properties", "docker", "homebrew"
-      inreplace libexec/"etc/node.properties", "/data/trino", "#{var}/trino/data"
+      inreplace libexec/"etc/node.properties", "docker", tap.user.downcase
+      inreplace libexec/"etc/node.properties", "/data/trino", var/"trino/data"
     end
 
     (bin/"trino-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
@@ -48,6 +48,11 @@ class Trino < Formula
       libexec.install "trino-cli-#{version}-executable.jar"
       bin.write_jar_script libexec/"trino-cli-#{version}-executable.jar", "trino"
     end
+
+    # Remove incompatible pre-built binaries
+    libprocname_dirs = libexec.glob("bin/procname/*")
+    libprocname_dirs.reject! { |dir| dir.basename.to_s == "#{OS.kernel_name}-#{Hardware::CPU.arch}" }
+    libprocname_dirs.map(&:rmtree)
   end
 
   def post_install
