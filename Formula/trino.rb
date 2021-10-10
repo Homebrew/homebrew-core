@@ -1,8 +1,8 @@
 class Trino < Formula
   desc "Distributed SQL query engine for big data"
   homepage "https://trino.io"
-  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/360/trino-server-360.tar.gz"
-  sha256 "cd313867fd5461a26920ca6cb170413893853b0cc1acc4f454d4141a0790a50e"
+  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/363/trino-server-363.tar.gz"
+  sha256 "fb8e8c1b3db1f4976f12e6da1572233927c6a505b72d3cf0a9fedf6fe0b433d5"
   license "Apache-2.0"
 
   livecheck do
@@ -19,20 +19,20 @@ class Trino < Formula
   depends_on "openjdk"
 
   resource "trino-src" do
-    url "https://github.com/trinodb/trino/archive/360.tar.gz", using: :nounzip
-    sha256 "48fbe2f29f67b5c655d4de6eaec905c94f735c42df17e5509dc3c387e732aeb2"
+    url "https://github.com/trinodb/trino/archive/363.tar.gz", using: :nounzip
+    sha256 "a5785b44b5756ee6828ae2ac2960c82fc6d3ba99c97004356f8e36d77af1e5f1"
   end
 
   resource "trino-cli" do
-    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/360/trino-cli-360-executable.jar"
-    sha256 "9203abd2ee3e36b7476aba23102b93e2adca7b030031fa3828e2320cb4c38be2"
+    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/363/trino-cli-363-executable.jar"
+    sha256 "7dcb594420dd0d41195e87a963db747af4c46d8c457dc3d3fbd9e36c118a491f"
   end
 
   def install
     libexec.install Dir["*"]
 
     # Manually untar, since macOS-bundled tar produces the error:
-    #   trino-360/plugin/trino-hive/src/test/resources/<truncated>.snappy.orc.crc: Failed to restore metadata
+    #   trino-363/plugin/trino-hive/src/test/resources/<truncated>.snappy.orc.crc: Failed to restore metadata
     # Remove when https://github.com/trinodb/trino/issues/8877 is fixed
     resource("trino-src").stage do |r|
       ENV.prepend_path "PATH", Formula["gnu-tar"].opt_libexec/"gnubin"
