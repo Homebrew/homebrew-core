@@ -1,9 +1,12 @@
 class FbClient < Formula
+  include Language::Python::Shebang
+
   desc "Shell-script client for https://paste.xinu.at"
   homepage "https://paste.xinu.at"
   url "https://paste.xinu.at/data/client/fb-2.1.1.tar.gz"
   sha256 "8fbcffc853b298a8497ab0f66b254c0c9ae4cbd31ab9889912a44a8c5c7cef0e"
-  revision 2
+  license "GPL-3.0-only"
+  revision 3
   head "https://git.server-speed.net/users/flo/fb", using: :git
 
   livecheck do
@@ -21,7 +24,7 @@ class FbClient < Formula
 
   depends_on "pkg-config" => :build
   depends_on "curl"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "spotbugs", because: "both install a `fb` binary"
 
@@ -39,22 +42,19 @@ class FbClient < Formula
     # avoid pycurl error about compile-time and link-time curl version mismatch
     ENV.delete "SDKROOT"
 
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages("python3")
 
     # avoid error about libcurl link-time and compile-time ssl backend mismatch
     resource("pycurl").stage do
-      system Formula["python@3.9"].opt_bin/"python3",
-             *Language::Python.setup_install_args(libexec/"vendor"),
-             "--curl-config=#{Formula["curl"].opt_bin}/curl-config"
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor"),
+                        "--curl-config=#{Formula["curl"].opt_bin}/curl-config"
     end
 
     resource("pyxdg").stage do
-      system Formula["python@3.9"].opt_bin/"python3",
-             *Language::Python.setup_install_args(libexec/"vendor")
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
-    inreplace "fb", "#!/usr/bin/env python", "#!#{Formula["python@3.9"].opt_bin}/python3"
+    rewrite_shebang detected_python_shebang, "fb"
 
     system "make", "PREFIX=#{prefix}", "install"
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
