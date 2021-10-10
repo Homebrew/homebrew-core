@@ -20,19 +20,19 @@ class Node < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@1.1"
+  depends_on "python@3.9"
 
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "python@3.9"
     depends_on "gcc"
+    depends_on "python@3.9"
   end
 
   fails_with :clang do
