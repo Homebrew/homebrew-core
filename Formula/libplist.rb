@@ -3,7 +3,7 @@ class Libplist < Formula
   homepage "https://www.libimobiledevice.org/"
   url "https://github.com/libimobiledevice/libplist/archive/2.2.0.tar.gz"
   sha256 "7e654bdd5d8b96f03240227ed09057377f06ebad08e1c37d0cfa2abe6ba0cee2"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ed9c2d665d5700c91f099bd433a38ba904b63eef4d3cdc47bd0f6b0229ac689a"
@@ -15,7 +15,7 @@ class Libplist < Formula
   end
 
   head do
-    url "https://git.sukimashita.com/libplist.git"
+    url "https://git.libimobiledevice.org/libplist.git", branch: "master"
   end
 
   depends_on "autoconf" => :build
