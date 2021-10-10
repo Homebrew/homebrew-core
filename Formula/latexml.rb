@@ -191,7 +191,7 @@ class Latexml < Formula
       r.stage do
         ENV["PERL_CANARY_STABILITY_NOPROMPT"] = "1" if OS.linux?
 
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "DEBUG=1", "verbose=1", "verb=1"
         system "make"
         system "make", "install"
       end
