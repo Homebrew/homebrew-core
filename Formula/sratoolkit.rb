@@ -8,13 +8,13 @@ class Sratoolkit < Formula
     sha256 "17ff39d3a905142be63477a206bac3aa76a417e40979f06a8f1eed49fe8c43d4"
 
     resource "ngs-sdk" do
-      url "https://github.com/ncbi/ngs/archive/2.11.1.tar.gz"
-      sha256 "f39c56bbfdb0bdacdd5e86b5d3b65c448df17e419f3f533b1a0168e99f532553"
+      url "https://github.com/ncbi/ngs/archive/2.11.2.tar.gz"
+      sha256 "7555ab7c2f04bd81160859f6c85c65376dc7f7b891804fad9e7636a7788e39c2"
     end
 
     resource "ncbi-vdb" do
-      url "https://github.com/ncbi/ncbi-vdb/archive/2.11.1.tar.gz"
-      sha256 "21b802205f14a00b084b3fde0984dfb3789def8562b32f8cd09b27547c7b0548"
+      url "https://github.com/ncbi/ncbi-vdb/archive/2.11.2.tar.gz"
+      sha256 "647efea2762d63dee6d3e462b1fed2ae6d0f2cf1adb0da583ac95f3ee073abdf"
 
       # Fix Linux error in vdb3/interfaces/memory/MemoryManagerItf.hpp:155:13:
       # error: 'ptrdiff_t' does not name a type
