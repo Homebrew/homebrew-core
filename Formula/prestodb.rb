@@ -17,6 +17,7 @@ class Prestodb < Formula
     sha256 cellar: :any_skip_relocation, all: "020fcffbfddadbdd86bf35626dbc81a69498f76cc87216edbd78867417aa8ea7"
   end
 
+  depends_on :macos # Seems to require Python2
   depends_on "openjdk"
 
   resource "presto-cli" do
