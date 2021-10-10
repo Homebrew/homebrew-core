@@ -1,13 +1,12 @@
 class Zebra < Formula
   desc "Information management system"
   homepage "https://www.indexdata.com/resources/software/zebra/"
-  url "https://ftp.indexdata.com/pub/zebra/idzebra-2.2.2.tar.gz"
-  sha256 "513c2bf272e12745d4a7b58599ded0bc1292a84e9dc420a32eb53b6601ae0000"
+  url "https://ftp.indexdata.com/pub/zebra/idzebra-2.2.3.tar.gz"
+  sha256 "85ade449d161d97df47d4a8910a53a5ea3bd5e3598b6189d86fc8986a8effea4"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
-    url :homepage
+    url "https://ftp.indexdata.com/pub/zebra/"
     regex(/href=.*?idzebra[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
