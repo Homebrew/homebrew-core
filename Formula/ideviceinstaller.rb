@@ -3,7 +3,7 @@ class Ideviceinstaller < Formula
   homepage "https://www.libimobiledevice.org/"
   url "https://github.com/libimobiledevice/ideviceinstaller/releases/download/1.1.1/ideviceinstaller-1.1.1.tar.bz2"
   sha256 "deb883ec97f2f88115aab39f701b83c843e9f2b67fe02f5e00a9a7d6196c3063"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "30f56186281509d1f77d7a00cbcd1f313cd80135e3f9e2a235ca649f9a23e5f1"
@@ -15,7 +15,7 @@ class Ideviceinstaller < Formula
   end
 
   head do
-    url "https://git.sukimashita.com/ideviceinstaller.git"
+    url "https://git.libimobiledevice.org/ideviceinstaller.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
