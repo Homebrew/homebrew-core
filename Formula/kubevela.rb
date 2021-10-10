@@ -2,8 +2,8 @@ class Kubevela < Formula
   desc "Application Platform based on Kubernetes and Open Application Model"
   homepage "https://kubevela.io"
   url "https://github.com/oam-dev/kubevela.git",
-      tag:      "v1.0.7",
-      revision: "44e8352d1e3f47f60cae25ebfc6fc590edfe5fa6"
+      tag:      "v1.1.4",
+      revision: "c66f5f103fe5fe3cdd0a6b5274c71515b6fdd26e"
   license "Apache-2.0"
 
   bottle do
@@ -19,19 +19,11 @@ class Kubevela < Formula
   def install
     system "make", "vela-cli", "VELA_VERSION=#{version}"
     bin.install "bin/vela"
-
-    # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/vela", "completion", "bash")
-    (bash_completion/"vela").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/vela", "completion", "zsh")
-    (zsh_completion/"_vela").write output
   end
 
   test do
     # Should error out as vela up need kubeconfig
     status_output = shell_output("#{bin}/vela up 2>&1", 1)
-    assert_match "Error: invalid configuration: no configuration has been provided", status_output
+    assert_match "get kubeConfig err invalid configuration: no configuration has been provided", status_output
   end
 end
