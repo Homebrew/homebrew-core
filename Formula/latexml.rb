@@ -19,6 +19,7 @@ class Latexml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8cfc70adb30f6d9427642a94fa48618b2242bcb2d11ec3c6256e6313fb12694"
   end
 
+  depends_on "pkg-config" => :build
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "perl"
