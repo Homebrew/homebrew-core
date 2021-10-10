@@ -1,8 +1,8 @@
 class Qstat < Formula
   desc "Query Quake servers from the command-line"
   homepage "https://github.com/multiplay/qstat"
-  url "https://github.com/multiplay/qstat/archive/v2.16.tar.gz"
-  sha256 "8982a8992c4bdff6d765607ef9e83a759b6fe6c92dedb1fcdd3824807bc286cf"
+  url "https://github.com/multiplay/qstat/archive/v2.17.tar.gz"
+  sha256 "ff0a050e867ad1d6fdf6b5d707e2fc7aea2826b8a382321220b390c621fb1562"
   license "Artistic-2.0"
 
   bottle do
