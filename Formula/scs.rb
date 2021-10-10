@@ -1,8 +1,8 @@
 class Scs < Formula
   desc "Conic optimization via operator splitting"
   homepage "https://web.stanford.edu/~boyd/papers/scs.html"
-  url "https://github.com/cvxgrp/scs/archive/v2.1.4.tar.gz"
-  sha256 "5583c70e97e4897bcac32ec487225c3e49161a7e2c8135d1d1a07e4be0375057"
+  url "https://github.com/cvxgrp/scs/archive/v3.0.0.tar.gz"
+  sha256 "95ab61495db72b18d6bb690cd2ae2ce88134d078c473da6cb8750857ea17f732"
   license "MIT"
 
   bottle do
@@ -16,7 +16,7 @@ class Scs < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
-    pkgshare.install "test/data/small_random_socp"
+    pkgshare.install "test/problems/random_prob"
   end
 
   test do
@@ -25,13 +25,15 @@ class Scs < Formula
       #include <scs.h>
       #include <util.h>
       int main() {
-        ScsData *data; ScsCone *cone;
-        const int status = scs_read_data("#{pkgshare}/small_random_socp",
-                                         &data, &cone);
-        ScsSolution *solution = scs_calloc(1, sizeof(ScsSolution));
+        ScsData *d; ScsCone *k; ScsSettings *stgs;
+        ScsSolution *sol = scs_calloc(1, sizeof(ScsSolution));
         ScsInfo info;
-        const int result = scs(data, cone, solution, &info);
-        scs_free_data(data, cone); scs_free_sol(solution);
+        scs_int result;
+
+        scs_read_data("#{pkgshare}/random_prob", &d, &k, &stgs);
+        result = scs(d, k, stgs, sol, &info);
+
+        scs_free_data(d, k, stgs); scs_free_sol(sol);
         return result - SCS_SOLVED;
       }
     EOS
