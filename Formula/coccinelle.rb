@@ -2,10 +2,9 @@ class Coccinelle < Formula
   desc "Program matching and transformation engine for C code"
   homepage "http://coccinelle.lip6.fr/"
   url "https://github.com/coccinelle/coccinelle.git",
-      tag:      "1.1.0",
-      revision: "25e7cee77b4b6efbabf60ffaa8bccd72500ba8bd"
+      tag:      "1.1.1",
+      revision: "5444e14106ff17404e63d7824b9eba3c0e7139ba"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/coccinelle/coccinelle.git", branch: "master"
 
   livecheck do
