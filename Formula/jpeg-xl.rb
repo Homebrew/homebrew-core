@@ -24,6 +24,16 @@ class JpegXl < Formula
   depends_on "openexr"
   depends_on "webp"
 
+  uses_from_macos "libxml2" => :build
+  uses_from_macos "libxslt" => :build # for xsltproc
+
+  on_linux do
+    depends_on "gcc" => [:build, :test]
+  end
+
+  fails_with gcc: "5"
+  fails_with gcc: "6"
+
   # These resources are versioned according to the script supplied with jpeg-xl to download the dependencies:
   # https://gitlab.com/wg1/jpeg-xl/-/blob/v#{version}/deps.sh
   resource "highway" do
