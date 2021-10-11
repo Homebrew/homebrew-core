@@ -132,6 +132,9 @@
     "exclude_packages": ["six"],
     "extra_packages": ["pydevd"]
   },
+  "keepkey-agent": {
+    "exclude_packages": ["six"]
+  },
   "khard": {
     "exclude_packages": ["six"]
   },
