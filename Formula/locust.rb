@@ -159,7 +159,7 @@ class Locust < Formula
     EOS
 
     ENV["LOCUST_LOCUSTFILE"] = testpath/"locustfile.py"
-    ENV["LOCUST_HOST"] = "http://httpbin.org/"
+    ENV["LOCUST_HOST"] = "http://httpbin.org"
     ENV["LOCUST_USERS"] = "2"
 
     system "locust", "--headless", "--run-time", "30s"
