@@ -48,7 +48,7 @@ class DependencyCheck < Formula
     EOS
     system bin/"dependency-check", "-P", "temp-props.properties", "-f", "XML",
                "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath,
-               "--cveStartYear", "2020", "--cveDownloadWait", "20000"
+               "--cveStartYear", "2020", "--cveDownloadWait", "15000"
     assert_predicate testpath/"dependency-check-report.xml", :exist?
   end
 end
