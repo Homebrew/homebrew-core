@@ -3,8 +3,8 @@ class Platformio < Formula
 
   desc "Professional collaborative platform for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/30/42/fbec5a212a4dd687c8a71ae4a5326aef69644fe79096db290ee8408ffb8b/platformio-5.2.0.tar.gz"
-  sha256 "b1ed1962c3f394cd1e40467696bf5f8f57aec3af3bf1ba34ee7a33f982e8e8e3"
+  url "https://files.pythonhosted.org/packages/1a/48/cfaa9aa269139c8a73050d73101fa74d87869757efd6259f38d0e10cbe97/platformio-5.2.1.tar.gz"
+  sha256 "ad039c8ca70a1c4465c9a9c2effdc63f1ea878696f99cdec394c92fbea3d150f"
   license "Apache-2.0"
 
   bottle do
@@ -29,8 +29,8 @@ class Platformio < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/d9/f5/180f7b4c3b2fcdc79e8f71c71c7c3de575d5d08bdb27ee145d23801539db/anyio-3.3.1.tar.gz"
-    sha256 "85913b4e2fec030e8c72a8f9f98092eeb9e25847a6e00d567751b77e34f856fe"
+    url "https://files.pythonhosted.org/packages/0f/60/ae005e0c88703f49c2047af8e83ede692704577599c4e488cc6e9ef7ffb6/anyio-3.3.3.tar.gz"
+    sha256 "8eccec339cb4a856c94a75d50fc1d451faf32a05ef406be462e2efc59c9838b0"
   end
 
   resource "asgiref" do
@@ -44,18 +44,18 @@ class Platformio < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
-    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/68/32/95ddb68b9abeb89efd461852cdff5791d42fc5e4c528536f541091ffded3/charset-normalizer-2.0.5.tar.gz"
-    sha256 "7098e7e862f6370a2a8d1a6398cd359815c45d12626267652c3f13dec58e2367"
+    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
+    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
+    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
   end
 
   resource "colorama" do
@@ -114,8 +114,8 @@ class Platformio < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
-    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
+    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
+    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
   end
 
   resource "uvicorn" do
@@ -129,8 +129,8 @@ class Platformio < Formula
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/fd/5d/c88bc96bc75561e22f02c09d9ab9084229432a2f476090923e3aac60276f/zeroconf-0.36.3.tar.gz"
-    sha256 "e40243199ec3f1703365d204f7b52aaf2097d9e5dcb84fa2c6be46573730b24c"
+    url "https://files.pythonhosted.org/packages/a0/ed/611f51aae5be86f1b2e608998020eec31a6393f351d6ad865e6b3729ac65/zeroconf-0.36.8.tar.gz"
+    sha256 "9a13e0cdf9f1a142f1ba03df34d598d28b5e2fe4064e3e675c39310a33ec1a0f"
   end
 
   def install
