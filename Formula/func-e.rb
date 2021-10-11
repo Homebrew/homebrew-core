@@ -1,8 +1,8 @@
 class FuncE < Formula
   desc "Easily run Envoy"
   homepage "https://func-e.io"
-  url "https://github.com/tetratelabs/func-e/archive/v0.7.0.tar.gz"
-  sha256 "9177205e91d2d47fd63964cdbf87e22cb75a14ca3f38070f50f7598793c7246e"
+  url "https://github.com/tetratelabs/func-e/archive/v1.0.0.tar.gz"
+  sha256 "22f64a20eeb57752c6dd1a9550abf81ea1a3c2330a197e76751dba727f764c80"
   license "Apache-2.0"
 
   bottle do
@@ -30,13 +30,14 @@ class FuncE < Formula
     # Specifically, func-e downloads and installs Envoy. Finally, it runs `envoy --version`
     run_output = shell_output("#{bin}/func-e run --version")
 
-    # We intentionally aren't choosing an Envoy version, so we need to read the version file to figure it out.
-    installed_envoy_version = (func_e_home/"version").read
-    envoy_bin = "#{func_e_home}/versions/#{installed_envoy_version}/bin/envoy"
+    # We intentionally aren't choosing an Envoy version. The version file will have the last minor. Ex. 1.19
+    installed_envoy_minor = (func_e_home/"version").read
+    # Use a glob to resolve the full path to Envoy's binary. The dist is under the patch version. Ex. 1.19.1
+    envoy_bin = func_e_home.glob("versions/#{installed_envoy_minor}.*/bin/envoy").first
     assert_path_exists envoy_bin
 
     # Test output from the `envoy --version`. This uses a regex because we won't know the commit etc used. Ex.
     # envoy  version: 98c1c9e9a40804b93b074badad1cdf284b47d58b/1.18.3/Modified/RELEASE/BoringSSL
-    assert_match %r{envoy +version: [a-f0-9]{40}/#{installed_envoy_version}/}, run_output
+    assert_match %r{envoy +version: [a-f0-9]{40}/#{installed_envoy_minor}\.[0-9]+/}, run_output
   end
 end
