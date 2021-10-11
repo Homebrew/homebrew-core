@@ -31,7 +31,7 @@ class Grafana < Formula
 
     system "yarn", "install", "--ignore-engines", "--network-concurrency", "1"
 
-    system "node_modules/webpack/bin/webpack.js", "--config", "scripts/webpack/webpack.prod.js"
+    system "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js", "--config", "scripts/webpack/webpack.prod.js"
 
     if OS.mac?
       bin.install Dir["bin/darwin-*/grafana-cli"]
