@@ -6,7 +6,7 @@ class Instalooter < Formula
   url "https://files.pythonhosted.org/packages/30/13/907e6aaba6280e1001080ab47e750068ffc5fb7174203985b3c9d678e3f2/instalooter-2.4.4.tar.gz"
   sha256 "fb9b4a948702361a161cc42e58857e3a6c9dafd9e22568b07bc0d0b09c3c34a9"
   license "GPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a4a55d13f26a65b0f515babb39cfc643b1e0d27921251cb9f0f0f038d16c8680"
@@ -17,7 +17,7 @@ class Instalooter < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9305155251fb62c135df2e422d83c09ba7867bfe70f6fd02c934071320a2392"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
