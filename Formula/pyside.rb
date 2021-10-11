@@ -1,8 +1,8 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.0.4-src/pyside-setup-opensource-src-6.0.4.tar.xz"
-  sha256 "0a076dd9f28aabe947739986a47431fa5bece1dccfd8ea90d2c9048ddede6303"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.2.0-src/pyside-setup-opensource-src-6.2.0.tar.xz"
+  sha256 "fed210b662129955332d2609a900b5b8643130134e4682371b26a9ba60740d01"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -23,31 +23,49 @@ class Pyside < Formula
   depends_on "python@3.9"
   depends_on "qt"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+
   def install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    cd "sources/shiboken6" do
+      shiboken_cmake_args = std_cmake_args + %W[
+        -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python#{xy}
+        -DBUILD_TESTS=OFF
 
-    args = std_cmake_args + %W[
+        -S .
+        -B build
+        -G Ninja
+      ]
+      system "cmake", *shiboken_cmake_args
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+    end
+
+    ENV.prepend_create_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    cmake_args = std_cmake_args + %W[
       -GNinja
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python#{xy}
       -DCMAKE_INSTALL_RPATH=#{lib}
+
+      -S .
+      -B build
     ]
 
-    mkdir "build" do
-      system "cmake", *args, ".."
-      system "ninja", "install"
-    end
+    system "cmake", *cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import PySide6"
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import shiboken6"
 
-    # TODO: add modules `Position`, `Multimedia`and `WebEngineWidgets` when qt6.2 is released
-    # arm support will finish in qt6.1
     modules = %w[
       Core
       Gui
       Network
+      Positioning
       Quick
       Svg
       Widgets
@@ -70,7 +88,7 @@ class Pyside < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp",
+    system ENV.cxx, "-std=c++17", "test.cpp",
            "-I#{include}/shiboken6", "-L#{lib}", "-lshiboken6.cpython-#{pyver}-darwin",
            *pyincludes, *pylib, "-o", "test"
     system "./test"
