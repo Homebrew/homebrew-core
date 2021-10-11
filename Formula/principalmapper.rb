@@ -3,8 +3,8 @@ class Principalmapper < Formula
 
   desc "Quickly evaluate IAM permissions in AWS"
   homepage "https://github.com/nccgroup/PMapper"
-  url "https://files.pythonhosted.org/packages/11/eb/497f5f0229de52744aa4af6874e32db9728ba0d461a08b65456d358a9928/principalmapper-1.1.3.tar.gz"
-  sha256 "2b0bedca0b9b397ec455ba20c1576fb5e35ba4f57b87f29fc3a527da6aeae52d"
+  url "https://files.pythonhosted.org/packages/89/d9/985cfe5c571a27f9933af49c5dd07752586200e104060106ac6937f6bb98/principalmapper-1.1.4.tar.gz"
+  sha256 "742b537c09fac2361cde6465a2408f2390ce9af2c90d1174d645c8d13f72eab5"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -18,8 +18,8 @@ class Principalmapper < Formula
   depends_on "six"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/29/56/64570ac92c7cb88ad731dea4da4a83d3edc9f00a13a969ad826354ba5a58/botocore-1.20.111.tar.gz"
-    sha256 "21fc74dba0d4d6297b322aa79ecb4476b9e03a84b3f38eee2bed47555f4b4013"
+    url "https://files.pythonhosted.org/packages/0e/db/4ed8004ba94ef2173b943fc644d0e0f715631df1e40c5d60edf5c83d54eb/botocore-1.21.58.tar.gz"
+    sha256 "87e881569c32b218a1b82ecb607a4dddb4dca3b80a5d1016571b99b51cef3158"
   end
 
   resource "jmespath" do
@@ -48,8 +48,8 @@ class Principalmapper < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
-    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
+    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
+    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
   end
 
   def install
