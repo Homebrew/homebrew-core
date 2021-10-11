@@ -37,8 +37,8 @@ class DependencyCheck < Formula
 
   test do
     # wait a random amount of time as multiple tests are being on different OS
-    # the sleep 30 seconds to 5 minutes assists with the NVD Rate Limiting issues
-    sleep(rand(30..300))
+    # the sleep 1 seconds to 30 seconds assists with the NVD Rate Limiting issues
+    sleep(rand(1..30))
     output = shell_output("#{bin}/dependency-check --version").strip
     assert_match "Dependency-Check Core version #{version}", output
 
