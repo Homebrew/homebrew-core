@@ -190,23 +190,21 @@ class Poetry < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
-
-    vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
+    vendor_site_packages = libexec/"vendor"/Language::Python.site_packages("python3")
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
-        system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    site_packages = libexec/"lib/python#{xy}/site-packages"
+    site_packages = libexec/Language::Python.site_packages("python3")
     ENV.prepend_create_path "PYTHONPATH", site_packages
-    system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     # We don't hardcode Homebrew Python here on purpose. See
     # https://github.com/Homebrew/homebrew-core/issues/62910
-    (bin/"poetry").write <<~PYTHON
+    (libexec/"bin/poetry").atomic_write <<~PYTHON
       #!/usr/bin/env python3
       import sys
 
@@ -218,10 +216,14 @@ class Poetry < Formula
           main()
     PYTHON
 
+    # Make sure Poetry can find our keg-only Python, but don't override the user's Python
+    (bin/"poetry").write_env_script libexec/"bin/poetry",
+                                    PATH: "${PATH:+${PATH}:}#{Formula["python@3.10"].opt_bin}"
+
     # Install shell completions
-    (bash_completion/"poetry").write Utils.safe_popen_read("#{libexec}/bin/poetry", "completions", "bash")
-    (fish_completion/"poetry.fish").write Utils.safe_popen_read("#{libexec}/bin/poetry", "completions", "fish")
-    (zsh_completion/"_poetry").write Utils.safe_popen_read("#{libexec}/bin/poetry", "completions", "zsh")
+    (bash_completion/"poetry").write Utils.safe_popen_read(libexec/"bin/poetry", "completions", "bash")
+    (fish_completion/"poetry.fish").write Utils.safe_popen_read(libexec/"bin/poetry", "completions", "fish")
+    (zsh_completion/"_poetry").write Utils.safe_popen_read(libexec/"bin/poetry", "completions", "zsh")
   end
 
   test do
