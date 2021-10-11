@@ -15,7 +15,7 @@ class Locust < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb7f30bdc5b1b9b7e7587e45a6e3e5699ef1649a0669fc047996a106b86130ae"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "Brotli" do
