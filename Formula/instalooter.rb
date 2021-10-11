@@ -5,7 +5,7 @@ class Instalooter < Formula
   homepage "https://github.com/althonos/instalooter"
   url "https://files.pythonhosted.org/packages/30/13/907e6aaba6280e1001080ab47e750068ffc5fb7174203985b3c9d678e3f2/instalooter-2.4.4.tar.gz"
   sha256 "fb9b4a948702361a161cc42e58857e3a6c9dafd9e22568b07bc0d0b09c3c34a9"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 2
 
   bottle do
