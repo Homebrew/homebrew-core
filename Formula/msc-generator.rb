@@ -20,7 +20,7 @@ class MscGenerator < Formula
   depends_on "cairo"
   depends_on "gcc"
   depends_on "glpk"
-  depends_on "graphviz@2.48"
+  depends_on "graphviz"
   depends_on "sdl2"
 
   fails_with :clang # needs std::range
