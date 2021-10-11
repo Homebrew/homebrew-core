@@ -1,8 +1,8 @@
 class Himalaya < Formula
   desc "CLI email client written in Rust"
   homepage "https://github.com/soywod/himalaya"
-  url "https://github.com/soywod/himalaya/archive/v0.4.0.tar.gz"
-  sha256 "07359cc9827ecda8052a23428f642e06da5a899c40fe887acc5a880c76676131"
+  url "https://github.com/soywod/himalaya/archive/v0.5.0.tar.gz"
+  sha256 "9ac8828f476f7b91ead4598237aa0e46a782327ef8f3d1ab6d7db75eb928173a"
   license "BSD-3-Clause"
 
   bottle do
@@ -49,6 +49,6 @@ class Himalaya < Formula
       smtp-passwd-cmd = "security find-internet-password -gs gmail -w"
     EOS
 
-    assert_match "Could not login to IMAP server", shell_output("#{bin}/himalaya write 2>&1", 1)
+    assert_match "Error: cannot login to IMAP server", shell_output("#{bin}/himalaya 2>&1", 1)
   end
 end
