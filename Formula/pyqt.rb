@@ -1,8 +1,8 @@
 class Pyqt < Formula
   desc "Python bindings for v6 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/a0/07/0ae4f67768c1150af851572fae287aeaf956ed91b3b650b888a856274ae4/PyQt6-6.1.1.tar.gz"
-  sha256 "8775244fa73f94bfe8ae7672b624e2a903a22bc35d7ea42dd830949e2f9e43c7"
+  url "https://files.pythonhosted.org/packages/63/14/342909751d8cb6931ca1548a9834f5f581c69c2bc5836e65a8aeee9f1bb7/PyQt6-6.2.0.tar.gz"
+  sha256 "142ce7fa574d7ebb13fb0a2ebd18c86087c35829f786c094a71a0749155d8fee"
   license "GPL-3.0-only"
 
   bottle do
@@ -25,23 +25,28 @@ class Pyqt < Formula
   end
 
   resource "3d" do
-    url "https://files.pythonhosted.org/packages/ea/5e/4c954451984d00dfc051eab5c4b40453923a85f5a0dfa9678511d06eec5e/PyQt6_3D-6.1.1.tar.gz"
-    sha256 "f0277c04ac62f065cdd3f740a2149d260a5909e51df9fbb63e5ed83cebbe44f4"
+    url "https://files.pythonhosted.org/packages/9d/63/5dcfdbfcb3d7a8da5e23c66e57425f5954786c82273dd70cc70232d98b4e/PyQt6_3D-6.2.0.tar.gz"
+    sha256 "12b5c843a94fe1521d71a0c6a7ebd0a9f1f32c6fbaed896e5cda378b1831121c"
   end
 
   resource "charts" do
-    url "https://files.pythonhosted.org/packages/b9/ac/9c545186f3125b0fb02359938bddde0167344f3d4e14aee17fa122b5287a/PyQt6_Charts-6.1.1.tar.gz"
-    sha256 "258416a5c8148cc824dede64b37ede08f14e1f90ef7e3c11e411b1b03268fee2"
+    url "https://files.pythonhosted.org/packages/51/95/8ada6ff8741c674d739c989cf3fe2594327269e7e895c2c8bbb68118eaa9/PyQt6_Charts-6.2.0.tar.gz"
+    sha256 "4ea4b6b2a6c2ae7643a33534acda9bee0b5308748a34529c9f09523167b3379c"
   end
 
   resource "datavis" do
-    url "https://files.pythonhosted.org/packages/56/8d/ddf81fe59263a0855d58b9f91d957e0956f3ea0aab17f0433f5cc69d4e8e/PyQt6_DataVisualization-6.1.1.tar.gz"
-    sha256 "d66f92b991468ac92d4a9391e41f6e544ec54fab3488db131287907397ac1baf"
+    url "https://files.pythonhosted.org/packages/af/6d/31be015a16528c599ed33f1b6f014b67bc3879823fa52b45d6a2bc89f0d4/PyQt6_DataVisualization-6.2.0.tar.gz"
+    sha256 "7526bfd9433acb8eabdb354ba9e027d1bb34b8fa9d14f299d4b3b4c81a21e37a"
   end
 
   resource "networkauth" do
-    url "https://files.pythonhosted.org/packages/04/cc/6e60bbc105992a9c2a98bb9135987baa4f35b27593a5e3ebf7ac2728ce0c/PyQt6_NetworkAuth-6.1.1.tar.gz"
-    sha256 "1590118cef920adcef55022246994d5dfcc64cb7504bdd17eac92ffeb4a21dbe"
+    url "https://files.pythonhosted.org/packages/e6/f7/cac9c0f5f9ad977576a86131dd1376d3c2b91398ccaa8288691a278449aa/PyQt6_NetworkAuth-6.2.0.tar.gz"
+    sha256 "23e730cc0d6b828bec2f92d9fac3607871e6033a8af4620e5d4e3afc13bd6c3c"
+  end
+
+  resource "webengine" do
+    url "https://files.pythonhosted.org/packages/8d/ce/a38c0ec1186441ed7fdc58f417c3ae8ab82cc62172986d9960dec0d2f905/PyQt6_WebEngine-6.2.0.tar.gz"
+    sha256 "4f12a984efd01d202a89baea3437c6fb2001a042f9bdef512d324eb4e81ef693"
   end
 
   def install
@@ -60,11 +65,17 @@ class Pyqt < Formula
       system "python3", *Language::Python.setup_install_args(prefix)
     end
 
-    %w[3d charts datavis networkauth].each do |p|
-      resource(p).stage do
+    resources.each do |r|
+      next if r.name == "PyQt6-sip"
+      # TODO: Enable webengine on linux when chromium support python3
+      next if r.name == "webengine" && (OS.linux? || DevelopmentTools.clang_build_version <= 1200)
+
+      r.stage do
         inreplace "pyproject.toml", "[tool.sip.project]",
           "[tool.sip.project]\nsip-include-dirs = [\"#{site_packages}/PyQt#{version.major}/bindings\"]\n"
-        system "sip-install", "--target-dir", site_packages
+        # Workaround from https://www.riverbankcomputing.com/pipermail/pyqt/2021-October/044282.html
+        # TODO: Remove `, "--concatenate", "1"`
+        system "sip-install", "--target-dir", site_packages, "--concatenate", "1"
       end
     end
   end
@@ -74,7 +85,6 @@ class Pyqt < Formula
     system bin/"pylupdate#{version.major}", "-V"
 
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt#{version.major}"
-    # TODO: add additional libraries in future: Position, Multimedia
     %w[
       3DAnimation
       3DCore
@@ -83,8 +93,10 @@ class Pyqt < Formula
       3DLogic
       3DRender
       Gui
+      Multimedia
       Network
       NetworkAuth
+      Positioning
       Quick
       Svg
       Widgets
