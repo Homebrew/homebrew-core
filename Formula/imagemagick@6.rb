@@ -4,6 +4,7 @@ class ImagemagickAT6 < Formula
   url "https://www.imagemagick.org/download/releases/ImageMagick-6.9.12-23.tar.xz"
   sha256 "69e91deaafd1065bfc8741f99078350961f95135cd57d2a30bbc7588cc81f331"
   license "ImageMagick"
+  revision 1
   head "https://github.com/imagemagick/imagemagick6.git"
 
   livecheck do
