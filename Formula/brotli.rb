@@ -19,6 +19,15 @@ class Brotli < Formula
 
   depends_on "cmake" => :build
 
+  # Drop -R compiler flag from pkg-config files: it was meant to set rpath,
+  # which we don't need; and it isn't a real compiler flag, which causes
+  # linking of other software against brotli to fail on GCC before GCC 11.
+  # Remove upon next release.
+  patch do
+    url "https://github.com/google/brotli/commit/09b0992b6acb7faa6fd3b23f9bc036ea117230fc.patch?full_index=1"
+    sha256 "2e9e4b961a53bbd68435e3894cc93b12f1a3489924c242735e18374276f20d75"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "VERBOSE=1"
