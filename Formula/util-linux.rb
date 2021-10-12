@@ -12,6 +12,7 @@ class UtilLinux < Formula
     "LGPL-2.1-or-later",
     :public_domain,
   ]
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "90bec5536897574eca7b519a5d944c4c6e1fe588104d6bc954db8f373b99f581"
@@ -38,6 +39,12 @@ class UtilLinux < Formula
   # The missing definitions in uuid.h cause error: use of undeclared identifier 'UUID_STR_LEN'.
   # Issue ref: https://github.com/karelzak/util-linux/issues/1432
   patch :DATA
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
 
   def install
     args = std_configure_args + %w[
