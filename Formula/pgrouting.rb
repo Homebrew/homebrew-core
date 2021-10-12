@@ -4,6 +4,7 @@ class Pgrouting < Formula
   url "https://github.com/pgRouting/pgrouting/releases/download/v3.2.1/pgrouting-3.2.1.tar.gz"
   sha256 "daeb7ba8703dde9b6cc84129eab64a0f2e1f819f00b9a9168a197c150583a5fd"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
   livecheck do
@@ -35,5 +36,15 @@ class Pgrouting < Formula
 
     lib.install Dir["stage/**/lib/*"]
     (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
+
+    # write the postgres version in the install to ensure rebuilds on new major versions
+    inreplace share/"postgresql/extension/pgrouting.control",
+      "# pgRouting Extension",
+      "# pgRouting Extension for PostgreSQL #{Formula["postgresql"].version.major}"
+  end
+
+  test do
+    expected = "for PostgreSQL #{Formula["postgresql"].version.major}"
+    assert_match expected, (share/"postgresql/extension/pgrouting.control").read
   end
 end
