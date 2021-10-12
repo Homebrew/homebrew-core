@@ -4,7 +4,7 @@ class Podman < Formula
   url "https://github.com/containers/podman/archive/v3.4.0.tar.gz"
   sha256 "558dcc8fbf72095aa1ec8abeb84ca2093dd0d51b77f0115ef855e640e2f03146"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
@@ -19,8 +19,8 @@ class Podman < Formula
   depends_on "qemu"
 
   resource "gvproxy" do
-    url "https://github.com/containers/gvisor-tap-vsock/archive/v0.1.0.tar.gz"
-    sha256 "e1e1bec2fc42039da1ae68d382d4560a27c04bbe2aae535837294dd6773e88e0"
+    url "https://github.com/containers/gvisor-tap-vsock/archive/v0.2.0.tar.gz"
+    sha256 "a54da74d6ad129a1c8fed3802ba8651cce37b123ee0e771b0d35889dae4751fc"
   end
 
   patch do
@@ -44,7 +44,7 @@ class Podman < Formula
     end
 
     resource("gvproxy").stage do
-      system "make"
+      system "make", "gvproxy"
       libexec.install "bin/gvproxy"
     end
 
