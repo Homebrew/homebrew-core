@@ -1,8 +1,8 @@
 class Naabu < Formula
   desc "Fast port scanner"
   homepage "https://github.com/projectdiscovery/naabu"
-  url "https://github.com/projectdiscovery/naabu/archive/v2.0.4.tar.gz"
-  sha256 "2d9f01e42f2182d008041e145c047a7ca45d31214a2d20b1acf4a148659b5815"
+  url "https://github.com/projectdiscovery/naabu/archive/v2.0.5.tar.gz"
+  sha256 "ec9ef8c7cff41d43b754859e4eba9c7aa2453100371c4bd01e82ac46dcf8f424"
   license "MIT"
   head "https://github.com/projectdiscovery/naabu.git", branch: "master"
 
@@ -18,12 +18,6 @@ class Naabu < Formula
   depends_on "go" => :build
 
   uses_from_macos "libpcap"
-
-  # Support go 1.17, remove after next release
-  patch do
-    url "https://github.com/projectdiscovery/naabu/commit/944874d7c5cf442fb68c5ad19ed5bf954b313386.patch?full_index=1"
-    sha256 "028e8dd2f9bd9634fc05ebcd0381d11320f94a6b9c68bd4a5648640a41089ea1"
-  end
 
   def install
     cd "v2" do
