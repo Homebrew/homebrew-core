@@ -6,16 +6,17 @@ class Dotbot < Formula
   url "https://files.pythonhosted.org/packages/d3/67/733dbf0b444d41af473238537d5ef7bd5906870f35a69ef4f7dc64e74519/dotbot-1.19.0.tar.gz"
   sha256 "29f4a461462a5ff3b1e9929849458e88d827a45d764f582c633237edd373f0af"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e0b6b39ce0e5810579e20cce7a7e2b244f2036eb7203240fd5b97cd03da28844"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e96e9f7e3ae93e6859f13479b586d971958349ca8ee4bb1d5fead64ebdcd1dde"
-    sha256 cellar: :any_skip_relocation, catalina:      "3bc7bf088b33d3c024b3a04b8e89c3339a8d27a780cb1f6f0904141ea84e407d"
-    sha256 cellar: :any_skip_relocation, mojave:        "1a3eea6c83af210a85c83c88460ddfa1d30b644917bbea537015e7682085158a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a49f87edf43be337908b09c6077c574aea3faa466c8a0c266219c5dbafd24187"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1e5418a009f3e05c563ada0705c6e077d56e4df49ab42f1496ef43e097dc6f1d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4eed817693537664519d582af946fa870d40c8c584b9706d9c4742ebe13ba8e4"
+    sha256 cellar: :any_skip_relocation, catalina:      "1580a56ae5c22273b996866519a938da04c8fec7adc805f435399b954bebb9df"
+    sha256 cellar: :any_skip_relocation, mojave:        "fdb6be14bd6a4ad73c2ca13c3f5a62cc74bb64ff507278a99d4e0b944e09dd75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0e8e2840e9c40ac40da72cf275aebbc2365a21a4874b8c040109667e1c004b6"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"

@@ -3,19 +3,19 @@ class Richmd < Formula
 
   desc "Format Markdown in the terminal with Rich"
   homepage "https://github.com/willmcgugan/rich"
-  url "https://files.pythonhosted.org/packages/57/3f/a8ba181148dcb9184cb0afac66d075fce60f06f926ce9cdab3dc61fd6497/rich-10.11.0.tar.gz"
-  sha256 "016fa105f34b69c434e7f908bb5bd7fefa9616efdb218a2917117683a6394ce5"
+  url "https://files.pythonhosted.org/packages/4e/fd/5d40b0363467f8c87d5f5f551b7b431e234bff2becf959daab453f9d7795/rich-10.12.0.tar.gz"
+  sha256 "83fb3eff778beec3c55201455c17cccde1ccdf66d5b4dade8ef28f56b50c4bd4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "84b0b7effcabf0da687498d844ed3f57c3149eb510732a08b71391f1888d3dea"
-    sha256 cellar: :any_skip_relocation, big_sur:       "492a44887bb591e7f70b94486019eaac108de1ecfcfd57eaa1a05fa2748529ef"
-    sha256 cellar: :any_skip_relocation, catalina:      "c62b52ce6464a2a8a543ee5c07308ca6c8beeba738d8311e9c55ce201ce6d886"
-    sha256 cellar: :any_skip_relocation, mojave:        "caa768c8e228d20919186690efd3327b14f65d4f96abc7792a0037f903dbd905"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69313cfad19790a4eb0905b3e5a22168aef1aca7ba06e5930b758645bd2de912"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2007a1699b391f8aad831f22994d93ca0b71911f844ad6ffc9c008a6846a088a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4b180be6656c9e37de0c524ebd53d481c71306dc0b8ccb9500b3682ed52850f6"
+    sha256 cellar: :any_skip_relocation, catalina:      "8bfd7eaf8c4749971915e9e6bdd5ce507535a2e9b009c0679d0624eecb1b28d6"
+    sha256 cellar: :any_skip_relocation, mojave:        "d785977634c44d46b4fb2d35569464969eed3e0844e9bbdb2ba9e6b55a70cb55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "598366c5b63761126bdc0b58b9be03fd9479f860a3d93eda65222f98c738d736"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"

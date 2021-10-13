@@ -1,9 +1,9 @@
 class GoAT116 < Formula
   desc "Go programming environment (1.16)"
   homepage "https://golang.org"
-  url "https://golang.org/dl/go1.16.8.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.16.8.src.tar.gz"
-  sha256 "8f2a8c24b793375b3243df82fdb0c8387486dcc8a892ca1c991aa99ace086b98"
+  url "https://golang.org/dl/go1.16.9.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.16.9.src.tar.gz"
+  sha256 "0a1cc7fd7bd20448f71ebed64d846138850d5099b18cf5cc10a4fc45160d8c3d"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,11 +12,11 @@ class GoAT116 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b0c1d66b93db44100aaff13db28c4f72a957647ae8bc6d3883589051694841f4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5025baf8fea14c61cbe0f0e797f9eba3a54ca9bae474324cc58b740e21370b56"
-    sha256 cellar: :any_skip_relocation, catalina:      "c7bf89d6cc4adcc21fdb4a46acd95b59ee056bab60923848acd83480393286bf"
-    sha256 cellar: :any_skip_relocation, mojave:        "004114a71d46cc558a211623e1f1c8305cf4a9fe963aec277ee324bffdc89056"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af0f4c5162491c414d4d4d952b158eca702d8c3fa2513b0fc61079ed2b10604c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "be131fb3bf7494645b978f60ec191a1bfa721b1ecf492b5c2d5faf4f7aa425c7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cd7cf2ab4fff304367bc25472fdf1c87710735edd16f0dd26e3fee091b00f2b5"
+    sha256 cellar: :any_skip_relocation, catalina:      "2f6a5856c9cc124335c1c85d35bfc344bff1aeb88215aa8fa3cde62e62d229b1"
+    sha256 cellar: :any_skip_relocation, mojave:        "3c6db9bd28d82d8e8c5e09157faffe667b044c6c9296fe68b5657abe129b5d7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fa164e41dfc4c78ad1fc74d5f79805c200f5503e1c9b287c7a143fa7256a477"
   end
 
   keg_only :versioned_formula

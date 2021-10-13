@@ -1,16 +1,16 @@
 class Diamond < Formula
   desc "Accelerated BLAST compatible local sequence aligner"
   homepage "https://www.wsi.uni-tuebingen.de/lehrstuehle/algorithms-in-bioinformatics/software/diamond/"
-  url "https://github.com/bbuchfink/diamond/archive/v2.0.11.tar.gz"
-  sha256 "41f3197aaafff9c42763fb7658b67f730ebc6dd3c0533c9c3d54bd3166e93f24"
+  url "https://github.com/bbuchfink/diamond/archive/v2.0.12.tar.gz"
+  sha256 "d0468959ea677cc8e90a6fbd9506f3fb1fbd1b415d30bf398ac2524bb5b6f20c"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "90432e28bfcd7ba419923f19dc1f49cd3894e71abf9dee084d2b4a8980a3de48"
-    sha256 cellar: :any_skip_relocation, big_sur:       "746111bc7742376273e84d87c6cd4b09cc2855e4dcf80b7025b09359cdee9496"
-    sha256 cellar: :any_skip_relocation, catalina:      "32a3256fb14aebed74c553136929c656ebd4a9423dfa02524886648fd86ae8f7"
-    sha256 cellar: :any_skip_relocation, mojave:        "882151cea4d518d0d5f32b13a2eb495b0ea88c845aebbd2b99a8aef1cef8db3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce393bc62d88cdb7f418fb7fae8603f5ae3790c9040261b182f1f69a6ead72c6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c60ab9a0136b88b8e4acbaf8b8826f3822f921730f4a5b4317ac205c93f36b94"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cde37828d32153f2ed9501684c519a5c900e142a77154bf283aa8e6214e73bfa"
+    sha256 cellar: :any_skip_relocation, catalina:      "cb016605b352a851fe612198eb1b0a7db3fc03a05a05e5ae418ae76b41cc634a"
+    sha256 cellar: :any_skip_relocation, mojave:        "8f14421cb230d2fcbd42f02854475b431296b09a1a29e23d408dd64badc43a99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86d326765512f2d726bacf7a21d7676c1fbb5a6e1bac3836b4e624cecf0e0b7d"
   end
 
   depends_on "cmake" => :build

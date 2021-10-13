@@ -6,6 +6,7 @@ class Flawfinder < Formula
   url "https://dwheeler.com/flawfinder/flawfinder-2.0.19.tar.gz"
   sha256 "fe550981d370abfa0a29671346cc0b038229a9bd90b239eab0f01f12212df618"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/david-a-wheeler/flawfinder.git"
 
   livecheck do
@@ -14,14 +15,14 @@ class Flawfinder < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4d66b65f5681f260ed454465b9b5176d3325e971f8092a1275776c80515d76be"
-    sha256 cellar: :any_skip_relocation, big_sur:       "407c52c1becc39385244c0d877570de07e10daeab69001c675299c16c81e1ea1"
-    sha256 cellar: :any_skip_relocation, catalina:      "407c52c1becc39385244c0d877570de07e10daeab69001c675299c16c81e1ea1"
-    sha256 cellar: :any_skip_relocation, mojave:        "407c52c1becc39385244c0d877570de07e10daeab69001c675299c16c81e1ea1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d66b65f5681f260ed454465b9b5176d3325e971f8092a1275776c80515d76be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e1b43fa077ab243f046627e1bf10abeba91b90b58df58fa5e5c1427bf50e0719"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b13d035b39d87e2f9ddfba4c8b03a3d676c8104b40fc882f2faf5473c7e91c78"
+    sha256 cellar: :any_skip_relocation, catalina:      "b13d035b39d87e2f9ddfba4c8b03a3d676c8104b40fc882f2faf5473c7e91c78"
+    sha256 cellar: :any_skip_relocation, mojave:        "b13d035b39d87e2f9ddfba4c8b03a3d676c8104b40fc882f2faf5473c7e91c78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1b43fa077ab243f046627e1bf10abeba91b90b58df58fa5e5c1427bf50e0719"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     rewrite_shebang detected_python_shebang, "flawfinder.py"

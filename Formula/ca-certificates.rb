@@ -5,6 +5,11 @@ class CaCertificates < Formula
   sha256 "f524fc21859b776e18df01a87880efa198112214e13494275dbcbd9bcb71d976"
   license "MPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cacert[._-](\d{4}-\d{2}-\d{2})\.pem/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "47c9cd6ec69dbbf8a3f697e6b07df409a573c779aa86ceadc7d9575e8c2a5b10"

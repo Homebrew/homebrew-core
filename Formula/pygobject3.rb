@@ -4,13 +4,14 @@ class Pygobject3 < Formula
   url "https://download.gnome.org/sources/pygobject/3.42/pygobject-3.42.0.tar.xz"
   sha256 "9b12616e32cfc792f9dc841d9c472a41a35b85ba67d3a6eb427e307a6fe4367b"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b88e26771ff3a798d0fd4d6046740464031ca7da1f0644cf7993c88cfd4f1154"
-    sha256 cellar: :any, big_sur:       "0113cf46c25b6d42fa83dadf97fa696963831dc1695a3561da2c8df25910bf6a"
-    sha256 cellar: :any, catalina:      "08f34eba1892e4b0f9b7471bba718acd5f860afdb3de7694f37fb6d77e73d849"
-    sha256 cellar: :any, mojave:        "fde6fafd1ede8023cf0f0481d5912258610a82a4c97650864fa1c88119a06a43"
-    sha256               x86_64_linux:  "e12a37ac040cb49aa802f1a34d322fd6835b0bb62b3b8c10fbfcae8000b1a2da"
+    sha256 cellar: :any, arm64_big_sur: "435f6c7f01bcba010ceb53edf6ca9df8a31fffebf239d91a217e38d823c6f3fa"
+    sha256 cellar: :any, big_sur:       "f9f1c60b23478993fc7ad3df87314c44dd172bcce440c4fccaf4222849834541"
+    sha256 cellar: :any, catalina:      "44bee3904b07d3e6bf3866e0e4de6ed4f4bfb0641a781e132a6d2c52de38332c"
+    sha256 cellar: :any, mojave:        "1d4bdcfee7b2dac4300170e7f9cb5d94ae27b35b7127e5f7d9972b89f9130dfc"
+    sha256               x86_64_linux:  "a34ce5794cfd73a3ac9864260aec1525b96967b9859a19286a884270b35afede"
   end
 
   depends_on "meson" => :build

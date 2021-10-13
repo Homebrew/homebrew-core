@@ -6,18 +6,18 @@ class Gitless < Formula
   url "https://files.pythonhosted.org/packages/9c/2e/457ae38c636c5947d603c84fea1cf51b7fcd0c8a5e4a9f2899b5b71534a0/gitless-0.8.8.tar.gz"
   sha256 "590d9636d2ca743fdd972d9bf1f55027c1d7bc2ab1d5e877868807c3359b78ef"
   license "MIT"
-  revision 9
+  revision 10
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "cb04d922aef08494a684909d52f60b091c74022fd98cb36e6aa7d20402359c06"
-    sha256 cellar: :any,                 big_sur:       "c4e4a2afca3b1e30950f86927d914e27d58b0fc43b4bb9cfe7b4038d5740eb79"
-    sha256 cellar: :any,                 catalina:      "771d687e584bfaae2520f7c00681d0bb2ded0e50618b79db0763b0a011ee23be"
-    sha256 cellar: :any,                 mojave:        "fd05318ee73242821b23e304dc27a04408f987e0c3eb92653f041f079310c455"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bff8c36580c134e57bbd51232a7c1f96881c951be3df9574690b8dde5ecf4e3c"
+    sha256 cellar: :any,                 arm64_big_sur: "84aa2c7e09ebdb4b69e76a3d5247b3e98f8f83327f0c3ff5272129e1f42903b6"
+    sha256 cellar: :any,                 big_sur:       "e894c506c8ce6f6bdc2902881d2545ef7bd90b16e381b0dff99fe8ad1240b234"
+    sha256 cellar: :any,                 catalina:      "c20f221e93cd90aa30bf693bbae322137a01a808336b8f8d559ce1966bf18477"
+    sha256 cellar: :any,                 mojave:        "2045586480fd247520a943e761fd33ed5ed78df0463108e1de1ddfba623fcdaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ded42ab981cfb810d57eb64c403e9c301ffb6f22662b2cab6676641aa882e02d"
   end
 
   depends_on "libgit2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libffi"
 

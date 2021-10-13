@@ -6,18 +6,18 @@ class Supervisor < Formula
   url "https://files.pythonhosted.org/packages/d3/7f/c780b7471ba0ff4548967a9f7a8b0bfce222c3a496c3dfad0164172222b0/supervisor-4.2.2.tar.gz"
   sha256 "5b2b8882ec8a3c3733cce6965cc098b6d80b417f21229ab90b18fe551d619f90"
   license "BSD-3-Clause-Modification"
+  revision 1
   head "https://github.com/Supervisor/supervisor.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eecde9d40da9295eff05db3febece46fe5ca591904221993f9628ecb94e3ed40"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8719a67515fc2e5ceaaf19eb8fc2998343c7001fca4c22f68b0531a7ca26103d"
-    sha256 cellar: :any_skip_relocation, catalina:      "8719a67515fc2e5ceaaf19eb8fc2998343c7001fca4c22f68b0531a7ca26103d"
-    sha256 cellar: :any_skip_relocation, mojave:        "8719a67515fc2e5ceaaf19eb8fc2998343c7001fca4c22f68b0531a7ca26103d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92246cbda1ce67873519f07455f74dafc55b292f5132d0103dffcd79aa185835"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "19ca7572ee9fed86ba1cc5ad5c4ffe0df7f094307e78b623d75dea464b274592"
+    sha256 cellar: :any_skip_relocation, big_sur:       "03bb01ee8b90ea72e8d5fd27994f7b5e002576b467bdda3b6011e8af63d9777e"
+    sha256 cellar: :any_skip_relocation, catalina:      "03bb01ee8b90ea72e8d5fd27994f7b5e002576b467bdda3b6011e8af63d9777e"
+    sha256 cellar: :any_skip_relocation, mojave:        "03bb01ee8b90ea72e8d5fd27994f7b5e002576b467bdda3b6011e8af63d9777e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af1065b2eca37b2678c416ec8274516fe1989b1d60debfc5057464f2f07fa84e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     inreplace buildpath/"supervisor/skel/sample.conf" do |s|

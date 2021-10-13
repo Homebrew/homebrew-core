@@ -6,6 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.3.0.tar.gz"
   sha256 "4073ac72524f95fed4bda7dd553cb946f66d2e00bd07c4ae7758f1b787d507e0"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git"
 
   livecheck do
@@ -14,9 +15,9 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "a65903558ee54755cc2cb8716ed7213204ce19a8db27a529512d264f8da8d3ab"
-    sha256 cellar: :any, catalina: "8272a1d9328a0daa040d1c0fedc5c05d11028dca906b53d5d513bc537662c8be"
-    sha256 cellar: :any, mojave:   "d9528d4cf8ffb264226ab2acf437a95dfe93e29f90b577a80d04b5297c4263ca"
+    sha256 cellar: :any, big_sur:  "beb3e5d07af93967affe34ca80b61ec7a252644d3e364cfe8bc6452167af2bf5"
+    sha256 cellar: :any, catalina: "d4fb4229c6862233fd9c67c109e7e73efdba41bdf4f3080c4550c5ed453c7d6f"
+    sha256 cellar: :any, mojave:   "a71eb5fee4303983f6b6c3bbd4b128325cd623cb221f9014656efce0dce69e58"
   end
 
   depends_on "cmake" => :build
@@ -37,7 +38,7 @@ class Gnuradio < Formula
   depends_on "pyqt@5"
   depends_on "python@3.9"
   depends_on "qt@5"
-  depends_on "qwt"
+  depends_on "qwt-qt5"
   depends_on "six"
   depends_on "soapyrtlsdr"
   depends_on "uhd"
@@ -109,8 +110,8 @@ class Gnuradio < Formula
       -DENABLE_DEFAULT=OFF
       -DPYTHON_EXECUTABLE=#{venv_root}/bin/python
       -DPYTHON_VERSION_MAJOR=3
-      -DQWT_LIBRARIES=#{Formula["qwt"].lib}/qwt.framework/qwt
-      -DQWT_INCLUDE_DIRS=#{Formula["qwt"].lib}/qwt.framework/Headers
+      -DQWT_LIBRARIES=#{Formula["qwt-qt5"].lib}/qwt.framework/qwt
+      -DQWT_INCLUDE_DIRS=#{Formula["qwt-qt5"].lib}/qwt.framework/Headers
       -DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}
       -DQT_BINARY_DIR=#{Formula["qt@5"].opt_bin}
       -DENABLE_TESTING=OFF

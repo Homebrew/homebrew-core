@@ -5,6 +5,7 @@ class Moarvm < Formula
   url "https://github.com/MoarVM/MoarVM/releases/download/2021.09/MoarVM-2021.09.tar.gz"
   sha256 "9d233e62ac8e4d4580359a794f88f4d26edad54781d915f96b31464439a32cba"
   license "Artistic-2.0"
+  revision 1
 
   livecheck do
     url "https://github.com/MoarVM/MoarVM.git"
@@ -12,11 +13,11 @@ class Moarvm < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "5cdfa62090556dabf3ff82ec1a4aa90fae77dd787f1f27eda6e69d52e8bb29f4"
-    sha256 big_sur:       "f10c8d6e1815f918487b18fbb0b96dbe7fa729877207560f95f06202b42208da"
-    sha256 catalina:      "2c0f4bd59164c854ea65abbdd63a98edc843141c321e93e85375fd3c6bb7da15"
-    sha256 mojave:        "d9603dab3126485cd3af9ace65b09d83560a471996c2954249589ee5d901f729"
-    sha256 x86_64_linux:  "ef617eb7eb82ec0ac50ce270e6cdd05b9d42a7806c5541000342e16ac3d15fed"
+    sha256 arm64_big_sur: "c5f2d2d7bacda98e06029b38d5826b4efaebe5729f2d70dc282bd13c787692d3"
+    sha256 big_sur:       "73e1c8c6913dbd4517220b0be439ad11fdb416db6bb8ec361b36b857b645f38b"
+    sha256 catalina:      "7dd7acdb735036d925082e907816000d4765f1549c20208ab7cba7395601dcbf"
+    sha256 mojave:        "7f1875146667613ec2095e804ea74112c6d7a764e9136b945a30521823348b66"
+    sha256 x86_64_linux:  "91705c45d1e7b2b2ee02ac1db3e1a147c5ac4fc31df168928b4cade93f53e36e"
   end
 
   depends_on "libatomic_ops"

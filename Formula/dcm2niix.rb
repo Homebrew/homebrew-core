@@ -1,8 +1,8 @@
 class Dcm2niix < Formula
   desc "DICOM to NIfTI converter"
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
-  url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20210317.tar.gz"
-  sha256 "42fb22458ebfe44036c3d6145dacc6c1dc577ebbb067bedc190ed06f546ee05a"
+  url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20211006.tar.gz"
+  sha256 "44b737d0101483de17ac1273f2d2c6a4d572a7b76ea040d69aa34d5e484144b9"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/rordenlab/dcm2niix.git"
@@ -13,11 +13,11 @@ class Dcm2niix < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e3dbe411fc4732bd4a022d67b31476f49880ddc946a6fab1b39466b2c013d54d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "084829fb99291a81c2d1980c4bbfb1c22a43956ac912f4a47a1db23b1dff90b6"
-    sha256 cellar: :any_skip_relocation, catalina:      "2583d8380bc1c50f2868cb490ce80505b297ef4258ff9256f892999a0b0b6b85"
-    sha256 cellar: :any_skip_relocation, mojave:        "eab67d24efc13b483a7b9e988bf44efd49aa3e40e12c4deb682832ceae9b7286"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecc2a14a090a22072454dd9cb8003a723fee867fe6ef524cfb2e7741888a26f9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b4ccc171c1d9226d2d5f3f4a889b1a2da84060c4ae1b26e61ad7a6acea730188"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0c66b2cb7523fc1f221317f46162f8c0383bdc9156320d1685058b9a14d93b64"
+    sha256 cellar: :any_skip_relocation, catalina:      "21d06e3b2f960deea00b7d4e43e79ab9380715fe291fb7da8be292bde07c0207"
+    sha256 cellar: :any_skip_relocation, mojave:        "6f6280dc038a31653b432616c477fae0af86473ac97b04bf0a655a7aa5bd31d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c79afb62032ec43191f973e5ec14d26e3a82b0fa6980cee0c82b6019b2058b4"
   end
 
   depends_on "cmake" => :build

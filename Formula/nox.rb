@@ -6,16 +6,17 @@ class Nox < Formula
   url "https://files.pythonhosted.org/packages/11/46/c6f4944a1ffdec93a96f942bddd9b8308c2f90fe37a6512bbd2d420283ac/nox-2021.10.1.tar.gz"
   sha256 "0a1c735d5e90fa234046b58a5ad61d08bc13ae77ab213da9b58d5cc2d25023ae"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "35d84c9284482eddf64d28fb8058cc78ab5cf51bb056513d0d36f9df1ba33233"
-    sha256 cellar: :any_skip_relocation, big_sur:       "15349b9982cc2ab4f4d7fd036d874dd5206294288396e388243369783dbaaec1"
-    sha256 cellar: :any_skip_relocation, catalina:      "e4b4085c12ddec6eed3f4893ee38fb0163d538bbcb573b7bfbb3912f7bba58f2"
-    sha256 cellar: :any_skip_relocation, mojave:        "5f305da93b120410a73a65a4d011b0426a35f149a167817ef625443fbf356765"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80dbb04af51196b615b7c22f51d46b2cf142491d8609290633bfc43b7d2a4b06"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a37b99ed15b342899b853ff502449bbb13d4b187a852251771b3acacaa50771e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e9d1c726812f71425e03e25121ffa231a89b976e0092ef16e4b766c91ba81623"
+    sha256 cellar: :any_skip_relocation, catalina:      "49b715ed9d987ffce96e2c407b35350677f41c3ba32ef1a5ca19879273e70763"
+    sha256 cellar: :any_skip_relocation, mojave:        "978481e1a267922b2671d3bed4c0b12f26de52b07f339d568e3179ee66334fe4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50100e24f771050fc407cb31d69cd8fadaad9a6fb8b7bbbf0456b22f50cfec73"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "argcomplete" do

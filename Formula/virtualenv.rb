@@ -6,17 +6,18 @@ class Virtualenv < Formula
   url "https://files.pythonhosted.org/packages/dd/40/9bc1b32521f78c293c1f8ca423c725737dfa9d09640dbeec61cebca7c5f2/virtualenv-20.8.1.tar.gz"
   sha256 "bcc17f0b3a29670dd777d6f0755a4c04f28815395bca279cdcb213b97199a6b8"
   license "MIT"
+  revision 1
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f4136524cfdbad0c6b818cdc83197b869acb73488d347f6e2b5f25e722ef055b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d9f59f7a3af68b04669324f162fa87f6f78c8250a553b80e92f44649e5f24971"
-    sha256 cellar: :any_skip_relocation, catalina:      "66874827573539ae8f63d65c9e8f9f4feb94a71defb27f7a7f24409e8fc9b6a3"
-    sha256 cellar: :any_skip_relocation, mojave:        "ce129153ca33977c9959f21f513a70fd36db8932b08057bd1406371b858a8486"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cac916f3adfd339a467a03ee2f48f8bc94420f64802d226a096693737fd53c6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e659915b212684ff5d84ce94d848786d5874ffb7e1ed7560da4fd3fac3674cca"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5c54a6d3ac95608ab985ee2ca8b117fbbc8dd3aed52f38e345018b5e3e6abb9a"
+    sha256 cellar: :any_skip_relocation, catalina:      "80d844e7b609a95ecc08dc109b0d0790be2aca4df652ffac91cf6019fa2d7c94"
+    sha256 cellar: :any_skip_relocation, mojave:        "ba954bcf37996ebf410f1f3614e06f1854f8b839c7207428a8803cde69a32c3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "045897f9a95b6714d338382ebed98a55f167aca2d8d8b6513f5521d388045cfb"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "backports.entry-points-selectable" do

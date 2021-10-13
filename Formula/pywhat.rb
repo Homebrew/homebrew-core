@@ -3,16 +3,17 @@ class Pywhat < Formula
 
   desc "🐸 Identify anything: emails, IP addresses, and more 🧙"
   homepage "https://github.com/bee-san/pyWhat"
-  url "https://files.pythonhosted.org/packages/a0/c3/681e4db7fedb660f8ad05017aea7d970aaf32090e3b7976622036fb7881e/pywhat-4.0.0.tar.gz"
-  sha256 "8fc5ef7c3a343f0baf690a34e97eeb9223ca74613017125273f4bd759e141d90"
+  url "https://files.pythonhosted.org/packages/6c/0f/11473d4ca43be653652727f9647b10a37ba2194c1588af4648e10da01752/pywhat-4.3.1.tar.gz"
+  sha256 "efdf5d0216185c8349eea8d52c6b987ef8b873a6d48cd55d816931bad6d09373"
   license "MIT"
   head "https://github.com/bee-san/pyWhat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24a702751d3e16c8b2062d0e05cc4e6b2ac28ce2d9e29229bb195c6eb879de9b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b67921e1bf327276441e138ea652edda87c1192c6a1a958052553fc357c174a3"
-    sha256 cellar: :any_skip_relocation, catalina:      "27d404e3cb2de1604384b504cfec52a8c276d08f46c863c4a517359c2ebe6fe4"
-    sha256 cellar: :any_skip_relocation, mojave:        "9cc875f60d28854f4ab145154d7ebfa9cb8c53a9e8721b1cd6faa58958715613"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d2cc7410b8d3cbcadff17a008935402969ebac127ad4765bb1229d2ef1709e1a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f380024dd4d07e5e856f9b4827a3548dac6cfe00d1132ea0881694de6f320f75"
+    sha256 cellar: :any_skip_relocation, catalina:      "df43d311c5a56bd54ba0bc380f5e973eeeeafd020e816a7fc2665ceb93e98eb7"
+    sha256 cellar: :any_skip_relocation, mojave:        "e0285d47102888c6a907b49a9ac9540c06cb3fad862a065dc17df43cdc09f10b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4948e94614894771c083288e38339ae33a8d12e38d78c55e4f3cb399fabb3bc"
   end
 
   depends_on "python@3.9"
@@ -39,8 +40,8 @@ class Pywhat < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/57/3f/a8ba181148dcb9184cb0afac66d075fce60f06f926ce9cdab3dc61fd6497/rich-10.11.0.tar.gz"
-    sha256 "016fa105f34b69c434e7f908bb5bd7fefa9616efdb218a2917117683a6394ce5"
+    url "https://files.pythonhosted.org/packages/4e/fd/5d40b0363467f8c87d5f5f551b7b431e234bff2becf959daab453f9d7795/rich-10.12.0.tar.gz"
+    sha256 "83fb3eff778beec3c55201455c17cccde1ccdf66d5b4dade8ef28f56b50c4bd4"
   end
 
   def install

@@ -4,6 +4,7 @@ class PythonAT38 < Formula
   url "https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz"
   sha256 "b1d3a76420375343b5e8a22fceb1ac65b77193e9ed27146524f0a9db058728ea"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,11 +12,11 @@ class PythonAT38 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "cb44445caa00efd70c2b809d0fcca436200304fd798f10b61a5d6f9b96656c52"
-    sha256 big_sur:       "e7850f7c142853b69b3e3849e4a8d83817e2a331f9a6581813b36ef9c63f3add"
-    sha256 catalina:      "0ab8f1428b00ff48ea64f9e8108a5a5a48bfc2268b35216585ca73adfb6cd1aa"
-    sha256 mojave:        "9a493fe975a25ede0d82ee6fcd4e3b2b4db53d14159f0eb8161f912f4c8b0835"
-    sha256 x86_64_linux:  "3f508b82c8fd66a197b4ecf43e21ba7041637ce813b6c5fc4f603dcdb10cb504"
+    sha256 arm64_big_sur: "5a3d8a5bf18c13bce7c3d4eff430bbe368bbb90654eee05315ef9ca51a2b05f7"
+    sha256 big_sur:       "1f30194a47851b4e00abef864460d7522dd4662b03c39834e089b2b429ef541c"
+    sha256 catalina:      "d4cb99ba879e231fe4527f171f6fd41bdd36a805421ad31d0987e83af5738b98"
+    sha256 mojave:        "5e60329987598230fb729b3b7c0ea4deddbfd701dc52e6771b6d10b753913400"
+    sha256 x86_64_linux:  "f0c7c14d64457e19ee59dbee77f088c29325e1b9a7430c657d02f045952db30d"
   end
 
   # setuptools remembers the build flags python is built with and uses them to

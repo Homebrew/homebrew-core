@@ -1,15 +1,15 @@
 class Qstat < Formula
   desc "Query Quake servers from the command-line"
   homepage "https://github.com/multiplay/qstat"
-  url "https://github.com/multiplay/qstat/archive/v2.16.tar.gz"
-  sha256 "8982a8992c4bdff6d765607ef9e83a759b6fe6c92dedb1fcdd3824807bc286cf"
+  url "https://github.com/multiplay/qstat/archive/v2.17.tar.gz"
+  sha256 "ff0a050e867ad1d6fdf6b5d707e2fc7aea2826b8a382321220b390c621fb1562"
   license "Artistic-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "6fe71871f75091ad1ceb3cdbfd10888917d886f7aafbe50e9cebc64f6c2fd438"
-    sha256 big_sur:       "36be7f0db1783921f8f3273467eab54cb13a2b0280004e48c3fa4ad9dae11ca7"
-    sha256 catalina:      "211cbd7cc45766390d9f16f1e3c49a174af9729d73de551ac66121518f44db40"
-    sha256 mojave:        "0325cc3af11f7a59bd3cf8c3e01f26fcea70abb8aa8982a17e6e18e95515d123"
+    sha256 arm64_big_sur: "381072b9472ed1ab8a8f0d7409571262555d33da9d02f3ccdabc117bc9d6a6c5"
+    sha256 big_sur:       "e7620697e587b4e46f1f0a1558e2fb9a1dee96c289958ea54269cf7321197d26"
+    sha256 catalina:      "c8308182a8669cd883eca05230d449aaeb0026bb47bd4b1a2d420a34b6051549"
+    sha256 mojave:        "8673b95f024ded9f7e2c7a721a7672b9f36f9258c25dfffa7b83a0b742e308b6"
   end
 
   depends_on "autoconf" => :build

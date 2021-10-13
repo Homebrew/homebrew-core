@@ -5,6 +5,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tar.xz"
   sha256 "f8145616e68c00041d1a6399b76387390388f8359581abc24432bb969b5e3c57"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,11 +13,11 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "695e7b5aee119f5e4e379dfa6701496e30d3ee199792e78b88fe3eb506256d4f"
-    sha256 big_sur:       "41d99040ba87c30b59dda54f1718aa05c584c0c3e6dc366bd63589e6dfd6cb25"
-    sha256 catalina:      "304126999e2d730bc76d13584f47326a2e8626a7f0b36c5b9119693182033da9"
-    sha256 mojave:        "0320d20a3aead6f61344f86d3ed5338192b7be24b095d0170dc06911a5b01eae"
-    sha256 x86_64_linux:  "7c4c4f890a448fe247c1717226f57f7a4c4f99426b4da3620c563bf3ff02ad0d"
+    sha256 arm64_big_sur: "c1955f1d1cf37aa0f2db6bd7acc1ff4ede09d05ec470239d4b20704766445fda"
+    sha256 big_sur:       "c08c5f01bca862fd69d5112616346319bc16c5bbe82b8caea20a876c80e66f98"
+    sha256 catalina:      "281999f9122a6fe9cee1be7123b71a66a531520cd0752d46b22dcb8026088560"
+    sha256 mojave:        "3bbce877213136df792bc99ace97296b86a474cd4ef30969c2e7d1e4761383d6"
+    sha256 x86_64_linux:  "e132ee0318cb0cf8e6f1d1955978576750e43f47bcec330bac8d8af06f9420ac"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -132,10 +133,6 @@ class PythonAT39 < Formula
     if OS.mac?
       args << "--enable-framework=#{frameworks}"
       args << "--with-dtrace"
-
-      # Override LLVM_AR to be plain old system ar.
-      # https://bugs.python.org/issue43109
-      args << "LLVM_AR=/usr/bin/ar"
     else
       args << "--enable-shared"
     end

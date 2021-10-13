@@ -4,26 +4,31 @@ class Ispc < Formula
   url "https://github.com/ispc/ispc/archive/v1.16.1.tar.gz"
   sha256 "e5dcd0d85df6ed5feb454ad9ec295083a07d7459fcaba00d5dd6266ceb476399"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "774925e3f76b5bc791c697ccb33ba6ddb06263afc42afed3d3b5c042d1e418b2"
-    sha256 cellar: :any, big_sur:       "056f8214241e142cc25f5f0e80a7691676e301d53dd221a3e9f37eacbad9ddbb"
-    sha256 cellar: :any, catalina:      "f6cbc37b4e9288c21009fd9b575a74d201563736e67e9bbd03c3df72ad332e5e"
-    sha256 cellar: :any, mojave:        "b761277279a3b20607c33a0ada33caa467ee4d14dcec08ac96b272fd4b02c75a"
+    sha256 cellar: :any, arm64_big_sur: "816feef4722edd8866c394110c503338eaba0bb373c87ddb9a898dc56b1adac7"
+    sha256 cellar: :any, big_sur:       "a82168d4f3a51a8078eb3603a9e3810f5a81e32e131fce032f4b505d6d0147e7"
+    sha256 cellar: :any, catalina:      "168dcec41346433e47d5478793216c86b96c4e9c2a31673e21de60b5f6a95427"
+    sha256 cellar: :any, mojave:        "d19b58b941d33a38e574e351d85445c5f8aee6c9ca6a164db874a2753138ae1c"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "python@3.9" => :build
-  depends_on "llvm"
+  depends_on "llvm@12"
+
+  def llvm
+    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+  end
 
   def install
     args = std_cmake_args + %W[
       -DISPC_INCLUDE_EXAMPLES=OFF
       -DISPC_INCLUDE_TESTS=OFF
       -DISPC_INCLUDE_UTILS=OFF
-      -DLLVM_TOOLS_BINARY_DIR='#{Formula["llvm"].opt_bin}'
+      -DLLVM_TOOLS_BINARY_DIR='#{llvm.opt_bin}'
       -DISPC_NO_DUMPS=ON
       -DARM_ENABLED=#{Hardware::CPU.arm? ? "ON" : "OFF"}
     ]

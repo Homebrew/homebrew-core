@@ -4,8 +4,8 @@ class Glooctl < Formula
   # NOTE: Please wait until the newest stable release is finished building and
   # no longer marked as "Pre-release" before creating a PR for a new version.
   url "https://github.com/solo-io/gloo.git",
-      tag:      "v1.8.18",
-      revision: "ea05423415d8b026da69a81de98bd29a7f2c3aa2"
+      tag:      "v1.9.0",
+      revision: "9a50ad4e0a9383f03be228ef628022eeb5253c94"
   license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git", branch: "master"
 
@@ -15,11 +15,11 @@ class Glooctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "98cefba0dc7cd9bfff4e1bc263500bfa219994f661ec2237afedf1ac45a52a39"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c5f8f485c0604a2303c456117b4ffbaf40009a244424ba4df1660b1cbb285430"
-    sha256 cellar: :any_skip_relocation, catalina:      "e59624377389dcb8cbec88b3c99f9f5a320b1d3e7682f3ba37e5a63fc4b9ad82"
-    sha256 cellar: :any_skip_relocation, mojave:        "ccdf5f22bb851ff0b21bb55db20e51b5d11dacc3f8e7b2a25d24be80415c44b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffa55179f22ba3f6fed76ce67067396e4c5e49b5ae69f418227d62eda327ff6b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b88ed0d35e8c1aa10a3e95f3c085983d695089d12e42a582337d063080e463ef"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fbbdf5dd721507e006d4ac8183013c8382c236e6b029a8f4fc65a274b895e5a0"
+    sha256 cellar: :any_skip_relocation, catalina:      "6e9dbfd9b01dc084c1527fc78d0a5186e4eee67da4aeb82627e319c9625ecb3a"
+    sha256 cellar: :any_skip_relocation, mojave:        "a32e3c7881f95c1ceaa9158aae2a654170e2b610ffc41602c580f1cfed4c96c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "651ca2fc65694f0d939a7a7f7c6595296f91f27d09bfde0df130564e3fed2a94"
   end
 
   depends_on "go" => :build

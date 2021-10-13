@@ -1,13 +1,13 @@
 class Isl < Formula
   desc "Integer Set Library for the polyhedral model"
-  homepage "http://isl.gforge.inria.fr"
+  homepage "https://libisl.sourceforge.io/"
   # NOTE: Always use tarball instead of git tag for stable version.
   #
   # Currently isl detects its version using source code directory name
   # and update isl_version() function accordingly.  All other names will
   # result in isl_version() function returning "UNKNOWN" and hence break
   # package detection.
-  url "http://isl.gforge.inria.fr/isl-0.24.tar.xz"
+  url "https://libisl.sourceforge.io/isl-0.24.tar.xz"
   sha256 "043105cc544f416b48736fff8caf077fb0663a717d06b1113f16e391ac99ebad"
   license "MIT"
 

@@ -6,17 +6,18 @@ class Mackup < Formula
   url "https://files.pythonhosted.org/packages/ef/39/2da64e9e92092eae9128de719249cdfbfb5e2b56cba842547ce256e03ef4/mackup-0.8.32.tar.gz"
   sha256 "154c5d78951e20da2ed0ed226b0684d2bc7f5553dd7b465f217fd6caad6e7fef"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/lra/mackup.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "be968ec450c3e2c28255f2c6e7928404e24498c907a05aed69e5a87e6ae8612e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "24dca4cbc991aad8990c672e7a88fd975f33fefcdb0dbb70f9e6e0b10a19841d"
-    sha256 cellar: :any_skip_relocation, catalina:      "df736bcc51887e9621c00d2948c989db4f1d4b5234ab7e702b49933fc212705e"
-    sha256 cellar: :any_skip_relocation, mojave:        "5f413d937d26828065204eaf532ab280c9d642448a0ee4f280fc667cb03fc9e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "122a129953b8f46cfa6bc82185cfc98b5d59498c76e80850ceb374160651ca51"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5dc05ca10495128e772c5686eee80c19ff181cdf0d084646f2fcc56b29ea38d5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d5dab8e898d9c1806411bd637031b3472d704dfb11759bd46e565e02c736a039"
+    sha256 cellar: :any_skip_relocation, catalina:      "d5dab8e898d9c1806411bd637031b3472d704dfb11759bd46e565e02c736a039"
+    sha256 cellar: :any_skip_relocation, mojave:        "d5dab8e898d9c1806411bd637031b3472d704dfb11759bd46e565e02c736a039"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12d28d4a984579ad64589bacf2b3e54787b1819e4a4a15df85877501e373c4a5"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"

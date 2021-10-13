@@ -3,16 +3,16 @@ require "language/node"
 class Esbuild < Formula
   desc "Extremely fast JavaScript bundler and minifier"
   homepage "https://esbuild.github.io/"
-  url "https://registry.npmjs.org/esbuild/-/esbuild-0.13.3.tgz"
-  sha256 "da5ed75590a694b28901a3af8a761f6a1e90feac77cf2d758dc36d8a89db3a02"
+  url "https://registry.npmjs.org/esbuild/-/esbuild-0.13.4.tgz"
+  sha256 "8b1f289315c72de548868ecab7517e2da0504ab72aefd64b16c845662f54fdf2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "673800245483c16c8b509f3d47fbf4c85b93bb280b062e295fa8ea75760c48d7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9453604779a422f8d8bb419d311d12b730953feb6d9ea89f9ddabf121d336ac9"
-    sha256 cellar: :any_skip_relocation, catalina:      "9453604779a422f8d8bb419d311d12b730953feb6d9ea89f9ddabf121d336ac9"
-    sha256 cellar: :any_skip_relocation, mojave:        "9453604779a422f8d8bb419d311d12b730953feb6d9ea89f9ddabf121d336ac9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36dae83644c833255375456c575fd6ce3613099ab46fb2ac9aba0ae76c8c7210"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2832ae8c704096a89029cb117406727cdcd4c2ffad50c4d5cf735a57022aeb60"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f5f4fbf8b350a52235df1c87affd534a014147738c4e580f0705678ad41573cc"
+    sha256 cellar: :any_skip_relocation, catalina:      "f5f4fbf8b350a52235df1c87affd534a014147738c4e580f0705678ad41573cc"
+    sha256 cellar: :any_skip_relocation, mojave:        "f5f4fbf8b350a52235df1c87affd534a014147738c4e580f0705678ad41573cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebb4c463312fd9d1ebd03dd2b125d13dd44e5f9d22b0163b9186b9e8e0d232fa"
   end
 
   depends_on "node"

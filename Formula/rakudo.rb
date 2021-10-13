@@ -5,12 +5,13 @@ class Rakudo < Formula
   url "https://github.com/rakudo/rakudo/releases/download/2021.09/rakudo-2021.09.tar.gz"
   sha256 "eec9a084e036b76fa4f9c68e9ccebf819fd13aafdc356892f0560eed1e8cf425"
   license "Artistic-2.0"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "e8106f54cabef24a42f96bcd8caeeab7e394d40601695430fb3e090524334288"
-    sha256 big_sur:       "3cbd0401d0e26e69cea32379eb9f41c38924d157d0f85a4ebf7d3a149e916244"
-    sha256 catalina:      "7219a7ab1b4ab2679c69cdf8d6f2d27ff1f7b931c6fd1c8f32d1d66033023ffb"
-    sha256 mojave:        "6ed9b471f9c8b991ba8f33130a754212a914c87b55bf9e287e17049936cc76e3"
+    sha256 arm64_big_sur: "eb53d38f6cfc2a609007bd499c180392b9088702ffc8c9015293118fd8109d9d"
+    sha256 big_sur:       "5dcdeef93447e34ae5a7ec59e3e89a70d5fc6b429685c782916f6e7c55b8fd14"
+    sha256 catalina:      "31e4c8c7544ae9c0262d05be12845bc29cb5e0b8f098a5ba7cf64465d2395d72"
+    sha256 mojave:        "79e19227126f2f31aafa0da1b6097a27de274a2844969097fef7f7d07d149fb3"
   end
 
   depends_on "nqp"

@@ -5,6 +5,7 @@ class OpensslAT3 < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.0.tar.gz"
   sha256 "59eedfcb46c25214c9bd37ed6078297b4df01d012267fe9e9eee31f61bc70536"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://www.openssl.org/source/"
@@ -12,22 +13,19 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f676e5bd999369a98b2e89e4a0fffeac8b5961ac4eba3ad45ef3c5c5e07aa217"
-    sha256 big_sur:       "f279ab1fb5880c36c8b5b7557ab44fd8c6e4b33ed03716bed4d3d69b96097a74"
-    sha256 catalina:      "ec819e57038f4ae11e3a3e083ec1d37c174e44fce08830bda22e7f6d77f063df"
-    sha256 mojave:        "2d6c5b6a1d828d26c4514a557496c64bd445126ea6c10bf81a5660c7690405f6"
-    sha256 x86_64_linux:  "e1ef778855bf72986f5b6acc08afc3e29735a73541cbb92e917cf38431904174"
+    sha256 arm64_big_sur: "f62a52f5321f601e49411a9b80c079217cb28e606360a559da448e2673085d44"
+    sha256 big_sur:       "b5a51da4059ef651824d284210f8c6bae62c58d53bedff020f51c24384b6a23a"
+    sha256 catalina:      "c6ccff3db9265ab98f190357d8d324ca88a4126e47f5cfebea876a712a1adfba"
+    sha256 mojave:        "60eea9f4dd2dc264490e18980ba1cd881877bd194e2cda3564e9fe56e6bdadf4"
+    sha256 x86_64_linux:  "6bdb460fc9a6d1b5436a21538866ce56c67956d8647c0efcda10e136dc8f77b9"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
 
+  depends_on "ca-certificates"
+
   on_linux do
-    resource "cacert" do
-      # homepage "http://curl.haxx.se/docs/caextract.html"
-      url "https://curl.se/ca/cacert-2021-07-05.pem"
-      mirror "https://gist.githubusercontent.com/jonchang/b13c60cd50bdd91fd12a034ea53e39d5/raw/e1c430fd9ab59ed34212083537be0da974c26555/cacert-2021-07-05.pem"
-      sha256 "a3b534269c6974631db35f952e8d7c7dbf3d81ab329a232df575c2661de1214a"
-    end
+    keg_only "it conflicts with the `openssl@1.1` formula"
 
     resource "Test::Harness" do
       url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
@@ -62,7 +60,6 @@ class OpensslAT3 < Formula
       args += (ENV.cflags || "").split
       args += (ENV.cppflags || "").split
       args += (ENV.ldflags || "").split
-      args << "enable-md2"
     end
     args
   end
@@ -109,64 +106,8 @@ class OpensslAT3 < Formula
   end
 
   def post_install
-    if OS.mac?
-      macos_post_install
-    else
-      linux_post_install
-    end
-  end
-
-  def macos_post_install
-    ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
-
-    keychains = %w[
-      /Library/Keychains/System.keychain
-      /System/Library/Keychains/SystemRootCertificates.keychain
-    ]
-
-    certs_list = `/usr/bin/security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
-
-    # Check that the certificate has not expired
-    valid_certs = certs.select do |cert|
-      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout &>/dev/null", "w") do |openssl_io|
-        openssl_io.write(cert)
-        openssl_io.close_write
-      end
-
-      $CHILD_STATUS.success?
-    end
-
-    # Check that the certificate is trusted in keychain
-    trusted_certs = begin
-      tmpfile = Tempfile.new
-
-      valid_certs.select do |cert|
-        tmpfile.rewind
-        tmpfile.write cert
-        tmpfile.truncate cert.size
-        tmpfile.flush
-        IO.popen("/usr/bin/security verify-cert -l -L -R offline -c #{tmpfile.path} &>/dev/null")
-
-        $CHILD_STATUS.success?
-      end
-    ensure
-      tmpfile&.close!
-    end
-
-    openssldir.mkpath
-    (openssldir/"cert.pem").atomic_write(trusted_certs.join("\n") << "\n")
-  end
-
-  def linux_post_install
-    # Download and install cacert.pem from curl.haxx.se
-    cacert = resource("cacert")
-    cacert.fetch
     rm_f openssldir/"cert.pem"
-    filename = Pathname.new(cacert.url).basename
-    openssldir.install cacert.files(filename => "cert.pem")
+    openssldir.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
   end
 
   def caveats

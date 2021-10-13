@@ -3,19 +3,19 @@ class Sail < Formula
 
   desc "CLI toolkit to provision and deploy WordPress applications to DigitalOcean"
   homepage "https://sailed.io"
-  url "https://files.pythonhosted.org/packages/be/bb/ae362ed80eccff1dc7b36139ecabb6a8eabdbed29dce1f8d5ac32231ab1f/sailed.io-0.9.14.tar.gz"
-  sha256 "b4dae70770bab424c0deea2056ad8734098d22dce75971a61b6eb03c1147e487"
+  url "https://files.pythonhosted.org/packages/63/f5/49ff597d1e5542115592d8530192d54abaa77a2089c21180f15dfe3e216a/sailed.io-0.9.16.tar.gz"
+  sha256 "eae75a53f05626e8659353b8c590adb9d3fa65a6d886dca032de1995064103df"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4119b62e8ee568d46d88cf6e9239b9b92d91fcc20b7830d2bd9152a2ca1967e4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1326d6e9cc2c18462bdb005f4ed0336b82b9d7f36bf598c940a607bcef2c7b6b"
-    sha256 cellar: :any_skip_relocation, catalina:      "bf0e68d74fa4d1cc2589ef52c4ceb7785e8289582410ed8bb3868b8dde3f07f2"
-    sha256 cellar: :any_skip_relocation, mojave:        "95b6731a8c29094002dc5ce1cf99efd8286657b24c91fd108ab9e76a0f1163fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6833ab7267c6e7732897eb0f571f2070ae74ea26fd71279ff4de1c6beb66398c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0839f86d368574b7416c433ca1651bc6fb6a5a595ceb06c03538d1c7c4b02dbd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fd29c838ad725d0f9958b038cc2c29e3a8bfd078bdfc1abcfc22b0ea3e830a4d"
+    sha256 cellar: :any_skip_relocation, catalina:      "ea25c5774792b89bb39542b71cc6cec8f0f809fba27af9b81a9f51e2fddeebf2"
+    sha256 cellar: :any_skip_relocation, mojave:        "3fde749bd0c01943e03eb0eb6b6b592dd8b3eeb0bb151e9ee7a16b0acf71e29f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e872a813abcb28b6eba665d56eb81484399755f61301140cdd098fc2b9565ed"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"

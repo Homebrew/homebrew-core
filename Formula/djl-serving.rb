@@ -1,12 +1,16 @@
 class DjlServing < Formula
   desc "This module contains an universal model serving implementation"
-  homepage "https://github.com/awslabs/djl/tree/master/serving"
-  url "https://djl-ai.s3.amazonaws.com/publish/djl-serving/serving-0.12.0.tar"
-  sha256 "b715a7a83c1116813840a01aabe95dc1bcb83f3888420bb7de8f88d580d7bd0a"
+  homepage "https://github.com/deepjavalibrary/djl-serving"
+  url "https://publish.djl.ai/djl-serving/serving-0.13.0.tar"
+  sha256 "61c28c03877930f173724f345fa0ca91623af92d02fdc0269c7cce5b82276a56"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2247e58049d51afb16ef9f2469c97c885cc33fefad6f95c5c382909b2aaf2a8b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c438d15069721e4a5c1d1c34155da406217c14cb06a24f36c1766594b4ca693d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c438d15069721e4a5c1d1c34155da406217c14cb06a24f36c1766594b4ca693d"
+    sha256 cellar: :any_skip_relocation, catalina:      "c438d15069721e4a5c1d1c34155da406217c14cb06a24f36c1766594b4ca693d"
+    sha256 cellar: :any_skip_relocation, mojave:        "c438d15069721e4a5c1d1c34155da406217c14cb06a24f36c1766594b4ca693d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "399edae507bdaee85fea94f67238a99faab7d666ebe220781991903385cc288e"
   end
 
   depends_on "openjdk"

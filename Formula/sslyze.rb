@@ -4,6 +4,7 @@ class Sslyze < Formula
   desc "SSL scanner"
   homepage "https://github.com/nabla-c0d3/sslyze"
   license "AGPL-3.0-only"
+  revision 1
 
   stable do
     url "https://files.pythonhosted.org/packages/d5/b9/195ada85f8577e5b99a45338974e6de2d81aabeccee303fe66e455e91125/sslyze-4.1.0.tar.gz"
@@ -16,10 +17,10 @@ class Sslyze < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "bb90747b0ca6204eec778c0f6206e84c9082ead3d3cb57290b5868b42d49decd"
-    sha256 cellar: :any,                 catalina:     "1ba1833fc32bf1779e2d1ae530305a7e4091385f4ce7cee14da61d2590d61229"
-    sha256 cellar: :any,                 mojave:       "517ddb6ff0b4e752fd16fba00fd98690ae18bb886b57e5cbf777299712379f21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "36f7889215fb9432dc747530f80fc27047d35775853de2d758aebf5b16f1d091"
+    sha256 cellar: :any,                 big_sur:      "e8097ebd7ba96d86cdd3eb25ebdbab97430f51954d67ce98c1e46fae7af2c629"
+    sha256 cellar: :any,                 catalina:     "ab656f1c81d3d2b9796a28b8d23ededa007a36465c057bec413242e551d4bc89"
+    sha256 cellar: :any,                 mojave:       "d1dc50bdb9dae7fea7bc68867a449398e9caf4549fb0a087769f987154a5c660"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0a339aa801665f3e3a86ff458b9ebc1ee4368cf41d8d1a73b5f66ecf48692d9c"
   end
 
   head do

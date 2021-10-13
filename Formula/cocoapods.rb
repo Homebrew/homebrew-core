@@ -4,13 +4,14 @@ class Cocoapods < Formula
   url "https://github.com/CocoaPods/CocoaPods/archive/1.11.2.tar.gz"
   sha256 "c1f7454a93e334484cc15ec8a88ded4080bf5e39df2b0dff729a2e77044dc3df"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4d468b2e7fdec4d80dfa63c3399e21519c842af012e310f15c0c5b4450642f0b"
-    sha256                               big_sur:       "594546dcde868d93407a2f056f7ee76769b90d4742f9a3b29bdfaba32addb61a"
-    sha256                               catalina:      "ca65ce465468779c6617a6fe27bc5e0768815b3ab49df11762e6a5196febf1b7"
-    sha256 cellar: :any,                 mojave:        "966d3229dc326393b68e8febe77540758650f555e9abcb8d70926be4aa67d3e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "872f8d21b42f463d7b6f203f78121316b386c456c943425e17ca258bd17602be"
+    sha256 cellar: :any,                 arm64_big_sur: "d792e6ff2dbbc51e436000addd1bcf86edb34feb4b53194e64f6889d48527ee0"
+    sha256                               big_sur:       "a62461a2f591e9a765801d02ea83e0977782839e68a1886920a0928423683501"
+    sha256                               catalina:      "560c574cd0a9ae0958ae32ad136476982552186d6d500ac1167d43eff72d2007"
+    sha256 cellar: :any,                 mojave:        "f24d3cde3c06c8fd3806979d2c34c9edd8ad67e014c8f3aee69a487ccb1058c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d808399f02cb62f443bde184a986bcda9d52d2e48cbddb396008666f7e1f0d1c"
   end
 
   depends_on "pkg-config" => :build

@@ -4,6 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.1.1.tar.gz"
   sha256 "515e03265752257d0b7036f380f82e42b46ed8473f54f25c7b67ed25bbbdd364"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -11,11 +12,11 @@ class R < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "11dc03536024f748a0889ff037c224b20bc73bceffa96403d066d788282de143"
-    sha256 big_sur:       "094853f678a1a13474e26f81edaaf21ffac080c21569cc55872efe1db88aad58"
-    sha256 catalina:      "ae5d7cf5f7c05ffbdc583b32e79c28f3c290aa5d5d7b03765b9104332fe3ea51"
-    sha256 mojave:        "5a79c1a2f55638b23ad41cfa92e2975b232cb6bef8eec7136c4b4f1b31a66ca6"
-    sha256 x86_64_linux:  "573f7af1a4535bb5a843a609d288ed90473543626482317386b8afe8c4f6f82a"
+    sha256 arm64_big_sur: "fa066f0791a3b826f6ddecd03e43497a7ce1d4414444a6cc5c796391a0836841"
+    sha256 big_sur:       "9f430e50978bc00e6527f7ea014ad83086142c58566a8ca0c7b2f21c97a768b6"
+    sha256 catalina:      "360ba9df1a1d3d910cd76547b7c322ea28f0c135455fa4eca9ade6450e33d8be"
+    sha256 mojave:        "4c9667c72d257e10049f6e437eacf80a6fb2aa1c258f5b05b97ce7d1d7a030c7"
+    sha256 x86_64_linux:  "a7945d6e0a68a565f6eed08dda58ccab866aa8598c3a969129d857eba1e0e674"
   end
 
   depends_on "pkg-config" => :build
@@ -23,6 +24,7 @@ class R < Formula
   depends_on "gcc" # for gfortran
   depends_on "gettext"
   depends_on "jpeg"
+  depends_on "libffi"
   depends_on "libpng"
   depends_on "openblas"
   depends_on "pcre2"

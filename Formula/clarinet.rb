@@ -1,8 +1,8 @@
 class Clarinet < Formula
   desc "Command-line tool and runtime for the Clarity smart contract language"
   homepage "https://github.com/hirosystems/clarinet"
-  url "https://github.com/hirosystems/clarinet/archive/v0.16.0.tar.gz"
-  sha256 "f7c181f1839afe68972484bdcc7c9425ed0c72174e3fbbd711754d2d3c3bdc1f"
+  url "https://github.com/hirosystems/clarinet/archive/v0.17.0.tar.gz"
+  sha256 "85e4b49a25a8fc76fcaf84c2d4b8a668e403b05a1a668134a7b08c9206ccfa5c"
   license "GPL-3.0-only"
   head "https://github.com/hirosystems/clarinet.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Clarinet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3aaebb502a7310977efc1064a19e19239a5fb6f7269fe51c0a00ad86aac839c3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "20d84ae8fc4c85f1960c92eade9ef7113ccce4438568ca9ba92b2fb14dc7dccb"
-    sha256 cellar: :any_skip_relocation, catalina:      "1f47c8fbc694e82e1bcb0ca9bd829a8c919a8429c9077b14da8012d72d325579"
-    sha256 cellar: :any_skip_relocation, mojave:        "5835770e44f7ea85c665225c9e2036c0a0ca8ea1fe070657b6068c20a567e412"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d839b3bf132d4d68ee9d55fb984a67e6bec648efe887e38d1cba8404708a8f5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f538c0dd5033758c92d444efe6d55a5d59b434711230d7c9b64104cd94f825b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bf177bfe14e986bf365b3125da290b2260291fe478692403cf1d040051035117"
+    sha256 cellar: :any_skip_relocation, catalina:      "95d3188b4131e43005d62edd6663ae5bc3e5d7e874526550e16021e646a0aaf2"
+    sha256 cellar: :any_skip_relocation, mojave:        "73348b4239d7f44c6658f16487d9a9cba477334789d1f9589ceb4166e7d23785"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fa1c0b4cda58e15b8e3e73f8d03a2e4ad1220c844dd66b114e3a8cda5db402d"
   end
 
   depends_on "rust" => :build

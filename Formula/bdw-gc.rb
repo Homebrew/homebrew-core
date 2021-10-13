@@ -16,6 +16,11 @@ class BdwGc < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "788d86cb322a9409fb6e8117fc6ee48e57e3258a18b77a39f8682730caf2d239"
     sha256 cellar: :any,                 big_sur:       "e1657498c65d958779349a5b3b2283e52e5c48cde79e26f761340bacfc3627e9"

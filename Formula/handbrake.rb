@@ -4,14 +4,15 @@ class Handbrake < Formula
   url "https://github.com/HandBrake/HandBrake/releases/download/1.4.2/HandBrake-1.4.2-source.tar.bz2"
   sha256 "8b8e81b7dc2e3180f4e94e8c7f5337d2953f69f0d983ccce48096e29ed6dfb61"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ce915dd92e8ecea860c57f930fe059fbebb2f4282a64c68c77988d6e4e3ba090"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bdaf789e29ad765f12f4ee1d6173bc7c4254019c979646f87b5054be3dd9c785"
-    sha256 cellar: :any_skip_relocation, catalina:      "405a3c3c9d3511ddcf31b93c800e6db7fe6c1dbfacc68b98891ef846dec1d390"
-    sha256 cellar: :any_skip_relocation, mojave:        "cd6a2f04d56322bd3f51ca0b64f54e51a98d3709d9c0a62e42c6475658bcbe60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "036238b99cddfee4e7553d14a82aadf6e14293b8903126b620d88f0dc0d7a7b2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e917c720059f925166013d3d0e2582e31699ebbdbbc08fca18dfdffabfd7c8b3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7ca402d6d31e8e0a8cd95d145c418081f7d463fb2038c8b699c9a14b5b97dcea"
+    sha256 cellar: :any_skip_relocation, catalina:      "6264a00f9a6de388ea623778ce204d88fbe2638984685685f5081afc7847c7b4"
+    sha256 cellar: :any_skip_relocation, mojave:        "fb8a0e4d9a85ceafe357b05148e2f457fc27c209772f09c6625ecc4a710ff645"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3acefc4aab0ea90d6677cd7178e2753eddb28ae520e76e12544f7887234c81a7"
   end
 
   depends_on "autoconf" => :build

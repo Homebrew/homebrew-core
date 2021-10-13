@@ -4,6 +4,7 @@ class Spack < Formula
   url "https://github.com/spack/spack/archive/v0.16.3.tar.gz"
   sha256 "26636a2e2cc066184f12651ac6949f978fc041990dba73934960a4c9c1ea383d"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/spack/spack.git", branch: "develop"
 
   livecheck do
@@ -12,14 +13,14 @@ class Spack < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "730361d730d684299daec515988a446da828f8c9ce0cbbcb9ca411d22989be4f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "57a313186f3cf80ac7985f1f86fe415a3a9f179044fa5db2333460043b1809f4"
-    sha256 cellar: :any_skip_relocation, catalina:      "57a313186f3cf80ac7985f1f86fe415a3a9f179044fa5db2333460043b1809f4"
-    sha256 cellar: :any_skip_relocation, mojave:        "57a313186f3cf80ac7985f1f86fe415a3a9f179044fa5db2333460043b1809f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e88b8b7697764e9336ac1f849be0e8647627e38299671b208689949071bb0192"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e4c6d9e6ca584976f41e4e0496b84730ada560fcc6766d8fde0afafdc1b6b0f5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "67ef975d666abc37d4838559895e7a28f95ba05a4d3a41988b381a056d7c438f"
+    sha256 cellar: :any_skip_relocation, catalina:      "67ef975d666abc37d4838559895e7a28f95ba05a4d3a41988b381a056d7c438f"
+    sha256 cellar: :any_skip_relocation, mojave:        "67ef975d666abc37d4838559895e7a28f95ba05a4d3a41988b381a056d7c438f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c189fd21afa356d7a11b55fc4784ec245e221cd410f9c844a9a34bf7889282da"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     prefix.install Dir["*"]

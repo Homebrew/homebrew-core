@@ -6,17 +6,18 @@ class Ipython < Formula
   url "https://files.pythonhosted.org/packages/e2/c8/7046d0409a90e31263d5bbaa708347d522ac584a1140c01a951d9deb1792/ipython-7.28.0.tar.gz"
   sha256 "2097be5c814d1b974aea57673176a924c4c8c9583890e7a5f082f547b9975b11"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ipython/ipython.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ba4e8081625c8d81db16ae9bffc3519473e8a26962d5a810559827561bb69dc5"
-    sha256 cellar: :any,                 big_sur:       "2764cb130f831ae57c44059ac361caec3169c1fe6f014b30e44524453d5b09b1"
-    sha256 cellar: :any,                 catalina:      "4f97b606027536a5b25ccc9a7ec5377670703c425cf2699fe7ffa883e0d27c34"
-    sha256 cellar: :any,                 mojave:        "10859be3e5e33359564d53e65e221028670cda3f6605f0a63bc18d238a196a3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ddf1c3ac13561c732b07866f601ea57e0dd2352030a961346df543f14bc808d"
+    sha256 cellar: :any,                 arm64_big_sur: "af87917b8661391e36ddd8a64e3255cbac80215b41fcbd2355e1278e535d189c"
+    sha256 cellar: :any,                 big_sur:       "c93106ebce278caf8a3b7947cf5b1fb62dced0d78fe1886d8c93a40db97e04e3"
+    sha256 cellar: :any,                 catalina:      "c25d23660f4d77d0ae1c0029ee34366e9830a64ba2be22151b177c9b8b743c02"
+    sha256 cellar: :any,                 mojave:        "c85df44bdc5274d46e2395ac07ced983106fef425407f7f50af944edfa8e657b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90fc3ef7bed86b9e9b3102e32287fa7c4fdd1511ce163e59738c3d90b7b7ef46"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
   depends_on "zeromq"
 
@@ -137,7 +138,7 @@ class Ipython < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     # install other resources
@@ -146,13 +147,13 @@ class Ipython < Formula
     res -= [resource("appnope")] if OS.linux?
     res.each do |r|
       r.stage do
-        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     # install and link IPython
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+    system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
     bin.install libexec/"bin/ipython"
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"] + "${PYTHONPATH:+:}$PYTHONPATH")
 
@@ -161,7 +162,7 @@ class Ipython < Formula
 
     # install IPyKernel
     ipykernel.stage do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     # install kernel

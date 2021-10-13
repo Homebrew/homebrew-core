@@ -1,8 +1,8 @@
 class GnupgAT22 < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.31.tar.bz2"
-  sha256 "03eda09e8f9eaebab602057f3a8b908022a73999f5a31e580b12fcdf01fbebaf"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.32.tar.bz2"
+  sha256 "b2571b35f82c63e7d278aa6a1add0d73453dc14d3f0854be490c844fca7e0614"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,11 +11,11 @@ class GnupgAT22 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "91b0dff7299d8ba7835cb511b17fb9000e27f9cfe347ea0b5deac0e0e599f8d8"
-    sha256 big_sur:       "c1515eca53270b84dfc5dca8bcdb7b6da857cb167aa1a4292e5ec3c1e905c739"
-    sha256 catalina:      "6f343a4c3c4ead308a6df0e20a5be640c326eadf2aae9b2621ee3297e9c4c1f6"
-    sha256 mojave:        "ced2608b0f34f2ef6f609b25325b086b9d5da8fd6e1bce7942d5a59590a1c261"
-    sha256 x86_64_linux:  "fd5bb6a47e65e3ad16c08778076beca083ca4ade8d8db912144632d6bd8e653f"
+    sha256 arm64_big_sur: "d5b237d03383aad0b7c389a1687808afe9935e0b82b3de8a57e144c42046cb25"
+    sha256 big_sur:       "97bc5ab5fbed07d57d0a5520ca821fcd7d229d515794ef549bef13d94995c8b6"
+    sha256 catalina:      "9a70625ba7a01abdbf898fa07df18eaabf7ec2737185fbe094fb629494e0916a"
+    sha256 mojave:        "2e3786d7d40b82eeee785c4a4063705110930b22d6282bbf3634ad2e3e358af7"
+    sha256 x86_64_linux:  "64ee92a2cb821ace17056b912d41ecc48cac0e8d3fbdc45742d82b3c65b546d3"
   end
 
   keg_only :versioned_formula

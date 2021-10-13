@@ -11,6 +11,7 @@ class Bind < Formula
   url "https://downloads.isc.org/isc/bind9/9.16.21/bind-9.16.21.tar.xz"
   sha256 "65da5fd4fb80b7d0d7452876f81fd6d67cdcee54a5e3c1d65610334665dfa815"
   license "MPL-2.0"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
 
@@ -22,11 +23,11 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "0e6cecbb71ddcb001ca4d7834f5c871fe0a2f66cd8bd308b786fca571dfed0ea"
-    sha256 big_sur:       "371d94feb300866304505caf0bf343a3dee0b7952a7b57055634a611c5c39cd0"
-    sha256 catalina:      "3cfd01171bb2bee9e99324c8d80a8a3b0a41383df106fc56598b28a786cd2b73"
-    sha256 mojave:        "342673b8dfaa2940d44e6d359035625cb674bd3021b171b79b204cd78215de1f"
-    sha256 x86_64_linux:  "15f21773cdbb8a17e7efa8eaf2e5802762b8128e121f4dabed79487175f56d70"
+    sha256 arm64_big_sur: "7653fae0990ddf9225baef12a043bebc18226cdb1ef73136593020fb694f0050"
+    sha256 big_sur:       "70859324c730fb9114b569b37df237001beb08ddf1b0f943074d8040e4565660"
+    sha256 catalina:      "11f9e0255b8070d5d8f0818263633fbcd286054b3094c026801d39837fb35e91"
+    sha256 mojave:        "18b6d35257a55b0d107f74a617a03f172d0d519e30ad92725bdcfa2d50d288f1"
+    sha256 x86_64_linux:  "f4d4839865ce2ddfedbb3d8247b4c20889fe1fe417f25e28e99e8a5e88578df0"
   end
 
   depends_on "pkg-config" => :build
@@ -34,7 +35,7 @@ class Bind < Formula
   depends_on "libidn2"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "ply" do
     url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
@@ -42,12 +43,12 @@ class Bind < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
-        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
@@ -61,7 +62,7 @@ class Bind < Formula
       "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
       "--with-libjson=#{Formula["json-c"].opt_prefix}",
       "--with-python-install-dir=#{vendor_site_packages}",
-      "--with-python=#{Formula["python@3.9"].opt_bin}/python3",
+      "--with-python=#{Formula["python@3.10"].opt_bin}/python3",
       "--without-lmdb",
       "--with-libidn2=#{Formula["libidn2"].opt_prefix}",
     ]

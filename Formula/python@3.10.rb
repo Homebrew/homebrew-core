@@ -5,6 +5,7 @@ class PythonAT310 < Formula
   url "https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz"
   sha256 "c4e0cbad57c90690cb813fb4663ef670b4d0f587d8171e2c42bd4c9245bd2758"
   license "Python-2.0"
+  revision 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,16 +13,18 @@ class PythonAT310 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "18778385ed117143b097d2bf4c5f569befc724afbefb34511486719ca220a2dc"
-    sha256 big_sur:       "f415f17d8e49428c1be2c312f7d1b0f64f8792b12381bb828a567b5d584f278d"
-    sha256 catalina:      "55404989c50d898f1b6ed5e2aaab0fb368dec111aeb4f215e89f89a02c9cb130"
-    sha256 mojave:        "c2fc793f5643e3b9428c8189ce883223e833b0e3fd9f6bc578293bf9f3e6e405"
-    sha256 x86_64_linux:  "faa6091365c386497baf4262ad336760b8267535b374a9d496a2d75d62376951"
+    sha256 arm64_big_sur: "0a53ada86a81e7142a4d14d63cd96d4c9a15d9e75213a40a5a7de63e70212a5d"
+    sha256 big_sur:       "a8fcb94d106358f2fd0013aa8fa76111c531a8572ac384427d3be015efcf787d"
+    sha256 catalina:      "23debb3fb41fbb2969c1a0226e76bea394432f017919d25bb92428e3de022d3f"
+    sha256 mojave:        "7fa98467f73dc8751ab4b369cbc318f02129adc56cfc415d48d86de7e2f7ed73"
+    sha256 x86_64_linux:  "906e8cd168b1059d79249bf42f2309ee963ff7fc1d70f1cfafa02ff9bad0fe45"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? only_if: :clt_installed
+
+  keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
@@ -41,21 +44,6 @@ class PythonAT310 < Formula
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7", "bin/pip-3.8", "bin/pip-3.9"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6",
               "bin/easy_install-3.7", "bin/easy_install-3.8", "bin/easy_install-3.9"
-
-  link_overwrite "bin/2to3"
-  link_overwrite "bin/idle3"
-  link_overwrite "bin/pip3"
-  link_overwrite "bin/pydoc3"
-  link_overwrite "bin/python3"
-  link_overwrite "bin/python3-config"
-  link_overwrite "bin/wheel3"
-  link_overwrite "share/man/man1/python3.1"
-  link_overwrite "lib/pkgconfig/python3.pc"
-  link_overwrite "lib/pkgconfig/python3-embed.pc"
-  link_overwrite "Frameworks/Python.framework/Headers"
-  link_overwrite "Frameworks/Python.framework/Python"
-  link_overwrite "Frameworks/Python.framework/Resources"
-  link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/1e/5c/3d7b3d91a86d71faf5038c5d259ed36b5d05b7804648e2c43251d574a6e6/setuptools-58.2.0.tar.gz"
@@ -125,10 +113,6 @@ class PythonAT310 < Formula
     if OS.mac?
       args << "--enable-framework=#{frameworks}"
       args << "--with-dtrace"
-
-      # Override LLVM_AR to be plain old system ar.
-      # https://bugs.python.org/issue43109
-      args << "LLVM_AR=/usr/bin/ar"
     else
       args << "--enable-shared"
     end
@@ -347,11 +331,6 @@ class PythonAT310 < Formula
       (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
     end
 
-    # post_install happens after link
-    %W[pip3 wheel3 pip#{version.major_minor}].each do |e|
-      (HOMEBREW_PREFIX/"bin").install_symlink bin/e
-    end
-
     # Help distutils find brewed stuff when building extensions
     include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
                     Formula["sqlite"].opt_include]
@@ -424,14 +403,14 @@ class PythonAT310 < Formula
   def caveats
     <<~EOS
       Python has been installed as
-        #{HOMEBREW_PREFIX}/bin/python3
+        #{opt_bin}/python3
 
       Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
       `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
         #{opt_libexec}/bin
 
       You can install Python packages with
-        pip3 install <package>
+        #{opt_bin}/pip3 install <package>
       They will install into the site-package directory
         #{HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"}
 

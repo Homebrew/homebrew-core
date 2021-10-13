@@ -3,24 +3,24 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/7d/f5/db30e19c43c9fafb0a53fd2f458f65a29361d6c161924a837d744f350381/conan-1.40.3.tar.gz"
-  sha256 "af1a122bc462bb2a8d99e5516f89993391d8482d7c429ed8f3bfc0773ce79f8a"
+  url "https://files.pythonhosted.org/packages/d8/a9/c6843955fa23556be096173f88e62f6c3bf3c3b85e44e56e748367d5adca/conan-1.41.0.tar.gz"
+  sha256 "8323810fe9252e98f3e0194f149e3c814ece7d98553b410b1ce52d562b66f109"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "254d775452c8cfac041e95d1097e4a7ae44cce5ff358178b6788c10e5f9ed549"
-    sha256 cellar: :any_skip_relocation, big_sur:       "185a24d3f7d2e0c7be61ec4aef9fb24707c87c6934aa9afe97b273178d3f606a"
-    sha256 cellar: :any_skip_relocation, catalina:      "c379eee825fc97aa359e9b8050d110a1ab28a2b52e2dd027942a063d5e276f87"
-    sha256 cellar: :any_skip_relocation, mojave:        "ccd117c210d4456f47a353248e4e1a398fa8ca38c82ed9f219cc12da8033b524"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5278e06bae1a89506ba317bced62325d541d6c7a91687dadce9714fd8a34df8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7c441efc5cd671ccd5a55f37e628400c9b88597499f4ee0900d4ecd75770a2a6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c4725c80cec18ba21a1d791f5ca731aa08d5d9fc955a6386d144d2b2ba97c463"
+    sha256 cellar: :any_skip_relocation, catalina:      "6009ad5ecd4465e54178b861c22a76aac5a480638680261e1b63f02e4fdb78b8"
+    sha256 cellar: :any_skip_relocation, mojave:        "d2b3f2ca0691c206ffae6ac57a7c009d55030e0a489d24245019a550754f11cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6973f9af9588386db089d0ee40a5b9bf4ace6ad84329c26b8ed20bcd031c7d6a"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :test
   depends_on "libffi"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "bottle" do
@@ -51,11 +51,6 @@ class Conan < Formula
   resource "fasteners" do
     url "https://files.pythonhosted.org/packages/28/e4/2888d41cdbd405828ccdb9a8536c5919939c2f4c6ab9b2ba63e9bd2570d5/fasteners-0.16.3.tar.gz"
     sha256 "b1ab4e5adfbc28681ce44b3024421c4f567e705cc3963c732bf1cba3348307de"
-  end
-
-  resource "future" do
-    url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
-    sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
   end
 
   resource "idna" do

@@ -6,16 +6,17 @@ class Doc8 < Formula
   url "https://files.pythonhosted.org/packages/bb/fd/a39b9b8ce02f38777a24ce06d886b1dd23cea46f14b0f0c0418a03e5254d/doc8-0.9.1.tar.gz"
   sha256 "0e967db31ea10699667dd07790f98cf9d612ee6864df162c64e4954a8e30f90d"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3ecb41d5f82ae9dba4eb92f836f4f658251dac4cf1fe5e1221c5e2a3b661e89b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "58a049b070b9a53e1584048308bd9983e94c08e237f95afbbe47d07442c0032b"
-    sha256 cellar: :any_skip_relocation, catalina:      "58a049b070b9a53e1584048308bd9983e94c08e237f95afbbe47d07442c0032b"
-    sha256 cellar: :any_skip_relocation, mojave:        "58a049b070b9a53e1584048308bd9983e94c08e237f95afbbe47d07442c0032b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef9dd2c5a52fffc7d9daf8a5308bc48eb87b21b350bc4508e62d7785955b3b66"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ea5c82933dfaec4a02061ab64bb164cfe83f31deaccdadbb3d0462923e980cea"
+    sha256 cellar: :any_skip_relocation, catalina:      "ea5c82933dfaec4a02061ab64bb164cfe83f31deaccdadbb3d0462923e980cea"
+    sha256 cellar: :any_skip_relocation, mojave:        "ea5c82933dfaec4a02061ab64bb164cfe83f31deaccdadbb3d0462923e980cea"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/4c/17/559b4d020f4b46e0287a2eddf2d8ebf76318fd3bd495f1625414b052fdc9/docutils-0.17.1.tar.gz"

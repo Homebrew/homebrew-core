@@ -1,8 +1,8 @@
 class NodeAT14 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v14.18.0/node-v14.18.0.tar.gz"
-  sha256 "2272312d7eb48a28e982af395142d916385b0572380d07c89f9abd9c97810189"
+  url "https://nodejs.org/dist/v14.18.1/node-v14.18.1.tar.xz"
+  sha256 "3fa1d71adddfab2f5e3e41874b4eddbdf92b65cade4a43922fb1e437afcf89ed"
   license "MIT"
 
   livecheck do
@@ -11,28 +11,67 @@ class NodeAT14 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "35ef1403101a2ff361051d7617fc6c1a3b8dd905e37cb7b77b2b5bb7de5c4ee4"
-    sha256 cellar: :any,                 big_sur:       "a4d534988d6b9d80cb5420982ab7a7bf757a8b860171bca0ac3529f8b5a43bfc"
-    sha256 cellar: :any,                 catalina:      "a4926228d9e56b669edfa56a6bb69fc8c1f8a84fc3bf93e29b577a1d159d1a63"
-    sha256 cellar: :any,                 mojave:        "12255e38d951ce3933c898b4921ab24206b524055cc3f837a3acfbe748fb7be2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04c7a12b8e7a59e37f57c1c22d9bab4df86680dad7f67fb7e52f587f1dd3f517"
+    sha256 cellar: :any,                 arm64_big_sur: "2e486bafc76ab44770a6b61f21f934939a76dd7a15dac775025b3c5a7c271baa"
+    sha256 cellar: :any,                 big_sur:       "d0a1da683351b7ef379155252d77cc40fa3ce8b457e21bf220c5056533216b55"
+    sha256 cellar: :any,                 catalina:      "9922e2cf767ef73b48f2e825225ed695dbb81a7d14f547e59f045fe559cf77eb"
+    sha256 cellar: :any,                 mojave:        "c2378009f37bd1fea4fa10419736f4e96d50fa80a724f4dcff5504c77411fae9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3827501ebc5e420d3d99c2f3194feea3e076f3965ef24a44057f1a914452c478"
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+  depends_on "brotli"
+  depends_on "c-ares"
   depends_on "icu4c"
+  depends_on "libnghttp2"
+  depends_on "libuv"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "macos-term-size"
   end
 
+  # Fix build with brewed c-ares.
+  # https://github.com/nodejs/node/pull/39739
+  #
+  # Remove when the following lands in a *c-ares* release:
+  # https://github.com/c-ares/c-ares/commit/7712fcd17847998cf1ee3071284ec50c5b3c1978
+  # https://github.com/c-ares/c-ares/pull/417
+  patch do
+    url "https://github.com/nodejs/node/commit/8699aa501c4d4e1567ebe8901e5ec80cadaa9323.patch?full_index=1"
+    sha256 "678643c79258372d5054d3da16bc0c5db17130f151f0e72b6e4f20817987aac9"
+  end
+
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = which("python3")
 
-    system "python3", "configure.py", "--prefix=#{prefix}", "--with-intl=system-icu"
+    args = %W[
+      --prefix=#{prefix}
+      --with-intl=system-icu
+      --shared-libuv
+      --shared-nghttp2
+      --shared-openssl
+      --shared-zlib
+      --shared-brotli
+      --shared-cares
+      --shared-libuv-includes=#{Formula["libuv"].include}
+      --shared-libuv-libpath=#{Formula["libuv"].lib}
+      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
+      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
+      --shared-openssl-includes=#{Formula["openssl@1.1"].include}
+      --shared-openssl-libpath=#{Formula["openssl@1.1"].lib}
+      --shared-brotli-includes=#{Formula["brotli"].include}
+      --shared-brotli-libpath=#{Formula["brotli"].lib}
+      --shared-cares-includes=#{Formula["c-ares"].include}
+      --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --openssl-use-def-ca-store
+    ]
+    system "python3", "configure.py", *args
     system "make", "install"
 
     term_size_vendor_dir = lib/"node_modules/npm/node_modules/term-size/vendor"
@@ -70,8 +109,7 @@ class NodeAT14 < Formula
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system "#{bin}/npm", *npm_args, "install", "npm@latest"
-    # FIXME: See https://github.com/Homebrew/homebrew-core/pull/86090
-    # system "#{bin}/npm", *npm_args, "install", "bufferutil"
+    system "#{bin}/npm", *npm_args, "install", "ref-napi"
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")

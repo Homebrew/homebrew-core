@@ -1,16 +1,16 @@
 class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://github.com/lima-vm/lima"
-  url "https://github.com/lima-vm/lima/archive/v0.6.4.tar.gz"
-  sha256 "3795568924c0c5eabbc6528b457a0c120383717a7f5c9a64252f032070da5afd"
+  url "https://github.com/lima-vm/lima/archive/v0.7.1.tar.gz"
+  sha256 "635d03bde3a8e592350394d45f06b9bdea1dffe747b5a9739711d6e937f2faab"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "99868bb31a575bd92744f6bd35b38efac70ec190f9863c6e17ec3ec1fcad4457"
-    sha256 cellar: :any_skip_relocation, big_sur:       "196281ae0fe294588a3bb2b4462083fdabd2589f802ab198bb47556c96863458"
-    sha256 cellar: :any_skip_relocation, catalina:      "c0498394d57dff0e05c364717699bc4ad930097d249679fbf2dab0e645538a03"
-    sha256 cellar: :any_skip_relocation, mojave:        "9d184e03ec4201298ec99f01e5162c398d5ab0e43227512cb077ebd47125621e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4284bcb4df0a5a84da96e4c53d9f26f08fe44f5b0a8d1df3185ce8658aaef0ee"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f6a9ac0b4a82fd921bff51d6f0bf3390cfd3457a7e1857c7e861be03d605dc45"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3de7bb2f85dbbafbb5f6a5536eae0a6133b053b1d1a659288e0ea6b1a82d47e7"
+    sha256 cellar: :any_skip_relocation, catalina:      "0effdc9c0bec1208470cbae19e18e8919ac4d06863e598bb115322f89f4fc45f"
+    sha256 cellar: :any_skip_relocation, mojave:        "975078dce859460107fb12c110ad8100cf9b29578f41189ceff07bc252f795c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7f6361a062b510df3099bdaee473772112475ba2edcf29c6670afa31bb24dfa"
   end
 
   depends_on "go" => :build
@@ -22,9 +22,13 @@ class Lima < Formula
     bin.install Dir["_output/bin/*"]
     share.install Dir["_output/share/*"]
 
-    # Install bash completion
+    # Install shell completions
     output = Utils.safe_popen_read("#{bin}/limactl", "completion", "bash")
     (bash_completion/"limactl").write output
+    output = Utils.safe_popen_read("#{bin}/limactl", "completion", "zsh")
+    (zsh_completion/"_limactl").write output
+    output = Utils.safe_popen_read("#{bin}/limactl", "completion", "fish")
+    (fish_completion/"limactl.fish").write output
   end
 
   test do

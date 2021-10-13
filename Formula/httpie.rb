@@ -6,17 +6,18 @@ class Httpie < Formula
   url "https://files.pythonhosted.org/packages/90/64/7ea8066309970f787653bdc8c5328272a5c4d06cbce3a07a6a5c3199c3d7/httpie-2.5.0.tar.gz"
   sha256 "fe6a8bc50fb0635a84ebe1296a732e39357c3e1354541bf51a7057b4877e47f9"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/httpie/httpie.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "01115f69aff0399b3f73af09899a42a14343638a4624a35749059cc732c49cdc"
-    sha256 cellar: :any_skip_relocation, big_sur:       "53f07157f00edf8193b7d4f74f247f53e1796fbc3e675cd2fbaa4b9dc2bad62c"
-    sha256 cellar: :any_skip_relocation, catalina:      "7cf216fdee98208856d654060fdcad3968623d7ed27fcdeba27d3120354c9a9f"
-    sha256 cellar: :any_skip_relocation, mojave:        "28adb5aed8c1c2b39c51789f242ff0dffde39073e161deb379c79184d787d063"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91cb8c332c643bd8b1d0a8f3ec0acd4770b407991f6de1fd320d675f2b2e95ec"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "52946f8c07e853a3f4fa4e629c42f3655ba4eaba5fdf204bbc365377e65bbf85"
+    sha256 cellar: :any_skip_relocation, big_sur:       "aa6fdb95027863739c34d53a5788f4dfb4593a6cde1a1f54e2bfb9c25d673ff3"
+    sha256 cellar: :any_skip_relocation, catalina:      "ef2d994c88121e8059952c5716ff81246a8a0745ca2e3ed50249093d76d93f12"
+    sha256 cellar: :any_skip_relocation, mojave:        "9ebdd4ac816cf6d1ed306e8cbef4a7442c7318bedd6b0f9d3809c8963a46a566"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "768b8806307683e91867df6975803597437c12966cc9fa4b7a4bda322fa3d7c0"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"

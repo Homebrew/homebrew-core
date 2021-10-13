@@ -1,8 +1,8 @@
 class NodeAT12 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.22.6/node-v12.22.6.tar.gz"
-  sha256 "02763dcf6532a997143b03c1f7d23552a3bd19ddcad1fd2425956db7596cbc9c"
+  url "https://nodejs.org/dist/v12.22.7/node-v12.22.7.tar.xz"
+  sha256 "cc6a23b44870679a94bd8f3c8d4e1f4b77bb2712a36888ab87463459e6785f6b"
   license "MIT"
 
   livecheck do
@@ -11,28 +11,64 @@ class NodeAT12 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "d3010f414ec59c92041a1035bfeea9dd08cd6cc472b1fd1394f4447902eb63c6"
-    sha256 cellar: :any,                 big_sur:       "caf8395437c1c70c12285eac366ef5e1f03db9c0b5640242156591c45ddfeffb"
-    sha256 cellar: :any,                 catalina:      "b86fe87aa75996f8739e87ffe6d021ba5f9d04868dc664e353eb02c7c43a7b92"
-    sha256 cellar: :any,                 mojave:        "00b0f21bbb02df305c4536022f0ded5564eb9b783946516b9d961428ebd7b5aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3671baccbe7dafa45d35cfff1991fa89a1fa70555ff1c04073d72fa6cc43038f"
+    sha256 cellar: :any,                 arm64_big_sur: "dc0b9ba4edc54658398d773c5223e339ef5b406c06c5494e7e68f7c490081677"
+    sha256 cellar: :any,                 big_sur:       "4b182fb0bb0634af76a2c2b20f9c32454a4107682af31df2ac7c329340779648"
+    sha256 cellar: :any,                 catalina:      "7f0aff2700d2914da161f62ff1c744c36ab0dda3e9a22cb78778f15b836c959f"
+    sha256 cellar: :any,                 mojave:        "4d651ee1724446252579bb639a374913e7a30dc20a2a9bf0f4e504ce2e9cc4bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47e45d7f449a3cc34bcc0fbe775ed6f85cff4a61f5d038b80503056070b3bf3b"
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+  depends_on "brotli"
+  depends_on "c-ares"
   depends_on "icu4c"
+  depends_on "libnghttp2"
+  depends_on "libuv"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "macos-term-size"
   end
 
+  # Fix build with brewed c-ares.
+  # https://github.com/nodejs/node/pull/39739
+  #
+  # Remove when the following lands in a *c-ares* release:
+  # https://github.com/c-ares/c-ares/commit/7712fcd17847998cf1ee3071284ec50c5b3c1978
+  # https://github.com/c-ares/c-ares/pull/417
+  patch :DATA
+
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = which("python3")
 
-    system "python3", "configure.py", "--prefix=#{prefix}", "--with-intl=system-icu"
+    args = %W[
+      --prefix=#{prefix}
+      --with-intl=system-icu
+      --shared-libuv
+      --shared-nghttp2
+      --shared-openssl
+      --shared-zlib
+      --shared-brotli
+      --shared-cares
+      --shared-libuv-includes=#{Formula["libuv"].include}
+      --shared-libuv-libpath=#{Formula["libuv"].lib}
+      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
+      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
+      --shared-openssl-includes=#{Formula["openssl@1.1"].include}
+      --shared-openssl-libpath=#{Formula["openssl@1.1"].lib}
+      --shared-brotli-includes=#{Formula["brotli"].include}
+      --shared-brotli-libpath=#{Formula["brotli"].lib}
+      --shared-cares-includes=#{Formula["c-ares"].include}
+      --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --openssl-use-def-ca-store
+    ]
+    system "python3", "configure.py", *args
     system "make", "install"
 
     term_size_vendor_dir = lib/"node_modules/npm/node_modules/term-size/vendor"
@@ -70,9 +106,22 @@ class NodeAT12 < Formula
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system "#{bin}/npm", *npm_args, "install", "npm@latest"
-    system "#{bin}/npm", *npm_args, "install", "bufferutil"
+    system "#{bin}/npm", *npm_args, "install", "ref-napi"
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")
   end
 end
+
+__END__
+--- a/src/cares_wrap.cc
++++ b/src/cares_wrap.cc
+@@ -39,7 +39,7 @@
+ # include <netdb.h>
+ #endif  // __POSIX__
+ 
+-# include <ares_nameser.h>
++# include <arpa/nameser.h>
+ 
+ // OpenBSD does not define these
+ #ifndef AI_ALL

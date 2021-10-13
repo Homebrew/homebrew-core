@@ -4,7 +4,7 @@ class Castxml < Formula
   url "https://github.com/CastXML/CastXML/archive/v0.4.3.tar.gz"
   sha256 "3dd94096e07ffe103b2a951e4ff0f9486cc615b3ef08e95e5778eaaec667fb65"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/CastXML/castxml.git", branch: "master"
 
   livecheck do
@@ -13,11 +13,11 @@ class Castxml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a621a2f54f8b157f47251f7d92032e4ecf9e4611995979533b5a9176f3849057"
-    sha256 cellar: :any,                 big_sur:       "baef1dc2e08d7d0a0f276c54a3f180d662abc1cd660a875aec2c6db8ddace248"
-    sha256 cellar: :any,                 catalina:      "7e97d6cb586ba2ffbcc00bcfaf146c5cf6838aaa01f6ef83a2c8033ab34f6acd"
-    sha256 cellar: :any,                 mojave:        "5a24c3bad04790815e3af774e12ad5f9d800318dfaf9bc6b8b3bef7b32db61ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72e7dd670a57d6da3e1e9d7f56e22a372308231225b559e017ee84da8561b4bb"
+    sha256 cellar: :any,                 arm64_big_sur: "d0e05d60c1a96f65e5a492a6532e60c7907386fee4f5cf961e183aba7c02d846"
+    sha256 cellar: :any,                 big_sur:       "8f6cf4bf0246dd2af8d297ea05a61d93687d1607084e8fb0e4c422b3f676889f"
+    sha256 cellar: :any,                 catalina:      "180ea24e0b779c8003f0a76a9d9a2db7d2c32812ae9686bc47a14df208a326ec"
+    sha256 cellar: :any,                 mojave:        "d334ea9ce46b1345b8bb79eb2f2f7f1d4d4f595f6d395a2fb4271eb985dd16e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1e0d381ef2d6403f64f356b7227dbce4a6a93441bbe0982aa7d8adf9cab9339"
   end
 
   depends_on "cmake" => :build

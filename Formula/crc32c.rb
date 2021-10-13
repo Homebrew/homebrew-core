@@ -1,18 +1,17 @@
 class Crc32c < Formula
   desc "Implementation of CRC32C with CPU-specific acceleration"
   homepage "https://github.com/google/crc32c"
-  url "https://github.com/google/crc32c/archive/1.1.1.tar.gz"
-  sha256 "a6533f45b1670b5d59b38a514d82b09c6fb70cc1050467220216335e873074e8"
+  url "https://github.com/google/crc32c/archive/1.1.2.tar.gz"
+  sha256 "ac07840513072b7fcebda6e821068aa04889018f24e10e46181068fb214d7e56"
   license "BSD-3-Clause"
   head "https://github.com/google/crc32c.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "82e70741895a3e29dc0f8e48b0dd10e13e8cd380012457c1bf984ace3fd6dd03"
-    sha256 cellar: :any,                 big_sur:       "a37c7daabc55476ee3828211b32a63f052af9feeff1430fe53be9cef2038a069"
-    sha256 cellar: :any,                 catalina:      "8ac4299583c3155c0410e246277214110bbbe453df5cc6b67694c67ba722bfbc"
-    sha256 cellar: :any,                 mojave:        "f5e232ed8a57eea6b226f4596f94281ea4ea5467c626e83a1576e74aee32711e"
-    sha256 cellar: :any,                 high_sierra:   "a8f21980c0fee7ffb9911b1eaa1bf7641940b4bb798a7dbd508ae60a6c1a46a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae8b8c0ec66cdb947aa6cb7a13e70f0c585ca2c8452489e05e82a2d6ebc1fe71"
+    sha256 cellar: :any,                 arm64_big_sur: "1e4ac6f8e18ad96c1d7b5e899902b6ce75d56953582066570de4ecc2329409a9"
+    sha256 cellar: :any,                 big_sur:       "af7b55946ef4fb6f20e4ef31c77c0d23cc7e8e34861f8e96b367f801c611592b"
+    sha256 cellar: :any,                 catalina:      "f4301aa03c705f8ab3fddd34090b30975306f4e159d32bd4f305dcac73914544"
+    sha256 cellar: :any,                 mojave:        "7c59f41017496aa5997f0a43ca0b17f0676c665f782df0687e44fa542b9c0a42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d1d82ebed58e6c35064358c5a04428b6bb053413be7b11b2c14e4cbcd156205"
   end
 
   depends_on "cmake" => :build

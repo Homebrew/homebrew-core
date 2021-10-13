@@ -3,8 +3,8 @@ class Simgrid < Formula
 
   desc "Studies behavior of large-scale distributed systems"
   homepage "https://simgrid.org/"
-  url "https://framagit.org/simgrid/simgrid/uploads/5d171dff8b988c639fe52baa24952a2c/simgrid-3.28.tar.gz"
-  sha256 "558276e7f8135ce520d98e1bafa029c6c0f5c2d0e221a3a5e42c378fe0c5ef2c"
+  url "https://framagit.org/simgrid/simgrid/uploads/6ca357e80bd4d401bff16367ff1d3dcc/simgrid-3.29.tar.gz"
+  sha256 "83e8afd653555eeb70dc5c0737b88036c7906778ecd3c95806c6bf5535da2ccf"
 
   livecheck do
     url :homepage
@@ -12,11 +12,11 @@ class Simgrid < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "71d9b098d5fd0039bbc7005555d0f1abbc1af8d816a8946629f55046a1b47615"
-    sha256 big_sur:       "def3ab73795d0c11ce112ad3fb3abcd325815bda779637961c6a8b4c43e1ef06"
-    sha256 catalina:      "ee5bc62941284de0277bc1ea39467ea06c4cb611d8144a689c2060a1b2c3588e"
-    sha256 mojave:        "b7c787533f73e4a8fcfa07f50171879e949ffc1d615c680ccb98bd985e14de60"
-    sha256 x86_64_linux:  "4a050cf056536a6d8574c22d5c8aebf4a6b19b0874019596a171d58523a73eea"
+    sha256 arm64_big_sur: "3bcf1b52202b0bf72913983c86bb8d6b5e842cf20c08ff9f30b5e562812d0ec7"
+    sha256 big_sur:       "ed874d245adffc5455759d716afea6d4152a37df3296e8689b9b6b43a3f1344a"
+    sha256 catalina:      "3553e2e019fe3109b094fd976c9befa272046ebb21856a5a2fd15d95ee054628"
+    sha256 mojave:        "d6718c707ad66eba5d138e3289b50d37f43ff3171799a2e25e69e99309d97400"
+    sha256 x86_64_linux:  "dd8671e3e11762f09e17db9db5492d221e001854947ac3377ce05aa720c249a9"
   end
 
   depends_on "cmake" => :build
@@ -26,10 +26,16 @@ class Simgrid < Formula
   depends_on "pcre"
   depends_on "python@3.9"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     # Avoid superenv shim references
-    inreplace "src/smpi/smpicc.in", "@CMAKE_C_COMPILER@", "/usr/bin/clang"
-    inreplace "src/smpi/smpicxx.in", "@CMAKE_CXX_COMPILER@", "/usr/bin/clang++"
+    inreplace "src/smpi/smpicc.in", "@CMAKE_C_COMPILER@", DevelopmentTools.locate(ENV.cc)
+    inreplace "src/smpi/smpicxx.in", "@CMAKE_CXX_COMPILER@", DevelopmentTools.locate(ENV.cxx)
 
     system "cmake", ".",
                     "-Denable_debug=on",

@@ -6,16 +6,17 @@ class Archey4 < Formula
   url "https://files.pythonhosted.org/packages/54/60/212f5018cc4671fd6b288faf2018ff74e8fcf68703c72e31bcea9ca6217a/archey4-4.13.1.tar.gz"
   sha256 "80abe635c31ae02750c873c12621db56403641db9a04f8a775eb22012fa90f21"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef7f2d3afefe0ab6b360de49ab593b1889338a243ab34ec259a468680369657a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "73b88da9996449f3e24959fce41adc4614cbf84e2b561da792105d9faf370786"
-    sha256 cellar: :any_skip_relocation, catalina:      "860b9bbe915630f8f17e31e2e78ae6a6772d277c2949d26e25a37113d6835a53"
-    sha256 cellar: :any_skip_relocation, mojave:        "af0ba191fafce835871c3f054aa37a822b12ac5eb0a82459adf96be5c2be8e5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec5410a13db4510efa484b0497ee6f39c81100e4ade702df47fa53680b74b3c6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b64e809af1410ea24a70a70cf456c371431e319e11a43d0e140c26dfc851d8b2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "118c8187c10d7dd1faa00f94b6db72533b55def50e9647384418fed7ec689f8f"
+    sha256 cellar: :any_skip_relocation, catalina:      "3ed0d01ccfa0e97b971e396983bbde2aae4138b12cf2fc692783a6728bc82575"
+    sha256 cellar: :any_skip_relocation, mojave:        "65f3d3531d86aa457bfd916249d2ac66ebde7cd5df0c30424f50f74b5a0b1f73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d999a978e484ede3993368de394ccf2e329204b206f5f2e2eba4626e6d6d368c"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "archey", because: "both install `archey` binaries"
 

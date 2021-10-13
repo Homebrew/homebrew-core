@@ -6,16 +6,17 @@ class Pydocstyle < Formula
   url "https://files.pythonhosted.org/packages/4c/30/4cdea3c8342ad343d41603afc1372167c224a04dc5dc0bf4193ccb39b370/pydocstyle-6.1.1.tar.gz"
   sha256 "1d41b7c459ba0ee6c345f2eb9ae827cab14a7533a88c5c6f7e94923f72df92dc"
   license "MIT"
+  revision 1
   head "https://github.com/PyCQA/pydocstyle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8de054460c03ef2ae090e16de96d5555673f615a0cc66926c23b71cd67b1f2c6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "271f7fbfd202df294424111730f3fa7b29b9e07602a13b06239f4c9216635a45"
-    sha256 cellar: :any_skip_relocation, catalina:      "3658ffaa56d1bc1b0da49974e889e3b37e09a069fca1a3facc789d5293fb457d"
-    sha256 cellar: :any_skip_relocation, mojave:        "66244942f557879c00ed156a7f9bd70a70230ece72b6e22d5f0ef9800e4a07e5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f484ef39a1a165ec192fafe7f6d76c1ebf5fa97d7499d729cf1de98c6444edef"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6a454e42222a31a0437d0d33197b068b952c5a48011fe107f0d0f14f707e36f1"
+    sha256 cellar: :any_skip_relocation, catalina:      "a4091b17676b23f645aec6684939a19a2a5c05f991b25e9d4ebbf09c90764084"
+    sha256 cellar: :any_skip_relocation, mojave:        "84a68e5f7328a5a2127b50254e52f13a3f68f8bc718dd8ef84ceae59461a3bbd"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "snowballstemmer" do
     url "https://files.pythonhosted.org/packages/a3/3d/d305c9112f35df6efb51e5acd0db7009b74d86f35580e033451b5994a0a9/snowballstemmer-2.1.0.tar.gz"

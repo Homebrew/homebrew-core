@@ -3,16 +3,18 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/de/88/60b56bf13403187be12b29c537a4217b38ea8c3b76c6c54b37fada82523a/ocrmypdf-12.6.0.tar.gz"
-  sha256 "d538d7c46eb781893151af21294b11c95b6aaf79967a88638cd832b285551f32"
+  url "https://files.pythonhosted.org/packages/8d/d1/8ef741994fcba8aca599336806bead188379307fe9dcb5fdbbb63820e842/ocrmypdf-12.7.0.tar.gz"
+  sha256 "5b37d41ea59bda6a46f09394a9735f5cbae3d57b0d1961c45aa651cb55c0d68c"
   license "MPL-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "8332634b42011dc73eb33315035500755b1a58f8407d0f96193063e48be5497f"
-    sha256 cellar: :any,                 big_sur:       "96406d6e816785231f6c8da345b8ccbcb8ba07ced4517c3437ecb7a0120e34e5"
-    sha256 cellar: :any,                 catalina:      "7dee4477161e313ac8f62b649452919a3acb7c472370ea1a48ff0792f0da2b58"
-    sha256 cellar: :any,                 mojave:        "baf66676104168d743f75d99a6cef1851cf1a4592d4d74da23ba85799a658d4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d98344bba35f07ccb7ab7ea56a6975743892e3c5a7b671f767af3c943cbe0941"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "7073cbf18492de6cd9991d71af6c3d4ec7da06113af456a7a713dc591bd36de7"
+    sha256 cellar: :any,                 big_sur:       "b8e507e258ca5e5abbb2df0f500fb873078fc257363ad5de366bca3120220480"
+    sha256 cellar: :any,                 catalina:      "64aef5eb09cc5c61d75021b2733f2e7ffa4aeedcaef1f70e4ee7c6c4f98d3c7d"
+    sha256 cellar: :any,                 mojave:        "23d55f3c91a51cf441aad1e702fa76a56ba1bfd9b3141c3750c2fd4d5a5ea6b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "625c0118238bf27ef61e4df145be17ef58597f09fd07024d80f3071f0e57969c"
   end
 
   depends_on "pkg-config" => :build
@@ -65,18 +67,8 @@ class Ocrmypdf < Formula
   end
 
   resource "img2pdf" do
-    url "https://files.pythonhosted.org/packages/a9/b4/b484d19a7c3565bbe47eb2118d323cb1e03456f70eb1c94e994ee5ece046/img2pdf-0.4.1.tar.gz"
-    sha256 "38a1229ca84b211d7782d1d65ad7251a9781bf24f6f6497c738c755fcfed5552"
-  end
-
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/f0/70/ca3dd67cdd368b957e73a8156f7e1a10339f9813e314cb8b4549526070da/importlib_metadata-4.8.1.tar.gz"
-    sha256 "f284b3e11256ad1e5d03ab86bb2ccd6f5339688ff17a4d797a0fe7df326f23b1"
-  end
-
-  resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/b1/7a/b9e2309e5c619ba3da8806e43bb17873ec6eab22a3d79347778c80563028/importlib_resources-5.2.2.tar.gz"
-    sha256 "a65882a4d0fe5fbf702273456ba2ce74fe44892c25e42e057aca526b702a6d4b"
+    url "https://files.pythonhosted.org/packages/a4/f5/a2314ffee19cd1a231ad4b4ce092dabe20091a764be1886aa7e3a1447dae/img2pdf-0.4.2.tar.gz"
+    sha256 "aacf586503d6113e53bfb03c85c85e546c384413a56c15ddd08ee51c864479a2"
   end
 
   resource "lxml" do
@@ -90,8 +82,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/5f/e8/655ae269a597edef7fe00f15a5b1c1254c59bb6f4653ec8843b965144a44/pikepdf-3.1.0.tar.gz"
-    sha256 "aeb813b5f36534d2bedf08487ab2b022c43f4c8a3e86e611c5f7c8fb97309db5"
+    url "https://files.pythonhosted.org/packages/d3/f1/713fbf7e6138951527455dba2b4ea1af856dd7a271dbdb94aca00569c0b8/pikepdf-3.2.0.tar.gz"
+    sha256 "a0582f00440668c07edb8403e82724961c7812c8e6c30655e34825b2645f15cd"
   end
 
   resource "pluggy" do
@@ -117,11 +109,6 @@ class Ocrmypdf < Formula
   resource "tqdm" do
     url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
     sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
-  end
-
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/02/bf/0d03dbdedb83afec081fefe86cae3a2447250ef1a81ac601a9a56e785401/zipp-3.6.0.tar.gz"
-    sha256 "71c644c5369f4a6e07636f0aa966270449561fcea2e3d6747b8d23efaa9d7832"
   end
 
   def install

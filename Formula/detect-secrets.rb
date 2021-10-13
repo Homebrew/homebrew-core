@@ -6,17 +6,18 @@ class DetectSecrets < Formula
   url "https://files.pythonhosted.org/packages/fc/79/c5d0c23c552934ba6305a30817652b4c17686cc20d9bd4f762480199b1fb/detect_secrets-1.1.0.tar.gz"
   sha256 "68250b31bc108f665f05f0ecfb34f92423280e48e65adbb887fdf721ed909627"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Yelp/detect-secrets.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f64e0d1c58f4cd62680c3bea81d2cf234642759850ecfc2eac220ca27a045505"
-    sha256 cellar: :any, big_sur:       "8a3b941f5409898b82c9bf270b1b41921b51284d57bea2ee5f0600a3759ed6f8"
-    sha256 cellar: :any, catalina:      "9b7a4c920bf10f885eb285bd44cd06b1715899840d81d524df30e5bb6214fd2b"
-    sha256 cellar: :any, mojave:        "ab2be26f2af7a22984cf65aa06b9dc9a4c0183ccb9f5fee83bf12aae6994cec3"
+    sha256 cellar: :any, arm64_big_sur: "26c83f1239a9a4232991e8c2ac0d7aa5f2657409d647f020a549cf83af96032b"
+    sha256 cellar: :any, big_sur:       "1803df0d2f14fa8eb852f84b1ccf5e7e22da6219f001d1ec5cf617d42c3a095d"
+    sha256 cellar: :any, catalina:      "41e50c5f13445c03b7e3d4f0c97d357c5886011d5fc2dcc8a93e89e387a14345"
+    sha256 cellar: :any, mojave:        "5feaab84d7f0c91d3453f93c019abf3abd5ec04c66d22798925ecd0b27baeeb9"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"

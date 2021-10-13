@@ -6,17 +6,18 @@ class TranslateToolkit < Formula
   url "https://files.pythonhosted.org/packages/51/db/eabac6fb11d18cf0f2e55db661d98207ca3edfe7a90ea14c82ce5c87ac53/translate-toolkit-3.4.1.tar.gz"
   sha256 "2edc72794513e33ece2a2ee5ee25709fe4fbeac4686ecf80366d4999dd98cfd0"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/translate/translate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "07987b1dffacec39808bf49f5c0de6cacb60a2d4a0272223e457e71dd82494e8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "59c2e81acb166823333a7e1d29233458190e0322251671dd058415abed477c2d"
-    sha256 cellar: :any_skip_relocation, catalina:      "9a54d5be8cb7bc27eec427f1432516f9e76fe96e2724644561a7fa42dac53ca9"
-    sha256 cellar: :any_skip_relocation, mojave:        "71bc173f6d2ceb3d533c76510cdaf367f417e1ff4daaf124a09fef2ff2a8c647"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "958c328014f1b6be1b372da6bf17e4098fd0d5d0d4dd33a5180cfacd5e3aabd9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "93c67f8692eb7e00b6d1ef243dfafd79ebbc821130c65c4d1a748893c6d45676"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6285d1de148f1c0d7407454194ad3fdb1bd510e73017cab6d6b5d91c07aa5d79"
+    sha256 cellar: :any_skip_relocation, catalina:      "c6ac5d4c0f9e945ab107f42f3f74f4f4c3eb42c39055019edc901255b5f2303d"
+    sha256 cellar: :any_skip_relocation, mojave:        "c8b8eb31015877d2052636d3cf440be4da5b29936cc2a76bb04d968ba00aa330"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd2c1adeb663005f98249505678ebd9a4270c13fd3b75f8d060f8df07b5c847d"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"

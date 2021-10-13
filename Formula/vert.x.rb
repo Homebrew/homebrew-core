@@ -1,8 +1,8 @@
 class VertX < Formula
   desc "Toolkit for building reactive applications on the JVM"
   homepage "https://vertx.io/"
-  url "https://search.maven.org/remotecontent?filepath=io/vertx/vertx-stack-manager/4.1.4/vertx-stack-manager-4.1.4-full.tar.gz"
-  sha256 "bd8fe99274e8f910810e49e3bd873cc84097e784de9eeb310907755c166a568a"
+  url "https://search.maven.org/remotecontent?filepath=io/vertx/vertx-stack-manager/4.1.5/vertx-stack-manager-4.1.5-full.tar.gz"
+  sha256 "67b4d6d55ffafae0e499883593b93ac132f6b199fe7c694dc177e81954689cf8"
   license any_of: ["EPL-2.0", "Apache-2.0"]
 
   livecheck do
@@ -11,7 +11,11 @@ class VertX < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a1915cef1b2d7af77c9dd20f1009eace2af71e3881c53a0c151561542062cb4c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "90aa408565fe31888233081e492d64dcc3add72493ad617a1edb1017c58358da"
+    sha256 cellar: :any_skip_relocation, big_sur:       "90aa408565fe31888233081e492d64dcc3add72493ad617a1edb1017c58358da"
+    sha256 cellar: :any_skip_relocation, catalina:      "90aa408565fe31888233081e492d64dcc3add72493ad617a1edb1017c58358da"
+    sha256 cellar: :any_skip_relocation, mojave:        "90aa408565fe31888233081e492d64dcc3add72493ad617a1edb1017c58358da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ec032fe17834c3e9235a84ed24557409c7517b0461ab44ce97d5d4297b499ad"
   end
 
   depends_on "openjdk"

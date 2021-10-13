@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Fast and Lightweight Logs and Metrics processor"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v1.8.7.tar.gz"
-  sha256 "78a290b1ef73487bd367765d369598f9c0ee8e1b1a9be8dbf03bf996efa0b3fd"
+  url "https://github.com/fluent/fluent-bit/archive/v1.8.8.tar.gz"
+  sha256 "725441a53bf702df940377fdb4ab09b5f51b17ab47324a9140549a70ed177264"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git"
 
@@ -12,11 +12,11 @@ class FluentBit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3d0de2cf71049ffe6037976cb7b0acae541e76661c5bf8b1cd588e5239c67813"
-    sha256 cellar: :any,                 big_sur:       "0a0f7d4bd35ad5bb862db2114300580733060c1c1f7fc4289e030681b5cf0138"
-    sha256 cellar: :any,                 catalina:      "aeb610804f3f913546ca9292f15e63db34a9a409b00c762437f7bb6a221b2b39"
-    sha256 cellar: :any,                 mojave:        "25f8ffae7b5d80e0024abc0ccbcc7f25ff0cab1ceb066799e03708a6720e7dba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf697f99c9bb222d688b417db1c9cbe27b4f53bf2634b27d9bf957ed3e868d14"
+    sha256 cellar: :any,                 arm64_big_sur: "945befb01a9ba1b067bacd1d2b3d00da38100d8258338a2313400e01c9f3cbb5"
+    sha256 cellar: :any,                 big_sur:       "ec7801d203579801351f7ffcbba6cbc44569748cfa1e7900e8fe68ad0f85884d"
+    sha256 cellar: :any,                 catalina:      "5e69a5443cb52a1aadef37aae6f2eb03e6bc1bb244c51a02c5bb324631c4b329"
+    sha256 cellar: :any,                 mojave:        "bc4b52681a3924e9dc6e44e031916a28bc50bcefd956b2ad2e27285b591238d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96b118adb1bdd151db6edb77b74ae614346327a95932644ad55ecb765701ed33"
   end
 
   depends_on "bison" => :build

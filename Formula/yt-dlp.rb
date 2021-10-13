@@ -3,29 +3,29 @@ class YtDlp < Formula
 
   desc "Fork of youtube-dl with additional features and fixes"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/ad/2a/19788cdbce56ea05600068bf342f91c91fd5acc6c6486e16d498b0ec533a/yt-dlp-2021.9.25.tar.gz"
-  sha256 "e7b8dd0ee9498abbd80eb38d9753696d6ca3d02f64980322ab3bf39ba1bc31ee"
+  url "https://files.pythonhosted.org/packages/83/c3/30c12eab2c20dcb8609be38d235a21990228446f0dea2a1d5afc8b1a5d9a/yt-dlp-2021.10.10.tar.gz"
+  sha256 "cc96211e8e55ebbb48d2e6609c0d0942507eb5471b2ce74e38f7b95f8d70a4e7"
   license "Unlicense"
   head "https://github.com/yt-dlp/yt-dlp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "25e405c758fbe4187075ebe5e17af269c8077c3f15efe615e96d0c6fea8d0007"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9c67837094c26d0d17839c365577c1efeb930175bc62bae27760c2a52ee41fc9"
-    sha256 cellar: :any_skip_relocation, catalina:      "1ae46e9b0ee92613a9011fb355bb1fd54296976315b6b13f5330dff76fc33ba1"
-    sha256 cellar: :any_skip_relocation, mojave:        "084ed12bbafaffe3f32229a86de2462dbf54b14465df0803860dd33358444cd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4b520ba19435e8a4d00aadc232c06b03def95fc8f630a471c1ccb02cb270bcf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef335c9197c622cd83af07eb3bd104825c954204183c7a3d32b69b15c577de33"
+    sha256 cellar: :any_skip_relocation, big_sur:       "969caabe6681c7ce08a356a9d67db7bb1ac19a54dae806cd039512eca31c8c31"
+    sha256 cellar: :any_skip_relocation, catalina:      "7849aa7938120dbfcdae1e8672fd2e9e597852d6bb76f7c06992a8a3d6fa3119"
+    sha256 cellar: :any_skip_relocation, mojave:        "625ad2e6f9b220e14d8215c9f76f7cf313c0b58549bd9d7cb2e427ea9c031691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a5f4e3cd4ec68a7ed436f8912a713be0e893615d4306ede44e8b8b3aeb81ce0"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "mutagen" do
     url "https://files.pythonhosted.org/packages/f3/d9/2232a4cb9a98e2d2501f7e58d193bc49c956ef23756d7423ba1bd87e386d/mutagen-1.45.1.tar.gz"
     sha256 "6397602efb3c2d7baebd2166ed85731ae1c1d475abca22090b7141ff5034b3e1"
   end
 
-  resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/f8/8e/14a8238190bcf1bab3d58432cd795c859edbc2f5abd8460f80438046a799/pycryptodome-3.10.4.tar.gz"
-    sha256 "40083b0d7f277452c7f2dd4841801f058cc12a74c219ee4110d65774c6a58bef"
+  resource "pycryptodomex" do
+    url "https://files.pythonhosted.org/packages/47/14/dd9ad29cd29ea4cc521286f2cb401ca7ac6fd5db0791c5e9bacaf2c9ac78/pycryptodomex-3.11.0.tar.gz"
+    sha256 "0398366656bb55ebdb1d1d493a7175fc48ade449283086db254ac44c7d318d6d"
   end
 
   resource "websockets" do

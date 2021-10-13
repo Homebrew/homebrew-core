@@ -4,14 +4,14 @@ class GuileAT2 < Formula
   url "https://ftp.gnu.org/gnu/guile/guile-2.2.7.tar.xz"
   mirror "https://ftpmirror.gnu.org/guile/guile-2.2.7.tar.xz"
   sha256 "cdf776ea5f29430b1258209630555beea6d2be5481f9da4d64986b077ff37504"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "b281df6321e291747d5d847ac8c61f74f4de2777c031ca597b4f5440459f5207"
-    sha256 big_sur:       "35072ce02c8db7b27f6890da7244e63ecb6e37d510b8c8794be27b46b2d57cb5"
-    sha256 catalina:      "2821f055df7815abc7467a42f1bd90a09672261a9aad4ce994111a59a2ce6dbe"
-    sha256 mojave:        "78e5fd69581a54b8d7c701e1fc03d96660b80a2699d7dad701cdd2865a5f2442"
-    sha256 high_sierra:   "2832668210b0ef94ae0596c7e27aca846f76453719df6a9103e34af9e885d031"
-    sha256 x86_64_linux:  "e627fcba45a96886eed35b4de21856df0ad3765f4314e03ee174453c31d32e28"
+    sha256 arm64_big_sur: "cc8e116bdef0157cc6ec1a353464d4d9b0441aad4d3056f843bbcfae7590e51b"
+    sha256 big_sur:       "f64b911916df32bf5b566f563d49d72fad81c9fac5ba564d761c779137abc750"
+    sha256 catalina:      "580931e21ffeaeb0c3d86e97a7356f098a1b23bcabd7757fcb49a9501698f422"
+    sha256 mojave:        "8c06caa2fd6aa55edc961ca1fb0df5865139e983ea6f331dd469215fab3d3661"
+    sha256 x86_64_linux:  "8ec924ab98052343af654b8ae9f75f21ebb81267b44bcc0b796b24f0731435ee"
   end
 
   keg_only :versioned_formula

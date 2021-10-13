@@ -6,17 +6,18 @@ class GalleryDl < Formula
   url "https://files.pythonhosted.org/packages/18/4d/7e32f82523b496e2a9238e927b7d70bd38e63d6a8c580ec6c340e5d110f7/gallery_dl-1.19.0.tar.gz"
   sha256 "ceffaa5022d76132165ca9004c1e57d7400b56c9ab3866e3bd139e2ffe38cb72"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/mikf/gallery-dl.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "78406857088f6518b28f004118e0c260ecf2410c2c2564786c1ccec119b0a4c4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2bb4d25c7979837c68b4192cec017e6351375ebac5f50369fac39fa67610ec89"
-    sha256 cellar: :any_skip_relocation, catalina:      "2bb4d25c7979837c68b4192cec017e6351375ebac5f50369fac39fa67610ec89"
-    sha256 cellar: :any_skip_relocation, mojave:        "2bb4d25c7979837c68b4192cec017e6351375ebac5f50369fac39fa67610ec89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "670cf74af2b00f7a1440bc2104353af45c67cc4444882a7c0c69192af2ed450b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "513b2f6957f446837f4848bf350dcf49dbca2064ff6f0f96da7aed4355821d06"
+    sha256 cellar: :any_skip_relocation, big_sur:       "57afdd3a6f83e754e3611f3535f23dfbfc433f5c890d2990ecb6d476a06389f8"
+    sha256 cellar: :any_skip_relocation, catalina:      "57afdd3a6f83e754e3611f3535f23dfbfc433f5c890d2990ecb6d476a06389f8"
+    sha256 cellar: :any_skip_relocation, mojave:        "57afdd3a6f83e754e3611f3535f23dfbfc433f5c890d2990ecb6d476a06389f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e77a88f12070dffe24577f2ae853c879c30c6b6c5d35d0b29152eac5daee620e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"

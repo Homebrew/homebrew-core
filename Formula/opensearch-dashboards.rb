@@ -2,12 +2,12 @@ class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://opensearch.org/docs/dashboards/index/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "1.0.0",
-      revision: "b15ad258e6960003e609a70889cda5fb39f90947"
+      tag:      "1.1.0",
+      revision: "44d2cb5b4f9a7c641c1fef32ec569bc48ec46979"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "efa4bc0a61f9f760ff91337eb2f703e546dc03659210c136c4dbba85146f8ae3"
+    sha256 cellar: :any_skip_relocation, all: "462dc37bc221e9c30afc971d931c7d0fdd50b66b42675e02056d140d49eaf1b3"
   end
 
   depends_on "python@3.9" => :build

@@ -7,6 +7,7 @@ class Curl < Formula
   mirror "http://fresh-center.net/linux/www/legacy/curl-7.79.1.tar.bz2"
   sha256 "de62c4ab9a9316393962e8b94777a570bb9f71feb580fb4475e412f2f9387851"
   license "curl"
+  revision 1
 
   livecheck do
     url "https://curl.se/download/"
@@ -14,11 +15,11 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "848ef1fcbd49c13bf4dc0890f6666fef3cedc3eb545be8fbbb4efad168137ee0"
-    sha256 cellar: :any,                 big_sur:       "0ecffc9a6220064210b9506cdc34cdf4f118fbed2f51fd6b7fe608c2e42649aa"
-    sha256 cellar: :any,                 catalina:      "4ec3be96813a0aabb4489a2a47363490e022d6ed0693fdb917dae666c081582b"
-    sha256 cellar: :any,                 mojave:        "484934e11387cc3c72964577f609f701783c7d55add3fa0df03245e3f5e8c590"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88caede39c8b0df2aab1e02ab7c8dd8d89859f9321c287d025850b4edc1d3bb5"
+    sha256 cellar: :any,                 arm64_big_sur: "fb8bc11a92e6b9c69415ebcc0ac30a69d5fa7399ed48eda8f39acd08fb030f91"
+    sha256 cellar: :any,                 big_sur:       "67eb98cd0d153e0e7ca5aadde8141da15cd6f47990136722e49e4a40b3d53c41"
+    sha256 cellar: :any,                 catalina:      "c623592e8eb8cd9c4e60598f58e9e716b7daea398e75f207c23339624b8f4a71"
+    sha256 cellar: :any,                 mojave:        "097d1eb078e53456d952030e0186eb153a515044336db22da0d7942eba21a7e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "730a10df5cd6086457c2ed329b0e881c6a8cd70590f5d7e5e731361438b822c3"
   end
 
   head do
@@ -34,8 +35,8 @@ class Curl < Formula
   depends_on "pkg-config" => :build
   depends_on "brotli"
   depends_on "libidn2"
+  depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "nghttp2"
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "rtmpdump"

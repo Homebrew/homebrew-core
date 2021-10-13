@@ -3,7 +3,7 @@ class Ngs < Formula
   homepage "https://ngs-lang.org/"
   url "https://github.com/ngs-lang/ngs/archive/v0.2.12.tar.gz"
   sha256 "bd3f3b7cca4a36150405f26bb9bcc2fb41d0149388d3051472f159072485f962"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
   head "https://github.com/ngs-lang/ngs.git", branch: "master"
 
   bottle do

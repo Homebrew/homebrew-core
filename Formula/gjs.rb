@@ -4,11 +4,12 @@ class Gjs < Formula
   url "https://download.gnome.org/sources/gjs/1.70/gjs-1.70.0.tar.xz"
   sha256 "4b0629341a318a02374e113ab97f9a9f3325423269fc1e0b043a5ffb01861c5f"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   bottle do
-    sha256 big_sur:  "cfcb0e0f9c0ba64d4afab8da9fa3dd592f8c58f9bcc5b029eae168bf58dd2bdc"
-    sha256 catalina: "cbaf63c961bfe965cd2343571b8f5da5ecb6df737422d58761fd1bf42abdb2e8"
-    sha256 mojave:   "3e68c4c2c6352d6700cf357f70cbf4c632cb3f823413d3d83b0aa1e55d7011cc"
+    sha256 big_sur:  "ecea427c28fcc26093cf7650d82a73b4a04257d2b53ba6e472f9bb1c0b313e5e"
+    sha256 catalina: "92cfd6a80537fe3e3a661cfd6feb941e58820ca4d3649dc98a3cc5b76765f3de"
+    sha256 mojave:   "572ab35a86ea01c0c9e3ba1ede49c769bc67c9532593bc6846e7bb42c619af55"
   end
 
   depends_on "autoconf@2.13" => :build

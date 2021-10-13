@@ -3,17 +3,17 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/33/06/04d4fa47b61efbe6bba01865d64700617b8e6c79795edc36b4f36ebcd8e4/oci-cli-3.1.0.tar.gz"
-  sha256 "23f0585bc8e4356aedddc222942ebe0ea49111f89af82f7e1b9bd1d1abb144c8"
+  url "https://files.pythonhosted.org/packages/37/f0/3c97a7bff5b04c9d8108beb0d67c0cc47207eac5209385deaa664b98edea/oci-cli-3.1.2.tar.gz"
+  sha256 "69a4ad3b64eefc8cc1675b0032ea89a2dfc24328b770ed4bb8baa4b91b103d26"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "cb329e1ed066ee776035b03fd8da7855444ba09a1107003b3e37c8c56e2dde77"
-    sha256 cellar: :any,                 big_sur:       "d80ba989fef72eba2fbf6ebc3a18e2632da8bd1b4b8b0d5de416fa23bea9b514"
-    sha256 cellar: :any,                 catalina:      "566f163b5531a6e736b87e10aecd8895b79fdbeec435a16b6be1b47d0a40579b"
-    sha256 cellar: :any,                 mojave:        "5472a14fe7b677190170a006d56f1cac8aa6f2ef6a0a17107492d6903b48b183"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "835c6fe7cd81bce3affe52dd96826ca9cadb020d84ffe17248303f122b6a5429"
+    sha256 cellar: :any,                 arm64_big_sur: "02bb8b19b80f9bcf1ccb236b389355f1a91aee1c52126c7a1526d69154ef04bd"
+    sha256 cellar: :any,                 big_sur:       "b4d36c8ce7d99b2e096b4b49a8c3f36b4fdd574d9836f7cd3d9ced90dc908b33"
+    sha256 cellar: :any,                 catalina:      "f97b5483193f8e3404aef559e444877b61f0c5f3677f1a0a8dfafd239f3613f1"
+    sha256 cellar: :any,                 mojave:        "e1b2ec466a6337e7f12052ad45050abd30860ecbe73e15a00bc971b6d90fc5df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6dcfcf4178adae929af5e8eee5d06f59d18b3c1e91ed409088031263f120ff9a"
   end
 
   depends_on "rust" => :build
@@ -21,13 +21,13 @@ class OciCli < Formula
   depends_on "six"
 
   resource "arrow" do
-    url "https://files.pythonhosted.org/packages/94/39/b5bb573821d6784640c227ccbd72fa192f7542fa0f68589fd51757046030/arrow-1.1.1.tar.gz"
-    sha256 "dee7602f6c60e3ec510095b5e301441bc56288cb8f51def14dcb3079f623823a"
+    url "https://files.pythonhosted.org/packages/dc/bd/2565b8533bb8cf66e10a9e68a1d489ad839799b2050f0635039e614e3b1a/arrow-1.2.0.tar.gz"
+    sha256 "16fc29bbd9e425e3eb0fef3018297910a0f4568f21116fc31771e2760a50e074"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
-    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
   resource "cffi" do
@@ -51,8 +51,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/8f/3a/7d5f5e5d7f53c37fce7ac835bf45c0b8fd60c4dc475a63ceafdd5e3586f8/oci-2.46.0.tar.gz"
-    sha256 "995dcad24724db80d24a8e39c895367a479dc2c0e4c5e7b406ca5e504398dabe"
+    url "https://files.pythonhosted.org/packages/e3/ce/ab02773a69da413292cd2462586898b0b12419b8b6fdbc2ed51667019bf6/oci-2.47.1.tar.gz"
+    sha256 "96f712d6a0ac3d4b606b4f03f2949dd1aabac46b29f36eba56cd36bb82930c57"
   end
 
   resource "pycparser" do
@@ -71,8 +71,8 @@ class OciCli < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/b0/61/eddc6eb2c682ea6fd97a7e1018a6294be80dba08fa28e7a3570148b4612d/pytz-2021.1.tar.gz"
-    sha256 "83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da"
+    url "https://files.pythonhosted.org/packages/e3/8e/1cde9d002f48a940b9d9d38820aaf444b229450c0854bdf15305ce4a3d1a/pytz-2021.3.tar.gz"
+    sha256 "acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"
   end
 
   resource "PyYAML" do

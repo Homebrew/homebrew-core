@@ -6,16 +6,17 @@ class Mkdocs < Formula
   url "https://files.pythonhosted.org/packages/ff/cf/724004ec05e9a5558fcdd5787d6c2d6828fa5a4957c5a1d305689ab6c172/mkdocs-1.2.2.tar.gz"
   sha256 "a334f5bd98ec960638511366eb8c5abc9c99b9083a0ed2401d8791b112d6b078"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d827ace0c933a234b28172df26bc8a1dfe000b4c038654d4f7c63069ca769911"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cfcefa925b77d76b4afe346269c85d06ef76bcdc852c1a4039a02d42a6a16c22"
-    sha256 cellar: :any_skip_relocation, catalina:      "be41706cb77e980873461dfa903f461fce300f0f50a2eda4fc423722d0bc8dda"
-    sha256 cellar: :any_skip_relocation, mojave:        "49957a81ba94eb9cfd9020418277ee14053ede7e540a4c98b63ea9f364667b0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8464f886388957053c9c807285eb055a1a42cb7922a37090af89957e24bfe459"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f74b2a2c940eb578a07f934266aaedb4743abf55a382efe276415ff6e53d19f1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ccf5c6f78321d0df7af0ee6a974f4a958f064c37730a252dc541fe1b15445e0f"
+    sha256 cellar: :any_skip_relocation, catalina:      "4b9eb52b1cfb12a549fd3b3cb0df254ee250ab78f9955f63fabf68671e461386"
+    sha256 cellar: :any_skip_relocation, mojave:        "9b011afdf73c7860ac228ad7cfce495f71d7d8c6e1f74ea3e440383ae33ee255"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7620bdb6845d059997e0f575a1cf566c488c9165a8c31a176d73fd5fa40bb02"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "click" do

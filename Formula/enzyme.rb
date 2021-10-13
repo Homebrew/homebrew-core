@@ -4,24 +4,27 @@ class Enzyme < Formula
   url "https://github.com/wsmoses/Enzyme/archive/v0.0.19.tar.gz"
   sha256 "51729ff4b26f988f3204915cae28b3985987c33386ed0338eb03d1974ddbab0a"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/wsmoses/Enzyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a124168993adae9f328840d57f42027fdad8f4dddd60dc3252b6df3ab1fd447b"
-    sha256 cellar: :any, big_sur:       "51fbc9afa8e4e97be25fabca384b0cbf69bb8a1f183af926f44f4dbdb28c1e4c"
-    sha256 cellar: :any, catalina:      "1aa2ef774514bb286f8db2e239289902ad74e3c75d275533e5660f0e4cc0df0c"
-    sha256 cellar: :any, mojave:        "7dcd33561137e0d45caf981f493b9f58b26f387e0f9c2e52c71fd8524076d965"
+    sha256 cellar: :any, arm64_big_sur: "2e432a472133cabefc02dc4d854107e5fc6f18f9ee86ebbca6046d4cbc7b4379"
+    sha256 cellar: :any, big_sur:       "208b86ee6c5f86f3021d777ee3b7e402ffbca8b0b64201426f038227cd0de746"
+    sha256 cellar: :any, catalina:      "2d22bfc7cd466a0c57acabcdb00c2a21f156315c1aa6f65d820b1c21ca97824c"
+    sha256 cellar: :any, mojave:        "12a621ef588fe38bbc9b4446e3be12158e141569ef6038977e44265a86407af8"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@12"
+
+  def llvm
+    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+  end
 
   def install
-    mkdir "build" do
-      system "cmake", "../enzyme", *std_cmake_args, "-DLLVM_DIR=#{Formula["llvm"].opt_lib}/cmake/llvm"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", "enzyme", "-B", "build", *std_cmake_args, "-DLLVM_DIR=#{llvm.opt_lib}/cmake/llvm"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -40,13 +43,12 @@ class Enzyme < Formula
       }
     EOS
 
-    llvm = Formula["llvm"]
     opt = llvm.opt_bin/"opt"
     ENV["CC"] = llvm.opt_bin/"clang"
 
     system ENV.cc, testpath/"test.c", "-S", "-emit-llvm", "-o", "input.ll", "-O2",
                    "-fno-vectorize", "-fno-slp-vectorize", "-fno-unroll-loops"
-    system opt, "input.ll", "-load=#{opt_lib}/#{shared_library("LLVMEnzyme-#{llvm.version.major}")}",
+    system opt, "input.ll", "-load=#{opt_lib/shared_library("LLVMEnzyme-#{llvm.version.major}")}",
                 "-enzyme", "-o", "output.ll", "-S"
     system ENV.cc, "output.ll", "-O3", "-o", "test"
 

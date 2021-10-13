@@ -1,9 +1,9 @@
 class TomcatAT9 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.53/bin/apache-tomcat-9.0.53.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.53/bin/apache-tomcat-9.0.53.tar.gz"
-  sha256 "7b3e456ed76b0b42d99767985dc3774b22e2388834994f8539272eb7c05ab6fd"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.54/bin/apache-tomcat-9.0.54.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.54/bin/apache-tomcat-9.0.54.tar.gz"
+  sha256 "24707ee0e5455de2abf19eb2f7d6bcff6a6d26448acc0693399872d50b40733f"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class TomcatAT9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f25c734553974c8944e66366b2b74cb30a845a7a728b83535588e0576767eb80"
+    sha256 cellar: :any_skip_relocation, all: "226720a03c0dfafc6e1aa8e7742ce7004f326ecef1a4e050d0ed774d1b7d9cce"
   end
 
   keg_only :versioned_formula

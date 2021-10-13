@@ -5,18 +5,21 @@ class PythonTkAT310 < Formula
   url "https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz"
   sha256 "c4e0cbad57c90690cb813fb4663ef670b4d0f587d8171e2c42bd4c9245bd2758"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     formula "python@3.10"
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1ee8f1de8afa700ac6e58788ac9bd0441cbc06fff7a7369df8a7381dbedf8c20"
-    sha256 cellar: :any, big_sur:       "4cc3cd0c18a7dae959fed8609b8acdce3b1e550336cef5e1be9f816b60e6e352"
-    sha256 cellar: :any, catalina:      "85d0c86f5600f8d5254a34fbc75fe0f8425cdaa51b501cbd2fb9645c4ad28ccb"
-    sha256 cellar: :any, mojave:        "47aff48291f42c9116239982196d36264afb9b6afbebca2e3f0e8f706960d569"
-    sha256               x86_64_linux:  "33e5057494f2cbbeba821221aa97de4c3729c825cf2f47e583081d5bff55267b"
+    sha256 cellar: :any, arm64_big_sur: "6495ba7d17711b36a7cec076db2458da038d4b3adb83b6d70404c7bc39eb5ec8"
+    sha256 cellar: :any, big_sur:       "9a840114d16d6f0e164e4b7af1b20d95196431bc128473f866fffd69f028eef8"
+    sha256 cellar: :any, catalina:      "bd83cb8f690893fb79ec7f4ba8414455bc175f246c764e48ec2991b1a94fb35d"
+    sha256 cellar: :any, mojave:        "fde0835103328932bf87517e9737cca4d9bbf0b7b6a17eba99fc7eaa9647c2c8"
+    sha256               x86_64_linux:  "2d9582d815f79fa032d38f4db9ba6e2842670f5340dade2238783e3ca821d1bc"
   end
+
+  keg_only :versioned_formula
 
   depends_on "python@3.10"
   depends_on "tcl-tk"

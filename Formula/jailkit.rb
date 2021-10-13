@@ -4,6 +4,7 @@ class Jailkit < Formula
   url "https://olivier.sessink.nl/jailkit/jailkit-2.23.tar.bz2"
   sha256 "aa27dc1b2dbbbfcec2b970731f44ced7079afc973dc066757cea1beb4e8ce59c"
   license all_of: ["BSD-3-Clause", "LGPL-2.0-or-later"]
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,17 +12,17 @@ class Jailkit < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "2408dd97088d6e58539b83d4ee698e987e404cacca3964025d7c99f09263e421"
-    sha256 big_sur:       "8e0b17405a1dabdc6c1869ccb304ded93a02f56d0b98a071b6616552c8b1dba6"
-    sha256 catalina:      "f194ba5166062f17c00e48c076828da5c8fa5d97d35f20015d21fb6aea72febc"
-    sha256 mojave:        "40c10ff51c0d1af469f749a764a3e5a9a1c0aa25c2174b40ae19671724b17895"
-    sha256 x86_64_linux:  "82d802ad818f3d5403480c888085bb5ce7c3e44f1bae84a48a0236fbbf9d8f18"
+    sha256 arm64_big_sur: "e9a582fee1859d32410b20dff031b55c1a0a72862b8422cb8299800832977f16"
+    sha256 big_sur:       "7f9fe097188c70df7933bd30d6c78c60455355df8e33a3ad4927002cf70ec2e9"
+    sha256 catalina:      "35d7f20d16725ad3ec24dd82592a0fc7ae2e1cfc0b6bf3eaaf04e8118437ca09"
+    sha256 mojave:        "9ae118d16ab03810384fb708caf5fcf4429c209c147e40f03f08a45b8c24138d"
+    sha256 x86_64_linux:  "fe136070c9a808323d6919365991597aaf5f2ca6867d8cee66129c205943a8e2"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    ENV["PYTHONINTERPRETER"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHONINTERPRETER"] = Formula["python@3.10"].opt_bin/"python3"
 
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
