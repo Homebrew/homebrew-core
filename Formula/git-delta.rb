@@ -15,7 +15,7 @@ class GitDelta < Formula
   end
 
   depends_on "rust" => :build
-  uses_from_macos "llvm"
+  uses_from_macos "llvm" => :build
 
   conflicts_with "delta", because: "both install a `delta` binary"
 
