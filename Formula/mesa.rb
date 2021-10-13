@@ -6,6 +6,7 @@ class Mesa < Formula
   url "https://mesa.freedesktop.org/archive/mesa-21.2.3.tar.xz"
   sha256 "7245284a159d2484770e1835a673e79e4322a9ddf43b17859668244946db7174"
   license "MIT"
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
