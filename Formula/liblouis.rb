@@ -4,6 +4,7 @@ class Liblouis < Formula
   url "https://github.com/liblouis/liblouis/releases/download/v3.19.0/liblouis-3.19.0.tar.gz"
   sha256 "5664b8631913f432efb4419e15b3c41026984682915d0980351cb82f7ef94970"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "3a3240d45f61b595174ade34a9e8472ecc4c2819f1a31376e984f5d4318a2f94"
@@ -23,7 +24,7 @@ class Liblouis < Formula
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     system "./autogen.sh" if build.head?
