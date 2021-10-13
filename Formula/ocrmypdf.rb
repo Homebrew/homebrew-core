@@ -21,7 +21,7 @@ class Ocrmypdf < Formula
   depends_on "ghostscript"
   depends_on "jbig2enc"
   depends_on "leptonica"
-  depends_on "libffi"
+  depends_on "libffi@3.3"
   depends_on "libpng"
   depends_on "pillow"
   depends_on "pngquant"
