@@ -19,10 +19,11 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 big_sur:      "b7abbccaeb24c6f7c49bfa4036690462e271475ac6d9190e9946ef7a887c4098"
-    sha256 catalina:     "5d21445288240651ccf2bed421b2127884c12191a6ca514f609fe886337d46ef"
-    sha256 mojave:       "a2e65148242942f13794248d54063f652336e34e8de98aa776e266b5cd8daaa2"
-    sha256 x86_64_linux: "635aa215f78244e1a6d4df02d909a436f5a150af2fd261615bbe3e6843aebf3f"
+    sha256 arm64_big_sur: "ddfaa4d567e14966f66824f016219eb359403d0f0a0945b03603296ad624f571"
+    sha256 big_sur:       "b7abbccaeb24c6f7c49bfa4036690462e271475ac6d9190e9946ef7a887c4098"
+    sha256 catalina:      "5d21445288240651ccf2bed421b2127884c12191a6ca514f609fe886337d46ef"
+    sha256 mojave:        "a2e65148242942f13794248d54063f652336e34e8de98aa776e266b5cd8daaa2"
+    sha256 x86_64_linux:  "635aa215f78244e1a6d4df02d909a436f5a150af2fd261615bbe3e6843aebf3f"
   end
 
   head do
@@ -44,14 +45,14 @@ class Crystal < Formula
 
   resource "boot" do
     on_macos do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.0.0/crystal-1.0.0-1-darwin-x86_64.tar.gz"
-      version "1.0.0-1"
-      sha256 "29019828d32df9807a3f08fb7354fa0e44a5ad8b000eccd1dea114f891cbc006"
+      url "https://github.com/crystal-lang/crystal/releases/download/1.2.0/crystal-1.2.0-1-darwin-universal.tar.gz"
+      version "1.2.0-1"
+      sha256 "ce9e671abec489a95df39e347d109e6a99b7388dffe1942b726cb62e2f433ac3"
     end
     on_linux do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.0.0/crystal-1.0.0-1-linux-x86_64.tar.gz"
-      version "1.0.0-1"
-      sha256 "00211ca77758e99210ec40b8c5517b086d2ff9909e089400f6d847a95e5689a4"
+      url "https://github.com/crystal-lang/crystal/releases/download/1.1.1/crystal-1.1.1-1-linux-x86_64.tar.gz"
+      version "1.1.1-1"
+      sha256 "e78873f8185b45f8c6e480a6d2a6a4f3a8b4ee7ca2594e8170dd123a41566704"
     end
   end
 
