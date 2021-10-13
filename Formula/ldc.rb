@@ -25,6 +25,8 @@ class Ldc < Formula
   depends_on "llvm@12"
 
   uses_from_macos "libxml2" => :build
+  # CompilerSelectionError: ldc cannot be built with any available compilers.
+  uses_from_macos "llvm" => [:build, :test]
 
   fails_with :gcc
 
@@ -48,7 +50,9 @@ class Ldc < Formula
   end
 
   def llvm
-    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+    deps.reject { |d| d.build? || d.test? }
+        .map(&:to_formula)
+        .find { |f| f.name.match? "^llvm" }
   end
 
   def install
