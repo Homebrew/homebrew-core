@@ -8,8 +8,8 @@ class Crystal < Formula
     sha256 "e6a79f85f63bca85bb9304fbc0086d01633a2d1f0e76f0167fe5d99074c63f38"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.15.0.tar.gz"
-      sha256 "89ad7f7550a6036b376008c9e376a3b9fbf4aca9f7d2eae5086282122e92711a"
+      url "https://github.com/crystal-lang/shards/archive/v0.16.0.tar.gz"
+      sha256 "e23a51fdcb9747e86b3c58d733a1c7556a78002b46482ca0fdacfe63924dc454"
     end
   end
 
