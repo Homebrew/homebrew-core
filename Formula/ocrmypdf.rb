@@ -7,6 +7,7 @@ class Ocrmypdf < Formula
   sha256 "5b37d41ea59bda6a46f09394a9735f5cbae3d57b0d1961c45aa651cb55c0d68c"
   license "MPL-2.0"
   revision 1
+  # Delete me.
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a6c7743545da420095d8d33ebcf4ff623e3ad2340e01f201b51529cdd6bf6fec"
