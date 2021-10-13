@@ -30,6 +30,7 @@ class Llvm < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "swig" => :build
+  depends_on :linux
   depends_on "python@3.9"
 
   uses_from_macos "libedit"
