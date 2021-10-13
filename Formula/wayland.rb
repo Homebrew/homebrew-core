@@ -4,6 +4,7 @@ class Wayland < Formula
   url "https://wayland.freedesktop.org/releases/wayland-1.19.0.tar.xz"
   sha256 "baccd902300d354581cd5ad3cc49daa4921d55fb416a5883e218750fef166d15"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://wayland.freedesktop.org/releases.html"
