@@ -4,6 +4,7 @@ class PythonAT37 < Formula
   url "https://www.python.org/ftp/python/3.7.12/Python-3.7.12.tar.xz"
   sha256 "f77bf7fb47839f213e5cbf7827281078ea90de7e72b44f10d7ef385ea8c43210"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
