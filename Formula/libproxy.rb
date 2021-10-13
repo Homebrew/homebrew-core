@@ -4,6 +4,7 @@ class Libproxy < Formula
   url "https://github.com/libproxy/libproxy/archive/0.4.17.tar.gz"
   sha256 "88c624711412665515e2800a7e564aabb5b3ee781b9820eca9168035b0de60a9"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/libproxy/libproxy.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Libproxy < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "dbus"
@@ -23,10 +24,9 @@ class Libproxy < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     args = std_cmake_args + %W[
       ..
-      -DPYTHON3_SITEPKG_DIR=#{lib}/python#{xy}/site-packages
+      -DPYTHON3_SITEPKG_DIR=#{prefix/Language::Python.site_packages("python3")}
       -DWITH_PERL=OFF
       -DWITH_PYTHON2=OFF
     ]
