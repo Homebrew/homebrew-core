@@ -23,7 +23,7 @@ class Colima < Formula
     end
     bash_completion.install buildpath/"colima.bash" => "colima"
     zsh_completion.install buildpath/"colima.zsh" => "_colima"
-    zsh_completion.install buildpath/"colima.fish"
+    fish_completion.install buildpath/"colima.fish"
   end
 
   test do
