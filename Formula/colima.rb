@@ -18,12 +18,9 @@ class Colima < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd/colima"
 
-    ["bash", "zsh", "fish"].each do |shell|
-      (buildpath/"colima.#{shell}").write Utils.safe_popen_read(bin/"colima", "completion", shell)
-    end
-    bash_completion.install buildpath/"colima.bash" => "colima"
-    zsh_completion.install buildpath/"colima.zsh" => "_colima"
-    fish_completion.install buildpath/"colima.fish"
+    (bash_completion/"colima").write Utils.safe_popen_read(bin/"colima", "completion", "bash")
+    (zsh_completion/"_colima").write Utils.safe_popen_read(bin/"colima", "completion", "zsh")
+    (fish_completion/"colima.fish").write Utils.safe_popen_read(bin/"colima", "completion", "fish")
   end
 
   test do
