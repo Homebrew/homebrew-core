@@ -1,10 +1,12 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  # NOTE: Please keep these values in sync with git-gui.rb when updating.
+  # NOTE: Please keep these values in sync with git-gui.rb, git-svn.rb and
+  #       git-credential-libsecret.rb when updating.
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.1.tar.xz"
   sha256 "e054a6e6c2b088bd1bff5f61ed9ba5aa91c9a3cd509539a4b41c5ddf02201f2f"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/git/git.git"
 
   livecheck do
@@ -94,6 +96,7 @@ class Git < Formula
     system "make", "install", *args
 
     git_core = libexec/"git-core"
+    rm git_core/"git-svn"
 
     # Install the macOS keychain credential helper
     if OS.mac?
@@ -168,6 +171,7 @@ class Git < Formula
   def caveats
     <<~EOS
       The Tcl/Tk GUIs (e.g. gitk, git-gui) are now in the `git-gui` formula.
+      Subversion interoperability (git-svn) is now in the `git-svn` formula.
     EOS
   end
 
