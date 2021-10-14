@@ -1,15 +1,22 @@
 class Kdoctools < Formula
   desc "Create documentation from DocBook"
   homepage "https://api.kde.org/frameworks/kdoctools/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.86/kdoctools-5.86.0.tar.xz"
-  sha256 "9dd2a9e3930875f95b1d8e907fdc01c19d19f484d6e70c19c8f26c9aaac4b18e"
+  url "https://download.kde.org/stable/frameworks/5.87/kdoctools-5.87.0.tar.xz"
+  sha256 "fa0e84b1298f2d85ac31cf3fdc4282b463f43a68483795de3098ec5a76e4a555"
   license all_of: [
     "BSD-3-Clause",
     "GPL-2.0-or-later",
     "LGPL-2.1-or-later",
     any_of: ["LGPL-2.1-only", "LGPL-3.0-only"],
   ]
-  head "https://invent.kde.org/frameworks/kdoctools.git"
+  head "https://invent.kde.org/frameworks/kdoctools.git", branch: "master"
+
+  # We check the tags from the `head` repository because the latest stable
+  # version doesn't seem to be easily available elsewhere.
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "fefe2a333a634c7bb5d76df382dfb6cb5296e07f2ac8b71f7bdbcd2f48bcf41d"
@@ -49,10 +56,9 @@ class Kdoctools < Formula
     args << "-DBUILD_TESTING=OFF"
     args << "-DBUILD_QCH=ON"
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     pkgshare.install ["cmake", "autotests", "tests"]
   end
