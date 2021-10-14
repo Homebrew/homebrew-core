@@ -17,11 +17,16 @@ class SSearch < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w"
-    mv bin/"s-search", bin/"s"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/"s"
 
-    bash_completion.install "autocomplete/s-completion.bash"
-    fish_completion.install "autocomplete/s.fish"
+    output = Utils.safe_popen_read("#{bin}/s," "--completion", "bash")
+    (bash_completion/"s-completion.bash").write output
+
+    output = Utils.safe_popen_read("#{bin}/s," "--completion", "zsh")
+    (zsh_completion/"_s").write output
+
+    output = Utils.safe_popen_read("#{bin}/s," "--completion", "fish")
+    (fish_completion/"s.fish").write output
   end
 
   test do
