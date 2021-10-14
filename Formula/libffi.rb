@@ -6,7 +6,7 @@ class Libffi < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48e34a380ab065bda9191298bd3eefc895f1c2315d508cb83614eac01cf38301"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "48e34a380ab065bda9191298bd3eefc895f1c2315d508cb83614eac01cf38301"
   end
 
   head do
