@@ -16,10 +16,10 @@ class Colima < Formula
       -X #{project}/config.appVersion=#{version}
       -X #{project}/config.revision=#{Utils.git_head}
     ]
-    system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"colima", "./cmd/colima"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd/colima"
 
     ["bash", "zsh", "fish"].each do |shell|
-      (buildpath/"colima.#{shell}").write(`#{bin}/colima completion #{shell}`)
+      (buildpath/"colima.#{shell}").write Utils.safe_popen_read(bin/"colima", "completion", shell)
     end
     bash_completion.install buildpath/"colima.bash" => "colima"
     zsh_completion.install buildpath/"colima.zsh" => "_colima"
