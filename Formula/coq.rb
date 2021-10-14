@@ -1,8 +1,8 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.13.2.tar.gz"
-  sha256 "1e7793d8483f1e939f62df6749f843df967a15d843a4a5acb024904b76e25a14"
+  url "https://github.com/coq/coq/archive/V8.14.0.tar.gz"
+  sha256 "b1501d686c21836302191ae30f610cca57fb309214c126518ca009363ad2cd3c"
   license "LGPL-2.1-only"
   head "https://github.com/coq/coq.git", branch: "master"
 
@@ -19,6 +19,7 @@ class Coq < Formula
     sha256 x86_64_linux:  "7925d346b3da3451e167bca3db8aded4ec99f801519f283b98d555611e0c1480"
   end
 
+  depends_on "dune" => :build
   depends_on "ocaml-findlib" => :build
   depends_on "ocaml"
   depends_on "ocaml-zarith"
