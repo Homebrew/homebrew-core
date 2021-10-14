@@ -1,8 +1,8 @@
 class Tctl < Formula
   desc "Temporal CLI (tctl)"
   homepage "https://temporal.io/"
-  url "https://github.com/temporalio/temporal/archive/v1.15.2.tar.gz"
-  sha256 "37702b1e22fc37fb83f0e00627c91703bed62fc296ae580298f6b19c5bc4dd9e"
+  url "https://github.com/temporalio/tctl/archive/v1.16.0.tar.gz"
+  sha256 "17a166ffb12256a4131fb4344ff2abdcb7aa2f3473e6fd216fdbe454a0ce2238"
   license "MIT"
 
   bottle do
@@ -17,9 +17,9 @@ class Tctl < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/tools/cli/main.go"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/tctl/main.go"
     system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/"tctl-authorization-plugin",
-      "./cmd/tools/cli/plugins/authorization/main.go"
+      "./cmd/plugins/tctl-authorization-plugin/main.go"
   end
 
   test do
