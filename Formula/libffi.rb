@@ -6,13 +6,7 @@ class Libffi < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6a3605cff713d45e0500ef01c0f082d1b4d31d70cd2400b5856443050a44a056"
-    sha256 cellar: :any,                 arm64_big_sur:  "2166e9d5178197a84ec721b40e22d8c42e30bd0c4808bd38b1ca768eb03f62a5"
-    sha256 cellar: :any,                 monterey:       "d2cee9b7c8158cf7164fc58c4c5054e38898caefd5f902d36996e1c362d936bc"
-    sha256 cellar: :any,                 big_sur:        "a461f6ad21a23a725691385dbbec3eff958cf61d5282e84dc3f0483e307e1875"
-    sha256 cellar: :any,                 catalina:       "6dbeaf8209b24c0963a5c87cd99d68f8bf61ea532c1c55bec8467a621b64da1b"
-    sha256 cellar: :any,                 mojave:         "ebd8f12d294d0194f4bfd158cc20b454ff97c02def465cb4cd69eea621665033"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48e34a380ab065bda9191298bd3eefc895f1c2315d508cb83614eac01cf38301"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48e34a380ab065bda9191298bd3eefc895f1c2315d508cb83614eac01cf38301"
   end
 
   head do
@@ -23,6 +17,9 @@ class Libffi < Formula
   end
 
   keg_only :provided_by_macos
+
+  # Prevent tests on macOS runners. Do not merge.
+  depends_on :linux
 
   def install
     system "./autogen.sh" if build.head?
