@@ -14,7 +14,8 @@ class Docker2aci < Formula
   end
 
   # See https://github.com/rkt/rkt/issues/4024
-  deprecate! date: "2020-02-24", because: :repo_archived
+  #deprecate! date: "2020-02-24", because: :repo_archived
+  disable! date: "2022-01-01", because: :repo_archived
 
   depends_on "go" => :build
 
