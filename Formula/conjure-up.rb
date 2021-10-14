@@ -16,7 +16,8 @@ class ConjureUp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "aedce6905c2975016470f72dfba4ce1ff08addda5eccc6822b41074f0d6d241e"
   end
 
-  deprecate! date: "2021-04-15", because: :repo_archived
+  #deprecate! date: "2021-04-15", because: :repo_archived
+  disable! date: "2022-04-15", because: :repo_archived
 
   depends_on "awscli"
   depends_on "jq"
