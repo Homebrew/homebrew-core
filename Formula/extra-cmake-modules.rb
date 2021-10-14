@@ -1,10 +1,10 @@
 class ExtraCmakeModules < Formula
   desc "Extra modules and scripts for CMake"
   homepage "https://api.kde.org/frameworks/extra-cmake-modules/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.86/extra-cmake-modules-5.86.0.tar.xz"
-  sha256 "aacc5ccdc5799efe34e2dae33418c379466caf7c9802b78348ccfb5782fe6ab5"
+  url "https://download.kde.org/stable/frameworks/5.87/extra-cmake-modules-5.87.0.tar.xz"
+  sha256 "541ca70d8e270614d19d8fd9e55f97b55fa1dc78d6538c6f6757be372ef8bcab"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "MIT"]
-  head "https://invent.kde.org/frameworks/extra-cmake-modules.git"
+  head "https://invent.kde.org/frameworks/extra-cmake-modules.git", branch: "master"
 
   # We check the tags from the `head` repository because the latest stable
   # version doesn't seem to be easily available elsewhere.
@@ -32,8 +32,9 @@ class ExtraCmakeModules < Formula
     args << "-DBUILD_QTHELP_DOCS=ON"
     args << "-DBUILD_TESTING=OFF"
 
-    system "cmake", ".", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
