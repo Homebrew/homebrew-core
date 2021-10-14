@@ -7,6 +7,7 @@ class Snapcraft < Formula
       tag:      "5.0",
       revision: "54781044a8f858258e90fa4acfd32e750362deee"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
