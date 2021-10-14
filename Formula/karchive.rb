@@ -1,15 +1,22 @@
 class Karchive < Formula
   desc "Reading, creating, and manipulating file archives"
   homepage "https://api.kde.org/frameworks/karchive/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.86/karchive-5.86.0.tar.xz"
-  sha256 "13bfb0a07171bab829c3cb6760d60817608ba95802a4dfe0327cb2afb4616e9d"
+  url "https://download.kde.org/stable/frameworks/5.87/karchive-5.87.0.tar.xz"
+  sha256 "103f2e8a60b50683ed626d3c9c29c99ced3c55d20a9f5d1cfd0a576e7dc61c35"
   license all_of: [
     "BSD-2-Clause",
     "LGPL-2.0-only",
     "LGPL-2.0-or-later",
     any_of: ["LGPL-2.0-only", "LGPL-3.0-only"],
   ]
-  head "https://invent.kde.org/frameworks/karchive.git"
+  head "https://invent.kde.org/frameworks/karchive.git", branch: "master"
+
+  # We check the tags from the `head` repository because the latest stable
+  # version doesn't seem to be easily available elsewhere.
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "278dcdc717598e431453570c460e4dd426373ce601da9a055dd74803e3e7e04c"
@@ -41,10 +48,9 @@ class Karchive < Formula
     args << "-DBUILD_TESTING=OFF"
     args << "-DBUILD_QCH=ON"
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     pkgshare.install "examples"
   end
