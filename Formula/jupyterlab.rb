@@ -6,6 +6,7 @@ class Jupyterlab < Formula
   url "https://files.pythonhosted.org/packages/21/41/9fa76ba01f776c267ead5ea7224cb179e38e02d37690b4f9e0a1475a807e/jupyterlab-3.1.14.tar.gz"
   sha256 "13174cb6076dd5da6f1b85725ccfcc9518d8f98e86b8b644fc89b1dfaeda63a9"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "0abd979a17d0cc585c29af4af791784b6da20bb7b5c6b07a51f0645f5d1d56d4"
@@ -17,7 +18,7 @@ class Jupyterlab < Formula
 
   depends_on "node"
   depends_on "pandoc"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
   depends_on "zeromq"
 
@@ -344,7 +345,7 @@ class Jupyterlab < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, "python3")
     ENV["JUPYTER_PATH"] = etc/"jupyter"
 
     # gather packages to link based on options
@@ -358,7 +359,7 @@ class Jupyterlab < Formula
     venv.pip_install_and_link buildpath
 
     # remove bundled kernel
-    rm_rf Dir["#{libexec}/share/jupyter/kernels"]
+    (libexec/"share/jupyter/kernels").rmtree
 
     # install completion
     resource("jupyter-core").stage do
