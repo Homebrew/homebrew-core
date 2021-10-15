@@ -4,6 +4,7 @@ class Geos < Formula
   url "https://download.osgeo.org/geos/geos-3.9.1.tar.bz2"
   sha256 "7e630507dcac9dc07565d249a26f06a15c9f5b0c52dd29129a0e3d381d7e382a"
   license "LGPL-2.1"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/geos/"
@@ -19,14 +20,14 @@ class Geos < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --enable-python
-      PYTHON=#{Formula["python@3.9"].opt_bin}/python3
+      PYTHON=#{which("python3")}
     ]
     args << "--disable-inline" if Hardware::CPU.arm?
 
