@@ -98,9 +98,8 @@
   "dxpy": {
     "exclude_packages": ["six"]
   },
-  "ipython": {
-    "exclude_packages": ["six"],
-    "extra_packages": ["ipykernel"]
+  "esptool": {
+    "exclude_packages": ["six"]
   },
   "fava": {
     "exclude_packages": ["six"]
@@ -120,6 +119,10 @@
   },
   "internetarchive": {
     "exclude_packages": ["six"]
+  },
+  "ipython": {
+    "exclude_packages": ["six"],
+    "extra_packages": ["ipykernel"]
   },
   "jenkins-job-builder": {
     "exclude_packages": ["six"]
