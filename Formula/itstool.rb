@@ -4,6 +4,7 @@ class Itstool < Formula
   url "https://github.com/itstool/itstool/archive/2.0.7.tar.gz"
   sha256 "fba78a37dc3535e4686c7f57407b97d03c676e3a57beac5fb2315162b0cc3176"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/itstool/itstool.git"
 
   bottle do
@@ -17,14 +18,13 @@ class Itstool < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libxml2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages("python3")
 
     system "./autogen.sh", "--prefix=#{libexec}",
-                           "PYTHON=#{Formula["python@3.9"].opt_bin}/python3"
+                           "PYTHON=#{which("python3")}"
     system "make", "install"
 
     bin.install Dir["#{libexec}/bin/*"]
