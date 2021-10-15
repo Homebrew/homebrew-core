@@ -6,6 +6,7 @@ class Pipgrip < Formula
   url "https://files.pythonhosted.org/packages/37/af/0240a7a53fc3375cd56e63e62c05f0a0d12b878b8e6709dc9e772fbe9182/pipgrip-0.6.11.tar.gz"
   sha256 "a9842a01985203cbc18afdf17671b4b41204bccf86a1a352a1cde2f461969d6f"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4dcd9b8a31d0f6b48afdafa0ffe79795a9c49797d205aca4e806ce1154c58132"
@@ -15,7 +16,7 @@ class Pipgrip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f170630d1c53c8487869eda3f6f343b909e6e81e97220c5d84cf7d517a3cd05"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "anytree" do
