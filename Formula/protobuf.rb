@@ -4,6 +4,7 @@ class Protobuf < Formula
   url "https://github.com/protocolbuffers/protobuf/releases/download/v3.17.3/protobuf-all-3.17.3.tar.gz"
   sha256 "77ad26d3f65222fd96ccc18b055632b0bfedf295cb748b712a98ba1ac0b704b2"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -28,6 +29,8 @@ class Protobuf < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "python@3.10" => [:build, :test]
+  # The Python3.9 bindings can be removed when Python3.9 is made keg-only.
   depends_on "python@3.9" => [:build, :test]
   depends_on "six"
 
@@ -54,9 +57,10 @@ class Protobuf < Formula
     ENV.append_to_cflags "-I#{include}"
     ENV.append_to_cflags "-L#{lib}"
 
-    chdir "python" do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix),
-                        "--cpp_implementation"
+    cd "python" do
+      ["3.9", "3.10"].each do |xy|
+        system "python#{xy}", *Language::Python.setup_install_args(prefix), "--cpp_implementation"
+      end
     end
   end
 
@@ -74,5 +78,6 @@ class Protobuf < Formula
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import google.protobuf"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import google.protobuf"
   end
 end
