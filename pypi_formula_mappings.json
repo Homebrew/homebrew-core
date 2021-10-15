@@ -175,6 +175,9 @@
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
   },
+  "percol": {
+    "exclude_packages": ["six"]
+  },
   "pgcli": {
     "exclude_packages": ["six", "tabulate"]
   },
