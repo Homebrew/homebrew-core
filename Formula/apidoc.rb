@@ -3,8 +3,8 @@ require "language/node"
 class Apidoc < Formula
   desc "RESTful web API Documentation Generator"
   homepage "https://apidocjs.com"
-  url "https://github.com/apidoc/apidoc/archive/0.29.0.tar.gz"
-  sha256 "e8dafeefbdc1699ccd65566f0d353c610f9847fbfd49483c1d4e6ed154a8c273"
+  url "https://github.com/apidoc/apidoc/archive/0.50.0.tar.gz"
+  sha256 "4705ba8a68df2b2285b008f19c7a724297640ad112d181625f791af87024926b"
   license "MIT"
 
   bottle do
@@ -24,16 +24,6 @@ class Apidoc < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
-
-    term_size_vendor_dir = libexec/"lib/node_modules"/name/"node_modules/term-size/vendor"
-    term_size_vendor_dir.rmtree # remove pre-built binaries
-
-    if OS.mac?
-      macos_dir = term_size_vendor_dir/"macos"
-      macos_dir.mkpath
-      # Replace the vendored pre-built term-size with one we build ourselves
-      ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
-    end
 
     # Extract native slices from universal binaries
     deuniversalize_machos
@@ -55,14 +45,12 @@ class Apidoc < Formula
     EOS
     (testpath/"apidoc.json").write <<~EOS
       {
-        "name": "example",
+        "name": "brew test example",
         "version": "#{version}",
         "description": "A basic apiDoc example"
       }
     EOS
-    system bin/"apidoc", "-o", "out"
-    api_data_json = (testpath/"out/api_data.json").read
-    api_data = JSON.parse api_data_json
-    assert_equal api_data.first["version"], version
+    system bin/"apidoc", "-i", ".", "-o", "out"
+    assert_predicate testpath/"out/assets/main.bundle.js", :exist?
   end
 end
