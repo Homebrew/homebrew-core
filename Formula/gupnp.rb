@@ -6,6 +6,7 @@ class Gupnp < Formula
   url "https://download.gnome.org/sources/gupnp/1.4/gupnp-1.4.0.tar.xz"
   sha256 "590ffb02b84da2a1aec68fd534bc40af1b37dd3f6223f9d1577fc48ab48be36f"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "189d75ec84ee768b7788a884231ddaec044b2af8693cc57c6555b94ee34f320a"
@@ -24,7 +25,7 @@ class Gupnp < Formula
   depends_on "glib"
   depends_on "gssdp"
   depends_on "libsoup"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     mkdir "build" do
