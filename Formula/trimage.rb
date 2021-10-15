@@ -4,7 +4,7 @@ class Trimage < Formula
   url "https://github.com/Kilian/Trimage/archive/1.0.6.tar.gz"
   sha256 "60448b5a827691087a1bd016a68f84d8c457fc29179271f310fe5f9fa21415cf"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1a6dca1721ee66b96bcc5f010fb96657024b17059eefc82db0e61c6e2ff12a21"
@@ -18,11 +18,11 @@ class Trimage < Formula
   depends_on "optipng"
   depends_on "pngcrush"
   depends_on "pyqt@5"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    system "#{Formula["python@3.9"].opt_bin}/python3", "setup.py", "build"
-    system "#{Formula["python@3.9"].opt_bin}/python3", "setup.py", "install", "--prefix=#{prefix}"
+    system "python3", "setup.py", "build"
+    system "python3", "setup.py", "install", "--prefix=#{prefix}"
   end
 
   test do
