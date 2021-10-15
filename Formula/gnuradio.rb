@@ -3,10 +3,10 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.3.0.tar.gz"
+  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.3.0.tar.gz"
   sha256 "4073ac72524f95fed4bda7dd553cb946f66d2e00bd07c4ae7758f1b787d507e0"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/gnuradio/gnuradio.git"
 
   livecheck do
@@ -36,7 +36,7 @@ class Gnuradio < Formula
   depends_on "portaudio"
   depends_on "pygobject3"
   depends_on "pyqt@5"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "qt@5"
   depends_on "qwt-qt5"
   depends_on "six"
@@ -223,6 +223,6 @@ class Gnuradio < Formula
 
       main()
     EOS
-    system Formula["python@3.9"].opt_bin/"python3", testpath/"test.py"
+    system Formula["python@3.10"].opt_bin/"python3", testpath/"test.py"
   end
 end
