@@ -4,6 +4,7 @@ class Rdkit < Formula
   url "https://github.com/rdkit/rdkit/archive/Release_2021_03_5.tar.gz"
   sha256 "ee7ed4189ab03cf805ab9db59121ab3ebcba4c799389d053046d7cab4dd8401e"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -31,7 +32,7 @@ class Rdkit < Formula
   depends_on "numpy"
   depends_on "postgresql"
   depends_on "py3cairo"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     ENV.cxx11
@@ -40,15 +41,15 @@ class Rdkit < Formula
     ENV.append "CXXFLAGS", "-Wno-parentheses -Wno-logical-op-parentheses -Wno-format"
 
     # Get Python location
-    python_executable = Formula["python@3.9"].opt_bin/"python3"
-    py3ver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    python_executable = which("python3")
+    py3ver = Language::Python.major_minor_version python_executable
     py3prefix = if OS.mac?
-      Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+      Formula["python@#{py3ver}"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
     else
-      Formula["python@3.9"].opt_prefix
+      Formula["python@#{py3ver}"].opt_prefix
     end
     py3include = "#{py3prefix}/include/python#{py3ver}"
-    numpy_include = Formula["numpy"].opt_lib/"python#{py3ver}/site-packages/numpy/core/include"
+    numpy_include = Formula["numpy"].opt_prefix/Language::Python.site_packages("python3")/"numpy/core/include"
 
     # set -DMAEPARSER and COORDGEN_FORCE_BUILD=ON to avoid conflicts with some formulae i.e. open-babel
     args = std_cmake_args + %W[
@@ -89,10 +90,10 @@ class Rdkit < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import rdkit"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import rdkit"
     (testpath/"test.py").write <<~EOS
       from rdkit import Chem ; print(Chem.MolToSmiles(Chem.MolFromSmiles('C1=CC=CN=C1')))
     EOS
-    assert_match "c1ccncc1", shell_output("#{Formula["python@3.9"].opt_bin}/python3 test.py 2>&1")
+    assert_match "c1ccncc1", shell_output("#{Formula["python@3.10"].opt_bin}/python3 test.py 2>&1")
   end
 end
