@@ -22,11 +22,8 @@ class Iozone < Formula
 
   def install
     cd "src/current" do
-      if OS.mac?
-        system "make", "macosx", "CC=#{ENV.cc}"
-      else
-        system "make", "linux", "CC=#{ENV.cc}"
-      end
+      target = OS.mac? ? "macosx" : OS.kernel_name.downcase
+      system "make", target, "CC=#{ENV.cc}"
       bin.install "iozone"
       pkgshare.install %w[Generate_Graphs client_list gengnuplot.sh gnu3d.dem
                           gnuplot.dem gnuplotps.dem iozone_visualizer.pl
