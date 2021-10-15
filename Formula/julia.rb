@@ -210,23 +210,17 @@ class Julia < Formula
     ]
     system bin/"julia", *args, "--eval", "using #{jlls.join(", ")}"
 
-    # FIXME: The test below will try, and fail, to load the unversioned LLVM's
-    #        libraries since LLVM is not keg-only on Linux, but that's not what
-    #        we want when Julia depends on a keg-only LLVM (which it currently does).
-    llvm = deps.map(&:to_formula)
-               .find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)$/) }
-    return if OS.linux? && llvm.keg_only?
-
     # Check that Julia can load libraries in lib/"julia".
     # Most of these are symlinks to Homebrew-provided libraries.
     # This also checks that these libraries can be loaded even when
     # the symlinks are broken (e.g. by version bumps).
-    dlext = shared_library("").sub(".", "")
     libs = (lib/"julia").children
-                        .reject(&:directory?)
+                        .select(&:dylib?)
                         .map(&:basename)
                         .map(&:to_s)
-                        .select { |s| s.start_with?("lib") && s.end_with?(dlext) }
+
+    # libc++.so is a text stub in LLVM 13, and attempting a dlopen causes errors.
+    libs.reject! { |s| s == shared_library("libc++") } if OS.linux? && Formula["llvm"].any_version_installed?
 
     (testpath/"library_test.jl").write <<~EOS
       using Libdl
