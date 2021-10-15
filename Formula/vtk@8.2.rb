@@ -4,7 +4,7 @@ class VtkAT82 < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
 
   bottle do
     rebuild 1
@@ -28,7 +28,7 @@ class VtkAT82 < Formula
   depends_on "libtiff"
   depends_on "netcdf"
   depends_on "pyqt@5"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "qt@5"
 
   uses_from_macos "expat"
@@ -79,7 +79,6 @@ class VtkAT82 < Formula
     # Adapted from https://bugs.gentoo.org/attachment.cgi?id=641488&action=diff
     inreplace "CMake/VTKGenerateExportHeader.cmake", "[3-9]", "[1-9][0-9]" if OS.linux?
 
-    pyver = Language::Python.major_minor_version "python3"
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
@@ -99,8 +98,8 @@ class VtkAT82 < Formula
       -DVTK_USE_SYSTEM_ZLIB=ON
       -DVTK_WRAP_PYTHON=ON
       -DVTK_PYTHON_VERSION=3
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
-      -DVTK_INSTALL_PYTHON_MODULE_DIR=#{lib}/python#{pyver}/site-packages
+      -DPYTHON_EXECUTABLE=#{which("python3")}
+      -DVTK_INSTALL_PYTHON_MODULE_DIR=#{prefix/Language::Python.site_packages("python3")}
       -DVTK_QT_VERSION:STRING=5
       -DVTK_Group_Qt=ON
       -DVTK_WRAP_PYTHON_SIP=ON
