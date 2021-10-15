@@ -6,6 +6,7 @@ class YelpTools < Formula
   url "https://download.gnome.org/sources/yelp-tools/41/yelp-tools-41.0.tar.xz"
   sha256 "37f1acc02bcbe68a31b86e07c129a839bd3276e656dc89eb7fc0a92746eff272"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "7023c23ea27f57ff8a89a378643ecdbb643f5350126ce1971bb575d9d773f739"
@@ -23,7 +24,7 @@ class YelpTools < Formula
   depends_on "gtk+3"
   depends_on "itstool"
   depends_on "libxml2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libxslt"
 
