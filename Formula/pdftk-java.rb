@@ -4,6 +4,7 @@ class PdftkJava < Formula
   url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.3.1/pdftk-v3.3.1.tar.gz"
   sha256 "4a97856c8aadfa182e480d2e717842e6cbed43829cd917c9f9dd2d15b57d3d2d"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.com/pdftk-java/pdftk.git", branch: "master"
 
   livecheck do
@@ -26,6 +27,7 @@ class PdftkJava < Formula
     system "gradle", "shadowJar", "--no-daemon"
     libexec.install "build/libs/pdftk-all.jar"
     bin.write_jar_script libexec/"pdftk-all.jar", "pdftk", java_version: "11"
+    man1.install "pdftk.1"
   end
 
   test do
