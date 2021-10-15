@@ -4,6 +4,7 @@ class Mapserver < Formula
   url "https://download.osgeo.org/mapserver/mapserver-7.6.4.tar.gz"
   sha256 "b46c884bc42bd49873806a05325872e4418fc34e97824d4e13d398e86ea474ac"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://mapserver.org/download.html"
@@ -30,7 +31,7 @@ class Mapserver < Formula
   depends_on "postgresql"
   depends_on "proj@7"
   depends_on "protobuf-c"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "curl"
 
@@ -53,7 +54,7 @@ class Mapserver < Formula
       -DWITH_SOS=ON
       -DWITH_WFS=ON
     ]
-    args << "-DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin/"python3"}"
+    args << "-DPYTHON_EXECUTABLE=#{which("python3")}"
     args << "-DPHP_EXTENSION_DIR=#{lib}/php/extensions"
 
     # Install within our sandbox
@@ -70,13 +71,13 @@ class Mapserver < Formula
       system "cmake", "..", *args
       system "make", "install"
       cd "mapscript/python" do
-        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+        system "python3", *Language::Python.setup_install_args(prefix)
       end
     end
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/mapserv -v")
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import mapscript"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import mapscript"
   end
 end
