@@ -76,6 +76,9 @@
   "csvkit": {
     "exclude_packages": ["six"]
   },
+  "cyral-gimme-db-token": {
+    "exclude_packages": ["six"]
+  },
   "datalad": {
     "exclude_packages": ["six"]
   },
