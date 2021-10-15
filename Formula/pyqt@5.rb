@@ -4,7 +4,7 @@ class PyqtAT5 < Formula
   url "https://files.pythonhosted.org/packages/8e/a4/d5e4bf99dd50134c88b95e926d7b81aad2473b47fde5e3e4eac2c69a8942/PyQt5-5.15.4.tar.gz"
   sha256 "2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "587a8a32bab96b5621d7a125c9d30816cc16af7b5bb5b1575324b5fb22ba5fc5"
@@ -17,7 +17,7 @@ class PyqtAT5 < Formula
   depends_on "pyqt-builder" => :build
   depends_on "sip"          => :build
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "qt@5"
 
   on_linux do
@@ -92,7 +92,7 @@ class PyqtAT5 < Formula
     system bin/"pyuic#{version.major}", "--version"
     system bin/"pylupdate#{version.major}", "-version"
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt#{version.major}"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import PyQt#{version.major}"
     %w[
       Gui
       Location
@@ -102,6 +102,6 @@ class PyqtAT5 < Formula
       Svg
       Widgets
       Xml
-    ].each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
+    ].each { |mod| system Formula["python@3.10"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
   end
 end
