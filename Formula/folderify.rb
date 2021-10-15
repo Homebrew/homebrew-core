@@ -7,6 +7,7 @@ class Folderify < Formula
   sha256 "d6754df2f001657a01062d851e5980622adb43cafb35ab6bc7c26e62529f3291"
   license "MIT"
   # Default branch is "main" not "master"
+  revision 1
   head "https://github.com/lgarron/folderify.git", branch: "main"
 
   bottle do
@@ -18,7 +19,7 @@ class Folderify < Formula
 
   depends_on "imagemagick"
   depends_on :macos
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
@@ -26,7 +27,7 @@ class Folderify < Formula
 
   test do
     # Copies an example icon
-    cp("#{libexec}/lib/python3.9/site-packages/folderify/GenericFolderIcon.Yosemite.iconset/icon_16x16.png",
+    cp("#{libexec}/lib/python3.10/site-packages/folderify/GenericFolderIcon.Yosemite.iconset/icon_16x16.png",
     "icon.png")
     # folderify applies the test icon to a folder
     system "folderify", "icon.png", testpath.to_s
