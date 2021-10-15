@@ -6,7 +6,7 @@ class Wxpython < Formula
   url "https://files.pythonhosted.org/packages/b0/4d/80d65c37ee60a479d338d27a2895fb15bbba27a3e6bb5b6d72bb28246e99/wxPython-4.1.1.tar.gz"
   sha256 "00e5e3180ac7f2852f342ad341d57c44e7e4326de0b550b9a5c4a8361b6c3528"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d8fb50086a3047b2ff39d2747903ae591a87947f0dd84174e3da2ae1eb0f0171"
@@ -21,7 +21,7 @@ class Wxpython < Formula
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
   depends_on "tcl-tk"
 
@@ -52,7 +52,7 @@ class Wxpython < Formula
   end
 
   test do
-    output = shell_output("#{Formula["python@3.9"].opt_bin}/python3 -c 'import wx ; print(wx.__version__)'")
+    output = shell_output("#{Formula["python@3.10"].opt_bin}/python3 -c 'import wx ; print(wx.__version__)'")
     assert_match version.to_s, output
   end
 end
