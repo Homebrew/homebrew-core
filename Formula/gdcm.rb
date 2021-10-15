@@ -4,6 +4,7 @@ class Gdcm < Formula
   url "https://github.com/malaterre/GDCM/archive/v3.0.10.tar.gz"
   sha256 "a3fd3579ca0bb4a2a41ee18770e7303b22fd5460c3a2000e51ff0be6799e1d85"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class Gdcm < Formula
   depends_on "swig" => :build
   depends_on "openjpeg"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "vtk@8.2"
 
   uses_from_macos "expat"
@@ -39,12 +40,12 @@ class Gdcm < Formula
   def install
     ENV.cxx11
 
-    python3 = Formula["python@3.9"].opt_bin/"python3"
-    xy = Language::Python.major_minor_version python3
-    python_include =
-      Utils.safe_popen_read(python3, "-c", "from distutils import sysconfig;print(sysconfig.get_python_inc(True))")
-           .chomp
-    python_executable = Utils.safe_popen_read(python3, "-c", "import sys;print(sys.executable)").chomp
+    python_include = Utils.safe_popen_read(
+      "python3",
+      "-c",
+      "from distutils import sysconfig;print(sysconfig.get_python_inc(True))",
+    ).chomp
+    python_executable = Utils.safe_popen_read("python3", "-c", "import sys;print(sys.executable)").chomp
 
     args = std_cmake_args + %W[
       -GNinja
@@ -62,7 +63,7 @@ class Gdcm < Formula
       -DGDCM_WRAP_PYTHON=ON
       -DPYTHON_EXECUTABLE=#{python_executable}
       -DPYTHON_INCLUDE_DIR=#{python_include}
-      -DGDCM_INSTALL_PYTHONMODULE_DIR=#{lib}/python#{xy}/site-packages
+      -DGDCM_INSTALL_PYTHONMODULE_DIR=#{prefix/Language::Python.site_packages("python3")}
       -DCMAKE_INSTALL_RPATH=#{lib}
       -DGDCM_NO_PYTHON_LIBS_LINKING=ON
     ]
@@ -90,6 +91,6 @@ class Gdcm < Formula
     system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test", "-L#{lib}", "-lgdcmDSED"
     system "./test"
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gdcm"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import gdcm"
   end
 end
