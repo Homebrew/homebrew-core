@@ -3,7 +3,7 @@ class Anjuta < Formula
   homepage "http://anjuta.org"
   url "https://download.gnome.org/sources/anjuta/3.34/anjuta-3.34.0.tar.xz"
   sha256 "42a93130ed3ee02d064a7094e94e1ffae2032b3f35a87bf441e37fc3bb3a148f"
-  revision 4
+  revision 5
 
   bottle do
     sha256 arm64_big_sur: "185ac50d99816b00213f7e3a6430c06dcef89408d92b0b8285772789ed600dde"
@@ -24,7 +24,7 @@ class Anjuta < Formula
   depends_on "hicolor-icon-theme"
   depends_on "libgda"
   depends_on "libxml2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "shared-mime-info"
   depends_on "vala"
   depends_on "vte3"
@@ -36,8 +36,7 @@ class Anjuta < Formula
                           "--prefix=#{prefix}",
                           "--disable-schemas-compile"
 
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages("python3")
     system "make", "install"
   end
 
