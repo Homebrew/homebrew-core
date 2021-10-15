@@ -4,6 +4,7 @@ class GitCola < Formula
   url "https://github.com/git-cola/git-cola/archive/v3.10.1.tar.gz"
   sha256 "1d7a9be54e66fcaa49585cda3ec89b6b2448f6e38c6f41047e55ecaff2d809d3"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
@@ -15,18 +16,18 @@ class GitCola < Formula
 
   depends_on "sphinx-doc" => :build
   depends_on "pyqt@5"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "rsync"
 
   def install
     ENV.delete("PYTHONPATH")
-    system "make", "PYTHON=#{Formula["python@3.9"].opt_bin}/python3", "prefix=#{prefix}", "install"
-    system "make", "install-doc", "PYTHON=#{Formula["python@3.9"].opt_bin}/python3}", "prefix=#{prefix}",
+    system "make", "PYTHON=#{which("python3")}", "prefix=#{prefix}", "install"
+    system "make", "install-doc", "PYTHON=#{which("python3")}", "prefix=#{prefix}",
            "SPHINXBUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"
   end
 
   test do
-    system "#{bin}/git-cola", "--version"
+    system bin/"git-cola", "--version"
   end
 end
