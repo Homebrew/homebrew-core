@@ -4,7 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/4.5.3.tar.gz"
   sha256 "77f616ae4bea416674d8c373984b20c8bd55e7db887fd38c6df73463a0647bab"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -33,7 +33,7 @@ class Opencv < Formula
   depends_on "openblas"
   depends_on "openexr"
   depends_on "protobuf"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "tbb"
   depends_on "vtk"
   depends_on "webp"
@@ -89,7 +89,7 @@ class Opencv < Formula
       -DWITH_VTK=ON
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPYTHON3_EXECUTABLE=#{which("python3")}
     ]
 
     # Disable precompiled headers and force opencv to use brewed libraries on Linux
@@ -144,7 +144,7 @@ class Opencv < Formula
                     "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    output = shell_output(Formula["python@3.9"].opt_bin/"python3 -c 'import cv2; print(cv2.__version__)'")
+    output = shell_output(Formula["python@3.10"].opt_bin/"python3 -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
   end
 end
