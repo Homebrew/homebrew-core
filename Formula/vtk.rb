@@ -4,6 +4,7 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.0/VTK-9.0.3.tar.gz"
   sha256 "bc3eb9625b2b8dbfecb6052a2ab091fc91405de4333b0ec68f3323815154ed8a"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/Kitware/VTK.git", branch: "master"
 
   bottle do
@@ -31,7 +32,7 @@ class Vtk < Formula
   depends_on "netcdf"
   depends_on "pugixml"
   depends_on "pyqt@5"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "qt@5"
   depends_on "sqlite"
   depends_on "theora"
@@ -98,7 +99,7 @@ class Vtk < Formula
       -DVTK_MODULE_USE_EXTERNAL_VTK_tiff:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_utf8:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_zlib:BOOL=ON
-      -DPython3_EXECUTABLE:FILEPATH=#{Formula["python@3.9"].opt_bin}/python3
+      -DPython3_EXECUTABLE:FILEPATH=#{which("python3")}
       -DVTK_GROUP_ENABLE_Qt:STRING=YES
     ]
 
