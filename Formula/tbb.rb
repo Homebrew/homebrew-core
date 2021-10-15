@@ -4,6 +4,7 @@ class Tbb < Formula
   url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.4.0.tar.gz"
   sha256 "021796c7845e155e616f5ecda16daa606ebb4c6f90b996e5c08aebab7a8d3de3"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "562dbe3727195b7d22f5750f720ab8719e84dd557f120af380fe65ebf1de0f71"
@@ -15,7 +16,7 @@ class Tbb < Formula
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # Fix installation of Python components
   # See https://github.com/oneapi-src/oneTBB/issues/343
@@ -38,7 +39,7 @@ class Tbb < Formula
       ENV["LDFLAGS"] = "-rpath #{opt_lib}" if OS.mac?
 
       ENV["TBBROOT"] = prefix
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system "python3", *Language::Python.setup_install_args(prefix)
     end
 
     inreplace_files = Dir[prefix/"rml/CMakeFiles/irml.dir/{flags.make,build.make,link.txt}"]
@@ -74,7 +75,7 @@ class Tbb < Formula
     system ENV.cxx, "sum1-100.cpp", "--std=c++14", "-L#{lib}", "-ltbb", "-o", "sum1-100"
     assert_equal "5050", shell_output("./sum1-100").chomp
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import tbb"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import tbb"
   end
 end
 
