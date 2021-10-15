@@ -6,6 +6,7 @@ class Networkit < Formula
   url "https://github.com/networkit/networkit/archive/9.0.tar.gz"
   sha256 "c574473bc7d86934f0f4b3049c0eeb9c4444cfa873e5fecda194ee5b1930f82c"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6830b5a174f2faa428c162a31cbac98867ac91847e20c44fc0b942a054dc172c"
@@ -20,30 +21,29 @@ class Networkit < Formula
 
   depends_on "libnetworkit"
   depends_on "numpy"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "scipy"
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    site_packages = Language::Python.site_packages("python3")
     rpath_addons = Formula["libnetworkit"].opt_lib
 
-    ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python#{xy}/site-packages/"
-    ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
-    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build_ext",
+    ENV.prepend_create_path "PYTHONPATH", libexec/site_packages
+    ENV.append_path "PYTHONPATH", Formula["cython"].opt_prefix/site_packages
+    system "python3", "setup.py", "build_ext",
           "--networkit-external-core",
           "--external-tlx=#{Formula["tlx"].opt_prefix}",
           "--rpath=@loader_path;#{rpath_addons}"
-    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install",
+    system "python3", "setup.py", "install",
            "--single-version-externally-managed",
            "--record=installed.txt",
            "--prefix=#{libexec}"
-    site_packages = "lib/python#{xy}/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-networkit.pth").write pth_contents
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
+    system Formula["python@3.10"].opt_bin/"python3", "-c", <<~EOS
       import networkit as nk
       G = nk.graph.Graph(3)
       G.addEdge(0,1)
