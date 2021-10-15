@@ -7,6 +7,7 @@ class Checkov < Formula
   url "https://files.pythonhosted.org/packages/cd/ca/7fc44a42c4a2d78991a9a81c21811bc9d6694a126d1ccd7981364d28629f/checkov-2.0.480.tar.gz"
   sha256 "6893d7a0467c8357a8cf45cc0a23ff5c9c53855ee9414e282c2e8f1149dd03b4"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "107060399168ab145e2e0b0c634c71c434b9cdffc5ca18b023da0e157a8c883e"
@@ -17,7 +18,7 @@ class Checkov < Formula
   end
 
   depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "bc-python-hcl2" do
