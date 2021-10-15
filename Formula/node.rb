@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v16.11.1/node-v16.11.1.tar.xz"
   sha256 "67587f4de25e30a9cc0b51a6033eca3bc82d7b4e0d79bb84a265e88f76ab6278"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "master"
 
   livecheck do
@@ -26,7 +27,7 @@ class Node < Formula
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "zlib"
 
@@ -61,7 +62,7 @@ class Node < Formula
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = which("python3")
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
@@ -110,6 +111,12 @@ class Node < Formula
     rm_rf libexec/"share"
 
     bash_completion.install bootstrap/"lib/utils/completion.sh" => "npm"
+
+    # Node needs help finding our Python3 while it's keg-only.
+    # This can be removed when Python3 is no longer keg-only.
+    (libexec/"bin").install bin/"node"
+    (bin/"node").write_env_script libexec/"bin/node",
+                                  PATH: "#{Formula["python@3.10"].opt_bin}:$PATH"
   end
 
   def post_install
