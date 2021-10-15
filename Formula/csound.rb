@@ -5,7 +5,7 @@ class Csound < Formula
       tag:      "6.16.2",
       revision: "fb5bdb3681e15f56c216b4e4487b45848aa6b9f4"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -37,7 +37,7 @@ class Csound < Formula
   depends_on "openjdk"
   depends_on "portaudio"
   depends_on "portmidi"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "stk"
   depends_on "wiiuse"
 
@@ -89,8 +89,7 @@ class Csound < Formula
 
     libexec.install buildpath/"interfaces/ctcsound.py"
 
-    python_version = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
-    (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
+    (prefix/Language::Python.site_packages("python3")/"homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
 
@@ -168,7 +167,7 @@ class Csound < Formula
     system bin/"csound", "--orc", "--syntax-check-only", "opcode-existence.orc"
 
     with_env("DYLD_FRAMEWORK_PATH" => frameworks) do
-      system Formula["python@3.9"].bin/"python3", "-c", "import ctcsound"
+      system Formula["python@3.10"].bin/"python3", "-c", "import ctcsound"
     end
 
     (testpath/"test.java").write <<~EOS
