@@ -11,6 +11,7 @@ class Lilypond < Formula
     :public_domain,
     "MIT",
   ]
+  revision 1
 
   livecheck do
     url "https://lilypond.org/source.html"
@@ -44,7 +45,7 @@ class Lilypond < Formula
   depends_on "ghostscript"
   depends_on "guile@2"
   depends_on "pango"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
