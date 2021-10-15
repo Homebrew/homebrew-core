@@ -5,6 +5,7 @@ class Aom < Formula
       tag:      "v3.2.0",
       revision: "287164de79516c25c8c84fd544f67752c170082a"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ac1d39d09f271f9180b0dea4fd638d5c0b30d971f58486f8db0ab90875433aa7"
@@ -46,7 +47,7 @@ class Aom < Formula
     if OS.mac?
       args += [
         "-DCONFIG_TUNE_BUTTERAUGLI=1",
-        "-DCONFIG_RUNTIME_CPU_DETECT=1",
+        "-DCONFIG_TUNE_VMAF=1",
       ]
     end
 
