@@ -6,6 +6,7 @@ class Borgmatic < Formula
   url "https://files.pythonhosted.org/packages/39/4a/351a1442af40867d6310327b0e72f43276f3700bcb0f9a1ec66bbd5ac256/borgmatic-1.5.20.tar.gz"
   sha256 "0aa6705cd72c6bd8fec94ba9e5e13ba9e90e6671799af2f2f5cb91186b90b7e5"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5bcde7449f3450bec31a93f298f7f8f4810bf73b79b446e5eca620f6d8219e6"
@@ -15,8 +16,7 @@ class Borgmatic < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "65093fbe878043b2955faf4bfd072155899269b1d94640e81b9dbe1af6430ea5"
   end
 
-  depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
@@ -39,8 +39,8 @@ class Borgmatic < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
-    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "jsonschema" do
