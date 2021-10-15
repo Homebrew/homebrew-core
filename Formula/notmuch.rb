@@ -5,6 +5,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.33.2.tar.xz"
   sha256 "244892f6ab52a84f6b013b387cd6652d461effd36b14ef9e576604b5850b2cae"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
@@ -27,7 +28,7 @@ class Notmuch < Formula
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "gmime"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "talloc"
   depends_on "xapian"
 
@@ -44,7 +45,13 @@ class Notmuch < Formula
       --without-ruby
     ]
 
-    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.9/site-packages"
+    sphinx_doc = Formula["sphinx-doc"]
+    sphinx_doc_python_bin = sphinx_doc.deps
+                                      .find { |dep| dep.name.match?(/^python@3\.\d+$/) }
+                                      .to_formula
+                                      .opt_bin
+    ENV.append_path "PYTHONPATH",
+                    sphinx_doc.opt_libexec/Language::Python.site_packages(sphinx_doc_python_bin/"python3")
     ENV.cxx11 if OS.linux?
 
     system "./configure", *args
@@ -58,7 +65,7 @@ class Notmuch < Formula
     (prefix/"vim").install "vim/syntax"
 
     cd "bindings/python" do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system "python3", *Language::Python.setup_install_args(prefix)
     end
 
     # If installed in non-standard prefixes, such as is the default with
@@ -71,7 +78,7 @@ class Notmuch < Formula
     # CDLL("libnotmuch.dylib") = OSError: dlopen(libnotmuch.dylib, 6): image not found
     # find_library("libnotmuch") = '/opt/homebrew/lib/libnotmuch.dylib'
     # http://notmuch.198994.n3.nabble.com/macOS-globals-py-issue-td4044216.html
-    inreplace lib/"python3.9/site-packages/notmuch/globals.py",
+    inreplace prefix/Language::Python.site_packages("python3")/"notmuch/globals.py",
                "libnotmuch.{0:s}.dylib",
                opt_lib/"libnotmuch.{0:s}.dylib"
   end
