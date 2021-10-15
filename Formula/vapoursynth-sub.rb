@@ -4,6 +4,7 @@ class VapoursynthSub < Formula
   url "https://github.com/vapoursynth/subtext/archive/R2.tar.gz"
   sha256 "509fd9b00f44fd3db5ad0de4bfac6ccff3e458882281d479a11c10ac7dfc37e4"
   license "MIT"
+  revision 1
   version_scheme 1
 
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
@@ -36,6 +37,6 @@ class VapoursynthSub < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "from vapoursynth import core; core.sub"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "from vapoursynth import core; core.sub"
   end
 end
