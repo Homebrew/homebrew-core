@@ -6,6 +6,7 @@ class Pympress < Formula
   url "https://files.pythonhosted.org/packages/30/15/076cbcb2fcd828da499db28bda2699bdadc73c16953c564fee6e3b6c28c8/pympress-1.6.4.tar.gz"
   sha256 "f84b9dc4da0defab1dc3c39ba91837f51af7837b775194f0057d0045c8d2b04f"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Cimbali/pympress.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class Pympress < Formula
   depends_on "libyaml"
   depends_on "poppler"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "watchdog" do
     url "https://files.pythonhosted.org/packages/c5/e9/fb0f9775c82b4df1815bb97ebac13383adddff4cf014aceefb7c02262675/watchdog-2.1.5.tar.gz"
