@@ -5,7 +5,7 @@ class LlvmAT11 < Formula
   sha256 "74d2529159fd118c3eac6f90107b5611bccc6f647fdea104024183e8d5e25831"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 3
+  revision 4
 
   # This should be removed when LLVM 13 is released, so we only check the
   # current version (the `llvm` formula) and one major version before it
@@ -71,6 +71,11 @@ class LlvmAT11 < Formula
   patch do
     url "https://github.com/llvm/llvm-project/commit/c997867dc084a1bcf631816f964b3ff49a297ba3.patch?full_index=1"
     sha256 "a215925cb872406fe770369ef3adfef1170c6ffbd65f1de44358a240307faab1"
+  end
+
+  patch do
+    url "https://bugs.llvm.org/attachment.cgi?id=24958"
+    sha256 "c38d0af65440791868d5e61b2396ca7f5b3e591d555da0f5a5235fdbc868ba12"
   end
 
   # Upstream ARM patch for OpenMP runtime, remove in next version
