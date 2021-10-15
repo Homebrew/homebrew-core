@@ -4,6 +4,7 @@ class Duck < Formula
   url "https://dist.duck.sh/duck-src-7.10.2.35432.tar.gz"
   sha256 "8f5885799a10b0e06ed0587198dbecce63b08fa609778e84673b34faccfea40b"
   license "GPL-3.0-only"
+  revision 1
   head "https://svn.cyberduck.io/trunk/"
 
   livecheck do
