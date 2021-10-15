@@ -2,13 +2,14 @@ class Colima < Formula
   desc "Container runtimes on MacOS with minimal setup"
   homepage "https://github.com/abiosoft/colima/blob/main/README.md"
   url "https://github.com/abiosoft/colima.git",
-      tag:      "v0.2.1",
-      revision: "28236769c47ab71dd378d56f6cc73f769fd2f503"
+      tag:      "v0.2.2",
+      revision: "b2c7697bee2d73e995f156fe8e9870eb246c07e6"
   license "MIT"
   head "https://github.com/abiosoft/colima.git", branch: "main"
 
   depends_on "go" => :build
   depends_on "lima"
+  depends_on :macos
 
   def install
     project = "github.com/abiosoft/colima"
