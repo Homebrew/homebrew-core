@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.24.04.source.tar.gz"
   sha256 "4a416f3d7aa25dba46d05b641505eb074c5f07b3ec1d21911451046adaea3ee7"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
@@ -32,7 +33,7 @@ class Root < Formula
   depends_on "numpy" # for tmva
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "tbb"
   depends_on :xcode if MacOS.version <= :catalina
   depends_on "xrootd"
@@ -64,7 +65,7 @@ class Root < Formula
     args = std_cmake_args + %W[
       -DCLING_CXX_PATH=clang++
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{which("python3")}
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
       -Dbuiltin_glew=ON
@@ -103,9 +104,9 @@ class Root < Formula
 
       chmod 0755, Dir[bin/"*.*sh"]
 
-      version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+      python3 = Formula["python@3.10"].opt_bin/"python3"
       pth_contents = "import site; site.addsitedir('#{lib}/root')\n"
-      (prefix/"lib/python#{version}/site-packages/homebrew-root.pth").write pth_contents
+      (prefix/Language::Python.site_packages(python3)/"homebrew-root.pth").write pth_contents
     end
   end
 
@@ -155,6 +156,6 @@ class Root < Formula
     assert_equal "Hello, world!\n", shell_output("./a.out")
 
     # Test Python module
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
   end
 end
