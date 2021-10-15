@@ -26,12 +26,8 @@ class Jp < Formula
     build_root = buildpath/"src/github.com/sgreben/jp"
     build_root.install Dir["*"]
     cd build_root do
-      arch = Hardware::CPU.arm? ? "arm64" : "x86_64"
-      os = if OS.mac?
-        "osx"
-      else
-        "linux"
-      end
+      arch = Hardware::CPU.arch.to_s
+      os = OS.mac? ? "osx" : OS.kernel_name.downcase
       system "make", "binaries/#{os}_#{arch}/jp"
       bin.install "binaries/#{os}_#{arch}/jp"
     end
