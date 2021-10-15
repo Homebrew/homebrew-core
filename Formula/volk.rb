@@ -7,6 +7,7 @@ class Volk < Formula
       tag:      "v2.5.0",
       revision: "237a6fc9242ea8c48d2bbd417a6ea14feaf7314a"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 big_sur:      "13397948c2762d27f80e47fa13ef95930aea8a1b9221ca266f34de6f052890e8"
@@ -19,7 +20,7 @@ class Volk < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "orc"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "gcc"
