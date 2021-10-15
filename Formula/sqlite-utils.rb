@@ -5,6 +5,7 @@ class SqliteUtils < Formula
   url "https://files.pythonhosted.org/packages/98/c4/6a7eb6087cc77ff9c44f341967f97ec36a2181fe1796bb4f2cd61608f255/sqlite-utils-3.17.1.tar.gz"
   sha256 "0cfde0c46a2d4c09d6df8609fe53642bc3ab443bcef3106d8f1eabeb3fccbe3d"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "80ca20fc8e828fe2a303d934a706e55f42ea18692f12d5f378fb88895b3d3fb3"
@@ -15,7 +16,7 @@ class SqliteUtils < Formula
   end
 
   depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "click" do
