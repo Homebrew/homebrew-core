@@ -4,6 +4,7 @@ class Pyqt < Formula
   url "https://files.pythonhosted.org/packages/63/14/342909751d8cb6931ca1548a9834f5f581c69c2bc5836e65a8aeee9f1bb7/PyQt6-6.2.0.tar.gz"
   sha256 "142ce7fa574d7ebb13fb0a2ebd18c86087c35829f786c094a71a0749155d8fee"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8596b3e51d9d7c34f0b7808866e9a9a4f24d39f446da3277b833c29dcc271fcc"
@@ -15,7 +16,7 @@ class Pyqt < Formula
   depends_on "pyqt-builder" => :build
   depends_on "sip"          => :build
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "qt"
 
   # extra components
@@ -84,7 +85,7 @@ class Pyqt < Formula
     system bin/"pyuic#{version.major}", "-V"
     system bin/"pylupdate#{version.major}", "-V"
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt#{version.major}"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import PyQt#{version.major}"
     %w[
       3DAnimation
       3DCore
@@ -101,6 +102,6 @@ class Pyqt < Formula
       Svg
       Widgets
       Xml
-    ].each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt#{version.major}.Qt#{mod}" }
+    ].each { |mod| system Formula["python@3.10"].opt_bin/"python3", "-c", "import PyQt#{version.major}.Qt#{mod}" }
   end
 end
