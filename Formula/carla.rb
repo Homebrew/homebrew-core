@@ -4,6 +4,7 @@ class Carla < Formula
   url "https://github.com/falkTX/Carla/archive/v2.4.0.tar.gz"
   sha256 "960a1288ef82543df27e0896a174dae8ff68d24594b6efe0b952105797162c0e"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/falkTX/Carla.git", branch: "main"
 
   livecheck do
@@ -23,14 +24,14 @@ class Carla < Formula
   depends_on "liblo"
   depends_on "libmagic"
   depends_on "pyqt@5"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
 
     inreplace bin/"carla", "PYTHON=$(which python3 2>/dev/null)",
-                           "PYTHON=#{Formula["python@3.9"].opt_bin}/python3"
+                           "PYTHON=#{which("python3")}"
   end
 
   test do
