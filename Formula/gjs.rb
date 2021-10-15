@@ -4,7 +4,7 @@ class Gjs < Formula
   url "https://download.gnome.org/sources/gjs/1.70/gjs-1.70.0.tar.xz"
   sha256 "4b0629341a318a02374e113ab97f9a9f3325423269fc1e0b043a5ffb01861c5f"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
-  revision 1
+  revision 2
 
   bottle do
     sha256 big_sur:  "ecea427c28fcc26093cf7650d82a73b4a04257d2b53ba6e472f9bb1c0b313e5e"
@@ -21,7 +21,7 @@ class Gjs < Formula
   depends_on "six" => :build
   depends_on "gobject-introspection"
   depends_on "gtk+3"
-  depends_on "llvm"
+  depends_on "llvm@12"
   depends_on "nspr"
   depends_on "readline"
 
@@ -45,33 +45,33 @@ class Gjs < Formula
       mkdir("build") do
         ENV["PYTHON"] = which("python3")
         ENV["_MACOSX_DEPLOYMENT_TARGET"] = ENV["MACOSX_DEPLOYMENT_TARGET"]
-        ENV["CC"] = Formula["llvm"].opt_bin/"clang"
-        ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
+        ENV["CC"] = Formula["llvm@12"].opt_bin/"clang"
+        ENV["CXX"] = Formula["llvm@12"].opt_bin/"clang++"
         ENV.prepend_path "PATH", buildpath/"autoconf/bin"
         system "../js/src/configure", "--prefix=#{prefix}",
-                              "--with-system-nspr",
-                              "--with-system-zlib",
-                              "--with-system-icu",
-                              "--enable-readline",
-                              "--enable-shared-js",
-                              "--enable-optimize",
-                              "--enable-release",
-                              "--with-intl-api",
-                              "--disable-jemalloc"
+                                      "--with-system-nspr",
+                                      "--with-system-zlib",
+                                      "--with-system-icu",
+                                      "--enable-readline",
+                                      "--enable-shared-js",
+                                      "--enable-optimize",
+                                      "--enable-release",
+                                      "--with-intl-api",
+                                      "--disable-jemalloc"
         system "make"
         system "make", "install"
-        rm Dir["#{bin}/*"]
+        bin.children.map(&:unlink)
       end
       # headers were installed as softlinks, which is not acceptable
-      cd(include.to_s) do
-        `find . -type l`.chomp.split.each do |link|
-          header = File.readlink(link)
-          rm link
-          cp header, link
-        end
+      include.find do |link|
+        next unless link.symlink?
+
+        header = link.readlink
+        link.unlink
+        cp header, link
       end
-      ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
-      rm "#{lib}/libjs_static.ajs"
+      ENV.append_path "PKG_CONFIG_PATH", lib/"pkgconfig"
+      (lib/"libjs_static.ajs").unlink
     end
 
     # ensure that we don't run the meson post install script
@@ -93,7 +93,7 @@ class Gjs < Formula
   end
 
   def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
+    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
   end
 
   test do
@@ -103,6 +103,6 @@ class Gjs < Formula
       if (31 != GLib.Date.get_days_in_month(GLib.DateMonth.JANUARY, 2000))
         imports.system.exit(1)
     EOS
-    system "#{bin}/gjs", "test.js"
+    system bin/"gjs", "test.js"
   end
 end
