@@ -4,7 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/v2.7.1.tar.gz"
   sha256 "c8e237fd51f49d8a62a0660db12b72ea5067512aa7970f3fcf80b70e3f87ca3e"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -28,7 +28,7 @@ class Adios2 < Formula
   depends_on "mpi4py"
   depends_on "numpy"
   depends_on "open-mpi"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "zeromq"
   uses_from_macos "bzip2"
 
@@ -58,7 +58,7 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_FLEX=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
-      -DPython_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPython_EXECUTABLE=#{which("python3")}
       -DCMAKE_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages("python3")}
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
@@ -74,15 +74,16 @@ class Adios2 < Formula
   end
 
   test do
-    adios2_config_flags = `adios2-config --cxx`.chomp.split
+    python3 = Formula["python@3.10"].opt_bin/"python3"
+    adios2_config_flags = Utils.safe_popen_read(bin/"adio2-config", "--cxx").chomp.split
     system "mpic++",
            (pkgshare/"test/helloBPWriter.cpp"),
            *adios2_config_flags
     system "./a.out"
     assert_predicate testpath/"myVector_cpp.bp", :exist?
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import adios2"
-    system Formula["python@3.9"].opt_bin/"python3", (pkgshare/"test/helloBPWriter.py")
+    system python3, "-c", "import adios2"
+    system python3, (pkgshare/"test/helloBPWriter.py")
     assert_predicate testpath/"npArray.bp", :exist?
   end
 end
