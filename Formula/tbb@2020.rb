@@ -5,6 +5,7 @@ class TbbAT2020 < Formula
   version "2020_U3"
   sha256 "ebc4f6aa47972daed1f7bf71d100ae5bf6931c2e3144cf299c8cc7d041dca2f3"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "60d6f53048879cec2af79648d56cc206c7bdd6044259244e8523ab2f49c8152b"
@@ -20,7 +21,7 @@ class TbbAT2020 < Formula
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # Remove when upstream fix is released
   # https://github.com/oneapi-src/oneTBB/pull/258
@@ -46,7 +47,7 @@ class TbbAT2020 < Formula
         system "make", "-C", "rml", "compiler=#{compiler}", "CPATH=#{include}"
         lib.install Dir["rml/libirml.so*"]
       end
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system "python3", *Language::Python.setup_install_args(prefix)
     end
 
     system "cmake", *std_cmake_args,
