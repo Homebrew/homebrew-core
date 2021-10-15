@@ -6,7 +6,7 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.70/gobject-introspection-1.70.0.tar.xz"
   sha256 "902b4906e3102d17aa2fcb6dad1c19971c70f2a82a159ddc4a94df73a3cafc4a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_big_sur: "743867fe7cd99538df90b4a233e36bbc50878f8d97758efa06403b650baaedd6"
@@ -23,7 +23,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "libffi"
   depends_on "pkg-config"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "flex" => :build
 
@@ -49,7 +49,7 @@ class GobjectIntrospection < Formula
 
     mkdir "build" do
       system "meson", *std_meson_args,
-        "-Dpython=#{Formula["python@3.9"].opt_bin}/python3",
+        "-Dpython=#{which("python3")}",
         "-Dextra_library_paths=#{HOMEBREW_PREFIX}/lib",
         ".."
       system "ninja", "-v"
