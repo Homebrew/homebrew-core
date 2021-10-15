@@ -6,6 +6,7 @@ class Uhd < Formula
       tag:      "v4.1.0.3",
       revision: "01575510f173015f83c1e1f82e7f406730b99f1c"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
+  revision 1
   head "https://github.com/EttusResearch/uhd.git"
 
   livecheck do
@@ -25,7 +26,7 @@ class Uhd < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/d1/42/ff293411e980debfc647be9306d89840c8b82ea24571b014f1a35b2ad80f/Mako-1.1.5.tar.gz"
@@ -33,12 +34,10 @@ class Uhd < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages("python3")
 
     resource("Mako").stage do
-      system Formula["python@3.9"].opt_bin/"python3",
-             *Language::Python.setup_install_args(libexec/"vendor")
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     mkdir "host/build" do
