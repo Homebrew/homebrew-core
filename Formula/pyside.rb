@@ -4,6 +4,7 @@ class Pyside < Formula
   url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.0.4-src/pyside-setup-opensource-src-6.0.4.tar.xz"
   sha256 "0a076dd9f28aabe947739986a47431fa5bece1dccfd8ea90d2c9048ddede6303"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
+  revision 2
 
   livecheck do
     url "https://download.qt.io/official_releases/QtForPython/pyside6/"
@@ -19,16 +20,16 @@ class Pyside < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "llvm"
-  depends_on "python@3.9"
+  depends_on "llvm@12"
+  depends_on "python@3.10"
   depends_on "qt"
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version "python3"
 
     args = std_cmake_args + %W[
       -GNinja
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python#{xy}
+      -DPYTHON_EXECUTABLE=#{which("python#{xy}")}
       -DCMAKE_INSTALL_RPATH=#{lib}
     ]
 
@@ -39,8 +40,8 @@ class Pyside < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import PySide6"
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import shiboken6"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import PySide6"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import shiboken6"
 
     # TODO: add modules `Position`, `Multimedia`and `WebEngineWidgets` when qt6.2 is released
     # arm support will finish in qt6.1
@@ -54,11 +55,11 @@ class Pyside < Formula
       Xml
     ]
 
-    modules.each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PySide6.Qt#{mod}" }
+    modules.each { |mod| system Formula["python@3.10"].opt_bin/"python3", "-c", "import PySide6.Qt#{mod}" }
 
-    pyincludes = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --includes").chomp.split
-    pylib = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --ldflags --embed").chomp.split
-    pyver = Language::Python.major_minor_version(Formula["python@3.9"].opt_bin/"python3").to_s.delete(".")
+    pyincludes = shell_output("#{Formula["python@3.10"].opt_bin}/python3-config --includes").chomp.split
+    pylib = shell_output("#{Formula["python@3.10"].opt_bin}/python3-config --ldflags --embed").chomp.split
+    pyver = Language::Python.major_minor_version(Formula["python@3.10"].opt_bin/"python3").to_s.delete(".")
 
     (testpath/"test.cpp").write <<~EOS
       #include <shiboken.h>
