@@ -4,6 +4,7 @@ class Xapian < Formula
   url "https://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz"
   sha256 "196ddbb4ad10450100f0991a599e4ed944cbad92e4a6fe813be6dce160244b77"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -20,7 +21,7 @@ class Xapian < Formula
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "zlib"
 
@@ -36,8 +37,7 @@ class Xapian < Formula
   end
 
   def install
-    python = Formula["python@3.9"].opt_bin/"python3"
-    ENV["PYTHON"] = python
+    ENV["PYTHON"] = which("python3")
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -47,11 +47,11 @@ class Xapian < Formula
     resource("bindings").stage do
       ENV["XAPIAN_CONFIG"] = bin/"xapian-config"
 
-      xy = Language::Python.major_minor_version python
-      ENV.prepend_create_path "PYTHON3_LIB", lib/"python#{xy}/site-packages"
+      site_packages = Language::Python.site_packages("python3")
+      ENV.prepend_create_path "PYTHON3_LIB", prefix/site_packages
 
-      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python#{xy}/site-packages"
-      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"vendor/lib/python#{xy}/site-packages"
+      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/site_packages
+      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"vendor"/site_packages
 
       # Fix build on Big Sur (darwin20)
       # https://github.com/xapian/xapian/pull/319
@@ -67,6 +67,6 @@ class Xapian < Formula
 
   test do
     system bin/"xapian-config", "--libs"
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import xapian"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import xapian"
   end
 end
