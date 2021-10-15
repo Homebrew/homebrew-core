@@ -11,7 +11,7 @@ class Lensfun < Formula
     "CC-BY-3.0",
     :public_domain,
   ]
-  revision 4
+  revision 5
 
   bottle do
     sha256 arm64_big_sur: "976711172998eae467ddaba1feb590e0229cc0b41f11ac58e1db2d833a57c99c"
@@ -26,7 +26,7 @@ class Lensfun < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # This patch can be removed when new Lensfun release (v0.3.96) is available.
   patch do
