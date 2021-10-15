@@ -5,6 +5,7 @@ class Bento4 < Formula
   version "1.6.0-639"
   sha256 "3c6be48e38e142cf9b7d9ff2713e84db4e39e544a16c6b496a6c855f0b99cc56"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.bok.net/Bento4/source/"
@@ -21,7 +22,7 @@ class Bento4 < Formula
   depends_on xcode: :build
   # artifact does not produce arm64 native binaries
   depends_on arch: :x86_64
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "cmake" => :build
