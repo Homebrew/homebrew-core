@@ -6,6 +6,7 @@ class PassGitHelper < Formula
   url "https://github.com/languitar/pass-git-helper/archive/v1.1.2.tar.gz"
   sha256 "4acfb486d0873014376383167792ee2b46926386718eb2331a1b4564576a2076"
   license "LGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "da53d4cbc56dc0cd97b63df750c5c6d9600b65e8d7b2f48266cdcaff83715ef1"
@@ -17,7 +18,7 @@ class PassGitHelper < Formula
 
   depends_on "gnupg" => :test
   depends_on "pass"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/6f/2e/2251b5ae2f003d865beef79c8fcd517e907ed6a69f58c32403cec3eba9b2/pyxdg-0.27.tar.gz"
