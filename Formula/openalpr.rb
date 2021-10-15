@@ -4,7 +4,7 @@ class Openalpr < Formula
   url "https://github.com/openalpr/openalpr/archive/v2.3.0.tar.gz"
   sha256 "1cfcaab6f06e9984186ee19633a949158c0e2aacf9264127e2f86bd97641d6b9"
   license "AGPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_big_sur: "4413a608d96584a63180fcb7a8d1c794ef8277010b9bd76f03c3bdfd60e3fe5a"
@@ -19,7 +19,7 @@ class Openalpr < Formula
   depends_on "libtiff"
   depends_on "log4cplus"
   depends_on "opencv"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "tesseract"
 
   uses_from_macos "curl"
@@ -72,7 +72,7 @@ class Openalpr < Formula
 
     (lib/"python2.7/dist-packages").rmtree
     cd "src/bindings/python" do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system "python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
