@@ -6,6 +6,7 @@ class Dnsviz < Formula
   url "https://files.pythonhosted.org/packages/a5/7c/b38750c866e7e29bc76450c75f61ede6c2560e75cfe36df81e9517612434/dnsviz-0.9.4.tar.gz"
   sha256 "6448d4c6e7c1844aa2a394d60f7cc53721ad985e0e830c30265ef08a74a7aa28"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e70c11a9ccb3daf97c76cab2632520d2abac3678dd5712cba719e67d921e65cb"
@@ -19,7 +20,7 @@ class Dnsviz < Formula
   depends_on "bind" => :test
   depends_on "graphviz"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     # Fix build error of m2crypto, see https://github.com/crocs-muni/roca/issues/1#issuecomment-336893096
