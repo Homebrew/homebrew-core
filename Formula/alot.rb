@@ -6,7 +6,7 @@ class Alot < Formula
   url "https://github.com/pazz/alot/archive/0.9.1.tar.gz"
   sha256 "ee2c1ab1b43d022a8fe2078820ed57d8d72aec260a7d750776dac4ee841d1de4"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
   head "https://github.com/pazz/alot.git", branch: "master"
 
   bottle do
@@ -22,7 +22,7 @@ class Alot < Formula
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "wheel" do
     url "https://files.pythonhosted.org/packages/ed/46/e298a50dde405e1c202e316fa6a3015ff9288423661d7ea5e8f22f589071/wheel-0.36.2.tar.gz"
