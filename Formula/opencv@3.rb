@@ -4,6 +4,7 @@ class OpencvAT3 < Formula
   url "https://github.com/opencv/opencv/archive/3.4.15.tar.gz"
   sha256 "b1e8470b18e9e793bf70b4ae051bbc9bf81fa45f8cbfee1e6c88858c90be8ff7"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "30f24b7ae1e2d3f63072e0abd4cd8c110063766abee4ea59eb885eb9a3137e7f"
@@ -27,7 +28,7 @@ class OpencvAT3 < Formula
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "openexr"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "tbb"
 
   resource "contrib" do
@@ -79,7 +80,7 @@ class OpencvAT3 < Formula
       -DWITH_VTK=OFF
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPYTHON3_EXECUTABLE=#{which("python3")}
     ]
 
     if Hardware::CPU.intel?
@@ -113,9 +114,10 @@ class OpencvAT3 < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    py3_version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV["PYTHONPATH"] = lib/"python#{py3_version}/site-packages"
-    output = shell_output(Formula["python@3.9"].opt_bin/"python3 -c 'import cv2; print(cv2.__version__)'")
+    python_f = deps.map(&:to_formula).find { |f| f.name.match?(/^python@3\.\d+$/) }
+    python = python_f.opt_bin/"python3"
+    ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python)
+    output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
   end
 end
