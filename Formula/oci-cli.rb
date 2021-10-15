@@ -6,6 +6,7 @@ class OciCli < Formula
   url "https://files.pythonhosted.org/packages/37/f0/3c97a7bff5b04c9d8108beb0d67c0cc47207eac5209385deaa664b98edea/oci-cli-3.1.2.tar.gz"
   sha256 "69a4ad3b64eefc8cc1675b0032ea89a2dfc24328b770ed4bb8baa4b91b103d26"
   license any_of: ["UPL-1.0", "Apache-2.0"]
+  revision 1
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class OciCli < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "arrow" do
@@ -31,8 +32,8 @@ class OciCli < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz"
-    sha256 "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
+    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
+    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
   end
 
   resource "click" do
