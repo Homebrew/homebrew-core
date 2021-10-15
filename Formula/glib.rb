@@ -6,7 +6,7 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.70/glib-2.70.0.tar.xz"
   sha256 "200d7df811c5ba634afbf109f14bb40ba7fde670e89389885da14e27c0840742"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_big_sur: "981c36728beb66bfbf3aa57d498962a037a4474325692c0e1d627db003b70d4b"
@@ -22,7 +22,7 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "util-linux"
