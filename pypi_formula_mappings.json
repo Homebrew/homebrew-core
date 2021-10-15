@@ -161,6 +161,9 @@
   "mycli": {
     "exclude_packages": ["tabulate"]
   },
+  "nicotine-plus": {
+    "exclude_packages": ["pycairo", "PyGObject"]
+  },
   "nox": {
     "exclude_packages": ["six"]
   },
@@ -174,8 +177,8 @@
     "extra_packages": ["python-heatclient", "python-octaviaclient"],
     "exclude_packages": ["six"]
   },
-  "nicotine-plus": {
-    "exclude_packages": ["pycairo", "PyGObject"]
+  "organize-tool": {
+    "exclude_packages": ["six"]
   },
   "parliament": {
     "exclude_packages": ["six"]
