@@ -4,6 +4,7 @@ class Openimageio < Formula
   url "https://github.com/OpenImageIO/oiio/archive/v2.3.8.0.tar.gz"
   sha256 "0b0495e7c2c5213b1c68e9fd4e89e153355b0f61b244d77c50e7999219b07f44"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
 
   livecheck do
@@ -36,7 +37,7 @@ class Openimageio < Formula
   depends_on "opencolorio"
   depends_on "openexr"
   depends_on "pybind11"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "webp"
 
   def install
@@ -54,14 +55,14 @@ class Openimageio < Formula
     ]
 
     # CMake picks up the system's python shared library, even if we have a brewed one.
-    py3ver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    py3ver = Language::Python.major_minor_version "python3"
     py3prefix = if OS.mac?
-      Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+      Formula["python@#{py3ver}"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
     else
-      Formula["python@3.9"].opt_prefix
+      Formula["python@#{py3ver}"].opt_prefix
     end
 
-    ENV["PYTHONPATH"] = lib/"python#{py3ver}/site-packages"
+    ENV["PYTHONPATH"] = prefix/Language::Python.site_packages("python3")
 
     args << "-DPYTHON_EXECUTABLE=#{py3prefix}/bin/python3"
     args << "-DPYTHON_LIBRARY=#{py3prefix}/lib/#{shared_library("libpython#{py3ver}")}"
@@ -83,6 +84,6 @@ class Openimageio < Formula
       import OpenImageIO
       print(OpenImageIO.VERSION_STRING)
     EOS
-    assert_match version.major_minor_patch.to_s, pipe_output(Formula["python@3.9"].opt_bin/"python3", output, 0)
+    assert_match version.major_minor_patch.to_s, pipe_output(Formula["python@3.10"].opt_bin/"python3", output, 0)
   end
 end
