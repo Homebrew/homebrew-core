@@ -5,6 +5,7 @@ class Libxml2 < Formula
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.12.tar.gz"
   sha256 "c8d6681e38c56f172892c85ddc0852e1fd4b53b4209e7f4ebf17f7e2eae71d92"
   license "MIT"
+  revision 1
 
   livecheck do
     url "http://xmlsoft.org/sources/"
@@ -30,7 +31,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.10" => [:build, :test]
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -67,11 +68,12 @@ class Libxml2 < Formula
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
                             "includes_dir = ['#{include}', '#{sdk_include}',"
-      system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install", "--prefix=#{prefix}"
+      system "python3", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
   test do
+    python3 = Formula["python@3.10"].opt_bin/"python3"
     (testpath/"test.c").write <<~EOS
       #include <libxml/tree.h>
 
@@ -89,8 +91,7 @@ class Libxml2 < Formula
     system ENV.cc, *args
     system "./test"
 
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import libxml2"
+    ENV.prepend_path "PYTHONPATH", prefix/Language::Python.site_packages(python3)
+    system python3, "-c", "import libxml2"
   end
 end
