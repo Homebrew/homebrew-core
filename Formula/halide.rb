@@ -4,7 +4,7 @@ class Halide < Formula
   url "https://github.com/halide/Halide/archive/v12.0.1.tar.gz"
   sha256 "17f7a470c3fcf77205fdcd9d06257f17c1c1a3cda4b8023f56cec160e80bd519"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -22,7 +22,7 @@ class Halide < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "llvm@12"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     mkdir "build" do
