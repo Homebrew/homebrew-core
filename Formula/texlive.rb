@@ -7,6 +7,7 @@ class Texlive < Formula
   url "https://github.com/TeX-Live/texlive-source/archive/refs/tags/svn58837.tar.gz"
   sha256 "0afa6919e44675b7afe0fa45344747afef07b6ee98eeb14ff6a2ef78f458fc12"
   license :public_domain
+  revision 1
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -43,7 +44,7 @@ class Texlive < Formula
   depends_on "pixman"
   depends_on "potrace"
   depends_on "pstoedit"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "icu4c"
   uses_from_macos "ncurses"
