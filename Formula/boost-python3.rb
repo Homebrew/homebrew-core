@@ -4,6 +4,7 @@ class BoostPython3 < Formula
   url "https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2"
   sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -20,7 +21,13 @@ class BoostPython3 < Formula
 
   depends_on "numpy" => :build
   depends_on "boost"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+
+  def python_dep
+    deps.reject(&:build?)
+        .map(&:to_formula)
+        .find { |f| f.name.match?(/^python@3\.\d+$/) }
+  end
 
   def install
     # "layout" should be synchronized with boost
@@ -44,9 +51,12 @@ class BoostPython3 < Formula
     # user-config.jam below.
     inreplace "bootstrap.sh", "using python", "#using python"
 
-    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
-    py_prefix = Formula["python@3.9"].opt_prefix if OS.linux?
+    pyver = Language::Python.major_minor_version python_dep.opt_bin/"python3"
+    py_prefix = if OS.mac?
+      python_dep.opt_frameworks/"Python.framework/Versions"/pyver
+    else
+      python_dep.opt_prefix
+    end
 
     # Force boost to compile with the desired compiler
     compiler_text = if OS.mac?
@@ -91,9 +101,9 @@ class BoostPython3 < Formula
       }
     EOS
 
-    pyincludes = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --includes").chomp.split
-    pylib = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --ldflags --embed").chomp.split
-    pyver = Language::Python.major_minor_version(Formula["python@3.9"].opt_bin/"python3").to_s.delete(".")
+    pyincludes = shell_output("#{python_dep.opt_bin}/python3-config --includes").chomp.split
+    pylib = shell_output("#{python_dep.opt_bin}/python3-config --ldflags --embed").chomp.split
+    pyver = Language::Python.major_minor_version(python_dep.opt_bin/"python3").to_s.delete(".")
 
     system ENV.cxx, "-shared", "-fPIC", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
@@ -102,6 +112,6 @@ class BoostPython3 < Formula
       import hello
       print(hello.greet())
     EOS
-    assert_match "Hello, world!", pipe_output(Formula["python@3.9"].opt_bin/"python3", output, 0)
+    assert_match "Hello, world!", pipe_output(python_dep.opt_bin/"python3", output, 0)
   end
 end
