@@ -4,6 +4,7 @@ class Fontforge < Formula
   url "https://github.com/fontforge/fontforge/releases/download/20201107/fontforge-20201107.tar.xz"
   sha256 "68bcba8f602819eddc29cd356ee13fafbad7a80d19b652d354c6791343476c78"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -30,7 +31,7 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "readline"
 
   uses_from_macos "libxml2"
@@ -68,7 +69,7 @@ class Fontforge < Formula
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import fontforge; fontforge.font()"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import fontforge; fontforge.font()"
   end
 end
 
