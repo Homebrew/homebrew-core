@@ -4,6 +4,7 @@ class VapoursynthImwri < Formula
   url "https://github.com/vapoursynth/vs-imwri/archive/R1.tar.gz"
   sha256 "6eed24a7fda9e4ff80f5f866fa87a63c5ba9ad600318d05684eec18e40ad931f"
   license "LGPL-2.1-or-later"
+  revision 1
   version_scheme 1
 
   head "https://github.com/vapoursynth/vs-imwri.git", branch: "master"
@@ -47,6 +48,6 @@ class VapoursynthImwri < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "from vapoursynth import core; core.imwri"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "from vapoursynth import core; core.imwri"
   end
 end
