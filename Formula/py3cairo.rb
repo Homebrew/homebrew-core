@@ -4,6 +4,7 @@ class Py3cairo < Formula
   url "https://github.com/pygobject/pycairo/releases/download/v1.20.1/pycairo-1.20.1.tar.gz"
   sha256 "1ee72b035b21a475e1ed648e26541b04e5d7e753d75ca79de8c583b25785531b"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a4b8c6a9079f79e22396249ffbdf9f62f895fa8b7af83e038313f96f0dec2c2d"
@@ -15,13 +16,13 @@ class Py3cairo < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
+    system "python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
-    system Formula["python@3.9"].bin/"python3", "-c", "import cairo; print(cairo.version)"
+    system Formula["python@3.10"].bin/"python3", "-c", "import cairo; print(cairo.version)"
   end
 end
