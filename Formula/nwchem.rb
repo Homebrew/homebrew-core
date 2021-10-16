@@ -5,7 +5,7 @@ class Nwchem < Formula
   version "7.0.2"
   sha256 "d9d19d87e70abf43d61b2d34e60c293371af60d14df4a6333bf40ea63f6dc8ce"
   license "ECL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://github.com/nwchemgit/nwchem.git"
@@ -21,7 +21,7 @@ class Nwchem < Formula
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "openblas"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "scalapack"
 
   def install
