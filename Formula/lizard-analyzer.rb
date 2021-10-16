@@ -6,6 +6,7 @@ class LizardAnalyzer < Formula
   url "https://files.pythonhosted.org/packages/45/16/dbe57aa29fa48eb76ae0b4d25a041cf6e2e2323afda72497429c31a18211/lizard-1.17.9.tar.gz"
   sha256 "76ee0e631d985bea1dd6521a03c6c2fa9dce5a2248b3d26c49890e9e085b7aed"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "765a8533f5c18bc3dbb303f2d467ae8e79b0310181e55ef795211a6d954bd8df"
@@ -15,7 +16,7 @@ class LizardAnalyzer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b601aa4ecc7b34c0a9bb51dccedd7674620dba4fd4582500619148be8ab0c639"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
