@@ -7,6 +7,11 @@ class Abcde < Formula
   revision 1
   head "https://git.einval.com/git/abcde.git", branch: "master"
 
+  livecheck do
+    url "https://abcde.einval.com/download/"
+    regex(/href=.*?abcde[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "4240ff000419b4ca9c0d275d70fccb10255ea17718906768892ba3a2d7ecb444"
     sha256 cellar: :any,                 big_sur:       "c9668232e677e92b51210a0563c2156f030837b1fb221de60d16c83c466620b2"
