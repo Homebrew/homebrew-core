@@ -4,7 +4,7 @@ class Pnpm < Formula
   desc "📦🚀 Fast, disk space efficient package manager"
   homepage "https://pnpm.io/"
   url "https://github.com/pnpm/pnpm/archive/refs/tags/v6.17.1.tar.gz"
-  sha256 "25c691cc2d7e3af7df2f12b152911e64d0db1f63356b7f84fad54c68ea2e0e67"
+  sha256 "c4e4098da8ea271819ef8f06d905cdca18db45d39b1a59e0946511018ed8030d"
   license "MIT"
 
   bottle do
