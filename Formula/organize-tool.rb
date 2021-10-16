@@ -6,6 +6,7 @@ class OrganizeTool < Formula
   url "https://files.pythonhosted.org/packages/a8/f5/8a5c198b6640943b1ee1567751aa2be4473c19dec890fcd3457a4012676c/organize-tool-1.10.1.tar.gz"
   sha256 "c11dd3af2c03132226c218ad661176ef329575bfd324ad7576cd9ab23593cce5"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e60ea32bf5482fe0c5ca74304ea5d9f1872abcdfa221de57be6a7ec99ab4cbd6"
@@ -16,7 +17,7 @@ class OrganizeTool < Formula
 
   depends_on "freetype"
   depends_on "openjpeg"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
