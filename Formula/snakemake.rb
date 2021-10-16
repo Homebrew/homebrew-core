@@ -6,6 +6,7 @@ class Snakemake < Formula
   url "https://files.pythonhosted.org/packages/d4/25/3a3cce415c4745f64525f984685df7decaeb8a94b07b0522f828484a0230/snakemake-6.9.1.tar.gz"
   sha256 "8a8d196324cb93f5516c277360a5b46eee133e81b4eacdd74935212806e61c0f"
   license "MIT"
+  revision 1
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
@@ -17,7 +18,7 @@ class Snakemake < Formula
   end
 
   depends_on "cbc"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
