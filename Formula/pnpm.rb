@@ -24,7 +24,7 @@ class Pnpm < Formula
 
   # Described in https://github.com/pnpm/pnpm#installation
   # Managed by https://github.com/pnpm/get
-  resource "pnpm-buildtime" do
+  resource "pnpm-bootstrap" do
     url "https://get.pnpm.io/v6.14.js"
     sha256 "c80817f1dac65ee497fc8ca0b533e497aacfbf951a917ff4652825710bbacda7"
   end
@@ -34,13 +34,13 @@ class Pnpm < Formula
     (prefix/"etc/npmrc").atomic_write "global-bin-dir = ${HOME}/Library/pnpm\n" if OS.mac?
     (prefix/"etc/npmrc").atomic_write "global-bin-dir = ${HOME}/.local/pnpm\n" if OS.linux?
 
-    buildtime_bin = buildpath/"buildtime-bin"
-    resource("pnpm-buildtime").stage do |r|
-      buildtime_bin.install "v#{r.version}.js"
-      (buildtime_bin/"pnpm").write_env_script Formula["node"].bin/"node", buildpath/"buildtime-bin/v#{r.version}.js", {}
-      chmod 0755, buildtime_bin/"pnpm"
+    bootstrap_bin = buildpath/"buildtime-bin"
+    resource("pnpm-bootstrap").stage do |r|
+      bootstrap_bin.install "v#{r.version}.js"
+      (bootstrap_bin/"pnpm").write_env_script Formula["node"].bin/"node", buildpath/"buildtime-bin/v#{r.version}.js", {}
+      chmod 0755, bootstrap_bin/"pnpm"
     end
-    ENV.prepend_path "PATH", buildtime_bin
+    ENV.prepend_path "PATH", bootstrap_bin
     system "pnpm", "install"
     cd "packages/pnpm" do
       system "pnpm", "run", "compile"
@@ -52,22 +52,29 @@ class Pnpm < Formula
   end
 
   def post_install
-    if OS.linux?
-      executable = bin/"pnpm"
-      unless (system_command executable).success?
-        default_interpreter_size = 27 # /lib64/ld-linux-x86-64.so.2
-        return if executable.interpreter.size <= default_interpreter_size
+    return unless OS.linux?
 
-        offset = PatchELF::Helper::PAGE_SIZE
-        binary = IO.binread executable
-        binary.sub!(/(?<=PAYLOAD_POSITION = ')((\d+) *)(?=')/) do
-          (Regexp.last_match(2).to_i + offset).to_s.ljust(Regexp.last_match(1).size)
-        end
-        binary.sub!(/(?<=PRELUDE_POSITION = ')((\d+) *)(?=')/) do
-          (Regexp.last_match(2).to_i + offset).to_s.ljust(Regexp.last_match(1).size)
-        end
-        executable.atomic_write binary
+    # Linuxbrew patches the ELF header when a binary is installed from bottle.
+    # Patching would change the position of JavaScript code embedded in the binary.
+    # Changing position results in the binary not being executable.
+    # Recalculating the offset will resolve this issue.
+    #
+    # Refer to https://github.com/vercel/pkg/issues/321
+    # Also to https://github.com/NixOS/nixpkgs/pull/48193/files
+    executable = bin/"pnpm"
+    unless (system_command executable).success?
+      default_interpreter_size = 27 # /lib64/ld-linux-x86-64.so.2
+      return if executable.interpreter.size <= default_interpreter_size
+
+      offset = PatchELF::Helper::PAGE_SIZE
+      binary = IO.binread executable
+      binary.sub!(/(?<=PAYLOAD_POSITION = ')((\d+) *)(?=')/) do
+        (Regexp.last_match(2).to_i + offset).to_s.ljust(Regexp.last_match(1).size)
       end
+      binary.sub!(/(?<=PRELUDE_POSITION = ')((\d+) *)(?=')/) do
+        (Regexp.last_match(2).to_i + offset).to_s.ljust(Regexp.last_match(1).size)
+      end
+      executable.atomic_write binary
     end
   end
 
