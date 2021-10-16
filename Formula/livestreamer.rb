@@ -5,7 +5,8 @@ class Livestreamer < Formula
   homepage "https://livestreamer.io/"
   url "https://files.pythonhosted.org/packages/ee/d6/efbe3456160a2c62e3dd841c5d9504d071c94449a819148bb038b50d862a/livestreamer-1.12.2.tar.gz"
   sha256 "ef3e743d0cabc27d8ad906c356e74370799e25ba46c94d3b8d585af77a258de0"
-  revision 3
+  license "BSD-2-Clause"
+  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "737283439fdddac90ef1240a125883d41e14f39fdb32c03f561f8de5bfcac294"
@@ -16,7 +17,7 @@ class Livestreamer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccf81deb5267b33afa7ca6d0b76bb77650aa09d4a5ac45bf23e9d9ed2c507900"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
