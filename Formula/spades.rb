@@ -7,6 +7,7 @@ class Spades < Formula
   mirror "https://github.com/ablab/spades/releases/download/v3.15.3/SPAdes-3.15.3.tar.gz"
   sha256 "b2e5a9fd7a65aee5ab886222d6af4f7b7bc7f755da7a03941571fabd6b9e1499"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://cab.spbu.ru/files/?C=M&O=D"
@@ -21,7 +22,7 @@ class Spades < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
