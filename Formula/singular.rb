@@ -4,6 +4,7 @@ class Singular < Formula
   url "https://service.mathematik.uni-kl.de/ftp/pub/Math/Singular/src/4-2-1/singular-4.2.1.tar.gz"
   sha256 "28a56df84f85b116e0068ffecf92fbe08fc27bd4c5ba902997f1a367db0bfe8d"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "572bb81755f0b7af0657d97a1dab4f34e76f9d56950345aa6be711c139abea68"
@@ -24,7 +25,7 @@ class Singular < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ntl"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     system "./autogen.sh" if build.head?
@@ -32,7 +33,7 @@ class Singular < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-python=#{Formula["python@3.9"].opt_bin}/python3",
+                          "--with-python=#{Formula["python@3.10"].opt_bin}/python3",
                           "CXXFLAGS=-std=c++11"
     system "make", "install"
   end
