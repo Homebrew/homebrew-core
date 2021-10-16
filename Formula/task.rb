@@ -1,11 +1,10 @@
 class Task < Formula
   desc "Feature-rich console based todo list manager"
   homepage "https://taskwarrior.org/"
-  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v2.5.3/task-2.5.3.tar.gz"
-  sha256 "7243d75e0911d9e2c9119ad94a61a87f041e4053e197f7280c42410aa1ee963b"
+  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v2.6.0/task-2.6.0.tar.gz"
+  sha256 "3d0b445d45ffc578c3fefadc82501e35de898d09e8cd7460709077751e55b9c5"
   license "MIT"
-  revision 1
-  head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "2.6.0"
+  head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "develop"
 
   livecheck do
     url :stable
@@ -24,10 +23,13 @@ class Task < Formula
   depends_on "gnutls"
 
   on_linux do
+    depends_on "gcc"
     depends_on "linux-headers@4.4"
     depends_on "readline"
     depends_on "util-linux"
   end
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", ".", *std_cmake_args
