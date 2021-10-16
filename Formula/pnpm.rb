@@ -34,10 +34,10 @@ class Pnpm < Formula
     (prefix/"etc/npmrc").atomic_write "global-bin-dir = ${HOME}/Library/pnpm\n" if OS.mac?
     (prefix/"etc/npmrc").atomic_write "global-bin-dir = ${HOME}/.local/pnpm\n" if OS.linux?
 
-    bootstrap_bin = buildpath/"buildtime-bin"
+    bootstrap_bin = buildpath/"bootstrap"
     resource("pnpm-bootstrap").stage do |r|
       bootstrap_bin.install "v#{r.version}.js"
-      (bootstrap_bin/"pnpm").write_env_script Formula["node"].bin/"node", buildpath/"buildtime-bin/v#{r.version}.js", {}
+      (bootstrap_bin/"pnpm").write_env_script Formula["node"].bin/"node", buildpath/"bootstrap/v#{r.version}.js", {}
       chmod 0755, bootstrap_bin/"pnpm"
     end
     ENV.prepend_path "PATH", bootstrap_bin
@@ -67,7 +67,7 @@ class Pnpm < Formula
       return if executable.interpreter.size <= default_interpreter_size
 
       offset = PatchELF::Helper::PAGE_SIZE
-      binary = IO.binread executable
+      binary = File.binread executable
       binary.sub!(/(?<=PAYLOAD_POSITION = ')((\d+) *)(?=')/) do
         (Regexp.last_match(2).to_i + offset).to_s.ljust(Regexp.last_match(1).size)
       end
