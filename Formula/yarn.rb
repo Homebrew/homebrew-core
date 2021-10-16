@@ -1,8 +1,8 @@
 class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
-  url "https://yarnpkg.com/downloads/1.22.15/yarn-v1.22.15.tar.gz"
-  sha256 "0c2841b9423f0fb9657ae6b18873f39551396ec242bfb882b11bed9e4648235e"
+  url "https://yarnpkg.com/downloads/1.22.17/yarn-v1.22.17.tar.gz"
+  sha256 "267982c61119a055ba2b23d9cf90b02d3d16c202c03cb0c3a53b9633eae37249"
   license "BSD-2-Clause"
 
   livecheck do
