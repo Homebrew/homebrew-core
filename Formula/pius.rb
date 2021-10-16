@@ -5,8 +5,8 @@ class Pius < Formula
   homepage "https://www.phildev.net/pius/"
   url "https://github.com/jaymzh/pius/archive/v3.0.0.tar.gz"
   sha256 "3454ade5540687caf6d8b271dd18eb773a57ab4f5503fc71b4769cc3c5f2b572"
-  license "GPL-2.0"
-  revision 2
+  license "GPL-2.0-only"
+  revision 3
   head "https://github.com/jaymzh/pius.git", branch: "master"
 
   bottle do
@@ -19,7 +19,7 @@ class Pius < Formula
   end
 
   depends_on "gnupg"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     # Replace hardcoded gpg path (WONTFIX)
