@@ -42,7 +42,7 @@ class Pnpm < Formula
     end
     ENV.prepend_path "PATH", buildtime_bin
     system "pnpm", "install"
-    chdir "packages/pnpm" do
+    cd "packages/pnpm" do
       system "pnpm", "run", "compile"
     end
     chdir "packages/beta" do
