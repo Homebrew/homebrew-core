@@ -18,15 +18,16 @@ class Yarn < Formula
   conflicts_with "hadoop", because: "both install `yarn` binaries"
 
   def install
-    libexec.install Dir["*"]
-    (bin/"yarn").write_env_script "#{libexec}/bin/yarn.js",
-      PREFIX:            HOMEBREW_PREFIX,
-      NPM_CONFIG_PYTHON: "/usr/bin/python"
-    (bin/"yarnpkg").write_env_script "#{libexec}/bin/yarn.js",
-      PREFIX:            HOMEBREW_PREFIX,
-      NPM_CONFIG_PYTHON: "/usr/bin/python"
-    inreplace "#{libexec}/lib/cli.js", "/usr/local", HOMEBREW_PREFIX
-    inreplace "#{libexec}/package.json", '"installationMethod": "tar"', '"installationMethod": "homebrew"'
+    libexec.install buildpath.glob("*")
+    (bin/"yarn").write_env_script libexec/"bin/yarn.js",
+                                  PREFIX:            HOMEBREW_PREFIX,
+                                  NPM_CONFIG_PYTHON: which("python3")
+    (bin/"yarnpkg").write_env_script libexec/"bin/yarn.js",
+                                      PREFIX:            HOMEBREW_PREFIX,
+                                      NPM_CONFIG_PYTHON: which("python3")
+    inreplace libexec/"lib/cli.js", "/usr/local", HOMEBREW_PREFIX
+    inreplace libexec/"package.json", '"installationMethod": "tar"',
+                                      "\"installationMethod\": \"#{tap.user.downcase}\""
   end
 
   test do
