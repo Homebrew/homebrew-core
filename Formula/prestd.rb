@@ -28,6 +28,18 @@ class Prestd < Formula
   end
 
   test do
+    (testpath/"prest.toml").write <<~EOS
+      [jwt]
+      default = false
+
+      [pg]
+      host = "127.0.0.1"
+      user = "prest"
+      pass = "prest"
+      port = 5432
+      database = "prest"
+    EOS
+
     output = shell_output("prestd migrate up --path .", 255)
     assert_match "connect: connection refused", output
 
