@@ -3,8 +3,8 @@ class Pastebinit < Formula
   homepage "https://launchpad.net/pastebinit"
   url "https://launchpad.net/pastebinit/trunk/1.5/+download/pastebinit-1.5.tar.gz"
   sha256 "0d931dddb3744ed38aa2d319dd2d8a2f38a391011ff99db68ce7c83ab8f5b62f"
-  license "GPL-2.0"
-  revision 3
+  license "GPL-2.0-or-later"
+  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "90c20fef3e5c3e0944fadf42e45692288edb5e5ee241a4d936fe509c2e8ec16d"
@@ -16,7 +16,7 @@ class Pastebinit < Formula
   end
 
   depends_on "docbook2x" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # Remove for next release
   patch do
@@ -26,7 +26,7 @@ class Pastebinit < Formula
 
   def install
     inreplace "pastebinit" do |s|
-      s.gsub! "/usr/bin/python3", Formula["python@3.9"].opt_bin/"python3"
+      s.gsub! "/usr/bin/python3", Formula["python@3.10"].opt_bin/"python3"
       s.gsub! "/usr/local/etc/pastebin.d", etc/"pastebin.d"
     end
 
