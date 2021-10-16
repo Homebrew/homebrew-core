@@ -3,10 +3,9 @@ require "language/node"
 class ProtocGenGrpcWeb < Formula
   desc "Protoc plugin that generates code for gRPC-Web clients"
   homepage "https://github.com/grpc/grpc-web"
-  url "https://github.com/grpc/grpc-web/archive/1.2.1.tar.gz"
-  sha256 "23cf98fbcb69743b8ba036728b56dfafb9e16b887a9735c12eafa7669862ec7b"
+  url "https://github.com/grpc/grpc-web/archive/1.3.0.tar.gz"
+  sha256 "6ba86d2833ad0ed5e98308790bea4ad81214e1f4fc8838fe34c2e5ee053b73e6"
   license "Apache-2.0"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "8625843e386cf1aec90d4f750ad1480586f10e90fa5f8d2092037b92583379d3"
@@ -23,8 +22,7 @@ class ProtocGenGrpcWeb < Formula
 
   def install
     bin.mkpath
-    inreplace "javascript/net/grpc/web/Makefile", "/usr/local/bin/", "#{bin}/"
-    system "make", "install-plugin"
+    system "make", "install-plugin", "PREFIX=#{prefix}"
   end
 
   test do
