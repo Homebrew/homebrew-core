@@ -3,14 +3,9 @@ class Pnpm < Formula
 
   desc "📦🚀 Fast, disk space efficient package manager"
   homepage "https://pnpm.io/"
-  url "https://github.com/pnpm/pnpm/archive/refs/tags/v6.15.1.tar.gz"
+  url "https://github.com/pnpm/pnpm/archive/refs/tags/v6.17.1.tar.gz"
   sha256 "25c691cc2d7e3af7df2f12b152911e64d0db1f63356b7f84fad54c68ea2e0e67"
   license "MIT"
-
-  livecheck do
-    url "https://registry.npmjs.org/pnpm/latest"
-    regex(/["']version["']:\s*?["']([^"']+)["']/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e0d669c48801ee9a3f0a49d99f81f2a50dcd1e879526b77a1367c1ae6daa9811"
@@ -45,7 +40,7 @@ class Pnpm < Formula
     cd "packages/pnpm" do
       system "pnpm", "run", "compile"
     end
-    chdir "packages/beta" do
+    cd "packages/exe" do
       system "node_modules/.bin/pkg", "--target=host", "../pnpm/dist/pnpm.cjs"
       bin.install "pnpm"
     end
