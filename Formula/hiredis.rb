@@ -1,8 +1,8 @@
 class Hiredis < Formula
   desc "Minimalistic client for Redis"
   homepage "https://github.com/redis/hiredis"
-  url "https://github.com/redis/hiredis/archive/v1.0.0.tar.gz"
-  sha256 "2a0b5fe5119ec973a0c1966bfc4bd7ed39dbce1cb6d749064af9121fe971936f"
+  url "https://github.com/redis/hiredis/archive/v1.0.2.tar.gz"
+  sha256 "e0ab696e2f07deb4252dda45b703d09854e53b9703c7d52182ce5a22616c3819"
   license "BSD-3-Clause"
   head "https://github.com/redis/hiredis.git"
 
