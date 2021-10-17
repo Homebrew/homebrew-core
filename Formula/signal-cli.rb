@@ -58,10 +58,16 @@ class SignalCli < Formula
           system "zip", "-u", libsignal_client_jar, shared_library("libsignal_jni")
         end
       end
+
+      buildpath.install "rust-toolchain"
     end
 
     resource("libzkgroup").stage do |r|
       # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libzkgroup
+
+      # Use same version of rust as `libsignal-client`
+      Pathname.pwd.install buildpath/"rust-toolchain"
+      (Pathname.pwd/"rust-toolchain.toml").unlink
 
       zkgroup_jar = libexec/"lib/zkgroup-java-#{r.version}.jar"
       # rm originally-embedded libzkgroup library
