@@ -1,8 +1,8 @@
 class AtSpi2Atk < Formula
   desc "Accessibility Toolkit GTK+ module"
   homepage "https://www.freedesktop.org/wiki/Accessibility/AT-SPI2"
-  url "https://download.gnome.org/sources/at-spi2-atk/2.34/at-spi2-atk-2.34.2.tar.xz"
-  sha256 "901323cee0eef05c01ec4dee06c701aeeca81a314a7d60216fa363005e27f4f0"
+  url "https://download.gnome.org/sources/at-spi2-atk/2.38/at-spi2-atk-2.38.0.tar.xz"
+  sha256 "cfa008a5af822b36ae6287f18182c40c91dd699c55faa38605881ed175ca464f"
   license "LGPL-2.1-or-later"
 
   bottle do
