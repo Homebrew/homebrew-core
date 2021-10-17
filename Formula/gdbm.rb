@@ -15,6 +15,8 @@ class Gdbm < Formula
     sha256               x86_64_linux:  "9be34c0de7f42af7b6837a3d0e13bb6e0857bdee1e1e6020b805365c8b41070f"
   end
 
+  depends_on "texinfo" => :build
+
   # Fix build failure on macOS. Merged upstream as
   # https://git.gnu.org.ua/gdbm.git/commit/?id=32517af75ac8c32b3ff4870e14ff28418696c554
   patch :p0 do
