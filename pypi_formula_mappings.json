@@ -232,7 +232,12 @@
     "exclude_packages": ["six"]
   },
   "robot-framework": {
-    "extra_packages": ["robotframework-archivelibrary", "robotframework-selenium2library", "robotframework-sshlibrary"]
+    "exclude_packages": ["selenium", "six"],
+    "extra_packages": [
+      "robotframework-archivelibrary",
+      "robotframework-selenium2library",
+      "robotframework-sshlibrary"
+    ]
   },
   "s3cmd": {
     "exclude_packages": ["six"]
