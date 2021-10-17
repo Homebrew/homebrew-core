@@ -10,6 +10,7 @@ class Paket < Formula
   end
 
   depends_on arch: :x86_64 # mono is not yet supported on ARM
+  depends_on :macos # mono not yet supported on linux
   depends_on "mono"
 
   def install
