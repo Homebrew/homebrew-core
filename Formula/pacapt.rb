@@ -1,8 +1,8 @@
 class Pacapt < Formula
   desc "Package manager in the style of Arch's pacman"
   homepage "https://github.com/icy/pacapt"
-  url "https://github.com/icy/pacapt/archive/v3.0.4.tar.gz"
-  sha256 "3f62e211fcabfe951a1369bef684996fda65faceafcd2ceeb4b738cf43622c4d"
+  url "https://github.com/icy/pacapt/archive/v3.0.5.tar.gz"
+  sha256 "c68cd6b8367934f58ab06a131dfbc91ab12ada2baee92ad4246b56729e9cad8d"
   license "Fair"
 
   bottle do
