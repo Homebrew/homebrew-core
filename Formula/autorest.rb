@@ -12,6 +12,7 @@ class Autorest < Formula
   end
 
   depends_on arch: :x86_64
+  depends_on :macos # test fails on Linux
   depends_on "node"
 
   resource "homebrew-petstore" do
