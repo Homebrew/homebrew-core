@@ -24,8 +24,8 @@ class SignalCli < Formula
   resource "libsignal-client" do
     # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libsignal-client
     # we want the specific libsignal-client version from 'signal-cli-0.9.1/lib/signal-client-XXXX-X.X.X.jar'
-    url "https://github.com/signalapp/libsignal-client/archive/v0.9.1.tar.gz"
-    sha256 "885e2a7be072ccc75588cf64b9cda20ed4df4987db7e4cf09fb4aff548abb3a4"
+    url "https://github.com/signalapp/libsignal-client/archive/v0.9.6.tar.gz"
+    sha256 "1b2e9fce3397e6e3b3d9d997144c1da77d29c144680de71dfa5d2099ecc4c00b"
   end
 
   resource "libzkgroup" do
@@ -60,17 +60,12 @@ class SignalCli < Formula
       end
     end
 
-    resource("libzkgroup").stage do
+    resource("libzkgroup").stage do |r|
       # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libzkgroup
 
-      zkgroup_jar = Dir[libexec/"lib/zkgroup-java-*.jar"].first
+      zkgroup_jar = libexec/"lib/zkgroup-java-#{r.version}.jar"
       # rm originally-embedded libzkgroup library
-      system "zip", "-d", zkgroup_jar, "libzkgroup.so"
-
-      # https://github.com/Homebrew/homebrew-core/pull/83322#issuecomment-918945146
-      # this fix is needed until signal-cli updates to zkgroup v0.7.3
-      # use the same version of the rust-toolchain used in libsignal-client
-      inreplace "rust-toolchain", "1.41.1", "nightly-2021-06-08" if Hardware::CPU.arm?
+      system "zip", "-d", zkgroup_jar, "libzkgroup.so", "libzkgroup.dylib"
 
       # build & embed library for current platform
       target = if OS.mac? && !Hardware::CPU.arm?
