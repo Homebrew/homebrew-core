@@ -47,8 +47,9 @@ class Enzyme < Formula
 
     system ENV.cc, testpath/"test.c", "-S", "-emit-llvm", "-o", "input.ll", "-O2",
                    "-fno-vectorize", "-fno-slp-vectorize", "-fno-unroll-loops"
-    system opt, "input.ll", "-load=#{opt_lib/shared_library("LLVMEnzyme-#{llvm.version.major}")}",
-                "-enzyme", "-o", "output.ll", "-S"
+    system opt, "input.ll", "--enable-new-pm=0",
+                "-load=#{opt_lib/shared_library("LLVMEnzyme-#{llvm.version.major}")}",
+                "--enzyme-attributor=0", "-enzyme", "-o", "output.ll", "-S"
     system ENV.cc, "output.ll", "-O3", "-o", "test"
 
     assert_equal "square(21)=441, dsquare(21)=42\n", shell_output("./test")
