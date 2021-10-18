@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/cd/ca/7fc44a42c4a2d78991a9a81c21811bc9d6694a126d1ccd7981364d28629f/checkov-2.0.480.tar.gz"
-  sha256 "6893d7a0467c8357a8cf45cc0a23ff5c9c53855ee9414e282c2e8f1149dd03b4"
+  url "https://files.pythonhosted.org/packages/ee/d4/e6677edc27a2962a8997fac2de85b281cc79171c3ec6567d8538eb3c9400/checkov-2.0.495.tar.gz"
+  sha256 "23cd6bf010a0441a026ce3360de283aea37e15c397542aa8b65f49b9b045d18f"
   license "Apache-2.0"
 
   bottle do
@@ -56,13 +56,13 @@ class Checkov < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
-    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/d2/be/7a8b32b295aedc3e92494f9a4ac919d394bc04ac9822042953d6f54c2a50/click-8.0.2.tar.gz"
-    sha256 "7027bc7bbafaab8b2c2816861d8eb372429ee3c02e193fc2f93d6c4ab9de49c5"
+    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
+    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
   end
 
   resource "click-option-group" do
@@ -71,8 +71,8 @@ class Checkov < Formula
   end
 
   resource "cloudsplaining" do
-    url "https://files.pythonhosted.org/packages/8d/fd/01df34dd3d6d23d48862398efcad03164c5275b746eab0d03ef1396c1959/cloudsplaining-0.4.5.tar.gz"
-    sha256 "45c3e825ca1770902d58b79774729a7d11581e7d041272d3ed45d88fb1b69a42"
+    url "https://files.pythonhosted.org/packages/94/67/4c46cadb23ba161ee9db0aece63b58f100fcf2e2ce6912fcd7d85618d833/cloudsplaining-0.4.6.tar.gz"
+    sha256 "d91dc996033edf712c2695c009fe72ba0ce8f4f211613b42ff085e12612e32ac"
   end
 
   resource "colorama" do
@@ -88,6 +88,11 @@ class Checkov < Formula
   resource "contextlib2" do
     url "https://files.pythonhosted.org/packages/c7/13/37ea7805ae3057992e96ecb1cffa2fa35c2ef4498543b846f90dd2348d8f/contextlib2-21.6.0.tar.gz"
     sha256 "ab1e2bfe1d01d968e1b7e8d9023bc51ef3509bba217bb730cee3827e1ee82869"
+  end
+
+  resource "cyclonedx-python-lib" do
+    url "https://files.pythonhosted.org/packages/0e/f2/76b2bbcd59648b7ac633f7d79d00c2354a788257ff459faf1662b06b44b6/cyclonedx-python-lib-0.8.3.tar.gz"
+    sha256 "92523126cfe4c3a46517767730f82c7ce7a38c2f882ee0832cc113cd0c625247"
   end
 
   resource "deep_merge" do
@@ -126,8 +131,13 @@ class Checkov < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
-    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+  end
+
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/f0/70/ca3dd67cdd368b957e73a8156f7e1a10339f9813e314cb8b4549526070da/importlib_metadata-4.8.1.tar.gz"
+    sha256 "f284b3e11256ad1e5d03ab86bb2ccd6f5339688ff17a4d797a0fe7df326f23b1"
   end
 
   resource "Jinja2" do
@@ -165,6 +175,11 @@ class Checkov < Formula
     sha256 "c0946ed31d71f1b732b5aaa6da5a0388a345019af232ce2f49c766e2d6795c51"
   end
 
+  resource "packageurl-python" do
+    url "https://files.pythonhosted.org/packages/4b/39/e7665859ad2271aabc489f19df2afff3112e93398bf33fc1d062df41721b/packageurl-python-0.9.6.tar.gz"
+    sha256 "c01fbaf62ad2eb791e97158d1f30349e830bee2dd3e9503a87f6c3ffae8d1cf0"
+  end
+
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
     sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
@@ -191,13 +206,18 @@ class Checkov < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   resource "requests" do
     url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
     sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
+  end
+
+  resource "requirements-parser" do
+    url "https://files.pythonhosted.org/packages/03/80/eb6ba1dd0429089436e90e556db50884ea21da060b10f2e5668c4cac99da/requirements-parser-0.2.0.tar.gz"
+    sha256 "5963ee895c2d05ae9f58d3fc641082fb38021618979d6a152b6b1398bd7d4ed4"
   end
 
   resource "s3transfer" do
@@ -230,6 +250,11 @@ class Checkov < Formula
     sha256 "1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"
   end
 
+  resource "toml" do
+    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
+    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
+  end
+
   resource "tqdm" do
     url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
     sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
@@ -253,6 +278,11 @@ class Checkov < Formula
   resource "websocket-client" do
     url "https://files.pythonhosted.org/packages/4e/8f/b5c45af5a1def38b07c09a616be932ad49c35ebdc5e3cbf93966d7ed9750/websocket-client-1.2.1.tar.gz"
     sha256 "8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d"
+  end
+
+  resource "zipp" do
+    url "https://files.pythonhosted.org/packages/02/bf/0d03dbdedb83afec081fefe86cae3a2447250ef1a81ac601a9a56e785401/zipp-3.6.0.tar.gz"
+    sha256 "71c644c5369f4a6e07636f0aa966270449561fcea2e3d6747b8d23efaa9d7832"
   end
 
   def install
