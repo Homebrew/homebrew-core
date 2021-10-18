@@ -33,7 +33,7 @@ class Omniorb < Formula
     system "make", "install"
 
     resource("bindings").stage do
-      system "./configure", "--prefix=#{prefix}", "PYTHON=python3"
+      system "./configure", "--prefix=#{prefix}", "PYTHON=#{Formula["python@3.9"].opt_bin/"python3"}"
       system "make", "install"
     end
   end
