@@ -1,10 +1,9 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.5-src.tar.bz2"
-  sha256 "c0444fd9873058c1c0d99e13a934e92285cb05992c9968bf523c32bf9bec0a9d"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.6-src.tar.bz2"
+  sha256 "0114473c8c57169cdcab1a69c60ad7fef7089731fdbe6f46af55060b29be41e4"
   license "MIT"
-  revision 1
   head "https://foss.heptapod.net/pypy/pypy", using: :hg
 
   livecheck do
@@ -64,8 +63,6 @@ class Pypy < Formula
   #   When tcl-tk is not found, it uses unversioned `-ltcl -ltk`, which breaks build.
   # - Disable building cffi imports with `--embed-dependencies`, which compiles and
   #   statically links a specific OpenSSL version.
-  # - Add flag `--no-make-portable` to package.py so that we can disable portable build.
-  #   Portable build is default on macOS and copies tcl-tk/sqlite dylibs into bottle.
   patch :DATA
 
   def install
@@ -228,14 +225,3 @@ __END__
                  argv = [filename, '--embed-dependencies']
              else:
                  argv = [filename,]
---- a/pypy/tool/release/package.py
-+++ b/pypy/tool/release/package.py
-@@ -351,7 +351,7 @@ def package(*args, **kwds):
-                         default=(ARCH in ('darwin', 'aarch64', 'x86_64')),
-                         help='whether to embed dependencies in CFFI modules '
-                         '(default on OS X)')
--    parser.add_argument('--make-portable',
-+    parser.add_argument('--make-portable', '--no-make-portable',
-                         dest='make_portable',
-                         action=NegateAction,
-                         default=(ARCH in ('darwin',)),
