@@ -2,8 +2,8 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   url "https://github.com/hrydgard/ppsspp.git",
-      tag:      "v1.12",
-      revision: "076ece8507152a814267ce7e77649673e540afab"
+      tag:      "v1.12.3",
+      revision: "ce0a45cf0fcdd5bebf32208b9998f68dfc1107b7"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
@@ -48,14 +48,11 @@ class Ppsspp < Formula
       end
     end
 
-    # Replace bundled MoltenVK dylib with symlink to Homebrew-managed dylib
-    rm "ext/vulkan/macOS/Frameworks/libMoltenVK.dylib"
-    (buildpath/"ext/vulkan/macOS/Frameworks").install_symlink Formula["molten-vk"].opt_lib/"libMoltenVK.dylib"
-
     mkdir "build" do
       args = std_cmake_args + %w[
         -DUSE_SYSTEM_LIBZIP=ON
         -DUSE_SYSTEM_SNAPPY=ON
+        -DUSE_SYSTEM_LIBSDL2=ON
       ]
 
       system "cmake", "..", *args
