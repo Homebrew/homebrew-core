@@ -13,7 +13,7 @@ class Swiftlint < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "30a53585357da5ada927a71e3ecd03609e6089e8343521e0f8757bcb7f09483f"
   end
 
-  depends_on xcode: ["11.4", :build]
+  depends_on xcode: ["12.5", :build]
   depends_on :macos # Depends on Swift.  May work on Linux once a Swift bottle is available for that OS.
   depends_on xcode: "8.0"
 
