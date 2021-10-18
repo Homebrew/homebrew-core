@@ -325,14 +325,14 @@ class PythonAT310 < Formula
     # have been picked up (and we can't pass --ignore-installed).
     bundled = lib_cellar/"ensurepip/_bundled"
     system bin/"python3", "-m", "pip", "install", "-v",
-            "--no-deps",
-            "--no-index",
-            "--upgrade",
-            "--isolated",
-            "--target=#{site_packages}",
-            bundled/"setuptools-#{resource("setuptools").version}-py3-none-any.whl",
-            bundled/"pip-#{resource("pip").version}-py3-none-any.whl",
-            libexec/"wheel-#{resource("wheel").version}-py2.py3-none-any.whl"
+           "--no-deps",
+           "--no-index",
+           "--upgrade",
+           "--isolated",
+           "--target=#{site_packages}",
+           bundled/"setuptools-#{resource("setuptools").version}-py3-none-any.whl",
+           bundled/"pip-#{resource("pip").version}-py3-none-any.whl",
+           libexec/"wheel-#{resource("wheel").version}-py2.py3-none-any.whl"
 
     # pip install with --target flag will just place the bin folder into the
     # target, so move its contents into the appropriate location
@@ -366,8 +366,8 @@ class PythonAT310 < Formula
           # built only for a specific version of Python and will fail with cryptic error messages.
           # In the end this means: Don't set the PYTHONPATH permanently if you use different Python versions.
           exit('Your PYTHONPATH points to a site-packages dir for Python #{version.major_minor} but you are running Python ' +
-                str(sys.version_info[0]) + '.' + str(sys.version_info[1]) + '!\\n     PYTHONPATH is currently: "' + str(os.environ['PYTHONPATH']) + '"\\n' +
-                '     You should `unset PYTHONPATH` to fix this.')
+               str(sys.version_info[0]) + '.' + str(sys.version_info[1]) + '!\\n     PYTHONPATH is currently: "' + str(os.environ['PYTHONPATH']) + '"\\n' +
+               '     You should `unset PYTHONPATH` to fix this.')
       # Only do this for a brewed python:
       if os.path.realpath(sys.executable).startswith('#{rack}'):
           # Shuffle /Library site-packages to the end of sys.path
@@ -441,7 +441,7 @@ class PythonAT310 < Formula
 
     # tkinter is provided in a separate formula
     assert_match "ModuleNotFoundError: No module named '_tkinter'",
-                  shell_output("#{bin}/python#{version.major_minor} -Sc 'import tkinter' 2>&1", 1)
+                 shell_output("#{bin}/python#{version.major_minor} -Sc 'import tkinter' 2>&1", 1)
 
     # Verify that the selected DBM interface works
     (testpath/"dbm_test.py").write <<~EOS
