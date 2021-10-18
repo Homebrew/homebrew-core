@@ -18,6 +18,8 @@ class PythonTkAT39 < Formula
     sha256               x86_64_linux:   "3901b096d0d66fcd4655544b38bdb446bd1b285ff839a118204af51454f7799b"
   end
 
+  keg_only :versioned_formula
+
   depends_on "python@3.9"
   depends_on "tcl-tk"
 

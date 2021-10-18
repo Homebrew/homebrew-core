@@ -18,8 +18,6 @@ class PythonTkAT310 < Formula
     sha256               x86_64_linux:   "d6da0aab4b89fd738b412609ed09a28c6c253fb848a1b86b02a4ce48c7a2ca21"
   end
 
-  keg_only :versioned_formula
-
   depends_on "python@3.10"
   depends_on "tcl-tk"
 
