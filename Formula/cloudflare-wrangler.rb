@@ -1,8 +1,8 @@
 class CloudflareWrangler < Formula
   desc "CLI tool for Cloudflare Workers"
   homepage "https://github.com/cloudflare/wrangler"
-  url "https://github.com/cloudflare/wrangler/archive/v1.19.3.tar.gz"
-  sha256 "0e1a598c362564395f53d91a1b6225881e55492c3df554475d7d0dbc2a4db06d"
+  url "https://github.com/cloudflare/wrangler/archive/v1.19.4.tar.gz"
+  sha256 "200e5e5d10000fd8a94239f51cf0574d216a91ce849b01b75bd1c64d12ed4f3b"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
