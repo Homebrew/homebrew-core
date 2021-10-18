@@ -4,6 +4,7 @@ class CloudflareWrangler < Formula
   url "https://github.com/cloudflare/wrangler/archive/v1.19.3.tar.gz"
   sha256 "0e1a598c362564395f53d91a1b6225881e55492c3df554475d7d0dbc2a4db06d"
   license any_of: ["Apache-2.0", "MIT"]
+  head "https://github.com/cloudflare/wrangler.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd4f8cb1b47941301023218fb1426ea3d9310ff2e50ae57b1cd7f4ad6a897183"
