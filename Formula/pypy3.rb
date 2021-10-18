@@ -1,10 +1,9 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.7-v7.3.5-src.tar.bz2"
-  sha256 "d920fe409a9ecad9d074aa8568ca5f3ed3581be66f66e5d8988b7ec66e6d99a2"
+  url "https://downloads.python.org/pypy/pypy3.7-v7.3.6-src.tar.bz2"
+  sha256 "9252ccaa130094205b3c7f0a2cad5adc0d9dfba31658ff3172f788dec1fdb348"
   license "MIT"
-  revision 1
   head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.7"
 
   livecheck do
@@ -36,13 +35,13 @@ class Pypy3 < Formula
   uses_from_macos "zlib"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/cf/79/1a19c2f792da00cbead7b6caa176afdddf517522cb9163ce39576025b050/setuptools-57.1.0.tar.gz"
-    sha256 "cfca9c97e7eebbc8abe18d5e5e962a08dcad55bb63afddd82d681de4d22a597b"
+    url "https://files.pythonhosted.org/packages/1e/5c/3d7b3d91a86d71faf5038c5d259ed36b5d05b7804648e2c43251d574a6e6/setuptools-58.2.0.tar.gz"
+    sha256 "2c55bdb85d5bb460bd2e3b12052b677879cffcf46c0c688f2e5bf51d36001145"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/4d/0c/3b63fe024414a8a48661cf04f0993d4b2b8ef92daed45636474c018cd5b7/pip-21.1.3.tar.gz"
-    sha256 "b5b1eb91b36894bd01b8e5a56a422c2f3838573da0b0a1c63a096bb454e3b23f"
+    url "https://files.pythonhosted.org/packages/00/5f/d6959d6f25f202e3e68e3a53b815af42d770c829c19382d0acbf2c3e2112/pip-21.3.tar.gz"
+    sha256 "741a61baab1dbce2d8ca415effa48a2b6a964564f81a9f4f1fce4c433346c034"
   end
 
   # Build fixes:
@@ -50,8 +49,6 @@ class Pypy3 < Formula
   #   When tcl-tk is not found, it uses unversioned `-ltcl -ltk`, which breaks build.
   # - Disable building cffi imports with `--embed-dependencies`, which compiles and
   #   statically links a specific OpenSSL version.
-  # - Add flag `--no-make-portable` to package.py so that we can disable portable build.
-  #   Portable build is default on macOS and copies tcl-tk/sqlite dylibs into bottle.
   # Upstream issue ref: https://foss.heptapod.net/pypy/pypy/-/issues/3538
   patch :DATA
 
@@ -222,14 +219,3 @@ __END__
                  argv = [filename, '--embed-dependencies']
              else:
                  argv = [filename,]
---- a/pypy/tool/release/package.py
-+++ b/pypy/tool/release/package.py
-@@ -358,7 +358,7 @@ def package(*args, **kwds):
-                         default=(ARCH in ('darwin', 'aarch64', 'x86_64')),
-                         help='whether to embed dependencies in CFFI modules '
-                         '(default on OS X)')
--    parser.add_argument('--make-portable',
-+    parser.add_argument('--make-portable', '--no-make-portable',
-                         dest='make_portable',
-                         action=NegateAction,
-                         default=(ARCH in ('darwin',)),
