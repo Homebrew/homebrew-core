@@ -3,10 +3,9 @@ class Asciinema < Formula
 
   desc "Record and share terminal sessions"
   homepage "https://asciinema.org"
-  url "https://files.pythonhosted.org/packages/a7/71/771c859795e02c71c187546f34f7535487b97425bc1dad1e5f6ad2651357/asciinema-2.0.2.tar.gz"
-  sha256 "32f2c1a046564e030708e596f67e0405425d1eca9d5ec83cd917ef8da06bc423"
+  url "https://files.pythonhosted.org/packages/2c/31/492da48c9d7d23cd26f16c8f459aeb443ff056258bed592b5ba28ed271ea/asciinema-2.1.0.tar.gz"
+  sha256 "7bdb358c1f6d61b07169c5476b2f9607ce66da12e78e4c17b7c898d72402cddc"
   license "GPL-3.0"
-  revision 4
   head "https://github.com/asciinema/asciinema.git", branch: "develop"
 
   bottle do
