@@ -1,12 +1,12 @@
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
-  homepage "http://www.crufty.net/help/sjg/bmake.html"
-  url "http://www.crufty.net/ftp/pub/sjg/bmake-20200902.tar.gz"
-  sha256 "082c0442f03f2dbef8c3171000398c1936047aa0d5a2e1efc2c8474d69403bec"
+  homepage "https://www.crufty.net/help/sjg/bmake.html"
+  url "https://www.crufty.net/ftp/pub/sjg/bmake-20211001.tar.gz"
+  sha256 "cad7ef0fb41138050f8932af3a7ade16f7265b3f37ff6356703e0b1ad6542739"
   license "BSD-3-Clause"
 
   livecheck do
-    url "http://www.crufty.net/ftp/pub/sjg/"
+    url "https://www.crufty.net/ftp/pub/sjg/"
     regex(/href=.*?bmake[._-]v?(\d{6,8})\.t/i)
   end
 
@@ -23,7 +23,8 @@ class Bmake < Formula
     inreplace "mk/man.mk", "MANTARGET?", "MANTARGET"
 
     # -DWITHOUT_PROG_LINK means "don't symlink as bmake-VERSION."
-    args = ["--prefix=#{prefix}", "-DWITHOUT_PROG_LINK", "--install"]
+    # shell-ksh test segfaults since macOS 11.
+    args = ["--prefix=#{prefix}", "-DWITHOUT_PROG_LINK", "--install", "BROKEN_TESTS=shell-ksh"]
     system "sh", "boot-strap", *args
 
     man1.install "bmake.1"
