@@ -298,7 +298,12 @@ class Llvm < Formula
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "cmake", "--build", "."
       system "cmake", "--build", ".", "--target", "install"
-      system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
+      if MacOS::Xcode.installed?
+        system "cmake", "--build", ".", "--target", "install-xcode-toolchain"
+        xctoolchain = prefix/"Toolchains/LLVM#{version}.xctoolchain"
+        rm_rf xctoolchain/"usr"
+        xctoolchain.install_symlink prefix => "usr"
+      end
     end
 
     if OS.mac? && !build.head?
