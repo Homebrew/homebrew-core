@@ -2,8 +2,8 @@ class Flux < Formula
   desc "Lightweight scripting language for querying databases"
   homepage "https://www.influxdata.com/products/flux/"
   url "https://github.com/influxdata/flux.git",
-      tag:      "v0.132.0",
-      revision: "8150e039085019023df6898c5a6511c11e55103d"
+      tag:      "v0.139.0",
+      revision: "66bdc617515f68256df2d8ab31e07df7d706bbac"
   license "MIT"
   head "https://github.com/influxdata/flux.git", branch: "master"
 
@@ -25,9 +25,14 @@ class Flux < Formula
   depends_on "go" => :build
   depends_on "rust" => :build
 
+  uses_from_macos "llvm" => :build
+
   on_linux do
     depends_on "pkg-config" => :build
   end
+
+  # Currently requires Clang to build successfully.
+  fails_with :gcc
 
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
