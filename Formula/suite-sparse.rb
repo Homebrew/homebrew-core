@@ -11,6 +11,7 @@ class SuiteSparse < Formula
     "GPL-3.0-only",
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
   ]
+  revision 1
 
   livecheck do
     url :stable
@@ -28,24 +29,24 @@ class SuiteSparse < Formula
   depends_on "cmake" => :build
   depends_on "metis"
   depends_on "openblas"
-  depends_on "tbb"
 
   uses_from_macos "m4"
 
   conflicts_with "mongoose", because: "suite-sparse vendors libmongoose.dylib"
 
   def install
-    mkdir "GraphBLAS/build" do
-      system "cmake", "..", *std_cmake_args
-    end
-
     args = [
       "INSTALL=#{prefix}",
       "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "LAPACK=$(BLAS)",
       "MY_METIS_LIB=-L#{Formula["metis"].opt_lib} -lmetis",
       "MY_METIS_INC=#{Formula["metis"].opt_include}",
+      "CMAKE_OPTIONS=#{std_cmake_args.join(" ")}",
+      "JOBS=#{ENV.make_jobs}",
     ]
+
+    # Parallelism is managed through the `JOBS` make variable and not with `-j`.
+    ENV.deparallelize
     system "make", "library", *args
     system "make", "install", *args
     lib.install Dir["**/*.a"]
