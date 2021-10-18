@@ -4,7 +4,7 @@ class Mpfr < Formula
   url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.1.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.1.0.tar.xz"
   sha256 "0c98a3f1732ff6ca4ea690552079da9c597872d30e96ec28414ee23c95558a7f"
-  license "GPL-3.0"
+  license "LGPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "9df11560dd3650ffae35c134cef6e0e91aad0e862f5c8895c568b828cf0598d5"
@@ -15,9 +15,18 @@ class Mpfr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c5f1cfd038e8fbd640795e34e5e23c11244be3eca7781979600ec0d50bb9c0b"
   end
 
+  head do
+    url "https://gitlab.inria.fr/mpfr/mpfr.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "gmp"
 
   def install
+    system "./autogen.sh" if build.head?
+
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
                           "--disable-silent-rules"
     system "make"
