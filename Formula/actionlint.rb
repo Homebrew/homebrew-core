@@ -4,6 +4,7 @@ class Actionlint < Formula
   url "https://github.com/rhysd/actionlint/archive/v1.6.6.tar.gz"
   sha256 "af5c9e93053c16204d9d92d3dbc7bb3c1cd65f259d294a69e45af45113fd79ad"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "18159c42918a9238bbe984fca3a1e36d57ce3ec4bd31d1b4fb466c84746f2070"
@@ -17,7 +18,7 @@ class Actionlint < Formula
   depends_on "ronn" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/actionlint"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/rhysd/actionlint.version=#{version}"), "./cmd/actionlint"
     system "ronn", "man/actionlint.1.ronn"
     man1.install "man/actionlint.1"
   end
