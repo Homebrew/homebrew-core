@@ -2,8 +2,8 @@ class Bgfx < Formula
   desc "Cross-platform, graphics API agnostic, rendering library"
   homepage "https://github.com/bkaradzic/bgfx"
   url "https://github.com/bkaradzic/bgfx.cmake.git",
-      tag:      "v1.115.7906-fd8982e",
-      revision: "fd8982e40c44851666f925562f253fed859f6776"
+      tag:      "v1.115.7947-b455d69",
+      revision: "b455d69ebc21022f818b8cec712ade6d339922cc"
   license any_of: ["CC0-1.0", "BSD-2-Clause"]
   head "https://github.com/bkaradzic/bgfx.cmake.git", branch: "master"
 
