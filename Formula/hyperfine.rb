@@ -27,6 +27,6 @@ class Hyperfine < Formula
 
   test do
     output = shell_output("#{bin}/hyperfine 'sleep 0.3'")
-    assert_match "Benchmark #1: sleep", output
+    assert_match "Benchmark 1: sleep", output
   end
 end
