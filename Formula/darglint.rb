@@ -3,10 +3,9 @@ class Darglint < Formula
 
   desc "Python docstring argument linter"
   homepage "https://github.com/terrencepreilly/darglint"
-  url "https://files.pythonhosted.org/packages/8d/1a/86f981066bc6f9d90d73da0ce09d2084abf1a0fafa9f28fb5130b7186da2/darglint-1.8.0.tar.gz"
-  sha256 "aa605ef47817a6d14797d32b390466edab621768ea4ca5cc0f3c54f6d8dcaec8"
+  url "https://files.pythonhosted.org/packages/d4/2c/86e8549e349388c18ca8a4ff8661bb5347da550f598656d32a98eaaf91cc/darglint-1.8.1.tar.gz"
+  sha256 "080d5106df149b199822e7ee7deb9c012b49891538f14a11be681044f0bb20da"
   license "MIT"
-  revision 1
   head "https://github.com/terrencepreilly/darglint.git"
 
   bottle do
