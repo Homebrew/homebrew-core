@@ -4,6 +4,7 @@ class ElanInit < Formula
   url "https://github.com/leanprover/elan/archive/v1.1.2.tar.gz"
   sha256 "0b5fbba9645ab53008f5836cb9998bdd4993a55fb5351f1267a3c98189ef2db4"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/leanprover/elan.git"
 
   bottle do
@@ -28,7 +29,7 @@ class ElanInit < Formula
 
     system "cargo", "install", "--features", "no-self-update", *std_cargo_args
 
-    %w[lean leanpkg leanchecker leanc leanmake elan].each do |link|
+    %w[lean leanpkg leanchecker leanc leanmake lake elan].each do |link|
       bin.install_symlink "elan-init" => link
     end
 
