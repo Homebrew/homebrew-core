@@ -30,6 +30,13 @@ class Asciidoc < Formula
     depends_on "xmlto" => :build
   end
 
+  # upstream patch PR, https://github.com/asciidoc-py/asciidoc-py/pull/203
+  # remove in next release
+  patch do
+    url "https://github.com/asciidoc-py/asciidoc-py/commit/1d7aab535d979984165d600df960f857019ca49e.patch?full_index=1"
+    sha256 "989ecc8a470475c7e9426eefd54a236c5bc845c62181bc9f2f7379133904d6a9"
+  end
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
