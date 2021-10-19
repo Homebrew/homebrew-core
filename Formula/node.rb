@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v16.12.0/node-v16.12.0.tar.xz"
-  sha256 "5f620a6a400901a6565aa0c07309cde3aab3dbaa765cecb934241de520d36bac"
+  url "https://nodejs.org/dist/v17.0.1/node-v17.0.1.tar.xz"
+  sha256 "6ec480f872cb7c34877044985e3d7bd89329ace5b8e2ad90b57980601786341c"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
@@ -30,13 +30,19 @@ class Node < Formula
 
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
+  end
+
   on_linux do
     depends_on "gcc"
   end
 
   fails_with :clang do
-    build 1099
-    cause "Node requires Xcode CLT 11+"
+    build 1100
+    cause <<~EOS
+      error: calling a private constructor of class 'v8::internal::(anonymous namespace)::RegExpParserImpl<uint8_t>'
+    EOS
   end
 
   fails_with gcc: "5"
@@ -60,6 +66,9 @@ class Node < Formula
   end
 
   def install
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
@@ -140,6 +149,9 @@ class Node < Formula
   end
 
   test do
+    # Make sure Mojave does not have `CC=llvm_clang`.
+    ENV.clang if OS.mac?
+
     path = testpath/"test.js"
     path.write "console.log('hello');"
 
