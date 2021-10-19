@@ -2,8 +2,9 @@ class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
   license "BSD-3-Clause"
+  revision 1
 
-  # Remove `stable` block when patch is no longer needed
+  # Remove `stable` block next release when patches are no longer needed
   stable do
     url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.38/pcre2-10.38.tar.bz2"
     sha256 "7d95aa7c8a7b0749bf03c4bd73626ab61dece7e3986b5a57f5ec39eebef6b07c"
@@ -13,6 +14,13 @@ class Pcre2 < Formula
     patch do
       url "https://github.com/PhilipHazel/pcre2/commit/51ec2c9893e7dac762b70033b85f55801b01176c.patch?full_index=1"
       sha256 "0e91049d9d2afaff3169ddf8b0d95a9cd968793f2875af8064e0ab572c594007"
+    end
+
+    # enable JIT again in Apple Silicon with 11.2+ (sljit PR zherczeg/sljit#105)
+    patch :p2 do
+      url "https://github.com/zherczeg/sljit/commit/d6a0fa61e09266ad2e36d8ccd56f775e37b749e9.patch?full_index=1"
+      sha256 "8d699f6c8ae085f50cf8823dcfadb8591f7ad8f9aa0db9666bd126bb625d7543"
+      directory "src/sljit"
     end
   end
 
@@ -48,10 +56,8 @@ class Pcre2 < Formula
       --enable-pcre2-32
       --enable-pcre2grep-libz
       --enable-pcre2grep-libbz2
+      --enable-jit
     ]
-
-    # JIT not currently supported for Apple Silicon
-    args << "--enable-jit" unless Hardware::CPU.arm?
 
     system "./autogen.sh" if build.head?
 
