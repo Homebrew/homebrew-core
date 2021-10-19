@@ -18,7 +18,7 @@ class Goproxy < Formula
       server = IO.popen("#{bin}/goproxy -proxy=https://goproxy.io -listen=#{bind_address}")
       sleep 1
       assert_match "",
-                   shell_output("GOPROXY='http://#{bind_address}' go get -v golang.org/x/tools@upgrade")
+                   shell_output("GOPROXY='http://#{bind_address}' go get -v golang.org/x/tools/godoc")
     ensure
       Process.kill("SIGINT", server.pid)
       Process.wait(server.pid)
