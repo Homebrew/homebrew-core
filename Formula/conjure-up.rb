@@ -6,7 +6,7 @@ class ConjureUp < Formula
   url "https://github.com/conjure-up/conjure-up/archive/2.6.14.tar.gz"
   sha256 "c9f115229a305ff40eae051f40db2ca18a3dc2bd377397e22786bba032feb79a"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "3e516b5c4a0d71ed5d32332fc12703605654c93127e45c8754455e84b4cab93e"
@@ -24,7 +24,7 @@ class ConjureUp < Formula
   depends_on "juju-wait"
   depends_on "libyaml"
   depends_on "pwgen"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "redis"
 
   uses_from_macos "libffi"
