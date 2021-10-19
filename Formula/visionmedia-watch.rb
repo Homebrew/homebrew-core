@@ -3,6 +3,7 @@ class VisionmediaWatch < Formula
   homepage "https://github.com/visionmedia/watch"
   url "https://github.com/visionmedia/watch/archive/0.4.0.tar.gz"
   sha256 "d37ead189a644661d219b566170122b80d44f235c0df6df71b2b250f3b412547"
+  license "MIT"
   head "https://github.com/visionmedia/watch.git", branch: "master"
 
   bottle do
