@@ -26,7 +26,7 @@ class Iputils < Formula
   end
 
   test do
-    output = shell_output("#{bin}/ping -v 0.0.0.0 -c 1")
+    output = shell_output("#{bin}/ping -v google.com -c 1")
     assert_match "1 packets transmitted, 1 received", output
   end
 end
