@@ -9,7 +9,7 @@ class Goproxy < Formula
   depends_on "go" => [:build, :test]
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "."
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
