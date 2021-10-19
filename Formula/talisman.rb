@@ -22,7 +22,7 @@ class Talisman < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd"
   end
 
   test do
