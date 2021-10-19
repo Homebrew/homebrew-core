@@ -45,6 +45,13 @@ class Sysdig < Formula
     sha256 "efe287e651a3deea5e87418d39e0fe1e9dc55c6886af4e952468cd64182ee7ef"
   end
 
+  # Fix build with GRPC 1.41. Reported upstream at:
+  # https://github.com/draios/sysdig/issues/1778
+  patch do
+    url "https://raw.githubusercontent.com/archlinux/svntogit-community/d0e6e96ed2f95336d1f75266fcf896034268abe4/trunk/0.27.1-grpc-absl-sync.patch"
+    sha256 "9390c4c2d8aef6110aae63835aab07585bbe9856c820020750e0ba678e4da653"
+  end
+
   def install
     args = std_cmake_args + %W[
       -DSYSDIG_VERSION=#{version}
@@ -58,23 +65,9 @@ class Sysdig < Formula
       args << "-DUSE_BUNDLED_#{dep}=OFF"
     end
 
-    if OS.linux?
-      # Workaround for:
-      # error adding symbols: DSO missing from command line
-      abseil_libdir = Formula["abseil"].opt_lib
-      ENV.append "LDFLAGS", "-L#{abseil_libdir} -Wl,-rpath,#{abseil_libdir}"
+    # We need C++17 to use Abseil.
+    args += %w[-DBUILD_DRIVER=OFF -DCMAKE_CXX_STANDARD=17] if OS.linux?
 
-      # We need to compile with C++17 to use abseil.
-      args += %w[
-        -DBUILD_DRIVER=OFF
-        -DCMAKE_CXX_STANDARD=17
-      ]
-    end
-
-    # From upstream build instructions:
-    # "Note: Sysdig's build can get confused with GNU make's parallel job option (-j)."
-    # https://github.com/draios/sysdig/wiki/How-to-Install-Sysdig-from-the-Source-Code#linux-and-osx
-    ENV.deparallelize if OS.linux?
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
