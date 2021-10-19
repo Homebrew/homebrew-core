@@ -21,9 +21,7 @@ class Terminalizer < Formula
 
   def install
     node = Formula["node"]
-    if OS.mac?
-      node = Formula["node@14"]
-    end
+    node = Formula["node@14"] if OS.mac?
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     (bin/"terminalizer").write_env_script libexec/"bin/terminalizer", PATH: "#{node.opt_bin}:$PATH"
   end
