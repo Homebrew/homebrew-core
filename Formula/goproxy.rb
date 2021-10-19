@@ -6,7 +6,7 @@ class Goproxy < Formula
   license "MIT"
   head "https://github.com/goproxyio/goproxy.git", branch: "master"
 
-  depends_on "go" => :build
+  depends_on "go" => [:build, :test]
 
   def install
     system "go", "build", *std_go_args, "-ldflags", "-s -w", "."
