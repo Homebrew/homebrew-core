@@ -20,8 +20,12 @@ class Terminalizer < Formula
   fails_with gcc: "5"
 
   def install
-    system "#{Formula["node@14"].bin}/npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"terminalizer").write_env_script libexec/"bin/terminalizer", PATH: "#{Formula["node@14"].opt_bin}:$PATH"
+    node = Formula["node"]
+    if OS.mac?
+      node = Formula["node@14"]
+    end
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    (bin/"terminalizer").write_env_script libexec/"bin/terminalizer", PATH: "#{node.opt_bin}:$PATH"
   end
 
   test do
