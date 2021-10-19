@@ -2,10 +2,9 @@ class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
   # Keep in sync with libnghttp2.
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.45.1/nghttp2-1.45.1.tar.gz"
-  sha256 "2379ebeff7b02e14b9a414551d73540ddce5442bbecda2748417e8505916f3e7"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.46.0/nghttp2-1.46.0.tar.gz"
+  sha256 "4b6d11c85f2638531d1327fe1ed28c1e386144e8841176c04153ed32a4878208"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 arm64_big_sur: "c52a2fc0e1f3f16bf6df5c1007622aefc4fa9dc6fa215445dd136dcfdea887b3"
