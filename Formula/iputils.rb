@@ -1,5 +1,5 @@
 class Iputils < Formula
-  desc "Iputils package is set of small useful utilities for Linux networking"
+  desc "Set of small useful utilities for Linux networking"
   homepage "https://github.com/iputils/iputils"
   url "https://github.com/iputils/iputils/archive/refs/tags/20210202.tar.gz"
   sha256 "3f557ecfd2ace873801231d2c1f42de73ced9fbc1ef3a438d847688b5fb0e8ab"
