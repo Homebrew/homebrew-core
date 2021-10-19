@@ -4,6 +4,7 @@ class Cp2k < Formula
   url "https://github.com/cp2k/cp2k/releases/download/v8.2.0/cp2k-8.2.tar.bz2"
   sha256 "2e24768720efed1a5a4a58e83e2aca502cd8b95544c21695eb0de71ed652f20a"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "1e8685848a4ecfafb4174a5efe06f50d09d40ff15f2be857bcdcd6107537a18b"
@@ -12,7 +13,7 @@ class Cp2k < Formula
     sha256 cellar: :any, mojave:        "595431e7d8e76f526ae482074b49666d2b59e18feef73ed39d59b61bc669b01b"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "libxc"
