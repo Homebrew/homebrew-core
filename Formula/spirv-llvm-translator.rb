@@ -14,7 +14,7 @@ class SpirvLlvmTranslator < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@12"
+  depends_on "llvm"
 
   on_linux do
     depends_on "gcc"
