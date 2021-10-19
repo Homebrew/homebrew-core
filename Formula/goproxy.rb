@@ -4,7 +4,7 @@ class Goproxy < Formula
   url 'https://github.com/goproxyio/goproxy/archive/v2.0.7.tar.gz'
   sha256 'd87f3928467520f8d6b0ba8adcbf5957dc6eb2dc9936249edd6568ceb01a71ca'
   license 'MIT'
-  head 'https://github.com/goproxyio/goproxy.git'
+  head 'https://github.com/goproxyio/goproxy.git', branch: "master"
 
   depends_on 'go' => :build
 
