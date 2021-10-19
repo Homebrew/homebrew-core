@@ -1,8 +1,8 @@
 class Uptimed < Formula
   desc "Utility to track your highest uptimes"
   homepage "https://github.com/rpodgorny/uptimed/"
-  url "https://github.com/rpodgorny/uptimed/archive/v0.4.4.tar.gz"
-  sha256 "041f59710c316c68907e9bd07db2606f3dc16bee908b5644715ff2be30c59453"
+  url "https://github.com/rpodgorny/uptimed/archive/v0.4.5.tar.gz"
+  sha256 "a70806104079bb8b732c5125b63ccf4f62079b9542c01b2a6dc67c50abae123c"
   license "GPL-2.0-only"
 
   bottle do
