@@ -12,13 +12,17 @@ class Terminalizer < Formula
     url :stable
   end
 
-  depends_on "node" if OS.linux?
-  depends_on "node@14" if OS.mac?
-  depends_on "python@3.9"
   depends_on "gcc"
+  depends_on "python@3.9"
+  on_macos do
+    depends_on "node@14"
+  end
+  on_linux do
+    depends_on "node"
+  end
 
   def install
-    on_linux do
+    if OS.linux?
       gcc_major_ver = Formula["gcc"].any_installed_version.major
       ENV["CC"] = Formula["gcc"].opt_bin / "gcc-#{gcc_major_ver}"
       ENV["CXX"] = Formula["gcc"].opt_bin / "g++-#{gcc_major_ver}"
@@ -31,7 +35,7 @@ class Terminalizer < Formula
 
   test do
     output = shell_output("#{bin}/terminalizer --version")
-    assert_match "#{version}", output.strip
+    assert_match version.to_s, output.strip
 
     output = shell_output("#{bin}/terminalizer config")
     assert_match "config.yml", output.strip
