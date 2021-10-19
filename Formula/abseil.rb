@@ -4,6 +4,7 @@ class Abseil < Formula
   url "https://github.com/abseil/abseil-cpp/archive/20210324.2.tar.gz"
   sha256 "59b862f50e710277f8ede96f083a5bb8d7c9595376146838b9580be90374ee1f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
   bottle do
@@ -15,6 +16,12 @@ class Abseil < Formula
   end
 
   depends_on "cmake" => :build
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # C++17
 
   def install
     mkdir "build" do
