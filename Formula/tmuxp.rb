@@ -6,6 +6,7 @@ class Tmuxp < Formula
   url "https://files.pythonhosted.org/packages/99/d2/566141c87e90362bb5b92c6f99013f3cceea566b752f9746ae78f51254cb/tmuxp-1.9.2.tar.gz"
   sha256 "dd19536c8abb506bc411232f9dcabdedb863270f0ee26fb468555980140ec243"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "11c9d785237a7c0a01853ae55bfa37126e334eafb14b1a4189fca4ea51d88875"
@@ -15,7 +16,7 @@ class Tmuxp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "30ea646558acd8928c40e5f68f4f27851036a399f953442c3af7b214cb31b212"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "tmux"
 
   resource "click" do
