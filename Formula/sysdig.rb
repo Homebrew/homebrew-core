@@ -57,6 +57,7 @@ class Sysdig < Formula
       -DSYSDIG_VERSION=#{version}
       -DUSE_BUNDLED_DEPS=OFF
       -DCREATE_TEST_TARGETS=OFF
+      -DBUILD_LIBSCAP_EXAMPLES=OFF
       -DDIR_ETC=#{etc}
     ]
 
