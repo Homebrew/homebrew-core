@@ -8,10 +8,6 @@ class Terminalizer < Formula
   license "MIT"
   head "https://github.com/faressoft/terminalizer.git", branch: "master"
 
-  livecheck do
-    url :stable
-  end
-
   depends_on "gcc"
   depends_on "python@3.9"
   on_macos do
