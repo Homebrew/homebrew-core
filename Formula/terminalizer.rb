@@ -17,14 +17,9 @@ class Terminalizer < Formula
     depends_on "node"
   end
 
-  def install
-    if OS.linux?
-      gcc_major_ver = Formula["gcc"].any_installed_version.major
-      ENV["CC"] = Formula["gcc"].opt_bin / "gcc-#{gcc_major_ver}"
-      ENV["CXX"] = Formula["gcc"].opt_bin / "g++-#{gcc_major_ver}"
-    end
+  fails_with gcc: "5"
 
-    mkdir_p libexec / "lib"
+  def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
