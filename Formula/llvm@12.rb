@@ -5,7 +5,7 @@ class LlvmAT12 < Formula
   sha256 "129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
+  revision 2
 
   # This should be removed when LLVM 14 is released, so we only check the
   # current version (the `llvm` formula) and one major version before it
@@ -33,7 +33,7 @@ class LlvmAT12 < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
