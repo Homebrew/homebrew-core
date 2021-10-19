@@ -3,7 +3,7 @@ class Iproute2 < Formula
   homepage "https://github.com/shemminger/iproute2"
   url "https://github.com/shemminger/iproute2/archive/refs/tags/v5.11.0.tar.gz"
   sha256 "16b79e6ce65d4d5fd425cef2fd92a58c403a93faeeed0e0a3202b36a8e857d1f"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/shemminger/iproute2.git", branch: "main"
 
   depends_on "bison" => :build
