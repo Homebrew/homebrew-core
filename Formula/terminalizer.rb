@@ -6,7 +6,7 @@ class Terminalizer < Formula
   url "https://registry.npmjs.org/terminalizer/-/terminalizer-0.7.2.tgz"
   sha256 "25ad22a9aa79e56192c3e0ede25fed40b5b9933ee07da4ee264357c1f6c85938"
   license "MIT"
-  head "https://github.com/faressoft/terminalizer.git"
+  head "https://github.com/faressoft/terminalizer.git", branch: "master"
 
   livecheck do
     url :stable
