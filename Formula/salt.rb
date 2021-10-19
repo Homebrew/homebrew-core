@@ -269,7 +269,7 @@ class Salt < Formula
 
   def install
     ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
-    xy = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3.9"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].bin/"python3.10"
 
     inreplace buildpath/"requirements/static/pkg/py#{xy}/darwin.txt", /^pyobjc.*$/, ""
     inreplace buildpath/"requirements/darwin.txt", "-r pyobjc.txt", ""
@@ -292,7 +292,7 @@ class Salt < Formula
   test do
     output = shell_output("#{bin}/salt --config-dir=#{testpath} --log-file=/dev/null --versions")
     assert_match "Salt: #{version}", output
-    assert_match "Python: #{Formula["python@3.9"].version}", output
+    assert_match "Python: #{Formula["python@3.10"].version}", output
     assert_match "libgit2: #{Formula["libgit2"].version}", output
     assert_match "M2Crypto: Not Installed", output
   end
