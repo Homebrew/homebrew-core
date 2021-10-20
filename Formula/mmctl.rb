@@ -5,6 +5,7 @@ class Mmctl < Formula
       tag:      "v6.0.0",
       revision: "85dd8887b1205800ba42128ddff58263c1d13925"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/mattermost/mmctl.git", branch: "master"
 
   livecheck do
