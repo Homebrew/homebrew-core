@@ -14,7 +14,7 @@ class Gcc < Formula
     sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  head "https://gcc.gnu.org/git/gcc.git"
+  head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   # We can't use `url :stable` here due to the ARM-specific branch above.
   livecheck do
@@ -23,6 +23,7 @@ class Gcc < Formula
   end
 
   bottle do
+    rebuild 1
     sha256 arm64_big_sur: "23ec727fa684a9f65cf9f55d61d208486d5202fb6112585a01426ac636724e56"
     sha256 big_sur:       "da675b722172d8866c8c3eed38a107ebdb7fb8c5e9a9a8589382d5537b38c925"
     sha256 catalina:      "79ce1258429ea2a7150e3dd6e517753ecb3b53724f79143ef559f5eb9f955a88"
