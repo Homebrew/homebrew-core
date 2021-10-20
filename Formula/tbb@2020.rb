@@ -49,14 +49,9 @@ class TbbAT2020 < Formula
       system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
 
-    os = if OS.mac?
-      "Darwin"
-    else
-      "Linux"
-    end
     system "cmake", *std_cmake_args,
                     "-DINSTALL_DIR=lib/cmake/TBB",
-                    "-DSYSTEM_NAME=#{os}",
+                    "-DSYSTEM_NAME=#{OS.kernel_name}",
                     "-DTBB_VERSION_FILE=#{include}/tbb/tbb_stddef.h",
                     "-P", "cmake/tbb_config_installer.cmake"
 

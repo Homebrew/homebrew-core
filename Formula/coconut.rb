@@ -6,16 +6,17 @@ class Coconut < Formula
   url "https://files.pythonhosted.org/packages/3a/85/7697306188fc03809e794a65a2a745fdde052065b83571bdc36de7fe5a77/coconut-1.5.0.tar.gz"
   sha256 "cb2263fb9e1aa4c6bb7e3051ae26e1444297ecc5e8762c4f8547873b6a0d861d"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7484ead0243f9c769178519ca22664f3697fa0eff7eb33c3f9690a8f6543e572"
-    sha256 cellar: :any_skip_relocation, big_sur:       "17075cb66b596e4e09df6caefa00ed315ae1e9c1699f547f7f23afe101f7140c"
-    sha256 cellar: :any_skip_relocation, catalina:      "d08209403eda81ce889603b3f1d2cb2cbc9a3873567bb9ac8363b40b60005c9a"
-    sha256 cellar: :any_skip_relocation, mojave:        "aa7123b110787c7f77ac38604e748d0b25f03e0da251667c17e634b9cf56e24b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a50c22b032bd2aeb4f571c971b8a037d706f6b2f5db4f0a62c7c72987609b6fe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f8af4316f6f4399612f94264b0c5d2fdce2dc31c4ad819dbbc5f6105205ca5f7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f0e394fea611ba1009e0293aac3331e6febf36cbf8d19a7cf70a1778d41675ad"
+    sha256 cellar: :any_skip_relocation, catalina:      "8493aee08ef8583cade557c928736c7a61b309d0104d34e6d36382a0b02e6b93"
+    sha256 cellar: :any_skip_relocation, mojave:        "b4bf84959c2a863d3ce207c2f6396dcdaa0aad46e8f4b4970fda38e0c9113bcc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "422ba0982b614659cf058c36636310ac212cfde871f7e1befe51f8efc18eccfb"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "cPyparsing" do
     url "https://files.pythonhosted.org/packages/7e/08/00b11cc1c195301e5c9710b399a769e18fb6c7f8082b4f49c1aec78023eb/cPyparsing-2.4.5.0.1.2.tar.gz"

@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v7.1.2.tar.gz"
-  sha256 "c3c45f508261741e6d6e39283802dca38c790962d51d43123f15694a45c946a1"
+  url "https://github.com/gravitational/teleport/archive/v7.3.0.tar.gz"
+  sha256 "0ebda4ebc5482a3e23302df696edf8ad60fb68466e41a4deecc05acf1e76c771"
   license "Apache-2.0"
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -16,11 +16,11 @@ class Teleport < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9aa0a2d759aa93808024f9edcb8b71cfa84837966e9b4a9b6f70a33e29fdf8aa"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ce31d2a5215ecaf2ffde333241270ef6bfc8a62b9b83ca7232dc4d7378f7b9f9"
-    sha256 cellar: :any_skip_relocation, catalina:      "11d51547d66014ced421f10386efd0b73f350ea3739c3900a97a4609e0faed1c"
-    sha256 cellar: :any_skip_relocation, mojave:        "660170805be890366ae19e4e0ae4254e4921755e7a05ed26c1a6877b501924ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08768776a61cb946ce60c6df03e80fd64b776836f807d4de9868c684d6405e10"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7a4074e2fee67a8cf05357f42ba0dfb878790d5fc547a0fb59ecab94cd82b8d3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "82322ab5f3f6d791a96cbb530c8b13417b2bdc3bd233375a946e8ee84c4c28cc"
+    sha256 cellar: :any_skip_relocation, catalina:      "1b35b92036bbed489ae1f7ed91bf7d269870cfaf836e2f7e12128ff6ae3d7dce"
+    sha256 cellar: :any_skip_relocation, mojave:        "57df152b7d09bad81e755e999f4b830d9f4381572d30cce06ea9aff2256b99a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8375f6bbac4fbe0773fbe6a82758eb080dd752fb4e834990dde00116a3faa914"
   end
 
   depends_on "go" => :build

@@ -4,14 +4,15 @@ class Qemu < Formula
   url "https://download.qemu.org/qemu-6.1.0.tar.xz"
   sha256 "eebc089db3414bbeedf1e464beda0a7515aad30f73261abc246c9b27503a3c96"
   license "GPL-2.0-only"
+  revision 1
   head "https://git.qemu.org/git/qemu.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "09773cd9881a40b27ad2599eb869443c04f9b1bb5cbbf741c2b562c188e8a6b3"
-    sha256 big_sur:       "13387458a7dda4c91fadd9274968f0d496171708fc950d4161a32a4d5c6a2a7c"
-    sha256 catalina:      "aaef3209e70171353a841992ffffb28a73e65a8762041cb23b0363bd3dc4ad07"
-    sha256 mojave:        "b611de8493acf94662ec19df3bea1bec9acad6215baca6d0e485efa32e99dacf"
-    sha256 x86_64_linux:  "0257fe7bf5ad82ff9f2cbc5d6dc111e315db5cb5f84b6d9dd9c3aee29bd777ed"
+    sha256 arm64_big_sur: "94b094a62401c3384e57c572f1009545bd94765426ba39a7b0878cb883d0220a"
+    sha256 big_sur:       "5213e72d5dc5641593b415f5e37618cbd3d1e291d25c4e9478c86b5b8a9c8f08"
+    sha256 catalina:      "561fa5f3d141ae025fe5e611957af4b33ff9b5df614e9a307fecce1645fb3170"
+    sha256 mojave:        "5d938b8949e5d2cf4d41cca27ce4bfd5cfc17dc27f0ec45b6e8b27ab99cc2e87"
+    sha256 x86_64_linux:  "a1447609f66aeaf33aefb8f9bbe3119b58a24374e3c4a102ec173128229c4f09"
   end
 
   depends_on "libtool" => :build
@@ -43,6 +44,13 @@ class Qemu < Formula
   resource "test-image" do
     url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/FD12FLOPPY.zip"
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
+  end
+
+  if Hardware::CPU.arm?
+    patch do
+      url "https://patchwork.kernel.org/series/548227/mbox/"
+      sha256 "5b9c9779374839ce6ade1b60d1377c3fc118bc43e8482d0d3efa64383e11b6d3"
+    end
   end
 
   def install

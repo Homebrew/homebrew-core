@@ -1,17 +1,25 @@
 class Gdbm < Formula
   desc "GNU database manager"
   homepage "https://www.gnu.org/software/gdbm/"
-  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.20.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.20.tar.gz"
-  sha256 "3aeac05648b3482a10a2da986b9f3a380a29ad650be80b9817a435fb8114a292"
+  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.21.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.21.tar.gz"
+  sha256 "b0b7dbdefd798de7ddccdd8edf6693a30494f7789777838042991ef107339cc2"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5c3247c107bc2975dec7baecff33bde0b40d50800da0d44eae17b07d4712a27c"
-    sha256 cellar: :any, big_sur:       "ea88ce09e934407b1c7dfcc1b74e2d4f1b409f8264b4475b816369a129c6cd25"
-    sha256 cellar: :any, catalina:      "2c62d9ef89fc346310fe219ce55c37f8673cd95672f21c5c7af6d991a52dc7fb"
-    sha256 cellar: :any, mojave:        "e31aaf7e8d02d811883dba4fd804954f226d8f112974293c6d6b7a8b66648554"
-    sha256               x86_64_linux:  "0cef41f29293302f68aac94fab6d6363217de9c867aad59d41c42e3cab73589a"
+    sha256 cellar: :any, arm64_big_sur: "fd3c1830264b732ad953e0ec41dd8325ac3c07fc8bf3b8a55a968f4f8947ecc5"
+    sha256 cellar: :any, big_sur:       "a0390a4a2b661b19ca7ef9736aea3df13afda10d13600d7a7e25e0686f97a4d6"
+    sha256 cellar: :any, catalina:      "5037ab5bfdebab730434d93c09ac44a19194edb49fabc25563736695aa2bc309"
+    sha256 cellar: :any, mojave:        "fbe153ad0a746da6ee2dcadb81f6db06bd226945cfa71c61f9215944fa60971b"
+    sha256               x86_64_linux:  "9be34c0de7f42af7b6837a3d0e13bb6e0857bdee1e1e6020b805365c8b41070f"
+  end
+
+  # Fix build failure on macOS. Merged upstream as
+  # https://git.gnu.org.ua/gdbm.git/commit/?id=32517af75ac8c32b3ff4870e14ff28418696c554
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ad16d309923dd7839d239e05c7fdd86d9b6e5207/gdbm/fix-st_mtim.diff"
+    sha256 "09813e4a01a74fb1c510abbd98abd53c18f5dfb4e66475969f4b173b4ff96935"
   end
 
   # --enable-libgdbm-compat for dbm.h / gdbm-ndbm.h compatibility:

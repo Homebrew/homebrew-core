@@ -4,6 +4,7 @@ class Duck < Formula
   url "https://dist.duck.sh/duck-src-7.10.2.35432.tar.gz"
   sha256 "8f5885799a10b0e06ed0587198dbecce63b08fa609778e84673b34faccfea40b"
   license "GPL-3.0-only"
+  revision 1
   head "https://svn.cyberduck.io/trunk/"
 
   livecheck do
@@ -12,10 +13,10 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:      "b7bb41802a4fb208fb61f1d04ac52c6275e5d06f1cb950ef0057a400ef090251"
-    sha256 cellar: :any, catalina:     "21665b8a7d45aed16246274d5e7d85300784bb3a4e9876c07f977b3857db0189"
-    sha256 cellar: :any, mojave:       "d2ac998c80f2592acf099f4a5122241a0e56945f4e20297c6a434e77816d8d9f"
-    sha256               x86_64_linux: "b91907eaf9ad7d2f582e45e7754587cee4e7a2e659fb3e505c5f0cbb2a120095"
+    sha256 cellar: :any, big_sur:      "74124ebf6531d1a01ad5d13425773c76a99e069269064637bdb27c7b66d0ae7c"
+    sha256 cellar: :any, catalina:     "dac3d44df0fc024af52a6e571ea8f22d2cf570f1a2577ed510b0aaf68de3f35e"
+    sha256 cellar: :any, mojave:       "673a7f8db2e85284b33c7bd06f526cf2821de441947afdfb7766772e635bc93a"
+    sha256               x86_64_linux: "2409cfc228f05df6404a325f1099c8239f4d01b62c5822ddf0495dc2236f4429"
   end
 
   depends_on "ant" => :build

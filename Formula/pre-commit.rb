@@ -6,17 +6,18 @@ class PreCommit < Formula
   url "https://files.pythonhosted.org/packages/63/9e/f139fe6176b417e8c725f0ecfe5021e2edc88c5e00358aacbf812f3224ed/pre_commit-2.15.0.tar.gz"
   sha256 "3c25add78dbdfb6a28a651780d5c311ac40dd17f160eb3954a0c59da40a505a7"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "013932b6c31d3f82d7b99bd8f49afdbbedd0464d711cddfc09a484330c665069"
-    sha256 cellar: :any,                 big_sur:       "0112b3cab8adddf225371b4416b2e8579f251ca6d38c2e8fcf6c573a248abbb7"
-    sha256 cellar: :any,                 catalina:      "00abbd23f79197175b2765e243ff9f7563c668eb57842ce5d1b6cc8ae3711d9c"
-    sha256 cellar: :any,                 mojave:        "334f75bd2eaa766f541774a4bb55c1f0ae070cd1c66602b5a7a8b107531259c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee1fb515758a61701ca5ab6aad4e7a1989170d18dee45e8f2635ad939d369e42"
+    sha256 cellar: :any,                 arm64_big_sur: "808230a010f0a1359611878a8cb6e5b4aa14268dbfacaac4fe3cd0767c079d7c"
+    sha256 cellar: :any,                 big_sur:       "75a9fc6a83bb0ddc2fd2f82ccabf7cd4c64e3111d3320812dd3e8b1d559a3379"
+    sha256 cellar: :any,                 catalina:      "b381c7ba8c92dfcc6c6d52e889cd2d423d0eac456f3f50b5ee5a553a6a0da1fb"
+    sha256 cellar: :any,                 mojave:        "acb0fb1bbee09cdbbf64b29fe4236f1e555c34dc7bea9619bdd2c20e2e837072"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f13eea5e8203d9c00b8956b2256f8caa45d2b2e60a4915dbb0bd2338c77a90b"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "backports.entry-points-selectable" do
@@ -88,7 +89,7 @@ class PreCommit < Formula
 
   # Avoid relative paths
   def post_install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     dirs_to_fix = [libexec/"lib/python#{xy}"]
     dirs_to_fix << (libexec/"bin") if OS.linux?
     dirs_to_fix.each do |folder|

@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.2/gtk-4.2.1.tar.xz"
-  sha256 "023169775de43f0a1fde066fbc19d78545ea6a7562c1915abde9b8ae4a7309e6"
+  url "https://download.gnome.org/sources/gtk/4.4/gtk-4.4.0.tar.xz"
+  sha256 "e0a1508f441686c3a20dfec48af533b19a4b2e017c18eaee31dccdb7d292505b"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -11,11 +11,11 @@ class Gtk4 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "3f972250f4ca4773a4982c9c9ef8fc735726948f9f590013defaee848d6f197a"
-    sha256 big_sur:       "320d37f84ff986624ccccd27511e5980324441052ee8568f1a2f6268f24cc346"
-    sha256 catalina:      "2d2f1e05dfc833ee33197c6f0e5435a7613960575b7f39be12d865fec56881b2"
-    sha256 mojave:        "0763960bb97db821d98e2bdd81b3bb1219b61f3e7a7732cf00cb0538ace000fc"
-    sha256 x86_64_linux:  "b933018ef1db05c649cf69954a7ed81731edc84eafd7aad37a12f2c31bd83e75"
+    sha256 arm64_big_sur: "22471fc7fc08a4e66c2443650865a3edabf50bc314ee876cf2baa7db8971e41e"
+    sha256 big_sur:       "b1cf80bddf3a4189c17446bc0c11a4463a011f431b890b6ef4e0d7bb6046ca0c"
+    sha256 catalina:      "ef277cf48fef3b41c4ae365a5e40d0eaaf5aa2047cab688cebfdb8be5a621c4b"
+    sha256 mojave:        "f2fda50b0ae4009fc13ee19cb208d7b9e58ce55575070285e49b110630bcd2fd"
+    sha256 x86_64_linux:  "0c096305c0e1992062a81122a2dedf8af4ea701077292a9bb1f055af877fc4c9"
   end
 
   depends_on "docbook" => :build
@@ -37,6 +37,7 @@ class Gtk4 < Formula
 
   on_linux do
     depends_on "libxkbcommon"
+    depends_on "libxcursor"
   end
 
   def install
@@ -46,6 +47,7 @@ class Gtk4 < Formula
       -Dintrospection=enabled
       -Dbuild-examples=false
       -Dbuild-tests=false
+      -Dmedia-gstreamer=disabled
     ]
 
     if OS.mac?

@@ -1,8 +1,8 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.26.tar.gz"
-  sha256 "209442c1001c37bcbc001845e1dc623d654cefb555b47b528742a53bf21c0b4d"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.27.tar.gz"
+  sha256 "74b5bc6ff88fe225560174a24b7d5ff139f4c17271c43000dbcf3dcc9507b3f9"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -11,12 +11,11 @@ class Mysql < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "824108be85caecc0b1101647c0f267fa5db8db084e865c5783fbdea111e93edf"
-    sha256 big_sur:       "5ad5be7141887ef52146e9d8950efdbcf3fbb99ca2dd1f3e3e05291b11eba498"
-    sha256 catalina:      "1cec65a2f5f219793c2f67c95108e2eedd524aaabc55c632a08b592655ea5a53"
-    sha256 mojave:        "375ae3a6ff585065e72dcf4d865ef8c9bdb1dccdc8c1f8b116f39425fbbc45ba"
-    sha256 x86_64_linux:  "ab4db157f1b69a07cb1d9e3f9b4eb1ad7cf1ba4d837328bc82235c661b22ff1c"
+    sha256 arm64_big_sur: "193e3eed782b0200217dee216d54be860a55e93edd89f5b3ef4686a56c32ed56"
+    sha256 big_sur:       "c9e0edee036bc06a5b8c73f8e483cf9731401253058a60ff230667e5af866328"
+    sha256 catalina:      "e7bb052589e7bcf05ba647190be0d38be8c9f2be83936c19f6365bfd0b21bbb9"
+    sha256 mojave:        "66bb243acf7532b7c16cde86419390872756d71d68beee2089095585fd268229"
+    sha256 x86_64_linux:  "148a853686c00e9c32b41c2b8e6ddfdd7498c63894c76e343033bd682675c70f"
   end
 
   depends_on "cmake" => :build

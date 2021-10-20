@@ -6,9 +6,13 @@ class Bioperl < Formula
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/bioperl/bioperl-live.git", branch: "master"
 
+  # We specifically match versions with three numeric parts because upstream
+  # documentation mentions that release versions have three parts and there are
+  # older tarballs with fewer than three parts that we need to omit for version
+  # comparison to work correctly.
   livecheck do
     url :stable
-    regex(/href=.*?>BioPerl-(\d+\.\d+\.\d+)\.t/i)
+    regex(/href=["']?BioPerl[._-]v?(\d+\.\d+\.\d+)(?:\.?_\d+)?\.t/i)
   end
 
   bottle do

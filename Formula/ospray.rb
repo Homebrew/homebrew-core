@@ -1,8 +1,8 @@
 class Ospray < Formula
   desc "Ray-tracing-based rendering engine for high-fidelity visualization"
   homepage "https://www.ospray.org/"
-  url "https://github.com/ospray/ospray/archive/v2.7.0.tar.gz"
-  sha256 "bcaeb221b5dd383d27587ffaca7f75d7e0064f64017a0d73df90862b14b5704b"
+  url "https://github.com/ospray/ospray/archive/v2.7.1.tar.gz"
+  sha256 "4e7bd8145e19541c04f5d949305f19a894d85a827f567d66ae2eb11a760a5ace"
   license "Apache-2.0"
   head "https://github.com/ospray/ospray.git", branch: "master"
 
@@ -12,10 +12,10 @@ class Ospray < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "753c0bf558ec8b7d3205414c2c95b653bdb36dcfe14642d3146b24096a59602e"
-    sha256 cellar: :any, big_sur:       "0aa7486d46be69f2398f546d33a692e287d5dbe7d3eee09d4da91184ecb6c757"
-    sha256 cellar: :any, catalina:      "9472ab24b5e62fea698b80b16ee48e5f06aad31684328f1d7d7510db0e44ac2e"
-    sha256 cellar: :any, mojave:        "1bc2fa3d7012ffc3360aa95bf018dde3a5bc478245071189330ba109553b62e5"
+    sha256 cellar: :any, arm64_big_sur: "b24fc8e15d0b9ac94b421eba9dec5249440a2f44a673d5bf81cbee6ff1d356e4"
+    sha256 cellar: :any, big_sur:       "13f2bfec1ce74a5e9d650a8b46cea4b3d9232aff4cb8fd57ec265a312d6a340d"
+    sha256 cellar: :any, catalina:      "b6ed14e7d54a1666f84a90624c597b28e649019d6aa6e7cad20ddd8449e9837e"
+    sha256 cellar: :any, mojave:        "704e28f5998d58975baa97d28029623440b3fe4e060d91035f9230ccd5390e09"
   end
 
   depends_on "cmake" => :build
@@ -30,8 +30,8 @@ class Ospray < Formula
   end
 
   resource "openvkl" do
-    url "https://github.com/openvkl/openvkl/archive/v1.0.0.tar.gz"
-    sha256 "81ccae679bfa2feefc4d4b1ce72bcd242ba34d2618fbb418a1c2a05d640d16b4"
+    url "https://github.com/openvkl/openvkl/archive/v1.0.1.tar.gz"
+    sha256 "55a7c2b1dcf4641b523ae999e3c1cded305814067d6145cc8911e70a3e956ba6"
   end
 
   def install

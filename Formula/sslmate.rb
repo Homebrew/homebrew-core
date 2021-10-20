@@ -8,6 +8,7 @@ class Sslmate < Formula
   url "https://packages.sslmate.com/other/sslmate-1.9.0.tar.gz"
   sha256 "3e40122484491f59178de80e14ccf7e90cea4fea94056b25c7f89abe31685b98"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://packages.sslmate.com/other/"
@@ -15,13 +16,13 @@ class Sslmate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8365c733e5ee8edf15a06ede1010b9cfa54148547818102d8b741d8ea49600e9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "71a327da5a0c78c00fd8abcf364d801ac54c2390110d337c491d645337953aa7"
-    sha256 cellar: :any_skip_relocation, catalina:      "71a327da5a0c78c00fd8abcf364d801ac54c2390110d337c491d645337953aa7"
-    sha256 cellar: :any_skip_relocation, mojave:        "71a327da5a0c78c00fd8abcf364d801ac54c2390110d337c491d645337953aa7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7c7157d098fdb4f25cc862cf832c004a2c7e753a3f3301302707f5e64359dafa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
+    sha256 cellar: :any_skip_relocation, catalina:      "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
+    sha256 cellar: :any_skip_relocation, mojave:        "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "perl"
 
@@ -33,7 +34,7 @@ class Sslmate < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
 
-    python3 = Formula["python@3.9"].opt_bin/"python3"
+    python3 = Formula["python@3.10"].opt_bin/"python3"
     xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 

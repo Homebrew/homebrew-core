@@ -6,17 +6,18 @@ class TwinePypi < Formula
   url "https://files.pythonhosted.org/packages/19/a8/2277f24ce422d820378c1fd49bc0d5dc89d99761f184693fba5a2f283174/twine-3.4.2.tar.gz"
   sha256 "4caec0f1ed78dc4c9b83ad537e453d03ce485725f2aea57f1bb3fdde78dae936"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/pypa/twine.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "17db2a243c02dda25e5c936c345496615fa0797dcbfebd3763aa398188e4cf3c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1605e431587fd0a0d520b356e62bfa7ba994b1164437fb26aa4c1973c39d9dc1"
-    sha256 cellar: :any_skip_relocation, catalina:      "7a51b947fecc43679957ace05b03fb2bb7330abed200f66181e4f12853b4736d"
-    sha256 cellar: :any_skip_relocation, mojave:        "36051d4deaae15faafbe9e803b0a1fa90932876f822030b499d09c5a1d62f073"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7e84cd8357d6d4437839b556d2a7d768c923112b872fa4b2b2ce796a4ebc447"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9638dffe2bcaebcad1fc3929417c872bb38ed2c638512e64237f84cdbe400ff2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dce27b0667c19de1f24f39701ccf3c92e5274ec82567185889fec9f870d20fbb"
+    sha256 cellar: :any_skip_relocation, catalina:      "322cbc9ab13633d967658f1671d46417e26ec641a2ddb02edf97a496c4d550ae"
+    sha256 cellar: :any_skip_relocation, mojave:        "5f28667cbbcff302bf5a967e8d2e5c0762d8ab831063ddd6184bb90a3fb2d39b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7306e20e3337a53cc6bcf6510974ee9d4fda58e2902f1d751f6212d64db45ac5"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/61/f0/39ba27d82f7f5c8b4a8002876ea0c3465bc8a0c067e043d9b1bcbb8bfb3e/bleach-3.3.1.tar.gz"

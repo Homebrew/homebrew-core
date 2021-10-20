@@ -1,12 +1,16 @@
 class Typedb < Formula
   desc "Distributed hyper-relational database for knowledge engineering"
   homepage "https://vaticle.com/"
-  url "https://github.com/vaticle/typedb/releases/download/2.3.3/typedb-all-mac-2.3.3.zip"
-  sha256 "29394e6438ebd23c9638714013540359e72a6185b1a27207397e0056d4d4defb"
+  url "https://github.com/vaticle/typedb/releases/download/2.5.0/typedb-all-mac-2.5.0.zip"
+  sha256 "881e5a50ed0a961d1c091da1d669285135738431b5e6bd72da6dfad9765d3eea"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "26cdcb052c202ae16f4f9a6b355c9c49ac4ca90ce2d73f38ec3f1c31dee3277d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c3d3ead692d5963f807280528ccd8e78d6f37d2a3230cb4c9442a31c44c49a1b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c3d3ead692d5963f807280528ccd8e78d6f37d2a3230cb4c9442a31c44c49a1b"
+    sha256 cellar: :any_skip_relocation, catalina:      "c3d3ead692d5963f807280528ccd8e78d6f37d2a3230cb4c9442a31c44c49a1b"
+    sha256 cellar: :any_skip_relocation, mojave:        "c3d3ead692d5963f807280528ccd8e78d6f37d2a3230cb4c9442a31c44c49a1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "899d7b2dbbfba0279aed9df963356dae18c0624490a1232062e603fc3efbe435"
   end
 
   depends_on "openjdk@11"

@@ -1,14 +1,15 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.68/gjs-1.68.3.tar.xz"
-  sha256 "821c7f4f78f1500da6a56c5463723bd8ff80de633ccba43a5ab03d8ccca21d3f"
+  url "https://download.gnome.org/sources/gjs/1.70/gjs-1.70.0.tar.xz"
+  sha256 "4b0629341a318a02374e113ab97f9a9f3325423269fc1e0b043a5ffb01861c5f"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   bottle do
-    sha256 big_sur:  "895a1fd43b095dc790ed323733da4cc6bfcffbcf66c665b0936e9cda1597d4fb"
-    sha256 catalina: "cca0c61978c5bc68b939519de12e608754a9d0fec50685d29be0af0cf3a6ca5f"
-    sha256 mojave:   "c2e0750012d24e80e5585aefc529b96b5eff4c02ae8f5d7e62a22b04e113dc9b"
+    sha256 big_sur:  "ecea427c28fcc26093cf7650d82a73b4a04257d2b53ba6e472f9bb1c0b313e5e"
+    sha256 catalina: "92cfd6a80537fe3e3a661cfd6feb941e58820ca4d3649dc98a3cc5b76765f3de"
+    sha256 mojave:   "572ab35a86ea01c0c9e3ba1ede49c769bc67c9532593bc6846e7bb42c619af55"
   end
 
   depends_on "autoconf@2.13" => :build
@@ -17,16 +18,12 @@ class Gjs < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.8" => :build
   depends_on "rust" => :build
+  depends_on "six" => :build
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "llvm"
   depends_on "nspr"
   depends_on "readline"
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
-  end
 
   resource "mozjs78" do
     url "https://archive.mozilla.org/pub/firefox/releases/78.10.1esr/source/firefox-78.10.1esr.source.tar.xz"
@@ -35,10 +32,6 @@ class Gjs < Formula
 
   def install
     ENV.cxx11
-
-    resource("six").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
-    end
 
     resource("mozjs78").stage do
       inreplace "build/moz.configure/toolchain.configure",
@@ -50,9 +43,7 @@ class Gjs < Formula
       inreplace "old-configure", "-Wl,-executable_path,${DIST}/bin", ""
 
       mkdir("build") do
-        xy = Language::Python.major_minor_version "python3"
-        ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
-        ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+        ENV["PYTHON"] = which("python3")
         ENV["_MACOSX_DEPLOYMENT_TARGET"] = ENV["MACOSX_DEPLOYMENT_TARGET"]
         ENV["CC"] = Formula["llvm"].opt_bin/"clang"
         ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"

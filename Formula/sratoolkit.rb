@@ -4,17 +4,17 @@ class Sratoolkit < Formula
   license all_of: [:public_domain, "GPL-3.0-or-later", "MIT"]
 
   stable do
-    url "https://github.com/ncbi/sra-tools/archive/2.11.1.tar.gz"
-    sha256 "725b368562217c145e6e1e062560617fb5f8099d09e64470dffc0873f43636a1"
+    url "https://github.com/ncbi/sra-tools/archive/2.11.2.tar.gz"
+    sha256 "17ff39d3a905142be63477a206bac3aa76a417e40979f06a8f1eed49fe8c43d4"
 
     resource "ngs-sdk" do
-      url "https://github.com/ncbi/ngs/archive/2.11.1.tar.gz"
-      sha256 "f39c56bbfdb0bdacdd5e86b5d3b65c448df17e419f3f533b1a0168e99f532553"
+      url "https://github.com/ncbi/ngs/archive/2.11.2.tar.gz"
+      sha256 "7555ab7c2f04bd81160859f6c85c65376dc7f7b891804fad9e7636a7788e39c2"
     end
 
     resource "ncbi-vdb" do
-      url "https://github.com/ncbi/ncbi-vdb/archive/2.11.1.tar.gz"
-      sha256 "21b802205f14a00b084b3fde0984dfb3789def8562b32f8cd09b27547c7b0548"
+      url "https://github.com/ncbi/ncbi-vdb/archive/2.11.2.tar.gz"
+      sha256 "647efea2762d63dee6d3e462b1fed2ae6d0f2cf1adb0da583ac95f3ee073abdf"
 
       # Fix Linux error in vdb3/interfaces/memory/MemoryManagerItf.hpp:155:13:
       # error: 'ptrdiff_t' does not name a type
@@ -23,10 +23,10 @@ class Sratoolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:      "97051e817f8d0c86278c7b7cebe076cf353e265214f65ec4671f524e2874f96a"
-    sha256 cellar: :any, catalina:     "49b626f70a185e51bea31863302ea355a7667389491a285f981483696dba4627"
-    sha256 cellar: :any, mojave:       "70e233457d44d8f3c320014aeacda5f8f895a5374a89fcf27b0fd66bdf89f4fc"
-    sha256               x86_64_linux: "4f770684c6778372445a3c2568405e17d192f994bdf4892ee596439aeeb9715a"
+    sha256 cellar: :any, big_sur:      "3ae6079cc1870308094b419e8141565c29030e139a2b3dd0065da4a64191a32b"
+    sha256 cellar: :any, catalina:     "67df1b84b24a39677517d5f0af6d4d06a99a3aa5c5ae39d3a2af821669868649"
+    sha256 cellar: :any, mojave:       "88cdb2651f23202d8f4c97df82e139edfcd2315d2be92021197e9183da007368"
+    sha256               x86_64_linux: "f38509ce3f74c56476ae20c67b02ac3f5321ade2eb7c39dc9b24e8ef454c9d12"
   end
 
   head do

@@ -3,20 +3,21 @@ class Virtualenv < Formula
 
   desc "Tool for creating isolated virtual python environments"
   homepage "https://virtualenv.pypa.io/"
-  url "https://files.pythonhosted.org/packages/39/2f/84439468561782ed91d9f9499738fb52a84e4d65f164849e7050db7834e5/virtualenv-20.8.0.tar.gz"
-  sha256 "4da4ac43888e97de9cf4fdd870f48ed864bbfd133d2c46cbdec941fed4a25aef"
+  url "https://files.pythonhosted.org/packages/dd/40/9bc1b32521f78c293c1f8ca423c725737dfa9d09640dbeec61cebca7c5f2/virtualenv-20.8.1.tar.gz"
+  sha256 "bcc17f0b3a29670dd777d6f0755a4c04f28815395bca279cdcb213b97199a6b8"
   license "MIT"
+  revision 1
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "40127b72306e8b72b152143c19c79648b91107feba2ad4b3a45d794fd9e23829"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9674b080a12f4f69e15b7c618331a06fc2821c538092f21985455cb18a53355c"
-    sha256 cellar: :any_skip_relocation, catalina:      "494d45602e726b17f8f8c457d4e87838c667a57d23601854751f18ddb4285254"
-    sha256 cellar: :any_skip_relocation, mojave:        "55a8fdc1b2c16eb93c6c4eeb06b4ef0f4b326c2ef9e4cb1483cb49da07602992"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddbe88987ed91f26b392cd52c59a84225f23033dae12878289664efeb5cd17da"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e659915b212684ff5d84ce94d848786d5874ffb7e1ed7560da4fd3fac3674cca"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5c54a6d3ac95608ab985ee2ca8b117fbbc8dd3aed52f38e345018b5e3e6abb9a"
+    sha256 cellar: :any_skip_relocation, catalina:      "80d844e7b609a95ecc08dc109b0d0790be2aca4df652ffac91cf6019fa2d7c94"
+    sha256 cellar: :any_skip_relocation, mojave:        "ba954bcf37996ebf410f1f3614e06f1854f8b839c7207428a8803cde69a32c3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "045897f9a95b6714d338382ebed98a55f167aca2d8d8b6513f5521d388045cfb"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "backports.entry-points-selectable" do
@@ -25,8 +26,8 @@ class Virtualenv < Formula
   end
 
   resource "distlib" do
-    url "https://files.pythonhosted.org/packages/45/97/15fdbef466e12c890553cebb1d8b1995375202e30e0c83a1e51061556143/distlib-0.3.2.zip"
-    sha256 "106fef6dc37dd8c0e2c0a60d3fca3e77460a48907f335fa28420463a6f799736"
+    url "https://files.pythonhosted.org/packages/56/ed/9c876a62efda9901863e2cc8825a13a7fcbda75b4b498103a4286ab1653b/distlib-0.3.3.zip"
+    sha256 "d982d0751ff6eaaab5e2ec8e691d949ee80eddf01a62eaa96ddb11531fe16b05"
   end
 
   resource "filelock" do

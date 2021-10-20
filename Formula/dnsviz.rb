@@ -3,15 +3,15 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://files.pythonhosted.org/packages/1f/76/c64f7b445d5a869a65c633ff9f5c04c8d72a75a5ca11e9a18fd104edfaf8/dnsviz-0.9.3.tar.gz"
-  sha256 "6f38f3d71b2b9ca3f4cffb003c828574d0c413bcc5112bb52921fa9db4e69259"
+  url "https://files.pythonhosted.org/packages/a5/7c/b38750c866e7e29bc76450c75f61ede6c2560e75cfe36df81e9517612434/dnsviz-0.9.4.tar.gz"
+  sha256 "6448d4c6e7c1844aa2a394d60f7cc53721ad985e0e830c30265ef08a74a7aa28"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3db7cc32c451761409b59b1ee15b41b46392892ba76859a4f48b1029216b15bb"
-    sha256 cellar: :any, big_sur:       "5f8ab0c06c72486bfaee86b789c15482ecae3a78ecc6912c4986aff5d3bb8819"
-    sha256 cellar: :any, catalina:      "b4a5a0647e673fb99c41a261bddd92c0b1d601ba539d18cfe1ae9a9abd0e2037"
-    sha256 cellar: :any, mojave:        "05b5c37f1c92e3992e27b6348097bb11234ae934e0fa3c797d745987b2c8d6ea"
+    sha256 cellar: :any, arm64_big_sur: "e70c11a9ccb3daf97c76cab2632520d2abac3678dd5712cba719e67d921e65cb"
+    sha256 cellar: :any, big_sur:       "dfff42e474d4c0e7f26d2a87161f85478646745d2528fcffb38859401f1b6e6b"
+    sha256 cellar: :any, catalina:      "4323bcd148cdada2c26229d2bc0b9b63236d5ba4e1cae635272a7a599cfbd9d4"
+    sha256 cellar: :any, mojave:        "5580679f91243fb6d6823f2ba1d55e468983734e9753f94e70c455bd70c3b072"
   end
 
   depends_on "pkg-config" => :build
@@ -32,8 +32,8 @@ class Dnsviz < Formula
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/aa/36/9fef97358e378c1d3bd567c4e8f8ca0428a8d7e869852cef445ee6da91fd/M2Crypto-0.37.1.tar.gz"
-    sha256 "e4e42f068b78ccbf113e5d0a72ae5f480f6c3ace4940b91e4fff5598cfff6fb3"
+    url "https://files.pythonhosted.org/packages/2c/52/c35ec79dd97a8ecf6b2bbd651df528abb47705def774a4a15b99977274e8/M2Crypto-0.38.0.tar.gz"
+    sha256 "99f2260a30901c949a8dc6d5f82cd5312ffb8abc92e76633baf231bbbcb2decb"
   end
 
   resource "pygraphviz" do

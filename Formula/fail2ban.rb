@@ -3,7 +3,8 @@ class Fail2ban < Formula
   homepage "https://www.fail2ban.org/"
   url "https://github.com/fail2ban/fail2ban/archive/0.11.2.tar.gz"
   sha256 "383108e5f8644cefb288537950923b7520f642e7e114efb843f6e7ea9268b1e0"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,19 +12,31 @@ class Fail2ban < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "dccbafae1bda5f12ef0ba27f74069fb179376e9a50adf0a597ff7d6d978c12f1"
-    sha256 cellar: :any_skip_relocation, catalina:     "dc4e847cf92ddfbd7e70647f671de4e5f64a7752b7d9334455b528e0fc9318d9"
-    sha256 cellar: :any_skip_relocation, mojave:       "eb5646fd06a94a1638b44fc0afd4406bf88dc3bb4672ae68e264dc5455f10d05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d2d8049b6513801a4b0706354b1165fd25a52f52d246e251af5cff8c46768d09"
+    sha256 cellar: :any_skip_relocation, big_sur:      "9db5992983e4db132111565b5eee72e6f7fd5f00eb63b00f5386e7b370ae0a21"
+    sha256 cellar: :any_skip_relocation, catalina:     "9db5992983e4db132111565b5eee72e6f7fd5f00eb63b00f5386e7b370ae0a21"
+    sha256 cellar: :any_skip_relocation, mojave:       "9db5992983e4db132111565b5eee72e6f7fd5f00eb63b00f5386e7b370ae0a21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e842d2c8d7fe34eefe7e889fe31b597dbf398c2345efaec38af1cfabd268d0ec"
   end
 
   depends_on "help2man" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+
+  # fixes https://github.com/fail2ban/fail2ban/issues/3098 remove in the next release
+  patch do
+    url "https://github.com/fail2ban/fail2ban/commit/5ac303df8a171f748330d4c645ccbf1c2c7f3497.patch?full_index=1"
+    sha256 "4f22a39ae708b0c0fb59d29054e86b7c3f478a79925508833fd21f000b86aadb"
+  end
+
+  # fixes https://github.com/fail2ban/fail2ban/issues/2931 remove in the next release
+  patch do
+    url "https://github.com/fail2ban/fail2ban/commit/2b6bb2c1bed8f7009631e8f8c306fa3160324a49.patch?full_index=1"
+    sha256 "ff0aa188dbcfedaff6f882dba00963f4faf3fa774da9cfeb7f96030050e9d8e3"
+  end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.9/site-packages"
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3")
+    ENV["PYTHON"] = which("python3")
 
     rm "setup.cfg"
     Dir["config/paths-*.conf"].each do |r|

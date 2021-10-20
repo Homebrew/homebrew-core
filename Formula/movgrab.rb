@@ -4,15 +4,14 @@ class Movgrab < Formula
   url "https://github.com/ColumPaget/Movgrab/archive/3.1.2.tar.gz"
   sha256 "30be6057ddbd9ac32f6e3d5456145b09526cc6bd5e3f3fb3999cc05283457529"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "9921657b5d558018c44f82963a3cc6a6ba7008ad131796ca703595d19df2e216"
-    sha256 cellar: :any,                 big_sur:       "3562cee832a2ddfb6d3b52c98d9eab3aa9667271356fde90f2dffe38b229e648"
-    sha256 cellar: :any,                 catalina:      "b3032648e55b090ca256192c989683f3b0a26942f38f0460dce9457548c14fe0"
-    sha256 cellar: :any,                 mojave:        "b0e5153f5147c8d256685dfa8be4ac67bc863bb472afcaf769caa133fb94b889"
-    sha256 cellar: :any,                 high_sierra:   "7702b7817fc398f4901014bd6162578294da414a18b1ae4e5f10ef8cf05a678c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0d9127b4c721a3db10697aec56ea4fd7406ff1fa328e3fc9b8ab1b932b6cd02"
+    sha256 cellar: :any,                 arm64_big_sur: "9077d56a321c79670336e9555f5fb9ad6f9f2c6ba2c126e2ce0d264931a4677b"
+    sha256 cellar: :any,                 big_sur:       "d2e316d743c633fd84585d13beb1beeeffd3e3fd62bf2710c2ccdaf8c59f77a6"
+    sha256 cellar: :any,                 catalina:      "dec3edfeac8cd03ab450cdd0196b488401ab38d459c603b0726726b6b886a599"
+    sha256 cellar: :any,                 mojave:        "c7a2f93864d81d263606610375253820937134c9f6d90cb4c5697cf21dc7c23c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be8c01fd9136b88a5b217a8581d7d7dd969eedffeb01aea19af5a8275e9e4b5c"
   end
 
   depends_on "libressl"
@@ -65,11 +64,11 @@ index 04ea67d..5516051 100755
 --- a/Makefile.in
 +++ b/Makefile.in
 @@ -11,7 +11,7 @@ OBJ=common.o settings.o containerfiles.o outputfiles.o servicetypes.o extract_te
- 
+
  all: $(OBJ)
  	@cd libUseful-2.8; $(MAKE)
 -	$(CC) $(FLAGS) -o movgrab main.c $(LIBS) $(OBJ) libUseful-2.8/libUseful-2.8.a
 +	$(CC) $(FLAGS) -o movgrab main.c $(OBJ) libUseful-2.8/libUseful-2.8.a $(LIBS)
- 
+
  clean:
  	@rm -f movgrab *.o libUseful-2.8/*.o libUseful-2.8/*.a libUseful-2.8/*.so config.log config.status

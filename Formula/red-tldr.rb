@@ -1,17 +1,17 @@
 class RedTldr < Formula
   desc "Used to help red team staff quickly find the commands and key points"
   homepage "https://payloads.online/red-tldr/"
-  url "https://github.com/Rvn0xsy/red-tldr/archive/v0.4.2.tar.gz"
-  sha256 "94cc5f195fac8617873f30616d65eba4b44b2ce4c58d7b6a5f8e2bbceef569f4"
+  url "https://github.com/Rvn0xsy/red-tldr/archive/v0.4.3.tar.gz"
+  sha256 "3f32a438226287d80ae86509964d7767c2002952c95da03501beb882cae22d2d"
   license "MIT"
   head "https://github.com/Rvn0xsy/red-tldr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfea74c461af8105ddeef40028571ae94c0d400314c23ce2c7b688a53d4bbc68"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b2360f47e129d9f7e5a21f8080b4b3a4026f186372a5075772f50335fcc2631e"
-    sha256 cellar: :any_skip_relocation, catalina:      "cf74861e3fafb6015dbc4762d2bc29fd638f76f2e0c3bcf20279221998407e41"
-    sha256 cellar: :any_skip_relocation, mojave:        "2e7b44917e4e21e938de91a8a8ae5b3783e56ebe075eb11be51569e9a0ed4aa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e10ad40bdbb6280f3303f43439791ed3f76213111d17441f673374819bc4994"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bd91dc84b16cc8c51e243b6808f428e94ff4ba2b63165e7adf5563b5b1f9171c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7052eff293193940046fd1dc13c439fa81fcca5e1d7b71d9ea81e060f31284bd"
+    sha256 cellar: :any_skip_relocation, catalina:      "b55c620a9eae179704c06f4cbb6421b6a4dc8fe4ffe6771f1e15d538ec0eaf92"
+    sha256 cellar: :any_skip_relocation, mojave:        "14bf33c09c8b65c74004b2ac8bb036a342d191ccaf8b1d54d9795d13f3cf6fe3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b20f8338fedd79014c80a96c9e3ec990454be276fe98dcb112c169b13a7f0cf2"
   end
 
   depends_on "go" => :build

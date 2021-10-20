@@ -7,8 +7,7 @@ class LittleCms < Formula
   revision 1
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/lcms[._-]v?(1(?:\.\d+)+)\.t}i)
+    skip "1.x versions are no longer developed"
   end
 
   bottle do

@@ -2,13 +2,13 @@ class Thrax < Formula
   include Language::Python::Shebang
 
   desc "Tools for compiling grammars into finite state transducers"
-  homepage "http://www.openfst.org/twiki/bin/view/GRM/Thrax"
-  url "http://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.6.tar.gz"
+  homepage "https://www.openfst.org/twiki/bin/view/GRM/Thrax"
+  url "https://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.6.tar.gz"
   sha256 "5f00a2047674753cba6783b010ab273366dd3dffc160bdb356f7236059a793ba"
   license "Apache-2.0"
 
   livecheck do
-    url "http://www.openfst.org/twiki/bin/view/GRM/ThraxDownload"
+    url "https://www.openfst.org/twiki/bin/view/GRM/ThraxDownload"
     regex(/href=.*?thrax[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

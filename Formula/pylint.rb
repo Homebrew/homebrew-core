@@ -6,16 +6,17 @@ class Pylint < Formula
   url "https://files.pythonhosted.org/packages/61/c0/752d9f4c506457f2f6969c3ea0e2d62809ac34d16e8d00502894f164bded/pylint-2.11.1.tar.gz"
   sha256 "2c9843fff1a88ca0ad98a256806c82c5a8f86086e7ccbdb93297d86c3f90c436"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7cc62a0a4cc1d87f292e3cc738f9735bd79d8743e0a32c2c905c8c6eda2a88ce"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b3b0fc5af40eaac869b9a2587bcd30289f12483a614804881c5797d62c90da3d"
-    sha256 cellar: :any_skip_relocation, catalina:      "a069138c7eb4b2b4b98212b922beb070929d714752bae2b9a3334f0aeccbb5c9"
-    sha256 cellar: :any_skip_relocation, mojave:        "0ecf0c8d34ca365c493fe88b0577e77323ef8281174e845dbde85d45cbfd2e38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ecda86046a8de15db20dbbe5798b5c4715c8785812ade84b59b516423cfca95"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5597a3045d478b630ec04f0762d8eadbce61e314c17df83b796590026017109"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0d78a3879c654cf8c1aa43c2ff41a210af891337dc62d78e56a8b2d14d57ae76"
+    sha256 cellar: :any_skip_relocation, catalina:      "f5a39ecc62915323eaaf13510e6e4956fa3a0bd66d1a3b269198297fa241bd96"
+    sha256 cellar: :any_skip_relocation, mojave:        "164c357745c60513d16497f7f02d024ba0fa02a86d32ead039423ebbb9e51a80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60514c198e1161fbd059a5124fd200212000f6ed15ef8b3a4a67600cd8fd86c5"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "astroid" do
     url "https://files.pythonhosted.org/packages/ac/d9/e64c49b9ef308505d7cb9f5e2b8e0af01933e7553c76b76d3dd183661428/astroid-2.8.0.tar.gz"

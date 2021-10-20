@@ -1,12 +1,12 @@
 class AtSpi2Atk < Formula
   desc "Accessibility Toolkit GTK+ module"
   homepage "https://www.freedesktop.org/wiki/Accessibility/AT-SPI2"
-  url "https://download.gnome.org/sources/at-spi2-atk/2.34/at-spi2-atk-2.34.2.tar.xz"
-  sha256 "901323cee0eef05c01ec4dee06c701aeeca81a314a7d60216fa363005e27f4f0"
+  url "https://download.gnome.org/sources/at-spi2-atk/2.38/at-spi2-atk-2.38.0.tar.xz"
+  sha256 "cfa008a5af822b36ae6287f18182c40c91dd699c55faa38605881ed175ca464f"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 x86_64_linux: "e4a4750d255df8365d68956650e1869c8b16a2d423e7fb80a597fc83635425fa"
+    sha256 x86_64_linux: "f68be9dbb59804bc1f6de1615def3c73bf3b7d994e94844e521806cd5331686d"
   end
 
   depends_on "meson" => :build

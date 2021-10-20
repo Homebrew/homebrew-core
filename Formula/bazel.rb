@@ -4,6 +4,7 @@ class Bazel < Formula
   url "https://github.com/bazelbuild/bazel/releases/download/4.2.1/bazel-4.2.1-dist.zip"
   sha256 "12ea7aa11e2bdb12de1dceb9939a22e96f5a480437cb17c123379d8e0fdf5e82"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,14 +12,14 @@ class Bazel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b260782717493d8cac57db72fe9d6569459687b97ca9a7da08df1e0ef2de00e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b2faa3471bc0d4e16b1b95a93ad17f03eef9889f6fdeb1caa04e967f33365a0b"
-    sha256 cellar: :any_skip_relocation, catalina:      "cca6bfb8b62eab2421d4ab1bf9e3d2d97ae6ef697013e319247c651ad9b55679"
-    sha256 cellar: :any_skip_relocation, mojave:        "2fd96db13cc3c9381ed43e313e7d811964e05bcae7b6de5a4463b773da827106"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7163d2a9b29e72e8303327f88e8e3a8567d32cdee03a91313030b360c64f4d8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c3852bbeae030cebe6004eb714051adaf0e39ae02bdaacb5b22beae6665cf45f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4e3ef1fcb3839d65621a635f4f6be6282e545563e5635ddad79a0b68bceee437"
+    sha256 cellar: :any_skip_relocation, catalina:      "b59830d857e1ee86f119628524fa782127f71ba16a63f984f8f0b05a791c0405"
+    sha256 cellar: :any_skip_relocation, mojave:        "31758f2ea241189a61feef8df58a12bb0d000c4bad4d79f2c9a2fe9f97c0d5ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "348e8fb910a6f9177bf79ac275b8a527194a81e002766bb48e010210550a7737"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "openjdk@11"
 
   uses_from_macos "unzip"
@@ -34,7 +35,7 @@ class Bazel < Formula
     ENV["EXTRA_BAZEL_ARGS"] = "--host_javabase=@local_jdk//:jdk"
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
     # Force Bazel to use Homebrew python
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
 
     # Bazel clears environment variables other than PATH during build, which
     # breaks Homebrew shim scripts. We don't see this issue on macOS since

@@ -6,6 +6,11 @@ class Dash < Formula
   license "BSD-3-Clause"
   head "https://git.kernel.org/pub/scm/utils/dash/dash.git"
 
+  livecheck do
+    url "http://gondor.apana.org.au/~herbert/dash/files/"
+    regex(/href=.*?dash[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "12e8257cfc5dda342cf5df3579e4d75d6c7da1c3e5188ea2bd632f66ca9291dc"
     sha256 cellar: :any_skip_relocation, big_sur:       "a7eafa8a473d2bfd1d9fbc207ed863d5765189b6662341420bee8a78cc6d4360"

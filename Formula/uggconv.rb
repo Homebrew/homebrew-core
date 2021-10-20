@@ -4,6 +4,12 @@ class Uggconv < Formula
   url "https://wyrmcorp.com/software/uggconv/uggconv-1.0.tar.gz"
   sha256 "9a215429bc692b38d88d11f38ec40f43713576193558cd8ca6c239541b1dd7b8"
 
+  # The homepage gives the status as "Final (will not be updated)" and it was
+  # last modified on 2001-12-12.
+  livecheck do
+    skip "No longer developed"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "002cd504e9385234ab9b1b4595709ffccb2fda5d49c377add9c27eb422c04ed3"
     sha256 cellar: :any_skip_relocation, big_sur:       "820cca76f8c5618ba401a343644cffae2ece5526e0295dc29d0dd0f5f524789a"

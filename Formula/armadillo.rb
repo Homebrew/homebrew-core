@@ -1,8 +1,8 @@
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "https://arma.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-10.6.2.tar.xz"
-  sha256 "2a803d6f8f76d407db9c15edc3894965238c8e589f94cc907a8373ee945728a8"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-10.7.1.tar.xz"
+  sha256 "c90e399ac9592cbb57c77544601dd7fce675bb2ea67b4d24fcfbf0be975eeb88"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Armadillo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0344bd993165cf6b05e8d697eeb5a6956e73e4a5f2b4b3e2d9f4c80b7480ce1f"
-    sha256 cellar: :any,                 big_sur:       "11c8cb78e7a99befa9d57153ba4e51844ccbb9dc471f2b4df55bb915466ada31"
-    sha256 cellar: :any,                 catalina:      "672039181b0d20615d10c18860df2e2187c7c00a48f16d9420edbcf5c8cf086d"
-    sha256 cellar: :any,                 mojave:        "64110329e7400b96adba49a08be247019d2b861e592338e1768fe48df26e536e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d179b1e2367cc872dad0366463619d805b8b464d09151f77c0411c38cda0f79"
+    sha256 cellar: :any,                 arm64_big_sur: "170bfedb910f91b3e5bbd0ac9648ace4ddcf358c16487a437a324bd05915a361"
+    sha256 cellar: :any,                 big_sur:       "627202e739e77c05287587f3b9f4d40c0050906aa37853bcd95c09888b1e2ed1"
+    sha256 cellar: :any,                 catalina:      "581275de1c942acb75fa880d15107daca8575259089b350993952048180f46ae"
+    sha256 cellar: :any,                 mojave:        "e2bf41cdb187d7964ba39e2cd62a7e76b060e5ca5a096e3302787a99f5b71a24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b39f1d749c90a61ec6df92a99e40cb9e6a4d62547c64641483b77b2c6b074108"
   end
 
   depends_on "cmake" => :build

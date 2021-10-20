@@ -4,6 +4,11 @@ class Classads < Formula
   url "https://ftp.cs.wisc.edu/condor/classad/c++/classads-1.0.10.tar.gz"
   sha256 "cde2fe23962abb6bc99d8fc5a5cbf88f87e449b63c6bca991d783afb4691efb3"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?classads[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 big_sur:      "dcc6e15e209b41868d0e328ca0d65aac6416c923b494f53f1259ed97b64f4b33"

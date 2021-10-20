@@ -5,6 +5,13 @@ class StyleCheck < Formula
   sha256 "2ae806fcce9e3b80162c64634422dc32d7f0e6f8a81ba5bc7879358744b4e119"
   license "GPL-2.0"
 
+  # The homepage links to an unversioned tarball (style-check-current.tar.gz)
+  # and the GitHub repository (https://github.com/nspring/style-check) has no
+  # tags.
+  livecheck do
+    skip "No version information available to check"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "225c5a3dd8f66d7b42f60d165aa7190e252f4432bf0c41cfed8216746bbbbfef"
     sha256 cellar: :any_skip_relocation, big_sur:       "ad0fe7316475b3384c68b37f288a76e9e20933fe382dd28c3e93944ecb3cf52d"

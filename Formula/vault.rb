@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.8.2",
-      revision: "aca76f63357041a43b49f3e8c11d67358496959f"
+      tag:      "v1.8.4",
+      revision: "925bc650ad1d997e84fbb832f302a6bfe0105bbb"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git", branch: "main"
 
@@ -16,11 +16,11 @@ class Vault < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f9773d4e2c15dccb20f2a3aa8e0cd9edaa0756ffc8187e08dd8e300de04602a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "32cf10246fa1edee79817ed8c41e6136c24dd8562c466fac5af54c94daa44285"
-    sha256 cellar: :any_skip_relocation, catalina:      "f91a9a76aca031c55b39cd7d733bbfc9f6ff2cc608e9de2754c70d2197e71be9"
-    sha256 cellar: :any_skip_relocation, mojave:        "49002fcd38ec710569cb7272ae9e5ed5088e2dbca3bfea26f8126ce3f9d90113"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "354b86d78204aadc0c8c5d05b6deca0e758c31dfb50875cac52633ffe625b318"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "15d1d63cc1e6028d4ea4284517354c17dad4348b91b99c468311ac86ac682796"
+    sha256 cellar: :any_skip_relocation, big_sur:       "61f7b7a0042e66afc38be2bb3a892c93674e38d6b33de8e4f88f7b48c4bfdfbe"
+    sha256 cellar: :any_skip_relocation, catalina:      "2316c2d94d761c6928e67b28c122fb9175943f965cb389d2735edcb61bc3e904"
+    sha256 cellar: :any_skip_relocation, mojave:        "38c70bfa12f622a9a7ad27d8b63b50b56dad4729b4b67a88109d7941d84f3982"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ade90a215435e4fb81baca40756f4b9c9edb02f3f31365340956e12278956356"
   end
 
   depends_on "go" => :build

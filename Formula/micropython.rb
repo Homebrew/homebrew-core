@@ -5,18 +5,19 @@ class Micropython < Formula
       tag:      "v1.17",
       revision: "7c54b6428058a236b8a48c93c255948ece7e718b"
   license "MIT"
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "895f218115da8beafc09bb3f6d12054f768130f9cd277ceea8ef80e74ea5926f"
-    sha256 cellar: :any,                 big_sur:       "a4edf2dea151e9d75df897e28a8bbe79ffaa9d28e288a958ce963ca062eca4d9"
-    sha256 cellar: :any,                 catalina:      "4bdae46a88ef9337b619931ad80578189fec96f955cd7c0d4736498db208a96f"
-    sha256 cellar: :any,                 mojave:        "ac856567d0576d050da683f656ab0cd4d04f7ca5fa51eb5905cf948e6c2ec504"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49292f085f5962dc6539d22c8bdddfb2255aa720b6f48cecdce5266f5a94bb63"
+    sha256 cellar: :any,                 arm64_big_sur: "677377aa0c47310b587970b0daff9ba29b987ebd4b8472ab5285d8e8cb15e7ff"
+    sha256 cellar: :any,                 big_sur:       "395c3694341235f8e3eeae947a9bd2692bbebfb7043d4b07f52d3dd211e1da17"
+    sha256 cellar: :any,                 catalina:      "ff82df0fd5a96052d8bfc7a0f114fb1f454c742ce6b4aedaebcba62cc24d97a6"
+    sha256 cellar: :any,                 mojave:        "8dc695ae73f1c6b8d508ae63af06def4c706d14ca9e007c5b3fce787c7f17ee3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8327f00b5e66af095f7299ae1fa34e9679dc9ae32426b052efa99e080d5db490"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libffi" # Requires libffi v3 closure API; macOS version is too old
-  depends_on "python@3.9" # Requires python3 executable
+  depends_on "python@3.10" # Requires python3 executable
 
   def install
     # Build mpy-cross before building the rest of micropython. Build process expects executable at

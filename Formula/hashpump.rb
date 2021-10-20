@@ -4,7 +4,7 @@ class Hashpump < Formula
   url "https://github.com/bwall/HashPump/archive/v1.2.0.tar.gz"
   sha256 "d002e24541c6604e5243e5325ef152e65f9fcd00168a9fa7a06ad130e28b811b"
   license "MIT"
-  revision 5
+  revision 6
 
   livecheck do
     url :stable
@@ -12,16 +12,15 @@ class Hashpump < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "f927c386e75aa33a6116249b4853db671cee00beadd86c5f76c78641c59254ba"
-    sha256 cellar: :any,                 big_sur:       "ad196de95f0c2a2c8edb6d2be9ee24652c44aeeb981c4103964a583fad3bf6da"
-    sha256 cellar: :any,                 catalina:      "96dc135554b1dfa6b432120e716ab925ed28f9ea570ee2741816bb3309fbc9bb"
-    sha256 cellar: :any,                 mojave:        "0f9dc011b37341b4b0c6817738811d4825910aab7f25c6a34fe62e85e679281a"
-    sha256 cellar: :any,                 high_sierra:   "9ca69bd8f3c736e915db2f5b80de0b804170f6f2a71876fa4656c788187db6e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "436a71c492e005771238b818e594bd3b3fd66b3e9e2bdaa32222bc95776d03e0"
+    sha256 cellar: :any,                 arm64_big_sur: "6e99a5af9995bdd57bae97fc6b0e8791bc4b2992127da7a394b1429fbb84c897"
+    sha256 cellar: :any,                 big_sur:       "9938b4bc8733e829df629daa8b267211ab98b3dd6d2b7c16fee4eabbefa22372"
+    sha256 cellar: :any,                 catalina:      "b3b0d80fb5caa9c4bcedb927c081bb9afc2cf12f016396c74800bc12a3228103"
+    sha256 cellar: :any,                 mojave:        "1c37df365df42b7773727d6862320cec85bab17848caccb40f48521881f75a3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79e38b1fc605152b269ed94a2ce9b621d98f0fdff7afd41d2b26a37b4b976f14"
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # Remove on next release
   patch do

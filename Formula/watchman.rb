@@ -1,17 +1,17 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/v2021.09.13.00.tar.gz"
-  sha256 "90c417f3f96e31e7e18fc5ab0824f929ad081c81d03315e6e2288c73c12be602"
+  url "https://github.com/facebook/watchman/archive/v2021.10.18.00.tar.gz"
+  sha256 "2ce07b525096cee2a62219075d07100db73303c53c6a1d01d2c87de7ae8c949b"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0469783ad9004cd7d15ffbc98296d4602acfa687edf42573f80c490f92fc8a76"
-    sha256 cellar: :any, big_sur:       "97b0f6fdae5dd397f21a0465d42f5e4b604f3d76e8e5ca5457c45c716ef37af2"
-    sha256 cellar: :any, catalina:      "2f479d54ca4766af51c9912425df717683e0114e846870778b0b77cfb9a5ab57"
-    sha256 cellar: :any, mojave:        "d71f324f04976e5e0cebafb25d90501ea67c56cee4e519a7b51bb52bbe472a46"
-    sha256               x86_64_linux:  "d994e9410b5c61edced71716e841a3de0743a279e604b402689a01a6870b4322"
+    sha256 cellar: :any, arm64_big_sur: "c9e25436ddb021caa98115bd1b713286e91dd40e59de8797f0c00bea18f478f2"
+    sha256 cellar: :any, big_sur:       "3d952cb346ed6f9318aeb68122d6b81b3dc9b0fbeab0290993f21f020d11680f"
+    sha256 cellar: :any, catalina:      "3cd12de321b36671f0f6bb0fbc3dced352ecaa291d6bac5920583ee48bd05b8e"
+    sha256 cellar: :any, mojave:        "23ded350dccb7e1d00412c58f8b99add97a1ce0ba1e5ec11e683b8eaf26e1140"
+    sha256               x86_64_linux:  "73659ba1ef6773ef73f60033217e77c851db43e11dc663d238838d6746fbc8e1"
   end
 
   depends_on "cmake" => :build
@@ -52,6 +52,7 @@ class Watchman < Formula
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",
+                    "-DENABLE_EDEN_SUPPORT=OFF",
                     "-DWATCHMAN_VERSION_OVERRIDE=#{version}",
                     "-DWATCHMAN_BUILDINFO_OVERRIDE=#{tap.user}",
                     "-DWATCHMAN_STATE_DIR=#{var}/run/watchman",

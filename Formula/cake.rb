@@ -1,12 +1,12 @@
 class Cake < Formula
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/releases/download/v1.2.0/Cake-bin-net461-v1.2.0.zip"
-  sha256 "b54e2c67d8de0c88994576ff937471f1f330340915d07f9b189332c37a6e0b27"
+  url "https://github.com/cake-build/cake/releases/download/v1.3.0/Cake-bin-net461-v1.3.0.zip"
+  sha256 "52934fec19c02b668851b73d0fac9f3e6676be239e5bfef6af54b56fb91a244c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a6f03c118ac1931711fa751443847e3b4bea3a89a7dfd4fa13c968629342b7c4"
+    sha256 cellar: :any_skip_relocation, all: "07296553a62cd35f5c25ab24cd8a36179db132c965ed5c2afd30853aa2313e51"
   end
 
   depends_on arch: :x86_64 # mono is not yet supported on ARM

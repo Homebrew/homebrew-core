@@ -11,6 +11,7 @@ class F2 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "26de580bdc9278b69835aab94c978bfc0bd0de551f1f3157423e06fe6d5a9a13"
     sha256 cellar: :any_skip_relocation, catalina:      "4f6022ae8ec91b6bb2e9536e01f159ac9e92b0fe803f9888d55eefa147e3d626"
     sha256 cellar: :any_skip_relocation, mojave:        "10fdc45834b4bd953d28c76d9c453d4136231d3f777ff5c272099dffe83a041d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afd86cec56fa3b8469b20dc725131f20b2edc39b2ec93f21bdd3198a46f9b7d5"
   end
 
   depends_on "go" => :build

@@ -2,7 +2,7 @@ class Ponysay < Formula
   desc "Cowsay but with ponies"
   homepage "https://github.com/erkin/ponysay/"
   license "GPL-3.0"
-  revision 6
+  revision 7
   head "https://github.com/erkin/ponysay.git", branch: "master"
 
   stable do
@@ -17,17 +17,16 @@ class Ponysay < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "60e7b68ff8b1547be4ed7410414a6cf3c707c105aea0ca82d8bac49a6a7bd476"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6a50e86cb011bd455d76f6478f230a543759fd622132914ac35c2423f63f410f"
-    sha256 cellar: :any_skip_relocation, catalina:      "8c53b69ff726780b68fa8d644a13325bf46b80ae13eb198804f0eb7aa601a893"
-    sha256 cellar: :any_skip_relocation, mojave:        "d91ddb61651ee73e49f565095257cf8226d66585d8032783fe208ee359448912"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "ba848b6de300211972228d752805e4d4bed7ba44af9356e0f56fc6bdd9f23f79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd28488181622f5eb609f30fc6ace88009dc2fbf2f3dd4bb7462d61a150fe232"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "15d31809c411d0af2a1aa8d1d2590e061ab4cb9b9de0397e97be2ebbb01e1fc8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bde757a6e76ce24cf5f8b163e3c6046032ea486c25b707140c8eb0e117fe2148"
+    sha256 cellar: :any_skip_relocation, catalina:      "599a4e15aa4b45a57a2a49a1dd961ab92ea763fd176552ffa278a7f0f4908a92"
+    sha256 cellar: :any_skip_relocation, mojave:        "6c163cdc7026773234e757c83135d848ca2447e2e160d5d2fa12761e64bdda5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d7c805cc2d40f173cd617bef3d846c6858564e398b595271f23436608ad6e36"
   end
 
   depends_on "gzip" => :build
   depends_on "coreutils"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "texinfo" => :build
 
@@ -37,7 +36,7 @@ class Ponysay < Formula
            "--prefix=#{prefix}",
            "--cache-dir=#{prefix}/var/cache",
            "--sysconf-dir=#{prefix}/etc",
-           "--with-custom-env-python=#{Formula["python@3.9"].opt_bin}/python3",
+           "--with-custom-env-python=#{Formula["python@3.10"].opt_bin}/python3",
            "install"
   end
 

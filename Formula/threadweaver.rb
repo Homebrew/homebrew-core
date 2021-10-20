@@ -1,16 +1,23 @@
 class Threadweaver < Formula
   desc "Helper for multithreaded programming"
   homepage "https://api.kde.org/frameworks/threadweaver/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.86/threadweaver-5.86.0.tar.xz"
-  sha256 "84dcbe648e2960084b13ad59a88dd7ed7fee0305351b015345d59848072e64be"
+  url "https://download.kde.org/stable/frameworks/5.87/threadweaver-5.87.0.tar.xz"
+  sha256 "904db85af3f4cf5a7b0125264926d83405489feec66cacf675c67019c5fe17bf"
   license "LGPL-2.0-or-later"
   head "https://invent.kde.org/frameworks/threadweaver.git", branch: "master"
 
+  # We check the tags from the `head` repository because the latest stable
+  # version doesn't seem to be easily available elsewhere.
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ab63e8e0f342315945f3f44851abea4b9d6258041a2f8c93f02859fdc036deab"
-    sha256 cellar: :any, big_sur:       "3292d7fc2cb4932bd0fbda38d510c3e3e37c0a2007f822e912da164a4f2a17bf"
-    sha256 cellar: :any, catalina:      "dce58a4c3a347fff98c44a20ea89f7d3383f3e2126bc60284ebb1f335cae4723"
-    sha256 cellar: :any, mojave:        "6c2bcbafdb3a3e98ebff128ff609a4ce748bb6ad3bc7778964877dd97945af3f"
+    sha256 cellar: :any, arm64_big_sur: "1393ab0dc4b73feda73ec7492cf573755fb2f046c77f7ca14cea2b0d4b517901"
+    sha256 cellar: :any, big_sur:       "a068b36279c0b3b55fc77d136e42712d8f37f5efa370f819f51ff65d39358535"
+    sha256 cellar: :any, catalina:      "14fab5d7bfac23a31ec7c4ea8940cbe47097728f4f2642a648c41aa9aa7c4f49"
+    sha256 cellar: :any, mojave:        "6edccbaece80ca49186ac727770008f817d2744f1206760f01e609d0e5408b76"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -24,10 +31,9 @@ class Threadweaver < Formula
     args << "-DBUILD_TESTING=OFF"
     args << "-DBUILD_QCH=ON"
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     pkgshare.install "examples"
   end

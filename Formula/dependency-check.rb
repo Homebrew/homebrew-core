@@ -1,8 +1,8 @@
 class DependencyCheck < Formula
   desc "OWASP dependency-check"
   homepage "https://owasp.org/www-project-dependency-check/"
-  url "https://github.com/jeremylong/DependencyCheck/releases/download/v6.3.0/dependency-check-6.3.0-release.zip"
-  sha256 "55cd62cb4095cf02bf327713d0fa1ea0c1bedcd1c78de4aa34ca5a91e88ea2c1"
+  url "https://github.com/jeremylong/DependencyCheck/releases/download/v6.4.1/dependency-check-6.4.1-release.zip"
+  sha256 "d7eb3169bebc7f0235cc8c44e1cb342fb685cfab99dbe8ce58740f171f7890aa"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class DependencyCheck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0a802d19e3c5fe3a8435276e8c65a8b28de1e1738524264b1a6052615237349e"
+    sha256 cellar: :any_skip_relocation, all: "c85433298e211c685eb7d420561806a84e78a706301ce89c38c15fcde52424e9"
   end
 
   depends_on "openjdk"
@@ -36,6 +36,9 @@ class DependencyCheck < Formula
   end
 
   test do
+    # wait a random amount of time as multiple tests are being on different OS
+    # the sleep 1 seconds to 30 seconds assists with the NVD Rate Limiting issues
+    sleep(rand(1..30))
     output = shell_output("#{bin}/dependency-check --version").strip
     assert_match "Dependency-Check Core version #{version}", output
 
@@ -44,7 +47,8 @@ class DependencyCheck < Formula
       analyzer.assembly.enabled=false
     EOS
     system bin/"dependency-check", "-P", "temp-props.properties", "-f", "XML",
-               "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath
+               "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath,
+               "--cveStartYear", Time.now.year, "--cveDownloadWait", "5000"
     assert_predicate testpath/"dependency-check-report.xml", :exist?
   end
 end

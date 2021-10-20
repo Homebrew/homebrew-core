@@ -3,20 +3,21 @@ class Sqlmap < Formula
 
   desc "Penetration testing for SQL injection and database servers"
   homepage "https://sqlmap.org"
-  url "https://github.com/sqlmapproject/sqlmap/archive/1.5.9.tar.gz"
-  sha256 "3e8516e268ffc6983ff522f7d5a73327e2ad0156c256d713ba046a4b7df3ef94"
+  url "https://github.com/sqlmapproject/sqlmap/archive/1.5.10.tar.gz"
+  sha256 "7147ba8c9ac98fe55daa4928c34f7b6e314bfa7fa60a4f073689f70533128bcb"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/sqlmapproject/sqlmap.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8520f1f0c04fda852d13d362803aacdf620cb774ca93b0216eb0e02a9487d9d3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "85333509941be1b99beaa308b62fd05cd1ff156ed626f4137983f6409f890fce"
-    sha256 cellar: :any_skip_relocation, catalina:      "85333509941be1b99beaa308b62fd05cd1ff156ed626f4137983f6409f890fce"
-    sha256 cellar: :any_skip_relocation, mojave:        "85333509941be1b99beaa308b62fd05cd1ff156ed626f4137983f6409f890fce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "166bb40f916355b31d46eaabb449ad018667e01c8ca41ca23184dc96d02855bd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bcadbc807985338e0d0bba23e9525b7446a2dbd3ce6add55a3d5eef50d624355"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b079ef5e78fd53a75fcd9c038b8c7fa0752f454105b21d60cfe6cfc7f2aa9b21"
+    sha256 cellar: :any_skip_relocation, catalina:      "b079ef5e78fd53a75fcd9c038b8c7fa0752f454105b21d60cfe6cfc7f2aa9b21"
+    sha256 cellar: :any_skip_relocation, mojave:        "b079ef5e78fd53a75fcd9c038b8c7fa0752f454105b21d60cfe6cfc7f2aa9b21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "344b73aa1fa7760a3a16ec47ee58b57e66307a6f41d360731113302b9e4b85d0"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "sqlite" => :test
 

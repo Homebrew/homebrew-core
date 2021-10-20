@@ -15,6 +15,7 @@ class Mkvtomp4 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7122210c51f74465371eb6a92b3d1dd80a27f68f08335dce119b3aeffb9c00cc"
     sha256 cellar: :any_skip_relocation, catalina:      "a4c3cdb9f62d23b6f66827f9fa646c377d60f9d0e5b3dad81eb6c5a67d2798ac"
     sha256 cellar: :any_skip_relocation, mojave:        "d7ba96f07d2a82d2c5e2d5cce1b80836abdebe0a990f238c763c06aec305ad0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23a5ec166458160591dacb49e9a14eedad266c223437930f1e73992bb47ec2c2"
   end
 
   depends_on "ffmpeg"

@@ -2,17 +2,17 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      tag:      "v0.27.0",
-      revision: "d4af0222e8853b1ae1435cadf0b819651a6f149b"
+      tag:      "v0.27.1",
+      revision: "799d6561e1cfdc34c08352d23ebe623f40fb022f"
   license "MPL-2.0"
   head "https://github.com/hashicorp/consul-template.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "954a0becbeafa3a6e0811ee83b749e9711f41302125713484edc3692e5b32449"
-    sha256 cellar: :any_skip_relocation, big_sur:       "87d005515948c2685d0d1bfddf3be691e23f0ba13dd9d1d23df33e039378dd70"
-    sha256 cellar: :any_skip_relocation, catalina:      "97ab8ab5bd375ad6123c7c5619051c7928644815890fb00ab1d99f8eaa7d7d07"
-    sha256 cellar: :any_skip_relocation, mojave:        "b1a6257d01f844bce985509fa786f4352d28f418caa49908a54b804401145646"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a9dc180cc14a3a33cf9ff92c18f6519714ec62981f44a95a1999cb16bdf651d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1daf66b8cde3eb1483b130185eccaadd947686a830562d415dc92017f746b04a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "72d06c3eca6b73058c6fc7b35e9c275ab9a9fff8ecd0b1200520f1b711f25c74"
+    sha256 cellar: :any_skip_relocation, catalina:      "5cb5d29ad3beb7cb51e9762f1908924a7a0e8cc8b3ae6bc10d9289818721c090"
+    sha256 cellar: :any_skip_relocation, mojave:        "54d27658a88b49a16dd37995b435a6eb51d55d109e10aa584e39d91142784151"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0834b775b96acd416a5177f9580fbfd54ff82dff79644ade93e9bde8edc608e"
   end
 
   depends_on "go" => :build

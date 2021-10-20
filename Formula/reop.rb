@@ -5,6 +5,10 @@ class Reop < Formula
   mirror "https://bo.mirror.garr.it/OpenBSD/distfiles/reop-2.1.1.tgz"
   sha256 "fa8ae058c51efec5bde39fab15b4275e6394d9ab1dd2190ffdba3cf9983fdcac"
 
+  livecheck do
+    skip "No longer developed"
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2f19ce5ab996a6d2cf7e5152160f0f0298e3c19eed633a9c52c0d548b2be0017"
     sha256 cellar: :any, big_sur:       "125c56793715854faa4c1785f48e119a364ea3fb3239ea7edc4d885b6071099f"

@@ -2,23 +2,21 @@ class Cbmc < Formula
   desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
-      tag:      "cbmc-5.38.0",
-      revision: "667858fb799e82df7f6cafca53b13ed996824b64"
+      tag:      "cbmc-5.42.0",
+      revision: "7727f4530d59198381a42d250815305b1872a3ae"
   license "BSD-4-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "83e6399a382670759dbe25376d39309153394541b693d960b2782dcfdb446e22"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8fa637bb5b7196a033ffab22b0c990bc4ce1df436d3bf9245b574c89788f6011"
-    sha256 cellar: :any_skip_relocation, catalina:      "8dd7e6dc6d426549ba53432026d36d5b11c49533b659f91e40bca531a0d416dc"
-    sha256 cellar: :any_skip_relocation, mojave:        "a3487712a1633ece2e59a046c3e70555daf10d34056602da9bd69a5229d1615c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6a6ddad09e6789292cc639e37337eff3b4a0ba119f027bbe9a1649ee4abd61c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4a475b88cfe5109cade204b1aa3d3a94da072c933940e707ac4e7b58aa8befc0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9319e8c5728afc2d252e65f634b1e44be9d875f0f40aa832496197340df3cf2b"
+    sha256 cellar: :any_skip_relocation, catalina:      "deb588447c6c32249e3c6cb04e60f02c4544ca0b0eaa17fbf2fd8021e64c28a9"
+    sha256 cellar: :any_skip_relocation, mojave:        "8f3e692925ca1e333ab6abab82302e31c186e625f4faac6463135bccd523c7b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5caf97ee9e51e98496c120bca1deb08c5b39dc4306fac10539b62a56180d53cf"
   end
 
   depends_on "cmake" => :build
   depends_on "maven" => :build
-  # Java front-end fails to build with openjdk>=17
-  depends_on "openjdk@11" => :build
+  depends_on "openjdk" => :build
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -30,13 +28,7 @@ class Cbmc < Formula
   fails_with gcc: "5"
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home("11")
-
-    args = []
-    # Workaround borrowed from https://github.com/diffblue/cbmc/issues/4956
-    args << "-DCMAKE_C_COMPILER=/usr/bin/clang" if OS.mac?
-
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

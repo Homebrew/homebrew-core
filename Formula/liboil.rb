@@ -4,6 +4,11 @@ class Liboil < Formula
   url "https://liboil.freedesktop.org/download/liboil-0.3.17.tar.gz"
   sha256 "105f02079b0b50034c759db34b473ecb5704ffa20a5486b60a8b7698128bfc69"
 
+  livecheck do
+    url "https://liboil.freedesktop.org/download/"
+    regex(/href=.*?liboil[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "915b7c9defeb1e3d056cd4ead9442b6da74c033d776a3d29eab11f3a74cc4bc6"

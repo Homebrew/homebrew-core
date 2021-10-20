@@ -15,6 +15,13 @@ class Libmpc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d74eb5f1377d8fa72fad88baca1bd5f00c29d45ba186fbec89ad690c1d1f721f"
   end
 
+  head do
+    url "https://gitlab.inria.fr/mpc/mpc.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "gmp"
   depends_on "mpfr"
 
@@ -26,6 +33,7 @@ class Libmpc < Formula
       --with-mpfr=#{Formula["mpfr"].opt_prefix}
     ]
 
+    system "autoreconf", "-fiv" if build.head?
     system "./configure", *args
     system "make"
     system "make", "check"

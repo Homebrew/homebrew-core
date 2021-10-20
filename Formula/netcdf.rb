@@ -1,11 +1,9 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf"
-  url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.8.0.tar.gz"
-  mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.8.0.tar.gz"
-  sha256 "679635119a58165c79bb9736f7603e2c19792dd848f19195bf6881492246d6d5"
+  url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz"
+  sha256 "bc018cc30d5da402622bf76462480664c6668b55eb16ba205a0dfb8647161dd0"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/Unidata/netcdf-c.git", branch: "main"
 
   livecheck do
@@ -14,11 +12,11 @@ class Netcdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0c50d7fa0859656c1eb01da3de8be9eba53189c6038a901da6679746915fdb32"
-    sha256 cellar: :any,                 big_sur:       "71057c8d7e1ebb521973d2f5841f0b1d093df47cbd930091ee0add6f58e91f53"
-    sha256 cellar: :any,                 catalina:      "e75f036bc6f9a8979ab702b9293c5eaede59d7721f1e05ce62ff9b87cb224398"
-    sha256 cellar: :any,                 mojave:        "15488b7028f4b086ebe2e540cbbfd2e8c6109593ed33a14af467addc84faf9f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2ad1d7bc3c8aecd74b25592f154dc7290b6c607199212baf3e96a087025b0ef"
+    sha256 cellar: :any,                 arm64_big_sur: "ceef5e39659e5ff4588c56106bda44a5a323146667494d2ffc3774157e59fcaa"
+    sha256 cellar: :any,                 big_sur:       "2eb8a909218b74d6912cab5fa71da9e5be96e63c4429ddbd3ad6e4db137f12f8"
+    sha256 cellar: :any,                 catalina:      "2a6b950057dd40e4dee39245943c92ea7bc5d8141b1f70a8946d240a348cbf9e"
+    sha256 cellar: :any,                 mojave:        "c5e18d95f19286dc7d7dd3e44f1c040a64cb1741fd50978bc3a1a6048ac70c66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13c5137aecff35c67461d420ff046cdaa49f27a2458e338a5c405448251ec7d0"
   end
 
   depends_on "cmake" => :build

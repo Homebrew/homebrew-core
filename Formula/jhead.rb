@@ -1,32 +1,29 @@
 class Jhead < Formula
   desc "Extract Digicam setting info from EXIF JPEG headers"
-  homepage "https://www.sentex.net/~mwandel/jhead/"
-  url "https://www.sentex.net/~mwandel/jhead/jhead-3.04.tar.gz"
-  sha256 "ef89bbcf4f6c25ed88088cf242a47a6aedfff4f08cc7dc205bf3e2c0f10a03c9"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?jhead[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  homepage "https://github.com/Matthias-Wandel/jhead"
+  url "https://github.com/Matthias-Wandel/jhead/archive/3.06.0.1.tar.gz"
+  sha256 "5c5258c3d7a840bf831e22174e4a24cb1de3baf442f7cb73d5ab31b4ae0b0058"
+  license :public_domain
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fb488dd088278d8ab847a8a1c1c30b39839b98110de83129966a598e520b6c56"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f792493bee1962d84eba111b488b796e4c43a3b7bc8f3d9cad77c71b510a67ef"
-    sha256 cellar: :any_skip_relocation, catalina:      "1d7d67316306e727fd5b5df4949eb66039462a6887276130a380fa81f17453f7"
-    sha256 cellar: :any_skip_relocation, mojave:        "bfc94a4d1c62e2df62ef63298c0ecff674a2cf5cb5d58e75b03dfa947485df6e"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "09cf431f5e58b7c07e0cab702c1f38c3c9ce10ca22c749e496b4947207157952"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a03c048668f9098da980076c2f7594ef6a53c7cd38dffdf0ba6fa4cecb51a05"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8ba17f494afc0590a876112f9f7f6b00664fbd1ad62ec3a9a21a5941188b9bbe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ff1612a2a1d386e153b934b790f6e3e4897a0cb9509805de91f0cf432a422f57"
+    sha256 cellar: :any_skip_relocation, catalina:      "57866edae4ac5a6b63988d3f7c9c1d261fa33eaff6dc1e6833a086fda2a7671f"
+    sha256 cellar: :any_skip_relocation, mojave:        "1d772617f005a7b1381d78c133e2745e9ca7e31cb6a5fd5428bd2f973bcfae45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15b04dc8681a47de34f7d95028ad979706403157d88bef21cdfc97b5f89393cf"
   end
 
-  # Patch to provide a proper install target to the Makefile. The patch has
-  # been submitted upstream through email. We need to carry this patch until
-  # upstream decides to incorporate it.
+  # Patch to provide a proper install target to the Makefile. A variation
+  # of this patch has been submitted upstream at
+  # https://github.com/Matthias-Wandel/jhead/pull/45. We need to
+  # carry this patch until upstream decides to incorporate it.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e37226eb9575636a728461fdc469c6706d81f564/jhead/3.04.patch"
-    sha256 "2812e109fff8c0215faaa5a443d4b0aaa2b3a913aaac6b42c106903f1d62381b"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e3288f753931921027d0def5e8d2c3dbf7073b10/jhead/3.06.0.1.patch"
+    sha256 "520929fe37097fde24f36d7e0fd59ded889d1a3cbea684133398492b14628179"
   end
 
   def install
+    ENV.deparallelize
     system "make", "install", "PREFIX=#{prefix}"
   end
 

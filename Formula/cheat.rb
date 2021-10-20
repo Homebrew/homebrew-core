@@ -1,16 +1,16 @@
 class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
-  url "https://github.com/cheat/cheat/archive/4.2.2.tar.gz"
-  sha256 "b4fb5a0d63bad020ca240a8e27b573ef127a1ca0f27e87a2cb8bd817c258611a"
+  url "https://github.com/cheat/cheat/archive/4.2.3.tar.gz"
+  sha256 "9624160ba542fb51bbd959d8c68b76f82ea324a6186d8d6d544b0efd8c9cc8ca"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1fec31503d04d18d06ff7219b56692834ee87b768b746b6388175e3f1850cb8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8d9532d83667e17958f1171b526fd5bfbd07d6c506ab56ba252edb8cf0c7bad1"
-    sha256 cellar: :any_skip_relocation, catalina:      "3f487df7029b53f7bea851dada9a6020d9f1b2db047edd35dbebee16eaa60f67"
-    sha256 cellar: :any_skip_relocation, mojave:        "15e9b5b9a0bae299e8d1836372158561babd7bfe170c5365ab92667d0bcc1bb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "049ce98d4e20b50c6e4b0c85e6eb786926247459b2f7c72ddf7698e64117afd8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "29bc2dffe84cddb513d2d60e975318d5711ee3c271d1df1281748dc218e55e6d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "555a8eed35239df3eea18eaa0f79d420536c4b37a2c0fe1f918767fee021d813"
+    sha256 cellar: :any_skip_relocation, catalina:      "4764f422ab1b50502ea727005f7b9eaf491e560bb20eb1d76088f5923dde2f67"
+    sha256 cellar: :any_skip_relocation, mojave:        "61b509e154f3bb7a86c7d409d17a7aa69548c0c3815ccb2643e9e0350af98d82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85f574d6ebd084427db1c067f98679d7f76ec922297377f073ac0f1b8b680734"
   end
 
   depends_on "go" => :build

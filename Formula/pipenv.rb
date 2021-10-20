@@ -6,16 +6,17 @@ class Pipenv < Formula
   url "https://files.pythonhosted.org/packages/be/c5/a7c300c4589e898db8cfcf26f7065c24e2f5abacaea196a7f80e6695344d/pipenv-2021.5.29.tar.gz"
   sha256 "05958fadcd70b2de6a27542fcd2bd72dd5c59c6d35307fdac3e06361fb06e30e"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f3f66ceb9d6dc8b9f2d3a721de4118c49cb6e276f2fc610b3d567dcc3e412a80"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3e01446c114bb70d72f7455b19417e9e3190a95dcd565dc4ce994988b1b49f54"
-    sha256 cellar: :any_skip_relocation, catalina:      "59356350c5fce175f14d525b10991f180fe557a01563c88b66d7771e733aa095"
-    sha256 cellar: :any_skip_relocation, mojave:        "c29cf7117b5b8de37eadbaa43ad1a17daebead776b8767f2f6bc3884ed42f370"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3fe5562f1d9e0237030b7171007e1e1bb224d8cdb88dc195964e22cfce94279"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ad313f878cf10671754962f077eeb90b0a1c8d0acdec2513753fc48b19c61017"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0c2c17225157ba5ded4484e51327548892dbab22532e993e277c3b85afbab70c"
+    sha256 cellar: :any_skip_relocation, catalina:      "44fd41548a1ae7c63c610d3fdb3447e7191a761c86a62caf948457413120f21a"
+    sha256 cellar: :any_skip_relocation, mojave:        "3996b20d3f9d8f869d876b2976bed9bbe325e8206cbffcdfbcd282cd024c671f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bda43e658fabc55db4fdde1ec6b048126b2aaadc0d98397396c73e5a6f4df9be"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"

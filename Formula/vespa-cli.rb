@@ -1,17 +1,22 @@
 class VespaCli < Formula
   desc "Command-line tool for Vespa.ai"
   homepage "https://vespa.ai"
-  url "https://github.com/vespa-engine/vespa/archive/vespa-7.462.20-1.tar.gz"
-  version "7.462.20"
-  sha256 "87e309fbdac0bef174ef3ac1bf094d551a54dd2da57ecc52e19880d0d81a9cda"
+  url "https://github.com/vespa-engine/vespa/archive/v7.481.18.tar.gz"
+  sha256 "a0f1ed8689286a1f47f069b73bc6bb201695b412d016f4d49488abc5d2c9521c"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?/tag/\D*?(\d+(?:\.\d+)+)(?:-\d+)?["' >]}i)
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2545137bd5211b28a97ad6b63b19f5c89abc61512424a05fdb115a07dad0f17b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "04245ebcc2c5c9d2792fc166ad08829c6b4f48281333a4eeeeba8d8b57d5947e"
-    sha256 cellar: :any_skip_relocation, catalina:      "bb874b46718d2512b9cd640bdfd27b935dfcae0975e480b8ff5bf7f013c96e87"
-    sha256 cellar: :any_skip_relocation, mojave:        "886380dfa363e839aaacf41d1f403b9e1eb85af71bcce4796f22de5dd555cbe1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbb17e116100be24ef0787c66e1baf39a1021f038d3597547819959cf8c7eca9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "87d6371d38a3ee08ed7d1e0ba081598fd7c65e7fa5a3bc7312deae9ddb314ac5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "158d96fee4eb387366d59f96b87c6cdf7c157b6ce1642abebd7d85be7f8d7e4e"
+    sha256 cellar: :any_skip_relocation, catalina:      "8471f4f31e1a5e29967687e677936f8d99fbb246f3c60c1b16149dcdec91574b"
+    sha256 cellar: :any_skip_relocation, mojave:        "8cb68d98fa78aa8c2ebb329e001d3f19d9dcc8d172611d44e041d2ee6967a237"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "187a5c444f0ac1075603870f880144a0355dba94a18cc66767de85d63683d359"
   end
 
   depends_on "go" => :build
@@ -32,8 +37,8 @@ class VespaCli < Formula
   test do
     ENV["VESPA_CLI_HOME"] = testpath
     assert_match "vespa version #{version}", shell_output("#{bin}/vespa version")
-    query = "yql=select * from sources * where title contains 'foo';"
-    assert_match "Error: Request failed", shell_output("#{bin}/vespa query -t local '#{query}' hits=5")
+    doc_id = "id:mynamespace:music::a-head-full-of-dreams"
+    assert_match "Error: Request failed", shell_output("#{bin}/vespa document get #{doc_id} 2>&1", 1)
     system "#{bin}/vespa", "config", "set", "target", "cloud"
     assert_match "target = cloud", shell_output("#{bin}/vespa config get target")
   end

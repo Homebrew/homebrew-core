@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v16.9.1/node-v16.9.1.tar.xz"
-  sha256 "97f50ec53c050e7ac97bdbe5586aaca380dd23064064c85a1f2017a35244131c"
+  url "https://nodejs.org/dist/v16.11.1/node-v16.11.1.tar.xz"
+  sha256 "67587f4de25e30a9cc0b51a6033eca3bc82d7b4e0d79bb84a265e88f76ab6278"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
@@ -12,21 +12,21 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4ba5a338cf6594b57bd3d4d08f6bd82c9f54a39e7fca7cdb98efee5af83ac26e"
-    sha256 cellar: :any,                 big_sur:       "41336818ebd9fc549ccb3e7a0b4786056d48deb255afafd2c1a2b7ca8e1128d0"
-    sha256 cellar: :any,                 catalina:      "4917ded2791d441804e9a250390aed235fc263a6c4a840829e78e8794f4d1504"
-    sha256 cellar: :any,                 mojave:        "117c5f364e689be28cc6a7508b37d435730063fbd6f6b011693e34bd1c972f36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e14ff345d109a01327d813af9a5ccbfae9a1046ff0eed928aaf2d8571dd94e7"
+    sha256 cellar: :any,                 arm64_big_sur: "a43113837382d103c08a9b7194928e0ffadfff89fe99b7613d774930e21a9940"
+    sha256 cellar: :any,                 big_sur:       "bc7ed2beff7569491d89733c6202d212bc2d2abceb7b4293aa865a8728574a6e"
+    sha256 cellar: :any,                 catalina:      "51d62734b48ec8638611cb96dd0fd01fed32a8b66dff2034e154ed5d7417b629"
+    sha256 cellar: :any,                 mojave:        "beaeecf1d092cb96c097536768b530ea3fedb9b46a12e070d6b408a8cbc8e9c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6772206fe1ca79974d979719d84ef7ea45d5b5c70dee40887fd0e278c49477d"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
+  depends_on "libnghttp2"
   depends_on "libuv"
-  depends_on "nghttp2"
   depends_on "openssl@1.1"
+  depends_on "python@3.9"
 
   uses_from_macos "zlib"
 
@@ -44,8 +44,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-7.21.1.tgz"
-    sha256 "92626ba6f8c2ddb7966fe154833b9df3fec89ee366f7dabe5ab852773cfb5e02"
+    url "https://registry.npmjs.org/npm/-/npm-8.0.0.tgz"
+    sha256 "7b42b3cc7deeda21df3a7e91ce81c6c466bdab99f204e20f2a336f4628366219"
   end
 
   # Fix build with brewed c-ares.
@@ -77,14 +77,15 @@ class Node < Formula
       --shared-cares
       --shared-libuv-includes=#{Formula["libuv"].include}
       --shared-libuv-libpath=#{Formula["libuv"].lib}
-      --shared-nghttp2-includes=#{Formula["nghttp2"].include}
-      --shared-nghttp2-libpath=#{Formula["nghttp2"].lib}
+      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
+      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
       --shared-openssl-includes=#{Formula["openssl@1.1"].include}
       --shared-openssl-libpath=#{Formula["openssl@1.1"].lib}
       --shared-brotli-includes=#{Formula["brotli"].include}
       --shared-brotli-libpath=#{Formula["brotli"].lib}
       --shared-cares-includes=#{Formula["c-ares"].include}
       --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --openssl-use-def-ca-store
     ]
     args << "--tag=head" if build.head?
 
@@ -158,7 +159,7 @@ class Node < Formula
     assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
-    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bufferutil" unless head?
+    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "ref-napi" unless head?
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --yes cowsay hello")

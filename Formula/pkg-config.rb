@@ -2,6 +2,8 @@ class PkgConfig < Formula
   desc "Manage compile and link flags for libraries"
   homepage "https://freedesktop.org/wiki/Software/pkg-config/"
   url "https://pkgconfig.freedesktop.org/releases/pkg-config-0.29.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/pkg-config-0.29.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/pkg-config-0.29.2.tar.gz"
   sha256 "6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591"
   license "GPL-2.0-or-later"
   revision 3
@@ -19,6 +21,10 @@ class PkgConfig < Formula
     sha256                               high_sierra:   "8c6160305abd948b8cf3e0d5c6bb0df192fa765bbb9535dda0b573cb60abbe52"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d9b8bf9b7b4bd08086be1104e3e18afb1c437dfaca03e6e7df8f2710b9c1c1a"
   end
+
+  # FIXME: The bottle is mistakenly considered relocatable on Linux.
+  # See https://github.com/Homebrew/homebrew-core/pull/85032.
+  pour_bottle? only_if: :default_prefix
 
   def install
     pc_path = %W[

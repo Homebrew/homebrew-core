@@ -5,6 +5,11 @@ class Yamcha < Formula
   sha256 "413d4fc0a4c13895f5eb1468e15c9d2828151882f27aea4daf2399c876be27d5"
   license "LGPL-2.1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?yamcha[._-]v?(\d+(?:\.\d+)+)\.t/im)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, big_sur:     "18f032ddd520debefef3e67422089660c9222e1a8098d4c9b5128cb7a517e87a"

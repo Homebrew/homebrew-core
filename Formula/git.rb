@@ -2,8 +2,8 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   # NOTE: Please keep these values in sync with git-gui.rb when updating.
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.0.tar.xz"
-  sha256 "bf3c6ab5f82e072aad4768f647cfb1ef60aece39855f83f080f9c0222dd20c4f"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.1.tar.xz"
+  sha256 "e054a6e6c2b088bd1bff5f61ed9ba5aa91c9a3cd509539a4b41c5ddf02201f2f"
   license "GPL-2.0-only"
   head "https://github.com/git/git.git"
 
@@ -13,33 +13,33 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "06e9cc3e274380b2494451ed2e3c6acf1e091facdf2ce02da57921fbc6a3115a"
-    sha256 big_sur:       "1b89ec39f7a4b865b3c671f9b2495ec85992595112b74a5dc3ac78beae33ff0d"
-    sha256 catalina:      "4aaced15f34f02a7a965f9cee42b78ef471034e4d9cf3bbbe8bf2ab8f4f72678"
-    sha256 mojave:        "5e85e4d8c9aaa398420993cb9c2561db79d3a71a12b79b8631ee0de5b0d86c67"
-    sha256 x86_64_linux:  "06340f727c9e234bbe7fb940307c7ec2545b8186ed1bfbb9c20cf9763cb2d22c"
+    sha256 arm64_big_sur: "4e8cc9c2b83d5c376f0342afa91ff4c73a1505ac9963dad06b44c23423fcebf8"
+    sha256 big_sur:       "66e2ded73f2a3b13ac3369cd9416378307337959d3bd61a0c6297fed8456cb3c"
+    sha256 catalina:      "b3a7b591b8c990f4936a917ce17c697a5645e4c2cacc7ae3e0de417b5f5af6fd"
+    sha256 mojave:        "3fc2a3ac7e21325382bd1117081e068fe29206169f0e7b62d31c055012d976d0"
+    sha256 x86_64_linux:  "8e3b6532456c752e077639e42e9bbaa37a034191931ecc237bb99101920b04c3"
   end
 
   depends_on "gettext"
   depends_on "pcre2"
 
-  uses_from_macos "curl"
+  uses_from_macos "curl", since: :catalina # macOS < 10.15.6 has broken cert path logic
   uses_from_macos "expat"
-  uses_from_macos "openssl"
   uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-headers@4.4"
+    depends_on "openssl@1.1" # Uses CommonCrypto on macOS
   end
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.33.0.tar.xz"
-    sha256 "309c5d3cdd9a115f693c0e035298cc867a3b8ba8ce235fa1ac950a48cb4b0447"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.33.1.tar.xz"
+    sha256 "6a6b8a0f064c78e0033aa4fce0520325496de019b09fff99fa82eeb472038f5c"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.33.0.tar.xz"
-    sha256 "d6d38abe3fe45b74359e65d53e51db3aa92d7f551240b7f7a779746f24c4bc31"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.33.1.tar.xz"
+    sha256 "c75219f1c9f56caad4f8eb17915e4fe34ca5e1b453773df279a2cec98205ab87"
   end
 
   resource "Net::SMTP::SSL" do
@@ -68,13 +68,6 @@ class Git < Formula
       ].uniq.map do |p|
         "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
       end.join(":")
-    end
-
-    # Ensure we are using the correct system headers (for curl) to workaround
-    # mismatched Xcode/CLT versions:
-    # https://github.com/Homebrew/homebrew-core/issues/46466
-    if MacOS.version == :mojave && MacOS::CLT.installed? && MacOS::CLT.provides_sdk?
-      ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
 
     # The git-gui and gitk tools are installed by a separate formula (git-gui)

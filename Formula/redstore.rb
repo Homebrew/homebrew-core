@@ -5,6 +5,11 @@ class Redstore < Formula
   sha256 "58bd65fda388ab401e6adc3672d7a9c511e439d94774fcc5a1ef6db79c748141"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?redstore[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "03952d80ba4b35e0a1a7a85a9ae9fe56e9e31bd6e2797729c28ffee377ee2fcf"
     sha256 cellar: :any, big_sur:       "fa44b96b71ff73060973893222eb264f18c54f8c64ebb73c903eef2e544868ee"

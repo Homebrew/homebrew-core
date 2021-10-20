@@ -5,6 +5,11 @@ class Allure < Formula
   sha256 "bd8a90fa4badf1a9d005d000a0e1ae020bad8674d1085541478913d39741014e"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://search.maven.org/remotecontent?filepath=io/qameta/allure/allure-commandline/maven-metadata.xml"
+    regex(%r{<version>v?(\d+(?:\.\d+)+)</version>}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "efb901aa364242ecfeec70d5949c5962efffbb6cfe2962aa6a13d627fb1b4116"
   end

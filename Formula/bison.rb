@@ -2,18 +2,18 @@ class Bison < Formula
   desc "Parser generator"
   homepage "https://www.gnu.org/software/bison/"
   # X.Y.9Z are beta releases that sometimes get accidentally uploaded to the release FTP
-  url "https://ftp.gnu.org/gnu/bison/bison-3.8.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/bison/bison-3.8.1.tar.xz"
-  sha256 "31fc602488aad6bdecf0ccc556e0fc72fc57cdc595cf92398f020e0cf4980f15"
+  url "https://ftp.gnu.org/gnu/bison/bison-3.8.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/bison/bison-3.8.2.tar.xz"
+  sha256 "9bba0214ccf7f1079c5d59210045227bcf619519840ebfa80cd3849cff5a5bf2"
   license "GPL-3.0-or-later"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f26eabffa4dd6d453b7c01e0491910bf70af70e400e1d684d3e31a511a7bfcf1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f3a25f8afa584abf7688824ad8eaa624b4702aa531339599c63947b2234c8dc5"
-    sha256 cellar: :any_skip_relocation, catalina:      "7698f085a806dd977569237a92661673233232acc29803087eb4a8784cc621d8"
-    sha256 cellar: :any_skip_relocation, mojave:        "80ea46ebdade5d5e8c8dbf6ea0c1e275ae669531b18bb06211b1c47bd27f0c42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a09ac7dc0fce1ee99508401a60528bf1a9b515283577564af64f8ce4d91407b7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fb649b4e0b071ccfdce51193942366e894fb08be9798109eb718fb323369509e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a4fa1a0bf3245d8ef6a0d24d35df5222269174a02408784d870e4a882434712d"
+    sha256 cellar: :any_skip_relocation, catalina:      "5a79db63b8a10bc6211ed6a9dcef6df91c26d9fe3420047c285960dede637ea5"
+    sha256 cellar: :any_skip_relocation, mojave:        "4b51739abc4ac54df710147848eb0cd12ff32bc0b86b9112d0de378a74273328"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d708c29c7e44f28a4fa77d353ff7adfbe673b31cef6f24c3c384a03ba01b3608"
   end
 
   keg_only :provided_by_macos

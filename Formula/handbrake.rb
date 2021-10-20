@@ -1,17 +1,18 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows"
   homepage "https://handbrake.fr/"
-  url "https://github.com/HandBrake/HandBrake/releases/download/1.4.1/HandBrake-1.4.1-source.tar.bz2"
-  sha256 "39a0aecac8f26de1d88ccaca0a39dfca4af52029a792a78f93a42057a54c18f6"
+  url "https://github.com/HandBrake/HandBrake/releases/download/1.4.2/HandBrake-1.4.2-source.tar.bz2"
+  sha256 "8b8e81b7dc2e3180f4e94e8c7f5337d2953f69f0d983ccce48096e29ed6dfb61"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "037e8b1be2b8264f233aef92208ba264072a66cfdf26591dedd8a40ad44c5796"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6d8f7a87b12e402d23142a3b4940170126a9e85ed6e218fe9af93aaf57f8eba2"
-    sha256 cellar: :any_skip_relocation, catalina:      "3fe4097ce9a1f0ef6c22212eba9059ee3d181eb8a1875577994efff1d8be4d57"
-    sha256 cellar: :any_skip_relocation, mojave:        "e4cedfb355baeed4c7b9ad6017db1be6f6cf2c666f4120a1a8eb95066b23a88b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "268c727839cac0f0d7044355ebc90ca8ee86ad1e44cc41bcf00eb766f37337f6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e917c720059f925166013d3d0e2582e31699ebbdbbc08fca18dfdffabfd7c8b3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7ca402d6d31e8e0a8cd95d145c418081f7d463fb2038c8b699c9a14b5b97dcea"
+    sha256 cellar: :any_skip_relocation, catalina:      "6264a00f9a6de388ea623778ce204d88fbe2638984685685f5081afc7847c7b4"
+    sha256 cellar: :any_skip_relocation, mojave:        "fb8a0e4d9a85ceafe357b05148e2f457fc27c209772f09c6625ecc4a710ff645"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3acefc4aab0ea90d6677cd7178e2753eddb28ae520e76e12544f7887234c81a7"
   end
 
   depends_on "autoconf" => :build
@@ -46,10 +47,6 @@ class Handbrake < Formula
     depends_on "xz"
   end
 
-  # Fix missing linker flag `-framework DiskArbitration`
-  # Upstream PR: https://github.com/HandBrake/HandBrake/pull/3790
-  patch :DATA
-
   def install
     inreplace "contrib/ffmpeg/module.defs", "$(FFMPEG.GCC.gcc)", "cc"
 
@@ -66,18 +63,3 @@ class Handbrake < Formula
     system bin/"HandBrakeCLI", "--help"
   end
 end
-
-__END__
-diff --git a/test/module.defs b/test/module.defs
-index 011b17fb2..84a92fe5d 100644
---- a/test/module.defs
-+++ b/test/module.defs
-@@ -62,7 +62,7 @@ endif
- TEST.GCC.I += $(LIBHB.GCC.I)
- 
- ifeq ($(HOST.system),darwin)
--    TEST.GCC.f += IOKit CoreServices CoreText CoreGraphics AudioToolbox VideoToolbox CoreMedia CoreVideo Foundation
-+    TEST.GCC.f += IOKit CoreServices CoreText CoreGraphics AudioToolbox VideoToolbox CoreMedia CoreVideo Foundation DiskArbitration
-     TEST.GCC.l += iconv
- else ifeq ($(HOST.system),linux)
-     TEST.GCC.l += pthread dl m

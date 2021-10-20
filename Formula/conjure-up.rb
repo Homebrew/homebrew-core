@@ -6,14 +6,14 @@ class ConjureUp < Formula
   url "https://github.com/conjure-up/conjure-up/archive/2.6.14.tar.gz"
   sha256 "c9f115229a305ff40eae051f40db2ca18a3dc2bd377397e22786bba032feb79a"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3e516b5c4a0d71ed5d32332fc12703605654c93127e45c8754455e84b4cab93e"
-    sha256 cellar: :any,                 big_sur:       "869c705b0f4392a57afd2ba7e4f7b5260640b5130c47dbb3aeb77bc142296d6c"
-    sha256 cellar: :any,                 catalina:      "2112383857f9f865eff1a9528dd6ab2ace8a7b34be1d4ed3ac4fe80b014f9241"
-    sha256 cellar: :any,                 mojave:        "b36c8bb8462705691744403cdcf6b2da77e7d1391249dba3857297cc950e6b97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aedce6905c2975016470f72dfba4ce1ff08addda5eccc6822b41074f0d6d241e"
+    sha256 cellar: :any,                 arm64_big_sur: "0d392e7fe4c46dcb50da2344dec0a11dc2141bca36c7342b311e813bbd021b03"
+    sha256 cellar: :any,                 big_sur:       "4aa49ccf202ed4bf0ecbb987b04fa30ee28bdc3e4c4bf37c396668269b23537e"
+    sha256 cellar: :any,                 catalina:      "b9c8766c411e1d736d52714678420065071866d795360a5a8e21045d559714f7"
+    sha256 cellar: :any,                 mojave:        "1e8d73fbff45339f18bb6fbbc1b00bd7bba4590feeb6a2980b8c68ddefb56c98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "941ffccefb435bdb64de4f993b6c946383ef5fb79b399deae3ea76038fb027f7"
   end
 
   deprecate! date: "2021-04-15", because: :repo_archived
@@ -24,7 +24,7 @@ class ConjureUp < Formula
   depends_on "juju-wait"
   depends_on "libyaml"
   depends_on "pwgen"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "redis"
 
   uses_from_macos "libffi"

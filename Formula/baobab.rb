@@ -1,15 +1,15 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://wiki.gnome.org/Apps/Baobab"
-  url "https://download.gnome.org/sources/baobab/40/baobab-40.0.tar.xz"
-  sha256 "a6aeaa2c327a997fe0d5f443ce95b785e2ba6e338fb0a026cb7dc7d7d688d1a7"
+  url "https://download.gnome.org/sources/baobab/41/baobab-41.0.tar.xz"
+  sha256 "cad6278d2dcc80c84b57105aa5bb58d8a30ce98d6fabd767519ddb86c857e855"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "27c6143dd90728a116f8a0daff9a5d8c1662b1fc519634e917dfcca7c1ec064a"
-    sha256 big_sur:       "d21a3f65fbc547f6aa0cd4754b21a7e6804684d2c7e764d5acb4d51a4be7203c"
-    sha256 catalina:      "a7f3874c75b014c3446584a11e40b8747f64bc04e20833c0ffc2fe3e1645700e"
-    sha256 mojave:        "7a52794f9036e131a6542cafa535db1981dd6ea2daceea3c5dbbf6121225e36a"
+    sha256 arm64_big_sur: "99df49e1259144e3b641e6cd6b8b71b30a10cf6d6dec12e2b137914708daf9bc"
+    sha256 big_sur:       "9dfe596e51e700f6973aeccdbcd4047000b63994e3e6d8af62913d684edfc68b"
+    sha256 catalina:      "d873858d8bf8c7358f9840d280f94f5247a11393dc079ebbb659ada5bc7660f3"
+    sha256 mojave:        "46b4cfbbfe550d56996a7275049e53f2e8d653c46c750ec4cd48e618cd1c83e1"
   end
 
   depends_on "itstool" => :build

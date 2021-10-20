@@ -7,7 +7,8 @@
       "apache-libcloud", "boto3", "dnspython", "docker", "junos-eznc", "jxmlease", "kerberos", "ntc-templates",
       "openshift", "passlib", "pexpect", "pysphere3", "python-consul", "python-neutronclient",
       "pywinrm", "requests-credssp", "shade", "zabbix-api"
-    ]
+    ],
+    "exclude_packages": ["six"]
   },
   "ansible@2.8": false,
   "ansible@2.9": {
@@ -27,6 +28,9 @@
   "awscli@1": {
     "exclude_packages": ["six"]
   },
+  "awsume": {
+    "exclude_packages": ["six"]
+  },
   "b2-tools": {
     "exclude_packages": ["six"]
   },
@@ -40,7 +44,8 @@
     "exclude_packages": ["six"]
   },
   "certbot": {
-    "extra_packages": ["certbot-apache", "certbot-nginx"]
+    "extra_packages": ["certbot-apache", "certbot-nginx"],
+    "exclude_packages": ["six"]
   },
   "cfn-lint": {
     "exclude_packages": ["junit-xml", "six"]
@@ -58,6 +63,15 @@
   "checkov": {
     "exclude_packages": ["junit-xml", "six", "tabulate"],
     "extra_packages": ["junit-xml-2"]
+  },
+  "conan": {
+    "exclude_packages": ["six"]
+  },
+  "cppman": {
+    "exclude_packages": ["six"]
+  },
+  "csvkit": {
+    "exclude_packages": ["six"]
   },
   "datalad": {
     "exclude_packages": ["six"]
@@ -85,9 +99,11 @@
   "dxpy": {
     "exclude_packages": ["six"]
   },
-  "ipython": {
-    "exclude_packages": ["six"],
-    "extra_packages": ["ipykernel"]
+  "esptool": {
+    "exclude_packages": ["six"]
+  },
+  "fava": {
+    "exclude_packages": ["six"]
   },
   "fdroidserver": {
     "exclude_packages": ["numpy", "pillow"],
@@ -105,11 +121,19 @@
   "internetarchive": {
     "exclude_packages": ["six"]
   },
+  "ipython": {
+    "exclude_packages": ["six"],
+    "extra_packages": ["ipykernel"]
+  },
   "jenkins-job-builder": {
     "exclude_packages": ["six"]
   },
   "jupyterlab": {
+    "exclude_packages": ["six"],
     "extra_packages": ["pydevd"]
+  },
+  "khard": {
+    "exclude_packages": ["six"]
   },
   "litecli": {
     "exclude_packages": ["tabulate"]
@@ -154,9 +178,15 @@
   "nicotine-plus": {
     "exclude_packages": ["pycairo", "PyGObject"]
   },
+  "parliament": {
+    "exclude_packages": ["six"]
+  },
   "pdm": {
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
+  },
+  "percol": {
+    "exclude_packages": ["six"]
   },
   "pgcli": {
     "exclude_packages": ["six", "tabulate"]
@@ -337,6 +367,9 @@
       "six"
    	]
   },
+  "rtv": {
+    "exclude_packages": ["six"]
+  },
   "sceptre": {
     "exclude_packages": ["six"]
   },
@@ -349,6 +382,9 @@
   },
   "sqlite-utils": {
     "exclude_packages": ["tabulate", "six"]
+  },
+  "tarsnapper": {
+    "exclude_packages": ["six"]
   },
   "theharvester": {
     "exclude_packages": ["six"]

@@ -1,8 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.tar.xz"
-  sha256 "bd07b7e98839e0359842110525a3032fdb8eaf3a90bedde3dd1652d32d15cce5"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.2.tar.xz"
+  sha256 "6a0764c1aae7fb607ef8a6dd2c0f6c47d5e5fd27aa08820abaad9ec14e28e9d9"
   license all_of: [
     "BSD-3-Clause",
     "BSD-4-Clause-UC",
@@ -14,11 +14,11 @@ class UtilLinux < Formula
   ]
 
   bottle do
-    sha256 arm64_big_sur: "922d09f5174a8987fdd7de56103eb6415a561c7490ab149e86bd8959c5832044"
-    sha256 big_sur:       "cfca1e4ceeccb7b27f043b6e63d29cd5a2d64908d995530b37f270d751baa208"
-    sha256 catalina:      "8edf1edb90bab5bfd76c11dacfd8f8e9a212d154284113d56089ac225944f05d"
-    sha256 mojave:        "4d7d5e3771db846dd2f1c6b74c867ad1119983a5fb96ac503d40860cf2fc37f4"
-    sha256 x86_64_linux:  "e06a8924c46aae6e7c62ad4a61dcb1771db5222aaa94582c67d162682e4ddd77"
+    sha256 arm64_big_sur: "90bec5536897574eca7b519a5d944c4c6e1fe588104d6bc954db8f373b99f581"
+    sha256 big_sur:       "012d57e289d5bc013a02881b99b4adc8b2ca5f2e626af1b6b566178379e2f997"
+    sha256 catalina:      "fd752e4bc070b011a3f0575699a9021af8348a04a6883ffd66474a96fbc80b32"
+    sha256 mojave:        "1d6640f49d628a5092a89f6b6f07d80cc3cb32745074107cf9f127d3bde78cc6"
+    sha256 x86_64_linux:  "26b27d81024cecdb0a6bff5ff9d5636d3a2288b2de29372d76939a47ec294fdf"
   end
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
@@ -34,18 +34,27 @@ class UtilLinux < Formula
     conflicts_with "rename", because: "both install `rename` binaries"
   end
 
+  # Change mkswap.c include order to avoid "c.h" including macOS system <uuid.h> via <grp.h>.
+  # The missing definitions in uuid.h cause error: use of undeclared identifier 'UUID_STR_LEN'.
+  # Issue ref: https://github.com/karelzak/util-linux/issues/1432
+  patch :DATA
+
   def install
     args = std_configure_args + %w[
       --disable-silent-rules
     ]
 
     if OS.mac?
-      args << "--disable-hardlink" # does not build on macOS
       args << "--disable-ipcs" # does not build on macOS
       args << "--disable-ipcrm" # does not build on macOS
       args << "--disable-wall" # already comes with macOS
       args << "--disable-libmount" # does not build on macOS
       args << "--enable-libuuid" # conflicts with ossp-uuid
+
+      # To build `hardlink`, we need to prevent configure from detecting macOS system
+      # <sys/xattr.h>, which doesn't have all expected functions like `lgetxattr`.
+      # Issue ref: https://github.com/karelzak/util-linux/issues/1432
+      inreplace "configure", %r{^\tsys/xattr.h \\\n}, ""
     else
       args << "--disable-use-tty-group" # Fix chgrp: changing group of 'wall': Operation not permitted
       args << "--disable-kill" # Conflicts with coreutils.
@@ -78,7 +87,7 @@ class UtilLinux < Formula
       delpart dmesg
       eject
       fallocate fdformat fincore findmnt fsck fsfreeze fstrim
-      hardlink hwclock
+      hwclock
       ionice ipcrm ipcs
       kill
       last ldattach losetup lsblk lscpu lsipc lslocks lslogins lsmem lsns
@@ -114,3 +123,31 @@ class UtilLinux < Formula
     assert_equal ["d#{perms}", owner, group, "usr"], out
   end
 end
+
+__END__
+diff --git a/disk-utils/mkswap.c b/disk-utils/mkswap.c
+index c45a3a317..0040198c8 100644
+--- a/disk-utils/mkswap.c
++++ b/disk-utils/mkswap.c
+@@ -30,6 +30,10 @@
+ # include <linux/fiemap.h>
+ #endif
+ 
++#ifdef HAVE_LIBUUID
++# include <uuid.h>
++#endif
++
+ #include "linux_version.h"
+ #include "swapheader.h"
+ #include "strutils.h"
+@@ -42,10 +46,6 @@
+ #include "closestream.h"
+ #include "ismounted.h"
+ 
+-#ifdef HAVE_LIBUUID
+-# include <uuid.h>
+-#endif
+-
+ #ifdef HAVE_LIBBLKID
+ # include <blkid.h>
+ #endif

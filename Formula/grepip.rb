@@ -15,6 +15,7 @@ class Grepip < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "93b99aeb650377891af7d77c56a4d2a5f8333e992c956feee8f3279cd19da622"
     sha256 cellar: :any_skip_relocation, catalina:      "799364ae680994843df8998cfd5cbb991e80c7a8eb921923dc688f9811e4d320"
     sha256 cellar: :any_skip_relocation, mojave:        "28b4231e5188775b6e017f96c5d8e90259c78e2a35c0d720f0a7aede49179423"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f4e72268a715af939920c984c89541a78d60e2113d9ab5d1929c345f91035d3"
   end
 
   depends_on "go" => :build

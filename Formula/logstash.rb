@@ -1,8 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://github.com/elastic/logstash/archive/v7.14.1.tar.gz"
-  sha256 "517e6945b115167e2ba98541e03abf971a129744128d5454fc3ed07a56b5c10b"
+  url "https://github.com/elastic/logstash/archive/v7.15.1.tar.gz"
+  sha256 "8b2d3adb4a61140838519629b8232a16bd3c105a1a243aa2c97309cc1163d59b"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/elastic/logstash.git"
@@ -13,10 +13,10 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "02db87c4194fd1ff3f2dd864b7c1deb3350a0c9e434b4f182845e752f8e18c03"
-    sha256 cellar: :any,                 catalina:     "fb2eb9a36fa80a35a86023a72b7b5c0ab858dacdcf129f9e7bd5a9c4ef3a7a27"
-    sha256 cellar: :any,                 mojave:       "d9bea1dee925648a819e44978734bd5f07370c23c0522c8f3db30673c197350b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a64777902a09a37493fc30100786f00dce1191e77a2bb0f4c465b8a2bc2d2c49"
+    sha256 cellar: :any,                 big_sur:      "9d4d9010ad0d3411270b44f589dd0727727eb04fbdb966b7982d3493c93c457b"
+    sha256 cellar: :any,                 catalina:     "83a2a6bd536d249b19893b16ad4070f426f24aa535ed1c12f722c9d1d59d66f8"
+    sha256 cellar: :any,                 mojave:       "2cf581da11e05d20427629a43c4dd47ed33fe1c7a90b6dd50bed00c35a879f6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5947ba8fc176e367f3873e5734cf5142f6a0986e1f42bda679f2eacaf0d2a616"
   end
 
   depends_on "openjdk@11"
@@ -46,14 +46,10 @@ class Logstash < Formula
               "LOGSTASH_HOME=#{libexec}"
 
     # Delete Windows and other Arch/OS files
+    paths_to_keep = OS.linux? ? "#{Hardware::CPU.arch}-#{OS.kernel_name}" : OS.kernel_name
     rm Dir["bin/*.bat"]
-    os = if OS.mac?
-      "Darwin"
-    else
-      "x86_64-Linux"
-    end
     Dir["vendor/jruby/lib/jni/*"].each do |path|
-      rm_r path unless path.include? os
+      rm_r path unless path.include? paths_to_keep
     end
 
     libexec.install Dir["*"]

@@ -5,6 +5,7 @@ class Gmp < Formula
   mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
   sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
   license any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"]
+  revision 1
 
   livecheck do
     url "https://gmplib.org/download/gmp/"
@@ -12,17 +13,31 @@ class Gmp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ff4ad8d068ba4c14d146abb454991b6c4f246796ec2538593dc5f04ca7593eec"
-    sha256 cellar: :any,                 big_sur:       "6a44705536f25c4b9f8547d44d129ae3b3657755039966ad2b86b821e187c32c"
-    sha256 cellar: :any,                 catalina:      "35e9f82d80708ae8dea2d6b0646dcd86d692321b96effaa76b7fad4d6cffa5be"
-    sha256 cellar: :any,                 mojave:        "00fb998dc2abbd09ee9f2ad733ae1adc185924fb01be8814e69a57ef750b1a32"
-    sha256 cellar: :any,                 high_sierra:   "54191ce7fa888df64b9c52870531ac0ce2e8cbd40a7c4cdec74cb2c4a421af97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6d4ed0cb050136a5d6a93406427ae3d9aff3287771dc9cefa7ea0dddbab27f8"
+    sha256 cellar: :any,                 arm64_big_sur: "491220f1ff2c662b96295d931a80702523eeaee681d7305fb02b561e527dcbb8"
+    sha256 cellar: :any,                 big_sur:       "e566452815d2ff5dc66da160bd1cd3d9cf02a17a07284cf0bac46496133383ae"
+    sha256 cellar: :any,                 catalina:      "5ee7a460668864c28e541db15420e1480c3d31c5f216797a453a5310106fbc97"
+    sha256 cellar: :any,                 mojave:        "b9d7d36c8d263be0e02e17d435350546f9f7008eb21b6e86bf42f719efcba85e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "786ae29f0c0b06ea86e42bd9c6ac2c49bd5757da037dead7053e8bd612c4cf8c"
+  end
+
+  head do
+    url "https://gmplib.org/repo/gmp/", using: :hg
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   uses_from_macos "m4" => :build
 
+  # Prevent crash on macOS 12 betas with release gmp 6.2.1, can be removed after the next gmp release.
+  patch do
+    url "https://gmplib.org/repo/gmp/raw-rev/5f32dbc41afc"
+    sha256 "a44ef57903b240df6fde6c9d2fe40063f785995c43b6bfc7a237c571f53613e0"
+  end
+
   def install
+    system "./.bootstrap" if build.head?
+
     args = std_configure_args
     args << "--enable-cxx"
 
@@ -41,6 +56,10 @@ class Gmp < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+
+    # Prevent brew from trying to install metafiles that
+    # are actually symlinks to files in autotools kegs
+    buildpath.children.select(&:symlink?).map(&:unlink) if build.head?
   end
 
   test do

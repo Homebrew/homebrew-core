@@ -1,8 +1,8 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.5.5.tar.bz2"
-  sha256 "a836a39b99fcc21873e4ba3a60aa9915a33fac7b44922696e9a257f551fe05fb"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.5.6.tar.bz2"
+  sha256 "bb89cdd3810467ed848d13cac99f6f3456bf0ddcce5f47b9d38673629ee79200"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,11 +11,11 @@ class Pdnsrec < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6d91a9a10c37e9957d9d54a9b1c7dfd053a590582078dedabe0c1b2c5583fbff"
-    sha256 big_sur:       "2e5c07a26540b304ae52a2ed4569a09a0f6f9641f93b3cdcc4ce81c14423936c"
-    sha256 catalina:      "0c3355b03b41fb4ad9d76bdb6d0f87f90ebe52c0f20fbf0721904e9393a33cca"
-    sha256 mojave:        "30bf6621caa349c712e84b8211877f55785c356dbdce558c390b6fdf19bf3ad7"
-    sha256 x86_64_linux:  "21af0d49fd6b901131459386156de07159a58110d3b37690fdc1fe55c43ae045"
+    sha256 arm64_big_sur: "17d294f7b29f9206dbe09d04d2b2fd856295ed2e26caebeb226dbb926cb62225"
+    sha256 big_sur:       "84db4d875f98e655ef4f2b33ee923ad77a3b5077e333e1dad1e5d601035c7256"
+    sha256 catalina:      "f5816c04766329c60b7643a07dc9652ee710001806d4fbf80ba4a0915be0639f"
+    sha256 mojave:        "0c93c4cc2b542487d278db7797ffe6519292125358215bed274f2cf4ccb9a82c"
+    sha256 x86_64_linux:  "810d3b7b5d8b13ee6935e4a72285a686d89ff239e0e77d6af078a32020190540"
   end
 
   depends_on "pkg-config" => :build
@@ -24,7 +24,9 @@ class Pdnsrec < Formula
   depends_on "openssl@1.1"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
+    # This shouldn't be needed for `:test`, but there's a bug in `brew`:
+    # CompilerSelectionError: pdnsrec cannot be built with any available compilers.
+    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
   end
 
   on_linux do

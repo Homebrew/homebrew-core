@@ -3,19 +3,20 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/05/90/0b16cc7c290e838dcf2d1236e25ed0aff73f8a6803714a1ea5d6db202cd2/jc-1.16.2.tar.gz"
-  sha256 "6c434a286c3a1cf0af35c7e1ae5a4fcb8be9585171a85605dbaea689380d2def"
+  url "https://files.pythonhosted.org/packages/76/6d/3510650186393a964cb594748e33c6edba23d261ea2e8b9e0dc78aa6d19e/jc-1.17.0.tar.gz"
+  sha256 "b6c62020ad770ce4be249a7422044e7eac39130213b0ce63c80746087c34f5f2"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fba2bbe08d25cd802a1a9ce0977da12a0c91968251e8e43a9d9fa94ad19beed2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d9f12665257c306ac7a0e1c316fd9aae0363083494274e6d44ef8af143f24440"
-    sha256 cellar: :any_skip_relocation, catalina:      "48b6c13cf967d281f034ecebaf11976ed3a99f8fa027aec117775f5317355155"
-    sha256 cellar: :any_skip_relocation, mojave:        "a9a7332f540b4cf566a8535404104d24f9ac20bce0c1cebd9597fac76209994e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99a55014beaee3b2e78016e57a0363a0f04b3c4e2de1a0e905ddd2d1344922fa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "950d2f985d3d11721a15c5b0e750f13d0400c02fb5a9cff97dbb8c3df68f3123"
+    sha256 cellar: :any_skip_relocation, big_sur:       "13b96430280226ce2c59a63dc62db45b44b5ebb117d60c00f02527affbfc04c5"
+    sha256 cellar: :any_skip_relocation, catalina:      "9db641ca35ab45421e6d5f00c27092375d973c2cfbd3104112cc719b718143d6"
+    sha256 cellar: :any_skip_relocation, mojave:        "7b98e590f9094c97985ca3670047f5580a8a0c78559103e05c30dc32c7ccf935"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5d407532c31f8049262f849864d91b3f1194ca6eaced271d7f39d3cbfdea281"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"

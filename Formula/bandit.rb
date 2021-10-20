@@ -6,17 +6,18 @@ class Bandit < Formula
   url "https://files.pythonhosted.org/packages/6c/a1/14b70b67ea9c69e863dd65386bbc948ae34a502512d6f36e2a5a9fd5513b/bandit-1.7.0.tar.gz"
   sha256 "8a4c7415254d75df8ff3c3b15cfe9042ecee628a1e40b44c15a98890fbfc2608"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/PyCQA/bandit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d2349695a19c779eaa47e3d79d80f2a762701722df47f268fe9bdd424ac64535"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5932b6d2df12cb8f1143cca2a81a7c34233e1cf55d3a609398454f234be617b2"
-    sha256 cellar: :any_skip_relocation, catalina:      "1b4c66854a3bad10e011d81c6568a9ac5c7194275b7e62e28003af7fd2fadd09"
-    sha256 cellar: :any_skip_relocation, mojave:        "abe9b77aca9be261aeb1c6f3c9539edbcb0c67509a36d45e7f0e565c796374bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5deeb1aa1fb844d4c8c8a1344cf0905f3eecfd4b7d1db24a8c37814cad685846"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9a51a2892fce736e59144b7188c5767233040266a998a09cd568afd82049e1ea"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1b1eacd9dcb2c47aa44fb744a55eb635cd213a14f34a841585dc0c46cd5d76e7"
+    sha256 cellar: :any_skip_relocation, catalina:      "1b1eacd9dcb2c47aa44fb744a55eb635cd213a14f34a841585dc0c46cd5d76e7"
+    sha256 cellar: :any_skip_relocation, mojave:        "1b1eacd9dcb2c47aa44fb744a55eb635cd213a14f34a841585dc0c46cd5d76e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8ec57d1f780fb44aa99e16df2f884d957eab201c5bd6cefa719c04c114527bb"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "gitdb" do
     url "https://files.pythonhosted.org/packages/d1/05/eaf2ac564344030d8b3ce870b116d7bb559020163e80d9aa4a3d75f3e820/gitdb-4.0.5.tar.gz"

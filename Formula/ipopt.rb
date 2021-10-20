@@ -1,17 +1,17 @@
 class Ipopt < Formula
   desc "Interior point optimizer"
   homepage "https://coin-or.github.io/Ipopt/"
-  url "https://github.com/coin-or/Ipopt/archive/releases/3.14.3.tar.gz"
-  sha256 "29bbf8bbadd5f2965e18e33451723d1fed0c42b14f6493396cf53a05cdfd2c09"
+  url "https://github.com/coin-or/Ipopt/archive/releases/3.14.4.tar.gz"
+  sha256 "60865150b6fad19c5968395b57ff4a0892380125646c3afa2a714926f5ac9487"
   license "EPL-1.0"
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "415b642a52a134704e428ff2439d9aa39549a1bcbf09eff90a69e5320bc015c7"
-    sha256 cellar: :any,                 big_sur:       "d72c549e2599a978b7d2da640cd1903d26befa881a5d8aa0d26ab0f36cc3d61e"
-    sha256 cellar: :any,                 catalina:      "d86116004dce5542f71fb13ee0a14df8009698ef699d35a71d38b6c0889cfd63"
-    sha256 cellar: :any,                 mojave:        "0168e125a87364bf162609c421b474212fc483ccc5545a7cb7bfb0c609f99050"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee2300272c3e3e4df3685715c133f962cdb9d5c774fded8975a07f5587b2245a"
+    sha256 cellar: :any,                 arm64_big_sur: "ed14dc7358fe73373f237fb4d282ba8f1e744af8b7b851e799fe99d7e507d487"
+    sha256 cellar: :any,                 big_sur:       "86f5e863ace34e7e65aeade03cb700a5f8749bc6c5912e85a42ae5316fc148b3"
+    sha256 cellar: :any,                 catalina:      "7ee50053077dbbbe2f8f8597c9f2a8ea7b9ec279789b07b17271a03e63978a4d"
+    sha256 cellar: :any,                 mojave:        "082977c7306528c34fec92cf501b30788c4e6e2da025155f449887d099a060fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09d25507147da744581f9522b2d1900d6a17eb615d69300630a482658a769662"
   end
 
   depends_on "openjdk" => :build
@@ -39,8 +39,8 @@ class Ipopt < Formula
   end
 
   resource "test" do
-    url "https://github.com/coin-or/Ipopt/archive/releases/3.14.3.tar.gz"
-    sha256 "29bbf8bbadd5f2965e18e33451723d1fed0c42b14f6493396cf53a05cdfd2c09"
+    url "https://github.com/coin-or/Ipopt/archive/releases/3.14.4.tar.gz"
+    sha256 "60865150b6fad19c5968395b57ff4a0892380125646c3afa2a714926f5ac9487"
   end
 
   def install

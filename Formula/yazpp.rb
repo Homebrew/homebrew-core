@@ -1,21 +1,20 @@
 class Yazpp < Formula
   desc "C++ API for the Yaz toolkit"
   homepage "https://www.indexdata.com/resources/software/yazpp/"
-  url "https://ftp.indexdata.com/pub/yazpp/yazpp-1.7.1.tar.gz"
-  sha256 "8cf8b9a84cee6748013beaf8f79a432e4c65b9f04f4c80452bc2f3e93354294a"
+  url "https://ftp.indexdata.com/pub/yazpp/yazpp-1.8.0.tar.gz"
+  sha256 "e6c32c90fa83241e44e506a720aff70460dfbd0a73252324b90b9489eaeb050d"
   license "BSD-3-Clause"
 
   livecheck do
-    url :homepage
+    url "https://ftp.indexdata.com/pub/yazpp/"
     regex(/href=.*?yazpp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "868f7e41ffbd9bcd8c2c59db254182fe5f2fa934ec25c1928fbd0032ee480dd3"
-    sha256 cellar: :any, big_sur:       "0874f5f7c57a5c611d574abe983ef9dee2796b115deb8290de008c1e9964cc45"
-    sha256 cellar: :any, catalina:      "5136d27fa1e25ceccbd1a73dc1655fa039c99f3d99faaae07239865ea22ee777"
-    sha256 cellar: :any, mojave:        "60a07217d07224b442d2810d99261b48f846df54dd06eb5e4a4688f0864d1939"
-    sha256 cellar: :any, high_sierra:   "0d783b21b0cd116bef6b358866b2ac557e340c4e5dd6961c6bd843b6bcda68b7"
+    sha256 cellar: :any, arm64_big_sur: "beb0688e992377551877a54479486d836833702ea540c6a7d8a60220409c046d"
+    sha256 cellar: :any, big_sur:       "d4676891be7edf41fbcccc88888a18703861c9db257cf65e8ef1b0cb7662dc9f"
+    sha256 cellar: :any, catalina:      "71a7193513c4928805d0d7a55e7e8892adb7779b11da5584b06fd7329640a8bb"
+    sha256 cellar: :any, mojave:        "a578d82eb791139b8dd98093d7e150ebbe92565beec2fa8d218be39498ae0baf"
   end
 
   depends_on "yaz"

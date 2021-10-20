@@ -5,6 +5,7 @@ class SyncGateway < Formula
       tag:      "2.8.2",
       revision: "4df7a2da36c88a72131b23eb044b7d0b69b456bd"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/couchbase/sync_gateway.git", branch: "master"
 
   livecheck do
@@ -13,16 +14,16 @@ class SyncGateway < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e445a768ff0ec3e3e33d7a0ccd14c7a66cfb8401cfa385e68ee62ce8cef4668a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b718f1e3d7fee3d47e9091606afd43891f6323558c8d3a4c30c88eff563147e3"
-    sha256 cellar: :any_skip_relocation, catalina:      "6abd3e4f3d682d3e1bc6e7ffcee385c95b33664af989f22d1c86f96c3e4b7474"
-    sha256 cellar: :any_skip_relocation, mojave:        "e43aa516b0457ef79f599773ccfe110c34ddbc492b552fd63bc5e97fda432c06"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "50c85b6d34732db590c9ae22485cdf050513739ea731eed8655637eeb39b5265"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2844109c176adfcb04733a42e9d687998f21a693ac2876ee7246f4d5d9c353d9"
+    sha256 cellar: :any_skip_relocation, catalina:      "74e1a9478cf47b90b6988cac007091b36a455e107b7a96e7c949abaefabfc835"
+    sha256 cellar: :any_skip_relocation, mojave:        "7628b353af0ec25e578ff6a20b9e0eb7892902b484d5f2bd039bda3f0e1a7bb3"
   end
 
   depends_on "gnupg" => :build
   depends_on "go" => :build
   depends_on "repo" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command

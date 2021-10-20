@@ -1,10 +1,10 @@
 class SshCopyId < Formula
   desc "Add a public key to a remote machine's authorized_keys file"
   homepage "https://www.openssh.com/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.7p1.tar.gz"
-  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.7p1.tar.gz"
-  version "8.7p1"
-  sha256 "7ca34b8bb24ae9e50f33792b7091b3841d7e1b440ff57bc9fabddf01e2ed1e24"
+  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.8p1.tar.gz"
+  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.8p1.tar.gz"
+  version "8.8p1"
+  sha256 "4590890ea9bb9ace4f71ae331785a3a5823232435161960ed5fc86588f331fe9"
   license "SSH-OpenSSH"
   head "https://github.com/openssh/openssh-portable.git", branch: "master"
 
@@ -13,7 +13,7 @@ class SshCopyId < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "48219c19e58e8fe2490c94d4a9499ac378c3e0b88f1fe60b153449405382e8e3"
+    sha256 cellar: :any_skip_relocation, all: "3f5c7b7a109906fef8435233566ba6ce1ef2c9a6626b547f77ac5d05e58b381b"
   end
 
   keg_only :provided_by_macos

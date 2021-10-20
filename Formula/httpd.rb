@@ -1,23 +1,23 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=httpd/httpd-2.4.49.tar.bz2"
-  mirror "https://archive.apache.org/dist/httpd/httpd-2.4.49.tar.bz2"
-  sha256 "65b965d6890ea90d9706595e4b7b9365b5060bec8ea723449480b4769974133b"
+  url "https://dlcdn.apache.org/httpd/httpd-2.4.51.tar.bz2"
+  mirror "https://downloads.apache.org/httpd/httpd-2.4.51.tar.bz2"
+  sha256 "20e01d81fecf077690a4439e3969a9b22a09a8d43c525356e863407741b838f4"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "e6ebcb4a1307a3e8c9c8dcb41d5a702398b38ca537e14502dc898acce3c78000"
-    sha256 big_sur:       "ade7dbaf67d42a5e71e08fb34d771df23f2b8be478507679ba6ca9593ca74673"
-    sha256 catalina:      "657cba33ccfe3498613f48112b1e28181237fa56674e3d29bc4be5ab4e6218d6"
-    sha256 mojave:        "645aca6e1cf953f13bc527bb434c765025b270a9b65f52cc4522673a16a2101b"
-    sha256 x86_64_linux:  "fb5df0ba244a0f95ee0e78a81b6322e684d9c53a4a9daf987f306c3956239b04"
+    sha256 arm64_big_sur: "edb36c0fbb5707b6ef74da3de849148d74fe4c63ec2d3191e4554223a63b9809"
+    sha256 big_sur:       "e4a6dcd62151d849dbe78831b38cac096808242e45301767841c209e1c2dd638"
+    sha256 catalina:      "4f2b18c4c0ee14638181679fe6d0565ef8dfc960d23411e4a81904bec206ced5"
+    sha256 mojave:        "709af186a8974ad3fe115d5ec8e2afc6311d709d8b027854e707a1862c0c9ac1"
+    sha256 x86_64_linux:  "4968291a7238be2e2dd5c3de181793b571502a482bcbd660c35f2aaaa572dd44"
   end
 
   depends_on "apr"
   depends_on "apr-util"
   depends_on "brotli"
-  depends_on "nghttp2"
+  depends_on "libnghttp2"
   depends_on "openssl@1.1"
   depends_on "pcre"
 
@@ -74,7 +74,7 @@ class Httpd < Formula
                           "--with-brotli=#{Formula["brotli"].opt_prefix}",
                           "--with-libxml2=#{libxml2}",
                           "--with-mpm=prefork",
-                          "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
+                          "--with-nghttp2=#{Formula["libnghttp2"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}",
                           "--with-z=#{zlib}",

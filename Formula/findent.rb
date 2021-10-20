@@ -1,8 +1,8 @@
 class Findent < Formula
   desc "Indent and beautify Fortran sources and generate dependency information"
   homepage "https://www.ratrabbit.nl/ratrabbit/findent/index.html"
-  url "https://downloads.sourceforge.net/project/findent/findent-4.1.1.tar.gz"
-  sha256 "d51a426d565da519061eada602d17dea7f37bc8afa4a337ab7083784bb8b0f34"
+  url "https://downloads.sourceforge.net/project/findent/findent-4.1.3.tar.gz"
+  sha256 "4ef85a4308f9fa74c11df512eff96f461dc01cbca1d4827673afa65b5dc6adf9"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,10 +11,11 @@ class Findent < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "4dfb18b69c58a7fa48d54072829f63f1588a43e0e95d5fc970fd9a37397a2d92"
-    sha256 cellar: :any_skip_relocation, catalina:     "0baa0d330bd9c5bf4ce35263736819541f31a8af1d1289472bf0e3a364a20446"
-    sha256 cellar: :any_skip_relocation, mojave:       "d8e2ff05dfc1f72761614710a28ddbb93bbcb550a79452eb0aed35bd9e2000ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ab21e74bb78bd44418ad39b5a630626ece59e07a9eaf5fcbb069e93661699b87"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f54e465f61257514398c7b022fca74504fb839eb680769190a4704bbeee8c5d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f816b5e1e13a2f70c5771b86391200195c0f4589d2b7177b6b76bf058faf0456"
+    sha256 cellar: :any_skip_relocation, catalina:      "c5cf9be6cdac0f66237ffe6eaf7b8dbf9c8b2699ce0b2928fd8f901ed1880baf"
+    sha256 cellar: :any_skip_relocation, mojave:        "889ed0f2d7373de18390c317e7270aa57a394f7796aff07d8ca9d6b7422bc2c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62243f247c4ec6581b1cc0bac09cee298e20cc541199f4c273cd6bb33d2b1e65"
   end
 
   def install

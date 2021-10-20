@@ -1,17 +1,17 @@
 class Terrascan < Formula
   desc "Detect compliance and security violations across Infrastructure as Code"
   homepage "https://github.com/accurics/terrascan"
-  url "https://github.com/accurics/terrascan/archive/v1.10.0.tar.gz"
-  sha256 "4fcfc99e64b081f7a202eb9b6edd4e31e9b477bbcc2c21b70090f94c636d0460"
+  url "https://github.com/accurics/terrascan/archive/v1.11.0.tar.gz"
+  sha256 "3fc6289e7fffbb8f8f696e264ec8b1481e741bf5638976b02a9f285398c2afa1"
   license "Apache-2.0"
   head "https://github.com/accurics/terrascan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "566ae3a7be2f51b3e51d6756c84e5809e14af6c4b883eb9eb14b6e3e1784521c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a4f13faec599cfe1586d6ea8512052e98f72783578f09ff182e6d4d7f01088a3"
-    sha256 cellar: :any_skip_relocation, catalina:      "8a064db94da0f9eb0a3ec7e76983a8efae5f450e2537dbfc391688f9da487174"
-    sha256 cellar: :any_skip_relocation, mojave:        "eb86095118573dd1bf4435bb54eab1515ab3feb5699fbc8acf3875ecf8064671"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "565bf4e1b475f82f0b3e1dd2485bc787cbe651580b63a039a5e733391a42d6c5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "025531bef57c6fb0aac90117f351c41f7087976496ce9a3c0a108c98842101ef"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7bf1fba0a3ec89dedffcb69d6c84fa1d07118a28423cf5565b585d74a97f431e"
+    sha256 cellar: :any_skip_relocation, catalina:      "a83d25121c4c41de4468f8564f5ae40a5677986172117cc84ee8f7b00d8e54cc"
+    sha256 cellar: :any_skip_relocation, mojave:        "a9eee5712ab7cda16dad612c2cc0f8e427257da4b2caca7cffa34ff03094a505"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79d1601bd90c810f2a6cb8134cb74f413c9902a8ecb82b9f39d0f83464e18040"
   end
 
   depends_on "go" => :build

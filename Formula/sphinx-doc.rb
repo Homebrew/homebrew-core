@@ -6,13 +6,14 @@ class SphinxDoc < Formula
   url "https://files.pythonhosted.org/packages/c4/55/38d9661f2eca2a0d4cf891de61d8f9bdc9e8711b473012f36d90009677c5/Sphinx-4.2.0.tar.gz"
   sha256 "94078db9184491e15bce0a56d9186e0aec95f16ac20b12d00e06d4e36f1058a6"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5bfbec7eece64faf0ed53161357af4bed63bfe30f3937fc25857414ed0f833d9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9fd018e3c66b1fe29a6e097f1a4609db58c4cf0d2ed397321f28b91dddddb96e"
-    sha256 cellar: :any_skip_relocation, catalina:      "60814b10d58a932560cc6fe41317e1d6ca13c68eeb6e76200470e1486b00f149"
-    sha256 cellar: :any_skip_relocation, mojave:        "a687ef4a3e57edb04ee2310719f6ab9fa36540b780577b2e1e9d8c75150899f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ae2bc7995fa9a4bee96121fd2ebf0c58ebfc91c3eb7de0ca713e542a31d5109"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9a37a2fb365abb3792503526787ac3ea7006bc56aea959cc4f76cabb722583d5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5b9087b423a25d6e215483af01d6ce95c7d9034bfa9f49dbc4c4065d925af9d8"
+    sha256 cellar: :any_skip_relocation, catalina:      "b8f15b176e23210790f3c2bd6048f08c22af4f6b4ba2ae913e6703129e7901b4"
+    sha256 cellar: :any_skip_relocation, mojave:        "c836ebc2d6ee7bbb7166a0eb6408ab47f3b0232def6ad13d26b9ae4393a679a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8f3ec363443e66fac25c62f5fcc3603cf6cebeab108391f1e10bca510398e30"
   end
 
   keg_only <<~EOS
@@ -20,7 +21,7 @@ class SphinxDoc < Formula
     Users are advised to use `pip` to install sphinx-doc
   EOS
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "alabaster" do
     url "https://files.pythonhosted.org/packages/cc/b4/ed8dcb0d67d5cfb7f83c4d5463a7614cb1d078ad7ae890c9143edebbf072/alabaster-0.7.12.tar.gz"

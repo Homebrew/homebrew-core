@@ -3,17 +3,17 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/v7.0.3.tar.gz"
-  sha256 "d71aa946df9f7470865c0d5746ee7c1ec5958ef519c682ea828115f044da10f0"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v7.0.4.tar.gz"
+  sha256 "8728d18c69053f0043acebcdabf46f2eeea51f0f0b60c528e1d356cf48ed2ca2"
   license "MIT"
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "23d60932782d35a8784f74850ad850538608064ad0d3e46dd070fad898372969"
-    sha256 cellar: :any,                 big_sur:       "48e46e1ed5c5f891c843ee7be36ac4c8ef4f7ad77c6ce022960c1f7724695175"
-    sha256 cellar: :any,                 catalina:      "172d959647e13ff410aebeb3babd4886584c607477f1cce213fae0a2fa4a4876"
-    sha256 cellar: :any,                 mojave:        "cfaee239b65413d5faa2bbeed51d1bbc9700c386bc03a3bc5cfe9dc4b16fc8a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8ce6cd9c8ebb5da23f91333833bb269b556d908fb85700f106b28b19effd1c1"
+    sha256 cellar: :any,                 arm64_big_sur: "06033ca3c98bc35a4cbbd05a5bda6f8852f4bbf2c79d74418ab0e8a001b9e368"
+    sha256 cellar: :any,                 big_sur:       "f5417353fc4683ea990b9c5646c6b18b29f4fd5ac7e7da52d028931cb33d1290"
+    sha256 cellar: :any,                 catalina:      "7a2f8359087d0ed8d54f95bc8c8d1bcb68222c1b6654f258a81b563799302f9a"
+    sha256 cellar: :any,                 mojave:        "97f712795c229361cd4bcc0dacb52c11b0334c264c0bf4854fe5d4cbf87ecf53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84bea98e70c47be978c64caf87bf2e1ae3a4c32d6a9db014a01ba7c7a751c1fd"
   end
 
   depends_on "rust" => :build # for cryptography

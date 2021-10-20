@@ -1,17 +1,17 @@
 class Diesel < Formula
   desc "Command-line tool for Rust ORM Diesel"
   homepage "https://diesel.rs"
-  url "https://github.com/diesel-rs/diesel/archive/v1.4.7.tar.gz"
-  sha256 "5ed961b3f78b26427f8fceaa234d615d628dc3a18e5182ecdd9ce5af84ed2d90"
+  url "https://github.com/diesel-rs/diesel/archive/v1.4.8.tar.gz"
+  sha256 "229b40ba777c2728430112c6e89d591a62198851890b2d0a5cab3472effba240"
   license "Apache-2.0"
   head "https://github.com/diesel-rs/diesel.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7504ecbba4c99649dd56c2c0ac4df434a04251049d0364f685eec03165a1ee00"
-    sha256 cellar: :any,                 big_sur:       "3d28f59de8c707d09adf14916802d0ddb8db59d54a0318e6fcbb99c53477f0da"
-    sha256 cellar: :any,                 catalina:      "b63e15c3252fdc1907518309ab875447892ed03bd4de4a7853a0cee2f0284879"
-    sha256 cellar: :any,                 mojave:        "9da02b6126a83dc9a80e994ae21c93e46b839d28d5b544fdda9cc64f8fb25dc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd50b0f715f7328561b9e81d97b4d305dc468d54896695f0444da8e727c57c4c"
+    sha256 cellar: :any,                 arm64_big_sur: "946e0f91a7b7875896da35c0f083364f86dfc64a963404e4d7472696930239ca"
+    sha256 cellar: :any,                 big_sur:       "6e53b553c0e0db9747c2dcb8e473e3ce5bb703fabe0be39e9246fa6245691cff"
+    sha256 cellar: :any,                 catalina:      "a4d7074376cedc36497448056e42bd91e8afc5ac3b6fc754f2ec210fb96f950d"
+    sha256 cellar: :any,                 mojave:        "8d0339a55ef1391da4d3a88627f46055b9fd4f08b1cc911e20de2a7eeb7f2681"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6710efd9946f769dc65df35aa1c3e14e38757ad2fd16b3fbe9243fb4a96e4766"
   end
 
   depends_on "rust" => [:build, :test]

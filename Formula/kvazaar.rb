@@ -1,9 +1,9 @@
 class Kvazaar < Formula
   desc "Ultravideo HEVC encoder"
   homepage "https://github.com/ultravideo/kvazaar"
-  url "https://github.com/ultravideo/kvazaar/archive/v2.0.0.tar.gz"
-  sha256 "213edca448f127f9c6d194cdfd21593d10331f9061d95751424e1001bae60b5d"
-  license "LGPL-2.1"
+  url "https://github.com/ultravideo/kvazaar/archive/v2.1.0.tar.gz"
+  sha256 "bbdd3112182e5660a1c339e30677f871b6eac1e5b4ff1292ee1ae38ecbe11029"
+  license "BSD-3-Clause"
   head "https://github.com/ultravideo/kvazaar.git"
 
   livecheck do
@@ -12,12 +12,11 @@ class Kvazaar < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "68cbd47ca58bca7528f9e9a86cd3f6fed66481432f57731f6bc0c8e3e10f25b9"
-    sha256 cellar: :any,                 big_sur:       "294a8c34175f2338af524ca7b7cf134d9893405013314c006ad3e075160e28b6"
-    sha256 cellar: :any,                 catalina:      "75467ab21cc9bb1a3f81f41949a0312300f9d470b4547e827111379b94a237d8"
-    sha256 cellar: :any,                 mojave:        "d146e6aa5dda30a3353f72bae18356622fe613e1a7a43ae6d5d5e2fa8bfc2aba"
-    sha256 cellar: :any,                 high_sierra:   "50723e7fbe1dfb25f2ba39b84f4059b208bed481ae0832d00f24c7221bdde905"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "708fb79e330e9bed6ae833277613676d5600145b2eb39acfba985e7ce881cd22"
+    sha256 cellar: :any,                 arm64_big_sur: "c2f8e51a5222f0b4f114df45c9a6439b84134c282a4147a3a8f5bd57aa297f14"
+    sha256 cellar: :any,                 big_sur:       "68ec96b70d3098071e315f09d9b68d69971dd362d586e69f1c3d6938edc760f5"
+    sha256 cellar: :any,                 catalina:      "09205d5d2e16355e031d467315842030923f4459fed71576889f372f895f3b98"
+    sha256 cellar: :any,                 mojave:        "420616c74f44f1f604a2e4533d91bca6a4e014ae742d887200d927e007ae4fe0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d28aa580e27dade3635f38fa914f2975718e4e7ea2d89b7b1d46569efa6612b3"
   end
 
   depends_on "autoconf" => :build

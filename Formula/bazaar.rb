@@ -14,7 +14,11 @@ class Bazaar < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "cb1c0c8b5f19abef4043195d8cbd19f363a78581596de1ddcc763621964335b3"
   end
 
+  deprecate! date: "2021-08-19", because: "is not supported. Check out `breezy` instead"
+
   depends_on :macos # Due to Python 2
+
+  conflicts_with "breezy", because: "both install `bzr` binaries"
 
   # CVE-2017-14176
   # https://bugs.launchpad.net/brz/+bug/1710979

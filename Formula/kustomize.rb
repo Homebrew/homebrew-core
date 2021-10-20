@@ -2,8 +2,8 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      tag:      "kustomize/v4.3.0",
-      revision: "cd17338759ef64c14307991fd25d52259697f1fb"
+      tag:      "kustomize/v4.4.0",
+      revision: "63ec6bdb3d737a7c66901828c5743656c49b60e1"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
@@ -13,11 +13,11 @@ class Kustomize < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c48a3eb500c50fba99df75fbbe8d8ab2f87a3d768c7570021c08e03a0497453d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f3d01013abedd14eb97a2bf6ff398da9427e37bd1826eb377d926a9419b15954"
-    sha256 cellar: :any_skip_relocation, catalina:      "cc5b91abe29151a071def55203dac8c4f6260193b9b10285350f952c1862e7b5"
-    sha256 cellar: :any_skip_relocation, mojave:        "5fdde46c298877cfeed31dc711970f2034ae331a2005f28560f961e07a2ef018"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "984f6dc57c5c7a0ce75ce6e0a51c343c323a99160477a149acf99385343ea870"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6708b90a7eb4655101862ea7058171f76a534ee484c20a6748ba6a450a841786"
+    sha256 cellar: :any_skip_relocation, big_sur:       "592a5a40ddb3f932ca069d69955adc70c5f0b924814bee9e008fdca0efae7cc2"
+    sha256 cellar: :any_skip_relocation, catalina:      "2cc595856f0b60da5387246124b63bb30f8ecae899e6d68901af8c63327b8763"
+    sha256 cellar: :any_skip_relocation, mojave:        "299b770815972dbe48d628fca66e1e59733f3581c2552d93829fef6f09569beb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "459c037953f7a3e6f7c7459af96a1a6707f57d236043582799ba2866b4f36b1d"
   end
 
   depends_on "go" => :build

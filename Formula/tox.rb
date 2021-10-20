@@ -6,16 +6,17 @@ class Tox < Formula
   url "https://files.pythonhosted.org/packages/d2/78/ad720ade1c6c5b24e407856fb8fc578896ed8e2a603832bb85be3825b551/tox-3.24.4.tar.gz"
   sha256 "c30b57fa2477f1fb7c36aa1d83292d5c2336cd0018119e1b1c17340e2c2708ca"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "10ff8c6a25de4b9c8b8c8a94ade7d1583f3a42642ad199ab69c5dffbffbdaf56"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4816f3ec33640ef77f4b7286a9e5fe0e8341154ae825dd9f9d57841316f7dde9"
-    sha256 cellar: :any_skip_relocation, catalina:      "77e0500f0308a30a96feead3720464dc599f6e75c45f060bc8ea7980e1111410"
-    sha256 cellar: :any_skip_relocation, mojave:        "4f2d186f7fa5563ead3b61c744a060734588d4cf11274745605d3033d2182e2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76f844a7a896a1bfdbe0fcad72292d6988ee41d991865f25b995714b62c74d19"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "76ad045466f2f3fc8900ac2010ee144e18580fa59e97536c2f13d53f7d8dea24"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6e7f624308ad3dd4ab89a58c99ef015921a6040d5b0aa4b88817d57907108482"
+    sha256 cellar: :any_skip_relocation, catalina:      "f2acdf4e0a50628da327640323cf0560bb992a922656f2f28ee5d16b4613ae8e"
+    sha256 cellar: :any_skip_relocation, mojave:        "270713525556bda12a9d880fbac12bc83818b493df68c16e046707c033eca99f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fda9d04d879d5c1293fbf2fcf8d31494536f143c948c45c3509e552c6b3427e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "backports.entry-points-selectable" do
@@ -86,7 +87,7 @@ class Tox < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    pyver = Language::Python.major_minor_version("python3.9").to_s.delete(".")
+    pyver = Language::Python.major_minor_version(Formula["python@3.10"].opt_bin/"python3").to_s.delete(".")
     (testpath/"tox.ini").write <<~EOS
       [tox]
       envlist=py#{pyver}
@@ -101,7 +102,7 @@ class Tox < Formula
           assert True
     EOS
     assert_match "usage", shell_output("#{bin}/tox --help")
-    system "#{bin}/tox"
+    system bin/"tox"
     assert_predicate testpath/".tox/py#{pyver}", :exist?
   end
 end

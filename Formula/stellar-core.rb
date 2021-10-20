@@ -2,15 +2,15 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v17.4.0",
-      revision: "c5f6349b240818f716617ca6e0f08d295a6fad9a"
+      tag:      "v18.0.3",
+      revision: "f3baea678aa966bf60ac0c7a8ecfebbaba01b008"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "390003521732f0cefecfb504b46fb700e5d8078dbb42b9820d0c6cb2a0fd39e8"
-    sha256 cellar: :any, big_sur:       "10f4bfe3635f709339b1ee60fe3a36a5f1b38f320b1e185a9b692388690f82ad"
-    sha256 cellar: :any, catalina:      "f380985721f94f077c4c0a9f945efa12dc69ad4cc87d428940da97e8a3a79901"
+    sha256 cellar: :any, arm64_big_sur: "e3769ff1a42db41d2ef89bca670de0251d5ab27bd7b16d3bc596709f51c8d6e1"
+    sha256 cellar: :any, big_sur:       "65c704eab6d4f945c417ad5a99a2e628088223f13fa0ff976e7fd7017470eeec"
+    sha256 cellar: :any, catalina:      "51766db2099a44776e85d21cd301ce9986512fab09afbc2fef13461b15bdbbc6"
   end
 
   depends_on "autoconf" => :build

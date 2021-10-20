@@ -6,17 +6,18 @@ class OrganizeTool < Formula
   url "https://files.pythonhosted.org/packages/a8/f5/8a5c198b6640943b1ee1567751aa2be4473c19dec890fcd3457a4012676c/organize-tool-1.10.1.tar.gz"
   sha256 "c11dd3af2c03132226c218ad661176ef329575bfd324ad7576cd9ab23593cce5"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e60ea32bf5482fe0c5ca74304ea5d9f1872abcdfa221de57be6a7ec99ab4cbd6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "11a276d04ed01edebbd95ef2e0442efbaf5b41df2391314fe7f43cbe30dc9c91"
-    sha256 cellar: :any_skip_relocation, catalina:      "10b35ad339c782773dc3f7b71919d39f03b9a045908ab65c34e7027ff18c4287"
-    sha256 cellar: :any_skip_relocation, mojave:        "36160685dec476b6611bd3adda921654a5a08330682236f7773ce2492446c380"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6cae35f5e1884155d0f6ce48b61fb38f466384cf3cb4917c64c0cb65ca1e1695"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ef904cf93ae0dec9f9a11abf9ab2c10154a960a1d8b2cf450d4e00cad8cc8d12"
+    sha256 cellar: :any_skip_relocation, catalina:      "62d3c7c39dc79a1f75d102b7ac65b7cc126fba6faee9490b994640550539167e"
+    sha256 cellar: :any_skip_relocation, mojave:        "bd2d8cb5ecc574f5825342ab778e51b900e13c2b135fe6945d4ac2fa9ee75331"
   end
 
   depends_on "freetype"
   depends_on "openjpeg"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"

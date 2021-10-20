@@ -1,8 +1,8 @@
 class Aqbanking < Formula
   desc "Generic online banking interface"
   homepage "https://www.aquamaniac.de/sites/aqbanking/"
-  url "https://www.aquamaniac.de/rdm/attachments/download/379/aqbanking-6.3.1.tar.gz"
-  sha256 "c4989897ad14acf62e5c84161649fc1070c0f21d66c6f007f468f4b9024e0036"
+  url "https://www.aquamaniac.de/rdm/attachments/download/386/aqbanking-6.3.2.tar.gz"
+  sha256 "a97ab42f7298cbb2617b2bda53ca51a2b0fe5f780bde098a39a5f4a3243e3418"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,10 @@ class Aqbanking < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "eed6d3517da17e499ff98fae30df062627cc8dc4579d834966fba7f4153b664e"
-    sha256 big_sur:       "c0965a0a96ede5bdecb2745fa4755c665c83a93608a88eeac56a203ef38b835e"
-    sha256 catalina:      "07cc2275239eaa92e99247361a3a3b76f3037efcdda83595c24325414d65df44"
-    sha256 mojave:        "cf26dcb8732320036208b7a85a7110a549c4ac47fe94829ed9074e59fd76f4d7"
+    sha256 arm64_big_sur: "68e171896fd9c1c8e4da47726a8e6c8e40aaf318a2da026cba67fd0a89cdcf9f"
+    sha256 big_sur:       "2ec730d26adbca6c0745aa4301ab2aea51894b6b2db5bc4f61f06a91db678a6a"
+    sha256 catalina:      "7421db73ffd8f34a960d3a095ed93d32b22bbdda1eaf63675083750e42986ba9"
+    sha256 mojave:        "8f0fc769af2fcdc03281a0b0447e93ee6653df51650a43c5e5513dd16628ccde"
   end
 
   head do

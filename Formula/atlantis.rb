@@ -1,17 +1,17 @@
 class Atlantis < Formula
   desc "Terraform Pull Request Automation tool"
   homepage "https://www.runatlantis.io/"
-  url "https://github.com/runatlantis/atlantis/archive/v0.17.3.tar.gz"
-  sha256 "30a9d957ea5058410fbbc190056df86ecd56223a763b043a54cf521caf029618"
+  url "https://github.com/runatlantis/atlantis/archive/v0.17.4.tar.gz"
+  sha256 "1556e4467f81e6d8cb28da6cd1ce530611b2f94f112e3a92bd818426a364a5c1"
   license "Apache-2.0"
   head "https://github.com/runatlantis/atlantis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9ed2da0a6cdc0bab06abee67a582a681e3faa2592d9dabbf68d0d20b155f5ab"
-    sha256 cellar: :any_skip_relocation, big_sur:       "918a60de54e4d0a5439ee72d60e6a320b9cef060df6a3b9a862939944908e84c"
-    sha256 cellar: :any_skip_relocation, catalina:      "365e3d3c5703deb1d539ce11f27f4b20bbedf72eac7ec09d801dc843533e5cd6"
-    sha256 cellar: :any_skip_relocation, mojave:        "4cd407acc6a2177b83902c0462a4e080084d72b2259c87a6e1493f73dc499541"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "277c7d9c6088432c1ffa541018e071ba7a944e04f8e154e11f660d9c087eee77"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "34ccf2bcfb485af92d761922ac72fc54514cb521eaa40e1a68748a83a0d9d653"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f2be21a4ccc836e5ae969eb7fb7747dfc9c44bfa30eb7800be804e5ec08ec043"
+    sha256 cellar: :any_skip_relocation, catalina:      "5da4357cf27e81f814edb89b957ffb274bd2fbe9415d420b49a7bb5c2390270a"
+    sha256 cellar: :any_skip_relocation, mojave:        "ee4f266cbe5de9c4dc285c9bbe28e832bb68a494cfd55a042d6d599616968759"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d211f5eb8ff4c46ce0aa6be40de32b5e5b560c782bc999183a21be4e14234bb5"
   end
 
   depends_on "go" => :build

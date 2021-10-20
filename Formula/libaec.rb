@@ -1,16 +1,16 @@
 class Libaec < Formula
   desc "Adaptive Entropy Coding implementing Golomb-Rice algorithm"
   homepage "https://gitlab.dkrz.de/k202009/libaec"
-  url "https://gitlab.dkrz.de/k202009/libaec/-/archive/v1.0.5/libaec-v1.0.5.tar.bz2"
-  sha256 "49cc260c3321a358a8d854444584eec58382c26cda3c4bcd156b4ba396075ae7"
+  url "https://gitlab.dkrz.de/k202009/libaec/-/archive/v1.0.6/libaec-v1.0.6.tar.bz2"
+  sha256 "31fb65b31e835e1a0f3b682d64920957b6e4407ee5bbf42ca49549438795a288"
   license "BSD-2-Clause"
   head "https://gitlab.dkrz.de/k202009/libaec.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "eb75225b84ef78247e6313d9898d42f257012d406900b13a10e796150129d6e5"
-    sha256 cellar: :any, big_sur:       "2b7e11d1e50b73f63081c492a25a9778c82d552ef49d9738d716402c22278a44"
-    sha256 cellar: :any, catalina:      "f710bc0d08883c62af1d6021ec59294bd495fa1a9bf5411b533c058492949061"
-    sha256 cellar: :any, mojave:        "bfa7e201aaf1d16c44ca6607b553d5c2b6671eecc9d14fd70b9eb957033afd06"
+    sha256 cellar: :any, arm64_big_sur: "435271c305d6e1dcc07de9875dc3dfc8a0c6527a22c942e4961cabe49d8e75c3"
+    sha256 cellar: :any, big_sur:       "1dbb32dfbf75c7abc923f53a8ebfcbfca74426c2386521b424ce84232e3ce0ac"
+    sha256 cellar: :any, catalina:      "8fb8196910a91e85aaa1343f904ffbc3e3e0565774aab6d4ab6455cd1795dda8"
+    sha256 cellar: :any, mojave:        "540f342390a38bb62dad9ccaca77890be88d903bd3092c17054b692eee8b7120"
   end
 
   depends_on "cmake" => :build
@@ -19,7 +19,8 @@ class Libaec < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      # We run `make test` for libraries
+      system "cmake", "..", *std_cmake_args, "-DBUILD_TESTING=ON"
       system "make", "install"
       system "make", "test"
     end

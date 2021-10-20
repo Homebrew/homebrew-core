@@ -1,9 +1,9 @@
 class Picat < Formula
   desc "Simple, and yet powerful, logic-based multi-paradigm programming language"
   homepage "http://picat-lang.org/"
-  url "http://picat-lang.org/download/picat311_src.tar.gz"
-  version "3.1.1"
-  sha256 "e2d3a0948158bf06c32fd1e7f696c27ff9a51033521d56ea9b03132f0b6b52ee"
+  url "http://picat-lang.org/download/picat312_src.tar.gz"
+  version "3.1#2"
+  sha256 "eb13be811d9470420d8d9e488f1f4a7771a934e3b27120aa6529648d5a070d9e"
   license "MPL-2.0"
 
   livecheck do
@@ -12,10 +12,10 @@ class Picat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "22c2c064be90b74c688624489235f5d9a7c5ebd93959375e23cb46d489f26390"
-    sha256 cellar: :any_skip_relocation, catalina:     "e0a229962d20f09a7525c69e2c14ffbdbdccf241a3cb10e6eeb160f3aeef55f5"
-    sha256 cellar: :any_skip_relocation, mojave:       "83dbcad3ee2643c24cd3042767feff55405e33876e28968ff2211fb621a1f3cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ee36d840a66edbdb8e79604b9d5933344376f3d894c6f67107efd7f9e63aa3fe"
+    sha256 cellar: :any_skip_relocation, big_sur:      "aaf2ef1f21a19c8bf60b5ed7b52b91f12693babdaaec8edb458b888e6f748838"
+    sha256 cellar: :any_skip_relocation, catalina:     "40e9b771743f9799af5c2abc091a3099faeb0a14be8136d5aa3fea1624c67d83"
+    sha256 cellar: :any_skip_relocation, mojave:       "248ac7a621f9b9f860170dd1bf57aafd6f785e35140d58c2a563fbd4e6604a42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7b15831545abe443fa02911fe09ea411bce3b2be30cb22f1da47a6434667e8d3"
   end
 
   def install

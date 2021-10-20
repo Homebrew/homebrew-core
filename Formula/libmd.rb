@@ -1,12 +1,17 @@
 class Libmd < Formula
   desc "BSD Message Digest library"
   homepage "https://www.hadrons.org/software/libmd/"
-  url "https://libbsd.freedesktop.org/releases/libmd-1.0.3.tar.xz"
-  sha256 "5a02097f95cc250a3f1001865e4dbba5f1d15554120f95693c0541923c52af4a"
+  url "https://libbsd.freedesktop.org/releases/libmd-1.0.4.tar.xz"
+  sha256 "f51c921042e34beddeded4b75557656559cf5b1f2448033b4c1eec11c07e530f"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://libbsd.freedesktop.org/releases/"
+    regex(/href=.*?libmd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a28b50ea0316b085a78d43d3fa424d2be7b555eae07cbddc561b21f8a325be52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1c8f94c04ca398bca1dd9d27512ae308e110f6dbf0c8a86761720c3e288c8a01"
   end
 
   depends_on :linux

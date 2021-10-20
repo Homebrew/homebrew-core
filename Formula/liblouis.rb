@@ -4,13 +4,14 @@ class Liblouis < Formula
   url "https://github.com/liblouis/liblouis/releases/download/v3.19.0/liblouis-3.19.0.tar.gz"
   sha256 "5664b8631913f432efb4419e15b3c41026984682915d0980351cb82f7ef94970"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "3a3240d45f61b595174ade34a9e8472ecc4c2819f1a31376e984f5d4318a2f94"
-    sha256 big_sur:       "c6957a31908c6f4610cc6be392f0b6cf8628101582ed1752273edbe090b0ace9"
-    sha256 catalina:      "e4d01bfcdd90ff82ef9040cde309340eb8bc056fc4c0d62d1b861369a96ef2c5"
-    sha256 mojave:        "b1e4c7388451ee7a25862a39464888343a17a47fa09d05bfc414c0ce0ec55d1c"
-    sha256 x86_64_linux:  "2a289332981f34be748be06e7463bdc62d4402e61fb7478bd68261128ccd9a7c"
+    sha256 arm64_big_sur: "fa9afd58b981aa8d297746bca152e8e073ef1d01159fc112bd30b407887328bb"
+    sha256 big_sur:       "136591a6b53c1636d8854c7cc60949db3c2d67818c382124353d460ff460c546"
+    sha256 catalina:      "089c1dd0bdbde0466a631f5deac55f8b608f7edff646ab848e2467aadf1cf552"
+    sha256 mojave:        "7bef026745d51ac3f5329a4c985c1d98a89dc43dfe8460c874a7d83b95825889"
+    sha256 x86_64_linux:  "db7173cf91c28efa928f6f32663a83157223d2b54a1983e2dbf0dd78d694dc56"
   end
 
   head do
@@ -23,7 +24,7 @@ class Liblouis < Formula
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     system "./autogen.sh" if build.head?

@@ -1,29 +1,22 @@
 class Naabu < Formula
   desc "Fast port scanner"
   homepage "https://github.com/projectdiscovery/naabu"
-  url "https://github.com/projectdiscovery/naabu/archive/v2.0.4.tar.gz"
-  sha256 "2d9f01e42f2182d008041e145c047a7ca45d31214a2d20b1acf4a148659b5815"
+  url "https://github.com/projectdiscovery/naabu/archive/v2.0.5.tar.gz"
+  sha256 "ec9ef8c7cff41d43b754859e4eba9c7aa2453100371c4bd01e82ac46dcf8f424"
   license "MIT"
   head "https://github.com/projectdiscovery/naabu.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2228e508d26dbb872419ff77bc55ad8a7beaef6fb75710c3ae6bd9ccce4f0cff"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ee734d6d87cb992c1a07f256d643ee4c71200334dd05b3e4cd23af23de3e45e8"
-    sha256 cellar: :any_skip_relocation, catalina:      "d550046167fad3bcc852ef6dcef502a96c798f67f7bea354227a473b2f761730"
-    sha256 cellar: :any_skip_relocation, mojave:        "11147d6c4414285352eb73ff8ffe915e1381e896e8d659c64fede154de55ba45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78275db9ac0ce8b85f19f8293cbb0766e37e6e0c709b291237cf5dd6136d6afa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b2cbc2fcb81774b4ba7f82548d2e4f67e383ca06af6c308eaa0a463144159a2c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d029d03fce9096c163de85b9084d2c7a8eab195fb3895196680fc3d7c9948801"
+    sha256 cellar: :any_skip_relocation, catalina:      "93bbe2f3b71611f35213a7c6c2ed2938156858931254c7b6356e6527412d3cc6"
+    sha256 cellar: :any_skip_relocation, mojave:        "0ede7021872b98becd1eea302209b11cbc0198a7fb812517a4cbbe1d8325f0a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "788f0f18ac38c7047441dd6db332a176e27aef39830d77b78c85e08b280db424"
   end
 
   depends_on "go" => :build
 
   uses_from_macos "libpcap"
-
-  # Support go 1.17, remove after next release
-  patch do
-    url "https://github.com/projectdiscovery/naabu/commit/944874d7c5cf442fb68c5ad19ed5bf954b313386.patch?full_index=1"
-    sha256 "028e8dd2f9bd9634fc05ebcd0381d11320f94a6b9c68bd4a5648640a41089ea1"
-  end
 
   def install
     cd "v2" do

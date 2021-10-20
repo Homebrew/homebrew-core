@@ -12,6 +12,7 @@ class Gource < Formula
     sha256 catalina:      "544380bd35795b5a809d536b6458b9e4a0f8fc940f36f6f8e54255091aa98250"
     sha256 mojave:        "a603e1573f244abd8bc2a8963538ca6da27fbff90e68666e752678159c215baa"
     sha256 high_sierra:   "9e1ed79145083e62e52f6416b08d0d80c778cae6a8ba83808fb17f841cd6c136"
+    sha256 x86_64_linux:  "65730cf451ae43ba3e105e3c7846914a65d82b4cd90699f146e15fda984de07e"
   end
 
   head do
@@ -36,7 +37,7 @@ class Gource < Formula
     # clang on Mt. Lion will try to build against libstdc++,
     # despite -std=gnu++0x
     ENV.libcxx
-    ENV.append "LDFLAGS", "-lpthread" if OS.linux?
+    ENV.append "LDFLAGS", "-pthread" if OS.linux?
 
     system "autoreconf", "-f", "-i" if build.head?
 

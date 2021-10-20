@@ -1,8 +1,9 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-21.09.0.tar.xz"
-  sha256 "5a47fef738c2b99471f9b459a8bf8b40aefb7eed92caa4861c3798b2e126d05b"
+  # NOTE: Keep this in sync with poppler-qt5
+  url "https://poppler.freedesktop.org/poppler-21.10.0.tar.xz"
+  sha256 "964b5b16290fbec3fae57c2a5bcdea49bb0736bd750c3a3711c47995c9efc394"
   license "GPL-2.0-only"
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
@@ -12,10 +13,11 @@ class Poppler < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "1dd6f10a72ad0f63afef4f7d408446a173a8c7a305a419a11e80c6495c6f17bd"
-    sha256 big_sur:       "ac1bbd7709dd6cccbfced46079c03a775c3981b467ee087255fb9f8f1fce4ec0"
-    sha256 catalina:      "831a96471fe69af4d86767d162c24c6cb43184229bbe5915105970f9f2b9c6a6"
-    sha256 mojave:        "0366441466951432fb7ccebb1cf4a213f858b7ccee3743ad5b05dbe822f43319"
+    sha256 arm64_big_sur: "aa3d848bb3583d7a0093e0c33ec6cbc447ea403cad8d3648f16c808e89e18289"
+    sha256 big_sur:       "51941c9c044c59f9be78a7e3f219b6886ef54e86a1ed5221b718079eeca4eb9f"
+    sha256 catalina:      "dc60de28ed20dad34cd77ac65fd92a00fe67d93dc4cb71613696a160df49f1ac"
+    sha256 mojave:        "10d38d73fe15a2ef0554787c3b9f618c77a34d9a8fbaf57c730b8c1b17a8f40f"
+    sha256 x86_64_linux:  "b0de9ccbd0178fb10bf59ce0345f7dde5806b1eecd01f3a066bccab806126db5"
   end
 
   depends_on "cmake" => :build
@@ -30,15 +32,23 @@ class Poppler < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
+  depends_on "nspr"
   depends_on "nss"
   depends_on "openjpeg"
   depends_on "qt"
 
   uses_from_macos "gperf" => :build
   uses_from_macos "curl"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
+
+  fails_with gcc: "5"
 
   resource "font-data" do
     url "https://poppler.freedesktop.org/poppler-data-0.4.11.tar.gz"

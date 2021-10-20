@@ -1,15 +1,15 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "https://profanity-im.github.io"
-  url "https://profanity-im.github.io/profanity-0.11.0.tar.gz"
-  sha256 "3fc9809816f69186dbb860b27183f6cd2aef0a52a7d14e20e4ef6c3a7f0f3606"
+  url "https://profanity-im.github.io/profanity-0.11.1.tar.gz"
+  sha256 "6f1b4df6c2971f51d03d48d2bfd4f69b4404410d800b43f029ea1cf08a02bd45"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 big_sur:      "969adf8ec31291af0845c5908d3aff338fd941dc3b938ece43a1962357f53622"
-    sha256 catalina:     "76b3363d89c561b19cb9ac9a10fa1e81b433545400a2aa0f648b9541a1ffd7bb"
-    sha256 mojave:       "cb5376e9ccd4f1b0f43d5c5f43cf9677f6b87f47a649224b7a2cb41da8a913e9"
-    sha256 x86_64_linux: "8a08554c08409622eaf7c22a20922fce2cd90f54266f11fa59435da5cc7c30b9"
+    sha256 big_sur:      "01f299b832782d3ed87ad78fc432c1a20799b3804140c017671ddde7c5b4fb42"
+    sha256 catalina:     "1096a2f8ed2d6bedc3dd67f6247dee1a35ceb17c6af052161c026865fb318c4d"
+    sha256 mojave:       "3187f12ce661fbf90021b11e313d9a98b5b65da311d04807283f0722539e4f7b"
+    sha256 x86_64_linux: "1e0abc2724db615d5997766a64fd0b22be03b25fc1e47c4fd07dd509633024ee"
   end
 
   head do

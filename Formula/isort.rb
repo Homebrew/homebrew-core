@@ -6,6 +6,7 @@ class Isort < Formula
   url "https://files.pythonhosted.org/packages/1c/34/ed9178b5b23ade4561bf77b91856e0e3bc094620fd81bd74d535817a0f0d/isort-5.9.3.tar.gz"
   sha256 "9c2ea1e62d871267b78307fe511c0838ba0da28698c5732d54e2790bf3ba9899"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,14 +14,14 @@ class Isort < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "433f9927ca1b68c347cb27f3989c1e341baeaaca18847329204827c73331bbf2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8267b3253e03e3ec2a6cae7120852ee059ce8082b43a6494e8555f350342be7c"
-    sha256 cellar: :any_skip_relocation, catalina:      "3363201814d2c95acae1ba563983961b104382ac528f55192403fa07fd1913c7"
-    sha256 cellar: :any_skip_relocation, mojave:        "e9527931d13450a51c1399ee6d583f02f0fd10ad0afbd005914b768adf4f931c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc7e92c173a5265d7c3482a5e654f745cc6ff6f7c1976f08b0a1122853124d8d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "36eca38b43c2fe314d024a1995d0953cf155862dbc7f00f6d0a34edb742ea513"
+    sha256 cellar: :any_skip_relocation, big_sur:       "50b4352cc80c9b4064b43889478d62d928fbe4b1046682a75425101008388a07"
+    sha256 cellar: :any_skip_relocation, catalina:      "d3b566b024853af9f4b15f21a67e24bfe388d3091d083070e3a0a751d304c97b"
+    sha256 cellar: :any_skip_relocation, mojave:        "04253871a201d55662ac4467f41c10154801199b8d751fee858f752681f3335e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4729c47853441bbb0989cf58ebe6be207e8486316f7c9116f9e1595596517bcd"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources

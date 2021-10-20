@@ -3,17 +3,16 @@ require "language/node"
 class ProtocGenGrpcWeb < Formula
   desc "Protoc plugin that generates code for gRPC-Web clients"
   homepage "https://github.com/grpc/grpc-web"
-  url "https://github.com/grpc/grpc-web/archive/1.2.1.tar.gz"
-  sha256 "23cf98fbcb69743b8ba036728b56dfafb9e16b887a9735c12eafa7669862ec7b"
+  url "https://github.com/grpc/grpc-web/archive/1.3.0.tar.gz"
+  sha256 "6ba86d2833ad0ed5e98308790bea4ad81214e1f4fc8838fe34c2e5ee053b73e6"
   license "Apache-2.0"
-  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "8625843e386cf1aec90d4f750ad1480586f10e90fa5f8d2092037b92583379d3"
-    sha256 cellar: :any,                 big_sur:       "c706a6449039679963254536a30511f031fe11705ac36ed5d2f3ab2fd83a2aba"
-    sha256 cellar: :any,                 catalina:      "3917c4c2ff273a01472cd46265b5d12a6df0012e721cb271f4c512a894e3ccd5"
-    sha256 cellar: :any,                 mojave:        "b4486c699cd657005acd262ef592784f3bbf3b50408e90d2a84d42dcb5205853"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f57d007f37bd720b813f7254d32c6683257de8c1afe95a93f3dc23c9641c093"
+    sha256 cellar: :any,                 arm64_big_sur: "2da48dc258aef815fe598868ff75acf4f123b232aace297eaaf5fda0d1b564f0"
+    sha256 cellar: :any,                 big_sur:       "d4938bcd3c7efd330b9d13be4e3e7db2525b4bec8571e8d8b843c6c6d3fd40af"
+    sha256 cellar: :any,                 catalina:      "ec20d43ded4c5b202a4d245e239d4cc1d8fc50aad459534f5e882fb9cf184119"
+    sha256 cellar: :any,                 mojave:        "e234dcb68737d09bd4e73271e1efb8284078bd60770fc6711319be342e966672"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a13ee2791266209e25e607fd578303cd5ccc30d7da5156f1f6573ef34c20fa6"
   end
 
   depends_on "cmake" => :build
@@ -23,8 +22,7 @@ class ProtocGenGrpcWeb < Formula
 
   def install
     bin.mkpath
-    inreplace "javascript/net/grpc/web/Makefile", "/usr/local/bin/", "#{bin}/"
-    system "make", "install-plugin"
+    system "make", "install-plugin", "PREFIX=#{prefix}"
   end
 
   test do

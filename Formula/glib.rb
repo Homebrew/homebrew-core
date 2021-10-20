@@ -6,13 +6,14 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.70/glib-2.70.0.tar.xz"
   sha256 "200d7df811c5ba634afbf109f14bb40ba7fde670e89389885da14e27c0840742"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "ad3316e2792c4c82f6821617c9eee6a6612663a982d87bf18b834328061cf63c"
-    sha256 big_sur:       "7d4a5cf540591f124ee50ee8c344ba823d170946350e71559a52a0e21eb38a81"
-    sha256 catalina:      "9050f98ed8bdaf71deda193160609a1a925824e7c437a2b671d6c2b6d0877254"
-    sha256 mojave:        "8d2fcda0fdbc4d98142a0638de313c2dd5333a0cc5388f7a7ea1550a9d88c0c0"
-    sha256 x86_64_linux:  "59cb076302fcb0396d82e9b6a9f428223d00e2dd79fa67f91f7e552504362320"
+    sha256 arm64_big_sur: "981c36728beb66bfbf3aa57d498962a037a4474325692c0e1d627db003b70d4b"
+    sha256 big_sur:       "5346e79808e56e758840d86b100c14b855afe106a96a47c79d44235f9ba33ca5"
+    sha256 catalina:      "200499c03ec0d35937690b489bd521b891481c54d323c08a123d6805a851ad2d"
+    sha256 mojave:        "0062eaa3ca06362699604858c74047ae0bbd616330e0cb3aa52ab69015074d22"
+    sha256 x86_64_linux:  "c57c24301af492dd2713bc6fdf236b1aa5c07e6001e3150cd6f54a7409398624"
   end
 
   depends_on "meson" => :build

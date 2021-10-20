@@ -6,10 +6,12 @@ class Cgal < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e894e9e89727aa1b23360c902ea971c8cfde4a86613c870acdf4a5c484b836ac"
-    sha256 cellar: :any_skip_relocation, big_sur:       "30fc29fc49aeb79af65c39a14b6ab4a1560e53358574ee796adc1914b499d6ae"
-    sha256 cellar: :any_skip_relocation, catalina:      "30fc29fc49aeb79af65c39a14b6ab4a1560e53358574ee796adc1914b499d6ae"
-    sha256 cellar: :any_skip_relocation, mojave:        "30fc29fc49aeb79af65c39a14b6ab4a1560e53358574ee796adc1914b499d6ae"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f72321be5057d3b07e5ee332b4574ddc08bb65690291778f87593ce60c1e705"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c8f0d5760001f61ed11d996ea74e94ec73c77cf46d2746e0ff828657c9dd6bab"
+    sha256 cellar: :any_skip_relocation, catalina:      "c8f0d5760001f61ed11d996ea74e94ec73c77cf46d2746e0ff828657c9dd6bab"
+    sha256 cellar: :any_skip_relocation, mojave:        "c8f0d5760001f61ed11d996ea74e94ec73c77cf46d2746e0ff828657c9dd6bab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f72321be5057d3b07e5ee332b4574ddc08bb65690291778f87593ce60c1e705"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -20,8 +22,11 @@ class Cgal < Formula
   depends_on "mpfr"
 
   on_linux do
+    depends_on "gcc"
     depends_on "openssl@1.1"
   end
+
+  fails_with gcc: "5"
 
   def install
     args = std_cmake_args + %w[

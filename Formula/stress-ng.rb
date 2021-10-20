@@ -1,8 +1,8 @@
 class StressNg < Formula
   desc "Stress test a computer system in various selectable ways"
   homepage "https://kernel.ubuntu.com/~cking/stress-ng/"
-  url "https://kernel.ubuntu.com/~cking/tarballs/stress-ng/stress-ng-0.13.03.tar.xz"
-  sha256 "3e60d605e378d86a8591a30d6e557bed709d82a5b19616378002cd8ff0037a8b"
+  url "https://kernel.ubuntu.com/~cking/tarballs/stress-ng/stress-ng-0.13.05.tar.xz"
+  sha256 "f058c8fba37596ab32c3a4b2aedbdbf5f2b8a8ba1d312059e733290543ad00ac"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,11 +11,11 @@ class StressNg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c7949a705b3f659361e1cabf037c03abd59835ff94e08dc330b6bed38c2ee4fb"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7c984db6b9b6012cf68d5fd6bf745349a9358bdcacfbf84303f5131bb59856d8"
-    sha256 cellar: :any_skip_relocation, catalina:      "c6f78292f42eb8295f3c05479013247282da1ebfe89c140b870ceca5f7ec2e7f"
-    sha256 cellar: :any_skip_relocation, mojave:        "acb20ab59f3593380048764488d69f4466deaab1154d0954066ddfa71dc69b5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5c73086eca79e6acb0983998fdce4154c074c84b9921593a4b7dbe568245c28"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "484632f5ede25db3a241fd67545f88f357f141a99152c13ffff4cf531b706290"
+    sha256 cellar: :any_skip_relocation, big_sur:       "92f16d015fd98a39b2fc4035134077cbebba49e05d307018336703e7b78ccca6"
+    sha256 cellar: :any_skip_relocation, catalina:      "01ee57ddeb2d0134b8e01e895152f58e796cf547ad5e341baedea0aba58eee34"
+    sha256 cellar: :any_skip_relocation, mojave:        "4c6ec1d023ead35abb1c037db5fbe601a5edb5a4f82095a274b8a2f182bf1570"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aef3c8d2739eb59d29c0beff8e8a0e0fcb1f1700aabb119e853f76a7a43f0da8"
   end
 
   depends_on macos: :sierra

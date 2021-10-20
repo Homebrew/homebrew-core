@@ -1,8 +1,8 @@
 class Onedpl < Formula
   desc "C++ standard library algorithms with support for execution policies"
   homepage "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/dpc-library.html"
-  url "https://github.com/oneapi-src/oneDPL/archive/refs/tags/oneDPL-2021.4.0-release.tar.gz"
-  sha256 "74ffc0fabd6a74af8c1a7a92f049794559bbe5afcd755398f1b130226f1b60fa"
+  url "https://github.com/oneapi-src/oneDPL/archive/refs/tags/oneDPL-2021.5.0-release.tar.gz"
+  sha256 "b79237ff55b74d4758c481d6262bb367483dbdb21185dab53accb63f307525bc"
   # Apache License Version 2.0 with LLVM exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
 
@@ -12,26 +12,14 @@ class Onedpl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5c09dcadf4308512478900387b6cb785cf95af41aaa280487341120d765a1842"
+    sha256 cellar: :any_skip_relocation, all: "7130aaba10f1f733e4cac0c799662b4eaefeceb486c5b062d2055dc595d41306"
   end
 
   depends_on "cmake" => :build
-
   depends_on "tbb"
 
-  # CMake: add install instructions
-  patch do
-    url "https://github.com/oneapi-src/oneDPL/commit/008dd241e4766bda87e439ebe64a0f91d795b181.patch?full_index=1"
-    sha256 "a7e588130b3016a609082b95352a716267ea49c316b7cf1977d010b241fcc0ef"
-  end
-
   def install
-    cmake_args = std_cmake_args + %w[
-      -S .
-      -B build
-    ]
-
-    system "cmake", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     # `cmake --build build` is for tests
     system "cmake", "--install", "build"
   end

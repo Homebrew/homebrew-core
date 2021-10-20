@@ -3,16 +3,16 @@ require "language/node"
 class Apidoc < Formula
   desc "RESTful web API Documentation Generator"
   homepage "https://apidocjs.com"
-  url "https://github.com/apidoc/apidoc/archive/0.29.0.tar.gz"
-  sha256 "e8dafeefbdc1699ccd65566f0d353c610f9847fbfd49483c1d4e6ed154a8c273"
+  url "https://github.com/apidoc/apidoc/archive/0.50.0.tar.gz"
+  sha256 "4705ba8a68df2b2285b008f19c7a724297640ad112d181625f791af87024926b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "69d9f81dc0cf0416ae6fef93b09ccb994e57d47046dd6c21eb610daae87ca1fe"
-    sha256 cellar: :any_skip_relocation, big_sur:       "209889e11d2641e73152d2c67acae004e396ad1047c2c16ab751ba709ef460ca"
-    sha256 cellar: :any_skip_relocation, catalina:      "209889e11d2641e73152d2c67acae004e396ad1047c2c16ab751ba709ef460ca"
-    sha256 cellar: :any_skip_relocation, mojave:        "209889e11d2641e73152d2c67acae004e396ad1047c2c16ab751ba709ef460ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55e98638e7ac48270c94b3e5bd063b83007ab8f51c8533a03c59fcd52fd21e19"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5038d62fe32f3617495a701e756b1fc272574dedcf6ea0cb90c4ee6c6b991d3d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5a9e988f0c0a8f4889c4ca69fc0078c206d6a2de487e422401d96913139cfb85"
+    sha256 cellar: :any_skip_relocation, catalina:      "5a9e988f0c0a8f4889c4ca69fc0078c206d6a2de487e422401d96913139cfb85"
+    sha256 cellar: :any_skip_relocation, mojave:        "5a9e988f0c0a8f4889c4ca69fc0078c206d6a2de487e422401d96913139cfb85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4faeb7dc6fdeaac856167dcd0f56425d7a4d472a1c6ea06845292166f1a5f02c"
   end
 
   depends_on "node"
@@ -24,16 +24,6 @@ class Apidoc < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
-
-    term_size_vendor_dir = libexec/"lib/node_modules"/name/"node_modules/term-size/vendor"
-    term_size_vendor_dir.rmtree # remove pre-built binaries
-
-    if OS.mac?
-      macos_dir = term_size_vendor_dir/"macos"
-      macos_dir.mkpath
-      # Replace the vendored pre-built term-size with one we build ourselves
-      ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
-    end
 
     # Extract native slices from universal binaries
     deuniversalize_machos
@@ -55,14 +45,12 @@ class Apidoc < Formula
     EOS
     (testpath/"apidoc.json").write <<~EOS
       {
-        "name": "example",
+        "name": "brew test example",
         "version": "#{version}",
         "description": "A basic apiDoc example"
       }
     EOS
-    system bin/"apidoc", "-o", "out"
-    api_data_json = (testpath/"out/api_data.json").read
-    api_data = JSON.parse api_data_json
-    assert_equal api_data.first["version"], version
+    system bin/"apidoc", "-i", ".", "-o", "out"
+    assert_predicate testpath/"out/assets/main.bundle.js", :exist?
   end
 end

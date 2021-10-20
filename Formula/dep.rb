@@ -26,12 +26,8 @@ class Dep < Formula
   patch :DATA
 
   def install
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    platform = if OS.mac?
-      "darwin"
-    else
-      "linux"
-    end
+    arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    platform = OS.kernel_name.downcase
 
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "auto"

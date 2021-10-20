@@ -4,6 +4,7 @@ class Pgrouting < Formula
   url "https://github.com/pgRouting/pgrouting/releases/download/v3.2.1/pgrouting-3.2.1.tar.gz"
   sha256 "daeb7ba8703dde9b6cc84129eab64a0f2e1f819f00b9a9168a197c150583a5fd"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
   livecheck do
@@ -12,10 +13,10 @@ class Pgrouting < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03b5237e1971242e2b8af01514943c61d289f9fe8630653c7a99a8f39529c7a4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "402d0d183b3246c12fb45c74110a4e9d5607c3681a42f2e47debb2e50e02d2f2"
-    sha256 cellar: :any_skip_relocation, catalina:      "369e843e9c3c7eff94c0a94d13694d75c1f9024a9710763fc68c6834cec4d52d"
-    sha256 cellar: :any_skip_relocation, mojave:        "f4e8a237208ebf9264a442fa3fc1364d7ffd42cdee769c3206c028fb95975144"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9e9bacec2bd498eca143e7363d80ba0e120c6862f2342e9cd575d535b8133b32"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b9a2a7d7afa90612d6912d0efc6f03f2148842068037b85cf52d7147a0dd0a28"
+    sha256 cellar: :any_skip_relocation, catalina:      "960f79919d4e22d15ce1af503e1ac324591fbeea92f6f25d8a545d398346b54e"
+    sha256 cellar: :any_skip_relocation, mojave:        "643bd796709017250272299c1419d172dfb305ebbdae0c2f63698420851dc379"
   end
 
   depends_on "cmake" => :build
@@ -35,5 +36,15 @@ class Pgrouting < Formula
 
     lib.install Dir["stage/**/lib/*"]
     (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
+
+    # write the postgres version in the install to ensure rebuilds on new major versions
+    inreplace share/"postgresql/extension/pgrouting.control",
+      "# pgRouting Extension",
+      "# pgRouting Extension for PostgreSQL #{Formula["postgresql"].version.major}"
+  end
+
+  test do
+    expected = "for PostgreSQL #{Formula["postgresql"].version.major}"
+    assert_match expected, (share/"postgresql/extension/pgrouting.control").read
   end
 end

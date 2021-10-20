@@ -4,7 +4,7 @@ class Oclgrind < Formula
   url "https://github.com/jrprice/Oclgrind/archive/v19.10.tar.gz"
   sha256 "f9a8f22cb9f6d88670f2578c46ba0d728ba8eaee5c481c2811129dc157c43dc0"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   livecheck do
     url :homepage
@@ -12,9 +12,9 @@ class Oclgrind < Formula
   end
 
   bottle do
-    sha256 cellar: :any, catalina:    "1fd792bb90fa78dd58cc2d7ffe824084b80caf2211363096b14a3d9a6f3411c9"
-    sha256 cellar: :any, mojave:      "f6728b30db78fa358b2136d4c1e51dbcafa79b4a9ddbf3a601f28c01e0e26805"
-    sha256 cellar: :any, high_sierra: "fe3d0a3798f2ac0092e8469a6f824bdfb29b0fb92f0d3b3fa0edeb8875f54ee6"
+    sha256 cellar: :any, big_sur:  "34ba4bd89a710096bb746eff73016c717a4ffc256ad12cc9d8b95ed11ae6662e"
+    sha256 cellar: :any, catalina: "8a47a1155a7627d2375dc83221b0e2381cf8776791c414dee9eaaef639fcdf60"
+    sha256 cellar: :any, mojave:   "4dfa4033007637b3c2a76e785659f08cc961c20151cb60e6f86e701277ad876a"
   end
 
   depends_on "cmake" => :build

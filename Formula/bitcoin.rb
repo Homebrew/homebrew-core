@@ -12,10 +12,11 @@ class Bitcoin < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "f17b80e2eead1bbd7880688f54705b934c258830dc9a8b6a5d3dfa62f30ba99a"
-    sha256 cellar: :any,                 catalina:     "078bd3d866dd676ea9d0a3168a34c3c2ffc79648d494ddf50034587236271b2e"
-    sha256 cellar: :any,                 mojave:       "2e3528797ce4d82cb53871a7da4aed5eb60aff2c3f8f8a19be5cc92a4f8b0794"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c6773a767d1cce002bb698cf1aeaee53b43607cbf5ac6e2fc904ac66cd296850"
+    rebuild 1
+    sha256 cellar: :any,                 big_sur:      "a326a566321b9f5b8d86499fcabb246fb7bdbded956791d9293a97705c0bdb12"
+    sha256 cellar: :any,                 catalina:     "59227888c3021090ea60dda9c54b80447d956e42325abb552e0f343cdaf334cc"
+    sha256 cellar: :any,                 mojave:       "12b6d4af2123df56dd5d421153a9901d97ad79b8af81660905446cf1fb592573"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bc56082efef1d5c21ae17ae78f8510beb7bfbec3ed65df626fd4b67308afcc57"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +31,7 @@ class Bitcoin < Formula
 
   on_linux do
     depends_on "util-linux" => :build # for `hexdump`
-    depends_on "gcc" => :build
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"

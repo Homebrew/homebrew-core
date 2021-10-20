@@ -3,7 +3,7 @@ class Infer < Formula
   homepage "https://fbinfer.com/"
   license "MIT"
   revision 1
-  head "https://github.com/facebook/infer.git", branch: "master"
+  head "https://github.com/facebook/infer.git", branch: "main"
 
   stable do
     url "https://github.com/facebook/infer/archive/v1.1.0.tar.gz"

@@ -11,9 +11,10 @@ class Liboqs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "db585740f314adb4728ac5964e2a65495c77b5db01f260b3eb6140d61cfb29d3"
-    sha256 cellar: :any, catalina: "4580d66dbd428f4851200f1800331b5b33b534677026312bfac4731a6d94f29c"
-    sha256 cellar: :any, mojave:   "c621f7603b90315a0605d56c6373f6d8542117e03512585153a7696e2349559e"
+    sha256 cellar: :any, arm64_big_sur: "7f970fb9bebb1c552ddd4c0e7abb2916a023bf530f7f53356574e80443d63acc"
+    sha256 cellar: :any, big_sur:       "db585740f314adb4728ac5964e2a65495c77b5db01f260b3eb6140d61cfb29d3"
+    sha256 cellar: :any, catalina:      "4580d66dbd428f4851200f1800331b5b33b534677026312bfac4731a6d94f29c"
+    sha256 cellar: :any, mojave:        "c621f7603b90315a0605d56c6373f6d8542117e03512585153a7696e2349559e"
   end
 
   depends_on "cmake" => :build

@@ -1,17 +1,17 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.20.2.tar.gz"
-  sha256 "27674fd03ee8dae147b1aa8d5c1d689aac54707f8c93feb6d930506138af61c4"
+  url "https://github.com/diku-dk/futhark/archive/v0.20.4.tar.gz"
+  sha256 "958f6c41d3a1002d5c2ccc2c8e1355dbabcfcca0e9b538c9babc81848860b6e1"
   license "ISC"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c74f0f412225a00d1fd221d7cdf72cdf387211baeafe3ca609847313053c95ef"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3489699b76cdc904ae47a7a3c6cd3b0499e2a92216061ebd506172311a3e58fd"
-    sha256 cellar: :any_skip_relocation, catalina:      "4dd9b3336521d670373e2b2537745d45f2fddf376635dfc1eeba72fb1d568437"
-    sha256 cellar: :any_skip_relocation, mojave:        "129c0a12c61a29603c2e3ffa709eed09baaff33ae071ad54c2fdd7f79cc995fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8664cd25dbea1fee627c5496bfe1a4171dd348b4ac6b4ba585cc22d4bbdb67b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "217e1f392f74ae06af2912fb864c73ab0e3c5632a8fc9511f10437c4ae1efaeb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0a1e263e927643bd26d69831c8f5590186c581e921204d480e2fed29145d52b1"
+    sha256 cellar: :any_skip_relocation, catalina:      "b6fad661d6e5d8296128b256cc4fa5031584ff21f0827b318e23de5b2a83616a"
+    sha256 cellar: :any_skip_relocation, mojave:        "97c2af42b567929c2e5a982f4bca6cb4509abd049561ef9aac067b7dc4b215d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0655ac5c57a56c3f66efa05727d97290f40c842a1db7e22e03b56ff67245a1d2"
   end
 
   depends_on "cabal-install" => :build

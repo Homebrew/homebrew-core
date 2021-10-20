@@ -3,16 +3,18 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/04/23/d0829a2678d260dfb0b9c5dbbfa20b926d01ea35c0abfc4e36f6df2cfc12/ocrmypdf-12.5.0.tar.gz"
-  sha256 "95382f367d255f53930930ee7f7969feb915d5c3a2df2f44c5ecbebad05404b9"
+  url "https://files.pythonhosted.org/packages/8d/d1/8ef741994fcba8aca599336806bead188379307fe9dcb5fdbbb63820e842/ocrmypdf-12.7.0.tar.gz"
+  sha256 "5b37d41ea59bda6a46f09394a9735f5cbae3d57b0d1961c45aa651cb55c0d68c"
   license "MPL-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "40511e69e5c83b4cf04c1dbd3891977a47866e090b52959f3c99c59af1272a9c"
-    sha256 cellar: :any,                 big_sur:       "45367d83576bc52b3fe8cc9c65941e134d2305cdb288bda8f596f2c7f4584189"
-    sha256 cellar: :any,                 catalina:      "21b1fd7a710a5ea1ac6ce170231d66f01dc8df28b7f61e9d1df236422734a182"
-    sha256 cellar: :any,                 mojave:        "4bc7b80ca2b8cff725f91bd0516b071eea170b664d7b88ce5e7d1e58567fd7d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34e79055e36d2eb83c4ebdfdb8b8c10367e22f4730732297f4ebf03e92ec2c65"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "7073cbf18492de6cd9991d71af6c3d4ec7da06113af456a7a713dc591bd36de7"
+    sha256 cellar: :any,                 big_sur:       "b8e507e258ca5e5abbb2df0f500fb873078fc257363ad5de366bca3120220480"
+    sha256 cellar: :any,                 catalina:      "64aef5eb09cc5c61d75021b2733f2e7ffa4aeedcaef1f70e4ee7c6c4f98d3c7d"
+    sha256 cellar: :any,                 mojave:        "23d55f3c91a51cf441aad1e702fa76a56ba1bfd9b3141c3750c2fd4d5a5ea6b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "625c0118238bf27ef61e4df145be17ef58597f09fd07024d80f3071f0e57969c"
   end
 
   depends_on "pkg-config" => :build
@@ -55,28 +57,18 @@ class Ocrmypdf < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
-    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
+    url "https://files.pythonhosted.org/packages/10/91/90b8d4cd611ac2aa526290ae4b4285aa5ea57ee191c63c2f3d04170d7683/cryptography-35.0.0.tar.gz"
+    sha256 "9933f28f70d0517686bd7de36166dda42094eac49415459d9bdf5e7df3e0086d"
   end
 
   resource "humanfriendly" do
-    url "https://files.pythonhosted.org/packages/24/ca/f3a75b50d978872f6551d72c9c76890d68c84f3ba210cdba5f409587a2fc/humanfriendly-9.2.tar.gz"
-    sha256 "f7dba53ac7935fd0b4a2fc9a29e316ddd9ea135fb3052d3d0279d10c18ff9c48"
+    url "https://files.pythonhosted.org/packages/cc/3f/2c29224acb2e2df4d2046e4c73ee2662023c58ff5b113c4c1adac0886c43/humanfriendly-10.0.tar.gz"
+    sha256 "6b0b831ce8f15f7300721aa49829fc4e83921a9a301cc7f606be6686a2288ddc"
   end
 
   resource "img2pdf" do
-    url "https://files.pythonhosted.org/packages/a9/b4/b484d19a7c3565bbe47eb2118d323cb1e03456f70eb1c94e994ee5ece046/img2pdf-0.4.1.tar.gz"
-    sha256 "38a1229ca84b211d7782d1d65ad7251a9781bf24f6f6497c738c755fcfed5552"
-  end
-
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/f0/70/ca3dd67cdd368b957e73a8156f7e1a10339f9813e314cb8b4549526070da/importlib_metadata-4.8.1.tar.gz"
-    sha256 "f284b3e11256ad1e5d03ab86bb2ccd6f5339688ff17a4d797a0fe7df326f23b1"
-  end
-
-  resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/b1/7a/b9e2309e5c619ba3da8806e43bb17873ec6eab22a3d79347778c80563028/importlib_resources-5.2.2.tar.gz"
-    sha256 "a65882a4d0fe5fbf702273456ba2ce74fe44892c25e42e057aca526b702a6d4b"
+    url "https://files.pythonhosted.org/packages/a4/f5/a2314ffee19cd1a231ad4b4ce092dabe20091a764be1886aa7e3a1447dae/img2pdf-0.4.2.tar.gz"
+    sha256 "aacf586503d6113e53bfb03c85c85e546c384413a56c15ddd08ee51c864479a2"
   end
 
   resource "lxml" do
@@ -90,8 +82,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/a4/5c/6770b064dbe6402397cf87f07b92a252f73099705fcf980030404767bc62/pikepdf-3.0.0.tar.gz"
-    sha256 "3c17937e230b22afa975e69130e89df2911dd1e2c7bbe200138684154e428843"
+    url "https://files.pythonhosted.org/packages/d3/f1/713fbf7e6138951527455dba2b4ea1af856dd7a271dbdb94aca00569c0b8/pikepdf-3.2.0.tar.gz"
+    sha256 "a0582f00440668c07edb8403e82724961c7812c8e6c30655e34825b2645f15cd"
   end
 
   resource "pluggy" do
@@ -115,13 +107,8 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/37/e5/1b54ef934d731576d0145bc8ae22da5b410f96922cec52b91cc29d3ff1b6/tqdm-4.62.2.tar.gz"
-    sha256 "a4d6d112e507ef98513ac119ead1159d286deab17dffedd96921412c2d236ff5"
-  end
-
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/3a/9f/1d4b62cbe8d222539a84089eeab603d8e45ee1f897803a0ae0860400d6e7/zipp-3.5.0.tar.gz"
-    sha256 "f5812b1e007e48cff63449a5e9f4e7ebea716b4111f9c4f9a645f91d579bf0c4"
+    url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
+    sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
   end
 
   def install

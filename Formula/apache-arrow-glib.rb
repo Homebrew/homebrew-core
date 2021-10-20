@@ -5,6 +5,7 @@ class ApacheArrowGlib < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-5.0.0/apache-arrow-5.0.0.tar.gz"
   sha256 "c3b4313eca594c20f761a836719721aaf0760001af896baec3ab64420ff9910a"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/arrow.git", branch: "master"
 
   livecheck do
@@ -12,11 +13,11 @@ class ApacheArrowGlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "37c2b194b6c0648b40a2627dabdf9073ef280bcb85c3633a1b528636b00ef9e7"
-    sha256 cellar: :any, big_sur:       "feb4e5e5d8257e0ab042fe905f999ff425cf219641d64bb98e5b6f4226104436"
-    sha256 cellar: :any, catalina:      "5017136d50cb3b2159370f6c2f2d2824607504e6e7f317b5a7c55a7f02437884"
-    sha256 cellar: :any, mojave:        "40980b2ef3e926109475f08522df24aa409f7d40252738ee7f5d2fd32a8b0bd9"
-    sha256               x86_64_linux:  "00de00e057ffeafdc424efb6fb102fd233e349e589d1954fd347ae7e0f05157d"
+    sha256 cellar: :any, arm64_big_sur: "14dacc92aee6feb94ced99c5091eb8a379d3e7061ed4318254337d708c79ac8d"
+    sha256 cellar: :any, big_sur:       "aceda9f6f1f97953c0ea0ee4d13cdc3811b1d95bb936d82644b1bb4110f13c40"
+    sha256 cellar: :any, catalina:      "2e272fca881e40573cbad30ef3e2886974dae72baf4a99aedc2773d39d4f8177"
+    sha256 cellar: :any, mojave:        "102fb67cc64ddd5205300783133b6007757848a66137963b0f70716f79094ed4"
+    sha256               x86_64_linux:  "45918aa14c92f89f499034b4ff1a91526c4ab0c47c7ff003f9c92e6238ed12f1"
   end
 
   depends_on "gobject-introspection" => :build

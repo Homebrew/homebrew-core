@@ -3,23 +3,17 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-21.2.1.tar.xz"
-  sha256 "2c65e6710b419b67456a48beefd0be827b32db416772e0e363d5f7d54dc01787"
+  url "https://mesa.freedesktop.org/archive/mesa-21.2.4.tar.xz"
+  sha256 "fe6ede82d1ac02339da3c2ec1820a379641902fd351a52cc01153f76eff85b44"
   license "MIT"
-  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
-  livecheck do
-    url "https://mesa.freedesktop.org/archive/"
-    regex(/href=.*?mesa[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
-    sha256 arm64_big_sur: "e04319312192941e0958a7622eb0ca68fb9cb51d5122affdba32359c7c3a8930"
-    sha256 big_sur:       "322ba38e53336aab63838e86882b478be2fde40204f542215ccaad2a4c654cff"
-    sha256 catalina:      "257bea3d2ee0d5db58f02a454b5fcc6d81ee843d92c3a7964a0aa33e3f8b5775"
-    sha256 mojave:        "3c1bc6f6612fbdcbc80b54ed067a0c40dd54cc51ba24d65325b6ef457dd26060"
-    sha256 x86_64_linux:  "41d0c71f5c264e4a9d952ec32192c1ba380267acb16eed512bc2bae974b436cf"
+    sha256 arm64_big_sur: "a7d96aa87d2c01ad3a364cb5810feb74b9878b2dade2355368edb4daf080c14e"
+    sha256 big_sur:       "31770604c3fc5f4240c3344fd55206a52e83dd4eeb945bcf0b25f3438c89e593"
+    sha256 catalina:      "abe3e3498f585df16de8ba0656a16ad319ced9ed916f7987fd33bb25045f48e0"
+    sha256 mojave:        "39d0c2b969ba37138e06432a75e20cd4428186b4c4cc0eb908dac01a5809650b"
+    sha256 x86_64_linux:  "8f7efbad0fa2462080a5b324dbc016e36d75e5279d84590779085ab314c0c02d"
   end
 
   depends_on "meson" => :build
@@ -59,8 +53,8 @@ class Mesa < Formula
   fails_with gcc: "5"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
-    sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
+    url "https://files.pythonhosted.org/packages/d1/42/ff293411e980debfc647be9306d89840c8b82ea24571b014f1a35b2ad80f/Mako-1.1.5.tar.gz"
+    sha256 "169fa52af22a91900d852e937400e79f535496191c63712e3b9fda5a9bed6fc3"
   end
 
   resource "glxgears.c" do

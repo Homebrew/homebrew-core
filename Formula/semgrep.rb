@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.65.0",
-      revision: "5a421f4a4bacf8143dcfbd68e3ee030034f6791e"
+      tag:      "v0.69.1",
+      revision: "450eaacc2a22d487988026c89736c7abdcad2f38"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,11 +15,11 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9b360b41d516e757100e1df80e2e4599d5d383dc34a7245c2d4a858eb923f6df"
-    sha256 cellar: :any, big_sur:       "ee1ff183ceb041c3a813b2126e4585b06d7c9de4ab26d753d46a612dbeb43cc7"
-    sha256 cellar: :any, catalina:      "52fb611946ada865925761056e3a53e2a72f81720697e72b6a1a749d3364824c"
-    sha256 cellar: :any, mojave:        "2fa678595d024f64547cf9959f7587745fbd9567f2a7825ea0d16ed3aaa8f045"
-    sha256               x86_64_linux:  "382e969019d284aea6e26445c2804bbf709f3d27b25636d1bd20e15c6225fb0f"
+    sha256 cellar: :any, arm64_big_sur: "adab67140fe7da66df6ebb4aca63e4ff7882897955fd971c0e813f9f75cff23f"
+    sha256 cellar: :any, big_sur:       "1c4b95a0ae54be906bfc8629efaddc390406e65cffde8531de1aecf9eb96d732"
+    sha256 cellar: :any, catalina:      "f56e2bc229f6c9d60ba11169f49bd6f0a5b14a093cce6ad53d97de7951ed75bb"
+    sha256 cellar: :any, mojave:        "c5cfbd98685a2757c0c728da88e41c26c5f74f16eb919ec0ee3768a95f0ccd5f"
+    sha256               x86_64_linux:  "323577a9e572709a2b7fad9fb649fc9d2c73e3d195ebe6cd1c2552eacbbf0c36"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +35,7 @@ class Semgrep < Formula
   uses_from_macos "rsync" => :build
 
   on_linux do
-    depends_on "gcc" => :build
+    depends_on "gcc" => [:build, :test]
   end
 
   fails_with gcc: "5"
@@ -51,18 +51,18 @@ class Semgrep < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
-    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
+    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
   end
 
   resource "click-option-group" do
@@ -76,8 +76,8 @@ class Semgrep < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
-    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "jsonschema" do
@@ -126,13 +126,13 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/37/e5/1b54ef934d731576d0145bc8ae22da5b410f96922cec52b91cc29d3ff1b6/tqdm-4.62.2.tar.gz"
-    sha256 "a4d6d112e507ef98513ac119ead1159d286deab17dffedd96921412c2d236ff5"
+    url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
+    sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
-    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
+    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
+    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
   end
 
   resource "wcmatch" do

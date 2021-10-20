@@ -15,6 +15,10 @@ class Imath < Formula
 
   depends_on "cmake" => :build
 
+  # These used to be provided by `ilmbase`
+  link_overwrite "lib/libImath.dylib"
+  link_overwrite "lib/libImath.so"
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"

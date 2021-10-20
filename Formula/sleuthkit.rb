@@ -41,10 +41,7 @@ class Sleuthkit < Formula
     cd "bindings/java" do
       system "ant"
 
-      if OS.linux?
-        inreplace "Makefile", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/ld", "ld"
-        inreplace "jni/Makefile", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/ld", "ld"
-      end
+      inreplace ["Makefile", "jni/Makefile"], Superenv.shims_path/"ld", "ld" if OS.linux?
     end
     prefix.install "bindings"
   end

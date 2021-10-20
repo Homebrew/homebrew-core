@@ -6,13 +6,14 @@ class Duplicity < Formula
   url "https://files.pythonhosted.org/packages/84/65/5ca97dade5527b6a93757e88455c53b0d7002322f9d47d848c35902ef431/duplicity-0.8.20.tar.gz"
   sha256 "488af2ecadb059214074f2b3ac51bf9d7de55a800e37ccc2f1075cd0a74940e3"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a22ceba5faf6094b718f687ed6062e69a95f9c1828f63be3d59e23488f659ba7"
-    sha256 cellar: :any,                 big_sur:       "e97c58230094d6e4e56c9f54dbe20669f784a1e73ff82f680218030ec162e02d"
-    sha256 cellar: :any,                 catalina:      "0f791e784e0eb7ee2914f28352f84edb85445b463809e6cea45e6307f7e9202a"
-    sha256 cellar: :any,                 mojave:        "92858efda72b4712cda38fb120982bfce8f32b8297bb1fddcf4429c3572a1534"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0717885276f4bf8f3513b9a53bf71234fe08570b180dad21dde00e8373101c56"
+    sha256 cellar: :any,                 arm64_big_sur: "6c6b66266734d719cf06275cc51da33f1250fbdfdecfe925b2ea9cbbbc43075a"
+    sha256 cellar: :any,                 big_sur:       "6a0149ec7cee5ae2b9e94ba3abda42976c1c3930840405d5c4935d294148a9bc"
+    sha256 cellar: :any,                 catalina:      "2c1188acf3647c4d69cd838ef872c5510d2a4dde419930e8c9407b8684ef1cf6"
+    sha256 cellar: :any,                 mojave:        "9ce160d22e8f610640b7966d06eeec924c15601ee9604f4d72f6c47f420e6508"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "667182e0c461b0fb907b3587d332506d3a4db4ee0d72c46bd43f4c1990fcc58b"
   end
 
   depends_on "rust" => :build # for cryptography

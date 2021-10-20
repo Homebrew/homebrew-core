@@ -2,9 +2,10 @@ class InfluxdbCli < Formula
   desc "CLI for managing resources in InfluxDB v2"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influx-cli.git",
-      tag:      "v2.1.0",
-      revision: "e6cad1b4aa05a801e1206496c3369246794555e0"
+      tag:      "v2.1.1",
+      revision: "535183b228b79ae4f0f0a7f4289d62e733be8184"
   license "MIT"
+  revision 1
   head "https://github.com/influxdata/influx-cli.git", branch: "main"
 
   livecheck do
@@ -13,10 +14,10 @@ class InfluxdbCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6cca0d7713416283475fe3fbeacd2b4e9d469c604583c14e3a405667e11d1980"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c80bf2710eb7f7dd31d298040eb25aa5f4a85ee7fc0c541c791695f7cf9ab393"
-    sha256 cellar: :any_skip_relocation, catalina:      "ae54b73f3987ed34ab7900017945cf2a493011dc40113f3ad064535f9bb01a28"
-    sha256 cellar: :any_skip_relocation, mojave:        "11edb46b688e44bec5a372d551a92ef23c18e4656443c5d767609d384f4243ec"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c68717a9178651388486b28256fe84fa9537b1412e199fa73e9137f9600d6810"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2dcafad4c721935f50afc5b61e33638af2b0c94cfddb6b03a9bab42530ac3fb5"
+    sha256 cellar: :any_skip_relocation, catalina:      "cf3752b72a1fd20dd08061ea34e27d6043ad366cecb55c397ce3326e032422ae"
+    sha256 cellar: :any_skip_relocation, mojave:        "e902f0bf5027cce2b066ded945a406c6b49c1a6dbcea95d2e26ba223843812a7"
   end
 
   depends_on "go" => :build
@@ -33,6 +34,14 @@ class InfluxdbCli < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags),
            "-o", bin/"influx", "./cmd/influx"
+
+    bash_complete = buildpath/"bash-completion"
+    bash_complete.write Utils.safe_popen_read(bin/"influx", "completion", "bash")
+    bash_completion.install bash_complete => "influx"
+
+    zsh_complete = buildpath/"zsh-completion"
+    zsh_complete.write Utils.safe_popen_read(bin/"influx", "completion", "zsh")
+    zsh_completion.install zsh_complete => "_influx"
   end
 
   test do

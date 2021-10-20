@@ -3,15 +3,15 @@ require "language/node"
 class JoplinCli < Formula
   desc "Note taking and to-do application with synchronization capabilities"
   homepage "https://joplinapp.org/"
-  url "https://registry.npmjs.org/joplin/-/joplin-2.3.2.tgz"
-  sha256 "fb87056d5c47780e7420c9e3330728e05fe31d76804f80c77fe13da53d60af57"
+  url "https://registry.npmjs.org/joplin/-/joplin-2.4.1.tgz"
+  sha256 "f589b268195d91ba549680db0148bc07b7453dd895eec57229766d13572b0582"
   license "MIT"
 
   bottle do
-    sha256 arm64_big_sur: "4b8aa6190a7409da64a4239d008e3c31068904d9617a21c7139d29a6f639a331"
-    sha256 big_sur:       "f269cd3f83524e80de3030ebc5b9e94f1985b4f7233851244039f9f78b043536"
-    sha256 catalina:      "c0bf82e586aa6131b1c4b47e5f19fbcf2f19a18e7a47eb75f4f04c96ad49c6df"
-    sha256 mojave:        "ca05cebc82bb8d9b3e2fe815d64e608edf2fbb5c333477f580a6300390bb5f46"
+    sha256 arm64_big_sur: "fcc4759ad2c0eaa4eea9db992a6e0995de7d4236671ae94d09b6b4fdcffb164b"
+    sha256 big_sur:       "3041aa9b34b17d07ab0b48e024aa11feccb5dfc1c96e5a7f0345fefc43e81518"
+    sha256 catalina:      "d99229bf20f37e4737d8be9caa3f6612c55e2c5780bac74c7813a96d44ed960c"
+    sha256 mojave:        "8452721fd8a56ed9339563e2c864adc9af1eadbe1f7f3be2f1274bd999bd54ce"
   end
 
   depends_on "pkg-config" => :build

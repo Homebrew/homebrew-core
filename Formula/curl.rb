@@ -1,9 +1,13 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
-  url "https://curl.se/download/curl-7.79.0.tar.bz2"
-  sha256 "d607a677f473f79f96c964100327125a6204a39d835dc00dab7fc0129b959f42"
+  url "https://curl.se/download/curl-7.79.1.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-7_79_1/curl-7.79.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-7.79.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-7.79.1.tar.bz2"
+  sha256 "de62c4ab9a9316393962e8b94777a570bb9f71feb580fb4475e412f2f9387851"
   license "curl"
+  revision 1
 
   livecheck do
     url "https://curl.se/download/"
@@ -11,11 +15,11 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "716c1bdff59df7c308dae76a32b66b4bb568a6c49d718593c6618d12a2e911f2"
-    sha256 cellar: :any,                 big_sur:       "b3fa91eaa148fd67283c97a3cd8f7ae501a62e830cdb4a8d514079dafc31400c"
-    sha256 cellar: :any,                 catalina:      "288ceac412ec97d4dad5e80b3c0afe847dab5d7d148a7906478fc13d485ed7af"
-    sha256 cellar: :any,                 mojave:        "d1a82b42913a6df82d7fc00018185aa6c74ca24ddeb24fc96702a35004a6723e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a8b1a9a79c2c624a2a40a075b140698f7567d36273fd6a0345b303371c321a7"
+    sha256 cellar: :any,                 arm64_big_sur: "fb8bc11a92e6b9c69415ebcc0ac30a69d5fa7399ed48eda8f39acd08fb030f91"
+    sha256 cellar: :any,                 big_sur:       "67eb98cd0d153e0e7ca5aadde8141da15cd6f47990136722e49e4a40b3d53c41"
+    sha256 cellar: :any,                 catalina:      "c623592e8eb8cd9c4e60598f58e9e716b7daea398e75f207c23339624b8f4a71"
+    sha256 cellar: :any,                 mojave:        "097d1eb078e53456d952030e0186eb153a515044336db22da0d7942eba21a7e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "730a10df5cd6086457c2ed329b0e881c6a8cd70590f5d7e5e731361438b822c3"
   end
 
   head do
@@ -31,8 +35,8 @@ class Curl < Formula
   depends_on "pkg-config" => :build
   depends_on "brotli"
   depends_on "libidn2"
+  depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "nghttp2"
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "rtmpdump"

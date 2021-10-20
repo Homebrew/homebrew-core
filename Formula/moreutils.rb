@@ -2,8 +2,8 @@ class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
   url "https://git.joeyh.name/git/moreutils.git",
-      tag:      "0.65",
-      revision: "c3261f4190c3803177b6c50ec43fd302171dd48e"
+      tag:      "0.66",
+      revision: "f0642d6331e89ca5a6ced8c0f1744428983e1780"
   license all_of: [
     "GPL-2.0-or-later",
     { any_of: ["GPL-2.0-only", "Artistic-2.0"] },
@@ -11,11 +11,11 @@ class Moreutils < Formula
   head "https://git.joeyh.name/git/moreutils.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5de950b73636c311b8590778684dfe9dd40dd421297bbf39a43229a6f298971b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6972c4d83580a59c2d3844b5aa55ea29e505c88d21827c9a8450991ca4cdb963"
-    sha256 cellar: :any_skip_relocation, catalina:      "7439b8c6e8cddff150d2a86998cd3dd83d8bb309c22dfc18adf8352e7ebc72be"
-    sha256 cellar: :any_skip_relocation, mojave:        "1b3e3ddacf2eb593aeeb1b5ecd7abe1fb54bbf84cc24651a6834dd18f5b19fd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "182fb027a2444acbedf3c40a142ecf3eafe38a4958b75c4acb6f6d8f7ea43d63"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b7bb6a5498e898c303cbbb526f83a12e690315c43260ebab1cf348ecb2a712bb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "98e36f509fe2556660dec088c1dcf380cf1ce60167fcb4289782614feb381821"
+    sha256 cellar: :any_skip_relocation, catalina:      "e7774183139434a9f4707a5931793fb2aed0678fd0257a5860571f320f507c8e"
+    sha256 cellar: :any_skip_relocation, mojave:        "099c5b0cc96ae204c211da65446db79bf83469ed0bcbc40d81e5a9e95b5a678c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0890cc88f2e311ec01cc0439cbfa6a7a43166ebaeb54a8bfa9d22fc21fba4bb4"
   end
 
   depends_on "docbook-xsl" => :build

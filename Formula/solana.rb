@@ -1,16 +1,21 @@
 class Solana < Formula
   desc "Web-Scale Blockchain for decentralized apps and marketplaces"
   homepage "https://solana.com"
-  url "https://github.com/solana-labs/solana/archive/refs/tags/v1.7.11.tar.gz"
-  sha256 "ed70aaed16910eab637eff0499c6e4762350c4ad50340fcb1b4bf94d23f1f97a"
+  url "https://github.com/solana-labs/solana/archive/v1.8.0.tar.gz"
+  sha256 "b3d9e87ce6f2a1a6da76ca6b954aac51c94d5d65ca55fa60eb807aae123ff293"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6468ec8ebdd518b43470073a843b8915a11bd707da9c8814056f09078a3890e5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6254f037bc60fd0a9e96ce5cea6a44882ad01659ce6981c59fde1896835b1b55"
-    sha256 cellar: :any_skip_relocation, catalina:      "f4a2fbd01d2263c6c1f7972f7a4b178105d83f1c64523df12dad991c187220a1"
-    sha256 cellar: :any_skip_relocation, mojave:        "ad31f493248106a5da4208ff7846888c75ea1bfe4a97ffaaf24c65800cb6d62f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1322a9d0bbfa219c781d670b6069ad4f27b31cbb66baaf60420c96bdbdf1e7f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "266d90cad35a84c5a5bbab6acb869b1a8a114993868fd854665dbe3712261463"
+    sha256 cellar: :any_skip_relocation, big_sur:       "111ee3902e5cbbccedfe655e926f48a2b67a1dd54d61ea0fade8ce61c77412e9"
+    sha256 cellar: :any_skip_relocation, catalina:      "0bd8991781f51e9c615954b6a16f75ef0ea3f331b330acc44f9a8921dd68f7f1"
+    sha256 cellar: :any_skip_relocation, mojave:        "b472efbaeaf50c046e4bc9dad505b9914feac2c5185654eabe783e72cf5bdd0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a81ba141e190b00be7519fab1924a2f15e104369e3be6166f946781068093052"
   end
 
   depends_on "protobuf" => :build

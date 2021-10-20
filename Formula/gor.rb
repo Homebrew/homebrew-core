@@ -2,8 +2,8 @@ class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://goreplay.org"
   url "https://github.com/buger/goreplay.git",
-      tag:      "v1.3.2",
-      revision: "05ed82129775549a4f8349edaaad11ec2d5aa791"
+      tag:      "1.3.3",
+      revision: "f8ef77e8cf4aae59029daf6cbd2fc784af811cee"
   license "LGPL-3.0-only"
   head "https://github.com/buger/goreplay.git"
 
@@ -13,11 +13,11 @@ class Gor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a644ae3099e15971976fbfd1500abc91384cab76ab7dce1a142cd2a8b7062209"
-    sha256 cellar: :any_skip_relocation, big_sur:       "91229d9994e4e18c0f5ef3677db46d9ff88fadd996b614b1d54d3b5060c02f44"
-    sha256 cellar: :any_skip_relocation, catalina:      "184110bd3cc16c192d4389a12cc2b96b515e0839b0b59a2120fae4c6abe6e7a7"
-    sha256 cellar: :any_skip_relocation, mojave:        "3b95b1e0101ca612faaca34ab4d4a1e4e291a14d71be890921d1af16d1a59664"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd0ca7bb9a0e13f6e05e92a22c1ebebdfb32cf02df1d87aa8ba614dcdd877196"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "227fba89a0ef4516c6b25e9c865c60de19731213a96f6b471ea7780f7bb72485"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6ff4869f7dcd7a5b830eb005940900360f31450d82538ff4208e6093e09840ce"
+    sha256 cellar: :any_skip_relocation, catalina:      "822445285cbf26edb06857be8bdeb0c5a7f6df0c9a801316e1537fc1794becb2"
+    sha256 cellar: :any_skip_relocation, mojave:        "25f3c17675fa60d8ce06a2a94c95ac5210f00e23d4dfcad6e6a98449080e2b33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1239ddcc67670144a35dbdf90712514bc56f52ccbc755285eef6e54ed909afb1"
   end
 
   depends_on "go" => :build

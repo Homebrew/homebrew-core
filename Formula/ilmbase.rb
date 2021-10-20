@@ -28,13 +28,6 @@ class Ilmbase < Formula
     end
   end
 
-  def caveats
-    <<~EOS
-      `ilmbase` has been replaced by `imath`. You may want to `brew uninstall ilmbase`
-      or `brew unlink ilmbase` to prevent conflicts.
-    EOS
-  end
-
   test do
     (testpath/"test.cpp").write <<~'EOS'
       #include <ImathRoots.h>

@@ -2,10 +2,11 @@ class PhpAT74 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.23.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.4.23.tar.xz"
-  sha256 "cea52313fcffe56343bcd3c66dbb23cd5507dc559cc2e3547cf8f5452e88a05d"
+  url "https://www.php.net/distributions/php-7.4.24.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.4.24.tar.xz"
+  sha256 "ff7658ee2f6d8af05b48c21146af5f502e121def4e76e862df5ec9fa06e98734"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -13,11 +14,11 @@ class PhpAT74 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "ca2ea40d051e0db2366413d1faa3b9b2ec1b103af6ee3f4ef1b28b6bec04e0a5"
-    sha256 big_sur:       "2278b45f5bbe7dcdb2d0dbfc216acac29f2cb264fee8ecbb5d50ce350d374ce9"
-    sha256 catalina:      "f1568997391ec7f91268c849bb6da1b00b8a5304a3ec851584a0cff60b8865b4"
-    sha256 mojave:        "4d54d3a78ae11281ac678e004e022eef1affbcff5d2093eba49c0e8bd41f775e"
-    sha256 x86_64_linux:  "ef172cc2c62c6e321ed5cd728e38bf57feeff0ea048786475f5e92efbf4139fe"
+    sha256 arm64_big_sur: "00855556d8f06d7ec7d86d313451579e1410613389c030b2900979cf3f3183a8"
+    sha256 big_sur:       "4e6798ff57a730ea8601b6e787fedc4890ef89cc18fde10ade098f50eb0da64e"
+    sha256 catalina:      "0e38bde9492e53901da89d8bb81cdf8e12e223cf01a564f9e5182c14abde8253"
+    sha256 mojave:        "7d924e7bffc9ea08478dfb34269e467a6ee339bd4a304c34322215911663b13d"
+    sha256 x86_64_linux:  "1664d96c6720b72e4f0d9ec2fd54ecfb47443ff9dc815a41029f35f48ca50bfb"
   end
 
   keg_only :versioned_formula

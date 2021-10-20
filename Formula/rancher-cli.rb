@@ -1,8 +1,8 @@
 class RancherCli < Formula
   desc "Unified tool to manage your Rancher server"
   homepage "https://github.com/rancher/cli"
-  url "https://github.com/rancher/cli/archive/v2.4.12.tar.gz"
-  sha256 "7fb2fb7d8e210198b0829de169ccec1ba882c872ec8cd28ae905ab4460e94fc7"
+  url "https://github.com/rancher/cli/archive/v2.4.13.tar.gz"
+  sha256 "4a1aab7193f2e478b12b1000f17f2a8e3545dd5521a140aa90389afdb2ff8357"
   license "Apache-2.0"
   head "https://github.com/rancher/cli.git", branch: "master"
 
@@ -12,11 +12,11 @@ class RancherCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "81f0d67c3cc237d67246ed1e0b9f74c25365e907e45f272fa642d012170657df"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6579774482291cf6fc8bb1bdae68335e248e4ce2a35c858645f1d7e86164731e"
-    sha256 cellar: :any_skip_relocation, catalina:      "02ad8e0cf289919361a10c7021d8b730d447753a2a2aa5ed2605da10047021ca"
-    sha256 cellar: :any_skip_relocation, mojave:        "3241f896a3d9d31be2053ccbdfccb1d6e817318c65a6c17008dd0042f37de2ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a7812410b2f76b8d5a9df9cefb53a8b0db2feb37de6fce3758416a6aab79d9e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1fe3c03e1c7389f3aa03de802b23d60986c61e91ad275353984effdd41055b6c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "eceff7f2924ce3aa42e3e5cb180b38eb41a2747321d29d6d2588d0b17d5b20cc"
+    sha256 cellar: :any_skip_relocation, catalina:      "d99b09b8067c46c3bad171bfa9998680a2a13ae658641be7c6fd0830f37a8642"
+    sha256 cellar: :any_skip_relocation, mojave:        "f231900ea626c094b98f7620e12921691fe1f86781a66033ae9b07cdd2721bea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f22314698f65e0c5af34ae3fd342ad57ed052cdc28a684245620a9e1ee364ccc"
   end
 
   depends_on "go" => :build

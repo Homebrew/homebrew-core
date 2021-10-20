@@ -4,23 +4,24 @@ class Libsoup < Formula
   url "https://download.gnome.org/sources/libsoup/2.74/libsoup-2.74.0.tar.xz"
   sha256 "33b1d4e0d639456c675c227877e94a8078d731233e2d57689c11abcef7d3c48e"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "e7c59cf457c9f3d13dcd9f0d101b82a1fb9b446c31d4b88986822998f97a0c98"
-    sha256 big_sur:       "75b7a97c03c5eb93b5fa612d53189e35bc92d9455fdedf85e885a516c43f932e"
-    sha256 catalina:      "255b10e650d1c4892fb37643efe9e57c578d565a26ca024d14fa773bf067ff1c"
-    sha256 mojave:        "910b60a2602e8aab51bf9162590c6f28c34de1efab02c50549d4c41b0adbc106"
-    sha256 x86_64_linux:  "64e4b60673a0e428c261a715fffd9bfbca1798c3254f31f9ac80e591c2a53f57"
+    sha256 arm64_big_sur: "18fb8d1e8cec64c10c52a3ded030d3fe4654b731f8b02b20dd8ffec3341d2f6e"
+    sha256 big_sur:       "8700bd873ac856454488b0d939097325223d1057ca26115b3963f3c134007dc5"
+    sha256 catalina:      "eb35014ddd40741eb402417c27e4c6f19d2e542068bc92cc21c5e109406f444e"
+    sha256 mojave:        "4820560eb5d36deb401ee874ba94fa5be831c32534d725ec9519b06f29366b7e"
+    sha256 x86_64_linux:  "25ea8679e3d63aacf2ea6c1760635b130397997c60333ee691ba9c7565cc0933"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "glib-networking"
   depends_on "gnutls"
   depends_on "libpsl"
-  depends_on "vala"
 
   uses_from_macos "krb5"
   uses_from_macos "libxml2"

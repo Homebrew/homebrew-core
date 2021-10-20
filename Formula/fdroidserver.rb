@@ -6,18 +6,19 @@ class Fdroidserver < Formula
   url "https://files.pythonhosted.org/packages/16/2c/b301fe0f1dbc40fa00bf16891bf01549c0c99e9eb6eaac7febcea58dd30c/fdroidserver-2.0.3.tar.gz"
   sha256 "220ea8dd563229fcb2c3f6d6d7da0c7854b46a08e7b4b8a5be05576c83c72ebf"
   license "AGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "965470f82e41611d7468954099ba32f34fe81708a49caca6977115c8d065ed82"
-    sha256 cellar: :any,                 big_sur:       "d7cca25272060e21ef45c98df991665959781754bc6203343b877de4ddd37439"
-    sha256 cellar: :any,                 catalina:      "2181447563528090ec53e2da5080cf8c8ceeb719e0d9f1ac0a162b3821c515e3"
-    sha256 cellar: :any,                 mojave:        "4c5de5e0b97618a0027ff05d5dbb705c9bd21e4f5fb21a511af2166e4e34f3a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da7a65fd8b5dd446f765422d48f647156810a3e827dcd21595f449d5b323db83"
+    sha256 cellar: :any,                 arm64_big_sur: "c2970e912e84ebb10a49889d4390ae517a7a5541ec001d28c5910302d61040f5"
+    sha256 cellar: :any,                 big_sur:       "7733f58e6c0e94222d8375e39d5415e2ef42174aa29e7fa4aca4c0d5f68efa7d"
+    sha256 cellar: :any,                 catalina:      "9b5315edfc78307c497268baef00f764270eab650a679d0a2627c9b495ab5776"
+    sha256 cellar: :any,                 mojave:        "e92c4afbab93204e862b3b380f54eb32c65f31af187bda9daf6a026a509f53ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fd55a03447d1cc87837a5929129829513e8533be60e07716aff86824d313e96"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "libffi"
   depends_on "numpy"
   depends_on "openssl@1.1"
   depends_on "pillow"

@@ -15,6 +15,7 @@ class Daemon < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "224349f2fd389edc70b78ef94b2df74251da1c659792b0dea21b9955fb57efae"
     sha256 cellar: :any_skip_relocation, catalina:      "e631aea609e5e1b623b39b735c0a76e391ba117c920ff5fc9d185ff8e9ea332f"
     sha256 cellar: :any_skip_relocation, mojave:        "df18db1a4c13107967c7e78e398b658823036279e4baf0c94ea5504d298f2d0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c45d4005b1fe715ad381a458c256af3cf5dd0d0575a2067f6535875d048f7e88"
   end
 
   def install

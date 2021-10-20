@@ -44,6 +44,6 @@ class Silicon < Formula
     system bin/"silicon", "-o", "output.png", "test.rs"
     assert_predicate testpath/"output.png", :exist?
     expected_size = [894, 630]
-    assert_equal expected_size, IO.read("output.png")[0x10..0x18].unpack("NN")
+    assert_equal expected_size, File.read("output.png")[0x10..0x18].unpack("NN")
   end
 end

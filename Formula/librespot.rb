@@ -1,17 +1,17 @@
 class Librespot < Formula
   desc "Open Source Spotify client library"
   homepage "https://github.com/librespot-org/librespot"
-  url "https://github.com/librespot-org/librespot/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "cd6e7ae63583584598dead53b5e8e4077ab37df6e3b59c2a7416459b9a649fc3"
+  url "https://github.com/librespot-org/librespot/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "3ae67ac39606d049a26ee9e4b59f932222aac0098845ce3e1ef33c1b98080454"
   license "MIT"
   head "https://github.com/librespot-org/librespot.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "941078c067172d300d359f630613b529e3bfeda2c6ff2e3985a594e869178821"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1c8b87b2be64d5ef7821fdea43373b6fb36410cf6104bea177557671c3268eb7"
-    sha256 cellar: :any_skip_relocation, catalina:      "229c58a8592a46fcb2c58648277cb704c959ce413132ead2ed299109c545d3aa"
-    sha256 cellar: :any_skip_relocation, mojave:        "e94d0cb2f96785b6cca42615e650bd97d7ef9d9774eabf999f639af35f34cdc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd53933109cc9de3fa11f7413e07a40cca86d5a8bb0434fe359e7ea3731adbf4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7dde65331693b26799dc17b83b861a2a28e42fdef5c737ad859dc25d2b18db30"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1926141d397ff6dd7d6af509774e02e55654a40ccd5fed6710c25f808036390a"
+    sha256 cellar: :any_skip_relocation, catalina:      "c1320dd2b002db2981de6fc6733d78826c2a4e8c4ed448761788224307c701c9"
+    sha256 cellar: :any_skip_relocation, mojave:        "176c2bbb02d9550a528c582e84a19b79c1ab82fd5aa5041bf6c635969c592d17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f27d459c8b985861b710b302ac6c6dd65b86da16741b40e2b786ef989c289176"
   end
 
   depends_on "rust" => :build

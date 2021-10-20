@@ -4,16 +4,20 @@ class ScIm < Formula
   url "https://github.com/andmarti1424/sc-im/archive/v0.8.2.tar.gz"
   sha256 "7f00c98601e7f7709431fb4cbb83707c87016a3b015d48e5a7c2f018eff4b7f7"
   license "BSD-4-Clause"
+  revision 2
   head "https://github.com/andmarti1424/sc-im.git", branch: "main"
 
   bottle do
-    sha256 arm64_big_sur: "4fb1503d0621917a3ef0ac7e9e797c170f249d090a97eceb2762be751f102e35"
-    sha256 big_sur:       "218f06c63577dddf1357cf92c8f66f47ef6ff64f082eea98cce94b62c8a1e00f"
-    sha256 catalina:      "3461913e568fce79d103aac72c8edd7e69911f8581133eac8e06759f46b81878"
-    sha256 mojave:        "56cd7dbc8cff16da87cb2cc3206c52bba7961401b03e67d73332862133cf780b"
-    sha256 x86_64_linux:  "fc3af3d6197b5e2c768266c82efe9b55e80a645d1288cfd9caea53ed353516fc"
+    sha256 arm64_big_sur: "4c61408b90b2b5585279e8d19c24028ba13f6f5073589144fc71ae235c25ee2e"
+    sha256 big_sur:       "3e73faa966c9b00428d60b741d88e66a64dbe0bd5943145b8f65b75a4172c8ba"
+    sha256 catalina:      "bf2a132b303dac493a252b4668796bb27d608e76eeafe4a1f40b01517c5d35cf"
+    sha256 mojave:        "ff69fd16113c4e1b85b47275b78d6398bdeaece2afea1db41ca61ab7865c1fbd"
+    sha256 x86_64_linux:  "130eea9e4e62fd9c0c161dec373a5039f2bcf5c639a2cf13ae66edfee0a324f4"
   end
 
+  depends_on "libxlsxwriter"
+  depends_on "libxml2"
+  depends_on "libzip"
   depends_on "ncurses"
 
   uses_from_macos "bison" => :build

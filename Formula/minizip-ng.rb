@@ -7,10 +7,11 @@ class MinizipNg < Formula
   head "https://github.com/zlib-ng/minizip-ng.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1c9600fafaf889c6b370ce12904552909a3f833580c5d575ce5d982214470ffa"
-    sha256 cellar: :any, big_sur:       "07f7ab4bd6c1d82d98ed205ba07ccbc44ead3c9d27775c66884ddfa29e50ad89"
-    sha256 cellar: :any, catalina:      "4cb41d70d8b612c81bac2e143403e0ba1e4b2eae2972e9680b14ec906deedc86"
-    sha256 cellar: :any, mojave:        "6def73d2083177581703aa90b3d9db733638975c980e9293d60e47474429e040"
+    sha256 cellar: :any,                 arm64_big_sur: "1c9600fafaf889c6b370ce12904552909a3f833580c5d575ce5d982214470ffa"
+    sha256 cellar: :any,                 big_sur:       "07f7ab4bd6c1d82d98ed205ba07ccbc44ead3c9d27775c66884ddfa29e50ad89"
+    sha256 cellar: :any,                 catalina:      "4cb41d70d8b612c81bac2e143403e0ba1e4b2eae2972e9680b14ec906deedc86"
+    sha256 cellar: :any,                 mojave:        "6def73d2083177581703aa90b3d9db733638975c980e9293d60e47474429e040"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eefb6f377cf037770f8e674016d02e389e0dcd9035a97c6b25439d4e8e9ae3e2"
   end
 
   depends_on "cmake" => :build
@@ -19,8 +20,11 @@ class MinizipNg < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "libiconv"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openssl@1.1"
+  end
 
   conflicts_with "minizip",
     because: "both install a `libminizip.a` library"
@@ -45,6 +49,7 @@ class MinizipNg < Formula
   test do
     (testpath/"test.c").write <<~EOS
       #include <stdlib.h>
+      #include <stdint.h>
       #include <time.h>
       #include "mz_zip.h"
       #include "mz_compat.h"
@@ -54,10 +59,25 @@ class MinizipNg < Formula
         return hZip != NULL && mz_zip_close(NULL) == MZ_PARAM_ERROR ? 0 : 1;
       }
     EOS
+
+    lib_flags = if OS.mac?
+      %W[
+        -lz -lbz2 -liconv -lcompression
+        -L#{Formula["zstd"].opt_lib} -lzstd
+        -L#{Formula["xz"].opt_lib} -llzma
+        -framework CoreFoundation -framework Security
+      ]
+    else
+      %W[
+        -L#{Formula["zlib"].opt_lib} -lz
+        -L#{Formula["bzip2"].opt_lib} -lbz2
+        -L#{Formula["zstd"].opt_lib} -lzstd
+        -L#{Formula["xz"].opt_lib} -llzma
+      ]
+    end
+
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}",
-                   "-lminizip", "-lz", "-lbz2", "-liconv", "-lcompression",
-                   "-L#{Formula["zstd"].opt_lib}", "-lzstd", "-llzma",
-                   "-framework", "CoreFoundation", "-framework", "Security", "-o", "test"
+                   "-lminizip", *lib_flags, "-o", "test"
     system "./test"
   end
 end

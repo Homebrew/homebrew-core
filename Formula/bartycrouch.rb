@@ -2,14 +2,14 @@ class Bartycrouch < Formula
   desc "Incrementally update/translate your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
   url "https://github.com/Flinesoft/BartyCrouch.git",
-      tag:      "4.7.1",
-      revision: "c83fe72d329ffbe2afda6b980c62060699ef6bb7"
+      tag:      "4.8.0",
+      revision: "e2cd0f35fb13b596196091a9ae8de67857e3479a"
   license "MIT"
   head "https://github.com/Flinesoft/BartyCrouch.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2826920f37928bdc35e730257969a1b676b36864967a848c196df2b7edee80bd"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4588599e70c69ce5f5e28c4946978cc09fad5f003368a309df251b45bfca2c5f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bb287ef35120a2ce095f1fcd1f0c434ac3934bfd3f13edbdc0bd99ed8934765e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0ca80eae1448147e3fb61233845ec77329a2ac031896f0cc260a24fae589c1b4"
   end
 
   depends_on xcode: ["12.5", :build]

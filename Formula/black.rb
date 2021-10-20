@@ -6,6 +6,7 @@ class Black < Formula
   url "https://files.pythonhosted.org/packages/b9/11/bde767284a6a15bf85b53ad696c3658eb3ead74e4697ecda2d07cec106ec/black-21.9b0.tar.gz"
   sha256 "7de4cfc7eb6b710de325712d40125689101d21d25283eed7e9998722cf10eb91"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,14 +14,14 @@ class Black < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "143074017e3c4ea2fba3cd65cd613d826b960be6ab1ab3953c0acbc9bdbf2450"
-    sha256 cellar: :any_skip_relocation, big_sur:       "190e78bbb4145eab86f3242c789580e423dba088a5d77e26fa13ccf2e4f89e01"
-    sha256 cellar: :any_skip_relocation, catalina:      "d9403ab95736e25d827aa2094e5f4feff1a78305e3aae6fc5a9603769a2c04b1"
-    sha256 cellar: :any_skip_relocation, mojave:        "845a64efd7b564bffa601acedd5c2615a268346de5369ed5c6d0840e0166ae4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "048e40e12e76f5b714cd9a048ce243b9f7c96764542f87c13a941e0c9836cc39"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9b20596ed4e701905a576dd211d6a84f00b760119aa45eb96e0b21246508cc80"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a5af24f1682c20a88340c1fd4750fad764da1af702d0e02e60c55a24593704c9"
+    sha256 cellar: :any_skip_relocation, catalina:      "fa198bb727404ffcf910e8062b4b0422708ee1bff47952d8e6769b896d56c2b2"
+    sha256 cellar: :any_skip_relocation, mojave:        "602b778078a7d661b40a0a0106bb8e8966d3aa6eeb4e111e534ef11c59df257f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ea9d6b366666d7f2f80cbd81f9afa793b51a3044426a4d06c0219075fc47b30"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "aiohttp" do
     url "https://files.pythonhosted.org/packages/99/f5/90ede947a3ce2d6de1614799f5fea4e93c19b6520a59dc5d2f64123b032f/aiohttp-3.7.4.post0.tar.gz"

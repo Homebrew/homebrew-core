@@ -4,6 +4,7 @@ class PythonAT37 < Formula
   url "https://www.python.org/ftp/python/3.7.12/Python-3.7.12.tar.xz"
   sha256 "f77bf7fb47839f213e5cbf7827281078ea90de7e72b44f10d7ef385ea8c43210"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,10 +12,10 @@ class PythonAT37 < Formula
   end
 
   bottle do
-    sha256 big_sur:      "824a94e0bfe344d05e0810c3715a953c35e23f58ebfa6f814a97933f37683a8d"
-    sha256 catalina:     "f9bc333cca18553838db35952999b20195d286117c9fa72c136d7da79ee66961"
-    sha256 mojave:       "02a3ed43255ba748b5ea7fb3318d177e4ee7c91627e09ea78a8e1669b717ed89"
-    sha256 x86_64_linux: "cdf05915ce91b9746e4e4a19bea683c8746d0cbb52f586fe2a018f5268e114d7"
+    sha256 big_sur:      "76831700c7e63dd2373244c8aba96b09f861f179c46f9a2a7a7c00b3078fa66a"
+    sha256 catalina:     "b8b0cf6f2f7efd791c23e11dca7fd955c71bbb3d664a24a799e34424c2472c57"
+    sha256 mojave:       "aa8a60fbd7abed9fee6664597a0ed150cddec8dabdc99a5e0eed18bd150b0ca4"
+    sha256 x86_64_linux: "de0aacaf8d47cc5d5594ef72cf631cce7635c98a2f51a028ca1b6deb55dee637"
   end
 
   # setuptools remembers the build flags python is built with and uses them to

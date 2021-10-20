@@ -1,8 +1,8 @@
 class Tundra < Formula
   desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
-  url "https://github.com/deplinenoise/tundra/archive/v2.16.1.tar.gz"
-  sha256 "eaf86f183a731c59ad72e3232a1f8b33ca1dc68c39503f99fc9b0cc6e33b50c1"
+  url "https://github.com/deplinenoise/tundra/archive/v2.16.3.tar.gz"
+  sha256 "25c2649cd415996a5d8fdc4efc39345bd4d44a042a15c93c2a0523703b98f766"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,11 @@ class Tundra < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f813f11bfda97c4e172e926c01a1104097f6bd61d344cf01031cf359e422d5da"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5e7970c3893238a41438bcc2dfb96f24b826ccf93a2c1c75dfdec4ab5a39186c"
-    sha256 cellar: :any_skip_relocation, catalina:      "72abfc5263693f27df124037c5b40764bbce51bf7922316d1f2dcdc5fbe5f2d1"
-    sha256 cellar: :any_skip_relocation, mojave:        "ea38828937d82358d09da4c756b31bf6ee7c5884b40a750900e2b45566946c35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d1d1d7343ad50600eb93665e46db9da7c0fb6e64240eed31b9078b249a42aab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e7ab1c12b2e4655c43d05d0a2e3d7c639b0ba3f525ce19ccd63f0c1b5232b139"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a6b590396609eca11fc3d11a092d6354ce9ab2b56ac00b0ce19c1066740b67d1"
+    sha256 cellar: :any_skip_relocation, catalina:      "5300a0ef420db061926f21228da36eb747c8553cba76e48c86832f86cbbda0fa"
+    sha256 cellar: :any_skip_relocation, mojave:        "c2faa7134fd8cebc4a1552c2b5c772ed9f15024b5f8d9c9f7ec2a0123e74a23c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9410f75d8351e7e9a78fdbccf4f84d6ed78108cf6d6a730b205e2b6c9bfac51"
   end
 
   depends_on "googletest" => :build

@@ -1,8 +1,8 @@
 class Tectonic < Formula
   desc "Modernized, complete, self-contained TeX/LaTeX engine"
   homepage "https://tectonic-typesetting.github.io/"
-  url "https://github.com/tectonic-typesetting/tectonic/archive/tectonic@0.7.1.tar.gz"
-  sha256 "0082f3aca5e9e8cf827aacbe260383faf1e036d0e8d04a3aef11deeadfff2baf"
+  url "https://github.com/tectonic-typesetting/tectonic/archive/tectonic@0.8.0.tar.gz"
+  sha256 "794cf34aee017b8a4288ed509a4e9d550a36aadc2bc0d35b1727d1135dac8e02"
   license "MIT"
 
   # As of writing, only the tags starting with `tectonic@` are release versions.
@@ -14,11 +14,11 @@ class Tectonic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "e25d8cbedaefa978556832e64b3bf943f7e0e8052ed313c129fac339e81225cc"
-    sha256 cellar: :any,                 big_sur:       "86e8dc87ff7dca9d2ccfc10a8ec6ee78e37743be3d9cda3ff398816264fd5cf8"
-    sha256 cellar: :any,                 catalina:      "ed6bdde2a3dd1a57fa7e2730844e21b4ffb90cf934976c1a86874b2b0282b814"
-    sha256 cellar: :any,                 mojave:        "70b8b06aeb5b36c5b1e1820179d556f1eddce139d1e01ed44959b95d61a8893c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c62eb6bfb7a9776c9ba595f27b2c5bb1540abed3f5a1dfaf4f04137d717a5d73"
+    sha256 cellar: :any,                 arm64_big_sur: "c251b3e996a3a9bb92b4a3e01967a39a173d15953b24952b045a4bce12f5f5dd"
+    sha256 cellar: :any,                 big_sur:       "f877391f52526e989cee32b8a6424a2c570c51c65f332134fb7fb94d11ede5f4"
+    sha256 cellar: :any,                 catalina:      "90f93c343215ba86c8950e75309dbc241fe88ea25b3679c9c9c810bbc40ed198"
+    sha256 cellar: :any,                 mojave:        "9efcd42f9b38b1d25f4144846ec107b6554be85dad65caf631da2923320be298"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ce6c644f17c8135cfcd0b83b7ba1d5320aca6d6a3acf1f3c558730c9abdd4c5"
   end
 
   depends_on "pkg-config" => :build

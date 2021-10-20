@@ -15,6 +15,7 @@ class Tsung < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "64dba403e11577b28f3a80114158b96d8c74f58d09a4d9930801674031d4a7d9"
     sha256 cellar: :any_skip_relocation, sierra:        "e52abdb35507ceff03804d29a1ecf4e64d11e3345a9f095462cb653bba6cac6d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "11f06a010b1a56d7a751bf5379d7d053c1befdf41f73aabeb79330761566724d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75795d52b25505bc8b1f5815d3b424fc2bbeb916e18e0d1f7e4f6ab5f605863d"
   end
 
   depends_on "erlang"

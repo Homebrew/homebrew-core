@@ -4,7 +4,7 @@ class Ledger < Formula
   url "https://github.com/ledger/ledger/archive/v3.2.1.tar.gz"
   sha256 "92bf09bc385b171987f456fe3ee9fa998ed5e40b97b3acdd562b663aa364384a"
   license "BSD-3-Clause"
-  revision 6
+  revision 7
   head "https://github.com/ledger/ledger.git"
 
   livecheck do
@@ -13,18 +13,18 @@ class Ledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7c4c05ee4ba9fa1eb98e13dd8fdb08204847051d60235d7ed41acb511bc59e88"
-    sha256 cellar: :any,                 big_sur:       "b38e4088c5c4639db36583dee90969851ce3a6dd697542f40c35c4fd4a26ba63"
-    sha256 cellar: :any,                 catalina:      "4bf9603c5db081f8264ab20d48f5b3b7c00760032a69da857be8412c8fc7f538"
-    sha256 cellar: :any,                 mojave:        "73e2a88b71ad45ce03bb552889c615f552415332e5602711608a0a3aead94c8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2900cd872e239fe43409bbe4e07546897f1785e56f91059edfafcbef118c2c07"
+    sha256 cellar: :any,                 arm64_big_sur: "f80c6502c9966f8c6c0fdaa04257abe0ec381ac1e71d5c8c7fa040b5f17bf7eb"
+    sha256 cellar: :any,                 big_sur:       "43b45dca311aaac9d9beaa116d7460a9c8ae1018e196e627811f34b0a33b4e33"
+    sha256 cellar: :any,                 catalina:      "339bea75fa51d131603613fb31e95c0b0774cc00e30a7accbcf0560bf8d8f900"
+    sha256 cellar: :any,                 mojave:        "7a030e18924a202197ca72c04fd9f147930e021b428581c7e111dd00acb0dd2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e62b1de7a6c8f43ba22517035871c6c47010d52f007e63292f89116b5d8cdc6"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "groff"
 
@@ -38,7 +38,7 @@ class Ledger < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
 
     args = %W[
       --jobs=#{ENV.make_jobs}

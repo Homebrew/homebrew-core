@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.29.2.tar.gz"
-  sha256 "8ac87a7d0982750618cb416d07c85aeb17df200e73da28d5e98d4b89476c26b9"
+  url "https://github.com/prometheus/prometheus/archive/v2.30.3.tar.gz"
+  sha256 "66a835096e717c11db2ecb5f948c6346868fa1f877196ee2237fb4630df97c06"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Prometheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0211718b91284911a21c7c033b4d92ca560504c78586f1ef1975f6d6779aac4a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "509d54604ed96471b599c270002f7e72f1e05880f556705949e1f5f14ea18585"
-    sha256 cellar: :any_skip_relocation, catalina:      "b69db03ec08196fb02091f73d201e60aa22ca951f1896b17a3371a2b4e6d32b7"
-    sha256 cellar: :any_skip_relocation, mojave:        "2c3162cae17ecec5880606908d59a3f9072f9ae1644dc426c0ebb8b48bb1a747"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30207a626183415c96682b811973cae93b4abda7be9cba58bf76b990b145d7ae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "97621b99e959e16419b9539bf7162a1fda9367580da427a8533a3e9e74cf3de9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "df45f718948efe0c8aac092333b79151aa9652b5927c2127c542cd40067f068d"
+    sha256 cellar: :any_skip_relocation, catalina:      "16b43830daf9666454eef51b71b190295ef777abc4c0f736147d1ffa44f9301c"
+    sha256 cellar: :any_skip_relocation, mojave:        "d4a48002a602a51a97a5a30206986979a6ff6bf751963d939ce706f3e4ff05d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e357ffc40d706b9732dfd82b4e8f6e92f51029524b5cd605c0b0e3599d794a1"
   end
 
   depends_on "go" => :build
@@ -23,6 +23,8 @@ class Prometheus < Formula
   depends_on "yarn" => :build
 
   def install
+    ENV.deparallelize
+    ENV.prepend_path "PATH", Formula["node"].opt_libexec/"bin"
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
 

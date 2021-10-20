@@ -1,23 +1,23 @@
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gssdp/1.2/gssdp-1.2.3.tar.xz"
-  sha256 "a263dcb6730e3b3dc4bbbff80cf3fab4cd364021981d419db6dd5a8e148aa7e8"
-  revision 1
+  url "https://download.gnome.org/sources/gssdp/1.4/gssdp-1.4.0.1.tar.xz"
+  sha256 "8676849d57fb822b8728856dbadebf3867f89ee47a0ec47a20045d011f431582"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e3bc6dfa4ed41b0629533dbbe8fc4d9132a4349e05aacf0ea8099bf868fd6951"
-    sha256 cellar: :any, big_sur:       "f5b00ceef2fed5c0140a8983fc8fed49cd220d1ad0cf1718125a81a047e370c3"
-    sha256 cellar: :any, catalina:      "9cda1333eede84e831da2553e50989bd5721460b0ab046c95414305c11e29adc"
-    sha256 cellar: :any, mojave:        "de497cd6d3225d91ce49ef33b23928bb8af0d5cdebea072e06c8cf022a7a5dda"
-    sha256 cellar: :any, high_sierra:   "c6c767ccfe0b7220929d94ce06d3c4d5f8f172ab03e2a65900d96e1f2b151595"
-    sha256               x86_64_linux:  "18d28afa706c370dc59f1868cf1141f26918107bfb4aeae8cfa619001ac8b3be"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "af3cfdeebe33dc2235b183b4b5db2dc89cc1746e5f9d1f66497540008ac139ec"
+    sha256 cellar: :any, big_sur:       "f1b7f55cf138a7b567c9b19f6a053a96e91c9cf1fe74d15d6d45918e80d0ae7b"
+    sha256 cellar: :any, catalina:      "0247e477790f650d86a7e093747b7a3d48fd59420e85cdac0700c24eea101fe0"
+    sha256 cellar: :any, mojave:        "037dfafa30476082ad6d7c31cdedcda2a45f899a1b2ddba1ab7291f17c59f405"
+    sha256               x86_64_linux:  "ef5baab8ee1c70435c33b983055869689384280ce341b6d27ffc67f8a64662d8"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"

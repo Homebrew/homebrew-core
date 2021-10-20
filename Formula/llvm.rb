@@ -1,10 +1,11 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.1/llvm-project-12.0.1.src.tar.xz"
-  sha256 "129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/llvm-project-13.0.0.src.tar.xz"
+  sha256 "6075ad30f1ac0e15f07c1bf062c1e1268c241d674f11bd32cdf0e040c71f2bf3"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -13,12 +14,11 @@ class Llvm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "437d9a9f70c71c2cbab49dafc2fbcc3e336295285597def44340c13e7fbc0400"
-    sha256 cellar: :any,                 big_sur:       "f947eb7be90ced041dd3d674b24113886895996394998c83156ea1cc33e90825"
-    sha256 cellar: :any,                 catalina:      "371cb9da82ebf606cc3b66f9bd98a0aadfe0b1eadcabb0103b5d9ef73e0a7c72"
-    sha256 cellar: :any,                 mojave:        "73f95830a72ba3bb9690c0cbee21657bfa3b729f1e43c8fdc6e3081485e5b888"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ba5a4827ad245c524bf0d20aea0919a6794fd6986c34791597c0017f4c4d9cb"
+    sha256 cellar: :any,                 arm64_big_sur: "1213e5b2e63bc8d8440320cccd316a04b9824eba563534e4b5cfca000c5acf29"
+    sha256 cellar: :any,                 big_sur:       "dc0ac71f6ce7183b0fa4745fd94e08c55770dd1ee6d38d63f0c503d644937bb6"
+    sha256 cellar: :any,                 catalina:      "dbcd8e6f48bf03b4730b92f4fe6351af97addc2db3eefde3ba85402b120368f5"
+    sha256 cellar: :any,                 mojave:        "d2e8294ee877ecb1cf6b3d36f1f8bbc5f7749306b3b25ef988886600e931b7b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e113ff32922d209fb85a0a6ba11931a2996146b7f71d7ac22caf1521f72349a"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -44,31 +44,11 @@ class Llvm < Formula
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
-
-    # Apply patches slated for the 12.0.x release stream
-    # to allow building with GCC 5 and 6. Upstream bug:
-    # https://bugs.llvm.org/show_bug.cgi?id=50732
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f0b8ff8b7ad4c2e1d474b214cd615a98e0caa796/llvm/llvm.patch"
-      sha256 "084adce7711b07d94197a75fb2162b253186b38d612996eeb6e2bc9ce5b1e6e2"
-    end
+    depends_on "gcc"
   end
 
-  # Fix crash in clangd when built with GCC <6. Remove in LLVM 13
-  # https://github.com/clangd/clangd/issues/800
-  # https://github.com/Homebrew/homebrew-core/issues/84365
-  patch do
-    url "https://github.com/llvm/llvm-project/commit/ec1fb9533305e9bd69294ede7e5e7d9befbb2225.patch?full_index=1"
-    sha256 "b80a5718420c789588f3392366ac15485e43bea8e81adb14424c3cad4afa7315"
-  end
-
-  # Fix parallel builds. Remove in LLVM 13.
-  # https://reviews.llvm.org/D106305
-  # https://lists.llvm.org/pipermail/llvm-dev/2021-July/151665.html
-  patch do
-    url "https://github.com/llvm/llvm-project/commit/b31080c596246bc26d2493cfd5e07f053cf9541c.patch?full_index=1"
-    sha256 "b4576303404e68100dc396d2414d6740c5bfd0162979d22152a688d1e7307379"
-  end
+  # Fails at building LLDB
+  fails_with gcc: "5"
 
   def install
     projects = %w[
@@ -186,6 +166,9 @@ class Llvm < Formula
         -DLIBUNWIND_USE_COMPILER_RT=ON
       ]
       args << "-DRUNTIMES_CMAKE_ARGS=#{runtime_args.join(";")}"
+
+      # Prevent compiler-rt from building i386 targets, as this is not portable.
+      args << "-DBUILTINS_CMAKE_ARGS=-DCOMPILER_RT_DEFAULT_TARGET_ONLY=ON"
     end
 
     llvmpath = buildpath/"llvm"

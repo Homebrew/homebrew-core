@@ -1,16 +1,16 @@
 class Zim < Formula
   desc "Graphical text editor used to maintain a collection of wiki pages"
   homepage "https://zim-wiki.org/"
-  url "https://github.com/zim-desktop-wiki/zim-desktop-wiki/archive/0.74.0.tar.gz"
-  sha256 "3e7d05c20d97a1775ce1c6488285a3ecc1b2cec3c83696409774f8218478b7e3"
+  url "https://github.com/zim-desktop-wiki/zim-desktop-wiki/archive/0.74.2.tar.gz"
+  sha256 "ab3e06f2d4f48037709c7c1e3b236b4e6cdaa9ad69537ad516771b28e07f3732"
   license "GPL-2.0-or-later"
   head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "5fb7a7220942f32c021a72d4ea81134c2b16ef59dc6abc68d7b89be1d215ad1f"
-    sha256 cellar: :any_skip_relocation, catalina:     "5fb7a7220942f32c021a72d4ea81134c2b16ef59dc6abc68d7b89be1d215ad1f"
-    sha256 cellar: :any_skip_relocation, mojave:       "5fb7a7220942f32c021a72d4ea81134c2b16ef59dc6abc68d7b89be1d215ad1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "50ebef7d2faa7130822d756466683ab3a39b1427499295ecceb393945f6d7a02"
+    sha256 cellar: :any_skip_relocation, big_sur:      "cac5007e5857504e22b3021aa8111798ffacf6a34493210b09d21337d4da81dc"
+    sha256 cellar: :any_skip_relocation, catalina:     "cac5007e5857504e22b3021aa8111798ffacf6a34493210b09d21337d4da81dc"
+    sha256 cellar: :any_skip_relocation, mojave:       "cac5007e5857504e22b3021aa8111798ffacf6a34493210b09d21337d4da81dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1a1e41993dfd0df0bd0396d53c09626df2047106362149db0e25775ff5732355"
   end
 
   depends_on "pkg-config" => :build

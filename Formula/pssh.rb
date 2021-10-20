@@ -6,17 +6,17 @@ class Pssh < Formula
   url "https://files.pythonhosted.org/packages/60/9a/8035af3a7d3d1617ae2c7c174efa4f154e5bf9c24b36b623413b38be8e4a/pssh-2.3.1.tar.gz"
   sha256 "539f8d8363b722712310f3296f189d1ae8c690898eca93627fc89a9cb311f6b4"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "55cce3be0cd183f6179aeb4b51618774fe98cb3e4df078d1fff9ee3e555d2a54"
-    sha256 cellar: :any_skip_relocation, big_sur:       "94ad17e8296472da13da212b912f9edd9fd849566a21eee7b3ad7686f4500e0b"
-    sha256 cellar: :any_skip_relocation, catalina:      "94ad17e8296472da13da212b912f9edd9fd849566a21eee7b3ad7686f4500e0b"
-    sha256 cellar: :any_skip_relocation, mojave:        "94ad17e8296472da13da212b912f9edd9fd849566a21eee7b3ad7686f4500e0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fe66dd066755c80bec5fee0da2348519605663f4d1a2ecd1c52b164e30b4519"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "59a80ba06f64db6ac564b05a91b33cd9dab0d7d9c1a9cd7e932b9afb2b2012c3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d1c1837c888b3c60e7e5cf3db91660c35b14c39e72d7418317eba99fe30bee0c"
+    sha256 cellar: :any_skip_relocation, catalina:      "d1c1837c888b3c60e7e5cf3db91660c35b14c39e72d7418317eba99fe30bee0c"
+    sha256 cellar: :any_skip_relocation, mojave:        "d1c1837c888b3c60e7e5cf3db91660c35b14c39e72d7418317eba99fe30bee0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db241389e508b5db1cf14b6edf01b09b185f95326b8301ba7c04ee38478f7e39"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "putty", because: "both install `pscp` binaries"
 

@@ -5,6 +5,11 @@ class PbcSig < Formula
   sha256 "7a343bf342e709ea41beb7090c78078a9e57b833454c695f7bcad2475de9c4bb"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://crypto.stanford.edu/pbc/sig/download.html"
+    regex(/href=.*?pbc_sig[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "f99446bcb7e5930651fc63d4a6bea1b34b489e13ad7318a026d0be3ed6fe39f9"

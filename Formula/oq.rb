@@ -6,10 +6,11 @@ class Oq < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "6dac9a710d4e0d51d68488aebd186aae114c05ffc8b62726d79338b016041ac7"
-    sha256 cellar: :any,                 catalina:     "2d0d73c1c9db23f83e66e2a1e2e1c2950246e108773adcce5b09c63c585cc781"
-    sha256 cellar: :any,                 mojave:       "9d66884fa4c1a1b605acc19e42f4f0e4aa6b768e329f1a28b2e28337570b2288"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "43537a23936df709ba4fd6a25008c80a41b7914e5ef6f447965b0059e1039a14"
+    sha256 cellar: :any,                 arm64_big_sur: "e28f2b92624cade03207c8ebec0b8b0afa96af680b53f46cf0bed65afd82d2af"
+    sha256 cellar: :any,                 big_sur:       "6dac9a710d4e0d51d68488aebd186aae114c05ffc8b62726d79338b016041ac7"
+    sha256 cellar: :any,                 catalina:      "2d0d73c1c9db23f83e66e2a1e2e1c2950246e108773adcce5b09c63c585cc781"
+    sha256 cellar: :any,                 mojave:        "9d66884fa4c1a1b605acc19e42f4f0e4aa6b768e329f1a28b2e28337570b2288"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43537a23936df709ba4fd6a25008c80a41b7914e5ef6f447965b0059e1039a14"
   end
 
   depends_on "crystal" => :build

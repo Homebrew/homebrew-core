@@ -1,17 +1,17 @@
 class Hcxtools < Formula
   desc "Utils for conversion of cap/pcap/pcapng WiFi dump files"
   homepage "https://github.com/ZerBea/hcxtools"
-  url "https://github.com/ZerBea/hcxtools/archive/6.2.0.tar.gz"
-  sha256 "34435b08385ee23dbc1054e92e5b1a1637b352aa73fed301ef94b4b40a6165a1"
+  url "https://github.com/ZerBea/hcxtools/archive/6.2.4.tar.gz"
+  sha256 "74299313dd15ed38f07b42201903ab85ebbc3ad220a01fff1bd5c967cfea817d"
   license "MIT"
   head "https://github.com/ZerBea/hcxtools.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "86ea3336cc5093ebec9fae73aa3ca4479b129ad45be48f95e5905897e4f4a7ed"
-    sha256 cellar: :any,                 big_sur:       "e62e01f85aeed6210869c83cf55a8a80465c71def942d7a9327e8b321cfb1347"
-    sha256 cellar: :any,                 catalina:      "558d23ae99efd0692340cd1adaac5ea7069c6add058a5dd0ca1f5cabb564ef35"
-    sha256 cellar: :any,                 mojave:        "8508059eaf7d76ba6a038b80a6eaf5a5aa0bbbdeff359359b13970593c3a1de8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a756629cc5b4e8293db607d3323c09a3813fe16ab4a7c97db83b6b5293e4be6"
+    sha256 cellar: :any,                 arm64_big_sur: "71ab36699020855a425e5dab7dd64e6ed2de1dbbbedc3a84ca48c99ec60ab29d"
+    sha256 cellar: :any,                 big_sur:       "e823f093cc594fcd8cec3c9fe7c5743d37323bfefc1f0c423ae7cab401936830"
+    sha256 cellar: :any,                 catalina:      "97f4b6d9401be82a0d1c48ed80be2070147ff374be07a3123b763cc0f7210696"
+    sha256 cellar: :any,                 mojave:        "9a93ac0c1f2b3172d3eb2b5f822c9c043a1d269fa881f35172f195f10628ff60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad17f6c779701195a56f451f8e862f3b7b6e13739cc4de746b76fd3da4996456"
   end
 
   depends_on "pkg-config" => :build

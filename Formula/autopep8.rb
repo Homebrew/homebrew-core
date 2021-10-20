@@ -6,16 +6,17 @@ class Autopep8 < Formula
   url "https://files.pythonhosted.org/packages/77/63/e88f70a614c21c617df0ee3c4752fe7fb66653cba851301d3bcaee4b00ea/autopep8-1.5.7.tar.gz"
   sha256 "276ced7e9e3cb22e5d7c14748384a5cf5d9002257c0ed50c0e075b68011bb6d0"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e01de60b088330ccdf3c99a1144dd2b2e6470d2916490ffd597e170660e2c702"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5e079165ba4d0b9148886ed526d9c8a9be8b637cfd5c74b1ccd52fe87bc6574c"
-    sha256 cellar: :any_skip_relocation, catalina:      "5e079165ba4d0b9148886ed526d9c8a9be8b637cfd5c74b1ccd52fe87bc6574c"
-    sha256 cellar: :any_skip_relocation, mojave:        "5e079165ba4d0b9148886ed526d9c8a9be8b637cfd5c74b1ccd52fe87bc6574c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9628d932f9697fca789eaa25709a9d8428b0b34fe1336163728dead7287bde49"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b4682f9870206a1ba5b2e59d818c9334ae38806a7cf21595db82eb366e83b096"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f9cde313894b40e47ca85af6ae16424fa6e0c4877a1d603c6c93a3e14e3b02bb"
+    sha256 cellar: :any_skip_relocation, catalina:      "f9cde313894b40e47ca85af6ae16424fa6e0c4877a1d603c6c93a3e14e3b02bb"
+    sha256 cellar: :any_skip_relocation, mojave:        "f9cde313894b40e47ca85af6ae16424fa6e0c4877a1d603c6c93a3e14e3b02bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a60d671b1cb79995d36d3a84c380111d3b196763434aa2403c800492deae17a7"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "pycodestyle" do
     url "https://files.pythonhosted.org/packages/02/b3/c832123f2699892c715fcdfebb1a8fdeffa11bb7b2350e46ecdd76b45a20/pycodestyle-2.7.0.tar.gz"

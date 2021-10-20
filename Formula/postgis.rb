@@ -4,6 +4,7 @@ class Postgis < Formula
   url "https://download.osgeo.org/postgis/source/postgis-3.1.4.tar.gz"
   sha256 "dc8e3fe8bc532e422f5d724c5a7c437f6555511716f6410d4d2db9762e1a3796"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -11,10 +12,10 @@ class Postgis < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "90abc1038e070135f2258d9d337536197a1ff8ca68dbf28ff8ed79faf3687890"
-    sha256 cellar: :any, big_sur:       "8985b8e38a8001a59bb407893af4b4f6864b2ea8e4f7eb7d61432d6ec03b710a"
-    sha256 cellar: :any, catalina:      "bd3a8be409abc77e8e9435fbfedab8e58e2611be62d822cc094091933dc37aa5"
-    sha256 cellar: :any, mojave:        "f7c9049d5e156d4231cd5de969e4fa61a1f676db56dcf66adb65b768eb6a07f5"
+    sha256 cellar: :any, arm64_big_sur: "514c752c2b48150b312e276f5955745180263c75b3f1a498c8f6e0a49a6154a3"
+    sha256 cellar: :any, big_sur:       "0531be5a6e8c0bfc00047149f45daeeb2562b8f556f9786b49f7605f91ab6c32"
+    sha256 cellar: :any, catalina:      "4bda3d7aa8a02bb24e4f13de6eb1b3eefcb7d1c57bdd622c3a5bf07f0e5350a7"
+    sha256 cellar: :any, mojave:        "577d3091a205f8ce726a6d1da06315cc770f88fc2a22945d29b9758e14d27bf8"
   end
 
   head do
@@ -82,6 +83,10 @@ class Postgis < Formula
   end
 
   test do
+    pg_version = Formula["postgresql"].version.major
+    expected = /'PostGIS built for PostgreSQL % cannot be loaded in PostgreSQL %',\s+#{pg_version}\.\d,/
+    assert_match expected, (share/"postgis/postgis.sql").read
+
     require "base64"
     (testpath/"brew.shp").write ::Base64.decode64 <<~EOS
       AAAnCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoOgDAAALAAAAAAAAAAAAAAAA
@@ -115,7 +120,7 @@ class Postgis < Formula
       igAAABI=
     EOS
     result = shell_output("#{bin}/shp2pgsql #{testpath}/brew.shp")
-    assert_match(/Point/, result)
-    assert_match(/AddGeometryColumn/, result)
+    assert_match "Point", result
+    assert_match "AddGeometryColumn", result
   end
 end

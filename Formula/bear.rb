@@ -1,19 +1,18 @@
 class Bear < Formula
-  include Language::Python::Shebang
-
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/3.0.15.tar.gz"
-  sha256 "a121ef68f58fdd0cc9fade11a98ae87c7d4d69cbf8d05b3c19624095d23b9a39"
+  url "https://github.com/rizsotto/Bear/archive/3.0.16.tar.gz"
+  sha256 "877ee5e89e8445f74df95f2f3896597f04b86a4e5d0dbbca07ac71027dcb362d"
   license "GPL-3.0-or-later"
+  revision 2
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "48b2bd5e46303c7dd4cdedb28d25127e03d5cec00f3456b4728c4992b5b399ad"
-    sha256 big_sur:       "0ce5508b28ee29d4c12549a90851c706346af973009f74a05912112349afbe80"
-    sha256 catalina:      "8e8e3f971f40c7437446d4e9d58e72d89d690b501bea378886020a50e1d76cd4"
-    sha256 mojave:        "3d19f93fafcf129b1f7572f6e6544c949646c80357eed9fc63bc121672506e7d"
-    sha256 x86_64_linux:  "a9b2b3c0eef25c08eb4d18247d6c3bf0d7199308afaedf661966b19899c5e0f2"
+    sha256 arm64_big_sur: "7654072a05b7af6ccdbc4d10b7f50cf2ba2be1edf9abb9d3324f5a4a2ef6ffee"
+    sha256 big_sur:       "ff8b6a8fa026031a139c56941be5ea3148ee9eb5c860bdee4a8754992710e570"
+    sha256 catalina:      "6b441b4b8f2d3da8fbc2c667c1f030dae34857f0ff4e0ac72cd24cacd8321232"
+    sha256 mojave:        "810136143f4580e4b5538c05cbf17b9b86a368534aecac19513fcb139cc8fb32"
+    sha256 x86_64_linux:  "39e65e249817a04308318f8d321940c36976542078fea6895fe959b866cbde35"
   end
 
   depends_on "cmake" => :build
@@ -21,9 +20,7 @@ class Bear < Formula
   depends_on "fmt"
   depends_on "grpc"
   depends_on "nlohmann-json"
-  depends_on "python@3.9"
   depends_on "spdlog"
-  depends_on "sqlite"
 
   uses_from_macos "llvm" => :test
 
@@ -48,18 +45,16 @@ class Bear < Formula
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
-    args = std_cmake_args + %w[
+    args = %w[
       -DENABLE_UNIT_TESTS=OFF
       -DENABLE_FUNC_TESTS=OFF
     ]
 
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *args, *std_cmake_args
       system "make", "all"
       system "make", "install"
     end
-
-    rewrite_shebang detected_python_shebang, bin/"bear"
   end
 
   test do
@@ -70,7 +65,7 @@ class Bear < Formula
         return 0;
       }
     EOS
-    system "#{bin}/bear", "--", "clang", "test.c"
+    system bin/"bear", "--", "clang", "test.c"
     assert_predicate testpath/"compile_commands.json", :exist?
   end
 end

@@ -2,6 +2,7 @@ class Unixodbc < Formula
   desc "ODBC 3 connectivity for UNIX"
   homepage "http://www.unixodbc.org/"
   url "http://www.unixodbc.org/unixODBC-2.3.9.tar.gz"
+  mirror "https://fossies.org/linux/privat/unixODBC-2.3.9.tar.gz"
   sha256 "52833eac3d681c8b0c9a5a65f2ebd745b3a964f208fc748f977e44015a31b207"
   license "LGPL-2.1-or-later"
   revision 1

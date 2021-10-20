@@ -45,7 +45,7 @@ class OcamlZarith < Formula
     system Formula["ocaml"].opt_bin/"ocamlopt", "-I", lib/"ocaml/zarith",
            "-ccopt", "-L#{lib}/ocaml -L#{Formula["gmp"].opt_lib}",
            "zarith.cmxa", "-o", "zq.exe", "zq.ml"
-    expected = IO.read("zq.output64", mode: "rb")
+    expected = File.read("zq.output64", mode: "rb")
     assert_equal expected, shell_output("./zq.exe")
   end
 end

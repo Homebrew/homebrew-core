@@ -12,17 +12,16 @@ class Ninja < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0daecb0cd98fd445d3150ab2b2408d519e4cb187c951928aca5c02856ca8d64f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0314a25011cc9039cdef3b60fb5e4bc37c39fc8b728d072c23e01d3c611c1dd5"
-    sha256 cellar: :any_skip_relocation, catalina:      "2f5c9cfca8ea739a46d4f7d8e17dee70c91ecc41e1caeb4e844fc20596cbd5fb"
-    sha256 cellar: :any_skip_relocation, mojave:        "8a221f83054afbd1e50799f67d474b91e5232f2fd56d3ce7d46096d4660a9633"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ec37aa6d5145de2f396926c75891b578883e2a078989969c011548cae2005cf"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2ba394fee0825079adf179dfaebd6d38ac3e4918d851f3e844b52bdd6a97b12b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a024937b955212892b810dbe09af351b8966448cab497db3d81cd6ca829cd8ec"
+    sha256 cellar: :any_skip_relocation, catalina:      "07ce960dd5c57859916a09090ef9b747a28c56892d60cc91c29b85c8cc13d902"
+    sha256 cellar: :any_skip_relocation, mojave:        "b9c82b12477142c1a4ed7d030d9227b6c351fbe7747f3533e37607e5497db22b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8668b179edcaf6f918dbd83aea05c421015c46c546a9b0744b5c723a2737d55"
   end
 
-  depends_on "python@3.9"
-
-  uses_from_macos "curl" => :test
+  # Ninja only needs Python for some non-core functionality.
+  depends_on "python@3.9" => [:build, :test]
 
   def install
     py = Formula["python@3.9"].opt_bin/"python3"
@@ -31,6 +30,9 @@ class Ninja < Formula
     bin.install "ninja"
     bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
     zsh_completion.install "misc/zsh-completion" => "_ninja"
+    doc.install "doc/manual.asciidoc"
+    elisp.install "misc/ninja-mode.el"
+    (share/"vim/vimfiles/syntax").install "misc/ninja.vim"
   end
 
   test do

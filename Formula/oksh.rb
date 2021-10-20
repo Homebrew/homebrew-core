@@ -1,17 +1,17 @@
 class Oksh < Formula
   desc "Portable OpenBSD ksh, based on the public domain Korn shell (pdksh)"
   homepage "https://github.com/ibara/oksh"
-  url "https://github.com/ibara/oksh/releases/download/oksh-6.9/oksh-6.9.tar.gz"
-  sha256 "c08d97b2ac9ee5d88e9e508d27c75502b2d06c20d4c5ab87b496cb3b9951bd35"
+  url "https://github.com/ibara/oksh/releases/download/oksh-7.0/oksh-7.0.tar.gz"
+  sha256 "21d5891f38ffea3a5d1aa8c494f0a5579c93778535e0a92275b102dec3221da1"
   license all_of: [:public_domain, "BSD-3-Clause", "ISC"]
   head "https://github.com/ibara/oksh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a1cca252262fb01ab4de195acc65986a20644936659bf6ffe2538d37deb78281"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b5bae682becb5abddfb85bf08a48c0acb5f932f6720f11a2dc6a4ee6e1623cb0"
-    sha256 cellar: :any_skip_relocation, catalina:      "9dc5b1d08b077320bc7a91855656bec8afb5d84dd0d4673a8c98455098ef8ee4"
-    sha256 cellar: :any_skip_relocation, mojave:        "197f0a93fb2989dde3cda1b2013c5b03521630d1e00a55af6de08dee354c3078"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b7253494ae15e5a016ee14b1a3315a15a90823077ecd00572530051b34c57c7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "11227daeea3128e2ef4f4b4e435eae213f2fb62c00e9dbd874df7cc0d4c018c5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5cd5ef78a3dd5b66ee1890c586f3e508052c5d5a72ff8840139b8044d1b0cb27"
+    sha256 cellar: :any_skip_relocation, catalina:      "864fe627a2dc5459983532a8caa65c322bca76ea6f53a263bcfa6c18905f14ff"
+    sha256 cellar: :any_skip_relocation, mojave:        "90ffe56c170396eeca45344479b4574ee21d70daa4b82165c97d55a7c33cfdbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb076d21d0e8ce3ccd70976e7dfdc57a081deee333480daf85ccd6c2ee39e3f6"
   end
 
   def install

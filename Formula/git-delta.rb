@@ -7,15 +7,16 @@ class GitDelta < Formula
   head "https://github.com/dandavison/delta.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c1863678cb96ffb95451fc4677cea5ef2fb2280d61efe7061884e21fddc0c4f9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "784f02aca241d3055f7932a4ebdc983955dbfa1551cf96b99a67c67da382e9e5"
-    sha256 cellar: :any_skip_relocation, catalina:      "50954d3cc47cdf353f050ca12f378779e827f724c41a48e40b3d4b6a7ebb53d6"
-    sha256 cellar: :any_skip_relocation, mojave:        "45420b913807614d341c14e715253be518ac9b77ebaa947af2b32528c3ed0382"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b20c3983f9578a40a3644fa9b6078bf4cc77c63e18ac80ef2c751104b5f91c5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7d4b289524162783f5d0a7faba4154c409674eec25febdd02121a00557c1540e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "075eee68cef594866b780645be5f795128e9d1a2af3ba7b054ad422e1d126431"
+    sha256 cellar: :any_skip_relocation, catalina:      "1ab8fa326b32a62852cc582c70bda7a01bfa4468263e0ff64ff014518abf6726"
+    sha256 cellar: :any_skip_relocation, mojave:        "1ee66c5891a38d1e70e8562509534308d1f1dd22ff15cbfd8207d48abb022916"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eba0e8bd894fd97e12b7607738c8d631323e70890562b10af4590e9a4e6b47f9"
   end
 
   depends_on "rust" => :build
-  uses_from_macos "llvm"
+  uses_from_macos "zlib"
 
   conflicts_with "delta", because: "both install a `delta` binary"
 

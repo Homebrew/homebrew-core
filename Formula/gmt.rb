@@ -60,7 +60,7 @@ class Gmt < Formula
       system "cmake", "..", *args
       system "make", "install"
     end
-    inreplace bin/"gmt-config", "#{HOMEBREW_LIBRARY}/Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    inreplace bin/"gmt-config", Superenv.shims_path/ENV.cc, DevelopmentTools.locate(ENV.cc)
   end
 
   def caveats
