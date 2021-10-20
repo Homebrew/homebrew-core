@@ -71,6 +71,11 @@ class OpenjdkAT8 < Formula
         s.gsub! "$(subst .,,$(MACOSX_VERSION_MIN))", ENV["HOMEBREW_MACOS_VERSION_NUMERIC"]
         s.gsub! "MACOSX_VERSION_MIN=10.7.0", "MACOSX_VERSION_MIN=#{MacOS.version}"
       end
+
+      # Fix Xcode 13 detection.
+      inreplace "common/autoconf/toolchain.m4",
+                "if test \"${XC_VERSION_PARTS[[0]]}\" != \"6\"",
+                "if test \"${XC_VERSION_PARTS[[0]]}\" != \"13\""
     end
 
     if OS.linux?
