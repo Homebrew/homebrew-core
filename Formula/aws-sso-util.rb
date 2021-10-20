@@ -6,6 +6,7 @@ class AwsSsoUtil < Formula
   url "https://files.pythonhosted.org/packages/5a/ff/28de3b5c4189d244b5bb68c0591875df0a3a47b5b860de2bb9a100f3a60b/aws-sso-util-4.25.0.tar.gz"
   sha256 "b84fb0b6bb66ee1a5797665cfeceb5d83bf9f3d6a8d8de42687dd65fc06cee8c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class AwsSsoUtil < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   on_linux do
