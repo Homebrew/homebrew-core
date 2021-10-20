@@ -7,11 +7,6 @@ class Podman < Formula
     url "https://github.com/containers/podman/archive/v3.4.1.tar.gz"
     sha256 "3fa70c499a4733524354518e839eefa3f14b630a519393418d082880535c1e33"
 
-    patch do
-      url "https://github.com/containers/podman/commit/cd4e10fdf93009f8ecba5f0c82c1c2a4a46f3e4f.patch?full_index=1"
-      sha256 "d173f27ff530022244cc6895bfd08fbb7546e1457b2edee0854732200aabfde5"
-    end
-
     resource "gvproxy" do
       url "https://github.com/containers/gvisor-tap-vsock/archive/v0.2.0.tar.gz"
       sha256 "a54da74d6ad129a1c8fed3802ba8651cce37b123ee0e771b0d35889dae4751fc"
