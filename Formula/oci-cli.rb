@@ -3,10 +3,9 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/37/f0/3c97a7bff5b04c9d8108beb0d67c0cc47207eac5209385deaa664b98edea/oci-cli-3.1.2.tar.gz"
-  sha256 "69a4ad3b64eefc8cc1675b0032ea89a2dfc24328b770ed4bb8baa4b91b103d26"
+  url "https://files.pythonhosted.org/packages/0f/5b/9a6ff3a69975a226e2f4a0abf34a02cc6f64af95cf8e432518b890722ff4/oci-cli-3.2.0.tar.gz"
+  sha256 "00edbbb4dd23b1e39fe8c23980bc23eaae36eb797cf4b0180a3614f1586b456f"
   license any_of: ["UPL-1.0", "Apache-2.0"]
-  revision 1
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
@@ -36,6 +35,11 @@ class OciCli < Formula
     sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
   end
 
+  resource "circuitbreaker" do
+    url "https://files.pythonhosted.org/packages/fe/c8/86d9686a6a4ce133ec814c4e59369663e8292df7df932e6062f1188fb454/circuitbreaker-1.3.1.tar.gz"
+    sha256 "1b2d01cd5d02ddb248e1e4d34c1e9d4ee8ebef1d0b8e648b514c936a90df4f7d"
+  end
+
   resource "click" do
     url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
     sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
@@ -52,8 +56,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/e3/ce/ab02773a69da413292cd2462586898b0b12419b8b6fdbc2ed51667019bf6/oci-2.47.1.tar.gz"
-    sha256 "96f712d6a0ac3d4b606b4f03f2949dd1aabac46b29f36eba56cd36bb82930c57"
+    url "https://files.pythonhosted.org/packages/98/27/09f018439d9be92ec90d6d7ee214b4f28a64e90c0618abb311d5153de0b7/oci-2.48.0.tar.gz"
+    sha256 "7e4d234aea7bed22082a8f1d9e0513d02845ce97f2d19ff2429045435349bc5b"
   end
 
   resource "pycparser" do
