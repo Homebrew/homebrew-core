@@ -1,8 +1,8 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.12-ga.tar.gz"
-  sha256 "8c1022b6d59d3e68d6f2a431cb9a58fca550382844625649fa49623feef45996"
+  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.13-ga.tar.gz"
+  sha256 "e98eb999aa5e85b330e4aa062567743e290dfe925c3fe854d9c6e2c55399da59"
   license "GPL-2.0-only"
 
   bottle do
@@ -38,8 +38,8 @@ class OpenjdkAT11 < Formula
   resource "boot-jdk" do
     on_macos do
       if Hardware::CPU.arm?
-        url "https://cdn.azul.com/zulu/bin/zulu11.50.19-ca-jdk11.0.12-macosx_aarch64.tar.gz"
-        sha256 "e908a0b4c0da08d41c3e19230f819b364ff2e5f1dafd62d2cf991a85a34d3a17"
+        url "https://cdn.azul.com/zulu/bin/zulu11.52.13-ca-jdk11.0.13-macosx_aarch64.tar.gz"
+        sha256 "eb8d593a61a9461a554e7bb1d67bca0f94242273f1d01a13f58c20c269b35fe5"
       else
         url "https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_osx-x64_bin.tar.gz"
         sha256 "77ea7675ee29b85aa7df138014790f91047bfdafbc997cb41a1030a0417356d7"
@@ -51,17 +51,11 @@ class OpenjdkAT11 < Formula
     end
   end
 
-  # backport https://github.com/openjdk/jdk11u-dev/pull/46
-  patch do
-    url "https://github.com/openjdk/jdk11u-dev/commit/e44258cd04fb8d1ea727d322a0e661e44306ec57.patch?full_index=1"
-    sha256 "64ac56423da1d09013e4b14246fca60cb0551bda3fc2abcc23213e11f4ad709d"
-  end
-
   if Hardware::CPU.arm?
     # Patch for Apple Silicon support
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/98437cc36b2965460828f9014e69c6388aef86fa/openjdk%4011/aarch64.diff"
-      sha256 "6b3b1dd7e3a40e027a9fb80f5de4548ca075b217cd875d9db8bd858746ba7343"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/92c00c116a39c1c48c3fb2e41aa42f7b50b7807f/openjdk%4011/aarch64.diff"
+      sha256 "cb0bc7396d29816bd7043023d1179c2bbbf8c3d1daea7a51ca0cb29fed4f875f"
     end
   end
 
