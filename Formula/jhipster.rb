@@ -16,16 +16,13 @@ class Jhipster < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9a71d97817ac9dc2c5fa1ca16603df3e99923fc34b7b5fc96c3a684d1cfdb77"
   end
 
-  depends_on "node@14"
+  depends_on "node"
   depends_on "openjdk"
 
   def install
-    node = Formula["node@14"]
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
-    env = { PATH: "#{node.opt_bin}:$PATH" }
-    env.merge! Language::Java.overridable_java_home_env
-    bin.env_script_all_files libexec/"bin", env
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do
