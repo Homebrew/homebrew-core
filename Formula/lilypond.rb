@@ -1,8 +1,6 @@
 class Lilypond < Formula
   desc "Music engraving program"
   homepage "https://lilypond.org"
-  url "https://lilypond.org/download/sources/v2.22/lilypond-2.22.1.tar.gz"
-  sha256 "72ac2d54c310c3141c0b782d4e0bef9002d5519cf46632759b1f03ef6969cc30"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-3.0-only",
@@ -11,6 +9,20 @@ class Lilypond < Formula
     :public_domain,
     "MIT",
   ]
+  revision 1
+
+  stable do
+    url "https://lilypond.org/download/sources/v2.22/lilypond-2.22.1.tar.gz"
+    sha256 "72ac2d54c310c3141c0b782d4e0bef9002d5519cf46632759b1f03ef6969cc30"
+
+    # Distinguishes Lilypond homebrew installation that uses Guile 2.2 while
+    # others use Guile 1.8.
+    # See https://gitlab.com/lilypond/lilypond/-/merge_requests/950
+    patch do
+      url "https://gitlab.com/lilypond/lilypond/-/commit/a6742d0aadb6ad4999dddd3b07862fe720fe4dbf.diff"
+      sha256 "2a3066c8ef90d5e92b1238ffb273a19920632b7855229810d472e2199035024a"
+    end
+  end
 
   livecheck do
     url "https://lilypond.org/source.html"
