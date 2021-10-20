@@ -25,12 +25,14 @@ class GitlabCiLocal < Formula
         HELLO: world
       build:
         stage: build
+        needs: []
         tags:
           - shared-docker
         script:
           - echo "HELLO"
       tag-docker-image:
         stage: tag
+        needs: [ build ]
         tags:
           - shared-docker
         script:
@@ -58,6 +60,10 @@ class GitlabCiLocal < Formula
         merge = refs/heads/master
     EOS
 
-    system "#{bin}/gitlab-ci-local", "--list"
+    assert_equal shell_output("#{bin}/gitlab-ci-local --list"), <<~OUTPUT
+      name              description  stage  when        allow_failure  needs
+      build                          build  on_success  false          []
+      tag-docker-image               tag    on_success  false          [build]
+    OUTPUT
   end
 end
