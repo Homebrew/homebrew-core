@@ -1,10 +1,10 @@
 class Iproute2 < Formula
   desc "Linux routing utilities"
-  homepage "https://github.com/shemminger/iproute2"
-  url "https://github.com/shemminger/iproute2/archive/refs/tags/v5.11.0.tar.gz"
-  sha256 "16b79e6ce65d4d5fd425cef2fd92a58c403a93faeeed0e0a3202b36a8e857d1f"
+  homepage "https://wiki.linuxfoundation.org/networking/iproute2"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/net/iproute2/iproute2-5.14.0.tar.xz"
+  sha256 "210fa785a52f3763c4287fd5ae63e246f6311bfaa48c424baab6d383bb7591d4"
   license "GPL-2.0-only"
-  head "https://github.com/shemminger/iproute2.git", branch: "main"
+  head "https://git.kernel.org/pub/scm/network/iproute2/iproute2.git", branch: "main"
 
   depends_on "bison" => :build
   depends_on "flex" => :build
