@@ -79,7 +79,10 @@ class Ldc < Formula
   end
 
   test do
+    # Don't set CC=llvm_clang since that won't be in PATH,
+    # nor should it be used for the test.
     ENV.method(DevelopmentTools.default_compiler).call
+
     (testpath/"test.d").write <<~EOS
       import std.stdio;
       void main() {
