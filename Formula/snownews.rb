@@ -22,6 +22,12 @@ class Snownews < Formula
   uses_from_macos "curl"
   uses_from_macos "libxml2"
 
+  # remove in next release
+  patch do
+    url "https://github.com/msharov/snownews/commit/a43c1811c2bd2921b7e44fd4b28b852915b45072.patch?full_index=1"
+    sha256 "cd64cd6d9493019496b100a71a8e6c10f33b63fb3d29b7863434bc2eee7cdd00"
+  end
+
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
