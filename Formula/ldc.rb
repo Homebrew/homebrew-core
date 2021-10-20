@@ -1,11 +1,10 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc-1.27.1-src.tar.gz"
-  sha256 "93c8f500b39823dcdabbd73e1bcb487a1b93cb9a60144b0de1c81ab50200e59c"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.28.0/ldc-1.28.0-src.tar.gz"
+  sha256 "17fee8bb535bcb8cda0a45947526555c46c045f302a7349cc8711b254e54cf09"
   license "BSD-3-Clause"
-  revision 2
-  head "https://github.com/ldc-developers/ldc.git"
+  head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
   livecheck do
     url :stable
@@ -34,11 +33,11 @@ class Ldc < Formula
   resource "ldc-bootstrap" do
     on_macos do
       if Hardware::CPU.intel?
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc2-1.27.1-osx-x86_64.tar.xz"
-        sha256 "52d9958c424683d93c61c791029934df6812f32f76872c6647269e8a55939e6b"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.28.0/ldc2-1.28.0-osx-x86_64.tar.xz"
+        sha256 "02472507de988c8b5dd83b189c6df3b474741546589496c2ff3d673f26b8d09a"
       else
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc2-1.27.1-osx-arm64.tar.xz"
-        sha256 "d9b5a4c1dbcde921912c7a1a6a719fc8010318036bc75d844bafe20b336629db"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.28.0/ldc2-1.28.0-osx-arm64.tar.xz"
+        sha256 "f9786b8c28d8af1fdd331d8eb889add80285dbebfb97ea47d5dd9110a7df074b"
       end
     end
 
@@ -80,6 +79,7 @@ class Ldc < Formula
   end
 
   test do
+    ENV.method(DevelopmentTools.default_compiler).call
     (testpath/"test.d").write <<~EOS
       import std.stdio;
       void main() {
