@@ -1,9 +1,9 @@
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=ant/binaries/apache-ant-1.10.11-bin.tar.xz"
-  mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.11-bin.tar.xz"
-  sha256 "baa049855cdecbefa62539555824058e52412e5ebe8f102e1db944cb762e06d9"
+  url "https://www.apache.org/dyn/closer.lua?path=ant/binaries/apache-ant-1.10.12-bin.tar.xz"
+  mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.12-bin.tar.xz"
+  sha256 "6115c940367e50755cf806de5816f20a1db1321b1cb734e2c34ab20ef6682b9b"
   license "Apache-2.0"
   head "https://git-wip-us.apache.org/repos/asf/ant.git", branch: "master"
 
