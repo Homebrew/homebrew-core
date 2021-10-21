@@ -9,17 +9,12 @@ class Dstat < Formula
   license "GPL-2.0-only"
   head "https://github.com/dstat-real/dstat.git", branch: "master"
 
-  depends_on "python@3.9"
   depends_on :linux
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
+  depends_on "python@3.9"
+  depends_on "six"
 
   def install
     venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resource("six")
     rewrite_shebang python_shebang_rewrite_info("#{libexec}/bin/python3"), "dstat"
 
     # NOTE: add pkgshare to dstat plugin path
