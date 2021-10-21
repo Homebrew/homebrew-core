@@ -14,7 +14,7 @@ class Dstat < Formula
   depends_on "six"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    virtualenv_create(libexec, "python3")
     rewrite_shebang python_shebang_rewrite_info("#{libexec}/bin/python3"), "dstat"
 
     # NOTE: add pkgshare to dstat plugin path
