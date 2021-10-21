@@ -28,6 +28,13 @@ class ImapUw < Formula
 
   on_linux do
     depends_on "linux-pam"
+
+    # This patch is from Debian, for building shared c-client library on Linux
+    # https://salsa.debian.org/holmgren/uw-imap/tree/master/debian/patches
+    patch do
+      url "https://salsa.debian.org/holmgren/uw-imap/raw/master/debian/patches/1001_shlibs.patch"
+      sha256 "9dfc0eb969e87a12daa50fe7418c9863749abf1ae36bafc7a67d6ba5cba8747e"
+    end
   end
 
   # Two patches below are from Debian, to fix OpenSSL 1.1 compatibility
@@ -57,12 +64,14 @@ class ImapUw < Formula
     # Skip IPv6 warning on Linux as libc should be IPv6 safe.
     touch "ip6"
 
-    target = if OS.mac?
-      "oxp"
+    if OS.mac?
+      system "make", "oxp"
     else
-      "ldb"
+      system "make", "ldbs"
+      lib.install "c-client/libc-client.so"
+      system "make", "clean"
+      system "make", "ldb"
     end
-    system "make", target
 
     # email servers:
     sbin.install "imapd/imapd", "ipopd/ipop2d", "ipopd/ipop3d"
