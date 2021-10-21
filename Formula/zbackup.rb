@@ -13,6 +13,9 @@ class Zbackup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "32bbbc5a45c4080a4ef11da4e318c13f60ca4f9884a3c145f9e4897c67e82d6a"
   end
 
+  # No new commits since 2016, no sign a activity since 2020
+  deprecate! date: "2021-10-21", because: :unmaintained
+
   depends_on "cmake" => :build
   depends_on "lzo"
   depends_on "openssl@1.1"
