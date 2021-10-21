@@ -4,6 +4,7 @@ class Chapel < Formula
   url "https://github.com/chapel-lang/chapel/releases/download/1.25.0/chapel-1.25.0.tar.gz"
   sha256 "39f43fc6de98e3b1dcee9694fdd4abbfb96cc941eff97bbaa86ee8ad88e9349b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 big_sur:      "beda2be8596ab9a15e88cbd19c5b0289ab15b88d7f63c56d61bb863137276c7a"
@@ -44,20 +45,16 @@ class Chapel < Formula
       rm_rf("third-party/libunwind/libunwind-1.1.tar.gz")
     end
 
-    prefix.install_metafiles
-
     # Install chpl and other binaries (e.g. chpldoc) into bin/ as exec scripts.
-    platform = if OS.mac?
-      "darwin-x86_64"
-    elsif Hardware::CPU.is_64_bit?
-      "linux64-x86_64"
+    platform = if OS.linux? && Hardware::CPU.is_64_bit?
+      "linux64-#{Hardware::CPU.arch}"
     else
-      "linux-x86_64"
+      "#{OS.kernel_name.downcase}-#{Hardware::CPU.arch}"
     end
 
-    bin.install Dir[libexec/"bin/#{platform}/*"]
-    bin.env_script_all_files libexec/"bin/#{platform}/", CHPL_HOME: libexec
-    man1.install_symlink Dir["#{libexec}/man/man1/*.1"]
+    bin.install libexec.glob("bin/#{platform}/*")
+    bin.env_script_all_files libexec/"bin"/platform, CHPL_HOME: libexec
+    man1.install_symlink libexec.glob("man/man1/*.1")
   end
 
   test do
@@ -65,5 +62,6 @@ class Chapel < Formula
     cd libexec do
       system "util/test/checkChplInstall"
     end
+    system bin/"chpl", "--print-passes", "--print-commands", libexec/"examples/hello.chpl"
   end
 end
