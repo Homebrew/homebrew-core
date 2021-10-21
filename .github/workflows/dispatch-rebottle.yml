@@ -32,7 +32,7 @@ jobs:
   bottle:
     strategy:
       matrix:
-        version: ["11-arm64", "11", "10.15", "10.14"]
+        version: ["12-arm64", "12", "11-arm64", "11", "10.15"]
       fail-fast: ${{fromJson(github.event.inputs.fail-fast)}}
     runs-on: ${{ matrix.version }}
     timeout-minutes: ${{fromJson(github.event.inputs.timeout)}}
