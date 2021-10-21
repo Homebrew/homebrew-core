@@ -27,11 +27,13 @@ class Terminalizer < Formula
   end
 
   test do
-    output = shell_output("#{bin}/terminalizer --version")
-    assert_match version.to_s, output.strip
+    unless Hardware::CPU.arm?
+      output = shell_output("#{bin}/terminalizer --version")
+      assert_match version.to_s, output.strip
 
-    output = shell_output("#{bin}/terminalizer config")
-    assert_match "config.yml", output.strip
-    assert_predicate testpath/"config.yml", :exist?
+      output = shell_output("#{bin}/terminalizer config")
+      assert_match "config.yml", output.strip
+      assert_predicate testpath/"config.yml", :exist?
+    end
   end
 end
