@@ -67,7 +67,7 @@ class Sysdig < Formula
     end
 
     # We need C++17 to use Abseil.
-    args += %w[-DBUILD_DRIVER=OFF -DCMAKE_CXX_STANDARD=17] if OS.linux?
+    args << "-DBUILD_DRIVER=OFF" if OS.linux?
 
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
