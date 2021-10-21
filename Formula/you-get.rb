@@ -6,6 +6,7 @@ class YouGet < Formula
   url "https://files.pythonhosted.org/packages/3d/e0/df190bb3752f6e2f287e07178e6ff0ff8cb0c1f55f5c5fa46435f12bbc61/you-get-0.4.1545.tar.gz"
   sha256 "63e9b0527424c565303fe3d8ede1cd35d48a4ecf4afe72e1c12b0e90b9fdcd39"
   license "MIT"
+  revision 1
   head "https://github.com/soimort/you-get.git", branch: "develop"
 
   bottle do
@@ -18,7 +19,7 @@ class YouGet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f334ada5d5ee92a53bd314ffc0d911cf408c869585bec064c1a656851a83a7a6"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "rtmpdump"
 
   def install
