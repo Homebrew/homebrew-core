@@ -14,9 +14,9 @@ class CargoOutdated < Formula
     sha256 cellar: :any, mojave:        "328e96693648cd956cbe001f87d527a45cbe4318e3e4f1f2b28d89d44681f852"
   end
 
+  depends_on "rust" => [:build, :test]
   depends_on "libgit2"
   depends_on "openssl@1.1"
-  depends_on "rust"
 
   # Update `libgit2-sys` crate for Libgit2 1.2.0 support
   # https://github.com/kbknapp/cargo-outdated/issues/279
