@@ -4,7 +4,7 @@ class Yosys < Formula
   url "https://github.com/YosysHQ/yosys/archive/yosys-0.10.tar.gz"
   sha256 "eeec77e1983fd978fbff0257c4f4fb0d9bc07e403a13b9fc467878df3467b191"
   license "ISC"
-  revision 1
+  revision 2
   head "https://github.com/YosysHQ/yosys.git", branch: "master"
 
   bottle do
@@ -18,7 +18,7 @@ class Yosys < Formula
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libffi"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "readline"
 
   uses_from_macos "flex"
