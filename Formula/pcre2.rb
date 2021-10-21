@@ -24,7 +24,10 @@ class Pcre2 < Formula
     end
 
     # https://lists.gnu.org/archive/html/libtool-patches/2020-06/msg00001.html
-    patch :p0, :DATA
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
   end
 
   livecheck do
@@ -75,28 +78,3 @@ class Pcre2 < Formula
     system bin/"pcre2grep", "regular expression", prefix/"README"
   end
 end
-
-__END__
---- configure.orig	2021-10-01 08:15:08.000000000 -0700
-+++ configure	2021-10-20 12:44:47.000000000 -0700
-@@ -8733,16 +8733,11 @@
-       _lt_dar_allow_undefined='$wl-undefined ${wl}suppress' ;;
-     darwin1.*)
-       _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--    darwin*) # darwin 5.x on
--      # if running on 10.5 or later, the deployment target defaults
--      # to the OS version, if on x86, and 10.4, the deployment
--      # target defaults to 10.4. Don't you love it?
--      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
--	10.0,*86*-darwin8*|10.0,*-darwin[91]*)
--	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
--	10.[012][,.]*)
-+    darwin*)
-+      case ${MACOSX_DEPLOYMENT_TARGET},$host in
-+	10.[012],*|,*powerpc*)
- 	  _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--	10.*)
-+	*)
- 	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
-       esac
-     ;;
