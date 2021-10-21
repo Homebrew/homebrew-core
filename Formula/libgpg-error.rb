@@ -35,7 +35,10 @@ class LibgpgError < Formula
   # release.
   #
   # https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgpg-error.git;a=commit;h=a3987e44970505a5540f9702c1e41292c22b69cf
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -52,28 +55,3 @@ class LibgpgError < Formula
     system "#{bin}/gpg-error-config", "--libs"
   end
 end
-
-__END__
---- libgpg-error-1.42/configure.orig	2021-09-26 09:39:54.000000000 -0700
-+++ libgpg-error-1.42/configure	2021-09-26 09:40:56.000000000 -0700
-@@ -8427,16 +8427,11 @@
-       _lt_dar_allow_undefined='${wl}-undefined ${wl}suppress' ;;
-     darwin1.*)
-       _lt_dar_allow_undefined='${wl}-flat_namespace ${wl}-undefined ${wl}suppress' ;;
--    darwin*) # darwin 5.x on
--      # if running on 10.5 or later, the deployment target defaults
--      # to the OS version, if on x86, and 10.4, the deployment
--      # target defaults to 10.4. Don't you love it?
--      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
--	10.0,*86*-darwin8*|10.0,*-darwin[91]*)
--	  _lt_dar_allow_undefined='${wl}-undefined ${wl}dynamic_lookup' ;;
--	10.[012]*)
-+    darwin*)
-+      case ${MACOSX_DEPLOYMENT_TARGET},$host in
-+        10.[012],*|,*powerpc*)
- 	  _lt_dar_allow_undefined='${wl}-flat_namespace ${wl}-undefined ${wl}suppress' ;;
--	10.*)
-+	*)
- 	  _lt_dar_allow_undefined='${wl}-undefined ${wl}dynamic_lookup' ;;
-       esac
-     ;;
