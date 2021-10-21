@@ -5,6 +5,7 @@ class Zeek < Formula
       tag:      "v4.1.1",
       revision: "70e95dde8817f7d891cf63592b49b88fad21beb9"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/zeek/zeek.git", branch: "master"
 
   bottle do
@@ -23,7 +24,7 @@ class Zeek < Formula
   depends_on "libmaxminddb"
   depends_on macos: :mojave
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "flex"
   uses_from_macos "libpcap"
