@@ -6,6 +6,7 @@ class Yamllint < Formula
   url "https://files.pythonhosted.org/packages/9d/3d/f313c341f0592d23bd7dfe24e46af0d16a796cd865d5ac0041bb200f9cc4/yamllint-1.26.3.tar.gz"
   sha256 "3934dcde484374596d6b52d8db412929a169f6d9e52e20f9ade5bf3523d9b96e"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/adrienverge/yamllint.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Yamllint < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "pathspec" do
     url "https://files.pythonhosted.org/packages/f6/33/436c5cb94e9f8902e59d1d544eb298b83c84b9ec37b5b769c5a0ad6edb19/pathspec-0.9.0.tar.gz"
