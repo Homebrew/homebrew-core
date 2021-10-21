@@ -6,7 +6,7 @@ class Whatmp3 < Formula
   url "https://github.com/RecursiveForest/whatmp3/archive/v3.8.tar.gz"
   sha256 "0d8ba70a1c72835663a3fde9ba8df0ff7007268ec0a2efac76c896dea4fcf489"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/RecursiveForest/whatmp3.git", branch: "master"
 
   bottle do
@@ -21,7 +21,7 @@ class Whatmp3 < Formula
   depends_on "flac"
   depends_on "lame"
   depends_on "mktorrent"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
