@@ -22,6 +22,12 @@ class Gdbm < Formula
     sha256 "09813e4a01a74fb1c510abbd98abd53c18f5dfb4e66475969f4b173b4ff96935"
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
+
   # --enable-libgdbm-compat for dbm.h / gdbm-ndbm.h compatibility:
   #   https://www.gnu.org.ua/software/gdbm/manual/html_chapter/gdbm_19.html
   # Use --without-readline because readline detection is broken in 1.13
