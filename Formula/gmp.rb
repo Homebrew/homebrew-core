@@ -1,11 +1,20 @@
 class Gmp < Formula
   desc "GNU multiple precision arithmetic library"
   homepage "https://gmplib.org/"
-  url "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
-  sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
   license any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"]
   revision 1
+
+  stable do
+    url "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
+    mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
+    sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   livecheck do
     url "https://gmplib.org/download/gmp/"
