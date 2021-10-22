@@ -1,11 +1,11 @@
 class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
-  url "https://github.com/TASVideos/fceux.git",
-      tag:      "fceux-2.4.0",
-      revision: "941da60ecb283263a3810ed199d80abf94bd6494"
+  url "https://github.com/TASEmulators/fceux.git",
+      tag:      "fceux-2.5.0",
+      revision: "6c3a31a4f2c09be297a32f510e74b383f858773b"
   license "GPL-2.0-only"
-  head "https://github.com/TASVideos/fceux.git"
+  head "https://github.com/TASEmulators/fceux.git"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "3d03e8b04207f50eb560c5cb0343ec6600565bc24cf8b2dba1abb2f42e4ef288"
@@ -20,6 +20,7 @@ class Fceux < Formula
   depends_on "qt@5"
   depends_on "sdl2"
   depends_on "x264"
+  depends_on "ffmpeg"
 
   def install
     ENV["CXXFLAGS"] = "-DPUBLIC_RELEASE=1" if build.stable?
