@@ -1,8 +1,8 @@
 class Torchvision < Formula
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "4d595cf0214c8adc817f8e3cd0043a027b52b481e05d67b04f4947fcb43d4277"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "32a06ccf755e4d75006ce03701f207652747a63dbfdf65f0f20a1b6f93a2e834"
   license "BSD-3-Clause"
 
   bottle do
