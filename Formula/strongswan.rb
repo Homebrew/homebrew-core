@@ -30,6 +30,12 @@ class Strongswan < Formula
 
   depends_on "openssl@1.1"
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
@@ -48,10 +54,8 @@ class Strongswan < Formula
       --enable-ikev1
       --enable-ikev2
       --enable-kernel-pfkey
-      --enable-kernel-pfroute
       --enable-nonce
       --enable-openssl
-      --enable-osx-attr
       --enable-pem
       --enable-pgp
       --enable-pkcs1
@@ -69,6 +73,8 @@ class Strongswan < Formula
       --enable-x509
       --enable-xauth-generic
     ]
+
+    args << "--enable-kernel-pfroute" << "--enable-osx-attr" if OS.mac?
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
