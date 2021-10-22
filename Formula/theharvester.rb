@@ -6,6 +6,7 @@ class Theharvester < Formula
   url "https://github.com/laramies/theHarvester/archive/4.0.1.tar.gz"
   sha256 "99bce3c0bfd5337f646f9721dc58f4782c2c0d4da73422c6ed3c95dff67d7e7e"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
