@@ -16,11 +16,11 @@ class Fceux < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "ffmpeg"
   depends_on "minizip"
   depends_on "qt@5"
   depends_on "sdl2"
   depends_on "x264"
-  depends_on "ffmpeg"
 
   def install
     ENV["CXXFLAGS"] = "-DPUBLIC_RELEASE=1" if build.stable?
