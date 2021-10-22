@@ -118,6 +118,9 @@
   "flintrock": {
     "exclude_packages": ["six"]
   },
+  "gimme-aws-creds": {
+    "exclude_packages": ["six"]
+  },
   "homeassistant-cli": {
     "exclude_packages": ["tabulate"]
   },
