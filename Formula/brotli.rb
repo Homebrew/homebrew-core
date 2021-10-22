@@ -6,6 +6,7 @@ class Brotli < Formula
   mirror "http://fresh-center.net/linux/misc/legacy/brotli-1.0.9.tar.gz"
   sha256 "f9e8d81d0405ba66d181529af42a3354f838c939095ff99930da6aa9cdf6fe46"
   license "MIT"
+  revision 1
   head "https://github.com/google/brotli.git", branch: "master"
 
   bottle do
@@ -22,7 +23,7 @@ class Brotli < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DCMAKE_INSTALL_NAME_DIR=#{opt_lib}", *std_cmake_args
     system "make", "VERBOSE=1"
     system "ctest", "-V"
     system "make", "install"
