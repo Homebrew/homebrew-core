@@ -20,6 +20,12 @@ class Vde < Formula
     sha256 x86_64_linux:  "d0ecff46c013cef96a1a32d6fd45d415a32dbd300932d2eb352f969445ce251c"
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-python"
     # 2.3.1 built in parallel but 2.3.2 does not. See:
