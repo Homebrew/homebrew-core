@@ -1,10 +1,19 @@
 class Libmpc < Formula
   desc "C library for the arithmetic of high precision complex numbers"
   homepage "http://www.multiprecision.org/mpc/"
-  url "https://ftp.gnu.org/gnu/mpc/mpc-1.2.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mpc/mpc-1.2.1.tar.gz"
-  sha256 "17503d2c395dfcf106b622dc142683c1199431d095367c6aacba6eec30340459"
   license "LGPL-3.0-or-later"
+
+  stable do
+    url "https://ftp.gnu.org/gnu/mpc/mpc-1.2.1.tar.gz"
+    mirror "https://ftpmirror.gnu.org/mpc/mpc-1.2.1.tar.gz"
+    sha256 "17503d2c395dfcf106b622dc142683c1199431d095367c6aacba6eec30340459"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "6a93bd78c1b55f8b29e11fd1e9c68c6c305ffe74aa5b978ba93189b6d84d1451"
