@@ -20,7 +20,8 @@ class TerminalNotifier < Formula
   depends_on :macos
 
   def install
-    xcodebuild "-project", "Terminal Notifier.xcodeproj",
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-project", "Terminal Notifier.xcodeproj",
                "-target", "terminal-notifier",
                "SYMROOT=build",
                "-verbose",
