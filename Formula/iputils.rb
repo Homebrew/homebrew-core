@@ -8,8 +8,8 @@ class Iputils < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "libxslt"
   depends_on :linux
-  uses_from_macos "libxslt"
 
   def install
     args = %w[
