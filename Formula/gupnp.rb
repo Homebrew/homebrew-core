@@ -6,6 +6,7 @@ class Gupnp < Formula
   url "https://download.gnome.org/sources/gupnp/1.4/gupnp-1.4.0.tar.xz"
   sha256 "590ffb02b84da2a1aec68fd534bc40af1b37dd3f6223f9d1577fc48ab48be36f"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
