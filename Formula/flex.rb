@@ -1,10 +1,19 @@
 class Flex < Formula
   desc "Fast Lexical Analyzer, generates Scanners (tokenizers)"
   homepage "https://github.com/westes/flex"
-  url "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz"
-  sha256 "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
   license "BSD-2-Clause"
   revision 2
+
+  stable do
+    url "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz"
+    sha256 "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
     sha256 arm64_big_sur: "ba78304da35f69526d386e1d1decca8818b155b4dda4f470d9393d23cf713e11"
@@ -24,7 +33,7 @@ class Flex < Formula
     depends_on "gnu-sed" => :build
 
     depends_on "libtool" => :build
-    depends_on :macos
+    depends_on :macos # Needs a pre-existing `flex` to bootstrap.
   end
 
   keg_only :provided_by_macos
