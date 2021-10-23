@@ -209,6 +209,7 @@ jobs:
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git fetch origin ${{github.sha}} '+refs/heads/*:refs/remotes/origin/*'
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git remote set-head origin --auto
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git checkout --force -B master FETCH_HEAD
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git clean -dfx
 
       - name: Set up Homebrew
         id: set-up-homebrew
