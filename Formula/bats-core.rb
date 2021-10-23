@@ -1,8 +1,8 @@
 class BatsCore < Formula
   desc "Bash Automated Testing System"
   homepage "https://github.com/bats-core/bats-core"
-  url "https://github.com/bats-core/bats-core/archive/v1.4.1.tar.gz"
-  sha256 "bff517da043ae24440ec8272039f396c2a7907076ac67693c0f18d4a17c08f7d"
+  url "https://github.com/bats-core/bats-core/archive/v1.5.0.tar.gz"
+  sha256 "36a3fd4413899c0763158ae194329af8f48bb1ff0d1338090b80b3416d5793af"
   license "MIT"
 
   bottle do
