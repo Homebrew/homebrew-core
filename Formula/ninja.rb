@@ -50,9 +50,9 @@ class Ninja < Formula
     system bin/"ninja", "-t", "targets"
     port = free_port
     fork do
-      exec bin/"ninja", "-t", "browse", "--port=#{port}", "--no-browser", "foo.o"
+      exec bin/"ninja", "-t", "browse", "--port=#{port}", "--hostname=127.0.0.1", "--no-browser", "foo.o"
     end
     sleep 2
-    assert_match "foo.c", shell_output("curl -s http://localhost:#{port}?foo.o")
+    assert_match "foo.c", shell_output("curl -s http://127.0.0.1:#{port}?foo.o")
   end
 end
