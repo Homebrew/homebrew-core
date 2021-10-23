@@ -51,7 +51,7 @@ class Lammps < Formula
         end
 
         system "make", "yes-basic"
-    
+
         system "make", variant,
                        "LMP_INC=-DLAMMPS_GZIP",
                        "FFT_INC=-DFFT_FFTW3 -I#{Formula["fftw"].opt_include}",
