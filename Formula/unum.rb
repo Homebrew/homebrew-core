@@ -8,7 +8,7 @@ class Unum < Formula
 
   livecheck do
     url "https://www.fourmilab.ch/webtools/unum/prior-releases/"
-    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    regex(%r{href=["']?v?(\d+(?:[.-]\d+)+)/?["' >]}i)
   end
 
   bottle do
