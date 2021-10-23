@@ -8,14 +8,12 @@ class Iputils < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "libcap"
+  uses_from_macos "libxslt"
   depends_on :linux
 
   def install
-    ENV.prepend_path "PATH", Formula["libcap"].sbin
-
     args = %w[
-      -DBUILD_MANS=false
+      -DBUILD_MANS=true
       -DUSE_CAP=false
     ]
     mkdir "build" do
