@@ -6,6 +6,7 @@ class Nbdime < Formula
   url "https://files.pythonhosted.org/packages/b5/22/28dc0e5e34255d17a47f3050d9a02ce783ab72b32db0b6c9cb5a38c367de/nbdime-3.1.0.tar.gz"
   sha256 "12dc4390b355b26d07ac8d11d50efbcb54bae0ad5842b817131babd2f4567963"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b4bee1948bc2e4764831da2c9357c88b032b4c0cc53b43e7d0e131a47dfac86"
