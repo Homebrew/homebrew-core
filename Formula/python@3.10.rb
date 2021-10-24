@@ -1,7 +1,6 @@
 class PythonAT310 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  # Keep in sync with python-tk@3.10.
   url "https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz"
   sha256 "c4e0cbad57c90690cb813fb4663ef670b4d0f587d8171e2c42bd4c9245bd2758"
   license "Python-2.0"
