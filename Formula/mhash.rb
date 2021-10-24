@@ -21,7 +21,13 @@ class Mhash < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "32a5e81c29e8407754448e5aa7f1f8ea2328bc5ce266ab5f3b350e3174373900"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
+    # Regenerate the very old configure script that isn't suitable for modern macOS.
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
