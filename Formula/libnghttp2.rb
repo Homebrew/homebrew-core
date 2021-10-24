@@ -1,7 +1,6 @@
 class Libnghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  # Keep in sync with nghttp2.
   url "https://github.com/nghttp2/nghttp2/releases/download/v1.46.0/nghttp2-1.46.0.tar.gz"
   mirror "http://fresh-center.net/linux/www/nghttp2-1.46.0.tar.gz"
   mirror "http://fresh-center.net/linux/www/legacy/nghttp2-1.46.0.tar.gz"
