@@ -75,7 +75,7 @@ jobs:
               core.setOutput('syntax-only', 'false')
             }
 
-            const runners = ["11-arm64", "11", "10.15"]
+            const runners = ["12-arm64", "12", "11-arm64", "11", "10.15"]
             if (label_names.includes('CI-linux-self-hosted')) {
               runners.push('linux-self-hosted-1')
             } else {
