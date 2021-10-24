@@ -6,7 +6,7 @@ class CharmTools < Formula
   url "https://files.pythonhosted.org/packages/24/05/211a1656f72908afa84635c9a0b73aebf4edfcc1a3c5c0d71ec96bf20068/charm-tools-2.8.3.tar.gz"
   sha256 "ff03c7fd61ce1355f02845c9631ecd01828dfabc29a94566d74f2b35e6d3ea68"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "fa2b66df536d7dfcbc8a1c4bd39041d9ac81e020f73df6b35d4f2b11ddcd36bf"
