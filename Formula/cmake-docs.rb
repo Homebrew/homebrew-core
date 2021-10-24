@@ -1,7 +1,6 @@
 class CmakeDocs < Formula
   desc "Documentation for CMake"
   homepage "https://www.cmake.org/"
-  # Keep in sync with cmake.
   url "https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3.tar.gz"
   mirror "http://fresh-center.net/linux/misc/cmake-3.21.3.tar.gz"
   mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.21.3.tar.gz"
