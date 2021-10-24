@@ -1,3 +1,4 @@
+# :-)
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
   homepage "https://libzip.org/"
