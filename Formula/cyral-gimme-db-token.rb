@@ -2,10 +2,11 @@ class CyralGimmeDbToken < Formula
   include Language::Python::Virtualenv
 
   desc "Eases using Cyral for SSO login to databases"
-  homepage "https://cyral.com/docs/repo-connect#cli-token-retriever-for-sso"
+  homepage "https://cyral.com/docs/connect/repo-connect/#cli-token-retriever-for-sso"
   url "https://files.pythonhosted.org/packages/18/05/afa2028e15ac618cb643001f8b4ede33f803307d30e9133286761a27eff1/cyral-gimme-db-token-0.5.0.tar.gz"
   sha256 "df75d7e74545a3ebb32cc96279d42180cfdfc44d5a4b9def15b477ebcd9fc8c1"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "317198a01a7721ce0d5bd63ead093613cfc1b05ff2ad5e141b0b0a24a21d2132"
