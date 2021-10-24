@@ -1,7 +1,6 @@
 class OpenexrAT2 < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  # NOTE: Please keep these values in sync with ilmbase.rb when updating.
   url "https://github.com/openexr/openexr/archive/v2.5.7.tar.gz"
   sha256 "36ecb2290cba6fc92b2ec9357f8dc0e364b4f9a90d727bf9a57c84760695272d"
   license "BSD-3-Clause"
