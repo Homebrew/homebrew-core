@@ -1,10 +1,10 @@
-name: Dispatch build bottle (for a single OS/version)
+name: Dispatch build bottle (for chosen OS versions)
 
 on:
   workflow_dispatch:
     inputs:
       runner:
-        description: Build runner (macOS version or Linux)
+        description: Build runner(s) (macOS version or Linux)
         required: true
       formula:
         description: Formula name
@@ -31,8 +31,25 @@ env:
   HOMEBREW_RELOCATE_RPATHS: 1
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      runners: ${{steps.runner-matrix.outputs.result}}
+    steps:
+      - name: Prepare runner matrix
+        id: runner-matrix
+        uses: actions/github-script@v5
+        with:
+          script: |
+            return context.payload.inputs.runner.split(",")
+                                                .map(s => s.trim())
+                                                .filter(Boolean);
   bottle:
-    runs-on: ${{github.event.inputs.runner}}
+    needs: prepare
+    strategy:
+      matrix:
+        runner: ${{fromJson(needs.prepare.outputs.runners)}}
+    runs-on: ${{matrix.runner}}
     timeout-minutes: ${{fromJson(github.event.inputs.timeout)}}
     defaults:
       run:
