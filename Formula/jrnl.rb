@@ -6,6 +6,7 @@ class Jrnl < Formula
   url "https://files.pythonhosted.org/packages/82/95/0853c227abcbead539b624cd0c98f959f141e261dbe7c9be350aecdfdbfe/jrnl-2.8.3.tar.gz"
   sha256 "089c7f2e61c31809b96efc4e3d3ae9fcc6354257e27406754f3a4a1a37029574"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "123fd14a6223ca29550681166708c2e2aab02e6004edb037f742b5b53a515dde"
