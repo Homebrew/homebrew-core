@@ -8,10 +8,6 @@ class VapoursynthOcr < Formula
 
   head "https://github.com/vapoursynth/vs-ocr.git", branch: "master"
 
-  livecheck do
-    formula "vapoursynth"
-  end
-
   bottle do
     sha256 cellar: :any, arm64_monterey: "a7a6a9f8639cb97e67fb5e6bdd7d8571303adf861e9c509078844594db1b036c"
     sha256 cellar: :any, arm64_big_sur:  "abef84d6213651b91d9e60d32ae065b3227de72a2371f97266825b81f50d7148"
