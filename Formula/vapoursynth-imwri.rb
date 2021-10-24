@@ -8,10 +8,6 @@ class VapoursynthImwri < Formula
 
   head "https://github.com/vapoursynth/vs-imwri.git", branch: "master"
 
-  livecheck do
-    formula "vapoursynth"
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "080c31181821b981cf47e913b5b91d99e36ed648c5c0bfc8a8ea7200e297f9ab"
     sha256 cellar: :any, big_sur:       "ef9f021e687b36a382c2f589b60c5c21fec61a25b687d555162be857a607b04e"
