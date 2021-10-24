@@ -6,6 +6,7 @@ class Mathlibtools < Formula
   url "https://files.pythonhosted.org/packages/9a/b7/7573048414f976707625d0bacbf00b7fba86f7fcf7b47e2166adbbafb679/mathlibtools-1.1.0.tar.gz"
   sha256 "789f070f35424e89e4f2e2c007382250133cc48877627e37c5c463bcf4a1b58a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8bec2c2e4e94150e09d5c3c9d5869e79911d8cfcbab4d02f35b87404dc5f7e25"
