@@ -16,6 +16,11 @@ class Pympress < Formula
   end
 
   depends_on "gobject-introspection"
+  depends_on "gst-plugins-bad"
+  depends_on "gst-plugins-base"
+  depends_on "gst-plugins-good"
+  depends_on "gst-plugins-ugly"
+  depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "libyaml"
   depends_on "poppler"
