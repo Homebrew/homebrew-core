@@ -1,6 +1,6 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
-  homepage "https://developer.mozilla.org/docs/Mozilla/Projects/NSPR"
+  homepage "https://hg.mozilla.org/projects/nspr"
   url "https://archive.mozilla.org/pub/nspr/releases/v4.32/src/nspr-4.32.tar.gz"
   sha256 "bb6bf4f534b9559cf123dcdc6f9cd8167de950314a90a88b2a329c16836e7f6c"
   license "MPL-2.0"
