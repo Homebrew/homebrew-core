@@ -32,7 +32,8 @@ class Djview4 < Formula
                           "--prefix=#{prefix}",
                           "--with-x=no",
                           "--disable-nsdejavu",
-                          "--disable-desktopfiles"
+                          "--disable-desktopfiles",
+                          "--with-tiff=#{Formula["libtiff"].opt_prefix}"
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
 
     # From the djview4.8 README:
