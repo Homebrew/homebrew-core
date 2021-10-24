@@ -1,16 +1,10 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/rel8.00.tar.gz"
-  sha256 "906d5325798cd0985a634e9b6b5c76c6810f3f3b8e98b80a7c30b899082c2332"
+  url "https://github.com/camlp5/camlp5/archive/rel8.00.02.tar.gz"
+  sha256 "3c8c5c574b739cd9e4f0fd4881625ec4c67b456b64fc04ed2882e89a724577fd"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/camlp5/camlp5.git", branch: "master"
-
-  livecheck do
-    url :homepage
-    regex(%r{The current distributed version is <b>v?(\d+(?:\.\d+)+)</b>}i)
-  end
 
   bottle do
     sha256 arm64_big_sur: "549ee3a8bfbc3b3d6f466087562d15fd1e1b1b092786c488ae3109c19b1ca50d"
