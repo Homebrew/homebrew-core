@@ -6,7 +6,7 @@ class Gitfs < Formula
   url "https://github.com/presslabs/gitfs/archive/0.5.2.tar.gz"
   sha256 "921e24311e3b8ea3a5448d698a11a747618ee8dd62d5d43a85801de0b111cbf3"
   license "Apache-2.0"
-  revision 7
+  revision 8
   head "https://github.com/presslabs/gitfs.git"
 
   bottle do
