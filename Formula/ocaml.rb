@@ -13,8 +13,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.12/ocaml-4.12.0.tar.xz"
-  sha256 "39ee9db8dc1e3eb65473dd81a71fabab7cc253dbd7b85e9f9b5b28271319bec3"
+  url "https://github.com/ocaml/ocaml/archive/4.13.1.tar.gz"
+  sha256 "194c7988cc1fd1c64f53f32f2f7551e5309e44d914d6efc7e2e4d002296aeac4"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
@@ -65,14 +65,14 @@ class Ocaml < Formula
 end
 
 __END__
---- configure.orig	2021-10-24 09:34:12.145636659 +0800
-+++ configure	2021-10-24 09:34:30.504944693 +0800
-@@ -13644,7 +13644,7 @@
- if test x"$enable_shared" != "xno"; then :
+--- configure.orig	2021-10-24 10:17:12.574800005 +0800
++++ configure	2021-10-24 10:17:27.660562710 +0800
+@@ -14030,7 +14030,7 @@
    case $host in #(
    *-apple-darwin*) :
--    mksharedlib="$CC -shared -flat_namespace -undefined suppress \
-+    mksharedlib="$CC -shared -undefined dynamic_lookup \
-                    -Wl,-no_compact_unwind"
+     mksharedlib="$CC -shared \
+-                   -flat_namespace -undefined suppress -Wl,-no_compact_unwind \
++                   -undefined dynamic_lookup -Wl,-no_compact_unwind \
+                    \$(LDFLAGS)"
        shared_libraries_supported=true ;; #(
    *-*-mingw32) :
