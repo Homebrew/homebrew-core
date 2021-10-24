@@ -6,6 +6,7 @@ class GimmeAwsCreds < Formula
   url "https://files.pythonhosted.org/packages/d9/c1/3b744022fe388e95d9f7011c26a1f5d2a844c1a49e385403350f3e9d0815/gimme%20aws%20creds-2.4.3.tar.gz"
   sha256 "4efd68f3e4f74672b4dc69595307a2abe34600f9d91ce18f202b069407fd0b69"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "e906f63ae3668981e1fec3afca1a4b2d8b875fb4cc4dcad6f0135c5ce84b16fb"
