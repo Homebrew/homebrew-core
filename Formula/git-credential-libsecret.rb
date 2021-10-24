@@ -1,7 +1,6 @@
 class GitCredentialLibsecret < Formula
   desc "Git helper for accessing credentials via libsecret"
   homepage "https://git-scm.com"
-  # NOTE: Please keep these values in sync with git.rb when updating.
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.1.tar.xz"
   sha256 "e054a6e6c2b088bd1bff5f61ed9ba5aa91c9a3cd509539a4b41c5ddf02201f2f"
   license "GPL-2.0-or-later"
