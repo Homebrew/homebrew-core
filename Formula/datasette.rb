@@ -2,8 +2,8 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/91/44/266a22a3b07461d4a63eee7205d74d08308c2d8b287cff0839be3e259241/datasette-0.59.tar.gz"
-  sha256 "819082894459858d63576ea58b02c44ce4cb78dd611cd514fb60297ab2625322"
+  url "https://files.pythonhosted.org/packages/3b/a4/94c7628bb167486190c4806c5d623cfe0376037197602db3b1716f92a9da/datasette-0.59.1.tar.gz"
+  sha256 "4e36b411811ce6c853483561c544dfc061bef1e59f183c696c9695b146ccc239"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git"
 
@@ -15,7 +15,8 @@ class Datasette < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1d909d0522386982b7445960f36d9c1131be2aaa626eb4eaaa3bae219a9606b"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+  depends_on "six"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/06/f0/af90f3fb4066b0707b6a5af3ffd5fd9b3809bbb52f0153a3c7550e594de3/aiofiles-0.7.0.tar.gz"
@@ -88,8 +89,8 @@ class Datasette < Formula
   end
 
   resource "janus" do
-    url "https://files.pythonhosted.org/packages/7c/1b/8769c2dca84dd8ca92e48b14750c7106ff4313df4fee651dbc3cd9e345a9/janus-0.6.1.tar.gz"
-    sha256 "4712e0ef75711fe5947c2db855bc96221a9a03641b52e5ae8e25c2b705dd1d0c"
+    url "https://files.pythonhosted.org/packages/fc/8e/92fcb2ff18797959cde050b7c96a713999f73feefde809bfdf18b5901174/janus-0.6.2.tar.gz"
+    sha256 "127edc891f9e13420dd12f230d5113fa3de7f93662b81acfaf845989edf5eebf"
   end
 
   resource "Jinja2" do
@@ -123,8 +124,8 @@ class Datasette < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/31/c9/b29ea153b9bffaae787ecc81873b4b51bd36cc13c37586b41891beae37eb/pyparsing-3.0.1.tar.gz"
+    sha256 "84196357aa3566d64ad123d7a3c67b0e597a115c4934b097580e5ce220b91531"
   end
 
   resource "python-baseconv" do
@@ -145,11 +146,6 @@ class Datasette < Formula
   resource "rfc3986" do
     url "https://files.pythonhosted.org/packages/79/30/5b1b6c28c105629cc12b33bdcbb0b11b5bb1880c6cfbd955f9e792921aa8/rfc3986-1.5.0.tar.gz"
     sha256 "270aaf10d87d0d4e095063c65bf3ddbc6ee3d0b226328ce21e036f946e421835"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "sniffio" do

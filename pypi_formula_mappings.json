@@ -76,6 +76,9 @@
   "datalad": {
     "exclude_packages": ["six"]
   },
+  "datasette": {
+    "exclude_packages": ["six"]
+  },
   "diffoscope": "diffoscope[cmdline]",
   "duplicity": {
     "extra_packages": [
