@@ -13,21 +13,17 @@ class Inxi < Formula
   end
 
   def install
+    # Ensure we have uniform bottles
+    inreplace %w[inxi inxi.changelog], "/usr/local", HOMEBREW_PREFIX
+
     bin.install "inxi"
     man1.install "inxi.1"
-
-    ["LICENSE.txt", "README.txt", "inxi.changelog"].each do |file|
-      prefix.install file
-    end
+    prefix.install "inxi.changelog"
   end
 
   test do
     inxi_output = shell_output("#{bin}/inxi")
-
-    uname = shell_output("uname").strip
-    assert_match uname.to_str, inxi_output.to_s
-
-    uname_r = shell_output("uname -r").strip
-    assert_match uname_r.to_str, inxi_output.to_s
+    assert_match OS.kernel_version.to_s, inxi_output.to_s
+    assert_match OS.kernel_name, inxi_output.to_s unless OS.linux?
   end
 end
