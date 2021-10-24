@@ -1,7 +1,6 @@
 class PythonAT39 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  # Keep in sync with python-tk@3.9.
   url "https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tar.xz"
   sha256 "f8145616e68c00041d1a6399b76387390388f8359581abc24432bb969b5e3c57"
   license "Python-2.0"
