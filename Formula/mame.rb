@@ -1,7 +1,6 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  # NOTE: Please keep these values in sync with rom-tools.rb when updating.
   url "https://github.com/mamedev/mame/archive/mame0236.tar.gz"
   version "0.236"
   sha256 "c76b973d786311f86922101ab0050dac90af9b0fd614a33c20231e3451c7b2dd"
