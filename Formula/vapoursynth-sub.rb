@@ -8,10 +8,6 @@ class VapoursynthSub < Formula
 
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
 
-  livecheck do
-    formula "vapoursynth"
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "77ff99cf76d94fa5cbcc961e58a739c1af1fce4cd3587a8b7bb34561e7179473"
     sha256 cellar: :any,                 big_sur:       "9970926b50e25df64e9c8a13e3c575d823cbf5ff93b4244257941af17932bd9b"
