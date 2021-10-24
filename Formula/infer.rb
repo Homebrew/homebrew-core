@@ -2,7 +2,7 @@ class Infer < Formula
   desc "Static analyzer for Java, C, C++, and Objective-C"
   homepage "https://fbinfer.com/"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/facebook/infer.git", branch: "main"
 
   stable do
