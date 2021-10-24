@@ -1,7 +1,6 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  # Keep this in sync with `file-formula.rb`.
   url "https://astron.com/pub/file/file-5.41.tar.gz"
   sha256 "13e532c7b364f7d57e23dfeea3147103150cb90593a57af86c10e4f6e411603f"
   # libmagic has a BSD-2-Clause-like license
