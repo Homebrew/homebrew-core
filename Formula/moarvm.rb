@@ -1,7 +1,6 @@
 class Moarvm < Formula
   desc "Virtual machine for NQP and Rakudo Perl 6"
   homepage "https://moarvm.org"
-  # NOTE: Please keep these values in sync with nqp & rakudo when updating.
   url "https://github.com/MoarVM/MoarVM/releases/download/2021.10/MoarVM-2021.10.tar.gz"
   sha256 "7f3487a70e8b77be0e4e2f12b14c49f6a01d0378e0940c86958c9016c495ad75"
   license "Artistic-2.0"
