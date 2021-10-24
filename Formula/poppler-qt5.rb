@@ -1,7 +1,6 @@
 class PopplerQt5 < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  # NOTE: Keep this version in sync with poppler
   url "https://poppler.freedesktop.org/poppler-21.10.0.tar.xz"
   sha256 "964b5b16290fbec3fae57c2a5bcdea49bb0736bd750c3a3711c47995c9efc394"
   license "GPL-2.0-only"
