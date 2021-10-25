@@ -1,8 +1,8 @@
 class Xdotool < Formula
   desc "Fake keyboard/mouse input and window management for X"
   homepage "https://www.semicomplete.com/projects/xdotool/"
-  url "https://github.com/jordansissel/xdotool/releases/download/v3.20210903.1/xdotool-3.20210903.1.tar.gz"
-  sha256 "9110198702d7549c4eccdab95f276d35a9fa9f540015d2739b62c55618d3b7b6"
+  url "https://github.com/jordansissel/xdotool/releases/download/v3.20211022.1/xdotool-3.20211022.1.tar.gz"
+  sha256 "96f0facfde6d78eacad35b91b0f46fecd0b35e474c03e00e30da3fdd345f9ada"
   license "BSD-3-Clause"
   head "https://github.com/jordansissel/xdotool.git", branch: "master"
 
