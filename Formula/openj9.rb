@@ -51,7 +51,7 @@ class Openj9 < Formula
   resource "omr" do
     url "https://github.com/eclipse/openj9-omr.git",
         tag:      "openj9-0.29.0",
-        revision: "3965a16553bcee3551572674d8a33e5a8c48f688"
+        revision: "299b6a2d28cf992edf57ca43b67ed6d6917675bf"
   end
 
   resource "openj9-openjdk-jdk" do
