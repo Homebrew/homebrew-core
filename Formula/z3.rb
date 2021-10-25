@@ -4,6 +4,7 @@ class Z3 < Formula
   url "https://github.com/Z3Prover/z3/archive/z3-4.8.12.tar.gz"
   sha256 "e3aaefde68b839299cbc988178529535e66048398f7d083b40c69fe0da55f8b7"
   license "MIT"
+  revision 1
   head "https://github.com/Z3Prover/z3.git", branch: "develop"
 
   livecheck do
@@ -24,7 +25,7 @@ class Z3 < Formula
 
   # Has Python bindings but are supplementary to the main library
   # which does not need Python.
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   on_linux do
     depends_on "gcc" # For C++17
@@ -33,12 +34,11 @@ class Z3 < Formula
   fails_with gcc: "5"
 
   def install
-    python3 = Formula["python@3.9"].opt_bin/"python3"
-    xy = Language::Python.major_minor_version python3
+    python3 = Formula["python@3.10"].opt_bin/"python3"
     system python3, "scripts/mk_make.py",
                      "--prefix=#{prefix}",
                      "--python",
-                     "--pypkgdir=#{lib}/python#{xy}/site-packages",
+                     "--pypkgdir=#{prefix/Language::Python.site_packages(python3)}",
                      "--staticlib"
 
     cd "build" do
