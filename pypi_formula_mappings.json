@@ -64,6 +64,9 @@
     "exclude_packages": ["junit-xml", "six", "tabulate"],
     "extra_packages": ["junit-xml-2"]
   },
+  "cloudiscovery": {
+    "exclude_packages": ["six"]
+  },
   "conan": {
     "exclude_packages": ["six"]
   },
