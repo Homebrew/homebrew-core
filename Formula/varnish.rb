@@ -5,7 +5,7 @@ class Varnish < Formula
   mirror "https://fossies.org/linux/www/varnish-7.0.0.tgz"
   sha256 "8c7a5c0b1f36bc70bcbc9a48830835249e895fb8951f0363110952148cbae087"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://varnish-cache.org/releases/"
@@ -22,7 +22,7 @@ class Varnish < Formula
   depends_on "docutils" => :build
   depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "sphinx-doc" => :build
   depends_on "pcre2"
 
