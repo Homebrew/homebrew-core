@@ -24,7 +24,9 @@ class Geogram < Formula
   end
 
   def install
+    mv "CMakeOptions.txt.sample", "CMakeOptions.txt"
     (buildpath/"CMakeOptions.txt").append_lines <<~EOS
+      set(CPACK_GENERATOR RPM)
       set(CMAKE_INSTALL_PREFIX #{prefix})
       set(GEOGRAM_USE_SYSTEM_GLFW3 ON)
     EOS
