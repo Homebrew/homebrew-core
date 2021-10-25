@@ -1,10 +1,19 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=thrift/0.15.0/thrift-0.15.0.tar.gz"
-  mirror "https://archive.apache.org/dist/thrift/0.15.0/thrift-0.15.0.tar.gz"
-  sha256 "d5883566d161f8f6ddd4e21f3a9e3e6b8272799d054820f1c25b11e86718f86b"
   license "Apache-2.0"
+
+  stable do
+    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.15.0/thrift-0.15.0.tar.gz"
+    mirror "https://archive.apache.org/dist/thrift/0.15.0/thrift-0.15.0.tar.gz"
+    sha256 "d5883566d161f8f6ddd4e21f3a9e3e6b8272799d054820f1c25b11e86718f86b"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "8352c16aaef3267d863dc31aa6e6562ab59ce5823b61296a0a2dfe62fb747112"
