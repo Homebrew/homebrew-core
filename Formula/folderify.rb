@@ -16,18 +16,40 @@ class Folderify < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "b83fde65d2dc9eec57207c31ac7e6f89e5bac43426c0ce73776b55c57f0e2eb0"
   end
 
+  depends_on xcode: :build
   depends_on "imagemagick"
   depends_on :macos
   depends_on "python@3.9"
 
+  resource "osxiconutils" do
+    url "https://github.com/sveinbjornt/osxiconutils.git",
+        revision: "d3b43f1dd5e1e8ff60d2dbb4df4e872388d2cd10"
+  end
+
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3", system_site_packages: false)
+    venv.pip_install_and_link buildpath
+
+    # Replace bundled pre-built `seticon` with one we built ourselves.
+    resource("osxiconutils").stage do
+      xcodebuild "-arch", Hardware::CPU.arch,
+                 "-parallelizeTargets",
+                 "-project", "osxiconutils.xcodeproj",
+                 "-target", "seticon",
+                 "-configuration", "Release",
+                 "CONFIGURATION_BUILD_DIR=build",
+                 "SYMROOT=."
+
+      (libexec/Language::Python.site_packages("python3")/"folderify/lib").install "build/seticon"
+    end
   end
 
   test do
     # Copies an example icon
-    cp("#{libexec}/lib/python3.9/site-packages/folderify/GenericFolderIcon.Yosemite.iconset/icon_16x16.png",
-    "icon.png")
+    cp(
+      libexec/"lib/python3.9/site-packages/folderify/GenericFolderIcon.Yosemite.iconset/icon_16x16.png",
+      "icon.png",
+    )
     # folderify applies the test icon to a folder
     system "folderify", "icon.png", testpath.to_s
     # Tests for the presence of the file icon
