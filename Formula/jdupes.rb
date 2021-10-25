@@ -1,8 +1,8 @@
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://github.com/jbruchon/jdupes"
-  url "https://github.com/jbruchon/jdupes/archive/v1.20.0.tar.gz"
-  sha256 "c1f728961ad8aeb074e5767367639e6b418f0ca572f70f7635655da722f1827e"
+  url "https://github.com/jbruchon/jdupes/archive/v1.20.1.tar.gz"
+  sha256 "beff2c812e82c9e6154e1a853594c46c60c871a1364452dc852ba3f1d0ab653b"
   license "MIT"
 
   livecheck do
