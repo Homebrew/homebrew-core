@@ -18,24 +18,12 @@ class Msmtp < Formula
     sha256 x86_64_linux:  "577cbcb8bf6a7ee660b0d33d3cc6a0aaa1a785478af46bf9d59d242bf3b41bbc"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libidn2"
 
-  # Patch is needed on top of 1.8.17 to fix build on macOS.
-  # Remove in next release. Build dependencies autoconf and automake can also
-  # be removed in next release, as well as the autoreconf call in the install block.
-  # See https://github.com/marlam/mpop-mirror/issues/9#issuecomment-941099714
-  patch do
-    url "https://git.marlam.de/gitweb/?p=msmtp.git;a=patch;h=7f03f3767ee6b7311621386c77cb5575fcaa13d0"
-    sha256 "5896a6ec4f12e8c2c56c957974448778bcdf1308654564cdc5672dac642400c3"
-  end
-
   def install
-    system "autoreconf", "-ivf"
     system "./configure", *std_configure_args, "--disable-silent-rules", "--with-macosx-keyring"
     system "make", "install"
     (pkgshare/"scripts").install "scripts/msmtpq"
