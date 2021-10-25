@@ -6,7 +6,7 @@ class Termius < Formula
   url "https://github.com/termius/termius-cli/archive/v1.2.15.tar.gz"
   sha256 "ac1a43e0f485a0a4541cae6385d344e767cc2df239a06b78577a3eb87fe3aecf"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/termius/termius-cli.git", branch: "master"
 
   bottle do
