@@ -23,12 +23,6 @@ class LibjsonRpcCpp < Formula
 
   uses_from_macos "curl"
 
-  # Fix for https://github.com/cinemast/libjson-rpc-cpp/issues/298
-  patch do
-    url "https://github.com/cinemast/libjson-rpc-cpp/commit/fa163678134aced775651558f91a006791e26ef8.patch?full_index=1"
-    sha256 "80a8cdfa40aba3dc71fbab77b0137f7f03bb9c969b9845e68f83181b4d8550f6"
-  end
-
   def install
     system "cmake", ".", *std_cmake_args, "-DCOMPILE_EXAMPLES=OFF", "-DCOMPILE_TESTS=OFF"
     system "make"
