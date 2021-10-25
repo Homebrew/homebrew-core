@@ -6,6 +6,7 @@ class YoutubeDl < Formula
   url "https://files.pythonhosted.org/packages/c6/75/05979677d9abc76851d13d8db3951e39017ac223545adab6e8576fa0cbe7/youtube_dl-2021.6.6.tar.gz"
   sha256 "cb2d3ee002158ede783e97a82c95f3817594df54367ea6a77ce5ceea4772f0ab"
   license "Unlicense"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3a010e2e9bef8c7bca72c05aeadb4cbad5fc753f055b073ac249da1b32f1ba4a"
@@ -17,7 +18,7 @@ class YoutubeDl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cf1a12113ca9116896c792441ac44197a47df59a347eb09685dd6476fdb3ef3"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
