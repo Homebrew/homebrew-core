@@ -5,6 +5,11 @@ class Apgdiff < Formula
   sha256 "12d95fbb0b8188d7f90e7aaf8bdd29d0eecac26e08d6323624b5b7e3f7c7a3f7"
   license "MIT"
 
+  livecheck do
+    url "https://www.apgdiff.com/download.php"
+    regex(/href=.*?apgdiff[._-]v?(\d+(?:\.\d+)+)[._-]bin\.zip/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "014290d110ccaf01c6f52f02fa1c0a73df5cc0a53ee333e711d4c99140fecc58"
   end
