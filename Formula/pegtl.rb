@@ -3,7 +3,7 @@ class Pegtl < Formula
   homepage "https://github.com/taocpp/PEGTL"
   url "https://github.com/taocpp/PEGTL/archive/3.2.2.tar.gz"
   sha256 "c6616275e78c618c016b79054eed0a0bdf4c1934f830d3ab33d3c3dac7320b03"
-  license "MIT"
+  license "BSL-1.0"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "4751694ed5e233b46d8cf428145a506f488b9544e0f46b791ea2e2e660edae92"
