@@ -52,7 +52,6 @@ class Strongswan < Formula
       --enable-eap-mschapv2
       --enable-ikev1
       --enable-ikev2
-      --enable-kernel-pfkey
       --enable-nonce
       --enable-openssl
       --enable-pem
@@ -73,7 +72,12 @@ class Strongswan < Formula
       --enable-xauth-generic
     ]
 
-    args << "--enable-kernel-pfroute" << "--enable-osx-attr" if OS.mac?
+    # https://github.com/strongswan/strongswan/issues/683
+    args += if OS.mac?
+      %w[--enable-kernel-pfroute --enable-kernel-pfkey --enable-osx-attr]
+    else
+      %w[--enable-kernel-netlink --enable-resolve]
+    end
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
