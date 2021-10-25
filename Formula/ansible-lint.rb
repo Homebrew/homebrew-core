@@ -6,6 +6,7 @@ class AnsibleLint < Formula
   url "https://files.pythonhosted.org/packages/b0/44/9d47dd76a75de9e7b4acb13e1b8f75294d888852aadab51a9cef53b0e093/ansible-lint-5.2.1.tar.gz"
   sha256 "d64aca59c8d896541d379b9205b2126b851088aab0a2c2cab19ff74b184cdf1c"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c2df9110ebefbdcbdbea5d00e86800b47e8da85fa20c2767ffb107591ffe6f49"
@@ -18,7 +19,7 @@ class AnsibleLint < Formula
   depends_on "pkg-config" => :build
   depends_on "ansible"
   depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "bracex" do
     url "https://files.pythonhosted.org/packages/10/d5/0f2fa4d62d905c159ad3f81fb3b0446d5ef5a900ca942d2995f441b5c440/bracex-2.2.tar.gz"
@@ -87,7 +88,7 @@ class AnsibleLint < Formula
 
   def install
     virtualenv_install_with_resources
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     site_packages = "lib/python#{xy}/site-packages"
     ansible = Formula["ansible"].opt_libexec
     (libexec/site_packages/"homebrew-ansible.pth").write ansible/site_packages
