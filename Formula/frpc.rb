@@ -2,8 +2,8 @@ class Frpc < Formula
   desc "Client app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
   url "https://github.com/fatedier/frp.git",
-      tag:      "v0.37.1",
-      revision: "997d406ec25832e7d16f140d110e4016f908d8cf"
+      tag:      "v0.38.0",
+      revision: "143750901ee320506f5083691990f61f1e7d93d2"
   license "Apache-2.0"
 
   bottle do
