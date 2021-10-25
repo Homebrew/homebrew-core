@@ -6,7 +6,7 @@ class Mathlibtools < Formula
   url "https://files.pythonhosted.org/packages/9a/b7/7573048414f976707625d0bacbf00b7fba86f7fcf7b47e2166adbbafb679/mathlibtools-1.1.0.tar.gz"
   sha256 "789f070f35424e89e4f2e2c007382250133cc48877627e37c5c463bcf4a1b58a"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "344b8645e2d623a7689872ebab7a98bd0213f325d1bdf5d19d9159feae14a6b9"
@@ -16,7 +16,7 @@ class Mathlibtools < Formula
   end
 
   depends_on "lean" => :test
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "atomicwrites" do
