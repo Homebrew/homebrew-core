@@ -5,7 +5,7 @@ class Wabt < Formula
       tag:      "1.0.24",
       revision: "21279a861fa3dbac9af9d2bab16c741df17a86af"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -21,7 +21,7 @@ class Wabt < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   def install
     mkdir "build" do
