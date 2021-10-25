@@ -22,6 +22,12 @@ class OsspUuid < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec70863fae3001fc9281f76cef9ac231bd6dbb957c6382457a5848312ee1f1b0"
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
+
   def install
     # upstream ticket: http://cvs.ossp.org/tktview?tn=200
     # pkg-config --cflags uuid returns the wrong directory since we override the
