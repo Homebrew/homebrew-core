@@ -4,6 +4,7 @@ class Verilator < Formula
   url "https://www.veripool.org/ftp/verilator-4.200.tgz"
   sha256 "773913f4410512a7a51de3d04964766438dc11fc22b213eab5c6c29730df3e36"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
+  revision 1
 
   livecheck do
     url "https://github.com/verilator/verilator.git"
@@ -24,7 +25,7 @@ class Verilator < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   uses_from_macos "bison"
   uses_from_macos "flex"
