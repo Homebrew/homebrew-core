@@ -62,7 +62,7 @@ class Gnupg < Formula
 
   def post_install
     (var/"run").mkpath
-    quiet_system "gpgconf", "--reload", "all"
+    quiet_system "killall", "gpg-agent"
   end
 
   test do
