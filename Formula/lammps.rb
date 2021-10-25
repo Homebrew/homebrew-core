@@ -7,6 +7,7 @@ class Lammps < Formula
   # We only track stable releases as announced on the LAMMPS homepage.
   version "2021-09-29"
   sha256 "2dff656cb21fd9a6d46c818741c99d400cfb1b12102604844663b655fb2f893d"
+  revision 1
   license "GPL-2.0-only"
 
   # The `strategy` block below is used to massage upstream tags into the
