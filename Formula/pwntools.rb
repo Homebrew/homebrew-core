@@ -6,6 +6,7 @@ class Pwntools < Formula
   url "https://files.pythonhosted.org/packages/87/ea/08f8330ff56040736ed0778264b37d9a5bc7c5c3dc52e005812882d5d791/pwntools-4.6.0.tar.gz"
   sha256 "1569e613e5e06ed473b60a3fc71376c4ad5bcf56216ea772c25ad0200347030c"
   license "MIT"
+  revision 1
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
