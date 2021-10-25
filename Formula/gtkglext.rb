@@ -14,6 +14,9 @@ class Gtkglext < Formula
     sha256 cellar: :any, high_sierra:   "6862527d7b86b6940a38f9fb189085d80b6ea67ee80adc2794e550999e8cc86c"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gtk+"
@@ -76,6 +79,8 @@ class Gtkglext < Formula
   end
 
   def install
+    # The configure script is ancient, so let's regenerate it for current versions of macOS.
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
