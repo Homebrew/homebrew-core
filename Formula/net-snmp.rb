@@ -26,7 +26,14 @@ class NetSnmp < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
   depends_on "openssl@1.1"
+
+  # Fix -flat_namespace being used on x86_64 Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
 
   def install
     # Workaround https://github.com/net-snmp/net-snmp/issues/226 in 5.9:
