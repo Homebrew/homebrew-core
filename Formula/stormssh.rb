@@ -4,7 +4,7 @@ class Stormssh < Formula
   url "https://files.pythonhosted.org/packages/0a/18/85d12be676ae0c1d98173b07cc289bbf9e0c67d6c7054b8df3e1003bf992/stormssh-0.7.0.tar.gz"
   sha256 "8d034dcd9487fa0d280e0ec855d08420f51d5f9f2249f932e3c12119eaa53453"
   license "MIT"
-  revision 5
+  revision 6
   head "https://github.com/emre/storm.git", branch: "master"
 
   bottle do
