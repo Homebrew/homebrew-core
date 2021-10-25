@@ -4,6 +4,7 @@ class Webp < Formula
   url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.2.1.tar.gz"
   sha256 "808b98d2f5b84e9b27fdef6c5372dac769c3bda4502febbfa5031bd3c4d7d018"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e7c4198414dc89198e7b823d6e7193986a6d1cc104f7651934b216b369759d0a"
@@ -22,6 +23,7 @@ class Webp < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "giflib"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
@@ -30,7 +32,6 @@ class Webp < Formula
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
-                          "--disable-gif",
                           "--disable-gl",
                           "--enable-libwebpdecoder",
                           "--enable-libwebpdemux",
