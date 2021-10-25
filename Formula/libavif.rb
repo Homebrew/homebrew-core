@@ -1,10 +1,9 @@
 class Libavif < Formula
   desc "Library for encoding and decoding .avif files"
   homepage "https://github.com/AOMediaCodec/libavif"
-  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "d6607d654adc40a392da83daa72a4ff802cd750c045a68131c9305639c10fc5c"
+  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v0.9.3.tar.gz"
+  sha256 "bcd9a1f57f982a9615eb7e2faf87236dc88eb1d0c886f3471c7440ead605060d"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "795e345bdb87f084d5bfaa3e7b3f59427f616edd5dc813f2390036961f5d4297"
