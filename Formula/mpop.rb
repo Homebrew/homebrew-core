@@ -18,29 +18,12 @@ class Mpop < Formula
     sha256 x86_64_linux:  "d10d8a7e75b2dfd1c05bad7e92a870b934129317fedc3c37ec3f3f195d38f876"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libidn2"
 
-  # Both of these patches are needed on top of 1.4.15 to fix build on macOS.
-  # Remove in next release. Build dependencies autoconf and automake can also
-  # be removed in next release, as well as the autoreconf call in the install block.
-  # See https://github.com/marlam/mpop-mirror/issues/9
-  patch do
-    url "https://git.marlam.de/gitweb/?p=mpop.git;a=patch;h=68693b7da5d037ac31954db00c210daa28f2ea74"
-    sha256 "f6bc137aaa6c8bcf6b608167108e2d2d4d255f61f7323d789da4cd028ada84a2"
-  end
-
-  patch do
-    url "https://git.marlam.de/gitweb/?p=mpop.git;a=patch;h=64f8dc2b39d9e967e09b234993e096f4441ae87a"
-    sha256 "f920d7897a38de14f30388cc3f62200992ab5bd054e5b250085af013590b3607"
-  end
-
   def install
-    system "autoreconf", "-ivf"
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
   end
