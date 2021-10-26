@@ -3,8 +3,8 @@ class Sail < Formula
 
   desc "CLI toolkit to provision and deploy WordPress applications to DigitalOcean"
   homepage "https://sailed.io"
-  url "https://files.pythonhosted.org/packages/fe/cf/e70606598fd12b22ffd830e6d6f4c0ccf0dfa4e3ec5c13482b6f74b26b25/sailed.io-0.9.17.tar.gz"
-  sha256 "8039018f7b5941d036d79d170a1183bad3c8b075f64c196354350795208b4c8a"
+  url "https://files.pythonhosted.org/packages/7c/b7/ec76c2bd43ee0486b3e912aa541865254b4e48a8afc6bf337cf2ce84d082/sailed.io-0.9.18.tar.gz"
+  sha256 "2456c36405d51b151cd930c85add1c41482902670351cc1b23a6e33489dee823"
   license "GPL-3.0-only"
 
   bottle do
@@ -30,8 +30,8 @@ class Sail < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz"
-    sha256 "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
+    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
+    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
   end
 
   resource "charset-normalizer" do
