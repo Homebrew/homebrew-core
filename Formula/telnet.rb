@@ -40,11 +40,15 @@ class Telnet < Formula
       libtelnet_dst.install "build/Release/usr/local/include/libtelnet/"
     end
 
+    # Workaround for
+    # error: 'vfork' is deprecated: Use posix_spawn or fork
+    ENV.append_to_cflags "-Wno-deprecated-declarations"
+    ENV.append_to_cflags "-isystembuild/Products/"
     system "make", "-C", "telnet.tproj",
                    "OBJROOT=build/Intermediates",
                    "SYMROOT=build/Products",
                    "DSTROOT=build/Archive",
-                   "CFLAGS=$(CC_Flags) -isystembuild/Products/",
+                   "CFLAGS=$(CC_Flags) #{ENV.cflags}",
                    "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
                    "RC_ARCHS=#{Hardware::CPU.arch}",
                    "install"
