@@ -100,7 +100,7 @@
         "oss2", "pycryptodome", "sshfs", "webdav4",
         "s3fs", "aiobotocore[boto3]"
     ],
-    "exclude_packages": ["grandalf", "protobuf", "six", "tabulate"]
+    "exclude_packages": ["protobuf", "six", "tabulate"]
   },
   "dxpy": {
     "exclude_packages": ["six"]
