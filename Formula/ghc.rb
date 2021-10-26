@@ -8,6 +8,7 @@ class Ghc < Formula
     "BSD-3-Clause",
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
   ]
+  revision 1
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
@@ -26,7 +27,11 @@ class Ghc < Formula
 
   depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "llvm" if Hardware::CPU.arm?
+  # GHC 8.10.7 user manual recommend use LLVM 9 through 12
+  # https://downloads.haskell.org/~ghc/8.10.7/docs/html/users_guide/8.10.7-notes.html
+  # and we met some unknown issue w/ LLVM 13 before https://gitlab.haskell.org/ghc/ghc/-/issues/20559
+  # so conservatively use LLVM 12 here
+  depends_on "llvm@12" if Hardware::CPU.arm?
 
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
@@ -113,7 +118,7 @@ class Ghc < Formula
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
     Dir.glob(lib/"*/package.conf.d/package.cache.lock") { |f| rm f }
 
-    bin.env_script_all_files libexec/"bin", PATH: "$PATH:#{Formula["llvm"].opt_bin}" if Hardware::CPU.arm?
+    bin.env_script_all_files libexec, PATH: "${PATH}:#{Formula["llvm@12"].opt_bin}" if Hardware::CPU.arm?
   end
 
   def post_install
