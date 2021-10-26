@@ -1,7 +1,6 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.org/"
-  # Check whether patch for `node.rb` can be removed at version bump
   url "https://c-ares.org/download/c-ares-1.18.0.tar.gz"
   mirror "https://github.com/c-ares/c-ares/releases/download/cares-1_17_2/c-ares-1.18.0.tar.gz"
   mirror "http://fresh-center.net/linux/misc/dns/c-ares-1.18.0.tar.gz"
