@@ -84,11 +84,8 @@ class Dmd < Formula
       system "make", "install", *make_args
     end
 
-    if OS.mac?
-      bin.install "generated/osx/release/64/dmd"
-    else
-      bin.install "generated/linux/release/64/dmd"
-    end
+    kernel_name = OS.mac? ? "osx" : OS.kernel_name.downcase
+    bin.install "generated/#{kernel_name}/release/64/dmd"
     pkgshare.install "samples"
     man.install Dir["docs/man/*"]
 
