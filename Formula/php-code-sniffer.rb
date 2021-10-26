@@ -9,7 +9,7 @@ class PhpCodeSniffer < Formula
     sha256 cellar: :any_skip_relocation, all: "6c101138b9167ca64611091d5baed1eda0d8550830105e2d065d10201f47d77e"
   end
 
-  uses_from_macos "php"
+  depends_on "php"
 
   resource "phpcbf.phar" do
     url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.6.1/phpcbf.phar"
