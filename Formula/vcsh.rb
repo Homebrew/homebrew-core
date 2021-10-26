@@ -17,11 +17,13 @@ class Vcsh < Formula
   patch :DATA
 
   def install
-    # Set GIT, and GREP to prevent
-    # hardcoding shim references and absolute paths
+    # Set GIT, SED, and GREP to prevent
+    # hardcoding shim references and absolute paths.
+    # We set this even where we have no shims because
+    # the hardcoded absolute path might not be portable.
     system "./configure", "--with-zsh-completion-dir=#{zsh_completion}",
                           "--with-bash-completion-dir=#{bash_completion}",
-                          "GIT=git", "GREP=grep",
+                          "GIT=git", "SED=sed", "GREP=grep",
                           *std_configure_args
     system "make", "install"
 
