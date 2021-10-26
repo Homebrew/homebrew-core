@@ -4,6 +4,7 @@ class Rclone < Formula
   url "https://github.com/rclone/rclone/archive/v1.56.2.tar.gz"
   sha256 "a5b0b7dfe17d9ec74e3a33415eec4331c61d800d8823621e61c6164e8f88c567"
   license "MIT"
+  revision 1
   head "https://github.com/rclone/rclone.git", branch: "master"
 
   bottle do
@@ -25,8 +26,10 @@ class Rclone < Formula
     man1.install "rclone.1"
     system bin/"rclone", "genautocomplete", "bash", "rclone.bash"
     system bin/"rclone", "genautocomplete", "zsh", "_rclone"
+    system bin/"rclone", "genautocomplete", "fish", "rclone.fish"
     bash_completion.install "rclone.bash" => "rclone"
     zsh_completion.install "_rclone"
+    fish_completion.install "rclone.fish"
   end
 
   def caveats
