@@ -13,8 +13,7 @@ class Psalm < Formula
   end
 
   depends_on "composer" => :test
-
-  uses_from_macos "php"
+  depends_on "php"
 
   # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
   on_macos do
