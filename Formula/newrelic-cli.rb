@@ -18,11 +18,7 @@ class NewrelicCli < Formula
   def install
     ENV["PROJECT_VER"] = version
     system "make", "compile-only"
-    if OS.mac?
-      bin.install "bin/darwin/newrelic"
-    else
-      bin.install "bin/linux/newrelic"
-    end
+    bin.install "bin/#{OS.kernel_name.downcase}/newrelic"
 
     output = Utils.safe_popen_read("#{bin}/newrelic", "completion", "--shell", "bash")
     (bash_completion/"newrelic").write output
