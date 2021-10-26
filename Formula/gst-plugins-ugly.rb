@@ -37,7 +37,7 @@ class GstPluginsUgly < Formula
   def install
     args = std_meson_args + %w[
       -Damrnb=disabled
-      -Damwrbdec=disabled
+      -Damrwbdec=disabled
     ]
 
     mkdir "build" do
