@@ -9,7 +9,7 @@ class Asciidoc < Formula
   head "https://github.com/asciidoc-py/asciidoc-py.git", branch: "main"
 
   livecheck do
-    url :stable
+    url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
