@@ -37,14 +37,6 @@ class NodeAT12 < Formula
     depends_on "macos-term-size"
   end
 
-  # Fix build with brewed c-ares.
-  # https://github.com/nodejs/node/pull/39739
-  #
-  # Remove when the following lands in a *c-ares* release:
-  # https://github.com/c-ares/c-ares/commit/7712fcd17847998cf1ee3071284ec50c5b3c1978
-  # https://github.com/c-ares/c-ares/pull/417
-  patch :DATA
-
   def install
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3")
@@ -114,16 +106,3 @@ class NodeAT12 < Formula
     assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")
   end
 end
-
-__END__
---- a/src/cares_wrap.cc
-+++ b/src/cares_wrap.cc
-@@ -39,7 +39,7 @@
- # include <netdb.h>
- #endif  // __POSIX__
- 
--# include <ares_nameser.h>
-+# include <arpa/nameser.h>
- 
- // OpenBSD does not define these
- #ifndef AI_ALL
