@@ -19,7 +19,7 @@ class PhoronixTestSuite < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "40c22f6775bbaa76dcca519e5ea051b0f358ed8327535170413fbd6355cee6e4"
   end
 
-  uses_from_macos "php"
+  depends_on "php"
 
   def install
     ENV["DESTDIR"] = buildpath/"dest"
