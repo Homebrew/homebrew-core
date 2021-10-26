@@ -10,7 +10,7 @@ class PhpCsFixerAT2 < Formula
   end
 
   keg_only :versioned_formula
-  uses_from_macos "php", since: :el_capitan
+  depends_on "php"
 
   def install
     bin.install "php-cs-fixer.phar" => "php-cs-fixer"
