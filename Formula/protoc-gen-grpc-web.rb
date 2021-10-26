@@ -6,6 +6,7 @@ class ProtocGenGrpcWeb < Formula
   url "https://github.com/grpc/grpc-web/archive/1.3.0.tar.gz"
   sha256 "6ba86d2833ad0ed5e98308790bea4ad81214e1f4fc8838fe34c2e5ee053b73e6"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "cd5787730c11925a5631829a46ea8e691f3b60d8260625f8e5ce4f492fc3a61f"
