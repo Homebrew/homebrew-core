@@ -47,6 +47,7 @@ class Aspectj < Formula
       }
     EOS
     ENV["CLASSPATH"] = "#{libexec}/#{name}/lib/aspectjrt.jar:test.jar:testaspect.jar"
+    puts ENV["CLASSPATH"]
     system bin/"ajc", "-outjar", "test.jar", "Test.java"
     system bin/"ajc", "-outjar", "testaspect.jar", "-outxml", "TestAspect.aj"
     output = shell_output("#{bin}/aj Test")
