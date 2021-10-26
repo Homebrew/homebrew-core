@@ -9,7 +9,7 @@ class PhpCsFixer < Formula
     sha256 cellar: :any_skip_relocation, all: "bdccc22b31bde4d2c8e83b203c7799393f2c5c689d2b7482898b16da07ba07e6"
   end
 
-  uses_from_macos "php", since: :catalina
+  depends_on "php"
 
   def install
     bin.install "php-cs-fixer.phar" => "php-cs-fixer"
