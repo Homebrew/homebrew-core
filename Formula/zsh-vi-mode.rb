@@ -9,7 +9,7 @@ class ZshViMode < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, all: "75cb847e1c112353962727000722ad1bb21184ab954a9a6931caeb8cd26401c4"
   end
-  
+
   uses_from_macos "zsh"
 
   def install
