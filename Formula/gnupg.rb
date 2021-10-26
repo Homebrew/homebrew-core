@@ -4,6 +4,7 @@ class Gnupg < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.3.tar.bz2"
   sha256 "5789b86da6a1a6752efb38598f16a77af51170a8494039c3842b085032e8e937"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gnupg/"
@@ -35,6 +36,13 @@ class Gnupg < Formula
 
   on_linux do
     depends_on "libidn"
+  end
+
+  # Silence warning about /proc.
+  # Remove with the next release.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/890be5f6af88e7913d177af87a50129049e681bb/gnupg/2.3.3-proc-error.patch"
+    sha256 "c4ee02929a03935121b8a2db01e83fbe046a07f104514b2d1cba453c47464204"
   end
 
   def install
