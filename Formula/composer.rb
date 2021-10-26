@@ -18,7 +18,7 @@ class Composer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "742ce90ec5d5cb121c04930ebe928bf694bc75a87cfa37a56f0ca10a144fa821"
   end
 
-  uses_from_macos "php"
+  depends_on "php"
 
   # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
   on_macos do
