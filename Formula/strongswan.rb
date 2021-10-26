@@ -28,7 +28,7 @@ class Strongswan < Formula
   end
 
   depends_on "openssl@1.1"
-  uses_from_macos "llvm" => :build
+  uses_from_macos "llvm" => [:build, :test]
 
   fails_with :gcc
 
