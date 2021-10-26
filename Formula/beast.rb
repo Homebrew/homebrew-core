@@ -38,6 +38,9 @@ class Beast < Formula
   end
 
   test do
+    puts ENV["CLASSPATH"]
+    puts "--- xxx ---"
+
     cp pkgshare/"examples/TestXML/ClockModels/testUCRelaxedClockLogNormal.xml", testpath
 
     # Run fewer generations to speed up tests
