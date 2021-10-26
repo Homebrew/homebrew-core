@@ -28,12 +28,9 @@ class Strongswan < Formula
   end
 
   depends_on "openssl@1.1"
+  uses_from_macos "llvm" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
-  fails_with gcc: "5"
+  fails_with :gcc
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
