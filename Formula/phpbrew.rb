@@ -12,7 +12,7 @@ class Phpbrew < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "2665bd49848a852a87abfc444f8ef708e3ec8364b3e5c04f21c3d7ef7ed8bdde"
   end
 
-  uses_from_macos "php"
+  depends_on "php"
 
   # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
   on_macos do
