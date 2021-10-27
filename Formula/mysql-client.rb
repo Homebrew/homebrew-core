@@ -1,8 +1,8 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.26.tar.gz"
-  sha256 "209442c1001c37bcbc001845e1dc623d654cefb555b47b528742a53bf21c0b4d"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.27.tar.gz"
+  sha256 "74b5bc6ff88fe225560174a24b7d5ff139f4c17271c43000dbcf3dcc9507b3f9"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -10,11 +10,11 @@ class MysqlClient < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "d18591b0da1378331d9bf4a05a3ab32aa11a4de378a74a8658e0dd61ae19ca67"
-    sha256 big_sur:       "a7904ebb20e476aaae9cdacbe747591aebc9a12f1bf9dcde05c428a2680983cd"
-    sha256 catalina:      "9cc3a6250aa0ef10fe984c6cb7c2339e2261e0f478cb37c4d0aa9ac097e24bb5"
-    sha256 mojave:        "508a393ba7f4085fe2912aca915af65413a7372e2fee74ece6f8556f0c85e82e"
-    sha256 x86_64_linux:  "e29ad59ea5a0f27d2cd0867595f67045385b86baa26ec473206c060546a39986"
+    sha256 arm64_big_sur: "8b663d7d600724c9a78085a0099ff989afa8e11b77b22ff656614c73cf71c1a0"
+    sha256 big_sur:       "fccbb65d06dade7a89960791c8c60a310b1789322a573285cdd32b3f4ed66938"
+    sha256 catalina:      "d51daf18cd3886b495363981ee421a54bb77080956d2905440bf2648e410fb14"
+    sha256 mojave:        "2c963d4cae0a100169890d81db4bb73c680efd54236346af83b4766db1e389c0"
+    sha256 x86_64_linux:  "e56be57cf7f3e415720ceebbb4f50a073db2a3276618d550354d74539f430edf"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -28,6 +28,12 @@ class MysqlClient < Formula
 
   uses_from_macos "libedit"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)

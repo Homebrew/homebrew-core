@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v16.11.1/node-v16.11.1.tar.xz"
-  sha256 "67587f4de25e30a9cc0b51a6033eca3bc82d7b4e0d79bb84a265e88f76ab6278"
+  url "https://nodejs.org/dist/v17.0.1/node-v17.0.1.tar.xz"
+  sha256 "6ec480f872cb7c34877044985e3d7bd89329ace5b8e2ad90b57980601786341c"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
@@ -12,11 +12,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a43113837382d103c08a9b7194928e0ffadfff89fe99b7613d774930e21a9940"
-    sha256 cellar: :any,                 big_sur:       "bc7ed2beff7569491d89733c6202d212bc2d2abceb7b4293aa865a8728574a6e"
-    sha256 cellar: :any,                 catalina:      "51d62734b48ec8638611cb96dd0fd01fed32a8b66dff2034e154ed5d7417b629"
-    sha256 cellar: :any,                 mojave:        "beaeecf1d092cb96c097536768b530ea3fedb9b46a12e070d6b408a8cbc8e9c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6772206fe1ca79974d979719d84ef7ea45d5b5c70dee40887fd0e278c49477d"
+    sha256 cellar: :any,                 arm64_monterey: "0bc632290affb035123e5fec938e63f4a83baf35961b9bd94e089081b713e401"
+    sha256 cellar: :any,                 arm64_big_sur:  "4fc5759b3008c9fdaf8a8103c3abd8dc5a3b7d66a967c3c31820943118498f6b"
+    sha256 cellar: :any,                 monterey:       "85fa781d7a3a94a8ad06f9ac61ad8d591387de6c97d9ff777eece184405796a0"
+    sha256 cellar: :any,                 big_sur:        "96acaa07d3255dcb75370a296ea8977848ce155f6b1496df108f06ac5c492fa2"
+    sha256 cellar: :any,                 catalina:       "e87d93b51d64f4ae935370bb3cfe3c61c54869fe0b483bcf7b888ba674a31162"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87cab81cacd6a91460d145f15f9d506c5ce12de6182fc92a4c87f85136fd0020"
   end
 
   depends_on "pkg-config" => :build
@@ -30,13 +31,19 @@ class Node < Formula
 
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
+  end
+
   on_linux do
     depends_on "gcc"
   end
 
   fails_with :clang do
-    build 1099
-    cause "Node requires Xcode CLT 11+"
+    build 1100
+    cause <<~EOS
+      error: calling a private constructor of class 'v8::internal::(anonymous namespace)::RegExpParserImpl<uint8_t>'
+    EOS
   end
 
   fails_with gcc: "5"
@@ -44,22 +51,14 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-8.0.0.tgz"
-    sha256 "7b42b3cc7deeda21df3a7e91ce81c6c466bdab99f204e20f2a336f4628366219"
-  end
-
-  # Fix build with brewed c-ares.
-  # https://github.com/nodejs/node/pull/39739
-  #
-  # Remove when the following lands in a *c-ares* release:
-  # https://github.com/c-ares/c-ares/commit/7712fcd17847998cf1ee3071284ec50c5b3c1978
-  # https://github.com/c-ares/c-ares/pull/417
-  patch do
-    url "https://github.com/nodejs/node/commit/8699aa501c4d4e1567ebe8901e5ec80cadaa9323.patch?full_index=1"
-    sha256 "678643c79258372d5054d3da16bc0c5db17130f151f0e72b6e4f20817987aac9"
+    url "https://registry.npmjs.org/npm/-/npm-8.1.0.tgz"
+    sha256 "301ddf6bdbd6f6abb36de144902914c6bb4d6f7463758774fdd0a9ee7c597d34"
   end
 
   def install
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
@@ -140,6 +139,9 @@ class Node < Formula
   end
 
   test do
+    # Make sure Mojave does not have `CC=llvm_clang`.
+    ENV.clang if OS.mac?
+
     path = testpath/"test.js"
     path.write "console.log('hello');"
 

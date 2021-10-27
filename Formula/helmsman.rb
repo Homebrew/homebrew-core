@@ -2,17 +2,16 @@ class Helmsman < Formula
   desc "Helm Charts as Code tool"
   homepage "https://github.com/Praqma/helmsman"
   url "https://github.com/Praqma/helmsman.git",
-      tag:      "v3.7.5",
-      revision: "26e33fe85efc6f06376476bf95dade339c00e1b7"
+      tag:      "v3.7.7",
+      revision: "321afde41994fb847b36a1da3590d5d405b34f1d"
   license "MIT"
   head "https://github.com/Praqma/helmsman.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a379258df0eb19a3309d737a3954261b3bc7c62d3ba16e355215e84d14ea6984"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3881ae1d54e2bc3d9ac65859e2ac7809452f194fa9c5d1363a5723be925124f3"
-    sha256 cellar: :any_skip_relocation, catalina:      "c3ab41bd809eb3a7fb97906a739f00f23615df518d800548310f3656824141a2"
-    sha256 cellar: :any_skip_relocation, mojave:        "31091e9e6c41e855936c9ff5556d346053ae421f0dc1ac2adb7f19d6a19012a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8f8b519791832403d760800071fb9325a637a23d68bc47a3f6ecc1da858dfd7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "528848b28684e57bded1532a99813d264b3f075e1892b2ae726305bbf5cf6a14"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4e72b6f0e6417b9a507a1ae5494cc9761196bc5fa807258ad2b4a1ba24add33c"
+    sha256 cellar: :any_skip_relocation, catalina:      "434a40e852b61b4b8fc817bde900b8fef6e5ec68ee19455877fb3fdef7cd7ae2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df72db51d4c47a769f4906605f6efeaed7f88572696f9c8610ec264b7648b2d6"
   end
 
   depends_on "go" => :build

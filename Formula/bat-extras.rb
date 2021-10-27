@@ -11,18 +11,16 @@ class BatExtras < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3ef0479ac64740999c67d9ff77067f0d96e9111cfd037cd0ec19605d3b6b0c9b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3ef0479ac64740999c67d9ff77067f0d96e9111cfd037cd0ec19605d3b6b0c9b"
-    sha256 cellar: :any_skip_relocation, catalina:      "3ef0479ac64740999c67d9ff77067f0d96e9111cfd037cd0ec19605d3b6b0c9b"
-    sha256 cellar: :any_skip_relocation, mojave:        "3ef0479ac64740999c67d9ff77067f0d96e9111cfd037cd0ec19605d3b6b0c9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c94dd7dd7e3d29f1493267a300b3d6a1f309560f341ec24990d708e3aca3759"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c28c0829cd60e9550c340addade7ea8ce4aef1eff9b224225fb5695ead09567c"
   end
 
-  depends_on "bat"      => :test
-  depends_on "ripgrep"  => :test
+  depends_on "bat" => [:build, :test]
+  depends_on "shfmt" => :build
+  depends_on "ripgrep" => :test
 
   def install
-    system "./build.sh", "--prefix=#{prefix}", "--install"
+    system "./build.sh", "--prefix=#{prefix}", "--minify", "all", "--install"
   end
 
   test do

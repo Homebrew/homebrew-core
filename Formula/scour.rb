@@ -11,11 +11,13 @@ class Scour < Formula
   head "https://github.com/scour-project/scour.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0a19de3b6e7507c4472d6807f651ba1dc9364091db38bf495964f1bc8aea5eca"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f4540d61288bd5dc596393a3d87870d1aad8fe61771379b9fa98a564fc239a71"
-    sha256 cellar: :any_skip_relocation, catalina:      "f4540d61288bd5dc596393a3d87870d1aad8fe61771379b9fa98a564fc239a71"
-    sha256 cellar: :any_skip_relocation, mojave:        "f4540d61288bd5dc596393a3d87870d1aad8fe61771379b9fa98a564fc239a71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1d4f9a36356337522bfcc13866638b977ac217d2602aee271c152b60aa3cd62"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0a19de3b6e7507c4472d6807f651ba1dc9364091db38bf495964f1bc8aea5eca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a19de3b6e7507c4472d6807f651ba1dc9364091db38bf495964f1bc8aea5eca"
+    sha256 cellar: :any_skip_relocation, monterey:       "f4540d61288bd5dc596393a3d87870d1aad8fe61771379b9fa98a564fc239a71"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f4540d61288bd5dc596393a3d87870d1aad8fe61771379b9fa98a564fc239a71"
+    sha256 cellar: :any_skip_relocation, catalina:       "f4540d61288bd5dc596393a3d87870d1aad8fe61771379b9fa98a564fc239a71"
+    sha256 cellar: :any_skip_relocation, mojave:         "f4540d61288bd5dc596393a3d87870d1aad8fe61771379b9fa98a564fc239a71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1d4f9a36356337522bfcc13866638b977ac217d2602aee271c152b60aa3cd62"
   end
 
   depends_on "python@3.10"

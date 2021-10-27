@@ -10,11 +10,13 @@ class SshAudit < Formula
   head "https://github.com/jtesta/ssh-audit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8a168c37baa642d779295f93e629544a8ce7fd617e452f640d75aa2051a9444b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
-    sha256 cellar: :any_skip_relocation, catalina:      "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
-    sha256 cellar: :any_skip_relocation, mojave:        "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce635f09e402480c3646cfc10c5dde97be34db29c70c6056308b999f8077ada8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8a168c37baa642d779295f93e629544a8ce7fd617e452f640d75aa2051a9444b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a168c37baa642d779295f93e629544a8ce7fd617e452f640d75aa2051a9444b"
+    sha256 cellar: :any_skip_relocation, monterey:       "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
+    sha256 cellar: :any_skip_relocation, catalina:       "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
+    sha256 cellar: :any_skip_relocation, mojave:         "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce635f09e402480c3646cfc10c5dde97be34db29c70c6056308b999f8077ada8"
   end
 
   depends_on "python@3.10"

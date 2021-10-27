@@ -3,19 +3,20 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/90/93/994a49b78390be5a982fa5dc0ee78831dde5125034b7509cd67864737851/cfn-lint-0.54.2.tar.gz"
-  sha256 "82a2cc7d6fa3bbdc303bf1eb87f92ba6b3c552d8aef31918b47b69648ce262d3"
+  url "https://files.pythonhosted.org/packages/4f/d3/912a98e6022fffd47850da8ba0bb86da2f8e289ed4dcf31a8bcd96bd784f/cfn-lint-0.54.3.tar.gz"
+  sha256 "9155b0eb876f746095708d5eda80264efa4872a0586e4d613197a54eeca95e40"
   license "MIT-0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6fbe3fb000c8f32bc137282815afe6a0b7b66235abf1b7fd680430c4dd31ba0d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f5d82c5e6aa77462f13508ef3040e544a6cb4929039c9ffd5ebd2bc1204f414a"
-    sha256 cellar: :any_skip_relocation, catalina:      "ab4c8f8d16f03694854581156f403d49e1b6caec444b65be44fe804364bd4499"
-    sha256 cellar: :any_skip_relocation, mojave:        "9af266867449f47b83486626affa2f1822ff7aebadc172a1424c67ff399bdd9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42c3702b9ccf13c7dd654c77f585e1a19b3ae4dfe63729941b252813ea2607c0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "50073c2682865b7432d59b26004269a09e0c22a9e72effa17d286b94be739bcd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49289cb06f810a8d3529bfac2794fa680ca594bdcd390284fcadab232f3e36db"
+    sha256 cellar: :any_skip_relocation, monterey:       "c1b669227a62c447a56e542423a1cea63a9430284bd504a25149f1b36d50ed1c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "659b508f67b44221371b76ec584575dd3428c8645601f9bd958fbe6317c896e5"
+    sha256 cellar: :any_skip_relocation, catalina:       "f3b5264daed35d130e5ce3402d5c6ed02324aa2a4d5a41658fa2ed273d03403f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd7afc781f25a6b5d31d357f986dd34fa5daa53b0c73bad170dc2421835b663e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "attrs" do
@@ -24,18 +25,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/77/42/30a9106f3e712f530cc93f8510364cde417b42acb6b64096a7b34eb0c1b8/aws-sam-translator-1.38.0.tar.gz"
-    sha256 "0ecadda9cf5ab2318f57f1253181a2151e4c53cd35d21717a923c075a5a65cb6"
+    url "https://files.pythonhosted.org/packages/06/16/20e660646b3b81d721973d409a64898c0c569dcd14221041098e7d2680bf/aws-sam-translator-1.39.0.tar.gz"
+    sha256 "8973af434ef649861b03a104581b64c219fcf255adb7510e71a6e96914be3208"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/be/ef/d8b22e8b6c56d054c25cce86035272b2eb8817961b618f0503d543a53c5e/boto3-1.18.47.tar.gz"
-    sha256 "07260ec42a21c31a13b07ffbf219811a79be60d2eb9a99cedfec65c2a5f2155d"
+    url "https://files.pythonhosted.org/packages/ec/45/d12f9c09b5c4dad8bcb098dfae5e9e1253ed6408efbbd9a3e60bff55b824/boto3-1.19.2.tar.gz"
+    sha256 "11a6035060230e92327d4f10fef6bc44188b2cd68504012bc25ed62ac31d670b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/f2/9c/7f5882844cd8eda992ec8a33047761806daeaad109cbb67856991f6c2aec/botocore-1.21.47.tar.gz"
-    sha256 "57637772b837da290239b1a9a6676ae2dd8a64833ab7770dc67d169d09bc80b3"
+    url "https://files.pythonhosted.org/packages/0d/95/f2e74e4a91994d9ebe45746f75a8c5cafd723a88270a9772d8d66e1a8ba1/botocore-1.22.2.tar.gz"
+    sha256 "011360e79a4b843aa6591573cfa61e8eddc99b91adab1dfdb9a2b7f2c8511193"
   end
 
   resource "jmespath" do
@@ -80,8 +81,8 @@ class CfnLint < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   resource "s3transfer" do

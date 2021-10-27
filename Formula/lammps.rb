@@ -8,7 +8,7 @@ class Lammps < Formula
   version "2021-09-29"
   sha256 "2dff656cb21fd9a6d46c818741c99d400cfb1b12102604844663b655fb2f893d"
   license "GPL-2.0-only"
-
+  revision 1
   # The `strategy` block below is used to massage upstream tags into the
   # YYYY-MM-DD format we use in the `version`. This is necessary for livecheck
   # to be able to do proper `Version` comparison.
@@ -22,11 +22,10 @@ class Lammps < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "733aeed0631b5ddafb5d451fec96a20572f500efc66f5515918b3bc5825cb4ad"
-    sha256 cellar: :any,                 big_sur:       "bd9d9cc96fbd15fbeca8f6d5a1c7c39648d5bcc821be10d8d7fe5cb4bf91aefb"
-    sha256 cellar: :any,                 catalina:      "cab92149fe5abb3cdac4f145dc78dfe4e2b89db854b4a7f5cdf378a1015cb1f6"
-    sha256 cellar: :any,                 mojave:        "98d9d322f31be61b68bbe47377bd662e92f16024269ceb6d014895077f83a1eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c022b0213f4587b7beeab0a62b71dcc099a496fda194517e0d8d09922bbfdf6b"
+    sha256 cellar: :any,                 arm64_big_sur: "d42bf4cb9ed9e1daedcb51039d9e6f3bc9c2aa4af2ad733bc1f02bd03a7e0dc0"
+    sha256 cellar: :any,                 big_sur:       "a99b5725600ef7c9b071178be53b494912d0deee75ac6b34dc73c11d11021793"
+    sha256 cellar: :any,                 catalina:      "6d70939bd07b4792ab42979f6caab22af8a29b6e28405c458f8c5538dc5b281f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b6979a6051a537b774b59692b5425bc6f974fcef2f46b57d27b1f683cb73455"
   end
 
   depends_on "pkg-config" => :build
@@ -49,6 +48,8 @@ class Lammps < Formula
         disabled_packages.each do |package|
           system "make", "no-#{package}"
         end
+
+        system "make", "yes-basic"
 
         system "make", variant,
                        "LMP_INC=-DLAMMPS_GZIP",

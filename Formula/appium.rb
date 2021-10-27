@@ -9,11 +9,13 @@ class Appium < Formula
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aef088c27cda107b9106c01720f814152bf2ea97cb94b59bc736e459e78aa911"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2817c721f277da6d1e4ba0ed7272ca1d4291b538a0efd6f84fd8c43d86951066"
-    sha256 cellar: :any_skip_relocation, catalina:      "2817c721f277da6d1e4ba0ed7272ca1d4291b538a0efd6f84fd8c43d86951066"
-    sha256 cellar: :any_skip_relocation, mojave:        "2817c721f277da6d1e4ba0ed7272ca1d4291b538a0efd6f84fd8c43d86951066"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aef088c27cda107b9106c01720f814152bf2ea97cb94b59bc736e459e78aa911"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a97c12179b71dbf4b3ae1a3430b33d660e2b5dc5a86c62023e77450fc7e5bb9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aef088c27cda107b9106c01720f814152bf2ea97cb94b59bc736e459e78aa911"
+    sha256 cellar: :any_skip_relocation, monterey:       "c80273487660e531c761deac4b76e2c4a79edcea37e965f3084332825a598d9d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2817c721f277da6d1e4ba0ed7272ca1d4291b538a0efd6f84fd8c43d86951066"
+    sha256 cellar: :any_skip_relocation, catalina:       "2817c721f277da6d1e4ba0ed7272ca1d4291b538a0efd6f84fd8c43d86951066"
+    sha256 cellar: :any_skip_relocation, mojave:         "2817c721f277da6d1e4ba0ed7272ca1d4291b538a0efd6f84fd8c43d86951066"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aef088c27cda107b9106c01720f814152bf2ea97cb94b59bc736e459e78aa911"
   end
 
   depends_on "node"

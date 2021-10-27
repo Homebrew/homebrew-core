@@ -13,11 +13,13 @@ class Kustomize < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6708b90a7eb4655101862ea7058171f76a534ee484c20a6748ba6a450a841786"
-    sha256 cellar: :any_skip_relocation, big_sur:       "592a5a40ddb3f932ca069d69955adc70c5f0b924814bee9e008fdca0efae7cc2"
-    sha256 cellar: :any_skip_relocation, catalina:      "2cc595856f0b60da5387246124b63bb30f8ecae899e6d68901af8c63327b8763"
-    sha256 cellar: :any_skip_relocation, mojave:        "299b770815972dbe48d628fca66e1e59733f3581c2552d93829fef6f09569beb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "459c037953f7a3e6f7c7459af96a1a6707f57d236043582799ba2866b4f36b1d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f98e1c3166a46844a5d3066d69efd59abb009d80a15e1922cf92a01a14f60281"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6708b90a7eb4655101862ea7058171f76a534ee484c20a6748ba6a450a841786"
+    sha256 cellar: :any_skip_relocation, monterey:       "d408d7fe4ef45e32a2f9dad74da59caaf43ffa6219c1deacc4701ebe04f9c649"
+    sha256 cellar: :any_skip_relocation, big_sur:        "592a5a40ddb3f932ca069d69955adc70c5f0b924814bee9e008fdca0efae7cc2"
+    sha256 cellar: :any_skip_relocation, catalina:       "2cc595856f0b60da5387246124b63bb30f8ecae899e6d68901af8c63327b8763"
+    sha256 cellar: :any_skip_relocation, mojave:         "299b770815972dbe48d628fca66e1e59733f3581c2552d93829fef6f09569beb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "459c037953f7a3e6f7c7459af96a1a6707f57d236043582799ba2866b4f36b1d"
   end
 
   depends_on "go" => :build

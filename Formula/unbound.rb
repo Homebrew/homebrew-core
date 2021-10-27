@@ -16,11 +16,13 @@ class Unbound < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "be270411ac84da8f2e6424c50e9a24f2b6b332b98a0f82690c933b4f2aa03569"
-    sha256 big_sur:       "7f411a6ec21a1c46be319d79c7b7e43f4858e0751cd92b8e9fdd41b070265991"
-    sha256 catalina:      "3519fe0e6677d759978c5a6d07f1eb576495e04146df01cdbd367506421d2ac2"
-    sha256 mojave:        "79fc8a9f5c4579ee06a35966fa5e247037c8773519b3f29d67b7ef47e52db7b9"
-    sha256 x86_64_linux:  "b96cfb9beaf9b62043260bc32e9d76dac680132842ee3089d6fd8698810884ce"
+    sha256 arm64_monterey: "a4623b4e5433b7d66a50b3d478a29b37ffa9ae2d64ec3d34a73351bc6bd3d6b7"
+    sha256 arm64_big_sur:  "be270411ac84da8f2e6424c50e9a24f2b6b332b98a0f82690c933b4f2aa03569"
+    sha256 monterey:       "ecba34a33d7e30a3b2053fb57b9a6ccb4cf5ea85a6eb9bbe2c5cd365d2c15f57"
+    sha256 big_sur:        "7f411a6ec21a1c46be319d79c7b7e43f4858e0751cd92b8e9fdd41b070265991"
+    sha256 catalina:       "3519fe0e6677d759978c5a6d07f1eb576495e04146df01cdbd367506421d2ac2"
+    sha256 mojave:         "79fc8a9f5c4579ee06a35966fa5e247037c8773519b3f29d67b7ef47e52db7b9"
+    sha256 x86_64_linux:   "b96cfb9beaf9b62043260bc32e9d76dac680132842ee3089d6fd8698810884ce"
   end
 
   depends_on "libevent"

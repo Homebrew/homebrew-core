@@ -6,13 +6,13 @@ class Phpbrew < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "99b8cb5b36039f9ea05b31f33f040ac83833835b75e1bf3148c36940d805324c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2665bd49848a852a87abfc444f8ef708e3ec8364b3e5c04f21c3d7ef7ed8bdde"
-    sha256 cellar: :any_skip_relocation, catalina:      "2665bd49848a852a87abfc444f8ef708e3ec8364b3e5c04f21c3d7ef7ed8bdde"
-    sha256 cellar: :any_skip_relocation, mojave:        "2665bd49848a852a87abfc444f8ef708e3ec8364b3e5c04f21c3d7ef7ed8bdde"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c7284fc0683ff84b048b9ceb72a3e810aa250086a766dd0a44f3dc57a53c073b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "da1a09ea403685c424d6808c9486a76182ca29e689243ae703f4f9e0820b756a"
+    sha256 cellar: :any_skip_relocation, catalina:      "da1a09ea403685c424d6808c9486a76182ca29e689243ae703f4f9e0820b756a"
   end
 
-  uses_from_macos "php"
+  depends_on "php"
 
   # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
   on_macos do

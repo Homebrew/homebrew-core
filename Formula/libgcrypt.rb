@@ -12,11 +12,13 @@ class Libgcrypt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ebe24d93edccd91ac094387b74b0c42aeebd44a6bb5f583816c8d1690690cf57"
-    sha256 cellar: :any,                 big_sur:       "19f11700630c036864c3acaf39d6b26b8d7f46a96b7eab4cab5d118ce5a0c28a"
-    sha256 cellar: :any,                 catalina:      "22b69fca91210d5598644b6164980ea3d53ccbb9a66124314ae3836b9100a4bf"
-    sha256 cellar: :any,                 mojave:        "d40e101e9605d7ba2b56fa6c441565192a85b3bb67302ab4feeac4d38a56d261"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c199805c55e5f11d84e19554b3583d78a2e681a0ba549508927c2528d07372cd"
+    sha256 cellar: :any,                 arm64_monterey: "db8ca3ac372b23c25be44950acae40a4bb8faa4312df72023a28959a09cd8ea7"
+    sha256 cellar: :any,                 arm64_big_sur:  "ebe24d93edccd91ac094387b74b0c42aeebd44a6bb5f583816c8d1690690cf57"
+    sha256 cellar: :any,                 monterey:       "b8b834ecc967d71931b73f4102ef74be06812358def29cf37700ae1d57494c80"
+    sha256 cellar: :any,                 big_sur:        "19f11700630c036864c3acaf39d6b26b8d7f46a96b7eab4cab5d118ce5a0c28a"
+    sha256 cellar: :any,                 catalina:       "22b69fca91210d5598644b6164980ea3d53ccbb9a66124314ae3836b9100a4bf"
+    sha256 cellar: :any,                 mojave:         "d40e101e9605d7ba2b56fa6c441565192a85b3bb67302ab4feeac4d38a56d261"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c199805c55e5f11d84e19554b3583d78a2e681a0ba549508927c2528d07372cd"
   end
 
   depends_on "libgpg-error"
@@ -35,7 +37,10 @@ class Libgcrypt < Formula
   # release.
   #
   # https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgcrypt.git;a=commit;h=c9cebf3d1824d6ec90fd864a744bb81c97ac7d31
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -65,28 +70,3 @@ class Libgcrypt < Formula
     assert_match "0e824ce7c056c82ba63cc40cffa60d3195b5bb5feccc999a47724cc19211aef6", output
   end
 end
-
-__END__
---- libgcrypt-1.9.4/configure.orig	2021-09-26 09:29:50.000000000 -0700
-+++ libgcrypt-1.9.4/configure	2021-09-26 09:30:54.000000000 -0700
-@@ -8378,16 +8378,11 @@
-       _lt_dar_allow_undefined='${wl}-undefined ${wl}suppress' ;;
-     darwin1.*)
-       _lt_dar_allow_undefined='${wl}-flat_namespace ${wl}-undefined ${wl}suppress' ;;
--    darwin*) # darwin 5.x on
--      # if running on 10.5 or later, the deployment target defaults
--      # to the OS version, if on x86, and 10.4, the deployment
--      # target defaults to 10.4. Don't you love it?
--      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
--	10.0,*86*-darwin8*|10.0,*-darwin[91]*)
--	  _lt_dar_allow_undefined='${wl}-undefined ${wl}dynamic_lookup' ;;
--	10.[012]*)
-+    darwin*)
-+      case ${MACOSX_DEPLOYMENT_TARGET},$host in
-+        10.[[012]],*|,*powerpc*)
- 	  _lt_dar_allow_undefined='${wl}-flat_namespace ${wl}-undefined ${wl}suppress' ;;
--	10.*)
-+	*)
- 	  _lt_dar_allow_undefined='${wl}-undefined ${wl}dynamic_lookup' ;;
-       esac
-     ;;

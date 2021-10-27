@@ -6,11 +6,13 @@ class Gitui < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eab0d0bf479bde503eeca2ccc61125906255e81c817fb8b74d26777feb594f5b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "dfb00782b725ea3365100d4be6bc8c4756e4a183e3ac73cccdcd982b5d1c4c98"
-    sha256 cellar: :any_skip_relocation, catalina:      "032d6a437bf658b0ec9dcacd6877e830e99a6a353fce0a611b818e65cf64b0a3"
-    sha256 cellar: :any_skip_relocation, mojave:        "36e93f2d9dfee08d1c2a52cc350b14b214719730396bcc8da951eb1786c9561e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4416575824156efdfa9ac272b5b5999b94a5fb3b4e3ae431c2d2c45c2303e770"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "273ee58b44cdb151269d9a171395ed41ae44660ebb39cf3241978d3dd62712ca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eab0d0bf479bde503eeca2ccc61125906255e81c817fb8b74d26777feb594f5b"
+    sha256 cellar: :any_skip_relocation, monterey:       "37c62dfd2402f0d39d768ffa345f122f72b26aa421b1e92a274d7fe3bf558c3d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dfb00782b725ea3365100d4be6bc8c4756e4a183e3ac73cccdcd982b5d1c4c98"
+    sha256 cellar: :any_skip_relocation, catalina:       "032d6a437bf658b0ec9dcacd6877e830e99a6a353fce0a611b818e65cf64b0a3"
+    sha256 cellar: :any_skip_relocation, mojave:         "36e93f2d9dfee08d1c2a52cc350b14b214719730396bcc8da951eb1786c9561e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4416575824156efdfa9ac272b5b5999b94a5fb3b4e3ae431c2d2c45c2303e770"
   end
 
   depends_on "rust" => :build

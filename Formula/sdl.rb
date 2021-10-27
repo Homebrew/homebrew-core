@@ -47,11 +47,13 @@ class Sdl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c3fda7b3047ffff537ba6f2a5711fd03f50fa776546d7788f42a4df325944fcf"
-    sha256 cellar: :any,                 big_sur:       "d97aac056338f24b09ff065d8a80c6f5e9b6e16aed93003764054f6703093ecd"
-    sha256 cellar: :any,                 catalina:      "060c0297dd0af2e289196aa196341ece04f3ab4a3458d173e74f2a3865046a8f"
-    sha256 cellar: :any,                 mojave:        "683450f850acbc501144207d237d28a9c3d0af86533065db7bf7b23ae2d1f6e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b620e55f97a2b9aa076a9e7f6ed3aa0ed42f3f0b2debd9f250bccce7cb7d8939"
+    sha256 cellar: :any,                 arm64_monterey: "dd54330d8706de382558db271cec9d2f1a0368179d447f783b4f4cce8a073fdd"
+    sha256 cellar: :any,                 arm64_big_sur:  "c3fda7b3047ffff537ba6f2a5711fd03f50fa776546d7788f42a4df325944fcf"
+    sha256 cellar: :any,                 monterey:       "27e2923d141417b36b58e96a859a1ce4d3280f4a1e21b58c372232a9ade139c2"
+    sha256 cellar: :any,                 big_sur:        "d97aac056338f24b09ff065d8a80c6f5e9b6e16aed93003764054f6703093ecd"
+    sha256 cellar: :any,                 catalina:       "060c0297dd0af2e289196aa196341ece04f3ab4a3458d173e74f2a3865046a8f"
+    sha256 cellar: :any,                 mojave:         "683450f850acbc501144207d237d28a9c3d0af86533065db7bf7b23ae2d1f6e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b620e55f97a2b9aa076a9e7f6ed3aa0ed42f3f0b2debd9f250bccce7cb7d8939"
   end
 
   head do

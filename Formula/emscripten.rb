@@ -3,8 +3,8 @@ require "language/node"
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/2.0.31.tar.gz"
-  sha256 "3481354ecf3996bc1230ba4d121e83edf0ef526ce7afc07bc2c8dbbee54e879c"
+  url "https://github.com/emscripten-core/emscripten/archive/2.0.32.tar.gz"
+  sha256 "c0ba34094ddf69ab7f24164c657a816d7256142a58f5e93aa74987d25945287b"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -18,11 +18,11 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c9888a2f3e4726e2b0f7b59d668ce23a86b35c25cbbd851d6764f9e1d81b9fa6"
-    sha256 cellar: :any,                 big_sur:       "a01833fb584bb1522e96d4d08fd9cb4c8f2034714ca48a6c7b57569db1163287"
-    sha256 cellar: :any,                 catalina:      "87db4e0bc950cabde79bb84a902eff2a0f9d3dbafd12e80acd5c33d1537331b5"
-    sha256 cellar: :any,                 mojave:        "0c6d57d4c162c6b3142bfa8e757262c8396e65e6d440c73625932a2916400c07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da870d57eef5e7ea3d31e9e82841a9bda646affa8c1c456c5c4b366ae02d60ad"
+    sha256 cellar: :any,                 arm64_big_sur: "ffcfe2eaec015ece0df30c21a13da5c4d4a39f832c62f34ad5d61d181d7cd5cd"
+    sha256 cellar: :any,                 big_sur:       "c22c85d9f3504f914e80a5d24a2aa5e5e2b954988320878aa09d1adc1b99dc3f"
+    sha256 cellar: :any,                 catalina:      "25c29d35b9d637111d8f394713c0cd764421a147088bdae3aa64017dcd721293"
+    sha256 cellar: :any,                 mojave:        "06e083841d95c745a3be928a1ed08aedf83238109de60fabbbc5932083757106"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a34435dca7a88bcaeef77cbff59cb892466acb456507bd2f9b7147f45c74ddd"
   end
 
   depends_on "cmake" => :build
@@ -47,18 +47,18 @@ class Emscripten < Formula
   # See llvm resource below for instructions on how to update this.
   resource "binaryen" do
     url "https://github.com/WebAssembly/binaryen.git",
-        revision: "65bcde2c30e82047a892332b95b114bc86f89614"
+        revision: "c19ff59c71824b34fa312aac9ad979e2198d7d36"
   end
 
   # emscripten needs argument '-fignore-exceptions', which is only available in llvm >= 12
   # To find the correct llvm revision, find a corresponding commit at:
-  # https://github.com/emscripten-core/emsdk/blob/main/emscripten-releases-tags.txt
+  # https://github.com/emscripten-core/emsdk/blob/main/emscripten-releases-tags.json
   # Then take this commit and go to:
   # https://chromium.googlesource.com/emscripten-releases/+/<commit>/DEPS
   # Then use the listed llvm_project_revision for the resource below.
   resource "llvm" do
     url "https://github.com/llvm/llvm-project.git",
-        revision: "8fa2394bad433558f3083cee158043e2fb66d781"
+        revision: "9403514e764950a0dfcd627fc90c73432314bced"
   end
 
   def install

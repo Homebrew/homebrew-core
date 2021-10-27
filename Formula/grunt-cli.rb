@@ -8,11 +8,13 @@ class GruntCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8eafad607c94848c1bd74eca2a52b92533f399247c85d4de923ff12367ce2cda"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
-    sha256 cellar: :any_skip_relocation, catalina:      "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
-    sha256 cellar: :any_skip_relocation, mojave:        "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b45f26c253f18a68abd0e318d4a5634d371cace863b5b086fc8187d05ee5f5f7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "38f67054b492a11847be41d443b32c017fdbb9b94265ce42299675ea8742ef99"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8eafad607c94848c1bd74eca2a52b92533f399247c85d4de923ff12367ce2cda"
+    sha256 cellar: :any_skip_relocation, monterey:       "af276cc7570d11abe7da586cc0dfcee75947df3b58bcd29892722d8654649668"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
+    sha256 cellar: :any_skip_relocation, catalina:       "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
+    sha256 cellar: :any_skip_relocation, mojave:         "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b45f26c253f18a68abd0e318d4a5634d371cace863b5b086fc8187d05ee5f5f7"
   end
 
   depends_on "node"

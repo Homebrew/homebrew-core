@@ -6,13 +6,15 @@ class Jupyterlab < Formula
   url "https://files.pythonhosted.org/packages/21/41/9fa76ba01f776c267ead5ea7224cb179e38e02d37690b4f9e0a1475a807e/jupyterlab-3.1.14.tar.gz"
   sha256 "13174cb6076dd5da6f1b85725ccfcc9518d8f98e86b8b644fc89b1dfaeda63a9"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0abd979a17d0cc585c29af4af791784b6da20bb7b5c6b07a51f0645f5d1d56d4"
-    sha256 cellar: :any,                 big_sur:       "956891642a710eb82573069cc116ded9a496540c828e3c666b1dd082a05dbd6b"
-    sha256 cellar: :any,                 catalina:      "13f4fc45af9bc41d98430b2fe7d1815fe32abcfc329c4785854e88f1e84eee82"
-    sha256 cellar: :any,                 mojave:        "c88e5f22e4fcfb159f3028fdafb6d777d3d7bb23f54ca17ba3d9624884673078"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f85d00b4d30ce35e0f860a44a05994d1409448cbbdd8ab947fd081b997ee0be4"
+    sha256 cellar: :any,                 arm64_monterey: "2a8331053024a2a08347fe3df8b6b46d504e9def9c1d4aa912ead3dfae8bedc0"
+    sha256 cellar: :any,                 arm64_big_sur:  "358def975391e0c7412f5d52559221fc2328691c8ad118095e59d3d8360eb4d9"
+    sha256 cellar: :any,                 monterey:       "48375707100c6f52b64c687dbd99dc043a0a7acc9536a0dc031bef0c2ffe0c85"
+    sha256 cellar: :any,                 big_sur:        "e2025d4c15737dfe33a7f11cbe54ec14c8eba40c123cdead7f8e5785cf05754c"
+    sha256 cellar: :any,                 catalina:       "7f4417f332986bbea7f5d3989c825e9ac4f2575b59e05dcfcd53abf353a3cdd7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d5f16f7b405887cbfd6d4c539394afefa7cfb3c9f9290d6dc2bc7eb62016c72"
   end
 
   depends_on "node"
@@ -248,11 +250,6 @@ class Jupyterlab < Formula
     sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
-  resource "pydevd" do
-    url "https://files.pythonhosted.org/packages/da/dc/63e24b9bf8a8ae0bae39e5eb8198d7add1b7e699be7919831e0931016db1/pydevd-2.5.0.tar.gz"
-    sha256 "eb09d4e6667d63fcbfc777827e5d2cf702a314f8ff7d060d2d1e7d9e7e604dcf"
-  end
-
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
     sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
@@ -365,9 +362,6 @@ class Jupyterlab < Formula
       bash_completion.install "examples/jupyter-completion.bash" => "jupyter"
       zsh_completion.install "examples/completions-zsh" => "_jupyter"
     end
-
-    pydevd_vendor_dir = libexec/Language::Python.site_packages("python3")/"debugpy/_vendored/pydevd"
-    pydevd_vendor_dir.rmtree # remove pre-built binaries
   end
 
   def caveats

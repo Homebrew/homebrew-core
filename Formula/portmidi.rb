@@ -13,11 +13,13 @@ class Portmidi < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any,                 arm64_big_sur: "3b88c9a63729019e630cd581fd6f54141cba80e6c0c2f57c369e67cd1b2e524b"
-    sha256 cellar: :any,                 big_sur:       "b1f389b0e897e7fe5864bab75a9568bb4f08ede002f96f737f53248b88d49b43"
-    sha256 cellar: :any,                 catalina:      "d36a5abe7624c563740d43403605a26d4c697ea4ed917f0263bc2869f1f9a766"
-    sha256 cellar: :any,                 mojave:        "79c16a1e0a063781b5d89162d9c04e9bc6ff01a46a61479ea196d6749f0d0aff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6020495625938e80fe6242050f0aec05cf0061ebc77b009fb0806c3239952471"
+    sha256 cellar: :any,                 arm64_monterey: "22d94369f7d0908f12fb4152ff61c4fda25ec13a2d27a2a7a877f578091b66d7"
+    sha256 cellar: :any,                 arm64_big_sur:  "3b88c9a63729019e630cd581fd6f54141cba80e6c0c2f57c369e67cd1b2e524b"
+    sha256 cellar: :any,                 monterey:       "475293c8e6adf7796aaa7c0a5d8ed2be72b772db607ed2e51e33efef3ea4463d"
+    sha256 cellar: :any,                 big_sur:        "b1f389b0e897e7fe5864bab75a9568bb4f08ede002f96f737f53248b88d49b43"
+    sha256 cellar: :any,                 catalina:       "d36a5abe7624c563740d43403605a26d4c697ea4ed917f0263bc2869f1f9a766"
+    sha256 cellar: :any,                 mojave:         "79c16a1e0a063781b5d89162d9c04e9bc6ff01a46a61479ea196d6749f0d0aff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6020495625938e80fe6242050f0aec05cf0061ebc77b009fb0806c3239952471"
   end
 
   depends_on "cmake" => :build

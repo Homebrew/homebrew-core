@@ -12,12 +12,14 @@ class Sdl2Ttf < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "e1eebedabe4c9625e852feeb68abdfac5c2f55767d70d81e708f74f84dc41e8c"
-    sha256 cellar: :any,                 big_sur:       "f69eb853fb10f18eb9791c024ec12bad7cc95e65322934dddc35de4eff3019b9"
-    sha256 cellar: :any,                 catalina:      "413959be382ea92bd59af9a29e5909d40db69c571447e2f0dec821cbff612d80"
-    sha256 cellar: :any,                 mojave:        "74582129be8cfea5e556efa95411f9fc2eebf111c7b4f9affc80a7e05fa19cd9"
-    sha256 cellar: :any,                 high_sierra:   "1867ff73485eaa12fc00def01be8e388443ac6c226065218bb435558fdb8bb22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1a2593fece1b4310d25ec60cd053f627ff4da46a1a589311e7505cf87dd694b"
+    sha256 cellar: :any,                 arm64_monterey: "c11a07808c87dae658b12066a20f6bb7dd9d257de8e1fc660ea221bfc604ad7e"
+    sha256 cellar: :any,                 arm64_big_sur:  "e1eebedabe4c9625e852feeb68abdfac5c2f55767d70d81e708f74f84dc41e8c"
+    sha256 cellar: :any,                 monterey:       "9a75a0e6284a343c5bb67977284974a581b04d61d0e8ca5e1f8660777d84717e"
+    sha256 cellar: :any,                 big_sur:        "f69eb853fb10f18eb9791c024ec12bad7cc95e65322934dddc35de4eff3019b9"
+    sha256 cellar: :any,                 catalina:       "413959be382ea92bd59af9a29e5909d40db69c571447e2f0dec821cbff612d80"
+    sha256 cellar: :any,                 mojave:         "74582129be8cfea5e556efa95411f9fc2eebf111c7b4f9affc80a7e05fa19cd9"
+    sha256 cellar: :any,                 high_sierra:    "1867ff73485eaa12fc00def01be8e388443ac6c226065218bb435558fdb8bb22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1a2593fece1b4310d25ec60cd053f627ff4da46a1a589311e7505cf87dd694b"
   end
 
   head do

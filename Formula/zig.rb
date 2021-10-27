@@ -1,21 +1,31 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  url "https://ziglang.org/download/0.8.1/zig-0.8.1.tar.xz"
-  sha256 "8c428e14a0a89cb7a15a6768424a37442292858cdb695e2eb503fa3c7bf47f1a"
   license "MIT"
-  head "https://github.com/ziglang/zig.git", branch: "master"
+  revision 1
+
+  stable do
+    url "https://ziglang.org/download/0.8.1/zig-0.8.1.tar.xz"
+    sha256 "8c428e14a0a89cb7a15a6768424a37442292858cdb695e2eb503fa3c7bf47f1a"
+
+    depends_on "llvm@12"
+  end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "6c1d8057521dcb3f8f46374a33b10b8cd650b3e72d082781fb6f89d86ee42f6e"
-    sha256 cellar: :any,                 big_sur:       "e1be8baf52c6146c23701345969e40f580ffbf4c14273bce206c4be26989f82d"
-    sha256 cellar: :any,                 catalina:      "91244d050c13d67518e0311dfc1e2d2233f42102b2fca5be06a9f5dbba8e6970"
-    sha256 cellar: :any,                 mojave:        "acd62f790db0e7d1a8379185c36394f9c97c96022e37cd8dbf46a56995543a75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93cf0e20f945e484fa7681053aba4af7eca1492cd7ef58d10ccd6f979a552db1"
+    sha256 cellar: :any,                 arm64_monterey: "018b275bd4e61525d19dc95f065622cac2deeb83a562d6d779414b056db989ce"
+    sha256 cellar: :any,                 arm64_big_sur:  "4b06b5abf72a311162138a852dcadb863974d4c69573dfa13d9857b312010165"
+    sha256 cellar: :any,                 monterey:       "d882ab923be5da7adf934d5ad34f3b6c90907411c896ad78f87841f513afcbfc"
+    sha256 cellar: :any,                 big_sur:        "18e6b29f749642d8a01ce2d9657e206c9b7d3f130264f39f7afde9b9b072e03b"
+    sha256 cellar: :any,                 catalina:       "80fa8f4df5ccc5e0f8b190a8ec86eabd223ec56c756fa5e1821ef8d75d93934f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "effb69c4ee99ffa28c7a927c786565c03f56f99da437026f3788218d962c3ab8"
+  end
+
+  head do
+    url "https://github.com/ziglang/zig.git", branch: "master"
+    depends_on "llvm"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
 
   def install
     system "cmake", ".", *std_cmake_args, "-DZIG_STATIC_LLVM=ON"

@@ -4,12 +4,13 @@ class Chapel < Formula
   url "https://github.com/chapel-lang/chapel/releases/download/1.25.0/chapel-1.25.0.tar.gz"
   sha256 "39f43fc6de98e3b1dcee9694fdd4abbfb96cc941eff97bbaa86ee8ad88e9349b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 big_sur:      "beda2be8596ab9a15e88cbd19c5b0289ab15b88d7f63c56d61bb863137276c7a"
-    sha256 catalina:     "f4a653976006f3f5c54b57ebada3527f807af9cbc69713591945fa7003a89927"
-    sha256 mojave:       "6be57e2cd756b5cb822bf87ab069bea4915b42c141cda9865b6279c45917c6fb"
-    sha256 x86_64_linux: "9b1816e66d41d06e9be28682a8282c12280e228ed631aad2d97e479f2e006779"
+    sha256 big_sur:      "71be5aaea9c567fd89e7cd0943aa6658200ce880da493f3269221745365d2f4f"
+    sha256 catalina:     "b50729e75a45fdc2b4b350951d82c52b5abeb26813cf5fc6289a01dcde6afbae"
+    sha256 mojave:       "486ff899300cc9ca346603badc31e7812f0ece757c60ae878588068ee7738023"
+    sha256 x86_64_linux: "7cf01213c80d41ed1b20451fd9f11b4b651a1b9a603729826a383e73475918b3"
   end
 
   depends_on "llvm@11"
@@ -44,20 +45,16 @@ class Chapel < Formula
       rm_rf("third-party/libunwind/libunwind-1.1.tar.gz")
     end
 
-    prefix.install_metafiles
-
     # Install chpl and other binaries (e.g. chpldoc) into bin/ as exec scripts.
-    platform = if OS.mac?
-      "darwin-x86_64"
-    elsif Hardware::CPU.is_64_bit?
-      "linux64-x86_64"
+    platform = if OS.linux? && Hardware::CPU.is_64_bit?
+      "linux64-#{Hardware::CPU.arch}"
     else
-      "linux-x86_64"
+      "#{OS.kernel_name.downcase}-#{Hardware::CPU.arch}"
     end
 
-    bin.install Dir[libexec/"bin/#{platform}/*"]
-    bin.env_script_all_files libexec/"bin/#{platform}/", CHPL_HOME: libexec
-    man1.install_symlink Dir["#{libexec}/man/man1/*.1"]
+    bin.install libexec.glob("bin/#{platform}/*")
+    bin.env_script_all_files libexec/"bin"/platform, CHPL_HOME: libexec
+    man1.install_symlink libexec.glob("man/man1/*.1")
   end
 
   test do
@@ -65,5 +62,6 @@ class Chapel < Formula
     cd libexec do
       system "util/test/checkChplInstall"
     end
+    system bin/"chpl", "--print-passes", "--print-commands", libexec/"examples/hello.chpl"
   end
 end

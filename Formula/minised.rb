@@ -1,8 +1,8 @@
 class Minised < Formula
   desc "Smaller, cheaper, faster SED implementation"
   homepage "https://www.exactcode.com/opensource/minised/"
-  url "https://dl.exactcode.de/oss/minised/minised-1.15.tar.gz"
-  sha256 "ada36a55b71d1f2eb61f2f3b95f112708ce51e69f601bf5ea5d7acb7c21b3481"
+  url "https://dl.exactcode.de/oss/minised/minised-1.16.tar.gz"
+  sha256 "46e072d5d45c9fd3d5b268523501bbea0ad016232b2d3f366a7aad0b1e7b3f71"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,16 +11,10 @@ class Minised < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9b2fc7359f26228e633280c4c4629564e707f0c9c66f3cc76afd8faee0ec915a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bd2197173a324322c8081c7e603d7e7fd243906399bb93cac50abddbc9670960"
-    sha256 cellar: :any_skip_relocation, catalina:      "64c474b8f3728b7593222b7218d5e5a1d17b9f1c33f4abb94eab2339a1398826"
-    sha256 cellar: :any_skip_relocation, mojave:        "b43b719ac05f5c54e05d06941d1c2f69b960babef1772591e4fb16b3cf84a36c"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "e750f1dfe8ebc2f45837da1e20d1db531f896c5ce391250af45674c91b63f499"
-    sha256 cellar: :any_skip_relocation, sierra:        "c0a44653ebb7cf8f795fbb96d126abf1f80d5b2bb38a2d8d998dee1b7997e019"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "4f33f6d39c9190899cf04857f70481ffd57996daf5001cad661ae0ea7f002a88"
-    sha256 cellar: :any_skip_relocation, yosemite:      "d169d87a77fe06c1190065e502e84fc3f3b3714cdc98a1235c78033a41e6a292"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3a0dc9b6a43648ee0e86dc5f16a3754e2d83639b6d7d58166b6b525df2acbeb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "83e070332d7ffada88d210ebb159b0d73a2020d3df02fdf72453c0bb3e78dd21"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c303cd44d317dbdb8e32fb3ace5200d60f707176fc11bf32b57015bd1ac99a57"
+    sha256 cellar: :any_skip_relocation, catalina:      "0e5a711b146eceb3feea676e6816998eb82442f1632831bb95b97fa09566bf75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c46de1901db191b4cff269feb8d236fdc53ae72a83609699e4ed1a2afc6f789"
   end
 
   def install

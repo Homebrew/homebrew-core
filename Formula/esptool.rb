@@ -3,34 +3,34 @@ class Esptool < Formula
 
   desc "ESP8266 and ESP32 serial bootloader utility"
   homepage "https://github.com/espressif/esptool"
-  url "https://files.pythonhosted.org/packages/9c/c8/28f21b3d3b5e1f1d249be52cdd91793c8c3f7c4f4f255ece7d50984fb05d/esptool-3.1.tar.gz"
-  sha256 "ec6b943c53b4d71f87f98776333d5b4b99905766898a7002c28a9090b92b2de4"
+  url "https://files.pythonhosted.org/packages/60/a4/33907f5b735f9179061bd6b6cae7123d4a2d0cdf46c879fa55e66edef24f/esptool-3.2.tar.gz"
+  sha256 "9638ff11c68e621e08e7c3335d4fd9d70b2ddcf7caae778073cd8cc27be1216f"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "e2916044d6ce93795993340af2904bc088324c54b238f0663f672b35d5d2ff01"
-    sha256 cellar: :any,                 big_sur:       "286a2dbf4c4243d0fc244c07d9e41d2eea34e1b60d686b310eb1246f216854b2"
-    sha256 cellar: :any,                 catalina:      "c88e132957e5b312946aea44eb0aded7dab11a64fa629190af16ab4f317d496b"
-    sha256 cellar: :any,                 mojave:        "0905b46bbefd70aa8a0666651cd51b0664b8390f85c1353d087aab0de5559a1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b719d2fdc74b53c3bcb4bf507120d00dd08ae4562e2a1ebcccd752164cfdf8c5"
+    sha256 cellar: :any,                 arm64_big_sur: "dd42a3301e863b412b9a51a73359b6f3cc030abc0aee8a7b02a6432e0bceeb11"
+    sha256 cellar: :any,                 big_sur:       "0cfc27468d292253ff44cb4a51176b68e472fa3bad740235eaaa419d7bcb3eec"
+    sha256 cellar: :any,                 catalina:      "06d4d81d98e1bb77bd2c975658179b9a1c13b01a51ef5d44c887c13401a0e8d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a83eeba0b8aa49af1da4af3f3c21b3396221a5b0b9100df7bf7a4170d943b68"
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+  depends_on "six"
 
   resource "bitstring" do
-    url "https://files.pythonhosted.org/packages/c3/fc/ffac2c199d2efe1ec5111f55efeb78f5f2972456df6939fea849f103f9f5/bitstring-3.1.7.tar.gz"
-    sha256 "fdf3eb72b229d2864fb507f8f42b1b2c57af7ce5fec035972f9566de440a864a"
+    url "https://files.pythonhosted.org/packages/4c/b1/80d58eeb21c9d4ca739770558d61f6adacb13aa4908f4f55e0974cbd25ee/bitstring-3.1.9.tar.gz"
+    sha256 "a5848a3f63111785224dca8bb4c0a75b62ecdef56a042c8d6be74b16f7e860e7"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
-    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
+    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
+    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/10/91/90b8d4cd611ac2aa526290ae4b4285aa5ea57ee191c63c2f3d04170d7683/cryptography-35.0.0.tar.gz"
+    sha256 "9933f28f70d0517686bd7de36166dda42094eac49415459d9bdf5e7df3e0086d"
   end
 
   resource "ecdsa" do
@@ -51,11 +51,6 @@ class Esptool < Formula
   resource "reedsolo" do
     url "https://files.pythonhosted.org/packages/c8/cb/bb2ddbd00c9b4215dd57a2abf7042b0ae222b44522c5eb664a8fd9d786da/reedsolo-1.5.4.tar.gz"
     sha256 "b8b25cdc83478ccb06361a0e8fadc27b376a3dfabbb1dc6bb583a998a22c0127"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   def install

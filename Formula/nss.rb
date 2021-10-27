@@ -11,11 +11,13 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0adb1d87440062452a125b61ba6f1d02ca1fd08a13f16198eb75c6b8fe8316f3"
-    sha256 cellar: :any,                 big_sur:       "4e2903927f44570829cd06b131dd110ea6b56bf0911bbef8e7109a64f86fb1e5"
-    sha256 cellar: :any,                 catalina:      "9bf1121a058da249531340e5a1cb22f4eaa3c08921ccaf97fb933dfcf7382d75"
-    sha256 cellar: :any,                 mojave:        "1044185d3a60c026f93594fa8f3da8ee2b5db4acecf0585a0d83cc8c0208252f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72d341b28d6fec1010be353fea8d4154d3066504f8b928ed375958d5f254701d"
+    sha256 cellar: :any,                 arm64_monterey: "45a75ef9f7fe596db57e40e462f72454e929caa1974e801d6b252aa92c944f2f"
+    sha256 cellar: :any,                 arm64_big_sur:  "0adb1d87440062452a125b61ba6f1d02ca1fd08a13f16198eb75c6b8fe8316f3"
+    sha256 cellar: :any,                 monterey:       "9063fcb0293f71c9e7e5d0f98bd82dcf0b31f6e6cec3f8518427f38fe6c65680"
+    sha256 cellar: :any,                 big_sur:        "4e2903927f44570829cd06b131dd110ea6b56bf0911bbef8e7109a64f86fb1e5"
+    sha256 cellar: :any,                 catalina:       "9bf1121a058da249531340e5a1cb22f4eaa3c08921ccaf97fb933dfcf7382d75"
+    sha256 cellar: :any,                 mojave:         "1044185d3a60c026f93594fa8f3da8ee2b5db4acecf0585a0d83cc8c0208252f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72d341b28d6fec1010be353fea8d4154d3066504f8b928ed375958d5f254701d"
   end
 
   depends_on "nspr"
@@ -50,11 +52,7 @@ class Nss < Formula
     # rather than copying the referenced file.
     cd "../dist"
     bin.mkpath
-    os = if OS.mac?
-      "Darwin"
-    else
-      "Linux"
-    end
+    os = OS.kernel_name
     Dir.glob("#{os}*/bin/*") do |file|
       cp file, bin unless file.include? ".dylib"
     end

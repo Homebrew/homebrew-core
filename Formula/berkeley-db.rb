@@ -12,14 +12,23 @@ class BerkeleyDb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "fb300ebe3dcc5b308c6fbc383856545a6b35e883889c95f0bfeee40d6d07b02d"
-    sha256 cellar: :any,                 big_sur:       "dc8c2c76f315ea02737e9277f74cc9f8faba1733c10c20e2ef62d50b4abce4b7"
-    sha256 cellar: :any,                 catalina:      "f4d82916099a1023af6a72675dce0a445000efd2286866d1f36bf0b1063b24aa"
-    sha256 cellar: :any,                 mojave:        "ef85a6b6fb93f8dcee4144acf22665a331c5b2398822a5f183aed0fb863718f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f33ddf91965070b68d81c110cda45797bfd5e75f1e23d90f4b66497335833dc"
+    sha256 cellar: :any,                 arm64_monterey: "676c2b4f7fc4d0e988f04f3c8474b8bd962979ad6fd93720dc5b200674dc6239"
+    sha256 cellar: :any,                 arm64_big_sur:  "fb300ebe3dcc5b308c6fbc383856545a6b35e883889c95f0bfeee40d6d07b02d"
+    sha256 cellar: :any,                 monterey:       "5193fb2dfd137612487dd3d1644151c342db13760f64bd5913a964efb502f7ab"
+    sha256 cellar: :any,                 big_sur:        "dc8c2c76f315ea02737e9277f74cc9f8faba1733c10c20e2ef62d50b4abce4b7"
+    sha256 cellar: :any,                 catalina:       "f4d82916099a1023af6a72675dce0a445000efd2286866d1f36bf0b1063b24aa"
+    sha256 cellar: :any,                 mojave:         "ef85a6b6fb93f8dcee4144acf22665a331c5b2398822a5f183aed0fb863718f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f33ddf91965070b68d81c110cda45797bfd5e75f1e23d90f4b66497335833dc"
   end
 
   depends_on "openssl@1.1"
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    directory "dist"
+  end
 
   def install
     # BerkeleyDB dislikes parallel builds

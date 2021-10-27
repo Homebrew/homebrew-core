@@ -11,11 +11,13 @@ class NodeAT12 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "dc0b9ba4edc54658398d773c5223e339ef5b406c06c5494e7e68f7c490081677"
-    sha256 cellar: :any,                 big_sur:       "4b182fb0bb0634af76a2c2b20f9c32454a4107682af31df2ac7c329340779648"
-    sha256 cellar: :any,                 catalina:      "7f0aff2700d2914da161f62ff1c744c36ab0dda3e9a22cb78778f15b836c959f"
-    sha256 cellar: :any,                 mojave:        "4d651ee1724446252579bb639a374913e7a30dc20a2a9bf0f4e504ce2e9cc4bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47e45d7f449a3cc34bcc0fbe775ed6f85cff4a61f5d038b80503056070b3bf3b"
+    sha256 cellar: :any,                 arm64_monterey: "852bbcd8a35c647f1c3bcacbd8ea3367171f043037894174e5de3b302aac8635"
+    sha256 cellar: :any,                 arm64_big_sur:  "dc0b9ba4edc54658398d773c5223e339ef5b406c06c5494e7e68f7c490081677"
+    sha256 cellar: :any,                 monterey:       "65ea462fffc38965193813d88d7536d0aaef9e15d75cb8968a5e3870d9d88e14"
+    sha256 cellar: :any,                 big_sur:        "4b182fb0bb0634af76a2c2b20f9c32454a4107682af31df2ac7c329340779648"
+    sha256 cellar: :any,                 catalina:       "7f0aff2700d2914da161f62ff1c744c36ab0dda3e9a22cb78778f15b836c959f"
+    sha256 cellar: :any,                 mojave:         "4d651ee1724446252579bb639a374913e7a30dc20a2a9bf0f4e504ce2e9cc4bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47e45d7f449a3cc34bcc0fbe775ed6f85cff4a61f5d038b80503056070b3bf3b"
   end
 
   keg_only :versioned_formula
@@ -34,14 +36,6 @@ class NodeAT12 < Formula
   on_macos do
     depends_on "macos-term-size"
   end
-
-  # Fix build with brewed c-ares.
-  # https://github.com/nodejs/node/pull/39739
-  #
-  # Remove when the following lands in a *c-ares* release:
-  # https://github.com/c-ares/c-ares/commit/7712fcd17847998cf1ee3071284ec50c5b3c1978
-  # https://github.com/c-ares/c-ares/pull/417
-  patch :DATA
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
@@ -112,16 +106,3 @@ class NodeAT12 < Formula
     assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")
   end
 end
-
-__END__
---- a/src/cares_wrap.cc
-+++ b/src/cares_wrap.cc
-@@ -39,7 +39,7 @@
- # include <netdb.h>
- #endif  // __POSIX__
- 
--# include <ares_nameser.h>
-+# include <arpa/nameser.h>
- 
- // OpenBSD does not define these
- #ifndef AI_ALL

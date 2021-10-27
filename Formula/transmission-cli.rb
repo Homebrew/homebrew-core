@@ -13,11 +13,13 @@ class TransmissionCli < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "07a84ee48fdee3046614731074c3e3f20f814011d644e6804a836e586a11f4a5"
-    sha256 big_sur:       "d536f415cf27818d83062e693c8ebde50057fbe36d120b81cda3bbb32e5396b7"
-    sha256 catalina:      "7640fdff8a0840356ea2d43d3ab0efe1d5da5c2840d9fe555deed3c9957705c1"
-    sha256 mojave:        "db2aa6896d89884e15d5dda0b35c152a96cd028703c69f7f8bd9288d0d61a838"
-    sha256 x86_64_linux:  "178d05964e9efd8d4541cf5589f4772ccdc59b8de83158f96b8ad7ffeff6b8d2"
+    sha256 arm64_monterey: "7cea8d14774f036fb808ab778efd7aaebfdd46b0057e401ccfc1744e09f05e30"
+    sha256 arm64_big_sur:  "07a84ee48fdee3046614731074c3e3f20f814011d644e6804a836e586a11f4a5"
+    sha256 monterey:       "8785d5cd7675a2f5203cd9cb4a7b13b756037d2ee127abfe6223b946733efe34"
+    sha256 big_sur:        "d536f415cf27818d83062e693c8ebde50057fbe36d120b81cda3bbb32e5396b7"
+    sha256 catalina:       "7640fdff8a0840356ea2d43d3ab0efe1d5da5c2840d9fe555deed3c9957705c1"
+    sha256 mojave:         "db2aa6896d89884e15d5dda0b35c152a96cd028703c69f7f8bd9288d0d61a838"
+    sha256 x86_64_linux:   "178d05964e9efd8d4541cf5589f4772ccdc59b8de83158f96b8ad7ffeff6b8d2"
   end
 
   depends_on "pkg-config" => :build

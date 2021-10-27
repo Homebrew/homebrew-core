@@ -5,7 +5,7 @@ class Rtags < Formula
       tag:      "v2.38",
       revision: "9687ccdb9e539981e7934e768ea5c84464a61139"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/Andersbakken/rtags.git", branch: "master"
 
   livecheck do
@@ -14,11 +14,10 @@ class Rtags < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "841f0e639cd56b510b2f2571276c7bcbe3fc86269127222f605c605ec5a074aa"
-    sha256 cellar: :any, big_sur:       "78858c44b0a41a2437f5b553069b14a9c612fd77b717e95dbaf1949f8629184a"
-    sha256 cellar: :any, catalina:      "a421a220b9d412b03d094fc5ce869813534daf3df87271bc16b0fbf01b3cb305"
-    sha256 cellar: :any, mojave:        "84995048fe27191b02332d264e02f7c51178fd5ae5b1f16e6f7be7849adbabcb"
-    sha256               x86_64_linux:  "4eafc513cdf548a06aa5756b0c70e5229d21f4d6a777ae9e327e423cc8deb5c4"
+    sha256 cellar: :any, arm64_big_sur: "4031ba7d9c52f3834e868c716b04854d45a234312a55a9e31c26bf18c01cce8c"
+    sha256 cellar: :any, big_sur:       "b27afadc735d740bcb9ca96d1a9ea5fd77f0c07b663b10b7a09f3c10e696614f"
+    sha256 cellar: :any, catalina:      "dcaf7b5babf605732fd9007de2f2196687601f839c4045e9eee26ba4ed641cb7"
+    sha256               x86_64_linux:  "580e835fcc2d725ad8abfa7cd62d653ec100f9c9f84801fa4886ba3b84f6c804"
   end
 
   depends_on "cmake" => :build

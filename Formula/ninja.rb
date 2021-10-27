@@ -13,11 +13,13 @@ class Ninja < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2ba394fee0825079adf179dfaebd6d38ac3e4918d851f3e844b52bdd6a97b12b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a024937b955212892b810dbe09af351b8966448cab497db3d81cd6ca829cd8ec"
-    sha256 cellar: :any_skip_relocation, catalina:      "07ce960dd5c57859916a09090ef9b747a28c56892d60cc91c29b85c8cc13d902"
-    sha256 cellar: :any_skip_relocation, mojave:        "b9c82b12477142c1a4ed7d030d9227b6c351fbe7747f3533e37607e5497db22b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8668b179edcaf6f918dbd83aea05c421015c46c546a9b0744b5c723a2737d55"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "04c4a974715862de90cabc98e581cdb969b6b913b4712450cf3e62ee3467e0a7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ba394fee0825079adf179dfaebd6d38ac3e4918d851f3e844b52bdd6a97b12b"
+    sha256 cellar: :any_skip_relocation, monterey:       "34eef7bc5f28ca0b489bbc02d0fc3a3b1b8f32492563985a68179d30b27fdab5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a024937b955212892b810dbe09af351b8966448cab497db3d81cd6ca829cd8ec"
+    sha256 cellar: :any_skip_relocation, catalina:       "07ce960dd5c57859916a09090ef9b747a28c56892d60cc91c29b85c8cc13d902"
+    sha256 cellar: :any_skip_relocation, mojave:         "b9c82b12477142c1a4ed7d030d9227b6c351fbe7747f3533e37607e5497db22b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8668b179edcaf6f918dbd83aea05c421015c46c546a9b0744b5c723a2737d55"
   end
 
   # Ninja only needs Python for some non-core functionality.

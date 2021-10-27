@@ -13,6 +13,7 @@ class Lolcat < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "ac56190c6ec7e25d49f979aff7f6cc3e45820002ef22fbc444196b64de2590f9"
     sha256 cellar: :any_skip_relocation, high_sierra:   "1eb5cf4cd5565e07659f37e2531be1e72b0e2e8e57587af229e230fa00315ed3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8110115e78f3bcb1aca5f3aee73cb81726e59a1293236a780ce99af733a8f524"
+    sha256 cellar: :any_skip_relocation, all:           "2413429a0ccae2c204b12dc59fbc9cd780947f6f4d5af51e8b6d9ecb6de5772d"
   end
 
   depends_on "ruby" if MacOS.version <= :sierra

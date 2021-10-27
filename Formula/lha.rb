@@ -19,11 +19,13 @@ class Lha < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d328d1b1740353a2e04c6f79dc863f3fa2caca9380e76b3e48b4b72f5e1ad32b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bd78eb55cbce8091fd07d82ec486bfd67fc8079b2fe6385c8374b2e7c5171528"
-    sha256 cellar: :any_skip_relocation, catalina:      "429d3165a0f986e815f09ea3f6b2d93e1bd0feef01b6df6159a983e8118244a4"
-    sha256 cellar: :any_skip_relocation, mojave:        "12b5c79de56f71138c64d517ffc0091bc313f4cc0f174e10276b248b06e2fa0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8b7a7201b538cc3ef658c5b8cb0512fbd02bad5cff1fda24c89a2c0e18e0817"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f36323fc8887aa0dfb1ad6897f3c097eebe199b80ec6e873e3c121dd286df627"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d328d1b1740353a2e04c6f79dc863f3fa2caca9380e76b3e48b4b72f5e1ad32b"
+    sha256 cellar: :any_skip_relocation, monterey:       "530aa92b0d3fbfdfaa01c6fb94e7a3dd4e98927055589a586145e8c7f5415bd1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bd78eb55cbce8091fd07d82ec486bfd67fc8079b2fe6385c8374b2e7c5171528"
+    sha256 cellar: :any_skip_relocation, catalina:       "429d3165a0f986e815f09ea3f6b2d93e1bd0feef01b6df6159a983e8118244a4"
+    sha256 cellar: :any_skip_relocation, mojave:         "12b5c79de56f71138c64d517ffc0091bc313f4cc0f174e10276b248b06e2fa0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8b7a7201b538cc3ef658c5b8cb0512fbd02bad5cff1fda24c89a2c0e18e0817"
   end
 
   head do

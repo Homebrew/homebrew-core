@@ -3,16 +3,16 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/14/ac/7032b136aa6f6488656f46b624ead387e3f2136a427c22ada7b4cd08bc01/locust-2.4.0.tar.gz"
-  sha256 "c51538611658425e9b0ff7856913f3f18f549888056fe20d8fd2f95eb44a16aa"
+  url "https://files.pythonhosted.org/packages/20/bf/ac73255d81bb679ab614b6418e63aa2ef7d5140f4320814f7963b01553f4/locust-2.4.1.tar.gz"
+  sha256 "96a783ca2aded1ed3c42d9cef88820638ee335447c4389ece51e85061a3ab14c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8363dfb4490d485d15cbd2df2d511c42c0b41f5dbd8933d33f1a0afa7cd279aa"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9b436bd3fbfe79ea366f5e780d55594141f9c1abff34eb209917f9aaa2fff080"
-    sha256 cellar: :any_skip_relocation, catalina:      "aefc34751a171cad193e55ee2491d1ae6b2088457cf54931f9f2d917afe46a27"
-    sha256 cellar: :any_skip_relocation, mojave:        "8030d665608a03236aa6aa34d3a81491ff15f5d885b0c0f395b2b58103fbbebe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43454fbf053b738b9b3bf97beaff456678d3eb5d7daede16867004674d85ed09"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ac57c1799afb0c41f6df232eb2e82cb8a9db3c3f258773ad02c0cb076f92b13c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "91edaa66f7dbdd9e57c6e5540a04bc4e774c207d8723e8437fbef437b0951724"
+    sha256 cellar: :any_skip_relocation, catalina:      "f557b36490eee9511456fab780281324f08824e996755d0b5afc7417a7a54cbb"
+    sha256 cellar: :any_skip_relocation, mojave:        "79067b00653f3e3787b7161c2bc9f972d20f29dcd3749233acb342175acb3979"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c6389671753427165647a1f4f0394472f50d5ca11e81476f8fbd1f14d79796d"
   end
 
   depends_on "python@3.10"
@@ -29,8 +29,8 @@ class Locust < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
-    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
   resource "click" do
@@ -74,8 +74,8 @@ class Locust < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
-    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "itsdangerous" do

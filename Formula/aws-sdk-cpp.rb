@@ -3,16 +3,16 @@ class AwsSdkCpp < Formula
   homepage "https://github.com/aws/aws-sdk-cpp"
   # aws-sdk-cpp should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-sdk-cpp.git",
-      tag:      "1.9.110",
-      revision: "f8633e8cea47d77abaecd5dd92865b3c15a245da"
+      tag:      "1.9.120",
+      revision: "9ac19a89650cb5f2215d1fcfde0ff79618824009"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a4548199799a00974d9e5ad65affc99def095d2a667f540d75005af516ecf9f2"
-    sha256 cellar: :any, big_sur:       "1a5d839ccaeb3e6b13f43c8c7a1dc738ea31943c6a4d4fb5b7389242a1744836"
-    sha256 cellar: :any, catalina:      "fb552d7946e8ab701459c7d92bc418b178503d59cc2455191ad56514d4ce945f"
-    sha256 cellar: :any, mojave:        "87eff5514bdf817372edb8af6d71c302553aeea03a32510d5af70c325242d5ac"
+    sha256 cellar: :any, arm64_big_sur: "af6b638f50ee26e3ff46439d0390b2b309f3ead1769bf217605098fb29f949dc"
+    sha256 cellar: :any, big_sur:       "bccf5bd2cfd2c08ff280d876d1f065d1a72f25df968c15b388f8dca68d91d38a"
+    sha256 cellar: :any, catalina:      "b1e03ebe9c31ebf8eb65213a4003e13287c87ac60ed2cfae9b10a287d08ff90d"
+    sha256 cellar: :any, mojave:        "9b1a9bb1435a2f1f616265ce7a8541c9c80d31f9b0f52f5906b43207b52881c0"
   end
 
   depends_on "cmake" => :build

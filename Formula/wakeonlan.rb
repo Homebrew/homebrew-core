@@ -15,6 +15,7 @@ class Wakeonlan < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "7da7f512ae921016be21fa3899d4f01841e3da5bc96570fcd85b530e4e720c06"
     sha256 cellar: :any_skip_relocation, yosemite:      "78a5d905b250ddb09cc3fa4296f2ffc8c925788a7d8e5d05e96f5581e81a7e9d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4a712953c99f9fbaa58324ec19b50d327c75eacf3ecc2fb9c7ee8a6f6334c5a"
+    sha256 cellar: :any_skip_relocation, all:           "fab33ab022dca1acde2b301a811991a04d7793504bd2504ae22c6f87ae92087e"
   end
 
   uses_from_macos "perl"

@@ -2,10 +2,10 @@ class Libnghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
   # Keep in sync with nghttp2.
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.45.1/nghttp2-1.45.1.tar.gz"
-  mirror "http://fresh-center.net/linux/www/nghttp2-1.45.1.tar.gz"
-  mirror "http://fresh-center.net/linux/www/legacy/nghttp2-1.45.1.tar.gz"
-  sha256 "2379ebeff7b02e14b9a414551d73540ddce5442bbecda2748417e8505916f3e7"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.46.0/nghttp2-1.46.0.tar.gz"
+  mirror "http://fresh-center.net/linux/www/nghttp2-1.46.0.tar.gz"
+  mirror "http://fresh-center.net/linux/www/legacy/nghttp2-1.46.0.tar.gz"
+  sha256 "4b6d11c85f2638531d1327fe1ed28c1e386144e8841176c04153ed32a4878208"
   license "MIT"
 
   livecheck do
@@ -13,11 +13,13 @@ class Libnghttp2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "75ed9aea6aad424ff9406f7c8849d340d5f2fb36b05c9352f8416201fe03d1df"
-    sha256 cellar: :any,                 big_sur:       "6edccdb5f700fa3602caa4ed902c18cdab02e64f33bdaf318a867b30b972a472"
-    sha256 cellar: :any,                 catalina:      "f9d462cb615767a7af790b54af5f377ab80c0a993b7938c8743118db52822984"
-    sha256 cellar: :any,                 mojave:        "58aa1edc1bc6d578976ba92fd7356628f660a5a1dcdad72da9d9e6c63f66dd8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88cb5305619855077a4f21256f150de396de0d9e3616c52b85bd39ffff1e9344"
+    sha256 cellar: :any,                 arm64_monterey: "7676ac3fa660ac5c0f08715d77edb7bbe68bfbe2853697271fcb9a32fb9caad7"
+    sha256 cellar: :any,                 arm64_big_sur:  "f73eb0a7cec33617af3678052a930246107b6fa0d00fc480678718227fe661a4"
+    sha256 cellar: :any,                 monterey:       "9df3a1be4e886213caeb99ebb4d091bf9c38c6cdbbcdc345dbd03ab555e718ab"
+    sha256 cellar: :any,                 big_sur:        "14061ffcaca71329e5f77f09bdf3d90aa06e406fa7f732c456209e9ff640a007"
+    sha256 cellar: :any,                 catalina:       "35666c878a2866c108581b95caacb6c4854e9f5778f2102723c4c09c625c8141"
+    sha256 cellar: :any,                 mojave:         "67ad1b85114a52237011f740be10a36e7906b6aa0efbc7056ad8f97df52d28d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20e19d7c51bdd7eed7ccb15169c10b02dedfae921c12e9832e423094ed0549eb"
   end
 
   head do

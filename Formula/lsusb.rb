@@ -13,6 +13,7 @@ class Lsusb < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "e696db36d09169064b3e97852d07464125e5bc6e400cb2a4cc186e6aa606574a"
     sha256 cellar: :any_skip_relocation, sierra:        "e696db36d09169064b3e97852d07464125e5bc6e400cb2a4cc186e6aa606574a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e696db36d09169064b3e97852d07464125e5bc6e400cb2a4cc186e6aa606574a"
+    sha256 cellar: :any_skip_relocation, all:           "cb58c67458e54e712ac52a4e6ffcaab384ad2e7b61bad32c21daae3f16a42d5a"
   end
 
   depends_on :macos

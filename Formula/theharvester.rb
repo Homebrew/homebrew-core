@@ -6,14 +6,14 @@ class Theharvester < Formula
   url "https://github.com/laramies/theHarvester/archive/4.0.1.tar.gz"
   sha256 "99bce3c0bfd5337f646f9721dc58f4782c2c0d4da73422c6ed3c95dff67d7e7e"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "52039062c91260b658fb3a10f747fca420c98624431dde70342c3df7309d8bbd"
-    sha256 cellar: :any,                 big_sur:       "106c03d6bed333ba9457e5d26ad27352f2fc8d6f73bed71d92c88a4a8c06c063"
-    sha256 cellar: :any,                 catalina:      "8474b55c72ea0a7ce1254202f5e2fdb5fff358c47f9d6e48bc46a19b4fcdbb58"
-    sha256 cellar: :any,                 mojave:        "55153d82c76a87d178397d7dee39893db40945a8dd5dbb5d28f4c9cf9c8ccb9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33405c081ffd2d0f1ff51522bb891cb7f5836b6b948ff7fb9c619dbb9e4774ea"
+    sha256 cellar: :any,                 arm64_big_sur: "73eb7bef933ca067b0d403bb07ca6fe013fd28a9f5d9248a80c9b3a7c829e66b"
+    sha256 cellar: :any,                 big_sur:       "7f709efa01cd3890e9ff0b03deecba548d4fb7d751e367cd13c4fd02098ebf18"
+    sha256 cellar: :any,                 catalina:      "d085b44cb0e1d0370919c9754a6436f6a0a216079382f080fc99b67c50a8358d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4c5f6015343b939dc9c4d024496efd4fe718856f5adb33b5b79e563ee37f90a"
   end
 
   depends_on "maturin" => :build

@@ -10,10 +10,12 @@ class Doc8 < Formula
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef9dd2c5a52fffc7d9daf8a5308bc48eb87b21b350bc4508e62d7785955b3b66"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ea5c82933dfaec4a02061ab64bb164cfe83f31deaccdadbb3d0462923e980cea"
-    sha256 cellar: :any_skip_relocation, catalina:      "ea5c82933dfaec4a02061ab64bb164cfe83f31deaccdadbb3d0462923e980cea"
-    sha256 cellar: :any_skip_relocation, mojave:        "ea5c82933dfaec4a02061ab64bb164cfe83f31deaccdadbb3d0462923e980cea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef9dd2c5a52fffc7d9daf8a5308bc48eb87b21b350bc4508e62d7785955b3b66"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef9dd2c5a52fffc7d9daf8a5308bc48eb87b21b350bc4508e62d7785955b3b66"
+    sha256 cellar: :any_skip_relocation, monterey:       "ea5c82933dfaec4a02061ab64bb164cfe83f31deaccdadbb3d0462923e980cea"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ea5c82933dfaec4a02061ab64bb164cfe83f31deaccdadbb3d0462923e980cea"
+    sha256 cellar: :any_skip_relocation, catalina:       "ea5c82933dfaec4a02061ab64bb164cfe83f31deaccdadbb3d0462923e980cea"
+    sha256 cellar: :any_skip_relocation, mojave:         "ea5c82933dfaec4a02061ab64bb164cfe83f31deaccdadbb3d0462923e980cea"
   end
 
   depends_on "python@3.10"

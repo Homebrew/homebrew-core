@@ -3,26 +3,28 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/5b/b8/5783737f4f6d0a46e38985990d87076fa3e0b312d5b0e22b144507fd5609/ansible-lint-5.2.0.tar.gz"
-  sha256 "79020356d93f503d2cc869a7270e3c04316d510e33b6264edc08c7d0db0e8061"
+  url "https://files.pythonhosted.org/packages/b0/44/9d47dd76a75de9e7b4acb13e1b8f75294d888852aadab51a9cef53b0e093/ansible-lint-5.2.1.tar.gz"
+  sha256 "d64aca59c8d896541d379b9205b2126b851088aab0a2c2cab19ff74b184cdf1c"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "f88ae027c7c4c4e75287a98be0688487170abaa91e5f8a6f71e4c6a49dbdaf01"
-    sha256 cellar: :any,                 big_sur:       "0fccdedf8c76ff9ccca967d5a7e874bb9353a3933d652080857bb987602d4c0f"
-    sha256 cellar: :any,                 catalina:      "da5114a1b156c70eaa6108f8d9ae407c9c04265f60fd130bec8e0e020a3acf00"
-    sha256 cellar: :any,                 mojave:        "44b013c5e5302f5bd8a7f26836724d4606f220fb438048c29b9e1319fa92c1b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b6191e9c1279bb52aa35ea9174105cc110dbf12cc0df2f25894b9e1a9899123"
+    sha256 cellar: :any,                 arm64_monterey: "488ebdbd306e0f4801f23e83f473248e66ecd441f5b54855c0f99a6459496321"
+    sha256 cellar: :any,                 arm64_big_sur:  "6286c5ad0061c9ec9fcdbd14737850a397cd791139751a456932635626301d7e"
+    sha256 cellar: :any,                 monterey:       "8974f792ff05ef3cef89846e03be87eacb9f8daba62d64e9426c7cf48fd10739"
+    sha256 cellar: :any,                 big_sur:        "adbff4e4a4809b69aed0161adc7f4fe3ecb99cd0df031ca1d2321b22d1a81f6a"
+    sha256 cellar: :any,                 catalina:       "2afeb4e9ce0cca2b22ab92498fbbad094ee340726680f02872d43791c6ccd852"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0375c54a57092cf407a98d99c5013e0e765b0c66e4326697966882feca41abf"
   end
 
   depends_on "pkg-config" => :build
   depends_on "ansible"
   depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/bb/80/7118945282845f8dc337c45c7d9d171a9f86d0c7650ac7e65d60995691d2/bracex-2.1.1.tar.gz"
-    sha256 "01f715cd0ed7a622ec8b32322e715813f7574de531f09b70f6f3b2c10f682425"
+    url "https://files.pythonhosted.org/packages/10/d5/0f2fa4d62d905c159ad3f81fb3b0446d5ef5a900ca942d2995f441b5c440/bracex-2.2.tar.gz"
+    sha256 "8230f3a03f1f76c192a7844377124300fbaec83870a728b629dfabd9be9e83d0"
   end
 
   resource "colorama" do
@@ -56,13 +58,13 @@ class AnsibleLint < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/57/3f/a8ba181148dcb9184cb0afac66d075fce60f06f926ce9cdab3dc61fd6497/rich-10.11.0.tar.gz"
-    sha256 "016fa105f34b69c434e7f908bb5bd7fefa9616efdb218a2917117683a6394ce5"
+    url "https://files.pythonhosted.org/packages/4e/fd/5d40b0363467f8c87d5f5f551b7b431e234bff2becf959daab453f9d7795/rich-10.12.0.tar.gz"
+    sha256 "83fb3eff778beec3c55201455c17cccde1ccdf66d5b4dade8ef28f56b50c4bd4"
   end
 
   resource "ruamel.yaml" do
@@ -87,7 +89,7 @@ class AnsibleLint < Formula
 
   def install
     virtualenv_install_with_resources
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     site_packages = "lib/python#{xy}/site-packages"
     ansible = Formula["ansible"].opt_libexec
     (libexec/site_packages/"homebrew-ansible.pth").write ansible/site_packages

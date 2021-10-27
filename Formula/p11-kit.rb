@@ -7,11 +7,13 @@ class P11Kit < Formula
   revision 1
 
   bottle do
-    sha256 arm64_big_sur: "74df2e80935cbf3fd9f434d39787fab5f89ca1f4dc210c3dc002d2e8445c155d"
-    sha256 big_sur:       "afd53d336262a0bb9983276eb6ea6b9c602a534d021dc9abc1f3ddfa20ec9869"
-    sha256 catalina:      "37ee66ec71206a3077deef9d2f2452d0ea43a60d66a1d257a22947a189e115ea"
-    sha256 mojave:        "8d25a20a23fbd9e5787369b86b2af53d1cb558e69de5f7f8ab25069ae7beb390"
-    sha256 x86_64_linux:  "a8d4ad8b26dd3742a23afacba624ce409425e83b49b118a056f28d1e6fb96637"
+    sha256 arm64_monterey: "5709b9c664f0e70a5b8ab1ae42d55c91f1e32cad67e2d0098e5cb4ba9b2915b1"
+    sha256 arm64_big_sur:  "74df2e80935cbf3fd9f434d39787fab5f89ca1f4dc210c3dc002d2e8445c155d"
+    sha256 monterey:       "9e2b637f208aba9e66ecfbde97884e236abaaa2a4c4aa56681c206425f350f52"
+    sha256 big_sur:        "afd53d336262a0bb9983276eb6ea6b9c602a534d021dc9abc1f3ddfa20ec9869"
+    sha256 catalina:       "37ee66ec71206a3077deef9d2f2452d0ea43a60d66a1d257a22947a189e115ea"
+    sha256 mojave:         "8d25a20a23fbd9e5787369b86b2af53d1cb558e69de5f7f8ab25069ae7beb390"
+    sha256 x86_64_linux:   "a8d4ad8b26dd3742a23afacba624ce409425e83b49b118a056f28d1e6fb96637"
   end
 
   head do

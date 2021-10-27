@@ -4,6 +4,7 @@ class Mysqlxx < Formula
   url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.3.0.tar.gz"
   sha256 "449cbc46556cc2cc9f9d6736904169a8df6415f6960528ee658998f96ca0e7cf"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,14 +12,20 @@ class Mysqlxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "f7a7c4dc1a39553297a0be0dcae8914afee296416318ce447413988d94306906"
-    sha256 cellar: :any,                 big_sur:       "d7957ee5ab8476ac890144b0c64bcd20137867b1266d3e022305a5c4f2c3372a"
-    sha256 cellar: :any,                 catalina:      "14dd4833fb2dbfbefa0267f36ffc828f7306509a2dbd12c6fdec7f6f9173cf81"
-    sha256 cellar: :any,                 mojave:        "d9a31961dea425b21c279b5fb995d242b6201332e4745662e06647631ff98fba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85e07407a7b99c89510e5b66d43db09ffbd3bb4f0e1a758c8eb04afb6a6c640d"
+    sha256 cellar: :any,                 arm64_big_sur: "e2cc8829c4bab8218a31e738487ac902a6452e44b107790af1ae538c4e6986bc"
+    sha256 cellar: :any,                 big_sur:       "3af8c69e77ca13685b96f10784c09ceed81ada15c6f53d0c2758b10fc0a7d6b1"
+    sha256 cellar: :any,                 catalina:      "f38e5b1a57994f3be9479fd58e03fea72f0ddfe8c142df987cfdeddeb2714c56"
+    sha256 cellar: :any,                 mojave:        "ba00ec69ab593917365180b6161676e71b4f96c3f655dd26ae65dccd02ac0aad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e72e034fad87e1bebdd19df274bac75c0ae9e6f93e5bf0abb076f9b055e46a7"
   end
 
   depends_on "mysql-client"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     mysql = Formula["mysql-client"]

@@ -2,9 +2,9 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.3.5.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.3.5.tar.gz"
-  sha256 "0a51393f0df1cf27e070054a2788a4d073339f363d79cd594076a1b4c48be9a5"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.4.1.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.4.1.tar.gz"
+  sha256 "107ceae6ca800e81cb563584c16afa36d6c7138fade94a2b3e9da65456f7c61c"
   license "OpenSSL"
 
   livecheck do
@@ -13,11 +13,13 @@ class Libressl < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "bb0b93fb87cb0cb7caf4ace93bebe04e29a923c140375aa013a6a77dd27aad19"
-    sha256 big_sur:       "730c015b9fa817e1885e4da2440f86ee441dabd91e99d0465a70390262361996"
-    sha256 catalina:      "ce70f350875bc9fab948233b9d30c1545083e9a8204d24d769252f89fbdbccde"
-    sha256 mojave:        "af9065afe8ec39458e0227e2d874e08971e25763944ddd2d61fc9501f331b592"
-    sha256 x86_64_linux:  "a4e5d16b1e6ae117b89ea163e025648c1c2683c100ef2ce9e89f1ade402a0b77"
+    sha256 arm64_monterey: "b3c161f83a811ebc2d949ebc67d0cc4bf6f93cd89361ac1aeec47ef06dae8532"
+    sha256 arm64_big_sur:  "41f4e9f8cdf03ae83c8fdff6867bbd36127c389004fb89a410630c74dac315f9"
+    sha256 monterey:       "806d3b611485fab207bbeb7126643240adb8582f985f3e6546815953eb968611"
+    sha256 big_sur:        "e3c8dae6f39e42a652df8e66f02a0e581e31697fbfdc7465813306c48f6931d5"
+    sha256 catalina:       "4490e48658eab39495b885811d1762666d6c837013c3f990cda1eebf8bb400fc"
+    sha256 mojave:         "7ce48d13e2e1cae8569598a6d456c8843263547fc1753f2a5869e61fd50c6fa6"
+    sha256 x86_64_linux:   "aa3d726e0bf1159fa3ad3cb1657525e1f37e6fcfafb79ff9be07ccd34d559035"
   end
 
   head do

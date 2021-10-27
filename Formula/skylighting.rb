@@ -7,10 +7,12 @@ class Skylighting < Formula
   head "https://github.com/jgm/skylighting.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f49b170b752ec94d5e5f22979d974dc9007092f762e725a5b3abe422a791c534"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4a5bbd597cbe1dcd6c087d5509186f7fc99267a67fbcc961ccfc6b833128b1c0"
-    sha256 cellar: :any_skip_relocation, catalina:      "7fc0821708c96c312693534de4e6c05f4ca95908b49529453c6e535e29da5966"
-    sha256 cellar: :any_skip_relocation, mojave:        "3aa1b87c519096b54bd6d214578414a303f24cafc3786cf8dbaa125b5f6594b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e13360f11354698cbcde18910ca44849825e930dd0a3772646dad00a5c9b022f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f49b170b752ec94d5e5f22979d974dc9007092f762e725a5b3abe422a791c534"
+    sha256 cellar: :any_skip_relocation, monterey:       "a996c67f062ec9846b561e1dec72705093fd5cc50699013fe235d04d4bf0cf7b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4a5bbd597cbe1dcd6c087d5509186f7fc99267a67fbcc961ccfc6b833128b1c0"
+    sha256 cellar: :any_skip_relocation, catalina:       "7fc0821708c96c312693534de4e6c05f4ca95908b49529453c6e535e29da5966"
+    sha256 cellar: :any_skip_relocation, mojave:         "3aa1b87c519096b54bd6d214578414a303f24cafc3786cf8dbaa125b5f6594b7"
   end
 
   depends_on "cabal-install" => :build

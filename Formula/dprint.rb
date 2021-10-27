@@ -1,17 +1,19 @@
 class Dprint < Formula
   desc "Pluggable and configurable code formatting platform written in Rust"
   homepage "https://dprint.dev/"
-  url "https://github.com/dprint/dprint/archive/0.18.0.tar.gz"
-  sha256 "5e0a44b0c46915d91eb1bc6e6d68f72bd3d90a39875a9368f9d39b27a3feb161"
+  url "https://github.com/dprint/dprint/archive/0.18.1.tar.gz"
+  sha256 "fa82158972ce9961c97ea0b06d8550606bce4174c3a304581f08f50c78101bcb"
   license "MIT"
   head "https://github.com/dprint/dprint.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa4a0351e231b77e798187a782591a4850bf65b09b72c792741b6b0c30509f45"
-    sha256 cellar: :any_skip_relocation, big_sur:       "20a2a3adeb2c6b6a6951b145625a058340d417ee7740895e331bb31452d26fb0"
-    sha256 cellar: :any_skip_relocation, catalina:      "d468b108fd3eb9d644f885e6f7deb2fcc5024798bca1a98e9fc305c16b2af31e"
-    sha256 cellar: :any_skip_relocation, mojave:        "116ae7dd4bec8f15e0875757b2435fea69d7f5ce69e6e1b62e53da4d9d5e6ed0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bbb5deca311422571a8dba759d94c75ab76e7631430a5e2524562e8bf3b1ae4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "76ad8e0b6d5974264d84d929c2bf4aaa61585c84f21ef3b2798831d779ce1947"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a8aea65b37d424a35842688be35a1203ff8fb237c0baefd7967c3f4e322e310"
+    sha256 cellar: :any_skip_relocation, monterey:       "a4768ce919ed0d2f88f37080579189db8948bbf9f4d0561596405d4705e5c848"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b6400b334b244ea481a552cdc56b9590c9f7838e80a296d5a3af8a6036d69595"
+    sha256 cellar: :any_skip_relocation, catalina:       "cb1411456754a8d0d39f5bc39151427dc85dfab027f5a06047d7881d05db3758"
+    sha256 cellar: :any_skip_relocation, mojave:         "66763d9090aafe122099e27bd8908b6433ed700743dc301afc506575eb2e22b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2379ebeb45e67f110b429eeb729510c8835af120603776f6b0d2dc579f31d5d8"
   end
 
   depends_on "rust" => :build

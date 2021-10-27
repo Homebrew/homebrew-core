@@ -34,6 +34,7 @@ env:
     doctl
     envconsul
     etcd
+    exploitdb
     fennel
     fuse-overlayfs
     gitleaks

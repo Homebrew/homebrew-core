@@ -16,15 +16,17 @@ class SdlTtf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "5e82bcaa6cc1cb3ec449c957678e71f23681f7bc998e16b3f39dd39baf5cd8ad"
-    sha256 cellar: :any,                 big_sur:       "6fa67e2282123689e1391faec02d41a1cda527f9cb0b89f9c0e4bd0dd7ee5407"
-    sha256 cellar: :any,                 catalina:      "66d8be19ddde69b3b260b50e23a4a9f63d22c3343f3d2be530a062b6e00bf690"
-    sha256 cellar: :any,                 mojave:        "09d3328d31341d4c76fa07e42480b283ee8f7ddb6518128e871debb84410521e"
-    sha256 cellar: :any,                 high_sierra:   "544d9fe4053cf2a83f9c34b91773518b8bffefeea6337f5d293f6064c3260972"
-    sha256 cellar: :any,                 sierra:        "22972859bc6ab2f2a6fd8a4cf5394e647336e4b83d982b02e7015ceb7799e59a"
-    sha256 cellar: :any,                 el_capitan:    "981960db1d2539b57bc42deb12ab59e163214d881612c1fffea72e4927e1c82a"
-    sha256 cellar: :any,                 yosemite:      "cea0e7f2cb248778bc3af4cab3f3ddd7469d4b24d72780891d2cd54dbc9d7216"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67b8e8037a2275859bd2925311ec215319e34b1f002e5f273c6a32b571460f3a"
+    sha256 cellar: :any,                 arm64_monterey: "319307cfab828ba53251e7693cd7f4b8e7e4838a5e725209b5f408274d3fea22"
+    sha256 cellar: :any,                 arm64_big_sur:  "5e82bcaa6cc1cb3ec449c957678e71f23681f7bc998e16b3f39dd39baf5cd8ad"
+    sha256 cellar: :any,                 monterey:       "c79683000aa4798c66ef61b9ea172a17538fed6df09ca54381cc83d7f73f0827"
+    sha256 cellar: :any,                 big_sur:        "6fa67e2282123689e1391faec02d41a1cda527f9cb0b89f9c0e4bd0dd7ee5407"
+    sha256 cellar: :any,                 catalina:       "66d8be19ddde69b3b260b50e23a4a9f63d22c3343f3d2be530a062b6e00bf690"
+    sha256 cellar: :any,                 mojave:         "09d3328d31341d4c76fa07e42480b283ee8f7ddb6518128e871debb84410521e"
+    sha256 cellar: :any,                 high_sierra:    "544d9fe4053cf2a83f9c34b91773518b8bffefeea6337f5d293f6064c3260972"
+    sha256 cellar: :any,                 sierra:         "22972859bc6ab2f2a6fd8a4cf5394e647336e4b83d982b02e7015ceb7799e59a"
+    sha256 cellar: :any,                 el_capitan:     "981960db1d2539b57bc42deb12ab59e163214d881612c1fffea72e4927e1c82a"
+    sha256 cellar: :any,                 yosemite:       "cea0e7f2cb248778bc3af4cab3f3ddd7469d4b24d72780891d2cd54dbc9d7216"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67b8e8037a2275859bd2925311ec215319e34b1f002e5f273c6a32b571460f3a"
   end
 
   head do

@@ -9,11 +9,13 @@ class Termtosvg < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "23db60dd604e925a43b598be9a7fd2f6a9c94b32764066ba2bfcf45e9b60396d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "32f1142366e73140d1d96f7003d9e3d745a08adb998278d3ec96acbea25888e4"
-    sha256 cellar: :any_skip_relocation, catalina:      "085ece852b31385103c159ee5b81fac163264e803a1014ada30e0f4260fc43ac"
-    sha256 cellar: :any_skip_relocation, mojave:        "9ddce257d68a972d67278fd51e2ac818fd13b7ad84932f0590bda076b1224aa9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21df9137fcd9c002b52eab21f6d6690b0b187ca1436e77d328ca0157643b95e6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "724f67913066d53b19c8ca53eb8110a39293cd416dcf2c2d1cea5f78a070bb83"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23db60dd604e925a43b598be9a7fd2f6a9c94b32764066ba2bfcf45e9b60396d"
+    sha256 cellar: :any_skip_relocation, monterey:       "a5bec176e665df6ed59fea8cfb15550668bcaee87624f35fea2737f74c050366"
+    sha256 cellar: :any_skip_relocation, big_sur:        "32f1142366e73140d1d96f7003d9e3d745a08adb998278d3ec96acbea25888e4"
+    sha256 cellar: :any_skip_relocation, catalina:       "085ece852b31385103c159ee5b81fac163264e803a1014ada30e0f4260fc43ac"
+    sha256 cellar: :any_skip_relocation, mojave:         "9ddce257d68a972d67278fd51e2ac818fd13b7ad84932f0590bda076b1224aa9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21df9137fcd9c002b52eab21f6d6690b0b187ca1436e77d328ca0157643b95e6"
   end
 
   deprecate! date: "2020-06-16", because: :repo_archived

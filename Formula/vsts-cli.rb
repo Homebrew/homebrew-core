@@ -8,10 +8,12 @@ class VstsCli < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "046a0a188502277cfefe4ac62665a654aa161e2e727382c182be93c47c72252f"
-    sha256 cellar: :any, big_sur:       "c3bdc4320322286d34f0030a787ae04059822d352fe5de2a136932b0d787b5cb"
-    sha256 cellar: :any, catalina:      "cabfe93b0a12cb130c8acc879f6858083d8e80bbfe727eb3e4f653410943cf5b"
-    sha256 cellar: :any, mojave:        "c6857c4daa283ec757a22d1bde0f628d5201e92d3b98c51aa6153537ad7bee31"
+    sha256 cellar: :any, arm64_monterey: "b2f52a216bc861399d8a1601aec22f167571879a6bab184682a2aa03833ed2ef"
+    sha256 cellar: :any, arm64_big_sur:  "046a0a188502277cfefe4ac62665a654aa161e2e727382c182be93c47c72252f"
+    sha256 cellar: :any, monterey:       "a21d41bf262c415e8f22fc5411d00629c58e0bf3f532efccbfe0a97fb545d288"
+    sha256 cellar: :any, big_sur:        "c3bdc4320322286d34f0030a787ae04059822d352fe5de2a136932b0d787b5cb"
+    sha256 cellar: :any, catalina:       "cabfe93b0a12cb130c8acc879f6858083d8e80bbfe727eb3e4f653410943cf5b"
+    sha256 cellar: :any, mojave:         "c6857c4daa283ec757a22d1bde0f628d5201e92d3b98c51aa6153537ad7bee31"
   end
 
   # https://github.com/Azure/azure-devops-cli-extension/pull/219#issuecomment-456404611

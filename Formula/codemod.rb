@@ -11,11 +11,13 @@ class Codemod < Formula
   head "https://github.com/facebook/codemod.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fcf3de80ebdad83809c2f691f5fdcf8f07a395c55cee6fa9cc332a0847eead33"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b23035b282c74a9394e85d9a0223b1ddb677151c134da0468ad0713ab3658e7e"
-    sha256 cellar: :any_skip_relocation, catalina:      "b23035b282c74a9394e85d9a0223b1ddb677151c134da0468ad0713ab3658e7e"
-    sha256 cellar: :any_skip_relocation, mojave:        "b23035b282c74a9394e85d9a0223b1ddb677151c134da0468ad0713ab3658e7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf1dd93571d01049de387a06571f81968d273c3028f96888e76121c87b8d6dd7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fcf3de80ebdad83809c2f691f5fdcf8f07a395c55cee6fa9cc332a0847eead33"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fcf3de80ebdad83809c2f691f5fdcf8f07a395c55cee6fa9cc332a0847eead33"
+    sha256 cellar: :any_skip_relocation, monterey:       "b23035b282c74a9394e85d9a0223b1ddb677151c134da0468ad0713ab3658e7e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b23035b282c74a9394e85d9a0223b1ddb677151c134da0468ad0713ab3658e7e"
+    sha256 cellar: :any_skip_relocation, catalina:       "b23035b282c74a9394e85d9a0223b1ddb677151c134da0468ad0713ab3658e7e"
+    sha256 cellar: :any_skip_relocation, mojave:         "b23035b282c74a9394e85d9a0223b1ddb677151c134da0468ad0713ab3658e7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf1dd93571d01049de387a06571f81968d273c3028f96888e76121c87b8d6dd7"
   end
 
   deprecate! date: "2021-07-13", because: :repo_archived

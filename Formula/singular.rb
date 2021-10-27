@@ -4,13 +4,14 @@ class Singular < Formula
   url "https://service.mathematik.uni-kl.de/ftp/pub/Math/Singular/src/4-2-1/singular-4.2.1.tar.gz"
   sha256 "28a56df84f85b116e0068ffecf92fbe08fc27bd4c5ba902997f1a367db0bfe8d"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "572bb81755f0b7af0657d97a1dab4f34e76f9d56950345aa6be711c139abea68"
-    sha256 big_sur:       "4aff7bd1cc68f2c55c65721a545f6757e08787d451983887395bc01f7300497b"
-    sha256 catalina:      "ced038f600f6e87f538777c4912301613808fd9d8d6b87925086fc390728ab0a"
-    sha256 mojave:        "3d09e569067e2a4b6d3784cf08925079f42be9d7ae02b334ecb17eea7814dc42"
-    sha256 x86_64_linux:  "c87843c7be3f7a91e742917916f334fc6d9cbf1e735e25c25efc164c2703bc42"
+    sha256 arm64_big_sur: "abff098b3e9ee836f54f320103eb4a34b418d54dc4776ddfa391c9a698728fbb"
+    sha256 big_sur:       "6ee7ee8c292b8916c7bfdb32f8218fe629d11eeaf0fb2fdede9959c219b60726"
+    sha256 catalina:      "e28a1b276a609142eeb0d1c61b5530498f740bb840f991c18134e1c6daaeb76e"
+    sha256 mojave:        "c7e348e7558c41f959fca63f960143379b6f2c9535d3c769cfe3131f4086394a"
+    sha256 x86_64_linux:  "0b05cf52f0373c446904b561bed84b31019915bb101ad11c350736ae710ae0a5"
   end
 
   head do
@@ -24,7 +25,7 @@ class Singular < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ntl"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     system "./autogen.sh" if build.head?
@@ -32,7 +33,7 @@ class Singular < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-python=#{Formula["python@3.9"].opt_bin}/python3",
+                          "--with-python=#{Formula["python@3.10"].opt_bin}/python3",
                           "CXXFLAGS=-std=c++11"
     system "make", "install"
   end

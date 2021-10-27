@@ -1,15 +1,15 @@
 class Aravis < Formula
   desc "Vision library for genicam based cameras"
   homepage "https://wiki.gnome.org/Projects/Aravis"
-  url "https://github.com/AravisProject/aravis/releases/download/0.8.18/aravis-0.8.18.tar.xz"
-  sha256 "57730381924db0ae37315f9d3b477dcddcda2da95300acc81c3590a04e37dfaa"
+  url "https://github.com/AravisProject/aravis/releases/download/0.8.19/aravis-0.8.19.tar.xz"
+  sha256 "ddadf4fcc253ca2d8eb765f6a365f2d5dbcff9cd7a431b07eb978dff3b9b1034"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "93a902897e4190256b5c408042c628cdc87d574b7a51bfcddc0bccfdb6b96872"
-    sha256 big_sur:       "23b77eee19624a23678d18f99ed08a3e45d573ab6bcef6cd988e5e6120772e25"
-    sha256 catalina:      "9dfb9f5e06dc5739c6d03ed0f22d998e5a44666f47183faada9c2a36cf107d24"
-    sha256 mojave:        "bbcbd59ea3258b7da26ca122df6fb4b1d3e19c2cd2baa5a3962e0219d95be718"
+    sha256 arm64_big_sur: "2047b9a3a794be7ae3afef1800daadd1ddfad7e11a7465cc29672ce796009339"
+    sha256 big_sur:       "00cd392be23341574c6f8a32346ef30f66a626804a7c0a27fc030f0c222ab0db"
+    sha256 catalina:      "c2861af12ed60af750bc91a8d2e13ca64f47d93731cf3e813d4b3800a5e73a96"
+    sha256 mojave:        "fc11845a4c5fbee43f2eb52a715debfaa8796ad11012d269a2f6a4c39a062894"
   end
 
   depends_on "gobject-introspection" => :build

@@ -7,11 +7,13 @@ class Just < Formula
   head "https://github.com/casey/just.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "81075dc8a21e2f4523d0f3c983a8398c5ebb186db8e66a3281f3aa63b39c0256"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fcfa0c920ee2385250351275fa2f3271647a867dff97536e1c6f682c79af5b1e"
-    sha256 cellar: :any_skip_relocation, catalina:      "0c14bf41f8b54741fec10d20450d1828a0bd7bd01b4a389e56d3bac7e1c7e56c"
-    sha256 cellar: :any_skip_relocation, mojave:        "c20538a500aba5489f95ff0d0ec88267952e27de84c0b21426e0c15049d512a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9706501f3468a6ce9a26c9fb71f6d7d5ab715e68b0b8086f928d5b00fac0a37"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ae8a731566cb44b38fbd5bb331ea536442729b3b0ad378ce7e5d1e3f858c997"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81075dc8a21e2f4523d0f3c983a8398c5ebb186db8e66a3281f3aa63b39c0256"
+    sha256 cellar: :any_skip_relocation, monterey:       "af6fbee3b694ba57411cb69f7d29eca483417a82b7d1403e0089ec95da835e66"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fcfa0c920ee2385250351275fa2f3271647a867dff97536e1c6f682c79af5b1e"
+    sha256 cellar: :any_skip_relocation, catalina:       "0c14bf41f8b54741fec10d20450d1828a0bd7bd01b4a389e56d3bac7e1c7e56c"
+    sha256 cellar: :any_skip_relocation, mojave:         "c20538a500aba5489f95ff0d0ec88267952e27de84c0b21426e0c15049d512a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9706501f3468a6ce9a26c9fb71f6d7d5ab715e68b0b8086f928d5b00fac0a37"
   end
 
   depends_on "rust" => :build

@@ -1,16 +1,16 @@
 class Snownews < Formula
   desc "Text mode RSS newsreader"
   homepage "https://github.com/msharov/snownews"
-  url "https://github.com/msharov/snownews/archive/v1.8.tar.gz"
-  sha256 "90d2611b3e3a00bc14a8869365d366ad1dab17ea1687857440159fc7137c3bed"
+  url "https://github.com/msharov/snownews/archive/v1.9.tar.gz"
+  sha256 "d8ef0c7ef779771e2c8322231bdfa7246d495ba8f24c3c210c96f3b6bd3776a7"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 arm64_big_sur: "58660bae76a7e02f32ce9f1898a2084c5ffdf5c0ebf32b9ab247f118017fbc91"
-    sha256 big_sur:       "aee8b149b904e87e04fe17646410f880d5950f4c23290f1cc88fe692683a5a96"
-    sha256 catalina:      "a2e648ee4c4e7a8887cb2ccdb463ffc5e533695ac2ef41a40969bcb27efc9bf0"
-    sha256 mojave:        "572a335a0a5b9ad6593c3624a967748d6afd7b9063041e4b8f55a4cc6eac805e"
-    sha256 x86_64_linux:  "79d3a5f582497d91865d44713ace32971c68ebdb08ad9a4893f10148c0bfadd2"
+    sha256 arm64_big_sur: "e33470f154aa0ac91be4e22fc07fbe038109fe6e528f024b1886a21c09cb118d"
+    sha256 big_sur:       "ae91430f56cf66c0c9926bef6b0bd2134e68730cfacac0db1dd8456a976a53f7"
+    sha256 catalina:      "bd3a4094a8b1e6a5ea21d0d1f3215d9b97480600b41b72278ca492f1b36ffd9c"
+    sha256 mojave:        "47d68cd32e932522a59536319a6dc56717925d15a137924c0a5ff374b12b2223"
+    sha256 x86_64_linux:  "d9e3e43ead0b9f28bf3967c7c7c4da67264429171125a04fa44dad43c7aa5369"
   end
 
   depends_on "coreutils" => :build
@@ -24,15 +24,8 @@ class Snownews < Formula
 
   # remove in next release
   patch do
-    url "https://github.com/msharov/snownews/commit/448f9e20490dfdb9bde2f7c9928e72c89b203397.patch?full_index=1"
-    sha256 "0f338f63781637c137e0cb0602008e63a6d01e737de11d7e78a498e99a47c4aa"
-  end
-
-  # remove in next release
-  # https://github.com/msharov/snownews/pull/65
-  patch do
-    url "https://github.com/chenrui333/snownews/commit/10a676f5df81d73b38efe8a74d2e8dbb6c003df2.patch?full_index=1"
-    sha256 "3e864e4dddae592558ec99d3ca18e488aa683c4ac5655ffc15ce717104b934dc"
+    url "https://github.com/msharov/snownews/commit/a43c1811c2bd2921b7e44fd4b28b852915b45072.patch?full_index=1"
+    sha256 "cd64cd6d9493019496b100a71a8e6c10f33b63fb3d29b7863434bc2eee7cdd00"
   end
 
   def install

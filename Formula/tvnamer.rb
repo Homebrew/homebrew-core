@@ -8,11 +8,13 @@ class Tvnamer < Formula
   head "https://github.com/dbr/tvnamer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "04206c4b348fbd1bdaf7d6d59e5eb7af96ce9c58a5729dc26a1cfaf5e49106b7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
-    sha256 cellar: :any_skip_relocation, catalina:      "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
-    sha256 cellar: :any_skip_relocation, mojave:        "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54803ea2259bd1d6f9643fe7e69cf42d20417fefa82b1e695ec0768ee3311760"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "04206c4b348fbd1bdaf7d6d59e5eb7af96ce9c58a5729dc26a1cfaf5e49106b7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04206c4b348fbd1bdaf7d6d59e5eb7af96ce9c58a5729dc26a1cfaf5e49106b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
+    sha256 cellar: :any_skip_relocation, catalina:       "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
+    sha256 cellar: :any_skip_relocation, mojave:         "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54803ea2259bd1d6f9643fe7e69cf42d20417fefa82b1e695ec0768ee3311760"
   end
 
   depends_on "python@3.10"

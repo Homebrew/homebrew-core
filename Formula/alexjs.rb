@@ -3,17 +3,18 @@ require "language/node"
 class Alexjs < Formula
   desc "Catch insensitive, inconsiderate writing"
   homepage "https://alexjs.com"
-  url "https://github.com/get-alex/alex/archive/9.1.0.tar.gz"
-  sha256 "1e9acfabd7c7078278007bcfeccb3827ffec92a5c226ab1a387077997ee3dad4"
+  url "https://github.com/get-alex/alex/archive/10.0.0.tar.gz"
+  sha256 "2498ce4818463c6191e7120040426a8e8e883ea4b97b632907483e21e3494d2c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1869fa035c9ce8179295d3cd697c8abfbc72a5fefc81d12ce0c047bf4db64eae"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1102acddac4146addf4d4b59ac66bf5d5d57b2badabfe9038c286ab5660c63f6"
-    sha256 cellar: :any_skip_relocation, catalina:      "e37814ad3315475e5484cc5c334089213a023ea443ccb2207702b8667f3e1a0e"
-    sha256 cellar: :any_skip_relocation, mojave:        "7c2d9fedf79264bd59e73b7f062512e03afdd1e6a66152c233996471636549f1"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "462578faccc1fd6ba5df072a50c90c28522067e6cbba84a3b6a6dfa29c7a2eaf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f68677cdd5368c5da400dd06c99652dd90a30a0973d0cb4fc80fdadc994a5ea7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7ee77cee577f024ebae4e2a14d86fc0d20ae844acc4fe706f488de9ae2c240f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "970a9f5d0d22e0934ebe287c7d64c0e79a745a139dcbaf7ce6e643ee84184b43"
+    sha256 cellar: :any_skip_relocation, monterey:       "b89880688913298cb886a915f9a0756ba92f1c6570a87c4859496beb3d4f66bb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a616902bfd0d0d1205eca973d30ad3657246e2d88dff8a6f5c7e98c70375b60d"
+    sha256 cellar: :any_skip_relocation, catalina:       "a616902bfd0d0d1205eca973d30ad3657246e2d88dff8a6f5c7e98c70375b60d"
+    sha256 cellar: :any_skip_relocation, mojave:         "a616902bfd0d0d1205eca973d30ad3657246e2d88dff8a6f5c7e98c70375b60d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "970a9f5d0d22e0934ebe287c7d64c0e79a745a139dcbaf7ce6e643ee84184b43"
   end
 
   depends_on "node"

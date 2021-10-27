@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.68.2",
-      revision: "b70aa7c9658a16326a8ba3a789176fbdba39ca3b"
+      tag:      "v0.70.0",
+      revision: "0acf0158796b0244a24623f3ee9d6ea0d9ac2dad"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,11 +15,11 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e5f4d773ca4b20e43e9c1a28f10c3a83e3c77c36d3fde171df3bd7afa1d1a745"
-    sha256 cellar: :any, big_sur:       "6fd7a31e4357dbbe61d188efcbb4a60a0b62dcc33d58a4d0e116cde5cd486828"
-    sha256 cellar: :any, catalina:      "2ce2b6fd4d3f7d734cff8b5b6cd9393dec611016ec61560cb070b7fce98d571a"
-    sha256 cellar: :any, mojave:        "a0c8483d854b8a509359bfc58158ac05284045dbeda9b5dc63b09ada32431752"
-    sha256               x86_64_linux:  "a5149a27a6d12db6705ab02dc9010f8303a154bb37da4032c8c5da5746b7f418"
+    sha256 cellar: :any, arm64_big_sur: "7655b45f87adcf6746abc73f36b4d581a6bf3f62b18cf26cec6fdbf495af8b76"
+    sha256 cellar: :any, big_sur:       "c1ba5e8c2cbd8344c6fddc47af2960b7c0709072cced99d81191c6d6b9ed53ca"
+    sha256 cellar: :any, catalina:      "a001c7cec9effd55f780e30e2db57c01c871760951f1220487cf9b5e9ffbdb1b"
+    sha256 cellar: :any, mojave:        "6ae74f296dd8ec58010e069b389f523fa3af1d1b8c655153406902bb46ef50ae"
+    sha256               x86_64_linux:  "b99357d0ebd92cd3e938b441b9e049d4e51e56726940bed272bc52e3c9c0e37f"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +35,7 @@ class Semgrep < Formula
   uses_from_macos "rsync" => :build
 
   on_linux do
-    depends_on "gcc" => :build
+    depends_on "gcc" => [:build, :test]
   end
 
   fails_with gcc: "5"
@@ -46,23 +46,23 @@ class Semgrep < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/bb/80/7118945282845f8dc337c45c7d9d171a9f86d0c7650ac7e65d60995691d2/bracex-2.1.1.tar.gz"
-    sha256 "01f715cd0ed7a622ec8b32322e715813f7574de531f09b70f6f3b2c10f682425"
+    url "https://files.pythonhosted.org/packages/10/d5/0f2fa4d62d905c159ad3f81fb3b0446d5ef5a900ca942d2995f441b5c440/bracex-2.2.tar.gz"
+    sha256 "8230f3a03f1f76c192a7844377124300fbaec83870a728b629dfabd9be9e83d0"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
-    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
-    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
+    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
   end
 
   resource "click-option-group" do
@@ -76,8 +76,8 @@ class Semgrep < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
-    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "jsonschema" do

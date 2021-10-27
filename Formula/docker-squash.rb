@@ -9,11 +9,13 @@ class DockerSquash < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "92068871f7c0e53d5249efd82755cec793d32dbee030546869a50bfeba35b4db"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
-    sha256 cellar: :any_skip_relocation, catalina:      "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
-    sha256 cellar: :any_skip_relocation, mojave:        "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "118bee7b10fea3b61c95c71530c8a511c904bdca1fa5bfa1ea29b5a22bdc1b20"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "92068871f7c0e53d5249efd82755cec793d32dbee030546869a50bfeba35b4db"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "92068871f7c0e53d5249efd82755cec793d32dbee030546869a50bfeba35b4db"
+    sha256 cellar: :any_skip_relocation, monterey:       "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
+    sha256 cellar: :any_skip_relocation, catalina:       "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
+    sha256 cellar: :any_skip_relocation, mojave:         "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "118bee7b10fea3b61c95c71530c8a511c904bdca1fa5bfa1ea29b5a22bdc1b20"
   end
 
   depends_on "python@3.10"

@@ -11,6 +11,7 @@ class Lesspipe < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e1e2e8c6dfa12655279bc3a6d8869a71727f6fbc014796f9970f4b99bec879bc"
     sha256 cellar: :any_skip_relocation, mojave:        "e1e2e8c6dfa12655279bc3a6d8869a71727f6fbc014796f9970f4b99bec879bc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0ae934aea25951e3b5903b5bfbc3698e296d7ca7b30ed492b69aa7b1486f2a4"
+    sha256 cellar: :any_skip_relocation, all:           "e1e2e8c6dfa12655279bc3a6d8869a71727f6fbc014796f9970f4b99bec879bc"
   end
 
   def install

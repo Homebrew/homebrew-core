@@ -7,11 +7,13 @@ class Glances < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a14a59f4732ccc11865a74bb059d06e12d8f02e442eac8f5464df7d87187962b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bf357cfaa047f96c4cccd9671dc1c339af5022ae5d30fab2f5e31a267bddd2f8"
-    sha256 cellar: :any_skip_relocation, catalina:      "6e77821dd7393ffbe14484ad40fcaf02446c3f283d8a07d0edfcc5e42bc1e0ad"
-    sha256 cellar: :any_skip_relocation, mojave:        "e785dca2522e2e25b2d70e7da24b1409df1e8aa6ac6c0203bd49405b52722a53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d320ac2305adbd1cb83a6503928fe26a58dd1e07951703cc34a65b5157ecbe6f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2161747a4283fe5bb14aa7bef2493824fcebf7c81c0d72be397792aadc71f81e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a14a59f4732ccc11865a74bb059d06e12d8f02e442eac8f5464df7d87187962b"
+    sha256 cellar: :any_skip_relocation, monterey:       "90ee79690169a183ecae3fb31f5abcb537acf6615998247b7138483b781c0ee9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bf357cfaa047f96c4cccd9671dc1c339af5022ae5d30fab2f5e31a267bddd2f8"
+    sha256 cellar: :any_skip_relocation, catalina:       "6e77821dd7393ffbe14484ad40fcaf02446c3f283d8a07d0edfcc5e42bc1e0ad"
+    sha256 cellar: :any_skip_relocation, mojave:         "e785dca2522e2e25b2d70e7da24b1409df1e8aa6ac6c0203bd49405b52722a53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d320ac2305adbd1cb83a6503928fe26a58dd1e07951703cc34a65b5157ecbe6f"
   end
 
   depends_on "python@3.10"

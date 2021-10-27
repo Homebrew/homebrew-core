@@ -6,15 +6,14 @@ class Statik < Formula
   url "https://files.pythonhosted.org/packages/c1/f7/c1dc03a0ed218cb5d3e72f0983dcc18b441cc9d3275b527a5cb0a479dc2a/statik-0.23.0.tar.gz"
   sha256 "9ce2c5a76284aa7d3eba2dc5b167c39d0249f96da08213a14c89f0b7edcb7746"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/thanethomson/statik.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "d8ccb5efc25d0435ccf7c543d86991a83622845d04426eb1823e7e670ac9dbcd"
-    sha256 cellar: :any,                 big_sur:       "4e57a49a51d642f6bf6aa16ec861e0d598099243b2f8adffd1bacc1c99f1c5e1"
-    sha256 cellar: :any,                 catalina:      "6ead20ec4625d2155252c892c47342571dcd390d630c38be2c73cf89b68c98ca"
-    sha256 cellar: :any,                 mojave:        "5579aa466a747a15839a89b48c875b7afc6d225ff9af028a62ccc9eacee115c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9dbba96266fdc253c19a36af68b222b5615c1d72171940c020f0df10aa26fbbd"
+    sha256 cellar: :any,                 arm64_big_sur: "32ece3f4b25e763bf58b788f84eee819d7239f82cca4ecc28a30a72e01b8444f"
+    sha256 cellar: :any,                 big_sur:       "84b192802fd3f44c3601aade2c1d47594c9369d3395534192d71e96ead3e639d"
+    sha256 cellar: :any,                 catalina:      "6595972b52fc9ace266f23ef30cf0b8b1f35738ec6722252b97560801d858a13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49cda36e4e735309ce918096589820e44039a1779f34b861646475a31782ab7b"
   end
 
   depends_on "libpq"

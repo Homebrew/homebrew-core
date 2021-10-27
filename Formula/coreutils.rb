@@ -7,11 +7,13 @@ class Coreutils < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "875e9ec351a0624e65d19e742a7271fc409ce912fa4a4ad9147ab21eaa126bad"
-    sha256 big_sur:       "6c6b84b32d923e26b1c67e8c9aee801f7ab2f0b9f94d9b455b784eb3a2dc575c"
-    sha256 catalina:      "9b24df176ef9ec342e83af6880c27e0235e4fcc436d0143fb37eb24695de51a6"
-    sha256 mojave:        "6755e3bb94c35dae4ebbd525633691bc5ff1dc82a84f5b968b952d7be86652d7"
-    sha256 x86_64_linux:  "6ab4d61127fac0e193a82881b9262e3121ada87566f470abdf6a2b9c63ab6768"
+    sha256 arm64_monterey: "9a72c1fef593eef2757398be776c656885def021d5e276be11ab26174bfe5d91"
+    sha256 arm64_big_sur:  "875e9ec351a0624e65d19e742a7271fc409ce912fa4a4ad9147ab21eaa126bad"
+    sha256 monterey:       "e59c6a7cd6993b3d61dfa133b4091f731220d10ed7c23f8808870a22bc3ad8a7"
+    sha256 big_sur:        "6c6b84b32d923e26b1c67e8c9aee801f7ab2f0b9f94d9b455b784eb3a2dc575c"
+    sha256 catalina:       "9b24df176ef9ec342e83af6880c27e0235e4fcc436d0143fb37eb24695de51a6"
+    sha256 mojave:         "6755e3bb94c35dae4ebbd525633691bc5ff1dc82a84f5b968b952d7be86652d7"
+    sha256 x86_64_linux:   "6ab4d61127fac0e193a82881b9262e3121ada87566f470abdf6a2b9c63ab6768"
   end
 
   head do

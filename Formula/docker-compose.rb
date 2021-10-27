@@ -7,11 +7,13 @@ class DockerCompose < Formula
   head "https://github.com/docker/compose.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6eac025296098f905ef5453c6a15b8e462719cfae283aaa585ce0ddb8ff768fd"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0c4315002e6aa8883201184b52828bb3627e7e2a9fba4e6e187101f5b42b072b"
-    sha256 cellar: :any_skip_relocation, catalina:      "0c4315002e6aa8883201184b52828bb3627e7e2a9fba4e6e187101f5b42b072b"
-    sha256 cellar: :any_skip_relocation, mojave:        "0c4315002e6aa8883201184b52828bb3627e7e2a9fba4e6e187101f5b42b072b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "057710165181a554e568336bada6ba81a2301ace834457a9e2f22959c8cefca5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "95c1f83f84138461febe3831b8acbd9f00ed4008e45ed6faf7464e39553579cd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6eac025296098f905ef5453c6a15b8e462719cfae283aaa585ce0ddb8ff768fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "de5d885e8041c890343c7a0a177763a41d7737c1b6e68bcfb803ac591fba44af"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0c4315002e6aa8883201184b52828bb3627e7e2a9fba4e6e187101f5b42b072b"
+    sha256 cellar: :any_skip_relocation, catalina:       "0c4315002e6aa8883201184b52828bb3627e7e2a9fba4e6e187101f5b42b072b"
+    sha256 cellar: :any_skip_relocation, mojave:         "0c4315002e6aa8883201184b52828bb3627e7e2a9fba4e6e187101f5b42b072b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "057710165181a554e568336bada6ba81a2301ace834457a9e2f22959c8cefca5"
   end
 
   depends_on "go" => :build

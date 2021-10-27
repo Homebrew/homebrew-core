@@ -11,6 +11,7 @@ class SuiteSparse < Formula
     "GPL-3.0-only",
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
   ]
+  revision 1
 
   livecheck do
     url :stable
@@ -18,34 +19,35 @@ class SuiteSparse < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "142ea7b857fc6325070033b3da8d4a80a578070a80ab61514f1dd00f866818d1"
-    sha256 cellar: :any,                 big_sur:       "bd20cd872598931036422f7f8f64d0d9d5929b24ab353582375e35b425c90e72"
-    sha256 cellar: :any,                 catalina:      "fb2af83a130798486be789c1e8d8f96c583c03c7753ec4e7fff8c4afa2f04eba"
-    sha256 cellar: :any,                 mojave:        "3c4d62d70d63b82734c29224fc8cb779931a6cf6d88350dbbf47cc02f8a7b371"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb74f60268a78ad876d1b55c0d6e5751301c7145d29e9d87ba32f0ba628764fc"
+    sha256 cellar: :any,                 arm64_big_sur: "c8fbc735aba72dc8654281521ff0601568d925873c98d2268fa7297cccff72c6"
+    sha256 cellar: :any,                 monterey:      "c51ad852f211dbc2e344d0de627f89933b191c95b57b53e47499ded9de8a4d66"
+    sha256 cellar: :any,                 big_sur:       "ddd29e66d06ca74ae08450c744d516bd4ad8fd42d655afcfac31ddf4f260c6ee"
+    sha256 cellar: :any,                 catalina:      "4c5c24fae85e69e4d3b75ecb79437240c0810ab49324b585f868949a57f4dfcc"
+    sha256 cellar: :any,                 mojave:        "a76725e62f88b28dc0d2250b1c2e52b8199372adedd4ddcde8cba3b2b9c783c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb17eb63750da9e79456fc86841d5bdbc083ae39c464c5432a2bdbccf0b9540b"
   end
 
   depends_on "cmake" => :build
   depends_on "metis"
   depends_on "openblas"
-  depends_on "tbb"
 
   uses_from_macos "m4"
 
   conflicts_with "mongoose", because: "suite-sparse vendors libmongoose.dylib"
 
   def install
-    mkdir "GraphBLAS/build" do
-      system "cmake", "..", *std_cmake_args
-    end
-
     args = [
       "INSTALL=#{prefix}",
       "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "LAPACK=$(BLAS)",
       "MY_METIS_LIB=-L#{Formula["metis"].opt_lib} -lmetis",
       "MY_METIS_INC=#{Formula["metis"].opt_include}",
+      "CMAKE_OPTIONS=#{std_cmake_args.join(" ")}",
+      "JOBS=#{ENV.make_jobs}",
     ]
+
+    # Parallelism is managed through the `JOBS` make variable and not with `-j`.
+    ENV.deparallelize
     system "make", "library", *args
     system "make", "install", *args
     lib.install Dir["**/*.a"]

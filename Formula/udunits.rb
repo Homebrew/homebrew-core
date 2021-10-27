@@ -10,11 +10,13 @@ class Udunits < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "d7abb17bec04dc4aede1c62e24766a4f31c6d4c4cc5f1716fcb56f1da06b0492"
-    sha256 big_sur:       "cb3a237ce5aa71c094ece2c9a7ba3199238d8facf053760a5f29ebec93f29e53"
-    sha256 catalina:      "5787ba730b9969468621db38503a036de75aea0a8e62cbd253e9c73262355419"
-    sha256 mojave:        "c1c3d199cfc58d42469bfb423e269dd9b7771e155f710e0e46bfb6a33fdc19f4"
-    sha256 x86_64_linux:  "9df6142349c78d0ebb0922ea53c48f702ca83cf223513437022086ee332c22a8"
+    sha256 arm64_monterey: "64af7e42ad61c45d6f1790d747c9e3d8bbd8634a86fc51961646b31a16f64edf"
+    sha256 arm64_big_sur:  "d7abb17bec04dc4aede1c62e24766a4f31c6d4c4cc5f1716fcb56f1da06b0492"
+    sha256 monterey:       "ed2147b73e154d445d1959b871e956975bc2ed2d33757d9ed57df1114af2222c"
+    sha256 big_sur:        "cb3a237ce5aa71c094ece2c9a7ba3199238d8facf053760a5f29ebec93f29e53"
+    sha256 catalina:       "5787ba730b9969468621db38503a036de75aea0a8e62cbd253e9c73262355419"
+    sha256 mojave:         "c1c3d199cfc58d42469bfb423e269dd9b7771e155f710e0e46bfb6a33fdc19f4"
+    sha256 x86_64_linux:   "9df6142349c78d0ebb0922ea53c48f702ca83cf223513437022086ee332c22a8"
   end
 
   head do

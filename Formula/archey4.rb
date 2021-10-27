@@ -3,17 +3,16 @@ class Archey4 < Formula
 
   desc "Simple system information tool written in Python"
   homepage "https://github.com/HorlogeSkynet/archey4"
-  url "https://files.pythonhosted.org/packages/54/60/212f5018cc4671fd6b288faf2018ff74e8fcf68703c72e31bcea9ca6217a/archey4-4.13.1.tar.gz"
-  sha256 "80abe635c31ae02750c873c12621db56403641db9a04f8a775eb22012fa90f21"
+  url "https://files.pythonhosted.org/packages/55/21/19a74d9ebf7954eebd08e4afa4c6aaa9bfedff9b8bfbad8e94925458be96/archey4-4.13.2.tar.gz"
+  sha256 "5a98e7681d715e445f0bc1b86ab13fea4f379ecbf89d506e27a707d02384cf00"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b64e809af1410ea24a70a70cf456c371431e319e11a43d0e140c26dfc851d8b2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "118c8187c10d7dd1faa00f94b6db72533b55def50e9647384418fed7ec689f8f"
-    sha256 cellar: :any_skip_relocation, catalina:      "3ed0d01ccfa0e97b971e396983bbde2aae4138b12cf2fc692783a6728bc82575"
-    sha256 cellar: :any_skip_relocation, mojave:        "65f3d3531d86aa457bfd916249d2ac66ebde7cd5df0c30424f50f74b5a0b1f73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d999a978e484ede3993368de394ccf2e329204b206f5f2e2eba4626e6d6d368c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1e824be83193a74a0d3b5ebed70583a941ee470514834a70c4ae0287d5dd6893"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e848273ecff0d37d6902db78fd668121e3fc6d474772b7b7ee0da3592171dc10"
+    sha256 cellar: :any_skip_relocation, catalina:      "317f1ef273ecca9613f395ff13e64351d63f7f4626fd0b638dd2ed66bec831ba"
+    sha256 cellar: :any_skip_relocation, mojave:        "8f277515b7d8d121480d26afa4cf671174e094f17aebd9babc06df1642577158"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "016fd46d432126417712bc146acb31a2087dfb96919ae536426afd0c9d361c05"
   end
 
   depends_on "python@3.10"

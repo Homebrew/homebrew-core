@@ -3,16 +3,16 @@ require "language/node"
 class HasuraCli < Formula
   desc "Command-Line Interface for Hasura GraphQL Engine"
   homepage "https://hasura.io"
-  url "https://github.com/hasura/graphql-engine/archive/v2.0.9.tar.gz"
-  sha256 "68dfb0d179cbaf2c9370948ec8c0d80acc69eae0acf821753deb134f0eb7a068"
+  url "https://github.com/hasura/graphql-engine/archive/v2.0.10.tar.gz"
+  sha256 "ca134148d62985a065705740a7ca884a2f1bfe18c1f11d21b66dc17119630ec5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "88f1fb0852498d556bbbda8b28fca12fe68ad85273c225dd834b924e83f892bf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5872fb87d2a6fa1551169fa052ac1bda58d8efc79104460c5fefb72d8c7e17c3"
-    sha256 cellar: :any_skip_relocation, catalina:      "37071359a0525fe672859fbc3bd4d14af92314d1fb3b2ba7c2f7551e1c2d8b3c"
-    sha256 cellar: :any_skip_relocation, mojave:        "d51bacadaf710fef613e1f39276fe5bb3fba78ca25491cc738b35e26b83812a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f2463554c0e2464a799e5351c59e9d904534be62862e9cfa6c8884256df2645"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b860c096eb5e1dff44d852bb19b2a56e81508ebfc953702f102964ff49f3ad82"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2e9eb9e3772e77b731842bca7e698160ba9184453bd8f8a989147dda31f4a1ac"
+    sha256 cellar: :any_skip_relocation, catalina:      "d0d6e9f09b30df5dccfce820c6108dcc9d59323d68ec9ea815977017af6178c7"
+    sha256 cellar: :any_skip_relocation, mojave:        "d6991bd9968d53743e816be3b2ad5de5a68018904160a5a2d93caf9fee45057b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e4c9e55c26b47d4f19e23bcb95370adb40e13caa68d59856630df7e43e001f2"
   end
 
   depends_on "go" => :build
@@ -35,12 +35,8 @@ class HasuraCli < Formula
     end
 
     cd "cli" do
-      arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-      os = if OS.mac?
-        "darwin"
-      else
-        "linux"
-      end
+      arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+      os = OS.kernel_name.downcase
 
       cp "../cli-ext/bin/cli-ext-hasura", "./internal/cliext/static-bin/#{os}/#{arch}/cli-ext"
       system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"hasura", "./cmd/hasura/"

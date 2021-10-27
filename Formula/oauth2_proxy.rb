@@ -1,18 +1,16 @@
 class Oauth2Proxy < Formula
   desc "Reverse proxy for authenticating users via OAuth 2 providers"
   homepage "https://oauth2-proxy.github.io/oauth2-proxy/"
-  url "https://github.com/oauth2-proxy/oauth2_proxy/archive/v7.1.3.tar.gz"
-  sha256 "b6d45f3b44a98002ce8f3b581ffd79ade33fb19f374093df43564464439257ad"
+  url "https://github.com/oauth2-proxy/oauth2_proxy/archive/v7.2.0.tar.gz"
+  sha256 "2e1d15083902137c7939dea235ec72fc2cc818de8af540302a2ca66cdabdf4e6"
   license "MIT"
   head "https://github.com/oauth2-proxy/oauth2-proxy.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "30e32e8b0b482dfd924fbabc8eb909e91afd46340f2c446fa779edd44c697ebb"
-    sha256 cellar: :any_skip_relocation, big_sur:       "070c01170bb8b590d5b4d2d058a6dc20305dd6d00d1aa0691cecf4d55a8902be"
-    sha256 cellar: :any_skip_relocation, catalina:      "36d3b76fe43e2c2756578afffacfb6f9b718f446020502fd9d108a46f948c9ab"
-    sha256 cellar: :any_skip_relocation, mojave:        "c4913f7f9acb77035f20c565da9cfb6011cb252101bda0ebd1ce8cc231766206"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08c840654a0a4378635e17f3bb4f39dfcb9f0d39ea747d91cab20b243f94bd48"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4711f05aad5403a07683f1506548c2dcbd120de9fe7d7dbd272633e2a46e97b2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b6a4c2f5dc2196c0b2a110bef21e717b5073d258409e52ef5f98271c8728d44d"
+    sha256 cellar: :any_skip_relocation, catalina:      "0d98e96bbbd926774ae07441f115732755d2d871897d371af0e1a1df9e6c6a28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03d8171193bae05af58e33086db444f92ec829038a3c3750a7d5a7dea211fc92"
   end
 
   depends_on "go" => :build

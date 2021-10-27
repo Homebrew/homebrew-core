@@ -8,11 +8,13 @@ class Watch < Formula
   head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "45b90fbbda918d2c87ef6ccc29f1d931cbd0a490f2b1d599444591aae04a3cb0"
-    sha256 cellar: :any,                 big_sur:       "251b920890874ad798cf01c4c52564c720f785ce8184ae41181654b8f65e592b"
-    sha256 cellar: :any,                 catalina:      "05698a04a502ac32c97e0de0d9f00ac7c7450afd5d42b85d8ce1cd55d010fff3"
-    sha256 cellar: :any,                 mojave:        "d2ce790ff9e073d04615051cd94dce4e06d37993de21894a64d4a23b7dfe5ea5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ae42218ef9ec54573be5a7f207c5057f326a62e11c8f158974aff56e1762284"
+    sha256 cellar: :any,                 arm64_monterey: "7d5a19193abdb00239606f298bcbb5c16de08347ba7916712dd139e0d71e819f"
+    sha256 cellar: :any,                 arm64_big_sur:  "45b90fbbda918d2c87ef6ccc29f1d931cbd0a490f2b1d599444591aae04a3cb0"
+    sha256 cellar: :any,                 monterey:       "ca5c7ce1bf2bf4fdbb30c220fd8303f21686880ae6de2a30a7028f0fba5df530"
+    sha256 cellar: :any,                 big_sur:        "251b920890874ad798cf01c4c52564c720f785ce8184ae41181654b8f65e592b"
+    sha256 cellar: :any,                 catalina:       "05698a04a502ac32c97e0de0d9f00ac7c7450afd5d42b85d8ce1cd55d010fff3"
+    sha256 cellar: :any,                 mojave:         "d2ce790ff9e073d04615051cd94dce4e06d37993de21894a64d4a23b7dfe5ea5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ae42218ef9ec54573be5a7f207c5057f326a62e11c8f158974aff56e1762284"
   end
 
   depends_on "autoconf" => :build

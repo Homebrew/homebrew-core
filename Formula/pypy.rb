@@ -1,10 +1,9 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.5-src.tar.bz2"
-  sha256 "c0444fd9873058c1c0d99e13a934e92285cb05992c9968bf523c32bf9bec0a9d"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.6-src.tar.bz2"
+  sha256 "0114473c8c57169cdcab1a69c60ad7fef7089731fdbe6f46af55060b29be41e4"
   license "MIT"
-  revision 1
   head "https://foss.heptapod.net/pypy/pypy", using: :hg
 
   livecheck do
@@ -13,10 +12,11 @@ class Pypy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "4e49ed156a0d1242e5fadbd89eacfe8a7a14e06e5ae53e22f0862eac3bd934ac"
-    sha256 cellar: :any,                 catalina:     "c6c8c8aa81297c76bcc827e6ade41ff3ad0f578afec0be02a10bbdc915cd977d"
-    sha256 cellar: :any,                 mojave:       "a75798a7afffaa1ab7c2b6d41ae375d4df8184a35003b5c9056d4cfd7b4d149a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "96d1572f8a52e919b9436bcd7b16d5fdb457de9a6020f8980170a57f00aecf5b"
+    sha256 cellar: :any,                 monterey:     "cc8db4f26c0f9afa60b1b5ccf992886e1c06e31c5e5ee9352c33bdbc4167432a"
+    sha256 cellar: :any,                 big_sur:      "71dbc6c0872a0628094f8ba0bf9ba8bf1dedce276eb184828f54714936b1f650"
+    sha256 cellar: :any,                 catalina:     "723f69ac0261ddc490dada0358157ee82093490f66e5d5660598a4f3c7f0efb5"
+    sha256 cellar: :any,                 mojave:       "58bc1575beb8fbb8925de48940d3024f937ff28006bb409d28de6c3079731020"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "787da02ba121545427d5c76c894d516c46b01b13c7aa7a16f58550489e5af280"
   end
 
   depends_on "pkg-config" => :build
@@ -64,8 +64,6 @@ class Pypy < Formula
   #   When tcl-tk is not found, it uses unversioned `-ltcl -ltk`, which breaks build.
   # - Disable building cffi imports with `--embed-dependencies`, which compiles and
   #   statically links a specific OpenSSL version.
-  # - Add flag `--no-make-portable` to package.py so that we can disable portable build.
-  #   Portable build is default on macOS and copies tcl-tk/sqlite dylibs into bottle.
   patch :DATA
 
   def install
@@ -228,14 +226,3 @@ __END__
                  argv = [filename, '--embed-dependencies']
              else:
                  argv = [filename,]
---- a/pypy/tool/release/package.py
-+++ b/pypy/tool/release/package.py
-@@ -351,7 +351,7 @@ def package(*args, **kwds):
-                         default=(ARCH in ('darwin', 'aarch64', 'x86_64')),
-                         help='whether to embed dependencies in CFFI modules '
-                         '(default on OS X)')
--    parser.add_argument('--make-portable',
-+    parser.add_argument('--make-portable', '--no-make-portable',
-                         dest='make_portable',
-                         action=NegateAction,
-                         default=(ARCH in ('darwin',)),

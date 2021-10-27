@@ -75,7 +75,7 @@ jobs:
               core.setOutput('syntax-only', 'false')
             }
 
-            const runners = ["11-arm64", "11", "10.15", "10.14"]
+            const runners = ["11-arm64", "11", "10.15"]
             if (label_names.includes('CI-linux-self-hosted')) {
               runners.push('linux-self-hosted-1')
             } else {
@@ -209,6 +209,7 @@ jobs:
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git fetch origin ${{github.sha}} '+refs/heads/*:refs/remotes/origin/*'
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git remote set-head origin --auto
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git checkout --force -B master FETCH_HEAD
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git clean -dfx
 
       - name: Set up Homebrew
         id: set-up-homebrew

@@ -7,11 +7,13 @@ class Luarocks < Formula
   head "https://github.com/luarocks/luarocks.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "884ff51dc8c4b1009ce40d3a6f4a1306566ff9da8417ea4c03dce4c38a136807"
-    sha256 cellar: :any_skip_relocation, big_sur:       "631971f2bc3585dc67d7b5c7b07391489442564a0f111ae358008a02e3b8d73d"
-    sha256 cellar: :any_skip_relocation, catalina:      "b7d91bbc4ec33e19953bc1ed4127557c530b66c0e0ff7eec1a188268b486b594"
-    sha256 cellar: :any_skip_relocation, mojave:        "bcd1442f092e25f04eac3270b5a468d911716a50a3af716ce3f4f9c44a46920e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecb1a4b542242bf069c24f4c7a12d2a9448c2d29a18f96b19478f9ddd3d1831e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ecb1a4b542242bf069c24f4c7a12d2a9448c2d29a18f96b19478f9ddd3d1831e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "884ff51dc8c4b1009ce40d3a6f4a1306566ff9da8417ea4c03dce4c38a136807"
+    sha256 cellar: :any_skip_relocation, monterey:       "d36503670a5ea22acf6973751a101b9ad19e49d406d01799adeb691b3e56892a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "631971f2bc3585dc67d7b5c7b07391489442564a0f111ae358008a02e3b8d73d"
+    sha256 cellar: :any_skip_relocation, catalina:       "b7d91bbc4ec33e19953bc1ed4127557c530b66c0e0ff7eec1a188268b486b594"
+    sha256 cellar: :any_skip_relocation, mojave:         "bcd1442f092e25f04eac3270b5a468d911716a50a3af716ce3f4f9c44a46920e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecb1a4b542242bf069c24f4c7a12d2a9448c2d29a18f96b19478f9ddd3d1831e"
   end
 
   depends_on "lua@5.1" => :test

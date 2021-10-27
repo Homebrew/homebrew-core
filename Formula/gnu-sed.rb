@@ -7,12 +7,14 @@ class GnuSed < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "72bc2b8cf7c7e18d106d79c7db382f7160408aafa8fb765b084cbe965e92db9b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3846b361699dd0260a616085b2a1678c874a2fcce8ce70e704a018dce3b4a882"
-    sha256 cellar: :any_skip_relocation, catalina:      "726be75d6d7155820b408a10e5c1a5ba1406374a7fc167af62524a4f4bbbc099"
-    sha256 cellar: :any_skip_relocation, mojave:        "093f16752e7dfb115c055f20aed090108b94edd47c40f5e50878d961359251b2"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "865abe618c67037a4a419a05e0df2c6814fb3abdd6f631ea546aeba0aaf8eb78"
-    sha256                               x86_64_linux:  "35d0116b6abaa8fe7e51fc955d4f940a3d4ee0fbb0155c3759e3af35cd38bfe2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "78481cc3509f617328d3c361c21beef829f24f4b130cabfc08ed6e4ce83f2286"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72bc2b8cf7c7e18d106d79c7db382f7160408aafa8fb765b084cbe965e92db9b"
+    sha256 cellar: :any_skip_relocation, monterey:       "b1f4ae7364418a3555f4be7c24c61d9bcb9bdb16660091f144737f79551ce90f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3846b361699dd0260a616085b2a1678c874a2fcce8ce70e704a018dce3b4a882"
+    sha256 cellar: :any_skip_relocation, catalina:       "726be75d6d7155820b408a10e5c1a5ba1406374a7fc167af62524a4f4bbbc099"
+    sha256 cellar: :any_skip_relocation, mojave:         "093f16752e7dfb115c055f20aed090108b94edd47c40f5e50878d961359251b2"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "865abe618c67037a4a419a05e0df2c6814fb3abdd6f631ea546aeba0aaf8eb78"
+    sha256                               x86_64_linux:   "35d0116b6abaa8fe7e51fc955d4f940a3d4ee0fbb0155c3759e3af35cd38bfe2"
   end
 
   conflicts_with "ssed", because: "both install share/info/sed.info"

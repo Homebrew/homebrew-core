@@ -7,6 +7,7 @@ class PostgresqlAT94 < Formula
 
   bottle do
     rebuild 4
+    sha256 monterey:     "6b8c02385f043c6ddf224b48f79dce675f9f6a18a2fcbd9b9cfdbb52ec57663e"
     sha256 big_sur:      "0331cf3d1dcb6311ad144916317c520c0a442832d038c6d11da6f42c670e263f"
     sha256 catalina:     "a72c3df7772799a0870db56245b192b655c7691984224f6eb0b9a3f839edb8a3"
     sha256 mojave:       "64558f09195403c05cea3f52cb7c7162a61a0a01e24a40aaf297021fadf11fc9"

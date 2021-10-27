@@ -1,17 +1,19 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/v2021.10.11.00.tar.gz"
-  sha256 "d2a875617adde0eace774299e3d049f1825975cfdcdb4ad78e6b8e3f69a567ae"
+  url "https://github.com/facebook/watchman/archive/v2021.10.18.00.tar.gz"
+  sha256 "2ce07b525096cee2a62219075d07100db73303c53c6a1d01d2c87de7ae8c949b"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6df86994371421056dbad95186df2a01f17a20ecef58725903725de7930c8ff4"
-    sha256 cellar: :any, big_sur:       "57ef39d7d5c7ce42008456ea37844b7665ef233c82dff64902ca866b7a0a4411"
-    sha256 cellar: :any, catalina:      "e7f27d66b477bf4a547114ba95cb7e110ce502cb3b2e94e97c37b68f7cadab06"
-    sha256 cellar: :any, mojave:        "51ff176074996d008c672028ef93cd40d8be62a7410f8f85398282473101c632"
-    sha256               x86_64_linux:  "d2c45cf289a2a581a22f0ca9893abb1202c2144ac59e79ad848bbce15397c0d3"
+    sha256 cellar: :any, arm64_monterey: "a0827f828c341593562e222d7ba86993360cd5e075983b5997ffb578343708b8"
+    sha256 cellar: :any, arm64_big_sur:  "c9e25436ddb021caa98115bd1b713286e91dd40e59de8797f0c00bea18f478f2"
+    sha256 cellar: :any, monterey:       "f348042c89870ac25dc608f475ae14ce129737030733c34a27ee7de3d5181dbd"
+    sha256 cellar: :any, big_sur:        "3d952cb346ed6f9318aeb68122d6b81b3dc9b0fbeab0290993f21f020d11680f"
+    sha256 cellar: :any, catalina:       "3cd12de321b36671f0f6bb0fbc3dced352ecaa291d6bac5920583ee48bd05b8e"
+    sha256 cellar: :any, mojave:         "23ded350dccb7e1d00412c58f8b99add97a1ce0ba1e5ec11e683b8eaf26e1140"
+    sha256               x86_64_linux:   "73659ba1ef6773ef73f60033217e77c851db43e11dc663d238838d6746fbc8e1"
   end
 
   depends_on "cmake" => :build
@@ -52,6 +54,7 @@ class Watchman < Formula
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",
+                    "-DENABLE_EDEN_SUPPORT=OFF",
                     "-DWATCHMAN_VERSION_OVERRIDE=#{version}",
                     "-DWATCHMAN_BUILDINFO_OVERRIDE=#{tap.user}",
                     "-DWATCHMAN_STATE_DIR=#{var}/run/watchman",

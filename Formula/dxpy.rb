@@ -6,13 +6,13 @@ class Dxpy < Formula
   url "https://files.pythonhosted.org/packages/f1/d4/fbcd6fa1f6b2f3b80c02d4198f6ab7065b7430e231826e8ad09f7053166d/dxpy-0.314.0.tar.gz"
   sha256 "2a8a40822d33f957ba10c5ce0db5036d03f2372d2e62e7831b183f0693397547"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "45094e233a4063ca1a1ca26766a07f853d3db6e78e5feef33bbe28a43cf5721d"
-    sha256 cellar: :any,                 big_sur:       "bdcf7989ae35a3e591911eadc1989a956605d168834edd7b9a66a23a435b95c4"
-    sha256 cellar: :any,                 catalina:      "7cbd05e7d808d92298ea2dcf6a093714a155bf2c14c8a1fa575b3a9d6969dc8a"
-    sha256 cellar: :any,                 mojave:        "12ccfe7744cccf7f9f15817c0ede0a2d43a82e50935356f80c95cb5c23b0ea88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d59dfcb311f7a46e67b532aa2cf2ea0c0926e91bfcdfe45176ed45f9543df661"
+    sha256 cellar: :any,                 arm64_big_sur: "fb3d224e3e660cae2f021232be02ff2ffc258379e20ed9af88cdc65fd7fd9fa5"
+    sha256 cellar: :any,                 big_sur:       "e68d4a02d3470e2ee828736ab73e0c540b43fe72f7aec607dd7d9f9ea87557ad"
+    sha256 cellar: :any,                 catalina:      "f2980530618f221dcb7eb280256e401e44e0ce42e90d348a45eb079a26dc9bdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6e86600cd9d1090e051f7c8cc0930d66a1a3a3a36bb94af0a3cb61d974b0bc2"
   end
 
   depends_on "python@3.9"

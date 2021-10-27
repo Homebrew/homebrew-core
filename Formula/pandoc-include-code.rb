@@ -8,12 +8,14 @@ class PandocIncludeCode < Formula
   head "https://github.com/owickstrom/pandoc-include-code.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "116b050084dbeca5e70da5f02d8e71502ff6d2b971e27ef1fb4e8411b6678745"
-    sha256 cellar: :any_skip_relocation, big_sur:       "dc076e4b3a63c70309a63b8c631500418b0b9ba5db2a0a46718527fe780d5136"
-    sha256 cellar: :any_skip_relocation, catalina:      "63300eec1d6a9e05208917453d202436384beaa35a50c9e46cff101bac589849"
-    sha256 cellar: :any_skip_relocation, mojave:        "707af9306e01c8f183bad3232797c9220583a9cdba3baf7d99d77add6faccd87"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "46561ef2e3dbbc9b15cb84ca1b82f7c6510ed900ca3c6e7252d45eb00ac8c991"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab22b3df53ac6762dcc8b564ebbefdc96a814ba31f93fc4dd701bbb28bacb958"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "03487512c8b41b88561df1e3e2f9d93ee09a6ea0381346c400417716a2b88b55"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "116b050084dbeca5e70da5f02d8e71502ff6d2b971e27ef1fb4e8411b6678745"
+    sha256 cellar: :any_skip_relocation, monterey:       "180d35d9d7e345bdfbdd2382aa4dfb2bc20ce1c2f0809b4a365c6cb0aca5e059"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dc076e4b3a63c70309a63b8c631500418b0b9ba5db2a0a46718527fe780d5136"
+    sha256 cellar: :any_skip_relocation, catalina:       "63300eec1d6a9e05208917453d202436384beaa35a50c9e46cff101bac589849"
+    sha256 cellar: :any_skip_relocation, mojave:         "707af9306e01c8f183bad3232797c9220583a9cdba3baf7d99d77add6faccd87"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "46561ef2e3dbbc9b15cb84ca1b82f7c6510ed900ca3c6e7252d45eb00ac8c991"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab22b3df53ac6762dcc8b564ebbefdc96a814ba31f93fc4dd701bbb28bacb958"
   end
 
   depends_on "cabal-install" => :build

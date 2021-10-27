@@ -12,15 +12,17 @@ class Figlet < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "c11153896e225e3ce85db5dda5c85455422e542871c0495683aa49c8929cc6f8"
-    sha256 big_sur:       "c205792bc4f3305cc2fdccf672a9df7f2d415efc6c9b7ac2f00ccb44aa981cfc"
-    sha256 catalina:      "b0ecddfbf1d1e1d45ff1d3cb1be1977fd80a7924c27a73d995435de9aff5ca66"
-    sha256 mojave:        "906556c44706889c0170f4dfe7d7427f27122cee425042c3911f7266f9fc2e4c"
-    sha256 high_sierra:   "3047847adef9cb5bd5588cf65f64bfcc0549ed44d4370a862071aba2f9d98ba6"
-    sha256 sierra:        "c53966c742bf88b8481f6ed0bde1a951ea11185af2c631fb02b84fa7120f2e17"
-    sha256 el_capitan:    "943067dae95de58518b20334aec401cf5fd24866ff77315c0d7bd8b5d4ab0011"
-    sha256 yosemite:      "0a1b051fb0143dbfca1da36c83eca8580c215ff155e0dc755a924ce1f53a4b46"
-    sha256 x86_64_linux:  "94ef53c9339ca8a3da5a92168fde47b97bdb992c8dfe6b6603f79bbe07a8acff"
+    sha256 arm64_monterey: "87aa47afd19c8cd952a9a342a9afe32d0da2849ee1c1de2510949675a38327b8"
+    sha256 arm64_big_sur:  "c11153896e225e3ce85db5dda5c85455422e542871c0495683aa49c8929cc6f8"
+    sha256 monterey:       "d0e426869d73c174754374b2f91dad0b9464beae30f6d4dc73882777655c44cc"
+    sha256 big_sur:        "c205792bc4f3305cc2fdccf672a9df7f2d415efc6c9b7ac2f00ccb44aa981cfc"
+    sha256 catalina:       "b0ecddfbf1d1e1d45ff1d3cb1be1977fd80a7924c27a73d995435de9aff5ca66"
+    sha256 mojave:         "906556c44706889c0170f4dfe7d7427f27122cee425042c3911f7266f9fc2e4c"
+    sha256 high_sierra:    "3047847adef9cb5bd5588cf65f64bfcc0549ed44d4370a862071aba2f9d98ba6"
+    sha256 sierra:         "c53966c742bf88b8481f6ed0bde1a951ea11185af2c631fb02b84fa7120f2e17"
+    sha256 el_capitan:     "943067dae95de58518b20334aec401cf5fd24866ff77315c0d7bd8b5d4ab0011"
+    sha256 yosemite:       "0a1b051fb0143dbfca1da36c83eca8580c215ff155e0dc755a924ce1f53a4b46"
+    sha256 x86_64_linux:   "94ef53c9339ca8a3da5a92168fde47b97bdb992c8dfe6b6603f79bbe07a8acff"
   end
 
   resource "contrib" do

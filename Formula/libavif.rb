@@ -1,16 +1,17 @@
 class Libavif < Formula
   desc "Library for encoding and decoding .avif files"
   homepage "https://github.com/AOMediaCodec/libavif"
-  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "d6607d654adc40a392da83daa72a4ff802cd750c045a68131c9305639c10fc5c"
+  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v0.9.3.tar.gz"
+  sha256 "bcd9a1f57f982a9615eb7e2faf87236dc88eb1d0c886f3471c7440ead605060d"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "eaa0dde55d697b8839bdf9aef55cbcf95149a33d573eb9b6b86fd5eb763a39a7"
-    sha256 cellar: :any,                 big_sur:       "1362b18e8d3ebb22b44ed1527e848376cfa57c27a19707bd69871e92a4bdccf0"
-    sha256 cellar: :any,                 catalina:      "81100a4fd5be5d5ac08d63bf787337e967f1d419fface9563edebec6c5ab3229"
-    sha256 cellar: :any,                 mojave:        "0b1f0404f1c3c787b4db1243884991fb4c42d8f9a040cf0ee1348c3f7af9e119"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bc07dec2dc59a97cab7272b0b9a406c36f3be030e8b6ffb112f9b599eabbcab"
+    sha256 cellar: :any,                 arm64_monterey: "89ae2754b605c1a5dd35135ebfbf8e0d0970029fb617c8019c9566ad3da600ed"
+    sha256 cellar: :any,                 arm64_big_sur:  "0e64657e9f2d5ea82d0c66aaf761cfbb7d39e245590fbdcc603743f5280313c3"
+    sha256 cellar: :any,                 monterey:       "8c48b4c95b0df48df71fc8de3e924cfad0dd06c886cd9a69419a6affd7a76e7a"
+    sha256 cellar: :any,                 big_sur:        "9d11f6321b3889671d683e86ebb6db03716142cdc16f0a95ce5e761ba31ab258"
+    sha256 cellar: :any,                 catalina:       "f9611aacd9b0decd5ef0fbbccc67119cea5603eadfd4430ceac556f54723945e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84b065490127c11a9b8e5fe9263d270ca9751e9cb7962bb5a5ccf6ff2f3c4c08"
   end
 
   depends_on "cmake" => :build

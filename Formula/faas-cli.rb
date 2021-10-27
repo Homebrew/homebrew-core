@@ -13,22 +13,20 @@ class FaasCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ad9ec0034403fce9774851822c992a81bdd83672a51b6a9e62d17211a64125f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5fa34425406dbec94aea6103568213cd4f6f53f6958c79f002b0cd97130c16b6"
-    sha256 cellar: :any_skip_relocation, catalina:      "92f0eacb01bfbc1e6630b92adca5a6a7ad25c18786481d1449b006def8524422"
-    sha256 cellar: :any_skip_relocation, mojave:        "976de92ce4afe1702a868d03f27165accc2ef00003ed0cb4b386aa60374061b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6396752fe835cc7254f5e59af86fec12cf8c9d1543a26df62a654e37c2319f6b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c382df065b38a3fc0869b83e6bf798005d09c7db5ee5ad76a9f2370323045937"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ad9ec0034403fce9774851822c992a81bdd83672a51b6a9e62d17211a64125f"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c9450fa3eeae6b2f6f2abc81d5f6879f0daaff965ccb0156a19a0071dcc501a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5fa34425406dbec94aea6103568213cd4f6f53f6958c79f002b0cd97130c16b6"
+    sha256 cellar: :any_skip_relocation, catalina:       "92f0eacb01bfbc1e6630b92adca5a6a7ad25c18786481d1449b006def8524422"
+    sha256 cellar: :any_skip_relocation, mojave:         "976de92ce4afe1702a868d03f27165accc2ef00003ed0cb4b386aa60374061b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6396752fe835cc7254f5e59af86fec12cf8c9d1543a26df62a654e37c2319f6b"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["XC_OS"] = if OS.mac?
-      "darwin"
-    else
-      "linux"
-    end
-    ENV["XC_ARCH"] = "amd64"
+    ENV["XC_OS"] = OS.kernel_name.downcase
+    ENV["XC_ARCH"] = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     project = "github.com/openfaas/faas-cli"
     ldflags = %W[
       -s -w

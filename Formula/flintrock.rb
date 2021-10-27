@@ -6,13 +6,15 @@ class Flintrock < Formula
   url "https://files.pythonhosted.org/packages/dc/ad/6e3871a510f0d053aa49caee2140a2f64f2d3fa584d3b70408043295fa57/Flintrock-2.0.0.tar.gz"
   sha256 "ccbbc912823772ea733802ca3f9751c98dacda8c67518683a3dc4ec8b1de38dd"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "9df97b2e3124596a9f3d48b7795eed8266bb16fc74f2ea7c0ab0f01b8e876645"
-    sha256 cellar: :any,                 big_sur:       "6c982aa66f903a3b26917adf4767700e69f693e416d8fa022300fe9e4704314b"
-    sha256 cellar: :any,                 catalina:      "fef1cc66b6cd31298a9b5c40dcc3319d1b463952ca20c26e677fd81a9bfcaf7d"
-    sha256 cellar: :any,                 mojave:        "db9ec55e170efd550bb91a0f9ca330384b7edeb1703dd88572619a0f888879d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b8cbf4b683ff2730273c65343b00c8a2ef5b26998af0d2e0ec85347ae51ad80"
+    sha256 cellar: :any,                 arm64_monterey: "703a2f46d9c2c2905134bf1d5f4b3b73d3f0fb4a839337c9839c0a7b0ded0f76"
+    sha256 cellar: :any,                 arm64_big_sur:  "428e163a901608f2b8cc61b72cbd87819eefe4b6a5564fbb4e699d722da30246"
+    sha256 cellar: :any,                 monterey:       "dddda17d2e6ca4c1e4e2a18b9c5ec1b2075eb469ca732b437a71798f9db557d1"
+    sha256 cellar: :any,                 big_sur:        "de38bad831b02619d3899a82d61c07275f1fb5401771d276b9a8ab51b4bb3f85"
+    sha256 cellar: :any,                 catalina:       "ff0526fd317c499f9b1b338418be4b32a2160eab20d3c06a4bc3a68fe7e4bd22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2620d137febb3a5596fee637af9e9f6518f0b982f09ba3311543d014e84045e"
   end
 
   depends_on "rust" => :build

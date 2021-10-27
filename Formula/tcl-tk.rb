@@ -13,11 +13,13 @@ class TclTk < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "81f1041b639d8e6b8d7865226917c8b2f2cff604636a35fd65108ec61a618eed"
-    sha256 big_sur:       "d9ffd39a32e602515594c4658aaab20224d9d57eeffa3aa10028736ff64ad40b"
-    sha256 catalina:      "f4027cdfd4d797d769b027f13b53e0ad714b47cd94fa02f550ff1403294467da"
-    sha256 mojave:        "23916830afd9e9fb7bf63b0c047f0b2a6f969cb746055d73ca6576e18c87e07f"
-    sha256 x86_64_linux:  "162207dfc77fccb02663352f88c14c1ace5bb1250072b037b05b75fb627ad79b"
+    sha256 arm64_monterey: "e77692cf1bf0a43eade4a48275e5575e4acfa13f0cb8683b4c4d49cabfcbeac1"
+    sha256 arm64_big_sur:  "81f1041b639d8e6b8d7865226917c8b2f2cff604636a35fd65108ec61a618eed"
+    sha256 monterey:       "f4460939b3940616b3d64462fc55ff30d609ed6765fc008960a410a65fd908d9"
+    sha256 big_sur:        "d9ffd39a32e602515594c4658aaab20224d9d57eeffa3aa10028736ff64ad40b"
+    sha256 catalina:       "f4027cdfd4d797d769b027f13b53e0ad714b47cd94fa02f550ff1403294467da"
+    sha256 mojave:         "23916830afd9e9fb7bf63b0c047f0b2a6f969cb746055d73ca6576e18c87e07f"
+    sha256 x86_64_linux:   "162207dfc77fccb02663352f88c14c1ace5bb1250072b037b05b75fb627ad79b"
   end
 
   keg_only :provided_by_macos

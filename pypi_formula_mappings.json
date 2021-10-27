@@ -28,6 +28,9 @@
   "awscli@1": {
     "exclude_packages": ["six"]
   },
+  "awsume": {
+    "exclude_packages": ["six"]
+  },
   "b2-tools": {
     "exclude_packages": ["six"]
   },
@@ -41,7 +44,8 @@
     "exclude_packages": ["six"]
   },
   "certbot": {
-    "extra_packages": ["certbot-apache", "certbot-nginx"]
+    "extra_packages": ["certbot-apache", "certbot-nginx"],
+    "exclude_packages": ["six"]
   },
   "cfn-lint": {
     "exclude_packages": ["junit-xml", "six"]
@@ -60,13 +64,22 @@
     "exclude_packages": ["junit-xml", "six", "tabulate"],
     "extra_packages": ["junit-xml-2"]
   },
+  "cloudiscovery": {
+    "exclude_packages": ["six"]
+  },
   "conan": {
     "exclude_packages": ["six"]
   },
   "cppman": {
     "exclude_packages": ["six"]
   },
+  "csvkit": {
+    "exclude_packages": ["six"]
+  },
   "datalad": {
+    "exclude_packages": ["six"]
+  },
+  "datasette": {
     "exclude_packages": ["six"]
   },
   "diffoscope": "diffoscope[cmdline]",
@@ -92,9 +105,8 @@
   "dxpy": {
     "exclude_packages": ["six"]
   },
-  "ipython": {
-    "exclude_packages": ["six"],
-    "extra_packages": ["ipykernel"]
+  "esptool": {
+    "exclude_packages": ["six"]
   },
   "fava": {
     "exclude_packages": ["six"]
@@ -115,12 +127,18 @@
   "internetarchive": {
     "exclude_packages": ["six"]
   },
+  "ipython": {
+    "exclude_packages": ["six"],
+    "extra_packages": ["ipykernel"]
+  },
   "jenkins-job-builder": {
     "exclude_packages": ["six"]
   },
   "jupyterlab": {
-    "exclude_packages": ["six"],
-    "extra_packages": ["pydevd"]
+    "exclude_packages": ["six"]
+  },
+  "keepkey-agent": {
+    "exclude_packages": ["six"]
   },
   "khard": {
     "exclude_packages": ["six"]
@@ -152,6 +170,9 @@
   "mycli": {
     "exclude_packages": ["tabulate"]
   },
+  "nicotine-plus": {
+    "exclude_packages": ["pycairo", "PyGObject"]
+  },
   "nox": {
     "exclude_packages": ["six"]
   },
@@ -165,8 +186,8 @@
     "extra_packages": ["python-heatclient", "python-octaviaclient"],
     "exclude_packages": ["six"]
   },
-  "nicotine-plus": {
-    "exclude_packages": ["pycairo", "PyGObject"]
+  "organize-tool": {
+    "exclude_packages": ["six"]
   },
   "parliament": {
     "exclude_packages": ["six"]
@@ -174,6 +195,9 @@
   "pdm": {
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
+  },
+  "percol": {
+    "exclude_packages": ["six"]
   },
   "pgcli": {
     "exclude_packages": ["six", "tabulate"]
@@ -369,6 +393,12 @@
   },
   "sqlite-utils": {
     "exclude_packages": ["tabulate", "six"]
+  },
+  "stormssh": {
+    "exclude_packages": ["six"]
+  },
+  "tarsnapper": {
+    "exclude_packages": ["six"]
   },
   "theharvester": {
     "exclude_packages": ["six"]

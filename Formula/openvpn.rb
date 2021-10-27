@@ -12,11 +12,13 @@ class Openvpn < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6666fe4dc8bfa42db9bb92d52962606daacfa284be240e183de86f568ac2af43"
-    sha256 big_sur:       "682a9cd67a9ca4d1f3e98b2278bfb30cba39e30f532cdebbc25258fe7e4e69af"
-    sha256 catalina:      "904507f9c962a7294f67a92e48d0c8cfc12a71bcf91c6d5d924e0f28a4836a3a"
-    sha256 mojave:        "fec0ed2726d148cc96ac6a19a9dfa0e39703fba82c717020f5c6ccc1ee4deef9"
-    sha256 x86_64_linux:  "a8d95b95acf6cdfed376475c0e5265bc97bac433dbb51c7279f0bb76a39db6a2"
+    sha256 arm64_monterey: "02af3b44c4340fcbcfdcc2cbb8800f5ec0701fc1dc1cbf8a4ec1df8cf539933d"
+    sha256 arm64_big_sur:  "6666fe4dc8bfa42db9bb92d52962606daacfa284be240e183de86f568ac2af43"
+    sha256 monterey:       "632edbc545de24e3a4ae0b3bbf4872d38ff5c0e8cefce4c6db71c35ac6435e56"
+    sha256 big_sur:        "682a9cd67a9ca4d1f3e98b2278bfb30cba39e30f532cdebbc25258fe7e4e69af"
+    sha256 catalina:       "904507f9c962a7294f67a92e48d0c8cfc12a71bcf91c6d5d924e0f28a4836a3a"
+    sha256 mojave:         "fec0ed2726d148cc96ac6a19a9dfa0e39703fba82c717020f5c6ccc1ee4deef9"
+    sha256 x86_64_linux:   "a8d95b95acf6cdfed376475c0e5265bc97bac433dbb51c7279f0bb76a39db6a2"
   end
 
   depends_on "pkg-config" => :build

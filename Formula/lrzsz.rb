@@ -11,14 +11,16 @@ class Lrzsz < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "af1dde66f4c633e9fdfa3b5108987626f79d3f8e3c5efc80b55f29c4720cef04"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8030d909e2c336ada4563b4bb7e052f8ab382e3ea1325599bcf52b14a35fcbd0"
-    sha256 cellar: :any_skip_relocation, catalina:      "e8d2badf80013a07d43d89b2a2e2f99c2feb3abd2b6eeb579a52f01b39a9dd49"
-    sha256 cellar: :any_skip_relocation, mojave:        "c828fb5694c30334ccd6dd68da5136e2d6c9d53d2e8ac558ef3ba246a7824ef8"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "c23cc0b0c9a0a7fae5a2e3d69ba01a7e6d09ad5e5a7d06c76620b72773ffebed"
-    sha256 cellar: :any_skip_relocation, sierra:        "997f5b81f84b7814b0f4f78f056404f6c309eba1e62136e5f8ddf4b34d953b59"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "1d6517842b64582f629f36e469b61ee91563e1ef1a1b1841a8a4634759dcb0f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f5db00a0b2cdc4920a809f4aa1f352eb6962980270d15e65dd418a99ac61ab2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d103f9f4cfdf4f19a69c5d47b80ab8bfcfa2e19ead1c187a25d89e49b70120a3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af1dde66f4c633e9fdfa3b5108987626f79d3f8e3c5efc80b55f29c4720cef04"
+    sha256 cellar: :any_skip_relocation, monterey:       "7cdda25c0645a005a715e99bfd591c575425cb8eb4667b4c51aadaab097154dd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8030d909e2c336ada4563b4bb7e052f8ab382e3ea1325599bcf52b14a35fcbd0"
+    sha256 cellar: :any_skip_relocation, catalina:       "e8d2badf80013a07d43d89b2a2e2f99c2feb3abd2b6eeb579a52f01b39a9dd49"
+    sha256 cellar: :any_skip_relocation, mojave:         "c828fb5694c30334ccd6dd68da5136e2d6c9d53d2e8ac558ef3ba246a7824ef8"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "c23cc0b0c9a0a7fae5a2e3d69ba01a7e6d09ad5e5a7d06c76620b72773ffebed"
+    sha256 cellar: :any_skip_relocation, sierra:         "997f5b81f84b7814b0f4f78f056404f6c309eba1e62136e5f8ddf4b34d953b59"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "1d6517842b64582f629f36e469b61ee91563e1ef1a1b1841a8a4634759dcb0f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f5db00a0b2cdc4920a809f4aa1f352eb6962980270d15e65dd418a99ac61ab2"
   end
 
   patch :p0 do

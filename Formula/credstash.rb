@@ -6,15 +6,16 @@ class Credstash < Formula
   url "https://files.pythonhosted.org/packages/b4/89/f929fda5fec87046873be2420a4c0cb40a82ab5e30c6d9cb22ddec41450b/credstash-1.17.1.tar.gz"
   sha256 "6c04e8734ef556ab459018da142dd0b244093ef176b3be5583e582e9a797a120"
   license "Apache-2.0"
-  revision 3
+  revision 4
   head "https://github.com/fugue/credstash.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7e4514215fac5cf99ec2ba21cc03b842b8bd3d2e8a8524652ef81a5e166bef72"
-    sha256 cellar: :any,                 big_sur:       "27bc34fa6578e146ca526ff681155adc84b2828e125945c8e50b72c5777cc6d0"
-    sha256 cellar: :any,                 catalina:      "c2ff23a42764f182a5e9095e7f0f7481c0340bc9880378981a34d11ecd719c36"
-    sha256 cellar: :any,                 mojave:        "affbd6157312a59711b4b8d853a68885979c8bb230dd46bb983e1c3228d15f78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d37b2f4d57611d5ef4ada2fb2ef4172243792428018b3545930b23667582d532"
+    sha256 cellar: :any,                 arm64_monterey: "20933684d1f4dc523373179f028cedf246bc1c38be113083fa56c29c780c39ab"
+    sha256 cellar: :any,                 arm64_big_sur:  "eb3d91bb0acbb86f65f9ab7b4a92de6dcc56f50af3d0d63899d0a17d420eed80"
+    sha256 cellar: :any,                 monterey:       "d26a6f3883011511a2052e7abbe6b1f35bd21e2a68baca5e5afa6750db2f44ca"
+    sha256 cellar: :any,                 big_sur:        "17bbec854f6bb5728c0300213f1cde490b641d83d49ede0900215c76905a344a"
+    sha256 cellar: :any,                 catalina:       "56fb65066289625637f728e37762e9ed12366d6bb3574c6ec51e079e3e8b1582"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a82749afb4c1fbcd2210f868054b58aeb9f07736f535b9ffa7345d61eae3203"
   end
 
   depends_on "rust" => :build

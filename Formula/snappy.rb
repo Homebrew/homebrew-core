@@ -7,11 +7,13 @@ class Snappy < Formula
   head "https://github.com/google/snappy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "19b5a3afc6646dcec7a1803921b44fb5c57b6734fc0e32f025633f14d1da05ec"
-    sha256 cellar: :any,                 big_sur:       "d73fd47c36e1559d49e1c4c4346c754a9d2ff2af9a0bef25631f52763f19f0ef"
-    sha256 cellar: :any,                 catalina:      "e62a5ab8aa407d6e7d8ddbecdc66fdd1fb256b87730dfe4abbdf8996b3db2869"
-    sha256 cellar: :any,                 mojave:        "b5c89925c1e54ea1e1992d076836092fa754681b373b4834766236abb779cfab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6708c99972bc8ff6d2ad298cf0cd498853d73b45f9ac95a9370fc70b2c59297"
+    sha256 cellar: :any,                 arm64_monterey: "8259999a686e6998350672e5e67425d9b5c3afaa139e14b0ad81aa6ac0b3dfa9"
+    sha256 cellar: :any,                 arm64_big_sur:  "19b5a3afc6646dcec7a1803921b44fb5c57b6734fc0e32f025633f14d1da05ec"
+    sha256 cellar: :any,                 monterey:       "fafb5142d8503a35d03d7db786cbcc44f6c625fefdcfa39a1024d5670c87d56c"
+    sha256 cellar: :any,                 big_sur:        "d73fd47c36e1559d49e1c4c4346c754a9d2ff2af9a0bef25631f52763f19f0ef"
+    sha256 cellar: :any,                 catalina:       "e62a5ab8aa407d6e7d8ddbecdc66fdd1fb256b87730dfe4abbdf8996b3db2869"
+    sha256 cellar: :any,                 mojave:         "b5c89925c1e54ea1e1992d076836092fa754681b373b4834766236abb779cfab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6708c99972bc8ff6d2ad298cf0cd498853d73b45f9ac95a9370fc70b2c59297"
   end
 
   depends_on "cmake" => :build

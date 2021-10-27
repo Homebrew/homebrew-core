@@ -6,13 +6,13 @@ class Gupnp < Formula
   url "https://download.gnome.org/sources/gupnp/1.4/gupnp-1.4.0.tar.xz"
   sha256 "590ffb02b84da2a1aec68fd534bc40af1b37dd3f6223f9d1577fc48ab48be36f"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "189d75ec84ee768b7788a884231ddaec044b2af8693cc57c6555b94ee34f320a"
-    sha256 cellar: :any, big_sur:       "af46ddf4a8872d6a181a4e71e2667ff3d2a9d99f15123d44c330b3dcce9a9ab0"
-    sha256 cellar: :any, catalina:      "2f4cde6e0b70a5bbfe8e32ed284b22499f05ed5d8b7e230af50a9b0ed6ce7c52"
-    sha256 cellar: :any, mojave:        "35c75d08d5898cc3477a118598d9439c3e717885ff6c351206a754456458e1e1"
-    sha256               x86_64_linux:  "a95c5f0a9c64e3f64d6837ced1d8693fbd687de0d115b14d3a89efddb0528cfb"
+    sha256 cellar: :any, arm64_big_sur: "74d32f0c86134b6ae8680e88eca4cdf16c0b3c7ad39003f36801e9328832e577"
+    sha256 cellar: :any, big_sur:       "cc65c455a851a56d7724da20529e17b9f6a891d7611b1ace26c91522f2261632"
+    sha256 cellar: :any, catalina:      "dc95e5115ede011c9b59a5f1cc0a669321a11297fdb7e0a2d0fb05267480a7f2"
+    sha256               x86_64_linux:  "7d3212cbd0a5c39317ea485330ed228a0f8a9a02080daf08688ecad592cfd77f"
   end
 
   depends_on "docbook-xsl" => :build
@@ -20,6 +20,7 @@ class Gupnp < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "gssdp"

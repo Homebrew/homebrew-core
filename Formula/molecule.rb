@@ -6,19 +6,21 @@ class Molecule < Formula
   url "https://files.pythonhosted.org/packages/0a/b8/d906a7f1248b047f8a482712da00c18c300cc43a8bdc0fc583510766854d/molecule-3.5.2.tar.gz"
   sha256 "c82af099e5c0998d7eb16a3bf65ed5a4edd97e3824fb938ce01bf064a46ce0ca"
   license "MIT"
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "b21b7699140a07fed45fbf5557b425c7e62730b465378b9dd7c8f634fea54b70"
-    sha256 cellar: :any,                 big_sur:       "a471f0d06a4882278257b09dd77fef4aa1b1f8498d467e7f8f6f56dcedc1be75"
-    sha256 cellar: :any,                 catalina:      "50f89b0f534ae3a2b60058354a19ef177f8558050e2c54236489247bc528ab9d"
-    sha256 cellar: :any,                 mojave:        "12c97af635a05e1881f03f72c2ce590b57cc59123c1a2395e816c67dcd5857ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "035d0747f6bbd7bb67f3e2f7b785cc779ca4b63a19f69a6d9c8a3586702d5262"
+    sha256 cellar: :any,                 arm64_monterey: "f50236a201bb2cffd2a8d51294f5a40146fcffeaff8a660ce3466f270fc9165a"
+    sha256 cellar: :any,                 arm64_big_sur:  "fc17e8f9e9370738f4db07572bbb45f156fd18d567867d09414044c12941f73c"
+    sha256 cellar: :any,                 monterey:       "eb43ca07c9efb0540a2cb4258d2bc681c0f141cf39854d65179c6bedb3553370"
+    sha256 cellar: :any,                 big_sur:        "c9bc121fb5a8455d0b6feed10296133eb124095e70b308e868d5fa53d3ab0ad2"
+    sha256 cellar: :any,                 catalina:       "c2032ce109e7887c94c5efaf9cc84bbbf6d382a43c14c3fdbef46fc9f203b7e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa707330580be4313826cd2a1862e58367fb1b49e4ac95ace33a8fcbb3bbf396"
   end
 
   depends_on "rust" => :build
   depends_on "ansible"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libffi"

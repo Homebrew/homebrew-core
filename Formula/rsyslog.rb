@@ -1,8 +1,8 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2108.0.tar.gz"
-  sha256 "4826c2b6d081a9c95f469fb0115be3f9512065297d3de00ec513758cdb30b1d9"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2110.0.tar.gz"
+  sha256 "3f904ec137ca6412e8273f7896d962ecb589f7d0c589bdf16b1709ec27e24f31"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
@@ -11,11 +11,10 @@ class Rsyslog < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "5a2bd0e1c8c321f824b2c21966806b9d6f8560f9bba66ddc747dca2df739e632"
-    sha256 big_sur:       "55e7e39978a311be72cd54de21fcc00a182268fc8f61de7cbb87693bd6456b6c"
-    sha256 catalina:      "842d1c90109ebec93dcfff1aeee09a1431fa46f77276690e494f74984f32ed7a"
-    sha256 mojave:        "e90e5da3642cde821babbb04977c6ecd964e7fbc0981bfa4410251ccbb679ff9"
-    sha256 x86_64_linux:  "222146343434c31749e3d351a47446dde3f2ef01cc051d640eadb58342c932a7"
+    sha256 arm64_big_sur: "29a457decc396b03135fff75be382f5d7457b1323998c2a859ae2cd6d316eaf1"
+    sha256 big_sur:       "6aa8ba08c656a824f68ca02d720e1410527ea75f8b3656aa3df11518aa968061"
+    sha256 catalina:      "9cad25d665e05db565854957bd9bb18ff430443d6523220d7b68f10a05a907ad"
+    sha256 x86_64_linux:  "a3e183feeb6580fe4daafccd7db73735d95195dcdf9638866aa4c80288c2d4b0"
   end
 
   depends_on "pkg-config" => :build

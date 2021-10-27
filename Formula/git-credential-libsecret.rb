@@ -2,8 +2,8 @@ class GitCredentialLibsecret < Formula
   desc "Git helper for accessing credentials via libsecret"
   homepage "https://git-scm.com"
   # NOTE: Please keep these values in sync with git.rb when updating.
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.0.tar.xz"
-  sha256 "bf3c6ab5f82e072aad4768f647cfb1ef60aece39855f83f080f9c0222dd20c4f"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.1.tar.xz"
+  sha256 "e054a6e6c2b088bd1bff5f61ed9ba5aa91c9a3cd509539a4b41c5ddf02201f2f"
   license "GPL-2.0-or-later"
   head "https://github.com/git/git.git", branch: "master"
 
@@ -12,11 +12,11 @@ class GitCredentialLibsecret < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "99e10ad70f907d4f710721ba16c5d02a88887c50d056781ce337786437d2e084"
-    sha256 cellar: :any,                 big_sur:       "c54fc5a1f4e8740a1414ed46f6bc6e5577e473625b280fffe516aca4b01bfac5"
-    sha256 cellar: :any,                 catalina:      "9b02365e9e24df3d90d15d0b3b0ee548845b359151605a214bf53f842e48ef78"
-    sha256 cellar: :any,                 mojave:        "c72707b7d79ef3ebb0a2e60bde9c01e70f54b820f2066d2dcafe7c65737eacde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5bda152d49e3450802c94d81f27d67dfbf0d436bff9c1309a36140f8ec986db"
+    sha256 cellar: :any,                 arm64_big_sur: "cd6882ac549c2c9d5dabee61cdac847c0ba7295c181d867df9bc4029c0e72add"
+    sha256 cellar: :any,                 big_sur:       "902c7e3911cad311b00ae572c2af462224c0306ae6b46e8fd63f2dce53abfa2d"
+    sha256 cellar: :any,                 catalina:      "7767a73b14eb155730144528416854bb8c209a2f61a2f7063a172c61efc43e4b"
+    sha256 cellar: :any,                 mojave:        "fc450ca3f17b7ecae59ab16ebdf2450cd49a2f5fc39b210c7f3333e6948431da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c96b57ea04cdcc1b514bb62e8eab3631e637fe6fbbc4b67a90679e2431dc750"
   end
 
   depends_on "pkg-config" => :build

@@ -1,11 +1,10 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc-1.27.1-src.tar.gz"
-  sha256 "93c8f500b39823dcdabbd73e1bcb487a1b93cb9a60144b0de1c81ab50200e59c"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.28.0/ldc-1.28.0-src.tar.gz"
+  sha256 "17fee8bb535bcb8cda0a45947526555c46c045f302a7349cc8711b254e54cf09"
   license "BSD-3-Clause"
-  revision 2
-  head "https://github.com/ldc-developers/ldc.git"
+  head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,10 +12,11 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "edba6cdbd6aeec055f9d73e83113d6d9f6ef8283ec5097aa11c542a5b2f42bec"
-    sha256 big_sur:       "cfe36977e1b7607e066c3978328195d475be77e040bc8562916e0c0c1edba187"
-    sha256 catalina:      "6a26dea81c20e12e65b8d118dff491cb0706374dc32a18beae194062f47b30fb"
-    sha256 mojave:        "3b837b63e0bf55c9f61ab69031b5c1b300c2d6f5e5b933418fae4b18630dad1d"
+    sha256 arm64_big_sur: "afdbe7f9e8b4a219d9c2b1444a6fe36236d646d28185a374ae8187d952738e80"
+    sha256 big_sur:       "bb36be3563085a2485452a5584c2827ae217b284c86d4cfbc30c66bb722cc07c"
+    sha256 catalina:      "051f7d508c7668c78a72442f49d213c61ef83e82ca9870b2395d96761eb98378"
+    sha256 mojave:        "b2b21fd07e64980443ee696de4f1ff362f4c9db25086e750da33c9fafab1202a"
+    sha256 x86_64_linux:  "a7bb1dc2d9df62c276b0f02ff9248f017e5c43b454bc8eeac6406943c88c48bd"
   end
 
   depends_on "cmake" => :build
@@ -25,17 +25,19 @@ class Ldc < Formula
   depends_on "llvm@12"
 
   uses_from_macos "libxml2" => :build
+  # CompilerSelectionError: ldc cannot be built with any available compilers.
+  uses_from_macos "llvm" => [:build, :test]
 
   fails_with :gcc
 
   resource "ldc-bootstrap" do
     on_macos do
       if Hardware::CPU.intel?
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc2-1.27.1-osx-x86_64.tar.xz"
-        sha256 "52d9958c424683d93c61c791029934df6812f32f76872c6647269e8a55939e6b"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.28.0/ldc2-1.28.0-osx-x86_64.tar.xz"
+        sha256 "02472507de988c8b5dd83b189c6df3b474741546589496c2ff3d673f26b8d09a"
       else
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc2-1.27.1-osx-arm64.tar.xz"
-        sha256 "d9b5a4c1dbcde921912c7a1a6a719fc8010318036bc75d844bafe20b336629db"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.28.0/ldc2-1.28.0-osx-arm64.tar.xz"
+        sha256 "f9786b8c28d8af1fdd331d8eb889add80285dbebfb97ea47d5dd9110a7df074b"
       end
     end
 
@@ -48,7 +50,9 @@ class Ldc < Formula
   end
 
   def llvm
-    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+    deps.reject { |d| d.build? || d.test? }
+        .map(&:to_formula)
+        .find { |f| f.name.match? "^llvm" }
   end
 
   def install
@@ -75,6 +79,10 @@ class Ldc < Formula
   end
 
   test do
+    # Don't set CC=llvm_clang since that won't be in PATH,
+    # nor should it be used for the test.
+    ENV.method(DevelopmentTools.default_compiler).call
+
     (testpath/"test.d").write <<~EOS
       import std.stdio;
       void main() {

@@ -12,11 +12,12 @@ class Blast < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "e216b2d4b0c1950faedfe6a32dfcedecc524be9f237cdf09450e9fac7414f1e1"
-    sha256 big_sur:       "4e12ddaa5006c50497f9ad77f18f1b971db88c8b7e2de15f229661611a0a8772"
-    sha256 catalina:      "81cf9bbb6066d31f5018f3697b9872f051efd99b4de5379924997eee7a2becb2"
-    sha256 mojave:        "f4f05cdbb102aa7597865c2dd42372181577f00a7aaac7be9f2f315714d5f352"
-    sha256 x86_64_linux:  "a3284452baea3a3a9d7b078f642e267eb2bd0f1612502313994ac7a8f44aa303"
+    rebuild 1
+    sha256 arm64_big_sur: "2976fc131888183295514f2e2d2ff32c91cc2f15b76361c37d2a9414283c16ff"
+    sha256 big_sur:       "2fd23535ef7180812f7d16abf25590cc99a1689fc3edcfe1fbb84cd79c65e1a3"
+    sha256 catalina:      "a044ffeb208ed5b4de37cba25e584b74b571368ad4ed5260155f671981ccd4ae"
+    sha256 mojave:        "3ccce772ca8ef7f25343f13bd43cc8f12e0d4288306bf6bcde5d2303e112e378"
+    sha256 x86_64_linux:  "bbc0b4c269fd0899d3506763f48264248af36a367c7fae3a032199be666ed65e"
   end
 
   depends_on "lmdb"
@@ -38,6 +39,10 @@ class Blast < Formula
     cd "c++" do
       # Boost is only used for unit tests.
       args = %W[--prefix=#{prefix}
+                --with-bin-release
+                --with-mt
+                --with-strip
+                --with-experimental=Int8GI
                 --without-debug
                 --without-boost]
 

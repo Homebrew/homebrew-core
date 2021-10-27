@@ -1,16 +1,15 @@
 class Gdu < Formula
   desc "Disk usage analyzer with console interface written in Go"
   homepage "https://github.com/dundee/gdu"
-  url "https://github.com/dundee/gdu/archive/v5.8.1.tar.gz"
-  sha256 "c96a367e91742f1aa58dd8514ed22a9e8904e5ad4c0e1e38019fb525bc3bee76"
+  url "https://github.com/dundee/gdu/archive/v5.9.0.tar.gz"
+  sha256 "699583aa9ad999a7b9ee497bd21bc066e5bb411a13ed485cc99f03b9a9357293"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "644370c24f2d61d889c6de2a93ccbd072b4926b1e8da491a9973e139536aeacc"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2c34934e7fcd4f09e1a6c6da69aa53a4d49a609fa505d1066b7fcd9868425920"
-    sha256 cellar: :any_skip_relocation, catalina:      "de2c03c9297eab1c59b64070a6586bff2ae6d3ad1e66db930791dce3415e9fff"
-    sha256 cellar: :any_skip_relocation, mojave:        "75962f4b79f963f392e5280c2bf20f8162742913f7a359538ee60294a9263ac3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96e2e1190f5cfc8a7ca482dcc40d73641c4b6d44345e82415920a12fd6cd23c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1cb6af88b27b6b7f4a2b080f97373465dd6a34d2129f50bac624b46f4a13e3fd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "84844a5c7474b22fc6909d1f77de80f72f9f0f5916bd5b9ef424331d68570ff9"
+    sha256 cellar: :any_skip_relocation, catalina:      "d2bc6344e000a6d386481a73c3766208ab569a7284cba9e54c6f3e18c461bde1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53c9406a233a251330d8978a96af3c03dce3709e327721e756cb3ca0b61729c4"
   end
 
   depends_on "go" => :build

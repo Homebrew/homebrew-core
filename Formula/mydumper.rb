@@ -1,16 +1,15 @@
 class Mydumper < Formula
   desc "How MySQL DBA & support engineer would imagine 'mysqldump' ;-)"
   homepage "https://launchpad.net/mydumper"
-  url "https://github.com/maxbube/mydumper/archive/v0.11.1-3.tar.gz"
-  sha256 "ec5da4b19522f7b78bf546a9f726166d21f64c3f3e534f55a94313ca1208d770"
+  url "https://github.com/maxbube/mydumper/archive/v0.11.1-4.tar.gz"
+  sha256 "44cee8152a5aab172aaac14f32ac5d981c9db1de2f07c8f87502e6aab1efd792"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "2ea9625aeb3a88f5020d86090a8807a3f56b2ccb3795958712da3be2e0faf63e"
-    sha256 cellar: :any,                 big_sur:       "8341325410e05edcd172e0e0cbae1573669f963b2b6c73545541330d1bb2ab27"
-    sha256 cellar: :any,                 catalina:      "b7e08a8d5d013f0caaaa02b5edd7058cbbccdec3bc405d8b245f501d907155c3"
-    sha256 cellar: :any,                 mojave:        "f5454f9c700b5301bfa103346a9b72f4a8b976c4b2d2e92d549680ebbb583d45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c93815b1bec5065b7937881ed71c6e9c6f431fd7d3420abdb5f8814b0ad19dc8"
+    sha256 cellar: :any,                 arm64_big_sur: "74b73ad586874d5a9d684e39700f4a52ea7328281134d52790149a96a14be924"
+    sha256 cellar: :any,                 big_sur:       "7b3bd37dceebe656c04095fd5c2d5db2dca6530cfa6cc60093451755c27c7bb0"
+    sha256 cellar: :any,                 catalina:      "46445d2702c23e6d29f06cbd337a93c2609249768eb005c336d69b90c3a68713"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19424338dc1feca8c6b6fdad39c23f5732fcc033bcb9527da099a4f1155b2cf9"
   end
 
   depends_on "cmake" => :build
@@ -22,6 +21,12 @@ class Mydumper < Formula
   depends_on "pcre"
 
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     # Override location of mysql-client

@@ -7,11 +7,13 @@ class Hidapi < Formula
   head "https://github.com/libusb/hidapi.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "785868d1b729ada62b76b49e1d1340a347b88db0c9a69a12d3417bd5539e750d"
-    sha256 cellar: :any,                 big_sur:       "33612c008465ce62b39f1aeb519eaa58bd1d8e1296b118894765d4729b505f2b"
-    sha256 cellar: :any,                 catalina:      "a90ba3cd69ce428830a5dfba205cf375fd962b19b5653a702b7c1d8616fa62d0"
-    sha256 cellar: :any,                 mojave:        "35827213bd2b8b87c8574d7cf5f4fd18795dbf267d0b9355b4d0e528f9894b4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1441c545caecc11f3c611d494cd07d253909baa7572ad844374b93c0fef5dfaa"
+    sha256 cellar: :any,                 arm64_monterey: "065513adb8485ea792f77c55a1ea9dcfb91c5c7aa4ed0fe2e033f847ffed425e"
+    sha256 cellar: :any,                 arm64_big_sur:  "785868d1b729ada62b76b49e1d1340a347b88db0c9a69a12d3417bd5539e750d"
+    sha256 cellar: :any,                 monterey:       "9551ebd0d5afd76d70008401cfe60810e7e1483e00727cbe919c0861aabcf3e1"
+    sha256 cellar: :any,                 big_sur:        "33612c008465ce62b39f1aeb519eaa58bd1d8e1296b118894765d4729b505f2b"
+    sha256 cellar: :any,                 catalina:       "a90ba3cd69ce428830a5dfba205cf375fd962b19b5653a702b7c1d8616fa62d0"
+    sha256 cellar: :any,                 mojave:         "35827213bd2b8b87c8574d7cf5f4fd18795dbf267d0b9355b4d0e528f9894b4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1441c545caecc11f3c611d494cd07d253909baa7572ad844374b93c0fef5dfaa"
   end
 
   depends_on "cmake" => :build

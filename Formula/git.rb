@@ -1,9 +1,10 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  # NOTE: Please keep these values in sync with git-gui.rb when updating.
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.0.tar.xz"
-  sha256 "bf3c6ab5f82e072aad4768f647cfb1ef60aece39855f83f080f9c0222dd20c4f"
+  # NOTE: Please keep these values in sync with git-gui.rb, git-svn.rb and
+  #       git-credential-libsecret.rb when updating.
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.1.tar.xz"
+  sha256 "e054a6e6c2b088bd1bff5f61ed9ba5aa91c9a3cd509539a4b41c5ddf02201f2f"
   license "GPL-2.0-only"
   revision 1
   head "https://github.com/git/git.git"
@@ -14,11 +15,13 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "037c3cbd910200eea187054d8e66667a13d7c96c4853f0a03cb5472a7d312ab3"
-    sha256 big_sur:       "8fc2e1399a07679cbb10cb372df2039d54588ff46449d9cdf110ef1451e0cdda"
-    sha256 catalina:      "3536885eb4f7e392f6f37916d3488c0db6c34c8e78d23eec03ecad29ef63d24c"
-    sha256 mojave:        "a95073a02c60df1067475a59c8282bb287b5a2ebd5fd33f2f65796b278045229"
-    sha256 x86_64_linux:  "13fcfb955b755aee931e440659afdb73d111f1b281b01ce661928412644a79c5"
+    sha256 arm64_monterey: "01e1dc0704d6606839599ef423d34767997725d8e25110ce848e20434681efc5"
+    sha256 arm64_big_sur:  "1adc0340427aeef3afbb0980b6fcea4edcfa6127ea44846615065b68a27544a8"
+    sha256 monterey:       "ac8dd353f5d735a7c67317d612bdf77112b596b541248472f39cd907cb3eb2f0"
+    sha256 big_sur:        "6635c9eac78d922dab5d49229ac667147d8b38e3535142afe647647dedcee260"
+    sha256 catalina:       "b7bab47a69503d9f6a949c7b27db4e4545d2902b0ca7a5a4fd02071b7ad2cb9b"
+    sha256 mojave:         "7d17fffd0920dbfdd79c68c38f375fae4da7dbaf4965f8d6a2876bbb9bc87e84"
+    sha256 x86_64_linux:   "a964c718912feab17767ba90a09d15d12c2bb3240709cf70b751f413f2d72d87"
   end
 
   depends_on "gettext"
@@ -34,13 +37,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.33.0.tar.xz"
-    sha256 "309c5d3cdd9a115f693c0e035298cc867a3b8ba8ce235fa1ac950a48cb4b0447"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.33.1.tar.xz"
+    sha256 "6a6b8a0f064c78e0033aa4fce0520325496de019b09fff99fa82eeb472038f5c"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.33.0.tar.xz"
-    sha256 "d6d38abe3fe45b74359e65d53e51db3aa92d7f551240b7f7a779746f24c4bc31"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.33.1.tar.xz"
+    sha256 "c75219f1c9f56caad4f8eb17915e4fe34ca5e1b453773df279a2cec98205ab87"
   end
 
   resource "Net::SMTP::SSL" do
@@ -95,6 +98,7 @@ class Git < Formula
     system "make", "install", *args
 
     git_core = libexec/"git-core"
+    rm git_core/"git-svn"
 
     # Install the macOS keychain credential helper
     if OS.mac?
@@ -169,6 +173,7 @@ class Git < Formula
   def caveats
     <<~EOS
       The Tcl/Tk GUIs (e.g. gitk, git-gui) are now in the `git-gui` formula.
+      Subversion interoperability (git-svn) is now in the `git-svn` formula.
     EOS
   end
 

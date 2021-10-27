@@ -15,11 +15,13 @@ class ZabbixCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "60b0cdb24333cf77e677f4a4c67e528a27138cdf0b24ea77b5474ab57ee18f73"
-    sha256 cellar: :any_skip_relocation, big_sur:       "76e5471117d67eb54bd07a336bbdd6a5781fe7330d3952af4464275d96b2467a"
-    sha256 cellar: :any_skip_relocation, catalina:      "76e5471117d67eb54bd07a336bbdd6a5781fe7330d3952af4464275d96b2467a"
-    sha256 cellar: :any_skip_relocation, mojave:        "76e5471117d67eb54bd07a336bbdd6a5781fe7330d3952af4464275d96b2467a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "724826e93d6e144ba29f7a406b6cf312337dbbf412f550918c2c4174c1b583e3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "60b0cdb24333cf77e677f4a4c67e528a27138cdf0b24ea77b5474ab57ee18f73"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "60b0cdb24333cf77e677f4a4c67e528a27138cdf0b24ea77b5474ab57ee18f73"
+    sha256 cellar: :any_skip_relocation, monterey:       "76e5471117d67eb54bd07a336bbdd6a5781fe7330d3952af4464275d96b2467a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "76e5471117d67eb54bd07a336bbdd6a5781fe7330d3952af4464275d96b2467a"
+    sha256 cellar: :any_skip_relocation, catalina:       "76e5471117d67eb54bd07a336bbdd6a5781fe7330d3952af4464275d96b2467a"
+    sha256 cellar: :any_skip_relocation, mojave:         "76e5471117d67eb54bd07a336bbdd6a5781fe7330d3952af4464275d96b2467a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "724826e93d6e144ba29f7a406b6cf312337dbbf412f550918c2c4174c1b583e3"
   end
 
   depends_on "python@3.10"

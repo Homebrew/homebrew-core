@@ -7,11 +7,13 @@ class GitSeries < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "d75d535676dda5c4289d8547cd6959f02aa6d5fa47364ebb561fe8a858683c95"
-    sha256 cellar: :any,                 big_sur:       "40f73d58772d698175f87acceaf11f97720e3248f2cf7182bae19889899ed61d"
-    sha256 cellar: :any,                 catalina:      "944e5375b6975f35b298b03f8ccdd9d530a9991593c6374aa3d93a69a8a0baac"
-    sha256 cellar: :any,                 mojave:        "9edf9487a836d8ddb3b822f1a14931d2e2413edd9d3df29b389259a684681190"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52c715891324bf3e223e02ca509db21d171fcddc8e741479ad18164f385c3d4f"
+    sha256 cellar: :any,                 arm64_monterey: "a238e7eea725642aafeaeb5f90d66a97f4e5b2caa681d51aaa47abe4d2ec371b"
+    sha256 cellar: :any,                 arm64_big_sur:  "d75d535676dda5c4289d8547cd6959f02aa6d5fa47364ebb561fe8a858683c95"
+    sha256 cellar: :any,                 monterey:       "83049175c7154cda07fcb03ec3d2950412e49be5a50180aa51e67d2721815fe8"
+    sha256 cellar: :any,                 big_sur:        "40f73d58772d698175f87acceaf11f97720e3248f2cf7182bae19889899ed61d"
+    sha256 cellar: :any,                 catalina:       "944e5375b6975f35b298b03f8ccdd9d530a9991593c6374aa3d93a69a8a0baac"
+    sha256 cellar: :any,                 mojave:         "9edf9487a836d8ddb3b822f1a14931d2e2413edd9d3df29b389259a684681190"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52c715891324bf3e223e02ca509db21d171fcddc8e741479ad18164f385c3d4f"
   end
 
   depends_on "cmake" => :build

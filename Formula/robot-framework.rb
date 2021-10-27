@@ -6,14 +6,14 @@ class RobotFramework < Formula
   url "https://files.pythonhosted.org/packages/82/4d/81586f077fd94ebbf66840b1187a6789843c9830a3025ec182df2439f29b/robotframework-4.1.1.zip"
   sha256 "663f84c177b2fa9b3b782939e31637a057a33f3a4b29067812f1259b7f4bad35"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/robotframework/robotframework.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "eeb75394cf3110b1eea1336847236bbff4f4018e4d2093346d144d417ee13e42"
-    sha256 cellar: :any,                 big_sur:       "577fbfad49b95e982eeac6005ed478698999276f9338050b9f00cbf71ea93fa5"
-    sha256 cellar: :any,                 catalina:      "ba8994c8b5f6313df1b0f3b343c775add6ebd925e4c1145e1cfcb64e9fa957cd"
-    sha256 cellar: :any,                 mojave:        "fad8548881d3ebdace6631a8bf9d3c45823410a7598e1eff891a40c8f19af214"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b36eced8a696e89a450e3c8c394b4312cb27e3a88c0bc2ac7996369589fcb258"
+    sha256 cellar: :any,                 arm64_big_sur: "2b09165fd26df1e9890a24ab3822b487e9dfa631f3c59341f7877d2f82579212"
+    sha256 cellar: :any,                 big_sur:       "44130a4512c422c25d87a032b7e8c8b38dc452bae64897053e2c64423c845b5c"
+    sha256 cellar: :any,                 catalina:      "429e30236bd464ec6c0dd34d603e54dd07d7682044d4a0a2e0c37fea56b7278d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20c8591991cc7981309a3321c6d4fbbe3b080b23926a444dfc3bbacb8a1594b5"
   end
 
   depends_on "rust" => :build

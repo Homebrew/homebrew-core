@@ -1,8 +1,8 @@
 class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
-  url "https://github.com/hashicorp/packer/archive/v1.7.6.tar.gz"
-  sha256 "2e414c4c7ae930f3d2851de39f31f159eb1b073401956a6856bd89d592664b50"
+  url "https://github.com/hashicorp/packer/archive/v1.7.7.tar.gz"
+  sha256 "c5684ad323a97cc8b9342a42a590235ad687c8a5f9069a77510491e46e421aba"
   license "MPL-2.0"
   head "https://github.com/hashicorp/packer.git", branch: "master"
 
@@ -12,11 +12,13 @@ class Packer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1136ce46d9b9f67f2a439f18eda1766c7cb0298828306e16e8fb49c5e089611b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9eb86502d668325aee928bf9ff03b7170d51ba7671b2118c7056ea5897405e98"
-    sha256 cellar: :any_skip_relocation, catalina:      "e239bc22814bbc1cbe7f2847ca01d106dc186f5c6eba7101d064299e5284b98a"
-    sha256 cellar: :any_skip_relocation, mojave:        "24f234bdecae253fe90bb68403eb80b6163cc37e201a1c30d0dcbf4397a8607f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f45de798f739be21f1ddac4f73071ccd64f28ed0f08f531d05949664dec9196d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "765632cec479f59ba6a130cedc51c887420ea74603943d51c8567ffe1d46db5e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27ee2d8c008ec8570e5dc8c2c7dd5503b668584ac7ba5459491fb4f2cb089cbe"
+    sha256 cellar: :any_skip_relocation, monterey:       "41ac762ec6dc18f726d3ae6c624400c93369c1fbaef88a631a92e0b4d7c15668"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a9286dbe2930b4a41b982756a4903019b84a2d38924bb47e67baf3455746fcaf"
+    sha256 cellar: :any_skip_relocation, catalina:       "7298e01dd64717cc5e6682e952fc7d6b7aa4e77886923a42e346c1c2822d6d63"
+    sha256 cellar: :any_skip_relocation, mojave:         "6c6e6f909193b39f292a67fb242f323efe73574de1c3425e58df35525561f788"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfae811d28393a2b35c02fee11a19396b608b5060392fe3d5c73d609e6b8f7c9"
   end
 
   depends_on "go" => :build

@@ -11,12 +11,14 @@ class Epstool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4e5bf8b004fc2583bedd3fd7f28b49033b55be2a53e73a2b600a6f0c795d7db8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a743d9856f51f4f2405adc5c692784897a78ecbdaa9361390b84c5630c077021"
-    sha256 cellar: :any_skip_relocation, catalina:      "3ef026d6cc575da86e43741df6a9f5419269bea22e8db6c6296811112678c690"
-    sha256 cellar: :any_skip_relocation, mojave:        "497608077aea90c569aab7929a8a9ea19d91ba70f4743d982bcb63c1d3a48d7b"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "47ab226f0e5d93a3b91b43d519de370d046410946e280958ef9106fdbc4ef115"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c42db9d44c6ab04a5a969520692384bfe13b3c7c8e93d0fd47fae36b8cb59eb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c02048b19a57ec12e0cda38782ba8d062cd929730e92852c19785eec5e7fb52"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4e5bf8b004fc2583bedd3fd7f28b49033b55be2a53e73a2b600a6f0c795d7db8"
+    sha256 cellar: :any_skip_relocation, monterey:       "fcb5f275da1cf6dd20e206d443e6d5265ca595d3193d925189f5c9af0e631b97"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a743d9856f51f4f2405adc5c692784897a78ecbdaa9361390b84c5630c077021"
+    sha256 cellar: :any_skip_relocation, catalina:       "3ef026d6cc575da86e43741df6a9f5419269bea22e8db6c6296811112678c690"
+    sha256 cellar: :any_skip_relocation, mojave:         "497608077aea90c569aab7929a8a9ea19d91ba70f4743d982bcb63c1d3a48d7b"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "47ab226f0e5d93a3b91b43d519de370d046410946e280958ef9106fdbc4ef115"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c42db9d44c6ab04a5a969520692384bfe13b3c7c8e93d0fd47fae36b8cb59eb"
   end
 
   depends_on "ghostscript"

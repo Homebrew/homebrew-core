@@ -1,9 +1,9 @@
 class UniversalCtags < Formula
   desc "Maintained ctags implementation"
   homepage "https://github.com/universal-ctags/ctags"
-  url "https://github.com/universal-ctags/ctags/archive/refs/tags/p5.9.20211010.0.tar.gz"
-  version "p5.9.20211010.0"
-  sha256 "4a847b743629c71e9c4da3b7267cdba83e4a4891064ff33282e67f66360a567e"
+  url "https://github.com/universal-ctags/ctags/archive/refs/tags/p5.9.20211024.0.tar.gz"
+  version "p5.9.20211024.0"
+  sha256 "6f81a940744672760f218d2fa52d7acee3ac0d59ad1a37e9746782016deb157b"
   license "GPL-2.0-only"
   head "https://github.com/universal-ctags/ctags.git", branch: "master"
 
@@ -13,11 +13,12 @@ class UniversalCtags < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "5f049678ddc0b73f24676911c0b172fab681034601bb3e2e13299a4346ea330a"
-    sha256 cellar: :any,                 big_sur:       "3ad4d64921304a1c472cf7db20d5a0ef13f014cae35aece134a1269f24a8c763"
-    sha256 cellar: :any,                 catalina:      "e125e1646e098a76858d0d418ad551742e5f956a5e940a631859c2fa0405ebde"
-    sha256 cellar: :any,                 mojave:        "448004ead41860d58355728b31dda514ace223b40e52c7f0101f93c068fc3a5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cb957019e1b92b93193b316c7db2bf94b39a6cee5994235260c824040e9d2ba"
+    sha256 cellar: :any,                 arm64_monterey: "27717e170d64bc0477e27387c8d09d601d908d5743d7309d55ce20f6e5b36883"
+    sha256 cellar: :any,                 arm64_big_sur:  "2037532a03d52b0328f18ac2bb4f1abd61093689a8dd940091ea2a4d4829d3b7"
+    sha256 cellar: :any,                 monterey:       "c2e3be2b2a7d1ae66c3e266bdcd8b379167000dd54f1fddd65171bbcc9430586"
+    sha256 cellar: :any,                 big_sur:        "e76b6f3ebdde0698fda219daa9180190e66e8f416688302a9ecbbb400aeabc84"
+    sha256 cellar: :any,                 catalina:       "a636f0c8b28a0782ecd98156e43f5975e574e27ac4fa5f89181c8d4d70eb5abb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ee7849598efe4d73a661c920450e8624bd887466d0303fb7c1fbbfbdced26b3"
   end
 
   depends_on "autoconf" => :build

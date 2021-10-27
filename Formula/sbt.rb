@@ -12,10 +12,14 @@ class Sbt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3ab83d5f06068e59c537daa0aa5ad18c56b91204fe2f7a8bbb274129bfdcf521"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ff6b167b5ed75da37702d38836642b870c5ae819b26e64fbbdb670abfb6ccc8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4ff6b167b5ed75da37702d38836642b870c5ae819b26e64fbbdb670abfb6ccc8"
+    sha256 cellar: :any_skip_relocation, catalina:      "4ff6b167b5ed75da37702d38836642b870c5ae819b26e64fbbdb670abfb6ccc8"
+    sha256 cellar: :any_skip_relocation, mojave:        "4ff6b167b5ed75da37702d38836642b870c5ae819b26e64fbbdb670abfb6ccc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "349fea6916cedb16eb1b9c4e96dd7ecbcd6a9db58522a6124f248b68f38c3f30"
   end
 
-  depends_on arch: :x86_64
   depends_on "openjdk"
 
   def install
@@ -27,8 +31,11 @@ class Sbt < Formula
     libexec.install "bin"
     etc.install "conf/sbtopts"
 
+    # Removes:
+    # 1. `sbt.bat` (Windows-only)
+    # 2. `sbtn` (pre-compiled native binary)
+    (libexec/"bin").glob("sbt{.bat,n-x86_64*}").map(&:unlink)
     (bin/"sbt").write_env_script libexec/"bin/sbt", Language::Java.overridable_java_home_env
-    (bin/"sbtn").write_env_script libexec/"bin/sbtn-x86_64-apple-darwin", Language::Java.overridable_java_home_env
   end
 
   def caveats
@@ -36,14 +43,14 @@ class Sbt < Formula
       You can use $SBT_OPTS to pass additional JVM options to sbt.
       Project specific options should be placed in .sbtopts in the root of your project.
       Global settings should be placed in #{etc}/sbtopts
+
+      #{tap.user}'s installation does not include `sbtn`.
     EOS
   end
 
   test do
     ENV.append "_JAVA_OPTIONS", "-Dsbt.log.noformat=true"
-    system("#{bin}/sbt", "--sbt-create", "about")
+    system bin/"sbt", "--sbt-create", "about"
     assert_match version.to_s, shell_output("#{bin}/sbt sbtVersion")
-    system "#{bin}/sbtn", "about"
-    system "#{bin}/sbtn", "shutdown"
   end
 end

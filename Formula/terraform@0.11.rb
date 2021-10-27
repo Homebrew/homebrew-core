@@ -19,6 +19,7 @@ class TerraformAT011 < Formula
 
   depends_on "go@1.16" => :build
   depends_on "gox" => :build
+  depends_on arch: :x86_64
 
   on_linux do
     depends_on "zip" => :build
@@ -36,17 +37,15 @@ class TerraformAT011 < Formula
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      os = if OS.mac?
-        "darwin"
-      else
-        "linux"
-      end
+      os = OS.kernel_name.downcase
+      arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+
       ENV["XC_OS"] = os
-      ENV["XC_ARCH"] = "amd64"
+      ENV["XC_ARCH"] = arch
       system "go", "mod", "vendor" # Needed for Go 1.14+
       system "make", "tools", "bin"
 
-      bin.install "pkg/#{os}_amd64/terraform"
+      bin.install "pkg/#{os}_#{arch}/terraform"
       prefix.install_metafiles
     end
   end

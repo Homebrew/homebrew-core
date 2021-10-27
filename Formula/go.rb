@@ -13,11 +13,13 @@ class Go < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "b0a1686c5c5ba668e78a97d66567e9d007f7d2a0c9b1a53e79841e3736d729e6"
-    sha256 big_sur:       "01f50ff6dbea579b3b3e792751ec14ba90de1ac5fe09db03adf438558444ddfa"
-    sha256 catalina:      "cc6b0bff088b30b80afad3be3519af192e515d83c8928262114ca07e9bf34bd8"
-    sha256 mojave:        "a98bd1c5f1cae4907712126d9ea040680084e5fb9743f1d4160744fe3fe8861a"
-    sha256 x86_64_linux:  "aa5fbcd2c12be4e08d5edbcbb5eb8a8859c48ecd036c697d2d83b62d410dbd8c"
+    sha256 arm64_monterey: "fe137ea6536535299a666ea9e126e84fd58712d25c7071073bb4053da70ad2f0"
+    sha256 arm64_big_sur:  "b0a1686c5c5ba668e78a97d66567e9d007f7d2a0c9b1a53e79841e3736d729e6"
+    sha256 monterey:       "d40731741ca7d7b16b791fa31d21baab674720c87c00adbf54ca796ff80b9b0f"
+    sha256 big_sur:        "01f50ff6dbea579b3b3e792751ec14ba90de1ac5fe09db03adf438558444ddfa"
+    sha256 catalina:       "cc6b0bff088b30b80afad3be3519af192e515d83c8928262114ca07e9bf34bd8"
+    sha256 mojave:         "a98bd1c5f1cae4907712126d9ea040680084e5fb9743f1d4160744fe3fe8861a"
+    sha256 x86_64_linux:   "aa5fbcd2c12be4e08d5edbcbb5eb8a8859c48ecd036c697d2d83b62d410dbd8c"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.

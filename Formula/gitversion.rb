@@ -16,11 +16,7 @@ class Gitversion < Formula
   depends_on "dotnet"
 
   def install
-    os = if OS.mac?
-      "osx"
-    else
-      "linux"
-    end
+    os = OS.mac? ? "osx" : OS.kernel_name.downcase
 
     system "dotnet", "publish", "src/GitVersion.App/GitVersion.App.csproj",
            "--configuration", "Release",

@@ -6,13 +6,13 @@ class Nbdime < Formula
   url "https://files.pythonhosted.org/packages/b5/22/28dc0e5e34255d17a47f3050d9a02ce783ab72b32db0b6c9cb5a38c367de/nbdime-3.1.0.tar.gz"
   sha256 "12dc4390b355b26d07ac8d11d50efbcb54bae0ad5842b817131babd2f4567963"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b4bee1948bc2e4764831da2c9357c88b032b4c0cc53b43e7d0e131a47dfac86"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0c6fc1c5b6e79e43fa19c7e6c3a474521ad18002f9935c5b167fca9e3ca13df8"
-    sha256 cellar: :any_skip_relocation, catalina:      "4456f9f5bd2767f91ab6d90f972f53764aa4067a9c3aced8909050e0ee34dbfe"
-    sha256 cellar: :any_skip_relocation, mojave:        "65156cbffc95dcf2c13ce2e75012cd38fa1e00abacee28631112eb01b2adc426"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b2ea0ef6247bf6dee75664f17d9e21dfa7811eda18ad4c221298c1c948c9f03"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "711c4f57c629452fa9719d154d2f1006e8714a7c26615123ef94d0e1220520ba"
+    sha256 cellar: :any_skip_relocation, big_sur:       "792a6190b8b30e487f129e79d579561dfd77c97f5b8504f6ce475d34a33bd29e"
+    sha256 cellar: :any_skip_relocation, catalina:      "8596eaba7e86ee3a91ee1bf007a5a3ade64fd64d3fb696c386ccf6b0dea7fe72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac96f40d3656335cb6cb60d440d37a76e12ec95186aa4d61ef222a2db1dbf1c5"
   end
 
   depends_on "python@3.9"

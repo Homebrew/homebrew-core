@@ -16,6 +16,7 @@ class Sdcc < Formula
     sha256 big_sur:       "3b9371b349c03c7628b68b103f5f49fb7861c0662d9f092a9013f6441b43b2ed"
     sha256 catalina:      "546c39fb908ac27107a59f8427848161e0573c36e17199acddd1e4b839f37c9f"
     sha256 mojave:        "ed31251e97c22718ffd714b06561cba755cce2030d0213324fe986e1bf0b8137"
+    sha256 x86_64_linux:  "249aea9a8895f2081ad2de9b845c81c40c8afaba690f5371f4d2ecfdda552703"
   end
 
   depends_on "autoconf" => :build

@@ -8,11 +8,13 @@ class Glew < Formula
   head "https://github.com/nigels-com/glew.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4ec7d501b56e5e5682f752975340c57a9aca68431d0d2cc9f849e428860f09de"
-    sha256 cellar: :any,                 big_sur:       "9e0b9a17a4d7372d191d377ae63e6bb0070434eefc997299fe708ca12c02bfb5"
-    sha256 cellar: :any,                 catalina:      "d3113b746275f48d4f50316c9ddf0ce27e7a11e20ffaac33dd1a2aaf9e59d52a"
-    sha256 cellar: :any,                 mojave:        "728dbc75cee45763fcc89605d758de1ed950cf219012a1614808a6abd8883ae8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "984f609b7a322a8b02abfd2040be91fb3362829e8eff020f4f3aa9b5ddfa3914"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "17420ea2fddc60d424c2113aa9f452603763cacabcf4447457781c9dc974bf78"
+    sha256 cellar: :any,                 arm64_big_sur:  "ff3928527b5eca567f758adaec4674495baf760b974e624d06a6e4f9f0540db1"
+    sha256 cellar: :any,                 monterey:       "17e8c8fcc77d132b1d47c47ba5bb3a22a84088aa6c06ec890bf8a8463f363ffc"
+    sha256 cellar: :any,                 big_sur:        "c96cbd58749e9e19359058823ef06c2b4b3b621e4751e4970dbc649d6e0f6bae"
+    sha256 cellar: :any,                 catalina:       "4afe7a78fbe20c553a42d30e6b14f7696c3636bab810d2907b8843d583c115f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1bad4a1bacddec065a38c9ccb6c87dd5423c554aed6ac1b187fe8164b071267e"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -21,8 +23,6 @@ class Glew < Formula
     depends_on "freeglut" => :test
     depends_on "mesa-glu"
   end
-
-  conflicts_with "root", because: "root ships its own copy of glew"
 
   def install
     cd "build" do

@@ -3,25 +3,26 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/81/b6/2f27c1b1b61b12b718375e79620da9d7b2cb9a07331fd455ee36cfb17734/ansible-4.6.0.tar.gz"
-  sha256 "2955fcbf51367f8bd88c38a86f8be83d4fcd05f778afb4feed31abfe8dcff639"
+  url "https://files.pythonhosted.org/packages/9b/ed/5a6149a7e0314bfb99fd496781f84a96328e0eb0a85f5cb845c25fcb909a/ansible-4.7.0.tar.gz"
+  sha256 "0b7c52ec51e326941aa1af5affd9bfed9c1bfc61619c1c4210dce1665a4c4b29"
   license "GPL-3.0-or-later"
   revision 1
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7fd5f4cb7b62367db142aea66785cf5193a15a1de92d1b6533405d636d95b28d"
-    sha256 cellar: :any,                 big_sur:       "a91bbecad9c90b8a73873d56df7986a02e18c1cc6965fa4d6b57d5e092c93fbd"
-    sha256 cellar: :any,                 catalina:      "ac2e8253af0e52827d3bd12e030abb1f2ab7a74495184e3440d1d08e5916898b"
-    sha256 cellar: :any,                 mojave:        "878cc59240f66e6e40cf67c61ffee9aa4b234f299ffa563834dfc255d03e83bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25d8616618bbe963a14d6caaa81c50a99412660370d563417422ebb40d137392"
+    sha256 cellar: :any,                 arm64_monterey: "b358f7050531ec5a8cb94cb94d24194280399680cfec9adf5e5631391e54030e"
+    sha256 cellar: :any,                 arm64_big_sur:  "370983d34ee5057a1a7074b69fcf6e53f1df9db832f84360e521baa57f02e992"
+    sha256 cellar: :any,                 monterey:       "01a78efe4b4bf26120f3ef09de47ee0e5768eeb3e07dfbb127a0ca21a78638d7"
+    sha256 cellar: :any,                 big_sur:        "a81d3dce05f36bb5d5eda7a2bc2060caf7ab79e4aa2da3709c3adb5f31828f18"
+    sha256 cellar: :any,                 catalina:       "7f1d2f49820ded9d0f77ca799b75f3e5f15d2346106f244efd3937af2eb789b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "823bbd9d08d61eb4100bb1f85438b90991bcd39f5f55c2faa09cf6021dcba00e"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "krb5"
@@ -51,8 +52,8 @@ class Ansible < Formula
 
   # Automatically updated resources
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/19/c0/d7d23d4bfa04857cab82d2773d68290ce16941b7511163e611d196303bf9/ansible-core-2.11.5.tar.gz"
-    sha256 "7d3ce47014122907454704363485e48513f8ad0f00138b88870eb6d88953d121"
+    url "https://files.pythonhosted.org/packages/be/1a/f40e97f4c400eec75813bc492f1d6226cd413bf03f88d5f00070a1e699a3/ansible-core-2.11.6.tar.gz"
+    sha256 "93d50283c7c5b476debf83dc089b3f679b939a8b9a7b5d628d28daafbb3d303a"
   end
 
   resource "apache-libcloud" do
@@ -81,13 +82,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/78/e2/ffc6fd05b9807e99fdf53d52767d6cc2c13f51300b58392c0f94e96d363a/boto3-1.18.58.tar.gz"
-    sha256 "f680dee9c670d42ab4a6da5539ca3691d1ccbbcbf041e7021025029776864156"
+    url "https://files.pythonhosted.org/packages/f7/6d/e0d1de485b7dd5223e90c24e2baf0d916f40e598fccc3b544d2e40835cc5/boto3-1.18.61.tar.gz"
+    sha256 "08dc897299ecc9eef6df3cd296864154dfbc9f78edb8995b93258b59d747cbdc"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/0e/db/4ed8004ba94ef2173b943fc644d0e0f715631df1e40c5d60edf5c83d54eb/botocore-1.21.58.tar.gz"
-    sha256 "87e881569c32b218a1b82ecb607a4dddb4dca3b80a5d1016571b99b51cef3158"
+    url "https://files.pythonhosted.org/packages/8f/aa/a1def705b3df1458e6d6915ad1fe37b167cd6779f5205100b65fff46ebd4/botocore-1.21.61.tar.gz"
+    sha256 "92ae0ca56a6582bddf42aca199ac3f67579910860bcd86166ae10f7a83f8841b"
   end
 
   resource "cachetools" do
@@ -101,13 +102,13 @@ class Ansible < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz"
-    sha256 "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
+    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
+    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
-    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
   resource "cliff" do
@@ -166,8 +167,8 @@ class Ansible < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
-    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "iso8601" do
@@ -446,8 +447,8 @@ class Ansible < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   resource "requests" do
@@ -551,8 +552,8 @@ class Ansible < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/e2/30/dae34ff8afa579098e5796452c414efa4b2738afda40318fdb26e1a8edc1/wrapt-1.13.1.tar.gz"
-    sha256 "909a80ce028821c7ad01bdcaa588126825931d177cdccd00b3545818d4a195ce"
+    url "https://files.pythonhosted.org/packages/57/f0/b9c4beb5be22485ff0f09427dcc4e483dbf3a34fd5afb4f93cd6c68b2fac/wrapt-1.13.2.tar.gz"
+    sha256 "dca56cc5963a5fd7c2aa8607017753f534ee514e09103a6c55d2db70b50e7447"
   end
 
   resource "xmltodict" do
@@ -571,7 +572,7 @@ class Ansible < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
 
     if OS.mac? && (MacOS.version <= :sierra)
       # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
@@ -607,7 +608,7 @@ class Ansible < Formula
     EOS
     (testpath/"hosts.ini").write [
       "localhost ansible_connection=local",
-      " ansible_python_interpreter=#{Formula["python@3.9"].opt_bin}/python3",
+      " ansible_python_interpreter=#{Formula["python@3.10"].opt_bin}/python3",
       "\n",
     ].join
     system bin/"ansible-playbook", testpath/"playbook.yml", "-i", testpath/"hosts.ini"

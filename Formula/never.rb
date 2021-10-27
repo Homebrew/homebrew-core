@@ -4,6 +4,7 @@ class Never < Formula
   url "https://github.com/never-lang/never/archive/v2.1.8.tar.gz"
   sha256 "3c03f8632c27456cd6bbcd238525cdfdc41197a26e1a4ff6ac0ef2cf01f4159b"
   license "MIT"
+  revision 1
   head "https://github.com/never-lang/never.git", branch: "master"
 
   livecheck do
@@ -12,11 +13,10 @@ class Never < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "df34d4ced4bdcd4c56946166c0f4fafca87eafa475931644628ffb935236fec7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6eba6d82763dd636acc89082030bf414648263e876741c3168c70676f6a8f397"
-    sha256 cellar: :any_skip_relocation, catalina:      "8cd4e86723085d1957b1e86a4d62192ed66d3226e0c730c0cbe953d1e059a4c2"
-    sha256 cellar: :any_skip_relocation, mojave:        "e22182439c9a1fbe0ce7f5535c809bfb387df8ca105aef5a14de1b735aad433b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7215993532fc94fb14b7c1782f868e94f6f8eef0585bed6d77dd876e1d548b09"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b905f6979c6ec036a74152d97e91f781f172605191ba4d44bd6dfc15ec541850"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bbf2f7aa7d819529ef54afd73a0e06b3f4fd828444d11d0a966450b12cdc0c34"
+    sha256 cellar: :any_skip_relocation, catalina:      "1ee5c77bd6eda59076c0c33e38b3b0ef75b27350b0a4f2947923b9a0a177022e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7d23bf87c23cbaa07bf607416d7d6da8d2a217046ab6858e4108cbdb9f1baff"
   end
 
   depends_on "bison" => :build

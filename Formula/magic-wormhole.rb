@@ -6,14 +6,15 @@ class MagicWormhole < Formula
   url "https://files.pythonhosted.org/packages/d4/62/5e4a86f7c4b111e016577f1b304063ebe604f430db15465ac58b13993608/magic-wormhole-0.12.0.tar.gz"
   sha256 "1b0fd8a334da978f3dd96b620fa9b9348cabedf26a87f74baac7a37052928160"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a84aa56907f144db2fdff32c92aa34b8659b01d8a173980e0b1e5a2bf4af3bd7"
-    sha256 cellar: :any,                 big_sur:       "2161f687eb4b80e17e95cc9e3fb85df16182ef04c889201cd88a3e06f5e72f9b"
-    sha256 cellar: :any,                 catalina:      "5bf94ab8222f5d06c1c24ee21277d1cf6fcd578ea85185457eb8c442ff0888d0"
-    sha256 cellar: :any,                 mojave:        "7e61f4f0435bd9638dcafac1a617e9117ac45c67de1a2a108e79c942b9adac0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61c51a32d7511c7b8ab1ce109453c8dd8390c57f09c03c430e2824a8f3e08c04"
+    sha256 cellar: :any,                 arm64_monterey: "4bbefeab28c7257de523d5cdcd494d34f99f7ae3654ae239a1de1cef25b1df1e"
+    sha256 cellar: :any,                 arm64_big_sur:  "6a392c4c21897424cbb1f2fdba32bd3a17872ab0e5b88579745455de11dbfd5f"
+    sha256 cellar: :any,                 monterey:       "b87024d90eebfbc3332608ea873d55cfc0f6f3defd8083fc415ae24df77c6a15"
+    sha256 cellar: :any,                 big_sur:        "c92dc3cf689c5a9693bb8b22a2d60ec2a8cad677122c03247d3ba1b7a46be844"
+    sha256 cellar: :any,                 catalina:       "70f657146f2c8d350ce4117f0d57358df4bb6462229ea8d6ab03bb56e17a3a73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7792cc9ddcda09ddd0302f51b030b27c9ad7d15bcfac567614ed624f2872c4c"
   end
 
   depends_on "rust" => :build

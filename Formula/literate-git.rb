@@ -6,18 +6,18 @@ class LiterateGit < Formula
   url "https://github.com/bennorth/literate-git/archive/v0.3.1.tar.gz"
   sha256 "f1dec77584236a5ab2bcee9169e16b5d976e83cd53d279512136bdc90b04940a"
   license "GPL-3.0-or-later"
-  revision 8
+  revision 9
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "20922d79ddd5bf762340ea3691c6ab22cf83af26c7925442ebe10f098d5bbb9a"
-    sha256 cellar: :any,                 big_sur:       "54097a3b483f888c3b74a3c7daedd7ae79a49066e56397c12de7ba0913061f17"
-    sha256 cellar: :any,                 catalina:      "cd7416b4d31ac322771395488d77246bf11945ed4121c9ae4d310f5a03c90831"
-    sha256 cellar: :any,                 mojave:        "3e46e63388b8de0765c764b1c16867f08d0208f74202e97d46199418a15273f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ce05f326e2c14916b572caec09dd1de8a7f760e2b175078ac9f0ce73fd944e3"
+    sha256 cellar: :any,                 arm64_big_sur: "864bf8824b30cc890fd2ba1485c543b09407cba676b375ffe10de06636d1bf27"
+    sha256 cellar: :any,                 big_sur:       "35f3d2668258e32f9ac4a9de9c71a000e62c22f7efbd20b1c88f94cdccf56cce"
+    sha256 cellar: :any,                 catalina:      "43b13a04effc70753f1fa7fdc02fcee8ba8c0c849a4e361668bf11a6a29734be"
+    sha256 cellar: :any,                 mojave:        "fe23dd09f5d14c453b79c3db3d507d8b9b2c4896fb28602add1f3f45bff49960"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a0de736b319754e0b70c53a0230714c8fca626cca818d0b54e0739a7e49944a"
   end
 
   depends_on "libgit2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libffi"
 

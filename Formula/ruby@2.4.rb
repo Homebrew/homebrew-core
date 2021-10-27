@@ -7,11 +7,13 @@ class RubyAT24 < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "f08af3cd9a9ac6f3f09c21fc2f9b5c1ab64989ff6836b5d7766e63c1d5419cb8"
-    sha256 big_sur:       "155e0689032570a5832a6f26775037997748dd7e3e5fd458fc2ccb8c00a199ae"
-    sha256 catalina:      "9e555e1492425fad0adc1288ce6bfaeff3b5845327f20c4924195a7020b9be4f"
-    sha256 mojave:        "1e7496f7681fcd00ea19df6f7f15f65472bb18e86c47fc2c479af631304e6dbd"
-    sha256 x86_64_linux:  "dfe3b272b4da304aa27b4f3a24000670e530823795d04c5f199dbb3a2ae7952b"
+    sha256 arm64_monterey: "c3ed34cd3fe10e93b0b09d90f25ba232ee7c8628a795381290a71006f9e9f5db"
+    sha256 arm64_big_sur:  "f08af3cd9a9ac6f3f09c21fc2f9b5c1ab64989ff6836b5d7766e63c1d5419cb8"
+    sha256 monterey:       "00894aa6838cc1c6b49271f21ea3bf3c5e1a2bd0c5d5d28fddbdd2a01865b135"
+    sha256 big_sur:        "155e0689032570a5832a6f26775037997748dd7e3e5fd458fc2ccb8c00a199ae"
+    sha256 catalina:       "9e555e1492425fad0adc1288ce6bfaeff3b5845327f20c4924195a7020b9be4f"
+    sha256 mojave:         "1e7496f7681fcd00ea19df6f7f15f65472bb18e86c47fc2c479af631304e6dbd"
+    sha256 x86_64_linux:   "dfe3b272b4da304aa27b4f3a24000670e530823795d04c5f199dbb3a2ae7952b"
   end
 
   keg_only :versioned_formula

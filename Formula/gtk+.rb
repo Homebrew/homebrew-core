@@ -6,6 +6,12 @@ class Gtkx < Formula
   stable do
     url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.33.tar.xz"
     sha256 "ac2ac757f5942d318a311a54b0c80b5ef295f299c2a73c632f6bfb1ff49cc6da"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
   end
 
   livecheck do
@@ -14,11 +20,13 @@ class Gtkx < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "b304a9f2d24f97e179cb5731713fc4876a730b507eb057bba4f9097af46d7708"
-    sha256 big_sur:       "8ead5b96878ad431ac3e23dc3bd20bb4eac509c63c231e594986a0fa331e157f"
-    sha256 catalina:      "3900f64476d7988670b5d0c855f072fba0af2b1bb323acf4f126f70c95a38616"
-    sha256 mojave:        "10d1f2a81a115b9cf1e8c76fbd6cdc58f5b4593eb7f9e15cbe0127e14221dd06"
-    sha256 x86_64_linux:  "aac750f0c7081619c9f3a403bfbc47ac58cd6300733b2d31dc2b0384b1500066"
+    sha256 arm64_monterey: "977f25c376ffbf7785a8a3464e61490c40d7eb940385cae3b205ef9b9d53b693"
+    sha256 arm64_big_sur:  "b304a9f2d24f97e179cb5731713fc4876a730b507eb057bba4f9097af46d7708"
+    sha256 monterey:       "84df93d99e85fff484d42ab803a41ca83daec204950e2f2dc32602c718c646f5"
+    sha256 big_sur:        "8ead5b96878ad431ac3e23dc3bd20bb4eac509c63c231e594986a0fa331e157f"
+    sha256 catalina:       "3900f64476d7988670b5d0c855f072fba0af2b1bb323acf4f126f70c95a38616"
+    sha256 mojave:         "10d1f2a81a115b9cf1e8c76fbd6cdc58f5b4593eb7f9e15cbe0127e14221dd06"
+    sha256 x86_64_linux:   "aac750f0c7081619c9f3a403bfbc47ac58cd6300733b2d31dc2b0384b1500066"
   end
 
   head do

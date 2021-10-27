@@ -35,13 +35,8 @@ class LibreadlineJava < Formula
 
     # Current Oracle JDKs put the jni.h and jni_md.h in a different place than the
     # original Apple/Sun JDK used to.
-    os = if OS.mac?
-      "darwin"
-    else
-      "linux"
-    end
     ENV["JAVAINCLUDE"] = "#{java_home}/include"
-    ENV["JAVANATINC"]  = "#{java_home}/include/#{os}"
+    ENV["JAVANATINC"]  = "#{java_home}/include/#{OS.kernel_name.downcase}"
 
     # Take care of some hard-coded paths,
     # adjust postfix of jni libraries,

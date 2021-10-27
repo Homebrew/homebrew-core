@@ -4,14 +4,14 @@ class Rclone < Formula
   url "https://github.com/rclone/rclone/archive/v1.56.2.tar.gz"
   sha256 "a5b0b7dfe17d9ec74e3a33415eec4331c61d800d8823621e61c6164e8f88c567"
   license "MIT"
+  revision 1
   head "https://github.com/rclone/rclone.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "957e720c43d34dab552b432aa5b7e1c1f8248fcc710636bb7d0f9ffc04865539"
-    sha256 cellar: :any_skip_relocation, big_sur:       "33790b4ad68970d136d97859a771bd12ea17eba644c70a64ac8f848e7adbefa2"
-    sha256 cellar: :any_skip_relocation, catalina:      "89eba48543a11570324e2a96e56b0962486969fd34ea07ff41fb278769dfe2f8"
-    sha256 cellar: :any_skip_relocation, mojave:        "4d4d8134ca7c9cd27cf242fafac39c1ab90fa51ac592d47d02c1a87b9e0daf26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e53ec3ae829bd6f86f8d83d332ecdedd53e1bc16646e3b815cc85b3fc8002c5c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "54e0cf13423a33958bc5956e2822cf2ae6e4f7e2d14c65f885f55cbbc2412535"
+    sha256 cellar: :any_skip_relocation, big_sur:       "63f0f3a09fb9e3af4f31df90274ae17685d3495f96d58b4af7e4f86e5ed1f178"
+    sha256 cellar: :any_skip_relocation, catalina:      "da91f486e53d4aa07d3abfc423c8db7e20ea4ab806cdc8aa9285731ca7626bb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e244e55005936c8da0988b34f422e237c260c8e0ec0c3af4c8116acd48411d6"
   end
 
   depends_on "go" => :build
@@ -23,8 +23,10 @@ class Rclone < Formula
     man1.install "rclone.1"
     system bin/"rclone", "genautocomplete", "bash", "rclone.bash"
     system bin/"rclone", "genautocomplete", "zsh", "_rclone"
+    system bin/"rclone", "genautocomplete", "fish", "rclone.fish"
     bash_completion.install "rclone.bash" => "rclone"
     zsh_completion.install "_rclone"
+    fish_completion.install "rclone.fish"
   end
 
   def caveats

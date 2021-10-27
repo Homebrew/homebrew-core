@@ -11,11 +11,13 @@ class DockerSlim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c1b5d2577d80254fa5bb8de3f4c219dded238506ab57bf7df48806e7ec509e3d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a46948d51d60fb8f55fef561681b59fdb951d0bb193d7462c14d5653270b9146"
-    sha256 cellar: :any_skip_relocation, catalina:      "a46948d51d60fb8f55fef561681b59fdb951d0bb193d7462c14d5653270b9146"
-    sha256 cellar: :any_skip_relocation, mojave:        "a46948d51d60fb8f55fef561681b59fdb951d0bb193d7462c14d5653270b9146"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ffb6383118ec3d09d37a3c1255ee3df378100377507dcad16113ae8a5b6f437"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "10632d0abf805b1b7c5f6468a2d6332d307207b1dfcb871cdd7f751834177771"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c1b5d2577d80254fa5bb8de3f4c219dded238506ab57bf7df48806e7ec509e3d"
+    sha256 cellar: :any_skip_relocation, monterey:       "c00fa55c5ebac8636c75a59b99a9001e4e669bc8d8082e2f4a64d51fedda13ef"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a46948d51d60fb8f55fef561681b59fdb951d0bb193d7462c14d5653270b9146"
+    sha256 cellar: :any_skip_relocation, catalina:       "a46948d51d60fb8f55fef561681b59fdb951d0bb193d7462c14d5653270b9146"
+    sha256 cellar: :any_skip_relocation, mojave:         "a46948d51d60fb8f55fef561681b59fdb951d0bb193d7462c14d5653270b9146"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ffb6383118ec3d09d37a3c1255ee3df378100377507dcad16113ae8a5b6f437"
   end
 
   depends_on "go" => :build

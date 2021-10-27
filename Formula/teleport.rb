@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v7.3.0.tar.gz"
-  sha256 "0ebda4ebc5482a3e23302df696edf8ad60fb68466e41a4deecc05acf1e76c771"
+  url "https://github.com/gravitational/teleport/archive/v7.3.2.tar.gz"
+  sha256 "1d4e19f8b46be57b8008ac33b9c2c11efe154b21875a4b28a467ae318286e423"
   license "Apache-2.0"
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -16,11 +16,13 @@ class Teleport < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7a4074e2fee67a8cf05357f42ba0dfb878790d5fc547a0fb59ecab94cd82b8d3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "82322ab5f3f6d791a96cbb530c8b13417b2bdc3bd233375a946e8ee84c4c28cc"
-    sha256 cellar: :any_skip_relocation, catalina:      "1b35b92036bbed489ae1f7ed91bf7d269870cfaf836e2f7e12128ff6ae3d7dce"
-    sha256 cellar: :any_skip_relocation, mojave:        "57df152b7d09bad81e755e999f4b830d9f4381572d30cce06ea9aff2256b99a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8375f6bbac4fbe0773fbe6a82758eb080dd752fb4e834990dde00116a3faa914"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12a0a23ad3d684368059f0edb05f1a25e7016ffcb3283c2defa4a1a8bb74fd50"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "401ddc723703c705e8691ce20a7faee054beb065739ac59d3e2557795e65ec1f"
+    sha256 cellar: :any_skip_relocation, monterey:       "4712580c633edaf60bfe5db6ad5fada74aad4779764d360ddf1ca02107d1fcfd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0ea17881730bbe526227149b8a36b4ea21f3327b663e2a6b45510b01817f2f53"
+    sha256 cellar: :any_skip_relocation, catalina:       "1af7d56d61201aea75e23d32d8f003fd582f8b54ce2cf46768deabaa1b7e6d18"
+    sha256 cellar: :any_skip_relocation, mojave:         "1196d58d43484f4f80a130e3a2fdc32c1cb7d9bb191819e78d5a7d9faf133e60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7745d8d2355c54f9de4f4a2e27202e0907a94c865aa9f7005a187c55b5d52f8"
   end
 
   depends_on "go" => :build

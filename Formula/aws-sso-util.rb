@@ -6,18 +6,21 @@ class AwsSsoUtil < Formula
   url "https://files.pythonhosted.org/packages/5a/ff/28de3b5c4189d244b5bb68c0591875df0a3a47b5b860de2bb9a100f3a60b/aws-sso-util-4.25.0.tar.gz"
   sha256 "b84fb0b6bb66ee1a5797665cfeceb5d83bf9f3d6a8d8de42687dd65fc06cee8c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9bb26fdfdd269567657dff7fbcdf9285cc41e333015d6039996b1ec645628fb6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "577c77af9b28f3017fc29552a1e279235d68afd727ef4747c414a1b1ec77fc66"
-    sha256 cellar: :any_skip_relocation, catalina:      "ce68c609434752b07673db09a891903c62f5b4f87bde3227f6db882f1c5a10bc"
-    sha256 cellar: :any_skip_relocation, mojave:        "4c55fb1fa40d8979de0a17c5fd2c23b7b2b5532a9e03a2081dca5bf7825a250d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7aa58253c679281872b983ba66fbd81bad09b089c0c676a6b02ad9212ace4cc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "256739dc70865d33fad92925a0532acf5225fa748b6d54c2fd4ee9a3b1d2917b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bed223ea4b5a108ee2f68edd4b9919defc5a838650140a6ee392d18f7f5df4cb"
+    sha256 cellar: :any_skip_relocation, monterey:       "792b8ad5d2b185f3df486bdb0a664b525b796120848ca5667b18a84ac64892c9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6c6e10121c00e11bb4451ffff6dee4abb03cdc610b910624664dc6e949210e63"
+    sha256 cellar: :any_skip_relocation, catalina:       "84649f7a4b165d1625dc80a93a2faad3b289a63770d01231d1651f5d4156be2a"
+    sha256 cellar: :any_skip_relocation, mojave:         "32a8269de9a8cfcd21a7b1c326f9dc05da5849401376d08f2742acc30f5d3594"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6871b86922c7ff5eaf37bc78578d73b6d5ac64a5ef3c7661bcec452251ab9b7"
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   on_linux do

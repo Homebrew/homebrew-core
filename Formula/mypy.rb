@@ -9,11 +9,13 @@ class Mypy < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "55c4564fe7228ecf64f9421507440f38522732420afe3b68d4a78ff4ce2d3083"
-    sha256 cellar: :any_skip_relocation, big_sur:       "50e86679593a40696a3bf8c6af6e55c60a5315f6eb1aeb7dcf0e43d8d88b08da"
-    sha256 cellar: :any_skip_relocation, catalina:      "cc49f99a9f48eca2a09e0f79b107f34b03afbde863eaaf8abea5938f0978c0b5"
-    sha256 cellar: :any_skip_relocation, mojave:        "bd13c0f849d19e6ad9d5d2a019473fffc2cc610f1beab6dfb5c6a368735d0330"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c28f7a6624c09213e25d82ad6f5a06543f21f4f81638814c1f8b360d0605dc9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "597e36e60cabe3d242cd0dfb52885d4ecfd36d64836f8a83439a134c6b2d5326"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55c4564fe7228ecf64f9421507440f38522732420afe3b68d4a78ff4ce2d3083"
+    sha256 cellar: :any_skip_relocation, monterey:       "864f02a7a280feff1d8d867ba512687838c1fa683cbd3a1409880e96e14114be"
+    sha256 cellar: :any_skip_relocation, big_sur:        "50e86679593a40696a3bf8c6af6e55c60a5315f6eb1aeb7dcf0e43d8d88b08da"
+    sha256 cellar: :any_skip_relocation, catalina:       "cc49f99a9f48eca2a09e0f79b107f34b03afbde863eaaf8abea5938f0978c0b5"
+    sha256 cellar: :any_skip_relocation, mojave:         "bd13c0f849d19e6ad9d5d2a019473fffc2cc610f1beab6dfb5c6a368735d0330"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c28f7a6624c09213e25d82ad6f5a06543f21f4f81638814c1f8b360d0605dc9"
   end
 
   depends_on "python@3.10"

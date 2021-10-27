@@ -12,11 +12,13 @@ class Cairo < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "2fc4da6029167f696fc0b3c0553d36abb8e77c75f0096396d4eb89d0ea912612"
-    sha256 big_sur:       "cb16c1bb070a7cdca7aaf8899a70e407d73636116d62225626b2c8d31aa8d2ff"
-    sha256 catalina:      "4a117545953b9784f78db8261c03d71a1ae7af836dcd995abe7e6d710cdfd39c"
-    sha256 mojave:        "38c7b7b0f6266632a5f04df12180dc36a1ce218a1c54b13cdca18ad024067311"
-    sha256 x86_64_linux:  "678c795a11134b3455002969fc41b8e2512e97cdaa084f792724ace7549a3407"
+    sha256 arm64_monterey: "50feaae83e93330cc0ee6b90477cfa931fab52cdb98ad37a99a0e518da6a580e"
+    sha256 arm64_big_sur:  "2fc4da6029167f696fc0b3c0553d36abb8e77c75f0096396d4eb89d0ea912612"
+    sha256 monterey:       "ccf4f80f5115aad260e4d3f014dc0aebdd616dfac88f567d211bd8681d60c3a9"
+    sha256 big_sur:        "cb16c1bb070a7cdca7aaf8899a70e407d73636116d62225626b2c8d31aa8d2ff"
+    sha256 catalina:       "4a117545953b9784f78db8261c03d71a1ae7af836dcd995abe7e6d710cdfd39c"
+    sha256 mojave:         "38c7b7b0f6266632a5f04df12180dc36a1ce218a1c54b13cdca18ad024067311"
+    sha256 x86_64_linux:   "678c795a11134b3455002969fc41b8e2512e97cdaa084f792724ace7549a3407"
   end
 
   head do

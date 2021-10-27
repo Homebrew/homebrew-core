@@ -12,11 +12,13 @@ class LibgpgError < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "70e6813ed4afc576346a5fb6aa2670f0004bcc67c63b19bc4d83c9d88451ba0a"
-    sha256 big_sur:       "6fa4b76fb160c8c75d4d1f932c3c920902a97474741397def5d4000201e85436"
-    sha256 catalina:      "b9b74abe24d72b7ffecc89aba01d370d5f60d232af1c4bbeebe4a8fd3f54b907"
-    sha256 mojave:        "1708cb4a9d2a4ac4e49bc37d9b7bbd259e1c5cfb1ffeb070bc956058e3081f47"
-    sha256 x86_64_linux:  "f81788fbebc232e9d57e82ba29dc9e0387be0190f2e9e1fad802ef97b24b5358"
+    sha256 arm64_monterey: "52651d0013588855c79008c9f643490ccfbe6bb19f424f5e2bf7b6d924e382cd"
+    sha256 arm64_big_sur:  "70e6813ed4afc576346a5fb6aa2670f0004bcc67c63b19bc4d83c9d88451ba0a"
+    sha256 monterey:       "620a34647a3c5bb70427b846792674187a39f58e18688cf29d88cf48bacd28bb"
+    sha256 big_sur:        "6fa4b76fb160c8c75d4d1f932c3c920902a97474741397def5d4000201e85436"
+    sha256 catalina:       "b9b74abe24d72b7ffecc89aba01d370d5f60d232af1c4bbeebe4a8fd3f54b907"
+    sha256 mojave:         "1708cb4a9d2a4ac4e49bc37d9b7bbd259e1c5cfb1ffeb070bc956058e3081f47"
+    sha256 x86_64_linux:   "f81788fbebc232e9d57e82ba29dc9e0387be0190f2e9e1fad802ef97b24b5358"
   end
 
   # libgpg-error's libtool.m4 doesn't properly support macOS >= 11.x (see
@@ -33,7 +35,10 @@ class LibgpgError < Formula
   # release.
   #
   # https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgpg-error.git;a=commit;h=a3987e44970505a5540f9702c1e41292c22b69cf
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -50,28 +55,3 @@ class LibgpgError < Formula
     system "#{bin}/gpg-error-config", "--libs"
   end
 end
-
-__END__
---- libgpg-error-1.42/configure.orig	2021-09-26 09:39:54.000000000 -0700
-+++ libgpg-error-1.42/configure	2021-09-26 09:40:56.000000000 -0700
-@@ -8427,16 +8427,11 @@
-       _lt_dar_allow_undefined='${wl}-undefined ${wl}suppress' ;;
-     darwin1.*)
-       _lt_dar_allow_undefined='${wl}-flat_namespace ${wl}-undefined ${wl}suppress' ;;
--    darwin*) # darwin 5.x on
--      # if running on 10.5 or later, the deployment target defaults
--      # to the OS version, if on x86, and 10.4, the deployment
--      # target defaults to 10.4. Don't you love it?
--      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
--	10.0,*86*-darwin8*|10.0,*-darwin[91]*)
--	  _lt_dar_allow_undefined='${wl}-undefined ${wl}dynamic_lookup' ;;
--	10.[012]*)
-+    darwin*)
-+      case ${MACOSX_DEPLOYMENT_TARGET},$host in
-+        10.[012],*|,*powerpc*)
- 	  _lt_dar_allow_undefined='${wl}-flat_namespace ${wl}-undefined ${wl}suppress' ;;
--	10.*)
-+	*)
- 	  _lt_dar_allow_undefined='${wl}-undefined ${wl}dynamic_lookup' ;;
-       esac
-     ;;

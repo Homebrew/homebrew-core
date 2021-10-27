@@ -19,11 +19,13 @@ class Re2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "2737e7f164fc5e71e47395e657e49c642299169187035bf580da377758d79f2a"
-    sha256 cellar: :any,                 big_sur:       "37d27091caac14f59c8ec254572ae6bf4381b58bdd789d2dfce6335cceec283c"
-    sha256 cellar: :any,                 catalina:      "34301adc3ba86bcc2cf7c0b97bc8310a7db2a0b89a8245bcf4b7c06c2c07bd6e"
-    sha256 cellar: :any,                 mojave:        "2799d3471e7a1c34a9548073d20c18a989b279341b626b4b4402350f95298c76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5af47e34dce6e8618fb7caaeab0fb5eeee5bbb7f2099efee34b596cbc8fe006"
+    sha256 cellar: :any,                 arm64_monterey: "f1036c8298f174909665c35f2b4f6ef0d072cef3856f5f7979d61475c710c9d0"
+    sha256 cellar: :any,                 arm64_big_sur:  "2737e7f164fc5e71e47395e657e49c642299169187035bf580da377758d79f2a"
+    sha256 cellar: :any,                 monterey:       "a839160b35d118ba9a98e241a63624dbaf78ab82c627dac5f22b40a679c62b53"
+    sha256 cellar: :any,                 big_sur:        "37d27091caac14f59c8ec254572ae6bf4381b58bdd789d2dfce6335cceec283c"
+    sha256 cellar: :any,                 catalina:       "34301adc3ba86bcc2cf7c0b97bc8310a7db2a0b89a8245bcf4b7c06c2c07bd6e"
+    sha256 cellar: :any,                 mojave:         "2799d3471e7a1c34a9548073d20c18a989b279341b626b4b4402350f95298c76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5af47e34dce6e8618fb7caaeab0fb5eeee5bbb7f2099efee34b596cbc8fe006"
   end
 
   depends_on "cmake" => :build

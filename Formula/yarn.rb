@@ -1,8 +1,8 @@
 class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
-  url "https://yarnpkg.com/downloads/1.22.15/yarn-v1.22.15.tar.gz"
-  sha256 "0c2841b9423f0fb9657ae6b18873f39551396ec242bfb882b11bed9e4648235e"
+  url "https://yarnpkg.com/downloads/1.22.17/yarn-v1.22.17.tar.gz"
+  sha256 "267982c61119a055ba2b23d9cf90b02d3d16c202c03cb0c3a53b9633eae37249"
   license "BSD-2-Clause"
 
   livecheck do
@@ -10,7 +10,7 @@ class Yarn < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b9a156f01c5a5691efcb5f32731b6e3b3a6950d8882fb54e75662ee6bbfead67"
+    sha256 cellar: :any_skip_relocation, all: "262cccd6de591bf5d4e382cb6b86cb8290d6ceb86e0d1c7b0444d11d3e9888cf"
   end
 
   depends_on "node"
@@ -18,15 +18,16 @@ class Yarn < Formula
   conflicts_with "hadoop", because: "both install `yarn` binaries"
 
   def install
-    libexec.install Dir["*"]
-    (bin/"yarn").write_env_script "#{libexec}/bin/yarn.js",
-      PREFIX:            HOMEBREW_PREFIX,
-      NPM_CONFIG_PYTHON: "/usr/bin/python"
-    (bin/"yarnpkg").write_env_script "#{libexec}/bin/yarn.js",
-      PREFIX:            HOMEBREW_PREFIX,
-      NPM_CONFIG_PYTHON: "/usr/bin/python"
-    inreplace "#{libexec}/lib/cli.js", "/usr/local", HOMEBREW_PREFIX
-    inreplace "#{libexec}/package.json", '"installationMethod": "tar"', '"installationMethod": "homebrew"'
+    libexec.install buildpath.glob("*")
+    (bin/"yarn").write_env_script libexec/"bin/yarn.js",
+                                  PREFIX:            HOMEBREW_PREFIX,
+                                  NPM_CONFIG_PYTHON: which("python3")
+    (bin/"yarnpkg").write_env_script libexec/"bin/yarn.js",
+                                      PREFIX:            HOMEBREW_PREFIX,
+                                      NPM_CONFIG_PYTHON: which("python3")
+    inreplace libexec/"lib/cli.js", "/usr/local", HOMEBREW_PREFIX
+    inreplace libexec/"package.json", '"installationMethod": "tar"',
+                                      "\"installationMethod\": \"#{tap.user.downcase}\""
   end
 
   test do

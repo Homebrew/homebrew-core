@@ -8,11 +8,13 @@ class Ncurses < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "f71176d3a18401a49c1ef6da6e03987551161140c62353859f9db97d6520f5c5"
-    sha256 big_sur:       "37587c0fbfd02b432e8a65522feadbb865fb754c3fe911b3a584abafb0f0effb"
-    sha256 catalina:      "225b8df20eb79a762ea5163fb020c055a804d2c3289c676daa9277cc0c55f76f"
-    sha256 mojave:        "66e1c57db9437cca11a5d6248e148a5ec00bbb0522c0d45b4fa3a95d5eba9783"
-    sha256 x86_64_linux:  "b6d0a7fcd0b116c249ef3d07be0b240c6103881437b5cbaeb5c9174005ebc6e9"
+    sha256 arm64_monterey: "a989d420925dded0112f1d3e40ad64f28d02ef3ae09e13ee76a5ec0fabca95d7"
+    sha256 arm64_big_sur:  "f71176d3a18401a49c1ef6da6e03987551161140c62353859f9db97d6520f5c5"
+    sha256 monterey:       "713f927537ffc2213f2ad6f2b39435ca49671116313793aaaf64d1d1ab280a34"
+    sha256 big_sur:        "37587c0fbfd02b432e8a65522feadbb865fb754c3fe911b3a584abafb0f0effb"
+    sha256 catalina:       "225b8df20eb79a762ea5163fb020c055a804d2c3289c676daa9277cc0c55f76f"
+    sha256 mojave:         "66e1c57db9437cca11a5d6248e148a5ec00bbb0522c0d45b4fa3a95d5eba9783"
+    sha256 x86_64_linux:   "b6d0a7fcd0b116c249ef3d07be0b240c6103881437b5cbaeb5c9174005ebc6e9"
   end
 
   keg_only :provided_by_macos

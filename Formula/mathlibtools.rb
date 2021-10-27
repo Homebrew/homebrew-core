@@ -6,17 +6,17 @@ class Mathlibtools < Formula
   url "https://files.pythonhosted.org/packages/9a/b7/7573048414f976707625d0bacbf00b7fba86f7fcf7b47e2166adbbafb679/mathlibtools-1.1.0.tar.gz"
   sha256 "789f070f35424e89e4f2e2c007382250133cc48877627e37c5c463bcf4a1b58a"
   license "Apache-2.0"
+  revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8bec2c2e4e94150e09d5c3c9d5869e79911d8cfcbab4d02f35b87404dc5f7e25"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5cfac18b55bc63b9e1fd58ef4104f7fa3879fc5c25835a5231a78732866a3de8"
-    sha256 cellar: :any_skip_relocation, catalina:      "4658c3e29e67f1d3a874dba4cece2710102d5ef1889682ae953b406e48961153"
-    sha256 cellar: :any_skip_relocation, mojave:        "feb44ff190b93f2bdb6d74c84665df9dc04e0f97794054f85fcf9057423069a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88481618d3dc2188f35a167ae9a711d93ffa67e8b7553886ecec080dae9c1320"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5140d2ecce132a0fffa5b3a40d1d9979c51cf58d1781a06a61c89b1e58671f74"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1063ae5b9dea859173e21e626d053d299bc629d71c6a5d088dbd70bd0b595e16"
+    sha256 cellar: :any_skip_relocation, catalina:      "1a91f500766f5bfb556a052c4c18872d13c109b8bf7b3eab88abc51fef3deea8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55da764accf8d38e667280d0ec8103ce3040393e9a28644fb09aeb820c01964b"
   end
 
   depends_on "lean" => :test
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "atomicwrites" do

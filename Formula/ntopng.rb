@@ -2,6 +2,7 @@ class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
   license "GPL-3.0-only"
+  revision 1
 
   stable do
     url "https://github.com/ntop/ntopng/archive/5.0.tar.gz"
@@ -14,10 +15,10 @@ class Ntopng < Formula
   end
 
   bottle do
-    sha256 big_sur:      "6c03ede014ebd615cb2716898b11d48af7973eef1c9c2f4a5c24d11fda776be8"
-    sha256 catalina:     "115f0cb4514aacda5ba0fc003afc96659249a8ce26287ea340810cc48791e1da"
-    sha256 mojave:       "199498493df28a4c3d0d2f6aa211f02954997db319a4c4f58ad00c3ccb95fbc8"
-    sha256 x86_64_linux: "e802bb58c1e615986813d879b5c045900a8f88854b7d454aed13a0b4df89d632"
+    sha256 big_sur:      "1f0fc365c6ce9765f3457e3fd610494bb135db0e4970365de6dee02ee6a82ef6"
+    sha256 catalina:     "3f66b1d9932cb383bee198896deec6ebad14af61d84e211a511546505986fe73"
+    sha256 mojave:       "72411fa027ffdbf74e99c030c28f1816df70b3c640cce0465419bf821f0df379"
+    sha256 x86_64_linux: "ceced6dd2af35eabe2d0c0d3f90fd201597f3f6abd5ef483b8cb1da3b3fed7c9"
   end
 
   head do
@@ -46,6 +47,12 @@ class Ntopng < Formula
   uses_from_macos "curl"
   uses_from_macos "libpcap"
   uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     resource("nDPI").stage do

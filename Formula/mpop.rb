@@ -1,8 +1,8 @@
 class Mpop < Formula
   desc "POP3 client"
   homepage "https://marlam.de/mpop/"
-  url "https://marlam.de/mpop/releases/mpop-1.4.14.tar.xz"
-  sha256 "2844c265d7d0575ba0057fbcf8c68e3701ed8000ccccc8538ba4f8bce95bdc10"
+  url "https://marlam.de/mpop/releases/mpop-1.4.16.tar.xz"
+  sha256 "870eb571eae6d23fb92ad0c84d79de9c38c5f624e3614937d574bfe49ba687f9"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,15 +11,16 @@ class Mpop < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "ffa7d1d7240b1fe9913f3f7f104cf410325e3e15de646cfc7d508db65c7a4288"
-    sha256 big_sur:       "4b8ef4bdfbc2eb722f2c0698207f4b8380efe396bb2dde01ee9ab15905c77961"
-    sha256 catalina:      "47eb7901c79b0c2c0110d0d536851af477ff5626a8a46a8ba2fc1551ea790a7c"
-    sha256 mojave:        "afaf7fa8399df4285ec412ba7b89f0d19bcbc21fad7029dfb7ae5092c0af8efb"
-    sha256 x86_64_linux:  "0813016d1ca4ea0dbc41c22a58cc675cc6723b87fc0374f6228434277ff3403f"
+    sha256 arm64_big_sur: "fb83315e0e06e5586ef99f2dcbabc7cf248744cd72c736615c08c6c93f5ac809"
+    sha256 big_sur:       "9b42850fdeb9d94c15228333ec8537b0f39ce90f5ad799729706113b97d59ee3"
+    sha256 catalina:      "16273c6c9296a2aeb6724a6c0c023c2c83ae8304f90c78cd8efbd9dacd3475c6"
+    sha256 x86_64_linux:  "a14a672f256617064258a4d0b1dbe96b30e39fb13aef5c1c6397873463766a26"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gettext"
   depends_on "gnutls"
+  depends_on "libidn2"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"

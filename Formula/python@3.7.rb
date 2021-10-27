@@ -12,6 +12,7 @@ class PythonAT37 < Formula
   end
 
   bottle do
+    sha256 monterey:     "03e684d64e7ce907b690f87d38c0d4fd579cb3c84a3a567185ed8b27eed096ef"
     sha256 big_sur:      "76831700c7e63dd2373244c8aba96b09f861f179c46f9a2a7a7c00b3078fa66a"
     sha256 catalina:     "b8b0cf6f2f7efd791c23e11dca7fd955c71bbb3d664a24a799e34424c2472c57"
     sha256 mojave:       "aa8a60fbd7abed9fee6664597a0ed150cddec8dabdc99a5e0eed18bd150b0ca4"

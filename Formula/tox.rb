@@ -9,11 +9,13 @@ class Tox < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "76ad045466f2f3fc8900ac2010ee144e18580fa59e97536c2f13d53f7d8dea24"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6e7f624308ad3dd4ab89a58c99ef015921a6040d5b0aa4b88817d57907108482"
-    sha256 cellar: :any_skip_relocation, catalina:      "f2acdf4e0a50628da327640323cf0560bb992a922656f2f28ee5d16b4613ae8e"
-    sha256 cellar: :any_skip_relocation, mojave:        "270713525556bda12a9d880fbac12bc83818b493df68c16e046707c033eca99f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fda9d04d879d5c1293fbf2fcf8d31494536f143c948c45c3509e552c6b3427e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a75832e03f0645ae8daabf004505b77e8550bb8a13457ba4f3f32e2737b65cd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76ad045466f2f3fc8900ac2010ee144e18580fa59e97536c2f13d53f7d8dea24"
+    sha256 cellar: :any_skip_relocation, monterey:       "46fc027a68ad251af2d0dcfdf3d913d9d259feb7d57acc61925dd80ad1cba430"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6e7f624308ad3dd4ab89a58c99ef015921a6040d5b0aa4b88817d57907108482"
+    sha256 cellar: :any_skip_relocation, catalina:       "f2acdf4e0a50628da327640323cf0560bb992a922656f2f28ee5d16b4613ae8e"
+    sha256 cellar: :any_skip_relocation, mojave:         "270713525556bda12a9d880fbac12bc83818b493df68c16e046707c033eca99f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fda9d04d879d5c1293fbf2fcf8d31494536f143c948c45c3509e552c6b3427e"
   end
 
   depends_on "python@3.10"

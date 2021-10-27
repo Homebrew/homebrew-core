@@ -2,17 +2,19 @@ class Krew < Formula
   desc "Package manager for kubectl plugins"
   homepage "https://sigs.k8s.io/krew/"
   url "https://github.com/kubernetes-sigs/krew.git",
-      tag:      "v0.4.1",
-      revision: "ffa2933fba45e5577a45a944da1c14a1058d4fcb"
+      tag:      "v0.4.2",
+      revision: "6fcdb794c532d3f2849bb4a8a942a19c09ef3002"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/krew.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "93bec04317c26ad77d8351150a7d7f6775218e3149bae190ac58db96ed83b3bb"
-    sha256 cellar: :any_skip_relocation, big_sur:       "72ec667db2da34fc298d32f376ae8a8a5769858a418185c5b581bec29458e394"
-    sha256 cellar: :any_skip_relocation, catalina:      "59131bf3f0e3264dd96a4f788cbe44bef4d4c21056dc583d912c3788cd429670"
-    sha256 cellar: :any_skip_relocation, mojave:        "677db3b345035e81dbd8ae57ef4c27e3693dcc0fafd279a508f20485a59d005c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8a57b4ff8bc90137b981cbd5baeccfc88573dca08a335e4af822c7a22079264"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "01c440b830f40fd4f1aaec78a00f8ab2ab1602bba6dc1be7a367d44bd6941edf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9bd45bf4ce538f251c393ba6279d18c7599866abb46e556fb9fa26e2e7473249"
+    sha256 cellar: :any_skip_relocation, monterey:       "532c892b298dcb35aec75424e3f102f4223b4c068c9999e67775ecb6515a6b96"
+    sha256 cellar: :any_skip_relocation, big_sur:        "17c8fd8f71c8a92ede7c9f9d56382b1c6ffc962d4a7f6e9719e7e9a9d9f1755a"
+    sha256 cellar: :any_skip_relocation, catalina:       "3405b2bbbedd29dad0cec63a9a74d959ff9f8ef1ee1ce8c9d540156a225492ed"
+    sha256 cellar: :any_skip_relocation, mojave:         "500cfe13d69c132e42b689b2c575317dbdb1d4d1364d0edaeb53a3db07ebf055"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "542f5e62f150e93e2dcc5fc91493301ad8c96f2e014735b90b47f500a0a68c3a"
   end
 
   depends_on "go" => :build

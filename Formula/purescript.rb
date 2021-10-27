@@ -1,17 +1,16 @@
 class Purescript < Formula
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
-  url "https://hackage.haskell.org/package/purescript-0.14.4/purescript-0.14.4.tar.gz"
-  sha256 "730b0ef2d479c1655f4ed7b1515629fd76bfbad57563779bf45e6ce63d48aa61"
+  url "https://hackage.haskell.org/package/purescript-0.14.5/purescript-0.14.5.tar.gz"
+  sha256 "36c86445da58b8017aa98ba2ab975af7812b9ef739f0b8e7360740d5200ac319"
   license "BSD-3-Clause"
   head "https://github.com/purescript/purescript.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e731bf3b7ccedffc2140340df285432f592e362c92a16108e991fa34066a274c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cd63479d4e3c3840de1d4570144323cf0c855fa04320115b48baa80f34e3a7a4"
-    sha256 cellar: :any_skip_relocation, catalina:      "24592ee5e641295e60751043239c94c29e83be369157101f8a6532621928d5ab"
-    sha256 cellar: :any_skip_relocation, mojave:        "d3206d2e8a4b865d7fa7a023d1f8e0dc2ae2f37a10aaf30ab9396c7860b280d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9af6b9149952cb98e0fcf394b5d8f5a7e4c1608f0d59b2065bd1b73cedf95e83"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f30397c026c4a302ab5b7d35411a14a73a928aec418f160aa51749df0faa008"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d84a41a6c2d4f7a24193e30d9b47e25e700805000829367ef6027fd01bd7c113"
+    sha256 cellar: :any_skip_relocation, catalina:      "86759c6e909aa900c4c01d2345b033d29f7121f1fb36c58955ef86c9c47cb61d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3e65f7777018972678cb3d3b18f992958fa7c1278f056c240bcf1e6deca940c"
   end
 
   depends_on "ghc" => :build

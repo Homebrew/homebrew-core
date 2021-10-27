@@ -12,12 +12,14 @@ class Adns < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "12b6d675f6ca3782b27be8c241f104435f649c84aa91e9173914ec79542ea01b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8801de53f606e09e09a2bf27a17d0724cc54557328b859ed337315104eadbcc3"
-    sha256 cellar: :any_skip_relocation, catalina:      "d9cc50eec8ac243148a121049c236cba06af4a0b1156ab397d0a2850aa79c137"
-    sha256 cellar: :any_skip_relocation, mojave:        "7cf73e25044783cd93ecd28e2e8bfb84f0b2fff3343acf39dff3c5fe68d1c5be"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "6cbe64a32b077c9abd61337c51c4e17a2286f9bee04b33f24a5dd762125798d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b93a385c1e4fefec3ee1b580817a2ce928884fb7da234c7fea68d132291972f4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e1692fbac033b9a03740a68b5f9dacae5d743f1f73e1b5b76ba12968e12eb99"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12b6d675f6ca3782b27be8c241f104435f649c84aa91e9173914ec79542ea01b"
+    sha256 cellar: :any_skip_relocation, monterey:       "406ce641ec1c8f542e1cbfbada2b199341e93ff7d55b09757587c02f3a997487"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8801de53f606e09e09a2bf27a17d0724cc54557328b859ed337315104eadbcc3"
+    sha256 cellar: :any_skip_relocation, catalina:       "d9cc50eec8ac243148a121049c236cba06af4a0b1156ab397d0a2850aa79c137"
+    sha256 cellar: :any_skip_relocation, mojave:         "7cf73e25044783cd93ecd28e2e8bfb84f0b2fff3343acf39dff3c5fe68d1c5be"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "6cbe64a32b077c9abd61337c51c4e17a2286f9bee04b33f24a5dd762125798d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b93a385c1e4fefec3ee1b580817a2ce928884fb7da234c7fea68d132291972f4"
   end
 
   uses_from_macos "m4" => :build

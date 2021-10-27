@@ -12,6 +12,7 @@ class Fftw < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "bad8b35844e916b0aee957da5f50f1aaf42c400582ca9e0c531d8b1d7cbf831c"
+    sha256 cellar: :any,                 monterey:      "e8381fd5cc57822cb5f87487633a88b0f71846dc188cdee3059d6da50751a653"
     sha256 cellar: :any,                 big_sur:       "7f8815d58971d1c38465556b12b2fc2cdd5c1575174984a493080cbb88efb925"
     sha256 cellar: :any,                 catalina:      "6189ebccb8f84d6aaf8139f877a0fed20605b749404b5e5296c2a673df681841"
     sha256 cellar: :any,                 mojave:        "694f17490cf119dba54c4ab36fe4c777d916fade8629cc1a728ff2f698c135b6"

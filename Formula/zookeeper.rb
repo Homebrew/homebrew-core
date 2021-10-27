@@ -9,10 +9,11 @@ class Zookeeper < Formula
   head "https://gitbox.apache.org/repos/asf/zookeeper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "7a09b012f9b2e0c6dde46dfebf2f66846ab86e154087310b99198572d4a37321"
-    sha256 cellar: :any,                 catalina:     "d48b7491b18e95751276fd57f4a3ffdf837f174dc43ae537da6f32f4d67d96d4"
-    sha256 cellar: :any,                 mojave:       "edf3e23f9959c9b8dbd0e4ddea4e659a3cfc32737d5e57b0333f60a2e47d51da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dcc5154ebfb3479ec0762842b789dab164c7278ca8376264bdedcb6345b5b2c5"
+    sha256 cellar: :any,                 arm64_big_sur: "728afb970486c80614db060a47caf5a1e3b5786988ed1e341ff0dd5ee270e0c8"
+    sha256 cellar: :any,                 big_sur:       "7a09b012f9b2e0c6dde46dfebf2f66846ab86e154087310b99198572d4a37321"
+    sha256 cellar: :any,                 catalina:      "d48b7491b18e95751276fd57f4a3ffdf837f174dc43ae537da6f32f4d67d96d4"
+    sha256 cellar: :any,                 mojave:        "edf3e23f9959c9b8dbd0e4ddea4e659a3cfc32737d5e57b0333f60a2e47d51da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcc5154ebfb3479ec0762842b789dab164c7278ca8376264bdedcb6345b5b2c5"
   end
 
   depends_on "autoconf" => :build

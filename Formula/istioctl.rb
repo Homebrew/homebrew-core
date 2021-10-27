@@ -2,23 +2,23 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://istio.io/"
   url "https://github.com/istio/istio.git",
-      tag:      "1.11.3",
-      revision: "6bda7c161d3925c48fbea3f297ffa52461893f3b"
+      tag:      "1.11.4",
+      revision: "9f6f03276054bb62a1b745630322314ef14969e8"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef7a6948dfebbdb0977a503c28b9ef64b137528303a18ddf7f76540a5d18bbbd"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2cbe268156cc441de0775c2614beb3b19bd8e67b1a4e68043b2ba284f5315090"
-    sha256 cellar: :any_skip_relocation, catalina:      "2cbe268156cc441de0775c2614beb3b19bd8e67b1a4e68043b2ba284f5315090"
-    sha256 cellar: :any_skip_relocation, mojave:        "2cbe268156cc441de0775c2614beb3b19bd8e67b1a4e68043b2ba284f5315090"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "18ce44af856fbb91fdc1e9f5a05208c3f1d78c34405a5ec87e62f6aa1176a042"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ff188dfccbc91f5ad73301e367a3e7ee6d47c3e102a2e74886e1cb01b345ff26"
+    sha256 cellar: :any_skip_relocation, catalina:      "ff188dfccbc91f5ad73301e367a3e7ee6d47c3e102a2e74886e1cb01b345ff26"
+    sha256 cellar: :any_skip_relocation, mojave:        "ff188dfccbc91f5ad73301e367a3e7ee6d47c3e102a2e74886e1cb01b345ff26"
   end
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
   def install
-    # make parallelization should be fixed in version > 1.11.3
+    # make parallelization should be fixed in version > 1.11.4
     ENV.deparallelize
     ENV["VERSION"] = version.to_s
     ENV["TAG"] = version.to_s

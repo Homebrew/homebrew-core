@@ -28,6 +28,6 @@ class Qodem < Formula
 
   test do
     system "#{bin}/qodem", "--exit-on-completion", "--capfile", testpath/"qodem.out", "uname"
-    assert_match "Darwin", File.read(testpath/"qodem.out")
+    assert_match OS.kernel_name, File.read(testpath/"qodem.out")
   end
 end

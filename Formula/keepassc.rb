@@ -7,11 +7,13 @@ class Keepassc < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c84dd256b4392893dc1b756f16486f8c98ba6f6fbffdfb2573100b4bfd3efbc1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e1cf6e43638026d1deaa3e90e07ff03dec482e6f8fb19be895309c9be2a9abe9"
-    sha256 cellar: :any_skip_relocation, catalina:      "c3b6090b7cb27dfcbd563b152bac02444979535a97aa422f3458bd701246c0eb"
-    sha256 cellar: :any_skip_relocation, mojave:        "512d04b7df021f0a3a29dad0a2efc0262483a4cfe3e9385938afa346f73ac92e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fee5bf5f8161aa727c06397811e1d7a2910dfefbffbf8fcb2cad0ec5cc55ac15"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8556297abd34b591ddb4d93ada1059039f78927bec4858f5ad8ced245e9083ea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c84dd256b4392893dc1b756f16486f8c98ba6f6fbffdfb2573100b4bfd3efbc1"
+    sha256 cellar: :any_skip_relocation, monterey:       "b25905da9514361ee40ea00e8e027bcb07aaeadab8bda8fcd37c595af909decb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e1cf6e43638026d1deaa3e90e07ff03dec482e6f8fb19be895309c9be2a9abe9"
+    sha256 cellar: :any_skip_relocation, catalina:       "c3b6090b7cb27dfcbd563b152bac02444979535a97aa422f3458bd701246c0eb"
+    sha256 cellar: :any_skip_relocation, mojave:         "512d04b7df021f0a3a29dad0a2efc0262483a4cfe3e9385938afa346f73ac92e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fee5bf5f8161aa727c06397811e1d7a2910dfefbffbf8fcb2cad0ec5cc55ac15"
   end
 
   depends_on "python@3.10"

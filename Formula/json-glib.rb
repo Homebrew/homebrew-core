@@ -6,11 +6,13 @@ class JsonGlib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "dbaac34029a64a5d23c4c3d58f579cca68a9b65fa2ba6d8e44cac55781acce32"
-    sha256 big_sur:       "a3fb508a2f6f41c61d4b6a2392e9c1b724176325bfc75e8df298e77a04b07e12"
-    sha256 catalina:      "b583d641d9a5f529d4f54e2b58a8ed081dfcb8047ae107919d1144ce18c9681c"
-    sha256 mojave:        "4e6b678d4ec9dc003e261ca69be62178f49429425b29a84fee2fa47897fe0465"
-    sha256 x86_64_linux:  "5def8d6b0014378f86ed161dcf1570e2ca5432c5616d34e7f96c84d6fd4ff97d"
+    sha256 arm64_monterey: "8d0477538b5e84536dd970d2dda48d46d89b5159996f41bf2c17b02ea7ee4075"
+    sha256 arm64_big_sur:  "dbaac34029a64a5d23c4c3d58f579cca68a9b65fa2ba6d8e44cac55781acce32"
+    sha256 monterey:       "e23445c25a457a3fd6b076a60a1ec4d2732e1f8a22ff73f4db2a06b36cc40430"
+    sha256 big_sur:        "a3fb508a2f6f41c61d4b6a2392e9c1b724176325bfc75e8df298e77a04b07e12"
+    sha256 catalina:       "b583d641d9a5f529d4f54e2b58a8ed081dfcb8047ae107919d1144ce18c9681c"
+    sha256 mojave:         "4e6b678d4ec9dc003e261ca69be62178f49429425b29a84fee2fa47897fe0465"
+    sha256 x86_64_linux:   "5def8d6b0014378f86ed161dcf1570e2ca5432c5616d34e7f96c84d6fd4ff97d"
   end
 
   depends_on "gobject-introspection" => :build

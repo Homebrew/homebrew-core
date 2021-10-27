@@ -1,10 +1,11 @@
 class Talisman < Formula
   desc "Tool to detect and prevent secrets from getting checked in"
   homepage "https://thoughtworks.github.io/talisman/"
-  url "https://github.com/thoughtworks/talisman/archive/v1.11.0.tar.gz"
-  sha256 "95ebb3ac0215bf43d6cdf17d320e22601a3a7228d979e5a6cbaf8c4082f9ad22"
+  url "https://github.com/thoughtworks/talisman/archive/v1.23.0.tar.gz"
+  sha256 "f6dc62887a869cb3c410ad5734febb2e084253338ea7470684795a20fe59bd33"
   license "MIT"
   version_scheme 1
+  head "https://github.com/thoughtworks/talisman.git", branch: "main"
 
   livecheck do
     url :stable
@@ -12,17 +13,17 @@ class Talisman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "daffa6a328e54eaf7de706a78d82d61747b8fb72e90c73b3cd5bdfe4fd410f89"
-    sha256 cellar: :any_skip_relocation, big_sur:       "379a9307c825d9dc843e6e5df4a83786a462d48ba10022706810eeb720c91969"
-    sha256 cellar: :any_skip_relocation, catalina:      "a81ca8fca7e773534d6eaf6f57dfa062d8e3cc28afb1035a0299efd35b31219f"
-    sha256 cellar: :any_skip_relocation, mojave:        "68b0a67aeb9958226cd1434345e81ff54850212c841dd33d3d63ca30b8d8ca85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a860533d10f385c25b69e914424bd010d3c3e0b59d371afa5fe49c598723b5d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "16039093a8a0c2aa5d1e841a25302f165cd59696bae453f851502802181e32ef"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4d5cc76c5262b203a6702dee85f0a3f9adf17ef1ad9c7c3744f4fcc0c22d3d89"
+    sha256 cellar: :any_skip_relocation, catalina:      "dfcb3413f9259e82aef117ee043c0fbdffb92ff6f775482311bde77e9100a165"
+    sha256 cellar: :any_skip_relocation, mojave:        "54bb2f487a4102c6cd2469baf52552b8ee44cafc9fb37f68227b1cd59ba98e88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "418dd38c1543b59c1d71cd90c98c2f18a7f1aaa08dbbda7dabd0c3403b7cd4bf"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd"
   end
 
   test do

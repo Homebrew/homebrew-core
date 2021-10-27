@@ -1,16 +1,17 @@
 class Condure < Formula
   desc "HTTP/WebSocket connection manager"
   homepage "https://github.com/fanout/condure"
-  url "https://github.com/fanout/condure/archive/1.3.1.tar.gz"
-  sha256 "26945c241c1fd352757d9e747ba7cc1906c9d17b1b8de5936b372a183c3bf5ba"
+  url "https://github.com/fanout/condure/archive/1.4.1.tar.gz"
+  sha256 "6a30cf8f5aa51d958099c15433f23dacc1a75780b1aace9a94dce40a5e755d90"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0e2e6333e04b7815f37e06a34ef3fca4f7a3c6e74b2cbbfe393a45077392161f"
-    sha256 cellar: :any,                 big_sur:       "43695f08e129f583447199a2f7cc744aa85ae79a8944c3a09f2af273f6f86929"
-    sha256 cellar: :any,                 catalina:      "2bba408b0a94fad0d0444baec011db022fb3bd6cb3374d524f67bd9878f3cc4d"
-    sha256 cellar: :any,                 mojave:        "bbfd3f576f111e2793bc3976d8fa129410fb719cf7ff62352780a6df7e12c17f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd417c36ce2b305ca47c17bbd9a19960e2ac6f8b3e92d56120202205b8b9bc8e"
+    sha256 cellar: :any,                 arm64_monterey: "c29560884c7a1f3924f08f7e4485aba3dde2b1305fe1a1cd6ad6d1ef3fb0ca1d"
+    sha256 cellar: :any,                 arm64_big_sur:  "bdaac9f52ee87fe0efdb4829510ccf3a0c786cd33c289961e5b4b75f8b5f7400"
+    sha256 cellar: :any,                 monterey:       "89821560bbe16b7d91bf69681779d47855840ab11376bfcb836462b294883c2f"
+    sha256 cellar: :any,                 big_sur:        "76081254666364aeb1cf4d360ba92bf33ebca8b9c2a3d34a1c3448a94efacf5c"
+    sha256 cellar: :any,                 catalina:       "04b81800979389b4e9bcda0cd0d68dbcb48c1e9f52640c243ca94309a36cf124"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c2fd4b5ef3515f8411ff3211e8ffe4caf815b1384f87c66e27b265cbe7ba06b"
   end
 
   depends_on "pkg-config" => :build
@@ -20,8 +21,8 @@ class Condure < Formula
   depends_on "zeromq"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/99/3b/69360102db726741053d1446cbe9f7f06df7e2a6d5b805ee71841abf1cdc/pyzmq-22.1.0.tar.gz"
-    sha256 "7040d6dd85ea65703904d023d7f57fab793d7ffee9ba9e14f3b897f34ff2415d"
+    url "https://files.pythonhosted.org/packages/6c/95/d37e7db364d7f569e71068882b1848800f221c58026670e93a4c6d50efe7/pyzmq-22.3.0.tar.gz"
+    sha256 "8eddc033e716f8c91c6a2112f0a8ebc5e00532b4a6ae1eb0ccc48e027f9c671c"
   end
 
   resource "tnetstring3" do

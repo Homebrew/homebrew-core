@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.24.04.source.tar.gz"
   sha256 "4a416f3d7aa25dba46d05b641505eb074c5f07b3ec1d21911451046adaea3ee7"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
@@ -12,11 +13,10 @@ class Root < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "b047f553b56962b417f1a8deeb43c9a814de15e776aa52287e074e83fd9ea09d"
-    sha256 big_sur:       "1fa26f261a9a86327106fbb5f2dd48687efa39979c207696f85eb6d6a7814fef"
-    sha256 catalina:      "2c925c6cfea7e222a1aaec1c0bec0e74d6a6f56ca24afd0f36cf0b3ef97b01f6"
-    sha256 mojave:        "75c2a278276d76be14f0ed92a78e104a39cdcf0d7e506dda0d172b83747d7ed7"
-    sha256 x86_64_linux:  "91c253a9e56202f9469ae864ffaf053e5096cc6345ca09972a04757ab2f349f8"
+    sha256 arm64_big_sur: "8a99e500668f1a9bbbc1a3f047a05058c669f37e92c0a6b8d6b1dddd36391b1b"
+    sha256 big_sur:       "b4f2256214d2a774b1135f500599d3835e49c65720e645664281c3a8b29edbab"
+    sha256 catalina:      "1885ade8c0b04f7c086a5cb0f9e3a1063627b994947d1085e4b83b2e4f9e7894"
+    sha256 x86_64_linux:  "3d11c2f6d4eb7f86c694ed9073e4525baa53a128bc58f7dfe7720c37fdc6dc64"
   end
 
   depends_on "cmake" => :build
@@ -26,13 +26,16 @@ class Root < Formula
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "gl2ps"
+  depends_on "glew"
   depends_on "graphviz"
   depends_on "gsl"
   depends_on "lz4"
   depends_on "numpy" # for tmva
+  depends_on "openblas"
   depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python@3.9"
+  depends_on "sqlite"
   depends_on "tbb"
   depends_on :xcode if MacOS.version <= :catalina
   depends_on "xrootd"
@@ -40,26 +43,25 @@ class Root < Formula
   depends_on "zstd"
 
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libxft"
     depends_on "libxpm"
   end
 
-  conflicts_with "glew", because: "root ships its own copy of glew"
-
   skip_clean "bin"
 
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root" if OS.linux?
 
-    # Freetype/afterimage/gl2ps/lz4 are vendored in the tarball, so are fine.
-    # However, this is still permitting the build process to make remote
-    # connections. As a hack, since upstream support it, we inreplace
-    # this file to "encourage" the connection over HTTPS rather than HTTP.
-    inreplace "cmake/modules/SearchInstalledSoftware.cmake",
-              "http://lcgpackages",
-              "https://lcgpackages"
+    inreplace "cmake/modules/SearchInstalledSoftware.cmake" do |s|
+      # Enforce secure downloads of vendored dependencies. These are
+      # checksummed in the cmake file with sha256.
+      s.gsub! "http://lcgpackages", "https://lcgpackages"
+      # Patch out check that skips using brewed glew.
+      s.gsub! "CMAKE_VERSION VERSION_GREATER 3.15", "CMAKE_VERSION VERSION_GREATER 99.99"
+    end
 
     args = std_cmake_args + %W[
       -DCLING_CXX_PATH=clang++
@@ -67,7 +69,7 @@ class Root < Formula
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
-      -Dbuiltin_glew=ON
+      -Dbuiltin_glew=OFF
       -Ddavix=ON
       -Dfftw3=ON
       -Dfitsio=ON

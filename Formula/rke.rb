@@ -6,11 +6,13 @@ class Rke < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5650ea5362d51bf6f0ce57ed6af90a270deb2556a6bbc08c37516b2a5d3fa417"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4b35e68b991c426289eb36312e62b9819a98c38ba73d3bb53f91993c51578448"
-    sha256 cellar: :any_skip_relocation, catalina:      "3237d3b70159e54b8a0fc21c3a8eb7548432910c2c8ded4a11ae005b34382454"
-    sha256 cellar: :any_skip_relocation, mojave:        "fad78490683f8c204fe7edbd43d721f2c0de0e482cdf57e415f7e4a6f560c2a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d86d14268f383bf956342041d876ce13765d2cfd2d8403bb5c855d0baf4694f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "13f3fd18c8f050b6841bc7dcf7d126bc2ad2bd8d6dc56a42e6e2b8c51ce76a0b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5650ea5362d51bf6f0ce57ed6af90a270deb2556a6bbc08c37516b2a5d3fa417"
+    sha256 cellar: :any_skip_relocation, monterey:       "4e74535a93a020449d114dc2e3635e9d8d0900bb42e1b9a5fdd2074c0d3f1f08"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4b35e68b991c426289eb36312e62b9819a98c38ba73d3bb53f91993c51578448"
+    sha256 cellar: :any_skip_relocation, catalina:       "3237d3b70159e54b8a0fc21c3a8eb7548432910c2c8ded4a11ae005b34382454"
+    sha256 cellar: :any_skip_relocation, mojave:         "fad78490683f8c204fe7edbd43d721f2c0de0e482cdf57e415f7e4a6f560c2a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d86d14268f383bf956342041d876ce13765d2cfd2d8403bb5c855d0baf4694f"
   end
 
   depends_on "go" => :build

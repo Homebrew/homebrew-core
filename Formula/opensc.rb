@@ -12,11 +12,13 @@ class Opensc < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "fb1e4fdfdca0bd35600e321fffd758aff4e8557957da8e2a467d4580b5f52092"
-    sha256 big_sur:       "308076bb86f51319361ac05d6abb0d546e021fdef0d85294cce641808dd74d24"
-    sha256 catalina:      "78c5529ee73f82e4c4830033a14a24befd358309fe74172e0d3b37b86a5c3e0e"
-    sha256 mojave:        "59f94582f376029a1d80d4a1a2dfe0a76efd5ae03c3ae73c620eea10434f43dc"
-    sha256 x86_64_linux:  "02841a26a99ee24f685e0ac37b9cec2a905ae85953ae04a59f7e9655c12e87d4"
+    sha256 arm64_monterey: "8d683bfbc7dcaa651ed70ca75333402bc75f47fc2eaf005581138f824db97e52"
+    sha256 arm64_big_sur:  "fb1e4fdfdca0bd35600e321fffd758aff4e8557957da8e2a467d4580b5f52092"
+    sha256 monterey:       "dfc3fd6cd5a271ed848c471930f5f3f8cdcab1214b0c1eb8090697a9d8e9fc94"
+    sha256 big_sur:        "308076bb86f51319361ac05d6abb0d546e021fdef0d85294cce641808dd74d24"
+    sha256 catalina:       "78c5529ee73f82e4c4830033a14a24befd358309fe74172e0d3b37b86a5c3e0e"
+    sha256 mojave:         "59f94582f376029a1d80d4a1a2dfe0a76efd5ae03c3ae73c620eea10434f43dc"
+    sha256 x86_64_linux:   "02841a26a99ee24f685e0ac37b9cec2a905ae85953ae04a59f7e9655c12e87d4"
   end
 
   depends_on "autoconf" => :build

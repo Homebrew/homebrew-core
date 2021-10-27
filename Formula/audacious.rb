@@ -14,6 +14,11 @@ class Audacious < Formula
     end
   end
 
+  livecheck do
+    url "https://audacious-media-player.org/download"
+    regex(/href=.*?audacious[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "c8cf37b67448119b2fdef16c9eaf1b924a433f645037f9fd8a8f37fef46832a7"

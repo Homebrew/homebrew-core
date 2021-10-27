@@ -12,12 +12,14 @@ class Flac < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "0df3b501847bb370e70f11cd2758271048ad7caf9dd994e220bd2974fa162939"
-    sha256 cellar: :any,                 big_sur:       "2fd6b2eac2d88c39022752992baf18f4fa0deb43c1b27c57dc9d2349562c9514"
-    sha256 cellar: :any,                 catalina:      "3d33119f1e513ad58f20722e41498fc23315d756a834d8b346cee6842f45fea1"
-    sha256 cellar: :any,                 mojave:        "ffadc5a1825acd43aee92ea2523a1b46b3c63820f5cf59f61ee2972571454755"
-    sha256 cellar: :any,                 high_sierra:   "53562e93cd58b45d15fb5303938b1718298d69101a53612fd53075e881cbfc95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5259b441b01df1835122e3cbe62cc8aaddc0de6254e8e570f395f0d09c5f008"
+    sha256 cellar: :any,                 arm64_monterey: "17dfe556bd6dfccc5cefc783cabe5ff63cc1165af81f804c185c234de8311380"
+    sha256 cellar: :any,                 arm64_big_sur:  "0df3b501847bb370e70f11cd2758271048ad7caf9dd994e220bd2974fa162939"
+    sha256 cellar: :any,                 monterey:       "63f8a96c50be242ddc40003f25ebce247a769bab4d975e6f754b857fda6be69c"
+    sha256 cellar: :any,                 big_sur:        "2fd6b2eac2d88c39022752992baf18f4fa0deb43c1b27c57dc9d2349562c9514"
+    sha256 cellar: :any,                 catalina:       "3d33119f1e513ad58f20722e41498fc23315d756a834d8b346cee6842f45fea1"
+    sha256 cellar: :any,                 mojave:         "ffadc5a1825acd43aee92ea2523a1b46b3c63820f5cf59f61ee2972571454755"
+    sha256 cellar: :any,                 high_sierra:    "53562e93cd58b45d15fb5303938b1718298d69101a53612fd53075e881cbfc95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5259b441b01df1835122e3cbe62cc8aaddc0de6254e8e570f395f0d09c5f008"
   end
 
   head do

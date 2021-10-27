@@ -1,17 +1,16 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://openjdk-sources.osci.io/openjdk8/openjdk8u302-ga.tar.xz"
-  version "1.8.0+302"
-  sha256 "ab50669afd85086ba451cbc1560ae76e9bc7fc3c9c46e3d37ee5c6a48bb30124"
+  url "https://openjdk-sources.osci.io/openjdk8/openjdk8u312-ga.tar.xz"
+  version "1.8.0+312"
+  sha256 "62173a8233397088101b97c4175831120550124b24ae03d79721498e0d5a355b"
   license "GPL-2.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 big_sur:      "b13d2fe2ec9a4fe98ffcfb9c7b4e7a9307b12d8e999d08b88dac35eed211e459"
-    sha256 cellar: :any,                 catalina:     "2268eefc71327f9784a1a5a7ddbf17e14e50485d78bce0a856763d91dcff4ce0"
-    sha256 cellar: :any,                 mojave:       "c45c00f59218eca6e8ba55a082be6048ac30d7b13236debbc3787d3ca947b55c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ef63be9c490a22a106579b82d30086d34fc8b5cad1087d0bc5223116c17bb5af"
+    sha256 cellar: :any,                 big_sur:      "5bcb2cbf4502f83cb2bfa439c8b838cc6573a39bd1c230cd51b076ba40d3198d"
+    sha256 cellar: :any,                 catalina:     "3aef1fb4ca615ab2700103502213b4346f1867a95d34a2981689d8bba81faedc"
+    sha256 cellar: :any,                 mojave:       "8f036a79d42e0ea7719ba6cad997cf6aec791c163bef744a929375a2e9c69779"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "fe6095f8af1e870dc2bcc2888cf74a92985431bb4210df9214bcdc991161408a"
   end
 
   keg_only :versioned_formula
@@ -39,12 +38,12 @@ class OpenjdkAT8 < Formula
   # Oracle doesn't serve JDK 7 downloads anymore, so use Zulu JDK 7 for bootstrapping.
   resource "boot-jdk" do
     on_macos do
-      url "https://cdn.azul.com/zulu/bin/zulu7.48.0.11-ca-jdk7.0.312-macosx_x64.tar.gz"
-      sha256 "303ccd606307ce37f48ffbaeccaaee72fa3445eb1503c99ae181b372b72701e3"
+      url "https://cdn.azul.com/zulu/bin/zulu7.50.0.11-ca-jdk7.0.322-macosx_x64.tar.gz"
+      sha256 "085af056bfa3cbba63992a388c4eadebb1e3ae6f88822bee17520488592d7726"
     end
     on_linux do
-      url "https://cdn.azul.com/zulu/bin/zulu7.48.0.11-ca-jdk7.0.312-linux_x64.tar.gz"
-      sha256 "c21e30c6a7c0bba75bb9b5ab7933a6ca65db1947e03842278a363f582445c890"
+      url "https://cdn.azul.com/zulu/bin/zulu7.50.0.11-ca-jdk7.0.322-linux_x64.tar.gz"
+      sha256 "68ac226429904f208a9b873898d2aa6fce3c900c4da8304d589d0b753634bb10"
     end
   end
 
@@ -71,6 +70,11 @@ class OpenjdkAT8 < Formula
         s.gsub! "$(subst .,,$(MACOSX_VERSION_MIN))", ENV["HOMEBREW_MACOS_VERSION_NUMERIC"]
         s.gsub! "MACOSX_VERSION_MIN=10.7.0", "MACOSX_VERSION_MIN=#{MacOS.version}"
       end
+
+      # Fix Xcode 13 detection.
+      inreplace "common/autoconf/toolchain.m4",
+                "if test \"${XC_VERSION_PARTS[[0]]}\" != \"6\"",
+                "if test \"${XC_VERSION_PARTS[[0]]}\" != \"13\""
     end
 
     if OS.linux?

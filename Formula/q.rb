@@ -3,18 +3,16 @@ class Q < Formula
 
   desc "Run SQL directly on CSV or TSV files"
   homepage "https://harelba.github.io/q/"
-  url "https://github.com/harelba/q/archive/2.0.19.tar.gz"
-  sha256 "cd4c60923bc40f53d974b54849f76096bf9901407c618cd0a3ccbc322aacc97d"
+  url "https://github.com/harelba/q/archive/2.0.20.tar.gz"
+  sha256 "46793aef623aac3700856c699cc04810b7a53533f829318729cee900c499a7e1"
   license "GPL-3.0-or-later"
-  revision 3
   head "https://github.com/harelba/q.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3d4d40c7c4eacc8abe3ea9d3ab9e34ea0019d93b696a8660d092507c16bfa07"
-    sha256 cellar: :any_skip_relocation, big_sur:       "df0790f33e2fc35de6454f038789eeeb51db774ff1c96f1fdf73da2291b13d64"
-    sha256 cellar: :any_skip_relocation, catalina:      "df0790f33e2fc35de6454f038789eeeb51db774ff1c96f1fdf73da2291b13d64"
-    sha256 cellar: :any_skip_relocation, mojave:        "df0790f33e2fc35de6454f038789eeeb51db774ff1c96f1fdf73da2291b13d64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26c5d5f054b1399bb5cdf22aab604873d00a11e5020ffd2427beec08da39fbb0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c72ca06a7c9dbe3b3eaee1b8db72811edbf7e64fbee5b694bcf2ed7e8d877d50"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4511c183df36704ec7cb497b4a319409875ea2ef6068255ae2a2e0a2d7293e29"
+    sha256 cellar: :any_skip_relocation, catalina:      "4511c183df36704ec7cb497b4a319409875ea2ef6068255ae2a2e0a2d7293e29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bed14a331133ff96b85fa37e0729ca695bd273f78ee82e792185d137edf9917a"
   end
 
   depends_on "ronn" => :build

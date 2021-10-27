@@ -12,11 +12,13 @@ class Wxwidgets < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "00b2086f68be587c6ee848954845a81e1e4bda964dc4a8b8ec117d6acb54c833"
-    sha256 cellar: :any,                 big_sur:       "b75599c4bb938ce01b3ddcce13c8cea3d7f329db85a1a63672eca1266621e857"
-    sha256 cellar: :any,                 catalina:      "a9de66ca781fe633b958a0a7745b47fecd4ffb3fc9d7302757b057ded6c88e22"
-    sha256 cellar: :any,                 mojave:        "974046c7307cca6cb5eec6ef6b06c57817f42782ef1cfa03ff1f4bb4a97190bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f20b0033ce08592ade30d821da88010582c6107e7269e112ab3bbd48ec887f66"
+    sha256 cellar: :any,                 arm64_monterey: "64286e7122dfb5fb4a2ff013f2a9ef10595f404d036908ca6279c2821f02cf43"
+    sha256 cellar: :any,                 arm64_big_sur:  "00b2086f68be587c6ee848954845a81e1e4bda964dc4a8b8ec117d6acb54c833"
+    sha256 cellar: :any,                 monterey:       "ee0ae69ee883fe648eec49b00c39780e1ccecf11dd8b1e1fd58ef01c92b08f03"
+    sha256 cellar: :any,                 big_sur:        "b75599c4bb938ce01b3ddcce13c8cea3d7f329db85a1a63672eca1266621e857"
+    sha256 cellar: :any,                 catalina:       "a9de66ca781fe633b958a0a7745b47fecd4ffb3fc9d7302757b057ded6c88e22"
+    sha256 cellar: :any,                 mojave:         "974046c7307cca6cb5eec6ef6b06c57817f42782ef1cfa03ff1f4bb4a97190bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f20b0033ce08592ade30d821da88010582c6107e7269e112ab3bbd48ec887f66"
   end
 
   depends_on "jpeg"

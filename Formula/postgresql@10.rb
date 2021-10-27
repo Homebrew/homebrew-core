@@ -11,11 +11,13 @@ class PostgresqlAT10 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "b78fbea6a1a9b4181e2a2ef2c7bd436c23628f88dd822338573e724a817b2b2c"
-    sha256 big_sur:       "af833896d178d006d4bdc48eafdc270a23d7b1f62dbcd8fd88e7e63269f0adcf"
-    sha256 catalina:      "36cbf68eb8dab89c51d6d4e11dc7935e776572a5d04466b9515b655980ead968"
-    sha256 mojave:        "a5a7b07196fb7f5bb79fe04e85f5efea62500d167f2a82fd199bf40d21ff894f"
-    sha256 x86_64_linux:  "10c73ffb3f8afcea15586546d26797e800caab91039904024de3c184bc5c9786"
+    sha256 arm64_monterey: "b0844d4938363b8c23c01cc0a6e58cee52052d306e8a08f1a60d80ba122e96ae"
+    sha256 arm64_big_sur:  "b78fbea6a1a9b4181e2a2ef2c7bd436c23628f88dd822338573e724a817b2b2c"
+    sha256 monterey:       "02c40b5f9a65df4e286939d72dec498133d825db80907fc05bf449d110f4eaf7"
+    sha256 big_sur:        "af833896d178d006d4bdc48eafdc270a23d7b1f62dbcd8fd88e7e63269f0adcf"
+    sha256 catalina:       "36cbf68eb8dab89c51d6d4e11dc7935e776572a5d04466b9515b655980ead968"
+    sha256 mojave:         "a5a7b07196fb7f5bb79fe04e85f5efea62500d167f2a82fd199bf40d21ff894f"
+    sha256 x86_64_linux:   "10c73ffb3f8afcea15586546d26797e800caab91039904024de3c184bc5c9786"
   end
 
   keg_only :versioned_formula

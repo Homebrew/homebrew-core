@@ -10,11 +10,13 @@ class Unoconv < Formula
   head "https://github.com/unoconv/unoconv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "632fc4da008b323aa3aeb15c6960b4e5c31b05f282db84616258881ade4bf0f8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b7e53457a5a8af631877af85382c03dbfc9b37ca410a287966a05d0fa89568fb"
-    sha256 cellar: :any_skip_relocation, catalina:      "b7e53457a5a8af631877af85382c03dbfc9b37ca410a287966a05d0fa89568fb"
-    sha256 cellar: :any_skip_relocation, mojave:        "b7e53457a5a8af631877af85382c03dbfc9b37ca410a287966a05d0fa89568fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "632fc4da008b323aa3aeb15c6960b4e5c31b05f282db84616258881ade4bf0f8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "632fc4da008b323aa3aeb15c6960b4e5c31b05f282db84616258881ade4bf0f8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "632fc4da008b323aa3aeb15c6960b4e5c31b05f282db84616258881ade4bf0f8"
+    sha256 cellar: :any_skip_relocation, monterey:       "b7e53457a5a8af631877af85382c03dbfc9b37ca410a287966a05d0fa89568fb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b7e53457a5a8af631877af85382c03dbfc9b37ca410a287966a05d0fa89568fb"
+    sha256 cellar: :any_skip_relocation, catalina:       "b7e53457a5a8af631877af85382c03dbfc9b37ca410a287966a05d0fa89568fb"
+    sha256 cellar: :any_skip_relocation, mojave:         "b7e53457a5a8af631877af85382c03dbfc9b37ca410a287966a05d0fa89568fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "632fc4da008b323aa3aeb15c6960b4e5c31b05f282db84616258881ade4bf0f8"
   end
 
   depends_on "python@3.10"

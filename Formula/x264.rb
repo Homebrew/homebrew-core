@@ -48,11 +48,13 @@ class X264 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "2f5442c86dc08c7c283a4de626e8a7e8ceb17621b2ce63c7674f8c31a47eaf2c"
-    sha256 cellar: :any,                 big_sur:       "dae0e0e0715c44a916170879eb71c942b673d9450c7c0db319ce7e56757e567f"
-    sha256 cellar: :any,                 catalina:      "2ffa8448569c0272db62789e0c1475330356956f570fea278a3fa0ca7739ab3b"
-    sha256 cellar: :any,                 mojave:        "6780344c98d8c614d8fb8039365747cc699cb6818f7c3d56b708d9e2c5afe388"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ed86de1b2e5af0136202b8479dde1935c46bbdd9da4c11afa52f1f18820e9a1"
+    sha256 cellar: :any,                 arm64_monterey: "9734de08ad24836dc4c222293d6413b66d0e2f7b5dd93fc190e3404f316f3804"
+    sha256 cellar: :any,                 arm64_big_sur:  "2f5442c86dc08c7c283a4de626e8a7e8ceb17621b2ce63c7674f8c31a47eaf2c"
+    sha256 cellar: :any,                 monterey:       "40eca7e7d71bb3541b5dceb89bd5b40b0bd763e30ab0f36e6d7a405309eda270"
+    sha256 cellar: :any,                 big_sur:        "dae0e0e0715c44a916170879eb71c942b673d9450c7c0db319ce7e56757e567f"
+    sha256 cellar: :any,                 catalina:       "2ffa8448569c0272db62789e0c1475330356956f570fea278a3fa0ca7739ab3b"
+    sha256 cellar: :any,                 mojave:         "6780344c98d8c614d8fb8039365747cc699cb6818f7c3d56b708d9e2c5afe388"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ed86de1b2e5af0136202b8479dde1935c46bbdd9da4c11afa52f1f18820e9a1"
   end
 
   depends_on "nasm" => :build

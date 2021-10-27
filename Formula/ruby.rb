@@ -4,6 +4,7 @@ class Ruby < Formula
   url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.2.tar.xz"
   sha256 "570e7773100f625599575f363831166d91d49a1ab97d3ab6495af44774155c40"
   license "Ruby"
+  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
@@ -11,11 +12,13 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "7fefa5ed8f97adc4984c9b59d4ce0860e875c8e944152a30d967b8a7810f36cb"
-    sha256 big_sur:       "39da97472055c844b0d23fc3c6030393d8fb8cde17098cf4eae0c590a95e6990"
-    sha256 catalina:      "70091e895ac4eee3e256e4357ffc46ad5246b833c958a3b6b6ae1bbf922b5e5e"
-    sha256 mojave:        "ec10947a2e2281b7dc4586c06762cf9ef41c48cb9defc683817dbe073988ac25"
-    sha256 x86_64_linux:  "003a399f91fdccc452beb376eb23a34de464301f438b1dd419717ecb12a38d43"
+    sha256 arm64_monterey: "06ffbddcfc573a3403d33bc127b60a53e5d6b5442819f21f0d44868209018090"
+    sha256 arm64_big_sur:  "86f9be3f7ac26e69e3c856776569b1c10039716f5787821944645c6d0f10fe87"
+    sha256 monterey:       "a96e512f8f9e3b8b76be15aedf258df8ce7b2d0a54c67d9324801b9ef4d223c9"
+    sha256 big_sur:        "b11776c7e7209ddbfee2085de7027a6f987657045171dddb0692c18ea07f4bc5"
+    sha256 catalina:       "7929b11c278737feca268f8b3ad8a7174f6e7b6034248f0c743debfea3708ab8"
+    sha256 mojave:         "435dd2553367df11b8619cc7428362a633229e3c198d701ab399413c548bcf75"
+    sha256 x86_64_linux:   "122e95641ce5f32a78814e3b9f753f8504ab513f42016c0f6dd78825e05051fe"
   end
 
   head do

@@ -32,8 +32,13 @@ class Rpm < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
+
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua"].opt_libexec/"lib/pkgconfig"
     ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
     ENV.append "LDFLAGS", "-lomp"
 
@@ -56,15 +61,15 @@ class Rpm < Formula
                           "--with-external-db",
                           "--with-crypto=openssl",
                           "--without-apidocs",
-                          "--with-vendor=homebrew",
+                          "--with-vendor=#{tap.user.downcase}",
                           # Don't allow superenv shims to be saved into lib/rpm/macros
                           "__MAKE=/usr/bin/make",
-                          "__SED=/usr/bin/sed",
                           "__GIT=/usr/bin/git",
                           "__LD=/usr/bin/ld"
     system "make", "install"
 
-    inreplace lib/"rpm/macros", Superenv.shims_path, "" if OS.mac?
+    # NOTE: We need the trailing `/` to avoid leaving it behind.
+    inreplace lib/"rpm/macros", "#{Superenv.shims_path}/", ""
   end
 
   def post_install

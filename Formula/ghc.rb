@@ -8,6 +8,7 @@ class Ghc < Formula
     "BSD-3-Clause",
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
   ]
+  revision 1
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
@@ -15,16 +16,21 @@ class Ghc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "dc95f7ac96f96622d0ba846d38355f944e16a4c06304a12f5549dde9de422c3d"
-    sha256                               big_sur:       "c008431d9fdd2d56c97cd22134c776c9e2c3f322a4e8ebb9bb5808750c7ce1c2"
-    sha256                               catalina:      "9d7309d7f86d20b3c1d7c3ec74f7c77b060910b52d3550c2f6f17312da0d0d47"
-    sha256                               mojave:        "6f23a42bf1ad6b4ef103c29c09033117e27dbd85f752cdcdc33220cfd505c445"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ea70cb015d4f7d1c7aa25cca023b93dd254173964f6497ead92dda3602b961c"
+    sha256 cellar: :any,                 arm64_monterey: "41e846a0479f930390ae2c65cf7ae0f3ea3755ff26df56822fb999722fb4932e"
+    sha256 cellar: :any,                 arm64_big_sur:  "7ddd8e8dabdb5654f167aa079ef9a1290e20aa151ce3580eed24042d95d47b57"
+    sha256                               monterey:       "c50034c3553a0f6099e2dfc3c7c33ca148256fedc8bc9be492cc942284bb473e"
+    sha256                               big_sur:        "68f447996de80ef0aa655b9b0f5cc048503a09366b17edf77b101f9c1a38fe0b"
+    sha256                               catalina:       "14f6f4c4faa2ef0e4de7b225346c3b084de3356f069ac77eed05768046c70e28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bea0a8011b453e37e99855a6640642303d60c6611db366cb5f2d02a7546da19b"
   end
 
   depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "llvm" if Hardware::CPU.arm?
+  # GHC 8.10.7 user manual recommend use LLVM 9 through 12
+  # https://downloads.haskell.org/~ghc/8.10.7/docs/html/users_guide/8.10.7-notes.html
+  # and we met some unknown issue w/ LLVM 13 before https://gitlab.haskell.org/ghc/ghc/-/issues/20559
+  # so conservatively use LLVM 12 here
+  depends_on "llvm@12" if Hardware::CPU.arm?
 
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
@@ -111,7 +117,7 @@ class Ghc < Formula
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
     Dir.glob(lib/"*/package.conf.d/package.cache.lock") { |f| rm f }
 
-    bin.env_script_all_files libexec/"bin", PATH: "$PATH:#{Formula["llvm"].opt_bin}" if Hardware::CPU.arm?
+    bin.env_script_all_files libexec, PATH: "${PATH}:#{Formula["llvm@12"].opt_bin}" if Hardware::CPU.arm?
   end
 
   def post_install

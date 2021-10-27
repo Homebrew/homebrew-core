@@ -6,11 +6,13 @@ class Meilisearch < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3c1287b893ae845b030075f6d38090a359178350aa05466c7b0ca7cf4dd44aca"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5493772e502961c01a1e4d7aed6adefc63d627f19c264911bb9e13ae215ed9bd"
-    sha256 cellar: :any_skip_relocation, catalina:      "020fe52571b26866e7af1b5f5b64501342670d80aaf09f25f8027d3e45c84271"
-    sha256 cellar: :any_skip_relocation, mojave:        "8fb9e274d85b3190c44af2da178acc345ad2bc691d02144c9a77bf66236aeab0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd74829a0c90ca96517d6cac2ac254098d95d06a92e88cdaa458992076ad8394"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c7ea8dd440ddc248b5ca37f8cb0660dcbb8502c42ca0f2d16451611dcc6829b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c1287b893ae845b030075f6d38090a359178350aa05466c7b0ca7cf4dd44aca"
+    sha256 cellar: :any_skip_relocation, monterey:       "c224c5ac430017b3d53366d067819fd3af15eae243e4b5f948f03eea4aa98cde"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5493772e502961c01a1e4d7aed6adefc63d627f19c264911bb9e13ae215ed9bd"
+    sha256 cellar: :any_skip_relocation, catalina:       "020fe52571b26866e7af1b5f5b64501342670d80aaf09f25f8027d3e45c84271"
+    sha256 cellar: :any_skip_relocation, mojave:         "8fb9e274d85b3190c44af2da178acc345ad2bc691d02144c9a77bf66236aeab0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd74829a0c90ca96517d6cac2ac254098d95d06a92e88cdaa458992076ad8394"
   end
 
   depends_on "rust" => :build

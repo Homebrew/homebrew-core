@@ -14,12 +14,14 @@ class IcarusVerilog < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "8c5b344e8564ddd8834922e65bb6ed4fd3951bfdbab3a80064cb8a40f53fc643"
-    sha256 big_sur:       "e4f89cc6c8f66d90e45af4357c496ec2ba49ea48ca04e552ca318ff31e825489"
-    sha256 catalina:      "99791a3fd0891487586c49112fa3293e65320e651bbf9c03f15a58b456e96e6e"
-    sha256 mojave:        "92851adfb43caad0826da2bf74706c15e6fffc2e32b2b003e19659b0e6a4542b"
-    sha256 high_sierra:   "a92f6fe981238a8c2b9f47b99d77c1e8596bc74235b8f6601835aae8f9ad70a1"
-    sha256 x86_64_linux:  "edee1d331189156e7929b50aa7c7515ad15e8721650d936028905aade9e8fccb"
+    sha256 arm64_monterey: "2ac5133198143cad8b5b04e6eabc60b0e5d9b124881b2d07531c7a4fa1e1eab3"
+    sha256 arm64_big_sur:  "8c5b344e8564ddd8834922e65bb6ed4fd3951bfdbab3a80064cb8a40f53fc643"
+    sha256 monterey:       "e7fc5ea4149ccff8b4187eab05be448d1b1cc1f5ece057e9c441d8f3882390a4"
+    sha256 big_sur:        "e4f89cc6c8f66d90e45af4357c496ec2ba49ea48ca04e552ca318ff31e825489"
+    sha256 catalina:       "99791a3fd0891487586c49112fa3293e65320e651bbf9c03f15a58b456e96e6e"
+    sha256 mojave:         "92851adfb43caad0826da2bf74706c15e6fffc2e32b2b003e19659b0e6a4542b"
+    sha256 high_sierra:    "a92f6fe981238a8c2b9f47b99d77c1e8596bc74235b8f6601835aae8f9ad70a1"
+    sha256 x86_64_linux:   "edee1d331189156e7929b50aa7c7515ad15e8721650d936028905aade9e8fccb"
   end
 
   # support for autoconf >= 2.70 was added after the current release

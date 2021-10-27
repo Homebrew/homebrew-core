@@ -15,7 +15,7 @@ class Austin < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.9" => :test
+  depends_on "python@3.10" => :test
 
   def install
     system "autoreconf", "--install"
@@ -26,6 +26,6 @@ class Austin < Formula
   end
 
   test do
-    shell_output("#{bin}/austin #{Formula["python@3.9"].opt_bin}/python3 -c \"from time import sleep; sleep(1)\"", 37)
+    shell_output(bin/"austin #{Formula["python@3.10"].opt_bin}/python3 -c \"from time import sleep; sleep(1)\"", 37)
   end
 end

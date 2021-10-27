@@ -8,11 +8,13 @@ class Ccm < Formula
   head "https://github.com/pcmanus/ccm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6d54c130a02a2a8e18fa4ab6581fb247801cb8e4a34ed64556092445a7d00768"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5be6d025aa61b10990e45c4158cea86bd6722e5aeb677c5a10e3cadc68971bdf"
-    sha256 cellar: :any_skip_relocation, catalina:      "cb07fbe35e0dcea161491e1a670f7605e21b13299c28de8d3ed08102a0d641a4"
-    sha256 cellar: :any_skip_relocation, mojave:        "076976be7d2278de9591750dcfada9d9856cb217f2869c9e00ddf459e173e933"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25f5c11e27bc7042f66c6ed9c5c9d71b98e2c9796be0acdef7ef1012b98c96fa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a63a013f478786c34eac1bc519ee9466ccf7c146446e06c993fe0435588947e3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d54c130a02a2a8e18fa4ab6581fb247801cb8e4a34ed64556092445a7d00768"
+    sha256 cellar: :any_skip_relocation, monterey:       "18ee12aedd0f0d05fb7d61451ba98e981d71e5c8c375450bde94a0eb7c612ca8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5be6d025aa61b10990e45c4158cea86bd6722e5aeb677c5a10e3cadc68971bdf"
+    sha256 cellar: :any_skip_relocation, catalina:       "cb07fbe35e0dcea161491e1a670f7605e21b13299c28de8d3ed08102a0d641a4"
+    sha256 cellar: :any_skip_relocation, mojave:         "076976be7d2278de9591750dcfada9d9856cb217f2869c9e00ddf459e173e933"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25f5c11e27bc7042f66c6ed9c5c9d71b98e2c9796be0acdef7ef1012b98c96fa"
   end
 
   depends_on "python@3.10"

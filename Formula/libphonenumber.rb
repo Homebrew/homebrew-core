@@ -1,8 +1,8 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/google/libphonenumber"
-  url "https://github.com/google/libphonenumber/archive/v8.12.34.tar.gz"
-  sha256 "2e133ca9f1ab5f54de23b2c17b59d7b47114ce5af1b83762238d769a2864a46d"
+  url "https://github.com/google/libphonenumber/archive/v8.12.35.tar.gz"
+  sha256 "8ebd00c89a441d1989f609ad2c7eb7cc0d900d4f126fa3df835a805e25235dc7"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Libphonenumber < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "1a43d959dfc3ed1aceb7f17054a386a28f5b1dda6046f1d9be43face609e46ff"
-    sha256 cellar: :any,                 big_sur:       "8676ec78d3a387bce108dc2552c8b8c398ebb96987349c84846862e8e6d84ff4"
-    sha256 cellar: :any,                 catalina:      "3cc0ff1c358a5896735f55336184eb721e4977b9c5311fed91523524f9decd31"
-    sha256 cellar: :any,                 mojave:        "593cc1b4dce21e6310ca775e4ea6057557e13dc73dacef89a46b417bc5143a14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46fff018025a5619553fe1caf202b9234401b8fa72d00d29fb6dc171d9162963"
+    sha256 cellar: :any,                 arm64_big_sur: "d6c4a3f343eb993dd8349ef77d4f72c64c1abc3134eeb25a67e8f8b615502a19"
+    sha256 cellar: :any,                 big_sur:       "41d9263373e2eee2ab76322f60eae5e4e66ca45504023345a4244159b17b3102"
+    sha256 cellar: :any,                 catalina:      "0f707bfce5820a757b52d482a0c24a58bf9c88306284e05d1a2275c5d1c7c21f"
+    sha256 cellar: :any,                 mojave:        "2775fe1e8d7c86bcb32aeefc232030d9c63fe40cad8e452fe1cb7e2449754c2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fc57b042ceb01d841d5da5e89f3c9d9d9a5f21df224caaaaf6e87712e2f0e42"
   end
 
   depends_on "cmake" => :build

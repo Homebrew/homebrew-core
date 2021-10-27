@@ -6,12 +6,13 @@ class Datalad < Formula
   url "https://files.pythonhosted.org/packages/36/00/e8a1f0ddc0a899d494aa9694f28ebff3b13c87276bc749ed29a1163ec868/datalad-0.15.2.tar.gz"
   sha256 "1a878cf521270f089ee1f50339e71cfd7eed41e708d895a12d5c483a9b59991b"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "503698b2d43d533b47508cb1e3cbb383d13cbf9905af706762ada230fadd669b"
-    sha256 cellar: :any_skip_relocation, catalina:     "9615cc1d8c198be8e3ddb464ba689bbc600b983d67fd1e23b66f01d755a7e0a7"
-    sha256 cellar: :any_skip_relocation, mojave:       "6a981503291d9f07c2575403329eaf4194b4e1589a38356f19a059c1ecd6272e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "cfdc331e5846d7c79bcdf54508c2d2ae9d3b78f05a6698d52ee9704dc270ab82"
+    sha256 cellar: :any_skip_relocation, big_sur:      "310001ab3fb67e898387643f33a93109f4a926ae1eeede7ecd4d326f116e0ee4"
+    sha256 cellar: :any_skip_relocation, catalina:     "a187072251b3a94d690eb35548e1c4906339259be8eebb11d91bc3bddfe2fd1e"
+    sha256 cellar: :any_skip_relocation, mojave:       "0eb7ad37e2e7036ead5d080a65ffd5666dae7e002dcc787af9665439621a7df3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "76dc0f93ad82bd5397fdcede94e50e0cd23ed9befa4efed618d6ff20d59d8a75"
   end
 
   depends_on "git-annex"

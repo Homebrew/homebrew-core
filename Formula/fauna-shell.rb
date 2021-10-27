@@ -8,10 +8,12 @@ class FaunaShell < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "543c21f8b5b5da35305f51117a95783d4c1f4c8d5da77a60ead0e4041bcf39ee"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2a007b7fac07f321a6dd35a49a400a3a576dafb107b451775b5ef0b64ada5e52"
-    sha256 cellar: :any_skip_relocation, catalina:      "2a007b7fac07f321a6dd35a49a400a3a576dafb107b451775b5ef0b64ada5e52"
-    sha256 cellar: :any_skip_relocation, mojave:        "2a007b7fac07f321a6dd35a49a400a3a576dafb107b451775b5ef0b64ada5e52"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "241bd08e56bf1f0931702cac6dec583503c9a10f09ffcfa5472887a5244a3c85"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "543c21f8b5b5da35305f51117a95783d4c1f4c8d5da77a60ead0e4041bcf39ee"
+    sha256 cellar: :any_skip_relocation, monterey:       "0d7e051ddf9d67f9fd7632ba7ae8b61c8e5f7a136e49137522a94761b457a129"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2a007b7fac07f321a6dd35a49a400a3a576dafb107b451775b5ef0b64ada5e52"
+    sha256 cellar: :any_skip_relocation, catalina:       "2a007b7fac07f321a6dd35a49a400a3a576dafb107b451775b5ef0b64ada5e52"
+    sha256 cellar: :any_skip_relocation, mojave:         "2a007b7fac07f321a6dd35a49a400a3a576dafb107b451775b5ef0b64ada5e52"
   end
 
   depends_on "node"

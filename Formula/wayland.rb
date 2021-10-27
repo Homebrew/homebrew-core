@@ -4,6 +4,7 @@ class Wayland < Formula
   url "https://wayland.freedesktop.org/releases/wayland-1.19.0.tar.xz"
   sha256 "baccd902300d354581cd5ad3cc49daa4921d55fb416a5883e218750fef166d15"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://wayland.freedesktop.org/releases.html"
@@ -11,7 +12,7 @@ class Wayland < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "6ed08aad2d77799e6631db5419442b10cfb937731928b874dc2daa83cae77886"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2f1d90edbb445d3aed8bb61eb9f2ab528a7f2a8d528ab960adb4942f7b29f952"
   end
 
   depends_on "pkg-config" => :build

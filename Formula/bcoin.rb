@@ -6,23 +6,28 @@ class Bcoin < Formula
   url "https://github.com/bcoin-org/bcoin/archive/v2.1.2.tar.gz"
   sha256 "b4c63598ee1efc17e4622ef88c1dff972692da1157e8daf7da5ea8abc3d234df"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/bcoin-org/bcoin.git", branch: "master"
 
   bottle do
-    sha256                               arm64_big_sur: "03cd2231a1a9761a6e55696ac3285930b18193a390a4e327227e0ed71c4ad350"
-    sha256                               big_sur:       "f5ea48d98b345f76dba628c6fca49f1202e214a8ed265109d898716b689198f4"
-    sha256                               catalina:      "cbc374b70e39ec6954a58f1c69cfb357121df495da3e2e5b51d6ce590b35de92"
-    sha256                               mojave:        "4e8b2f111b3643712058823c9af5c1650ce64c7d5757e30c1c58d3d34dcac8ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46f97e509af3ecc06af837d1f6d5987f3da8026cb280f9641736b840d7ad8b89"
+    sha256                               arm64_big_sur: "728c2a8cb144edbcd2e0174a30f13eb62be21217c7f5a12a1e8d9a9ca30228da"
+    sha256                               big_sur:       "93b20a88905a0618fdcaa7e4802a52112297e5352a893b086ecd582a9b4f4cfe"
+    sha256                               catalina:      "e84084b15935bd9c85fee85b902cbbedb3a57e71cf80307878e7fc47964f74f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40c658b3c5f910037d531193d08cef916272f71fe6193543b05497db804f24b6"
   end
 
-  depends_on "python@3.9" => :build
-  depends_on "node"
+  depends_on "python@3.10" => :build
+  depends_on "node@16"
+
+  def node
+    deps.reject(&:build?)
+        .map(&:to_formula)
+        .find { |f| f.name.match?(/^node(@\d+(\.\d+)*)?$/) }
+  end
 
   def install
-    system "#{Formula["node"].libexec}/bin/npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"bcoin").write_env_script libexec/"bin/bcoin", PATH: "#{Formula["node"].opt_bin}:$PATH"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    (bin/"bcoin").write_env_script libexec/"bin/bcoin", PATH: "#{node.opt_bin}:$PATH"
   end
 
   test do
@@ -39,7 +44,7 @@ class Bcoin < Formula
         await node.ensure();
       })();
     EOS
-    system "#{Formula["node"].bin}/node", testpath/"script.js"
+    system "#{node.opt_bin}/node", testpath/"script.js"
     assert File.directory?("#{testpath}/.bcoin")
   end
 end

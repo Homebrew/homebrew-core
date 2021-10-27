@@ -1,18 +1,19 @@
 class Cgrep < Formula
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://github.com/awgn/cgrep/archive/v6.6.33.tar.gz"
-  sha256 "f0d7114e9c26dc3ff3515711cce63864f3995ac06ed3743acf2560fc5a1eb78e"
+  url "https://github.com/awgn/cgrep/archive/v6.7.0.tar.gz"
+  sha256 "a61dfdc97d29a61ab196ed4d4d68a2a31d690185e6cf42cf9d37b9d1a725a426"
   license "GPL-2.0-or-later"
   head "https://github.com/awgn/cgrep.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "fad4cc03f990a4aa7488d89f306766e5a496adc92431c5b5de80e0f8c4d33a73"
-    sha256 cellar: :any,                 big_sur:       "cdb29911007db234f2480b8f4d7958a024f14d33c219b9de134fcc335d39357a"
-    sha256 cellar: :any,                 catalina:      "75e4aa890057e43801be25ca61531c74b22b8685a3ada1032c270b740e9a9cda"
-    sha256 cellar: :any,                 mojave:        "83e3c982a030617bc8d4b2dd329170e2c8ad7d77d40f715ecb83f7bdcba86135"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3b1169d4c9e8643d7b613bb7f9b16e7d773d65de726fbac7dc85323580b2f06"
+    sha256 cellar: :any,                 arm64_monterey: "c1d52cc310637e53841cda7ad606752523595fcf5cde0fdd225f69b053990622"
+    sha256 cellar: :any,                 arm64_big_sur:  "25858aa7c4f6851083589571653bf47b278d304276596e475319f7165b28b18e"
+    sha256 cellar: :any,                 monterey:       "a7a4ab449b83c4140802b90167e3751da0373bdd2af0e20737ee3c0b0049cfce"
+    sha256 cellar: :any,                 big_sur:        "c802cbb5bae4c207cf1aa50add2c115621a20632a05129a386589c4b73ff036b"
+    sha256 cellar: :any,                 catalina:       "1cde998562c4510e121298c30c12ccdc3b30f875950c6748103ab1d12469f740"
+    sha256 cellar: :any,                 mojave:         "89bf1c8dacd4e56fd902ac26b5d0f89bac3fd314220fdb4c57f1fbb996d4db1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50bad499d6659e8c7d123f53cadc6e68711606cd97401495b3c2967f353a7a23"
   end
 
   depends_on "cabal-install" => :build

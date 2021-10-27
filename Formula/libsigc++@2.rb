@@ -6,11 +6,13 @@ class LibsigcxxAT2 < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3592c888aba18303eaa7e7837a27e386e311bac18684b613f705917ca6356ed6"
-    sha256 cellar: :any,                 big_sur:       "c24567ac4b9a732a434afcadda0d1a02f573607c73ebb00625e8ffcc6506f331"
-    sha256 cellar: :any,                 catalina:      "6a51eeae589ad4511165b0236a64a7055315eafcf790fcc1ed3df24853fe4bdb"
-    sha256 cellar: :any,                 mojave:        "38886af39d68b304c8e9f4eac36f6a5e6bd21b79ee9a353df7266649f0490128"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c36d5580b4f8970a6db2027820bbf1eb3cca66f56fbf8c56b32c72c3a23cc6c"
+    sha256 cellar: :any,                 arm64_monterey: "6b6ee5de019405fdc5b58a8b8761f60c3fe8d64a916999a0ad39a96117aab9ea"
+    sha256 cellar: :any,                 arm64_big_sur:  "3592c888aba18303eaa7e7837a27e386e311bac18684b613f705917ca6356ed6"
+    sha256 cellar: :any,                 monterey:       "5cba3fb26934f5f573872a72741b08261619e8e73eebe4384e2266b87ad2af4a"
+    sha256 cellar: :any,                 big_sur:        "c24567ac4b9a732a434afcadda0d1a02f573607c73ebb00625e8ffcc6506f331"
+    sha256 cellar: :any,                 catalina:       "6a51eeae589ad4511165b0236a64a7055315eafcf790fcc1ed3df24853fe4bdb"
+    sha256 cellar: :any,                 mojave:         "38886af39d68b304c8e9f4eac36f6a5e6bd21b79ee9a353df7266649f0490128"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c36d5580b4f8970a6db2027820bbf1eb3cca66f56fbf8c56b32c72c3a23cc6c"
   end
 
   depends_on "meson" => :build

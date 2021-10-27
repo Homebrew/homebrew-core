@@ -25,11 +25,7 @@ class Elasticsearch < Formula
   end
 
   def install
-    os = if OS.mac?
-      "darwin"
-    else
-      "linux"
-    end
+    os = OS.kernel_name.downcase
     system "gradle", ":distribution:archives:oss-no-jdk-#{os}-tar:assemble"
 
     mkdir "tar" do

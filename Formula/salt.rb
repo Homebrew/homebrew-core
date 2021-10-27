@@ -3,25 +3,26 @@ class Salt < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "https://saltproject.io/"
-  url "https://files.pythonhosted.org/packages/71/8a/02f957ad4ebfe28002ceef891c8fa0780c4bd75d4882af8c0228dbd2084d/salt-3003.3.tar.gz"
-  sha256 "a6f9c8c8b5e2600ea8620b4a67371de17611beb4f8d97e4bb9b0b308a37ed1e2"
+  url "https://files.pythonhosted.org/packages/0f/35/e4e1f092eb1a22e807f9bcc5712701bf4d55f9ab41eb2cca55680817ef05/salt-3004.tar.gz"
+  sha256 "3d53561bc86e014dca2ec3dc981079be04d55ea047890cabde25e5b10bfa5b13"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/saltstack/salt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "60321612cf3e3cb60c7e7b8433c9b282ef110b5acaaf418ab90157d99640d4a0"
-    sha256 cellar: :any,                 big_sur:       "bb94e0fa189acf66c3c79b2c190cb320e6bc429557ca419d8beafa039d8787b8"
-    sha256 cellar: :any,                 catalina:      "b58b60fe59eb23ab491a2f1311e62dc6d88adba402085d571998277ae67e771a"
-    sha256 cellar: :any,                 mojave:        "ff2d9aa9f6c93ce3f508047a2e1886dad6eb40de0e8cda12ab3b0f863c0cd91b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27092e587ced134d1e8d4c605405409344de37ceef8e3c584606c025d62aa40e"
+    sha256 cellar: :any,                 arm64_monterey: "f3b9197394edfe8fb34ee9347dfa6956322c4b3ff06906e9338bcae49b2c7c6a"
+    sha256 cellar: :any,                 arm64_big_sur:  "8305b4d8a25285d3790accc72bf32533d87be0078e8b94d7d6985bbc288b4eac"
+    sha256 cellar: :any,                 monterey:       "90119f731b01f13b72b29b7183d8116e1f556ef7ff07dd00ce30aef3c4035f4a"
+    sha256 cellar: :any,                 big_sur:        "fb43c3220747e15c2765cd2547dfb1e58fa1ce42bf75d3a41f7d843783414277"
+    sha256 cellar: :any,                 catalina:       "0b7b479e06d49678e091dc8db52cee0c0029a1443183980353cf1d35e471b326"
+    sha256 cellar: :any,                 mojave:         "0ef6d36c15f1b9ee2845e01a45be1e68860ea5d9e9a32e0b63e280ce1a5fe03e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a92261447bce65f316635fb213653073e5b2246a0aca79e56d1ad9fd3f36f8dc"
   end
 
   depends_on "swig" => :build
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
   depends_on "zeromq"
 
@@ -44,13 +45,13 @@ class Salt < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
+    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
-    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+    url "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz"
+    sha256 "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
   end
 
   resource "chardet" do
@@ -59,18 +60,13 @@ class Salt < Formula
   end
 
   resource "cheroot" do
-    url "https://files.pythonhosted.org/packages/57/c9/410e2f96de941759719f4ac1f595b1ed65e423c354bed1b2eb3e09aaf18d/cheroot-8.3.0.tar.gz"
-    sha256 "a0577e1f28661727d472671a7cc4e0c12ea0cbc5220265e70f00a8b8cb628931"
+    url "https://files.pythonhosted.org/packages/0e/77/0f823e39f78d97706b11cefc4b95829a2ca237a3021a37a6b7ec361b2113/cheroot-8.5.2.tar.gz"
+    sha256 "f137d03fd5155b1364bea557a7c98168665c239f6c8cedd8f80e81cdfac01567"
   end
 
   resource "CherryPy" do
-    url "https://files.pythonhosted.org/packages/c9/7a/1ae3db710a29031d01a2952a2637a019862b3a04ff0ec135c67e2a2702b6/CherryPy-17.4.1.tar.gz"
-    sha256 "fba9fd96d0d9d5b4d680f7ec08e0758a7e5005039ee164e7936594ffad3a81ce"
-  end
-
-  resource "contextlib2" do
-    url "https://files.pythonhosted.org/packages/02/54/669207eb72e3d8ae8b38aa1f0703ee87a0e9f88f30d3c0a47bebdb6de242/contextlib2-0.6.0.post1.tar.gz"
-    sha256 "01f490098c18b19d2bd5bb5dc445b2054d2fa97f09a4280ba2c5f3c394c8162e"
+    url "https://files.pythonhosted.org/packages/c6/0d/f6acfd12f098b9f05b9146b79b5a3fad02f4047a7831b5f5c9ee3fe54d56/CherryPy-18.6.1.tar.gz"
+    sha256 "f33e87286e7b3e309e04e7225d8e49382d9d7773e6092241d7f613893c563495"
   end
 
   resource "contextvars" do
@@ -108,9 +104,29 @@ class Salt < Formula
     sha256 "3713ab1ebbb6946b7ce1387bb9d1d7f5e09c45add58c2a2ee65f963c171e746b"
   end
 
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/aa/b9/514816064db3028d7370f2ce02e8e8f5d9bc68f6f9a41b04d19176aba70e/importlib_metadata-4.6.4.tar.gz"
+    sha256 "7b30a78db2922d78a6f47fb30683156a14f3c6aa5cc23f77cc8967e9ab2d002f"
+  end
+
+  resource "jaraco.classes" do
+    url "https://files.pythonhosted.org/packages/7b/de/28a640c17a80f5e0fab5c494679e2e66b36d7fd20622e27718bea8be34b8/jaraco.classes-3.2.1.tar.gz"
+    sha256 "ed54b728af1937dc16b7236fbaf34ba561ba1ace572b03fffa5486ed363ecf34"
+  end
+
+  resource "jaraco.collections" do
+    url "https://files.pythonhosted.org/packages/d9/f8/da1c43345aa1ce0a98391497719cfc80d9664727431554a6aab5328481eb/jaraco.collections-3.4.0.tar.gz"
+    sha256 "344d14769d716e7496af879ac71b3c6ebdd46abc64bd9ec21d15248365aa3ac9"
+  end
+
   resource "jaraco.functools" do
     url "https://files.pythonhosted.org/packages/a9/1e/44f6a5cffef147a3ffd37a748b8f4c2ded9b07ca20a15f17cd9874158f24/jaraco.functools-2.0.tar.gz"
     sha256 "35ba944f52b1a7beee8843a5aa6752d1d5b79893eeb7770ea98be6b637bf9345"
+  end
+
+  resource "jaraco.text" do
+    url "https://files.pythonhosted.org/packages/53/d2/40ff557369eccee312b2d3ff4cb97373e8ffb25afb92294ff650a1e45795/jaraco.text-3.5.1.tar.gz"
+    sha256 "ede4e9103443b62b3d1d193257dfb85aab7c69a6cef78a0887d64bb307a03bc3"
   end
 
   resource "Jinja2" do
@@ -124,8 +140,8 @@ class Salt < Formula
   end
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
-    sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
+    url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
+    sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
   end
 
   resource "MarkupSafe" do
@@ -164,8 +180,8 @@ class Salt < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/88/7f/740b99ffb8173ba9d20eb890cc05187677df90219649645aca7e44eb8ff4/pycryptodome-3.10.1.tar.gz"
-    sha256 "3e2e3a06580c5f190df843cdb90ea28d61099cf4924334d5297a995de68e4673"
+    url "https://files.pythonhosted.org/packages/64/ab/f2b4059ddf59bffbdbb4bdb60a6729c6c1de5eea1ef186d5a633ae12db3b/pycryptodome-3.11.0.tar.gz"
+    sha256 "428096bbf7a77e207f418dfd4d7c284df8ade81d2dc80f010e92753a3e406ad0"
   end
 
   resource "pycryptodomex" do
@@ -174,15 +190,8 @@ class Salt < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/6b/23/a8c5b726a58282fe2cadcc63faaddd4be147c3c8e0bd38b233114adf98fd/pygit2-1.6.1.tar.gz"
-    sha256 "c3303776f774d3e0115c1c4f6e1fc35470d15f113a7ae9401a0b90acfa1661ac"
-
-    # libgit2 1.3 support
-    # https://github.com/libgit2/pygit2/pull/1089
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/54d3a0d1f241fdd4e9229312ced0d8da85d964b1/pygit2/libgit2-1.3.0.patch"
-      sha256 "4d501c09d6642d50d89a1a4d691980e3a4a2ebcb6de7b45d22cce16a451b9839"
-    end
+    url "https://files.pythonhosted.org/packages/11/31/211d72f836ba94990026155f7a2d52e1384a05b9c04592c0b8cbb926f404/pygit2-1.7.0.tar.gz"
+    sha256 "602bffa8b4dbc185a6c7f36515563b600e0ee9002583c97ae3150eedaf340edb"
   end
 
   resource "pyOpenSSL" do
@@ -201,8 +210,8 @@ class Salt < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f4/f6/94fee50f4d54f58637d4b9987a1b862aeb6cd969e73623e02c5c00755577/pytz-2020.1.tar.gz"
-    sha256 "c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048"
+    url "https://files.pythonhosted.org/packages/b0/61/eddc6eb2c682ea6fd97a7e1018a6294be80dba08fa28e7a3570148b4612d/pytz-2021.1.tar.gz"
+    sha256 "83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da"
   end
 
   resource "PyYAML" do
@@ -211,8 +220,8 @@ class Salt < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/05/77/7483975d84fe1fd24cc67881ba7810e0e7b3ee6c2a0e002a5d6703cca49b/pyzmq-19.0.2.tar.gz"
-    sha256 "296540a065c8c21b26d63e3cea2d1d57902373b16e4256afe46422691903a438"
+    url "https://files.pythonhosted.org/packages/af/9f/5b4942b3b028fb38cd66514472649025644d78ca0b29f7b79e9ff2acc048/pyzmq-21.0.2.tar.gz"
+    sha256 "098c13c6198913c2a0690235fa74d2e49161755f66b663beaec89651554cc79c"
   end
 
   resource "requests" do
@@ -231,8 +240,8 @@ class Salt < Formula
   end
 
   resource "tempora" do
-    url "https://files.pythonhosted.org/packages/2f/b5/5b0464385454c5ca93a39a1c6acefdf574aeb10ef45fa8958b3832cc7d96/tempora-1.14.1.tar.gz"
-    sha256 "cb60b1d2b1664104e307f8e5269d7f4acdb077c82e35cd57246ae14a3427d2d6"
+    url "https://files.pythonhosted.org/packages/9e/38/69361106501ab8ca3bede11cff867ce86545461de55e65c14034c57be596/tempora-4.1.1.tar.gz"
+    sha256 "c54da0f05405f04eb67abbb1dff4448fd91428b58cb00f0f645ea36f6a927950"
   end
 
   resource "timelib" do
@@ -241,8 +250,8 @@ class Salt < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
-    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
+    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
+    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
   end
 
   resource "vultr" do
@@ -255,9 +264,14 @@ class Salt < Formula
     sha256 "307ad78227e48be260e64896ec8886edc7eae22d8ec53e4d528ab5537a83203b"
   end
 
+  resource "zipp" do
+    url "https://files.pythonhosted.org/packages/3a/9f/1d4b62cbe8d222539a84089eeab603d8e45ee1f897803a0ae0860400d6e7/zipp-3.5.0.tar.gz"
+    sha256 "f5812b1e007e48cff63449a5e9f4e7ebea716b4111f9c4f9a645f91d579bf0c4"
+  end
+
   def install
     ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
-    xy = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3.9"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].bin/"python3.10"
 
     inreplace buildpath/"requirements/static/pkg/py#{xy}/darwin.txt", /^pyobjc.*$/, ""
     inreplace buildpath/"requirements/darwin.txt", "-r pyobjc.txt", ""
@@ -280,7 +294,7 @@ class Salt < Formula
   test do
     output = shell_output("#{bin}/salt --config-dir=#{testpath} --log-file=/dev/null --versions")
     assert_match "Salt: #{version}", output
-    assert_match "Python: #{Formula["python@3.9"].version}", output
+    assert_match "Python: #{Formula["python@3.10"].version}", output
     assert_match "libgit2: #{Formula["libgit2"].version}", output
     assert_match "M2Crypto: Not Installed", output
   end

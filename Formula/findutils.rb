@@ -8,11 +8,13 @@ class Findutils < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "00515eb2dc81769263cbde9066c25807b120e3a25a7dbff3f5a3858c07ba7f6d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ba06afcd59371297f232da8d59a68ebc2d66ce3ffdad3e83f65e2e9abb47a4c0"
-    sha256 cellar: :any_skip_relocation, catalina:      "7e47d6ae1e52d796ce0fd989c17ac169f1b78206e62a28274fe25296185a8a66"
-    sha256 cellar: :any_skip_relocation, mojave:        "78cf4e5b65633636743fd29b7fd3b48aebd20bed727203dc244192fdfa543f62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bcba0a1078da1c7c44ca826928def5e3429df58ecc854b3a156896118576575"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86e0cb2db77a4b293dac21671faa9b3ffc853ceb60319ad49824921320b6bcdb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "00515eb2dc81769263cbde9066c25807b120e3a25a7dbff3f5a3858c07ba7f6d"
+    sha256 cellar: :any_skip_relocation, monterey:       "9bf672398a53cc57cfee7b0606076f869bc8f13004e691d951f3460e167379a3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ba06afcd59371297f232da8d59a68ebc2d66ce3ffdad3e83f65e2e9abb47a4c0"
+    sha256 cellar: :any_skip_relocation, catalina:       "7e47d6ae1e52d796ce0fd989c17ac169f1b78206e62a28274fe25296185a8a66"
+    sha256 cellar: :any_skip_relocation, mojave:         "78cf4e5b65633636743fd29b7fd3b48aebd20bed727203dc244192fdfa543f62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1bcba0a1078da1c7c44ca826928def5e3429df58ecc854b3a156896118576575"
   end
 
   def install

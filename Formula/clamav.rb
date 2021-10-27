@@ -14,11 +14,13 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "a56bdeb2b36da5c13d88cf56ae78f72a0ce03150a50afe02c374bb62bdb85b46"
-    sha256 big_sur:       "2b84fa9ddb9150cbd0affd0d07fbafc8460f42354b0e4b9a7f83ea120dc62f60"
-    sha256 catalina:      "8a9d8cb97ebb5fd9986cf087dbbebd6c78ba2dcff76ba0778e16abf4bf82c6df"
-    sha256 mojave:        "517e16b12c8c467758781e2b3ddd17fe20cbe134fc51f837a3e651e212821a8b"
-    sha256 x86_64_linux:  "11c421762b425034eb4e1c8cf3307ecd4867a626c5c6971c91c8a9a04a0fc22d"
+    sha256 arm64_monterey: "c43bfa5a4cbf7d3a1d71026220636b999a3a070eff5daa94ddf6a0a115c5cdff"
+    sha256 arm64_big_sur:  "a56bdeb2b36da5c13d88cf56ae78f72a0ce03150a50afe02c374bb62bdb85b46"
+    sha256 monterey:       "4d696971f3a5cf07b25c56d8758fba356cf4350615af272140172335b79c456a"
+    sha256 big_sur:        "2b84fa9ddb9150cbd0affd0d07fbafc8460f42354b0e4b9a7f83ea120dc62f60"
+    sha256 catalina:       "8a9d8cb97ebb5fd9986cf087dbbebd6c78ba2dcff76ba0778e16abf4bf82c6df"
+    sha256 mojave:         "517e16b12c8c467758781e2b3ddd17fe20cbe134fc51f837a3e651e212821a8b"
+    sha256 x86_64_linux:   "11c421762b425034eb4e1c8cf3307ecd4867a626c5c6971c91c8a9a04a0fc22d"
   end
 
   depends_on "cmake" => :build

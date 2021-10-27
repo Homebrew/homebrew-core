@@ -11,11 +11,13 @@ class NodeAT14 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "2e486bafc76ab44770a6b61f21f934939a76dd7a15dac775025b3c5a7c271baa"
-    sha256 cellar: :any,                 big_sur:       "d0a1da683351b7ef379155252d77cc40fa3ce8b457e21bf220c5056533216b55"
-    sha256 cellar: :any,                 catalina:      "9922e2cf767ef73b48f2e825225ed695dbb81a7d14f547e59f045fe559cf77eb"
-    sha256 cellar: :any,                 mojave:        "c2378009f37bd1fea4fa10419736f4e96d50fa80a724f4dcff5504c77411fae9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3827501ebc5e420d3d99c2f3194feea3e076f3965ef24a44057f1a914452c478"
+    sha256 cellar: :any,                 arm64_monterey: "92ea528d604e06d8f851c18ac225b212bf5f8681540abaca6711560caf272fda"
+    sha256 cellar: :any,                 arm64_big_sur:  "2e486bafc76ab44770a6b61f21f934939a76dd7a15dac775025b3c5a7c271baa"
+    sha256 cellar: :any,                 monterey:       "8cf0c7a993a1036c7795210d57ce42bff81320aef90734eb14cb33ab6dc8ee68"
+    sha256 cellar: :any,                 big_sur:        "d0a1da683351b7ef379155252d77cc40fa3ce8b457e21bf220c5056533216b55"
+    sha256 cellar: :any,                 catalina:       "9922e2cf767ef73b48f2e825225ed695dbb81a7d14f547e59f045fe559cf77eb"
+    sha256 cellar: :any,                 mojave:         "c2378009f37bd1fea4fa10419736f4e96d50fa80a724f4dcff5504c77411fae9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3827501ebc5e420d3d99c2f3194feea3e076f3965ef24a44057f1a914452c478"
   end
 
   keg_only :versioned_formula
@@ -33,17 +35,6 @@ class NodeAT14 < Formula
 
   on_macos do
     depends_on "macos-term-size"
-  end
-
-  # Fix build with brewed c-ares.
-  # https://github.com/nodejs/node/pull/39739
-  #
-  # Remove when the following lands in a *c-ares* release:
-  # https://github.com/c-ares/c-ares/commit/7712fcd17847998cf1ee3071284ec50c5b3c1978
-  # https://github.com/c-ares/c-ares/pull/417
-  patch do
-    url "https://github.com/nodejs/node/commit/8699aa501c4d4e1567ebe8901e5ec80cadaa9323.patch?full_index=1"
-    sha256 "678643c79258372d5054d3da16bc0c5db17130f151f0e72b6e4f20817987aac9"
   end
 
   def install

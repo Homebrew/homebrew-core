@@ -6,11 +6,13 @@ class Selene < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "db9ad90c61edc0bdd85f36287a857c881ce85488df4a545c7f43623ba3306c06"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7f79d5199778de50445897b61ed796ba2f8ed8dc28ba94e3178566120eb5c53e"
-    sha256 cellar: :any_skip_relocation, catalina:      "f327afafa10d044c0b295e16741018c368251b79d65318bfdb9def511740fad5"
-    sha256 cellar: :any_skip_relocation, mojave:        "748941051771e799dd0afe0e853f007746cd07af86134fb8f912aa5c3c7a5dfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3061b7ea81453f2cca3b71aba7f1069b8de067b24267626e95a7fa891a12607"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f7793582bed7b72842a91f23e4041eddab76229cc46309c20c4d14a75cae06c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "db9ad90c61edc0bdd85f36287a857c881ce85488df4a545c7f43623ba3306c06"
+    sha256 cellar: :any_skip_relocation, monterey:       "46a489282dd7349ed64f99e2b745591c2b08481523ce7630e509d59a41f3deb1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7f79d5199778de50445897b61ed796ba2f8ed8dc28ba94e3178566120eb5c53e"
+    sha256 cellar: :any_skip_relocation, catalina:       "f327afafa10d044c0b295e16741018c368251b79d65318bfdb9def511740fad5"
+    sha256 cellar: :any_skip_relocation, mojave:         "748941051771e799dd0afe0e853f007746cd07af86134fb8f912aa5c3c7a5dfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3061b7ea81453f2cca3b71aba7f1069b8de067b24267626e95a7fa891a12607"
   end
 
   depends_on "rust" => :build

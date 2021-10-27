@@ -8,6 +8,8 @@ class BzrRewrite < Formula
     sha256 cellar: :any_skip_relocation, all: "766e43ea10eb6eae8ed9f177faa70b7e8f26be6d79367a060775da9e247b6d4c"
   end
 
+  deprecate! date: "2021-08-19", because: :unsupported
+
   depends_on "bazaar"
 
   def install

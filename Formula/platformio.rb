@@ -3,16 +3,18 @@ class Platformio < Formula
 
   desc "Professional collaborative platform for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/1a/48/cfaa9aa269139c8a73050d73101fa74d87869757efd6259f38d0e10cbe97/platformio-5.2.1.tar.gz"
-  sha256 "ad039c8ca70a1c4465c9a9c2effdc63f1ea878696f99cdec394c92fbea3d150f"
+  url "https://files.pythonhosted.org/packages/8a/e4/efc60be7aa04e97e642a6b17e10ebacc3bfab4849f58e98b29bdcfa1c207/platformio-5.2.2.tar.gz"
+  sha256 "d82aca38a8d1a529bb13614bb70b9c2aa73ea514acad5584b976872bf6e1a209"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "54b18d636b489e6d65929d4cf65e0a4b3f4b47e6f0cd864dd3adaa471c100039"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9a7e5242c257380e61a0a1373843afe7eacdbb51e64ffe784c79fbf8454f6d7a"
-    sha256 cellar: :any_skip_relocation, catalina:      "593dd20cb52f1f09c23918b1f0e5f0842df6fe5f16857fc826ef3f770a24a9f0"
-    sha256 cellar: :any_skip_relocation, mojave:        "9c081b87580247ded3a3cb33e4819e43e83805b5f0b1ea9eda9c7b1c2ab5b0e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dad044e897f596e0175290f03ab91edd2024b91cf6edb31ea43491da9f70b457"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a63d8c38964a37aeeeda2a06d606e21ef6604c7dfb37dc60bed98418e72c37b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c32d19bbf984bb37a44d846699c91203eac7153179717d19f768c1bf48e636f"
+    sha256 cellar: :any_skip_relocation, monterey:       "5cb58e456c24a34e7584f3490eb66209ac92bff858b99ff513dbdf41c13a0a49"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6f753eeb30d8765ff129c7d4e102522299ea196d990832c0612a210fb049a622"
+    sha256 cellar: :any_skip_relocation, catalina:       "8d6818adb4c42c45589f3c6b39b9c97a11d367d80ab1c15aea3a895d0519a5c1"
+    sha256 cellar: :any_skip_relocation, mojave:         "28c6811d0c84abe2628966418761160f2eb291688ff940c4da163f063fd9453e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3890837094d8c4c10f2aabe621308e9e37079ea92328de76fa77501f5763928c"
   end
 
   depends_on "python-tabulate"
@@ -29,8 +31,8 @@ class Platformio < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/0f/60/ae005e0c88703f49c2047af8e83ede692704577599c4e488cc6e9ef7ffb6/anyio-3.3.3.tar.gz"
-    sha256 "8eccec339cb4a856c94a75d50fc1d451faf32a05ef406be462e2efc59c9838b0"
+    url "https://files.pythonhosted.org/packages/66/02/ca9061e93c487a897859e3a41f6c1a4f494038d2791382169b9a0c528175/anyio-3.3.4.tar.gz"
+    sha256 "67da67b5b21f96b9d3d65daa6ea99f5d5282cb09f50eb4456f8fb51dffefc3ff"
   end
 
   resource "asgiref" do
@@ -49,8 +51,8 @@ class Platformio < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
-    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
   resource "click" do
@@ -69,8 +71,8 @@ class Platformio < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
-    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "ifaddr" do
@@ -79,8 +81,8 @@ class Platformio < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/88/92/8aac4cb538002d38ae068b8d7bc9fabc2964eb97672e3cb6e16682cdc5be/marshmallow-3.13.0.tar.gz"
-    sha256 "c67929438fd73a2be92128caa0325b1b5ed8b626d91a094d2f7f2771bf1f1c0e"
+    url "https://files.pythonhosted.org/packages/ee/a6/9e2ad34649f2ea933ee7a3f28a106c4ccba0cb4b2150a03f16b928184fd9/marshmallow-3.14.0.tar.gz"
+    sha256 "bba1a940985c052c5cc7849f97da196ebc81f3b85ec10c56ef1f3228aa9cbe74"
   end
 
   resource "pyelftools" do

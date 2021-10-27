@@ -15,7 +15,7 @@ class Cayley < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "0dc598decbc9c70660d22fc670f71581e7fec09e5c9d9bc13ccee4c88c758338"
   end
 
-  depends_on "bazaar" => :build
+  depends_on "breezy" => :build
   depends_on "go" => :build
   depends_on "mercurial" => :build
 

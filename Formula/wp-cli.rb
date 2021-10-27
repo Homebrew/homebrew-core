@@ -11,14 +11,14 @@ class WpCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ae62ac60656fe354a25fe4a143e58801a037ab76243218e6e2bc1eac4f5f1345"
-    sha256 cellar: :any_skip_relocation, big_sur:       "67acd9816806eef402f59f1904fcebd2e23e6d6cb7657604430e299cf21bd300"
-    sha256 cellar: :any_skip_relocation, catalina:      "67acd9816806eef402f59f1904fcebd2e23e6d6cb7657604430e299cf21bd300"
-    sha256 cellar: :any_skip_relocation, mojave:        "67acd9816806eef402f59f1904fcebd2e23e6d6cb7657604430e299cf21bd300"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3538f32afa8bef557e659322b49734e90e0420cd96561ea56119f71d91d813c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1f99dcae45bc3a8f8ea09d534e1050201391afea5fcd42287a5d24aef303dcc4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5f130b0733ba0765afdb46836875c83e848b5b6bf53990cdb4b1e2282cf03171"
+    sha256 cellar: :any_skip_relocation, catalina:      "5f130b0733ba0765afdb46836875c83e848b5b6bf53990cdb4b1e2282cf03171"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f99dcae45bc3a8f8ea09d534e1050201391afea5fcd42287a5d24aef303dcc4"
   end
 
-  uses_from_macos "php"
+  depends_on "php"
 
   # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
   on_macos do

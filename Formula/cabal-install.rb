@@ -1,17 +1,16 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
-  url "https://hackage.haskell.org/package/cabal-install-3.6.0.0/cabal-install-3.6.0.0.tar.gz"
-  sha256 "819caf018578bf19d9f5ffa6eba1cfe9d192eacf539d2210a51358192cc15047"
+  url "https://hackage.haskell.org/package/cabal-install-3.6.2.0/cabal-install-3.6.2.0.tar.gz"
+  sha256 "dcf99e1d5f1c6e569e7386312fe96e9804b3cfb2d4f17ded1e01f60149bd3036"
   license "BSD-3-Clause"
   head "https://github.com/haskell/cabal.git", branch: "3.6"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e7a43c82ce306b25d0e223575c683a93670eff2717428cdcd0559144bc32b277"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1588cf8cfff0a991adf3681db660098a02002c3ca62f9dc80f6b4f3f514e8d79"
-    sha256 cellar: :any_skip_relocation, catalina:      "be48473b083335fca3ad94a704f726d6c29efcd0833a8e8eaaf4fc59ad50ea7f"
-    sha256 cellar: :any_skip_relocation, mojave:        "0f57d19230fa149e0f5e34378e29cf1c4d8061f7e6417faf2d71d87cbc3c1eca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9a740680a6779161ad8775dbe0f975b0ef5ab6038d0274b6ec97be4f2cbc071"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5bfe54303566dfca0274750039dc953af0eee3608a9e497104d717dee75cd8ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e7afa39e11ae84407293ea3baefb4587c56d682c9d705dc9649aa3f77c33a1b6"
+    sha256 cellar: :any_skip_relocation, catalina:      "911813ba0f0038050e18c8c192e010efa02fcc75be1709efe34162f9f3a84e9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c22f27d2d0f5ef085bf898b20ea122ddaf66f6ef06e0e2fd82f748ccb0a31ca"
   end
 
   depends_on "ghc"

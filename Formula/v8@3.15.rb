@@ -6,6 +6,7 @@ class V8AT315 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any, monterey:    "e8a4181b1af77730c7345d61cf38b2a0cb19135e2963d2bddf9bbcc07357e503"
     sha256 cellar: :any, big_sur:     "8d1b84feddb4827106ad10d573f41fc6f4c1ddf6cbc65d78d8e168d7ab541e07"
     sha256 cellar: :any, catalina:    "588e9a3b61c54705d918bc783e1aa2efa1fd31626ca20181c7fe3c38d0d50ca5"
     sha256 cellar: :any, mojave:      "38ef56c652ac4f91ec1ddac61b8719ffba4c949103a6636e15aa1cd768e2d14d"

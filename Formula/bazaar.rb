@@ -7,14 +7,20 @@ class Bazaar < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "294ae3a44a6579e80834a4e4b2afa3fd8b20c96f60a0d4fa3df714e89fa79c90"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a1d2989bccb0bd569ec1ca4425399cbd85a14564265cf8b79db45d575da7f8c1"
-    sha256 cellar: :any_skip_relocation, catalina:      "c9ab575e1e27fe8e550690c760464c37890ca5c1fa8ea111c74d0172d0fa1453"
-    sha256 cellar: :any_skip_relocation, mojave:        "32411a9e28eb27b3637bc915150581524897a18ba223313e5bc2f776785aae9b"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "cb1c0c8b5f19abef4043195d8cbd19f363a78581596de1ddcc763621964335b3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c4a79b402d419cfb7d7f2a5e79962030f4ac53baf07c5606246b9c5a72de4ee8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "294ae3a44a6579e80834a4e4b2afa3fd8b20c96f60a0d4fa3df714e89fa79c90"
+    sha256 cellar: :any_skip_relocation, monterey:       "4408a6ec92f0bda797ae91db281878f36db75c7fdcf500c2f298018873fd7150"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a1d2989bccb0bd569ec1ca4425399cbd85a14564265cf8b79db45d575da7f8c1"
+    sha256 cellar: :any_skip_relocation, catalina:       "c9ab575e1e27fe8e550690c760464c37890ca5c1fa8ea111c74d0172d0fa1453"
+    sha256 cellar: :any_skip_relocation, mojave:         "32411a9e28eb27b3637bc915150581524897a18ba223313e5bc2f776785aae9b"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "cb1c0c8b5f19abef4043195d8cbd19f363a78581596de1ddcc763621964335b3"
   end
 
+  deprecate! date: "2021-08-19", because: "is not supported. Check out `breezy` instead"
+
   depends_on :macos # Due to Python 2
+
+  conflicts_with "breezy", because: "both install `bzr` binaries"
 
   # CVE-2017-14176
   # https://bugs.launchpad.net/brz/+bug/1710979

@@ -6,6 +6,7 @@ class AnsibleAT29 < Formula
   url "https://files.pythonhosted.org/packages/5b/99/ce005d0314840e1a6eef34e0faf0ba4f7bccd8172b33cc84fee21afab7ad/ansible-2.9.27.tar.gz"
   sha256 "479159e50b3bd90920d06bc59410c3a51d3f9be9b4e1029e11d1e4a2d0705736"
   license "GPL-3.0-or-later"
+  revision 1
 
   # The newest PyPI release won't be a 2.9.x version, so we match versions from
   # the links in the "Release History" section.
@@ -15,11 +16,10 @@ class AnsibleAT29 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4d310bb05bad4235b6d4ce7cb257370d5af5b978ca0b0fc45b129109dd36881f"
-    sha256 cellar: :any,                 big_sur:       "4c271fc038bbf7de5b4e984910c35fa99d0cda224f598ef8570973b170da7fef"
-    sha256 cellar: :any,                 catalina:      "e4f701756af04f19b8b3fa2215ca05e9e57ea330e278d2489abe0ca3ca5a3342"
-    sha256 cellar: :any,                 mojave:        "5fe22d86d8ec826adfd82cd41646685292b1a2db2b5d6e9fba5e9d58593fe260"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "501c21d00db015694119766c3eaa7eff88c608531373f6f5f456ae906b4ccb9b"
+    sha256 cellar: :any,                 arm64_big_sur: "0fc476860717605697e0f345221311064d38b36fc8570bfde9f5d823eaaee0fb"
+    sha256 cellar: :any,                 big_sur:       "58159b8e7d3ac1d6b698c5dd0d1c3461db1c938df7df1eb427a319d3aa1473de"
+    sha256 cellar: :any,                 catalina:      "17c279323a6e4d7b4c82bbb47e98a2de591d4990dd1bef806b1b9e4699c843a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c892261eb5bf221dae9b4400f2f1d9ac12ca440ac9927c65feccbed4dacfb1bd"
   end
 
   keg_only :versioned_formula

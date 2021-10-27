@@ -12,12 +12,14 @@ class AmplMp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "5a666c8f40e7d66e6c065e21abada4c2fbfc5917fed422beb6c14b357e0e41b2"
-    sha256 cellar: :any,                 big_sur:       "512e10d2061408b42b14b9834bdb4f4ad85f859c578ebab99efda98d3f6f4957"
-    sha256 cellar: :any,                 catalina:      "c111c501330b3ff8e3bde1a7e679f162bea1038df07de96810ea5cbe34775740"
-    sha256 cellar: :any,                 mojave:        "bf329d7a40c3a21cb745d9d86bc0cf4add18397aedd6b36eb8e27feab822f1e3"
-    sha256 cellar: :any,                 high_sierra:   "835aea5e86e3780681cb38ebe0f0dcd522ed21f80ed4711ad10e66b6c0814d03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4efb0ad66f2cd0930a0f5f50edf249ac4c8f436f34b5b8cf95b90199d1d5d3e9"
+    sha256 cellar: :any,                 arm64_monterey: "27fdafce7e558441048fe2107a783304a5ebb275fdb1c435f0f30a6135d3bbf5"
+    sha256 cellar: :any,                 arm64_big_sur:  "5a666c8f40e7d66e6c065e21abada4c2fbfc5917fed422beb6c14b357e0e41b2"
+    sha256 cellar: :any,                 monterey:       "c2323285b97b8a697e564fc444fd3dd4424cb3d6a1ea6e8e336735eee5e3ac5f"
+    sha256 cellar: :any,                 big_sur:        "512e10d2061408b42b14b9834bdb4f4ad85f859c578ebab99efda98d3f6f4957"
+    sha256 cellar: :any,                 catalina:       "c111c501330b3ff8e3bde1a7e679f162bea1038df07de96810ea5cbe34775740"
+    sha256 cellar: :any,                 mojave:         "bf329d7a40c3a21cb745d9d86bc0cf4add18397aedd6b36eb8e27feab822f1e3"
+    sha256 cellar: :any,                 high_sierra:    "835aea5e86e3780681cb38ebe0f0dcd522ed21f80ed4711ad10e66b6c0814d03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4efb0ad66f2cd0930a0f5f50edf249ac4c8f436f34b5b8cf95b90199d1d5d3e9"
   end
 
   depends_on "cmake" => :build

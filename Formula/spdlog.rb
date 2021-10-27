@@ -7,11 +7,13 @@ class Spdlog < Formula
   head "https://github.com/gabime/spdlog.git", branch: "v1.x"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4ffc35695b060c0536b2da195a3e17019e345c4ae1a04bcef695a78eac18f945"
-    sha256 cellar: :any,                 big_sur:       "a69e4c91e48164a21c96f572fb9c0a2168720bb3ab17f0ae68d91417b0b65d94"
-    sha256 cellar: :any,                 catalina:      "64def8f9d455b8cb5bd4ba01419a20a1fa9a15377c0732d2c5a6133be404f586"
-    sha256 cellar: :any,                 mojave:        "0db125fdda8f582b16d7505fd20a8776947e5bedb185a1cf42081717fbb9a6fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bd455a6f7631522c4de6147e8dfcb7ffbd0845bdfa9effb05918304f5d68f4d"
+    sha256 cellar: :any,                 arm64_monterey: "3322b0afb1b04d54503384ad22c23b0d7f93ef7f949bb1c0623a112df7adbe6d"
+    sha256 cellar: :any,                 arm64_big_sur:  "4ffc35695b060c0536b2da195a3e17019e345c4ae1a04bcef695a78eac18f945"
+    sha256 cellar: :any,                 monterey:       "31453c1aa5554e71df3aed23dab4b466f02fae0d5d97d4a0fd8f60405ebca35d"
+    sha256 cellar: :any,                 big_sur:        "a69e4c91e48164a21c96f572fb9c0a2168720bb3ab17f0ae68d91417b0b65d94"
+    sha256 cellar: :any,                 catalina:       "64def8f9d455b8cb5bd4ba01419a20a1fa9a15377c0732d2c5a6133be404f586"
+    sha256 cellar: :any,                 mojave:         "0db125fdda8f582b16d7505fd20a8776947e5bedb185a1cf42081717fbb9a6fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bd455a6f7631522c4de6147e8dfcb7ffbd0845bdfa9effb05918304f5d68f4d"
   end
 
   depends_on "cmake" => :build

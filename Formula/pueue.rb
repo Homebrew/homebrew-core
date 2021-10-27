@@ -7,11 +7,13 @@ class Pueue < Formula
   head "https://github.com/Nukesor/pueue.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7692235fe220741fc6115a693800efd25baa1f4d250a96f619ff9f0ef599c27e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "498485e3aa3ff6562d4f79509426e744d4061cc8b5f936838a17a4c99b2ac350"
-    sha256 cellar: :any_skip_relocation, catalina:      "43ad1d2ee2c78e402b1fcdb8e94dd49eab29d30b7fa31f704ab046394938ad88"
-    sha256 cellar: :any_skip_relocation, mojave:        "28ff30dd5c01a9acbc060cc544ca35b73e7cabb4428723022ff78ffba02197a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aae3d2c4545c4121faa1e7c9bc194d6b2aacea045751095cdd487ab6b9f8f0f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "79e3eed8eb63426fe5d32d86a5a7096db89e92fb52c0e6e50c2f241416e4e476"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7692235fe220741fc6115a693800efd25baa1f4d250a96f619ff9f0ef599c27e"
+    sha256 cellar: :any_skip_relocation, monterey:       "da1ec89052a1ffcaf6285a4b4efe1d0082f6ec8704944817623d2b1095e4d599"
+    sha256 cellar: :any_skip_relocation, big_sur:        "498485e3aa3ff6562d4f79509426e744d4061cc8b5f936838a17a4c99b2ac350"
+    sha256 cellar: :any_skip_relocation, catalina:       "43ad1d2ee2c78e402b1fcdb8e94dd49eab29d30b7fa31f704ab046394938ad88"
+    sha256 cellar: :any_skip_relocation, mojave:         "28ff30dd5c01a9acbc060cc544ca35b73e7cabb4428723022ff78ffba02197a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aae3d2c4545c4121faa1e7c9bc194d6b2aacea045751095cdd487ab6b9f8f0f0"
   end
 
   depends_on "rust" => :build

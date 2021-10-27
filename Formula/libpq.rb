@@ -10,11 +10,13 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "c36e78fce303f7320e9d9b972c013ba83511cbfb03eaa344d95c4f76e7642f32"
-    sha256 big_sur:       "a175edce0a65ff0c6b64136bd88271537c946c221f9a6ea41ea41c8191822def"
-    sha256 catalina:      "c1145e71066f8dff4a4f9217d7fc4a8efe3681017fe79a5952e36485c46fd51c"
-    sha256 mojave:        "93b500656d50444c081fc70b0709a38203c621b13713074e2ea866c7f117d172"
-    sha256 x86_64_linux:  "b9ccefe07fd25caa5f04609b6a82765a00f874a65f526ff8308da7e688822f13"
+    sha256 arm64_monterey: "a5d925bc03e7a8458eef797683574ce79f3491f6a23b642f4c7f17ebef3c50bc"
+    sha256 arm64_big_sur:  "c36e78fce303f7320e9d9b972c013ba83511cbfb03eaa344d95c4f76e7642f32"
+    sha256 monterey:       "dc679943a6474cc79d085175742ac5ff99e0a7855860235ff83134f51791e1b9"
+    sha256 big_sur:        "a175edce0a65ff0c6b64136bd88271537c946c221f9a6ea41ea41c8191822def"
+    sha256 catalina:       "c1145e71066f8dff4a4f9217d7fc4a8efe3681017fe79a5952e36485c46fd51c"
+    sha256 mojave:         "93b500656d50444c081fc70b0709a38203c621b13713074e2ea866c7f117d172"
+    sha256 x86_64_linux:   "b9ccefe07fd25caa5f04609b6a82765a00f874a65f526ff8308da7e688822f13"
   end
 
   keg_only "conflicts with postgres formula"

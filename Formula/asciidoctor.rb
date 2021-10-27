@@ -7,11 +7,13 @@ class Asciidoctor < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fc2493fc3c30964474cbe495313fe66921f1495e72c3fe61381ac6aea70045b6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "16d6788131428a7fb9207f567061e657176422324da5a5aae3259ed42bd40861"
-    sha256 cellar: :any_skip_relocation, catalina:      "16d6788131428a7fb9207f567061e657176422324da5a5aae3259ed42bd40861"
-    sha256 cellar: :any_skip_relocation, mojave:        "3ee2e170d171c850e25d100c2a47fb2fdda7c3f3ca551bfd2b97896575379277"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78113a6630aa5287c960805549500b3e047d240db16c6e8752c856f4d97e4b74"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e738bffee5905b12523ba2efa472071161f879333c1c85e06e856bf69cf990a6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc2493fc3c30964474cbe495313fe66921f1495e72c3fe61381ac6aea70045b6"
+    sha256 cellar: :any_skip_relocation, monterey:       "e447ecfd225140a4d1203f41abab2a527a270e73d91431e1dd672d52da9e539e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "16d6788131428a7fb9207f567061e657176422324da5a5aae3259ed42bd40861"
+    sha256 cellar: :any_skip_relocation, catalina:       "16d6788131428a7fb9207f567061e657176422324da5a5aae3259ed42bd40861"
+    sha256 cellar: :any_skip_relocation, mojave:         "3ee2e170d171c850e25d100c2a47fb2fdda7c3f3ca551bfd2b97896575379277"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78113a6630aa5287c960805549500b3e047d240db16c6e8752c856f4d97e4b74"
   end
 
   uses_from_macos "ruby", since: :catalina

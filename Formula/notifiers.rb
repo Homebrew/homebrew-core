@@ -9,11 +9,13 @@ class Notifiers < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e940aae460e075a8bc29d6e1c0e1bef324f5a5e1768e6bcfcf9ff833e4d5cf1f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cf12e31868906b339c00d1a07c99748c1522ea05c2d78995610421dbbde5d353"
-    sha256 cellar: :any_skip_relocation, catalina:      "15982233103b22e733b9dbf278dc5d44012b8b21e8d44589a06230a86b0d1d81"
-    sha256 cellar: :any_skip_relocation, mojave:        "612a16751cbdc438e72a9a29fe21152059d875a9c89d26ba78e7b32e4e0c0147"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0b71b638a99217dad808cba60bdfbae52ff6c3f05138b721cd8e6c662e10a80"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f6591af6782033a2f0b2f597a09faab6c232126702cdfdb5b171dd92805e47e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e940aae460e075a8bc29d6e1c0e1bef324f5a5e1768e6bcfcf9ff833e4d5cf1f"
+    sha256 cellar: :any_skip_relocation, monterey:       "a730ceef022e525bbb25ef0ca7aa91bf85148fdf982b2925d16066bbd5083f1d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cf12e31868906b339c00d1a07c99748c1522ea05c2d78995610421dbbde5d353"
+    sha256 cellar: :any_skip_relocation, catalina:       "15982233103b22e733b9dbf278dc5d44012b8b21e8d44589a06230a86b0d1d81"
+    sha256 cellar: :any_skip_relocation, mojave:         "612a16751cbdc438e72a9a29fe21152059d875a9c89d26ba78e7b32e4e0c0147"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0b71b638a99217dad808cba60bdfbae52ff6c3f05138b721cd8e6c662e10a80"
   end
 
   depends_on "python@3.10"

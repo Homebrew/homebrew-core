@@ -1,8 +1,8 @@
 class Vapoursynth < Formula
   desc "Video processing framework with simplicity in mind"
-  homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R54.tar.gz"
-  sha256 "ad0c446adcb3877c253dc8c1372a053ad35022bcf42600889b927d2797c5330b"
+  homepage "https://www.vapoursynth.com"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R57.tar.gz"
+  sha256 "9bed2ab1823050cfcbdbb1a57414e39507fd6c73f07ee4b5986fcbf0f6cb2d07"
   license "LGPL-2.1-or-later"
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
 
@@ -12,11 +12,13 @@ class Vapoursynth < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a346ffbc942c5d1fe4e10aad19fc48cffd3970def632f39fafee5be53236331c"
-    sha256 cellar: :any,                 big_sur:       "4c69d45c71838171fba6d4c2e9a95eff286767266d41f836459c9c5fd5ecc1b4"
-    sha256 cellar: :any,                 catalina:      "39aa1f2a6b6d761deeda877ebc140b4f71036ba1b6e59e4a891ac6b9b035fb51"
-    sha256 cellar: :any,                 mojave:        "231df154fd7cb7d282ba9ac35e15e15f1045d290e0791cd11023735534d5052f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ff863d1d5ac1684c53467d1360fdc330f22bdecc48ac43992ef7f59e040f3bb"
+    sha256 cellar: :any,                 arm64_monterey: "108ae8bf93ed9fb5452f6abab3eea4e64ff45e1c56c16dbcf9f2e58a635f01ff"
+    sha256 cellar: :any,                 arm64_big_sur:  "5a1894344106815d7e56ea97f3c10261c6c5d9f381a1e22c8ba84b5449462c80"
+    sha256 cellar: :any,                 monterey:       "249af500801e3279913bc998f58f064d4ffa73c5ec826ba4035d23fcdc1123cc"
+    sha256 cellar: :any,                 big_sur:        "1048c34d749d82dcc5e8bee5ceb6d3301c1e707a2c3bfe792ffcf245d20efe0f"
+    sha256 cellar: :any,                 catalina:       "2b83c33807217758941fd9d83226057e5a8e4baf71c75c01ae27917150cf14db"
+    sha256 cellar: :any,                 mojave:         "780814b825bb7b83c68a6d9d5c2b3aca4e24b448e3be0cf17dfcd9623124f382"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f95a015ee64ea7eb0c9219082e96e5a0ee7c2e0063a5ee9277aa11389bb1772"
   end
 
   depends_on "autoconf" => :build
@@ -27,6 +29,12 @@ class Vapoursynth < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.9"
   depends_on "zimg"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "./autogen.sh"
@@ -39,17 +47,6 @@ class Vapoursynth < Formula
                           "--with-python_prefix=#{prefix}",
                           "--with-python_exec_prefix=#{prefix}"
     system "make", "install"
-    %w[eedi3 miscfilters morpho removegrain vinverse vivtc].each do |filter|
-      rm prefix/"vapoursynth/lib#{filter}.la"
-    end
-  end
-
-  def post_install
-    (HOMEBREW_PREFIX/"lib/vapoursynth").mkpath
-    %w[eedi3 miscfilters morpho removegrain vinverse vivtc].each do |filter|
-      (HOMEBREW_PREFIX/"lib/vapoursynth").install_symlink \
-        prefix/"vapoursynth/lib#{filter}.dylib" => "lib#{filter}.dylib"
-    end
   end
 
   def caveats
@@ -63,15 +60,13 @@ class Vapoursynth < Formula
         brew install vapoursynth-imwri
       To use \x1B[3m\x1B[1mvapoursynth.core.ffms2\x1B[0m, execute the following:
         brew install ffms2
-        ln -s "../libffms2.dylib" "#{HOMEBREW_PREFIX}/lib/vapoursynth/libffms2.dylib"
+        ln -s "../libffms2.dylib" "#{HOMEBREW_PREFIX}/lib/vapoursynth/#{shared_library("libffms2")}"
       For more information regarding plugins, please visit:
         \x1B[4mhttp://www.vapoursynth.com/doc/plugins.html\x1B[0m
     EOS
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import vapoursynth"
     system bin/"vspipe", "--version"
   end

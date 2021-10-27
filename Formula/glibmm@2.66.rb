@@ -1,8 +1,8 @@
 class GlibmmAT266 < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.1.tar.xz"
-  sha256 "69bd6b5327716ca2f511ab580a969fd7bf0cd2c24ce15e1d0e530592d3ff209c"
+  url "https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.2.tar.xz"
+  sha256 "b2a4cd7b9ae987794cbb5a1becc10cecb65182b9bb841868625d6bbb123edb1d"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -12,11 +12,13 @@ class GlibmmAT266 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "654db4cee8b01d7f3a09e4d700ed055badbc83626f152a0015a92c6dcc2e4099"
-    sha256 cellar: :any, big_sur:       "c569e5397d5036d4ba2eb562e9f88113b5be7ef9a631ea867f3426ddf29c5e89"
-    sha256 cellar: :any, catalina:      "972e77c4e4ffaee50813406d0c98524e2f9aa84e8f39075b6cd3d76346604edc"
-    sha256 cellar: :any, mojave:        "09aa0d0e43347d8bf94156004823840c39724d16632a51158a72687e3f707a2e"
-    sha256               x86_64_linux:  "3476ab13af317e82c15127e72162a0f32e6c1f02edca8ddd946e496c14eace1b"
+    sha256 cellar: :any, arm64_monterey: "5131ab5c66e574bb30d696dc0a078eef37c3fbbdbbd4962a1f8fec468e1774a3"
+    sha256 cellar: :any, arm64_big_sur:  "239fdbfe8fb891068c1d62e67c9cd047af78997d722b4d315c336e4355d95e25"
+    sha256 cellar: :any, monterey:       "f253fabbcde2fe8419b4892b2d89b065af94c86ee9214801392734e7aef6d26d"
+    sha256 cellar: :any, big_sur:        "b9f2b7cb1cc2332b1ee4790dc8477a7df86ecafcd8d40ba459f3131007148a28"
+    sha256 cellar: :any, catalina:       "782035c5298608b93ed10bcb526e5e68425ca030b4d34c79a55ddda0e33c2ae9"
+    sha256 cellar: :any, mojave:         "0295dd5e75ea0ed118702663a113a5651094d7aabafa6773ecc877dded162258"
+    sha256               x86_64_linux:   "e4f4d2271a4f469f779e3e3a39b877adf5d294bc176fee19c55efafc007174e4"
   end
 
   depends_on "meson" => :build

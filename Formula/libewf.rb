@@ -7,11 +7,13 @@ class Libewf < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a86d3ab0f59dcb04fbf49ce271c79817694b4890a3f041ad297847b26117b968"
-    sha256 cellar: :any,                 big_sur:       "01223ea80696527795667054cf517c08160e5beb015ed9d7098639f3786d540c"
-    sha256 cellar: :any,                 catalina:      "16f6fe5bc2d8a30f216241ecc70ef23b3122043e4e75992d166fda26dad1463c"
-    sha256 cellar: :any,                 mojave:        "5669d19089228d1702a8b6469189d0fff7af625514fcd5a56b08f1f98ff81a33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9647ae8e75c956ee90c8e836b8938c13d9d052fa37e33d9d8440b8c75b7fa086"
+    sha256 cellar: :any,                 arm64_monterey: "94d1ab3e0beadcc9dc4bb40e9f4723d4154c6828d3331223085b1f83d5149430"
+    sha256 cellar: :any,                 arm64_big_sur:  "a86d3ab0f59dcb04fbf49ce271c79817694b4890a3f041ad297847b26117b968"
+    sha256 cellar: :any,                 monterey:       "349b1cb6734a3c76e1fdbe1a907afbf6a0b10d34ce4545134f493cd36e5d6844"
+    sha256 cellar: :any,                 big_sur:        "01223ea80696527795667054cf517c08160e5beb015ed9d7098639f3786d540c"
+    sha256 cellar: :any,                 catalina:       "16f6fe5bc2d8a30f216241ecc70ef23b3122043e4e75992d166fda26dad1463c"
+    sha256 cellar: :any,                 mojave:         "5669d19089228d1702a8b6469189d0fff7af625514fcd5a56b08f1f98ff81a33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9647ae8e75c956ee90c8e836b8938c13d9d052fa37e33d9d8440b8c75b7fa086"
   end
 
   head do

@@ -13,6 +13,7 @@ class Json5 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "09e87f239bbc187dba2e2fe5f865f078a7210827983835a625524d3d800dcf18"
     sha256 cellar: :any_skip_relocation, mojave:        "e2dc5ac648d7c114a8f6945ed986db3b88be6383afefe2f54c87a1d8deace6be"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "95bb5b8cf876c6ea17b8f2ad04a1070a8700c8ff5d047e85f106d1938459c313"
+    sha256 cellar: :any_skip_relocation, all:           "95bb5b8cf876c6ea17b8f2ad04a1070a8700c8ff5d047e85f106d1938459c313"
   end
 
   depends_on "node"

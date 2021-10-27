@@ -10,11 +10,13 @@ class Ydcv < Formula
   head "https://github.com/felixonmars/ydcv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "15a2f9b94d39645328338ffb95aa4ba058bc16b1dbe097af765c1ee7aa0b0a37"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
-    sha256 cellar: :any_skip_relocation, catalina:      "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
-    sha256 cellar: :any_skip_relocation, mojave:        "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35d3c655f6e3b7623dd7657adc51da6bd53629676710c450d7941378a9f62b4b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "15a2f9b94d39645328338ffb95aa4ba058bc16b1dbe097af765c1ee7aa0b0a37"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15a2f9b94d39645328338ffb95aa4ba058bc16b1dbe097af765c1ee7aa0b0a37"
+    sha256 cellar: :any_skip_relocation, monterey:       "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
+    sha256 cellar: :any_skip_relocation, catalina:       "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
+    sha256 cellar: :any_skip_relocation, mojave:         "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35d3c655f6e3b7623dd7657adc51da6bd53629676710c450d7941378a9f62b4b"
   end
 
   depends_on "python@3.10"

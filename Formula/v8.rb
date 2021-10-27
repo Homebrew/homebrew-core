@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/9.4.146.19.tar.gz"
-  sha256 "517ad2f46c4a5037550e85f16c47f32ba30915bb58f56102c05e35b12ed3b9ba"
+  url "https://github.com/v8/v8/archive/9.4.146.21.tar.gz"
+  sha256 "e251ee991561f422627e52d921b152e0c8a7f8bffb064942897e5bb700a3c402"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,11 +12,13 @@ class V8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "75a6684667f512113c27dea1be83c873128295ecd362856ce2f28530301d1243"
-    sha256 cellar: :any,                 big_sur:       "a54ee84ded3b924f4252d9a93495b8ba0f961aefc0562ba884b0c6412b395204"
-    sha256 cellar: :any,                 catalina:      "2fd5debf448819aa19a90955eb6ea8c59b6422d29747af371ad174a4f25a4a6e"
-    sha256 cellar: :any,                 mojave:        "4350ef2eb5bc1fb599569450efda3879b6c11ba5749d4ed676b6b51d39236af8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5daaf2b5f0d736ea7be8aef4c5277526e7e8f59445aab39c5eb21b40508680d6"
+    sha256 cellar: :any,                 arm64_monterey: "c80afd47ccc5b5a1fd403d7efcc7682c23c80895bc765290ff10ea2f423f3763"
+    sha256 cellar: :any,                 arm64_big_sur:  "9f83d3de6f6020f1fa5c4c4c6abe8dc160d0b1ab57054e637f260e31a90f649e"
+    sha256 cellar: :any,                 monterey:       "c1173caf4773569bb75efdc81c4cd6c0cf21ed22ce99f9b3933ff51db91c36b2"
+    sha256 cellar: :any,                 big_sur:        "f147088ec4efc7f6265531e4e3dbf08f41ecc683bcfbf1924685ca10f2b6ccb0"
+    sha256 cellar: :any,                 catalina:       "ca3e0ded2e601addfa3a1a04580427f8f0e7ed19c2269c7b3fbe3feb96881911"
+    sha256 cellar: :any,                 mojave:         "463438cd767ddcaa2f9cfbd10b938d761d46bfd127fdf66bb7b961aeddde5bc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2a8b574107dcc2f1ca2da2740ff5a80b00471d79c72b531eefee1a165148273"
   end
 
   depends_on "ninja" => :build

@@ -9,11 +9,13 @@ class RstLint < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f38f4267988a8a15da26707c04bd7fe201a12ca94c43e7ac32a054953143f49"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
-    sha256 cellar: :any_skip_relocation, catalina:      "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
-    sha256 cellar: :any_skip_relocation, mojave:        "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5492b290c6c3b00356c0d956ca4d270855c2852519114ade876c6ea5b183932"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f38f4267988a8a15da26707c04bd7fe201a12ca94c43e7ac32a054953143f49"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f38f4267988a8a15da26707c04bd7fe201a12ca94c43e7ac32a054953143f49"
+    sha256 cellar: :any_skip_relocation, monterey:       "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
+    sha256 cellar: :any_skip_relocation, catalina:       "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
+    sha256 cellar: :any_skip_relocation, mojave:         "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5492b290c6c3b00356c0d956ca4d270855c2852519114ade876c6ea5b183932"
   end
 
   depends_on "python@3.10"

@@ -6,11 +6,13 @@ class GlibNetworking < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256               arm64_big_sur: "ba522c00fb66cdecb8ffd2a59097d40442e0d4855448a0ec35fa930511ecccb4"
-    sha256 cellar: :any, big_sur:       "eab028e138ec9fe2017f9dcf052c09469b906ccb2e5b147572487cacd9061777"
-    sha256 cellar: :any, catalina:      "a7002f6e071a68e70a0d5af8377bdcf4c9ab6f9606272cb94b94aaa0ce8a3be8"
-    sha256 cellar: :any, mojave:        "5a48d3f2012eb407b90c38ae8db334d516b53ec5d8127f58bac4ed2a571e09af"
-    sha256               x86_64_linux:  "ca7db942c847b82b7115b770d585ce8bf6791e0e09a0f06cdce9b47f8eeaadea"
+    sha256 cellar: :any, arm64_monterey: "08c801c005aa171ce6654a3a9ded3030b781a43eeb9dc719e8685d756ec13ce2"
+    sha256               arm64_big_sur:  "ba522c00fb66cdecb8ffd2a59097d40442e0d4855448a0ec35fa930511ecccb4"
+    sha256               monterey:       "c115eb3ee607478945b79058c22e63545b8f9cdcdfe750f3279f34d47f35a6c5"
+    sha256 cellar: :any, big_sur:        "eab028e138ec9fe2017f9dcf052c09469b906ccb2e5b147572487cacd9061777"
+    sha256 cellar: :any, catalina:       "a7002f6e071a68e70a0d5af8377bdcf4c9ab6f9606272cb94b94aaa0ce8a3be8"
+    sha256 cellar: :any, mojave:         "5a48d3f2012eb407b90c38ae8db334d516b53ec5d8127f58bac4ed2a571e09af"
+    sha256               x86_64_linux:   "ca7db942c847b82b7115b770d585ce8bf6791e0e09a0f06cdce9b47f8eeaadea"
   end
 
   depends_on "meson" => :build

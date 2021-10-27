@@ -8,14 +8,14 @@ class QtAT5 < Formula
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
   sha256 "3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "6128558bbf98848bb762d8e1e532303b694bf120d4f9be16e1a969ba62fa3d22"
-    sha256 cellar: :any,                 big_sur:       "a11186f808f81ccae91a1b79d14a1014428f744a0943688e2fd2b95ba989ddc2"
-    sha256 cellar: :any,                 catalina:      "02280e07b5fe37344d834df7901b1040aa9f257d668a8d6b76382bd97bc91a68"
-    sha256 cellar: :any,                 mojave:        "0089f9216563b73d1920ce1c6e359e2a83e97a07ec8e83162e7c7503bcd36318"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "082ee515cd0e4b9f23cf98a6734adf53e73bbb8fd1c1fac1bc8a8d0281902df4"
+    sha256 cellar: :any,                 arm64_big_sur: "79d1822773a193d84cb2426364681dd3d1f1659fd07566665474f941ab61c879"
+    sha256 cellar: :any,                 big_sur:       "e7e33b94237ae8e1893443eaa1dae6750c5cbd27030cb15409438357362f4123"
+    sha256 cellar: :any,                 catalina:      "ead09d3345cf3c4088f73d585c0e40615e89848ce060d8313d1173d8d189b54f"
+    sha256 cellar: :any,                 mojave:        "8eb2fbfaa0e32dc3e97966ebec4712bbf5f12f7eb0bb7c54e3a33a3a8c034a38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "430b8d663f0e54938a12d91e185fbb8586d69d939f0fd4e50f1eb5c396bf3797"
   end
 
   keg_only :versioned_formula

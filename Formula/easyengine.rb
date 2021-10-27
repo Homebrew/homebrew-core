@@ -30,6 +30,6 @@ class Easyengine < Formula
     assert_match "hi_IN", output
 
     output = shell_output("#{bin}/ee cli info")
-    assert_match "Darwin", output
+    assert_match OS.kernel_name, output
   end
 end

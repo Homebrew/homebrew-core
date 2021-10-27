@@ -12,11 +12,13 @@ class Msgpack < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "94519c5e879506abb6e665f65982df1b461e53e83904a4ff88bd9ef34a05db83"
-    sha256 cellar: :any,                 big_sur:       "a6922853180da9206a75c706502c24971bfa73abf6aeed7b8341a6824e179580"
-    sha256 cellar: :any,                 catalina:      "702f8b5c56c9f4111a68111d4e03466894ac98c43a9e3127ddfb74559bad201d"
-    sha256 cellar: :any,                 mojave:        "ae673e0c74680acca0996eba8d4a2d7d6048c1986706f85f12f64a3d53750db8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "542fb3791b98792a25705dd2de670e9d0ac492f4d03246614052a81ed4bc02d4"
+    sha256 cellar: :any,                 arm64_monterey: "e3df397ffc4f82b7e321fd9a31f16979af074db08f663f485b474c0119643c7e"
+    sha256 cellar: :any,                 arm64_big_sur:  "94519c5e879506abb6e665f65982df1b461e53e83904a4ff88bd9ef34a05db83"
+    sha256 cellar: :any,                 monterey:       "c457413b910943f87cffc03951d9dbe5cc60c23abf862c572dab0b18011bb682"
+    sha256 cellar: :any,                 big_sur:        "a6922853180da9206a75c706502c24971bfa73abf6aeed7b8341a6824e179580"
+    sha256 cellar: :any,                 catalina:       "702f8b5c56c9f4111a68111d4e03466894ac98c43a9e3127ddfb74559bad201d"
+    sha256 cellar: :any,                 mojave:         "ae673e0c74680acca0996eba8d4a2d7d6048c1986706f85f12f64a3d53750db8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "542fb3791b98792a25705dd2de670e9d0ac492f4d03246614052a81ed4bc02d4"
   end
 
   depends_on "cmake" => :build

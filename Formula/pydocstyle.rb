@@ -10,10 +10,12 @@ class Pydocstyle < Formula
   head "https://github.com/PyCQA/pydocstyle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f484ef39a1a165ec192fafe7f6d76c1ebf5fa97d7499d729cf1de98c6444edef"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6a454e42222a31a0437d0d33197b068b952c5a48011fe107f0d0f14f707e36f1"
-    sha256 cellar: :any_skip_relocation, catalina:      "a4091b17676b23f645aec6684939a19a2a5c05f991b25e9d4ebbf09c90764084"
-    sha256 cellar: :any_skip_relocation, mojave:        "84a68e5f7328a5a2127b50254e52f13a3f68f8bc718dd8ef84ceae59461a3bbd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6bdedcab8085ebba46a6c61be194777ed70a2ad0a59b28f482292a499430bf9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f484ef39a1a165ec192fafe7f6d76c1ebf5fa97d7499d729cf1de98c6444edef"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac2eec2c0826c7923fbfe279c1cc587eff79ce1dd2b4c8e32daafa0f155ae01c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6a454e42222a31a0437d0d33197b068b952c5a48011fe107f0d0f14f707e36f1"
+    sha256 cellar: :any_skip_relocation, catalina:       "a4091b17676b23f645aec6684939a19a2a5c05f991b25e9d4ebbf09c90764084"
+    sha256 cellar: :any_skip_relocation, mojave:         "84a68e5f7328a5a2127b50254e52f13a3f68f8bc718dd8ef84ceae59461a3bbd"
   end
 
   depends_on "python@3.10"

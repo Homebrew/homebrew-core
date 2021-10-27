@@ -2,8 +2,8 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v2.0.8",
-      revision: "e91d41810f3f44061db544e771f0fc14515aff84"
+      tag:      "v2.0.9",
+      revision: "d1233b7951ddf06a3f201c84f4b0915692c22ba5"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git", branch: "master"
 
@@ -14,13 +14,13 @@ class Influxdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f89b13d719f852125fc25acc78c5fd17836f9a9018798978c29501e0eb26295"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1577d8326e21e87a25277c98f1467022f304e4fefae49e28933ec3260811f492"
-    sha256 cellar: :any_skip_relocation, catalina:      "0f879b93be65d98dae7e61459dbbd986ee75eb408fb7da9f5827f29fc43e8789"
-    sha256 cellar: :any_skip_relocation, mojave:        "9730427bea4a9debb5861f696b2e783960e42cd6696ab34022ab16dfef2a91e9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ccfa24843aad6447e354fe0aa8d912fcce1ac756176c71112acf9870bda2846a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8c1ad0349a2b4d7b0943bca30fd68e8f1effb2c97d968b7c765ed47198f8bac2"
+    sha256 cellar: :any_skip_relocation, catalina:      "b2f81367128aa3f5a6c433837e55bbe7d3680cebe6f476207b25a6d309571ad3"
+    sha256 cellar: :any_skip_relocation, mojave:        "79a485ca7cdf37b3c11ae7405501857fcfda1df0c2c9945350384dc766344ea2"
   end
 
-  depends_on "bazaar" => :build
+  depends_on "breezy" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
@@ -37,8 +37,8 @@ class Influxdb < Formula
   # NOTE: The version/URL here is specified in scripts/fetch-ui-assets.sh in influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "ui-assets" do
-    url "https://github.com/influxdata/ui/releases/download/OSS-v2.0.8/build.tar.gz"
-    sha256 "94965ae999a1098c26128141fbb849be3da9a723d509118eb6e0db4384ee01fc"
+    url "https://github.com/influxdata/ui/releases/download/OSS-v2.0.9/build.tar.gz"
+    sha256 "ace380b5bd6abef9aa0ca16e95900052b9520399a7b3311a0c366a5d98ad400d"
   end
 
   def install

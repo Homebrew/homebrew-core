@@ -2,9 +2,10 @@ class Mmctl < Formula
   desc "Remote CLI tool for Mattermost server"
   homepage "https://github.com/mattermost/mmctl"
   url "https://github.com/mattermost/mmctl.git",
-      tag:      "v5.39.1",
-      revision: "bdc509d9aae4e95a2f89246362ec6538dd441934"
+      tag:      "v6.0.0",
+      revision: "85dd8887b1205800ba42128ddff58263c1d13925"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/mattermost/mmctl.git", branch: "master"
 
   livecheck do
@@ -13,11 +14,11 @@ class Mmctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9e1a34f03bd5697b4a57dd21d63c39a2944422b7bb67d9ffa0d040016c1ba6a1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a367c4733881611ab5d65d9bb60c20359163b2a329f9623af46deb90fe98b9fc"
-    sha256 cellar: :any_skip_relocation, catalina:      "cdf7292bcba0fab6c616ea127a7e16c4cba5619fd0fa519dd190d14472f2b035"
-    sha256 cellar: :any_skip_relocation, mojave:        "090a84295d28ea87de18093a8b2deea1313e5e52897a61e6c5ba6574b8b7310f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6306f1bf77de1213f7cc172ca816016cfe730ff6b6c9d7642b4b5222d2e9c315"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7827a5ec216ac4f1eff57b0ec2f56e28e47d59d725afe3f9a0193187bb25b3a2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6df8f07b3eea0ee889492dbba869f57b2a93a8040a6a6a791411c55a8b28ad33"
+    sha256 cellar: :any_skip_relocation, catalina:      "4828e54217a17c41a21d6dfc4eea4a678f20fe093c3ed8e8ebbac2ef4e637c84"
+    sha256 cellar: :any_skip_relocation, mojave:        "b13f76c29bf9dc8a87e33345d3e97efd5a7f65a45e69c34d64110db24d023122"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2509eed21928303e1e2f49f35cc4f8bfe6ed7f0086a3ffb185fbdd855860f646"
   end
 
   depends_on "go" => :build

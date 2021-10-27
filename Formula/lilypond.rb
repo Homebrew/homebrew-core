@@ -1,8 +1,6 @@
 class Lilypond < Formula
   desc "Music engraving program"
   homepage "https://lilypond.org"
-  url "https://lilypond.org/download/sources/v2.22/lilypond-2.22.1.tar.gz"
-  sha256 "72ac2d54c310c3141c0b782d4e0bef9002d5519cf46632759b1f03ef6969cc30"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-3.0-only",
@@ -11,6 +9,20 @@ class Lilypond < Formula
     :public_domain,
     "MIT",
   ]
+  revision 1
+
+  stable do
+    url "https://lilypond.org/download/sources/v2.22/lilypond-2.22.1.tar.gz"
+    sha256 "72ac2d54c310c3141c0b782d4e0bef9002d5519cf46632759b1f03ef6969cc30"
+
+    # Distinguishes Lilypond homebrew installation that uses Guile 2.2 while
+    # others use Guile 1.8.
+    # See https://gitlab.com/lilypond/lilypond/-/merge_requests/950
+    patch do
+      url "https://gitlab.com/lilypond/lilypond/-/commit/a6742d0aadb6ad4999dddd3b07862fe720fe4dbf.diff"
+      sha256 "2a3066c8ef90d5e92b1238ffb273a19920632b7855229810d472e2199035024a"
+    end
+  end
 
   livecheck do
     url "https://lilypond.org/source.html"
@@ -18,11 +30,11 @@ class Lilypond < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "2c801f4fdde1ed6e006eeae104804f64878d2d87299090b2e24670272dc76f49"
-    sha256 big_sur:       "494460d9f2e9027ef52e8fd6d81869689ebc45d433403c25202e0c9d09c520bd"
-    sha256 catalina:      "1273052a8fb3584c5abbcbfa2492c0de3e1ae62496370fffd6550a22caeaa88b"
-    sha256 mojave:        "0828c31c729f5621d64d554afd01bc5ccf5d604b976b064f5dd5450ed9a3dd59"
-    sha256 x86_64_linux:  "588d9bb3fea1eb39d0f206acd25c517984d149577927c19a1772c2a17bfef63e"
+    sha256 arm64_big_sur: "5b5182726f7fd17fc1da720d48d093b326c3b0e60ef7f8a56598d6d142999871"
+    sha256 big_sur:       "c6d72cd49f4ea86f978d257a2e6f73f6df79f5bddaadb1c8e676e2e715fe3d5d"
+    sha256 catalina:      "d38a77136b4bd19124aa9a01bd2de4a8fedbc2b9fea9e7e6d8addb9f2a09b90d"
+    sha256 mojave:        "2fed3245ffd0ad5ad6c17ecd9512ddbd117efcde703bd40732d8b820f9185503"
+    sha256 x86_64_linux:  "cb3d3205f0526ad3182d2afd32fa28a94ec0b893a39fff466ef7372335a15b52"
   end
 
   head do

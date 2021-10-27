@@ -7,11 +7,13 @@ class IosWebkitDebugProxy < Formula
   head "https://github.com/google/ios-webkit-debug-proxy.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "eb231061aab2df9284d4160f89567803399b86e3c58b95643db03e429ffdc05e"
-    sha256 cellar: :any, big_sur:       "0386ea5f531d49b175e460381c5f76c8696539c91225b1611d98665dba8d4685"
-    sha256 cellar: :any, catalina:      "c46bfdadb61495298c52d4d771d49fc0596ed8e5f1ec28cea8a9b57c77a035e8"
-    sha256 cellar: :any, mojave:        "890859443600c9a1bd40f0453a81948714b1b18be558f3991bbd8d6257274f15"
-    sha256 cellar: :any, high_sierra:   "c0111ff5ffe3e9146e7589d9e009f8b1907974bf9d23004a3611412e64b671f0"
+    sha256 cellar: :any, arm64_monterey: "6c36002c9d2488188b33d7f89c49b5dea290be833a7f2785b45213eff93c183b"
+    sha256 cellar: :any, arm64_big_sur:  "eb231061aab2df9284d4160f89567803399b86e3c58b95643db03e429ffdc05e"
+    sha256 cellar: :any, monterey:       "6e2190f23432e24dca8d7ccbaac86ff638a03f070b6bb5528a589a70aa5493fa"
+    sha256 cellar: :any, big_sur:        "0386ea5f531d49b175e460381c5f76c8696539c91225b1611d98665dba8d4685"
+    sha256 cellar: :any, catalina:       "c46bfdadb61495298c52d4d771d49fc0596ed8e5f1ec28cea8a9b57c77a035e8"
+    sha256 cellar: :any, mojave:         "890859443600c9a1bd40f0453a81948714b1b18be558f3991bbd8d6257274f15"
+    sha256 cellar: :any, high_sierra:    "c0111ff5ffe3e9146e7589d9e009f8b1907974bf9d23004a3611412e64b671f0"
   end
 
   depends_on "autoconf" => :build

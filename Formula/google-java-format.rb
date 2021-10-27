@@ -1,12 +1,15 @@
 class GoogleJavaFormat < Formula
   desc "Reformats Java source code to comply with Google Java Style"
   homepage "https://github.com/google/google-java-format"
-  url "https://github.com/google/google-java-format/releases/download/v1.11.0/google-java-format-1.11.0-all-deps.jar"
-  sha256 "2a5273633c2b1c1607b60b5e17671e6a535dedbcdef74a127629a027297ab7c7"
+  url "https://github.com/google/google-java-format/releases/download/v1.12.0/google-java-format-1.12.0-all-deps.jar"
+  sha256 "85da82b9b71f04afcacda9d008c2d21540bf4fa259269efb5c561da2d4e11252"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3fc42b7dadb269a82002fe663bbac560e87c9e9500a92e8b1a3a9053582161cb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7dccb80af3364f807fd943e8315cd53c4eb6413744245885dd171d820937cd36"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7dccb80af3364f807fd943e8315cd53c4eb6413744245885dd171d820937cd36"
+    sha256 cellar: :any_skip_relocation, catalina:      "7dccb80af3364f807fd943e8315cd53c4eb6413744245885dd171d820937cd36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8e32c09781e5e93774ffeb6dd74e05512af27a609989db0bfff26a47eef279a"
   end
 
   depends_on "openjdk"

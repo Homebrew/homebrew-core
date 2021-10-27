@@ -1,21 +1,20 @@
 class SpirvLlvmTranslator < Formula
   desc "Tool and a library for bi-directional translation between SPIR-V and LLVM IR"
   homepage "https://github.com/KhronosGroup/SPIRV-LLVM-Translator"
-  url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v12.0.0.tar.gz"
-  sha256 "6e4fad04203f25fcde4c308c53e9f59bd05a390978992db3212d4b63aff62108"
+  url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v13.0.0.tar.gz"
+  sha256 "b416c06525c8724be628327565956c418755fbb471b4fe23d040ca56e1a79061"
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "9bb7cd5741a9992091c5ff737d20c0de83671427be30d7e063fd7b92b7667f8f"
-    sha256 cellar: :any,                 big_sur:       "2001d96783379a0701d03728fcf007ce3870e37e8faac26e2f869ed8156835d0"
-    sha256 cellar: :any,                 catalina:      "33674cba9e6be10165706e14f252f0d9507d04c6db9c437364cf02c308cef4b8"
-    sha256 cellar: :any,                 mojave:        "efde7cdac01766aa3bf141af421b6dc120509eb16372d9c54ed3cf14a2595431"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48893499d95a76f600ec69ee62b817ebcae457ad401d64612cb06dddb6bde03a"
+    sha256 cellar: :any,                 arm64_big_sur: "92e5cd447c4697efb1426b15971cee928c5352e0ba7c3ba40c0e258290e2eeec"
+    sha256 cellar: :any,                 big_sur:       "7c1833d0f5f8160fdb143eb2ef45a8e501f5c4558e4adf99ed5c05dff778d751"
+    sha256 cellar: :any,                 catalina:      "3f6aadbe72ef0487be0bcbe21612e2c50f5b91eb17ae0a4364ebcd0e86864e97"
+    sha256 cellar: :any,                 mojave:        "879aa8f4b115e9f854f08b0bca109c733c5cef1a05c3af151b295a02a759fd49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "474b5dd87cb87ec81fea6028e8ec6736626e7a70e7440cd647073c785374c709"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@12"
+  depends_on "llvm"
 
   on_linux do
     depends_on "gcc"

@@ -7,12 +7,14 @@ class Opusfile < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4274c0f9758385bbf30fabde125317dcf4934e5188d86b791cb1292efb9e26fd"
-    sha256 cellar: :any,                 big_sur:       "0e6dc752d650542ea8ae4b67182700724ae32ffd5dfa9323d5c2563ed267dd0f"
-    sha256 cellar: :any,                 catalina:      "c43c50e65738c25ef72af85e5509577314764c3dad0fb4c122704591d6f3a515"
-    sha256 cellar: :any,                 mojave:        "8754dfcc9abec5de74e8cd7af31614c06e8208bd623f9ad5446048ad14218a97"
-    sha256 cellar: :any,                 high_sierra:   "ff718107c425123a06270b62aa9a7bd3fee4f785d03dac21a58f7059720be22b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9279801d0c9111e570f0e095f738d68a3eae182b8d9d6cb0cd6343a25b787644"
+    sha256 cellar: :any,                 arm64_monterey: "0cdc27b38be83f9e0e7a2ca87d2b5605d597f702b8ae0e6b9f7470b203debf94"
+    sha256 cellar: :any,                 arm64_big_sur:  "4274c0f9758385bbf30fabde125317dcf4934e5188d86b791cb1292efb9e26fd"
+    sha256 cellar: :any,                 monterey:       "2b33775ddb195a0de0ae029b833c425db68ae92ed0228f2f508a202ef620823d"
+    sha256 cellar: :any,                 big_sur:        "0e6dc752d650542ea8ae4b67182700724ae32ffd5dfa9323d5c2563ed267dd0f"
+    sha256 cellar: :any,                 catalina:       "c43c50e65738c25ef72af85e5509577314764c3dad0fb4c122704591d6f3a515"
+    sha256 cellar: :any,                 mojave:         "8754dfcc9abec5de74e8cd7af31614c06e8208bd623f9ad5446048ad14218a97"
+    sha256 cellar: :any,                 high_sierra:    "ff718107c425123a06270b62aa9a7bd3fee4f785d03dac21a58f7059720be22b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9279801d0c9111e570f0e095f738d68a3eae182b8d9d6cb0cd6343a25b787644"
   end
 
   head do

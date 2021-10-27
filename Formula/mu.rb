@@ -4,8 +4,8 @@
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/1.6.6/mu-1.6.6.tar.xz"
-  sha256 "42cd3d20f2a670fe57bedcde049b6b2b030fe51c507fdfdfeb6aa865f1f443b5"
+  url "https://github.com/djcb/mu/releases/download/1.6.8/mu-1.6.8.tar.xz"
+  sha256 "d175272bec399c956393c8e2afa5e16f503b65417edc7e3224b50edd6d1f9750"
   license "GPL-3.0-or-later"
 
   # We restrict matching to versions with an even-numbered minor version number,
@@ -17,11 +17,10 @@ class Mu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3e8e35eb6318b5ed58556f9ac0c4fa25c808c9a264c00b14d71390f34c983381"
-    sha256 cellar: :any,                 big_sur:       "29f19a1002c14ad90add4cac9a68b3144fab66db2ed5909ee6cd45984a9b4147"
-    sha256 cellar: :any,                 catalina:      "10c340b63a84e07431cdeea94682bfd41920a667abf2657cc21c495ca022fcda"
-    sha256 cellar: :any,                 mojave:        "f3fbce2bc43a6bc45bd2ca9d5ef2ad4a16bea47e80a0ffc42349ff3ec56f8ded"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f42f127087629f91b9591530523b3a52172839282c36135c8d5a8933c25945a"
+    sha256 cellar: :any,                 arm64_big_sur: "abbbacf5eb2983c03fc209bd497bb828cf0c0077f0e1ec2d02710e86145db41a"
+    sha256 cellar: :any,                 big_sur:       "3babbb7a81106cce91530c94be1e66f7184a65e67119d06d14e1641146487eea"
+    sha256 cellar: :any,                 catalina:      "fb0ee00fbe19850a2edf6f88514a7179392f674fff26246a067ea60d2e570626"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db2624e44332ca7e4a4916786db3129394f21f963f10e7b1c4320df4b6f3a21a"
   end
 
   head do

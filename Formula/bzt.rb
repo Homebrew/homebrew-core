@@ -6,14 +6,16 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/bc/44/802b7f740ef7ce53aed555223279760e1a253cebb9f3dd665e7f01f8db40/bzt-1.15.2.tar.gz"
   sha256 "c06b3eb7e965583394832550581a52bb2c53d076beebe74d23d795802ed2b522"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "74f43e75579eaac72b2e1edb4ed9916a4b44c382ac0ff7e39a4e9d1c84a85259"
-    sha256 cellar: :any,                 big_sur:       "1e5c8fba04e0a590223e5930c1dd7d82b0c5d3886953a6b5509fe589df096d56"
-    sha256 cellar: :any,                 catalina:      "ba0af87b32de700c761871864520f5051ad564b61331e6923ad0031174a874a3"
-    sha256 cellar: :any,                 mojave:        "2861a7d8cea73f7e60f971ccc2fd820b8fbfe85ad56c48dba1381d36857c61e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ca050c502cb7ddadec7ce2ea34bbec2970846ad0531a6387aeda64a00f8efa3"
+    sha256 cellar: :any,                 arm64_monterey: "585200d41eb806aec9f03054542729bc79ef6a6d89ee3bebfdbfa79442699f7d"
+    sha256 cellar: :any,                 arm64_big_sur:  "ad8b1e275eb1316347115f4d38dce5685a0478bfa320ab9d001d8409f609432c"
+    sha256 cellar: :any,                 monterey:       "bddaf912e0e859f36d59e28dfc5a10e338f345e7ee4bff9a98a93fd8399a46c5"
+    sha256 cellar: :any,                 big_sur:        "a67cf1fc3c2c2a0d712e888892ed9c98c332ecbd236331acbe910bcfa14e2b8e"
+    sha256 cellar: :any,                 catalina:       "97357518845764ac60d494138448f3e061a73e90a275ea5c2d55e9804583bf8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a14814424defacd54f911cda4e8130842363f08df94668bdfe78b3a1ca5eafa"
   end
 
   depends_on "rust" => :build
@@ -243,6 +245,9 @@ class Bzt < Formula
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
     virtualenv_install_with_resources
+
+    # remove non-native binary
+    (libexec/"lib/python3.9/site-packages/selenium/webdriver/firefox/x86/x_ignore_nofocus.so").unlink if OS.linux?
   end
 
   test do

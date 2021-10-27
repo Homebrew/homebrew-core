@@ -1,16 +1,18 @@
 class GolangMigrate < Formula
   desc "Database migrations CLI tool"
   homepage "https://github.com/golang-migrate/migrate"
-  url "https://github.com/golang-migrate/migrate/archive/v4.15.0.tar.gz"
-  sha256 "a8980f00810f5d614f467d80a97598c8ff923e760678f54b173fe9def7811c7f"
+  url "https://github.com/golang-migrate/migrate/archive/v4.15.1.tar.gz"
+  sha256 "d426b0c55b3445210392fc61cbeefbe8410665bf2725eed9b1becb6c200ffe42"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5eefbb5079926c045bb54d7c39dacdff1f47333537ae117e549a6bf4c0022415"
-    sha256 cellar: :any_skip_relocation, big_sur:       "89331be62af8d09c5488f04bbb9e8bbaaf2f8308fc80b33d0460a59aef8fb933"
-    sha256 cellar: :any_skip_relocation, catalina:      "9e5042348f5365709904256c67be90eb6c58933ba6718f75f0c6fd43fbc284b0"
-    sha256 cellar: :any_skip_relocation, mojave:        "a6d8c96b681088ee7ff2d4e5cf4b486b8731771712bf4ce03234df1a18d5b718"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c830a75556f981d38518261f56847bafe1d478b1180bed16e4cb4a1519827eb5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f83ef926cf9456ec3410d1638d9343cee72377951c151e9dc554d9ac7e0e265b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "214004a79f09ced2ba15ed70dd171e3928701bc962234adf99c07364a73cc154"
+    sha256 cellar: :any_skip_relocation, monterey:       "eea8b53cfc283d7dd1c9138f7d260e55db24f13795940428308a706324dc7b43"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dfd17394b62ed5ae5dede0b439549e919f6411e0db22c43570b70539e6bd718e"
+    sha256 cellar: :any_skip_relocation, catalina:       "3d0f6356d4703cfd34b5d5e910a8e294af781ea2ba5efb932282934e41cf4f52"
+    sha256 cellar: :any_skip_relocation, mojave:         "9da66644a815cb772799c02e7b1933e57f799f656b1cd718b64ab1b76642e2a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "084fb81db0dac1917ea2d0f17509b1af17f9b0ab862ad6f5cb5188534d304201"
   end
 
   depends_on "go" => :build

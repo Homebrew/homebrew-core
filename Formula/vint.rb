@@ -10,11 +10,13 @@ class Vint < Formula
   head "https://github.com/Vimjas/vint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "595434e77d6e9c4363dd91932a6f352b022f41d50ab62faf0bee3bcfe03b9ad8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
-    sha256 cellar: :any_skip_relocation, catalina:      "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
-    sha256 cellar: :any_skip_relocation, mojave:        "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06273da4a3b237e1bbfecbe12595be4e02af7db2620d212ac1753a24dc776319"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "595434e77d6e9c4363dd91932a6f352b022f41d50ab62faf0bee3bcfe03b9ad8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "595434e77d6e9c4363dd91932a6f352b022f41d50ab62faf0bee3bcfe03b9ad8"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
+    sha256 cellar: :any_skip_relocation, catalina:       "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
+    sha256 cellar: :any_skip_relocation, mojave:         "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06273da4a3b237e1bbfecbe12595be4e02af7db2620d212ac1753a24dc776319"
   end
 
   depends_on "python@3.10"

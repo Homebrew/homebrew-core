@@ -8,10 +8,12 @@ class Ldid < Formula
   head "https://git.saurik.com/ldid.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "24ad6542039d4d6be36a6d4ecd3f0c693e1f184608e68edbb47c9e9184af8b36"
-    sha256 cellar: :any, big_sur:       "cc64fe39c44a0f1f8bd317526f7e9addb7462738fde043c428f2132119da8fdd"
-    sha256 cellar: :any, catalina:      "076869a16234577407b0ea659e117863b927f9c3ac3c5b7cbde9d73af0b998ac"
-    sha256 cellar: :any, mojave:        "986774410fa97d8f9afc40d378ee97c9ea6e3b18d8055f3881c12a68466e38b6"
+    sha256 cellar: :any, arm64_monterey: "0ac9a13e531213216609846e8119f52647b3a5a40f2e24a29cd4a1c670326c76"
+    sha256 cellar: :any, arm64_big_sur:  "24ad6542039d4d6be36a6d4ecd3f0c693e1f184608e68edbb47c9e9184af8b36"
+    sha256 cellar: :any, monterey:       "7cd2258538aab23539e42b7b6eddbd213c8a2d1e6a6ef5b1516d444657800b9e"
+    sha256 cellar: :any, big_sur:        "cc64fe39c44a0f1f8bd317526f7e9addb7462738fde043c428f2132119da8fdd"
+    sha256 cellar: :any, catalina:       "076869a16234577407b0ea659e117863b927f9c3ac3c5b7cbde9d73af0b998ac"
+    sha256 cellar: :any, mojave:         "986774410fa97d8f9afc40d378ee97c9ea6e3b18d8055f3881c12a68466e38b6"
   end
 
   depends_on "libplist"

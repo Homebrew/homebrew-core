@@ -4,30 +4,30 @@ class Dmd < Formula
   license "BSL-1.0"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.097.2.tar.gz"
-    sha256 "10e8fc9b99864bf68f384ca85f0c527221478be08d331ac477a90a2d83b71f4f"
+    url "https://github.com/dlang/dmd/archive/v2.098.0.tar.gz"
+    sha256 "437e7abae7f747ce8a027e512d2f98f0c27badd623347141c3f6fb0834d85ad0"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.097.2.tar.gz"
-      sha256 "ee09d6e37887bba856c767b9aa36f61b290f2cfe0c470eb4a9ccd7f2e24d4bcd"
+      url "https://github.com/dlang/druntime/archive/v2.098.0.tar.gz"
+      sha256 "f150400756c7940bc9d67a3ed7f89777e49b42a1ef2dff6f40727f83b3cea6f4"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.097.2.tar.gz"
-      sha256 "3f407f94d5d50a43498acf7f463f56a96f66534901068f8d6be850a1bd12135c"
+      url "https://github.com/dlang/phobos/archive/v2.098.0.tar.gz"
+      sha256 "f91c6c7f2d5683af2804a183c287bf6991b99c49692759d7844e1919ca59e974"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.097.2.tar.gz"
-      sha256 "b04c7ebd16fa1b48aea4667f3906fdb62b4ff94c661eb216ba477f3310faf882"
+      url "https://github.com/dlang/tools/archive/v2.098.0.tar.gz"
+      sha256 "9466e62ed2cf80802158524fc4e7ff80cbefc0fadff23a8933f6f2892b42cb56"
     end
   end
 
   bottle do
-    sha256 big_sur:      "3d9352cd4ce2ed8874c9da854540a6c3928b3bc81b77788c7e8a09c8580bfbe0"
-    sha256 catalina:     "c9fb6b53f38ca780febac7c9d343928a9a2e88bec7aa5a6b7a05b70949915ca2"
-    sha256 mojave:       "9ccdddbfac184379c83150a87c2e230863c51866dd099ad9609c4eb22cf4f107"
-    sha256 x86_64_linux: "4fe16fa1889fe81062e0484eca751883c06ebea11c0df177f2b9b6fc8a3a24d8"
+    sha256 big_sur:      "b2c95835a1295b25169b3e96eacfddc479cd24efc6d58285e42a1436c2b097ce"
+    sha256 catalina:     "ec5dec4305424b179a815a4d15a8f85591bfb73d5cc92ca34b4ada0f05c34743"
+    sha256 mojave:       "82a178b02a4001d6a7f0e466d33bc6479be456b27bd29b124973164a164fde5f"
+    sha256 x86_64_linux: "1e65207b55d3c04987dd3679145db28e5952aa6cb2cc5bbf8aa227eb3cfd7b5a"
   end
 
   head do
@@ -84,11 +84,8 @@ class Dmd < Formula
       system "make", "install", *make_args
     end
 
-    if OS.mac?
-      bin.install "generated/osx/release/64/dmd"
-    else
-      bin.install "generated/linux/release/64/dmd"
-    end
+    kernel_name = OS.mac? ? "osx" : OS.kernel_name.downcase
+    bin.install "generated/#{kernel_name}/release/64/dmd"
     pkgshare.install "samples"
     man.install Dir["docs/man/*"]
 
