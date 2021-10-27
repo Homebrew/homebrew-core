@@ -4,8 +4,8 @@ class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://swift.org"
   # NOTE: Keep version in sync with resources below
-  url "https://github.com/apple/swift/archive/swift-5.5-RELEASE.tar.gz"
-  sha256 "0f76c429e65f24d48a2a18b18e7b380a5c97be0d4370271ac3623e436332fd35"
+  url "https://github.com/apple/swift/archive/swift-5.5.1-RELEASE.tar.gz"
+  sha256 "b4092b2584919f718a55ad0ed460fbc48e84ec979a9397ce0adce307aba41ac9"
   license "Apache-2.0"
 
   livecheck do
@@ -29,7 +29,7 @@ class Swift < Formula
   # https://github.com/apple/swift/tree/swift-#{version}-RELEASE/docs/HowToGuides/GettingStarted.md#macos
   depends_on xcode: ["12.3", :build]
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # HACK: this should not be a test dependency but is due to a limitation with fails_with
   uses_from_macos "llvm" => [:build, :test]
@@ -46,18 +46,25 @@ class Swift < Formula
     depends_on "six" => :build
 
     resource "swift-corelibs-foundation" do
-      url "https://github.com/apple/swift-corelibs-foundation/archive/swift-5.5-RELEASE.tar.gz"
-      sha256 "4d58bd3ed05f8b2bf836e4868034f01272dddbd3c0385ddc6f2afc93da033464"
+      url "https://github.com/apple/swift-corelibs-foundation/archive/swift-5.5.1-RELEASE.tar.gz"
+      sha256 "ab99fbcf0e8ede00482c614cfd0c4c42a27ae94744ca3ce0d9b03a52a3f8d4d0"
     end
 
     resource "swift-corelibs-libdispatch" do
-      url "https://github.com/apple/swift-corelibs-libdispatch/archive/swift-5.5-RELEASE.tar.gz"
-      sha256 "5efdfa1d2897c598acea42fc00776477bb3713645686774f5ff0818b26649e62"
+      url "https://github.com/apple/swift-corelibs-libdispatch/archive/swift-5.5.1-RELEASE.tar.gz"
+      sha256 "de280f470850d98887eeb0f2b4dc3524d0f2f8eb93af5618d4f1e5312d4cbbdf"
+
+      # Fix unused refcount error.
+      # Remove with Swift 5.6.
+      patch do
+        url "https://github.com/apple/swift-corelibs-libdispatch/commit/729e25d92d05a8c4a8136e831ec6123bbf7f2654.patch?full_index=1"
+        sha256 "1998de1a9a422036eab8c2694ee6cd480f86a873ecbef0241b0893c3e3387c8b"
+      end
     end
 
     resource "swift-corelibs-xctest" do
-      url "https://github.com/apple/swift-corelibs-xctest/archive/swift-5.5-RELEASE.tar.gz"
-      sha256 "4dd3a3096c51b52817b0876ce18ea921cb0f71adf1992019e984d0d45e49b840"
+      url "https://github.com/apple/swift-corelibs-xctest/archive/swift-5.5.1-RELEASE.tar.gz"
+      sha256 "11ee237c61dcd1fb20b30c35a552e5c0044d069cbaad9fb9bddd175efec4f984"
     end
   end
 
@@ -65,8 +72,8 @@ class Swift < Formula
   fails_with :gcc
 
   resource "llvm-project" do
-    url "https://github.com/apple/llvm-project/archive/swift-5.5-RELEASE.tar.gz"
-    sha256 "87955764fb6cd83cb24e0421f249ce3fc817400edd3c0015eb840fe7fd7cf5e3"
+    url "https://github.com/apple/llvm-project/archive/swift-5.5.1-RELEASE.tar.gz"
+    sha256 "095763d76000b95910ce19837d45b932a48f8ab4a002a8b27e986b1a29e8432f"
 
     # Fix handling of arm64e in REPL mode.
     # Remove with Swift 5.6.
@@ -84,38 +91,38 @@ class Swift < Formula
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/swift-5.5-RELEASE.tar.gz"
-    sha256 "689865cafeb0bd7eb1297cdd8ba06c43d072af921d36bdbdf6dbe3817b3bb27f"
+    url "https://github.com/apple/swift-cmark/archive/swift-5.5.1-RELEASE.tar.gz"
+    sha256 "36c9de0d5a7f71455542c780b8a0a4bd703e6f0d1456a5a1a9caf22e3cb4182a"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/swift-5.5-RELEASE.tar.gz"
-    sha256 "09e774c4a97bbb7473ab2b69ef2a547036660ce7d5d2c67802974de3e23381f8"
+    url "https://github.com/apple/swift-llbuild/archive/swift-5.5.1-RELEASE.tar.gz"
+    sha256 "39998792dea9d36ec1b98d07e9e6100a9853e9a3f845b319de81cf1aaae6a8dd"
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/swift-5.5-RELEASE.tar.gz"
-    sha256 "89b240810b1c2adb86ba83a70ec384b75608a737f9af09f469c8ca968a85a30e"
+    url "https://github.com/apple/swift-package-manager/archive/swift-5.5.1-RELEASE.tar.gz"
+    sha256 "73331ad0d27f1e40a0d50d45337f986e0303dd0c872a0991db916126bd3949fe"
   end
 
   resource "indexstore-db" do
-    url "https://github.com/apple/indexstore-db/archive/swift-5.5-RELEASE.tar.gz"
-    sha256 "191711ad5d7638091b8c813335a7831c7e549a82b3fd480e368ed8ad7801d62d"
+    url "https://github.com/apple/indexstore-db/archive/swift-5.5.1-RELEASE.tar.gz"
+    sha256 "a678003f61b2795ee76d89fd4f008a77fab4522d275764db413ecce8b0aa66e2"
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.5-RELEASE.tar.gz"
-    sha256 "21bca4b8a84a4b687dc9ab1090fd3433915d7555445687ad82f1eaf3ec23c738"
+    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.5.1-RELEASE.tar.gz"
+    sha256 "9c5f3358e854cf42af1a03567e02d04476bb5b47c3b914512f29ecc46117e445"
   end
 
   resource "swift-driver" do
-    url "https://github.com/apple/swift-driver/archive/swift-5.5-RELEASE.tar.gz"
-    sha256 "e6c8ec5fc41f05ffd4c04b409278d0b4ec098402304b20d2997f06ea2ed2e4ed"
+    url "https://github.com/apple/swift-driver/archive/swift-5.5.1-RELEASE.tar.gz"
+    sha256 "f8ea378f1d9466fbd0206796dabb03e178390f3fd6584e582038ae75fd75fece"
   end
 
   resource "swift-tools-support-core" do
-    url "https://github.com/apple/swift-tools-support-core/archive/swift-5.5-RELEASE.tar.gz"
-    sha256 "4ae77edeb30a311d6d4bd5a4ed5ce7286d8fb3305d962a702a985297c82053d0"
+    url "https://github.com/apple/swift-tools-support-core/archive/swift-5.5.1-RELEASE.tar.gz"
+    sha256 "a2f21a2814286ee23766ae55eebe5a4797ad04fd674ef37a9411a9bd40782222"
   end
 
   # To find the version to use, check the release/#{version.major_minor} entry of:
@@ -150,6 +157,13 @@ class Swift < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/939cc44b01a7f4c0c0ae1c9f037867de38ef5239/swift/5.5-copy_shim_headers.diff"
     sha256 "0e2c2dc96895931e4444f90533cb2b8e1b04c2591f9a2c0492145661efab1760"
+  end
+
+  # Fix libdispatch building with tests enabled.
+  # https://github.com/apple/swift/pull/39970
+  patch do
+    url "https://github.com/apple/swift/commit/6be2b40fdd831e6a77baa789820df31e6d2dc6bd.patch?full_index=1"
+    sha256 "9203072ae9cdcc07ec1fa2821d9caebb295d816ecb62253447a076dc685e7a6a"
   end
 
   # Fix arm64 build not being able to use the arm64e standard library.
@@ -300,7 +314,7 @@ class Swift < Formula
           -DCMAKE_INSTALL_RPATH=$ORIGIN:$ORIGIN/../lib:$ORIGIN/../lib/swift/linux
         ]
 
-        ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+        ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
       end
 
       args << "--extra-cmake-options=#{extra_cmake_options.join(" ")}"
