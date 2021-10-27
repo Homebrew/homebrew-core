@@ -1,7 +1,9 @@
 [
+  "arpack",
   "open-mpi",
   "pypy",
   "pypy3",
+  "scalapack",
   "tcl-tk",
   "xvid"
 ]
