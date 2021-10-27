@@ -1,8 +1,8 @@
 class Liqoctl < Formula
   desc "Is a CLI tool to install and manage Liqo-enabled clusters"
   homepage "https://liqo.io"
-  url "https://github.com/liqotech/liqo/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "1f556c5e0aca3667d129c65d19959f8d62919639dc5f3c85e6ab63e3c5e10d27"
+  url "https://github.com/liqotech/liqo/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "4a89c95613d6a2083987aa29bf76eac0d42ae894e422e3995d039fe8c7b3b2d9"
   license "Apache-2.0"
 
   bottle do
@@ -36,7 +36,11 @@ class Liqoctl < Formula
   test do
     run_output = shell_output("#{bin}/liqoctl 2>&1")
     assert_match "liqoctl is a CLI tool to install and manage Liqo-enabled clusters.", run_output
-    assert_empty shell_output("#{bin}/liqoctl install kind 2>&1", 1)
+    run_install_output = shell_output("#{bin}/liqoctl install kind 2>&1", 1)
+    assert_match <<~EOS, run_install_output
+      Error: no configuration provided, please set the environment variable KUBECONFIG
+      Error: no configuration provided, please set the environment variable KUBECONFIG
+    EOS
     assert_match version.to_s, shell_output("#{bin}/liqoctl version")
   end
 end
