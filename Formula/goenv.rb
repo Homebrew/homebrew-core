@@ -18,13 +18,15 @@ class Goenv < Formula
   end
 
   def install
-    inreplace [
+    inreplace_files = [
       "libexec/goenv",
       "plugins/go-build/install.sh",
       "test/goenv.bats",
-      "test/init.bats",
       "test/test_helper.bash",
-    ], "/usr/local", HOMEBREW_PREFIX
+    ]
+    inreplace_files << "test/init.bats" unless build.head?
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
+
     prefix.install Dir["*"]
     %w[goenv-install goenv-uninstall go-build].each do |cmd|
       bin.install_symlink "#{prefix}/plugins/go-build/bin/#{cmd}"
