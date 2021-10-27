@@ -34,6 +34,7 @@ class ImapBackup < Formula
       w.write "exit without saving changes\n"
       assert_match(/^Choose an action:/, r.read)
     rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
       nil
     ensure
       Process.kill("TERM", pid)
