@@ -32,7 +32,7 @@ class ImapBackup < Formula
       r.winsize = [80, 43]
       sleep 1
       w.write "exit without saving changes\n"
-      assert_match(/^Choose an action:.*$/, r.read)
+      assert_match(/^Choose an action:/, r.read)
     rescue Errno::EIO
       nil
     ensure
