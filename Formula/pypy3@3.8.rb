@@ -4,12 +4,13 @@ class Pypy3AT38 < Formula
   url "https://downloads.python.org/pypy/pypy3.8-v7.3.7-src.tar.bz2"
   sha256 "21ae339f4f5016d6ca7300305f3e3b554373835cb3c39a9041fe30e6811c80c6"
   license "MIT"
-  head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.8"
 
   livecheck do
     url "https://downloads.python.org/pypy/"
     regex(/href=.*?pypy3(?:\.\d+)*[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
   end
+
+  keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "pypy" => :build
