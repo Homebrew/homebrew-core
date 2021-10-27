@@ -6,6 +6,11 @@ class Ballerburg < Formula
   license "GPL-3.0"
   head "https://git.tuxfamily.org/baller/baller.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ballerburg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a82163254a4f1ff916e0d7ba0387914f529ffa67955495e146be69b5c2b2f31e"
     sha256 cellar: :any,                 big_sur:       "94691e7d7c914ce603ffdcf611159d2fd8fa63616f9f35f6bed3c58d72571bea"
