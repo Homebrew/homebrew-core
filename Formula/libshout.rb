@@ -5,7 +5,7 @@ class Libshout < Formula
   mirror "https://ftp.osuosl.org/pub/xiph/releases/libshout/libshout-2.4.5.tar.gz"
   sha256 "d9e568668a673994ebe3f1eb5f2bee06e3236a5db92b8d0c487e1c0f886a6890"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/libshout/?C=M&O=D"
@@ -26,6 +26,10 @@ class Libshout < Formula
   depends_on "libvorbis"
   depends_on "speex"
   depends_on "theora"
+
+  on_linux do
+    depends_on "openssl@1.1"
+  end
 
   # libshout's libtool.m4 doesn't properly support macOS >= 11.x (see
   # libtool.rb formula). This causes the library to be linked with a flat
