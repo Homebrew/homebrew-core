@@ -6,6 +6,7 @@ class S3cmd < Formula
   url "https://files.pythonhosted.org/packages/65/6c/f51ba2fbc74916f4fe3883228450306135e13be6dcca03a08d3e91239992/s3cmd-2.2.0.tar.gz"
   sha256 "2a7d2afe09ce5aa9f2ce925b68c6e0c1903dd8d4e4a591cd7047da8e983a99c3"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
@@ -18,12 +19,7 @@ class S3cmd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "704920a5d0846f0e0176e7ababbb0c624647dc0c42a7b8b79001dfb8cc00124a"
   end
 
-  # s3cmd version 2.1.0 is not compatible with Python 3.9, know issues are:
-  # - https://github.com/s3tools/s3cmd/issues/1146
-  # - https://github.com/s3tools/s3cmd/pull/1144
-  # - https://github.com/s3tools/s3cmd/pull/1137
-  # Do not bump Python version until these issues are fixed, probably when version 2.2.0 is released.
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "six"
 
   resource "python-dateutil" do
