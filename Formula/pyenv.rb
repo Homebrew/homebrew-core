@@ -1,8 +1,8 @@
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
-  url "https://github.com/pyenv/pyenv/archive/v2.1.0.tar.gz"
-  sha256 "464439c2f764b5ed9b00c97727cef0a7152be4ccbe703d54db43a48afe277a70"
+  url "https://github.com/pyenv/pyenv/archive/v2.2.0.tar.gz"
+  sha256 "ef62a5d0a0d582b38497ae8d24a2a417d4a21c42811123c08082541a7092825d"
   license "MIT"
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git", branch: "master"
@@ -34,7 +34,7 @@ class Pyenv < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "python@3.9" => :test
+    depends_on "python@3.10" => :test
   end
 
   def install
