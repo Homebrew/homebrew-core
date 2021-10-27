@@ -2,7 +2,7 @@ class Pipenv < Formula
   include Language::Python::Virtualenv
 
   desc "Python dependency management tool"
-  homepage "https://pipenv.pypa.io/"
+  homepage "https://github.com/pypa/pipenv"
   url "https://files.pythonhosted.org/packages/be/c5/a7c300c4589e898db8cfcf26f7065c24e2f5abacaea196a7f80e6695344d/pipenv-2021.5.29.tar.gz"
   sha256 "05958fadcd70b2de6a27542fcd2bd72dd5c59c6d35307fdac3e06361fb06e30e"
   license "MIT"
