@@ -29,7 +29,7 @@ class SpiceProtocol < Formula
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, "-Dwith-docs=false", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
