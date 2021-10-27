@@ -1,5 +1,6 @@
 [
   "arpack",
+  "mpich",
   "open-mpi",
   "pypy",
   "pypy3",
