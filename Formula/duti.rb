@@ -35,8 +35,14 @@ class Duti < Formula
     sha256 "7c90efd1606438f419ac2fa668c587f2a63ce20673c600ed0c45046fd8b14ea6"
   end
 
+  # Fix compilation on Monterey
+  patch do
+    url "https://github.com/moretension/duti/commit/ec195e261f8a48a1a18e262a2b1f0ef26a0bc1ee.patch?full_index=1"
+    sha256 "dec21aeea7f31c1a2122a01b44c13539af48840b181a80cecb4653591a9b0f9d"
+  end
+
   def install
-    system "autoreconf", "-vfi"
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
