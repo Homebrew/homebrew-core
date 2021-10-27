@@ -28,7 +28,7 @@ class ImapBackup < Formula
     require "io/console"
 
     (testpath/"imap-backup").mkdir
-    PTY.spawn "#{bin}/imap-backup setup" do |r, w, pid|
+    PTY.spawn bin/"imap-backup setup" do |r, w, pid|
       r.winsize = [80, 43]
       sleep 1
       w.write "exit without saving changes\n"
