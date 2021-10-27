@@ -1,18 +1,14 @@
 class Vcsh < Formula
   desc "Config manager based on git"
   homepage "https://github.com/RichiH/vcsh"
-  url "https://github.com/RichiH/vcsh/releases/download/v2.0.3/vcsh-2.0.3.tar.xz"
-  sha256 "e772596111fb26750bc688d9c836fcd73770b1f24bad08b5ad23189666736204"
+  url "https://github.com/RichiH/vcsh/releases/download/v2.0.4/vcsh-2.0.4.tar.xz"
+  sha256 "5bf425d89f474c340fbb47a5df8987573a9ef3928658b3e9876b07cae1333cf2"
   license "GPL-2.0-or-later"
 
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c15597b5db9a80da494ae4bb693c0c409a05b7a8e32ccf70f268316593d8292d"
   end
-
-  # Fix build failure with BSD `install`. Reported upstream at
-  # https://github.com/RichiH/vcsh/issues/321
-  patch :DATA
 
   def install
     # Set GIT, SED, and GREP to prevent
@@ -33,24 +29,3 @@ class Vcsh < Formula
     assert_match "Initialized empty", shell_output("#{bin}/vcsh init test").strip
   end
 end
-
-__END__
-diff --git a/Makefile.in b/Makefile.in
-index a58e41e..824b0f1 100644
---- a/Makefile.in
-+++ b/Makefile.in
-@@ -848,10 +848,12 @@ uninstall-man: uninstall-man1
- @IS_SDIST_FALSE@	$(RONN) < $< > $@
- 
- completions/$(TRANSFORMED_PACKAGE_NAME): completions/vcsh.bash
--	install -D $< $@
-+	mkdir -p $(dir $@)
-+	install $< $@
- 
- completions/_$(TRANSFORMED_PACKAGE_NAME): completions/vcsh.zsh
--	install -D $< $@
-+	mkdir -p $(dir $@)
-+	install $< $@
- 
- .version: $(shell $(AWK) '{print ".git/" $$2}' .git/HEAD 2>/dev/null ||:)
- 	[ -e "$@" ] && mv "$@" "$@-prev" || $(if $<,touch,cp "$(srcdir)/.tarball-version") "$@-prev"
