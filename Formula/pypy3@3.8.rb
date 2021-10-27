@@ -10,6 +10,13 @@ class Pypy3AT38 < Formula
     regex(/href=.*?pypy3(?:\.\d+)*[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 big_sur:      "43414ae1aeb1e85a82a4fc80f87cbf33099942886ce658d1d551f0fa92d936ba"
+    sha256 cellar: :any,                 catalina:     "0bb518f53df09e436a0b2dfe1db3ab03b43b8acf3a1b6f6f344c5e7bea277504"
+    sha256 cellar: :any,                 mojave:       "3bd01983ff8ceb89b17b08be36dd046537dc2e2ed24d745ea3eac6dbf3abef5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "934569c2bfe26e87de9940ac0c4961aefd7c3fd305fadbd11345a2512fc1f00d"
+  end
+
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
