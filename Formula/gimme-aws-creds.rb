@@ -23,24 +23,9 @@ class GimmeAwsCreds < Formula
   uses_from_macos "libffi"
 
   on_macos do
-    resource "pyobjc-core" do
-      url "https://files.pythonhosted.org/packages/50/eb/a358e36731f5cb3b824ca27d2260f7f6acbd0d1f63c971ca83b4627d9ec6/pyobjc-core-7.3.tar.gz"
-      sha256 "5081aedf8bb40aac1a8ad95adac9e44e148a882686ded614adf46bb67fd67574"
-    end
-
-    resource "pyobjc-framework-Cocoa" do
-      url "https://files.pythonhosted.org/packages/72/b8/ff4fad9271931746a38c0a253b26054d7a94720353d9ab8b9dd847f47e1f/pyobjc-framework-Cocoa-7.3.tar.gz"
-      sha256 "b18d05e7a795a3455ad191c3e43d6bfa673c2a4fd480bb1ccf57191051b80b7e"
-    end
-
-    resource "pyobjc-framework-LocalAuthentication" do
-      url "https://files.pythonhosted.org/packages/0e/d3/e55fb2d11f88e9445f825298765a7c72d2145412935573c91b191dbc8dfd/pyobjc-framework-LocalAuthentication-7.3.tar.gz"
-      sha256 "0c7ac94f90e3e5e1797980dca08548f5e7ce38ba1578d10b45dd2b611c41183a"
-    end
-
-    resource "pyobjc-framework-Security" do
-      url "https://files.pythonhosted.org/packages/b4/04/2ce0be4968fb0e6ad8bda15076e40cbce8c5b09628ef6a999eba041bc99b/pyobjc-framework-Security-7.3.tar.gz"
-      sha256 "4109ab15faf2dcf89646330a4f0a6584410d7134418fae0814858cab4ab76347"
+    resource "pyobjc-framework" do
+      url "https://github.com/ronaldoussoren/pyobjc/archive/62fac9c358846371be308bb0b103a857bba5136f.tar.gz"
+      sha256 "f38ff3251c008975a3fbc8184952824436bf47c6eba0de40f181a7fe14914066"
     end
   end
 
@@ -159,7 +144,26 @@ class GimmeAwsCreds < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
+
+    if OS.mac?
+      resource("pyobjc-framework").stage do
+        %w[pyobjc-core
+           pyobjc-framework-Cocoa
+           pyobjc-framework-LocalAuthentication
+           pyobjc-framework-Security].each do |name|
+          Dir.chdir(name) do
+            system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+          end
+        end
+      end
+    end
+
+    res = resources.map(&:name).to_set - ["pyobjc-framework"]
+    res.each do |r|
+      venv.pip_install resource(r)
+    end
+    venv.pip_install_and_link buildpath
   end
 
   test do
