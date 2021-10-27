@@ -16,6 +16,10 @@ class Screenfetch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f7e61ea4717eef72e68b006bcef5d6ff1aab08f7ba25f0a5c6b8e014ffb530b"
   end
 
+  # `screenfetch` contains references to `/usr/local` that
+  # are erronously relocated in non-default prefixes.
+  pour_bottle? only_if: :default_prefix
+
   def install
     bin.install "screenfetch-dev" => "screenfetch"
     man1.install "screenfetch.1"
