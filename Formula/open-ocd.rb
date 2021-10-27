@@ -1,6 +1,6 @@
 class OpenOcd < Formula
   desc "On-chip debugging, in-system programming and boundary-scan testing"
-  homepage "http://openocd.org/"
+  homepage "https://openocd.org/"
   url "https://downloads.sourceforge.net/project/openocd/openocd/0.11.0/openocd-0.11.0.tar.bz2"
   sha256 "43a3ce734aff1d3706ad87793a9f3a5371cb0e357f0ffd0a151656b06b3d1e7d"
   license "GPL-2.0-or-later"
