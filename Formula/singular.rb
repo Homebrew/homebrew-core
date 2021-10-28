@@ -22,13 +22,23 @@ class Singular < Formula
     depends_on "libtool" => :build
   end
 
+  # We need `autoconf`, `automake`, and `libtool` to regenerate `configure`
+  # to fix erroneous use of the `-flat_namespace` flag, since upstream generate
+  # it from a patched `libtool.m4`. Reported at:
+  # <TBD>
+  # Remove these dependencies when this issue is resolved.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ntl"
   depends_on "python@3.10"
 
   def install
-    system "./autogen.sh" if build.head?
+    # Restrict the `autogen.sh` call to head installs when we
+    # no longer need to regenerate `configure`. See comment above.
+    system "./autogen.sh" # if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
