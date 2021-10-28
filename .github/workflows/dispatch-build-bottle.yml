@@ -64,6 +64,7 @@ jobs:
           echo sender=${{github.event.sender.login}}
           echo formula=${{github.event.inputs.formula}}
           echo runner=${{github.event.inputs.runner}}
+          echo timeout=${{github.event.inputs.timeout}}
           echo issue=${{github.event.inputs.issue}}
           echo upload=${{github.event.inputs.upload}}
           echo wheezy=${{github.event.inputs.wheezy}}
@@ -164,6 +165,22 @@ jobs:
           count=$(ls *.json | wc -l | xargs echo -n)
           echo "$count bottles"
           echo "::set-output name=count::$count"
+          failures=$(ls failed/*.json | wc -l | xargs echo -n)
+          echo "$failures failed bottles"
+          echo "::set-output name=failures::$failures"
+
+      - name: Upload failed bottles
+        if: always() && steps.bottles.outputs.failures > 0
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles-${{ matrix.runner }}
+          path: bottles/failed
+
+      # Must be run before the `Upload bottles` step so that failed
+      # bottles are not included in the `bottles` artifact.
+      - name: Delete failed bottles
+        if: always()
+        run: rm -rvf bottles/failed
 
       - name: Upload bottles to GitHub Actions
         if: always() && steps.bottles.outputs.count > 0
