@@ -5,6 +5,7 @@
   "pypy",
   "pypy3",
   "scalapack",
+  "soapysdr",
   "tcl-tk",
   "xvid"
 ]
