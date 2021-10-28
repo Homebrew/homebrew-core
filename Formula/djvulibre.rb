@@ -1,8 +1,8 @@
 class Djvulibre < Formula
   desc "DjVu viewer"
   homepage "https://djvu.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/djvu/DjVuLibre/3%2C5%2C28/djvulibre-3.5.28.tar.gz"
-  sha256 "82e392a9cccfee94fa604126c67f06dbc43ed5f9f0905d15b6c8164f83ed5655"
+  url "https://downloads.sourceforge.net/djvu/djvulibre-3.5.28.tar.gz"
+  sha256 "fcd009ea7654fde5a83600eb80757bd3a76998e47d13c66b54c8db849f8f2edc"
 
   livecheck do
     url :stable
