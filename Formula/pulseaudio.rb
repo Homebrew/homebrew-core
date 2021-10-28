@@ -1,9 +1,18 @@
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
-  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz"
-  sha256 "75d3f7742c1ae449049a4c88900e454b8b350ecaa8c544f3488a2562a9ff66f1"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+
+  stable do
+    url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz"
+    sha256 "75d3f7742c1ae449049a4c88900e454b8b350ecaa8c544f3488a2562a9ff66f1"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   # The regex here avoids x.99 releases, as they're pre-release versions.
   livecheck do
