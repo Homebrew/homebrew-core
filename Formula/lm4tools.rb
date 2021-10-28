@@ -20,6 +20,8 @@ class Lm4tools < Formula
   depends_on "libusb"
 
   def install
+    # Fix a hardcoded `/usr/local` reference that breaks the ARM build
+    inreplace "lmicdiusb/Makefile", "/usr/local", HOMEBREW_PREFIX
     system "make", "install", "PREFIX=#{prefix}"
   end
 
