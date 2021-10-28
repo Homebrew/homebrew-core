@@ -39,6 +39,16 @@ class Starship < Formula
     (fish_completion/"starship.fish").write fish_output
   end
 
+  def caveats
+    <<~EOS
+      Add the following to your .zshrc:
+
+        autoload -U promptinit; promptinit
+        prompt spaceship
+
+    EOS
+  end
+
   test do
     ENV["STARSHIP_CONFIG"] = ""
     assert_equal "[1;32m❯[0m ", shell_output("#{bin}/starship module character")
