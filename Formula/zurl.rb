@@ -15,7 +15,7 @@ class Zurl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :test
+  depends_on "python@3.10" => :test
   depends_on "qt@5"
   depends_on "zeromq"
 
@@ -28,8 +28,8 @@ class Zurl < Formula
   fails_with gcc: "5"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/86/08/e5fc492317cc9d65b32d161c6014d733e8ab20b5e78e73eca63f53b17004/pyzmq-19.0.1.tar.gz"
-    sha256 "13a5638ab24d628a6ade8f794195e1a1acd573496c3b85af2f1183603b7bf5e0"
+    url "https://files.pythonhosted.org/packages/6c/95/d37e7db364d7f569e71068882b1848800f221c58026670e93a4c6d50efe7/pyzmq-22.3.0.tar.gz"
+    sha256 "8eddc033e716f8c91c6a2112f0a8ebc5e00532b4a6ae1eb0ccc48e027f9c671c"
   end
 
   def install
@@ -44,8 +44,7 @@ class Zurl < Formula
     runfile = testpath/"test.py"
 
     resource("pyzmq").stage do
-      system Formula["python@3.9"].opt_bin/"python3",
-      *Language::Python.setup_install_args(testpath/"vendor")
+      system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(testpath/"vendor")
     end
 
     conffile.write(<<~EOS,
@@ -103,9 +102,9 @@ class Zurl < Formula
     end
 
     begin
-      xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+      xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
       ENV["PYTHONPATH"] = testpath/"vendor/lib/python#{xy}/site-packages"
-      system Formula["python@3.9"].opt_bin/"python3", runfile
+      system Formula["python@3.10"].opt_bin/"python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
