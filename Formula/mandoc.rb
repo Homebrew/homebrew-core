@@ -4,6 +4,7 @@ class Mandoc < Formula
   url "https://mandoc.bsd.lv/snapshots/mandoc-1.14.6.tar.gz"
   sha256 "8bf0d570f01e70a6e124884088870cbed7537f36328d512909eb10cd53179d9c"
   license "ISC"
+  revision 1
   head "anoncvs@mandoc.bsd.lv:/cvs", using: :cvs
 
   livecheck do
@@ -42,6 +43,7 @@ class Mandoc < Formula
       "BINM_APROPOS=bsdapropos",
       "BINM_WHATIS=bsdwhatis",
       "BINM_MAKEWHATIS=bsdmakewhatis", # default is "makewhatis".
+      "BINM_SOELIM=bsdsoelim", # conflicts with groff's soelim
 
       # These are names for *section 7* pages only. Several other pages are
       # prefixed "mandoc_", similar to the "groff_" pages.
