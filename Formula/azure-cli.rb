@@ -3,8 +3,8 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://github.com/Azure/azure-cli/archive/azure-cli-2.29.1.tar.gz"
-  sha256 "8d1403b8ace59b02fa411fd93bcd1444ecfbe8d72cb2b1c140da579e80db12cb"
+  url "https://github.com/Azure/azure-cli/archive/azure-cli-2.29.2.tar.gz"
+  sha256 "e7fcb98fd0d072342c64105d2862ddac50783aeabdcef85421f450ae159028d0"
   license "MIT"
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
@@ -689,8 +689,8 @@ class AzureCli < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/a0/e4/2bae99e2bbdeb17c7cb9c2f7ef6022383ffcab8461d2ec339ff19ce4a969/pyparsing-3.0.3.tar.gz"
+    sha256 "9e3511118010f112a4b4b435ae50e1eaa610cda191acb9e421d60cf5fde83455"
   end
 
   resource "requests" do
