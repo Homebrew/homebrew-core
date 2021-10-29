@@ -14,7 +14,7 @@ class Mame < Formula
   livecheck do
     url :stable
     strategy :github_latest
-    regex(%r{release-header.*?/releases/tag/mame[._-]?\d+(?:\.\d+)*["' >]>MAME v?(\d+(?:\.\d+)+)}im)
+    regex(/>\s*MAME v?(\d+(?:\.\d+)+)/im)
   end
 
   bottle do
