@@ -1,10 +1,10 @@
 class Allureofthestars < Formula
   desc "Near-future Sci-Fi roguelike and tactical squad combat game"
   homepage "https://www.allureofthestars.com/"
-  url "https://hackage.haskell.org/package/Allure-0.10.2.0/Allure-0.10.2.0.tar.gz"
-  sha256 "fcb9f38ea543d3277fa90eee004f7624d1168bf7f2c17902cda1870293b7c2f4"
+  url "https://hackage.haskell.org/package/Allure-0.10.3.0/Allure-0.10.3.0.tar.gz"
+  sha256 "0ae3ffbdf8bff2647ed95c2b68073874829b26d7e33231a284a2720cf3414fdc"
   license all_of: ["AGPL-3.0-or-later", "GPL-2.0-or-later", "OFL-1.1", "MIT", :cannot_represent]
-  revision 4
+  revision 5
   head "https://github.com/AllureOfTheStars/Allure.git", branch: "master"
 
   bottle do
