@@ -22,6 +22,6 @@ class Clinfo < Formula
   end
 
   test do
-    assert_match(/Device Type +CPU/, shell_output(bin/"clinfo"))
+    assert_match(/Device Type +[CG]PU/, shell_output(bin/"clinfo"))
   end
 end
