@@ -1,9 +1,18 @@
 class Liblo < Formula
   desc "Lightweight Open Sound Control implementation"
   homepage "https://liblo.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/liblo/liblo/0.31/liblo-0.31.tar.gz"
-  sha256 "2b4f446e1220dcd624ecd8405248b08b7601e9a0d87a0b94730c2907dbccc750"
   license "LGPL-2.1"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/liblo/liblo/0.31/liblo-0.31.tar.gz"
+    sha256 "2b4f446e1220dcd624ecd8405248b08b7601e9a0d87a0b94730c2907dbccc750"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "95b358e3f04623998f6c2d734599ec7e63b3c389f9d6e0cc9fc6311850929f55"
