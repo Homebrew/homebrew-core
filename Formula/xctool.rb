@@ -24,7 +24,8 @@ class Xctool < Formula
                "SYMROOT=build",
                "-IDEBuildLocationStyle=Custom",
                "-IDECustomDerivedDataLocation=#{buildpath}",
-               "XT_INSTALL_ROOT=#{libexec}"
+               "XT_INSTALL_ROOT=#{libexec}",
+               "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     bin.install_symlink "#{libexec}/bin/xctool"
   end
 
