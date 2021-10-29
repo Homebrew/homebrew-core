@@ -20,6 +20,9 @@ class Ecl < Formula
   depends_on "gmp"
   depends_on "libffi"
 
+  # Fix outdated use of `-flat_namespace`.
+  patch :DATA
+
   def install
     ENV.deparallelize
 
@@ -41,3 +44,18 @@ class Ecl < Formula
     assert_equal "4", shell_output("#{bin}/ecl -shell #{testpath}/simple.cl").chomp
   end
 end
+
+__END__
+diff --git a/src/configure b/src/configure
+index 1fe8c46..997f77f 100755
+--- a/src/configure
++++ b/src/configure
+@@ -5297,7 +5297,7 @@ LSP_FEATURES="(cons :android ${LSP_FEATURES})"
+                 shared='yes'
+                 SHAREDEXT='dylib'
+                 PICFLAG='-fPIC -fno-common'
+-                SHARED_LDFLAGS="-dynamiclib -flat_namespace -undefined suppress ${LDFLAGS}"
++                SHARED_LDFLAGS="-dynamiclib -undefined dynamic_lookup ${LDFLAGS}"
+                 BUNDLE_LDFLAGS="-bundle ${LDFLAGS}"
+                 ECL_LDRPATH='-Wl,-rpath,~A'
+                 THREAD_CFLAGS='-D_THREAD_SAFE'
