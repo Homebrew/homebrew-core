@@ -18,9 +18,16 @@ class DarkMode < Formula
   depends_on macos: :mojave
 
   def install
-    mkdir "bin"
-    system "./build"
-    bin.install "bin/dark-mode"
+    # https://github.com/sindresorhus/dark-mode/blob/main/build
+    Dir.mktmpdir do |tmpdir|
+      xcodebuild "-arch", Hardware::CPU.arch,
+                 "-derivedDataPath", tmpdir,
+                 "-scheme", "dark-mode",
+                 "-configuration", "Release",
+                 "OBJROOT=.build",
+                 "SYMROOT=.build"
+    end
+    bin.install ".build/Release/dark-mode"
   end
 
   test do
