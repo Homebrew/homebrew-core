@@ -2,8 +2,8 @@ class DockerMachineDriverVmware < Formula
   desc "VMware Fusion & Workstation docker-machine driver"
   homepage "https://www.vmware.com/products/personal-desktop-virtualization.html"
   url "https://github.com/machine-drivers/docker-machine-driver-vmware.git",
-      tag:      "v0.1.3",
-      revision: "fa87f07244c4fc64cde5f921ac9d0cb60cc3302a"
+      tag:      "v0.1.5",
+      revision: "faa4b93573820340d44333ffab35e2beee3f984a"
   license "Apache-2.0"
 
   bottle do
