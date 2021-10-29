@@ -2,19 +2,11 @@ class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
   license "BSD-3-Clause"
-  revision 1
 
   # Remove `stable` block next release when patches are no longer needed
   stable do
-    url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.38/pcre2-10.38.tar.bz2"
-    sha256 "7d95aa7c8a7b0749bf03c4bd73626ab61dece7e3986b5a57f5ec39eebef6b07c"
-
-    # fix incorrect detection of alternatives in first character search with JIT
-    # remove in the next release
-    patch do
-      url "https://github.com/PhilipHazel/pcre2/commit/51ec2c9893e7dac762b70033b85f55801b01176c.patch?full_index=1"
-      sha256 "0e91049d9d2afaff3169ddf8b0d95a9cd968793f2875af8064e0ab572c594007"
-    end
+    url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.39/pcre2-10.39.tar.bz2"
+    sha256 "0f03caf57f81d9ff362ac28cd389c055ec2bf0678d277349a1a4bee00ad6d440"
 
     # enable JIT again in Apple Silicon with 11.2+ (sljit PR zherczeg/sljit#105)
     patch :p2 do
