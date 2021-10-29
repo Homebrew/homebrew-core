@@ -4,7 +4,6 @@ class Allureofthestars < Formula
   url "https://hackage.haskell.org/package/Allure-0.10.3.0/Allure-0.10.3.0.tar.gz"
   sha256 "0ae3ffbdf8bff2647ed95c2b68073874829b26d7e33231a284a2720cf3414fdc"
   license all_of: ["AGPL-3.0-or-later", "GPL-2.0-or-later", "OFL-1.1", "MIT", :cannot_represent]
-  revision 5
   head "https://github.com/AllureOfTheStars/Allure.git", branch: "master"
 
   bottle do
