@@ -4,6 +4,12 @@ class Yq < Formula
   url "https://github.com/mikefarah/yq/archive/v4.13.5.tar.gz"
   sha256 "c0d637e7d7d5f370960af713e0f7e769e1b0876f71a844373d0307cbba68c4b2"
   license "MIT"
+  head "https://github.com/mikefarah/yq.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a37867d759db29a715ba0dae55e9885baf9bb7e7c36b2834d158512c4d65b70f"
@@ -21,9 +27,9 @@ class Yq < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
 
-    (bash_completion/"yq").write Utils.safe_popen_read("#{bin}/yq", "shell-completion", "bash")
-    (zsh_completion/"_yq").write Utils.safe_popen_read("#{bin}/yq", "shell-completion", "zsh")
-    (fish_completion/"yq.fish").write Utils.safe_popen_read("#{bin}/yq", "shell-completion", "fish")
+    (bash_completion/"yq").write Utils.safe_popen_read(bin/"yq", "shell-completion", "bash")
+    (zsh_completion/"_yq").write Utils.safe_popen_read(bin/"yq", "shell-completion", "zsh")
+    (fish_completion/"yq.fish").write Utils.safe_popen_read(bin/"yq", "shell-completion", "fish")
   end
 
   test do
