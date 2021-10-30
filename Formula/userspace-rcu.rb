@@ -18,6 +18,12 @@ class UserspaceRcu < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9661f4a159015cd923c13e91f5fe0a91e96b72982effd5a67d3138fcdbe457fc"
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
