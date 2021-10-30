@@ -1,8 +1,8 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.48/pango-1.48.10.tar.xz"
-  sha256 "21e1f5798bcdfda75eabc4280514b0896ab56f656d4e7e66030b9a2535ecdc98"
+  url "https://download.gnome.org/sources/pango/1.49/pango-1.49.2.tar.xz"
+  sha256 "9d67612c58be86b118d2dbf28498f4e6395033b658cdfd6787a9b4b368055fd6"
   license "LGPL-2.0-or-later"
   head "https://gitlab.gnome.org/GNOME/pango.git", branch: "main"
 
@@ -31,7 +31,7 @@ class Pango < Formula
       system "meson", *std_meson_args,
                       "-Ddefault_library=both",
                       "-Dintrospection=enabled",
-                      "-Duse_fontconfig=true",
+                      "-Dfontconfig=enabled",
                       ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
