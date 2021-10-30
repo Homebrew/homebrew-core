@@ -16,9 +16,10 @@ class Rig < Formula
   end
 
   def install
-    system "make"
+    system "make", "PREFX=#{prefix}", "MANDIR=#{man}"
     bin.install "rig"
-    pkgshare.install Dir["data/*"]
+    man6.install "rig.6"
+    pkgshare.install buildpath.glob("data/*")
   end
 
   test do
