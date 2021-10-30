@@ -1,10 +1,19 @@
 class GnuApl < Formula
   desc "GNU implementation of the programming language APL"
   homepage "https://www.gnu.org/software/apl/"
-  url "https://ftp.gnu.org/gnu/apl/apl-1.8.tar.gz"
-  mirror "https://ftpmirror.gnu.org/apl/apl-1.8.tar.gz"
-  sha256 "144f4c858a0d430ce8f28be90a35920dd8e0951e56976cb80b55053fa0d8bbcb"
   license "GPL-3.0"
+
+  stable do
+    url "https://ftp.gnu.org/gnu/apl/apl-1.8.tar.gz"
+    mirror "https://ftpmirror.gnu.org/apl/apl-1.8.tar.gz"
+    sha256 "144f4c858a0d430ce8f28be90a35920dd8e0951e56976cb80b55053fa0d8bbcb"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    end
+  end
 
   bottle do
     sha256 arm64_big_sur: "d5c8031c3c878eadcc74fb5353e54ff8413c51a8c62bc89a51e21542a77bf3a6"
