@@ -1,14 +1,9 @@
 class StressNg < Formula
   desc "Stress test a computer system in various selectable ways"
-  homepage "https://kernel.ubuntu.com/~cking/stress-ng/"
-  url "https://kernel.ubuntu.com/~cking/tarballs/stress-ng/stress-ng-0.13.05.tar.xz"
-  sha256 "f058c8fba37596ab32c3a4b2aedbdbf5f2b8a8ba1d312059e733290543ad00ac"
+  homepage "https://wiki.ubuntu.com/Kernel/Reference/stress-ng"
+  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.13.06.tar.gz"
+  sha256 "5b11df6495831e2e6a7eebf06aa83cc895cf013e08a9dc706ed1fdfba9a3052f"
   license "GPL-2.0-or-later"
-
-  livecheck do
-    url "https://kernel.ubuntu.com/~cking/tarballs/stress-ng/"
-    regex(/href=.*?stress-ng[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "484632f5ede25db3a241fd67545f88f357f141a99152c13ffff4cf531b706290"
@@ -23,9 +18,13 @@ class StressNg < Formula
   uses_from_macos "zlib"
 
   def install
-    inreplace "Makefile", "/usr", prefix
+    inreplace "Makefile" do |s|
+      s.gsub! "/usr", prefix
+      s.change_make_var! "BASHDIR", prefix/"etc/bash_completion.d"
+    end
     system "make"
     system "make", "install"
+    bash_completion.install "bash-completion/stress-ng"
   end
 
   test do
