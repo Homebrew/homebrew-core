@@ -1,9 +1,18 @@
 class Libp11 < Formula
   desc "PKCS#11 wrapper library in C"
   homepage "https://github.com/OpenSC/libp11/wiki"
-  url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.11/libp11-0.4.11.tar.gz"
-  sha256 "57d47a12a76fd92664ae30032cf969284ebac1dfc25bf824999d74b016d51366"
   license "LGPL-2.1-or-later"
+
+  stable do
+    url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.11/libp11-0.4.11.tar.gz"
+    sha256 "57d47a12a76fd92664ae30032cf969284ebac1dfc25bf824999d74b016d51366"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   livecheck do
     url :stable
