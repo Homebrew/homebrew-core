@@ -21,7 +21,7 @@ class Macosvpn < Formula
   depends_on xcode: ["11.1", :build]
 
   def install
-    xcodebuild "SYMROOT=build"
+    xcodebuild "-arch", Hardware::CPU.arch, "SYMROOT=build"
     bin.install "build/Release/macosvpn"
   end
 
