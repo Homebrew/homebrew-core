@@ -45,7 +45,8 @@ class Openttd < Formula
       system "cpack || :"
     end
 
-    app = "build/_CPack_Packages/amd64/Bundle/openttd-#{version}-macos-amd64/OpenTTD.app"
+    arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch
+    app = "build/_CPack_Packages/amd64/Bundle/openttd-#{version}-macos-#{arch}/OpenTTD.app"
     resources.each do |r|
       (buildpath/"#{app}/Contents/Resources/baseset/#{r.name}").install r
     end
