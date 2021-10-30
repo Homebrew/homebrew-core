@@ -22,7 +22,8 @@ class Swimat < Formula
   depends_on :macos
 
   def install
-    xcodebuild "-target", "CLI",
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-target", "CLI",
                "-configuration", "Release",
                "CODE_SIGN_IDENTITY=",
                "SYMROOT=build"
