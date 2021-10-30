@@ -23,7 +23,11 @@ class Mogenerator < Formula
   end
 
   def install
-    xcodebuild "-target", "mogenerator", "-configuration", "Release", "SYMROOT=symroot", "OBJROOT=objroot"
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-target", "mogenerator",
+               "-configuration", "Release",
+               "SYMROOT=symroot",
+               "OBJROOT=objroot"
     bin.install "symroot/Release/mogenerator"
   end
 
