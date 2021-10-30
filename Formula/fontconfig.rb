@@ -52,8 +52,6 @@ class Fontconfig < Formula
     sha256 "1dbe6247786c75f2b3f5a7e21133a3f9c09189f59fff08b2df7cb15389b0e405"
   end
 
-  option "without-docs", "Skip building the fontconfig docs (e.g. if docbook2pdf is not installed)"
-
   def install
     font_dirs = %w[
       /System/Library/Fonts
@@ -72,7 +70,7 @@ class Fontconfig < Formula
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
-                          ("--disable-docs" if build.without? "docs")
+                          "--disable-docs"
     system "make", "install", "RUN_FC_CACHE_TEST=false"
   end
 
