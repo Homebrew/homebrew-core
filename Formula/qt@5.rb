@@ -64,6 +64,11 @@ class QtAT5 < Formula
     sha256 "fa99c7ffb8a510d140c02694a11e6c321930f43797dbf2fe8f2476680db4c2b2"
   end
 
+  # Backport of https://code.qt.io/cgit/qt/qtbase.git/commit/src/plugins/platforms/cocoa?id=dece6f5840463ae2ddf927d65eb1b3680e34a547
+  # to fix the build with Xcode 13.
+  # The original commit is for Qt 6 and cannot be applied cleanly to Qt 5.
+  patch :DATA
+
   # Fix build for GCC 11
   patch do
     url "https://invent.kde.org/qt/qt/qtbase/commit/8252ef5fc6d043004ddf7085e1c1fe1bf2ca39f7.patch"
@@ -214,3 +219,14 @@ class QtAT5 < Formula
     system "./hello"
   end
 end
+
+__END__
+--- a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
++++ b/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
+@@ -43,4 +43,6 @@
+ #include <qpa/qplatformgraphicsbuffer.h>
+ #include <private/qcore_mac_p.h>
++ 
++#include <CoreGraphics/CGColorSpace.h>
+
+ QT_BEGIN_NAMESPACE
