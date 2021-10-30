@@ -20,7 +20,8 @@ class Xcproj < Formula
   depends_on :xcode
 
   def install
-    xcodebuild "-project", "xcproj.xcodeproj",
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-project", "xcproj.xcodeproj",
                "-scheme", "xcproj",
                "SYMROOT=build",
                "DSTROOT=#{prefix}",
