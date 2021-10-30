@@ -23,6 +23,12 @@ class Raptor < Formula
 
   uses_from_macos "libxml2"
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
