@@ -23,7 +23,7 @@ class Redex < Formula
     sha256 cellar: :any, high_sierra: "65a056c1422c091bde3a7ed24dd01ee5f8b6bad7b0ceac3cc360257145863eb0"
   end
 
-  depends_on "autoconf" => :build
+  depends_on "autoconf@2.69" => :build
   depends_on "automake" => :build
   depends_on "libevent" => :build
   depends_on "libtool" => :build
