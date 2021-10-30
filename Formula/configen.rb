@@ -16,7 +16,7 @@ class Configen < Formula
   depends_on xcode: ["10.2", :build]
 
   def install
-    xcodebuild "SYMROOT=build"
+    xcodebuild "-arch", Hardware::CPU.arch, "SYMROOT=build"
     bin.install "build/Release/configen"
   end
 
