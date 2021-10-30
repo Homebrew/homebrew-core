@@ -33,6 +33,6 @@ class Clblas < Formula
     # We do not run the test, as it fails on CI machines
     # ("clGetDeviceIDs() failed with -1")
     system ENV.cc, pkgshare/"example_srot.c", "-I#{include}", "-L#{lib}",
-                   "-lclBLAS", "-framework", "OpenCL"
+                   "-lclBLAS", "-framework", "OpenCL", "-Wno-implicit-function-declaration"
   end
 end
