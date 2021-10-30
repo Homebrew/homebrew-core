@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.4/gtk-4.4.0.tar.xz"
-  sha256 "e0a1508f441686c3a20dfec48af533b19a4b2e017c18eaee31dccdb7d292505b"
+  url "https://download.gnome.org/sources/gtk/4.5/gtk-4.5.0.tar.xz"
+  sha256 "78a3158094f1e35c0ae6fde895321c0eca60cf9af8578b918bb7c7e1a16c10ea"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -20,6 +20,7 @@ class Gtk4 < Formula
 
   depends_on "docbook" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "docutils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
