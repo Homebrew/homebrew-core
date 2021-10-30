@@ -17,6 +17,13 @@ class Libpgm < Formula
     sha256 cellar: :any, yosemite:      "ae0d1d980f84677fcaa08b1d9f35f1c9d4858e4239598530b7485e9f248def73"
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    directory "openpgm/pgm"
+  end
+
   def install
     cd "openpgm/pgm" do
       system "./configure", "--disable-dependency-tracking",
