@@ -1,7 +1,7 @@
 class Libdaemon < Formula
   desc "C library that eases writing UNIX daemons"
-  homepage "http://0pointer.de/lennart/projects/libdaemon/"
-  url "http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz"
+  homepage "https://0pointer.de/lennart/projects/libdaemon/"
+  url "https://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz"
   sha256 "fd23eb5f6f986dcc7e708307355ba3289abe03cc381fc47a80bca4a50aa6b834"
   license "LGPL-2.1"
 
@@ -18,6 +18,12 @@ class Libdaemon < Formula
     sha256 cellar: :any,                 mojave:        "1fe52d810eca4471b4d285de02a09ea9e4b78d762f1a2a292d6da1eb10e9626d"
     sha256 cellar: :any,                 high_sierra:   "0933bb1dde0237f4079fefcd228ea644be36fbf814aa96762ebbae3537886558"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "66573e3e026fca5fab4dd7e1f7c9712e837fd65ca21cfc1e0687e719d8905c90"
+  end
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 
   def install
