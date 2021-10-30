@@ -17,13 +17,15 @@ class Libetpan < Formula
   depends_on xcode: :build
 
   def install
-    xcodebuild "-project", "build-mac/libetpan.xcodeproj",
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-project", "build-mac/libetpan.xcodeproj",
                "-scheme", "static libetpan",
                "-configuration", "Release",
                "SYMROOT=build/libetpan",
                "build"
 
-    xcodebuild "-project", "build-mac/libetpan.xcodeproj",
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-project", "build-mac/libetpan.xcodeproj",
                "-scheme", "libetpan",
                "-configuration", "Release",
                "SYMROOT=build/libetpan",
@@ -31,7 +33,7 @@ class Libetpan < Formula
 
     lib.install "build-mac/build/libetpan/Release/libetpan.a"
     frameworks.install "build-mac/build/libetpan/Release/libetpan.framework"
-    include.install Dir["build-mac/build/libetpan/Release/include/**"]
+    include.install buildpath.glob("build-mac/build/libetpan/Release/include/**")
     bin.install "libetpan-config"
   end
 
