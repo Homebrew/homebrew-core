@@ -1,14 +1,14 @@
 class Memtester < Formula
   desc "Utility for testing the memory subsystem"
-  homepage "http://pyropus.ca/software/memtester/"
-  url "http://pyropus.ca/software/memtester/old-versions/memtester-4.5.1.tar.gz"
+  homepage "https://pyropus.ca/software/memtester/"
+  url "https://pyropus.ca/software/memtester/old-versions/memtester-4.5.1.tar.gz"
   sha256 "1c5fc2382576c084b314cfd334d127a66c20bd63892cac9f445bc1d8b4ca5a47"
   license "GPL-2.0-only"
 
   # Despite the name, all the versions are seemingly found on this page. If this
   # doesn't end up being true over time, we can check the homepage instead.
   livecheck do
-    url "http://pyropus.ca/software/memtester/old-versions/"
+    url "https://pyropus.ca/software/memtester/old-versions/"
     regex(/href=.*?memtester[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
