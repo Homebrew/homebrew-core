@@ -17,9 +17,11 @@ class Jython < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "644da593101c796e9b39e10ad7cd65f96e8e0d9ccf19109c8337a1f262ef005a"
   end
 
+  depends_on "openjdk"
+
   def install
     system "java", "-jar", cached_download, "-s", "-d", libexec
-    bin.install_symlink libexec/"bin/jython"
+    (bin/"jython").write_env_script libexec/"bin/jython", Language::Java.overridable_java_home_env
   end
 
   test do
