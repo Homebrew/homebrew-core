@@ -1,9 +1,18 @@
 class Loudmouth < Formula
   desc "Lightweight C library for the Jabber protocol"
   homepage "https://mcabber.com"
-  url "https://mcabber.com/files/loudmouth/loudmouth-1.5.4.tar.bz2"
-  sha256 "31cbc91c1fddcc5346b3373b8fb45594e9ea9cc7fe36d0595e8912c47ad94d0d"
   license "LGPL-2.1"
+
+  stable do
+    url "https://mcabber.com/files/loudmouth/loudmouth-1.5.4.tar.bz2"
+    sha256 "31cbc91c1fddcc5346b3373b8fb45594e9ea9cc7fe36d0595e8912c47ad94d0d"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "0b60046b8a592ab656ed824b75774f2e9e8f9749b0a5edb024190019c36da766"
