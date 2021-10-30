@@ -30,7 +30,8 @@ class Meson < Formula
       modules/python.py
     ].map { |f| mesonbuild/f }
 
-    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
+    # Passing `build.stable?` ensures a failed `inreplace` won't fail HEAD installs.
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX, build.stable?
   end
 
   test do
