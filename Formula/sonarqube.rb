@@ -17,7 +17,6 @@ class Sonarqube < Formula
   end
 
   # sonarqube ships pre-built x86_64 binaries
-  depends_on arch: :x86_64
   depends_on "openjdk@11"
 
   conflicts_with "sonarqube-lts", because: "both install the same binaries"
@@ -41,6 +40,15 @@ class Sonarqube < Formula
   service do
     run [opt_bin/"sonar", "console"]
     keep_alive true
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        Wrapper's native library are not yet available for Apple silicon.
+        System signals will not be handled correctly on this architecture.
+      EOS
+    end
   end
 
   test do
