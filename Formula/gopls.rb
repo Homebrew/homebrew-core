@@ -8,7 +8,7 @@ class Gopls < Formula
   livecheck do
     url :stable
     strategy :github_latest
-    regex(%r{href=.*?/tag/(?:gopls%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(%r{(?:content|href)=.*?/tag/(?:gopls%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
