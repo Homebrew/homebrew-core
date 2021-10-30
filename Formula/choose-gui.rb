@@ -20,7 +20,7 @@ class ChooseGui < Formula
 
   def install
     xcodebuild "SDKROOT=", "SYMROOT=build", "clean"
-    xcodebuild "SDKROOT=", "SYMROOT=build", "-configuration", "Release", "build"
+    xcodebuild "-arch", Hardware::CPU.arch, "SDKROOT=", "SYMROOT=build", "-configuration", "Release", "build"
     bin.install "build/Release/choose"
   end
 
