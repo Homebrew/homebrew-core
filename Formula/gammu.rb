@@ -21,10 +21,12 @@ class Gammu < Formula
   def install
     # Disable opportunistic linking against Postgres
     inreplace "CMakeLists.txt", "macro_optional_find_package (Postgres)", ""
-    mkdir "build" do
-      system "cmake", "..", "-DBASH_COMPLETION_COMPLETIONSDIR:PATH=#{bash_completion}", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBASH_COMPLETION_COMPLETIONSDIR=#{bash_completion}",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
