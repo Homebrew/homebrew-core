@@ -24,7 +24,8 @@ class Rpcgen < Formula
   depends_on :macos
 
   def install
-    xcodebuild "-project", "developer_cmds.xcodeproj",
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-project", "developer_cmds.xcodeproj",
                "-target", "rpcgen",
                "-configuration", "Release",
                "SYMROOT=build"
