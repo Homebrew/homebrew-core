@@ -17,6 +17,12 @@ class Atf < Formula
     sha256 x86_64_linux:  "c9a94b838e115887902fd1e12ef77cce606f475772668278908382fb161d1ca6"
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/890be5f6af88e7913d177af87a50129049e681bb/libtool/configure-pre-0.4.3-big_sur.diff"
+    sha256 "58557ebff9e6b8e9b9b71dc6c5820ad3e0c550a385d4126c6078caa2b72e63c1"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
