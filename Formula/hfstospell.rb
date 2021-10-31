@@ -4,7 +4,7 @@ class Hfstospell < Formula
   url "https://github.com/hfst/hfst-ospell/releases/download/v0.5.2/hfst-ospell-0.5.2.tar.bz2"
   sha256 "ab9ccf3c2165c0efd8dd514e0bf9116e86a8a079d712c0ed6c2fabf0052e9aa4"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,13 +12,12 @@ class Hfstospell < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fc339fb27f8405230d88addd9ccf93b1ebdfa00fcc013fb38e3e327061b56b8b"
-    sha256 cellar: :any,                 arm64_big_sur:  "1a5437ebb7e8abeae096734d53edbbc8cf154f6635f8e15ac3a1cfa038782e85"
-    sha256 cellar: :any,                 monterey:       "49d6d65cff8b16516e2d0b570af2d37ec6fe592b6221504f0a28055aafe3a50a"
-    sha256 cellar: :any,                 big_sur:        "6fb2851153c12aa38ed01a7335781df78be3490380e6713b2a9c642f88e737d0"
-    sha256 cellar: :any,                 catalina:       "0651d2057fcf3c0242bcd277b0ddafb247c0f00fc78d2652e9eae9c82776f923"
-    sha256 cellar: :any,                 mojave:         "25a4f7bfe15fae7efd0ce6cf1ccedb150571935de5e0266cbf7fa472290bbf6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "558374d12fffddfe01a121b42e9e4edaaceeea1afdd6fdb6283672488b70eb96"
+    sha256 cellar: :any,                 arm64_monterey: "5314d28a778d6de8ab6b65101bade00515431c3416edd2da9e13255c5b7b4d87"
+    sha256 cellar: :any,                 arm64_big_sur:  "226621aba0afcb9a7a23e65b7af3c73369e6eca5ccd80f452effac5b8ce618c4"
+    sha256 cellar: :any,                 monterey:       "283661bedee8725b2e6d6644135c7c1496b52b3b2c55132f5e4d4d73ad91d341"
+    sha256 cellar: :any,                 big_sur:        "be7e07d571a2094bbd9c0d86defa90f7132a090e53c21b6bc4ae895b83b41321"
+    sha256 cellar: :any,                 catalina:       "842b60f97791b893cdac47ce6b02e25c498f76bfff30aa1e0c7f2c7496ce2c3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23c4748cd6148ace09310e44959b0af790174f125735cd9a523c68606520ca92"
   end
 
   depends_on "autoconf" => :build
