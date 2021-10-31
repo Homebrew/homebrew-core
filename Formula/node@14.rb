@@ -4,6 +4,7 @@ class NodeAT14 < Formula
   url "https://nodejs.org/dist/v14.19.0/node-v14.19.0.tar.xz"
   sha256 "e92e846300e6117547d37ea8d5bd32244c19b2fcefcb39e1420a47637f45030c"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
