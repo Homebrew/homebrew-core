@@ -22,7 +22,7 @@ class Rem < Formula
   conflicts_with "remind", because: "both install `rem` binaries"
 
   def install
-    xcodebuild "SYMROOT=build"
+    xcodebuild "-arch", Hardware::CPU.arch, "SYMROOT=build"
     bin.install "build/Release/rem"
   end
 
