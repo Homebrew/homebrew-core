@@ -4,6 +4,7 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.64/vte-0.64.2.tar.xz"
   sha256 "2b3c820b65a667c1d8859ba20478be626d1519cc3159dac25f703330c6d07e18"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "9f516a4870878d39bf2913997df595b7e153829c3e3aee764a0e81bdba3c6152"
@@ -23,6 +24,7 @@ class Vte3 < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "gtk+3"
+  depends_on "icu4c"
   depends_on macos: :mojave
   depends_on "pcre2"
 
