@@ -4,7 +4,7 @@ class Zorba < Formula
   url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
   sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
   license "Apache-2.0"
-  revision 14
+  revision 15
 
   bottle do
     sha256 arm64_monterey: "c49d833711490a7297a1f175a80ca3e2ef0c6bbdd35ba444cdd665d824a95d90"
