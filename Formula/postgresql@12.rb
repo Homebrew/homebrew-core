@@ -4,6 +4,7 @@ class PostgresqlAT12 < Formula
   url "https://ftp.postgresql.org/pub/source/v12.10/postgresql-12.10.tar.bz2"
   sha256 "83dd192e6034951192b9a86dc19cf3717a8b82120e2f11a0a36723c820d2b257"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,12 +12,12 @@ class PostgresqlAT12 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "2a3f53e729d1185d2be334b2a7d22d20387d50c469c1677f55db7f3a6c6a9611"
-    sha256 arm64_big_sur:  "a266873caa0a8c428d089823957de97fd14e2ca45d04f81877fa9db968c5c3c8"
-    sha256 monterey:       "f8102bf7e4d7c887bb343472f7697c4a4cca2685b39d30c8d9e95d86b2eea970"
-    sha256 big_sur:        "463c487f09afe078e6d9323891b83b788630b2ea407d80f45beeeb6138281809"
-    sha256 catalina:       "0392242220c54835bf6d0e4590c961062d020461f6237ebeb3f42b7e39308aef"
-    sha256 x86_64_linux:   "44e2cf03616a00b4180bf4f196513dc2381f99bce710d927195f46effc5b740d"
+    sha256 arm64_monterey: "fe13a3ce50bb04a5f5e311970e8168d0533f4f6af94cba6cdbfb1f50ec8962ba"
+    sha256 arm64_big_sur:  "9d03fc8e64c52febb674cb4e8a7de1972bfaf10e35dc284eb92a8c8543860f70"
+    sha256 monterey:       "3888856bcd5e43cefa10109bcaa4c9cc9f486d1cd1db2ae46046960a1a6a7db7"
+    sha256 big_sur:        "cd19635256726aeadcdb9e1a56ebf304d985c554ee224e00d69923e8f76a91b8"
+    sha256 catalina:       "b9885e34d64a6dcf52ea3fcdf34d2ce3c1d7ee448f12e2151717725d551dafb9"
+    sha256 x86_64_linux:   "1377749e8b92d89df27804734277bea4118111a4e95ee475e5f39a9f35cd458d"
   end
 
   keg_only :versioned_formula
@@ -45,6 +46,7 @@ class PostgresqlAT12 < Formula
   end
 
   def install
+    ENV.delete "PKG_CONFIG_LIBDIR" if MacOS.version == :catalina
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
 
