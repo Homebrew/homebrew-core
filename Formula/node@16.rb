@@ -4,6 +4,7 @@ class NodeAT16 < Formula
   url "https://nodejs.org/dist/v16.14.0/node-v16.14.0.tar.xz"
   sha256 "05eb64193e391fa8a2c159c0f60c171824715165f80c67fcab9dbc944e30c623"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
