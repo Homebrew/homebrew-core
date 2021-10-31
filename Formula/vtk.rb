@@ -8,11 +8,12 @@ class Vtk < Formula
   head "https://github.com/Kitware/VTK.git", branch: "master"
 
   bottle do
-    sha256                               arm64_monterey: "fd942fa79a16d30b24a7dca30f487aa2e40a014b21cb4d8ff24dcb705239f65f"
-    sha256                               arm64_big_sur:  "49cf0ecbf29106a9398bab4d4b566cc3bda944187defb23999d29e607030c12c"
-    sha256                               big_sur:        "307e6f5031d38dff4db56df15fb50e7435068adf551380069fe6ccc87a17fe0e"
-    sha256                               catalina:       "cdabd1d1acf294759d7cea8ae26360a6cc91ad8379817d6a76dd5ee7b6e00401"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba4b4ca08d1bf04dec3d9eceececd44fd3cc10bc7ea8d0406373ff60214feed9"
+    rebuild 1
+    sha256                               arm64_monterey: "db69b8415e3e2c71e72324a2f345d2bc203b1be420ffef34103581616e875c1b"
+    sha256                               arm64_big_sur:  "6cf53d599728a6e8d0b718e42ded3e7e53a669b2f8ac50b0d74aedf12fbebf63"
+    sha256                               big_sur:        "d00fb169c11c9609dc895c1678f6641b60b7aad9fac5433c78d5da860ff2d5a2"
+    sha256                               catalina:       "1e656d21849e1e191e61c8ffe1b917765e8ba7e0b122538b2c1bbcf2a06d3b11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9947d6db68fe92e18f2c728e1c0cb3d2243e8c1c7699c246850482b1dcdafd10"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -58,6 +59,7 @@ class Vtk < Formula
       -DBUILD_TESTING:BOOL=OFF
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{opt_lib}
       -DCMAKE_INSTALL_RPATH:STRING=#{rpath}
+      -DCMAKE_DISABLE_FIND_PACKAGE_ICU:BOOL=ON
       -DVTK_WRAP_PYTHON:BOOL=ON
       -DVTK_PYTHON_VERSION:STRING=3
       -DVTK_LEGACY_REMOVE:BOOL=ON
@@ -86,6 +88,7 @@ class Vtk < Formula
       -DVTK_MODULE_USE_EXTERNAL_VTK_zlib:BOOL=ON
       -DPython3_EXECUTABLE:FILEPATH=#{Formula["python@3.9"].opt_bin}/python3
       -DVTK_GROUP_ENABLE_Qt:STRING=YES
+      -DVTK_QT_VERSION:STRING=5
     ]
 
     # https://github.com/Homebrew/linuxbrew-core/pull/21654#issuecomment-738549701
