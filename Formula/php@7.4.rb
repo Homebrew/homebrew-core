@@ -6,6 +6,7 @@ class PhpAT74 < Formula
   mirror "https://fossies.org/linux/www/php-7.4.28.tar.xz"
   sha256 "9cc3b6f6217b60582f78566b3814532c4b71d517876c25013ae51811e65d8fce"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -13,12 +14,12 @@ class PhpAT74 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "6dac336c887bbfa1855658a74802fb479906835c3de062ea99f8b59196db312d"
-    sha256 arm64_big_sur:  "e1a33c73a568095e03945376af5b1efed93703ee2dc5799aedd3a91347058c5a"
-    sha256 monterey:       "5bf219c19759ec52217e41d7eb9951d396cf5355f1a69c1f2482e8688968c25c"
-    sha256 big_sur:        "588c43e09f4b897ee5bf349fd842175712bc1d0d7defa6b457c634dc20a66b7d"
-    sha256 catalina:       "430a53f0b6e6ef6a396834d41baab2a806e75cf40c80131e65e37cf0f475ffbb"
-    sha256 x86_64_linux:   "eb66e1999348ffc9d8997ddcce2174a5f593f5c82c22d453140bd3c022b349f5"
+    sha256 arm64_monterey: "da881abdf57817e85ff96b4f75ed999db4a268dc1310aab3facd7a75e036c2e8"
+    sha256 arm64_big_sur:  "d8d6b467e048f31ff23d24d79a0c46f499935652897591c27b1581e05e02d914"
+    sha256 monterey:       "721d673ff1d23e55f6199de355d160a27f13ee567b945654389271772d767f7c"
+    sha256 big_sur:        "ac7117cc7bb5f33cfc83e10f099ea1eec45f0ee7d872f2fd2c1c57f2da0f5412"
+    sha256 catalina:       "32d542eb41815b585b3375c02c71fa318cc65db1113bfa6455d6ad6397c4d784"
+    sha256 x86_64_linux:   "f399a286b6372cc9b9b201558c705eb096906dcf5bde0366875f64db14086eaa"
   end
 
   keg_only :versioned_formula
