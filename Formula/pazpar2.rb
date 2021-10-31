@@ -4,6 +4,7 @@ class Pazpar2 < Formula
   url "https://ftp.indexdata.com/pub/pazpar2/pazpar2-1.14.1.tar.gz"
   sha256 "9baf590adb52cd796eccf01144eeaaf7353db1fd05ae436bdb174fe24362db53"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.indexdata.com/pub/pazpar2/"
@@ -11,12 +12,11 @@ class Pazpar2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "78416003bce41475a204ac9c6790ddc3d54b447420df819bf435d584a2732643"
-    sha256 cellar: :any, arm64_big_sur:  "97853be3b6575960315829c3d405783d807ce3ef2e02a1be58a99f15940242a7"
-    sha256 cellar: :any, monterey:       "ebf7437098ce671bdea94f57a994fad64dc857480d1230451240120a336fb669"
-    sha256 cellar: :any, big_sur:        "f0f875a02f27f621b8d3853067f2de93e81f14bd5d39410a8a5fd16bd77fed72"
-    sha256 cellar: :any, catalina:       "3dc830947f389049e4960f548f407cf1d867bd13822038e1580d864faebd5cde"
-    sha256 cellar: :any, mojave:         "4ae1cdd71740cfad4d06799ebc4b131dd705fea1411c9fd85aacaf49ff63d66c"
+    sha256 cellar: :any, arm64_monterey: "3aa56446afff401c334ab750e18eb49161bdbc576abed93c8b604f2466c65043"
+    sha256 cellar: :any, arm64_big_sur:  "10a49c1be55e77d741cb5e5a78037fe123fafd371087bca63114ce3622f662aa"
+    sha256 cellar: :any, monterey:       "eaa9630b359a5e829528011599c7f3aeda1464562b13cb5258c461ce11d8657e"
+    sha256 cellar: :any, big_sur:        "4ccab6ab3e93d2e41fd19053aa14bf3cfa79016be44c42203a81098cb92e42b2"
+    sha256 cellar: :any, catalina:       "ef08edbcc9fa2d979dbd31fbe8ee32f296fd0b4d29d2091f0b0cf3b39f8f25e6"
   end
 
   head do
