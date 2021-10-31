@@ -4,7 +4,7 @@ class Freeling < Formula
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.tar.gz"
   sha256 "f96afbdb000d7375426644fb2f25baff9a63136dddce6551ea0fd20059bfce3b"
   license "AGPL-3.0-only"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "b8d17a21a303a81e602c55b280ae2faad62b0096e33d536d9282bd55b96398ab"
