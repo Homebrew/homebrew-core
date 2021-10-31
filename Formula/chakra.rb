@@ -4,14 +4,13 @@ class Chakra < Formula
   url "https://github.com/chakra-core/ChakraCore/archive/v1.11.24.tar.gz"
   sha256 "b99e85f2d0fa24f2b6ccf9a6d2723f3eecfe986a9d2c4d34fa1fd0d015d0595e"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 monterey:     "08ac087ce6235090a9eab40d02fcce9870e09619b61170979e8ddab267dda091"
-    sha256 cellar: :any,                 big_sur:      "fb1728dac033a81c14e4f93d0587b93809c8e5721754c1cf4b57a97e05ed8e0d"
-    sha256 cellar: :any,                 catalina:     "c2a373b2cc611c5d0dfdf9ed306c3e23d4b82ab5acc964445d2d356f93ef8c25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "52fef75657897bc5319e9eae21b246c97c3bd842a98eae395b76eb39975520b6"
+    sha256 cellar: :any,                 monterey:     "ec25aaa2de73e2ba9c7977481ef2e79c01abe907ac59d156cccafc3366082742"
+    sha256 cellar: :any,                 big_sur:      "306cae3a82ea3a543d2881ae60be87ca57ec28aaa3e7faecf9348f28f38ac7bb"
+    sha256 cellar: :any,                 catalina:     "463875e46c4ed92c504a97ecbcb90381942b089d76cfbdba92a3e9495090e66b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a48748d8f53394c96d7168e7b9c2f065f5ae8e0c4694784b9839596e71490172"
   end
 
   depends_on "cmake" => :build
