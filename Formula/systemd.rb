@@ -33,6 +33,12 @@ class Systemd < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  # Fix newer meson compatibility, remove after next release
+  patch do
+    url "https://github.com/systemd/systemd/commit/c29537f39e4f413a6cbfe9669fa121bdd6d8b36f.patch?full_index=1"
+    sha256 "fc7f07d3f4710a6b798a3976f51bd375f4051495246ae519e887146a13dc6130"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
