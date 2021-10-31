@@ -5,6 +5,7 @@ class Couchdb < Formula
   mirror "https://archive.apache.org/dist/couchdb/source/3.2.1/apache-couchdb-3.2.1.tar.gz"
   sha256 "11de2d1c3a5b317017a7459ec3f76230d5c43aba427a1e71ca3437845874acf8"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :homepage
@@ -12,8 +13,8 @@ class Couchdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "d9cf6a2a9391564687d13d399483531a16b359b58e7e360e9bb5e07077a4b5ff"
-    sha256 cellar: :any, catalina: "d3143b2e8fde79e0cec1472d9318988f32dd4337c742f25b98e41c43f01d39f0"
+    sha256 cellar: :any, big_sur:  "75301e9e3905045b14972a25d33d71d159909a5b7a6d763b011046beac45d456"
+    sha256 cellar: :any, catalina: "345b5ad5b14610eb11ae81329b9c664b2d832e4b033c313ed9500b235b231d14"
   end
 
   depends_on "autoconf" => :build
