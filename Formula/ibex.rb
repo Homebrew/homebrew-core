@@ -47,6 +47,9 @@ class Ibex < Formula
 
     cp_r (pkgshare/"examples").children, testpath
 
+    # The `makefile` is a bit broken for use outside of `/usr/local` installs.
+    ENV.append "CPPFLAGS", "-L#{lib} -L#{lib}/ibex/3rd"
+
     (1..8).each do |n|
       system "make", "lab#{n}"
       system "./lab#{n}"
