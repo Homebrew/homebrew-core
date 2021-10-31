@@ -8,7 +8,7 @@ class QtAT5 < Formula
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
   sha256 "3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "36d6beacddb74f9a9a8a58a70903739a20ce8de1105aac3ec211e39881759885"
@@ -21,6 +21,7 @@ class QtAT5 < Formula
 
   keg_only :versioned_formula
 
+  depends_on "node"       => :build
   depends_on "pkg-config" => :build
   depends_on xcode: :build
   depends_on macos: :sierra
@@ -58,11 +59,10 @@ class QtAT5 < Formula
 
   fails_with gcc: "5"
 
-  # Find SDK for 11.x macOS
-  # Upstreamed, remove when Qt updates Chromium
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/92d4cf/qt/5.15.2.diff"
-    sha256 "fa99c7ffb8a510d140c02694a11e6c321930f43797dbf2fe8f2476680db4c2b2"
+  resource "qtwebengine" do
+    url "https://code.qt.io/qt/qtwebengine.git",
+        tag:      "v5.15.8-lts",
+        revision: "96e932d73057c3e705b849249fb02e1837b7576d"
   end
 
   # Backport of https://code.qt.io/cgit/qt/qtbase.git/commit/src/plugins/platforms/cocoa?id=dece6f5840463ae2ddf927d65eb1b3680e34a547
@@ -102,6 +102,10 @@ class QtAT5 < Formula
   end
 
   def install
+    rm_r "qtwebengine"
+
+    resource("qtwebengine").stage(buildpath/"qtwebengine") if OS.mac?
+
     args = %W[
       -verbose
       -prefix #{prefix}
@@ -121,10 +125,9 @@ class QtAT5 < Formula
       args << "-no-rpath"
       args << "-system-zlib"
       if Hardware::CPU.arm?
-        # Temporarily fixes for Apple Silicon
+        # QtWebEngine is not supported on arm64. Use qt6 if you need it.
         args << "-skip" << "qtwebengine" << "-no-assimp"
       else
-        # Should be reenabled unconditionally once it is fixed on Apple Silicon
         args << "-proprietary-codecs"
       end
     else
@@ -169,6 +172,12 @@ class QtAT5 < Formula
     # of both Designer and Linguist as that relies on Assistant being in `bin`.)
     libexec.mkpath
     Pathname.glob("#{bin}/*.app") { |app| mv app, libexec }
+
+    if OS.mac? && !Hardware::CPU.arm?
+      # Fix find_package call using QtWebEngine version to find other Qt5 modules.
+      inreplace Dir[lib/"cmake/Qt5WebEngine*/*Config.cmake"],
+                " #{resource("qtwebengine").version} ", " #{version} "
+    end
   end
 
   def caveats
@@ -180,7 +189,7 @@ class QtAT5 < Formula
     if Hardware::CPU.arm?
       s += <<~EOS
 
-        This version of Qt on Apple Silicon does not include QtWebEngine
+        This version of Qt on Apple Silicon does not include QtWebEngine.
       EOS
     end
 
