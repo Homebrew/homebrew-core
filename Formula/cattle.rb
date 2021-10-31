@@ -1,9 +1,18 @@
 class Cattle < Formula
   desc "Brainfuck language toolkit"
   homepage "https://kiyuko.org/software/cattle"
-  url "https://kiyuko.org/software/cattle/releases/cattle-1.4.0.tar.xz"
-  sha256 "9ba2d746f940978b5bfc6c39570dde7dc55d5b4d09d0d25f29252d6a25fb562f"
   license "GPL-2.0"
+
+  stable do
+    url "https://kiyuko.org/software/cattle/releases/cattle-1.4.0.tar.xz"
+    sha256 "9ba2d746f940978b5bfc6c39570dde7dc55d5b4d09d0d25f29252d6a25fb562f"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
     sha256                               arm64_big_sur: "30cc03818912570ba2f48545b53a8217d2f8d0883e0308b55825d59aba1e342d"
