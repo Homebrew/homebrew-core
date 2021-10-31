@@ -48,6 +48,9 @@ class Varnish < Formula
 
     (etc/"varnish").install "etc/example.vcl" => "default.vcl"
     (var/"varnish").mkpath
+
+    (pkgshare/"tests").install buildpath.glob("bin/varnishtest/tests/*.vtc")
+    (pkgshare/"tests/vmod").install buildpath.glob("vmod/tests/*.vtc")
   end
 
   service do
@@ -61,5 +64,17 @@ class Varnish < Formula
 
   test do
     assert_match version.to_s, shell_output("#{sbin}/varnishd -V 2>&1")
+
+    # run a subset of the varnishtest tests:
+    # - b*.vtc (basic functionality)
+    # - m*.vtc (VMOD modules, including loading), but skipping m00000.vtc which is known to fail
+    #   but is "nothing of concern" (see varnishcache/varnish-cache#3710)
+    # - u*.vtc (utilities and background processes)
+    testpath = pkgshare/"tests"
+    tests = testpath.glob("[bmu]*.vtc") - [testpath/"m00000.vtc"]
+    # -j: run the tests (using up to half the cores available)
+    # -q: only report test failures
+    # varnishtest will exit early if a test fails (use -k to continue and find all failures)
+    system bin/"varnishtest", "-j", [Hardware::CPU.cores / 2, 1].max, "-q", *tests
   end
 end
