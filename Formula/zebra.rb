@@ -4,6 +4,7 @@ class Zebra < Formula
   url "https://ftp.indexdata.com/pub/zebra/idzebra-2.2.3.tar.gz"
   sha256 "85ade449d161d97df47d4a8910a53a5ea3bd5e3598b6189d86fc8986a8effea4"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.indexdata.com/pub/zebra/"
@@ -11,12 +12,11 @@ class Zebra < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "eaef0ac6043ea6d81351dd34bd2a96df357dedb4f23c24b72fff47193590c2c6"
-    sha256 arm64_big_sur:  "7a974b65d88ed87b9a83990a357b09aa0c4215a9281961a1a5def5108c307c91"
-    sha256 monterey:       "a9f08214eecf10f5ddc11d591fd6e4b7fa28173d2b642b1abf99ef3b1be7ae6c"
-    sha256 big_sur:        "a1ea1081a94d89b8f47395528de594a0516c3c3f915ce30f54c05b7b73e883e2"
-    sha256 catalina:       "6063cecb5f7cced53e56fe465b5030bfb5f34cd6ea322e5994793b15c836953e"
-    sha256 mojave:         "1114c380d8a57a0f052bca099a7902a42bea70fdf0ff6b88d9d9985c44c5ab6d"
+    sha256 arm64_monterey: "cd2e9e694ed1b71aa2ad0cc29b542d24f6760ff31e815c34382d29201e76bc2a"
+    sha256 arm64_big_sur:  "051652cbbe88cff3f1fc2b7fd7b21e67d09f7544b61a689ecde155457fcadb29"
+    sha256 monterey:       "a3cd36cd15f5a012207aed8aaa48fc7b547e16d08e43c35f6c062ae219f9590f"
+    sha256 big_sur:        "554b0d6622e3389395412417585b0d35c7c4abf37369d4c01ab414cdfb181e4c"
+    sha256 catalina:       "42a4a51e46fe3168a7a07628916ad2968ab9831633383ce2dbcefc3033dc8691"
   end
 
   depends_on "icu4c"
