@@ -1,4 +1,3 @@
-# test
 class Buku < Formula
   include Language::Python::Virtualenv
 
@@ -243,9 +242,10 @@ class Buku < Formula
           -re ".*ERROR.*" { exit 1 }
           "1. Title unknown"
       }
-      spawn sleep 5
     EOS
     system expect, "-f", "import"
+
+    sleep 10
 
     # Test online components -- fetch titles
     system bin/"buku", "--update"
