@@ -4,7 +4,7 @@ class Tracker < Formula
   url "https://download.gnome.org/sources/tracker/3.1/tracker-3.1.2.tar.xz"
   sha256 "da368962665d587bb2e4f164d75919a81dacb35c7d4cfae6f93a94c60f60ec8f"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 1
+  revision 2
 
   # Tracker doesn't follow GNOME's "even-numbered minor is stable" version scheme.
   livecheck do
@@ -13,11 +13,11 @@ class Tracker < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "82ae29dda588ea5ada4ff491d3c8f1bf48e8c26045ccee50dcc1760b591c2ed5"
-    sha256 monterey:      "a2c5115435a203f579b167e26f89b45b5cca4687a4ddce15b8f1110834d9b98c"
-    sha256 big_sur:       "9ad0f16018c66088bf4e8e3a90223ed83c725028c0804669233cbada926b3072"
-    sha256 catalina:      "7361eef0000031ab96819b884fa8a2adaf33f6f2c3d00001f33895a0c7640af6"
+    sha256 arm64_monterey: "91f76976c6f234c9a9349b7fd3049a5004a5c557577e6e9c24aeba0e5818c3a3"
+    sha256 arm64_big_sur:  "121d8f5ee8518474aa90f5fc7e02e88b2cb0b17ca5b94b181b3204eb761727fa"
+    sha256 monterey:       "e1e4da63da95c45ce6b717d20e544f84104a7d42e3fb207dae41cab4eedf2cfa"
+    sha256 big_sur:        "0d3e0b8be3a4422e04bd665ad59d566889d9cecd7237ef0ef7168b7c6c32a6f2"
+    sha256 catalina:       "980958cbbf2d74eadde9cf0043934ed1a56698520d764bee24cf83691b41b4ca"
   end
 
   depends_on "gobject-introspection" => :build
@@ -26,9 +26,9 @@ class Tracker < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "dbus"
+  depends_on "icu4c"
   depends_on "json-glib"
   depends_on "libsoup@2"
-  uses_from_macos "icu4c"
 
   def install
     args = std_meson_args + %w[
