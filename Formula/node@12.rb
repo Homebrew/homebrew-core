@@ -4,6 +4,7 @@ class NodeAT12 < Formula
   url "https://nodejs.org/dist/v12.22.10/node-v12.22.10.tar.xz"
   sha256 "ad4c8891d54a2c9bb6af436956deead5986b9698b06e6c6d616de429cfb5393a"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,12 +12,12 @@ class NodeAT12 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d855774f6d428e2e6d258eaf88fa60a941b6d2c9ecca3596d4156f35e7896dbe"
-    sha256 cellar: :any,                 arm64_big_sur:  "676b39ab4e74c531287956cc4e5478c7c4a22581584edb88d76b7623ab70f811"
-    sha256 cellar: :any,                 monterey:       "888cba85ca478f974dd0d8f6abd2de3e93f009fc40cb01584a609d0c4ea7b998"
-    sha256 cellar: :any,                 big_sur:        "d6470997250871edc042834db307e7c302ebad0b1b9bbca771ecd5ec0e188314"
-    sha256 cellar: :any,                 catalina:       "dd9dae6bc8610ea18d8533c627dc335bb372688b04404d7a7316ecc9ce9037aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4aafe9d8d830131e245b11fd5d969e9e4e17f37b57389ffa35599e9e8c00178c"
+    sha256 cellar: :any,                 arm64_monterey: "102c40009aa335b7b6b8d84e907c80c71f4b903006934a9cd467fdba697422e6"
+    sha256 cellar: :any,                 arm64_big_sur:  "ae7d5fb536234dcf90c5b06c4c86e4ef24f695087a16c9b56800f75acd3f614d"
+    sha256 cellar: :any,                 monterey:       "24d7470bf4ba807015f3740506c1dbe55cba42421235614a2ad8fe6b4a10574d"
+    sha256 cellar: :any,                 big_sur:        "3e596fe1a59fdcc3778ad93f6d8022326964d2007d38a63ac288e1f478aa186f"
+    sha256 cellar: :any,                 catalina:       "100d846a497647430634b8da42ed04b22ec9791d25746c058f0630154a8a3f41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b59c4d9702768cd896ba9561b9a0c267e37e7ca551df4f840c16d89f84ebe25"
   end
 
   keg_only :versioned_formula
