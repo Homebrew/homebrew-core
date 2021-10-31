@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v17.6.0/node-v17.6.0.tar.xz"
   sha256 "ea6aaa70aba9c974ee145f19af36e7edd06b07017b4b2c697e337812080d83fd"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "01f84ba9e17af0eee4de4950edf3ac8be2a4ff1f13a627216fbd05c7632443cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "7554d3387ce2cc8707c60f937b99438639543509ebe6d195216a34f4302f0a16"
-    sha256 cellar: :any,                 monterey:       "652b5ef5c42061bf3c9096db97bae405da0a73641fc80c5511d0358aef56a097"
-    sha256 cellar: :any,                 big_sur:        "db33c3fbc237ac7e8c81e2aa9c41c8df9ba78a1538bc363faeed0b6c7cd0780d"
-    sha256 cellar: :any,                 catalina:       "f315c9e70a076afaa5c024d488b557ff5b0f162f94d29c6bf73b8e0396242fab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b7de0d0117b72c90d564fb141a76b88d6bc3f4c06c91922a18a280ad8fca652"
+    sha256 cellar: :any,                 arm64_monterey: "86e70a2c34f712d64ea28c9f08ea38b101738163a74e9293e7c952cc9afdc6c0"
+    sha256 cellar: :any,                 arm64_big_sur:  "2026838be9f69d639e29a65dddd42f4bfdb0c03ba0c64cbd85ea3e8effeef93c"
+    sha256 cellar: :any,                 monterey:       "a35a7b8ab9acfe3d21453703523f0678cba5596887cc39270ee1b18c3cc90d52"
+    sha256 cellar: :any,                 big_sur:        "c3204642e2822cbebb950bd37d3199d07820a93ddd55109f37c77fa4b67b2d56"
+    sha256 cellar: :any,                 catalina:       "8f9353b9ce1cca6c939a060ba710cc69059886352d6d6fab1f47a1a1fb030634"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69a101b59e72d1fa4631e676458488f979ebf738a3b3912bbcd80c4414f29cbc"
   end
 
   depends_on "pkg-config" => :build
