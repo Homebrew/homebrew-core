@@ -25,7 +25,14 @@ class Psftools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c750eb92e19169c1bb81129ab8ce270963e9168500b7c59d59d8bb7fc68ee7b4"
   end
 
+  # The `autoconf` dependency originates from 54cfae502ee4
+  # which was meant to fix a bug in the `configure` script.
+  # We add `automake` and `libtool` to run `autoreconf` to
+  # work around the `-flat_namespace` bug. Our usual patches
+  # don't work here because the install method called `autoconf`.
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   resource "pc8x8font" do
     url "https://www.zone38.net/font/pc8x8.zip"
@@ -33,7 +40,8 @@ class Psftools < Formula
   end
 
   def install
-    system "autoconf"
+    # Regenerate `configure` to fix `-flat_namespace`.
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end
