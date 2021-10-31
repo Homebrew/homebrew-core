@@ -14,7 +14,7 @@ class CaCertificates < Formula
     sha256 cellar: :any_skip_relocation, all: "1bbd45c16a0b9912174c553a6d7ae1b67b11abbeb3155eaf03109bb62d8e5381"
   end
 
-  depends_on "openssl@3" => :test
+  depends_on "openssl@1.1" => :test
 
   def install
     pkgshare.install "cacert-#{version}.pem" => "cacert.pem"
