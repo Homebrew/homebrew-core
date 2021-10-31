@@ -4,6 +4,7 @@ class PostgresqlAT12 < Formula
   url "https://ftp.postgresql.org/pub/source/v12.10/postgresql-12.10.tar.bz2"
   sha256 "83dd192e6034951192b9a86dc19cf3717a8b82120e2f11a0a36723c820d2b257"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -45,6 +46,7 @@ class PostgresqlAT12 < Formula
   end
 
   def install
+    ENV.delete "PKG_CONFIG_LIBDIR" if MacOS.version == :catalina
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
 
