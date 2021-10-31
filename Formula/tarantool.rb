@@ -4,16 +4,17 @@ class Tarantool < Formula
   url "https://download.tarantool.org/tarantool/2.8/src/tarantool-2.8.3.0.tar.gz"
   sha256 "953614448f23f37370c49c7832dba05b66c3b507c7047674403e05dbdc96bda8"
   license "BSD-2-Clause"
+  revision 1
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "449362fd95727d7bdd16fe236a0d7e568e28c93c6a689143b7ba6d3789b87477"
-    sha256 cellar: :any,                 arm64_big_sur:  "14a8805adc1acce67d1d8ad4a8058f0a91d830eb777196094bd7b6051c9022e3"
-    sha256                               monterey:       "c7c0b6de9a12a78c35a79284cfa7fe2fd06d700b27eef5e34b2c5b9f0044a1b7"
-    sha256                               big_sur:        "0ae949f642f828b42470057ac2573c693df046ccacdab1ba451b632b766ed24c"
-    sha256                               catalina:       "2dd055342cc0a398c0d594a272de9f1b677bec8c50b4187dd9f930aa3a3be441"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "129548b8d0ac6e99d44bca684e15df76078068267e5e3db1efba91761fa0900f"
+    sha256 cellar: :any,                 arm64_monterey: "2201cc3dccb89d1a7010f95ac91cf8bee4ee840e4768a1d1237f0fc29111ebe8"
+    sha256 cellar: :any,                 arm64_big_sur:  "d2925273749d2ad3b8b84e7c826c21ff0d489d423272f7c6382a8b9eb8ec8721"
+    sha256                               monterey:       "3e03f9f4fa10545196030d3f326a4fbb955a3acb7d350d1a5fb7eb309d4b26df"
+    sha256                               big_sur:        "ae0ceb0855b4cb9f2b949db8b33c0193c483d891a61a184743087d1eb1f819e3"
+    sha256                               catalina:       "63a612ec1bea575da2a071d030c8affe185da07783e783fa5a032c9faaa2527a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "254600d5998f1efa808d84906af2016c92b822b99d5d722037825fa5a96989ea"
   end
 
   depends_on "cmake" => :build
