@@ -4,6 +4,7 @@ class Boost < Formula
   url "https://boostorg.jfrog.io/artifactory/main/release/1.78.0/source/boost_1_78_0.tar.bz2"
   sha256 "8681f175d4bdb26c52222665793eef08490d7758529330f98d3b29dd0735bccc"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -15,18 +16,25 @@ class Boost < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e89b4c907d0525c0ab49e72b3b74f4e6b878bbdcad2b2fcc248d4e1a3e5ce671"
-    sha256 cellar: :any,                 arm64_big_sur:  "7b573f995d7a425d1134d33a5c600baffee0525fa0e72d44ee95faeea0122aff"
-    sha256 cellar: :any,                 monterey:       "0a37c43d096cad586000acbeddb14784c6df60eb1d6cf8c9d52f79f27536425a"
-    sha256 cellar: :any,                 big_sur:        "4748dcc963779a92e3f1683d45a49277b9e2090e4f9b250d234728d811c1e456"
-    sha256 cellar: :any,                 catalina:       "d421f97398d7b3f0da91de6a2c7143e008eac386c89e6950c5acd9e74c99c841"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83eb1e9a552a1ae127729bb60949a81e475ac787738b661bfb1bf838b4a632a5"
+    sha256 cellar: :any,                 arm64_monterey: "8962db038baeee22886c3fccf32a73dbc117bf0098e1d576e3265e5b6d3b0545"
+    sha256 cellar: :any,                 arm64_big_sur:  "31006195d59197469fef527827c8e0dfe75118c01b1c67d268c51052c060ac6a"
+    sha256 cellar: :any,                 monterey:       "d49eb4eb19d29f26499db581585e9bd3a291dbf5804cf4295f3ef5a5beb33979"
+    sha256 cellar: :any,                 big_sur:        "16e54dc0a542bb5ef74e0b7ec6429b59cba202230e37456a623163d9c188cae3"
+    sha256 cellar: :any,                 catalina:       "6793e4c55780b05aaa766a094d1a5ac1d75cb9f4c790724552d454a44b973260"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5eb8064aa8d4e70e5a36120c0c8959871ace04e478529ec40260b1e69e0767e"
   end
 
   depends_on "icu4c"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # Fix some library installations being skipped in some cases.
+  # Remove with the next release.
+  patch do
+    url "https://www.boost.org/patches/1_78_0/0001-b2-fix-install.patch"
+    sha256 "71e5b96e72e534670043e0fa7743fd34671715e21c3ddb41908a3da284a8920a"
+  end
 
   def install
     # Force boost to compile with the desired compiler
