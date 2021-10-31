@@ -4,6 +4,7 @@ class Mysql < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.28.tar.gz"
   sha256 "6dd0303998e70066d36905bd8fef1c01228ea182dbfbabc6c22ebacdbf8b5941"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -11,12 +12,12 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "5f6efe3a8985554faf3c5a2f74e1029971d7fbebb13922aae117cffd7bdeba58"
-    sha256 arm64_big_sur:  "e78bcb9a6be7a0a386c297a25f982435da3989a0adfd929c1c703d71da120822"
-    sha256 monterey:       "723dee93398d4790ba6f547fc7072afa328ac7e6bb50448c096af77bcbfa141c"
-    sha256 big_sur:        "fcd71d1bba2787a0e388c29eaf20d33611bb2d24c49ad0c9a0ac4d333111f33d"
-    sha256 catalina:       "07394d1ce62dabc5c59ec024e76b92dfce271d13dc6b92be4b17a6153a60929e"
-    sha256 x86_64_linux:   "c2509cef499a74def6de7c22af9f26c6a6291fb037c5e2c78c9ef1779d3d84aa"
+    sha256 arm64_monterey: "c51f67f07e7a419c14d3f2e68cab306b5b618c56ab61bef26abbb6d24986d4ed"
+    sha256 arm64_big_sur:  "ad41e97ed611cc0fa1f27fcdc7c1286136e7e65939a9205b6cb414a537de52a8"
+    sha256 monterey:       "e0b6492724015b281b100ee07c04b420b1a57ba260d640bb010161588605497f"
+    sha256 big_sur:        "ce886ee6265bb5d8c6c9495bde166744db089ce8ad1e86ccf56b678308ad16b8"
+    sha256 catalina:       "085e0525cb6380b7f10b07516abb26b31a8af46e8b8ad1f31f801377c0717275"
+    sha256 x86_64_linux:   "13cf051d3fba6129bbd93e7701806db86fdcc4c849be7b3b2debedb77a63c85a"
   end
 
   depends_on "cmake" => :build
