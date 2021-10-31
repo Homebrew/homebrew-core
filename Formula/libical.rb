@@ -4,6 +4,7 @@ class Libical < Formula
   url "https://github.com/libical/libical/releases/download/v3.0.14/libical-3.0.14.tar.gz"
   sha256 "4284b780356f1dc6a01f16083e7b836e63d3815e27ed0eaaad684712357ccc8f"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a0dcdc93cd6a7c28c73da05c462e4b3a1ff939a79a8e63773a4c3d0cedf4f3d5"
