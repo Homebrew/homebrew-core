@@ -245,8 +245,7 @@ class Buku < Formula
     EOS
     system expect, "-f", "import"
 
-    # Test online components -- fetch titles
-    system bin/"buku", "--update"
+    sleep 5
 
     # Test crypto functionality
     (testpath/"crypto-test").write <<~EOS
