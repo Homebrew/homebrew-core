@@ -245,8 +245,6 @@ class Buku < Formula
     EOS
     system expect, "-f", "import"
 
-    sleep 10
-
     # Test online components -- fetch titles
     system bin/"buku", "--update"
 
