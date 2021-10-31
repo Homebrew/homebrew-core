@@ -4,14 +4,15 @@ class Libical < Formula
   url "https://github.com/libical/libical/releases/download/v3.0.14/libical-3.0.14.tar.gz"
   sha256 "4284b780356f1dc6a01f16083e7b836e63d3815e27ed0eaaad684712357ccc8f"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a0dcdc93cd6a7c28c73da05c462e4b3a1ff939a79a8e63773a4c3d0cedf4f3d5"
-    sha256 cellar: :any,                 arm64_big_sur:  "c842d3fd0bf2289290594347a2f033d430d46bb6dd7d2f14032d572e9fb50ef7"
-    sha256 cellar: :any,                 monterey:       "e0c35326c070cea82baf73a4de5e6c345a8f21caf3856b218ec848d2e26e40ca"
-    sha256 cellar: :any,                 big_sur:        "254b698a3e6585c454fe3016163ebb4a2c79af2f8dc52c7021f060e11e5fc9a6"
-    sha256 cellar: :any,                 catalina:       "5291e0837b718b5c4492e1bb341cce0b41a5b5103e1fc9435133b9a3a56984b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb299a37b4ef679be59e4c384f0704dba419394617627d5c00aa877282a593b4"
+    sha256 cellar: :any,                 arm64_monterey: "c27b4e5e0183e2a3c00df25be49016a32eabefe48df38495607cbe77cd1c4488"
+    sha256 cellar: :any,                 arm64_big_sur:  "44b5d5d2e1004e59c723d21a30446bb642fab78cff44c48fb337e311d2c17509"
+    sha256 cellar: :any,                 monterey:       "813ff353ca32c4f9c33d5141805fb244829872ed01333a75cabc1f9901ed2513"
+    sha256 cellar: :any,                 big_sur:        "9db5384e8ca7edde36eeeddd905e53bf2019d3bf6fbb9b038954cf9a05d481d4"
+    sha256 cellar: :any,                 catalina:       "77a6f2be525f7cd45016b36ebc34ffb018649864cf08ec7e52c98f17e158a65c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1143254b83d4f1fc88a23bad553c7ea335f094ac79fae35c3f93f16f53c225c2"
   end
 
   depends_on "cmake" => :build
