@@ -4,6 +4,7 @@ class Postgresql < Formula
   url "https://ftp.postgresql.org/pub/source/v14.2/postgresql-14.2.tar.bz2"
   sha256 "2cf78b2e468912f8101d695db5340cf313c2e9f68a612fb71427524e8c9a977a"
   license "PostgreSQL"
+  revision 1
   head "https://github.com/postgres/postgres.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Postgresql < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "4cd881a0ec8c090e1a9ef51972a35acc025e3f4212170870417ff48df6586ed5"
-    sha256 arm64_big_sur:  "b0cbdfcd0d16f00ae6ab72bae6e55238b8dd4e0a22a063959f089b5d666e2db3"
-    sha256 monterey:       "cdb07755641a21feadaf1d6ef86b7eebb5ce2d16427a43808379ae60d14f2e70"
-    sha256 big_sur:        "d96a133cc4c718081f3c16e72af6f3626c1365e0daa945be3207797d6237fede"
-    sha256 catalina:       "60d2ad6b34d839071f0d70d5f4b482ad14d070817d88a9fb23b1b96eaa9ca030"
-    sha256 x86_64_linux:   "5acde475632243256539084dd1e02184b6787e6a71da4d5c76cc20b2d87612a8"
+    sha256 arm64_monterey: "2bdd0a5c963159499d9033afbd67872799a1dd73d9aa0656fc1276d6b2db18c5"
+    sha256 arm64_big_sur:  "c9fc350fd229a8ce2ae1b4c2415d43adb8d1212ec70e1e823d07d01128ea53f7"
+    sha256 monterey:       "e646d3d891ba61c6779aeffbc8abf9d7590df75c0a61b142766863b0df7403c3"
+    sha256 big_sur:        "6433ac89dbd65d184f5792d6160d8f5d1c76f435f43c3492a6a4bfa6c00b79cb"
+    sha256 catalina:       "bb6bf761a60c6aec73f31595e167c2c788e80ea0a8ea1d27dd9f1040f854ea12"
+    sha256 x86_64_linux:   "7f8eb593c0bc534a7dde812c42ade5e7261e74ef618e35be553c6a257c850f4a"
   end
 
   depends_on "pkg-config" => :build
