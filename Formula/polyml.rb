@@ -13,6 +13,12 @@ class Polyml < Formula
     sha256 x86_64_linux: "d356087174d4a1031bbacaac76dfcb1735d613a55510ff8b0207ea6d53994038"
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking", "--disable-debug",
                           "--prefix=#{prefix}"
