@@ -3,6 +3,7 @@ class Widelands < Formula
   homepage "https://www.widelands.org/"
   url "https://github.com/widelands/widelands/archive/v1.0.tar.gz"
   sha256 "1dab0c4062873cc72c5e0558f9e9620b0ef185f1a78923a77c4ce5b9ed76031a"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -34,6 +35,13 @@ class Widelands < Formula
   depends_on "sdl2_ttf"
 
   uses_from_macos "curl"
+
+  # Fix build with Boost 1.77+.
+  # Remove with the next release (1.1).
+  patch do
+    url "https://github.com/widelands/widelands/commit/316eaea209754368a57f445ea4dd016ecf8eded6.patch?full_index=1"
+    sha256 "358cae53bbc854e7e9248bdea0ca5af8bce51e188626a7f366bc6a87abd33dc9"
+  end
 
   def install
     ENV.cxx11
