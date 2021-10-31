@@ -2,7 +2,7 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  # revert back to GitHub mirrir tar.gz archives once it's synced again
+  # revert back to GitHub mirror tar.gz archives once it's synced again
   url "https://chromium.googlesource.com/v8/v8.git",
       tag:      "9.5.172.25",
       revision: "b5fa92428c9d4516ebdc72643ea980d8bde8f987"
