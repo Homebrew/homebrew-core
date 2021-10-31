@@ -36,6 +36,8 @@ class Libnghttp2 < Formula
   link_overwrite "lib/libnghttp2.a"
   link_overwrite "lib/libnghttp2.dylib"
   link_overwrite "lib/libnghttp2.14.dylib"
+  link_overwrite "lib/libnghttp2.so"
+  link_overwrite "lib/libnghttp2.so.14"
   link_overwrite "lib/pkgconfig/libnghttp2.pc"
 
   def install
