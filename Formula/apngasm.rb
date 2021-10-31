@@ -4,16 +4,16 @@ class Apngasm < Formula
   url "https://github.com/apngasm/apngasm/archive/3.1.6.tar.gz"
   sha256 "0068e31cd878e07f3dffa4c6afba6242a753dac83b3799470149d2e816c1a2a7"
   license "Zlib"
-  revision 4
+  revision 5
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "219c6587b5ecec5060a05735e32c55deb126562aaceb6dcbfdda341d70c8adc8"
-    sha256 cellar: :any,                 arm64_big_sur:  "105eed022dae4f6baa80cb282a77f1309c9f8ff8cfac8662a992f06d0adbfe08"
-    sha256 cellar: :any,                 monterey:       "24ad3bddaa293a14347b0cf5a4eedaaa4a96cbc3fb00a07b7a4f33e9d7e40684"
-    sha256 cellar: :any,                 big_sur:        "6510d9c52c774ebf62478b0d4bd40fe5109d7b1c867b5c6be68b2afa2b910442"
-    sha256 cellar: :any,                 catalina:       "e04e89431ce9dace1d79e858b52711fedd6ef8a44f7ca5499bbfd8e612905e36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fac26c5d767fcef20f109fe26ce42648dfae3a4162389ec0849c7110102638f"
+    sha256 cellar: :any,                 arm64_monterey: "266deabd148a65334b8267e4e5a2cd7be59ae83d08cd098cf5c7b4f78f7541ef"
+    sha256 cellar: :any,                 arm64_big_sur:  "b561e57d6d4d3f4b62133a977dcd455acc847a283bc3a61eac50cb6204fe7274"
+    sha256 cellar: :any,                 monterey:       "6aa9726bb6fd25e72ab310d3d37407208106f4ee18cb74c987d225736016f44e"
+    sha256 cellar: :any,                 big_sur:        "2f249a0c49b15b99322f83fc3d77d33e160279e14a993e1336b04c2d0b84b574"
+    sha256 cellar: :any,                 catalina:       "24a3a9319c7c61ec5c9a44ae287209a6f1d8ecce90ca84d22d278abdc1b0d5e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e254b0e751186dc0ffc9575454e289d3e2cca907b672943d3dd1c1f012b1bea9"
   end
 
   depends_on "cmake" => :build
