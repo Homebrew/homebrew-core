@@ -4,15 +4,15 @@ class Freeling < Formula
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.tar.gz"
   sha256 "f96afbdb000d7375426644fb2f25baff9a63136dddce6551ea0fd20059bfce3b"
   license "AGPL-3.0-only"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "b8d17a21a303a81e602c55b280ae2faad62b0096e33d536d9282bd55b96398ab"
-    sha256 cellar: :any, arm64_big_sur:  "3afa5c7621f49858902ecc79870c43fa3096c8ecaabda5aba9944d6d8c7cfb89"
-    sha256 cellar: :any, monterey:       "b0ac115a4e4354b6493f846bcef24db50d20fef9e71b2e139ab582a48c7941cd"
-    sha256 cellar: :any, big_sur:        "73891677a3843b9c57129dd369472cf609771c2cdba051b8cef0d566a3446e12"
-    sha256 cellar: :any, catalina:       "de94326810d5ed9d52ea484ab99d5e2946fbe8f514cc2c3a38fa29ea703ef3d1"
-    sha256 cellar: :any, mojave:         "1167a27ff5bf29c27c24d8e08f30e64b33834cb8a662cc2e71ddc6ec06ae1ece"
+    sha256 cellar: :any,                 arm64_monterey: "94090947438855cf6331ad2e63187b91ff781e94af7c5845a782af6a9aa66f76"
+    sha256 cellar: :any,                 arm64_big_sur:  "1b390fdcce145ad6a1c2308ffa5e0466469f7495273edc130e7ff20abeeea92b"
+    sha256 cellar: :any,                 monterey:       "bdbd930df421b027d61ad93043aec8b51c1adb46ac746d82fc5e7db6bf969b22"
+    sha256 cellar: :any,                 big_sur:        "315ffab8559e7ea8bf88a7c730c355f1b84b00dcc7f75d919b6503e83c1e0b14"
+    sha256 cellar: :any,                 catalina:       "6a6a115c50379449b08ae8d564823975041a2718d513a8744cbaac1f8a7ac24c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8686efb54ab3853fc7ade7a6467fa48aa4ecf20ceec7846e3a0114f4dc3ded0e"
   end
 
   depends_on "cmake" => :build
