@@ -4,7 +4,7 @@ class Znc < Formula
   url "https://znc.in/releases/archive/znc-1.8.2.tar.gz"
   sha256 "ff238aae3f2ae0e44e683c4aee17dc8e4fdd261ca9379d83b48a7d422488de0d"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   bottle do
     sha256 arm64_monterey: "48bbc131756030fa8073447e12ac4d17dd02ef000510bb60d423bfbdee8618f0"
