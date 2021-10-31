@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v17.6.0/node-v17.6.0.tar.xz"
   sha256 "ea6aaa70aba9c974ee145f19af36e7edd06b07017b4b2c697e337812080d83fd"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "master"
 
   livecheck do
