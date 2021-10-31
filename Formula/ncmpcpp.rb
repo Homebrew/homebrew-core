@@ -4,7 +4,7 @@ class Ncmpcpp < Formula
   url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.9.2.tar.bz2"
   sha256 "faabf6157c8cb1b24a059af276e162fa9f9a3b9cd3810c43b9128860c9383a1b"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://rybczak.net/ncmpcpp/installation/"
@@ -12,12 +12,12 @@ class Ncmpcpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ef3e0031e1ba427a6315fc756abe42ae760f624892663810477f26536540d995"
-    sha256 cellar: :any,                 arm64_big_sur:  "8594f9595771cefc90a86421ed5b03b7262aa7b91162a3b8cf203ede3f21eeac"
-    sha256 cellar: :any,                 monterey:       "a588974bca0b183dd228ea9515364beb12379b5671b406dddda48d7bda03e2b4"
-    sha256 cellar: :any,                 big_sur:        "7dea7f462feb5301877a68b486c116c3f864264df71e03f3aa2d81b53061f09c"
-    sha256 cellar: :any,                 catalina:       "da8e1209c47e80748f1b9bb65b4d5e2a8837de24d15de421f9782d76dac8e960"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a513079cfcdc2f9ecfd105a0706691c505d3456757d25e27e4a602c6aaa6e44e"
+    sha256 cellar: :any,                 arm64_monterey: "92de9705b21cf154f6d1e2994452f5b7b1c7855f3fd6aa8c7a8d54108c37bb74"
+    sha256 cellar: :any,                 arm64_big_sur:  "22ddf121680ee964577943839587ea51c751bfd01bba2bb5dcb50bd6775e7d87"
+    sha256 cellar: :any,                 monterey:       "f4d20158915c29b5f081030bbe6537070aac7bc266f1138a55c8a8686ee84c68"
+    sha256 cellar: :any,                 big_sur:        "c2978f45b0e739eb0a7d2f7c4bb82000fc653ac6068d3c55cd9bd9f2befa9628"
+    sha256 cellar: :any,                 catalina:       "ba0f942ce81f8eb4e1b507d0f2f65b2248368207f694350c3791b74856bd60fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f48e2d81c7d66b7e345cb96f34014abe94453059f70a64aa9773f963d3e70775"
   end
 
   head do
