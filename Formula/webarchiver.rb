@@ -17,7 +17,7 @@ class Webarchiver < Formula
 
   def install
     # Force 64 bit-only build, otherwise it fails on Mojave
-    xcodebuild "SYMROOT=build", "-arch", "x86_64"
+    xcodebuild "SYMROOT=build", "-arch", Hardware::CPU.arch
 
     bin.install "./build/Release/webarchiver"
   end
