@@ -1,9 +1,18 @@
 class Kytea < Formula
   desc "Toolkit for analyzing text, especially Japanese and Chinese"
   homepage "http://www.phontron.com/kytea/"
-  url "http://www.phontron.com/kytea/download/kytea-0.4.7.tar.gz"
-  sha256 "534a33d40c4dc5421f053c71a75695c377df737169f965573175df5d2cff9f46"
   license "Apache-2.0"
+
+  stable do
+    url "http://www.phontron.com/kytea/download/kytea-0.4.7.tar.gz"
+    sha256 "534a33d40c4dc5421f053c71a75695c377df737169f965573175df5d2cff9f46"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    end
+  end
 
   livecheck do
     url :homepage
