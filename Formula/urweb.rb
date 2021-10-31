@@ -3,13 +3,12 @@ class Urweb < Formula
   homepage "http://www.impredicative.com/ur/"
   url "https://github.com/urweb/urweb/releases/download/20200209/urweb-20200209.tar.gz"
   sha256 "ac3010c57f8d90f09f49dfcd6b2dc4d5da1cdbb41cbf12cb386e96e93ae30662"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 monterey: "212e90a0f4bdcabdb0920889937ca45487c937446ead67a280ecb427fc89523c"
-    sha256 big_sur:  "f50d69d970a627bff0607a8be0766c12bdc49394e457776731a5dfd40531f82f"
-    sha256 catalina: "67b57cdddb86a0563bd6199314399c8c2d1ad393b81544193492c5d764ee6eb1"
-    sha256 mojave:   "51695995aeb4389c1517a66ed91f07db0a967b7955fea9507a99d70fb4daf856"
+    sha256 monterey: "2fb09ccebbdbfdc2998bf14704d9c492b8ae6f2f8a64666dda46f22bf27592f7"
+    sha256 big_sur:  "237fd9890464fefa4e795d80d61284d83e337b35d89580fa77e9d38c87635986"
+    sha256 catalina: "5fe0d1ed8d65d2195df7f4f0e4e0db22787fc96069b468ef8cbe5d353be3aac4"
   end
 
   depends_on "autoconf" => :build
