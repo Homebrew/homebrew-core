@@ -1,10 +1,9 @@
 class Honcho < Formula
   desc "Python clone of Foreman, for managing Procfile-based applications"
   homepage "https://github.com/nickstenning/honcho"
-  url "https://files.pythonhosted.org/packages/a2/8b/c404bce050eba79a996f6901f35445a53c1133b0424b33e58a4ad225bc37/honcho-1.0.1.tar.gz"
-  sha256 "c189402ad2e337777283c6a12d0f4f61dc6dd20c254c9a3a4af5087fc66cea6e"
+  url "https://files.pythonhosted.org/packages/0e/7c/c0aa47711b5ada100273cbe190b33cc12297065ce559989699fd6c1ec0cb/honcho-1.1.0.tar.gz"
+  sha256 "c5eca0bded4bef6697a23aec0422fd4f6508ea3581979a3485fc4b89357eb2a9"
   license "MIT"
-  revision 4
   head "https://github.com/nickstenning/honcho.git"
 
   bottle do
