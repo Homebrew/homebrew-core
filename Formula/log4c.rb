@@ -23,6 +23,12 @@ class Log4c < Formula
     sha256 x86_64_linux:  "5182c7b11972d29559087012a708f71137b9795294afb833aff1cf9d40168a9a"
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
