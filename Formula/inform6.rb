@@ -21,9 +21,7 @@ class Inform6 < Formula
   end
 
   def install
-    # Parallel install fails at:
-    # install -d -m 755 /usr/local/Cellar/inform6/6.35-r4/share/inform/punyinform/documentation
-    # install: /usr/local/Cellar/inform6/6.35-r4/bin/punyinform.sh: Not a directory
+    # Parallel install fails because of: https://gitlab.com/DavidGriffith/inform6unix/-/issues/26
     ENV.deparallelize
     system "make", "PREFIX=#{prefix}", "MAN_PREFIX=#{man}", "MANDIR=#{man1}", "install"
   end
