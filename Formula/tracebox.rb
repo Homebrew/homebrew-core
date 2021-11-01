@@ -24,14 +24,14 @@ class Tracebox < Formula
 
   def install
     ENV.append_to_cflags "-I#{Formula["libpcap"].opt_include}"
-    ENV.append "LIBS", "-L#{Formula["libpcap"].opt_lib} -lpcap"
+    ENV.append "LIBS", "-L#{Formula["libpcap"].opt_lib} -lpcap -lm"
+    ENV["LUA_INCLUDE"] = "-I#{Formula["lua"].opt_include}/lua"
+    ENV["LUA_LIB"] = "-L#{Formula["lua"].opt_lib} -llua"
     ENV.libcxx
     system "autoreconf", "--install"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--with-libpcap=yes",
-                          "--prefix=#{prefix}"
+                          "--with-libpcap=yes"
     system "make"
     system "make", "install"
   end
