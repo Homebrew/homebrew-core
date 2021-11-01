@@ -8,8 +8,7 @@ class Cbc < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/(?:releases%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(%r{^releases/v?(\d+(?:\.\d+)+)$}i)
   end
 
   bottle do
