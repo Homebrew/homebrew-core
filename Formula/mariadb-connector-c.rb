@@ -1,15 +1,18 @@
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
-  homepage "https://downloads.mariadb.org/connector-c/"
-  url "https://downloads.mariadb.org/f/connector-c-3.2.3/mariadb-connector-c-3.2.3-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.2.3-src.tar.gz"
-  sha256 "b6aa38656438e092242a95d01d3a80a5ce95c7fc02ec81009f4f0f46262331f4"
+  homepage "https://mariadb.org/download/?tab=connector&prod=connector-c"
+  url "https://downloads.mariadb.com/Connectors/c/connector-c-3.2.4/mariadb-connector-c-3.2.4-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.2.4-src.tar.gz/"
+  sha256 "81fd5e7c800d8524d9cc5bcfa037ff5ac154361fe89e8103d406fb8768f3b5d1"
   license "LGPL-2.1-or-later"
-  head "https://github.com/mariadb-corporation/mariadb-connector-c.git"
+  head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.2"
 
+  # https://mariadb.org/download/ sometimes lists an older version as newest,
+  # so we check the JSON data used to populate the mariadb.com downloads page
+  # (which lists GA releases).
   livecheck do
-    url "https://downloads.mariadb.org/connector-c/+releases/"
-    regex(%r{href=.*?connector-c/v?(\d+(?:\.\d+)+)/?["' >]}i)
+    url "https://mariadb.com/downloads_data.json"
+    regex(/href=.*?mariadb-connector-c[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
   end
 
   bottle do
