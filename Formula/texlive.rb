@@ -65,6 +65,8 @@ class Texlive < Formula
     depends_on "mesa"
   end
 
+  conflicts_with "cweb", because: "both install `cweb` binaries"
+
   fails_with gcc: "5"
 
   resource "texlive-extra" do
