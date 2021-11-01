@@ -1,13 +1,17 @@
 class MariadbConnectorOdbc < Formula
   desc "Database driver using the industry standard ODBC API"
-  homepage "https://downloads.mariadb.org/connector-odbc/"
-  url "https://downloads.mariadb.org/f/connector-odbc-3.1.13/mariadb-connector-odbc-3.1.13-src.tar.gz"
-  sha256 "29aa6b8b49971050b341be86f5e130d126c4c296d965aaa6a1559745164b82aa"
+  homepage "https://mariadb.org/download/?tab=connector&prod=connector-odbc"
+  url "https://downloads.mariadb.com/Connectors/odbc/connector-odbc-3.1.14/mariadb-connector-odbc-3.1.14-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-odbc-3.1.14-src.tar.gz/"
+  sha256 "06ed87398f70eb17f15856f961ea26af9f03b2d5615766ce7857f8285c380f68"
   license "LGPL-2.1-or-later"
 
+  # https://mariadb.org/download/ sometimes lists an older version as newest,
+  # so we check the JSON data used to populate the mariadb.com downloads page
+  # (which lists GA releases).
   livecheck do
-    url :homepage
-    regex(/Download (\d+(?:\.\d+)+) Stable Now!/i)
+    url "https://mariadb.com/downloads_data.json"
+    regex(/href=.*?mariadb-connector-odbc[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
   end
 
   bottle do
