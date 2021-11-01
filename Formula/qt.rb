@@ -25,8 +25,6 @@ class Qt < Formula
   depends_on "ninja"      => :build
   depends_on "node"       => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: [:build, :test] if MacOS.version <= :mojave
-
   depends_on "assimp"
   depends_on "brotli"
   depends_on "dbus"
@@ -55,6 +53,14 @@ class Qt < Formula
   uses_from_macos "cups"
   uses_from_macos "krb5"
   uses_from_macos "zlib"
+
+  on_macos do
+    if MacOS.version <= :mojave
+      depends_on xcode: [:build, :test]
+    else
+      depends_on xcode: [:build]
+    end
+  end
 
   on_linux do
     depends_on "at-spi2-core"
