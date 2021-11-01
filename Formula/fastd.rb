@@ -32,7 +32,7 @@ class Fastd < Formula
 
   def install
     mkdir "build" do
-      system "meson", "-DENABLE_LTO=ON", *std_meson_args, ".."
+      system "meson", "-Db_lto=true", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end
