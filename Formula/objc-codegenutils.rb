@@ -19,12 +19,14 @@ class ObjcCodegenutils < Formula
   depends_on xcode: :build
 
   def install
-    xcodebuild "-project", "codegenutils.xcodeproj", "-target", "assetgen",
+    xcodebuild "-arch", Hardware::CPU.arch, "-project", "codegenutils.xcodeproj", "-target", "assetgen",
                "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"
     bin.install "build/Release/objc-assetgen"
-    xcodebuild "-target", "colordump", "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"
+    xcodebuild "-arch", Hardware::CPU.arch, "-target", "colordump", "-configuration", "Release", "SYMROOT=build",
+               "OBJROOT=build"
     bin.install "build/Release/objc-colordump"
-    xcodebuild "-target", "identifierconstants", "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"
+    xcodebuild "-arch", Hardware::CPU.arch, "-target", "identifierconstants", "-configuration", "Release",
+               "SYMROOT=build", "OBJROOT=build"
     bin.install "build/Release/objc-identifierconstants"
   end
 
