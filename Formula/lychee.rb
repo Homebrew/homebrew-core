@@ -1,8 +1,8 @@
 class Lychee < Formula
   desc "Fast, async, resource-friendly link checker"
   homepage "https://github.com/lycheeverse/lychee"
-  url "https://github.com/lycheeverse/lychee/archive/v0.7.1.tar.gz"
-  sha256 "f6acf92987aae006273b5fd211cb5c6a2f30036b7fd69ac36ecffb2b28cc3101"
+  url "https://github.com/lycheeverse/lychee/archive/v0.8.0.tar.gz"
+  sha256 "bac7a31011aa46b5f239ef34bb33b7a87e07de35ed06c4e1cc83a8fa1d03b466"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/lycheeverse/lychee.git"
 
