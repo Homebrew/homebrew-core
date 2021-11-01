@@ -3,7 +3,7 @@ class Zydis < Formula
   homepage "https://zydis.re"
   url "https://github.com/zyantific/zydis.git",
       tag:      "v3.2.0",
-      revision: "95365aec6927c36ecad33cc543430ab214260dc3"
+      revision: "746faa454c33c09e897504cc56b16d47d6fe89d5"
   license "MIT"
   head "https://github.com/zyantific/zydis.git", branch: "master"
 
