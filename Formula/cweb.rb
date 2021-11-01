@@ -15,6 +15,8 @@ class Cweb < Formula
     sha256 x86_64_linux:   "62cac91ee39b5981ac30e4797a75b76572b4ae04c539796d120f4fbe36fc9716"
   end
 
+  conflicts_with "texlive", because: "both install `cweb` binaries"
+
   def install
     ENV.deparallelize
 
