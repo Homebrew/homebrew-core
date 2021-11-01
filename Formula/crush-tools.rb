@@ -1,9 +1,18 @@
 class CrushTools < Formula
   desc "Command-line tools for processing delimited text data"
   homepage "https://github.com/google/crush-tools"
-  url "https://github.com/google/crush-tools/releases/download/20150716/crush-tools-20150716.tar.gz"
-  sha256 "ef2f9c919536a2f13b3065af3a9a9756c90ede53ebd67d3e169c90ad7cd1fb05"
   license "Apache-2.0"
+
+  stable do
+    url "https://github.com/google/crush-tools/releases/download/20150716/crush-tools-20150716.tar.gz"
+    sha256 "ef2f9c919536a2f13b3065af3a9a9756c90ede53ebd67d3e169c90ad7cd1fb05"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c126bcdab0ba561df10768d423dd6b9336e7464707e3af7c17e65178cbffd4f5"
