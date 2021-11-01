@@ -98,6 +98,9 @@ class Qt < Formula
 
   fails_with gcc: "5"
 
+  # fix build with Xcode 13+
+  patch :DATA
+
   def install
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/BUILD.gn",
@@ -270,3 +273,19 @@ class Qt < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h b/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
+index 5d4b6d6a71..cc7193d8b7 100644
+--- a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
++++ b/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
+@@ -43,6 +43,7 @@
+ #include <qpa/qplatformgraphicsbuffer.h>
+ #include <private/qcore_mac_p.h>
+ 
++#include <CoreGraphics/CGColorSpace.h>
+ #include <IOSurface/IOSurface.h>
+ 
+ QT_BEGIN_NAMESPACE
+-- 
+cgit v1.2.1
