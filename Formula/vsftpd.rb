@@ -30,6 +30,14 @@ class Vsftpd < Formula
     sha256 "c158fac428e06e16219e332c3897c3f730586e55d0ef3a670ed3c716e3de5371"
   end
 
+  # Patch to disable all calls to setrlimit, as macOS, starting from
+  # Monterey does not support this syscall. (reported to developer via
+  # GitHub)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e4dd5d67152bb2541c5e38e8bb834ed5b165fcaa/vsftpd/3.0.5.patch"
+    sha256 "95afc3bc00dd6cc37a2c64b19b1e7e30951ec022f839dbab1773b7716966b9cf"
+  end
+
   def install
     inreplace "defs.h", "/etc/vsftpd.conf", "#{etc}/vsftpd.conf"
     inreplace "tunables.c", "/etc", etc
