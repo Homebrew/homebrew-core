@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/b8/2b/9e20627f019dcf52046c103781b20368d30e01bb9c3a326f57a3bb43d9c2/checkov-2.0.510.tar.gz"
-  sha256 "d2e442ba8cfd765df4ce551cee0e4a6e36642060a24ddeb691600cb8c45b6a4a"
+  url "https://files.pythonhosted.org/packages/bd/b4/4916c5d1abb0c224c484157f24e979e224c5b45d2b73ca524c6352ad69b8/checkov-2.0.525.tar.gz"
+  sha256 "1ec44854b0cda05d2f0b12142ebdb9e12fa22f3597ab354d514213b90b37a836"
   license "Apache-2.0"
 
   bottle do
@@ -92,8 +92,8 @@ class Checkov < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/a2/86/5bbc2a63bc2b0aa3402527c20d5381a1bdd73f365318b88d7c817504b1ac/cyclonedx-python-lib-0.10.2.tar.gz"
-    sha256 "6f79742ca1728b9016ea272bbe58a60441848e6b4f9742918b8eb67ca987df3b"
+    url "https://files.pythonhosted.org/packages/71/d1/e0a897353e1227764213448d035f153479a1b1950be884db516a136e776a/cyclonedx-python-lib-0.6.2.tar.gz"
+    sha256 "f84c53b58cf3a62fcbbe8040a18cb047bf28f3a77b3b4276f529c8ace0e4db8b"
   end
 
   resource "deep_merge" do
@@ -134,6 +134,11 @@ class Checkov < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
     sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+  end
+
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/f0/70/ca3dd67cdd368b957e73a8156f7e1a10339f9813e314cb8b4549526070da/importlib_metadata-4.8.1.tar.gz"
+    sha256 "f284b3e11256ad1e5d03ab86bb2ccd6f5339688ff17a4d797a0fe7df326f23b1"
   end
 
   resource "Jinja2" do
@@ -177,8 +182,8 @@ class Checkov < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
-    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
+    url "https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz"
+    sha256 "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
   end
 
   resource "policy-sentry" do
@@ -192,8 +197,8 @@ class Checkov < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/31/c9/b29ea153b9bffaae787ecc81873b4b51bd36cc13c37586b41891beae37eb/pyparsing-3.0.1.tar.gz"
-    sha256 "84196357aa3566d64ad123d7a3c67b0e597a115c4934b097580e5ce220b91531"
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
   resource "python-dateutil" do
@@ -274,6 +279,11 @@ class Checkov < Formula
   resource "websocket-client" do
     url "https://files.pythonhosted.org/packages/4e/8f/b5c45af5a1def38b07c09a616be932ad49c35ebdc5e3cbf93966d7ed9750/websocket-client-1.2.1.tar.gz"
     sha256 "8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d"
+  end
+
+  resource "zipp" do
+    url "https://files.pythonhosted.org/packages/02/bf/0d03dbdedb83afec081fefe86cae3a2447250ef1a81ac601a9a56e785401/zipp-3.6.0.tar.gz"
+    sha256 "71c644c5369f4a6e07636f0aa966270449561fcea2e3d6747b8d23efaa9d7832"
   end
 
   def install
