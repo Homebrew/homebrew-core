@@ -3,8 +3,8 @@ class Sip < Formula
 
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://files.pythonhosted.org/packages/ed/74/57851ed1cd8d996bbb3103b17798d59ddda3f7f8245b826c01aadfc3d66c/sip-6.3.1.tar.gz"
-  sha256 "2f9cd6ce0e19226d53d62ad6ba81a62f624626f14924724eab2a23390d4dc684"
+  url "https://files.pythonhosted.org/packages/c4/de/76c2927ea8f74dc4909c9affeba4c0191c43a4aefbe2118cc69b2cbd8461/sip-6.4.0.tar.gz"
+  sha256 "42ec368520b8da4a0987218510b1b520b4981e4405086c1be384733affc2bcb0"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
@@ -21,8 +21,8 @@ class Sip < Formula
   depends_on "python@3.9"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
-    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
+    url "https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz"
+    sha256 "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
   end
 
   resource "pyparsing" do
