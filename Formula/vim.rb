@@ -5,6 +5,7 @@ class Vim < Formula
   url "https://github.com/vim/vim/archive/v8.2.3550.tar.gz"
   sha256 "c27b57349f36d5b5c4058f25f812ea50e71bc8e32f4568fdf8b9dbb10160c4bf"
   license "Vim"
+  revision 1
   head "https://github.com/vim/vim.git", branch: "master"
 
   bottle do
@@ -20,9 +21,9 @@ class Vim < Formula
   depends_on "gettext"
   depends_on "lua"
   depends_on "ncurses"
-  depends_on "perl"
   depends_on "python@3.9"
-  depends_on "ruby"
+  uses_from_macos "perl"
+  uses_from_macos "ruby"
 
   conflicts_with "ex-vi",
     because: "vim and ex-vi both install bin/ex and bin/view"
@@ -43,8 +44,6 @@ class Vim < Formula
     # the right place (HOMEBREW_PREFIX/share/vim/{vimrc,vimfiles}) for
     # system vimscript files. We specify the normal installation prefix
     # when calling "make install".
-    # Homebrew will use the first suitable Perl & Ruby in your PATH if you
-    # build from source. Please don't attempt to hardcode either.
     system "./configure", "--prefix=#{HOMEBREW_PREFIX}",
                           "--mandir=#{man}",
                           "--enable-multibyte",
@@ -71,12 +70,27 @@ class Vim < Formula
   end
 
   test do
-    (testpath/"commands.vim").write <<~EOS
+    (testpath/"perl.vim").write <<~EOS
+      :perl $curbuf->Set(1, 'hello perl')
+      :wq
+    EOS
+    system bin/"vim", "-T", "dumb", "-s", "perl.vim", "perl.txt"
+    assert_equal "hello perl", File.read("perl.txt").chomp
+
+    (testpath/"ruby.vim").write <<~EOS
+      :ruby Vim::Buffer.current[1] = 'hello ruby'
+      :wq
+    EOS
+    system bin/"vim", "-T", "dumb", "-s", "ruby.vim", "ruby.txt"
+    assert_equal "hello ruby", File.read("ruby.txt").chomp
+
+    (testpath/"python3.vim").write <<~EOS
       :python3 import vim; vim.current.buffer[0] = 'hello python3'
       :wq
     EOS
-    system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
-    assert_equal "hello python3", File.read("test.txt").chomp
+    system bin/"vim", "-T", "dumb", "-s", "python3.vim", "python3.txt"
+    assert_equal "hello python3", File.read("python3.txt").chomp
+
     assert_match "+gettext", shell_output("#{bin}/vim --version")
   end
 end
