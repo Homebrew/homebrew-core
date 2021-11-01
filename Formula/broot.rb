@@ -16,6 +16,7 @@ class Broot < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "libxcb"
 
   uses_from_macos "curl" => :build
   uses_from_macos "zlib"
