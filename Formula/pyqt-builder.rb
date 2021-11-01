@@ -3,8 +3,8 @@ class PyqtBuilder < Formula
 
   desc "Tool to build PyQt"
   homepage "https://www.riverbankcomputing.com/software/pyqt-builder/intro"
-  url "https://files.pythonhosted.org/packages/63/9b/e7cd8c57cd38df3bf8e95750257f10703dcab15ef9050c0dc03259746e87/PyQt-builder-1.12.1.tar.gz"
-  sha256 "9a71e9cac134702467bd93ed9c7a5a47dc4386d93501bdcafb14cd08b3041d40"
+  url "https://files.pythonhosted.org/packages/8b/5f/1bd49787262ddce37b826ef49dcccf5a9970facf0ed363dee5ee233e681d/PyQt-builder-1.12.2.tar.gz"
+  sha256 "f62bb688d70e0afd88c413a8d994bda824e6cebd12b612902d1945c5a67edcd7"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
   head "https://www.riverbankcomputing.com/hg/PyQt-builder", using: :hg
 
