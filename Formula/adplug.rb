@@ -16,6 +16,8 @@ class Adplug < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libbinio"
+  
+  uses_from_macos "texinfo" => :build
 
   resource "ksms" do
     url "http://advsys.net/ken/ksmsongs.zip"
