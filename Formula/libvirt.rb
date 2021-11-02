@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-7.8.0.tar.xz"
-  sha256 "a727cd0a47bfa24fa7de2874d23f3a9f9f02ceb6b49ba15288f6d9a098b19921"
+  url "https://libvirt.org/sources/libvirt-7.9.0.tar.xz"
+  sha256 "829cf2b5f574279c40f0446e1168815d3f36b89710560263ca2ce70256f72e8c"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://github.com/libvirt/libvirt.git", branch: "master"
 
@@ -54,6 +54,7 @@ class Libvirt < Formula
         --sysconfdir=#{etc}
         -Ddriver_esx=enabled
         -Ddriver_qemu=enabled
+        -Ddriver_network=enabled
         -Dinit_script=none
       ]
       system "meson", *std_meson_args, *args, ".."
