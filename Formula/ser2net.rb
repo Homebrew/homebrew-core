@@ -1,8 +1,8 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.2.3.tar.gz"
-  sha256 "d63448d10064419f1783fbb04d0a95461d54d6b17cf50c9d33a63cbf0c732f37"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.3.4.tar.gz"
+  sha256 "c714d6777849100b2ca3f216d1cfc36d4573639ececc91d5c7809dfe27c8428e"
   license "GPL-2.0-only"
 
   livecheck do
@@ -24,8 +24,8 @@ class Ser2net < Formula
   depends_on "libyaml"
 
   resource "gensio" do
-    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.1.4.tar.gz"
-    sha256 "1f5a29aabfb35886893cfda5cd78192db67e96de796dbf9758dbecd4077a3fd8"
+    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.3.2.tar.gz"
+    sha256 "0b6333a5546f14396041900bbe5b83575a0e97d200a581a6ddb8fcf6e95adfbd"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -36,9 +36,10 @@ class Ser2net < Formula
 
   def install
     resource("gensio").stage do
-      system "./configure", "--with-python=no",
-                            "--disable-dependency-tracking",
-                            "--prefix=#{libexec}/gensio"
+      system "./configure", "--disable-dependency-tracking",
+                            "--prefix=#{libexec}/gensio",
+                            "--with-python=no",
+                            "--with-tcl=no"
       system "make", "install"
     end
 
@@ -46,10 +47,16 @@ class Ser2net < Formula
     ENV.append_path "CFLAGS", "-I#{libexec}/gensio/include"
     ENV.append_path "LDFLAGS", "-L#{libexec}/gensio/lib"
 
+    if OS.mac?
+      # Patch to fix compilation error
+      # https://sourceforge.net/p/ser2net/discussion/90083/thread/f3ae30894e/
+      # Remove with next release
+      inreplace "addsysattrs.c", "#else", "#else\n#include <gensio/gensio.h>"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-
     system "make", "install"
 
     (etc/"ser2net").install "ser2net.yaml"
