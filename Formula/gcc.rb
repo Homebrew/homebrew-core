@@ -14,6 +14,7 @@ class Gcc < Formula
     sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git"
 
   # We can't use `url :stable` here due to the ARM-specific branch above.
@@ -54,6 +55,12 @@ class Gcc < Formula
   patch do
     url "https://github.com/iains/gcc-darwin-arm64/commit/20f61faaed3b335d792e38892d826054d2ac9f15.patch?full_index=1"
     sha256 "c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b"
+  end
+
+  # https://gcc.gnu.org/pipermail/gcc-patches/2021-November/583031.html
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/de47854e6e26ec9d0ebb43d1ca23b7384f5d7aa5/gcc/gcc-11.2-rtl-bug.diff"
+    sha256 "8f04ffa663a2a0d1ab3b8ed894ccfdbaaabeff621fb4074c53f94b06c44ef378"
   end
 
   def version_suffix
