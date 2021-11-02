@@ -1,5 +1,6 @@
 [
   "arpack",
+  "blast",
   "mpich",
   "open-mpi",
   "pypy",
