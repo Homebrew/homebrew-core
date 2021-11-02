@@ -1,6 +1,6 @@
 class Libgnomecanvas < Formula
   desc "Highlevel, structured graphics library"
-  homepage "https://developer.gnome.org/libgnomecanvas/2.30/"
+  homepage "https://gitlab.gnome.org/Archive/libgnomecanvas"
   url "https://download.gnome.org/sources/libgnomecanvas/2.30/libgnomecanvas-2.30.3.tar.bz2"
   sha256 "859b78e08489fce4d5c15c676fec1cd79782f115f516e8ad8bed6abcb8dedd40"
   revision 5
