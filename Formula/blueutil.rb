@@ -18,7 +18,7 @@ class Blueutil < Formula
 
   def install
     # Set to build with SDK=macosx10.6, but it doesn't actually need 10.6
-    xcodebuild "SDKROOT=", "SYMROOT=build"
+    xcodebuild "-arch", Hardware::CPU.arch, "SDKROOT=", "SYMROOT=build"
     bin.install "build/Release/blueutil"
   end
 
