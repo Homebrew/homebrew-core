@@ -41,6 +41,10 @@ class Profanity < Formula
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     system "./bootstrap.sh" if build.head?
+
+    # `configure` hardcodes `/usr/local/opt/readline`, which isn't portable.
+    # https://github.com/profanity-im/profanity/issues/1612
+    inreplace "configure", "/usr/local/opt/readline", Formula["readline"].opt_prefix
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
