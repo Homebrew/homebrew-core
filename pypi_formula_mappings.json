@@ -412,6 +412,10 @@
   "tarsnapper": {
     "exclude_packages": ["six"]
   },
+  "trezor-agent": {
+    "exclude_packages": ["pillow", "six"],
+    "extra_packages": ["ledger-agent", "keepkey-agent"]
+  },
   "theharvester": {
     "exclude_packages": ["six"]
   },
