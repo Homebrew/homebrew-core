@@ -19,7 +19,8 @@ class Bwctl < Formula
 
   # https://software.internet2.edu/bwctl/
   # The use of BWCTL became deprecated with the release of pScheduler in perfSONAR 4.0 in April, 2017.
-  deprecate! date: "2017-04-01", because: :deprecated_upstream
+  #deprecate! date: "2017-04-01", because: :deprecated_upstream
+  disable! date: "2022-01-01", because: :deprecated_upstream
 
   depends_on "i2util" => :build
 

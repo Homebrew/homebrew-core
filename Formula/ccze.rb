@@ -18,7 +18,8 @@ class Ccze < Formula
   end
 
   # query via the last repo status change `https://api.github.com/repos/madhouse/ccze`
-  deprecate! date: "2020-05-24", because: :repo_archived
+  #deprecate! date: "2020-05-24", because: :repo_archived
+  disable! date: "2022-01-01", because: :repo_archived
 
   depends_on "pcre"
 

@@ -18,7 +18,8 @@ class Acmetool < Formula
   end
 
   # See: https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430
-  deprecate! date: "2020-06-01", because: :deprecated_upstream
+  #deprecate! date: "2020-06-01", because: :deprecated_upstream
+  disable! date: "2022-01-01", because: :deprecated_upstream
 
   depends_on "go" => :build
   uses_from_macos "libpcap"

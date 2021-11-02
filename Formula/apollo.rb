@@ -18,7 +18,8 @@ class Apollo < Formula
   end
 
   # https://github.com/apache/activemq-apollo/commit/049d68bf3f94cdf62ded5426d3cad4ef3e3c56ca
-  deprecate! date: "2019-03-11", because: :deprecated_upstream
+  #deprecate! date: "2019-03-11", because: :deprecated_upstream
+  disable! date: "2022-01-01", because: :deprecated_upstream
 
   depends_on "openjdk"
 

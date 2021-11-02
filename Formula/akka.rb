@@ -11,7 +11,8 @@ class Akka < Formula
   end
 
   # https://github.com/akka/akka/issues/25046
-  deprecate! date: "2020-07-09", because: "is recommended to use Akka with a build tool"
+  #deprecate! date: "2020-07-09", because: "is recommended to use Akka with a build tool"
+  disable! date: "2022-01-01", because: "is recommended to use Akka with a build tool"
 
   depends_on "openjdk"
 

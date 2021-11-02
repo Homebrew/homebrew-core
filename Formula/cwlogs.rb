@@ -17,7 +17,8 @@ class Cwlogs < Formula
   end
 
   # https://github.com/segmentio/cwlogs/issues/37
-  deprecate! date: "2021-02-21", because: :unmaintained
+  #deprecate! date: "2021-02-21", because: :unmaintained
+  disable! date: "2022-02-21", because: :unmaintained
 
   depends_on "go" => :build
   depends_on "govendor" => :build

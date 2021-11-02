@@ -15,7 +15,8 @@ class DockerMachineDriverXhyve < Formula
   end
 
   # xhyve is no longer used by Docker, replaced by hyperkit
-  deprecate! date: "2020-12-18", because: :does_not_build
+  #deprecate! date: "2020-12-18", because: :does_not_build
+  disable! date: "2021-12-18", because: :does_not_build
 
   depends_on "go" => :build
   depends_on "docker-machine"

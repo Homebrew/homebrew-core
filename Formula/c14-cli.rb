@@ -18,7 +18,8 @@ class C14Cli < Formula
   end
 
   # "C14 Classic has been discontinued"
-  deprecate! date: "2020-12-01", because: :repo_archived
+  #deprecate! date: "2020-12-01", because: :repo_archived
+  disable! date: "2021-12-01", because: :repo_archived
 
   depends_on "go" => :build
 
