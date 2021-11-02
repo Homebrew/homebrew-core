@@ -22,9 +22,9 @@ class Tm < Formula
     ldflags = %W[
       -s -w
       -X github.com/triggermesh/tm/cmd.version=v#{version}
-    ]
+    ].join(" ")
 
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
