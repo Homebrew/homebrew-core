@@ -16,6 +16,9 @@ class Watchman < Formula
     sha256               x86_64_linux:   "73659ba1ef6773ef73f60033217e77c851db43e11dc663d238838d6746fbc8e1"
   end
 
+  # https://github.com/facebook/watchman/issues/963
+  pour_bottle? only_if: :default_prefix
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
