@@ -55,7 +55,6 @@ class Mpd < Formula
 
     args = std_meson_args + %W[
       --sysconfdir=#{etc}
-      -Dlibwrap=disabled
       -Dmad=disabled
       -Dmpcdec=disabled
       -Dsoundcloud=disabled
