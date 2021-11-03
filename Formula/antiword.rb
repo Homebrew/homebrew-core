@@ -22,9 +22,9 @@ class Antiword < Formula
     sha256 x86_64_linux:  "12935daff8ed3ffc2a68b8be542ea190bff6d7d2a2d46c854080d4023346d526"
   end
 
-  resource "sample.doc" do
-    url "https://gist.github.com/bfontaine/f7e29599d329c41737ce/raw/ed4a3c5461924ed3bc18beb6b82681af9ad143d1/sample.doc"
-    sha256 "b53b8d1843029b39b65ae7fdba265035c76610b85c2b9511bcade046d75d272f"
+  resource "testdoc.doc" do
+    url "https://github.com/rsdoiel/antiword/raw/fe4b579067122a2d9d62647efb1ee7cfe3ca92bb/Docs/testdoc.doc"
+    sha256 "4ea5fe94a8ff9d8cd1e21a5e233efb681f2026de48ab1ac2cbaabdb953ca25ac"
   end
 
   def install
@@ -47,8 +47,25 @@ class Antiword < Formula
   end
 
   test do
-    resource("sample.doc").stage do
-      system "#{bin}/antiword", "sample.doc"
+    resource("testdoc.doc").stage do
+      assert_match <<~EOS, shell_output("#{bin}/antiword testdoc.doc")
+        This is just a small test document.
+
+
+        This is just a small document to see if Antiword has been compiled
+        correctly.
+        The images will only show in the PostScript mode.
+
+        [pic]
+
+        Figure 1
+
+        This JPEG image is the Antiword icon.
+
+        [pic]
+
+        Figure 2
+      EOS
     end
   end
 end
