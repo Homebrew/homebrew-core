@@ -110,17 +110,6 @@ class Duck < Formula
     os = if OS.mac?
       "osx"
     else
-      # This changes allow maven to build the cli/linux project as an appimage instead of an RPM/DEB.
-      # This has been reported upstream at https://trac.cyberduck.io/ticket/11762#ticket.
-      # It has been added the version 8 milestone.
-      inreplace "cli/linux/build.xml", "value=\"rpm\"", "value=\"app-image\""
-      inreplace "cli/linux/build.xml", "<arg value=\"--license-file\"/>", ""
-      inreplace "cli/linux/build.xml", "<arg value=\"${license}\"/>", ""
-      inreplace "cli/linux/build.xml", "<arg value=\"--linux-deb-maintainer\"/>", ""
-      inreplace "cli/linux/build.xml", "<arg value=\"&lt;feedback@cyberduck.io&gt;\"/>", ""
-      inreplace "cli/linux/build.xml", "<arg value=\"--linux-rpm-license-type\"/>", ""
-      inreplace "cli/linux/build.xml", "<arg value=\"GPL\"/>", ""
-
       "linux"
     end
 
