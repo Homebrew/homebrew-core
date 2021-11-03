@@ -3,10 +3,9 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://files.pythonhosted.org/packages/47/c5/e05b32109452201938a9154d726e0df896962b755f33b29cbdc511ef5f85/b2-3.0.3.tar.gz"
-  sha256 "6acae18a700d1a54ec4816ed193a0ec5344619209ffb57385569e81377b3a080"
+  url "https://files.pythonhosted.org/packages/4c/8e/9b9f6a0ff5734fa0461e68283bb6e4879ee4bb43a76815843cafa065ac09/b2-3.1.0.tar.gz"
+  sha256 "411232733599a7553bd146e842e84b15530712aead26d71ff68b81fec754d62b"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3005348c348df4b0a4026f30e411abffd4dfba81bbd17b2117891335d774d630"
