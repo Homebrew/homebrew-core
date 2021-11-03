@@ -25,6 +25,8 @@ class Qt < Formula
   depends_on "ninja"      => :build
   depends_on "node"       => :build
   depends_on "pkg-config" => :build
+  depends_on xcode: :build
+
   depends_on "assimp"
   depends_on "brotli"
   depends_on "dbus"
@@ -53,14 +55,6 @@ class Qt < Formula
   uses_from_macos "cups"
   uses_from_macos "krb5"
   uses_from_macos "zlib"
-
-  on_macos do
-    if MacOS.version <= :mojave
-      depends_on xcode: [:build, :test]
-    else
-      depends_on xcode: [:build]
-    end
-  end
 
   on_linux do
     depends_on "at-spi2-core"
@@ -98,7 +92,6 @@ class Qt < Formula
 
   fails_with gcc: "5"
 
-  # fix build with Xcode 13+
   patch :DATA
 
   def install
@@ -275,7 +268,8 @@ class Qt < Formula
 end
 
 __END__
-diff --git a/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h b/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
+# Fix build with Xcode 13+, merged and should be removed in next release
+diff --git a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h b/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
 index 5d4b6d6a71..cc7193d8b7 100644
 --- a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
 +++ b/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
@@ -287,5 +281,31 @@ index 5d4b6d6a71..cc7193d8b7 100644
  #include <IOSurface/IOSurface.h>
  
  QT_BEGIN_NAMESPACE
--- 
-cgit v1.2.1
+
+# Fix performance regression when avoiding scrollbar flipping. Merged and should be removed in next release
+---
+ src/qtbase/widgets/widgets/qscrollarea.cpp | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/qtbase/src/widgets/widgets/qscrollarea.cpp b/src/widgets/widgets/qscrollarea.cpp
+index f880240ea72..e8fdadb6483 100644
+--- a/src/qtbase/widgets/widgets/qscrollarea.cpp
++++ b/src/qtbase/widgets/widgets/qscrollarea.cpp
+@@ -203,10 +203,13 @@ void QScrollAreaPrivate::updateScrollBars()
+             if (vbarpolicy == Qt::ScrollBarAsNeeded) {
+                 int vbarWidth = vbar->sizeHint().width();
+                 QSize m_hfw = m.expandedTo(min).boundedTo(max);
+-                while (h > m.height() && vbarWidth) {
+-                    --vbarWidth;
+-                    --m_hfw.rwidth();
+-                    h = widget->heightForWidth(m_hfw.width());
++                // is there any point in searching?
++                if (widget->heightForWidth(m_hfw.width() - vbarWidth) <= m.height()) {
++                    while (h > m.height() && vbarWidth) {
++                        --vbarWidth;
++                        --m_hfw.rwidth();
++                        h = widget->heightForWidth(m_hfw.width());
++                    }
+                 }
+                 max = QSize(m_hfw.width(), qMax(m_hfw.height(), h));
+             }
