@@ -16,6 +16,7 @@ class Yarn < Formula
   depends_on "node"
 
   conflicts_with "hadoop", because: "both install `yarn` binaries"
+  conflicts_with "corepack", because: "both install `yarn` and `yarnpkg` binaries"
 
   def install
     libexec.install buildpath.glob("*")
