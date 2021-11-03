@@ -92,6 +92,7 @@ class Qt < Formula
 
   fails_with gcc: "5"
 
+  # Fix build with Xcode 13+ and a performance regression. Already merged and should be removed in next release.
   patch :DATA
 
   def install
@@ -268,7 +269,6 @@ class Qt < Formula
 end
 
 __END__
-# Fix build with Xcode 13+, merged and should be removed in next release
 diff --git a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h b/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
 index 5d4b6d6a71..cc7193d8b7 100644
 --- a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
@@ -282,7 +282,6 @@ index 5d4b6d6a71..cc7193d8b7 100644
  
  QT_BEGIN_NAMESPACE
 
-# Fix performance regression when avoiding scrollbar flipping. Merged and should be removed in next release
 ---
  qtbase/src/widgets/widgets/qscrollarea.cpp | 11 +++++++----
  1 file changed, 7 insertions(+), 4 deletions(-)
