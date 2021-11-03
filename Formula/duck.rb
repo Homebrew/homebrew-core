@@ -54,27 +54,31 @@ class Duck < Formula
   def install
     # Consider creating a formula for this if other formulae need the same library
     resource("jna").stage do
-      arch = "x86-64"
-      os = if OS.linux?
-        "Linux"
-      else
+      os = if OS.mac?
         # Add linker flags for libffi because Makefile call to pkg-config doesn't seem to work properly.
         inreplace "native/Makefile", "LIBS=", "LIBS=-L#{Formula["libffi"].opt_lib} -lffi"
         # Force shared library to have dylib extension on macOS instead of jnilib
-        inreplace "native/Makefile", "LIBRARY=$(BUILD)/$(LIBPFX)jnidispatch$(JNISFX)",
-"LIBRARY=$(BUILD)/$(LIBPFX)jnidispatch$(LIBSFX)"
+        inreplace "native/Makefile",
+                  "LIBRARY=$(BUILD)/$(LIBPFX)jnidispatch$(JNISFX)",
+                  "LIBRARY=$(BUILD)/$(LIBPFX)jnidispatch$(LIBSFX)"
 
         "mac"
+      else
+        OS.kernel_name
       end
 
       # Don't include directory with JNA headers in zip archive.  If we don't do this, they will be deleted
       # and the zip archive has to be extracted to get them. TODO: ask upstream to provide an option to
       # disable the zip file generation entirely.
       inreplace "build.xml",
-"<zipfileset dir=\"build/headers\" prefix=\"build-package-${os.prefix}-${jni.version}/headers\" />", ""
+                "<zipfileset dir=\"build/headers\" prefix=\"build-package-${os.prefix}-${jni.version}/headers\" />",
+                ""
 
-      system "ant", "-Dbuild.os.name=#{os}", "-Dbuild.os.arch=#{arch}", "-Ddynlink.native=true", "-DCC=#{ENV.cc}",
-"native-build-package"
+      system "ant", "-Dbuild.os.name=#{os}",
+                    "-Dbuild.os.arch=#{Hardware::CPU.arch}",
+                    "-Ddynlink.native=true",
+                    "-DCC=#{ENV.cc}",
+                    "native-build-package"
 
       cd "build" do
         ENV.deparallelize
@@ -91,43 +95,41 @@ class Duck < Formula
     end
 
     resource("JavaNativeFoundation").stage do
-      if OS.mac?
-        cd "apple/JavaNativeFoundation" do
-          xcodebuild "VALID_ARCHS=x86_64", "-project", "JavaNativeFoundation.xcodeproj"
-          buildpath.install "build/Release/JavaNativeFoundation.framework"
-        end
+      next unless OS.mac?
+
+      cd "apple/JavaNativeFoundation" do
+        xcodebuild "VALID_ARCHS=#{Hardware::CPU.arch}", "-project", "JavaNativeFoundation.xcodeproj"
+        buildpath.install "build/Release/JavaNativeFoundation.framework"
       end
     end
 
-    if OS.mac?
+    os = if OS.mac?
       xcconfig = buildpath/"Overrides.xcconfig"
       xcconfig.write <<~EOS
         OTHER_LDFLAGS = -headerpad_max_install_names
       EOS
       ENV["XCODE_XCCONFIG_FILE"] = xcconfig
-    end
 
-    os = if OS.mac?
       "osx"
     else
-      "linux"
+      OS.kernel_name.downcase
     end
 
     revision = version.to_s.rpartition(".").last
     system "mvn", "-DskipTests", "-Dgit.commitsCount=#{revision}",
                   "--projects", "cli/#{os}", "--also-make", "verify"
 
-    libdir = libexec/"Contents/Frameworks"
-    bindir = libexec/"Contents/MacOS"
+    libdir, bindir = if OS.mac?
+      %w[Contents/Frameworks Contents/MacOS]
+    else
+      %w[lib/app bin]
+    end.map { |dir| libexec/dir }
+
     if OS.mac?
       libexec.install Dir["cli/osx/target/duck.bundle/*"]
       rm_rf libdir/"JavaNativeFoundation.framework"
       libdir.install buildpath/"JavaNativeFoundation.framework"
-    end
-
-    if OS.linux?
-      libdir = libexec/"lib/app"
-      bindir = libexec/"bin"
+    else
       libexec.install Dir["cli/linux/target/release/duck/*"]
     end
 
