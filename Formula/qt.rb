@@ -284,13 +284,13 @@ index 5d4b6d6a71..cc7193d8b7 100644
 
 # Fix performance regression when avoiding scrollbar flipping. Merged and should be removed in next release
 ---
- src/qtbase/widgets/widgets/qscrollarea.cpp | 11 +++++++----
+ qtbase/src/widgets/widgets/qscrollarea.cpp | 11 +++++++----
  1 file changed, 7 insertions(+), 4 deletions(-)
 
 diff --git a/qtbase/src/widgets/widgets/qscrollarea.cpp b/src/widgets/widgets/qscrollarea.cpp
 index f880240ea72..e8fdadb6483 100644
---- a/src/qtbase/widgets/widgets/qscrollarea.cpp
-+++ b/src/qtbase/widgets/widgets/qscrollarea.cpp
+--- a/qtbase/src/widgets/widgets/qscrollarea.cpp
++++ b/qtbase/src/qtbase/widgets/widgets/qscrollarea.cpp
 @@ -203,10 +203,13 @@ void QScrollAreaPrivate::updateScrollBars()
              if (vbarpolicy == Qt::ScrollBarAsNeeded) {
                  int vbarWidth = vbar->sizeHint().width();
