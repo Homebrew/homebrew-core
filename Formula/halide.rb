@@ -35,7 +35,7 @@ class Halide < Formula
 
   test do
     cp share/"doc/Halide/tutorial/lesson_01_basics.cpp", testpath
-    system ENV.cxx, "-std=c++11", "lesson_01_basics.cpp", "-L#{lib}", "-lHalide", "-o", "test"
+    system ENV.cxx, "-std=c++17", "lesson_01_basics.cpp", "-L#{lib}", "-lHalide", "-o", "test"
     assert_match "Success!", shell_output("./test")
   end
 end
