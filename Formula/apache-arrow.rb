@@ -18,7 +18,7 @@ class ApacheArrow < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "llvm@12" => :build
+  depends_on "llvm" => :build
   depends_on "brotli"
   depends_on "glog"
   depends_on "grpc"
@@ -34,12 +34,18 @@ class ApacheArrow < Formula
   depends_on "utf8proc"
   depends_on "zstd"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     # https://github.com/Homebrew/homebrew-core/issues/76537
     ENV.runtime_cpu_detection if Hardware::CPU.intel?
 
     # link against system libc++ instead of llvm provided libc++
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm@12"].opt_lib
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     args = %W[
       -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=TRUE
       -DARROW_FLIGHT=ON
