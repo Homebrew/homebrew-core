@@ -1,10 +1,9 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
-  url "https://github.com/halide/Halide/archive/v12.0.1.tar.gz"
-  sha256 "17f7a470c3fcf77205fdcd9d06257f17c1c1a3cda4b8023f56cec160e80bd519"
+  url "https://github.com/halide/Halide/archive/v13.0.0.tar.gz"
+  sha256 "5ab7d5d9bc04ab0902a88751e535ff231ab9da1911e46f272a52cf41131609f3"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
