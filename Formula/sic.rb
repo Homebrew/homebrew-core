@@ -4,7 +4,7 @@ class Sic < Formula
   url "https://dl.suckless.org/tools/sic-1.2.tar.gz"
   sha256 "ac07f905995e13ba2c43912d7a035fbbe78a628d7ba1c256f4ca1372fb565185"
   license "MIT"
-  head "https://git.suckless.org/sic.git", branch: "master"
+  head "https://git.suckless.org/sic", branch: "master", using: :git
 
   livecheck do
     url "https://dl.suckless.org/tools/"
