@@ -22,7 +22,7 @@ class Halide < Formula
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "llvm@12"
+  depends_on "llvm"
   depends_on "python@3.9"
 
   def install
@@ -34,7 +34,7 @@ class Halide < Formula
   end
 
   test do
-    cp share/"tutorial/lesson_01_basics.cpp", testpath
+    cp share/"doc/Halide/tutorial/lesson_01_basics.cpp", testpath
     system ENV.cxx, "-std=c++11", "lesson_01_basics.cpp", "-L#{lib}", "-lHalide", "-o", "test"
     assert_match "Success!", shell_output("./test")
   end
