@@ -1,6 +1,7 @@
 [
   "arpack",
   "blast",
+  "libvirt",
   "mpich",
   "open-mpi",
   "pypy",
