@@ -49,25 +49,6 @@ class Clickhouse < Formula
     system opt_bin/"clickhouse", "stop", "--prefix", HOMEBREW_PREFIX
   end
 
-  def caveats
-    <<~EOS
-      If you intend to run ClickHouse server:
-
-        - Familiarize yourself with the usage recommendations:
-            https://clickhouse.com/docs/en/operations/tips/
-
-        - Increase the maximum number of open files limit in the system:
-            Linux: man limits.conf
-            macOS: https://clickhouse.com/docs/en/development/build-osx/#caveats
-
-        - By default, the pre-configured 'default' user has an empty password. Consider setting a real password for it:
-            https://clickhouse.com/docs/en/operations/settings/settings-users/
-
-        - By default, ClickHouse server is configured to listen for local connections only. Adjust 'listen_host' configuration parameter to allow wider range of addresses for incoming connections:
-            https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-listen_host
-    EOS
-  end
-
   service do
     run [
       opt_bin/"clickhouse", "server",
