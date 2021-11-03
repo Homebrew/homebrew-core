@@ -17,6 +17,7 @@ class WildflyAs < Formula
     sha256 cellar: :any, mojave:        "8229398830099182e0fc27356056d850e4f0be23722162d154be56687f8ea78c"
   end
 
+  # Installs a pre-built x86_64-only `libwfssl`
   depends_on arch: :x86_64
   depends_on "openjdk"
 
