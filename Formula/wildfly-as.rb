@@ -17,11 +17,12 @@ class WildflyAs < Formula
     sha256 cellar: :any, mojave:        "8229398830099182e0fc27356056d850e4f0be23722162d154be56687f8ea78c"
   end
 
+  depends_on arch: :x86_64
   depends_on "openjdk"
 
   def install
-    rm_f Dir["bin/*.bat"]
-    rm_f Dir["bin/*.ps1"]
+    buildpath.glob("bin/*.{bat,ps1}").map(&:unlink)
+    buildpath.glob("**/win-x86_64").map(&:rmtree)
 
     inreplace "bin/standalone.sh", /JAVA="[^"]*"/, "JAVA='#{Formula["openjdk"].opt_bin}/java'"
 
