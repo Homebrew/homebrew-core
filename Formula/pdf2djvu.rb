@@ -12,6 +12,12 @@ class Pdf2djvu < Formula
   depends_on "gettext"
   depends_on "poppler"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # poppler compiles with GCC
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
