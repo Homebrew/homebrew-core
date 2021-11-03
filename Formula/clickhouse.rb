@@ -21,7 +21,7 @@ class Clickhouse < Formula
     # It is crucial that CMake config scripts see RelWithDebInfo as a build type,
     # since the code is only handling it (and Debug) properly.
     # It is OK if Homebrew infrastructure filters out the debug info-related flags later.
-    cmake_args.delete_if! { |x| x.start_with?("-DCMAKE_BUILD_TYPE=") }
+    cmake_args.reject! { |x| x.start_with?("-DCMAKE_BUILD_TYPE=") }
     cmake_args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
 
     # Vanilla Clang is the only officially supported compiler.
