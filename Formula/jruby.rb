@@ -37,6 +37,10 @@ class Jruby < Formula
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
+
+    # Replace (prebuilt!) universal binaries with their native slices
+    # FIXME: Build libjffi-1.2.jnilib from source.
+    deuniversalize_machos
   end
 
   test do
