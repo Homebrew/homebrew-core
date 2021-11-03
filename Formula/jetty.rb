@@ -18,6 +18,7 @@ class Jetty < Formula
     sha256 cellar: :any, mojave:        "e8777d929a1655066acee7b4467241db035911c971da87619bb2df7b68db4b57"
   end
 
+  depends_on arch: :x86_64
   depends_on "openjdk"
 
   def install
