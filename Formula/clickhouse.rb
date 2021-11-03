@@ -18,9 +18,7 @@ class Clickhouse < Formula
     depends_on "llvm" => :build
   end
 
-  on_linux do
-    depends_on "llvm"
-  end
+  uses_from_macos "llvm"
 
   def install
     cmake_args = std_cmake_args.dup
