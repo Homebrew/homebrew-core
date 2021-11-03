@@ -14,11 +14,11 @@ class Clickhouse < Formula
   depends_on "perl" => :build
   depends_on "python@3.9" => :build
 
+  uses_from_macos "llvm"
+
   on_macos do
     depends_on "llvm" => :build
   end
-
-  uses_from_macos "llvm"
 
   def install
     cmake_args = std_cmake_args.dup
