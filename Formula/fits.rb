@@ -12,14 +12,24 @@ class Fits < Formula
     sha256 cellar: :any, mojave:        "70a94bc9728e70e82c57d726ec958880da89dd5af6c2d65ae4351e6cf7543366"
   end
 
+  # Installs pre-built x86_64 binaries
+  depends_on arch: :x86_64
   depends_on "openjdk"
 
   uses_from_macos "zlib"
 
   def install
-    libexec.install "lib",
-                    %w[tools xml],
-                    Dir["*.properties"]
+    # Remove Windows, PPC, and 32-bit Linux binaries
+    %w[macho elf exe].each do |ext|
+      (buildpath/"tools/exiftool/perl/t/images/EXE.#{ext}").unlink
+    end
+
+    # Remove Windows-only directories
+    %w[exiftool/windows file_utility_windows mediainfo/windows].each do |dir|
+      (buildpath/"tools"/dir).rmtree
+    end
+
+    libexec.install "lib", "tools", "xml", *buildpath.glob("*.properties")
 
     inreplace "fits-env.sh" do |s|
       s.gsub!(/^FITS_HOME=.*/, "FITS_HOME=#{libexec}")
