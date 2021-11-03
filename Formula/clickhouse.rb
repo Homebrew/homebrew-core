@@ -13,7 +13,7 @@ class Clickhouse < Formula
   depends_on "ninja" => :build
   depends_on "perl" => :build
   depends_on "python@3.9" => :build
-  depends_on "llvm" => "13"
+  depends_on "llvm"
 
   def install
     cmake_args = std_cmake_args.dup
