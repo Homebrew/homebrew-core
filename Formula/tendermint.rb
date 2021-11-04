@@ -24,7 +24,7 @@ class Tendermint < Formula
 
   test do
     mkdir(testpath/"staging")
-    shell_output("#{bin}/tendermint init --home #{testpath}/staging")
+    shell_output("#{bin}/tendermint init full --home #{testpath}/staging")
     assert_predicate testpath/"staging/config/genesis.json", :exist?
     assert_predicate testpath/"staging/config/config.toml", :exist?
     assert_predicate testpath/"staging/data", :exist?
