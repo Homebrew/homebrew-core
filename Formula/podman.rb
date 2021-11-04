@@ -35,6 +35,7 @@ class Podman < Formula
   depends_on "qemu"
 
   def install
+    ENV["CGO_ENABLED"] = "1"
     os = OS.kernel_name.downcase
 
     system "make", "podman-remote-#{os}"
