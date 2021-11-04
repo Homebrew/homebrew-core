@@ -17,8 +17,9 @@ class GimmeAwsCreds < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d66bb53ac6aafbf7c00e612101bf589763a41e56be1c5766c415ac87cd0db8ff"
   end
 
+  depends_on "rust" => :build
+
   depends_on "python@3.10"
-  depends_on "rust"
   depends_on "six"
 
   uses_from_macos "libffi"
