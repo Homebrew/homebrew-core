@@ -12,8 +12,11 @@ class Fennel < Formula
   depends_on "lua"
 
   def install
-    system "make", "fennel"
+    system "make"
     bin.install "fennel"
+
+    lua = Formula["lua"]
+    (share/"lua"/lua.version.major_minor).install "fennel.lua"
   end
 
   test do
