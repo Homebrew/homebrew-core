@@ -93,7 +93,7 @@ class Mesa < Formula
         args << "-Dopengl=true"
         args << "-Dgles1=true"
         args << "-Dgles2=true"
-        args << "-Dxvmc=true"
+        args << "-Dgallium-xvmc=disabled"
         args << "-Dvalgrind=false"
         args << "-Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima"
       end
