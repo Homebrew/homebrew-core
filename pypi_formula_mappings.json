@@ -201,6 +201,9 @@
   "organize-tool": {
     "exclude_packages": ["six"]
   },
+  "osc-cli": {
+    "exclude_packages": ["six"]
+  },
   "parliament": {
     "exclude_packages": ["six"]
   },

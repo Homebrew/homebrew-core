@@ -3,8 +3,8 @@ class OscCli < Formula
 
   desc "Official Outscale CLI providing connectors to Outscale API"
   homepage "https://github.com/outscale/osc-cli"
-  url "https://files.pythonhosted.org/packages/8c/29/cf68365132a0ac906278abdc704569ce8f1ba4c609a2067cd00c5ed22271/osc-sdk-1.6.tar.gz"
-  sha256 "fb312c82c73ed4eba7bbb3a028e4d2f53e00e28c576ff2f638258f27a855e7e7"
+  url "https://files.pythonhosted.org/packages/7d/85/7682a1deb551d4350f47ccc5f99d333088f99edf376844f3c94581e26b8b/osc-sdk-1.7.0.tar.gz"
+  sha256 "58e76cec711e12f24d31b86519485e24749c14269090317876e195d00ae4b945"
   license "BSD-3-Clause"
 
   bottle do
@@ -17,42 +17,57 @@ class OscCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "76cf5ec7e2a32e0ce9531a178c53f8a1f56005e10c4de3806c5cccb8e54a2d15"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
-    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+  resource "charset-normalizer" do
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+  end
+
+  resource "defusedxml" do
+    url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
+    sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
   end
 
   resource "fire" do
-    url "https://files.pythonhosted.org/packages/5a/b7/205702f348aab198baecd1d8344a90748cb68f53bdcd1cc30cbc08e47d3e/fire-0.1.3.tar.gz"
-    sha256 "c299d16064ff81cbb649b65988300d4a28b71ecfb789d1fb74d99ea98ae4d2eb"
+    url "https://files.pythonhosted.org/packages/11/07/a119a1aa04d37bc819940d95ed7e135a7dcca1c098123a3764a6dcace9e7/fire-0.4.0.tar.gz"
+    sha256 "c5e2b8763699d1142393a46d0e3e790c5eb2f0706082df8f647878842c216a62"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
-    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz"
-    sha256 "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
+    url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
+    sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
+  end
+
+  resource "termcolor" do
+    url "https://files.pythonhosted.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz"
+    sha256 "1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/ed/12/c5079a15cf5c01d7f4252b473b00f7e68ee711be605b9f001528f0298b98/typing_extensions-3.10.0.2.tar.gz"
+    sha256 "49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/3c/1bb7ef6c435dea026f06ed9f3ba16aa93f9f4f5d3857a51a35dfa00882f1/urllib3-1.24.3.tar.gz"
-    sha256 "2393a695cd12afedd0dcb26fe5d50d0cf248e5a66f75dbd89a3d4eb333a61af4"
+    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
+    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
   end
 
   resource "xmltodict" do
-    url "https://files.pythonhosted.org/packages/57/17/a6acddc5f5993ea6eaf792b2e6c3be55e3e11f3b85206c818572585f61e1/xmltodict-0.11.0.tar.gz"
-    sha256 "8f8d7d40aa28d83f4109a7e8aa86e67a4df202d9538be40c0cb1d70da527b0df"
+    url "https://files.pythonhosted.org/packages/58/40/0d783e14112e064127063fbf5d1fe1351723e5dfe9d6daad346a305f6c49/xmltodict-0.12.0.tar.gz"
+    sha256 "50d8c638ed7ecb88d90561beedbf720c9b4e851a9fa6c47ebd64e99d166d8a21"
   end
 
   def install
@@ -62,12 +77,12 @@ class OscCli < Formula
   test do
     # we test the help wich is printed in stderr :(
     str = shell_output("#{bin}/osc-cli -- --help 2>&1 >/dev/null")
-    assert_match "osc-cli SERVICE CALL [PROFILE] [ARGS ...] [--KWARGS ...]", str
+    assert_match "osc-cli \e[4mSERVICE\e[0m \e[4mCALL\e[0m <flags>", str
     str = shell_output("#{bin}/osc-cli api ReadVms 2>&1 >/dev/null", 1)
     assert_match "No configuration file found in home folder", str
 
-    mkdir testpath/".osc_sdk"
-    (testpath/".osc_sdk/config.json").write <<~EOS
+    mkdir testpath/".osc"
+    (testpath/".osc/config.json").write <<~EOS
       {
         "default": {
           "access_key": "F4K4T706S9XKGEXAMPLE",
@@ -81,7 +96,7 @@ class OscCli < Formula
     EOS
 
     str = shell_output("#{bin}/osc-cli api ReadVms 2>&1 >/dev/null", 1)
-    match = "osc_sdk.sdk.OscApiException: Error --> status = 400, code = 4120, Reason = InvalidParameterValue"
+    match = "TypeError: OscApiException.__post_init__() missing 1 required positional argument: 'http_response'"
     assert_match match, str
   end
 end
