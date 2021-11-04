@@ -1,14 +1,14 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
-  homepage "https://golang.org"
-  url "https://golang.org/dl/go1.17.2.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.17.2.src.tar.gz"
-  sha256 "2255eb3e4e824dd7d5fcdc2e7f84534371c186312e546fb1086a34c17752f431"
+  homepage "https://go.dev/"
+  url "https://go.dev/dl/go1.17.3.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.17.3.src.tar.gz"
+  sha256 "705c64251e5b25d5d55ede1039c6aa22bea40a7a931d14c370339853643c3df0"
   license "BSD-3-Clause"
-  head "https://go.googlesource.com/go.git"
+  head "https://go.googlesource.com/go.git", branch: "master"
 
   livecheck do
-    url "https://golang.org/dl/"
+    url "https://go.dev/dl/"
     regex(/href=.*?go[._-]?v?(\d+(?:\.\d+)+)[._-]src\.t/i)
   end
 
