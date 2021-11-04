@@ -63,7 +63,7 @@ class ApacheArrow < Formula
       -DARROW_WITH_BROTLI=ON
       -DARROW_WITH_UTF8PROC=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].bin/"python3"}
+      -DPython3_EXECUTABLE=#{Formula["python@3.9"].bin/"python3"}
     ]
 
     args << "-DARROW_MIMALLOC=ON" unless Hardware::CPU.arm?
