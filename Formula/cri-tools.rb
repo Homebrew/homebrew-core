@@ -28,7 +28,12 @@ class CriTools < Formula
   end
 
   test do
-    assert_match "crictl version", shell_output("#{bin}/crictl --version 2>&1")
-    assert_match "critest version", shell_output("#{bin}/critest --version 2>&1")
+    crictl_output = shell_output(
+      "#{bin}/crictl --runtime-endpoint unix:///var/run/nonexistent.sock --timeout 10ms info 2>&1", 1
+    )
+    assert_match "context deadline exceeded", crictl_output
+
+    critest_output = shell_output("#{bin}/critest --ginkgo.dryRun 2>&1")
+    assert_match "PASS", critest_output
   end
 end
