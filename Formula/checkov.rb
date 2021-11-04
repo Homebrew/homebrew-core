@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/bd/b4/4916c5d1abb0c224c484157f24e979e224c5b45d2b73ca524c6352ad69b8/checkov-2.0.525.tar.gz"
-  sha256 "1ec44854b0cda05d2f0b12142ebdb9e12fa22f3597ab354d514213b90b37a836"
+  url "https://files.pythonhosted.org/packages/b2/b8/4f0ca91ab2a54be07dc6b3e0870fd71cfd63abbc315b5512e6636152f02d/checkov-2.0.540.tar.gz"
+  sha256 "a2978414cd2d20f60298313fa8c368dcd0f9c0bd270623b772e50a779bd0fa21"
   license "Apache-2.0"
 
   bottle do
@@ -242,8 +242,8 @@ class Checkov < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/c8/3f/e71d92e90771ac2d69986aa0e81cf0dfda6271e8483698f4847b861dd449/soupsieve-2.2.1.tar.gz"
-    sha256 "052774848f448cf19c7e959adf5566904d525f33a3f8b6ba6f6f8f26ec7de0cc"
+    url "https://files.pythonhosted.org/packages/2f/de/de0bdbe1330a12dd3d453460882b0519b0b7361a15e41bbfe9e9f0641c2f/soupsieve-2.3.tar.gz"
+    sha256 "e4860f889dfa88774c07da0b276b70c073b6470fa1a4a8350800bb7bce3dcc76"
   end
 
   resource "termcolor" do
