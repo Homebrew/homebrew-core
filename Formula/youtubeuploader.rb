@@ -6,17 +6,10 @@ class Youtubeuploader < Formula
   license "Apache-2.0"
   head "https://github.com/porjo/youtubeuploader.git", branch: "master"
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    path = buildpath/"src/github.com/porjo/youtubeuploader"
-    path.install Dir["*"]
-    cd path do
-      system "go", "build", "-a", "-ldflags", "-s -X main.appVersion=#{version}", "-o", "#{bin}/youtubeuploader"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -X main.appVersion=#{version}")
   end
 
   test do
