@@ -2,9 +2,9 @@ class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
   # Extract https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.tar.gz to get the version number
-  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20211022.ad1c6ad.tar.gz"
-  version "20211022"
-  sha256 "3e78d925c81a0f1e6ef4a4f4fd70ae38274599ece22c43e1844e36c2b4dca8d2"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20211031.640f923.tar.gz"
+  version "20211031"
+  sha256 "7562d65731d98b5d07d3bb5c0f5bf3704ea2279156ff41012a48e69d0f3d50cd"
   license "MIT"
   head "https://git.tartarus.org/simon/puzzles.git", branch: "main"
 
@@ -49,6 +49,9 @@ class Puzzles < Formula
     end
 
     on_linux do
+      # Gtk-WARNING **: 14:18:20.744: cannot open display
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
       assert_match "Mines, from Simon Tatham's Portable Puzzle Collection", shell_output(bin/"mines")
     end
   end
