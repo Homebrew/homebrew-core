@@ -27,6 +27,10 @@ class Smpeg2 < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl2"
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  # We patch `libtool.m4` because we need to generate the `configure` script.
+  patch :DATA
+
   def install
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",
@@ -46,3 +50,35 @@ class Smpeg2 < Formula
     system "#{bin}/plaympeg2", "--version"
   end
 end
+
+__END__
+diff --git a/acinclude/libtool.m4 b/acinclude/libtool.m4
+index 7dfd109..f8b1ac0 100644
+--- a/acinclude/libtool.m4
++++ b/acinclude/libtool.m4
+@@ -947,18 +947,13 @@ m4_defun_once([_LT_REQUIRED_DARWIN_CHECKS],[
+       _lt_dar_allow_undefined='${wl}-undefined ${wl}suppress' ;;
+     darwin1.*)
+       _lt_dar_allow_undefined='${wl}-flat_namespace ${wl}-undefined ${wl}suppress' ;;
+-    darwin*) # darwin 5.x on
+-      # if running on 10.5 or later, the deployment target defaults
+-      # to the OS version, if on x86, and 10.4, the deployment
+-      # target defaults to 10.4. Don't you love it?
+-      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
+-	10.0,*86*-darwin8*|10.0,*-darwin[[91]]*)
+-	  _lt_dar_allow_undefined='${wl}-undefined ${wl}dynamic_lookup' ;;
+-	10.[[012]]*)
+-	  _lt_dar_allow_undefined='${wl}-flat_namespace ${wl}-undefined ${wl}suppress' ;;
+-	10.*)
+-	  _lt_dar_allow_undefined='${wl}-undefined ${wl}dynamic_lookup' ;;
+-      esac
++    darwin*)
++        case ${MACOSX_DEPLOYMENT_TARGET},$host in
++         10.[[012]],*|,*powerpc*)
++           _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
++         *)
++           _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
++        esac
+     ;;
+   esac
+     if test "$lt_cv_apple_cc_single_mod" = "yes"; then
