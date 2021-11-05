@@ -2,8 +2,9 @@ class Ats2Postiats < Formula
   desc "Programming language with formal specification features"
   homepage "http://www.ats-lang.org/"
   url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.4.2/ATS2-Postiats-0.4.2.tgz"
-  sha256 "a6facf2ba3e8bb0b3ca9b62fd0d679c31a152842414fccd34079101739042c59"
+  sha256 "51b8e75e62321f5e3e97d7996d605c46a90c6721b568b9b52fe00c19944134d3"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
