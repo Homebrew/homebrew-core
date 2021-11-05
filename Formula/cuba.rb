@@ -2,8 +2,9 @@ class Cuba < Formula
   desc "Library for multidimensional numerical integration"
   homepage "http://www.feynarts.de/cuba/"
   url "http://www.feynarts.de/cuba/Cuba-4.2.1.tar.gz"
-  sha256 "84935a6f72712e183e8741715f09402c716d1cf816e452a47bdc5dd44b13567b"
+  sha256 "3789c458193440e73a603f6649acbe8f1903d61203905e1b63c00ef0db8580a8"
   license "LGPL-3.0"
+  revision 1
 
   livecheck do
     url :homepage
@@ -19,7 +20,7 @@ class Cuba < Formula
 
   def install
     ENV.deparallelize # Makefile does not support parallel build
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
     pkgshare.install "demo"
   end
