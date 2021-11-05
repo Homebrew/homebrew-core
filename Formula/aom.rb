@@ -17,14 +17,10 @@ class Aom < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "yasm" => :build
-
-  # `jpeg-xl` is currently not bottled on Linux
-  on_macos do
-    depends_on "pkg-config" => :build
-    depends_on "jpeg-xl"
-    depends_on "libvmaf"
-  end
+  depends_on "jpeg-xl"
+  depends_on "libvmaf"
 
   resource "bus_qcif_15fps.y4m" do
     url "https://media.xiph.org/video/derf/y4m/bus_qcif_15fps.y4m"
@@ -32,27 +28,21 @@ class Aom < Formula
   end
 
   def install
-    ENV.runtime_cpu_detection unless Hardware::CPU.arm?
-
-    args = std_cmake_args.concat(["-DCMAKE_INSTALL_RPATH=#{rpath}",
-                                  "-DENABLE_DOCS=off",
-                                  "-DENABLE_EXAMPLES=on",
-                                  "-DENABLE_TESTDATA=off",
-                                  "-DENABLE_TESTS=off",
-                                  "-DENABLE_TOOLS=off",
-                                  "-DBUILD_SHARED_LIBS=on"])
+    ENV.runtime_cpu_detection if Hardware::CPU.intel? || OS.linux?
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DENABLE_DOCS=off
+      -DENABLE_TESTS=off
+      -DENABLE_TOOLS=off
+      -DENABLE_EXAMPLES=on
+      -DBUILD_SHARED_LIBS=on
+      -DCONFIG_TUNE_BUTTERAUGLI=1
+      -DCONFIG_TUNE_VMAF=1
+    ]
     # Runtime CPU detection is not currently enabled for ARM on macOS.
-    args << "-DCONFIG_RUNTIME_CPU_DETECT=0" if Hardware::CPU.arm?
+    args << "-DCONFIG_RUNTIME_CPU_DETECT=0" if OS.mac? && Hardware::CPU.arm?
 
-    # Make unconditional when `jpeg-xl` is bottled on Linux
-    if OS.mac?
-      args += [
-        "-DCONFIG_TUNE_BUTTERAUGLI=1",
-        "-DCONFIG_TUNE_VMAF=1",
-      ]
-    end
-
-    system "cmake", "-S", ".", "-B", "brewbuild", *args
+    system "cmake", "-S", ".", "-B", "brewbuild", *args, *std_cmake_args
     system "cmake", "--build", "brewbuild"
     system "cmake", "--install", "brewbuild"
   end
