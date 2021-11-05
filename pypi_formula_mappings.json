@@ -214,6 +214,9 @@
   "percol": {
     "exclude_packages": ["six"]
   },
+  "pipenv": {
+    "exclude_packages": ["six"]
+  },
   "pgcli": {
     "exclude_packages": ["six", "tabulate"]
   },
