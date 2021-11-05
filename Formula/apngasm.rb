@@ -1,10 +1,9 @@
 class Apngasm < Formula
   desc "Next generation of apngasm, the APNG assembler"
   homepage "https://github.com/apngasm/apngasm"
-  url "https://github.com/apngasm/apngasm/archive/3.1.6.tar.gz"
-  sha256 "0068e31cd878e07f3dffa4c6afba6242a753dac83b3799470149d2e816c1a2a7"
+  url "https://github.com/apngasm/apngasm/archive/3.1.10.tar.gz"
+  sha256 "f465b14f8b5cdaaa9b5d8d61a11dd0eaf25b245a805be2af236d80a9db826e4f"
   license "Zlib"
-  revision 3
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   bottle do
