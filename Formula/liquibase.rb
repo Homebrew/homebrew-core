@@ -1,8 +1,8 @@
 class Liquibase < Formula
   desc "Library for database change tracking"
   homepage "https://www.liquibase.org/"
-  url "https://github.com/liquibase/liquibase/releases/download/v4.5.0/liquibase-4.5.0.tar.gz"
-  sha256 "4ce45bcbe4660b33eee93e80b9be968631e85566d02d90c0c5306fac8d4dd602"
+  url "https://github.com/liquibase/liquibase/releases/download/v4.6.1/liquibase-4.6.1.tar.gz"
+  sha256 "9d1e33c9ef5c0d545554586d656ab5b9e8c6f8963b0eb3a0e6caea3ad9b90795"
   license "Apache-2.0"
 
   bottle do
