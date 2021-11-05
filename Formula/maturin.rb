@@ -15,7 +15,7 @@ class Maturin < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "454f41ec800dcc2cbb8abb6db958e3e18e336b2731947979201d3937a3254a2e"
   end
 
-  depends_on "python@3.9" => :test
+  depends_on "python@3.10" => :test
   depends_on "rust"
 
   def install
@@ -32,7 +32,8 @@ class Maturin < Formula
   test do
     system "cargo", "new", "hello_world", "--bin"
     system bin/"maturin", "build", "-m", "hello_world/Cargo.toml", "-b", "bin", "-o", "dist", "--compatibility", "off"
-    system "python3", "-m", "pip", "install", "hello_world", "--no-index", "--find-links", testpath/"dist"
-    system "python3", "-m", "pip", "uninstall", "-y", "hello_world"
+    system Formula["python@3.10"].opt_bin/"python3", "-m", "pip", "install", "hello_world", "--no-index",
+    "--find-links", testpath/"dist"
+    system Formula["python@3.10"].opt_bin/"python3", "-m", "pip", "uninstall", "-y", "hello_world"
   end
 end
