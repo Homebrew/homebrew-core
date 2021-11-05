@@ -6,6 +6,11 @@ class Botan < Formula
   license "BSD-2-Clause"
   head "https://github.com/randombit/botan.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?Botan[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "850adbef4b6df09cd0ccbe6488be7af07ca39eaa64579fefe025cd2e6f92c088"
     sha256 arm64_big_sur:  "75e3663e0e99d0ef40a8a62d5f19b738b20f6024845b9f29fc355851a1f382a9"
