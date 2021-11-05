@@ -7,6 +7,11 @@ class Befunge93 < Formula
   license "BSD-3-Clause"
   head "https://github.com/catseye/Befunge-93.git", branch: "master"
 
+  livecheck do
+    url "https://catseye.tc/distribution/Befunge-93_distribution"
+    regex(/href=.*?befunge-93[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "05324749e9d37d4bdf4b6737ddcc2f48489755c60a38752f4cf8dc51e1b93085"
