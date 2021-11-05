@@ -41,6 +41,9 @@ class Bind < Formula
     sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
   end
 
+  # Remove use of -flat_namespace
+  patch :DATA
+
   def install
     xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
@@ -112,3 +115,32 @@ class Bind < Formula
     system bin/"dig", "ü.cl"
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index a56ea16..c646af8 100755
+--- a/configure
++++ b/configure
+@@ -13628,7 +13628,7 @@ $as_echo "$as_me: WARNING: When using GNU C Compiler on Solaris, -zrelax=transtl
+ fi
+         ;; #(
+   *-darwin*) :
+-    LDFLAGS="$LDFLAGS -Wl,-flat_namespace" ;; #(
++    LDFLAGS="$LDFLAGS" ;; #(
+   *) :
+      ;;
+ esac
+diff --git a/configure.ac b/configure.ac
+index e0b4d79..2626f9b 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -382,8 +382,7 @@ AS_CASE([$host],
+                  [LDFLAGS="$LDFLAGS -zrelax=transtls"
+                   AC_MSG_WARN([When using GNU C Compiler on Solaris, -zrelax=transtls linker flag is used to fix bug in Thread Local Storage])
+                  ])
+-       ],
+-       [*-darwin*],[LDFLAGS="$LDFLAGS -Wl,-flat_namespace"])
++       ])
+
+ #
+ # CCNOOPT defaults to -O0 on gcc and disables optimization when is last
