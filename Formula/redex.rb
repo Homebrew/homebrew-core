@@ -2,7 +2,7 @@ class Redex < Formula
   desc "Bytecode optimizer for Android apps"
   homepage "https://fbredex.com"
   license "MIT"
-  revision 6
+  revision 7
   head "https://github.com/facebook/redex.git", branch: "master"
 
   stable do
