@@ -3,8 +3,8 @@ class Dex < Formula
   homepage "https://github.com/tihirvon/dex"
   url "https://github.com/tihirvon/dex/archive/v1.0.tar.gz"
   sha256 "4468b53debe8da6391186dccb78288a8a77798cb4c0a00fab9a7cdc711cd2123"
-  license "GPL-2.0"
-  head "https://github.com/tihirvon/dex.git"
+  license "GPL-2.0-only"
+  head "https://github.com/tihirvon/dex.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -19,6 +19,8 @@ class Dex < Formula
     sha256 el_capitan:     "70c249809920acc2d10405c0487427d154ee55cf201507d910d8178693c7fd61"
     sha256 yosemite:       "a4cffc5c0b61be9452988d4435ccff1d1c72d2b9cdec595e55ea5f37ca2541a6"
   end
+
+  uses_from_macos "ncurses"
 
   def install
     args = ["prefix=#{prefix}",
