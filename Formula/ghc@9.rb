@@ -20,19 +20,26 @@ class GhcAT9 < Formula
 
   depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
+  # https://downloads.haskell.org/~ghc/9.2.1/docs/html/users_guide/9.2.1-notes.html
+  depends_on "llvm@11" if Hardware::CPU.arm?
 
   # https://www.haskell.org/ghc/download_ghc_9_0_1.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
-      url "https://downloads.haskell.org/~ghc/9.0.1/ghc-9.0.1-x86_64-apple-darwin.tar.xz"
-      sha256 "122d60509147d0117779d275f0215bde2ff63a64cda9d88f149432d0cae71b22"
+      if Hardware::CPU.intel?
+        url "https://downloads.haskell.org/~ghc/9.2.1/ghc-9.2.1-x86_64-apple-darwin.tar.xz"
+        sha256 "c527700a210306098ce85d2c956089deea539aefe1d1816701d5c14cf9c113b7"
+      else
+        url "https://downloads.haskell.org/~ghc/9.2.1/ghc-9.2.1-aarch64-apple-darwin.tar.xz"
+        sha256 "356b99081ae38ded43b78840d673e8c782e0088e9a2aea0e19faaf677ccb54cf"
+      end
     end
 
     on_linux do
-      url "https://downloads.haskell.org/~ghc/9.0.1/ghc-9.0.1-x86_64-deb9-linux.tar.xz"
-      sha256 "4ca6252492f59fe589029fadca4b6f922d6a9f0ff39d19a2bd9886fde4e183d5"
+      url "https://downloads.haskell.org/~ghc/9.2.1/ghc-9.2.1-x86_64-deb9-linux.tar.xz"
+      sha256 "f09133ed735e9f3b221b5ed54787e5651f039ed0f7dab0ab834a27c8ca68fc9b"
     end
   end
 
@@ -56,6 +63,8 @@ class GhcAT9 < Formula
     ENV.deparallelize { system "make", "install" }
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
     Dir.glob(lib/"*/package.conf.d/package.cache.lock") { |f| rm f }
+
+    bin.env_script_all_files libexec, PATH: "${PATH}:#{Formula["llvm@11"].opt_bin}" if Hardware::CPU.arm?
   end
 
   def post_install
