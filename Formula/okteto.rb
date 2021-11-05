@@ -27,8 +27,10 @@ class Okteto < Formula
   test do
     assert_match "okteto version #{version}", shell_output("#{bin}/okteto version")
 
-    touch "test.rb"
-    assert_match "Failed to load your local Kubeconfig",
-      shell_output("echo | #{bin}/okteto init --overwrite --file test.yml 2>&1")
+    assert_match "Please run 'okteto context' to select one context",
+      shell_output(bin/"okteto init --context test 2>&1", 1)
+
+    assert_match "No contexts are available.",
+      shell_output(bin/"okteto context list 2>&1", 1)
   end
 end
