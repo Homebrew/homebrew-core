@@ -23,9 +23,8 @@ class Mmark < Formula
   end
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"mmark"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
     man1.install "mmark.1"
-    prefix.install_metafiles
   end
 
   test do
