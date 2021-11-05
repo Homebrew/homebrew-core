@@ -1,8 +1,8 @@
 class Dafny < Formula
   desc "Verification-aware programming language"
   homepage "https://github.com/dafny-lang/dafny/blob/master/README.md"
-  url "https://github.com/dafny-lang/dafny/archive/v3.2.0.tar.gz"
-  sha256 "5d9ce0a7bb7d4700747923cff82cf50b5e3961772f37de9fe71790979ac0b8fe"
+  url "https://github.com/dafny-lang/dafny/archive/v3.3.0.tar.gz"
+  sha256 "0cdbffa90d2556e068cb6fb8601c9ecda649dc671734354cd6071d3b8b948b41"
   license "MIT"
 
   livecheck do
@@ -30,7 +30,7 @@ class Dafny < Formula
   end
 
   def install
-    system "make", "exe", "runtime"
+    system "make", "exe"
 
     libexec.install Dir["Binaries/*", "Scripts/quicktest.sh"]
 
