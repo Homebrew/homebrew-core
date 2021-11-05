@@ -1,11 +1,10 @@
 class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl-lang.org"
-  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.11/tcl8.6.11-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/tcl8.6.11-src.tar.gz"
-  sha256 "8c0486668586672c5693d7d95817cb05a18c5ecca2f40e2836b9578064088258"
+  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.12/tcl8.6.12-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/tcl8.6.12-src.tar.gz"
+  sha256 "26c995dd0f167e48b11961d891ee555f680c175f7173ff8cb829f4ebcde4c1a6"
   license "TCL"
-  revision 1
 
   livecheck do
     url :stable
@@ -51,9 +50,9 @@ class TclTk < Formula
   end
 
   resource "tk" do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.11/tk8.6.11.1-src.tar.gz"
-    mirror "https://fossies.org/linux/misc/tk8.6.11.1-src.tar.gz"
-    sha256 "006cab171beeca6a968b6d617588538176f27be232a2b334a0e96173e89909be"
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.12/tk8.6.12-src.tar.gz"
+    mirror "https://fossies.org/linux/misc/tk8.6.12-src.tar.gz"
+    sha256 "12395c1f3fcb6bed2938689f797ea3cdf41ed5cb6c4766eec8ac949560310630"
   end
 
   resource "itk4" do
@@ -98,7 +97,6 @@ class TclTk < Formula
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
-      ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
       system "make", "critcl"
       cp_r "modules/tcllibc", "#{lib}/"
       ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64" if OS.mac?
