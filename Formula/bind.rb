@@ -123,7 +123,7 @@ index a56ea16..c646af8 100755
 +++ b/configure
 @@ -13628,7 +13628,7 @@ $as_echo "$as_me: WARNING: When using GNU C Compiler on Solaris, -zrelax=transtl
  fi
-         ;; #(
+ 	 ;; #(
    *-darwin*) :
 -    LDFLAGS="$LDFLAGS -Wl,-flat_namespace" ;; #(
 +    LDFLAGS="$LDFLAGS" ;; #(
@@ -135,12 +135,12 @@ index e0b4d79..2626f9b 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -382,8 +382,7 @@ AS_CASE([$host],
-                  [LDFLAGS="$LDFLAGS -zrelax=transtls"
-                   AC_MSG_WARN([When using GNU C Compiler on Solaris, -zrelax=transtls linker flag is used to fix bug in Thread Local Storage])
-                  ])
--       ],
--       [*-darwin*],[LDFLAGS="$LDFLAGS -Wl,-flat_namespace"])
-+       ])
-
+ 		  [LDFLAGS="$LDFLAGS -zrelax=transtls"
+ 		   AC_MSG_WARN([When using GNU C Compiler on Solaris, -zrelax=transtls linker flag is used to fix bug in Thread Local Storage])
+ 		  ])
+-	],
+-	[*-darwin*],[LDFLAGS="$LDFLAGS -Wl,-flat_namespace"])
++	])
+ 
  #
  # CCNOOPT defaults to -O0 on gcc and disables optimization when is last
