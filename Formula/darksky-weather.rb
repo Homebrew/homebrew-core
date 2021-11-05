@@ -20,14 +20,13 @@ class DarkskyWeather < Formula
   def install
     project = "github.com/genuinetools/weather"
     ldflags = ["-s -w",
-               "-X #{project}/version.GITCOMMIT=homebrew",
+               "-X #{project}/version.GITCOMMIT=#{tap.user.downcase}",
                "-X #{project}/version.VERSION=v#{version}"]
-    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
-    mv bin/"darksky-weather", bin/"weather"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "-o", bin/"weather"
   end
 
   test do
-    output = shell_output("#{bin}/weather")
-    assert_match "Current weather is", output
+    # A functional test often errors out, so we stick to checking the version.
+    assert_match "v#{version}", shell_output("#{bin}/weather version")
   end
 end
