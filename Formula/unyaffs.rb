@@ -1,10 +1,15 @@
 class Unyaffs < Formula
   desc "Extract files from a YAFFS2 filesystem image"
-  homepage "https://www.b-ehlers.de/projects/unyaffs.html"
-  url "https://git.b-ehlers.de/ehlers/unyaffs/archive/0.9.7.tar.gz"
-  sha256 "792d18c3866910e25026aaa9dcfdec4b67bca7453ce5b2474d1ce8e9d31b2c69"
+  homepage "https://packages.debian.org/sid/unyaffs"
+  url "https://deb.debian.org/debian/pool/main/u/unyaffs/unyaffs_0.9.7.orig.tar.gz"
+  sha256 "099ee9e51046b83fe8555d7a6284f6fe4fbae96be91404f770443d8129bd8775"
   license "GPL-2.0-only"
-  head "https://git.b-ehlers.de/ehlers/unyaffs.git"
+  revision 1
+
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/u/unyaffs/"
+    regex(/href=.*?unyaffs[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
 
   bottle do
     rebuild 3
@@ -18,6 +23,7 @@ class Unyaffs < Formula
   def install
     system "make"
     bin.install "unyaffs"
+    man1.install "unyaffs.1"
   end
 
   test do
