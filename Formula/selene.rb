@@ -4,6 +4,7 @@ class Selene < Formula
   url "https://github.com/Kampfkarren/selene/archive/0.15.0.tar.gz"
   sha256 "c6acce7207235924bb65e9897b229d6a904f5f7f7ef43a2a02ae4690551eae16"
   license "MPL-2.0"
+  head "https://github.com/Kampfkarren/selene.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f7793582bed7b72842a91f23e4041eddab76229cc46309c20c4d14a75cae06c"
