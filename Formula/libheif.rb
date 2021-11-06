@@ -4,6 +4,7 @@ class Libheif < Formula
   url "https://github.com/strukturag/libheif/releases/download/v1.12.0/libheif-1.12.0.tar.gz"
   sha256 "e1ac2abb354fdc8ccdca71363ebad7503ad731c84022cf460837f0839e171718"
   license "LGPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "11b08393af47fa87c2913bfc2bec1201a5b50a98df5676793c8df142a07cebc7"
