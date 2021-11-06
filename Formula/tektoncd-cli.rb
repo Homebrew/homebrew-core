@@ -4,6 +4,7 @@ class TektoncdCli < Formula
   url "https://github.com/tektoncd/cli/archive/v0.21.0.tar.gz"
   sha256 "c6fed13ddd0cbb410230cf85749458a42b9cb8d56ad6ec48b44e70e26cce9062"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -26,10 +27,12 @@ class TektoncdCli < Formula
     system "make", "bin/tkn"
     bin.install "bin/tkn" => "tkn"
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"tkn", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"tkn", "completion", "bash")
     (bash_completion/"tkn").write output
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"tkn", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"tkn", "completion", "zsh")
     (zsh_completion/"_tkn").write output
+    output = Utils.safe_popen_read(bin/"tkn", "completion", "fish")
+    (fish_completion/"tkn.fish").write output
   end
 
   test do
