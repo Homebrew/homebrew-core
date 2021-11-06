@@ -18,9 +18,16 @@ class WildflyAs < Formula
   depends_on arch: :x86_64
   depends_on "openjdk"
 
+  on_linux do
+    depends_on "libaio"
+  end
+
   def install
     buildpath.glob("bin/*.{bat,ps1}").map(&:unlink)
     buildpath.glob("**/win-x86_64").map(&:rmtree)
+    buildpath.glob("**/linux-i686").map(&:rmtree)
+    buildpath.glob("**/linux-s390x").map(&:rmtree)
+    (buildpath/"docs/contrib/scripts/service").rmtree
 
     inreplace "bin/standalone.sh", /JAVA="[^"]*"/, "JAVA='#{Formula["openjdk"].opt_bin}/java'"
 
