@@ -60,13 +60,13 @@ class PythonAT39 < Formula
 
   # Always update to latest release
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/db/e2/c0ced9ccffb61432305665c22842ea120c0f649eec47ecf2a45c596707c4/setuptools-57.4.0.tar.gz"
-    sha256 "6bac238ffdf24e8806c61440e755192470352850f3419a52f26ffe0a1a64f465"
+    url "https://files.pythonhosted.org/packages/1e/00/05f51ceab8d3b9be4295000d8be4c830c53e5477755888994e9825606cd9/setuptools-58.5.3.tar.gz"
+    sha256 "dae6b934a965c8a59d6d230d3867ec408bb95e73bd538ff77e71fedf1eaca729"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/52/e1/06c018197d8151383f66ebf6979d951995cf495629fc54149491f5d157d0/pip-21.2.4.tar.gz"
-    sha256 "0eb8a1516c3d138ae8689c0c1a60fde7143310832f9dc77e11d8a4bc62de193b"
+    url "https://files.pythonhosted.org/packages/da/f6/c83229dcc3635cdeb51874184241a9508ada15d8baa337a41093fab58011/pip-21.3.1.tar.gz"
+    sha256 "fd11ba3d0fdb4c07fbc5ecbba0b1b719809420f25038f8ee3cd913d3faa3033a"
   end
 
   resource "wheel" do
