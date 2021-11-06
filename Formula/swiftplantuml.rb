@@ -6,6 +6,7 @@ class Swiftplantuml < Formula
   license "MIT"
 
   depends_on xcode: ["12.2", :build]
+  depends_on :macos
 
   def install
     system "make", "install", "prefix=#{prefix}"
