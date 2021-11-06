@@ -47,26 +47,11 @@ class Vtk < Formula
     depends_on "gcc"
     depends_on "szip"
     depends_on "mesa-glu"
-
-    # Apply 2 upstream commits to fix build on GCC 11.
-    # Remove with next release.
-    patch do
-      url "https://github.com/Kitware/VTK/commit/c7d6a8d81367a4ed92163c059aa3181386eabc24.patch?full_index=1"
-      sha256 "fa292347cc0b157844cba128dae1a0fd16b6bc12e707f1b5c94b25fd41171d49"
-    end
-
-    patch do
-      url "https://github.com/Kitware/VTK/commit/e066c3f4fbbfe7470c6207db0fc3f3952db633cb.patch?full_index=1"
-      sha256 "d20fc3287c9c36f4f9b0a43148180ccbf7960f7b141e279eb537b94d97286250"
-    end
   end
 
   fails_with gcc: "5"
 
   def install
-    # Do not record compiler path because it references the shim directory
-    inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
-
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_TESTING:BOOL=OFF
