@@ -4,6 +4,7 @@ class Logcli < Formula
   url "https://github.com/grafana/loki/archive/v2.4.0.tar.gz"
   sha256 "38e8403e59218cfa81b38af48852e77f6b6be5390190b99bdc0dc157a7e0400b"
   license "AGPL-3.0-only"
+  head "https://github.com/grafana/loki.git", branch: "main"
 
   livecheck do
     formula "loki"
