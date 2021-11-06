@@ -65,12 +65,6 @@ class Gdal < Formula
 
   fails_with gcc: "5"
 
-  # Fix build with Poppler 21.10+
-  patch :p2 do
-    url "https://github.com/OSGeo/gdal/commit/9c09870e374ca21d558101af3f4c09a6164fdfc3.patch?full_index=1"
-    sha256 "b633210796bf07bc7a98f55e80045fbaeeef77781c0a801831fa52c69576f420"
-  end
-
   def install
     args = [
       # Base configuration
