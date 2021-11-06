@@ -5,7 +5,7 @@ class FaasCli < Formula
       tag:      "0.13.15",
       revision: "b562392b12a78a11bcff9c6fca5a47146ea2ba0a"
   license "MIT"
-  head "https://github.com/openfaas/faas-cli.git"
+  head "https://github.com/openfaas/faas-cli.git", branch: "master"
 
   livecheck do
     url :stable
