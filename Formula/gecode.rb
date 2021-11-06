@@ -4,6 +4,7 @@ class Gecode < Formula
   url "https://github.com/Gecode/gecode/archive/release-6.2.0.tar.gz"
   sha256 "27d91721a690db1e96fa9bb97cec0d73a937e9dc8062c3327f8a4ccb08e951fd"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://github.com/Gecode/gecode"
@@ -21,11 +22,19 @@ class Gecode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f818c76e47ef63048f87fd2b75a6b379eef97b934079a427578c727e2fa21f2"
   end
 
+  depends_on "qt@5"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = %W[
       --prefix=#{prefix}
       --disable-examples
-      --disable-qt
+      --enable-qt
     ]
     ENV.cxx11
     system "./configure", *args
@@ -36,6 +45,7 @@ class Gecode < Formula
     (testpath/"test.cpp").write <<~EOS
       #include <gecode/driver.hh>
       #include <gecode/int.hh>
+      #include <QtWidgets/QtWidgets>
       using namespace Gecode;
       class Test : public Script {
       public:
@@ -58,6 +68,8 @@ class Gecode < Formula
       int main(int argc, char* argv[]) {
         Options opt("Test");
         opt.iterations(500);
+        Gist::Print<Test> p("Print solution");
+        opt.inspect.click(&p);
         opt.parse(argc, argv);
         Script::run<Test, DFS, Options>(opt);
         return 0;
@@ -66,15 +78,29 @@ class Gecode < Formula
 
     args = %W[
       -std=c++11
+      -fPIC
+      -I#{Formula["qt@5"].opt_include}
       -I#{include}
       -lgecodedriver
       -lgecodesearch
       -lgecodeint
       -lgecodekernel
       -lgecodesupport
+      -lgecodegist
       -L#{lib}
       -o test
     ]
+    if OS.linux?
+      args += %W[
+        -lQt5Core
+        -lQt5Gui
+        -lQt5Widgets
+        -lQt5PrintSupport
+        -L#{Formula["qt@5"].opt_lib}
+      ]
+      ENV.append_path "LD_LIBRARY_PATH", Formula["qt@5"].opt_lib
+    end
+
     system ENV.cxx, "test.cpp", *args
     assert_match "{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}", shell_output("./test")
   end
