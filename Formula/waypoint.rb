@@ -1,8 +1,8 @@
 class Waypoint < Formula
   desc "Tool to build, deploy, and release any application on any platform"
   homepage "https://www.waypointproject.io/"
-  url "https://github.com/hashicorp/waypoint/archive/v0.6.1.tar.gz"
-  sha256 "e4b75b45511a284e02b8809a6637a56ffc8188ebb786f29c34f6a6bd7cf69165"
+  url "https://github.com/hashicorp/waypoint/archive/v0.6.2.tar.gz"
+  sha256 "3cb434af08226518428a7cd6b001aed93fe28911ad39ba54a3cf8d967de2cd56"
   license "MPL-2.0"
   head "https://github.com/hashicorp/waypoint.git", branch: "main"
 
