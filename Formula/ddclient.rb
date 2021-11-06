@@ -88,33 +88,11 @@ class Ddclient < Formula
 
   plist_options startup: true
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/ddclient</string>
-          <string>-file</string>
-          <string>#{etc}/ddclient/ddclient.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StartInterval</key>
-        <integer>300</integer>
-        <key>WatchPaths</key>
-        <array>
-          <string>#{etc}/ddclient</string>
-        </array>
-        <key>WorkingDirectory</key>
-        <string>#{etc}/ddclient</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"ddclient", "-file", etc/"ddclient/ddclient.conf"]
+    run_type :interval
+    interval 300
+    working_directory etc/"ddclient"
   end
 
   test do
