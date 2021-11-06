@@ -1,9 +1,18 @@
 class Goffice < Formula
   desc "Gnumeric spreadsheet program"
-  homepage "https://developer.gnome.org/goffice/"
-  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.50.tar.xz"
-  sha256 "2c5c3ddc7b08b3452408c81b121c5f012a734981d75e444debccb1c58e5cbfdc"
+  homepage "https://gitlab.gnome.org/GNOME/goffice"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
+
+  stable do
+    url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.50.tar.xz"
+    sha256 "2c5c3ddc7b08b3452408c81b121c5f012a734981d75e444debccb1c58e5cbfdc"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
     sha256 arm64_big_sur: "e571776d6027505872945c458da49905765f260bc76c197f83565ff1f9c06a6b"
