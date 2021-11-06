@@ -79,31 +79,12 @@ class Burp < Formula
 
   plist_options startup: true
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>UserName</key>
-        <string>root</string>
-        <key>KeepAlive</key>
-        <false/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/burp</string>
-          <string>-a</string>
-          <string>t</string>
-        </array>
-        <key>StartInterval</key>
-        <integer>1200</integer>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"burp", "-a", "t"]
+    run_type :interval
+    keep_alive false
+    interval 1200
+    working_directory HOMEBREW_PREFIX
   end
 
   test do
