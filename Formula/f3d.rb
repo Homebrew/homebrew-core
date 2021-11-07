@@ -4,7 +4,7 @@ class F3d < Formula
   url "https://gitlab.kitware.com/f3d/f3d/-/archive/v1.1.0/f3d-v1.1.0.tar.gz"
   sha256 "93aa9759efcc4e77beac4568280aaeaca21bfb233d3c9f60262207ca595bde79"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "b199843d36c965a4ca51147d3114bfd5c9fd4a6aa1867b0bd7c34946734ddcd5"
