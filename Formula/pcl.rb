@@ -28,6 +28,12 @@ class Pcl < Formula
   depends_on "qt@5"
   depends_on "vtk"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # qt@5 is built with GCC
+
   def install
     args = std_cmake_args + %w[
       -DBUILD_SHARED_LIBS:BOOL=ON
