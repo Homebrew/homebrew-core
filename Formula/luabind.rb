@@ -14,8 +14,6 @@ class Luabind < Formula
     sha256 cellar: :any, yosemite:    "171123f48a6cf2431d6b143b84bf31dbb955f103195aa30597a61b7a61943982"
   end
 
-  disable! date: "2020-12-08", because: :unmaintained
-
   depends_on "boost-build" => :build
   depends_on "boost"
   depends_on "lua@5.1"
@@ -58,7 +56,7 @@ class Luabind < Formula
       args << "--toolset=darwin"
     end
     args << "--prefix=#{prefix}"
-    system "bjam", *args
+    system "b2", *args
 
     (lib/"pkgconfig/luabind.pc").write pc_file
   end
