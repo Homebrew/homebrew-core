@@ -88,7 +88,7 @@ class Wangle < Formula
     PTY.spawn(testpath/"EchoClient", "-port", port.to_s) do |r, w, pid|
       ohai "Sending data via EchoClient"
       w.write "Hello from Homebrew!\nAnother test line.\n"
-      sleep 3
+      sleep 15
       Process.kill "TERM", pid
       begin
         ohai "Reading received data"
