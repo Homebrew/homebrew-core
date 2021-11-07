@@ -93,7 +93,7 @@ class MinimalRacket < Formula
     # ensure Homebrew openssl is used
     on_macos do
       output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match(%r{loaded: .*openssl@1\.1/.*/libssl.*\.dylib}, output)
+      assert_match(%r{.*openssl@1\.1/.*/libssl.*\.dylib}, output)
     end
     on_linux do
       output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
