@@ -18,6 +18,8 @@ class Tnftpd < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "18a15c1572f7f5b33b7678d9a322de20efcd0c1b1c5c98d8cb00e13a80bfa518"
   end
 
+  uses_from_macos "bison" => :build
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
@@ -39,6 +41,9 @@ class Tnftpd < Formula
   end
 
   test do
+    # Errno::EIO: Input/output error @ io_fillbuf - fd:5 /dev/pts/0
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     # running a whole server, connecting, and so forth is a bit clunky and hard
     # to write properly so...
     require "pty"
