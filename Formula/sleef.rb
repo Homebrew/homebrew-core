@@ -18,7 +18,7 @@ class Sleef < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DBUILD_TESTS=OFF", *std_cmake_args
+      system "cmake", "..", "-DBUILD_INLINE_HEADERS=TRUE", "-DBUILD_TESTS=OFF", *std_cmake_args
       system "make", "install"
     end
   end
