@@ -2,8 +2,8 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      tag:      "v0.3.4.1",
-      revision: "5087e77032e1342006021f680eb9cad2dc6dabef"
+      tag:      "v0.3.5",
+      revision: "b9bc8d0606845e4e73fda8b459a55650f23164de"
   license "GPL-3.0-only"
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
@@ -30,14 +30,22 @@ class Openrct2 < Formula
   depends_on "sdl2_ttf"
   depends_on "speexdsp"
 
+  on_linux do
+    depends_on "curl"
+    depends_on "fontconfig"
+    depends_on "mesa"
+  end
+
+  fails_with gcc: "5" # C++17
+
   resource "title-sequences" do
     url "https://github.com/OpenRCT2/title-sequences/releases/download/v0.1.2c/title-sequences.zip"
     sha256 "5284333fa501270835b5f0cf420cb52155742335f5658d7889ea35d136b52517"
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/archive/v1.2.1.tar.gz"
-    sha256 "07816ab18779ab5988d737e1c21c25f0d95404c82919758dfdc44fdd3edf8ab5"
+    url "https://github.com/OpenRCT2/objects/archive/v1.2.2.tar.gz"
+    sha256 "f24ed11bc21473c3eee3be3fd0f776e542af408b3b408eb6c35f6115b1bed89d"
   end
 
   def install
@@ -47,6 +55,7 @@ class Openrct2 < Formula
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
+                            "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}",
                             "-DWITH_TESTS=OFF",
                             "-DDOWNLOAD_TITLE_SEQUENCES=OFF",
                             "-DDOWNLOAD_OBJECTS=OFF",
