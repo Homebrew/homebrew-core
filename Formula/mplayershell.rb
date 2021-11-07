@@ -21,8 +21,8 @@ class Mplayershell < Formula
   depends_on "mplayer"
 
   def install
-    xcodebuild "-project",
-               "MPlayerShell.xcodeproj",
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-project", "MPlayerShell.xcodeproj",
                "-target", "mps",
                "-configuration", "Release",
                "clean", "build",
