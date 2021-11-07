@@ -41,7 +41,7 @@ class Opam < Formula
   end
 
   test do
-    system bin/"opam", "init", "--disable-sandboxing"
+    system bin/"opam", "init", "--auto-setup", "--disable-sandboxing"
     system bin/"opam", "list"
   end
 end
