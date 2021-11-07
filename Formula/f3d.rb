@@ -16,6 +16,13 @@ class F3d < Formula
   depends_on "cmake" => :build
   depends_on "vtk"
 
+  # Fix build with vtk 9.1.
+  # https://gitlab.kitware.com/f3d/f3d/-/commit/816b09c1e95622d6dc0384cd544572f73deed12c
+  patch do
+    url "https://gitlab.kitware.com/f3d/f3d/-/commit/816b09c1e95622d6dc0384cd544572f73deed12c.diff"
+    sha256 "425af94fc44916850f05a5ee12cb5d4d3047efe974fce8e43b1ac7364471d6fe"
+  end
+
   def install
     args = std_cmake_args + %W[
       -DMACOSX_BUILD_BUNDLE:BOOL=OFF
