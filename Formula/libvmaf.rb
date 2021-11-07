@@ -4,6 +4,7 @@ class Libvmaf < Formula
   url "https://github.com/Netflix/vmaf/archive/v2.3.0.tar.gz"
   sha256 "d8dcc83f8e9686e6855da4c33d8c373f1735d87294edbd86ed662ba2f2f89277"
   license "BSD-2-Clause-Patent"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "d3b57e128a6781ec6a929e59c90e15113ffaff44f922cb48aab82bbc7fb9524c"
@@ -25,6 +26,7 @@ class Libvmaf < Formula
       system "ninja", "-vC", "build"
       system "ninja", "-vC", "build", "install"
     end
+    pkgshare.install "model"
   end
 
   test do
