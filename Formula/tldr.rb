@@ -27,6 +27,10 @@ class Tldr < Formula
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
+
+    bash_completion.install "autocomplete/complete.bash" => "tldr"
+    zsh_completion.install "autocomplete/complete.zsh" => "_tldr"
+    fish_completion.install "autocomplete/complete.fish" => "tldr.fish"
   end
 
   test do
