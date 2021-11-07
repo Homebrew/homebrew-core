@@ -16,6 +16,12 @@ class F3d < Formula
   depends_on "cmake" => :build
   depends_on "vtk"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # vtk is built with GCC
+
   # Fix build with vtk 9.1.
   # https://gitlab.kitware.com/f3d/f3d/-/commit/816b09c1e95622d6dc0384cd544572f73deed12c
   patch do
