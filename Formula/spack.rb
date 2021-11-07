@@ -33,7 +33,7 @@ class Spack < Formula
 
   test do
     system bin/"spack", "--version"
-    assert_match "zlib", shell_output("#{bin}/spack list zlib")
+    assert_match "zlib", shell_output("#{bin}/spack info zlib")
 
     # Set up configuration file and build paths
     %w[opt modules lmod stage test source misc cfg-store].each { |dir| (testpath/dir).mkpath }
