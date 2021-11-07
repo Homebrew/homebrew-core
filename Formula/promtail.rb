@@ -20,6 +20,10 @@ class Promtail < Formula
 
   depends_on "go" => :build
 
+  on_linux do
+    depends_on "systemd"
+  end
+
   def install
     cd "clients/cmd/promtail" do
       system "go", "build", *std_go_args
