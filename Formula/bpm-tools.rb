@@ -6,6 +6,11 @@ class BpmTools < Formula
   license "GPL-2.0"
   head "https://www.pogo.org.uk/~mark/bpm-tools.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?bpm-tools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_monterey: "34949c1ed18d4065930654bb35f1fb88c4b5ab53a3571d1cbf52e6e79b452005"
