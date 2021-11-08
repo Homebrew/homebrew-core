@@ -14,7 +14,6 @@ class Ballerina < Formula
     sha256 cellar: :any_skip_relocation, all: "c4d999de5a09c1d62a7dddc0a59ce84400d355b5adcc276bd0ef371ee997f0dd"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 does not have ARM support
   depends_on "openjdk@8"
 
   def install
