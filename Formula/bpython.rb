@@ -3,10 +3,9 @@ class Bpython < Formula
 
   desc "Fancy interface to the Python interpreter"
   homepage "https://bpython-interpreter.org"
-  url "https://files.pythonhosted.org/packages/8f/34/7bdeba9999d2dfe5c0682291966bfa7edcedf2859885fa0037b8a38d0878/bpython-0.21.tar.gz"
-  sha256 "88aa9b89974f6a7726499a2608fa7ded216d84c69e78114ab2ef996a45709487"
+  url "https://files.pythonhosted.org/packages/62/5c/4039865b7e21c792140ec36411b2999b8ffe98da0f0e79eebad779550868/bpython-0.22.1.tar.gz"
+  sha256 "1fb1e0a52332579fc4e3dcf75e21796af67aae2be460179ecfcce9530a49a200"
   license "MIT"
-  revision 1
   head "https://github.com/bpython/bpython.git", branch: "main"
 
   bottle do
@@ -19,6 +18,7 @@ class Bpython < Formula
   end
 
   depends_on "python@3.10"
+  depends_on "six"
 
   resource "blessings" do
     url "https://files.pythonhosted.org/packages/5c/f8/9f5e69a63a9243448350b44c87fae74588aa634979e6c0c501f26a4f6df7/blessings-1.7.tar.gz"
@@ -31,8 +31,8 @@ class Bpython < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
-    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
   resource "curtsies" do
@@ -41,8 +41,8 @@ class Bpython < Formula
   end
 
   resource "cwcwidth" do
-    url "https://files.pythonhosted.org/packages/ec/dd/07aee69281914e20ad3e703579caf28658230602efeaecca973e801deb60/cwcwidth-0.1.4.tar.gz"
-    sha256 "482a937891a6918667436e0a7041aab576c26e4bcbcdddd178ef79362fbcf9ab"
+    url "https://files.pythonhosted.org/packages/38/17/aadd0c6190dca91aa27c4d7e84d69d30fdf4966e7764247cdc395f8fe7d9/cwcwidth-0.1.5.tar.gz"
+    sha256 "2c840e7d85f6de45c45986b416d79312c91882e1121b78d4c347e49c4238c09d"
   end
 
   resource "greenlet" do
@@ -51,8 +51,8 @@ class Bpython < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
-    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "Pygments" do
@@ -70,9 +70,9 @@ class Bpython < Formula
     sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/ed/12/c5079a15cf5c01d7f4252b473b00f7e68ee711be605b9f001528f0298b98/typing_extensions-3.10.0.2.tar.gz"
+    sha256 "49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e"
   end
 
   resource "urllib3" do
@@ -96,10 +96,7 @@ class Bpython < Formula
   end
 
   test do
-    require "pty"
     (testpath/"test.py").write "print(2+2)\n"
-    PTY.spawn(bin/"bpython", "test.py") do |r, _w, _pid|
-      assert_equal "4", r.read.chomp
-    end
+    assert_equal "4\n", shell_output("#{bin}/bpython test.py")
   end
 end

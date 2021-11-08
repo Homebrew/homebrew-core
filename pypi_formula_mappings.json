@@ -35,6 +35,9 @@
     "exclude_packages": ["six"]
   },
   "black": "black[d]",
+  "bpython": {
+    "exclude_packages": ["six"]
+  },
   "bpytop": "bpytop",
   "breezy": {
     "exclude_packages": ["six"]
