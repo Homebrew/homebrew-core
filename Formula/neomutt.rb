@@ -1,17 +1,11 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/releases/tag/20211029"
-  sha256 "181c668f238ceec73849f2a6a090de732ad20c1060f79203006951805b95fd63"
+  url "https://github.com/neomutt/neomutt/archive/refs/tags/20211029.tar.gz"
+  sha256 "08245cfa7aec80b895771fd1adcbb7b86e9c0434dfa64574e3c8c4d692aaa078"
+
   license "GPL-2.0-or-later"
   head "https://github.com/neomutt/neomutt.git", branch: "master"
-
-  bottle do
-    sha256 arm64_big_sur: "d120a26ccf7566d068226b52c07040ad63364ccf5ffd9b69dbbc550d4966393b"
-    sha256 big_sur:       "98e1898da2c59d05bd043fd6b643b9a9b0ba9566acd7fa43e302b551463de7ed"
-    sha256 catalina:      "5f850eac5db2ea581b7b69db0bd1e28198fb483cb7c1a991e2448696b48354de"
-    sha256 x86_64_linux:  "b64849b42fd3b87dcec7c0db4393c2e8b024938fd0d947acc10bcbf78558ea58"
-  end
 
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
