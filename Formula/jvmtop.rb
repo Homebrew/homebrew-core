@@ -10,7 +10,6 @@ class Jvmtop < Formula
     sha256 cellar: :any_skip_relocation, all: "f8d349142f3bcc5b90e06245a32942918f8664ddf65ca537432bdc81f5b081d9"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install
