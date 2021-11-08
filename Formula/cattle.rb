@@ -14,6 +14,11 @@ class Cattle < Formula
     end
   end
 
+  livecheck do
+    url "https://kiyuko.org/software/cattle/releases"
+    regex(/href=.*?cattle[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256                               arm64_monterey: "a8cfe837a78af532853dc6fefce95c2b11212e287640a3b527ca6e30a99e8edb"
     sha256                               arm64_big_sur:  "30cc03818912570ba2f48545b53a8217d2f8d0883e0308b55825d59aba1e342d"
