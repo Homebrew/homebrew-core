@@ -92,7 +92,7 @@ class Mpd < Formula
   service do
     run [opt_bin/"mpd", "--no-daemon"]
     keep_alive true
-    process_type "interactive"
+    process_type :interactive
     working_dir HOMEBREW_PREFIX
   end
 
