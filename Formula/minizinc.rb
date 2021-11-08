@@ -4,6 +4,7 @@ class Minizinc < Formula
   url "https://github.com/MiniZinc/libminizinc/archive/2.5.5.tar.gz"
   sha256 "c6c81fa8bdc2d7f8c8d851e5a4b936109f5d996abd8c6f809539f753581c6288"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
@@ -17,6 +18,12 @@ class Minizinc < Formula
   depends_on "cmake" => :build
   depends_on "cbc"
   depends_on "gecode"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     mkdir "build" do
