@@ -9,7 +9,6 @@ class GitAnnexRemoteRclone < Formula
     sha256 cellar: :any_skip_relocation, all: "3cc09391797c0e451e94b4b5cf7b909e4fdb834fe7d0dc321c42572c41c39279"
   end
 
-  depends_on arch: :x86_64 # Remove this when `git-annex` is bottled for ARM
   depends_on "git-annex"
   depends_on "rclone"
 
