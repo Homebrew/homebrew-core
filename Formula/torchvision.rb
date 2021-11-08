@@ -1,8 +1,8 @@
 class Torchvision < Formula
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "4d595cf0214c8adc817f8e3cd0043a027b52b481e05d67b04f4947fcb43d4277"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "32a06ccf755e4d75006ce03701f207652747a63dbfdf65f0f20a1b6f93a2e834"
   license "BSD-3-Clause"
 
   bottle do
@@ -31,13 +31,23 @@ class Torchvision < Formula
   end
 
   test do
-    cp pkgshare/"examples/cpp/hello_world/main.cpp", testpath
+    (testpath/"test.cpp").write <<~EOS
+      #include <assert.h>
+      #include <torch/script.h>
+      #include <torch/torch.h>
+      #include <torchvision/vision.h>
+
+      int main() {
+        auto& ops = torch::jit::getAllOperatorsFor(torch::jit::Symbol::fromQualString("torchvision::nms"));
+        assert(ops.size() == 1);
+      }
+    EOS
     libtorch = Formula["libtorch"]
-    system ENV.cxx, "-std=c++14", "main.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
                     "-I#{libtorch.opt_include}",
                     "-I#{libtorch.opt_include}/torch/csrc/api/include",
                     "-L#{libtorch.opt_lib}", "-ltorch", "-ltorch_cpu", "-lc10",
                     "-L#{lib}", "-ltorchvision"
-    assert_match "[1, 1000]", shell_output("./test")
+    system "./test"
   end
 end
