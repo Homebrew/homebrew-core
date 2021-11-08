@@ -15,7 +15,6 @@ class ZanataClient < Formula
     sha256 cellar: :any_skip_relocation, all: "2a46f0171f5febaf2693bb9a76f7a28fd221fc2a2213177d19b33af25dbe5a71"
   end
 
-  depends_on arch: :x86_64
   depends_on "openjdk@8"
 
   def install
