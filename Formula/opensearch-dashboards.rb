@@ -12,7 +12,6 @@ class OpensearchDashboards < Formula
 
   depends_on "python@3.9" => :build
   depends_on "yarn" => :build
-  depends_on arch: :x86_64 # `node@10` does not support ARM
   depends_on "node@10" # Switch to `node` after https://github.com/opensearch-project/OpenSearch-Dashboards/issues/406
 
   def install
