@@ -35,7 +35,6 @@
   "fbida": "exiftran",
   "fcct": "butane",
   "ffmpeg28": "ffmpeg@2.8",
-  "fig": "docker-compose",
   "findbugs": "spotbugs",
   "gcc49": "gcc@4.9",
   "gcc5": "gcc@5",
