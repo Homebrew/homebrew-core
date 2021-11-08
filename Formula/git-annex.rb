@@ -22,6 +22,15 @@ class GitAnnex < Formula
   depends_on "quvi"
 
   def install
+    # Workaround for:
+    # ghc: could not execute: opt
+    if Hardware::CPU.arm?
+      llvm = Formula["ghc"].deps
+                           .find { |d| d.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
+                           .to_formula
+      ENV.append_path "PATH", llvm.opt_bin
+    end
+
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args,
                     "--flags=+S3"
