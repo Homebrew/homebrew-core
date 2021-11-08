@@ -15,7 +15,6 @@ class Naturaldocs < Formula
     sha256 cellar: :any, all: "b3f1bd9379493b6a369f464f0af31524da2c7182bfd5f5076c1384813da98c28"
   end
 
-  depends_on arch: :x86_64 # mono does not have ARM support yet
   depends_on "mono"
 
   def install
