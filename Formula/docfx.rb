@@ -9,7 +9,6 @@ class Docfx < Formula
     sha256 cellar: :any_skip_relocation, all: "2d4913eb0b882949f76e6033572cb4b5f13141aa5c06d60500e1ae7b29e637ac"
   end
 
-  depends_on arch: :x86_64
   depends_on "mono"
 
   def install
