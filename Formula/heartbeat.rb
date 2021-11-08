@@ -72,7 +72,7 @@ class Heartbeat < Formula
         codec.format:
           string: '%{[monitor]}'
     EOS
-    pid = fork do
+    fork do
       exec bin/"heartbeat", "-path.config", testpath/"config", "-path.data",
                             testpath/"data"
     end
@@ -82,7 +82,6 @@ class Heartbeat < Formula
     assert_match "\"status\":\"up\"", (testpath/"heartbeat/heartbeat").read
   ensure
     # The test seems to deadlock on Linux without this.
-    Process.kill "SIGTERM", pid
-    Process.wait pid
+    system "pkill", "-9", "-f", "heartbeat"
   end
 end
