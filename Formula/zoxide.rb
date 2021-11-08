@@ -23,6 +23,13 @@ class Zoxide < Formula
     fish_completion.install "contrib/completions/zoxide.fish"
   end
 
+  def caveats
+    <<~EOS
+      Before you start using zoxide, it must first be initialized on your shell.
+      See https://github.com/ajeetdsouza/zoxide#installation for instructions.
+    EOS
+  end
+
   test do
     assert_equal "", shell_output("#{bin}/zoxide add /").strip
     assert_equal "/", shell_output("#{bin}/zoxide query").strip
