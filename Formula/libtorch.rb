@@ -4,8 +4,8 @@ class Libtorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.9.1",
-      revision: "dfbd030854359207cb3040b864614affeace11ce"
+      tag:      "v1.10.0",
+      revision: "36449ea93134574c2a22b87baad3de0bf8d64d42"
   license "BSD-3-Clause"
 
   livecheck do
@@ -32,8 +32,8 @@ class Libtorch < Formula
   depends_on "pybind11"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   resource "typing-extensions" do
@@ -49,14 +49,16 @@ class Libtorch < Formula
       -DBUILD_CUSTOM_PROTOBUF=OFF
       -DBUILD_PYTHON=OFF
       -DPYTHON_EXECUTABLE=#{buildpath}/venv/bin/python
-      -Dpybind11_PREFER_third_party=OFF
       -DUSE_CUDA=OFF
       -DUSE_METAL=OFF
       -DUSE_MKLDNN=OFF
       -DUSE_NNPACK=OFF
       -DUSE_OPENMP=OFF
       -DUSE_SYSTEM_EIGEN_INSTALL=ON
+      -DUSE_SYSTEM_PYBIND11=ON
     ]
+    # Remove when https://github.com/pytorch/pytorch/issues/67974 is addressed
+    args << "-DUSE_SYSTEM_BIND11=ON"
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, *args
