@@ -40,7 +40,7 @@ class Minetest < Formula
   depends_on "jpeg"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
 
   def install
     (buildpath/"games/minetest_game").install resource("minetest_game")
