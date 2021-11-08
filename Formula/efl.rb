@@ -37,7 +37,7 @@ class Efl < Formula
   depends_on "libsndfile"
   depends_on "libspectre"
   depends_on "libtiff"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "poppler"
