@@ -53,11 +53,12 @@ class OpensslAT3 < Formula
     args = %W[
       --prefix=#{prefix}
       --openssldir=#{openssldir}
-      --libdir=#{lib}
+      --libdir=#{lib}ss
       no-ssl3
       no-ssl3-method
       no-zlib
-    ]
+      -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include
+     ]
     on_linux do
       args += (ENV.cflags || "").split
       args += (ENV.cppflags || "").split
