@@ -3,8 +3,8 @@ class AwsSdkCpp < Formula
   homepage "https://github.com/aws/aws-sdk-cpp"
   # aws-sdk-cpp should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-sdk-cpp.git",
-      tag:      "1.9.130",
-      revision: "402f5a3eda7f9ef72837a2b5aba53cbdd57e1280"
+      tag:      "1.9.140",
+      revision: "e0e4ce21a6d6229b3193a4216720ead5f085a4a3"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
@@ -20,10 +20,19 @@ class AwsSdkCpp < Formula
 
   uses_from_macos "curl"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      args = %w[
+        -DENABLE_TESTING=OFF
+      ]
+      system "cmake", "..", *std_cmake_args, *args
       system "make"
       system "make", "install"
     end
