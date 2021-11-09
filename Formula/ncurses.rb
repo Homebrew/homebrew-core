@@ -1,7 +1,9 @@
 class Ncurses < Formula
   desc "Text-based UI library"
-  homepage "https://www.gnu.org/software/ncurses/"
+  homepage "https://invisible-island.net/ncurses/announce.html"
   url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.3.tar.gz"
+  mirror "https://invisible-mirror.net/archives/ncurses/ncurses-6.3.tar.gz"
+  mirror "ftp://ftp.invisible-island.net/ncurses/ncurses-6.3.tar.gz"
   mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.3.tar.gz"
   sha256 "97fc51ac2b085d4cde31ef4d2c3122c21abc217e9090a43a30fc5ec21684e059"
   license "MIT"
