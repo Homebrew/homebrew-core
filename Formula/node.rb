@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v17.0.1/node-v17.0.1.tar.xz"
-  sha256 "6ec480f872cb7c34877044985e3d7bd89329ace5b8e2ad90b57980601786341c"
+  url "https://nodejs.org/dist/v17.2.0/node-v17.2.0.tar.xz"
+  sha256 "2b47cc7b5ec189d7b637454732f36f8d3c2c0ef81bec3c278b566f67159e659a"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
@@ -22,14 +22,15 @@ class Node < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
 
+  uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
 
   on_macos do
@@ -52,8 +53,15 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-8.1.0.tgz"
-    sha256 "301ddf6bdbd6f6abb36de144902914c6bb4d6f7463758774fdd0a9ee7c597d34"
+    url "https://registry.npmjs.org/npm/-/npm-8.1.4.tgz"
+    sha256 "3959175ecd0a8ad86a6e8a63819fb200fb10a795f077ae22b241bac639bb6a17"
+  end
+
+  # Fixes node incorrectly building vendored OpenSSL when we want system OpenSSL.
+  # https://github.com/nodejs/node/pull/40965
+  patch do
+    url "https://github.com/nodejs/node/commit/65119a89586b94b0dd46b45f6d315c9d9f4c9261.patch?full_index=1"
+    sha256 "7d05debcfaf7bcbce75e28e3e5b2a329fe9bbb80f25b7b721e1b23f20db4dc40"
   end
 
   def install
