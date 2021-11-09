@@ -3,8 +3,8 @@ class Parliament < Formula
 
   desc "AWS IAM linting library"
   homepage "https://github.com/duo-labs/parliament"
-  url "https://files.pythonhosted.org/packages/64/9a/a5c9a9659131e855f1e93257accf3ea1a7921af71ab42ecb11c76ce8f22a/parliament-1.5.0.tar.gz"
-  sha256 "97527eed203241a2ab4702929da42d60dbd1c95eb9f51634f2fd6b5e8824d511"
+  url "https://files.pythonhosted.org/packages/ca/61/006a39b26dfaa909a6b0dda45b7f9df41e9d3be90517da7b1163b5d28377/parliament-1.5.2.tar.gz"
+  sha256 "80945a97715d1cfd736978727896ef8d39328fa6edc88be248116660309cf799"
   license "BSD-3-Clause"
   head "https://github.com/duo-labs/parliament.git", branch: "main"
 
@@ -21,13 +21,13 @@ class Parliament < Formula
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/81/3a/776194a3af46fa263f4f70757fd8ab41b89b6695d257fe267d33c202d228/boto3-1.19.10.tar.gz"
-    sha256 "79c982c5930f989292ca849b0caaa1ffeb9eb9d27c32992c3b2f6736b3b14ad2"
+    url "https://files.pythonhosted.org/packages/6d/27/5a5e2c3048d83dcbbd89167810e59d67035bdcb5e2aa2453b8f171e12c27/boto3-1.20.0.tar.gz"
+    sha256 "17b942d9513f396b2e90f71131b48cdc49279c9714189bbf84a232d189a793dd"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a1/fa/a433898fe23c380319c1a099e022090098b6d384ad685977e3954d230ea3/botocore-1.22.10.tar.gz"
-    sha256 "dffa1e7e7e3a8da73bbdead3aeff7d52fd5a159a1a93b2896ac67b2aa79a461c"
+    url "https://files.pythonhosted.org/packages/28/e4/202d80d8f891949537ca83398ff5586068c6ab515bdaac85936169578309/botocore-1.23.1.tar.gz"
+    sha256 "3daa7148017685ee8120c12b024ad2b6eadc1abc775627d4f4dd8182aaca5d0f"
   end
 
   resource "jmespath" do
