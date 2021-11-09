@@ -26,6 +26,11 @@ class Ncurses < Formula
   end
 
   def install
+    # Workaround for
+    # macOS: mkdir: /usr/lib/pkgconfig:/opt/homebrew/Library/Homebrew/os/mac/pkgconfig/12: Operation not permitted
+    # Linux: configure: error: expected a pathname, not ""
+    (lib/"pkgconfig").mkpath
+
     args = [
       "--prefix=#{prefix}",
       "--enable-pc-files",
@@ -34,10 +39,12 @@ class Ncurses < Formula
       "--enable-symlinks",
       "--enable-widec",
       "--with-shared",
+      "--with-cxx-shared",
       "--with-gpm=no",
       "--without-ada",
     ]
     args << "--with-terminfo-dirs=#{share}/terminfo:/etc/terminfo:/lib/terminfo:/usr/share/terminfo" if OS.linux?
+
     system "./configure", *args
     system "make", "install"
     make_libncurses_symlinks
@@ -47,22 +54,15 @@ class Ncurses < Formula
   end
 
   def make_libncurses_symlinks
-    major = version.major
+    major = version.major.to_s
 
-    %w[form menu ncurses panel].each do |name|
-      on_macos do
-        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.dylib"
-        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.#{major}.dylib"
-      end
-      on_linux do
-        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so"
-        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so.#{major}"
-      end
+    %w[form menu ncurses panel ncurses++].each do |name|
+      lib.install_symlink shared_library("lib#{name}w", major) => shared_library("lib#{name}")
+      lib.install_symlink shared_library("lib#{name}w", major) => shared_library("lib#{name}", major)
       lib.install_symlink "lib#{name}w.a" => "lib#{name}.a"
       lib.install_symlink "lib#{name}w_g.a" => "lib#{name}_g.a"
     end
 
-    lib.install_symlink "libncurses++w.a" => "libncurses++.a"
     lib.install_symlink "libncurses.a" => "libcurses.a"
     lib.install_symlink shared_library("libncurses") => shared_library("libcurses")
     on_linux do
@@ -81,6 +81,7 @@ class Ncurses < Formula
 
     bin.install_symlink "ncursesw#{major}-config" => "ncurses#{major}-config"
 
+    include.install_symlink "ncursesw" => "ncurses"
     include.install_symlink [
       "ncursesw/curses.h", "ncursesw/form.h", "ncursesw/ncurses.h",
       "ncursesw/panel.h", "ncursesw/term.h", "ncursesw/termcap.h"
