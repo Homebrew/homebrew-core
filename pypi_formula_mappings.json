@@ -220,6 +220,9 @@
   "pgcli": {
     "exclude_packages": ["six", "tabulate"]
   },
+  "pipenv": {
+    "exclude_packages": ["six"]
+  },
   "pipgrip": {
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
