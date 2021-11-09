@@ -37,8 +37,8 @@ class Influxdb < Formula
   # NOTE: The version/URL here is specified in scripts/fetch-ui-assets.sh in influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "ui-assets" do
-    url "https://github.com/influxdata/ui/releases/download/OSS-v2.1.1/build.tar.gz"
-    sha256 "ace380b5bd6abef9aa0ca16e95900052b9520399a7b3311a0c366a5d98ad400d"
+    url "https://github.com/influxdata/ui/releases/download/OSS-2.1.2/build.tar.gz"
+    sha256 "7d78d284d25f28dfd940d407a17f7f3aee1706b5dabc237eadc3bef0031ce548"
   end
 
   def install
