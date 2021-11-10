@@ -19,7 +19,7 @@ class ContainerStructureTest < Formula
   depends_on "go" => :build
 
   # Small Docker image to run tests against
-  resource "busybox-image-tar" do
+  resource "test_resource" do
     url "https://gist.github.com/AndiDog/1fab301b2dbc812b1544cd45db939e94/raw/5160ab30de17833fdfe183fc38e4e5f69f7bbae0/busybox-1.31.1.tar", using: :nounzip
     sha256 "ab5088c314316f39ff1d1a452b486141db40813351731ec8d5300db3eb35a316"
   end
@@ -52,7 +52,7 @@ class ContainerStructureTest < Formula
       --config test.yml
     ].join(" ")
 
-    resource("busybox-image-tar").stage testpath
+    resource("test_resource").stage testpath
     json_text = shell_output("#{bin}/container-structure-test test #{args}")
     res = JSON.parse(json_text)
     assert_equal res["Pass"], 2
