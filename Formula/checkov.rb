@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/b2/b8/4f0ca91ab2a54be07dc6b3e0870fd71cfd63abbc315b5512e6636152f02d/checkov-2.0.540.tar.gz"
-  sha256 "a2978414cd2d20f60298313fa8c368dcd0f9c0bd270623b772e50a779bd0fa21"
+  url "https://files.pythonhosted.org/packages/97/71/15c9dc789358f15320ab996fa69277270930777f89f76a95f31496a82ed1/checkov-2.0.555.tar.gz"
+  sha256 "1895396eba0d08df6213ccf5befe49245d0cabe3c0360dd3cfbeec089cef13b7"
   license "Apache-2.0"
 
   bottle do
@@ -32,13 +32,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7b/4d/3ee45c9afebcb44d0009b709e8590267669ef5bbd1310de9ccc179cb2c17/boto3-1.17.112.tar.gz"
-    sha256 "08b6dacbe7ebe57ae8acfb7106b2728d946ae1e0c3da270caee1deb79ccbd8af"
+    url "https://files.pythonhosted.org/packages/4a/23/5b67b8a2eb5b0b03a471cefbabe9feaa1e9c61481137f10e2375d5cc644a/boto3-1.20.2.tar.gz"
+    sha256 "905a213c8ca1f148c872b79849e04741ba9e648348bbe23726e98dd3fdacc574"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/4d/c8/2d47e502c12d4b436e5b865cc78552604888aee59570c12b1863bb09c11b/botocore-1.20.112.tar.gz"
-    sha256 "d0b9b70b6eb5b65bb7162da2aaf04b6b086b15cc7ea322ddc3ef2f5e07944dcf"
+    url "https://files.pythonhosted.org/packages/25/74/a1a055d5507adaa6a11082ff96185fd0e5e2691855ef71fd24e3675583da/botocore-1.23.2.tar.gz"
+    sha256 "274475867c3bdc7124b7e47ce4e1adac6461a0e9c2fdfd93913f41cfd3a897cf"
   end
 
   resource "cached-property" do
@@ -137,13 +137,13 @@ class Checkov < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/f0/70/ca3dd67cdd368b957e73a8156f7e1a10339f9813e314cb8b4549526070da/importlib_metadata-4.8.1.tar.gz"
-    sha256 "f284b3e11256ad1e5d03ab86bb2ccd6f5339688ff17a4d797a0fe7df326f23b1"
+    url "https://files.pythonhosted.org/packages/2e/6d/4508b1922b1610f6646fd95681fa1b0c092df35ec14018218f4638b7342a/importlib_metadata-4.8.2.tar.gz"
+    sha256 "75bdec14c397f528724c1bfd9709d660b33a4d2e77387a3358f20b848bb5e5fb"
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f8/86/7c0eb6e8b05385d1ce682abc0f994abd1668e148fb52603fa86e15d4c110/Jinja2-3.0.2.tar.gz"
-    sha256 "827a0e32839ab1600d4eb1c4c33ec5a8edfbc5cb42dafa13b81f182f97784b45"
+    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
+    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
   end
 
   resource "jmespath" do
@@ -222,8 +222,8 @@ class Checkov < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/27/90/f467e516a845cf378d85f0a51913c642e31e2570eb64b352c4dc4c6cbfc7/s3transfer-0.4.2.tar.gz"
-    sha256 "cb022f4b16551edebbb31a377d3f09600dbada7363d8c5db7976e7f47732e1b2"
+    url "https://files.pythonhosted.org/packages/88/ef/4d1b3f52ae20a7e72151fde5c9f254cd83f8a49047351f34006e517e1655/s3transfer-0.5.0.tar.gz"
+    sha256 "50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c"
   end
 
   resource "schema" do
