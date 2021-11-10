@@ -16,31 +16,30 @@ class Liblcf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "34b0eea36554d5c51a76a48fbb100a302a0986fc38d8cee84df55864c2e57775"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "icu4c"
 
   uses_from_macos "expat"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make"
-    system "make", "install"
+    args = std_cmake_args + ["-DLIBLCF_UPDATE_MIMEDB=OFF"]
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include "lsd_reader.h"
+      #include "lcf/lsd/reader.h"
       #include <cassert>
 
       int main() {
         std::time_t const current = std::time(NULL);
-        assert(current == LSD_Reader::ToUnixTimestamp(LSD_Reader::ToTDateTime(current)));
+        assert(current == lcf::LSD_Reader::ToUnixTimestamp(lcf::LSD_Reader::ToTDateTime(current)));
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}/liblcf", "-L#{lib}", "-llcf", "-std=c++11", \
+    system ENV.cxx, "test.cpp", "-std=c++14", "-I#{include}", "-L#{lib}", "-llcf", \
       "-o", "test"
     system "./test"
   end
