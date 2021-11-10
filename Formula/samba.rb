@@ -4,8 +4,8 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.15.0.tar.gz"
-  sha256 "b1f3470838623156283733e6295f49cd6ae44a7e61bb9c346315d1e668d24640"
+  url "https://download.samba.org/pub/samba/stable/samba-4.15.1.tar.gz"
+  sha256 "a1811fbb4110d64969f6c108f8d161e2c3e20ddf475529a3d32bd94bb7459f00"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -24,7 +24,7 @@ class Samba < Formula
   end
 
   # configure requires python3 binary to be present, even when --disable-python is set.
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "gnutls"
 
   uses_from_macos "bison" => :build
@@ -34,14 +34,6 @@ class Samba < Formula
   resource "Parse::Yapp" do
     url "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
     sha256 "3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5"
-  end
-
-  # Workaround for "charset_macosxfs.c:278:4: error: implicit declaration of function 'DEBUG' is invalid in C99"
-  # Can be removed when https://bugzilla.samba.org/show_bug.cgi?id=14680 gets resolved.
-  # Merge request: https://gitlab.com/samba-team/samba/-/merge_requests/2160
-  patch do
-    url "https://attachments.samba.org/attachment.cgi?id=16579"
-    sha256 "86fce5306349d1c8f3732ca978a31065df643c8770114dc9d068b7b4dfa7d282"
   end
 
   def install
