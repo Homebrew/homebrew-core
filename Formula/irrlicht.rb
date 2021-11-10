@@ -33,20 +33,6 @@ class Irrlicht < Formula
 
   def install
     if OS.mac?
-      # Fix "error: cannot initialize a parameter of type
-      # 'id<NSApplicationDelegate> _Nullable' with an rvalue of type
-      # 'id<NSFileManagerDelegate>'"
-      # Reported 5 Oct 2016 https://irrlicht.sourceforge.io/forum/viewtopic.php?f=7&t=51562
-      inreplace "source/Irrlicht/MacOSX/CIrrDeviceMacOSX.mm",
-        "[NSApp setDelegate:(id<NSFileManagerDelegate>)",
-        "[NSApp setDelegate:(id<NSApplicationDelegate>)"
-
-      # Fix "error: ZLIB_VERNUM != PNG_ZLIB_VERNUM" on Mojave (picking up system zlib)
-      # Reported 21 Oct 2018 https://sourceforge.net/p/irrlicht/bugs/442/
-      inreplace "source/Irrlicht/libpng/pngpriv.h",
-        "#  error ZLIB_VERNUM != PNG_ZLIB_VERNUM \\",
-        "#  warning ZLIB_VERNUM != PNG_ZLIB_VERNUM \\"
-
       extra_args = []
 
       # Fix "Undefined symbols for architecture arm64: "_png_init_filter_functions_neon"
