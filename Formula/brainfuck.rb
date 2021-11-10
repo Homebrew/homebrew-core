@@ -6,8 +6,8 @@ class Brainfuck < Formula
 
   # Remove stable block in next release with merged patch
   stable do
-    url "https://github.com/fabianishere/brainfuck/archive/2.7.1.tar.gz"
-    sha256 "06534de715dbc614f08407000c2ec6d497770069a2d7c84defd421b137313d71"
+    url "https://github.com/fabianishere/brainfuck/archive/2.7.3.tar.gz"
+    sha256 "d99be61271b4c27e26a8154151574aa3750133a0bedd07124b92ccca1e03b5a7"
 
     # Fix Linux build: "editline/history.h: No such file or directory"
     # Upstream ref: https://github.com/fabianishere/brainfuck/pull/58
