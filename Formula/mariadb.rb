@@ -214,3 +214,5 @@ class Mariadb < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+
+__END__
