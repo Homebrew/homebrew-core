@@ -1,20 +1,10 @@
 class Brainfuck < Formula
   desc "Interpreter for the brainfuck language"
   homepage "https://github.com/fabianishere/brainfuck"
+  url "https://github.com/fabianishere/brainfuck/archive/2.7.3.tar.gz"
+  sha256 "d99be61271b4c27e26a8154151574aa3750133a0bedd07124b92ccca1e03b5a7"
   license "Apache-2.0"
   head "https://github.com/fabianishere/brainfuck.git", branch: "master"
-
-  # Remove stable block in next release with merged patch
-  stable do
-    url "https://github.com/fabianishere/brainfuck/archive/2.7.3.tar.gz"
-    sha256 "d99be61271b4c27e26a8154151574aa3750133a0bedd07124b92ccca1e03b5a7"
-
-    # Fix Linux build: "editline/history.h: No such file or directory"
-    # Upstream ref: https://github.com/fabianishere/brainfuck/pull/58
-    # Extracted part of commit to not apply version number changes
-    # Remove in the next release
-    patch :DATA
-  end
 
   bottle do
     rebuild 1
@@ -28,6 +18,7 @@ class Brainfuck < Formula
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "libedit"
 
   def install
@@ -41,19 +32,3 @@ class Brainfuck < Formula
     assert_equal "ABC", output.chomp
   end
 end
-
-__END__
-diff --git a/src/main.c b/src/main.c
-index 943b08a..649061a 100644
---- a/src/main.c
-+++ b/src/main.c
-@@ -22,9 +22,6 @@
-
- #ifdef BRAINFUCK_EDITLINE_LIB
- 	#include <editline/readline.h>
--	#ifndef __APPLE__
--		#include <editline/history.h>
--	#endif
- #endif
-
- #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
