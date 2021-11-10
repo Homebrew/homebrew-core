@@ -1,7 +1,12 @@
 [
   "anjuta",
+  "anime-downloader",
+  "emscripten",
   "fdroidserver",
   "hive",
+  "joplin-cli",
+  "jupyterlab",
+  "lanraragi",
   "predictionio",
   "sqoop",
   "visp"
