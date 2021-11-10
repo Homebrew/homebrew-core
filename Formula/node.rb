@@ -30,6 +30,7 @@ class Node < Formula
   depends_on "libuv"
   depends_on "openssl@3"
 
+  uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
 
   on_macos do
@@ -38,7 +39,6 @@ class Node < Formula
 
   on_linux do
     depends_on "gcc"
-    depends_on "python@3.9"
   end
 
   fails_with :clang do
