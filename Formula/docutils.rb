@@ -3,9 +3,8 @@ class Docutils < Formula
 
   desc "Text processing system for reStructuredText"
   homepage "https://docutils.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/docutils/docutils/0.17.1/docutils-0.17.1.tar.gz"
-  sha256 "686577d2e4c32380bb50cbb22f575ed742d58168cee37e99117a854bcd88f125"
-  revision 2
+  url "https://downloads.sourceforge.net/project/docutils/docutils/0.18/docutils-0.18.tar.gz"
+  sha256 "c1d5dab2b11d16397406a282e53953fe495a46d69ae329f55aa98a5c4e3c5fbb"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ff5b2092cbe68edf0834516ce550deb95a244274d5a09f858b23e5aecd5a1dad"
