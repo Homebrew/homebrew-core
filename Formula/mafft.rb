@@ -1,8 +1,8 @@
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
-  url "https://mafft.cbrc.jp/alignment/software/mafft-7.487-with-extensions-src.tgz"
-  sha256 "ea05f55e51d980925ce00b2289948ccd2a3ddd0397ebd60feaddc41ddd5d8ef1"
+  url "https://mafft.cbrc.jp/alignment/software/mafft-7.490-with-extensions-src.tgz"
+  sha256 "d6eef33d8b9e282e20f9b25b6b6fb2757b9b6900e397ca621d56da86d9976541"
 
   # The regex below is intended to avoid releases with trailing "Experimental"
   # text after the link for the archive.
