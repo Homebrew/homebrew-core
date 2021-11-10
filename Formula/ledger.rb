@@ -24,9 +24,10 @@ class Ledger < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "boost-python3"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.10"
+  depends_on "python@3.9"
 
   uses_from_macos "groff"
 
@@ -40,13 +41,18 @@ class Ledger < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+
+    xy = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
+    site_packages = lib/"python#{xy}/site-packages"
+    inreplace "src/CMakeLists.txt", "DESTINATION ${Python_SITEARCH}", "DESTINATION #{site_packages}"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
       --output=build
       --prefix=#{prefix}
       --boost=#{Formula["boost"].opt_prefix}
+      --python
       --
       -DBUILD_DOCS=1
       -DBUILD_WEB_DOCS=1
@@ -58,6 +64,7 @@ class Ledger < Formula
     system "./acprep", "opt", "make", "install", *args
 
     (pkgshare/"examples").install Dir["test/input/*.dat"]
+    (pkgshare/"test").install Dir["test/python/*.py"]
     pkgshare.install "contrib"
     elisp.install Dir["lisp/*.el", "lisp/*.elc"]
     bash_completion.install pkgshare/"contrib/ledger-completion.bash"
@@ -65,6 +72,7 @@ class Ledger < Formula
 
   test do
     balance = testpath/"output"
+    system bin/"ledger", "python", "#{pkgshare}/test/JournalTest.py"
     system bin/"ledger",
       "--args-only",
       "--file", "#{pkgshare}/examples/sample.dat",
