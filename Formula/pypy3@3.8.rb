@@ -1,5 +1,5 @@
 class Pypy3AT38 < Formula
-  desc "Implementation of Python 3 in Python"
+  desc "JIT-compiled alternative implementation of Python"
   homepage "https://pypy.org/"
   url "https://downloads.python.org/pypy/pypy3.8-v7.3.7-src.tar.bz2"
   sha256 "21ae339f4f5016d6ca7300305f3e3b554373835cb3c39a9041fe30e6811c80c6"
