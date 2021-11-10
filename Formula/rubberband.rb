@@ -29,6 +29,7 @@ class Rubberband < Formula
 
   on_linux do
     depends_on "fftw"
+    depends_on "gcc"
     depends_on "ladspa-sdk"
     depends_on "openjdk"
     depends_on "vamp-plugin-sdk"
