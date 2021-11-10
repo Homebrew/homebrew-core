@@ -1,22 +1,12 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
+  url "https://curl.se/download/curl-7.80.0.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-7_80_0/curl-7.80.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-7.80.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-7.80.0.tar.bz2"
+  sha256 "dd0d150e49cd950aff35e16b628edf04927f0289df42883750cf952bb858189c"
   license "curl"
-
-  stable do
-    url "https://curl.se/download/curl-7.80.0.tar.bz2"
-    mirror "https://github.com/curl/curl/releases/download/curl-7_80_0/curl-7.80.0.tar.bz2"
-    mirror "http://fresh-center.net/linux/www/curl-7.80.0.tar.bz2"
-    mirror "http://fresh-center.net/linux/www/legacy/curl-7.80.0.tar.bz2"
-    sha256 "dd0d150e49cd950aff35e16b628edf04927f0289df42883750cf952bb858189c"
-
-    # Fix link error on x86_64 macOS Monterey.
-    # Remove with the next version.
-    patch do
-      url "https://github.com/curl/curl/commit/20e980f85b0ea67b0821a807e73d57b281462564.patch?full_index=1"
-      sha256 "80071d9fb836fa859243a6deef00a5142c0c7f1124802f679bd8b7514fefa903"
-    end
-  end
 
   livecheck do
     url "https://curl.se/download/"
