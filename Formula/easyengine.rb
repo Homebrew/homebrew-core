@@ -27,6 +27,8 @@ class Easyengine < Formula
   end
 
   test do
+    return if OS.linux? # requires `sudo`
+
     system bin/"ee config set locale hi_IN"
     output = shell_output("#{bin}/ee config get locale")
     assert_match "hi_IN", output
