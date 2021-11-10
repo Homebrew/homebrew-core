@@ -1,8 +1,8 @@
 class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://k3d.io"
-  url "https://github.com/rancher/k3d/archive/v5.0.3.tar.gz"
-  sha256 "85fff692fd3180fb9d050a0e25a99718cde7539e53ef0ffcb433fd19dd56061f"
+  url "https://github.com/rancher/k3d/archive/v5.1.0.tar.gz"
+  sha256 "d34b047c6b2bd215deeeb52c3d4ba4c069e6edb15e5c132c7a3cbef24a8a183e"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class K3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd7c8e4270996845164dfcbbd58995c6536160cb94cc107af533fcc2d463115b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e94b60e00ef99c93f8a684dd9de14c6188e301e471113f3156c8ab621270d911"
-    sha256 cellar: :any_skip_relocation, monterey:       "8301adcc1ee53135b47891713adee35131b83cf466f2ce5c21814d085ac5e231"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a1d150c6cf260a17b16a155d305f20a97a80e6d7ae5e35671db8dc4a26c4885e"
-    sha256 cellar: :any_skip_relocation, catalina:       "d7777725eba873299f2344508b907d833973744640973a1201b053a18388d1f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e117dd2b6ebf56a0def38e790920f5c9ac9bbdbfe1abb617c933f46db8770f40"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd693e2a4c67650ab61a376c552aff9f192dfb9727a49528cb3381a54342e053"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fdce7075b10bef41b495a75a22271c0a14cc8fbda1af4da24d668ea9c08fd909"
+    sha256 cellar: :any_skip_relocation, monterey:       "fd0e600ee8dfce0794a430a5019cbeaa9ea6aea374ff1fa55135a8e555341c56"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4da258f17681cd21d16a5c06af593b5d7f3f447d532b0957ff7481993f5e5182"
+    sha256 cellar: :any_skip_relocation, catalina:       "84869a0ca57bf4c0f690e7155e694177900aa1ef0371add5bc8e0b04d1874ae3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "672e70309bcb98f0c01d21a3d2613792581cdb7dc607114dc4c6b76df94cae75"
   end
 
   depends_on "go" => :build

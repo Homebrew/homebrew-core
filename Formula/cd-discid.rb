@@ -18,6 +18,11 @@ class CdDiscid < Formula
     end
   end
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cd-discid[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "671ac240cb3b94484690d12ec1d85cc96d90ffbf848cfb4adeebd8f5f32c1fbd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7effbc8d5fb1325aa629f1ec607d75c64c9547b0aa70deb4f05b07e5a6b94c84"

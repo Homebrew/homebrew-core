@@ -4,8 +4,8 @@ class Libtorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.9.1",
-      revision: "dfbd030854359207cb3040b864614affeace11ce"
+      tag:      "v1.10.0",
+      revision: "36449ea93134574c2a22b87baad3de0bf8d64d42"
   license "BSD-3-Clause"
 
   livecheck do
@@ -14,13 +14,12 @@ class Libtorch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "afa592ad195e8b109d924bf9a1a22221eaa859a4ef7d172777d3fb0875b1459c"
-    sha256 cellar: :any,                 arm64_big_sur:  "c94d63a5075edcb43031d3114acdd2f9084bb825f9b48a226b5bffa607051985"
-    sha256 cellar: :any,                 monterey:       "4850c8fd3d09c6a4be680c496b3f739c75638c61afc47924cf08d7f31fbfc7e2"
-    sha256 cellar: :any,                 big_sur:        "259a9ade3880026cddffbadac967405d7a8900cce1d43739456f4acdd826a864"
-    sha256 cellar: :any,                 catalina:       "49c7b2cbd6f18a984be41fe3412a7928e54533acb171abdc89311cff0eb9eab5"
-    sha256 cellar: :any,                 mojave:         "65e1c0c4b62cbc28eb547f4139f8f42e007c9ad940475cbae74791b6dcb747a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "563944e7996b82ccc32336fb6e46ee95ad8394a0163af50fdb359c1783ed697e"
+    sha256 cellar: :any,                 arm64_monterey: "9ca5919b519a2f8c8179314a0029cbdaf2e8f7c4981fd116d1f8b11b11975283"
+    sha256 cellar: :any,                 arm64_big_sur:  "2623fb8ead1974ac75ec72f1152c80380587562665f2e1c0358e0d97cac55205"
+    sha256 cellar: :any,                 monterey:       "b860b964aaf29c54c4a939796e94c80ab6c29d6bbc01614e73814d77e0951b04"
+    sha256 cellar: :any,                 big_sur:        "fb8ec24294a323907c2ae56098b73df212f31b070ea3bd10388487d5863a643d"
+    sha256 cellar: :any,                 catalina:       "5df152e022bc15e1b5af984ddbc7fe8ad38a41bb7f5d40ac81ae2c9a6a3931d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9faff6e2057a418851e39bc9dbbc5b06e31d56eca28418d5e04e6635f017dee5"
   end
 
   depends_on "cmake" => :build
@@ -32,8 +31,8 @@ class Libtorch < Formula
   depends_on "pybind11"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   resource "typing-extensions" do
@@ -49,14 +48,16 @@ class Libtorch < Formula
       -DBUILD_CUSTOM_PROTOBUF=OFF
       -DBUILD_PYTHON=OFF
       -DPYTHON_EXECUTABLE=#{buildpath}/venv/bin/python
-      -Dpybind11_PREFER_third_party=OFF
       -DUSE_CUDA=OFF
       -DUSE_METAL=OFF
       -DUSE_MKLDNN=OFF
       -DUSE_NNPACK=OFF
       -DUSE_OPENMP=OFF
       -DUSE_SYSTEM_EIGEN_INSTALL=ON
+      -DUSE_SYSTEM_PYBIND11=ON
     ]
+    # Remove when https://github.com/pytorch/pytorch/issues/67974 is addressed
+    args << "-DUSE_SYSTEM_BIND11=ON"
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, *args

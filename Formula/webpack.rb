@@ -4,18 +4,18 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-5.62.1.tgz"
-  sha256 "6c28f8abf238479060dcf03f25cbfefb36c7d52c8d8716bbf9dbc765031903b0"
+  url "https://registry.npmjs.org/webpack/-/webpack-5.62.2.tgz"
+  sha256 "0719b0f7cf17d9fb5157c03afd6d6fb6216f8cd6ed3f70ed0f1da92c57762f31"
   license "MIT"
   head "https://github.com/webpack/webpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f75091dfd5e9410d9304747a50ae5e537087a20c2321463586413488e2cdf75a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f75091dfd5e9410d9304747a50ae5e537087a20c2321463586413488e2cdf75a"
-    sha256 cellar: :any_skip_relocation, monterey:       "0290e41a98df9e99b1f6e34ac8ad2e28b124842d9dde02044ace3e403eb15573"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0290e41a98df9e99b1f6e34ac8ad2e28b124842d9dde02044ace3e403eb15573"
-    sha256 cellar: :any_skip_relocation, catalina:       "0290e41a98df9e99b1f6e34ac8ad2e28b124842d9dde02044ace3e403eb15573"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fcc461ca55d981e0cc7f90f25080ec02345bfebed3c95d1c17fb29bb8c882c9c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d3055bb39cff5adf91256d2a84f2e2458dff68d358cfce501ee662f672ab20f7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d3055bb39cff5adf91256d2a84f2e2458dff68d358cfce501ee662f672ab20f7"
+    sha256 cellar: :any_skip_relocation, monterey:       "373a27d786b827c7d17a63fa3e1e2b73a67124f446bff4114128e8839b9b9d91"
+    sha256 cellar: :any_skip_relocation, big_sur:        "15e9f4b2fa4ecaea005fcec7e2f98b2be380d8a36e4be05f846b4e4df94703b4"
+    sha256 cellar: :any_skip_relocation, catalina:       "15e9f4b2fa4ecaea005fcec7e2f98b2be380d8a36e4be05f846b4e4df94703b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3366ae6cd168d653119d3eca0b883309d287e16bec731499ada271b271c80c0c"
   end
 
   depends_on "node"

@@ -1,8 +1,8 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://cdn.openttd.org/openttd-releases/12.0/openttd-12.0-source.tar.xz"
-  sha256 "bba0fd3800df0370259e642d251f362c7c00b478a2e3531f6ba7f84c1c2b32dc"
+  url "https://cdn.openttd.org/openttd-releases/12.1/openttd-12.1-source.tar.xz"
+  sha256 "258bf5b9983010890ba10518b506bc4ab80f7c08ccec59497e9ba55a4aa3e7e3"
   license "GPL-2.0-only"
   head "https://github.com/OpenTTD/OpenTTD.git", branch: "master"
 
@@ -12,10 +12,9 @@ class Openttd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, monterey: "e6bc9e5267efea76d4947e1a3b449c871b88065ab65fd97b34c9e4ebd712fa10"
-    sha256 cellar: :any, big_sur:  "9cb8cb39bf79d0238d2dc27f38feae95f32a1a04851f9dbc8da9e95b61bf103f"
-    sha256 cellar: :any, catalina: "f9ebc96147147720482c14c3528c294cd1f40b97044731f4a1322800db367df4"
-    sha256 cellar: :any, mojave:   "7bc30bdbb5a9bfa9adbf6a9c948ae4de761f046a69f0b24d088104b72f60f2bd"
+    sha256 cellar: :any, monterey: "2be8e1e555fee686f71feca57ef3ca20d457f187b8ac8890ffcb091336362423"
+    sha256 cellar: :any, big_sur:  "0f341a1a20bcb33b9dbfd8b976036e04daf992edaf6c36cb5e5888058351fe74"
+    sha256 cellar: :any, catalina: "b477a023b4346bc00b07175e27f82260baa8ce923d5af92cfbde49090b63bb08"
   end
 
   depends_on "cmake" => :build
@@ -25,18 +24,18 @@ class Openttd < Formula
   depends_on "xz"
 
   resource "opengfx" do
-    url "https://cdn.openttd.org/opengfx-releases/0.6.1/opengfx-0.6.1-all.zip"
-    sha256 "c694a112cd508d9c8fdad1b92bde05e7c48b14d66bad0c3999e443367437e37e"
+    url "https://cdn.openttd.org/opengfx-releases/7.1/opengfx-7.1-all.zip"
+    sha256 "928fcf34efd0719a3560cbab6821d71ce686b6315e8825360fba87a7a94d7846"
   end
 
   resource "openmsx" do
-    url "https://cdn.openttd.org/openmsx-releases/0.4.0/openmsx-0.4.0-all.zip"
-    sha256 "7698cadf06c44fb5e847a5773a22a4a1ea4fc0cf45664181254656f9e1b27ee2"
+    url "https://cdn.openttd.org/openmsx-releases/0.4.2/openmsx-0.4.2-all.zip"
+    sha256 "5a4277a2e62d87f2952ea5020dc20fb2f6ffafdccf9913fbf35ad45ee30ec762"
   end
 
   resource "opensfx" do
-    url "https://cdn.openttd.org/opensfx-releases/1.0.1/opensfx-1.0.1-all.zip"
-    sha256 "37b825426f1d690960313414423342733520d08916f512f30f7aaf30910a36c5"
+    url "https://cdn.openttd.org/opensfx-releases/1.0.3/opensfx-1.0.3-all.zip"
+    sha256 "e0a218b7dd9438e701503b0f84c25a97c1c11b7c2f025323fb19d6db16ef3759"
   end
 
   def install

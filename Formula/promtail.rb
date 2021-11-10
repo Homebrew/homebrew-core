@@ -1,8 +1,8 @@
 class Promtail < Formula
   desc "Log agent for Loki"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.4.0.tar.gz"
-  sha256 "38e8403e59218cfa81b38af48852e77f6b6be5390190b99bdc0dc157a7e0400b"
+  url "https://github.com/grafana/loki/archive/v2.4.1.tar.gz"
+  sha256 "a26c22941b406b8c42e55091c23798301181df74063aaaf0f678acffc66d8c27"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -10,12 +10,12 @@ class Promtail < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4987df46858631ab3e8814369d8a14c39b7c16ce0f89d15804f39df56bdfb1d5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "75a9fedd0102f2060b48e5c1e92bd5f4f712a4eaf2a341be8148a17811324be5"
-    sha256 cellar: :any_skip_relocation, monterey:       "cba989c739754603552b92a6ec1f37321451991d34fa77fdb5ba8ba0019c3f9e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5d129aeb7363268a1ec581f8cebb47cb97ad2ad505e41316efbb2dde3c6bf46e"
-    sha256 cellar: :any_skip_relocation, catalina:       "ac725d799923900f2d8f588e2ae7cf03150fa4c19cd44dc7ef00b8970bedb10b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0c464e473ac3fee348318feb8ea2bf945b3e54a6cb13541689bf931597f226a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5895cc8611675aeed96db27d71fe924a0b03d47fb8dd1dedb0ecfcd73f129c61"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1eceb7cc92d63bd1489cc37abca818b8f53242e85262e6f9581ef38ae7a19469"
+    sha256 cellar: :any_skip_relocation, monterey:       "d204c7b5deb3cf721712f4ef70ca7317269039c464e951e01744042bfd51b3ed"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a278f9e6cabd288ab882dddd521e932eb9ec9b5ad6328ea0429cde1470aca6e7"
+    sha256 cellar: :any_skip_relocation, catalina:       "ae4f17e8351d4533dbf7a5705f666b7ffa1f5768dbb20041d836b6c447c16315"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c9b84a5a8dfe07dd10bf9a099d95110a1a8d60c439a6326b354747f241b238d"
   end
 
   depends_on "go" => :build

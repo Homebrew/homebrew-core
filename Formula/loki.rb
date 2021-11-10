@@ -1,18 +1,18 @@
 class Loki < Formula
   desc "Horizontally-scalable, highly-available log aggregation system"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.4.0.tar.gz"
-  sha256 "38e8403e59218cfa81b38af48852e77f6b6be5390190b99bdc0dc157a7e0400b"
+  url "https://github.com/grafana/loki/archive/v2.4.1.tar.gz"
+  sha256 "a26c22941b406b8c42e55091c23798301181df74063aaaf0f678acffc66d8c27"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc975249c00e03b4258f5dfd0d067eb2066cc32ec2830a3158635b7fae5dbfa7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "efc36d3d6665a195b681e8d29fa3dafe7193d21fd61c7fbf6fdc8e4208a961f6"
-    sha256 cellar: :any_skip_relocation, monterey:       "b2ad74bd07947ff1b1d3b8c550390ab19d4049b880203d8061d0f41e8ed3615e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0b7d06f6e7b4a753930736044596570a9e94d037fe4d236845692b8540b54415"
-    sha256 cellar: :any_skip_relocation, catalina:       "978d27f479b53c15e38f2c9819afc8f5f75a5ccc20f362203ec0a3f66972a2d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "670aac9cb89cf42f37c561ea88a47e21cbb5cb0f3bc9a77997ababc2924460d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "adf92c6ba8441b7b15d4dc75b5389b87cb58f044e93243e83e0a05c12f06e6a5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d69411671074fa438ac319d5a96d9102eeab863f3eb8896c0545dd0c52865343"
+    sha256 cellar: :any_skip_relocation, monterey:       "f8430839ef3e3cb4a06d749c6748485ff1fdec72c30d58d659d0847295526498"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f97cd12fbc692fe99b1f52fc10fe82d1df66ddd28694c3ff9d40357e079c0694"
+    sha256 cellar: :any_skip_relocation, catalina:       "ba4c5c9dca9503ee60789ec5b614cad50bed09968741be0912be4af1145ff35e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e96809c314e0acc641ff71690fbf7474884956e80dd42401976a0e005c86b5a"
   end
 
   depends_on "go" => :build

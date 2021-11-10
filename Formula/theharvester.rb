@@ -3,19 +3,18 @@ class Theharvester < Formula
 
   desc "Gather materials from public sources (for pen testers)"
   homepage "http://www.edge-security.com/theharvester.php"
-  url "https://github.com/laramies/theHarvester/archive/4.0.1.tar.gz"
-  sha256 "99bce3c0bfd5337f646f9721dc58f4782c2c0d4da73422c6ed3c95dff67d7e7e"
+  url "https://github.com/laramies/theHarvester/archive/4.0.2.tar.gz"
+  sha256 "c6615b9adc406b7b0ece99dcc95200621b047c2612be1e2f6ee653ec38ee3a64"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "028dbb9d7c2896755ef9693191a44f613e5e17132ae96caa6d8cf89a698b9d34"
-    sha256 cellar: :any,                 arm64_big_sur:  "73eb7bef933ca067b0d403bb07ca6fe013fd28a9f5d9248a80c9b3a7c829e66b"
-    sha256 cellar: :any,                 monterey:       "639f3080bf125cbcd1f57777e014a07382b4e747c4fece648aefdeea34192ea1"
-    sha256 cellar: :any,                 big_sur:        "7f709efa01cd3890e9ff0b03deecba548d4fb7d751e367cd13c4fd02098ebf18"
-    sha256 cellar: :any,                 catalina:       "d085b44cb0e1d0370919c9754a6436f6a0a216079382f080fc99b67c50a8358d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4c5f6015343b939dc9c4d024496efd4fe718856f5adb33b5b79e563ee37f90a"
+    sha256 cellar: :any,                 arm64_monterey: "5368097bec83ea8c65c46b56512a663395d9b9beee7f421f14a09599a0ce9a00"
+    sha256 cellar: :any,                 arm64_big_sur:  "4f0d342c2cce67e5f8a586138bc7f89c905a2e02b94939d78449ec6a4433b887"
+    sha256 cellar: :any,                 monterey:       "1e8b4cc721c8fcdb7c71b8b034e428754fd785abc0ced8f74185b0bc8ac04db1"
+    sha256 cellar: :any,                 big_sur:        "239a40a9eff32ad2b981548a6d5959a468c1b6227e14842526ad4cb22f2cd8a6"
+    sha256 cellar: :any,                 catalina:       "19d2b721342dd34859f3efa8124ad4f7cce06a0b25dbb668eaf8ee968db72475"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9036df5e1b5e3823377be9c5cea23c29bd4ce56780c46da7f1d524f82cb44eeb"
   end
 
   depends_on "maturin" => :build

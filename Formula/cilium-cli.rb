@@ -1,17 +1,17 @@
 class CiliumCli < Formula
   desc "CLI to install, manage & troubleshoot Kubernetes clusters running Cilium"
   homepage "https://cilium.io"
-  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "4d15f3ad07174763e8483f2ede2753ada96604899d1ba990337ac31c919cb550"
+  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.9.3.tar.gz"
+  sha256 "ca11474ced97ea7958305cea3d6e80837580764d546874b1e997eb15fef86f74"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a386ea7e73a8150e1f48a610802a2ca686245bc3e0577bde6211c990e47e0b3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43c1f966d2a60c14b75e706fe883b8534c38766ab29c305be7c9483ad5e293de"
-    sha256 cellar: :any_skip_relocation, monterey:       "f0b037ad13f7640800d3db73c11b9d18957e66aa0f1c5d7bc8b99b32fb1390b1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "96350a117038bbcaeebec52c95c804c158576944b349c225ab73caf75a0e73e4"
-    sha256 cellar: :any_skip_relocation, catalina:       "948c9222d90ca82c9e036c0ff44a5e5fabc94ddde79996df6839444dbdcaaae9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0370dd2166eba59dedb2a51eaa131e4962bc46ad8b6104f07d33ae04154901f5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "02eb6de131b21a0f488771ca986e64e3743315b8be1efd9f0f8f54d502f4dc3b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf774f0ed7ff6bda1dc72ccfb13c4e7a9a31bfe37ea2bf8d74318e71896ff335"
+    sha256 cellar: :any_skip_relocation, monterey:       "db0b69dfedf90dddb751642bfa059f37d52acfb8ca2f386edad53f63c011a52d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "512ea2b560a89d9eff2574a05130a817c22a13d6e2068cbcb18a4eab21eedfab"
+    sha256 cellar: :any_skip_relocation, catalina:       "48a1785fa7b4b2e38c7d490779aa53fabd04768fea3242b23690809c58da6ea9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b69640bd4301be137e18dc160a9ff7588c1851d2309e15b620f2c57054f1ed7"
   end
 
   depends_on "go" => :build

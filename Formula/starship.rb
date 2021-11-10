@@ -1,19 +1,18 @@
 class Starship < Formula
   desc "Cross-shell prompt for astronauts"
   homepage "https://starship.rs"
-  url "https://github.com/starship/starship/archive/v0.58.0.tar.gz"
-  sha256 "8bd4cfad4bcf9694633f228de0c7dc6cfab6bb6955e2a7299ed28dd8c4d6f5e4"
+  url "https://github.com/starship/starship/archive/v1.0.0.tar.gz"
+  sha256 "a66d47758b3dac4f1a626bb175c4847a2ef266540498a9f25222e715baf9f9db"
   license "ISC"
   head "https://github.com/starship/starship.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a60faabb96b0f5018d9eca0411cc0e62d426104393363aef5cf790b037f20bf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5cdf15b3acc6d79796801ccecec7abbec07a80cd0930d8b8eb0ea0eca5c4234"
-    sha256 cellar: :any_skip_relocation, monterey:       "47e6603e1e79ba5ada5023aeeff972bbddd44d9576ab5833dd67563f4a60d22c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "497ab79648951d3c78c19ad71e58059e1a810cf6acd70bac6e82369c61d7afd6"
-    sha256 cellar: :any_skip_relocation, catalina:       "cf3eece649108cd3e0f0a06d60917798baa94df0b9e6cc5b47a9f74946bc5f71"
-    sha256 cellar: :any_skip_relocation, mojave:         "b81cf067b32c42429b1509a9349cfd931e6b738429b52e221411c8d00af89098"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c587f2f64efd31838b3c23ba82f13a0301d58e21a10b1795cf0c253ee55a7dae"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35fd536521a8c741c86ada03b75e22dd08f719dbde5892c25d32d3ff67f47bc6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b13cbcb4e50e836f17e168da533c767a38ed9ca95a78a0982317705c79ffa149"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f9d73aa8caa8dc009958d9ae2df016ddc4e80e97d75d9aaabbdf800012e5efd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "107b6540bdb4820c59e0e022b12e9c3020a3f17f3d428c4aa7229fa2126d02f4"
+    sha256 cellar: :any_skip_relocation, catalina:       "aafc54465ee3a673318edb08039c0eb3b37d3c42407e534498ebd0890bb8d3ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99000a25be0ea6411caff418a2bdb2dc30122900fbddcf0c1a9431bd4d00417b"
   end
 
   depends_on "rust" => :build

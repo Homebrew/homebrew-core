@@ -1,8 +1,8 @@
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://github.com/jbruchon/jdupes"
-  url "https://github.com/jbruchon/jdupes/archive/v1.20.1.tar.gz"
-  sha256 "beff2c812e82c9e6154e1a853594c46c60c871a1364452dc852ba3f1d0ab653b"
+  url "https://github.com/jbruchon/jdupes/archive/v1.20.2.tar.gz"
+  sha256 "d079d22dc77e1d181abcb8a59216520633a8712d197d007a9a9fb64c72610824"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Jdupes < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "91c0cc6659ea58e92e96a8c9aa97e2f267582ccf70fd729c27cf6d461679bd24"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2718e6d037fcd6fb729139ce08e5eaa42ce0a5ade83fb7a335c2d772964638a3"
-    sha256 cellar: :any_skip_relocation, monterey:       "73750413e000023bbff46add01f97c5bdfc391284fbc86bcdbdbeaba91f6810e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7cc7eb382f5a1667d1ac84086bb9b115e704fb5fe3f331ec42ac15055e162192"
-    sha256 cellar: :any_skip_relocation, catalina:       "3a3ac1f13b64436a5f1958b6e7cb499e30a37516e0c55b5a46dc895a70b98491"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e45cd7275ff6c14378f4ff66dd237fce54272994ae9d14cc50d0c5a8b6a8f196"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a3937038afc1820f1f774fbd22f35c8fe466e70f0588fe75cc3828f15dcf6653"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c844afb4e9fba5b763ae1378a8629e9956f251c8ad9c1e0c74d8d0d18668274"
+    sha256 cellar: :any_skip_relocation, monterey:       "263316d819220f93765f67a80757c9b5769f3132bab17874bfd1d9de40aa60cb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6e39c1b51399b4c6cd2b39624bd8c7957643fd9abbd537cb75f3663619e355b8"
+    sha256 cellar: :any_skip_relocation, catalina:       "9fadc414239619b0ed49beb9e31ade91fc917fe8d2ec37ea3be9ced6701a491d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b03a8221e4d828bed9072894e8a78151478a70283ec9ca98f95dbdc83eeeeb8"
   end
 
   def install
