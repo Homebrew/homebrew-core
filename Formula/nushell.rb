@@ -33,7 +33,7 @@ class Nushell < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "extra", *std_cargo_args
+    system "cargo", "install", "--workspace", "--features", "extra", *std_cargo_args
   end
 
   test do
