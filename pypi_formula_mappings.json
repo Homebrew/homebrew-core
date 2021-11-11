@@ -429,7 +429,7 @@
     "exclude_packages": ["six"]
   },
   "todoman": {
-    "exclude_packages": ["tabulate"]
+    "exclude_packages": ["six", "tabulate"]
   },
   "tox": {
     "exclude_packages": ["six"]
