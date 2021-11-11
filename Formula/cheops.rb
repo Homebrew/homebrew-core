@@ -6,6 +6,11 @@ class Cheops < Formula
   sha256 "a3ce2e94f73068159827a1ec93703b5075c7edfdf5b0c1aba4d71b3e43fe984e"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://files.nothingisreal.com/software/cheops/"
+    regex(/href=.*?cheops[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "da2855e699980221437085582629f794572878a32f953cdaef9e58f12a5f0cac"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfc230c6ec9f5369e775cf965cfd15838da419a0a214d390960a249fa0e7582c"
