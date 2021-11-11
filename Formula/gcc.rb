@@ -14,7 +14,7 @@ class Gcc < Formula
     sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  revision 1
+  revision 2
   head "https://gcc.gnu.org/git/gcc.git"
 
   # We can't use `url :stable` here due to the ARM-specific branch above.
@@ -233,6 +233,7 @@ class Gcc < Formula
       #     Noted that it should only be passed for the `gcc@*` formulae.
       #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
       #     brew libraries.
+      # Note: *link will silently add #{libdir} first to the RPATH
       libdir = HOMEBREW_PREFIX/"lib/gcc/#{version_suffix}"
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
@@ -242,9 +243,13 @@ class Gcc < Formula
         #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
 
         *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir} -rpath #{HOMEBREW_PREFIX}/lib
+        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir}
+
+        *homebrew_rpath:
+        -rpath #{HOMEBREW_PREFIX}/lib
 
       EOS
+      inreplace(specs, " %o ", "\\0%(homebrew_rpath) ")
     end
   end
 
