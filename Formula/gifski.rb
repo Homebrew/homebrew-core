@@ -4,6 +4,7 @@ class Gifski < Formula
   url "https://github.com/ImageOptim/gifski/archive/1.5.1.tar.gz"
   sha256 "88beeb896b6a1138046f665c3495f85670a74a527e34743080d8976d3f1b73b7"
   license "AGPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a587ba695eafdf36d0d552490d75f904be8357de3367f7d6a3e24425c32689ad"
@@ -20,6 +21,12 @@ class Gifski < Formula
   depends_on "ffmpeg"
 
   uses_from_macos "llvm" => :build
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # rubberband is built with GCC
 
   def install
     system "cargo", "install", "--features", "video", *std_cargo_args
