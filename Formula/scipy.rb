@@ -21,7 +21,7 @@ class Scipy < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "pybind11"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   cxxstdlib_check :skip
 
@@ -54,9 +54,9 @@ class Scipy < Formula
     ENV.prepend_create_path "PYTHONPATH", Formula["numpy"].opt_prefix/site_packages
     ENV.prepend_create_path "PYTHONPATH", site_packages
 
-    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build",
+    system Formula["python@3.10"].opt_bin/"python3", "setup.py", "build",
       "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+    system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
   # cleanup leftover .pyc files from previous installs which can cause problems
@@ -66,6 +66,6 @@ class Scipy < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import scipy"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import scipy"
   end
 end

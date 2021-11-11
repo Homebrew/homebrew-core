@@ -19,14 +19,14 @@ class Opencolorio < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     args = std_cmake_args + %W[
       -DCMAKE_VERBOSE_MAKEFILE=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DPYTHON=python3
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/"python3"
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/"python3"
     ]
 
     mkdir "macbuild" do

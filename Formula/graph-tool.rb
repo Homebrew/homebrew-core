@@ -34,7 +34,7 @@ class GraphTool < Formula
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "scipy"
   depends_on "six"
 
@@ -75,8 +75,8 @@ class GraphTool < Formula
 
   def install
     system "autoreconf", "-fiv"
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
+    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
 
     resources.each do |r|
       venv.pip_install_and_link r
@@ -113,6 +113,6 @@ class GraphTool < Formula
       assert g.num_edges() == 1
       assert g.num_vertices() == 2
     EOS
-    system Formula["python@3.9"].opt_bin/"python3", "test.py"
+    system Formula["python@3.10"].opt_bin/"python3", "test.py"
   end
 end

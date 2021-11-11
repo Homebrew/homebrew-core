@@ -24,7 +24,7 @@ class LibtorrentRasterbar < Formula
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "libtorrent-rakshasa", because: "they both use the same libname"
 

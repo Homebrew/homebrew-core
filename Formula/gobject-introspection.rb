@@ -25,7 +25,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "libffi"
   depends_on "pkg-config"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "flex" => :build
 
@@ -51,7 +51,7 @@ class GobjectIntrospection < Formula
 
     mkdir "build" do
       system "meson", *std_meson_args,
-        "-Dpython=#{Formula["python@3.9"].opt_bin}/python3",
+        "-Dpython=#{Formula["python@3.10"].opt_bin}/python3",
         "-Dextra_library_paths=#{HOMEBREW_PREFIX}/lib",
         ".."
       system "ninja", "-v"

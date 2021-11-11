@@ -20,7 +20,7 @@ class Eigenpy < Formula
   depends_on "boost-python3"
   depends_on "eigen"
   depends_on "numpy"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     pyver = Language::Python.major_minor_version "python3"
@@ -39,7 +39,7 @@ class Eigenpy < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
+    system Formula["python@3.10"].opt_bin/"python3", "-c", <<~EOS
       import numpy as np
       import eigenpy
 

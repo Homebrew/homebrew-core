@@ -21,13 +21,13 @@ class Pygobject3 < Formula
   depends_on "pkg-config" => :build
   depends_on "gobject-introspection"
   depends_on "py3cairo"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     mkdir "buildpy3" do
       system "meson", *std_meson_args,
                       "-Dpycairo=enabled",
-                      "-Dpython=#{Formula["python@3.9"].opt_bin}/python3",
+                      "-Dpython=#{Formula["python@3.10"].opt_bin}/python3",
                       ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
@@ -43,8 +43,8 @@ class Pygobject3 < Formula
       assert(31 == GLib.Date.get_days_in_month(GLib.DateMonth.JANUARY, 2000))
     EOS
 
-    pyversion = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    pyversion = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", lib/"python#{pyversion}/site-packages"
-    system Formula["python@3.9"].opt_bin/"python3", "test.py"
+    system Formula["python@3.10"].opt_bin/"python3", "test.py"
   end
 end

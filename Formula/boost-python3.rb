@@ -22,7 +22,7 @@ class BoostPython3 < Formula
 
   depends_on "numpy" => :build
   depends_on "boost"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     # "layout" should be synchronized with boost
@@ -46,9 +46,9 @@ class BoostPython3 < Formula
     # user-config.jam below.
     inreplace "bootstrap.sh", "using python", "#using python"
 
-    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
-    py_prefix = Formula["python@3.9"].opt_prefix if OS.linux?
+    pyver = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
+    py_prefix = Formula["python@3.10"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    py_prefix = Formula["python@3.10"].opt_prefix if OS.linux?
 
     # Force boost to compile with the desired compiler
     compiler_text = if OS.mac?
@@ -93,9 +93,9 @@ class BoostPython3 < Formula
       }
     EOS
 
-    pyincludes = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --includes").chomp.split
-    pylib = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --ldflags --embed").chomp.split
-    pyver = Language::Python.major_minor_version(Formula["python@3.9"].opt_bin/"python3").to_s.delete(".")
+    pyincludes = shell_output("#{Formula["python@3.10"].opt_bin}/python3-config --includes").chomp.split
+    pylib = shell_output("#{Formula["python@3.10"].opt_bin}/python3-config --ldflags --embed").chomp.split
+    pyver = Language::Python.major_minor_version(Formula["python@3.10"].opt_bin/"python3").to_s.delete(".")
 
     system ENV.cxx, "-shared", "-fPIC", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
@@ -104,6 +104,6 @@ class BoostPython3 < Formula
       import hello
       print(hello.greet())
     EOS
-    assert_match "Hello, world!", pipe_output(Formula["python@3.9"].opt_bin/"python3", output, 0)
+    assert_match "Hello, world!", pipe_output(Formula["python@3.10"].opt_bin/"python3", output, 0)
   end
 end

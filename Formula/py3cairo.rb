@@ -17,13 +17,13 @@ class Py3cairo < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
+    system Formula["python@3.10"].bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
-    system Formula["python@3.9"].bin/"python3", "-c", "import cairo; print(cairo.version)"
+    system Formula["python@3.10"].bin/"python3", "-c", "import cairo; print(cairo.version)"
   end
 end
