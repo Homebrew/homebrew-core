@@ -6,7 +6,7 @@ class Cpl < Formula
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://www.eso.org/sci/software/cpl/download.html"
+    url "https://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/"
     regex(/href=.*?cpl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
