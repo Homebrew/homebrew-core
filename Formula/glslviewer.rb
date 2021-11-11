@@ -4,6 +4,7 @@ class Glslviewer < Formula
   url "https://github.com/patriciogonzalezvivo/glslViewer/archive/1.7.0.tar.gz"
   sha256 "4a03e989dc81587061714ccc130268cc06ddaff256ea24b7492ca28dc855e8d6"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/patriciogonzalezvivo/glslViewer.git"
 
   bottle do
@@ -19,6 +20,12 @@ class Glslviewer < Formula
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "glfw"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # rubberband is built with GCC
 
   # From miniaudio commit in https://github.com/patriciogonzalezvivo/glslViewer/tree/#{version}/include
   resource "miniaudio" do
