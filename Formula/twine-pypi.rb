@@ -3,8 +3,8 @@ class TwinePypi < Formula
 
   desc "Utilities for interacting with PyPI"
   homepage "https://github.com/pypa/twine"
-  url "https://files.pythonhosted.org/packages/c4/6d/1979e4d7b5791705957c262c44ffbe719aa39a4dba44b7678f01416deee6/twine-3.5.0.tar.gz"
-  sha256 "218c42324121d4417cbcbbda59c623b8acc4becfce3daa545e6b6dd48bd21385"
+  url "https://files.pythonhosted.org/packages/97/af/d438c8eba421a8323175843d312d6e2f8c6917190a6aec3796e363bad8b4/twine-3.6.0.tar.gz"
+  sha256 "4caad5ef4722e127b3749052fcbffaaf71719b19d4fd4973b29c469957adeba2"
   license "Apache-2.0"
   head "https://github.com/pypa/twine.git", branch: "main"
 
@@ -51,8 +51,8 @@ class TwinePypi < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/f0/70/ca3dd67cdd368b957e73a8156f7e1a10339f9813e314cb8b4549526070da/importlib_metadata-4.8.1.tar.gz"
-    sha256 "f284b3e11256ad1e5d03ab86bb2ccd6f5339688ff17a4d797a0fe7df326f23b1"
+    url "https://files.pythonhosted.org/packages/2e/6d/4508b1922b1610f6646fd95681fa1b0c092df35ec14018218f4638b7342a/importlib_metadata-4.8.2.tar.gz"
+    sha256 "75bdec14c397f528724c1bfd9709d660b33a4d2e77387a3358f20b848bb5e5fb"
   end
 
   resource "keyring" do
