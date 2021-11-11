@@ -35,6 +35,8 @@ class Rubberband < Formula
     depends_on "vamp-plugin-sdk"
   end
 
+  fails_with gcc: "5"
+
   def install
     mkdir "build" do
       system "meson", *std_meson_args
