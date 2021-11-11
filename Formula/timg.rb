@@ -4,6 +4,7 @@ class Timg < Formula
   url "https://github.com/hzeller/timg/archive/refs/tags/v1.4.2.tar.gz"
   sha256 "7607efaffbed0b65b3c824956de421b155a4f14243e7a752b19454f88bf9d563"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/hzeller/timg.git", branch: "main"
 
   bottle do
@@ -24,6 +25,12 @@ class Timg < Formula
   depends_on "libpng"
   depends_on "openslide"
   depends_on "webp"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # rubberband is built with GCC
 
   def install
     system "cmake", ".", *std_cmake_args
