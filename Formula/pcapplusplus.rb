@@ -1,8 +1,8 @@
 class Pcapplusplus < Formula
   desc "C++ network sniffing, packet parsing and crafting framework"
   homepage "https://pcapplusplus.github.io"
-  url "https://github.com/seladb/PcapPlusPlus/archive/v21.05.tar.gz"
-  sha256 "f7bc2caea72544f42e3547c8acf65fca07ddd4cd45f7be2f5132dd1826ea27bb"
+  url "https://github.com/seladb/PcapPlusPlus/archive/v21.11.tar.gz"
+  sha256 "56b8566b14b2586b8afc358e7c98268bc1dd6192197b29a3917b9df2120c51b0"
   license "Unlicense"
 
   bottle do
