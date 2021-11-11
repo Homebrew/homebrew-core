@@ -25,13 +25,19 @@ class NatsStreamingServer < Formula
   end
 
   test do
+    port = free_port
+    http_port = free_port
     pid = fork do
-      exec "#{bin}/nats-streaming-server --port=8085 --pid=#{testpath}/pid --log=#{testpath}/log"
+      exec "#{bin}/nats-streaming-server",
+           "--port=#{port}",
+           "--http_port=#{http_port}",
+           "--pid=#{testpath}/pid",
+           "--log=#{testpath}/log"
     end
     sleep 3
 
     begin
-      assert_match "INFO", shell_output("curl localhost:8085")
+      assert_match "uptime", shell_output("curl localhost:#{http_port}/varz")
       assert_predicate testpath/"log", :exist?
       assert_match version.to_s, File.read(testpath/"log")
     ensure
