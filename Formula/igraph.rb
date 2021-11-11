@@ -1,8 +1,8 @@
 class Igraph < Formula
   desc "Network analysis package"
   homepage "https://igraph.org/"
-  url "https://github.com/igraph/igraph/releases/download/0.9.4/igraph-0.9.4.tar.gz"
-  sha256 "a3285cccf4f043c9ced2bc8d8d2609ff8398cb92ed49fdf86264ed91929137dd"
+  url "https://github.com/igraph/igraph/releases/download/0.9.5/igraph-0.9.5.tar.gz"
+  sha256 "c4e3f67892e1e287865d799162406b3f94916ad6f2cc069a9239e36ca495a17a"
   license "GPL-2.0-or-later"
 
   bottle do
