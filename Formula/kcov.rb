@@ -1,10 +1,9 @@
 class Kcov < Formula
   desc "Code coverage tester for compiled programs, Python, and shell scripts"
   homepage "https://simonkagstrom.github.io/kcov/"
-  url "https://github.com/SimonKagstrom/kcov/archive/38.tar.gz"
-  sha256 "b37af60d81a9b1e3b140f9473bdcb7975af12040feb24cc666f9bb2bb0be68b4"
+  url "https://github.com/SimonKagstrom/kcov/archive/v39.tar.gz"
+  sha256 "1b538fe16acf5ffd886f1fc32e9e803a520d586666e5c90a0b8632f1459291eb"
   license "GPL-2.0"
-  revision 1
   head "https://github.com/SimonKagstrom/kcov.git"
 
   # We check the Git tags because, as of writing, the "latest" release on GitHub
