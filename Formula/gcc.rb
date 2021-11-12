@@ -15,7 +15,7 @@ class Gcc < Formula
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
   revision 2
-  head "https://gcc.gnu.org/git/gcc.git"
+  head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   # We can't use `url :stable` here due to the ARM-specific branch above.
   livecheck do
@@ -89,6 +89,7 @@ class Gcc < Formula
       --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
       --enable-checking=release
+      --with-gcc-major-version-only
       --enable-languages=#{languages.join(",")}
       --program-suffix=-#{version_suffix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
