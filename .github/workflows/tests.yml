@@ -138,6 +138,13 @@ jobs:
               console.log('No CI-build-dependents-from-source label found. Not passing --build-dependents-from-source to brew test-bot.')
             }
 
+            if (label_names.includes('CI-skip-online-checks')) {
+              console.log('CI-skip-online-checks label found. Passing --skip-online-checks to brew test-bot.')
+              test_bot_dependents_args.push('--skip-online-checks')
+            } else {
+              console.log('No CI-skip-online-checks label found. Not passing --skip-online-checks to brew test-bot.')
+            }
+
             if (label_names.includes('CI-skip-recursive-dependents')) {
               console.log('CI-skip-recursive-dependents label found. Passing --skip-recursive-dependents to brew test-bot.')
               test_bot_dependents_args.push('--skip-recursive-dependents')
