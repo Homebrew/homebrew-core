@@ -3,8 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/91/c1/8519982d934835abb479c501d80252f47cc07c1d1800ac728b619c2378bd/jupyterlab-3.2.2.tar.gz"
-  sha256 "215dcbc2674bf1c74eca16b30eac49b882d41503c522ed337fb0053c89565ec8"
+  url "https://files.pythonhosted.org/packages/67/c2/657f6a6b2ab2c2dc2ccf6b72ac902ceb5ba4572198744a1c853969160364/jupyterlab-3.2.3.tar.gz"
+  sha256 "7d74593e52d4dbfacbb98e14cac4bc765ea2cffb1b980675f44930d622871705"
   license "BSD-3-Clause"
 
   bottle do
@@ -120,8 +120,8 @@ class Jupyterlab < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f8/86/7c0eb6e8b05385d1ce682abc0f994abd1668e148fb52603fa86e15d4c110/Jinja2-3.0.2.tar.gz"
-    sha256 "827a0e32839ab1600d4eb1c4c33ec5a8edfbc5cb42dafa13b81f182f97784b45"
+    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
+    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
   end
 
   resource "json5" do
