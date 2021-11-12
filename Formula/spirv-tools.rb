@@ -21,19 +21,19 @@ class SpirvTools < Formula
   resource "re2" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/re2.git",
-        revision: "f8e389f3acdc2517562924239e2a188037393683"
+        revision: "4244cd1cb492fa1d10986ec67f862964c073f844"
   end
 
   resource "effcee" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/effcee.git",
-        revision: "2ec8f8738118cc483b67c04a759fee53496c5659"
+        revision: "ddf5e2bb92957dc8a12c5392f8495333d6844133"
   end
 
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "e71feddb3f17c5586ff7f4cfb5ed1258b800574b"
+        revision: "814e728b30ddd0f4509233099a3ad96fd4318c07"
   end
 
   def install
