@@ -27,6 +27,7 @@ class Kcov < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
+  depends_on "openssl@3"
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
@@ -36,11 +37,9 @@ class Kcov < Formula
   end
 
   def install
-    mkdir "build" do
-      system "cmake", "-DSPECIFY_RPATH=ON", *std_cmake_args, ".."
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DSPECIFY_RPATH=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
