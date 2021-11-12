@@ -52,4 +52,3 @@ class DependencyCheck < Formula
     assert_predicate testpath/"dependency-check-report.xml", :exist?
   end
 end
-
