@@ -6,16 +6,27 @@ class Lit < Formula
   url "https://files.pythonhosted.org/packages/f7/fc/aba44ef618619519d4fb56e604163fd85f4b598a4fd8a105e32e4e456798/lit-13.0.0.tar.gz"
   sha256 "4da976f3d114e4ba6ba06cbe660ce1393230f4519c4df15b90bc1840f00e4195"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "0cc9d6acafc45e2cbf37ec1ec2ad3947d55a805529822db741b4d4d70aedbe6a"
   end
 
   depends_on "llvm" => :test
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     system "python3", *Language::Python.setup_install_args(prefix)
+
+    # Install symlinks so that `import lit` works with multiple versions of Python
+    python_versions = Formula.names
+                             .select { |name| name.start_with? "python@" }
+                             .map { |py| py.delete_prefix("python@") }
+                             .reject { |xy| xy == Language::Python.major_minor_version("python3") }
+    site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
+    python_versions.each do |xy|
+      (lib/"python#{xy}/site-packages").install_symlink (lib/site_packages).children
+    end
   end
 
   test do
@@ -43,6 +54,15 @@ class Lit < Formula
     EOS
 
     system bin/"lit", "-v", "."
+
+    if OS.mac?
+      ENV.prepend_path "PYTHONPATH", prefix/Language::Python.site_packages("python3")
+    else
+      python = deps.reject { |d| d.build? || d.test? }
+                   .find { |d| d.name.match?(/^python@\d+(\.\d+)*$/) }
+                   .to_formula
+      ENV.prepend_path "PATH", python.opt_bin
+    end
     system "python3", "-c", "import lit"
   end
 end
