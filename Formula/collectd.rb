@@ -15,6 +15,11 @@ class Collectd < Formula
     end
   end
 
+  livecheck do
+    url "https://collectd.org/download.shtml"
+    regex(/href=.*?collectd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "1a82ae21e794db579661851b68e64f8b5308b970314e9904c291b33810c54ed5"
     sha256 arm64_big_sur:  "c0a9e32a3407d094ae4fe5f8bf0fc19d0b4f5f0bb40f8ce6335fe4d2241a72b3"
