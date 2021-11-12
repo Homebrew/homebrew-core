@@ -117,14 +117,14 @@ jobs:
             docker exec ${{github.sha}} brew test-bot --only-setup
           fi
 
-      - name: Run brew test-bot --only-formulae --keep-old --only-json-tab --skip-dependents ${{github.event.inputs.formula}}
+      - name: Run brew test-bot --only-formulae --keep-old --only-json-tab --skip-online-checks --skip-dependents ${{github.event.inputs.formula}}
         run: |
           if [ "$RUNNER_OS" = 'macOS' ]; then
             mkdir bottles
             cd bottles
-            brew test-bot --keep-old --only-json-tab --only-formulae --skip-dependents ${{github.event.inputs.formula}}
+            brew test-bot --only-formulae --keep-old --only-json-tab --skip-online-checks --skip-dependents ${{github.event.inputs.formula}}
           else
-            docker exec ${{github.sha}} brew test-bot --keep-old --only-json-tab --only-formulae --skip-dependents ${{github.event.inputs.formula}}
+            docker exec ${{github.sha}} brew test-bot --only-formulae --keep-old --only-json-tab --skip-online-checks --skip-dependents ${{github.event.inputs.formula}}
           fi
 
       - name: Copy bottles from container
