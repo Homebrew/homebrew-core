@@ -18,7 +18,8 @@ class Gofumpt < Formula
   depends_on "go"
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.version=#{version}"
+    ldflags = "-s -w -X mvdan.cc/gofumpt/internal/version.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
