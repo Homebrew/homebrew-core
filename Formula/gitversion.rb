@@ -1,8 +1,8 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
-  url "https://github.com/GitTools/GitVersion/archive/5.7.0.tar.gz"
-  sha256 "d2c101d3b6ed5a0ee1e764c749bd869a2ce8f6d5563a5e2938dc3c32ad1375c7"
+  url "https://github.com/GitTools/GitVersion/archive/5.8.1.tar.gz"
+  sha256 "7e898a117aaf11a56233bdfae70e860321110dfe4f94cc517fe68c757f6587ec"
   license "MIT"
 
   bottle do
@@ -12,17 +12,17 @@ class Gitversion < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "029c5c10ede90c0f116a12fe47af0d2e9b0da43542b70117c5eae946756f24df"
   end
 
-  depends_on arch: :x86_64 # dotnet does not support ARM
   depends_on "dotnet"
 
   def install
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
     system "dotnet", "publish", "src/GitVersion.App/GitVersion.App.csproj",
            "--configuration", "Release",
            "--framework", "net#{Formula["dotnet"].version.major_minor}",
            "--output", libexec,
-           "--runtime", "#{os}-x64",
+           "--runtime", "#{os}-#{arch}",
            "--self-contained", "false",
            "/p:PublishSingleFile=true"
 
