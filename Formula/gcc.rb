@@ -1,3 +1,4 @@
+# Right, I need this too.
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
