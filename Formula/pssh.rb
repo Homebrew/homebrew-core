@@ -6,7 +6,7 @@ class Pssh < Formula
   url "https://files.pythonhosted.org/packages/60/9a/8035af3a7d3d1617ae2c7c174efa4f154e5bf9c24b36b623413b38be8e4a/pssh-2.3.1.tar.gz"
   sha256 "539f8d8363b722712310f3296f189d1ae8c690898eca93627fc89a9cb311f6b4"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59a80ba06f64db6ac564b05a91b33cd9dab0d7d9c1a9cd7e932b9afb2b2012c3"
@@ -30,6 +30,7 @@ class Pssh < Formula
 
   def install
     virtualenv_install_with_resources
+    share.install libexec/"man"
   end
 
   test do
