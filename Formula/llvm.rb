@@ -5,7 +5,7 @@ class Llvm < Formula
   sha256 "6075ad30f1ac0e15f07c1bf062c1e1268c241d674f11bd32cdf0e040c71f2bf3"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
+  revision 2
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -33,7 +33,7 @@ class Llvm < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
@@ -73,7 +73,9 @@ class Llvm < Formula
       projects << "openmp"
     end
 
-    py_ver = Language::Python.major_minor_version("python3")
+    python_versions = Formula.names
+                             .select { |name| name.start_with? "python@" }
+                             .map { |py| py.delete_prefix("python@") }
     site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
 
     # Apple's libstdc++ is too old to build LLVM
@@ -110,8 +112,8 @@ class Llvm < Formula
       -DLLDB_ENABLE_LZMA=ON
       -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
       -DLIBOMP_INSTALL_ALIASES=OFF
-      -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
-      -DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}
+      -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
+      -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF
       -DPACKAGE_VENDOR=#{tap.user}
       -DBUG_REPORT_URL=#{tap.issues_url}
       -DCLANG_VENDOR_UTI=org.#{tap.user.downcase}.clang
@@ -300,17 +302,42 @@ class Llvm < Formula
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "cmake", "--build", "."
       system "cmake", "--build", ".", "--target", "install"
-      system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
-    if OS.mac? && !build.head?
+    if OS.mac?
+      # Get the version from `llvm-config` to get the correct HEAD version too.
+      llvm_version = Version.new(Utils.safe_popen_read(bin/"llvm-config", "--version").strip)
+      soversion = llvm_version.major.to_s
+      soversion << "git" if build.head?
+
       # Install versioned symlink, or else `llvm-config` doesn't work properly
-      lib.install_symlink "libLLVM.dylib" => "libLLVM-#{version.major}.dylib"
+      lib.install_symlink "libLLVM.dylib" => "libLLVM-#{soversion}.dylib"
+
+      # Install Xcode toolchain. See:
+      # https://github.com/llvm/llvm-project/blob/main/llvm/tools/xcode-toolchain/CMakeLists.txt
+      # We do this manually in order to avoid:
+      #   1. installing duplicates of files in the prefix
+      #   2. requiring an existing Xcode installation
+      xctoolchain = prefix/"Toolchains/LLVM#{llvm_version}.xctoolchain"
+      xcode_version = MacOS::Xcode.installed? ? MacOS::Xcode.version : MacOS::Xcode.latest_version
+      compat_version = xcode_version < 8 ? "1" : "2"
+
+      system "/usr/libexec/PlistBuddy", "-c", "Add:CFBundleIdentifier string org.llvm.#{llvm_version}", "Info.plist"
+      system "/usr/libexec/PlistBuddy", "-c", "Add:CompatibilityVersion integer #{compat_version}", "Info.plist"
+      xctoolchain.install "Info.plist"
+      (xctoolchain/"usr").install_symlink [bin, include, lib, libexec, share]
     end
 
     # Install LLVM Python bindings
     # Clang Python bindings are installed by CMake
     (lib/site_packages).install llvmpath/"bindings/python/llvm"
+
+    # Create symlinks so that the Python bindings can be used with alternative Python versions
+    python_versions.each do |py_ver|
+      next if py_ver == Language::Python.major_minor_version("python3").to_s
+
+      (lib/"python#{py_ver}/site-packages").install_symlink (lib/site_packages).children
+    end
 
     # Install Vim plugins
     %w[ftdetect ftplugin indent syntax].each do |dir|
@@ -329,9 +356,14 @@ class Llvm < Formula
   end
 
   test do
+    llvm_version = Version.new(Utils.safe_popen_read(bin/"llvm-config", "--version").strip)
+    soversion = llvm_version.major.to_s
+    soversion << "git" if head?
+
+    assert_equal version, llvm_version unless head?
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
-    assert_equal "-lLLVM-#{version.major}", shell_output("#{bin}/llvm-config --libs").chomp
-    assert_equal (lib/shared_library("libLLVM-#{version.major}")).to_s,
+    assert_equal "-lLLVM-#{soversion}", shell_output("#{bin}/llvm-config --libs").chomp
+    assert_equal (lib/shared_library("libLLVM-#{soversion}")).to_s,
                  shell_output("#{bin}/llvm-config --libfiles").chomp
 
     (testpath/"omptest.c").write <<~EOS
@@ -347,10 +379,8 @@ class Llvm < Formula
       }
     EOS
 
-    clean_version = version.to_s[/(\d+\.?)+/]
-
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
-                           "-I#{lib}/clang/#{clean_version}/include",
+                           "-I#{lib}/clang/#{llvm_version.major_minor_patch}/include",
                            "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
 
