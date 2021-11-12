@@ -19,7 +19,7 @@ class Cosign < Formula
   depends_on "go" => :build
 
   def install
-    pkg = "github.com/sigstore/cosign/cmd/cosign/cli/options"
+    pkg = "github.com/sigstore/cosign/pkg/version"
     ldflags = %W[
       -s -w
       -X #{pkg}.GitVersion=#{version}
