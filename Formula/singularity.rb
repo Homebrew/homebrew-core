@@ -1,8 +1,8 @@
 class Singularity < Formula
   desc "Application container and unprivileged sandbox platform for Linux"
   homepage "https://singularity.hpcng.org"
-  url "https://github.com/hpcng/singularity/releases/download/v3.8.3/singularity-3.8.3.tar.gz"
-  sha256 "2e22eb9ee1b73fdd51b8783149f0e4d83c0d2d8a0c1edf6034157d50eeefb835"
+  url "https://github.com/hpcng/singularity/releases/download/v3.8.4/singularity-3.8.4.tar.gz"
+  sha256 "cb95e6d68b0d20f2b87d60f23a3bf707b7d3e87cee0dd4aa4380f8f481a57ebc"
   license "BSD-3-Clause"
 
   bottle do
