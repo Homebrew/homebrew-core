@@ -130,6 +130,10 @@ jobs:
                     "path": "Formula/.+",
                     "content": "depends_on \"rust(@[0-9.]+)?\""
                 }, {
+                    "label": "dotnet",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"dotnet(@[0-9.]+)?\""
+                }, {
                     "label": "swift",
                     "path": "Formula/.+",
                     "content": "system \"swift\", \"build\""
