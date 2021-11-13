@@ -21,7 +21,29 @@ class Sonarqube < Formula
 
   conflicts_with "sonarqube-lts", because: "both install the same binaries"
 
+  resource "java-service-wrapper" do
+    url "https://download.tanukisoftware.com/wrapper/3.5.46/wrapper-macosx-arm-64-3.5.46.tar.gz"
+    sha256 "30472adf3e0c10d07f8ad2fbce446b699222378fb55605ec5f1559e205b3a46e"
+  end
+
   def install
+    # Use Java Service Wrapper 3.5.46 which is Apple Silicon compatible
+    resource("java-service-wrapper").stage do
+      cp "lib/wrapper.jar", "#{buildpath}/lib/jsw/wrapper-3.5.46.jar"
+      cp "lib/libwrapper.dylib", "#{buildpath}/bin/macosx-universal-64/lib/"
+      cp "bin/wrapper", "#{buildpath}/bin/macosx-universal-64/wrapper"
+      cp "src/bin/App.sh.in", "#{buildpath}/bin/macosx-universal-64/sonar.sh"
+    end
+    sonar_sh_file = "bin/macosx-universal-64/sonar.sh"
+    inreplace sonar_sh_file, "@app.name@", "SonarQube"
+    inreplace sonar_sh_file, "@app.long.name@", "SonarQube"
+    inreplace sonar_sh_file, "../conf/wrapper.conf", "../../conf/wrapper.conf"
+    inreplace "conf/wrapper.conf", "wrapper-3.2.3.jar", "wrapper-3.5.46.jar"
+
+    # Remove unnecessary files from Java Service Wrapper 3.2.3
+    rm "lib/jsw/wrapper-3.2.3.jar"
+    rm "bin/macosx-universal-64/lib/libwrapper.jnilib"
+
     # Delete native bin directories for other systems
     remove, keep = if OS.mac?
       ["linux", "macosx-universal"]
@@ -42,16 +64,7 @@ class Sonarqube < Formula
     keep_alive true
   end
 
-  def caveats
-    on_macos do
-      <<~EOS
-        Wrapper's native library are not yet available for Apple silicon.
-        System signals will not be handled correctly on this architecture.
-      EOS
-    end
-  end
-
   test do
-    assert_match "SonarQube", shell_output("#{bin}/sonar status", 1)
+    assert_match "SonarQube", shell_output("#{bin}/sonar status")
   end
 end
