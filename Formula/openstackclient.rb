@@ -3,10 +3,9 @@ class Openstackclient < Formula
 
   desc "Command-line client for OpenStack"
   homepage "https://openstack.org"
-  url "https://files.pythonhosted.org/packages/56/5b/5850ca55b17f63741f71f7b59cf3621e538390fb05a20fcf1225c3ec205a/python-openstackclient-5.6.0.tar.gz"
-  sha256 "0abc6666378c5a7db83ec83515a8524fb6246a919236110169cc5c216ac997ea"
+  url "https://files.pythonhosted.org/packages/33/fb/1b529a396e56e258bc6bfb49c0d1be3792aea7f6e0570c908bc0641df2ed/python-openstackclient-5.7.0.tar.gz"
+  sha256 "c65e3d51018f193cce2daf3d0fd69daa36003bdb2b85df6b07b973e4c39e2f92"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f53f4f87d36ac23076aa8c0f1f2fc316353701f0c15205571c6b231fda9ab1fb"
@@ -63,13 +62,8 @@ class Openstackclient < Formula
   end
 
   resource "cmd2" do
-    url "https://files.pythonhosted.org/packages/31/5c/df2c032dab2a5b3913f47fba5daa565324e67d1a75b6be05ddc0d10e82bf/cmd2-2.2.0.tar.gz"
-    sha256 "34cd12424d9e2835eff125146af3d9f4a4c2931c6bc5a3cea9790bd4f55756d9"
-  end
-
-  resource "colorama" do
-    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
-    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+    url "https://files.pythonhosted.org/packages/87/06/2cf7c7f48e3aa22cecb072bb503dc8d46177420b163275b2903e872b52e7/cmd2-2.3.0.tar.gz"
+    sha256 "2493ab8e5baab3d1a0325ea50920674a63de41bee4c63a634ac5cb42bfd63c1b"
   end
 
   resource "cryptography" do
@@ -98,8 +92,8 @@ class Openstackclient < Formula
   end
 
   resource "iso8601" do
-    url "https://files.pythonhosted.org/packages/45/66/a943f702763c879e2754b46089a136ee1e58f0f720c58fa640c00281d3fd/iso8601-0.1.16.tar.gz"
-    sha256 "36532f77cc800594e8f16641edae7f1baf7932f05d8e508545b95fc53c6dc85b"
+    url "https://files.pythonhosted.org/packages/f9/bd/425a807d88c83768f282010a65031223f37c41e7f485bdd92ba00d1832e1/iso8601-1.0.0.tar.gz"
+    sha256 "79ec9749f8bf35ffae77f835e80e96d2f95affa0f79d3d7b25c0fa7e06207a8b"
   end
 
   resource "jmespath" do
@@ -113,8 +107,8 @@ class Openstackclient < Formula
   end
 
   resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/6b/35/400557d3df63269a4c010cbd4865910b3c1718fbfe8d83210b216cd3efcf/jsonpointer-2.1.tar.gz"
-    sha256 "5a34b698db1eb79ceac454159d3f7c12a451a91f6334a4f638454327b7a89962"
+    url "https://files.pythonhosted.org/packages/29/7f/e6b5930e6dd1f461ad412dfc40bc94e5235011f6bbf73cafa8074617c203/jsonpointer-2.2.tar.gz"
+    sha256 "f09f8deecaaa5aea65b5eb4f67ca4e54e1a61f7a11c75085e360fe6feb6a48bf"
   end
 
   resource "keystoneauth1" do
@@ -168,8 +162,8 @@ class Openstackclient < Formula
   end
 
   resource "oslo.context" do
-    url "https://files.pythonhosted.org/packages/49/8b/200b710df1cfcfd2ec0aaacb4249b5865cc5ad6be0355c240f1a3e90bc4a/oslo.context-3.3.1.tar.gz"
-    sha256 "f578ea38569cf0a677e2167178196b21a54175471358c4320ddfd5c97c52f4d1"
+    url "https://files.pythonhosted.org/packages/7d/ef/b04cc84662647dc1b564c8f4c31758dde607431905e175565b4bafe80c5d/oslo.context-3.4.0.tar.gz"
+    sha256 "970f96361c5de9a5dc86d48a648289d77118180ca13ba5eeb307137736ffa953"
   end
 
   resource "oslo.i18n" do
@@ -178,8 +172,8 @@ class Openstackclient < Formula
   end
 
   resource "oslo.log" do
-    url "https://files.pythonhosted.org/packages/c6/25/27d09d4ca0138f154f7f3ded780ed884eeb9941b9351b3f14a6a4e6c0b29/oslo.log-4.6.0.tar.gz"
-    sha256 "dad5d7ff1290f01132b356d36a1bb79f98a3929d5005cce73e849ed31b385ba7"
+    url "https://files.pythonhosted.org/packages/d1/70/d714ee27781b6f54f9db6b6831748f567160f10f92f7cec0e2f12b2e6794/oslo.log-4.6.1.tar.gz"
+    sha256 "c609614fbe8352054c6e45e6a94baae8b6dccf0fdea5b0dd83fcd61499ec9636"
   end
 
   resource "oslo.serialization" do
@@ -188,28 +182,28 @@ class Openstackclient < Formula
   end
 
   resource "oslo.utils" do
-    url "https://files.pythonhosted.org/packages/81/18/1ff06ea155e0902c329bcc096c4649b49b3d45d4e70b248704c180cbf27c/oslo.utils-4.10.0.tar.gz"
-    sha256 "9646e6570ed08a79f21b03acfb60d32a3ac453d76304f8759b1211a59ce372cb"
+    url "https://files.pythonhosted.org/packages/8d/c9/92456ecd15f1d391c1674ff461a913b6d8e59d6b0decb30af57848d62e3b/oslo.utils-4.11.0.tar.gz"
+    sha256 "6ea03d3c5c917c98a2ecb27a7c923e424027592fc0f26886fb4f7eaf24c983f2"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
-    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
+    url "https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz"
+    sha256 "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/35/8c/69ed04ae31ad498c9bdea55766ed4c0c72de596e75ac0d70b58aa25e0acf/pbr-5.6.0.tar.gz"
-    sha256 "42df03e7797b796625b1029c0400279c7c34fd7df24a7d7818a1abb5b38710dd"
+    url "https://files.pythonhosted.org/packages/69/7e/e420b9b6b06f9597827571e871f9492512701497971a4cf3f4638c03bc7a/pbr-5.7.0.tar.gz"
+    sha256 "4651ca1445e80f2781827305de3d76b3ce53195f2227762684eb08f17bc473b7"
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/81/ba/ead3c121d6e59ea4e31bba0976b28ff0369210c66901e84fad20878299e2/prettytable-2.2.1.tar.gz"
-    sha256 "6d465005573a5c058d4ca343449a5b28c21252b86afcdfa168cdc6a440f0b24c"
+    url "https://files.pythonhosted.org/packages/ea/36/a96f1d0f434e1658b3fde011df028efdc3d38bde563339f0fc9e8beadc59/prettytable-2.4.0.tar.gz"
+    sha256 "18e56447f636b447096977d468849c1e2d3cfa0af8e7b5acfcf83a64790c0aca"
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
-    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
+    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pyparsing" do
@@ -293,8 +287,8 @@ class Openstackclient < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/f9/57/328653fd8a631d81b2d71261e471a102d5b64a95c1b1dda1a55b053bf0db/stevedore-3.4.0.tar.gz"
-    sha256 "59b58edb7f57b11897f150475e7bc0c39c5381f0b8e3fa9f5c20ce6c89ec4aa1"
+    url "https://files.pythonhosted.org/packages/67/73/cd693fde78c3b2397d49ad2c6cdb082eb0b6a606188876d61f53bae16293/stevedore-3.5.0.tar.gz"
+    sha256 "f40253887d8712eaa2bb0ea3830374416736dc8ec0e22f5a65092c1174c44335"
   end
 
   resource "urllib3" do
@@ -308,8 +302,8 @@ class Openstackclient < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/57/f0/b9c4beb5be22485ff0f09427dcc4e483dbf3a34fd5afb4f93cd6c68b2fac/wrapt-1.13.2.tar.gz"
-    sha256 "dca56cc5963a5fd7c2aa8607017753f534ee514e09103a6c55d2db70b50e7447"
+    url "https://files.pythonhosted.org/packages/eb/f6/d81ccf43ac2a3c80ddb6647653ac8b53ce2d65796029369923be06b815b8/wrapt-1.13.3.tar.gz"
+    sha256 "1fea9cd438686e6682271d36f3481a9f3636195578bab9ca3382e2f5f01fc185"
   end
 
   def install
