@@ -4,6 +4,7 @@ class Gtkx3 < Formula
   url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.30.tar.xz"
   sha256 "ba75bfff320ad1f4cfbee92ba813ec336322cc3c660d406aad014b07087a3ba9"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -44,6 +45,20 @@ class Gtkx3 < Formula
     depends_on "libxkbcommon"
     depends_on "xorgproto"
     depends_on "wayland-protocols"
+  end
+
+  # Patch to fix new coordinate system in macOS 12
+  # Remove in next minor release
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtk/-/commit/36315cbe2b3c9d1c1b7508d9494a251eddbc4452.diff"
+    sha256 "880b3ac53c7b2947e68e4842a14c00de3c3dcd278db504ece6b74f6eac2a447b"
+  end
+
+  # Patch to fix detection of Quartz on macOS 12
+  # Remove in next minor release
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtk/-/commit/a752e338381bc37dbe8d4c04ec23e4f6fd911b30.diff"
+    sha256 "ffb088e94eb4ff320fab948b531908b661f26892280f31e4247259cee0d8ceb9"
   end
 
   def install
