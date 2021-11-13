@@ -82,7 +82,7 @@ class Termshark < Formula
     # seconds to provide ample time for termshark to load the pcap (there is
     # no external mechanism to tell when the load is complete).
     testcmds = [
-      "{ sleep 5s ; echo q ; echo ; } | ",
+      "{ sleep 5 ; echo q ; echo ; } | ",
       "socat - EXEC:'sh -c \\\"",
       "stty rows 50 cols 80 && ",
       "TERM=xterm ",
