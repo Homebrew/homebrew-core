@@ -7,6 +7,11 @@ class CrosstoolNg < Formula
   revision 3
   head "https://github.com/crosstool-ng/crosstool-ng.git", branch: "master"
 
+  livecheck do
+    url "https://crosstool-ng.github.io/download/"
+    regex(/href=.*?crosstool-ng[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_monterey: "928ab5b65f02d60d2d5d3216b56f9fce9f3231ef7bac30641539936240baf8f6"
     sha256 cellar: :any, arm64_big_sur:  "254e9876927261a6efc043b3e856efc9c03950dd12e54be66924dd4653683a78"
