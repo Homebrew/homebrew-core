@@ -56,12 +56,6 @@ class Gcc < Formula
     sha256 "c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b"
   end
 
-  # https://gcc.gnu.org/pipermail/gcc-patches/2021-November/583031.html
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/de47854e6e26ec9d0ebb43d1ca23b7384f5d7aa5/gcc/gcc-11.2-rtl-bug.diff"
-    sha256 "8f04ffa663a2a0d1ab3b8ed894ccfdbaaabeff621fb4074c53f94b06c44ef378"
-  end
-
   def version_suffix
     if build.head?
       "HEAD"
