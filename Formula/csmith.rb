@@ -6,6 +6,11 @@ class Csmith < Formula
   license "BSD-2-Clause"
   head "https://github.com/csmith-project/csmith.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?csmith[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_monterey: "27b069ffcef5994e076353234fed07390d0a2462abc2b851669f619f30f6881c"
     sha256 cellar: :any, arm64_big_sur:  "79b39e5332514e816d46c871b31a283e9d16adc4d39f2b5177c3569ce2508c4a"
