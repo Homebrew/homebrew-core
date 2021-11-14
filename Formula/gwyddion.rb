@@ -1,8 +1,8 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.59/gwyddion-2.59.tar.gz"
-  sha256 "b777eaa9a53a971c55a5ae2f7cd6695d1dbde78ffb84b9cf8885361400f051c7"
+  url "http://gwyddion.net/download/2.60/gwyddion-2.60.tar.gz"
+  sha256 "1ec7f188d65d0d7276157400f0e9661fb13243a923cc65eea58fe1ec3d8d900d"
   license "GPL-2.0-or-later"
 
   livecheck do
