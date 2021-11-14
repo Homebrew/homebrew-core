@@ -6,18 +6,16 @@ class SessionManagerPlugin < Formula
   url "https://s3.amazonaws.com/session-manager-downloads/plugin/#{version}/mac/session-manager-plugin.pkg",
       verified: "s3.amazonaws.com/session-manager-downloads/"
   license "Apache-2.0"
-  name "Session Manager Plugin for the AWS CLI"
   homepage "https://github.com/aws/session-manager-plugin"
 
-  # homepage "https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html"
+  depends_on "go" => :build
 
-  # livecheck do
-  #   url :homepage
-  #   regex(%r{<td>\s*v?(\d+(?:\.\d+)+)\s*</td>}i)
-  # end
+  def install
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
+    Language::Go.stage_deps resources, buildpath/"src"
 
-  # pkg "session-manager-plugin.pkg"
-  # binary "/usr/local/sessionmanagerplugin/bin/session-manager-plugin"
-
-  # uninstall pkgutil: "session-manager-plugin"
+    system "go", "build", "-o", "session-manager-plugin"
+    bin.install "session-manager-plugin"
+  end
 end
