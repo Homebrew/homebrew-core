@@ -4,6 +4,11 @@ class Cweb < Formula
   url "https://github.com/ascherer/cweb/archive/cweb-4.5.tar.gz"
   sha256 "5afa2bad211b60e7a3e33cf72b1ea0873b66427d24c17ec12e211b20bd1ad4aa"
 
+  livecheck do
+    url :stable
+    regex(/^cweb[._-]v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     sha256                               arm64_monterey: "04ed26efc24fef95e690016410da0e987c64c86bbb44d7be14f57ffb51176be3"
     sha256                               arm64_big_sur:  "90e531e4c475de1c1630fe17b0a41856abbe0aaff3f6edebdbc94deccc4b8bff"
