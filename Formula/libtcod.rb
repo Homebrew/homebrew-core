@@ -50,7 +50,7 @@ class Libtcod < Formula
       }
     EOS
     system ENV.cc, "-I#{include}", "-L#{lib}", "-ltcod", "version-c.c", "-o", "version-c"
-    assert_equal "#{version}\n", `./version-c`
+    assert_equal version.to_s, shell_output("./version-c").strip
     (testpath/"version-cc.cc").write <<~EOS
       #include <libtcod/libtcod.hpp>
       #include <iostream>
@@ -60,7 +60,7 @@ class Libtcod < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++14", "-I#{include}", "-L#{lib}", "-ltcod", "version-cc.cc", "-o", "version-cc"
-    assert_equal "#{version}\n", `./version-cc`
+    system ENV.cxx, "-std=c++17", "-I#{include}", "-L#{lib}", "-ltcod", "version-cc.cc", "-o", "version-cc"
+    assert_equal version.to_s, shell_output("./version-cc").strip
   end
 end
