@@ -6,6 +6,11 @@ class GoCritic < Formula
   license "MIT"
   head "https://github.com/go-critic/go-critic.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b82d5036c29c85fcfc737f836b5f558227ed79792bd3f8bffd651f3df72ab73"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28c94b91145a1f56d8af958f1990f3b3da574a04be295b91bb6e4d9e0f18dce6"
