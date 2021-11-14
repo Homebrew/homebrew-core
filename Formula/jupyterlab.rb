@@ -6,6 +6,7 @@ class Jupyterlab < Formula
   url "https://files.pythonhosted.org/packages/67/c2/657f6a6b2ab2c2dc2ccf6b72ac902ceb5ba4572198744a1c853969160364/jupyterlab-3.2.3.tar.gz"
   sha256 "7d74593e52d4dbfacbb98e14cac4bc765ea2cffb1b980675f44930d622871705"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "34c09547a4b92f74eb729d8b500dd0c5dacf4246bdb6b686771cd634d4010ceb"
@@ -347,6 +348,12 @@ class Jupyterlab < Formula
     end
     venv.pip_install_and_link linked
     venv.pip_install_and_link buildpath
+
+    Pathname.glob("#{bin}/*") do |file|
+      file.unlink
+      file.write_env_script libexec/"bin"/file.basename, JUPYTER_PATH: ENV["JUPYTER_PATH"]
+      chmod "+x", file
+    end
 
     # remove bundled kernel
     rm_rf Dir["#{libexec}/share/jupyter/kernels"]
