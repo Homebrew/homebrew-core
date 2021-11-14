@@ -29,8 +29,7 @@ class Goproxy < Formula
       sleep 1
       ENV["GOPROXY"] = "http://#{bind_address}"
       test_module = "github.com/spf13/cobra"
-      # Using `system "go", "get", ...` will not get past `brew audit`
-      shell_output("go get #{test_module}")
+      system "go", "get", test_module
     ensure
       Process.kill("SIGINT", server.pid)
       Process.wait(server.pid)
