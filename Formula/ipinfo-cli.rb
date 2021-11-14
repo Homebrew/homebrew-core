@@ -23,12 +23,6 @@ class IpinfoCli < Formula
 
   conflicts_with "ipinfo", because: "ipinfo and ipinfo-cli install the same binaries"
 
-  # Correct version string. Remove on next release.
-  patch do
-    url "https://github.com/ipinfo/cli/commit/f75931a7af513c8aa3d03b37aa4ab5854db54e89.patch?full_index=1"
-    sha256 "b5796aca4db45b2d05b40e3f96e4bf11c200510b5acc308dedbda0993a25d5b4"
-  end
-
   def install
     system "./ipinfo/build.sh"
     bin.install "build/ipinfo"
