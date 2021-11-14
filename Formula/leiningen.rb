@@ -49,7 +49,7 @@ class Leiningen < Formula
   test do
     (testpath/"project.clj").write <<~EOS
       (defproject brew-test "1.0"
-        :dependencies [[org.clojure/clojure "1.5.1"]])
+        :dependencies [[org.clojure/clojure "1.10.3"]])
     EOS
     (testpath/"src/brew_test/core.clj").write <<~EOS
       (ns brew-test.core)
