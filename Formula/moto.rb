@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/fb/02/479ef1675a2976f44fa3cccdd237bca9e6f209075fa2b294340554e9f080/moto-2.2.13.tar.gz"
-  sha256 "ad4d0f1fbe9a7ff91246308079c578a45e3e1315aedf7db1c2cae5d3f2211718"
+  url "https://files.pythonhosted.org/packages/3e/38/cfbeff411b7fda233f3ecca3923842198eded96e7487323e828ec60349cd/moto-2.2.14.tar.gz"
+  sha256 "51a7faf90c2e6b71b06f4cc16f663dadf6efa7e36a9000dc97b032eb6ff83316"
   license "Apache-2.0"
 
   bottle do
@@ -35,13 +35,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6d/25/82cdd634d24a53fcf2eac96a73a776c85a26a3c39ca8da234a3d4d0d0f30/boto3-1.19.12.tar.gz"
-    sha256 "182a2b756a2c2180b473bc8452227062394a24e3701548be23ebc30d85976c64"
+    url "https://files.pythonhosted.org/packages/36/01/7fae483965a4a0190d3c482dddc9098be5577a661789c1e738b92fc9ed18/boto3-1.20.5.tar.gz"
+    sha256 "cc620c289b12d7bf7c2706b517c9f8950f9be4622aacc9e7580b8b4ee0d3bc73"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/58/06/a1648e8b32dacf21b3fc732fc2d3c74a6ef943af637f55fc7039ca657afd/botocore-1.22.12.tar.gz"
-    sha256 "fc59b55e8c5dde64b017b2f114c25f8cce397b667e812aea7eafb4b59b49d7cb"
+    url "https://files.pythonhosted.org/packages/08/0c/64f2686a728b0e3ff0e0668d773b529beefa6194f3dc4b5c4081f11d7304/botocore-1.23.5.tar.gz"
+    sha256 "49d1f012dc8467577a5fe603fc87cc13af816dd926b2bc2e28a3b2999ab14d36"
   end
 
   resource "certifi" do
@@ -110,8 +110,8 @@ class Moto < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f8/86/7c0eb6e8b05385d1ce682abc0f994abd1668e148fb52603fa86e15d4c110/Jinja2-3.0.2.tar.gz"
-    sha256 "827a0e32839ab1600d4eb1c4c33ec5a8edfbc5cb42dafa13b81f182f97784b45"
+    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
+    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
   end
 
   resource "jmespath" do
@@ -160,8 +160,8 @@ class Moto < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/8a/f7/93cf3c81629c95f6f40e509f7cd63985a6ddd829181a66c1c8ef101e55f2/more-itertools-8.10.0.tar.gz"
-    sha256 "1debcabeb1df793814859d64a81ad7cb10504c24349368ccf214c664c474f41f"
+    url "https://files.pythonhosted.org/packages/14/77/a496c86b4bf9328269b65dc4d97f127cc78af59539a13b49631b36896234/more-itertools-8.11.0.tar.gz"
+    sha256 "0a2fd25d343c08d7e7212071820e7e7ea2f41d8fb45d6bc8a00cd6ce3b7aab88"
   end
 
   resource "networkx" do
