@@ -4,7 +4,7 @@ class Leiningen < Formula
   url "https://github.com/technomancy/leiningen/archive/2.9.8.tar.gz"
   sha256 "be299cbd70693213c6887f931327fb9df3bd54930a521d0fc88bea04d55c5cd4"
   license "EPL-1.0"
-  head "https://github.com/technomancy/leiningen.git"
+  head "https://github.com/technomancy/leiningen.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8803a05aa24fe499ab379d4b02287c9f93579b818edd04e4dd4297564859df43"
