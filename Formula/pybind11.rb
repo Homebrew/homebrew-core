@@ -5,6 +5,11 @@ class Pybind11 < Formula
   sha256 "f1bcc07caa568eb312411dde5308b1e250bd0e1bc020fae855bf9f43209940cc"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "4bc5d0833740b4ed97059334e9780e398afbe2a65cbb35dea790cccf201e6e40"
   end
