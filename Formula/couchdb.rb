@@ -8,7 +8,7 @@ class Couchdb < Formula
 
   livecheck do
     url :homepage
-    regex(/Couch.+?href=.*?v?(\d+(?:\.\d+)+)\.t/im)
+    regex(/href=.*?apache-couchdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
