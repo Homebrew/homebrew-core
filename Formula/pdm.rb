@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/28/25/91bc208eae9fd0ed1dc8db50c4558db02c98b5c34ec4b4536f233bef2f2a/pdm-1.10.1.tar.gz"
-  sha256 "20222e41da972a6583cecd88a586a74f52780cf29468479635cae78019eca7aa"
+  url "https://files.pythonhosted.org/packages/88/81/d31399162008aed2a40b36f7042e89f7067f14a521c68bb1e7cc955d4c01/pdm-1.10.2.tar.gz"
+  sha256 "0ca01c949c7cead15e59b4b919d4f9638e1aa5a11d28c824cbdee4218432459d"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -71,8 +71,8 @@ class Pdm < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/36/b7/08860463445e6f3b4c5ac24717ce0e8a2f6e9dbc329b0e5d148094ce89ec/python-dotenv-0.19.1.tar.gz"
-    sha256 "14f8185cc8d494662683e6914addcb7e95374771e707601dfc70166946b4c4b8"
+    url "https://files.pythonhosted.org/packages/49/62/4f25667e10561303a34cb89e3187c35985c0889b99f6f1468aaf17fbb03e/python-dotenv-0.19.2.tar.gz"
+    sha256 "a5de49a31e953b45ff2d2fd434bbc2670e8db5273606c1e737cc6b93eff3655f"
   end
 
   resource "pythonfinder" do
