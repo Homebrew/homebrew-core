@@ -5,6 +5,11 @@ class Meilisearch < Formula
   sha256 "3c34ecd7a22cb67480faf1db68589e9a5523be01c3335c9014eb45c2cbc575d8"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2c7ea8dd440ddc248b5ca37f8cb0660dcbb8502c42ca0f2d16451611dcc6829b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c1287b893ae845b030075f6d38090a359178350aa05466c7b0ca7cf4dd44aca"
