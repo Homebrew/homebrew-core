@@ -13,6 +13,7 @@ class Nef < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "fae01b5b21abe8205e3e42101804f3c6c16bb04d1c14841846766579ce2885d5"
   end
 
+  depends_on :macos
   depends_on xcode: "11.4"
 
   def install
