@@ -9,12 +9,10 @@ class HarmonyOne < Formula
   # CONTRIBUTORS: Versions may need to be updated according to documentation at:
   #    -  https://github.com/harmony-one/harmony
 
-  depends_on "bash"
   depends_on "gmp"
   depends_on "go@1.16"
   depends_on "jq"
   depends_on macos: :high_sierra
-  depends_on "make"
   depends_on "openssl@1.1"
   
 
@@ -51,13 +49,8 @@ class HarmonyOne < Formula
 
     cd buildpath/"src/github.com/harmony-one/harmony"
 
-    # Correct Directory Locations In Build Scripts
-    # TODO: Switch to brew 'inreplace' formula method
-    system "sed -i -e 's/openssl/openssl\@1\.1/g' Makefile"
-    system "sed -i -e 's/openssl/openssl\@1\.1/g' scripts/go_executable_build.sh"
 
     # Build Binarys
-    system "go", "mod", "tidy"
     system "make"
 
     bin.install "./bin/harmony" => "harmony"
@@ -75,23 +68,6 @@ class HarmonyOne < Formula
       You may also need to allow network access depending on your firewall
       configuration.
 
-      USAGE: harmony
-
-      If you do not have any keys or ONE wallet configured you will#{"  "}
-      get the following error:
-
-          ERROR when loading bls key: stat ./.hmy/blskeys: no such file or directory
-
-      You can create these with the following commands:
-          # Download the GO SDK
-          curl -O https://raw.githubusercontent.com/harmony-one/go-sdk/master/scripts/hmy.sh
-      #{"    "}
-          # Make the wrapper script for the binaries exacutable#{"   "}
-          chmod u+x hmy.sh
-
-          # Create wallet
-          ./hmy.sh -d
-          ./hmy keys add test-account --passphrase
 
       Find more documentation at:
 
