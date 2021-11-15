@@ -22,7 +22,7 @@ class Clucene < Formula
     sha256 cellar: :any,                 yosemite:     "182db4f73e058e9d28b77cbbd642c40ecc403fbf1d9dc8357387b2c54dba8d1e"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "4c61f6b320d11670d29ae7294ede5bcd3c1d5684c41cc01ed689de688dbab6e7"
   end
-  
+
   depends_on "cmake" => :build
   uses_from_macos "zlib"
 
