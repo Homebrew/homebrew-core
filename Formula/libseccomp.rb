@@ -1,8 +1,8 @@
 class Libseccomp < Formula
   desc "Interface to the Linux Kernel's syscall filtering mechanism"
   homepage "https://github.com/seccomp/libseccomp"
-  url "https://github.com/seccomp/libseccomp/releases/download/v2.5.2/libseccomp-2.5.2.tar.gz"
-  sha256 "17a652dfb491d96be893960e9b791914936ee16c13b777a3caf562fe48cb87df"
+  url "https://github.com/seccomp/libseccomp/releases/download/v2.5.3/libseccomp-2.5.3.tar.gz"
+  sha256 "59065c8733364725e9721ba48c3a99bbc52af921daf48df4b1e012fbc7b10a76"
   license "LGPL-2.1-only"
 
   livecheck do
@@ -11,7 +11,7 @@ class Libseccomp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "34c041a4650d145076471743dcb22bbda8ed8edfbeac4b6fde96bc707fdb07fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "cb9632f847a27aa62f7e4ce9ec786550ebf2b45d1b9e909ffe74fcb888fa705d"
   end
 
   depends_on "autoconf" => :build

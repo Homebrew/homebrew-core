@@ -1,19 +1,18 @@
 class Ejdb < Formula
   desc "Embeddable JSON Database engine C11 library"
   homepage "https://ejdb.org"
-  url "https://github.com/Softmotions/ejdb/archive/v2.61.tar.gz"
-  sha256 "8b0880f0c267a4a10b07eb3fde06871167864198589d615343dd3beaf9a2f972"
+  url "https://github.com/Softmotions/ejdb/archive/v2.62.tar.gz"
+  sha256 "8369b09483bb639c6cbc75a307a7ac5d605740c44c9281bad6df0748eaf7bbd6"
   license "MIT"
   head "https://github.com/Softmotions/ejdb.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "05250f2d9bbe00b00df893fd7e7f787150133d3dcde710e601d47b75f99713c7"
-    sha256 cellar: :any,                 arm64_big_sur:  "dc8b457b1eb0935776d6b2ecc9d0f2ff54a37c4512865e2edd645bc47dd7fc82"
-    sha256 cellar: :any,                 monterey:       "6546ed4b06d3d43a46293e049f5fe9bb72e831b4314e0ec1c6ad26f8894d59c0"
-    sha256 cellar: :any,                 big_sur:        "643fb65248e8195d24a75295ec2229c19d6a3aa0cadf9e1270bbbf033171d5c9"
-    sha256 cellar: :any,                 catalina:       "7effbf0d5d8de63bd886f964a62c742dc4edeaf6f4c79ccdfb436f13604bf9ce"
-    sha256 cellar: :any,                 mojave:         "57add67ccf732e856325adbc945c8626addaac15418a0ff25e2401f720ca2034"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59d40b6e2ef86bffe4a552ba902aedbc1fa7ba87c1932c4f757571972bcff9ba"
+    sha256 cellar: :any,                 arm64_monterey: "2c80641ca8f801cfbf20f0da4cf9612aa12c22975362235da788b89ec54f1b5b"
+    sha256 cellar: :any,                 arm64_big_sur:  "7bbd139116b2a6b85e30aaece1637c4f6828d465b8982f33242b562c46eeee0b"
+    sha256 cellar: :any,                 monterey:       "3fa834a6ca34a7e964a3bbc395edb5e22fc8a58d9d23077679de80267d68850e"
+    sha256 cellar: :any,                 big_sur:        "d86d8dff6fc510f15a659b6cdb6c7656fe06999c9fea1e5fa5e41b03bc898987"
+    sha256 cellar: :any,                 catalina:       "4ea564bb023a59c3c54523e64dc6ff7c34c6d5e21cf06810ae7e7ada2649be35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44ac2dd666214547d6b3440517d389d82618cf598880fc3a6bf6d562d4c54667"
   end
 
   depends_on "cmake" => :build

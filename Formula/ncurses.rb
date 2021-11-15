@@ -1,20 +1,20 @@
 class Ncurses < Formula
   desc "Text-based UI library"
-  homepage "https://www.gnu.org/software/ncurses/"
-  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.2.tar.gz"
-  sha256 "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d"
+  homepage "https://invisible-island.net/ncurses/announce.html"
+  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.3.tar.gz"
+  mirror "https://invisible-mirror.net/archives/ncurses/ncurses-6.3.tar.gz"
+  mirror "ftp://ftp.invisible-island.net/ncurses/ncurses-6.3.tar.gz"
+  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.3.tar.gz"
+  sha256 "97fc51ac2b085d4cde31ef4d2c3122c21abc217e9090a43a30fc5ec21684e059"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "a989d420925dded0112f1d3e40ad64f28d02ef3ae09e13ee76a5ec0fabca95d7"
-    sha256 arm64_big_sur:  "f71176d3a18401a49c1ef6da6e03987551161140c62353859f9db97d6520f5c5"
-    sha256 monterey:       "713f927537ffc2213f2ad6f2b39435ca49671116313793aaaf64d1d1ab280a34"
-    sha256 big_sur:        "37587c0fbfd02b432e8a65522feadbb865fb754c3fe911b3a584abafb0f0effb"
-    sha256 catalina:       "225b8df20eb79a762ea5163fb020c055a804d2c3289c676daa9277cc0c55f76f"
-    sha256 mojave:         "66e1c57db9437cca11a5d6248e148a5ec00bbb0522c0d45b4fa3a95d5eba9783"
-    sha256 x86_64_linux:   "b6d0a7fcd0b116c249ef3d07be0b240c6103881437b5cbaeb5c9174005ebc6e9"
+    sha256 arm64_monterey: "a1aabfa5d0fd9b2735b3d83d5378a447049190a34d85c3df9f2983beecbf83d5"
+    sha256 arm64_big_sur:  "dec526d7259a034bb8622cfd2d3bfad738ecc42d03e2d1f79019cfbadbd45b16"
+    sha256 monterey:       "b23144507b0e799235e12b2f6dfb1a595c18384ef773c680a05eb785724d9dc5"
+    sha256 big_sur:        "15ee5cba182428fe2bcd80da6605214104b77e808a484c97ab281741f1a66a06"
+    sha256 catalina:       "59d9544f77cdbd9066f6265872c0c32e38ac26db0ba88389f5911797e157b20f"
+    sha256 x86_64_linux:   "09c1d079d3b5cf1c855afa9da1fc7251234b73971d4cbe0bf7b9fca1cbea353c"
   end
 
   keg_only :provided_by_macos
@@ -26,6 +26,11 @@ class Ncurses < Formula
   end
 
   def install
+    # Workaround for
+    # macOS: mkdir: /usr/lib/pkgconfig:/opt/homebrew/Library/Homebrew/os/mac/pkgconfig/12: Operation not permitted
+    # Linux: configure: error: expected a pathname, not ""
+    (lib/"pkgconfig").mkpath
+
     args = [
       "--prefix=#{prefix}",
       "--enable-pc-files",
@@ -34,10 +39,12 @@ class Ncurses < Formula
       "--enable-symlinks",
       "--enable-widec",
       "--with-shared",
+      "--with-cxx-shared",
       "--with-gpm=no",
       "--without-ada",
     ]
     args << "--with-terminfo-dirs=#{share}/terminfo:/etc/terminfo:/lib/terminfo:/usr/share/terminfo" if OS.linux?
+
     system "./configure", *args
     system "make", "install"
     make_libncurses_symlinks
@@ -47,22 +54,15 @@ class Ncurses < Formula
   end
 
   def make_libncurses_symlinks
-    major = version.major
+    major = version.major.to_s
 
-    %w[form menu ncurses panel].each do |name|
-      on_macos do
-        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.dylib"
-        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.#{major}.dylib"
-      end
-      on_linux do
-        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so"
-        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so.#{major}"
-      end
+    %w[form menu ncurses panel ncurses++].each do |name|
+      lib.install_symlink shared_library("lib#{name}w", major) => shared_library("lib#{name}")
+      lib.install_symlink shared_library("lib#{name}w", major) => shared_library("lib#{name}", major)
       lib.install_symlink "lib#{name}w.a" => "lib#{name}.a"
       lib.install_symlink "lib#{name}w_g.a" => "lib#{name}_g.a"
     end
 
-    lib.install_symlink "libncurses++w.a" => "libncurses++.a"
     lib.install_symlink "libncurses.a" => "libcurses.a"
     lib.install_symlink shared_library("libncurses") => shared_library("libcurses")
     on_linux do
@@ -81,6 +81,7 @@ class Ncurses < Formula
 
     bin.install_symlink "ncursesw#{major}-config" => "ncurses#{major}-config"
 
+    include.install_symlink "ncursesw" => "ncurses"
     include.install_symlink [
       "ncursesw/curses.h", "ncursesw/form.h", "ncursesw/ncurses.h",
       "ncursesw/panel.h", "ncursesw/term.h", "ncursesw/termcap.h"

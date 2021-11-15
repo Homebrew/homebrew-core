@@ -3,18 +3,17 @@ require "language/node"
 class Gtop < Formula
   desc "System monitoring dashboard for terminal"
   homepage "https://github.com/aksakalli/gtop"
-  url "https://registry.npmjs.org/gtop/-/gtop-1.1.1.tgz"
-  sha256 "79552e08552d9b785d416f001e0bc84d02add1619eb9bfd9244b3e27eda399df"
+  url "https://registry.npmjs.org/gtop/-/gtop-1.1.2.tgz"
+  sha256 "04fa0e7d72c07c863258d802d1fd1fbb421ea7ec9130d69dc079be8771c621fc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d8dd667ec7922211b271a4392d7b4040748b9741606d89d74e5ef62a201a1b4a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5adce5d3f299b11b5a5278e89c8201eb5cc4f2617b1ef88f07020a33b1df655"
-    sha256 cellar: :any_skip_relocation, monterey:       "e91e34957b1c18263e1ca702de14758014ef3c81196c5225c220ffd6b8f9bb95"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d155b9fe2f75deabbd70c7cb6f07ac09cb69158a770b6ed8cca07d6d12cc7e60"
-    sha256 cellar: :any_skip_relocation, catalina:       "d155b9fe2f75deabbd70c7cb6f07ac09cb69158a770b6ed8cca07d6d12cc7e60"
-    sha256 cellar: :any_skip_relocation, mojave:         "d155b9fe2f75deabbd70c7cb6f07ac09cb69158a770b6ed8cca07d6d12cc7e60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5adce5d3f299b11b5a5278e89c8201eb5cc4f2617b1ef88f07020a33b1df655"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "62e1cfda9baa709426b950da12369483bdd63afa7bc31b00ab382660157305db"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62e1cfda9baa709426b950da12369483bdd63afa7bc31b00ab382660157305db"
+    sha256 cellar: :any_skip_relocation, monterey:       "a633415a5e0edc11eb726d0c525be5f6645f4b3d2f73cad4f0e44f378db9d70a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a633415a5e0edc11eb726d0c525be5f6645f4b3d2f73cad4f0e44f378db9d70a"
+    sha256 cellar: :any_skip_relocation, catalina:       "a633415a5e0edc11eb726d0c525be5f6645f4b3d2f73cad4f0e44f378db9d70a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62e1cfda9baa709426b950da12369483bdd63afa7bc31b00ab382660157305db"
   end
 
   depends_on "node"

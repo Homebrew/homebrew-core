@@ -1,8 +1,8 @@
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
-  url "https://github.com/mawww/kakoune/releases/download/v2021.08.28/kakoune-2021.08.28.tar.bz2"
-  sha256 "6f6ed7dfd8c5723210dbd848708acf03af4b847016fd3ede96b2a89ad32276cb"
+  url "https://github.com/mawww/kakoune/releases/download/v2021.11.08/kakoune-2021.11.08.tar.bz2"
+  sha256 "aa30889d9da11331a243a8f40fe4f6a8619321b19217debac8f565e06eddb5f4"
   license "Unlicense"
   head "https://github.com/mawww/kakoune.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Kakoune < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff2329b80200561222ad6bda6c937beb0b99c8fc4d7a142be30a4e8572598d18"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf56529386ac094bf0cefac9c50a60a7234127c9d1c3ed22e853f8cf917dee91"
-    sha256 cellar: :any_skip_relocation, monterey:       "4ebacadf80c19fc0b3dc06d789def5cf7cea0d34679ce189bb9bdc57948292df"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6fdb7731b67b916f43c85d1674982a5801af161878446eba999de72a492e586e"
-    sha256 cellar: :any_skip_relocation, catalina:       "cdd59d3c8978b2c8f2ca0899867be322ce4d23eac3600a3b0684e199d5020e42"
-    sha256 cellar: :any_skip_relocation, mojave:         "af3a8f431b72c684b26bbbd115bf08ad9d8c12b95e83f7c0cea3f8881946d6a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9797d57cd6184e1b12a2c6120ccbfc51bbb369cf932400c0e556d0f9074b5d8e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "04ba0d6fed5371d8f5012cb0731be90a011cf05dabcffaa51b467117dcf62275"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "edc941221942a73d79767e254798319842b1849988706e0c41deaaa65c0f3407"
+    sha256 cellar: :any_skip_relocation, monterey:       "6361db56b495a4be2855981c95bcfa0ed81ec0e63aace99b6fa06e9340d4ca28"
+    sha256 cellar: :any_skip_relocation, big_sur:        "95949d504b4b3d6c87bd4e3cf0e391b3a346ee0166187cf8b43945dd3e6cb826"
+    sha256 cellar: :any_skip_relocation, catalina:       "0bf1d69af4e88dd3e7c441c77bbc9ea5f211205883f9a02914b4590035f616e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fa06946316f28a0375d5d883b45c899775f9aacff98e13bc8bca7d4721d336e"
   end
 
   depends_on macos: :high_sierra # needs C++17

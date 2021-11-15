@@ -3,18 +3,18 @@ class YtDlp < Formula
 
   desc "Fork of youtube-dl with additional features and fixes"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/97/0b/1008dffd196cf6a1f143005b566397f71fb1e767c8e788ea230ae35457b7/yt-dlp-2021.10.22.tar.gz"
-  sha256 "a24b9666bd2234149e4da8c4f16bb8e5f746c29428d12ee04fc1c11b5247a307"
+  url "https://files.pythonhosted.org/packages/76/de/7eda54327dae4d7e917e02a1e49c4fd343e59a7ce4ae259df96f2cc7b4ea/yt-dlp-2021.11.10.1.tar.gz"
+  sha256 "f0ad6ae2e2838b608df2fd125f2a777a7ad832d3e757ee6d4583b84b21e44388"
   license "Unlicense"
   head "https://github.com/yt-dlp/yt-dlp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9187a631e18557310736035daa113086fd03ee35d9f79064d8f9ce05f6696907"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79eacdf05b2540f29a850a101c9b0fe42460d428f96171fc9903e36cd2380aae"
-    sha256 cellar: :any_skip_relocation, monterey:       "92cb4f22e1e5979d5da3e7b4527cbb321f8bd70c1791d1d1d08d9d867b7c0fd0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "59a10a1bf4752b1f67f17775f4dc5d92c4716288029b00907d37a5267541bb0f"
-    sha256 cellar: :any_skip_relocation, catalina:       "d157435a586bc3f19b83f4afeef09dab1c444593317f36a107cb2456035ad3f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b2d64ea8be899c5b59d480f29e3bebfb9768fd187bd7052d847e04b2e08e966"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d11e78f9b3009179f39c635124f848b473deb08e6c44c375af59dabf771cae3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43b8468cfc88c513a482aef8940ec113f03a282dcb9924e0d91e7386571fb68f"
+    sha256 cellar: :any_skip_relocation, monterey:       "69ef6c2590488a0c16858692a35bbabc65c1b13f4f009464444000b6f5e5dd1f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4055439bd4716b8d10fb165271fab485855fb339cec3063c110db2de6abc98d6"
+    sha256 cellar: :any_skip_relocation, catalina:       "6e48ac9113e974d9079f0508237fb10b0e7f4ff66b99cf6e54f34c2bf924dd56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30ae9ae3f6148aa234b5fe5021acd461005c488f1f3d7429c04b6a481a7651cb"
   end
 
   depends_on "python@3.10"

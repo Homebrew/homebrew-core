@@ -1,8 +1,8 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.5.6.tar.bz2"
-  sha256 "bb89cdd3810467ed848d13cac99f6f3456bf0ddcce5f47b9d38673629ee79200"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.5.7.tar.bz2"
+  sha256 "ad4db2d4af4630757f786f3719225c2e37481257d676803a54194c7679d07bab"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,12 @@ class Pdnsrec < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "4a0b91298531b94c537daa6acc9cdffdca8d2acf79d3d225a99f327917082b06"
-    sha256 arm64_big_sur:  "17d294f7b29f9206dbe09d04d2b2fd856295ed2e26caebeb226dbb926cb62225"
-    sha256 monterey:       "eab056791c73d9635e5d8deab204ed236c2ba807a71e1f92f7eb650003686a84"
-    sha256 big_sur:        "84db4d875f98e655ef4f2b33ee923ad77a3b5077e333e1dad1e5d601035c7256"
-    sha256 catalina:       "f5816c04766329c60b7643a07dc9652ee710001806d4fbf80ba4a0915be0639f"
-    sha256 mojave:         "0c93c4cc2b542487d278db7797ffe6519292125358215bed274f2cf4ccb9a82c"
-    sha256 x86_64_linux:   "810d3b7b5d8b13ee6935e4a72285a686d89ff239e0e77d6af078a32020190540"
+    sha256 arm64_monterey: "95844dcee70bd2c3d66e4369549e9ed9704160398c44cceace9b3b129bf34274"
+    sha256 arm64_big_sur:  "41ccbf341f375958dc5ce1350364640963b83157e6861474c2e050bab7d16b96"
+    sha256 monterey:       "121d09723c72ebfdf7a0c278b216a13a4cf03d4f28756acc80863732f3a2ed85"
+    sha256 big_sur:        "c49042c1dfd2f893f8e6beb7f87bf75a647109c91b795756302b5e0d11141c84"
+    sha256 catalina:       "95bcc5e9abcc15975525825e675aa9647b784f0cc3d6cf7c2211da9adb2ac729"
+    sha256 x86_64_linux:   "0b71fd8f38a5a24c1ca2a76ea5ecfc9faab3b56b5fa02d544f9d9d4acd24e806"
   end
 
   depends_on "pkg-config" => :build

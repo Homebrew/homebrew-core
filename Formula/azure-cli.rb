@@ -6,6 +6,7 @@ class AzureCli < Formula
   url "https://github.com/Azure/azure-cli/archive/azure-cli-2.30.0.tar.gz"
   sha256 "fc95b8e85268c926b29fd7cb236dd0010f9fc82ed405761dd78ef56f3a78d6e7"
   license "MIT"
+  revision 1
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
   livecheck do
@@ -15,16 +16,16 @@ class AzureCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b2e4f083c0ac0e2cf7cb737a98fd3e882172b5832a1547478f10eefaf4acddfa"
-    sha256 cellar: :any,                 arm64_big_sur:  "0d97666f12242019c3dd73cb4a29cb02f0708a169fc11f3975da942a42acbdfb"
-    sha256 cellar: :any,                 monterey:       "48b8da0bc0a100021c29095b16ea00aa4239941a9c2f728b3e8444e24aabb542"
-    sha256 cellar: :any,                 big_sur:        "3047385d67e93f66abc9743effc647f1c498439533567d146619ec61b132eee0"
-    sha256 cellar: :any,                 catalina:       "65cac32dad4724014a7934455273d526a9573836dfc866b8d0d32065fd6b10f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf88a3e9092e306952701bd2713b90c9111f17362bde57d6293b3db64efca937"
+    sha256 cellar: :any,                 arm64_monterey: "eba2c5bafd94831abc5613ecd24a1ce5fc9cedbb5b2737ee5ee05f2d57708d20"
+    sha256 cellar: :any,                 arm64_big_sur:  "a68559a8e2a7dbfa66a14d2ca7cdc5efd76743c05d0cb564a273e7377a019c92"
+    sha256 cellar: :any,                 monterey:       "24235c70ae640e482f525b2074a11fe1ba68880156ff5e26fda0d83449516185"
+    sha256 cellar: :any,                 big_sur:        "cad2d1f606dd01d4ababe0d4990154308318eb4bdfce5024a9ec6533e83b2116"
+    sha256 cellar: :any,                 catalina:       "9aaf2ac77f65be6e971c0a758b7037d6af991ec6ba97c41bd19c86e87d73eef9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f17d3567d894e88492052dfc6fe22fb652601b32c91c19c93714bffd0635db64"
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libffi"
 

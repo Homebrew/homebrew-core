@@ -1,8 +1,8 @@
 class Dialog < Formula
   desc "Display user-friendly message boxes from shell scripts"
   homepage "https://invisible-island.net/dialog/"
-  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20210621.tgz"
-  sha256 "c3af22ccfcd9baca384062108dd9354e86990929ee270c239eef69518c5da7c8"
+  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20211107.tgz"
+  sha256 "af97fd6787af2bd6df15de4d1fa4b5d57e22bc7b4c82d35661c21adb9520fdec"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Dialog < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2c59b85713be3cdf1a73dfc32be7920d30d8663c487bc8b4025887e073e462e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b46e417d73e065176006d358a36cd293d3f9d881b7b6aea5b2be3fa0a381e721"
-    sha256 cellar: :any_skip_relocation, monterey:       "86185b79fa04eb2379c548a490b747a9969b8e6a1509ff9ed2c1e606bd31e2d9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "990bbe5e7a36febc23c79bdbbc454075d695a54dd730e4dab8465d7a66ecab0d"
-    sha256 cellar: :any_skip_relocation, catalina:       "87d270268a38de209e9b6fde7c963e4467554d7f0777425f2aa55a3701f25559"
-    sha256 cellar: :any_skip_relocation, mojave:         "c05946dd7b57aa11f42ccccd0aab7c9b1506e8093c9dcc60588046aadd4b15dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2e3820b717ffdec0e6fe7fce8da31784263ebac9ecd49713677dccf5cc5446b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7af13fc5ed9ad1130eb1bd077973d0b895291dd5422dd7405b45609628011f92"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b43f6824c286c9665a1e7106d9b4a2b515518c5025aa9f87f31d916876ff8235"
+    sha256 cellar: :any_skip_relocation, monterey:       "59223925cb93b31d681a6b6c862eb6e66c743f65beea211fc9175f8277511282"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1d773e2ce233dc636b9a3d87752c5b64e69811c25dde29aca2a88c42aa2f92a6"
+    sha256 cellar: :any_skip_relocation, catalina:       "5993d6c28363a0c091654e1f077f09b7181d861b8100ac5e749da70f948a8231"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "841dc3155471f07bab41a4fc1c83d3331903eee41aa94d7e2d987df46ba5cad1"
   end
 
   uses_from_macos "ncurses"

@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.71.0",
-      revision: "d65fafff3960a72b87eddecdbaf171cdb29d5f90"
+      tag:      "v0.73.0",
+      revision: "c9e4a1694f91b4d0042645b5b28c566096aac739"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,12 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "3bd94b87e80f32aec37739184accef6e4d172ee49936d2dd5b2d2dc52d349d88"
-    sha256 cellar: :any, arm64_big_sur:  "d018b16a57155a3e154b038b9cc691799cebaefb0e29b2656b9fbdde15385f74"
-    sha256 cellar: :any, monterey:       "32ce45cd8d522474b4fec72efb6212698a76b4faf3e3dbf879721e9e4363857b"
-    sha256 cellar: :any, big_sur:        "bc5f713abc5927bb77f34c17b661bca833a491eb65f5f859e36fd532b10e845f"
-    sha256 cellar: :any, catalina:       "01ffa9ef9e3963c3b88c953a14ae07e749600d5803e33e1ea15e44c16aee506e"
-    sha256               x86_64_linux:   "c607b0da467f235954b681cb0a86660b3223698f498ed5e7b75ed3ad45b1fe14"
+    sha256 cellar: :any, arm64_monterey: "d0c23bbf8383169def64fe9f7b303d4f03fbd27daa06bded1e4a7be4908d4f08"
+    sha256 cellar: :any, arm64_big_sur:  "b3d1c6b7f0b6750f512b69017f105f63029866c682066c8243b47d904911b7b0"
+    sha256 cellar: :any, monterey:       "6dba77ffcb656ea9e607637b4e216ca6413b04ec896d00cba9b1d9e86c006b0c"
+    sha256 cellar: :any, big_sur:        "681d2fe7969d631aeae0760db197e36c74d1163b7e5a0a8e40bfdf1e33ac5935"
+    sha256 cellar: :any, catalina:       "49fbcaf1ae180f6135837fb128ccd6a63af49b0f04b92ffc9b7f75dc21745364"
+    sha256               x86_64_linux:   "da27b182edaf88c83795046fd81759ab160d2d40607963266a48bde89af77e75"
   end
 
   depends_on "cmake" => :build
@@ -47,8 +47,8 @@ class Semgrep < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/10/d5/0f2fa4d62d905c159ad3f81fb3b0446d5ef5a900ca942d2995f441b5c440/bracex-2.2.tar.gz"
-    sha256 "8230f3a03f1f76c192a7844377124300fbaec83870a728b629dfabd9be9e83d0"
+    url "https://files.pythonhosted.org/packages/bd/ef/6273bba9e5bc615aab4997159eeaddfe03c825eeabe2942c39e91be5afec/bracex-2.2.1.tar.gz"
+    sha256 "1c8d1296e00ad9a91030ccb4c291f9e4dc7c054f12c707ba3c5ff3e9a81bcd21"
   end
 
   resource "certifi" do

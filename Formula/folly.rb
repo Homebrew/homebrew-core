@@ -1,18 +1,18 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2021.11.01.00.tar.gz"
-  sha256 "eddea9b82ae1b32d1a1ad0cf3e6c1990fb270f9b4c02cf3d82e7ae9bb9f9475e"
+  url "https://github.com/facebook/folly/archive/v2021.11.08.00.tar.gz"
+  sha256 "26f33869c663aa416df57d4c6ba2266fb47c66bddd514b9cd1b5e08cf7a6df01"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "67dcb4ad4611273a5f77110cbd4cba756dba89f3ace71fac6ad8543e1021422d"
-    sha256 cellar: :any,                 arm64_big_sur:  "10dca6ba8ff3cacb5530937c60786dc2211b7b7b3a7a817f98b69b5834d45212"
-    sha256 cellar: :any,                 monterey:       "5c189c141f1c725bab9c38fcec2c47482771c64d33ac67062415b31aec006272"
-    sha256 cellar: :any,                 big_sur:        "8d9b1aba953e0cf40fcebae521a0b7cf7838f02c6ad93519c58ea106b729cd73"
-    sha256 cellar: :any,                 catalina:       "14619a9d5bb477dc622b55a82e88d769cc5a4c8b224bb2e959f9fc3e9fed1eda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4557a3c385ef24b070f2607355546b9ab257afa0aad5b0462fb6d68e971fe3d"
+    sha256 cellar: :any,                 arm64_monterey: "bc8304a2f58e56f5280e7963a43b633c2dc8714518af26d25a6f890bcaf9baf7"
+    sha256 cellar: :any,                 arm64_big_sur:  "f989cda57fdfb076e5f86ce690526fc94dd931d880d0e718cff33537218d4cf5"
+    sha256 cellar: :any,                 monterey:       "8f0eb14a68df7d0fcb6d1fa450309fc0d8b6446f8bd9542634e9dd05eef0b743"
+    sha256 cellar: :any,                 big_sur:        "623b31c867956b376bcdc05dec51f6cf80c5fd7acd37f77b2b25fb4ebc2f778d"
+    sha256 cellar: :any,                 catalina:       "ab4edaf5922efb4a3b327981be78589e06e6f4136f3a435fc87fe0523bf16087"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c080072a7bc09fcbecf6f4832aa89916cadf82c6fb4328ab573834796219df0"
   end
 
   depends_on "cmake" => :build

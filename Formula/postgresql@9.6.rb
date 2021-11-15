@@ -5,11 +5,6 @@ class PostgresqlAT96 < Formula
   sha256 "a849f798401ab8c6dfa653ebbcd853b43f2200b4e3bc1ea3cb5bec9a691947b9"
   license "PostgreSQL"
 
-  livecheck do
-    url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(9\.6(?:\.\d+)*)/?["' >]}i)
-  end
-
   bottle do
     sha256 arm64_monterey: "3c95a141a51cffc75768bc1f0c536031fe273f9458e02882ef057acd4b20a6cc"
     sha256 arm64_big_sur:  "0f79f7033fdb3a2491e28964e60c053f9c4fdc195a85f0ea67abb469cc8e0ef7"

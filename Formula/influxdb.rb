@@ -2,8 +2,8 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v2.0.9",
-      revision: "d1233b7951ddf06a3f201c84f4b0915692c22ba5"
+      tag:      "v2.1.1",
+      revision: "657e1839de9e8a734abad1207ca28e7d02444207"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git", branch: "master"
 
@@ -14,10 +14,11 @@ class Influxdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ccfa24843aad6447e354fe0aa8d912fcce1ac756176c71112acf9870bda2846a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8c1ad0349a2b4d7b0943bca30fd68e8f1effb2c97d968b7c765ed47198f8bac2"
-    sha256 cellar: :any_skip_relocation, catalina:      "b2f81367128aa3f5a6c433837e55bbe7d3680cebe6f476207b25a6d309571ad3"
-    sha256 cellar: :any_skip_relocation, mojave:        "79a485ca7cdf37b3c11ae7405501857fcfda1df0c2c9945350384dc766344ea2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7de2e0f730864bf4db5f3af35533d5b8d462def4013cebc1dd9991fab1b59d83"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42c89aa4f7c843b8f99ac406d42d822505ec9cf6d0ecb38d7ce4217f000ee165"
+    sha256 cellar: :any_skip_relocation, monterey:       "371081fed5b98ae9fbb03fee57ce016cb29d39796a35dc9b57bfe0fb8030681b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2ffa689372e99aff4f2366eded763e59d2f1fb9c09f14cfe37ab6fc2cccbcc72"
+    sha256 cellar: :any_skip_relocation, catalina:       "23711126f0cb3c7b89bf68a9f933aec3be44d86cd88ebdd80079bc841c9b5728"
   end
 
   depends_on "breezy" => :build
@@ -30,15 +31,15 @@ class Influxdb < Formula
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.8.tar.gz"
-    sha256 "9d3f3bbcac7c787f6e8846e70172d06bd4d7394b4bcd0b8572fe2f1d03edc11b"
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.9.tar.gz"
+    sha256 "25843e58a3e6994bdafffbc0ef0844978a3d1f999915d6770cb73505fcf87e44"
   end
 
   # NOTE: The version/URL here is specified in scripts/fetch-ui-assets.sh in influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "ui-assets" do
-    url "https://github.com/influxdata/ui/releases/download/OSS-v2.0.9/build.tar.gz"
-    sha256 "ace380b5bd6abef9aa0ca16e95900052b9520399a7b3311a0c366a5d98ad400d"
+    url "https://github.com/influxdata/ui/releases/download/OSS-2.1.2/build.tar.gz"
+    sha256 "7d78d284d25f28dfd940d407a17f7f3aee1706b5dabc237eadc3bef0031ce548"
   end
 
   def install
@@ -65,7 +66,7 @@ class Influxdb < Formula
     ].join(" ")
 
     system "go", "build", *std_go_args(ldflags: ldflags),
-           "-tags", "assets", "-o", bin/"influxd", "./cmd/influxd"
+           "-tags", "assets,sqlite_foreign_keys,sqlite_json", "-o", bin/"influxd", "./cmd/influxd"
 
     data = var/"lib/influxdb2"
     data.mkpath

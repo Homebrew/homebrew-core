@@ -4,15 +4,15 @@ class Gifski < Formula
   url "https://github.com/ImageOptim/gifski/archive/1.5.1.tar.gz"
   sha256 "88beeb896b6a1138046f665c3495f85670a74a527e34743080d8976d3f1b73b7"
   license "AGPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a587ba695eafdf36d0d552490d75f904be8357de3367f7d6a3e24425c32689ad"
-    sha256 cellar: :any,                 arm64_big_sur:  "4e4f752ba34b14b134bc80a67ee0f6f36d74f5cbdf95b88ec306bfade5a075cf"
-    sha256 cellar: :any,                 monterey:       "45e66b70557e5754ead07f6cfe259ac8c0d59819c96bdadf5002d1f4fa5f8e29"
-    sha256 cellar: :any,                 big_sur:        "e71fc42f451a7d7e5d9d7fe61133855e2cab497c96c854dd738f24da3d3818c8"
-    sha256 cellar: :any,                 catalina:       "e4c94f149462465d73b0cbf4acae91a6dd9e4566b8c3852a7c96b319e831ca1f"
-    sha256 cellar: :any,                 mojave:         "f19277f478fde77637dacca7a4a080294f7ad8109de4568b32acbec00d647ce8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c56085cbe3eca95c3fc1958a38924283bff2b54c9d5d011d1132cb9c181fce40"
+    sha256 cellar: :any,                 arm64_monterey: "2ffc2bc0e39598db641205b5bc890d73b7732ddc7bf423c047e1ff98557911a3"
+    sha256 cellar: :any,                 arm64_big_sur:  "517f8d4c5a645597e7a7766a1ba9e74d56ec6981471adb094b7e507d70b10d49"
+    sha256 cellar: :any,                 monterey:       "3120bccc885a4f6162a9a8f96d242ccd42d742e91a2968dd17d8358bbbb0b913"
+    sha256 cellar: :any,                 big_sur:        "50eac7eb295237c2962591c65d00359073d01c9df48bfb222da2c107185ef32e"
+    sha256 cellar: :any,                 catalina:       "fb579482e70e738cca521cfc3a47d5369a5354f281c7889b93a2fa78e85de40a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c58d0b0830a267a73fb438d4fec4b1c9306d87f0522f83899749b062f28c0ae"
   end
 
   depends_on "pkg-config" => :build
@@ -20,6 +20,12 @@ class Gifski < Formula
   depends_on "ffmpeg"
 
   uses_from_macos "llvm" => :build
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # rubberband is built with GCC
 
   def install
     system "cargo", "install", "--features", "video", *std_cargo_args

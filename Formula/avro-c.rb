@@ -1,19 +1,18 @@
 class AvroC < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.10.2/c/avro-c-1.10.2.tar.gz"
-  mirror "https://archive.apache.org/dist/avro/avro-1.10.2/c/avro-c-1.10.2.tar.gz"
-  sha256 "ae3fb32bec4a0689f5467e09201192edc6e8f342134ef06ad452ca870f56b7e2"
+  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.11.0/c/avro-c-1.11.0.tar.gz"
+  mirror "https://archive.apache.org/dist/avro/avro-1.11.0/c/avro-c-1.11.0.tar.gz"
+  sha256 "0652590a54ad8e4aa58a2b9ff1f4ce71a64a41b0a05c4529d1c518c61e760643"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f35900e1c47029e00ee8f41d573a5d090f15676e5676ba62774b17bbfe6a8083"
-    sha256                               arm64_big_sur:  "a2574fe92f3872c88dba0a8c956f4dab956b9222111a49c9b9ea1d191ed1bd44"
-    sha256 cellar: :any,                 monterey:       "77aa1e2c8a5b7c1d77183dce388ccedcdbbc81b69ba174c5e1d3455b0c5ee880"
-    sha256                               big_sur:        "af1c754a9f9e63b2692de3d8dd466dfa44e22d45d5733ea40db9fba4ed7c4437"
-    sha256                               catalina:       "3dfd6605930b99e96e1e78c2cbe6860e27d78cac3b1c6889050b7c05fdc32ad9"
-    sha256                               mojave:         "e753230392158e5001990d7af043a62bea1156931cb30c7ff5684035fd12eb45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1316225f689809972553a1a9929339c91182f992b93773cc5b1ce4d0b7a5dcdd"
+    sha256 cellar: :any,                 arm64_monterey: "003f19bcd51baea53f86d97488f83552dc8477eedef78a371bdc166ac0d183ab"
+    sha256 cellar: :any,                 arm64_big_sur:  "f30243ab877db4e81ff07c5dea0e266228ac04bf178144d3f9caaab45a876f86"
+    sha256 cellar: :any,                 monterey:       "35a23d1c97d7e5b50adf7ff2f8ff3ddcb6f9271c85fc033306e8447484e23b5c"
+    sha256 cellar: :any,                 big_sur:        "cbb5817beab9e6dfb2dd1a5fafed449c6aa5dabf8525b71142854771ba46ab35"
+    sha256 cellar: :any,                 catalina:       "d91479cfd09b368e971ed2c926c480edfe88f62df39476e780ec0d863cc19dd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80da35f4303fb1c13aa3a8728d2e4dd35537ba984a075531c2f7d17f6d03e823"
   end
 
   depends_on "cmake" => :build

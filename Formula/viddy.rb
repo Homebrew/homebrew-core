@@ -1,18 +1,18 @@
 class Viddy < Formula
   desc "Modern watch command"
   homepage "https://github.com/sachaos/viddy"
-  url "https://github.com/sachaos/viddy/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "441e057fb3e9ad75f034123ef023ff92eece67fe01d52745825f0c3c2ba89088"
+  url "https://github.com/sachaos/viddy/archive/refs/tags/v0.3.3.tar.gz"
+  sha256 "459d3ea43436b523e654f1f60356ef3150606ed17ca88895f54b7ee5999292a1"
   license "MIT"
   head "https://github.com/sachaos/viddy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "94203d619dfa11db244cefeea6407b657809ad1758b2b9b9edec988c02ad775c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ed75fb4678c69f4b17e60b3f7d5d79062f9842d407065c5b8eea2f45408cb46"
-    sha256 cellar: :any_skip_relocation, monterey:       "35004a320ef6ab389a7172546f4b99e56474868fd4cca70a89d39c4b008be374"
-    sha256 cellar: :any_skip_relocation, big_sur:        "42683c3e7bbb2f3b9d9d17e48375ce6672a8b365f3a94f8c833e5058337c33a4"
-    sha256 cellar: :any_skip_relocation, catalina:       "b904656d10800778f242c860c550d5da3508a51d735702c1f779dfc2f3b657ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41afacff33d7f52feda350cfbffe22634cd903e7c141ac8277933d47746417b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9bdbc431b54d1935fa3836ec33a1ae90ff50271efeaa6f28337be44ea0fb391c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "48df406e12194974132caad19dbc98533b9d90515b773c4621d603b00b0116ac"
+    sha256 cellar: :any_skip_relocation, monterey:       "34ae8b3d8058038dc2bd2b54e1876ca8e2948afca967d7892e0b9d64a5ba798a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1d816b2374bc130a7d8ed126462f14b4d12eb865f625951410dde28831fad2a9"
+    sha256 cellar: :any_skip_relocation, catalina:       "8800bb824553becaf9c2a01241f161ab0b12eab06acddfb5039260126403e453"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "761d112defa7f61b42b6a42bd3985b3376c1d785b50c30084585f9928d436b70"
   end
 
   depends_on "go" => :build

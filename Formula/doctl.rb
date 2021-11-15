@@ -1,18 +1,18 @@
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
-  url "https://github.com/digitalocean/doctl/archive/v1.66.0.tar.gz"
-  sha256 "ac15f584f4ccfbdc2b74ce7d708c71e0e1f201f80ef0f0d39faca6bafc0fda10"
+  url "https://github.com/digitalocean/doctl/archive/v1.67.0.tar.gz"
+  sha256 "97c9ee6f28efd621f04ff4bafa269d4f7f6632f5884178f443a22cb610e086a7"
   license "Apache-2.0"
   head "https://github.com/digitalocean/doctl.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b1899fe3f2c464a4076d8f8ce0b86679cbf0fc63f08ab306999b7b017dedc940"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b83c9e0141c331fe529e6727af77a5a2376fb2bd7e87814cf32b8b538165b34"
-    sha256 cellar: :any_skip_relocation, monterey:       "3b16956084e2f31e779c6af6fec1df675d0333cea402c440cdbb1e32fb57711c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1a4dcca7aacf94403216b841e422caa8078cd8dec7dd2917748df3494544e7b2"
-    sha256 cellar: :any_skip_relocation, catalina:       "7a621360fdb1b762452564d1684cc582ce5091dded9dd629e444e9336f5cf973"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6749cf7abbc88b44f0f749767e83464334dec723e12af683f7a709c1bb8f8ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "60bac0c13b24ac0d609d48309f1097558279d6d16f5408a83b194ea1f984cb84"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "108e2c7dcd8584626956f213b110af99c6f5bb2a773998f58ea77d3df45862e3"
+    sha256 cellar: :any_skip_relocation, monterey:       "afe1274a41e8db9bb426773d749cc5e96254466126e0e5813b6bc158dfd449b5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "44846d72f1c5e2de4728736e1ff79c70599ddd922998c274470c4a08e97c82ea"
+    sha256 cellar: :any_skip_relocation, catalina:       "20df5d8937d68868ae375fa197dd64af25ab7f88a70643cab1cac271e70df363"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c235dbbf49483325e38b76cb72263ec9301e1a6ffd958ee5d155bfb7024ce2e"
   end
 
   depends_on "go" => :build

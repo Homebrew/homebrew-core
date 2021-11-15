@@ -3,17 +3,17 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/91/c1/8519982d934835abb479c501d80252f47cc07c1d1800ac728b619c2378bd/jupyterlab-3.2.2.tar.gz"
-  sha256 "215dcbc2674bf1c74eca16b30eac49b882d41503c522ed337fb0053c89565ec8"
+  url "https://files.pythonhosted.org/packages/67/c2/657f6a6b2ab2c2dc2ccf6b72ac902ceb5ba4572198744a1c853969160364/jupyterlab-3.2.3.tar.gz"
+  sha256 "7d74593e52d4dbfacbb98e14cac4bc765ea2cffb1b980675f44930d622871705"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "85c56daa7104d3a549459d40ccbdee1f602bba5c1206028adacff007bdd9d096"
-    sha256 cellar: :any,                 arm64_big_sur:  "9d80057f24e78856f2cd5a40e3d4347617f7acb4eff31545c6d1a7ab4ad0cb70"
-    sha256 cellar: :any,                 monterey:       "9a6113f9c806ebb63c1efdab847143ab44012a8940ee26532d79f131b5b16dde"
-    sha256 cellar: :any,                 big_sur:        "aa33b3365bf873c98ec5f29999a694eaa7997733b28b09af382c92934acaedce"
-    sha256 cellar: :any,                 catalina:       "e3c12bff72bfd9aa334c2a6a91750736e2731c7620e643cb70e0b7df50a86d91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "574dc260a393fba9c5b7e8f452fa65bbff26474bf1f60d1e59ac7cc97de89238"
+    sha256 cellar: :any,                 arm64_monterey: "34c09547a4b92f74eb729d8b500dd0c5dacf4246bdb6b686771cd634d4010ceb"
+    sha256 cellar: :any,                 arm64_big_sur:  "7c121e03558cd82eff51048cae3958782545b42fd9f40a4f7e44e0df58f024a3"
+    sha256 cellar: :any,                 monterey:       "9f4be36f9630f31db3e514e6ba273dc8a71e96cc58c6af154266b2a0d16cabb6"
+    sha256 cellar: :any,                 big_sur:        "6991c4eaee44752ec3ca556d346660b295d0b520cb88819182a977a244ef4376"
+    sha256 cellar: :any,                 catalina:       "c4027539d5b473dfe189db174f988b2a1d814e774a07ecbd2691a929107d06a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ee959c38d5654559b92ed4e000854555aa9ce0f75df59dc7a9ec290a7a04058"
   end
 
   depends_on "node"
@@ -120,8 +120,8 @@ class Jupyterlab < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f8/86/7c0eb6e8b05385d1ce682abc0f994abd1668e148fb52603fa86e15d4c110/Jinja2-3.0.2.tar.gz"
-    sha256 "827a0e32839ab1600d4eb1c4c33ec5a8edfbc5cb42dafa13b81f182f97784b45"
+    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
+    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
   end
 
   resource "json5" do

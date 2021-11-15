@@ -1,21 +1,20 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
   homepage "https://www.pgbouncer.org/"
-  url "https://www.pgbouncer.org/downloads/files/1.16.0/pgbouncer-1.16.0.tar.gz"
-  sha256 "a4a391618bb83caaee2a8cd9653974f4c1b98b95987d5cabbbeb801da6342652"
+  url "https://www.pgbouncer.org/downloads/files/1.16.1/pgbouncer-1.16.1.tar.gz"
+  sha256 "087477e9e4766d032b04b7b006c0c8d64160a54141a7bfc2c6e5ae7ae11bf7fc"
 
   livecheck do
     url "https://github.com/pgbouncer/pgbouncer"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ed28e5a42d5212fa39c4f5906b93bea54eed6ed3a7f0df89dd7596ce4190afa3"
-    sha256 cellar: :any,                 arm64_big_sur:  "296a29f3cbfc6913fc9fdd0ebfd3a0f5475b74a781192b869fcb6757e919c879"
-    sha256 cellar: :any,                 monterey:       "c253e4a238780e44ac2aff1873ed9750a671ef9960014c078627ab45ed8cdb7d"
-    sha256 cellar: :any,                 big_sur:        "7d61dac174635767840b8dde46b2d9b4b25f6a36fc5ac950beb0868366fa87b8"
-    sha256 cellar: :any,                 catalina:       "e9bcdece7ed67566382ed196d34f6550fd093519e0283cb5e6170bd66645355f"
-    sha256 cellar: :any,                 mojave:         "d6e080c159196a61edd69c73ea234ce34bc91baeaf25e814633d2b35cabfb496"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26f5a2974400ec50e0727ce1b3054ceacd83e2e10e6b65e0e92296f412c65bfb"
+    sha256 cellar: :any,                 arm64_monterey: "6265ece64ed901a2646b09af720353630e645342a785ae9561c25d65fc11892f"
+    sha256 cellar: :any,                 arm64_big_sur:  "bc48b321d3f1f2e4b8a4c6c9665c55945d83ae3975287888460e5e6eb5d5b71f"
+    sha256 cellar: :any,                 monterey:       "acf061f094b6d05ca5e2224e114dd50f75dc921bfb43c21a69aa680b419c919c"
+    sha256 cellar: :any,                 big_sur:        "63ed65039f2fcd7884a7b163c92747837adb19c2f680a449e1a026d0934bec1a"
+    sha256 cellar: :any,                 catalina:       "b929b536892a66052c5da82d02c6fe56dbfd5df79317e0b8508fbca24ef781e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3cc2d2fa16d3a53f452eb38e82d78159a42ae5b205147e47f9f090653e18199"
   end
 
   depends_on "pkg-config" => :build

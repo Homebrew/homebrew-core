@@ -2,8 +2,8 @@ class InfluxdbCli < Formula
   desc "CLI for managing resources in InfluxDB v2"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influx-cli.git",
-      tag:      "v2.2.0",
-      revision: "c3690d85842b3481b727ab04c50b785c53451538"
+      tag:      "v2.2.1",
+      revision: "31ac78361b8aaae2aba966eb69054ea107028044"
   license "MIT"
   head "https://github.com/influxdata/influx-cli.git", branch: "main"
 
@@ -13,9 +13,11 @@ class InfluxdbCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfc4d3d0f285c28c1368391243fa5a0803123b6a13049f195dcb799ef747917b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d232cfb24c6e6c07bbd9814dae119de2db51b9b79963d503332231d2628ef85d"
-    sha256 cellar: :any_skip_relocation, catalina:      "99e87a5e302ae73d4695ef8802269ea97c0511c8a3485a2a89598c4630c7f1be"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "caf7f1fbc75839240bc0311dc94c5e34caddcc92de8784babde1bec1a6b40da6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a00aeb8af79afeffa06dec4b24287b364cf1900e33bdd0217e26fb5e9bb4aff"
+    sha256 cellar: :any_skip_relocation, monterey:       "abcce77b01b318d3ce600f84ad6fc2693c994f2682996a7911bfe78094071245"
+    sha256 cellar: :any_skip_relocation, big_sur:        "246ed09000d1fae897da9bf1c2d17de559c03e8ce4c6bbf83edef81fe0679365"
+    sha256 cellar: :any_skip_relocation, catalina:       "cf8474e13d6092e7e7c45df7d868d649c2c60872069704fc9988d71641a9bbb8"
   end
 
   depends_on "go" => :build

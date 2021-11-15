@@ -1,20 +1,18 @@
 class Raylib < Formula
   desc "Simple and easy-to-use library to learn videogames programming"
   homepage "https://www.raylib.com/"
-  url "https://github.com/raysan5/raylib/archive/3.7.0.tar.gz"
-  sha256 "7bfdf2e22f067f16dec62b9d1530186ddba63ec49dbd0ae6a8461b0367c23951"
+  url "https://github.com/raysan5/raylib/archive/4.0.0.tar.gz"
+  sha256 "11f6087dc7bedf9efb3f69c0c872f637e421d914e5ecea99bbe7781f173dc38c"
   license "Zlib"
   head "https://github.com/raysan5/raylib.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "af21e9e870c5296d1a25ff7366b87e35b0eed24c987d5ff804850f14d5d33d0d"
-    sha256 cellar: :any,                 arm64_big_sur:  "95b223701f9d14ccde0080a0929e9f8db53b759d83209549295ade015de4ef7e"
-    sha256 cellar: :any,                 monterey:       "37cd478ef9beb89ab802778c4100d640b97b6d7b4325891992c13060cf42ae25"
-    sha256 cellar: :any,                 big_sur:        "78a042f4d5d0c0f0172601d2768a74a7d9f3b3fa3224b6f301cf6c928f8242fe"
-    sha256 cellar: :any,                 catalina:       "fe7414b8f44864b7382051eb74600f339a81c63aa5ef0eba6b64a7ff1d1d7292"
-    sha256 cellar: :any,                 mojave:         "e8ac33fe22bfa1f12ec03d1bcd06728ea6cee3a6a91d806d46ffe9565a1cca27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86e833f587932092825be4023474979a2a6d6ec0f0858b6435f3408a143c0bdf"
+    sha256 cellar: :any,                 arm64_monterey: "a661eadd8041310193930de3d8c945a9e0907e695423d944f0a54d1d559d8923"
+    sha256 cellar: :any,                 arm64_big_sur:  "ac23867f939f0132beb5e0da421d8d6d668d4f5ca70cffc07e13fdecf75380a9"
+    sha256 cellar: :any,                 monterey:       "7df796fdcda7fe67f7a115bd571ffd0aa55f8850be85a21f8e105c5674f26024"
+    sha256 cellar: :any,                 big_sur:        "688d9af987c7c67aa3afac744c35d81a8e8c57d1d6b5afed1edb95791cdb7205"
+    sha256 cellar: :any,                 catalina:       "a2c90a09cdbd887cfee09ac7caac37953401b32ee60643e4f25521bd8d6318b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7e03b969c31d5af57fff44d13ee2741198083cca3360ac126db73f555b4cd48"
   end
 
   depends_on "cmake" => :build

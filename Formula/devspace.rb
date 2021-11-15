@@ -2,8 +2,8 @@ class Devspace < Formula
   desc "CLI helps develop/deploy/debug apps with Docker and k8s"
   homepage "https://devspace.sh/"
   url "https://github.com/loft-sh/devspace.git",
-      tag:      "v5.16.2",
-      revision: "0a34b1427d12992bec25e55f9bdf72e54baddbaa"
+      tag:      "v5.17.0",
+      revision: "ac2f19c286043a623dcadd2df16a623bb0713781"
   license "Apache-2.0"
   head "https://github.com/loft-sh/devspace.git"
 
@@ -13,13 +13,12 @@ class Devspace < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0020f078d81ed456374c05871e1a7590c1327dda8c8087471395c92aae78c4d6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "52ef10f870dc87e01bfb118e4dd49420049f4fc6f0dd5f757af4548096881363"
-    sha256 cellar: :any_skip_relocation, monterey:       "d6541ba09e87c90318990894b8a0e5299cdc345ea014f36bd173bafa2aa81314"
-    sha256 cellar: :any_skip_relocation, big_sur:        "05e5287227032eb72d854d112bb315fa434f4d98effacee923c67a8edddcca14"
-    sha256 cellar: :any_skip_relocation, catalina:       "8c9934d47bfb44efc9a720fcfe2b5bcfab3b97d13295eca60762e4a120865cc1"
-    sha256 cellar: :any_skip_relocation, mojave:         "3a8593a91425447dfe1426f3f671d1b3c5c9399b0ec67335001587b4d72fd928"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b99739c78161b43d058af186d6cf5cb244929b0cef65c12c7dd6e5c689a7327"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8be02973223953ba00105bf0aaefb368232e39cd7c399e504201286cbba7f568"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c9325c16a11aef6060f859fc7e55fc535fcd10b4b3aa47fb1b62c613f1e1f1b"
+    sha256 cellar: :any_skip_relocation, monterey:       "4d64829828897f01159e71197210bfd69316e32ea571d408f44a7b085f808dea"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c9cb5cb658882eebef6af056f644514337d302be6c16c218ebc36e2a909e3527"
+    sha256 cellar: :any_skip_relocation, catalina:       "de5cf62eae4fe8cdcb85c0be3e289fcb3fb4112fa3204d0142e98788e77d3538"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5429d6af0eb1108cbde31bb2f4b3ad1698f66ebe11aa8e601f2ae995f90036a"
   end
 
   depends_on "go" => :build

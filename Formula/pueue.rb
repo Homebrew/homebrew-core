@@ -1,19 +1,18 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/v1.0.3.tar.gz"
-  sha256 "eb20da7425fab406ea33322aa6b248c350eca631b8e23f2fc2ee80c1505e439e"
+  url "https://github.com/Nukesor/pueue/archive/v1.0.4.tar.gz"
+  sha256 "c4ddb496f86ab4c10b322d5a64be4f96f6c8779796983f4500fe341300b65072"
   license "MIT"
   head "https://github.com/Nukesor/pueue.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "79e3eed8eb63426fe5d32d86a5a7096db89e92fb52c0e6e50c2f241416e4e476"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7692235fe220741fc6115a693800efd25baa1f4d250a96f619ff9f0ef599c27e"
-    sha256 cellar: :any_skip_relocation, monterey:       "da1ec89052a1ffcaf6285a4b4efe1d0082f6ec8704944817623d2b1095e4d599"
-    sha256 cellar: :any_skip_relocation, big_sur:        "498485e3aa3ff6562d4f79509426e744d4061cc8b5f936838a17a4c99b2ac350"
-    sha256 cellar: :any_skip_relocation, catalina:       "43ad1d2ee2c78e402b1fcdb8e94dd49eab29d30b7fa31f704ab046394938ad88"
-    sha256 cellar: :any_skip_relocation, mojave:         "28ff30dd5c01a9acbc060cc544ca35b73e7cabb4428723022ff78ffba02197a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aae3d2c4545c4121faa1e7c9bc194d6b2aacea045751095cdd487ab6b9f8f0f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2a92df8647f7ed6882057cb2592aad3d37614991bd78a007dd5390946c48284"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f9b5b7101590b35413c467ac6b03ed86b256cdbc2832bb2c1c6267c4f168e07b"
+    sha256 cellar: :any_skip_relocation, monterey:       "9f3f898387ad0cccb2d6a2471707df0f3b53b3a8b13b3773b8d26b1904210159"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6d8e111554e48180b9b0ee4d385079fbb6618c9e892441f7056bb7795cff89bd"
+    sha256 cellar: :any_skip_relocation, catalina:       "bed9af0542c44eebb6ab281a3e8022f7e0b5fc6d6fc47006ef8c83db66f47f2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c5e77735cd4e91f30a2c1836edf6494237e2edd189698736a6d5702554ccfcd"
   end
 
   depends_on "rust" => :build

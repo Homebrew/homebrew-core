@@ -2,17 +2,16 @@ class Dfmt < Formula
   desc "Formatter for D source code"
   homepage "https://github.com/dlang-community/dfmt"
   url "https://github.com/dlang-community/dfmt.git",
-      tag:      "v0.13.4",
-      revision: "e79ba9f0c89ee39f32780c5a2fcd2294b1040190"
+      tag:      "v0.14.1",
+      revision: "b776d5a9b96df283ab93b19a9bc689d633bdcb83"
   license "BSL-1.0"
   head "https://github.com/dlang-community/dfmt.git", branch: "v0.x.x"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "a02c5fcc986f4f8884460f583175d1fafc5262952a0070da1bdc931bdc6185f3"
-    sha256 cellar: :any_skip_relocation, big_sur:      "00eceeab6157c27c75002f5239183b3902071c0aefe0b8892831115897edf197"
-    sha256 cellar: :any_skip_relocation, catalina:     "a545590d0222235eb45c81f82d62b66a26aeb2156217d2c010bbb6b90201fd26"
-    sha256 cellar: :any_skip_relocation, mojave:       "27d62a6329e0c0b3d3e18d05600ad4fecf6dcd1cdd07eb150e292df593c7d92c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "74d9f0c77732a63098658c8853dc2340cabcdca1ac7382d104f58474c21f7771"
+    sha256 cellar: :any_skip_relocation, monterey:     "da0e960bd1741a529663f4b7c3fcd406f77a0a9b75d99ada5f9c7e782df3acaa"
+    sha256 cellar: :any_skip_relocation, big_sur:      "0f09cf9fb7712ebc83e152a9f91e8b1bb6999f08193e972fe1aff4d59086173e"
+    sha256 cellar: :any_skip_relocation, catalina:     "2cb758724bd788db0b23c88e40855ffe8fe5f78e88d30f3913967d0a7358ad95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "43b3d9dbcf4f21e8cd20937505b13406b2643bba0f10c498b9046ad894e22966"
   end
 
   depends_on "dmd" => :build

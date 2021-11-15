@@ -4,19 +4,19 @@ class ScIm < Formula
   url "https://github.com/andmarti1424/sc-im/archive/v0.8.2.tar.gz"
   sha256 "7f00c98601e7f7709431fb4cbb83707c87016a3b015d48e5a7c2f018eff4b7f7"
   license "BSD-4-Clause"
-  revision 2
+  revision 3
   head "https://github.com/andmarti1424/sc-im.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "253e32561f23e30023e0a6392d521c4ef63c6f0b153b6c61c7cbb03ebaedd541"
-    sha256 arm64_big_sur:  "4c61408b90b2b5585279e8d19c24028ba13f6f5073589144fc71ae235c25ee2e"
-    sha256 monterey:       "db62195b7e3802fae92b714feb809dca80d460a11e07f62e56332aa76da05c10"
-    sha256 big_sur:        "3e73faa966c9b00428d60b741d88e66a64dbe0bd5943145b8f65b75a4172c8ba"
-    sha256 catalina:       "bf2a132b303dac493a252b4668796bb27d608e76eeafe4a1f40b01517c5d35cf"
-    sha256 mojave:         "ff69fd16113c4e1b85b47275b78d6398bdeaece2afea1db41ca61ab7865c1fbd"
-    sha256 x86_64_linux:   "130eea9e4e62fd9c0c161dec373a5039f2bcf5c639a2cf13ae66edfee0a324f4"
+    sha256 arm64_monterey: "7ebc2e0f8248b991474defdab0519dbffc74761b0627100abb9a52e15cc1f945"
+    sha256 arm64_big_sur:  "7a695c6f3c7c830c2c88bf60ec0bc8e844a82b1adf7ed4cd474d89326c0600ff"
+    sha256 monterey:       "16d81d91ba10cc86b39c3408290a3dfc71458c0e72b9dce4bf0dde9a817600f6"
+    sha256 big_sur:        "311253002c6a2e14f2003a7e7e8f88ecbe54a7bd6f373a695e14a2cb4ec0a377"
+    sha256 catalina:       "d25892c33ee8ac59c5e6439a9fe7893fa49c4a8514c2aac880f95f997c3eef32"
+    sha256 x86_64_linux:   "cfcf853d84da9ede68d92fed791600c887869a2fcb2c689eafb3f491a00b06af"
   end
 
+  depends_on "libxls"
   depends_on "libxlsxwriter"
   depends_on "libxml2"
   depends_on "libzip"

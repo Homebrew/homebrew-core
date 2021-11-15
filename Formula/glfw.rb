@@ -1,19 +1,18 @@
 class Glfw < Formula
   desc "Multi-platform library for OpenGL applications"
   homepage "https://www.glfw.org/"
-  url "https://github.com/glfw/glfw/archive/3.3.4.tar.gz"
-  sha256 "cc8ac1d024a0de5fd6f68c4133af77e1918261396319c24fd697775a6bc93b63"
+  url "https://github.com/glfw/glfw/archive/3.3.5.tar.gz"
+  sha256 "32fdb8705784adfe3082f97e0d41e7c515963e977b5a14c467a887cf0da827b5"
   license "Zlib"
   head "https://github.com/glfw/glfw.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "315b4c832feb074af287a825719fd4414e36ab917f6e2f344efff19df5b46be4"
-    sha256 cellar: :any,                 arm64_big_sur:  "254fab48c4f812c65cc73a046a664b0a914ef745c832ab01c8706ee77de6a195"
-    sha256 cellar: :any,                 monterey:       "5c27b5d09d2797051466abaaf850415e6ea8af29369625e32ec001b979e4b6bd"
-    sha256 cellar: :any,                 big_sur:        "cc2a5ebed503daa988847659ce72bcbafd44387ecebb55fa422631edb731cade"
-    sha256 cellar: :any,                 catalina:       "b6505ca02cb672280ce332952dd188b7ffd139b4b48b1afb33a1619143bfd126"
-    sha256 cellar: :any,                 mojave:         "fb4c73abb6b230ffc2cacf187114584a1e589e67f399b78a56396911b2e1b483"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8b8d18377e4dcf96cfdd986f9580ccab2a283707f7820d3024487a038ed4c0a"
+    sha256 cellar: :any,                 arm64_monterey: "f403c7bb3b896a27697b11dadc2ec57dfd0bcdd9677f06506e5b342fd8ef867b"
+    sha256 cellar: :any,                 arm64_big_sur:  "a27a303ba0d840adb0b4db81c0c8193b89657eac79d55edc230c41f720af25cd"
+    sha256 cellar: :any,                 monterey:       "2b946d54a5c83fae4e45773dece612471fa482881a48e7c92d860e2d352de0ce"
+    sha256 cellar: :any,                 big_sur:        "f444562fbb85b074137dabd8074ad783f385e6c50d3dbeaaeb767f31dddc4aab"
+    sha256 cellar: :any,                 catalina:       "278dcbbad6f20303f3eb533e45478ee47f3636a240748b2cf2413b5b3c5310e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e54519e99c5f073c35d9b33a43b3fb838982c3d556ac7d0a13e135cef5e80489"
   end
 
   depends_on "cmake" => :build

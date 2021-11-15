@@ -7,6 +7,11 @@ class CeresSolver < Formula
   revision 4
   head "https://ceres-solver.googlesource.com/ceres-solver.git", branch: "master"
 
+  livecheck do
+    url "http://ceres-solver.org/installation.html"
+    regex(/href=.*?ceres-solver[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "1b729631e1d4e35fa8cdb4e38daeab4db1900273bb3b3a97800d6609c9048011"
     sha256 cellar: :any,                 monterey:      "e331ba4a260953f79cc693e323515cd11047e181c104affded4e9c60a93fd3f7"

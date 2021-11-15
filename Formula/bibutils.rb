@@ -1,8 +1,8 @@
 class Bibutils < Formula
   desc "Bibliography conversion utilities"
   homepage "https://sourceforge.net/p/bibutils/home/Bibutils/"
-  url "https://downloads.sourceforge.net/project/bibutils/bibutils_7.1_src.tgz"
-  sha256 "b4a4e8e900fe113887a8d9730b47d8bb55926f973486defc233436676271ae6c"
+  url "https://downloads.sourceforge.net/project/bibutils/bibutils_7.2_src.tgz"
+  sha256 "6e028aef1e8a6b3e5acef098584a7bb68708f35cfe74011b341c11fea5e4b5c3"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,12 @@ class Bibutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac5a87386eb76043970aa522dd774abf6f60d807646f361a8039c64e1dc5472b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe797d92065d5b0ef0f16511bfea5ba2567d2f877038109cb5e30f0d796a0f57"
-    sha256 cellar: :any_skip_relocation, monterey:       "dab6027f372c7969b4860d6e6a8d85bafbfe5953f773f2e7185cba6db3f0dc0c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a8989477b91d3423deea04a5833b83cea7eee836ad197dfb30db9ce9599788b2"
-    sha256 cellar: :any_skip_relocation, catalina:       "4f3cd7ce2f12a53e6afd35f92990968e6463a674dc4082315709c295e4869bb6"
-    sha256 cellar: :any_skip_relocation, mojave:         "866724d8735e42aa3c62cb4b47e8be77bb41490d23ca2d83f0096ee2b9b4e5fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf0f79873c4ce317aed31c0c1516552e937ccddc191f951d3acf8cc3f2e9ca06"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "085548415c78f47a9185a323cc633d3005de95d1422e882f18393d7f7cf665cb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe66061892ae39db121b9393cbce117888d4ba59aaa251269710f88d6b38b0eb"
+    sha256 cellar: :any_skip_relocation, monterey:       "96d70048b4981355409b6620109d0acca787a9ae6a45a4c381a28bf8010b73f0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "42fd33d5b6c68a038ea4f13be19e3ac741fcffab459a12501da19d939231d94e"
+    sha256 cellar: :any_skip_relocation, catalina:       "6c5c8d31e9991599261ea6ec046d87f011ae2c3a42afe5d4e3fea07e38a69637"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95a5448e5df2d441e8e47dfb5115a9e16f8f239acce666093b85ec9ce7038c67"
   end
 
   def install

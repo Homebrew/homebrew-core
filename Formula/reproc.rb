@@ -1,19 +1,18 @@
 class Reproc < Formula
   desc "Cross-platform (C99/C++11) process library"
   homepage "https://github.com/DaanDeMeyer/reproc"
-  url "https://github.com/DaanDeMeyer/reproc/archive/refs/tags/v14.2.3.tar.gz"
-  sha256 "ea87db7a780a81bc27bce3e6c8e5f31b831fb8a1d06c6b5c2e1c2554d1c55e00"
+  url "https://github.com/DaanDeMeyer/reproc/archive/refs/tags/v14.2.4.tar.gz"
+  sha256 "55c780f7faa5c8cabd83ebbb84b68e5e0e09732de70a129f6b3c801e905415dd"
   license "MIT"
   head "https://github.com/DaanDeMeyer/reproc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "27e2415191ce6b56c81958ce5eea0811a60b57373aa401cff607515f51a054e1"
-    sha256 cellar: :any,                 arm64_big_sur:  "d1ca154c6d2d326aaf4a7b6ee1ceb1d938a53bf5f1c781caf2442e168d8e691e"
-    sha256 cellar: :any,                 monterey:       "cb4eefba9da6281f5fe474439b4baa73f962c4635bbedd8cf7bad3df48756682"
-    sha256 cellar: :any,                 big_sur:        "45eadbe6fd0d8c7290c841df4382ae7d3856786246aeece1eafbbfac966f1654"
-    sha256 cellar: :any,                 catalina:       "99cea88e4dea75d93cd99dce06affadf03f77a6e930a4757173bff223f700255"
-    sha256 cellar: :any,                 mojave:         "a57ce39842edfdffeb70c5e9f707f6adf4b309d27c7b0e48de21b9c02c803922"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b8d92c86ead3042691d0b71e41bce3d4c4548139172a6e14c5534bc422050fc"
+    sha256 cellar: :any,                 arm64_monterey: "7ca8c71697fde21aee214aa89b946c8888fc705158a7ca0ab69517bd197a6da9"
+    sha256 cellar: :any,                 arm64_big_sur:  "d470a5392162d5fb1f55278e6929848e83ae94cabab1df336e37a129c8ad283c"
+    sha256 cellar: :any,                 monterey:       "83ea02414a36a147e2aa5b10af9dd1ffb54ab9264a41494f1445f74719705627"
+    sha256 cellar: :any,                 big_sur:        "c78f3749af6dd54bc49284a537bd4fd12e63c205912e5c9ac94315c02806e6a1"
+    sha256 cellar: :any,                 catalina:       "73c318ae34404846109bd408e4d47ed22581f3b6666458a9c6d8595281fb0046"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d89df90f4fac92f1c189ced3417a439ae2b774b9653bc16ac6abcc352f1b26d"
   end
 
   depends_on "cmake" => :build

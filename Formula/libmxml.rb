@@ -1,20 +1,18 @@
 class Libmxml < Formula
   desc "Mini-XML library"
   homepage "https://michaelrsweet.github.io/mxml/"
-  url "https://github.com/michaelrsweet/mxml/releases/download/v3.2/mxml-3.2.tar.gz"
-  sha256 "b894f6c64964f2e77902564c17ba00f5d077a7a24054e7c1937903b0bd42c974"
+  url "https://github.com/michaelrsweet/mxml/releases/download/v3.3/mxml-3.3.tar.gz"
+  sha256 "7cf976366f9e8e4f8cff7d35a59bcf6201c769fce9e58015d64f4b6de1fe3dd8"
   license "Apache-2.0"
   head "https://github.com/michaelrsweet/mxml.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3a766f3079e363aacbc56f928acb69278d7a3e2748af52240e0021eb034845fc"
-    sha256 cellar: :any,                 arm64_big_sur:  "c83d4a6556c0da6f962e37b07874d22a90c388751fc0b46db669ea2603d4b5bb"
-    sha256 cellar: :any,                 monterey:       "353e624620b81736b2bfe02dfbc47d9bf757922a794d511f236438d83c4e6565"
-    sha256 cellar: :any,                 big_sur:        "70c41d09f15c8de8f93df010b73fe51211d262a86c69a25c0ea1028440267c01"
-    sha256 cellar: :any,                 catalina:       "680142115002908ad936e6cc27b507056d10b91a4c6d5ca250480090be71e21b"
-    sha256 cellar: :any,                 mojave:         "a8d373d3bef6a43d40ef8aed433257fbdc6ba7566b454565dcdeeb3b21290edc"
-    sha256 cellar: :any,                 high_sierra:    "6717fbc8fb911a1a3b076c1cb1d80ab9ea010456810d14995346973543cdc2f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09b769b8d43721fd4b56a4044806fcbe2d7275d1f82e1067908690ecaa1d5f1f"
+    sha256 cellar: :any,                 arm64_monterey: "dc96370d86c83265e3effd6049c143dddb4248382d727642ceb65a66532588de"
+    sha256 cellar: :any,                 arm64_big_sur:  "6e2b3cc9d77fe87f0ef87f01d8a18929b651dd139c8a6fba17d3385eabd44070"
+    sha256 cellar: :any,                 monterey:       "3af6abe72cb8368988ded65b825947ddd3b979c04da8f8f38a3200629673f428"
+    sha256 cellar: :any,                 big_sur:        "72ebcbbb662dc0fdcde53048ff12a98a11f6a4a134e91eecc82605bf384e2ce3"
+    sha256 cellar: :any,                 catalina:       "085ea14c9ffe2c4318167bfe70a597ec75ae7efb93f6720ae45db536285d53c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c82b42cb4d23f082638ce0e4314e378052f361d73a35c85389fe2419ee13aff5"
   end
 
   depends_on xcode: :build # for docsetutil

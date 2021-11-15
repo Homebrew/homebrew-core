@@ -1,17 +1,17 @@
 class Easyengine < Formula
   desc "Command-line control panel to manage WordPress sites"
   homepage "https://easyengine.io/"
-  url "https://github.com/EasyEngine/easyengine/releases/download/v4.3.1/easyengine.phar"
-  sha256 "125a80fe3f0e067cbc5add818b92e12b5208179ed0e6d493872e3a9d59b1eecc"
+  url "https://github.com/EasyEngine/easyengine/releases/download/v4.4.1/easyengine.phar"
+  sha256 "1554946f9e14165a9f25babde85941ee8a9f834a1d2b8364126fe36be596dbc4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d01b1cf76c7de7d19048831b18052fcee01907372b350572d318acf606024f1f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6dadda808adbe3b36846613fcd9940ac087159aff9688452bf570df183eff6e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "bc91f8e425f8f6346cc0baf1dc5b8501288945854c86ecc3837a220be8415c33"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e01550e56cc525492532558f554856f7925cd431234319715ee8a2a3caa0d32f"
-    sha256 cellar: :any_skip_relocation, catalina:       "e01550e56cc525492532558f554856f7925cd431234319715ee8a2a3caa0d32f"
-    sha256 cellar: :any_skip_relocation, mojave:         "e01550e56cc525492532558f554856f7925cd431234319715ee8a2a3caa0d32f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b06295008315e99212e35a1c8534897362c3a96311f92980d88dec2aaf8e4fd2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b06295008315e99212e35a1c8534897362c3a96311f92980d88dec2aaf8e4fd2"
+    sha256 cellar: :any_skip_relocation, monterey:       "12db971a1eb1d567c1438c476c69a01ace6c3cf08cc0eefc8e1500e7af220787"
+    sha256 cellar: :any_skip_relocation, big_sur:        "12db971a1eb1d567c1438c476c69a01ace6c3cf08cc0eefc8e1500e7af220787"
+    sha256 cellar: :any_skip_relocation, catalina:       "12db971a1eb1d567c1438c476c69a01ace6c3cf08cc0eefc8e1500e7af220787"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b06295008315e99212e35a1c8534897362c3a96311f92980d88dec2aaf8e4fd2"
   end
 
   depends_on "dnsmasq"
@@ -27,7 +27,9 @@ class Easyengine < Formula
   end
 
   test do
-    system bin/"ee config set locale hi_IN"
+    return if OS.linux? # requires `sudo`
+
+    system bin/"ee", "config", "set", "locale", "hi_IN"
     output = shell_output("#{bin}/ee config get locale")
     assert_match "hi_IN", output
 

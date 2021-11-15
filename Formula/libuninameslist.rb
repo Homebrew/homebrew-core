@@ -1,8 +1,8 @@
 class Libuninameslist < Formula
   desc "Library of Unicode names and annotation data"
   homepage "https://github.com/fontforge/libuninameslist"
-  url "https://github.com/fontforge/libuninameslist/releases/download/20210917/libuninameslist-dist-20210917.tar.gz"
-  sha256 "43b0c5f10a15be3ee7215c7dc249286fcafbecd21d0d160944094ab106969a10"
+  url "https://github.com/fontforge/libuninameslist/releases/download/20211114/libuninameslist-dist-20211114.tar.gz"
+  sha256 "f5f69090de4a483721207a9df7de5327c13c812a1d23de074d8f0496bc2b740d"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,13 +12,12 @@ class Libuninameslist < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f6a141fa02dc0d7bbbc28232a8322d6c78dd5d9ede3688d431c75e3c35692bbf"
-    sha256 cellar: :any,                 arm64_big_sur:  "8581059a058192db3b35af24935a3558f0f56225a7a385f3a7cd9275c6befc5d"
-    sha256 cellar: :any,                 monterey:       "77205f3e9197eb0e6647502869b4c57348e75d4885d50928045e686d1ea02e22"
-    sha256 cellar: :any,                 big_sur:        "934119708939c95e650ac5b71d91d641271cd29d19531b01b10cffaeef5540b1"
-    sha256 cellar: :any,                 catalina:       "bae124332a8758ab65c61230180c586c730b852d853c3fcf0705cd3e18a7e6ed"
-    sha256 cellar: :any,                 mojave:         "be2893d87050b61ecfd82425a034873f8decb5d6d541ca604d0cc4f54dedd1dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c127ca07c9d350ba1fec668a8bce88ee221e5dd47350ea67218793297990c752"
+    sha256 cellar: :any,                 arm64_monterey: "52a867309170da4f022177dedcacd778d93822952333408ee7e9df1e32e9ab34"
+    sha256 cellar: :any,                 arm64_big_sur:  "08d9a0329d057e4dc9cc1211a70409b2816241b093500c2ed2712320bbe162da"
+    sha256 cellar: :any,                 monterey:       "d4ce52bf3926b9cf5f1c1bfec702706ea7516744f8d76706cb0880fb1c272127"
+    sha256 cellar: :any,                 big_sur:        "12309abb98a5e23b712d583cced9d25a2f0b0aabd7499cb6a561458440c36576"
+    sha256 cellar: :any,                 catalina:       "f9eb6d104a3b0e20751b6dc3ffc8c63552ae46a367135b48ca3191280e7c0787"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "135de398275c32165030df5b3af15e49172e498fda65271f85facf396e4df527"
   end
 
   head do

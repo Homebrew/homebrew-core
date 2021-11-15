@@ -3,18 +3,18 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/28/25/91bc208eae9fd0ed1dc8db50c4558db02c98b5c34ec4b4536f233bef2f2a/pdm-1.10.1.tar.gz"
-  sha256 "20222e41da972a6583cecd88a586a74f52780cf29468479635cae78019eca7aa"
+  url "https://files.pythonhosted.org/packages/88/81/d31399162008aed2a40b36f7042e89f7067f14a521c68bb1e7cc955d4c01/pdm-1.10.2.tar.gz"
+  sha256 "0ca01c949c7cead15e59b4b919d4f9638e1aa5a11d28c824cbdee4218432459d"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c53491a22e36414841d2394df464eb398da0adc725b884038647fffe7d10ad45"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e7c52a17ea8e99fb18d4b0a82f6734707c610d3c17f9cc8959cf5e6a61b8380"
-    sha256 cellar: :any_skip_relocation, monterey:       "b3b821e86af5bbbe82e00bb2676ce3e5838e502f42fd5cdee286c2eb5facaec2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "40badc5601e66b18f42182393930785c6eb21d4c831a29b078cbaff755a34fb4"
-    sha256 cellar: :any_skip_relocation, catalina:       "565fe0d60188e824ad5f5c960286123970f7f9981093dac2ab7fd9f7edde1c6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b8e43b27d9659cbf0627498e1fa93603d1711e243c6a70452533cffce2a915f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b5c18abfb9915ba8f0a79de0795543e41bf33f47f5c44ad4c4063d747c281752"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c2f3e226c077ecec49fae41b4bfa39318bb768aff918d134cd0983155cb39ada"
+    sha256 cellar: :any_skip_relocation, monterey:       "ef748cfe12e9f3ce836ddc2707f5cc14308407a8a9a5da90d00029bdc9b0ef9f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9fdaead7433f38a68652f9104fc81fb1d2916b409cafe8c2282bcc84c272e872"
+    sha256 cellar: :any_skip_relocation, catalina:       "cfbd5e2023e68c9d8e8a801a573486c8af6888fea36a6b3c2977b4261a825df3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28c16b6792fde489cc76722d99057707a248530ba0b31b1f79b7c818893c3f3a"
   end
 
   depends_on "python@3.10"
@@ -71,8 +71,8 @@ class Pdm < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/36/b7/08860463445e6f3b4c5ac24717ce0e8a2f6e9dbc329b0e5d148094ce89ec/python-dotenv-0.19.1.tar.gz"
-    sha256 "14f8185cc8d494662683e6914addcb7e95374771e707601dfc70166946b4c4b8"
+    url "https://files.pythonhosted.org/packages/49/62/4f25667e10561303a34cb89e3187c35985c0889b99f6f1468aaf17fbb03e/python-dotenv-0.19.2.tar.gz"
+    sha256 "a5de49a31e953b45ff2d2fd434bbc2670e8db5273606c1e737cc6b93eff3655f"
   end
 
   resource "pythonfinder" do

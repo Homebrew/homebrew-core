@@ -5,20 +5,21 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-6.0.0/apache-arrow-6.0.0.tar.gz"
   sha256 "69d268f9e82d3ebef595ad1bdc83d4cb02b20c181946a68631f6645d7c1f7a90"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/arrow.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "75d0dd9c4e90cf0187aa6c9eb4c6d17f2cd45790f25631cb0716cf900e1f3db3"
-    sha256 cellar: :any,                 monterey:      "de806adac05b6ce14c2cc5e270b5db1584be616da8210dbcbbe88aeb72af9f43"
-    sha256 cellar: :any,                 big_sur:       "626c83aa2218365f537dc2159f7b97f87dfe772105e85ceda3fef3e2976e412d"
-    sha256 cellar: :any,                 catalina:      "c02e5d8829d4b3fd28f601c594107c4fb6a83d1c1fe7b4abae5dfcefccb5bf55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca1305cb5335250312a597d489717bb8066ef1ac5343ab9dfd59349b3eadfdf5"
+    sha256 cellar: :any,                 arm64_big_sur: "494c0bfdea7ce33f6a5364c8f34cddeb44adbcd21dbb9a775975f673583e8b16"
+    sha256 cellar: :any,                 monterey:      "5ee9003399039af46b04d38b0c440b17a07660247ab625f081a1b79eb81ab474"
+    sha256 cellar: :any,                 big_sur:       "81bf1f874821856da24e0070757189d26ac548cea0b0820e6e169d3747f2db33"
+    sha256 cellar: :any,                 catalina:      "73123aeebf68ac6c5d7c619415549d9512f8e29a51b9e212e42504660d38fe87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cb1bb7687850f34f0c895353b873f99916c0aa4ef96580af530f22b21ed5aec"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "llvm" => :build
+  depends_on "aws-sdk-cpp"
   depends_on "brotli"
   depends_on "glog"
   depends_on "grpc"
@@ -56,6 +57,7 @@ class ApacheArrow < Formula
       -DARROW_PLASMA=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
       -DARROW_PYTHON=ON
+      -DARROW_S3=ON
       -DARROW_WITH_BZ2=ON
       -DARROW_WITH_ZLIB=ON
       -DARROW_WITH_ZSTD=ON

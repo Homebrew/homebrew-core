@@ -1,6 +1,7 @@
 [
   "adios2",
   "arpack",
+  "bind",
   "blast",
   "libvirt",
   "mpich",

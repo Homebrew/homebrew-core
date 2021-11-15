@@ -1,8 +1,8 @@
 class TaskwarriorTui < Formula
   desc "Terminal user interface for taskwarrior"
   homepage "https://github.com/kdheepak/taskwarrior-tui"
-  url "https://github.com/kdheepak/taskwarrior-tui/archive/v0.14.9.tar.gz"
-  sha256 "d185996570971697cd2b8103763135ed95768f3cbd7a133f52754bf7d2aef9d0"
+  url "https://github.com/kdheepak/taskwarrior-tui/archive/v0.14.14.tar.gz"
+  sha256 "36fcf90e9f0ffbc3d7fedfd094de80dffe6775d77f81c9612de9bd6b70e577a6"
   license "MIT"
   head "https://github.com/kdheepak/taskwarrior-tui.git", branch: "main"
 
@@ -12,12 +12,12 @@ class TaskwarriorTui < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc517a3f7d409f9bafa60a8ea666e7501a2f4437ef56e6e04c91e9ccd8d7b25b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41148a6716220c3644c579430fb5a99b5d7731106b577d1c2a5dbe8dab0996d7"
-    sha256 cellar: :any_skip_relocation, monterey:       "82d9b87e4a62b4371b1d91ccddf083af06b7158f7be809848d24bc12635348da"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d2aa0fad2d4e9d314c46dfb1ff0a9351aa2e1881a52ee0d5ac789598fb32a2d4"
-    sha256 cellar: :any_skip_relocation, catalina:       "ff91ce33e23d30ddbef97913b0aca8fe2cc259653a4b62b0e23023f32188826e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "015542d953e0a5762acde3afce9e38169731898413eb4054751c0a925e5ccb41"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3797e16e8a1237bc5334fdfbd3752cb74d86f639d0b06bc176a8d7870d37a1d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "48f26747628321f030f7a37ab57afeaa2929492124a72c0ab23cb3d6b1bd2140"
+    sha256 cellar: :any_skip_relocation, monterey:       "e6d97884a5035889722c6b5d8358b0f04bc35ff9d35d967970729623019aff4c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "973841d46d8d10e26a8df1f2d97bb86af6580be0335af05ee5f6c3f1eff3161f"
+    sha256 cellar: :any_skip_relocation, catalina:       "c3c1e68396ed1439337e0aaf46b793d87f56a33e3448622494e52ad04a236bbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24b0a4651680213c5766b7708fbf99d401604d9d7fead48effa773ed9dcec698"
   end
 
   depends_on "pandoc" => :build

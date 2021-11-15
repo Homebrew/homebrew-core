@@ -1,19 +1,18 @@
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
   homepage "https://www.assimp.org/"
-  url "https://github.com/assimp/assimp/archive/v5.0.1.tar.gz"
-  sha256 "11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc"
+  url "https://github.com/assimp/assimp/archive/v5.1.0.tar.gz"
+  sha256 "b96f609bca45cc4747bf8ea4b696816ada484aed2812e60ea4d16aae18360b0b"
   license :cannot_represent
   head "https://github.com/assimp/assimp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "62240b932215e49dfc1fcadb6030fe877b0221ccd405eb7ce43dec6949aafc77"
-    sha256 cellar: :any,                 arm64_big_sur:  "0571a9c07e7166cbfbd2c12b17f121c718204491501f268cdd904791df3c3697"
-    sha256 cellar: :any,                 monterey:       "a09ccf5184abfbf83036e47bd084e4e89b1667c5e3096034be5271950fc844dc"
-    sha256 cellar: :any,                 big_sur:        "8cd36113e1e7db18e625e652a522374bf6158306254f31627f2e8f067ae665db"
-    sha256 cellar: :any,                 catalina:       "b2450bc0cc287a25a2e4ca42ff229ee104a6de51ef3a8cc02603850572126f18"
-    sha256 cellar: :any,                 mojave:         "4ee11342b9d284810e88828be1662ee5be09a161f2c1353648e63255bbf4375b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28a1c666ece91069a06490a3ea899a7f4051950f47b5e703fed96b0f22e04347"
+    sha256 cellar: :any,                 arm64_monterey: "3e1f22dfd8a8bbd6ab3f692177fd9a2435969a8f0e14f515fbd25a2b98ea3b15"
+    sha256 cellar: :any,                 arm64_big_sur:  "bcdea74b9cd2b2344e773cc0ed0865216132119f3c2fd7844b8a064184bc6d9e"
+    sha256 cellar: :any,                 monterey:       "f2b5937f1243dd994ac57951d1086e51c4a040c2e77353cea0968baeb1c03266"
+    sha256 cellar: :any,                 big_sur:        "dd57363dec3619597205a235b28a53a550e5e550309ef40d9574ea766b6c222b"
+    sha256 cellar: :any,                 catalina:       "303ed5431ca71851d1cb6e9596c433b73cb0a7873fd0c1142da5dd5096749ce2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b97335f990b541169235a5ca78ed96b9d974e6035831169f2ffeebff30dff01"
   end
 
   depends_on "cmake" => :build

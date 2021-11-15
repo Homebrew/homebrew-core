@@ -6,6 +6,11 @@ class Couchdb < Formula
   sha256 "8bea574faa6bb0926c670542d8318c322268cf7e6614dab318dea734ccf1b00c"
   license "Apache-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?apache-couchdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:  "4d0f0c145720db23f52483fdf3b35363f9343e3b39285c91255da1993ab91bff"
     sha256 cellar: :any, catalina: "3a2892f1076c575372e4012c8858c23fc05a787abfa679376ce1c4a7ea4fa8ae"

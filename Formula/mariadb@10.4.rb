@@ -1,21 +1,34 @@
 class MariadbAT104 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.4.21/source/mariadb-10.4.21.tar.gz"
-  sha256 "94dd2e6f5d286de8a7dccffe984015d4253a0568281c7440e772cfbe098a291d"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.4.22/source/mariadb-10.4.22.tar.gz"
+  sha256 "44bdc36eeb02888296e961718bae808f3faab268ed49160a785248db60500c00"
   license "GPL-2.0-only"
 
+  # This uses a placeholder regex to satisfy the `PageMatch` strategy
+  # requirement. In the future, this will be updated to use a `Json` strategy
+  # and we can remove the unused regex at that time.
   livecheck do
-    url "https://downloads.mariadb.org/"
-    regex(/Download v?(10\.4(?:\.\d+)+) Stable Now/i)
+    url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
+    regex(/unused/i)
+    strategy :page_match do |page|
+      json = JSON.parse(page)
+      json["releases"]&.map do |release|
+        next unless release["release_number"]&.start_with?(version.major_minor)
+        next unless release["status"]&.include?("stable")
+
+        release["release_number"]
+      end
+    end
   end
 
   bottle do
-    sha256 monterey:     "56d29251d731def8cb448191d9fa447109789212ccb3dbb92892899a2e848b68"
-    sha256 big_sur:      "25b7b5e85331b332c06696b4020f0966ce45fe96538a578c4b81a427b82d7f4f"
-    sha256 catalina:     "b3a1dab92b593bd07e24c4e6a979176d31cfb42854179717718e0669a5e672ce"
-    sha256 mojave:       "66ac3ce9505f6adfec4faa798a9b2ce068770602cc7d3e9271ea96f3ba1b9399"
-    sha256 x86_64_linux: "1beb39adb2120a30bfbd19f32b605a611222e97c789d032f429a803257e10964"
+    sha256 arm64_monterey: "e932eb14900a1204be737c34be2d8e1a512931d4920d7f3b661eb88b132f1c55"
+    sha256 arm64_big_sur:  "5851fd29ec3116fc8f3ba4415ae14c93cd47c1ed771a018217918b0e5d9cbdc4"
+    sha256 monterey:       "0a3ee90ceb25635eb9df8a6bd565822785461c080a62d61a711515f8a3dbef1a"
+    sha256 big_sur:        "d349170ce1e8ac3101919bf89e506fee653528ec8d24f98e5134a815e04ff79e"
+    sha256 catalina:       "a1b44b05c3c234d567c0af714e74a644a19fd1a387944d0b44dbec0a269403a7"
+    sha256 x86_64_linux:   "fb8527e0fe7177a1211818c4066fc234f7f0a86f72101d58eb11510f2048c024"
   end
 
   keg_only :versioned_formula
@@ -33,15 +46,6 @@ class MariadbAT104 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
-
-  on_macos do
-    # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
-    # file called VERSION
-    # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-    # Originally reported upstream at https://jira.mariadb.org/browse/MDEV-7209,
-    # but only partially fixed.
-    patch :DATA
-  end
 
   on_linux do
     depends_on "gcc"
@@ -203,19 +207,3 @@ class MariadbAT104 < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
-
-__END__
-diff --git a/storage/mroonga/CMakeLists.txt b/storage/mroonga/CMakeLists.txt
-index 555ab248751..cddb6f2f2a6 100644
---- a/storage/mroonga/CMakeLists.txt
-+++ b/storage/mroonga/CMakeLists.txt
-@@ -215,8 +215,7 @@ set(MYSQL_INCLUDE_DIRS
-   "${MYSQL_REGEX_INCLUDE_DIR}"
-   "${MYSQL_RAPIDJSON_INCLUDE_DIR}"
-   "${MYSQL_LIBBINLOGEVENTS_EXPORT_DIR}"
--  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}"
--  "${MYSQL_SOURCE_DIR}")
-+  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}")
-
- if(MRN_BUNDLED)
-   set(MYSQL_PLUGIN_DIR "${INSTALL_PLUGINDIR}")nd

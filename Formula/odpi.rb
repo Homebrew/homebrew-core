@@ -1,18 +1,17 @@
 class Odpi < Formula
   desc "Oracle Database Programming Interface for Drivers and Applications"
   homepage "https://oracle.github.io/odpi/"
-  url "https://github.com/oracle/odpi/archive/v4.2.1.tar.gz"
-  sha256 "f0961647a336980ae26ca93cc15b3c8a882f5d68b3b5ee123032fd71122503c8"
+  url "https://github.com/oracle/odpi/archive/v4.3.0.tar.gz"
+  sha256 "e8be95e7061cad52caaa98a4d2a25d6bff8fa29c2fa609c3c447124d46b1712b"
   license any_of: ["Apache-2.0", "UPL-1.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "10a7e72d550f30fdbf21231b9d893b8428732d07f41e2d8700c5ec583393f51d"
-    sha256 cellar: :any,                 arm64_big_sur:  "f7a14b17399a564f478b39cc553b1893344d5b6f2ab8ac129733aabb628cb20f"
-    sha256 cellar: :any,                 monterey:       "9d5ad6be8d1d8b2e499155af059718572173d524b082bba8a629c54dcb25ed5a"
-    sha256 cellar: :any,                 big_sur:        "d9af5824c934c6f98d74ea55cb32061c814dd19954ae048b1be6314ee2940b02"
-    sha256 cellar: :any,                 catalina:       "a6a14f8c32838d6d243da9c6c5698bbb22ac4c65e25fa9e0e1c977e482ab0242"
-    sha256 cellar: :any,                 mojave:         "b0fece1f144232228e72a20e2325abeddbcd47e20a17e00b1cbbaa65099b4641"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afc2a5c6cd8c0d4458a558dc7c508b7c18783e600cde27e4e1a25b0c8ce44003"
+    sha256 cellar: :any,                 arm64_monterey: "7244b4b1b2491a0bca077aa4d2bb530df059206e56d1a5d6103983f9e88edaba"
+    sha256 cellar: :any,                 arm64_big_sur:  "8315751a4d068e761b9710daa4251edd61c01752c021fc93045f02083e5dec14"
+    sha256 cellar: :any,                 monterey:       "a6efa2963f2a11b1316f7f883cdab0ba8a99b0a1e1b5324c9c960094de152e85"
+    sha256 cellar: :any,                 big_sur:        "7dc8341678ef3c3b5e8e3ec798b50aab4fe5f9330b57931c55a25e8f6c457ca5"
+    sha256 cellar: :any,                 catalina:       "05db0489fa10e27600c35f22669e3090b3bf17ca00cd7c97966f62e1d314c7d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b415bbfb0f8b13d559f2b5f2119a96e24d58d1a35d8f2ecde4ca76169d74028"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "https://pgrouting.org/"
-  url "https://github.com/pgRouting/pgrouting/releases/download/v3.2.2/pgrouting-3.2.2.tar.gz"
-  sha256 "40f67ab944b5a7d91d4eb610cba3ed34a83daf51bb569c75b582f8e88efb72de"
+  url "https://github.com/pgRouting/pgrouting/releases/download/v3.3.0/pgrouting-3.3.0.tar.gz"
+  sha256 "a0953d98a2ce7d7162448bc31f17eba1950ce252f7f292a4953e6291237a16dd"
   license "GPL-2.0-or-later"
   head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
@@ -12,9 +12,9 @@ class Pgrouting < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "76932cef2d904040657edf67e10c65739a1f8b474cda8e52c246706758744b1e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3bba2a9361392e38ba82e0fcef06696faf5dff487f1c034f9a1b31bea164dc98"
-    sha256 cellar: :any_skip_relocation, catalina:      "9a08889b19513cbcfbb70c8c2bf9eb29aba19e9e9691f298afcbf24118961bdd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4e0ebfc58d08e965ad5e726f850151dd91838224671936e946d046ffe2db2101"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8160f9e8421d16996fe418bf82637acc0cf9eafe72a6e482df8dca5e41feb404"
+    sha256 cellar: :any_skip_relocation, catalina:      "e649753bce351dde13226665c14f5260302d3fd010880f52c2783133f0144974"
   end
 
   depends_on "cmake" => :build

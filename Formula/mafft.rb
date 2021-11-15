@@ -1,8 +1,8 @@
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
-  url "https://mafft.cbrc.jp/alignment/software/mafft-7.487-with-extensions-src.tgz"
-  sha256 "ea05f55e51d980925ce00b2289948ccd2a3ddd0397ebd60feaddc41ddd5d8ef1"
+  url "https://mafft.cbrc.jp/alignment/software/mafft-7.490-with-extensions-src.tgz"
+  sha256 "d6eef33d8b9e282e20f9b25b6b6fb2757b9b6900e397ca621d56da86d9976541"
 
   # The regex below is intended to avoid releases with trailing "Experimental"
   # text after the link for the archive.
@@ -12,13 +12,12 @@ class Mafft < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "07f59deffaa3c3ed1bf65a3d97ddb6a49e821b83756900a7f891f862652304fc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1f2d130b42194e1fc0fc8e04fc09b50ea8a2e0b4221b6247471036ff09f1ba47"
-    sha256 cellar: :any_skip_relocation, monterey:       "dff65b18608995813d8fed1abaa0414678c101c8b799728770293227e87c8af9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2128b37a707fdef7a6c45f19b8abcfefca4ebe37077d2a783711a568b5a4b7eb"
-    sha256 cellar: :any_skip_relocation, catalina:       "3dc223c186c006a5646bb6de73badbbd2b327c8bca7e2d2a342ff28dd1f4f92b"
-    sha256 cellar: :any_skip_relocation, mojave:         "0b6a7c8d20f75c44fc690974ebeee2d7ee7ddcb8f1f5e0b56da5c35b42aaaa53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8fa1cf45a410954e6b3697f2003580d62f3f1885cafbd28d2f80a7cc66fb293"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ce2343170fba164088b8d138cb9043b5e3cd4674327243d3e6530aabb63082a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a28296f4008623699ca60650cb7bbc4bfafa85aecb9a4b7b446db67b26b3edbd"
+    sha256 cellar: :any_skip_relocation, monterey:       "75f785fd4c67164de44a419b3eb75cb51ffce3c346d6c87958706267bcf36b3c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e4e4474c70b87a31a5b439013f9a1d747bb61f2ce9dd578950675a995cc7fb0f"
+    sha256 cellar: :any_skip_relocation, catalina:       "40c08564f300305c9e279255cceca05e89c85362d3dcf23dd474c86a4074c3f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a496b783ed050a16748f638289c61b17cc54729ae17d61df879909adcfcb5e64"
   end
 
   def install

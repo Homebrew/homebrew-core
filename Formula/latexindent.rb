@@ -1,17 +1,17 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://ctan.org/pkg/latexindent"
-  url "https://github.com/cmhughes/latexindent.pl/archive/V3.13.tar.gz"
-  sha256 "23428be829bb9d75760bccd510c97159835e1c0f98e0bdeb5b7a6d5335e02032"
+  url "https://github.com/cmhughes/latexindent.pl/archive/V3.13.1.tar.gz"
+  sha256 "a9898364621f64405a9ff2f74c6f519e6e656233cec89a16926c6dcf08ddd760"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5fdc8592e383d04f9460a5a48ea2702de6a9f94f84083aa4f176e74182dd0bb6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3a03bbf579c14d1c968477bd6e61f7df67698464c752bd6e534977a9e2af472c"
-    sha256 cellar: :any_skip_relocation, monterey:       "43c90f376e5045e23b77bb5fe017ee44bb4b4d11de55fd0ccb2812ad46878539"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d43b9ef74e53cbbfbba598549aaa3716b0e723221418803aa75f7629a0b15b34"
-    sha256 cellar: :any_skip_relocation, catalina:       "793c7fc4af289d5f944b178296ced009f778ad9d95dfd1ebe5851200d02da139"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4c6a2871dbd7bdb374d36a070a873918a49a7e2f6901a53a933e3cfc2a2f640"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea3f143f6203164a63de6cc6140bd5250aec663b2faf2a907d4f8cd9dd10db06"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57a44ad1c352e68940a5d82927c693d5a87873b2ceff1f475cca90821433345b"
+    sha256 cellar: :any_skip_relocation, monterey:       "dbad1dc1cfa795ec2d7ce4961d3a8eea0d29bc9e3b2e368bf436c0513fee2145"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7d08634dbed0406272e8249ec8a2d8837d46e61ec7ba10b1c5ed814ab8fd9ed8"
+    sha256 cellar: :any_skip_relocation, catalina:       "aa5d73dd783f61d96019db10ecdbebf079b7c88bcb6513b7ae880016eac3854c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62254c05288506cc49ddfb32aed6fa8c61d4fe0b41bfad32876b16d65ecec893"
   end
 
   depends_on "perl"

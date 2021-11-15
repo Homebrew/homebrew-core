@@ -92,7 +92,7 @@ class Ddclient < Formula
     run [opt_sbin/"ddclient", "-file", etc/"ddclient/ddclient.conf"]
     run_type :interval
     interval 300
-    working_directory etc/"ddclient"
+    working_dir etc/"ddclient"
   end
 
   test do

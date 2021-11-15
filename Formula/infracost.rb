@@ -1,18 +1,18 @@
 class Infracost < Formula
   desc "Cost estimates for Terraform"
   homepage "https://www.infracost.io/docs/"
-  url "https://github.com/infracost/infracost/archive/v0.9.12.tar.gz"
-  sha256 "b61c47d418eb341ab9cda70c48bd45afaf8b920070501f5cb909e27b9d36c8bb"
+  url "https://github.com/infracost/infracost/archive/v0.9.13.tar.gz"
+  sha256 "27c21b3aebc6a95af398addfb6f92706863acbbdfeda35d751aced7ded465544"
   license "Apache-2.0"
   head "https://github.com/infracost/infracost.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3441e092e5ef9da70e2b9cc0e5d66eb456d5dc6e33cbe141ebe70892e07031bf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3441e092e5ef9da70e2b9cc0e5d66eb456d5dc6e33cbe141ebe70892e07031bf"
-    sha256 cellar: :any_skip_relocation, monterey:       "23cb46ad7b96ed5ee8f1e696986d94976f808f89c444eb1dfca7454524fddb6c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "23cb46ad7b96ed5ee8f1e696986d94976f808f89c444eb1dfca7454524fddb6c"
-    sha256 cellar: :any_skip_relocation, catalina:       "23cb46ad7b96ed5ee8f1e696986d94976f808f89c444eb1dfca7454524fddb6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99a890bd840332214f4555c93674476dbef4cc69726e24858355ecaf9f0f0df8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d75dfa84070a4b6a5dac681364b70baf91844be3bf1e329e9c95cd71d931fa8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d75dfa84070a4b6a5dac681364b70baf91844be3bf1e329e9c95cd71d931fa8"
+    sha256 cellar: :any_skip_relocation, monterey:       "9872263d12ba25d7c0db3950a24ca6dd2f766e87bc59fe7b01ab1c279a8ff2f4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9872263d12ba25d7c0db3950a24ca6dd2f766e87bc59fe7b01ab1c279a8ff2f4"
+    sha256 cellar: :any_skip_relocation, catalina:       "9872263d12ba25d7c0db3950a24ca6dd2f766e87bc59fe7b01ab1c279a8ff2f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0e66f36569f980463d3dd3c0df1d93831af6c2829b0d9507491db151800956b"
   end
 
   depends_on "go" => :build

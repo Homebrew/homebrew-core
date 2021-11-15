@@ -1,18 +1,17 @@
 class Crane < Formula
   desc "Tool for interacting with remote images and registries"
   homepage "https://github.com/google/go-containerregistry"
-  url "https://github.com/google/go-containerregistry/archive/v0.6.0.tar.gz"
-  sha256 "e9d9e9c662f6c9140083eb884bec9f2fc94554bb1d989aa6846e9cf2f69a27d5"
+  url "https://github.com/google/go-containerregistry/archive/v0.7.0.tar.gz"
+  sha256 "f2e4d7f2e57811a706e669e75c5d43377d5967ab1846a83304e91b9f35ffce06"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3be0fec76833c21b2fdddd3c6003a96e5578aad99638416a34c6285f91621db4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1ee6c8238a5e4a08025a0b89f7deb81d1b92dbad227c718b8188cc5524769aef"
-    sha256 cellar: :any_skip_relocation, monterey:       "472727f4fe3ab1afc3abada8d197e8310648c240216e4e80031cff41a7ea6f10"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b95a968ba856bdb163b8a55bfe5d88308c3fc5f68e0f732e12fba0a947fd7496"
-    sha256 cellar: :any_skip_relocation, catalina:       "622eb564e0cf74344e570722f144032caf795b0f65be6e897046add7abcf4ccf"
-    sha256 cellar: :any_skip_relocation, mojave:         "41a0966f974b546da05413b9d16632e32852d8109a247d4cccfefe8c6bf03b72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63c3a660eeac1a72c066eb8f9cc4dd40b542686f247d031b4cda84830411b3bd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "070c3eadae0efd8f53c3dc94ee3c1336e7c71fc615d0c552f64ac4ea4244852c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ffb746d6ef0185abf32697be0e680db644c3cfee8456de1eb553f2848eee284"
+    sha256 cellar: :any_skip_relocation, monterey:       "f0ff1e2b1bdeea863d78afbbd74c564a64dd9284c34c03817f009a22009f4df4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "03ce66cf350edc2f394a795c8f764e313ab5931a77a74dc4798dae93af78ad34"
+    sha256 cellar: :any_skip_relocation, catalina:       "6040b53b95433bece0ee14c8415ea527d7f20ddc1ec4bb4d368c2762091eb8e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03239ce727dc36b5d558991fc5e8cdfe3e8c0e6deca6ff25bdd9c28feab002af"
   end
 
   depends_on "go" => :build

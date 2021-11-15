@@ -1,10 +1,9 @@
 class PythonAT39 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tar.xz"
-  sha256 "f8145616e68c00041d1a6399b76387390388f8359581abc24432bb969b5e3c57"
+  url "https://www.python.org/ftp/python/3.9.8/Python-3.9.8.tar.xz"
+  sha256 "675ce09bf23c09836bf1969b744b1ea4c1a18c32788626632525f08444ebad5c"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,13 +11,12 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "4f3581c7f9fe8e5c183c6e927e0d8604d5a38e95f5b688348e30f9f9ec5ef3a8"
-    sha256 arm64_big_sur:  "c1955f1d1cf37aa0f2db6bd7acc1ff4ede09d05ec470239d4b20704766445fda"
-    sha256 monterey:       "e775e8f427fad7d650c404e8e5ee5458a52119fba62105754429106a6e7571d5"
-    sha256 big_sur:        "c08c5f01bca862fd69d5112616346319bc16c5bbe82b8caea20a876c80e66f98"
-    sha256 catalina:       "281999f9122a6fe9cee1be7123b71a66a531520cd0752d46b22dcb8026088560"
-    sha256 mojave:         "3bbce877213136df792bc99ace97296b86a474cd4ef30969c2e7d1e4761383d6"
-    sha256 x86_64_linux:   "e132ee0318cb0cf8e6f1d1955978576750e43f47bcec330bac8d8af06f9420ac"
+    sha256 arm64_monterey: "11a064080cbb4660a640aabf9cd60574d5796ab17c7a5901e7175eb013403de6"
+    sha256 arm64_big_sur:  "0f533b08f2f3ae29ef61927318d5917a7f060ba253ec32e8bc93c77e503db9d0"
+    sha256 monterey:       "13f9d49d32b768ba479ad5158ec0566cabe071cc4b68a4931abcdb470ed45947"
+    sha256 big_sur:        "4d3f29d8c69de6b35f20a3fd6fa805d1276d4f5e295854a65a7aea5379bbdff2"
+    sha256 catalina:       "2403bd9f6c0dcb28a126531a8f143299155bbd303a1551e1c6bbc0c01e17fd7f"
+    sha256 x86_64_linux:   "f95ca9a80814127c8de83e0720f17e7faffe6d6b0c5f200bf0813add48b3ecd0"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -61,13 +59,13 @@ class PythonAT39 < Formula
 
   # Always update to latest release
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/db/e2/c0ced9ccffb61432305665c22842ea120c0f649eec47ecf2a45c596707c4/setuptools-57.4.0.tar.gz"
-    sha256 "6bac238ffdf24e8806c61440e755192470352850f3419a52f26ffe0a1a64f465"
+    url "https://files.pythonhosted.org/packages/1e/00/05f51ceab8d3b9be4295000d8be4c830c53e5477755888994e9825606cd9/setuptools-58.5.3.tar.gz"
+    sha256 "dae6b934a965c8a59d6d230d3867ec408bb95e73bd538ff77e71fedf1eaca729"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/52/e1/06c018197d8151383f66ebf6979d951995cf495629fc54149491f5d157d0/pip-21.2.4.tar.gz"
-    sha256 "0eb8a1516c3d138ae8689c0c1a60fde7143310832f9dc77e11d8a4bc62de193b"
+    url "https://files.pythonhosted.org/packages/da/f6/c83229dcc3635cdeb51874184241a9508ada15d8baa337a41093fab58011/pip-21.3.1.tar.gz"
+    sha256 "fd11ba3d0fdb4c07fbc5ecbba0b1b719809420f25038f8ee3cd913d3faa3033a"
   end
 
   resource "wheel" do

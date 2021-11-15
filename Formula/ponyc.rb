@@ -2,18 +2,17 @@ class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
   url "https://github.com/ponylang/ponyc.git",
-      tag:      "0.44.0",
-      revision: "48084fe40e9f95fa9d87d3782b0cf4acbdd9bca1"
+      tag:      "0.45.0",
+      revision: "18c59df20206e34ab6379e31fb2d75d762b4ca6e"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "60eb46348cc11cbcd7488bf1352a90b2a424f7abc478eea08f85cf83511e3c87"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "acfaa6a0d9bf240b7caf9dd1dc4be17882f35ab21a1dd0a6525e64c0b48e4647"
-    sha256 cellar: :any_skip_relocation, monterey:       "2b6056ceadea77310a9c89fa025a2b097080edf78d714451e8642281bfd17e56"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cce001435d5e456402444206e379d3542b3d898372514c8b450f1ea235a5be20"
-    sha256 cellar: :any_skip_relocation, catalina:       "0c93b907b614ed0f3fc68d11b91f74e4594e5ffd86896d72f35109988ffff380"
-    sha256 cellar: :any_skip_relocation, mojave:         "e46e8e63c97ba8481300376e641633eef8054f64923b9e40fbaa840de9ada354"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3e2808b2826c8f243f2d6391df212deb8834e0cb5060c0e79a9ec4c7b6997c0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f33273abec8d3c27b81e8303889c074ff44219609967d034d1557b94f38fbdc6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b45cb38676e5520ac8a83190280ece575ac01eef2864709ebb3a29b256dacaa0"
+    sha256 cellar: :any_skip_relocation, monterey:       "e15fbbe1eeea80465ac224c29336b132d7e10acb7c32bf2dd171db61e3e5dce7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "11680dcf123d4a3e3afa00590e53482b81849896f0dbf5efb9d47ee9be620ad3"
+    sha256 cellar: :any_skip_relocation, catalina:       "990274231567328cbda03b306f1d8307570bda398ea7bbc2c3b6bad7d0b56bd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b931330e95d55c1be08c7d8d13431e3556e1875cc866c1a9d328a3ec32ecdfa"
   end
 
   depends_on "cmake" => :build

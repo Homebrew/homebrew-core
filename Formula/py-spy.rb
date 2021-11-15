@@ -1,18 +1,17 @@
 class PySpy < Formula
   desc "Sampling profiler for Python programs"
   homepage "https://github.com/benfred/py-spy"
-  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.3.10.tar.gz"
-  sha256 "6c07096d227c08dee8a6526ff0a4ceadbe11eb27a131ab147e9d82dde52f3177"
+  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.3.11.tar.gz"
+  sha256 "094cfb80e2c099763453fc39cfa9c46cfa423afa858268c6a7bc0d867763b014"
   license "MIT"
   head "https://github.com/benfred/py-spy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9fb10ad2b7b0ba0cb1feb0d2ba187adda91ef6685409a9277cbea32cfedf46ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e7e23078fb6f4cc9e1549dc33030b56a3213d747fb15f2cae7a7a9175db6083"
-    sha256 cellar: :any_skip_relocation, monterey:       "2c5191ce53ca249d91bc5daefd410e0dd35ddda1a470a4079fcae1002168cb91"
-    sha256 cellar: :any_skip_relocation, big_sur:        "73a98156d4dafa6614709c52ed51e47652fde038348fed6da03b43c40b9935d5"
-    sha256 cellar: :any_skip_relocation, catalina:       "dae2729dc5a12091d77f7192e920c21659a05973d1af6a72aaa5bf36b607ceeb"
-    sha256 cellar: :any_skip_relocation, mojave:         "f6cc40bca3872cd5bb2afa27d62eb6d676b9dc03678deff3f1da1dde31deaf6b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "117cc4ae799abeda0ec934378e287d78196c66da8219843266336519f5252174"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1951839640b1aa3d4deb01f27fd0130e5c9e49227a3997cad3b0e622c79b8cf3"
+    sha256 cellar: :any_skip_relocation, monterey:       "05f6c44c4453d888b149f3fa2009c1c3b31d3073c2980632ebaf7e1f2289832e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "651aeae6101063deed04c2219abc9068444f24eb7640c3db9d22d7edab8b3e79"
+    sha256 cellar: :any_skip_relocation, catalina:       "1792e2f649b4d6d8fe9fc1151e1d70815b43775b3ebf96323e704c1769449121"
   end
 
   depends_on "rust" => :build

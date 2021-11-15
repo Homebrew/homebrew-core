@@ -1,17 +1,18 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "da7bed2ea1eba6cda2b4bcd1b65ee728dde98370e3b91c007b39dc24387b867f"
+  url "https://github.com/nats-io/nats-streaming-server/archive/refs/tags/v0.23.1.tar.gz"
+  sha256 "bf25c099239f1d43a316d63d79f552dbd86f1b23bcb8e647d11d07d231be5dfd"
   license "Apache-2.0"
   head "https://github.com/nats-io/nats-streaming-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cc5715a87b9983e3fa80fbb8d13145a5c7c77304c937e6fd17924e3c2518b674"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3440420133ca494b69319a94fda74f23e079b1c33488e81d8752631ba83f7d78"
-    sha256 cellar: :any_skip_relocation, catalina:      "7333ae25bb0e6556f98d73b0560d2caac4a544115fa5c584c22a80215bb37caf"
-    sha256 cellar: :any_skip_relocation, mojave:        "f8c5a35b2b8662c66d8432791bc591d32a4e8ab7ddf73f51c2a510d4b54ccb4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1197d2f94f483dfe14bc47d02a933206fa0a29fb731bacf4a461db676803d345"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f937ea2a78c8ef5ad6fc858423eb9ed4761bc56962de6ca40e62b232c3f7458c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c93e366145291bd820767a920ebd1c933dc3d842133fa5ad772bd441a6ecff52"
+    sha256 cellar: :any_skip_relocation, monterey:       "d9d730b46485bf57968062aa42960e9173b45bc978b0c3f6c63453507c2dabc8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "07b8e72f00db316b5dd144a1d0619c7afd619a6389aaffde1c660eb3b3f2e35e"
+    sha256 cellar: :any_skip_relocation, catalina:       "91686d2410d5978327e4b67ad4163335e263168fb2efd9cf34c7954383b9e0b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c08a368c5c5c3148bb36e8903d42689bc2fee808c28d3015f65691fceca9452"
   end
 
   depends_on "go" => :build
@@ -26,13 +27,19 @@ class NatsStreamingServer < Formula
   end
 
   test do
+    port = free_port
+    http_port = free_port
     pid = fork do
-      exec "#{bin}/nats-streaming-server --port=8085 --pid=#{testpath}/pid --log=#{testpath}/log"
+      exec "#{bin}/nats-streaming-server",
+           "--port=#{port}",
+           "--http_port=#{http_port}",
+           "--pid=#{testpath}/pid",
+           "--log=#{testpath}/log"
     end
     sleep 3
 
     begin
-      assert_match "INFO", shell_output("curl localhost:8085")
+      assert_match "uptime", shell_output("curl localhost:#{http_port}/varz")
       assert_predicate testpath/"log", :exist?
       assert_match version.to_s, File.read(testpath/"log")
     ensure

@@ -20,9 +20,11 @@ env:
     artifactory
     aws-cdk
     b3sum
+    bcoin
     buildkit
     bundletool
     calicoctl
+    cdk8s
     chezmoi
     circleci
     clair
@@ -71,6 +73,7 @@ env:
     marp-cli
     mdbook
     mdcat
+    metabase
     micro
     minikube
     mmctl
@@ -84,6 +87,7 @@ env:
     nushell
     okteto
     pnpm
+    rollup
     selene
     serverless
     skaffold

@@ -4,14 +4,15 @@ class Libfido2 < Formula
   url "https://github.com/Yubico/libfido2/archive/1.9.0.tar.gz"
   sha256 "ba39e3af3736d2dfc8ad3d1cb6e3be7eccc09588610a3b07c865d0ed3e58c2d2"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1ede89b34992d0ff274d65a2633da95fc9f4bf2917cbb3c435c3e0ed3c12543c"
-    sha256 cellar: :any,                 arm64_big_sur:  "9448d1aad08edf28f75506c4ff24af2ec937962d1d4913f0dfbcc047b237e77e"
-    sha256 cellar: :any,                 monterey:       "96c8717f1fdca399574e5f25b37959062d075e52704a06488c3fcc909dc1baa1"
-    sha256 cellar: :any,                 big_sur:        "bacd5286364629a6f0cab6553453f1e72c1fa9d32a8a027df8bb28a5c1391c18"
-    sha256 cellar: :any,                 catalina:       "7fefec0412b5fd47cc02e263c02a4dc4d9abbde27063be6313326f819eebdc62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d25ba1a2dbabf471ebe079236c2d1a24f3e9cec147e9c0669f3517cbabc639b1"
+    sha256 cellar: :any,                 arm64_monterey: "599d48182dd42d72a78f197c53ef50c766abd75eeec93d4632c4f556f502baa6"
+    sha256 cellar: :any,                 arm64_big_sur:  "c0d26a6b4ad524140267c476891a2eb662c246f207f7bf91a3663de0f6ed2bb3"
+    sha256 cellar: :any,                 monterey:       "78928cd0a6cd31e2761f30b413e08e543a998051b290bb62cdd3b26016f58fcd"
+    sha256 cellar: :any,                 big_sur:        "3d7b20b6e5e2a025761e840d612610fede420619e40ef90a657de46545cbaebe"
+    sha256 cellar: :any,                 catalina:       "cd405fd77e328489c41789ec3ac6eecec75e67784729d5d10e9afd9de8c8b54c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f6e1e3da72a1601746322fd0b229d33f2c0056e774d52c4f86c688c7d98ef73"
   end
 
   depends_on "cmake" => :build

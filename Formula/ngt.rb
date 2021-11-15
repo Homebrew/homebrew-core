@@ -1,8 +1,8 @@
 class Ngt < Formula
   desc "Neighborhood graph and tree for indexing high-dimensional data"
   homepage "https://github.com/yahoojapan/NGT"
-  url "https://github.com/yahoojapan/NGT/archive/v1.13.5.tar.gz"
-  sha256 "73adada23380317f0cad8cc11325036232551eefa228e1816f62f527bd599665"
+  url "https://github.com/yahoojapan/NGT/archive/v1.13.7.tar.gz"
+  sha256 "d5fb51849eead3d4d442b1b6d352e2114bcc1bddea5b4578a06a19285fc5f224"
   license "Apache-2.0"
 
   livecheck do
@@ -11,14 +11,12 @@ class Ngt < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "1777b8d514abcf57514f9f96f78814131495e1530b696d5524f7d65f87cbaaa2"
-    sha256 cellar: :any,                 arm64_big_sur:  "a8afc60cb99ba0d670e544ffd24fda92f2154bb7075b8ed2b994de17ca5a5293"
-    sha256 cellar: :any,                 monterey:       "701645bf101b4c677f2cefb299c08a3cce4f031fb1a08fdddd6b807ceeb49ec1"
-    sha256 cellar: :any,                 big_sur:        "97c08cfd1f04afd27b09bde575124c5a60b19e6057ccb07f26ea3f4f4f85f3a6"
-    sha256 cellar: :any,                 catalina:       "6d4de1454b7aaad5c8eb14420039fcc974a82fcd970f1bb92e07ad90b26ecef1"
-    sha256 cellar: :any,                 mojave:         "96650e0eea4d200761d8fc239c47fa04a6f20b6237896fd2fa014ddcb16fb5f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "292dde44ae3ca838e1e37f6787add85d9cb4ea66872b1ea425b2e789eeefa8f1"
+    sha256 cellar: :any,                 arm64_monterey: "3232006df4ad89baea6bc0bb38dee7aa56429205c2456d0632a616200234562e"
+    sha256 cellar: :any,                 arm64_big_sur:  "d8abcaf46fe96f3e244ed2d07815ca354581c31f5266381d514473b696c543f1"
+    sha256 cellar: :any,                 monterey:       "99123b5eb3fd2176a7f88f18e15e637fd8f59a67053159bcc7f78a591683866e"
+    sha256 cellar: :any,                 big_sur:        "98a991a6f62abaefbb3d9f7e1558ae73cc90eccc774ea26aebadfa38868d4dd6"
+    sha256 cellar: :any,                 catalina:       "53bc81164848633944d7bfae6499187fe6bc138c841212ba99230413e1b4449f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2710494a91d33770331c4940f18d3905ae23691037c8a2ee405114d80c4a7c3d"
   end
 
   depends_on "cmake" => :build

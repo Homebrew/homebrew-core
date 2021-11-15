@@ -1,19 +1,18 @@
 class K2tf < Formula
   desc "Kubernetes YAML to Terraform HCL converter"
   homepage "https://github.com/sl1pm4t/k2tf"
-  url "https://github.com/sl1pm4t/k2tf/archive/v0.6.2.tar.gz"
-  sha256 "e8971e6e7783e8e96014939f67d81570042f147f027fb1eb4c2f524632a68403"
+  url "https://github.com/sl1pm4t/k2tf/archive/v0.6.3.tar.gz"
+  sha256 "49de6047017d66dcbf7a28d3763fe927b0d3d4d36805ab942cd6b229c261df32"
   license "MPL-2.0"
   head "https://github.com/sl1pm4t/k2tf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25276569386ef221f59f6d0655f5180cc08a4249d44f7811071bab4039ec4ede"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6208afcd6be13d5e0fc9eea2835e2695b426bd774364741c96a1ba415b5512c"
-    sha256 cellar: :any_skip_relocation, monterey:       "b9d5a9faf59246d28fef02d0d1b9ec4535c4ddd72349c6b66de6ac82dd17cfcf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6b965773a6297eed4bd17d60d37bae417c9d9ec5cb9238bcac4b34685a510d9e"
-    sha256 cellar: :any_skip_relocation, catalina:       "3924263dbc837f9298c61add61cbe644b6d33050ac230ade1129288d663eaa8a"
-    sha256 cellar: :any_skip_relocation, mojave:         "903d5c2de0b57d9ff6a293803e60d44d470774eae764f2b40e4ce92726b471ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc45397267bcd9a6852d68b9a8c14b1269c4bff60f433c91245e9a12cfb25ef9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f3774927317f0978448e3d940472350911a0b03d038eb42b00b22403238d693"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dbbd1ad00e9a33863845ce7a7a0cec1ea597802871f0bafb84fa552f8e350c25"
+    sha256 cellar: :any_skip_relocation, monterey:       "320f5b410313270ea831241212485b4f2a3526a781bb228a4eb0a5c24c92b28b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c6bcbc8506727d4d298e4dcd1d6bb268152e993ff6c5d232471ed9b4f5af713e"
+    sha256 cellar: :any_skip_relocation, catalina:       "6bf09d3fae58bf15c1af0c00e94ffbdcf4c6d41a8c0e284be33d861cd4a8829e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49d9a9995a83b40718294b21377c8a3ca9ebcf2d1c6b6bcef027d9e553d74702"
   end
 
   depends_on "go" => :build

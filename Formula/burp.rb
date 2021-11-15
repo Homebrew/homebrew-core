@@ -84,7 +84,7 @@ class Burp < Formula
     run_type :interval
     keep_alive false
     interval 1200
-    working_directory HOMEBREW_PREFIX
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

@@ -1,8 +1,8 @@
 class Igv < Formula
   desc "Interactive Genomics Viewer"
   homepage "https://www.broadinstitute.org/software/igv"
-  url "https://data.broadinstitute.org/igv/projects/downloads/2.11/IGV_2.11.2.zip"
-  sha256 "d036cdde3a99d1d415b78ed03c9aedf7b2b9fbb2da61e12dade0110956d33382"
+  url "https://data.broadinstitute.org/igv/projects/downloads/2.11/IGV_2.11.3.zip"
+  sha256 "38d97d319313f3d3d0da40f2c751708aaa47e58ca88718f8fcf47f18abfdcb48"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,7 @@ class Igv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bca9700f55959cc195610c67dd83fd6644c2ac8966d90df476113d3793414b9b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bca9700f55959cc195610c67dd83fd6644c2ac8966d90df476113d3793414b9b"
-    sha256 cellar: :any_skip_relocation, catalina:      "bca9700f55959cc195610c67dd83fd6644c2ac8966d90df476113d3793414b9b"
-    sha256 cellar: :any_skip_relocation, mojave:        "bca9700f55959cc195610c67dd83fd6644c2ac8966d90df476113d3793414b9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "977f5d66ce9c94de6648ac1c71006de38da3d912495598b178e0ccad35a53ceb"
-    sha256 cellar: :any_skip_relocation, all:           "5db8b9741ae2a714546427260cc426d89d45018f7abe0b400f9acd121506d38d"
+    sha256 cellar: :any_skip_relocation, all: "22d591a38654ada55c259082571fcac1cfb1ac29bf117c8a5a85b41497b405c6"
   end
 
   depends_on "openjdk"

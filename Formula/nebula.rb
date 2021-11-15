@@ -1,19 +1,17 @@
 class Nebula < Formula
   desc "Scalable overlay networking tool for connecting computers anywhere"
   homepage "https://github.com/slackhq/nebula"
-  url "https://github.com/slackhq/nebula/archive/v1.4.0.tar.gz"
-  sha256 "e8d79231f6100a2cd240d6a092d0dcc2bfccadffa83cb40e99b7328f6c75c2ec"
+  url "https://github.com/slackhq/nebula/archive/v1.5.0.tar.gz"
+  sha256 "f67684a8eba6da91de3601afc97567fddd0e198973bba950fcf15cded92cdc50"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d1ed4420126918d27975a36e92f666f82e3b38cd4d4c1da6682a82ec5b1d5fa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7917a3ad415e2b258d46eeb8d477e1fe4b1116d57b988143652c0dc35407429"
-    sha256 cellar: :any_skip_relocation, monterey:       "e040a59850cae1da22fb941731704b915281697ba31369e9340511dd1367122d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e2e3d254fe289a4f2f23501f28ca166905faaf57db788e5ee315f4fc0bb4e0b5"
-    sha256 cellar: :any_skip_relocation, catalina:       "ab02181a5aac3eeb36c11e1125e5076cf4b8a95d27da2aa08b1f75b47da80ce4"
-    sha256 cellar: :any_skip_relocation, mojave:         "38f86a06ff08b5f28e3cce3d4509c12998d163977c6e99d38f897a3a28964381"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "005ffcc591656848e543d7c680fb52fc0e27fe6253413fc1294aa46c6cce446c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e955bd38d760c7f66411a3432f6530889c35301c78a627a6e8df13d65231d0ce"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e955bd38d760c7f66411a3432f6530889c35301c78a627a6e8df13d65231d0ce"
+    sha256 cellar: :any_skip_relocation, monterey:       "467b8e9d7393b316a9bf6534f77cfe6ebfe48a1277d1c461c590f75eacb5f506"
+    sha256 cellar: :any_skip_relocation, big_sur:        "467b8e9d7393b316a9bf6534f77cfe6ebfe48a1277d1c461c590f75eacb5f506"
+    sha256 cellar: :any_skip_relocation, catalina:       "467b8e9d7393b316a9bf6534f77cfe6ebfe48a1277d1c461c590f75eacb5f506"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fc370039758afb61a206aa131ffb9a282b5fb1b32de43a21d15da5dbce68d3b"
   end
 
   depends_on "go" => :build

@@ -11,10 +11,10 @@ class Sonarqube < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "2b78f4693f3381847f2c1e620760acd37e3f6607b43cd7a02dbc4ac3eee4bf96"
-    sha256 cellar: :any_skip_relocation, catalina:     "2b78f4693f3381847f2c1e620760acd37e3f6607b43cd7a02dbc4ac3eee4bf96"
-    sha256 cellar: :any_skip_relocation, mojave:       "f59b5f1ce0b91bc23485a8f8a00d9c483bd333d32fcbd630c9114be606fe5728"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ecc7027c8e8af2293c0b03d465122e06681f4cc5208ed5c4a8c7888ba02fa5a9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:      "0129761b88551453539aea7dc7267b0d92cb84ee36417b64f650b89ab626d112"
+    sha256 cellar: :any_skip_relocation, catalina:     "0129761b88551453539aea7dc7267b0d92cb84ee36417b64f650b89ab626d112"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "68e8afd0a5f98e6329461fc53a1bdf3012541b45ee67441e0ecafe31dbb623c3"
   end
 
   # sonarqube ships pre-built x86_64 binaries
@@ -40,7 +40,8 @@ class Sonarqube < Formula
   end
 
   service do
-    run [opt_bin/"sonar", "start"]
+    run [opt_bin/"sonar", "console"]
+    keep_alive true
   end
 
   test do

@@ -1,8 +1,8 @@
 class Grepip < Formula
   desc "Filters IPv4 & IPv6 addresses with a grep-compatible interface"
   homepage "https://ipinfo.io"
-  url "https://github.com/ipinfo/cli/archive/grepip-1.2.0.tar.gz"
-  sha256 "f29db57e7288d2f1e71776de88dd6445524028586997454a8aa300b1aeec632d"
+  url "https://github.com/ipinfo/cli/archive/grepip-1.2.1.tar.gz"
+  sha256 "e1c838ecac436e744b7808bf3a123be8ce6b72cc436dead64a0a13f409804ea8"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Grepip < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d143dc0c314ec38964d77b98935fb6bd788557785511cc993b68d026ca949742"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f13b8f833819048b9f9a3b3ae9b06ca2d0f048d5946964713071ce1f24f8b43"
-    sha256 cellar: :any_skip_relocation, monterey:       "9706fb69d94a3040b3df97ad2bee5cf93deb758391ce0449880fa7574d76ec8e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "69ca00dbdd25023b426d3dd90c8ed781912ed93a1c22e4584ff63a87db486152"
-    sha256 cellar: :any_skip_relocation, catalina:       "02a9c78883ad37d86b44c1adaeb45941824bb150d6f87f7fc5858f1ac7544db3"
-    sha256 cellar: :any_skip_relocation, mojave:         "c862c4990834b88e3b069bca2d916ee9f27ff15e8a9b5029658ae170f25e0bf0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c7ff3e474306572d0d62c8b3afda99d755b6794c0045e8de2908277c5689b6f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8108736f9a3c6f0dbe0e8008960f0a964d8440e7801684165605c66aa36a29c3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a55b8ad8fe7f08362c67d4b20ff629dc5f01fc611eae577f585a112fcece154"
+    sha256 cellar: :any_skip_relocation, monterey:       "f3cb1c0121c5f4bbc0df8b3bfcd12cb9b8d453d867f836327054c0dacbb4d17a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b5c317e19a7a369b6efde059c43c24b8979af38c00d6f62459dd9064125b1aae"
+    sha256 cellar: :any_skip_relocation, catalina:       "d3ba7b84e0c9079a9f9ce2d676c33f1b7733c64de6b8e04a37b899ccf621e1cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c864d80756028d055cbd299b05b99fdd336f6aeec276bcdbc3003a2c1ecb4c1d"
   end
 
   depends_on "go" => :build

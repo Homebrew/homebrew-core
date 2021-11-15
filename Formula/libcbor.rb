@@ -1,19 +1,17 @@
 class Libcbor < Formula
   desc "CBOR protocol implementation for C and others"
   homepage "https://github.com/PJK/libcbor"
-  url "https://github.com/PJK/libcbor/archive/v0.8.0.tar.gz"
-  sha256 "618097166ea4a54499646998ccaa949a5816e6a665cf1d6df383690895217c8b"
+  url "https://github.com/PJK/libcbor/archive/v0.9.0.tar.gz"
+  sha256 "da81e4f9333e0086d4e2745183c7052f04ecc4dbcffcf910029df24f103c15d1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "161d46422ac694d43185d9202d8e2bc948243b5d3744e8e208e72d24672f37ca"
-    sha256 cellar: :any,                 arm64_big_sur:  "0e6a7b38bc44a4fc07643b72b9bdaf91f00e0ae79d4f0539589c9500bb361ac6"
-    sha256 cellar: :any,                 monterey:       "10aed09882f07b2c0cff4b3c905dc176fc237be5f48c3d0b80ddf42c317e06ae"
-    sha256 cellar: :any,                 big_sur:        "3bbc50d56f1418e3acd54c56b28322366b1f1ca306fd3f6fd21755f2848abaab"
-    sha256 cellar: :any,                 catalina:       "2860cc48fef2c42aaa50ae25aa90a683e22b81c3905a923e008871679aced20a"
-    sha256 cellar: :any,                 mojave:         "105d0a4b3b1a2556603e5e5619a3805183af2041ef06a85784660982c803b97e"
-    sha256 cellar: :any,                 high_sierra:    "5b20e9f902ca71c4f9a1c411c1e65eedb25f9c395d1e3ff691a0d3e7451cd6fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "116159c61a51bd56e58b4f732bcbefee898f9c45b8c8ecc5d6425293c49eca55"
+    sha256 cellar: :any,                 arm64_monterey: "ebb91ce404c53552b9ec1f2a4800bc2c1a9e83cd1692d8b1e1612b4734b92925"
+    sha256 cellar: :any,                 arm64_big_sur:  "53bf212a9f3fa8544360ad26e3eb574b80875ff3dac74193d9092d781b20286c"
+    sha256 cellar: :any,                 monterey:       "d07e3853a1d2d1cabe8ac3f4c005a3d90226f9f5faa8d174f61c76b121a351cc"
+    sha256 cellar: :any,                 big_sur:        "445ccae0ed1133be713e635c11e6591946e2df0345627db9214c10fdc0f9256b"
+    sha256 cellar: :any,                 catalina:       "78b58702fde7659d633f12b176e8e2c1747b39616c218160f7f10697473adff0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2f103b611cf187099332e4cfe1638e261a35bd6181d3fadbfcb9daeadff734f"
   end
 
   depends_on "cmake" => :build

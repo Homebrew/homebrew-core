@@ -1,8 +1,8 @@
 class IpinfoCli < Formula
   desc "Official CLI for the IPinfo IP Address API"
   homepage "https://ipinfo.io/"
-  url "https://github.com/ipinfo/cli/archive/ipinfo-2.2.0.tar.gz"
-  sha256 "14ff13cd52d1344c7b683de19eb8cbaa53852d7c20d11dfffc0dd28b66b4cd35"
+  url "https://github.com/ipinfo/cli/archive/ipinfo-2.4.1.tar.gz"
+  sha256 "a0327d925ae0e0c34451b26e539ffc66fa614a40c933bbbb8fcde2dec82c8fec"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class IpinfoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc14b9d6a438771809fe68121f2c9db0d72df6a7eddf202e983ce833368c8a96"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72edbc4141b056d325e1fb22ea7dd294fee7598a4e1728c87da000388db700d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "9df8e77ed1d5918d04bc25b531c54b21fa72ebb3e41e277e5ba7441352fd3294"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b07a99156cc74d938635140d298e0752e9e8572b24f1a8faaf5909f04bb2d696"
-    sha256 cellar: :any_skip_relocation, catalina:       "e3aa4bfc01d7d193c315b0c73faaef3498e04bf886856729e95204d5a6535f9c"
-    sha256 cellar: :any_skip_relocation, mojave:         "f8c44267de04947968db348deb8ba79b0d0286484f41a571008d9526ab9e49cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb89e1ea86ea6207500ce5bf4374db51174cf8833883a468d406db940a2c5930"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "840e763397b239c5ff3423c06ed9d03aa61661c0a50dc4d6ebf663f3afec9f89"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dfa905b672542169bc3bb6ea8d843fc47bfbce6e1dd2d4777640e1b0e4c2b0cc"
+    sha256 cellar: :any_skip_relocation, monterey:       "645888771a0e2957973d28f83ddd531590b7aa7aa8e15b05b638eb39e2f73107"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4e924abe22e12f47b13fe0dd30df2e0f9bb41fdbc228a96f44cb9a803c7e0e09"
+    sha256 cellar: :any_skip_relocation, catalina:       "eace306eb7517ef959435ce7b8c0efa6fabbb6f5596ac554fc8e71d62687f877"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6ff38843218dc26e08f2ef2e48d7f5324332502c84416380359d7153ed3ecb9"
   end
 
   depends_on "go" => :build

@@ -3,17 +3,17 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/fb/02/479ef1675a2976f44fa3cccdd237bca9e6f209075fa2b294340554e9f080/moto-2.2.13.tar.gz"
-  sha256 "ad4d0f1fbe9a7ff91246308079c578a45e3e1315aedf7db1c2cae5d3f2211718"
+  url "https://files.pythonhosted.org/packages/46/fe/628ddad43dc098039e4a9783d0f26e84b0c2034e83603258f200be4da5e7/moto-2.2.15.tar.gz"
+  sha256 "c5692058863803d8a17e422cea48f6f745895760a4be05cd479c0b481cc8e3b0"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f2f9e1c02069ce5a5c970ca5e1319541cdde152dbb5c295e144c6cf4dc948384"
-    sha256 cellar: :any,                 arm64_big_sur:  "2a6e4140c1560b6420da80408099966b08f2510e3d163b8092e14cd075553b07"
-    sha256 cellar: :any,                 monterey:       "171ce27e158f745bd4148b386eefbe4e97618413ff812c9c59e6b0e4f2e0a7cc"
-    sha256 cellar: :any,                 big_sur:        "dcce50f8b3a98b6301e9ea81858461a5a1a33b21aa5156d0000c4a06915180ed"
-    sha256 cellar: :any,                 catalina:       "c45c4eb961e7253b778eb5b558798896c1f8ea6c37fe22931eea224e2db197a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6999fa965a95c725726916b234f1536fa39090db0062dfb67727abe658381ab3"
+    sha256 cellar: :any,                 arm64_monterey: "54d61492ca2e91fe08f7ef0d2f16037c77134326fd4e36760ba48d57f773d8f5"
+    sha256 cellar: :any,                 arm64_big_sur:  "de882fdcd4b635087a96c25592079e3f8af0d4f810816edd7d1bcf6bd0002842"
+    sha256 cellar: :any,                 monterey:       "5241332d4c9c069c9fa903385cf09259d0c77dd3627ecc82db1a3d3fc0bad50f"
+    sha256 cellar: :any,                 big_sur:        "fbb1843c8cfd5577c7493ef31ef5bb5035189d7124f3c30e0d48ee0fd63a76d9"
+    sha256 cellar: :any,                 catalina:       "3eca1c343482635d47f4a82d2ac4f78c88ea04691cdbce0715bc7e4c33ad6729"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dee3bb45bacb339167c048542d8ec4288afdf5bf7341a8d15d69a48120ec4eab"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -35,13 +35,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6d/25/82cdd634d24a53fcf2eac96a73a776c85a26a3c39ca8da234a3d4d0d0f30/boto3-1.19.12.tar.gz"
-    sha256 "182a2b756a2c2180b473bc8452227062394a24e3701548be23ebc30d85976c64"
+    url "https://files.pythonhosted.org/packages/36/01/7fae483965a4a0190d3c482dddc9098be5577a661789c1e738b92fc9ed18/boto3-1.20.5.tar.gz"
+    sha256 "cc620c289b12d7bf7c2706b517c9f8950f9be4622aacc9e7580b8b4ee0d3bc73"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/58/06/a1648e8b32dacf21b3fc732fc2d3c74a6ef943af637f55fc7039ca657afd/botocore-1.22.12.tar.gz"
-    sha256 "fc59b55e8c5dde64b017b2f114c25f8cce397b667e812aea7eafb4b59b49d7cb"
+    url "https://files.pythonhosted.org/packages/08/0c/64f2686a728b0e3ff0e0668d773b529beefa6194f3dc4b5c4081f11d7304/botocore-1.23.5.tar.gz"
+    sha256 "49d1f012dc8467577a5fe603fc87cc13af816dd926b2bc2e28a3b2999ab14d36"
   end
 
   resource "certifi" do
@@ -110,8 +110,8 @@ class Moto < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f8/86/7c0eb6e8b05385d1ce682abc0f994abd1668e148fb52603fa86e15d4c110/Jinja2-3.0.2.tar.gz"
-    sha256 "827a0e32839ab1600d4eb1c4c33ec5a8edfbc5cb42dafa13b81f182f97784b45"
+    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
+    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
   end
 
   resource "jmespath" do
@@ -160,8 +160,8 @@ class Moto < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/8a/f7/93cf3c81629c95f6f40e509f7cd63985a6ddd829181a66c1c8ef101e55f2/more-itertools-8.10.0.tar.gz"
-    sha256 "1debcabeb1df793814859d64a81ad7cb10504c24349368ccf214c664c474f41f"
+    url "https://files.pythonhosted.org/packages/14/77/a496c86b4bf9328269b65dc4d97f127cc78af59539a13b49631b36896234/more-itertools-8.11.0.tar.gz"
+    sha256 "0a2fd25d343c08d7e7212071820e7e7ea2f41d8fb45d6bc8a00cd6ce3b7aab88"
   end
 
   resource "networkx" do

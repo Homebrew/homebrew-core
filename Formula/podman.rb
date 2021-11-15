@@ -4,22 +4,22 @@ class Podman < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/containers/podman/archive/v3.4.1.tar.gz"
-    sha256 "3fa70c499a4733524354518e839eefa3f14b630a519393418d082880535c1e33"
+    url "https://github.com/containers/podman/archive/v3.4.2.tar.gz"
+    sha256 "b0c4f9a11eb500b1d440d5e51a6c0c632aa4ac458e2dc0362f50f999eb7fbf31"
 
     resource "gvproxy" do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.2.0.tar.gz"
-      sha256 "a54da74d6ad129a1c8fed3802ba8651cce37b123ee0e771b0d35889dae4751fc"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.3.0.tar.gz"
+      sha256 "6ca454ae73fce3574fa2b615e6c923ee526064d0dc2bcf8dab3cca57e9678035"
     end
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b86bffeca7ae414d3a97db43021bed86cadac22d1ad3b7bc24efc09983066472"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0b683729b4567a5b610c1feddbe2c30b958c3729ec4d4185fb73c6c7cfd2c91"
-    sha256 cellar: :any_skip_relocation, monterey:       "21ba5f3a140df5344431000efd5dfb941832be0bfa0b27612143f2d8982721f5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f70e26a2975741a29c22161559dd176fec1d96b085a76d92ff73756a47be6cb2"
-    sha256 cellar: :any_skip_relocation, catalina:       "a9a7c3f81a6cd794aec724a22c052680e923b88ddc57a746cc0c341fad6ea7d6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c64a1591367db067b9cf41f0c6957e2922a5febe39a35ae7a73598c69e8c95ff"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "023c0a4f1a447396a551a5a84acc87990aa822ea3c813a53325bd69cf7e5759d"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c8c7f789171738bf7207dc4bb66e1d7dfcd8ac8fb4d04aed024e3e2d9e72805"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5da22da01ec400bf0cdb3ce6f4ff583d0ebb8655e659e48f15aedae1b4249e97"
+    sha256 cellar: :any_skip_relocation, catalina:       "c92229e39cda40be6de7f98d8291420f87e186a4d84d10026382fd77d5b71c80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81c5033f148cef53d8b725e51931fa29860fcb0a0e2f53f1c0ff149ef48d36e8"
   end
 
   head do

@@ -1,18 +1,18 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/v2021.11.01.00.tar.gz"
-  sha256 "70733e32feff3f75ed3f945debfaaf7b02f908cddd2f3800802d26d3a0eb90d9"
+  url "https://github.com/facebook/watchman/archive/v2021.11.08.00.tar.gz"
+  sha256 "e8e24df1f03743cb34cad34ab7101d16e799ce171016bd8756d9e34e86ad6dd3"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "182df49b186aa8f29e5ffe0aafe89c5896b9228e6f897727422cc7b32f9e8906"
-    sha256 cellar: :any, arm64_big_sur:  "b322054c2f2a0c7831a76c59f5e1c2450822be08897ebf332bee21586d80bde9"
-    sha256 cellar: :any, monterey:       "40d60fd5458947f75338321967364db920dc9c0f9a6df79908e761d7f34612af"
-    sha256 cellar: :any, big_sur:        "5385bcf7466875572fbe66de0a0938f50d4e7ea028e9f112c5c4911b20a3a0e9"
-    sha256 cellar: :any, catalina:       "42803f1c1e6b3508d6d7db444b987c128b9a81d313db3e7d97ed966007e83efc"
-    sha256               x86_64_linux:   "0c71b32c2ebe471609d6a8489b22396ec1f8d239fd1274171037bafde91cfed0"
+    sha256 cellar: :any, arm64_monterey: "c964289195e1db055f959cd5464c87d2270c8779e8b016468fb4b13038ce4413"
+    sha256 cellar: :any, arm64_big_sur:  "b631d399613ee8357c4ea12f618360112dc6f61189943b680dd7c44289c996a5"
+    sha256 cellar: :any, monterey:       "fc1edaea5d25ad1072c6e6fbfcb98e14534b5e35d58581f7827770f70b5f7bd0"
+    sha256 cellar: :any, big_sur:        "ae0887fddb400a59286dc3c90ba972f2cbf94dfece23460a341189c35252f3db"
+    sha256 cellar: :any, catalina:       "3eb41cc2bd83959e78bc3499625625eb4cc73539ec10d06f28f9a56713419fbc"
+    sha256               x86_64_linux:   "6e262fe759fa143337c9c8e5ccdd793c56f24fe4fee6ff4e8ef7f5450ef70320"
   end
 
   # https://github.com/facebook/watchman/issues/963
@@ -29,7 +29,7 @@ class Watchman < Formula
   depends_on "libevent"
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "gcc"

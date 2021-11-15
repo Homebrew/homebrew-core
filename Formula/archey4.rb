@@ -3,18 +3,17 @@ class Archey4 < Formula
 
   desc "Simple system information tool written in Python"
   homepage "https://github.com/HorlogeSkynet/archey4"
-  url "https://files.pythonhosted.org/packages/55/21/19a74d9ebf7954eebd08e4afa4c6aaa9bfedff9b8bfbad8e94925458be96/archey4-4.13.2.tar.gz"
-  sha256 "5a98e7681d715e445f0bc1b86ab13fea4f379ecbf89d506e27a707d02384cf00"
+  url "https://files.pythonhosted.org/packages/db/06/45e8c09c600c0647aa549b66e08f8dcf15203f81efbdd8f0bf4a784bf8e2/archey4-4.13.3.tar.gz"
+  sha256 "8c81ad0267d6d4689357d27e274fa142e10a8e619184bfafd9e57d9a8a720848"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea4103fc5fefb64374aa0b0a298b4c6cfd4a3be3d17cf54222d0c77a10c15a56"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e824be83193a74a0d3b5ebed70583a941ee470514834a70c4ae0287d5dd6893"
-    sha256 cellar: :any_skip_relocation, monterey:       "8caed1e145509feaf3da6fbc74452374dd88109a665a61ef17d7e14007fd030c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e848273ecff0d37d6902db78fd668121e3fc6d474772b7b7ee0da3592171dc10"
-    sha256 cellar: :any_skip_relocation, catalina:       "317f1ef273ecca9613f395ff13e64351d63f7f4626fd0b638dd2ed66bec831ba"
-    sha256 cellar: :any_skip_relocation, mojave:         "8f277515b7d8d121480d26afa4cf671174e094f17aebd9babc06df1642577158"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "016fd46d432126417712bc146acb31a2087dfb96919ae536426afd0c9d361c05"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "62f3bd15c1f45182b47649a8dbbfe3a2fb6d26d444678f54df9eece728f3d415"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "37bfb5ef166056a64862eedca01e9ac44c041d44cd4a8af763af0fa86f329178"
+    sha256 cellar: :any_skip_relocation, monterey:       "13e7e4f687ed7e264d9c3eb853d7b6b09e64b7e26545a2e2ecb628bb03a1703f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2330a9c7e085631becc1c981ed4a1b66061146fbf354f04ab4884f70c5486e01"
+    sha256 cellar: :any_skip_relocation, catalina:       "6e6fd5ad1252c9ee3d7ee09cf48b0105447c24502a4ab939290a878a9e3bd438"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c48cf0d9341c959f192513de80ea013d6d00e4dbeda72c3ac640a756cc227049"
   end
 
   depends_on "python@3.10"
