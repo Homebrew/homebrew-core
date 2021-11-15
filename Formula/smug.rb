@@ -13,7 +13,7 @@ class Smug < Formula
 
   test do
     (testpath/"test.yml").write <<~EOS
-    session: test
+      session: test
     EOS
     system "smug", "start", "--file", "test.yml"
   end
