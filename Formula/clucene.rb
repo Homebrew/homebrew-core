@@ -26,7 +26,6 @@ class Clucene < Formula
   end
 
   def install
-
     args = %W[
       -DLIB_DESTINATION=#{lib}
       -DBUILD_CONTRIBS_LIB=ON
@@ -44,4 +43,3 @@ class Clucene < Formula
     end
   end
 end
-
