@@ -12,6 +12,6 @@ class Smug < Formula
   end
 
   test do
-    assert_equal(version, shell_output("smug").lines.first.split("Version").last.chomp)
+    system "make", "test"
   end
 end
