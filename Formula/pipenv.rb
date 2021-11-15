@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/f6/38/45d22be374034bc18720d60ba8e8b6e82242be492808df59d0abe5e5027e/pipenv-2021.11.9.tar.gz"
-  sha256 "7662399162bc887ee86e96d0baa6984236228af9c1fd6594be0b18910225579d"
+  url "https://files.pythonhosted.org/packages/d5/3a/c0cb462882da253cad436e09a165f2ae2dd8056d0ee91f7b0f902b51dde2/pipenv-2021.11.15.tar.gz"
+  sha256 "616766b1e8dfc24b2e7c6dfbbc8276b7d7ba07e778e5eb0f1b6e59fcd4532fd1"
   license "MIT"
 
   bottle do
@@ -20,8 +20,8 @@ class Pipenv < Formula
   depends_on "six"
 
   resource "backports.entry-points-selectable" do
-    url "https://files.pythonhosted.org/packages/e4/7e/249120b1ba54c70cf988a8eb8069af1a31fd29d42e3e05b9236a34533533/backports.entry_points_selectable-1.1.0.tar.gz"
-    sha256 "988468260ec1c196dab6ae1149260e2f5472c9110334e5d51adcb77867361f6a"
+    url "https://files.pythonhosted.org/packages/71/16/edd003270daaab0168f7dbac6e22b055322e9ba66fb2cc951f58d1ed158b/backports.entry_points_selectable-1.1.1.tar.gz"
+    sha256 "914b21a479fde881635f7af5adc7f6e38d6b274be32269070c53b698c60d5386"
   end
 
   resource "certifi" do
