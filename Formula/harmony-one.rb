@@ -108,6 +108,6 @@ class HarmonyOne < Formula
     assert true, `harmony --version`
 
     # Test that the binary fails with bls key error
-    refute_match "/ERROR(.*)(bls.*)/", `harmony`
+    assert_match /ERROR(.*)(bls.*)/, shell_output("harmony")
   end
 end
