@@ -6,8 +6,7 @@ class QwtQt5 < Formula
   license "LGPL-2.1-only" => { with: "Qwt-exception-1.0" }
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/qwt[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    formula "qwt"
   end
 
   bottle do
