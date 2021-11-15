@@ -1,8 +1,8 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://ctan.org/pkg/latexindent"
-  url "https://github.com/cmhughes/latexindent.pl/archive/V3.13.1.tar.gz"
-  sha256 "a9898364621f64405a9ff2f74c6f519e6e656233cec89a16926c6dcf08ddd760"
+  url "https://github.com/cmhughes/latexindent.pl/archive/V3.13.2.tar.gz"
+  sha256 "d63e5dc6c03261bd6abea9f3190e6be09d67683f5ad87247924690b63644a60d"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -24,8 +24,8 @@ class Latexindent < Formula
   end
 
   resource "B::Hooks::EndOfScope" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz"
-    sha256 "03aa3dfe5d0aa6471a96f43fe8318179d19794d4a640708f0288f9216ec7acc6"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.25.tar.gz"
+    sha256 "da1b6a9f7c7424776363182f9673e666b06136f13dc744241f7adce3d1ad0c1a"
   end
 
   resource "Class::Data::Inheritable" do
