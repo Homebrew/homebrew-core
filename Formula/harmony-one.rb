@@ -8,6 +8,7 @@ class HarmonyOne < Formula
 
   # CONTRIBUTORS: Versions may need to be updated according to documentation at:
   #    -  https://github.com/harmony-one/harmony
+  depends_on macos: :high_sierra
   depends_on "bash"
   depends_on "gmp"
   depends_on "go@1.16"
