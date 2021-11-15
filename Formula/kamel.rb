@@ -21,6 +21,7 @@ class Kamel < Formula
 
   depends_on "go" => :build
   depends_on "openjdk@11" => :build
+  depends_on "kubernetes-cli"
 
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
