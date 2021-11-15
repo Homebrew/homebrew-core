@@ -9,7 +9,6 @@ class Smug < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
-    system "make", "test"
   end
 
   test do
