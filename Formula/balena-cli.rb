@@ -19,7 +19,8 @@ class BalenaCli < Formula
     sha256 high_sierra: "0e670f3cc482565ddc1a166316407fab2fd008f12128a06f7f73c3bcf07a641d"
   end
 
-  depends_on "node"
+  # can be updated after https://github.com/balena-io/balena-cli/issues/2165
+  depends_on "node@12"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
