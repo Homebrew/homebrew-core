@@ -15,6 +15,8 @@ class Shogun < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1da85e8939d3f09b5d9d6d7e90b9df560ca4a14e668dfc44ff62100e022ae548"
   end
 
+  disable! date: "2021-11-15", because: "has an incompatible license"
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "arpack"
