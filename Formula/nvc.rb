@@ -25,7 +25,7 @@ class Nvc < Formula
   depends_on "pkg-config" => :build
   depends_on "llvm"
 
-  resource "vim-hdl-examples" do
+  resource "homebrew-test" do
     url "https://github.com/suoto/vim-hdl-examples.git",
         revision: "fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b"
   end
@@ -41,7 +41,7 @@ class Nvc < Formula
   end
 
   test do
-    resource("vim-hdl-examples").stage testpath
+    resource("homebrew-test").stage testpath
     system "#{bin}/nvc", "-a", "#{testpath}/basic_library/very_common_pkg.vhd"
   end
 end
