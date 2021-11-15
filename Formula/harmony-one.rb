@@ -10,10 +10,10 @@ class HarmonyOne < Formula
   #    -  https://github.com/harmony-one/harmony
 
   depends_on "gmp"
-  depends_on "go@1.16"
+  depends_on "go"
   depends_on "jq"
   depends_on macos: :high_sierra
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   
 
   # CONTRIBUTORS: Keep resources updated according to the changelog release tag:
