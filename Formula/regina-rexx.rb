@@ -1,8 +1,8 @@
 class ReginaRexx < Formula
   desc "Interpreter for Rexx"
   homepage "https://regina-rexx.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/regina-rexx/regina-rexx/3.9.3/regina-rexx-3.9.3.tar.gz"
-  sha256 "1712aabee5978fdf57aeac82cd5a1a112b8980db8c5d7d045523f6a8b74b0531"
+  url "https://downloads.sourceforge.net/project/regina-rexx/regina-rexx/3.9.4/regina-rexx-3.9.4.tar.gz"
+  sha256 "a4002237d0c625ded6a270c407643f49738de4eb755b68abdbf69c3f306d18be"
   license "GPL-2.0-or-later"
 
   bottle do
