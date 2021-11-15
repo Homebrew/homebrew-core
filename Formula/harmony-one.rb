@@ -104,8 +104,8 @@ class HarmonyOne < Formula
 
   test do
     # Basic version check
-    assert true, `bootnode --version`
-    assert true, `harmony --version`
+    assert_match version.to_s,  shell_output("bootnode --version")
+    assert_match version.to_s,  shell_output("harmony --version")
 
     # Test that the binary fails with bls key error
     assert_match /ERROR(.*)(bls.*)/, shell_output("harmony")
