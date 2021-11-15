@@ -58,7 +58,7 @@ class HarmonyOne < Formula
 
     # Build Binarys
     system "go", "mod", "tidy"
-    system "make "
+    system "make"
 
     bin.install "./bin/harmony" => "harmony"
     bin.install "./bin/bootnode" => "bootnode"
