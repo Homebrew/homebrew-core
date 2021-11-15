@@ -1,8 +1,8 @@
 class Xh < Formula
   desc "Friendly and fast tool for sending HTTP requests"
   homepage "https://github.com/ducaale/xh"
-  url "https://github.com/ducaale/xh/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "d3e46b6db5a131237d5f980ccaae6f04c5ba7b06922d97c7f98f36f03cf581fe"
+  url "https://github.com/ducaale/xh/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "6abc32e2fa49a3c7a08379dbe7375735ec7bc8f25c3f29774e275e9dcac42711"
   license "MIT"
   head "https://github.com/ducaale/xh.git", branch: "master"
 
