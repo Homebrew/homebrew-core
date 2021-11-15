@@ -13,8 +13,8 @@ class HarmonyOne < Formula
   depends_on "gmp"
   depends_on "go@1.16"
   depends_on "jq"
-  depends_on "make"
   depends_on macos: :high_sierra
+  depends_on "make"
   depends_on "openssl@1.1"
   
 
