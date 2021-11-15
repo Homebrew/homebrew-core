@@ -14,8 +14,9 @@ class HarmonyOne < Formula
   depends_on "go@1.16"
   depends_on "jq"
   depends_on "make"
-  depends_on "openssl@1.1"
   depends_on macos: :high_sierra
+  depends_on "openssl@1.1"
+  
 
   # CONTRIBUTORS: Keep resources updated according to the changelog release tag:
   #     - https://github.com/harmony-one/harmony/releases/tag/v#{version}
