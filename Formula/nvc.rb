@@ -30,12 +30,6 @@ class Nvc < Formula
         revision: "fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b"
   end
 
-  # remove in next release
-  patch do
-    url "https://github.com/nickg/nvc/commit/64c2521260e868224ed94e6913f378c306ef2909.patch?full_index=1"
-    sha256 "3bdb4770df20751079d7c6899a7546cfe43c4a3b56387d5a6188ecd7617bb23a"
-  end
-
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
