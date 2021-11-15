@@ -1,16 +1,17 @@
 class Bupstash < Formula
   desc "Easy and efficient encrypted backups"
   homepage "https://bupstash.io"
-  url "https://github.com/andrewchambers/bupstash/releases/download/v0.10.2/bupstash-v0.10.2-src+deps.tar.gz"
-  sha256 "eaadac9cd6bc993f0bd143de457054eb6572e093783907478968a80dff1a355c"
+  url "https://github.com/andrewchambers/bupstash/releases/download/v0.10.3/bupstash-v0.10.3-src+deps.tar.gz"
+  sha256 "fc813b8a4b8835aa30060a8df7d02398fc90a77614048c18528d2ad6e1bb1412"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ed18dd9a09063de9d3be7739ab048f977dc89b30d4f17ca6e625dfca7bfd4e6a"
-    sha256 cellar: :any,                 big_sur:       "f30a220780b8d94cbbeec8faf0dc13464a38f7029116ee587ea39279c4e3e1cb"
-    sha256 cellar: :any,                 catalina:      "0488ba4d72c967d3d2ba923930f248a0bb60122f773f98f4438cfa8b2097084d"
-    sha256 cellar: :any,                 mojave:        "b637f71d3cff79b2621c436f597e313cb76d1eef015ed501269b73e0832cc5d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c4123bcb3b3c06fe08f42913d172f0cf9659b0b414c06e59515fd7a52722769"
+    sha256 cellar: :any,                 arm64_monterey: "85d6ea7c7ea61a305cd2b977cb317119014476f8dda7266abb69c15537a00672"
+    sha256 cellar: :any,                 arm64_big_sur:  "0f9c7184cfb4ee251948a6795419cd35559f59ffa858d1899f431262e74fa57c"
+    sha256 cellar: :any,                 monterey:       "c0328dd66273382f9bf95f7b383aa213995304a5ab212cbebb21c4776243bd68"
+    sha256 cellar: :any,                 big_sur:        "59c13757da665e6b414cf3bff532149036f01a1f6efc198be4d73953cc08b8ba"
+    sha256 cellar: :any,                 catalina:       "e39ef2ac865f91f0bbeaa4149dd5e20372dfa5dabd018ed6bf61b84afced3772"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a52ce9354cda7117afb5dac38a3d75b4b0d0f516eb7a77fdd4b2de172a79f0be"
   end
 
   depends_on "pkg-config" => :build

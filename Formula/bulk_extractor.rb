@@ -12,11 +12,13 @@ class BulkExtractor < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0d798b0a0ab7796d05d91a2fbbda7b959d76026a1360c69e9d360ead265a3ac1"
-    sha256               big_sur:       "4207941ab88e766e1a0fd55031585c52cea1c27ac528b7db1496a714fbeda5c4"
-    sha256               catalina:      "6acada1995761f484993f407f33014260f8c16596381172b405fe84eef206e06"
-    sha256               mojave:        "da01b2d5208c362fa10baa1a3b1d7fd018f4886eddb068107b9786c36bbff480"
-    sha256               high_sierra:   "621af8efc0671cd2905f4f077c9cfef8ac2493cf65421fb2973228c2b651c24e"
+    sha256 cellar: :any, arm64_monterey: "827ffd8be9d94c8d73eafee14be12527f55502fcc17177cc2388b57da50bcdef"
+    sha256 cellar: :any, arm64_big_sur:  "0d798b0a0ab7796d05d91a2fbbda7b959d76026a1360c69e9d360ead265a3ac1"
+    sha256               monterey:       "e16b6e0276beff6059f39035e15d42a38343dba8cd157138c3a1495372e4f86f"
+    sha256               big_sur:        "4207941ab88e766e1a0fd55031585c52cea1c27ac528b7db1496a714fbeda5c4"
+    sha256               catalina:       "6acada1995761f484993f407f33014260f8c16596381172b405fe84eef206e06"
+    sha256               mojave:         "da01b2d5208c362fa10baa1a3b1d7fd018f4886eddb068107b9786c36bbff480"
+    sha256               high_sierra:    "621af8efc0671cd2905f4f077c9cfef8ac2493cf65421fb2973228c2b651c24e"
   end
 
   depends_on "autoconf" => :build

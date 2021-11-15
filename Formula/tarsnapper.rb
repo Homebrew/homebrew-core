@@ -6,23 +6,22 @@ class Tarsnapper < Formula
   url "https://files.pythonhosted.org/packages/4e/c5/0a08950e5faba96e211715571c68ef64ee37b399ef4f0c4ab55e66c3c4fe/tarsnapper-0.5.0.tar.gz"
   sha256 "b129b0fba3a24b2ce80c8a2ecd4375e36b6c7428b400e7b7ab9ea68ec9bb23ec"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "507902249b2fe7c3f13b11ce669e12ed78253276e5c37f748922455126dff5cd"
-    sha256 cellar: :any, big_sur:       "bc6193b16d969dd37047b726cf50a243ec08f2f015b85bda59acfd9ec18c9451"
-    sha256 cellar: :any, catalina:      "fce1d4069e55c05f40ec638e27e4b064ae5ed72854b8ddd13268d6baf735cd95"
-    sha256 cellar: :any, mojave:        "aba5962a85058b3468e224b15d0c8f294ba4472f1b29c5d1072c64fc6c6a104b"
-    sha256 cellar: :any, high_sierra:   "810a32cba365609ed7d28dd52d2f68aaded70deccde209849db5be49a3662e68"
+    sha256 cellar: :any,                 arm64_monterey: "ac8f71359974b87ec296543400b6feed59990d637bb39bd76693f532901a9ba1"
+    sha256 cellar: :any,                 arm64_big_sur:  "fb9e4083414f5e3c529a444047e4a840fbe008d8e1210ca35183c95e284712c5"
+    sha256 cellar: :any,                 monterey:       "30725e21171a6c3151f778e5c710ce155aba69a5778610596df6b3b6fe6b944f"
+    sha256 cellar: :any,                 big_sur:        "766dad885fa778bda3d99c853e14d4e3d179b9a1c11131165c4dd7875553d29f"
+    sha256 cellar: :any,                 catalina:       "4e95af80521f93738700549a1683cf9a73c776d637587c065e7c0fa56985168e"
+    sha256 cellar: :any,                 mojave:         "09e4372f39f9cb0d141ebc4d89835ebb6787baa3c0a20e6b791a919168035428"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f9c0304d01b9274fcd7acb0a8cb66610cac32f1c3aaf7e0b05b36c7ddd1b384"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+  depends_on "six"
   depends_on "tarsnap"
-
-  resource "argparse" do
-    url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
-    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
-  end
 
   resource "pexpect" do
     url "https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz"
@@ -30,23 +29,18 @@ class Tarsnapper < Formula
   end
 
   resource "ptyprocess" do
-    url "https://files.pythonhosted.org/packages/7d/2d/e4b8733cf79b7309d84c9081a4ab558c89d8c89da5961bf4ddb050ca1ce0/ptyprocess-0.6.0.tar.gz"
-    sha256 "923f299cc5ad920c68f2bc0bc98b75b9f838b93b599941a6b63ddbc2476394c0"
+    url "https://files.pythonhosted.org/packages/20/e5/16ff212c1e452235a90aeb09066144d0c5a6a8c0834397e03f5224495c4e/ptyprocess-0.7.0.tar.gz"
+    sha256 "5c5d0a3b48ceee0b48485e0c26037c0acd7d29765ca3fbb5cb3831d347423220"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
-    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   def install

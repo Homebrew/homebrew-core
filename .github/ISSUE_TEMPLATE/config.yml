@@ -10,6 +10,3 @@ contact_links:
   - name: New issue on Homebrew/homebrew-cask
     url: https://github.com/Homebrew/homebrew-cask/issues/new/choose
     about: Having a Homebrew Cask problem? Report it to Homebrew/homebrew-cask (the cask tap/repository)
-  - name: New issue on Homebrew/linuxbrew-core
-    url: https://github.com/Homebrew/linuxbrew-core/issues/new/choose
-    about: On Linux? Having a `brew` problem with a `brew install` or `brew upgrade` of a single formula/package? Report it to Homebrew/linuxbrew-core (the Linux core tap/repository).

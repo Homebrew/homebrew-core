@@ -5,14 +5,14 @@ class GnuSmalltalk < Formula
   mirror "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
   license "GPL-2.0"
-  revision 9
+  revision 10
   head "https://github.com/gnu-smalltalk/smalltalk.git"
 
   bottle do
-    sha256 big_sur:     "9fc21dd5d9f30b200c1d4b1187a22663f100ac4db1363e86edc12d59db96cd43"
-    sha256 catalina:    "8a00e81f1a751efeec308de2bbf2e75a1173a636a29c27cec440c121208f0fe6"
-    sha256 mojave:      "0f569ca28ff2eaa54b36780c278a7170be42ef25e6d305852323952390be7270"
-    sha256 high_sierra: "2f369eed3ac62fbe0c4c257cefa0c9477ce0a806859a18d65ba565fbfdc76786"
+    sha256 monterey: "f68902246ecd9c5e7a3d0f764143fbf870920179294f29377ad3101c1a266b06"
+    sha256 big_sur:  "3e29abd9a730f20034a70ae42e217674c85ccf0334a9b2bb45a304cbe4d7c15c"
+    sha256 catalina: "730a528feab24da9688e0c8bc1a4176ddab53f92b8d56fc7ff6367bf94710c7c"
+    sha256 mojave:   "e23c93c01254dd0be94bf1149b08a1e6df3ed1502f300c3e093dad340b694dbd"
   end
 
   depends_on "autoconf" => :build

@@ -16,6 +16,7 @@ class Sgrep < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, monterey:     "192436239783803b977e5804d989dc67f7760d87ed7831bb3c30dae5146204cf"
     sha256 cellar: :any_skip_relocation, big_sur:      "fedcff86ec032617015882c5729298bbe1f1fcbda14cdde6167b00ae2af586b8"
     sha256 cellar: :any_skip_relocation, catalina:     "29e528a52ae36131ded52bb08d9cf9b12b1455fbc715f7b7bbd3b97f637862e5"
     sha256 cellar: :any_skip_relocation, mojave:       "bfb1f484dd474727fec463b1b90ffe7250f5c82e0e65bec96903e38f6e0a8e48"

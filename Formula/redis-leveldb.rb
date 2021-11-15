@@ -4,7 +4,7 @@ class RedisLeveldb < Formula
   url "https://github.com/KDr2/redis-leveldb/archive/v1.4.tar.gz"
   sha256 "b34365ca5b788c47b116ea8f86a7a409b765440361b6c21a46161a66f631797c"
   revision 3
-  head "https://github.com/KDr2/redis-leveldb.git"
+  head "https://github.com/KDr2/redis-leveldb.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5e41ff1939788e1fa297df8345b1c515b4bdaf046fa7c0d54e853aa1f0030dc1"

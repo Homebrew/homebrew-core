@@ -3,17 +3,19 @@ class RobotFramework < Formula
 
   desc "Open source test framework for acceptance testing"
   homepage "https://robotframework.org/"
-  url "https://files.pythonhosted.org/packages/45/4f/ddfc3eb4e342e3e45e4122e345e5bb33819823e812b66afbf38a9fc4864b/robotframework-4.1.zip"
-  sha256 "567f2a21f0906635e21d45fe3cb84a4809a12980c9f2706a8a5f65f40f6b4ccd"
+  url "https://files.pythonhosted.org/packages/82/4d/81586f077fd94ebbf66840b1187a6789843c9830a3025ec182df2439f29b/robotframework-4.1.1.zip"
+  sha256 "663f84c177b2fa9b3b782939e31637a057a33f3a4b29067812f1259b7f4bad35"
   license "Apache-2.0"
-  head "https://github.com/robotframework/robotframework.git"
+  revision 1
+  head "https://github.com/robotframework/robotframework.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "240ad94acc409b6f6e63aa89a4dd2fca2212913977c0ff617b8f838cd1423763"
-    sha256 cellar: :any,                 big_sur:       "e35763edbc5e52f25b8328ca89583e3de9e937a891622a3631a6832959aa3617"
-    sha256 cellar: :any,                 catalina:      "940145ccde571afb236ae1fb979088f72ffebea57bd28472caab88661b19c74a"
-    sha256 cellar: :any,                 mojave:        "ea56dff57ed07e631fab1ac46e9c9419593f48fea3186b154f9a5c40bf45cc1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15ef0e17b2fc4695622535b0b0afddd6d519abd7327b16b85e4e7c83d56dadec"
+    sha256 cellar: :any,                 arm64_monterey: "db08e0c311a8a0cf0114d15673cf8200896d4bbe53390584eb8781247cd33a0a"
+    sha256 cellar: :any,                 arm64_big_sur:  "2b09165fd26df1e9890a24ab3822b487e9dfa631f3c59341f7877d2f82579212"
+    sha256 cellar: :any,                 monterey:       "4304975c66df59312eec256b26b9883b0ba63f505ddb6c204ef5ee9c803c8e20"
+    sha256 cellar: :any,                 big_sur:        "44130a4512c422c25d87a032b7e8c8b38dc452bae64897053e2c64423c845b5c"
+    sha256 cellar: :any,                 catalina:       "429e30236bd464ec6c0dd34d603e54dd07d7682044d4a0a2e0c37fea56b7278d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20c8591991cc7981309a3321c6d4fbbe3b080b23926a444dfc3bbacb8a1594b5"
   end
 
   depends_on "rust" => :build
@@ -31,8 +33,8 @@ class RobotFramework < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "paramiko" do
@@ -76,8 +78,8 @@ class RobotFramework < Formula
   end
 
   resource "scp" do
-    url "https://files.pythonhosted.org/packages/10/fc/26467959b83c3f68a8dda16cfd09d856008a5caa66a0f7d726c44023fb8a/scp-0.13.6.tar.gz"
-    sha256 "0a72f9d782e968b09b114d5607f96b1f16fe9942857afb355399edd55372fcf1"
+    url "https://files.pythonhosted.org/packages/7f/3c/3bfda15f1387d44721f78d338c004ebca27b1015c275da4d3272654be152/scp-0.14.0.tar.gz"
+    sha256 "ddbdb3ef8c068aa1fd37a5fa65a122a80673c9fd73fdc5668a4604f99ccf5943"
   end
 
   resource "selenium" do
@@ -97,6 +99,9 @@ class RobotFramework < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # remove non-native binary
+    (libexec/"lib/python3.9/site-packages/selenium/webdriver/firefox/x86/x_ignore_nofocus.so").unlink if OS.linux?
   end
 
   test do

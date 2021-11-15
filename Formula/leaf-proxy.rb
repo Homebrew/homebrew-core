@@ -7,11 +7,13 @@ class LeafProxy < Formula
   head "https://github.com/eycorsican/leaf.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7436395fb5eb5616771b7b521d8abd053f28b6b370e3244220a78ef3cae7a602"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3acdb89d85419f3f767b19782bd3442c74baad9b0527471ab83bd9f74efa8dd9"
-    sha256 cellar: :any_skip_relocation, catalina:      "31c45ca626144ad34a3bcf09440077cbaeb793851538e2046c581122f378ebe9"
-    sha256 cellar: :any_skip_relocation, mojave:        "e0ea5b75bd333e98c716f9f9782aadb47e4e8d9c6b0e8f087f782eb8c67a58bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9473c11cdbfee47a2c7a8f6b8b803413a48f135378c747ac74de4d12dedf5a0c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "008f26d03671d662a26bc67c6e039f0037a75b81946b9136fe90a5df3f440102"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7436395fb5eb5616771b7b521d8abd053f28b6b370e3244220a78ef3cae7a602"
+    sha256 cellar: :any_skip_relocation, monterey:       "f927d6568e402539b7fc7a3851a05e089f48957ebab3c07f441e8c64c8d46c7a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3acdb89d85419f3f767b19782bd3442c74baad9b0527471ab83bd9f74efa8dd9"
+    sha256 cellar: :any_skip_relocation, catalina:       "31c45ca626144ad34a3bcf09440077cbaeb793851538e2046c581122f378ebe9"
+    sha256 cellar: :any_skip_relocation, mojave:         "e0ea5b75bd333e98c716f9f9782aadb47e4e8d9c6b0e8f087f782eb8c67a58bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9473c11cdbfee47a2c7a8f6b8b803413a48f135378c747ac74de4d12dedf5a0c"
   end
 
   depends_on "rust" => :build

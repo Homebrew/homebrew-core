@@ -3,20 +3,23 @@ class SshAudit < Formula
 
   desc "SSH server & client auditing"
   homepage "https://github.com/jtesta/ssh-audit"
-  url "https://files.pythonhosted.org/packages/53/77/7db9fc7f87ece1978942aa3e8b905032da0862c62ede8112f9bb99c22232/ssh-audit-2.4.0.tar.gz"
-  sha256 "197ec4e8c3f5ffca5627d944b85ed677faa798c218dc3ebb18430f5671c14d6d"
+  url "https://files.pythonhosted.org/packages/ae/72/44b29342575dee57470a11b92b12430b3afb63a963aa356c356b0b747522/ssh-audit-2.5.0.tar.gz"
+  sha256 "3397f751bc7b9997e4236aece2d41973c766f1e44b15bc6d51a1420a14bf05b6"
   license "MIT"
-  head "https://github.com/jtesta/ssh-audit.git"
+  revision 1
+  head "https://github.com/jtesta/ssh-audit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8bb5287d63d9ac17380fd712b1e263b13f88cff456685bb1f34a21812491f807"
-    sha256 cellar: :any_skip_relocation, big_sur:       "68ef1fb06d02ac84edd2409a4988353684279f717dc9678411ac3a6eec37b12e"
-    sha256 cellar: :any_skip_relocation, catalina:      "03faa5f6e250751b1247704617e78e7e4a27387d7c2c586a3f373576898cfc81"
-    sha256 cellar: :any_skip_relocation, mojave:        "f01d8bd0cb8b9d461c8b9f93b765def198756cacbe623a8345efabf93a9984f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "926a05db7d305de243e55d97031b12c8f6f16f6249442743227ce9a89b445057"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8a168c37baa642d779295f93e629544a8ce7fd617e452f640d75aa2051a9444b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a168c37baa642d779295f93e629544a8ce7fd617e452f640d75aa2051a9444b"
+    sha256 cellar: :any_skip_relocation, monterey:       "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
+    sha256 cellar: :any_skip_relocation, catalina:       "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
+    sha256 cellar: :any_skip_relocation, mojave:         "a73b9cc6c22017af4ceae38c7ef0a90b275b7a77a7f1634eaa2ec2cf8180b144"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce635f09e402480c3646cfc10c5dde97be34db29c70c6056308b999f8077ada8"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources

@@ -3,10 +3,10 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.2.0.tar.gz"
-  sha256 "d7271022559bfb486a9462ed5e7d1ffb52a010a197f5dfdef27f70a931907dce"
+  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.3.0.tar.gz"
+  sha256 "4073ac72524f95fed4bda7dd553cb946f66d2e00bd07c4ae7758f1b787d507e0"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git"
 
   livecheck do
@@ -15,9 +15,9 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "169b966d6e031d0270bfc2649ee48220bc54b9d3e5d2b01c29e874bcc06f2c86"
-    sha256 cellar: :any, catalina: "d33ce40c50bd7b50545671e68b9b16c95f425196b6696fce1e77b2d6f12ab727"
-    sha256 cellar: :any, mojave:   "6849a16834c277e9e72021fb2d70a1a7ebab2f0c6ce55eb7ce073f5c33d4421d"
+    sha256 cellar: :any, big_sur:  "beb3e5d07af93967affe34ca80b61ec7a252644d3e364cfe8bc6452167af2bf5"
+    sha256 cellar: :any, catalina: "d4fb4229c6862233fd9c67c109e7e73efdba41bdf4f3080c4550c5ed453c7d6f"
+    sha256 cellar: :any, mojave:   "a71eb5fee4303983f6b6c3bbd4b128325cd623cb221f9014656efce0dce69e58"
   end
 
   depends_on "cmake" => :build
@@ -38,7 +38,7 @@ class Gnuradio < Formula
   depends_on "pyqt@5"
   depends_on "python@3.9"
   depends_on "qt@5"
-  depends_on "qwt"
+  depends_on "qwt-qt5"
   depends_on "six"
   depends_on "soapyrtlsdr"
   depends_on "uhd"
@@ -61,8 +61,8 @@ class Gnuradio < Formula
   end
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
-    sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
+    url "https://files.pythonhosted.org/packages/d1/42/ff293411e980debfc647be9306d89840c8b82ea24571b014f1a35b2ad80f/Mako-1.1.5.tar.gz"
+    sha256 "169fa52af22a91900d852e937400e79f535496191c63712e3b9fda5a9bed6fc3"
   end
 
   resource "PyYAML" do
@@ -73,6 +73,13 @@ class Gnuradio < Formula
   resource "cppzmq" do
     url "https://raw.githubusercontent.com/zeromq/cppzmq/46fc0572c5e9f09a32a23d6f22fd79b841f77e00/zmq.hpp"
     sha256 "964031c0944f913933f55ad1610938105a6657a69d1ac5a6dd50e16a679104d5"
+  end
+
+  # patch to build with qt6
+  # PR ref, https://github.com/gnuradio/gnuradio/pull/5034
+  patch do
+    url "https://github.com/gnuradio/gnuradio/commit/74bb3881c044d0fe9bb498ede8bcd17f0a27574c.patch?full_index=1"
+    sha256 "d5a76e38e9c50ce28d6efddde2ad3612f602879a7edc5161aa8fa7b93756edfd"
   end
 
   def install
@@ -103,8 +110,8 @@ class Gnuradio < Formula
       -DENABLE_DEFAULT=OFF
       -DPYTHON_EXECUTABLE=#{venv_root}/bin/python
       -DPYTHON_VERSION_MAJOR=3
-      -DQWT_LIBRARIES=#{Formula["qwt"].lib}/qwt.framework/qwt
-      -DQWT_INCLUDE_DIRS=#{Formula["qwt"].lib}/qwt.framework/Headers
+      -DQWT_LIBRARIES=#{Formula["qwt-qt5"].lib}/qwt.framework/qwt
+      -DQWT_INCLUDE_DIRS=#{Formula["qwt-qt5"].lib}/qwt.framework/Headers
       -DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}
       -DQT_BINARY_DIR=#{Formula["qt@5"].opt_bin}
       -DENABLE_TESTING=OFF

@@ -7,10 +7,12 @@ class Gistit < Formula
   head "https://github.com/jrbasso/gistit.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ad2652284c1907697535715d31eec9dfb558fe123b8cfe6aabf76ef0bd858cc7"
-    sha256 cellar: :any, big_sur:       "090920bf2761a37d9b9877386a1c0b4466ba80a8c412e807a7a03de14239a3a0"
-    sha256 cellar: :any, catalina:      "844955e49de622786a9a676e91b767926ff9953c950db2affa98f6d82978899f"
-    sha256 cellar: :any, mojave:        "c55986f583c7d8744c4009f7856d00568ee5c3a31836075dd8b44af7b9807284"
+    sha256 cellar: :any, arm64_monterey: "a56fc428aa4bb3b6c0f81c25542fe92b5c78ddc7f10159b1e626dad75356c4f7"
+    sha256 cellar: :any, arm64_big_sur:  "ad2652284c1907697535715d31eec9dfb558fe123b8cfe6aabf76ef0bd858cc7"
+    sha256 cellar: :any, monterey:       "f4f4aa3d57eb29d34654abc12b9919879e34ecb532b0b77e139216dbc9b6b30e"
+    sha256 cellar: :any, big_sur:        "090920bf2761a37d9b9877386a1c0b4466ba80a8c412e807a7a03de14239a3a0"
+    sha256 cellar: :any, catalina:       "844955e49de622786a9a676e91b767926ff9953c950db2affa98f6d82978899f"
+    sha256 cellar: :any, mojave:         "c55986f583c7d8744c4009f7856d00568ee5c3a31836075dd8b44af7b9807284"
   end
 
   depends_on "autoconf" => :build

@@ -13,12 +13,14 @@ class Ldapvi < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "86cc23b1d8f7bf9b1cf46730d25e0774fa331015e024dfbb5091830c4f73aee0"
-    sha256 cellar: :any, big_sur:       "79eefa4e1619324c2573a42e688785d5325c4e2d28ef7366ee24a2586a2dd071"
-    sha256 cellar: :any, catalina:      "945ba55247fff673cc497f0ef27761790044f9cd337df3d395ca0043ef2ee651"
-    sha256 cellar: :any, mojave:        "b227a947ef652d2f335f7ccc7a1334efa2db1fc3a3a6666b35e91310c17548f0"
-    sha256 cellar: :any, high_sierra:   "4da9e2cc356624f5b6ad3e6b1c36e934329d80f385d31ac712693d4e8734a4c1"
-    sha256 cellar: :any, sierra:        "e6babe3042fee412c0ad7cf89dd95a13d2530d9cd8f6d02c7380bae408ed0040"
+    sha256 cellar: :any, arm64_monterey: "7c0302cf11ffe437cf6b52e068adeac5eb3c4f36ad511ce9a77ee62ccc15842a"
+    sha256 cellar: :any, arm64_big_sur:  "86cc23b1d8f7bf9b1cf46730d25e0774fa331015e024dfbb5091830c4f73aee0"
+    sha256 cellar: :any, monterey:       "b84520d7f99805846e48f305a878a9f41def019d8dc58a9333b88d25811099df"
+    sha256 cellar: :any, big_sur:        "79eefa4e1619324c2573a42e688785d5325c4e2d28ef7366ee24a2586a2dd071"
+    sha256 cellar: :any, catalina:       "945ba55247fff673cc497f0ef27761790044f9cd337df3d395ca0043ef2ee651"
+    sha256 cellar: :any, mojave:         "b227a947ef652d2f335f7ccc7a1334efa2db1fc3a3a6666b35e91310c17548f0"
+    sha256 cellar: :any, high_sierra:    "4da9e2cc356624f5b6ad3e6b1c36e934329d80f385d31ac712693d4e8734a4c1"
+    sha256 cellar: :any, sierra:         "e6babe3042fee412c0ad7cf89dd95a13d2530d9cd8f6d02c7380bae408ed0040"
   end
 
   depends_on "pkg-config" => :build

@@ -1,22 +1,23 @@
 class FluentBit < Formula
-  desc "Data Collector for IoT"
+  desc "Fast and Lightweight Logs and Metrics processor"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v1.8.3.tar.gz"
-  sha256 "a46e0ad3e6b462a72236fbfd69841b55787c212554b5f7d30217d1eea217d7ca"
+  url "https://github.com/fluent/fluent-bit/archive/v1.8.9.tar.gz"
+  sha256 "0aafce9d74cf392955dcd1866df30f4bc02492c815595969eb5c09088201215b"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "cd42dd3fbfa4a1c047f088ba68b05ad8f804be78d93350947bf591dd0ce78b4f"
-    sha256 cellar: :any,                 big_sur:       "48cb4a587ef28140adc2b639c402ae47a118cc1ff5bd5a69f3a49c68fb492b48"
-    sha256 cellar: :any,                 catalina:      "b15884bf5a941bb917222ce95faa292795c243704704b5f36f33c2e67cde0944"
-    sha256 cellar: :any,                 mojave:        "271fc29197403f263da8206e013eb8df61b709de3c7f5e94c9d18e024208c646"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "532e558f61cd61782b0d5e136f8acef490b7962f3e4aa0e4b30d0f6e96677808"
+    sha256 cellar: :any,                 arm64_monterey: "b75308aacd4b561013715584cb7b0f583aee7daa2dcdc6209bd0f9749adaf21d"
+    sha256 cellar: :any,                 arm64_big_sur:  "ebb249c64c7c6f2e0543e1a63885afd326f87e0e299706b599aed3416ed06bba"
+    sha256 cellar: :any,                 monterey:       "97b6a5bef449bbb60428ad6259809ab832a95c3e34ad6236fa83204e0073e595"
+    sha256 cellar: :any,                 big_sur:        "2df9007c76f2796d8c7e2786a3c70ff7658601e68c84ac56c2deb813a0cf3c3e"
+    sha256 cellar: :any,                 catalina:       "df232904172c9305a37b9fe7408307bfda77489caa8ce88d0eb97c08fa5e79d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "361c9e86d85d8539338b06151e1c38760ed26d7760afb5a0126d21e357ab9ac0"
   end
 
   depends_on "bison" => :build

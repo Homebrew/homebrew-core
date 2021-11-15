@@ -1,17 +1,18 @@
 class Xdotool < Formula
   desc "Fake keyboard/mouse input and window management for X"
   homepage "https://www.semicomplete.com/projects/xdotool/"
-  url "https://github.com/jordansissel/xdotool/releases/download/v3.20210804.2/xdotool-3.20210804.2.tar.gz"
-  sha256 "fde6b15b5978c91e0ecb78cc541a9987752e724820722e479dcc2efc17466c89"
+  url "https://github.com/jordansissel/xdotool/releases/download/v3.20211022.1/xdotool-3.20211022.1.tar.gz"
+  sha256 "96f0facfde6d78eacad35b91b0f46fecd0b35e474c03e00e30da3fdd345f9ada"
   license "BSD-3-Clause"
-  head "https://github.com/jordansissel/xdotool.git"
+  head "https://github.com/jordansissel/xdotool.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a7a447517125966462a4b067fed71b0a2d5dca85f6e9b3348c47080b0754b043"
-    sha256 cellar: :any,                 big_sur:       "0e34fac27796de7761ec3d82feb73231153535e5dc1ccbd71347b588fe2d70f9"
-    sha256 cellar: :any,                 catalina:      "98d00ab9149f1d444e99dda25d190fecfbefb215ddf477f05b80a5aaf96ba24b"
-    sha256 cellar: :any,                 mojave:        "d0b162c67f2a64735fc940c371d06fd7fcbf36e17453895fd16bcebe00f40056"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5022406d6ac7bad0cb166ea02c9503fb07e2c32ebe03b928d18e991ff8f2adf"
+    sha256 cellar: :any,                 arm64_monterey: "2e59d046b4cb7d97f989a022c0775cbf3ab9f5929cd05650d50a9eed62b162c2"
+    sha256 cellar: :any,                 arm64_big_sur:  "cdf3234a474044e88dcf18b5cb5e8da2c2af6da4d85eb04e8be737802baeae16"
+    sha256 cellar: :any,                 monterey:       "ded3a6fc9f7ddc4e307a48744d2c25f2a60a752311628822c69d9f141d17ee34"
+    sha256 cellar: :any,                 big_sur:        "f33aa5be05e49f700d166a13a36ecf5a1f8da3059e36f67e0cc9d7f26c3bf088"
+    sha256 cellar: :any,                 catalina:       "21276c0386840d584e70f5425578b5184e56ef7649e6992f191a6c7a3cf8a30e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffe41af3fe21135efdee19b3fabf9f459d850946dd592858a50b4cd46035f35e"
   end
 
   depends_on "pkg-config" => :build

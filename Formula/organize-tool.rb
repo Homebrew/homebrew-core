@@ -6,17 +6,25 @@ class OrganizeTool < Formula
   url "https://files.pythonhosted.org/packages/a8/f5/8a5c198b6640943b1ee1567751aa2be4473c19dec890fcd3457a4012676c/organize-tool-1.10.1.tar.gz"
   sha256 "c11dd3af2c03132226c218ad661176ef329575bfd324ad7576cd9ab23593cce5"
   license "MIT"
+  revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e60ea32bf5482fe0c5ca74304ea5d9f1872abcdfa221de57be6a7ec99ab4cbd6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "11a276d04ed01edebbd95ef2e0442efbaf5b41df2391314fe7f43cbe30dc9c91"
-    sha256 cellar: :any_skip_relocation, catalina:      "10b35ad339c782773dc3f7b71919d39f03b9a045908ab65c34e7027ff18c4287"
-    sha256 cellar: :any_skip_relocation, mojave:        "36160685dec476b6611bd3adda921654a5a08330682236f7773ce2492446c380"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8871a01376bcd77fd1bbdf82f0f41c467d0f280d30e07017036946cc26064ab1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02df5246721e303c08490c507c3fcaaba25655ad3787a0293da17b55c6817bb5"
+    sha256 cellar: :any_skip_relocation, monterey:       "60b5f6615f8be31889686b3bdcc07416563969b4cd672df6cf8fe434dd1b2cd9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "55b0fe21c780ca95bc9e520c2fecaca1817b6602b9fa8549f73e2dac4c011f22"
+    sha256 cellar: :any_skip_relocation, catalina:       "07640c3c2472e15018d8f115772ba68b094e302df023456eb630053238a408af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95cbdbed7e5ecfed2e979d4cdf556708b94f576795de502ef89762e3e7103955"
   end
 
   depends_on "freetype"
   depends_on "openjpeg"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+  depends_on "six"
+
+  on_linux do
+    depends_on "poetry" => :build
+  end
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -24,8 +32,8 @@ class OrganizeTool < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
-    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
+    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
+    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
   end
 
   resource "colorama" do
@@ -49,8 +57,8 @@ class OrganizeTool < Formula
   end
 
   resource "mdfind-wrapper" do
-    url "https://files.pythonhosted.org/packages/b0/37/156d27ce2ad1b54a67f25c0bc84425763fa6c447eeba5dba37141db5a8e7/mdfind-wrapper-0.1.4.tar.gz"
-    sha256 "7b8f37e6e5037fea9722821f6d26c538abd1a08385a20820ab73158d70267653"
+    url "https://files.pythonhosted.org/packages/0e/74/148968c2665c0f2db1fbd470fbb454b1f808ea5d4cb8d75bc99f451d0ece/mdfind-wrapper-0.1.5.tar.gz"
+    sha256 "c0dbd5bc99c6d1fb4678bfa1841a3380ccac61e9b43a26a8d658aa9cafe27441"
   end
 
   resource "pendulum" do
@@ -64,8 +72,8 @@ class OrganizeTool < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
-    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
   resource "pytzdata" do
@@ -79,18 +87,13 @@ class OrganizeTool < Formula
   end
 
   resource "Send2Trash" do
-    url "https://files.pythonhosted.org/packages/13/2e/ea40de0304bb1dc4eb309de90aeec39871b9b7c4bd30f1a3cdcb3496f5c0/Send2Trash-1.5.0.tar.gz"
-    sha256 "60001cc07d707fe247c94f74ca6ac0d3255aabcb930529690897ca2a39db28b2"
+    url "https://files.pythonhosted.org/packages/49/2c/d990b8d5a7378dde856f5a82e36ed9d6061b5f2d00f39dc4317acd9538b4/Send2Trash-1.8.0.tar.gz"
+    sha256 "d2c24762fd3759860a0aff155e45871447ea58d2be6bdd39b5c8f966a0c99c2d"
   end
 
   resource "simplematch" do
     url "https://files.pythonhosted.org/packages/1a/3d/4504e218fe50c988c8229fe4bfd5633ed43e1fa79de7147c5ddfec270fae/simplematch-1.3.tar.gz"
     sha256 "ed1d17d842799ee2222de1ea5f7fc3b4b1317464852214dc7dd197c1332a9f3c"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "xattr" do
@@ -99,7 +102,25 @@ class OrganizeTool < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+    dependencies = resources.map(&:name).to_set
+    if OS.linux?
+      # `macos-tags` and its dependencies are only needed on macOS
+      # TODO: Currently requires manual check to confirm PyPI dependency tree
+      dependencies -= %w[macos-tags mdfind-wrapper xattr cffi pycparser]
+      # `pytzdata` uses full `poetry` as build-system rather than `poetry-core`,
+      # which ends up needing `rust` for Linux dependency tree. Instead, can
+      # directly build wheel with `poetry` formula and install it.
+      dependencies -= %w[pytzdata]
+      resource("pytzdata").stage do
+        system "poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
+        venv.pip_install Dir["dist/pytzdata-*.whl"].first
+      end
+    end
+    dependencies.each do |r|
+      venv.pip_install resource(r)
+    end
+    venv.pip_install_and_link buildpath
   end
 
   test do

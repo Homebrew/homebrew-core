@@ -4,16 +4,17 @@ class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
   # gatsby-cli should only be updated every 10 releases on multiples of 10
-  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-3.12.0.tgz"
-  sha256 "6bc2a52847bc24054780ddf8035b42fdf23544884fc9b0e54e351109d0d81cb4"
+  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-4.1.0.tgz"
+  sha256 "5756b79710b9f5be3d9eb2ff76acd3f815eb956eea480930d4d948d5a3837459"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5be9ad2cd5dfc253b7574ee765d5c4e546da1dcec9066161c8eb1fd1ca45da4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "73c3ec8aee12aa372e2cd7eb039cfcb27c297c03d2843e32c84ce9156912ff14"
-    sha256 cellar: :any_skip_relocation, catalina:      "a526cb71e4b058f5e71f31bb67314a0b30e068a1de5d46c8a9d99d01217470ca"
-    sha256 cellar: :any_skip_relocation, mojave:        "73c3ec8aee12aa372e2cd7eb039cfcb27c297c03d2843e32c84ce9156912ff14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92b742ead2cb4edcc53624353f3f42c88545413e3bc639fc9bb4d19adeef86f3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1aec72d70654d908d3812fce152d59a727f5147c1594edd7513d16e67586a499"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a874771802d6d9bc3995c641eb436f478b8385c137c38301b91987c5fa9eedb"
+    sha256 cellar: :any_skip_relocation, monterey:       "1862d09e7ce05b88312101e98f02f5791b07fc72033e3da8c2c7a91bceefbf9f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1862d09e7ce05b88312101e98f02f5791b07fc72033e3da8c2c7a91bceefbf9f"
+    sha256 cellar: :any_skip_relocation, catalina:       "1862d09e7ce05b88312101e98f02f5791b07fc72033e3da8c2c7a91bceefbf9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "688328738da70c4b723d08ed6f2bc3ddd844ba60712cc17a30198e82f08b67d2"
   end
 
   depends_on "node"
@@ -35,7 +36,7 @@ class GatsbyCli < Formula
 
     term_size_vendor_dir = libexec/"lib/node_modules/#{name}/node_modules/term-size/vendor"
     term_size_vendor_dir.rmtree # remove pre-built binaries
-    on_macos do
+    if OS.mac?
       macos_dir = term_size_vendor_dir/"macos"
       macos_dir.mkpath
       # Replace the vendored pre-built term-size with one we build ourselves
@@ -44,7 +45,7 @@ class GatsbyCli < Formula
 
     clipboardy_fallbacks_dir = libexec/"lib/node_modules/#{name}/node_modules/clipboardy/fallbacks"
     clipboardy_fallbacks_dir.rmtree # remove pre-built binaries
-    on_linux do
+    if OS.linux?
       linux_dir = clipboardy_fallbacks_dir/"linux"
       linux_dir.mkpath
       # Replace the vendored pre-built xsel with one we build ourselves

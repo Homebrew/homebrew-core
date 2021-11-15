@@ -1,16 +1,15 @@
 class Mydumper < Formula
   desc "How MySQL DBA & support engineer would imagine 'mysqldump' ;-)"
   homepage "https://launchpad.net/mydumper"
-  url "https://github.com/maxbube/mydumper/archive/v0.10.7-2.tar.gz"
-  sha256 "2e7cbd5e22422c418f2803755e1735878c060a2eff61c036799b2fc1443c751c"
+  url "https://github.com/maxbube/mydumper/archive/v0.11.3.tar.gz"
+  sha256 "ddd0427f572467589cdb024a4ef746d30b4214c804954612f4e07510607cf7a7"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "1921386bcc29a182633c60e570e8cd2fe64bc657a8fd043094bfdaba3066e1d1"
-    sha256 cellar: :any,                 big_sur:       "50437e47484abc3294969b9eeffcd8373bc62b53e59636d2e56d2c386192d00e"
-    sha256 cellar: :any,                 catalina:      "4bccea5099be96d94719a79360b48ef71876c57c7836a17455d4612817e34888"
-    sha256 cellar: :any,                 mojave:        "9e4ca09a18d4bc8d44b64748445bf3dafc32b0d84092e74cb460acac5e898fb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27e718cb5914fe9a3c479024351520231515e969e94d4e7743004773a90c5d57"
+    sha256 cellar: :any,                 arm64_big_sur: "3809c5584af68614529990810504ec3e5b754b103efbabbd2183ec2c6f02986e"
+    sha256 cellar: :any,                 big_sur:       "81640fc32d0cedf6ee428fdede75452f62b0404bc7195b15df1a52725d01c57e"
+    sha256 cellar: :any,                 catalina:      "2970e1b0cbe118d91cb28cbec52da2458debbdce93dc87c48009225b6c4fa3b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe0119b21d41a1bd02dbd16a8a7e3fb9682e00b820e948a8d08e635a30dfa75e"
   end
 
   depends_on "cmake" => :build
@@ -23,6 +22,12 @@ class Mydumper < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     # Override location of mysql-client
     args = std_cmake_args + %W[
@@ -31,7 +36,7 @@ class Mydumper < Formula
     ]
     # find_package(ZLIB) has trouble on Big Sur since physical libz.dylib
     # doesn't exist on the filesystem.  Instead provide details ourselves:
-    on_macos do
+    if OS.mac?
       args << "-DCMAKE_DISABLE_FIND_PACKAGE_ZLIB=1"
       args << "-DZLIB_INCLUDE_DIRS=/usr/include"
       args << "-DZLIB_LIBRARIES=-lz"

@@ -1,16 +1,16 @@
 class Alda < Formula
   desc "Music programming language for musicians"
   homepage "https://alda.io"
-  url "https://github.com/alda-lang/alda/archive/refs/tags/release-2.0.4.tar.gz"
-  sha256 "948c0a3b00467e74759230fa589c6e59adbbe5ce86faad5ba86dcf2dc6e5e959"
+  url "https://github.com/alda-lang/alda/archive/refs/tags/release-2.0.6.tar.gz"
+  sha256 "1c6252b108d00d1213fe198c4c441fcc71e40e33cf6f8b71f753cc93897182c4"
   license "EPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8534e117cd30a2e17ec3f205f0b3a3bc8f2d9a97cc47f225445943d86f83e7a8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d20aa732aba4bba381a67b2be7d381f07925564072988ec7233b50d5cc8f8572"
-    sha256 cellar: :any_skip_relocation, catalina:      "ceb559532cf0c0dca31d9f31885f4826c5979028e3f20b340aec247b1276b79d"
-    sha256 cellar: :any_skip_relocation, mojave:        "3a20dbbe017aa41397a6c5ba0fbcdf3fe52b57df33ef0ff01bcbc55143e14098"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "244220c9a614a40f8e6bc1e3ad4012c181cdd80f71076744834f832c46ad9496"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0fcac6fa1a7d9cef658be487619c728b2f3d986d9949b4499a21e46c5160c903"
+    sha256 cellar: :any_skip_relocation, big_sur:       "efa338a3e209a3a93f89e30027b77f7f8003099ea191886039133bd917c15636"
+    sha256 cellar: :any_skip_relocation, catalina:      "919c6ad0865fc0cd185912daa0e0937d9e24fed135b95af938d6374bfb5e4b2d"
+    sha256 cellar: :any_skip_relocation, mojave:        "513015f78c85c68a73e05b41075f2ba76a760afa1613bf6aa79f11995535f5bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "909dc6675c88eccfc9fff5b7638254d41026c20ae95975dd53d766d7eff68eb2"
   end
 
   depends_on "go" => :build

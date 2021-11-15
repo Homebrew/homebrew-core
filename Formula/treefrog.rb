@@ -1,10 +1,10 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "https://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v2.0.2.tar.gz"
-  sha256 "18b232d4ebc89d8cbfe3b75460fe5f5fc85e0e7a186c172c15219d3857e7d594"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v2.2.0.tar.gz"
+  sha256 "9989b4f2fd5b00b603acdf293d74e0261115bd297d706e6d9af6f3dfdf5c108f"
   license "BSD-3-Clause"
-  head "https://github.com/treefrogframework/treefrog-framework.git"
+  head "https://github.com/treefrogframework/treefrog-framework.git", branch: "master"
 
   livecheck do
     url :head
@@ -12,10 +12,11 @@ class Treefrog < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "1d360984e43004f5b22d5354116c51d151ef1cd84d80f82fb1a09a956145b510"
-    sha256 big_sur:       "aaa3208b6c9f7534c1c9e74aecb28f886bd8f8ff32b389cffbb132b95b317f15"
-    sha256 catalina:      "967507adb9e26f05f9b7e290b44e7a4ba19e711ce0f995e3fd841a0fcd6e1e1d"
-    sha256 mojave:        "d6e058393eb60b8a96d0b4bc7135fba39de517b049aec6e4777e0902b0ed5de2"
+    sha256 arm64_monterey: "f3db6295ee07c312b61271c8f1c770231827e303855ff24e00810deaf9b2aa28"
+    sha256 arm64_big_sur:  "5abd291b07c9b01836cca2e0c77f1e6dc3efa26f6f4a9bfe5ae44dbadefaa20a"
+    sha256 monterey:       "cba31d2cef437bf03ce1870df5273b98c36c09a0a9dcb6db2312ac9755f6768d"
+    sha256 big_sur:        "8f3785e141e607b61fde6a849d6dd7b3f1b6f60040aa8b81e15a0c3c0c5d330c"
+    sha256 catalina:       "508314c683b84821d88dc5d2a0a7cf4a6f56ecb3f988e9077215e7586c915078"
   end
 
   depends_on xcode: :build

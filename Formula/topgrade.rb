@@ -1,16 +1,17 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/r-darwish/topgrade"
-  url "https://github.com/r-darwish/topgrade/archive/v7.1.0.tar.gz"
-  sha256 "db8a2777f0a1c3e59012936d3edb5a54d378a2be036604590557d6e3affde8d8"
+  url "https://github.com/r-darwish/topgrade/archive/v8.0.3.tar.gz"
+  sha256 "c60dd5ae7d1d3bcfe941ead9f088c4b0413b9a4561fb9154429faf86a43e0983"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9eb652572e2c25a5a708dcc082fff76649cf1024ba61a6b5ca0dbb996d1fc2f1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5c74ee10cb5f589b2ac046e069d45da0158b811c91c95cf9b262d910eceb4641"
-    sha256 cellar: :any_skip_relocation, catalina:      "c80e6e22e08a017e07804e068e068dc95720aaf2e5e3d8865fface332321364e"
-    sha256 cellar: :any_skip_relocation, mojave:        "b1eb2fab57fa99740f05a2c2e9b31a8ad41c0b9e5e1ddd7906eb44fccf53a946"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "179215981744c07f1f76b0ecba3d5a07f1b1315c0304a60956a04ed7b995f397"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "22e7687003f291523b7d9c896e20187a1fb6e5342a749c6b26aabb369ca9df05"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a51ced540a584c8290d7f209150a158c5ace60641696b76279a6065df12e14ec"
+    sha256 cellar: :any_skip_relocation, monterey:       "499ac8f20345faf599a8fa1957632bb62e8a5fec528e4463c2a876b2c647c9cd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3f5518853d596d32c387b9b98d873dd78ac89b07c205540e239e55eaaf24bbcb"
+    sha256 cellar: :any_skip_relocation, catalina:       "6a4f9ffd1fefd6a5fff8b7c5ad5876ec7a3083a74fb30ad5f4a729f728a9e5d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f31d58438c460fa584919921715695335b7a5c8d4b0b7a73b164124a07efb41"
   end
 
   depends_on "rust" => :build

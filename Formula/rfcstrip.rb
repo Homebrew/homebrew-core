@@ -4,6 +4,11 @@ class Rfcstrip < Formula
   url "https://trac.tools.ietf.org/tools/rfcstrip/rfcstrip-1.03.tgz"
   sha256 "db5cccb14b2dfdb5e0e3b4ac98d5af29d1f2f647787bcd470a866e02173d4e5b"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?rfcstrip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "4756e7bca511bbeaeea367e84a845854cd86079ec2d66c6a505b91e7431313a0"
   end

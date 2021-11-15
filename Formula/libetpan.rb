@@ -7,23 +7,27 @@ class Libetpan < Formula
   head "https://github.com/dinhviethoa/libetpan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c72a2eeaf1b3fd67a093375fd567ff97c329d5d503abd720572eefb8d88acac3"
-    sha256 cellar: :any, big_sur:       "9d2ac6a48a6c14f2894155162d52ad7e8cf219ab21245b429b83378662f4a7f7"
-    sha256 cellar: :any, catalina:      "2effe5528f31ea1edcdd0baf468bb1ebbfb0061cb8bf131f2636b5db6cc20550"
-    sha256 cellar: :any, mojave:        "ba4948b8f0169ee43ba18b0dbea0564bfd5a2c625834f6f5a5c4b9ac1d725334"
-    sha256 cellar: :any, high_sierra:   "6a2f29f42a39d9d3eee7bca1974118fdd8d44a745f61af686aa40c449157b733"
+    sha256 cellar: :any, arm64_monterey: "772546d5dd375facff503b9d1fb5618b9ebc49e6d0d8c04250edc7bcc60cd115"
+    sha256 cellar: :any, arm64_big_sur:  "c72a2eeaf1b3fd67a093375fd567ff97c329d5d503abd720572eefb8d88acac3"
+    sha256 cellar: :any, monterey:       "58fb1bf8eef4740ab4383ec37787e7a5885198e48d3254c1811c2ac70ff1c174"
+    sha256 cellar: :any, big_sur:        "9d2ac6a48a6c14f2894155162d52ad7e8cf219ab21245b429b83378662f4a7f7"
+    sha256 cellar: :any, catalina:       "2effe5528f31ea1edcdd0baf468bb1ebbfb0061cb8bf131f2636b5db6cc20550"
+    sha256 cellar: :any, mojave:         "ba4948b8f0169ee43ba18b0dbea0564bfd5a2c625834f6f5a5c4b9ac1d725334"
+    sha256 cellar: :any, high_sierra:    "6a2f29f42a39d9d3eee7bca1974118fdd8d44a745f61af686aa40c449157b733"
   end
 
   depends_on xcode: :build
 
   def install
-    xcodebuild "-project", "build-mac/libetpan.xcodeproj",
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-project", "build-mac/libetpan.xcodeproj",
                "-scheme", "static libetpan",
                "-configuration", "Release",
                "SYMROOT=build/libetpan",
                "build"
 
-    xcodebuild "-project", "build-mac/libetpan.xcodeproj",
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-project", "build-mac/libetpan.xcodeproj",
                "-scheme", "libetpan",
                "-configuration", "Release",
                "SYMROOT=build/libetpan",
@@ -31,7 +35,7 @@ class Libetpan < Formula
 
     lib.install "build-mac/build/libetpan/Release/libetpan.a"
     frameworks.install "build-mac/build/libetpan/Release/libetpan.framework"
-    include.install Dir["build-mac/build/libetpan/Release/include/**"]
+    include.install buildpath.glob("build-mac/build/libetpan/Release/include/**")
     bin.install "libetpan-config"
   end
 

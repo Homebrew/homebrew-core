@@ -4,28 +4,27 @@ class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular/React applications"
   homepage "https://www.jhipster.tech/"
   # Check if this can be switched to the newest `node` at version bump
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-7.1.0.tgz"
-  sha256 "0f91788a1c74ce26ede20f34f0c1e3cee4f290f6051b3f6cd5c6d8f27421f072"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-7.3.1.tgz"
+  sha256 "7a8efbf2b5fd03443215462de9018b7cf631457b59efd062dd0ff0d38dc568f1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "47b985bbb3cc58b4529c7c763f19e4dfe0bcab41816fbae0246365c8cb18a407"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c856446ea5893d7f9120db10c130e3e7761b4417ec2e71c1d1296e2c96d7472f"
-    sha256 cellar: :any_skip_relocation, catalina:      "01941f8e88b86ac4bafebcaaaa3d1aa431955595d42d2bfe012c732b42c026e5"
-    sha256 cellar: :any_skip_relocation, mojave:        "ce2ac933f28fef60f8b3248146ecc661f7a7c5ba4564909c5ecd2d47d9b43b8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4eb1430ce15672c3038934a6073ddb096a02176b77facc2ff218103672b65b4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "904c6594ec6783d3b78ed4ea1775f0cb9bad743290acb815e08abcf40b521622"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "53e333dbadebe5daabf052724857d1de9592480951d7b0fb0f1b62c6bbd7c78d"
+    sha256 cellar: :any_skip_relocation, monterey:       "8a4958081d729f08fe8b55b09a58f22b8f1693e74e2ec6053aac5ebf86b60f16"
+    sha256 cellar: :any_skip_relocation, big_sur:        "943375ab2c62e4a975d982fcc7a75d7922c878b481f204f1647f22835223e07c"
+    sha256 cellar: :any_skip_relocation, catalina:       "943375ab2c62e4a975d982fcc7a75d7922c878b481f204f1647f22835223e07c"
+    sha256 cellar: :any_skip_relocation, mojave:         "943375ab2c62e4a975d982fcc7a75d7922c878b481f204f1647f22835223e07c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0401856fe3b91a344b63010743be0b017ed187fb0bc6baade7d1a838951f756d"
   end
 
-  depends_on "node@14"
+  depends_on "node"
   depends_on "openjdk"
 
   def install
-    node = Formula["node@14"]
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
-    env = { PATH: "#{node.opt_bin}:$PATH" }
-    env.merge! Language::Java.overridable_java_home_env
-    bin.env_script_all_files libexec/"bin", env
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do

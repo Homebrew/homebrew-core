@@ -1,8 +1,8 @@
 class Rgf < Formula
   desc "Regularized Greedy Forest library"
   homepage "https://github.com/RGF-team/rgf"
-  url "https://github.com/RGF-team/rgf/archive/3.10.0.tar.gz"
-  sha256 "e2cd1f0c8e3a23a4b5a06e0cf7dade27b0d390a4682c67f450877b945126aebc"
+  url "https://github.com/RGF-team/rgf/archive/3.11.0.tar.gz"
+  sha256 "c345b1495bc2ed421e2ef7d68357fd9683e59543c6b8136751fcaca7255effa9"
   license "MIT"
 
   livecheck do
@@ -11,10 +11,10 @@ class Rgf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "521b1290a8f4c1df387d6a5154ee17cfeb4135b0bc29daffc8233b5d6e050e4c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "88ea31516318953101add3d40fee31904651b93b27b1050650b9ce234ed7c867"
-    sha256 cellar: :any_skip_relocation, catalina:      "8183722939081f3a0fc2d55ced41d873fb77e0fb00573713c9aac0e935e952c8"
-    sha256 cellar: :any_skip_relocation, mojave:        "157d6024686c5333c2789b0f40fe3aa7bbaf5341b39c9ee8fe0654db45543a74"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "595fc89f4b885f2a287c16d6d83defde0ae43c7adcb468c09d730d4f00f9c13f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1be29b1e89c907084a0182fb5f83307691d971b5efa0c1c9d58381cf655703c9"
+    sha256 cellar: :any_skip_relocation, catalina:      "acd40e92b2be8576c819da3c10fd49cbbfa06d98ab83ea1c9e9ff90f2151de85"
+    sha256 cellar: :any_skip_relocation, mojave:        "5a9a3bcd12b525f2cfa9be7c819a283a36a0ecbc78b96cc45fb10b3ea610e9b2"
   end
 
   depends_on "cmake" => :build

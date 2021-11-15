@@ -11,6 +11,7 @@ class Bde < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:    "9ec907d3e43b34a000b90c9dfe31c2011d21fc36191a053b23074ea02db4a3fb"
     sha256 cellar: :any_skip_relocation, big_sur:     "adbdc903efa552e2c8d746a630b41c7f91406c9373f3b20c5bbafdc15c49afef"
     sha256 cellar: :any_skip_relocation, catalina:    "b11a948d232e02bf0ceaee439451f94ce48cc024b7737400b5ca21fbfe0aafb5"
     sha256 cellar: :any_skip_relocation, mojave:      "5915ea6038ff06703afa39cd989f62aa69cb3d0a0021acffb759a5a306312c78"

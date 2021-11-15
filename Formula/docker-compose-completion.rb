@@ -6,17 +6,13 @@ class DockerComposeCompletion < Formula
   license "Apache-2.0"
   head "https://github.com/docker/compose.git"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "edaaa7562b5ef5255da64daa17a086a2c8c45fe2114e7704047b15f155719c1e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "daddf263b55ef91e97b0fe1eadb0887bce2c3dda6eabce27a30f775dccedf43b"
   end
 
-  conflicts_with "docker-compose",
-    because: "docker-compose already includes completion scripts"
+  # See: https://github.com/docker/compose/issues/8550
+  deprecate! date: "2021-10-02", because: "no upstream support for v2"
 
   def install
     bash_completion.install "contrib/completion/bash/docker-compose"

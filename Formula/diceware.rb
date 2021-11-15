@@ -6,18 +6,19 @@ class Diceware < Formula
   url "https://files.pythonhosted.org/packages/d7/af/85373be6b11706fa1392e52d7fcd47df47f661e238251c931d469e62c5bf/diceware-0.9.6.tar.gz"
   sha256 "7ef924ca05ece8eaa5e2746246ab94600b831f1428c70d231790fee5b5078b4e"
   license "GPL-3.0"
-  revision 3
+  revision 4
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ca1614ff22e5504fe1e2ebcdc11ba9e91043e33fe7d43b0d4cba802523604dfe"
-    sha256 cellar: :any_skip_relocation, big_sur:       "79f18254a3631e1cd5e3f1454ba1e8bdb543d40bf3ac32ae7e16a140e1a05691"
-    sha256 cellar: :any_skip_relocation, catalina:      "fd0844df14a177f46686016e0c0c1a3b741da092efc17ee312c1a808c3026ae6"
-    sha256 cellar: :any_skip_relocation, mojave:        "cedb8a95fb39b3de33096f5c42b67c7aa92a79441d09d0477ecaaaeec007fc19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fb5a144eb5ddefeda40f9426a52b23e789822fbf35168c059d978425143e892"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2132a0edadb2a5374057d739624a028b10e3dbb11a3db965ef58c4bd24c02d30"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2132a0edadb2a5374057d739624a028b10e3dbb11a3db965ef58c4bd24c02d30"
+    sha256 cellar: :any_skip_relocation, monterey:       "7d3214626147512e9733a5a3e5acafcacf5b2b3321dadf72b932d8c42272f8da"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7d3214626147512e9733a5a3e5acafcacf5b2b3321dadf72b932d8c42272f8da"
+    sha256 cellar: :any_skip_relocation, catalina:       "7d3214626147512e9733a5a3e5acafcacf5b2b3321dadf72b932d8c42272f8da"
+    sha256 cellar: :any_skip_relocation, mojave:         "7d3214626147512e9733a5a3e5acafcacf5b2b3321dadf72b932d8c42272f8da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03b3b8ff4b88ba02d381e3e1b78823980a742174f4a46b85164c70a18b123099"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources

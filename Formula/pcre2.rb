@@ -2,31 +2,46 @@ class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
   license "BSD-3-Clause"
-  revision 1
-  head "svn://vcs.exim.org/pcre2/code/trunk"
 
-  # remove stable block on next release with merged patch
+  # Remove `stable` block next release when patches are no longer needed
   stable do
-    url "https://ftp.pcre.org/pub/pcre/pcre2-10.37.tar.bz2"
-    sha256 "4d95a96e8b80529893b4562be12648d798b957b1ba1aae39606bbc2ab956d270"
+    url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.39/pcre2-10.39.tar.bz2"
+    sha256 "0f03caf57f81d9ff362ac28cd389c055ec2bf0678d277349a1a4bee00ad6d440"
 
-    # fix invalid single character repetition issues in JIT
-    # upstream revision: https://vcs.pcre.org/pcre2?view=revision&revision=1315
-    # remove in the next release
-    patch :DATA
+    # enable JIT again in Apple Silicon with 11.2+ (sljit PR zherczeg/sljit#105)
+    patch :p2 do
+      url "https://github.com/zherczeg/sljit/commit/d6a0fa61e09266ad2e36d8ccd56f775e37b749e9.patch?full_index=1"
+      sha256 "8d699f6c8ae085f50cf8823dcfadb8591f7ad8f9aa0db9666bd126bb625d7543"
+      directory "src/sljit"
+    end
+
+    # https://lists.gnu.org/archive/html/libtool-patches/2020-06/msg00001.html
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
   end
 
   livecheck do
-    url "https://ftp.pcre.org/pub/pcre/"
-    regex(/href=.*?pcre2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^pcre2[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "eeda1a0642a9e2a3f32d0588605f29e2a5671dc6bd9e45394c3026cd79786c64"
-    sha256 cellar: :any,                 big_sur:       "2e885570c4dc2eaa61e7a02c66631f9333bbb42f8602d8293e7ce022861ae11e"
-    sha256 cellar: :any,                 catalina:      "0e40c8534a5fc26eedbbfb487cf437e8b231e0054ccb61c696834416b7160ac7"
-    sha256 cellar: :any,                 mojave:        "c6932648a712a0603d786b4b8868a21519eeb13592cf49261359c3c4b0c5665e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6ec10a997623297bbbf00d0d5854235694c7326ea0296690f89416d7e32ddba"
+    sha256 cellar: :any,                 arm64_monterey: "f0633818b37d8d3ce88c882e048ada77e58f1f445a41e35b028d23e8866fc5ab"
+    sha256 cellar: :any,                 arm64_big_sur:  "935bb0c71f1ab79e0ef2593b519b62b5489d87d4571b320cd8f93050c820c450"
+    sha256 cellar: :any,                 monterey:       "07b546fdbe6af636fc750abb0104fecd998bc6f40899a75229f89b49f96c1e3b"
+    sha256 cellar: :any,                 big_sur:        "3b6478346d722d13c9dd556a90949319417224006939b1e46b06a189dc8c5262"
+    sha256 cellar: :any,                 catalina:       "583378673b021a431d4f987ae609fe2a53f834c4e37bca20178e48e94efe77cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8b88708df04038ec6e29fbecd7b4c7d1d7fa8792da09aa56401de8117b5e3b5"
+  end
+
+  head do
+    url "https://github.com/PhilipHazel/pcre2.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   uses_from_macos "bzip2"
@@ -40,10 +55,10 @@ class Pcre2 < Formula
       --enable-pcre2-32
       --enable-pcre2grep-libz
       --enable-pcre2grep-libbz2
+      --enable-jit
     ]
 
-    # JIT not currently supported for Apple Silicon
-    args << "--enable-jit" unless Hardware::CPU.arm?
+    system "./autogen.sh" if build.head?
 
     system "./configure", *args
     system "make"
@@ -54,52 +69,3 @@ class Pcre2 < Formula
     system bin/"pcre2grep", "regular expression", prefix/"README"
   end
 end
-
-__END__
---- a/src/pcre2_jit_compile.c
-+++ b/src/pcre2_jit_compile.c
-@@ -1236,15 +1236,16 @@ start:
- 
- return: current number of iterators enhanced with fast fail
- */
--static int detect_early_fail(compiler_common *common, PCRE2_SPTR cc, int *private_data_start, sljit_s32 depth, int start)
-+static int detect_early_fail(compiler_common *common, PCRE2_SPTR cc, int *private_data_start,
-+   sljit_s32 depth, int start, BOOL fast_forward_allowed)
- {
- PCRE2_SPTR begin = cc;
- PCRE2_SPTR next_alt;
- PCRE2_SPTR end;
- PCRE2_SPTR accelerated_start;
-+BOOL prev_fast_forward_allowed;
- int result = 0;
- int count;
--BOOL fast_forward_allowed = TRUE;
- 
- SLJIT_ASSERT(*cc == OP_ONCE || *cc == OP_BRA || *cc == OP_CBRA);
- SLJIT_ASSERT(*cc != OP_CBRA || common->optimized_cbracket[GET2(cc, 1 + LINK_SIZE)] != 0);
-@@ -1476,6 +1477,7 @@ do
-       case OP_CBRA:
-       end = cc + GET(cc, 1);
- 
-+      prev_fast_forward_allowed = fast_forward_allowed;
-       fast_forward_allowed = FALSE;
-       if (depth >= 4)
-         break;
-@@ -1484,7 +1486,7 @@ do
-       if (*end != OP_KET || (*cc == OP_CBRA && common->optimized_cbracket[GET2(cc, 1 + LINK_SIZE)] == 0))
-         break;
- 
--      count = detect_early_fail(common, cc, private_data_start, depth + 1, count);
-+      count = detect_early_fail(common, cc, private_data_start, depth + 1, count, prev_fast_forward_allowed);
- 
-       if (PRIVATE_DATA(cc) != 0)
-         common->private_data_ptrs[begin - common->start] = 1;
-@@ -13657,7 +13659,7 @@ memset(common->private_data_ptrs, 0, total_length * sizeof(sljit_s32));
- private_data_size = common->cbra_ptr + (re->top_bracket + 1) * sizeof(sljit_sw);
- 
- if ((re->overall_options & PCRE2_ANCHORED) == 0 && (re->overall_options & PCRE2_NO_START_OPTIMIZE) == 0 && !common->has_skip_in_assert_back)
--  detect_early_fail(common, common->start, &private_data_size, 0, 0);
-+  detect_early_fail(common, common->start, &private_data_size, 0, 0, TRUE);
- 
- set_private_data_ptrs(common, &private_data_size, ccend);
- 

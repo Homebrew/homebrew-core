@@ -1,8 +1,8 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.2.3.tar.gz"
-  sha256 "d63448d10064419f1783fbb04d0a95461d54d6b17cf50c9d33a63cbf0c732f37"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.3.4.tar.gz"
+  sha256 "c714d6777849100b2ca3f216d1cfc36d4573639ececc91d5c7809dfe27c8428e"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,26 +11,33 @@ class Ser2net < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "61d93dbd74a72555d27f9f24e567f5c8a586e63ff348f429573d9f1246f02c63"
-    sha256 cellar: :any,                 big_sur:       "daff205c7e62f7a0ad6ce064b5005f80f4e8362b17a2cb3ad87676174d683ba7"
-    sha256 cellar: :any,                 catalina:      "3477841d573b2612fff98a0dd1fa8ac46e3d43fdc110ddfd3767f6b433b344a4"
-    sha256 cellar: :any,                 mojave:        "822c56bfd75eccbdcc8a447236c996ca146e5efe324eea471dbbc212611dc0be"
-    sha256 cellar: :any,                 high_sierra:   "b11cef34c33d9f40ac677c034ff1557444d69735f3d5c88e8eaaffd135237d7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55cdacd7322af3a66bbd3f80d9bd3358b51e54c9e839a2b4423e0ef430a31df0"
+    sha256 cellar: :any,                 arm64_monterey: "0b47f117e2307438dfd293fcdb119afc19265f88727f71c3edec749e69e50e66"
+    sha256 cellar: :any,                 arm64_big_sur:  "1ed19ca1d6bb03df612a6c4c08dc5bfa7774fd40907b9531b2d161c555b4e44b"
+    sha256 cellar: :any,                 monterey:       "9a608a3f76ca8529eccc91994f337610eb5bfd1afe615d445d5dea958b8b462e"
+    sha256 cellar: :any,                 big_sur:        "3fc4d4c18aff806463d20e9bbf04cbaa22b648c24d6297ea80cf85ba7b13246d"
+    sha256 cellar: :any,                 catalina:       "042e2c7a57911e1e5510aac5338de9d8f398406104af3ca0c4dfd53e851a7e92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cc83b8c9ca812a654d5f6e06464c9593322761ac7066ccb79d39fe354d634c9"
   end
 
   depends_on "libyaml"
 
   resource "gensio" do
-    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.1.4.tar.gz"
-    sha256 "1f5a29aabfb35886893cfda5cd78192db67e96de796dbf9758dbecd4077a3fd8"
+    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.3.2.tar.gz"
+    sha256 "0b6333a5546f14396041900bbe5b83575a0e97d200a581a6ddb8fcf6e95adfbd"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
   end
 
   def install
     resource("gensio").stage do
-      system "./configure", "--with-python=no",
-                            "--disable-dependency-tracking",
-                            "--prefix=#{libexec}/gensio"
+      system "./configure", "--disable-dependency-tracking",
+                            "--prefix=#{libexec}/gensio",
+                            "--with-python=no",
+                            "--with-tcl=no"
       system "make", "install"
     end
 
@@ -38,10 +45,16 @@ class Ser2net < Formula
     ENV.append_path "CFLAGS", "-I#{libexec}/gensio/include"
     ENV.append_path "LDFLAGS", "-L#{libexec}/gensio/lib"
 
+    if OS.mac?
+      # Patch to fix compilation error
+      # https://sourceforge.net/p/ser2net/discussion/90083/thread/f3ae30894e/
+      # Remove with next release
+      inreplace "addsysattrs.c", "#else", "#else\n#include <gensio/gensio.h>"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-
     system "make", "install"
 
     (etc/"ser2net").install "ser2net.yaml"
@@ -53,31 +66,10 @@ class Ser2net < Formula
     EOS
   end
 
-  plist_options manual: "ser2net -p 12345"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_sbin}/ser2net</string>
-              <string>-p</string>
-              <string>12345</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"ser2net", "-p", "12345"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

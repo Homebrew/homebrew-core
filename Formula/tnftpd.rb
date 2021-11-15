@@ -1,7 +1,8 @@
 class Tnftpd < Formula
   desc "NetBSD's FTP server"
-  homepage "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/"
-  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftpd-20200704.tar.gz"
+  homepage "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/"
+  url "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/tnftpd-20200704.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftpd-20200704.tar.gz"
   sha256 "92de915e1b4b7e4bd403daac5d89ce67fa73e49e8dda18e230fa86ee98e26ab7"
 
   livecheck do
@@ -15,7 +16,10 @@ class Tnftpd < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "cbc7f23e857584e25c7d2d043a3971841febe99f12830d82cf28fe47a2e9e254"
     sha256 cellar: :any_skip_relocation, mojave:        "3e8848729081c09a247e0326ede175db12111360905f69cc339dea3ba0213e62"
     sha256 cellar: :any_skip_relocation, high_sierra:   "18a15c1572f7f5b33b7678d9a322de20efcd0c1b1c5c98d8cb00e13a80bfa518"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00a3f41077529f1428dcc9c99c4500c9d043032d174baa9ee1b735c91eb06dc3"
   end
+
+  uses_from_macos "bison" => :build
 
   def install
     system "./configure", "--prefix=#{prefix}"
@@ -38,6 +42,9 @@ class Tnftpd < Formula
   end
 
   test do
+    # Errno::EIO: Input/output error @ io_fillbuf - fd:5 /dev/pts/0
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     # running a whole server, connecting, and so forth is a bit clunky and hard
     # to write properly so...
     require "pty"

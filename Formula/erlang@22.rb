@@ -2,10 +2,9 @@ class ErlangAT22 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/releases/download/OTP-22.3.4.20/otp_src_22.3.4.20.tar.gz"
-  sha256 "43289f20a7038b6835615a1f68a6e32b9aeec6db38cdb7c97adf78d048d74079"
+  url "https://github.com/erlang/otp/releases/download/OTP-22.3.4.22/otp_src_22.3.4.22.tar.gz"
+  sha256 "e7f0793e62f8da4f7551dc9c1c0de76c40f19773ba516121fc56315c840f60cc"
   license "Apache-2.0"
-  revision 2
 
   livecheck do
     url :stable
@@ -13,11 +12,12 @@ class ErlangAT22 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3756af5aaf04ee088669fd933e1355dd31eeff414c1b446052f7dcfd3b61f4fd"
-    sha256 cellar: :any,                 big_sur:       "0c4d0ebb7e3907ace04492613535c7333149ce5e2303bad621f1e8974393744b"
-    sha256 cellar: :any,                 catalina:      "39d2233bd0a71f010e4d9f512e6d1f5686c4810efaaadddd946c6ccc897a99d6"
-    sha256 cellar: :any,                 mojave:        "7a005ac1d73d442bff6556455da954c4022e9a55f9b57c37e717786e29c8f3dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25f8f938c24ffa44ec1abc29710dd2816a06a854f257f09a13f89915a3818e2d"
+    sha256 cellar: :any,                 arm64_monterey: "d91d681d7db3d029915b9ff7f2cad353a5af2c563bf0b322b698915617ae5b4e"
+    sha256 cellar: :any,                 arm64_big_sur:  "259d69c524dbf650fc7afd61cd6f52f61e6c55c57922b4a75f19169b3c12ce2f"
+    sha256 cellar: :any,                 monterey:       "ab399412ddb94cf18d9449b1c5e9bb83761873fbb811b59e9792f39f098a0841"
+    sha256 cellar: :any,                 big_sur:        "5d9d0ef219808032b6fc880b81759524609d121f79fdd1faa68b15a55bc27bf2"
+    sha256 cellar: :any,                 catalina:       "411027623297220016d47e033b6bbe0bf68dff127a44a05fd96948d761b167fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0c1f893160c9141a44929cd8d7c40fcb83005d0e0652bf0ee8bb29d77c565b8"
   end
 
   keg_only :versioned_formula
@@ -54,7 +54,7 @@ class ErlangAT22 < Formula
       --without-javac
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-darwin-64bit"
       args << "--enable-kernel-poll" if MacOS.version > :el_capitan
       args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?

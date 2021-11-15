@@ -11,6 +11,7 @@ class Mercury < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "529ee1af9b6aaf8a8173af8f2208007599ae96c6ef1275ddb03497181f6bb6d7"
     sha256 cellar: :any,                 big_sur:      "8b37f68829e59efd2127a32dfbcbf80d617196b6f35c970e1d4727b5076abb39"
     sha256 cellar: :any,                 catalina:     "2b98c59507d6aa72db55b8864d9818f302fef92b5bbdc6630287276494a3bc62"
     sha256 cellar: :any,                 mojave:       "e0011e25fa5732a2a271f30c5589c35f1caeb7cbab44ccba2271ab7bd2632243"

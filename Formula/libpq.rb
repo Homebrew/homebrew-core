@@ -1,8 +1,8 @@
 class Libpq < Formula
   desc "Postgres C API library"
-  homepage "https://www.postgresql.org/docs/13/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v13.4/postgresql-13.4.tar.bz2"
-  sha256 "ea93e10390245f1ce461a54eb5f99a48d8cabd3a08ce4d652ec2169a357bc0cd"
+  homepage "https://www.postgresql.org/docs/14/libpq.html"
+  url "https://ftp.postgresql.org/pub/source/v14.1/postgresql-14.1.tar.bz2"
+  sha256 "4d3c101ea7ae38982f06bdc73758b53727fb6402ecd9382006fa5ecc7c2ca41f"
   license "PostgreSQL"
 
   livecheck do
@@ -10,11 +10,12 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "07bbbed8467ac5d351bed8a3013f5d024c70dd09036f7fa82b5492f0cd9268cd"
-    sha256 big_sur:       "7a5b1acd39e13179dac2d14b6ea864ab1dbd064e43e6190377f1807f82553c96"
-    sha256 catalina:      "7400649f006c9bfba58325af1b2730f73082f151f86cfd23bb712b937c2d9885"
-    sha256 mojave:        "2fa59186a567d6fe9a3e361327503698b7c165921fb94a8b7c01ba5dc0e56a26"
-    sha256 x86_64_linux:  "f968088d68b559df62501bf13fceb58239a6552f749e43e9750a96c2bbed1319"
+    sha256 arm64_monterey: "df5750dc70c75e87ce8c56cee8a6e69e235a7174bce2690e28d6acd334d35af3"
+    sha256 arm64_big_sur:  "2460f75b48fc53f44f713d5ed25d467640a4748a718be493686ebadab3edb642"
+    sha256 monterey:       "532a3f3f7adc2626d9d61cb2a9a2a3361a6786b877285dbd94b345af4c59b100"
+    sha256 big_sur:        "f59b9bbc8109a4ae60356c487f5b0d719a3344a576f4416a5accaa5a10cb701d"
+    sha256 catalina:       "c368ca974a8ada78aa6d9a46947e235d03b10f7ee75e1686acfc3129400f8c7f"
+    sha256 x86_64_linux:   "4b005f6761a252304c2ff5934a59570c78e912b37df7813869e00a3ac0ff62b8"
   end
 
   keg_only "conflicts with postgres formula"

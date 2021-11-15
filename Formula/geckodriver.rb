@@ -7,24 +7,25 @@ class Geckodriver < Formula
   stable do
     # Get the hg_revision for stable releases from
     # https://searchfox.org/mozilla-central/source/testing/geckodriver/CHANGES.md
-    hg_revision = "970ef713fe58cbc8a29bfb2fb452a57e010bdb08"
+    # Get long hash via `https://hg.mozilla.org/mozilla-central/rev/<commit-short-hash>`
+    hg_revision = "d372710b98a6ce5d1b2a9dffd53a879091c5c148"
     url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/geckodriver/"
-    version "0.29.1"
-    sha256 "23176305a3795163fac81748a28459e8c5d0051f014f1e713c78980df50b9069"
+    version "0.30.0"
+    sha256 "fb28df48db18f5e559a5298f80f70acbfdf7db1e44b04d39ba8f8b676f125440"
 
     resource "webdriver" do
       url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/webdriver/"
-      sha256 "8c7f7aa42f4b239846d222f617d3faf6d7805f315414e603cb8504495325b7e2"
+      sha256 "eb0d555e33e26e13fe285b87579d66ea054cb57c7355c36fe15917ab310faef6"
     end
 
     resource "mozbase" do
       url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/mozbase/rust/"
-      sha256 "3cec9cc1c2a0cc0d79b00f2c45caabbf229596b5cdc2a48c2612498073e7296b"
+      sha256 "45354a67258db8394b14f77a534ae09e52dab26dbb1f5bb6b24f6c251f5bf5f0"
     end
 
     resource "Cargo.lock" do
       url "https://hg.mozilla.org/mozilla-central/raw-file/#{hg_revision}/Cargo.lock"
-      sha256 "9e91f8b8dbb4dd7a85a6d8b7b0b6a9df3a31a22479083133f1db11dbff1cb975"
+      sha256 "5daceea2850bd034ffb1b538b4aa5f8f6915f36631ef6dbeeb9d30fe26180c38"
     end
   end
 
@@ -34,11 +35,13 @@ class Geckodriver < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "170d84b545509d7ef6759b84b59d209e6374c5cdb6a414113e783e61e0f591e5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "136b5d41ebac01aa5baf8c355eaf4ee4ce3d3f08c1fc0758d438442daf520636"
-    sha256 cellar: :any_skip_relocation, catalina:      "a09021c739b414fb0ac165cf76ab22b9033be3ed52e1d83c5d3096640b91b554"
-    sha256 cellar: :any_skip_relocation, mojave:        "8be96031b68db4170630416c4c8c10578f0bac179d7b768962bd5bb77dd60d88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8fa50edf1a3f83d1928d379a13025f7a317005854df10f7d09492117794155d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6c82fe68878015aa573a126f052fdb64185514a73029f939de09b8914e45a6b7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6034506dae2c3cfac3fb2d65c0d06f9d68722dfa954cecb6deb10bac87ac18b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "daf096707d1fb04b0b3c07b487afeaba45ba542a4ef9bd5b123efb741da8215a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fd96ba611f8d1ba97df0a21d910a6368e683d0a6bd1a05073e5afd27e6aeaf3b"
+    sha256 cellar: :any_skip_relocation, catalina:       "d490f9171f301363ee590ea705d1f111c8c90aa68bbfb70e8dcf093b6dbde424"
+    sha256 cellar: :any_skip_relocation, mojave:         "c76da857f5accdf0756374fb3688e82567da285c2f4f40eb78fbe45e4756b5a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25146e5cf935a7a6405e0406dbf443c4198a3ce6de2104fba8f56e9bf70955b2"
   end
 
   depends_on "rust" => :build

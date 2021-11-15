@@ -4,7 +4,7 @@ class Tfenv < Formula
   url "https://github.com/tfutils/tfenv/archive/v2.2.2.tar.gz"
   sha256 "ac7f74d8a0151e36a539ceae1460b320ec7b98b360dbd7799dc7cdbdf8c06ded"
   license "MIT"
-  head "https://github.com/tfutils/tfenv.git"
+  head "https://github.com/tfutils/tfenv.git", branch: "master"
 
   livecheck do
     url :stable

@@ -3,29 +3,31 @@ class Flit < Formula
 
   desc "Simplified packaging of Python modules"
   homepage "https://github.com/takluyver/flit"
-  url "https://files.pythonhosted.org/packages/b6/86/4f55f5476c1b4aeb8825e4dcac71038b60bad8feb9d3635b5ecfcbbf98dd/flit-3.3.0.tar.gz"
-  sha256 "65fbe22aaa7f880b776b20814bd80b0afbf91d1f95b17235b608aa256325ce57"
+  url "https://files.pythonhosted.org/packages/ec/f8/b5c50a8567786375051e4e9ae31eb1141499506bcab297045429edfb4976/flit-3.4.0.tar.gz"
+  sha256 "390288b27d89a084a32fc40020ad953e14bc215c5a01e6eb6ab8c9bdbcc57283"
   license "BSD-3-Clause"
   head "https://github.com/takluyver/flit.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bf9aaef9ee63b68c7e64cf241f4263eb3143b715ae7d350a89cb8ca650110687"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1ccecd0a72b34fa8d728bb8caa9dbcb8a9baafd8fb58c83b48e753db9518282b"
-    sha256 cellar: :any_skip_relocation, catalina:      "8453c6efbd221b343c8344d0257555b78dc56d8b903a7c330eca78b4acef0e03"
-    sha256 cellar: :any_skip_relocation, mojave:        "a33f9ac32913dc9aa323910fa747f783d49b00686cf5a38df85f0b7f8296b241"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52ffa8ef6b43f7b331e1eac9a1426db8c699566de08c4dc0a2db9c609ebb15ff"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "846457464bf2329df84cda18bac27bb7b3e256eb7777ef5f80b1905fa6aba7fa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6ba8051e7aaf5899c5076f2edb6d06e13bf6c5eb706d565034a076e7a5f017a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "a694281030011eb164805b4bbe128b7099f66effff01eccea33a6b38540476ee"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d3aa6e214b1681f59acf29e1006e62a141e8f8e3fdc8644e4a0977dc157eacfe"
+    sha256 cellar: :any_skip_relocation, catalina:       "1f2a706002fc90761fa2f5f46d638e4cc88225fccd49f31d85919f5d3b692400"
+    sha256 cellar: :any_skip_relocation, mojave:         "f92d7c5f0f23fa08dadd09c261bb44355152faa0e72c096352d8afffe05ef153"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "968497ab4885ce518bd4e37c4563a82608cdada9b8c4de3a55b9ce8daea2b2a7"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
-    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
+    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
   end
 
   resource "docutils" do
@@ -34,8 +36,8 @@ class Flit < Formula
   end
 
   resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/6f/cd/3653de7b1d61f0ef95f2459ac752f23a91dbc84f991787201aa52d0cf1cc/flit_core-3.3.0.tar.gz"
-    sha256 "b1404accffd6504b5f24eeca9ec5d3c877f828d16825348ba81515fa084bd5f0"
+    url "https://files.pythonhosted.org/packages/2c/a9/64406cf5c1c31186e1208a290ff10a0add43882edaef5eeba49e15ba6e7f/flit_core-3.4.0.tar.gz"
+    sha256 "29468fa2330969167d1f5c23eb9c0661cb6dacfcd46f361a274609a7f4197530"
   end
 
   resource "idna" do
@@ -48,14 +50,19 @@ class Flit < Formula
     sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
   end
 
-  resource "toml" do
-    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
-    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/75/50/973397c5ba854445bcc396b593b5db1958da6ab8d665b27397daa1497018/tomli-1.2.1.tar.gz"
+    sha256 "a5b75cb6f3968abb47af1b40c1819dc519ea82bcc065776a866e8d74c5ca9442"
+  end
+
+  resource "tomli_w" do
+    url "https://files.pythonhosted.org/packages/46/12/61ed2aa21bb7207ccce71eb3741623ce8a9adb99e034893a21ef5cc154d9/tomli_w-0.3.0.tar.gz"
+    sha256 "207c5f05803aec5a9a578c6aca5c1bbbba9783ad88461f3e180eb8c3c3c48a4b"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
-    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
+    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
+    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
   end
 
   def install

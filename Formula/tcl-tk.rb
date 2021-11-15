@@ -1,11 +1,10 @@
 class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl-lang.org"
-  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.11/tcl8.6.11-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/tcl8.6.11-src.tar.gz"
-  sha256 "8c0486668586672c5693d7d95817cb05a18c5ecca2f40e2836b9578064088258"
+  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.12/tcl8.6.12-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/tcl8.6.12-src.tar.gz"
+  sha256 "26c995dd0f167e48b11961d891ee555f680c175f7173ff8cb829f4ebcde4c1a6"
   license "TCL"
-  revision 1
 
   livecheck do
     url :stable
@@ -13,11 +12,12 @@ class TclTk < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "81f1041b639d8e6b8d7865226917c8b2f2cff604636a35fd65108ec61a618eed"
-    sha256 big_sur:       "d9ffd39a32e602515594c4658aaab20224d9d57eeffa3aa10028736ff64ad40b"
-    sha256 catalina:      "f4027cdfd4d797d769b027f13b53e0ad714b47cd94fa02f550ff1403294467da"
-    sha256 mojave:        "23916830afd9e9fb7bf63b0c047f0b2a6f969cb746055d73ca6576e18c87e07f"
-    sha256 x86_64_linux:  "162207dfc77fccb02663352f88c14c1ace5bb1250072b037b05b75fb627ad79b"
+    sha256 arm64_monterey: "5faf1681a1a424487d580601238ecc1f3d83fd11db6ac237683f314e9b21dcf0"
+    sha256 arm64_big_sur:  "a2fab3435e8e70bc55af3497f55a169c52d7a4567a9c9e8affc17c26ba3ccadd"
+    sha256 monterey:       "c50ec17604de23c4a82165cf24cc402de0aa480e6fff7a805dc638eb88610e35"
+    sha256 big_sur:        "71c450d2b7a19364c07d09a08434692dd2aaeaf3afe478566e984ef90ed28194"
+    sha256 catalina:       "0a7368698d7fe08e77efc96a99d2d20ae0611906bac7454e64049790cc298e77"
+    sha256 x86_64_linux:   "d1ca9796772743d35c5671771969c7db998493a94f8bfc285b4b46c0050e7d54"
   end
 
   keg_only :provided_by_macos
@@ -49,9 +49,9 @@ class TclTk < Formula
   end
 
   resource "tk" do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.11/tk8.6.11.1-src.tar.gz"
-    mirror "https://fossies.org/linux/misc/tk8.6.11.1-src.tar.gz"
-    sha256 "006cab171beeca6a968b6d617588538176f27be232a2b334a0e96173e89909be"
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.12/tk8.6.12-src.tar.gz"
+    mirror "https://fossies.org/linux/misc/tk8.6.12-src.tar.gz"
+    sha256 "12395c1f3fcb6bed2938689f797ea3cdf41ed5cb6c4766eec8ac949560310630"
   end
 
   resource "itk4" do
@@ -80,9 +80,7 @@ class TclTk < Formula
 
     resource("tk").stage do
       cd "unix" do
-        on_macos do
-          args << "--enable-aqua=yes"
-        end
+        args << "--enable-aqua=yes" if OS.mac?
         system "./configure", *args, "--without-x", "--with-tcl=#{lib}"
         system "make"
         system "make", "install"
@@ -98,14 +96,9 @@ class TclTk < Formula
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
-      on_macos do
-        ENV["SDKROOT"] = MacOS.sdk_path
-      end
       system "make", "critcl"
       cp_r "modules/tcllibc", "#{lib}/"
-      on_macos do
-        ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64"
-      end
+      ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64" if OS.mac?
     end
 
     resource("tcltls").stage do

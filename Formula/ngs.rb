@@ -3,14 +3,17 @@ class Ngs < Formula
   homepage "https://ngs-lang.org/"
   url "https://github.com/ngs-lang/ngs/archive/v0.2.12.tar.gz"
   sha256 "bd3f3b7cca4a36150405f26bb9bcc2fb41d0149388d3051472f159072485f962"
-  license "GPL-3.0"
-  head "https://github.com/ngs-lang/ngs.git"
+  license "GPL-3.0-only"
+  revision 1
+  head "https://github.com/ngs-lang/ngs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fc20adda0f39a4e22d54081c55b3299dced4078c96f5e7869d1903ac66c843ea"
-    sha256 cellar: :any, big_sur:       "f92d46bbd5c75caadce87ba7856fd49367cdeae26f94f9875cad7bc3f87187db"
-    sha256 cellar: :any, catalina:      "56844fed9b44e5d1cca3634051245eb43f6758f995e1a0ffd8b919e17df51510"
-    sha256 cellar: :any, mojave:        "d5d04636b7d4a6de1028fedbe36fe15c1938d7dd5d5e09a9bfda0680e39d17ad"
+    sha256 cellar: :any,                 arm64_monterey: "1c9af117b7fc71c4c6560fbe5c7715a623581f096f43d5fcebd65c710e3a8179"
+    sha256 cellar: :any,                 arm64_big_sur:  "f8c08e896c845d4363dbde2dd0cd92febc5565e998f3961bd36e68b228e136e5"
+    sha256 cellar: :any,                 monterey:       "dc7f134f50532d5c101cc314b93a4ab701ff3c822e82ef3d7ede25a2c5d676fa"
+    sha256 cellar: :any,                 big_sur:        "d2c8b66be9a77490146d581f004fb6bbd733ce8f8f9bd9a7ae17e237bd62d7c6"
+    sha256 cellar: :any,                 catalina:       "6c8834ddb9de895c1fb8dd13ff41858c2b1dd78e7def77eeefe51076e4508941"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0600e1fd9cacb9ebccb20ec1d9385eb91f831c87c330e8269e810960275a37f"
   end
 
   depends_on "cmake" => :build

@@ -4,7 +4,7 @@ class BoostPython < Formula
   url "https://downloads.sourceforge.net/project/boost/boost/1.74.0/boost_1_74_0.tar.bz2"
   sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
   license "BSL-1.0"
-  head "https://github.com/boostorg/boost.git"
+  head "https://github.com/boostorg/boost.git", branch: "master"
 
   disable! date: "2021-04-08", because: :does_not_build
 

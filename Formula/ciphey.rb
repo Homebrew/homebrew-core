@@ -8,10 +8,12 @@ class Ciphey < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "113ac680f31175402967ca0c068ca1c25aa4920983749e16ee8978dfd0dc281b"
-    sha256 cellar: :any, big_sur:       "42fdf7cbf98607e785727268be58e2aa8a6c2b5d25f3fa790eb4d2d08b2935b4"
-    sha256 cellar: :any, catalina:      "e6fce300a66cbfdec79b6026b42374b42fca432307cfe59482c28e43fd2be73d"
-    sha256 cellar: :any, mojave:        "604e9f29f6dcd6cfa51b0e5580d91a293d7e5ed15296d540d3d305a47fe65197"
+    sha256 cellar: :any, arm64_monterey: "2a3bc8da84e2bf093629eedaf0e499373fc5a8583a6266d462bd7525c44f286d"
+    sha256 cellar: :any, arm64_big_sur:  "113ac680f31175402967ca0c068ca1c25aa4920983749e16ee8978dfd0dc281b"
+    sha256 cellar: :any, monterey:       "b8c336658367dd5a0793699255f37b954daf6d46ac47935ffb1e7064f2c95881"
+    sha256 cellar: :any, big_sur:        "42fdf7cbf98607e785727268be58e2aa8a6c2b5d25f3fa790eb4d2d08b2935b4"
+    sha256 cellar: :any, catalina:       "e6fce300a66cbfdec79b6026b42374b42fca432307cfe59482c28e43fd2be73d"
+    sha256 cellar: :any, mojave:         "604e9f29f6dcd6cfa51b0e5580d91a293d7e5ed15296d540d3d305a47fe65197"
   end
 
   depends_on "boost" => :build

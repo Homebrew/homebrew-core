@@ -4,6 +4,11 @@ class Avimetaedit < Formula
   url "https://mediaarea.net/download/binary/avimetaedit/1.0.2/AVIMetaEdit_CLI_1.0.2_GNU_FromSource.tar.bz2"
   sha256 "e0b83e17460d0202a54f637cb673a0c03460704e6c2cff0c2e34222efb2c11ca"
 
+  livecheck do
+    url "https://mediaarea.net/AVIMetaEdit/Download/Source"
+    regex(/href=.*?avimetaedit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9e10cf64f7d87cdc85102dffea61ac546b0877896ff721a55857a2e80eb0475"
     sha256 cellar: :any_skip_relocation, big_sur:       "c8cbab65b9f81a1015a5550b042fcc91471b288d8e256723be694f5caf402767"

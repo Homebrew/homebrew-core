@@ -1,16 +1,18 @@
 class Ns3 < Formula
   desc "Discrete-event network simulator"
   homepage "https://www.nsnam.org/"
-  url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.34/ns-3-dev-ns-3.34.tar.bz2"
-  sha256 "a565d46a73ff7de68808535d93884f59a6ed7c9faa94de1248ed4f59fb6d5d3d"
+  url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.35/ns-3-dev-ns-3.35.tar.bz2"
+  sha256 "946abd1be8eeeb2b0f72a67f9d5fa3b9839bb6973297d4601c017a6c3a50fc10"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "fd95713bcbe8aed7dbf18ad8331eb5008e9701795f625049ba8a9d19b5fe70e2"
-    sha256 cellar: :any,                 big_sur:       "fc184536dfacb01cf9293483168462d7dcf3eaf568c34eef015af49c0346bd93"
-    sha256 cellar: :any,                 catalina:      "c0dcd1239ea1897664ff798bc3c940828469121859cb8fa1aa8c6973974dc8f2"
-    sha256 cellar: :any,                 mojave:        "998ffc954790eb1e4870117b8fd06c44875578f0520e23d19cc07867cdb5cc68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7d2d4dbeaf9749639f2015b6c19f36d00906dea01cf82a75475992752cd705c"
+    sha256 cellar: :any, arm64_monterey: "d343727db81354f68bbbc2c56550e0d1c5c0c946aa87c5b30e2b0d90bf491a8e"
+    sha256 cellar: :any, arm64_big_sur:  "dd893b1a986fc45c114d577f7ad34e0ab88c3d87848096a18bcf54070f8f3627"
+    sha256 cellar: :any, monterey:       "aa7730331907e010e3ca90966328b16f257abd57d2c4179b0b7e091bedb2bc4d"
+    sha256 cellar: :any, big_sur:        "d41f6602cec43fb95b1e7633dc5661509224380f632aed0af5e02e02928c4d1d"
+    sha256 cellar: :any, catalina:       "0cb4ec8959765ef9ad5057370209eb80ff8cc44054c8a780501e2849a2bf446f"
+    sha256 cellar: :any, mojave:         "2159e2209f5605a2b3619e7c56429faa1969bab07e5b939964a2365b4a3685d2"
+    sha256               x86_64_linux:   "190a0c1e80ce2be86042e35c5555a5a3fa035a135fecbe0425c770be6a60f96b"
   end
 
   depends_on "boost" => :build
@@ -18,6 +20,13 @@ class Ns3 < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  # `gcc version 5.4.0 older than minimum supported version 7.0.0`
+  fails_with gcc: "5"
 
   resource "pybindgen" do
     url "https://files.pythonhosted.org/packages/7a/c6/14a9359621000ee5b7d5620af679be23f72c0ed17887b15228327427f97d/PyBindGen-0.22.0.tar.gz"

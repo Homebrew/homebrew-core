@@ -1,8 +1,8 @@
 class NodeAT12 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.22.5/node-v12.22.5.tar.gz"
-  sha256 "119cf027c9ba0a71268914d02d2aa430f7eeb6adef5a9fa0bc9ed6dd1b12cd8c"
+  url "https://nodejs.org/dist/v12.22.7/node-v12.22.7.tar.xz"
+  sha256 "cc6a23b44870679a94bd8f3c8d4e1f4b77bb2712a36888ab87463459e6785f6b"
   license "MIT"
 
   livecheck do
@@ -11,18 +11,27 @@ class NodeAT12 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "b0299f9b0433f532e43132f8878ab3636144eaadd19f1543fc3e9ee42e1b4138"
-    sha256 cellar: :any,                 big_sur:       "29941f38a6a292df46b10cd9d6b53b6a50ed422ab7c45e1698460fec39e91c07"
-    sha256 cellar: :any,                 catalina:      "8d1f9ac1190942bdf32aaeb546057d865a5fd5f19b11779dec63c78a0b444be3"
-    sha256 cellar: :any,                 mojave:        "6ea18482ca59e331114472a4e16828450307ff6248dcb059d80659e35520e51a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f1c0a3c6325ae8c412f300a5ab09f86ca2f95f7c146c8c1e835b387562fa3c7"
+    sha256 cellar: :any,                 arm64_monterey: "852bbcd8a35c647f1c3bcacbd8ea3367171f043037894174e5de3b302aac8635"
+    sha256 cellar: :any,                 arm64_big_sur:  "dc0b9ba4edc54658398d773c5223e339ef5b406c06c5494e7e68f7c490081677"
+    sha256 cellar: :any,                 monterey:       "65ea462fffc38965193813d88d7536d0aaef9e15d75cb8968a5e3870d9d88e14"
+    sha256 cellar: :any,                 big_sur:        "4b182fb0bb0634af76a2c2b20f9c32454a4107682af31df2ac7c329340779648"
+    sha256 cellar: :any,                 catalina:       "7f0aff2700d2914da161f62ff1c744c36ab0dda3e9a22cb78778f15b836c959f"
+    sha256 cellar: :any,                 mojave:         "4d651ee1724446252579bb639a374913e7a30dc20a2a9bf0f4e504ce2e9cc4bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47e45d7f449a3cc34bcc0fbe775ed6f85cff4a61f5d038b80503056070b3bf3b"
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+  depends_on "brotli"
+  depends_on "c-ares"
   depends_on "icu4c"
+  depends_on "libnghttp2"
+  depends_on "libuv"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "macos-term-size"
@@ -30,15 +39,36 @@ class NodeAT12 < Formula
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = which("python3")
 
-    system "python3", "configure.py", "--prefix=#{prefix}", "--with-intl=system-icu"
+    args = %W[
+      --prefix=#{prefix}
+      --with-intl=system-icu
+      --shared-libuv
+      --shared-nghttp2
+      --shared-openssl
+      --shared-zlib
+      --shared-brotli
+      --shared-cares
+      --shared-libuv-includes=#{Formula["libuv"].include}
+      --shared-libuv-libpath=#{Formula["libuv"].lib}
+      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
+      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
+      --shared-openssl-includes=#{Formula["openssl@1.1"].include}
+      --shared-openssl-libpath=#{Formula["openssl@1.1"].lib}
+      --shared-brotli-includes=#{Formula["brotli"].include}
+      --shared-brotli-libpath=#{Formula["brotli"].lib}
+      --shared-cares-includes=#{Formula["c-ares"].include}
+      --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --openssl-use-def-ca-store
+    ]
+    system "python3", "configure.py", *args
     system "make", "install"
 
     term_size_vendor_dir = lib/"node_modules/npm/node_modules/term-size/vendor"
     term_size_vendor_dir.rmtree # remove pre-built binaries
 
-    on_macos do
+    if OS.mac?
       macos_dir = term_size_vendor_dir/"macos"
       macos_dir.mkpath
       # Replace the vendored pre-built term-size with one we build ourselves
@@ -70,7 +100,7 @@ class NodeAT12 < Formula
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system "#{bin}/npm", *npm_args, "install", "npm@latest"
-    system "#{bin}/npm", *npm_args, "install", "bufferutil"
+    system "#{bin}/npm", *npm_args, "install", "ref-napi"
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")

@@ -4,12 +4,14 @@ class PysideAT2 < Formula
   url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2-src/pyside-setup-opensource-src-5.15.2.tar.xz"
   sha256 "b306504b0b8037079a8eab772ee774b9e877a2d84bab2dbefbe4fa6f83941418"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "5aced351a80a5cba50bd77ea61917574f76f85a77169f84db1e4875ef0ca6f2b"
-    sha256 big_sur:       "ef8e3252c1769370bee755084239dee8d18d93f048925134238a4e07c2ea51ae"
-    sha256 catalina:      "19142ae6963b16b49aa167ea4b00e11a8c67b96fe240349f530398e2efec244a"
-    sha256 mojave:        "ff42e63c6b33b3a2e27b86a7c78155f33e74aed7ed73ba60a6b32186f63d079f"
+    sha256 cellar: :any, arm64_monterey: "2da0d4e6f5578894be86e636e1c3e38c77d55fa822de1e8af8452568aaf3d521"
+    sha256 cellar: :any, arm64_big_sur:  "dea3a094619f3dd87bc875b261b837b5a9740307c17b708f770d27186d91e402"
+    sha256 cellar: :any, big_sur:        "92f859236a4a544d67d7156393e43f74e525936193fe4cbd78efce08b182f950"
+    sha256 cellar: :any, catalina:       "9910767e2fa6ae3e532e227d68e616deab536c9053f45027b3d3cb701816f67b"
+    sha256 cellar: :any, mojave:         "ba4fe20995f6d18ebd36773e2eefc67e83c165db8e78283599301bf66ed37426"
   end
 
   keg_only :versioned_formula

@@ -2,16 +2,18 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      tag:      "v0.3.4.1",
-      revision: "5087e77032e1342006021f680eb9cad2dc6dabef"
+      tag:      "v0.3.5",
+      revision: "b9bc8d0606845e4e73fda8b459a55650f23164de"
   license "GPL-3.0-only"
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5a75b78d7d74c9eaadff1867bededb84553bf087d1487b54f0fa1899d405b15d"
-    sha256 cellar: :any, big_sur:       "3027a49a14f166ba899a076e5b62648f49a312fb62da37e21c81959463da91c5"
-    sha256 cellar: :any, catalina:      "6991d066861d381439123af05c53baa20bf70d5e36cea9475d6aa50564e1830e"
-    sha256 cellar: :any, mojave:        "d6ee68373bc7d6d0af9a61f92b2f11ec68584fdf39a8960c53345ac3115559e7"
+    sha256 cellar: :any,                 arm64_monterey: "2a33b05f9b7ff6cf1d2981a6e952c76e0a4556631826d8438ba52648c4a76082"
+    sha256 cellar: :any,                 arm64_big_sur:  "83710494471e0b55b7fcb34ca3f08543e030636b53e5abbe4ee09612d778a780"
+    sha256 cellar: :any,                 monterey:       "c68fda61f393be48046836f030955e39282d51e8d80a7f705fd2b5f6e9ad614b"
+    sha256 cellar: :any,                 big_sur:        "2e537256b7eff79490790df7929cae4dbb3f2808a64f1e1c906ae7915aadbc8c"
+    sha256 cellar: :any,                 catalina:       "776380b5d7a49bb24b941a8ed44958e28cfcef6f4cb82a88b0bcd5174451f8f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77175013706a40ecddd0409dfc09fd6c4f11651b87024431baeec1151a56d41a"
   end
 
   depends_on "cmake" => :build
@@ -28,14 +30,22 @@ class Openrct2 < Formula
   depends_on "sdl2_ttf"
   depends_on "speexdsp"
 
+  on_linux do
+    depends_on "curl"
+    depends_on "fontconfig"
+    depends_on "mesa"
+  end
+
+  fails_with gcc: "5" # C++17
+
   resource "title-sequences" do
     url "https://github.com/OpenRCT2/title-sequences/releases/download/v0.1.2c/title-sequences.zip"
     sha256 "5284333fa501270835b5f0cf420cb52155742335f5658d7889ea35d136b52517"
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/archive/v1.2.1.tar.gz"
-    sha256 "07816ab18779ab5988d737e1c21c25f0d95404c82919758dfdc44fdd3edf8ab5"
+    url "https://github.com/OpenRCT2/objects/archive/v1.2.2.tar.gz"
+    sha256 "f24ed11bc21473c3eee3be3fd0f776e542af408b3b408eb6c35f6115b1bed89d"
   end
 
   def install
@@ -45,6 +55,7 @@ class Openrct2 < Formula
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
+                            "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}",
                             "-DWITH_TESTS=OFF",
                             "-DDOWNLOAD_TITLE_SEQUENCES=OFF",
                             "-DDOWNLOAD_OBJECTS=OFF",

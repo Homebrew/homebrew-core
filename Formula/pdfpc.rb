@@ -5,7 +5,7 @@ class Pdfpc < Formula
   sha256 "4adb42fd1844a7e2ab44709dd043ade618c87f2aaec03db64f7ed659e8d3ddad"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/pdfpc/pdfpc.git"
+  head "https://github.com/pdfpc/pdfpc.git", branch: "master"
 
   bottle do
     sha256 big_sur:  "b2de1a251cd401445b171247210e1e3a729cd793eeddfe7e725039b4ea9d272c"

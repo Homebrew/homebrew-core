@@ -22,7 +22,8 @@ class Nsuds < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/nsuds/code.git"
+    url "https://git.code.sf.net/p/nsuds/code.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

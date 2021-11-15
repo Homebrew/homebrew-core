@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_69_RTM/src/nss-3.69.tar.gz"
-  sha256 "c880205a365e0dd488ff29fdea82716ff9fcde9da6f3b703d636f8fc08008799"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_72_RTM/src/nss-3.72.tar.gz"
+  sha256 "6ea60a9ff113e493ea2ab25f41ea75a9fbd10af7903f26f703dac8680732d02e"
   license "MPL-2.0"
 
   livecheck do
@@ -11,11 +11,12 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "80c110ce776dd9b6c9c489309cc23c7d8c4310090bbfd09f036e98b7d02ee74d"
-    sha256 cellar: :any,                 big_sur:       "1c83a6a1050562b3678e648f68a714c7567ee33c4c9069679048b8902d8d767f"
-    sha256 cellar: :any,                 catalina:      "4e540f49497c9932fbb3b65e5187bf0cced546f02c94f8b19963714b96d18051"
-    sha256 cellar: :any,                 mojave:        "fba80d27ad01ec389493d80768c08f50e9189e26f5c097d83149be80c22c0789"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd827672eec70f4b1ee80867ab1bb9d86f674f39c3c57efd578bb93a16d5d49b"
+    sha256 cellar: :any,                 arm64_monterey: "8a8f3a6b078b4298f3e2f0367bc45ea3c1101e408540c9e6e5c18edc7601e1cd"
+    sha256 cellar: :any,                 arm64_big_sur:  "f2f7231408a2185ca2c3809f0a99aeb3b3db9711821c6f0544270f8d17d427b4"
+    sha256 cellar: :any,                 monterey:       "df6b5bd7c454ec4be22d4dd69e29ca28dc1ca056aaafa2ce4ed3e4242879144c"
+    sha256 cellar: :any,                 big_sur:        "60d618d629dcf4ff0ffabcc7c99da016c128789b97e6e3948a1c800fbab07926"
+    sha256 cellar: :any,                 catalina:       "4a034137622a2deb26c07c7a5971b0a22d906624f51a9db481730e50d7165085"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "279a402fdc4faeebd46f99cd1807ea1806a93fae559018b646e10264e37a395f"
   end
 
   depends_on "nspr"
@@ -50,8 +51,7 @@ class Nss < Formula
     # rather than copying the referenced file.
     cd "../dist"
     bin.mkpath
-    os = "Darwin"
-    on_linux { os = "Linux" }
+    os = OS.kernel_name
     Dir.glob("#{os}*/bin/*") do |file|
       cp file, bin unless file.include? ".dylib"
     end

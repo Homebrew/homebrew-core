@@ -2,11 +2,10 @@ class PhpAT73 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.3.29.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.3.29.tar.xz"
-  sha256 "7db2834511f3d86272dca3daee3f395a5a4afce359b8342aa6edad80e12eb4d0"
+  url "https://www.php.net/distributions/php-7.3.32.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.3.32.tar.xz"
+  sha256 "94effa250b80f031e77fbd98b6950c441157a2a8f9e076ee68e02f5b0b7a3fd9"
   license "PHP-3.01"
-  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -14,10 +13,10 @@ class PhpAT73 < Formula
   end
 
   bottle do
-    sha256 big_sur:      "5932ad49302d7cd20e502eee51cfb091838d90c665e594c4e1c2c9f274c0af4a"
-    sha256 catalina:     "b5057607a78bf0aebbd5f55e8dcbff9835e9f6552228c7b979d626d144e3ec81"
-    sha256 mojave:       "fc756662888e4b7273c08e696c9f8b0f335de82322ed1518a260a5713068c5e8"
-    sha256 x86_64_linux: "234ee1ba07960222370fd6dbaf1b8747d0cacb3efb277ceed14dc37b6b0815bd"
+    sha256 monterey:     "a803ef87511fd903b8883baf4ea62a81cb6f4cc284831e4810750b631b25e723"
+    sha256 big_sur:      "530fcbf0028afe1e191314a19d8c03c341ac50a0ce11354d5ecc5bb3d212bb1e"
+    sha256 catalina:     "c8842af6262e0b776c4c50f59892ea847dc41476226ce5c8c149d1aaf156e365"
+    sha256 x86_64_linux: "45b9d971ef07e73c83b9f9acf7873f3b13b1c5411c321fa0090864d514590689"
   end
 
   keg_only :versioned_formula
@@ -64,9 +63,9 @@ class PhpAT73 < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac? && (MacOS.version == :el_capitan || MacOS.version == :sierra)
       # Ensure that libxml2 will be detected correctly in older MacOS
-      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :el_capitan || MacOS.version == :sierra
+      ENV["SDKROOT"] = MacOS.sdk_path
     end
 
     # buildconf required due to system library linking bug patch
@@ -110,10 +109,8 @@ class PhpAT73 < Formula
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
-    headers_path = ""
-    on_macos do
-      headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
-    end
+
+    headers_path = "=#{MacOS.sdk_path_if_needed}/usr" if OS.mac?
 
     args = %W[
       --prefix=#{prefix}
@@ -182,7 +179,7 @@ class PhpAT73 < Formula
       --with-xmlrpc
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-dtrace"
       args << "--with-ldap-sasl#{headers_path}"
       args << "--with-zlib#{headers_path}"
@@ -192,7 +189,7 @@ class PhpAT73 < Formula
       args << "--with-libxml-dir#{headers_path}"
       args << "--with-xsl#{headers_path}"
     end
-    on_linux do
+    if OS.linux?
       args << "--disable-dtrace"
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
       args << "--with-bz2=#{Formula["bzip2"].opt_prefix}"

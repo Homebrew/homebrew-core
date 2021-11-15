@@ -4,7 +4,7 @@ class Blogc < Formula
   url "https://github.com/blogc/blogc/releases/download/v0.20.1/blogc-0.20.1.tar.xz"
   sha256 "d1289367362b7b11b438670fe703ff2c751e795393c06e1999d6b9a6e438fdd8"
   license "BSD-3-Clause"
-  head "https://github.com/blogc/blogc.git"
+  head "https://github.com/blogc/blogc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f51d0d693775155a5eb1199a7ee90abb00e35a00a7469e02f3a31c074aff57cf"

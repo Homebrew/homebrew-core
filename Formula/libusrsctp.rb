@@ -7,11 +7,13 @@ class Libusrsctp < Formula
   head "https://github.com/sctplab/usrsctp.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cccdb95cc428680b9dc8c57ae970f23874889797d8438eaa9079e675473ab394"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ca45d1d9431028ad9b7025e6d5486a10f98c6c49e39dd1a4e1d033c75bee6135"
-    sha256 cellar: :any_skip_relocation, catalina:      "5c2a6b26e354c0498e0e3ef590dfc9f9651f70ce36112f196baec64ef76aec31"
-    sha256 cellar: :any_skip_relocation, mojave:        "fe831b138df6c6b80d260d8a224bf1b1114af51d1b14186e9d714fd99f035e30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7b8b7629549478dc7d3b0ca0498cd6c181ce4a94e5dfddb19b34de124621ef8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bf65d4cad3f3abcec79432f82c040761b3bf8b5b04417172ea343efc7ff878c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cccdb95cc428680b9dc8c57ae970f23874889797d8438eaa9079e675473ab394"
+    sha256 cellar: :any_skip_relocation, monterey:       "3a5ea16561b37ed98f235bd62e33534c85439244a41f3e917ffdabd6c97d74b0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ca45d1d9431028ad9b7025e6d5486a10f98c6c49e39dd1a4e1d033c75bee6135"
+    sha256 cellar: :any_skip_relocation, catalina:       "5c2a6b26e354c0498e0e3ef590dfc9f9651f70ce36112f196baec64ef76aec31"
+    sha256 cellar: :any_skip_relocation, mojave:         "fe831b138df6c6b80d260d8a224bf1b1114af51d1b14186e9d714fd99f035e30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7b8b7629549478dc7d3b0ca0498cd6c181ce4a94e5dfddb19b34de124621ef8"
   end
 
   depends_on "cmake" => :build

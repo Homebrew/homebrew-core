@@ -3,16 +3,17 @@ require "language/node"
 class Triton < Formula
   desc "Joyent Triton CLI"
   homepage "https://www.npmjs.com/package/triton"
-  url "https://registry.npmjs.org/triton/-/triton-7.15.0.tgz"
-  sha256 "96d2f68caf6bb68187da619ccfa305f8d85126a2e5199b2830255a6b1fc9a67c"
+  url "https://registry.npmjs.org/triton/-/triton-7.15.1.tgz"
+  sha256 "e325641d2ba183c484597e196ee74ecf67e6a0bcb459dd7ef49d23c509eec984"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "df4487f4d2822294ed4bde9b4f8af1a67bf23e467dceaba168ecff50c4865b8d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "58babe7098da230bf1daa9b7e7838b683ee97b7a82d6a68e32ac1dc9699f8f84"
-    sha256 cellar: :any_skip_relocation, catalina:      "e3c6ee7a64059050fed8b4577af8711be23d63c0e765371347842a4233b36d3b"
-    sha256 cellar: :any_skip_relocation, mojave:        "de43242aef253303a8303740989570dc99a2ec2a9015668064e14ce4ec4a4d79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b396ddfa00af45a207b18615542e7d82257ef808da5999c6e3f8a4efc1619940"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b3585f7d4a99ecc32a89e885e32129b59ecddcc289d9bf69742e0dd801fa68e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7a8608059c99cf8107c068151dd548aac3d15dd1f986f5786070980959d2a0e"
+    sha256 cellar: :any_skip_relocation, monterey:       "7e592557b904ee529e3aa23dfff5778034957bde88153fea0c8d227548a009c9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "85d3dcacfcbfbdeea29c5fa480f4c9300f3571fde69a8267d9c52549a4c4784a"
+    sha256 cellar: :any_skip_relocation, catalina:       "4e983929a1d92eb733d8bba821fb99caa3aa03dabc28df7965d4b8f307462411"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a5fe6ca92a17edbeb1e1868ad99c9ce19db6110c188fc244a3746437d9518a7"
   end
 
   depends_on "node"

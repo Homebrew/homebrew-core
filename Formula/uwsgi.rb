@@ -3,7 +3,7 @@ class Uwsgi < Formula
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/unbit/uwsgi.git"
+  head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   stable do
     url "https://files.pythonhosted.org/packages/c7/75/45234f7b441c59b1eefd31ba3d1041a7e3c89602af24488e2a22e11e7259/uWSGI-2.0.19.1.tar.gz"
@@ -19,11 +19,13 @@ class Uwsgi < Formula
 
   bottle do
     rebuild 2
-    sha256 arm64_big_sur: "4326330a1880f7901c4168d85134a37f44de0e786e5fe76a9e9ecd16ed833a58"
-    sha256 big_sur:       "dd093fa094a07dba5ac53f040eaed23a9b61adc80b6cc50de246d160fcff0a34"
-    sha256 catalina:      "8194d4a365e0ce4d3ee5fd9764d008c6d0aabf6c804414d5a6b0733295f9d101"
-    sha256 mojave:        "2def48a9cc74853449722f5dc51a0224956d21906d8ff35e73a45fab3fc3faef"
-    sha256 x86_64_linux:  "acb0c806523fc521f4c703b5fe952b488f473a5eac99d5c877ac2fec2a117782"
+    sha256 arm64_monterey: "8dddd4ed44cb3daa458eeae7060551bbfd479f8d3863f896f80eb821d24ef877"
+    sha256 arm64_big_sur:  "4326330a1880f7901c4168d85134a37f44de0e786e5fe76a9e9ecd16ed833a58"
+    sha256 monterey:       "fe3556331a8a1b1b20b701de68a214903034fc924c7572ffde6cb47c2c292a57"
+    sha256 big_sur:        "dd093fa094a07dba5ac53f040eaed23a9b61adc80b6cc50de246d160fcff0a34"
+    sha256 catalina:       "8194d4a365e0ce4d3ee5fd9764d008c6d0aabf6c804414d5a6b0733295f9d101"
+    sha256 mojave:         "2def48a9cc74853449722f5dc51a0224956d21906d8ff35e73a45fab3fc3faef"
+    sha256 x86_64_linux:   "acb0c806523fc521f4c703b5fe952b488f473a5eac99d5c877ac2fec2a117782"
   end
 
   depends_on "pkg-config" => :build
@@ -79,9 +81,7 @@ class Uwsgi < Formula
                  transformation_chunked transformation_gzip
                  transformation_offload transformation_tofile
                  transformation_toupper ugreen webdav zergpool]
-    on_macos do
-      plugins << "alarm_speech"
-    end
+    plugins << "alarm_speech" if OS.mac?
 
     (libexec/"uwsgi").mkpath
     plugins.each do |plugin|

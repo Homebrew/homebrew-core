@@ -1,16 +1,20 @@
 class Couchdb < Formula
   desc "Apache CouchDB database server"
   homepage "https://couchdb.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.1.1/apache-couchdb-3.1.1.tar.gz"
-  mirror "https://archive.apache.org/dist/couchdb/source/3.1.1/apache-couchdb-3.1.1.tar.gz"
-  sha256 "8ffe766bba2ba39a7b49689a0732afacf69caffdf8e2d95447e82fb173c78ca3"
+  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.2.0/apache-couchdb-3.2.0.tar.gz"
+  mirror "https://archive.apache.org/dist/couchdb/source/3.2.0/apache-couchdb-3.2.0.tar.gz"
+  sha256 "8bea574faa6bb0926c670542d8318c322268cf7e6614dab318dea734ccf1b00c"
   license "Apache-2.0"
-  revision 2
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?apache-couchdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "a5f39bc7837033ef94ce64bd004ab640d0dbcc36723048a5eecbf0fe7f79b83e"
-    sha256 cellar: :any, catalina: "5736d9943ec1ac5935f72eb6fb102a34b9533a796e7701baf4b7e000360b46c6"
-    sha256 cellar: :any, mojave:   "d285b3dccb394ae6e73f6686acb541505f5c3fe31c42fb1d4b9adfcfef6053c3"
+    sha256 cellar: :any, big_sur:  "4d0f0c145720db23f52483fdf3b35363f9343e3b39285c91255da1993ab91bff"
+    sha256 cellar: :any, catalina: "3a2892f1076c575372e4012c8858c23fc05a787abfa679376ce1c4a7ea4fa8ae"
+    sha256 cellar: :any, mojave:   "ef4e1a3ef761a58fe16b4d163c0b4331f1ffd3833b7fe6d7cf820c6a5064c37d"
   end
 
   depends_on "autoconf" => :build

@@ -9,10 +9,12 @@ class Dgraph < Formula
   head "https://github.com/dgraph-io/dgraph.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "28d00b7cc12ab6eb34da4240b7075ee322ff51cd94223d7a8892c823f91bf5cc"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9e2da2c025d3b8f89d4716be724942f7c284c9d0ac70c77fed7c287a31abdb56"
-    sha256 cellar: :any_skip_relocation, catalina:      "9d2545b3b0e293d8e48b4c23887bef147f1f1444735dacbf70eb9585bd25502e"
-    sha256 cellar: :any_skip_relocation, mojave:        "57fa2f974e4e0313fb58f7e35e2d9547a4d43319af7e84a4fc6619238e862885"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "88693da8a26b8104d2362cc17f6f4311de51d96d1e0bd608e9042f77cdd6bf15"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28d00b7cc12ab6eb34da4240b7075ee322ff51cd94223d7a8892c823f91bf5cc"
+    sha256 cellar: :any_skip_relocation, monterey:       "e9e8e32d5a6def3565d2d5f68dd1b6cf2a5d40f768fad0862213d24d1493a03b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9e2da2c025d3b8f89d4716be724942f7c284c9d0ac70c77fed7c287a31abdb56"
+    sha256 cellar: :any_skip_relocation, catalina:       "9d2545b3b0e293d8e48b4c23887bef147f1f1444735dacbf70eb9585bd25502e"
+    sha256 cellar: :any_skip_relocation, mojave:         "57fa2f974e4e0313fb58f7e35e2d9547a4d43319af7e84a4fc6619238e862885"
   end
 
   deprecate! date: "2021-06-10", because: :unsupported

@@ -11,6 +11,7 @@ class RangeV3 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "bffbe0872b344db9b7838d3a63b10e95df57385d26bfaeffc4da5a3d940893c6"
     sha256 cellar: :any_skip_relocation, mojave:        "bffbe0872b344db9b7838d3a63b10e95df57385d26bfaeffc4da5a3d940893c6"
     sha256 cellar: :any_skip_relocation, high_sierra:   "bffbe0872b344db9b7838d3a63b10e95df57385d26bfaeffc4da5a3d940893c6"
+    sha256 cellar: :any_skip_relocation, all:           "946ebe20e9c73966759c6a388c1ac11d08702acb80cd3022354e5fae756eec05"
   end
 
   depends_on "cmake" => :build

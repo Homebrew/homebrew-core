@@ -7,11 +7,13 @@ class Packr < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "42248acc120a492d9732361a70d87760d9041c5156373243170437c464eea152"
-    sha256 cellar: :any_skip_relocation, big_sur:       "972c88a953ad8a1932f644f7cccd5c4f0d3909983192ed58f263855f36a28ddf"
-    sha256 cellar: :any_skip_relocation, catalina:      "1cd8e38f05663594e4eb91e994da4f09865121814d4e04ebc414911550c0a02b"
-    sha256 cellar: :any_skip_relocation, mojave:        "88a3cd339688b5ee3f30fe811691241f8daf6285ffaf6b772d216cfb4a961c3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b1a3af58213c6725820c48a835ca209f5eef51d1d0e24e47e8a82fc1a21bb08"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "91ef9a06865cbec47b550341990d78a1a1bc6034cb01ba9804d2c03d01dd1ce4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42248acc120a492d9732361a70d87760d9041c5156373243170437c464eea152"
+    sha256 cellar: :any_skip_relocation, monterey:       "d4aa0ef71225440066c2fcef6f79f2df4f7b414fb4da12cb7b9232010f169c79"
+    sha256 cellar: :any_skip_relocation, big_sur:        "972c88a953ad8a1932f644f7cccd5c4f0d3909983192ed58f263855f36a28ddf"
+    sha256 cellar: :any_skip_relocation, catalina:       "1cd8e38f05663594e4eb91e994da4f09865121814d4e04ebc414911550c0a02b"
+    sha256 cellar: :any_skip_relocation, mojave:         "88a3cd339688b5ee3f30fe811691241f8daf6285ffaf6b772d216cfb4a961c3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b1a3af58213c6725820c48a835ca209f5eef51d1d0e24e47e8a82fc1a21bb08"
   end
 
   depends_on "go" => [:build, :test]

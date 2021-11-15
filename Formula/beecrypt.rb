@@ -6,14 +6,16 @@ class Beecrypt < Formula
   revision 7
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c67f38d1f106232edf5db9ea96b28c9cc240805c3021a41279085e592b3d1a5e"
-    sha256 cellar: :any, big_sur:       "6a5d3034c4818dbf4332a65bc677edb230d174b2c0f47a4c329960f97400f926"
-    sha256 cellar: :any, catalina:      "977150a0ff6d0a8739539ad4865bcea9fe68d603d22b86d85d6fdef794d66611"
-    sha256 cellar: :any, mojave:        "d4b8e542e1d0c6b805ced58ccf5342a29c29342631d0b180ef8b7268ca745d68"
-    sha256 cellar: :any, high_sierra:   "75381fee700b8a6659dad5de0ea92df8d2e0bed0e1cd34755c8b3bfc39f99b89"
-    sha256 cellar: :any, sierra:        "9bb192a3b891680eedbacb38cd9a2daa694cbef4d1db7b844d1809fb5504d660"
-    sha256 cellar: :any, el_capitan:    "aafed63c6eb816d71151cf20830d76375ef872d2502babfe20f94683b3fcbf33"
-    sha256 cellar: :any, yosemite:      "c321c1ab92e2f644460e3f2cba59495962735a3b046744692a171deebffba29b"
+    sha256 cellar: :any, arm64_monterey: "4acdd6c4d36e63cfdbcee335076ef3a2d037fabcda966692a02301bc3a1c59e1"
+    sha256 cellar: :any, arm64_big_sur:  "c67f38d1f106232edf5db9ea96b28c9cc240805c3021a41279085e592b3d1a5e"
+    sha256 cellar: :any, monterey:       "76b490b3b3da57df7f5e13032c04ea577fddca473cc34d6274075c1100795ca4"
+    sha256 cellar: :any, big_sur:        "6a5d3034c4818dbf4332a65bc677edb230d174b2c0f47a4c329960f97400f926"
+    sha256 cellar: :any, catalina:       "977150a0ff6d0a8739539ad4865bcea9fe68d603d22b86d85d6fdef794d66611"
+    sha256 cellar: :any, mojave:         "d4b8e542e1d0c6b805ced58ccf5342a29c29342631d0b180ef8b7268ca745d68"
+    sha256 cellar: :any, high_sierra:    "75381fee700b8a6659dad5de0ea92df8d2e0bed0e1cd34755c8b3bfc39f99b89"
+    sha256 cellar: :any, sierra:         "9bb192a3b891680eedbacb38cd9a2daa694cbef4d1db7b844d1809fb5504d660"
+    sha256 cellar: :any, el_capitan:     "aafed63c6eb816d71151cf20830d76375ef872d2502babfe20f94683b3fcbf33"
+    sha256 cellar: :any, yosemite:       "c321c1ab92e2f644460e3f2cba59495962735a3b046744692a171deebffba29b"
   end
 
   depends_on "libtool" => :build

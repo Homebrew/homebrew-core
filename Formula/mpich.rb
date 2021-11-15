@@ -13,6 +13,7 @@ class Mpich < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "8c79cf6b224e90fbe5fbe111cdafb03d1b54f8f4a88c32a157af6d3ea29de7c4"
+    sha256 cellar: :any,                 monterey:      "25c3d92e834e00f8d079605e366e4fa78328c542f01c052a77e381ce8c300526"
     sha256 cellar: :any,                 big_sur:       "23d95423962812214194ca039fdd2d7dcca76626d291e02566989460b748a8df"
     sha256 cellar: :any,                 catalina:      "3d5324ae766872fb9c2d6229ea97f49930c6a8239e38cc89bf5fb6a8f71d88d4"
     sha256 cellar: :any,                 mojave:        "80d73225cb6e7242190049addb88898f920991a637f6dd7af07f13ffa28095fd"
@@ -79,7 +80,7 @@ class Mpich < Formula
     args << "CXXFLAGS=-Wno-deprecated"
     args << "CFLAGS=-fgnu89-inline -Wno-deprecated"
 
-    on_linux do
+    if OS.linux?
       # Use libfabric https://lists.mpich.org/pipermail/discuss/2021-January/006092.html
       args << "--with-device=ch4:ofi"
       args << "--with-libfabric=#{Formula["libfabric"].opt_prefix}"

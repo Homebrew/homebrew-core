@@ -1,16 +1,19 @@
 class Liblouis < Formula
   desc "Open-source braille translator and back-translator"
   homepage "http://liblouis.org"
-  url "https://github.com/liblouis/liblouis/releases/download/v3.18.0/liblouis-3.18.0.tar.gz"
-  sha256 "21cca316bad6e4c7118c01cdf7278428c44848a81990572a56b4e5b47dd3aca5"
+  url "https://github.com/liblouis/liblouis/releases/download/v3.19.0/liblouis-3.19.0.tar.gz"
+  sha256 "5664b8631913f432efb4419e15b3c41026984682915d0980351cb82f7ef94970"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "c3c9966db84991a66cc3df8e8f56317f6ce10a7cf045fdecbeeb6738ca9e5aab"
-    sha256 big_sur:       "85c3c273217223c53af7ccb21bd0831f6e1e4ae866e9f3c70b629ddd22f2bd92"
-    sha256 catalina:      "a6e1f0c24d9a5dffc1c704ef971e509f6d8a877b0e194f5c7363754a9ae6d87d"
-    sha256 mojave:        "594821b1fa5277a7e841c13ce4041c3642309dab7d0b74ca7e741f49398f0358"
-    sha256 x86_64_linux:  "898d2418944b7ac368ae679c96953de17baf4a0b0ed94fb6a4d64d9801585efd"
+    sha256 arm64_monterey: "523882a8945fb690240b790162c0db3a6fff2b53f6ce6edb52c5332755f068d4"
+    sha256 arm64_big_sur:  "fa9afd58b981aa8d297746bca152e8e073ef1d01159fc112bd30b407887328bb"
+    sha256 monterey:       "5ea887b6b7da5615ec254b90b80136329017913f1818a8ae8f33a96ac266f398"
+    sha256 big_sur:        "136591a6b53c1636d8854c7cc60949db3c2d67818c382124353d460ff460c546"
+    sha256 catalina:       "089c1dd0bdbde0466a631f5deac55f8b608f7edff646ab848e2467aadf1cf552"
+    sha256 mojave:         "7bef026745d51ac3f5329a4c985c1d98a89dc43dfe8460c874a7d83b95825889"
+    sha256 x86_64_linux:   "db7173cf91c28efa928f6f32663a83157223d2b54a1983e2dbf0dd78d694dc56"
   end
 
   head do
@@ -23,7 +26,7 @@ class Liblouis < Formula
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     system "./autogen.sh" if build.head?

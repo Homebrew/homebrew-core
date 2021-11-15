@@ -8,6 +8,7 @@ class RedisAT40 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, monterey:     "cba692eaa032feec943d96c3a47ce7c2fc72fdc10e81680edf1d8e1703a8cbd2"
     sha256 cellar: :any_skip_relocation, big_sur:      "baedf1761e5966fa4c25e461ad6bad3cc8ec500bc4da9aad6fa98f01d7bf651f"
     sha256 cellar: :any_skip_relocation, catalina:     "59eea40bb4b8f05511f58eef72b3dab1966828bfdb9c776515f1f34d0c140896"
     sha256 cellar: :any_skip_relocation, mojave:       "f7eae71970cd2ae572c9b301c5a1e1d52d63beb6fd2a979f8aa2fa8379e00397"

@@ -6,11 +6,13 @@ class Aspcud < Formula
   license "MIT"
 
   bottle do
-    sha256 arm64_big_sur: "c984eb4cfd2892c3cca7df260064546275a82fa02c01996ee65ecdf8973f27cb"
-    sha256 big_sur:       "c934a46742cb4d96d62a3e15dd9e0ada641672f405b1a96edc3f71dac2c87036"
-    sha256 catalina:      "3b19a6ee9f466789d05533e5614ae6daf9cf4abc4e2f6347ad401ea7d4d1040a"
-    sha256 mojave:        "b5d0df64bc57c7f929b00f04617f9b1260e7c3715abe68b98559c8b693070add"
-    sha256 x86_64_linux:  "c9a457dac612341f5ab16c39afc4e3f360da84a034ba7f3c05663d5d2c9a36f5"
+    sha256 arm64_monterey: "e71bba5b3c4f8dc2be06fdb553e38c1284e0cab33c607016d73932bf21dd8074"
+    sha256 arm64_big_sur:  "c984eb4cfd2892c3cca7df260064546275a82fa02c01996ee65ecdf8973f27cb"
+    sha256 monterey:       "14d65fbc5df754144fa56b1dab2208ccc8f4a09217290d97b26f4e4e25393b98"
+    sha256 big_sur:        "c934a46742cb4d96d62a3e15dd9e0ada641672f405b1a96edc3f71dac2c87036"
+    sha256 catalina:       "3b19a6ee9f466789d05533e5614ae6daf9cf4abc4e2f6347ad401ea7d4d1040a"
+    sha256 mojave:         "b5d0df64bc57c7f929b00f04617f9b1260e7c3715abe68b98559c8b693070add"
+    sha256 x86_64_linux:   "c9a457dac612341f5ab16c39afc4e3f360da84a034ba7f3c05663d5d2c9a36f5"
   end
 
   depends_on "boost" => :build

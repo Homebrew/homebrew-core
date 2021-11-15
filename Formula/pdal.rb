@@ -4,7 +4,7 @@ class Pdal < Formula
   url "https://github.com/PDAL/PDAL/releases/download/2.3.0/PDAL-2.3.0-src.tar.gz"
   sha256 "5b0b92258874ef722b5027054d64c8b318b524e7a9b2b250d0330d76e19b8618"
   license "BSD-3-Clause"
-  head "https://github.com/PDAL/PDAL.git"
+  head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   # The upstream GitHub repository sometimes tags a commit with only a
   # major/minor version (`1.2`) and then uses major/minor/patch (`1.2.3`) for

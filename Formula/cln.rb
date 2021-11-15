@@ -11,6 +11,7 @@ class Cln < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "e810a5132e834905a8ae4c67130a003cbf2a5d7482040eed19c24cda13118ce8"
     sha256 cellar: :any,                 big_sur:      "3234c105147111fdbb679c8a27a4b59a99d8195a3e461642783028905c244db4"
     sha256 cellar: :any,                 catalina:     "bbc7716e6028fc3dc95dc22bf20033d13119b6ffe62dbd4c2609ecce85459a92"
     sha256 cellar: :any,                 mojave:       "1e62717cf6b0562643947c904c547e737bc9209cb349c388c6b7f9edcd915001"
@@ -19,6 +20,12 @@ class Cln < Formula
   end
 
   depends_on "gmp"
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",

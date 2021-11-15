@@ -7,12 +7,14 @@ class Gobuster < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e6e7f65fbed3896cb3b63eefddd16de3b621a8d72b205d24b8f7abd21379f87e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8342b115722243f5c108de8ecdb5aefd20ae5deb884e48732c80595c24897f0d"
-    sha256 cellar: :any_skip_relocation, catalina:      "f8f36299b36b59006637dcc7d062614eb209ba82a31f5a67fce789c4d6ef9562"
-    sha256 cellar: :any_skip_relocation, mojave:        "16912d38db06501d02cdab6066d1da01129779d958ce142c40018cce30328fc4"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "341ce02f5e99ba1bf9cee8d6cbdd150a6e36d8b0fd811ded7a2da8933d877f9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "493ef7685bc5627b6b382479f3645eda52a36010581e3c9400145775d7da0ca2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "44353288958adfaede89054b42dbac2f20f4cf1968d2c1b7101d3ab140d4eef8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6e7f65fbed3896cb3b63eefddd16de3b621a8d72b205d24b8f7abd21379f87e"
+    sha256 cellar: :any_skip_relocation, monterey:       "ecbea96dbc4a7889cb9c2cd295d84858b5f332b7d44c12f482450e6e1e10266f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8342b115722243f5c108de8ecdb5aefd20ae5deb884e48732c80595c24897f0d"
+    sha256 cellar: :any_skip_relocation, catalina:       "f8f36299b36b59006637dcc7d062614eb209ba82a31f5a67fce789c4d6ef9562"
+    sha256 cellar: :any_skip_relocation, mojave:         "16912d38db06501d02cdab6066d1da01129779d958ce142c40018cce30328fc4"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "341ce02f5e99ba1bf9cee8d6cbdd150a6e36d8b0fd811ded7a2da8933d877f9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "493ef7685bc5627b6b382479f3645eda52a36010581e3c9400145775d7da0ca2"
   end
 
   depends_on "go" => :build

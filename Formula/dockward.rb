@@ -10,14 +10,16 @@ class Dockward < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f9f6705d78dd9d8d596d92ca7dbde056b4954fdebb467c155064bb93f7e7b063"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5287a1a8f985e8ecaba4a98eac278828e515bf4a8ba789ea68fd72a4243e8424"
-    sha256 cellar: :any_skip_relocation, catalina:      "8abcf72ec26b59bab1b489e3233a137ebcc4a6d4bf3ccae10b7b062784d10e98"
-    sha256 cellar: :any_skip_relocation, mojave:        "9c4eb789740a0b589faa9ccedcf3df90b6f68f1ab561806fe9aa750b91722800"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "50c2b838bbd89349e40050810a833cfea2803ac699cd006d47e796075be975b2"
-    sha256 cellar: :any_skip_relocation, sierra:        "3dcac3afd57773d1c4b07b72f7f1bc9d66953dccccb0b3eadf7f40e43175d89b"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "b1b33f2b4db8242f9b422232d49bfde4c9b8fa0fa5053437366a9bc16795d9b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fab443a8e40b159ebd527d32138314a928589a52dd5fbfd69c52406ad3162ad9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "870ce371df50c4998c78435d70b882ab21a5abb90f5bd476397433f167c893e7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f9f6705d78dd9d8d596d92ca7dbde056b4954fdebb467c155064bb93f7e7b063"
+    sha256 cellar: :any_skip_relocation, monterey:       "f4ae4442fb735f9a74a0b29b666132660e7fc85a824fc467ff7d8ed8ee632bfa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5287a1a8f985e8ecaba4a98eac278828e515bf4a8ba789ea68fd72a4243e8424"
+    sha256 cellar: :any_skip_relocation, catalina:       "8abcf72ec26b59bab1b489e3233a137ebcc4a6d4bf3ccae10b7b062784d10e98"
+    sha256 cellar: :any_skip_relocation, mojave:         "9c4eb789740a0b589faa9ccedcf3df90b6f68f1ab561806fe9aa750b91722800"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "50c2b838bbd89349e40050810a833cfea2803ac699cd006d47e796075be975b2"
+    sha256 cellar: :any_skip_relocation, sierra:         "3dcac3afd57773d1c4b07b72f7f1bc9d66953dccccb0b3eadf7f40e43175d89b"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "b1b33f2b4db8242f9b422232d49bfde4c9b8fa0fa5053437366a9bc16795d9b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fab443a8e40b159ebd527d32138314a928589a52dd5fbfd69c52406ad3162ad9"
   end
 
   depends_on "go" => :build

@@ -13,11 +13,13 @@ class Pcrexx < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any,                 arm64_big_sur: "1232e288cacfd0124da243208e1584caf1925be4dcdcc7b94b96585fb50bfabf"
-    sha256 cellar: :any,                 big_sur:       "0b05be19479fa7181d354dfafc905f874a17c3135170bedfc324fe0873e113c4"
-    sha256 cellar: :any,                 catalina:      "15b001d9d01f073cb76772112bc6b3ebac92a3337b19c6dee4eb54d39fe9b6f6"
-    sha256 cellar: :any,                 mojave:        "fdaf9cab000ba7b2f7787acd98e53aa3cade6e6536c0c0ec32a010ecade2cb53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02065bd248d60295297eaafbeade3d86245aca27c913c68d0906fee8da4737c3"
+    sha256 cellar: :any,                 arm64_monterey: "07536c89d8da585a2604dbc109e7cefa2784c83c25b505541b7f407444266f87"
+    sha256 cellar: :any,                 arm64_big_sur:  "1232e288cacfd0124da243208e1584caf1925be4dcdcc7b94b96585fb50bfabf"
+    sha256 cellar: :any,                 monterey:       "9212f378a4e73bd4bfd55a91dcdc54cf9ce589b2abdf35bc1d1201d4ab06cdd1"
+    sha256 cellar: :any,                 big_sur:        "0b05be19479fa7181d354dfafc905f874a17c3135170bedfc324fe0873e113c4"
+    sha256 cellar: :any,                 catalina:       "15b001d9d01f073cb76772112bc6b3ebac92a3337b19c6dee4eb54d39fe9b6f6"
+    sha256 cellar: :any,                 mojave:         "fdaf9cab000ba7b2f7787acd98e53aa3cade6e6536c0c0ec32a010ecade2cb53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02065bd248d60295297eaafbeade3d86245aca27c913c68d0906fee8da4737c3"
   end
 
   depends_on "autoconf" => :build

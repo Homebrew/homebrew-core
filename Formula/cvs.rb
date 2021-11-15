@@ -17,11 +17,13 @@ class Cvs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "d254eab8b61ddab83920f40ee1981b0f63ea9fd7bc02e570837bc61551dfdd32"
-    sha256 cellar: :any,                 big_sur:       "6d6120ae3bf1d373e769370cd6ef8621cb462fb592cb337ad4057e10c4ee07ec"
-    sha256 cellar: :any,                 catalina:      "4844c8cc28ae86ca8adc34d149f9d78c94195b8ccb88af24a85a3112e53246f0"
-    sha256 cellar: :any,                 mojave:        "735fd1cc0b3e954123e93bb3565622e57a833863aaa95475c719d908a74fa1df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edcf39afc3ae15d9c38013edd8981abc023e5088557528c77cb74339802d5ad3"
+    sha256 cellar: :any,                 arm64_monterey: "1f61e10fb5571126823d3d3f199d60a73712a7b6ac3f065c6f3826f62d96bd39"
+    sha256 cellar: :any,                 arm64_big_sur:  "d254eab8b61ddab83920f40ee1981b0f63ea9fd7bc02e570837bc61551dfdd32"
+    sha256 cellar: :any,                 monterey:       "0f00f38b25a4e94364980924ed3edd9bb65ef01ac0dfeddccced1d90df15b09c"
+    sha256 cellar: :any,                 big_sur:        "6d6120ae3bf1d373e769370cd6ef8621cb462fb592cb337ad4057e10c4ee07ec"
+    sha256 cellar: :any,                 catalina:       "4844c8cc28ae86ca8adc34d149f9d78c94195b8ccb88af24a85a3112e53246f0"
+    sha256 cellar: :any,                 mojave:         "735fd1cc0b3e954123e93bb3565622e57a833863aaa95475c719d908a74fa1df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edcf39afc3ae15d9c38013edd8981abc023e5088557528c77cb74339802d5ad3"
   end
 
   depends_on "autoconf" => :build

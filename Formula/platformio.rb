@@ -3,29 +3,40 @@ class Platformio < Formula
 
   desc "Professional collaborative platform for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/b8/f0/4e9941349c3450838667d323545b256d91b723a4685a1e056f01642b851e/platformio-5.1.1.tar.gz"
-  sha256 "c1688692ec2de34dcc38c5a3f99e98f5eb469a1589445d9a35322fb39d9c7902"
+  url "https://files.pythonhosted.org/packages/47/6a/b017d99d9a741466d0baf878742df22627119773041d6449809cfd2aa312/platformio-5.2.3.tar.gz"
+  sha256 "94584b1cfd8cc82ee5c51cbecba57e884f906b0c3f2903b136049796d62ae86a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c0df677646bdd1ef465ee4b4c19a208d4f177ee55335cf69291a89511f93c976"
-    sha256 cellar: :any_skip_relocation, big_sur:       "35e55074a397b5aebbe070b544e92d94ad740657666ef211b6280bdb8485678d"
-    sha256 cellar: :any_skip_relocation, catalina:      "790c0ae34e8542297af1f6852c27bda0261a606246af32058aa06751c3d3953a"
-    sha256 cellar: :any_skip_relocation, mojave:        "1b113213a5bf0c2e76813d37ab22326c7367548eeb6dd56c2af74d9a9c3acaf0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d94f68b33de73c778ac753f378bd0811248b6fd8a382bb8cce094d86fdb819ae"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "641f2f3445548061bc689e9b0d06239c7a8ae5d8e2100889847625e6403c9550"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "753122571365cb9e22d0e7dc6de2b9b3481b6bbdeaf1d9b47252c69681e507f1"
+    sha256 cellar: :any_skip_relocation, monterey:       "1300b9c2b2b5ffa44a9cbe4cef55054901e2a1fef5090d5f1fc0295d0b9dae54"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4b313aef5b5b90e293502a66442934f8d658f390b41f77f34a017337a89aeb15"
+    sha256 cellar: :any_skip_relocation, catalina:       "763f253a864454f53138e4765c7bc4fdf298ce97f031689b12f159b1ecf12c7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "499e93094a637bbf377d8f081c6a40d8e465c9258d2eed41171a7138c1db38ef"
   end
 
   depends_on "python-tabulate"
   depends_on "python@3.9"
 
   resource "aiofiles" do
-    url "https://files.pythonhosted.org/packages/77/47/19e5951cc6ed771669906d2946b3deac32a35a9a155f730be49d8fa73dc9/aiofiles-0.6.0.tar.gz"
-    sha256 "e0281b157d3d5d59d803e3f4557dcc9a3dff28a4dd4829a9ff478adae50ca092"
+    url "https://files.pythonhosted.org/packages/06/f0/af90f3fb4066b0707b6a5af3ffd5fd9b3809bbb52f0153a3c7550e594de3/aiofiles-0.7.0.tar.gz"
+    sha256 "a1c4fc9b2ff81568c83e21392a82f344ea9d23da906e4f6a52662764545e19d4"
   end
 
   resource "ajsonrpc" do
-    url "https://files.pythonhosted.org/packages/6d/ca/c90cc6a4d8efa69de9c874d18f804422d22e8df5f5c1593e15536fb60652/ajsonrpc-1.1.0.tar.gz"
-    sha256 "0a01c2b56d20c59868ed96afbc468e0cd73e29b156e2c02c1ed3365e4e42b9ac"
+    url "https://files.pythonhosted.org/packages/da/5c/95a9b83195d37620028421e00d69d598aafaa181d3e55caec485468838e1/ajsonrpc-1.2.0.tar.gz"
+    sha256 "791bac18f0bf0dee109194644f151cf8b7ff529c4b8d6239ac48104a3251a19f"
+  end
+
+  resource "anyio" do
+    url "https://files.pythonhosted.org/packages/66/02/ca9061e93c487a897859e3a41f6c1a4f494038d2791382169b9a0c528175/anyio-3.3.4.tar.gz"
+    sha256 "67da67b5b21f96b9d3d65daa6ea99f5d5282cb09f50eb4456f8fb51dffefc3ff"
+  end
+
+  resource "asgiref" do
+    url "https://files.pythonhosted.org/packages/07/93/3618b68b4ba6b54bc97b5fd7d90e4981471edfaf51c8321a29a3c76cf47c/asgiref-3.4.1.tar.gz"
+    sha256 "4ef1ab46b484e3c706329cedeff284a5d40824200638503f5768edb6de7d58e9"
   end
 
   resource "bottle" do
@@ -34,18 +45,18 @@ class Platformio < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
-    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
-    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
+  resource "charset-normalizer" do
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
-    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
+    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
+    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
   end
 
   resource "colorama" do
@@ -59,8 +70,8 @@ class Platformio < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
-    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "ifaddr" do
@@ -69,8 +80,8 @@ class Platformio < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/9b/3a/9f586ba2932b17d89c11373f28d7350a09bf87a6274ef29a37605c996c1e/marshmallow-3.10.0.tar.gz"
-    sha256 "4ab2fdb7f36eb61c3665da67a7ce281c8900db08d72ba6bf0e695828253581f7"
+    url "https://files.pythonhosted.org/packages/ee/a6/9e2ad34649f2ea933ee7a3f28a106c4ccba0cb4b2150a03f16b928184fd9/marshmallow-3.14.0.tar.gz"
+    sha256 "bba1a940985c052c5cc7849f97da196ebc81f3b85ec10c56ef1f3228aa9cbe74"
   end
 
   resource "pyelftools" do
@@ -84,8 +95,8 @@ class Platformio < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
-    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
+    url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
+    sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
   end
 
   resource "semantic-version" do
@@ -93,19 +104,24 @@ class Platformio < Formula
     sha256 "d2cb2de0558762934679b9a104e82eca7af448c9f4974d1f3eeccff651df8a54"
   end
 
+  resource "sniffio" do
+    url "https://files.pythonhosted.org/packages/a6/ae/44ed7978bcb1f6337a3e2bef19c941de750d73243fc9389140d62853b686/sniffio-1.2.0.tar.gz"
+    sha256 "c4666eecec1d3f50960c6bdf61ab7bc350648da6c126e3cf6898d8cd4ddcd3de"
+  end
+
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/3a/06/ded663a1ddea8b11a2027d88ff0e757f9cdb812310f18bee33ef7270112f/starlette-0.14.2.tar.gz"
-    sha256 "7d49f4a27f8742262ef1470608c59ddbc66baf37c148e938c7038e6bc7a998aa"
+    url "https://files.pythonhosted.org/packages/73/8f/8397d6abe5c491ba854164785b10bc6427b03b9299e6106407a56c90a1a2/starlette-0.17.0.tar.gz"
+    sha256 "31a889e7d7bf487f70d9d197ed7efadb47fa938c58626ed93e381480833c5b84"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
-    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
+    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
+    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/26/6c/6ace1cd024a27dd692c80fd31c8e51e6b81bde459e2cae06b5ab30fc37d2/uvicorn-0.13.4.tar.gz"
-    sha256 "3292251b3c7978e8e4a7868f4baf7f7f7bb7e40c759ecc125c37e99cdea34202"
+    url "https://files.pythonhosted.org/packages/3c/06/758c0ce8fe0053a86c99824c69eaabf0dacf2a0d935a9cfde18bbef9360a/uvicorn-0.15.0.tar.gz"
+    sha256 "d9a3c0dd1ca86728d3e235182683b4cf94cd53a867c288eaeca80ee781b2caff"
   end
 
   resource "wsproto" do
@@ -114,8 +130,8 @@ class Platformio < Formula
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/4b/21/a09b4a8fdd0f9068c8134de31c4258f43c1c35352e89bdcb8994dae180d9/zeroconf-0.28.8.tar.gz"
-    sha256 "4be24a10aa9c73406f48d42a8b3b077c217b0e8d7ed1e57639630da520c25959"
+    url "https://files.pythonhosted.org/packages/cc/66/4b509ea71cf2daf2e590eb1194753b26ee0a593ecbab85dcf1838bac3073/zeroconf-0.36.12.tar.gz"
+    sha256 "1f1994f550abfeda10a9d5924c7e5b463213ea5ca87198da751c74995f59e780"
   end
 
   def install

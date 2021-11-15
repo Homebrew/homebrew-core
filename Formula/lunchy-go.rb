@@ -6,11 +6,13 @@ class LunchyGo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b08ba310aca8771aeeafc4b83bba77cfb57a5bb776752528035e21177c079e03"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c6da299c289b38ba1a7ae8fdf081adedb1460b94d15016b0d641ffe898afac35"
-    sha256 cellar: :any_skip_relocation, catalina:      "3a3db921e9e82d0b87f24c5763980b6fec6e332fbb6ce4833b57e58aa8402f71"
-    sha256 cellar: :any_skip_relocation, mojave:        "e372d1c35dbb73f11c6a826bd3bc5385f3376ebaa809972b8799a3c8483bcd09"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "7c2f3349ecf308bb53264577a1061714731126210996d17c2f7578c3bfc56056"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9dadf4a849956c4f09eba6b8c18aed458686138e91254675004e7d15caf4a2a6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b08ba310aca8771aeeafc4b83bba77cfb57a5bb776752528035e21177c079e03"
+    sha256 cellar: :any_skip_relocation, monterey:       "1dcf57a3daf16341b4ef6e321cf64f1be1e65242b7f2b32f534fa358b2a83f03"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c6da299c289b38ba1a7ae8fdf081adedb1460b94d15016b0d641ffe898afac35"
+    sha256 cellar: :any_skip_relocation, catalina:       "3a3db921e9e82d0b87f24c5763980b6fec6e332fbb6ce4833b57e58aa8402f71"
+    sha256 cellar: :any_skip_relocation, mojave:         "e372d1c35dbb73f11c6a826bd3bc5385f3376ebaa809972b8799a3c8483bcd09"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "7c2f3349ecf308bb53264577a1061714731126210996d17c2f7578c3bfc56056"
   end
 
   depends_on "go" => :build

@@ -4,14 +4,15 @@ class Ecl < Formula
   url "https://common-lisp.net/project/ecl/static/files/release/ecl-21.2.1.tgz"
   sha256 "b15a75dcf84b8f62e68720ccab1393f9611c078fcd3afdd639a1086cad010900"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://gitlab.com/embeddable-common-lisp/ecl.git", branch: "develop"
 
   bottle do
-    sha256 arm64_big_sur: "847322265172ae8fe032c0a0ce7aa49a97fc5d7b65b67747b75e328567938d08"
-    sha256 big_sur:       "5df2258cb07a0f70a7e5d664f691d843fd5cae916009dbbc1ee0f6867c3dff48"
-    sha256 catalina:      "5286a86476c459ce1694d50363a885be2869df62bf632c532755eb51fe9fdbc5"
-    sha256 mojave:        "db02128ab8feb220552e2dad2f565283c44b64b688e2e467ecfbe68e4dce6bef"
-    sha256 x86_64_linux:  "b6b04526fb3118e8a87cbebbd0201a8aeefed7c085ce588d87b7a0ea2e88dce8"
+    sha256 arm64_big_sur: "f22e7b333050fe84c8a5e277c87666c16f42655ebf3c1bf76815db67c9520e7f"
+    sha256 big_sur:       "6881f61f6abc60969a668260a05ee06c2f7420b201b9ed4c2fb4b78b3ca4ae3c"
+    sha256 catalina:      "81e01b8b899eaa0d835f6c303ad9346251c3f234c60ff34e2d70e59adefb21c6"
+    sha256 mojave:        "fa6ce6c90d52cb11ec897693d18485fbcb7e2b066ea46fb3f588ff2cad3e1cc1"
+    sha256 x86_64_linux:  "25bb43cb6297d30bbd4d8045ba179f8e17c431b723fb7d9d3768e77fe3d348b8"
   end
 
   depends_on "texinfo" => :build # Apple's is too old

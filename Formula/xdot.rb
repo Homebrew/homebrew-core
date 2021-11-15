@@ -4,9 +4,10 @@ class Xdot < Formula
   url "https://files.pythonhosted.org/packages/8b/f5/f5282a470a1c0f16b6600edae18ffdc3715cdd6ac8753205df034650cebe/xdot-1.2.tar.gz"
   sha256 "3df91e6c671869bd2a6b2a8883fa3476dbe2ba763bd2a7646cf848a9eba71b70"
   license "LGPL-3.0"
-  head "https://github.com/jrfonseca/xdot.py.git"
+  head "https://github.com/jrfonseca/xdot.py.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey: "adec932e49a5bf43f613b4e24123d23dd6365cd63ff770b80471280e8d24dc46"
     sha256 cellar: :any_skip_relocation, big_sur:  "cde9b3087f5d052432a49145b7e7b91aae192999a842f5764c6ed17cda033206"
     sha256 cellar: :any_skip_relocation, catalina: "d8f03ae6eeb651fce014693fa933718777d2e1add5dbdd6939460797ca8bb4d0"
     sha256 cellar: :any_skip_relocation, mojave:   "771363f972fd67d88d8ed836a654248bbc9cc41109881eec54211aedaf507681"

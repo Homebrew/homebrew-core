@@ -11,14 +11,16 @@ class Dvdrtools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7b93d029d54fa99b94010b18776bdf36c889e81e8f169f8745f319b7b7b6f9f0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c969433ed859dab8f0551c6eab562a4cc272b063f333e0208081ea3b5940c76b"
-    sha256 cellar: :any_skip_relocation, catalina:      "40f565db4f098c70bed700dc88edd45951e58a7f7c64583d52db81afcdbde704"
-    sha256 cellar: :any_skip_relocation, mojave:        "77bee36a67611f862c4fd8fbff7b1bbc7e307f5f618508664f02193df7347865"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "f697f22349d9ed05ad580d06b5dc38c4b626187d50cfc364af4bb5634f16b152"
-    sha256 cellar: :any_skip_relocation, sierra:        "afa198a1854643ac7657ad1c93bfc5f9b05760e3b3375dd3ec43ad0b51e4ea7e"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "8d29698226d26f42559f4913a13920632b85cafc389122697fa2c5c4d0cd2d8b"
-    sha256 cellar: :any_skip_relocation, yosemite:      "4feb2b0e87b7402706c5a382c8e35b66279aa1b73c37c7ded7a6cc14de3a8a62"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "587872ae7f087b62cf2b227faeb303bffdc9365794bf60daf8f071c2039869f1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7b93d029d54fa99b94010b18776bdf36c889e81e8f169f8745f319b7b7b6f9f0"
+    sha256 cellar: :any_skip_relocation, monterey:       "63a9ae5cc3cf6c54d7d7302dab688c4cd560ce69d30eceaf0de09d7f5da53d7b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c969433ed859dab8f0551c6eab562a4cc272b063f333e0208081ea3b5940c76b"
+    sha256 cellar: :any_skip_relocation, catalina:       "40f565db4f098c70bed700dc88edd45951e58a7f7c64583d52db81afcdbde704"
+    sha256 cellar: :any_skip_relocation, mojave:         "77bee36a67611f862c4fd8fbff7b1bbc7e307f5f618508664f02193df7347865"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "f697f22349d9ed05ad580d06b5dc38c4b626187d50cfc364af4bb5634f16b152"
+    sha256 cellar: :any_skip_relocation, sierra:         "afa198a1854643ac7657ad1c93bfc5f9b05760e3b3375dd3ec43ad0b51e4ea7e"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "8d29698226d26f42559f4913a13920632b85cafc389122697fa2c5c4d0cd2d8b"
+    sha256 cellar: :any_skip_relocation, yosemite:       "4feb2b0e87b7402706c5a382c8e35b66279aa1b73c37c7ded7a6cc14de3a8a62"
   end
 
   conflicts_with "cdrtools",

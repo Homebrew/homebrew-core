@@ -14,11 +14,13 @@ class Aalib < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "031eac9658cb6878fea6b53e232e0b3f294b81953dd1803bd808c26c5b1a934a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fb1df93a418c2ae4b7c358d19b58afc0ad73d9d1e6f22b92aa5d5f086cb48a70"
-    sha256 cellar: :any_skip_relocation, catalina:      "d83c1b827ca16ae5450356db32fe1b27e910a27bbe2b074a9b4c22fe310bc5b7"
-    sha256 cellar: :any_skip_relocation, mojave:        "46feeea3fc331a6982fa1960645e1851d3f395f36fbd99cbf92a7406030d9511"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ba926f8aadec9e5c30880ae6e6497d44f9045d1ca1f680baf28e67309bd8ecd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "292e704fb6cca01e6ab77baac8960df5c9b45f2fb209a0f670a7de16242c3ee0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "031eac9658cb6878fea6b53e232e0b3f294b81953dd1803bd808c26c5b1a934a"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac7c8f7dafcb3eedf34abdd258d0cab1f9e58a3048da6307ded8ae029d162a2b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fb1df93a418c2ae4b7c358d19b58afc0ad73d9d1e6f22b92aa5d5f086cb48a70"
+    sha256 cellar: :any_skip_relocation, catalina:       "d83c1b827ca16ae5450356db32fe1b27e910a27bbe2b074a9b4c22fe310bc5b7"
+    sha256 cellar: :any_skip_relocation, mojave:         "46feeea3fc331a6982fa1960645e1851d3f395f36fbd99cbf92a7406030d9511"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ba926f8aadec9e5c30880ae6e6497d44f9045d1ca1f680baf28e67309bd8ecd"
   end
 
   # Fix malloc/stdlib issue on macOS

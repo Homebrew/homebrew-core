@@ -11,12 +11,20 @@ class Chadwick < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3feae6163c485d40c22f4dcbd0f2772245e8010e7beb4b9f9c399bd93d46f475"
-    sha256 cellar: :any,                 big_sur:       "d03f388d1a56550fdc5b9832bf0a952c35a5b7d38f0661885c0dc4b7ee01d718"
-    sha256 cellar: :any,                 catalina:      "693c6ee0980401936a83453bdbc398aeb0eb06ba9bb8e101046508b14edfdc98"
-    sha256 cellar: :any,                 mojave:        "a068fd25b1e8b3d6f9a56a8a1d4ac18a49f07f82450b1ab3f3766b86fb0a362a"
-    sha256 cellar: :any,                 high_sierra:   "427b5c0fca10b23b66c56bda3537080df2ba467edea59a9dfd2f0fba56f50f9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a384612258d503ddcdf39abc98c60e3cfdad289aaaad89169ee18f6f4e596639"
+    sha256 cellar: :any,                 arm64_monterey: "38685dff8c84293981d24cb109e29e7daab5054c8b643e5d4f4345a6ca5b68ab"
+    sha256 cellar: :any,                 arm64_big_sur:  "3feae6163c485d40c22f4dcbd0f2772245e8010e7beb4b9f9c399bd93d46f475"
+    sha256 cellar: :any,                 monterey:       "12a233aaf2854a5ab2d7561581465d51f014f9622e2231b5e3da98f4041937be"
+    sha256 cellar: :any,                 big_sur:        "d03f388d1a56550fdc5b9832bf0a952c35a5b7d38f0661885c0dc4b7ee01d718"
+    sha256 cellar: :any,                 catalina:       "693c6ee0980401936a83453bdbc398aeb0eb06ba9bb8e101046508b14edfdc98"
+    sha256 cellar: :any,                 mojave:         "a068fd25b1e8b3d6f9a56a8a1d4ac18a49f07f82450b1ab3f3766b86fb0a362a"
+    sha256 cellar: :any,                 high_sierra:    "427b5c0fca10b23b66c56bda3537080df2ba467edea59a9dfd2f0fba56f50f9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a384612258d503ddcdf39abc98c60e3cfdad289aaaad89169ee18f6f4e596639"
+  end
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 
   def install

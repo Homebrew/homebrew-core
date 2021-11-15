@@ -12,11 +12,13 @@ class Libnice < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "0c414fc1c0583fc19cbb8e604914315a4118da705ad5cd78a6472410cd8c0b5b"
-    sha256 cellar: :any, big_sur:       "af306d90fda80e3afe83851672ec34a679e55595431383b5ba246051fc827895"
-    sha256 cellar: :any, catalina:      "eafa60c41c7d017627859714e5a1028151376432e1c5802b95f65f81a191016d"
-    sha256 cellar: :any, mojave:        "657ffb5240531a8dc9e918c2aec1c74fca62af994524e002d674ce9fbe52e4c1"
-    sha256               x86_64_linux:  "5a9f6bdf5b31637f23cfa5bc3762a9931e46f35bef1da914f99d0c0555003b33"
+    sha256 cellar: :any, arm64_monterey: "5581f07b30fd73e609004ff104bbf029c185c19fd28d4e54f9e96dbf9d40fb0a"
+    sha256 cellar: :any, arm64_big_sur:  "0c414fc1c0583fc19cbb8e604914315a4118da705ad5cd78a6472410cd8c0b5b"
+    sha256 cellar: :any, monterey:       "a6f64b14516006f7b81dc1e74d5fe08b06e718e49b00133999b0ee054012f865"
+    sha256 cellar: :any, big_sur:        "af306d90fda80e3afe83851672ec34a679e55595431383b5ba246051fc827895"
+    sha256 cellar: :any, catalina:       "eafa60c41c7d017627859714e5a1028151376432e1c5802b95f65f81a191016d"
+    sha256 cellar: :any, mojave:         "657ffb5240531a8dc9e918c2aec1c74fca62af994524e002d674ce9fbe52e4c1"
+    sha256               x86_64_linux:   "5a9f6bdf5b31637f23cfa5bc3762a9931e46f35bef1da914f99d0c0555003b33"
   end
 
   depends_on "meson" => :build

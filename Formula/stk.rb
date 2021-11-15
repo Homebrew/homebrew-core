@@ -10,12 +10,14 @@ class Stk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "84350317ebd890f6925b7a5205cf2841ea369078636eaebf7337ffe66a632b22"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c59dbe42c23db7465a1804b6cff8047e9f0539382db845c2131bb789e2b5ab3a"
-    sha256 cellar: :any_skip_relocation, catalina:      "3cbeef8a18f26bf9c0d988e40f1aea3fae9695e99644cd7253dd13ef340c37a5"
-    sha256 cellar: :any_skip_relocation, mojave:        "44cd735483145a0f969ab412cd0540ed7936512afb1c902bd9b7258e530d60a4"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "22823e8c4cf694fabeea049a0a0debf38b3be79de73f6ac62a65a9fe45bec93c"
-    sha256 cellar: :any_skip_relocation, sierra:        "fbf3f82768d3ea1a8f6b60dd593e838beb05c3529c3a89b4ecb743a53e26d7b6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a21208fcffd1b34b7f5753e6b6fcd9623a4386d0d0e372da079ca1443621d521"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "84350317ebd890f6925b7a5205cf2841ea369078636eaebf7337ffe66a632b22"
+    sha256 cellar: :any_skip_relocation, monterey:       "979436674a714e3dd55478771301050eef7c1c8c5773ee96fc87e385bc91df96"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c59dbe42c23db7465a1804b6cff8047e9f0539382db845c2131bb789e2b5ab3a"
+    sha256 cellar: :any_skip_relocation, catalina:       "3cbeef8a18f26bf9c0d988e40f1aea3fae9695e99644cd7253dd13ef340c37a5"
+    sha256 cellar: :any_skip_relocation, mojave:         "44cd735483145a0f969ab412cd0540ed7936512afb1c902bd9b7258e530d60a4"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "22823e8c4cf694fabeea049a0a0debf38b3be79de73f6ac62a65a9fe45bec93c"
+    sha256 cellar: :any_skip_relocation, sierra:         "fbf3f82768d3ea1a8f6b60dd593e838beb05c3529c3a89b4ecb743a53e26d7b6"
   end
 
   depends_on "autoconf" => :build

@@ -7,11 +7,13 @@ class Rhit < Formula
   head "https://github.com/Canop/rhit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ed8cd1eab1b954f1aaed386a7c4a26df88b45a2c57848797cdea651f7cecb870"
-    sha256 cellar: :any_skip_relocation, big_sur:       "83c6b1c6d599085aa2980c3b73a5098e9b72304844ccd3a8990e0cb15e4b63ce"
-    sha256 cellar: :any_skip_relocation, catalina:      "33d95dff7a169f057a999cd1ea56245277ec17f45a38ce3f5c20a6d4638ee242"
-    sha256 cellar: :any_skip_relocation, mojave:        "b0da544cfff128f8f76246e939efe94a6ad34fde368454d482024c5c1ec11c8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "333de381af53ef46543d691b59d02b734b42bc1444e25905bc8801d727294996"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca552a56428686c6744ef22591a078bafa771ad9d10556a3d236a244c349a4a0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed8cd1eab1b954f1aaed386a7c4a26df88b45a2c57848797cdea651f7cecb870"
+    sha256 cellar: :any_skip_relocation, monterey:       "7e3557bcf168b73c22d2670085069e91f80987ee7c0698b495d10caa90491af9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "83c6b1c6d599085aa2980c3b73a5098e9b72304844ccd3a8990e0cb15e4b63ce"
+    sha256 cellar: :any_skip_relocation, catalina:       "33d95dff7a169f057a999cd1ea56245277ec17f45a38ce3f5c20a6d4638ee242"
+    sha256 cellar: :any_skip_relocation, mojave:         "b0da544cfff128f8f76246e939efe94a6ad34fde368454d482024c5c1ec11c8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "333de381af53ef46543d691b59d02b734b42bc1444e25905bc8801d727294996"
   end
 
   depends_on "rust" => :build

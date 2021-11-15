@@ -4,17 +4,20 @@ class Pipx < Formula
   url "https://files.pythonhosted.org/packages/8c/38/b9cbadcccc01be38f7fd47e52acc623657a0ecfc51eb43129c3825efc84c/pipx-0.16.4.tar.gz"
   sha256 "992e78082c0b33c7bc708176ce9e0df9bac9ae3b08bf111c368571bc32e723d6"
   license "MIT"
-  head "https://github.com/pypa/pipx.git"
+  revision 2
+  head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a7792c215704d5427b5d23d7e1a0147b486d4889847219cdd343bb9d9345e576"
-    sha256 cellar: :any_skip_relocation, big_sur:       "909ab05f7e210097d488df3f87bdc50bd3fcd08f2761ba7fad929c7c452d268f"
-    sha256 cellar: :any_skip_relocation, catalina:      "909ab05f7e210097d488df3f87bdc50bd3fcd08f2761ba7fad929c7c452d268f"
-    sha256 cellar: :any_skip_relocation, mojave:        "909ab05f7e210097d488df3f87bdc50bd3fcd08f2761ba7fad929c7c452d268f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69c38c16c99cbc0feae14e081c5c46b2233d10faf32617ca8357b1ba652a71f3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "368679de313c91bb95ae0b618cee93b2cccf0f9f8d6a969f98165d8a7c4fa8cf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "368679de313c91bb95ae0b618cee93b2cccf0f9f8d6a969f98165d8a7c4fa8cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "b310cf1250d3dc6b002bd4f709015105ccc593a57aee1aa2b79cb308ac6f6214"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b310cf1250d3dc6b002bd4f709015105ccc593a57aee1aa2b79cb308ac6f6214"
+    sha256 cellar: :any_skip_relocation, catalina:       "b310cf1250d3dc6b002bd4f709015105ccc593a57aee1aa2b79cb308ac6f6214"
+    sha256 cellar: :any_skip_relocation, mojave:         "b310cf1250d3dc6b002bd4f709015105ccc593a57aee1aa2b79cb308ac6f6214"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "469a03613a40a9ea0d30ea0779274f7abab1270297111522bbb7cbb0b2a4c8d1"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/6a/b4/3b1d48b61be122c95f4a770b2f42fc2552857616feba4d51f34611bd1352/argcomplete-1.12.3.tar.gz"

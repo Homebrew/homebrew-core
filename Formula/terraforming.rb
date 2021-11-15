@@ -13,6 +13,7 @@ class Terraforming < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "e4997ba46e6e796833c2f881f68b20cd52006510371ede211d422190a5223454"
     sha256 cellar: :any_skip_relocation, high_sierra:   "59001edf7447dbab2dd760fcec4fc0a77d711ec43e7d95658aa9c663f7baf44d"
     sha256 cellar: :any_skip_relocation, sierra:        "f1d900508e9b2a38a1e417ee9f0faa050c89332cf9eff1a3de83c96eebead164"
+    sha256 cellar: :any_skip_relocation, all:           "9fec9a488184066c7ef10f728be33fcc30afe004d9d5bc6dbe7c187a768b8165"
   end
 
   uses_from_macos "ruby"

@@ -1,18 +1,18 @@
 class MathComp < Formula
   desc "Mathematical Components for the Coq proof assistant"
   homepage "https://math-comp.github.io/math-comp/"
-  url "https://github.com/math-comp/math-comp/archive/mathcomp-1.12.0.tar.gz"
-  sha256 "a57b79a280e7e8527bf0d8710c1f65cde00032746b52b87be1ab12e6213c9783"
+  url "https://github.com/math-comp/math-comp/archive/mathcomp-1.13.0.tar.gz"
+  sha256 "4334e915736f96032e1d4d502e70537047220af1a1c7a6740f770e45601bdab0"
   license "CECILL-B"
-  revision 5
   head "https://github.com/math-comp/math-comp.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fba9e5fff8717ec206afc69fae6ee4af285625e381974e56367dd2f3a9d4fc1c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3e2692620ca6d753e7fe6f9122435cebdcf84f925fd227e058794195d8d80e61"
-    sha256 cellar: :any_skip_relocation, catalina:      "b750bc8c02d530d9ff1648f58e8c517e9c28117ca3834f14d78cf703785dc75c"
-    sha256 cellar: :any_skip_relocation, mojave:        "ea939ecf266cef2f643b2ecd72592a9c75b5baa943f44a75e30c5aa961a1b751"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5815c4c5eb07a5fb5c4c8cc259f55ab511d3f1ff79af10c24baa18bf8ee8243"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "68955d63313cc612502041601eba758a3c0210af6d277eb69a96ed54f0af2ac8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "edaea0ef9b4e2243853ffb948354c01d196eadd1af1b505b775a52ae6e6419b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "01ef7db2ac990cd1f4aa80fbe2f41934cf515b4e6e2a445d87d02fc5fb7b9864"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0ead946a08d833689a5e6aa8ae7d4ba734b3881e10e702f852fbfc17af700c49"
+    sha256 cellar: :any_skip_relocation, catalina:       "62c03d5f102c44aec11ddeed1eef155a9423eacaf8e8d551055ef98e16a47d1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04ae3c0340aa0824046ab7f0ba69aec3e26b979968e97848815af411b3dfaaf0"
   end
 
   depends_on "ocaml" => :build

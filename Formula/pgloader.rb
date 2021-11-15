@@ -5,7 +5,7 @@ class Pgloader < Formula
   sha256 "e35b8c2d3f28f3c497f7e0508281772705940b7ae789fa91f77c86c0afe116cb"
   license "PostgreSQL"
   revision 2
-  head "https://github.com/dimitri/pgloader.git"
+  head "https://github.com/dimitri/pgloader.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "d7f926192e26b7e8a0e5d269370590d23a1d1c28e2323b6c2001e71088b2b8cd"

@@ -1,20 +1,22 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot/"
-  url "https://github.com/Canop/broot/archive/v1.6.3.tar.gz"
-  sha256 "c7ef696a9da162a4338790a9e021eddedcc9a5be321bfea5cc2c33b2b2a53472"
+  url "https://github.com/Canop/broot/archive/v1.7.1.tar.gz"
+  sha256 "cf4d3d54ca38b022ed030e859e609b80561b38653704dc62bb69d260f84a49e2"
   license "MIT"
-  head "https://github.com/Canop/broot.git"
+  head "https://github.com/Canop/broot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3cff2cf84e7a32b908b85701ea06c6f92e19e25db0e9344b694065816d53cc22"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c6b99746eaef474cfe50304cada0292548a01a03d5a1d3bdbd2e4087d4d8b036"
-    sha256 cellar: :any_skip_relocation, catalina:      "75ecb00808ead30aecf941609b2f77e584c1b787e9f68d24446bc8231a71f5e7"
-    sha256 cellar: :any_skip_relocation, mojave:        "072e7cf407b955b79fd69ca00f224aabcdaba3268cca6ec58663179b669c88b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f745b17e4311f7aa9a5e59615af3217bd1b1aca852bbab5c97bb6d1a047c8ab1"
+    sha256 cellar: :any,                 arm64_monterey: "bc6b9cc2571cf3fef551bc839befa747d4fdf4d6f5e8b89d4aab05e9e4740537"
+    sha256 cellar: :any,                 arm64_big_sur:  "43d0f34ea493b97d08ecfb771620b8bcbc0dad741ac2e490b3020d7814e8c2aa"
+    sha256 cellar: :any,                 monterey:       "62d9a60f800cca1f4d2bdac5eb27e86c11979f18fd4b6e37d0ac6705af265e4c"
+    sha256 cellar: :any,                 big_sur:        "668ec47dedc70989dc625059e401bca5b3fa2bed071acadc5be6ab8d64d9e66f"
+    sha256 cellar: :any,                 catalina:       "eb3c881a61005b523185487ad68f3c2f7b84764285339c6bb1122358f60786fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09626818729c2ba4762961945c088377b57101836a9bdded705c8ef6551bd1a7"
   end
 
   depends_on "rust" => :build
+  depends_on "libxcb"
 
   uses_from_macos "curl" => :build
   uses_from_macos "zlib"

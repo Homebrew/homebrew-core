@@ -1,24 +1,25 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-5.0.0/apache-arrow-5.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-5.0.0/apache-arrow-5.0.0.tar.gz"
-  sha256 "c3b4313eca594c20f761a836719721aaf0760001af896baec3ab64420ff9910a"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-6.0.0/apache-arrow-6.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-6.0.0/apache-arrow-6.0.0.tar.gz"
+  sha256 "69d268f9e82d3ebef595ad1bdc83d4cb02b20c181946a68631f6645d7c1f7a90"
   license "Apache-2.0"
   revision 1
   head "https://github.com/apache/arrow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "2fde45fd60e6e8ded9d49800c6c610504e8e79489ba1b458457593754e2cf951"
-    sha256 cellar: :any,                 big_sur:       "e0f9feb7dbe72ef09b646d4ca4a3ce75b8dcea072d4a2c1e13f8df85025ea205"
-    sha256 cellar: :any,                 catalina:      "a7e51898ea6da7655f11738ebbc98e45624b404981b0ee09266961e4a090a33c"
-    sha256 cellar: :any,                 mojave:        "4acd758fc7a032303ca2c8caff65d0ae2e195eccb6916b92912cfd6513edfc72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2257a9769d20f73b264def012c8db137cc32e5a0602ec25237bcda42e0671ec"
+    sha256 cellar: :any,                 arm64_big_sur: "494c0bfdea7ce33f6a5364c8f34cddeb44adbcd21dbb9a775975f673583e8b16"
+    sha256 cellar: :any,                 monterey:      "5ee9003399039af46b04d38b0c440b17a07660247ab625f081a1b79eb81ab474"
+    sha256 cellar: :any,                 big_sur:       "81bf1f874821856da24e0070757189d26ac548cea0b0820e6e169d3747f2db33"
+    sha256 cellar: :any,                 catalina:      "73123aeebf68ac6c5d7c619415549d9512f8e29a51b9e212e42504660d38fe87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cb1bb7687850f34f0c895353b873f99916c0aa4ef96580af530f22b21ed5aec"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "llvm" => :build
+  depends_on "aws-sdk-cpp"
   depends_on "brotli"
   depends_on "glog"
   depends_on "grpc"
@@ -33,6 +34,12 @@ class ApacheArrow < Formula
   depends_on "thrift"
   depends_on "utf8proc"
   depends_on "zstd"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     # https://github.com/Homebrew/homebrew-core/issues/76537
@@ -50,6 +57,7 @@ class ApacheArrow < Formula
       -DARROW_PLASMA=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
       -DARROW_PYTHON=ON
+      -DARROW_S3=ON
       -DARROW_WITH_BZ2=ON
       -DARROW_WITH_ZLIB=ON
       -DARROW_WITH_ZSTD=ON
@@ -58,7 +66,7 @@ class ApacheArrow < Formula
       -DARROW_WITH_BROTLI=ON
       -DARROW_WITH_UTF8PROC=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].bin/"python3"}
+      -DPython3_EXECUTABLE=#{Formula["python@3.9"].bin/"python3"}
     ]
 
     args << "-DARROW_MIMALLOC=ON" unless Hardware::CPU.arm?

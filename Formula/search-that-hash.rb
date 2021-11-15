@@ -6,16 +6,19 @@ class SearchThatHash < Formula
   url "https://files.pythonhosted.org/packages/5e/b9/a304a92ba77a9e18b3023b66634e71cded5285cef7e3b56d3c1874e9d84e/search-that-hash-0.2.8.tar.gz"
   sha256 "384498abbb9a611aa173b20d06b135e013674670fecc01b34d456bfe536e0bca"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/HashPals/Search-That-Hash.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "167b30792a56859267b04812cd933aa4c5cbe5ae08d4723f6c7b2b59f90a61a4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bcb3a7b773535ab3969044b9783722b87d284c4c38be70676caf4557b793d055"
-    sha256 cellar: :any_skip_relocation, catalina:      "b184d96cfacc1d6c0d673c01ac99a9493a6218b3a53fdbf7216ef894c6b4ade2"
-    sha256 cellar: :any_skip_relocation, mojave:        "9984fc3702f3a6905dce8bf29733eea99660208cdf5db2701bad7960579e57fa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7ad204e3cdc46a14e25e42194099ae19e917326051b33056669b717044e221ea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "db2939fb5ecb456e6c03bd093e072a047b0366b16839b686f874e4a58e20d158"
+    sha256 cellar: :any_skip_relocation, monterey:       "1148c374ca548a7540e5e1acf6e33b3e386c5430633771b624ca4755de93f007"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d49a41fc8e09940d879276bd554efb647ec9bab4b682dcac987d61b9afb1ac96"
+    sha256 cellar: :any_skip_relocation, catalina:       "c20db9c553740f8cf3fa2b9a8906585d3ba2d8d8599674af3382e1eebb044b21"
+    sha256 cellar: :any_skip_relocation, mojave:         "eee8ffd45a77e16ef397a6f20707cd6846a8aa68219405a930b9686d991969aa"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -120,8 +123,7 @@ class SearchThatHash < Formula
   def install
     virtualenv_install_with_resources
 
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    site_packages = "lib/python#{xy}/site-packages"
+    site_packages = Language::Python.site_packages("python3")
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-search_that_hash.pth").write pth_contents
   end
@@ -132,6 +134,6 @@ class SearchThatHash < Formula
     assert_match "#{hash}\n", output
     assert_match "Text : password\nType : MD5\n", output
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "from search_that_hash import api"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "from search_that_hash import api"
   end
 end

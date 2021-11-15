@@ -3,16 +3,16 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/v.0.7.9.tar.gz"
-  sha256 "ca14c0d27d9ad28aba835f14c904406414c4094cab904d1d763a0c7608afa5b6"
+  url "https://github.com/Difegue/LANraragi/archive/v.0.8.1.tar.gz"
+  sha256 "b87ca0f3b08147308d2ceee344c77e9f7068742f9b4705ed0ac298f08b4a5bad"
   license "MIT"
   head "https://github.com/Difegue/LANraragi.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6618adee2d3b6a71b9cb220cb0907e106094a989784aea575a79978ccdb339a7"
-    sha256 cellar: :any, big_sur:       "3cfd0c8ae777152d21227e7b93f9d9b3a895bd2a14ee46667b8079b8dab4d9c1"
-    sha256 cellar: :any, catalina:      "73afcbc35062d26ac62ebb0edc0caf765af027fcbf26c4396b5ea1c7976f6b73"
-    sha256 cellar: :any, mojave:        "12051614f04822583ba7f352700991e885ee35f804fb60ff7d532b96d5863f00"
+    sha256 cellar: :any, arm64_big_sur: "9ee88f05aaa4fe5775a41068b26450ac766ebc8520ab596107a64f1cf7a61dc8"
+    sha256 cellar: :any, big_sur:       "b6f9247a0587e23fac302d70ca69f1d07cd73f3194ea1da37e0a5f3b4bb2fb86"
+    sha256 cellar: :any, catalina:      "a3608bc9c711fc8f8cc5c051b14ef89b882bfc3a4420e2cfbf63eb6ebaee617e"
+    sha256 cellar: :any, mojave:        "fb8c7b0db15297e6174933b439a816ff4bd9eacee21779d322973a619a249d22"
   end
 
   depends_on "pkg-config" => :build
@@ -31,8 +31,8 @@ class Lanraragi < Formula
   uses_from_macos "libarchive"
 
   resource "Image::Magick" do
-    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/Image-Magick-7.0.11-1.tar.gz"
-    sha256 "734bee16656af5bca94000419d912518842ba6460ac2d0ff07e3e5a0103272e2"
+    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/Image-Magick-7.0.11-3.tar.gz"
+    sha256 "232f2312c09a9d9ebc9de6c9c6380b893511ef7c6fc358d457a4afcec26916aa"
   end
 
   resource "libarchive-headers" do

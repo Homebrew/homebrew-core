@@ -7,10 +7,12 @@ class AzureStorageCpp < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "44c92708a069bfbb747e7710ce65e20262dfd4bb67311b832639ba201a72ea7a"
-    sha256 cellar: :any, big_sur:       "2c530902c523c7ccdb2d4514145c5c86191e530b0d88d1594f5f2716f6fc87c7"
-    sha256 cellar: :any, catalina:      "161ddefac718948838ab878191c45a1b6180f05598ae121401ca63e3da1b672c"
-    sha256 cellar: :any, mojave:        "4abae4ebc74f4758f5be5fbc7846467eb5bf429b596c31eec32f53026d65251e"
+    sha256 cellar: :any, arm64_monterey: "bf2dc9dc42639f6a174ed7a18fb098aebebd65fc8042b90a512a3d3c455b3cb1"
+    sha256 cellar: :any, arm64_big_sur:  "44c92708a069bfbb747e7710ce65e20262dfd4bb67311b832639ba201a72ea7a"
+    sha256 cellar: :any, monterey:       "04721a7d666cb92d8ac4b4484be3ee76d745cd1a5bd08cdae2683e1c15704a84"
+    sha256 cellar: :any, big_sur:        "2c530902c523c7ccdb2d4514145c5c86191e530b0d88d1594f5f2716f6fc87c7"
+    sha256 cellar: :any, catalina:       "161ddefac718948838ab878191c45a1b6180f05598ae121401ca63e3da1b672c"
+    sha256 cellar: :any, mojave:         "4abae4ebc74f4758f5be5fbc7846467eb5bf429b596c31eec32f53026d65251e"
   end
 
   depends_on "cmake" => :build

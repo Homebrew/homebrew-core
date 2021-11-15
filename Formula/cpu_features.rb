@@ -6,6 +6,7 @@ class CpuFeatures < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "e4cc8363ff01721edffa3c1c48fdefc2f50973468f130feb2c8a8635da723b7c"
     sha256 cellar: :any_skip_relocation, big_sur:      "f6bebf333094fed54f5a96c9dc96280f7a2ca6c7b075cbed9c77a9214fafd8c4"
     sha256 cellar: :any_skip_relocation, catalina:     "ba67bb2d2166f43b17aba3fb4f8306b577e17779e8a8facea32a16451c7b369d"
     sha256 cellar: :any_skip_relocation, mojave:       "9f7d3b134c25934208808a47a8c8ecde61d8a7c3d429246ce807d9183930bd66"

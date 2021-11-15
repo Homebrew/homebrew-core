@@ -14,6 +14,7 @@ class Mlton < Formula
   end
 
   bottle do
+    sha256 cellar: :any, monterey: "ae1960f379bae7ffc49962c1d30a8eeb1110063f7c8a136605cb06e49549a308"
     sha256 cellar: :any, big_sur:  "be6a6d599390e1182ab91f99c8e4cbeb20ed10cbd472d7a7fda790cbb9e60b88"
     sha256 cellar: :any, catalina: "9690c5e07e46081d3f771797ea92f8ddef37fb79e3104263794f8c7473170f18"
     sha256 cellar: :any, mojave:   "e6fdecbf689992c25e1429e2f33d5cd66c5bdee500ec1fe07759ac8d53593fdf"

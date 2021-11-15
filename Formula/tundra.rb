@@ -1,8 +1,8 @@
 class Tundra < Formula
   desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
-  url "https://github.com/deplinenoise/tundra/archive/v2.15.tar.gz"
-  sha256 "c4656a8fb97b0488bda3bfadeb36c3f9d64d9a20095d81f93d59db7d24e34e2b"
+  url "https://github.com/deplinenoise/tundra/archive/v2.16.3.tar.gz"
+  sha256 "25c2649cd415996a5d8fdc4efc39345bd4d44a042a15c93c2a0523703b98f766"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,13 @@ class Tundra < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:      "dbbb68b203aa7c4550f6c16fcf5ad2ad848c2f5620cbbd8218398d69671bc3e7"
-    sha256 cellar: :any_skip_relocation, catalina:     "f36ca8b0357c6687cc29a58cca525de2f5f2abbd8d1ec69137cbc5a511745492"
-    sha256 cellar: :any_skip_relocation, mojave:       "d89e65ad931ef48f287108e2a06e5b64f34ecb82a00c6b0413833b867c27c764"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e37ea4c934066117b10d4f133c74a5b0527dca0d3509410ddeb3ccb02f3be22a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "881f85c3420de84fef6abada966f11381a2a2342584485a10be0cd129470302f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7ab1c12b2e4655c43d05d0a2e3d7c639b0ba3f525ce19ccd63f0c1b5232b139"
+    sha256 cellar: :any_skip_relocation, monterey:       "12546c667831e99b534a83f6d3e0ef5eb27795396a68198dba7510a73f28ee2e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a6b590396609eca11fc3d11a092d6354ce9ab2b56ac00b0ce19c1066740b67d1"
+    sha256 cellar: :any_skip_relocation, catalina:       "5300a0ef420db061926f21228da36eb747c8553cba76e48c86832f86cbbda0fa"
+    sha256 cellar: :any_skip_relocation, mojave:         "c2faa7134fd8cebc4a1552c2b5c772ed9f15024b5f8d9c9f7ec2a0123e74a23c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9410f75d8351e7e9a78fdbccf4f84d6ed78108cf6d6a730b205e2b6c9bfac51"
   end
 
   depends_on "googletest" => :build
@@ -36,11 +38,10 @@ class Tundra < Formula
       }
     EOS
 
-    os = "macosx"
-    cc = "clang"
-    on_linux do
-      os = "linux"
-      cc = "gcc"
+    os, cc = if OS.mac?
+      ["macosx", "clang"]
+    else
+      ["linux", "gcc"]
     end
 
     (testpath/"tundra.lua").write <<~EOS

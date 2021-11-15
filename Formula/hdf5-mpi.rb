@@ -37,11 +37,10 @@ class Hdf5Mpi < Formula
               "settingsdir=$(libdir)",
               "settingsdir=#{pkgshare}"
 
-    on_macos do
+    if OS.mac?
       system "autoreconf", "-fiv"
-    end
+    else
 
-    on_linux do
       system "./autogen.sh"
     end
 
@@ -60,9 +59,7 @@ class Hdf5Mpi < Formula
       F90=mpif90
     ]
 
-    on_linux do
-      args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
-    end
+    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" if OS.linux?
 
     system "./configure", *args
     system "make", "install"

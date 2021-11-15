@@ -9,13 +9,15 @@ class GxGo < Formula
   head "https://github.com/whyrusleeping/gx-go.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f19c6b08f918f3a5d697033421405cc1d8640251c1f35debc5c64a68638a6bf6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5dc1b0036572c7bd56d60b294608b151f1740018d90b94034072d8a97f3c0368"
-    sha256 cellar: :any_skip_relocation, catalina:      "66fa3b40ddb24acbb713379c90df9b398baafd51aa825d5ba28d5fc7781ad987"
-    sha256 cellar: :any_skip_relocation, mojave:        "8c86c8465cde5c6189e67f2d3b758604ef579d064f398cd48eff6ab6ce092bdb"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "57eb4c948ce99ebca79f938539c1b5e096aef6c16554c30f5744b4e1fc93016d"
-    sha256 cellar: :any_skip_relocation, sierra:        "7eb7a89b575a1cb12464f1a0a4d14c5983333a79fb6e4fbb9c5b5240e540020d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "692e3553ebcc2909c27897f5fc6c74a7937af1e8cee2819daab8c6573e0bf8b5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be5396fc6d5a6908b2a41a321dd7aa4f87d78ffb656bf54a14869fb4cb1e51d4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f19c6b08f918f3a5d697033421405cc1d8640251c1f35debc5c64a68638a6bf6"
+    sha256 cellar: :any_skip_relocation, monterey:       "ce75606c2944f263c2cf7b83930c1cd3ce57fd6dce50be5ba37b8d074e86c8eb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5dc1b0036572c7bd56d60b294608b151f1740018d90b94034072d8a97f3c0368"
+    sha256 cellar: :any_skip_relocation, catalina:       "66fa3b40ddb24acbb713379c90df9b398baafd51aa825d5ba28d5fc7781ad987"
+    sha256 cellar: :any_skip_relocation, mojave:         "8c86c8465cde5c6189e67f2d3b758604ef579d064f398cd48eff6ab6ce092bdb"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "57eb4c948ce99ebca79f938539c1b5e096aef6c16554c30f5744b4e1fc93016d"
+    sha256 cellar: :any_skip_relocation, sierra:         "7eb7a89b575a1cb12464f1a0a4d14c5983333a79fb6e4fbb9c5b5240e540020d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "692e3553ebcc2909c27897f5fc6c74a7937af1e8cee2819daab8c6573e0bf8b5"
   end
 
   depends_on "go" => :build

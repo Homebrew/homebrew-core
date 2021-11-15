@@ -6,11 +6,13 @@ class Dvdbackup < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9915a81fafc6436fbc35d0cdde179fa65775b438f296e21397c3c416a900889b"
-    sha256 cellar: :any, big_sur:       "dc6778d0bf6be00d5b9abfe877b0893b37ac2a36ca3395155658572b8b050750"
-    sha256 cellar: :any, catalina:      "f90daeedafee023dd908051af528be81f629f30026ec109f89e2bb187582d75b"
-    sha256 cellar: :any, mojave:        "e28050e6f6611d8f8f573f52bdb17bb349a5f347b0a6499e9eaa8bfdde9a5f71"
-    sha256               x86_64_linux:  "c88b2286a17892633aef4e5fae8065e813ac1bf0bf14a63e0be2566bca388d4b"
+    sha256 cellar: :any, arm64_monterey: "dd5094eec306b3cdc1e0592937f3a9c98872d703d53865575e30c4bbf7c25274"
+    sha256 cellar: :any, arm64_big_sur:  "9915a81fafc6436fbc35d0cdde179fa65775b438f296e21397c3c416a900889b"
+    sha256 cellar: :any, monterey:       "fc938674adb52e95181053700eda2db94b4cbd2ff070391201ce3cf5bbd61496"
+    sha256 cellar: :any, big_sur:        "dc6778d0bf6be00d5b9abfe877b0893b37ac2a36ca3395155658572b8b050750"
+    sha256 cellar: :any, catalina:       "f90daeedafee023dd908051af528be81f629f30026ec109f89e2bb187582d75b"
+    sha256 cellar: :any, mojave:         "e28050e6f6611d8f8f573f52bdb17bb349a5f347b0a6499e9eaa8bfdde9a5f71"
+    sha256               x86_64_linux:   "c88b2286a17892633aef4e5fae8065e813ac1bf0bf14a63e0be2566bca388d4b"
   end
 
   depends_on "libdvdread"

@@ -1,8 +1,8 @@
 class Sonarqube < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.0.1.46107.zip"
-  sha256 "cb27f3230c8126f7082b89a7d018734b59321821e150a50c016e5cb887e68c5c"
+  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.1.0.47736.zip"
+  sha256 "b6a32700ccdf48ffd7e9bc57abef6ae271bbb05e6f036ba5f6d170013eb66e62"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -11,10 +11,10 @@ class Sonarqube < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "25ed99650ddba6303a40c641d9a63d235ed69d159688c158195924743fdcd3c0"
-    sha256 cellar: :any_skip_relocation, catalina:     "25ed99650ddba6303a40c641d9a63d235ed69d159688c158195924743fdcd3c0"
-    sha256 cellar: :any_skip_relocation, mojave:       "c0b6fb89e3a481c89fcc5f67bdfa59898530831de4937833424a79a4c8ababe5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "22f5ad737ec068adbb0653a92209adaf193bcfec395fa496c879fffbc08de56d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:      "0129761b88551453539aea7dc7267b0d92cb84ee36417b64f650b89ab626d112"
+    sha256 cellar: :any_skip_relocation, catalina:     "0129761b88551453539aea7dc7267b0d92cb84ee36417b64f650b89ab626d112"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "68e8afd0a5f98e6329461fc53a1bdf3012541b45ee67441e0ecafe31dbb623c3"
   end
 
   # sonarqube ships pre-built x86_64 binaries
@@ -25,11 +25,10 @@ class Sonarqube < Formula
 
   def install
     # Delete native bin directories for other systems
-    remove = "linux"
-    keep = "macosx-universal"
-    on_linux do
-      remove = "macosx"
-      keep = "linux-x86"
+    remove, keep = if OS.mac?
+      ["linux", "macosx-universal"]
+    else
+      ["macosx", "linux-x86"]
     end
 
     rm_rf Dir["bin/{#{remove},windows}-*"]
@@ -41,7 +40,8 @@ class Sonarqube < Formula
   end
 
   service do
-    run [opt_bin/"sonar", "start"]
+    run [opt_bin/"sonar", "console"]
+    keep_alive true
   end
 
   test do

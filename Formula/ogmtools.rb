@@ -5,6 +5,11 @@ class Ogmtools < Formula
   sha256 "c8d61d1dbceb981dc7399c1a85e43b509fd3d071fb8d3ca89ea9385e6e40fdea"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ogmtools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "34cfdabab2892f91fd6a6164a041f62eef1da1cf7a2097ad5fe5e2e904de21a3"
     sha256 cellar: :any,                 big_sur:       "939be64a395371009f70c9c596e86df908e429ad6915dee142752c1114f2e1d3"

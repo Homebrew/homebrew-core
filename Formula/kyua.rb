@@ -7,10 +7,12 @@ class Kyua < Formula
   revision 2
 
   bottle do
-    sha256 arm64_big_sur: "0de5560c3fe849a4d1739c041b4b70a235929ac1323a9e7f1a1769c69ae6b363"
-    sha256 big_sur:       "33c93cc065968275bdee21b772ada29ebe3776f7c1dacb297e6c3cb2804fcb20"
-    sha256 catalina:      "5fba6da95b5e79c1fda0d118b0d67a4c74629a28e348ae4fab0dee1b770dccd4"
-    sha256 mojave:        "b0d437da5f3f873795d6157dcc545a3ca72fef19d5288369a95b58ba5c8f4cc5"
+    sha256 arm64_monterey: "8e53cdb607af1f2aded06f7c2348f976f02cc413167bf7d9c84ed8df28022764"
+    sha256 arm64_big_sur:  "0de5560c3fe849a4d1739c041b4b70a235929ac1323a9e7f1a1769c69ae6b363"
+    sha256 monterey:       "333cca57c2a7eab8dfc5f42e026a1c646a50a33e4722553cfa9772311c32b89d"
+    sha256 big_sur:        "33c93cc065968275bdee21b772ada29ebe3776f7c1dacb297e6c3cb2804fcb20"
+    sha256 catalina:       "5fba6da95b5e79c1fda0d118b0d67a4c74629a28e348ae4fab0dee1b770dccd4"
+    sha256 mojave:         "b0d437da5f3f873795d6157dcc545a3ca72fef19d5288369a95b58ba5c8f4cc5"
   end
 
   depends_on "pkg-config" => :build

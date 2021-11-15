@@ -7,7 +7,7 @@ class Quicktype < Formula
   url "https://registry.npmjs.org/quicktype/-/quicktype-15.0.260.tgz"
   sha256 "57ffeb7f12f3c3476bd7e0213716006b49a8159c20e63fd60cb07eefa4289b6f"
   license "Apache-2.0"
-  head "https://github.com/quicktype/quicktype.git"
+  head "https://github.com/quicktype/quicktype.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2fa5aaec1d5d1cb1809dd3ad614dda13af59447772cfa4526945e4fbedcd780e"
@@ -15,6 +15,7 @@ class Quicktype < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "313dd23d76101d388259319a688d84a0cb5d44a16e7d34b4a0b7611048d995a4"
     sha256 cellar: :any_skip_relocation, mojave:        "81f40f8f11e16c51c4e30881094256be0b9f91228e2ebf131d261c5ee6a8339c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "59a2b6555eebd5c338dee762e7685577bd1ea0e5db27686c139a9bdb393e9548"
+    sha256 cellar: :any_skip_relocation, all:           "2570eed33dcd2c39f8ef430e0a5ac3df428d5d74b9755b7064140ced95cc80c5"
   end
 
   depends_on "node"

@@ -18,10 +18,12 @@ class Ircii < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "59c85726eb16390bbeac0309702bf21e76116b552fac81ce36d2d4aa20866318"
-    sha256 big_sur:       "e7eae3e18034f4b13f64f83d538dae8b421245f03b3bd5c0c080a1a77db5414e"
-    sha256 catalina:      "dc265a9d5875eff670c60a9e81bc0185ee74eee142ad09b8f0bc6c20ea663507"
-    sha256 mojave:        "758aa15d57d51e9f2c97115e837cd10c9879bfeb46c84823380291a76573f669"
+    sha256 arm64_monterey: "a1419d881b643569302b00c917754568e78896cf3c96b377dd42610ef29d3932"
+    sha256 arm64_big_sur:  "59c85726eb16390bbeac0309702bf21e76116b552fac81ce36d2d4aa20866318"
+    sha256 monterey:       "11957edbab37bf2b64e1ed4b92d0539f7d4e71ecd9f511901c5c34786b5d5932"
+    sha256 big_sur:        "e7eae3e18034f4b13f64f83d538dae8b421245f03b3bd5c0c080a1a77db5414e"
+    sha256 catalina:       "dc265a9d5875eff670c60a9e81bc0185ee74eee142ad09b8f0bc6c20ea663507"
+    sha256 mojave:         "758aa15d57d51e9f2c97115e837cd10c9879bfeb46c84823380291a76573f669"
   end
 
   depends_on "openssl@1.1"

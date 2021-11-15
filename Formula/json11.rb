@@ -7,10 +7,12 @@ class Json11 < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9b05e1c86fa167507521019951abafe352ab7ec786c9227d7816d860e5b370d8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "35c418041e5f90e2f6486b6ae047fc72166356082618940a319f85ac4939aa8b"
-    sha256 cellar: :any_skip_relocation, catalina:      "cbdc55d054d0ba3060a8709b5b98c5c4c0601e7483b4ca2a62aab8a9fc630428"
-    sha256 cellar: :any_skip_relocation, mojave:        "e0229fc7e70a26fdd945e3cf666e2608f73d186b20fcc2555d19466e78771d54"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "812394b65215fb60f32f3b82697483a928e1784ea981fd3948ed07aae93e12fa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b05e1c86fa167507521019951abafe352ab7ec786c9227d7816d860e5b370d8"
+    sha256 cellar: :any_skip_relocation, monterey:       "07fe8500710d83ca7e6bc1b8cc3b081fbcc6ad45363bdd3bd346c42f712cf926"
+    sha256 cellar: :any_skip_relocation, big_sur:        "35c418041e5f90e2f6486b6ae047fc72166356082618940a319f85ac4939aa8b"
+    sha256 cellar: :any_skip_relocation, catalina:       "cbdc55d054d0ba3060a8709b5b98c5c4c0601e7483b4ca2a62aab8a9fc630428"
+    sha256 cellar: :any_skip_relocation, mojave:         "e0229fc7e70a26fdd945e3cf666e2608f73d186b20fcc2555d19466e78771d54"
   end
 
   deprecate! date: "2020-03-25", because: :repo_archived

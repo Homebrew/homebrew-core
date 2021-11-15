@@ -1,16 +1,17 @@
 class Bitwise < Formula
   desc "Terminal based bit manipulator in ncurses"
   homepage "https://github.com/mellowcandle/bitwise"
-  url "https://github.com/mellowcandle/bitwise/releases/download/v0.42/bitwise-v0.42.tar.gz"
-  sha256 "d3d43cef47bf8f49e85f7ed381c3eaf1df921ca51805e0962f1a97a517e1d1d2"
+  url "https://github.com/mellowcandle/bitwise/releases/download/v0.43/bitwise-v0.43.tar.gz"
+  sha256 "f524f794188a10defc4df673d8cf0b3739f93e58e93aff0cdb8a99fbdcca2ffb"
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4301045752db45352b2f1554ae015a8263e77dea15d724aeb0d8a7bb3b78f1db"
-    sha256 cellar: :any,                 big_sur:       "ee1f6edfdc4b538a0017253af270a94fc28da00bdac5754efcef42ed8718e1dc"
-    sha256 cellar: :any,                 catalina:      "0f6da9c52d7e2185dc61708d5bdda296708d4bd398c525e01a699eaf58feac21"
-    sha256 cellar: :any,                 mojave:        "9844d7c02e06929bd6060454f93ccb115186f1f3418c3d4f1a93f2a0764ec0bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "962189cb81bb6f94faa36609171829fed77481e21119fc93ee3e94bde82493bc"
+    sha256 cellar: :any,                 arm64_monterey: "37d182e71950518aa30bda7d31e838b064bf3fdca49bb19946529b848deae93f"
+    sha256 cellar: :any,                 arm64_big_sur:  "b9e69835e64543d6f75709169ea716772f14d5122ceb197228afb40162400769"
+    sha256 cellar: :any,                 monterey:       "8788e244c3c623f42c3b5179bdc88b383c4a7bc0a660c8f228e41f5a1682c6e0"
+    sha256 cellar: :any,                 big_sur:        "06b2465c3a088959dde713f12a1541f20bfdadee29fc4b52348f8a858ca5c95e"
+    sha256 cellar: :any,                 catalina:       "96e4fbec05bf5d3db74039155aa0f58cc9ef5b9f531c3794149e7a4151d5ef60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14b52e107bbb7d3bf3c6fbfff7ce838c50e41c6d3721a3c65e413cc89ccd231c"
   end
 
   depends_on "autoconf" => :build

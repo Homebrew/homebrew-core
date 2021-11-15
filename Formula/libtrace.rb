@@ -11,10 +11,12 @@ class Libtrace < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1939f5eff2012583d368e417ea50ea1e324c99a7f4f91285ad788183ecdce8fa"
-    sha256 cellar: :any, big_sur:       "3ea87a19d8421ff02650581699caeccc9cff21aeb309dee19a7b74bdd47c63ff"
-    sha256 cellar: :any, catalina:      "89febb4122bbe7cd16fc3607ec8cebb242a097603db98da65f05ee733e794bd0"
-    sha256 cellar: :any, mojave:        "4148146586b780f70814f23aeaeb28ce0a07ddd26ca9abedd77f8673e5b75e0a"
+    sha256 cellar: :any, arm64_monterey: "b1b7949b37538a37dd582e68bb5dad9f81e4f1f4046747e7752479aff77e97f6"
+    sha256 cellar: :any, arm64_big_sur:  "1939f5eff2012583d368e417ea50ea1e324c99a7f4f91285ad788183ecdce8fa"
+    sha256 cellar: :any, monterey:       "46b90e5450699e230f8927681a4aa14afa2384a07e5688f7328cef16ae266aa3"
+    sha256 cellar: :any, big_sur:        "3ea87a19d8421ff02650581699caeccc9cff21aeb309dee19a7b74bdd47c63ff"
+    sha256 cellar: :any, catalina:       "89febb4122bbe7cd16fc3607ec8cebb242a097603db98da65f05ee733e794bd0"
+    sha256 cellar: :any, mojave:         "4148146586b780f70814f23aeaeb28ce0a07ddd26ca9abedd77f8673e5b75e0a"
   end
 
   depends_on "openssl@1.1"
@@ -23,6 +25,12 @@ class Libtrace < Formula
   resource "8021x.pcap" do
     url "https://github.com/LibtraceTeam/libtrace/raw/9e82eabc39bc491c74cc4215d7eda5f07b85a8f5/test/traces/8021x.pcap"
     sha256 "aa036e997d7bec2fa3d387e3ad669eba461036b9a89b79dcf63017a2c4dac725"
+  end
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install

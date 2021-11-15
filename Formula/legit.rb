@@ -6,19 +6,20 @@ class Legit < Formula
   url "https://files.pythonhosted.org/packages/cb/e4/8cc5904c486241bf2edc4dd84f357fa96686dc85f48eedb835af65f821bf/legit-1.2.0.post0.tar.gz"
   sha256 "949396b68029a8af405ab20c901902341ef6bd55c7fec6dab71141d63d406b11"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/frostming/legit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b991a34a3b1731bcd71a09aecf6b974b0b2fcb3a8fd42c3d34e7b553f840b640"
-    sha256 cellar: :any_skip_relocation, big_sur:       "73161b2eb5a55db6d984dbf1b1aae96072419b500672bf6d58c0352e840cbc73"
-    sha256 cellar: :any_skip_relocation, catalina:      "3564e73b3de899626951b43275564ad6435816d0ad540c3f6c7941c89f6c6b60"
-    sha256 cellar: :any_skip_relocation, mojave:        "175045954b783f943c2e8b27d5df01d0a8bf21034439f7f9abd99cc8ced744e3"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "b4a46a53103b33f06eefdee01e64f87839b28c41288f96388a7f5e311234115e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e8a3d6da33bb967073a65a2e870f8326fa803719eb3e32a5e46a9a667be1a1d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "074f805ae9c628e46e894167fe2ecc7851fab6ee097091114a812b4d1c1c6500"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "074f805ae9c628e46e894167fe2ecc7851fab6ee097091114a812b4d1c1c6500"
+    sha256 cellar: :any_skip_relocation, monterey:       "854ec2ea856e780bcc1a37f2c43d8047973cb3592f19614074a8f1267647cab1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "854ec2ea856e780bcc1a37f2c43d8047973cb3592f19614074a8f1267647cab1"
+    sha256 cellar: :any_skip_relocation, catalina:       "854ec2ea856e780bcc1a37f2c43d8047973cb3592f19614074a8f1267647cab1"
+    sha256 cellar: :any_skip_relocation, mojave:         "854ec2ea856e780bcc1a37f2c43d8047973cb3592f19614074a8f1267647cab1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f95553e37c878f6089d3dd236c75691fb74a77d9290cd8a7376df2fa5a8fe036"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"

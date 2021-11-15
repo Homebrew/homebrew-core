@@ -4,13 +4,14 @@ class Pcl < Formula
   url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.12.0.tar.gz"
   sha256 "21dfa9a268de9675c1f94d54d9402e4e02120a0aa4215d064436c52b7d5bd48f"
   license "BSD-3-Clause"
-  head "https://github.com/PointCloudLibrary/pcl.git"
+  revision 1
+  head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "dcaa7b792b192a7f0032ba29f9fd6958ec9ff8d436ac3ddbf38c7d6472928ae4"
-    sha256 cellar: :any, big_sur:       "734d0e3bb156a42f02a50f5aeddd825b11384f00915ac5c0a50e22ae38d3df9e"
-    sha256 cellar: :any, catalina:      "7259cc6d04a3c34726ae749cc36cbd108bef21f2e40d2d7b2629cb5773e71a0f"
-    sha256 cellar: :any, mojave:        "810e7a8c44c5ea132186cc9303efb6db5a65501d7513095b0e3a5f03e1b8df2c"
+    sha256 cellar: :any,                 arm64_big_sur: "e496a31533633ec5cf7be22fb21263b055bb687d26f32eaafbe4c73730f4d06a"
+    sha256 cellar: :any,                 big_sur:       "b88a242bc2fffa34de88c90bead3d90b6d70164b16794f76e35a06729d481ca2"
+    sha256 cellar: :any,                 catalina:      "73b9c13e364e61267c1aace859a398bde588e6ee6504a386884c83f3df2224c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92b130c0b6d7ebe1af990efd4dd1cdc2042125477a139b8a3cc4163da7dfc7ef"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -26,6 +27,12 @@ class Pcl < Formula
   depends_on "qhull"
   depends_on "qt@5"
   depends_on "vtk"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # qt@5 is built with GCC
 
   def install
     args = std_cmake_args + %w[

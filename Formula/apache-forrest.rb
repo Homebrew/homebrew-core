@@ -9,12 +9,14 @@ class ApacheForrest < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "141e43e9268d661881cd2873e71bfce3e7c0e95b92cb6f5786ef0905d0dbb03f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2767298b0c6c15419a22f4a9ed56e0eaf8b0f466a23a7edbaf4db0ae7e179871"
-    sha256 cellar: :any_skip_relocation, catalina:      "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132"
-    sha256 cellar: :any_skip_relocation, mojave:        "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83d565eb783378de1f2650fbd678d197ee0538eac17d186c22c0e8cb4957d230"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "83d565eb783378de1f2650fbd678d197ee0538eac17d186c22c0e8cb4957d230"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "141e43e9268d661881cd2873e71bfce3e7c0e95b92cb6f5786ef0905d0dbb03f"
+    sha256 cellar: :any_skip_relocation, monterey:       "16673b394f80d82e534384ddeca8323087f7abf37954e635150f92a6c5f0f0eb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2767298b0c6c15419a22f4a9ed56e0eaf8b0f466a23a7edbaf4db0ae7e179871"
+    sha256 cellar: :any_skip_relocation, catalina:       "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132"
+    sha256 cellar: :any_skip_relocation, mojave:         "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83d565eb783378de1f2650fbd678d197ee0538eac17d186c22c0e8cb4957d230"
   end
 
   deprecate! date: "2020-02-01", because: :unmaintained

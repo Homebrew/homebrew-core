@@ -8,6 +8,7 @@ class Teleconsole < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "d027484ac3f03fd9cf35f3a90bc241c04709f29e499d29bbd1c4d5f636bc1876"
     sha256 cellar: :any_skip_relocation, big_sur:      "a7d96f387532f40298ff90dc062994e933fc009500279421a16182b063f39446"
     sha256 cellar: :any_skip_relocation, catalina:     "fd114a850d3e9eb653e6ed08f53224bd81219c7bcfbd2459440b68a0e96711dc"
     sha256 cellar: :any_skip_relocation, mojave:       "4a5a767d1097e9e8580e3d3ad77d01b8b840ef622092983d713333ed90d2db0d"

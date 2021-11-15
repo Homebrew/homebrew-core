@@ -6,20 +6,24 @@ class Cppman < Formula
   url "https://files.pythonhosted.org/packages/99/9e/c0c3f4d8a3b5e45533a11ec7882623a5f59195173fdd7124b913e62dda47/cppman-0.5.3.tar.gz"
   sha256 "27b8cee7e99055770d8251f969dcb9c4972342f92250e341bf9e10b9678a9140"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "55e96a488b28443bf7f8ab9752d4efaa4dc079fd85517aad50ded2d8d7dd487a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3f09682974f0f72da904d90c58937d640fdb5a5d29514fefdf62ecff2b8ea8e3"
-    sha256 cellar: :any_skip_relocation, catalina:      "dc2eaf5f58fe7ac82917f440b0bed4ac89d241103cda4f0c836d506acaa3be56"
-    sha256 cellar: :any_skip_relocation, mojave:        "a3e6362771f2b46001d4c62e7574647dcf06c3af1af47d6e75ff90340987fc34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "344ebbdc2433c6c9b47fd8958307d985e6a047c6490a8aac5b44996e18ffd2bf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0ca30d561477d9d2dc9f358ca8ee1667de84768086fa6a5915295c755e8c4f7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c7be03e0509903bce8c018175cffdf173e339456aa555cb91a86e5093feab947"
+    sha256 cellar: :any_skip_relocation, monterey:       "6a88f88450153e891a470d20482131005fdf1c26d3eeb5da819b2ce7d351183b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b8d9a3470010dac2167e6bf34e165a5ed30ade83fd3d435e0ec47ecea37c7391"
+    sha256 cellar: :any_skip_relocation, catalina:       "2604a65f2ec97aa523f1efdb7723fd85009ba2b357891dcfb9a912737fdc1b9b"
+    sha256 cellar: :any_skip_relocation, mojave:         "cb190a51ebdbf7c322627b64665c9384cb2f161a30158e5211aa700fead3b507"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ee5f9cc3bca54588fa24dafc9379f81c0eeeeb59b3c46dc5587074450b7bf14"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+  depends_on "six"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/6b/c3/d31704ae558dcca862e4ee8e8388f357af6c9d9acb0cad4ba0fbbd350d9a/beautifulsoup4-4.9.3.tar.gz"
-    sha256 "84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25"
+    url "https://files.pythonhosted.org/packages/a1/69/daeee6d8f22c997e522cdbeb59641c4d31ab120aba0f2c799500f7456b7e/beautifulsoup4-4.10.0.tar.gz"
+    sha256 "c23ad23c521d818955a4151a67d81580319d4bf548d3d49f4223ae041ff98891"
   end
 
   resource "html5lib" do
@@ -27,14 +31,9 @@ class Cppman < Formula
     sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
-  end
-
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/58/5d/445e21e92345848305eecf473338e9ec7ed8905b99ea78415042060127fc/soupsieve-2.1.tar.gz"
-    sha256 "6dc52924dc0bc710a5d16794e6b3480b2c7c08b07729505feab2b2c16661ff6e"
+    url "https://files.pythonhosted.org/packages/c8/3f/e71d92e90771ac2d69986aa0e81cf0dfda6271e8483698f4847b861dd449/soupsieve-2.2.1.tar.gz"
+    sha256 "052774848f448cf19c7e959adf5566904d525f33a3f8b6ba6f6f8f26ec7de0cc"
   end
 
   resource "webencodings" do

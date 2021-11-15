@@ -1,8 +1,8 @@
 class SNail < Formula
   desc "Fork of Heirloom mailx"
   homepage "https://www.sdaoden.eu/code.html"
-  url "https://www.sdaoden.eu/downloads/s-nail-14.9.22.tar.xz"
-  sha256 "e5dfb7d5bcc5d2d1126f2e826569ee0f149aac3f2a8a6b7c23985ffc3a1def0b"
+  url "https://www.sdaoden.eu/downloads/s-nail-14.9.23.tar.xz"
+  sha256 "2c717b22f4cd8719b82b6618640da6031382d2bf8eb51283bca2c6266957bca8"
 
   livecheck do
     url :homepage
@@ -10,10 +10,12 @@ class SNail < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "b8bde9083dd42cef197e98608fc9ce2dc69b3d9cf56ff05268c565ba7acdb67b"
-    sha256 big_sur:       "20825afa468b7d368b71dfc73314412eb9e6930cecd5794f71b527422e63d28c"
-    sha256 catalina:      "e2dd4f1ede94f221fffffce676a2a605edb49235d5bf875e2cad917c9a4d6c73"
-    sha256 mojave:        "1c33bcd338bf27c5f7f3a61e9b6a4070a5cf9e9e7cfefd58afe178959dd35f5a"
+    sha256 arm64_monterey: "c5ace160fdc2671c6a1c52ea2760e8f614c9a690ae176b7fdb20c75d59e81c60"
+    sha256 arm64_big_sur:  "15b9e3df58b3e03c15e04956712a79b24741aeb0d123bb8d9dd1102ca0a13e5c"
+    sha256 monterey:       "ae61db0f36b0994a31987e3f458fd71065a9bc80960307259eda7181f5126ba2"
+    sha256 big_sur:        "1d8cc34a179d0a8644db640370e1519c19eb6283c2eff81828d6a2116fa7ed1d"
+    sha256 catalina:       "1843b6d24d7f7b1a7723a140bf8c85a810324ef7adb0b1020e8201bd29283914"
+    sha256 x86_64_linux:   "0ec52dce52c2c2cd9e606b969b06f6fd3b71b15250b5acd05187971c820ebef6"
   end
 
   depends_on "awk" => :build
@@ -32,10 +34,11 @@ class SNail < Formula
   end
 
   test do
-    ENV["SOURCE_DATE_EPOCH"] = "844221007"
+    timestamp = 844_221_007
+    ENV["SOURCE_DATE_EPOCH"] = timestamp.to_s
 
-    date1 = shell_output("date -r 844221007 '+%a %b %e %T %Y'")
-    date2 = shell_output("date -r 844221007 '+%a, %d %b %Y %T %z'")
+    date1 = Time.at(timestamp).strftime("%a %b %e %T %Y")
+    date2 = Time.at(timestamp).strftime("%a, %d %b %Y %T %z")
 
     expected = <<~EOS
       From reproducible_build #{date1.chomp}

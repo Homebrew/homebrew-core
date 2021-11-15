@@ -3,7 +3,7 @@ class Ddcctl < Formula
   homepage "https://github.com/kfix/ddcctl"
   url "https://github.com/kfix/ddcctl/archive/refs/tags/v0.tar.gz"
   sha256 "8440f494b3c354d356213698dd113003245acdf667ed3902b0d173070a1a9d1f"
-  license :public_domain
+  license "GPL-3.0-only"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d948d479e3d967839131c366214016915831fbbbf82f8359839de8a84f787b75"

@@ -13,11 +13,13 @@ class Imapsync < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f9ecf98890a33032f33265c911706a0e0cba29ad4cbc06f63bcabc31a7cbc4f6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "292fd066f1f52cc748bf30395cc117b32c0e3ee62d4646e8d5aa4c9d620ba34e"
-    sha256 cellar: :any_skip_relocation, catalina:      "ec79e8b2d77dea4bcf156ae5566f7c9ec3bed6157b62fc7543b93ca276e98b94"
-    sha256 cellar: :any_skip_relocation, mojave:        "231ad4b8c618aea36959211b811e678ab9979afb483eb5f6508ffc3bd2a9f42f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7e11b2c0dc44b342eda66d083d19ee75460af9c17026a43989a13e9f5c39957"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6fedb049b72df96d628cf3de4c88261f8f3d37fbde861d8651e575991ed91722"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f9ecf98890a33032f33265c911706a0e0cba29ad4cbc06f63bcabc31a7cbc4f6"
+    sha256 cellar: :any_skip_relocation, monterey:       "a3474dd44ac609c0622cc4747ddfde122737962b7454b3b98470d4cf44dd05ec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "292fd066f1f52cc748bf30395cc117b32c0e3ee62d4646e8d5aa4c9d620ba34e"
+    sha256 cellar: :any_skip_relocation, catalina:       "ec79e8b2d77dea4bcf156ae5566f7c9ec3bed6157b62fc7543b93ca276e98b94"
+    sha256 cellar: :any_skip_relocation, mojave:         "231ad4b8c618aea36959211b811e678ab9979afb483eb5f6508ffc3bd2a9f42f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7e11b2c0dc44b342eda66d083d19ee75460af9c17026a43989a13e9f5c39957"
   end
 
   depends_on "pod2man" => :build

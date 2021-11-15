@@ -5,14 +5,16 @@ class Caf < Formula
   url "https://github.com/actor-framework/actor-framework/archive/0.18.5.tar.gz"
   sha256 "4c96f896f000218bb65890b4d7175451834add73750d5f33b0c7fe82b7d5a679"
   license "BSD-3-Clause"
-  head "https://github.com/actor-framework/actor-framework.git"
+  head "https://github.com/actor-framework/actor-framework.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ab16a7c7af1cb9ebcf94b0f51185d2318de6c658e2c58fea826011eecd3e09f9"
-    sha256 cellar: :any,                 big_sur:       "804cec1ee5419983767ced84f1eaa357ea1d96676725be2f0db85245625c4a17"
-    sha256 cellar: :any,                 catalina:      "8f11ac81d1c3efdd0b4813478336c5e215df2d44d0bd04e770d04bddd598b02e"
-    sha256 cellar: :any,                 mojave:        "ef6ea69f637a890f191b6f584167f9cb9fbe990e040ccce147f64331d305bfda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9dd022da722c0bdecfbf643251d9529fde48b2b13576a95fc706df751941df2"
+    sha256 cellar: :any,                 arm64_monterey: "b0a2a5fc24463e78e24ed33d070b03f612ec905b13df94fe998aa60b832a36b7"
+    sha256 cellar: :any,                 arm64_big_sur:  "ab16a7c7af1cb9ebcf94b0f51185d2318de6c658e2c58fea826011eecd3e09f9"
+    sha256 cellar: :any,                 monterey:       "d8eb6e9e8f452ef2b509cd0291eb6adabb160ac6109e4582c26a9328b08fd6d7"
+    sha256 cellar: :any,                 big_sur:        "804cec1ee5419983767ced84f1eaa357ea1d96676725be2f0db85245625c4a17"
+    sha256 cellar: :any,                 catalina:       "8f11ac81d1c3efdd0b4813478336c5e215df2d44d0bd04e770d04bddd598b02e"
+    sha256 cellar: :any,                 mojave:         "ef6ea69f637a890f191b6f584167f9cb9fbe990e040ccce147f64331d305bfda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9dd022da722c0bdecfbf643251d9529fde48b2b13576a95fc706df751941df2"
   end
 
   depends_on "cmake" => :build

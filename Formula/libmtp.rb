@@ -1,17 +1,18 @@
 class Libmtp < Formula
   desc "Implementation of Microsoft's Media Transfer Protocol (MTP)"
   homepage "https://libmtp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.18/libmtp-1.1.18.tar.gz"
-  sha256 "7280fe50c044c818a06667f45eabca884deab3193caa8682e0b581e847a281f0"
+  url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.19/libmtp-1.1.19.tar.gz"
+  sha256 "deb4af6f63f5e71215cfa7fb961795262920b4ec6cb4b627f55b30b18aa33228"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4af12c090f3214200d4a37b9511c1fc1ba0269b40f26c0e9c45c4dbfe2c64474"
-    sha256 cellar: :any,                 big_sur:       "5ebeb1696d5c7af72cb4a14f905dbde2cd871334ea392e7e8ff0305159c09aa1"
-    sha256 cellar: :any,                 catalina:      "9b305e731b8d8608b688bb5c8bb98192d4879eb944fd4b08c09daadf367b68fc"
-    sha256 cellar: :any,                 mojave:        "e4c497e80277170743a4ff8ddde06687a01f3afb053088b921b8399796f630ae"
-    sha256 cellar: :any,                 high_sierra:   "704cd1e718e42dc9284ca020a11c1788d8a222cb8a4ca939d6b289cd17cf86ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80b10da726a70f661e1d6a3d58e1fcbaab5afe23c7165a5588e8558710fd6887"
+    sha256 cellar: :any,                 arm64_monterey: "b8dfa1790c2dc78ab35215490a1beadad0119cc016304e12e6fb9fa349f2fc11"
+    sha256 cellar: :any,                 arm64_big_sur:  "0d8204a3be05bd4e9d81b0fcfeb8c188d42905749f5b5a810f176e57ee6bc2c2"
+    sha256 cellar: :any,                 monterey:       "35640d39423cb68b9bc63daaf79bbe50c45d5e48135d4a727b56198b25ff2f91"
+    sha256 cellar: :any,                 big_sur:        "fe872960e99114fbd0d4be480a15ec26fdc026aad3ed4da3f3e2fd15abb15ae8"
+    sha256 cellar: :any,                 catalina:       "f12d61d228ec4e1441c8d8f12dead6c3bebc7123485dbeae515a691c288587b4"
+    sha256 cellar: :any,                 mojave:         "09489dbbe7941577ecccf2db5950e9ffb6f72b3caf85f6a4de08affae30f7e29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25c0d3a716b3557bcb1e6d839e05b39f8160a22e1e2761476a57ed88d8a64959"
   end
 
   depends_on "pkg-config" => :build

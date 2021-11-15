@@ -1,18 +1,20 @@
 class GitFixup < Formula
   desc "Alias for git commit --fixup <ref>"
   homepage "https://github.com/keis/git-fixup"
-  url "https://github.com/keis/git-fixup/archive/v1.3.0.tar.gz"
-  sha256 "29665151f82cac5f5807b8241392150e7c8ee8024ce37f23752c23c134516d57"
+  url "https://github.com/keis/git-fixup/archive/v1.4.0.tar.gz"
+  sha256 "78cc604b205fa6fe1d982eee2adb9b7482ba0b08f83d2e52f713d663e2865e9d"
   license "ISC"
   head "https://github.com/keis/git-fixup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9cba054279af11345ca5277b4984fbe627af6d576d872c0a412d3391a7ed25b7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e1d0bfbc7b1cdccd454e5c532e27b79e5a791e92be429758cdc8c4b70c1b1dd9"
   end
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
     zsh_completion.install "completion.zsh" => "_git-fixup"
+    fish_completion.install "completion.fish" => "git-fixup.fish"
   end
 
   test do

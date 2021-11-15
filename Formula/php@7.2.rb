@@ -10,11 +10,13 @@ class PhpAT72 < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "a92e64bf8bc2a93c2565376ec604ae02a6361f2144903f1931e6bc1dfd612035"
-    sha256 big_sur:       "0ebb08d4162c250cf7d954b3819942c13db229735f2de8106a158b67b56fa120"
-    sha256 catalina:      "dfaa144647884e7dcba907ac88132ed4af1fc146176e687267ca602f0af26ba6"
-    sha256 mojave:        "46a9ee4a740cdded555ff8d528ce319958f44d9239b7bb89d36953312e318bfd"
-    sha256 x86_64_linux:  "216bbb6087a314e29535d403e2bb16de99ea91bdb0adabb87e5e0d664ab88b71"
+    sha256 arm64_monterey: "5e216029861d9135e2eabb145c9b898f858a6662a868c81b4333228ba437d976"
+    sha256 arm64_big_sur:  "a92e64bf8bc2a93c2565376ec604ae02a6361f2144903f1931e6bc1dfd612035"
+    sha256 monterey:       "fc5ff8dfecce985f2b8c1ebe506d017511e41bf5c895fc9ec8140a4c9ad3c02b"
+    sha256 big_sur:        "0ebb08d4162c250cf7d954b3819942c13db229735f2de8106a158b67b56fa120"
+    sha256 catalina:       "dfaa144647884e7dcba907ac88132ed4af1fc146176e687267ca602f0af26ba6"
+    sha256 mojave:         "46a9ee4a740cdded555ff8d528ce319958f44d9239b7bb89d36953312e318bfd"
+    sha256 x86_64_linux:   "216bbb6087a314e29535d403e2bb16de99ea91bdb0adabb87e5e0d664ab88b71"
   end
 
   keg_only :versioned_formula
@@ -117,8 +119,7 @@ class PhpAT72 < Formula
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
-    headers_path = ""
-    on_macos { headers_path = "=#{MacOS.sdk_path_if_needed}/usr" }
+    headers_path = "=#{MacOS.sdk_path_if_needed}/usr" if OS.mac?
 
     args = %W[
       --prefix=#{prefix}
@@ -188,7 +189,7 @@ class PhpAT72 < Formula
       --with-xmlrpc
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-dtrace"
       args << "--with-bz2#{headers_path}"
       args << "--with-libedit#{headers_path}"
@@ -198,7 +199,7 @@ class PhpAT72 < Formula
       args << "--with-zlib#{headers_path}"
     end
 
-    on_linux do
+    if OS.linux?
       args << "--disable-dtrace"
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
       args << "--with-bzip2=#{Formula["bzip2"].opt_prefix}"

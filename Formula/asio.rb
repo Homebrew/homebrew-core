@@ -1,8 +1,8 @@
 class Asio < Formula
   desc "Cross-platform C++ Library for asynchronous programming"
   homepage "https://think-async.com/Asio"
-  url "https://downloads.sourceforge.net/project/asio/asio/1.18.2%20%28Stable%29/asio-1.18.2.tar.bz2"
-  sha256 "3ac05d4586d4b10afc28ff09017639652fb04feb9e575f9d48410db3ab27f9f2"
+  url "https://downloads.sourceforge.net/project/asio/asio/1.20.0%20%28Stable%29/asio-1.20.0.tar.bz2"
+  sha256 "204374d3cadff1b57a63f4c343cbadcee28374c072dc04b549d772dbba9f650c"
   license "BSL-1.0"
   head "https://github.com/chriskohlhoff/asio.git", branch: "master"
 
@@ -12,11 +12,13 @@ class Asio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "11ab7bb26a9782754a8c872dac4b9cc4c5205fc34061a4678a3eed6d173ab06a"
-    sha256 cellar: :any,                 big_sur:       "c51769f155b21a0c7c82862c25ece1d40e79fc7db7b919c7daa5437e4060ad85"
-    sha256 cellar: :any,                 catalina:      "e3fe0bf41ab84047722cb2936c604b13be10723f9a98f006e21db27d82c38d35"
-    sha256 cellar: :any,                 mojave:        "2f2769fda61b376035b53a8da40860b80566a7725ef294312d4d415ae5aae5e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a62b72aee8a6bbc417749b3fa18196017b8de57b84705098d4ebba1c34925eef"
+    sha256 cellar: :any,                 arm64_monterey: "55ef1bffa04528d8b719a1d4885a66dedb61417cf6ffb148bbf9cbb46f19c744"
+    sha256 cellar: :any,                 arm64_big_sur:  "6ae63027103addf746fc975cf3b9e521b7ab590e4e1a7891e8e10b433533607e"
+    sha256 cellar: :any,                 monterey:       "74df62b424d6eb41db252df523b3148e73e9d635aabf515434e3e93bec435967"
+    sha256 cellar: :any,                 big_sur:        "685e304d5cbb0291585a2941c4bc521e3d60175e31ecfc91146d480a84f04325"
+    sha256 cellar: :any,                 catalina:       "d98a3f8267b7e3971fb5c712324858aa02252c718b55dc7e842c31922ad72d1c"
+    sha256 cellar: :any,                 mojave:         "ae04393a3164eff530766bf44aa2983534d3eb1115879b0a9f9c6e027b1b9fca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7011f43a03777135319c7e21f5a96e57b31ced599c41fbf07aba6c0c46871e4b"
   end
 
   depends_on "autoconf" => :build

@@ -2,8 +2,8 @@ class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
   url "https://github.com/warmcat/libwebsockets.git",
-      tag:      "v4.2.1",
-      revision: "8a580b59b23d204ca72028370e97a8f6aa0c9202"
+      tag:      "v4.3.0",
+      revision: "a5aae049b2a386712e1be3b417915c0d44c7e675"
   license "MIT"
   head "https://github.com/warmcat/libwebsockets.git", branch: "main"
 
@@ -13,11 +13,13 @@ class Libwebsockets < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "ba717644e66fae9f240d95bcdd39e11ba957de37df8efef2b63569a8b36681f3"
-    sha256 big_sur:       "3b344a740ca12f344419b9a60bbc334b4c56c862f90da9db94212a4a8a962ae4"
-    sha256 catalina:      "0800c12bf4bc5c6578985abcc33cc39f799089f30fc49c0563e6c93b119ec1bf"
-    sha256 mojave:        "8db90099d46e097a254ce612ba2531850e647ca925289f793a0307fc1520b66b"
-    sha256 x86_64_linux:  "362765db8875a4962533bb2f0e327125bf885c3ae91381e9170857da77c42949"
+    sha256 arm64_monterey: "f3caf45db7a61695308ccaf2c9fcf7a386c13d954047d3a081de00479ff9f263"
+    sha256 arm64_big_sur:  "af413d5545311ce74f82ccf9a7c2051a38886ff3bee18cf2175365fb6dd67707"
+    sha256 monterey:       "58b0eb117a33e2d28d423cff6576a63f2c21fdafdfc7b5b50eacb300fd537c31"
+    sha256 big_sur:        "12a436faa6ab3e6b74477b00827d5b3e9c7d2cbe485ce17990f68ba84ff96e83"
+    sha256 catalina:       "44b76ef2c664dfaff1a54d112ae641d5104887eca5097cdb7c0c25f3144b0826"
+    sha256 mojave:         "551b2d0a5e2f601e0605d6e7a4b16a01ef34d868a9af9e2b21065d6e91ca4a92"
+    sha256 x86_64_linux:   "494db4928a4e15f8d96c66198bc0ff5dbcfc4a15b54a8a63d13eb4ea58d1cd7d"
   end
 
   depends_on "cmake" => :build

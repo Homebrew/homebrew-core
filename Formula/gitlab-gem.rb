@@ -11,6 +11,7 @@ class GitlabGem < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "9fb83bdf349a57916534fd40a2e38db4a893b713207abe572117e21d21e9df7b"
     sha256 cellar: :any_skip_relocation, mojave:        "2bd6150b2c26c4b746ffc8c2f43c05b311ec33c08f88a82946d08e63f6dea9d8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d46229291b4e82400ed94407d29c04390edba62b6b1e007eedbdefe9b7ba1136"
+    sha256 cellar: :any_skip_relocation, all:           "98d7d195f9056f824111633f08ba7c49c19e907087de006174c81a6123c9bf04"
   end
 
   uses_from_macos "ruby", since: :catalina

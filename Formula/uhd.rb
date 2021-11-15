@@ -3,10 +3,9 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   # The build system uses git to recover version information
   url "https://github.com/EttusResearch/uhd.git",
-      tag:      "v4.0.0.0",
-      revision: "90ce6062b6b5df2eddeee723777be85108e4e7c7"
+      tag:      "v4.1.0.4",
+      revision: "25d617cad7db69fa04699df5f93ece06b0a61199"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 2
   head "https://github.com/EttusResearch/uhd.git"
 
   livecheck do
@@ -15,10 +14,12 @@ class Uhd < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6d7c30e045cd3c2db314798a440e9b6ef803f776efe61a1c43cec845eba345c7"
-    sha256 big_sur:       "8958921dbc42bfa6fa8280009f934beb86cffadf488e17cd433b7f6b2b79f744"
-    sha256 catalina:      "cea4d4a254b7ece640531c5c7a4e8555a512ba80a9a67c856ac880dd13d6c4e4"
-    sha256 mojave:        "36ce3765f122569d97f783b9e81718e8c03bbae8777f4f32d82085cd0c73787a"
+    sha256 arm64_monterey: "70594fad59c2faea1b522830123a22765740fc2ced86e2619ee7c83e70784529"
+    sha256 arm64_big_sur:  "4187dd90c18fa8709dc09087efc235f3fd21db604e082fce43c4d469aa789bc3"
+    sha256 monterey:       "dd58c2cfb90bce1ebdfc1f6af3757da33082124217506569b1469d63de2ce8e9"
+    sha256 big_sur:        "49bcc2c07aef5d7fa61702c3f52265b4d3557dba27a884784a1748c24ce2fafe"
+    sha256 catalina:       "a44e180043a677bfacbba30f7fffb4ecdf42359672cd5336689e44b57934301b"
+    sha256 mojave:         "30abc4dd1774370d969095ef735b05450785ac68b008cdde2e5d22fa634c65e6"
   end
 
   depends_on "cmake" => :build
@@ -29,8 +30,8 @@ class Uhd < Formula
   depends_on "python@3.9"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
-    sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
+    url "https://files.pythonhosted.org/packages/d1/42/ff293411e980debfc647be9306d89840c8b82ea24571b014f1a35b2ad80f/Mako-1.1.5.tar.gz"
+    sha256 "169fa52af22a91900d852e937400e79f535496191c63712e3b9fda5a9bed6fc3"
   end
 
   def install

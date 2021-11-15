@@ -12,10 +12,11 @@ class Djview4 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, big_sur:  "e9764b18d1b3a47b052ed924c09f36b31428b429dce1aaa7ade4e679f1c52339"
-    sha256 cellar: :any, catalina: "f77e017d7a0acdfbdadf62c2e5773b254d72691f9e51301fb91130ea3cb3d42a"
-    sha256 cellar: :any, mojave:   "03517ea84af4e35f7997e7e5a25bee8c786d9ca3ef8a681066405ef31304e031"
+    rebuild 2
+    sha256 cellar: :any, arm64_monterey: "2495aff481ce3d1dc1fd6df41669068388956fe89ecd6302a7ed75f4feccc8e8"
+    sha256 cellar: :any, arm64_big_sur:  "d732c90fdab920090c28baf8951d50da4523fc619ce22643819afbf1037e21fb"
+    sha256 cellar: :any, big_sur:        "4e9a79b7d43536f816768e9dd5d5452b5f3f270772a482f5321f7e43712a0a30"
+    sha256 cellar: :any, catalina:       "d55757a01f3e6e843427f018559cd3e881c230096b16238b2a8f5bd82379f2a0"
   end
 
   depends_on "autoconf" => :build
@@ -32,17 +33,17 @@ class Djview4 < Formula
                           "--prefix=#{prefix}",
                           "--with-x=no",
                           "--disable-nsdejavu",
-                          "--disable-desktopfiles"
+                          "--disable-desktopfiles",
+                          "--with-tiff=#{Formula["libtiff"].opt_prefix}"
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
 
     # From the djview4.8 README:
     # NOTE: Do not use command "make install".
     # Simply copy the application bundle where you want it.
-    on_macos do
+    if OS.mac?
       prefix.install "src/djview.app"
       bin.write_exec_script prefix/"djview.app/Contents/MacOS/djview"
-    end
-    on_linux do
+    else
       prefix.install "src/djview"
     end
   end

@@ -1,17 +1,18 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.27.2.tar.gz"
-  sha256 "7798a9e22fc363801131456dc21026ccb0f037aed026d17df60b1178b3f24111"
+  url "https://github.com/junegunn/fzf/archive/0.28.0.tar.gz"
+  sha256 "05bbfa4dd84b72e55afc3fe56c0fc185d6dd1fa1c4eef56a1559b68341f3d029"
   license "MIT"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ae9fddf6be0736d872e48199d3f59517b48e4d5fa9fe609e61c6ca9f4dc2e582"
-    sha256 cellar: :any_skip_relocation, big_sur:       "47ca85feb2e71a465580b5dd0912ed365c1015de175c81570309045abb847c96"
-    sha256 cellar: :any_skip_relocation, catalina:      "47ca85feb2e71a465580b5dd0912ed365c1015de175c81570309045abb847c96"
-    sha256 cellar: :any_skip_relocation, mojave:        "47ca85feb2e71a465580b5dd0912ed365c1015de175c81570309045abb847c96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2f76540decf6dff782146c728f007651b2b2c150ab7e06373ebdeec3522270e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428"
+    sha256 cellar: :any_skip_relocation, monterey:       "04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74"
+    sha256 cellar: :any_skip_relocation, big_sur:        "04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74"
+    sha256 cellar: :any_skip_relocation, catalina:       "04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "055d03f36d01613b6b46fb1dfd5c8ab845639afb6c564388baf2fa8363838281"
   end
 
   depends_on "go" => :build

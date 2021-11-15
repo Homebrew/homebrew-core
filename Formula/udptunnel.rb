@@ -11,11 +11,13 @@ class Udptunnel < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1cd9168b47649ced46a6bc58b90d8bb9cf6031fe3f839101743ca5b6dda3efbf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bfb564a4529a508338776cc02b0b4fcd63ceead924db45ef73f4c41c79f96908"
-    sha256 cellar: :any_skip_relocation, catalina:      "de4e78f6f0ff861478dae683d1a6c09ae38e9a9e7ec8780a90a9b849df422089"
-    sha256 cellar: :any_skip_relocation, mojave:        "46dca7ebedab0825acffeafa11b6090676993a5b7b4a53591db51cc7b856e048"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8011c8ad2ef6699b3b100f259cd8e6db4ae8a799721635b06ae2a259c084c9b5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f926b82af867d217a020a55be4f21de045b846aa5e3ca584a09629d4529a5c8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1cd9168b47649ced46a6bc58b90d8bb9cf6031fe3f839101743ca5b6dda3efbf"
+    sha256 cellar: :any_skip_relocation, monterey:       "25b3c9254ca0a49a807e1bbf4547191c796e55a0cf9c8575653660611ca4189d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bfb564a4529a508338776cc02b0b4fcd63ceead924db45ef73f4c41c79f96908"
+    sha256 cellar: :any_skip_relocation, catalina:       "de4e78f6f0ff861478dae683d1a6c09ae38e9a9e7ec8780a90a9b849df422089"
+    sha256 cellar: :any_skip_relocation, mojave:         "46dca7ebedab0825acffeafa11b6090676993a5b7b4a53591db51cc7b856e048"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8011c8ad2ef6699b3b100f259cd8e6db4ae8a799721635b06ae2a259c084c9b5"
   end
 
   depends_on "autoconf" => :build

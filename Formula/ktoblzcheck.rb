@@ -12,12 +12,14 @@ class Ktoblzcheck < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "2680587208310fe00870bdbdc4ae0af5446c4cee7e3c3e53ba1839004450f0ed"
-    sha256 big_sur:       "11c08b9ae4ce285d404ee1eeba912f8bb37b44fe1a142372d366f6233f7e111e"
-    sha256 catalina:      "b7abb3dd65cefac9c8ebe1f54482c42adc6a4dbc2c6e3f18452f4b500d5d9aa5"
-    sha256 mojave:        "94c9812c2bcffef71b7e6805fa0f54b4a17cc52cb92dadb87fd804fcfab97701"
-    sha256 high_sierra:   "39e8b0149fcd448eddace995b7dc37331716b25a5f77b2be5f7b3eb462635854"
-    sha256 x86_64_linux:  "5f72ad5d838d0baf3dc83d439cdb39588f919729ec7d7d41114d5d250ce96f0c"
+    sha256 arm64_monterey: "158c47145c12a281905bf20efa17f620d20539d3949c13bc0c03011a522d3064"
+    sha256 arm64_big_sur:  "2680587208310fe00870bdbdc4ae0af5446c4cee7e3c3e53ba1839004450f0ed"
+    sha256 monterey:       "bc80bfd271d323fe0a64fddfd7af0b8aaa383bcb69ca755a611be8b40d5cc9c3"
+    sha256 big_sur:        "11c08b9ae4ce285d404ee1eeba912f8bb37b44fe1a142372d366f6233f7e111e"
+    sha256 catalina:       "b7abb3dd65cefac9c8ebe1f54482c42adc6a4dbc2c6e3f18452f4b500d5d9aa5"
+    sha256 mojave:         "94c9812c2bcffef71b7e6805fa0f54b4a17cc52cb92dadb87fd804fcfab97701"
+    sha256 high_sierra:    "39e8b0149fcd448eddace995b7dc37331716b25a5f77b2be5f7b3eb462635854"
+    sha256 x86_64_linux:   "5f72ad5d838d0baf3dc83d439cdb39588f919729ec7d7d41114d5d250ce96f0c"
   end
 
   depends_on "cmake" => :build

@@ -6,11 +6,13 @@ class Libxo < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 arm64_big_sur: "56e3e01d82e65127da77eabfa5c109689c752aa039771ad9ec48b6de9910ddfd"
-    sha256 big_sur:       "4fcbf10d05037ee979e9b58ff784cf98528311a686bb4a5325701cd3fc90f784"
-    sha256 catalina:      "b77f42736665614730b6f1dfb0645c73a137451435914f5583148e67e265ec1b"
-    sha256 mojave:        "f33fe82b6bbdca65f2407dd57380ad0f7f420704a228b0c8344fd49c975115d5"
-    sha256 x86_64_linux:  "e4c71798bb2791b2d15a83bd4feb19b9a255bccd94ea14e86d9620871f1aa289"
+    sha256 arm64_monterey: "82180c9986e803236f8caba30c00b2dcdddaebaedfeb93a9c19a35fb959d6199"
+    sha256 arm64_big_sur:  "56e3e01d82e65127da77eabfa5c109689c752aa039771ad9ec48b6de9910ddfd"
+    sha256 monterey:       "8621ad5d4d88b8313bf012dffba7a9f5c500f0c2f3489aa7fc1726d470e0ff9a"
+    sha256 big_sur:        "4fcbf10d05037ee979e9b58ff784cf98528311a686bb4a5325701cd3fc90f784"
+    sha256 catalina:       "b77f42736665614730b6f1dfb0645c73a137451435914f5583148e67e265ec1b"
+    sha256 mojave:         "f33fe82b6bbdca65f2407dd57380ad0f7f420704a228b0c8344fd49c975115d5"
+    sha256 x86_64_linux:   "e4c71798bb2791b2d15a83bd4feb19b9a255bccd94ea14e86d9620871f1aa289"
   end
 
   depends_on "libtool" => :build

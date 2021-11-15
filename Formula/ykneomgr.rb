@@ -8,10 +8,12 @@ class Ykneomgr < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "75e8cb3042d639b8271057b9d3e77c2786e66527a8c8602709dff4624b06d134"
-    sha256 cellar: :any, big_sur:       "d08813317ba58b25a12d90485c20e372922bde6bda948a4b4979eccb07374e5f"
-    sha256 cellar: :any, catalina:      "583b882ed5705cfbde73f815689c7fcf70aec84b42a8de606dd847f99afc93b7"
-    sha256 cellar: :any, mojave:        "0fee721a06b166425760bdc5b65349f374ac6512ce09404cdc2c4d82f621022e"
+    sha256 cellar: :any, arm64_monterey: "b1a8db16006b7c66fd5fa1ecd61c5af791be4e7be61b054bfe268b1bb47094e0"
+    sha256 cellar: :any, arm64_big_sur:  "75e8cb3042d639b8271057b9d3e77c2786e66527a8c8602709dff4624b06d134"
+    sha256 cellar: :any, monterey:       "371a8e8a46f71521fcc534c60fff6f9e4cc787d17a03344c37c325d284c14ad2"
+    sha256 cellar: :any, big_sur:        "d08813317ba58b25a12d90485c20e372922bde6bda948a4b4979eccb07374e5f"
+    sha256 cellar: :any, catalina:       "583b882ed5705cfbde73f815689c7fcf70aec84b42a8de606dd847f99afc93b7"
+    sha256 cellar: :any, mojave:         "0fee721a06b166425760bdc5b65349f374ac6512ce09404cdc2c4d82f621022e"
   end
 
   head do

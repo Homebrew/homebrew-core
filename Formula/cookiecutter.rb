@@ -6,17 +6,20 @@ class Cookiecutter < Formula
   url "https://files.pythonhosted.org/packages/58/f5/6f41fa38e6efe4a0e85771f99a4ad8c33b4c14f03b4cc53b459aac4a629a/cookiecutter-1.7.3.tar.gz"
   sha256 "6b9a4d72882e243be077a7397d0f1f76fe66cf3df91f3115dbb5330e214fa457"
   license "BSD-3-Clause"
-  head "https://github.com/cookiecutter/cookiecutter.git"
+  revision 1
+  head "https://github.com/cookiecutter/cookiecutter.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "48c4107866f0afcb5084b0da38170546238c59776cb9d313b7a88de73852a0f0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6ebf932a9ffa0a2e4ddbe0e8d1c7979a90fac8d3902df2daa9de46fd856b43ab"
-    sha256 cellar: :any_skip_relocation, catalina:      "48ec90f110d561ec949280584f7862b00f3c4d08d8bf66229e5747933f8b8ef3"
-    sha256 cellar: :any_skip_relocation, mojave:        "c5a596bce9b722d11f974cb2e23c3ed77ba246244d8888df4226bc0e15d4e104"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4566473349385e6e308c201ea9e33ecac8e474014f5e69aedf6ab8bb7ff92d27"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4ec359ec5071b56b351672f75a833d664952e6cb91fd2fd7af9eaa820bb4cc0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c47bd026d10ec8f3c6267c689189abec6cdf90feb8879ddc498207d282219000"
+    sha256 cellar: :any_skip_relocation, monterey:       "c48e22fb646e36938d0d5f7fe2679e9dde7a8edb8e92537f839e49c21e4f9bee"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9db1b7554b40b410f51c337f60f6584cfe63f9d13764d6190976a7f83446aea9"
+    sha256 cellar: :any_skip_relocation, catalina:       "ccaafe5436a8eb27c99c924b676de2601ca87413f9c980b6697e6144e32e5392"
+    sha256 cellar: :any_skip_relocation, mojave:         "ffbc7736257952c954b380cc13a56c746cacb3991778d2a424eb0ab39129dc3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "295c5c1f199c24086400af1e87559a8affa98631a2d847883c3edebca2c47348"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/0a/97/e58a3cd2207cb9cb7aa9b91f3bc4df3b4e13eafc88d75b1a9f4535ea6e1f/arrow-1.1.0.tar.gz"

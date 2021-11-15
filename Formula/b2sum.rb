@@ -6,6 +6,7 @@ class B2sum < Formula
   license "CC0-1.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "70a311dd99f685268a3bcef834c4373d8506fafcd17de9a15fbe9fb68f2fcaed"
     sha256 cellar: :any_skip_relocation, big_sur:      "fd4870a8a8ea954c5f8b45addfd4ee6ccac3f69f058a54be623ea271b3b4be78"
     sha256 cellar: :any_skip_relocation, catalina:     "339b959eb5c2cbc8c26a39022937ea27b7911ff1c9f0611c3f2ac1595f5b0e50"
     sha256 cellar: :any_skip_relocation, mojave:       "905b975371fd88632649e08f732ff25277cd1fd4b584dbc3e4914bcb08f85cd8"

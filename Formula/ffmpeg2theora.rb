@@ -7,10 +7,12 @@ class Ffmpeg2theora < Formula
   head "https://gitlab.xiph.org/xiph/ffmpeg2theora.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "114e5f48ead0a1375f4dab1217723fe5f6850529ee5fc3f5fe4042295adf327a"
-    sha256 cellar: :any, big_sur:       "1c2718b1a6c348dfceaeef1bd155b6caf385cf4756feefb568cb6f42a6f099e2"
-    sha256 cellar: :any, catalina:      "05f0fb622f434c062ea69f39a09ea1db62824efb26fcb8adf0921600785e0b3c"
-    sha256 cellar: :any, mojave:        "30967cb12c298c6441bb8f4d283a9659c314639cc0409a1a446cb1a80216a31b"
+    sha256 cellar: :any, arm64_monterey: "90738560daa49a15f7aabf51be18dd1ce4f4c748c35c669b279e394853200a89"
+    sha256 cellar: :any, arm64_big_sur:  "114e5f48ead0a1375f4dab1217723fe5f6850529ee5fc3f5fe4042295adf327a"
+    sha256 cellar: :any, monterey:       "21653a640f0a30053b39798bb6c4b6755c36dc30db63621f3c5666a04516d114"
+    sha256 cellar: :any, big_sur:        "1c2718b1a6c348dfceaeef1bd155b6caf385cf4756feefb568cb6f42a6f099e2"
+    sha256 cellar: :any, catalina:       "05f0fb622f434c062ea69f39a09ea1db62824efb26fcb8adf0921600785e0b3c"
+    sha256 cellar: :any, mojave:         "30967cb12c298c6441bb8f4d283a9659c314639cc0409a1a446cb1a80216a31b"
   end
 
   depends_on "pkg-config" => :build

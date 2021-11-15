@@ -2,56 +2,57 @@ class Toot < Formula
   include Language::Python::Virtualenv
   desc "Mastodon CLI & TUI"
   homepage "https://toot.readthedocs.io/en/latest/index.html"
-  url "https://files.pythonhosted.org/packages/45/5c/fec823ef310fbaacf478796cd8d26326995160f8d000bd25a0be42b38ed9/toot-0.27.0.tar.gz"
-  sha256 "1dfdba9acc8555fa3b4db903cbf806a639bf43c7855d324233041c655fc5cbd5"
+  url "https://files.pythonhosted.org/packages/0f/80/189d52bc7d4be7a9140780281bad0d58537ab42c4ce641645b04ec305013/toot-0.28.0.tar.gz"
+  sha256 "690250e975c58f962cf33aefbe5b871dc6ea934580cec7f5b6a18e0f4c2052f3"
   license "GPL-3.0-only"
   revision 1
-  head "https://github.com/ihabunek/toot.git"
+  head "https://github.com/ihabunek/toot.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "057fe7d791bf50d0a45acf0aa13752212af99f1e6ee1dd9552aa8cbf98f5cab2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7865690d49e0343247f983dbb6ded318ef1b7c7d8a97879c55b45bb61f3232a6"
-    sha256 cellar: :any_skip_relocation, catalina:      "cf0adfa05091517ad02bd934206294400f61b695a38b059a29dbfb9e514a9eb9"
-    sha256 cellar: :any_skip_relocation, mojave:        "3e5705103fd7753ce773c058cfce5f975df0dd79e702ed56ae1bcdbf35e19bb9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3744eb49f3a98c1183efe33bf6e9e09886bb4f6669927643bb8989485fba7b57"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "25d53914e2c227fadedaf57d0e24bcae4c58b004d1d0b03df530206614faa0d7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62d5912626349abfae174e9aa089b6b1a9d39f810ead9037d1e1eb28f5037cb6"
+    sha256 cellar: :any_skip_relocation, monterey:       "1873981ae3a93bc2c5e6340bc0ba4ceb3949d816956efa9b8da2b63cc8c5abb0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5a9aa6a2791e1e77d0e6a7d0cd3e80c090ad61d274b73ecc25adbf171d8a240b"
+    sha256 cellar: :any_skip_relocation, catalina:       "6baa50b0758d2fb5ef2c3e1def6555830bc07e8c4942572650621814bb333f68"
+    sha256 cellar: :any_skip_relocation, mojave:         "7bde3bb494bdda10977f62bf1439e2b0bbf540a789ea4b86fd7df6f677c215e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a6e9cce4884cbe8b3eaf1004fac0e8160bd52bce48179096c949577bd0df14c"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/6b/c3/d31704ae558dcca862e4ee8e8388f357af6c9d9acb0cad4ba0fbbd350d9a/beautifulsoup4-4.9.3.tar.gz"
-    sha256 "84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25"
+    url "https://files.pythonhosted.org/packages/a1/69/daeee6d8f22c997e522cdbeb59641c4d31ab120aba0f2c799500f7456b7e/beautifulsoup4-4.10.0.tar.gz"
+    sha256 "c23ad23c521d818955a4151a67d81580319d4bf548d3d49f4223ae041ff98891"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
-    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
+    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
+    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
   end
 
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+  resource "charset-normalizer" do
+    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
+    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
-    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
+    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
+    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9f/14/4a6542a078773957aa83101336375c9597e6fe5889d20abda9c38f9f3ff2/requests-2.25.0.tar.gz"
-    sha256 "7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8"
+    url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
+    sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/3e/db/5ba900920642414333bdc3cb397075381d63eafc7e75c2373bbc560a9fa1/soupsieve-2.0.1.tar.gz"
-    sha256 "a59dc181727e95d25f781f0eb4fd1825ff45590ec8ff49eadfd7f1a537cc0232"
+    url "https://files.pythonhosted.org/packages/c8/3f/e71d92e90771ac2d69986aa0e81cf0dfda6271e8483698f4847b861dd449/soupsieve-2.2.1.tar.gz"
+    sha256 "052774848f448cf19c7e959adf5566904d525f33a3f8b6ba6f6f8f26ec7de0cc"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
-    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
+    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
+    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
   end
 
   resource "urwid" do

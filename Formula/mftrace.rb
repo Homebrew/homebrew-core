@@ -7,11 +7,13 @@ class Mftrace < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "56cae4038a59d4803c0a084c21c34da9564c2a4cb423b73608d74735edf03ace"
-    sha256 cellar: :any_skip_relocation, big_sur:       "09ca3daeb696824e12655d6dbd0c768a0dcc07306c35001bc7b90417fb2b38c6"
-    sha256 cellar: :any_skip_relocation, catalina:      "da5fc2002936d2260121ce8134472bce14e8bccfb406fe9e1e56591037aa9751"
-    sha256 cellar: :any_skip_relocation, mojave:        "d4b3535bdd69a89c59c4b7d7011ccb06544108c376e6313f62062c32991dece2"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "e1d8b241eb03982520cf2b4b2f8794fe74afb240247e4ea7c8164b1c9a22e974"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c6697dda8331a25dfebad452baa00d2b896246dd2e793be153f4d3dffcd523b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56cae4038a59d4803c0a084c21c34da9564c2a4cb423b73608d74735edf03ace"
+    sha256 cellar: :any_skip_relocation, monterey:       "34ef20acd991102a8bfa7cc3bf5bee1fa840e32eaca4409931e4325150cf6916"
+    sha256 cellar: :any_skip_relocation, big_sur:        "09ca3daeb696824e12655d6dbd0c768a0dcc07306c35001bc7b90417fb2b38c6"
+    sha256 cellar: :any_skip_relocation, catalina:       "da5fc2002936d2260121ce8134472bce14e8bccfb406fe9e1e56591037aa9751"
+    sha256 cellar: :any_skip_relocation, mojave:         "d4b3535bdd69a89c59c4b7d7011ccb06544108c376e6313f62062c32991dece2"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "e1d8b241eb03982520cf2b4b2f8794fe74afb240247e4ea7c8164b1c9a22e974"
   end
 
   head do

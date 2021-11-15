@@ -12,11 +12,13 @@ class Ucon64 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "2f96fb8d33b2dee04afead4f3efcae1d56a34131291446de18300278e10c1df2"
-    sha256 big_sur:       "b6b2a89d3da04d4a6ff3ce5fa39f9439ca0c2068d5f66a4a32e9abb4d09be329"
-    sha256 catalina:      "a935bde7d18d023d03b38631b9fdb8229bc6b4514bd693cd832515295cc47a7b"
-    sha256 mojave:        "3652059ae186bbd01f2fc85586629ac47b2067d0b851d71858d66fb3f4080523"
-    sha256 x86_64_linux:  "5b38376946717a9baaafa0efd9fa066e9ee1a3bb383dc69c69bc872faa6358a8"
+    sha256 arm64_monterey: "bf1ddba8eabebcfa8c9079574610d5b0ff78c45afba3bab9379f7364b338921a"
+    sha256 arm64_big_sur:  "2f96fb8d33b2dee04afead4f3efcae1d56a34131291446de18300278e10c1df2"
+    sha256 monterey:       "9ebb44abe1af58cfd731be69d82408eb30b186ca159af8b7e3a6eca653ee6b61"
+    sha256 big_sur:        "b6b2a89d3da04d4a6ff3ce5fa39f9439ca0c2068d5f66a4a32e9abb4d09be329"
+    sha256 catalina:       "a935bde7d18d023d03b38631b9fdb8229bc6b4514bd693cd832515295cc47a7b"
+    sha256 mojave:         "3652059ae186bbd01f2fc85586629ac47b2067d0b851d71858d66fb3f4080523"
+    sha256 x86_64_linux:   "5b38376946717a9baaafa0efd9fa066e9ee1a3bb383dc69c69bc872faa6358a8"
   end
 
   uses_from_macos "unzip" => [:build, :test]

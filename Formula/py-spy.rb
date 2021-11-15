@@ -1,16 +1,17 @@
 class PySpy < Formula
   desc "Sampling profiler for Python programs"
   homepage "https://github.com/benfred/py-spy"
-  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.3.8.tar.gz"
-  sha256 "9dbfd0ea79ef31a2966891e86cf6238ed3831938cf562e71848e07b7009cf57d"
+  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.3.11.tar.gz"
+  sha256 "094cfb80e2c099763453fc39cfa9c46cfa423afa858268c6a7bc0d867763b014"
   license "MIT"
-  head "https://github.com/benfred/py-spy.git"
+  head "https://github.com/benfred/py-spy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "22121c8eaec4a7cd913ae2add7287df36ad0e9a32f8f3a141faeef12401672cc"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4dffb9d38caafb69e1bb3f3183a668102679b17824205a6a54e55966713cfcd5"
-    sha256 cellar: :any_skip_relocation, catalina:      "915ac43c4c40dbac5d0abf7c014a335264d0d34e1d36e6f5eefc02147a296375"
-    sha256 cellar: :any_skip_relocation, mojave:        "58015a69ab226cdbb2a2a28d9094cd9b90c23743aee394566e86c63f3cbc128c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "117cc4ae799abeda0ec934378e287d78196c66da8219843266336519f5252174"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1951839640b1aa3d4deb01f27fd0130e5c9e49227a3997cad3b0e622c79b8cf3"
+    sha256 cellar: :any_skip_relocation, monterey:       "05f6c44c4453d888b149f3fa2009c1c3b31d3073c2980632ebaf7e1f2289832e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "651aeae6101063deed04c2219abc9068444f24eb7640c3db9d22d7edab8b3e79"
+    sha256 cellar: :any_skip_relocation, catalina:       "1792e2f649b4d6d8fe9fc1151e1d70815b43775b3ebf96323e704c1769449121"
   end
 
   depends_on "rust" => :build
@@ -18,6 +19,13 @@ class PySpy < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    bash_output = Utils.safe_popen_read(bin/"py-spy", "completions", "bash")
+    (bash_completion/"py-spy").write bash_output
+    zsh_output = Utils.safe_popen_read(bin/"py-spy", "completions", "zsh")
+    (zsh_completion/"_py-spy").write zsh_output
+    fish_output = Utils.safe_popen_read(bin/"py-spy", "completions", "fish")
+    (fish_completion/"py-spy.fish").write fish_output
   end
 
   test do

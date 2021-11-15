@@ -1,9 +1,10 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-7.6.0.tar.xz"
-  sha256 "8f967106d00aabb3cd692724bdd4a9c09e71cb2245053b98193690ee01766141"
+  url "https://libvirt.org/sources/libvirt-7.9.0.tar.xz"
+  sha256 "829cf2b5f574279c40f0446e1168815d3f36b89710560263ca2ce70256f72e8c"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  head "https://github.com/libvirt/libvirt.git", branch: "master"
 
   livecheck do
     url "https://libvirt.org/sources/"
@@ -11,17 +12,14 @@ class Libvirt < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "8f86ccc81d09112ce826c382bfefb74880c9dabfe186b9c83bf6d935eba1611d"
-    sha256 big_sur:       "5bd53310057ed0d72695cb176005bc8ad1bb320f4cb67c9b74cb1a2582631103"
-    sha256 catalina:      "dd979706fd043654f4393ee331607c325df0ca0012b3eecc8579223cbbd53bfd"
-    sha256 mojave:        "ba7df55e6bcb315e6ab46111a1e4a0824ab72c44888cd01f2d4821860f163dd3"
-    sha256 x86_64_linux:  "e31b155ea6e7e306875c78d43e28828ebc01b5a5210fd0a1bacbbf271a6f30dd"
+    sha256 arm64_monterey: "5477d07e4d0af7a7fa2d917e4ec3598f882fc799cc25f8cd4b0caab7362f9486"
+    sha256 arm64_big_sur:  "dbafcc4b737970c148bd250225ac8244199deb48f9c04c0c4803d1ae11fde988"
+    sha256 monterey:       "c874537c4fe979ebea31f708cabc54d76d4b0bcb80e53f790e2b5be5f674cae6"
+    sha256 big_sur:        "4e6e779af1394b7fdcf7d9c04e93d7977067fbcb0489a124e178519f6b044ea9"
+    sha256 catalina:       "da0f91b819fa59872ce93f6f31e0b9f6c579f7a595718728e84ba989a2447ad1"
+    sha256 x86_64_linux:   "69f4a06f0b969e8d704e82b086172850800d835ef12609026e9f7a2850d6b695"
   end
 
-  head do
-    url "https://github.com/libvirt/libvirt.git"
-  end
   depends_on "docutils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -57,6 +55,7 @@ class Libvirt < Formula
         --sysconfdir=#{etc}
         -Ddriver_esx=enabled
         -Ddriver_qemu=enabled
+        -Ddriver_network=enabled
         -Dinit_script=none
       ]
       system "meson", *std_meson_args, *args, ".."

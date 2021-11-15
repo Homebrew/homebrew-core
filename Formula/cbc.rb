@@ -8,12 +8,12 @@ class Cbc < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/(?:releases%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(%r{^releases/v?(\d+(?:\.\d+)+)$}i)
   end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "447d1c2350025c4a124bbcd4158f6caae27cd8371cc51e349b9b4ab0660539f9"
+    sha256 cellar: :any,                 monterey:      "6887340f5a6c8c2244bb572a765ed694b35f56f3b28f77672e466150895a0fb7"
     sha256 cellar: :any,                 big_sur:       "d3953110eb8c6662186ed8ca4068bf5497fa042d5237aee931a0f42501979c7f"
     sha256 cellar: :any,                 catalina:      "56fee588e216483d5b63e6e6f61dc824325da64f61fcaa7af3c3f6692c0a004d"
     sha256 cellar: :any,                 mojave:        "d415cd6ac5c7afdda6e54d74e1acf76282ad81170333690bcd2ae3c08babdff5"

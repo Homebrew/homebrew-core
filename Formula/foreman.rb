@@ -13,6 +13,7 @@ class Foreman < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "674b5fc005986f47294acedccba6b2a2bcdc1d423e392a356f8d58cc88a2c81a"
     sha256 cellar: :any_skip_relocation, high_sierra:   "b0d289ff31caf33f3d549af6dd615e37588aadb243355395380c4df5b0e52d63"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8574b2ffa786ee20eb1e9ab92c5a7d696dd325b99cb64c98f98609324d3cfe89"
+    sha256 cellar: :any_skip_relocation, all:           "c37735684c31bbdcef1e95c9e7cfbc6245cdcf1f3ee962a67ae8aa53daa43b2a"
   end
 
   uses_from_macos "ruby"

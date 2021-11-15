@@ -1,15 +1,26 @@
 class Libmobi < Formula
   desc "C library for handling Kindle (MOBI) formats of ebook documents"
-  homepage "https://github.com/bfabiszewski/libmobi/"
-  url "https://github.com/bfabiszewski/libmobi/releases/download/v0.6/libmobi-0.6.tar.gz"
-  sha256 "c35bd44279575bf8b102d23eba482805bfc1e5a49df8414d851507e8ea811c5d"
+  homepage "https://github.com/bfabiszewski/libmobi"
+  url "https://github.com/bfabiszewski/libmobi/releases/download/v0.9/libmobi-0.9.tar.gz"
+  sha256 "136f81451e51486e57ec2afe5a64e56d6604cf99ee4a2d01fba288ab4dce161f"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c5278432f0d13b9e7df78a64f94f554fd8a18810e109a62b556e1ee135c5e9c7"
-    sha256 cellar: :any, big_sur:       "09fcc2ffd8033d5406a770484b0dc6c18fec71a67264c77ad4f93af4302c8697"
-    sha256 cellar: :any, catalina:      "dda06a2599862e896c17decedb77f6d2a3dae354c4b17fe33ab21ff242a7b73c"
-    sha256 cellar: :any, mojave:        "aa60c60d6d6443b2a5a80ac507c554576f601ff06dd069577b7be89ab3a17f34"
+    sha256 cellar: :any,                 arm64_monterey: "4f1747ba00caba7df453292c5443a646d87951b6d1007ee8cf0a54ba52701f10"
+    sha256 cellar: :any,                 arm64_big_sur:  "67babfb4198ee17ae835b379b1cdd9e30b079b1cb485d4670e7c497f6f627f1c"
+    sha256 cellar: :any,                 monterey:       "30fb67be80e69ae23b18b766105274e7280352ea6d33ed9b7b65ea343f15f936"
+    sha256 cellar: :any,                 big_sur:        "d32823a5428cca4c7d81be853e1733a2df36da67f93bf0ba4a969174d5b1ab72"
+    sha256 cellar: :any,                 catalina:       "7206d2e0b13453eeabe871518bc9961ad95e9bc0f2c223e31ec7ff134db64d6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cb122be57102c33446b67c9481926445e996c5b1711588a963268646ad70f9e"
+  end
+
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install
@@ -29,7 +40,7 @@ class Libmobi < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lmobi", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lmobi", "-o", "test"
     system "./test"
   end
 end

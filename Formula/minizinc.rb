@@ -4,19 +4,26 @@ class Minizinc < Formula
   url "https://github.com/MiniZinc/libminizinc/archive/2.5.5.tar.gz"
   sha256 "c6c81fa8bdc2d7f8c8d851e5a4b936109f5d996abd8c6f809539f753581c6288"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "051a8da67510e17e57371dc332cc441f80b366affce08917173b92fb9c7e047e"
-    sha256 cellar: :any,                 big_sur:       "65127ebb8476ee303b45624b7e7a7c9e1f6d4b740056b95c31da6350f819ada6"
-    sha256 cellar: :any,                 catalina:      "921698a98271c69f66d66303be5e6852b083e4117a349f4039c482597b863039"
-    sha256 cellar: :any,                 mojave:        "2ffec6708a7253410c073e8faa5e8dceb43ddee2d1002beb1032f31c8ee4a492"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "593d73ddea77194856cba87bd7a3b203f465b13a182769965a7fad4a5435ac09"
+    sha256 cellar: :any,                 arm64_big_sur: "2b42bf0200d3994836e19b182071d6e01356d73a142f8e05cb0262503a51388a"
+    sha256 cellar: :any,                 monterey:      "21face194a18f55c82a3c556a752fe346d15261021c036d8325b97eed34a25ad"
+    sha256 cellar: :any,                 big_sur:       "5b5cf302b7e196dbfea011879a2bace24d9991f398cc243e4146e3500565ec30"
+    sha256 cellar: :any,                 catalina:      "1a3f200f314c8f89090e5bfbda0e241023a5efbbe17ce0ee67bcc50d0edd3138"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a190fa33d43ac9219a8b13cf3ff23eb7dc2db83d457af2affbc8eee172db03a"
   end
 
   depends_on "cmake" => :build
   depends_on "cbc"
   depends_on "gecode"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     mkdir "build" do

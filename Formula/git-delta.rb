@@ -1,21 +1,22 @@
 class GitDelta < Formula
   desc "Syntax-highlighting pager for git and diff output"
   homepage "https://github.com/dandavison/delta"
-  url "https://github.com/dandavison/delta/archive/0.8.3.tar.gz"
-  sha256 "cf48d52d20a12e11a3a6afd436a75550e78fc39c358e85a75caa08b39e4e75c6"
+  url "https://github.com/dandavison/delta/archive/0.9.2.tar.gz"
+  sha256 "f002a94119cd5b6fd9deede7f344667358baf5015d0051e055fec6334ee0653f"
   license "MIT"
   head "https://github.com/dandavison/delta.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c1863678cb96ffb95451fc4677cea5ef2fb2280d61efe7061884e21fddc0c4f9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "784f02aca241d3055f7932a4ebdc983955dbfa1551cf96b99a67c67da382e9e5"
-    sha256 cellar: :any_skip_relocation, catalina:      "50954d3cc47cdf353f050ca12f378779e827f724c41a48e40b3d4b6a7ebb53d6"
-    sha256 cellar: :any_skip_relocation, mojave:        "45420b913807614d341c14e715253be518ac9b77ebaa947af2b32528c3ed0382"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b20c3983f9578a40a3644fa9b6078bf4cc77c63e18ac80ef2c751104b5f91c5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb49545db2890d1c9c5ab9f87d95c783ffbfb97ff94ff90f79b77f686a0b5ffb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c968613ffc57497c2dcc0fb1ee5eadfe55138f3a133e4f83d46fae53056ecc9"
+    sha256 cellar: :any_skip_relocation, monterey:       "e111b20cd3de86b8f3fefdc38fb550742184a796591fe2f03f92a3b6902d1640"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b516a28075ebf70b48277b1d25350d60d70b2a86e5b4163b7ab9c11138e0751c"
+    sha256 cellar: :any_skip_relocation, catalina:       "ebb60f2f9e5069a35521381e3fee4951fb5d6cf5ffec915788ed526c2489d213"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e8148a98b8fd8f383788d7e63918a99bc2c76a9773edd2a7881d2e30e886d7a"
   end
 
   depends_on "rust" => :build
-  uses_from_macos "llvm"
+  uses_from_macos "zlib"
 
   conflicts_with "delta", because: "both install a `delta` binary"
 

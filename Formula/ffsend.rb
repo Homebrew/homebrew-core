@@ -1,16 +1,18 @@
 class Ffsend < Formula
   desc "Fully featured Firefox Send client"
   homepage "https://gitlab.com/timvisee/ffsend"
-  url "https://github.com/timvisee/ffsend/archive/v0.2.72.tar.gz"
-  sha256 "288f988cb0ea77e05571152a7d72f0d2a7e13de86bcaf2ceacb29ea6d51341ef"
+  url "https://github.com/timvisee/ffsend/archive/v0.2.74.tar.gz"
+  sha256 "e6092fc4f40be6d79ddf46a0fb4a739310a2db5407fd3f5db2c43cafc8c41485"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cc20b53b713cbfaa71bbe01fcd5a89ab79b2a341e2f3db710b814fac00042be9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "42579c13819aa72bff97d81ced32497acdda31b55248b82ad3ddecabe2732607"
-    sha256 cellar: :any_skip_relocation, catalina:      "643d1c9363722cc8c07d554b31248cbe1ea21b0694f77fa81315a820a795d17b"
-    sha256 cellar: :any_skip_relocation, mojave:        "95470963c1880854a134899af62d1f09c0227a1e0fe93a8436013b35ad5c1fc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6853f30ab0bba491a3a627f381555c9795e5be21d5b3863b86a52fc07f80f7fc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b53cd1075514afca5d97f9132b1abdecd1c6e0da8085493572084c0f4924e00"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb28f76fd8ce6bdd41178a7c019b74a181bc10c6af7bc4577c39f42cb8a5aad4"
+    sha256 cellar: :any_skip_relocation, monterey:       "03593e8ec608b4906bd3e02324fb8ebb01fec7f6f346f66c2adcb48d3b2b48cf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b0cf6c1a3c746a12a9fb654c772ec117378d63acaa9027811641a7ce81493f2d"
+    sha256 cellar: :any_skip_relocation, catalina:       "17e152eadf259130498d4b99008244646fa13d5ab35ca55998dbaa587b39283b"
+    sha256 cellar: :any_skip_relocation, mojave:         "8721d410afecbffa858783fadedc162294924ea4aba35ba0c929956df7bbe899"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1eaeb9b9f408a6a0766c84fe6cc7bfada070b859a9a66c36dff3d80b7d198b38"
   end
 
   depends_on "rust" => :build

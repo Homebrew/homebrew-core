@@ -4,23 +4,24 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.54.0-src.tar.gz"
-    sha256 "ac8511633e9b5a65ad030a1a2e5bdaa841fdfe3132f2baaa52cc04e71c6c6976"
+    url "https://static.rust-lang.org/dist/rustc-1.56.1-src.tar.gz"
+    sha256 "c3898dfaadaa193dc88ddbc5345946a163211b58621df1cfff70186b4fc79511"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.55.0",
-          revision: "5ae8d74b3b2d58f32c8d357e5cfa04d430a70e0b"
+          tag:      "0.57.0",
+          revision: "4ed5d137baff5eccf1bae5a7b2ae4b57efad4a7d"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "63c7e4b6ed3d5262fbc67a4850234624f5139d2d71261917eceadb7681589a6a"
-    sha256 cellar: :any,                 big_sur:       "8e324bb50e3176b3287aeac558deb3bb62631fcf49f56ab656761d7406669b63"
-    sha256 cellar: :any,                 catalina:      "802d25a7e561ab9aee2e9496f511e17bc231eb6f0a6a41dbf8c4f770fef3537d"
-    sha256 cellar: :any,                 mojave:        "5589f6ecdfc6f0401dcc899ee4a2664b499d884e1e4a64cbd68d7e09c392df6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "900fd9e2f3c90a2a8524225e5524a71c0f91c1dd2cab08b07285dce24d998a31"
+    sha256 cellar: :any,                 arm64_monterey: "58189da7cb381f3ca4600ac6ce22280faa913befe1c4772b2cb546310b8cf6ee"
+    sha256 cellar: :any,                 arm64_big_sur:  "4ef461b5e0ce1ef9f83308fca7a5da406bdeccee7c8fa19fb9277ebcd75efafb"
+    sha256 cellar: :any,                 monterey:       "18fbf3c9385b2f36384fa14643c723f73fbfa49aeac5fc2cc420dd7ccb712561"
+    sha256 cellar: :any,                 big_sur:        "20624f172ed0275e7360facdd5fe0267317d4edfa0fc099264673648ab5cdee6"
+    sha256 cellar: :any,                 catalina:       "7eb748e8f01e64656b23083f20a2887a344a200d28e1cbec6d95407b321f160f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cba480896934378891fdb66d4749470b515c99d773b816be690e7b46d8f3d6bb"
   end
 
   head do
@@ -45,18 +46,18 @@ class Rust < Formula
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
       if Hardware::CPU.arm?
-        url "https://static.rust-lang.org/dist/2021-06-17/cargo-1.53.0-aarch64-apple-darwin.tar.gz"
-        sha256 "5f0aea0cd507ff6e3b1e1ae54a8726172d055a8b6d8b1ba550ce9ebc96a8a891"
+        url "https://static.rust-lang.org/dist/2021-09-09/cargo-1.55.0-aarch64-apple-darwin.tar.gz"
+        sha256 "9e49c057f8020fa4f67e6530aa2929c175e5417d19fc9f3a14c9ffb168c2932d"
       else
-        url "https://static.rust-lang.org/dist/2021-06-17/cargo-1.53.0-x86_64-apple-darwin.tar.gz"
-        sha256 "b42f4a7d054e219d8744af48cfab798473981455a050a320c46b164382726e50"
+        url "https://static.rust-lang.org/dist/2021-09-09/cargo-1.55.0-x86_64-apple-darwin.tar.gz"
+        sha256 "4e004cb231c8efbd4241b012c6abeefc7d61e2b4357cfe69feb0d4a448d30f05"
       end
     end
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2021-06-17/cargo-1.53.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "e79d9d0b03cb331428ef3cfc4cbe60ded9f90708a7dd1714d974dab9a03ee7b3"
+      url "https://static.rust-lang.org/dist/2021-09-09/cargo-1.55.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "bb18c74aea07fa29c7169ce78756dfd08c07da08c584874e09fa6929c8267ec1"
     end
   end
 
@@ -65,7 +66,7 @@ class Rust < Formula
 
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
-    on_macos { ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version }
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version if OS.mac?
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
@@ -91,9 +92,7 @@ class Rust < Formula
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
       args = %W[--root #{prefix} --path .]
-      on_macos do
-        args += %w[--features curl-sys/force-system-lib-on-osx]
-      end
+      args += %w[--features curl-sys/force-system-lib-on-osx] if OS.mac?
       system "cargo", "install", *args
       man1.install Dir["src/etc/man/*.1"]
       bash_completion.install "src/etc/cargo.bashcomp.sh"

@@ -5,7 +5,7 @@ class Creduce < Formula
   sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
   license "BSD-3-Clause"
   revision 2
-  head "https://github.com/csmith-project/creduce.git"
+  head "https://github.com/csmith-project/creduce.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -13,6 +13,7 @@ class Creduce < Formula
   end
 
   bottle do
+    sha256 cellar: :any, monterey: "c03eb4819b85732039da8437bf96f22f9c983a0113f3c7f5811e983c907d8acf"
     sha256 cellar: :any, big_sur:  "885805d75a7b94b42c75993af85ac92b3ac4c3e8a4fdd42e58e4ba14e7b33d48"
     sha256 cellar: :any, catalina: "e6bc0e8e53ccfedfd4423a5b133621d68779b768242b19bef75bfdb4d43ba151"
     sha256 cellar: :any, mojave:   "5f509b134d14e497243bfdd950a148bb50259b0bf8bfd788df9ebaf5823ef96f"

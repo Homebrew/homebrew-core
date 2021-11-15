@@ -26,16 +26,12 @@ class Wxmaxima < Formula
       system "ninja"
       system "ninja", "install"
 
-      on_macos do
-        prefix.install "src/wxMaxima.app"
-      end
+      prefix.install "src/wxMaxima.app" if OS.mac?
     end
 
     bash_completion.install "data/wxmaxima"
 
-    on_macos do
-      bin.write_exec_script "#{prefix}/wxMaxima.app/Contents/MacOS/wxmaxima"
-    end
+    bin.write_exec_script "#{prefix}/wxMaxima.app/Contents/MacOS/wxmaxima" if OS.mac?
   end
 
   def caveats

@@ -7,12 +7,14 @@ class Webfs < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "1801afbf473ab499ddba5015432c87eed8f1316c921e181cf978dfae1c19a656"
-    sha256 cellar: :any, big_sur:       "186343dd3f7bc14c248a9a52796f7afd63e430bdfaa71d570abb6142e7632b34"
-    sha256 cellar: :any, catalina:      "192b771c2cf819773c9581bcdc83dacb9954c241ab41837ff844f736a53d5a1e"
-    sha256 cellar: :any, mojave:        "f561f9dac64cd43165eefd01619d54042507a4f9a1d572c621e17229b63ec045"
-    sha256 cellar: :any, high_sierra:   "52608c9f1bd5d7e7fceec24bff51ca67e0739b1c83ae2676c6ca161fdfaaa4d7"
-    sha256 cellar: :any, sierra:        "9e678532e4546e4fabb9a96b9eb141769e00e330e15c9e5b453001141448c9fb"
+    sha256 cellar: :any, arm64_monterey: "fc1329e4945435c639c82dbdacc43a9ae55521188aa6fd672d3446bd06822df5"
+    sha256 cellar: :any, arm64_big_sur:  "1801afbf473ab499ddba5015432c87eed8f1316c921e181cf978dfae1c19a656"
+    sha256 cellar: :any, monterey:       "73ad4360c6dc78e9b517e0088b9c4a60a83a7fadadced409f119f8d4634644d5"
+    sha256 cellar: :any, big_sur:        "186343dd3f7bc14c248a9a52796f7afd63e430bdfaa71d570abb6142e7632b34"
+    sha256 cellar: :any, catalina:       "192b771c2cf819773c9581bcdc83dacb9954c241ab41837ff844f736a53d5a1e"
+    sha256 cellar: :any, mojave:         "f561f9dac64cd43165eefd01619d54042507a4f9a1d572c621e17229b63ec045"
+    sha256 cellar: :any, high_sierra:    "52608c9f1bd5d7e7fceec24bff51ca67e0739b1c83ae2676c6ca161fdfaaa4d7"
+    sha256 cellar: :any, sierra:         "9e678532e4546e4fabb9a96b9eb141769e00e330e15c9e5b453001141448c9fb"
   end
 
   depends_on "openssl@1.1"

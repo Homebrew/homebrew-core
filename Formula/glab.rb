@@ -1,23 +1,25 @@
 class Glab < Formula
   desc "Open-source GitLab command-line tool"
   homepage "https://glab.readthedocs.io/"
-  url "https://github.com/profclems/glab/archive/v1.20.0.tar.gz"
-  sha256 "c0b5644f53e5d66b77843c4e1f5746fed12f31079fc95679ac78d05609a87e65"
+  url "https://github.com/profclems/glab/archive/v1.21.1.tar.gz"
+  sha256 "878c13d064ca6010437de90ca3711962fd87441fcae39bf01cb0af5aa5efd79e"
   license "MIT"
   head "https://github.com/profclems/glab.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c37212705c5790ed60ccdfd75e8113fba4cf374ce16e7773e3778ecf3d0ab63d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e0868a98a06b3d35d5f04804e824887b6b75372994f65e1d53f39d7575e91d08"
-    sha256 cellar: :any_skip_relocation, catalina:      "b3cc62044edc1c0556c22952ad806246d3b9d662bcf2462c03c90f9d0e0b6d6c"
-    sha256 cellar: :any_skip_relocation, mojave:        "bc4d1610146aff1867df1c099eb8d546eab62f600918af6a5c3a7674d8f7c274"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5cf350e914ae5cbb9c2c7c74b8b5843dd9427a0c0658127e6065dbab7309d55"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f30115f346654210a5580268de26a0a957193e1296d59db442d52b7854738404"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c1a989fc60ce6bf9071350d9ce9d48d59858e490d92cb23fed6c979ea3a4dfc8"
+    sha256 cellar: :any_skip_relocation, monterey:       "a33a50438b8d38c0ed7da1e040d820652caf79c60177df1755d5ca4d00d7962a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "82a903f4d6f4866fa55c93250d63467c8f83003389343cec63e8bc70e0e9dc5e"
+    sha256 cellar: :any_skip_relocation, catalina:       "766192bb22eba3e0219aae40b4898d4e0993788154a5885d865ae1e6074ac722"
+    sha256 cellar: :any_skip_relocation, mojave:         "60e7f1b0149b2c767b3324bed1719b573db47db3120250c9c596a372a639a06a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c2494a7790d8b3a0391842bc0b70b645a459630a264501becb96d893420768e"
   end
 
   depends_on "go" => :build
 
   def install
-    on_macos { ENV["CGO_ENABLED"] = "1" }
+    ENV["CGO_ENABLED"] = "1" if OS.mac?
 
     system "make", "GLAB_VERSION=#{version}"
     bin.install "bin/glab"

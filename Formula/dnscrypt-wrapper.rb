@@ -8,6 +8,7 @@ class DnscryptWrapper < Formula
   head "https://github.com/Cofyc/dnscrypt-wrapper.git"
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "95c31e73ffe3e10426f4859731e62d1c29bd1d8454bdc4b822828e5cf5f57ba8"
     sha256 cellar: :any,                 big_sur:      "6a4ce514c0ec1c41cf197b6201cba95ded39f0e7018755ec1bf42824aa8675d6"
     sha256 cellar: :any,                 catalina:     "ea344feb10cc87d14e8b30cd3fcbbabed2b55f5c76014fcdc18aff49cb9fc5cd"
     sha256 cellar: :any,                 mojave:       "129be9e2c08af0351401437f09a950f0d4050e99cce47da220561a3153d5334d"

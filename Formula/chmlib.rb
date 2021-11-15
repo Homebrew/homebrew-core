@@ -13,6 +13,7 @@ class Chmlib < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 monterey:     "4d4a29e60712457e4ea3838947a95959dbc0f68338514edd3817d6ee122afbf4"
     sha256 cellar: :any,                 big_sur:      "af369d3e427b36281f053f65a0d5be2a269c2a0fb80c87443baa066892d0652c"
     sha256 cellar: :any,                 catalina:     "96d7cb33260c72012f24f383054b7f2505f815f0e3e24298229b5712f8a66cfa"
     sha256 cellar: :any,                 mojave:       "1718a0a9343788718b4207596ebff457f5214879319292cc1608254374720944"
@@ -21,6 +22,12 @@ class Chmlib < Formula
     sha256 cellar: :any,                 el_capitan:   "6b834a6ae6e95f8daaa726fd6ae1a2d3e60335f98862fea9e790c24e5a6411d1"
     sha256 cellar: :any,                 yosemite:     "bdc19058cbf1690e960bd88d06f6c8b2ff47f8b743947eb82c259ba394881a65"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "61a085287bba377e847d027575fd848cbadc0f6b5bd8f2efc008cc54d8f32d32"
+  end
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 
   def install

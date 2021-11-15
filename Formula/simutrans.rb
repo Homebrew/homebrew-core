@@ -4,7 +4,7 @@ class Simutrans < Formula
   url "svn://servers.simutrans.org/simutrans/trunk/", revision: "9274"
   version "122.0"
   license "Artistic-1.0"
-  head "https://github.com/aburch/simutrans.git"
+  head "https://github.com/aburch/simutrans.git", branch: "master"
 
   livecheck do
     url "https://sourceforge.net/projects/simutrans/files/simutrans/"
@@ -14,10 +14,12 @@ class Simutrans < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "aa133be9c3b1e7f1e9bec13b185159fe92b55825968025443628d45352e2f759"
-    sha256 cellar: :any, big_sur:       "70babab2113e9d818ef42dd1722f941ad0d70c2b368fea4de8a7122b18ed58e2"
-    sha256 cellar: :any, catalina:      "b95f8a5609030c0acc54aa67a09296a1ffdc74d13f3150d297ef98c22b6db4dd"
-    sha256 cellar: :any, mojave:        "1cbc8bb6590dcac8cef8b7894fa5fd607b1592f739a4fd5bbf69fda0c3684acf"
+    sha256 cellar: :any, arm64_monterey: "f64c704195199035ba23c3513c840bba63107c8193ad40e3c36b4a840922c5be"
+    sha256 cellar: :any, arm64_big_sur:  "aa133be9c3b1e7f1e9bec13b185159fe92b55825968025443628d45352e2f759"
+    sha256 cellar: :any, monterey:       "e36977d3be36d642d6ecd517f71b906018e00632bef4ed08ce50297776cc364f"
+    sha256 cellar: :any, big_sur:        "70babab2113e9d818ef42dd1722f941ad0d70c2b368fea4de8a7122b18ed58e2"
+    sha256 cellar: :any, catalina:       "b95f8a5609030c0acc54aa67a09296a1ffdc74d13f3150d297ef98c22b6db4dd"
+    sha256 cellar: :any, mojave:         "1cbc8bb6590dcac8cef8b7894fa5fd607b1592f739a4fd5bbf69fda0c3684acf"
   end
 
   depends_on "autoconf" => :build

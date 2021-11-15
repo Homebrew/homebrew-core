@@ -7,11 +7,13 @@ class Geoipupdate < Formula
   head "https://github.com/maxmind/geoipupdate.git"
 
   bottle do
-    sha256 arm64_big_sur: "7f8823d01da79c6839c4621a1ae80c20541fb83f6f1197278f4665b4ab4cb0ad"
-    sha256 big_sur:       "100e9ece8f4563fc6ed597be8cbb39c4fd4299067917234d72354df56f9a34bc"
-    sha256 catalina:      "ebffdddea99838681cdb84804386668ec9f8b2ed74895ad65bae09820a8da2df"
-    sha256 mojave:        "7842336aef38b28f567dd3b9d9379764f5725837eda91242aa26cfab8b2521c9"
-    sha256 x86_64_linux:  "87b67e239bfa889f4a35890b50003241d4e68ad639bdd9e61274c871dea4ad6c"
+    sha256 arm64_monterey: "3fd3f5ed2425347901d41d310a94a177fe8fcfccb9cd8755bcb8c7ec8a5756a3"
+    sha256 arm64_big_sur:  "7f8823d01da79c6839c4621a1ae80c20541fb83f6f1197278f4665b4ab4cb0ad"
+    sha256 monterey:       "b25b652195cb842c9e8d93f8f58ff87e422c329b926e9dc00297c7458f66b3b6"
+    sha256 big_sur:        "100e9ece8f4563fc6ed597be8cbb39c4fd4299067917234d72354df56f9a34bc"
+    sha256 catalina:       "ebffdddea99838681cdb84804386668ec9f8b2ed74895ad65bae09820a8da2df"
+    sha256 mojave:         "7842336aef38b28f567dd3b9d9379764f5725837eda91242aa26cfab8b2521c9"
+    sha256 x86_64_linux:   "87b67e239bfa889f4a35890b50003241d4e68ad639bdd9e61274c871dea4ad6c"
   end
 
   depends_on "go" => :build

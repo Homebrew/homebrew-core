@@ -1,16 +1,17 @@
 class Azcopy < Formula
   desc "Azure Storage data transfer utility"
   homepage "https://github.com/Azure/azure-storage-azcopy"
-  url "https://github.com/Azure/azure-storage-azcopy/archive/v10.11.0.tar.gz"
-  sha256 "a766a1c4c5c2b9ce4db2abd3a978ff757fa02b34fdac4c8e3c77c2fce64a0f09"
+  url "https://github.com/Azure/azure-storage-azcopy/archive/v10.13.0.tar.gz"
+  sha256 "ff3b199a044bb16abc70b1d221f4b92e693b90e204c6ca7ff27d1c857b02d444"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "474b27d1ccdd417f7fe1d75fe69311e76ec16f8fef56ccba1ed35f323318fd70"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a2e2649c4fdbc5453e6b33536af505a9747d59413d6314fc1171d68d96c0156c"
-    sha256 cellar: :any_skip_relocation, catalina:      "4eca8b06dde2477846598d23d0dbc08a7c18de91b6185656f0dd0b9f7c0b5302"
-    sha256 cellar: :any_skip_relocation, mojave:        "908b48e69521aa5b29eb1e300d21e9b9212b1930dd860a7caf7b4b2ef4191138"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4ba6bc3a5e5d8645b721278f304e2ce8d4dc3555d8a13e05c73a08801f91db8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc4cbc8cfc68ca1906c4a94999e6121ca5573c6bf20d85a234153ba1c6b7794d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6ef402590c4a392cecee26f41e84dff712308fd9ff12a1ddc3907e1a3849aa3"
+    sha256 cellar: :any_skip_relocation, monterey:       "87652c191c0173f07fe09e9a6ac1d56b8fa3f46b6e866b92f2efb23a69994a03"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fd18912ddee9a577a33f12d175678e9245f4c09b77a7ba148ddb6241c0b8add9"
+    sha256 cellar: :any_skip_relocation, catalina:       "4f7bc9444f9b1dfa52b58d5d4400eaf702a56e420a52f18d423cc8a445ee8e5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c713bcc655c81265b62b27e6a97d8d3b526a62e5ba22494345e77b406cb67759"
   end
 
   depends_on "go" => :build

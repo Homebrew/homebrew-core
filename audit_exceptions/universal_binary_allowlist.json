@@ -10,6 +10,7 @@
   "joplin-cli",
   "llvm",
   "llvm@11",
+  "llvm@12",
   "llvm@7",
   "llvm@8",
   "llvm@9",
@@ -17,8 +18,8 @@
   "marp-cli",
   "netlify-cli",
   "node-sass",
-  "openjdk",
   "openjdk@11",
   "serverless",
-  "sourcery"
+  "sourcery",
+  "swift"
 ]

@@ -1,8 +1,8 @@
 class Links < Formula
   desc "Lynx-like WWW browser that supports tables, menus, etc."
   homepage "http://links.twibright.com/"
-  url "http://links.twibright.com/download/links-2.23.tar.bz2"
-  sha256 "6660d202f521fd18bf5184c3f1732d1fa7426a103374277ad1cdb8e57ce6ac45"
+  url "http://links.twibright.com/download/links-2.25.tar.gz"
+  sha256 "5c0b3b0b8fe1f3c8694f5fb7fbdb19c63278ac68ae4646da69b49640b20283b1"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,11 +11,12 @@ class Links < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "863a4e88b699317bd3f79c96116ffd142afbaf046d87fa2f76a562d38ef45608"
-    sha256 cellar: :any,                 big_sur:       "a318a648c86e882e797a9517304d464f1f059b35c6e5b5e22c0ea5c23f7bd304"
-    sha256 cellar: :any,                 catalina:      "a90bd1693fc0808e1dc407a09a1e783c331711ee9a72082f1872733354c0c9d1"
-    sha256 cellar: :any,                 mojave:        "8d83115fe0bdaf3ba1c18bf31f9df95cf8d1879af78bb910f59e402df7504383"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21d065d98860466afd5b84ddde8854cb328ae7f80d1a96d2acbfdd9f81c25519"
+    sha256 cellar: :any,                 arm64_big_sur: "b3e9ad1d3617acdbbc86edbc90f429083130a51eb6ea26b809774b8eaf39fa53"
+    sha256 cellar: :any,                 monterey:      "77261cf3aeedfe6b058734536d55b744b80bb52c1cf777a2d78497bd1f4c69e2"
+    sha256 cellar: :any,                 big_sur:       "9d7178901279a9ee80768056fa4f2b04676777d5ef2063c9f8a8c2b9f98a8906"
+    sha256 cellar: :any,                 catalina:      "1eaa9411f73c61b7a82ee8d16b94bd7c8c0dde86e1eec953c5ce5872394ee073"
+    sha256 cellar: :any,                 mojave:        "c12924230d58173c263dcdd827ecb4d9f44bb1e654a191ff5882a46330125cdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6bbd8bae1431f150cc3153f2731cf41cf4fbf06b59033a28b5ac8b72906a792"
   end
 
   depends_on "pkg-config" => :build

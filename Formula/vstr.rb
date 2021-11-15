@@ -5,6 +5,11 @@ class Vstr < Formula
   sha256 "d33bcdd48504ddd21c0d53e4c2ac187ff6f0190d04305e5fe32f685cee6db640"
   license "LGPL-2.1"
 
+  livecheck do
+    url "http://www.and.org/vstr/latest/"
+    regex(/href=.*?vstr[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:     "cc1c69c834bde35ed9e0df8178e8e65d9ba5703fbf2cf896290aed6a7433c4b3"
     sha256 cellar: :any, catalina:    "adbf13e88473af357032472ac09af1230667c5010089089a3c223819ef74c7f6"

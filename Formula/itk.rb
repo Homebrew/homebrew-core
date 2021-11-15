@@ -1,8 +1,8 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://itk.org"
-  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.2.0/InsightToolkit-5.2.0.tar.gz"
-  sha256 "12c9cf543cbdd929330322f0a704ba6925a13d36d01fc721a74d131c0b82796e"
+  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.2.1/InsightToolkit-5.2.1.tar.gz"
+  sha256 "192d41bcdd258273d88069094f98c61c38693553fd751b54f8cda308439555db"
   license "Apache-2.0"
   head "https://github.com/InsightSoftwareConsortium/ITK.git"
 
@@ -12,10 +12,11 @@ class Itk < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "9f3de242d8a5c5853eefc9182e95a61df874976477d628b67e89cebc05171518"
-    sha256 big_sur:       "1a49221acac07be2ed23f90e952a06e11755d08bd9cc9c5541dfaf90dca21929"
-    sha256 catalina:      "1132b2538895f3cceb81084deef22a067b324617fb3ba035ac559d8b46780810"
-    sha256 mojave:        "a786438d13ae1caebf645a45f85956bca04863645cb8bf28c88df26b0dfd9e07"
+    sha256 arm64_big_sur: "7b59055f5a4d15929975183ff03593a0500f6f9a4ff70d740ab184b29e182b99"
+    sha256 big_sur:       "b7b30cd49b92cfcbd05404a4d0a592f3623f122354a82e458d5ee01ac2f9aa73"
+    sha256 catalina:      "2e87abe07201cd013ac9535b02f3a012e79b049327d5ecc6ff015b1752c0a7f8"
+    sha256 mojave:        "d2020a7710d5b42d0d833ff04ee2d821ff8080f34c8d2d00a86feaa39f6dfa25"
+    sha256 x86_64_linux:  "c848dd47f4c45a3def027fac4d9b640f554ceb3ef97e35e6f2d45b3e44f8a73c"
   end
 
   depends_on "cmake" => :build
@@ -29,8 +30,13 @@ class Itk < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "gcc"
     depends_on "unixodbc"
+
+    ignore_missing_libraries "libjvm.so"
   end
+
+  fails_with gcc: "5"
 
   def install
     args = std_cmake_args + %W[
@@ -55,8 +61,9 @@ class Itk < Formula
       -DITK_LEGACY_REMOVE=ON
       -DModule_ITKReview=ON
       -DModule_ITKVtkGlue=ON
-      -DITK_USE_GPU=ON
     ]
+
+    args << "-DITK_USE_GPU=ON" if OS.mac?
 
     # Avoid references to the Homebrew shims directory
     inreplace "Modules/Core/Common/src/CMakeLists.txt" do |s|
@@ -95,10 +102,10 @@ class Itk < Formula
     system ENV.cxx, "-std=c++11", "-isystem", "#{include}/ITK-#{v}", "-o", "test.cxx.o", "-c", "test.cxx"
     # Linking step
     system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test",
-                    "#{lib}/libITKCommon-#{v}.1.dylib",
-                    "#{lib}/libITKVNLInstantiation-#{v}.1.dylib",
-                    "#{lib}/libitkvnl_algo-#{v}.1.dylib",
-                    "#{lib}/libitkvnl-#{v}.1.dylib"
+                    shared_library("#{lib}/libITKCommon-#{v}", 1),
+                    shared_library("#{lib}/libITKVNLInstantiation-#{v}", 1),
+                    shared_library("#{lib}/libitkvnl_algo-#{v}", 1),
+                    shared_library("#{lib}/libitkvnl-#{v}", 1)
     system "./test"
   end
 end

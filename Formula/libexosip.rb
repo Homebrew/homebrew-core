@@ -12,10 +12,12 @@ class Libexosip < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "60ef1b3f024a0ec02a8e1fc59418df4d0cb1ca86728145a2b9976d62f2b01a30"
-    sha256 cellar: :any, big_sur:       "7e69d1381e87307b4dd882fbb54842378886a847d7ef8f5353e2ed409e2f3d76"
-    sha256 cellar: :any, catalina:      "a0fe16f1dc217f051a8aab3ac24c78a41f618a66983ccf52c4838e23720ed60a"
-    sha256 cellar: :any, mojave:        "5e211736f686f45183c103da6fa9181e832740019c983c57de2617133e11055a"
+    sha256 cellar: :any, arm64_monterey: "da7fc6e02d19aa2af2ac9b387a9eaad1269b372a3a60fe1b77c49f8163023b0b"
+    sha256 cellar: :any, arm64_big_sur:  "60ef1b3f024a0ec02a8e1fc59418df4d0cb1ca86728145a2b9976d62f2b01a30"
+    sha256 cellar: :any, monterey:       "4180860dec8a435431817b6da423f0cc8e8d577954dd24cbe4aeb1604f52fd9a"
+    sha256 cellar: :any, big_sur:        "7e69d1381e87307b4dd882fbb54842378886a847d7ef8f5353e2ed409e2f3d76"
+    sha256 cellar: :any, catalina:       "a0fe16f1dc217f051a8aab3ac24c78a41f618a66983ccf52c4838e23720ed60a"
+    sha256 cellar: :any, mojave:         "5e211736f686f45183c103da6fa9181e832740019c983c57de2617133e11055a"
   end
 
   depends_on "pkg-config" => :build

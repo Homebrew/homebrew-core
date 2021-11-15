@@ -1,9 +1,9 @@
 class Bibutils < Formula
   desc "Bibliography conversion utilities"
   homepage "https://sourceforge.net/p/bibutils/home/Bibutils/"
-  url "https://downloads.sourceforge.net/project/bibutils/bibutils_6.10_src.tgz"
-  sha256 "8656c042fa1371443aa4e1a58bcab5fcea0b236eb39182e4004fc348ce56e496"
-  license "GPL-2.0"
+  url "https://downloads.sourceforge.net/project/bibutils/bibutils_7.2_src.tgz"
+  sha256 "6e028aef1e8a6b3e5acef098584a7bb68708f35cfe74011b341c11fea5e4b5c3"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -11,12 +11,12 @@ class Bibutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9d3274c2d4d3a340f0c7032d5d2b47e9e4e25327ea00082f260cca3eb76aa95"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2c80f9ec43e7cc9eef54326523a45b908a791fea211bb3304659cd4032c8f006"
-    sha256 cellar: :any_skip_relocation, catalina:      "eeb586f94730c9030e089a45e4360c5cb3171c6e41ba738744fe4e5a30e31cb7"
-    sha256 cellar: :any_skip_relocation, mojave:        "f420f3882e82a0bf4441c804ed065b5272ce1e5d03812392534d91b29814cd13"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "4fb4ed2978195afedc30fff98661e2663120bd956633845b7e41967dd7a28621"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de894dd8cddc6632688cf6927e1935728e3bcc0b52f709b6ce0756acc15b73ef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "085548415c78f47a9185a323cc633d3005de95d1422e882f18393d7f7cf665cb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe66061892ae39db121b9393cbce117888d4ba59aaa251269710f88d6b38b0eb"
+    sha256 cellar: :any_skip_relocation, monterey:       "96d70048b4981355409b6620109d0acca787a9ae6a45a4c381a28bf8010b73f0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "42fd33d5b6c68a038ea4f13be19e3ac741fcffab459a12501da19d939231d94e"
+    sha256 cellar: :any_skip_relocation, catalina:       "6c5c8d31e9991599261ea6ec046d87f011ae2c3a42afe5d4e3fea07e38a69637"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95a5448e5df2d441e8e47dfb5115a9e16f8f239acce666093b85ec9ce7038c67"
   end
 
   def install

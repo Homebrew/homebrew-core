@@ -11,6 +11,7 @@ class GhcAT86 < Formula
   revision 2
 
   bottle do
+    sha256                               monterey:     "f8935d48a1813d6b4b6b515a447abbbff2a82ad6b297cdecb89cbce7edebab51"
     sha256                               big_sur:      "d8cc7eb020495417a2674bb0b4129720fef30fd9c5688713501dd5ca6c1dea0f"
     sha256                               catalina:     "af21e24b89361083a6cd5a27268e0470cdbf2e8616d1d95355df603f58f4e30d"
     sha256                               mojave:       "ccbe2725d127cc1ddd2142294fd62981d6cd7ab110f56b1faa2560c28276b822"
@@ -62,7 +63,7 @@ class GhcAT86 < Formula
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     args = %w[--enable-numa=no]
-    on_macos do
+    if OS.mac?
       # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
       # executables link to Homebrew's GMP.
       gmp = libexec/"integer-gmp"
@@ -84,7 +85,7 @@ class GhcAT86 < Formula
       binary = buildpath/"binary"
 
       binary_args = args
-      on_linux do
+      if OS.linux?
         binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
         binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
       end

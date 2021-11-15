@@ -8,11 +8,13 @@ class Robotfindskitten < Formula
   head "https://github.com/robotfindskitten/robotfindskitten.git", branch: "main"
 
   bottle do
-    sha256 arm64_big_sur: "be80f51d5ff011ef17235dbd64bca5f1a857e30aca478421555b21a613b73b3b"
-    sha256 big_sur:       "6e95713a4c9a5ace4ece0bcf430b08caaa09876a002964f9ef01ee6fc982d302"
-    sha256 catalina:      "fa1f963cf39fb320c4b8e0867a05c9e96944d59d6c18222a9d6b33acb4384622"
-    sha256 mojave:        "8b25c148f43ad7c70d43810639b7c812cbd612b347386be3f7e913b4d0cc14b5"
-    sha256 high_sierra:   "9c6b045c69a6ff5e74f4f184ec109d3bfd293c7dab223e87ba80e7bb150e8dae"
+    sha256 arm64_monterey: "4b05b5753ba51c24aa690eb643d8abd4b471a4a417e061f3197e9f5ac9fe9b9a"
+    sha256 arm64_big_sur:  "be80f51d5ff011ef17235dbd64bca5f1a857e30aca478421555b21a613b73b3b"
+    sha256 monterey:       "eccc3189c1083ea09ac7a52b2cac91fc2f5a7251523c4a07ddf4bcf9653572e3"
+    sha256 big_sur:        "6e95713a4c9a5ace4ece0bcf430b08caaa09876a002964f9ef01ee6fc982d302"
+    sha256 catalina:       "fa1f963cf39fb320c4b8e0867a05c9e96944d59d6c18222a9d6b33acb4384622"
+    sha256 mojave:         "8b25c148f43ad7c70d43810639b7c812cbd612b347386be3f7e913b4d0cc14b5"
+    sha256 high_sierra:    "9c6b045c69a6ff5e74f4f184ec109d3bfd293c7dab223e87ba80e7bb150e8dae"
   end
 
   depends_on "autoconf" => :build

@@ -6,17 +6,20 @@ class Gcovr < Formula
   url "https://files.pythonhosted.org/packages/83/0d/d8409c79412baa30717e6d18942251bc18d8cf43447b153f92056be99053/gcovr-5.0.tar.gz"
   sha256 "1d80264cbaadff356b3dda71b8c62b3aa803e5b3eb6d526a24932cd6660a2576"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/gcovr/gcovr.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f33208660cf97e15c0553b50fc95533761750b99cf612d7b469f02aaaa4080d8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "04ecfd6d451d6d3e87a76d2eef8a47e6a6ce7157431055a1cf4debaf0afef246"
-    sha256 cellar: :any_skip_relocation, catalina:      "2b21a8fc40832eb069b0183329d9b6848fdab864d25b9cb8c2ca5d6c43f14ccd"
-    sha256 cellar: :any_skip_relocation, mojave:        "b5f15221d9e6689e617aa31a56cb8e4ea17b6969941a0c26fe28e9cd94d49831"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aba343a506313d94d5291969fdc4dc055a93b7b5a71563d024843ec657aa0616"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "02cac4be3ce9887e5dd058e755ae3fe9698bb2088a26bf6a89a4e3552c6c9adb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b43ccf52aaf6e863ba53338b2d56858a8e90ad6be7d25c86514a6b3a4017953d"
+    sha256 cellar: :any_skip_relocation, monterey:       "a6db7f46eb7f0cb8f406c57a064fea54a8f005e4876a01795a0a531947f7d64e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f87e83edc1123b001b38e8d019c0490bac8372127db4059dedfd60041c27d3cd"
+    sha256 cellar: :any_skip_relocation, catalina:       "c93ac984925f0d92abe6eb310adff1e15c27f37899a82e8e27fe895047cdf44c"
+    sha256 cellar: :any_skip_relocation, mojave:         "941189cf0994e347c2a36dd844ff56e67c5b43c63cab9425dc7402d032242de0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f55932c730770f1fb2d881429ba2055bb99f9d4f8c2372bad129b91207b68d8b"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"

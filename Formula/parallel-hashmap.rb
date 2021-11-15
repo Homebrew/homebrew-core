@@ -4,7 +4,7 @@ class ParallelHashmap < Formula
   url "https://github.com/greg7mdp/parallel-hashmap/archive/1.33.tar.gz"
   sha256 "f6e4d0508c4d935fa25dcbaec63fbe0d7503435797e275ec109e8a3f1462a4cd"
   license "Apache-2.0"
-  head "https://github.com/greg7mdp/parallel-hashmap.git"
+  head "https://github.com/greg7mdp/parallel-hashmap.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "a85127ad3dc77cf767da692834eb0e572631f1fc81c981f6060ac0961fd59134"

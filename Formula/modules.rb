@@ -1,8 +1,8 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.8.0/modules-4.8.0.tar.bz2"
-  sha256 "e9254c93efcbd17806a421eb414f7ce22fee37108748b02562cded851b46bfaa"
+  url "https://downloads.sourceforge.net/project/modules/Modules/modules-5.0.1/modules-5.0.1.tar.bz2"
+  sha256 "b236fd0a5823091799ff98b13b6c482e8adbfff1f2e861d69f542eb9774ef4a1"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,11 +11,13 @@ class Modules < Formula
   end
 
   bottle do
-    sha256                               arm64_big_sur: "1e68e132bea8d5133661124ada2eb86e28b2df6f02add99a8db81f0372f7ebf6"
-    sha256                               big_sur:       "f7db523c25f10422709babd29da071fb844fb8207ccd0c8e0ba54948e4119cd3"
-    sha256 cellar: :any,                 catalina:      "ad84ed490ed2640a32799c5fb3ca7d815c45989f90bf246e087354e60ae23537"
-    sha256 cellar: :any,                 mojave:        "92b00fca6d79e453bf2231d10783912342aa45c7c9ef926998c2ff39e2cc3160"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1244439b72f339c0658f6ecf39fac78c4878a459a6504c641dbd359fa5c4d26b"
+    sha256                               arm64_monterey: "a136b5b82c0273c00efbd4485fb9b7c203778daa7798caed460387b3303bca9b"
+    sha256                               arm64_big_sur:  "99989d4c1b3bd3ea7917046ace4d54d3184d8bec4ff82145f5f6bb2a17444c78"
+    sha256                               monterey:       "798d7f1208a0552e2a0fa874aa0506fd36557abe1ffcec123d28070c10392f27"
+    sha256                               big_sur:        "c30c9be63dc8fc0f8d83ef063e56c6d459b8ded76e51f8b76ce90a48f89124f8"
+    sha256 cellar: :any,                 catalina:       "32433c130fc3615af0fe6013201486f02cadfbaebf3af8dbf45bccf7f3942cc4"
+    sha256 cellar: :any,                 mojave:         "c66463bc0006612e617657bc194d588f1f054196e4ab5a5b94078a0105482c0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59fd50c28a705deaf3ffb014e816ff6bc50877757134a0509cc11db4546cd79d"
   end
 
   depends_on "tcl-tk"
@@ -32,7 +34,7 @@ class Modules < Formula
       --without-x
     ]
 
-    on_linux do
+    if OS.linux?
       args << "--with-pager=#{Formula["less"].opt_bin}/less"
       args << "--with-tclsh=#{Formula["tcl-tk"].opt_bin}/tclsh"
     end
@@ -52,11 +54,11 @@ class Modules < Formula
 
   test do
     assert_match "restore", shell_output("#{bin}/envml --help")
-    shell = "zsh"
-    on_linux { shell = "sh" }
-    cmd = "source"
-    on_linux { cmd = "." }
-
+    shell, cmd = if OS.mac?
+      ["zsh", "source"]
+    else
+      ["sh", "."]
+    end
     output = shell_output("#{shell} -c '#{cmd} #{prefix}/init/#{shell}; module' 2>&1")
     assert_match version.to_s, output
   end

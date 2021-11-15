@@ -1,9 +1,9 @@
 class TomcatAT9 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.52/bin/apache-tomcat-9.0.52.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.52/bin/apache-tomcat-9.0.52.tar.gz"
-  sha256 "29909c659fda7a2e06be17684a1fadbbae9ed4cdecf8077c4ede1c34e4d4a631"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.54/bin/apache-tomcat-9.0.54.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.54/bin/apache-tomcat-9.0.54.tar.gz"
+  sha256 "24707ee0e5455de2abf19eb2f7d6bcff6a6d26448acc0693399872d50b40733f"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class TomcatAT9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "27567a8e9d0ddf80ec197734b2f5047c8e075992b6e47b5a805dd2581f59c5df"
+    sha256 cellar: :any_skip_relocation, all: "226720a03c0dfafc6e1aa8e7742ce7004f326ecef1a4e050d0ed774d1b7d9cce"
   end
 
   keg_only :versioned_formula
@@ -24,8 +24,19 @@ class TomcatAT9 < Formula
 
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
+
+    pkgetc.install Dir["conf/*"]
+    (buildpath/"conf").rmdir
+    libexec.install_symlink pkgetc => "conf"
+
     libexec.install Dir["*"]
     (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+  end
+
+  def caveats
+    <<~EOS
+      Configuration files: #{pkgetc}
+    EOS
   end
 
   service do

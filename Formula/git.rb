@@ -1,10 +1,10 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  # NOTE: Please keep these values in sync with git-gui.rb when updating.
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.0.tar.xz"
-  sha256 "bf3c6ab5f82e072aad4768f647cfb1ef60aece39855f83f080f9c0222dd20c4f"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.1.tar.xz"
+  sha256 "e054a6e6c2b088bd1bff5f61ed9ba5aa91c9a3cd509539a4b41c5ddf02201f2f"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/git/git.git"
 
   livecheck do
@@ -13,33 +13,35 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "06e9cc3e274380b2494451ed2e3c6acf1e091facdf2ce02da57921fbc6a3115a"
-    sha256 big_sur:       "1b89ec39f7a4b865b3c671f9b2495ec85992595112b74a5dc3ac78beae33ff0d"
-    sha256 catalina:      "4aaced15f34f02a7a965f9cee42b78ef471034e4d9cf3bbbe8bf2ab8f4f72678"
-    sha256 mojave:        "5e85e4d8c9aaa398420993cb9c2561db79d3a71a12b79b8631ee0de5b0d86c67"
-    sha256 x86_64_linux:  "06340f727c9e234bbe7fb940307c7ec2545b8186ed1bfbb9c20cf9763cb2d22c"
+    sha256 arm64_monterey: "01e1dc0704d6606839599ef423d34767997725d8e25110ce848e20434681efc5"
+    sha256 arm64_big_sur:  "1adc0340427aeef3afbb0980b6fcea4edcfa6127ea44846615065b68a27544a8"
+    sha256 monterey:       "ac8dd353f5d735a7c67317d612bdf77112b596b541248472f39cd907cb3eb2f0"
+    sha256 big_sur:        "6635c9eac78d922dab5d49229ac667147d8b38e3535142afe647647dedcee260"
+    sha256 catalina:       "b7bab47a69503d9f6a949c7b27db4e4545d2902b0ca7a5a4fd02071b7ad2cb9b"
+    sha256 mojave:         "7d17fffd0920dbfdd79c68c38f375fae4da7dbaf4965f8d6a2876bbb9bc87e84"
+    sha256 x86_64_linux:   "a964c718912feab17767ba90a09d15d12c2bb3240709cf70b751f413f2d72d87"
   end
 
   depends_on "gettext"
   depends_on "pcre2"
 
-  uses_from_macos "curl"
+  uses_from_macos "curl", since: :catalina # macOS < 10.15.6 has broken cert path logic
   uses_from_macos "expat"
-  uses_from_macos "openssl@1.1"
   uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-headers@4.4"
+    depends_on "openssl@1.1" # Uses CommonCrypto on macOS
   end
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.33.0.tar.xz"
-    sha256 "309c5d3cdd9a115f693c0e035298cc867a3b8ba8ce235fa1ac950a48cb4b0447"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.33.1.tar.xz"
+    sha256 "6a6b8a0f064c78e0033aa4fce0520325496de019b09fff99fa82eeb472038f5c"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.33.0.tar.xz"
-    sha256 "d6d38abe3fe45b74359e65d53e51db3aa92d7f551240b7f7a779746f24c4bc31"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.33.1.tar.xz"
+    sha256 "c75219f1c9f56caad4f8eb17915e4fe34ca5e1b453773df279a2cec98205ab87"
   end
 
   resource "Net::SMTP::SSL" do
@@ -60,7 +62,7 @@ class Git < Formula
 
     perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
 
-    on_macos do
+    if OS.mac?
       ENV["PERLLIB_EXTRA"] = %W[
         #{MacOS.active_developer_dir}
         /Library/Developer/CommandLineTools
@@ -68,13 +70,6 @@ class Git < Formula
       ].uniq.map do |p|
         "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
       end.join(":")
-    end
-
-    # Ensure we are using the correct system headers (for curl) to workaround
-    # mismatched Xcode/CLT versions:
-    # https://github.com/Homebrew/homebrew-core/issues/46466
-    if MacOS.version == :mojave && MacOS::CLT.installed? && MacOS::CLT.provides_sdk?
-      ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
 
     # The git-gui and gitk tools are installed by a separate formula (git-gui)
@@ -90,20 +85,21 @@ class Git < Formula
       NO_TCLTK=1
     ]
 
-    on_macos do
-      args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
-    end
-    on_linux do
+    args += if OS.mac?
+      %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
+    else
       openssl_prefix = Formula["openssl@1.1"].opt_prefix
-      args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
+
+      %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     end
 
     system "make", "install", *args
 
     git_core = libexec/"git-core"
+    rm git_core/"git-svn"
 
     # Install the macOS keychain credential helper
-    on_macos do
+    if OS.mac?
       cd "contrib/credential/osxkeychain" do
         system "make", "CC=#{ENV.cc}",
                        "CFLAGS=#{ENV.cflags}",
@@ -163,7 +159,7 @@ class Git < Formula
 
     # Set the macOS keychain credential helper by default
     # (as Apple's CLT's git also does this).
-    on_macos do
+    if OS.mac?
       (buildpath/"gitconfig").write <<~EOS
         [credential]
         \thelper = osxkeychain
@@ -175,6 +171,7 @@ class Git < Formula
   def caveats
     <<~EOS
       The Tcl/Tk GUIs (e.g. gitk, git-gui) are now in the `git-gui` formula.
+      Subversion interoperability (git-svn) is now in the `git-svn` formula.
     EOS
   end
 

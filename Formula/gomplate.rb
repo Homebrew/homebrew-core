@@ -1,17 +1,19 @@
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.hairyhenderson.ca/"
-  url "https://github.com/hairyhenderson/gomplate/archive/v3.9.0.tar.gz"
-  sha256 "75f69367e004b427a80d4a8886428b86216bffcbbe4caeb5ab16d282ea1d2cbf"
+  url "https://github.com/hairyhenderson/gomplate/archive/v3.10.0.tar.gz"
+  sha256 "f9a30d8e94b81eefbbe3455c21dc547ec0ebf0e010a809c72db617a4b37223a6"
   license "MIT"
   head "https://github.com/hairyhenderson/gomplate.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ed2cd30c30d5ed64152c9eb5999cf00c3d1f6afe10511877542fbfb17dffa950"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a15da29726d37e73313a776a78a2d5bfcdb1a0a950e08794a097d87db759751a"
-    sha256 cellar: :any_skip_relocation, catalina:      "a0f5d247cd90c04f01050147f3120754bece918d15d711fb775cd6c162237c2b"
-    sha256 cellar: :any_skip_relocation, mojave:        "b7644a65c9bbc0e9816ff2a3b6e4b196f4bab4aa267a9d9ed65be1a5f737d06f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22548c1340f1fb2672e4777996966143e8d4c4379989ed802f78390945255471"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd9583c59cdd27102266f6c324d4e7613470e48cdb5a30d1ffdcf677e497f54e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "05845f4a31da3d5b78b61e119a62d7f9c869f471194de46d0b06b3b76b3cfc14"
+    sha256 cellar: :any_skip_relocation, monterey:       "9b41465cdf57336347772059715707557335b9c1b7c026d96ad163e05e7c025b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "92ce5929e369eb6a49e478f71bf2a6fba500094b600c578f4ba3ae0c0546dcc5"
+    sha256 cellar: :any_skip_relocation, catalina:       "85ba008a9f271385b4599fe1308fa0846bde36307d96a39424c2aa53396ba12b"
+    sha256 cellar: :any_skip_relocation, mojave:         "d08b4521c7140d8391be5aef5ab3cfa9184e080e5abf46dbea079025b49c4a0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f026fafcaeba0eb20e509c298edcd80c0158f0ab0a45a68184f754f8aa2e2754"
   end
 
   depends_on "go" => :build

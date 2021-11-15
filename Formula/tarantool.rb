@@ -1,17 +1,16 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/2.7/src/tarantool-2.7.2.0.tar.gz"
-  sha256 "9dfbd67d7c46404507a13dfeac4169b53aaa4e4237a6b84e4bbe9435a4a30080"
+  url "https://download.tarantool.org/tarantool/2.8/src/tarantool-2.8.2.0.tar.gz"
+  sha256 "f2e966fc6b644254270fd84f78ccc4dd1434500a6986fe9361b34804acae7e10"
   license "BSD-2-Clause"
-  revision 1
   version_scheme 1
-  head "https://github.com/tarantool/tarantool.git"
+  head "https://github.com/tarantool/tarantool.git", branch: "master"
 
   bottle do
-    sha256 big_sur:  "5e98389b6a0239a8aeea044669945e4d80ec14dd8dfe6c58f4d1ebd91a28b366"
-    sha256 catalina: "61934bd99237595810bf56a9546f99f20531afd38ef498ab9a7a82e4dfb45fad"
-    sha256 mojave:   "b4c338aeeeadebd49bafc500f8e866a32b6a8f89fc288b005b5a691dfe285529"
+    sha256 big_sur:  "cbc3b24513ad4118428da7beee0919dd6699af050db5f77ae2deb58eace8385d"
+    sha256 catalina: "7f41f2e11374e81ec970a960f2b939406f995c3410de7209104719a74a89fd0d"
+    sha256 mojave:   "67fde3ce00ec0e0cb4c0fccc0656688773de193e134f313f5da65567dc88986c"
   end
 
   depends_on "cmake" => :build

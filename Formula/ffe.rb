@@ -12,10 +12,12 @@ class Ffe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0fc8ca59fce53552b827be4e9bfdc9c263c8087961245704277be10915fb6d20"
-    sha256 cellar: :any_skip_relocation, big_sur:       "96ed6ad86d89e339ff49c9ed615ca5e44dd1aa67b534b0644ae09accb31f4d80"
-    sha256 cellar: :any_skip_relocation, catalina:      "f702acaeb2f1c1c8681b67e7725827b5a33b46a9f11c6138682b715c0a652798"
-    sha256 cellar: :any_skip_relocation, mojave:        "50a6933b42632612de08af50fead023d23c04593ecb323749f950b05df9f034e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d3e8b3f5351665de15fb7ea4904b873cd7c3c04cefde6f6b0534a16dc7dbef0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0fc8ca59fce53552b827be4e9bfdc9c263c8087961245704277be10915fb6d20"
+    sha256 cellar: :any_skip_relocation, monterey:       "296af9a5f1d536172be945d4856dc659441b6c8129ab0b6bc865f97d0ffc9b6a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "96ed6ad86d89e339ff49c9ed615ca5e44dd1aa67b534b0644ae09accb31f4d80"
+    sha256 cellar: :any_skip_relocation, catalina:       "f702acaeb2f1c1c8681b67e7725827b5a33b46a9f11c6138682b715c0a652798"
+    sha256 cellar: :any_skip_relocation, mojave:         "50a6933b42632612de08af50fead023d23c04593ecb323749f950b05df9f034e"
   end
 
   def install

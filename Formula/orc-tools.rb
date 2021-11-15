@@ -1,8 +1,8 @@
 class OrcTools < Formula
   desc "ORC java command-line tools and utilities"
   homepage "https://orc.apache.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/apache/orc/orc-tools/1.6.10/orc-tools-1.6.10-uber.jar"
-  sha256 "fda47ceb1754490ef800d97e43e691705c3386f9b33e27996c04179452da1206"
+  url "https://search.maven.org/remotecontent?filepath=org/apache/orc/orc-tools/1.7.1/orc-tools-1.7.1-uber.jar"
+  sha256 "53c7eae1399135227c89eecc5ec63d156bcaa753b8c1b4b69e30680e386f17a0"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,12 @@ class OrcTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cae0d8cb619153d89afebf5d2963559ce3e5294fe0527cd71d0f1690b3eebd04"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "da7bcb0dec6b897b2a342966ad3ec5c69f307831fb1210281a559d99d22723b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da7bcb0dec6b897b2a342966ad3ec5c69f307831fb1210281a559d99d22723b1"
+    sha256 cellar: :any_skip_relocation, monterey:       "da7bcb0dec6b897b2a342966ad3ec5c69f307831fb1210281a559d99d22723b1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "da7bcb0dec6b897b2a342966ad3ec5c69f307831fb1210281a559d99d22723b1"
+    sha256 cellar: :any_skip_relocation, catalina:       "da7bcb0dec6b897b2a342966ad3ec5c69f307831fb1210281a559d99d22723b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da7bcb0dec6b897b2a342966ad3ec5c69f307831fb1210281a559d99d22723b1"
   end
 
   depends_on "openjdk"

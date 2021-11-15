@@ -1,18 +1,20 @@
 class Libao < Formula
   desc "Cross-platform Audio Library"
   homepage "https://www.xiph.org/ao/"
-  url "https://github.com/xiph/libao/archive/1.2.2.tar.gz"
+  url "https://github.com/xiph/libao/archive/1.2.2.tar.gz", using: :homebrew_curl
   sha256 "df8a6d0e238feeccb26a783e778716fb41a801536fe7b6fce068e313c0e2bf4d"
   license "GPL-2.0"
   head "https://gitlab.xiph.org/xiph/libao.git"
 
   bottle do
-    rebuild 2
-    sha256 arm64_big_sur: "0af71783215ee0b302a2240954652c3f2db3f515ef4bc70b5e58a5e197778256"
-    sha256 big_sur:       "32055ce76b17a9f7410574c27b314905f3e9c42f979cc72bbbca060194ba9d9d"
-    sha256 catalina:      "703bfcae17a364ad0e526d5556b3583d1864c6db4c52ba85ef64dc0600039372"
-    sha256 mojave:        "932b3a41565e678489471dae66b29fea1ca2de6013c2559f9c34cc5e9bd5a33f"
-    sha256 high_sierra:   "d7144edd6dc64b987d9a9d584799fe20a76ed92f2b1b18c074a6846926f23169"
+    rebuild 3
+    sha256 arm64_monterey: "87276ccd471ed61409cc6b1fc45b33e3b9ae60414695629cb519a2d7f03bb7e4"
+    sha256 arm64_big_sur:  "4ffbc11b951c7c833881d1a60d20d8969e30bfb85e817b660e38a3fc581ccb9c"
+    sha256 monterey:       "14bc27effce651df160ad5efbb377773479c6ea28b65f585760aa5316c3dc6ad"
+    sha256 big_sur:        "f27a782e33661e2aa75cbfcbe775a2da08f7f781c6e7608e8f1e3a4a354c4cde"
+    sha256 catalina:       "b6ccd4915aa272b58f267995ce3c87ad42388926535fedea0243c9b0b9941089"
+    sha256 mojave:         "cb57d05c66a19dcfac7e45e6a80f195dfd050ca52a9b316133d131c0c8165cf7"
+    sha256 x86_64_linux:   "bdb709d63e9de2e2dc947887fdc3a383b626d24c200cf80ce58eeaffa5ff7eb2"
   end
 
   depends_on "autoconf" => :build

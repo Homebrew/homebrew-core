@@ -4,36 +4,26 @@ class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
   url "https://github.com/pimutils/vdirsyncer.git",
-      tag:      "0.16.8",
-      revision: "b5dd0929d009b7b07f72903dd6fb82815f45bdd8"
-  revision 2
-  head "https://github.com/pimutils/vdirsyncer.git"
-
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
+      tag:      "0.18.0",
+      revision: "3191886658f7717c00ec013eb778bc1ced5cef0c"
+  license "BSD-3-Clause"
+  head "https://github.com/pimutils/vdirsyncer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a516d7f9f4a99067fe1908faf3cd09849ad0164bfb56a05e11b249c10b13123e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f1ede11a17630f2ea0da1ec356015fa454b62d9e5eebf17ad38e89021c6cc739"
-    sha256 cellar: :any_skip_relocation, catalina:      "d87dd5b19a013e2099aa915c02caea1bf5ba5bce1ed9fdb1c599900da98f1574"
-    sha256 cellar: :any_skip_relocation, mojave:        "999dcfe149cd6cb2a072006159ce83e680e2da30431d28b380a0dd3549b59d98"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "b48980fb7b1f225d07e847ab50b2a6c6e6bdca56386f902982163d7cfb11f6e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "963693a854e1cc7f1b67cbb1cad6fdb7054b621e37fc2130ba7cba938fd643f7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f28e80d5fe2743220d9c8b673a45255ed688826587423288e1f052b8f80c94d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9948fcd51959d59226a3f7551ee1bce7ba44387aea0b3e038c93f2bf4c046e1"
+    sha256 cellar: :any_skip_relocation, monterey:       "202306a14af3aab37e367d519aaf794c948fc3459684a2284ef9e2e0e2b85077"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bca2caf2e456db762a65b666f786c0d6c5f500643969c7e15d5546ea336649f6"
+    sha256 cellar: :any_skip_relocation, catalina:       "bca2caf2e456db762a65b666f786c0d6c5f500643969c7e15d5546ea336649f6"
+    sha256 cellar: :any_skip_relocation, mojave:         "bca2caf2e456db762a65b666f786c0d6c5f500643969c7e15d5546ea336649f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e3092fcf128119cf7a6a8131c4d16df5e44ab56a7fa07e2a661806c4f2ad2b9"
   end
 
-  depends_on "python@3.9"
-
-  # from https://github.com/pimutils/vdirsyncer/pull/830
-  # remove in next release
-  patch do
-    url "https://github.com/pimutils/vdirsyncer/commit/7577fa21177442aacc2d86640ef28cebf1c4aaef.patch?full_index=1"
-    sha256 "3fe0b07e6a1f5210a51af4240e54ee2fe32936680f7ae518e40424531b657844"
-  end
+  depends_on "python@3.10"
 
   def install
-    venv = virtualenv_create(libexec, "python3.9")
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
+    venv = virtualenv_create(libexec, "python#{xy}")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", "requests-oauthlib",
                               buildpath

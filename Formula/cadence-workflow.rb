@@ -2,17 +2,18 @@ class CadenceWorkflow < Formula
   desc "Distributed, scalable, durable, and highly available orchestration engine"
   homepage "https://cadenceworkflow.io/"
   url "https://github.com/uber/cadence.git",
-    tag:      "v0.21.3",
-    revision: "36cfde8b88b17e2ff0f810e72c808ccfdc2e97f5"
+      tag:      "v0.22.4",
+      revision: "c04d7641bd091586593832ee30b94a05c1f44cf4"
   license "MIT"
-  head "https://github.com/uber/cadence.git"
+  head "https://github.com/uber/cadence.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "029e2c39a8c5999af05be8351e943f1c31e4f091d0705ea73fa23053c57fc782"
-    sha256 cellar: :any_skip_relocation, big_sur:       "691b59d7e0ec2fe98739fb1638a0e3c8fc2512ce4d023eabf890735d63b6ccd3"
-    sha256 cellar: :any_skip_relocation, catalina:      "ba3630fe181d40f02363becce7696f6d5d71ff75e62c3aadfd16ecc888c9008e"
-    sha256 cellar: :any_skip_relocation, mojave:        "ce5732eb9d3d51158ed74dc547aeaa5195e039497319b527fd7aefa50b4cdd3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d89c8d338692177ffcf5a4906d57281d34254485f7a31ae55ffed88d1a652e2b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d498024d06a2beace356d6b97402e7ea5c40ba66705e561ba0d28f6ecafdfeb3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fba317a3c6b9287e44cf750b8a697a89150cd3e76eaffb90b4d13bbc5de100c4"
+    sha256 cellar: :any_skip_relocation, monterey:       "47bdac851ea25a15dbb1a95642f831892f50a7a99b5c99f470e323ef45a1ca4c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "09949e14f797cf44a276abb5720010f69615723a82bea93244e9345dd98742b8"
+    sha256 cellar: :any_skip_relocation, catalina:       "b42f8242f8e8c65edf5a3778f05c82810da6ba4915fe73810ad450e41fd75e91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e52b35d235d1ece0ffe6a72b2f61279b4d76907fad599be44ef0d2607fad7ee6"
   end
 
   depends_on "go" => :build

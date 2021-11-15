@@ -8,10 +8,12 @@ class Trace2html < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "32764a563ad476d574353f8c911c341d8831a6154bda4c068f6c7524724e640d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cbe734ca273dc6851bca4b52646389d9593608f92f777abed4a7df97e3314a67"
-    sha256 cellar: :any_skip_relocation, catalina:      "cbe734ca273dc6851bca4b52646389d9593608f92f777abed4a7df97e3314a67"
-    sha256 cellar: :any_skip_relocation, mojave:        "cbe734ca273dc6851bca4b52646389d9593608f92f777abed4a7df97e3314a67"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f1cfa6d0038b3faff1fbcec844f6cd955a332ab27b6cb88e7fd915954390affe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32764a563ad476d574353f8c911c341d8831a6154bda4c068f6c7524724e640d"
+    sha256 cellar: :any_skip_relocation, monterey:       "491b4f9d7b8b4be6cb1f3ebde16ff3ddd7dad449e977518cde47b10adae15b58"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cbe734ca273dc6851bca4b52646389d9593608f92f777abed4a7df97e3314a67"
+    sha256 cellar: :any_skip_relocation, catalina:       "cbe734ca273dc6851bca4b52646389d9593608f92f777abed4a7df97e3314a67"
+    sha256 cellar: :any_skip_relocation, mojave:         "cbe734ca273dc6851bca4b52646389d9593608f92f777abed4a7df97e3314a67"
   end
 
   # https://github.com/google/trace-viewer/commit/5f708803

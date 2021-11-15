@@ -1,72 +1,51 @@
 class Enigma < Formula
   desc "Puzzle game inspired by Oxyd and Rock'n'Roll"
   homepage "https://www.nongnu.org/enigma/"
-  url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
-  sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
-  license "GPL-2.0"
-  revision 4
+  url "https://github.com/Enigma-Game/Enigma/releases/download/1.30/Enigma-1.30-src.tar.gz"
+  sha256 "ae64b91fbc2b10970071d0d78ed5b4ede9ee3868de2e6e9569546fc58437f8af"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/enigma[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    regex(/v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any, catalina:    "38e4eb761c8c03ec2ff3221d576335d60c60ecb5f369e69098d34740118d48e4"
-    sha256 cellar: :any, mojave:      "8011aae1fa4e166dd9fb406844b1efcb246eb26ecc4e29c67dec71a3f8a7b231"
-    sha256 cellar: :any, high_sierra: "9eeb7a516f7188b38bc1a9e9ea2450db22391e65401d1377028881c11acbcc15"
-    sha256 cellar: :any, sierra:      "cdca7a198f3decfc3d387d590f84a7c3125adb06185469afa737eb5d61c150b3"
+    sha256 arm64_monterey: "d03595cec1ddb59025fcecbf6888f4aa111ea3109248dad844afff91da8589cc"
+    sha256 arm64_big_sur:  "5b867b942c96de07f01505e2208cf578f744425346ba180e96ba3d569c4cc15c"
+    sha256 monterey:       "61e64a23581e2e4771fa7a28e7a1da9f70f6d35ffe7f7585a4a40758466e3753"
+    sha256 big_sur:        "679839e6002ae198d8f62c1c1379982630fa2173f41b8cf63b7b48b91c606dac"
+    sha256 catalina:       "78472e57abc53c73a637928f6d58b075f387c7e15e140858e4a3b0c59fa1e2ae"
+    sha256 mojave:         "fab7be7e356416ceeb52dd5a078349ef0a40c7f0a2f703ef43c9c7aeeaa1e239"
+    sha256 x86_64_linux:   "7d28c5a21e674b2cbc1627a807370916695ff7feba86230fd4fce2e6cc3cb939"
   end
 
   head do
-    url "https://github.com/Enigma-Game/Enigma.git"
+    url "https://github.com/Enigma-Game/Enigma.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "texi2html" => :build
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "imagemagick" => :build
   depends_on "pkg-config" => :build
   depends_on "enet"
   depends_on "freetype"
   depends_on "gettext"
   depends_on "libpng"
-  depends_on "sdl"
-  depends_on "sdl_image"
-  depends_on "sdl_mixer"
-  depends_on "sdl_ttf"
+  depends_on "sdl2"
+  depends_on "sdl2_image"
+  depends_on "sdl2_mixer"
+  depends_on "sdl2_ttf"
   depends_on "xerces-c"
 
-  # See https://github.com/Enigma-Game/Enigma/pull/8
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4d337833ef2e10c1f06a72170f22b1cafe2b6a78/enigma/c%2B%2B11.patch"
-    sha256 "5870bb761dbba508e998fc653b7b05a130f9afe84180fa21667e7c2271ccb677"
-  end
-
   def install
-    ENV.cxx11
-
     system "./autogen.sh" if build.head?
-
-    inreplace "configure" do |s|
-      s.gsub!(/-framework (SDL(_(mixer|image|ttf))?)/, '-l\1')
-      s.gsub! %r{\$\{\w+//\\"/\}/lib(freetype|png|xerces-c)\.a}, '-l\1'
-      s.gsub! %r{(LIBINTL)="\$\{with_libintl_prefix\}/lib/lib(intl)\.a"}, '\1=-l\2'
-      s.gsub!(/^\s+LIBENET_CFLAGS\n.*LIBENET.*\n\s+LIBENET_LIBS\n.*LIBENET.*$/, "")
-    end
-    inreplace "src/Makefile.in" do |s|
-      s.gsub! %r{(cp -a /Library/Frameworks/.*)$}, 'echo \1'
-      s.gsub! "mkalias -r", "ln -s"
-    end
-
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}",
-                          "--with-system-enet"
+                          "--with-system-enet",
+                          "--prefix=#{prefix}"
     system "make"
-    system "make", "macapp"
-    prefix.install "etc/macfiles/Enigma.app"
-    bin.write_exec_script "#{prefix}/Enigma.app/Contents/MacOS/enigma"
+    system "make", "install"
   end
 
   test do

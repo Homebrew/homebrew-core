@@ -5,7 +5,7 @@ class Odin < Formula
   sha256 "ae88c4dcbb8fdf37f51abc701d94fb4b2a8270f65be71063e0f85a321d54cdf0"
   license "BSD-2-Clause"
   revision 1
-  head "https://github.com/odin-lang/Odin.git"
+  head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,6 +13,7 @@ class Odin < Formula
   end
 
   bottle do
+    sha256 cellar: :any, monterey: "f24379e907c9f66dcf9bf07327499982194ea03cc95a3c8ce4029f728bbcfbe8"
     sha256 cellar: :any, big_sur:  "8756628900882ce7b6492cd63a16192c66420c792c4ae6bc625104f10cd4ad91"
     sha256 cellar: :any, catalina: "a3ae074bcf9f1b096fd0ff73ec3e4169580cbd9c992eaf96df00381fb4bc4aab"
     sha256 cellar: :any, mojave:   "4f2a22f846642e17dd24a44ec9bd5e00a768facbeba1ea76f2b528f1407c6669"

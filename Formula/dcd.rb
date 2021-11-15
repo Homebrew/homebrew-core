@@ -8,6 +8,7 @@ class Dcd < Formula
   head "https://github.com/dlang-community/dcd.git"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "9e223a3fef8a39d75bbec9012bfa534d50772aa2d536857160c39221fe08f5bb"
     sha256 cellar: :any_skip_relocation, big_sur:      "e97405796485c96ea4dd9f7458cd548ed609f61ed8d5e006fb73ec00072d0811"
     sha256 cellar: :any_skip_relocation, catalina:     "1455dd1a3d4919d261c6cc8a73d05f62f4436f17b66d8790db249bcf4fbdcc6f"
     sha256 cellar: :any_skip_relocation, mojave:       "484f3c51a322172c8bab3cfa850685f91ce9dfdcccc85daeedead97cc63f13e1"

@@ -1,16 +1,18 @@
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
   homepage "https://github.com/bitnami/kubecfg"
-  url "https://github.com/bitnami/kubecfg/archive/v0.20.0.tar.gz"
-  sha256 "9085af1ce937d2535a699719c941b7678ae180a6adce9e8f490357d6901cd5b0"
+  url "https://github.com/bitnami/kubecfg/archive/v0.22.0.tar.gz"
+  sha256 "1a27df34f815069c843da18430bca2ae0aa7d3156ea17c5bd4efcfa23014b768"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a03d07c984d4997badcbc1853baa4fd86c86af02dc9209d02ae9b17cc55a9291"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a6e870ecc92677c0994af7e9ea755deedbdd6c0432be82bd3093f4a71cb09eab"
-    sha256 cellar: :any_skip_relocation, catalina:      "9e3d569d70eead295185ca587d0c4252ccfab6755ba55c7197524b0505d7e67c"
-    sha256 cellar: :any_skip_relocation, mojave:        "3c364b5229c2f67ec49e1e31963394b50cad213bc429028501a9c8dd6c1d2578"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d88890aca60bc952255a3c7eacf54af5a0e5390d4f110a5e06c22efe00f57ad8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12e3fbd55a385cc925ae06ec43a53a30f762dbabed092daea8d786be73e9fdbd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "21411d14046d3ae8b82ec5c8466342475abff1e37255597f7dc50cd586880b6f"
+    sha256 cellar: :any_skip_relocation, monterey:       "a2b5976370b1321d3a20f464fb82113107cbad6e5bc18bb12283b0cb79bf7f05"
+    sha256 cellar: :any_skip_relocation, big_sur:        "620aee419a6dfe5306278342e8c0e1376bc0fc8b912afe3f464c780648c23bcb"
+    sha256 cellar: :any_skip_relocation, catalina:       "ff815c17f8d8cfe562b1b4fb77d3dc116b4a865bdf7447e6fcd71e993fd1de30"
+    sha256 cellar: :any_skip_relocation, mojave:         "11d6c8bb802cdd4db846606d0987b1e5994b0657ee2b74706adb02fd59d643d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eba6a990ba822bddf09a6fec189ea6780c4d2f246c1e12046b4ce3e1cba29532"
   end
 
   depends_on "go" => :build

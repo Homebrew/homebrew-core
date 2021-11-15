@@ -1,10 +1,11 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.1/llvm-project-12.0.1.src.tar.xz"
-  sha256 "129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/llvm-project-13.0.0.src.tar.xz"
+  sha256 "6075ad30f1ac0e15f07c1bf062c1e1268c241d674f11bd32cdf0e040c71f2bf3"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -13,11 +14,13 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "edf9a855e05e7404e06071e80f7b3c4f7c6b5abfdc6b66945dadc390819e0d1b"
-    sha256 cellar: :any,                 big_sur:       "ff9a71b7b35ecb6c1dfcfe40152b00f4777a3f4a10dcf5cc41044458b02c99cd"
-    sha256 cellar: :any,                 catalina:      "e9a8185649b019863424068c3efa1b3c7d85747d12260b1dac07895690f50383"
-    sha256 cellar: :any,                 mojave:        "2382196cb9626c46aa27ce146270c6625deca1b8a47926457131fb22ba243899"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef3cc9c115ec2feb8ad2c317ddbfe190ad273a39acd737cd695fd700fb175c97"
+    sha256 cellar: :any,                 arm64_monterey: "124b04767b224f74be9df06181f1e20122b39108e6926e621a7a64702c9b2796"
+    sha256 cellar: :any,                 arm64_big_sur:  "1213e5b2e63bc8d8440320cccd316a04b9824eba563534e4b5cfca000c5acf29"
+    sha256 cellar: :any,                 monterey:       "2d2f5c57e8cb8040031b26a81eb7355068b590a17a46034ca7ac339463eca14a"
+    sha256 cellar: :any,                 big_sur:        "dc0ac71f6ce7183b0fa4745fd94e08c55770dd1ee6d38d63f0c503d644937bb6"
+    sha256 cellar: :any,                 catalina:       "dbcd8e6f48bf03b4730b92f4fe6351af97addc2db3eefde3ba85402b120368f5"
+    sha256 cellar: :any,                 mojave:         "d2e8294ee877ecb1cf6b3d36f1f8bbc5f7749306b3b25ef988886600e931b7b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e113ff32922d209fb85a0a6ba11931a2996146b7f71d7ac22caf1521f72349a"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -42,16 +45,12 @@ class Llvm < Formula
     depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
-    depends_on "libelf" # openmp requires <gelf.h>
-
-    # Apply patches slated for the 12.0.x release stream
-    # to allow building with GCC 5 and 6. Upstream bug:
-    # https://bugs.llvm.org/show_bug.cgi?id=50732
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f0b8ff8b7ad4c2e1d474b214cd615a98e0caa796/llvm/llvm.patch"
-      sha256 "084adce7711b07d94197a75fb2162b253186b38d612996eeb6e2bc9ce5b1e6e2"
-    end
+    depends_on "elfutils" # openmp requires <gelf.h>
+    depends_on "gcc"
   end
+
+  # Fails at building LLDB
+  fails_with gcc: "5"
 
   def install
     projects = %w[
@@ -68,8 +67,11 @@ class Llvm < Formula
       libcxxabi
       libunwind
     ]
-    on_macos { runtimes << "openmp" }
-    on_linux { projects << "openmp" }
+    if OS.mac?
+      runtimes << "openmp"
+    else
+      projects << "openmp"
+    end
 
     py_ver = Language::Python.major_minor_version("python3")
     site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
@@ -109,37 +111,44 @@ class Llvm < Formula
       -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
+      -DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}
       -DPACKAGE_VENDOR=#{tap.user}
       -DBUG_REPORT_URL=#{tap.issues_url}
       -DCLANG_VENDOR_UTI=org.#{tap.user.downcase}.clang
     ]
 
+    macos_sdk = MacOS.sdk_path_if_needed
     if MacOS.version >= :catalina
-      args << "-DFFI_INCLUDE_DIR=#{MacOS.sdk_path}/usr/include/ffi"
-      args << "-DFFI_LIBRARY_DIR=#{MacOS.sdk_path}/usr/lib"
+      args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
     else
       args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
     end
 
-    sdk = MacOS.sdk_path_if_needed
-    on_macos do
+    # gcc-5 fails at building compiler-rt. Enable PGO
+    # build on Linux when we switch to Ubuntu 18.04.
+    pgo_build = false
+    if OS.mac?
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
-      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}"
       args << "-DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}"
-      args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
+      args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
+
+      # Skip the PGO build on HEAD installs or non-bottle source builds
+      pgo_build = build.stable? && build.bottle?
     end
 
-    on_linux do
-      ENV.append "CXXFLAGS", "-fpermissive"
-      ENV.append "CFLAGS", "-fpermissive"
+    if OS.linux?
+      ENV.append "CXXFLAGS", "-fpermissive -Wno-free-nonheap-object"
+      ENV.append "CFLAGS", "-fpermissive -Wno-free-nonheap-object"
 
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
-      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
       args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
+      # Parts of Polly fail to correctly build with PIC when being used for DSOs.
+      args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
       runtime_args = %w[
         -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF
         -DCMAKE_POSITION_INDEPENDENT_CODE=ON
@@ -159,11 +168,12 @@ class Llvm < Formula
         -DLIBUNWIND_USE_COMPILER_RT=ON
       ]
       args << "-DRUNTIMES_CMAKE_ARGS=#{runtime_args.join(";")}"
+
+      # Prevent compiler-rt from building i386 targets, as this is not portable.
+      args << "-DBUILTINS_CMAKE_ARGS=-DCOMPILER_RT_DEFAULT_TARGET_ONLY=ON"
     end
 
     llvmpath = buildpath/"llvm"
-    pgo_build = false
-    on_macos { pgo_build = build.stable? && build.bottle? }
     if pgo_build
       # We build LLVM a few times first for optimisations. See
       # https://github.com/Homebrew/homebrew-core/issues/77975
@@ -186,9 +196,9 @@ class Llvm < Formula
         cxxflags << "-march=#{Hardware.oldest_cpu}"
       end
 
-      on_macos do
+      if OS.mac?
         extra_args << "-DLLVM_ENABLE_LIBCXX=ON"
-        extra_args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
+        extra_args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
       end
 
       extra_args << "-DCMAKE_C_FLAGS=#{cflags.join(" ")}" unless cflags.empty?
@@ -205,23 +215,21 @@ class Llvm < Formula
       end
 
       # Our just-built Clang needs a little help finding C++ headers,
-      # since the atomic and type_traits headers are not in the SDK
-      # on macOS versions before Big Sur.
-      on_macos do
-        if MacOS.version <= :catalina && sdk
-          toolchain_path = if MacOS::CLT.installed?
-            MacOS::CLT::PKG_PATH
-          else
-            MacOS::Xcode.toolchain_path
-          end
-
-          cxxflags << "-isystem#{toolchain_path}/usr/include/c++/v1"
-          cxxflags << "-isystem#{toolchain_path}/usr/include"
-          cxxflags << "-isystem#{MacOS.sdk_path_if_needed}/usr/include"
-
-          extra_args.reject! { |s| s["CMAKE_CXX_FLAGS"] }
-          extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
+      # since we did not build libc++, and the atomic and type_traits
+      # headers are not in the SDK on macOS versions before Big Sur.
+      if OS.mac? && (MacOS.version <= :catalina && macos_sdk)
+        toolchain_path = if MacOS::CLT.installed?
+          MacOS::CLT::PKG_PATH
+        else
+          MacOS::Xcode.toolchain_path
         end
+
+        cxxflags << "-isystem#{toolchain_path}/usr/include/c++/v1"
+        cxxflags << "-isystem#{toolchain_path}/usr/include"
+        cxxflags << "-isystem#{macos_sdk}/usr/include"
+
+        extra_args.reject! { |s| s["CMAKE_CXX_FLAGS"] }
+        extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
       end
 
       # Next, build an instrumented stage2 compiler
@@ -261,8 +269,6 @@ class Llvm < Formula
                         *extra_args, *std_cmake_args
 
         # This build is for profiling, so it is safe to ignore errors.
-        # We pass `--keep-going` to `make` to ignore the error that requires
-        # deparallelisation on ARM. (See below.)
         begin
           system "cmake", "--build", ".", "--", "--keep-going"
         rescue RuntimeError
@@ -292,21 +298,24 @@ class Llvm < Formula
     # Now, we can build.
     mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
-      # Workaround for CMake Error: failed to create symbolic link
-      ENV.deparallelize if Hardware::CPU.arm?
       system "cmake", "--build", "."
       system "cmake", "--build", ".", "--target", "install"
       system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
-    on_macos do
+    if OS.mac? && !build.head?
       # Install versioned symlink, or else `llvm-config` doesn't work properly
-      lib.install_symlink "libLLVM.dylib" => "libLLVM-#{version.major}.dylib" unless build.head?
+      lib.install_symlink "libLLVM.dylib" => "libLLVM-#{version.major}.dylib"
     end
 
     # Install LLVM Python bindings
     # Clang Python bindings are installed by CMake
     (lib/site_packages).install llvmpath/"bindings/python/llvm"
+
+    # Install Vim plugins
+    %w[ftdetect ftplugin indent syntax].each do |dir|
+      (share/"vim/vimfiles"/dir).install Dir["*/utils/vim/#{dir}/*.vim"]
+    end
 
     # Install Emacs modes
     elisp.install Dir[llvmpath/"utils/emacs/*.el"] + Dir[share/"clang/*.el"]
@@ -375,7 +384,7 @@ class Llvm < Formula
     # Testing default toolchain and SDK location.
     system "#{bin}/clang++", "-v",
            "-std=c++11", "test.cpp", "-o", "test++"
-    on_macos { assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" }
+    assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" if OS.mac?
     assert_equal "Hello World!", shell_output("./test++").chomp
     system "#{bin}/clang", "-v", "test.c", "-o", "test"
     assert_equal "Hello World!", shell_output("./test").chomp

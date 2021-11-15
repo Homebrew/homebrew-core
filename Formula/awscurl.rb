@@ -6,14 +6,16 @@ class Awscurl < Formula
   url "https://files.pythonhosted.org/packages/9c/82/33679049696e05fc85596ff93f19fa0b9f73200de62d5ab0bfd4eed9aa9f/awscurl-0.24.tar.gz"
   sha256 "6a8eab18238f41297b9f568fead3161e898fb0f68f2b1bb3ed5ece358a929206"
   license "MIT"
+  revision 1
   head "https://github.com/okigan/awscurl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "99eeee8b8c25ac9eca8935f086d7049009a23dd6cdff955932b69684eb5fc092"
-    sha256 cellar: :any,                 big_sur:       "a350c60b20a1dc88c929ecae6481c4e4e3bf84a7e3938035d22ea6f56a0df590"
-    sha256 cellar: :any,                 catalina:      "0f39410104d050c7a2063e03a172dd20534082b13ade4839c754e37b837df693"
-    sha256 cellar: :any,                 mojave:        "a97fdbf33c8cf3e98917ee32eaba8db79f28f69f89510c1326499c8ca19f456b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aab85f689c56b139b609c80933d48c9256437779c8b998ee99b4b9351e689fd"
+    sha256 cellar: :any,                 arm64_monterey: "f13f65e5c449e9b4ed760b262914baa5819623357b7d0131569bb3108f1113d6"
+    sha256 cellar: :any,                 arm64_big_sur:  "5b4786b55be116cfa551e77bc3d06752f3e2d3cf9d30a4acf979f864e733f131"
+    sha256 cellar: :any,                 monterey:       "e4ebebdc1423851f2e729afda151d05097f09fa28a6f5bc455634b14ef233a7c"
+    sha256 cellar: :any,                 big_sur:        "63474937363760c00fcdf13adfd424536b23457d2173a3ee9d3ab59d0f765009"
+    sha256 cellar: :any,                 catalina:       "9f2fa777da553e8016a94009beeae8e38282c3514d716d289953aa2bb54d9673"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fce31b14f641d984c8cc28864849404615bac86ea7a0bd50381dc07c09abd7f7"
   end
 
   depends_on "rust" => :build

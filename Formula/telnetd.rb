@@ -11,11 +11,13 @@ class Telnetd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd8bc95b6e361eaab4df4e4b1e65bc20f0f14f6e5b44aa55bde5ea69f3bec59c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ce7113437e6dad49c075791c92c2fa4c0fd16a0ab6c9e3bc01f4ce40b573247f"
-    sha256 cellar: :any_skip_relocation, catalina:      "16f053b3bdfe04dcad271f63cd1f7e6ccc312ddb410081f4f729d12bc80eceb9"
-    sha256 cellar: :any_skip_relocation, mojave:        "cde731ff626ebda39ecadc5b6ed2014429cb2afb99521fd967a2176d127d94b7"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "d31eb6a8f79b8f9eb2417dce87c6508b8837207d4f8df48bdd5fd1d833f1b757"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "13567bd6d3032b016085dcba115e8e298c1a95408339ee3ec8fe83ba66252e3e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd8bc95b6e361eaab4df4e4b1e65bc20f0f14f6e5b44aa55bde5ea69f3bec59c"
+    sha256 cellar: :any_skip_relocation, monterey:       "89758ea7bba66934bfceedb7568fd9d051931cbbe0d10ec6b91a7bea039eb291"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ce7113437e6dad49c075791c92c2fa4c0fd16a0ab6c9e3bc01f4ce40b573247f"
+    sha256 cellar: :any_skip_relocation, catalina:       "16f053b3bdfe04dcad271f63cd1f7e6ccc312ddb410081f4f729d12bc80eceb9"
+    sha256 cellar: :any_skip_relocation, mojave:         "cde731ff626ebda39ecadc5b6ed2014429cb2afb99521fd967a2176d127d94b7"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "d31eb6a8f79b8f9eb2417dce87c6508b8837207d4f8df48bdd5fd1d833f1b757"
   end
 
   depends_on xcode: :build

@@ -12,11 +12,13 @@ class Javacc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8a3acf2460346b3e8fb8fccdff9098574002e3fd927633bf6135a0ab0dd400ce"
-    sha256 cellar: :any_skip_relocation, big_sur:       "81fa6c9cfa14578b76e7baa27ef7ac27ad0038558f4d372ecac6486f2eadc35a"
-    sha256 cellar: :any_skip_relocation, catalina:      "54792663583f44565206d4728237a9452859c162cea1e9c7ff782bf33daf6d99"
-    sha256 cellar: :any_skip_relocation, mojave:        "f954f391fb286509601a18d87042c3f6d218a7b57414e719cd37786723d71106"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75989c6e01cade18da9de70a7e5f3ddae779372b365e9eff2e8dbd78d46ad2cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c75b5136be3d309ea45af335749e60b9ced4f44fdc02f4c4e766f84254f3ed27"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a3acf2460346b3e8fb8fccdff9098574002e3fd927633bf6135a0ab0dd400ce"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c8777f66a4c1aff7d0c558f55fa6c261b133bb91db761141f0532b4cb264ddf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "81fa6c9cfa14578b76e7baa27ef7ac27ad0038558f4d372ecac6486f2eadc35a"
+    sha256 cellar: :any_skip_relocation, catalina:       "54792663583f44565206d4728237a9452859c162cea1e9c7ff782bf33daf6d99"
+    sha256 cellar: :any_skip_relocation, mojave:         "f954f391fb286509601a18d87042c3f6d218a7b57414e719cd37786723d71106"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75989c6e01cade18da9de70a7e5f3ddae779372b365e9eff2e8dbd78d46ad2cf"
   end
 
   depends_on "ant" => :build

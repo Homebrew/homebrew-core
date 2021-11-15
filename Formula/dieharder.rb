@@ -11,12 +11,14 @@ class Dieharder < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e0650468410dbd840acddb2cebc9e28e7bdd0293d5c442abb8c95d50c8524735"
-    sha256 cellar: :any, big_sur:       "24603f6e3c5376e294cdcd0d94cc045e48dec3402fd69a3b927ec1291f7b5c26"
-    sha256 cellar: :any, catalina:      "3f53c783d640819b446cbf91c3293d47aa0b0c334a630d25f2c5b5b514aeb844"
-    sha256 cellar: :any, mojave:        "b7b1bdbb6f105e4286320ad067689d8e3f7a2c7821a53382ebc2007b47d06dc9"
-    sha256 cellar: :any, high_sierra:   "341bdf1e0fce90d69db4e6749ec3ee3b8c5903559e365a19e9f5a8ba2723d403"
-    sha256 cellar: :any, sierra:        "8a40fb61aef5230ad77b3b851a6e8b6d575ff2adaa747c3b73a75cd203197945"
+    sha256 cellar: :any, arm64_monterey: "8f2ff1ac4cb2864c3352459c687c2a820f487200be88888161c5781f3548f131"
+    sha256 cellar: :any, arm64_big_sur:  "e0650468410dbd840acddb2cebc9e28e7bdd0293d5c442abb8c95d50c8524735"
+    sha256 cellar: :any, monterey:       "e05816267d13a70694f9a5618c959ef02e7a2f60ff6110eb1c4628a3a640b4b2"
+    sha256 cellar: :any, big_sur:        "24603f6e3c5376e294cdcd0d94cc045e48dec3402fd69a3b927ec1291f7b5c26"
+    sha256 cellar: :any, catalina:       "3f53c783d640819b446cbf91c3293d47aa0b0c334a630d25f2c5b5b514aeb844"
+    sha256 cellar: :any, mojave:         "b7b1bdbb6f105e4286320ad067689d8e3f7a2c7821a53382ebc2007b47d06dc9"
+    sha256 cellar: :any, high_sierra:    "341bdf1e0fce90d69db4e6749ec3ee3b8c5903559e365a19e9f5a8ba2723d403"
+    sha256 cellar: :any, sierra:         "8a40fb61aef5230ad77b3b851a6e8b6d575ff2adaa747c3b73a75cd203197945"
   end
 
   depends_on "gsl"

@@ -6,6 +6,11 @@ class Cheapglk < Formula
   sha256 "2753562a173b4d03ae2671df2d3c32ab7682efd08b876e7e7624ebdc8bf1510b"
   license "MIT"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cheapglk[._-]v?(?:\d+(?:\.\d+)*)\.t[^>]+?>\s*?CheapGlk library v?(\d+(?:\.\d+)+)/im)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "73f43be61554255b8b1bb6f2e185b567eca2c868f0c65ddf8a53020fddd8e35a"
     sha256 cellar: :any_skip_relocation, big_sur:       "9b3b09b201d58788157377de21147fc1dab74635912c3592626e9575905d9061"

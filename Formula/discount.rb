@@ -16,11 +16,13 @@ class Discount < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6eb8a216722f471eb6475f13e7f02a079069667d9c428b93275a7424aaea9a75"
-    sha256 cellar: :any_skip_relocation, big_sur:       "013c9e0bedb1a10f099e3b9a0c521c7e2f287602ae101284fc8d5bcbe76abfbf"
-    sha256 cellar: :any_skip_relocation, catalina:      "dcec657eb504394b83d9d949f3e33463733a4410681d38826040aaf9084f8ed5"
-    sha256 cellar: :any_skip_relocation, mojave:        "a5848add43adaee78666b9fc29de442944066e6bcbf7d547b68346dfa665c65f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "372b101acb6bcb3673a5e2056e4462f6fcec1d3c0a6af49a8a7c9c7d3375b250"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f3fe3c2ed674a47a0eaaa9449e6bec0f59131c46130aff8c99f908dfdd555a5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6eb8a216722f471eb6475f13e7f02a079069667d9c428b93275a7424aaea9a75"
+    sha256 cellar: :any_skip_relocation, monterey:       "9ae27788828756b56502d01183b5f2ff5508a8b1666223d19ae7a3c36510e06c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "013c9e0bedb1a10f099e3b9a0c521c7e2f287602ae101284fc8d5bcbe76abfbf"
+    sha256 cellar: :any_skip_relocation, catalina:       "dcec657eb504394b83d9d949f3e33463733a4410681d38826040aaf9084f8ed5"
+    sha256 cellar: :any_skip_relocation, mojave:         "a5848add43adaee78666b9fc29de442944066e6bcbf7d547b68346dfa665c65f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "372b101acb6bcb3673a5e2056e4462f6fcec1d3c0a6af49a8a7c9c7d3375b250"
   end
 
   conflicts_with "markdown", because: "both install `markdown` binaries"

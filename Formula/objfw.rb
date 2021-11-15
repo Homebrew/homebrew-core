@@ -1,8 +1,13 @@
 class Objfw < Formula
   desc "Portable, lightweight framework for the Objective-C language"
-  homepage "https://heap.zone/objfw/"
-  url "https://heap.zone/objfw/downloads/objfw-0.90.2.tar.gz"
+  homepage "https://objfw.nil.im/doc/trunk/README.md"
+  url "https://objfw.nil.im/downloads/objfw-0.90.2.tar.gz"
   sha256 "4de24703d45638093a5196eba278a05b3643e8be0ae2eece5c81ba3e2c20bdbb"
+
+  livecheck do
+    url "https://objfw.nil.im/wiki?name=Releases"
+    regex(/href=.*?objfw[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "59dd4798a6017b6062614f70004c87feb3bbf7aecb9ac2165b5b6f92353c6361"

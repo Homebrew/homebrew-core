@@ -11,11 +11,13 @@ class AtkmmAT228 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "e983693a33a42234e168ab6691a030a7e90f6ed0730dc3011034ec14478472b6"
-    sha256 cellar: :any,                 big_sur:       "ee8b64bf67e30fb46e3e8b1ec34c902055cad8ec635a8de8331073406e6a81f2"
-    sha256 cellar: :any,                 catalina:      "e6f94253d0a96d89131fe72fcf212028e87f41875761e57dd5f0cc40b46bfaf2"
-    sha256 cellar: :any,                 mojave:        "2b7ac6cd13ae986cef9784908877b3e4b58d42846b23f733e6f8c17600a44cc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f39ac64ae650ee9f8d40447d346fc2166bc24a016d2e29cb2d23836c290be5e3"
+    sha256 cellar: :any,                 arm64_monterey: "c998a07090f1a5979f5fffc63ae20a16e05683904391c1e6af55201c91111803"
+    sha256 cellar: :any,                 arm64_big_sur:  "e983693a33a42234e168ab6691a030a7e90f6ed0730dc3011034ec14478472b6"
+    sha256 cellar: :any,                 monterey:       "2a89fdca2f46e5a75c864fe197d2f7e2584d07f68c0fa693480d6da4adf75581"
+    sha256 cellar: :any,                 big_sur:        "ee8b64bf67e30fb46e3e8b1ec34c902055cad8ec635a8de8331073406e6a81f2"
+    sha256 cellar: :any,                 catalina:       "e6f94253d0a96d89131fe72fcf212028e87f41875761e57dd5f0cc40b46bfaf2"
+    sha256 cellar: :any,                 mojave:         "2b7ac6cd13ae986cef9784908877b3e4b58d42846b23f733e6f8c17600a44cc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f39ac64ae650ee9f8d40447d346fc2166bc24a016d2e29cb2d23836c290be5e3"
   end
 
   depends_on "meson" => :build

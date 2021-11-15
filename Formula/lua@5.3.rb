@@ -12,11 +12,13 @@ class LuaAT53 < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any,                 arm64_big_sur: "e06800c163acfcb6a1d0201ca303a631b8fef9c9047855c59795f015d23bd52b"
-    sha256 cellar: :any,                 big_sur:       "ce0820b10f9329826746487c3d69c475241cc7153dcbae1b250e853320256c27"
-    sha256 cellar: :any,                 catalina:      "7ac8234731edf3b0eb86a20cda2bdb6c0de637529790263d076de7da6cc7ab93"
-    sha256 cellar: :any,                 mojave:        "564c6e085e6a2bc744982dbdb1934ace6332231b1190e56a08e11248d6b416e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dab7e95e006b66d91b3dd4328202d5fe4769be8be19c72a02f63a94fa838ba5e"
+    sha256 cellar: :any,                 arm64_monterey: "c8b7e58e974dbd961e98ca2454e079834d9ab587a8793421541d9f3819b94499"
+    sha256 cellar: :any,                 arm64_big_sur:  "e06800c163acfcb6a1d0201ca303a631b8fef9c9047855c59795f015d23bd52b"
+    sha256 cellar: :any,                 monterey:       "dd559951c01f28022e4d2a9729f4eb2f94803d365ff272ab3c361e06490cdfee"
+    sha256 cellar: :any,                 big_sur:        "ce0820b10f9329826746487c3d69c475241cc7153dcbae1b250e853320256c27"
+    sha256 cellar: :any,                 catalina:       "7ac8234731edf3b0eb86a20cda2bdb6c0de637529790263d076de7da6cc7ab93"
+    sha256 cellar: :any,                 mojave:         "564c6e085e6a2bc744982dbdb1934ace6332231b1190e56a08e11248d6b416e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dab7e95e006b66d91b3dd4328202d5fe4769be8be19c72a02f63a94fa838ba5e"
   end
 
   keg_only :versioned_formula
@@ -43,7 +45,7 @@ class LuaAT53 < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
       # when making a shared object; recompile with -fPIC
       # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
@@ -53,9 +55,7 @@ class LuaAT53 < Formula
     # Substitute formula prefix in `src/Makefile` for install name (dylib ID).
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
-      on_macos do
-        s.gsub! "@LUA_PREFIX@", prefix
-      end
+      s.gsub! "@LUA_PREFIX@", prefix if OS.mac?
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} -DLUA_COMPAT_5_2 $(SYSCFLAGS) $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
@@ -64,36 +64,19 @@ class LuaAT53 < Formula
     # Fix path in the config header
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
-    os = "macosx"
-    on_linux do
-      os = "linux"
+    os = if OS.mac?
+      "macosx"
+    else
+      "linux"
     end
 
-    # We ship our own pkg-config file as Lua no longer provide them upstream.
     system "make", os, "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
     system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
-    (lib/"pkgconfig/lua.pc").write pc_file
 
-    # Fix some software potentially hunting for different pc names.
-    bin.install_symlink "lua" => "lua#{version.major_minor}"
-    bin.install_symlink "lua" => "lua-#{version.major_minor}"
-    bin.install_symlink "luac" => "luac#{version.major_minor}"
-    bin.install_symlink "luac" => "luac-#{version.major_minor}"
-    (include/"lua#{version.major_minor}").install_symlink Dir[include/"lua/*"]
-    lib.install_symlink shared_library("liblua", version.major_minor) => shared_library("liblua#{version.major_minor}")
-    (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
-    (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
-
-    on_linux do
-      lib.install Dir[shared_library("src/liblua", "*")]
-    end
-  end
-
-  def pc_file
+    # We ship our own pkg-config file as Lua no longer provide them upstream.
     libs = %W[-llua#{version.major_minor} -lm]
-    on_linux { libs << "-ldl" }
-
-    <<~EOS
+    libs << "-ldl" if OS.linux?
+    (lib/"pkgconfig/lua.pc").write <<~EOS
       V= #{version.major_minor}
       R= #{version}
       prefix=#{opt_prefix}
@@ -114,6 +97,18 @@ class LuaAT53 < Formula
       Libs: -L${libdir} #{libs.join(" ")}
       Cflags: -I${includedir}
     EOS
+
+    # Fix some software potentially hunting for different pc names.
+    bin.install_symlink "lua" => "lua#{version.major_minor}"
+    bin.install_symlink "lua" => "lua-#{version.major_minor}"
+    bin.install_symlink "luac" => "luac#{version.major_minor}"
+    bin.install_symlink "luac" => "luac-#{version.major_minor}"
+    (include/"lua#{version.major_minor}").install_symlink Dir[include/"lua/*"]
+    lib.install_symlink shared_library("liblua", version.major_minor) => shared_library("liblua#{version.major_minor}")
+    (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
+    (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
+
+    lib.install Dir[shared_library("src/liblua", "*")] if OS.linux?
   end
 
   def caveats

@@ -10,12 +10,14 @@ class Libwpg < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ca515f644385d91d4edc74382409d82c802b13c098ef1b353aa44440eca1a8ad"
-    sha256 cellar: :any, big_sur:       "d550bf02dfa09143d6b6578a541327b2cd59334c46765652162ed98b63e63e83"
-    sha256 cellar: :any, catalina:      "d12ae12e729a2d2e327f07fe927e02dd15151a987b7cab0a19ca94ee15f8cfde"
-    sha256 cellar: :any, mojave:        "162171b22e6df4f4f4169634fc6872d40bea9a17a9c49e01dd737e9d74b1d445"
-    sha256 cellar: :any, high_sierra:   "dd0c4dc2a9369d7d6b97f930dd63e6f4ddd9d12d0372c12e13d2a22cf6a0cd06"
-    sha256 cellar: :any, sierra:        "cf9ab0d990b3fccb101312999f6d0ea5980990edd279ae994cf3c7f9c33a7d55"
+    sha256 cellar: :any, arm64_monterey: "8971569270bc1f9c9c66466218f9731cd8d97cbf871e5e56ce056409a578e230"
+    sha256 cellar: :any, arm64_big_sur:  "ca515f644385d91d4edc74382409d82c802b13c098ef1b353aa44440eca1a8ad"
+    sha256 cellar: :any, monterey:       "44a1c05814cf24e80fddec9e750ec59c57b822189847a6ef8bcebeb4bb840a89"
+    sha256 cellar: :any, big_sur:        "d550bf02dfa09143d6b6578a541327b2cd59334c46765652162ed98b63e63e83"
+    sha256 cellar: :any, catalina:       "d12ae12e729a2d2e327f07fe927e02dd15151a987b7cab0a19ca94ee15f8cfde"
+    sha256 cellar: :any, mojave:         "162171b22e6df4f4f4169634fc6872d40bea9a17a9c49e01dd737e9d74b1d445"
+    sha256 cellar: :any, high_sierra:    "dd0c4dc2a9369d7d6b97f930dd63e6f4ddd9d12d0372c12e13d2a22cf6a0cd06"
+    sha256 cellar: :any, sierra:         "cf9ab0d990b3fccb101312999f6d0ea5980990edd279ae994cf3c7f9c33a7d55"
   end
 
   depends_on "pkg-config" => :build

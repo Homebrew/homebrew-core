@@ -3,7 +3,7 @@ class Gpsbabel < Formula
   homepage "https://www.gpsbabel.org/"
   url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_7_0.tar.gz"
   sha256 "30b186631fb43db576b8177385ed5c31a5a15c02a6bc07bae1e0d7af9058a797"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
@@ -12,9 +12,12 @@ class Gpsbabel < Formula
   end
 
   bottle do
-    sha256 big_sur:  "6d5c179704f46781438a06f02a6e83c0d9e5bfa3af0f15b738af0029a4cc56af"
-    sha256 catalina: "c71c3f2662684e9c03cac17d2f211b58ee07b3dc64ce74121922cca41d6b303c"
-    sha256 mojave:   "0a8e9cb2650be7396304d7486975e4ef82dce6e1890f8f54cbbaa0e05ab99991"
+    sha256 cellar: :any,                 arm64_monterey: "5357d3b45f387798979f3cedc684fbcc67cff808472d08c5c0af62923e96d5ef"
+    sha256 cellar: :any,                 arm64_big_sur:  "c7ee4482d5aec2eb9c2a13012fc9ca66f9ffdd8d81350a2a89594ed99d27175c"
+    sha256                               big_sur:        "6d5c179704f46781438a06f02a6e83c0d9e5bfa3af0f15b738af0029a4cc56af"
+    sha256                               catalina:       "c71c3f2662684e9c03cac17d2f211b58ee07b3dc64ce74121922cca41d6b303c"
+    sha256                               mojave:         "0a8e9cb2650be7396304d7486975e4ef82dce6e1890f8f54cbbaa0e05ab99991"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9b4de5bfef2c0548e1de3c4b5d82e881b511d7ea2bd496fe645a5373c5ef354"
   end
 
   depends_on "pkg-config" => :build
@@ -23,6 +26,12 @@ class Gpsbabel < Formula
   depends_on "shapelib"
 
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   # upstream https://github.com/gpsbabel/gpsbabel/pull/611 added support for configuration of third party libraries.
   patch do

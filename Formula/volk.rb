@@ -9,6 +9,7 @@ class Volk < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 monterey:     "5461f0cc22da460567168e94b836d4c946ad57e3dad48d6f616b88e1eecae77e"
     sha256 big_sur:      "13397948c2762d27f80e47fa13ef95930aea8a1b9221ca266f34de6f052890e8"
     sha256 catalina:     "e1fce59ef2e0308beb2688319d62cce2086159f792838e97d82315fab965c24c"
     sha256 mojave:       "7e2e2549521877c836c6b2c806f52c6256a9bc43c1d82b1f0edbbce0338bd512"

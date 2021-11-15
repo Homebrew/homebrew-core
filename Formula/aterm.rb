@@ -1,8 +1,9 @@
 class Aterm < Formula
   desc "Annotated Term for tree-like ADT exchange"
-  homepage "https://strategoxt.org/Tools/ATermFormat"
-  url "http://www.meta-environment.org/releases/aterm-2.8.tar.gz"
+  homepage "https://web.archive.org/web/20180902175600/meta-environment.org/Meta-Environment/ATerms.html"
+  url "https://web.archive.org/web/20150503094402/meta-environment.org/releases/aterm-2.8.tar.gz"
   sha256 "bab69c10507a16f61b96182a06cdac2f45ecc33ff7d1b9ce4e7670ceeac504ef"
+  license "BSD-3-Clause"
 
   bottle do
     rebuild 1
@@ -15,6 +16,8 @@ class Aterm < Formula
     sha256 cellar: :any, el_capitan:    "5140e20287eda941f8756dfdaf377663f84f6872d1ca3f6d70e04b554591d11a"
     sha256 cellar: :any, yosemite:      "d12bebbfa2e764abb9cfac1aecd6fc04e58f83eadf0fb3db298d5be03d7f8dca"
   end
+
+  deprecate! date: "2021-11-03", because: :unmaintained
 
   def install
     system "./configure", "--disable-dependency-tracking",

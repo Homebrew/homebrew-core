@@ -11,10 +11,12 @@ class PamYubico < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8d4405a65463be4dc6b5472b2cff454301591e57ff5c3b5fb4e8e40fb6981a66"
-    sha256 cellar: :any, big_sur:       "4abde2a6a123b3816945f79b07c760b95d2709fc791b5c5c7509d9ed1544e491"
-    sha256 cellar: :any, catalina:      "2405af18c4c1b4c2573c221ff6699afcb37a42fe211ebb8b726314d31e13ce1a"
-    sha256 cellar: :any, mojave:        "e40398cff74d597a3c0f203c59906b8276d3985a976c87812269bdc56ee06c72"
+    sha256 cellar: :any, arm64_monterey: "203b85ed98819720e7f40971f9978956b4fd458133a3935f402a10dfc2ab85b5"
+    sha256 cellar: :any, arm64_big_sur:  "8d4405a65463be4dc6b5472b2cff454301591e57ff5c3b5fb4e8e40fb6981a66"
+    sha256 cellar: :any, monterey:       "07bd1f48953cef8653bc75f23fcbf9fab5de45a3551d7ba7f23db22e558b9247"
+    sha256 cellar: :any, big_sur:        "4abde2a6a123b3816945f79b07c760b95d2709fc791b5c5c7509d9ed1544e491"
+    sha256 cellar: :any, catalina:       "2405af18c4c1b4c2573c221ff6699afcb37a42fe211ebb8b726314d31e13ce1a"
+    sha256 cellar: :any, mojave:         "e40398cff74d597a3c0f203c59906b8276d3985a976c87812269bdc56ee06c72"
   end
 
   depends_on "pkg-config" => :build

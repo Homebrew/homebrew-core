@@ -1,8 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://github.com/elastic/logstash/archive/v7.14.0.tar.gz"
-  sha256 "556c5c68936a211d031c41abcc033bc1ba098555913e80de8947cfc5d48fa49d"
+  url "https://github.com/elastic/logstash/archive/v7.15.2.tar.gz"
+  sha256 "a3f35a1e0f7f7982eac73059aadece589b7c17fa655aafd0c592a2fead192c30"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/elastic/logstash.git"
@@ -13,9 +13,9 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "0b16e600645cc57611c42525c39582f6d2952527183140062ad7328d8f226563"
-    sha256 cellar: :any, catalina: "14270acc6e0b6a4bc38f2f7ee5ee75400ff7ee1cb815bb49347c61611892a626"
-    sha256 cellar: :any, mojave:   "0954fdef97e62c0ae5b8c24489d793f87a085846eef2a877572930e2091047c6"
+    sha256 cellar: :any,                 big_sur:      "e28cc949e3580b985310ab38884348d928e591493ec5b1c5a5768f6976332724"
+    sha256 cellar: :any,                 catalina:     "fae6f5700e66f435d43798fa5e1cc1ed1dba28f3655f0337b8cd0cbac902871e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1270f53ef89f56359d7c076dfc9c8ad418714ca96d29ea98adfc8001f457621c"
   end
 
   depends_on "openjdk@11"
@@ -44,6 +44,13 @@ class Logstash < Formula
               /^LOGSTASH_HOME=.*$/,
               "LOGSTASH_HOME=#{libexec}"
 
+    # Delete Windows and other Arch/OS files
+    paths_to_keep = OS.linux? ? "#{Hardware::CPU.arch}-#{OS.kernel_name}" : OS.kernel_name
+    rm Dir["bin/*.bat"]
+    Dir["vendor/jruby/lib/jni/*"].each do |path|
+      rm_r path unless path.include? paths_to_keep
+    end
+
     libexec.install Dir["*"]
 
     # Move config files into etc
@@ -51,7 +58,7 @@ class Logstash < Formula
     (libexec/"config").rmtree
 
     bin.install libexec/"bin/logstash", libexec/"bin/logstash-plugin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env("11"))
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("11")
   end
 
   def post_install

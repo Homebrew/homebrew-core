@@ -13,6 +13,7 @@ class Rethinkdb < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, monterey: "38494245ae4ca4cd8b7e5d95070bea8cf0525d37254e7c415e993538192baf09"
     sha256 cellar: :any, big_sur:  "4f4b04c2bc0243cb1be67ee785e85cccbecf507899b439a0497920637e2c14cc"
     sha256 cellar: :any, catalina: "0937ad0dab31f165b3b33c0d8e9629b44ee4580e74009881ca097edb2a8157c2"
     sha256 cellar: :any, mojave:   "35771b918dd1e41939aea3a8eec2b3fa8ee38ca4236c1ad0bd2695c3bb598caf"

@@ -7,11 +7,13 @@ class LibbitcoinConsensus < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "b2a70f871df4a376246e9882383751a65d04e7f30ff1b0c7abab507cf3d80e49"
-    sha256 cellar: :any,                 big_sur:       "31b62a85a41d440a6f2772c348288c89b8ff0de5c6eaaf911b4891a3796c6c60"
-    sha256 cellar: :any,                 catalina:      "c45b5944cedcd5ad9733ea30e49a644851264abf40f8d38cbc8b67ddf33ce21c"
-    sha256 cellar: :any,                 mojave:        "b6d7bed977f2e337a0fd2da7f56035323ba8c1d59503ccdb3fef5f6033cf7eef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ccf6f4e46745f168dbf5c77f36d30041138b8c0a9a7c3de27060fd5627b7270"
+    sha256 cellar: :any,                 arm64_monterey: "1a6488ba887d026f465280fc3f2c27847d539eca7c3ab733eff3e4bed89d6c26"
+    sha256 cellar: :any,                 arm64_big_sur:  "b2a70f871df4a376246e9882383751a65d04e7f30ff1b0c7abab507cf3d80e49"
+    sha256 cellar: :any,                 monterey:       "357a443d52c298a45747b15297806704f3bcf81c43f0ccf7066f9e4653356e5a"
+    sha256 cellar: :any,                 big_sur:        "31b62a85a41d440a6f2772c348288c89b8ff0de5c6eaaf911b4891a3796c6c60"
+    sha256 cellar: :any,                 catalina:       "c45b5944cedcd5ad9733ea30e49a644851264abf40f8d38cbc8b67ddf33ce21c"
+    sha256 cellar: :any,                 mojave:         "b6d7bed977f2e337a0fd2da7f56035323ba8c1d59503ccdb3fef5f6033cf7eef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ccf6f4e46745f168dbf5c77f36d30041138b8c0a9a7c3de27060fd5627b7270"
   end
 
   depends_on "autoconf" => :build

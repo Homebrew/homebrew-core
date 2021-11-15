@@ -4,7 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/4.5.3.tar.gz"
   sha256 "77f616ae4bea416674d8c373984b20c8bd55e7db887fd38c6df73463a0647bab"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,10 +12,10 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "eb90e4fc4608ce7285e0836586f1e1db8ffd1c150fa2accfec4574a8368a5bf5"
-    sha256 big_sur:       "a66bb42ee8e14bc77656b330267ad0bf2c83bd2df0abb0f1ad6da357bcbc94f2"
-    sha256 catalina:      "66bfff6d709f9f0dc0875701a05df2fc2c052f48b67a6c91c106a58ac4be1932"
-    sha256 mojave:        "bdd113015b81013f74206b0be03ab37a6d57af9cf924592c8f61658d63aada63"
+    sha256 arm64_big_sur: "362e1f291f9095f7344136e76a329cc9111a87c6218d3a6216f53e8e4f5749fa"
+    sha256 big_sur:       "4e65f1661e82f31dd693fcc6f39c44acab6eec4b5cc08a75666136d6c30e9b16"
+    sha256 catalina:      "b166348e4032734e850d85818d9d047d57f0742778118756fbe325df54a9b179"
+    sha256 x86_64_linux:  "ca371a5ceb6ec0ed96a9d0332dd44e40172dc3e33890c089a8a7b15830a06542"
   end
 
   depends_on "cmake" => :build
@@ -36,6 +36,8 @@ class Opencv < Formula
   depends_on "tbb"
   depends_on "vtk"
   depends_on "webp"
+
+  uses_from_macos "zlib"
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.5.3.tar.gz"
@@ -89,23 +91,35 @@ class Opencv < Formula
       -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
 
+    # Disable precompiled headers and force opencv to use brewed libraries on Linux
+    if OS.linux?
+      args << "-DENABLE_PRECOMPILED_HEADERS=OFF"
+      args << "-DJPEG_LIBRARY=#{Formula["libjpeg"].opt_lib}/libjpeg.so"
+      args << "-DOpenBLAS_LIB=#{Formula["openblas"].opt_lib}/libopenblas.so"
+      args << "-DOPENEXR_ILMIMF_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmImf.so"
+      args << "-DOPENEXR_ILMTHREAD_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmThread.so"
+      args << "-DPNG_LIBRARY=#{Formula["libpng"].opt_lib}/libpng.so"
+      args << "-DPROTOBUF_LIBRARY=#{Formula["protobuf"].opt_lib}/libprotobuf.so"
+      args << "-DTIFF_LIBRARY=#{Formula["libtiff"].opt_lib}/libtiff.so"
+      args << "-DWITH_V4L=OFF"
+      args << "-DZLIB_LIBRARY=#{Formula["zlib"].opt_lib}/libz.so"
+    end
+
     if Hardware::CPU.intel?
       args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
       args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
     end
 
     mkdir "build" do
-      shim_prefix_regex = %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/}o
-
       system "cmake", "..", *args
-      inreplace "modules/core/version_string.inc", shim_prefix_regex, ""
+      inreplace "modules/core/version_string.inc", Superenv.shims_path, ""
 
       system "make"
       system "make", "install"
 
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
-      inreplace "modules/core/version_string.inc", shim_prefix_regex, ""
+      inreplace "modules/core/version_string.inc", Superenv.shims_path, ""
 
       system "make"
       lib.install Dir["lib/*.a"]

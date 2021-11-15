@@ -13,6 +13,7 @@ class Mdk < Formula
 
   bottle do
     sha256 arm64_big_sur: "82feea4dde50c9990493575153eba005943911de642cfe855881f162739b36d8"
+    sha256 monterey:      "74070fb72a32c176845c7df342a3c11d5f581ad70ffee3311bff1660c0e53089"
     sha256 big_sur:       "305422ac29e1cb04827277976b3c2e7fe678a00cd2a648739d00684c9c1f3a78"
     sha256 catalina:      "bd29f7cd3b52987492d17a4cfa9a51712bbacda1f738454cfb942596392fe9f7"
     sha256 mojave:        "51c33dc12bf9277cd0d60d55a34236a1ab8d9577c9fbe296a8d893962e391d6a"

@@ -12,14 +12,16 @@ class GnupgAT14 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "30169aa8ef5373a4d5b36ee5714bd7e34d7222d02ad090bf3094b92b1c203bd6"
-    sha256 big_sur:       "408013c7748d2b6de6c09520e4b3948a493fcc338624493050c081e200820390"
-    sha256 catalina:      "3796803df0956a54dfc5ed26f17a92791622c4ddc6b0dfa6b8fabc0f65afdd0d"
-    sha256 mojave:        "32f23f8ceec79b8073f8b69a2c7f1278adf9020c00d78d2cd9d07c1e5f3bdb89"
-    sha256 high_sierra:   "dbd43b52f11e65c2bb6dadf3adbf8ccf7f740af33b56e4d8c8b037611840f127"
-    sha256 sierra:        "abc1e142397fbe833f2f7c5f71409d925ce690506d77296f7f3d41656a0791f2"
-    sha256 el_capitan:    "397c92b88bd189ef61dfb01d5fe2e27e0477a63de64a713ffb883eb799dcbb87"
-    sha256 x86_64_linux:  "4e742c3b7160f0cdc5d4399857508ed58d3e43abb7f41bc9f173b5b83c12bccf"
+    sha256 arm64_monterey: "d35c8557e2e77c6074a75bf4f4e575bd0a24ed57fbd061f9bd2a06d58bf8415c"
+    sha256 arm64_big_sur:  "30169aa8ef5373a4d5b36ee5714bd7e34d7222d02ad090bf3094b92b1c203bd6"
+    sha256 monterey:       "d010750043549f48f60a95d8b6c02bc5754168d09f298a4dace80eb84ccacd52"
+    sha256 big_sur:        "408013c7748d2b6de6c09520e4b3948a493fcc338624493050c081e200820390"
+    sha256 catalina:       "3796803df0956a54dfc5ed26f17a92791622c4ddc6b0dfa6b8fabc0f65afdd0d"
+    sha256 mojave:         "32f23f8ceec79b8073f8b69a2c7f1278adf9020c00d78d2cd9d07c1e5f3bdb89"
+    sha256 high_sierra:    "dbd43b52f11e65c2bb6dadf3adbf8ccf7f740af33b56e4d8c8b037611840f127"
+    sha256 sierra:         "abc1e142397fbe833f2f7c5f71409d925ce690506d77296f7f3d41656a0791f2"
+    sha256 el_capitan:     "397c92b88bd189ef61dfb01d5fe2e27e0477a63de64a713ffb883eb799dcbb87"
+    sha256 x86_64_linux:   "4e742c3b7160f0cdc5d4399857508ed58d3e43abb7f41bc9f173b5b83c12bccf"
   end
 
   uses_from_macos "zlib"

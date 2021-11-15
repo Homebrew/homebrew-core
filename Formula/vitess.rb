@@ -1,26 +1,21 @@
 class Vitess < Formula
   desc "Database clustering system for horizontal scaling of MySQL"
   homepage "https://vitess.io"
-  url "https://github.com/vitessio/vitess/archive/v10.0.2.tar.gz"
-  sha256 "f9446e717f05e0b42dcb652e0758e1e6949d287464942418c140269b875963da"
+  url "https://github.com/vitessio/vitess/archive/v12.0.0.tar.gz"
+  sha256 "f20f84014236fc89b993d76facb08b7ade85121e1ef94db42503ce9e3aff6adf"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "223ec20c9812977bfa7b27f4c8bc96543151539d0e290c79e4a77cc5194cb886"
-    sha256 cellar: :any_skip_relocation, catalina:     "fd69b5532c0a3621f749415cc6123b26184393177207d22dbb926f57cda306b2"
-    sha256 cellar: :any_skip_relocation, mojave:       "379e273a0fa00df8967402dbaf3a2ce7d4ee4f34059bed832f22caf1d12a446a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c2c25804ecf48402255647450d13fcefbae378bd00fe84fbab45a13bd36d2708"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c81c47e220b7387bee5d003b0f3049db8e5a6d9ba0ef3a48478957ad6f3069d3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c6af5dd5faf4aa7bf6debc58a3cfb68081745f8f7ebcdcaaf2c004e5cb2bb64"
+    sha256 cellar: :any_skip_relocation, monterey:       "8eaaed8085736146033d50f3bdef1443a4843289e4f1bf57787d9fe3313eb7a9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1fb047b2ff939b8cdc7907b9bc95968b94d6837d40432a31dcb266af20304967"
+    sha256 cellar: :any_skip_relocation, catalina:       "79893cb774f092950a70b8f50fb4b7c9bb418c5c94494263733fcf7fa2841338"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e056f986c71427c43be17ac6f75d3a455255cc1388d3d20f3e78c60c6ca69b0b"
   end
 
   depends_on "go" => :build
   depends_on "etcd"
-
-  # Fixes build failure on Darwin, see: https://github.com/vitessio/vitess/pull/7787
-  # Remove in v11.0.0
-  patch do
-    url "https://github.com/vitessio/vitess/commit/7efa6aa4cd3b68ccd45d46e5f1d13a4a7f9bde7d.patch?full_index=1"
-    sha256 "625290343b23688c5ac885246ed43808b865ae16005565d88791f4f733c24ce0"
-  end
 
   def install
     system "make", "install-local", "PREFIX=#{prefix}", "VTROOT=#{buildpath}"
@@ -28,7 +23,10 @@ class Vitess < Formula
   end
 
   test do
+    ENV["ETCDCTL_API"] = "2"
     etcd_server = "localhost:#{free_port}"
+    cell = "testcell"
+
     fork do
       exec Formula["etcd"].opt_bin/"etcd", "--enable-v2=true",
                                            "--data-dir=#{testpath}/etcd",
@@ -37,11 +35,37 @@ class Vitess < Formula
     end
     sleep 3
 
+    fork do
+      exec Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}",
+                                    "mkdir", testpath/"global"
+    end
+    sleep 1
+
+    fork do
+      exec Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}",
+                                    "mkdir", testpath/cell
+    end
+    sleep 1
+
+    fork do
+      exec bin/"vtctl", "-topo_implementation", "etcd2",
+                        "-topo_global_server_address", etcd_server,
+                        "-topo_global_root", testpath/"global",
+                        "VtctldCommand", "AddCellInfo",
+                        "--root", testpath/cell,
+                        "--server-address", etcd_server,
+                        cell
+    end
+    sleep 1
+
     port = free_port
     fork do
       exec bin/"vtgate", "-topo_implementation", "etcd2",
                          "-topo_global_server_address", etcd_server,
                          "-topo_global_root", testpath/"global",
+                         "-tablet_types_to_wait", "PRIMARY,REPLICA",
+                         "-cell", cell,
+                         "-cells_to_watch", cell,
                          "-port", port.to_s
     end
     sleep 3

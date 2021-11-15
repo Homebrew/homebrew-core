@@ -5,14 +5,16 @@ class Rssh < Formula
   sha256 "f30c6a760918a0ed39cf9e49a49a76cb309d7ef1c25a66e77a41e2b1d0b40cd9"
 
   bottle do
-    sha256 arm64_big_sur: "ff8805cca497fcf8b6335aabcd2a468e54c1a425e18ab8a7cab685b7d0a37d11"
-    sha256 big_sur:       "c2725b75d2f60da89130f9755da6044aaf5f8342215e6a0cece480f73c657626"
-    sha256 catalina:      "320bd3daa0a9cf214c46eaacc16b9a69d3854d8dbac7ed432db91d8afd241790"
-    sha256 mojave:        "d31053458aa5853114ce8f1b7adf2aa8f6faee7cba5e7270be783f55d8311791"
-    sha256 high_sierra:   "05dd4375824810caf77f7b40d2b1ff0a229e6743f46c755427c428d5ca31f173"
-    sha256 sierra:        "aebe589ee047200b1fd0486d3a1fb08c4a601366391e80bcd1e7dcb87ca456e0"
-    sha256 el_capitan:    "23891b0317ef29a36b0b8ee9f140193d17ae616983c13f2179d5b317b33e1eee"
-    sha256 yosemite:      "a63ead463b79c5375e0b919976173db13a236fcea06c4fa038a719375a550ca9"
+    sha256 arm64_monterey: "15028af39a3549db2d28aedae2d8774c12ac44bce71139ba76269d9d7c2646f7"
+    sha256 arm64_big_sur:  "ff8805cca497fcf8b6335aabcd2a468e54c1a425e18ab8a7cab685b7d0a37d11"
+    sha256 monterey:       "a465cd87f5ba588770012b57336a2fffefd0d62e1c1ec790c14165e06299d6f2"
+    sha256 big_sur:        "c2725b75d2f60da89130f9755da6044aaf5f8342215e6a0cece480f73c657626"
+    sha256 catalina:       "320bd3daa0a9cf214c46eaacc16b9a69d3854d8dbac7ed432db91d8afd241790"
+    sha256 mojave:         "d31053458aa5853114ce8f1b7adf2aa8f6faee7cba5e7270be783f55d8311791"
+    sha256 high_sierra:    "05dd4375824810caf77f7b40d2b1ff0a229e6743f46c755427c428d5ca31f173"
+    sha256 sierra:         "aebe589ee047200b1fd0486d3a1fb08c4a601366391e80bcd1e7dcb87ca456e0"
+    sha256 el_capitan:     "23891b0317ef29a36b0b8ee9f140193d17ae616983c13f2179d5b317b33e1eee"
+    sha256 yosemite:       "a63ead463b79c5375e0b919976173db13a236fcea06c4fa038a719375a550ca9"
   end
 
   # Submitted upstream:

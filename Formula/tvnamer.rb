@@ -4,17 +4,20 @@ class Tvnamer < Formula
   url "https://files.pythonhosted.org/packages/7e/07/688dc96a86cf212ffdb291d2f012bc4a41ee78324a2eda4c98f05f5e3062/tvnamer-3.0.4.tar.gz"
   sha256 "dc2ea8188df6ac56439343630466b874c57756dd0b2538dd8e7905048f425f04"
   license "Unlicense"
-  head "https://github.com/dbr/tvnamer.git"
+  revision 1
+  head "https://github.com/dbr/tvnamer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4491772fd6ec7a015ef66cfdd2e26b017a0954b00dcb6225c05e3918d4ebaf8f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7482d3e40fae7da3a5a738ba27e891ab6313be37e2ca623ce3c6eabe8c07d261"
-    sha256 cellar: :any_skip_relocation, catalina:      "7482d3e40fae7da3a5a738ba27e891ab6313be37e2ca623ce3c6eabe8c07d261"
-    sha256 cellar: :any_skip_relocation, mojave:        "7482d3e40fae7da3a5a738ba27e891ab6313be37e2ca623ce3c6eabe8c07d261"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b055c3749deeee54611708e1e264cc631db2a675f1ff5ab2e8e7852a52f225ff"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "04206c4b348fbd1bdaf7d6d59e5eb7af96ce9c58a5729dc26a1cfaf5e49106b7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04206c4b348fbd1bdaf7d6d59e5eb7af96ce9c58a5729dc26a1cfaf5e49106b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
+    sha256 cellar: :any_skip_relocation, catalina:       "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
+    sha256 cellar: :any_skip_relocation, mojave:         "e44a489cac20cfdd68199c79d58ac8c47f376b9919898a07a97ae31502bd3d6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54803ea2259bd1d6f9643fe7e69cf42d20417fefa82b1e695ec0768ee3311760"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"

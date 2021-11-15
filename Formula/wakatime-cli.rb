@@ -1,33 +1,38 @@
 class WakatimeCli < Formula
   desc "Command-line interface to the WakaTime api"
   homepage "https://wakatime.com/"
-  url "https://files.pythonhosted.org/packages/87/03/1e919ddff6488a9be5e609ee3de500bf17b0151734d57c8923c605246235/wakatime-13.1.0.tar.gz"
-  sha256 "8da2e38335a60819b61adb60a72adc6588b3755eca376d05c9588cbf5fe64c57"
+  url "https://github.com/wakatime/wakatime-cli.git",
+    tag:      "v1.28.3",
+    revision: "7c3f8786e7b8ac2ffe5ecb4ec11767295a86578b"
   license "BSD-3-Clause"
+  version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "062307ba64d4afeda4bdae8c912a9c69d5e28078f7e4169aafb0c14c355cd297"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3435709410408bacf076594f87fffe654048e4e7aabe124f7f6bb37bbf3943e9"
-    sha256 cellar: :any_skip_relocation, catalina:      "1573e0dd92f96002d51d388bb75f4ea06946dacf8c2e46c2408513c0a13c9feb"
-    sha256 cellar: :any_skip_relocation, mojave:        "84e365ad5241e4c17926bb32730cbf0d2d9de798551e137fe568a3934e7d733f"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "9c4ddbce30fc3b94deb970c30527a80534e4389810524cfc58b634fc0863fc0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcc5439d9c9fdf6e0661a8982f046f1ebdd45eef1f677779f614810bfab5cbc5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bc056e2c8bcc042ae18e8c40376da56761d2c58e76607394ed38944516ac83c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34419dca30bda74e21cf279fadf8e44a1bf8f329ce2a39ec9cb8b0b2a155ab97"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa1afbacf5e16534d6a9fbdd0bfdc3ffdac70d4f92bc5402b6e004e2f988af3c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9c4350935aee682a0c11dff4024496f9d4e5d2b17dcacb0e32eef3b9e64be25b"
+    sha256 cellar: :any_skip_relocation, catalina:       "040c11d199ba6c2073e65fca3ec716783107ea0b2fc62464f4bc26cd0d114868"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "485d46dff798a8dbccb81b68a94d9c19019c0c26fffe48c43c5b38346517d279"
   end
 
-  depends_on "python@3.9"
+  depends_on "go" => :build
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV["PYTHONPATH"] = libexec/"lib/python#{xy}/site-packages"
-
-    system "python3", *Language::Python.setup_install_args(libexec)
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    ldflags = %W[
+      -s -w
+      -X github.com/wakatime/wakatime-cli/pkg/version.Arch=#{arch}
+      -X github.com/wakatime/wakatime-cli/pkg/version.BuildDate=#{time.iso8601}
+      -X github.com/wakatime/wakatime-cli/pkg/version.Commit=#{Utils.git_head(length: 7)}
+      -X github.com/wakatime/wakatime-cli/pkg/version.OS=#{OS.kernel_name.downcase}
+      -X github.com/wakatime/wakatime-cli/pkg/version.Version=v#{version}
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
-    assert_match "Common interface for the WakaTime api.", shell_output("#{bin}/wakatime --help 2>&1")
-
-    assert_match "error: Missing api key.", shell_output("#{bin}/wakatime --project test 2>&1", 104)
+    output = shell_output("#{bin}/wakatime-cli --help 2>&1")
+    assert_match "Command line interface used by all WakaTime text editor plugins", output
   end
 end

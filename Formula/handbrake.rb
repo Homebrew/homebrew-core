@@ -1,16 +1,20 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows"
   homepage "https://handbrake.fr/"
-  url "https://github.com/HandBrake/HandBrake/releases/download/1.3.3/HandBrake-1.3.3-source.tar.bz2"
-  sha256 "218a37d95f48b5e7cf285363d3ab16c314d97627a7a710cab3758902ae877f85"
+  url "https://github.com/HandBrake/HandBrake/releases/download/1.4.2/HandBrake-1.4.2-source.tar.bz2"
+  sha256 "8b8e81b7dc2e3180f4e94e8c7f5337d2953f69f0d983ccce48096e29ed6dfb61"
   license "GPL-2.0-only"
   revision 1
-  head "https://github.com/HandBrake/HandBrake.git"
+  head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "5bb8e03dae1aa55d317425c029259de5b89b488f4a701d06baa2c3a1d1f7e98c"
-    sha256 cellar: :any_skip_relocation, catalina: "ab4f6d98eb86afd4c71f74310867a8e919c827ea44c5aea52d56c9de33884ac8"
-    sha256 cellar: :any_skip_relocation, mojave:   "7dd630c2fb5ea87ab59bd0e3c161b8091906484d7c286438cea86faaef2961cb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3d413052e01020c916cd1e9bf244256b5b1248f4f8e26fcfbde7dc02dd5a380"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e917c720059f925166013d3d0e2582e31699ebbdbbc08fca18dfdffabfd7c8b3"
+    sha256 cellar: :any_skip_relocation, monterey:       "6e422e359c35c8529ff47af9bd60d3755ad7466dcf693d619e4ef98a3cd88656"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7ca402d6d31e8e0a8cd95d145c418081f7d463fb2038c8b699c9a14b5b97dcea"
+    sha256 cellar: :any_skip_relocation, catalina:       "6264a00f9a6de388ea623778ce204d88fbe2638984685685f5081afc7847c7b4"
+    sha256 cellar: :any_skip_relocation, mojave:         "fb8a0e4d9a85ceafe357b05148e2f457fc27c209772f09c6625ecc4a710ff645"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3acefc4aab0ea90d6677cd7178e2753eddb28ae520e76e12544f7887234c81a7"
   end
 
   depends_on "autoconf" => :build
@@ -26,20 +30,29 @@ class Handbrake < Formula
   depends_on "yasm" => :build
 
   uses_from_macos "m4" => :build
+  uses_from_macos "bzip2"
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "jansson"
+    depends_on "jpeg-turbo"
+    depends_on "lame"
+    depends_on "libass"
+    depends_on "libvorbis"
+    depends_on "libvpx"
     depends_on "numactl"
     depends_on "opus"
+    depends_on "speex"
+    depends_on "theora"
+    depends_on "x264"
+    depends_on "xz"
   end
 
   def install
     inreplace "contrib/ffmpeg/module.defs", "$(FFMPEG.GCC.gcc)", "cc"
 
-    on_linux do
-      ENV.append "CFLAGS", "-I#{Formula["libxml2"].opt_include}/libxml2"
-    end
+    ENV.append "CFLAGS", "-I#{Formula["libxml2"].opt_include}/libxml2" if OS.linux?
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-xcode",

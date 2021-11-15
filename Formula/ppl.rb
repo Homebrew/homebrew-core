@@ -13,12 +13,14 @@ class Ppl < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f607e5d5ebefa0cb480bc84b1ba6e4eb1f2f07e7d7a00ae1f4c71958b5c82323"
-    sha256 big_sur:       "ceae5dd7024558587efdf935a870154a38e0cbf7e4882ba507cb3cebf574bed3"
-    sha256 catalina:      "65aa31c0201a860d32e874ab34cbdea7132101fc6461510e06641a11ca762e82"
-    sha256 mojave:        "253714635b8718e7822853e1385c546b665450b7059e8067e4008ed865eae261"
-    sha256 high_sierra:   "7a9b9ceabcf71bf31ed8185caaa6e78c065511ba3e6cf805be13402983c2a7e1"
-    sha256 x86_64_linux:  "09999d2760a2d719f28918c3040eadeceffd32112eee8e5f28f5b93db80d4d9d"
+    sha256 arm64_monterey: "3b7d7b75d9c40347d165192e5189725d94129dc5f95d848cc86251f493ccef91"
+    sha256 arm64_big_sur:  "f607e5d5ebefa0cb480bc84b1ba6e4eb1f2f07e7d7a00ae1f4c71958b5c82323"
+    sha256 monterey:       "f75956df3abc16149ff87a0df7347973863331d8cadad40fef8dc3b760bfd6cf"
+    sha256 big_sur:        "ceae5dd7024558587efdf935a870154a38e0cbf7e4882ba507cb3cebf574bed3"
+    sha256 catalina:       "65aa31c0201a860d32e874ab34cbdea7132101fc6461510e06641a11ca762e82"
+    sha256 mojave:         "253714635b8718e7822853e1385c546b665450b7059e8067e4008ed865eae261"
+    sha256 high_sierra:    "7a9b9ceabcf71bf31ed8185caaa6e78c065511ba3e6cf805be13402983c2a7e1"
+    sha256 x86_64_linux:   "09999d2760a2d719f28918c3040eadeceffd32112eee8e5f28f5b93db80d4d9d"
   end
 
   depends_on "gmp"
@@ -33,6 +35,12 @@ class Ppl < Formula
   # since 401 error on the `www.cs.unipr.it` links adopt the patch from macports
   # patch reference, https://github.com/macports/macports-ports/commit/e5de9cc65a8e91fcbb9a3d90911569169f0ccf88
   patch :DATA
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

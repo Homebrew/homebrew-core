@@ -11,6 +11,7 @@ class Hmmer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "85399c5d79f4d97c5e1755688bc29ce31985a6a489d8c859a5e080e5a564ad98"
     sha256 cellar: :any_skip_relocation, big_sur:      "af45073d7f7d1ce1231c03381c5e50af9de1d6773762a65200a6067b84590c9d"
     sha256 cellar: :any_skip_relocation, catalina:     "6bd9bbe8efab7ec335de773b059922574ec2a89d755afd09dc475f6b251fb886"
     sha256 cellar: :any_skip_relocation, mojave:       "f170a16fcc45126a552ae1b0fdd3cbb25e73f77a53f10011e5c304afa69694fa"

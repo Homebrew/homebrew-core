@@ -6,10 +6,12 @@ class Pagmo < Formula
   license any_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4078c9db26232af1918e92c1fe2f452eb346fe07564cf49ff6cf840164f3f0b0"
-    sha256 cellar: :any, big_sur:       "e3fe9ef3f10e0f3a8a374afb3ce6dde2eb1a4e269fb810cc18e7be641a638c81"
-    sha256 cellar: :any, catalina:      "f5623fc821e2df72e40215540dd642841777bc925926315a373818d31fe58b33"
-    sha256 cellar: :any, mojave:        "7c5416e486a9683c6a919717a5c3bfc1ab2dd294f7c328fcb3a9cdc7b535aac5"
+    sha256 cellar: :any, arm64_monterey: "26f757c02d4e087032f684151fcf5c1f202e82b77c12520ecd0fc9e3c1063831"
+    sha256 cellar: :any, arm64_big_sur:  "4078c9db26232af1918e92c1fe2f452eb346fe07564cf49ff6cf840164f3f0b0"
+    sha256 cellar: :any, monterey:       "38b19943404fcb304e69a51f0e96e3f229080ece753977a083e5d20071034a67"
+    sha256 cellar: :any, big_sur:        "e3fe9ef3f10e0f3a8a374afb3ce6dde2eb1a4e269fb810cc18e7be641a638c81"
+    sha256 cellar: :any, catalina:       "f5623fc821e2df72e40215540dd642841777bc925926315a373818d31fe58b33"
+    sha256 cellar: :any, mojave:         "7c5416e486a9683c6a919717a5c3bfc1ab2dd294f7c328fcb3a9cdc7b535aac5"
   end
 
   depends_on "cmake" => :build

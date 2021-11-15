@@ -6,15 +6,16 @@ class Fabric < Formula
   url "https://files.pythonhosted.org/packages/32/61/9a26b8f3dcdb5cb17daff57c9a85be6d5963d50488f45319d64a413da762/fabric-2.6.0.tar.gz"
   sha256 "47f184b070272796fd2f9f0436799e18f2ccba4ee8ee587796fca192acd46cd2"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/fabric/fabric.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a1a85887c89e303a76e534797d94e51cb2ded8bb0a17ec42860d992199db3d82"
-    sha256 cellar: :any,                 big_sur:       "5ce01be4718393b51968a5ccc9437eb0badad44ca2ddef47015fbd68b9c0a4ad"
-    sha256 cellar: :any,                 catalina:      "0cbd0659af1acc21a578926507419bead5faa3b8d209fd6f81e889399c18ed95"
-    sha256 cellar: :any,                 mojave:        "1ca741b9f8f491086e767d52fd79cf2de19416dd56a2f40b82d65b7fece64193"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "444ce15f68a057eb7fcfcd0e1403b30fb69744adf4140a478e8944fca35d7b9c"
+    sha256 cellar: :any,                 arm64_monterey: "61f18da0dd9b74e0d8aca31a538cd9e472b8877d345111aa9ac9eb962f3034ae"
+    sha256 cellar: :any,                 arm64_big_sur:  "abd0cb21c321e8ede77855e1b219bc504d0a16895ac094b304e0851e8f7bfcdd"
+    sha256 cellar: :any,                 monterey:       "98fe7efe0df522233646e94479e1d23d034c7721c48e3712a74fc8326069c64e"
+    sha256 cellar: :any,                 big_sur:        "6fd30b87b0e459ad6bf9e3b71a5df399f393e72a2f5259a322972792f24e3422"
+    sha256 cellar: :any,                 catalina:       "53bd40ec74a81b85904a4232d4de2d35850525df862466b0bf99bd955b6eadc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a94d0b1334e8b56567438ed6e82032241f11562c0a26fb6a9fa394c745fac2b9"
   end
 
   depends_on "rust" => :build

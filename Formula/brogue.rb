@@ -11,11 +11,13 @@ class Brogue < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "065e96899c94736b5072b2f3aeb20a6f559f4d734730ff6bbc9bdd9d0f6eba3b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ba18162358c18f1f9bf064d49b3fcd7371f00f3aa3b6da129d169106b068aef7"
-    sha256 cellar: :any_skip_relocation, catalina:      "2f5111318faeb8c710f6100706900f7c38e29f8cb90b06181ac5d95c784e8adf"
-    sha256 cellar: :any_skip_relocation, mojave:        "c2171ad8115933295cde771bbe71e144d1c142c30224ada41aecbf70dcf3d239"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d972aa4e6b4d0a1d80e28b904bba68d2fc938776edf9094a3d22c1af56644095"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "43f07acb6933341084bf3d33ecc90b8c7a4a7ae1de69e9853cea13bb21fc6546"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "065e96899c94736b5072b2f3aeb20a6f559f4d734730ff6bbc9bdd9d0f6eba3b"
+    sha256 cellar: :any_skip_relocation, monterey:       "f342f2a96ca2b6a73b582d460993298b43b5c171199d6a7f42cf94c8b4c4d34b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ba18162358c18f1f9bf064d49b3fcd7371f00f3aa3b6da129d169106b068aef7"
+    sha256 cellar: :any_skip_relocation, catalina:       "2f5111318faeb8c710f6100706900f7c38e29f8cb90b06181ac5d95c784e8adf"
+    sha256 cellar: :any_skip_relocation, mojave:         "c2171ad8115933295cde771bbe71e144d1c142c30224ada41aecbf70dcf3d239"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d972aa4e6b4d0a1d80e28b904bba68d2fc938776edf9094a3d22c1af56644095"
   end
 
   uses_from_macos "ncurses"

@@ -1,25 +1,22 @@
 class Hidapi < Formula
   desc "Library for communicating with USB and Bluetooth HID devices"
   homepage "https://github.com/libusb/hidapi"
-  url "https://github.com/libusb/hidapi/archive/hidapi-0.10.1.tar.gz"
-  sha256 "f71dd8a1f46979c17ee521bc2117573872bbf040f8a4750e492271fc141f2644"
+  url "https://github.com/libusb/hidapi/archive/hidapi-0.11.0.tar.gz"
+  sha256 "391d8e52f2d6a5cf76e2b0c079cfefe25497ba1d4659131297081fc0cd744632"
   license :cannot_represent
   head "https://github.com/libusb/hidapi.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "b9a374fd0f191883bb75c4b881d24e569d547675d4cedbe3339c7aa6c3fe60b3"
-    sha256 cellar: :any,                 big_sur:       "98f2859ea147e9c92e4925f0887062c8b6f5177eb98a1012b95d3b788cb58ea5"
-    sha256 cellar: :any,                 catalina:      "9287809ecfeaeb3c89b1f9bf8babb31a8971b41c4a9795922ab774bfcc66559d"
-    sha256 cellar: :any,                 mojave:        "e9c2bec30d5d1e9e0f9f91c43510071ba17234cd968b33f161c56cbee23a4d8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9973b200a49570955bd79accce1237d5751434f26ec17ace47580313dae882f"
+    sha256 cellar: :any,                 arm64_monterey: "065513adb8485ea792f77c55a1ea9dcfb91c5c7aa4ed0fe2e033f847ffed425e"
+    sha256 cellar: :any,                 arm64_big_sur:  "785868d1b729ada62b76b49e1d1340a347b88db0c9a69a12d3417bd5539e750d"
+    sha256 cellar: :any,                 monterey:       "9551ebd0d5afd76d70008401cfe60810e7e1483e00727cbe919c0861aabcf3e1"
+    sha256 cellar: :any,                 big_sur:        "33612c008465ce62b39f1aeb519eaa58bd1d8e1296b118894765d4729b505f2b"
+    sha256 cellar: :any,                 catalina:       "a90ba3cd69ce428830a5dfba205cf375fd962b19b5653a702b7c1d8616fa62d0"
+    sha256 cellar: :any,                 mojave:         "35827213bd2b8b87c8574d7cf5f4fd18795dbf267d0b9355b4d0e528f9894b4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1441c545caecc11f3c611d494cd07d253909baa7572ad844374b93c0fef5dfaa"
   end
 
-  # autoconf 2.70 fails with: configure.ac:16: error: AC_CONFIG_MACRO_DIR can only be used once
-  # See https://github.com/libusb/hidapi/issues/264#issuecomment-830914402
-  # Move to "autoconf" when updating to the next release
-  depends_on "autoconf@2.69" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
   on_linux do
@@ -28,13 +25,12 @@ class Hidapi < Formula
   end
 
   def install
-    system "./bootstrap"
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DHIDAPI_BUILD_HIDTEST=ON"
+      system "make", "install"
 
-    # hidtest/.libs/hidtest does not exist for Linux, install it for macOS only
-    on_macos do
-      bin.install "hidtest/.libs/hidtest"
+      # hidtest/.libs/hidtest does not exist for Linux, install it for macOS only
+      bin.install "hidtest/hidtest" if OS.mac?
     end
   end
 

@@ -18,6 +18,7 @@ class Intercal < Formula
   end
 
   bottle do
+    sha256 monterey:    "a691470666ee0f15af22265be65eda2757fabd8f6fbc5fa8341f8c3059749d34"
     sha256 big_sur:     "487fc70071a54c09cccdbba0284db23c156983b76416a4b4c03f44130531213c"
     sha256 catalina:    "a2c1673fbed3d331e725694196acf9ea4cd6bc6df3b86568af3e67ee90d70b30"
     sha256 mojave:      "d048d5c58fd1fc3b17c44103b3bbddd445a657415c215916587d9eb8e7f9c2da"

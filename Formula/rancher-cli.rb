@@ -1,10 +1,10 @@
 class RancherCli < Formula
   desc "Unified tool to manage your Rancher server"
   homepage "https://github.com/rancher/cli"
-  url "https://github.com/rancher/cli/archive/v2.4.11.tar.gz"
-  sha256 "c16d552bf07d45c3eaf3d3290fcca2e6c5aaacf4aaa82491a01832b5ea2506ea"
+  url "https://github.com/rancher/cli/archive/v2.4.13.tar.gz"
+  sha256 "4a1aab7193f2e478b12b1000f17f2a8e3545dd5521a140aa90389afdb2ff8357"
   license "Apache-2.0"
-  head "https://github.com/rancher/cli.git"
+  head "https://github.com/rancher/cli.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,11 +12,13 @@ class RancherCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bd57269ac33e17ddbf907d18ef7ef177800689bf4790c48e83d56d6652d9104e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "edfa744550563d18207ef12d174131f7ba0486711bd7ccb252f12850efd2ae81"
-    sha256 cellar: :any_skip_relocation, catalina:      "bfb880e1663556643a7d6c687e2d0d51fefe1ed36163d66d42274046d80f1862"
-    sha256 cellar: :any_skip_relocation, mojave:        "ec162d2372ff7bbc244d2785e33b849fbd4773f37322b586bcc20f2aa9ad08a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c17d2305a33ff71e15d2bf513e875c124e09b6ec7aace4ef536104ee84a36ae8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "21e24f36638234f843db051bfdf87f5ee8def86345ec38d8056485db5abbef5a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1fe3c03e1c7389f3aa03de802b23d60986c61e91ad275353984effdd41055b6c"
+    sha256 cellar: :any_skip_relocation, monterey:       "877d8cbc3cbd6eca942292c0655f616d685dd23876e5e50960f49007f106eaac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "eceff7f2924ce3aa42e3e5cb180b38eb41a2747321d29d6d2588d0b17d5b20cc"
+    sha256 cellar: :any_skip_relocation, catalina:       "d99b09b8067c46c3bad171bfa9998680a2a13ae658641be7c6fd0830f37a8642"
+    sha256 cellar: :any_skip_relocation, mojave:         "f231900ea626c094b98f7620e12921691fe1f86781a66033ae9b07cdd2721bea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f22314698f65e0c5af34ae3fd342ad57ed052cdc28a684245620a9e1ee364ccc"
   end
 
   depends_on "go" => :build

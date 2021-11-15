@@ -4,12 +4,12 @@ class Crystal < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/1.1.1.tar.gz"
-    sha256 "add4b07f23de6e493a17d951e4cff38e1cbf2356cc4a3f642687c769f9ba7d12"
+    url "https://github.com/crystal-lang/crystal/archive/1.2.2.tar.gz"
+    sha256 "6d963a71ef5f6c73faa272a0f81b50e9ddbf814b1ec07e557ce5c95f84d6077e"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.15.0.tar.gz"
-      sha256 "89ad7f7550a6036b376008c9e376a3b9fbf4aca9f7d2eae5086282122e92711a"
+      url "https://github.com/crystal-lang/shards/archive/v0.16.0.tar.gz"
+      sha256 "e23a51fdcb9747e86b3c58d733a1c7556a78002b46482ca0fdacfe63924dc454"
     end
   end
 
@@ -19,10 +19,12 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 big_sur:      "b7abbccaeb24c6f7c49bfa4036690462e271475ac6d9190e9946ef7a887c4098"
-    sha256 catalina:     "5d21445288240651ccf2bed421b2127884c12191a6ca514f609fe886337d46ef"
-    sha256 mojave:       "a2e65148242942f13794248d54063f652336e34e8de98aa776e266b5cd8daaa2"
-    sha256 x86_64_linux: "635aa215f78244e1a6d4df02d909a436f5a150af2fd261615bbe3e6843aebf3f"
+    sha256 arm64_monterey: "7a7f9dd94a238cf2cf3ef52d4f599657e68fa20db67bd924928f8b9f639a1950"
+    sha256 arm64_big_sur:  "a9a3c2d74078ecf21714efc1c21a6c5fb6316f81dca3a7701e5ab8a243d23d0c"
+    sha256 monterey:       "09afea2b21777b0c89a6c7e24a2a83bbd568bcbfd58d627f4dbc3e4b45f878e0"
+    sha256 big_sur:        "db50f8a2b4279ba7de96ea9dcbef0aaab679103416c5048b7666a22e9eafc2d3"
+    sha256 catalina:       "91ba5feee45f416d7d3cb071522b89955c859118320abb83111ab1f234f098cd"
+    sha256 x86_64_linux:   "3d93258d3fead4f8be2b5a6244f6be342fe05ad85db0fd1eb77f87c8c6ed72df"
   end
 
   head do
@@ -42,16 +44,21 @@ class Crystal < Formula
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
+  # Every new crystal release is built from the previous one. The exceptions are
+  # when crystal make a minor release (only bug fixes). Resason is because those
+  # bugs could make the compiler from stopping compiling the next compiler.
+  #
+  # See: https://github.com/Homebrew/homebrew-core/pull/81318
   resource "boot" do
     on_macos do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.0.0/crystal-1.0.0-1-darwin-x86_64.tar.gz"
-      version "1.0.0-1"
-      sha256 "29019828d32df9807a3f08fb7354fa0e44a5ad8b000eccd1dea114f891cbc006"
+      url "https://github.com/crystal-lang/crystal/releases/download/1.2.0/crystal-1.2.0-1-darwin-universal.tar.gz"
+      version "1.2.0-1"
+      sha256 "ce9e671abec489a95df39e347d109e6a99b7388dffe1942b726cb62e2f433ac3"
     end
     on_linux do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.0.0/crystal-1.0.0-1-linux-x86_64.tar.gz"
-      version "1.0.0-1"
-      sha256 "00211ca77758e99210ec40b8c5517b086d2ff9909e089400f6d847a95e5689a4"
+      url "https://github.com/crystal-lang/crystal/releases/download/1.1.1/crystal-1.1.1-1-linux-x86_64.tar.gz"
+      version "1.1.1-1"
+      sha256 "e78873f8185b45f8c6e480a6d2a6a4f3a8b4ee7ca2594e8170dd123a41566704"
     end
   end
 
@@ -60,6 +67,7 @@ class Crystal < Formula
     ENV.append_path "PATH", "boot/bin"
     ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["bdw-gc"].opt_lib
     ENV.append_path "CRYSTAL_LIBRARY_PATH", ENV["HOMEBREW_LIBRARY_PATHS"]
+    ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["libevent"].opt_lib
     ENV.append_path "LLVM_CONFIG", Formula["llvm@11"].opt_bin/"llvm-config"
 
     # Build crystal

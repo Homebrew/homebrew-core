@@ -7,11 +7,13 @@ class Libgraphqlparser < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "bd069fd2209297f1138771054ba16ac79f3710334e9d819c9ef556cd9461437d"
-    sha256 cellar: :any, big_sur:       "7929bde96a18ea4200a11d392d981044a8580a05676702e866e40dcb21f39c02"
-    sha256 cellar: :any, catalina:      "e4cea535715f0ed46ff1713df73dbc43d2845f4e0152f0137d4ad18def845050"
-    sha256 cellar: :any, mojave:        "f2d46a3bfb5fd3aef9f8b47a5d1c50d204f6dbd74d1a387ca664e36022b7ddc4"
-    sha256 cellar: :any, high_sierra:   "64779ec3108d9eef789d279abfafa90437c6a76b2ed3973d45979cd1051dc170"
+    sha256 cellar: :any, arm64_monterey: "b1c9fe6543d03c805f024d800e0720dc10bb9c135e84dc47a4ba35aa85c563cf"
+    sha256 cellar: :any, arm64_big_sur:  "bd069fd2209297f1138771054ba16ac79f3710334e9d819c9ef556cd9461437d"
+    sha256 cellar: :any, monterey:       "a06666904ca4ae8118e3f9bc4b7bb83558fb9e9755bc4239ca757611c6f5fcbf"
+    sha256 cellar: :any, big_sur:        "7929bde96a18ea4200a11d392d981044a8580a05676702e866e40dcb21f39c02"
+    sha256 cellar: :any, catalina:       "e4cea535715f0ed46ff1713df73dbc43d2845f4e0152f0137d4ad18def845050"
+    sha256 cellar: :any, mojave:         "f2d46a3bfb5fd3aef9f8b47a5d1c50d204f6dbd74d1a387ca664e36022b7ddc4"
+    sha256 cellar: :any, high_sierra:    "64779ec3108d9eef789d279abfafa90437c6a76b2ed3973d45979cd1051dc170"
   end
 
   deprecate! date: "2020-04-20", because: "requires Python 2 to build"

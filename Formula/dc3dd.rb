@@ -6,6 +6,7 @@ class Dc3dd < Formula
   revision 2
 
   bottle do
+    sha256 monterey:    "81691239ee28eea77448db74952f8f8f1595a6c09bb5924f0a092cf050ebbf17"
     sha256 big_sur:     "4b01295bd5bab46484c16fd08989ea81bb69711daa15696dee756f75323e9ed2"
     sha256 catalina:    "fdd027b6a694489b16d05eab760a88903a83add31033296b13bf660c5807ea12"
     sha256 mojave:      "da27e2227f7fac70c613c4677ec597255c13b1253bc7c79cf58f7321a0a6427e"

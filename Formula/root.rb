@@ -1,10 +1,10 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.24.02.source.tar.gz"
-  sha256 "0507e1095e279ccc7240f651d25966024325179fa85a1259b694b56723ad7c1c"
+  url "https://root.cern.ch/download/root_v6.24.06.source.tar.gz"
+  sha256 "907f69f4baca1e4f30eeb4979598ca7599b6aa803ca046e80e25b6bbaa0ef522"
   license "LGPL-2.1-or-later"
-  head "https://github.com/root-project/root.git"
+  head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
     url "https://root.cern.ch/download/"
@@ -12,10 +12,10 @@ class Root < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "096c9f05cf6eac05418899ad73c95123c060696b329bde289d7f3025113821dc"
-    sha256 big_sur:       "47974dac56b08629424629f78ea84ce3cf7ba51c0550eefeff0d25b93406b4ce"
-    sha256 catalina:      "41ead743647ee2a6d6818a00f112398f163411602d5f8d1f0f78787b0af1e82a"
-    sha256 mojave:        "d12b91fc57d6097e93db3a1885714517d3da77121e47aeb2a4cd8737c3d7876b"
+    sha256 arm64_big_sur: "3422ef3c0940bbc0c4d0fd117410592d78fa7901398b8bc15a1acd705888bd6d"
+    sha256 big_sur:       "a8650bed59d9f3ee1a39e488dc4e59c454803a0a4001cb007160b6079680d3e5"
+    sha256 catalina:      "f9444e3459eb93fdbe984efb9b74ad3955688be1177c518b3311f5d9a1f76dc2"
+    sha256 x86_64_linux:  "9f92ea828e81a1749c4da6b574d88601f37ed844478286419055d2a8d453ef24"
   end
 
   depends_on "cmake" => :build
@@ -25,13 +25,16 @@ class Root < Formula
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "gl2ps"
+  depends_on "glew"
   depends_on "graphviz"
   depends_on "gsl"
   depends_on "lz4"
   depends_on "numpy" # for tmva
+  depends_on "openblas"
   depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python@3.9"
+  depends_on "sqlite"
   depends_on "tbb"
   depends_on :xcode if MacOS.version <= :catalina
   depends_on "xrootd"
@@ -39,19 +42,25 @@ class Root < Formula
   depends_on "zstd"
 
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
-  conflicts_with "glew", because: "root ships its own copy of glew"
+  on_linux do
+    depends_on "libxft"
+    depends_on "libxpm"
+  end
 
   skip_clean "bin"
 
   def install
-    # Freetype/afterimage/gl2ps/lz4 are vendored in the tarball, so are fine.
-    # However, this is still permitting the build process to make remote
-    # connections. As a hack, since upstream support it, we inreplace
-    # this file to "encourage" the connection over HTTPS rather than HTTP.
-    inreplace "cmake/modules/SearchInstalledSoftware.cmake",
-              "http://lcgpackages",
-              "https://lcgpackages"
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root" if OS.linux?
+
+    inreplace "cmake/modules/SearchInstalledSoftware.cmake" do |s|
+      # Enforce secure downloads of vendored dependencies. These are
+      # checksummed in the cmake file with sha256.
+      s.gsub! "http://lcgpackages", "https://lcgpackages"
+      # Patch out check that skips using brewed glew.
+      s.gsub! "CMAKE_VERSION VERSION_GREATER 3.15", "CMAKE_VERSION VERSION_GREATER 99.99"
+    end
 
     args = std_cmake_args + %W[
       -DCLING_CXX_PATH=clang++
@@ -59,7 +68,7 @@ class Root < Formula
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
-      -Dbuiltin_glew=ON
+      -Dbuiltin_glew=OFF
       -Ddavix=ON
       -Dfftw3=ON
       -Dfitsio=ON
@@ -91,7 +100,6 @@ class Root < Formula
 
     mkdir "builddir" do
       system "cmake", "..", *args
-
       system "ninja", "install"
 
       chmod 0755, Dir[bin/"*.*sh"]
@@ -142,12 +150,10 @@ class Root < Formula
         return 0;
       }
     EOS
-    (testpath/"test_compile.bash").write <<~EOS
-      $(root-config --cxx) $(root-config --cflags) $(root-config --libs) $(root-config --ldflags) test.cpp
-      ./a.out
-    EOS
-    assert_equal "Hello, world!\n",
-                 shell_output("/bin/bash test_compile.bash")
+    flags = %w[cflags libs ldflags].map { |f| "$(root-config --#{f})" }
+    flags << "-Wl,-rpath,#{lib}/root" if OS.linux?
+    shell_output("$(root-config --cxx) test.cpp #{flags.join(" ")}")
+    assert_equal "Hello, world!\n", shell_output("./a.out")
 
     # Test Python module
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"

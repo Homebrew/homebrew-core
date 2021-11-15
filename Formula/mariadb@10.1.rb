@@ -1,7 +1,7 @@
 class MariadbAT101 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.1.48/source/mariadb-10.1.48.tar.gz"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.1.48/source/mariadb-10.1.48.tar.gz"
   sha256 "069d58b1e2c06bb1e6c31249eda34138f41fb8ae3dec7ecaeba8035812c87cf9"
   license "GPL-2.0-only"
 
@@ -67,7 +67,7 @@ class MariadbAT101 < Formula
     system "make", "install"
 
     # Avoid references to the Homebrew shims directory
-    inreplace bin/"mysqlbug", HOMEBREW_SHIMS_PATH/"mac/super/", ""
+    inreplace bin/"mysqlbug", "#{Superenv.shims_path}/", ""
 
     # Fix my.cnf to point to #{etc} instead of /etc
     (etc/"my.cnf.d").mkpath

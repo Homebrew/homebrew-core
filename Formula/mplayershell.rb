@@ -7,6 +7,7 @@ class Mplayershell < Formula
   head "https://github.com/donmelton/MPlayerShell.git"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:    "394a7fd5b3beef51cc57058e2210cccfd9fda7ae045fba2551c1e62149bae6df"
     sha256 cellar: :any_skip_relocation, big_sur:     "4d08f027c84780edc46b13b1e45a8255de0ec6a35798a1ea5230ef8cb4396e13"
     sha256 cellar: :any_skip_relocation, catalina:    "09cfdf5d08af35a3be96623c6535fece3acfbc60cf81247b118778cb2b68acc3"
     sha256 cellar: :any_skip_relocation, mojave:      "1be2bb2a8eccce7fa190b85af6e67fb7fe36393c32a8295852af0e6e390b6ee9"
@@ -21,8 +22,8 @@ class Mplayershell < Formula
   depends_on "mplayer"
 
   def install
-    xcodebuild "-project",
-               "MPlayerShell.xcodeproj",
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-project", "MPlayerShell.xcodeproj",
                "-target", "mps",
                "-configuration", "Release",
                "clean", "build",

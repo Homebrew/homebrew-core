@@ -7,6 +7,7 @@ class Dvm < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "b2406a596b3b067573a98903ccfba88e202cf6967f539b84f1f553ab4bbdc5c3"
     sha256 cellar: :any_skip_relocation, big_sur:      "5f320e53c2734bed07fe70ac919232642d3a52d104bab787da9c08f251098942"
     sha256 cellar: :any_skip_relocation, catalina:     "9c7cc18808affb5cc05958f3e501602c8d40889157c776dfb9f5ba9109a717b7"
     sha256 cellar: :any_skip_relocation, mojave:       "fa56fd369d0ef2dc43d29316d202f7cc3ca670765e07a3295429971929d93d24"

@@ -3,7 +3,7 @@ class Xhyve < Formula
   homepage "https://github.com/machyve/xhyve"
   url "https://github.com/machyve/xhyve/archive/v0.2.0.tar.gz"
   sha256 "32c390529a73c8eb33dbc1aede7baab5100c314f726cac14627d2204ad9d3b3c"
-  head "https://github.com/machyve/xhyve.git"
+  head "https://github.com/machyve/xhyve.git", branch: "master"
 
   bottle do
     rebuild 1

@@ -1,14 +1,16 @@
 class ZshViMode < Formula
   desc "Better and friendly vi(vim) mode plugin for ZSH"
   homepage "https://github.com/jeffreytse/zsh-vi-mode"
-  url "https://github.com/jeffreytse/zsh-vi-mode/archive/refs/tags/v0.8.4.tar.gz"
-  sha256 "d16814693099dcc6f47afe3e5575af539a7aee1071f3f532c233800918722398"
+  url "https://github.com/jeffreytse/zsh-vi-mode/archive/refs/tags/v0.8.5.tar.gz"
+  sha256 "98ae59b83ee1886929d5c2af5e5b8a2512828cc312815bdfb34db74f2dc0476a"
   license "MIT"
-  head "https://github.com/jeffreytse/zsh-vi-mode.git"
+  head "https://github.com/jeffreytse/zsh-vi-mode.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "75cb847e1c112353962727000722ad1bb21184ab954a9a6931caeb8cd26401c4"
+    sha256 cellar: :any_skip_relocation, all: "555f8d09b4f7820e41c8ddda5b31ce0745342dd93536de1293523ce5c7b93aae"
   end
+
+  uses_from_macos "zsh"
 
   def install
     pkgshare.install "zsh-vi-mode.zsh"

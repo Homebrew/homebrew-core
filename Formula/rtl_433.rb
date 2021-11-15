@@ -5,13 +5,15 @@ class Rtl433 < Formula
       tag:      "21.05",
       revision: "87bf52426f9690c06ca8ad4c27993fcab4b5b643"
   license "GPL-2.0-or-later"
-  head "https://github.com/merbanan/rtl_433.git"
+  head "https://github.com/merbanan/rtl_433.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e6583ff3156f6862160b728a95b1fbb279c6f5a7dd2636200354596057050d15"
-    sha256 cellar: :any, big_sur:       "d9d81361c72f07d50c0f28552e15190fbcfc91fe862403511be883a72df3c744"
-    sha256 cellar: :any, catalina:      "da1f6e7c5930ed4b98e34fb44d62dd1cefd22225366e35612688a74086afc38e"
-    sha256 cellar: :any, mojave:        "421233496a91d2efb4310ac47557d7d4e75d91116dc829c20c96f36283f60d34"
+    sha256 cellar: :any, arm64_monterey: "d6302d96e4450238a86db6d9cfe01b20841995aa622b881d5d085426716cbc5a"
+    sha256 cellar: :any, arm64_big_sur:  "e6583ff3156f6862160b728a95b1fbb279c6f5a7dd2636200354596057050d15"
+    sha256 cellar: :any, monterey:       "8f0177b866f24179f2cd19b2dd65add10a340ee70db253ea6443ea6ef4c3ca91"
+    sha256 cellar: :any, big_sur:        "d9d81361c72f07d50c0f28552e15190fbcfc91fe862403511be883a72df3c744"
+    sha256 cellar: :any, catalina:       "da1f6e7c5930ed4b98e34fb44d62dd1cefd22225366e35612688a74086afc38e"
+    sha256 cellar: :any, mojave:         "421233496a91d2efb4310ac47557d7d4e75d91116dc829c20c96f36283f60d34"
   end
 
   depends_on "cmake" => :build

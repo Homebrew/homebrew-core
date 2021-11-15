@@ -1,16 +1,16 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-6.3.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-6.3.0.tar.xz"
-  sha256 "fb472cb957c748670391cbc3385ff230cf44832bc314fee359e43c69cf9da5ef"
+  url "https://ftp.gnu.org/gnu/octave/octave-6.4.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-6.4.0.tar.xz"
+  sha256 "6c1555f5aff0e655b88cad8e8bc2b740ec3a6f3f61898e4997359c2af55e5d20"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "6bf235731cccb20bba3e58414147bcb63f3b2d3c8f33a2f05d4ca139f9b8f55a"
-    sha256 big_sur:       "ffb80919aab7e5224ae38873397a6e7d292dd3cfe6b74cba3972c7f7093ebb58"
-    sha256 catalina:      "4360b1bae83bcb42203b12e52da2ffa8c15a56df7a0a49f3cdf10e78d463c57b"
-    sha256 mojave:        "b6932ada3ff047d5911bedad215b37c191fb2018101e18c322f4288741a8625e"
+    sha256 arm64_big_sur: "25dbd28b63a21bbe176111bea2b9234ff1b2f2c4fd2896d54357477ee15e06ed"
+    sha256 big_sur:       "58dd78d16e7a65a6377234623c8f99e19fcecdbf1e076564ebfbe7684831c316"
+    sha256 catalina:      "010b5a81eaa0f915eb4e83b84b43b86613436095cabe6361b7d76fb37b6cff68"
+    sha256 x86_64_linux:  "61a160547f61806c5c7458c7b5cd1e421fa6661c94c0e345e072d1acca10c9ae"
   end
 
   head do
@@ -68,6 +68,8 @@ class Octave < Formula
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
 
+  fails_with gcc: "5"
+
   def install
     # Default configuration passes all linker flags to mkoctfile, to be
     # inserted into every oct/mex build. This is unnecessary and can cause
@@ -101,7 +103,7 @@ class Octave < Formula
             "--with-portaudio",
             "--with-sndfile"]
 
-    on_linux do
+    if OS.linux?
       # Explicitly specify aclocal and automake without versions
       args << "ACLOCAL=aclocal"
       args << "AUTOMAKE=automake"

@@ -1,11 +1,11 @@
 class Suil < Formula
   desc "Lightweight C library for loading and wrapping LV2 plugin UIs"
-  homepage "https://drobilla.net/software/suil/"
+  homepage "https://drobilla.net/software/suil.html"
   url "https://download.drobilla.net/suil-0.10.10.tar.bz2"
   sha256 "750f08e6b7dc941a5e694c484aab02f69af5aa90edcc9fb2ffb4fb45f1574bfb"
   license "ISC"
   revision 1
-  head "https://gitlab.com/lv2/suil.git"
+  head "https://gitlab.com/lv2/suil.git", branch: "master"
 
   livecheck do
     url "https://download.drobilla.net/"
@@ -13,10 +13,11 @@ class Suil < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "11af96a8cd470b08da0bd49cb3b620ae81d89e9589c5ed44a533e2cb93d5133f"
-    sha256 big_sur:       "02a8eed42b15c099954dce4741c71b0e5f9ae652fce48921e4920a3efc779e01"
-    sha256 catalina:      "4a74f4c1cbf9b1e67c7fbda45e5ca67b5163757b70ee62c33a7e66b136a2d4c1"
-    sha256 mojave:        "2bc87e39cf2cb0a66c983c01834d39c2f1cccdddbe4db28331e0dcb6cf64c3fb"
+    sha256 arm64_monterey: "4b952357f77ca23c77da7b02bd5b95da858d74e33378272a7bf7c63e759fb0af"
+    sha256 arm64_big_sur:  "11af96a8cd470b08da0bd49cb3b620ae81d89e9589c5ed44a533e2cb93d5133f"
+    sha256 big_sur:        "02a8eed42b15c099954dce4741c71b0e5f9ae652fce48921e4920a3efc779e01"
+    sha256 catalina:       "4a74f4c1cbf9b1e67c7fbda45e5ca67b5163757b70ee62c33a7e66b136a2d4c1"
+    sha256 mojave:         "2bc87e39cf2cb0a66c983c01834d39c2f1cccdddbe4db28331e0dcb6cf64c3fb"
   end
 
   depends_on "pkg-config" => :build

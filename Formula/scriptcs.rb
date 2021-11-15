@@ -6,6 +6,7 @@ class Scriptcs < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:    "630be0cd09a3dc16e8c7404875adfe89d009ce9a73f6d5dcae9700253a3c110c"
     sha256 cellar: :any_skip_relocation, big_sur:     "9153f24a59a73f78f74915a8e1d8de488ec016deb1aac1825774e19d6420545d"
     sha256 cellar: :any_skip_relocation, catalina:    "c14c80f7b24ac5f2c14119ec2f371416ae07b9fba8bd9b0eb90d57ef5104f765"
     sha256 cellar: :any_skip_relocation, mojave:      "121137df4078b2819a16f0f3e75924b10eba51a3ca7ac0a4be3d9010d2d1f7aa"
@@ -15,6 +16,7 @@ class Scriptcs < Formula
     sha256 cellar: :any_skip_relocation, yosemite:    "21891cea519df48979320ba74660002d270fb414181e3f7087505169af15a471"
   end
 
+  depends_on arch: :x86_64 # mono is not yet supported on ARM
   depends_on "mono"
 
   def install

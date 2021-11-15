@@ -11,6 +11,7 @@ class Ngspice < Formula
 
   bottle do
     sha256 arm64_big_sur: "0dbb98975e4613a0615ca03bb37da9b4907bf4e9c517f80fcbefb190a528170e"
+    sha256 monterey:      "8d89c5fdab637c015823ac08171da34e21661e2d6717df850a3bd6908272a85b"
     sha256 big_sur:       "4faccb580e3fa378262a8f9f3d4b20c28af2f052424b30fd4ea0466ad09986b4"
     sha256 catalina:      "d26cd0c032de8caaa2f4010043417e728df17c4e271dc0a4acb911a413b90f36"
     sha256 mojave:        "1fc7fa69b46f1d95c8473fcca45f1b7faac6af1296d1cf22d0d99c3a3968234b"
@@ -18,7 +19,7 @@ class Ngspice < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/ngspice/ngspice.git"
+    url "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

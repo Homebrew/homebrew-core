@@ -6,11 +6,13 @@ class Comby < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e69e426df9a510b7cad1d678a8f52f6f81a695d0c93cac191eee88e80d83e6a0"
-    sha256 cellar: :any, big_sur:       "80f3ea766ee4112f5ce4078ad71d6baea73d21399e1fd1ba333284c39ebe5db6"
-    sha256 cellar: :any, catalina:      "5cb7e5544575697571c82f1f6d480f93e1c9cbc8ca74006f6cb147ccb3a1b48c"
-    sha256 cellar: :any, mojave:        "aecfaad20f49d0ad545a4f4cb7ebd6056371f40804490c9ae38804669e9a73d7"
-    sha256               x86_64_linux:  "d61e66ffead20155383921643c2e4c95ad49c2e845b0e5476250052ab1530763"
+    sha256 cellar: :any, arm64_monterey: "b485975d5d68e312bd3484b39e4d773952e484bdf67e7b73ce97adbd006c921a"
+    sha256 cellar: :any, arm64_big_sur:  "e69e426df9a510b7cad1d678a8f52f6f81a695d0c93cac191eee88e80d83e6a0"
+    sha256 cellar: :any, monterey:       "cc0567df34dba07308d4101d3813eba1d8fa7613aaf04b720fd8567a4665abf6"
+    sha256 cellar: :any, big_sur:        "80f3ea766ee4112f5ce4078ad71d6baea73d21399e1fd1ba333284c39ebe5db6"
+    sha256 cellar: :any, catalina:       "5cb7e5544575697571c82f1f6d480f93e1c9cbc8ca74006f6cb147ccb3a1b48c"
+    sha256 cellar: :any, mojave:         "aecfaad20f49d0ad545a4f4cb7ebd6056371f40804490c9ae38804669e9a73d7"
+    sha256               x86_64_linux:   "d61e66ffead20155383921643c2e4c95ad49c2e845b0e5476250052ab1530763"
   end
 
   depends_on "autoconf" => :build

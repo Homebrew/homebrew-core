@@ -11,11 +11,13 @@ class Forge < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "648b7ce9d0146143fd3aa7ce40ac8989bc5af8552b58f6a54406d67b9dc37bc4"
-    sha256 cellar: :any,                 big_sur:       "cac8109b34dd4f8e8f76dcd21d7fbd765fe5155cc150e22114158f42448244f6"
-    sha256 cellar: :any,                 catalina:      "7081807afb00024e9d58507d6280f52fc2a9b9ec4dd3076ea5d8a77552e183c6"
-    sha256 cellar: :any,                 mojave:        "c115a44a1b7cc3c7f0fc512bab0a4a7f91a00b7357c0f286fada3a10c2d8b1b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1591da537a4be701c5500b89ae05525d2390eef4d1d66cb49a9c219d500aa87"
+    sha256 cellar: :any,                 arm64_monterey: "beb86dc4a75fa4f6c4ac1948358c1dac9e3e45d157567c05430f44fbad218206"
+    sha256 cellar: :any,                 arm64_big_sur:  "648b7ce9d0146143fd3aa7ce40ac8989bc5af8552b58f6a54406d67b9dc37bc4"
+    sha256 cellar: :any,                 monterey:       "99fa6a4741e4c98221187530cde328cec9e8faf2a660b31b11c49573986fb907"
+    sha256 cellar: :any,                 big_sur:        "cac8109b34dd4f8e8f76dcd21d7fbd765fe5155cc150e22114158f42448244f6"
+    sha256 cellar: :any,                 catalina:       "7081807afb00024e9d58507d6280f52fc2a9b9ec4dd3076ea5d8a77552e183c6"
+    sha256 cellar: :any,                 mojave:         "c115a44a1b7cc3c7f0fc512bab0a4a7f91a00b7357c0f286fada3a10c2d8b1b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a1591da537a4be701c5500b89ae05525d2390eef4d1d66cb49a9c219d500aa87"
   end
 
   depends_on "boost" => :build

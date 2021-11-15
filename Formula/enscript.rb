@@ -9,13 +9,15 @@ class Enscript < Formula
   head "https://git.savannah.gnu.org/git/enscript.git"
 
   bottle do
-    sha256 arm64_big_sur: "18c0e8fd04b918f671236e5feffe8406c8368369eb08fe301f817e59233659c0"
-    sha256 big_sur:       "97b523c5513e54b82d963a7b34a4cfbcbe0af74399bc48839b5285cfce29a9a1"
-    sha256 catalina:      "3611a6a01c76502ae6d4b1ff13d802acc5b2a2a3f2cf647e6b9323b7e40bde7e"
-    sha256 mojave:        "a8bbba8f7d64eed40dd59a9db980b049ec786e148d31a0aeb92556959b4ad0b0"
-    sha256 high_sierra:   "00045dff3bdf7ac98a19236838d7af7101cc1fc002e55550312042bb2e4d7426"
-    sha256 sierra:        "c14fad6cfd67fa782beb7a425eb03c3ed0b8090ed751c37f5f5ec426808df25c"
-    sha256 x86_64_linux:  "d968c97391029600c54ace8362e7293202ca6227421d626dced22f21b2ccfa26"
+    sha256 arm64_monterey: "ac95ac1708b9b4d6e7210df933fe8a52821bbd93ee5bec97624898cbacfd8ac2"
+    sha256 arm64_big_sur:  "18c0e8fd04b918f671236e5feffe8406c8368369eb08fe301f817e59233659c0"
+    sha256 monterey:       "841ac9a5d1dfd145ce137e8aadc664d747d5bff5e0e67c6176efaf83a1b7972c"
+    sha256 big_sur:        "97b523c5513e54b82d963a7b34a4cfbcbe0af74399bc48839b5285cfce29a9a1"
+    sha256 catalina:       "3611a6a01c76502ae6d4b1ff13d802acc5b2a2a3f2cf647e6b9323b7e40bde7e"
+    sha256 mojave:         "a8bbba8f7d64eed40dd59a9db980b049ec786e148d31a0aeb92556959b4ad0b0"
+    sha256 high_sierra:    "00045dff3bdf7ac98a19236838d7af7101cc1fc002e55550312042bb2e4d7426"
+    sha256 sierra:         "c14fad6cfd67fa782beb7a425eb03c3ed0b8090ed751c37f5f5ec426808df25c"
+    sha256 x86_64_linux:   "d968c97391029600c54ace8362e7293202ca6227421d626dced22f21b2ccfa26"
   end
 
   depends_on "gettext"

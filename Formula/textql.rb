@@ -7,14 +7,16 @@ class Textql < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd027344a17ef0bc236b638e442fbe257a82e9504f050021750884c486db3371"
-    sha256 cellar: :any_skip_relocation, big_sur:       "84bb8f0f712da5618c74b46f86afffa5da7ade72a68e508e3037d590206f28f6"
-    sha256 cellar: :any_skip_relocation, catalina:      "d33d111039e957631d3a77cd35413707b47e684638a2571e3719a17c0173b55d"
-    sha256 cellar: :any_skip_relocation, mojave:        "b6d4fd5ee0a2d1758651f91c35e6bd40a832f0d997ec2a120268bfde03a48cfb"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "38cbf8cacc0dd7e29831c8c7fe9f0437473c164bee549defb8744d6ca3e53fcb"
-    sha256 cellar: :any_skip_relocation, sierra:        "f7bcfcacbd0b3076037e4715dabd1d925ef52ec66a3018d7a0124d091a7711c5"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "9950b83cf4d7bf59d3bf54711a845ddcf27f31dd004150acce3b8011ca2874a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d491cd48d7e35debc11c6c9ffacec4538ed039a22d5b88302b6eed0e0d62fd1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f78964c1ac61753863e8c1cf50cfc293606ee20ecb062c5002b350db0ddc2e8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd027344a17ef0bc236b638e442fbe257a82e9504f050021750884c486db3371"
+    sha256 cellar: :any_skip_relocation, monterey:       "68935f7d92a0d09f414bdab5d638d67d3e7b5e5cc9b256f30be8563c26d043aa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "84bb8f0f712da5618c74b46f86afffa5da7ade72a68e508e3037d590206f28f6"
+    sha256 cellar: :any_skip_relocation, catalina:       "d33d111039e957631d3a77cd35413707b47e684638a2571e3719a17c0173b55d"
+    sha256 cellar: :any_skip_relocation, mojave:         "b6d4fd5ee0a2d1758651f91c35e6bd40a832f0d997ec2a120268bfde03a48cfb"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "38cbf8cacc0dd7e29831c8c7fe9f0437473c164bee549defb8744d6ca3e53fcb"
+    sha256 cellar: :any_skip_relocation, sierra:         "f7bcfcacbd0b3076037e4715dabd1d925ef52ec66a3018d7a0124d091a7711c5"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "9950b83cf4d7bf59d3bf54711a845ddcf27f31dd004150acce3b8011ca2874a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d491cd48d7e35debc11c6c9ffacec4538ed039a22d5b88302b6eed0e0d62fd1"
   end
 
   depends_on "glide" => :build

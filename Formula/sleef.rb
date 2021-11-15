@@ -4,21 +4,21 @@ class Sleef < Formula
   url "https://github.com/shibatch/sleef/archive/3.5.1.tar.gz"
   sha256 "415ee9b1bcc5816989d3d4d92afd0cd3f9ee89cbd5a33eb008e69751e40438ab"
   license "BSL-1.0"
-  head "https://github.com/shibatch/sleef.git"
+  head "https://github.com/shibatch/sleef.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "1277b28f0a610af52bf3f646b4d893a08dd0d0d18004e04b439d47293b93b15d"
-    sha256 cellar: :any,                 catalina:     "87ddfa37e9405dfc66c35295295e5f09e497fb1bc8c07c9e0f38560aeb46398f"
-    sha256 cellar: :any,                 mojave:       "f9e95775f5e41924f42eae7c4ae1f567229a49989e1f8a380d55355e37680d9c"
-    sha256 cellar: :any,                 high_sierra:  "353ca63589a038009ad9b39dadcf3ef4c46153f738fcfb07d58a25dfc37e945a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c03a8e095894d761b41adf5346c9839c8b3ed2f443c097c48f83d7921ec04c76"
+    rebuild 1
+    sha256 cellar: :any,                 monterey:     "a2f45561f1e54a11176465997ed48539c21f2dded1940ea9f7dbdec016668b48"
+    sha256 cellar: :any,                 big_sur:      "ab895eb9b9025676006d2f4b873f2b4a11e131ad2385c1c45b0a1421dd80e56f"
+    sha256 cellar: :any,                 catalina:     "26f63745b1a4a16d5adfdcff61bf8214d4913419d8f1b3215b13b6cdfcaaecc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7b5bc626f2a7d23c258cafc340aef70a03adfbc814e9ae05637f606f850d3d96"
   end
 
   depends_on "cmake" => :build
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DBUILD_TESTS=OFF", *std_cmake_args
+      system "cmake", "..", "-DBUILD_INLINE_HEADERS=TRUE", "-DBUILD_TESTS=OFF", *std_cmake_args
       system "make", "install"
     end
   end

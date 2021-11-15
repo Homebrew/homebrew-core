@@ -11,10 +11,12 @@ class Libhdhomerun < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "bc14665c9ca08d825b980954f49820d880891b71b253720c36fe1533aa1c6558"
-    sha256 cellar: :any, big_sur:       "dd3696fe6fcd4f64aeaef700271fc13a833bf82d7d49be6043428bbe9ae51ac4"
-    sha256 cellar: :any, catalina:      "913fe2b4e1e64dfe288715e6ec64c061fb580df6d2fcb57cd6ae113b00b7d0cf"
-    sha256 cellar: :any, mojave:        "a8ad1023d5b5239db535f3757bda0241165c5fc7d13e9b4bdc9fb35c76b7db5d"
+    sha256 cellar: :any, arm64_monterey: "336e6041951a08ba420b8ef850a7e33d50234ed40a2296f91d9182585caa2b96"
+    sha256 cellar: :any, arm64_big_sur:  "bc14665c9ca08d825b980954f49820d880891b71b253720c36fe1533aa1c6558"
+    sha256 cellar: :any, monterey:       "95875b8d94b9cdeb9bd83df420f7ab7631f315f14a6498b19f0c48856e64c789"
+    sha256 cellar: :any, big_sur:        "dd3696fe6fcd4f64aeaef700271fc13a833bf82d7d49be6043428bbe9ae51ac4"
+    sha256 cellar: :any, catalina:       "913fe2b4e1e64dfe288715e6ec64c061fb580df6d2fcb57cd6ae113b00b7d0cf"
+    sha256 cellar: :any, mojave:         "a8ad1023d5b5239db535f3757bda0241165c5fc7d13e9b4bdc9fb35c76b7db5d"
   end
 
   def install

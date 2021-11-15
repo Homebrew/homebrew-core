@@ -4,14 +4,16 @@ class Sqlcipher < Formula
   url "https://github.com/sqlcipher/sqlcipher/archive/v4.4.3.tar.gz"
   sha256 "b8df69b998c042ce7f8a99f07cf11f45dfebe51110ef92de95f1728358853133"
   license "BSD-3-Clause"
-  head "https://github.com/sqlcipher/sqlcipher.git"
+  head "https://github.com/sqlcipher/sqlcipher.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "2395b5999cde9cd6c8f53dd595a2827d8e2bdef8b801879b753378728a3cc94f"
-    sha256 cellar: :any,                 big_sur:       "97328f386addff936379b66ae032b3341cc6f047b7453e1a837cdc8a00b06653"
-    sha256 cellar: :any,                 catalina:      "826fa6703434de743eec33ca60db392fe772ace12e4eb3720c106d675c3edc70"
-    sha256 cellar: :any,                 mojave:        "123c63643cec4a0503993ba6f9a124a5f781db317c311103da82d91a895808e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "994d4f361a64199f7330b1a3018f098ac9237a12580038eddd277f76d4665ac9"
+    sha256 cellar: :any,                 arm64_monterey: "94ff442a23ddf3c91d50fc62fec0ddda40f5df41d5c4f2600a5a4f1d4ad8ffaf"
+    sha256 cellar: :any,                 arm64_big_sur:  "2395b5999cde9cd6c8f53dd595a2827d8e2bdef8b801879b753378728a3cc94f"
+    sha256 cellar: :any,                 monterey:       "8008b6ce1f68f7144d63ae9bdc26787715740b21c7f1d568c63e58f98384eb39"
+    sha256 cellar: :any,                 big_sur:        "97328f386addff936379b66ae032b3341cc6f047b7453e1a837cdc8a00b06653"
+    sha256 cellar: :any,                 catalina:       "826fa6703434de743eec33ca60db392fe772ace12e4eb3720c106d675c3edc70"
+    sha256 cellar: :any,                 mojave:         "123c63643cec4a0503993ba6f9a124a5f781db317c311103da82d91a895808e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "994d4f361a64199f7330b1a3018f098ac9237a12580038eddd277f76d4665ac9"
   end
 
   depends_on "openssl@1.1"
@@ -40,9 +42,7 @@ class Sqlcipher < Formula
     ].join(" ")
     args << "CFLAGS=#{cflags}"
 
-    on_linux do
-      args << "LIBS=-lm"
-    end
+    args << "LIBS=-lm" if OS.linux?
 
     system "./configure", *args
     system "make"

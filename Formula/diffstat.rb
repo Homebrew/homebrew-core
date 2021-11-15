@@ -11,11 +11,13 @@ class Diffstat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ca28eac2743d6dea9f9128b51ac0107d627f64cc421033538468930f291f3fc"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6deaecbddb668e6a0beeadf19f80bede5756279949b872bd15ec2bdae432ed77"
-    sha256 cellar: :any_skip_relocation, catalina:      "9d8296df829318dce8e829eef894867a74d3f18d438de98309b0c3fe02e065cf"
-    sha256 cellar: :any_skip_relocation, mojave:        "5b035ed0d84aa480965b56e0a8db59ebbb947dee3379297a3f05f88dcd610d81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36edff1128de8ec03a0d8f3b2e0f167939543a7cc374c9a30d45271c457fe544"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8ff4098fc0eba445fdefad3b4fcbb518f029a8284534f39acd40fa99cd7e356"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ca28eac2743d6dea9f9128b51ac0107d627f64cc421033538468930f291f3fc"
+    sha256 cellar: :any_skip_relocation, monterey:       "7d83c828daf8ff308abd1295ac28762ac85e207d726ea6075505cec200153a6c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6deaecbddb668e6a0beeadf19f80bede5756279949b872bd15ec2bdae432ed77"
+    sha256 cellar: :any_skip_relocation, catalina:       "9d8296df829318dce8e829eef894867a74d3f18d438de98309b0c3fe02e065cf"
+    sha256 cellar: :any_skip_relocation, mojave:         "5b035ed0d84aa480965b56e0a8db59ebbb947dee3379297a3f05f88dcd610d81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36edff1128de8ec03a0d8f3b2e0f167939543a7cc374c9a30d45271c457fe544"
   end
 
   def install

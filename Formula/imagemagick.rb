@@ -1,10 +1,9 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
-  homepage "https://www.imagemagick.org/"
-  url "https://www.imagemagick.org/download/releases/ImageMagick-7.1.0-4.tar.xz"
-  sha256 "1a54bd46947f16fb29cf083be3614a14135f2fe9d1aa20665a85a8940bf6dc65"
+  homepage "https://imagemagick.org/index.php"
+  url "https://www.imagemagick.org/download/releases/ImageMagick-7.1.0-13.tar.xz"
+  sha256 "7eb82add552eb197775c69bae2cba8611e1293cc697f4938d92868f30373576a"
   license "ImageMagick"
-  revision 2
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
   livecheck do
@@ -13,11 +12,12 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4f3cb752765fb60419411099a329bf44256e532c0c04cf09ba85df953eafb6f2"
-    sha256 big_sur:       "0e76a860969c8ed7b207908067ce74a26cbc77f57661c2e133ac40bafbdaf25f"
-    sha256 catalina:      "0928952097855efd8278261b21690a3138f6850d6177fc0f452ebf2d7635f987"
-    sha256 mojave:        "00ca7b5f7268abd949a8505d9942575775969a2b4f8cce986b8e936edf4161cd"
-    sha256 x86_64_linux:  "b6454596dd36ba685eb1aac39bfb110bec272dfd0e20c37059772c0ae3fc01cd"
+    sha256 arm64_monterey: "bbc8d06cb7cb2ec1c26965b27a59ba52d9f11133abda0a5e311fed38a501a70a"
+    sha256 arm64_big_sur:  "1ae455f9afb936a1ef1f3278a5240d78631a1c64bd8a7c4b002e3e760d82d6de"
+    sha256 monterey:       "59dc541e78aab5ef5b4fd0a70e5b5307f41c451366b511a19c35e5244c7ce687"
+    sha256 big_sur:        "701a28ea94b9befd622889275babfed1a887f0298008277c8b9f8d212b14ce7f"
+    sha256 catalina:       "79750a6f6e5e391a560460c42f0209db3d6187d2856ec89f7da14990e7c3526e"
+    sha256 x86_64_linux:   "a12814a79aeb3473207885d0f5165fb59de7d1f1a2c1a7d575c1247d66084a0d"
   end
 
   depends_on "pkg-config" => :build
@@ -77,9 +77,7 @@ class Imagemagick < Formula
       "LDFLAGS=-lomp -lz",
     ]
 
-    on_macos do
-      args << "--without-x"
-    end
+    args << "--without-x" if OS.mac?
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"

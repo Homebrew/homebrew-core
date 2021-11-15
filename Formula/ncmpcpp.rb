@@ -8,6 +8,7 @@ class Ncmpcpp < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "589a36dfb83da7b7093605e58cdf6a9ae6f58e8bc915fc84a937742b17aafad6"
+    sha256 cellar: :any,                 monterey:      "45398850343c1d9b60fba96b519b7726e48d68bbbed0fb3681362e48fe542ce5"
     sha256 cellar: :any,                 big_sur:       "94f81334cde20719c43ff2e31cd89b89fe05b79e072f91e9ad5a9e8b104e7453"
     sha256 cellar: :any,                 catalina:      "491b03399a3f52b0ae8bd5ffd4ccbe34bff8565f1a5898d60c0a6c04e1bc43db"
     sha256 cellar: :any,                 mojave:        "228570b600da1e6001294be6761a84cf93f373a6d32aadbe38c7f239158835cd"
@@ -35,9 +36,7 @@ class Ncmpcpp < Formula
   def install
     ENV.cxx11
 
-    on_macos do
-      ENV.append "LDFLAGS", "-liconv"
-    end
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"

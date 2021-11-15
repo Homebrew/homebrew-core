@@ -103,7 +103,7 @@ class PerconaXtrabackup < Formula
     # remove conflicting library that is already installed by mysql
     rm lib/"libmysqlservices.a"
 
-    on_macos do
+    if OS.mac?
       # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
       rm lib/"libssl.dylib"
       rm lib/"libssl.1.1.dylib"
@@ -121,9 +121,7 @@ class PerconaXtrabackup < Formula
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     # This is not part of the system Perl on Linux and on macOS since Mojave
-    install_dbi = (MacOS.version >= :mojave)
-    on_linux { install_dbi = true }
-    if install_dbi
+    if OS.linux? || MacOS.version >= :mojave
       resource("DBI").stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make", "install"

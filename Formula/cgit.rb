@@ -11,11 +11,13 @@ class Cgit < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "1d94a449229b9550a5d76b9d1f0140ea6b267fcd982539d6537fce21447aae12"
-    sha256 big_sur:       "43d5a3249276dc89f9b8730b775fab358f9a04adac63fc18dc1257cecb0de2a8"
-    sha256 catalina:      "c5317498aefba5a04343b14929249e42a9ecc1c5da227ae06728102418bf5e49"
-    sha256 mojave:        "261aa49e87d8d4147b0ec838e22d6149f0aa41ee27751df15277b1cdb1df8bd3"
-    sha256 x86_64_linux:  "27e5543ed8c84782d48241262c483a0bec68f27fa09534ff616cda09bfec7098"
+    sha256 arm64_monterey: "bfdbfab0f980e7e67524d20a06eab7f1bb2cf788d32c2d20f9fd7e690e6d2689"
+    sha256 arm64_big_sur:  "1d94a449229b9550a5d76b9d1f0140ea6b267fcd982539d6537fce21447aae12"
+    sha256 monterey:       "bba8ad34b9bf164125a5abf7f7bfbbe93414ff4d0635b47cf1f781d4fdc9efe5"
+    sha256 big_sur:        "43d5a3249276dc89f9b8730b775fab358f9a04adac63fc18dc1257cecb0de2a8"
+    sha256 catalina:       "c5317498aefba5a04343b14929249e42a9ecc1c5da227ae06728102418bf5e49"
+    sha256 mojave:         "261aa49e87d8d4147b0ec838e22d6149f0aa41ee27751df15277b1cdb1df8bd3"
+    sha256 x86_64_linux:   "27e5543ed8c84782d48241262c483a0bec68f27fa09534ff616cda09bfec7098"
   end
 
   depends_on "gettext"

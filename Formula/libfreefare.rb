@@ -7,12 +7,14 @@ class Libfreefare < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c66fe7ad412745ebd9c10784f9ef7de563a5c1ef7582a72915ad7b50324a65c5"
-    sha256 cellar: :any,                 big_sur:       "bcc9bf9b7c9ee53de79b4784264c0923587b48933d2a6c1f57730fd359f8646d"
-    sha256 cellar: :any,                 catalina:      "5019ddb58b52c0ef766c331273c73ca4a374e87d5288d7357cd7e965150b43c4"
-    sha256 cellar: :any,                 mojave:        "a039acfcd35d2763313e47dd0175474975ffdecba60f6c6af714f7b0f0630144"
-    sha256 cellar: :any,                 high_sierra:   "5ae1a6b59880a6ae25ce53cfe9727be4cdf5a9cd5fe28c06f7bbc0e3d1342939"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ae1a1c73009d57d49c65f86b402dfeb94aaffabbe1a29cd7b7752595fdf05fd"
+    sha256 cellar: :any,                 arm64_monterey: "98d9ca4fb60da8d0a45f4119f7a7fc9dba952ccaa9b931e535ae2a520da4d982"
+    sha256 cellar: :any,                 arm64_big_sur:  "c66fe7ad412745ebd9c10784f9ef7de563a5c1ef7582a72915ad7b50324a65c5"
+    sha256 cellar: :any,                 monterey:       "c94fd35b13b13e392bb56bb79d745feada34674100d02f67ab0abf9d17678b11"
+    sha256 cellar: :any,                 big_sur:        "bcc9bf9b7c9ee53de79b4784264c0923587b48933d2a6c1f57730fd359f8646d"
+    sha256 cellar: :any,                 catalina:       "5019ddb58b52c0ef766c331273c73ca4a374e87d5288d7357cd7e965150b43c4"
+    sha256 cellar: :any,                 mojave:         "a039acfcd35d2763313e47dd0175474975ffdecba60f6c6af714f7b0f0630144"
+    sha256 cellar: :any,                 high_sierra:    "5ae1a6b59880a6ae25ce53cfe9727be4cdf5a9cd5fe28c06f7bbc0e3d1342939"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ae1a1c73009d57d49c65f86b402dfeb94aaffabbe1a29cd7b7752595fdf05fd"
   end
 
   depends_on "pkg-config" => :build
@@ -24,6 +26,12 @@ class Libfreefare < Formula
   patch do
     url "https://github.com/nfc-tools/libfreefare/commit/358df775.patch?full_index=1"
     sha256 "20d592c11e559d0a5f02f7ed56da370e39439feebd971be11b064d58ea85777f"
+  end
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 
   def install

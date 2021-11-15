@@ -13,13 +13,15 @@ class JohnJumbo < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "f4f4d798d0614b6f64ee57f463b94682a483c10010d2953be528f3e16dc2899a"
-    sha256 big_sur:       "95093dfbf970ea88a41223a1c75c6152e8435795f01f1be812439d28f94378e2"
-    sha256 catalina:      "e7a19321df5d635dab8f7049d96ee032c7536f1f2bf41b2b1d032e1665bfd127"
-    sha256 mojave:        "51f7b265d83da1db5c2a34e77d2f376e1fa7730ecde5c9cfcda181ccab084f8e"
-    sha256 high_sierra:   "0719a701b7280ccd2bd1e2f834ffb6518d183f80c5df2afcb956f374e6d032c3"
-    sha256 sierra:        "6349fe1f1c0524382ab6ed36a4ceeb795c67cacb310688e2759cf33efab82609"
-    sha256 x86_64_linux:  "7436d7bbfa99d24378592eb1444d05b06d8cf97ada9957aac8f15f1f0512f61e"
+    sha256 arm64_monterey: "a923ea4c9bba4ae6180d9f173694a5c4dd7ea87e1b84e358bc902695557ef393"
+    sha256 arm64_big_sur:  "f4f4d798d0614b6f64ee57f463b94682a483c10010d2953be528f3e16dc2899a"
+    sha256 monterey:       "e7b371852f93ca92ae3d6fe93cd161cfff2f5e13991705105ef7237add20864c"
+    sha256 big_sur:        "95093dfbf970ea88a41223a1c75c6152e8435795f01f1be812439d28f94378e2"
+    sha256 catalina:       "e7a19321df5d635dab8f7049d96ee032c7536f1f2bf41b2b1d032e1665bfd127"
+    sha256 mojave:         "51f7b265d83da1db5c2a34e77d2f376e1fa7730ecde5c9cfcda181ccab084f8e"
+    sha256 high_sierra:    "0719a701b7280ccd2bd1e2f834ffb6518d183f80c5df2afcb956f374e6d032c3"
+    sha256 sierra:         "6349fe1f1c0524382ab6ed36a4ceeb795c67cacb310688e2759cf33efab82609"
+    sha256 x86_64_linux:   "7436d7bbfa99d24378592eb1444d05b06d8cf97ada9957aac8f15f1f0512f61e"
   end
 
   depends_on "pkg-config" => :build

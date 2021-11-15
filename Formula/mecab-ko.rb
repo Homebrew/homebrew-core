@@ -12,14 +12,16 @@ class MecabKo < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "bed085afe970086d2415a7412c95b09ecd016d40c7a0b0b041edc70a6e53b069"
-    sha256 big_sur:       "5a551a2a040daff922d7eebc686a56fa89ca310aab415e8f1ddd743983442926"
-    sha256 catalina:      "d9655e7122ee6a56194faf5e44062c3bf3c2bf145ba6f8f7b3e6dd1154bf7516"
-    sha256 mojave:        "a1a0b40d2cb5a689ae24a439af990c7a85f8136bfa2bc5c3fd0708300b2fd111"
-    sha256 high_sierra:   "d254239a9fec5e99de9590feb8d7c82f87e31324908003b059aea9a5d6092f2a"
-    sha256 sierra:        "86b35c767cb97ab0b5e895475c3254589b101bdc3c8666abc694ea9a480421ec"
-    sha256 el_capitan:    "c348042904040c28772c3f8f299debe574c6ebaaed7e41b23cac4980aeb8aa97"
-    sha256 x86_64_linux:  "15f29ad6bf47615efaeab3db5f5108ee7232fc3c31cd905c7524b619d0bab818"
+    sha256 arm64_monterey: "188bfe25ec8b456e29e7668a704da223ef5999b5e9f5ff0dafb0b344e7094734"
+    sha256 arm64_big_sur:  "bed085afe970086d2415a7412c95b09ecd016d40c7a0b0b041edc70a6e53b069"
+    sha256 monterey:       "78a7f912badfb92dd7b251ac0b62b958e9f6e4b09fe43b5fc6251beefb5454dc"
+    sha256 big_sur:        "5a551a2a040daff922d7eebc686a56fa89ca310aab415e8f1ddd743983442926"
+    sha256 catalina:       "d9655e7122ee6a56194faf5e44062c3bf3c2bf145ba6f8f7b3e6dd1154bf7516"
+    sha256 mojave:         "a1a0b40d2cb5a689ae24a439af990c7a85f8136bfa2bc5c3fd0708300b2fd111"
+    sha256 high_sierra:    "d254239a9fec5e99de9590feb8d7c82f87e31324908003b059aea9a5d6092f2a"
+    sha256 sierra:         "86b35c767cb97ab0b5e895475c3254589b101bdc3c8666abc694ea9a480421ec"
+    sha256 el_capitan:     "c348042904040c28772c3f8f299debe574c6ebaaed7e41b23cac4980aeb8aa97"
+    sha256 x86_64_linux:   "15f29ad6bf47615efaeab3db5f5108ee7232fc3c31cd905c7524b619d0bab818"
   end
 
   conflicts_with "mecab", because: "both install mecab binaries"

@@ -1,12 +1,22 @@
 class Goffice < Formula
   desc "Gnumeric spreadsheet program"
-  homepage "https://developer.gnome.org/goffice/"
-  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.50.tar.xz"
-  sha256 "2c5c3ddc7b08b3452408c81b121c5f012a734981d75e444debccb1c58e5cbfdc"
+  homepage "https://gitlab.gnome.org/GNOME/goffice"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
+
+  stable do
+    url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.50.tar.xz"
+    sha256 "2c5c3ddc7b08b3452408c81b121c5f012a734981d75e444debccb1c58e5cbfdc"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
     sha256 arm64_big_sur: "e571776d6027505872945c458da49905765f260bc76c197f83565ff1f9c06a6b"
+    sha256 monterey:      "d15ea11e14aac441e2fc89b977e5799d6248ec3dd4a89b8098c3a4a30f1e37a9"
     sha256 big_sur:       "4cbc19a7ea37b8d511e2c908ab810c5655d76af9f13cffbaafdc39bac01ad009"
     sha256 catalina:      "b21162268cc6c6dc2bdb7c63f6ea7b95eb3db9228f75536b98bf7fabff4ea9e8"
     sha256 mojave:        "e7e8f0d817617e0b4450bc77905d988cd06918e45992881eeaba24c61b2e4030"
@@ -36,7 +46,7 @@ class Goffice < Formula
   uses_from_macos "libxslt"
 
   def install
-    on_linux do
+    if OS.linux?
       # Needed to find intltool (xml::parser)
       ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
       ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"

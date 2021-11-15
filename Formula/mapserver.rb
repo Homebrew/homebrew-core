@@ -11,9 +11,10 @@ class Mapserver < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "613314de0ebaeb0df201178f4ee23d36fea4f9302a5ca20d875b356004220cd9"
-    sha256 cellar: :any, catalina: "3f434172773dc3312a3787f5018e7a61849534f036082c45ad285dd2a8f4280d"
-    sha256 cellar: :any, mojave:   "aa2236e1cc9e14a965996188bc9c1988f6327266ef62891a70c8f0f6588c38a1"
+    sha256 cellar: :any, arm64_big_sur: "0f54be3a484bb73ca70be85054ec0a7dab004bec30a9f60b8f12eb2f0181f1a8"
+    sha256 cellar: :any, big_sur:       "613314de0ebaeb0df201178f4ee23d36fea4f9302a5ca20d875b356004220cd9"
+    sha256 cellar: :any, catalina:      "3f434172773dc3312a3787f5018e7a61849534f036082c45ad285dd2a8f4280d"
+    sha256 cellar: :any, mojave:        "aa2236e1cc9e14a965996188bc9c1988f6327266ef62891a70c8f0f6588c38a1"
   end
 
   depends_on "cmake" => :build
@@ -37,7 +38,7 @@ class Mapserver < Formula
   def install
     ENV.cxx11
 
-    args = std_cmake_args + %w[
+    args = %W[
       -DWITH_CLIENT_WFS=ON
       -DWITH_CLIENT_WMS=ON
       -DWITH_CURL=ON
@@ -52,26 +53,22 @@ class Mapserver < Formula
       -DWITH_PYTHON=ON
       -DWITH_SOS=ON
       -DWITH_WFS=ON
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin/"python3"}
+      -DPHP_EXTENSION_DIR=#{lib}/php/extensions
+      -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
-    args << "-DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin/"python3"}"
-    args << "-DPHP_EXTENSION_DIR=#{lib}/php/extensions"
 
     # Install within our sandbox
     inreplace "mapscript/python/CMakeLists.txt" do |s|
       s.gsub! "${PYTHON_LIBRARIES}", "-Wl,-undefined,dynamic_lookup"
     end
 
-    # Using rpath on python module seems to cause problems if you attempt to
-    # import it with an interpreter it wasn't built against.
-    # 2): Library not loaded: @rpath/libmapserver.1.dylib
-    args << "-DCMAKE_SKIP_RPATH=ON"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-      cd "mapscript/python" do
-        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
-      end
+    cd "build/mapscript/python" do
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 

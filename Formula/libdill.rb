@@ -6,6 +6,7 @@ class Libdill < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "f3d32c4b24787b52512ae841b0daf82e256bb7f7e42dad115bbc059541103507"
     sha256 cellar: :any,                 big_sur:      "d0bc288a3ce54ab333f48ae08d127aa78300f6ee4921f0a9b59ca7f685649a93"
     sha256 cellar: :any,                 catalina:     "124f2fd7aa4ba68e528bd2700637511943ae55ec9c2b2c9dcdb3bff1f2e34909"
     sha256 cellar: :any,                 mojave:       "7ebbbe85ab5989b48664688c9fdc833b4bbc7846ea94f3f73c34ef620026b878"

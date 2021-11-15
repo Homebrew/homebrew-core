@@ -1,11 +1,16 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1k.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1k.tar.gz"
-  mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1k.tar.gz"
-  sha256 "892a0875b9872acd04a9fde79b1f943075d5ea162415de3047c327df33fbaee5"
+  url "https://www.openssl.org/source/openssl-1.1.1l.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1l.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1l.tar.gz"
+  # These are for when a new version is released and the old URL stops working:
+  mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1l.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1l.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1l.tar.gz"
+  sha256 "0b7a3e5e59c34827fe0c3a74b7ec8baef302b98fa80088d7f9153aa16fa76bd1"
   license "OpenSSL"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -14,37 +19,51 @@ class OpensslAT11 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "0a75e0f116c0653bc7a2b422e5dc500e7e51557303aa4fca9c1a28786189c1da"
-    sha256 big_sur:       "17d94c51ddfa8364baed5f3a754063e1ca75f807194f68d0b976619cf4e69c1a"
-    sha256 catalina:      "cb610ecdda346011031b890d7b7c6e1942d7fc08cf083b74f148ec7ffed8c7e1"
-    sha256 mojave:        "7928c80c309c6ece50b1c0d968a1e54011088cc896d26aa511249978a246bd50"
-    sha256 x86_64_linux:  "63b4e785e2baf4ebf0e9b8e33e0dd3aa38399d9f10fd0121088f83ad2de42c5f"
+    sha256 arm64_monterey: "8f5b0bee61c1570b9f0fc0a21d6c322e904ae7975bdaada5787451d18e9677a6"
+    sha256 arm64_big_sur:  "e3d8556cec907ad1e0ea00aebd0b0b516dde06ea3bf24308290ad785cb360a04"
+    sha256 monterey:       "9a14367813591b51e30828c7d86499479bc6201954f6b10ed591b40cd3b71cc1"
+    sha256 big_sur:        "64d4d83f7d3216f2d3107f966b223d11401a2e9391707d959fbdb5c1bd5fbe0c"
+    sha256 catalina:       "eb4e1d96f1a9eac8d096220550e3ca97a46d59747ec2324e2ff74351f8319c2b"
+    sha256 mojave:         "add58d2bb5059599029e687d5baf6fd737dff1e5cef7b6c5f4e0fe11b9c8e588"
+    sha256 x86_64_linux:   "84bc9412c1620f5607161c5fe2b6e11ff49de96d704595523f7f7c15f1883cf2"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
 
-  on_linux do
-    resource "cacert" do
-      # homepage "http://curl.haxx.se/docs/caextract.html"
-      url "https://curl.haxx.se/ca/cacert-2020-01-01.pem"
-      mirror "https://gist.githubusercontent.com/dawidd6/16d94180a019f31fd31bc679365387bc/raw/ef02c78b9d6427585d756528964d18a2b9e318f7/cacert-2020-01-01.pem"
-      sha256 "adf770dfd574a0d6026bfaa270cb6879b063957177a991d453ff1d302c02081f"
-    end
+  depends_on "ca-certificates"
 
+  on_linux do
     resource "Test::Harness" do
       url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
       sha256 "0fd90d4efea82d6e262e6933759e85d27cbcfa4091b14bf4042ae20bab528e53"
     end
 
     resource "Test::More" do
       url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
       sha256 "c8c8f5c51ad6d7a858c3b61b8b658d8e789d3da5d300065df0633875b0075e49"
     end
 
     resource "ExtUtils::MakeMaker" do
       url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
       sha256 "94e64a630fc37e80c0ca02480dccfa5f2f4ca4b0dd4eeecc1d65acd321c68289"
     end
+  end
+
+  # Fix build on older macOS versions.
+  # Remove with the next version.
+  patch do
+    url "https://github.com/openssl/openssl/commit/96ac8f13f4d0ee96baf5724d9f96c44c34b8606c.patch?full_index=1"
+    sha256 "dd5498c0910c0ae91738fe8e796f4deb4767b08217c1a859fe390147f24809c6"
+  end
+
+  # Fix build on older macOS versions.
+  # Remove with the next version.
+  patch do
+    url "https://github.com/openssl/openssl/commit/2f3b120401533db82e99ed28de5fc8aab1b76b33.patch?full_index=1"
+    sha256 "a66dcd4a3a291858deefaf260ffd8f2f55da953724e7a14db9c4523d8b7ef383"
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
@@ -69,7 +88,7 @@ class OpensslAT11 < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
       %w[ExtUtils::MakeMaker Test::Harness Test::More].each do |r|
@@ -90,15 +109,12 @@ class OpensslAT11 < Formula
     ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
 
     arch_args = []
-    on_macos do
+    if OS.mac?
       arch_args += %W[darwin64-#{Hardware::CPU.arch}-cc enable-ec_nistp_64_gcc_128]
-    end
-    on_linux do
-      if Hardware::CPU.intel?
-        arch_args << (Hardware::CPU.is_64_bit? ? "linux-x86_64" : "linux-elf")
-      elsif Hardware::CPU.arm?
-        arch_args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv4")
-      end
+    elsif Hardware::CPU.intel?
+      arch_args << (Hardware::CPU.is_64_bit? ? "linux-x86_64" : "linux-elf")
+    elsif Hardware::CPU.arm?
+      arch_args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv4")
     end
 
     system "perl", "./Configure", *(configure_args + arch_args)
@@ -112,61 +128,8 @@ class OpensslAT11 < Formula
   end
 
   def post_install
-    on_macos(&method(:macos_post_install))
-    on_linux(&method(:linux_post_install))
-  end
-
-  def macos_post_install
-    ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
-
-    keychains = %w[
-      /Library/Keychains/System.keychain
-      /System/Library/Keychains/SystemRootCertificates.keychain
-    ]
-
-    certs_list = `/usr/bin/security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
-
-    # Check that the certificate has not expired
-    valid_certs = certs.select do |cert|
-      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout &>/dev/null", "w") do |openssl_io|
-        openssl_io.write(cert)
-        openssl_io.close_write
-      end
-
-      $CHILD_STATUS.success?
-    end
-
-    # Check that the certificate is trusted in keychain
-    trusted_certs = begin
-      tmpfile = Tempfile.new
-
-      valid_certs.select do |cert|
-        tmpfile.rewind
-        tmpfile.write cert
-        tmpfile.truncate cert.size
-        tmpfile.flush
-        IO.popen("/usr/bin/security verify-cert -l -L -R offline -c #{tmpfile.path} &>/dev/null")
-
-        $CHILD_STATUS.success?
-      end
-    ensure
-      tmpfile&.close!
-    end
-
-    openssldir.mkpath
-    (openssldir/"cert.pem").atomic_write(trusted_certs.join("\n") << "\n")
-  end
-
-  def linux_post_install
-    # Download and install cacert.pem from curl.haxx.se
-    cacert = resource("cacert")
-    cacert.fetch
     rm_f openssldir/"cert.pem"
-    filename = Pathname.new(cacert.url).basename
-    openssldir.install cacert.files(filename => "cert.pem")
+    openssldir.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
   end
 
   def caveats

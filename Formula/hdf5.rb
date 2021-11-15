@@ -51,17 +51,13 @@ class Hdf5 < Formula
       --enable-fortran
       --enable-cxx
     ]
-    on_linux do
-      args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
-    end
+    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" if OS.linux?
 
     system "./configure", *args
 
     # Avoid shims in settings file
-    inreplace "src/libhdf5.settings", %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
-    on_linux do
-      inreplace "src/libhdf5.settings", %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{Regexp.escape(ENV.cxx)}}, ENV.cxx
-    end
+    inreplace "src/libhdf5.settings", Superenv.shims_path/ENV.cc, ENV.cc
+    inreplace "src/libhdf5.settings", Superenv.shims_path/ENV.cxx, ENV.cxx if OS.linux?
 
     system "make", "install"
   end

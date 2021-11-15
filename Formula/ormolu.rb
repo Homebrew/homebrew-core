@@ -1,17 +1,19 @@
 class Ormolu < Formula
   desc "Formatter for Haskell source code"
   homepage "https://github.com/tweag/ormolu"
-  url "https://github.com/tweag/ormolu/archive/0.2.0.0.tar.gz"
-  sha256 "04461449cb6ba79230ffebe9e432765b3a190dacf28b73c4931cbccbe516f8d0"
+  url "https://github.com/tweag/ormolu/archive/0.3.1.0.tar.gz"
+  sha256 "b0bbf229f1878c39aa58dbb71d8cc4fbc4713252c7acbc0fd9921804fecbd273"
   license "BSD-3-Clause"
-  head "https://github.com/tweag/ormolu.git"
+  head "https://github.com/tweag/ormolu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d8fd89b32a6dbe77698d25b8d5b6a9bde490e1c9e05b73079d9146ea4ab5c032"
-    sha256 cellar: :any_skip_relocation, big_sur:       "151d4b1c54440eaf96b72a0b417894d3fe4ca2478eb94a242b3abe144498ea68"
-    sha256 cellar: :any_skip_relocation, catalina:      "cdf06624755fe56202d3f0aa504fe0402ada1189e44de0d60a53a8cd7901e83b"
-    sha256 cellar: :any_skip_relocation, mojave:        "3e54ed98fd90c029f523657d543bea53ca67d37918144452846dfa059c3d461d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8f12ec8c0d3dec366988d54a859832488996ca0f2d5986c21f4dd01e22ed3d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "acd617cb4100f5d5bacd752db1752bc4dad4449a0b06a39fac61241f000d60ad"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70cd7434a57c0153d1408a67d8315fe70d6011f9372d9f54d7bedd970cc815f5"
+    sha256 cellar: :any_skip_relocation, monterey:       "9eeaf61e2ea11cbd8d36b11067fd2abbd4d5a884ca4877b53adf0bfe9f7706d0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "db763c64ee0667d536beed9a908ef4d098148bf653e06987304320d9bea7eebe"
+    sha256 cellar: :any_skip_relocation, catalina:       "075fc7b2afa03d4db8d517a3951ba2bd1d28859013b57e107728a2bd75ebf9d0"
+    sha256 cellar: :any_skip_relocation, mojave:         "d990e97bfb7cb25d3090f47a5c1b8e164b8a8a46cfeb2d79216c17337ef339b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c50a4ad780a90bff58aaa6ddb13b908207b5d6188f059ab5403e64fe3dfe861e"
   end
 
   depends_on "cabal-install" => :build

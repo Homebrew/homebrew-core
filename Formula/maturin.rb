@@ -1,17 +1,19 @@
 class Maturin < Formula
   desc "Build and publish Rust crates as Python packages"
   homepage "https://github.com/PyO3/maturin"
-  url "https://github.com/PyO3/maturin/archive/refs/tags/v0.11.2.tar.gz"
-  sha256 "4c37b25c327fedf46c0b0833d0e8a5c69e9edcdfeb5b6c946b94198001044f1d"
+  url "https://github.com/PyO3/maturin/archive/refs/tags/v0.11.5.tar.gz"
+  sha256 "33b67e66e725c76eac866c2174cfbe708e77a44d215878474d84bc5f9f6386f3"
   license "MIT"
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1d5d727dd07fb57ca4545a8c2d2fb3ab3c88a45c816de17777b5d5f33175fe30"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2fcd4a193a7356d43647969bd54bc6504305ebbde84b493a2644e3cc5fdc1bc6"
-    sha256 cellar: :any_skip_relocation, catalina:      "8558b7555fd7200a9843645d957633bd9b513a19c4f122f05ad4024fa657d426"
-    sha256 cellar: :any_skip_relocation, mojave:        "e13ce6649031fb1388293570bae38374056ea82c3a6e1f9e917939ad14f60540"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eccaf6962552f9b766a0d75681896bdfa04c571e7cce9396b6e10ffe7911370f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "77dca815948cc94dbc746f31a53bf95b22a8ea6f7b4e8ecaeafa013e5ff5395e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45a33896ad9bb4d49276d3eeb4214037407acb448d1ba650d4d75a45cffa7bf1"
+    sha256 cellar: :any_skip_relocation, monterey:       "d0c1a7d7d8f41516805aa16aa0705d0c98042d1bf96c7b73cf038ceab3498bcf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ae4309f495a87c1542921abc937df04e7b091855ac86c73ba30a52f64925640d"
+    sha256 cellar: :any_skip_relocation, catalina:       "c68d71f5ec9a4dc8bdd8cb25a708400ee24479a34f7d0185ec16441cdcb90b3e"
+    sha256 cellar: :any_skip_relocation, mojave:         "f61476bcb6c0bf74237943917a22d963bd1919161457213a047d9ae9bcb0cbdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86ad3e5aa898d1ea54fb6a3b8d66e657c0b8d544a3cafc47770a0cfb74e6d57e"
   end
 
   depends_on "python@3.9" => :test

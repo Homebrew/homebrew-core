@@ -1,27 +1,34 @@
 class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
-  homepage "https://argoproj.io"
+  homepage "https://argoproj.github.io/cd"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v2.0.5",
-      revision: "4c94d886f56bcb2f9d5b3251fdc049c2d1354b88"
+      tag:      "v2.1.6",
+      revision: "a346cf933e10d872eae26bff8e58c5e7ac40db25"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0745c99d82b1b040663cf620fcab3f4d1a236e938ced81371683c62d28c0f309"
-    sha256 cellar: :any_skip_relocation, big_sur:       "57befda523e53d7fc95958b4f3838d659f58376c6e24b6dba16c0a1fc339c772"
-    sha256 cellar: :any_skip_relocation, catalina:      "faff4aeda6104aaf51f076351eed0f2f7c183daaa233efec10cca1f9ac1def69"
-    sha256 cellar: :any_skip_relocation, mojave:        "30b62ec6e5bb23470bc7648793cc0e28ca5af2194937b20c0726c9e89c5cfb8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4261b573789019b3e8c232152facb13a23ecb292d23ae82868ad80a5b8bca1a2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "71752cdc3c26eed6f5093b08c16c115c145183efccaa9ddb75db37c779a8a85f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9aa54e0d625d05edfba6f9fa95c809ebd52d48068f159e6738b72ce795fcb2c"
+    sha256 cellar: :any_skip_relocation, monterey:       "1df1d994617b7ffe160446cdb3ef9873c08eb1b86e2d28ca05bb8c73d86afc29"
+    sha256 cellar: :any_skip_relocation, big_sur:        "efc93980f638aead3523c9b102e48a35d11bca39ecad904ec0039e855c3f2fd2"
+    sha256 cellar: :any_skip_relocation, catalina:       "06f25c37b42c45f52b27c3568924d6bd44c9c6862550a6c780da522b34ce2126"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ad4af33e1a701c9ab392bd9c23f2aa3984d3eaabf4f447acd90d3811ac30e4d"
   end
 
   depends_on "go" => :build
+  depends_on "node@14" => :build
+  depends_on "yarn" => :build
 
   def install
-    # this needs to be remove to prevent multiple 'operation not permitted' errors
-    inreplace "Makefile", "CGO_ENABLED=0", ""
+    system "make", "dep-ui-local"
+    with_env(
+      NODE_ENV:        "production",
+      NODE_ONLINE_ENV: "online",
+    ) do
+      system "yarn", "--cwd", "ui", "build"
+    end
     system "make", "cli-local"
     bin.install "dist/argocd"
-    bin.install_symlink "argocd" => "argocd-util"
 
     output = Utils.safe_popen_read("#{bin}/argocd", "completion", "bash")
     (bash_completion/"argocd").write output
@@ -32,9 +39,6 @@ class Argocd < Formula
   test do
     assert_match "argocd controls a Argo CD server",
       shell_output("#{bin}/argocd --help")
-
-    assert_match "argocd-util has internal utility tools used by Argo CD",
-      shell_output("#{bin}/argocd-util --help")
 
     # Providing argocd with an empty config file returns the contexts table header
     touch testpath/"argocd-config"

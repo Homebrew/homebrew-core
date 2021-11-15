@@ -12,6 +12,7 @@ class GhcAT88 < Formula
 
   bottle do
     rebuild 1
+    sha256                               monterey:     "ab02ef2f511577a67b72983e39a86593bb58270c3c22a7b7879d38818e91571d"
     sha256                               big_sur:      "b099711b984463a32a073f49ec91e6034519a6140958a6603d3888e565ea2e4e"
     sha256                               catalina:     "38d4abf9ea7ce0ac4c928623a835f39d2d58e4ce8c66e58ff3e245b31d2948a9"
     sha256                               mojave:       "bfa78f1df75b3bd13aae44cd1ccc3a739d75cae0b93f0d060606a75fe1fe9a4e"
@@ -59,7 +60,7 @@ class GhcAT88 < Formula
     ENV["LD"] = "ld"
 
     args = %w[--enable-numa=no]
-    on_macos do
+    if OS.mac?
       # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
       # executables link to Homebrew's GMP.
       gmp = libexec/"integer-gmp"
@@ -81,7 +82,7 @@ class GhcAT88 < Formula
       binary = buildpath/"binary"
 
       binary_args = args
-      on_linux do
+      if OS.linux?
         binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
         binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
       end
@@ -92,9 +93,7 @@ class GhcAT88 < Formula
       ENV.prepend_path "PATH", binary/"bin"
     end
 
-    on_linux do
-      args << "--with-intree-gmp"
-    end
+    args << "--with-intree-gmp" if OS.linux?
 
     # Disable PDF document generation (fails with newest sphinx)
     (buildpath/"mk/build.mk").write <<-EOS

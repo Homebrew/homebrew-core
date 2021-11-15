@@ -1,21 +1,21 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
-  homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.11.tar.gz"
-  sha256 "b51d15700fbaefcb7fb85c3506b49d33173a0f15d700f933ef044067b42d46e4"
+  homepage "https://lldpd.github.io/"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.13.tar.gz"
+  sha256 "d639827fd8a27720d1bfd94bc52eca24af63ddcc3c9d2da60788778889d84701"
   license "ISC"
 
   livecheck do
-    url "https://github.com/vincentbernat/lldpd.git"
+    url "https://github.com/lldpd/lldpd.git"
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "e2af824e8a40b2e73f68f4949e502df719f04283acf4566efce7c6255c2848d4"
-    sha256 big_sur:       "394eeeb77c9945f24ccf93d772a4bf13739bea4e01fe3f35733c4ec49d30911f"
-    sha256 catalina:      "3493df2587bc90fe4263662a69aabc443d4fa654913c72e018ad6e5372d9c6c9"
-    sha256 mojave:        "1766a5ee0533c67240a87b9a92563f63e740af741b66748aefda25088155c67f"
-    sha256 x86_64_linux:  "9853e84cabb24febb116549ca1a2e0c965e9d1979aaccb7189a9e7f458da0217"
+    sha256 arm64_monterey: "95fd094817acf4cf94f42e5e80c30d3dd397a6e7529ea4ac286c6434ec7e16be"
+    sha256 arm64_big_sur:  "d9d390a4404acff3d2d13a9dbdbd412833534f33447f6e0ec0283917abc6b261"
+    sha256 monterey:       "3817d0b551c350cec5db423aaa6cf05901ea5dd9a417d71692c9bc25c183c337"
+    sha256 big_sur:        "4c2dba23fc7245e3b5988feedfe59032f7eed33dc248cbfdc70d0bb300afd035"
+    sha256 catalina:       "20caa1840ab87f99001b351c9d7aea2bb876880970c437eca9850c7a6e9bcf5d"
+    sha256 x86_64_linux:   "380bb78d5ab7308637e07d68ea60018f75af59c172f5fdf8b21e6f0f82c958fa"
   end
 
   depends_on "pkg-config" => :build

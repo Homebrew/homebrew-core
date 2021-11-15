@@ -1,17 +1,23 @@
 class Pianod < Formula
   desc "Pandora client with multiple control interfaces"
   homepage "https://deviousfish.com/pianod/"
-  url "https://deviousfish.com/Downloads/pianod2/Devel/pianod2-301.tar.gz"
-  sha256 "d6fa01d786af65fe3b4e6f4f97fa048db6619b9443e23f655d3ea8ab4766caee"
+  url "https://deviousfish.com/Downloads/pianod2/pianod2-376.tar.gz"
+  sha256 "ac00655c1e3c7507ff89f283d8c339510f50e9ddd5a44cb1df7ebcb2e147e6d1"
   license "MIT"
-  revision 1
+
+  livecheck do
+    url "https://deviousfish.com/Downloads/pianod2/"
+    regex(/href=.*?pianod2[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
-    sha256 arm64_big_sur: "75ead4e63a967f75b1348d5f3edc024fb18b64298546ca6574aeba99c043237c"
-    sha256 big_sur:       "cf3e7d096f97341e9a24e30d9763869cfc5b94048aa918e117c7caa87ce2d16e"
-    sha256 catalina:      "891923360d9e05cc168e08373c41855f4700d84f9549ce6d86de2f7176a96992"
-    sha256 mojave:        "8d1b17ccc15dc42000b73a5f054791f3ec98c48b47df731f5343e35199406ea9"
-    sha256 high_sierra:   "37348131ed49c0cb261bb85f41b710fc791ca6aa423534063c3acb23596bfa27"
+    sha256 arm64_monterey: "bf0828b5121524385982b319bc232292a5eb2439562955b1736037444468298a"
+    sha256 arm64_big_sur:  "56ab9d2c636cf273f208ffe8fb75d9b125361e445fa755920f9f582ec32e1afa"
+    sha256 monterey:       "9435a267507da828e96d612c833fae22b0bdae8c90db55bf2f5bcf9ce12864e7"
+    sha256 big_sur:        "3aaed35adde0c5e286691e0cec46cf841d21e8990449fe8ce44a1b19206fac81"
+    sha256 catalina:       "1eb5a5505c87c7e3507c56770567bfedfd778322989416d028ba964c5177ef06"
+    sha256 mojave:         "416d3972a515b932768d6e6ee1412c266e640f9b5bc734f00974a1b35bd40b80"
+    sha256 x86_64_linux:   "639af5a5c17e693c8ae599f20e76f5a58fafb804df91cccf69a7dfc2fd831d3c"
   end
 
   depends_on "pkg-config" => :build
@@ -19,15 +25,22 @@ class Pianod < Formula
   depends_on "libao"
   depends_on "libgcrypt"
 
+  on_macos do
+    depends_on "ncurses"
+  end
+
   on_linux do
     # pianod uses avfoundation on macOS, ffmpeg on Linux
     depends_on "ffmpeg"
+    depends_on "gcc"
     depends_on "gnutls"
     depends_on "libbsd"
   end
 
+  fails_with gcc: "5"
+
   def install
-    ENV["OBJCXXFLAGS"] = "-std=c++11"
+    ENV["OBJCXXFLAGS"] = "-std=c++14"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

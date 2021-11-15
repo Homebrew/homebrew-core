@@ -12,6 +12,7 @@ class ZitaConvolver < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "dd52351558f1a7d5860d8227ee71fb2fa28abf751adb4193dc63c8cb72f076ae"
+    sha256 cellar: :any,                 monterey:      "b1eb48a11c3a0c13bcbbd30af63190fbec40e6ac97679d31c1fca4a7eb210a12"
     sha256 cellar: :any,                 big_sur:       "0e712ab784293d338e277912151e068c7117f902165e7e4dcdd231ba8b3767fd"
     sha256 cellar: :any,                 catalina:      "a616c118732c9f2c3775348e598a972abab7ae67b7cb0f283884cddaa55ce93d"
     sha256 cellar: :any,                 mojave:        "e9bfda6d2d3119f93ea0d570b9b3516d44513c3eafc206543f8fb055707db8fd"
@@ -23,9 +24,7 @@ class ZitaConvolver < Formula
 
   def install
     cd "source" do
-      on_macos do
-        inreplace "Makefile", "-Wl,-soname,", "-Wl,-install_name,"
-      end
+      inreplace "Makefile", "-Wl,-soname,", "-Wl,-install_name," if OS.mac?
       inreplace "Makefile", "ldconfig", "ln -sf $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(LIBDIR)/$(ZITA-CONVOLVER_MAJ)"
       system "make", "install", "PREFIX=#{prefix}", "SUFFIX="
     end

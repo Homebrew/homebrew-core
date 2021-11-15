@@ -12,11 +12,13 @@ class Spigot < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ea601301d75ed829ff918c22884199fef4a35afcffbdc03da464d7051b55d3e1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "daf9a73394d08cdfc2b5746b367112ea1790f924169d36e2ec288b201433b148"
-    sha256 cellar: :any_skip_relocation, catalina:      "7a78a2d6416a800148fbd44f269865c3baacf150164f757459f9dbf622b41fa9"
-    sha256 cellar: :any_skip_relocation, mojave:        "f7f31fcf972afaecdb231e4b7e413a98a7ec8f05f7d3e4717cc9128c7cae0fab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0e15ff42ceacf124df8655ee07bebb44dcb0ee0a5f8785ab4da5c8b27ea1467"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f29fed5c8bcde09370f28cb44769301b51a5e9070b56aafdce2b49149d6fb73b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea601301d75ed829ff918c22884199fef4a35afcffbdc03da464d7051b55d3e1"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d46df4506b0880add1c37d6d7ad9af0ff4a33062504b83a54e48a2f8c4d5001"
+    sha256 cellar: :any_skip_relocation, big_sur:        "daf9a73394d08cdfc2b5746b367112ea1790f924169d36e2ec288b201433b148"
+    sha256 cellar: :any_skip_relocation, catalina:       "7a78a2d6416a800148fbd44f269865c3baacf150164f757459f9dbf622b41fa9"
+    sha256 cellar: :any_skip_relocation, mojave:         "f7f31fcf972afaecdb231e4b7e413a98a7ec8f05f7d3e4717cc9128c7cae0fab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0e15ff42ceacf124df8655ee07bebb44dcb0ee0a5f8785ab4da5c8b27ea1467"
   end
 
   depends_on "cmake" => :build

@@ -1,27 +1,27 @@
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://github.com/terraform-docs/terraform-docs"
-  url "https://github.com/terraform-docs/terraform-docs/archive/v0.15.0.tar.gz"
-  sha256 "0be7d2eb0893acb79027287d8873f1c2dc4cc7f38f63889eebf59bc546b3dc8e"
+  url "https://github.com/terraform-docs/terraform-docs/archive/v0.16.0.tar.gz"
+  sha256 "e370fd106ca74caebc8632834cc28412a3a6a160952392da71f213515bba2085"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7ba0b7a03e9b8d8fa699aa5c4b8b75afbced3619759e04c562acaa8c85c07d63"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d84844fbec03d7e377441da0fd6658f7c4430a5a7084887102a7ef187ec28143"
-    sha256 cellar: :any_skip_relocation, catalina:      "97eb0dc4b26e4be336b6c52e7d7e23c9cd415e92edee8566009d1196890faa7a"
-    sha256 cellar: :any_skip_relocation, mojave:        "1d1533ac73741244c1a868a6a7c0ca87aede41d7e0348bf8c62f213fbaffa81f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7aa6e7cb97366633cdf2f4b7a7c10e12025bd9e0eee28663b5be03e95a03e03f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f2f4cf6fcf375be8963c87892a9949fd415f3bd7d91cf7c2e6ecbd51525aaf8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4019590722af255f89f39cb67f6a032bd5ccc2fb50f8949c7928215b215cf6f7"
+    sha256 cellar: :any_skip_relocation, monterey:       "2feecfdf034d99b6b9de4d20d377d91d546c800fdcf3efb32ab8fc74936af84b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a8bd7087f7d1b8f351c44cef6ddfe5a8adcdc06999665f0f46b0d9753d2e50f0"
+    sha256 cellar: :any_skip_relocation, catalina:       "434ec046eb696cc5a6eded18b8afca8e346e7009165d9a8e12e88ffb3fc3811e"
+    sha256 cellar: :any_skip_relocation, mojave:         "dae4a1d6f4dd664f8388a19a55d037b9a63e76f1ee704b1e4ec993892234bd83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b66e3b532c81e093416f3b7e2af35295b8f9887ef1d662fe836a7b1f0ac7dbab"
   end
 
   depends_on "go" => :build
 
   def install
     system "make", "build"
-    cpu = Hardware::CPU.arm? ? "arm64" : "amd64"
-    os = "darwin"
-    on_linux do
-      os = "linux"
-    end
+    cpu = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    os = OS.kernel_name.downcase
+
     bin.install "bin/#{os}-#{cpu}/terraform-docs"
     prefix.install_metafiles
   end

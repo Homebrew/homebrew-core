@@ -11,11 +11,13 @@ class Src < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6d72e26032c8eaf0416c285a84a3556e31d6a1ed962051aa254418f28d8b493d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5485c642c815e0368ace75c43907ece44ed6b220484be136ea791ad14780ee30"
-    sha256 cellar: :any_skip_relocation, catalina:      "312d165d1840e28a6c33df33248a7236dc2c524ee792b575b2774afe5597e446"
-    sha256 cellar: :any_skip_relocation, mojave:        "312d165d1840e28a6c33df33248a7236dc2c524ee792b575b2774afe5597e446"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "312d165d1840e28a6c33df33248a7236dc2c524ee792b575b2774afe5597e446"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "273641371d813cdd5661bf1056e6aa671f3beb53b121e5197b75cd2751461fbc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d72e26032c8eaf0416c285a84a3556e31d6a1ed962051aa254418f28d8b493d"
+    sha256 cellar: :any_skip_relocation, monterey:       "273641371d813cdd5661bf1056e6aa671f3beb53b121e5197b75cd2751461fbc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5485c642c815e0368ace75c43907ece44ed6b220484be136ea791ad14780ee30"
+    sha256 cellar: :any_skip_relocation, catalina:       "312d165d1840e28a6c33df33248a7236dc2c524ee792b575b2774afe5597e446"
+    sha256 cellar: :any_skip_relocation, mojave:         "312d165d1840e28a6c33df33248a7236dc2c524ee792b575b2774afe5597e446"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "312d165d1840e28a6c33df33248a7236dc2c524ee792b575b2774afe5597e446"
   end
 
   head do

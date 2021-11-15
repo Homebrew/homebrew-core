@@ -6,18 +6,19 @@ class DockerSquash < Formula
   url "https://files.pythonhosted.org/packages/8c/b4/429be44bdb8ad42bbca4ab4a813f771ef517b00a8d733feb6d62716c4209/docker-squash-1.0.8.tar.gz"
   sha256 "f677bc9129d1156516454b0b334cdc2642f7b9a3328dca3a7477c43ac5ee23a9"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "99a172715fd8867c336673dd127525bcf10074050d0d97173e26abdbe393d0c5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5037e7ed624b62a548cb2d06398c78f4737c55c2203e59654886fef6c7d2ed3f"
-    sha256 cellar: :any_skip_relocation, catalina:      "8eba8e475bd16f666d5dcae8c86c6903a6284714fd39827ef022846436482ddc"
-    sha256 cellar: :any_skip_relocation, mojave:        "e8f93445d63859ffbe3a7b3607f736c8171cbb34f5277dc99f9e5b431726d1bf"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "b808d930d8ac2950359fd87047dec4c8a04b771f54c41c632916761cff647d8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a4e91660d75019c32a5f7fbf28e565b0e703df688f0020c5d4a4574267bea33"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "92068871f7c0e53d5249efd82755cec793d32dbee030546869a50bfeba35b4db"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "92068871f7c0e53d5249efd82755cec793d32dbee030546869a50bfeba35b4db"
+    sha256 cellar: :any_skip_relocation, monterey:       "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
+    sha256 cellar: :any_skip_relocation, catalina:       "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
+    sha256 cellar: :any_skip_relocation, mojave:         "b6ba076a62ad14d79fde9d02af07a14f6785887fd122dbb35d93878ebf159d05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "118bee7b10fea3b61c95c71530c8a511c904bdca1fa5bfa1ea29b5a22bdc1b20"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"

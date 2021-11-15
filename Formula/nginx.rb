@@ -3,8 +3,8 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.21.1.tar.gz"
-  sha256 "68ba0311342115163a0354cad34f90c05a7e8bf689dc498abf07899eda155560"
+  url "https://nginx.org/download/nginx-1.21.4.tar.gz"
+  sha256 "d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581af31df697551f3bfe"
   license "BSD-2-Clause"
   head "https://hg.nginx.org/nginx/", using: :hg
 
@@ -14,11 +14,12 @@ class Nginx < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "7cff8e877fabd919993d99e6a429b60c742231b6946251c3c2673c5eadba53d7"
-    sha256 big_sur:       "8ba34676e573272aa1f73d4dcf6bfddbaa69746a92bf812f6760baf13ddf93dc"
-    sha256 catalina:      "15ca8ac75b077c587ae84fbb78f3bbed5b44307de37485beab9d1813ae22b350"
-    sha256 mojave:        "51c2b45dce74a294f53a04eb51be7e1aa63101b72018bb38648b5161e6b8d0ea"
-    sha256 x86_64_linux:  "3c321881a4fbfc3f475a382ba499b8d581b4b6ce96484ad0ccb2653c9ecfa34b"
+    sha256 arm64_monterey: "15228cc0e51e265e8aa287f44e09217c5afc44dae0ae61947d950f797ced42e8"
+    sha256 arm64_big_sur:  "4dd0e6520d694faecd67208c88e02a65e8ea41ddc57d117809f4cb631a6372d9"
+    sha256 monterey:       "1705176bc483a5fe2dfaa0872a370f6b7d05f2e3283a49c444276ad72673a71e"
+    sha256 big_sur:        "dbae394ff91462356cd7a0c7503310c1978a5d6ffad89eb364a01b3d18cb12d1"
+    sha256 catalina:       "f41c58466bc3104d0b2950227c0a4e17426f08c70e4c2b98513ce0316a329a74"
+    sha256 x86_64_linux:   "3289075c07e1cda0ca9cdc76aea71c54cdfa77ebfd6c4266d78cb640f84c2f9a"
   end
 
   depends_on "openssl@1.1"
@@ -141,31 +142,10 @@ class Nginx < Formula
     EOS
   end
 
-  plist_options manual: "nginx"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/nginx</string>
-              <string>-g</string>
-              <string>daemon off;</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"nginx", "-g", "daemon off;"]
+    keep_alive false
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

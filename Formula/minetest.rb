@@ -15,10 +15,11 @@ class Minetest < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
+    sha256 cellar: :any, monterey: "2c83905a5ce12b80226247f7eb8888ff4ef80c5050998161f510f61667af98d2"
     sha256 cellar: :any, big_sur:  "d391ffa3ef29483219449315ddf30ecd7d20e947bb5780081418dbb383ba938a"
     sha256               catalina: "8c773aabb5faa6617c09f69915a9e3caa49734d2f2117d05ce455597c8803695"
     sha256               mojave:   "e03ebb1d5ac5598e6c9273a89b98b30b95f9640bbb74d0b679e9b56621a06aca"

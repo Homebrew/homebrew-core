@@ -4,7 +4,7 @@ class Procps < Formula
   url "https://gitlab.com/procps-ng/procps/-/archive/v3.3.17/procps-v3.3.17.tar.gz"
   sha256 "efa6f6b4625a795f5c8a3d5bd630a121d270bc8573c5a0b6a6068e73611d6cd5"
   license "GPL-2.0-or-later"
-  head "https://gitlab.com/procps-ng/procps.git"
+  head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
   bottle do
     sha256 x86_64_linux: "11f662e9854db3017ac6b6f1ba3182088e4f8271ac29412d4e7914b5c240a094"

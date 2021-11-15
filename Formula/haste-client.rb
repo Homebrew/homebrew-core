@@ -25,6 +25,7 @@ class HasteClient < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "a97b7aaf38ec730bffa45ffc073ccf4921b4e5714069a21bf63e682a9d21527e"
     sha256 cellar: :any_skip_relocation, sierra:        "746af59be7c010e6e13b67d1f98766c0237061eabca601e5f0cad935e1c648bf"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "675af7af84034776b319fa54375925a68641973c22b22792e5cb4136f3500051"
+    sha256 cellar: :any_skip_relocation, all:           "7ec8f638454dcbf5cdfe7b7e5c3cdbeb0fc6b1de76158f53f32751cb30a1c3a6"
   end
 
   depends_on "ruby" if MacOS.version <= :sierra

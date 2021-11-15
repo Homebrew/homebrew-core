@@ -10,6 +10,7 @@ class Gedit < Formula
     sha256 big_sur:       "7cee9c8a408d1f8bfc28f05475babd0e9d0236cfb2411042c56112c97d6ccbd7"
     sha256 catalina:      "f36d6723b16e6271e0c5327b6d7723ed501c51bd1ab07a4c3c125ed877ff4e99"
     sha256 mojave:        "5a842c19e3ff549f23d6854265423064666686548356d0c188df63b741d49d77"
+    sha256 x86_64_linux:  "43fd433db4952cba82e79d384f06abc89d5dbd46d8ed6b37fca84a002ebadff4"
   end
 
   depends_on "itstool" => :build
@@ -36,6 +37,7 @@ class Gedit < Formula
 
   def install
     ENV["DESTDIR"] = "/"
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/gedit" if OS.linux?
 
     mkdir "build" do
       system "meson", *std_meson_args, ".."
@@ -45,8 +47,8 @@ class Gedit < Formula
   end
 
   def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-qtf", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
+    system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", "-qtf", HOMEBREW_PREFIX/"share/icons/hicolor"
   end
 
   test do
@@ -125,14 +127,16 @@ class Gedit < Formula
       -lgmodule-2.0
       -lgobject-2.0
       -lgtk-3
-      -lgtksourceview-4.0
+      -lgtksourceview-4
       -lpango-1.0
       -lpangocairo-1.0
       -lpeas-1.0
       -lpeas-gtk-1.0
     ]
-    on_macos do
-      flags << "-lintl"
+    flags << if OS.mac?
+      "-lintl"
+    else
+      "-Wl,-rpath,#{lib}/gedit"
     end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

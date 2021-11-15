@@ -6,11 +6,13 @@ class ClutterGtk < Formula
   revision 4
 
   bottle do
-    sha256 arm64_big_sur: "2fe413931adfbb5801835172149dbf10aa1f1cdc669a0a8f973d834a6251fe0f"
-    sha256 big_sur:       "4d0e9365bfeff618403fb3fa6db9319eb684b4c614af80f1ad6ed0f0fec57db1"
-    sha256 catalina:      "4b5c17d3567f1a5c03f98ccc8d9275f07fa733770d4ee741800505b8894442a1"
-    sha256 mojave:        "665ed256370965e0f1e8660bf1f0372a7e5a9ea0fde176c06cb4c8e390a0739c"
-    sha256 high_sierra:   "90929f36d6105b2b046e32f2d661c91305b785da535a7654fde19eb89617008e"
+    sha256 arm64_monterey: "28a3283252422dbc864b7beb4c69e377688c33fbb2a0e535c62a9362264162bf"
+    sha256 arm64_big_sur:  "2fe413931adfbb5801835172149dbf10aa1f1cdc669a0a8f973d834a6251fe0f"
+    sha256 monterey:       "3940367b212abbe0c266ea8982aa82cc890d8ab8f24c2c851362283a0aef5a3f"
+    sha256 big_sur:        "4d0e9365bfeff618403fb3fa6db9319eb684b4c614af80f1ad6ed0f0fec57db1"
+    sha256 catalina:       "4b5c17d3567f1a5c03f98ccc8d9275f07fa733770d4ee741800505b8894442a1"
+    sha256 mojave:         "665ed256370965e0f1e8660bf1f0372a7e5a9ea0fde176c06cb4c8e390a0739c"
+    sha256 high_sierra:    "90929f36d6105b2b046e32f2d661c91305b785da535a7654fde19eb89617008e"
   end
 
   depends_on "gobject-introspection" => :build
@@ -19,6 +21,12 @@ class ClutterGtk < Formula
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gtk+3"
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
 
   def install
     args = %W[

@@ -3,22 +3,27 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/8e/f1/820916db3d3db87cd1794fb5299bbf7400c5867d884648000bb5e907a77b/streamlink-2.3.0.tar.gz"
-  sha256 "1497e6dc5d2fb8c5b17688f20ca2e8989a279de804a4de37d2107af33b9faa04"
+  url "https://files.pythonhosted.org/packages/32/5b/bf70fe6937eb47c301329262abf1fb779e99b60eedaa99787b6dcba30d7c/streamlink-2.4.0.tar.gz"
+  sha256 "e95588e222d1a7bd51e3171cd4bce84fd6f646418537aff37993d40f597810af"
   license "BSD-2-Clause"
-  head "https://github.com/streamlink/streamlink.git"
+  revision 1
+  head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "89726b5936aed2a0b452181559191844d622574beba35c93026af450d2bfed48"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6730a2cce18653bbb2c6fdeea8b87bd270d355de68ba1dc9ab2128149152cae4"
-    sha256 cellar: :any_skip_relocation, catalina:      "d9a280cf58a18e0cb8b86beda544362fb477150d6ca54d07d486a6726367ffd6"
-    sha256 cellar: :any_skip_relocation, mojave:        "87ba357b77549c6e644d5b3847dbb86e305bf389f60c84eb0eb780825095f3f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61e145fd95269cd976ee99f2385056c0bfca3445a7bfc30aef3f32aa76968702"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e51e82fc96dcd17a0f64428eeab1a1527670d899f2f2eb31598ca1086ed33858"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b544c7e3424b069304e83ec79bbb81dc6d69f336945f8bfd146c78f0f3bc9587"
+    sha256 cellar: :any_skip_relocation, monterey:       "e4ae19171610141daabdf3607ba94ad719c09686ec65b5455d1a0c542b892eab"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ea631111fd5875bde840b98af75ae75d2d50cd1e7c047a7067c5b01889e3e0e4"
+    sha256 cellar: :any_skip_relocation, catalina:       "5bf04b65e40c4f0541129a0d09320407ef5a2158af166b38f665048af1922e3d"
+    sha256 cellar: :any_skip_relocation, mojave:         "c18ec882a33aa2c3c169a0da29be3dad0350e5c9e5706b9d6435d2d45728cb21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02f39d9f315037a7a32a209ec1e31541820d7afa1f8f8cc18ce8aad41b0ec68c"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libffi"
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -30,8 +35,8 @@ class Streamlink < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/37/fd/05a04d7e14548474d30d90ad0db5d90ee2ba55cd967511a354cf88b534f1/charset-normalizer-2.0.3.tar.gz"
-    sha256 "c46c3ace2d744cfbdebceaa3c19ae691f53ae621b39fd7570f59d14fb7f2fd12"
+    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
+    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
   end
 
   resource "idna" do
@@ -52,6 +57,11 @@ class Streamlink < Formula
   resource "isodate" do
     url "https://files.pythonhosted.org/packages/b1/80/fb8c13a4cd38eb5021dc3741a9e588e4d1de88d895c1910c6fc8a08b7a70/isodate-0.6.0.tar.gz"
     sha256 "2e364a3d5759479cdb2d37cce6b9376ea504db2ff90252a2e5b7cc89cc9ff2d8"
+  end
+
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/e5/21/a2e4517e3d216f0051687eea3d3317557bde68736f038a3b105ac3809247/lxml-4.6.3.tar.gz"
+    sha256 "39b78571b3b30645ac77b95f7c69d1bffc4cf8c3b157c435a34da72e78c82468"
   end
 
   resource "pycryptodome" do
@@ -80,8 +90,8 @@ class Streamlink < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/58/0d/af54f4732115a20c370f43f179523d189a5cb75711c60ba00b41e163a065/websocket-client-1.1.0.tar.gz"
-    sha256 "b68e4959d704768fa20e35c9d508c8dc2bbc041fd8d267c0d7345cffe2824568"
+    url "https://files.pythonhosted.org/packages/4e/8f/b5c45af5a1def38b07c09a616be932ad49c35ebdc5e3cbf93966d7ed9750/websocket-client-1.2.1.tar.gz"
+    sha256 "8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d"
   end
 
   def install

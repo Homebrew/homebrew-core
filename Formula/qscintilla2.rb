@@ -1,8 +1,8 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.12.1/QScintilla_src-2.12.1.tar.gz"
-  sha256 "a7331c44b5d7320cbf58cb2382c38857e9e9f4fa52c405bd7776c8b6649836c2"
+  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.13.1/QScintilla_src-2.13.1.tar.gz"
+  sha256 "800e3d2071a96bcccd7581346af0d2fe28fc30cd68530cb8302685d013afd54a"
   license "GPL-3.0-only"
 
   # The downloads page also lists pre-release versions, which use the same file
@@ -16,11 +16,12 @@ class Qscintilla2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "fe9548ebe70dbd6d1470cf3394878ccae6bc4aa6dec7516fe6ab2e0e79285580"
-    sha256 cellar: :any, big_sur:       "e48009d9515d8fd172d77f712867cc703838f10c8d82476b391cc16dbcad3414"
-    sha256 cellar: :any, catalina:      "82e1076cc42016998ea0df9c0a699cbc7535cdf800771a2875dabfb392d2e451"
-    sha256 cellar: :any, mojave:        "753b282bb8e1251d1db37b171b3ef5d2b16212091e075c6065021c0417ac3f4d"
+    sha256 cellar: :any,                 arm64_monterey: "c8fe944fd61b3501cfa69b21945e6ba0bee5de83d054aee61189c2160cb88e45"
+    sha256 cellar: :any,                 arm64_big_sur:  "b50669602ec28b423ff37fd752d763154870c88f10a6384ced07e77aeb5d594a"
+    sha256 cellar: :any,                 big_sur:        "39dc87200786163924fbabdabaf1fef976c61fb12d63888047567fabbcfa255b"
+    sha256 cellar: :any,                 catalina:       "4fc7f6b0dea043e74676c249633979f265f2809d4310cef1cdf45b0b5011cb6f"
+    sha256 cellar: :any,                 mojave:         "8401229918ea4b92eca28715baa00174957b6143238b4b2f5dac29a17aaaa5ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b686ed9682a25bce057e4b0d9eb69805ead8b5f929bc72b63e84ae6e6353a6e"
   end
 
   depends_on "pyqt-builder" => :build
@@ -31,11 +32,17 @@ class Qscintilla2 < Formula
   depends_on "python@3.9"
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = []
     spec = ""
 
-    on_macos do
+    if OS.mac?
       # TODO: when using qt 6, modify the spec
       spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
       spec << "-arm64" if Hardware::CPU.arm?

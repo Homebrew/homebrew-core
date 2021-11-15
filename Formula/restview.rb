@@ -10,11 +10,13 @@ class Restview < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cb2eeee507bc57c0b8ea4daaa09beb5953ed23c6368279e0965d5db83da851d6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9470d4f0e710da0bda1cb188f6a26ea8300fad4273c67d8362b95655a3131436"
-    sha256 cellar: :any_skip_relocation, catalina:      "51774d5ba45376854bbccc90a94252cedc5c7e22efbe933305aa55c077a755ed"
-    sha256 cellar: :any_skip_relocation, mojave:        "9afe08d8d8f8f4cd5a64e2de7af17eff2de637442feccdedb36320afb8a0deb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "deffb0171b3411a93bac2ffa760adbcdf7939592f052c1bed930cc21946f05cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "44ac7dd627e9564db2ea168ebab81fe6a857603ccb9400e3259b99e4e84ff6dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb2eeee507bc57c0b8ea4daaa09beb5953ed23c6368279e0965d5db83da851d6"
+    sha256 cellar: :any_skip_relocation, monterey:       "c055e05f3a46f9ea28a97036987db6caca52c91412f34a20b7f4f9db45e2c1ba"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9470d4f0e710da0bda1cb188f6a26ea8300fad4273c67d8362b95655a3131436"
+    sha256 cellar: :any_skip_relocation, catalina:       "51774d5ba45376854bbccc90a94252cedc5c7e22efbe933305aa55c077a755ed"
+    sha256 cellar: :any_skip_relocation, mojave:         "9afe08d8d8f8f4cd5a64e2de7af17eff2de637442feccdedb36320afb8a0deb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "deffb0171b3411a93bac2ffa760adbcdf7939592f052c1bed930cc21946f05cf"
   end
 
   depends_on "python@3.9"

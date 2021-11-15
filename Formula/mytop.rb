@@ -73,9 +73,9 @@ class Mytop < Formula
 
   def install
     res = resources
-    on_macos do
+    if OS.mac? && (MacOS.version < :mojave)
       # Before Mojave, DBI was part of the system Perl
-      res -= [resource("DBI")] if MacOS.version < :mojave
+      res -= [resource("DBI")]
     end
 
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"

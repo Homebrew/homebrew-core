@@ -8,11 +8,13 @@ class Ccze < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "b518785dfd98c9b08ae78f31fb72047d2fd26a8c3e96ceccdceaf6ba27dab97c"
-    sha256 cellar: :any, big_sur:       "c371f991787765a9ac035987d594b478a4a4bfcd1a1581990c3a86edfcdb5067"
-    sha256 cellar: :any, catalina:      "1d7fe7ec73840e77d3f76f6f9d38757e4ab62d9d6a951e6d9ccf83782f73a29a"
-    sha256 cellar: :any, mojave:        "f748556612ca69454aec71083d8cedbb3def5091c9663c7df046c597fe26048f"
-    sha256 cellar: :any, high_sierra:   "fdc8abe565f7cec57dd3461d6840e2676c556fa54eaccada60df4958310ff8a7"
+    sha256 cellar: :any, arm64_monterey: "3f243fe0619da9ccf67d6b9546c93167e0993315fd9f280657b252be707b8fbc"
+    sha256 cellar: :any, arm64_big_sur:  "b518785dfd98c9b08ae78f31fb72047d2fd26a8c3e96ceccdceaf6ba27dab97c"
+    sha256 cellar: :any, monterey:       "4b65eb547ec1ad843ffddebbb23769f80f43258522e145b99803309871c568ae"
+    sha256 cellar: :any, big_sur:        "c371f991787765a9ac035987d594b478a4a4bfcd1a1581990c3a86edfcdb5067"
+    sha256 cellar: :any, catalina:       "1d7fe7ec73840e77d3f76f6f9d38757e4ab62d9d6a951e6d9ccf83782f73a29a"
+    sha256 cellar: :any, mojave:         "f748556612ca69454aec71083d8cedbb3def5091c9663c7df046c597fe26048f"
+    sha256 cellar: :any, high_sierra:    "fdc8abe565f7cec57dd3461d6840e2676c556fa54eaccada60df4958310ff8a7"
   end
 
   # query via the last repo status change `https://api.github.com/repos/madhouse/ccze`

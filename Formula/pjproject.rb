@@ -4,7 +4,7 @@ class Pjproject < Formula
   url "https://github.com/pjsip/pjproject/archive/2.10.tar.gz"
   sha256 "936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de"
   license "GPL-2.0-or-later"
-  head "https://github.com/pjsip/pjproject.git"
+  head "https://github.com/pjsip/pjproject.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,6 +13,7 @@ class Pjproject < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 monterey:     "f6d983f07dbb557a3ced1e4c94b880a5188c9361773dc0565f82595cc63271d3"
     sha256 cellar: :any,                 big_sur:      "b62ae1e3e6b33e093d69968bf0fa6708634075fb500e6cfb88d07a90d47a85cd"
     sha256 cellar: :any,                 catalina:     "ce9e2f67c5ae7148b7c7883ac3c6dbcc9dd7892695af93c02dc44b3e52f109dd"
     sha256 cellar: :any,                 mojave:       "26c273e3e975fc955f3c8ffb03c8332629fd42f123a4144645adb30817f9f428"
@@ -30,10 +31,9 @@ class Pjproject < Formula
     system "make", "install"
 
     arch = Utils.safe_popen_read("uname", "-m").chomp
-    on_macos do
+    if OS.mac?
       bin.install "pjsip-apps/bin/pjsua-#{arch}-apple-darwin#{OS.kernel_version}" => "pjsua"
-    end
-    on_linux do
+    else
       bin.install "pjsip-apps/bin/pjsua-#{arch}-unknown-linux-gnu" => "pjsua"
     end
   end

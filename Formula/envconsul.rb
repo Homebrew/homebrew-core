@@ -2,15 +2,18 @@ class Envconsul < Formula
   desc "Launch process with environment variables from Consul and Vault"
   homepage "https://github.com/hashicorp/envconsul"
   url "https://github.com/hashicorp/envconsul.git",
-      tag:      "v0.11.0",
-      revision: "c3eeb0d39addb0ceb81cca91d4202cfc667fddd7"
+      tag:      "v0.12.0",
+      revision: "24823bde80b386d6f5e4b85c80e17de3e2071e0c"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "e377dbb6afa6b25649a4b4bbfc382a9a6b5a44f5f91ce7d41bbb154be102d746"
-    sha256 cellar: :any_skip_relocation, catalina:     "179a94430ca555ec57a15d21e6b470616ed741a7ae8d636e4e3e72ea1b8f9b7b"
-    sha256 cellar: :any_skip_relocation, mojave:       "2bfcec63fd169c27ffc12ee5acea1da314de51a5be0a6185ef111655c3b79d9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "46165ad07134b8d3efc9757016b4496b5fe12cfd15efd6e8fcd16c4bf90a4e50"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d82ad567bcfdc26801838fa092ce3fc0cb1e20b1aa26588835b6fb9cc105cb18"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a16214f8e5a1f56ca711c9c92366e1e8b98a15cea3029b5391e0929934bb444a"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ce52fc3187c6e9834735b2c55fe8a214d337b22781300343c527bc5ce10e0bf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f840cd513aa64badff578d8edbd3d08d049f54e97c828e9c46b1dcf9ffb1c1fe"
+    sha256 cellar: :any_skip_relocation, catalina:       "3a7f5c2bb6fadca3f7c17b66ef1500656811f9f929cbd1cf42a7994a58d62256"
+    sha256 cellar: :any_skip_relocation, mojave:         "9602825e9692a3080ce96532bcf9c530626335824f84afdeace705125989093e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40c7e21d5e090cffc3bb14106a4b51e45a7ec1bd8c5168aa7d5d0cf0509d82e1"
   end
 
   depends_on "go" => :build

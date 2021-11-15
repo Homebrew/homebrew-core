@@ -10,15 +10,17 @@ class Docbook2x < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "88732999a070c6a9f609c5740fcdf7ed6c014be05555a9aea867e1a69b71aeec"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9a9d1f18cb66569bdebd729119d64719a8e4990ceab99a10a395d61eea3217ae"
-    sha256 cellar: :any_skip_relocation, catalina:      "a7562a999301c0879be6f39bd031bb886e68ca56c8aca08b1977eaf1e2927496"
-    sha256 cellar: :any_skip_relocation, mojave:        "2009056af30fb2a08a751e055fbdec14d49b4bc51da34cb63737b22b4b4d7784"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "81734088203909fc5db96462d14116596058910cd1b7ab67389a7bf93c9bae63"
-    sha256 cellar: :any_skip_relocation, sierra:        "a1110d4bd90cecf9ce8edacc27a3edc84dfcd4db7ab50b67269af0eb6a9bb00a"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "acfdd1c80cb523b213dea0125819b1b6fc783d6d740cc8fc0047f44756b57889"
-    sha256 cellar: :any_skip_relocation, yosemite:      "e3efe4afe190e126174c6e3bec0a9feb4ad37ddd0ecaef778b1e8df8a60e8717"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e054b07a0d7e8817a58b2c656e8f435289cd1d2110d7fae083e1bf79eece522"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3012b908f1a415b3ff679474eb15f97842b96eb61a03ba8d4c68f83c0a9dfba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88732999a070c6a9f609c5740fcdf7ed6c014be05555a9aea867e1a69b71aeec"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c4bec297dbc2c767f605b1f769bdc1f8b7401f38f267e90365f592902db5ebf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9a9d1f18cb66569bdebd729119d64719a8e4990ceab99a10a395d61eea3217ae"
+    sha256 cellar: :any_skip_relocation, catalina:       "a7562a999301c0879be6f39bd031bb886e68ca56c8aca08b1977eaf1e2927496"
+    sha256 cellar: :any_skip_relocation, mojave:         "2009056af30fb2a08a751e055fbdec14d49b4bc51da34cb63737b22b4b4d7784"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "81734088203909fc5db96462d14116596058910cd1b7ab67389a7bf93c9bae63"
+    sha256 cellar: :any_skip_relocation, sierra:         "a1110d4bd90cecf9ce8edacc27a3edc84dfcd4db7ab50b67269af0eb6a9bb00a"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "acfdd1c80cb523b213dea0125819b1b6fc783d6d740cc8fc0047f44756b57889"
+    sha256 cellar: :any_skip_relocation, yosemite:       "e3efe4afe190e126174c6e3bec0a9feb4ad37ddd0ecaef778b1e8df8a60e8717"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e054b07a0d7e8817a58b2c656e8f435289cd1d2110d7fae083e1bf79eece522"
   end
 
   depends_on "docbook"
@@ -46,7 +48,7 @@ class Docbook2x < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
       resources.each do |res|
         res.stage do
@@ -63,9 +65,7 @@ class Docbook2x < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    on_linux do
-      bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
-    end
+    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"] if OS.linux?
   end
 
   test do

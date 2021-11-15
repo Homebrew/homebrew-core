@@ -2,7 +2,7 @@ class Blis < Formula
   desc "BLAS-like Library Instantiation Software Framework"
   homepage "https://github.com/flame/blis"
   license "BSD-3-Clause"
-  head "https://github.com/flame/blis.git"
+  head "https://github.com/flame/blis.git", branch: "master"
 
   stable do
     url "https://github.com/flame/blis/archive/0.8.1.tar.gz"
@@ -26,11 +26,13 @@ class Blis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "971251c831592d168e0ccafb67e47de2430433ea395663c788db7223a5ac6f3e"
-    sha256 cellar: :any,                 big_sur:       "ad2e6862fd4b5a425769c108e7a36e33ac7e7fc77ce699756fe051e68524518d"
-    sha256 cellar: :any,                 catalina:      "b26e5e7deb7b85319fa539a061ff84df842378a902e3695a4f6df63eba9f5cdb"
-    sha256 cellar: :any,                 mojave:        "333cceec593098d68f438ddcfc6415d44cf0af565601c0163496e23bdf4a8aec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7726592ecf1b90f66c73ca7be6f18a76ff9a208887e677e291a81036b467a3e9"
+    sha256 cellar: :any,                 arm64_monterey: "08a927f8360cd8cf29762341a080e86bda1a84098fdd99884136f0a25e10cf2e"
+    sha256 cellar: :any,                 arm64_big_sur:  "971251c831592d168e0ccafb67e47de2430433ea395663c788db7223a5ac6f3e"
+    sha256 cellar: :any,                 monterey:       "3d7e6df045340294770f76b78e015cf7c6e1401f9efe11250c3741a68a8f42f0"
+    sha256 cellar: :any,                 big_sur:        "ad2e6862fd4b5a425769c108e7a36e33ac7e7fc77ce699756fe051e68524518d"
+    sha256 cellar: :any,                 catalina:       "b26e5e7deb7b85319fa539a061ff84df842378a902e3695a4f6df63eba9f5cdb"
+    sha256 cellar: :any,                 mojave:         "333cceec593098d68f438ddcfc6415d44cf0af565601c0163496e23bdf4a8aec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7726592ecf1b90f66c73ca7be6f18a76ff9a208887e677e291a81036b467a3e9"
   end
 
   on_linux do

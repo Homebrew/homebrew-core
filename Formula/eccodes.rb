@@ -1,8 +1,8 @@
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
   homepage "https://confluence.ecmwf.int/display/ECC"
-  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.22.1-Source.tar.gz"
-  sha256 "75c7ee96469bb30b0c8f7edbdc4429ece4415897969f75c36173545242bc9e85"
+  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.23.0-Source.tar.gz"
+  sha256 "cbdc8532537e9682f1a93ddb03440416b66906a4cc25dec3cbd73940d194bf0c"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Eccodes < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "a9ab14fc89f7fb8431e873769b02b03a92a2e6a605b608fb08a4ade32a4aced8"
-    sha256 big_sur:       "92a968f329882ab71b4cd181eba9b369d3a9118d02fdabd8f040d5b0b9119e95"
-    sha256 catalina:      "9b681316cca163189707ca1162df7af30e166151e1c11ad2a00ba75ea57b7120"
-    sha256 mojave:        "9e49cbea962e91b551edc93f5bde6f7f245fe23fb533a64c2f5ec4535576e00c"
-    sha256 x86_64_linux:  "9c736452eb27d57e5a6df19636fab0e216d5237b35dc1bb69c3205135b3d2ce4"
+    sha256 arm64_big_sur: "b16288b8e285a187f91ae6b7cec94face9fc1f28bfc888eb8e1bf50aa74a765b"
+    sha256 big_sur:       "b9bda6733d23098c49062f172ab721c2ccc56e37becf133c1e2d88fad17a904a"
+    sha256 catalina:      "0d7e1a89a8631e9683e5303098be30a549f1369b98350d6475020e2708789f71"
+    sha256 mojave:        "ec525f2dc9352dc64c33be76c8e0c6e24913caf6d7ec0302bc3e830305d6f9b9"
+    sha256 x86_64_linux:  "36ade0ba4eb6d09766097abba7d2cd9d76fdf4b2a4233f782deefc265c3a142b"
   end
 
   depends_on "cmake" => :build
@@ -25,10 +25,6 @@ class Eccodes < Formula
   depends_on "netcdf"
 
   def install
-    # Fix for GCC 10, remove with next version
-    # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=957159
-    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
-
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
     mkdir "build" do
@@ -40,7 +36,7 @@ class Eccodes < Formula
 
     # Avoid references to Homebrew shims directory
     shim_references = [include/"eccodes_ecbuild_config.h", lib/"pkgconfig/eccodes.pc", lib/"pkgconfig/eccodes_f90.pc"]
-    inreplace shim_references, %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
+    inreplace shim_references, Superenv.shims_path/ENV.cc, ENV.cc
   end
 
   test do

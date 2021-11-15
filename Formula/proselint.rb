@@ -3,34 +3,31 @@ class Proselint < Formula
 
   desc "Linter for prose"
   homepage "http://proselint.com"
-  url "https://files.pythonhosted.org/packages/04/ee/60506bd37251f7396d73942e2bd3dac9b788269d46cf1372c5e0602e5682/proselint-0.11.3.tar.gz"
-  sha256 "e92e68b8bbb24dbf535eac59ac69b8b4ae9a0610f4f0dc83c18732150c465abf"
+  url "https://files.pythonhosted.org/packages/a2/be/2c1bcc43d85b23fe97dae02efd3e39b27cd66cca4a9f9c70921718b74ac2/proselint-0.13.0.tar.gz"
+  sha256 "7dd2b63cc2aa390877c4144fcd3c80706817e860b017f04882fbcd2ab0852a58"
   license "BSD-3-Clause"
   head "https://github.com/amperser/proselint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4d55d3cf59433f61715e38ba71aef2f942311040b78aba87cdaf5c74c25f4618"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1e7dc0f85d276cac8a93f4782ad7e9fb04bd32f3ecc4b35d14798acfed6c984d"
-    sha256 cellar: :any_skip_relocation, catalina:      "7eedf6711251d705cfc9ba839393d08dcd4db47cb0ec0d8adb7a1577d8dc7f0f"
-    sha256 cellar: :any_skip_relocation, mojave:        "ba192136fc7438bdc77cf62adaeafb2f9cd44bc626161b2ccdbafeeaac9e11fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d76b590cbea849e4883e8f6684dc2393254850e248acb0a9bd092edb2edb2b99"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86ce440b8382d55169bf8a5088e24123fa4ffbdff93a9bc1294c752de28985d3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7932175feb36420223ffd74c73ea3c4c1a2fbd65ecfcb3070e3168dfe8d6cc34"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e85fb768662e4fbca5d5940138165331cf74c1ff6d9f63468a2d41280224a53"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ba3901b022b0b7fbd1e2cf103630c32e4f2699f21e340e43483cbd2b06ba4dfc"
+    sha256 cellar: :any_skip_relocation, catalina:       "d9a903907f6228bc99fa1ffea34f0bd6d91119a7730fb1e6ea93a074f06a56ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb8027460f8ffaf0acab19e6dbd12291b2115c440ade85105b67a76d302daff7"
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
+    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
   end
 
   resource "future" do
     url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
     sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   def install

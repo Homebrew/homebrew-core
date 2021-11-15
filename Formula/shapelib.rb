@@ -11,13 +11,15 @@ class Shapelib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3f95046988d245291a4fb9973051b5c006500ba3ab0bf2842ae330c18936bdca"
-    sha256 cellar: :any,                 big_sur:       "dfae7491c46ca8ed8b587dd6dfa885b4ec6db8520095b1f1ae44becd28ca76d2"
-    sha256 cellar: :any,                 catalina:      "9800e87eaeeca3eca0d59c3bca555c0211df96f021735251964981ac2b16bd90"
-    sha256 cellar: :any,                 mojave:        "90f9b9b0ccadf93be027e515be356d0b92f4dfb33979f11df9fc7570c3249d0e"
-    sha256 cellar: :any,                 high_sierra:   "f1242aaf566b272f69331d16441171b12d0b4cef8396b56e0a8246fe7618ca68"
-    sha256 cellar: :any,                 sierra:        "0add799fff38395de6300f1b18102270bd269b5dc37714e7cac1873849b2ced7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "673654f2eff65bcd6e03e420cd507b6b45ec5e8dd3419e86c78928b51fe05fe2"
+    sha256 cellar: :any,                 arm64_monterey: "26b130368d9849bc2931523dcf1ea7985a88d52acc2709ce570f3503f2ebad44"
+    sha256 cellar: :any,                 arm64_big_sur:  "3f95046988d245291a4fb9973051b5c006500ba3ab0bf2842ae330c18936bdca"
+    sha256 cellar: :any,                 monterey:       "6a14fe3a6e76220a19e356c3b3c9bd64be88e7fe69a013d088c9ef78f31a83b2"
+    sha256 cellar: :any,                 big_sur:        "dfae7491c46ca8ed8b587dd6dfa885b4ec6db8520095b1f1ae44becd28ca76d2"
+    sha256 cellar: :any,                 catalina:       "9800e87eaeeca3eca0d59c3bca555c0211df96f021735251964981ac2b16bd90"
+    sha256 cellar: :any,                 mojave:         "90f9b9b0ccadf93be027e515be356d0b92f4dfb33979f11df9fc7570c3249d0e"
+    sha256 cellar: :any,                 high_sierra:    "f1242aaf566b272f69331d16441171b12d0b4cef8396b56e0a8246fe7618ca68"
+    sha256 cellar: :any,                 sierra:         "0add799fff38395de6300f1b18102270bd269b5dc37714e7cac1873849b2ced7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "673654f2eff65bcd6e03e420cd507b6b45ec5e8dd3419e86c78928b51fe05fe2"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.1/openmp-12.0.1.src.tar.xz"
-  sha256 "60fe79440eaa9ebf583a6ea7f81501310388c02754dbe7dc210776014d06b091"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/openmp-13.0.0.src.tar.xz"
+  sha256 "4930ae7a1829a53b698255c2c6b6ee977cc364b37450c14ee458793c0d5e493c"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,17 @@ class Libomp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "9b4d71ac4e8a8b8d04819b1bfd155bcb266a9fdf1405b24c9e3801858b08d8bf"
-    sha256 cellar: :any,                 big_sur:       "cba5086bd24f1aaa196900f784d7cf1c3dc0de1f536db2f6dccf571a7850d5d9"
-    sha256 cellar: :any,                 catalina:      "1c84ee05772f5a01ddfbb9ad56c5e1526a5f6fee48b3eeeb732352b9a35fa5d3"
-    sha256 cellar: :any,                 mojave:        "bb25a639e722fe6ab1ede965a5a8854696f40daac2c9c69ad36a8be7f8ae2606"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "732e9e28300c5e0b3fe8de12e5b6617bc8bb39cc401d5a35cffbb305097a70e9"
+    sha256 cellar: :any,                 arm64_monterey: "2a7253a4e9ff0ed48b1ea2cf98f953d17a28037ce3b9cbfb22c0c733918e22e4"
+    sha256 cellar: :any,                 arm64_big_sur:  "13fb59602f7b525b38416cad3661743d178ca8ef7f817b37306842b58510020e"
+    sha256 cellar: :any,                 monterey:       "fe1a6935e1da396268818c653a8fa8c56f34fca1e46636dd95605110cbf8446c"
+    sha256 cellar: :any,                 big_sur:        "be00288f6f2901b633774b5a3127302a34ef0c9ab0588116d0193be2a627683d"
+    sha256 cellar: :any,                 catalina:       "fe6c16f6998e7648b201f461746fb8466324b6eb1184d3ac5ae55a7793f74b91"
+    sha256 cellar: :any,                 mojave:         "145870f8ede6328f26d81b6aa92980b9b74671b36c6f440b02a4ebae39f55239"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40e753d319aa1c0d3f41199f03e91f2a409b9df74eee5503a4ab3967aadeb8b0"
   end
 
   depends_on "cmake" => :build
+  uses_from_macos "llvm" => :build
 
   on_linux do
     keg_only "provided by LLVM, which is not keg-only on Linux"
@@ -27,10 +30,12 @@ class Libomp < Formula
   def install
     # Disable LIBOMP_INSTALL_ALIASES, otherwise the library is installed as
     # libgomp alias which can conflict with GCC's libgomp.
-    system "cmake", ".", *std_cmake_args, "-DLIBOMP_INSTALL_ALIASES=OFF"
+    args = ["-DLIBOMP_INSTALL_ALIASES=OFF"]
+    args << "-DOPENMP_ENABLE_LIBOMPTARGET=OFF" if OS.linux?
+
+    system "cmake", ".", *std_cmake_args, *args
     system "make", "install"
-    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args,
-                         "-DLIBOMP_INSTALL_ALIASES=OFF"
+    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args, *args
     system "make", "install"
   end
 

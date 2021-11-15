@@ -3,7 +3,7 @@ class PathExtractor < Formula
   homepage "https://github.com/edi9999/path-extractor"
   url "https://github.com/edi9999/path-extractor/archive/v0.2.0.tar.gz"
   sha256 "7d6c7463e833305e6d27c63727fec1029651bfe8bca5e8d23ac7db920c2066e7"
-  head "https://github.com/edi9999/path-extractor.git"
+  head "https://github.com/edi9999/path-extractor.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "be6cc1f4d4289cc071b1f5a17ee3c3c3982e9260e833185efa2e68db4f9df08b"

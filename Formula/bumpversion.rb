@@ -8,17 +8,19 @@ class Bumpversion < Formula
   url "https://files.pythonhosted.org/packages/29/2a/688aca6eeebfe8941235be53f4da780c6edee05dbbea5d7abaa3aab6fad2/bump2version-1.0.1.tar.gz"
   sha256 "762cb2bfad61f4ec8e2bdf452c7c267416f8c70dd9ecb1653fd0bbb01fa936e6"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1d69dd65cfe24eae5ab087a4d8907f1e7ac8437911d31c34b5881700fc5ce69e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9fefa3665413e3241a1c796d8363abf903c9c157177dba7277f5dc8d9532a327"
-    sha256 cellar: :any_skip_relocation, catalina:      "a56efe7440a9495e9b4f2d6ef82a2f56e088db459aa680c3ab5368b1b47c17db"
-    sha256 cellar: :any_skip_relocation, mojave:        "18141d47aa00efccaa7e0de803a190abe09549d485e82db5f7af57a40b79aa3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98bc2e4d4aab87c22a59e3aad2778e18a7b69810de3ac7bb94053b07e3eb6ae6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a879b38d1607fa3fdb6351a4e423fe58407a30cc4e1dbc06de2b9bfd8bf62056"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a879b38d1607fa3fdb6351a4e423fe58407a30cc4e1dbc06de2b9bfd8bf62056"
+    sha256 cellar: :any_skip_relocation, monterey:       "67879764a6f7b05d9948a91cad56a18c2a85298037c2dab7c7d92d6b2aa8d534"
+    sha256 cellar: :any_skip_relocation, big_sur:        "67879764a6f7b05d9948a91cad56a18c2a85298037c2dab7c7d92d6b2aa8d534"
+    sha256 cellar: :any_skip_relocation, catalina:       "67879764a6f7b05d9948a91cad56a18c2a85298037c2dab7c7d92d6b2aa8d534"
+    sha256 cellar: :any_skip_relocation, mojave:         "67879764a6f7b05d9948a91cad56a18c2a85298037c2dab7c7d92d6b2aa8d534"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86aa4d813e08f5e3d1fb1381f80b87ce61bd62acc17f3b55cbd085cb2fafee91"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources

@@ -1,24 +1,24 @@
 class Archiver < Formula
   desc "Cross-platform, multi-format archive utility"
   homepage "https://github.com/mholt/archiver"
-  url "https://github.com/mholt/archiver/archive/v3.5.0.tar.gz"
-  sha256 "8f2e3ad68553f6b58bf99e8635ff0953f62ff0a7804da7658954ffaa7d0aaa0a"
+  url "https://github.com/mholt/archiver/archive/v3.5.1.tar.gz"
+  sha256 "b69a76f837b6cc1c34c72ace16670360577b123ccc17872a95af07178e69fbe7"
   license "MIT"
   head "https://github.com/mholt/archiver.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d717896d49eb78330bc10d6cb050cc0c3bf7f89d84f1dd5f4fce3529ced17776"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6bfb5db8669181ff5e16202ae62154973505ff2ee57a67c53aac97409b98e8f0"
-    sha256 cellar: :any_skip_relocation, catalina:      "a61d7f77c7e3a291af4afa1edc6a6059c3f48c4c9828303c805e51e69902caf0"
-    sha256 cellar: :any_skip_relocation, mojave:        "eb27d3455b2ef6e30317f9be5d54e3c15196b8736209ebc5cc8ac95f3058d1ee"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "50d359a1201e04663c8a42b3736c11c9d0f046a814d3ec5af00d0326822474ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "313f339111caeb3fb28bd9eb12b6e34030c10bf8d06058f1687174c374b137da"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9194e883ec240998c4c2ec26a4cc8d79d1ad29964b592ac0cc45c9b6c5da7dd8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a4c576219a90d52a24dec089f2ef3cd900f5d9779d57fc6f6d83c8e2ae7241c"
+    sha256 cellar: :any_skip_relocation, monterey:       "f0c4b8adac0f867744ccde72ed8d83f66bcf098f45e32edf7c1dfd347772ee9f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "74fd6ad65f0b92af3a034874d6317065b7805d98cb945006d05dff0117d179d6"
+    sha256 cellar: :any_skip_relocation, catalina:       "b2a0192ed66099721b7662fe5d772f8a99ecb5c8922270cbc825cdcbb7032378"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "461a212b25cc90af84996b43067bbd096cf343bbe04a39b4aa40d10cb235e238"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-trimpath", "-o", bin/"arc", "cmd/arc/main.go"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/"arc", "cmd/arc/main.go"
   end
 
   test do

@@ -1,4 +1,4 @@
-name: GitHub Actions CI
+name: CI
 
 on:
   push:
@@ -48,6 +48,7 @@ jobs:
       syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
       runners: ${{ steps.check-labels.outputs.runners }}
       fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
+      test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
       timeout-minutes: ${{ steps.check-labels.outputs.timeout-minutes }}
       container: ${{ steps.check-labels.outputs.container }}
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
@@ -74,7 +75,7 @@ jobs:
               core.setOutput('syntax-only', 'false')
             }
 
-            const runners = ["11-arm64", "11", "10.15", "10.14"]
+            const runners = ["12-arm64", "12", "11-arm64", "11", "10.15"]
             if (label_names.includes('CI-linux-self-hosted')) {
               runners.push('linux-self-hosted-1')
             } else {
@@ -88,6 +89,14 @@ jobs:
             } else {
               console.log('No CI-no-fail-fast label found. Stopping tests on first failing matrix build.')
               core.setOutput('fail-fast', 'true')
+            }
+
+            if (label_names.includes('CI-skip-dependents')) {
+              console.log('CI-skip-dependents label found. Skipping brew test-bot --only-formulae-dependents.')
+              core.setOutput('test-dependents', 'false')
+            } else {
+              console.log('No CI-skip-dependents label found. Running brew test-bot --only-formulae-dependents.')
+              core.setOutput('test-dependents', 'true')
             }
 
             if (label_names.includes('CI-long-timeout')) {
@@ -114,33 +123,12 @@ jobs:
             const test_bot_dependents_args = ["--only-formulae-dependents", "--junit"]
             test_bot_dependents_args.push('--testing-formulae=${{needs.tap_syntax.outputs.testing_formulae}}')
 
-            if (label_names.includes('CI-force-arm')) {
-              console.log('CI-force-arm label found. Not passing --skip-unbottled-arm to brew test-bot.')
-            } else {
-              console.log('No CI-force-arm label found. Passing --skip-unbottled-arm to brew test-bot.')
-              test_bot_formulae_args.push('--skip-unbottled-arm')
-            }
-
-            if (label_names.includes('CI-force-linux')) {
-              console.log('CI-force-linux label found. Not passing --skip-unbottled-linux to brew test-bot.')
-            } else {
-              console.log('No CI-force-linux label found. Passing --skip-unbottled-linux to brew test-bot.')
-              test_bot_formulae_args.push('--skip-unbottled-linux')
-            }
-
             if (label_names.includes('CI-test-bot-fail-fast')) {
               console.log('CI-test-bot-fail-fast label found. Passing --fail-fast to brew test-bot.')
               test_bot_formulae_args.push('--fail-fast')
               test_bot_dependents_args.push('--fail-fast')
             } else {
               console.log('No CI-test-bot-fail-fast label found. Not passing --fail-fast to brew test-bot.')
-            }
-
-            if (label_names.includes('CI-skip-dependents')) {
-              console.log('CI-skip-dependents label found. Passing --skip-dependents to brew test-bot.')
-              test_bot_formulae_args.push('--skip-dependents')
-            } else {
-              console.log('No CI-skip-dependents label found. Not passing --skip-dependents to brew test-bot.')
             }
 
             if (label_names.includes('CI-build-dependents-from-source')) {
@@ -207,6 +195,7 @@ jobs:
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git fetch origin ${{github.sha}} '+refs/heads/*:refs/remotes/origin/*'
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git remote set-head origin --auto
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git checkout --force -B master FETCH_HEAD
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git clean -dfx
 
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -247,6 +236,7 @@ jobs:
           rm bottles/steps_output.txt
 
       - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
+        if: ${{fromJson(needs.setup_tests.outputs.test-dependents)}}
         run: |
           if [ "$RUNNER_OS" = 'macOS' ]; then
             cd bottles
@@ -256,11 +246,11 @@ jobs:
           fi
 
       - name: Copy results from container
-        if: always() && runner.os == 'Linux'
+        if: ${{always() && runner.os == 'Linux' && fromJson(needs.setup_tests.outputs.test-dependents) == true}}
         run: docker cp ${{github.sha}}:/tmp/bottles .
 
       - name: Failures summary for brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
-        if: always()
+        if: ${{always() && fromJson(needs.setup_tests.outputs.test-dependents) == true}}
         run: |
           touch bottles/steps_output.txt
           cat bottles/steps_output.txt

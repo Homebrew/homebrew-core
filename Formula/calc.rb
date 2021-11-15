@@ -6,11 +6,13 @@ class Calc < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "20a69341f5baf00f5c9fa73998ce3f02939af44146d6eee3177854488e474df4"
-    sha256 big_sur:       "cdc2b4bce30dccf2193ea5a457dfa02e4ae1ba0af97fce660221c5d3882e79a3"
-    sha256 catalina:      "95bce9b12aab68a4d8e30121e0a0be5e0e7447e09bcc11d9d7e371956c724433"
-    sha256 mojave:        "57ac9fb9353e5bd4dd6bf6f62aca96252a064e51d102fd89389934fefa999b2c"
-    sha256 x86_64_linux:  "2caf96b7bf9165d15f2e5bd36226885e499a3b037e3572a845ec353e786a3bbb"
+    sha256 arm64_monterey: "7d7667676ed0a0a7dc7cb413fb5f1cb9e47c9eeda5e305e7b85e7f1e8d759149"
+    sha256 arm64_big_sur:  "20a69341f5baf00f5c9fa73998ce3f02939af44146d6eee3177854488e474df4"
+    sha256 monterey:       "59d6596872020d97aad74f8b066e772c4f6e348a201c6fdcd14151ddb0d72267"
+    sha256 big_sur:        "cdc2b4bce30dccf2193ea5a457dfa02e4ae1ba0af97fce660221c5d3882e79a3"
+    sha256 catalina:       "95bce9b12aab68a4d8e30121e0a0be5e0e7447e09bcc11d9d7e371956c724433"
+    sha256 mojave:         "57ac9fb9353e5bd4dd6bf6f62aca96252a064e51d102fd89389934fefa999b2c"
+    sha256 x86_64_linux:   "2caf96b7bf9165d15f2e5bd36226885e499a3b037e3572a845ec353e786a3bbb"
   end
 
   depends_on "readline"
@@ -35,9 +37,7 @@ class Calc < Formula
       "READLINE_LIB=-L#{Formula["readline"].opt_lib} -lreadline",
       "READLINE_EXTRAS=-lhistory -lncurses",
     ]
-    on_macos do
-      args << "INCDIR=#{MacOS.sdk_path}/usr/include"
-    end
+    args << "INCDIR=#{MacOS.sdk_path}/usr/include" if OS.mac?
     system "make", "install", *args
 
     libexec.install "#{bin}/cscript"

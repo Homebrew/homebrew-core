@@ -1,8 +1,8 @@
 class Libupnp < Formula
   desc "Portable UPnP development kit"
   homepage "https://pupnp.sourceforge.io/"
-  url "https://github.com/pupnp/pupnp/releases/download/release-1.14.8/libupnp-1.14.8.tar.bz2"
-  sha256 "5457653738a90c560eb230bdcdedef5981a2aab0f7883e31f1fe8db5369820b4"
+  url "https://github.com/pupnp/pupnp/releases/download/release-1.14.12/libupnp-1.14.12.tar.bz2"
+  sha256 "091c80aada1e939c2294245c122be2f5e337cc932af7f7d40504751680b5b5ac"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,11 +11,19 @@ class Libupnp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3fb2f9ad3e9dd3108ec52d81c040a9c71a5edc3579f5eeb87cfc8064e2490891"
-    sha256 cellar: :any,                 big_sur:       "ecca6c90900f7c14df473e92e8c66e0b06c50526436a21f2824208fa2b037c30"
-    sha256 cellar: :any,                 catalina:      "e083db16910342d9febf1bfa88a22bc749934a3040c5a5b21a59a123d358a768"
-    sha256 cellar: :any,                 mojave:        "c98a8a8b387e6e00460ce6e69b0077c8687fb755b37fcc686b050e922f1f1dae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a20df6fc7e018c0d12d7d1eca7dff353c9f98a3f0d92c65da22ed31681275c4e"
+    sha256 cellar: :any,                 arm64_monterey: "e0e28944bb650a4117abad5184f841ea6fab69ed4c51734fb85ec4a2236452e0"
+    sha256 cellar: :any,                 arm64_big_sur:  "e9294a1fc82e762c9b6b58ea597ac2521ee18b20daf52750a57f8c6840c4ef26"
+    sha256 cellar: :any,                 monterey:       "20b34136d8c35fafaab57fd2e34e11ce012c3dd19ecddafdccccc9b85225a4a8"
+    sha256 cellar: :any,                 big_sur:        "b038bdfae801804287fab05ada50d13e12e7b5fa270a962f686ada7231034b07"
+    sha256 cellar: :any,                 catalina:       "dcea4c1c6884035cfe6b8be048f8f7998e295a5d611f7549e87e89c549c9433f"
+    sha256 cellar: :any,                 mojave:         "12fcbdaceb3fd68ee85a4dc9905dee1f92fe656a8b6f90460cf1864249faf24b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43231a7cdf7f0b91510dbd5a94d9f120e4f9cbea9d0b7805878a2986218fd207"
+  end
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install

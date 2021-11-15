@@ -20,6 +20,7 @@ class Ndiff < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "6faf20ce4c88110019c76cc4253cd65e5743fab7cff109fc8a7d41c8f411012e"
     sha256 cellar: :any_skip_relocation, yosemite:      "80adff8ec563059b7f49005c7e567b950ca58b392a4a5db18ae4957fe18b296d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "417d767a85801798bdd56f860a6554abbac5cf980080106ab5767be4c53121ca"
+    sha256 cellar: :any_skip_relocation, all:           "731436f80a687a2e5d2a2d2a53bd338164bbcf828cd01297e14683caf4c93e22"
   end
 
   conflicts_with "nmap", because: "both install `ndiff` binaries"

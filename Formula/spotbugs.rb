@@ -1,12 +1,12 @@
 class Spotbugs < Formula
   desc "Tool for Java static analysis (FindBugs's successor)"
   homepage "https://spotbugs.github.io/"
-  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.4.0/spotbugs-4.4.0.tgz"
-  sha256 "126b952cf248c92fbb7ba07462a71b3400bd1726fed96e179d8a50edd3e40745"
+  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.5.0/spotbugs-4.5.0.tgz"
+  sha256 "327d5e36afa223737e871114e173c6f2d4543e22c6167bc7825001a752a3cf31"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5faab475d122b33738a6d84a3b4562ec4a9c79456067b85b292980db9dbe182f"
+    sha256 cellar: :any_skip_relocation, all: "d18fd2cbe6e45c8ddb737f9568a7a4ce5fff1bf2d48a7dff0252753eceb7a267"
   end
 
   head do
@@ -44,8 +44,8 @@ class Spotbugs < Formula
         }
       }
     EOS
-    system "#{Formula["openjdk"].bin}/javac", "HelloWorld.java"
-    system "#{Formula["openjdk"].bin}/jar", "cvfe", "HelloWorld.jar", "HelloWorld", "HelloWorld.class"
+    system Formula["openjdk"].bin/"javac", "HelloWorld.java"
+    system Formula["openjdk"].bin/"jar", "cvfe", "HelloWorld.jar", "HelloWorld", "HelloWorld.class"
     output = shell_output("#{bin}/spotbugs -textui HelloWorld.jar")
     assert_match(/M V EI.*\nM C UwF.*\n/, output)
   end

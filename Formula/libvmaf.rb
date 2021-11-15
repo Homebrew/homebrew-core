@@ -1,16 +1,18 @@
 class Libvmaf < Formula
   desc "Perceptual video quality assessment based on multi-method fusion"
   homepage "https://github.com/Netflix/vmaf"
-  url "https://github.com/Netflix/vmaf/archive/v2.2.0.tar.gz"
-  sha256 "239e8e70ed2ae7b25f3a6ed9557f28c4ed287d5b1b82ce24da8916106864218f"
+  url "https://github.com/Netflix/vmaf/archive/v2.3.0.tar.gz"
+  sha256 "d8dcc83f8e9686e6855da4c33d8c373f1735d87294edbd86ed662ba2f2f89277"
   license "BSD-2-Clause-Patent"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "f2adac0ebf6a1d228baa816132efa0477bbdf53e3fed586927c17eba0d73d7db"
-    sha256 cellar: :any,                 big_sur:       "903463941bf0fd5dc38c35c3893db9a9c97a587122ba49dd7db98d82e33164a2"
-    sha256 cellar: :any,                 catalina:      "be05df065d1a6b5402fe6d9a2a68e9fb9184f752b125b366b79bc9c5560c0199"
-    sha256 cellar: :any,                 mojave:        "9e6a47e5a4d145b5ed8e2be17de5eadca56425c27dee792310aee1baa9f51c27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5874760e03675b5f171c3707959ef1205d5c82742f4240a36906c59d175454de"
+    sha256 cellar: :any,                 arm64_monterey: "fd67d989436b66303d0ad7cd3a21bcfed79e54f3aeefd4663285edd45128bb67"
+    sha256 cellar: :any,                 arm64_big_sur:  "e1d46041b38687c5d5c93c13652a0866507bd7431768bf69cd9f07ba1d0eb366"
+    sha256 cellar: :any,                 monterey:       "5394cbc0b4ce2506b3c679b4d4fcb066225c305a134f2365735b31cec5738c3e"
+    sha256 cellar: :any,                 big_sur:        "3bcbc07f5f583829f2a176e88d6bf4ce8a0b5c48642777ac81c1e3f25d9c2573"
+    sha256 cellar: :any,                 catalina:       "2fca144593cb7b3eb9236efbc9db26f72ff4d42d1046715fbedbd7f7891a67e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c2cb0d92f2476341e6db584d56b4f3f62ef7b5a628cd273aea438bc45266e19"
   end
 
   depends_on "meson" => :build
@@ -23,6 +25,7 @@ class Libvmaf < Formula
       system "ninja", "-vC", "build"
       system "ninja", "-vC", "build", "install"
     end
+    pkgshare.install "model"
   end
 
   test do

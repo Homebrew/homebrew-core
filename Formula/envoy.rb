@@ -1,22 +1,24 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
+  # Switch to a tarball when the following issue is resolved:
+  # https://github.com/envoyproxy/envoy/issues/2181
   url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.19.0",
-      revision: "68fe53a889416fd8570506232052b06f5a531541"
+      tag:      "v1.20.0",
+      revision: "96701cb24611b0f3aac1cc0dd8bf8589fbdf8e9e"
   license "Apache-2.0"
 
+  # Apple M1/arm64 is pending envoyproxy/envoy#16482
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "ff325521cbdf6b990e33924fe345d55a1fc65286db0b1484557f02a10e0954c0"
-    sha256 cellar: :any_skip_relocation, catalina:     "b0db4468a8794a6a7de0132b64029504921fd8eee9c7f3b224f4461bc5e515f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f4f1c780aeaef9ef6caf889591c98c1b610df2e8b3a6456dcefa979f879408a7"
+    sha256 cellar: :any_skip_relocation, big_sur:      "5d3c90329a1c5b7db6189ac8303616b0e6bc80840ecaa9d3f493a333f4f70f58"
+    sha256 cellar: :any_skip_relocation, catalina:     "f1f2d674693b2ddc193287090801689231f2e0f1197eb941c45fe711e1632e60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3ad1a49852a40f5ab5365f71a43be9c9554b3ae8b47c1df5475a5324decdbfdc"
   end
 
   depends_on "automake" => :build
   depends_on "bazelisk" => :build
   depends_on "cmake" => :build
   depends_on "coreutils" => :build
-  depends_on "go" => :build
   depends_on "libtool" => :build
   depends_on "ninja" => :build
   depends_on macos: :catalina
@@ -39,16 +41,11 @@ class Envoy < Formula
   # error: argument 2 of type 'const uint8_t[32]' with mismatched bound [-Werror=array-parameter=]
   fails_with gcc: "11"
 
-  # Work around xcode 12 incompatibility until envoyproxy/envoy#17393
-  patch do
-    url "https://github.com/envoyproxy/envoy/commit/3b49166dc0841b045799e2c37bdf1ca9de98d5b1.patch?full_index=1"
-    sha256 "e65fe24a29795606ea40aaa675c68751687e72911b737201e9714613b62b0f02"
-  end
-
   def install
-    env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
-    on_linux do
-      env_path = "#{Formula["python@3.9"].opt_libexec}/bin:#{env_path}"
+    env_path = if OS.mac?
+      "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+    else
+      "#{Formula["python@3.9"].opt_libexec}/bin:#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
     end
     args = %W[
       --compilation_mode=opt

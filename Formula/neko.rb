@@ -5,14 +5,16 @@ class Neko < Formula
   sha256 "850e7e317bdaf24ed652efeff89c1cb21380ca19f20e68a296c84f6bad4ee995"
   license "MIT"
   revision 6
-  head "https://github.com/HaxeFoundation/neko.git"
+  head "https://github.com/HaxeFoundation/neko.git", branch: "master"
 
   bottle do
-    sha256                               arm64_big_sur: "db3b62ea32c9b528423997eb79bab7b96463f3074e5452499a1ea87f742129f0"
-    sha256                               big_sur:       "ca0a54255e775f29b6867eda77f2ff115424c77293755847eb8edf4a8d5bb142"
-    sha256                               catalina:      "f1adf8d28ac342d233f018c7263c66072969e97ff4efd7c1e0645b80083332dd"
-    sha256                               mojave:        "49ecf3a704be8b5451af12ce5ccb8bf921141e3243ac525794a61e22c987f18e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "935a76e8f012f4f1522bfaf901cf85bddf875bd22be300e220d59c5bd3ef18c5"
+    sha256                               arm64_monterey: "b39a3edb01683b6c22fbd00a87c428d05b3a57be7cefa30e8a4ac7929120e2c9"
+    sha256                               arm64_big_sur:  "db3b62ea32c9b528423997eb79bab7b96463f3074e5452499a1ea87f742129f0"
+    sha256                               monterey:       "2a46e1f22b62c7d0f7f714d22b2d6f11a56925907dd8af05b6be0d4aaf435466"
+    sha256                               big_sur:        "ca0a54255e775f29b6867eda77f2ff115424c77293755847eb8edf4a8d5bb142"
+    sha256                               catalina:       "f1adf8d28ac342d233f018c7263c66072969e97ff4efd7c1e0645b80083332dd"
+    sha256                               mojave:         "49ecf3a704be8b5451af12ce5ccb8bf921141e3243ac525794a61e22c987f18e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "935a76e8f012f4f1522bfaf901cf85bddf875bd22be300e220d59c5bd3ef18c5"
   end
 
   depends_on "cmake" => :build
@@ -78,14 +80,14 @@ class Neko < Formula
     # Also, no reason for maria-connector to compile its own version of zlib,
     # just link against the system copy.
     mysql_cmake_args = ["-Wno-dev", "-DWITH_EXTERNAL_ZLIB=1"]
-    on_macos do
+    if OS.mac?
       mysql_cmake_args << "-DICONV_LIBRARIES=-liconv"
       mysql_cmake_args << "-DICONV_INCLUDE_DIR="
     end
     inreplace "libs/mysql/CMakeLists.txt", "-Wno-dev", mysql_cmake_args.join(" ")
 
     args = std_cmake_args
-    on_linux do
+    if OS.linux?
       args << "-DAPR_LIBRARY=#{Formula["apr"].opt_lib}"
       args << "-DAPR_INCLUDE_DIR=#{Formula["apr"].opt_include}/apr-1"
       args << "-DAPRUTIL_LIBRARY=#{Formula["apr-util"].opt_lib}"

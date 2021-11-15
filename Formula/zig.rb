@@ -3,30 +3,29 @@ class Zig < Formula
   homepage "https://ziglang.org/"
   license "MIT"
   revision 1
-  head "https://github.com/ziglang/zig.git"
 
   stable do
-    url "https://ziglang.org/download/0.8.0/zig-0.8.0.tar.xz"
-    sha256 "03a828d00c06b2e3bb8b7ff706997fd76bf32503b08d759756155b6e8c981e77"
+    url "https://ziglang.org/download/0.8.1/zig-0.8.1.tar.xz"
+    sha256 "8c428e14a0a89cb7a15a6768424a37442292858cdb695e2eb503fa3c7bf47f1a"
 
-    # Fix compilation of C code on Mojave. Remove at version bump.
-    # https://github.com/ziglang/zig/pull/9427
-    patch do
-      url "https://github.com/ziglang/zig/commit/24bfd7bdddbf045c5568c1bb67a3f754c24eb8c4.patch?full_index=1"
-      sha256 "feda7d03502c073bd9874996453da6961dcf16f5a3e08b86d6df1d4cbc1475a7"
-    end
+    depends_on "llvm@12"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "509462e2ab9377e1a1464e0204bad486e18c32908aca8ae3684d12f5a46039f7"
-    sha256 cellar: :any,                 big_sur:       "8b2243d6f8b4e25848592238ee8134af62d3db2eb855f73796066b96f4d4101e"
-    sha256 cellar: :any,                 catalina:      "c129c5da03f133d5d8ac1b0cf9f21e411778856152f94a488e0dbe2b7c8aafc9"
-    sha256 cellar: :any,                 mojave:        "f5986270bfca4ac26802df56f58c7d836d019bf133b6c885449fa6f088840ec4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65514fee3818165516c30de75546f33e3beb632d401fa5de756b190940fd385a"
+    sha256 cellar: :any,                 arm64_monterey: "018b275bd4e61525d19dc95f065622cac2deeb83a562d6d779414b056db989ce"
+    sha256 cellar: :any,                 arm64_big_sur:  "4b06b5abf72a311162138a852dcadb863974d4c69573dfa13d9857b312010165"
+    sha256 cellar: :any,                 monterey:       "d882ab923be5da7adf934d5ad34f3b6c90907411c896ad78f87841f513afcbfc"
+    sha256 cellar: :any,                 big_sur:        "18e6b29f749642d8a01ce2d9657e206c9b7d3f130264f39f7afde9b9b072e03b"
+    sha256 cellar: :any,                 catalina:       "80fa8f4df5ccc5e0f8b190a8ec86eabd223ec56c756fa5e1821ef8d75d93934f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "effb69c4ee99ffa28c7a927c786565c03f56f99da437026f3788218d962c3ab8"
+  end
+
+  head do
+    url "https://github.com/ziglang/zig.git", branch: "master"
+    depends_on "llvm"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
 
   def install
     system "cmake", ".", *std_cmake_args, "-DZIG_STATIC_LLVM=ON"

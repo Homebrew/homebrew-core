@@ -6,9 +6,11 @@ class Xcinfo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d719be8c45d3b7e6c1eb45b7a9df9245412c61bd5fe972553e6461fa6cf6bc2e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5c1e12e54fa12699b44eb96b3053c44826fc197210e08a195d5f9913ea6592ae"
-    sha256 cellar: :any_skip_relocation, catalina:      "4cd605c355e9c18be2219e5b459847673066ada976afee46c49f4b667c91fba5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b49e2ca52261772a4f1116291d7906d045659797b2ee7fa7fd419417fbd66034"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d719be8c45d3b7e6c1eb45b7a9df9245412c61bd5fe972553e6461fa6cf6bc2e"
+    sha256 cellar: :any_skip_relocation, monterey:       "0ea284f5a8d412b352148c7e538443d1a9f1031c27d52f3004a7f513e2963736"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5c1e12e54fa12699b44eb96b3053c44826fc197210e08a195d5f9913ea6592ae"
+    sha256 cellar: :any_skip_relocation, catalina:       "4cd605c355e9c18be2219e5b459847673066ada976afee46c49f4b667c91fba5"
   end
 
   depends_on xcode: ["12.4", :build]

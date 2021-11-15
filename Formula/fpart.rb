@@ -1,17 +1,18 @@
 class Fpart < Formula
   desc "Sorts file trees and packs them into bags"
   homepage "https://github.com/martymac/fpart/"
-  url "https://github.com/martymac/fpart/archive/fpart-1.2.0.tar.gz"
-  sha256 "ced59d68236d960473b5d9481f3d0c083f10a7be806c33125cc490ef2c1705f8"
+  url "https://github.com/martymac/fpart/archive/fpart-1.4.0.tar.gz"
+  sha256 "da4cd97365a2ebb3d0ee7e634c022eb21321ee5b6ab213d796fcbb01f28d9759"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5280983e1f01c6b66ad61cb100b2d84eef052143458d1fffeb611a1ed217ea96"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9cb6d82cc44bd6e8c4155ce38eae3499c421c38e1fe2c0adee12b99b9b975221"
-    sha256 cellar: :any_skip_relocation, catalina:      "86e086c356acb32a5c69d8f27426b73a766c7eb6afa685f06f9a23449aa14983"
-    sha256 cellar: :any_skip_relocation, mojave:        "3530748c1b13e7c12ab59cb31d97bf0a86d01dda91676225d76bf0b209066bab"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "2dda0b4cbd994c5017392eb43c870a85e7e567a0d13cba179a2786762067e7c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fd591a046e3ae01f92133747e6d76da5d71cf3236d09692736d0e73983ae691"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9953748a9eb170c83a20c8c0706306f27ff4a89ba4302da1115dab7e6ca14082"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d6a63f24931f43d9d9c887f807df5a811c0c5ab0242c7187ca37040358fda1d7"
+    sha256 cellar: :any_skip_relocation, monterey:       "1e01ae4aac80a3a913b1e7e9c97e16567ab320d82cb7856b610db91d597be815"
+    sha256 cellar: :any_skip_relocation, big_sur:        "741db79f38bc38921cd62b0fca57195acb793a50e64586ec68a2a6c8cb596aa0"
+    sha256 cellar: :any_skip_relocation, catalina:       "0b987e9b4eb542e14cd1d894a318f94d0e9d08affa2c694713d909d7d6bd3dc7"
+    sha256 cellar: :any_skip_relocation, mojave:         "b0e2dfd4356d31684bd79f8307217af16cb779448a30c9ad24114673c500e997"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13304c2e16a01c67c6455cc115e8a486c945deccaf430724e87a47c15bee3bd1"
   end
 
   depends_on "autoconf" => :build

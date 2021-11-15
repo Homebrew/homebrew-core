@@ -6,6 +6,7 @@ class Arss < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "0f31b0ca051c5caa089350b30ffd07bed2c24ff2c64dcec6776e19d594b36ad7"
+    sha256 cellar: :any,                 monterey:      "22747b60848d59c6989707efb0373305af7376de07a4e8958426ddff11ff6bc5"
     sha256 cellar: :any,                 big_sur:       "153a648ed0bdec6e1f0abbdbefff2815b793bf79c4967c803cf55a512228dcfa"
     sha256 cellar: :any,                 catalina:      "d84220ffc41768520239228b13a8466493682fa30a670163041caa0b06f449a2"
     sha256 cellar: :any,                 mojave:        "891cda5121a3ea035215f0113d5291fa9afd468e68cc3dc9238b203985fcfe96"

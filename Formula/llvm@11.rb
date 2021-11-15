@@ -5,7 +5,7 @@ class LlvmAT11 < Formula
   sha256 "74d2529159fd118c3eac6f90107b5611bccc6f647fdea104024183e8d5e25831"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 2
+  revision 3
 
   # This should be removed when LLVM 13 is released, so we only check the
   # current version (the `llvm` formula) and one major version before it
@@ -16,11 +16,13 @@ class LlvmAT11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "03e8229453959ce44cc4aa3d04aae599d644a0cd611e96ef0978c331cdb75556"
-    sha256 cellar: :any,                 big_sur:       "a4ba9bdae23b82c7125ca0ab2c538ea9e590e61c3af0e0927912ff46d27f5bed"
-    sha256 cellar: :any,                 catalina:      "a214eaa69c3f978987c281497cdbd98eb7d81372da793a3ae34b11f8910c9288"
-    sha256 cellar: :any,                 mojave:        "6a2a325871e43bcf8a01e0d93d38aaf3ce2bc0977aeb93ef3d3d43fd0dbde4ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efb7231fa6a306df92d325aa7aaf6c1bc3525320dbd0084d7f780eae574d520c"
+    sha256 cellar: :any,                 arm64_monterey: "a0eef7340eed1570d0585eb89935f92cb9c30dc1bbee28c24750267784ddbb9c"
+    sha256 cellar: :any,                 arm64_big_sur:  "0441f32a33dc14393118ff9d047af44d8fa7b87648b09c1e2ffa5c69d3d0c032"
+    sha256 cellar: :any,                 monterey:       "2e2df0f2643ff97e9b3f7d87c610cf76b116d1b82d31e307473e1e8347ecacb6"
+    sha256 cellar: :any,                 big_sur:        "8b9e7e448f801daad56d3180cccf190486bd785c551aeb37300a5296f1d9e81b"
+    sha256 cellar: :any,                 catalina:       "47e26656712ba5efa159d2f42334972bf8c510ffa48f0c6ff35d8e55af1b9d94"
+    sha256 cellar: :any,                 mojave:         "c7cd19b7849a499acd3d68648fadf9c8283ce47bd1706931c2f3223e8c97d8ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fefecb000c832d751022756e68888df5bacce3dcd442515573b080c46859834"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -45,7 +47,7 @@ class LlvmAT11 < Formula
     depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
-    depends_on "libelf" # openmp requires <gelf.h>
+    depends_on "elfutils" # openmp requires <gelf.h>
   end
 
   patch do
@@ -155,16 +157,14 @@ class LlvmAT11 < Formula
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
     end
 
-    on_macos do
+    if OS.mac?
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}"
 
       sdk = MacOS.sdk_path_if_needed
       args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
-    end
-
-    on_linux do
+    else
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
@@ -267,7 +267,7 @@ class LlvmAT11 < Formula
     # Testing default toolchain and SDK location.
     system "#{bin}/clang++", "-v",
            "-std=c++11", "test.cpp", "-o", "test++"
-    on_macos { assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" }
+    assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" if OS.mac?
     assert_equal "Hello World!", shell_output("./test++").chomp
     system "#{bin}/clang", "-v", "test.c", "-o", "test"
     assert_equal "Hello World!", shell_output("./test").chomp

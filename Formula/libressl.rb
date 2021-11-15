@@ -2,9 +2,9 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.3.3.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.3.3.tar.gz"
-  sha256 "a471565b36ccd1a70d0bd7d37c6e95c43a26a62829b487d9d2cdebfe58be3066"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.4.1.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.4.1.tar.gz"
+  sha256 "107ceae6ca800e81cb563584c16afa36d6c7138fade94a2b3e9da65456f7c61c"
   license "OpenSSL"
 
   livecheck do
@@ -13,11 +13,13 @@ class Libressl < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f4fa458d148637619331ff2ed9e58cd6af8aa2930d1c05f0deddc066c9decb66"
-    sha256 big_sur:       "580f06f61b53fcbcc66a55e1a176b581701fb7f83c22bd8d1429520dfd314a8c"
-    sha256 catalina:      "1665bf0da8764d6f3e2be97354db769c6f39fd7b2788429e58a81e6172e6185d"
-    sha256 mojave:        "b4eca6067e1ee105ab1798c35f7415a608a4c23baa316a91b6e855ce99885fe7"
-    sha256 x86_64_linux:  "a88a65bab85c2fd2fdd6ee9186412a895c1997295f4141e1f1e0db11787ae2d8"
+    sha256 arm64_monterey: "b3c161f83a811ebc2d949ebc67d0cc4bf6f93cd89361ac1aeec47ef06dae8532"
+    sha256 arm64_big_sur:  "41f4e9f8cdf03ae83c8fdff6867bbd36127c389004fb89a410630c74dac315f9"
+    sha256 monterey:       "806d3b611485fab207bbeb7126643240adb8582f985f3e6546815953eb968611"
+    sha256 big_sur:        "e3c8dae6f39e42a652df8e66f02a0e581e31697fbfdc7465813306c48f6931d5"
+    sha256 catalina:       "4490e48658eab39495b885811d1762666d6c837013c3f990cda1eebf8bb400fc"
+    sha256 mojave:         "7ce48d13e2e1cae8569598a6d456c8843263547fc1753f2a5869e61fd50c6fa6"
+    sha256 x86_64_linux:   "aa3d726e0bf1159fa3ad3cb1657525e1f37e6fcfafb79ff9be07ccd34d559035"
   end
 
   head do
@@ -51,7 +53,7 @@ class Libressl < Formula
   end
 
   def post_install
-    on_macos do
+    if OS.mac?
       ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
 
       keychains = %w[

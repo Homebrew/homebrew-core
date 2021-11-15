@@ -1,15 +1,15 @@
 class Mpi4py < Formula
   desc "Python bindings for MPI"
   homepage "https://mpi4py.readthedocs.io"
-  url "https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.1.1.tar.gz"
-  sha256 "e11f8587a3b93bb24c8526addec664b586b965d83c0882b884c14dc3fd6b9f5c"
+  url "https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.1.2.tar.gz"
+  sha256 "40dd546bece8f63e1131c3ceaa7c18f8e8e93191a762cd446a8cfcf7f9cce770"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8b7ad2f636c83307d0e95c1e8810d81072354ca20c49726689fd09d053c671d0"
-    sha256 cellar: :any, big_sur:       "b7ca05b0d8ddcc698e1ee29e6108f169cff4f4552ca80842469a63c0a6e90de1"
-    sha256 cellar: :any, catalina:      "9019d4011822668326aec24352f2a743457e727d83d3903b1bee00a1bbfd6751"
-    sha256 cellar: :any, mojave:        "19b22755d25aab224777f996e12cbcb16a8156f1bf98123a607d648b676d7af4"
-    sha256               x86_64_linux:  "25b6d3d54394801fcbb646690cf145e0cae56c9aee9ed43da210c25f65cee914"
+    sha256 cellar: :any, arm64_big_sur: "ffd1fb9532eb300ce207ee90f9639adb66d6a92c04ae858f3e4833f8e45c5e80"
+    sha256 cellar: :any, monterey:      "840c485c2cd77c090e6357e01de11e7d978e07e3af532fd3443616e3c69e595c"
+    sha256 cellar: :any, big_sur:       "373301a51fae0801ddd32dfb31bb78efc33aa2e137440f7cab9968686839cd4b"
+    sha256 cellar: :any, catalina:      "16bd58266cfa05fc6702543dcb39b0a5eba2795db2b01cb3cc5c8ff9186bd2e3"
+    sha256               x86_64_linux:  "8e464b664c635e1a446fa24a0167d1b9bbf97ebfcb0cfe692b0b4bd7d21f145e"
   end
 
   depends_on "cython" => :build
@@ -33,9 +33,9 @@ class Mpi4py < Formula
     system python, "-c", "import mpi4py.MPI"
     system python, "-c", "import mpi4py.futures"
 
-    system "mpiexec", "-n", ENV.make_jobs,
+    system "mpiexec", "-n", ENV.make_jobs, "--use-hwthread-cpus",
            python, "-m", "mpi4py.run", "-m", "mpi4py.bench", "helloworld"
-    system "mpiexec", "-n", ENV.make_jobs,
+    system "mpiexec", "-n", ENV.make_jobs, "--use-hwthread-cpus",
            python, "-m", "mpi4py.run", "-m", "mpi4py.bench", "ringtest", "-l", "10", "-n", "1024"
   end
 end

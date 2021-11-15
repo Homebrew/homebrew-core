@@ -6,6 +6,7 @@ class Libsmf < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "b295f7fa144af4cdd3b8e90f4519e2abe86bec8283ed809bffdabdbec934a0e6"
     sha256 cellar: :any,                 big_sur:      "02243fbcfb6de40f0c04b2341132e19c946be2b9fdf017f1838b3043aeddcedb"
     sha256 cellar: :any,                 catalina:     "fa858ef4b6b179d578663bbdb0d5c7490ea75a3921713e577a7f848faa99b601"
     sha256 cellar: :any,                 mojave:       "bbe040e330a998499e078129097a07f2c5de9fff9c5f26a638e6f5248badda3b"
@@ -16,6 +17,12 @@ class Libsmf < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

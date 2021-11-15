@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.29.1.tar.gz"
-  sha256 "727c088dd7275c769403d5c284cd2152dbc98d0e4ebfd55596f5f8e58c76473a"
+  url "https://github.com/prometheus/prometheus/archive/v2.31.1.tar.gz"
+  sha256 "869a8be315721115be628f766ec3ff71aa50f1a027cee776ea54d7ba070a5026"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,12 @@ class Prometheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "50ff97cc416ee0309dd9668bb25525f2a89c7beac661deaa0a7583f33c780623"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c1423d4804ba416ccd034630205181fb882ec7fbf9818eb0ec5ebff3ab5d682b"
-    sha256 cellar: :any_skip_relocation, catalina:      "0bde01c5b76be229c324b920bc4553bd24c81ae43d124144be4eccc55874bf55"
-    sha256 cellar: :any_skip_relocation, mojave:        "7e34008c2372c3c754d6c51e7550d254c755722839d19f2b998c863c6666e7ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b280a87f8926cf91e4e74c6f66216b3c9209ea491bebf2451c3cd3ad07f28a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f5703657b49c2f3e4b90bd6fe47921386cc6f9360d7d092564e877c44f9258e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f727d9ffcaa74c371d893635550229c24ee71faf0dbe6982a94cb6e064c4f80e"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d6dd4581a6f6b48bbb4bb827013d1ad2e9c9d62ee9ae948b49fe8e1496cfe27"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d3e6f30242f6a82d6bfd45dcaf5e545be4598d25ea9ed0406f1fdef71b915d58"
+    sha256 cellar: :any_skip_relocation, catalina:       "451a4aa54b431ff81b1f0da3166a6a660f67a0ef95e1801907856a353885b2bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "817cd8df03fadf69b53cedd8e357927babb0c5938c9efbe1f1a2772312f630b8"
   end
 
   depends_on "go" => :build
@@ -23,6 +24,8 @@ class Prometheus < Formula
   depends_on "yarn" => :build
 
   def install
+    ENV.deparallelize
+    ENV.prepend_path "PATH", Formula["node"].opt_libexec/"bin"
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
 

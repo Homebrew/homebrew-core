@@ -5,7 +5,7 @@ class Xcprojectlint < Formula
       tag:      "0.0.6",
       revision: "d9dad85847f5ee9b2143565a17d9066bb44b4b29"
   license "Apache-2.0"
-  head "https://github.com/americanexpress/xcprojectlint.git"
+  head "https://github.com/americanexpress/xcprojectlint.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5233bd7427141a2a3aaac3979661ececab9babacc18b4b4af258f45a87f5ef6"

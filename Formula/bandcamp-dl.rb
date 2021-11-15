@@ -5,7 +5,7 @@ class BandcampDl < Formula
   homepage "https://github.com/iheanyi/bandcamp-dl"
   license "Unlicense"
   revision 6
-  head "https://github.com/iheanyi/bandcamp-dl.git"
+  head "https://github.com/iheanyi/bandcamp-dl.git", branch: "master"
 
   stable do
     url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
@@ -25,12 +25,14 @@ class BandcampDl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "add76c38806f7f310dd34946916d70cb4db029c4ef3694cc64592deb9921dc2b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d0e19f971b88b0ff7e673f453e0d88913f82e4f8d1c4accda8321092fceb68bc"
-    sha256 cellar: :any_skip_relocation, catalina:      "ee51b1cdb255665578251bd7081ae2a01abcca24d48d72eed076b9a8794af58c"
-    sha256 cellar: :any_skip_relocation, mojave:        "d416f44eae62f3a83be9ea4312cb244581772df264c9c8156165dde038144f56"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "f1d7e4a182af86854f3218cf6812fa7975d922a0ee3e8c3b5c9ee16741b0eb1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a605f8c202f0bb0e6609af7f934ef378c544752417aa20a2a33fad1173a6f54"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "99b87f34f59977248e8cef4bcf8a4280f94a4c5ed27433085f40826c08257ede"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "add76c38806f7f310dd34946916d70cb4db029c4ef3694cc64592deb9921dc2b"
+    sha256 cellar: :any_skip_relocation, monterey:       "f506a16d56064a678c48ec014f6ace5171525dccc1496894b1daac2971db2bf0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d0e19f971b88b0ff7e673f453e0d88913f82e4f8d1c4accda8321092fceb68bc"
+    sha256 cellar: :any_skip_relocation, catalina:       "ee51b1cdb255665578251bd7081ae2a01abcca24d48d72eed076b9a8794af58c"
+    sha256 cellar: :any_skip_relocation, mojave:         "d416f44eae62f3a83be9ea4312cb244581772df264c9c8156165dde038144f56"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "f1d7e4a182af86854f3218cf6812fa7975d922a0ee3e8c3b5c9ee16741b0eb1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a605f8c202f0bb0e6609af7f934ef378c544752417aa20a2a33fad1173a6f54"
   end
 
   depends_on "python@3.9"

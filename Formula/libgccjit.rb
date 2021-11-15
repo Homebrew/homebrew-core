@@ -22,6 +22,7 @@ class Libgccjit < Formula
 
   bottle do
     sha256 arm64_big_sur: "7ea976a3eac574118aa769d054443ffb1c1987c6ca431d2ea6b2a91c05e99604"
+    sha256 monterey:      "eb84ecdbf1eb34fe4cc916f20156e1214f5fd4aa4b9e862804519878534d02be"
     sha256 big_sur:       "a2aea5ac05ce16b497cd7f508ecda8f592aa387e8efc1544e8ed5ca5d72a535f"
     sha256 catalina:      "2aaa68904eff16c3608e20f71ffc167c3e47df6db8c403acd706cc5c38b1c960"
     sha256 mojave:        "47ae6d2fc53939abf4fe94dc282f280a64d2268091c0b8497aba3bea0c8157eb"
@@ -41,6 +42,12 @@ class Libgccjit < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  # Darwin 21 (Monterey) support
+  patch do
+    url "https://github.com/iains/gcc-darwin-arm64/commit/20f61faaed3b335d792e38892d826054d2ac9f15.patch?full_index=1"
+    sha256 "c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b"
+  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.

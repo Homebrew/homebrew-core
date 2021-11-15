@@ -6,6 +6,7 @@ class Wput < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "39c0ebbfc7502644b9df207fae398036caef7cfcee63d340776d036893964610"
     sha256 cellar: :any_skip_relocation, big_sur:      "2a5d49be96808777f249d96b6f86e2e0e0e301be0e929ba1eaea99cf79cacf42"
     sha256 cellar: :any_skip_relocation, catalina:     "77703d5dfb1bde183ccc207ee5e3f14b1a677acc697806a2b16f00c56cc0595e"
     sha256 cellar: :any_skip_relocation, mojave:       "563c5204880172786cbbfc75dafa818e670ac5d1a67fdbe8bea1dd2588587eab"

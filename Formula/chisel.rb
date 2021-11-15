@@ -4,7 +4,7 @@ class Chisel < Formula
   url "https://github.com/facebook/chisel/archive/2.0.1.tar.gz"
   sha256 "6f019d5e7ab5eb06542a9eccbbe29e7d26165d3676828a32e143575ff102d5f9"
   license "MIT"
-  head "https://github.com/facebook/chisel.git"
+  head "https://github.com/facebook/chisel.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "bd381685bf1bf3682e51c355acbca980b35659b8161f226329b3a0196aab55df"

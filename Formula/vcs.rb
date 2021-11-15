@@ -11,10 +11,13 @@ class Vcs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5a12b2c51afec7626a44463cd9145bf47819e8561f05194f2f17ea8eec0459c9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f13c9ce9291572d343bb3411e059601aa71fc4776138f13d33941653aab4dfb4"
-    sha256 cellar: :any_skip_relocation, catalina:      "3ae09912577433e9aee40da787b21b278d2e4d625454e6a554a10dfd71a3cb82"
-    sha256 cellar: :any_skip_relocation, mojave:        "2100a37453706602e0bd5941c7fb343cf64659493b27889957bad498934c6daf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "032fbce3c72e8ea03c3b4fbcde03f391d7c9df149ae5b664618d7e5b2a265bce"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5a12b2c51afec7626a44463cd9145bf47819e8561f05194f2f17ea8eec0459c9"
+    sha256 cellar: :any_skip_relocation, monterey:       "67aafd60a6d2b32a6bb487860c1ba6e6add8e082e9e6b5d4724d9932849940ce"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f13c9ce9291572d343bb3411e059601aa71fc4776138f13d33941653aab4dfb4"
+    sha256 cellar: :any_skip_relocation, catalina:       "3ae09912577433e9aee40da787b21b278d2e4d625454e6a554a10dfd71a3cb82"
+    sha256 cellar: :any_skip_relocation, mojave:         "2100a37453706602e0bd5941c7fb343cf64659493b27889957bad498934c6daf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "032fbce3c72e8ea03c3b4fbcde03f391d7c9df149ae5b664618d7e5b2a265bce"
   end
 
   depends_on "ffmpeg"

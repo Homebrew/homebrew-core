@@ -5,7 +5,7 @@ class Sysbench < Formula
   sha256 "e8ee79b1f399b2d167e6a90de52ccc90e52408f7ade1b9b7135727efe181347f"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/akopytov/sysbench.git"
+  head "https://github.com/akopytov/sysbench.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "8f5fd6827291b2eb5f3a5b4c842a059182802d2ad97dcbd894046e5b2750914f"

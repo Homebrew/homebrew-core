@@ -1,16 +1,17 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.13.1/deno_src.tar.gz"
-  sha256 "d35d2e09106aa3ce8afde6f5be7663eb775f073a2494bf0e37526e6377b04d3b"
+  url "https://github.com/denoland/deno/releases/download/v1.16.1/deno_src.tar.gz"
+  sha256 "62e78cb284549f730b5ef79267a35d7798151046f3b467f22fe89beee99b137e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "767d084741d236dd2ead5b98c9eeb5ea6a7c5b3e678098735e1861e6ac168a4b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1a87f331f79ae3242b1e8aa6c63cec6d2d50fd9fff011bbc1dc0af1bcfdb2b70"
-    sha256 cellar: :any_skip_relocation, catalina:      "8e151a51fd116096a27ae27050823c89556d1f67d9aea5e8c5b8718ad0217973"
-    sha256 cellar: :any_skip_relocation, mojave:        "913dd4b70f2852e82add752b412342b3bc9fd3d86151d11f9be7c7e4affb6fe1"
-    sha256                               x86_64_linux:  "6dd1299cd145eaaccf931df057425281f6f9582a97c15e35d53f205a9053d00d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b85bc730c44933824d5fd9e43b89380bd62582d1a80a336ca8935257c210f48a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c6b50444e6545d298162990297c1d87bd7ca84c3c144ded3f7ecc4332e8558bb"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac7a187004c50a190878732aa33b00fcfa720d88e015089a0e82d311849b9f86"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3e2040b0061b2459d45d27bb0643d1f2634c80b1c126d3c902c6b72802d9f4c5"
+    sha256 cellar: :any_skip_relocation, catalina:       "63f01de7fc5c7ef9c0c6e0ac63f5ae146b0e335c483bb48062aa670e3f235ee7"
+    sha256                               x86_64_linux:   "9ea202908a44ae835f573ac56f4575d368583ede670e955acbbd3729d95178ab"
   end
 
   depends_on "llvm" => :build
@@ -26,6 +27,7 @@ class Deno < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "gcc" => :test # CompilerSelectionError: deno cannot be built with any available compilers.
     depends_on "glib"
   end
 
@@ -42,9 +44,9 @@ class Deno < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac? && (MacOS.version < :mojave)
       # Overwrite Chromium minimum SDK version of 10.15
-      ENV["FORCE_MAC_SDK_MIN"] = MacOS.version if MacOS.version < :mojave
+      ENV["FORCE_MAC_SDK_MIN"] = MacOS.version
     end
 
     # env args for building a release build with our python3, ninja and gn

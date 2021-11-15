@@ -5,7 +5,7 @@ class Nwchem < Formula
   version "7.0.2"
   sha256 "d9d19d87e70abf43d61b2d34e60c293371af60d14df4a6333bf40ea63f6dc8ce"
   license "ECL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://github.com/nwchemgit/nwchem.git"
@@ -13,16 +13,28 @@ class Nwchem < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "97b96ea00d1c114e5e01b898f3c3874904bf9fa75325b15f97ea89556a52ab56"
-    sha256 cellar: :any, catalina: "f1a523baa98353375c7770fa30b03f8a9bce2c60b9e347e5fe790b0a1274c4fd"
-    sha256 cellar: :any, mojave:   "53bdde9b33e8a4ff4d954899bb71371e40a9b2e6a495cb57c169f9df65855863"
+    sha256 cellar: :any, monterey: "bf4b2dfa17eb48b600343b6488980fd8ef988cd20bab9ad67b7e5abd82c0f076"
+    sha256 cellar: :any, big_sur:  "e652f67d76cad24fc36ca61c54fec440692c493217d857604f180244e647ebab"
+    sha256 cellar: :any, catalina: "c94e9afb94a3c8f8ab43bf4ffad7d1004ddd696dc56f68dfb3624023c44c0190"
   end
 
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "openblas"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "scalapack"
+
+  # patches for compatibility with python@3.10
+  # https://github.com/nwchemgit/nwchem/issues/271
+  patch do
+    url "https://github.com/nwchemgit/nwchem/commit/638401361c6f294164a4f820ff867a62ac836fd5.patch?full_index=1"
+    sha256 "20516447b75bde548eb7e40faafcc5d310e8236a7cd3e44f53a753ac1312530e"
+  end
+
+  patch do
+    url "https://github.com/nwchemgit/nwchem/commit/cd0496c6bdd58cf2f1004e32cb39499a14c4c677.patch?full_index=1"
+    sha256 "1ff3fdacdebb0f812f6f14c423053a12f2389b0208b8809f3ab401b066866ffc"
+  end
 
   def install
     pkgshare.install "QA"

@@ -6,6 +6,7 @@ class GrinWallet < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "1720cdcdb2a585aa588e3d20eafe0bde5924e844b14bc59fdbddeccdc8f42ec8"
     sha256 cellar: :any_skip_relocation, big_sur:      "a0dfda70b5c6cf1ed883e5af6b61c01aea7ddf18f6f22038aab71e06b5b9801a"
     sha256 cellar: :any_skip_relocation, catalina:     "4b43f745f1b82d9390cdaf4055c9d65e6bea850fe9ad7ebd2818789c33c45dbc"
     sha256 cellar: :any_skip_relocation, mojave:       "3ce2c42866c3d02c527fac13c2393af01eabb9c9591ef25d5503aca073863f50"
@@ -15,10 +16,10 @@ class GrinWallet < Formula
   depends_on "rust" => :build
 
   uses_from_macos "llvm" => :build # for libclang
-  uses_from_macos "openssl@1.1"
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "openssl@1.1" # Uses Secure Transport on macOS
   end
 
   # Fix build on Rust 1.53.0+. Remove in the next release.
@@ -26,9 +27,7 @@ class GrinWallet < Formula
   patch :DATA
 
   def install
-    on_linux do
-      ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
-    end
+    ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang" if OS.linux?
     system "cargo", "install", *std_cargo_args
   end
 
@@ -72,7 +71,7 @@ index 78e4c51..e924625 100644
 @@ -496,6 +498,12 @@ version = "0.1.10"
  source = "registry+https://github.com/rust-lang/crates.io-index"
  checksum = "4785bdd1c96b2a846b2bd7cc02e86b6b3dbf14e7e53446c4f54c92a361040822"
- 
+
 +[[package]]
 +name = "cfg-if"
 +version = "1.0.0"
@@ -89,7 +88,7 @@ index 78e4c51..e924625 100644
 - "cfg-if",
 + "cfg-if 0.1.10",
  ]
- 
+
  [[package]]
 @@ -633,7 +641,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
  checksum = "058ed274caafc1f60c4997b5fc07bf7dc7cca454af7c6e81edffe5f33f70dace"
@@ -117,7 +116,7 @@ index 78e4c51..e924625 100644
 + "cfg-if 0.1.10",
   "lazy_static",
  ]
- 
+
 @@ -794,7 +802,7 @@ version = "2.0.2"
  source = "registry+https://github.com/rust-lang/crates.io-index"
  checksum = "13aea89a5c93364a98e9b37b2fa237effbb694d5cfe01c5b70941f7eb087d5e3"
@@ -126,7 +125,7 @@ index 78e4c51..e924625 100644
 + "cfg-if 0.1.10",
   "dirs-sys",
  ]
- 
+
 @@ -804,7 +812,7 @@ version = "1.0.1"
  source = "registry+https://github.com/rust-lang/crates.io-index"
  checksum = "1cbcf9241d9e8d106295bd496bbe2e9cffd5fa098f2a8c9e2bbcbf09773c11a8"
@@ -135,7 +134,7 @@ index 78e4c51..e924625 100644
 + "cfg-if 0.1.10",
   "dirs-sys-next",
  ]
- 
+
 @@ -958,7 +966,7 @@ version = "1.0.16"
  source = "registry+https://github.com/rust-lang/crates.io-index"
  checksum = "68c90b0fc46cf89d227cc78b40e494ff81287a92dd07631e5af0d06fe3cf885e"
@@ -155,7 +154,7 @@ index 78e4c51..e924625 100644
   "wasi",
  ]
 @@ -1851,13 +1859,13 @@ checksum = "b294d6fa9ee409a054354afc4352b0b9ef7ca222c69b8812cbea9e7d2bf3783f"
- 
+
  [[package]]
  name = "lexical-core"
 -version = "0.7.4"
@@ -179,7 +178,7 @@ index 78e4c51..e924625 100644
 + "cfg-if 0.1.10",
   "serde",
  ]
- 
+
 @@ -2052,7 +2060,7 @@ version = "0.6.22"
  source = "registry+https://github.com/rust-lang/crates.io-index"
  checksum = "fce347092656428bc8eaf6201042cb551b8d67855af7374542a92a0fbfcac430"
@@ -232,7 +231,7 @@ index 78e4c51..e924625 100644
 - "cfg-if",
 + "cfg-if 0.1.10",
  ]
- 
+
  [[package]]
 @@ -2978,7 +2986,7 @@ version = "6.2.0"
  source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -287,4 +286,3 @@ index 78e4c51..e924625 100644
 + "cfg-if 0.1.10",
   "wasm-bindgen-macro",
  ]
- 

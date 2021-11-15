@@ -1,26 +1,20 @@
 class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
+  url "https://download.qemu.org/qemu-6.1.0.tar.xz"
+  sha256 "eebc089db3414bbeedf1e464beda0a7515aad30f73261abc246c9b27503a3c96"
   license "GPL-2.0-only"
-  head "https://git.qemu.org/git/qemu.git"
-
-  stable do
-    url "https://download.qemu.org/qemu-6.0.0.tar.xz"
-    sha256 "87bc1a471ca24b97e7005711066007d443423d19aacda3d442558ae032fa30b9"
-
-    # remove in next release
-    patch do
-      url "https://git.qemu.org/?p=qemu.git;a=patch;h=75eebe0b1f15464d19a39c4186bfabf328ab601a"
-      sha256 "9f4db8c6f80f4a87baf1b778fea62bbad89db9db5fd47548c2d22e5475edd910"
-    end
-  end
+  revision 1
+  head "https://git.qemu.org/git/qemu.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "3fcae0fc1d2a2f93fb2822fbed398b34170b0c142fadebc149e27988e68bcf3e"
-    sha256 big_sur:       "93b55db46955010ccb2e017bad0b5bcd6cfb663261271fcead604ebfc008a445"
-    sha256 catalina:      "936594517984109e17548df23a38eab142df9d9f2aba2b73db5fc1154d7a2a81"
-    sha256 mojave:        "77413fd07a33641ecaf46a41dd04895d75c0f2cd6e12a9722afa5cecce209b53"
-    sha256 x86_64_linux:  "4794ac6d16b2995b6ba064b20c0ee63df5d51fcc19c0df2b9f89374fad37f1f9"
+    sha256 arm64_monterey: "da4ef0870a91f46aff0c7ad70e55b7a50f42bc2c3987964bd0bc309d2045b9df"
+    sha256 arm64_big_sur:  "94b094a62401c3384e57c572f1009545bd94765426ba39a7b0878cb883d0220a"
+    sha256 monterey:       "77d4932355c38028915d640bc74936f5a7b4c2bb731177914d0275239b996d22"
+    sha256 big_sur:        "5213e72d5dc5641593b415f5e37618cbd3d1e291d25c4e9478c86b5b8a9c8f08"
+    sha256 catalina:       "561fa5f3d141ae025fe5e611957af4b33ff9b5df614e9a307fecce1645fb3170"
+    sha256 mojave:         "5d938b8949e5d2cf4d41cca27ce4bfd5cfc17dc27f0ec45b6e8b27ab99cc2e87"
+    sha256 x86_64_linux:   "a1447609f66aeaf33aefb8f9bbe3119b58a24374e3c4a102ec173128229c4f09"
   end
 
   depends_on "libtool" => :build
@@ -42,10 +36,23 @@ class Qemu < Formula
   depends_on "snappy"
   depends_on "vde"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
   resource "test-image" do
     url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/FD12FLOPPY.zip"
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
+  end
+
+  if Hardware::CPU.arm?
+    patch do
+      url "https://patchwork.kernel.org/series/548227/mbox/"
+      sha256 "5b9c9779374839ce6ade1b60d1377c3fc118bc43e8482d0d3efa64383e11b6d3"
+    end
   end
 
   def install
@@ -72,9 +79,7 @@ class Qemu < Formula
     # Samba installations from external taps.
     args << "--smbd=#{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd"
 
-    on_macos do
-      args << "--enable-cocoa"
-    end
+    args << "--enable-cocoa" if OS.mac?
 
     system "./configure", *args
     system "make", "V=1", "install"
@@ -95,7 +100,6 @@ class Qemu < Formula
     assert_match expected, shell_output("#{bin}/qemu-system-mips64 --version")
     assert_match expected, shell_output("#{bin}/qemu-system-mips64el --version")
     assert_match expected, shell_output("#{bin}/qemu-system-mipsel --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-moxie --version")
     assert_match expected, shell_output("#{bin}/qemu-system-nios2 --version")
     assert_match expected, shell_output("#{bin}/qemu-system-or1k --version")
     assert_match expected, shell_output("#{bin}/qemu-system-ppc --version")

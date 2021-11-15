@@ -3,20 +3,21 @@ class Sqlmap < Formula
 
   desc "Penetration testing for SQL injection and database servers"
   homepage "https://sqlmap.org"
-  url "https://github.com/sqlmapproject/sqlmap/archive/1.5.8.tar.gz"
-  sha256 "a4302858bcf7791334e8f7165885369898330aa547888db0e73576b53f96771d"
+  url "https://github.com/sqlmapproject/sqlmap/archive/1.5.11.tar.gz"
+  sha256 "69b91d6bba6d053b300a89692d5ebe98cc3ce9803d5f25e600a31943afa7fc6e"
   license "GPL-2.0-or-later"
-  head "https://github.com/sqlmapproject/sqlmap.git"
+  head "https://github.com/sqlmapproject/sqlmap.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3b409785b9e4fb5f3a6f11c8be9c859f222b4dd64bff4d81e4d80195f66bb03"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f75599f7a49b4a0a10c201a3b9874c5f45fd6bda26ba96855e687103a1fbb9b3"
-    sha256 cellar: :any_skip_relocation, catalina:      "f75599f7a49b4a0a10c201a3b9874c5f45fd6bda26ba96855e687103a1fbb9b3"
-    sha256 cellar: :any_skip_relocation, mojave:        "f75599f7a49b4a0a10c201a3b9874c5f45fd6bda26ba96855e687103a1fbb9b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e3078d54361bde6f22fc6e0e0b6a35e94b334e11994aaf5ae513ffee5d42937"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e664309b75817cd5f20479354c423452de5e222305c2faf34e444b220f52cbbd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e664309b75817cd5f20479354c423452de5e222305c2faf34e444b220f52cbbd"
+    sha256 cellar: :any_skip_relocation, monterey:       "630cbd04f0c49fbfc5a367a3229fb47dfc39dbcaf554aee4fe58cd04e0cc640a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "630cbd04f0c49fbfc5a367a3229fb47dfc39dbcaf554aee4fe58cd04e0cc640a"
+    sha256 cellar: :any_skip_relocation, catalina:       "630cbd04f0c49fbfc5a367a3229fb47dfc39dbcaf554aee4fe58cd04e0cc640a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a910cf0644e3aaf7f9259356630270f38ccbeccc3f2395853511797130a9272d"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "sqlite" => :test
 

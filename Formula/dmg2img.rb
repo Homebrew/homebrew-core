@@ -12,13 +12,15 @@ class Dmg2img < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "11f7f409cae53668c66f6416581d9e33bd333aa544cdb53ca90e92684e5c7968"
-    sha256 cellar: :any,                 big_sur:       "e1df6e7db928dd7e5d865968a527e310a7d1cad6f68c5a72c3bd717b75cef325"
-    sha256 cellar: :any,                 catalina:      "e16b42ead321d5e0c85a98592154ef13a2206355a13cfe021735653a1dd995be"
-    sha256 cellar: :any,                 mojave:        "fb90741dc01f5c7b115c9d5bf142e36a90d7cf0995ecb4a5183150ec6d6161ac"
-    sha256 cellar: :any,                 high_sierra:   "367ab961e50114debc983e5665443ee8fa5a85a2b4fab024753f38df48fb26f1"
-    sha256 cellar: :any,                 sierra:        "8616423fd5b0109c66a000932b2aa5bf4f3979c5a065617e8ef7dd4ae0ee820b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "352d7b94084707e2138aa53245f2e3325c36c2faf21c7361fc81b0dbb9d8cabf"
+    sha256 cellar: :any,                 arm64_monterey: "fdcd63fd0d82e4a0d93e65cb6b31ade055f35eced526418c8f5bec74d9b66b74"
+    sha256 cellar: :any,                 arm64_big_sur:  "11f7f409cae53668c66f6416581d9e33bd333aa544cdb53ca90e92684e5c7968"
+    sha256 cellar: :any,                 monterey:       "b367b71768aff5e3299911d68d69cd63aa76179caaf631afad1a72f871ed4682"
+    sha256 cellar: :any,                 big_sur:        "e1df6e7db928dd7e5d865968a527e310a7d1cad6f68c5a72c3bd717b75cef325"
+    sha256 cellar: :any,                 catalina:       "e16b42ead321d5e0c85a98592154ef13a2206355a13cfe021735653a1dd995be"
+    sha256 cellar: :any,                 mojave:         "fb90741dc01f5c7b115c9d5bf142e36a90d7cf0995ecb4a5183150ec6d6161ac"
+    sha256 cellar: :any,                 high_sierra:    "367ab961e50114debc983e5665443ee8fa5a85a2b4fab024753f38df48fb26f1"
+    sha256 cellar: :any,                 sierra:         "8616423fd5b0109c66a000932b2aa5bf4f3979c5a065617e8ef7dd4ae0ee820b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "352d7b94084707e2138aa53245f2e3325c36c2faf21c7361fc81b0dbb9d8cabf"
   end
 
   depends_on "openssl@1.1"

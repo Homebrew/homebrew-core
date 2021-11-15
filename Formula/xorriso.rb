@@ -7,11 +7,13 @@ class Xorriso < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ad2d5c7472a70aedf02d2bb91f518b72ab2f3df0068eec13b2edf0ba2ab5af50"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b54ce0eca9d92f9ffa571edf065baf3212cc1584ca20dbf1cbbf23f51f4ce5f7"
-    sha256 cellar: :any_skip_relocation, catalina:      "e8282de999460c934b95defa41efd358c93da2d62ca38ce2829c8185eb49b4db"
-    sha256 cellar: :any_skip_relocation, mojave:        "dc5357e7efc3bd95ef0c5e69c8320bd6bbfdf24fad9314beda71cce5445a5b7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5435d8e359d0a0de51cf398a53322d1de3d9f86d8e836564323c9719da171fea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "521d0487cdb0635a13a2c44014518db085743a03d9ef19b4cd09ddd7d1ac4ed1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad2d5c7472a70aedf02d2bb91f518b72ab2f3df0068eec13b2edf0ba2ab5af50"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac9ad05ef928432e181b339881782678864108f1421ef5a66d01f3cfbc70646c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b54ce0eca9d92f9ffa571edf065baf3212cc1584ca20dbf1cbbf23f51f4ce5f7"
+    sha256 cellar: :any_skip_relocation, catalina:       "e8282de999460c934b95defa41efd358c93da2d62ca38ce2829c8185eb49b4db"
+    sha256 cellar: :any_skip_relocation, mojave:         "dc5357e7efc3bd95ef0c5e69c8320bd6bbfdf24fad9314beda71cce5445a5b7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5435d8e359d0a0de51cf398a53322d1de3d9f86d8e836564323c9719da171fea"
   end
 
   uses_from_macos "zlib"

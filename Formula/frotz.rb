@@ -7,10 +7,13 @@ class Frotz < Formula
   head "https://gitlab.com/DavidGriffith/frotz.git"
 
   bottle do
-    sha256 arm64_big_sur: "a51e453e14b7bd58a0a90169ae238f04650b8ffd1f2178f2245afc09127ff2cd"
-    sha256 big_sur:       "36f0a6760575194191ee9035e479357451ffeeef291fb4697deb61c19524b2ad"
-    sha256 catalina:      "d84c37e5af40ea04a4a23569605d2648480abf394bddc9a1a8e4d75988c73e24"
-    sha256 mojave:        "44612a1e36afeb27bbec0ada1dd7474e20d8f2d8580d32791dd98c2ea862ff0c"
+    sha256 arm64_monterey: "4b52b494b83a2d60e856a5663e4b84bb2e20d0479ff4781e77a1148dcdf155b3"
+    sha256 arm64_big_sur:  "a51e453e14b7bd58a0a90169ae238f04650b8ffd1f2178f2245afc09127ff2cd"
+    sha256 monterey:       "919b65bd87568ee0060f6ae9668293f95df602e72185d531af6dd9112b9cc901"
+    sha256 big_sur:        "36f0a6760575194191ee9035e479357451ffeeef291fb4697deb61c19524b2ad"
+    sha256 catalina:       "d84c37e5af40ea04a4a23569605d2648480abf394bddc9a1a8e4d75988c73e24"
+    sha256 mojave:         "44612a1e36afeb27bbec0ada1dd7474e20d8f2d8580d32791dd98c2ea862ff0c"
+    sha256 x86_64_linux:   "4eb6b4247b3e7b99e9ce2646f171c312d4af4b961909e33ab394957ed3fa6112"
   end
 
   depends_on "pkg-config" => :build

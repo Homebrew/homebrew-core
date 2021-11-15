@@ -6,8 +6,9 @@ class Bagit < Formula
   url "https://files.pythonhosted.org/packages/e5/99/927b704237a1286f1022ea02a2fdfd82d5567cfbca97a4c343e2de7e37c4/bagit-1.8.1.tar.gz"
   sha256 "37df1330d2e8640c8dee8ab6d0073ac701f0614d25f5252f9e05263409cee60c"
   license "CC0-1.0"
+  revision 1
   version_scheme 1
-  head "https://github.com/LibraryOfCongress/bagit-python.git"
+  head "https://github.com/LibraryOfCongress/bagit-python.git", branch: "master"
 
   livecheck do
     url :stable
@@ -15,14 +16,16 @@ class Bagit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "968ab8fef1c1378693bb911e8aebd42770ffb6cc02f51751008be4adec8ccd27"
-    sha256 cellar: :any_skip_relocation, big_sur:       "62094bf88731c7b94940aa4e4653ca22cc041b25330e3423001eacaa88ab6ee9"
-    sha256 cellar: :any_skip_relocation, catalina:      "8cb401bf3f5d03dd8ec84f47fb9bbebff28a0a5be96f1aeb4ee95530ec2b29b2"
-    sha256 cellar: :any_skip_relocation, mojave:        "4fefca46d83bb674b3969080548a4b8028db0d3aa7225d83cb4d13bc4602e6ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f04c2f68abc63b374410d0414544df8fb304d77e2c6c3624554f48c1c8bac5e9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "754fa656037ce4f1d5f6f53b2d8498565c5dcbd9423a9d8d5cce047f5bd4781b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "754fa656037ce4f1d5f6f53b2d8498565c5dcbd9423a9d8d5cce047f5bd4781b"
+    sha256 cellar: :any_skip_relocation, monterey:       "dbbe53ea75bd1c6fcda5b26938ab79aa2676da5bcb434dbfc09fca3d4677f4a5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dbbe53ea75bd1c6fcda5b26938ab79aa2676da5bcb434dbfc09fca3d4677f4a5"
+    sha256 cellar: :any_skip_relocation, catalina:       "dbbe53ea75bd1c6fcda5b26938ab79aa2676da5bcb434dbfc09fca3d4677f4a5"
+    sha256 cellar: :any_skip_relocation, mojave:         "dbbe53ea75bd1c6fcda5b26938ab79aa2676da5bcb434dbfc09fca3d4677f4a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c460394f8bd13f972a848ac29a3dde16c9cdc2be167b3e34e9724c6b1fd6216d"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources

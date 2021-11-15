@@ -11,10 +11,12 @@ class Libgig < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fa41e608f0e97d0854cb808a6841addebcefc1243b231b9fa98052feda51ea67"
-    sha256 cellar: :any, big_sur:       "155c5b2d28ca46b08c4d88ffe669d0d16af29d84f58d81c42036bc6beaf1f093"
-    sha256 cellar: :any, catalina:      "0b00303d4e051d1099a234022f9ee695838ea6effc232dc830c42304b0d5e699"
-    sha256 cellar: :any, mojave:        "17999aa905c481e685770fe73604dd5c0ff635fa9410c0a8e5ac1067f1de37c1"
+    sha256 cellar: :any, arm64_monterey: "f25257d7f210d0d3a2f0cff724db229618be0a8123ccffa358d2823ef77f8241"
+    sha256 cellar: :any, arm64_big_sur:  "fa41e608f0e97d0854cb808a6841addebcefc1243b231b9fa98052feda51ea67"
+    sha256 cellar: :any, monterey:       "9f5f9c6755666c7a5fa7f893782c9f438d5c67e3fa6f3d010ed0cbcf8fb0a580"
+    sha256 cellar: :any, big_sur:        "155c5b2d28ca46b08c4d88ffe669d0d16af29d84f58d81c42036bc6beaf1f093"
+    sha256 cellar: :any, catalina:       "0b00303d4e051d1099a234022f9ee695838ea6effc232dc830c42304b0d5e699"
+    sha256 cellar: :any, mojave:         "17999aa905c481e685770fe73604dd5c0ff635fa9410c0a8e5ac1067f1de37c1"
   end
 
   depends_on "pkg-config" => :build

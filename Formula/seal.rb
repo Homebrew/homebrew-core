@@ -1,16 +1,16 @@
 class Seal < Formula
   desc "Easy-to-use homomorphic encryption library"
   homepage "https://github.com/microsoft/SEAL"
-  url "https://github.com/microsoft/SEAL/archive/v3.6.6.tar.gz"
-  sha256 "85a63188a5ccc8d61b0adbb92e84af9b7223fc494d33260fa17a121433790a0e"
+  url "https://github.com/microsoft/SEAL/archive/v3.7.1.tar.gz"
+  sha256 "cdc7426d01f879a8b87204a5df9e01339262d4b53962f6fddc2f34a0dec71777"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "e294ea479caa874d0221e722618d7dff1aa5fdefac4dabc03b5b5a9786861956"
-    sha256 cellar: :any,                 big_sur:       "2b7445854b7a4ed0359802e21f322437d035a76906d57b4da524a0cbe231aa69"
-    sha256 cellar: :any,                 catalina:      "17c2a83d814cb00f94f09235f0a1e324d42d5fea0a900664248c7e00614f684b"
-    sha256 cellar: :any,                 mojave:        "ff3705306ee82ff03db408c4d0d8fc1101281c8ce6236b521ecdffd513ca9d35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fc5fbeb8ea5d74832d9bd0be085549677c68b6e29af4440f275fd2e174077bf"
+    sha256 cellar: :any,                 arm64_big_sur: "23beceb2de3f10406360d6dd91ed9aa386e7e94a368c9457918d3581106c2a7b"
+    sha256 cellar: :any,                 big_sur:       "d6c02002668e4a85b55881dceab6d3e8f4b6ee7ee805c008cd0e8e0b5b991434"
+    sha256 cellar: :any,                 catalina:      "e73d859446af694f6914ee025a73d707cbc873ec3bba65e6f25a88850313f3f4"
+    sha256 cellar: :any,                 mojave:        "94cd84ae736c28a2c234333fb90b5c68933a26e60edbb569c8d2fb00326db170"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc947e560250392fc1a7128849d62cc9d6921e0dea814485ce8c8a1ad0b1061a"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -26,8 +26,8 @@ class Seal < Formula
   fails_with gcc: "5"
 
   resource "hexl" do
-    url "https://github.com/intel/hexl/archive/tags/v1.1.0.tar.gz"
-    sha256 "81965ced20e86b3138fc94dc0c0e41d526c942d654704e3cebc7086171ce497d"
+    url "https://github.com/intel/hexl/archive/v1.2.1.tar.gz"
+    sha256 "d09f4bf5309f4fa13f0046475f77e8c5a065d7b9c726eba2d3d943fc13cdae1a"
   end
 
   def install

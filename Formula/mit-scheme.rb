@@ -13,6 +13,7 @@ class MitScheme < Formula
   end
 
   bottle do
+    sha256 monterey:     "5c002d0841ffabfabe64e02901fc9c79815115348fd388da23b9040f04c5ed42"
     sha256 big_sur:      "2a010afbf69c03bf7da5e45077bf76a1cce13d96748fa6c4c9d4ff74a87674cc"
     sha256 catalina:     "f1f056a425dddbc394caa899e1eab404163b7404ea07f3673850e5fb2ce78aaa"
     sha256 mojave:       "f3b91a23b3e924b1cd560b59a87cf64350a232579390adf35661d9d6cec3b4bc"
@@ -72,7 +73,7 @@ class MitScheme < Formula
     inreplace "microcode/configure" do |s|
       s.gsub! "/usr/local", prefix
 
-      on_macos do
+      if OS.mac?
         # Fixes "configure: error: No MacOSX SDK for version: 10.10"
         # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47769
         s.gsub!(/SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}")

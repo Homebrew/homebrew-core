@@ -8,11 +8,11 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://downloads.isc.org/isc/bind9/9.16.20/bind-9.16.20.tar.xz"
-  sha256 "4d0d93c0d0b63080609e84625f24ff8777f8d164e78a75b1c19c334ce42d5b58"
+  url "https://downloads.isc.org/isc/bind9/9.16.22/bind-9.16.22.tar.xz"
+  sha256 "65e7b2af6479db346e2fc99bcfb6ec3240066468e09dbec575ebc7c57d994061"
   license "MPL-2.0"
   version_scheme 1
-  head "https://gitlab.isc.org/isc-projects/bind9.git"
+  head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
 
   # BIND indicates stable releases with an even-numbered minor (e.g., x.2.x)
   # and the regex below only matches these versions.
@@ -22,11 +22,12 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "19958ee65cc7f72a5b208e87842d3794906e9274631a86cdde81a32284bf2e8a"
-    sha256 big_sur:       "aa31f3f084e61749d94b67a6888a8a9d2b978600c42b77b580037911ed4a4c5c"
-    sha256 catalina:      "5c610e1e4d8dadc5bab1492fb0b5ca477d62795bc11be2836ba2c5b89f0d2cb9"
-    sha256 mojave:        "b9a0030ed5645ccd7d2e82669e38f5f4a36f96a333a171ea7f6bbb19604f1f1d"
-    sha256 x86_64_linux:  "924639762a30df80035676a7ba9d5185ffc44d3f99763c52e1706e0aaf8f46fb"
+    sha256 arm64_monterey: "d04169c52a8313b7b1b1b014a22315639123ee3ce7521cec0f750d15eca7252a"
+    sha256 arm64_big_sur:  "2bbc77f033725941c1918f9e5544d6d7520c13fd85824ff324160f8e8987faa9"
+    sha256 monterey:       "b2d8fb8f2f85ab394ff4fcb134fe5ab7f5c90dab21b843e18b8b0f315be1d63b"
+    sha256 big_sur:        "86dfe9cd50a9b85de4ae9ec18ca3d9389f9d2c3c4efc23e15edafdde9b2b009a"
+    sha256 catalina:       "163749e11405d03770179cf1aa24e54156d74b4cf86e14cc56d32e5389668d73"
+    sha256 x86_64_linux:   "f048c3e8b0c457659dfb34346eb130fb14eb4da9521b658bf3ccea2d167c6ac1"
   end
 
   depends_on "pkg-config" => :build
@@ -34,7 +35,7 @@ class Bind < Formula
   depends_on "libidn2"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "ply" do
     url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
@@ -42,12 +43,12 @@ class Bind < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
-        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
@@ -61,13 +62,11 @@ class Bind < Formula
       "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
       "--with-libjson=#{Formula["json-c"].opt_prefix}",
       "--with-python-install-dir=#{vendor_site_packages}",
-      "--with-python=#{Formula["python@3.9"].opt_bin}/python3",
+      "--with-python=#{Formula["python@3.10"].opt_bin}/python3",
       "--without-lmdb",
       "--with-libidn2=#{Formula["libidn2"].opt_prefix}",
     ]
-    on_linux do
-      args << "--disable-linux-caps"
-    end
+    args << "--disable-linux-caps" if OS.linux?
     system "./configure", *args
 
     system "make"

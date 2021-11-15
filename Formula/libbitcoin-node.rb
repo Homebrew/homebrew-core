@@ -8,10 +8,12 @@ class LibbitcoinNode < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "618362516d236aa0d42448d44f67ea2243cfb89413b863abc7fd21da9cb09c3d"
-    sha256 big_sur:       "bbc1a8235a1f33d915be794610ed69f06407ea63d85843a5ae71c978688f6935"
-    sha256 catalina:      "c2932309e38888270138f7ced8f07f5dfe4c924664a1c0d2ad4835206b75a323"
-    sha256 mojave:        "3280108b6455d1d70d1af8288ad910198b63f9cfcc6bef5d55a61e3855eacb3d"
+    sha256 arm64_monterey: "d8105b34dcc8ab66bb6e1f251f03b9edf88b3c795262a15c9a908ee885641f53"
+    sha256 arm64_big_sur:  "618362516d236aa0d42448d44f67ea2243cfb89413b863abc7fd21da9cb09c3d"
+    sha256 monterey:       "8d2bf98d64c003834f484bda25d02adb31be35ccd8a14db7ca12662cb8c69ba5"
+    sha256 big_sur:        "bbc1a8235a1f33d915be794610ed69f06407ea63d85843a5ae71c978688f6935"
+    sha256 catalina:       "c2932309e38888270138f7ced8f07f5dfe4c924664a1c0d2ad4835206b75a323"
+    sha256 mojave:         "3280108b6455d1d70d1af8288ad910198b63f9cfcc6bef5d55a61e3855eacb3d"
   end
 
   depends_on "autoconf" => :build

@@ -29,11 +29,10 @@ class SonarqubeLts < Formula
 
   def install
     # Delete native bin directories for other systems
-    remove = "linux"
-    keep = "macosx-universal"
-    on_linux do
-      remove = "macosx"
-      keep = "linux-x86"
+    remove, keep = if OS.mac?
+      ["linux", "macosx-universal"]
+    else
+      ["macosx", "linux-x86"]
     end
 
     rm_rf Dir["bin/{#{remove},windows}-*"]

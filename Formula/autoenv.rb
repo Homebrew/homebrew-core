@@ -1,16 +1,14 @@
 class Autoenv < Formula
   desc "Per-project, per-directory shell environments"
-  homepage "https://github.com/kennethreitz/autoenv"
-  url "https://github.com/kennethreitz/autoenv/archive/v0.2.1.tar.gz"
-  sha256 "d10ee4d916a11a664453e60864294fec221c353f8ad798aa0aa6a2d2c5d5b318"
+  homepage "https://github.com/hyperupcall/autoenv"
+  url "https://github.com/hyperupcall/autoenv/archive/v0.3.0.tar.gz"
+  sha256 "1194322a0fd95e271bbfeb39e725ee33627154f80eb76620cf0cd01e0d5e3520"
   license "MIT"
-  head "https://github.com/kennethreitz/autoenv.git", branch: "master"
+  head "https://github.com/hyperupcall/autoenv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "657fdd3a35ac9967764be96cd948ad27ac9eb3160120ff16d77c24b7ab15cd09"
+    sha256 cellar: :any_skip_relocation, all: "879dc65b4f4740aed9cf1960c2b2da66f877f10c4ad774084373e36097d8efb0"
   end
-
-  patch :DATA
 
   def install
     prefix.install "activate.sh"
@@ -29,17 +27,3 @@ class Autoenv < Formula
     assert_match "it works", shell_output(testcmd)
   end
 end
-
-__END__
-diff --git a/activate.sh b/activate.sh
-index 05e908c..091e915 100755
---- a/activate.sh
-+++ b/activate.sh
-@@ -28,6 +28,7 @@ ${_file}"
- 				fi
- 			fi
- 			[ "$(pwd -P)" = "${_mountpoint}" ] && break
-+			[ "$(pwd -P)" = "/" ] && break
- 			command -v chdir >/dev/null 2>&1 && \chdir "$(pwd -P)/.." || builtin cd "$(pwd -P)/.."
- 		done
- 	`"

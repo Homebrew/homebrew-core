@@ -8,6 +8,7 @@ class Mvtools < Formula
   head "https://github.com/dubhater/vapoursynth-mvtools.git"
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "5fc1c4a4fda847ebc2a78fe9972fd99fa7c4f7f52b74cb68825181634f9c3d5e"
     sha256 cellar: :any,                 big_sur:      "df691836b6052e38806e3e4a662f0b5da22120f8f586ad6ea388e2673dcf01b3"
     sha256 cellar: :any,                 catalina:     "01785cf0cea2080cb2b875df545e027aaaf339fbbddeca53fd5dae8f39bf4726"
     sha256 cellar: :any,                 mojave:       "0809f0353e48e30d8628bbe2124cebfa0ebd1a6add77e2d27798ce968dadb84d"
@@ -34,15 +35,14 @@ class Mvtools < Formula
       MVTools will not be autoloaded in your VapourSynth scripts. To use it
       use the following code in your scripts:
 
-        core.std.LoadPlugin(path="#{HOMEBREW_PREFIX}/lib/#{shared_library("libmvtools")}")
+        vs.core.std.LoadPlugin(path="#{HOMEBREW_PREFIX}/lib/#{shared_library("libmvtools")}")
     EOS
   end
 
   test do
     script = <<~EOS.split("\n").join(";")
       import vapoursynth as vs
-      core = vs.get_core()
-      core.std.LoadPlugin(path="#{lib}/#{shared_library("libmvtools")}")
+      vs.core.std.LoadPlugin(path="#{lib/shared_library("libmvtools")}")
     EOS
 
     system Formula["python@3.9"].opt_bin/"python3", "-c", script

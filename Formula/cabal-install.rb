@@ -1,18 +1,18 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
-  url "https://hackage.haskell.org/package/cabal-install-3.4.0.0/cabal-install-3.4.0.0.tar.gz"
-  sha256 "1980ef3fb30001ca8cf830c4cae1356f6065f4fea787c7786c7200754ba73e97"
+  url "https://hackage.haskell.org/package/cabal-install-3.6.2.0/cabal-install-3.6.2.0.tar.gz"
+  sha256 "dcf99e1d5f1c6e569e7386312fe96e9804b3cfb2d4f17ded1e01f60149bd3036"
   license "BSD-3-Clause"
-  revision 2
-  head "https://github.com/haskell/cabal.git", branch: "3.4"
+  head "https://github.com/haskell/cabal.git", branch: "3.6"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "20822cc6d4034500c82ba3a57f23d67311d140084fca0ac22f4877c0d8fbb31e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c1ecea50a86a48bd208e0163a319f2d2091b58568bf1f45abaa44cd92434f7a1"
-    sha256 cellar: :any_skip_relocation, catalina:      "17983817b1da6b083fd3c046fb7268ff8f53d7f0a3cb7783d729297d1616c4a2"
-    sha256 cellar: :any_skip_relocation, mojave:        "4e85f6fcbc380cd4c7fa1fbd23d0ec6065a6c848d5329d327008d3dfd7e860fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ecb7047ab4c4dbc1c2407b76ac7062bcb0d312defbc411f06fdb67fa87e00c4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1567f1329f94935dce0e58a095e0551a0e40f183f1c8251866aacae90f0c02dc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5bfe54303566dfca0274750039dc953af0eee3608a9e497104d717dee75cd8ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d35cad587ae87d2c0a1584418001eda21b7a78f8d63dc40ba6e8707b8403005"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e7afa39e11ae84407293ea3baefb4587c56d682c9d705dc9649aa3f77c33a1b6"
+    sha256 cellar: :any_skip_relocation, catalina:       "911813ba0f0038050e18c8c192e010efa02fcc75be1709efe34162f9f3a84e9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c22f27d2d0f5ef085bf898b20ea122ddaf66f6ef06e0e2fd82f748ccb0a31ca"
   end
 
   depends_on "ghc"
@@ -24,9 +24,9 @@ class CabalInstall < Formula
         url "https://downloads.haskell.org/~cabal/cabal-install-3.2.0.0/cabal-install-3.2.0.0-x86_64-apple-darwin17.7.0.tar.xz"
         sha256 "9197c17d2ece0f934f5b33e323cfcaf486e4681952687bc3d249488ce3cbe0e9"
       else
-        # Replace with a bootstrap binary when upstream provide one
-        url "https://github.com/haskell/cabal/archive/fc4daed11271630aae1954e1520f9c16be2f4cd3.tar.gz"
-        sha256 "21629b86d14c0ac0945e83271100afba66971484d7a057c12c1cafb8d887b41b"
+        # https://github.com/haskell/cabal/issues/7433#issuecomment-858590474
+        url "https://downloads.haskell.org/~ghcup/unofficial-bindists/cabal/3.6.0.0/cabal-install-3.6.0.0-aarch64-darwin-big-sur.tar.xz"
+        sha256 "7acf740946d996ede835edf68887e6b2f1e16d1b95e94054d266463f38d136d9"
       end
     end
     on_linux do
@@ -35,25 +35,8 @@ class CabalInstall < Formula
     end
   end
 
-  resource "bootstrap-json" do
-    url "https://github.com/haskell/cabal/files/6612159/darwin-8.10.5.json.zip"
-    sha256 "16f65ec4d656e6c28979fd966597045015d7b9020a017889a512d4e347c2e770"
-  end
-
   def install
-    if Hardware::CPU.intel?
-      resource("bootstrap").stage buildpath
-    else
-      resource("bootstrap").stage buildpath/"bootdir"
-      resource("bootstrap-json").stage buildpath/"bootdir/bootstrap"
-      cd "bootdir" do
-        system "bootstrap/bootstrap.py",
-                "-d", "bootstrap/darwin-8.10.5.json",
-                "-w", Formula["ghc"].opt_bin/"ghc"
-      end
-      buildpath.install "bootdir/_build/bin/cabal"
-    end
-
+    resource("bootstrap").stage buildpath
     cabal = buildpath/"cabal"
     cd "cabal-install" if build.head?
     system cabal, "v2-update"

@@ -11,6 +11,7 @@ class Mono < Formula
   end
 
   bottle do
+    sha256 monterey: "4a4560ef7bd6dc638600e6fae876c3e27b3443698719a1dae45fe49fc1987f78"
     sha256 big_sur:  "fdd17b0e0eb154047fa8091b52763f1f0df0fc921c216f6633d4d59f7cd62af5"
     sha256 catalina: "428998efcf415948ca793b166d7ed6e242814205238e77111419de828fd33cfe"
     sha256 mojave:   "d25b6982b6bd7af6b001e5f7b53ff0dad68937ce11ba0dce9d1529e2b0608b85"
@@ -69,10 +70,20 @@ class Mono < Formula
         revision: "70bf6710473a2b6ffe363ea588f7b3ab87682a8d"
   end
 
+  # Remove use of -flat_namespace. Upstreamed at
+  # https://github.com/mono/mono/pull/21257
+  patch :DATA
+
   # Temporary patch remove in the next mono release
   patch do
     url "https://github.com/mono/mono/commit/3070886a1c5e3e3026d1077e36e67bd5310e0faa.patch?full_index=1"
     sha256 "b415d632ced09649f1a3c1b93ffce097f7c57dac843f16ec0c70dd93c9f64d52"
+  end
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install
@@ -187,3 +198,18 @@ class Mono < Formula
     system bin/"msbuild", "test.fsproj"
   end
 end
+
+__END__
+diff --git a/mono/profiler/Makefile.in b/mono/profiler/Makefile.in
+index 48bcfad..58273a5 100644
+--- a/mono/profiler/Makefile.in
++++ b/mono/profiler/Makefile.in
+@@ -647,7 +647,7 @@ glib_libs = $(top_builddir)/mono/eglib/libeglib.la
+ #
+ # See: https://bugzilla.xamarin.com/show_bug.cgi?id=57011
+ @DISABLE_LIBRARIES_FALSE@@DISABLE_PROFILER_FALSE@@ENABLE_COOP_SUSPEND_FALSE@@HOST_WIN32_FALSE@check_targets = run-test
+-@BITCODE_FALSE@@HOST_DARWIN_TRUE@prof_ldflags = -Wl,-undefined -Wl,suppress -Wl,-flat_namespace
++@BITCODE_FALSE@@HOST_DARWIN_TRUE@prof_ldflags = -Wl,-undefined -Wl,dynamic_lookup
+ 
+ # On Apple hosts, we want to allow undefined symbols when building the
+ # profiler modules as, just like on Linux, we don't link them to libmono,

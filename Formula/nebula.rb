@@ -1,16 +1,17 @@
 class Nebula < Formula
   desc "Scalable overlay networking tool for connecting computers anywhere"
   homepage "https://github.com/slackhq/nebula"
-  url "https://github.com/slackhq/nebula/archive/v1.4.0.tar.gz"
-  sha256 "e8d79231f6100a2cd240d6a092d0dcc2bfccadffa83cb40e99b7328f6c75c2ec"
+  url "https://github.com/slackhq/nebula/archive/v1.5.0.tar.gz"
+  sha256 "f67684a8eba6da91de3601afc97567fddd0e198973bba950fcf15cded92cdc50"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "227c21ce7bc1df21cfbc32e5ddc9183d47fbb948f822ebada84a5fe85b9ea70c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c22fa740a6bcbebfa2c66a2983cb1c4be85ab26f3e94744d7d2216769e836c79"
-    sha256 cellar: :any_skip_relocation, catalina:      "6b4e35987bd0fbc8a44248e1c6c8463945bf5775700856400af492e598aac565"
-    sha256 cellar: :any_skip_relocation, mojave:        "443bf8ec9c2c4a7a40e49320ff7da810bed35fe599a62618820d7f97443744c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c9cd624982c0c77bb5ce9fc96ea45f9ba57eb07e4d1ffd9f76dbf1f2572bd77"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e955bd38d760c7f66411a3432f6530889c35301c78a627a6e8df13d65231d0ce"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e955bd38d760c7f66411a3432f6530889c35301c78a627a6e8df13d65231d0ce"
+    sha256 cellar: :any_skip_relocation, monterey:       "467b8e9d7393b316a9bf6534f77cfe6ebfe48a1277d1c461c590f75eacb5f506"
+    sha256 cellar: :any_skip_relocation, big_sur:        "467b8e9d7393b316a9bf6534f77cfe6ebfe48a1277d1c461c590f75eacb5f506"
+    sha256 cellar: :any_skip_relocation, catalina:       "467b8e9d7393b316a9bf6534f77cfe6ebfe48a1277d1c461c590f75eacb5f506"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fc370039758afb61a206aa131ffb9a282b5fb1b32de43a21d15da5dbce68d3b"
   end
 
   depends_on "go" => :build
@@ -24,35 +25,11 @@ class Nebula < Formula
   end
 
   plist_options startup: true
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/nebula</string>
-          <string>-config</string>
-          <string>#{etc}/nebula/config.yml</string>
-        </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/nebula.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/nebula.log</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <dict>
-          <key>NetworkState</key>
-          <true/>
-        </dict>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"nebula", "-config", etc/"nebula/config.yml"]
+    keep_alive true
+    log_path var/"log/nebula.log"
+    error_log_path var/"log/nebula.log"
   end
 
   test do

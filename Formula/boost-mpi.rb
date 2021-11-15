@@ -1,10 +1,11 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
+  # Please add to synced_versions_formulae.json once version synced with boost
   url "https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2"
   sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
   license "BSL-1.0"
-  head "https://github.com/boostorg/boost.git"
+  head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
     formula "boost"
@@ -12,6 +13,7 @@ class BoostMpi < Formula
 
   bottle do
     sha256                               arm64_big_sur: "8289fe7bb5a684360ab11462bf4312024a620854714ce02d6553e32274e5bfeb"
+    sha256                               monterey:      "4f8cc86632acebee2041d9e03772d4eff34ee3b195fd83b7b83afce577b8029f"
     sha256                               big_sur:       "76544350ace536b0af831854f3ce18a5c101155a132001685bcfa3ea411bbb94"
     sha256                               catalina:      "d3e1dfd88b6d683581efb1c0d732076eaa634d42d6e8d3de05ebec949f512740"
     sha256                               mojave:        "fc0b30274d5d1eaf5f66b7c733e8c516ddfc864beddc0932eb6ee3ddd2457e6c"
@@ -42,10 +44,9 @@ class BoostMpi < Formula
     args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     open("user-config.jam", "a") do |file|
-      on_macos do
+      if OS.mac?
         file.write "using darwin : : #{ENV.cxx} ;\n"
-      end
-      on_linux do
+      else
         file.write "using gcc : : #{ENV.cxx} ;\n"
       end
       file.write "using mpi ;\n"
@@ -61,7 +62,7 @@ class BoostMpi < Formula
     lib.install Dir["install-mpi/lib/*mpi*"]
     (lib/"cmake").install Dir["install-mpi/lib/cmake/*mpi*"]
 
-    on_macos do
+    if OS.mac?
       # libboost_mpi links to libboost_serialization, which comes from the main boost formula
       boost = Formula["boost"]
       MachO::Tools.change_install_name("#{lib}/libboost_mpi-mt.dylib",

@@ -26,6 +26,7 @@ class GitNow < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "7126e867e543659b9750041412e737407fb94f9dbb38fea1edf16cec8027aa64"
     sha256 cellar: :any_skip_relocation, yosemite:      "748cd8691ad94b407f892ffa7f8e12c183b7326208efd9ac6dafbe1b8fda9565"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "164fbdd1cfb2b36c92f068263061b7b81d08fbe728b197661cbb3202b84d0d96"
+    sha256 cellar: :any_skip_relocation, all:           "164fbdd1cfb2b36c92f068263061b7b81d08fbe728b197661cbb3202b84d0d96"
   end
 
   depends_on "gnu-getopt"

@@ -1,10 +1,11 @@
 class Never < Formula
   desc "Statically typed, embedded functional programming language"
   homepage "https://never-lang.readthedocs.io/"
-  url "https://github.com/never-lang/never/archive/v2.0.3.tar.gz"
-  sha256 "de4bf7f04c228f4f61e038f0c2befc41843f85c875f25922686c49c342b0f96d"
+  url "https://github.com/never-lang/never/archive/v2.1.8.tar.gz"
+  sha256 "3c03f8632c27456cd6bbcd238525cdfdc41197a26e1a4ff6ac0ef2cf01f4159b"
   license "MIT"
-  head "https://github.com/never-lang/never.git"
+  revision 1
+  head "https://github.com/never-lang/never.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,17 +13,17 @@ class Never < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f54d3641b651b918ece0a629b57f6ad111766b28ab9da6ce240dbaa4eafed776"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c861febee970af49c7a0f6003f8cabedda1b6f09d262c6f10c184103f68df306"
-    sha256 cellar: :any_skip_relocation, catalina:      "27edab01757524441aafd95606dd1bea9d75e3e59e45b5ddbed4887eb15f0e60"
-    sha256 cellar: :any_skip_relocation, mojave:        "5daef4a51095d73edd0e2a4b4fbf3b26abb3f038c0da41aa9cba4d77d7c1fd4b"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "a4aae9a3453fd5b3a0014e071c9ccb5be132a442d9d5ae54e810289a21b4215d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6075cc666f6d3d9033692d0ccb7e802411af1ec7d514dbe8bb83ab1001bf3f1c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e65bdb33bc931bd228cf68d7af2f69da95f06b5d8c72a5f8acdeeedd7f57a76"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b905f6979c6ec036a74152d97e91f781f172605191ba4d44bd6dfc15ec541850"
+    sha256 cellar: :any_skip_relocation, monterey:       "14ea02dd081e33a0b890e056e233678f5df727f8c27c04bb09a71690bc12f395"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bbf2f7aa7d819529ef54afd73a0e06b3f4fd828444d11d0a966450b12cdc0c34"
+    sha256 cellar: :any_skip_relocation, catalina:       "1ee5c77bd6eda59076c0c33e38b3b0ef75b27350b0a4f2947923b9a0a177022e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7d23bf87c23cbaa07bf607416d7d6da8d2a217046ab6858e4108cbdb9f1baff"
   end
 
+  depends_on "bison" => :build
   depends_on "cmake" => :build
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libffi"
 

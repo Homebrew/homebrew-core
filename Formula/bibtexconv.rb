@@ -1,23 +1,24 @@
 class Bibtexconv < Formula
   desc "BibTeX file converter"
   homepage "https://www.uni-due.de/~be0001/bibtexconv/"
-  url "https://github.com/dreibh/bibtexconv/archive/bibtexconv-1.2.0.tar.gz"
-  sha256 "0ace3aa17eedbc4c4950e5ef8763b1dd58bfa2d33cd00fa2b35f07febb6df940"
+  url "https://github.com/dreibh/bibtexconv/archive/bibtexconv-1.3.1.tar.gz"
+  sha256 "db08bd2b21b137c073ceeb97e5c7f68be4994d3e2af7a8c7dda088ccc0dea9b6"
   license "GPL-3.0-or-later"
-  head "https://github.com/dreibh/bibtexconv.git"
+  head "https://github.com/dreibh/bibtexconv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "e1695a1a03185cbf7f50c031cfab3d77777a6c8bd47c88ea1799fd097d4b8dfa"
-    sha256 cellar: :any,                 big_sur:       "aaab664beb497d6f9c7e84e7e3cf72fb68bbd813c3398e7b561b7fd611a5ed8a"
-    sha256 cellar: :any,                 catalina:      "5b9d6cc6d178116fe7e18d87c807cd4427d105e450feb0bd10a1649d64f61ed7"
-    sha256 cellar: :any,                 mojave:        "01522a08151261c2fb84298b690e00ad4699285ccfd2e2b021baedb1b6174bb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bf8980f28f51667f569e7da89965e97adeffd5aa0212b12b047c84c9a53a8c3"
+    sha256 cellar: :any,                 arm64_monterey: "cb29d459522a8807ad4bcda6d0ad137782794a720d5735506385f3353e9299e7"
+    sha256 cellar: :any,                 arm64_big_sur:  "d7cf921f95e927c2e4a238786d2f4ad1627105a3711167af39fc9d1733064cac"
+    sha256 cellar: :any,                 monterey:       "d6db04dc263581b3a1a826703453ea6678e43ab4d74a68d2c029563c1ed1d835"
+    sha256 cellar: :any,                 big_sur:        "188668f5f42b00871cc8fd81e7856ee94363588f9328dbb4c27f77f251d6a950"
+    sha256 cellar: :any,                 catalina:       "27540958843cd41d831ff19c9def9d9d066b75f43e7345aa9ebe7761c4f3dc92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "452b47a0b63d4e02abb780b3ce4b2cd1cc031c6d64b2c6b34c53c807e29b75d8"
   end
 
+  depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
 

@@ -12,10 +12,12 @@ class Liblinear < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "aca85fb0c9bedeb95d6f9ebfa7f276ecc730dc62f4c4f57280cc2b8d935d04ea"
-    sha256 cellar: :any, big_sur:       "6cb465de42446200b77938139b8249b0feea08442b5cca7b72549f2d97e883dc"
-    sha256 cellar: :any, catalina:      "d1e10b22338d6a746fa8c05b68133f6439c58c1ed3a4728b1c5a4e7e7d3d7d6e"
-    sha256 cellar: :any, mojave:        "60fc530063ad3f9f304cb7cfa739aa6974ed6f89b0f3218dceb6f4fc060d2e77"
+    sha256 cellar: :any, arm64_monterey: "1331f0607a09c1c2ab02e24b79a3923d4d6b42db87663c2cc02a08b33462ebd2"
+    sha256 cellar: :any, arm64_big_sur:  "aca85fb0c9bedeb95d6f9ebfa7f276ecc730dc62f4c4f57280cc2b8d935d04ea"
+    sha256 cellar: :any, monterey:       "f7397f0a43f8de1cb2add67a3a2b16c2e45997259ed227a5541ea20a7040b0ab"
+    sha256 cellar: :any, big_sur:        "6cb465de42446200b77938139b8249b0feea08442b5cca7b72549f2d97e883dc"
+    sha256 cellar: :any, catalina:       "d1e10b22338d6a746fa8c05b68133f6439c58c1ed3a4728b1c5a4e7e7d3d7d6e"
+    sha256 cellar: :any, mojave:         "60fc530063ad3f9f304cb7cfa739aa6974ed6f89b0f3218dceb6f4fc060d2e77"
   end
 
   # Fix sonames

@@ -3,17 +3,18 @@ require "language/node"
 class ContentfulCli < Formula
   desc "Contentful command-line tools"
   homepage "https://github.com/contentful/contentful-cli"
-  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-1.8.20.tgz"
-  sha256 "857f353743e58db8d2e8168ee3b75ad005f737102cdbca41214d5efd95409290"
+  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-1.9.30.tgz"
+  sha256 "2fa98e8d41720448d124e5cbec5bc962c87568b22f585aa4c5501d0b289f653d"
   license "MIT"
-  head "https://github.com/contentful/contentful-cli.git"
+  head "https://github.com/contentful/contentful-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4765a6bf58c944bbfccbd35f355654ec1b182fbb7963be60de145e4590f4881e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "20849d4f80fd6fc4b488707baa21f83530ca8157a3d00796e72d02effe0775e0"
-    sha256 cellar: :any_skip_relocation, catalina:      "20849d4f80fd6fc4b488707baa21f83530ca8157a3d00796e72d02effe0775e0"
-    sha256 cellar: :any_skip_relocation, mojave:        "20849d4f80fd6fc4b488707baa21f83530ca8157a3d00796e72d02effe0775e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec6fa72ddf52c370b4ba063e8ca50268362430d559b534ebf11a6ac188b67e65"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "801eb1e5c261d2ea87121a7d784ef64d70f54b562523991298811a1a4b9bfef1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "801eb1e5c261d2ea87121a7d784ef64d70f54b562523991298811a1a4b9bfef1"
+    sha256 cellar: :any_skip_relocation, monterey:       "d045ba1bb032958c0224279beb7b565cb69a092778e9dae6fd234c11c44f7457"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d045ba1bb032958c0224279beb7b565cb69a092778e9dae6fd234c11c44f7457"
+    sha256 cellar: :any_skip_relocation, catalina:       "d045ba1bb032958c0224279beb7b565cb69a092778e9dae6fd234c11c44f7457"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a61243c9a222402ffebd476cb46dac74e357d1489655b77435facc3d303c599c"
   end
 
   depends_on "node"

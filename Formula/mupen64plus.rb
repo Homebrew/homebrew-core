@@ -12,6 +12,7 @@ class Mupen64plus < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, monterey:    "5199526084ae5a1708b1448c56134710bb50d7b1768441ec137b6ff0ac25a7da"
     sha256 cellar: :any, big_sur:     "5a9a16e37b0274e5c21b44f9b076f5b0b6140ff8017041f2cfb1c33963acfb9c"
     sha256 cellar: :any, catalina:    "999b60faedf8eb2299f854991995c44b81898de85a73ca0568902e5b63641e42"
     sha256 cellar: :any, mojave:      "c88a4d9a47cdcc6b995615d5fd4b061a7046ec72fac75560d79998b7abf60b78"

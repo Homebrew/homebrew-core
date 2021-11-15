@@ -1,8 +1,8 @@
 class Findent < Formula
   desc "Indent and beautify Fortran sources and generate dependency information"
   homepage "https://www.ratrabbit.nl/ratrabbit/findent/index.html"
-  url "https://downloads.sourceforge.net/project/findent/findent-3.1.7.tar.gz"
-  sha256 "42bbf3fd80c14bb44fd18fa73aa53596829f4fb2bacabe57733eb8a9e4f00bb2"
+  url "https://downloads.sourceforge.net/project/findent/findent-4.1.3.tar.gz"
+  sha256 "4ef85a4308f9fa74c11df512eff96f461dc01cbca1d4827673afa65b5dc6adf9"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,11 +11,13 @@ class Findent < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "19b727e336b0e9040155f784082823cfcbc9c4b857b633836b4f51fc2210a643"
-    sha256 cellar: :any_skip_relocation, catalina:     "24a8f26724d9e49ca1fcd4b87bccb4bc1f120205e54fbc8806a654683020ba3a"
-    sha256 cellar: :any_skip_relocation, mojave:       "d3a515ec3d972eb63943d112ce9cb3cdd7a0835394205d971fa7fdf488dce210"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "bec64c83b6ad2769e8fa36245796ed743a6a1f6c20b6c17e49b495b3e7bab7dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c829b9d4cd228e9152951b5dbce0f06d97d9201f4aba2e4f993e978f96f68aa1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e05313660b112c576fcdbd23171543a334e915590848d5b2c853c3e655de403"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f54e465f61257514398c7b022fca74504fb839eb680769190a4704bbeee8c5d"
+    sha256 cellar: :any_skip_relocation, monterey:       "9aa5b1e4517d5697f9ec9ce981a03a49e568df8a05ee0a51b817c774d16902a5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f816b5e1e13a2f70c5771b86391200195c0f4589d2b7177b6b76bf058faf0456"
+    sha256 cellar: :any_skip_relocation, catalina:       "c5cf9be6cdac0f66237ffe6eaf7b8dbf9c8b2699ce0b2928fd8f901ed1880baf"
+    sha256 cellar: :any_skip_relocation, mojave:         "889ed0f2d7373de18390c317e7270aa57a394f7796aff07d8ca9d6b7422bc2c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62243f247c4ec6581b1cc0bac09cee298e20cc541199f4c273cd6bb33d2b1e65"
   end
 
   def install

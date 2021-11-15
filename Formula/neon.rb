@@ -1,9 +1,9 @@
 class Neon < Formula
   desc "HTTP and WebDAV client library with a C interface"
   homepage "https://notroj.github.io/neon/"
-  url "https://notroj.github.io/neon/neon-0.31.2.tar.gz"
-  mirror "https://fossies.org/linux/www/neon-0.31.2.tar.gz"
-  sha256 "cf1ee3ac27a215814a9c80803fcee4f0ede8466ebead40267a9bd115e16a8678"
+  url "https://notroj.github.io/neon/neon-0.32.1.tar.gz"
+  mirror "https://fossies.org/linux/www/neon-0.32.1.tar.gz"
+  sha256 "05c54bc115030c89e463a4fb28d3a3f8215879528ba5ca70d676d3d21bf3af52"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -12,16 +12,15 @@ class Neon < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "59508df4cea7739d669187e923c1e3ceac1b3e65cbfbe6c1e5d38ef37bb65382"
-    sha256 cellar: :any,                 big_sur:       "2257aace79050e66bd7c2de052d7506a0fdfbc62ba9b84ff2f87da6396aa22da"
-    sha256 cellar: :any,                 catalina:      "08c046a121125fb4a2ec4e84035586aa46086aa07a0bbeb2f189ed7e597a6d67"
-    sha256 cellar: :any,                 mojave:        "20d474191273a8210f05ecb6ed300d6aa92ffccd6cc45d3ef1f12d8d58d5fee9"
-    sha256 cellar: :any,                 high_sierra:   "0bc378496a9a3c82f30909210acdd3ead44594dba78741797edabbec2b9481e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8e9bbd5b5ba4f5dcbac53219208b36de5eb89f2b1763bd5edb85ac3439c3659"
+    sha256 cellar: :any,                 arm64_big_sur: "86e0ca2c11f4882900d48f5c6c87f29ed437c0fd4c311d06174c9bd10ef3542c"
+    sha256 cellar: :any,                 big_sur:       "86819110b5eacedd6be7e53d202b532c4b956062217685ae98bb96e547ad58cd"
+    sha256 cellar: :any,                 catalina:      "f5385868f91943383ca9674f2589280e30b55f4156086db05efa160411738467"
+    sha256 cellar: :any,                 mojave:        "de9f23227aac7ec30b4a412d783e5dfdb788a51c51e66689f01705207270805e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07b5a9528950d32639c71726cd22bf01e6dc9df7dea38d4dccc17ab7844798a7"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "xmlto" => :build
   depends_on "openssl@1.1"
 
   uses_from_macos "libxml2"
@@ -35,6 +34,7 @@ class Neon < Formula
   def install
     # Work around configure issues with Xcode 12
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",

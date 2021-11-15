@@ -4,7 +4,7 @@ class Sbjson < Formula
   url "https://github.com/stig/json-framework/archive/v5.0.3.tar.gz"
   sha256 "9a03f6643b42a82300f4aefcfb6baf46cc2c519f1bb7db3028f338d6d1c56f1b"
   license "BSD-3-Clause"
-  head "https://github.com/stig/json-framework.git"
+  head "https://github.com/stig/json-framework.git", branch: "trunk"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d3cb04de93bf5460c41623c296b5cd81884379d277afc874a64b0ff1cc34ac6a"

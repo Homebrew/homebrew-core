@@ -7,11 +7,13 @@ class Mfterm < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e7dffabd037eaff9a07ef2adb7c5731bd6270f04e5f3590280293fc25d478ddb"
-    sha256 cellar: :any, big_sur:       "18cc9c42960d0accd760293232f236ad1d35e0fc1e7e8f44061b72db2c2acf64"
-    sha256 cellar: :any, catalina:      "1c9230a17ab7102f4b171e37a972ade6c7e2d5708102a17ea5494be0b1d1a42e"
-    sha256 cellar: :any, mojave:        "2b4c61222b70b25c523c6083efd85ff53f1187a6afd7d88115f12cb788fa6b13"
-    sha256 cellar: :any, high_sierra:   "c481733fcc5f8057aac9fa38d5445a88e6faf54a016533bcc72eba2335d9754b"
+    sha256 cellar: :any, arm64_monterey: "7c66e15be8f86726fe114bb9c0be3684386f62819af22e7892876634b22b4d8d"
+    sha256 cellar: :any, arm64_big_sur:  "e7dffabd037eaff9a07ef2adb7c5731bd6270f04e5f3590280293fc25d478ddb"
+    sha256 cellar: :any, monterey:       "375cd87233c4faea0360d7b840ff7ebd7769a455429f70c8b60305bef1b32299"
+    sha256 cellar: :any, big_sur:        "18cc9c42960d0accd760293232f236ad1d35e0fc1e7e8f44061b72db2c2acf64"
+    sha256 cellar: :any, catalina:       "1c9230a17ab7102f4b171e37a972ade6c7e2d5708102a17ea5494be0b1d1a42e"
+    sha256 cellar: :any, mojave:         "2b4c61222b70b25c523c6083efd85ff53f1187a6afd7d88115f12cb788fa6b13"
+    sha256 cellar: :any, high_sierra:    "c481733fcc5f8057aac9fa38d5445a88e6faf54a016533bcc72eba2335d9754b"
   end
 
   head do

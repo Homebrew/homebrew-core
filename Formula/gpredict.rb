@@ -13,6 +13,7 @@ class Gpredict < Formula
 
   bottle do
     sha256 arm64_big_sur: "2c367d6266bd0af3583827c588ab864c26043444ad6b6379821c1b93e5093352"
+    sha256 monterey:      "650854e63dd2ed7f88d40188575d69f5e83e311ebecfc489c13c472adfd5e947"
     sha256 big_sur:       "eccf4afd811d590ed5c930840933905bd5b1ea9bdf42e32e52cf4926d0c1eb05"
     sha256 catalina:      "99fff9473dcc5eaa0c58cf0b2bf04f4240e1598aada45565e4dbbf050d2ac7dc"
     sha256 mojave:        "952941a2ecdb5f75805888dfd020acce48c4f1b29a9c2e3ec8742d35fcd9c829"
@@ -35,7 +36,7 @@ class Gpredict < Formula
 
   def install
     # Needed by intltool (xml::parser)
-    on_linux { ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" }
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" if OS.linux?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

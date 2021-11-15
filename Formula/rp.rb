@@ -5,9 +5,10 @@ class Rp < Formula
   version "1.0"
   sha256 "3bf69aee23421ffdc5c7fc3ce6c30eb7510640d384ce58f4a820bae02effebe3"
   license "GPL-3.0"
-  head "https://github.com/0vercl0k/rp.git"
+  head "https://github.com/0vercl0k/rp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:    "470af1a486ea35fe801dbc487a1a0cd1b855fdeffe68532f3b1110efa841f8e2"
     sha256 cellar: :any_skip_relocation, big_sur:     "afe31e255f4d94101d0a11fd9625937c5f1846dd21fd4189304295cdb8bcf3e0"
     sha256 cellar: :any_skip_relocation, catalina:    "f173bd7e78a13f9fe20fbe70e3bda26e91a5aec77bd094a4d0b447afee0ff1b9"
     sha256 cellar: :any_skip_relocation, mojave:      "9e7dee319426b8db92302fdd19ee37f3ea5b0b3b8ebb1865e29127aa340ec7b5"

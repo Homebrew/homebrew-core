@@ -1,11 +1,10 @@
 class Castxml < Formula
   desc "C-family Abstract Syntax Tree XML Output"
   homepage "https://github.com/CastXML/CastXML"
-  url "https://github.com/CastXML/CastXML/archive/v0.4.3.tar.gz"
-  sha256 "3dd94096e07ffe103b2a951e4ff0f9486cc615b3ef08e95e5778eaaec667fb65"
+  url "https://github.com/CastXML/CastXML/archive/v0.4.4.tar.gz"
+  sha256 "e7343edf262b291a9a3d702dbfa6d660e8ed81170454eab6af10a6dbf8c8141d"
   license "Apache-2.0"
-  revision 1
-  head "https://github.com/CastXML/castxml.git"
+  head "https://github.com/CastXML/castxml.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,11 +12,12 @@ class Castxml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a621a2f54f8b157f47251f7d92032e4ecf9e4611995979533b5a9176f3849057"
-    sha256 cellar: :any,                 big_sur:       "baef1dc2e08d7d0a0f276c54a3f180d662abc1cd660a875aec2c6db8ddace248"
-    sha256 cellar: :any,                 catalina:      "7e97d6cb586ba2ffbcc00bcfaf146c5cf6838aaa01f6ef83a2c8033ab34f6acd"
-    sha256 cellar: :any,                 mojave:        "5a24c3bad04790815e3af774e12ad5f9d800318dfaf9bc6b8b3bef7b32db61ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72e7dd670a57d6da3e1e9d7f56e22a372308231225b559e017ee84da8561b4bb"
+    sha256 cellar: :any,                 arm64_monterey: "d76eb4f4e3cce08d062334f2c99f1cba63a3f831857ad00899ac7f5d82ccb2d7"
+    sha256 cellar: :any,                 arm64_big_sur:  "90aa62c5229d1084a1f197090b3c44b9cd85abddaf1695e2fecce2a2720b3f12"
+    sha256 cellar: :any,                 monterey:       "d8f8b6e5b027ae5707cdd74aba6f194babf02413b2251dbbab747426fd21ccac"
+    sha256 cellar: :any,                 big_sur:        "edd91bafec4e441ccbbcacd735d204873db448e36a2c45e84342c7e8f33a21d1"
+    sha256 cellar: :any,                 catalina:       "f44f3a928ad632cc5dd323d1122b597fd93562f83ebad2fbe4663764ad449726"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3fad7d88989008f812bc20583e05db10f9489e8fd9315afc03a22c9f0f9f0fc"
   end
 
   depends_on "cmake" => :build

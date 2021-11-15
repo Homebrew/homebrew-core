@@ -1,12 +1,11 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  # NOTE: Please keep these values in sync with rom-tools.rb when updating.
-  url "https://github.com/mamedev/mame/archive/mame0234.tar.gz"
-  version "0.234"
-  sha256 "6b729494c0e63fd974061c11e860667164e85c20890f60eade048e3e4e5c00cd"
+  url "https://github.com/mamedev/mame/archive/mame0237.tar.gz"
+  version "0.237"
+  sha256 "92dc0f38ec1a2412c6b9c1403cae610bc13e1d21b4e647ab290d41215a940cae"
   license "GPL-2.0-or-later"
-  head "https://github.com/mamedev/mame.git"
+  head "https://github.com/mamedev/mame.git", branch: "master"
 
   # MAME tags (and filenames) are formatted like `mame0226`, so livecheck will
   # report the version like `0226`. We work around this by matching the link
@@ -15,14 +14,16 @@ class Mame < Formula
   livecheck do
     url :stable
     strategy :github_latest
-    regex(%r{release-header.*?/releases/tag/mame[._-]?\d+(?:\.\d+)*["' >]>MAME v?(\d+(?:\.\d+)+)}im)
+    regex(/>\s*MAME v?(\d+(?:\.\d+)+)/im)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "02ff5a57ec332ab60269c544c7b27af5b3f63a05086e2cb32b8f713b9d7b6521"
-    sha256 cellar: :any, big_sur:       "4c5f910badd8bdfc2ae2226e17cd680522bc4919195fc2a509f97f7bc9e2cd99"
-    sha256 cellar: :any, catalina:      "ddfb20bd4385deb592d7afa2dc5b2c231ebf0d29131e43b46ce531b03198d908"
-    sha256 cellar: :any, mojave:        "a72ca1b2cd486eb2e04f412b49be49b24672aabfebab5aaa7ee560444be1ae08"
+    sha256 cellar: :any,                 arm64_monterey: "bcbbdcf0ed0b561780635a8d6bc5d98c7842e19a0bef5dc1770c4fdc40fead2a"
+    sha256 cellar: :any,                 arm64_big_sur:  "ae69e6360a98090ac9a88b743d20dfccdaeca73819217ad77b9ac58219b6c147"
+    sha256 cellar: :any,                 monterey:       "908a08c5a1b8e7990b7597a1efc27527cfe327195c95d1c6630716d2fb862adb"
+    sha256 cellar: :any,                 big_sur:        "6e8c710fef34cb1c767d77d4b5a01c8ab2f546c55b2cf11ce42fd6775e39cac8"
+    sha256 cellar: :any,                 catalina:       "acd6b16a2b279662173b45378172b6dfd4c6d9eca59b1ab04bd57b5d37a68e47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0d818ecc96a34cb778bac9b6fa3a7736ffbbc8c4e483a62d49476ca3f113ebe"
   end
 
   depends_on "glm" => :build
@@ -43,6 +44,16 @@ class Mame < Formula
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc" # for C++17
+    depends_on "pulseaudio"
+    depends_on "qt@5"
+    depends_on "sdl2_ttf"
+  end
+
+  fails_with gcc: "5"
+  fails_with gcc: "6"
 
   def install
     # Cut sdl2-config's invalid option.

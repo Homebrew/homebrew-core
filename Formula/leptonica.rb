@@ -1,8 +1,8 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "http://www.leptonica.org/source/leptonica-1.81.1.tar.gz"
-  sha256 "0f4eb315e9bdddd797f4c55fdea4e1f45fca7e3b358a2fc693fd957ce2c43ca9"
+  url "http://www.leptonica.org/source/leptonica-1.82.0.tar.gz"
+  sha256 "155302ee914668c27b6fe3ca9ff2da63b245f6d62f3061c8f27563774b8ae2d6"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,12 +11,13 @@ class Leptonica < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "ab4697cba5d08068caf5bba23b6ab820708e7e141ab2a31b75c5218e0af4d683"
-    sha256 cellar: :any,                 big_sur:       "584d359158d6c45de7caf2368f8fc5e3268b67511dbeb8531d6762b03a3efed9"
-    sha256 cellar: :any,                 catalina:      "f73dceda2c8430f107f7d134cebd189684de1723639be81be2fd79ec3db07c34"
-    sha256 cellar: :any,                 mojave:        "0009444bfbafb359608fef5bf861a275acb2cbbade511572c9c3d08043b7bac4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28826ccd4ae01f0b0dab2b5c8b1f6ed3aa569c0238822b419b125cde45bc9e32"
+    sha256 cellar: :any,                 arm64_monterey: "f42b450f0dcc303c65e30de8ca6639bf5559c416072fe3f95b36bf5bfe0049d1"
+    sha256 cellar: :any,                 arm64_big_sur:  "f0d0cdb312ad51dc498f25765c7f4566e246eb7d74bd7ddc87b9a23f539f0bba"
+    sha256 cellar: :any,                 monterey:       "4eedc66fac0ac4e4f922c318b7de264d3b1af043a23e882867291c8808652468"
+    sha256 cellar: :any,                 big_sur:        "850aac10ef99d81dacea54d7b0f04df1a2058aac792b2649c4ecd91adcf1bbeb"
+    sha256 cellar: :any,                 catalina:       "a758e0b2eb14c548dd87946193185784cdb8d868e0aa17b2426660fad6ecdab2"
+    sha256 cellar: :any,                 mojave:         "8cef538c6bda97b6f8d71010259bced7ae5400f8a02e79e32cec1eee939b1463"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "118d4902ab8357da71a85d4461d460f1db63baed0d50bd717b145c3fd387f47d"
   end
 
   depends_on "pkg-config" => :build

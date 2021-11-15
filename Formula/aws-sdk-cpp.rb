@@ -3,26 +3,37 @@ class AwsSdkCpp < Formula
   homepage "https://github.com/aws/aws-sdk-cpp"
   # aws-sdk-cpp should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-sdk-cpp.git",
-    tag:      "1.9.80",
-    revision: "3ab68c3179dbe9e1e9e52da0c95c7e8b778c7cf2"
+      tag:      "1.9.140",
+      revision: "e0e4ce21a6d6229b3193a4216720ead5f085a4a3"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7936363c4aca487382596547109cdb1e3c32e7e6c66f0c9a626a57594f05759c"
-    sha256 cellar: :any, big_sur:       "94bb620d48a4d6b84d5764af07245c9e7c797a6bce3dd3cc7a80a674028da48e"
-    sha256 cellar: :any, catalina:      "dd1a744329b1773153197c0abef16bd08901644e849e1e7a56655154139c503c"
-    sha256 cellar: :any, mojave:        "3b6850bed234304a2d9ddf4aeea33d06736b3f3d893123ca32dd175da0bb9d70"
+    sha256 cellar: :any,                 arm64_monterey: "f36f84cb51ae5f30392c7ab6962704d292d538b502f27b876e2be5da1f2fa6ec"
+    sha256 cellar: :any,                 arm64_big_sur:  "df473409961189a04284638b91a09f824b7a03b58891fdb077a281f76f0a12e2"
+    sha256 cellar: :any,                 monterey:       "bb3af5916035179439df096d3b2eb7789b0ded644d84f73bb4cfd7e088b16839"
+    sha256 cellar: :any,                 big_sur:        "d03e876036ced4237e175cf6003f5fe818c8f1c9a456d8d14c082bb72cc5782d"
+    sha256 cellar: :any,                 catalina:       "02c47f85cfc437ec3278efdc327aa92c76ca0ce44e82d860d13487109f06eada"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49948759f3c6901e3e7867977ac53f885c78a6995703ac9f4c1d85094e51457f"
   end
 
   depends_on "cmake" => :build
 
   uses_from_macos "curl"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      args = %w[
+        -DENABLE_TESTING=OFF
+      ]
+      system "cmake", "..", *std_cmake_args, *args
       system "make"
       system "make", "install"
     end

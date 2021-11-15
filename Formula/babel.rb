@@ -4,19 +4,19 @@ require "json"
 class Babel < Formula
   desc "Compiler for writing next generation JavaScript"
   homepage "https://babeljs.io/"
-  url "https://registry.npmjs.org/@babel/core/-/core-7.15.0.tgz"
-  sha256 "ebd86ef86c1bf844a2f7abdf7cfd300dde29537dd427eed6049f059f3c31d0c2"
+  url "https://registry.npmjs.org/@babel/core/-/core-7.16.0.tgz"
+  sha256 "3903d0912dacd7937cda934361c5bbc90255b8db493e980c72d5cc09c5b1dc23"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2b866b374c35fb8784d16ba81566a32b11f9b4b1b5136d487dbd8e4f9d0714cb"
+    sha256 cellar: :any_skip_relocation, all: "0024d84362efc606f701fff09aa2183a7bd0e24f5af7df3e2d54f048696806a0"
   end
 
   depends_on "node"
 
   resource "babel-cli" do
-    url "https://registry.npmjs.org/@babel/cli/-/cli-7.14.8.tgz"
-    sha256 "7765b33ba85c17654f9b554fd7b15f9cdd1a4f4cb063c637b41d60818639eab3"
+    url "https://registry.npmjs.org/@babel/cli/-/cli-7.16.0.tgz"
+    sha256 "f082215daada09bf2ff0f76c994f366029ed136d60680902c593b7afb7bfa6ff"
   end
 
   def install
@@ -28,10 +28,10 @@ class Babel < Formula
     end
 
     # declare babel-core as a bundledDependency of babel-cli
-    pkg_json = JSON.parse(IO.read("package.json"))
+    pkg_json = JSON.parse(File.read("package.json"))
     pkg_json["dependencies"]["@babel/core"] = version
     pkg_json["bundleDependencies"] = ["@babel/core"]
-    IO.write("package.json", JSON.pretty_generate(pkg_json))
+    File.write("package.json", JSON.pretty_generate(pkg_json))
 
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]

@@ -4,11 +4,11 @@ class Systemd < Formula
   url "https://github.com/systemd/systemd/archive/v246.tar.gz"
   sha256 "4268bd88037806c61c5cd1c78d869f7f20bf7e7368c63916d47b5d1c3411bd6f"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  head "https://github.com/systemd/systemd.git"
+  head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 x86_64_linux: "b25b499f5620249c7676a4ba6cd8b575bdc4c1a6125574298e39a20034033ac1"
+    rebuild 2
+    sha256 x86_64_linux: "e9a110ca3890c88a257831d4ed305a995ece7cebdbb3994cb376ecc521e445ee"
   end
 
   depends_on "coreutils" => :build
@@ -32,6 +32,12 @@ class Systemd < Formula
   depends_on "util-linux" # for libmount
   depends_on "xz"
   depends_on "zstd"
+
+  # Fix newer meson compatibility, remove after next release
+  patch do
+    url "https://github.com/systemd/systemd/commit/c29537f39e4f413a6cbfe9669fa121bdd6d8b36f.patch?full_index=1"
+    sha256 "fc7f07d3f4710a6b798a3976f51bd375f4051495246ae519e887146a13dc6130"
+  end
 
   def install
     args = %W[

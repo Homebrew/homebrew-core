@@ -1,6 +1,7 @@
 [
   "astyle",
   "bittwist",
+  "folderify",
   "launch4j",
   "organize-tool",
   "reattach-to-user-namespace",

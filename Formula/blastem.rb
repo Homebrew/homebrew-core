@@ -13,6 +13,7 @@ class Blastem < Formula
   end
 
   bottle do
+    sha256 cellar: :any, monterey:    "6f3f83fd9bc9b5a259eb21ea43bdc37e4d4a8665c809b8f34d456f681d3c1d17"
     sha256 cellar: :any, big_sur:     "003bbd7d1f5f9d81fb471d1fff692951c9400a8bf2f1511f0d83c9bea9cb8e63"
     sha256 cellar: :any, catalina:    "7b9652bffa8c28d6f23e1ad88534b5f2bbd49a916566650c3090366a556f11b2"
     sha256 cellar: :any, mojave:      "9972096dbef1b35d3d98894c77575a4fce7c674660498e0877b95fe22383f1eb"

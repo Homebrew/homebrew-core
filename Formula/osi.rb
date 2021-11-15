@@ -12,6 +12,7 @@ class Osi < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "3f71fca3511681f252f956752dbbe314d216de7a0ff40c7c56505ac6292d91a5"
+    sha256 cellar: :any,                 monterey:      "ae4776cd0fec3b811783b85f3c30863e79015671309d0db590b36686e0bab859"
     sha256 cellar: :any,                 big_sur:       "ca309667b17ad26cb79ba1305f096bf3163d1858658030ef21ae3cf23a3495f3"
     sha256 cellar: :any,                 catalina:      "448319c96791abd303e976711176d74260d575b528c5c1229e1439fb85c295b9"
     sha256 cellar: :any,                 mojave:        "a21200a175b4d0a2208be0e34fb2dd64965133be04b30db7150cf55fe46093e4"

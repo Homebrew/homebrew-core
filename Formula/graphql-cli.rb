@@ -16,12 +16,14 @@ class GraphqlCli < Formula
   end
 
   bottle do
-    sha256                               arm64_big_sur: "2da205bbd5c76588be334a84b52dacfac9062045d605ed3f8298b7cb7b9b84a7"
-    sha256                               big_sur:       "02d60908557d5dedf63fffe66a51f5829807abd910b5460a2ae44d7b8d208142"
-    sha256                               catalina:      "5060d007d13a695709ff9afaa16a1492d8645e17ab78ec2b14650e0c7a305e55"
-    sha256                               mojave:        "212bf2d20997a930838775736ca468dc25cbd3c3978c0189f8a435873a029286"
-    sha256                               high_sierra:   "d8f266f129027b1fe731c12264f7b8679c271ecdb6418cef72dba0a730e99771"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48fc095743bddaa241e8ec367b80d06f4b742c6f5e3327c2d2f07ed941514adb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0032a97995c66d8f090765b11c3fc85af23a7ca389cce6f2e183508721e4039"
+    sha256                               arm64_big_sur:  "2da205bbd5c76588be334a84b52dacfac9062045d605ed3f8298b7cb7b9b84a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "81cb7b69b2c0f61b042cd95eb434bf59f594815bd85b686e6336db6aa27ff725"
+    sha256                               big_sur:        "02d60908557d5dedf63fffe66a51f5829807abd910b5460a2ae44d7b8d208142"
+    sha256                               catalina:       "5060d007d13a695709ff9afaa16a1492d8645e17ab78ec2b14650e0c7a305e55"
+    sha256                               mojave:         "212bf2d20997a930838775736ca468dc25cbd3c3978c0189f8a435873a029286"
+    sha256                               high_sierra:    "d8f266f129027b1fe731c12264f7b8679c271ecdb6418cef72dba0a730e99771"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48fc095743bddaa241e8ec367b80d06f4b742c6f5e3327c2d2f07ed941514adb"
   end
 
   depends_on "node"

@@ -1,10 +1,10 @@
 class Tfsec < Formula
   desc "Static analysis security scanner for your terraform code"
   homepage "https://tfsec.dev/"
-  url "https://github.com/aquasecurity/tfsec/archive/v0.58.4.tar.gz"
-  sha256 "f9d6975695d947af0c923d396d73d75d397a1941ef28d29b5c42f6ff98055d0f"
+  url "https://github.com/aquasecurity/tfsec/archive/v0.59.0.tar.gz"
+  sha256 "0bf6488b8b4dac7c83b1175eb7d6b6786b41ca892f1678ff0b16597e45466fdd"
   license "MIT"
-  head "https://github.com/aquasecurity/tfsec.git"
+  head "https://github.com/aquasecurity/tfsec.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,11 +12,12 @@ class Tfsec < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f3ca5b7016f9cbe43259a8a22c8ec856d36140df976c7de942f21b2a6a97ae35"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5eb83607f31e40f39464e6ccc7bff1ae4d1b896f6fe87ae97939cbb510c5fa6e"
-    sha256 cellar: :any_skip_relocation, catalina:      "7f84c18fd013024aefd3e64e9ff675394a503acee50858eaff5fc04b84040673"
-    sha256 cellar: :any_skip_relocation, mojave:        "c6df6961c29d5260504ccb6373ce436fccf2408489c11cc36e1ba383b87ea3a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d386867174ee4ce476a7febb5eb649cc30062ef4a843e1112ac96198f77cfe9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ca9dec8fe964ff78bddd70a0a16b1c8da885f66334e6e67b2e99b0d28bb686a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3e7e22286faf406a19de0982d6529582b02638a3b1586f1a62cd4ab75842ccba"
+    sha256 cellar: :any_skip_relocation, monterey:       "ae2339de2b93dc8c79ee30d6b872e4366dc0435e3cbba8316a4b646bb5fb5be5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6426b7f76b2589c7ff809fd08688cafc5992e1bdb9982a0d22fa91725b1b640c"
+    sha256 cellar: :any_skip_relocation, catalina:       "8fefe4a41cf07358f6d99b16217acde729c26d9847bdf92e6b858779bd42b094"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7786254fc9f2dcd94388ef31bb2068f9f22576f9d17ab67c60b3b51537400433"
   end
 
   depends_on "go" => :build

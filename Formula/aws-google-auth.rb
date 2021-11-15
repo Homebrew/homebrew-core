@@ -6,15 +6,16 @@ class AwsGoogleAuth < Formula
   url "https://files.pythonhosted.org/packages/17/42/b466b9376f88f27d4d251b2e61194879a840b7be0c3a6808bc20381b2d5e/aws-google-auth-0.0.37.tar.gz"
   sha256 "0cc76e88ac188a26a484faffb21f1c7f31c0c56932aa30e6772e17245d0eb7cc"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/cevoaustralia/aws-google-auth.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "92c6a08357e8f2b971d3a3c086fd481ebbcabda69c65b9abff041dfcaa4ef298"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7a0d6cb9a8776d56e1a8c990d244a33c8740016e6a7ad7f2e6737c6870c57e42"
-    sha256 cellar: :any_skip_relocation, catalina:      "5938adc2d456a0c4c1efaea600e23b73eb3645267664271548da6cf4ffe91919"
-    sha256 cellar: :any_skip_relocation, mojave:        "38183d79bd35c9010bc795a0e3bb4d4362b70515049e39ac31c8c2638cd8daee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58cc10ce4cd93c39236973248b0a9d7a75047b86f03f122c299fc20d7768f7ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "321c82a61fd5bc13bb146381deb4e36f14c4f89c174080978e33b515e6c18891"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "628009536555d056af3826e065c8047e1bc302f22c7450ba4fd70bec73050412"
+    sha256 cellar: :any_skip_relocation, monterey:       "cce4d8d9c5189d80c9c3ca6e4da31eaaae9c3a37089f953fe69c65ea600aef7d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b74276c314d890907b505220f458e4a63de0000326976bcdf0d16ffebb9adae8"
+    sha256 cellar: :any_skip_relocation, catalina:       "f4894c241f651b541171f743fa255946e9134c139de37fd4b732ef56c87a0db6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0af5bbd9774b7548ae82c17d9865f4955d050d7cba56efc6c907500215735598"
   end
 
   depends_on "rust" => :build

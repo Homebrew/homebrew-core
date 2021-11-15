@@ -11,6 +11,7 @@ class Ginac < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "1fab055efe4ce1208e59f0a91dc7f34abd4a2890d07f04fe8dce3e8d7eaee80b"
     sha256 cellar: :any,                 big_sur:      "d1001c3d4a1975402462d266d715a584dc63b8ea9221cd680de70818237785f1"
     sha256 cellar: :any,                 catalina:     "3b28c3417ab90c06f4d86556bc51d51e7c17b05930adba6b71bd7091e22ade48"
     sha256 cellar: :any,                 mojave:       "bb5a12c6fa1e5ad8e5d29304c0ca6e7bef7bf83799545ee45a4b5608a0ef7a88"
@@ -21,6 +22,12 @@ class Ginac < Formula
   depends_on "cln"
   depends_on "python@3.9"
   depends_on "readline"
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

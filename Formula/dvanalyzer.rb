@@ -4,6 +4,11 @@ class Dvanalyzer < Formula
   url "https://mediaarea.net/download/binary/dvanalyzer/1.4.2/DVAnalyzer_CLI_1.4.2_GNU_FromSource.tar.bz2"
   sha256 "d2f3fdd98574f7db648708e1e46b0e2fa5f9e6e12ca14d2dfaa77c13c165914c"
 
+  livecheck do
+    url "https://mediaarea.net/DVAnalyzer/Download/Source"
+    regex(/href=.*?dvanalyzer[._-]?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2c3394dede8aedd03611a44ab7f0e9c0cf65de9343eea185575234571da63b76"
     sha256 cellar: :any_skip_relocation, big_sur:       "c82268f8073ce66058329a7f3e17a8dffba0d811f82c1eb33a6a45144693bf17"

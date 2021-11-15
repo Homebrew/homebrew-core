@@ -10,10 +10,12 @@ class MonitoringPlugins < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5044511cc0f5a64f3424d4507559b6ca316669121f4b15d58ef6b9cec5bba3f8"
-    sha256 cellar: :any, big_sur:       "a49576ad287d073c67e0da12be686ba737abe34e5f61813a2e308cd44c427017"
-    sha256 cellar: :any, catalina:      "644b33de5338e00a2103c87aa4b55a39b7a16e2ecee49936f2251a0a97756f0f"
-    sha256 cellar: :any, mojave:        "883707c4b2fe29a6d0b8453d4d19005128761d5d6952b9fe21292ec4b4cb2b11"
+    sha256 cellar: :any, arm64_monterey: "0d28c059618baac62c5d3a3703eba0196f0a38785241ef2cdaae20627ef05bd2"
+    sha256 cellar: :any, arm64_big_sur:  "5044511cc0f5a64f3424d4507559b6ca316669121f4b15d58ef6b9cec5bba3f8"
+    sha256 cellar: :any, monterey:       "02d82e44495dd015a29e9680e4ad4d82d9bc31708eb179186b399c56cc22d74b"
+    sha256 cellar: :any, big_sur:        "a49576ad287d073c67e0da12be686ba737abe34e5f61813a2e308cd44c427017"
+    sha256 cellar: :any, catalina:       "644b33de5338e00a2103c87aa4b55a39b7a16e2ecee49936f2251a0a97756f0f"
+    sha256 cellar: :any, mojave:         "883707c4b2fe29a6d0b8453d4d19005128761d5d6952b9fe21292ec4b4cb2b11"
   end
 
   depends_on "openssl@1.1"

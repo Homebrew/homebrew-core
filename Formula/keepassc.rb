@@ -4,17 +4,19 @@ class Keepassc < Formula
   url "https://files.pythonhosted.org/packages/c8/87/a7d40d4a884039e9c967fb2289aa2aefe7165110a425c4fb74ea758e9074/keepassc-1.8.2.tar.gz"
   sha256 "2e1fc6ccd5325c6f745f2d0a3bb2be26851b90d2095402dd1481a5c197a7b24e"
   license "ISC"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1fda05aa9860777fc35146d01c2828b50ea58e297301b6403ffe49a10538fd35"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8ba0332d53b90b3922beae741ea4ef144610c633a5852050c60d7876a158c1c3"
-    sha256 cellar: :any_skip_relocation, catalina:      "71632bb4ea2f91ca573ad5b52ddb233725b2c99b55866d743dda638e69b0c712"
-    sha256 cellar: :any_skip_relocation, mojave:        "b2771b8b9ff6592959e6cde59e6f3f7fd30ad3380f8b2e84911179f1fb0bc3d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f796e436efb238dc9f1396fa0160fe32befdc978d3a904b15cf8a31ef42fd784"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8556297abd34b591ddb4d93ada1059039f78927bec4858f5ad8ced245e9083ea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c84dd256b4392893dc1b756f16486f8c98ba6f6fbffdfb2573100b4bfd3efbc1"
+    sha256 cellar: :any_skip_relocation, monterey:       "b25905da9514361ee40ea00e8e027bcb07aaeadab8bda8fcd37c595af909decb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e1cf6e43638026d1deaa3e90e07ff03dec482e6f8fb19be895309c9be2a9abe9"
+    sha256 cellar: :any_skip_relocation, catalina:       "c3b6090b7cb27dfcbd563b152bac02444979535a97aa422f3458bd701246c0eb"
+    sha256 cellar: :any_skip_relocation, mojave:         "512d04b7df021f0a3a29dad0a2efc0262483a4cfe3e9385938afa346f73ac92e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fee5bf5f8161aa727c06397811e1d7a2910dfefbffbf8fcb2cad0ec5cc55ac15"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "kppy" do
     url "https://files.pythonhosted.org/packages/c8/d9/6ced04177b4790ccb1ba44e466c5b67f3a1cfe4152fb05ef5f990678f94f/kppy-1.5.2.tar.gz"

@@ -1,8 +1,8 @@
 class OpenlibertyWebprofile8 < Formula
   desc "Lightweight open framework for Java (Jakarta EE Web Profile 8)"
   homepage "https://openliberty.io"
-  url "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/2021-07-27_1323/openliberty-webProfile8-21.0.0.8.zip"
-  sha256 "bf023bace2ac7be3d348854964535c2ba699a3e9e10a6df688278ff11669ed2f"
+  url "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/2021-10-19_1900/openliberty-webProfile8-21.0.0.11.zip"
+  sha256 "1bb90d605ecd464b1cddb72ff788fda74d5c5a7cca2e6728021fb19bf2cfa231"
   license "EPL-1.0"
 
   livecheck do
@@ -11,7 +11,11 @@ class OpenlibertyWebprofile8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "709f9009a91d3470697e1fda0962918ae846b1733822558422dd5d6ce6f71af3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a72a9295f548ba7ff0639c54d0a9af282fec42f0f0d3755dd2903f038ea383c9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a72a9295f548ba7ff0639c54d0a9af282fec42f0f0d3755dd2903f038ea383c9"
+    sha256 cellar: :any_skip_relocation, catalina:      "a72a9295f548ba7ff0639c54d0a9af282fec42f0f0d3755dd2903f038ea383c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14ccb8393dc804aed211a40512d35604f47ada03faa7cba1f6dac77fd9dd7d2f"
+    sha256 cellar: :any_skip_relocation, all:           "bbb45837c8fa8cafb7400e848e4988ea1578ca9245e92ee244ba9b1b5a3c3eaf"
   end
 
   depends_on "openjdk"

@@ -6,10 +6,13 @@ class Libebur128 < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "99450597a660d645800d8d0488b657efee8d7ff9b886a80f964fe3394c8a2552"
-    sha256 cellar: :any, big_sur:       "43567ee920b45921fb0d7787f40d3274ff42360c3048df470aee33be902694e7"
-    sha256 cellar: :any, catalina:      "a9612342890303e8859ee23c7ce8d154f1d3eb134158322aa4ca0968d471281a"
-    sha256 cellar: :any, mojave:        "ebe29eb9b5918eabf720410feb2ac711f5b062458e1d3129ffd29fb7da0f66b5"
+    sha256 cellar: :any,                 arm64_monterey: "d77d92a90aa8dfcb7642efe678d02804a0a9d0c172e43e005499120ead01b3b8"
+    sha256 cellar: :any,                 arm64_big_sur:  "99450597a660d645800d8d0488b657efee8d7ff9b886a80f964fe3394c8a2552"
+    sha256 cellar: :any,                 monterey:       "6a1d7c49352c44807fbddff035842984a6d2e320d4d0625fd2271752246bcdfb"
+    sha256 cellar: :any,                 big_sur:        "43567ee920b45921fb0d7787f40d3274ff42360c3048df470aee33be902694e7"
+    sha256 cellar: :any,                 catalina:       "a9612342890303e8859ee23c7ce8d154f1d3eb134158322aa4ca0968d471281a"
+    sha256 cellar: :any,                 mojave:         "ebe29eb9b5918eabf720410feb2ac711f5b062458e1d3129ffd29fb7da0f66b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f9bf1bedd635dce44252d8abf9ab008d53275ff1fc35ae7522685e403b5cdac"
   end
 
   depends_on "cmake" => :build

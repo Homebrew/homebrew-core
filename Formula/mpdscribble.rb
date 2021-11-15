@@ -11,10 +11,12 @@ class Mpdscribble < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "b40d1cf7f4b28d8633fa6f7d3dc9600edab132a0dde8e2d506bea70411051796"
-    sha256 big_sur:       "0abaf443ebb52e23fd027970737ae42d912c66a43b650e5a5ebc5b8abb0483f2"
-    sha256 catalina:      "0d75bbf947da0c0fd231994339f0b2c7d23ec9fa5a04532f3c20733064de5394"
-    sha256 mojave:        "d2ac4631cea6e610b6ae6b9a007b8c5b2141b0ff55c76b57fbacdbb1a7904a9c"
+    sha256 arm64_monterey: "0ad5540e3f2b665958dfa9deaeb1551287d4946be5b143744c0c476cd9e69a71"
+    sha256 arm64_big_sur:  "b40d1cf7f4b28d8633fa6f7d3dc9600edab132a0dde8e2d506bea70411051796"
+    sha256 monterey:       "a4b7ad909b76117a64e76beb3da3206e45c70d006e581f020520fa5210813a6c"
+    sha256 big_sur:        "0abaf443ebb52e23fd027970737ae42d912c66a43b650e5a5ebc5b8abb0483f2"
+    sha256 catalina:       "0d75bbf947da0c0fd231994339f0b2c7d23ec9fa5a04532f3c20733064de5394"
+    sha256 mojave:         "d2ac4631cea6e610b6ae6b9a007b8c5b2141b0ff55c76b57fbacdbb1a7904a9c"
   end
 
   depends_on "boost" => :build

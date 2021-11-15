@@ -4,7 +4,7 @@ class RdiffBackup < Formula
   url "https://github.com/rdiff-backup/rdiff-backup/releases/download/v2.0.5/rdiff-backup-2.0.5.tar.gz"
   sha256 "2bb7837b4a9712b6efaebfa7da8ed6348ffcb02fcecff0e19d8fff732e933b87"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,15 +12,16 @@ class RdiffBackup < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8ca9789a8e2456096ab851fe8277004201bc2f9ca66adf6934a6a942f9eaf3d3"
-    sha256 cellar: :any, big_sur:       "da5cbef995206de251e217fbfb1a0594d3222c26c20c003df78a8aad6e855b8f"
-    sha256 cellar: :any, catalina:      "1597986cbff907a671f1449f59b0f456344e27b9104f7139d40f001b67d27477"
-    sha256 cellar: :any, mojave:        "875e5fcc8ae219dc64d5c2f3e435313f69fd4d0ea595d01ff3ae70fe5873b547"
-    sha256 cellar: :any, high_sierra:   "215f96cb06d3e4c64dd52081fb22cfa6658ab25bd3fd76b52a128c70b5c93838"
+    sha256 cellar: :any, arm64_monterey: "9841037fad91c2e5567e03916d7413fd1e74d6858dff760b2a3728c53e1baf80"
+    sha256 cellar: :any, arm64_big_sur:  "66247de6c20d7350372ecb4efb63b3f5bec4c7f2fe29c4ed80723ebdcd0018fa"
+    sha256 cellar: :any, monterey:       "c64863e034cc7deb4de5574243baac6b0c180ab556ccea2b8fde137cd1910d74"
+    sha256 cellar: :any, big_sur:        "3aaeb0620c7dd027efea476c6b3af79425a7baf2056abc29ed88e405bf2f107a"
+    sha256 cellar: :any, catalina:       "e53a41d9556104c8b72a6b876969b2634d48a1153552af42af86456b5c1add67"
+    sha256 cellar: :any, mojave:         "f3d24f92212373f45e8323a8d054cef1b1ee0b392c96034cbf461bb60b0effd6"
   end
 
   depends_on "librsync"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     system "python3", "setup.py", "build", "--librsync-dir=#{prefix}"

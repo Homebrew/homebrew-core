@@ -6,12 +6,14 @@ class Ideviceinstaller < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "30f56186281509d1f77d7a00cbcd1f313cd80135e3f9e2a235ca649f9a23e5f1"
-    sha256 cellar: :any,                 big_sur:       "6d98523b90770662e350311c375f1157ac0c708769ce2145036aeed451e26621"
-    sha256 cellar: :any,                 catalina:      "6ee12db78e8c224c0eb0cf88eb4f43242eb1ba672eb006636273b99b75b02a87"
-    sha256 cellar: :any,                 mojave:        "6ed5e4f7ace33fd5f4d1b4c6b9f0fd519836080e170b981e63942087698351c6"
-    sha256 cellar: :any,                 high_sierra:   "0dfe944eaa47cad87ad22f70dbbcefdb6b27bbeb83ca1f7a229827c03054c07c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e225e3d9f0e6508b4fb73d9e7ea5eaec71b75d9d7ca7ac591adcfb3b9fd324fc"
+    sha256 cellar: :any,                 arm64_monterey: "e5bf0e5ed6aad688593878bdf8e78c5aa84530ee053f5ea21ad433cf99f59873"
+    sha256 cellar: :any,                 arm64_big_sur:  "30f56186281509d1f77d7a00cbcd1f313cd80135e3f9e2a235ca649f9a23e5f1"
+    sha256 cellar: :any,                 monterey:       "e6e374f35c4eeb37763e7755228c108ee96024b8599943fa741450be35915d93"
+    sha256 cellar: :any,                 big_sur:        "6d98523b90770662e350311c375f1157ac0c708769ce2145036aeed451e26621"
+    sha256 cellar: :any,                 catalina:       "6ee12db78e8c224c0eb0cf88eb4f43242eb1ba672eb006636273b99b75b02a87"
+    sha256 cellar: :any,                 mojave:         "6ed5e4f7ace33fd5f4d1b4c6b9f0fd519836080e170b981e63942087698351c6"
+    sha256 cellar: :any,                 high_sierra:    "0dfe944eaa47cad87ad22f70dbbcefdb6b27bbeb83ca1f7a229827c03054c07c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e225e3d9f0e6508b4fb73d9e7ea5eaec71b75d9d7ca7ac591adcfb3b9fd324fc"
   end
 
   head do

@@ -2,20 +2,29 @@ class Aom < Formula
   desc "Codec library for encoding and decoding AV1 video streams"
   homepage "https://aomedia.googlesource.com/aom"
   url "https://aomedia.googlesource.com/aom.git",
-      tag:      "v3.1.2",
-      revision: "ae2be8030200925895fa6e98bd274ffdb595cbf6"
+      tag:      "v3.2.0",
+      revision: "287164de79516c25c8c84fd544f67752c170082a"
   license "BSD-2-Clause"
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "cab48a0f87dce96cd34be83f306c76b1b12ffdc36924f66db4e5b23c7d02ed9b"
-    sha256 cellar: :any,                 big_sur:       "7caa96eb1b5ffed1e77fd7bf287b8aee925a415a462209228800ad1d18b34a0f"
-    sha256 cellar: :any,                 catalina:      "8755252819aa338bb5992e88e88f13e9f0e9b6b6d4bcea909fbd772d6eb80f02"
-    sha256 cellar: :any,                 mojave:        "104a6c66a752c4d245830922658adaf9b0f47a4036089141d25ca6ff46ccbe92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4445426d87356c91869cce415d85c3d8bb63cdbab52ec3696e439ffce825be8a"
+    sha256 cellar: :any,                 arm64_monterey: "72b91aa7864889bf1e6e28825e78dcc4a71927518e3c7d6dbb7f530c1b3fe3cf"
+    sha256 cellar: :any,                 arm64_big_sur:  "fa278187ca95fb4fb6145546465ab8a613d32dc32836ad4733c5a892497932b2"
+    sha256 cellar: :any,                 monterey:       "fe7904d603f1be8d9d6df3e6588787fe21878b5bf17b6ab8b123322f4c97c938"
+    sha256 cellar: :any,                 big_sur:        "fe6e3a5c3a14ce0938afade898d8fe009fcf5115a6d36d6c1a88ab32ba488b29"
+    sha256 cellar: :any,                 catalina:       "96714bc74e2a9ef142f1b9b60a3af3178fb0d8264deaefd219adcafe411d5102"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cdc42ff566b3919db435259d77934cafc8ecb3f1516b5bc3236b165ef2056e2"
   end
 
   depends_on "cmake" => :build
   depends_on "yasm" => :build
+
+  # `jpeg-xl` is currently not bottled on Linux
+  on_macos do
+    depends_on "pkg-config" => :build
+    depends_on "jpeg-xl"
+    depends_on "libvmaf"
+  end
 
   resource "bus_qcif_15fps.y4m" do
     url "https://media.xiph.org/video/derf/y4m/bus_qcif_15fps.y4m"
@@ -23,20 +32,29 @@ class Aom < Formula
   end
 
   def install
-    mkdir "macbuild" do
-      args = std_cmake_args.concat(["-DCMAKE_INSTALL_RPATH=#{rpath}",
-                                    "-DENABLE_DOCS=off",
-                                    "-DENABLE_EXAMPLES=on",
-                                    "-DENABLE_TESTDATA=off",
-                                    "-DENABLE_TESTS=off",
-                                    "-DENABLE_TOOLS=off",
-                                    "-DBUILD_SHARED_LIBS=on"])
-      # Runtime CPU detection is not currently enabled for ARM on macOS.
-      args << "-DCONFIG_RUNTIME_CPU_DETECT=0" if Hardware::CPU.arm?
-      system "cmake", "..", *args
+    ENV.runtime_cpu_detection unless Hardware::CPU.arm?
 
-      system "make", "install"
+    args = std_cmake_args.concat(["-DCMAKE_INSTALL_RPATH=#{rpath}",
+                                  "-DENABLE_DOCS=off",
+                                  "-DENABLE_EXAMPLES=on",
+                                  "-DENABLE_TESTDATA=off",
+                                  "-DENABLE_TESTS=off",
+                                  "-DENABLE_TOOLS=off",
+                                  "-DBUILD_SHARED_LIBS=on"])
+    # Runtime CPU detection is not currently enabled for ARM on macOS.
+    args << "-DCONFIG_RUNTIME_CPU_DETECT=0" if Hardware::CPU.arm?
+
+    # Make unconditional when `jpeg-xl` is bottled on Linux
+    if OS.mac?
+      args += [
+        "-DCONFIG_TUNE_BUTTERAUGLI=1",
+        "-DCONFIG_TUNE_VMAF=1",
+      ]
     end
+
+    system "cmake", "-S", ".", "-B", "brewbuild", *args
+    system "cmake", "--build", "brewbuild"
+    system "cmake", "--install", "brewbuild"
   end
 
   test do

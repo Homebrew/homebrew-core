@@ -11,11 +11,13 @@ class RxvtUnicode < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "2ad5cfb39d86aff0d7f3b785aee5058ce2b0bf113b13b24f963c1b8d60679ff3"
-    sha256 big_sur:       "5e3a94dc348d57ada5dcb55eafee51b1ffa8bf78e10a8a2b0af9ac56b2d2ff02"
-    sha256 catalina:      "b97c65d257344a16accd34497c77ec3638674c7c596b7f05c190d606975de9af"
-    sha256 mojave:        "ecec482ad2b840b1cdb3945a42bcc31656d61a83ae3d08af2d2dafb1a4002d9d"
-    sha256 x86_64_linux:  "33700270809fe7d85c106cc6ef8aeb0c85c053ea52f39e6124464cfbf01a8309"
+    sha256 arm64_monterey: "acaab9ae981de980c62c28e89072cf754e9cfce42c79179c8bf96ada884e006e"
+    sha256 arm64_big_sur:  "2ad5cfb39d86aff0d7f3b785aee5058ce2b0bf113b13b24f963c1b8d60679ff3"
+    sha256 monterey:       "e7fe499f09e78e5b61e12ceb8b910c44b643b10018bde3d390223e0643f32e38"
+    sha256 big_sur:        "5e3a94dc348d57ada5dcb55eafee51b1ffa8bf78e10a8a2b0af9ac56b2d2ff02"
+    sha256 catalina:       "b97c65d257344a16accd34497c77ec3638674c7c596b7f05c190d606975de9af"
+    sha256 mojave:         "ecec482ad2b840b1cdb3945a42bcc31656d61a83ae3d08af2d2dafb1a4002d9d"
+    sha256 x86_64_linux:   "33700270809fe7d85c106cc6ef8aeb0c85c053ea52f39e6124464cfbf01a8309"
   end
 
   depends_on "pkg-config" => :build

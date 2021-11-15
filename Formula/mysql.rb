@@ -1,8 +1,8 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.26.tar.gz"
-  sha256 "209442c1001c37bcbc001845e1dc623d654cefb555b47b528742a53bf21c0b4d"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.27.tar.gz"
+  sha256 "74b5bc6ff88fe225560174a24b7d5ff139f4c17271c43000dbcf3dcc9507b3f9"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -11,11 +11,11 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "d9d5058320a81f82a97cf005ec2d7369a8f002792bc6f85239794aad2a076f38"
-    sha256 big_sur:       "7e949939fa4da88ebfa5ac5398416f4847ec37ac06e4c7f05413a6a575e0e28a"
-    sha256 catalina:      "dfa737ee641b3ef4c3a054134c083f0d79c2929a437ab586f79c03832f4cca00"
-    sha256 mojave:        "a5a4eb9b6f0fe8700833c868d8ee52ddeecd4551f4bb019ec53e1a0d426ec0e9"
-    sha256 x86_64_linux:  "34f2459d42e1cc4f50e8d99cd2514843145c9400f09ff9a0c3172592a9a2090f"
+    sha256 arm64_big_sur: "193e3eed782b0200217dee216d54be860a55e93edd89f5b3ef4686a56c32ed56"
+    sha256 big_sur:       "c9e0edee036bc06a5b8c73f8e483cf9731401253058a60ff230667e5af866328"
+    sha256 catalina:      "e7bb052589e7bcf05ba647190be0d38be8c9f2be83936c19f6365bfd0b21bbb9"
+    sha256 mojave:        "66bb243acf7532b7c16cde86419390872756d71d68beee2089095585fd268229"
+    sha256 x86_64_linux:  "148a853686c00e9c32b41c2b8e6ddfdd7498c63894c76e343033bd682675c70f"
   end
 
   depends_on "cmake" => :build
@@ -52,7 +52,7 @@ class Mysql < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Fix libmysqlgcs.a(gcs_logging.cc.o): relocation R_X86_64_32
       # against `_ZN17Gcs_debug_options12m_debug_noneB5cxx11E' can not be used when making
       # a shared object; recompile with -fPIC
@@ -161,30 +161,10 @@ class Mysql < Formula
     s
   end
 
-  plist_options manual: "mysql.server start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/mysqld_safe</string>
-          <string>--datadir=#{datadir}</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{datadir}</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"mysqld_safe", "--datadir=#{var}/mysql"]
+    keep_alive true
+    working_dir var/"mysql"
   end
 
   test do

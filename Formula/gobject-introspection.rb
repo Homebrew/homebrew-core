@@ -3,17 +3,19 @@ class GobjectIntrospection < Formula
 
   desc "Generate introspection data for GObject libraries"
   homepage "https://gi.readthedocs.io/en/latest/"
-  url "https://download.gnome.org/sources/gobject-introspection/1.68/gobject-introspection-1.68.0.tar.xz"
-  sha256 "d229242481a201b84a0c66716de1752bca41db4133672cfcfb37c93eb6e54a27"
+  url "https://download.gnome.org/sources/gobject-introspection/1.70/gobject-introspection-1.70.0.tar.xz"
+  sha256 "902b4906e3102d17aa2fcb6dad1c19971c70f2a82a159ddc4a94df73a3cafc4a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
   revision 1
 
   bottle do
-    sha256 arm64_big_sur: "1f2c84c5754435ef62fb859cf222f20b6e488fc0829c406631180a07220ef0c7"
-    sha256 big_sur:       "f2838a38fcc1c1fd675d9fb25d7076875498cf1374b9f4d6f7164174a0384f86"
-    sha256 catalina:      "9cc1e1379832e2f14a6e5b4ceab54e3c144f3653ebf9b28d367b472f8bfaf47a"
-    sha256 mojave:        "9bc64021f82a4ecddbfc6103d966ba0730bff8689e82c1285a31ccf1aa12a526"
-    sha256 x86_64_linux:  "cf067ec268af77b2f2c9132ea33fb714a65fbfc304013f229947ce8ebfa1b7fd"
+    sha256 arm64_monterey: "b3415581141e6a2dd35baf1065aef21bfa07cacd582c8f18a728606750904a0c"
+    sha256 arm64_big_sur:  "743867fe7cd99538df90b4a233e36bbc50878f8d97758efa06403b650baaedd6"
+    sha256 monterey:       "974fbe1764602c4e8a7611203bc6bd78d7a47f66531fdbd294138eaacc8f5dc0"
+    sha256 big_sur:        "8f3959289f6ffde7c6e547ea9736dbb4346302a5ebd8bb9780fa044656fa61f5"
+    sha256 catalina:       "140f94de2c097db9ac7f4a7de0293235a4354fd13f687df2791214d58b24e008"
+    sha256 mojave:         "c7f254c243c5c225c3079616174a22ed507e62cdbb47f23b5fb0bf4a8ef45b2f"
+    sha256 x86_64_linux:   "abbd5d8a9d3e17a05c24913da6ca16818453e8d79f0a7f873d86f8beebdeb67b"
   end
 
   depends_on "bison" => :build
@@ -25,7 +27,7 @@ class GobjectIntrospection < Formula
   depends_on "pkg-config"
   depends_on "python@3.9"
 
-  uses_from_macos "flex"
+  uses_from_macos "flex" => :build
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",

@@ -6,16 +6,18 @@ class TelegramCli < Formula
       revision: "5935c97ed05b90015418b5208b7beeca15a6043c"
   license "GPL-2.0"
   revision 4
-  head "https://github.com/vysheng/tg.git"
+  head "https://github.com/vysheng/tg.git", branch: "master"
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "335e874e6767796259265d4d62d144b599c37f7d5e98a54c36903e0733b50ce3"
-    sha256 big_sur:       "a2cf1d0764a462e736640449bb3ca11522ec0c38a4dfb2e54ff3ccc3556f7ff9"
-    sha256 catalina:      "4c1a9d233c3b46d75badb6e89e007ff9763e55071474ce11d0e109e7ee24aefe"
-    sha256 mojave:        "da9d09f1f4a317ed14c97e67fc2def18c4cd728a7023ab80424a8d548437ee74"
-    sha256 high_sierra:   "410b56cc04620c7a1f495b500b41fa61339cc68444c1c65939bb4fb0c4cc96ef"
-    sha256 x86_64_linux:  "a8e2ef70303824cf404b4d481ac67194c8240611aafcef592bec5311f36d7d08"
+    sha256 arm64_monterey: "2a2821cb318c0270c4a51154c662257262e956e46621dc908f78448981c2284a"
+    sha256 arm64_big_sur:  "335e874e6767796259265d4d62d144b599c37f7d5e98a54c36903e0733b50ce3"
+    sha256 monterey:       "f70222afc6e527354cd71857668550130d8fb2de2fb08ace0127db745f69d87a"
+    sha256 big_sur:        "a2cf1d0764a462e736640449bb3ca11522ec0c38a4dfb2e54ff3ccc3556f7ff9"
+    sha256 catalina:       "4c1a9d233c3b46d75badb6e89e007ff9763e55071474ce11d0e109e7ee24aefe"
+    sha256 mojave:         "da9d09f1f4a317ed14c97e67fc2def18c4cd728a7023ab80424a8d548437ee74"
+    sha256 high_sierra:    "410b56cc04620c7a1f495b500b41fa61339cc68444c1c65939bb4fb0c4cc96ef"
+    sha256 x86_64_linux:   "a8e2ef70303824cf404b4d481ac67194c8240611aafcef592bec5311f36d7d08"
   end
 
   # "This project is deprecated and is no longer being maintained.

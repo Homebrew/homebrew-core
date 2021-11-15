@@ -7,7 +7,7 @@ class Volatility < Formula
   sha256 "a8dfdbdb2aaa0885387b709b821bb8250e698086fb32015bc2896ea55f359058"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/volatilityfoundation/volatility.git"
+  head "https://github.com/volatilityfoundation/volatility.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, catalina:    "f41ce1f3f70a5bb1eab7efac3d74ace7dad7bdf581bcb16b7a09d34e27e38d50"

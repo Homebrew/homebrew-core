@@ -11,6 +11,7 @@ class Fileicon < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "154c80c94f29f209b78252e71d914647a8300c66c02acda672b8574e8e704e92"
     sha256 cellar: :any_skip_relocation, mojave:        "154c80c94f29f209b78252e71d914647a8300c66c02acda672b8574e8e704e92"
     sha256 cellar: :any_skip_relocation, high_sierra:   "154c80c94f29f209b78252e71d914647a8300c66c02acda672b8574e8e704e92"
+    sha256 cellar: :any_skip_relocation, all:           "404d155d24d4d6ca2d55f60dfadb8e267927ad7200c297e87337bab641f8c137"
   end
 
   depends_on :macos

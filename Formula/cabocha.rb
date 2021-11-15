@@ -7,11 +7,13 @@ class Cabocha < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "6db92d4bc14b2b1045601758c9ad2d528fda7ce0029316a2b296c63c4953c54d"
-    sha256 big_sur:       "1dd5c1474946aaab675326323c8f7e3d101687b50d5542464558f54a8c477cc8"
-    sha256 catalina:      "0cf6edea1fa69790984c762aaff33bcea3d6cf5206e06cf489c53e8644cbc9a4"
-    sha256 mojave:        "34825bb06bd8cbdb2fe082471044168cccdafc7414eac37eb6550f8a12e0dbe2"
-    sha256 x86_64_linux:  "182dfe90c7dcc7c8bf00ece489a1d03b39b1dc66719a58c52efce8f8a8b30b96"
+    sha256 arm64_monterey: "c61f5a8df81d52575b991108e2683c27d94a4dcd62cd50d4396cb65234453b22"
+    sha256 arm64_big_sur:  "6db92d4bc14b2b1045601758c9ad2d528fda7ce0029316a2b296c63c4953c54d"
+    sha256 monterey:       "7002f27098ec51a1832a5a39e1f8d55eb7d11b7fe37ce005ff0dfe7bb1be9e59"
+    sha256 big_sur:        "1dd5c1474946aaab675326323c8f7e3d101687b50d5542464558f54a8c477cc8"
+    sha256 catalina:       "0cf6edea1fa69790984c762aaff33bcea3d6cf5206e06cf489c53e8644cbc9a4"
+    sha256 mojave:         "34825bb06bd8cbdb2fe082471044168cccdafc7414eac37eb6550f8a12e0dbe2"
+    sha256 x86_64_linux:   "182dfe90c7dcc7c8bf00ece489a1d03b39b1dc66719a58c52efce8f8a8b30b96"
   end
 
   depends_on "crf++"
@@ -19,7 +21,7 @@ class Cabocha < Formula
   depends_on "mecab-ipadic"
 
   def install
-    on_macos { ENV["LIBS"] = "-liconv" }
+    ENV["LIBS"] = "-liconv" if OS.mac?
 
     inreplace "Makefile.in" do |s|
       s.change_make_var! "CFLAGS", ENV.cflags
@@ -38,8 +40,11 @@ class Cabocha < Formula
   end
 
   test do
-    md5 = "md5"
-    on_linux { md5 = "md5sum" }
+    md5 = if OS.mac?
+      "md5"
+    else
+      "md5sum"
+    end
     result = pipe_output(md5, pipe_output(bin/"cabocha", "CaboCha はフリーソフトウェアです。"))
     assert_equal "a5b8293e6ebcb3246c54ecd66d6e18ee", result.chomp.split.first
   end

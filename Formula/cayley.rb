@@ -8,14 +8,16 @@ class Cayley < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ead8a905c38526bdc7812eb1d500cf9dcb90c8c9dbb73126e1b3da463a4520c9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9217369e4d1d1863fd23a2694a3962510a52380b385c199008191c302629f0ac"
-    sha256 cellar: :any_skip_relocation, catalina:      "7fe446d8eaa6ed43ae226027feec3878e437708d4a59c5aab761ab249bc9ba56"
-    sha256 cellar: :any_skip_relocation, mojave:        "7084bd5b3b7dc66c9c50266f2831951f995901f2a326905c760646ebe66a3b96"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "0dc598decbc9c70660d22fc670f71581e7fec09e5c9d9bc13ccee4c88c758338"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "63e5659661c157f2eec496d2c0075a7d91cd25d4985a35935a34fa5a4cdb6142"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ead8a905c38526bdc7812eb1d500cf9dcb90c8c9dbb73126e1b3da463a4520c9"
+    sha256 cellar: :any_skip_relocation, monterey:       "b621ff9b1017dac7f6cbe723abbd85256d04be2f31b4e527a569d2b5d66e54bb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9217369e4d1d1863fd23a2694a3962510a52380b385c199008191c302629f0ac"
+    sha256 cellar: :any_skip_relocation, catalina:       "7fe446d8eaa6ed43ae226027feec3878e437708d4a59c5aab761ab249bc9ba56"
+    sha256 cellar: :any_skip_relocation, mojave:         "7084bd5b3b7dc66c9c50266f2831951f995901f2a326905c760646ebe66a3b96"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "0dc598decbc9c70660d22fc670f71581e7fec09e5c9d9bc13ccee4c88c758338"
   end
 
-  depends_on "bazaar" => :build
+  depends_on "breezy" => :build
   depends_on "go" => :build
   depends_on "mercurial" => :build
 

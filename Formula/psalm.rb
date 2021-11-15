@@ -1,20 +1,21 @@
 class Psalm < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://psalm.dev"
-  url "https://github.com/vimeo/psalm/releases/download/4.9.3/psalm.phar"
-  sha256 "11018aa2141db63557ae483c6ece31986785bf6f11971dc9a582e59ccbad67f2"
+  url "https://github.com/vimeo/psalm/releases/download/4.12.0/psalm.phar"
+  sha256 "44d354b2291adf35d557760ee3a95992cfbe4ff966d0c87a5f94f7144a877ec2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f601f9b950db0a5309b43e5cae0a12beb838dfc52485d0c715523f1c5be8183"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cc9e8d160efd9dd6bfda9c846408c1a73d67d713f0be7ed6fbb7a4c80b7e23af"
-    sha256 cellar: :any_skip_relocation, catalina:      "cc9e8d160efd9dd6bfda9c846408c1a73d67d713f0be7ed6fbb7a4c80b7e23af"
-    sha256 cellar: :any_skip_relocation, mojave:        "cc9e8d160efd9dd6bfda9c846408c1a73d67d713f0be7ed6fbb7a4c80b7e23af"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9ce8f9314a5e446926c81a29dbd31c675d90a1679dbb43300b6e45047ba64e1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9ce8f9314a5e446926c81a29dbd31c675d90a1679dbb43300b6e45047ba64e1"
+    sha256 cellar: :any_skip_relocation, monterey:       "36cb968f965302e39ed05456c99bd32483c6aec887d18c3d16225b6d7d393e32"
+    sha256 cellar: :any_skip_relocation, big_sur:        "36cb968f965302e39ed05456c99bd32483c6aec887d18c3d16225b6d7d393e32"
+    sha256 cellar: :any_skip_relocation, catalina:       "36cb968f965302e39ed05456c99bd32483c6aec887d18c3d16225b6d7d393e32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9ce8f9314a5e446926c81a29dbd31c675d90a1679dbb43300b6e45047ba64e1"
   end
 
   depends_on "composer" => :test
-
-  uses_from_macos "php"
+  depends_on "php"
 
   # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
   on_macos do

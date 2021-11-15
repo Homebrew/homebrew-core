@@ -8,11 +8,13 @@ class H2o < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "235585aa8d60bdf07e3589282ae5704a7b417312e701a8774a12fbf407642aa1"
-    sha256 big_sur:       "44af35463fd8c70fa3cd4014dd8ec92c93e33b96a3dde07aa5e8c532f4ba15d3"
-    sha256 catalina:      "c3a59a760f51a19c8a6e946a49d7f689b81bef8f80d9157c9be5af628b6b2a1a"
-    sha256 mojave:        "7aa27f5811da60d7c51e4124ed8f54f102496c5e29585007fb2fe9cfee646bbe"
-    sha256 x86_64_linux:  "b33805c89af5cff42fd08df6fcd263a63721cbc04daf115e879fb0dc680aaa4f"
+    sha256 arm64_monterey: "961401a86df0e09866bb9f424393642bd1df3dd60340fbbc71f3475f98a5f06f"
+    sha256 arm64_big_sur:  "235585aa8d60bdf07e3589282ae5704a7b417312e701a8774a12fbf407642aa1"
+    sha256 monterey:       "a33e81de4de46a46f3846280b32ec258e23bcec22d8c75518d1b258c993fbde5"
+    sha256 big_sur:        "44af35463fd8c70fa3cd4014dd8ec92c93e33b96a3dde07aa5e8c532f4ba15d3"
+    sha256 catalina:       "c3a59a760f51a19c8a6e946a49d7f689b81bef8f80d9157c9be5af628b6b2a1a"
+    sha256 mojave:         "7aa27f5811da60d7c51e4124ed8f54f102496c5e29585007fb2fe9cfee646bbe"
+    sha256 x86_64_linux:   "b33805c89af5cff42fd08df6fcd263a63721cbc04daf115e879fb0dc680aaa4f"
   end
 
   depends_on "cmake" => :build

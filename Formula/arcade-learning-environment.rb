@@ -9,6 +9,7 @@ class ArcadeLearningEnvironment < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ac79a55da2582b1750e695bbe66943cd3e79111708b0692edad3fdefb870d291"
+    sha256 cellar: :any,                 monterey:      "c90f61c52de01f7e1c8387d06030c78e23425246af5d05162481964874285b3a"
     sha256 cellar: :any,                 big_sur:       "0cd35bdc93604828c1c9afc56f47f827ad27f735315a001a04c6864778daf03c"
     sha256 cellar: :any,                 catalina:      "86f7ee81ae0de6f7eebd78bf21dbc79b8230689c275ba812b6ef772b9774118f"
     sha256 cellar: :any,                 mojave:        "eb678eb7cf4205890d5feecfcdf9a06a7afe3f90b5b3159bc5460f2ee2467c0b"

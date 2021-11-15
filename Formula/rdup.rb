@@ -5,7 +5,7 @@ class Rdup < Formula
   sha256 "787b8c37e88be810a710210a9d9f6966b544b1389a738aadba3903c71e0c29cb"
   license "GPL-3.0"
   revision 2
-  head "https://github.com/miekg/rdup.git"
+  head "https://github.com/miekg/rdup.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "d46e7dd067e403544b2a287f92efe1d1ddcaa224f084e79f65878d4ef676a474"

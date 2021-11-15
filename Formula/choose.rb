@@ -4,19 +4,20 @@ class Choose < Formula
   url "https://github.com/geier/choose/archive/v0.1.0.tar.gz"
   sha256 "d09a679920480e66bff36c76dd4d33e8ad739a53eace505d01051c114a829633"
   license "MIT"
-  revision 3
-  head "https://github.com/geier/choose.git"
+  revision 4
+  head "https://github.com/geier/choose.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c8408b41107e7824596b3c28b2f63f98c910a7452ff676805a7ec5e77ba505bc"
-    sha256 cellar: :any_skip_relocation, big_sur:       "108d84aff61c4374011202cab8203770cdee57c0445ad40735c1f41513140606"
-    sha256 cellar: :any_skip_relocation, catalina:      "086ebca8f9bff4d065e788c9076bfe204b958f96b8da0cce142f3c890c38cb75"
-    sha256 cellar: :any_skip_relocation, mojave:        "bef5f7490cf4a45398bfdef4867163957675227e74bab1494ea0da56cda2cda6"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "f860816e00292d161ed6f6617cef47c3297eb91e9231f3c125ce12b16ad7d220"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f694deea45cc55594ec470f3246e4181479b1365ade491f14f24aa6d5886f72"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8cc4e4eaabc3341ed4728d11d5cee96f7954d6d24bef173d1848884581ddf1f9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b715be8453394e1f1931994780ad42075c05d483d24257ef1226054ff2b450e"
+    sha256 cellar: :any_skip_relocation, monterey:       "ed6b3c62ea97cf196ce3843bb855c75539e756e6a582d48957cce31286a0626d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b22b7b549f0f9621163fc1b6b5923a2de0f79177686e8747ffb1b71201e979d7"
+    sha256 cellar: :any_skip_relocation, catalina:       "37aa7b900d689cedd0c834703663f782082f66595d9b84f27405180832311385"
+    sha256 cellar: :any_skip_relocation, mojave:         "9d2fb7796ec1e3b55838d9fd932f91dae4c3268f343d1d8cba2cac7ac77b04da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9241612ee60fcabf7fa8471843592f7063fb28f32a92e12dad97c1ab8774041f"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "choose-gui", because: "both install a `choose` binary"
   conflicts_with "choose-rust", because: "both install a `choose` binary"

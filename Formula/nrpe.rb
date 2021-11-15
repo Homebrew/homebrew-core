@@ -11,11 +11,13 @@ class Nrpe < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a99f092298108c70af8bd3fd66b6aaae9003bd60c47e0dc26ce925761495362b"
-    sha256 cellar: :any, big_sur:       "f51a26831737214a41367dd9332df6a333ee07a7e8e6e0ac75061dc161b5c82b"
-    sha256 cellar: :any, catalina:      "6ef7387202f3b9afda335fd77f16a268a82bed7a9f6ef856faa83741b308d8f2"
-    sha256 cellar: :any, mojave:        "90463f41b64e1ac2149dd917d536e406ed22ba9cef8a27e06618bab53c4e673e"
-    sha256 cellar: :any, high_sierra:   "e109e63ca7f6f5386eae058d19e510c5d3a5deb2633f8ef014df1ac24d414cb9"
+    rebuild 1
+    sha256 cellar: :any, arm64_monterey: "81d5307bca972fc7945af1226e9e80e3bd798a2296ef7da9fa16240c27064b28"
+    sha256 cellar: :any, arm64_big_sur:  "cec620b7f488a0e443b032921653c3bbf8e43438e8ca8b02b23cf6ea9284da5c"
+    sha256 cellar: :any, monterey:       "9e8adb2e3df46f2a950a95d285d70e8142d9ce3a00eb7171fb34b27daf8624d6"
+    sha256 cellar: :any, big_sur:        "0d5e76f99e6ea435cda18d6476158ced7debd4a4633176bcf1f3d6e721cd9724"
+    sha256 cellar: :any, catalina:       "d142c84ff35a78b7a2705ac915552c617420ff747eb47fd8d3ba27347ec384bc"
+    sha256 cellar: :any, mojave:         "ea0e988a1aef0f1905f0fe807d687096f10389c6b09f415015f713e529af4740"
   end
 
   depends_on "nagios-plugins"
@@ -52,32 +54,8 @@ class Nrpe < Formula
     (var/"run").mkpath
   end
 
-  plist_options manual: "nrpe -n -c #{HOMEBREW_PREFIX}/etc/nrpe.cfg -d"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>org.nrpe.agent</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/nrpe</string>
-          <string>-c</string>
-          <string>#{etc}/nrpe.cfg</string>
-          <string>-d</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>ServiceDescription</key>
-        <string>Homebrew NRPE Agent</string>
-        <key>Debug</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"nrpe", "-c", etc/"nrpe.cfg", "-d"]
   end
 
   test do

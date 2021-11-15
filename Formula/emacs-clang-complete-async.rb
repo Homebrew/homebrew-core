@@ -2,7 +2,7 @@ class EmacsClangCompleteAsync < Formula
   desc "Emacs plugin using libclang to complete C/C++ code"
   homepage "https://github.com/Golevka/emacs-clang-complete-async"
   license "GPL-3.0"
-  revision 5
+  revision 6
   head "https://github.com/Golevka/emacs-clang-complete-async.git"
 
   stable do
@@ -14,12 +14,12 @@ class EmacsClangCompleteAsync < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "1aa78bbcd4d00d0b93ff4cd24c4c4713937acd6759264e50bc180292ed6336a5"
-    sha256 big_sur:       "9f3d6f44651fe4c55baaa1e75d3948d3506932f669cb02490d2218d2edda494c"
-    sha256 catalina:      "d0582c74bee8c8379cd6aed9d150d38473323fb1993c7219536f1a783d1fadeb"
-    sha256 mojave:        "3e57ed30a99d26abf1dfe26989adfa19b258fe4c7e372eac8469566ac89be31b"
-    sha256 high_sierra:   "628ef0dce4d14042267c54e8baa1c20b594c7853f23ac35c012a5a6a2f506880"
-    sha256 sierra:        "3161dd4faf73ca236e5258011e2bd6229706a01dea444fbd2fa22de05070c0d1"
+    sha256 cellar: :any,                 arm64_monterey: "527869861adf5cd506ddfdddcd3c6ea99c501f1e6834f6c91f8172064bc03da7"
+    sha256 cellar: :any,                 arm64_big_sur:  "9d8ebc3478af3719304ea88c3b782cdc7344df0d76970d705d3c1468d15d5ea3"
+    sha256 cellar: :any,                 monterey:       "b10b046684973fa4ef52c3e501a8b932f98503e32cd60a90aa813cb8a54b1060"
+    sha256 cellar: :any,                 big_sur:        "faedcebad555182998cba925ad4bc965d329134320b307f34f17a031e96a3997"
+    sha256 cellar: :any,                 catalina:       "69789c4791f2ea78e6e35b20029994ed58b52ecb93d94d45f71b64db67970494"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af452df504f3a00eed290079c2e616914a90abc21850de94d769fefb5fa2f572"
   end
 
   depends_on "llvm"

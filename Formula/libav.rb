@@ -8,10 +8,13 @@ class Libav < Formula
   head "https://git.libav.org/libav.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0654bef05e6d8a3fa7fbeb6e9be5a02abe411ebbb3eec69c7a2e1f4b309cb6f5"
-    sha256 cellar: :any, big_sur:       "0bd97c8c39f11b5b29d5c271a28eb4ea4a40b4062a4331f8d97f738c9a82fb05"
-    sha256 cellar: :any, catalina:      "fcfafef0bb5eeee417c1d69d8ddb1fe0d7a8f8fe70edf39b8499a0df841f6905"
-    sha256 cellar: :any, mojave:        "f71b7acc7dd972d60176b7d6c9bfe247181867d98ff991d771dcff54a6beace5"
+    sha256 cellar: :any,                 arm64_monterey: "d163d72bbc94cf659325285190fbbf60f8e3232bb60eba917c57bb3fa4189983"
+    sha256 cellar: :any,                 arm64_big_sur:  "0654bef05e6d8a3fa7fbeb6e9be5a02abe411ebbb3eec69c7a2e1f4b309cb6f5"
+    sha256 cellar: :any,                 monterey:       "6db33d4e93ba3b0cb88b1474eadaabe505a3333501b56366e2b95813c8021231"
+    sha256 cellar: :any,                 big_sur:        "0bd97c8c39f11b5b29d5c271a28eb4ea4a40b4062a4331f8d97f738c9a82fb05"
+    sha256 cellar: :any,                 catalina:       "fcfafef0bb5eeee417c1d69d8ddb1fe0d7a8f8fe70edf39b8499a0df841f6905"
+    sha256 cellar: :any,                 mojave:         "f71b7acc7dd972d60176b7d6c9bfe247181867d98ff991d771dcff54a6beace5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ddcdad67f78046192ba87f2cdb2012b886e714b08f7595133f348e5761bd6fa"
   end
 
   # See: https://lists.libav.org/pipermail/libav-devel/2020-April/086589.html

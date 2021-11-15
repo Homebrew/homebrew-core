@@ -7,6 +7,7 @@ class RaxmlNg < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "822c606a5d0cfb5efc0fccd2f138ffe5058518bc62bad537cf4e5448493f9447"
     sha256 cellar: :any,                 big_sur:      "53b34f6c99ec604321d1314e5e6b94c559347c168e1702f0a23f93fc8a75c0e7"
     sha256 cellar: :any,                 catalina:     "365081db70aff0f633a8af24cc85b222b06ae3eb73fbadabd9c8c292e388a6b8"
     sha256 cellar: :any,                 mojave:       "05bfd69c3d218af9a44cbcf2f2d7e007d431aa8e45519a7ead14b67945df3666"

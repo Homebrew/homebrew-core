@@ -1,11 +1,10 @@
 class Rav1e < Formula
   desc "Fastest and safest AV1 video encoder"
   homepage "https://github.com/xiph/rav1e"
-  url "https://github.com/xiph/rav1e/archive/v0.4.1.tar.gz"
-  sha256 "b0be59435a40e03b973ecc551ca7e632e03190b5a20f944818afa3c2ecf4852d"
+  url "https://github.com/xiph/rav1e/archive/v0.5.0.tar.gz"
+  sha256 "ee56c49dbb50a0810257445e434edb99da01c968da0635403f31bd9677886871"
   license "BSD-2-Clause"
-  revision 1
-  head "https://github.com/xiph/rav1e.git"
+  head "https://github.com/xiph/rav1e.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,11 +12,12 @@ class Rav1e < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "80c76875e03241980641acdfa1c25c87e437e7950424fce2304841ef9bd5957b"
-    sha256 cellar: :any,                 big_sur:       "45b2b8adc65f38c42d453665f302385df54b251846355d002b753365a0701a3e"
-    sha256 cellar: :any,                 catalina:      "e08ce645cc56ed8258cc84c6aedaa7e78ce02ce4fed0ad7032845a2c0052aed0"
-    sha256 cellar: :any,                 mojave:        "8ed66c0b3180c82355a8d9201ace97ac281b8dab4bc152ad9e58a855b01429ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a80162aad2b4a04b11a6436ff2959cb85239417d483225e415043ba67b28bbb6"
+    sha256 cellar: :any,                 arm64_monterey: "5929f9b74a52e6a798d9a6b572622c401cd046811535823b50b31160eb190e4f"
+    sha256 cellar: :any,                 arm64_big_sur:  "5d525f7b54988d3d3ca552abc7cfec45f9c069f726db42a44af9ceb3be148ae4"
+    sha256 cellar: :any,                 monterey:       "d647df0d16f1e2975b7dcc557824b7549005a8a9057e839b39aaf38e5b81c986"
+    sha256 cellar: :any,                 big_sur:        "e1b17e0a7dd036cdc8075f6af8b19ae976bb28f24209f9ed387f43efa2e1448c"
+    sha256 cellar: :any,                 catalina:       "c16266957db69346464e39967d41d5198f3550423d6aabfb62919975cf52ea19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26610d706c2bdb477747126731405918b207233b90b13797afc3dcfe1155b3bb"
   end
 
   depends_on "cargo-c" => :build

@@ -9,10 +9,11 @@ class EchoprintCodegen < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "45bd6c87a9d59b80d5912ea79dd62ea7f6367419529f2f4c93713ddc385a4b3b"
-    sha256 cellar: :any, big_sur:       "de3efebbd14d58d2d98757f76e0a2f96f2fe9c29ee486f15aeaf0eac6a835a13"
-    sha256 cellar: :any, catalina:      "5772abd774aa57f8584a46f0aad46d51f31196ff32e6e5e2601e4129002a40bc"
-    sha256 cellar: :any, mojave:        "6c7203190f4d0a0e9d62a376fe60daa02ab17b7f0523db26979802719dae3ba7"
+    sha256 cellar: :any,                 arm64_big_sur: "45bd6c87a9d59b80d5912ea79dd62ea7f6367419529f2f4c93713ddc385a4b3b"
+    sha256 cellar: :any,                 big_sur:       "de3efebbd14d58d2d98757f76e0a2f96f2fe9c29ee486f15aeaf0eac6a835a13"
+    sha256 cellar: :any,                 catalina:      "5772abd774aa57f8584a46f0aad46d51f31196ff32e6e5e2601e4129002a40bc"
+    sha256 cellar: :any,                 mojave:        "6c7203190f4d0a0e9d62a376fe60daa02ab17b7f0523db26979802719dae3ba7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ede691a8c9591206e178e97174fe8e647d428d6a6f208233396ec1a6c06ff41"
   end
 
   deprecate! date: "2021-02-09", because: :unmaintained

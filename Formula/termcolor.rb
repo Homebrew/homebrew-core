@@ -11,6 +11,7 @@ class Termcolor < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "41012d8fe7ea77d22b30dc9baeac6aa0472b66c4f40e490b214ae34d20076cb1"
     sha256 cellar: :any_skip_relocation, mojave:        "49ed93a14e7bd15d692c8222d161dc732b3836b829f1dbc4b2e7326d66620674"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "52499ef8a399cb540793ce3f0ed8e3c857ea60681942fed858170642017fb4ba"
+    sha256 cellar: :any_skip_relocation, all:           "51b0b25be9b4a3cc951c6252dfc94c2dd06787eb1cea9bb100257a5359d2c770"
   end
 
   depends_on "cmake" => :build

@@ -12,6 +12,7 @@ class Otf2 < Formula
 
   bottle do
     sha256 arm64_big_sur: "8662b77af43c3692b6e46cc238971ec5fc7285611318dd22b6cf7494eeaab245"
+    sha256 monterey:      "05ed254d8c1dec8760bd565d07715226f0466f10d11affcbef35a9718864c30a"
     sha256 big_sur:       "95502a9bcfe892e2d14c0915f81f1b1b80351496f31d049741b793b3de1343ef"
     sha256 catalina:      "5d0dee1bdd5512982dc5aab82faf3f3d620e2d223c8e0924d6cebb345e054554"
     sha256 mojave:        "6b6c453bf295b0c846a30341ab449e4584a5530c36a11092cf280d0722e86305"

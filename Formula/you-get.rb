@@ -3,20 +3,21 @@ class YouGet < Formula
 
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://files.pythonhosted.org/packages/3d/e0/df190bb3752f6e2f287e07178e6ff0ff8cb0c1f55f5c5fa46435f12bbc61/you-get-0.4.1545.tar.gz"
-  sha256 "63e9b0527424c565303fe3d8ede1cd35d48a4ecf4afe72e1c12b0e90b9fdcd39"
+  url "https://files.pythonhosted.org/packages/f1/e9/3b6f38f800602f9724b3e5b1bf0350e397a0092a3f1fa698e0aeb173122f/you-get-0.4.1555.tar.gz"
+  sha256 "99282aca720c7ee1d9ef4b63bbbd226e906ea170b789a459fafd5b0627b0b15f"
   license "MIT"
   head "https://github.com/soimort/you-get.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6574d777066ea14a49addf18a3c4e140e0418661924f4f5be114773774dbf5fb"
-    sha256 cellar: :any_skip_relocation, big_sur:       "705131867a8133378007676f4dd32e48f81604c06e2f45f1913d18c027730400"
-    sha256 cellar: :any_skip_relocation, catalina:      "705131867a8133378007676f4dd32e48f81604c06e2f45f1913d18c027730400"
-    sha256 cellar: :any_skip_relocation, mojave:        "705131867a8133378007676f4dd32e48f81604c06e2f45f1913d18c027730400"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f334ada5d5ee92a53bd314ffc0d911cf408c869585bec064c1a656851a83a7a6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6b44337d222234585e6e3997f6d1660550893171979c3974db98f5ea5754abb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6b44337d222234585e6e3997f6d1660550893171979c3974db98f5ea5754abb"
+    sha256 cellar: :any_skip_relocation, monterey:       "df0dc12c7442eba996568ba4308f522f1850d75a7434fdc891bcea339e9b65e6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "df0dc12c7442eba996568ba4308f522f1850d75a7434fdc891bcea339e9b65e6"
+    sha256 cellar: :any_skip_relocation, catalina:       "df0dc12c7442eba996568ba4308f522f1850d75a7434fdc891bcea339e9b65e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12c1736ef7aa5fd5450201f8640946d21eae71ca0eff2ea903c6ab38f4043784"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "rtmpdump"
 
   def install

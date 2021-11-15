@@ -2,6 +2,8 @@ class PkgConfig < Formula
   desc "Manage compile and link flags for libraries"
   homepage "https://freedesktop.org/wiki/Software/pkg-config/"
   url "https://pkgconfig.freedesktop.org/releases/pkg-config-0.29.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/pkg-config-0.29.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/pkg-config-0.29.2.tar.gz"
   sha256 "6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591"
   license "GPL-2.0-or-later"
   revision 3
@@ -12,27 +14,33 @@ class PkgConfig < Formula
   end
 
   bottle do
-    sha256                               arm64_big_sur: "ffd4491f62201d14b7eca6beff954a2ab265351589cd5b3b79b8bbb414485574"
-    sha256                               big_sur:       "0040b6ebe07f60549800b211343fd5fb3cf83c866d9f62e40f5fb2f38b71e161"
-    sha256                               catalina:      "80f141e695f73bd058fd82e9f539dc67471666ff6800c5e280b5af7d3050f435"
-    sha256                               mojave:        "0d14b797dba0e0ab595c9afba8ab7ef9c901b60b4f806b36580ef95ebb370232"
-    sha256                               high_sierra:   "8c6160305abd948b8cf3e0d5c6bb0df192fa765bbb9535dda0b573cb60abbe52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d9b8bf9b7b4bd08086be1104e3e18afb1c437dfaca03e6e7df8f2710b9c1c1a"
+    sha256                               arm64_monterey: "2af9bceb60b70a259f236f1d46d2bb24c4d0a4af8cd63d974dde4d76313711e0"
+    sha256                               arm64_big_sur:  "ffd4491f62201d14b7eca6beff954a2ab265351589cd5b3b79b8bbb414485574"
+    sha256                               monterey:       "a6ba80711f98b65d8a2bf2c9278540860415e9b5e545da338a4d94f39d119285"
+    sha256                               big_sur:        "0040b6ebe07f60549800b211343fd5fb3cf83c866d9f62e40f5fb2f38b71e161"
+    sha256                               catalina:       "80f141e695f73bd058fd82e9f539dc67471666ff6800c5e280b5af7d3050f435"
+    sha256                               mojave:         "0d14b797dba0e0ab595c9afba8ab7ef9c901b60b4f806b36580ef95ebb370232"
+    sha256                               high_sierra:    "8c6160305abd948b8cf3e0d5c6bb0df192fa765bbb9535dda0b573cb60abbe52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d9b8bf9b7b4bd08086be1104e3e18afb1c437dfaca03e6e7df8f2710b9c1c1a"
   end
+
+  # FIXME: The bottle is mistakenly considered relocatable on Linux.
+  # See https://github.com/Homebrew/homebrew-core/pull/85032.
+  pour_bottle? only_if: :default_prefix
 
   def install
     pc_path = %W[
       #{HOMEBREW_PREFIX}/lib/pkgconfig
       #{HOMEBREW_PREFIX}/share/pkgconfig
     ]
-    on_macos do
+    pc_path << if OS.mac?
       pc_path << "/usr/local/lib/pkgconfig"
       pc_path << "/usr/lib/pkgconfig"
-      pc_path << "#{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}"
+      "#{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}"
+    else
+      "#{HOMEBREW_LIBRARY}/Homebrew/os/linux/pkgconfig"
     end
-    on_linux do
-      pc_path << "#{HOMEBREW_LIBRARY}/Homebrew/os/linux/pkgconfig"
-    end
+
     pc_path = pc_path.uniq.join(File::PATH_SEPARATOR)
 
     system "./configure", "--disable-debug",

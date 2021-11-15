@@ -9,6 +9,7 @@ class Kibana < Formula
   head "https://github.com/elastic/kibana.git"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey: "3ada496bcdff84e29654d2bf0f35195cc6df7f3686b7a51b49c77138930958cf"
     sha256 cellar: :any_skip_relocation, big_sur:  "c218ab10fca2ebdddd11ab27326d0a6d0530a7f26bc2adc26d1751e4326b0198"
     sha256 cellar: :any_skip_relocation, catalina: "c1ee01e41c34677dba144152142808d469db2855658fdd3e4fcafbae77a10774"
     sha256 cellar: :any_skip_relocation, mojave:   "fb818924d852b07ab0417e8ff52899400b98f25bd24714f77a8c472224269690"

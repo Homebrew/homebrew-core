@@ -1,10 +1,10 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v13.4/postgresql-13.4.tar.bz2"
-  sha256 "ea93e10390245f1ce461a54eb5f99a48d8cabd3a08ce4d652ec2169a357bc0cd"
+  url "https://ftp.postgresql.org/pub/source/v14.1/postgresql-14.1.tar.bz2"
+  sha256 "4d3c101ea7ae38982f06bdc73758b53727fb6402ecd9382006fa5ecc7c2ca41f"
   license "PostgreSQL"
-  head "https://github.com/postgres/postgres.git"
+  head "https://github.com/postgres/postgres.git", branch: "master"
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -12,11 +12,12 @@ class Postgresql < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "c6f7b67506131a89ceef01656356022c5eb52c6535cd07dbbbb5e2f2c2aa26e8"
-    sha256 big_sur:       "3b51c2493a21aa8738b113b10049262ce934b2bf3dba0ad95d43cdddc7f167c0"
-    sha256 catalina:      "03029b01b1f56a544a686ce600f4136e789a2445723f6e2cd15df2146dc8b316"
-    sha256 mojave:        "5e3070c5e9bb867d27601ee9c174afb60fa8d845de92f61596a5d87d86ef73aa"
-    sha256 x86_64_linux:  "08f0f62936f875eb8825956e9b0ff406cbdafc690c5ca26f53ab7bac2cc4ca82"
+    sha256 arm64_monterey: "035d8fe63fd8326dce6a671b1d32f613127dec0cd33b30830642ca309da2f3f2"
+    sha256 arm64_big_sur:  "e905b0b8d4b0681ee61ddd2a1fdf1025268d2cc161e05a3db4dd5a7eddf64d17"
+    sha256 monterey:       "332bbabda4a5562cb23241fb044aa9b54a43c4fc62fe89658a167154baed638e"
+    sha256 big_sur:        "b3df3ebabcc75ab5b7a43f11fc8d0a49d455e40773eed69795acac597851c307"
+    sha256 catalina:       "f665a6eea9351256f1d3b2d0a15d607b3783747f75bcb4956ada75d8762bc855"
+    sha256 x86_64_linux:   "eb8a22f41afeefab9896ab9756cf5db5bf73168685d34c0f2deb2f8738664df8"
   end
 
   depends_on "pkg-config" => :build
@@ -62,7 +63,7 @@ class Postgresql < Formula
       --with-perl
       --with-uuid=e2fs
     ]
-    on_macos do
+    if OS.mac?
       args += %w[
         --with-bonjour
         --with-tcl
@@ -83,7 +84,7 @@ class Postgresql < Formula
                                     "includedir_server=#{include}/postgresql/server",
                                     "includedir_internal=#{include}/postgresql/internal"
 
-    on_linux do
+    if OS.linux?
       inreplace lib/"postgresql/pgxs/src/Makefile.global",
                 "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
                 "LD = #{HOMEBREW_PREFIX}/bin/ld"

@@ -6,6 +6,7 @@ class Dungeon < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any, monterey: "0006884c95751a0b5075a416e73d7082c5c7d458df79eac1f486aecd42aab6ec"
     sha256 cellar: :any, big_sur:  "23739a563a06cb0d42b43fd034b423cd9218ec99919c4ac1bb0869d71f1bf89a"
     sha256 cellar: :any, catalina: "aa2177395fa3363eb9bc0de0de2da7d93ac3b78b5ce86c14daff6f19c69a9e4f"
     sha256 cellar: :any, mojave:   "f5dd94642da0883ada9e1ac9f93e91a0c47b02b48226d2318be67028b97402f9"

@@ -7,13 +7,15 @@ class Spdylay < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "1edca89e855c54de431b99ab1f0a083438b56d56a770ef019f3638b69a3cbfae"
-    sha256 cellar: :any,                 big_sur:       "667267cd379da8478b31574c5e25bf3f8e150c6f80ab59c2278bec042c71c7aa"
-    sha256 cellar: :any,                 catalina:      "5607031eb5776de5b4a68e8c50f312771cae89e8b2266df60718b2e07e35d070"
-    sha256 cellar: :any,                 mojave:        "9906d0abfcd17c86df23c18b1ed112de0266ccbc7a50c24f741f78bffa552540"
-    sha256 cellar: :any,                 high_sierra:   "c89edde9d9229dbe524d28b661265349af72a2dac0b85f066751d4716effe1ab"
-    sha256 cellar: :any,                 sierra:        "2f24051eb854a2345e88a1e023aa76fa6c2cb7522ec0fd7644af15694b456f27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86dc964a1409f31c97cde673a4f6862af83e38bf7fc67636499eaea916a67f68"
+    sha256 cellar: :any,                 arm64_monterey: "d4a310199a7b40dea729051d4dbc6fd44480d29d2ef619f6ad3a0d7d86e9762e"
+    sha256 cellar: :any,                 arm64_big_sur:  "1edca89e855c54de431b99ab1f0a083438b56d56a770ef019f3638b69a3cbfae"
+    sha256 cellar: :any,                 monterey:       "9e3aebfe4d65aa4acb6e16343f58b4fe26159a4ba4ae2a6209911147f16d8f77"
+    sha256 cellar: :any,                 big_sur:        "667267cd379da8478b31574c5e25bf3f8e150c6f80ab59c2278bec042c71c7aa"
+    sha256 cellar: :any,                 catalina:       "5607031eb5776de5b4a68e8c50f312771cae89e8b2266df60718b2e07e35d070"
+    sha256 cellar: :any,                 mojave:         "9906d0abfcd17c86df23c18b1ed112de0266ccbc7a50c24f741f78bffa552540"
+    sha256 cellar: :any,                 high_sierra:    "c89edde9d9229dbe524d28b661265349af72a2dac0b85f066751d4716effe1ab"
+    sha256 cellar: :any,                 sierra:         "2f24051eb854a2345e88a1e023aa76fa6c2cb7522ec0fd7644af15694b456f27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86dc964a1409f31c97cde673a4f6862af83e38bf7fc67636499eaea916a67f68"
   end
 
   # The SPDY protocol itself is deprecated and most websites no longer support it

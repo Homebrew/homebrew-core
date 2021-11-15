@@ -7,6 +7,7 @@ class Xplanet < Formula
   revision 4
 
   bottle do
+    sha256 monterey:     "82befd651c2e7a35aff92bf1f72cc78bbc024f6e320d03259a2e08545f13d13c"
     sha256 big_sur:      "48c24de21612e3a5cb19747db269ec15dc1a85a4e49c6e0c0c87b0bdf5b15d90"
     sha256 catalina:     "c8e659713aaa70e8fc00d48e15cf997648759afa7b6ff8e0979212348fd6cc8f"
     sha256 mojave:       "9912c643de81e812f69e639e1fe1ee3ee45900d85ce23409adb0a394305b970b"
@@ -49,9 +50,7 @@ class Xplanet < Formula
       "--without-x",
       "--without-xscreensaver",
     ]
-    on_macos do
-      args << "--with-aqua"
-    end
+    args << "--with-aqua" if OS.mac?
     system "./configure", *args
 
     system "make", "install"

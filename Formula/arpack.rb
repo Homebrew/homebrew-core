@@ -9,6 +9,7 @@ class Arpack < Formula
 
   bottle do
     sha256                               arm64_big_sur: "ce6c690e2da971fd3c2b1b481e2a1a63c74e45ab308abc8212d4e8622ab57fb3"
+    sha256 cellar: :any,                 monterey:      "40d92334e7068c36e33bafb51333157b75fc14322e44f271ab66a54627169a43"
     sha256 cellar: :any,                 big_sur:       "d7e7dcfe9877c71a43edc35191855abab902424d99eb30835092e01d9bbb042d"
     sha256 cellar: :any,                 catalina:      "42b2c8c8c61ff92e7c3c96d3735decfd5bb00b5741bc66ee7b77a4c10f338ad4"
     sha256 cellar: :any,                 mojave:        "c77c3b77ef86bea4c18757c674af5775bc33463f1f59cf49ed7ad9fbb9b6d3b9"

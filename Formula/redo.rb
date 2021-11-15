@@ -6,16 +6,19 @@ class Redo < Formula
   url "https://github.com/apenwarr/redo/archive/redo-0.42d.tar.gz"
   sha256 "47056b429ff5f85f593dcba21bae7bc6a16208a56b189424eae3de5f2e79abc1"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b9483fed7aef21d0f5701c800ca7bb5eb98b94ee20f6cc398ec7ef6d6363c2cf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b4a239a929dba39221ac591987fc1c73ad805858984a2131b6e9bc485cce7ed9"
-    sha256 cellar: :any_skip_relocation, catalina:      "260cb36224abce5771d243c8a042ec1c49854a2c6d88966e5386cec448419e22"
-    sha256 cellar: :any_skip_relocation, mojave:        "3dc4638a8e498c209bb002fa8358929664ccf3c51d50ebbf5dec596b3d25e4de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd16170577d9aaecc168b487a58dbcfb466e2247738983a0901066a942c57498"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a53fdaf0a75d657dd627f7ecd0fa33826e065554b31b07540c1378f383b4964"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22dd0cd4b9d1e945d90a6bce7138c7c0b5e834d74c0be14fd39258b8225dd8af"
+    sha256 cellar: :any_skip_relocation, monterey:       "37bb6b29d00caa6c9d81fbe6418350ad833203c63095b8a79189320f32b00d6f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "db186be965150e95e72d55d47acb86cf4839fa7949149e01522870c7a640edce"
+    sha256 cellar: :any_skip_relocation, catalina:       "ed58682729a217dcbfa7ace51f5ec8a3d57cdb30248173820d1bdbd599999675"
+    sha256 cellar: :any_skip_relocation, mojave:         "653c09646f838dfed31e0f79f3364d2604cc688a8735e098736092a55a631d3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e6d7dcf5e439d5a882a2bf480cff8a35b2e3cfe22e967935de67313444d3a46"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "Markdown" do
     url "https://files.pythonhosted.org/packages/49/02/37bd82ae255bb4dfef97a4b32d95906187b7a7a74970761fca1360c4ba22/Markdown-3.3.4.tar.gz"
@@ -23,12 +26,12 @@ class Redo < Formula
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/6b/c3/d31704ae558dcca862e4ee8e8388f357af6c9d9acb0cad4ba0fbbd350d9a/beautifulsoup4-4.9.3.tar.gz"
-    sha256 "84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25"
+    url "https://files.pythonhosted.org/packages/a1/69/daeee6d8f22c997e522cdbeb59641c4d31ab120aba0f2c799500f7456b7e/beautifulsoup4-4.10.0.tar.gz"
+    sha256 "c23ad23c521d818955a4151a67d81580319d4bf548d3d49f4223ae041ff98891"
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
     venv.pip_install resources
     # Set the interpreter so that ./do install can find the pip installed
     # resources

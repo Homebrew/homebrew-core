@@ -1,8 +1,8 @@
 class Petsc < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (real)"
   homepage "https://www.mcs.anl.gov/petsc/"
-  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.15.3.tar.gz"
-  sha256 "483028088020001e6f8d57b78a7fc880ed52d6693f57d627779c428f55cff73d"
+  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.16.0.tar.gz"
+  sha256 "5aaad7deea127a4790c8aa95c42fd9451ab10b5d6c68b226b92d4853002f438d"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,10 +11,10 @@ class Petsc < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "c404df7e571237518c3eb3a121b8bf4a2a1e9ee99f0f4efcf7b72cddb7ec3770"
-    sha256 big_sur:       "2ea8e6e22a1fc5a00c408b02318e8e2b2eb5bc802afdcde13bff0cb4ce9150e8"
-    sha256 catalina:      "73cf9b184dea474a8a498adee3335c91449fadbaf6258c0313ae0fe94589cea3"
-    sha256 mojave:        "a17ab56433905c6acebe3411d4104cf2d7c8afc1df269e0c65a42f1bb7d55fca"
+    sha256 arm64_big_sur: "67162eed855947193dd55c2bde8ba5c4e09daa7b92a531701b4c3b4a1ac531c8"
+    sha256 big_sur:       "c3c6f6eeddb511a99d13ed5a47249b554afb7e6d200de0e9480fa9f5ce9a567c"
+    sha256 catalina:      "fb0a9466262cd039c75b690e05b5c0667071519fa383e26f288fa4de21e48e9f"
+    sha256 mojave:        "3b9f1faa6c3853583d090dafd2485a621d123bf4e6e10a40a53f8a17ea1e5b03"
   end
 
   depends_on "hdf5"
@@ -44,14 +44,10 @@ class Petsc < Formula
     # Avoid references to Homebrew shims
     rm_f lib/"petsc/conf/configure-hash"
 
-    on_macos do
-      inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
-    end
-
-    on_linux do
-      if File.readlines("#{lib}/petsc/conf/petscvariables").grep(/#{HOMEBREW_SHIMS_PATH}/o).any?
-        inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/linux/super/", ""
-      end
+    if OS.mac?
+      inreplace lib/"petsc/conf/petscvariables", Superenv.shims_path, ""
+    elsif File.readlines("#{lib}/petsc/conf/petscvariables").grep(Superenv.shims_path.to_s).any?
+      inreplace lib/"petsc/conf/petscvariables", Superenv.shims_path, ""
     end
   end
 

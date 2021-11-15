@@ -17,6 +17,7 @@ class Jsonlint < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "20de901256ea772ee7bb13745f797e94ad3c9376e2031165c40acf4af747cec5"
     sha256 cellar: :any_skip_relocation, yosemite:      "c8ea1b10f689263798806fa33d2f004000490b9014393f2a472b0cc76d6e9ac3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b86612463c369b8b32c1a7522cb48a5cb7b6c682f94042d179ed312c8eda5486"
+    sha256 cellar: :any_skip_relocation, all:           "b86612463c369b8b32c1a7522cb48a5cb7b6c682f94042d179ed312c8eda5486"
   end
 
   depends_on "node"

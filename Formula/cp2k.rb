@@ -4,15 +4,17 @@ class Cp2k < Formula
   url "https://github.com/cp2k/cp2k/releases/download/v8.2.0/cp2k-8.2.tar.bz2"
   sha256 "2e24768720efed1a5a4a58e83e2aca502cd8b95544c21695eb0de71ed652f20a"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1e8685848a4ecfafb4174a5efe06f50d09d40ff15f2be857bcdcd6107537a18b"
-    sha256 cellar: :any, big_sur:       "39aa87e7eaecb9eeda029c243e46a4e06ac55290b7c0f4ac412d2db920257747"
-    sha256 cellar: :any, catalina:      "6047da892ce42081ea33d78a733f48f76c85dd93a07acadf896d7ae6cb33f147"
-    sha256 cellar: :any, mojave:        "595431e7d8e76f526ae482074b49666d2b59e18feef73ed39d59b61bc669b01b"
+    sha256 cellar: :any, arm64_big_sur: "95a6fc3748ba6bd26e0d4aabd1d59f81e8e959b80852b58bf1be52297db4cfb4"
+    sha256 cellar: :any, monterey:      "28a6583b2318c6d511782ecefa932693eadf0b67908aa3096c6b96a93c2bb3c6"
+    sha256 cellar: :any, big_sur:       "10c351fabd61ce78659ae98e48b5e81eae9b4ca713269027e45253c4d49beaf4"
+    sha256 cellar: :any, catalina:      "27878e3f33287a1a79d24888d3f688dbc4718515017e2862f683d2f05349b0e4"
+    sha256 cellar: :any, mojave:        "4f020460fbca04eda6e50977c0fee89804a93a1eb11e2f0f4e7abd775b0be587"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "libxc"

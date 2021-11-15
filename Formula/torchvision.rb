@@ -1,15 +1,17 @@
 class Torchvision < Formula
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "82bb2c2b03d8a65f4ea74bb0ee5566b0876a1992aceefb1e11475c7b5d2e857b"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "32a06ccf755e4d75006ce03701f207652747a63dbfdf65f0f20a1b6f93a2e834"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "34f138594750340d6d6a6289889c1e79af84835f29b537b4c62f0b171ef54baa"
-    sha256 cellar: :any,                 catalina:     "95db2585d9daab84fc042aaa25a8408139a180eb71f29cf72bafcf752a55f7ad"
-    sha256 cellar: :any,                 mojave:       "5ab7dac9b945df8694ccbceeca16b08df0ff1f241917d65dfd33217d00f9568c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "6033c883e34ea6189bb310cfb8b641b5a51c62b81f24d296ae681987c038a1ad"
+    sha256 cellar: :any,                 arm64_monterey: "944aa1410b5facf24e763d0820cda7b713cdad1cd75664754dfd5af1ecdd6850"
+    sha256 cellar: :any,                 arm64_big_sur:  "e22a045506f3805a5e6cedf8edb833df331ea3d2a62923a2d59531f05c31aa36"
+    sha256 cellar: :any,                 monterey:       "ec7a4080578e012b13aacee6a4501911451d8e6800c58657f875796144683e04"
+    sha256 cellar: :any,                 big_sur:        "1af21c171813ccf37d82a21c00f932dea60cd925a74f6934bf407d30abcb3024"
+    sha256 cellar: :any,                 catalina:       "21c19ae566a5850dd94bfb5147c82797ad6c6177a5be8c9becf87fe4b1f0cc71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e539b96c551baffb301517f8f111238e7fdc4d3a0695dfb38a66855434c8bc94"
   end
 
   depends_on "cmake" => :build
@@ -28,13 +30,23 @@ class Torchvision < Formula
   end
 
   test do
-    cp pkgshare/"examples/cpp/hello_world/main.cpp", testpath
+    (testpath/"test.cpp").write <<~EOS
+      #include <assert.h>
+      #include <torch/script.h>
+      #include <torch/torch.h>
+      #include <torchvision/vision.h>
+
+      int main() {
+        auto& ops = torch::jit::getAllOperatorsFor(torch::jit::Symbol::fromQualString("torchvision::nms"));
+        assert(ops.size() == 1);
+      }
+    EOS
     libtorch = Formula["libtorch"]
-    system ENV.cxx, "-std=c++14", "main.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
                     "-I#{libtorch.opt_include}",
                     "-I#{libtorch.opt_include}/torch/csrc/api/include",
                     "-L#{libtorch.opt_lib}", "-ltorch", "-ltorch_cpu", "-lc10",
                     "-L#{lib}", "-ltorchvision"
-    assert_match "[1, 1000]", shell_output("./test")
+    system "./test"
   end
 end

@@ -3,19 +3,23 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/f9/1e/b583fd4970d991967e14c06d894973cb4d5d013b86349b3dab0f3e61a7cd/tox-3.24.2.tar.gz"
-  sha256 "ae442d4d51d5a3afb3711e4c7d94f5ca8461afd27c53f5dd994aba34896cf02d"
+  url "https://files.pythonhosted.org/packages/d2/78/ad720ade1c6c5b24e407856fb8fc578896ed8e2a603832bb85be3825b551/tox-3.24.4.tar.gz"
+  sha256 "c30b57fa2477f1fb7c36aa1d83292d5c2336cd0018119e1b1c17340e2c2708ca"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7a2f8a4265f8c990500b1f9ee73f156917f3fc20db3bf873b56b296f10975908"
-    sha256 cellar: :any_skip_relocation, big_sur:       "526ec36b876d880ccca72bbd738d05a1a281a72bb946d3f4d1dea4075d9474b3"
-    sha256 cellar: :any_skip_relocation, catalina:      "e56e175c0c9d09e3a15cb4c26a5e58eb5ff63061ba68a31062a19b4ff1cf2ad7"
-    sha256 cellar: :any_skip_relocation, mojave:        "5af253385c0c9f9653a531c01c2430ab75ddbdf52b379e5657db8152571777dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "675401e70f8e60821e4c3129253b1937d8bcc54c20b5a973d9b47409e75bc050"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a75832e03f0645ae8daabf004505b77e8550bb8a13457ba4f3f32e2737b65cd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76ad045466f2f3fc8900ac2010ee144e18580fa59e97536c2f13d53f7d8dea24"
+    sha256 cellar: :any_skip_relocation, monterey:       "46fc027a68ad251af2d0dcfdf3d913d9d259feb7d57acc61925dd80ad1cba430"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6e7f624308ad3dd4ab89a58c99ef015921a6040d5b0aa4b88817d57907108482"
+    sha256 cellar: :any_skip_relocation, catalina:       "f2acdf4e0a50628da327640323cf0560bb992a922656f2f28ee5d16b4613ae8e"
+    sha256 cellar: :any_skip_relocation, mojave:         "270713525556bda12a9d880fbac12bc83818b493df68c16e046707c033eca99f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fda9d04d879d5c1293fbf2fcf8d31494536f143c948c45c3509e552c6b3427e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+  depends_on "six"
 
   resource "backports.entry-points-selectable" do
     url "https://files.pythonhosted.org/packages/e4/7e/249120b1ba54c70cf988a8eb8069af1a31fd29d42e3e05b9236a34533533/backports.entry_points_selectable-1.1.0.tar.gz"
@@ -38,13 +42,13 @@ class Tox < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/cb/ee4234464290e3dee893cf37d1adc87c24ade86ff6fc55f04a9bf9f1ec4f/platformdirs-2.2.0.tar.gz"
-    sha256 "632daad3ab546bd8e6af0537d09805cec458dce201bccfe23012df73332e181e"
+    url "https://files.pythonhosted.org/packages/e2/d4/c6ffe89de09851892b1418dc22f6ab019b7b6f362532ab813c262e1722bb/platformdirs-2.3.0.tar.gz"
+    sha256 "15b056538719b1c94bdaccb29e5f81879c7f7f0f4a153f46086d155dffcd4f0f"
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/f8/04/7a8542bed4b16a65c2714bf76cf5a0b026157da7f75e87cc88774aa10b14/pluggy-0.13.1.tar.gz"
-    sha256 "15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"
+    url "https://files.pythonhosted.org/packages/a1/16/db2d7de3474b6e37cbb9c008965ee63835bba517e22cdb8c35b5116b5ce1/pluggy-1.0.0.tar.gz"
+    sha256 "4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"
   end
 
   resource "py" do
@@ -55,11 +59,6 @@ class Tox < Formula
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
     sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "toml" do
@@ -90,7 +89,7 @@ class Tox < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    pyver = Language::Python.major_minor_version("python3.9").to_s.delete(".")
+    pyver = Language::Python.major_minor_version(Formula["python@3.10"].opt_bin/"python3").to_s.delete(".")
     (testpath/"tox.ini").write <<~EOS
       [tox]
       envlist=py#{pyver}
@@ -105,7 +104,7 @@ class Tox < Formula
           assert True
     EOS
     assert_match "usage", shell_output("#{bin}/tox --help")
-    system "#{bin}/tox"
+    system bin/"tox"
     assert_predicate testpath/".tox/py#{pyver}", :exist?
   end
 end

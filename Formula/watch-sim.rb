@@ -4,7 +4,7 @@ class WatchSim < Formula
   url "https://github.com/alloy/watch-sim/archive/1.0.0.tar.gz"
   sha256 "138616472e980276999fee47072a24501ea53ce3f7095a3de940e683341b7cba"
   license "MIT"
-  head "https://github.com/alloy/watch-sim.git"
+  head "https://github.com/alloy/watch-sim.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9a615d042db08236fe150fc21ecc8ac12979007f851b90aa85faa4f7ba75474b"

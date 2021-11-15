@@ -1,9 +1,8 @@
 class Moarvm < Formula
   desc "Virtual machine for NQP and Rakudo Perl 6"
   homepage "https://moarvm.org"
-  # NOTE: Please keep these values in sync with nqp & rakudo when updating.
-  url "https://github.com/MoarVM/MoarVM/releases/download/2021.07/MoarVM-2021.07.tar.gz"
-  sha256 "8437ceefa5c132d0cf8328b22604e26f0a2a54c0377538aa9ae4bdfcf66d63fe"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2021.10/MoarVM-2021.10.tar.gz"
+  sha256 "7f3487a70e8b77be0e4e2f12b14c49f6a01d0378e0940c86958c9016c495ad75"
   license "Artistic-2.0"
 
   livecheck do
@@ -12,11 +11,12 @@ class Moarvm < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6048e75a00ca5cd8d4de71d7ffa513b77310c688438258dc3ea7cedae5f2fdef"
-    sha256 big_sur:       "b8a283f01a9cd95fc53fb655b2bae2ec83b1051613dc0ac1356926493588445d"
-    sha256 catalina:      "aedc1f8bf1977088410fbf4e2eb15627b12ff75ff6f1bc9d813732cd2bb62021"
-    sha256 mojave:        "ad7217c8112da4192a09f8846fdc41c62bdd7282dc0250393014c261c967920a"
-    sha256 x86_64_linux:  "d9b1ca7642f6eae24643c7934881504d6e9a0438c1f4ea3b68647252f031d898"
+    sha256 arm64_monterey: "436e41af0ca4dda10f631dc72880022b2c4a3f9a13e70396a0868faf95469f15"
+    sha256 arm64_big_sur:  "597843c08e68f3cd5fc52784658f717ea5446502c87e2a3b2aa37c3f6d7aa633"
+    sha256 monterey:       "dfcd06fdf3c2687a60b539ba4ba5c716be76c9914fb92d3294808e57cbd48b92"
+    sha256 big_sur:        "872c02abcc6fe90d6f0b94548098256a39f89d0f9940e30046a09153ed5c3083"
+    sha256 catalina:       "700c147ea3937944d141bb53360e34c35b5db5dae6610a4961f4f69c5c019cb1"
+    sha256 x86_64_linux:   "37c836e7443315230c4255cd2c6993f3355a68d5022289e06d977b0a519e049f"
   end
 
   depends_on "libatomic_ops"
@@ -27,8 +27,8 @@ class Moarvm < Formula
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
   resource "nqp" do
-    url "https://github.com/Raku/nqp/releases/download/2021.07/nqp-2021.07.tar.gz"
-    sha256 "dcaaf2a43ab3b752be6f4147a88abdc5b897e5ba85e536a0282bde8e4d363ea4"
+    url "https://github.com/Raku/nqp/releases/download/2021.10/nqp-2021.10.tar.gz"
+    sha256 "48135bc1b3ce22c1c57ccef46531e7688eec83d6b905b502ffcefd6c23294b49"
   end
 
   def install

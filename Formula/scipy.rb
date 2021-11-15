@@ -1,17 +1,17 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/47/33/a24aec22b7be7fdb10ec117a95e1e4099890d8bbc6646902f443fc7719d1/scipy-1.7.1.tar.gz"
-  sha256 "6b47d5fa7ea651054362561a28b1ccc8da9368a39514c1bbf6c0977a1c376764"
+  url "https://files.pythonhosted.org/packages/0e/23/58c4f995475a2a97cb5f4a032aedaf881ad87cd976a7180c55118d105a1d/scipy-1.7.2.tar.gz"
+  sha256 "fa2dbabaaecdb502641b0b3c00dec05fb475ae48655c66da16c9ed24eda1e711"
   license "BSD-3-Clause"
-  head "https://github.com/scipy/scipy.git"
+  head "https://github.com/scipy/scipy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "65e79aed434b4c9dc97445916046490023e91a578583089d06cd97b96251f1df"
-    sha256 cellar: :any, big_sur:       "7273e64702e01f65615143059f6af35f5226fc938d1ef7d048a644f329dfb93e"
-    sha256 cellar: :any, catalina:      "27ade676309a263bab19e497b66941c18969285318846033213b9af9ea4c2150"
-    sha256 cellar: :any, mojave:        "8e2729704d6789206056dc8887dc110d94cda11f2c6b1e8e0a3485d47e4f678b"
-    sha256               x86_64_linux:  "da77380c3ac02a0a27c6b9c4560af76cf2815adf3129c87a1ef26777d9d2259e"
+    sha256 cellar: :any, arm64_big_sur: "65af74bafefaf1c73d8eb42bc801014acdf2b056a72d265f2f8095a73ce17c59"
+    sha256 cellar: :any, monterey:      "5f4a04454d7c814fedad32aff393913b9f7705f813be17365c5410a2e23cba1d"
+    sha256 cellar: :any, big_sur:       "c47075e0199e904b6aa0a6bdea43c4e8abbaffc9a416cbe72a3bb7e69d80cc89"
+    sha256 cellar: :any, catalina:      "5ac18b620b2ff0fddff90a01873fb0a3b4690cd62ea355e899186fec9d225cdc"
+    sha256               x86_64_linux:  "2bc3f9484913df5fcbc17432cd93520b97e48665eafa86887cf9d64f0414b8a3"
   end
 
   depends_on "cython" => :build

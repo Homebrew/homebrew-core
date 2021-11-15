@@ -7,22 +7,30 @@ class Zurl < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d4252a3968cce4e2dbb442c16e9ceac0f917ea44f6fe29746fb62cc7b7fdbd36"
-    sha256 cellar: :any, big_sur:       "ec815b28c14380cbc309c11fb2becb4e0421b3d933dfbe4f3b881941b97069c3"
-    sha256 cellar: :any, catalina:      "2d34fd92311ba6e171d3bc3a5c567daa4238a0d06e0cd078c79ce4c5368890a3"
-    sha256 cellar: :any, mojave:        "21b2977646141c7d191a9f835c42b70eff3e793b799228386043ac62ae44a34b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "baa994d175a8df0404ac2c339f649091a658689e7e5b08501a3544301b088892"
+    sha256 cellar: :any,                 arm64_big_sur:  "0b629c44e50c0201831a7569231c1348c42e04d1c1b1a39471e07ca21a7a94f6"
+    sha256 cellar: :any,                 big_sur:        "7ab970b64ddfd5eb6eb78ba57b4bca38183ae9a2e41f5e1dbd9756fe5ba6c0d6"
+    sha256 cellar: :any,                 catalina:       "75a40ac25e819049a6b58c0372e9ee6e5649afb3cce9f9c8ae41e24950c3b689"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e74950b3dc104bd30ec4dc969093d22bcc73efdb42758371eef56345b87f98f"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :test
+  depends_on "python@3.10" => :test
   depends_on "qt@5"
   depends_on "zeromq"
 
   uses_from_macos "curl"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/86/08/e5fc492317cc9d65b32d161c6014d733e8ab20b5e78e73eca63f53b17004/pyzmq-19.0.1.tar.gz"
-    sha256 "13a5638ab24d628a6ade8f794195e1a1acd573496c3b85af2f1183603b7bf5e0"
+    url "https://files.pythonhosted.org/packages/6c/95/d37e7db364d7f569e71068882b1848800f221c58026670e93a4c6d50efe7/pyzmq-22.3.0.tar.gz"
+    sha256 "8eddc033e716f8c91c6a2112f0a8ebc5e00532b4a6ae1eb0ccc48e027f9c671c"
   end
 
   def install
@@ -37,8 +45,7 @@ class Zurl < Formula
     runfile = testpath/"test.py"
 
     resource("pyzmq").stage do
-      system Formula["python@3.9"].opt_bin/"python3",
-      *Language::Python.setup_install_args(testpath/"vendor")
+      system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(testpath/"vendor")
     end
 
     conffile.write(<<~EOS,
@@ -96,9 +103,9 @@ class Zurl < Formula
     end
 
     begin
-      xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+      xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
       ENV["PYTHONPATH"] = testpath/"vendor/lib/python#{xy}/site-packages"
-      system Formula["python@3.9"].opt_bin/"python3", runfile
+      system Formula["python@3.10"].opt_bin/"python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

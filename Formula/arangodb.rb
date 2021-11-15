@@ -1,15 +1,19 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.8.0.tar.gz"
-  sha256 "6311ca3abf15831bbfd56743d58945457112a714de61e52f260134dc1523e854"
+  url "https://download.arangodb.com/Source/ArangoDB-3.8.2.tar.bz2"
+  sha256 "87237591779bc85bb081097b1f5ee70f1a7f5c3eb715ebd18b08ddb3cc0dd470"
   license "Apache-2.0"
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
+  livecheck do
+    url "https://www.arangodb.com/download-major/source/"
+    regex(/href=.*?ArangoDB[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 big_sur:  "2c2e98425280b9646d740cfe37ee3338a12ef4b5252268c96dad39baa7699c1e"
-    sha256 catalina: "c247553d6061f6a1545e1baba63751eb0c3c40933943d8e067d50abe77ff828a"
-    sha256 mojave:   "5f850b809b0bf5cc999aae169f83d70497753f3d27de62b06f0bd13911c5b9a7"
+    sha256 big_sur:  "2ae0e56021ed33aad685cbe0b737ab528402ef3ea350adf4160198a57533503a"
+    sha256 catalina: "b8b2f80f9265871b8cae8ced1ac4b3be818d64b341dd7e92d6125d4327f4c900"
   end
 
   depends_on "ccache" => :build
@@ -24,20 +28,12 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-        tag:      "0.15.0-1",
-        revision: "df06cb77c7eaf3f232fcf01e04cb871cece07e28"
-  end
-
-  # Fix compilation with Xcode 13 on 10.14, remove in next release
-  patch do
-    url "https://github.com/arangodb/arangodb/commit/4e84448e.patch?full_index=1"
-    sha256 "ac5a8d2fd5a306b9b15c2afc7c3fc8304064ecb461ba2cb4af9408eaad15425c"
+        tag:      "0.15.1",
+        revision: "3c27ad4cfb89e96db551445212f78706b7263851"
   end
 
   def install
-    on_macos do
-      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
-    end
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version if OS.mac?
 
     resource("starter").stage do
       ENV["GO111MODULE"] = "on"
@@ -106,7 +102,7 @@ class Arangodb < Formula
               "--server.arangod", "#{sbin}/arangod",
               "--server.js-dir", "#{share}/arangodb3/js") do |r, _, pid|
       loop do
-        available = IO.select([r], [], [], 60)
+        available = r.wait_readable(60)
         refute_equal available, nil
 
         line = r.readline.strip

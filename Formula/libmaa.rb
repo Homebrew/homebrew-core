@@ -13,10 +13,12 @@ class Libmaa < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "39eb7101638dba1cd91aad7b7f33c281cb8b9709ed0bf3709b61a2315cf9f786"
-    sha256 cellar: :any, big_sur:       "65222587a532a2412f342564d09e0dc134c84501803c75b450fa591f1c6fc029"
-    sha256 cellar: :any, catalina:      "b8d4137855afaa273b7decbfaf8e49657e83a0ec647b97592d803f816038a5bd"
-    sha256 cellar: :any, mojave:        "1ec304723997a8aabf2848900aa5293c560abbebfe2bc293eb40ace2176c148e"
+    sha256 cellar: :any, arm64_monterey: "d880dd810a8e28a38d62d420f7e0afd55d8135c19497794697690411b1b42ccd"
+    sha256 cellar: :any, arm64_big_sur:  "39eb7101638dba1cd91aad7b7f33c281cb8b9709ed0bf3709b61a2315cf9f786"
+    sha256 cellar: :any, monterey:       "3bd13aae044ffb89036034c9ce275a1ff79b265276c39161fbfbb2e7b30a0879"
+    sha256 cellar: :any, big_sur:        "65222587a532a2412f342564d09e0dc134c84501803c75b450fa591f1c6fc029"
+    sha256 cellar: :any, catalina:       "b8d4137855afaa273b7decbfaf8e49657e83a0ec647b97592d803f816038a5bd"
+    sha256 cellar: :any, mojave:         "1ec304723997a8aabf2848900aa5293c560abbebfe2bc293eb40ace2176c148e"
   end
 
   depends_on "bmake" => :build

@@ -7,11 +7,13 @@ class GnuUnits < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "843af59e54203a4235dd3522d10fa7d5b6aad5e7326b3ef858c35df7e3e35b84"
-    sha256 big_sur:       "67c4941efc8a2b0b2b76193f28a83381cea01b74a2e981fb51222cc87e497aca"
-    sha256 catalina:      "9a3735d1c7a52c9c4a1e2f81e1b0219a2621c3d32be663a085c5a1c48299a6d5"
-    sha256 mojave:        "720dc5aea47a82932ca0cb33b4a45ec3b4ac5c7910274c0dc925a371493f3b32"
-    sha256 x86_64_linux:  "d5a3a5af1eeb39c44a19c10af79f557cc926a686753674c42424365eb4f6cc1c"
+    sha256 arm64_monterey: "ff23e0b56f0d894c43fbdf4752045b2ff355953e23f7074218fec7d03b3bf98b"
+    sha256 arm64_big_sur:  "843af59e54203a4235dd3522d10fa7d5b6aad5e7326b3ef858c35df7e3e35b84"
+    sha256 monterey:       "4f06e478e37881dd36a7526d054b02694d1d487ad91248832c25a8cd727c1aa8"
+    sha256 big_sur:        "67c4941efc8a2b0b2b76193f28a83381cea01b74a2e981fb51222cc87e497aca"
+    sha256 catalina:       "9a3735d1c7a52c9c4a1e2f81e1b0219a2621c3d32be663a085c5a1c48299a6d5"
+    sha256 mojave:         "720dc5aea47a82932ca0cb33b4a45ec3b4ac5c7910274c0dc925a371493f3b32"
+    sha256 x86_64_linux:   "d5a3a5af1eeb39c44a19c10af79f557cc926a686753674c42424365eb4f6cc1c"
   end
 
   depends_on "readline"
@@ -22,13 +24,11 @@ class GnuUnits < Formula
       --with-installed-readline
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gunits" => "units"
       (libexec/"gnubin").install_symlink bin/"gunits_cur" => "units_cur"
       (libexec/"gnuman/man1").install_symlink man1/"gunits.1" => "units.1"

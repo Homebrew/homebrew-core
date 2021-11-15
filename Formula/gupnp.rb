@@ -3,16 +3,16 @@ class Gupnp < Formula
 
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
-  url "https://download.gnome.org/sources/gupnp/1.2/gupnp-1.2.7.tar.xz"
-  sha256 "8441276f1afd0176e6f595026a3a507eed1809abfa04026bad3f21622b3523ec"
+  url "https://download.gnome.org/sources/gupnp/1.4/gupnp-1.4.0.tar.xz"
+  sha256 "590ffb02b84da2a1aec68fd534bc40af1b37dd3f6223f9d1577fc48ab48be36f"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d9eb370676152358aab46a6eb4a2113c35393da0532e8777758fe86c58cfe68d"
-    sha256 cellar: :any, big_sur:       "2e6e2cf75b268a9b15ba5ab0218feb821b8fcfd3484b0392d1a61fbfb7b4024f"
-    sha256 cellar: :any, catalina:      "ad1eb9712b22a8cf129e2b1e655da5024904fbb4d9d05ac4642a74a169437e44"
-    sha256 cellar: :any, mojave:        "7a4029599f45eba6591d4dc62cfb4327e38ad97cd95f846ebc603b217d0e8939"
-    sha256               x86_64_linux:  "53a859d7651aeb8446bf5d16257dd40b640a1fba65eed609897fa65328295be4"
+    sha256 cellar: :any, arm64_big_sur: "74d32f0c86134b6ae8680e88eca4cdf16c0b3c7ad39003f36801e9328832e577"
+    sha256 cellar: :any, big_sur:       "cc65c455a851a56d7724da20529e17b9f6a891d7611b1ace26c91522f2261632"
+    sha256 cellar: :any, catalina:      "dc95e5115ede011c9b59a5f1cc0a669321a11297fdb7e0a2d0fb05267480a7f2"
+    sha256               x86_64_linux:  "7d3212cbd0a5c39317ea485330ed228a0f8a9a02080daf08688ecad592cfd77f"
   end
 
   depends_on "docbook-xsl" => :build
@@ -20,6 +20,7 @@ class Gupnp < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "gssdp"

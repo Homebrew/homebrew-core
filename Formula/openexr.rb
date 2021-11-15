@@ -2,16 +2,17 @@ class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
   # NOTE: Please keep these values in sync with imath.rb when updating.
-  url "https://github.com/openexr/openexr/archive/v3.1.1.tar.gz"
-  sha256 "045254e201c0f87d1d1a4b2b5815c4ae54845af2e6ec0ab88e979b5fdb30a86e"
+  url "https://github.com/openexr/openexr/archive/v3.1.3.tar.gz"
+  sha256 "6f70a624d1321319d8269a911c4032f24950cde52e76f46e9ecbebfcb762f28c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3d3257d9750eb7a66a3e161f3e8bfa7cfb405937325f5b91bc02fd7ac9a89c35"
-    sha256 cellar: :any,                 big_sur:       "92108b32e13d57e30e48d5bfa4adbe360b303cc19e78b7b7cb8df7865d66c449"
-    sha256 cellar: :any,                 catalina:      "40d2ebcc43006954145c03e9636b471484aaf613a48adb8558f3d3f005a22c80"
-    sha256 cellar: :any,                 mojave:        "3261656535c6449dd4b1d4a4a52d91c571127bc58ab40374510d2891cdea2cbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e9cca16104e95abea8c3db9a00adb783bc08f6694d8015a291987a5da8048c1"
+    sha256 cellar: :any,                 arm64_monterey: "cb2251482943ccba760aaad07eb478778883261426c0b3e9a59781ab0ec93011"
+    sha256 cellar: :any,                 arm64_big_sur:  "6b2bb42d4a828b364c664883e49680d6867aa76071c87d4e3f71fa43ce295203"
+    sha256 cellar: :any,                 monterey:       "51a90b139c9c9e62267c1d91653e71ff5483017d3137b27f2bd50a095c29b2b6"
+    sha256 cellar: :any,                 big_sur:        "d48e166e020597151ad259fc62f321ec128777dc6353e951dee014929b47dda4"
+    sha256 cellar: :any,                 catalina:       "6c43a1e10c1def8c49cc63b4cd50c705be7187ecc7d309309d555104ad886c92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08dee6134b6115466678e17b91da4e450891b4f0534d3438065594fecdc0dd62"
   end
 
   depends_on "cmake" => :build
@@ -19,6 +20,13 @@ class Openexr < Formula
   depends_on "imath"
 
   uses_from_macos "zlib"
+
+  # These used to be provided by `ilmbase`
+  link_overwrite "include/OpenEXR"
+  link_overwrite "lib/libIex.dylib"
+  link_overwrite "lib/libIex.so"
+  link_overwrite "lib/libIlmThread.dylib"
+  link_overwrite "lib/libIlmThread.so"
 
   resource "exr" do
     url "https://github.com/openexr/openexr-images/raw/master/TestImages/AllHalfValues.exr"

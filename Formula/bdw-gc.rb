@@ -2,30 +2,37 @@ class BdwGc < Formula
   desc "Garbage collector for C and C++"
   homepage "https://www.hboehm.info/gc/"
   license "MIT"
-  revision 2
 
+  # Remove stable block when patch is removed
   stable do
-    url "https://github.com/ivmai/bdwgc/releases/download/v8.0.4/gc-8.0.4.tar.gz"
-    sha256 "436a0ddc67b1ac0b0405b61a9675bca9e075c8156f4debd1d06f3a56c7cd289d"
+    url "https://github.com/ivmai/bdwgc/releases/download/v8.0.6/gc-8.0.6.tar.gz"
+    sha256 "3b4914abc9fa76593596773e4da671d7ed4d5390e3d46fbf2e5f155e121bea11"
 
-    # Extension to handle multithreading
+    # Extension to handle multithreading. Remove in v8.2.0.
     # https://github.com/ivmai/bdwgc/pull/277
     patch do
-      url "https://github.com/ivmai/bdwgc/commit/5668de71107022a316ee967162bc16c10754b9ce.patch?full_index=1"
-      sha256 "5c42d4b37cf4997bb6af3f9b00f5513644e1287c322607dc980a1955a09246e3"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f14c259aef209e5f5df302b834b2119381dd36d5/bdw-gc/crystal-mt.patch"
+      sha256 "18380da9c5451c9b7668ccf5e1f106f8cf8115992d9a403e32444fb487566c33"
     end
   end
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ee743d115b619b02230863812224a1c33dc1d3430280728eb10990cc86caa994"
-    sha256 cellar: :any,                 big_sur:       "af8bfafe1425f3cc9923bd49a375f85c13255124ed7a952137fe924431adc1c4"
-    sha256 cellar: :any,                 catalina:      "73a3a75a47a0007a772fe229f11bc0710988af6a8603c56a0f7fae3d9a317149"
-    sha256 cellar: :any,                 mojave:        "960f60118f6f5cbf4e04a76e4c2103c7fb446e43e5db08362bca0b13763e137b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05ea8f4b5dbc0329c01a525ff30a2c00f45bca54c03f2460e88d7f4d39e65686"
+    sha256 cellar: :any,                 arm64_monterey: "55bdbcc825a5f4657ca307ed0a002e8cd07bb1635148962ff9187aca4b7dcb9c"
+    sha256 cellar: :any,                 arm64_big_sur:  "788d86cb322a9409fb6e8117fc6ee48e57e3258a18b77a39f8682730caf2d239"
+    sha256 cellar: :any,                 monterey:       "bdc97f40152e69b1b462021b1aa85cb97a134a6760bbdeba41a1d729a87c13d6"
+    sha256 cellar: :any,                 big_sur:        "e1657498c65d958779349a5b3b2283e52e5c48cde79e26f761340bacfc3627e9"
+    sha256 cellar: :any,                 catalina:       "0473379cc9c7dd97c1d28386e333702af1c2b98ae86b1564e5ef72fda94d395c"
+    sha256 cellar: :any,                 mojave:         "45add006a7a827ea1b1828d2e5edb45b991cbb31906370d8270f511b781acfd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2de2bd6626902c0c6007c718d9bebdc9f653dcd58058f9f1a8cc0346fee8c8c7"
   end
 
   head do
-    url "https://github.com/ivmai/bdwgc.git"
+    url "https://github.com/ivmai/bdwgc.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool"  => :build

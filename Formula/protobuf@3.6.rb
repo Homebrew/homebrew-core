@@ -7,10 +7,13 @@ class ProtobufAT36 < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any, big_sur:     "e3d0f6755411406d0ce9958c75f0bcdc508cd866d82ab5f098ac21c03470d916"
-    sha256 cellar: :any, catalina:    "48adfce2c3ec0a17271946db21810b6d9302aae0d471eab5d17fdae532d4aeea"
-    sha256 cellar: :any, mojave:      "5682ac1576b18fb20b6e91d30e99822c66884a9aab048896a3c7297aefe94504"
-    sha256 cellar: :any, high_sierra: "aa953ecc3fcb17999d0cdaa36898ad6700952fae1730f263b2a8e1e090d0faa7"
+    sha256 cellar: :any, arm64_monterey: "ceeb84f3074f1ca1d3b7e748212f4ec42a9a8287b952723e6acf992eadc20dfc"
+    sha256 cellar: :any, arm64_big_sur:  "5d2af02404914b2245a4d464c9d81c93df89c8d6897ba7159831def4f58f42c2"
+    sha256 cellar: :any, monterey:       "954a95923217cfd5a5feff68177d6538788667ddb90261a779dda434e9281955"
+    sha256 cellar: :any, big_sur:        "e3d0f6755411406d0ce9958c75f0bcdc508cd866d82ab5f098ac21c03470d916"
+    sha256 cellar: :any, catalina:       "48adfce2c3ec0a17271946db21810b6d9302aae0d471eab5d17fdae532d4aeea"
+    sha256 cellar: :any, mojave:         "5682ac1576b18fb20b6e91d30e99822c66884a9aab048896a3c7297aefe94504"
+    sha256 cellar: :any, high_sierra:    "aa953ecc3fcb17999d0cdaa36898ad6700952fae1730f263b2a8e1e090d0faa7"
   end
 
   keg_only :versioned_formula

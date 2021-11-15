@@ -15,6 +15,7 @@ class Lv2 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "757cd306cc72fb5517d4b2226eaa8addc9e8ca807fa576d025d921a8b25a3382"
     sha256 cellar: :any_skip_relocation, catalina:      "3fc9a00fcb361d6d87e101733497abad39e33b299774229bc484af15a59d2e55"
     sha256 cellar: :any_skip_relocation, mojave:        "0897d136c566648ff5acf40760ff064bdeda779c4afc6a31f02741a08083c5f8"
+    sha256 cellar: :any_skip_relocation, all:           "6cfa4a566aeb2febb8b912f9c9311a9e4c51b7044694abb425276964016fd099"
   end
 
   depends_on :macos # Due to Python 2

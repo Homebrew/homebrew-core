@@ -1,34 +1,24 @@
 class CrystalIcr < Formula
   desc "Interactive console for Crystal programming language"
   homepage "https://github.com/crystal-community/icr"
-  url "https://github.com/crystal-community/icr/archive/v0.8.0.tar.gz"
-  sha256 "8c7825dd035bbb4bc6499873d4bd125185a01cae10dc8dd6f98e6e013def381c"
+  url "https://github.com/crystal-community/icr/archive/v0.9.0.tar.gz"
+  sha256 "2530293e94b60d69919a79b49e83270f1462058499ad37a762233df8d6e5992c"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 big_sur:      "27aca5fd1d1b212b90575dd385b27cbc215aea9510cab6c24efe18ec15d617cc"
-    sha256 catalina:     "a0683b8dce5fd77b89f4ba6412ad1ad7b793abfd2e703f9cff72e2ffe7248d43"
-    sha256 mojave:       "30bbc4ad85339e27305d4294cf53e3ddc252f137599b7602ca2930f01728cd8c"
-    sha256 x86_64_linux: "722032d357e541908a6d9899a6e77284a4cdeb312c16b3d44485cdfdd0502436"
+    sha256 arm64_monterey: "0c38a89034238cb822d76c5d61b1ecd57aa960356a6aabdf7f9e44fc5d8ba29a"
+    sha256 arm64_big_sur:  "d98e57c4a69bfe60a4d30b304f11b04bd946d5b922325fd20aaa1895f6a392c8"
+    sha256 monterey:       "eae95948e77fbb4ae9c57358096b0fd394075af88dec1c5ceb5cd8108fbd7da0"
+    sha256 big_sur:        "8daaa1313d4bde47396ed4f6e0801e937b128b64cc4eb7528325cb27404dd765"
+    sha256 catalina:       "4d419018a1b470514b9ee5833dd8062fa56b954ed8ae255a2062554368f0185f"
+    sha256 mojave:         "19ad5e81e9f9405ebbbf8ed882e77a9e4c0d32965ebda9012126bcc6dfaa2542"
+    sha256 x86_64_linux:   "4fba4ea7063d8267fdbb37778f48b020386edc1e7be0268f5dcb42a5b948753c"
   end
 
   depends_on "crystal"
   depends_on "libevent"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-
-  # Fix build: src/icr/cli.cr:69:14: Error: undefined method 'parse!' for OptionParser.class
-  # Remove in the next release.
-  patch do
-    url "https://github.com/crystal-community/icr/commit/39d0f075aa5afd895473a223d854089de86f9230.patch?full_index=1"
-    sha256 "51867797493ebd2ec681c57132ca5576cef16b0e188ce2f6cacb41b523ae04ed"
-  end
-
-  # Fix build: src/icr/executer.cr:66:13: Error: undefined method 'rmdir' for Dir.class
-  # https://github.com/crystal-community/icr/commit/2a8b05b5b98a804fb0daa5be4834db4f56db0496
-  # Remove in the next release.
-  patch :DATA
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
@@ -38,18 +28,3 @@ class CrystalIcr < Formula
     assert_match "icr version #{version}", shell_output("#{bin}/icr -v")
   end
 end
-
-__END__
-diff --git a/src/icr/executer.cr b/src/icr/executer.cr
-index 0c1ce0b..102f28e 100644
---- a/src/icr/executer.cr
-+++ b/src/icr/executer.cr
-@@ -63,7 +65,7 @@ module Icr
-
-       # Remove empty directories, including ".crystal"
-       while empty_dir?(path)
--        Dir.rmdir(path)
-+        Dir.delete(path)
-         break if path == dot_crystal_dir
-         path = File.expand_path("..", path)
-       end

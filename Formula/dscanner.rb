@@ -8,6 +8,7 @@ class Dscanner < Formula
   head "https://github.com/dlang-community/D-Scanner.git"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "9b0dd1d5cfd2489f6d41e39503c6409d623678ecce927065a5ee53a3dc20131c"
     sha256 cellar: :any_skip_relocation, big_sur:      "8ae2af163a23040c10f272d0444e1d6c77985ea31db552efcfa79276055287bb"
     sha256 cellar: :any_skip_relocation, catalina:     "fc89a3f0681d1cc292db4e4e2290bcf17293005da44ac79b4de1dcf6c99fca0d"
     sha256 cellar: :any_skip_relocation, mojave:       "3b169fd293837fea2ddadf82c21513b468019f2e37218e207a16c3cfd6d58289"

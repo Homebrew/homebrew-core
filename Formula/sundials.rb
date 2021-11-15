@@ -1,10 +1,9 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computing.llnl.gov/projects/sundials"
-  url "https://github.com/LLNL/sundials/releases/download/v5.7.0/sundials-5.7.0.tar.gz"
-  sha256 "48da7baa8152ddb22aed1b02d82d1dbb4fbfea22acf67634011aa0303a100a43"
+  url "https://github.com/LLNL/sundials/releases/download/v5.8.0/sundials-5.8.0.tar.gz"
+  sha256 "d4ed403351f72434d347df592da6c91a69452071860525385b3339c824e8a213"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://computing.llnl.gov/projects/sundials/sundials-software"
@@ -12,11 +11,12 @@ class Sundials < Formula
   end
 
   bottle do
-    sha256                               arm64_big_sur: "1fb71d31c96c648b7e37f8dd45fc8ee95254778cb55ef4dbb3544b1e81835115"
-    sha256                               big_sur:       "d48ec042ebd3769d0f7653578641f563ccd288e79e57f265885a44ce11c5801f"
-    sha256                               catalina:      "3463bb365a98201d60246485ff5342494a109fef8a082dc504019bd3729a59c3"
-    sha256                               mojave:        "33ca24ba24c03fac2a2f4c964d5227935f1ce97bdcb6c37d0b59dd233836746e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a28fd4b0325c725b6e771b2baff5243a61799033863b2fdcd5e0eadbc9dc44b"
+    sha256 cellar: :any,                 arm64_big_sur: "cde3904eedbacf16fa230074549d7728dcb03345bdea7da67c637744b45b590d"
+    sha256 cellar: :any,                 monterey:      "891690db69fc58e026bc1f4eca0109f1fc5f5c9889b7da5d12b9eb54a480dcae"
+    sha256 cellar: :any,                 big_sur:       "a14e546867d769d774bcd5a6a723644cf1004a1627eb483bbeca143245c2834f"
+    sha256 cellar: :any,                 catalina:      "32eb458bf6dc7fcb58336ed4af87de8686fce5d94a1df384a3a29496f1e1d47e"
+    sha256 cellar: :any,                 mojave:        "5739a52fbed858b21ea5078f9371ce443476917552041efc16343c5fc4d48b60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "909bc3b7d778f3e89f14738f7b2fa74940a4cd26dabb2bb63f652cf1c5fdc843"
   end
 
   depends_on "cmake" => :build

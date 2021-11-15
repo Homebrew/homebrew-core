@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://www.wildfly.org/"
-  url "https://download.jboss.org/wildfly/24.0.0.Final/wildfly-24.0.0.Final.tar.gz"
-  sha256 "4b510847b41052a2509f78bf4099ef55b1a704dab344f9f433b706f96f62a00a"
+  url "https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-25.0.0.Final.tar.gz"
+  sha256 "1cbe9e62107b98d5bdf7c4ebd068372460fbd6b1559de639cf9de143d55d04e1"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,17 +11,16 @@ class WildflyAs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "325904b87bf110f9724a80bdbd90c3cc4cb838b50b7cc6fc7b4b1c6f97cc2d2e"
-    sha256 cellar: :any, big_sur:       "8229398830099182e0fc27356056d850e4f0be23722162d154be56687f8ea78c"
-    sha256 cellar: :any, catalina:      "8229398830099182e0fc27356056d850e4f0be23722162d154be56687f8ea78c"
-    sha256 cellar: :any, mojave:        "8229398830099182e0fc27356056d850e4f0be23722162d154be56687f8ea78c"
+    sha256 cellar: :any, all: "3641d0a611965b1f4c704fbc3ec112edb9bcfaddb9379edf323b3219cd6e5ec2"
   end
 
+  # Installs a pre-built x86_64-only `libwfssl`
+  depends_on arch: :x86_64
   depends_on "openjdk"
 
   def install
-    rm_f Dir["bin/*.bat"]
-    rm_f Dir["bin/*.ps1"]
+    buildpath.glob("bin/*.{bat,ps1}").map(&:unlink)
+    buildpath.glob("**/win-x86_64").map(&:rmtree)
 
     inreplace "bin/standalone.sh", /JAVA="[^"]*"/, "JAVA='#{Formula["openjdk"].opt_bin}/java'"
 

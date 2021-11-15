@@ -5,6 +5,7 @@ class Dgen < Formula
   sha256 "99e2c06017c22873c77f88186ebcc09867244eb6e042c763bb094b02b8def61e"
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "56176497529b9b9e348c9f81e8e3eaa35a02a86d8158d6eaf9083d2506b43e90"
     sha256 cellar: :any,                 big_sur:      "476760ba116d162e64497c9bfec9e8222f55b455c31083269789057a76776228"
     sha256 cellar: :any,                 catalina:     "753f4d198c110edbcadb1b81db8200a161d67104b2e9ffa75b44d9fde6521bc0"
     sha256 cellar: :any,                 mojave:       "7ebcef39d27013a647585ab076ca31fc1be468c85aeafe2d504242b4194a3d2e"
@@ -16,7 +17,8 @@ class Dgen < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/dgen/dgen.git"
+    url "https://git.code.sf.net/p/dgen/dgen.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

@@ -8,11 +8,13 @@ class GithubRelease < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dfaa0f4ae21d44b1e0716ef71cabf02ac60a8692893b2a49bb32e096cb441a4a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d7770942546f2a49c7b44104fe69ad7cf724cc1eac39280d1217af66ccd97e3b"
-    sha256 cellar: :any_skip_relocation, catalina:      "6dc8bf5543967949480fb9bf3f24e149a5ef52857cc38877125f9ad6281eeb58"
-    sha256 cellar: :any_skip_relocation, mojave:        "745fcc9458243936c5e482098357c5f83d44e5126e5346f1f6c6ca90ee55a4c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8a0776dbf6e7156af66a6ce7aefff22e5f12ab47f310748fe75fa6aba8edd3d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d85d8888a8214690922cf085ac5207ee2fc34b15da2d877691955db4819cc68"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dfaa0f4ae21d44b1e0716ef71cabf02ac60a8692893b2a49bb32e096cb441a4a"
+    sha256 cellar: :any_skip_relocation, monterey:       "338994c0481c0f4ab4523a29b4c1c7c10553b621ee7921aa3aa7d36bbada3b79"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d7770942546f2a49c7b44104fe69ad7cf724cc1eac39280d1217af66ccd97e3b"
+    sha256 cellar: :any_skip_relocation, catalina:       "6dc8bf5543967949480fb9bf3f24e149a5ef52857cc38877125f9ad6281eeb58"
+    sha256 cellar: :any_skip_relocation, mojave:         "745fcc9458243936c5e482098357c5f83d44e5126e5346f1f6c6ca90ee55a4c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8a0776dbf6e7156af66a6ce7aefff22e5f12ab47f310748fe75fa6aba8edd3d"
   end
 
   depends_on "go" => :build

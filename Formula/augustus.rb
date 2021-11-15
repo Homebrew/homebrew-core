@@ -14,6 +14,7 @@ class Augustus < Formula
 
   bottle do
     sha256                               arm64_big_sur: "cf98b0583590e5c5c83bcae8357d9a510c18240b33b12c9f95ca4ec0318d61f4"
+    sha256 cellar: :any,                 monterey:      "d5346659a287d591d36110f987ae3becb64ab8d63cb940aaea46d68439208be4"
     sha256 cellar: :any,                 big_sur:       "0ceda121d6ead1c2b3812f7e1a9155366751da603fd1ab6c0ccbcada6eebb668"
     sha256 cellar: :any,                 catalina:      "526462eb67bf51a1b95fdecf402d67df75c876333adfabe5aedffe89d76946fc"
     sha256 cellar: :any,                 mojave:        "1eab0e15ac3027334f0ccda5e4edce2d99cafeffcea50f486842aada76bf6212"
@@ -48,7 +49,7 @@ class Augustus < Formula
     system "make", "clean"
 
     cd "src" do
-      on_macos do
+      if OS.mac?
         # Clang breaks proteinprofile on macOS. This issue has been first reported
         # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
         # See also https://github.com/Gaius-Augustus/Augustus/issues/64
@@ -56,8 +57,7 @@ class Augustus < Formula
         with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}") do
           system "make"
         end
-      end
-      on_linux do
+      else
         system "make"
       end
     end

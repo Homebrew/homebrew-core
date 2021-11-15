@@ -5,7 +5,7 @@ class Beast < Formula
   sha256 "6e28e2df680364867e088acd181877a5d6a1d664f70abc6eccc2ce3a34f3c54a"
   license "LGPL-2.1"
   revision 1
-  head "https://github.com/beast-dev/beast-mcmc.git"
+  head "https://github.com/beast-dev/beast-mcmc.git", branch: "master"
 
   livecheck do
     url :stable
@@ -32,9 +32,7 @@ class Beast < Formula
     bin.install Dir[libexec/"bin/*"]
 
     env = Language::Java.overridable_java_home_env("11")
-    on_linux do
-      env["PATH"] = "$JAVA_HOME/bin:$PATH"
-    end
+    env["PATH"] = "$JAVA_HOME/bin:$PATH" if OS.linux?
     bin.env_script_all_files libexec/"bin", env
     inreplace libexec/"bin/beast", "/usr/local", HOMEBREW_PREFIX
   end

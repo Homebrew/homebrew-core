@@ -5,57 +5,65 @@ class KeepkeyAgent < Formula
   homepage "https://github.com/romanz/trezor-agent"
   url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
   sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
-  license "LGPL-3.0"
-  revision 4
+  license "LGPL-3.0-only"
+  revision 5
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfd630395342344277c614e67fb6bf28aae72314987efb7cbb2a6bf23cc019e1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3cf82088797d4ae0b693d840d59cabbaa07dfbad5e997ad500a0245b9c534413"
-    sha256 cellar: :any_skip_relocation, catalina:      "6e0175e5f051ad05cbb26fcc2975632e1ffb8373e08c1235b4d7cd61f7cc1cf8"
-    sha256 cellar: :any_skip_relocation, mojave:        "27e81313d7690b317eb8f9a11a413c7b1529d2272bcbcf70b8263b41a406b0f8"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "572d3d43c959597434419201e1ab260cafea2e7e7a9f3f07cfd6d2a1d20ab7d3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ec1b531c8705fe435f31f16fce8ad100aca11644c5d33e05df1e70056dd3121"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d666d772a79bdf2b128adcc65760f9eb9803d3e7dd17a4aba4bad155f65a1f31"
+    sha256 cellar: :any_skip_relocation, monterey:       "c8dbfb2ce54eacac0cf75615bdf23dd2b5493defc5931ba53825c71a4d53fa71"
+    sha256 cellar: :any_skip_relocation, big_sur:        "648c7a6bee2065718586b392941e3881e4d10d7971e785df15b63c3c51806b56"
+    sha256 cellar: :any_skip_relocation, catalina:       "f5c1be64474b731cf09cd8066c0ef6b33c28a00803bef23b856a24fee92fd1f8"
+    sha256 cellar: :any_skip_relocation, mojave:         "900d7ba894e9aa98c285106037db89bf3ddb1a3c08f761781d37f227f2ab960b"
   end
 
-  depends_on "python@3.9"
+  depends_on "libusb"
+  depends_on "python@3.10"
+  depends_on "six"
 
   resource "backports.shutil_which" do
-    url "https://files.pythonhosted.org/packages/dd/ea/715dc80584207a0ff4a693a73b03c65f087d8ad30842832b9866fe18cb2f/backports.shutil_which-3.5.1.tar.gz"
-    sha256 "dd439a7b02433e47968c25a45a76704201c4ef2167deb49830281c379b1a4a9b"
+    url "https://files.pythonhosted.org/packages/a0/22/51b896a4539f1bff6a7ab8514eb031b9f43f12bff23f75a4c3f4e9a666e5/backports.shutil_which-3.5.2.tar.gz"
+    sha256 "fe39f567cbe4fad89e8ac4dbeb23f87ef80f7fe8e829669d0221ecdb0437c133"
+  end
+
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz"
+    sha256 "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
   end
 
   resource "ConfigArgParse" do
-    url "https://files.pythonhosted.org/packages/77/61/ae928ce6ab85d4479ea198488cf5ffa371bd4ece2030c0ee85ff668deac5/ConfigArgParse-0.13.0.tar.gz"
-    sha256 "e6441aa58e23d3d122055808e5e2220fd742dff6e1e51082d2a4e4ed145dd788"
+    url "https://files.pythonhosted.org/packages/16/05/385451bc8d20a3aa1d8934b32bd65847c100849ebba397dbf6c74566b237/ConfigArgParse-1.5.3.tar.gz"
+    sha256 "1b0b3cbf664ab59dada57123c81eff3d9737e0d11d8cf79e3d6eb10823f1739f"
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
-    sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+    url "https://files.pythonhosted.org/packages/4c/17/559b4d020f4b46e0287a2eddf2d8ebf76318fd3bd495f1625414b052fdc9/docutils-0.17.1.tar.gz"
+    sha256 "686577d2e4c32380bb50cbb22f575ed742d58168cee37e99117a854bcd88f125"
   end
 
   resource "ecdsa" do
-    url "https://files.pythonhosted.org/packages/f9/e5/99ebb176e47f150ac115ffeda5fedb6a3dbb3c00c74a59fd84ddf12f5857/ecdsa-0.13.tar.gz"
-    sha256 "64cf1ee26d1cde3c73c6d7d107f835fed7c6a2904aef9eac223d57ad800c43fa"
-  end
-
-  resource "ed25519" do
-    url "https://files.pythonhosted.org/packages/d5/d6/cd19a64022dc7557d245aad6a943eed7693189b48c58a9adf3bc00ceedc5/ed25519-1.4.tar.gz"
-    sha256 "2991b94e1883d1313c956a1e3ced27b8a2fdae23ac40c0d9d0b103d5a70d1d2a"
+    url "https://files.pythonhosted.org/packages/bf/3d/3d909532ad541651390bf1321e097404cbd39d1d89c2046f42a460220fb3/ecdsa-0.17.0.tar.gz"
+    sha256 "b9f500bb439e4153d0330610f5d26baaf18d17b8ced1bc54410d189385ea68aa"
   end
 
   resource "hidapi" do
-    url "https://files.pythonhosted.org/packages/c1/86/89df0e8890f96eeb5fb68d4ccb14cb38e2c2d2cfd7601ba972206acd9015/hidapi-0.7.99.post21.tar.gz"
-    sha256 "e0be1aa6566979266a8fc845ab0e18613f4918cf2c977fe67050f5dc7e2a9a97"
+    url "https://files.pythonhosted.org/packages/99/9b/5c41756461308a5b2d8dcbcd6eaa2f1c1bc60f0a6aa743b58cab756a92e1/hidapi-0.10.1.tar.gz"
+    sha256 "a1170b18050bc57fae3840a51084e8252fd319c0fc6043d68c8501deb0e25846"
   end
 
   resource "keepkey" do
-    url "https://files.pythonhosted.org/packages/bd/7c/8edc3d017b4b02f11533083d9987d11707fcf82ab6606c9b9aedd2e95b4c/keepkey-4.0.2.tar.gz"
-    sha256 "cddee60ae405841cdff789cbc54168ceaeb2282633420f2be155554c25c69138"
+    url "https://files.pythonhosted.org/packages/30/38/558d9a2dd1fd74f50ff4587b4054496ffb69e21ab1138eb448f3e8e2f4a7/keepkey-6.3.1.tar.gz"
+    sha256 "cef1e862e195ece3e42640a0f57d15a63086fd1dedc8b5ddfcbc9c2657f0bb1e"
   end
 
   resource "libagent" do
-    url "https://files.pythonhosted.org/packages/63/57/39df4b80036657c9d57a17fe94902965a20543569e9bef0bb7cd89e8fa4a/libagent-0.11.2.tar.gz"
-    sha256 "51f36116dacab1df8672a876bb2ddbf08a717e0afc8276406bd23aeda79d5030"
+    url "https://files.pythonhosted.org/packages/84/9b/81daa642211ca088fda584c90791b7de0bbbb202725ebd5e454badd2f751/libagent-0.14.2.tar.gz"
+    sha256 "62aae671df342923475323cf0677bfcef796cc48e6989039a20f29c8e4a9e5b6"
+  end
+
+  resource "libusb1" do
+    url "https://files.pythonhosted.org/packages/a9/97/e8afa2af12b6de608ec86c8c4ad57f1248d98946d1b5e1aa0bff926755e9/libusb1-2.0.1.tar.gz"
+    sha256 "d3ba82ecf7ab6a48d21dac6697e26504670cc3522b8e5941bd28fb56cf3f6c46"
   end
 
   resource "lockfile" do
@@ -64,43 +72,48 @@ class KeepkeyAgent < Formula
   end
 
   resource "mnemonic" do
-    url "https://files.pythonhosted.org/packages/a4/5a/663362ccceb76035ad50fbc20203b6a4674be1fe434886b7407e79519c5e/mnemonic-0.18.tar.gz"
-    sha256 "02a7306a792370f4a0c106c2cf1ce5a0c84b9dbd7e71c6792fdb9ad88a727f1d"
-  end
-
-  resource "pbkdf2" do
-    url "https://files.pythonhosted.org/packages/02/c0/6a2376ae81beb82eda645a091684c0b0becb86b972def7849ea9066e3d5e/pbkdf2-1.3.tar.gz"
-    sha256 "ac6397369f128212c43064a2b4878038dab78dab41875364554aaf2a684e6979"
+    url "https://files.pythonhosted.org/packages/f8/8d/d4dc2b2bddfeb57cab4404a41749b577f578f71140ab754da9afa8f5c599/mnemonic-0.20.tar.gz"
+    sha256 "7c6fb5639d779388027a77944680aee4870f0fcd09b1e42a5525ee2ce4c625f6"
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/73/73/4f133a31d67b27431fe4b9cc5e2f74d0644bce0327a743093f3cc27864ce/protobuf-3.5.2.post1.tar.gz"
-    sha256 "3b60685732bd0cbdc802dfcb6071efbcf5d927ce3127c13c33ea1a8efae3aa76"
+    url "https://files.pythonhosted.org/packages/ff/3e/19b09fd98ca30a9cd53269806602ffe1d32464fe1f662ec8765a215f0495/protobuf-3.18.1.tar.gz"
+    sha256 "1c9bb40503751087300dd12ce2e90899d68628977905c76effc48e66d089391e"
+  end
+
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
   resource "PyMsgBox" do
-    url "https://files.pythonhosted.org/packages/b6/65/86379ede1db26c40e7972d7a41c69cdf12cc6a0f143749aabf67ab8a41a1/PyMsgBox-1.0.6.zip"
-    sha256 "3888116a60812d01d44529c402014bf0896d2a9262617cb18faa9a7b3800ad4e"
+    url "https://files.pythonhosted.org/packages/7d/ff/4c6f31a4f08979f12a663f2aeb6c8b765d3bd592e66eaaac445f547bb875/PyMsgBox-1.0.9.tar.gz"
+    sha256 "2194227de8bff7a3d6da541848705a155dcbb2a06ee120d9f280a1d7f51263ff"
+  end
+
+  resource "PyNaCl" do
+    url "https://files.pythonhosted.org/packages/cf/5a/25aeb636baeceab15c8e57e66b8aa930c011ec1c035f284170cacb05025e/PyNaCl-1.4.0.tar.gz"
+    sha256 "54e9a2c849c742006516ad56a88f5c74bf2ce92c9f67435187c3c5953b346505"
   end
 
   resource "python-daemon" do
-    url "https://files.pythonhosted.org/packages/b2/fb/a280d65f81e9d69989c8d6c4e0bb18d7280cdcd6d406a2cc3f4eb47d4402/python-daemon-2.1.2.tar.gz"
-    sha256 "261c859be5c12ae7d4286dc6951e87e9e1a70a882a8b41fd926efc1ec4214f73"
+    url "https://files.pythonhosted.org/packages/d6/2d/f5e9a44e76777ca5c20765d92eb2d2cb89b6cfa5e921c808fdd57c90cae7/python-daemon-2.3.0.tar.gz"
+    sha256 "bda993f1623b1197699716d68d983bb580043cf2b8a66a01274d9b8297b0aeaf"
   end
 
   resource "semver" do
-    url "https://files.pythonhosted.org/packages/43/07/4a7470398de2d33547b54b4848d18fde88aa434883cb255e01630c8f7f65/semver-2.8.0.tar.gz"
-    sha256 "b881cbbadaa83af20a6984d5e75b6db4bf388065515cf97d44661c21b80946c3"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/31/a9/b61190916030ee9af83de342e101f192bbb436c59be20a4cb0cdb7256ece/semver-2.13.0.tar.gz"
+    sha256 "fa0fe2722ee1c3f57eac478820c3a5ae2f624af8264cbdf9000c980ff7f75e3f"
   end
 
   resource "Unidecode" do
-    url "https://files.pythonhosted.org/packages/9d/36/49d0ee152b6a1631f03a541532c6201942430060aa97fe011cf01a2cce64/Unidecode-1.0.22.tar.gz"
-    sha256 "8c33dd588e0c9bc22a76eaa0c715a5434851f726131bd44a6c26471746efabf5"
+    url "https://files.pythonhosted.org/packages/41/a6/93288318cfae2fa0ca978dfe6bb94b22b7e9a9e98b6149a4af00b1e76ee8/Unidecode-1.3.2.tar.gz"
+    sha256 "669898c1528912bcf07f9819dc60df18d057f7528271e31f8ec28cc88ef27504"
+  end
+
+  resource "wheel" do
+    url "https://files.pythonhosted.org/packages/4e/be/8139f127b4db2f79c8b117c80af56a3078cc4824b5b94250c7f81a70e03b/wheel-0.37.0.tar.gz"
+    sha256 "e2ef7239991699e3355d54f8e968a21bb940a1dbf34a4d226741e64462516fad"
   end
 
   def install

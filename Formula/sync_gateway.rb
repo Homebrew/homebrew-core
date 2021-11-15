@@ -2,10 +2,10 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway/current/index.html"
   url "https://github.com/couchbase/sync_gateway.git",
-      tag:      "2.8.2",
-      revision: "4df7a2da36c88a72131b23eb044b7d0b69b456bd"
+      tag:      "2.8.3",
+      revision: "e54a62741bb28f3e54a6599c21c739df9a9dad76"
   license "Apache-2.0"
-  head "https://github.com/couchbase/sync_gateway.git"
+  head "https://github.com/couchbase/sync_gateway.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,16 +13,17 @@ class SyncGateway < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e445a768ff0ec3e3e33d7a0ccd14c7a66cfb8401cfa385e68ee62ce8cef4668a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b718f1e3d7fee3d47e9091606afd43891f6323558c8d3a4c30c88eff563147e3"
-    sha256 cellar: :any_skip_relocation, catalina:      "6abd3e4f3d682d3e1bc6e7ffcee385c95b33664af989f22d1c86f96c3e4b7474"
-    sha256 cellar: :any_skip_relocation, mojave:        "e43aa516b0457ef79f599773ccfe110c34ddbc492b552fd63bc5e97fda432c06"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc30a79633112d1c6a18e6632f4b1ed95fd78495aba2d8ecfd8fb0f36722dad3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8db243a62dcdd2c9c6b1ddd9bf61ad0072e4ac395b208822fd254077d6973d75"
+    sha256 cellar: :any_skip_relocation, monterey:       "8d97b3bd4148de64835b723feb06d3718b6606b941b9c3661dd464495c3c392a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2bd988cfdd72c00a76eae19e4c347ae79b0c597e34a551add01318fa71645b9b"
+    sha256 cellar: :any_skip_relocation, catalina:       "ad754927fbbec6adc9b31cb726a0457f62719bdfa546260eb768b402b9257bda"
   end
 
   depends_on "gnupg" => :build
   depends_on "go" => :build
   depends_on "repo" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command

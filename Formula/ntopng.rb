@@ -5,20 +5,20 @@ class Ntopng < Formula
   revision 1
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/4.2.tar.gz"
-    sha256 "c7ce8d0c7b4251aef276038ec3324530312fe232d38d7ad99de21575dc888e8b"
+    url "https://github.com/ntop/ntopng/archive/5.0.tar.gz"
+    sha256 "e540eb37c3b803e93a0648a6b7d838823477224f834540106b3339ec6eab2947"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI/archive/3.4.tar.gz"
-      sha256 "dc9b291c7fde94edb45fb0f222e0d93c93f8d6d37f4efba20ebd9c655bfcedf9"
+      url "https://github.com/ntop/nDPI.git",
+        revision: "46ebd7128fd38f3eac5289ba281f3f25bad1d899"
     end
   end
 
   bottle do
-    sha256 big_sur:      "9ed198be1700ad11126a1cb91851be862da39e5a546cf22be6bfcaf1ad73a2b4"
-    sha256 catalina:     "d471e223fc0de4f2bbd993e5ed1691b9f4b1618b60dd22d1d4bce44b5bb500af"
-    sha256 mojave:       "3cb2eb698b63537009d7c94fb5a5192ac9c0645934477057d2a135842b02479e"
-    sha256 x86_64_linux: "2e7a51f458d34171c8d03ed6807d7b799189a336fae9b5362ae479a40135fcf9"
+    sha256 big_sur:      "1f0fc365c6ce9765f3457e3fd610494bb135db0e4970365de6dee02ee6a82ef6"
+    sha256 catalina:     "3f66b1d9932cb383bee198896deec6ebad14af61d84e211a511546505986fe73"
+    sha256 mojave:       "72411fa027ffdbf74e99c030c28f1816df70b3c640cce0465419bf821f0df379"
+    sha256 x86_64_linux: "ceced6dd2af35eabe2d0c0d3f90fd201597f3f6abd5ef483b8cb1da3b3fed7c9"
   end
 
   head do
@@ -47,6 +47,12 @@ class Ntopng < Formula
   uses_from_macos "curl"
   uses_from_macos "libpcap"
   uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     resource("nDPI").stage do

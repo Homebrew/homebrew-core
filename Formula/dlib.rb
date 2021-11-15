@@ -8,6 +8,7 @@ class Dlib < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "db4b583ba9e3005a3c2d36fdc5ba78e2cb3ccdebd85216c8e7a00ccbdd81106e"
+    sha256 cellar: :any,                 monterey:      "62ee86d108c6feeaa5a75f8b28258b038d3b3f16d1c2d29438bcfeed33442ac4"
     sha256 cellar: :any,                 big_sur:       "5d20cfc1befae91082d391364cb07dfc68d99713694ac81539d027e2138cc5bc"
     sha256 cellar: :any,                 catalina:      "158a5e823cfda7ed8ef3ea9439d28b7c6508bb108f28fe8c94639bd35a9620e2"
     sha256 cellar: :any,                 mojave:        "40748e73bb88c567e6ca5b991f8e4282e46422e625ec2dcc0ff0f11a5ed76f4c"

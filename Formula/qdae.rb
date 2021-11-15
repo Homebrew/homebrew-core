@@ -5,6 +5,11 @@ class Qdae < Formula
   sha256 "780752c37c9ec68dd0cd08bd6fe288a1028277e10f74ef405ca200770edb5227"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?qdae[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "9551d2289bd90b76851cebd6d1f11e2e3b1c9ca856d8eb4f88312ec941efb097"

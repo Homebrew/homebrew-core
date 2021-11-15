@@ -5,8 +5,10 @@ class Sslmate < Formula
 
   desc "Buy SSL certs from the command-line"
   homepage "https://sslmate.com"
-  url "https://packages.sslmate.com/other/sslmate-1.8.0.tar.gz"
-  sha256 "0354e41a2e9bd69b167e5374a20335affa584955dc3a2e9a4046fac6d3ac02c9"
+  url "https://packages.sslmate.com/other/sslmate-1.9.0.tar.gz"
+  sha256 "3e40122484491f59178de80e14ccf7e90cea4fea94056b25c7f89abe31685b98"
+  license "MIT"
+  revision 1
 
   livecheck do
     url "https://packages.sslmate.com/other/"
@@ -14,13 +16,15 @@ class Sslmate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "663bd104378e805e195f861d33e509b1110ca6f3719b30050cf98121256594bf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7835b2f312003a5520eaa288d00cb2ca73384f4e38a0bae60adb5800f8a869cb"
-    sha256 cellar: :any_skip_relocation, catalina:      "7835b2f312003a5520eaa288d00cb2ca73384f4e38a0bae60adb5800f8a869cb"
-    sha256 cellar: :any_skip_relocation, mojave:        "7835b2f312003a5520eaa288d00cb2ca73384f4e38a0bae60adb5800f8a869cb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c7157d098fdb4f25cc862cf832c004a2c7e753a3f3301302707f5e64359dafa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7c7157d098fdb4f25cc862cf832c004a2c7e753a3f3301302707f5e64359dafa"
+    sha256 cellar: :any_skip_relocation, monterey:       "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
+    sha256 cellar: :any_skip_relocation, catalina:       "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
+    sha256 cellar: :any_skip_relocation, mojave:         "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "perl"
 
@@ -32,7 +36,7 @@ class Sslmate < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
 
-    python3 = Formula["python@3.9"].opt_bin/"python3"
+    python3 = Formula["python@3.10"].opt_bin/"python3"
     xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 

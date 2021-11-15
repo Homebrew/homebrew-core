@@ -1,8 +1,8 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.94.2.tar.xz"
-  sha256 "051861fc89f06205162f12129fb7ebfe473383bb6194bf8642952bfd50329274"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.95.tar.xz"
+  sha256 "cc9cb653fff2ea947c3702680b59c99ac0bd1bbf19976d37e22a463cd804f167"
   license "GPL-2.0-or-later"
 
   # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
@@ -29,11 +29,13 @@ class Exim < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "27beb8798303a6435aa2d66380dda416d525ec9a148885ffc47a0ea854cce61b"
-    sha256 big_sur:       "db5cb6710964ec20b9a3a0f291241cc3ff9580705e2367aac781caeff626508b"
-    sha256 catalina:      "c090fcc24665c6506ec53fbc46d56b24f51783d6e3325b917c833206413be6e8"
-    sha256 mojave:        "5953883752ecffe5defcb5b337feaf8fd2fdce0ad88b0d02bb5f2723ee7b3cdf"
-    sha256 x86_64_linux:  "1ac738364c2e540e39ce0668ff3c106691847c35719bd21b62c988d11264b20f"
+    sha256 arm64_monterey: "52c643ce9c129aff859aabfb48764f73c48a6aafc1172e419f8736e6c5a736a1"
+    sha256 arm64_big_sur:  "c47a9b199a7c8d21242cc6155b96845d7da106d724a7f164e3e39a5eb9b919ea"
+    sha256 monterey:       "241e1812e4aed22a524827de26069100d895112616095bc2cedf2d94f5574477"
+    sha256 big_sur:        "d0f080aa74fcacedab9959c9971b8f5b215cf0eda29c93bcfab0fd79a3d8e0b7"
+    sha256 catalina:       "7568c4385faf5f74893b8c93f927b95ee16daa4467bfc0c5a31da1383657747b"
+    sha256 mojave:         "08261de0fa2fdecfbfd426247ca7d56fe95bad0d5e9410df69ce94bfbb789c61"
+    sha256 x86_64_linux:   "073483eb6602a0c563a66f8b999763e27deb6a53bf4018b0c2267a4eebe1cec6"
   end
 
   depends_on "berkeley-db@4"
@@ -65,6 +67,8 @@ class Exim < Formula
 
     bdb4 = Formula["berkeley-db@4"]
 
+    cp "OS/unsupported/Makefile-Darwin", "OS/Makefile-Darwin"
+    cp "OS/unsupported/os.h-Darwin", "OS/os.h-Darwin"
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]
       # Add include and lib paths for BDB 4

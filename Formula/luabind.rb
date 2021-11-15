@@ -7,14 +7,17 @@ class Luabind < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, mojave:      "aa095d38915e09287c86d11d65871b5a4e6604799a961f0e055c9bf526ba403b"
-    sha256 cellar: :any, high_sierra: "736bb4cb6a49338eecab9a179f3104e8328d7133366b921b2fece14b6fd2aa26"
-    sha256 cellar: :any, sierra:      "39e74593d47fd648230e177e9a8a90e1b3a888c84d6c7d38f358265d5b93ce94"
-    sha256 cellar: :any, el_capitan:  "914a79679264790d9ffb0726a1f303954d816da3dd23db3b8816873cf467677f"
-    sha256 cellar: :any, yosemite:    "171123f48a6cf2431d6b143b84bf31dbb955f103195aa30597a61b7a61943982"
+    sha256 cellar: :any, arm64_monterey: "2aa06fda6b16e944418e0bbb8306794b6a37574cc3498b979e50d3bf63126045"
+    sha256 cellar: :any, arm64_big_sur:  "412b4800d6e640819f77c80cdf5b6597cb5357caebd499e9b32577d27ddeab5c"
+    sha256 cellar: :any, monterey:       "676b9de9bb164333be0f98da20ce853cfdf54234f3a9536303308e6e8598c589"
+    sha256 cellar: :any, big_sur:        "adf679efd6e24a319ef2481cf51e75f2098ab9d9284c0acc48c88363cc15eba2"
+    sha256 cellar: :any, catalina:       "cc7fc93a6ae050ea6fb11c1c961c7e8cfea5ca3f78407c069f2210c598a38823"
+    sha256 cellar: :any, mojave:         "aa095d38915e09287c86d11d65871b5a4e6604799a961f0e055c9bf526ba403b"
+    sha256 cellar: :any, high_sierra:    "736bb4cb6a49338eecab9a179f3104e8328d7133366b921b2fece14b6fd2aa26"
+    sha256 cellar: :any, sierra:         "39e74593d47fd648230e177e9a8a90e1b3a888c84d6c7d38f358265d5b93ce94"
+    sha256 cellar: :any, el_capitan:     "914a79679264790d9ffb0726a1f303954d816da3dd23db3b8816873cf467677f"
+    sha256 cellar: :any, yosemite:       "171123f48a6cf2431d6b143b84bf31dbb955f103195aa30597a61b7a61943982"
   end
-
-  disable! date: "2020-12-08", because: :unmaintained
 
   depends_on "boost-build" => :build
   depends_on "boost"
@@ -58,7 +61,7 @@ class Luabind < Formula
       args << "--toolset=darwin"
     end
     args << "--prefix=#{prefix}"
-    system "bjam", *args
+    system "b2", *args
 
     (lib/"pkgconfig/luabind.pc").write pc_file
   end

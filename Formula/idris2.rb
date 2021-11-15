@@ -1,17 +1,16 @@
 class Idris2 < Formula
   desc "Pure functional programming language with dependent types"
   homepage "https://www.idris-lang.org/"
-  url "https://github.com/idris-lang/Idris2/archive/v0.4.0.tar.gz"
-  sha256 "e06fb4f59838ca9da286ae3aecfeeeacb8e85afeb2e2136b4b751e06325f95fe"
+  url "https://github.com/idris-lang/Idris2/archive/v0.5.1.tar.gz"
+  sha256 "da44154f6eba5e22ec5ac64c6ba2c28d2df0a57cf620c5b00c11adb51dbda399"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/idris-lang/Idris2.git"
+  head "https://github.com/idris-lang/Idris2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "3beffca58897ca836c87544b2a4a1096e70cb0e74e50a1a8b43f6aa4c3a41b75"
-    sha256 cellar: :any,                 catalina:     "ad0955e64d0e51cb847765addaf6d850167a9a0edb25323a6446797a55ba4a4a"
-    sha256 cellar: :any,                 mojave:       "13c5484d58c87098bb63ee6f861eae120d55b41b43764fae0a07c383658aaf96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1eed0bfe631249c078c0ecee22e086d71a07d2b6c12b359e17ae47556a3e0386"
+    sha256 cellar: :any,                 big_sur:      "bd0fe93d2cf1992c825305e9fbc451cc900aacd15e5d2fcf8ca9a14c1abc9385"
+    sha256 cellar: :any,                 catalina:     "9a677678a11af3aa67e96cc31592b6690cbaa801fb16200f019e04ef582c8815"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "abf8255278b85d80ba3e41759c8df2a3d7a95ebd278a8fae24c19bda9f45e207"
   end
 
   depends_on "coreutils" => :build

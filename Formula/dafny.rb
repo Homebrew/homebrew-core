@@ -1,8 +1,8 @@
 class Dafny < Formula
   desc "Verification-aware programming language"
   homepage "https://github.com/dafny-lang/dafny/blob/master/README.md"
-  url "https://github.com/dafny-lang/dafny/archive/v3.2.0.tar.gz"
-  sha256 "5d9ce0a7bb7d4700747923cff82cf50b5e3961772f37de9fe71790979ac0b8fe"
+  url "https://github.com/dafny-lang/dafny/archive/v3.3.0.tar.gz"
+  sha256 "0cdbffa90d2556e068cb6fb8601c9ecda649dc671734354cd6071d3b8b948b41"
   license "MIT"
 
   livecheck do
@@ -11,9 +11,8 @@ class Dafny < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "39e904e85d58a288eada056755ecd434adcd31a055bf5194cd7462c2559814c4"
-    sha256 cellar: :any_skip_relocation, catalina: "4d953365e4bbe8393168707689777e4d06c7f760e0d5ba63bc2289be42b2c3d6"
-    sha256 cellar: :any_skip_relocation, mojave:   "e0a573f263cf2cc50a0e64c27e88b8ae3c7849efd136276c45ab1cc1366a1c41"
+    sha256 cellar: :any_skip_relocation, big_sur:  "10862f4e7daaf0dd2a310686384984301f43ceeecfdad21398ab984c4c3cd485"
+    sha256 cellar: :any_skip_relocation, catalina: "2a46518f73e9ae9a7d1b6457d65176dfdeedbf1d5b2395a914badc73c35a964b"
   end
 
   depends_on "gradle" => :build
@@ -30,7 +29,7 @@ class Dafny < Formula
   end
 
   def install
-    system "make", "exe", "runtime"
+    system "make", "exe"
 
     libexec.install Dir["Binaries/*", "Scripts/quicktest.sh"]
 

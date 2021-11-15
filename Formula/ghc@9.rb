@@ -1,8 +1,8 @@
 class GhcAT9 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.0.1/ghc-9.0.1-src.tar.xz"
-  sha256 "a5230314e4065f9fcc371dfe519748fd85c825b279abf72a24e09b83578a35f9"
+  url "https://downloads.haskell.org/~ghc/9.2.1/ghc-9.2.1-src.tar.xz"
+  sha256 "f444012f97a136d9940f77cdff03fda48f9475e2ed0fec966c4d35c4df55f746"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,9 +11,9 @@ class GhcAT9 < Formula
   end
 
   bottle do
-    sha256 big_sur:  "32d2b4c6ebe826206412f6faca0fc8c11496038544a11d6be0d95898d7e1e3f3"
-    sha256 catalina: "13537ee079be6304014683edc3c41015826d9fa92c66f41be55f36fb48cf026a"
-    sha256 mojave:   "e78ad22a89d607bc99ca10b89aa9a4a724aa235e170c1cf887250d158da3f904"
+    sha256 monterey: "fcd1e8069f6573791942533a04967ba442fccbbb3b642e6a7c9d4aa8be140050"
+    sha256 big_sur:  "1288aa3c699c68df305664247e9424df9d7e319978f843de2be8ca9a35c257c0"
+    sha256 catalina: "213e19e4cef177418d6b7cfbe9df601a051de2704a02727f22e5bf208f487ef8"
   end
 
   keg_only :versioned_formula

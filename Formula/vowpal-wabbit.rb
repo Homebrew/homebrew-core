@@ -7,14 +7,16 @@ class VowpalWabbit < Formula
       revision: "96ed8316de4391b77f4f29af69f885552a644769"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
+  head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "b409d89003bcdf98e7ed731a30ebb197e06f151b75ac4f6f3906572a431eeb1f"
-    sha256 cellar: :any,                 big_sur:       "aa088ed972a626863ef2535ce3f2929ddaf7d5e64d8a7944cbff8d7d03714804"
-    sha256 cellar: :any,                 catalina:      "6340e02d379e0381d079cf8b5c6ae64bce24fbd6d808a0d5ecc0734d08094893"
-    sha256 cellar: :any,                 mojave:        "d9bcb3816f6e0cb53dad0ceb692fcd44c277471f500ea443ef4af25f733e2e48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c906f6f596bbc7e075ab1e192458dddf0bc5370d315d93e5d7f02aedbd36bbb2"
+    sha256 cellar: :any,                 arm64_monterey: "12d34acaa90b6dad0f9424623131ab9cc17afb22ac4ca3c2cfc78cd3bb87f444"
+    sha256 cellar: :any,                 arm64_big_sur:  "b409d89003bcdf98e7ed731a30ebb197e06f151b75ac4f6f3906572a431eeb1f"
+    sha256 cellar: :any,                 monterey:       "76f0db5043b1538fd89d46feb993a874859a438d59f2ea9725bc7dc4551fbe10"
+    sha256 cellar: :any,                 big_sur:        "aa088ed972a626863ef2535ce3f2929ddaf7d5e64d8a7944cbff8d7d03714804"
+    sha256 cellar: :any,                 catalina:       "6340e02d379e0381d079cf8b5c6ae64bce24fbd6d808a0d5ecc0734d08094893"
+    sha256 cellar: :any,                 mojave:         "d9bcb3816f6e0cb53dad0ceb692fcd44c277471f500ea443ef4af25f733e2e48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c906f6f596bbc7e075ab1e192458dddf0bc5370d315d93e5d7f02aedbd36bbb2"
   end
 
   depends_on "cmake" => :build

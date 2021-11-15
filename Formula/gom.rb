@@ -6,12 +6,14 @@ class Gom < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ff2ac0dfef03bd08c7f03f13595af2e1476c396163e57066726c92e06cbe4fba"
-    sha256 cellar: :any, big_sur:       "b8c298e1d442d15dd630bfe6b1edfeb11b77326b730237ffc4c6b3c607c48192"
-    sha256 cellar: :any, catalina:      "c86f525462ffd97cb6bd469b5a26d1db56281d725916d5eb524f31a4750b1892"
-    sha256 cellar: :any, mojave:        "afda0dc772004cee3b8148719a078f6ac2871480260f310a5d06e367dcd68412"
-    sha256 cellar: :any, high_sierra:   "cccd9551ffced0a1648ff2f420eb3e5666ff102b4c81d96806cd7d25068ef7d7"
-    sha256               x86_64_linux:  "f57d27a0f540e80aa766a48cfea50ab195cc904a31f56728172102c8233c4aed"
+    sha256 cellar: :any, arm64_monterey: "3ae28996020630b4d188ef9d8750bd43b4ffdeab6dcb8f0cd1b2e38eadf945f1"
+    sha256 cellar: :any, arm64_big_sur:  "ff2ac0dfef03bd08c7f03f13595af2e1476c396163e57066726c92e06cbe4fba"
+    sha256 cellar: :any, monterey:       "8ffd8bda4854f337bea5d93b324f5116cd54172369f446c1661b48d416db8fb7"
+    sha256 cellar: :any, big_sur:        "b8c298e1d442d15dd630bfe6b1edfeb11b77326b730237ffc4c6b3c607c48192"
+    sha256 cellar: :any, catalina:       "c86f525462ffd97cb6bd469b5a26d1db56281d725916d5eb524f31a4750b1892"
+    sha256 cellar: :any, mojave:         "afda0dc772004cee3b8148719a078f6ac2871480260f310a5d06e367dcd68412"
+    sha256 cellar: :any, high_sierra:    "cccd9551ffced0a1648ff2f420eb3e5666ff102b4c81d96806cd7d25068ef7d7"
+    sha256               x86_64_linux:   "f57d27a0f540e80aa766a48cfea50ab195cc904a31f56728172102c8233c4aed"
   end
 
   depends_on "gobject-introspection" => :build

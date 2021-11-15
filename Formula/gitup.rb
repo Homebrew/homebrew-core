@@ -6,18 +6,20 @@ class Gitup < Formula
   url "https://files.pythonhosted.org/packages/7f/07/4835f8f4de5924b5f38b816c648bde284f0cec9a9ae65bd7e5b7f5867638/gitup-0.5.1.tar.gz"
   sha256 "4f787079cd65d8f60c5842181204635e1b72d3533ae91f0c619624c6b20846dd"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/earwig/git-repo-updater.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "756252ddabb0074e82777e094dc48b873f9d92654b1af72a3818a0d5e1dfca33"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5ea818d777b458b351c6dba3fced8dfe0b2872855041f2f4dce01751e4ead21c"
-    sha256 cellar: :any_skip_relocation, catalina:      "741ddc9b31fff9cab313a9bd9da4ef42d94946887b730db62a1ca437bd67b485"
-    sha256 cellar: :any_skip_relocation, mojave:        "30d5bfe2d496259630b86658d0269cdb8ae6039e8edc77f9651d21a74c6f2b3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffd9d75739ea219cf727d12c46dc0f4dacab636f75378ed22c883c514ad29e49"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff1d31029cc66522b235ec285341133a1074781dd57ff709e53caccb305ba3ee"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff1d31029cc66522b235ec285341133a1074781dd57ff709e53caccb305ba3ee"
+    sha256 cellar: :any_skip_relocation, monterey:       "75fd26446950358870cfd58d35f9f354ea7e64c8cda02672e35ee43288a40796"
+    sha256 cellar: :any_skip_relocation, big_sur:        "75fd26446950358870cfd58d35f9f354ea7e64c8cda02672e35ee43288a40796"
+    sha256 cellar: :any_skip_relocation, catalina:       "75fd26446950358870cfd58d35f9f354ea7e64c8cda02672e35ee43288a40796"
+    sha256 cellar: :any_skip_relocation, mojave:         "75fd26446950358870cfd58d35f9f354ea7e64c8cda02672e35ee43288a40796"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab75d63b467bb90432d40c39999e7d3524fc5ef7bff426be0d8aec63f256b093"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"

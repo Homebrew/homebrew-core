@@ -7,6 +7,7 @@ class Lepton < Formula
   head "https://github.com/dropbox/lepton.git"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "76ad15c6eea9edaf46a6dd3cad91d20c74c234001c1af3a46a9f7bbf4f44ff95"
     sha256 cellar: :any_skip_relocation, big_sur:      "588d9fa1928b1a90e9ff6e49b4558bc1e5e228b50cce311614e2f1ba65190b92"
     sha256 cellar: :any_skip_relocation, catalina:     "61424564a043a4a02ac9beab50a3c57dc454d4c301e536cf17d1457aac82bba9"
     sha256 cellar: :any_skip_relocation, mojave:       "5b3d88dced1ee91a38ba4a7ede4f21cac5e0ce2d9d5cc3b5f89775c36fbbb177"

@@ -7,12 +7,12 @@ class Cgl < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/(?:releases%2F)?v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(%r{^releases/v?(\d+(?:\.\d+)+)$}i)
   end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "22a1b60daec4025069498452fef640837d4cf77618aa587b728365ac09c69458"
+    sha256 cellar: :any,                 monterey:      "a4bce4cbcb490d1ae1393718f808d5a12f81ed8f721716466f76fb17dc3ea9b9"
     sha256 cellar: :any,                 big_sur:       "17536b04cb964956f52a00e5c3629c2d94d85bfe1317f6b57e141af71cf7ad2e"
     sha256 cellar: :any,                 catalina:      "6eb179515b4cf06ad8bb484e6384f6cdae99297f523372b082ef079ed84cafd4"
     sha256 cellar: :any,                 mojave:        "acdb179fb8b29973e75a674a12fa24f164b753300c625f1a4dc3ca8f3cd9dcf4"

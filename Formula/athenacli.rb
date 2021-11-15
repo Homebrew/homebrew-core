@@ -8,11 +8,13 @@ class Athenacli < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5d4e180606a383f5a429b747907adc7b72de838df9e58eac6bc8154b1001e684"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d43f42a51da85ec3114efdf5ce341f0346b794727cc50ea7017479adefa70c3c"
-    sha256 cellar: :any_skip_relocation, catalina:      "5cc0c045ac8647ee56979aabe866f1e37eba10019efc024629e60351e288778f"
-    sha256 cellar: :any_skip_relocation, mojave:        "e70a30579f8117f055d615c60b0355b874cfcf14f64d98c01db55531c515161e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "287d464dee3ab519abef5f31abd59817c9027a2aebc52b52579ee36b99f838c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d24f688287b0a0f4690f9a36d32f43894bab52be3235cbb7fa5c44124fb352cb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d4e180606a383f5a429b747907adc7b72de838df9e58eac6bc8154b1001e684"
+    sha256 cellar: :any_skip_relocation, monterey:       "c89282cd2a1d81c26a105193c8c86c487311d6abe328a7596c88e1eb8d0c9d65"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d43f42a51da85ec3114efdf5ce341f0346b794727cc50ea7017479adefa70c3c"
+    sha256 cellar: :any_skip_relocation, catalina:       "5cc0c045ac8647ee56979aabe866f1e37eba10019efc024629e60351e288778f"
+    sha256 cellar: :any_skip_relocation, mojave:         "e70a30579f8117f055d615c60b0355b874cfcf14f64d98c01db55531c515161e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "287d464dee3ab519abef5f31abd59817c9027a2aebc52b52579ee36b99f838c1"
   end
 
   depends_on "python-tabulate"

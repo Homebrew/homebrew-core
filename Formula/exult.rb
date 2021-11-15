@@ -13,10 +13,12 @@ class Exult < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "1dafcc7b0c6a54ced59284c8109a01deb628a8bd7e8b2138e38cc540280fa97c"
-    sha256 big_sur:       "af93f694844a8f0abdf22f7f8048ffac29992b6d027841fde98d98509876a00b"
-    sha256 catalina:      "1b5343fcca2332c05f7b75412dccdc0bb84fb7dd2cceb47fdb3ed7a8cdb319ae"
-    sha256 mojave:        "45efe9a12cb0a446543a03c45f412c96355ef4d7dd4bef4b016b8e9bc98e3df7"
+    sha256 arm64_monterey: "a29c81a3aa2359aefce36af2139b3d1f62dc04c0085ad55571bc71dfb1a79604"
+    sha256 arm64_big_sur:  "1dafcc7b0c6a54ced59284c8109a01deb628a8bd7e8b2138e38cc540280fa97c"
+    sha256 monterey:       "9400d890cf3856c5aad4b002b77fef8952d89f312f465d6fe7c444c0c83335b7"
+    sha256 big_sur:        "af93f694844a8f0abdf22f7f8048ffac29992b6d027841fde98d98509876a00b"
+    sha256 catalina:       "1b5343fcca2332c05f7b75412dccdc0bb84fb7dd2cceb47fdb3ed7a8cdb319ae"
+    sha256 mojave:         "45efe9a12cb0a446543a03c45f412c96355ef4d7dd4bef4b016b8e9bc98e3df7"
   end
 
   depends_on "autoconf" => :build

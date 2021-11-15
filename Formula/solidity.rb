@@ -1,8 +1,8 @@
 class Solidity < Formula
   desc "Contract-oriented programming language"
   homepage "https://soliditylang.org"
-  url "https://github.com/ethereum/solidity/releases/download/v0.8.7/solidity_0.8.7.tar.gz"
-  sha256 "cc5be5d507604fb5c8a403f22122eabc00f8b58ecaedb18c6f4c6f28300a615b"
+  url "https://github.com/ethereum/solidity/releases/download/v0.8.10/solidity_0.8.10.tar.gz"
+  sha256 "3f157aa2bc8bcbd8975fe5e41c476b3d777432dfe7c64e9d59247ee225a89ee3"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
 
   livecheck do
@@ -11,11 +11,12 @@ class Solidity < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3ef3e6acbd7295fb552f2343db5c227f7941bcf8f274e03ee6bdf57aeda5f849"
-    sha256 cellar: :any_skip_relocation, big_sur:       "26422197d5607c144215f5f2210afe50903b3b5656b055f0dd2c8789aff5f9a2"
-    sha256 cellar: :any_skip_relocation, catalina:      "e8e7023ca61135652f4e3d5b0f168079f4998333ab42a5afb7e42f7ef5c1e278"
-    sha256 cellar: :any_skip_relocation, mojave:        "b7d42aff03cec1eba31984e051015decf38b6cc00af41419c0d452d0e962d47c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b7e4147feca7a07b597c008b577b1cc61273143cc2d81343213d29c89cc6216"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d52228020e2d58c1698737f8d3051d29aca7bea59af0acd231a59cc2018b7f41"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af37c87018dba48d0d665d1ad113ac8126c66a2ce5c4aa52aadb1609581df2da"
+    sha256 cellar: :any_skip_relocation, monterey:       "5e29f0c490124dc43f0d9db5f2119f0c2338d76631f971967614d4babe9b23d4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4226ba214336485fd23a90e2557db477b8e855c02bbe9e58f107b2e2ad1e1421"
+    sha256 cellar: :any_skip_relocation, catalina:       "e6cf6d239c4f0be695202527b99b7b30860ce67078cc799f9e1af1756268fdbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27825ee32bc85b7a915378aec8cf470bb38718d0478b20b47898e9a5ef739fc9"
   end
 
   depends_on "cmake" => :build

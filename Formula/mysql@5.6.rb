@@ -6,10 +6,11 @@ class MysqlAT56 < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 big_sur:      "f11cd8885dc59020425bbdad88911471bc24de21810cbfbbcb6d9dd936473a85"
-    sha256 catalina:     "bbdc569f29b12fbcf5e877b15598b6adbbfa551df4ffdf8047832335b6dc829f"
-    sha256 mojave:       "d254901fc740ede4295f3ff7323a5d142772caf6144f04480634e5a9bacab7cb"
-    sha256 x86_64_linux: "e8d140578516bb77f7b3870de3ce9f7ae839a4419926d6a15d7737d647487c2e"
+    rebuild 1
+    sha256 big_sur:      "30a530ddb785efe7542641366126d7b4afcce09bde0fa104b869814fa69fc9e2"
+    sha256 catalina:     "a5309a985dccc02490ff9bd0be1575a4e8908ca3e15dcfaa77e7d2b2bd616cfd"
+    sha256 mojave:       "1ba2347383b539258d1c0a29cbbee722c30e6c28446c22a669a8a7deabd5f53e"
+    sha256 x86_64_linux: "91b24798f46a2bc7b616fb73fc47a5337acb5b8e0a6f9be1c657eade6fade45b"
   end
 
   keg_only :versioned_formula
@@ -66,11 +67,7 @@ class MysqlAT56 < Formula
     system "make", "install"
 
     # Avoid references to the Homebrew shims directory
-    os = "mac"
-    on_linux do
-      os = "linux"
-    end
-    inreplace bin/"mysqlbug", HOMEBREW_SHIMS_PATH/"#{os}/super/", ""
+    inreplace bin/"mysqlbug", "#{Superenv.shims_path}/", ""
 
     (prefix/"mysql-test").cd do
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
@@ -131,30 +128,10 @@ class MysqlAT56 < Formula
     EOS
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/mysql@5.6/bin/mysql.server start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/mysqld_safe</string>
-          <string>--datadir=#{datadir}</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{datadir}</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"mysqld_safe", "--datadir=#{var}/mysql"]
+    keep_alive true
+    working_dir var/"mysql"
   end
 
   test do
@@ -180,16 +157,16 @@ index 34ed6f4..4becbbc 100644
 --- a/cmake/mysql_version.cmake
 +++ b/cmake/mysql_version.cmake
 @@ -31,7 +31,7 @@ SET(DOT_FRM_VERSION "6")
- 
+
  # Generate "something" to trigger cmake rerun when VERSION changes
  CONFIGURE_FILE(
 -  ${CMAKE_SOURCE_DIR}/VERSION
 +  ${CMAKE_SOURCE_DIR}/MYSQL_VERSION
    ${CMAKE_BINARY_DIR}/VERSION.dep
  )
- 
+
 @@ -39,7 +39,7 @@ CONFIGURE_FILE(
- 
+
  MACRO(MYSQL_GET_CONFIG_VALUE keyword var)
   IF(NOT ${var})
 -   FILE (STRINGS ${CMAKE_SOURCE_DIR}/VERSION str REGEX "^[ ]*${keyword}=")
@@ -197,4 +174,3 @@ index 34ed6f4..4becbbc 100644
     IF(str)
       STRING(REPLACE "${keyword}=" "" str ${str})
       STRING(REGEX REPLACE  "[ ].*" ""  str "${str}")
-

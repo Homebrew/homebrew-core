@@ -1,17 +1,18 @@
 class Snapraid < Formula
   desc "Backup program for disk arrays"
   homepage "https://snapraid.sourceforge.io/"
-  url "https://github.com/amadvance/snapraid/releases/download/v11.5/snapraid-11.5.tar.gz"
-  sha256 "1f5267261bdbcf4d48b9359ce67184df11905590739140f740327fb73bcecafa"
+  url "https://github.com/amadvance/snapraid/releases/download/v11.6/snapraid-11.6.tar.gz"
+  sha256 "f030a3830449a78d10af41320da0be21c60f88dc8d328ebd056e0eb7596161cf"
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b8daa0eddd9c285c5651602d0df66221ca5277852e4b3bb15cdf5f64eba22ec0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4d5bca9f5667e2f9a4fc841cb89f60ec5de200a59ace28513b777b6092c1f13f"
-    sha256 cellar: :any_skip_relocation, catalina:      "d92da7dbdf737efbbeee7025c7d1ed0bc01c1f3cbaf29f0b8ded4b264ff627e8"
-    sha256 cellar: :any_skip_relocation, mojave:        "8ccbba9450a1f49a2d1b9d0424d9dee7ffaac4348f0cf4edf0bfb2b8858f5885"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "db38538cd61796483d63bb4cf8aa687f8801796abb4074e2a5a69e8cefcaae96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3719b33f940c062a2778f4a1a9994219514c8f984caef00235e7cb9da382439"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b5a0444bc1096ac8efbe5576ed7a36b42791fc34b54c2b7a8c4fa20b1ae45a67"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "575e6b4a43acb5c4cceef40f4edc5ab0563f40956d9bfbf943880deb5a7e3f48"
+    sha256 cellar: :any_skip_relocation, monterey:       "28de15571b2e0d89ff0ad943b94f5bd5e001c1876d3e3b42273559dcc290cc45"
+    sha256 cellar: :any_skip_relocation, big_sur:        "32a82709e61efa091356ec5fe1df021dfc28ebcc3fa5f532b295d01ad37c0310"
+    sha256 cellar: :any_skip_relocation, catalina:       "8291c456a415a7ebfed247b29ee844d5e773625a91ba3a0429c801bf617987ed"
+    sha256 cellar: :any_skip_relocation, mojave:         "9824c33527ff4e8079ad8e7c1962cfa6aa6ab168714f364d203162ecd7178031"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0eb552abd4ed89538c9751ce457e2c63afb2dc0f5a1f94e0f2f47a95fa03a699"
   end
 
   head do

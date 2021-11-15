@@ -8,15 +8,17 @@ class Lcrack < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9a11f709651ff447bc6a4ef8868e52fbf44587d4631cbbcba248c5a61dae2a5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7a10b7d205bc60c5e719ca47f3ffe4c3a4d8a975c393cb1258daf2bac4ee0217"
-    sha256 cellar: :any_skip_relocation, catalina:      "229ccd2408afb62d18a8ea9f68cf7d065720fb9137b1b14f9d4e7aaffc178865"
-    sha256 cellar: :any_skip_relocation, mojave:        "d1d84ad9e2d7a9c6c8ed9eaedb70362ef362efa72c236aa9610ece7cefcd6029"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "9d903ca15b5614ebfef876b53ddba7bc6b7798d0a79a56fceb86b6518844103e"
-    sha256 cellar: :any_skip_relocation, sierra:        "8e5fb5b2ad952ea17bc314a9ae49ce4baf736868448e833600c394b60d326846"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "2bd1de3426e4bd4ebfc6fb6026dc9a9fd046a5d9345459700a2361b7fe53f49c"
-    sha256 cellar: :any_skip_relocation, yosemite:      "443e64bdb0307e12f4ef990abea7941239784cb7c9798929880a7973f86cf5bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90d22ccc708ed4d14fd35364f07ee9cc7342dbeba5a8da0f051d39b699e84125"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8986278bb55beb07506b9953fb36dbe76d44bac1e876b955a1aaf3bd9236467"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a9a11f709651ff447bc6a4ef8868e52fbf44587d4631cbbcba248c5a61dae2a5"
+    sha256 cellar: :any_skip_relocation, monterey:       "787aef461f0e77f9bd1801b1529fd35d9fa05a6eee5b6b6fe9b7f479c18ef24b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7a10b7d205bc60c5e719ca47f3ffe4c3a4d8a975c393cb1258daf2bac4ee0217"
+    sha256 cellar: :any_skip_relocation, catalina:       "229ccd2408afb62d18a8ea9f68cf7d065720fb9137b1b14f9d4e7aaffc178865"
+    sha256 cellar: :any_skip_relocation, mojave:         "d1d84ad9e2d7a9c6c8ed9eaedb70362ef362efa72c236aa9610ece7cefcd6029"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "9d903ca15b5614ebfef876b53ddba7bc6b7798d0a79a56fceb86b6518844103e"
+    sha256 cellar: :any_skip_relocation, sierra:         "8e5fb5b2ad952ea17bc314a9ae49ce4baf736868448e833600c394b60d326846"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "2bd1de3426e4bd4ebfc6fb6026dc9a9fd046a5d9345459700a2361b7fe53f49c"
+    sha256 cellar: :any_skip_relocation, yosemite:       "443e64bdb0307e12f4ef990abea7941239784cb7c9798929880a7973f86cf5bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90d22ccc708ed4d14fd35364f07ee9cc7342dbeba5a8da0f051d39b699e84125"
   end
 
   def install

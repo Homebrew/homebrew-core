@@ -6,19 +6,20 @@ class GitRemoteCodecommit < Formula
   url "https://files.pythonhosted.org/packages/1f/82/7c22f218a7fd3177def489febc9b8c262a3b2bcb6785d05e15d435ddcab8/git-remote-codecommit-1.15.1.tar.gz"
   sha256 "cd99d44a94f9adf8c5f15110d830f62af5fe644030fecc0df68cbda4880a5214"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/aws/git-remote-codecommit.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "691f3751dfa60d1ead71976570b5b06a76fb6546e0f0cd000e146512c332ce69"
-    sha256 cellar: :any_skip_relocation, big_sur:       "aee7f65ffcaa551a185eb59d6917972265d3c9508c15f52c725e2ceefa6f9c04"
-    sha256 cellar: :any_skip_relocation, catalina:      "60e9845d4b0b0cf980e05903b93c19a320a78a530547b1730a3a740c658d2c67"
-    sha256 cellar: :any_skip_relocation, mojave:        "841203b77fc24bc7ed3f426de14421ef19d4062c3eaacf8493c624057b3b0352"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3279e60ba5c5f62fc437188c4cf007d1a01088f3771fb78efc9e075b686cbf3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dffeba60e3eb48fbd126bab90879b080855e5cbdedb6f3e98db46d2b131bbb3c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "08a486ebcb944a5773b5168592e9bb0c318b0e72c5d95ae1c5d630f820ef1fb3"
+    sha256 cellar: :any_skip_relocation, monterey:       "3bb9945c532d8312ae5b846df1b74ffb2f0fda5c366064d3b0d5191c2b50db25"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0b2a0253e95d5fe4123c139acf10650b973508de8cfabab01447b7a7cf5c63a0"
+    sha256 cellar: :any_skip_relocation, catalina:       "bf85c3806faadbbafb279a3353727a34acd5ef7338d9416ebc5c8b3713bd17b0"
+    sha256 cellar: :any_skip_relocation, mojave:         "320bddee12ae66769b97892ac8ea95aa78d540d1fca7cc89624e76a97a754548"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4afb79abb2426287e0acedb7da22354f8885baf7afd01ed936dd722548406b3d"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "botocore" do
     url "https://files.pythonhosted.org/packages/a7/10/d9bbdbee6d3ea63897e468dddabb3edb7b7360a901e3eee249cdb132a78a/botocore-1.17.43.tar.gz"

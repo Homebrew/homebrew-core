@@ -4,7 +4,7 @@ class Rtptools < Formula
   url "https://github.com/irtlab/rtptools/archive/1.22.tar.gz"
   sha256 "ac6641558200f5689234989e28ed3c44ead23757ccf2381c8878933f9c2523e0"
   license "BSD-3-Clause"
-  head "https://github.com/irtlab/rtptools.git"
+  head "https://github.com/irtlab/rtptools.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,11 +13,13 @@ class Rtptools < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a760c9b142e55aba7732406eeb2603c49b9b7514e02bd01bc245d0661772bf20"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a9f1e8f18d40ba8b435f619de132a5fbc00e0ef84d5a1e10378700e0f3ce417b"
-    sha256 cellar: :any_skip_relocation, catalina:      "59fa4c8c53c3430c6bb47b82c752eef710f692ad3fb1bd3ab82c108524aabe00"
-    sha256 cellar: :any_skip_relocation, mojave:        "eb8412186a92c44426b2f4c4bef7adcffb308afd4bb036a2dd9d1a0d184b504e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e72d5483db8933643fcdf7793ac236d09f2f28bf2fa8f9db169fe59d90728e3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b656aa50230fbf083a0acd2bb82b6c9911b0c1e450280f2beba636aea4dd444"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a760c9b142e55aba7732406eeb2603c49b9b7514e02bd01bc245d0661772bf20"
+    sha256 cellar: :any_skip_relocation, monterey:       "cc4355761bc5d55ef0bf7ed1b81946cecb40db52832d63dca2ba4a01c5655168"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a9f1e8f18d40ba8b435f619de132a5fbc00e0ef84d5a1e10378700e0f3ce417b"
+    sha256 cellar: :any_skip_relocation, catalina:       "59fa4c8c53c3430c6bb47b82c752eef710f692ad3fb1bd3ab82c108524aabe00"
+    sha256 cellar: :any_skip_relocation, mojave:         "eb8412186a92c44426b2f4c4bef7adcffb308afd4bb036a2dd9d1a0d184b504e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e72d5483db8933643fcdf7793ac236d09f2f28bf2fa8f9db169fe59d90728e3"
   end
 
   depends_on "autoconf" => :build

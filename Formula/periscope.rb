@@ -2,16 +2,19 @@ class Periscope < Formula
   desc "Organize and de-duplicate your files without losing data"
   homepage "https://github.com/anishathalye/periscope"
   url "https://github.com/anishathalye/periscope.git",
-      tag:      "v0.2.2",
-      revision: "ff389f2a52052b1a936921e1f5b30d36eaa961a1"
+      tag:      "v0.3.1",
+      revision: "e434390fbc41345083b8cfe3d65c743b3299de06"
   license "GPL-3.0-only"
+  head "https://github.com/anishathalye/periscope.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "72e43c809a0ab076c14f88532734dbd1919e68f27384881ccfcff6cea70f5adf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "828885390e0a645535dd613e3ae2846a89799bdfd21e74434507915dc7d81017"
-    sha256 cellar: :any_skip_relocation, catalina:      "f2022e8c77ecb2562f19ebce673618ec83b3fdbfb8722709309d30f64af883ec"
-    sha256 cellar: :any_skip_relocation, mojave:        "213d6d28aa466e53523a4c5542122387461644d7488f1353ec10fc2cb091b46e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6db8ead8af19fb810633bc664c97360d607769dbdc5d3dc6ee23baa7773ad993"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee724c8be393c6f09fb3d4d68091cfdc51ff1a1647391a9a53c901ee9a0f050b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a316061e8574f8306a0db428030a80b1d881fa01f44d3fb5e11fbf262eb005dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "9a1e52d7026e676bb53e8c8f11d4a93523d8b8a698a3225f33dcc71de215f02e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ce293d18056b44958098f6950986676ba6747df28fda897ef6f7f9e83c19b724"
+    sha256 cellar: :any_skip_relocation, catalina:       "b27894c43a915698a3667d5c77ee120e097195bb42f039ad12fc8aabb684f168"
+    sha256 cellar: :any_skip_relocation, mojave:         "175b7fa2671aa807ae3574326c65efec9e2ec7599ce4645ffcbb4ee4b3b14056"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2998259acfde7a53687bf3f46df9c7258cefe94ee1a7a6e5bfca3ed187f969c"
   end
 
   depends_on "go" => :build
@@ -36,23 +39,25 @@ class Periscope < Formula
     assert_match version.to_s, shell_output("#{bin}/psc version")
 
     # setup
-    (testpath/"a").write("dupe")
-    (testpath/"b").write("dupe")
-    (testpath/"c").write("unique")
+    scandir = testpath/"scandir"
+    scandir.mkdir
+    (scandir/"a").write("dupe")
+    (scandir/"b").write("dupe")
+    (scandir/"c").write("unique")
 
     # scan + summary is correct
-    shell_output "#{bin}/psc scan 2>/dev/null"
+    shell_output "#{bin}/psc scan #{scandir} 2>/dev/null"
     summary = shell_output("#{bin}/psc summary").strip.split("\n").map { |l| l.strip.split }
-    assert_equal [["tracked", "2"], ["unique", "1"], ["duplicate", "1"], ["overhead", "4", "B"]], summary
+    assert_equal [["tracked", "3"], ["unique", "2"], ["duplicate", "1"], ["overhead", "4", "B"]], summary
 
     # rm allows deleting dupes but not uniques
-    shell_output "#{bin}/psc rm #{testpath/"a"}"
-    refute_predicate (testpath/"a"), :exist?
+    shell_output "#{bin}/psc rm #{scandir/"a"}"
+    refute_predicate (scandir/"a"), :exist?
     # now b is unique
-    shell_output "#{bin}/psc rm #{testpath/"b"} 2>/dev/null", 1
-    assert_predicate (testpath/"b"), :exist?
-    shell_output "#{bin}/psc rm #{testpath/"c"} 2>/dev/null", 1
-    assert_predicate (testpath/"c"), :exist?
+    shell_output "#{bin}/psc rm #{scandir/"b"} 2>/dev/null", 1
+    assert_predicate (scandir/"b"), :exist?
+    shell_output "#{bin}/psc rm #{scandir/"c"} 2>/dev/null", 1
+    assert_predicate (scandir/"c"), :exist?
 
     # cleanup
     shell_output("#{bin}/psc finish")

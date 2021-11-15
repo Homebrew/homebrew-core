@@ -3,22 +3,23 @@ class ReconNg < Formula
 
   desc "Web Reconnaissance Framework"
   homepage "https://github.com/lanmaster53/recon-ng"
-  url "https://github.com/lanmaster53/recon-ng/archive/v5.1.1.tar.gz"
-  sha256 "470e293e931c23a0dc76e6915098e04db7f2e254a0639bb2c0383e0758c4fbc2"
+  url "https://github.com/lanmaster53/recon-ng/archive/v5.1.2.tar.gz"
+  sha256 "18d05030b994c9b37f624628251d3376d590f3d1eec155f67aca88fa5f3490cc"
   license "GPL-3.0"
-  revision 2
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "96b36eec2f0dcd83de144758e888da8c38536f7848c94fbdc202cfb1ce6657af"
-    sha256 cellar: :any,                 big_sur:       "94a4b2b9faaf91757a9fe7bba0714a00f05992d829b29caab8254304b69647e7"
-    sha256 cellar: :any,                 catalina:      "b93174a7fe5c779df7257c582718ae2558817a59e6c1a7d11ba13bcdf33306ec"
-    sha256 cellar: :any,                 mojave:        "40afc4b0ef762c32d86281ed20cd7d33b9424d0370e677a03277f303dc9b72b8"
-    sha256 cellar: :any,                 high_sierra:   "5ab42403952a0af2ac5e78e5dd779cd8ff380d678852e620215206bc63d3144e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87323e7e985b7e6cc1c0dd644c9c2d771edd3de79fa90953a3f61b800802bf9a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e2e45a733f31ec9e0530cfc1e8fff4be936a47aa9d16e5f18bdc6cf5604db61"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c67a45b9343f19d54224ea3d2d315395e2671e3956230cf773dcdb5809fc74e"
+    sha256 cellar: :any_skip_relocation, monterey:       "a61255c42019f8ca5865e11a54bc9e55a37ca6deefbb3f9f3f3502bca7b9a556"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b7641d98fbac1452c6bad5e4a07b8901faf28dbd66f7201db11a128f92650f84"
+    sha256 cellar: :any_skip_relocation, catalina:       "d1c3ff3698802850447b16d31118f020479b68e38f6f07a59e6f5ad33cec4da8"
+    sha256 cellar: :any_skip_relocation, mojave:         "52870b6cae825becbad66e89b672790ed2fe4107586e51cdc6fe5e44e40a0092"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3a1463e334a7e33e84d3c09fff13e8070aa42c7af678d88f65f9ab771a72b32"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -102,8 +103,8 @@ class ReconNg < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/39/2b/0a66d5436f237aff76b91e68b4d8c041d145ad0a2cdeefe2c42f76ba2857/lxml-4.5.0.tar.gz"
-    sha256 "8620ce80f50d023d414183bf90cc2576c2837b88e00bea3f33ad2630133bbb60"
+    url "https://files.pythonhosted.org/packages/e5/21/a2e4517e3d216f0051687eea3d3317557bde68736f038a3b105ac3809247/lxml-4.6.3.tar.gz"
+    sha256 "39b78571b3b30645ac77b95f7c69d1bffc4cf8c3b157c435a34da72e78c82468"
   end
 
   resource "MarkupSafe" do

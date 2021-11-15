@@ -1,22 +1,23 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
-  url "https://downloads.scummvm.org/frs/scummvm/2.2.0/scummvm-2.2.0.tar.xz"
-  sha256 "1469657e593bd8acbcfac0b839b086f640ebf120633e93f116cab652b5b27387"
+  url "https://downloads.scummvm.org/frs/scummvm/2.5.0/scummvm-2.5.0.tar.xz"
+  sha256 "b47ee4b195828d2c358e38a4088eda49886dc37a04f1cc17b981345a59e0d623"
   license "GPL-2.0-or-later"
-  revision 1
-  head "https://github.com/scummvm/scummvm.git"
+  head "https://github.com/scummvm/scummvm.git", branch: "master"
 
   livecheck do
-    url "https://www.scummvm.org/frs/scummvm/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["']}i)
+    url "https://www.scummvm.org/downloads/"
+    regex(/href=.*?scummvm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_big_sur: "f446b713a5390ddb37f57de1dafad4b0a5fec77af75f65bf4b3f1c81d70d193d"
-    sha256 big_sur:       "f1e3edd576feee9c8360d2276a4ec1821826f32f31675c2d6f3fbe4f3dc4e594"
-    sha256 catalina:      "fa569b125a50401242cdc26b27b1c01edde13555aa3018eeb81bc5cb910581e9"
-    sha256 mojave:        "ad5d75fffe9d076923c42bc813b43db5a2088270f5c21266ce8850dfaa67d4d8"
+    sha256 arm64_big_sur: "90d437657d306794297adcfaf083dd0bd951bbf437e8f7ff40c12413efa32376"
+    sha256 monterey:      "f8d5919d8dfbaffc4b818decb7859fa37b7ad8d2689adaed5e1d8e9de4f67d7a"
+    sha256 big_sur:       "f1543bc3553a0bae3a659f4c17412228cf6fb643c460ec3f488354d65ebcd27b"
+    sha256 catalina:      "07e6e6c14491af15cb9900691fd60276568bdc66ef423752dbe4cde10d5e8bc7"
+    sha256 mojave:        "b83003efb12c36548180f1bb883f02e48276078992b3916196c3495bd80bb9a9"
+    sha256 x86_64_linux:  "671cc9da5228b2e1c6500083b3508bc41d7a9fe7c0b94f525732126bae4edb2d"
   end
 
   depends_on "a52dec"

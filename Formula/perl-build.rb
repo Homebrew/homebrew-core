@@ -4,14 +4,16 @@ class PerlBuild < Formula
   url "https://github.com/tokuhirom/Perl-Build/archive/1.32.tar.gz"
   sha256 "ba86d74ff9718977637806ef650c85615534f0b17023a72f447587676d7f66fd"
   license any_of: ["Artistic-1.0", "GPL-1.0-or-later"]
-  head "https://github.com/tokuhirom/perl-build.git"
+  head "https://github.com/tokuhirom/perl-build.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b662afe3c5e833e08c5e0a425f5597ab159b808e6285e90f96ee48e1f8d8d9a8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a24fadf986032226343c74378f0344b15729687d9b0679f64e859e41a4f165db"
-    sha256 cellar: :any_skip_relocation, catalina:      "e2b99b05c34a89e8706810730e8ac6da7d98c76025b72d86eb2a6003a47a4b85"
-    sha256 cellar: :any_skip_relocation, mojave:        "5ae631c827ab5b58f0e2bafa3b5470f3b2f2236802942c3d4454ab96fd212aa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e55952e9cc4849a4a6da657c0b9e52f93da495518b9c0db1da64efab51ced28"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9d4cdf8f97ae6c7aaafc8cb6e6d5099ec97f6ec0632a33af90e70766c9e497e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b662afe3c5e833e08c5e0a425f5597ab159b808e6285e90f96ee48e1f8d8d9a8"
+    sha256 cellar: :any_skip_relocation, monterey:       "e05da78d5eab2ca95b3bdc567a1d8ef81d60c932af55420958f2e6538b18c89e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a24fadf986032226343c74378f0344b15729687d9b0679f64e859e41a4f165db"
+    sha256 cellar: :any_skip_relocation, catalina:       "e2b99b05c34a89e8706810730e8ac6da7d98c76025b72d86eb2a6003a47a4b85"
+    sha256 cellar: :any_skip_relocation, mojave:         "5ae631c827ab5b58f0e2bafa3b5470f3b2f2236802942c3d4454ab96fd212aa8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e55952e9cc4849a4a6da657c0b9e52f93da495518b9c0db1da64efab51ced28"
   end
 
   uses_from_macos "perl"

@@ -12,14 +12,16 @@ class Mp3info < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebb88262f3ba1eb8196c8821769298b4aa29bb4c5d0733fc8dcd47092cfafdd5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f5e52d02125f49b9c5afc960a565f7f5a774ced3f88fabd07d2723e741369d82"
-    sha256 cellar: :any_skip_relocation, catalina:      "4f70eb02805d1fe2a93dc169b9baf2a3d1c685ded71094241189c93599ba6662"
-    sha256 cellar: :any_skip_relocation, mojave:        "74e04cc5b66e44632a9f3187f2360eba1f1f13ea153f7c6e4e0b4e466f58f084"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "9b966553a2ed76afb888577cad6ae8f359cde30e445bb0742a87ff2c5d5dfa85"
-    sha256 cellar: :any_skip_relocation, sierra:        "dd9e2ab142307a9587ca28f8ca574cf3115f380f2692f1eb1e38e24d4e5a1008"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "30c85d8b2afd6e6ad03e473de3bd83ef9c6c607b979570798cfc778ad887b902"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cfece9c5d6614f0c1139161f6ca6ced317514cc45a7b13d06ecf0316b53656f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d14f5dd7a1e4f7e441e94d5c43f7786169190125da84e1b425005c79164e55d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebb88262f3ba1eb8196c8821769298b4aa29bb4c5d0733fc8dcd47092cfafdd5"
+    sha256 cellar: :any_skip_relocation, monterey:       "a6c032a31a38ab8d086b20944fd5b4e3bf074ecaca2f7d593897fd5deb19e250"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f5e52d02125f49b9c5afc960a565f7f5a774ced3f88fabd07d2723e741369d82"
+    sha256 cellar: :any_skip_relocation, catalina:       "4f70eb02805d1fe2a93dc169b9baf2a3d1c685ded71094241189c93599ba6662"
+    sha256 cellar: :any_skip_relocation, mojave:         "74e04cc5b66e44632a9f3187f2360eba1f1f13ea153f7c6e4e0b4e466f58f084"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "9b966553a2ed76afb888577cad6ae8f359cde30e445bb0742a87ff2c5d5dfa85"
+    sha256 cellar: :any_skip_relocation, sierra:         "dd9e2ab142307a9587ca28f8ca574cf3115f380f2692f1eb1e38e24d4e5a1008"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "30c85d8b2afd6e6ad03e473de3bd83ef9c6c607b979570798cfc778ad887b902"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cfece9c5d6614f0c1139161f6ca6ced317514cc45a7b13d06ecf0316b53656f"
   end
 
   uses_from_macos "ncurses"

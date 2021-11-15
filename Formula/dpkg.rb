@@ -14,11 +14,13 @@ class Dpkg < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "050cebde8ca0b1874974c4f6a03be2144055ef85485aa4da30017f8c645d440b"
-    sha256 big_sur:       "36fe071803813a6afff6cd69bbba249cd0321e3204302a1aee25f8f4873c934c"
-    sha256 catalina:      "15bb579c5dc9c7d36879fa5a07fe682f7064cef68ecd45f46cbe3aec0120c837"
-    sha256 mojave:        "422227f7e36fcdc361f8ba3fc5ba6c19603bd25ec3933cf6b5cef0eb5ccec523"
-    sha256 x86_64_linux:  "d1c09eb2e30e77d5a2d576c8a5ee2ab4eeff19dfce98dc5c6cc093e2c4512036"
+    sha256 arm64_monterey: "e780edb6e715d268c548722db892cb84b28d4022064110e226fc59fa9500a81d"
+    sha256 arm64_big_sur:  "050cebde8ca0b1874974c4f6a03be2144055ef85485aa4da30017f8c645d440b"
+    sha256 monterey:       "acf37fed6f913397828e43e4c313908983285e848a83c2df44d45da3da6eb472"
+    sha256 big_sur:        "36fe071803813a6afff6cd69bbba249cd0321e3204302a1aee25f8f4873c934c"
+    sha256 catalina:       "15bb579c5dc9c7d36879fa5a07fe682f7064cef68ecd45f46cbe3aec0120c837"
+    sha256 mojave:         "422227f7e36fcdc361f8ba3fc5ba6c19603bd25ec3933cf6b5cef0eb5ccec523"
+    sha256 x86_64_linux:   "d1c09eb2e30e77d5a2d576c8a5ee2ab4eeff19dfce98dc5c6cc093e2c4512036"
   end
 
   depends_on "pkg-config" => :build
@@ -41,11 +43,10 @@ class Dpkg < Formula
   def install
     # We need to specify a recent gnutar, otherwise various dpkg C programs will
     # use the system "tar", which will fail because it lacks certain switches.
-    on_macos do
-      ENV["TAR"] = Formula["gnu-tar"].opt_bin/"gtar"
-    end
-    on_linux do
-      ENV["TAR"] = Formula["gnu-tar"].opt_bin/"tar"
+    ENV["TAR"] = if OS.mac?
+      Formula["gnu-tar"].opt_bin/"gtar"
+    else
+      Formula["gnu-tar"].opt_bin/"tar"
     end
 
     # Since 1.18.24 dpkg mandates the use of GNU patch to prevent occurrences

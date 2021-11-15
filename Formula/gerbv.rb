@@ -12,11 +12,13 @@ class Gerbv < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4b51c047b7ce52537ab152f477fed3fe4ba6b2218cd5445258e672f54acc8c0f"
-    sha256 big_sur:       "529a2d42b7018cb8edc81eb32e2572c936670c1088bd7934d627d8f358b1eefc"
-    sha256 catalina:      "eb27af6bcb6cfc6203297f617d88851e656c5b72fae84b10593429158d1861d6"
-    sha256 mojave:        "5995b2ff9b132c129e9e2ca08eb205c58883f63e22eec11c4c53e24ec6dfd4e3"
-    sha256 high_sierra:   "246a26e96d930c979db7bdb533807c71418ac0ad5c74bd12749d0c08b903e409"
+    sha256 arm64_monterey: "6867c2ab1f095c2bd952bc294544146d98c005cb844bea396ead8655db22e92a"
+    sha256 arm64_big_sur:  "4b51c047b7ce52537ab152f477fed3fe4ba6b2218cd5445258e672f54acc8c0f"
+    sha256 monterey:       "e476fc21dd1ef61b3d6136d0e8bb1643481bfcd873f3482e11c1225906b774bc"
+    sha256 big_sur:        "529a2d42b7018cb8edc81eb32e2572c936670c1088bd7934d627d8f358b1eefc"
+    sha256 catalina:       "eb27af6bcb6cfc6203297f617d88851e656c5b72fae84b10593429158d1861d6"
+    sha256 mojave:         "5995b2ff9b132c129e9e2ca08eb205c58883f63e22eec11c4c53e24ec6dfd4e3"
+    sha256 high_sierra:    "246a26e96d930c979db7bdb533807c71418ac0ad5c74bd12749d0c08b903e409"
   end
 
   depends_on "pkg-config" => :build

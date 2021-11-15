@@ -6,19 +6,20 @@ class Ydcv < Formula
   url "https://files.pythonhosted.org/packages/1f/29/17124ebfdea8d810774977474a8652018c04c4a6db1ca413189f7e5b9d52/ydcv-0.7.tar.gz"
   sha256 "53cd59501557496512470e7db5fb14e42ddcb411fe4fa45c00864d919393c1da"
   license "GPL-3.0"
-  revision 3
-  head "https://github.com/felixonmars/ydcv.git"
+  revision 4
+  head "https://github.com/felixonmars/ydcv.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "95ef9e1189ea9279282e41a64a9bf0b50c7e7a377b450d0c1508ae1597b89a91"
-    sha256 cellar: :any_skip_relocation, big_sur:       "329fe285ec1d389d1dd876bd4775327be3781a2c4a336537790b5d43a0bf5449"
-    sha256 cellar: :any_skip_relocation, catalina:      "f6984e690a8d4fab4b893cea60ead8c6cc53358066d1b255e7e49ff952f300cf"
-    sha256 cellar: :any_skip_relocation, mojave:        "606b5e4d75d322b8c5ed787ccdd6729bbce88f7039731a958352d7d0445e1e1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edaaea652126f1ef0cc311d323ed5198c4b85ada95ab88e58b3ea0a01101fb34"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "15a2f9b94d39645328338ffb95aa4ba058bc16b1dbe097af765c1ee7aa0b0a37"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15a2f9b94d39645328338ffb95aa4ba058bc16b1dbe097af765c1ee7aa0b0a37"
+    sha256 cellar: :any_skip_relocation, monterey:       "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
+    sha256 cellar: :any_skip_relocation, catalina:       "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
+    sha256 cellar: :any_skip_relocation, mojave:         "3961fb6ede937e194466d10568899cef0e9f7370348dcd758f4da4494c867d90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35d3c655f6e3b7623dd7657adc51da6bd53629676710c450d7941378a9f62b4b"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION"] = version

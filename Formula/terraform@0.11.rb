@@ -7,6 +7,7 @@ class TerraformAT011 < Formula
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9adc546789d09e4b62696954cf28e85dc9e78043950e80a45f77cccbb88a1a6"
+    sha256 cellar: :any_skip_relocation, monterey:      "87225e1a86da6d3c2e5bfd075084cb3a4bebc59a4c943113d95db9f01c8f89f1"
     sha256 cellar: :any_skip_relocation, big_sur:       "66f418d06a3fe1d3ad02e6d77815992940fd712f1d8f6e9dcbefd82fec49b75a"
     sha256 cellar: :any_skip_relocation, catalina:      "af2485736328e4ef93a6fbf79d7e6dd4e1c9a01597abd22ee20218d1fe4cc762"
     sha256 cellar: :any_skip_relocation, mojave:        "1b3e7e7126b9410185ed5eae937bb0f814f8eb062d9c09d7e72d91b96d51b228"
@@ -17,8 +18,9 @@ class TerraformAT011 < Formula
 
   deprecate! date: "2021-04-14", because: :unsupported
 
-  depends_on "go" => :build
+  depends_on "go@1.16" => :build
   depends_on "gox" => :build
+  depends_on arch: :x86_64
 
   on_linux do
     depends_on "zip" => :build
@@ -36,16 +38,15 @@ class TerraformAT011 < Formula
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      os = "darwin"
-      on_linux do
-        os = "linux"
-      end
+      os = OS.kernel_name.downcase
+      arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+
       ENV["XC_OS"] = os
-      ENV["XC_ARCH"] = "amd64"
+      ENV["XC_ARCH"] = arch
       system "go", "mod", "vendor" # Needed for Go 1.14+
       system "make", "tools", "bin"
 
-      bin.install "pkg/#{os}_amd64/terraform"
+      bin.install "pkg/#{os}_#{arch}/terraform"
       prefix.install_metafiles
     end
   end

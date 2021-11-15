@@ -1,19 +1,19 @@
 class Itstool < Formula
   desc "Make XML documents translatable through PO files"
   homepage "http://itstool.org/"
-  url "https://github.com/itstool/itstool/archive/2.0.6.tar.gz"
-  sha256 "bda0b08e9a1db885c9d7d1545535e9814dd8931d5b8dd5ab4a47bd769d0130c6"
+  url "https://github.com/itstool/itstool/archive/2.0.7.tar.gz"
+  sha256 "fba78a37dc3535e4686c7f57407b97d03c676e3a57beac5fb2315162b0cc3176"
   license "GPL-3.0"
-  revision 2
   head "https://github.com/itstool/itstool.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebdfd10f93422be39bb585681691ebe51e50c627b9bb2ea2b4129ef94c00d932"
-    sha256 cellar: :any_skip_relocation, big_sur:       "81eaa38336a86c12673ffc93418fdbcc7244cd8be71c9a2c07864e0a19994ea5"
-    sha256 cellar: :any_skip_relocation, catalina:      "f860a74756beaab039bffa02a4c8b8258f1a54a692532f4a1e57d0b4431c7ab9"
-    sha256 cellar: :any_skip_relocation, mojave:        "d3b26ca21d37e4e0eb6e7318571a69aa021034bc69936749e8891213c16465c9"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "1ee274a6df78727bfcba1221ea16b5c2fa55819c66e2de9168c7915fd3238508"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc272d9a13d3f8ce45e25859815d3eedac413f0e4901455e268d3ad0e4b48c1b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "01fcbe25d1551ec84a14e3a880d9565057065d5024491f870626e5d89921565d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01fcbe25d1551ec84a14e3a880d9565057065d5024491f870626e5d89921565d"
+    sha256 cellar: :any_skip_relocation, monterey:       "acbdf687a02126c08c69514d248804c3833408331272fe8fb3751eb7d8dc0502"
+    sha256 cellar: :any_skip_relocation, big_sur:        "acbdf687a02126c08c69514d248804c3833408331272fe8fb3751eb7d8dc0502"
+    sha256 cellar: :any_skip_relocation, catalina:       "acbdf687a02126c08c69514d248804c3833408331272fe8fb3751eb7d8dc0502"
+    sha256 cellar: :any_skip_relocation, mojave:         "acbdf687a02126c08c69514d248804c3833408331272fe8fb3751eb7d8dc0502"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01fcbe25d1551ec84a14e3a880d9565057065d5024491f870626e5d89921565d"
   end
 
   depends_on "autoconf" => :build

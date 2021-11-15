@@ -6,6 +6,7 @@ class CfTool < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "39975453217f3c04031a9ac02b0e94fe620e9d870be16adfc8c71ec02032b7bd"
     sha256 cellar: :any_skip_relocation, big_sur:      "cfa1c30932a9016c5f8ab0a5a266d5c3bdafc2910cb5259b2c2c7a86e83b3d98"
     sha256 cellar: :any_skip_relocation, catalina:     "3369b5efe4c26d786fa8a54d4ca208c11dc89850565adaf6a1c922f4f16d2a3f"
     sha256 cellar: :any_skip_relocation, mojave:       "4344edd7a9160d7113d135c574146f6ca5bedfded9e8633b02642276999e6dbe"

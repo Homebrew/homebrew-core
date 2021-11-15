@@ -6,11 +6,12 @@ class PhpCsFixerAT2 < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0b49f3abfa6c10016d78c005767ce52e886ec8ad6e5794265dbc6c5869a9096b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "26e90b07c06b079c668a74f773429d617a896d81fbaa3644ecd1ac43ce0dda64"
   end
 
   keg_only :versioned_formula
-  uses_from_macos "php", since: :el_capitan
+  depends_on "php"
 
   def install
     bin.install "php-cs-fixer.phar" => "php-cs-fixer"

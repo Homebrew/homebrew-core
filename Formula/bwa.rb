@@ -6,6 +6,7 @@ class Bwa < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "815da042557c670364ad899e1257f51c893979436beb1c016c8fdb6ad9ef734a"
     sha256 cellar: :any_skip_relocation, big_sur:      "d67267aeea4145fef5e65fe1c8d9f9b34121c0339badf703811027db2570967a"
     sha256 cellar: :any_skip_relocation, catalina:     "59b821b80f729fef923c3edb048478836c72d6aea34b245d1b292b2c3f893432"
     sha256 cellar: :any_skip_relocation, mojave:       "6b07cef5ea1955d8a83e7b59ef8458a7604998f735f0eab85889fa3aedc7e953"

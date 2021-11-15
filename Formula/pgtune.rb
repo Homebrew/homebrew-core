@@ -8,7 +8,12 @@ class Pgtune < Formula
   license "BSD-3-Clause"
 
   # 0.9.3 does not have settings for PostgreSQL 9.x, but the trunk does
-  head "https://github.com/gregs1104/pgtune.git"
+  head "https://github.com/gregs1104/pgtune.git", branch: "master"
+
+  livecheck do
+    url "https://ftp.postgresql.org/pub/projects/pgFoundry/pgtune/pgtune/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "99d46ab0880d22bb3a19faf759bde25d51dd0e4c5c1890d6bf0e253a9042e09f"

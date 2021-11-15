@@ -1,10 +1,9 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "https://www.aquamaniac.de/"
-  url "https://www.aquamaniac.de/rdm/attachments/download/364/gwenhywfar-5.6.0.tar.gz"
-  sha256 "57af46920991290372752164f9a7518b222f99bca2ef39c77deab57d14914bc7"
+  url "https://www.aquamaniac.de/rdm/attachments/download/390/gwenhywfar-5.7.3.tar.gz"
+  sha256 "a78bb028665f0d2b927372b0ddf741c0af18cb6f0707c55348ae08e522b28280"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/files"
@@ -12,10 +11,12 @@ class Gwenhywfar < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "cf4318174789a6da02beeb0ae8b2182bc17b14fea0de4ba4ec1d4e2574fefb7d"
-    sha256 big_sur:       "f172c3d2c81e2f75f851a34629baa9c90c389a42e22458dc3352a8368245ef9b"
-    sha256 catalina:      "a04f53d938325ee504611552f46fc606118b54ffcd3b1e8edb67f5f61d3b75fe"
-    sha256 mojave:        "4f83d9bc727e95b68c89a736cb95a7b5f5b0c4c75822cf6043b575d63420002c"
+    sha256 arm64_monterey: "5a2caaeaa2453e0cbd5505f4a4ae07dadc82f7664e458ca7f08cf02aeec5830b"
+    sha256 arm64_big_sur:  "5fd0ef9a87749cbd66eb40e4cd94e94f9c1db9129622ba6585cc64a1e03af6e2"
+    sha256 big_sur:        "42dbe67f468722dd8f1bcdd3b57de0db6d8d0e47485b929b8801b41097eb6e26"
+    sha256 catalina:       "f9069b905fefe6f0bb31c4ce65ecb71c805ecf84a96dbe20a98d56d3753bec1a"
+    sha256 mojave:         "ae9d95a1ac5bd4e8e0d85685541c43e8b634923d8fc9a94b8141818ff57d08d8"
+    sha256 x86_64_linux:   "e011be0e08310e882ce96c7f9555d9688aa312edeec809e1312f7570ac04ed60"
   end
 
   depends_on "autoconf" => :build
@@ -28,18 +29,21 @@ class Gwenhywfar < Formula
   depends_on "pkg-config" # gwenhywfar-config needs pkg-config for execution
   depends_on "qt@5"
 
-  patch do # fixes out-of-tree builds, can be removed with 5.6.1+ release. https://www.aquamaniac.de/rdm/issues/232
-    url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/repository/revisions/b953672c5f668c2ed3960607e6e25651a2cc98db/diff/m4/ax_have_qt.m4?format=diff"
-    sha256 "da7c1ddce2b8d1f19293d43b0db8449a4e45b79801101e866aa42f212f750ecd"
+  on_linux do
+    depends_on "gcc"
   end
+
+  fails_with gcc: "5"
 
   def install
     inreplace "gwenhywfar-config.in.in", "@PKG_CONFIG@", "pkg-config"
     system "autoreconf", "-fiv" # needed because of the patch. Otherwise only needed for head build (if build.head?)
+    guis = ["cpp", "qt5"]
+    guis << "cocoa" if OS.mac?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-guis=cocoa cpp qt5"
+                          "--with-guis=#{guis.join(" ")}"
     system "make", "install"
   end
 

@@ -13,6 +13,7 @@ class Imake < Formula
 
   bottle do
     sha256 arm64_big_sur: "5e76cebc3734d39273587f3d2d286b15bd1e869b03af84589987f9236062a1b3"
+    sha256 monterey:      "0ed72c99749bdad72126577b8a8b09bc48a36757a12ba52834953af3636cba32"
     sha256 big_sur:       "13f4455b0065bdd06ef93f2be612884dbe9c2196834c0a9ad7d6c67d350759de"
     sha256 catalina:      "3baa9a70823b7b57ba43df65e54baf7dbd99e6b1615d7b15e22ac8af8746794f"
     sha256 mojave:        "f71005738d8026816e0407da56a98f06ac96f1ab7dc5e28b155b6a4b39942f46"

@@ -13,6 +13,7 @@ class Asymptote < Formula
 
   bottle do
     sha256 arm64_big_sur: "51b5992d115848c87754a30dc0341c73119294eb80f882b2ccf363215b276715"
+    sha256 monterey:      "43fee389478b409929b52ae0bbf32ca37d3dbd6628f2b041aa9d9ce9527caf2d"
     sha256 big_sur:       "d6631cfaf7909cfd8a38c7e655411b69248d395531589f7562b66b36ad9ccedf"
     sha256 catalina:      "b906f3cbeda2861975792c6279df7c2e22738c8ae232bfb5e4cf4ec1a37c0725"
     sha256 mojave:        "c7d65e0093978726a703585d8155862b1b7e10ba47f531f907c106b65bead23c"

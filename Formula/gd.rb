@@ -1,16 +1,19 @@
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
-  url "https://github.com/libgd/libgd/releases/download/gd-2.3.2/libgd-2.3.2.tar.xz"
-  sha256 "478a047084e0d89b83616e4c2cf3c9438175fb0cc55d8c8967f06e0427f7d7fb"
+  url "https://github.com/libgd/libgd/releases/download/gd-2.3.3/libgd-2.3.3.tar.xz"
+  sha256 "3fe822ece20796060af63b7c60acb151e5844204d289da0ce08f8fdf131e5a61"
   license :cannot_represent
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c625bf1de35375334370901cfb5283b169253a2616e2cd7c5299a110fe07672e"
-    sha256 cellar: :any,                 big_sur:       "2c746f463d1b0ceaa2a9986b9ace87da6ec8b99b1a1362383d2375b067dc7010"
-    sha256 cellar: :any,                 catalina:      "aa93cd58d9694c86299445e73750e41b5740bc6ea5b247032ed3c71eca5cbce4"
-    sha256 cellar: :any,                 mojave:        "59e7dada9e961a52a5db6d14ad39985310bd6dfdbf4b9a4a321280d880b110bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9fb3455b4efc573420ba78f8d54a3413e9079438f27930fd342d15d0e16852e"
+    sha256 cellar: :any,                 arm64_monterey: "c4d367cecad55958b4117d012f8e358922248ac5f3894fdf0fffbefe2312814a"
+    sha256 cellar: :any,                 arm64_big_sur:  "6ce670e95834eda72a26d28f515f27becfe55b03ede20a3c4ee5f15fd9c0e687"
+    sha256 cellar: :any,                 monterey:       "8976ef6710a704e27557e1ad9c2b3aecf9b0b3dc266b212922a6ac2226d0074d"
+    sha256 cellar: :any,                 big_sur:        "35d040a24b8e6a05dee0703bef87a76d6c5d460a4168c749c484ecfc16d9904b"
+    sha256 cellar: :any,                 catalina:       "40ea66d7bca0bb527ba6ffff45b503ef6d6a3bb520d18e12efd15233e41da50d"
+    sha256 cellar: :any,                 mojave:         "33f5ac492e525bdfeb8f7602c1a56ed37e2f6f286e24734e406f568bc1be5d24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8052fd3f49e14af727cff5f2f2227a0f6a5b3e9f0b1c1418b68cc86edabe5b52"
   end
 
   head do
@@ -28,6 +31,12 @@ class Gd < Formula
   depends_on "libtiff"
   depends_on "webp"
 
+  # revert breaking changes in 2.3.3, remove in next release
+  patch do
+    url "https://github.com/libgd/libgd/commit/f4bc1f5c26925548662946ed7cfa473c190a104a.patch?full_index=1"
+    sha256 "1015f6e125f139a1e922ac4bc2a18abbc498b0142193fa692846bf0f344a3691"
+  end
+
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
@@ -40,7 +49,28 @@ class Gd < Formula
   end
 
   test do
-    system "#{bin}/pngtogd", test_fixtures("test.png"), "gd_test.gd"
-    system "#{bin}/gdtopng", "gd_test.gd", "gd_test.png"
+    (testpath/"test.c").write <<~EOS
+      #include "gd.h"
+      #include <stdio.h>
+
+      int main() {
+        gdImagePtr im;
+        FILE *pngout;
+        int black;
+        int white;
+
+        im = gdImageCreate(64, 64);
+        black = gdImageColorAllocate(im, 0, 0, 0);
+        white = gdImageColorAllocate(im, 255, 255, 255);
+        gdImageLine(im, 0, 0, 63, 63, white);
+        pngout = fopen("test.png", "wb");
+        gdImagePng(im, pngout);
+        fclose(pngout);
+        gdImageDestroy(im);
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lgd", "-o", "test"
+    system "./test"
+    assert_path_exists "#{testpath}/test.png"
   end
 end

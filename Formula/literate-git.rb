@@ -6,18 +6,20 @@ class LiterateGit < Formula
   url "https://github.com/bennorth/literate-git/archive/v0.3.1.tar.gz"
   sha256 "f1dec77584236a5ab2bcee9169e16b5d976e83cd53d279512136bdc90b04940a"
   license "GPL-3.0-or-later"
-  revision 6
+  revision 9
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "331f2b1125935469948fb649b8ac5a8063bcb63e4a7023aa8db3c6ef63a43b31"
-    sha256 cellar: :any,                 big_sur:       "7cf45d23a0f329ce3a0f4f6dbf714ba2ac6cacdebda0aadecb47cbab3c837296"
-    sha256 cellar: :any,                 catalina:      "3a9b77d11ab5cf7c11ca7c68e87facd315892aeb3b4f39eb2e620642bd0cbce4"
-    sha256 cellar: :any,                 mojave:        "ab1381ddd5dca2639be003b01a67d62a4fe76b1fbf3572859d7b5adaa1e44303"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c85d495f10a897361091e649540e85f6d6deb14213bbbe874e724750005fc0a"
+    sha256 cellar: :any,                 arm64_monterey: "70de9fa226a134261458d9444d3d7f437904b24081a9ed6aca3140eb9870c21a"
+    sha256 cellar: :any,                 arm64_big_sur:  "864bf8824b30cc890fd2ba1485c543b09407cba676b375ffe10de06636d1bf27"
+    sha256 cellar: :any,                 monterey:       "a96e4e1c9fd655b13bf7839f9ba9364a0309b42e13f42117c8d71df98a8a51ef"
+    sha256 cellar: :any,                 big_sur:        "35f3d2668258e32f9ac4a9de9c71a000e62c22f7efbd20b1c88f94cdccf56cce"
+    sha256 cellar: :any,                 catalina:       "43b13a04effc70753f1fa7fdc02fcee8ba8c0c849a4e361668bf11a6a29734be"
+    sha256 cellar: :any,                 mojave:         "fe23dd09f5d14c453b79c3db3d507d8b9b2c4896fb28602add1f3f45bff49960"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a0de736b319754e0b70c53a0230714c8fca626cca818d0b54e0739a7e49944a"
   end
 
   depends_on "libgit2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libffi"
 
@@ -61,8 +63,15 @@ class LiterateGit < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/3a/42/f69de8c7a1e33f365a91fa39093f4e7a64609c2bd127203536edc813cbf7/pygit2-1.4.0.tar.gz"
-    sha256 "cbeb38ab1df9b5d8896548a11e63aae8a064763ab5f1eabe4475e6b8a78ee1c8"
+    url "https://files.pythonhosted.org/packages/6b/23/a8c5b726a58282fe2cadcc63faaddd4be147c3c8e0bd38b233114adf98fd/pygit2-1.6.1.tar.gz"
+    sha256 "c3303776f774d3e0115c1c4f6e1fc35470d15f113a7ae9401a0b90acfa1661ac"
+
+    # libgit2 1.3 support
+    # https://github.com/libgit2/pygit2/pull/1089
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/54d3a0d1f241fdd4e9229312ced0d8da85d964b1/pygit2/libgit2-1.3.0.patch"
+      sha256 "4d501c09d6642d50d89a1a4d691980e3a4a2ebcb6de7b45d22cce16a451b9839"
+    end
   end
 
   resource "Pygments" do

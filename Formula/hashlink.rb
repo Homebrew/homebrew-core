@@ -8,6 +8,7 @@ class Hashlink < Formula
   head "https://github.com/HaxeFoundation/hashlink.git"
 
   bottle do
+    sha256 cellar: :any, monterey: "efbc13a485bb3240b0fb805077d76acd3b1faac6b8c5a99e8d4ffa6120bce116"
     sha256 cellar: :any, big_sur:  "df531803e2914cf915d341c0758455b690d4a290908a1984ea79ccad1ee022df"
     sha256 cellar: :any, catalina: "4d824ce36b6bb5182a547ca6fad038c6cad8d1919531bd38e84124afc08723a4"
     sha256 cellar: :any, mojave:   "132ee619fb6101826b179de5874e3c302c14d05c3947f4fcc248e7bfd740968b"

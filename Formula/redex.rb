@@ -3,7 +3,7 @@ class Redex < Formula
   homepage "https://fbredex.com"
   license "MIT"
   revision 6
-  head "https://github.com/facebook/redex.git"
+  head "https://github.com/facebook/redex.git", branch: "master"
 
   stable do
     url "https://github.com/facebook/redex/archive/v2017.10.31.tar.gz"

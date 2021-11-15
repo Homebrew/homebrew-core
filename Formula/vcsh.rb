@@ -1,19 +1,27 @@
 class Vcsh < Formula
   desc "Config manager based on git"
   homepage "https://github.com/RichiH/vcsh"
-  url "https://github.com/RichiH/vcsh/archive/refs/tags/v1.20190621-4.tar.gz"
-  version "1.20190621"
-  sha256 "178ddf6f7bba15bcc295a08247070665e5b799af64753e21c7fac68f72296ca8"
-  license "GPL-2.0"
+  url "https://github.com/RichiH/vcsh/releases/download/v2.0.4/vcsh-2.0.4.tar.xz"
+  sha256 "5bf425d89f474c340fbb47a5df8987573a9ef3928658b3e9876b07cae1333cf2"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d6adf58cb690fa63602d8056d347bf55dde6ebd090c6f82d1bbbbc78b137d93b"
+    sha256 cellar: :any_skip_relocation, all: "a10034412763e8523978a3223825e125f85958ec4546a7b311b8a7f748d74c1e"
   end
 
   def install
-    bin.install "vcsh"
-    man1.install "vcsh.1"
-    zsh_completion.install "_vcsh"
+    # Set GIT, SED, and GREP to prevent
+    # hardcoding shim references and absolute paths.
+    # We set this even where we have no shims because
+    # the hardcoded absolute path might not be portable.
+    system "./configure", "--with-zsh-completion-dir=#{zsh_completion}",
+                          "--with-bash-completion-dir=#{bash_completion}",
+                          "GIT=git", "SED=sed", "GREP=grep",
+                          *std_configure_args
+    system "make", "install"
+
+    # Make the shebang uniform across macOS and Linux
+    inreplace bin/"vcsh", %r{^#!/bin/(ba)?sh$}, "#!/usr/bin/env bash"
   end
 
   test do

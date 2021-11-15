@@ -6,13 +6,15 @@ class MsgpackTools < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "775db49a7259ddf909dd2a05a529e7e308cc2ac376ad116c1668bb659bd34a1c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "570a72e93de0677f94a586cb49e04ac1fe68655e451860d45a250702fc6e0383"
-    sha256 cellar: :any_skip_relocation, catalina:      "901f0f7dadb40b70b20de05a699e5cd9ca37095f3ce9bb277aff3e4421219290"
-    sha256 cellar: :any_skip_relocation, mojave:        "30f69cfbcfe93c148fec339d86775357cc804f50c58c42594708f7ae9abad226"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "9c12c496640b2913caa23147bdacffed803115e68607c56975bdab106b4b83b0"
-    sha256 cellar: :any_skip_relocation, sierra:        "c576acc7e6078360a79bf7270336e0f3dc9012161e860681cbfe7f2de1313857"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62b6b16502ad2f612e795d483643499defe5839db98bfb92668d89cae76355b8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4bf0c32cce899c521d54e6f26f7bd60c10ad64d4054df064ee42b4437ad9178"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "775db49a7259ddf909dd2a05a529e7e308cc2ac376ad116c1668bb659bd34a1c"
+    sha256 cellar: :any_skip_relocation, monterey:       "8d663e0e00679aba8e9bba953aeb99ca657cfd8206769447e6459c33433f6d05"
+    sha256 cellar: :any_skip_relocation, big_sur:        "570a72e93de0677f94a586cb49e04ac1fe68655e451860d45a250702fc6e0383"
+    sha256 cellar: :any_skip_relocation, catalina:       "901f0f7dadb40b70b20de05a699e5cd9ca37095f3ce9bb277aff3e4421219290"
+    sha256 cellar: :any_skip_relocation, mojave:         "30f69cfbcfe93c148fec339d86775357cc804f50c58c42594708f7ae9abad226"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "9c12c496640b2913caa23147bdacffed803115e68607c56975bdab106b4b83b0"
+    sha256 cellar: :any_skip_relocation, sierra:         "c576acc7e6078360a79bf7270336e0f3dc9012161e860681cbfe7f2de1313857"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62b6b16502ad2f612e795d483643499defe5839db98bfb92668d89cae76355b8"
   end
 
   depends_on "cmake" => :build

@@ -4,20 +4,21 @@ class Qcli < Formula
   url "https://github.com/bavc/qctools/archive/v1.2.tar.gz"
   sha256 "d648a5fb6076c6367e4eac320018ccbd1eddcb2160ce175b361b46fcf0d4a710"
   license "GPL-3.0-or-later"
-  revision 3
-  head "https://github.com/bavc/qctools.git"
+  revision 4
+  head "https://github.com/bavc/qctools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0d9f37d9080941a3cc46915af7b014e86ab38f863efd986dcec8b3fc4c4adf30"
-    sha256 cellar: :any, big_sur:       "e0ccef859a1e5c18e2c8ce01ce6bb1b58a83489ef20670909a5c4b07c284c4b6"
-    sha256 cellar: :any, catalina:      "6615b8e8fef95ec1ac8b2b60857071b172278281a2a404c3553e9f1571d03d8a"
-    sha256 cellar: :any, mojave:        "c918566c4dd012489eac5453d022a2ad0ab97c61d803c358f722234b7ea72d90"
+    sha256 cellar: :any, arm64_monterey: "3f6dc6987458155d26492c4841d6682e7b616e6191887f87fac898b4dbc9aa67"
+    sha256 cellar: :any, arm64_big_sur:  "7b0da0fb3e98787780cb87e3ca2694ff93cec2a5bb40bf4310669128551a0921"
+    sha256 cellar: :any, big_sur:        "b1906aa6b03deb8b76f3a7dc89826775fbb53d510885fe99393a54eb941ab3a1"
+    sha256 cellar: :any, catalina:       "c600159fad5da4745bd0c04aac536d29d3746ff7398a36b6d276f18c5169d426"
+    sha256 cellar: :any, mojave:         "daefc70e69347f50d0392efa2777ca7db0e3c458aa188ab92c0a770b2ef1f8fe"
   end
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "qt@5"
-  depends_on "qwt"
+  depends_on "qwt-qt5"
 
   def install
     qt5 = Formula["qt@5"].opt_prefix

@@ -1,16 +1,18 @@
 class Kalker < Formula
   desc "Full-featured calculator with math syntax"
   homepage "https://kalker.strct.net"
-  url "https://github.com/PaddiM8/kalker/archive/v1.0.0.tar.gz"
-  sha256 "3dad381c20fb0ee8c03f0e3e888c4a937123df3cb948f488c057eccd9b352419"
+  url "https://github.com/PaddiM8/kalker/archive/v1.0.1-2.tar.gz"
+  sha256 "9f257f2c375a18a8ed988c2047876f5d5dd31adb85b70956fc3c7081d53c9b14"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "79ad383108f3c073108c0a0defeba5375e2d59746d5db274fa97db60f587a824"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3c8b07d6feabc9d8d4a813b11999de0bda08e5470140479d0b29eb4506777787"
-    sha256 cellar: :any_skip_relocation, catalina:      "6046b0d6fe943a55fcf34e0ee1aaccb93242df68a463d384656ba39297517e77"
-    sha256 cellar: :any_skip_relocation, mojave:        "0009cbb40dac094063773bdef5f0fedba5b7f633629d1a9b76b5023b6b3eed92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f28ab7f6be9b53c2794c38bb800ca1ac692b71a504f17c56ec87a4bda46a640"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "59aa161615f93b2ed5da42d6587c4fa8844cf734d3c62107dfbea4f0cd76472f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e0b74f005a22c3f9dc700d31e34454de9e212f0c3cf712475e220286ae237422"
+    sha256 cellar: :any_skip_relocation, monterey:       "4167e0a6cb7e5d6206ace971aa4b2b11d24f998ef79b52346077730571467a36"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c4cfe4d277d2566381117a943fb0f8779d118c1e229db37e1f87bf7172a008c9"
+    sha256 cellar: :any_skip_relocation, catalina:       "d756dbc116f55c88490ea1d5424100ba4beca6248d1614e344f46cc87f8c7a90"
+    sha256 cellar: :any_skip_relocation, mojave:         "c391af7964351d031a1fc7f0084a2cded41f1e371c4a0caf1d73c7213b02506c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9707ac9ed288a24c89702ffac6a04dc2eb8b532371830aa8f88ab7b8c9c09626"
   end
 
   depends_on "rust" => :build

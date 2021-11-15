@@ -22,10 +22,9 @@ class Iozone < Formula
 
   def install
     cd "src/current" do
-      on_macos do
+      if OS.mac?
         system "make", "macosx", "CC=#{ENV.cc}"
-      end
-      on_linux do
+      else
         system "make", "linux", "CC=#{ENV.cc}"
       end
       bin.install "iozone"

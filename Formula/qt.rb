@@ -1,8 +1,8 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.1/6.1.2/single/qt-everywhere-src-6.1.2.tar.xz"
-  sha256 "4b40f10eb188506656f13dbf067b714145047f41d7bf83f03b727fa1c7c4cdcb"
+  url "https://download.qt.io/official_releases/qt/6.2/6.2.1/single/qt-everywhere-src-6.2.1.tar.xz"
+  sha256 "e03fffc5c3b5fea09dcc161444df7dfbbe24e8a8ce9377014ec21b66f48d43cd"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
@@ -14,16 +14,19 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "edc0c35866cff4ab9a8b73c9babfd5fc7fe264a57e825e82437c04323a37bd62"
-    sha256 cellar: :any, big_sur:       "34272d69b54b7edc6141d58cfc40a9504c6870a2d1b7be1681d4e620dfe29cf9"
-    sha256 cellar: :any, catalina:      "2389536d2e27288a46c8b8fc54169bd8b74fc3dd3382cee7443a37e17ba3f970"
-    sha256 cellar: :any, mojave:        "bd093238a6a8e2024751fa17e5a8cfb4b5aaef553dbe2b3336653a5eb09aab19"
+    sha256 cellar: :any,                 arm64_monterey: "5ad884d3bedbf5542c52a80bf152f54745ffe380031f14434a8182bc74cbdb28"
+    sha256 cellar: :any,                 arm64_big_sur:  "364565426ee2c9705605b0399b380c294e9fa9950ec53532fe7f9f10842c7c17"
+    sha256 cellar: :any,                 monterey:       "395e2d015c222231f7b98a9dba9f807b0bae45136018ba06a6b1198e857a8e9c"
+    sha256 cellar: :any,                 big_sur:        "9fab2511823cbd1c1b725055a62de9b330ae8cbd6df705195dbbeadb242de6a8"
+    sha256 cellar: :any,                 catalina:       "948e7e7b155f2f3f876d9b879deee284d7a080d6016cb87e54c905b0cd0ec6a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62a0afcb76f2b19351886a01515a97a300451372e37ad452e0dea230423f68f0"
   end
 
   depends_on "cmake"      => [:build, :test]
   depends_on "ninja"      => :build
+  depends_on "node"       => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: [:build, :test] if MacOS.version <= :mojave
+  depends_on xcode: :build
 
   depends_on "assimp"
   depends_on "brotli"
@@ -31,44 +34,99 @@ class Qt < Formula
   depends_on "double-conversion"
   depends_on "freetype"
   depends_on "glib"
+  depends_on "hunspell"
   depends_on "icu4c"
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libb2"
   depends_on "libpng"
-  depends_on "libproxy"
   depends_on "libtiff"
+  depends_on "md4c"
   depends_on "pcre2"
   depends_on "python@3.9"
   depends_on "sqlite"
   depends_on "webp"
   depends_on "zstd"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex"  => :build
+  uses_from_macos "gperf" => :build
+  uses_from_macos "perl"  => :build
+
   uses_from_macos "cups"
   uses_from_macos "krb5"
-  uses_from_macos "perl"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "at-spi2-core"
+    # TODO: depends_on "bluez"
+    # TODO: depends_on "ffmpeg"
+    depends_on "fontconfig"
+    depends_on "gcc"
+    depends_on "gperf"
+    depends_on "gstreamer"
+    # TODO: depends_on "gypsy"
+    depends_on "harfbuzz"
+    # TODO: depends_on "libevent"
+    depends_on "libxkbcommon"
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libxcomposite"
+    depends_on "libdrm"
+    # TODO: depends_on "libvpx"
+    # TODO: depends_on "little-cms2"
+    depends_on "mesa"
+    # TODO: depends_on "minizip"
+    # TODO: depends_on "opus"
+    depends_on "pulseaudio"
+    # TODO: depends_on "re2"
+    depends_on "sdl2"
+    # TODO: depends_on "snappy"
+    depends_on "systemd"
+    depends_on "xcb-util"
+    depends_on "xcb-util-image"
+    depends_on "xcb-util-keysyms"
+    depends_on "xcb-util-renderutil"
+    depends_on "xcb-util-wm"
+    depends_on "wayland"
+  end
+
+  fails_with gcc: "5"
+
+  # Fix build with Xcode 13+ and a performance regression. Already merged and should be removed in next release.
+  patch :DATA
+
   def install
+    # FIXME: GN requires clang in clangBasePath/bin
+    inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/BUILD.gn",
+        'rebase_path("$clang_base_path/bin/", root_build_dir)', '""'
     # FIXME: See https://bugreports.qt.io/browse/QTBUG-89559
     # and https://codereview.qt-project.org/c/qt/qtbase/+/327393
     # It is not friendly to Homebrew or macOS
     # because on macOS `/tmp` -> `/private/tmp`
-    inreplace "qtbase/CMakeLists.txt", "FATAL_ERROR", ""
+    inreplace "qtwebengine/src/3rdparty/gn/src/base/files/file_util_posix.cc",
+              "FilePath(full_path)", "FilePath(input)"
+    %w[
+      qtbase/CMakeLists.txt
+      qtwebengine/cmake/Gn.cmake
+      qtwebengine/cmake/Functions.cmake
+      qtwebengine/src/core/api/CMakeLists.txt
+      qtwebengine/src/CMakeLists.txt
+      qtwebengine/src/gn/CMakeLists.txt
+      qtwebengine/src/process/CMakeLists.txt
+    ].each { |s| inreplace s, "REALPATH", "ABSOLUTE" }
 
     config_args = %W[
       -release
 
       -prefix #{HOMEBREW_PREFIX}
       -extprefix #{prefix}
-      -sysroot #{MacOS.sdk_path}
 
       -archdatadir share/qt
       -datadir share/qt
       -examplesdir share/qt/examples
       -testsdir share/qt/tests
 
-      -libproxy
       -no-feature-relocatable
       -system-sqlite
 
@@ -77,19 +135,29 @@ class Qt < Formula
       -no-sql-psql
     ]
 
-    # TODO: remove `-DFEATURE_qt3d_system_assimp=ON`
-    # and `-DTEST_assimp=ON` when Qt 6.2 is released.
-    # See https://bugreports.qt.io/browse/QTBUG-91537
-    cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"]||s["CMAKE_FIND_FRAMEWORK"] } + %W[
+    config_args << "-sysroot" << MacOS.sdk_path.to_s if OS.mac?
+    # TODO: Enable qtwebengine on Linux when qt's chromium >= 93
+    # NOTE: `chromium` should be built with the latest SDK because it uses
+    # `___builtin_available` to ensure compatibility.
+    config_args << "-skip" << "qtwebengine" if OS.linux? || (DevelopmentTools.clang_build_version <= 1200)
+
+    cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
-      -DCMAKE_FIND_FRAMEWORK=FIRST
 
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
 
       -DFEATURE_pkg_config=ON
-      -DFEATURE_qt3d_system_assimp=ON
-      -DTEST_assimp=ON
     ]
+
+    if OS.linux?
+      # Explicitly specify QT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX so
+      # that cmake does not think $HOMEBREW_PREFIX/lib is the install prefix.
+      cmake_args << "-DQT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX=#{prefix}"
+
+      # Change default mkspec for qmake on Linux to use brewed GCC
+      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}gcc", ENV.cc
+      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}g++", ENV.cxx
+    end
 
     system "./configure", *config_args, "--", *cmake_args
     system "cmake", "--build", "."
@@ -97,22 +165,25 @@ class Qt < Formula
 
     rm bin/"qt-cmake-private-install.cmake"
 
-    # Some config scripts will only find Qt in a "Frameworks" folder
-    frameworks.install_symlink Dir["#{lib}/*.framework"]
-
-    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", HOMEBREW_SHIMS_PATH/"mac/super", "/usr/bin"
+    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", Superenv.shims_path, ""
 
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
     # the Frameworks' Headers folders.
-    Pathname.glob("#{lib}/*.framework/Headers") do |path|
-      include.install_symlink path => path.parent.basename(".framework")
+    # Tracking issues:
+    # https://bugreports.qt.io/browse/QTBUG-86080
+    # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/6363
+    lib.glob("*.framework") do |f|
+      # Some config scripts will only find Qt in a "Frameworks" folder
+      frameworks.install_symlink f
+      include.install_symlink f/"Headers" => f.stem
     end
 
-    mkdir libexec
-    Pathname.glob("#{bin}/*.app") do |app|
-      mv app, libexec
-      bin.write_exec_script "#{libexec/app.stem}.app/Contents/MacOS/#{app.stem}"
+    if OS.mac?
+      bin.glob("*.app") do |app|
+        libexec.install app
+        bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
+      end
     end
   end
 
@@ -174,7 +245,10 @@ class Qt < Formula
         delete root; root = nullptr;
         Q_ASSERT(QSqlDatabase::isDriverAvailable("QSQLITE"));
         const auto &list = QImageReader::supportedImageFormats();
-        for(const char* fmt:{"bmp", "cur", "gif", "heic", "heif",
+        for(const char* fmt:{"bmp", "cur", "gif",
+          #ifdef __APPLE__
+            "heic", "heif",
+          #endif
           "icns", "ico", "jp2", "jpeg", "jpg", "pbm", "pgm", "png",
           "ppm", "svg", "svgz", "tga", "tif", "tiff", "wbmp", "webp",
           "xbm", "xpm"}) {
@@ -194,3 +268,44 @@ class Qt < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h b/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
+index 5d4b6d6a71..cc7193d8b7 100644
+--- a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
++++ b/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
+@@ -43,6 +43,7 @@
+ #include <qpa/qplatformgraphicsbuffer.h>
+ #include <private/qcore_mac_p.h>
+ 
++#include <CoreGraphics/CGColorSpace.h>
+ #include <IOSurface/IOSurface.h>
+ 
+ QT_BEGIN_NAMESPACE
+
+---
+ qtbase/src/widgets/widgets/qscrollarea.cpp | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/qtbase/src/widgets/widgets/qscrollarea.cpp b/src/widgets/widgets/qscrollarea.cpp
+index f880240ea72..e8fdadb6483 100644
+--- a/qtbase/src/widgets/widgets/qscrollarea.cpp
++++ b/qtbase/src/qtbase/widgets/widgets/qscrollarea.cpp
+@@ -203,10 +203,13 @@ void QScrollAreaPrivate::updateScrollBars()
+             if (vbarpolicy == Qt::ScrollBarAsNeeded) {
+                 int vbarWidth = vbar->sizeHint().width();
+                 QSize m_hfw = m.expandedTo(min).boundedTo(max);
+-                while (h > m.height() && vbarWidth) {
+-                    --vbarWidth;
+-                    --m_hfw.rwidth();
+-                    h = widget->heightForWidth(m_hfw.width());
++                // is there any point in searching?
++                if (widget->heightForWidth(m_hfw.width() - vbarWidth) <= m.height()) {
++                    while (h > m.height() && vbarWidth) {
++                        --vbarWidth;
++                        --m_hfw.rwidth();
++                        h = widget->heightForWidth(m_hfw.width());
++                    }
+                 }
+                 max = QSize(m_hfw.width(), qMax(m_hfw.height(), h));
+             }

@@ -4,7 +4,7 @@ class ClozureCl < Formula
   url "https://github.com/Clozure/ccl/archive/v1.12.1.tar.gz"
   sha256 "bd005fdb24cee2f7b20077cbca5e9174c10a82d98013df5cc3eabc7f31ccd933"
   license "Apache-2.0"
-  head "https://github.com/Clozure/ccl.git"
+  head "https://github.com/Clozure/ccl.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,6 +12,7 @@ class ClozureCl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "f9ab070f78708521c466672aa08f327fa428694b46620a858acf546e7a68df99"
     sha256 cellar: :any_skip_relocation, big_sur:      "2e8a3a3d80b28ab52584b2b6314f4739e7b2747d4efb1fead8b66e18045826c8"
     sha256 cellar: :any_skip_relocation, catalina:     "1a61c4c36d12ea0707ddffb61456a65a7b585e009f900daafa9745b292384fd5"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "9d7ccfcd028e68959e5d105ef9f942febdd44ba2f47f18c93b259cae0a8c8806"
@@ -40,15 +41,13 @@ class ClozureCl < Formula
     tmpdir = Pathname.new(Dir.mktmpdir)
     tmpdir.install resource("bootstrap")
 
-    on_macos do
+    if OS.mac?
       buildpath.install tmpdir/"dx86cl64.image"
       buildpath.install tmpdir/"darwin-x86-headers64"
       cd "lisp-kernel/darwinx8664" do
         system "make"
       end
-    end
-
-    on_linux do
+    else
       buildpath.install tmpdir/"lx86cl64"
       buildpath.install tmpdir/"lx86cl64.image"
       buildpath.install tmpdir/"x86-headers64"
@@ -56,16 +55,14 @@ class ClozureCl < Formula
 
     ENV["CCL_DEFAULT_DIRECTORY"] = buildpath
 
-    on_macos do
+    if OS.mac?
       system "./dx86cl64", "-n", "-l", "lib/x8664env.lisp",
             "-e", "(ccl:xload-level-0)",
             "-e", "(ccl:compile-ccl)",
             "-e", "(quit)"
       (buildpath/"image").write('(ccl:save-application "dx86cl64.image")\n(quit)\n')
       system "cat image | ./dx86cl64 -n --image-name x86-boot64.image"
-    end
-
-    on_linux do
+    else
       system "./lx86cl64", "-n", "-l", "lib/x8664env.lisp",
             "-e", "(ccl:rebuild-ccl :full t)",
             "-e", "(quit)"

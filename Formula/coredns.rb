@@ -1,10 +1,10 @@
 class Coredns < Formula
   desc "DNS server that chains plugins"
   homepage "https://coredns.io/"
-  url "https://github.com/coredns/coredns/archive/v1.8.4.tar.gz"
-  sha256 "d85c8c52f4d38ab1915eb60523b4e5241ffa19d20e4f7bbce8b0f4fb59171f2a"
+  url "https://github.com/coredns/coredns/archive/v1.8.6.tar.gz"
+  sha256 "cbe3764afe2148b8047ea7e5cbba5108c298dee3a9a0391028e2980e35beaa2b"
   license "Apache-2.0"
-  head "https://github.com/coredns/coredns.git"
+  head "https://github.com/coredns/coredns.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,11 +12,13 @@ class Coredns < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a29dc1888819650025fd19c1faf2c99b15eb4838e7bc50690f684a686121b3f2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "dd22bbdc9ca2dca3885d64db3ec204f1d2a5e3f72a5ebb17da28935d0574aca2"
-    sha256 cellar: :any_skip_relocation, catalina:      "55ae437286e90671271c534c04511dc70f345038084639074504d94782308015"
-    sha256 cellar: :any_skip_relocation, mojave:        "3f8cb527b416b4221ab2a332d0515566c15179c10ef8dbcc4eb7a0f47aea7025"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c61f2d67c25fac49389ee1e418860b137228df81ae427da898d813cd9d22f1a9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6359b1457568a7975a07b7c894197362847c34d8ec6efcdf2e72f77b3b71049f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f9696e41f85e4be4a6f0ee5de98b5d4806cdce64df2218edab13dfaf6f1a1d1d"
+    sha256 cellar: :any_skip_relocation, monterey:       "1d74050fee6a7eaf5cc8269a6015c03b09a52cda384d4f1704ae6ea8f543f36f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1c0da46e2f2b03f87c132bac4010dcd680ecae94350a28a071bfef996d86d772"
+    sha256 cellar: :any_skip_relocation, catalina:       "2baa47d5beedf925d7595174c93491fe87717b891e922c923d9a2e70c1ce2107"
+    sha256 cellar: :any_skip_relocation, mojave:         "f11cd09d935549bfe50c61520ae674ff4e5e559b065f11fc731ede96d0952213"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80dd55c92d3ccf387e0dde84abd9f11cdf7954926201591b170316ea3bfc35f7"
   end
 
   depends_on "go" => :build

@@ -6,6 +6,7 @@ class Nu < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any, monterey:    "bceb7b3b986c2b6861645b7044dae295ee1d0cdeefe1af8990accff06bbac370"
     sha256 cellar: :any, big_sur:     "f99e9ccd7919c4e2058299e3c545c26ac2fca23a241550fd306afcee6c790d98"
     sha256 cellar: :any, catalina:    "d785730e9226dbfe78513a268657bfa50bacd5427b8779f838d00f1c312cc2a8"
     sha256 cellar: :any, mojave:      "a3e605c8fca139258b5b5d49f85ac4d57a781017ae0deac8096a74d491219121"

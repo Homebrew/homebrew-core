@@ -2,6 +2,8 @@
   "apr",
   "apr-util",
   "libressl",
+  "llvm",
   "openblas",
-  "openssl@1.1"
+  "openssl@1.1",
+  "openssl@3"
 ]

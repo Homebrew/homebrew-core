@@ -7,13 +7,13 @@ class Mpdas < Formula
   head "https://github.com/hrkfdn/mpdas.git"
 
   bottle do
-    sha256 arm64_big_sur: "88b82424c0013b5c0261fe9f08aea489466a33b59321878f19b924325e25bdf9"
-    sha256 big_sur:       "91ac2d2c0a96b2a91becbf3f6d3f34f01031ed507efce5e5a6eca0d3cdabc41c"
-    sha256 catalina:      "db93645db3fef2737193f310b8261a435ad79c426e186c6127017b37cc81ef66"
-    sha256 mojave:        "448514d6ac177e771f61bcd178550e317560cf3d5d73bfd240c3278d8d3f5193"
-    sha256 high_sierra:   "ae319b22981a8cc5ed9a0e0212f2ecdbd7660bcd32182334865a01ac69c2832f"
-    sha256 sierra:        "06fe51aaa95bfd3000f1f9e562709d266ecbf1880d2b96779ff0c9b9d82dea20"
-    sha256 el_capitan:    "c9261f50d1d71969474203f6431d7902198c3524d828ed6f690733094444a914"
+    rebuild 1
+    sha256 arm64_monterey: "89b5e45abcb88c8df236dea703162ed9d7f372c0872c3af23630c56e18e31c8e"
+    sha256 arm64_big_sur:  "a7fd32d05844b78fb8eede1ff4a1285e531250919e296166f0eb74d6a9f0cd39"
+    sha256 monterey:       "25dd98ffb770fa018112f3014ae2574ab346b2d54d542b4feab516f264f30ced"
+    sha256 big_sur:        "1f41b8a297270de980e814104f1a74d9437777caa9443686fb251cac6625494b"
+    sha256 catalina:       "ae3eaddea864370fbcb2ad3f815165ba4f79f57470cbf0b3d81c781f0aaccc37"
+    sha256 mojave:         "4b6a70ab4c6599598c88dc0da91b3646a5d36bc7db9c174ed1cad387861f4370"
   end
 
   depends_on "pkg-config" => :build
@@ -24,29 +24,10 @@ class Mpdas < Formula
     etc.install "mpdasrc.example"
   end
 
-  plist_options manual: "mpdas"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/mpdas</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"mpdas"
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

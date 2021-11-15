@@ -3,34 +3,35 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/d1/0c/351dd4ec8352b0496aad7a282b9276572943a08b1ce28a71295438ebe789/gallery_dl-1.18.3.tar.gz"
-  sha256 "6e058dd25a8a54ead41479579fd73de71472abb980a6254765c5e538b591d162"
+  url "https://files.pythonhosted.org/packages/bd/15/2da44a9d797c6394af00a5d06b5007e45c01057ee23a3159d417fa82d853/gallery_dl-1.19.2.tar.gz"
+  sha256 "7fec9ac69582dbd9922666e6ece3142ae52dc9679a2c4a613f6ee94ad09e5f68"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "414afca1f8e0310c2222a5c3c5c8ff1f004c792ef567dafa03ccd190a269f739"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f24904f18e7685f3694cbf1b7b7a5812656c727df67188029bf58efd17a4ecad"
-    sha256 cellar: :any_skip_relocation, catalina:      "f24904f18e7685f3694cbf1b7b7a5812656c727df67188029bf58efd17a4ecad"
-    sha256 cellar: :any_skip_relocation, mojave:        "f24904f18e7685f3694cbf1b7b7a5812656c727df67188029bf58efd17a4ecad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13952619373e6051e466f44ec5fbf911c1e7d0316bdeaf67a7c5b5abf325f8d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "40e40f33d68e11a37ed91bf67141fe93872a98898285352edcaf1e1f654184be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "40e40f33d68e11a37ed91bf67141fe93872a98898285352edcaf1e1f654184be"
+    sha256 cellar: :any_skip_relocation, monterey:       "04fe21823a7b19cb61bd999ae9bdbf50d1b37d6079063c560f483e9c3cdc4cca"
+    sha256 cellar: :any_skip_relocation, big_sur:        "04fe21823a7b19cb61bd999ae9bdbf50d1b37d6079063c560f483e9c3cdc4cca"
+    sha256 cellar: :any_skip_relocation, catalina:       "04fe21823a7b19cb61bd999ae9bdbf50d1b37d6079063c560f483e9c3cdc4cca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea344e039c2b476687fd008107a629b039ac1fdcb67c9656c7245ed003a6cb4f"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
-    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
-    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "requests" do
@@ -39,8 +40,8 @@ class GalleryDl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
-    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
+    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
+    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
   end
 
   def install

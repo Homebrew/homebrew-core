@@ -1,16 +1,17 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/1.8.0.tar.gz"
-  sha256 "554291188f24ab595cb947f9d2b6ec40ce5afe39d9257c1e2cd0bdef8bf7fd1d"
+  url "https://github.com/Yubico/libfido2/archive/1.9.0.tar.gz"
+  sha256 "ba39e3af3736d2dfc8ad3d1cb6e3be7eccc09588610a3b07c865d0ed3e58c2d2"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "dc337533af36a3756e758f13590a09a62b9dbe92740f14129af70fc0f48f1f20"
-    sha256 cellar: :any,                 big_sur:       "c128be0d0ff853f9db7c921c1b1272a11671525aa6b2d34b11a8d8ea26989d7d"
-    sha256 cellar: :any,                 catalina:      "13c88e8935bae584abcc70e817328009689689e1e057b6f0e0df99f88481b702"
-    sha256 cellar: :any,                 mojave:        "faa172bd93fb5976aa8044ec0a4b1ce07832d4681b70309529bdc5207e7b7392"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4ee18fc6862c83e0662060a240acad3ae0b7a10c139df78da277d342280d4d5"
+    sha256 cellar: :any,                 arm64_monterey: "1ede89b34992d0ff274d65a2633da95fc9f4bf2917cbb3c435c3e0ed3c12543c"
+    sha256 cellar: :any,                 arm64_big_sur:  "9448d1aad08edf28f75506c4ff24af2ec937962d1d4913f0dfbcc047b237e77e"
+    sha256 cellar: :any,                 monterey:       "96c8717f1fdca399574e5f25b37959062d075e52704a06488c3fcc909dc1baa1"
+    sha256 cellar: :any,                 big_sur:        "bacd5286364629a6f0cab6553453f1e72c1fa9d32a8a027df8bb28a5c1391c18"
+    sha256 cellar: :any,                 catalina:       "7fefec0412b5fd47cc02e263c02a4dc4d9abbde27063be6313326f819eebdc62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d25ba1a2dbabf471ebe079236c2d1a24f3e9cec147e9c0669f3517cbabc639b1"
   end
 
   depends_on "cmake" => :build
@@ -26,9 +27,7 @@ class Libfido2 < Formula
   def install
     args = std_cmake_args
 
-    on_linux do
-      args << "-DUDEV_RULES_DIR=#{lib}/udev/rules.d"
-    end
+    args << "-DUDEV_RULES_DIR=#{lib}/udev/rules.d" if OS.linux?
 
     mkdir "build" do
       system "cmake", "..", *args

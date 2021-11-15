@@ -1,25 +1,24 @@
 class Yosys < Formula
   desc "Framework for Verilog RTL synthesis"
   homepage "http://www.clifford.at/yosys/"
-  url "https://github.com/YosysHQ/yosys/archive/yosys-0.9.tar.gz"
-  sha256 "f2e31371f9cf1b36cb4f57b23fd6eb849adc7d935dcf49f3c905aa5136382c2f"
+  url "https://github.com/YosysHQ/yosys/archive/yosys-0.11.tar.gz"
+  sha256 "56b98991b7833b5593d18c81fe02e922a3324bf581b7210ac7e7ca3fdcd9193e"
   license "ISC"
-  revision 3
-  head "https://github.com/YosysHQ/yosys.git"
+  head "https://github.com/YosysHQ/yosys.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "e2df722fe6fd54e15f7683bc49ec6f77895fd97687d38743507deb88c091c982"
-    sha256 big_sur:       "6ecd94923b663972312bf1c6e50ddfef817ffb7257118e6d1f0bd6836d3057a5"
-    sha256 catalina:      "30136c3fe55e45d36aa1587a48bc69030930563b2fb0f386ce122d79a4dbba87"
-    sha256 mojave:        "6298e8bfeff2fa1f4de993642b43afeacb6c98a3f262c256d495339ee141dff4"
-    sha256 high_sierra:   "a8807693a57f363e1a2d95034feffa3ab14c3645910f154d128990ae0484439e"
-    sha256 x86_64_linux:  "2e439a8632b343ede0a5cbd4adb2b545f1bd0ca96090129304fb2958e5ebe384"
+    sha256 arm64_monterey: "bfc50cfc59cb10e87ed22a64c81f22146d6ab5dbf4da6077d7bbd3b33df4296c"
+    sha256 arm64_big_sur:  "ef246ea3508f9cef89df7f73150bd3594b16c069bf8e0e6caf01ea6c8766d9af"
+    sha256 monterey:       "e53a242cf85bd8947d5fc34e3c1a5e56438271a056871ae5b96d8ad4980af406"
+    sha256 big_sur:        "6267c1a40a1ee92c4be72637e9164dcd8aa8ce1994d91030c934adc8ed23deb6"
+    sha256 catalina:       "38f730623e17290bbdcacd4d5ff0e53a6579c3d5200c23a807a17efec9caf829"
+    sha256 x86_64_linux:   "e3041800f9385f90248245838d00226e1494b9bc54c175440fcdb5a96e0b3b7c"
   end
 
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libffi"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "readline"
 
   uses_from_macos "flex"

@@ -4,7 +4,7 @@ class Bsdconv < Formula
   url "https://github.com/buganini/bsdconv/archive/11.6.tar.gz"
   sha256 "e856e24474deb3731ac059a96af0078ba951895f2cb3b31f125148a29cc32b70"
   license "BSD-2-Clause"
-  head "https://github.com/buganini/bsdconv.git"
+  head "https://github.com/buganini/bsdconv.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "92a2e9b7e7389c00556c577f05e2e7d6ff39919d62153fb07dd98df8ba6347ab"

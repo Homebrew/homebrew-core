@@ -1,11 +1,10 @@
 class Picat < Formula
   desc "Simple, and yet powerful, logic-based multi-paradigm programming language"
   homepage "http://picat-lang.org/"
-  url "http://picat-lang.org/download/picat31_src.tar.gz"
-  version "3.1"
-  sha256 "c1ae1491d56e643693aa806c08c221d2cf0d59de1ddd8c31bcff1c917c979542"
+  url "http://picat-lang.org/download/picat312_src.tar.gz"
+  version "3.1#2"
+  sha256 "eb13be811d9470420d8d9e488f1f4a7771a934e3b27120aa6529648d5a070d9e"
   license "MPL-2.0"
-  revision 1
 
   livecheck do
     url "http://picat-lang.org/download.html"
@@ -13,17 +12,19 @@ class Picat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "7e44278692b3be42b8e016595ea1c50e5a8cbd2d62cd729f98179bdf1a602d25"
-    sha256 cellar: :any_skip_relocation, catalina:     "1aac88c44c248917b484c85e8d0cebbd015fc95133948b40d728d6e96d6a7cc2"
-    sha256 cellar: :any_skip_relocation, mojave:       "42eda2841fcdf3d5b6b1e7db6c15818cb6548d567779a88cb58e9e9286291689"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d5567ae2a20c22c4f1d329181d189c1bdbe16d03bc9110c83b20eaf0e8f76e8d"
+    sha256 cellar: :any_skip_relocation, monterey:     "9a6567ded5a5cdacb7f454715beeca4cae6590b11c28cfe172388751567807c4"
+    sha256 cellar: :any_skip_relocation, big_sur:      "aaf2ef1f21a19c8bf60b5ed7b52b91f12693babdaaec8edb458b888e6f748838"
+    sha256 cellar: :any_skip_relocation, catalina:     "40e9b771743f9799af5c2abc091a3099faeb0a14be8136d5aa3fea1624c67d83"
+    sha256 cellar: :any_skip_relocation, mojave:       "248ac7a621f9b9f860170dd1bf57aafd6f785e35140d58c2a563fbd4e6604a42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7b15831545abe443fa02911fe09ea411bce3b2be30cb22f1da47a6434667e8d3"
   end
 
   def install
-    makefile = "Makefile.mac64"
-    on_linux do
+    makefile = if OS.mac?
+      "Makefile.mac64"
+    else
       ENV.cxx11
-      makefile = "Makefile.linux64"
+      "Makefile.linux64"
     end
     system "make", "-C", "emu", "-f", makefile
     bin.install "emu/picat" => "picat"

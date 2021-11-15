@@ -9,6 +9,7 @@ class Polynote < Formula
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e72f0581a9839ae6cbb0cba192c32e5a9969c18c76447e338181f9f50a083638"
+    sha256 cellar: :any, monterey:      "433036a8d84e96224815fdeac331aedeaf17e064a2eb0611e2960535fc2f609d"
     sha256 cellar: :any, big_sur:       "50e6449ee44ad049baaa2015a620e91c759a5d3329cdbd48347233fe3545fc30"
     sha256 cellar: :any, catalina:      "2a9c17df458e4225a381530b01ca8903fa317424604d8156e22877914d00a2de"
     sha256 cellar: :any, mojave:        "1e9021f5c8c3d0071f1775f1c82abf0240060aa2febae948db2ba6993e42f84d"

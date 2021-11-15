@@ -11,11 +11,13 @@ class Pngcheck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a009523aaa8a5c8eb879fda99829ce1007b682b2caa2413af78112aa94ee741c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8a025005cde9e8423606279cea498d921810f2334fe17a7bf23a1eba6ee54aef"
-    sha256 cellar: :any_skip_relocation, catalina:      "a4256bacc1a8025fa298b35d93af3ecf213449ab9118106530cdd29455293ead"
-    sha256 cellar: :any_skip_relocation, mojave:        "6423830817d3166ce48ea9cb88f3a83f1f7e381d8a1039c4db153e465450d5c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bee1eb579044cbdf33c6e4f045a800debb49b2f9ca4d3517d718956872a58a97"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "25f8462c7bd187f4fca2429f6844652ba6f1cc18143028fdf3fdb2ca98afd8aa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a009523aaa8a5c8eb879fda99829ce1007b682b2caa2413af78112aa94ee741c"
+    sha256 cellar: :any_skip_relocation, monterey:       "c5d47d9ee6ecfe6704d146c78531ad34c42e62a43a0bbfd0adc01e6a570d5a65"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8a025005cde9e8423606279cea498d921810f2334fe17a7bf23a1eba6ee54aef"
+    sha256 cellar: :any_skip_relocation, catalina:       "a4256bacc1a8025fa298b35d93af3ecf213449ab9118106530cdd29455293ead"
+    sha256 cellar: :any_skip_relocation, mojave:         "6423830817d3166ce48ea9cb88f3a83f1f7e381d8a1039c4db153e465450d5c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bee1eb579044cbdf33c6e4f045a800debb49b2f9ca4d3517d718956872a58a97"
   end
 
   uses_from_macos "zlib"

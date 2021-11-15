@@ -5,6 +5,11 @@ class Mmsrip < Formula
   sha256 "5aed3cf17bfe50e2628561b46e12aec3644cfbbb242d738078e8b8fce6c23ed6"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?mmsrip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e5d47cddeabd5f3cbd7b0c2c988d10dee8726dcf557f95eb3cada3a1cdc954a7"

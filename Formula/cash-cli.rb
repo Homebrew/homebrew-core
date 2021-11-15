@@ -14,6 +14,7 @@ class CashCli < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "7aa6e66eef5defae364924b00859ad4d884a15563c52488462ab489676f02141"
     sha256 cellar: :any_skip_relocation, high_sierra:   "903fde1135bcc71b70d74b852084897a2708f1d87ad00c200c793600472c42aa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e25e658a1049c359059b393257727a0ef80487633e0994a1451eb38e1f448955"
+    sha256 cellar: :any_skip_relocation, all:           "71505f2abc52d632bcdf71e08c4fcebad55506a9f9b547c81a8dae39cac15a5b"
   end
 
   deprecate! date: "2021-04-23", because: :unmaintained

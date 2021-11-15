@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/source-build.git",
-      tag:      "v5.0.206-SDK",
-      revision: "7422fa72e3e3cb32cfad37ccb3ad5a2d9c05d857"
+      tag:      "v5.0.207-SDK",
+      revision: "52296950a9e8d1b34a2e0e10e4b8bb06daba2dcc"
   license "MIT"
 
   livecheck do
@@ -12,10 +12,10 @@ class Dotnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "13d9201f595c6beb27a70d7ce390cb550e3fc7353c4db13b042a7318aea3b958"
-    sha256 cellar: :any,                 catalina:     "c8aeb6eb53feb7d3d0ac9ed7c5fe9d7e30971852a980f4b226f43f1471bfe3e6"
-    sha256 cellar: :any,                 mojave:       "c8af8eb10f1ac1dc48e6f89325863b4a5beeb1c5463615f352035f88c3651262"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c3d508da58b4fa947a59f43c5129d74516ad0dafb07f316e01b2ce95b5dde3cc"
+    sha256 cellar: :any,                 big_sur:      "dd058f1a46a84ee8cfbdf5450a5248ca1b5af91ae018efd5f96b0b760a4cc84f"
+    sha256 cellar: :any,                 catalina:     "a9c2b8e900351d1cb074100a60de404f033436032c1116c6094351446253e777"
+    sha256 cellar: :any,                 mojave:       "b7a7a743c0b409569cc5f139ada574e0b32f331b2950252a5afb2809123514d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "dd46b0305e565a6a6da6768a2d8d15a4e080cae9b9f29c4e9595067ed068d8c9"
   end
 
   depends_on "cmake" => :build
@@ -38,9 +38,7 @@ class Dotnet < Formula
   fails_with :gcc
 
   def install
-    on_linux do
-      ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib
-    end
+    ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib if OS.linux?
 
     # Arguments needed to not artificially time-limit downloads from Azure.
     # See the following GitHub issue comment for details:

@@ -10,11 +10,13 @@ class GitSecret < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8b19c1a419d844931e68bc21b0097c2d9c17275f66de939cafe6a13df91dafb3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2bd6c524c359601a854696aa0b7fed558e6c5dc45791feced47f33e06103dafe"
-    sha256 cellar: :any_skip_relocation, catalina:      "2bd6c524c359601a854696aa0b7fed558e6c5dc45791feced47f33e06103dafe"
-    sha256 cellar: :any_skip_relocation, mojave:        "2bd6c524c359601a854696aa0b7fed558e6c5dc45791feced47f33e06103dafe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28cf4e740681f14e15661f2d954c042cb78ba80e0f36c0eae8c9096915977f7a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b19c1a419d844931e68bc21b0097c2d9c17275f66de939cafe6a13df91dafb3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b19c1a419d844931e68bc21b0097c2d9c17275f66de939cafe6a13df91dafb3"
+    sha256 cellar: :any_skip_relocation, monterey:       "67ed071e1429ea8a7e5eb4feaa3b0da1af70d38714620e81450c8b6cfcc9d7cf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2bd6c524c359601a854696aa0b7fed558e6c5dc45791feced47f33e06103dafe"
+    sha256 cellar: :any_skip_relocation, catalina:       "2bd6c524c359601a854696aa0b7fed558e6c5dc45791feced47f33e06103dafe"
+    sha256 cellar: :any_skip_relocation, mojave:         "2bd6c524c359601a854696aa0b7fed558e6c5dc45791feced47f33e06103dafe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28cf4e740681f14e15661f2d954c042cb78ba80e0f36c0eae8c9096915977f7a"
   end
 
   depends_on "gawk"

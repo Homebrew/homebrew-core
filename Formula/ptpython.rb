@@ -3,20 +3,23 @@ class Ptpython < Formula
 
   desc "Advanced Python REPL"
   homepage "https://github.com/prompt-toolkit/ptpython"
-  url "https://files.pythonhosted.org/packages/15/c0/2174901413124288fc5217286f05aede748eea2a2b6e0894a165bcd14846/ptpython-3.0.19.tar.gz"
-  sha256 "b3d41ce7c2ce0e7e55051347eae400fc56b9b42b1c4a9db25b19ccf6195bfc12"
+  url "https://files.pythonhosted.org/packages/00/df/223017f2565336078c872f700ebe1c893a051e4d7b472fd0b68289ab3acb/ptpython-3.0.20.tar.gz"
+  sha256 "eafd4ced27ca5dc370881d4358d1ab5041b32d88d31af8e3c24167fe4af64ed6"
   license "BSD-3-Clause"
-  head "https://github.com/prompt-toolkit/ptpython.git"
+  revision 1
+  head "https://github.com/prompt-toolkit/ptpython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eeddb8b4d8e50f438c91b6d20a50be6d06db98f143e26885975ba00bbc40aab1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c070482be5f9f1b8ffa411a808136c88c3bc67123439e25452e4ce129a66650b"
-    sha256 cellar: :any_skip_relocation, catalina:      "7db1b44f2677eac5f4218e18ece9dcbbba419a0b0625b3cf907d7e0c5a8436f0"
-    sha256 cellar: :any_skip_relocation, mojave:        "8f39dcf1b1035f2f916aafd6783068cc5e9d911624da485f897be55de2a96b8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "119a06c79028d28ea0426dda031bf9521d65792b278f9798f6e83c44ad1501f7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ece3f47a0eaf377a1c1a088f74a86791eb636315ebfaed54b01f8be1c13a8761"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "438056e36eeefefdbe804d950c8861e9178db01fea6df670f83c506a8b7eb0c5"
+    sha256 cellar: :any_skip_relocation, monterey:       "54b237dc070385bbf7ab6fec1f1590440feb3d46ae506efd6cabfd9b048dbe37"
+    sha256 cellar: :any_skip_relocation, big_sur:        "916a01805966942286942293e9e3b77c23bd8db91be83803cdcd8c5c5c7a7b20"
+    sha256 cellar: :any_skip_relocation, catalina:       "3cbe9de5e60de6754eba2e1631759df14aa6e536e25b44d4665e16841124923e"
+    sha256 cellar: :any_skip_relocation, mojave:         "4b2f693efede4f086e5b9042d2a24b5f1bc691f79c7f63dda3f925402356c392"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bddea40c1f3d5b943d062c90caf7888f381f2c51bef077dc6aee2d3f5f233c7"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -34,13 +37,13 @@ class Ptpython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/88/4b/2c0f9e2b52297bdeede91c8917c51575b125006da5d0485521fa2b1e0b75/prompt_toolkit-3.0.19.tar.gz"
-    sha256 "08360ee3a3148bdb5163621709ee322ec34fc4375099afa4bbf751e9b7b7fa4f"
+    url "https://files.pythonhosted.org/packages/b4/56/9ab5868f34ab2657fba7e2192f41316252ab04edbbeb2a8583759960a1a7/prompt_toolkit-3.0.20.tar.gz"
+    sha256 "eb71d5a6b72ce6db177af4a7d4d7085b99756bf656d98ffcc4fecd36850eea6c"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/ba/6e/7a7c13c21d8a4a7f82ccbfe257a045890d4dbf18c023f985f565f97393e3/Pygments-2.9.0.tar.gz"
-    sha256 "a18f47b506a429f6f4b9df81bb02beab9ca21d0a5fee38ed15aef65f0545519f"
+    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
+    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
   end
 
   resource "wcwidth" do
@@ -49,18 +52,7 @@ class Ptpython < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
-    venv.pip_install resources
-    venv.pip_install buildpath
-
-    # Make the Homebrew site-packages available in the interpreter environment
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_path "PYTHONPATH", HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
-    ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    combined_pythonpath = ENV["PYTHONPATH"] + "${PYTHONPATH:+:}$PYTHONPATH"
-    %w[ptipython ptipython3 ptipython3.9 ptpython ptpython3 ptpython3.9].each do |cmd|
-      (bin/cmd).write_env_script libexec/"bin/#{cmd}", PYTHONPATH: combined_pythonpath
-    end
+    virtualenv_install_with_resources
   end
 
   test do

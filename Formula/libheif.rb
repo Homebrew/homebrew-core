@@ -4,13 +4,15 @@ class Libheif < Formula
   url "https://github.com/strukturag/libheif/releases/download/v1.12.0/libheif-1.12.0.tar.gz"
   sha256 "e1ac2abb354fdc8ccdca71363ebad7503ad731c84022cf460837f0839e171718"
   license "LGPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3963465a6971ee520138cd03749c8117f5c804e2631c326d765ee49f7a044517"
-    sha256 cellar: :any,                 big_sur:       "446b22420364f8914e39777b3c99a7a94035287e0d881e4ca3b0682093f6f2fe"
-    sha256 cellar: :any,                 catalina:      "3e852c84854a7beb0dc3e4ece0c5b161e35271c0eb68c1a1f86f2a3f019c2aa7"
-    sha256 cellar: :any,                 mojave:        "a03dba57d45f433a2ab7ae145641aea1ef7b1838aeb49c60847be2e529513079"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f0b0d1ac463d83ebd3614d0cd6215e2460efe562caf1cfeb634e2eff9454807"
+    sha256 cellar: :any,                 arm64_monterey: "6285488bd07d49e996a1be0dfe7296051ade71cc2078ecbaa2243afd05afe560"
+    sha256 cellar: :any,                 arm64_big_sur:  "ccf8a9fecc4629a5ae7b7cdb2db8e86c74cf70ab345f960d513e45b57f646174"
+    sha256 cellar: :any,                 monterey:       "b2cadb8ecf0985f007340e54853ffa685f57fd4dba8cae4bae37499119a9fe04"
+    sha256 cellar: :any,                 big_sur:        "6a82cb078278ee9e6240b6c738308974ca3a4ef545c30016f8395967bb6f4959"
+    sha256 cellar: :any,                 catalina:       "9ed1d527c347fa67d346d5d638b1760177693819d167c7dc549ebabcaabc428c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6382a34a85ddc5cb1a8359de883c18867340294b2f662e84650b287f04324484"
   end
 
   depends_on "pkg-config" => :build
@@ -20,6 +22,12 @@ class Libheif < Formula
   depends_on "libpng"
   depends_on "shared-mime-info"
   depends_on "x265"
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

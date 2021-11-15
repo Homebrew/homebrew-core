@@ -6,11 +6,13 @@ class Scdoc < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2aac49cd42efd595338cb631a42ffa7f418c46a144eb15398d60c38bee6644df"
-    sha256 cellar: :any_skip_relocation, big_sur:       "81dd4cefe0f4df18d14726d318b5dbcf8b42085041834e5da8852f6ec02e8b73"
-    sha256 cellar: :any_skip_relocation, catalina:      "ea37af44324b83e8368af5965ef5cb198ef1a4b4dbabcd81e0da9297366a245b"
-    sha256 cellar: :any_skip_relocation, mojave:        "9ad77b02592b8be119ceafd2286a24c383a537a3b1e169b91aba049e82d41dee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a2a6b095d84fc5b37fddb558cfd527d382cffb0186b42fa561d9e142562e9d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a768353dd36e7b526a9159fbed1f125ed242b4093b98c4111dd52d6f771bb86d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2aac49cd42efd595338cb631a42ffa7f418c46a144eb15398d60c38bee6644df"
+    sha256 cellar: :any_skip_relocation, monterey:       "c0c6386ea74d2fdc12287ef8523ff7f57aba93c4fbb4798828ba9d4cb0143606"
+    sha256 cellar: :any_skip_relocation, big_sur:        "81dd4cefe0f4df18d14726d318b5dbcf8b42085041834e5da8852f6ec02e8b73"
+    sha256 cellar: :any_skip_relocation, catalina:       "ea37af44324b83e8368af5965ef5cb198ef1a4b4dbabcd81e0da9297366a245b"
+    sha256 cellar: :any_skip_relocation, mojave:         "9ad77b02592b8be119ceafd2286a24c383a537a3b1e169b91aba049e82d41dee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a2a6b095d84fc5b37fddb558cfd527d382cffb0186b42fa561d9e142562e9d9"
   end
 
   def install

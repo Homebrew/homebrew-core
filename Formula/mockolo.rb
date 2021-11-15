@@ -1,13 +1,15 @@
 class Mockolo < Formula
   desc "Efficient Mock Generator for Swift"
   homepage "https://github.com/uber/mockolo"
-  url "https://github.com/uber/mockolo/archive/1.4.1.tar.gz"
-  sha256 "bb083d185a3e85bb8440f79c5850e6d5c1195ce4f717e9aa36fc789882d9144a"
+  url "https://github.com/uber/mockolo/archive/1.6.2.tar.gz"
+  sha256 "37bd8639349fb292e4244593785be0c63d16fd91b601c10d25a48c0964dd15a2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4927f51721e554aaf25b060a778a96929e114a92151519501a8d62cd52bae992"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cf1c3210d31de9d13ff6908f4a72596221b669b0c9e457f03df322130eaceaf5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6bfe8fb2f1fb9cb16e6a6733fc5095515e1ace2983b973fca0a5d8bea0e8d94"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ba2efcb7c4706f4951c4938bd92f8ba9e84f9f8c9b20d00946c720ff1cee665"
+    sha256 cellar: :any_skip_relocation, monterey:       "c418c6c68f792cb9b5076e409d0da814484d0402e196b4e7ea48bdf00f6b7f5a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8c7084c7246c4d70a14cff9af3340a888a3e9560953b3a4d40a532de6da64d51"
   end
 
   depends_on xcode: ["12.5", :build]

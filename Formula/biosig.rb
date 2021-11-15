@@ -11,6 +11,7 @@ class Biosig < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "78ec41c72351ea192f6774b3c9cef32fb840f8abdabae586afd92aabfa6fc936"
     sha256 cellar: :any,                 big_sur:      "d11e9df24b03c09b1e07eb5aa04a32caad78094e084de9de8b586b3eca722d87"
     sha256 cellar: :any,                 catalina:     "68bffa7d07f5551de7f675264ac4e4699b96117a39b4a44ad14d7810247f7929"
     sha256 cellar: :any,                 mojave:       "bd14850fc19217a2be2b9f530ede8caad279783db51106534b88c9321bfe8a95"

@@ -6,11 +6,13 @@ class BashSnippets < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8e38f6d39c157dcf604f1ac774a16afe66472de96ebf612a7f409689a7074282"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c2a441dc6d5b21408f49f4869b00919354392682b3ef7eef2f908ab2f638dd8a"
-    sha256 cellar: :any_skip_relocation, catalina:      "c2a441dc6d5b21408f49f4869b00919354392682b3ef7eef2f908ab2f638dd8a"
-    sha256 cellar: :any_skip_relocation, mojave:        "c2a441dc6d5b21408f49f4869b00919354392682b3ef7eef2f908ab2f638dd8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e38f6d39c157dcf604f1ac774a16afe66472de96ebf612a7f409689a7074282"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e38f6d39c157dcf604f1ac774a16afe66472de96ebf612a7f409689a7074282"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e38f6d39c157dcf604f1ac774a16afe66472de96ebf612a7f409689a7074282"
+    sha256 cellar: :any_skip_relocation, monterey:       "c2a441dc6d5b21408f49f4869b00919354392682b3ef7eef2f908ab2f638dd8a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c2a441dc6d5b21408f49f4869b00919354392682b3ef7eef2f908ab2f638dd8a"
+    sha256 cellar: :any_skip_relocation, catalina:       "c2a441dc6d5b21408f49f4869b00919354392682b3ef7eef2f908ab2f638dd8a"
+    sha256 cellar: :any_skip_relocation, mojave:         "c2a441dc6d5b21408f49f4869b00919354392682b3ef7eef2f908ab2f638dd8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e38f6d39c157dcf604f1ac774a16afe66472de96ebf612a7f409689a7074282"
   end
 
   conflicts_with "cheat", because: "both install a `cheat` executable"

@@ -7,11 +7,13 @@ class AwsRotateKey < Formula
   head "https://github.com/stefansundin/aws-rotate-key.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f386fd25ede2321a6f64f20ccbaa0d3de3079e96b24689f07accc710bd7cfc6e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ae4352b4f481dbcb3d5538c6140f4fc0c7c6af45e844d2a1740944ef09191226"
-    sha256 cellar: :any_skip_relocation, catalina:      "b45abd46858f15815ca5a1cf540e508c4e05051c4d9448133a04ff23f026843b"
-    sha256 cellar: :any_skip_relocation, mojave:        "afbf03d4e1323d8cb41ae103ce1bf9de456883d8df92e418f8c69fc54d57126e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2324472ba4e70a560a5acda4d8f7e53de7f94b3ab862f94706e9c358048031e3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cbdb9ab1598a71ed6f4f10cea8ee45f3a4995c63f2bff5fa1a540f8439027857"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f386fd25ede2321a6f64f20ccbaa0d3de3079e96b24689f07accc710bd7cfc6e"
+    sha256 cellar: :any_skip_relocation, monterey:       "122b700029f3816cc907eb147d072fca42fe6c780953fb29df66c2114ad6c716"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ae4352b4f481dbcb3d5538c6140f4fc0c7c6af45e844d2a1740944ef09191226"
+    sha256 cellar: :any_skip_relocation, catalina:       "b45abd46858f15815ca5a1cf540e508c4e05051c4d9448133a04ff23f026843b"
+    sha256 cellar: :any_skip_relocation, mojave:         "afbf03d4e1323d8cb41ae103ce1bf9de456883d8df92e418f8c69fc54d57126e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2324472ba4e70a560a5acda4d8f7e53de7f94b3ab862f94706e9c358048031e3"
   end
 
   depends_on "go" => :build

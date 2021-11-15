@@ -1,8 +1,8 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.17.tar.gz"
-  sha256 "df2934fa33d04fd84d839ca698280df55c690c86a5a1133b3f7266fce1de279f"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.18.tar.gz"
+  sha256 "1632c1e8cca62d8bed064b37747e331a1796fc46f688626337362bf0d16aeadb"
   license "BSD-3-Clause"
   head "https://github.com/xianyi/OpenBLAS.git", branch: "develop"
 
@@ -12,11 +12,12 @@ class Openblas < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c9ae01370ce517ab827b58d78908765b6a786d04f6f70c86bccdb5978cecef7e"
-    sha256 cellar: :any,                 big_sur:       "1cbdb7f1dfd423ff76b92825c6a073166f555a785f012bba9ad86f3b8eae4752"
-    sha256 cellar: :any,                 catalina:      "14891978c20a81ab3b4839e5c6cc5504daee971ca39a3806a36e8a0a90a38ef0"
-    sha256 cellar: :any,                 mojave:        "a5c4b0222ae4225f96fb72046921bc5c625445e10361407dfacbc4719aa90283"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "110436100fa51f165c534e88ad6283cb666d131b857e7e3ee8d4cfa2de05b9f3"
+    sha256 cellar: :any,                 arm64_big_sur: "1c56daf859f99c82d15b5c6a05a5d08ddeab1059cf997b6a92e603e827db99df"
+    sha256 cellar: :any,                 monterey:      "1c3691c0a1f7af4466435c1e3e96ff6cfb3a7cdc163d469372880c024bcdf642"
+    sha256 cellar: :any,                 big_sur:       "c00c7a94be57deb38068b57fa44118e243ab267a199e3740e9cd68686a55199b"
+    sha256 cellar: :any,                 catalina:      "ae3b33c6bce2bbcce84f507067634fd9a2de2fda8d5cf7690f6dd26e46ba27ec"
+    sha256 cellar: :any,                 mojave:        "3d63e55578268f85721408933ed22f9d84f86a26e9c76b8b48a205a623900f7d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2111aaedc1bcc3d448844632a4ce1cab47ac52b199443ba362b41c25ba366a65"
   end
 
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"

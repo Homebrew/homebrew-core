@@ -4,14 +4,16 @@ class GitSeries < Formula
   url "https://github.com/git-series/git-series/archive/0.9.1.tar.gz"
   sha256 "c0362e19d3fa168a7cb0e260fcdecfe070853b163c9f2dfd2ad8213289bc7e5f"
   license "MIT"
-  revision 3
+  revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ccf1c1e9a18629fe874987409d79f84da6e171fe802a6918147c3198b0047cce"
-    sha256 cellar: :any,                 big_sur:       "2193cb415148a398304ae5cde86bd8f672c62fef1028ad78057d66fa3ca0fd36"
-    sha256 cellar: :any,                 catalina:      "e273c21ef68060e010e42bc805bf1a2e5baf9a8e7ecec6338490175857713168"
-    sha256 cellar: :any,                 mojave:        "31c32b8df3a5a2c70c54786a0c222ce4fdeccace4cb3a5bf50f3a27d9f46167d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30475b793ee6ea3a5a8291796f01628b735e50b2a796ffe47345a519e730fc7c"
+    sha256 cellar: :any,                 arm64_monterey: "a238e7eea725642aafeaeb5f90d66a97f4e5b2caa681d51aaa47abe4d2ec371b"
+    sha256 cellar: :any,                 arm64_big_sur:  "d75d535676dda5c4289d8547cd6959f02aa6d5fa47364ebb561fe8a858683c95"
+    sha256 cellar: :any,                 monterey:       "83049175c7154cda07fcb03ec3d2950412e49be5a50180aa51e67d2721815fe8"
+    sha256 cellar: :any,                 big_sur:        "40f73d58772d698175f87acceaf11f97720e3248f2cf7182bae19889899ed61d"
+    sha256 cellar: :any,                 catalina:       "944e5375b6975f35b298b03f8ccdd9d530a9991593c6374aa3d93a69a8a0baac"
+    sha256 cellar: :any,                 mojave:         "9edf9487a836d8ddb3b822f1a14931d2e2413edd9d3df29b389259a684681190"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52c715891324bf3e223e02ca509db21d171fcddc8e741479ad18164f385c3d4f"
   end
 
   depends_on "cmake" => :build

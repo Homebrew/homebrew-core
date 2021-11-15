@@ -15,11 +15,13 @@ class Mpw < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ae3c6d9c4698beed61f7d0ee6330d1afa63b993c8ff3ecd3dae5fea25dc052be"
-    sha256 cellar: :any,                 big_sur:       "ab5d2d32aee8f5d90e3818a776d10a681ce84435161ef9a9c146310b2277ce93"
-    sha256 cellar: :any,                 catalina:      "577e79323642d34b2ab391959ce2075e96172faa540c2e9d628406d0e80e2fc4"
-    sha256 cellar: :any,                 mojave:        "8592cadcded1acf97d687135d7f9f88674c05837e6f9646bb514c0b7fc18c954"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0aaf191d28ba5c097800350caa11f37f351f8f0ff336aed7f0e479d884321e86"
+    sha256 cellar: :any,                 arm64_monterey: "e9888d9cfb2d36d1b764cb66f63f6dd46007a1971a4103207cb443029c1d12ee"
+    sha256 cellar: :any,                 arm64_big_sur:  "ae3c6d9c4698beed61f7d0ee6330d1afa63b993c8ff3ecd3dae5fea25dc052be"
+    sha256 cellar: :any,                 monterey:       "9bee356778557f9ebe1ef53d3c30eea3484593de4a5465a9edda5d1bda03524e"
+    sha256 cellar: :any,                 big_sur:        "ab5d2d32aee8f5d90e3818a776d10a681ce84435161ef9a9c146310b2277ce93"
+    sha256 cellar: :any,                 catalina:       "577e79323642d34b2ab391959ce2075e96172faa540c2e9d628406d0e80e2fc4"
+    sha256 cellar: :any,                 mojave:         "8592cadcded1acf97d687135d7f9f88674c05837e6f9646bb514c0b7fc18c954"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0aaf191d28ba5c097800350caa11f37f351f8f0ff336aed7f0e479d884321e86"
   end
 
   depends_on "json-c"

@@ -11,11 +11,13 @@ class WxwidgetsAT30 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c6c32781b859e025b296306717610853c4dca2e1778511208e11c8add2f256f2"
-    sha256 cellar: :any,                 big_sur:       "97868208219470f640f070daed1ac46216c978022c2737f18dbe23416c19507e"
-    sha256 cellar: :any,                 catalina:      "7ada4feb4da76da10e744e6e93e666461bcbb577a7cba23ec1a74e258854c537"
-    sha256 cellar: :any,                 mojave:        "0e571023defb572ab776ff364914ce379beede94bb3ea05f0817c89aebe93fec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95db78aedb56c161b988c02a398fe1bda727b6a5f3e770fa1367331d7c4748a5"
+    sha256 cellar: :any,                 arm64_monterey: "6d1dd333ccb2ae7b72737f636a73d5bc36c7b22b83251acb5ed0ca63c54467d7"
+    sha256 cellar: :any,                 arm64_big_sur:  "c6c32781b859e025b296306717610853c4dca2e1778511208e11c8add2f256f2"
+    sha256 cellar: :any,                 monterey:       "540ed00543ceac8a6c5ce0d7c4e48cdc70bece020ae8d0771c10c0822daa49f4"
+    sha256 cellar: :any,                 big_sur:        "97868208219470f640f070daed1ac46216c978022c2737f18dbe23416c19507e"
+    sha256 cellar: :any,                 catalina:       "7ada4feb4da76da10e744e6e93e666461bcbb577a7cba23ec1a74e258854c537"
+    sha256 cellar: :any,                 mojave:         "0e571023defb572ab776ff364914ce379beede94bb3ea05f0817c89aebe93fec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95db78aedb56c161b988c02a398fe1bda727b6a5f3e770fa1367331d7c4748a5"
   end
 
   depends_on "jpeg"
@@ -54,7 +56,7 @@ class WxwidgetsAT30 < Formula
       "--disable-monolithic",
     ]
 
-    on_macos do
+    if OS.mac?
       # Set with-macosx-version-min to avoid configure defaulting to 10.5
       args << "--with-macosx-version-min=#{MacOS.version}"
       args << "--with-osx_cocoa"

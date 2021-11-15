@@ -2,17 +2,18 @@ class Duckdb < Formula
   desc "Embeddable SQL OLAP Database Management System"
   homepage "https://www.duckdb.org"
   url "https://github.com/duckdb/duckdb.git",
-      tag:      "v0.2.8",
-      revision: "a8fd73b37bfc249b76b2aaa488d52dfdb39bb3d9"
+      tag:      "v0.3.0",
+      revision: "46a0fc50aa00ac019aee2157cf3382b85993f728"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0d7a874d4ef6c80616b6495dcd8cfd89ae092c9e5dae7ec677a4bca2a184de20"
-    sha256 cellar: :any,                 big_sur:       "614f4b26481b51f9aa98c185eeca064f6df58610b6a6187c6603098de047fd34"
-    sha256 cellar: :any,                 catalina:      "22786e74a4bf3212375b066d18cfa3fc507dd6699e86f7dc46a0eef102dd7c7d"
-    sha256 cellar: :any,                 mojave:        "263f3d4b4815b8db217f4e17787d5304c73e742dbae51cbfd2a02b1d0ac90b36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fa7cf67a5d8884b153f9d9520770eb767453d6c0ba0b4fa2089521b74df4456"
+    sha256 cellar: :any,                 arm64_monterey: "b8406de6a931d162e4d5c9facce474864af8d90de582a27527dd30fc9888e481"
+    sha256 cellar: :any,                 arm64_big_sur:  "4d285e3baaf35f18548ee40fd8ac6aa887513a3a9d34e10818ac81618ec85823"
+    sha256 cellar: :any,                 monterey:       "23361a1b5f0ba22f69c840b9280d3be3f5d61fd0080f13576d0f8f5be6f0a7ba"
+    sha256 cellar: :any,                 big_sur:        "0e19a1b26fd5a45d487cb1d1d7446ee18a246e740c346ec9adf367cdf8420b04"
+    sha256 cellar: :any,                 catalina:       "922bed5796ee9453ddf19764991edb99b7b735edb32113c8ae2da64a98367585"
+    sha256 cellar: :any,                 mojave:         "3e9e19cc7e833d7565978e0859ad2e8ec8116fd74984e06e718e707d59ac36cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a1232df3b2efa016000825be8f57df8a11195c60fbc9e7fbb0a67b41fdf19cd"
   end
 
   depends_on "cmake" => :build
@@ -20,9 +21,7 @@ class Duckdb < Formula
   depends_on "utf8proc"
 
   def install
-    on_linux do
-      ENV.deparallelize # amalgamation builds take GBs of RAM
-    end
+    ENV.deparallelize if OS.linux? # amalgamation builds take GBs of RAM
     mkdir "build/amalgamation"
     system Formula["python@3.9"].opt_bin/"python3", "scripts/amalgamation.py", "--extended"
     cd "build/amalgamation" do

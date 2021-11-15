@@ -1,9 +1,9 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://www.mpg123.de/download/mpg123-1.28.2.tar.bz2"
-  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.28.2/mpg123-1.28.2.tar.bz2"
-  sha256 "7eefd4b68fdac7e138d04c37efe12155a8ebf25a5bccf0fb7e775af22d21db00"
+  url "https://www.mpg123.de/download/mpg123-1.29.2.tar.bz2"
+  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.29.2/mpg123-1.29.2.tar.bz2"
+  sha256 "9071214ebdfc1b6ed0c0a85d530010bbb8ebc044cfe5ae5930e83f7e6b7937e6"
   license "LGPL-2.1-only"
 
   livecheck do
@@ -12,11 +12,12 @@ class Mpg123 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "9da7a8249c0b232c766cf1efab8e956a62a7d3e84889c4f94b7571918246476f"
-    sha256 big_sur:       "2d7805fe21b9178ca7a4df40fb05b7b01f22b95be6b5cdc1a94c014f1d9aa50d"
-    sha256 catalina:      "6fd71cfdf237aa77246851ef9401d10fe91f9e13ef7817c7e66d73c86b4f745d"
-    sha256 mojave:        "281d8863a9b1af6d2e9024b8ebc7041206ed3f3a84e5469ec9a9feec1a3b92b0"
-    sha256 x86_64_linux:  "59a245a3fbf56ea367ce412a04d804b809699b3266b0010da393451e8f6f4b7f"
+    sha256 arm64_monterey: "54b1b392f918afaeb2df2f1ce13c9abf5e4dc528e568d8d28b24051e9252008f"
+    sha256 arm64_big_sur:  "3e76fd6c5d5120b8843fa476e5a0419049fd2634f93922e20000e8a329b5ba4c"
+    sha256 monterey:       "a9615c6c68bc863c9cda5d47a1811c836e4ecbc95c5df06fd38d14fecdaa17fe"
+    sha256 big_sur:        "d150ae218a033af966ded545cc5e1381505ab8f38abc6f77b1ef652c007f5dc9"
+    sha256 catalina:       "e44e5727e3f794056d55794abb4b58c9045462330b0b9a6550a875291211b997"
+    sha256 x86_64_linux:   "5286708d43f21dce89bc03697034933c2fcffbb1a4284f49baa8668d8ab0282f"
   end
 
   def install
@@ -27,9 +28,7 @@ class Mpg123 < Formula
       --with-module-suffix=.so
     ]
 
-    on_macos do
-      args << "--with-default-audio=coreaudio"
-    end
+    args << "--with-default-audio=coreaudio" if OS.mac?
 
     args << if Hardware::CPU.arm?
       "--with-cpu=aarch64"

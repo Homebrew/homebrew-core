@@ -14,6 +14,7 @@ class Dfix < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, monterey:     "0102eaa83c680a6a425f8e532bfc00b5c611a86d14d1382617e3d6ae5c76a1f0"
     sha256 cellar: :any_skip_relocation, big_sur:      "bb047ac32131d3ec25b60ca86e77959f7b9625ad469d9e0a1ada3fefe8525d9d"
     sha256 cellar: :any_skip_relocation, catalina:     "ff3b76977bcbfb5b7a04bbebb53a794cc522b64987f724fe5f8a8236812eb1f8"
     sha256 cellar: :any_skip_relocation, mojave:       "24d234e206efa754f8bd900102720280d8efb1af6ec93059a467589acddca3ee"

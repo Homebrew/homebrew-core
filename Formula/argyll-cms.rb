@@ -1,8 +1,8 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V2.2.0_src.zip"
-  sha256 "c612a2e49fd51e089616cd27b6d4717d0f20fc8edbd906462f0d0dbbabbc711c"
+  url "https://www.argyllcms.com/Argyll_V2.2.1_src.zip"
+  sha256 "24cbef0e81a7ce8424957cbcb399cdea2f069f64866536d181e879ce1ed18ff8"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -11,10 +11,12 @@ class ArgyllCms < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3ae919d00b2a8977c21692d8b5a473982085a05a5718f9f15fa8647f2111362a"
-    sha256 cellar: :any, big_sur:       "a33f069f86d63448d1f2b8d04465ea84d902300a1ecb656cbf0808a3b8776791"
-    sha256 cellar: :any, catalina:      "d7fd1d597134461887b6477b4460fcc8fb2143d9c97e49b5dcc7ecf53758fe9a"
-    sha256 cellar: :any, mojave:        "941603de5eacbc65d306339aef0c955cf111679247b710fa8c099ffe82ea5db4"
+    sha256 cellar: :any, arm64_monterey: "9847a3b7f40b2a075b10926264fd60abd6fe38023394aee9338548e36f88bc98"
+    sha256 cellar: :any, arm64_big_sur:  "cd01b34b8340af770348c75ba24f241c4165a343fd470e9104ce6680f9a67987"
+    sha256 cellar: :any, monterey:       "1048438b7f241d538952346e4e2f145a52743149f436cdf0b9f7c644dcf1a2f8"
+    sha256 cellar: :any, big_sur:        "23d23cf1ec9dd7d5d128ac055031a7dadfe60942cb013b90d40922dfec564ea8"
+    sha256 cellar: :any, catalina:       "48ad5563ffb6bdb54671d4e11605a14963c5c0a82e632c710e97086f650b0ae1"
+    sha256 cellar: :any, mojave:         "198c516d829ff22b66f948768ec5841228e002ed840f647a799aab79b202657f"
   end
 
   depends_on "jam" => :build

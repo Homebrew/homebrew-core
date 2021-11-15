@@ -1,16 +1,18 @@
 class DhallBash < Formula
   desc "Compile Dhall to Bash"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-bash"
-  url "https://hackage.haskell.org/package/dhall-bash-1.0.37/dhall-bash-1.0.37.tar.gz"
-  sha256 "2df061bcae9341f4627d164c9acd1f2c26b264144e32009a60f94d04abfaa63e"
+  url "https://hackage.haskell.org/package/dhall-bash-1.0.38/dhall-bash-1.0.38.tar.gz"
+  sha256 "01a1164830da11fa270a3bd6fb9fb6e39d50e400a7ec6b42aec4da41c9c7dc5d"
   license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c508a3b8b8d527b90d61ef3b947acb361de0f450ae1ca1ad1cfb6d969c2ff035"
-    sha256 cellar: :any_skip_relocation, big_sur:       "df7fb1a328037fed8fe73c6f8470e624767250a411db158ff21b3b7706a36bab"
-    sha256 cellar: :any_skip_relocation, catalina:      "0a9fade0ebbe012abdc5dab4eccd943d26c6449758e8c36e86ce0ee7c7431c0e"
-    sha256 cellar: :any_skip_relocation, mojave:        "a98dc2abcc27e896aea7252ce48d0435272058998f6dfcf682f510bf8b3b15e6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b815cab1ba135f2682f49756077b7712938e9d84b9487b77498f1158d6e0fbb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a024b04b527c5f6863ace794e5f83afe92b1b16203acd23f1e95e3e27901cbcf"
+    sha256 cellar: :any_skip_relocation, monterey:       "23fbafed4e2a6ac0fc36cb93b475b0a385ad9d56d01547decc0e2cf7f2bc1883"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f5063002c22244dd97c80f34b28b9b185fd46d64b11ece003eace16ea54d9a65"
+    sha256 cellar: :any_skip_relocation, catalina:       "49c267f3236157660b58386c17d9f158c1c4df110dc3f112fdc20b565f90334e"
+    sha256 cellar: :any_skip_relocation, mojave:         "ced176f284777f2578f2432fd2943a5e872fbaa0486cde7790e831ad1c116dc8"
   end
 
   depends_on "cabal-install" => :build

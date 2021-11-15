@@ -5,10 +5,12 @@ class Nuxeo < Formula
   sha256 "93a923a6e654d216a57fc91767a428e8c22cf5a879f264474f8976016e34ca6f"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "af8bae41aea48c4ab4475b64db647cf40a060790cc5b6b4c699c7e2578afdf9d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5322ea1c6ff309613ecd84d788bf56b0590c83cd9e1d5f1d8f3ef99c1610baa6"
-    sha256 cellar: :any_skip_relocation, catalina:      "5322ea1c6ff309613ecd84d788bf56b0590c83cd9e1d5f1d8f3ef99c1610baa6"
-    sha256 cellar: :any_skip_relocation, mojave:        "5322ea1c6ff309613ecd84d788bf56b0590c83cd9e1d5f1d8f3ef99c1610baa6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3c4a5916ae6ddbd2f1294d1445429febf7f4ee4b674a72239a39f2183d9703c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af8bae41aea48c4ab4475b64db647cf40a060790cc5b6b4c699c7e2578afdf9d"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e48e72151f61aab63503e16443c02acafb2411edff0e6380db3ed654c0f3ad5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5322ea1c6ff309613ecd84d788bf56b0590c83cd9e1d5f1d8f3ef99c1610baa6"
+    sha256 cellar: :any_skip_relocation, catalina:       "5322ea1c6ff309613ecd84d788bf56b0590c83cd9e1d5f1d8f3ef99c1610baa6"
+    sha256 cellar: :any_skip_relocation, mojave:         "5322ea1c6ff309613ecd84d788bf56b0590c83cd9e1d5f1d8f3ef99c1610baa6"
   end
 
   depends_on "exiftool"

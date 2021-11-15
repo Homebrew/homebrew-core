@@ -11,11 +11,13 @@ class Automysqlbackup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6499ee140c9ecc7517483b77dd3cdbd9b810c78ccd669e4160b13743d947be33"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
-    sha256 cellar: :any_skip_relocation, catalina:      "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
-    sha256 cellar: :any_skip_relocation, mojave:        "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6499ee140c9ecc7517483b77dd3cdbd9b810c78ccd669e4160b13743d947be33"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a6221b7df024f5ba0ab971d2f00a6f788aa7ba4c4fa5409556a6540de0f7afd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6499ee140c9ecc7517483b77dd3cdbd9b810c78ccd669e4160b13743d947be33"
+    sha256 cellar: :any_skip_relocation, monterey:       "005eed57e1d895c9afb736b8931e05d4960bdfc4c50faff45094db816aecb65c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
+    sha256 cellar: :any_skip_relocation, catalina:       "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
+    sha256 cellar: :any_skip_relocation, mojave:         "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6499ee140c9ecc7517483b77dd3cdbd9b810c78ccd669e4160b13743d947be33"
   end
 
   def install

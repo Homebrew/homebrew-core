@@ -1,8 +1,8 @@
 class Trino < Formula
   desc "Distributed SQL query engine for big data"
   homepage "https://trino.io"
-  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/360/trino-server-360.tar.gz"
-  sha256 "cd313867fd5461a26920ca6cb170413893853b0cc1acc4f454d4141a0790a50e"
+  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/364/trino-server-364.tar.gz"
+  sha256 "f6824a8a54aff9e7c07b00d637758f49ef33c0a7d9d1c8dc32d49f7fd122b132"
   license "Apache-2.0"
 
   livecheck do
@@ -11,35 +11,36 @@ class Trino < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8dfd61e34f50f01f90c7ea51f93cfce06da99ab5008e66bb63768b293647370e"
+    sha256 cellar: :any_skip_relocation, all: "20c08cab2d79bfa305901813d5d0f11f2a1ad118a79dc7ca41f945af56c46f2c"
   end
 
   depends_on "gnu-tar" => :build
   depends_on arch: :x86_64
+  depends_on :macos # test fails on Linux
   depends_on "openjdk"
 
   resource "trino-src" do
-    url "https://github.com/trinodb/trino/archive/360.tar.gz", using: :nounzip
-    sha256 "48fbe2f29f67b5c655d4de6eaec905c94f735c42df17e5509dc3c387e732aeb2"
+    url "https://github.com/trinodb/trino/archive/364.tar.gz", using: :nounzip
+    sha256 "f672d71560078ed2a0e1c875b01f7cfdc8a1fd5ac08af85f8cdc4cbb13d374bd"
   end
 
   resource "trino-cli" do
-    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/360/trino-cli-360-executable.jar"
-    sha256 "9203abd2ee3e36b7476aba23102b93e2adca7b030031fa3828e2320cb4c38be2"
+    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/364/trino-cli-364-executable.jar"
+    sha256 "371a047f70f9eddff1e0ad8f9e05b72e1e191b25fe8e8d5dbfebe82ad83d6aad"
   end
 
   def install
     libexec.install Dir["*"]
 
     # Manually untar, since macOS-bundled tar produces the error:
-    #   trino-360/plugin/trino-hive/src/test/resources/<truncated>.snappy.orc.crc: Failed to restore metadata
+    #   trino-363/plugin/trino-hive/src/test/resources/<truncated>.snappy.orc.crc: Failed to restore metadata
     # Remove when https://github.com/trinodb/trino/issues/8877 is fixed
     resource("trino-src").stage do |r|
       ENV.prepend_path "PATH", Formula["gnu-tar"].opt_libexec/"gnubin"
       system "tar", "-xzf", "trino-#{r.version}.tar.gz"
       (libexec/"etc").install Dir["trino-#{r.version}/core/docker/default/etc/*"]
-      inreplace libexec/"etc/node.properties", "docker", "homebrew"
-      inreplace libexec/"etc/node.properties", "/data/trino", "#{var}/trino/data"
+      inreplace libexec/"etc/node.properties", "docker", tap.user.downcase
+      inreplace libexec/"etc/node.properties", "/data/trino", var/"trino/data"
     end
 
     (bin/"trino-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
@@ -48,6 +49,11 @@ class Trino < Formula
       libexec.install "trino-cli-#{version}-executable.jar"
       bin.write_jar_script libexec/"trino-cli-#{version}-executable.jar", "trino"
     end
+
+    # Remove incompatible pre-built binaries
+    libprocname_dirs = libexec.glob("bin/procname/*")
+    libprocname_dirs.reject! { |dir| dir.basename.to_s == "#{OS.kernel_name}-#{Hardware::CPU.arch}" }
+    libprocname_dirs.map(&:rmtree)
   end
 
   def post_install

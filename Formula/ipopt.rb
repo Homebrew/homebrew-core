@@ -1,17 +1,18 @@
 class Ipopt < Formula
   desc "Interior point optimizer"
   homepage "https://coin-or.github.io/Ipopt/"
-  url "https://github.com/coin-or/Ipopt/archive/releases/3.14.2.tar.gz"
-  sha256 "3ec6776b9a1ed8895f662bfc9939b067722770297be78ca4d6dc1cb42557da62"
+  url "https://github.com/coin-or/Ipopt/archive/releases/3.14.4.tar.gz"
+  sha256 "60865150b6fad19c5968395b57ff4a0892380125646c3afa2a714926f5ac9487"
   license "EPL-1.0"
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c6a4280932cadfb741ff4706e3ceb84536b052238116f2303e842f78b9064bd6"
-    sha256 cellar: :any,                 big_sur:       "94b08bf303e9e23a052472539b848cecb27854f0a1794d78ce80c858d6670c1e"
-    sha256 cellar: :any,                 catalina:      "5a33a2af001eeee408f2d5aec1607459c0788dd62df7903c7b29bd61875d57bc"
-    sha256 cellar: :any,                 mojave:        "13a54a41b13a57ca5d2d27d19471d65162cb2902e48fff00a297cb1b923cd8db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56287e52d66b58ccd442827ac84f180c5a85a5513d69794e8fc367ab3b1e0d16"
+    sha256 cellar: :any,                 arm64_big_sur: "ed14dc7358fe73373f237fb4d282ba8f1e744af8b7b851e799fe99d7e507d487"
+    sha256 cellar: :any,                 monterey:      "62a0abe6151b8c3a6d38591f5cef5eedca317d42f836f7dea05766f49ea70718"
+    sha256 cellar: :any,                 big_sur:       "86f5e863ace34e7e65aeade03cb700a5f8749bc6c5912e85a42ae5316fc148b3"
+    sha256 cellar: :any,                 catalina:      "7ee50053077dbbbe2f8f8597c9f2a8ea7b9ec279789b07b17271a03e63978a4d"
+    sha256 cellar: :any,                 mojave:        "082977c7306528c34fec92cf501b30788c4e6e2da025155f449887d099a060fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09d25507147da744581f9522b2d1900d6a17eb615d69300630a482658a769662"
   end
 
   depends_on "openjdk" => :build
@@ -39,8 +40,8 @@ class Ipopt < Formula
   end
 
   resource "test" do
-    url "https://github.com/coin-or/Ipopt/archive/releases/3.14.2.tar.gz"
-    sha256 "3ec6776b9a1ed8895f662bfc9939b067722770297be78ca4d6dc1cb42557da62"
+    url "https://github.com/coin-or/Ipopt/archive/releases/3.14.4.tar.gz"
+    sha256 "60865150b6fad19c5968395b57ff4a0892380125646c3afa2a714926f5ac9487"
   end
 
   def install
@@ -50,7 +51,7 @@ class Ipopt < Formula
 
     resource("mumps").stage do
       cp "Make.inc/Makefile.inc.generic.SEQ", "Makefile.inc"
-      on_macos { inreplace "Makefile.inc", "@rpath/", "#{opt_lib}/" }
+      inreplace "Makefile.inc", "@rpath/", "#{opt_lib}/" if OS.mac?
 
       # Fix for GCC 10
       inreplace "Makefile.inc", "OPTF    = -fPIC",

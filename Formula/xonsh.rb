@@ -6,17 +6,20 @@ class Xonsh < Formula
   url "https://files.pythonhosted.org/packages/e8/7d/ca09bfc9882d5d467568f8683252130c9eacf615ab6646f3ad229865a104/xonsh-0.10.1.tar.gz"
   sha256 "00409804fc38111800dbca40274224e069e4ef5af6020c27ad58f966ca3025e3"
   license "BSD-2-Clause-Views"
+  revision 1
   head "https://github.com/xonsh/xonsh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "df4ca8c7e7cdfdb2314a3018d27b3787c8d594ce9f5bad9cf583f14bd9295bd9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b96dcb718e62f228ea031c38b656298c558b49d1abf8e1d4ecabe752ebf4db3c"
-    sha256 cellar: :any_skip_relocation, catalina:      "af9dcd14698845e5337ed0c5f2234f3c1aad78757dbab8b8cc04065663e6859d"
-    sha256 cellar: :any_skip_relocation, mojave:        "e4709834c3eb2329ac36cc3188dd1c4671c12a4106c2f5e55186234c5470c3af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52e156607d5c1ced17090d426ceff44594c4cffd2a42782b29302363f0a9823e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "feb1f63aae32730630f8f93d7f181d7b31bc6ba018925890dd6337bfb1b2d072"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5fb3c82fca2e1ab90535bec95ca2b8a0a8b88fab228ef5359f506ec80b39390f"
+    sha256 cellar: :any_skip_relocation, monterey:       "ef3f0b1417e1e000de414291b3aa8e6943e1561956c09e0ba4f6a13b18d207da"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3e7f1cce24863e1cd004aa5e48936fb3fa08221562f48a8df09a9d41d30abd65"
+    sha256 cellar: :any_skip_relocation, catalina:       "2b3f5a0fec4be94ade8e795bbed189d40b170bbe6666272f2769301a10a06b7b"
+    sha256 cellar: :any_skip_relocation, mojave:         "c725e454f415b326e51aa0f3b689597a7f88917997de91826e8ef234d8416d05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad63f1d5ee9d7cfe2f7ab3057133eed133ca766896d7910497d17eb23824e94e"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # Resources based on `pip3 install xonsh[ptk,pygments,proctitle]`
   # See https://xon.sh/osx.html#dependencies

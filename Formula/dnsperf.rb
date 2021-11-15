@@ -1,8 +1,8 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
   homepage "https://www.dns-oarc.net/tools/dnsperf"
-  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.7.0.tar.gz"
-  sha256 "6e38c182bfa9b33d7708dd59c33355fb5184af975a55fc9de91a2728f5342a6a"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.8.0.tar.gz"
+  sha256 "d50b9e05d9688a7b5906447cdca87bf1d8e100b5288e0081db6c3cdd0fea19b3"
   license "Apache-2.0"
 
   livecheck do
@@ -11,17 +11,18 @@ class Dnsperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "348a04545e3345fd768f6f8c16cbc952547f458e50c6800c8ba48a1fb5242848"
-    sha256 cellar: :any,                 big_sur:       "130c06cfb1bbb0fee4dd985ec258f7a4b458692e1935b70635d0f6f9677dfa1a"
-    sha256 cellar: :any,                 catalina:      "63b074a7b0417853d711728a1cf512d8beb0e380bedbdb74542762f717d15ba9"
-    sha256 cellar: :any,                 mojave:        "9a254bee84416f31a8166f334b6f3f9c4fe387432ec967e643c29058133ea38a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e73f40d98bf9f5e2c0e084697d1fb5b57efcd039ea417e91fbae95d498ae263"
+    sha256 cellar: :any,                 arm64_monterey: "f06383bf7ab68f519f5b7037e31dedad98c77857cf475ef800e842321627e689"
+    sha256 cellar: :any,                 arm64_big_sur:  "740913f29f416d20fe462a5b609358c9331de5a2a79f0555536f5a25a515eb22"
+    sha256 cellar: :any,                 monterey:       "4144d2024ed40fcd9b6e8684edd476c1a5a3b6077a600cb929043c067eaa8dd4"
+    sha256 cellar: :any,                 big_sur:        "fc969607e2baacfcf5f14cc7f7338b25c147a76d01718b2055efe6b9b2df2d69"
+    sha256 cellar: :any,                 catalina:       "01eb44eafb115cc6d3c688d79014a972c4b3bf9b4121349de6f9d71b458bc04b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7dfc2db092504211f547c184efbbaf3625175f9f6bd984528848f879f539fa0b"
   end
 
   depends_on "pkg-config" => :build
   depends_on "concurrencykit"
   depends_on "ldns"
-  depends_on "nghttp2"
+  depends_on "libnghttp2"
   depends_on "openssl@1.1"
 
   def install

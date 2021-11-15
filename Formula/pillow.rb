@@ -1,20 +1,23 @@
 class Pillow < Formula
   desc "Friendly PIL fork (Python Imaging Library)"
   homepage "https://python-pillow.org"
-  url "https://files.pythonhosted.org/packages/8f/7d/1e9c2d8989c209edfd10f878da1af956059a1caab498e5bc34fa11b83f71/Pillow-8.3.1.tar.gz"
-  sha256 "2cac53839bfc5cece8fdbe7f084d5e3ee61e1303cccc86511d351adcb9e2c792"
+  url "https://files.pythonhosted.org/packages/7d/2a/2fc11b54e2742db06297f7fa7f420a0e3069fdcf0e4b57dfec33f0b08622/Pillow-8.4.0.tar.gz"
+  sha256 "b8e2f83c56e141920c39464b852de3719dfbfb6e3c99a2d8da0edf4fb33176ed"
   license "HPND"
-  head "https://github.com/python-pillow/Pillow.git"
+  head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "503dca80c15baf181b507d10d76217a43afb6a9043a5c821997d11d59a542324"
-    sha256 cellar: :any, big_sur:       "f431196fb3a02dd5c37bdf076daea8a56f214d6123146627a1dfa3f9f0b03dd9"
-    sha256 cellar: :any, catalina:      "e27facb720fb31c1d03e3a1d8dee3f2ebb65607deb16290fb101cd8c24e3f960"
-    sha256 cellar: :any, mojave:        "1864ce64006f862444bc498e031d3f3b4258644b7387546491cfd9e6f5be81f5"
-    sha256               x86_64_linux:  "fd8454a24ddf90269d840a522ed79296a901c3f5d00e8aa10926a57f4b978751"
+    sha256 cellar: :any, arm64_monterey: "5b957e5afdd859268f4451665d142f7b8a1ed9186f6b36f22fe901891affa2dd"
+    sha256 cellar: :any, arm64_big_sur:  "b3ef0a8ef99c29d197ff4735a75d5dfcd7dba93d85f6957367da187b65fb5a3d"
+    sha256 cellar: :any, monterey:       "b5ca0c6fb4391f2d9e5e9f5d6984b034b0ccf0051225524ccf029c0ad5cd44e2"
+    sha256 cellar: :any, big_sur:        "59e29e62a00a1a7c743af405f5ca86919d4a72c266f03498a035e025a6a9e70c"
+    sha256 cellar: :any, catalina:       "7d202a4c71e5c3ecd5508e34a89082496441dcf4cbabd47174edaf1c6fb06dd8"
+    sha256 cellar: :any, mojave:         "7d9654f09ff31d8caf4363b25a11da203cd3c2725014fdbb8df6e1a7a9a91399"
+    sha256               x86_64_linux:   "af8b0493c459338a4cc5f7ac4a8bc6a88cee2640577e142557524e039accaa2e"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.8" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
   depends_on "jpeg"

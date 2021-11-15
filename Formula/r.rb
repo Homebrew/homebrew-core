@@ -1,8 +1,8 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-4/R-4.1.1.tar.gz"
-  sha256 "515e03265752257d0b7036f380f82e42b46ed8473f54f25c7b67ed25bbbdd364"
+  url "https://cran.r-project.org/src/base/R-4/R-4.1.2.tar.gz"
+  sha256 "2036225e9f7207d4ce097e54972aecdaa8b40d7d9911cd26491fac5a0fab38af"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,11 +11,11 @@ class R < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "11dc03536024f748a0889ff037c224b20bc73bceffa96403d066d788282de143"
-    sha256 big_sur:       "094853f678a1a13474e26f81edaaf21ffac080c21569cc55872efe1db88aad58"
-    sha256 catalina:      "ae5d7cf5f7c05ffbdc583b32e79c28f3c290aa5d5d7b03765b9104332fe3ea51"
-    sha256 mojave:        "5a79c1a2f55638b23ad41cfa92e2975b232cb6bef8eec7136c4b4f1b31a66ca6"
-    sha256 x86_64_linux:  "573f7af1a4535bb5a843a609d288ed90473543626482317386b8afe8c4f6f82a"
+    sha256 arm64_big_sur: "b74a59f79af6c5d1ce9508437a8cb5a2e7856b2107c2cf812f25177716040d3b"
+    sha256 monterey:      "46663a15e9762deaad72e5fb347c85edebc836fc071f5bd21b1948d90a9311bc"
+    sha256 big_sur:       "caf365bbc3764de78a390765b3b9c353c09bb7a26c8dd951d1dd6d01bf1f2889"
+    sha256 catalina:      "4a68b7c06e4582ac3e97785e0dabfd031235614d5451c7acc54c7f6957411e62"
+    sha256 x86_64_linux:  "9de6d636b0372e196b5a827f9107533d9d31159deefec9d839bd941608b6f737"
   end
 
   depends_on "pkg-config" => :build
@@ -23,6 +23,7 @@ class R < Formula
   depends_on "gcc" # for gfortran
   depends_on "gettext"
   depends_on "jpeg"
+  depends_on "libffi"
   depends_on "libpng"
   depends_on "openblas"
   depends_on "pcre2"
@@ -59,12 +60,10 @@ class R < Formula
       "--with-cairo",
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--without-x"
       args << "--with-aqua"
-    end
-
-    on_linux do
+    else
       args << "--libdir=#{lib}" # avoid using lib64 on CentOS
 
       # Avoid references to homebrew shims
@@ -110,10 +109,7 @@ class R < Formula
     lib.install_symlink Dir[r_home/"lib/*"]
 
     # avoid triggering mandatory rebuilds of r when gcc is upgraded
-    check_replace = true
-    on_linux do
-      check_replace = false
-    end
+    check_replace = OS.mac?
     inreplace lib/"R/etc/Makeconf", Formula["gcc"].prefix.realpath,
                                     Formula["gcc"].opt_prefix,
                                     check_replace

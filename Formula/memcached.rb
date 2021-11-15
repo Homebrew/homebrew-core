@@ -1,8 +1,8 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.6.10.tar.gz"
-  sha256 "ef46ac33c55d3a0f1c5ae8eb654677d84669913997db5d0c422c5eaffd694a92"
+  url "https://www.memcached.org/files/memcached-1.6.12.tar.gz"
+  sha256 "f291a35f82ef9756ed1d952879ef5f4be870f932bdfcb2ab61356609abf82346"
   license "BSD-3-Clause"
   head "https://github.com/memcached/memcached.git"
 
@@ -12,11 +12,13 @@ class Memcached < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "fbdd2bbefa53d607c9240a758d3a0bfe9509a2c2e58f7d20f91b11ad9b3d82b9"
-    sha256 cellar: :any, big_sur:       "f5910b6ea6ec8669064e79e28f8fbcf9f155b016e874dad889816ad7c99f5918"
-    sha256 cellar: :any, catalina:      "7a7c30fed3e7578b4274ccdf77da74a2e6810859f07aa5ab5d43f904a9ab6cff"
-    sha256 cellar: :any, mojave:        "84357e4c1510a651435e4b662124bb4654cc5427dc0ebbcbd45a70934a509257"
+    sha256 cellar: :any,                 arm64_monterey: "e7d312dfe8bfee71f97e69feb74825da9856e7f66686a3761bbc1501aea7157c"
+    sha256 cellar: :any,                 arm64_big_sur:  "6c68b634eb2af452b4561f3cd8eeb5c6b33d9932780a3fced9548517844302ec"
+    sha256 cellar: :any,                 monterey:       "246d9fdbe573d1932223fc4169b233a0e671c2a173c17bc663321efd3ef3a426"
+    sha256 cellar: :any,                 big_sur:        "3ca31f8a0a9ce8f39bff0cc151e7bf4170e2c70fe56ddcdc85a08f7c3e95ffb7"
+    sha256 cellar: :any,                 catalina:       "640996f262c2c0c8e74185ce5608147599f46c29e1cdbfe4fd9e19344422cf5c"
+    sha256 cellar: :any,                 mojave:         "67df39d8154409bc39114ff961183b6f4a35bcebe29d4985c317d2ee6990e8dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c068ec1555a37461db9d902c640121eebc7361405719e5dca9daa69248ff90b5"
   end
 
   depends_on "libevent"
@@ -37,15 +39,13 @@ class Memcached < Formula
     pidfile = testpath/"memcached.pid"
     port = free_port
     args = %W[
-      --listen=localhost:#{port}
+      --listen=127.0.0.1
+      --port=#{port}
       --daemon
       --pidfile=#{pidfile}
     ]
     on_linux do
-      if ENV["HOMEBREW_GITHUB_ACTIONS"]
-        args << "-u"
-        args << ENV["USER"]
-      end
+      args << "--user=#{ENV["USER"]}" if ENV["HOMEBREW_GITHUB_ACTIONS"]
     end
     system bin/"memcached", *args
     sleep 1

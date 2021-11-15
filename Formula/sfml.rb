@@ -6,14 +6,17 @@ class Sfml < Formula
   sha256 "bf1e0643acb92369b24572b703473af60bac82caf5af61e77c063b779471bb7f"
   license "Zlib"
   revision 1
-  head "https://github.com/SFML/SFML.git"
+  head "https://github.com/SFML/SFML.git", branch: "master"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "ef472896cd55333ffe21c531b3edb055e487f5a675174feacfa6e02269877a6d"
-    sha256 cellar: :any, big_sur:       "3b8efaafe447f0f3a218eb81a65d92715c35e3a703373256031cb0c3d9d21084"
-    sha256 cellar: :any, catalina:      "12898a75c1d21de54fef1ca9c42c2d115d30ffcc9d7b10546c9c8d7428b467fa"
-    sha256 cellar: :any, mojave:        "c45c383d9e0049ad94cbadb1f5bdd7b870bb01a9cdc8804f495e3ac48e8955d3"
+    sha256 cellar: :any,                 arm64_monterey: "1c47115d6352b6c60d3d99630532107ee64aa55d1e4f0c0e4cb5da969c6e99fb"
+    sha256 cellar: :any,                 arm64_big_sur:  "ef472896cd55333ffe21c531b3edb055e487f5a675174feacfa6e02269877a6d"
+    sha256 cellar: :any,                 monterey:       "62789446ecdd1939ae40c7a793c5089d44a945245b7169c66c0423e5e76c845d"
+    sha256 cellar: :any,                 big_sur:        "3b8efaafe447f0f3a218eb81a65d92715c35e3a703373256031cb0c3d9d21084"
+    sha256 cellar: :any,                 catalina:       "12898a75c1d21de54fef1ca9c42c2d115d30ffcc9d7b10546c9c8d7428b467fa"
+    sha256 cellar: :any,                 mojave:         "c45c383d9e0049ad94cbadb1f5bdd7b870bb01a9cdc8804f495e3ac48e8955d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35d1a87aeb3e38917032e7cd318742cbe3edc159deb39cfe70534c9ff149d7a1"
   end
 
   depends_on "cmake" => :build
@@ -49,9 +52,7 @@ class Sfml < Formula
             "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
             "-DSFML_BUILD_DOC=TRUE"]
 
-    on_linux do
-      args << "-DSFML_USE_SYSTEM_DEPS=ON"
-    end
+    args << "-DSFML_USE_SYSTEM_DEPS=ON" if OS.linux?
 
     system "cmake", ".", *std_cmake_args, *args
     system "make", "install"

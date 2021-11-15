@@ -6,10 +6,12 @@ class Genext2fs < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c0956842c6c717a7dd0b96d16a569700005d5863da8a78ce0eb281562fb5a664"
-    sha256 cellar: :any_skip_relocation, big_sur:       "73555ddf605c31d1ab998686f18291bb857bf0194e46b14ee6c42232d74d857c"
-    sha256 cellar: :any_skip_relocation, catalina:      "2223acb79fe730270f9dea81b2835d5fa72c099c91e817fb502d22ecb6b974df"
-    sha256 cellar: :any_skip_relocation, mojave:        "2523dcf597e5caa415a2be9a0a4b2ab472b573326bfbb894ce5983427a0419d0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0800a81e18bda856d6aa1ab72aaa8587d43ea589fbfa41ecc14c6eba40bb8356"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0956842c6c717a7dd0b96d16a569700005d5863da8a78ce0eb281562fb5a664"
+    sha256 cellar: :any_skip_relocation, monterey:       "253c8839c029932c41351dac2820708133c9574d2825f3974e290f545b40a4b5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "73555ddf605c31d1ab998686f18291bb857bf0194e46b14ee6c42232d74d857c"
+    sha256 cellar: :any_skip_relocation, catalina:       "2223acb79fe730270f9dea81b2835d5fa72c099c91e817fb502d22ecb6b974df"
+    sha256 cellar: :any_skip_relocation, mojave:         "2523dcf597e5caa415a2be9a0a4b2ab472b573326bfbb894ce5983427a0419d0"
   end
 
   depends_on "autoconf" => :build

@@ -7,14 +7,16 @@ class Remarshal < Formula
   sha256 "16425aa1575a271dd3705d812b06276eeedc3ac557e7fd28e06822ad14cd0667"
   license "MIT"
   revision 2
-  head "https://github.com/dbohdan/remarshal.git"
+  head "https://github.com/dbohdan/remarshal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "5dbc82f8251611f4d764d4207a222e1c577004f8be4b068edac392a822e275e0"
-    sha256 cellar: :any,                 big_sur:       "e80acb98ffa9b1810221849012cbb256fb576c2eaa7751a15d837f51b3e753a1"
-    sha256 cellar: :any,                 catalina:      "c565d849e47622eb7a95f5a4dbbc560aeb706c4ebef9f916096137d316a544ed"
-    sha256 cellar: :any,                 mojave:        "0eeefb705f7d7c83e76004df5c907b643b4ee296c24ee383c39e75490762523f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2abab456e063ee532c1ae5a4634a93a8d2309b4b746ba1666efe25bc91ce0bf"
+    sha256 cellar: :any,                 arm64_monterey: "adf0b3a109b3fb82cdb1404c4b27fc39df9350f3206ab3d8dc328633de1882a6"
+    sha256 cellar: :any,                 arm64_big_sur:  "5dbc82f8251611f4d764d4207a222e1c577004f8be4b068edac392a822e275e0"
+    sha256 cellar: :any,                 monterey:       "914527c856c6995d66b183a417bf43484dd16ea0e3c0a0e2feb71d3501a6a46a"
+    sha256 cellar: :any,                 big_sur:        "e80acb98ffa9b1810221849012cbb256fb576c2eaa7751a15d837f51b3e753a1"
+    sha256 cellar: :any,                 catalina:       "c565d849e47622eb7a95f5a4dbbc560aeb706c4ebef9f916096137d316a544ed"
+    sha256 cellar: :any,                 mojave:         "0eeefb705f7d7c83e76004df5c907b643b4ee296c24ee383c39e75490762523f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2abab456e063ee532c1ae5a4634a93a8d2309b4b746ba1666efe25bc91ce0bf"
   end
 
   depends_on "poetry" => :build

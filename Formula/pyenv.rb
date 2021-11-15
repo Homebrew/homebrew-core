@@ -1,11 +1,11 @@
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
-  url "https://github.com/pyenv/pyenv/archive/v2.0.4.tar.gz"
-  sha256 "930b51083ac3a9096da742a4fb3621ce249a6dd0556aa71fe39ca2afaa748346"
+  url "https://github.com/pyenv/pyenv/archive/v2.2.0.tar.gz"
+  sha256 "ef62a5d0a0d582b38497ae8d24a2a417d4a21c42811123c08082541a7092825d"
   license "MIT"
   version_scheme 1
-  head "https://github.com/pyenv/pyenv.git"
+  head "https://github.com/pyenv/pyenv.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,11 +13,12 @@ class Pyenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0a9028bca648d5bc788f1eba37cb69de8c9bcbc24a918230ad50b86a5db3614b"
-    sha256 cellar: :any,                 big_sur:       "043817ecfe1f1354d8a64b853600dc7216649d7873a847499feafd16a1292d36"
-    sha256 cellar: :any,                 catalina:      "93485a18eab042a34d384f70bbf52f5979cf617162c6e6ab9cfd9ce4ecc62bbc"
-    sha256 cellar: :any,                 mojave:        "35214e7c5d1f90ff0a1a4c1fe2da47c8729f58c63cf74c20cb8abd9530117f58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4663c72b3a8cb61728166879ef6851eeb5ed8b65a752552d277fef58e92d166"
+    sha256 cellar: :any,                 arm64_monterey: "1d326dcae6327e1a62a8026e80665a0d995eec0d26c27f417ef34a9b75a2e2a7"
+    sha256 cellar: :any,                 arm64_big_sur:  "38f17626731a50f95ce1ad71495de2d260706a1420a19f2f29e7c935525c8c01"
+    sha256 cellar: :any,                 monterey:       "b02075ca6820755aee0956795c7decbfac56562ba66fec06bea193116cef5de6"
+    sha256 cellar: :any,                 big_sur:        "880bf4a355cc3da07562b82bac1bf7d0f4bcde6c613f5ea691f50d4e013b1bf8"
+    sha256 cellar: :any,                 catalina:       "5f7f283d3029f6293a52fc5449cf6aae8be5976f605318c9afa300be3e7d88f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb8949a118e2b8012383fe822148778944d24fe7eab36655fad6e1f1d506e2ad"
   end
 
   depends_on "autoconf"
@@ -32,7 +33,7 @@ class Pyenv < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "python@3.9" => :test
+    depends_on "python@3.10" => :test
   end
 
   def install
@@ -47,6 +48,8 @@ class Pyenv < Formula
     %w[pyenv-install pyenv-uninstall python-build].each do |cmd|
       bin.install_symlink "#{prefix}/plugins/python-build/bin/#{cmd}"
     end
+
+    share.install prefix/"man"
 
     # Do not manually install shell completions. See:
     #   - https://github.com/pyenv/pyenv/issues/1056#issuecomment-356818337

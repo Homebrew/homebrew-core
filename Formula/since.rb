@@ -5,6 +5,11 @@ class Since < Formula
   sha256 "739b7f161f8a045c1dff184e0fc319417c5e2deb3c7339d323d4065f7a3d0f45"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?since[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "95b9b96522d9cdb0ac317550daf1c9ee102d1a4df7736cd2072d896adf05fc04"
     sha256 cellar: :any_skip_relocation, big_sur:       "60c3738e71c6455fa5a7445a21a79695d4644a34de06cbc05743a52c4f5b40f8"

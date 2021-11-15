@@ -11,15 +11,17 @@ class Ascii < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "961354b48b260c83374340b6f50bb440977edc81ffa6cb11293bd6265f94dd3e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ae1f4bca216200b2633f93da6d99c991f15755a130bd1cbc680377c251555d32"
-    sha256 cellar: :any_skip_relocation, catalina:      "2c106e2d3ce3534f09a5ce147f6fc0778e884d06f15e7c272ee99ccabaf947bd"
-    sha256 cellar: :any_skip_relocation, mojave:        "d5f4c8fe4ad1467c1708e49268a42f0d201f8c18ed912cf3de330bdf1f219cc1"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "858e5bd8f55367349f936f47346a7d4dc2afed7c8f3d9fca16c42071f537f644"
-    sha256 cellar: :any_skip_relocation, sierra:        "52fb2a78a1409f4f6db0b59589f773c4427c87a84a7fee1809e5f0a4d50e4d65"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "bbb5f365f96e42dfaa8af31f21daa8809b0a628451599fab7bc7509ceeb0d14f"
-    sha256 cellar: :any_skip_relocation, yosemite:      "ab520ebbe64a946a0ac0466537a0e207e49cd85979e41582ab542dcaef9db3ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31952089908444514e2e97d6d7a325d52136f8d7c8297210045a04608bf49ae8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "742c3b7dc29fc1df468027631c0bee9e5db9ee562adcc54f6081291d27ab0295"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "961354b48b260c83374340b6f50bb440977edc81ffa6cb11293bd6265f94dd3e"
+    sha256 cellar: :any_skip_relocation, monterey:       "3512701bc58ec647bd059ebcf0c56ad6b02fa1c437e51372e6d942aef6910e87"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ae1f4bca216200b2633f93da6d99c991f15755a130bd1cbc680377c251555d32"
+    sha256 cellar: :any_skip_relocation, catalina:       "2c106e2d3ce3534f09a5ce147f6fc0778e884d06f15e7c272ee99ccabaf947bd"
+    sha256 cellar: :any_skip_relocation, mojave:         "d5f4c8fe4ad1467c1708e49268a42f0d201f8c18ed912cf3de330bdf1f219cc1"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "858e5bd8f55367349f936f47346a7d4dc2afed7c8f3d9fca16c42071f537f644"
+    sha256 cellar: :any_skip_relocation, sierra:         "52fb2a78a1409f4f6db0b59589f773c4427c87a84a7fee1809e5f0a4d50e4d65"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "bbb5f365f96e42dfaa8af31f21daa8809b0a628451599fab7bc7509ceeb0d14f"
+    sha256 cellar: :any_skip_relocation, yosemite:       "ab520ebbe64a946a0ac0466537a0e207e49cd85979e41582ab542dcaef9db3ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31952089908444514e2e97d6d7a325d52136f8d7c8297210045a04608bf49ae8"
   end
 
   head do

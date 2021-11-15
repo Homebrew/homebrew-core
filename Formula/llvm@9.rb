@@ -5,14 +5,14 @@ class LlvmAT9 < Formula
   sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
-  revision 2
+  revision 4
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 big_sur:      "4ea2e3aefffd649357af3d4d884382821e9b1173d29e5c141d7735bf5e3f8796"
-    sha256 cellar: :any,                 catalina:     "b1845cee7f49596b1ce6fe7cfd1a0be22ae05c6fff17811a2951b01fe0b371c1"
-    sha256 cellar: :any,                 mojave:       "c9855ebfb96ab3ea128ad75360ab914b91e7769adff0b1cf053702b401813c20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c9fc85f3b0cc7858caf17f0a56acd6683e6d1c7aeaea93451dfc4356a9c999b7"
+    sha256 cellar: :any,                 monterey:     "f7d35848ad1b76f358c742719cf3f0fe5cc913a0e04e1a81838ecc30cea22d7f"
+    sha256 cellar: :any,                 big_sur:      "611f1a48eaa5ea4abda72ec633671c1ec56541fb2acf9ed8021ac540e863ab33"
+    sha256 cellar: :any,                 catalina:     "111e5fdea2179635cb834f62ac0e8e967c4b9e9ad4ed99c8db6a0879f58ff524"
+    sha256 cellar: :any,                 mojave:       "de79caa57933b7618c0cb92aad49fdf7f8758d0875466050908737d32f9e5b61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "02addeab63f5540124b9b12c600952190c400c3a7559596537166ef21d9cf3d9"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -34,7 +34,7 @@ class LlvmAT9 < Formula
   on_linux do
     depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
-    depends_on "libelf" # openmp requires <gelf.h>
+    depends_on "elfutils" # openmp requires <gelf.h>
     depends_on "python@3.8"
   end
 
@@ -105,7 +105,7 @@ class LlvmAT9 < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx")
-    on_linux { (buildpath/"projects/libcxxabi").install resource("libcxxabi") }
+    (buildpath/"projects/libcxxabi").install resource("libcxxabi") if OS.linux?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/lldb").install resource("lldb")
@@ -145,7 +145,7 @@ class LlvmAT9 < Formula
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
     end
 
-    on_macos do
+    if OS.mac?
       args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if MacOS.version <= :mojave
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
@@ -155,7 +155,7 @@ class LlvmAT9 < Formula
       args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
     end
 
-    on_linux do
+    if OS.linux?
       args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
@@ -197,8 +197,11 @@ class LlvmAT9 < Formula
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
     # install llvm python bindings
-    xz = "2.7"
-    on_linux { xz = "3.8" }
+    xz = if OS.mac?
+      "2.7"
+    else
+      "3.8"
+    end
     (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
@@ -241,7 +244,7 @@ class LlvmAT9 < Formula
       "-nobuiltininc",
       "-I#{lib}/clang/#{clean_version}/include",
     ]
-    on_linux { args << "-Wl,-rpath=#{lib}" }
+    args << "-Wl,-rpath=#{lib}" if OS.linux?
 
     system "#{bin}/clang", *args, "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
@@ -276,7 +279,7 @@ class LlvmAT9 < Formula
     # Testing default toolchain and SDK location.
     system "#{bin}/clang++", "-v",
            "-std=c++11", "test.cpp", "-o", "test++"
-    on_macos { assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" }
+    assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" if OS.mac?
     assert_equal "Hello World!", shell_output("./test++").chomp
     system "#{bin}/clang", "-v", "test.c", "-o", "test"
     assert_equal "Hello World!", shell_output("./test").chomp

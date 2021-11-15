@@ -1,17 +1,18 @@
 class Oauth2Proxy < Formula
   desc "Reverse proxy for authenticating users via OAuth 2 providers"
   homepage "https://oauth2-proxy.github.io/oauth2-proxy/"
-  url "https://github.com/oauth2-proxy/oauth2_proxy/archive/v7.1.3.tar.gz"
-  sha256 "b6d45f3b44a98002ce8f3b581ffd79ade33fb19f374093df43564464439257ad"
+  url "https://github.com/oauth2-proxy/oauth2_proxy/archive/v7.2.0.tar.gz"
+  sha256 "2e1d15083902137c7939dea235ec72fc2cc818de8af540302a2ca66cdabdf4e6"
   license "MIT"
-  head "https://github.com/oauth2-proxy/oauth2-proxy.git"
+  head "https://github.com/oauth2-proxy/oauth2-proxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9d950a65f353b4a1a5dc50dfc14787563da71e1abeebe5e1ef9ce95902a7f99"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b073697acb3f2d6a3a9937c97a3d70de4441c7defa84e6bfbc96b1e5108082bc"
-    sha256 cellar: :any_skip_relocation, catalina:      "dc28f5a739675ce3ec65a0a543f8616db14b67873cbae476f2ca83538f3f081c"
-    sha256 cellar: :any_skip_relocation, mojave:        "19281c15d78f17d6fa9c6c07196803aadac303bb551bcc30651838149c0c8fc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d49b5d86995655f5d4da3a47784cfd56839bd48c872219ea91debd1599a4022"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d80ccdedcd39fef312774b9fb03a38f1620a5e8785c52e996a285ca38b2bf5c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4711f05aad5403a07683f1506548c2dcbd120de9fe7d7dbd272633e2a46e97b2"
+    sha256 cellar: :any_skip_relocation, monterey:       "4fad35aa9831749fa67d830806d4970023cd2efe916657a85422e8dcd41d53ee"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b6a4c2f5dc2196c0b2a110bef21e717b5073d258409e52ef5f98271c8728d44d"
+    sha256 cellar: :any_skip_relocation, catalina:       "0d98e96bbbd926774ae07441f115732755d2d871897d371af0e1a1df9e6c6a28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03d8171193bae05af58e33086db444f92ec829038a3c3750a7d5a7dea211fc92"
   end
 
   depends_on "go" => :build
@@ -30,30 +31,10 @@ class Oauth2Proxy < Formula
     EOS
   end
 
-  plist_options manual: "oauth2-proxy"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/oauth2-proxy</string>
-              <string>--config=#{etc}/oauth2-proxy/oauth2-proxy.cfg</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"oauth2-proxy", "--config=#{etc}/oauth2-proxy/oauth2-proxy.cfg"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

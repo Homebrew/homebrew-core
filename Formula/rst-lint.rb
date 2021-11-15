@@ -6,17 +6,19 @@ class RstLint < Formula
   url "https://files.pythonhosted.org/packages/45/69/5e43d0e8c2ca903aaa2def7f755b97a3aedc5793630abbd004f2afc3b295/restructuredtext_lint-1.3.2.tar.gz"
   sha256 "d3b10a1fe2ecac537e51ae6d151b223b78de9fafdd50e5eb6b08c243df173c80"
   license "Unlicense"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f156a31ad65e1a3e56b7f45b1da4eb511ac5d3a371cfc8a3cbf4989aafae0f45"
-    sha256 cellar: :any_skip_relocation, big_sur:       "297a26765ed29b28f2ec1e6cf28e8fafed936a2c255f0e690b412b08714bb3a0"
-    sha256 cellar: :any_skip_relocation, catalina:      "4b462c6a7aad71c3c30db75f957616d8130c371ce0b4e0578ff3d3558d7a4127"
-    sha256 cellar: :any_skip_relocation, mojave:        "d4b15aa742bb6c4131abca592f5de3ad7095cdc41353c66ef605abb2f4e4d71c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "061745ebccbb1e881785cc42b95a4e792172482176c36db4cc63990a939a2cf3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f38f4267988a8a15da26707c04bd7fe201a12ca94c43e7ac32a054953143f49"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f38f4267988a8a15da26707c04bd7fe201a12ca94c43e7ac32a054953143f49"
+    sha256 cellar: :any_skip_relocation, monterey:       "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
+    sha256 cellar: :any_skip_relocation, catalina:       "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
+    sha256 cellar: :any_skip_relocation, mojave:         "4e0d8defb5305731e9053120f61fba399c1fc2908367df0ce332acfc09d2550a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5492b290c6c3b00356c0d956ca4d270855c2852519114ade876c6ea5b183932"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz"

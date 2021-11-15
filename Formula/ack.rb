@@ -5,6 +5,11 @@ class Ack < Formula
   sha256 "6870d3c90691c3c4a9ec2ae69880e85c5188aa57adeeca2a794b477e034b989f"
   license "Artistic-2.0"
 
+  livecheck do
+    url "https://beyondgrep.com/install/"
+    regex(/href=.*?ack[._-]v?(\d+(?:\.\d+)+)["' >]/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "26e3c497d9583d7d8b8bfe60f75b3485bc7f07f0e1ea86ad5b338f58bd88a930"

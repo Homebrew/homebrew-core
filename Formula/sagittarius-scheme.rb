@@ -1,16 +1,17 @@
 class SagittariusScheme < Formula
   desc "Free Scheme implementation supporting R6RS and R7RS"
   homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
-  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.7.tar.gz"
-  sha256 "a8517ef342aadf9fb964e03fd03d4eb13287e5686406ba60d93d6e5c9c91f2a2"
+  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.8.tar.gz"
+  sha256 "09d9c1a53abe734e09762a5f848888f0491516c09cd341a1f9c039cd810d32a2"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256                               big_sur:      "571c191c879cfa536eb60639ad65f82bc30f2782c18ed747dae167254f1e1e8e"
-    sha256                               catalina:     "7199d76824cd0de62da70f2eff3db66f0944c2851e4ee868359b7bdbe4685994"
-    sha256                               mojave:       "d350853fda37321efe29a14f988b3039126559e489b2fb93a41ca538ca7a2f29"
-    sha256                               high_sierra:  "8824ccf2baa439cc953d8b373010e5f00fabb51dd6837f68323993b69549bb84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e622aaaef6440cec0bb67fc4e4300eac3dff64aaa116ffcd1ab9cc81b9e05ac6"
+    sha256 cellar: :any,                 monterey:     "0e3bc5c34bd1acc50c8ba8d98b474c329068d3ff1a911bf1d8d7e3c4f02c115e"
+    sha256 cellar: :any,                 big_sur:      "a44076e41f030ddccfed6768ada1ff0201ff6ffb86cce425c3fbabda799883a0"
+    sha256 cellar: :any,                 catalina:     "aa2fbe6b306de8d985d0e93f12d9f896b4f7ae5403778508d077bdf975868bcb"
+    sha256 cellar: :any,                 mojave:       "dccfa0d38b7096e3c27676fd09d8984009128c1017948d711087dc9d66f44f6f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1b527a2abacbc00092ddabd94995149367ac2f388ec739b90a462160d29cbe78"
   end
 
   depends_on "cmake" => :build

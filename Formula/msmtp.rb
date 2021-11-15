@@ -1,8 +1,8 @@
 class Msmtp < Formula
   desc "SMTP client that can be used as an SMTP plugin for Mutt"
   homepage "https://marlam.de/msmtp/"
-  url "https://marlam.de/msmtp/releases/msmtp-1.8.15.tar.xz"
-  sha256 "2265dc639ebf2edf3069fffe0a3bd76749f8b58f4001d5cdeae19873949099ce"
+  url "https://marlam.de/msmtp/releases/msmtp-1.8.19.tar.xz"
+  sha256 "34a1e1981176874dbe4ee66ee0d9103c90989aa4dcdc4861e4de05ce7e44526b"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,26 +11,21 @@ class Msmtp < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "9e321f6cbb4178c04ead2f89ee357d7a216d886e27e8902780180f7ee583b5e9"
-    sha256 big_sur:       "f2f12ecc517a43485ad6b4de45bba8a3a0434f6e568ff40f0dcd9b0ca0aab7b3"
-    sha256 catalina:      "905c4115c7457ef7a063a94b0eb7f31e5c9713858b75edf711410b39c4c0991e"
-    sha256 mojave:        "beffeb0167849f87a790624c01ab67ad2e007c2c0b0b2e3bd9a7f7522ca1ea29"
-    sha256 x86_64_linux:  "f0419a89b057dea2b2630330ca311e23b729c278b7253807c0841f589f32596d"
+    sha256 arm64_monterey: "cc09836a4d4006b9e20e348e2489b7ff94bf3fe0bca96bad7c6524b5398e21dd"
+    sha256 arm64_big_sur:  "afdf2c4eab253086bd05d3d17bb4fd9a4e6ec5b1f7278fe045691a42d196d5b9"
+    sha256 monterey:       "5b04585e765b4eb238737921a5fd482c5c7f6cb6d50e28401088af359f7ee3a7"
+    sha256 big_sur:        "78aa3acd39b6a9ae44490a55990835836cf5b10d3f5f47180d52313f90c334f5"
+    sha256 catalina:       "49ef11f00b1ec162a5e6c0d7ab457dd6a9cbfee963bbe5a37a7c65309aaf8178"
+    sha256 x86_64_linux:   "6824e305e82046605a01143e3f3dd00ce66ec9a3a71526c24e29026668e58c99"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gettext"
   depends_on "gnutls"
+  depends_on "libidn2"
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --with-macosx-keyring
-      --prefix=#{prefix}
-    ]
-
-    system "./configure", *args
+    system "./configure", *std_configure_args, "--disable-silent-rules", "--with-macosx-keyring"
     system "make", "install"
     (pkgshare/"scripts").install "scripts/msmtpq"
   end

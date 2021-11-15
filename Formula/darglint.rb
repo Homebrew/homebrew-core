@@ -3,19 +3,21 @@ class Darglint < Formula
 
   desc "Python docstring argument linter"
   homepage "https://github.com/terrencepreilly/darglint"
-  url "https://files.pythonhosted.org/packages/8d/1a/86f981066bc6f9d90d73da0ce09d2084abf1a0fafa9f28fb5130b7186da2/darglint-1.8.0.tar.gz"
-  sha256 "aa605ef47817a6d14797d32b390466edab621768ea4ca5cc0f3c54f6d8dcaec8"
+  url "https://files.pythonhosted.org/packages/d4/2c/86e8549e349388c18ca8a4ff8661bb5347da550f598656d32a98eaaf91cc/darglint-1.8.1.tar.gz"
+  sha256 "080d5106df149b199822e7ee7deb9c012b49891538f14a11be681044f0bb20da"
   license "MIT"
   head "https://github.com/terrencepreilly/darglint.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9c9b15a285b22cf03670850d24c7896246acb333c0d548d9d252bcf1f1f242aa"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b02d50b5140296e947def3daa60b5c85814de8b2801ac8b467ba98667f1a8bf1"
-    sha256 cellar: :any_skip_relocation, catalina:      "7baab8fba04fc191938885ff7e86990d94dce84ff3c7407ede352fbdd7d3456b"
-    sha256 cellar: :any_skip_relocation, mojave:        "4df445fe8a9aeb76d8ea3da5eaedca03f42bf39f4c227064e8ab447ab68ba362"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7462727f3dc2fa353d3a7c06d2151acd34d361c7e2756c13f61b6f6834c03870"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42e91f209c5c3a31378b08128e872de32cf6be51cf54ced378a51ef8a2220e42"
+    sha256 cellar: :any_skip_relocation, monterey:       "9a671f2790a10f4f7d5c8ccd55249eba10991aadd39040fa4edaf04586d35f33"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f1a2ee8eeca7a285648d9c4e2c3d00031025c3f50614f992878bab0f00b57d61"
+    sha256 cellar: :any_skip_relocation, catalina:       "f9d1151558abf70184f0ed3d66c94e8a9f1f89a9cf20bae7db030e71e091263a"
+    sha256 cellar: :any_skip_relocation, mojave:         "aa84254d72fcccfece16713b9f7648aeaef79831465d2f14032b942a48a17801"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources

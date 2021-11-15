@@ -12,17 +12,25 @@ class Jags < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "ea0be62c30efa7d985684c3295af0fa972596ed029622af0cf409740d3658c2e"
-    sha256 cellar: :any,                 big_sur:       "72c2e292449224ec4b825399233be7de57fff2b810c7d31d738386c829a53098"
-    sha256 cellar: :any,                 catalina:      "11423ce61e9c8c567179c82e03179427ee9161808ff7256ffca47f72030359b7"
-    sha256 cellar: :any,                 mojave:        "9e1448b73ba0853385cdfd2861fd273588a6a8557522f0d3073f50154130e900"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "291114d6ec1984a0942fe9f7421d481d92ef96e1a510ceaa4391ff88ac11a7e5"
+    sha256 cellar: :any,                 arm64_monterey: "e2562319bd140af62e154596b8c9f42511c0907d77d0e5ce4b3579f5752af20a"
+    sha256 cellar: :any,                 arm64_big_sur:  "ea0be62c30efa7d985684c3295af0fa972596ed029622af0cf409740d3658c2e"
+    sha256 cellar: :any,                 monterey:       "a8b0f9f5bcdef8dd9cf4ccff73d2b3076a8e445c4e565e525c2c4ef9f1a5c01c"
+    sha256 cellar: :any,                 big_sur:        "72c2e292449224ec4b825399233be7de57fff2b810c7d31d738386c829a53098"
+    sha256 cellar: :any,                 catalina:       "11423ce61e9c8c567179c82e03179427ee9161808ff7256ffca47f72030359b7"
+    sha256 cellar: :any,                 mojave:         "9e1448b73ba0853385cdfd2861fd273588a6a8557522f0d3073f50154130e900"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "291114d6ec1984a0942fe9f7421d481d92ef96e1a510ceaa4391ff88ac11a7e5"
   end
 
   depends_on "gcc" # for gfortran
 
   on_linux do
     depends_on "openblas"
+  end
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install

@@ -3,16 +3,19 @@ require "language/node"
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-1.21.0.tgz"
-  sha256 "8d61454f8f969260aecc1f46f4ca0123c55c2fbe4ecd3303d095ec90ecd3dc4f"
+  url "https://registry.npmjs.org/appium/-/appium-1.22.0.tgz"
+  sha256 "69194d5d4ea68e6de101a12332e1484e211ff07a299f1fcf1736e91332a634e7"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4dd71c228058ccb1d8d5228bfe2e185f56b6bf3319bc0eb7a869063061a5d865"
-    sha256 cellar: :any, big_sur:       "23444487c2d7cf59ac07501c52fe8a93811176242d7a46c4a24fa28fe00cf8a6"
-    sha256 cellar: :any, catalina:      "23444487c2d7cf59ac07501c52fe8a93811176242d7a46c4a24fa28fe00cf8a6"
-    sha256 cellar: :any, mojave:        "23444487c2d7cf59ac07501c52fe8a93811176242d7a46c4a24fa28fe00cf8a6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a97c12179b71dbf4b3ae1a3430b33d660e2b5dc5a86c62023e77450fc7e5bb9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aef088c27cda107b9106c01720f814152bf2ea97cb94b59bc736e459e78aa911"
+    sha256 cellar: :any_skip_relocation, monterey:       "c80273487660e531c761deac4b76e2c4a79edcea37e965f3084332825a598d9d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2817c721f277da6d1e4ba0ed7272ca1d4291b538a0efd6f84fd8c43d86951066"
+    sha256 cellar: :any_skip_relocation, catalina:       "2817c721f277da6d1e4ba0ed7272ca1d4291b538a0efd6f84fd8c43d86951066"
+    sha256 cellar: :any_skip_relocation, mojave:         "2817c721f277da6d1e4ba0ed7272ca1d4291b538a0efd6f84fd8c43d86951066"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aef088c27cda107b9106c01720f814152bf2ea97cb94b59bc736e459e78aa911"
   end
 
   depends_on "node"

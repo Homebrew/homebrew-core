@@ -1,10 +1,12 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1.tar.gz"
-  sha256 "fac3915171d4dff25913975d712f76e69aef44bf738ba7b976793a458b4cfed4"
+  url "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-3.21.4.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.21.4.tar.gz"
+  sha256 "d9570a95c215f4c9886dd0f0564ca4ef8d18c30750f157238ea12669c2985978"
   license "BSD-3-Clause"
-  head "https://gitlab.kitware.com/cmake/cmake.git"
+  head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
   # The "latest" release on GitHub has been an unstable version before, so we
   # check the Git tags instead.
@@ -14,15 +16,13 @@ class Cmake < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d0adf9e1c020361a6f7a2e02d88b6b7d59f23c6487a54240a5ca1ac677501bb4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4ffc49c18cfc6e55a1f61fd62657de2aed1c7debec7e676e5c0160849f391287"
-    sha256 cellar: :any_skip_relocation, catalina:      "57dc1f490dd0b29f486d6cfabcd5aafdfc68dc9cc4f093bf1120761aa7d85ae7"
-    sha256 cellar: :any_skip_relocation, mojave:        "a7f593d9424c66ed3c2f6a7654c14176bc0ca913d7c676499a74835130cdc6c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60f1c7452490ddc0eb99c0217d6ec68b1c35e5aa683dfff6aacdace0a29ff147"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c86a0bb0e37c293e2d4475519d28f2784c430e871f74969a1a2afeb64b540a7d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86199f003e396fc43d483dfae6322be8aad0a8b3a6501bb20af916a60027a78f"
+    sha256 cellar: :any_skip_relocation, monterey:       "d6fb0df5818454f9f9074552eb06c34146da91c5212c16057b544a3677a29d9a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b7170cb38b7eae4e2b115824984cef98e004366c5910fe7cee189a62dac58d13"
+    sha256 cellar: :any_skip_relocation, catalina:       "2dde258f7e2f20077c79996d0c14a3899b3aa9db34f57ad9aa96d420172fbd80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13702d526428c2f42074567af2730c649eb76da686cc22c3a2b5ef7c4464d845"
   end
-
-  depends_on "sphinx-doc" => :build
 
   uses_from_macos "ncurses"
 
@@ -44,11 +44,8 @@ class Cmake < Formula
       --datadir=/share/cmake
       --docdir=/share/doc/cmake
       --mandir=/share/man
-      --sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
-      --sphinx-html
-      --sphinx-man
     ]
-    on_macos do
+    if OS.mac?
       args += %w[
         --system-zlib
         --system-bzip2
@@ -67,8 +64,19 @@ class Cmake < Formula
     (pkgshare/"Modules/Internal/CPack/CPack.OSXScriptLauncher.in").unlink
   end
 
+  def caveats
+    <<~EOS
+      To install the CMake documentation, run:
+        brew install cmake-docs
+    EOS
+  end
+
   test do
     (testpath/"CMakeLists.txt").write("find_package(Ruby)")
     system bin/"cmake", "."
+
+    # These should be supplied in a separate cmake-docs formula.
+    refute_path_exists doc/"html"
+    refute_path_exists man
   end
 end

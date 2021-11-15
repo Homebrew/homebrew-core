@@ -1,20 +1,23 @@
 class Mint < Formula
   desc "Dependency manager that installs and runs Swift command-line tool packages"
   homepage "https://github.com/yonaskolb/Mint"
-  url "https://github.com/yonaskolb/Mint/archive/0.16.0.tar.gz"
-  sha256 "bbd258ba5e79da579b0d0526c55c5141382df638a1fb139e02fa92a66b608be4"
+  url "https://github.com/yonaskolb/Mint/archive/0.17.1.tar.gz"
+  sha256 "0e3ab23e548a752f6eee3a7b98d1c137a30371e4a0ec9212840baaa56741d2e4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eaf4c91e17438d0968ff29a6429c55f93c0aa02614f2c3f7a1a4b106375dd085"
-    sha256 cellar: :any_skip_relocation, big_sur:       "599c2482d15b729dc72ffa23d38599d551a42b70b81079b9a573cd91bc78d8d0"
-    sha256 cellar: :any_skip_relocation, catalina:      "376d67667e9003d503368e39d89a2592dd91daec615310bb2fad3d9ee971d8a8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1c0ec84137dd50cf949a68e1b8d3729956e2843e1cc48c6827d26e6d7dbc74fc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c57aaea4b6eb863ef946bafe3a77f3d32ad4e10e05876b7c6b2df8f8b9656f4e"
+    sha256 cellar: :any_skip_relocation, monterey:       "5faf98e60b6d18332bcac4ab076f6ba861ee7daea4c23a85f97e6c8fa3d1f463"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3ccf422821dd5fc82488f8e0ab2a11efb645901527b8cf9c42979cc152a9ce02"
+    sha256 cellar: :any_skip_relocation, catalina:       "d09ea36619994628564fb3d7e8e71b8c368c59f68e29174fb84b9b127bd9290e"
   end
 
   depends_on xcode: ["12.0", :build]
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "swift", "build", "--disable-sandbox", "-c", "release"
+    bin.install ".build/release/#{name}"
   end
 
   test do

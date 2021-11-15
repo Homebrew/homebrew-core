@@ -7,6 +7,7 @@ class Libdbi < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 monterey:     "4a524cd1c3ee5cb9c053b01f01125ecca43d4def593b5afcca64b84307dcf505"
     sha256 cellar: :any,                 big_sur:      "af53bebb0b59917b87468a5cc52b168c01e40b83c5eff987ffa2655c9e64ac3b"
     sha256 cellar: :any,                 catalina:     "ce66e90000681c5f9174c3698ac4ceefd5d1be6ca4ffa574053f0705217c6837"
     sha256 cellar: :any,                 mojave:       "3aff10515535dc3f99dfa56644229daba74f719838d3e580754b3bbdc3c0429d"

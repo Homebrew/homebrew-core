@@ -5,7 +5,7 @@ class Pdf2htmlex < Formula
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
   license "GPL-3.0-or-later"
   revision 24
-  head "https://github.com/coolwanglu/pdf2htmlEX.git"
+  head "https://github.com/coolwanglu/pdf2htmlEX.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "8c29d3c811e6e6580644620a76848458db39181b996cc15e4df2589c8de40e27"
@@ -60,7 +60,7 @@ class Pdf2htmlex < Formula
       # https://github.com/coolwanglu/pdf2htmlEX/issues/713
       inreplace "gutils/gimagereadgif.c", "DGifCloseFile(gif)", "DGifCloseFile(gif, NULL)"
 
-      on_macos do
+      if OS.mac?
         # Fix linker error; see: https://trac.macports.org/ticket/25012
         ENV.append "LDFLAGS", "-lintl"
       end

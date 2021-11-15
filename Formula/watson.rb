@@ -6,17 +6,20 @@ class Watson < Formula
   url "https://files.pythonhosted.org/packages/59/fc/cd80b0504fec73821ccbdbb276e0ea2092d1be62f0a7ca7722d8a0cc4368/td-watson-2.0.1.tar.gz"
   sha256 "a665775a76fb3ac464153e10991577a38ca938adae2142a24c9d1b1234db95f0"
   license "MIT"
-  head "https://github.com/TailorDev/Watson.git"
+  revision 1
+  head "https://github.com/TailorDev/Watson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6a801dbfdacc66d2db3bcdc3ec7cd0305e9c0c9e774113e8741dcec56686b7da"
-    sha256 cellar: :any_skip_relocation, big_sur:       "54cc3648f3ad575925332ef0cbb1112a7e988c944f462520143706721dcb1690"
-    sha256 cellar: :any_skip_relocation, catalina:      "5d090380d0f52329f78d37627d991512763e58270d77dd221d724794dfc142c0"
-    sha256 cellar: :any_skip_relocation, mojave:        "6041767d0befeb2912675b1287d7dff6b1b1afc2168d68e60f1390491ba27053"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "781861e077399e7ccd716de21800e741749f50f44c0be1e774159b943560f09f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8dff1bdd517692e212a3ba6e1bcefbb46bf0388da370ee050153e816b42417f0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf07aab5cd5de88d5fbd6fbeed35147e6e67632036740bfdc7542892d4de0d07"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec2db9fee1bbf9a1239b33bd7ce02bf1ecbcdab0bbf142e48629087e33e65da5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7bdd85818b61af3db8e38075700e27432f78aae2374d3086d676ba7244e468c1"
+    sha256 cellar: :any_skip_relocation, catalina:       "e7119a6c5cbbb3c00950765a5c10b7f7274742f3811c7ecc486f45bec084b787"
+    sha256 cellar: :any_skip_relocation, mojave:         "ace29559758de8e640ccec1f1ea06d17aa6fdcc793b66a393646a6a4292f230e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be693598e1a92a5cf781e90f148c915d4673a880bedef7bf1deecf5f1b79668d"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/0a/97/e58a3cd2207cb9cb7aa9b91f3bc4df3b4e13eafc88d75b1a9f4535ea6e1f/arrow-1.1.0.tar.gz"

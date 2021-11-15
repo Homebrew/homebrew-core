@@ -1,22 +1,25 @@
 class X8664ElfGdb < Formula
   desc "GNU debugger for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
+  # Please add to synced_versions_formulae.json once version synced with gdb
   url "https://ftp.gnu.org/gnu/gdb/gdb-10.2.tar.xz"
   mirror "https://ftpmirror.gnu.org/gdb/gdb-10.2.tar.xz"
   sha256 "aaa1223d534c9b700a8bec952d9748ee1977513f178727e1bee520ee000b4f29"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://sourceware.org/git/binutils-gdb.git"
+  head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   livecheck do
     formula "gdb"
   end
 
   bottle do
-    sha256 arm64_big_sur: "c2ad5a848a586c732f9ef0d51c432a2606343336bafd226c909d832a66e63411"
-    sha256 big_sur:       "5c67cee5589f207de3b521fea5b1805e717b5101bb95d335752e74250e520abf"
-    sha256 catalina:      "9b795b9a0dfd2d16d96218650d55c4037c60631f90c2584300429d52273d352d"
-    sha256 mojave:        "0b742041c90c670607311c303bf59f1aeb5517dc1573d8690564736b01dcbca1"
+    sha256 arm64_monterey: "9e34d2e213705832ed1f5800868b1b4d0918054432806df08cd521d9dc98de1a"
+    sha256 arm64_big_sur:  "c2ad5a848a586c732f9ef0d51c432a2606343336bafd226c909d832a66e63411"
+    sha256 monterey:       "0aa2bd5bf04a3d2951b3b0591b87de5d2867e8704247672676b471eed16baf00"
+    sha256 big_sur:        "5c67cee5589f207de3b521fea5b1805e717b5101bb95d335752e74250e520abf"
+    sha256 catalina:       "9b795b9a0dfd2d16d96218650d55c4037c60631f90c2584300429d52273d352d"
+    sha256 mojave:         "0b742041c90c670607311c303bf59f1aeb5517dc1573d8690564736b01dcbca1"
   end
 
   depends_on "x86_64-elf-gcc" => :test

@@ -16,11 +16,13 @@ class Asciiquarium < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "8c9d6bd3efb4262f656cfc13688ab05f0170ef2722bed28a77e0857c2473750a"
-    sha256 cellar: :any,                 big_sur:       "ed80b66a1dad41855acd00b13b9c0d038f5bd3d8aaf59a7875bf5f317d38bb11"
-    sha256 cellar: :any,                 catalina:      "cfd54b1753a801f6d6e74bcebd384e9d8b1dd9a51eb5271ff0a76e0d392c41fa"
-    sha256 cellar: :any,                 mojave:        "1e50254a2473ef040dafa627205372aad2077fcbd04c8e062fe92344c9936eeb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad3d1c9523192031f36ff1699cf759276f99b1810164c65cc49c0de7dd58cf67"
+    sha256 cellar: :any,                 arm64_monterey: "6935116efa2d44d7bfdbbf1957982846a93b8918e5f787cdeeb8a681d8bf1e15"
+    sha256 cellar: :any,                 arm64_big_sur:  "8c9d6bd3efb4262f656cfc13688ab05f0170ef2722bed28a77e0857c2473750a"
+    sha256 cellar: :any,                 monterey:       "e69ea78fb241e66ab96b7901584ac17e6de805733fee4782414296fadd6c1ff5"
+    sha256 cellar: :any,                 big_sur:        "ed80b66a1dad41855acd00b13b9c0d038f5bd3d8aaf59a7875bf5f317d38bb11"
+    sha256 cellar: :any,                 catalina:       "cfd54b1753a801f6d6e74bcebd384e9d8b1dd9a51eb5271ff0a76e0d392c41fa"
+    sha256 cellar: :any,                 mojave:         "1e50254a2473ef040dafa627205372aad2077fcbd04c8e062fe92344c9936eeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad3d1c9523192031f36ff1699cf759276f99b1810164c65cc49c0de7dd58cf67"
   end
 
   depends_on "ncurses"

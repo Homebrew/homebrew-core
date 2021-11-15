@@ -6,18 +6,19 @@ class Gitless < Formula
   url "https://files.pythonhosted.org/packages/9c/2e/457ae38c636c5947d603c84fea1cf51b7fcd0c8a5e4a9f2899b5b71534a0/gitless-0.8.8.tar.gz"
   sha256 "590d9636d2ca743fdd972d9bf1f55027c1d7bc2ab1d5e877868807c3359b78ef"
   license "MIT"
-  revision 7
+  revision 11
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "8fe3da387f2212fe2618a07b2e1682e3bae08be20f105734e21079f0f3df7d79"
-    sha256 cellar: :any,                 big_sur:       "4c845e5cc5e9fafccda5ab5b2dfeb1e9cbbbe8f67ab9c2f72060c09a8d7743e4"
-    sha256 cellar: :any,                 catalina:      "1f52f84f5a9f9c9633e7fc9ef7ef8227431abd37ca6629f33986766b61470cc0"
-    sha256 cellar: :any,                 mojave:        "50884b829598dab4558bc9f338b96b6ac18302c426ad6cfd440d2d721b1cb30a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f96f40ad37f7d67f323345dacd66ec82fbafba42700950f89e2754550deaf2dd"
+    sha256 cellar: :any,                 arm64_monterey: "9819d2fec72194b54351868a51f4723e7cc52d30a705e0a0df4837b7aba776e5"
+    sha256 cellar: :any,                 arm64_big_sur:  "31bdb3def00769e084c2495713c6040fafdd0d5fc121752f03f9f3dfc02f27eb"
+    sha256 cellar: :any,                 monterey:       "24456786dc00e0f79bfd4cc750f889098867b283c3dce55f5089ac27a4f2cb70"
+    sha256 cellar: :any,                 big_sur:        "e6b4053e9773249c6f2339f050669540839c12eadc2527894a979d8d8d751e0a"
+    sha256 cellar: :any,                 catalina:       "0fec481286ed89b56ed9ee85215deb4257e77bdbacd1334aad08978aff76daed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50400bcb61bd87e814c7bd7b9ff172ee82b4d10417f9c55e676c3302b4839408"
   end
 
   depends_on "libgit2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libffi"
 
@@ -51,8 +52,15 @@ class Gitless < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/3a/42/f69de8c7a1e33f365a91fa39093f4e7a64609c2bd127203536edc813cbf7/pygit2-1.4.0.tar.gz"
-    sha256 "cbeb38ab1df9b5d8896548a11e63aae8a064763ab5f1eabe4475e6b8a78ee1c8"
+    url "https://files.pythonhosted.org/packages/6b/23/a8c5b726a58282fe2cadcc63faaddd4be147c3c8e0bd38b233114adf98fd/pygit2-1.6.1.tar.gz"
+    sha256 "c3303776f774d3e0115c1c4f6e1fc35470d15f113a7ae9401a0b90acfa1661ac"
+
+    # libgit2 1.3 support
+    # https://github.com/libgit2/pygit2/pull/1089
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/54d3a0d1f241fdd4e9229312ced0d8da85d964b1/pygit2/libgit2-1.3.0.patch"
+      sha256 "4d501c09d6642d50d89a1a4d691980e3a4a2ebcb6de7b45d22cce16a451b9839"
+    end
   end
 
   resource "sh" do

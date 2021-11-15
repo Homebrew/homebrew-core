@@ -7,18 +7,21 @@ class Snapcraft < Formula
       tag:      "5.0",
       revision: "54781044a8f858258e90fa4acfd32e750362deee"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "bb508bab811819401f421914f821c533f7060bb10416b35a99b4063a7eb01034"
-    sha256 cellar: :any,                 big_sur:       "fa2dcc8dc451f6c153ede3a8496e75470731f26e1a482019ec801aa8fc49ae70"
-    sha256 cellar: :any,                 catalina:      "3336dce19462f40383173e47afe4dd7ad30c3654a1f54081efd8909dc5409727"
-    sha256 cellar: :any,                 mojave:        "63dd404b915b3e07a83f7794f012da505db98d1769fe0fceb1b7114e89291502"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ed5ac8ec37d0a763f11dbb35d151528977841df7cd5731115a256a4e5f6be8c"
+    sha256 cellar: :any,                 arm64_monterey: "a6dcb83b7b49cf8d66d10fe8b07f618bd738be17f527aa27bb26c12463547463"
+    sha256 cellar: :any,                 arm64_big_sur:  "bc26b770bd8c1ea649085e8a77d1b3ab3a29d1b996d796308d20eea851d814f7"
+    sha256 cellar: :any,                 monterey:       "865b10afdd4e830922e443b194aebc72506b45432181bd6c1371018326dcbbee"
+    sha256 cellar: :any,                 big_sur:        "b442a18012137247cf1822d0db825cca3c0e69bfdb244744de6672db76280e02"
+    sha256 cellar: :any,                 catalina:       "a4b036213d992185bd3d61c00b7dc90b0e82dcbc2ec8ab842c1dfed298acd04e"
+    sha256 cellar: :any,                 mojave:         "e4cc628cee8d1c5690296b4d60e4d306d92e5c8ad2a619540f4e833e63c54536"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebfa2c4782334025436d67b2d2aec5b76e0429c9a245682c138f1d442e8ce5a3"
   end
 
   depends_on "rust" => :build # for cryptography

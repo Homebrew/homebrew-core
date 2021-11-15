@@ -4,24 +4,25 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-5.50.0.tgz"
-  sha256 "f1df466b7564da0352f9f0f3e9d77670a9a315ee54c0f9b65dffd0761761641d"
+  url "https://registry.npmjs.org/webpack/-/webpack-5.64.0.tgz"
+  sha256 "86a7242474750ff41f879c732b7b2093485d38ea343dfcf055fadfeb9f1d0861"
   license "MIT"
-  head "https://github.com/webpack/webpack.git"
+  head "https://github.com/webpack/webpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "be7d1c91d7a001ac51b8f8c85808cc348b59e4a7308de9d5e64ab77c9155191a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "de4aaece84d277adb9ac78951c952a897531df4d20b7d7be25369e33277d7cff"
-    sha256 cellar: :any_skip_relocation, catalina:      "de4aaece84d277adb9ac78951c952a897531df4d20b7d7be25369e33277d7cff"
-    sha256 cellar: :any_skip_relocation, mojave:        "de4aaece84d277adb9ac78951c952a897531df4d20b7d7be25369e33277d7cff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f7d1361fef8e13932deb3f01d3ec6b6d16408fc428a9fba4719d5315e9e0145"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "77cecc1928e4a1e9f6b166b8a9dffb818f7950b9b9a6044bd4616bfb79755fc6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77cecc1928e4a1e9f6b166b8a9dffb818f7950b9b9a6044bd4616bfb79755fc6"
+    sha256 cellar: :any_skip_relocation, monterey:       "e3a8719111c671dddf81e8c23ecb3dd46bd4487e5fd119df3c9fdeb040700677"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e3a8719111c671dddf81e8c23ecb3dd46bd4487e5fd119df3c9fdeb040700677"
+    sha256 cellar: :any_skip_relocation, catalina:       "e3a8719111c671dddf81e8c23ecb3dd46bd4487e5fd119df3c9fdeb040700677"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3333ac7826746fee842190b00b168c49bf79237f6252e8a9e5fe780f83bdadf4"
   end
 
   depends_on "node"
 
   resource "webpack-cli" do
-    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-4.7.2.tgz"
-    sha256 "dce6cce3002e13873a36fb2c31034d9df20f4c68e3edecb93b9e4b71d2e32b77"
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-4.9.1.tgz"
+    sha256 "0e80f38d28019f7c30f7237ca0b7a250dfe0b561d07d8248b162dde663cd54ff"
   end
 
   def install
@@ -33,10 +34,10 @@ class Webpack < Formula
     end
 
     # declare webpack as a bundledDependency of webpack-cli
-    pkg_json = JSON.parse(IO.read("package.json"))
+    pkg_json = JSON.parse(File.read("package.json"))
     pkg_json["dependencies"]["webpack"] = version
     pkg_json["bundleDependencies"] = ["webpack"]
-    IO.write("package.json", JSON.pretty_generate(pkg_json))
+    File.write("package.json", JSON.pretty_generate(pkg_json))
 
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
 

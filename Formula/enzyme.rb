@@ -1,27 +1,30 @@
 class Enzyme < Formula
   desc "High-performance automatic differentiation of LLVM"
   homepage "https://enzyme.mit.edu"
-  url "https://github.com/wsmoses/Enzyme/archive/v0.0.16.tar.gz"
-  sha256 "3ae2932246123bbcc90cb71dc8e48959c240de30b752cfced9fda564e128b494"
+  url "https://github.com/wsmoses/Enzyme/archive/v0.0.21.tar.gz"
+  sha256 "13ec2a28cf41f0ae3eab72f95e2f04c565514b15154f06f2fea6a885e01ad20f"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/wsmoses/Enzyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "17c6c09d304ce3be3bdf6ce326205ed4ac5bcd8c8f740fe0caaf3d1b0cabf9b6"
-    sha256 cellar: :any, big_sur:       "d1adeb6639e2105fff3844a4172dec709ce16cde0e68fa79ad3f0ddb7ff05b7b"
-    sha256 cellar: :any, catalina:      "fda99caa48ada1f54dbdda5bd097c5a01465f97fb4fcf4a6bd3f023bc1cd4d34"
-    sha256 cellar: :any, mojave:        "90367fff8d5c0537edbdf5bb5cdaf6029f145b9a9e98cef320185d85e3353ec4"
+    sha256 cellar: :any, arm64_monterey: "0d44e44dca299867c97e990e903470a02e065c18899fd5b34b70998d48f1cbc1"
+    sha256 cellar: :any, arm64_big_sur:  "3d5a9f2a46a9365ed73f0865430b184b564878762e4fd1af9e9542369bd97801"
+    sha256 cellar: :any, monterey:       "9723671449915a1a1a1d63195ad81b8e4eafd74adc6a85b88ac10de517b52baa"
+    sha256 cellar: :any, big_sur:        "632298a17d476b3eb08216a1f6c0593970422204129348194be17710b40448f8"
+    sha256 cellar: :any, catalina:       "8db8e0aa8eb0f9250c7a4d2f03f59dc2aee31ace769a36f2cc7804dd895e22c5"
   end
 
   depends_on "cmake" => :build
   depends_on "llvm"
 
+  def llvm
+    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+  end
+
   def install
-    mkdir "build" do
-      system "cmake", "../enzyme", *std_cmake_args, "-DLLVM_DIR=#{Formula["llvm"].opt_lib}/cmake/llvm"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", "enzyme", "-B", "build", *std_cmake_args, "-DLLVM_DIR=#{llvm.opt_lib}/cmake/llvm"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -40,14 +43,14 @@ class Enzyme < Formula
       }
     EOS
 
-    llvm = Formula["llvm"]
     opt = llvm.opt_bin/"opt"
     ENV["CC"] = llvm.opt_bin/"clang"
 
     system ENV.cc, testpath/"test.c", "-S", "-emit-llvm", "-o", "input.ll", "-O2",
                    "-fno-vectorize", "-fno-slp-vectorize", "-fno-unroll-loops"
-    system opt, "input.ll", "-load=#{opt_lib}/#{shared_library("LLVMEnzyme-#{llvm.version.major}")}",
-                "-enzyme", "-o", "output.ll", "-S"
+    system opt, "input.ll", "--enable-new-pm=0",
+                "-load=#{opt_lib/shared_library("LLVMEnzyme-#{llvm.version.major}")}",
+                "--enzyme-attributor=0", "-enzyme", "-o", "output.ll", "-S"
     system ENV.cc, "output.ll", "-O3", "-o", "test"
 
     assert_equal "square(21)=441, dsquare(21)=42\n", shell_output("./test")

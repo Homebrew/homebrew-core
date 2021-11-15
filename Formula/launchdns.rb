@@ -9,10 +9,12 @@ class Launchdns < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1b7e3e37f394c83c8957c6c2253260805a3abcbb843890c90208d7d743da3328"
-    sha256 cellar: :any_skip_relocation, big_sur:       "87785cae4d4966c318e8fb8424749261b16bb543576e1c45d5fa2bae7f4c3f0e"
-    sha256 cellar: :any_skip_relocation, catalina:      "ebae3446c46a7a6662c3e9b95d61bbee372f1f277a07a4beea1eafc00d64570a"
-    sha256 cellar: :any_skip_relocation, mojave:        "38ad8be46847983774ec6b50896560517bb027b6fe5e5543395f168e489c9c27"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "76976e31629220e8697a50b0e52d080cef29a6b761a987175b07438d35225ff8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b7e3e37f394c83c8957c6c2253260805a3abcbb843890c90208d7d743da3328"
+    sha256 cellar: :any_skip_relocation, monterey:       "7883b009f177ae1ede81bc9d27706e26fc8d8bde4cd3e1c45c5cd8f4021cbafd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "87785cae4d4966c318e8fb8424749261b16bb543576e1c45d5fa2bae7f4c3f0e"
+    sha256 cellar: :any_skip_relocation, catalina:       "ebae3446c46a7a6662c3e9b95d61bbee372f1f277a07a4beea1eafc00d64570a"
+    sha256 cellar: :any_skip_relocation, mojave:         "38ad8be46847983774ec6b50896560517bb027b6fe5e5543395f168e489c9c27"
   end
 
   def install

@@ -1,18 +1,29 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.1.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.14.1.tar.bz2"
-  sha256 "2c5da93c255d2e5569fa91d92457fdb65396b0666fad4fd59b22e154d986e1a9"
   license "Apache-2.0"
-  revision 3
+  revision 4
+
+  stable do
+    url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.1.tar.bz2"
+    mirror "https://archive.apache.org/dist/subversion/subversion-1.14.1.tar.bz2"
+    sha256 "2c5da93c255d2e5569fa91d92457fdb65396b0666fad4fd59b22e154d986e1a9"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
-    sha256 arm64_big_sur: "8b21c6fa258c0b6222653e06d7a4e701bfb04845b494039a81058205201bc81a"
-    sha256 big_sur:       "d9c0205d04df5fb25d510b4e9a85de721de17ca152257d8850770f141e1a1f44"
-    sha256 catalina:      "c1a0c5bcf8a1fac3837c34f7bcff1897d8f3074e72f06fc541804599e73a492c"
-    sha256 mojave:        "5fb32f15610da2ab65ffc09ff298a479bf1ef8cd8aa964883e58937e85abe154"
-    sha256 x86_64_linux:  "2c19a4cdc9465a7bfe259153035beac3dba025f19cf678712b233b2c66c342b1"
+    sha256 arm64_monterey: "79c95c7641d560c278633a9af80a8803b4ccbd49b5eeaa2cf1fdaad0e231c4f1"
+    sha256 arm64_big_sur:  "34f8d1862f1480c068ff3798c8e1cd90f833b43c33d1731aca15f1d875b16834"
+    sha256 monterey:       "2bacf41caf7f5a6e581eac9c2b3ebbb84dd11122e1029c1cb17d234c2735a669"
+    sha256 big_sur:        "cfb18266b350bbe5cf81a02d1a27c33da8df832094e366925a50ef7664aba384"
+    sha256 catalina:       "92ef7547ff26e327ac5bd0a544d850e4ca7872493747eecf2220ecf5be0a13bd"
+    sha256 mojave:         "17b0bd35f345453c1401d1c390393525bacaf9f8a767cce31c1f1cb5241e1b17"
+    sha256 x86_64_linux:   "db779f83d616e1d917f2051368babe55d426d86d8ab6ec8ea0daf2be37c7fcdc"
   end
 
   head do
@@ -71,7 +82,7 @@ class Subversion < Formula
 
     resource("py3c").unpack py3c_prefix
     resource("serf").stage do
-      on_linux do
+      if OS.linux?
         inreplace "SConstruct" do |s|
           s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
           "\\1\nenv.Append(CPPPATH=['$ZLIB\/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
@@ -90,9 +101,10 @@ class Subversion < Formula
       end
 
       # scons ignores our compiler and flags unless explicitly passed
-      krb5 = "/usr"
-      on_linux do
-        krb5 = Formula["krb5"].opt_prefix
+      krb5 = if OS.mac?
+        "/usr"
+      else
+        Formula["krb5"].opt_prefix
       end
 
       args = %W[
@@ -103,35 +115,34 @@ class Subversion < Formula
         APU=#{Formula["apr-util"].opt_prefix}
       ]
 
-      on_linux do
-        args << "ZLIB=#{Formula["zlib"].opt_prefix}"
-      end
+      args << "ZLIB=#{Formula["zlib"].opt_prefix}" if OS.linux?
 
       system "scons", *args
       system "scons", "install"
     end
 
     # Use existing system zlib and sqlite
-    on_linux do
+    if OS.linux?
       # svn can't find libserf-1.so.1 at runtime without this
       ENV.append "LDFLAGS", "-Wl,-rpath=#{serf_prefix}/lib"
     end
 
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
-    zlib = "#{MacOS.sdk_path_if_needed}/usr"
-    on_linux do
-      zlib = Formula["zlib"].opt_prefix
+    zlib = if OS.mac?
+      "#{MacOS.sdk_path_if_needed}/usr"
+    else
+      Formula["zlib"].opt_prefix
     end
 
-    ruby = "/usr/bin/ruby"
-    on_linux do
-      ruby = "#{Formula["ruby"].opt_bin}/ruby"
-    end
+    perl = DevelopmentTools.locate("perl")
 
-    sqlite = "#{MacOS.sdk_path_if_needed}/usr"
-    on_linux do
-      sqlite = Formula["sqlite"].opt_prefix
+    ruby = DevelopmentTools.locate("ruby")
+
+    sqlite = if OS.mac?
+      "#{MacOS.sdk_path_if_needed}/usr"
+    else
+      Formula["sqlite"].opt_prefix
     end
 
     args = %W[
@@ -155,6 +166,7 @@ class Subversion < Formula
       --without-gpg-agent
       --enable-javahl
       --without-jikes
+      PERL=#{perl}
       PYTHON=#{Formula["python@3.9"].opt_bin}/python3
       RUBY=#{ruby}
     ]
@@ -183,36 +195,34 @@ class Subversion < Formula
     system "make", "javahl"
     system "make", "install-javahl"
 
-    if Hardware::CPU.intel?
-      perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
-      perl_core = Pathname.new(perl_archlib)/"CORE"
+    perl_archlib = Utils.safe_popen_read(perl.to_s, "-MConfig", "-e", "print $Config{archlib}")
+    perl_core = Pathname.new(perl_archlib)/"CORE"
+    perl_extern_h = perl_core/"EXTERN.h"
+
+    unless perl_extern_h.exist?
+      # No EXTERN.h, maybe it's system perl
+      perl_version = Utils.safe_popen_read(perl.to_s, "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
+      perl_core = MacOS.sdk_path/"System/Library/Perl"/perl_version/"darwin-thread-multi-2level/CORE"
       perl_extern_h = perl_core/"EXTERN.h"
-
-      unless perl_extern_h.exist?
-        # No EXTERN.h, maybe it's system perl
-        perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
-        perl_core = MacOS.sdk_path/"System/Library/Perl"/perl_version/"darwin-thread-multi-2level/CORE"
-        perl_extern_h = perl_core/"EXTERN.h"
-      end
-
-      onoe "'#{perl_extern_h}' does not exist" unless perl_extern_h.exist?
-
-      on_macos do
-        inreplace "Makefile" do |s|
-          s.change_make_var! "SWIG_PL_INCLUDES",
-            "$(SWIG_INCLUDES) -arch x86_64 -g -pipe -fno-common " \
-            "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
-        end
-      end
-      system "make", "swig-pl"
-      system "make", "install-swig-pl"
-
-      # This is only created when building against system Perl, but it isn't
-      # purged by Homebrew's post-install cleaner because that doesn't check
-      # "Library" directories. It is however pointless to keep around as it
-      # only contains the perllocal.pod installation file.
-      rm_rf prefix/"Library/Perl"
     end
+
+    onoe "'#{perl_extern_h}' does not exist" unless perl_extern_h.exist?
+
+    if OS.mac?
+      inreplace "Makefile" do |s|
+        s.change_make_var! "SWIG_PL_INCLUDES",
+          "$(SWIG_INCLUDES) -arch #{Hardware::CPU.arch} -g -pipe -fno-common " \
+          "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
+      end
+    end
+    system "make", "swig-pl"
+    system "make", "install-swig-pl"
+
+    # This is only created when building against system Perl, but it isn't
+    # purged by Homebrew's post-install cleaner because that doesn't check
+    # "Library" directories. It is however pointless to keep around as it
+    # only contains the perllocal.pod installation file.
+    rm_rf prefix/"Library/Perl"
   end
 
   def caveats
@@ -233,21 +243,17 @@ class Subversion < Formula
     system "#{bin}/svnadmin", "create", "test"
     system "#{bin}/svnadmin", "verify", "test"
 
-    if Hardware::CPU.intel?
-      platform = "darwin-thread-multi-2level"
-      on_linux do
-        platform = "x86_64-linux-thread-multi"
-      end
-
-      perl = "/usr/bin/perl"
-      on_linux do
-        perl = "#{Formula["perl"].opt_bin}/perl"
-      end
-
-      perl_version = Utils.safe_popen_read(perl.to_s, "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
-      ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/#{platform}"
-      system perl, "-e", "use SVN::Client; new SVN::Client()"
+    platform = if OS.mac?
+      "darwin-thread-multi-2level"
+    else
+      "#{Hardware::CPU.arch}-#{OS.kernel_name.downcase}-thread-multi"
     end
+
+    perl = DevelopmentTools.locate("perl")
+
+    perl_version = Utils.safe_popen_read(perl.to_s, "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
+    ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/#{platform}"
+    system perl, "-e", "use SVN::Client; new SVN::Client()"
   end
 end
 

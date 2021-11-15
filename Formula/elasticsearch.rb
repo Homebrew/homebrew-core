@@ -25,8 +25,7 @@ class Elasticsearch < Formula
   end
 
   def install
-    os = "darwin"
-    on_linux { os = "linux" }
+    os = OS.kernel_name.downcase
     system "gradle", ":distribution:archives:oss-no-jdk-#{os}-tar:assemble"
 
     mkdir "tar" do

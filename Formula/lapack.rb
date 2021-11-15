@@ -8,6 +8,7 @@ class Lapack < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "57b25ebfd66edca32e16acf1f7127af22bb1ea43a1f7b758895789696fe0590e"
+    sha256 cellar: :any,                 monterey:      "ce6223d15a12cf1535460a3a6a59cd822ed5f44ca417f94a5bf29ed46931897e"
     sha256 cellar: :any,                 big_sur:       "3b57e303806b0fa8cb17738b10b3bd2b4801ef898fc5433af05b90cab9dddf40"
     sha256 cellar: :any,                 catalina:      "cbdfdaa3de046ff377bf0e6a974541016a0790c0ddba295eecdb4615f8ec5923"
     sha256 cellar: :any,                 mojave:        "619839fc1623b36c0b7bf8903e424c003bbd6ef96a0f9f7ed1ff684f231c54ec"

@@ -1,14 +1,14 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://lammps.sandia.gov/"
-  url "https://github.com/lammps/lammps/archive/stable_29Oct2020.tar.gz"
+  url "https://github.com/lammps/lammps/archive/stable_29Sep2021.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "2020-10-29"
-  sha256 "759705e16c1fedd6aa6e07d028cc0c78d73c76b76736668420946a74050c3726"
+  version "2021-09-29"
+  sha256 "2dff656cb21fd9a6d46c818741c99d400cfb1b12102604844663b655fb2f893d"
   license "GPL-2.0-only"
-
+  revision 1
   # The `strategy` block below is used to massage upstream tags into the
   # YYYY-MM-DD format we use in the `version`. This is necessary for livecheck
   # to be able to do proper `Version` comparison.
@@ -22,11 +22,11 @@ class Lammps < Formula
   end
 
   bottle do
-    sha256                               arm64_big_sur: "cd8e88f101776028e6859211611d5f581f7020b3e806f53e98b831ab3d0eb9f5"
-    sha256                               big_sur:       "9bd87a2b72f291229de3d436f8fc7b0706ab5fc245587936943284287457d1c0"
-    sha256                               catalina:      "4cb389466954f5fdafc8a05a06eff9c8a17886b69e2ea6cc38c55cf3912980d0"
-    sha256                               mojave:        "e1ef047d6c3155e5a8bb704a5f141beb7427194c61e6d16885610bdfd20ecf5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "930043afd64c57fc5f7a421d282f8c799202f9c3176108d9f945483f31a0b29c"
+    sha256 cellar: :any,                 arm64_big_sur: "d42bf4cb9ed9e1daedcb51039d9e6f3bc9c2aa4af2ad733bc1f02bd03a7e0dc0"
+    sha256 cellar: :any,                 monterey:      "80bd301856a578caff37285c4b79e697dbe32cdca9bab7e349631613ed1135de"
+    sha256 cellar: :any,                 big_sur:       "a99b5725600ef7c9b071178be53b494912d0deee75ac6b34dc73c11d11021793"
+    sha256 cellar: :any,                 catalina:      "6d70939bd07b4792ab42979f6caab22af8a29b6e28405c458f8c5538dc5b281f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b6979a6051a537b774b59692b5425bc6f974fcef2f46b57d27b1f683cb73455"
   end
 
   depends_on "pkg-config" => :build
@@ -46,12 +46,11 @@ class Lammps < Formula
 
     %w[serial mpi].each do |variant|
       cd "src" do
-        system "make", "clean-all"
-        system "make", "yes-standard"
-
         disabled_packages.each do |package|
           system "make", "no-#{package}"
         end
+
+        system "make", "yes-basic"
 
         system "make", variant,
                        "LMP_INC=-DLAMMPS_GZIP",
@@ -64,6 +63,7 @@ class Lammps < Formula
                        "JPG_LIB=-ljpeg -lpng"
 
         bin.install "lmp_#{variant}"
+        system "make", "clean-all"
       end
     end
 

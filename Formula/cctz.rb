@@ -6,11 +6,14 @@ class Cctz < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4895638a03396673d972613bed298d7288d369fe91aca165ddcf9b0357aade18"
-    sha256 cellar: :any, big_sur:       "b0796719cf068ae526435e86922477820dedd3afd5a9044fd099fe3ff6c90765"
-    sha256 cellar: :any, catalina:      "3a73ab9d2f67020d95657e8c5b32a26d7eb81987cee2eace2b9d26eab2621bbb"
-    sha256 cellar: :any, mojave:        "439ce8e6d464aa64aadd117e3effba68379883c3013de4944dda1def4127ff7d"
-    sha256 cellar: :any, high_sierra:   "2d61f3555630f98a572971867d5da46212712eb30a18bb6545f9067369865c33"
+    sha256 cellar: :any,                 arm64_monterey: "756dc7625a50e7e2e607a45c75fa7f2002fc7e8bcec504ddcb06eab20766948d"
+    sha256 cellar: :any,                 arm64_big_sur:  "4895638a03396673d972613bed298d7288d369fe91aca165ddcf9b0357aade18"
+    sha256 cellar: :any,                 monterey:       "ee512d1b222211307cfc2f3e5e6c4ce33085ec79bb0a25aec62ce16cca13fd7f"
+    sha256 cellar: :any,                 big_sur:        "b0796719cf068ae526435e86922477820dedd3afd5a9044fd099fe3ff6c90765"
+    sha256 cellar: :any,                 catalina:       "3a73ab9d2f67020d95657e8c5b32a26d7eb81987cee2eace2b9d26eab2621bbb"
+    sha256 cellar: :any,                 mojave:         "439ce8e6d464aa64aadd117e3effba68379883c3013de4944dda1def4127ff7d"
+    sha256 cellar: :any,                 high_sierra:    "2d61f3555630f98a572971867d5da46212712eb30a18bb6545f9067369865c33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59dffb99b033ab3a17ae375e4b2e66cf3bd9e403b88b58611cbe994155d33c44"
   end
 
   depends_on "cmake" => :build
@@ -52,7 +55,7 @@ class Cctz < Formula
         std::cout << format("UTC: %Y-%m-%d %H:%M:%S\\n", tm_utc) << format("Local: %Y-%m-%d %H:%M:%S\\n", tm_local);
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lcctz", "test.cc", "-o", "test"
+    system ENV.cxx, "test.cc", "-I#{include}", "-L#{lib}", "-std=c++11", "-lcctz", "-o", "test"
     system testpath/"test"
   end
 end

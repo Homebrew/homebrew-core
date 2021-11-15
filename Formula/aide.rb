@@ -6,11 +6,13 @@ class Aide < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "bc933e63d10ab2fdd5d974c32c3f0898f37bf9d95f3e74129eae1b860bc785c8"
-    sha256 cellar: :any,                 big_sur:       "39d24815ba23cd86b3a31c18e7e27b6c4a231dfbfb9e6fb035efec84a68b1ccf"
-    sha256 cellar: :any,                 catalina:      "b765af2fe87ab4494ddb51680f9fa151cf7d91b853d1a6bc5f1c1c0e14eda155"
-    sha256 cellar: :any,                 mojave:        "a24aedaabc8dfa8341e7713e43c994db019fb12747a497ac735a7864079cedb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "296511a7306bbd01163594427a1ce69c92cbf83efc17f9de63c3ec590a881fd8"
+    sha256 cellar: :any,                 arm64_monterey: "1a85f21fbf5d8fc595861ec5896146779706cea3c7fcf2d472340f342ab20cbe"
+    sha256 cellar: :any,                 arm64_big_sur:  "bc933e63d10ab2fdd5d974c32c3f0898f37bf9d95f3e74129eae1b860bc785c8"
+    sha256 cellar: :any,                 monterey:       "989785b6497c9b6a93789fd84ebf0d1b794cc45618de12ffba80026d8603cdc7"
+    sha256 cellar: :any,                 big_sur:        "39d24815ba23cd86b3a31c18e7e27b6c4a231dfbfb9e6fb035efec84a68b1ccf"
+    sha256 cellar: :any,                 catalina:       "b765af2fe87ab4494ddb51680f9fa151cf7d91b853d1a6bc5f1c1c0e14eda155"
+    sha256 cellar: :any,                 mojave:         "a24aedaabc8dfa8341e7713e43c994db019fb12747a497ac735a7864079cedb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "296511a7306bbd01163594427a1ce69c92cbf83efc17f9de63c3ec590a881fd8"
   end
 
   head do
@@ -41,11 +43,11 @@ class Aide < Formula
       --sysconfdir=#{etc}
       --prefix=#{prefix}
     ]
-    on_macos do
-      args << "--with-curl"
-    end
-    on_linux do
-      args << "--with-curl=" + Formula["curl"].prefix
+
+    args << if OS.mac?
+      "--with-curl"
+    else
+      "--with-curl=#{Formula["curl"].prefix}"
     end
 
     system "./configure", *args

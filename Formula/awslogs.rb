@@ -6,19 +6,20 @@ class Awslogs < Formula
   url "https://files.pythonhosted.org/packages/96/7b/20bff9839d6679e25d989f94ca4320466ec94f3441972aadaafbad50560f/awslogs-0.14.0.tar.gz"
   sha256 "1b249f87fa2adfae39b9867f3066ac00b9baf401f4783583ab28fcdea338f77e"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/jorgebastida/awslogs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "38caa20a341705f9ef458157f2efcd340ebac1ed4a28a9f087fd362aeb10651b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7a0703d7739d19a445b81c7d67384cfbcc20e10a9c1dc5f11427b2cecddf18f2"
-    sha256 cellar: :any_skip_relocation, catalina:      "54ac7491a722ea8c9139cb08ab8c8a157bbe90e5f634cd56c6f1def1e16f1635"
-    sha256 cellar: :any_skip_relocation, mojave:        "0401664d4b96671c53d6491719942b92801805f90836f08d5fa8d0cfddf6be29"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "4a58816b1c333a4592d50abb75e8dbb3779904e56389dec857d42c6166a6f1ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a8c91210a3e477fea50d9794dee0f7221f18e38797f7bddac25f6bb239b924c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "32c55578a0be83b8b1360d273c2582e1212cf34366fb9eb89a418c79d477f4b3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b9382f684ca785d44994e42278975e7bac5d4c64cbdae7aea207593195cddfb"
+    sha256 cellar: :any_skip_relocation, monterey:       "bfec50979aeca7c3b556550dd34340864776a7dd9f55f3cbb3470a17d0944c09"
+    sha256 cellar: :any_skip_relocation, big_sur:        "81a0c2dce4e6ad80585449b305981e6361bfa71ba99535951e0869a838dd3b50"
+    sha256 cellar: :any_skip_relocation, catalina:       "9a26d97dc7b768ddbc3d11b08995d45972019b10b089117c98ff75e746ec161b"
+    sha256 cellar: :any_skip_relocation, mojave:         "cef5658727d8238b1539f15fe8c34483d1a7deb0d195b2a8eb4bcd540482f145"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9dfd6486ab00fb984d9aa25f1bdbcfb5e44b286960ad8e294847370d6a2f768"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "zlib"
 

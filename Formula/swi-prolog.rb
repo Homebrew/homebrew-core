@@ -1,10 +1,10 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
-  url "https://www.swi-prolog.org/download/stable/src/swipl-8.2.4.tar.gz"
-  sha256 "f4bcc78437f9080ab089762e9e6afa7071df7f584c14999b92b9a90a4efbd7d8"
+  url "https://www.swi-prolog.org/download/stable/src/swipl-8.4.0.tar.gz"
+  sha256 "bff0396f827af3d3351eed0582a99cbcd0a66d14a2f5bbf4aeef22332714709f"
   license "BSD-2-Clause"
-  head "https://github.com/SWI-Prolog/swipl-devel.git"
+  head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
   livecheck do
     url "https://www.swi-prolog.org/download/stable/src/"
@@ -12,11 +12,13 @@ class SwiProlog < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "3a899873b22a6e4e380498ec855d2c0c7919c848872087da676d385745e39179"
-    sha256 big_sur:       "1a5384ec31ca1088eff1e16d1977a4120f12e8c15e3703ef3c80c564848e2e5c"
-    sha256 catalina:      "06c31b007436027785e73cdbf16d82dd6356766b821580a4fceda8db5eb4c86c"
-    sha256 mojave:        "1deeaab4064bf3da632a28e539f46790252cfec839ae932bc729ecc239e347c3"
-    sha256 x86_64_linux:  "ff38c8fe29849c427abfaa36dcf7193f379c0b0fe1e498ba597f7a44404351bf"
+    sha256 arm64_monterey: "94b46197b202d0b313d81d89e6e8c10fc6e9a71da57614d42c25562cff7d74b8"
+    sha256 arm64_big_sur:  "d35919949017430b1b51f033d6b6b6efa4de0a3d76298164035f1bbf01e92a25"
+    sha256 monterey:       "1410d397bec87279ad8444d27ef1c634d2c91fae38639586f0f5233955501047"
+    sha256 big_sur:        "10378107cdbaa40a8399e83a1fd25148933fa828bec0f9bb2f50be3043a32e65"
+    sha256 catalina:       "3b4865a06b754a7dd03c23c49e83f041ca90ed8f6088dae80b96e6094227f174"
+    sha256 mojave:         "2cbb92cb131eaff5a4f3332c2dbdd2082f32c411cf28e83cc1bfab7e7ce08f70"
+    sha256 x86_64_linux:   "52d2c9c2d0e22fa0610261b9c64be8cde54352a293cb40aa3b4621195f9cc9c9"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +35,7 @@ class SwiProlog < Formula
 
   def install
     # Remove shim paths from binary files `swipl-ld` and `libswipl.so.*`
-    on_linux do
+    if OS.linux?
       inreplace "cmake/Params.cmake" do |s|
         s.gsub! "${CMAKE_C_COMPILER}", "\"gcc\""
         s.gsub! "${CMAKE_CXX_COMPILER}", "\"g++\""

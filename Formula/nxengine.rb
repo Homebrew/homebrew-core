@@ -8,11 +8,13 @@ class Nxengine < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "b96f120f2d8959f859b74cb26e0c3a1d9bc028ba0434b44a0a942712b77bb92b"
-    sha256 cellar: :any, big_sur:       "00d86c8f78ae03404f10738b4e7a278dad0d9749efa3ca10be4cd6fb675cb8f8"
-    sha256 cellar: :any, catalina:      "9184041001a3035713542230c9e4a536491919ff0459cc79f294366ab20719a5"
-    sha256 cellar: :any, mojave:        "69ef501ebc7a488fc46b4546b91288c7b8dc1cfdadb2bc1ee73611dd062f38e5"
-    sha256 cellar: :any, high_sierra:   "79eece70c7ab5ddb92c8c711a609b996456ff5b7c6c8a008166a351e6889797f"
+    sha256 cellar: :any, arm64_monterey: "a367d08abb4b20abadcfefd2cf446ecc2825ee32f3adae0a8f8e3ee78c86c115"
+    sha256 cellar: :any, arm64_big_sur:  "b96f120f2d8959f859b74cb26e0c3a1d9bc028ba0434b44a0a942712b77bb92b"
+    sha256 cellar: :any, monterey:       "d57fb1782ded59a66782ba1bed4e53b41fc9897b7993c7633c6ec036eb258a96"
+    sha256 cellar: :any, big_sur:        "00d86c8f78ae03404f10738b4e7a278dad0d9749efa3ca10be4cd6fb675cb8f8"
+    sha256 cellar: :any, catalina:       "9184041001a3035713542230c9e4a536491919ff0459cc79f294366ab20719a5"
+    sha256 cellar: :any, mojave:         "69ef501ebc7a488fc46b4546b91288c7b8dc1cfdadb2bc1ee73611dd062f38e5"
+    sha256 cellar: :any, high_sierra:    "79eece70c7ab5ddb92c8c711a609b996456ff5b7c6c8a008166a351e6889797f"
   end
 
   depends_on "sdl"

@@ -1,17 +1,18 @@
 class BoshCli < Formula
   desc "Cloud Foundry BOSH CLI v2"
   homepage "https://bosh.io/docs/cli-v2/"
-  url "https://github.com/cloudfoundry/bosh-cli/archive/v6.4.4.tar.gz"
-  sha256 "2410c243046fd9bc748257add8cee4b250e8973ffb45474e8a0ac7f83822eb97"
+  url "https://github.com/cloudfoundry/bosh-cli/archive/v6.4.8.tar.gz"
+  sha256 "fd45680cff13b2f6a9955d10125ec56fc2a0419c2f224842c528286ff253dd81"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/bosh-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "750abacbf96ac11668086f5ed9c53ac4fa83ffea19c1b95d46753ad10b94dc71"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fc0dfe5f6e06be0f3a76f9648e9c43a2d5e1de5ec51ea7ed0691359b8b2c33c9"
-    sha256 cellar: :any_skip_relocation, catalina:      "91f00e9bd5e20330c8be9cc13a2a62e2cc205645d2d5e08dea91dd800c76eba2"
-    sha256 cellar: :any_skip_relocation, mojave:        "5176e503a56dc61fd3e3458e10ef7a7fff24698adea343ad48d5a889b7c3e419"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c8778d0a08809d95405e343688b9760cc561e7886698df53ac579af60ed0014"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "660e222f9b5f49313d636461f7209c803c944feb46ce253fb040e30bb521aaf7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa30f58eb0828e81a70e0fef0a5e2790831df51eb498efb996ac87a99ac5d6e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "93aea4476b8b31ea46adfd49d3c514f66664288f4adc269caf508a812c5b8e27"
+    sha256 cellar: :any_skip_relocation, big_sur:        "439143a165d6a27059f3a8c00f202ffbcc3571c402165ead3175d5ace6d9ff74"
+    sha256 cellar: :any_skip_relocation, catalina:       "63595dc60f22449d0c30080414cde7949343a9f9198b7cbc165e0d5d422cea2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "689d92f9fcb1cce3de2262e17d425c3c37c363292c712203c6d4cbf4d7a64776"
   end
 
   depends_on "go" => :build

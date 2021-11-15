@@ -1,18 +1,18 @@
 class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
-  url "https://ftp.gnu.org/gnu/gawk/gawk-5.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gawk/gawk-5.1.0.tar.xz"
-  sha256 "cf5fea4ac5665fd5171af4716baab2effc76306a9572988d5ba1078f196382bd"
+  url "https://ftp.gnu.org/gnu/gawk/gawk-5.1.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gawk/gawk-5.1.1.tar.xz"
+  sha256 "d87629386e894bbea11a5e00515fc909dc9b7249529dad9e6a3a2c77085f7ea2"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "9b31b5843e7f156d5af09afb14b9fdbe359ece800222c9fe3fe23a77621491a6"
-    sha256 big_sur:       "8ff8108740004ede9c938b8bb42d2768d532d9ac8ee492250bbd23c8dfbef0cb"
-    sha256 catalina:      "581b48f781104f0c3233edc30c47628f4eec8c2f1f2e191151f367ce26ec538a"
-    sha256 mojave:        "ddbb56c56d66f375147769a27301e2ffd099abdc07f5dfc16389af22028e185b"
-    sha256 high_sierra:   "eac1b8c97c682c32a1b6c589818aa8ffb8f09630258ed6f215c882368540713e"
-    sha256 x86_64_linux:  "9dbdb614ce8517ce0d43f4058ea96bdc9ab172fbb2a60160c3963109f19b3d71"
+    sha256 arm64_monterey: "093465f34b94ec8ddeb4ff8dab2a02dafbccf8ec05f6ef0391673b7c4fd0a91f"
+    sha256 arm64_big_sur:  "efc88dd4e2c2d87eaddb7aed2487eb17128e056ce47ce117f234a287e0e7160e"
+    sha256 monterey:       "2dcae063cbf93dd82b36be9d9aaf08644831a5f9efd304af768b3b59f7db5192"
+    sha256 big_sur:        "f909760ee429b1b41478900af7245c57cffe0a31f76b651c86e08cd1b6bcbc4d"
+    sha256 catalina:       "1bfbe650e0ef014e64d5380558c21a450aff7196f06596ff89484b185777dc90"
+    sha256 x86_64_linux:   "e62547695b5737c52a3174813091354f5ef1ef6e1369401f5f72367278caf578"
   end
 
   depends_on "gettext"
@@ -38,6 +38,7 @@ class Gawk < Formula
 
     (libexec/"gnubin").install_symlink bin/"gawk" => "awk"
     (libexec/"gnuman/man1").install_symlink man1/"gawk.1" => "awk.1"
+    libexec.install_symlink "gnuman" => "man"
   end
 
   test do

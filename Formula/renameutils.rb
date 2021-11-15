@@ -11,6 +11,7 @@ class Renameutils < Formula
   end
 
   bottle do
+    sha256 cellar: :any, monterey:     "93a4fb65fd3bba13cd797f0c374981b8dde01ee25a0b0637f6e4448b655457e4"
     sha256 cellar: :any, big_sur:      "503b84eed8791b4a924e61fdfb0ea53cb6d349fe8a55c43ab7582c1e2a0985ba"
     sha256 cellar: :any, catalina:     "2ec48c66fea9f53acf2b2ba3b726e6f7a9ff35778a3fb574fc59e7c6d01f681a"
     sha256 cellar: :any, mojave:       "4f360267cba9842ef85e9cfbb1baaf73e9576dccfb924aade7f0ad6bbf0bf605"

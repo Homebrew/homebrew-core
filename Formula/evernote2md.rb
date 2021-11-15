@@ -6,11 +6,13 @@ class Evernote2md < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "33d36b0a5974b354e8a201ee37459d8519a004a8d0509dc3d749ecbb99f50359"
-    sha256 cellar: :any_skip_relocation, big_sur:       "24feff7c81d04563edf3e64817f8a96ffbdf47b75ef28996f31b983f2e19de6f"
-    sha256 cellar: :any_skip_relocation, catalina:      "95aa6c17e693b722784538a4b2444f9cbdae8136d2c3d0d8deb262f40f775f72"
-    sha256 cellar: :any_skip_relocation, mojave:        "91e8f33f29c360f232c81a217ca84105af86bb561546afca4ceca65925747810"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36f8dfa74d4fc4cfa6a3b7688953d011fd5303eecd703f76cc4814f67683abbe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ce699f257c3e922898dc8e6d33ca5dc4d5ae559b06d81c0c7d6a34d7bdfa6a0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33d36b0a5974b354e8a201ee37459d8519a004a8d0509dc3d749ecbb99f50359"
+    sha256 cellar: :any_skip_relocation, monterey:       "da8e0bf1585999d61f0e45896f0ca043bec60e7acf446c4832689e5628494508"
+    sha256 cellar: :any_skip_relocation, big_sur:        "24feff7c81d04563edf3e64817f8a96ffbdf47b75ef28996f31b983f2e19de6f"
+    sha256 cellar: :any_skip_relocation, catalina:       "95aa6c17e693b722784538a4b2444f9cbdae8136d2c3d0d8deb262f40f775f72"
+    sha256 cellar: :any_skip_relocation, mojave:         "91e8f33f29c360f232c81a217ca84105af86bb561546afca4ceca65925747810"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36f8dfa74d4fc4cfa6a3b7688953d011fd5303eecd703f76cc4814f67683abbe"
   end
 
   depends_on "go" => :build

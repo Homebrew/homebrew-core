@@ -7,11 +7,13 @@ class CucumberCpp < Formula
   revision 9
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "15ddb1214407ec67e52c157bee09c87582e6b990da1d887ea9209d9fb84f15cb"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d4190f94dc9bf646da7651b40e74f169665d8d24e5b9eefa21b8665f4df00317"
-    sha256 cellar: :any_skip_relocation, catalina:      "e6ae6448b0ba7195587da376f2ed1385112601c40b8dbcc3fc4bbd9dcafe7576"
-    sha256 cellar: :any_skip_relocation, mojave:        "2590c06bdaf51baa254dc3982d853e7d0fb247fd13182db1a8f4ba1f7c07f4db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f5fb64963eb741e323475d8720c3ae0ebd98e932b5a82371277e0e82a05c4e3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "463d163c018e1d207f0dd8cc3473ee872e2d58433b146de268eb91ea23f8493c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15ddb1214407ec67e52c157bee09c87582e6b990da1d887ea9209d9fb84f15cb"
+    sha256 cellar: :any_skip_relocation, monterey:       "7972324f02cfc79899be874e1b8cc402668808ef6b050ba55796eb425f700396"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d4190f94dc9bf646da7651b40e74f169665d8d24e5b9eefa21b8665f4df00317"
+    sha256 cellar: :any_skip_relocation, catalina:       "e6ae6448b0ba7195587da376f2ed1385112601c40b8dbcc3fc4bbd9dcafe7576"
+    sha256 cellar: :any_skip_relocation, mojave:         "2590c06bdaf51baa254dc3982d853e7d0fb247fd13182db1a8f4ba1f7c07f4db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f5fb64963eb741e323475d8720c3ae0ebd98e932b5a82371277e0e82a05c4e3"
   end
 
   depends_on "cmake" => :build

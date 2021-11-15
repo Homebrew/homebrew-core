@@ -5,7 +5,7 @@ class SimpleTiles < Formula
   sha256 "2391b2f727855de28adfea9fc95d8c7cbaca63c5b86c7286990d8cbbcd640d6f"
   license "MIT"
   revision 11
-  head "https://github.com/propublica/simple-tiles.git"
+  head "https://github.com/propublica/simple-tiles.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "69b3202a2133624649d9bdeaf11a948a3868f388162f3fa45e876b29fe9a6818"

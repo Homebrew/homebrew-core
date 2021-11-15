@@ -1,8 +1,8 @@
 class QtMariadb < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.1/6.1.2/submodules/qtbase-everywhere-src-6.1.2.tar.xz"
-  sha256 "b9c4061c1c7999c42c315fc5b0f4f654067b4186066dd729bbcf1bdce8d781c8"
+  url "https://download.qt.io/official_releases/qt/6.2/6.2.1/submodules/qtbase-everywhere-src-6.2.1.tar.xz"
+  sha256 "2c5f07b5c3ea27d3fc1a46686ea3fb6724f94dddf1fb007de3eb0bdb87429079"
   license all_of: ["LGPL-2.1-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -10,10 +10,11 @@ class QtMariadb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a86a3976b1506d84f3387e6d0818796af0408c82ee20d97a41eae8cdd51664fc"
-    sha256 cellar: :any, big_sur:       "db1cd65974820e88e3cced2359065d4751a3e5d5ebb6a32e222cafe22b80268b"
-    sha256 cellar: :any, catalina:      "04b2a8f66b7fab0a0a3b862bf20dce03def0dac05fb065db5a9105553c4c81b5"
-    sha256 cellar: :any, mojave:        "de3d74bb7794dcde15abc33e538c188e4daf2e82689fb73e2c11e919fd0f392e"
+    sha256 cellar: :any, arm64_monterey: "9ee7a5040f68f2c413e3ba590338a296eb08cf72ee4960e8955a847cc39c6f1e"
+    sha256 cellar: :any, arm64_big_sur:  "654b031f68810394c4739e3c72b22ad6c28b6922a6b54a1afa6293be7fd22e1d"
+    sha256 cellar: :any, monterey:       "ae834ae6fd44949d29c90a8d0976d47fda390cfb69c93d6df9e514b39ed7c267"
+    sha256 cellar: :any, big_sur:        "d7ef9d8f0ac9ecfef959d3c691194684266e0fffa56180559687fa8109081acb"
+    sha256 cellar: :any, catalina:       "6f07c97be940330d4c5097089cb06dde422c98c7024b28094f2f16807178c1b2"
   end
 
   depends_on "cmake" => [:build, :test]

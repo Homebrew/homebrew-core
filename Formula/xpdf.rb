@@ -12,10 +12,12 @@ class Xpdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "052d966e5649b652bb61db7ff96386e5ca543fd65fb06818ab002b2f1138086b"
-    sha256 cellar: :any, big_sur:       "2c74e3ae45d2666271efb5a3a913db86a300110d2e89acb97f27b4e6d5c2af7f"
-    sha256 cellar: :any, catalina:      "af0d633049cdccbb05a15b92e1dddb2951ea6d2994a2bee343400681bfbf1a2d"
-    sha256 cellar: :any, mojave:        "d5a0e1f2c8d6897bda1290648814b351ffebf0aadbbe856b19f7088d2673baf5"
+    sha256 cellar: :any,                 arm64_monterey: "c2f34a435bad7b953e62d43cf0de079be73d3e2f8047e8848c7d2243d20a97e1"
+    sha256 cellar: :any,                 arm64_big_sur:  "052d966e5649b652bb61db7ff96386e5ca543fd65fb06818ab002b2f1138086b"
+    sha256 cellar: :any,                 big_sur:        "2c74e3ae45d2666271efb5a3a913db86a300110d2e89acb97f27b4e6d5c2af7f"
+    sha256 cellar: :any,                 catalina:       "af0d633049cdccbb05a15b92e1dddb2951ea6d2994a2bee343400681bfbf1a2d"
+    sha256 cellar: :any,                 mojave:         "d5a0e1f2c8d6897bda1290648814b351ffebf0aadbbe856b19f7088d2673baf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ed5eaa24b969ef4f48bba4dcb2af106d7826c151228e71a3d7eb79be52841c1"
   end
 
   depends_on "cmake" => :build
@@ -23,8 +25,14 @@ class Xpdf < Formula
   depends_on "freetype"
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   conflicts_with "pdf2image", "pdftohtml", "poppler",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", ".", *std_cmake_args

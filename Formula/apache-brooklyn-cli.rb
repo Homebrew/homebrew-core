@@ -11,12 +11,14 @@ class ApacheBrooklynCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1294ffaaa4cebe9accd9686c723154f18b0c132200eddcfaefc9ec69cfc47b57"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ee39617c71638a87e473fe90b002d6d1ab34d149a40218cb53758ca08e162593"
-    sha256 cellar: :any_skip_relocation, catalina:      "7769a15fc55f1a6943165e78c0cc3c9677815686b935a888c3db708fbaf2b8dd"
-    sha256 cellar: :any_skip_relocation, mojave:        "1b73cb46bdd10be0d426298ec972fd37362352b28fadb484374e701619d3a1dc"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "b64f20e59f179c2a359d180be65931e06743aea8c62295f58d1afdbd967871d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a4c4477e4bf83026dee0febd6eace59fe1d0c0d015074b283317131cae49e42"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e28a0de7403bde7b164029cfd960cceaf1a10353381e486619cee2a14e917969"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1294ffaaa4cebe9accd9686c723154f18b0c132200eddcfaefc9ec69cfc47b57"
+    sha256 cellar: :any_skip_relocation, monterey:       "29f3308f69c65811e229ab4504c1db3c7d313c66ea2c46453413fecfd511ca9a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ee39617c71638a87e473fe90b002d6d1ab34d149a40218cb53758ca08e162593"
+    sha256 cellar: :any_skip_relocation, catalina:       "7769a15fc55f1a6943165e78c0cc3c9677815686b935a888c3db708fbaf2b8dd"
+    sha256 cellar: :any_skip_relocation, mojave:         "1b73cb46bdd10be0d426298ec972fd37362352b28fadb484374e701619d3a1dc"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "b64f20e59f179c2a359d180be65931e06743aea8c62295f58d1afdbd967871d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a4c4477e4bf83026dee0febd6eace59fe1d0c0d015074b283317131cae49e42"
   end
 
   depends_on "go" => :build

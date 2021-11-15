@@ -5,6 +5,11 @@ class Omega < Formula
   sha256 "14bec53234bea5eb36aa4b91940842e62c7968f4fd68c959db396c15069acbaf"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://xapian.org/download"
+    regex(/href=.*?xapian-omega[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "e93f8e12861eae4aef56482f4daad7d017060bb420cbb9b6973dc1e4756286e1"
     sha256 big_sur:       "a9adc43192d3cfefc48b5102405b8542549336ae7c7a73c4f964c64f2f3c9306"

@@ -3,15 +3,14 @@ require "language/node"
 class JoplinCli < Formula
   desc "Note taking and to-do application with synchronization capabilities"
   homepage "https://joplinapp.org/"
-  url "https://registry.npmjs.org/joplin/-/joplin-2.3.2.tgz"
-  sha256 "fb87056d5c47780e7420c9e3330728e05fe31d76804f80c77fe13da53d60af57"
+  url "https://registry.npmjs.org/joplin/-/joplin-2.6.1.tgz"
+  sha256 "5ae8c2cfbb54b55bba18f7cd413ba7bd7ef03412021322b65df53216fd7db4be"
   license "MIT"
 
   bottle do
-    sha256 arm64_big_sur: "4b8aa6190a7409da64a4239d008e3c31068904d9617a21c7139d29a6f639a331"
-    sha256 big_sur:       "f269cd3f83524e80de3030ebc5b9e94f1985b4f7233851244039f9f78b043536"
-    sha256 catalina:      "c0bf82e586aa6131b1c4b47e5f19fbcf2f19a18e7a47eb75f4f04c96ad49c6df"
-    sha256 mojave:        "ca05cebc82bb8d9b3e2fe815d64e608edf2fbb5c333477f580a6300390bb5f46"
+    sha256 arm64_big_sur: "52c311d9e488d96e2e8aa4d1367311b5e27122cbf628f9394899d94cb9bd87f1"
+    sha256 big_sur:       "bc1aa68c4c2df173022cf36de72838ba3fb4605d031f81b91d3f5b16d4ca9968"
+    sha256 catalina:      "248fab15de1b4c16463ec33bf6b2dd9b3f7ecdc64a8e463d38530c3143e64934"
   end
 
   depends_on "pkg-config" => :build
@@ -30,7 +29,7 @@ class JoplinCli < Formula
     node_notifier_vendor_dir = libexec/"lib/node_modules/joplin/node_modules/node-notifier/vendor"
     node_notifier_vendor_dir.rmtree # remove vendored pre-built binaries
 
-    on_macos do
+    if OS.mac?
       terminal_notifier_dir = node_notifier_vendor_dir/"mac.noindex"
       terminal_notifier_dir.mkpath
 

@@ -1,8 +1,8 @@
 class Acpica < Formula
   desc "OS-independent implementation of the ACPI specification"
   homepage "https://www.acpica.org/"
-  url "https://acpica.org/sites/acpica/files/acpica-unix-20210730.tar.gz"
-  sha256 "4a0c14d5148666612aa0555c5179eaa86230602394fd1bc3d16b506fcf49b5de"
+  url "https://acpica.org/sites/acpica/files/acpica-unix-20210930.tar.gz"
+  sha256 "3cd82a281a16bc70c2708665668f138c4fc606c31161d46ce77230454ec04821"
   license any_of: ["Intel-ACPI", "GPL-2.0-only", "BSD-3-Clause"]
   head "https://github.com/acpica/acpica.git", branch: "master"
 
@@ -12,11 +12,12 @@ class Acpica < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7800ddc95916348c90a0a8b8c091f4e4424c08b27fe1f22305a2f34cb3eaa4f0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "159bed0fbe4b4649db890c6129b02dd6fd498edef41e2b9304f4e0cda7b0ae59"
-    sha256 cellar: :any_skip_relocation, catalina:      "df736fd1caa83fba4e3a6240310584acc511518b494c0662e8180d0f240fe65c"
-    sha256 cellar: :any_skip_relocation, mojave:        "9eaedea5cf3331a714cd67947e1473343f49a24d21dbf9598bf0d820b43700b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4c5df9d4e0f3b945d672e759195e498414ddfd1df9abc66e150ca8123fa3d0e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3b872f35d911d1c82a2615898af5afc4770b76e059aa7a2d3bb4a6659b933bc0"
+    sha256 cellar: :any_skip_relocation, monterey:      "26e952c5c45c718c00f2c8d55b1f0024ac14eb171a21d54ee6de9e248782799e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "171ca64d2e427e06fee2f5a3e6deb8e68403c8dcb0b505be088f9c363c592eab"
+    sha256 cellar: :any_skip_relocation, catalina:      "f1e620c13d2fcb5fd8969f32467c26b588ddc70d4866bb8a9e4740e893f19a09"
+    sha256 cellar: :any_skip_relocation, mojave:        "d311e06530b37ddcbdb19f2a7131e0d12fb2c4489905d0a827aa7e8de551fdb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75a5c8a82145074588085877162245a1c6703a7bf89fd2577f828f4636462d4d"
   end
 
   uses_from_macos "bison" => :build

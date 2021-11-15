@@ -1,18 +1,19 @@
 class Terrahelp < Formula
   desc "Tool providing extra functionality for Terraform"
   homepage "https://github.com/opencredo/terrahelp"
-  url "https://github.com/opencredo/terrahelp/archive/v0.7.4.tar.gz"
-  sha256 "2d70b6471bfb4b9c8ff3bb12050ecedca8d39830fa221bf8c319a1b6144ee6e5"
+  url "https://github.com/opencredo/terrahelp/archive/v0.7.5.tar.gz"
+  sha256 "bfcffdf06e1db075872a6283d1f1cc6858b8139bf10dd480969b419aa6fc01f7"
   license "Apache-2.0"
-  head "https://github.com/opencredo/terrahelp.git"
+  head "https://github.com/opencredo/terrahelp.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "be14ceca5a50701b09d86ccf224def6bc98f9151847240068d3667c6e62a47a5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "58044fae3de9a59f2420d65923e6d2619b91d026e45a1a6629699b11f9afa5be"
-    sha256 cellar: :any_skip_relocation, catalina:      "e8edbc804fa080128c6fdad4182eae24e3679c846bb03cfc7c71b56bba1e983a"
-    sha256 cellar: :any_skip_relocation, mojave:        "7ba4bc44de9efe372c14e80ecb0eeed2f6b634fb1e49fa66768db616200206b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "632dc956328a9b506fe8942c524f540225bd2cdbe2e19d10655c89a4d7cba505"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1de2d581302493095a12fc646062b1ea074aa792a36e81d37827438e832599a3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a416eab4b11b794fd807c6a6ce9d1fd87ebf8a4bfedeaa6ac45eeb9f6c092d52"
+    sha256 cellar: :any_skip_relocation, monterey:       "e04b7ade448da1809858ef7cefea05f34b5670d4b159b3f67d8700c0572201d7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "da129e3fa2f21f00fe0b054d5510509d39d6d26cbd58efa7d06297363254fcc7"
+    sha256 cellar: :any_skip_relocation, catalina:       "8db95e8da4909b68eaa18a9fab2e38769fcfa79426b3c1a53a4ac9d5315092fd"
+    sha256 cellar: :any_skip_relocation, mojave:         "10cfea117c1dd3d1e1f5c7b609b3c299c4544b46c87d996836971d1185e77004"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fdaed3d9218418ada94b13cbdfc0bd156ac0b5b44294a95674df07a3e66147a"
   end
 
   depends_on "go" => :build

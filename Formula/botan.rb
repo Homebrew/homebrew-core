@@ -1,25 +1,37 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-2.18.1.tar.xz"
-  sha256 "f8c7b46222a857168a754a5cc329bb780504122b270018dda5304c98db28ae29"
+  url "https://botan.randombit.net/releases/Botan-2.18.2.tar.xz"
+  sha256 "541a3b13f1b9d30f977c6c1ae4c7bfdfda763cda6e44de807369dce79f42307e"
   license "BSD-2-Clause"
-  head "https://github.com/randombit/botan.git"
+  head "https://github.com/randombit/botan.git", branch: "master"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?Botan[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 arm64_big_sur: "49d7c6c498d9eeb8d5d8be5b1dfe36107c499bb651df544028e9fec7cdac814d"
-    sha256 big_sur:       "c95c511ab524fe403fb6ca322e1e4b1075d010e1ed6fe8523589297157ef1209"
-    sha256 catalina:      "de7d2bcd91abe81ef297b2134e1aa4bd622f5c9764614e3af0fc04b4a39ad75a"
-    sha256 mojave:        "281575e69fdacaa33127379de2da8d4a5e1951fd98da54ed448655cb959d8149"
-    sha256 x86_64_linux:  "7200ca14e74e28d77a3438458be6a4f71c6c06de62c53613aeb5596e79910c1d"
+    sha256 arm64_monterey: "850adbef4b6df09cd0ccbe6488be7af07ca39eaa64579fefe025cd2e6f92c088"
+    sha256 arm64_big_sur:  "75e3663e0e99d0ef40a8a62d5f19b738b20f6024845b9f29fc355851a1f382a9"
+    sha256 monterey:       "d22f82dbd0196654270ed1d41e0f4894a6130bab963b9e8f7f44a1c1bbf2db69"
+    sha256 big_sur:        "53c1d23a7a5bcfda1378d970e6e3140a6f8721c84b92f87c417e01f3fb225124"
+    sha256 catalina:       "f934561950c879723f6fde7fb0a6973c7777c869b1dd54012674c99baf8b9584"
+    sha256 x86_64_linux:   "941492434980b6730375a8b6e5dec25a4781243740d3d532644a521a89a7ab31"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     ENV.cxx11

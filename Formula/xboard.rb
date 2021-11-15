@@ -9,6 +9,7 @@ class Xboard < Formula
 
   bottle do
     sha256 arm64_big_sur: "87ddefe504448f88254af63c0eaef51f4380f76ea1d2f20fcf6ee780b9241b18"
+    sha256 monterey:      "cf88692979c82a3d4697dea0db80d433fc7c9c11f4e4bdfa4d104c88fb6f4f47"
     sha256 big_sur:       "cd3b5c0a0ee1045a4ba3dc98077a2ed01fecb281bc6763ecd509b6f09efaf173"
     sha256 catalina:      "561953a63ec6296b6faeb38b999f83ede6ba7c91501cce88eeb560c282985ee7"
     sha256 mojave:        "c94386e2985c9a4175aba3280658670810269c0a6fe8315676cc49198070bf14"

@@ -22,6 +22,7 @@ class Mongrel2 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 monterey:     "659082758f176f43b20faecebb11df5a5f1b92237638e1aa083d84f37af0d468"
     sha256 cellar: :any,                 big_sur:      "8f991bcd7c13374bb5cdea84d551da20b5c15885c54c1d9cee8dfc960776cb1d"
     sha256 cellar: :any,                 catalina:     "b410e2526d00b6ba46854e3924889cd96d23c871f9351fb7f050234bbe332904"
     sha256 cellar: :any,                 mojave:       "c0e9720ac266d01411da10390981f34f63308e42b7a5738bebc5378d9c18f134"
@@ -39,9 +40,7 @@ class Mongrel2 < Formula
 
     # Mongrel2 pulls from these ENV vars instead
     ENV["OPTFLAGS"] = "#{ENV.cflags} #{ENV.cppflags}"
-    on_macos do
-      ENV["OPTLIBS"] = "#{ENV.ldflags} -undefined dynamic_lookup"
-    end
+    ENV["OPTLIBS"] = "#{ENV.ldflags} -undefined dynamic_lookup" if OS.mac?
 
     system "make", "all"
     system "make", "install", "PREFIX=#{prefix}"

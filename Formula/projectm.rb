@@ -6,10 +6,12 @@ class Projectm < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "4124ed10310e00ab4d706dcf40814adf0497af26cc95733aec708b82f4aaeced"
-    sha256 big_sur:       "c8ece4df06966643cf9aaae5f31610b98eaacddbfb7b0e56b21531d5e2f8f1a5"
-    sha256 catalina:      "8d11933c220cde67c4515ee5d42d99bc8e1c18479a4d3b746074c6080712cf0f"
-    sha256 mojave:        "9f7aef06ab68d557c1c989e08709903511a4fcd74fd166559d4f7bbf6af55548"
+    sha256 arm64_monterey: "a8dae00eb95d2123fda97a19085933944cc35cc1bb2eceaad0b2bb8555e4f961"
+    sha256 arm64_big_sur:  "4124ed10310e00ab4d706dcf40814adf0497af26cc95733aec708b82f4aaeced"
+    sha256 monterey:       "473cd386b1daec76f796cffff2c29b6b6cc57f749a517f91cc5466a7ccc2fd81"
+    sha256 big_sur:        "c8ece4df06966643cf9aaae5f31610b98eaacddbfb7b0e56b21531d5e2f8f1a5"
+    sha256 catalina:       "8d11933c220cde67c4515ee5d42d99bc8e1c18479a4d3b746074c6080712cf0f"
+    sha256 mojave:         "9f7aef06ab68d557c1c989e08709903511a4fcd74fd166559d4f7bbf6af55548"
   end
   head do
     url "https://github.com/projectM-visualizer/projectm.git"

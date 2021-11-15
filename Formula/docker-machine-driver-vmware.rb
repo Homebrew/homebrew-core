@@ -2,16 +2,17 @@ class DockerMachineDriverVmware < Formula
   desc "VMware Fusion & Workstation docker-machine driver"
   homepage "https://www.vmware.com/products/personal-desktop-virtualization.html"
   url "https://github.com/machine-drivers/docker-machine-driver-vmware.git",
-      tag:      "v0.1.3",
-      revision: "fa87f07244c4fc64cde5f921ac9d0cb60cc3302a"
+      tag:      "v0.1.5",
+      revision: "faa4b93573820340d44333ffab35e2beee3f984a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "700ee8e5f337ec89182e4585a42929d52a9a56417dd7ee6a5a09bbbc1f38d24b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5028fce4f23eba9047fa977e0db88861d99bcc0dc2b79b0c2920ea68569b970f"
-    sha256 cellar: :any_skip_relocation, catalina:      "d0ce7d4804d39392cfede2ecc19fbe763d39b4684306d0cb36efb19359668c53"
-    sha256 cellar: :any_skip_relocation, mojave:        "515e8951062268846b9c3ec85aa2b29c6f093cba35eed91a3503344fd5aa288a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfe899d44e93a330c23fb56f24df7b98decb3aa4829f2f69eee63fac804ef8dd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3522b431d33e08ad8254960584cb82125d3654ef0967e278351e28a1a9b87a5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98cd633c17acd0978f43cb4d2f1443e6d21ad5acf56d93cf28c654f397791658"
+    sha256 cellar: :any_skip_relocation, monterey:       "3a22d6d877b2412af488570396f84ee8f009eeaf0e12a773ee6af1eac7683418"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9f7eef36f62d2b630deb5322a4f6b01e78d14e669fbfb88e352eb774e280dce6"
+    sha256 cellar: :any_skip_relocation, catalina:       "4bc310cd17c2d0fd65a4c52c31950ff23de1c2d70dd18affa8d6f94328c6d6cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcbbcda3d2fefbc6a36110af71741feca578e911bda0c54ba54ab9846e741dc4"
   end
 
   depends_on "go" => :build

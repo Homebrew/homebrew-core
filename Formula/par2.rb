@@ -11,12 +11,14 @@ class Par2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1a31a28b5aa927f4b5fbf4778e0df5ce27e567cfd1db41f60ad5374c70a7d24b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8379fe417ad00b81929cef774072179d9f2497156a5b06b706a6cf182d2f93dd"
-    sha256 cellar: :any_skip_relocation, catalina:      "26609c45028599a4845f68cda2a5cd08c2a0dc37ae3987d4abf86aed99499f50"
-    sha256 cellar: :any_skip_relocation, mojave:        "cded10d8f18c5ab236ceb624854afb672681bd1a86f21e47d70de793db378580"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "35477bcfecd91b7fe885739737f576b63545aab51ba997bc60f9a74927b775dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68a34f74212b806d82f10515575e8f62a90eb2066d6fffb24c5f422a380854fb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb4dab9fec0be03e27ff19f97c08170b4603f01c232eb0b75f0f2422e34a9b19"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a31a28b5aa927f4b5fbf4778e0df5ce27e567cfd1db41f60ad5374c70a7d24b"
+    sha256 cellar: :any_skip_relocation, monterey:       "21124f8c1c080a67ee9ad88adbf361163031672a0a7446fead075644628bb56d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8379fe417ad00b81929cef774072179d9f2497156a5b06b706a6cf182d2f93dd"
+    sha256 cellar: :any_skip_relocation, catalina:       "26609c45028599a4845f68cda2a5cd08c2a0dc37ae3987d4abf86aed99499f50"
+    sha256 cellar: :any_skip_relocation, mojave:         "cded10d8f18c5ab236ceb624854afb672681bd1a86f21e47d70de793db378580"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "35477bcfecd91b7fe885739737f576b63545aab51ba997bc60f9a74927b775dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68a34f74212b806d82f10515575e8f62a90eb2066d6fffb24c5f422a380854fb"
   end
 
   def install

@@ -1,16 +1,18 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://github.com/oneapi-src/oneTBB"
-  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.3.0.tar.gz"
-  sha256 "8f616561603695bbb83871875d2c6051ea28f8187dbe59299961369904d1d49e"
+  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.4.0.tar.gz"
+  sha256 "021796c7845e155e616f5ecda16daa606ebb4c6f90b996e5c08aebab7a8d3de3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0b38fba5657af959e0e2392daa9163309c51b469e7db92c5b70f535c554ab63a"
-    sha256 cellar: :any,                 big_sur:       "18d284f2fa0792ab119b10260eebc9a87fd00dc68cf0fdcd70ee00d6d7af5570"
-    sha256 cellar: :any,                 catalina:      "953989fa59711ea79f8690ae08a79a4a7722325fa36445ddffaf11c6729e25ee"
-    sha256 cellar: :any,                 mojave:        "e2c2e8c35d0df2fc1659c59c0b501b0e2420c43a6d8afe629c9f49afa1bae236"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "826e5e4bdbcdec6e72a99bb61a6d89eba61438d3f820af714e9e684cb0f085c9"
+    sha256 cellar: :any,                 arm64_monterey: "ab51e857beba9a5eaa3a8e265bb39443f6be0af06ce0e637b37d2c322b5b0eed"
+    sha256 cellar: :any,                 arm64_big_sur:  "562dbe3727195b7d22f5750f720ab8719e84dd557f120af380fe65ebf1de0f71"
+    sha256 cellar: :any,                 monterey:       "dcbc8429653c9953eeb40e73f228ebbdfca7e86bbcc13ddc9078fc67531660cc"
+    sha256 cellar: :any,                 big_sur:        "292efca6f88d8dc0dd396593ec9cd7fffee60457968f3bf4911e595e67b0e4e5"
+    sha256 cellar: :any,                 catalina:       "ceab79696162f301977698d1274dfc220de372ba473845c0b89ce29572e2c54b"
+    sha256 cellar: :any,                 mojave:         "d5c1155379f21962bc47d172a9b673c4a72b24656b5f7fed5990d3e34b909c98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5dfbbb5d279074f2bc885ef3fa4c8e28faf69115434f1e58212bc3b027e36fcf"
   end
 
   depends_on "cmake" => :build
@@ -35,25 +37,14 @@ class Tbb < Formula
 
     cd "python" do
       ENV.append_path "CMAKE_PREFIX_PATH", prefix.to_s
-      on_macos do
-        ENV["LDFLAGS"] = "-rpath #{opt_lib}"
-      end
+      ENV["LDFLAGS"] = "-rpath #{opt_lib}" if OS.mac?
 
       ENV["TBBROOT"] = prefix
       system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
 
-    on_linux do
-      inreplace prefix/"rml/CMakeFiles/irml.dir/flags.make",
-                "#{HOMEBREW_LIBRARY}/Homebrew/shims/linux/super/g++-5",
-                "/usr/bin/c++"
-      inreplace prefix/"rml/CMakeFiles/irml.dir/build.make",
-                "#{HOMEBREW_LIBRARY}/Homebrew/shims/linux/super/g++-5",
-                "/usr/bin/c++"
-      inreplace prefix/"rml/CMakeFiles/irml.dir/link.txt",
-                "#{HOMEBREW_LIBRARY}/Homebrew/shims/linux/super/g++-5",
-                "/usr/bin/c++"
-    end
+    inreplace_files = Dir[prefix/"rml/CMakeFiles/irml.dir/{flags.make,build.make,link.txt}"]
+    inreplace inreplace_files, Superenv.shims_path/ENV.cxx, "/usr/bin/c++" if OS.linux?
   end
 
   test do

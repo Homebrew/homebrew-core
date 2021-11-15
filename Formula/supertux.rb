@@ -5,7 +5,7 @@ class Supertux < Formula
   sha256 "26a9e56ea2d284148849f3239177d777dda5b675a10ab2d76ee65854c91ff598"
   license "GPL-3.0-or-later"
   revision 2
-  head "https://github.com/SuperTux/supertux.git"
+  head "https://github.com/SuperTux/supertux.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,10 +13,12 @@ class Supertux < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a43aa28db1ce468178567d76e8d62ecc90b7059efebf09e7486adeb7fb4fa22e"
-    sha256 cellar: :any, big_sur:       "b2a5292147a6d0f84589d699a2c5f0ffb196602640c5302f82281d021274c506"
-    sha256 cellar: :any, catalina:      "59c8ea513385b6d4785c28cca54864ebdcc415d5ece4fe724d11a4a74f7f95cc"
-    sha256 cellar: :any, mojave:        "2b0b76de7aa2d930df7d8b22eb3389c4dcaea132a45de9eb88907ded500c7cb3"
+    sha256 cellar: :any, arm64_monterey: "c43cf071cc0f131af3b0e21d82eb18ef691e23905b8bd0a851218d1221a7221d"
+    sha256 cellar: :any, arm64_big_sur:  "a43aa28db1ce468178567d76e8d62ecc90b7059efebf09e7486adeb7fb4fa22e"
+    sha256 cellar: :any, monterey:       "416ca52bb2f3184cb76c3afd0d56429fb204f9d627d013f19c922b6418b712e5"
+    sha256 cellar: :any, big_sur:        "b2a5292147a6d0f84589d699a2c5f0ffb196602640c5302f82281d021274c506"
+    sha256 cellar: :any, catalina:       "59c8ea513385b6d4785c28cca54864ebdcc415d5ece4fe724d11a4a74f7f95cc"
+    sha256 cellar: :any, mojave:         "2b0b76de7aa2d930df7d8b22eb3389c4dcaea132a45de9eb88907ded500c7cb3"
   end
 
   depends_on "cmake" => :build

@@ -6,18 +6,19 @@ class Pyvim < Formula
   url "https://files.pythonhosted.org/packages/7b/7c/4c44b77642e866bbbe391584433c11977aef5d1dc05da879d3e8476cab10/pyvim-3.0.2.tar.gz"
   sha256 "da94f7a8e8c4b2b4611196987c3ca2840b0011cc399618793e551f7149f26c6a"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ec73945e19de8974e4ec0fa0b4c3e4ec636eb5e34bb6eb9302ed9766c34d60e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "868ee3749fceb49de0999143f39ba0514a5c719631df8dc7439097b3a0589884"
-    sha256 cellar: :any_skip_relocation, catalina:      "3ecf8e98474fabad21f04c32a9e746e608f4574a3041135093c9dfd4e333cd19"
-    sha256 cellar: :any_skip_relocation, mojave:        "08cb6c9665bb39e581cd28cd3aad2971c8100735d0361382b98a910344bec2ff"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "28c123775817e3cf99d29ec4cb466efd46805731d29b46629a5b67e0a1dff690"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93f16fa899d01b499b126eb26fad62c66cd75c8e96fba88fb103ae3aac68a6a8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a327fd8da8ad04448168ade36f66005a34f764f9ffc29219a6c23e0a48ad0592"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b321a033c9da601baa469130c8bfd363816e9694a2d8caa2d601339e662b7d72"
+    sha256 cellar: :any_skip_relocation, monterey:       "99eaa49dc72e36ca0d310ddee27e7a689c94dc66810550999a3f4d1f52116ecc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0dab59c0c17cc65d81a0ce2e83102d42e188169f6a2ae91c2c08b8ec2ffb2038"
+    sha256 cellar: :any_skip_relocation, catalina:       "fb348c98666df443ca4290cb74fd0c3d9758389bca62ac72ac8595fc3a0025f9"
+    sha256 cellar: :any_skip_relocation, mojave:         "7f3586932432c8244a8d48adc731f122380035b233eb0c1c84d6c6ffb2751e88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dad3b11d399b088624aff2f5c93e58b1644c4f1a0bf91cd98859521bc6fcb62"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"

@@ -12,11 +12,13 @@ class Gpa < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "77f73e7161f535ed00a02c8df2f5818dad8574a0ff52f339949b1030a0bd7454"
-    sha256 big_sur:       "b4476f76bdd1e9b7acb836a49cb7e216726d277d04d24ce1b5c2d3d7e392adf0"
-    sha256 catalina:      "c598e546d83f042d3de1011bff926a839c34e56c06a4c9cc6dbab25ff9c19df6"
-    sha256 mojave:        "14eace8606e49fe9d3d2fa39a9f79fbbaca7cff7d78c0cb7027033f92133fa04"
-    sha256 x86_64_linux:  "1a17d322fea230c75e6578aeab62b9a757bf0bdd26db04e7d1ec9277ec41c39e"
+    sha256 arm64_monterey: "0632898dac3f09ee39856db86625d0b4eca39e309850d4579daf9be230ff9af8"
+    sha256 arm64_big_sur:  "77f73e7161f535ed00a02c8df2f5818dad8574a0ff52f339949b1030a0bd7454"
+    sha256 monterey:       "28a9fb24ea01ea5cc3d0e212c516b3d72a994ce70e339d911d7828f9be949669"
+    sha256 big_sur:        "b4476f76bdd1e9b7acb836a49cb7e216726d277d04d24ce1b5c2d3d7e392adf0"
+    sha256 catalina:       "c598e546d83f042d3de1011bff926a839c34e56c06a4c9cc6dbab25ff9c19df6"
+    sha256 mojave:         "14eace8606e49fe9d3d2fa39a9f79fbbaca7cff7d78c0cb7027033f92133fa04"
+    sha256 x86_64_linux:   "1a17d322fea230c75e6578aeab62b9a757bf0bdd26db04e7d1ec9277ec41c39e"
   end
 
   depends_on "pkg-config" => :build

@@ -1,11 +1,11 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2021-08-01.tar.gz"
-  version "20210801"
-  sha256 "cd8c950b528f413e02c12970dce62a7b6f37733d7f68807e73a2d9bc9db79bc8"
+  url "https://github.com/google/re2/archive/2021-11-01.tar.gz"
+  version "20211101"
+  sha256 "8c45f7fba029ab41f2a7e6545058d9eec94eef97ce70df58e92d85cfc08b4669"
   license "BSD-3-Clause"
-  head "https://github.com/google/re2.git"
+  head "https://github.com/google/re2.git", branch: "main"
 
   # The `strategy` block below is used to massage upstream tags into the
   # YYYYMMDD format used in the `version`. This is necessary for livecheck
@@ -19,11 +19,12 @@ class Re2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7161e24d4d5b9330079b6ec2915f6b4930dc97ab60c2b33f997865828f79e3b7"
-    sha256 cellar: :any,                 big_sur:       "d02415b9f89466ecba729540c2a0a4aba73b6d2c93795ed9688958e5fd8d2483"
-    sha256 cellar: :any,                 catalina:      "43fd15aaa2999e110b460b4503c7437b11fe7d92f681056f2d36b508026715b5"
-    sha256 cellar: :any,                 mojave:        "97101f6e275debb9544d1b7dbfe7b5be28160bc1197ef3f7c0d340e834748dff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9853243831ee5b158e338b1d4aef131e993efeb0c1ca7f3fde050eb07404588"
+    sha256 cellar: :any,                 arm64_monterey: "411d3fd746a54b73c5cfbf4554197d3529a6bc5d74db706edc2973bceb32ea47"
+    sha256 cellar: :any,                 arm64_big_sur:  "debe0b67ea263d4e1cfcb7a7a85a4d70e5db4bee54971daca718c8245b435cfd"
+    sha256 cellar: :any,                 monterey:       "e3750181b190e53efdc2fd2c1f3f6199d0648e993f2c8e7f3de618b8417a228f"
+    sha256 cellar: :any,                 big_sur:        "ee81d89700feecc8ab081c65aa0e6317ae1b580e33736687e10f2a0f8fa6b788"
+    sha256 cellar: :any,                 catalina:       "d3e0fa175a17e9a9b9e624113eb41b44a579829be8d6736e9ae14fb466493ef5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f77942403dca071176d50096e88737a548d1c9e5c90df19202c26aa05c7e2a6"
   end
 
   depends_on "cmake" => :build

@@ -1,15 +1,17 @@
 class OsmiumTool < Formula
   desc "Libosmium-based command-line tool for processing OpenStreetMap data"
   homepage "https://osmcode.org/osmium-tool/"
-  url "https://github.com/osmcode/osmium-tool/archive/v1.13.1.tar.gz"
-  sha256 "d6273e2614d390d8444b767018b7023bdac3538cbe094d2799eee50b6f08cd03"
+  url "https://github.com/osmcode/osmium-tool/archive/v1.13.2.tar.gz"
+  sha256 "a6516087bfe1f6c881c9087b448ee8965b7d1730e29e4e8e982cd2ef8c4f8d98"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4f31ffcb711de0f25a38037ccfd16dcf1b5f2ed07d56a466124f15911a47473d"
-    sha256 cellar: :any, big_sur:       "09e5b002c6ab672542b2f9ad0c82c37cb988e7d2cc98549f9c66dd6770831c9d"
-    sha256 cellar: :any, catalina:      "9920eb1a2bbb242e0f50efe06959e18a348ca5c8ecbc37fe92e4dfe05052869d"
-    sha256 cellar: :any, mojave:        "d6811e52a681a55880b504d684d6ba8ba19105471fecd574a8000d392689fc6d"
+    sha256 cellar: :any, arm64_monterey: "a1e85864e81239d90e4e0592fcd1fe7eab4118d06f34e4b6ea4560fb9ec66294"
+    sha256 cellar: :any, arm64_big_sur:  "bb643b8ff8b55a149f0fb6b57c1abd347fdca943a6a8d44baf34cc123bf47b9a"
+    sha256 cellar: :any, monterey:       "ae1f3ea8a20597ec99ba4e43d46de8d45c0416dac1fed9464e111a5e6c1d307a"
+    sha256 cellar: :any, big_sur:        "589eb5fd205fe081a5fa470f44628a186c1ac0c9d6546d7aa02308ad32bd83f8"
+    sha256 cellar: :any, catalina:       "3c8ed5d3feb01942592c9ecbc6e32e5be0fbcce61411e75c7240f0d2d6ff2446"
+    sha256 cellar: :any, mojave:         "0c1d2dcf31540f5a0218d9413dc7b990d3dd9e21d5d261a3ff617365cec6d0ed"
   end
 
   depends_on "cmake" => :build

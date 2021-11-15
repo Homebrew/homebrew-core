@@ -1,17 +1,18 @@
 class Allureofthestars < Formula
   desc "Near-future Sci-Fi roguelike and tactical squad combat game"
   homepage "https://www.allureofthestars.com/"
-  url "https://hackage.haskell.org/package/Allure-0.10.2.0/Allure-0.10.2.0.tar.gz"
-  sha256 "fcb9f38ea543d3277fa90eee004f7624d1168bf7f2c17902cda1870293b7c2f4"
+  url "https://hackage.haskell.org/package/Allure-0.10.3.0/Allure-0.10.3.0.tar.gz"
+  sha256 "0ae3ffbdf8bff2647ed95c2b68073874829b26d7e33231a284a2720cf3414fdc"
   license all_of: ["AGPL-3.0-or-later", "GPL-2.0-or-later", "OFL-1.1", "MIT", :cannot_represent]
-  revision 2
   head "https://github.com/AllureOfTheStars/Allure.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "5d4b52ab398c06ea763ada17bbcc5ce1809e7fa41ca86d51e84a1b735e2bf1fc"
-    sha256 big_sur:       "520edb58cb488698e8d7684072a3ad0fb60380eb5142d2aa9c93577755f93f02"
-    sha256 catalina:      "cb7ee8b10d01e3ed930b003c2f0bc56a6430da78c0dc2d4f7b478412f87cc322"
-    sha256 mojave:        "ed9c63c9bce1bbd78e176f839bf948696fc59f37c9c23ac86bdf4689903f104f"
+    sha256 arm64_monterey: "cde6ae4feb79ecd891aafa2d4d0ebbbbe140a2d71b86770a8f46479c2165f0e2"
+    sha256 arm64_big_sur:  "d5e1044e0fc88046d9a25881d4474f1b717aa45351e88c3a2cb468a7b963351b"
+    sha256 monterey:       "39a6422266e1c94f31bc3b58554f8e2558e27bd37e9c3a884a5e3d7166e9014f"
+    sha256 big_sur:        "3cdd74a916009522c1311f9c5652b14b9fbd3b6efd2f5bceed76e4e38ee83d08"
+    sha256 catalina:       "9cce7401b41c975014dffb656baa00077e71ee580c25773725f57ce79acec98c"
+    sha256 x86_64_linux:   "e3926e9981b416b9bd8698ea5ab721b5b38b1fd374e228d4ec6e3e3ecbe34e5c"
   end
 
   depends_on "cabal-install" => :build

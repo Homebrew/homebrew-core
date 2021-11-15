@@ -7,21 +7,22 @@ class Cxxtest < Formula
   mirror "https://deb.debian.org/debian/pool/main/c/cxxtest/cxxtest_4.4.orig.tar.gz"
   sha256 "1c154fef91c65dbf1cd4519af7ade70a61d85a923b6e0c0b007dc7f4895cf7d8"
   license "LGPL-3.0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "087ee9046bc2b4dfe3b3d814f76833c1264fa4526d288e36a2b04c2c2479cbe1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d3a87d28e3b22363d72fb1e26880c5bb020504936d433b0f786f0a12f336a8b6"
-    sha256 cellar: :any_skip_relocation, catalina:      "40c95a78befc9212653a872f53f7b87669d6ed855da71355a6324571cfc09f9c"
-    sha256 cellar: :any_skip_relocation, mojave:        "19feab27f801c6af7cba8075900cdb96f492244d06fc49ed9b4c943b1f13777e"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "c989ac0116f6c42404580610e42f467af4d476b4107e2303d47da4f576a394f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56487b4139020d23d3df997a8e90752f2f316382b37b1989a13d77ca5079a0a3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "290c7e2e1fe99e75a0f7b45d2808d971db1e39fb915acb11ec2d75ef15b18b0c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "290c7e2e1fe99e75a0f7b45d2808d971db1e39fb915acb11ec2d75ef15b18b0c"
+    sha256 cellar: :any_skip_relocation, monterey:       "e1bcaf3c8fbddf83977c8cbbde084f64d3915a22bbf023cb044423b7215c26ee"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e1bcaf3c8fbddf83977c8cbbde084f64d3915a22bbf023cb044423b7215c26ee"
+    sha256 cellar: :any_skip_relocation, catalina:       "e1bcaf3c8fbddf83977c8cbbde084f64d3915a22bbf023cb044423b7215c26ee"
+    sha256 cellar: :any_skip_relocation, mojave:         "e1bcaf3c8fbddf83977c8cbbde084f64d3915a22bbf023cb044423b7215c26ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b808acbab8d4cc6aa173baafc1e35786e8253cc5a4f16e5bf8a35853aeed490"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
     venv.pip_install_and_link buildpath/"python"
 
     include.install "cxxtest"

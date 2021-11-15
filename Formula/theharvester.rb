@@ -3,23 +3,28 @@ class Theharvester < Formula
 
   desc "Gather materials from public sources (for pen testers)"
   homepage "http://www.edge-security.com/theharvester.php"
-  url "https://github.com/laramies/theHarvester/archive/4.0.0.tar.gz"
-  sha256 "7c7a33202634f9cfc2cce33733ed20a913a6668d0b06846c3ec278b3b02e2a45"
+  url "https://github.com/laramies/theHarvester/archive/4.0.2.tar.gz"
+  sha256 "c6615b9adc406b7b0ece99dcc95200621b047c2612be1e2f6ee653ec38ee3a64"
   license "GPL-2.0-only"
-  head "https://github.com/laramies/theHarvester.git"
+  head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e76292986e45d491c4d19d63144a53a405b2aa293c6ee303aa7eeae4c8681aef"
-    sha256 cellar: :any, big_sur:       "451e24359796980d7da8927cb24a47b5c0fe79a44f9c76844ab02dd7b38ffcf2"
-    sha256 cellar: :any, catalina:      "2dafc697f914b194361539a94eac3d016fd2d93ba4dc930ba01008352242d6a3"
-    sha256 cellar: :any, mojave:        "86a3c405c2569845f5517887ca7be04f4b3c8bebc22a59e95488f1c8b7244cc9"
+    sha256 cellar: :any,                 arm64_monterey: "5368097bec83ea8c65c46b56512a663395d9b9beee7f421f14a09599a0ce9a00"
+    sha256 cellar: :any,                 arm64_big_sur:  "4f0d342c2cce67e5f8a586138bc7f89c905a2e02b94939d78449ec6a4433b887"
+    sha256 cellar: :any,                 monterey:       "1e8b4cc721c8fcdb7c71b8b034e428754fd785abc0ced8f74185b0bc8ac04db1"
+    sha256 cellar: :any,                 big_sur:        "239a40a9eff32ad2b981548a6d5959a468c1b6227e14842526ad4cb22f2cd8a6"
+    sha256 cellar: :any,                 catalina:       "19d2b721342dd34859f3efa8124ad4f7cce06a0b25dbb668eaf8ee968db72475"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9036df5e1b5e3823377be9c5cea23c29bd4ce56780c46da7f1d524f82cb44eeb"
   end
 
   depends_on "maturin" => :build
-  depends_on "rustup-init" => :build # for orjson, which needs nightly channel
+  depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "python@3.9"
   depends_on "six"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "aiodns" do
     url "https://files.pythonhosted.org/packages/27/79/df72e25df0fdd9bf5a5ab068539731d27c5f2ae5654621ae0c92ceca94cf/aiodns-3.0.0.tar.gz"
@@ -157,8 +162,8 @@ class Theharvester < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/3d/fa/53dba2273db6fa955bcfc250391c95dce0a27ec1f56cbec2e2a86a3107d6/orjson-3.5.3.tar.gz"
-    sha256 "8818f651ef7ed55f7c0ee34fa51f3de0988dd35386e8cefd0c2e1f32ff9f1966"
+    url "https://files.pythonhosted.org/packages/75/cd/eac8908d0b4a4b08067bc68c04e52d7601b0ed86bf2a6a3264c46dd51a84/orjson-3.6.3.tar.gz"
+    sha256 "353cc079cedfe990ea2d2186306f766e0d47bba63acd072e22d6df96c67be993"
   end
 
   resource "pycares" do
@@ -281,23 +286,15 @@ class Theharvester < Formula
     sha256 "8a9066529240171b68893d60dca86a763eae2139dd42f42106b03cf4b426bf10"
   end
 
-  # Update the Rust nightly toolchain version whenever orjson is updated.
-  # See https://github.com/ijl/orjson/tree/#{resource("orjson").version}#packaging
-  def rust_toolchain
-    "nightly-2021-05-25"
-  end
-
   def install
-    # This will install a rust toolchain to be used with orjson.
-    system Formula["rustup-init"].bin/"rustup-init", "-qy", "--no-modify-path",
-           "--default-toolchain", rust_toolchain, "--profile", "minimal"
-
     venv = virtualenv_create(libexec/"venv", "python3")
 
     resource("orjson").stage do
-      with_env(PATH: "#{HOMEBREW_CACHE}/cargo_cache/bin:#{ENV["PATH"]}") do
-        system Formula["maturin"].bin/"maturin", "build", "--no-sdist", "--release", "--strip", "--manylinux", "off"
-      end
+      system Formula["maturin"].bin/"maturin", "build", "--no-sdist",
+                                                        "--release",
+                                                        "--strip",
+                                                        "--compatibility", "linux",
+                                                        "--cargo-extra-args=--locked"
       venv.pip_install Dir[Pathname.pwd/"target/wheels/orjson*.whl"]
     end
 

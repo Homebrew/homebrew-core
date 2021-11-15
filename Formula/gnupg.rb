@@ -1,8 +1,8 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.1.tar.bz2"
-  sha256 "c498db346a9b9a4b399e514c8f56dfc0a888ce8f327f10376ff984452cd154ec"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.3.tar.bz2"
+  sha256 "5789b86da6a1a6752efb38598f16a77af51170a8494039c3842b085032e8e937"
   license "GPL-3.0-or-later"
   revision 1
 
@@ -12,11 +12,12 @@ class Gnupg < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "fd27ef93bf469e8f5689c372f6b6dba70f2fb777b8056b22e5688b67a146b902"
-    sha256 big_sur:       "d1459dc52e4360dd6d812a833218e5ced1f08c10b131981a3ec2aab9fc5d7f9c"
-    sha256 catalina:      "fbdc50f45c45b3444b7d4dd48334e91b8a0c9dbf84da85f379981bbb2ee1a5a3"
-    sha256 mojave:        "bbbcdf26abc4cb46557b59ba60320317d457e7f794ed3092891df29153b5d807"
-    sha256 x86_64_linux:  "24dc3ed7dfaf78ef664f64389aac520950b8e82e43c2381a00123909c7bcb676"
+    sha256 arm64_monterey: "7935ce2295cc17a978ad5d00c0cb34f2969c510e8820f1404f44fd7d3bd585b0"
+    sha256 arm64_big_sur:  "e1f444e61d3e8c00970d2e61d513caf02ab4b2c07c2bd8a2b13dd8265e4c379a"
+    sha256 monterey:       "054b5d03dc3b3e3fb71ec3f8b4c39e250bde24ac4981c5f2c041567e5643be90"
+    sha256 big_sur:        "3854d1939e38f51eee0d471dbb86be5880c583fc43099e04f11b7538318606e0"
+    sha256 catalina:       "a810862dacc767bcece54292cf27854d96c10f028b6fee3bc0ea421aebe8c334"
+    sha256 x86_64_linux:   "05705f2461335835103d19f0451222e129dac8f05c4c8d3e972dba30a119558d"
   end
 
   depends_on "pkg-config" => :build
@@ -36,9 +37,12 @@ class Gnupg < Formula
     depends_on "libidn"
   end
 
-  # Fix tests for gnupg 2.3.1, remove in the next release
-  # Patch ref: https://dev.gnupg.org/rGd36c4dc95b72b780375d57311bdf4ae842fd54fa
-  patch :DATA
+  # Silence warning about /proc.
+  # Remove with the next release.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/890be5f6af88e7913d177af87a50129049e681bb/gnupg/2.3.3-proc-error.patch"
+    sha256 "c4ee02929a03935121b8a2db01e83fbe046a07f104514b2d1cba453c47464204"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -54,7 +58,7 @@ class Gnupg < Formula
 
     # Configure scdaemon as recommended by upstream developers
     # https://dev.gnupg.org/T5415#145864
-    on_macos do
+    if OS.mac?
       # write to buildpath then install to ensure existing files are not clobbered
       (buildpath/"scdaemon.conf").write <<~EOS
         disable-ccid
@@ -65,7 +69,7 @@ class Gnupg < Formula
 
   def post_install
     (var/"run").mkpath
-    quiet_system "gpgconf", "--reload", "all"
+    quiet_system "killall", "gpg-agent"
   end
 
   test do
@@ -90,17 +94,3 @@ class Gnupg < Formula
     end
   end
 end
-
-__END__
-diff --git a/tests/openpgp/defs.scm b/tests/openpgp/defs.scm
-index 768d479aa..86d312f82 100644
---- a/tests/openpgp/defs.scm
-+++ b/tests/openpgp/defs.scm
-@@ -338,6 +338,7 @@
-   (create-file "common.conf"
- 	       (if (flag "--use-keyboxd" *args*)
- 		   "use-keyboxd" "#use-keyboxd")
-+	       (string-append "keyboxd-program " (tool 'keyboxd))
- 	       )
-
-   (create-file "gpg.conf"

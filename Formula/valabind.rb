@@ -4,16 +4,15 @@ class Valabind < Formula
   url "https://github.com/radare/valabind/archive/1.8.0.tar.gz"
   sha256 "3eba8c36c923eda932a95b8d0c16b7b30e8cdda442252431990436519cf87cdd"
   license "GPL-3.0-or-later"
-  revision 1
-  head "https://github.com/radare/valabind.git"
+  revision 2
+  head "https://github.com/radare/valabind.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "57df76865d864be653bc20b5668dd5ce37325d51520178598d3f1fa1c7af43dc"
-    sha256 cellar: :any,                 big_sur:       "25cb2f7fc06c507f189f05e95cb24012cc991d9cd2467e0207cf7a98755777f0"
-    sha256 cellar: :any,                 catalina:      "d2f11663a729fded04669a0c753eddb459dc6fa29a2ebb504dee18dc8f1185cc"
-    sha256 cellar: :any,                 mojave:        "0e4828ea762e635ef5f1fa670afaade9e4106008fe9edcce8346cf233949194f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "493239d1c41d39008a87238ce6b69edb0e4b9151a145a2c51dabb3f70a4c844d"
+    sha256 cellar: :any,                 arm64_big_sur: "e3ab92ce9929d10db47821cb54a99943397f7708bcf9bac7fba29e5c1a5a184d"
+    sha256 cellar: :any,                 big_sur:       "bef04beaf352699df3774e1d26423b16cdd487836553755d6777b5d3a20e4413"
+    sha256 cellar: :any,                 catalina:      "d1013e81b20cf4c4981b7840c12d281fb2042aebb874317e8dff44d550915954"
+    sha256 cellar: :any,                 mojave:        "ca8cb97fd10e22e1ac1a8966889c9eda14f33bedeeae8395811c55748e2740cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d60a5907d80687fc3bf619f357d525ed856aaedf23dbad26fcd8c80636b37698"
   end
 
   depends_on "pkg-config" => :build

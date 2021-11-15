@@ -6,6 +6,11 @@ class Libtextcat < Formula
   sha256 "5677badffc48a8d332e345ea4fe225e3577f53fc95deeec8306000b256829655"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libtextcat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_big_sur: "a7d4587c077074798e16772f893cea69a90a99ff89b6071690a9980083b55e93"

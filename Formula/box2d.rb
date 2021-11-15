@@ -4,9 +4,10 @@ class Box2d < Formula
   url "https://github.com/erincatto/box2d/archive/v2.4.1.tar.gz"
   sha256 "d6b4650ff897ee1ead27cf77a5933ea197cbeef6705638dd181adc2e816b23c2"
   license "MIT"
-  head "https://github.com/erincatto/Box2D.git"
+  head "https://github.com/erincatto/Box2D.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:    "ce38e11785a57c7cd416fd4cb6a9cd2567363e1f1bc4938d010b13e0b2eefc34"
     sha256 cellar: :any_skip_relocation, big_sur:     "bec33552a3bf184fd75f6adbb193b15595c7729dd7f457c833b7826c6253c28d"
     sha256 cellar: :any_skip_relocation, catalina:    "5c6508a2d661409273a28ac5f0495d7d7c506b5d1bc7ceeb9ab90298db225178"
     sha256 cellar: :any_skip_relocation, mojave:      "51709abf7cf22ce487b7fb543c2760add5f6935459b00163567448f47ab6d86c"

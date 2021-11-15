@@ -7,6 +7,7 @@ class Luvit < Formula
   head "https://github.com/luvit/luvit.git"
 
   bottle do
+    sha256 cellar: :any, monterey: "010eed765a7f08a3674277000ea35ac980a69dd2746bb98ade221186681676e3"
     sha256 cellar: :any, big_sur:  "f5d4e01cac025c30275ca2caf6cd692565121a5c40674e82ed28264f3fcdfd94"
     sha256 cellar: :any, catalina: "25f788eba25ec7dd095172eb94f9afb08b259040656fb26c8173bc784857e18b"
     sha256 cellar: :any, mojave:   "e9d97bb1ea6f67020c8f02c3009edf46b45d249654df5ea134889526c082ba97"

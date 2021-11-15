@@ -8,11 +8,13 @@ class Redshift < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "043dc8ec9eff54763ea0fdf2c3ca325a9906d8fd1098568255ced2a497841315"
-    sha256 big_sur:       "8be47c6b6015ca4ccd2c706dd58541c49c4177a1d69144452a7aa483c977f805"
-    sha256 catalina:      "344ea69571839ab32210854f990474239fde828b10a019ec5e88695eb4c7ffcb"
-    sha256 mojave:        "71ec07212f543d7a4152f04627f2fe9cabcbc121caae584b24070f05101ae4dd"
-    sha256 x86_64_linux:  "12372cb33e04989848070b332096420b45539cd69e31026545543207d7d0cc9a"
+    sha256 arm64_monterey: "639cdf26164ff6a637c3adb96d4e5b92f6712199c8d49276638965836ac142c9"
+    sha256 arm64_big_sur:  "043dc8ec9eff54763ea0fdf2c3ca325a9906d8fd1098568255ced2a497841315"
+    sha256 monterey:       "442b3c30b0cd25d42a4c5e03ed166a264c59bb67b4eb51bbccef29c819e6aa39"
+    sha256 big_sur:        "8be47c6b6015ca4ccd2c706dd58541c49c4177a1d69144452a7aa483c977f805"
+    sha256 catalina:       "344ea69571839ab32210854f990474239fde828b10a019ec5e88695eb4c7ffcb"
+    sha256 mojave:         "71ec07212f543d7a4152f04627f2fe9cabcbc121caae584b24070f05101ae4dd"
+    sha256 x86_64_linux:   "12372cb33e04989848070b332096420b45539cd69e31026545543207d7d0cc9a"
   end
 
   head do
@@ -39,7 +41,7 @@ class Redshift < Formula
       --disable-gui
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-corelocation"
       args << "--enable-quartz"
     end

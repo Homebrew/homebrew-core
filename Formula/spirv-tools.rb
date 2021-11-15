@@ -1,16 +1,17 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2021.2.tar.gz"
-  sha256 "2416a0354a0b14b8e7b671f6f99652cc8a8a83dc9acf195dafd22fbee5e92035"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2021.4.tar.gz"
+  sha256 "d68de260708dda785d109ff1ceeecde2d2ab71142fa5bf59061bb9f47dd3bb2c"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "fde163985e77436a561a3d7bc519293312ff2182de12edeecfa8a2c5ede11d6d"
-    sha256 cellar: :any,                 big_sur:       "5771922301fbbececf2ea975947bb37fb755365f28b5d9877b67e6a935fd2b29"
-    sha256 cellar: :any,                 catalina:      "d1dd5215d2f0001194c143f3f7b77d68a40ecab0d3a9680b0ac9b011226ca22c"
-    sha256 cellar: :any,                 mojave:        "5319261202baf28c050bed985b4a012430a9568ae0f0ff968797941c299f0557"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e9d50009fda4cb51207189872dfbd6dfccfab91e8d6e43d588d3897f61a0660"
+    sha256 cellar: :any,                 arm64_monterey: "c4d6a8fca257d7de1d78168e2dcb1f49056ffbd388c59114ed37ae464b9f085b"
+    sha256 cellar: :any,                 arm64_big_sur:  "a24e7ffaa9c6d57c00b0c8cc93052f07eaa42c0f25b037a4f920109d25d3aab1"
+    sha256 cellar: :any,                 monterey:       "0d4a0adf1357d733f663de0ea622252229b5548e600d6eef590c0f9be7418a4a"
+    sha256 cellar: :any,                 big_sur:        "92b58c54632a083e1dbbe49525e5372015241a65813817e5446b3388fb90b756"
+    sha256 cellar: :any,                 catalina:       "f8c766313e53cd3fdd059ddcdedc88807dd87a2a8dbbb895d061edd4512dfb6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19f193bfb2d43bdb75c047431c5c3e605d2526c8121d4e35bd48e01037a57a4e"
   end
 
   depends_on "cmake" => :build
@@ -19,19 +20,19 @@ class SpirvTools < Formula
   resource "re2" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/re2.git",
-        revision: "f8e389f3acdc2517562924239e2a188037393683"
+        revision: "4244cd1cb492fa1d10986ec67f862964c073f844"
   end
 
   resource "effcee" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/effcee.git",
-        revision: "2ec8f8738118cc483b67c04a759fee53496c5659"
+        revision: "ddf5e2bb92957dc8a12c5392f8495333d6844133"
   end
 
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "07f259e68af3a540038fa32df522554e74f53ed5"
+        revision: "814e728b30ddd0f4509233099a3ad96fd4318c07"
   end
 
   def install
@@ -43,8 +44,7 @@ class SpirvTools < Formula
       system "cmake", "..", *std_cmake_args,
                             "-DBUILD_SHARED_LIBS=ON",
                             "-DSPIRV_SKIP_TESTS=ON",
-                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF",
-                            "-DEFFCEE_BUILD_TESTING=OFF"
+                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF"
       system "make", "install"
     end
 

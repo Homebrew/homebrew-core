@@ -6,12 +6,14 @@ class Gdmap < Formula
   revision 2
 
   bottle do
-    sha256 arm64_big_sur: "5a8b13614d00034566780fe17bfdffa2e3e9c08a10953de82b7f1e162f6846cb"
-    sha256 big_sur:       "a362457b2b3e0cba8a2b88555e794a2cd9a5c0b17591c632f3cc27e3e85777c8"
-    sha256 catalina:      "d465a02727acca541229325a9d3ffa79e1ef9693512da5b1d3a3b37437fbe00d"
-    sha256 mojave:        "9c178f409b81ce7808efe356bf09d82804265de11d4527dcc1dea20948a76b16"
-    sha256 high_sierra:   "1f82d4cf21c4166fd579e132e3ecf7302179cba2d6b19bf33ef18618f5354416"
-    sha256 sierra:        "2a5da8dc2b00407271001ef511d61cad03f043cc98b45442ab1aff7d9263ae19"
+    sha256 arm64_monterey: "0434aca36b5815b56ed272593d2c932c9021f98096b69948345326c6d4385711"
+    sha256 arm64_big_sur:  "5a8b13614d00034566780fe17bfdffa2e3e9c08a10953de82b7f1e162f6846cb"
+    sha256 monterey:       "3800ceb5b5a901034bfb7db80fda28a0015fc7479e899b3013bfc61f0b230629"
+    sha256 big_sur:        "a362457b2b3e0cba8a2b88555e794a2cd9a5c0b17591c632f3cc27e3e85777c8"
+    sha256 catalina:       "d465a02727acca541229325a9d3ffa79e1ef9693512da5b1d3a3b37437fbe00d"
+    sha256 mojave:         "9c178f409b81ce7808efe356bf09d82804265de11d4527dcc1dea20948a76b16"
+    sha256 high_sierra:    "1f82d4cf21c4166fd579e132e3ecf7302179cba2d6b19bf33ef18618f5354416"
+    sha256 sierra:         "2a5da8dc2b00407271001ef511d61cad03f043cc98b45442ab1aff7d9263ae19"
   end
 
   depends_on "intltool" => :build

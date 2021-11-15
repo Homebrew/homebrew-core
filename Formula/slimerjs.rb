@@ -4,7 +4,7 @@ class Slimerjs < Formula
   url "https://github.com/laurentj/slimerjs/archive/1.0.0.tar.gz"
   sha256 "6fd07fa6953e4e497516dd0a7bc5eb2f21c68f9e60bdab080ac2c86e8ab8dfb2"
   license "MPL-2.0"
-  head "https://github.com/laurentj/slimerjs.git"
+  head "https://github.com/laurentj/slimerjs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "8885664d7813c68ee458bf887d4e52ccf8164a05bd89d8f2a7e82a3a5c6396b7"

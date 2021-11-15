@@ -6,6 +6,7 @@ class Rig < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:    "5b3a4522d3f584f5239b2e993517d20f5d37fcfa474c8ba0fad8be7aa91372d5"
     sha256 cellar: :any_skip_relocation, big_sur:     "e763b581f6a9410df5cca2384f0f9108c06a1c2e90ad3ebfccf7bf2297b7b641"
     sha256 cellar: :any_skip_relocation, catalina:    "e75fa428f9833207c6fa53e005e32c8d3af48206e08ded637d9633c2af1e0643"
     sha256 cellar: :any_skip_relocation, mojave:      "8f311170956140550544c6a9e9b31068b61c5db52fefa2c92dd0ad565c0fc145"

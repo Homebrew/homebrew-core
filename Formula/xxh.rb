@@ -6,16 +6,19 @@ class Xxh < Formula
   url "https://files.pythonhosted.org/packages/2d/71/3fbc4861cc5dbf9bdc0515aa98526fe1dfd0d666a90252a43f922f74a174/xxh-xxh-0.8.7.tar.gz"
   sha256 "3608144e2035b7d3a8a24873b3dd74ea1b4460892971e265506fd46274ad2973"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ddbbe49d738c38af8064d668d0a7aa32653a3c7709011e3f7a6c863fa02f8052"
-    sha256 cellar: :any_skip_relocation, big_sur:       "11334c41c931307fe766117bfee9f6026f842adafbc24680bf7d12d600df8da5"
-    sha256 cellar: :any_skip_relocation, catalina:      "da65d762bb12e804c65a925c1b1fa92ff96845478ff3843efcecc1164bdbedad"
-    sha256 cellar: :any_skip_relocation, mojave:        "58f62dc572e312a5f2eb42ca0177b6b07ea4de7c710f03319f581b3843c1a6f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6aff1a95baaf066ffe25886e39dea34d64d847a2e8301e6930961eb4f72d8653"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1568bf8ddbffef649c1184ab8fd1c8e1add294b15333c2eaba896bc0e3ba4390"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9d1f7e84ff619ffc721847256a3cb6621f73d0f50e8a3a9b05b1070faadcbc4"
+    sha256 cellar: :any_skip_relocation, monterey:       "c6b94cf93576f3e0c36af9a7214ca791588e3d743560c9cd8ec9419ac460c8c9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "eef06592cabd88edf515e64b7814c6a235081522c5789557151b210990b4bb98"
+    sha256 cellar: :any_skip_relocation, catalina:       "89a119013535bc9e651ae15037cc926c54d7086acdd66bf0c2490fd189e38b72"
+    sha256 cellar: :any_skip_relocation, mojave:         "bad0b4899fb415178eb58559fe81dcf1eb4013431fede475ceea423d14d058f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3684ca87a1a2cba24227fe9615c9a0afdc6de1e80004911d10021a790beb7b98"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "pexpect" do
     url "https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz"

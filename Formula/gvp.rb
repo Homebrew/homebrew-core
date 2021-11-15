@@ -15,6 +15,7 @@ class Gvp < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "ddd00ded9d21c3ecfe23e807619d3ab1b3011bc586db0d7d4aa8d5d87e3689c6"
     sha256 cellar: :any_skip_relocation, yosemite:      "5e63da6d9c8d065277491db1658fee5c53089f7dd1bf1180e5d9e7172b376cde"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "edc2b278418b14f3e34504829b05b43db8920d2ddba011653f59688fb9a43068"
+    sha256 cellar: :any_skip_relocation, all:           "edc2b278418b14f3e34504829b05b43db8920d2ddba011653f59688fb9a43068"
   end
 
   # Upstream fix for "syntax error near unexpected token `;'"

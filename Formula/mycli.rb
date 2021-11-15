@@ -6,14 +6,15 @@ class Mycli < Formula
   url "https://files.pythonhosted.org/packages/24/94/b171e47b39420ebdf8d5f6dd13063785cd86e3d8b29b493fe1ebfcf7af4f/mycli-1.24.1.tar.gz"
   sha256 "748d98be3da5948f5394c15bb37e628d8785b86aa84e8bd9c9187e20b84d3266"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "94c3e0e52e871078cea956a1432d18a4ddb4784158f11176bbca5899fd3fdbf2"
-    sha256 cellar: :any,                 big_sur:       "06ebeca7331a42b285c8aeb600a80e435b616df96ee6ffa2f789a989e64eb8e6"
-    sha256 cellar: :any,                 catalina:      "5a422d46352babae1bbcb8c529a2bd0885c79d85878eb43ce71818a53fcd1ff6"
-    sha256 cellar: :any,                 mojave:        "2c85021224eb11cfc16e9275f798f48202f0f8c450eb05efd6b1e5eeaf4135bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cbeb204525acdbdb1c7ff028115a10fd05b72a60b9492be21e5fc6dda2b6378"
+    sha256 cellar: :any,                 arm64_monterey: "1319503d82e11961576bcc8d4d2fa85b45844b8407677b95bf1120e67705a982"
+    sha256 cellar: :any,                 arm64_big_sur:  "eaf6a6e7ae9e49f043af1c5d4a6cbff5f591bc69a860c2fedb01fc5937a09617"
+    sha256 cellar: :any,                 monterey:       "9b08917e048929d1cabd22256d988dbaadaee50dadb5e1b037e7862fa5710147"
+    sha256 cellar: :any,                 big_sur:        "0b1b73f9e089b3868dbf14c32156a34eb47d88ea5d5a3fa5000e77d57a1a56a8"
+    sha256 cellar: :any,                 catalina:       "a6dff611c477bc796b51eb484cd415dd749e1205a38c56e323aeaa260a88bb35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7971c306242b11f3e8fb0716252d6dad7ca1feeec71e605f5c894df4f34cb2ab"
   end
 
   depends_on "rust" => :build

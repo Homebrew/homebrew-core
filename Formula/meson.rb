@@ -1,29 +1,36 @@
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/0.59.1/meson-0.59.1.tar.gz"
-  sha256 "db586a451650d46bbe10984a87b79d9bcdc1caebf38d8e189f8848f8d502356d"
+  url "https://github.com/mesonbuild/meson/releases/download/0.60.1/meson-0.60.1.tar.gz"
+  sha256 "5add789c953d984b500858b2851ee3d7add0460cf1a6f852f0a721af17384e13"
   license "Apache-2.0"
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "18e2e5fedef3e9853ab12b8e9f0e0b486b8d53837346f8025bf35ff2e58f308e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c5a6b1422db1ea301dd5da6cbe25731baca4e030d939ce688f7c7cee1a4b55e8"
-    sha256 cellar: :any_skip_relocation, catalina:      "c5a6b1422db1ea301dd5da6cbe25731baca4e030d939ce688f7c7cee1a4b55e8"
-    sha256 cellar: :any_skip_relocation, mojave:        "c5a6b1422db1ea301dd5da6cbe25731baca4e030d939ce688f7c7cee1a4b55e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18e2e5fedef3e9853ab12b8e9f0e0b486b8d53837346f8025bf35ff2e58f308e"
+    sha256 cellar: :any_skip_relocation, all: "bce1a538d419c7e6cb354ac23a65ebc5d8cbe76869a4acd245d3a64d195ebb9a"
   end
 
   depends_on "ninja"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    version = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
-    ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
+    python3 = Formula["python@3.10"].opt_bin/"python3"
+    system python3, *Language::Python.setup_install_args(prefix)
 
-    system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
+    # Make the bottles uniform. This also ensures meson checks `HOMEBREW_PREFIX`
+    # for fulfilling dependencies rather than just `/usr/local`.
+    mesonbuild = prefix/Language::Python.site_packages(python3)/"mesonbuild"
+    inreplace_files = %w[
+      coredata.py
+      dependencies/boost.py
+      dependencies/cuda.py
+      dependencies/qt.py
+      mesonlib/universal.py
+      modules/python.py
+    ].map { |f| mesonbuild/f }
 
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    # Passing `build.stable?` ensures a failed `inreplace` won't fail HEAD installs.
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX, build.stable?
   end
 
   test do
@@ -39,7 +46,7 @@ class Meson < Formula
     EOS
 
     mkdir testpath/"build" do
-      system "#{bin}/meson", ".."
+      system bin/"meson", ".."
       assert_predicate testpath/"build/build.ninja", :exist?
     end
   end

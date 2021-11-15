@@ -10,12 +10,14 @@ class Fastbit < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "09dc75c92fa358be93b38636c4e747d0768af669e396b07854975684bdba8494"
-    sha256 cellar: :any,                 big_sur:       "ce5bd1a75d14f7f11b2bdcb9cf63aebc63f3c722dd4a39380e50d2c8489b2347"
-    sha256 cellar: :any,                 catalina:      "31e723c0610621033859357ab2a6dc373cf955847ab5c3dcf32696d260fa0de3"
-    sha256 cellar: :any,                 mojave:        "0f9a32fe10c3e5c6e2826009f247bc55064ad5612dcda9724cda203c8b18e00e"
-    sha256 cellar: :any,                 high_sierra:   "a7d7330e664e04191fe183050b588e4d3ad13aa101553f8f6965deb708c96d72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "198c4ca4965a0f5285fe2c887295f34dbd0481ec7eb6898d5cf325688dccfb96"
+    sha256 cellar: :any,                 arm64_monterey: "cb5166c40241b15850b828ec9719276cea4931305701458adfe41c74f88cf72d"
+    sha256 cellar: :any,                 arm64_big_sur:  "09dc75c92fa358be93b38636c4e747d0768af669e396b07854975684bdba8494"
+    sha256 cellar: :any,                 monterey:       "99413781b207c1e4c7911cc8eb8f300de0601fdf3c0092fe1f4c0c68f985562e"
+    sha256 cellar: :any,                 big_sur:        "ce5bd1a75d14f7f11b2bdcb9cf63aebc63f3c722dd4a39380e50d2c8489b2347"
+    sha256 cellar: :any,                 catalina:       "31e723c0610621033859357ab2a6dc373cf955847ab5c3dcf32696d260fa0de3"
+    sha256 cellar: :any,                 mojave:         "0f9a32fe10c3e5c6e2826009f247bc55064ad5612dcda9724cda203c8b18e00e"
+    sha256 cellar: :any,                 high_sierra:    "a7d7330e664e04191fe183050b588e4d3ad13aa101553f8f6965deb708c96d72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "198c4ca4965a0f5285fe2c887295f34dbd0481ec7eb6898d5cf325688dccfb96"
   end
 
   depends_on "openjdk"
@@ -26,6 +28,12 @@ class Fastbit < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/fe9d4e5/fastbit/xcode9.patch"
     sha256 "e1198caf262a125d2216d70cfec80ebe98d122760ffa5d99d34fc33646445390"
+  end
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 
   def install

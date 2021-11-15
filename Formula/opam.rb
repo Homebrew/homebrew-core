@@ -1,17 +1,18 @@
 class Opam < Formula
   desc "OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.1.0/opam-full-2.1.0.tar.gz"
-  sha256 "6102131a9b65536b713efba7f5498acb3802ae15fec3171cc2c98427cfc3926f"
+  url "https://github.com/ocaml/opam/releases/download/2.1.1/opam-full-2.1.1.tar.gz"
+  sha256 "97ed14ac4dcd5b9ab41dc7689ba29eb4fddfe9708124727b64bb6027644d01ec"
   license "LGPL-2.1-only"
-  head "https://github.com/ocaml/opam.git"
+  head "https://github.com/ocaml/opam.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "123479f1d339a12438b69a3989fe7a071afb27199e0fc43c03dd48a931a16d87"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c7f5790fcae38c515645b01d5220bc72a871d0757826b0b0ef00f15394779edc"
-    sha256 cellar: :any_skip_relocation, catalina:      "de234d72d049fa6451a558ea84dec3361a16119a7df5184d9d683e59ddd1ca21"
-    sha256 cellar: :any_skip_relocation, mojave:        "d3c5435c5af63e34d72b9fc8bc73087c973f4dc8273d8f5f6567608fea1a4284"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4a7773d2d7d44a490c0c98e92e4c05f6605ca8e7ecda516e879be221abcf3f1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1857425c84f28023915f3c211098a7f278ad39040a1c569a22ccd88a2a6ef10"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9bbb374ac9f15d245e0c7e6f8082ef88aa81a6d808a2cea5dd6a0bd08c21cd4c"
+    sha256 cellar: :any_skip_relocation, monterey:       "8a038c6f7a24ca54295c24d921950d1b42590f7f2e7b343b33ab1b9f1047bf91"
+    sha256 cellar: :any_skip_relocation, big_sur:        "17f550490c8bfe2159fedcd830aac382c6b0bb5a40af26da6ce59c7943d93809"
+    sha256 cellar: :any_skip_relocation, catalina:       "9a2ebda132ee358956a7010a677731f58776d7b6bc33100e3848e900978c2c37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fffb9378c88c700679ac7640cd6d0ecd66d36397632baa906b29e5d8cc607eb"
   end
 
   depends_on "ocaml" => [:build, :test]
@@ -41,7 +42,7 @@ class Opam < Formula
   end
 
   test do
-    system bin/"opam", "init", "--disable-sandboxing"
+    system bin/"opam", "init", "--auto-setup", "--disable-sandboxing"
     system bin/"opam", "list"
   end
 end

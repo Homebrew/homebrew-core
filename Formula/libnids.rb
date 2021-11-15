@@ -6,11 +6,13 @@ class Libnids < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6c7f242b8c5564eebc95837bf61f5760b88e2e543772357d43132921f20f858d"
-    sha256 cellar: :any, big_sur:       "0235b5bccac955c60852984ed13fa3213e3ccad9c0fe36ae522b5ac53f1f2a42"
-    sha256 cellar: :any, catalina:      "0cd6c420a38ea61eb8abe96b6b2f754bddf1ca5583b3dbccfb1b268990426764"
-    sha256 cellar: :any, mojave:        "175d04b2db4bc65923eed696272339f4533ea8277ec64f01ba6a2b9a6019c8d6"
-    sha256 cellar: :any, high_sierra:   "e9e968ec057ae597b39c45ff1e804fde87f265c6783e62cb70e009ecc4aafd05"
+    sha256 cellar: :any, arm64_monterey: "085e5576236a751d84a975412ef34f206f2eb0c639c826dde4a7298cea4f00d3"
+    sha256 cellar: :any, arm64_big_sur:  "6c7f242b8c5564eebc95837bf61f5760b88e2e543772357d43132921f20f858d"
+    sha256 cellar: :any, monterey:       "bb00ea7f83f736bb27b63da94cd2fe4ad077c5aab62a357a4e996fa2cc98e123"
+    sha256 cellar: :any, big_sur:        "0235b5bccac955c60852984ed13fa3213e3ccad9c0fe36ae522b5ac53f1f2a42"
+    sha256 cellar: :any, catalina:       "0cd6c420a38ea61eb8abe96b6b2f754bddf1ca5583b3dbccfb1b268990426764"
+    sha256 cellar: :any, mojave:         "175d04b2db4bc65923eed696272339f4533ea8277ec64f01ba6a2b9a6019c8d6"
+    sha256 cellar: :any, high_sierra:    "e9e968ec057ae597b39c45ff1e804fde87f265c6783e62cb70e009ecc4aafd05"
   end
 
   depends_on "autoconf" => :build

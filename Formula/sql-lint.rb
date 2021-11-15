@@ -8,10 +8,12 @@ class SqlLint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "913a8c82424f7f0795cc2acb9a207d915e7ce41408324dcd0f1035bc4144dd9b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8a7c08631d9f1d905fb44fcf587cee1f9e947b682695f4f698fa42b76d7acc6c"
-    sha256 cellar: :any_skip_relocation, catalina:      "8a7c08631d9f1d905fb44fcf587cee1f9e947b682695f4f698fa42b76d7acc6c"
-    sha256 cellar: :any_skip_relocation, mojave:        "8a7c08631d9f1d905fb44fcf587cee1f9e947b682695f4f698fa42b76d7acc6c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "40da4a973168157d013437dd3c1dd200d3bd020db9377fc6f5eb1af81a0ad61f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "913a8c82424f7f0795cc2acb9a207d915e7ce41408324dcd0f1035bc4144dd9b"
+    sha256 cellar: :any_skip_relocation, monterey:       "e7859c895da619aa57a318bdc528d5b5a6513240e86a7048aa98a2c5a790a1fa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8a7c08631d9f1d905fb44fcf587cee1f9e947b682695f4f698fa42b76d7acc6c"
+    sha256 cellar: :any_skip_relocation, catalina:       "8a7c08631d9f1d905fb44fcf587cee1f9e947b682695f4f698fa42b76d7acc6c"
+    sha256 cellar: :any_skip_relocation, mojave:         "8a7c08631d9f1d905fb44fcf587cee1f9e947b682695f4f698fa42b76d7acc6c"
   end
 
   depends_on "node"

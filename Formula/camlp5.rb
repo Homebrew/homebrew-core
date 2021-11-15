@@ -5,7 +5,7 @@ class Camlp5 < Formula
   sha256 "906d5325798cd0985a634e9b6b5c76c6810f3f3b8e98b80a7c30b899082c2332"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/camlp5/camlp5.git"
+  head "https://github.com/camlp5/camlp5.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -13,11 +13,13 @@ class Camlp5 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "549ee3a8bfbc3b3d6f466087562d15fd1e1b1b092786c488ae3109c19b1ca50d"
-    sha256 big_sur:       "a01dea02114f9eb35e8d151ea3b61c34c7fcf5c2db09583cc3480a010211e7b3"
-    sha256 catalina:      "14d9affdc0d1aaeef2a2e122523acba47d3b271f7002c66e407e02387f48b1fe"
-    sha256 mojave:        "6b753cfd90a18e4d813cfc9ce3d3345547a0424527c15d51304621c9f6689b14"
-    sha256 x86_64_linux:  "bf2ef6220fef116a8deb1cc76be1172c98b764a36980317aa81fe44eb2cc4354"
+    sha256 arm64_monterey: "4e9d1250091a2c965ef8870806c20c8aeec04ecd14c15f98d3d71103271b8f20"
+    sha256 arm64_big_sur:  "549ee3a8bfbc3b3d6f466087562d15fd1e1b1b092786c488ae3109c19b1ca50d"
+    sha256 monterey:       "8c3a3a59d9cf228c480b49ff3c0d4ff77f5be92e301d2017f1462e86d16e6ae4"
+    sha256 big_sur:        "a01dea02114f9eb35e8d151ea3b61c34c7fcf5c2db09583cc3480a010211e7b3"
+    sha256 catalina:       "14d9affdc0d1aaeef2a2e122523acba47d3b271f7002c66e407e02387f48b1fe"
+    sha256 mojave:         "6b753cfd90a18e4d813cfc9ce3d3345547a0424527c15d51304621c9f6689b14"
+    sha256 x86_64_linux:   "bf2ef6220fef116a8deb1cc76be1172c98b764a36980317aa81fe44eb2cc4354"
   end
 
   depends_on "ocaml"

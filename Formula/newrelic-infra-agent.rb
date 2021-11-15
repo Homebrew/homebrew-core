@@ -1,39 +1,36 @@
 class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
-  url "https://github.com/newrelic/infrastructure-agent/archive/refs/tags/1.20.0.tar.gz"
-  sha256 "0ea19d1e70b7c9204bfe5aeb7803b4c3c6b0942036f8680ae52ae76d85e2fa68"
+  url "https://github.com/newrelic/infrastructure-agent.git",
+      tag:      "1.20.7",
+      revision: "b17a417d4745da7be9c00ecc72619523867f7add"
   license "Apache-2.0"
-  head "https://github.com/newrelic/infrastructure-agent.git"
+  head "https://github.com/newrelic/infrastructure-agent.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "ac813242b7d7adee1382611d5ff0b25bf12c98ead33fd5fda0474a143b79fa29"
-    sha256 cellar: :any_skip_relocation, catalina:     "6f8b942d9f1b02383027bc790352b5bb24e8b500389555f05b7060cf820c3761"
-    sha256 cellar: :any_skip_relocation, mojave:       "be96279cf0596779f75172306d88fd6bf8138d40051190c775bb805bdf811924"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dfc811b08b78f09bfca30f7cc64f8590854219ddd6461eabb8db4b61a9ea0941"
+    sha256 cellar: :any_skip_relocation, monterey:     "ffdb274016361a220fbc8fb21cfae1b90347c03ff7c86e128d20a6c3a0a6053b"
+    sha256 cellar: :any_skip_relocation, big_sur:      "bf1f38cc2c2f73370f92c7645eb9c228dbaf5f760b700477f1c40e7de34690b7"
+    sha256 cellar: :any_skip_relocation, catalina:     "966da6a25822e35c9e96e518336b3d1bb3ceb9e06c88d9456c19e2305ab45570"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "93328d150756320c4ea4a9aba6c66dd773cdc1b7c63db1165918f64ca8409194"
   end
 
-  depends_on "go" => :build
+  # https://github.com/newrelic/infrastructure-agent/issues/723
+  depends_on "go@1.16" => :build
   # https://github.com/newrelic/infrastructure-agent/issues/695
   depends_on arch: :x86_64
 
   def install
-    goarch = Hardware::CPU.arm? ? "arm64" : "amd64"
+    goarch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    os = OS.kernel_name.downcase
     ENV["VERSION"] = version.to_s
-    os = "darwin"
-    ENV["CGO_ENABLED"] = "1"
-    on_linux do
-      os = "linux"
-      ENV["CGO_ENABLED"] = "0"
-    end
     ENV["GOOS"] = os
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
+
     system "make", "dist-for-os"
     bin.install "dist/#{os}-newrelic-infra_#{os}_#{goarch}/newrelic-infra"
     bin.install "dist/#{os}-newrelic-infra-ctl_#{os}_#{goarch}/newrelic-infra-ctl"
     bin.install "dist/#{os}-newrelic-infra-service_#{os}_#{goarch}/newrelic-infra-service"
-    on_macos do
-      (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt"
-    end
+    (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt" if OS.mac?
   end
 
   def post_install

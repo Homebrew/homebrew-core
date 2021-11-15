@@ -7,6 +7,7 @@ class Tidyp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, monterey:    "46db487f2849abbb7fa3123a5420bd06a782cc5fb23691e81f6d4a4ce3186e5b"
     sha256 cellar: :any, big_sur:     "7698a00e976bc8e04d0cefa0450713f73c658e694400fc107b161aa1184b2d72"
     sha256 cellar: :any, catalina:    "e9529c4cb157eb48b5d3a4cde35c4a8f1994496290a5a308b7feacd4b5bc58bf"
     sha256 cellar: :any, mojave:      "b48c3587cde0cbc77ff07e9cb6849dcd3a985d8360ab5e8e7a7d5f0691e5d68b"

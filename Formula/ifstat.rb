@@ -11,15 +11,17 @@ class Ifstat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b10871840559de217d7a096eccc52f9f4115be20d03eee1c17c97e60e331ac0d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e78cdbeab6d2b938879ae80e9a611ea2042cf2806f9d2447b6117518d545083b"
-    sha256 cellar: :any_skip_relocation, catalina:      "bc3d531dc3b4f6ff78a4acac901a9e6afc21a7994d7cbc3403839a5ae68b68b3"
-    sha256 cellar: :any_skip_relocation, mojave:        "cd3e855e0608177b9aebf545faeb17a4bad84e093a8ed6a84193b9583a94dc92"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "8e385a8fdf00266e63bd7a3af17cdcf07da3cb86a08bd3431cfa3b4cc88bb7a5"
-    sha256 cellar: :any_skip_relocation, sierra:        "99eada14bfc555bd8f64d447bddd8a53c7325afed40446e5edbcfb5d7bdc7dd6"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "e3b3f843c9fba2770a49dd7abcdacc30aa6b5e57f06b5ed96f09d20ada58bd6f"
-    sha256 cellar: :any_skip_relocation, yosemite:      "ecce408a9ae1a82c7b2457e5a5263ec760096e7e0e71cf0da1ce98523787bcbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80bb1ac13a6750229f428e108b349523896fa1bbe1823300f07e366e58cfa1c9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e47fd692e61f239ebcf2f92d7bd6bf039f5f5eed49a3ccd699cc2075125667a4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b10871840559de217d7a096eccc52f9f4115be20d03eee1c17c97e60e331ac0d"
+    sha256 cellar: :any_skip_relocation, monterey:       "963b568e9888e27dbbc4b93d94231713104fbe0ea48093eb6363b719dbb773f7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e78cdbeab6d2b938879ae80e9a611ea2042cf2806f9d2447b6117518d545083b"
+    sha256 cellar: :any_skip_relocation, catalina:       "bc3d531dc3b4f6ff78a4acac901a9e6afc21a7994d7cbc3403839a5ae68b68b3"
+    sha256 cellar: :any_skip_relocation, mojave:         "cd3e855e0608177b9aebf545faeb17a4bad84e093a8ed6a84193b9583a94dc92"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "8e385a8fdf00266e63bd7a3af17cdcf07da3cb86a08bd3431cfa3b4cc88bb7a5"
+    sha256 cellar: :any_skip_relocation, sierra:         "99eada14bfc555bd8f64d447bddd8a53c7325afed40446e5edbcfb5d7bdc7dd6"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "e3b3f843c9fba2770a49dd7abcdacc30aa6b5e57f06b5ed96f09d20ada58bd6f"
+    sha256 cellar: :any_skip_relocation, yosemite:       "ecce408a9ae1a82c7b2457e5a5263ec760096e7e0e71cf0da1ce98523787bcbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80bb1ac13a6750229f428e108b349523896fa1bbe1823300f07e366e58cfa1c9"
   end
 
   # Fixes 32/64 bit incompatibility for snow leopard

@@ -12,11 +12,13 @@ class Apcupsd < Formula
 
   bottle do
     rebuild 4
-    sha256 arm64_big_sur: "891644e5123fc8fd644cf88809642334f07093f7dae656c3f65d276e90a2b6bf"
-    sha256 big_sur:       "1c425f1d6db43a760e4d068ae8ef193c3ca32a3157564989ba1a6aa2ce44a2c7"
-    sha256 catalina:      "7636fe8d43fde7368817c64dc8f689526f48d2a958532e3fdd3f05db3deb4c5e"
-    sha256 mojave:        "7c87a398311314a0f789cabb5956932962800297e2ba4890f07ac60c13cc3f68"
-    sha256 x86_64_linux:  "d393e850548713a383f89d2375fdbd895eae93c063c97b7e16cd767c881d983e"
+    sha256 arm64_monterey: "a6cf4c78394837233cb366da2697b0c80a69d5191b09b5aba0125d40fcdb48a5"
+    sha256 arm64_big_sur:  "891644e5123fc8fd644cf88809642334f07093f7dae656c3f65d276e90a2b6bf"
+    sha256 monterey:       "e1b0cba1a14c977d8a7faad52c9d72080b745f7b3a49557a5cebe8171bcbc9a1"
+    sha256 big_sur:        "1c425f1d6db43a760e4d068ae8ef193c3ca32a3157564989ba1a6aa2ce44a2c7"
+    sha256 catalina:       "7636fe8d43fde7368817c64dc8f689526f48d2a958532e3fdd3f05db3deb4c5e"
+    sha256 mojave:         "7c87a398311314a0f789cabb5956932962800297e2ba4890f07ac60c13cc3f68"
+    sha256 x86_64_linux:   "d393e850548713a383f89d2375fdbd895eae93c063c97b7e16cd767c881d983e"
   end
 
   depends_on "gd"
@@ -34,7 +36,7 @@ class Apcupsd < Formula
       --enable-modbus-usb
     ]
 
-    on_macos do
+    if OS.mac?
       # Detecting the lack of gethostname_r() goes wrong on Xcode 12:
       args << "ac_cv_func_which_gethostbyname_r=no"
 
@@ -55,9 +57,7 @@ class Apcupsd < Formula
         # Use appropriate paths for launch daemon and launch script.
         inreplace %w[apcupsd-start.in org.apcupsd.apcupsd.plist.in], "/etc/apcupsd", sysconfdir
       end
-    end
-
-    on_linux do
+    else
       # Avoid Linux distro-specific paths
       args << "--with-distname=unknown"
       args << "--with-halpolicydir=#{share}/hal/fdi/policy/20thirdparty"

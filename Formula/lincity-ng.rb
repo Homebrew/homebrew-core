@@ -8,6 +8,7 @@ class LincityNg < Formula
   head "https://github.com/lincity-ng/lincity-ng.git"
 
   bottle do
+    sha256 monterey:    "2b2110aea3703ee4b4edaa104d610d5780e4bb116a2268dc95b57ac6446c5a19"
     sha256 big_sur:     "80aa367de27c34242873f9c61279f68eb04f5897f7611d93feb1d2b88ba1e2a3"
     sha256 catalina:    "4ea8b0d4afe937e6ffdd5ff7c92fd84fdfb23c35f5dd8a0bdcb015f79a7ba5b7"
     sha256 mojave:      "5909e4a6c9cfe47aafd4fb4c5dd26016cbe096945faa485d377fe2c423b3caca"

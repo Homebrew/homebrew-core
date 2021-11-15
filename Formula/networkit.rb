@@ -9,6 +9,7 @@ class Networkit < Formula
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6830b5a174f2faa428c162a31cbac98867ac91847e20c44fc0b942a054dc172c"
+    sha256 cellar: :any, monterey:      "ca1e55e40092e27cd535d26c8f2a87c332fa8702f6c84272bedf7fe93643c78f"
     sha256 cellar: :any, big_sur:       "734ae79b47e434f3e3d1e8ddaf2ae0edef1b48b4e4a6bd2f82ba201abdb51cbe"
     sha256 cellar: :any, catalina:      "05e4c80f053b211a5fc3bb905c93a96dfd488c2f078c926de6b6459aeb7409e4"
     sha256 cellar: :any, mojave:        "f39d81732bf9dc5093bb3537b7f1436a23b02956fa5856fd4b46a8ac7de67a93"

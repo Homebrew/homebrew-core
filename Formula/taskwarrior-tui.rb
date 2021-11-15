@@ -1,8 +1,8 @@
 class TaskwarriorTui < Formula
   desc "Terminal user interface for taskwarrior"
   homepage "https://github.com/kdheepak/taskwarrior-tui"
-  url "https://github.com/kdheepak/taskwarrior-tui/archive/v0.13.33.tar.gz"
-  sha256 "7a3e3808455db7d9d70fc3eb54dfd938f90ce481b2b56045014a8ebe20453083"
+  url "https://github.com/kdheepak/taskwarrior-tui/archive/v0.14.14.tar.gz"
+  sha256 "36fcf90e9f0ffbc3d7fedfd094de80dffe6775d77f81c9612de9bd6b70e577a6"
   license "MIT"
   head "https://github.com/kdheepak/taskwarrior-tui.git", branch: "main"
 
@@ -12,11 +12,12 @@ class TaskwarriorTui < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6e7a950635e78e171d13d92cf21a1f0e5ecf14185c3676a0767397dba45e2f15"
-    sha256 cellar: :any_skip_relocation, big_sur:       "486268235ccbdf95c2171abac2ee0c4437fe667ed883ed5859134f2d48dfad44"
-    sha256 cellar: :any_skip_relocation, catalina:      "cf5d7d5fd9ad57a386ec55483c3578123789933a13721556463555987be6b892"
-    sha256 cellar: :any_skip_relocation, mojave:        "40a89c1d6aa52d836e0e786cd243ae5f77c1cf670524ae24365867cac0dc8543"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45a04ccc290b2ed43fcd17ddc37801e4b5bd4154ec4c034236e286a5452afaa4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3797e16e8a1237bc5334fdfbd3752cb74d86f639d0b06bc176a8d7870d37a1d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "48f26747628321f030f7a37ab57afeaa2929492124a72c0ab23cb3d6b1bd2140"
+    sha256 cellar: :any_skip_relocation, monterey:       "e6d97884a5035889722c6b5d8358b0f04bc35ff9d35d967970729623019aff4c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "973841d46d8d10e26a8df1f2d97bb86af6580be0335af05ee5f6c3f1eff3161f"
+    sha256 cellar: :any_skip_relocation, catalina:       "c3c1e68396ed1439337e0aaf46b793d87f56a33e3448622494e52ad04a236bbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24b0a4651680213c5766b7708fbf99d401604d9d7fead48effa773ed9dcec698"
   end
 
   depends_on "pandoc" => :build
@@ -40,7 +41,7 @@ class TaskwarriorTui < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/taskwarrior-tui --version")
-    assert_match "The argument '--config <FILE>' requires a value but none was supplied",
-      shell_output("#{bin}/taskwarrior-tui --config 2>&1", 2)
+    assert_match "The argument '--report <STRING>' requires a value but none was supplied",
+      shell_output("#{bin}/taskwarrior-tui --report 2>&1", 2)
   end
 end

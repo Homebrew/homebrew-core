@@ -6,12 +6,14 @@ class Devtodo < Formula
   revision 2
 
   bottle do
-    sha256 arm64_big_sur: "d7d93dba48edf2c4cf03bfe351796620f0082ad3a040d7d35bb820613499828a"
-    sha256 big_sur:       "fd6bd62ec91c76dcbb047b0eb8cfe9ffaf7ff045913493dc5070ee0c090d7809"
-    sha256 catalina:      "24cc0693b8b69ac2fe7d926cbc3b8fae6e09df83b6a979ac71c68b8ae5ee6196"
-    sha256 mojave:        "80c04083f48a5791985a5cf02e86ddff3e40b4523177a947f0bd3f7f066f47a1"
-    sha256 high_sierra:   "1d5279b22730d8983887f91866a913b4714f8e453e382116bee294bbacee0e97"
-    sha256 sierra:        "aa22627fa7722dd0ca564fdd9770a047901d71090bb5312edfa91c8cf0d72ba4"
+    sha256 arm64_monterey: "ca3402d8a1efde8eeaf00f4290c2d9921c9ce5f2b51c3bde4cbc9fcee836e589"
+    sha256 arm64_big_sur:  "d7d93dba48edf2c4cf03bfe351796620f0082ad3a040d7d35bb820613499828a"
+    sha256 monterey:       "f128500ac76557a196ba47d6a31d2b9cafa2191f7ef3f2ba934303ee95081cb1"
+    sha256 big_sur:        "fd6bd62ec91c76dcbb047b0eb8cfe9ffaf7ff045913493dc5070ee0c090d7809"
+    sha256 catalina:       "24cc0693b8b69ac2fe7d926cbc3b8fae6e09df83b6a979ac71c68b8ae5ee6196"
+    sha256 mojave:         "80c04083f48a5791985a5cf02e86ddff3e40b4523177a947f0bd3f7f066f47a1"
+    sha256 high_sierra:    "1d5279b22730d8983887f91866a913b4714f8e453e382116bee294bbacee0e97"
+    sha256 sierra:         "aa22627fa7722dd0ca564fdd9770a047901d71090bb5312edfa91c8cf0d72ba4"
   end
 
   depends_on "readline"

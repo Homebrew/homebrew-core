@@ -1,10 +1,10 @@
 class Capnp < Formula
   desc "Data interchange format and capability-based RPC system"
   homepage "https://capnproto.org/"
-  url "https://capnproto.org/capnproto-c++-0.8.0.tar.gz"
-  sha256 "d1f40e47574c65700f0ec98bf66729378efabe3c72bc0cda795037498541c10d"
+  url "https://capnproto.org/capnproto-c++-0.9.1.tar.gz"
+  sha256 "83680aaef8c192b884e38eab418b8482d321af6ae7ab7befa3a9370b8e716aad"
   license "MIT"
-  head "https://github.com/capnproto/capnproto.git"
+  head "https://github.com/capnproto/capnproto.git", branch: "master"
 
   livecheck do
     url "https://capnproto.org/install.html"
@@ -12,12 +12,13 @@ class Capnp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a1529dd1b1c1f9aa0ec59758868af1020a5e880bcde1fb886ba20077fc6bf279"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d82d41c9039868bd86a5a3bff42307fea589ffcbc5629d95238e579dec65cbc2"
-    sha256 cellar: :any_skip_relocation, catalina:      "741c2079361cdb5881a60684190bc4aa98ff9cc6f8d29aa46880e809ac1b06c3"
-    sha256 cellar: :any_skip_relocation, mojave:        "f389012b8211b70af4fa7d2eed8db8ad399ef2bdc98e286fb57a4b1beb93dfe4"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "9c3beb8d8db3b372e4d2fd07d99a553fde6ff53824c6cfec82c3db41e212bc5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "116a68bdec163a2a46dad2e2b12526dd223fa1afce688cd9db8881189ac72fe9"
+    sha256 arm64_monterey: "b2859736c7a3979fa5a11535ef2ddb55d5613020e48160f3825d7bf58c82c5f4"
+    sha256 arm64_big_sur:  "8043e17871dd912ba43bea535529002ad50cf6cb4915b97e09be64e37549630f"
+    sha256 monterey:       "524e7613b378c1562df99ec4129fb253cf6d6bcc5b0904167faa89a6473d5924"
+    sha256 big_sur:        "bba67dd6a19595bcf2ca687bcce24a725fb05ee3e862506ddc6cbb7aec87defd"
+    sha256 catalina:       "587630a09f37214d09864150ba694cc089b326cc57fe787427a71114b4b26244"
+    sha256 mojave:         "b0d06dffe22d722e87a066b80cf667cb41372f175a80cd6877b5d856bfb080ac"
+    sha256 x86_64_linux:   "23877c82c6b6661adbdd98aad98ccb9b42e23210ad0001b27ea81983acc0db77"
   end
 
   depends_on "cmake" => :build

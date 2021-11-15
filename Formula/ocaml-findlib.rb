@@ -12,11 +12,13 @@ class OcamlFindlib < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "747fcd3b425c998c45b5f83aaa72bab0a06a584ee409284447824472058a737e"
-    sha256 big_sur:       "908202a20c99ce1e3021a2f415d876f59d8d65912df486d4085ca01b93b17e7a"
-    sha256 catalina:      "64e0d27b20e1b6ea55beda463d21701bb96688bd9dbda5b5e66095eddd25ef49"
-    sha256 mojave:        "e236f3f0d85b74fc8ced41f56cf5caae52d6ef5f542b26dc27563a1db1ecbccf"
-    sha256 x86_64_linux:  "fc83a61ef983085665a7a144d0d1d44d014da88cbb7a18b072a486555e460a40"
+    sha256 arm64_monterey: "b05f66339e91c8aa5d0dc67242a82dc8c39a254532d8017c5d35bfd31139039e"
+    sha256 arm64_big_sur:  "747fcd3b425c998c45b5f83aaa72bab0a06a584ee409284447824472058a737e"
+    sha256 monterey:       "f5e661018713080fa77ad4d33f1890f51682971eb9593d821340e51655797be8"
+    sha256 big_sur:        "908202a20c99ce1e3021a2f415d876f59d8d65912df486d4085ca01b93b17e7a"
+    sha256 catalina:       "64e0d27b20e1b6ea55beda463d21701bb96688bd9dbda5b5e66095eddd25ef49"
+    sha256 mojave:         "e236f3f0d85b74fc8ced41f56cf5caae52d6ef5f542b26dc27563a1db1ecbccf"
+    sha256 x86_64_linux:   "fc83a61ef983085665a7a144d0d1d44d014da88cbb7a18b072a486555e460a40"
   end
 
   depends_on "ocaml"

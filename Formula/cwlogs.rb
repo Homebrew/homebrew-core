@@ -7,9 +7,13 @@ class Cwlogs < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:  "40fdfc79d6533963798aed789fe8026f30d44e87c3e6e9ecd602d531ed1fb7c2"
-    sha256 cellar: :any_skip_relocation, catalina: "975da66abe1ce9ff42eb63453c52acc31aeeffff435a2c0aab9d1bd3008be280"
-    sha256 cellar: :any_skip_relocation, mojave:   "d0e1bda71db260a905c5f88da3fce0074ab59576ef6c12948eeae2ae5faf6435"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8af6a596d63797973d316cd0d6b8151f939209506242af66fbab37b7a12c2c3c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8af6a596d63797973d316cd0d6b8151f939209506242af66fbab37b7a12c2c3c"
+    sha256 cellar: :any_skip_relocation, monterey:       "8768f31395820e0c298fd54ba9889e157c8107bfa0d094fa77bf84de660c9d9e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "40fdfc79d6533963798aed789fe8026f30d44e87c3e6e9ecd602d531ed1fb7c2"
+    sha256 cellar: :any_skip_relocation, catalina:       "975da66abe1ce9ff42eb63453c52acc31aeeffff435a2c0aab9d1bd3008be280"
+    sha256 cellar: :any_skip_relocation, mojave:         "d0e1bda71db260a905c5f88da3fce0074ab59576ef6c12948eeae2ae5faf6435"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30b6f2f4d84caf8e71cfb50c710030af0321585ef3de7ba3e3055381f16b7a6e"
   end
 
   # https://github.com/segmentio/cwlogs/issues/37

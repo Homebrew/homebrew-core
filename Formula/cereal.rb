@@ -12,6 +12,8 @@ class Cereal < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "a8320898b751c2df4777d1fd77f9982a812972b46630fa060b21e412c545a14d"
     sha256 cellar: :any_skip_relocation, mojave:        "a8320898b751c2df4777d1fd77f9982a812972b46630fa060b21e412c545a14d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a8320898b751c2df4777d1fd77f9982a812972b46630fa060b21e412c545a14d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b3c9e8d3da8a3b7526a7376ea434c3fe005e08ee14269219659a74539abff3b"
+    sha256 cellar: :any_skip_relocation, all:           "5b3c9e8d3da8a3b7526a7376ea434c3fe005e08ee14269219659a74539abff3b"
   end
 
   depends_on "cmake" => :build
@@ -71,7 +73,8 @@ class Cereal < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-std=c++11", "-stdlib=libc++", "-lc++", "-o", "test", "test.cpp"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-o", "test"
     system "./test"
+    assert_predicate testpath/"out.cereal", :exist?
   end
 end

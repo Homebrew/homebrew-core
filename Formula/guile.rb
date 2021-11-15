@@ -5,13 +5,16 @@ class Guile < Formula
   mirror "https://ftpmirror.gnu.org/guile/guile-3.0.7.tar.xz"
   sha256 "f57d86c70620271bfceb7a9be0c81744a033f08adc7ceba832c9917ab3e691b7"
   license "LGPL-3.0-or-later"
+  revision 2
 
   bottle do
-    sha256 arm64_big_sur: "1943b7ddae69e16cf1b9f81505bfb20129b988d7bffc40460088d29c518a960a"
-    sha256 big_sur:       "776b3c2922a166b53c4613ff04fcd2d031a5cc34108f753c9b2857a271f89163"
-    sha256 catalina:      "ee1867daea429b0e7867a30890e07f3c7e4a69d6d483c728c912aea34aa4f83d"
-    sha256 mojave:        "4152090b41a47a1a640bb5ade7a40f55e309628b0fde7eb3b87b98976583613d"
-    sha256 x86_64_linux:  "389766b4355007d56f3f9bc4c1953edf373c82a0983d256685f4c8a8f613377d"
+    sha256 arm64_monterey: "9e502a17827847d49b26440303e5b2e2113d9561ff1e28ac63c1df3079bac395"
+    sha256 arm64_big_sur:  "9f383d7cc5fe926b957e1f6d280a0dbb1752c822e4e28170331060c8284a83ae"
+    sha256 monterey:       "d8f4ae245ee7af5e361d77669a706b01e22fdf7b288df5f188f6ec42d919ca6a"
+    sha256 big_sur:        "707b16f2249da069f21acadc2a2d1c0721c84251a3fe455b97e0d02b82d4a471"
+    sha256 catalina:       "e6933c219cefd49ff8d0600dc7b6f484319978da91beb6896c5d3d8b8048e876"
+    sha256 mojave:         "4f71c527bff738902cb2412242c445bd25927af19e6705faac59e633b41c956e"
+    sha256 x86_64_linux:   "ec6b2a3f9d14830c1ae0a362a50bcd2bbb703eb1f0e8fd6f0f2d191e74aa3d8c"
   end
 
   head do
@@ -33,6 +36,14 @@ class Guile < Formula
   depends_on "readline"
 
   uses_from_macos "gperf"
+
+  # This patch fixes an issue where Guile >= 3.0.6 doesn't properly load dynamic
+  # libraries on macOS.
+  # To be removed after Guile 3.0.8 is released.
+  patch do
+    url "https://git.savannah.gnu.org/cgit/guile.git/patch/?id=1f100a4f20c3a6e57922fb26fce212997e2a03cb"
+    sha256 "a5adf2586b30381cf24524c7fc0364115f7cb1f568d2b69a9f3fb49ad8355b55"
+  end
 
   def install
     # Avoid superenv shim

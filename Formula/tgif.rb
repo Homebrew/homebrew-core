@@ -7,11 +7,13 @@ class Tgif < Formula
   revision 1
 
   bottle do
-    sha256 arm64_big_sur: "29699e47040d83ff53dbe9800a053ba9a41fe1ae1834e08ede2844ec59803662"
-    sha256 big_sur:       "0488ea1c1291ea86653e1f5e3b0a9d7499ee101ccec3a5cb8f1e855aa445181d"
-    sha256 catalina:      "ce5a689942aed9986f74150bddebb09a129aba97810658fc67a6060519eacd86"
-    sha256 mojave:        "3ab28b39b5a4b0c5cea21b096c0e8b2317725f8b6da6455ab365e8d13ac644a4"
-    sha256 high_sierra:   "9c35ee5713a7efcdedb42d4602213dd94e84385bb8c5b0f9331706d6e897d08c"
+    sha256 arm64_monterey: "82ff8e9a80be770347e07f11fc83c8fdc06856200cc5507b020ada88368f258c"
+    sha256 arm64_big_sur:  "29699e47040d83ff53dbe9800a053ba9a41fe1ae1834e08ede2844ec59803662"
+    sha256 monterey:       "3b5ab882fc7b33701cbb6c8340c1c423afe3b088f5c34b6bee69a9bc9cf27d39"
+    sha256 big_sur:        "0488ea1c1291ea86653e1f5e3b0a9d7499ee101ccec3a5cb8f1e855aa445181d"
+    sha256 catalina:       "ce5a689942aed9986f74150bddebb09a129aba97810658fc67a6060519eacd86"
+    sha256 mojave:         "3ab28b39b5a4b0c5cea21b096c0e8b2317725f8b6da6455ab365e8d13ac644a4"
+    sha256 high_sierra:    "9c35ee5713a7efcdedb42d4602213dd94e84385bb8c5b0f9331706d6e897d08c"
   end
 
   depends_on "libice"

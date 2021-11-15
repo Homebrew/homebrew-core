@@ -6,12 +6,14 @@ class GlibOpenssl < Formula
   revision 3
 
   bottle do
-    sha256 arm64_big_sur: "3ff9db75ad58b19fe3b0c364cc0d8e1c7e570e6edd3eab8e7145f50ecdb2d237"
-    sha256 big_sur:       "3ed8dc7e291495db26d893b673e7c665972569efa1fdbe0a3cf1ae39c1c2da50"
-    sha256 catalina:      "d3e3d452515afbf8ab39555e7c9e4add50f28aa89252321bee6ca021c7cb88a9"
-    sha256 mojave:        "10b207a9c340bc6710e1df7f47ef4a0dba5a941c0cdb3330255718cf1884276c"
-    sha256 high_sierra:   "04107ac3e021e4dd11feb50a3ac4024f3c73dd2b805f171ccfc22c1d7e3a665e"
-    sha256 x86_64_linux:  "4b583a88e518cdf39efb461edfd35d58fa8d549859a3cb112fee7beffb4705e0"
+    sha256 arm64_monterey: "db8f2b1599d0c3060229a32f7d4bb775d6907126db00624345d91d23dbd7fa6d"
+    sha256 arm64_big_sur:  "3ff9db75ad58b19fe3b0c364cc0d8e1c7e570e6edd3eab8e7145f50ecdb2d237"
+    sha256 monterey:       "abb3ca9b64ae5187dee0e23899d034865baefa1a66b4b137c0e5d3ec6e7a8646"
+    sha256 big_sur:        "3ed8dc7e291495db26d893b673e7c665972569efa1fdbe0a3cf1ae39c1c2da50"
+    sha256 catalina:       "d3e3d452515afbf8ab39555e7c9e4add50f28aa89252321bee6ca021c7cb88a9"
+    sha256 mojave:         "10b207a9c340bc6710e1df7f47ef4a0dba5a941c0cdb3330255718cf1884276c"
+    sha256 high_sierra:    "04107ac3e021e4dd11feb50a3ac4024f3c73dd2b805f171ccfc22c1d7e3a665e"
+    sha256 x86_64_linux:   "4b583a88e518cdf39efb461edfd35d58fa8d549859a3cb112fee7beffb4705e0"
   end
 
   depends_on "pkg-config" => :build

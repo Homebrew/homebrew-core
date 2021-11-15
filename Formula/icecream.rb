@@ -6,12 +6,14 @@ class Icecream < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "649b19fac1c726b6890cd7c106bef0d4b9b065847cb2d40aed20db0467db64f5"
-    sha256 big_sur:       "b8a350fa7f37c1c4c6de9d5570d029ae58566b97e4d598b6a3faf7f02b6e81fb"
-    sha256 catalina:      "666f827a6a686e6d2e81dc1d0eb5aae8374f01d7d1524ef6c695e3bf207c4af5"
-    sha256 mojave:        "fb94b2d8e763469a2b0112523f89496f4a81e22ed9b7290f4280178f726853da"
-    sha256 high_sierra:   "6cc11bcddd969e9aeb7e83692e9714d5891f0530bacbc1c52b019b298bce3d24"
-    sha256 x86_64_linux:  "e0c5e8d4fd1804af9afc4425698ea01cc5a9a18303185eb7d19cdbe2b96546a7"
+    sha256 arm64_monterey: "6b5da13231142d20828ebd59f265652015450bc61406b0cf15777014cada7ff2"
+    sha256 arm64_big_sur:  "649b19fac1c726b6890cd7c106bef0d4b9b065847cb2d40aed20db0467db64f5"
+    sha256 monterey:       "6393eb4f02f21856e3a5197fbd5a7b4ba625ec0b8821e2a13aafb898b5493fee"
+    sha256 big_sur:        "b8a350fa7f37c1c4c6de9d5570d029ae58566b97e4d598b6a3faf7f02b6e81fb"
+    sha256 catalina:       "666f827a6a686e6d2e81dc1d0eb5aae8374f01d7d1524ef6c695e3bf207c4af5"
+    sha256 mojave:         "fb94b2d8e763469a2b0112523f89496f4a81e22ed9b7290f4280178f726853da"
+    sha256 high_sierra:    "6cc11bcddd969e9aeb7e83692e9714d5891f0530bacbc1c52b019b298bce3d24"
+    sha256 x86_64_linux:   "e0c5e8d4fd1804af9afc4425698ea01cc5a9a18303185eb7d19cdbe2b96546a7"
   end
 
   depends_on "autoconf" => :build

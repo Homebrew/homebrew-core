@@ -1,28 +1,32 @@
 class Kompose < Formula
   desc "Tool to move from `docker-compose` to Kubernetes"
   homepage "https://kompose.io/"
-  url "https://github.com/kubernetes/kompose/archive/v1.23.0.tar.gz"
-  sha256 "cd23a5b7ef9189464800a89f7c1cc80ed745ba157ad00506a9996017879805bc"
+  url "https://github.com/kubernetes/kompose/archive/v1.26.0.tar.gz"
+  sha256 "e24db4279d3386700e25f3eb3ae4115ed11f4e0b2eea16d28f2113c71d13fb5b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "08b3fd92d4c70b295639e7b52db0d6e4b2d09c71a69f6329072622286ca01e05"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5d4bb598fa463f5d7042eab3ae179967b4073da40d4c0f602adceb9870ea3e9e"
-    sha256 cellar: :any_skip_relocation, catalina:      "c28382d80c2a43f4245e2c5c72914955bdfd591710a0b94385f67b6e5ce1643c"
-    sha256 cellar: :any_skip_relocation, mojave:        "0301ac410011550388da428ce15d8f33808f98e354ecfa47656ba4a0b7cdafd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0f1fc9348da68b04ac04c007f8d4b1b3cbb229b35c83ab36ce43fe880cbe220"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3fae1e781bebf43f1bcfe8935e2016cdcf3908ed4560c2700868d3d7ce281a34"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "11159ca2fd486a6a13e415f8b0104ce67b81bf849a1209531ee91b106e24f966"
+    sha256 cellar: :any_skip_relocation, monterey:       "9d9abadd8858189a27d40c7586eaf252ea20966e336d924195ffd2d390e51994"
+    sha256 cellar: :any_skip_relocation, big_sur:        "54124d3c5933c7644cf9ad53ec10c8014ad6ad3e031907438a9cf5afa0018e64"
+    sha256 cellar: :any_skip_relocation, catalina:       "63f80ee2b91e4e796ec3e334759f167f2ccb656f3cfd464fe0b862964f518797"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "387e670a1b49be509660f5001542d44f01c512fb2252595e6c2fd06c17db7992"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
 
-    output = Utils.safe_popen_read("#{bin}/kompose", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"kompose", "completion", "bash")
     (bash_completion/"kompose").write output
 
-    output = Utils.safe_popen_read("#{bin}/kompose", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"kompose", "completion", "zsh")
     (zsh_completion/"_kompose").write output
+
+    output = Utils.safe_popen_read(bin/"kompose", "completion", "fish")
+    (fish_completion/"kompose.fish").write output
   end
 
   test do

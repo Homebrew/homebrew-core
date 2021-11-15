@@ -6,12 +6,17 @@ class Zbackup < Formula
   revision 18
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "cedb77ca64655bb9ffe5cc97fee5cd7def3b433c6b9a83f06f05aa3894f0bc74"
-    sha256 cellar: :any,                 big_sur:       "a6112a600f2cf830f0e22412aea86bc64eb89d745644c2f4c7c1829bf9dfc35d"
-    sha256 cellar: :any,                 catalina:      "a1ed4faae8a672799571687663350ae6095b532200456b5ac4a2cc88845d1682"
-    sha256 cellar: :any,                 mojave:        "1f49f633a49527ccee4dc95b996f0e7e41b0c1266da874d50e3ea9c450695c0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32bbbc5a45c4080a4ef11da4e318c13f60ca4f9884a3c145f9e4897c67e82d6a"
+    sha256 cellar: :any,                 arm64_monterey: "d4faa9441bfae6b9695be0ba6f449fc4628a26a87d109501e80bbff5558ab1e6"
+    sha256 cellar: :any,                 arm64_big_sur:  "cedb77ca64655bb9ffe5cc97fee5cd7def3b433c6b9a83f06f05aa3894f0bc74"
+    sha256 cellar: :any,                 monterey:       "bb4e6be2721936c0f26fe45528a40eedeeab1e70b75588cb38886308b4063620"
+    sha256 cellar: :any,                 big_sur:        "a6112a600f2cf830f0e22412aea86bc64eb89d745644c2f4c7c1829bf9dfc35d"
+    sha256 cellar: :any,                 catalina:       "a1ed4faae8a672799571687663350ae6095b532200456b5ac4a2cc88845d1682"
+    sha256 cellar: :any,                 mojave:         "1f49f633a49527ccee4dc95b996f0e7e41b0c1266da874d50e3ea9c450695c0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32bbbc5a45c4080a4ef11da4e318c13f60ca4f9884a3c145f9e4897c67e82d6a"
   end
+
+  # No new commits since 2016, no sign a activity since 2020
+  deprecate! date: "2021-10-21", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "lzo"

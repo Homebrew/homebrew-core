@@ -8,6 +8,7 @@ class XalanC < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "0c1f0cf5ca6206f15e8d2beed36761c3e09b21e78f388e28dbbd38a686d7459a"
     sha256 cellar: :any,                 big_sur:      "13f549b9f924f4729458c3e78bf8c11d15c399aa2d73bccf574b18c2cdb3e110"
     sha256 cellar: :any,                 catalina:     "6a6ac96e65ef391d660c295f6c3a5c349f11cfa0604a6d5111bc88fd0a017304"
     sha256 cellar: :any,                 mojave:       "5b00fab72d4db7db40495ff5331e6cd9539b30f21d6b1357d9dcc2e7275421ae"

@@ -12,11 +12,13 @@ class Kore < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "27b9278bca42a66ef991c721a6e9d4910c72eb5fd4fec1530cebb20444f65d6a"
-    sha256 big_sur:       "b9ee5f484ac7eb75b1282afee33da589de37ce1787b15eea441e63526996e47c"
-    sha256 catalina:      "1c361e384d9d76c042624f56a0e847f12e9db63a5e0fd49016827bcbdb71eb95"
-    sha256 mojave:        "111923e46a1a868241cea5eeed3477ef6de321684308168c8ffac582620ba95a"
-    sha256 x86_64_linux:  "915a0b5f6e3598f50e4e457c96221b07006490f5169c666dc745d8ee0c68bced"
+    sha256 arm64_monterey: "0903cb7198c7cee03d727ca1dff69ae17c143761702857c5d0925822067ceb9d"
+    sha256 arm64_big_sur:  "27b9278bca42a66ef991c721a6e9d4910c72eb5fd4fec1530cebb20444f65d6a"
+    sha256 monterey:       "9f6fb2a90b05326a0ee669a32f38487b9526e43bba7722efcc6feee1f9a8b56c"
+    sha256 big_sur:        "b9ee5f484ac7eb75b1282afee33da589de37ce1787b15eea441e63526996e47c"
+    sha256 catalina:       "1c361e384d9d76c042624f56a0e847f12e9db63a5e0fd49016827bcbdb71eb95"
+    sha256 mojave:         "111923e46a1a868241cea5eeed3477ef6de321684308168c8ffac582620ba95a"
+    sha256 x86_64_linux:   "915a0b5f6e3598f50e4e457c96221b07006490f5169c666dc745d8ee0c68bced"
   end
 
   depends_on macos: :sierra # needs clock_gettime

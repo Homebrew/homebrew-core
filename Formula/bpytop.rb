@@ -7,17 +7,19 @@ class Bpytop < Formula
   url "https://github.com/aristocratos/bpytop/archive/v1.0.67.tar.gz"
   sha256 "e3f0267bd40a58016b5ac81ed6424f1c8d953b33a537546b22dd1a2b01b07a97"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2628a4b51b898319842f449e0e6ccc33eca3559b4a828cb72713cc7523c42e08"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9767462c51c491bf1b4e4b0b1098f75edded649990cce5e5813d73d415dac4e0"
-    sha256 cellar: :any_skip_relocation, catalina:      "73f93ec6992cfa6aa5f5e5b77482ced3b3a94297f5976fc14f3773eaf59707ac"
-    sha256 cellar: :any_skip_relocation, mojave:        "4c0fa73e1f3a1e947d4238804553d7e2b29339a15ce25ea4515be65480e5a9e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2e9a290e3973226449e28ea5a41e388a5bb9e3548a65c29837b00206e6e91dc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "302be18ca15e6b772a1537c906a0571015ac9147d6d9be981877831faed125c7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d29bed4df3651ba795552146d0082d3e7ed6f0e08ff913bd25a40d0666367fa"
+    sha256 cellar: :any_skip_relocation, monterey:       "065b5739a23c2157ff3682f15fbb7e4a9653d8eea68128eadc12f806bd4a4e57"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a9124b39222c6cad1fc9f9d55c193f1ba34e26611cb1d9cb82b01834e6008643"
+    sha256 cellar: :any_skip_relocation, catalina:       "6c53a6e4e1beffda773d8f98c8ffe1f971d5a2edf90bf91b6f93db4491e61f26"
+    sha256 cellar: :any_skip_relocation, mojave:         "ba84fab69b931ddb11536521357b40c669ddc1d562d414cb524bcd11251c6fc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87ef5047c7a8082a5fe12a5aaf24d410fd9eb8e7bd1c01aa807cbf488d86a4cf"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   on_macos do
     depends_on "osx-cpu-temp"
   end

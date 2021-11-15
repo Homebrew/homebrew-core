@@ -1,18 +1,16 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/20210205.tar.gz"
-  sha256 "77e177780fc2d8abb475d9cac4342c7e61d53c243f6ce2f9bc86d819fc962cdb"
+  url "https://github.com/neomutt/neomutt/archive/20211029.tar.gz"
+  sha256 "08245cfa7aec80b895771fd1adcbb7b86e9c0434dfa64574e3c8c4d692aaa078"
   license "GPL-2.0-or-later"
-  revision 2
-  head "https://github.com/neomutt/neomutt.git"
+  head "https://github.com/neomutt/neomutt.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "ae39b68a39ee90a2deae8e5364edaa5f9703b551120c9d0519598f7d170378e9"
-    sha256 big_sur:       "11d594b30c8ae5d522ff37d24337b2bc709c2a426f543a74af92f6d85f67ab97"
-    sha256 catalina:      "a2cd24cd5c9d7777e90b7981eb3d6ac1d9bc3c761af4ba523f652379ec3c9829"
-    sha256 mojave:        "65b02f471888f1f2b6eed4fcf47c0aded53bb64d4dc54eacfcda76958e0aaecc"
-    sha256 x86_64_linux:  "470fa81738946d34e56d1bd8c39c8a355797ab2210c86434e4259fc1475fb138"
+    sha256 arm64_big_sur: "4c237578e16c4e2206e9bf8fc60ec5748efa12a3709a0676b6b2438ade7da3f5"
+    sha256 big_sur:       "42d34fcc9c1b3d97623ae96833415c2c79b87453cd3c19d00e39b919a6c6241b"
+    sha256 catalina:      "fdd0baffcb5c94b761a9ed454f1d96a8f6719eab3842f4a3239019e1085cb9f7"
+    sha256 x86_64_linux:  "edfcc9cb08d618770605f3a0b9d6c97304277078b049675adc1629c2b1b333cd"
   end
 
   depends_on "docbook-xsl" => :build
@@ -53,9 +51,7 @@ class Neomutt < Formula
       --with-ui=ncurses
     ]
 
-    on_linux do
-      args << "--pkgconf"
-    end
+    args << "--pkgconf" if OS.linux?
 
     system "./configure", *args
     system "make", "install"

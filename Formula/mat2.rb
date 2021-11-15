@@ -1,14 +1,12 @@
 class Mat2 < Formula
   desc "Metadata anonymization toolkit"
   homepage "https://0xacab.org/jvoisin/mat2"
-  url "https://0xacab.org/jvoisin/mat2/-/archive/0.12.1/mat2-0.12.1.tar.gz"
-  sha256 "5f1cf47c61cc137b5a3d0520c4d4db27706b045f2425ee3837148b2397a26e65"
+  url "https://0xacab.org/jvoisin/mat2/-/archive/0.12.2/mat2-0.12.2.tar.gz"
+  sha256 "f3ef46fc0ccc13fd055991841c7fbee8a1322ba895d83a8da404bdaf0c638b98"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "2cf257a8aaf56858e195df29823cb3fdef6b25deb2c7df0a19d17e02044bfc05"
-    sha256 cellar: :any_skip_relocation, catalina: "6134535ba8f2fd9b654df05cb0398eb167140ff636e8988228791102227695c0"
-    sha256 cellar: :any_skip_relocation, mojave:   "130e341149d1005c85efc2b5421b133f8897b98913b27186ef1360c3de138726"
+    sha256 cellar: :any_skip_relocation, all: "d4521aaeb4a33e93180be0d1fe846d4d78ff2d04089219c9c08d1beec69679ff"
   end
 
   depends_on "exiftool"

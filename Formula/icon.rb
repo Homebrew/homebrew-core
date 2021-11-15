@@ -1,9 +1,10 @@
 class Icon < Formula
   desc "General-purpose programming language"
   homepage "https://www.cs.arizona.edu/icon/"
-  url "https://github.com/gtownsend/icon/archive/v9.5.20i.tar.gz"
-  version "9.5.20i"
-  sha256 "3ebfcc89f3f3f7acc5afe61402f6b3b168b8cd83f79021c98bbd791e92c4cbe8"
+  url "https://github.com/gtownsend/icon/archive/v9.5.21b.tar.gz"
+  version "9.5.21b"
+  sha256 "5dd46cd4e868c75ff1b50de275f1ec06a09641afcb8c18b072333f97f86d3bcc"
+  license :public_domain
 
   livecheck do
     url :stable
@@ -11,16 +12,23 @@ class Icon < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "427ea97df09541d16bb99cc53dab255578569da00e1e40cbc49691991a750916"
-    sha256 cellar: :any_skip_relocation, big_sur:       "86bf64dcc7c29f0f6e20d36c135764cfa1b60381b63ff5826dbfcba9234066cd"
-    sha256 cellar: :any_skip_relocation, catalina:      "8f2ea4a3265901d2bc21032d216f9191fbc9f574c4954370a24e4542e3cfaa88"
-    sha256 cellar: :any_skip_relocation, mojave:        "fa51b1932b8b2a3d43cfd35bc4dea95625b2932360166fe3c5f38f4d0fc6d3ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f2ccc00b4af7b3a086b6b72a1eb42dee8c1ac01862163090d13da1d718b4a5f8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f125fa0da1cf68ea312bf3f4b17c2b49491effc3ec55918f5578b7e819b87ea3"
+    sha256 cellar: :any_skip_relocation, monterey:       "5b169e29f1af9e4c21f38eb6bae5da048c568fb11e6840de26b14ee89a590141"
+    sha256 cellar: :any_skip_relocation, big_sur:        "26221c72cd120274c75db2dca9926ff6d651f380814946005f1bb20fa8a12be9"
+    sha256 cellar: :any_skip_relocation, catalina:       "c59f68713faf7424ff485f8e5b3407367d29cd1412af432355c0f6d525d78f71"
+    sha256 cellar: :any_skip_relocation, mojave:         "7882a95b7c29003762ee254bc6fb4e2f1ca857edadc679d0802328dfcd0ab7c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f219d790f552dba33c724f3bb60bb91392f81ac62df185bebb137d4c8efdfb6e"
   end
 
   def install
     ENV.deparallelize
-    system "make", "Configure", "name=posix"
+    target = if OS.mac?
+      "posix"
+    else
+      "linux"
+    end
+    system "make", "Configure", "name=#{target}"
     system "make"
     bin.install "bin/icon", "bin/icont", "bin/iconx"
     doc.install Dir["doc/*"]

@@ -7,10 +7,13 @@ class LibbitcoinExplorer < Formula
   revision 7
 
   bottle do
-    sha256 arm64_big_sur: "34d709bfefd23505e07cabcbedacf3a2869f6220e706cd96267d70e89caf5479"
-    sha256 big_sur:       "bb1687e4d167c4468a50df06d4bfb9cabd6ce2deab7641ff5866f0d41e686eeb"
-    sha256 catalina:      "fc49fe144993aebd296479497a30ed2441da35a8c34e3e646bc07a93dbb59873"
-    sha256 mojave:        "a965f788815e2e420fb46603f62c9b455e8930258e5478becbba0280f9b5950c"
+    sha256 arm64_monterey: "e2a189dd066f9d5fa56f5aeebf8a2346a5cf4ab17f001c836436d00a038532a7"
+    sha256 arm64_big_sur:  "34d709bfefd23505e07cabcbedacf3a2869f6220e706cd96267d70e89caf5479"
+    sha256 monterey:       "ecf247fbfaa8aa9ebb90f632af460826e03a479791eac9525483d5f5b9f11e24"
+    sha256 big_sur:        "bb1687e4d167c4468a50df06d4bfb9cabd6ce2deab7641ff5866f0d41e686eeb"
+    sha256 catalina:       "fc49fe144993aebd296479497a30ed2441da35a8c34e3e646bc07a93dbb59873"
+    sha256 mojave:         "a965f788815e2e420fb46603f62c9b455e8930258e5478becbba0280f9b5950c"
+    sha256 x86_64_linux:   "c96bb170eab0fe2bac4928ba3b866eeabdf69731a14f0a61e7afcd8a725ba975"
   end
 
   depends_on "autoconf" => :build

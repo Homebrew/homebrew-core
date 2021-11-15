@@ -3,19 +3,21 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/22/70/4a155430c03c61ee4a95ec06699977354d4c2a05a972399e91aea6ed91d6/dxpy-0.313.0.tar.gz"
-  sha256 "e530b387ba2c0e800f104b7725ab20b82feff034f7c1554a093e9d1dd582bee4"
+  url "https://files.pythonhosted.org/packages/7d/86/db65998c271eafcc34bb619f87ebe7a16ecae78dfc0bdf40d44aee27c8a7/dxpy-0.315.0.tar.gz"
+  sha256 "b1d11dd499166dc8688d387994faa42e6fac516b22ab64fb76efb560245e0307"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4c34fce778cc109ec6699ab32870983961dbc6c0974809b0a3abf7f102425d30"
-    sha256 cellar: :any,                 big_sur:       "cf2083955ba48ca901b2213cc3fc2173a9c77684c77c3fd2a9832428a05222a9"
-    sha256 cellar: :any,                 catalina:      "61fd1dde60044864d4a2466cf43e004b5a0bf201b5b0a4b2c2562dae212894e5"
-    sha256 cellar: :any,                 mojave:        "b5d50e3bc19db5beeb3cd203a68d858896053eab6cb9ad13031a20893695f9cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b1bb968d83e64a570cd77955f9f40056342cf618f1fac0aa4483fbd8408e50b"
+    sha256 cellar: :any,                 arm64_monterey: "48c49b635152a67090d827f1ea486c78defaef5431f640f246d47739b3ecb6a4"
+    sha256 cellar: :any,                 arm64_big_sur:  "4c07c257da3c7124953d3a2b8bed4ed1ef78fea924b7e80b8cdfe98d4b412792"
+    sha256 cellar: :any,                 monterey:       "1e4bbb33891ca7f79ba6855c31208a5d32d7932af3e670c983a1eec46fef3944"
+    sha256 cellar: :any,                 big_sur:        "fc83907dab302f52347d1d557aaeeda1067f3811b758637a7e3c30becdc36fdb"
+    sha256 cellar: :any,                 catalina:       "21ec0df13f3037eb32d8bbaebce3de0a27e940219bd79420940b88c7cb64e4ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dddf4f6a6d74cdc5e9e7e23ae733efae4c4a3447d39d18912a1171d1366e014a"
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   on_macos do
     depends_on "readline"
@@ -32,13 +34,13 @@ class Dxpy < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
-    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz"
-    sha256 "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
+    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
+    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
   end
 
   resource "chardet" do
@@ -74,11 +76,6 @@ class Dxpy < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
     sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "urllib3" do

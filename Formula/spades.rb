@@ -14,6 +14,7 @@ class Spades < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "4488276aba5695c211bce6ded3078c83a14cfe376bf11fd870a2d423cd53d55d"
     sha256 cellar: :any_skip_relocation, big_sur:      "1709900ba50cdaec70d864c3b7f6c68eaa4e7396055abc6fe540e3529296d84b"
     sha256 cellar: :any_skip_relocation, catalina:     "07c4724e3a1236f19f6c9a7899077035c17501f1581838428849fc9ec8d25d78"
     sha256 cellar: :any_skip_relocation, mojave:       "6efc26bfefb204c0ed9370b2d46a2ec0e12c999b6f150d3e2a22c2d38e15d93d"

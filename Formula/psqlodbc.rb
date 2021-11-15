@@ -1,8 +1,8 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-13.01.0000.tar.gz"
-  sha256 "435de2ea38109b8384ed76d327032b73a53a915379a752a34b0f9c7539055da7"
+  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-13.02.0000.tar.gz"
+  sha256 "b39b7e5c41fd6475c551112fa724bf57c4a446175ec4188a90e2844cc1612585"
 
   livecheck do
     url "https://ftp.postgresql.org/pub/odbc/versions/src/"
@@ -10,11 +10,13 @@ class Psqlodbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "f8d95d1b2ba785dcb50b91b0b50e49b4f40d7f05b5417dc7eaf8b078ca88464a"
-    sha256 cellar: :any,                 big_sur:       "4bc2ee5d89cc5f84220abdcbcef1a42b30959cf19b071a46a13cb9c583ee9142"
-    sha256 cellar: :any,                 catalina:      "3d65ab705dbece7ef42f2fc975e3ee8f118a6fc1e12a51d9b34425cf83dfc860"
-    sha256 cellar: :any,                 mojave:        "9b8332fa7f0b03677744c1e48057e65f04140892cc143fa32858179c9f1cc38a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4befb4353cbd839bebed19fd661449af4f0c31b61063dadaa32bb318aaef1a80"
+    sha256 cellar: :any,                 arm64_monterey: "ed1b6837baffae5f6c56b867601f01a2e3afe17706a0807181f313bb433689d5"
+    sha256 cellar: :any,                 arm64_big_sur:  "45bf96f7600543acf57ff529ac884ce9da5d84ab3df2fba8c799c318988b17a8"
+    sha256 cellar: :any,                 monterey:       "9acc450ccbb8c63aebbc866a17f2b71b75297740ac8f6c9ea6bab5883f74e4a6"
+    sha256 cellar: :any,                 big_sur:        "8109e135efa71d1e0369b2433181819ef275bec48934a5b3107f99fcdce73efb"
+    sha256 cellar: :any,                 catalina:       "6da4ec9d0ec4ce763dc117b4e8c465289a90ea05c5c4d8bc954789334ea8021c"
+    sha256 cellar: :any,                 mojave:         "c766f5701dba28974ac654fcba040715fcef30a6fc9974802d7b61a5d63e0584"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de683e7933da22982cc7d6804a8d5ebb0333c87c8cff49aa3ec23c8e2119ea8b"
   end
 
   head do

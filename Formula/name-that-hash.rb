@@ -6,17 +6,20 @@ class NameThatHash < Formula
   url "https://files.pythonhosted.org/packages/32/58/1f4052bd4999c5aceb51c813cc8ef32838561c8fb18f90cf4b86df6bd818/name-that-hash-1.10.0.tar.gz"
   sha256 "aabe1a3e23f5f8ca1ef6522eb1adcd5c69b5fed3961371ed84a22fc86ee648a2"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/HashPals/Name-That-Hash.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6457f8bcf81182e8762a58052cbfbaf5b4ae9759dec1f0573053da76d753f5b1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c18d4ebaa6b30bce7ecd4daf27694686cdb0901e31a0c340ef1ec728d3fe5123"
-    sha256 cellar: :any_skip_relocation, catalina:      "ec97a8641002c2b388cbe3b021dc670731451d4efd8a39698c6c380988885d4c"
-    sha256 cellar: :any_skip_relocation, mojave:        "f2749942774119b81372293c6bbb2a15806bfb977db52209161b111375af2fc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e29ecd7413d4bea43ad49916aed2fca964b691bd3abe8b7613088edd0d07b341"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae9c171eb148b7ab8b0bf920e4bcad8bbddd96f6c3b5db4be724a76f85edcf04"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dc73b66e0f36f2e0c829eaff2fdbe831ceeaa0aff1db8d01554c4eed6abe57b5"
+    sha256 cellar: :any_skip_relocation, monterey:       "cecf255bcd73d7e11f7d51cad2f48dfd53a691877fbbe1b93fd62538517cbd26"
+    sha256 cellar: :any_skip_relocation, big_sur:        "72cc03145f370116ab72ab831a21218e4391351ebea235104dfa0106bd2293e5"
+    sha256 cellar: :any_skip_relocation, catalina:       "927a70b55b1cd7812f967f3eae31438a8194c3a3a60c68e76715f352fe8c4270"
+    sha256 cellar: :any_skip_relocation, mojave:         "4aad224b7c74a73ebce37574e54a94102b7f2eb2ee60ab02768cec64c24a43bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cab09eff45b4f1d472312773d0b512d6984ca9e37d5acf2ef0442c4eb2f01e43"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
@@ -46,7 +49,7 @@ class NameThatHash < Formula
   def install
     virtualenv_install_with_resources
 
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
     site_packages = "lib/python#{xy}/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-name_that_hash.pth").write pth_contents
@@ -58,6 +61,6 @@ class NameThatHash < Formula
     assert_match "#{hash}\n", output
     assert_match "MD5, HC: 0 JtR: raw-md5 Summary: Used for Linux Shadow files.\n", output
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "from name_that_hash import runner"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "from name_that_hash import runner"
   end
 end

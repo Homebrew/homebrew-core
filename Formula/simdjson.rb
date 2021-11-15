@@ -1,33 +1,41 @@
 class Simdjson < Formula
   desc "SIMD-accelerated C++ JSON parser"
   homepage "https://simdjson.org"
-  url "https://github.com/simdjson/simdjson/archive/v0.9.7.tar.gz"
-  sha256 "a21279ae4cf0049234a822c5c3550f99ec1707d3cda12156d331dcc8cd411ba0"
+  url "https://github.com/simdjson/simdjson/archive/v1.0.2.tar.gz"
+  sha256 "46d5995488de76ae61f1c3bcff445a9085c8d34f6cbc9bf0422a99c6d98a002c"
   license "Apache-2.0"
-  head "https://github.com/simdjson/simdjson.git"
+  head "https://github.com/simdjson/simdjson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "de8aa7c888e15197fa0b143b10136abe39bc479d7d47a283f9ffb87ba5bc87d4"
-    sha256 cellar: :any, big_sur:       "4552d7517d700aab4fb52235db8885154f3227afeb99c3afcdd7b9895775ea3e"
-    sha256 cellar: :any, catalina:      "47a293950f8b604ff3f40b8c60a23eb6cfcbd9411b96f3e9f4458fa681297999"
-    sha256 cellar: :any, mojave:        "aa11523cf29951aa4dfee2132745cd077116230fae4345f5671356514b9fe7ae"
+    sha256 cellar: :any,                 arm64_monterey: "518de62b8b806c49f648784dc9b33f2d0c8575029fb4d78a6487ac80cc62b013"
+    sha256 cellar: :any,                 arm64_big_sur:  "7c6b11eb8c5b581a872c5070ac1d7134305b419e49baa25dd9c3b3df9024ec55"
+    sha256 cellar: :any,                 monterey:       "c4ff0c41fcd758e7c0dd1f20e63830f690c3308999b35dcfb5739e27242180e6"
+    sha256 cellar: :any,                 big_sur:        "f2def7a5a729fd09f4e3e6c6df3d82f6233c8e3efcf6e292b650ead95fc3e089"
+    sha256 cellar: :any,                 catalina:       "a1c949fe2485e8e76fb0cfdd648f4fa8fef1eb304652a9a11d332ac2408b2625"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64093f3fcff9ceff07d1a228c5df8f9d93878c1a01d222b5a34ace5fb5c8f967"
   end
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
-    args = std_cmake_args + ["-DSIMDJSON_JUST_LIBRARY=ON"]
-    system "cmake", ".", *args
-    system "make", "install"
-    system "make", "clean"
-    system "cmake", ".", *args, "-DSIMDJSON_BUILD_STATIC=ON"
-    system "make"
-    lib.install "src/libsimdjson.a"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "build"
+    lib.install "build/libsimdjson.a"
   end
 
   test do
     (testpath/"test.json").write "{\"name\":\"Homebrew\",\"isNull\":null}"
     (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
       #include <simdjson.h>
       int main(void) {
         simdjson::dom::parser parser;

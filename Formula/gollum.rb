@@ -7,11 +7,13 @@ class Gollum < Formula
   head "https://github.com/trivago/gollum.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1ee4392902517d8c01ccefd711b89658420b8ab2727473538db2c8781e3ece6f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "93b409a0df8ba538dc75783b349b6e3d9d3390aa9d2e89813513a0452e3eab3e"
-    sha256 cellar: :any_skip_relocation, catalina:      "a8f048a8431da205f8c35224d43b6818c73adcb1abf973e7d1274231df6cb562"
-    sha256 cellar: :any_skip_relocation, mojave:        "6e8d55c8f2e91d5c645dd1877f993765aa26e71b637754514c6aa285ffb617dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9069887fd837e33a18020e839a78fa28a76f3d4088e59596e0e75941031f7760"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac1e8bf4e7ddbe753112b22cf9544bbc3f1f831c8878a16c9992c194c7e35fd5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1ee4392902517d8c01ccefd711b89658420b8ab2727473538db2c8781e3ece6f"
+    sha256 cellar: :any_skip_relocation, monterey:       "c9509e4313d50c6aa2ca636b82fd7e52dd2349d24cfd27644722bd86735ae8ab"
+    sha256 cellar: :any_skip_relocation, big_sur:        "93b409a0df8ba538dc75783b349b6e3d9d3390aa9d2e89813513a0452e3eab3e"
+    sha256 cellar: :any_skip_relocation, catalina:       "a8f048a8431da205f8c35224d43b6818c73adcb1abf973e7d1274231df6cb562"
+    sha256 cellar: :any_skip_relocation, mojave:         "6e8d55c8f2e91d5c645dd1877f993765aa26e71b637754514c6aa285ffb617dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9069887fd837e33a18020e839a78fa28a76f3d4088e59596e0e75941031f7760"
   end
 
   depends_on "go" => :build

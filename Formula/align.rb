@@ -20,6 +20,7 @@ class Align < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "c2c177c8be3b5a58e60f3a1f39d9fdd3cc3d39247d92be45142cd06ae80273bf"
     sha256 cellar: :any_skip_relocation, yosemite:      "caa9e8c3b3a9d946b95d5222b1518c5307499d57fe17f593ec3911f9cc6eace7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d1c578b01c461e06422ac5c75cd86044992f11ab65552b43b637e647e954baf"
+    sha256 cellar: :any_skip_relocation, all:           "c9faae10da1b1c4bcec6d0c36e63b5dc9320c1bf7751c771b11da859a56a1146"
   end
 
   conflicts_with "speech-tools", because: "both install `align` binaries"

@@ -3,23 +3,24 @@ class Pwncat < Formula
 
   desc "Netcat with FW/IDS/IPS evasion, self-inject-, bind- and reverse shell"
   homepage "https://pwncat.org"
-  url "https://files.pythonhosted.org/packages/e0/cd/f7c7a2d468fdf8355c574ac65f189da87a469c393ec704d8f3fa83613aa5/pwncat-0.1.1.tar.gz"
-  sha256 "62e625e9061f037cfca7b7455a4f7db4213c1d1302e73d4c475c63f924f1805f"
+  url "https://files.pythonhosted.org/packages/c9/ce/51f7b53a8ee3b4afe4350577ee92f416f32b9b166f0d84b480fec1717a42/pwncat-0.1.2.tar.gz"
+  sha256 "c7f879df3a58bae153b730848a88b0e324c8b7f8c6daa146e67cf45a6c736088"
   license "MIT"
-  head "https://github.com/cytopia/pwncat.git"
+  head "https://github.com/cytopia/pwncat.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dc906f569c1db49247320a2c5d9e27f26880d3041c6ff2f1b178fa5b1aa6a586"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fe18e3f9569fead9b8d60a719798afa0cda35626e6296d7a8917dd1d08812b92"
-    sha256 cellar: :any_skip_relocation, catalina:      "6aab31b67601d8e6c3bd584d8f4f264843ff8dab112eef4b31ae5896e6ba653a"
-    sha256 cellar: :any_skip_relocation, mojave:        "ea6514ac82a8edcbe9e2fc1cd2077baa1b4312979f39c84359ba7794822c0a91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cee0a58cef0ab5f64059cd262a154c5da65d96be6c7d886a12d5a5912b9df6fe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa1d3c17981bbba3ef5b35b162c38d2db2ab802c76fd979956bda9e6880d6a7a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa1d3c17981bbba3ef5b35b162c38d2db2ab802c76fd979956bda9e6880d6a7a"
+    sha256 cellar: :any_skip_relocation, monterey:       "fb3f4cb5954da1b5a7fccec4bb40f8807548cf79984b701788f72e364222d1fe"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fb3f4cb5954da1b5a7fccec4bb40f8807548cf79984b701788f72e364222d1fe"
+    sha256 cellar: :any_skip_relocation, catalina:       "fb3f4cb5954da1b5a7fccec4bb40f8807548cf79984b701788f72e364222d1fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a5bf7b976619100c3cf8763b48aba07b1c5c52e00230c23aeed1ec249fada17"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
     virtualenv_install_with_resources
   end
 

@@ -7,6 +7,7 @@ class Ctail < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 monterey:     "be4aa07bfd921f4903112f0ff6dbccc979b86cae77cdd75fe4ae9e2bcb3ff101"
     sha256 cellar: :any,                 big_sur:      "31c851cee6019ade6def5da7a50b2d901d04e1038d9d01d6985ac57a700a810f"
     sha256 cellar: :any,                 catalina:     "0821eb3a9bf969519149b7cb3038db2dc25836bc335c057e0ff263aa5fc2f7b2"
     sha256 cellar: :any,                 mojave:       "d81e805d4a80fd83b36fa579dff3c71a364b7bbc50ff6addf74a0d3790a92643"

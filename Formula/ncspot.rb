@@ -1,16 +1,18 @@
 class Ncspot < Formula
   desc "Cross-platform ncurses Spotify client written in Rust"
   homepage "https://github.com/hrkfdn/ncspot"
-  url "https://github.com/hrkfdn/ncspot/archive/v0.8.1.tar.gz"
-  sha256 "6d08ae339dc1b1fb1e472490e0d672840030467158a5a1f7472b588e2de303fe"
+  url "https://github.com/hrkfdn/ncspot/archive/v0.9.0.tar.gz"
+  sha256 "81655d9fab4903c6ac22321f1a6801aaedfbd88d4f5f768ae8303104fa904a53"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "9074da177ad5d0d06a1921bb72b79a2040ccc239f904c61cb9d1f4493ceb81fa"
-    sha256 cellar: :any,                 big_sur:       "feb382bbe4c1fb4fa15546fcb3318db22c8477d4cc3598ba7a411da9ede92180"
-    sha256 cellar: :any,                 catalina:      "294cb91373891976b22a89fa3ea29a45cde7e215f95fc29912ac672d5f76c3c4"
-    sha256 cellar: :any,                 mojave:        "30b33ab6397cf7e0ec5cd58a6104c44121459e6bd953df4365cc0ed2d0210fad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96cd460fe84ceb0fcb9669591abb8b467b8b6221c737bfeb99e3501d1fdfbf30"
+    sha256 cellar: :any,                 arm64_monterey: "0e572b5014e3726b195f04926b9d530803793e8975bbef6d17ffd5c45c36a8c8"
+    sha256 cellar: :any,                 arm64_big_sur:  "12843cc64096426fee19fce3fdb616415d380556b2a11ec20eb1e999905d8694"
+    sha256 cellar: :any,                 monterey:       "5f8b9c87867bb5a2d5f7d6ef961fe4a9d87d4a5adebd1da50cc65eb1805c5725"
+    sha256 cellar: :any,                 big_sur:        "63685a25f9e6ea6792cb736d693a252f52d76525000146f3e5c69c1eb7ba841c"
+    sha256 cellar: :any,                 catalina:       "3c76d712a332dbc693696fa8d909d7b1b82bf9b0c9f352fbdfafffd33e647594"
+    sha256 cellar: :any,                 mojave:         "d00e9826499e05c5a234c0cfa352ca463a50097de446d5f0df6655de5e79fd33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f67547aa1fcf968278076dba255471bba2ed77265edd91de0b2f66bcf8ea31e"
   end
 
   depends_on "python@3.9" => :build
@@ -18,19 +20,19 @@ class Ncspot < Formula
   depends_on "portaudio"
 
   uses_from_macos "ncurses"
-  uses_from_macos "openssl@1.1"
 
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "alsa-lib"
     depends_on "dbus"
     depends_on "libxcb"
+    depends_on "openssl@1.1" # Uses Secure Transport on macOS
   end
 
   def install
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
     system "cargo", "install", "--no-default-features",
-                               "--features", "portaudio_backend,cursive/pancurses-backend",
+                               "--features", "portaudio_backend,cursive/pancurses-backend,share_clipboard",
                                *std_cargo_args
   end
 

@@ -1,68 +1,50 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://www.snort.org/downloads/snort/snort-2.9.18.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort-2.9.18.tar.gz"
-  sha256 "d0308642f69e0d36f70db9703e5766afce2f44ff05b7d2c9cc8e3ac8323b2c77"
+  url "https://github.com/snort3/snort3/archive/3.1.16.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.1.16.0.tar.gz"
+  sha256 "24ef65fde4d2d56061c4f2054caa8a807e26f00892cf9e724ad1237ec2285fc6"
   license "GPL-2.0-only"
-
-  livecheck do
-    url "https://www.snort.org/downloads"
-    regex(/href=.*?snort[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  head "https://github.com/snort3/snort3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "20a02212522fd5b3e67928e7435c2118c96e858ddd30ae6c57c7e8dd764db49a"
-    sha256 cellar: :any, catalina: "f3ecad817c5ef3b9a4821c3644045f3cefe61a231b2e0e38a0a827ce5b2990c3"
-    sha256 cellar: :any, mojave:   "efc0a9d82cd81e417fea60516e7f6ffa62b7690825515bdf321c759d5268f1c0"
+    sha256 cellar: :any,                 arm64_big_sur: "85f07ee0d789b525ace1f8a2dee2614c9d7f8d33b97035147894e323a3548d3c"
+    sha256 cellar: :any,                 big_sur:       "4642fb25882260b5d8f744ff566d89cf6ee5679c670c5e3b6cb18dbb68ce5e52"
+    sha256 cellar: :any,                 catalina:      "8867d5033aebd007a7e9d7f0f1f34dbcf14c593e293d00169028a7f875b4a9eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b294672bfc77986d186b14ab7485ef4f788daa4225b9538466c101f1a2fa3a97"
   end
 
+  depends_on "cmake" => :build
+  depends_on "flatbuffers" => :build
+  depends_on "flex" => :build # need flex>=2.6.0
   depends_on "pkg-config" => :build
   depends_on "daq"
+  depends_on "gperftools" # for tcmalloc
+  depends_on "hwloc"
+  # Hyperscan improves IPS performance, but is only available for x86_64 arch.
+  depends_on "hyperscan" if Hardware::CPU.intel?
   depends_on "libdnet"
-  depends_on "libpcap"
-  depends_on "luajit"
-  depends_on "nghttp2"
+  depends_on "libpcap" # macOS version segfaults
+  depends_on "luajit-openresty"
   depends_on "openssl@1.1"
   depends_on "pcre"
+  depends_on "xz" # for lzma.h
 
-  uses_from_macos "bison" => :build
-  uses_from_macos "flex" => :build
-  uses_from_macos "xz"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "libunwind"
+  end
 
   def install
-    openssl = Formula["openssl@1.1"]
-    libpcap = Formula["libpcap"]
+    # These flags are not needed for LuaJIT 2.1 (Ref: https://luajit.org/install.html).
+    # On Apple ARM, building with flags results in broken binaries and they need to be removed.
+    inreplace "cmake/FindLuaJIT.cmake", " -pagezero_size 10000 -image_base 100000000\"", "\""
 
-    args = %W[
-      --prefix=#{prefix}
-      --sysconfdir=#{etc}/snort
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-active-response
-      --enable-flexresp3
-      --enable-gre
-      --enable-mpls
-      --enable-normalizer
-      --enable-react
-      --enable-reload
-      --enable-sourcefire
-      --enable-targetbased
-      --with-openssl-includes=#{openssl.opt_include}
-      --with-openssl-libraries=#{openssl.opt_lib}
-      --with-libpcap-includes=#{libpcap.opt_include}
-      --with-libpcap-libraries=#{libpcap.opt_lib}
-    ]
-
-    system "./configure", *args
-    system "make", "install"
-
-    # Currently configuration files in etc have strange permissions which causes postinstall to fail
-    # Reported to upstream: https://lists.snort.org/pipermail/snort-devel/2020-April/011466.html
-    (buildpath/"etc").children.each { |f| chmod 0644, f }
-    rm Dir[buildpath/"etc/Makefile*"]
-    (etc/"snort").install (buildpath/"etc").children
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DENABLE_TCMALLOC=ON"
+      system "make", "install"
+    end
   end
 
   def caveats
@@ -75,6 +57,6 @@ class Snort < Formula
   end
 
   test do
-    system bin/"snort", "-V"
+    assert_match "Version #{version}", shell_output("#{bin}/snort -V")
   end
 end

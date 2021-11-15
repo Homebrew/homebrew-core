@@ -6,14 +6,16 @@ class Freealut < Formula
   license "LGPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3cdedc8bdb746d9b619372b514e021eb40f51a83f01db883167d55322cb5286a"
-    sha256 cellar: :any, big_sur:       "16375ee0d022401f8d83ea01540d088ffc90e5661c10370b4157e13c617061fb"
-    sha256 cellar: :any, catalina:      "7b37a28c1edf58222ec10227bfbc0129cdd0afe66167c232fc62527bf89333c3"
-    sha256 cellar: :any, mojave:        "e7a2418c016c5636386fd3a2aa1af8b611beefd4aed0d7eb22b152b654a5cc4d"
-    sha256 cellar: :any, high_sierra:   "90bb9d9a0c0eb6ded2dd5f5c6fb566a2fd3835c32cab71d3c53efcfd82b7059e"
-    sha256 cellar: :any, sierra:        "5b592930278516c32e0ecdbf5e244abc4f18b2f766242af145ea0def25df3c99"
-    sha256 cellar: :any, el_capitan:    "301e3825367cee8b41747fae0b3495e94b09668d93980032f5fdb92d1c597b62"
-    sha256 cellar: :any, yosemite:      "491e2736570843c5d42576563f7797f2f5c13fb3bb97ece3c9396e1fdb7e054a"
+    sha256 cellar: :any, arm64_monterey: "b8def26cf41acf2dc5d3e349ec3e8429df7cc8c22c09f6efc237796653d01561"
+    sha256 cellar: :any, arm64_big_sur:  "3cdedc8bdb746d9b619372b514e021eb40f51a83f01db883167d55322cb5286a"
+    sha256 cellar: :any, monterey:       "8b5449831c37f8dac468aaf8e2a4ccb8ea17acbfebf0a4a831bb864d7d1d5834"
+    sha256 cellar: :any, big_sur:        "16375ee0d022401f8d83ea01540d088ffc90e5661c10370b4157e13c617061fb"
+    sha256 cellar: :any, catalina:       "7b37a28c1edf58222ec10227bfbc0129cdd0afe66167c232fc62527bf89333c3"
+    sha256 cellar: :any, mojave:         "e7a2418c016c5636386fd3a2aa1af8b611beefd4aed0d7eb22b152b654a5cc4d"
+    sha256 cellar: :any, high_sierra:    "90bb9d9a0c0eb6ded2dd5f5c6fb566a2fd3835c32cab71d3c53efcfd82b7059e"
+    sha256 cellar: :any, sierra:         "5b592930278516c32e0ecdbf5e244abc4f18b2f766242af145ea0def25df3c99"
+    sha256 cellar: :any, el_capitan:     "301e3825367cee8b41747fae0b3495e94b09668d93980032f5fdb92d1c597b62"
+    sha256 cellar: :any, yosemite:       "491e2736570843c5d42576563f7797f2f5c13fb3bb97ece3c9396e1fdb7e054a"
   end
 
   depends_on "autoconf" => :build

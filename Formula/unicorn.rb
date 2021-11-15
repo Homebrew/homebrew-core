@@ -3,10 +3,11 @@ class Unicorn < Formula
   homepage "https://www.unicorn-engine.org/"
   url "https://github.com/unicorn-engine/unicorn/archive/1.0.3.tar.gz"
   sha256 "64fba177dec64baf3f11c046fbb70e91483e029793ec6a3e43b028ef14dc0d65"
-  head "https://github.com/unicorn-engine/unicorn.git"
+  head "https://github.com/unicorn-engine/unicorn.git", branch: "master"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 monterey:     "ff8f7998c9431695a9e43a5c25de40bc509bed4d23b1178cfe22b3e4c81f0a5e"
     sha256 cellar: :any,                 big_sur:      "8f7ec73074e986c355944923dfc2c4828b9a545e66f9112e92b20cd11cf3b1b4"
     sha256 cellar: :any,                 catalina:     "11c4212e8e10b202eb2b9c4d4704d9c18619523d1ed31b98eb7eb5288a4ea7c1"
     sha256 cellar: :any,                 mojave:       "3725cd02674803b1491af58d6552a842af5ed8e1bd16b2144dd1e971748502aa"

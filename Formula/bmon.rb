@@ -8,10 +8,12 @@ class Bmon < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "8f20f07b392953df52502a35c4430ae3f080e4cf8b932a95fa66c149e04ff149"
-    sha256 cellar: :any, big_sur:       "c5a460a6ada9a74638176734db89e6e7fc6f8c171a8e580d06bb7b77b9432c1b"
-    sha256 cellar: :any, catalina:      "0e5a38ac18b9a385c33eeedd7c64c649bad0a6160aada5725cf3c1b2557b74f8"
-    sha256 cellar: :any, mojave:        "54c90f958df855b99cc0b6fa4cbabd4b135e7913b844d774e607fb6d14045dcf"
+    sha256 cellar: :any, arm64_monterey: "321c0715286901cc997ead59058971667bb3bd491cd85cd3a82eca29c7ae2f83"
+    sha256 cellar: :any, arm64_big_sur:  "8f20f07b392953df52502a35c4430ae3f080e4cf8b932a95fa66c149e04ff149"
+    sha256 cellar: :any, monterey:       "b81677fc05a116244cc98fee5d4dcf1a137923669f349aa5a78ac5cc93d9271c"
+    sha256 cellar: :any, big_sur:        "c5a460a6ada9a74638176734db89e6e7fc6f8c171a8e580d06bb7b77b9432c1b"
+    sha256 cellar: :any, catalina:       "0e5a38ac18b9a385c33eeedd7c64c649bad0a6160aada5725cf3c1b2557b74f8"
+    sha256 cellar: :any, mojave:         "54c90f958df855b99cc0b6fa4cbabd4b135e7913b844d774e607fb6d14045dcf"
   end
 
   head do

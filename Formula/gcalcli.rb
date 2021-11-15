@@ -6,18 +6,20 @@ class Gcalcli < Formula
   url "https://files.pythonhosted.org/packages/e8/d9/9d1f03b9b47c3082bf664a2f789a3aded0674dca9e0b894540d754b937cc/gcalcli-4.3.0.tar.gz"
   sha256 "d00081460276027196e8fb957880b29ba4f22ea43136f9e232a9408016abc110"
   license "MIT"
+  revision 1
   head "https://github.com/insanum/gcalcli.git"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "38015fc1203a392c9386e8d57088f9f8101cf56d81f50140db4bd1bfac6c8b5e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6278e00d39dbbc91b98766cf7cc793117c3b6ed758907c7a5453847f350a0eb1"
-    sha256 cellar: :any_skip_relocation, catalina:      "25245965cf728bda9fe9b9a01dab4eb78320cfcf462fa213fcce12cdcc16d6e3"
-    sha256 cellar: :any_skip_relocation, mojave:        "183dbf701ff365b7f117d0736887e7d97b000041fad03a92aa004d2050fb4525"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a886166bf9de414ba7e71cba6ccca18fb87fdda5713bc4b8fe2b39b52d71ff5f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e67e167840ac9eb7f74ff86f92fcec21a3521c9d646bffe627cf6c1e7159b9a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d2af2f27ffd790abe6ccf04eee3da3c108d262dde8b21f98021c23e31caae13f"
+    sha256 cellar: :any_skip_relocation, monterey:       "d33aabdfc7f9678ad4ea595321114b5ac899d06876d3223b0c96e9074f8cde52"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a336b96d3024378005c666f33f3d9090d2f8050b91ab72422895789e75de2b54"
+    sha256 cellar: :any_skip_relocation, catalina:       "bda1c0fdefccdb4595c7b09b37c948714cb2f28496d502130ec03cfd4d434f1d"
+    sha256 cellar: :any_skip_relocation, mojave:         "10b1036a3250e6738b79f24159ca959cdf74191bb7dfaec2d6945afd16f272d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ca29edf941829aa281b8a23b8c9072793d5ff6c6b00d0fd4dc7a280fa28aa53"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "cachetools" do
     url "https://files.pythonhosted.org/packages/fc/c8/0b52cf3132b4b85c9e83faa3e4d375575afeb3a1710c40b2b2cd2a3e5635/cachetools-4.1.1.tar.gz"

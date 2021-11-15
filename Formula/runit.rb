@@ -11,10 +11,12 @@ class Runit < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "39e047730d34a1981348cee841295648336b6ff705a200ef5f99130dc0cfde3c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a619f4f93c0a243b27e229916a5c7fc0371c7f38db7a608e5232d27eca9e9987"
-    sha256 cellar: :any_skip_relocation, catalina:      "d0e17adfaaf02589b498e362596486515b37a0fda917ee8f0e51ac8e2409afd6"
-    sha256 cellar: :any_skip_relocation, mojave:        "ec6f4b2f1b323aba830a5f26daed8615395b0f774de82e074ee699627b1c106a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8f052bec9af60ed628dec6fd235468b4cbb88d5b02c2570d1e1cddd0596e64be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "39e047730d34a1981348cee841295648336b6ff705a200ef5f99130dc0cfde3c"
+    sha256 cellar: :any_skip_relocation, monterey:       "80de201022723bb21ff78b50bd6dd1501ea8fb8a4d062e4974ad219d0971d1f4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a619f4f93c0a243b27e229916a5c7fc0371c7f38db7a608e5232d27eca9e9987"
+    sha256 cellar: :any_skip_relocation, catalina:       "d0e17adfaaf02589b498e362596486515b37a0fda917ee8f0e51ac8e2409afd6"
+    sha256 cellar: :any_skip_relocation, mojave:         "ec6f4b2f1b323aba830a5f26daed8615395b0f774de82e074ee699627b1c106a"
   end
 
   def install

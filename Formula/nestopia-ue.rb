@@ -1,27 +1,19 @@
 class NestopiaUe < Formula
   desc "NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
+  url "https://github.com/0ldsk00l/nestopia/archive/1.51.1.tar.gz"
+  sha256 "6c2198ed5f885b160bf7e22a777a5e139a7625444ec47625cd07a36627e94b3f"
   license "GPL-2.0-or-later"
-  head "https://github.com/0ldsk00l/nestopia.git"
-
-  # Remove stable block in next release with merged patch
-  stable do
-    url "https://github.com/0ldsk00l/nestopia/archive/1.51.0.tar.gz"
-    sha256 "9dd3253629a05f68fb730e5bc59148cd5498cea359eff2cbf4202d1e1329bce9"
-
-    # Fix for build issue: https://github.com/0ldsk00l/nestopia/issues/353
-    # Remove in the next release
-    patch do
-      url "https://github.com/0ldsk00l/nestopia/commit/d57e02e19ba88d609a092da5b420432a7251b71d.patch?full_index=1"
-      sha256 "5eba25a40d1b1cefd864e2f3fad160c438f3cb7a1257bea20bbc93c0235c1123"
-    end
-  end
+  head "https://github.com/0ldsk00l/nestopia.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "788e9075b691d0eb39cd89bd0951fe1510af3dc2838324f8cd7a2a982a80803f"
-    sha256 big_sur:       "0d7aa5be67ed9f42a10b902706cdcb3fbbdf2dbf106f590c9a340f702cf675c5"
-    sha256 catalina:      "e18051d4add14d42cc3056646dc825679718ef8c92338a411a94a5cd97a4b659"
-    sha256 mojave:        "3436bde863064391e63bb7058dd15da362a18470976ed2aebf963d315748834d"
+    sha256 arm64_monterey: "74968127ee6cfe14c8f08fd7e0f53cd3149649047b703d51fe765f30c47eb7ca"
+    sha256 arm64_big_sur:  "48cc9146b538dde455e89b91882abc5cb6e0a3bb5272d546c747df16a7399379"
+    sha256 monterey:       "a7a0e0e9ba892d561e14e0ac7cd99f4d4aaed37669d778c646d06ea582c655c4"
+    sha256 big_sur:        "c3b7a00feb7ccce40ed9edf2dc3a00aaea2c6422912a13917c481cd5389f4838"
+    sha256 catalina:       "8a08b57d2e7287b0792d3c0ae3688e563e6efd15a7069525ab62836ba8c6f924"
+    sha256 mojave:         "5fb8a05db0ae55c4d2bf0be06a88a825a0c502cdf289119c088eabe660e7eab2"
+    sha256 x86_64_linux:   "e4d3611733b865fb44f3edacf8963bb87a7ea31bc1a1f47b9d08fcd3678a7b43"
   end
 
   depends_on "autoconf" => :build

@@ -1,8 +1,10 @@
 class Mandoc < Formula
   desc "UNIX manpage compiler toolset"
   homepage "https://mandoc.bsd.lv/"
-  url "https://mandoc.bsd.lv/snapshots/mandoc-1.14.5.tar.gz"
-  sha256 "8219b42cb56fc07b2aa660574e6211ac38eefdbf21f41b698d3348793ba5d8f7"
+  url "https://mandoc.bsd.lv/snapshots/mandoc-1.14.6.tar.gz"
+  sha256 "8bf0d570f01e70a6e124884088870cbed7537f36328d512909eb10cd53179d9c"
+  license "ISC"
+  revision 1
   head "anoncvs@mandoc.bsd.lv:/cvs", using: :cvs
 
   livecheck do
@@ -11,13 +13,12 @@ class Mandoc < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "1de7d1e05231afb26c450c435c75b1822b98416405930b4c505df07f9ff6a4c3"
-    sha256 big_sur:       "62085d74ed9eb8c3765e3f187784b0e55842f0ad666de8f8e66463a2db09b791"
-    sha256 catalina:      "f408752db9b1ba4cc1fc8f47fdf41e1ade8abbcf243e947938efbbea550006b4"
-    sha256 mojave:        "78ffbf8bee7e5135ea303bb861f432288f2d48d403d7e932753b1ef962348917"
-    sha256 high_sierra:   "3236fdca9fe2cd8cca29d246d9252eaeea8ceeb7d8f5251574c2bc771a841647"
-    sha256 sierra:        "6176fcab59057d2188db3047849f96170bcb2133bfbe1f8c94845895d6a89bec"
-    sha256 x86_64_linux:  "36a859c94b852164624ca7a3e52d5f71bae77171a276bc8b1d2a1e22d7cd5cac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86fc7de6ddf02952dd6615916d2a787d0e87954337d7b214c760f3871575a771"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a009788bd3b10af69f0563904143dda9a41f0872514ac7e64e8a08a46fcf5fb"
+    sha256 cellar: :any_skip_relocation, monterey:       "6e8f22f43770525c78280535cf293a4500eba441baab688dbe04e4c872a505a7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a4f63ae6f10fe8912986b92fecc22f7421ed0bad4495811f6159b895d5b42f6d"
+    sha256 cellar: :any_skip_relocation, catalina:       "0190c6cc439cedfb1eb83d60b5be68974e12b993bafc87387ced2b948b526a2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "048e9149279a52292a203c6e6b4fd688b7b32501b8e05d806a5708587526a83c"
   end
 
   uses_from_macos "zlib"
@@ -41,6 +42,7 @@ class Mandoc < Formula
       "BINM_APROPOS=bsdapropos",
       "BINM_WHATIS=bsdwhatis",
       "BINM_MAKEWHATIS=bsdmakewhatis", # default is "makewhatis".
+      "BINM_SOELIM=bsdsoelim", # conflicts with groff's soelim
 
       # These are names for *section 7* pages only. Several other pages are
       # prefixed "mandoc_", similar to the "groff_" pages.

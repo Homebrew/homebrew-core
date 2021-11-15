@@ -1,16 +1,16 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.3.15.tar.gz"
-  sha256 "146e83723e5f5c486b9f16ec11b70ad682e76b6d01f10e4d9c27d07f3de72811"
-
+  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.4.9.tar.gz"
+  sha256 "a2771ad1633e0158f8273fa8b30b5bce0f12e1205e863045f4ae186b6b52f537"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "cec298c56c1b6ae574a91ad64e606bbff7f8f4b1dc3634c4d873d66332d8b5b6"
-    sha256 big_sur:       "d3ccf77415d1575c11c8e1e4c39150a7942e802e29bd7209341d4323a42e609e"
-    sha256 catalina:      "5acb192986f425945fa2fc3dded530b64c48075534d1a78e5889c8a81708d686"
-    sha256 mojave:        "596d4da953dd1c20455ebbf0f97212a3027517cf299a48edcf8acb417a53f81a"
+    sha256 arm64_monterey: "aec4a3abff403d5f738c721ae4f17066c855889de36e2d27589bd814ff2495ba"
+    sha256 arm64_big_sur:  "630f194a6d12b321def6fe2637b00db853dd9449e427de90ac25399c15cd1fc4"
+    sha256 monterey:       "47865472978bd2bbab407134d04a2656b8ef637dbd71531b72d25c7f2e6e1da0"
+    sha256 big_sur:        "e5563070d3751c4ffb5b8723eff201c04b0f27c7aa04d8a4e97345a70356dd19"
+    sha256 catalina:       "ec3bf3fbc15be7de373947e72321569bbb8554bcf0ec088b6a2964636044cc32"
   end
 
   depends_on "cmake" => :build
@@ -20,8 +20,9 @@ class Notcurses < Formula
   depends_on "ffmpeg"
   depends_on "libunistring"
   depends_on "ncurses"
-  depends_on "readline"
   uses_from_macos "zlib"
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
@@ -30,11 +31,9 @@ class Notcurses < Formula
   end
 
   test do
-    # without the TERM definition, Notcurses is like a small child, lost in a
-    # horrible mall. of course, if the tests are run in some non-xterm
-    # environment, this choice might prove unfortunate.
-    # you have no chance to survive. make your time.
-    ENV["TERM"] = "xterm"
-    assert_match "notcurses", shell_output("#{bin}/notcurses-info")
+    # current homebrew CI runs with TERM=dumb. given that Notcurses explicitly
+    # does not support dumb terminals (i.e. those lacking the "cup" terminfo
+    # capability), we expect a failure here. all output will go to stderr.
+    assert_empty shell_output("#{bin}/notcurses-info", 1)
   end
 end

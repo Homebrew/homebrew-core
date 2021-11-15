@@ -7,11 +7,13 @@ class Bork < Formula
   head "https://github.com/skylarmacdonald/bork.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "29526cc2119003d1e1957071f35dd01ef782d8d2615b390768715a39d17b584c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "35d2509202037bd1846d5ed0a607aebae76eb8a95782f09dfed1f7ba35577b60"
-    sha256 cellar: :any_skip_relocation, catalina:      "35d2509202037bd1846d5ed0a607aebae76eb8a95782f09dfed1f7ba35577b60"
-    sha256 cellar: :any_skip_relocation, mojave:        "35d2509202037bd1846d5ed0a607aebae76eb8a95782f09dfed1f7ba35577b60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29526cc2119003d1e1957071f35dd01ef782d8d2615b390768715a39d17b584c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "29526cc2119003d1e1957071f35dd01ef782d8d2615b390768715a39d17b584c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "29526cc2119003d1e1957071f35dd01ef782d8d2615b390768715a39d17b584c"
+    sha256 cellar: :any_skip_relocation, monterey:       "35d2509202037bd1846d5ed0a607aebae76eb8a95782f09dfed1f7ba35577b60"
+    sha256 cellar: :any_skip_relocation, big_sur:        "35d2509202037bd1846d5ed0a607aebae76eb8a95782f09dfed1f7ba35577b60"
+    sha256 cellar: :any_skip_relocation, catalina:       "35d2509202037bd1846d5ed0a607aebae76eb8a95782f09dfed1f7ba35577b60"
+    sha256 cellar: :any_skip_relocation, mojave:         "35d2509202037bd1846d5ed0a607aebae76eb8a95782f09dfed1f7ba35577b60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29526cc2119003d1e1957071f35dd01ef782d8d2615b390768715a39d17b584c"
   end
 
   def install

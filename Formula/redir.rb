@@ -6,14 +6,16 @@ class Redir < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "11abbdbbf74827eaf72cef5c1c2b7a84fc79010a00afc11f69b5797f44449479"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d57505000ee6d3eafe86ede2a16d9902a11378bd9071cbd0fab1773d53bc5bfd"
-    sha256 cellar: :any_skip_relocation, catalina:      "a811c4d0057b6d190a615a1da5cfb6dbb7321310f41da5141397295e31ffe354"
-    sha256 cellar: :any_skip_relocation, mojave:        "5681e33f5a5cb66759b5781989bef550558752c7cd3c1b3e4b590c5441a47082"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "8a94df616b4af201fe512de86ab7310bed38136397ee53b37d6f0a4a2729282e"
-    sha256 cellar: :any_skip_relocation, sierra:        "cb7132731ff0121978a4e72208203d30d4fd91a10731fda2ac474619ab4472cb"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "6109cd43a30457b4306b701f12088b6b7c1b40dddfb592b805e5ba4eb6b56158"
-    sha256 cellar: :any_skip_relocation, yosemite:      "76c6d218033c27de7a5030e8d9fe1356e0a152e3a31e4210b589314643b9fd0d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "31d05c824bc5c340c1bbd775c00bc8803a39e528f8435e78bc7ef284316ce07e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "11abbdbbf74827eaf72cef5c1c2b7a84fc79010a00afc11f69b5797f44449479"
+    sha256 cellar: :any_skip_relocation, monterey:       "9981c02e789e34dbdf80c39509768b7f3142e25ae15a24a8830993cd40c43fd8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d57505000ee6d3eafe86ede2a16d9902a11378bd9071cbd0fab1773d53bc5bfd"
+    sha256 cellar: :any_skip_relocation, catalina:       "a811c4d0057b6d190a615a1da5cfb6dbb7321310f41da5141397295e31ffe354"
+    sha256 cellar: :any_skip_relocation, mojave:         "5681e33f5a5cb66759b5781989bef550558752c7cd3c1b3e4b590c5441a47082"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "8a94df616b4af201fe512de86ab7310bed38136397ee53b37d6f0a4a2729282e"
+    sha256 cellar: :any_skip_relocation, sierra:         "cb7132731ff0121978a4e72208203d30d4fd91a10731fda2ac474619ab4472cb"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "6109cd43a30457b4306b701f12088b6b7c1b40dddfb592b805e5ba4eb6b56158"
+    sha256 cellar: :any_skip_relocation, yosemite:       "76c6d218033c27de7a5030e8d9fe1356e0a152e3a31e4210b589314643b9fd0d"
   end
 
   def install

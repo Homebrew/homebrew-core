@@ -13,6 +13,7 @@ class Superlu < Formula
 
   bottle do
     sha256                               arm64_big_sur: "70e9312167959d574969c9853b78f8c862ecd9e4350d1e37e8bb0529764d7cb7"
+    sha256 cellar: :any,                 monterey:      "581f43b83ba13034fbedcb4ed3a0de247340b6b2d6b41251e5df6cb54e1e3ed8"
     sha256                               big_sur:       "31635c3e8dc6dbd1401509c09812d28063c1e2de9ba0f6b234bedb88be9488d3"
     sha256                               catalina:      "9d40cab963df57b12521fe8150b19f37a8b969c8f4c6a0454767fdda0719c298"
     sha256                               mojave:        "ad6d7e6dab5b4f937fb99468d53d93f1d6eb28b095f95c809d99104d766e38ef"

@@ -1,21 +1,25 @@
 class SwiftProtobuf < Formula
   desc "Plugin and runtime library for using protobuf with Swift"
   homepage "https://github.com/apple/swift-protobuf"
-  url "https://github.com/apple/swift-protobuf/archive/1.17.0.tar.gz"
-  sha256 "f3e839bb445edcbf1aeb52ce6f24ae52a16cf5c45efb1721633b4d0c73ecc537"
+  url "https://github.com/apple/swift-protobuf/archive/1.18.0.tar.gz"
+  sha256 "e7afc0d07e0d8970269ca04948cec36ecac85f4526c29ff2c211fc016bde27d6"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/apple/swift-protobuf.git"
+  head "https://github.com/apple/swift-protobuf.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "341ed4f82143e163938c81c909d339855450400fa7f52cabb7fe76533ea01c87"
-    sha256 cellar: :any_skip_relocation, big_sur:       "266cecf8f26476cc552225d6c1eebbb39535c810b7cdd16ce67eb39bac34cf79"
-    sha256 cellar: :any_skip_relocation, catalina:      "868901e305a317939313dc1c2c2b512a554ed41ea2fb731efc541188591fdaeb"
-    sha256 cellar: :any_skip_relocation, mojave:        "879fe5364121784c787d3be0bae22bdbf4406c8891d050cda2b8d9b9d2f5b455"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a5c84ddd827e0126c615d5dd274beda8d257d1bf63b27ceb3c615bd12eaa0ef"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5a1c709bf25fa4c7d02cdbcb5ff481fa8d0ba37897a03c6f1a58b1d38248bc32"
+    sha256 cellar: :any_skip_relocation, monterey:       "81496b6246fa89194d7ffa490ae303332ffc6dcd2f2efd7786a25a3a82202651"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ae0390c500b0ca6e9665f23c8e4a0224f790ed232184d530bf9c8c772f068f89"
+    sha256 cellar: :any_skip_relocation, catalina:       "172f3e61a551548eeb7d93ae2fb001b0b99c38cc440c905aa72d907037730a4e"
+    sha256                               x86_64_linux:   "0b7c5288ec35491c7a435cd5cae5deb553221c6ee1d50946af12271f9f264fbe"
   end
 
   depends_on xcode: ["8.3", :build]
   depends_on "protobuf"
+
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"

@@ -6,19 +6,20 @@ class Vint < Formula
   url "https://files.pythonhosted.org/packages/9c/c7/d5fbe5f778edee83cba3aea8cc3308db327e4c161e0656e861b9cc2cb859/vim-vint-0.3.21.tar.gz"
   sha256 "5dc59b2e5c2a746c88f5f51f3fafea3d639c6b0fdbb116bb74af27bf1c820d97"
   license "MIT"
-  head "https://github.com/Vimjas/vint.git"
+  revision 1
+  head "https://github.com/Vimjas/vint.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a65f86843dc5833129a0dc1b62d32d816e956171634304ea96263b4b30f96642"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8d38f90dd2dae38afef80e3b0f4b62fd90e6fe3f55bf00d1006df70e96769523"
-    sha256 cellar: :any_skip_relocation, catalina:      "8848e8f89f352b4bbcfb875438c09e4dbae683bc1a5044b30d254ee1700ec0e3"
-    sha256 cellar: :any_skip_relocation, mojave:        "8e4f3863fcdd29a7c727e4117dbb8731606c97ad25bf5a80ddbad65d96a43dd7"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "4719b1fd512613b97246d52968fe3a7dfe6d45b7c9749bad87bd22bf4841fc0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4cfe976521087dee6a5435d8f574f36ba70e315ab07dc444058965357a9eae0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "595434e77d6e9c4363dd91932a6f352b022f41d50ab62faf0bee3bcfe03b9ad8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "595434e77d6e9c4363dd91932a6f352b022f41d50ab62faf0bee3bcfe03b9ad8"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
+    sha256 cellar: :any_skip_relocation, catalina:       "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
+    sha256 cellar: :any_skip_relocation, mojave:         "e0c475f7fa9eeeff2e934118584dea5ed67d00ecd46131c99016f73128988911"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06273da4a3b237e1bbfecbe12595be4e02af7db2620d212ac1753a24dc776319"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "ansicolor" do
     url "https://files.pythonhosted.org/packages/e0/00/90593d0c3078760bc3ed530f3be381c16329e80a2b47b8e6230c1288ff77/ansicolor-0.2.6.tar.gz"

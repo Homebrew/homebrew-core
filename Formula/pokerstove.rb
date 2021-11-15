@@ -7,10 +7,12 @@ class Pokerstove < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "96b40ae847f00d3af538948aa95f68de0743385882222724b4e36598ba365d02"
-    sha256 cellar: :any, big_sur:       "2417f672e669862eeb6a2529e3ace1bbaa78ee8f55b7ba555ed2d503d5f6a485"
-    sha256 cellar: :any, catalina:      "cad8646a452226baa12e3f8de7a2b0edc8c7df8a33af36c2983e9105d60537fd"
-    sha256 cellar: :any, mojave:        "6e8fededfc09e60dd3b3180360c257ede7cd8fcc3c2bfe83b68d82fcb2bfcab8"
+    sha256 cellar: :any, arm64_monterey: "6d1a9c1e9d1fa2f42419f47edc9a1231f6b5612f3d374c846e35052b1a2efd72"
+    sha256 cellar: :any, arm64_big_sur:  "96b40ae847f00d3af538948aa95f68de0743385882222724b4e36598ba365d02"
+    sha256 cellar: :any, monterey:       "520e0b5d47b1d734f519e5d763cd23f7b5863a360e7e315bc06dd3b4ba57a2ca"
+    sha256 cellar: :any, big_sur:        "2417f672e669862eeb6a2529e3ace1bbaa78ee8f55b7ba555ed2d503d5f6a485"
+    sha256 cellar: :any, catalina:       "cad8646a452226baa12e3f8de7a2b0edc8c7df8a33af36c2983e9105d60537fd"
+    sha256 cellar: :any, mojave:         "6e8fededfc09e60dd3b3180360c257ede7cd8fcc3c2bfe83b68d82fcb2bfcab8"
   end
 
   depends_on "cmake" => :build

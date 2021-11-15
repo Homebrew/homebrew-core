@@ -1,8 +1,8 @@
 class Katago < Formula
   desc "Neural Network Go engine with no human-provided knowledge"
   homepage "https://github.com/lightvector/KataGo"
-  url "https://github.com/lightvector/KataGo/archive/v1.9.1.tar.gz"
-  sha256 "4992ddca600d19630692b8fd468187d872274493d2db2eed5576b7b550895cda"
+  url "https://github.com/lightvector/KataGo/archive/v1.10.0.tar.gz"
+  sha256 "2d9b3fced61df90953dfc92f689ceb3fefba65b816388fe42bddad5c0d68bda5"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Katago < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "8b9ce57f58048bca92d019ab2df91152de094de9b7d44c195fe8aaf65ed8c04d"
-    sha256 cellar: :any,                 big_sur:       "837691d8ede674a8014670730d0ead7f8baf19e80ab6e9c4aac0696d3b1ea023"
-    sha256 cellar: :any,                 catalina:      "72adea451bc3894d56d79ac7ca70fe872fe06003fd2d272fea7453d1d4b693b3"
-    sha256 cellar: :any,                 mojave:        "deb04355924e2eb64d756110ea89f87fbeb81d09a1d4e5ba48a7612e163450a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dca36af81fecda82fc5cca6405ff3cf0118d3b9f1cfbfaf3f776c70fd1d58afa"
+    sha256 cellar: :any,                 arm64_monterey: "9f9bb858293b8c8d0582b19cd271ed9156cf4593e592355d274194ae515c2d03"
+    sha256 cellar: :any,                 arm64_big_sur:  "b0d8098bff82d54688f0a8ee1737f1c47e9386ed14fe4e81e57d2cc54be78da5"
+    sha256 cellar: :any,                 monterey:       "9b7a51623e9313186c883e52da686d4608ecc8337132b0669b3df55982e881b4"
+    sha256 cellar: :any,                 big_sur:        "2ac6080f0d70def750f21e312a0bb2d7c04d3d610b18d556be65743448cdc244"
+    sha256 cellar: :any,                 catalina:       "5432c54db74beecb6ecffca6fe15d76d2d6fe357ebabc024144aaaa2d10e5818"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29de134f9ba84efc70589b1a1c93571ebc5b1ef3b9c963f7fbc0b784d889537e"
   end
 
   depends_on "cmake" => :build
@@ -42,7 +42,7 @@ class Katago < Formula
   def install
     cd "cpp" do
       args = %w[-DBUILD_MCTS=1 -DNO_GIT_REVISION=1]
-      on_macos do
+      if OS.mac?
         args << "-DUSE_BACKEND=OPENCL"
         args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
       end

@@ -6,11 +6,13 @@ class Ipv6calc < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8532274ecc261d17d7390821b9e8b432f56cdafe97ba34c583437b1fadfa7f27"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ee4ad9470fc4e89698937c724f1124d393289f6c3022a397cb3525562843fc53"
-    sha256 cellar: :any_skip_relocation, catalina:      "032973accb1642b43fcf7320e8dd76e621c8024f3b6b0caf2fb24e69d90429d7"
-    sha256 cellar: :any_skip_relocation, mojave:        "4a83aadc45974b755d94b59f2fd4e8fb4637139d527e4474122983a229731cb5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "748772297ce211e30da123ccab4c9204738703e62cfe1ab90238dac434d9fb70"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2f22205da91a6c13ef94c24d506c2fd5f0a53d2f206d721e240c1942764db1f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8532274ecc261d17d7390821b9e8b432f56cdafe97ba34c583437b1fadfa7f27"
+    sha256 cellar: :any_skip_relocation, monterey:       "74f417c9a6cd2ce32185c55dfc7a12a9a8a0e26439dc6c76608b44764713cbdd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ee4ad9470fc4e89698937c724f1124d393289f6c3022a397cb3525562843fc53"
+    sha256 cellar: :any_skip_relocation, catalina:       "032973accb1642b43fcf7320e8dd76e621c8024f3b6b0caf2fb24e69d90429d7"
+    sha256 cellar: :any_skip_relocation, mojave:         "4a83aadc45974b755d94b59f2fd4e8fb4637139d527e4474122983a229731cb5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "748772297ce211e30da123ccab4c9204738703e62cfe1ab90238dac434d9fb70"
   end
 
   def install

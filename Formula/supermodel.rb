@@ -5,15 +5,22 @@ class Supermodel < Formula
   sha256 "ecaf3e7fc466593e02cbf824b722587d295a7189654acb8206ce433dcff5497b"
   head "https://svn.code.sf.net/p/model3emu/code/trunk"
 
+  livecheck do
+    url "https://www.supermodel3.com/Download.html"
+    regex(/href=.*?Supermodel[._-]v?(\d+(?:\.\d+)+[a-z]?)[._-]Src\.zip/i)
+  end
+
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "ad8d438a1f18582da559bc8474e8219b81c695afba907bd99f40c1d960957687"
-    sha256 big_sur:       "672d2a2500076ae34e896fb21f84b1237ae9d80c6b7858afe4316c55831f6ce7"
-    sha256 catalina:      "16ce3b8995d5c9036111032cdbbde5dfc2fefc18c6f841e722242c9b791c92ac"
-    sha256 mojave:        "85678e40606c4bff6ff454ec15bafd2ab317887b2fb48865433d8cb0cdae7a3a"
-    sha256 high_sierra:   "83c0dbca7a5c28564eba4e7a73894746004aab5025071b350c3c47271fc42625"
-    sha256 sierra:        "1203bb3d289e36e1ca15720dbcd4e63ffcf4fa4d09588cb4fb81092cb72399ec"
-    sha256 el_capitan:    "78cf8e9fb973e3cd136a212936bdc8003d9897a1bb8a6a1eba3cc7ff0fba3c88"
+    sha256 arm64_monterey: "39a3704617ad57088a5c883145b774c9233db881ead9879cc06224961b6432cf"
+    sha256 arm64_big_sur:  "ad8d438a1f18582da559bc8474e8219b81c695afba907bd99f40c1d960957687"
+    sha256 monterey:       "a19638ba055b4e08ce2fb26ac7a8d8c0c5979b56962411cb51ed6fb2c5dc923a"
+    sha256 big_sur:        "672d2a2500076ae34e896fb21f84b1237ae9d80c6b7858afe4316c55831f6ce7"
+    sha256 catalina:       "16ce3b8995d5c9036111032cdbbde5dfc2fefc18c6f841e722242c9b791c92ac"
+    sha256 mojave:         "85678e40606c4bff6ff454ec15bafd2ab317887b2fb48865433d8cb0cdae7a3a"
+    sha256 high_sierra:    "83c0dbca7a5c28564eba4e7a73894746004aab5025071b350c3c47271fc42625"
+    sha256 sierra:         "1203bb3d289e36e1ca15720dbcd4e63ffcf4fa4d09588cb4fb81092cb72399ec"
+    sha256 el_capitan:     "78cf8e9fb973e3cd136a212936bdc8003d9897a1bb8a6a1eba3cc7ff0fba3c88"
   end
 
   depends_on "sdl"

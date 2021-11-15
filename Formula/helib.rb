@@ -1,17 +1,18 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v2.1.0.tar.gz"
-  sha256 "641af0f602cfc7f5f5b1cfde0652252def2dfaf5f7962c2595cf598663637951"
+  url "https://github.com/homenc/HElib/archive/v2.2.1.tar.gz"
+  sha256 "cbe030c752c915f1ece09681cadfbe4f140f6752414ab000b4cf076b6c3019e4"
   license "Apache-2.0"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "212df077b3196784a257df04f802dae393a42bac5b04a72695b5558b0950eeed"
-    sha256 cellar: :any,                 big_sur:       "5c65196fe910a2d2fdcc1270597fcc5dd5d48e70820e69929483bcbae6a9c376"
-    sha256 cellar: :any,                 catalina:      "c5f167323605ce1bb7391d5e99cb305ab2bdb42e4b560dfe29646d10795e6c6d"
-    sha256 cellar: :any,                 mojave:        "a043964c76a5a2e453342f21a3753ba179e8744d908920c9eb52a85712b851b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd714fc11156a70b20e75bb7641dd1ef934dc0a0869c95fb0aa7b09f949ddbff"
+    sha256 cellar: :any,                 arm64_monterey: "b55ca7c984036c96a712cdf07d87afbbd5b1830613f18d42d96f93793f2b754d"
+    sha256 cellar: :any,                 arm64_big_sur:  "86a2b67a36f009f5da7031f426a62516ba43683636a7f124d0592fbd827e048b"
+    sha256 cellar: :any,                 monterey:       "dc62e7868fa3d95f4b6fe3bcfc96c99c26f2cd54048bf4614d47bb21c338d9d9"
+    sha256 cellar: :any,                 big_sur:        "7ec83df94881c5a6e6219e22c4d2f7676f6ccd6d1def7315d443316a47e92b07"
+    sha256 cellar: :any,                 catalina:       "479118627ff0025805e67dbbe8a75a4097a66fc5eb900adb307bb72372b813c6"
+    sha256 cellar: :any,                 mojave:         "503957a2db03e7df3255616e8e51b430133ae5e7b91985edddafd18e1317db99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17b359482962a9173d78f1ea90090718acd3c40cafc70b17a53a5c41ea72d00a"
   end
 
   depends_on "cmake" => :build
@@ -24,12 +25,6 @@ class Helib < Formula
   end
 
   fails_with gcc: "5"
-
-  # Fix missing <optional> header include. Merged upstream, remove on next release.
-  patch do
-    url "https://github.com/homenc/HElib/commit/9973ccc68a292d5c52388eca40eac08ae11d0263.patch?full_index=1"
-    sha256 "fa4451567a7d3b4b09e44d0659d9e41615ea9d44c8228f64a5dc21b45390bd1c"
-  end
 
   def install
     mkdir "build" do

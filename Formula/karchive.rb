@@ -1,21 +1,28 @@
 class Karchive < Formula
   desc "Reading, creating, and manipulating file archives"
   homepage "https://api.kde.org/frameworks/karchive/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.85/karchive-5.85.0.tar.xz"
-  sha256 "8c196e9195485622c7e5f4523584e1e7551827a0bfbe477d08d34b7847ab6b2f"
+  url "https://download.kde.org/stable/frameworks/5.88/karchive-5.88.0.tar.xz"
+  sha256 "4b9979a3f0c1acb9822e0bea4b84e84970b9ca0a0e4daf914a35fe079f4ceae3"
   license all_of: [
     "BSD-2-Clause",
     "LGPL-2.0-only",
     "LGPL-2.0-or-later",
     any_of: ["LGPL-2.0-only", "LGPL-3.0-only"],
   ]
-  head "https://invent.kde.org/frameworks/karchive.git"
+  head "https://invent.kde.org/frameworks/karchive.git", branch: "master"
+
+  # We check the tags from the `head` repository because the latest stable
+  # version doesn't seem to be easily available elsewhere.
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4603b87ebd5e4e3fba10c28e31be00ff89a8134aea1361b7f4cefb63f6860f23"
-    sha256 cellar: :any, big_sur:       "39f92e2091f0d15d7c2d778d99ce2b25155487cc5921c10f89ba82a1bb15a20e"
-    sha256 cellar: :any, catalina:      "d4fe94de78ae2f140b2fa97739a42ca1f4ad8edc5953f05501cb05940c0e962b"
-    sha256 cellar: :any, mojave:        "bc17b1ba460d4cd541a207844d328104dceb370c198bb2df4b0ac21cee0e5527"
+    sha256 cellar: :any,                 arm64_big_sur: "5a61c9b9805072507e5193f15d0e39370b476d889a34bc9d3628ceaea9d1abfb"
+    sha256 cellar: :any,                 big_sur:       "640341f71e945abad35ea9e64f3800c47b6c5b76c06a06300f415ea710c253ec"
+    sha256 cellar: :any,                 catalina:      "de15c7ba052897d75f386ac6c5b89096ef831677179042bf375d396c5531bd01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "757039b15739348a506b67dae58cacb8d7a04e5438a76eec66bfac2b1d7cbaf0"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -29,15 +36,20 @@ class Karchive < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = std_cmake_args
     args << "-DBUILD_TESTING=OFF"
     args << "-DBUILD_QCH=ON"
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     pkgshare.install "examples"
   end

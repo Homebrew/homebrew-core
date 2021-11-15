@@ -7,6 +7,7 @@ class Cmix < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "ad293329e67ffa22e3e159643c1324b587096c27daf0f0b77feb3633f3adf0c3"
     sha256 cellar: :any_skip_relocation, big_sur:      "3ab169d97ef3e781f7fab12bcf99a74a584462fa154e59d85f96449aa525077c"
     sha256 cellar: :any_skip_relocation, catalina:     "9dbbd3e8367f799405fbb237d68fe46e968bda502a5779f3be1c467b56e394b8"
     sha256 cellar: :any_skip_relocation, mojave:       "448fa06555b59d6a0541d1e36ff9eac14e05775fd2ef119e860a305368b800ec"

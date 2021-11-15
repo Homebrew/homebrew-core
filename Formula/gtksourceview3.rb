@@ -34,9 +34,7 @@ class Gtksourceview3 < Formula
   end
 
   def install
-    on_macos do
-      system "autoreconf", "--verbose", "--install", "--force"
-    end
+    system "autoreconf", "--verbose", "--install", "--force" if OS.mac?
     system "./configure", "--disable-dependency-tracking",
                           "--enable-vala=yes",
                           "--enable-introspection=yes",

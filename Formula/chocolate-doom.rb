@@ -11,11 +11,14 @@ class ChocolateDoom < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2ec976b70085d5774860143fa03bc8c46493383faf512c61eba9eb0ab3985942"
-    sha256 cellar: :any, big_sur:       "229f40caf921ce47bf5683f360473a783f281d2261be52758804c5203bc5df1b"
-    sha256 cellar: :any, catalina:      "91f8a622d0299afd99d6eb4768184100addb0d1a804683aa6486548ed5a14d8d"
-    sha256 cellar: :any, mojave:        "9090cd83e434977b523647ea125b5de78ca8c2b434f1933a606200999e137a30"
-    sha256 cellar: :any, high_sierra:   "c4799300dc6c4b10d68e0764cb57eec612fbe3d07a2ce7eeb0cf6bc60905a687"
+    sha256 cellar: :any,                 arm64_monterey: "413b538d84ce6683c965c9a996da15ce4a6217bcdc950761164bae1355bd9ad2"
+    sha256 cellar: :any,                 arm64_big_sur:  "2ec976b70085d5774860143fa03bc8c46493383faf512c61eba9eb0ab3985942"
+    sha256 cellar: :any,                 monterey:       "c038f08c989b156b389d9f74518bda94b8c054807392abc4673a43a297772f77"
+    sha256 cellar: :any,                 big_sur:        "229f40caf921ce47bf5683f360473a783f281d2261be52758804c5203bc5df1b"
+    sha256 cellar: :any,                 catalina:       "91f8a622d0299afd99d6eb4768184100addb0d1a804683aa6486548ed5a14d8d"
+    sha256 cellar: :any,                 mojave:         "9090cd83e434977b523647ea125b5de78ca8c2b434f1933a606200999e137a30"
+    sha256 cellar: :any,                 high_sierra:    "c4799300dc6c4b10d68e0764cb57eec612fbe3d07a2ce7eeb0cf6bc60905a687"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9a256c7ef6e9231057c9cf190bcd1fc8160d5d5b5b11e8efc3ebfef59c78d9d"
   end
 
   head do

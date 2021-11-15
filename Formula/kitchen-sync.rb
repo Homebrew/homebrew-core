@@ -4,6 +4,7 @@ class KitchenSync < Formula
   url "https://github.com/willbryant/kitchen_sync/archive/v2.11.tar.gz"
   sha256 "8755c79d18054ae842b8744575fdfb55b76a8667cea8186fa22cb68bd5fa60ba"
   license "MIT"
+  revision 1
   head "https://github.com/willbryant/kitchen_sync.git"
 
   livecheck do
@@ -12,16 +13,22 @@ class KitchenSync < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "df684d4f93303e9e558a0e76e183cf3d2f023dcc72ea89636187da767043f167"
-    sha256 cellar: :any,                 big_sur:       "2b6b8db77a59ac10cb719ddabc427941c78d43612fd945145c96f054bb5654a7"
-    sha256 cellar: :any,                 catalina:      "03ebfd56228b524fad48bad6017146a213fb9f2bff088ad1b78a50d8a6d40855"
-    sha256 cellar: :any,                 mojave:        "8dadd7bb9c24df3191f3c8e512be6e34ededaf7d062a57662b45ae9a1934c394"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01395024d805dad47330df8af7f78616b322ecc900ca88053c09236e33e354d1"
+    sha256 cellar: :any,                 arm64_big_sur: "7cb0c51fd57fa314a05bbd4ea90690ddbc9c9c550898a97d7ab5915a495b1634"
+    sha256 cellar: :any,                 big_sur:       "fadb1e90edb4391bbf7514c5f2cc6f6d4373b10962b4806f991879fddad8ac69"
+    sha256 cellar: :any,                 catalina:      "5e929e6f0cfb76aa6bd98a160c649136f7770090085253add3c8105013ac8000"
+    sha256 cellar: :any,                 mojave:        "deb520f2995563451f9695efc970af7b8b8eafad7ca1c55efb0b75320b057876"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d26fd4ba6991e01a5a5178228e936e1e89868d2d1a70ab9bb5bed7e16c2b6da"
   end
 
   depends_on "cmake" => :build
   depends_on "libpq"
   depends_on "mysql-client"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", ".",

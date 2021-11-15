@@ -6,17 +6,20 @@ class GitReview < Formula
   url "https://files.pythonhosted.org/packages/52/32/314cdb83186d43661a36d3e49390f818bce4e878b90a0bc980a3c70252bb/git-review-2.1.0.tar.gz"
   sha256 "3a6c775645b1fa8c40c49fbfce6f8d7e225a1e797a0aa92912607b1d97e61ed6"
   license "Apache-2.0"
+  revision 1
   head "https://opendev.org/opendev/git-review.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "496d650aae18c08a27c9a35b2af2402c06817acc44f317c7bb835b98640e38c5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c0453ff5e5450402026b4480cab678f615673b5cbb7e0bdd066cc601418aff88"
-    sha256 cellar: :any_skip_relocation, catalina:      "c0453ff5e5450402026b4480cab678f615673b5cbb7e0bdd066cc601418aff88"
-    sha256 cellar: :any_skip_relocation, mojave:        "c0453ff5e5450402026b4480cab678f615673b5cbb7e0bdd066cc601418aff88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5da052e738e69ae15c6ed1f71fb85fe77f31ad529b52ce4a69784408ea042fc2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "849525c398470ac641da1061d8e3e115b661f5d25b2f652b4a921e3e9a8509cc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "849525c398470ac641da1061d8e3e115b661f5d25b2f652b4a921e3e9a8509cc"
+    sha256 cellar: :any_skip_relocation, monterey:       "044c579945a6fc3ec04f2d55f85fe983cb7a74851ac0484f6f58f08a1d678e32"
+    sha256 cellar: :any_skip_relocation, big_sur:        "044c579945a6fc3ec04f2d55f85fe983cb7a74851ac0484f6f58f08a1d678e32"
+    sha256 cellar: :any_skip_relocation, catalina:       "044c579945a6fc3ec04f2d55f85fe983cb7a74851ac0484f6f58f08a1d678e32"
+    sha256 cellar: :any_skip_relocation, mojave:         "044c579945a6fc3ec04f2d55f85fe983cb7a74851ac0484f6f58f08a1d678e32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cc359ba6a02c07243950ee6fd590272e7a8aba03a44fb28b88324f6377f4772"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"

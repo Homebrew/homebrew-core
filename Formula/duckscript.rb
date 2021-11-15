@@ -1,25 +1,25 @@
 class Duckscript < Formula
   desc "Simple, extendable and embeddable scripting language"
   homepage "https://sagiegurari.github.io/duckscript"
-  url "https://github.com/sagiegurari/duckscript/archive/0.8.4.tar.gz"
-  sha256 "f46ed47df597246cde1f15039bb315a6c50d01b9fdc3a7c69328cdbaaf142f95"
+  url "https://github.com/sagiegurari/duckscript/archive/0.8.9.tar.gz"
+  sha256 "b26ef19d50367352af3d0ba79946838202e7418a9e53e82fbb96f05c87dd389a"
   license "Apache-2.0"
   head "https://github.com/sagiegurari/duckscript.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ff9b9fe004a132ec37e3e9eff2d2e09c4db80004a295b408b0e09cd629e83dea"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c5b4e1caf43415f96c4ada23a6c68fdde675de6e2989efa3a70253fa60c65e45"
-    sha256 cellar: :any_skip_relocation, catalina:      "64b106dc9c6bfac3c7b6693d7c6ba450f4119f0680b7ed366d79f32693a457db"
-    sha256 cellar: :any_skip_relocation, mojave:        "54c8de15fe0a18005aa7413953ac53ac92776b061ba12cc3ecb059d813605b84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ebb3f290eb3bfcbad263b04f2ccf26990f0893aab6f17a46b28edd7cc699832"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "578726ee837d0c60f2db1170fc2978013e421b3a567aa00b4179f6c964d84f32"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0bee823efb9c940e3d3f379bb0752eef441624c6ed6257a633597eea688a964"
+    sha256 cellar: :any_skip_relocation, monterey:       "9e3c7b047007fdcc801102b8c465ffb4044e6163a532c4be481d7b7a5a032c96"
+    sha256 cellar: :any_skip_relocation, big_sur:        "95d930daa6f397152a2d684d61f2ebc4ca1f6ecabe2bf35b19263640c2f523a9"
+    sha256 cellar: :any_skip_relocation, catalina:       "9cabeea061750b1016b6b1fda1151a138e447ddacd5f6d303645dba69eabd08f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d3c2cf225c1a0c35464d61d50232357c5751a98443ee068830153b6d727e6bd"
   end
 
   depends_on "rust" => :build
 
-  uses_from_macos "openssl@1.1"
-
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "openssl@1.1" # Uses Secure Transport on macOS
   end
 
   def install

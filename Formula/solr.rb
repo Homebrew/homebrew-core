@@ -1,15 +1,16 @@
 class Solr < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://solr.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/8.9.0/solr-8.9.0.tgz"
-  mirror "https://archive.apache.org/dist/lucene/solr/8.9.0/solr-8.9.0.tgz"
-  sha256 "c9c970e0603318eac1ca5bae24e9a85e917d012266159237e572e636c5a3da62"
+  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/8.10.1/solr-8.10.1.tgz"
+  mirror "https://archive.apache.org/dist/lucene/solr/8.10.1/solr-8.10.1.tgz"
+  sha256 "42cd0efd48ef3eb75ca06135889b21045884e95f085f4535685f5dfc89a5858a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "42d751cd394c49d151949d118f1c858d7f69de3046b7d32b4d8a07924af2a4b9"
+    sha256 cellar: :any_skip_relocation, all: "05fa5d11df5c036aade9a389d1231e159074ab64b8276adf05c675ecd7ddb538"
   end
 
+  depends_on :macos # test failed on linux
   depends_on "openjdk"
 
   def install
@@ -34,33 +35,9 @@ class Solr < Formula
     (var/"log/solr").mkpath
   end
 
-  plist_options manual: "solr start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/solr</string>
-            <string>start</string>
-            <string>-f</string>
-            <string>-s</string>
-            <string>#{HOMEBREW_PREFIX}/var/lib/solr</string>
-          </array>
-          <key>ServiceDescription</key>
-          <string>#{name}</string>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-          <key>RunAtLoad</key>
-          <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"solr", "start", "-f", "-s", HOMEBREW_PREFIX/"var/lib/solr"]
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

@@ -2,17 +2,19 @@ class Aliddns < Formula
   desc "Aliyun(Alibaba Cloud) ddns for golang"
   homepage "https://github.com/OpenIoTHub/aliddns"
   url "https://github.com/OpenIoTHub/aliddns.git",
-      tag:      "v0.0.12",
-      revision: "adcb7cc3b57c254a43f696bd83122cc693cc7ad0"
+      tag:      "v0.0.13",
+      revision: "2c2214baf6b016ded184373252cff16bb377d3c0"
   license "MIT"
   head "https://github.com/OpenIoTHub/aliddns.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0dc04fa8aaf8dd3d48798a71300ddf0f4bb905fe2b97875e9734b7ac15c40218"
-    sha256 cellar: :any_skip_relocation, big_sur:       "af588333775b8a9b61968c14ea722882ec52a834550ca6821a4e6ae2ce1f97ad"
-    sha256 cellar: :any_skip_relocation, catalina:      "d2d282a93938640e7faa06e7e64c60650ff6f49e7e277a2a479c43254a00d903"
-    sha256 cellar: :any_skip_relocation, mojave:        "96a9f4243220aca10644e05801a43069fd9516f0b5f2dc2493c2fe5828f816bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f429badf39c7ff53bbb5f9ab029c90d02fab0d30bf8321ca3d23fb2c75416540"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "23ab8335a2b758f3557053847a848d61dfb53c614abd8e52eadd62352bc45c5f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "779eac8f4e88b704f068d542d1c4f209a96edc5ded85e5ecfefa961d798d6620"
+    sha256 cellar: :any_skip_relocation, monterey:       "ad0bfb1477ef8ec7145eca1cbeb4147157c928ebd440a757f054de2d961f2578"
+    sha256 cellar: :any_skip_relocation, big_sur:        "107cb79b754c414f6ffc4bf48ad086e502ad1b39aba147177e3490258e840f8b"
+    sha256 cellar: :any_skip_relocation, catalina:       "67937c8e5e9379f4eb36adb24f5b1c5330d488dbe032e0cca376709c03f7b29b"
+    sha256 cellar: :any_skip_relocation, mojave:         "ee4a2ad57559bd87b208aa6a58d949b2271b99c767c1bc6e6d8a1fb4996f6e36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2f2e7a4c81fc402a372ea37b80dbf8f6190595122704088744f4ba7c5fc50ce"
   end
 
   depends_on "go" => :build

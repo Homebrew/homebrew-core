@@ -12,11 +12,13 @@ class Freetype < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "e9bcfa10ec1ce289fd5fb38228918e83ec28c5aa8dd25d7b543a8db6c0da0e39"
-    sha256 cellar: :any,                 big_sur:       "4e85cc5a025f1d8d9fedcb49775cfff4e1d2959bfda468445cecfc76c40edf17"
-    sha256 cellar: :any,                 catalina:      "619ef51d198b0c4451e55d02f750c0f8f41614dcf7e108904c57e9eecca2fff1"
-    sha256 cellar: :any,                 mojave:        "0ad6ce1ac305d4c8412f6c20ccdec2951fbf36eb2d971769d9a0910792001498"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23cd32e04d63c7b1f2ac25da4e777d2813802c8cd9b527f50c595df722dd6d57"
+    sha256 cellar: :any,                 arm64_monterey: "dab11f55546d96775ca3b8fb9aa9225c1fb3a2baa6b6dc9c03fe41066b82c6dc"
+    sha256 cellar: :any,                 arm64_big_sur:  "e9bcfa10ec1ce289fd5fb38228918e83ec28c5aa8dd25d7b543a8db6c0da0e39"
+    sha256 cellar: :any,                 monterey:       "1293f4b7e27bdbd72bce46ab6e365c7ddf02ef84b333810b7ace18e6f087c2e9"
+    sha256 cellar: :any,                 big_sur:        "4e85cc5a025f1d8d9fedcb49775cfff4e1d2959bfda468445cecfc76c40edf17"
+    sha256 cellar: :any,                 catalina:       "619ef51d198b0c4451e55d02f750c0f8f41614dcf7e108904c57e9eecca2fff1"
+    sha256 cellar: :any,                 mojave:         "0ad6ce1ac305d4c8412f6c20ccdec2951fbf36eb2d971769d9a0910792001498"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23cd32e04d63c7b1f2ac25da4e777d2813802c8cd9b527f50c595df722dd6d57"
   end
 
   depends_on "libpng"
