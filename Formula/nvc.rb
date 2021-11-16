@@ -25,6 +25,8 @@ class Nvc < Formula
   depends_on "pkg-config" => :build
   depends_on "llvm"
 
+  uses_from_macos "flex" => :build
+
   resource "homebrew-test" do
     url "https://github.com/suoto/vim-hdl-examples.git",
         revision: "fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b"
