@@ -51,6 +51,7 @@ class HarmonyOne < Formula
     cd buildpath/"src/github.com/harmony-one/harmony"
 
     # Build Binarys
+    system "go mod tidy"
     system "make"
 
     bin.install "./bin/harmony" => "harmony"
