@@ -7,7 +7,7 @@ class GitRevise < Formula
   sha256 "21e89eba6602e8bea38b34ac6ec747acba2aee876f2e73ca0472476109e82bf4"
   license "MIT"
   revision 2
-  head "https://github.com/mystor/git-revise.git"
+  head "https://github.com/mystor/git-revise.git", revision: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "51ea42f3af7218aa18e655dc10892c646f394be2ac50a4a51879cd5e1aad059f"
