@@ -39,11 +39,7 @@ class Clucene < Formula
   end
 
   def install
-    args = %W[
-      -DLIB_DESTINATION=#{lib}
-      -DBUILD_CONTRIBS_LIB=ON
-    ]
-
+    args = *std_cmake_args
     if Hardware::CPU.arm?
       # stat64 was deprecated, use stat instead
       args << "-DFUNCTION_FILESTAT=#define fileStat stat"
@@ -51,7 +47,7 @@ class Clucene < Formula
     end
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, *args
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
