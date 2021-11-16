@@ -16,7 +16,6 @@ class HarmonyOne < Formula
 
   on_linux do
     depends_on "gcc"
-    depends_on "g++"
   end
 
   # CONTRIBUTORS: Keep resources updated according to the changelog release tag:
