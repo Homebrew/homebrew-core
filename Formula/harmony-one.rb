@@ -11,7 +11,7 @@ class HarmonyOne < Formula
   depends_on "gmp"
   depends_on "go"
   depends_on "jq"
-  depends_on "openssl@3"
+  depends_on "openssl"
 
   # CONTRIBUTORS: Keep resources updated according to the changelog release tag:
   #     - https://github.com/harmony-one/harmony/releases/tag/v#{version}
@@ -44,7 +44,6 @@ class HarmonyOne < Formula
     end
 
     cd buildpath/"src/github.com/harmony-one/harmony"
-
 
     # Build Binarys
     system "make"
@@ -80,6 +79,6 @@ class HarmonyOne < Formula
     assert_match version.to_s,  shell_output("harmony --version")
 
     # Test that the binary fails with bls key error
-    assert_match /ERROR(.*)(bls.*)/, shell_output("harmony")
+    assert_match(/ERROR(.*)(bls.*)/, shell_output("harmony"))
   end
 end
