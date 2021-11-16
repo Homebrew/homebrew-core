@@ -4,6 +4,7 @@ class Lua < Formula
   url "https://www.lua.org/ftp/lua-5.4.3.tar.gz"
   sha256 "f8612276169e3bfcbcfb8f226195bfc6e466fe13042f1076cbde92b7ec96bbfb"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://www.lua.org/ftp/"
@@ -66,7 +67,7 @@ class Lua < Formula
     os = if OS.mac?
       "macosx"
     else
-      "linux"
+      "linux-readline"
     end
 
     system "make", os, "INSTALL_TOP=#{prefix}"
