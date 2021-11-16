@@ -24,6 +24,6 @@ class Pcalc < Formula
 
   test do
     assert_equal "Decimal: 0, Hex: 0x0, Operation:  \nDecimal: 3, Hex: 0x3, Operation:",
-      shell_output("echo \"0x1+0b1+1\nquit\" | #{bin}/pcalc -c").strip
+      shell_output("echo \"0x1+0b1+1\nquit\" | #{bin}/pcalc -n").strip
   end
 end
