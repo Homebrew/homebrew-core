@@ -12,7 +12,7 @@ class HarmonyOne < Formula
   depends_on "go"
   depends_on "jq"
   depends_on "openssl@3"
-  depends_on :arch :intel
+  depends_on arch: :intel
   
   
 
