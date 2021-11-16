@@ -27,23 +27,7 @@ class Skopeo < Formula
     ENV.append "CGO_FLAGS", ENV.cppflags
     ENV.append "CGO_FLAGS", Utils.safe_popen_read("#{Formula["gpgme"].bin}/gpgme-config", "--cflags")
 
-    buildtags = [
-      "containers_image_ostree_stub",
-      Utils.safe_popen_read("hack/btrfs_tag.sh").chomp,
-      Utils.safe_popen_read("hack/btrfs_installed_tag.sh").chomp,
-      Utils.safe_popen_read("hack/libdm_tag.sh").chomp,
-    ].uniq.join(" ")
-
-    ldflags = [
-      "-X main.gitCommit=",
-      "-X github.com/containers/image/v5/docker.systemRegistriesDirPath=#{etc/"containers/registries.d"}",
-      "-X github.com/containers/image/v5/internal/tmpdir.unixTempDirForBigFiles=/var/tmp",
-      "-X github.com/containers/image/v5/signature.systemDefaultPolicyPath=#{etc/"containers/policy.json"}",
-      "-X github.com/containers/image/v5/pkg/sysregistriesv2.systemRegistriesConfPath=" \
-      "#{etc/"containers/registries.conf"}",
-    ].join(" ")
-
-    system "go", "build", "-tags", buildtags, "-ldflags", ldflags, *std_go_args, "./cmd/skopeo"
+    system "make", "bin/skopeo"
 
     (etc/"containers").install "default-policy.json" => "policy.json"
     (etc/"containers/registries.d").install "default.yaml"
