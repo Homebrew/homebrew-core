@@ -1,8 +1,8 @@
 class Lean < Formula
   desc "Theorem prover"
   homepage "https://leanprover-community.github.io/"
-  url "https://github.com/leanprover-community/lean/archive/v3.30.0.tar.gz"
-  sha256 "402b89ff4d368fd6597dd87c521fd2fe456c6b2b90c99d85f57523661bdd94be"
+  url "https://github.com/leanprover-community/lean/archive/v3.35.1.tar.gz"
+  sha256 "501170db2958a9302e075c6f1c849c42e12c2623fb3e7c527f3a5da3483eea93"
   license "Apache-2.0"
   head "https://github.com/leanprover-community/lean.git"
 
@@ -31,11 +31,16 @@ class Lean < Formula
 
   conflicts_with "elan-init", because: "`lean` and `elan-init` install the same binaries"
 
+  fails_with gcc: "5"
+
   def install
-    mkdir "src/build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    args = std_cmake_args + %w[
+      -DCMAKE_CXX_FLAGS='-std=c++14'
+    ]
+
+    system "cmake", "-S", "src", "-B", "src/build", *args
+    system "cmake", "--build", "src/build"
+    system "cmake", "--install", "src/build"
   end
 
   test do
