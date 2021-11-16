@@ -6,6 +6,11 @@ class Cutter < Formula
   license "LGPL-3.0"
   head "https://github.com/clear-code/cutter.git", branch: "master"
 
+  livecheck do
+    url "https://osdn.net/projects/cutter/releases/"
+    regex(%r{value=["'][^"']*?/rel/cutter/v?(\d+(?:\.\d+)+)["']}i)
+  end
+
   bottle do
     sha256 arm64_monterey: "3e314f0acebc224eabaa266508356e09142f2834d7b6b2b1611d66eacc2496e3"
     sha256 arm64_big_sur:  "ac45c9987b4d770856db1f5e2c8fc20fb1ed882297c22691fe29fb153f7b9828"
