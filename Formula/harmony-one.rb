@@ -8,9 +8,9 @@ class HarmonyOne < Formula
 
   # CONTRIBUTORS: Versions may need to be updated according to documentation at:
   #    -  https://github.com/harmony-one/harmony
+  depends_on arch: :intel
   depends_on "gmp"
   depends_on "go"
-  depends_on arch: :intel
   depends_on "jq"
   depends_on "openssl@3"
 
