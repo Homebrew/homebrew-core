@@ -26,8 +26,8 @@ class Seal < Formula
   fails_with gcc: "5"
 
   resource "hexl" do
-    url "https://github.com/intel/hexl/archive/v1.2.1.tar.gz"
-    sha256 "d09f4bf5309f4fa13f0046475f77e8c5a065d7b9c726eba2d3d943fc13cdae1a"
+    url "https://github.com/intel/hexl/archive/v1.2.3.tar.gz"
+    sha256 "f2cf33ee2035d12996d10b69d2f41a586b9954a29b99c70a852495cf5758878c"
   end
 
   def install
