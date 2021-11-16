@@ -4,6 +4,8 @@ class Skopeo < Formula
   url "https://github.com/containers/skopeo/archive/v1.5.1.tar.gz"
   sha256 "624fd87dd8de7623f8c19c09715dd6b37820101e605ff5951cc512cf50d067a1"
   license "Apache-2.0"
+#  head "https://github.com/containers/skopeo.git", branch: "main"
+  head "https://github.com/lsm5/skopeo.git", branch: "config-file-prefix"
 
   bottle do
     sha256 arm64_monterey: "29db063738ec4c04fee481f510067bbed26028695b2ea9f986b8c6828150b8f5"
