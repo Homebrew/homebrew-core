@@ -22,14 +22,11 @@ class TRec < Formula
   end
 
   test do
-    # let's fetch the window id
-    o = shell_output("#{bin}/t-rec -l | tail -1").strip
-    win_id = o.split(/\s|\n/)[-1]
-    # verify that it's an appropriate id
-    assert_equal win_id && Integer(win_id).positive?, true
-
-    # verify also error behaviour, as suggested
     o = shell_output("WINDOWID=999999 #{bin}/t-rec 2>&1", 1).strip
-    assert_equal "Error: Cannot grab screenshot from CGDisplay of window id 999999", o
+    if OS.mac?
+      assert_equal "Error: Cannot grab screenshot from CGDisplay of window id 999999", o
+    else
+      assert_equal "Error: Display parsing error", o
+    end
   end
 end
