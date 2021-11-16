@@ -12,6 +12,9 @@ class HarmonyOne < Formula
   depends_on "go"
   depends_on "jq"
   depends_on "openssl@3"
+  depends_on :arch :intel
+  
+  
 
   # CONTRIBUTORS: Keep resources updated according to the changelog release tag:
   #     - https://github.com/harmony-one/harmony/releases/tag/v#{version}
