@@ -8,17 +8,14 @@ class HarmonyOne < Formula
 
   # CONTRIBUTORS: Versions may need to be updated according to documentation at:
   #    -  https://github.com/harmony-one/harmony
-
-  depends_on "gmp"
-  depends_on "go"
-  depends_on "jq"
-  depends_on macos: :high_sierra
-  depends_on "openssl"
-  
+ dsaf
+    depends_on "gmp"
+    depends_on "go"
+    depends_on "jq"
+    depends_on "openssl"
 
   # CONTRIBUTORS: Keep resources updated according to the changelog release tag:
   #     - https://github.com/harmony-one/harmony/releases/tag/v#{version}
-
   resource "bls" do
     url "https://github.com/harmony-one/bls.git",
         revision: "2b7e49894c0f15f5c40cf74046505b7f74946e52"
