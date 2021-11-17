@@ -33,6 +33,6 @@ class Cf < Formula
   end
 
   test do
-    assert_match "Jan 20 00:35:44", shell_output("echo 1074558944 | #{bin}/cf -u")
+    assert_match "Jan 20 00:35:44", pipe_output("#{bin}/cf -u", "1074558944")
   end
 end
