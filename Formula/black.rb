@@ -3,8 +3,8 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/62/b6/82269f88c3e7855f058706a5b326b827699a3c88c96b37d9abfb81e2c62b/black-21.10b0.tar.gz"
-  sha256 "a9952229092e325fe5f3dae56d81f639b23f7131eb840781947e4b2886030f33"
+  url "https://files.pythonhosted.org/packages/2f/db/03e8cef689ab0ff857576ee2ee288d1ff2110ef7f3a77cac62e61f18acaf/black-21.11b0.tar.gz"
+  sha256 "83f3852301c8dcb229e9c444dd79f573c8d31c7c2dad9bbaaa94c808630e32aa"
   license "MIT"
 
   livecheck do
@@ -24,8 +24,8 @@ class Black < Formula
   depends_on "python@3.10"
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/48/1a/ba9542a545aed4b0b6ef128561f68dd3c2812ff5abfa9ed5b96547a728ea/aiohttp-3.8.0.tar.gz"
-    sha256 "d3b19d8d183bcfd68b25beebab8dc3308282fe2ca3d6ea3cb4cd101b3c279f8d"
+    url "https://files.pythonhosted.org/packages/5a/86/5f63de7a202550269a617a5d57859a2961f3396ecd1739a70b92224766bc/aiohttp-3.8.1.tar.gz"
+    sha256 "fc5471e1a54de15ef71c1bc6ebe80d4dc681ea600e68bfd1cbce40427f0b7578"
   end
 
   resource "aiosignal" do
@@ -34,8 +34,8 @@ class Black < Formula
   end
 
   resource "async-timeout" do
-    url "https://files.pythonhosted.org/packages/28/92/2690d8d667971e456226cd7f6fe748c1ac290e68b078bace8764705fde1e/async-timeout-4.0.0a3.tar.gz"
-    sha256 "e6edc264ebcc8d3d06d16d687aff0ebf686f3cecf9a2d5f127629ea2044111b9"
+    url "https://files.pythonhosted.org/packages/ce/cf/9452ab2a5936f96aa94e3c1cf21e8038b643cd27f33aeebc3aea5d25bcd1/async-timeout-4.0.1.tar.gz"
+    sha256 "b930cb161a39042f9222f6efb7301399c87eeab394727ec5437924a36d6eef51"
   end
 
   resource "attrs" do
@@ -84,8 +84,8 @@ class Black < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/33/a0/2ee4938d1e21eb280a79136e290d9e4a80e66115a093f8b7f1be74ac99e2/regex-2021.10.23.tar.gz"
-    sha256 "f3f9a91d3cc5e5b0ddf1043c0ae5fa4852f18a1c0050318baf5fc7930ecc1f9c"
+    url "https://files.pythonhosted.org/packages/97/cd/93ad08b2f97ec95da0bd860380ce0ac7481eaccc760356ee11eda369c048/regex-2021.11.10.tar.gz"
+    sha256 "f341ee2df0999bfdf7a95e448075effe0db212a59387de1a70690e4acb03d4c6"
   end
 
   resource "tomli" do
@@ -94,13 +94,13 @@ class Black < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/ed/12/c5079a15cf5c01d7f4252b473b00f7e68ee711be605b9f001528f0298b98/typing_extensions-3.10.0.2.tar.gz"
-    sha256 "49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e"
+    url "https://files.pythonhosted.org/packages/1a/23/748b0c9a5578110b31580c8d2643319adcb3ec91f601b50a955051b51f1d/typing_extensions-4.0.0.tar.gz"
+    sha256 "2cdf80e4e04866a9b3689a51869016d36db0814d84b8d8a568d22781d45d27ed"
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/7f/5c/a4ce6d4f46413afe49734bf901939105f4ce7fcfbcf87d0777cc39501060/yarl-1.7.0.tar.gz"
-    sha256 "8e7ebaf62e19c2feb097ffb7c94deb0f0c9fab52590784c8cd679d30ab009162"
+    url "https://files.pythonhosted.org/packages/f6/da/46d1b3d69a9a0835dabf9d59c7eb0f1600599edd421a4c5a15ab09f527e0/yarl-1.7.2.tar.gz"
+    sha256 "45399b46d60c253327a460e99856752009fcee5f5d3c80b2f7c0cae1c38d56dd"
   end
 
   def install
