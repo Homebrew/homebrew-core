@@ -23,7 +23,6 @@ class Secman < Formula
   test do
     system bin/"secman", "init"
     system bin/"secman", "crypto", "HOMEBREW"
-    assert_match "secman v#{version} (2021-11-13)\nhttps://github.com/scmn-dev/secman/releases/tag/v#{version}",
-    shell_output("#{bin}/secman --version")
+    assert_match /secman v#{version} (\d{4}-\d{2}-\d{2})/, shell_output("#{bin}/secman --version")
   end
 end
