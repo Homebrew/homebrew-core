@@ -53,10 +53,9 @@ class Xmlto < Formula
       Passing test.
       <?xmlif fi?>
     EOS
-    assert_equal "Passing test.", shell_output("cat test | #{bin}/xmlif foo=bar").strip
+    assert_equal "Passing test.", pipe_output("#{bin}/xmlif foo=bar", (testpath/"test").read).strip
   end
 end
-
 
 __END__
 --- xmlto-0.0.25/xmlto.in.orig
