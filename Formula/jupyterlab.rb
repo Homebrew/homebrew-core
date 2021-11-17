@@ -275,7 +275,7 @@ class Jupyterlab < Formula
     xy = "3.10"
     ENV.prepend_create_path "PYTHONPATH", Formula["ipython"].opt_libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", Formula["ipython"].opt_libexec/"lib/python#{xy}/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    venv = virtualenv_create(libexec, Formula["python@#{xy}"].opt_bin/"python3")
     ENV["JUPYTER_PATH"] = etc/"jupyter"
 
     # install other resources
@@ -283,24 +283,19 @@ class Jupyterlab < Formula
     dependencies = resources.map(&:name).to_set - linked
     dependencies -= ["appnope"] if OS.linux?
     dependencies.each do |r|
-      resource(r).stage do
-        system Formula["python@#{xy}"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
+      venv.pip_install resource(r)
     end
 
     # install and link JupyterLab
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    linked.each do |r|
-      resource(r).stage do
-        system Formula["python@#{xy}"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
-      end
+    venv.pip_install_and_link linked
+    venv.pip_install_and_link buildpath
+    bin.glob("*") do |file|
+      file.unlink
+      file.write_env_script libexec/"bin"/file.basename, {
+        JUPYTER_PATH: ENV["JUPYTER_PATH"],
+        PYTHONPATH:   ENV["PYTHONPATH"] + "${PYTHONPATH:+:}$PYTHONPATH",
+      }
     end
-    system Formula["python@#{xy}"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files libexec/"bin", {
-      JUPYTER_PATH: ENV["JUPYTER_PATH"],
-      PYTHONPATH:   ENV["PYTHONPATH"] + "${PYTHONPATH:+:}$PYTHONPATH",
-    }
 
     # remove bundled kernel
     rm_rf Dir["#{libexec}/share/jupyter/kernels"]
