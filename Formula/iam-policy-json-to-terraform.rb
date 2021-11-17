@@ -28,7 +28,7 @@ class IamPolicyJsonToTerraform < Formula
 
     # test functionality
     test_input = '{"Statement":[{"Effect":"Allow","Action":["ec2:Describe*"],"Resource":"*"}]}'
-    output = shell_output("echo '#{test_input}' | #{bin}/iam-policy-json-to-terraform")
+    output = pipe_output("#{bin}/iam-policy-json-to-terraform", test_input)
     assert_match "ec2:Describe*", output
   end
 end
