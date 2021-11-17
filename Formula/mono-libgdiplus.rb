@@ -1,10 +1,14 @@
 class MonoLibgdiplus < Formula
   desc "GDI+-compatible API on non-Windows operating systems"
   homepage "https://www.mono-project.com/docs/gui/libgdiplus/"
-  url "https://github.com/mono/libgdiplus/archive/6.0.5.tar.gz"
-  sha256 "1fd034f4b636214cc24e94c563cd10b3f3444d9f0660927b60e63fd4131d97fa"
+  url "https://download.mono-project.com/sources/libgdiplus/libgdiplus-6.1.tar.gz"
+  sha256 "97d5a83d6d6d8f96c27fb7626f4ae11d3b38bc88a1726b4466aeb91451f3255b"
   license "MIT"
-  revision 1
+
+  livecheck do
+    url "https://download.mono-project.com/sources/libgdiplus/"
+    regex(/href=.*?libgdiplus[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "9ee31a06b9b57bea4b687c7fdbf31ef039326675513c97d09514d9c57067bac8"
@@ -16,9 +20,6 @@ class MonoLibgdiplus < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3e7478ee77d32d5352fe5c82e100dd217ee709bcb1c831ebe8656c0b9aa5a89"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
@@ -31,18 +32,8 @@ class MonoLibgdiplus < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "pango"
-  depends_on "pixman"
-
-  # Remove at next version bump.
-  # Upstream PR: https://github.com/mono/libgdiplus/pull/605.
-  # Without this patch, it requires pango 1.43 or lower (current available version is 1.48).
-  patch do
-    url "https://github.com/mono/libgdiplus/commit/8f42e17e92c562cc243844b8a004cd03144b1384.patch?full_index=1"
-    sha256 "b38823891ea201588c1edf29f931a0d353a155d7fac36f114482bbe608c5a1c9"
-  end
 
   def install
-    system "autoreconf", "-fiv"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
