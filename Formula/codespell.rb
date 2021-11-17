@@ -25,6 +25,6 @@ class Codespell < Formula
   end
 
   test do
-    assert_equal "1: teh\n\tteh ==> the\n", shell_output("echo teh | #{bin}/codespell -", 65)
+    assert_equal "1: teh\n\tteh ==> the\n", pipe_output("#{bin}/codespell -", "teh", 65)
   end
 end
