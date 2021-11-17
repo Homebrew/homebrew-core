@@ -4,6 +4,7 @@ class Gau < Formula
   url "https://github.com/lc/gau/archive/v2.0.6.tar.gz"
   sha256 "1728c341b147388fa8e60784c4b3895391be25f1e2e1b1cbb734329be7603693"
   license "MIT"
+  head "https://github.com/lc/gau.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "42a0243c704510926457a5eb4b4b3d8f301582424c5fc44ea0fe155c4fa3ab75"
@@ -18,7 +19,7 @@ class Gau < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/gau"
   end
 
   test do
