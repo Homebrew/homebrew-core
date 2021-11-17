@@ -46,7 +46,7 @@ class Ronn < Formula
       This document is created by ronn.
     EOS
     system bin/"ronn", "--date", "1970-01-01", "test.ronn"
-    assert_equal <<~EOS, shell_output("groff -t -man -Tascii test.7 | col -bx")
+    assert_equal <<~EOS, pipe_output("col -bx", shell_output("groff -t -man -Tascii test.7"))
       SIMPLE(7)                                                            SIMPLE(7)
 
 
