@@ -104,7 +104,7 @@ class Trailscraper < Formula
     assert_match version.to_s, shell_output("#{bin}/trailscraper --version")
 
     test_input = '{"Records": []}'
-    output = shell_output("echo '#{test_input}' | trailscraper generate")
+    output = pipe_output("#{bin}/trailscraper generate", test_input)
     assert_match "Statement", output
   end
 end
