@@ -2,8 +2,8 @@ class PrometheusCpp < Formula
   desc "Prometheus Client Library for Modern C++"
   homepage "https://github.com/jupp0r/prometheus-cpp"
   url "https://github.com/jupp0r/prometheus-cpp.git",
-      tag:      "v0.13.0",
-      revision: "342de5e93bd0cbafde77ec801f9dd35a03bceb3f"
+      tag:      "v1.0.0",
+      revision: "4ea303fa66e4c26dc4df67045fa0edf09c2f3077"
   license "MIT"
   head "https://github.com/jupp0r/prometheus-cpp.git", branch: "master"
 
@@ -27,7 +27,7 @@ class PrometheusCpp < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <prometheus/Registry.h>
+      #include <prometheus/registry.h>
       int main() {
         prometheus::Registry reg;
         return 0;
