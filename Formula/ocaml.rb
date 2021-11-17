@@ -63,7 +63,7 @@ class Ocaml < Formula
   end
 
   test do
-    output = shell_output("echo 'let x = 1 ;;' | #{bin}/ocaml 2>&1")
+    output = pipe_output("#{bin}/ocaml 2>&1", "let x = 1 ;;")
     assert_match "val x : int = 1", output
     assert_match HOMEBREW_PREFIX.to_s, shell_output("#{bin}/ocamlc -where")
   end
