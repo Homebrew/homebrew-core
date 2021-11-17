@@ -17,9 +17,10 @@ class Jupyterlab < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ee959c38d5654559b92ed4e000854555aa9ce0f75df59dc7a9ec290a7a04058"
   end
 
+  depends_on "ipython"
   depends_on "node"
   depends_on "pandoc"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
   depends_on "zeromq"
 
@@ -28,11 +29,6 @@ class Jupyterlab < Formula
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/66/02/ca9061e93c487a897859e3a41f6c1a4f494038d2791382169b9a0c528175/anyio-3.3.4.tar.gz"
     sha256 "67da67b5b21f96b9d3d65daa6ea99f5d5282cb09f50eb4456f8fb51dffefc3ff"
-  end
-
-  resource "appnope" do
-    url "https://files.pythonhosted.org/packages/e9/bc/2d2c567fe5ac1924f35df879dbf529dd7e7cabd94745dc9d89024a934e76/appnope-0.1.2.tar.gz"
-    sha256 "dd83cd4b5b460958838f6eb3000c660b1f9caf2a5b1de4264e941512f603258a"
   end
 
   resource "argon2-cffi" do
@@ -48,11 +44,6 @@ class Jupyterlab < Formula
   resource "Babel" do
     url "https://files.pythonhosted.org/packages/17/e6/ec9aa6ac3d00c383a5731cc97ed7c619d3996232c977bb8326bcbb6c687e/Babel-2.9.1.tar.gz"
     sha256 "bc0c176f9f6a994582230df350aa6e05ba2ebe4b3ac317eab29d9be5d2768da0"
-  end
-
-  resource "backcall" do
-    url "https://files.pythonhosted.org/packages/a2/40/764a663805d84deee23043e1426a9175567db89c8b3287b5c2ad9f71aa93/backcall-0.2.0.tar.gz"
-    sha256 "5cbdbf27be5e7cfadb448baf0aa95508f91f2bbc6c6437cd9cd06e2a4c215e1e"
   end
 
   resource "bleach" do
@@ -75,16 +66,6 @@ class Jupyterlab < Formula
     sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
-  resource "debugpy" do
-    url "https://files.pythonhosted.org/packages/68/8a/aba73af65eb84e0c61c658d2aa2f2a9b4d2939a7f87294dd396f4987efac/debugpy-1.5.1.zip"
-    sha256 "d2b09e91fbd1efa4f4fda121d49af89501beda50c18ed7499712c71a4bf3452e"
-  end
-
-  resource "decorator" do
-    url "https://files.pythonhosted.org/packages/92/3c/34f8448b61809968052882b830f7d8d9a8e1c07048f70deb039ae599f73c/decorator-5.1.0.tar.gz"
-    sha256 "e59913af105b9860aa2c8d3272d9de5a56a4e608db9a2f167a8480b323d529a7"
-  end
-
   resource "defusedxml" do
     url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
     sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
@@ -100,24 +81,9 @@ class Jupyterlab < Formula
     sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
-  resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/f3/12/2fa06dccf0223e39e4a05086ee69427f4ecd03d13f014378d8d349b3bb3d/ipykernel-6.5.0.tar.gz"
-    sha256 "299795cca2c4aed7e233e3ad5360e1c73627fd0dcec11a9e75d5b2df43629353"
-  end
-
-  resource "ipython" do
-    url "https://files.pythonhosted.org/packages/36/dc/3ffa7cd738bc12c2be6b759d8d68a19120deea1cb6e764751cf4dc419a2f/ipython-7.29.0.tar.gz"
-    sha256 "4f69d7423a5a1972f6347ff233e38bbf4df6a150ef20fbb00c635442ac3060aa"
-  end
-
   resource "ipython_genutils" do
     url "https://files.pythonhosted.org/packages/e8/69/fbeffffc05236398ebfcfb512b6d2511c622871dca1746361006da310399/ipython_genutils-0.2.0.tar.gz"
     sha256 "eb2e116e75ecef9d4d228fdc66af54269afa26ab4463042e33785b887c628ba8"
-  end
-
-  resource "jedi" do
-    url "https://files.pythonhosted.org/packages/ac/11/5c542bf206efbae974294a61febc61e09d74cb5d90d8488793909db92537/jedi-0.18.0.tar.gz"
-    sha256 "92550a404bad8afed881a137ec9a461fed49eca661414be45059329614ed0707"
   end
 
   resource "Jinja2" do
@@ -165,11 +131,6 @@ class Jupyterlab < Formula
     sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
   end
 
-  resource "matplotlib-inline" do
-    url "https://files.pythonhosted.org/packages/0f/98/838f4c57f7b2679eec038ad0abefd1acaeec35e635d4d7af215acd7d1bd2/matplotlib-inline-0.1.3.tar.gz"
-    sha256 "a04bfba22e0d1395479f866853ec1ee28eea1485c1d69a6faf00dc3e24ff34ee"
-  end
-
   resource "mistune" do
     url "https://files.pythonhosted.org/packages/2d/a4/509f6e7783ddd35482feda27bc7f72e65b5e7dc910eca4ab2164daf9c577/mistune-0.8.4.tar.gz"
     sha256 "59a3429db53c50b5c6bcc8a07f8848cb00d7dc8bdb431a4ab41920d201d4756e"
@@ -181,13 +142,13 @@ class Jupyterlab < Formula
   end
 
   resource "nbclient" do
-    url "https://files.pythonhosted.org/packages/ef/17/e76d5ebca945baa13bb4824b16cef7eed10e32fe528798c1478be059ce24/nbclient-0.5.5.tar.gz"
-    sha256 "ed7d18431393750d29a64da432e0b7889274eb5a5056682be5691b1b1dc8f755"
+    url "https://files.pythonhosted.org/packages/28/ac/4ff630060fbed186f5dc4ddd1baf7cb40b888d04ba8b97108f405842bb98/nbclient-0.5.8.tar.gz"
+    sha256 "34f52cc9cb831a5d8ccd7031537e354c75dc61a24487f998712d1289de320a25"
   end
 
   resource "nbconvert" do
-    url "https://files.pythonhosted.org/packages/44/d0/10e2ac291002ae48491f674eb31cf8fc3b247a742d5426a51ff794ba32ca/nbconvert-6.2.0.tar.gz"
-    sha256 "16ceecd0afaa8fd26c245fa32e2c52066c02f13aa73387fffafd84750baea863"
+    url "https://files.pythonhosted.org/packages/5f/d1/522fa1c7fa5269c8dcd1e14e16e43dadfcb56e938869f17cc5f1c325aa8d/nbconvert-6.3.0.tar.gz"
+    sha256 "5e77d6203854944520105e38f2563a813a4a3708e8563aa598928a3b5ee1081a"
   end
 
   resource "nbformat" do
@@ -215,29 +176,9 @@ class Jupyterlab < Formula
     sha256 "0b679503337d233b4339a817bfc8c50064e2eff681314376a47cb582305a7a38"
   end
 
-  resource "parso" do
-    url "https://files.pythonhosted.org/packages/5e/61/d119e2683138a934550e47fc8ec023eb7f11b194883e9085dca3af5d4951/parso-0.8.2.tar.gz"
-    sha256 "12b83492c6239ce32ff5eed6d3639d6a536170723c6f3f1506869f1ace413398"
-  end
-
-  resource "pexpect" do
-    url "https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz"
-    sha256 "fc65a43959d153d0114afe13997d439c22823a27cefceb5ff35c2178c6784c0c"
-  end
-
-  resource "pickleshare" do
-    url "https://files.pythonhosted.org/packages/d8/b6/df3c1c9b616e9c0edbc4fbab6ddd09df9535849c64ba51fcb6531c32d4d8/pickleshare-0.7.5.tar.gz"
-    sha256 "87683d47965c1da65cdacaf31c8441d12b8044cdec9aca500cd78fc2c683afca"
-  end
-
   resource "prometheus-client" do
     url "https://files.pythonhosted.org/packages/e6/ed/7876a26352b161de50413e4ad037632ac5263b7887a8097de10c414f94f0/prometheus_client-0.12.0.tar.gz"
     sha256 "1b12ba48cee33b9b0b9de64a1047cbd3c5f2d0ab6ebcead7ddda613a750ec3c5"
-  end
-
-  resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/53/96/b3bff620964869c07252fc2eac4e7e2dd48aea07314d932d21cfd92428da/prompt_toolkit-3.0.22.tar.gz"
-    sha256 "449f333dd120bd01f5d296a8ce1452114ba3a71fae7288d2f0ae2c918764fa72"
   end
 
   resource "ptyprocess" do
@@ -320,11 +261,6 @@ class Jupyterlab < Formula
     sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
   end
 
-  resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/89/38/459b727c381504f361832b9e5ace19966de1a235d73cdbdea91c771a1155/wcwidth-0.2.5.tar.gz"
-    sha256 "c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
-  end
-
   resource "webencodings" do
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
@@ -336,24 +272,35 @@ class Jupyterlab < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    xy = "3.10"
+    ENV.prepend_create_path "PYTHONPATH", Formula["ipython"].opt_libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", Formula["ipython"].opt_libexec/"lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     ENV["JUPYTER_PATH"] = etc/"jupyter"
 
-    # gather packages to link based on options
-    linked = %w[jupyter-core jupyter-client nbformat ipykernel jupyter-console nbconvert notebook]
+    # install other resources
+    linked = %w[jupyter-core jupyter-client nbformat jupyter-console nbconvert notebook]
     dependencies = resources.map(&:name).to_set - linked
     dependencies -= ["appnope"] if OS.linux?
     dependencies.each do |r|
-      venv.pip_install resource(r)
+      resource(r).stage do
+        system Formula["python@#{xy}"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+      end
     end
-    venv.pip_install_and_link linked
-    venv.pip_install_and_link buildpath
 
-    Pathname.glob("#{bin}/*") do |file|
-      file.unlink
-      file.write_env_script libexec/"bin"/file.basename, JUPYTER_PATH: ENV["JUPYTER_PATH"]
-      chmod "+x", file
+    # install and link JupyterLab
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    linked.each do |r|
+      resource(r).stage do
+        system Formula["python@#{xy}"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+      end
     end
+    system Formula["python@#{xy}"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files libexec/"bin", {
+      JUPYTER_PATH: ENV["JUPYTER_PATH"],
+      PYTHONPATH:   ENV["PYTHONPATH"] + "${PYTHONPATH:+:}$PYTHONPATH"
+    }
 
     # remove bundled kernel
     rm_rf Dir["#{libexec}/share/jupyter/kernels"]

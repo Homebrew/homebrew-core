@@ -144,7 +144,7 @@
     "exclude_packages": ["six"]
   },
   "jupyterlab": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["ipykernel", "ipython", "six"]
   },
   "keepkey-agent": {
     "exclude_packages": ["six"]
