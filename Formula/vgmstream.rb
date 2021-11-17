@@ -2,11 +2,10 @@ class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://vgmstream.org"
   url "https://github.com/vgmstream/vgmstream.git",
-      tag:      "r1050-3448-g77cc431b",
-      revision: "77cc431be77846f95eccca49170878434935622f"
-  version "r1050-3448-g77cc431b"
+      tag:      "r1667",
+      revision: "6b84f258e4238edd627e24ec8460a7040613d054"
+  version "r1667"
   license "ISC"
-  revision 2
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
 
@@ -36,10 +35,9 @@ class Vgmstream < Formula
   def install
     system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", *std_cmake_args, "."
     system "cmake", "--build", ".", "--config", "Release", "--target", "vgmstream_cli", "vgmstream123"
-    bin.install "cli/vgmstream_cli"
-    bin.install_symlink "vgmstream_cli" => "vgmstream-cli"
+    bin.install "cli/vgmstream-cli"
     bin.install "cli/vgmstream123"
-    lib.install "src/liblibvgmstream.a"
+    lib.install "src/libvgmstream.a"
   end
 
   test do
