@@ -76,6 +76,6 @@ class Ddd < Formula
     output = shell_output("#{bin}/ddd --version")
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
-    assert_match testpath.to_s, shell_output("printf pwd\\\\nquit | #{bin}/ddd --gdb --nw true 2>&1")
+    assert_match testpath.to_s, pipe_output("#{bin}/ddd --gdb --nw true 2>&1", "pwd\nquit")
   end
 end
