@@ -33,6 +33,6 @@ class Datamash < Formula
   end
 
   test do
-    assert_equal "55", shell_output("seq 10 | #{bin}/datamash sum 1").chomp
+    assert_equal "55", pipe_output("#{bin}/datamash sum 1", shell_output("seq 10")).chomp
   end
 end
