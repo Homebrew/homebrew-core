@@ -33,7 +33,7 @@ class Autopep8 < Formula
   end
 
   test do
-    output = shell_output("echo \"x='homebrew'\" | #{bin}/autopep8 -")
+    output = pipe_output("#{bin}/autopep8 -", "x='homebrew'")
     assert_equal "x = 'homebrew'", output.strip
   end
 end
