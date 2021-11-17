@@ -73,7 +73,7 @@ class TelegramCli < Formula
   end
 
   test do
-    assert_match "messages_allocated", shell_output("echo stats | #{bin}/telegram")
+    assert_match "messages_allocated", pipe_output("#{bin}/telegram", "stats")
   end
 end
 
