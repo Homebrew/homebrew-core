@@ -25,6 +25,6 @@ class Yj < Formula
   end
 
   test do
-    assert_match '{"a":1}', shell_output("echo a=1|#{bin}/yj -t")
+    assert_match '{"a":1}', pipe_output("#{bin}/yj -t", "a=1")
   end
 end
