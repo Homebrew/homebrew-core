@@ -1,6 +1,7 @@
 [
   "anjuta",
   "hive",
+  "jupyterlab",
   "predictionio",
   "sqoop",
   "watchman"
