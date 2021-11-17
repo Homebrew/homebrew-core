@@ -1,8 +1,8 @@
 class CargoOutdated < Formula
   desc "Cargo subcommand for displaying when Rust dependencies are out of date"
   homepage "https://github.com/kbknapp/cargo-outdated"
-  url "https://github.com/kbknapp/cargo-outdated/archive/v0.10.1.tar.gz"
-  sha256 "0c8ad9286568b61ff745fc4185e21256413878d3b0fcb4fa77088ad5515e451f"
+  url "https://github.com/kbknapp/cargo-outdated/archive/v0.10.2.tar.gz"
+  sha256 "0f8a4badebeb98d01808bc811c0e840a261df3d0c6306b05a4a9e926b754fc02"
   license "MIT"
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
@@ -18,10 +18,6 @@ class CargoOutdated < Formula
   depends_on "libgit2"
   depends_on "openssl@1.1"
   depends_on "rust"
-
-  # Update `libgit2-sys` crate for Libgit2 1.2.0 support
-  # https://github.com/kbknapp/cargo-outdated/issues/279
-  patch :DATA
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -50,21 +46,3 @@ class CargoOutdated < Formula
     end
   end
 end
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index 6302b41..06ef1ce 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -591,9 +591,9 @@ checksum = "8916b1f6ca17130ec6568feccee27c156ad12037880833a3b842a823236502e7"
- 
- [[package]]
- name = "libgit2-sys"
--version = "0.12.18+1.1.0"
-+version = "0.12.23+1.2.0"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "3da6a42da88fc37ee1ecda212ffa254c25713532980005d5f7c0b0fbe7e6e885"
-+checksum = "29730a445bae719db3107078b46808cc45a5b7a6bae3f31272923af969453356"
- dependencies = [
-  "cc",
-  "libc",
