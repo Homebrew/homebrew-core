@@ -9,6 +9,11 @@ class Deheader < Formula
   revision 3
   head "https://gitlab.com/esr/deheader.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?deheader[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "c796513f79f19f17be962e08802c9542d0dcddbe7fffdc44e2c66538c704a325"
   end
