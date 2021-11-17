@@ -92,6 +92,6 @@ class Noweb < Formula
       This work is placed in the public domain.
     EOS
     assert_match "this file was generated automatically by noweave",
-                 shell_output("#{bin}/noweave -filter l2h -index -html test.nw | #{bin}/htmltoc")
+                 pipe_output("#{bin}/htmltoc", shell_output("#{bin}/noweave -filter l2h -index -html test.nw"))
   end
 end
