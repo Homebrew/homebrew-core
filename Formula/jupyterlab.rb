@@ -275,6 +275,7 @@ class Jupyterlab < Formula
     xy = "3.10"
     ENV.prepend_create_path "PYTHONPATH", Formula["ipython"].opt_libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", Formula["ipython"].opt_libexec/"lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     venv = virtualenv_create(libexec, Formula["python@#{xy}"].opt_bin/"python3")
     ENV["JUPYTER_PATH"] = etc/"jupyter"
 
