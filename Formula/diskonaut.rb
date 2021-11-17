@@ -23,7 +23,7 @@ class Diskonaut < Formula
   end
 
   test do
-    output = shell_output "ls | #{bin}/diskonaut", 2
+    output = pipe_output("#{bin}/diskonaut", shell_output("ls"), 2)
     assert_match "Error: IO-error occurred", output
 
     assert_match "diskonaut #{version}", shell_output("#{bin}/diskonaut --version")
