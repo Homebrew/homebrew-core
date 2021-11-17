@@ -33,7 +33,7 @@ class Mawk < Formula
 
   test do
     mawk_expr = '/^mawk / {printf("%s-%s", $2, $3)}'
-    ver_out = shell_output("#{bin}/mawk -W version 2>&1 | #{bin}/mawk '#{mawk_expr}'")
+    ver_out = pipe_output("#{bin}/mawk '#{mawk_expr}'", shell_output("#{bin}/mawk -W version 2>&1"))
     assert_equal version.to_s, ver_out
   end
 end
