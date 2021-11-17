@@ -13,7 +13,20 @@ class Smug < Formula
   end
 
   test do
-    (testpath/"test.yml").write "session: test"
-    system "smug", "start", "--file", "test.yml"
+    (testpath/"test.yml").write <<~EOF
+      session: homebrew-test-session
+
+      windows:
+        - name: the-main-session
+          commands:
+          - echo hi
+          - true
+          - false
+    EOF
+
+    require "pty"
+
+    PTY.spawn "#{bin}/smug start --file test.yml"
+    PTY.spawn "#{bin}/smug stop --file test.yml"
   end
 end
