@@ -50,7 +50,7 @@ class Frotz < Formula
 
   test do
     resource("testdata").stage do
-      assert_match "TerpEtude", shell_output("echo \".\" | #{bin}/dfrotz etude.z5")
+      assert_match "TerpEtude", pipe_output("#{bin}/dfrotz etude.z5", ".")
     end
     assert_match "FROTZ", shell_output("#{bin}/frotz -v").strip
     assert_match "FROTZ", shell_output("#{bin}/sfrotz -v").strip
