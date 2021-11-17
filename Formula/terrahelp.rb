@@ -45,7 +45,7 @@ class Terrahelp < Formula
       Plan: 0 to add, 0 to change, 0 to destroy.
     EOS
 
-    output = shell_output("cat #{tf_output} \| #{bin}/terrahelp mask --tfvars #{tf_vars}").strip
+    output = pipe_output("#{bin}/terrahelp mask --tfvars #{tf_vars}", tf_output.read).strip
 
     assert_match("vars.msg1: \"******\"", output, "expecting sensitive value to be masked")
     refute_match(/sensitive-value-1-AK#%DJGHS\*G/, output, "not expecting sensitive value to be presentt")
