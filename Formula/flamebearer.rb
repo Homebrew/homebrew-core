@@ -27,8 +27,14 @@ class Flamebearer < Formula
   test do
     (testpath/"app.js").write "console.log('hello');"
     system Formula["node"].bin/"node", "--prof", testpath/"app.js"
+    logs = testpath.glob("isolate*.log")
+
     assert_match "Processed V8 log",
-      shell_output("#{Formula["node"].bin}/node --prof-process --preprocess -j isolate*.log | #{bin}/flamebearer")
+      pipe_output(
+        "#{bin}/flamebearer",
+        shell_output("#{Formula["node"].bin}/node --prof-process --preprocess -j #{logs.join(" ")}"),
+      )
+
     assert_predicate testpath/"flamegraph.html", :exist?
   end
 end
