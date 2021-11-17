@@ -1,9 +1,9 @@
 class Libopenmpt < Formula
   desc "Software library to decode tracked music files"
   homepage "https://lib.openmpt.org/libopenmpt/"
-  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.12+release.autotools.tar.gz"
-  version "0.5.12"
-  sha256 "892aea7a599b5d21842bebf463b5aafdad5711be7008dd84401920c6234820af"
+  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.13+release.autotools.tar.gz"
+  version "0.5.13"
+  sha256 "6fa28ada93d95ee2428a2d37a5c24faaf9567ff6ede3d134c006b2a6cefbbfe8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -33,13 +33,13 @@ class Libopenmpt < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc" # for C++17
+    depends_on "gcc"
     depends_on "pulseaudio"
   end
 
-  fails_with gcc: "5"
+  fails_with gcc: "5" # needs C++17
 
-  resource "mystique.s3m" do
+  resource "homebrew-mystique.s3m" do
     url "https://api.modarchive.org/downloads.php?moduleid=54144#mystique.s3m"
     sha256 "e9a3a679e1c513e1d661b3093350ae3e35b065530d6ececc0a96e98d3ffffaf4"
   end
@@ -50,13 +50,12 @@ class Libopenmpt < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--without-vorbisfile"
-
     system "make"
     system "make", "install"
   end
 
   test do
-    resource("mystique.s3m").stage do
+    resource("homebrew-mystique.s3m").stage do
       output = shell_output("#{bin}/openmpt123 --probe mystique.s3m")
       assert_match "Success", output
     end
