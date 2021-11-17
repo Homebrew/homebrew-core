@@ -2,11 +2,10 @@ class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://vgmstream.org"
   url "https://github.com/vgmstream/vgmstream.git",
-      tag:      "r1050-3448-g77cc431b",
-      revision: "77cc431be77846f95eccca49170878434935622f"
-  version "r1050-3448-g77cc431b"
+      tag:      "r1667",
+      revision: "6b84f258e4238edd627e24ec8460a7040613d054"
+  version "r1667"
   license "ISC"
-  revision 2
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
 
@@ -17,13 +16,12 @@ class Vgmstream < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "800dc6d132b005b66d25368be52902432bc78a10a7f5ffb158172da48c5fb72a"
-    sha256                               arm64_big_sur:  "f344401ea028c6fced781b98573acc97648380cbb3da37fccb614543528d58b3"
-    sha256 cellar: :any,                 monterey:       "2ac39455720eca117a7a89736f54cc37764a511376b9cc2bb368dc37a152f7cb"
-    sha256                               big_sur:        "a8b9e590e143c8a5820562376a4d8d6455b4aa3719d69134182ccdbe6e2bc940"
-    sha256                               catalina:       "ea5a421a93602621a8bf2a62b2eca9affa50790f16d7153bd3f901ef3edd9d9a"
-    sha256                               mojave:         "1641ceee1b1849446b3aa2c1ccd07241c1641c9546fff3f785ae5f842b695fcc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "198d6a243a89c0019a1beafbe060c5e8ac361af28eb6e3d396bc5d8ea71af7a5"
+    sha256 cellar: :any,                 arm64_monterey: "63fcd172e33b874c68b0fcab3a6109d573d0f737642f8f5cdeeafd45105467df"
+    sha256 cellar: :any,                 arm64_big_sur:  "334824f6ab927e82b2aabc815abf06596107e835e4fc7452cebed773cb9d17df"
+    sha256 cellar: :any,                 monterey:       "1f95eba46f07f4777ead25bce5bb2dae4e3a40911e154406e8b6f96c2382f943"
+    sha256 cellar: :any,                 big_sur:        "281369bd894a70133b48f0ec6446a9104e17d27bbb4c516ecdd1255ab0a549ad"
+    sha256 cellar: :any,                 catalina:       "da5772992533010c9fee28177f9edeeacf9f07091335ed4daaa4c17cc0b2db5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f8de79597d4d06620e582e7bc8208575eb49de9fec0aa86cb8ae67896706885"
   end
 
   depends_on "cmake" => :build
@@ -36,10 +34,9 @@ class Vgmstream < Formula
   def install
     system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", *std_cmake_args, "."
     system "cmake", "--build", ".", "--config", "Release", "--target", "vgmstream_cli", "vgmstream123"
-    bin.install "cli/vgmstream_cli"
-    bin.install_symlink "vgmstream_cli" => "vgmstream-cli"
+    bin.install "cli/vgmstream-cli"
     bin.install "cli/vgmstream123"
-    lib.install "src/liblibvgmstream.a"
+    lib.install "src/libvgmstream.a"
   end
 
   test do

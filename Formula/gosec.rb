@@ -1,19 +1,18 @@
 class Gosec < Formula
   desc "Golang security checker"
   homepage "https://securego.io/"
-  url "https://github.com/securego/gosec/archive/v2.9.1.tar.gz"
-  sha256 "c0a1352b55f70a2926a1178ff9a2257d8ce8c0832776b386b4d6cdfbbd60b004"
+  url "https://github.com/securego/gosec/archive/v2.9.2.tar.gz"
+  sha256 "626cd3c2bef1eb3ea0838b3e9cd81a0db74fbd6a1557ee3c74add3fad24010f1"
   license "Apache-2.0"
   head "https://github.com/securego/gosec.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a1459b48766b6473ec41c909afacfed78a5ed38223caccf0957743ffd4b559c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e96cbfd827be9a9b6d0e1adb9caee8e3160be0d95c25baf6bf91f29ccdf9a1c1"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e9cf8e6c1134d556807fa5ae8e904e6d3b6e65491ca22ceda8c18561d2ebf8f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dfd977f6bfff4c738f6ce0082bb7551d4b5763c64d8110ba3fa2d14fc3b49a11"
-    sha256 cellar: :any_skip_relocation, catalina:       "7913019c62267e97f3c4bfad104b83ab94e718b6ec89dac921d6b7140e520b29"
-    sha256 cellar: :any_skip_relocation, mojave:         "718f7c387a51ef6f32887a6c27a62acb4d4d1831b3c4e8bc7bd7b6edcbeedd66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afc27466cd8224c79a053eab34454826c00ff7b70dd7c1b75459f6e56fdd5b88"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a48448ed2ff9f0ce9b200ba74a71166a230edc46053fbeafff809272eacc3ab7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f227ae0bac91a3a9fcb61e922258d0c067db5b2a587aebcbddce89b3c3c75a82"
+    sha256 cellar: :any_skip_relocation, monterey:       "ae603ec65a2ea0495b8d8e42254fe781792b9df9025302f6258dfefe2a87ce93"
+    sha256 cellar: :any_skip_relocation, big_sur:        "53d7fd9ada9d73bf95509f3e46abcf7741fb4b3fb1477bc82781ac6b3ed3973a"
+    sha256 cellar: :any_skip_relocation, catalina:       "33e1c75404c66564fb1b246280c3f18edf3a5e888bef3f0f75b95d3dff552f83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0551f5bb95276254edc301839446338ff3e789c026d388960a0cb44e7155415"
   end
 
   depends_on "go"

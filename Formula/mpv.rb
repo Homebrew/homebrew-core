@@ -1,19 +1,18 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.33.1.tar.gz"
-  sha256 "100a116b9f23bdcda3a596e9f26be3a69f166a4f1d00910d1789b6571c46f3a9"
+  url "https://github.com/mpv-player/mpv/archive/v0.34.0.tar.gz"
+  sha256 "f654fb6275e5178f57e055d20918d7d34e19949bc98ebbf4a7371902e88ce309"
   license :cannot_represent
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 arm64_monterey: "c3ef442c5e83fd6540a01fc6376c5cade89b7bd5f07abf7811f1a06fdc664d81"
-    sha256 arm64_big_sur:  "dd487a80e5586c93ccde6942170d026e9eba5b403d95e409ad55282cea818790"
-    sha256 monterey:       "48cff8a1e5ce3e63982e586a114d3ebee3d689e8bd5b23ad1db78323c1e088b0"
-    sha256 big_sur:        "76b0fc9d207aee16f65b8b1782bc35dec5a870952ebba6ae7a74e6ede9bdd34a"
-    sha256 catalina:       "8ab98fffc330dea03f2732fa17c7f53753601c49c3f9dec2a7d727bdc901c484"
-    sha256 mojave:         "87df95e8f4f723a5b6fe163d5ac740fef9f5ffa9c318c82c9a6b0844aa7203b9"
-    sha256 x86_64_linux:   "6a037de38402f73783c5b403e6aada7388373eda6593b21e43844043cf6496d6"
+    sha256 arm64_monterey: "2c87830fd6006e7c418004c5d626da19c8b97fbb6bf6ddb75b13687256fc588d"
+    sha256 arm64_big_sur:  "19f656ef91e0c6bcba4201fe3b05f7cc83dda990e519f4dfbda1eaaaab50aa61"
+    sha256 monterey:       "7c7cc932e5b424b77b1b88751dc4577f22306f956ddf300d20b85786e6baea69"
+    sha256 big_sur:        "d1ddf422792358dd90e072a51c9a9c732ad92259e613589c988ef9e5971d465f"
+    sha256 catalina:       "0982bcbef7264efc31d811aa6d6d68dd27e851f8eb405bed612e0bea5244f203"
+    sha256 x86_64_linux:   "213a2c9abf0fa5abc4fc9711d09b36b4ca884240dd1bda7bd5ba0074bc87efec"
   end
 
   depends_on "docutils" => :build
@@ -30,7 +29,7 @@ class Mpv < Formula
   depends_on "mujs"
   depends_on "uchardet"
   depends_on "vapoursynth"
-  depends_on "youtube-dl"
+  depends_on "yt-dlp"
 
   def install
     # LANG is unset by default on macOS and causes issues when calling getlocale
@@ -65,7 +64,7 @@ class Mpv < Formula
   end
 
   test do
-    system bin/"mpv", "--ao=null", test_fixtures("test.wav")
+    system bin/"mpv", "--ao=null", "--vo=null", test_fixtures("test.wav")
     assert_match "vapoursynth", shell_output(bin/"mpv --vf=help")
   end
 end

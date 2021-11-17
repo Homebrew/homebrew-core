@@ -4,6 +4,7 @@ class Lua < Formula
   url "https://www.lua.org/ftp/lua-5.4.3.tar.gz"
   sha256 "f8612276169e3bfcbcfb8f226195bfc6e466fe13042f1076cbde92b7ec96bbfb"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://www.lua.org/ftp/"
@@ -11,14 +12,12 @@ class Lua < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_monterey: "5f129954a5f5f6e33131f9f9d54c035aab8bd6a4bcd2d202b744ed36f9496796"
-    sha256 cellar: :any,                 arm64_big_sur:  "2a9741ed654f1062394c3431072711bd3aaa39c1fb45ccf3468ace915a7cd843"
-    sha256 cellar: :any,                 monterey:       "3c49720fae36d2f2e40b001dfd07e6cc5f4a3585ff3a81d1496dae21f8265df0"
-    sha256 cellar: :any,                 big_sur:        "b47b9174126bc9bdabb694db4c61cc4d705b06cf7b6f5c19771f447992863bb4"
-    sha256 cellar: :any,                 catalina:       "8503086f7311c0c05a12fbad5c49561d066efb8abef9ed3b66c8b35f17e6a5a0"
-    sha256 cellar: :any,                 mojave:         "e075a5333160b570cb0532f7124061c44ae58fe33cad382ad2dbbf9f87675712"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ed70cbfb305766e0b80ed8fb9a8ac077246908194342edf8cfd108fb0f3d672"
+    sha256 cellar: :any,                 arm64_monterey: "d0ac5ebb4064dea9bb4afa547eb634f16ceed7662c653c3a9c24d28c4a2b75ec"
+    sha256 cellar: :any,                 arm64_big_sur:  "d0137a42c7c544f32393f4673d205f9dbfb5afbf50051cb78424810808e10cde"
+    sha256 cellar: :any,                 monterey:       "918a63c8c529672f227327e3f4a747e04df918f2a5e5c37adffd911183fb7205"
+    sha256 cellar: :any,                 big_sur:        "03e5112423f6542a6951e1fbd748150f1d8e6bdeaadd02a3ad14c7579503e26c"
+    sha256 cellar: :any,                 catalina:       "723d8fe07a4c9f430ecf3d26d56aeba31112f3d908b5cf9a69ad57ca66fa80f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a74b17d1390fc31bd922c5fea400b5480e59d4048d5c3281bf2bd5013b8ef947"
   end
 
   uses_from_macos "unzip" => :build
@@ -66,7 +65,7 @@ class Lua < Formula
     os = if OS.mac?
       "macosx"
     else
-      "linux"
+      "linux-readline"
     end
 
     system "make", os, "INSTALL_TOP=#{prefix}"
