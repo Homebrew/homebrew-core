@@ -42,6 +42,9 @@ class Minetest < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "luajit-openresty"
+  depends_on "openal-soft" => :on_linux
+
+  uses_from_macos "curl"
 
   def install
     (buildpath/"games/minetest_game").install resource("minetest_game")
