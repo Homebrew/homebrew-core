@@ -28,7 +28,7 @@ class Lm4tools < Formula
   end
 
   test do
-    output = shell_output("echo data | #{bin}/lm4flash - 2>&1", 2)
+    output = pipe_output("#{bin}/lm4flash - 2>&1", "data", 2)
     assert_equal "Unable to find any ICDI devices\n", output
   end
 end
