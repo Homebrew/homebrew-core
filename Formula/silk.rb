@@ -51,7 +51,9 @@ class Silk < Formula
 
   test do
     input = test_fixtures("test.pcap")
-    output = shell_output("yaf --in #{input} | #{bin}/rwipfix2silk | #{bin}/rwcount --no-titles --no-column")
+    yaf_output = shell_output("yaf --in #{input}")
+    rwipfix2silk_output = pipe_output("#{bin}/rwipfix2silk", yaf_output)
+    output = pipe_output("#{bin}/rwcount --no-titles --no-column", rwipfix2silk_output)
     assert_equal "2014/10/02T10:29:00|2.00|1031.00|12.00|", output.strip
   end
 end
