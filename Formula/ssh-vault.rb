@@ -24,7 +24,7 @@ class SshVault < Formula
   end
 
   test do
-    output = shell_output("echo hi | #{bin}/ssh-vault -u new create")
+    output = pipe_output("#{bin}/ssh-vault -u new create", "hi")
     fingerprint = output.split("\n").first.split(";").last
     cmd = "#{bin}/ssh-vault -k https://ssh-keys.online/key/#{fingerprint} view"
     output = pipe_output(cmd, output, 0)
