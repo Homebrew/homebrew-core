@@ -23,7 +23,7 @@ class Gau < Formula
   end
 
   test do
-    output = shell_output("#{bin}/gau -providers wayback brew.sh")
+    output = shell_output("#{bin}/gau --providers wayback brew.sh")
     assert_match %r{https?://brew\.sh(/|:)?.*}, output
   end
 end
