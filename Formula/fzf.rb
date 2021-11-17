@@ -42,6 +42,6 @@ class Fzf < Formula
 
   test do
     (testpath/"list").write %w[hello world].join($INPUT_RECORD_SEPARATOR)
-    assert_equal "world", shell_output("cat #{testpath}/list | #{bin}/fzf -f wld").chomp
+    assert_equal "world", pipe_output("#{bin}/fzf -f wld", (testpath/"list").read).chomp
   end
 end
