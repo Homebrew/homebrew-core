@@ -571,8 +571,7 @@ class Aspell < Formula
   end
 
   test do
-    assert_equal shell_output("echo \"misspell worrd\" | #{bin}/aspell list -d en_US").strip,
-                 "worrd"
+    assert_equal "worrd", pipe_output("#{bin}/aspell list -d en_US", "misspell worrd").strip
   end
 end
 
