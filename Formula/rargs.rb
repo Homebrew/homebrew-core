@@ -23,6 +23,6 @@ class Rargs < Formula
   end
 
   test do
-    assert_equal "abc", shell_output("echo abc,def | #{bin}/rargs -d, echo {1}").chomp
+    assert_equal "abc", pipe_output("#{bin}/rargs -d, echo {1}", "abc,def").chomp
   end
 end
