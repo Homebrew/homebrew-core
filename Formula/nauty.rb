@@ -50,7 +50,7 @@ class Nauty < Formula
   test do
     # from ./runalltests
     out1 = shell_output("#{bin}/geng -ud1D7t 11 2>&1")
-    out2 = shell_output("#{bin}/genrang -r3 114 100 | #{bin}/countg --nedDr -q")
+    out2 = pipe_output("#{bin}/countg --nedDr -q", shell_output("#{bin}/genrang -r3 114 100"))
 
     assert_match "92779 graphs generated", out1
     assert_match "100 graphs : n=114; e=171; mindeg=3; maxdeg=3; regular", out2
