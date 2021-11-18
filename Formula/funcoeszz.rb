@@ -15,6 +15,7 @@ class Funcoeszz < Formula
   end
 
   depends_on "bash"
+  uses_from_macos "bc" => :test
 
   def install
     bin.install "funcoeszz-#{version}.sh" => "funcoeszz"
