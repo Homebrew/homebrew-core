@@ -12,6 +12,8 @@ class KubePs1 < Formula
 
   depends_on "kubernetes-cli"
 
+  uses_from_macos "zsh" => :test
+
   def install
     share.install "kube-ps1.sh"
   end
