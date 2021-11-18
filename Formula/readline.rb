@@ -24,11 +24,15 @@ class Readline < Formula
     regex(/href=.*?readline[._-]v?(\d+(?:\.\d+)+)\.t/i)
     strategy :gnu do |page, regex|
       # Match versions from files
-      versions = page.scan(regex).flatten.uniq.sort
+      versions = page.scan(regex)
+                     .flatten
+                     .uniq
+                     .map { |v| Version.new(v) }
+                     .sort
       next versions if versions.blank?
 
       # Assume the last-sorted version is newest
-      newest_version = Version.new(versions.last)
+      newest_version = versions.last
 
       # Simply return the found versions if there isn't a patches directory
       # for the "newest" version
