@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/88/81/d31399162008aed2a40b36f7042e89f7067f14a521c68bb1e7cc955d4c01/pdm-1.10.2.tar.gz"
-  sha256 "0ca01c949c7cead15e59b4b919d4f9638e1aa5a11d28c824cbdee4218432459d"
+  url "https://files.pythonhosted.org/packages/91/23/3f4e4d1387eaf52bd7f64956b83b003db506a698f364c90b0b06be18daf3/pdm-1.10.3.tar.gz"
+  sha256 "a8a96e6666bc8395c599f65bf2f14084c269775f080be400c6aae38fb29e471c"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -51,8 +51,8 @@ class Pdm < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz"
-    sha256 "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "pdm-pep517" do
@@ -66,8 +66,8 @@ class Pdm < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
+    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
   end
 
   resource "python-dotenv" do
