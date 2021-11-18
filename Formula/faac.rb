@@ -1,13 +1,9 @@
 class Faac < Formula
   desc "ISO AAC audio encoder"
   homepage "https://sourceforge.net/projects/faac/"
-  url "https://downloads.sourceforge.net/project/faac/faac-src/faac-1.29/faac-1.29.9.2.tar.gz"
-  sha256 "d45f209d837c49dae6deebcdd87b8cc3b04ea290880358faecf5e7737740c771"
-
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/faac[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
+  url "https://github.com/knik0/faac/archive/refs/tags/1_30.tar.gz"
+  sha256 "adc387ce588cca16d98c03b6ec1e58f0ffd9fc6eadb00e254157d6b16203b2d2"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a45fd10b7c7e23fae859f1316f8a3c2b49bbe619da0abce66e44627c0733d237"
@@ -22,10 +18,13 @@ class Faac < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "55278dcfd35bcc01b566eeb8296b19b8bf5fca058cb9ca4616d3702940f919a4"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./bootstrap"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
