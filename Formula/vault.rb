@@ -29,12 +29,6 @@ class Vault < Formula
   depends_on "node@14" => :build
   depends_on "yarn" => :build
 
-  # remove in next release
-  patch do
-    url "https://github.com/hashicorp/vault/commit/b368a675955707db4e940da29a1043871a3781b6.patch?full_index=1"
-    sha256 "3595f5a6e3d3f73dfa0db6886f430a0ae5cbcc7f5bd5444c3652bc0c426b26f2"
-  end
-
   def install
     ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
     system "make", "bootstrap", "static-dist", "dev-ui"
