@@ -3,8 +3,8 @@ class Flit < Formula
 
   desc "Simplified packaging of Python modules"
   homepage "https://github.com/takluyver/flit"
-  url "https://files.pythonhosted.org/packages/ec/f8/b5c50a8567786375051e4e9ae31eb1141499506bcab297045429edfb4976/flit-3.4.0.tar.gz"
-  sha256 "390288b27d89a084a32fc40020ad953e14bc215c5a01e6eb6ab8c9bdbcc57283"
+  url "https://files.pythonhosted.org/packages/86/e2/6501c2a722e106c0eac94f441074c3c34effc34ce1b5416a28b087030cd9/flit-3.5.0.tar.gz"
+  sha256 "7b55f406ee5c1505f463cd9a186c73d2ccaf7d44618ca59ae643e0dce27cadf7"
   license "BSD-3-Clause"
   head "https://github.com/takluyver/flit.git"
 
@@ -26,23 +26,23 @@ class Flit < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/eb/7f/a6c278746ddbd7094b019b08d1b2187101b1f596f35f81dc27f57d8fcf7c/charset-normalizer-2.0.6.tar.gz"
-    sha256 "5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
+    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
+    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/4c/17/559b4d020f4b46e0287a2eddf2d8ebf76318fd3bd495f1625414b052fdc9/docutils-0.17.1.tar.gz"
-    sha256 "686577d2e4c32380bb50cbb22f575ed742d58168cee37e99117a854bcd88f125"
+    url "https://files.pythonhosted.org/packages/61/d7/8b2786f10b73e546aa9a85c2791393a6f475a16771b8028c7fb93d6ac8ce/docutils-0.18.tar.gz"
+    sha256 "c1d5dab2b11d16397406a282e53953fe495a46d69ae329f55aa98a5c4e3c5fbb"
   end
 
   resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/2c/a9/64406cf5c1c31186e1208a290ff10a0add43882edaef5eeba49e15ba6e7f/flit_core-3.4.0.tar.gz"
-    sha256 "29468fa2330969167d1f5c23eb9c0661cb6dacfcd46f361a274609a7f4197530"
+    url "https://files.pythonhosted.org/packages/26/12/74c9b72b280006a97fb80268e6b84bf77c73837d93391c8238488c6f2dde/flit_core-3.5.0.tar.gz"
+    sha256 "2db800d33ff41e4c6e7c1b594666cb2a11553024106655272c7245933b1d75bd"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
-    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "requests" do
@@ -51,13 +51,13 @@ class Flit < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/75/50/973397c5ba854445bcc396b593b5db1958da6ab8d665b27397daa1497018/tomli-1.2.1.tar.gz"
-    sha256 "a5b75cb6f3968abb47af1b40c1819dc519ea82bcc065776a866e8d74c5ca9442"
+    url "https://files.pythonhosted.org/packages/aa/5b/62165da80cbc6e1779f342234c7ddc6c6bc9e64cef149046a9c0456f912b/tomli-1.2.2.tar.gz"
+    sha256 "c6ce0015eb38820eaf32b5db832dbc26deb3dd427bd5f6556cf0acac2c214fee"
   end
 
-  resource "tomli_w" do
-    url "https://files.pythonhosted.org/packages/46/12/61ed2aa21bb7207ccce71eb3741623ce8a9adb99e034893a21ef5cc154d9/tomli_w-0.3.0.tar.gz"
-    sha256 "207c5f05803aec5a9a578c6aca5c1bbbba9783ad88461f3e180eb8c3c3c48a4b"
+  resource "tomli-w" do
+    url "https://files.pythonhosted.org/packages/25/38/03080644f9b3392954b62ace2b44162dadb0493946a791233804f9a69539/tomli_w-0.4.0.tar.gz"
+    sha256 "47643abe03b628b6e214c38cf0816dca7b63888e503ec8580d251e331c0526b6"
   end
 
   resource "urllib3" do
