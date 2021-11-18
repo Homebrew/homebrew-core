@@ -1,9 +1,9 @@
 class TomcatAT8 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-8/v8.5.72/bin/apache-tomcat-8.5.72.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.72/bin/apache-tomcat-8.5.72.tar.gz"
-  sha256 "9a28432e7eb6b06f2f310efe5ac85b2005952d46d1b27fbb2921f87ab1d3afba"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz"
+  sha256 "f8965400c9f21361ff81ff04478dbb4ce365276d14b0b99b85912c9de949f6a0"
   license "Apache-2.0"
 
   livecheck do
