@@ -1,8 +1,8 @@
 class Pjproject < Formula
   desc "C library for multimedia protocols such as SIP, SDP, RTP and more"
   homepage "https://www.pjsip.org/"
-  url "https://github.com/pjsip/pjproject/archive/2.10.tar.gz"
-  sha256 "936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de"
+  url "https://github.com/pjsip/pjproject/archive/2.11.1.tar.gz"
+  sha256 "45f6604372df3f49293749cd7c0b42cb21c4fb666c66f8ed9765de004d1eae38"
   license "GPL-2.0-or-later"
   head "https://github.com/pjsip/pjproject.git", branch: "master"
 
@@ -26,6 +26,7 @@ class Pjproject < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}"
+    ENV.deparallelize
     system "make", "dep"
     system "make"
     system "make", "install"
