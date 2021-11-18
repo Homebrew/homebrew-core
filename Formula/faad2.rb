@@ -1,13 +1,9 @@
 class Faad2 < Formula
   desc "ISO AAC audio decoder"
   homepage "https://sourceforge.net/projects/faac/"
-  url "https://downloads.sourceforge.net/project/faac/faad2-src/faad2-2.8.0/faad2-2.8.8.tar.gz"
-  sha256 "985c3fadb9789d2815e50f4ff714511c79c2710ac27a4aaaf5c0c2662141426d"
-
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/faad2[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
+  url "https://github.com/knik0/faad2/archive/refs/tags/2_10_0.tar.gz"
+  sha256 "0c6d9636c96f95c7d736f097d418829ced8ec6dbd899cc6cc82b728480a84bfb"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "8f5e0437e36768d7d85f5e96da07b6e651f39c571749cf9a054ed1073d7892c7"
@@ -22,10 +18,13 @@ class Faad2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4af4dd151f97c6cf5468330c00d6f8312dceca890224663bcddcc07d55dc2c47"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./bootstrap"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
