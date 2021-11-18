@@ -4,6 +4,7 @@ class Openjdk < Formula
   url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.1-ga.tar.gz"
   sha256 "f27e2f3fd2dcfd144f875e610e7d6c2d9d957e1be96e4f865307b6df381cf7a9"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
+  revision 1
 
   livecheck do
     url :stable
