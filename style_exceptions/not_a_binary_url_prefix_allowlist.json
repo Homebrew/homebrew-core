@@ -1,15 +1,16 @@
 [
+  "archey",
   "astyle",
   "bittwist",
+  "cspice",
   "folderify",
+  "gcore",
   "launch4j",
   "organize-tool",
   "reattach-to-user-namespace",
-  "archey",
-  "wallpaper",
+  "strongswan",
   "term",
-  "gcore",
-  "cspice",
-  "x264",
-  "vifm"
+  "vifm",
+  "wallpaper",
+  "x264"
 ]
