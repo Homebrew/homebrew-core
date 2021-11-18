@@ -5,6 +5,11 @@ class CargoC < Formula
   sha256 "83804d4e4c264c44372112d12c011b865b899696c16bc6a0e97bac5e12bd9112"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "154dcef48d8d950595ac0b7a3d8edbf0183996cccb225dc13fead3f9446bc024"
     sha256 cellar: :any,                 arm64_big_sur:  "76521ebc563528b80a11904b4000e065d47fe1ea52d762dbdd2efb943188d729"
