@@ -156,7 +156,7 @@ jobs:
         runner: ${{fromJson(needs.setup_tests.outputs.runners)}}
       fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
     runs-on: ${{matrix.runner}}
-    timeout-minutes: ${{fromJson(needs.setup_tests.outputs.timeout-minutes)}}
+    timeout-minutes: ${{ (matrix.runner == 'ubuntu-latest' && 360) || fromJson(needs.setup_tests.outputs.timeout-minutes) }}
     defaults:
       run:
         shell: /bin/bash -e {0}
