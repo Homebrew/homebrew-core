@@ -9,7 +9,11 @@ class TeeClc < Formula
     sha256 cellar: :any_skip_relocation, all: "9dd40c57c121a700b71b8b89136ec535c2783316d2be8b60f514dfeb9daab031"
   end
 
+  deprecate! date: "2019-05-13", because: :unmaintained
+
   depends_on "openjdk"
+
+  uses_from_macos "expect" => :test
 
   conflicts_with "tiny-fugue", because: "both install a `tf` binary"
 
