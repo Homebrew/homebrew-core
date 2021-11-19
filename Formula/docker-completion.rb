@@ -2,8 +2,8 @@ class DockerCompletion < Formula
   desc "Bash, Zsh and Fish completion for Docker"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/cli.git",
-      tag:      "v20.10.10",
-      revision: "b485636f4b90ed5a91a1f403e65ffced469c641a"
+      tag:      "v20.10.11",
+      revision: "dea9396e184290f638ea873c76db7c80efd5a1d2"
   license "Apache-2.0"
 
   livecheck do
