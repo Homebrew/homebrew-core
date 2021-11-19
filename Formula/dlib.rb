@@ -6,6 +6,11 @@ class Dlib < Formula
   license "BSL-1.0"
   head "https://github.com/davisking/dlib.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "db4b583ba9e3005a3c2d36fdc5ba78e2cb3ccdebd85216c8e7a00ccbdd81106e"
     sha256 cellar: :any,                 monterey:      "62ee86d108c6feeaa5a75f8b28258b038d3b3f16d1c2d29438bcfeed33442ac4"
