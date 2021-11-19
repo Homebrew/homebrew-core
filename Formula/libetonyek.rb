@@ -45,7 +45,7 @@ class Libetonyek < Formula
                           "--disable-werror",
                           "--disable-tests",
                           "--prefix=#{prefix}",
-                          "--with-mdds=1.5"
+                          "--with-mdds=2.0"
     system "make", "install"
   end
 
