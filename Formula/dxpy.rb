@@ -16,6 +16,7 @@ class Dxpy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dddf4f6a6d74cdc5e9e7e23ae733efae4c4a3447d39d18912a1171d1366e014a"
   end
 
+  depends_on "rust" => :build # for cryptography
   depends_on "python@3.9"
   depends_on "six"
 
