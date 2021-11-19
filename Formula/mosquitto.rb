@@ -1,12 +1,11 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.0.10.tar.gz"
-  sha256 "0188f7b21b91d6d80e992b8d6116ba851468b3bd154030e8a003ed28fb6f4a44"
+  url "https://mosquitto.org/files/source/mosquitto-2.0.14.tar.gz"
+  sha256 "d0dde8fdb12caf6e2426b4f28081919a2fce3448773bdb8af0d3cd5fe5776925"
   # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is not in the SPDX list
   license "EPL-1.0"
-  revision 1
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -38,6 +37,7 @@ class Mosquitto < Formula
 
   def install
     system "cmake", ".", *std_cmake_args,
+                    "-DWITH_PLUGINS=OFF",
                     "-DWITH_WEBSOCKETS=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "make", "install"
