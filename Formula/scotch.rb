@@ -44,10 +44,10 @@ class Scotch < Formula
   end
 
   test do
-    system ENV.cc, pkgshare/"test_strat_seq.c", "-o", "test_strat_seq", "-lm", "-lpthread",
-           "-I#{include}", "-L#{lib}", "-lscotch", "-lscotcherr"
-    system "mpicc", pkgshare/"test_strat_par.c", "-o", "test_strat_par", "-lm", "-lpthread",
-           "-lmpi", "-I#{include}", "-L#{lib}", "-lscotch", "-lptscotch", "-lptscotcherr"
+    system ENV.cc, pkgshare/"test_strat_seq.c", "-o", "test_strat_seq",
+           "-I#{include}", "-L#{lib}", "-lscotch", "-lscotcherr", "-lm", "-pthread"
+    system "mpicc", pkgshare/"test_strat_par.c", "-o", "test_strat_par",
+           "-I#{include}", "-L#{lib}", "-lptscotch", "-lscotch", "-lptscotcherr", "-lm", "-pthread"
     assert_match "Sequential mapping strategy, SCOTCH_STRATDEFAULT", shell_output("./test_strat_seq")
     assert_match "Parallel mapping strategy, SCOTCH_STRATDEFAULT", shell_output("./test_strat_par")
   end
