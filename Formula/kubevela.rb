@@ -2,8 +2,8 @@ class Kubevela < Formula
   desc "Application Platform based on Kubernetes and Open Application Model"
   homepage "https://kubevela.io"
   url "https://github.com/oam-dev/kubevela.git",
-      tag:      "v1.1.8",
-      revision: "066c448c1ae5a339e4f8dfc17b60085f137e9de4"
+      tag:      "v1.1.10",
+      revision: "93faf41ac4ea44c57a2deeb1e5e55f7c7b0d45b7"
   license "Apache-2.0"
 
   bottle do
@@ -18,8 +18,13 @@ class Kubevela < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "vela-cli", "VELA_VERSION=#{version}"
-    bin.install "bin/vela"
+    ldflags = %W[
+      -s -w
+      -X github.com/oam-dev/kubevela/version.VelaVersion=#{version}
+      -X github.com/oam-dev/kubevela/version.GitRevision=#{Utils.git_head}
+    ].join(" ")
+
+    system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"vela", "./references/cmd/cli"
   end
 
   test do
