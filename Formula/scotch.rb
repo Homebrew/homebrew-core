@@ -27,28 +27,40 @@ class Scotch < Formula
   uses_from_macos "zlib"
 
   def install
-    cd "src"
-    (buildpath/"src").install_symlink "Make.inc/Makefile.inc.i686_mac_darwin10" => "Makefile.inc"
+    cd "src" do
+      (buildpath/"src").install_symlink "Make.inc/Makefile.inc.i686_mac_darwin10" => "Makefile.inc"
+      inreplace "Makefile.inc" do |s|
+        s.change_make_var! "CCS", ENV.cc
+        s.change_make_var! "CCP", "mpicc"
+        s.change_make_var! "CCD", "mpicc"
+      end
 
-    inreplace "Makefile.inc" do |s|
-      s.change_make_var! "CCS", ENV.cc
-      s.change_make_var! "CCP", "mpicc"
-      s.change_make_var! "CCD", "mpicc"
+      system "make", "scotch", "ptscotch"
+      system "make", "prefix=#{prefix}", "install"
+ 
+      pkgshare.install "check/test_strat_par.c"
     end
-
-    system "make", "scotch", "ptscotch"
-    system "make", "prefix=#{prefix}", "install"
-
-    pkgshare.install "check/test_strat_seq.c"
-    pkgshare.install "check/test_strat_par.c"
   end
 
   test do
-    system ENV.cc, pkgshare/"test_strat_seq.c", "-o", "test_strat_seq",
-           "-I#{include}", "-L#{lib}", "-lscotch", "-lscotcherr", "-lm", "-pthread"
+    # Scotch library test
+    (testpath/"test.c").write <<~EOS
+      #include <stdlib.h>
+      #include <stdio.h>
+      #include <scotch.h>
+      int main(void) {
+        int major, minor, patch;
+        SCOTCH_version(&major, &minor, &patch);
+        printf("%d.%d.%d", major, minor, patch);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lscotch"
+    assert_match version.to_s, shell_output("./a.out")
+    
+    # PT-scotch library test
     system "mpicc", pkgshare/"test_strat_par.c", "-o", "test_strat_par",
            "-I#{include}", "-L#{lib}", "-lptscotch", "-lscotch", "-lptscotcherr", "-lm", "-pthread"
-    assert_match "Sequential mapping strategy, SCOTCH_STRATDEFAULT", shell_output("./test_strat_seq")
     assert_match "Parallel mapping strategy, SCOTCH_STRATDEFAULT", shell_output("./test_strat_par")
   end
 end
