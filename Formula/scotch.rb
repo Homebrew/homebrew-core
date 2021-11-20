@@ -38,12 +38,12 @@ class Scotch < Formula
       system "make", "scotch", "ptscotch"
       system "make", "prefix=#{prefix}", "install"
 
+      pkgshare.install "check/test_strat_seq.c"
       pkgshare.install "check/test_strat_par.c"
     end
   end
 
   test do
-    # Scotch library test
     (testpath/"test.c").write <<~EOS
       #include <stdlib.h>
       #include <stdio.h>
@@ -58,7 +58,10 @@ class Scotch < Formula
     system ENV.cc, "test.c", "-L#{lib}", "-lscotch"
     assert_match version.to_s, shell_output("./a.out")
 
-    # PT-scotch library test
+    system ENV.cc, pkgshare/"test_strat_seq.c", "-o", "test_strat_seq",
+           "-I#{include}", "-L#{lib}", "-lscotch", "-lscotcherr", "-lm", "-pthread"
+    assert_match "Sequential mapping strategy, SCOTCH_STRATDEFAULT", shell_output("./test_strat_seq")
+
     system "mpicc", pkgshare/"test_strat_par.c", "-o", "test_strat_par",
            "-I#{include}", "-L#{lib}", "-lptscotch", "-lscotch", "-lptscotcherr", "-lm", "-pthread"
     assert_match "Parallel mapping strategy, SCOTCH_STRATDEFAULT", shell_output("./test_strat_par")
