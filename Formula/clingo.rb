@@ -1,10 +1,9 @@
 class Clingo < Formula
   desc "ASP system to ground and solve logic programs"
   homepage "https://potassco.org/"
-  url "https://github.com/potassco/clingo/archive/v5.5.0.tar.gz"
-  sha256 "c9d7004a0caec61b636ad1c1960fbf339ef8fdee9719321fc1b6b210613a8499"
+  url "https://github.com/potassco/clingo/archive/v5.5.1.tar.gz"
+  sha256 "b9cf2ba2001f8241b8b1d369b6f353e628582e2a00f13566e51c03c4dd61f67e"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
