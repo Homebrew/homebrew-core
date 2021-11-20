@@ -8,10 +8,25 @@ class Rizin < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libuv"
+  depends_on "libzip"
+  depends_on "lz4"
+  depends_on "tree-sitter"
+
+  uses_from_macos "zlib"
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, ".."
+      args = [
+        "-Duse_sys_libzip=enabled",
+        "-Duse_sys_zlib=enabled",
+        "-Duse_sys_lz4=enabled",
+        "-Duse_sys_tree_sitter=enabled",
+        "-Duse_sys_libuv=enabled",
+      ]
+
+      system "meson", *std_meson_args, *args, ".."
       system "ninja"
       system "ninja", "install"
     end
@@ -19,5 +34,7 @@ class Rizin < Formula
 
   test do
     assert_match "rizin #{version}", shell_output("#{bin}/rizin -v")
+    assert_match "2a00a0e3", shell_output("#{bin}/rz-asm -a arm -b 32 'mov r0, 42'")
+    assert_match "push rax", shell_output("#{bin}/rz-asm -a x86 -b 64 -d 0x50")
   end
 end
