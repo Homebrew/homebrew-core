@@ -1,9 +1,9 @@
 class Maven < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.tar.gz"
-  sha256 "0f1597d11085b8fe93d84652a18c6deea71ece9fabba45a02cf6600c7758fd5b"
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz"
+  sha256 "2cdc9c519427bb20fdc25bef5a9063b790e4abd930e7b14b4e9f4863d6f9f13c"
   license "Apache-2.0"
 
   livecheck do
