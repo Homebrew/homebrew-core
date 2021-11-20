@@ -20,7 +20,13 @@ class Spot < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "24705073b0eafec8b6d70f979ac4fde1d273e7390f5dbacb7c0b1962fb1b9427"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # C++17
 
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
