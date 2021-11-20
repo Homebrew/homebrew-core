@@ -3,8 +3,8 @@ class C7n < Formula
 
   desc "Rules engine for cloud security, cost optimization, and governance"
   homepage "https://github.com/cloud-custodian/cloud-custodian"
-  url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.13.0.tar.gz"
-  sha256 "a6cfd50b5cdc336225c9621ea578a4f0c29e908b3457aab5c4e7580d3ed236e1"
+  url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.14.0.tar.gz"
+  sha256 "382f8ac7902a0942b1dfa06eec7a38aecb6598a2cb1fa77793e2a98abfb89c68"
   license "Apache-2.0"
 
   livecheck do
