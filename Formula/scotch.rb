@@ -37,7 +37,7 @@ class Scotch < Formula
 
       system "make", "scotch", "ptscotch"
       system "make", "prefix=#{prefix}", "install"
- 
+
       pkgshare.install "check/test_strat_par.c"
     end
   end
@@ -57,7 +57,7 @@ class Scotch < Formula
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lscotch"
     assert_match version.to_s, shell_output("./a.out")
-    
+
     # PT-scotch library test
     system "mpicc", pkgshare/"test_strat_par.c", "-o", "test_strat_par",
            "-I#{include}", "-L#{lib}", "-lptscotch", "-lscotch", "-lptscotcherr", "-lm", "-pthread"
