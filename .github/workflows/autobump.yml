@@ -139,7 +139,7 @@ jobs:
       - name: Configure Git user
         uses: Homebrew/actions/git-user-config@master
         with:
-          username: ${{ github.event == 'workflow_dispatch' && github.actor || 'BrewTestBot' }}
+          username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'BrewTestBot' }}
 
       - name: Bump formulae
         uses: Homebrew/actions/bump-formulae@master
