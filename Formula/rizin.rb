@@ -12,6 +12,7 @@ class Rizin < Formula
   depends_on "libuv"
   depends_on "libzip"
   depends_on "lz4"
+  depends_on "openssl@3"
   depends_on "tree-sitter"
 
   uses_from_macos "zlib"
@@ -19,11 +20,14 @@ class Rizin < Formula
   def install
     mkdir "build" do
       args = [
+        "-Dpackager=#{tap.user}",
+        "-Dpackager_version=#{pkg_version}",
         "-Duse_sys_libzip=enabled",
         "-Duse_sys_zlib=enabled",
         "-Duse_sys_lz4=enabled",
         "-Duse_sys_tree_sitter=enabled",
         "-Duse_sys_libuv=enabled",
+        "-Duse_sys_openssl=enabled",
       ]
 
       system "meson", *std_meson_args, *args, ".."
