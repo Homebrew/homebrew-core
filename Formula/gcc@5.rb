@@ -4,7 +4,7 @@ class GccAT5 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-  revision 6
+  revision 7
 
   livecheck do
     url :stable
@@ -85,6 +85,7 @@ class GccAT5 < Formula
     args = [
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
+      "--with-gcc-major-version-only",
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
@@ -236,6 +237,7 @@ class GccAT5 < Formula
       #     Noted that it should only be passed for the `gcc@*` formulae.
       #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
       #     brew libraries.
+      #     Note: *link will silently add #{libdir} first to the RPATH
       libdir = HOMEBREW_PREFIX/"lib/gcc/#{version_suffix}"
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
@@ -245,9 +247,12 @@ class GccAT5 < Formula
         #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
 
         *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir} -rpath #{HOMEBREW_PREFIX}/lib
+        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir}
 
+        *homebrew_rpath:
+        -rpath #{HOMEBREW_PREFIX}/lib
       EOS
+      inreplace(specs, " %o ", "\\0%(homebrew_rpath) ")
 
       # Symlink ligcc_s.so.1 where glibc can find it.
       # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
