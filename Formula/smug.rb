@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Smug < Formula
   desc "Automate your tmux workflow"
   homepage "https://github.com/ivaaaan/smug"
@@ -19,10 +21,13 @@ class Smug < Formula
         - name: test
     EOF
 
-    system bin/"smug -v"
+    assert_equal(version, shell_output("smug").lines.first.split("Version").last.chomp)
 
-    system "TERM=screen-256color #{bin}/smug start --file #{testpath}/test.yml --detach"
-    assert_equal "", shell_output("tmux has-session -t homebrew-test-session")
-    system "tmux kill-session -t homebrew-test-session"
+    with_env(TERM: "screen-256color") do
+      system bin/"smug", "start", "--file", testpath/"test.yml", "--detach"
+    end
+
+    assert_empty shell_output("tmux has-session -t homebrew-test-session")
+    system "tmux", "kill-session", "-t", "homebrew-test-session"
   end
 end
