@@ -6,6 +6,11 @@ class Just < Formula
   license "CC0-1.0"
   head "https://github.com/casey/just.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6ff0dd66e2ca94e429c204f990a11ca52bfce3fb5051cc8534fba89d91d65bb4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ac90100a299641baa3ef243ccdcdb970cd2562fe57869202e471ad5b6bed211b"
