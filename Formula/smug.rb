@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Smug < Formula
   desc "Automate your tmux workflow"
   homepage "https://github.com/ivaaaan/smug"
