@@ -19,8 +19,8 @@ class GoogleJavaFormat < Formula
   depends_on "python@3.10"
 
   resource "google-java-format-diff" do
-    url "https://raw.githubusercontent.com/google/google-java-format/v1.12.0/scripts/google-java-format-diff.py"
-    sha256 "f6d049b0a9d7cdbeca2d4cf79667ad95da30810ad67cc308f48e75f8565cbb64"
+    url "https://raw.githubusercontent.com/google/google-java-format/v1.13.0/scripts/google-java-format-diff.py"
+    sha256 "4c46a4ed6c39c2f7cbf2bc7755eefd7eaeb0a3db740ed1386053df822f15782b"
   end
 
   def install
