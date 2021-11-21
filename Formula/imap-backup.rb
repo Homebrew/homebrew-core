@@ -3,6 +3,7 @@ class ImapBackup < Formula
   homepage "https://github.com/joeyates/imap-backup"
   url "https://github.com/joeyates/imap-backup/archive/refs/tags/v3.4.0.tar.gz"
   sha256 "831580d804efa03cb7caac7a8fe8ff1626e73277c6149ca410d49e663f38ff50"
+
   license "MIT"
 
   uses_from_macos "ruby"
@@ -33,9 +34,6 @@ class ImapBackup < Formula
       sleep 1
       w.write "exit without saving changes\n"
       assert_match(/^Choose an action:/, r.readline)
-    #rescue Errno::EIO
-      # GNU/Linux raises EIO when read is done on closed pty
-    #  nil
     ensure
       Process.kill("TERM", pid)
     end
