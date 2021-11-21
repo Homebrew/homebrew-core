@@ -1,8 +1,8 @@
 class PgpoolIi < Formula
   desc "PostgreSQL connection pool server"
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
-  url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.2.5.tar.gz"
-  sha256 "d745cf38659596cfd1bc2167012bcb091f87588477bb89803cdbac88e26e0e7d"
+  url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.2.6.tar.gz"
+  sha256 "8429173db067e8fed27a3c335ee365584148b3c799b9c24016c4d676a91e9532"
 
   livecheck do
     url "https://www.pgpool.net/mediawiki/index.php/Downloads"
