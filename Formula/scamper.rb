@@ -1,8 +1,8 @@
 class Scamper < Formula
   desc "Advanced traceroute and network measurement utility"
   homepage "https://www.caida.org/catalog/software/scamper/"
-  url "https://www.caida.org/catalog/software/scamper/code/scamper-cvs-20210324.tar.gz"
-  sha256 "332dce11a707c03045dd3c3faea4daf8b9d5debb8ac122aea8257f6bd2cf4404"
+  url "https://www.caida.org/catalog/software/scamper/code/scamper-cvs-20211026.tar.gz"
+  sha256 "be75919a59d73227598260668b7ed75f6a710507310ca9827789b18cd7dda684"
   license "GPL-2.0-only"
 
   livecheck do
@@ -30,8 +30,11 @@ class Scamper < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/scamper -v 2>&1", 255)
   end
 end
