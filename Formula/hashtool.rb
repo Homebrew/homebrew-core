@@ -1,5 +1,5 @@
 class Hashtool < Formula
-  desc "Hash strings from the command line"
+  desc "Hash strings from the command-line"
   homepage "https://firelite4.github.io/HashTool/"
   url "https://github.com/FireLite4/HashTool/releases/download/v1.0.0/hashtool.tar.gz"
   version "1.0"
