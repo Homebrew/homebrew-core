@@ -4,6 +4,7 @@ class Gmsh < Formula
   url "https://gmsh.info/src/gmsh-4.8.4-source.tgz"
   sha256 "760dbdc072eaa3c82d066c5ba3b06eacdd3304eb2a97373fe4ada9509f0b6ace"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.onelab.info/gmsh/gmsh.git"
 
   bottle do
