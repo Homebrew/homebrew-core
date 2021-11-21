@@ -9,15 +9,20 @@ class Rizin < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "capstone"
   depends_on "libuv"
   depends_on "libzip"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "tree-sitter"
+  depends_on "xxhash"
 
   uses_from_macos "zlib"
 
   def install
+    (buildpath/"pkgconfig").install_symlink Formula["xxhash"].opt_lib/"pkgconfig/libxxhash.pc" => "xxhash.pc"
+    ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"pkgconfig"
+
     mkdir "build" do
       args = [
         "-Dpackager=#{tap.user}",
@@ -28,6 +33,13 @@ class Rizin < Formula
         "-Duse_sys_tree_sitter=enabled",
         "-Duse_sys_libuv=enabled",
         "-Duse_sys_openssl=enabled",
+        "-Duse_sys_capstone=enabled",
+        "-Duse_sys_xxhash=enabled",
+        "-Drizin_plugins=${HOMEBREW_PREFIX}/lib/rizin/rizin-plugins",
+        "-Drizin_extras=${HOMEBREW_PREFIX}/lib/rizin/rizin-extra",
+        "-Drizin_bindings=${HOMEBREW_PREFIX}/lib/rizin/rizin-bindings",
+        "-Denable_tests=false",
+        "-Denable_rz_test=false",
       ]
 
       system "meson", *std_meson_args, *args, ".."
