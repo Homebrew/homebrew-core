@@ -1,11 +1,8 @@
 class Openvdb < Formula
-  desc "Sparse volume processing toolkit"
+  desc "Sparse volumetric data processing toolkit"
   homepage "https://www.openvdb.org/"
-  # Check whether this can be switched to `openexr`, `imath`, and `tbb` at version bump
-  # https://github.com/AcademySoftwareFoundation/openvdb/issues/1034
-  # https://github.com/AcademySoftwareFoundation/openvdb/issues/932
-  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v8.1.0.tar.gz"
-  sha256 "3e09d47331429be7409a3a3c27fdd3c297f96d31d2153febe194e664a99d6183"
+  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v9.0.0.tar.gz"
+  sha256 "ad3816e8f1931d1d6fdbddcec5a1acd30695d049dd10aa965096b2fb9972b468"
   license "MPL-2.0"
   head "https://github.com/AcademySoftwareFoundation/openvdb.git", branch: "master"
 
@@ -23,11 +20,9 @@ class Openvdb < Formula
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "c-blosc"
-  depends_on "glfw"
-  depends_on "ilmbase"
   depends_on "jemalloc"
-  depends_on "openexr@2"
-  depends_on "tbb@2020"
+  depends_on "openexr"
+  depends_on "tbb"
 
   on_linux do
     depends_on "gcc"
@@ -44,6 +39,7 @@ class Openvdb < Formula
     cmake_args = [
       "-DDISABLE_DEPENDENCY_VERSION_CHECKS=ON",
       "-DOPENVDB_BUILD_DOCS=ON",
+      "-DUSE_NANOVDB=ON",
       "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}",
     ]
 
