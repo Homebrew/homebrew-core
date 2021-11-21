@@ -1,8 +1,8 @@
 class Packetq < Formula
-  desc "SQL-frontend to PCAP-files"
+  desc "SQL-like frontend to PCAP files"
   homepage "https://www.dns-oarc.net/tools/packetq"
-  url "https://www.dns-oarc.net/files/packetq/packetq-1.4.3.tar.gz"
-  sha256 "330fcdf63e56a97c5321726f48f28a76a7d574318dd235a16dac27f43277b0b7"
+  url "https://www.dns-oarc.net/files/packetq/packetq-1.5.0.tar.gz"
+  sha256 "2358a878a2cf656d60f715b528911fb9a937149c71e336d7d65bb1af4e388ce2"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -22,9 +22,7 @@ class Packetq < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
