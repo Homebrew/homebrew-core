@@ -1,8 +1,8 @@
 class Opensaml < Formula
   desc "Library for Security Assertion Markup Language"
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/Home"
-  url "https://shibboleth.net/downloads/c++-opensaml/3.2.0/opensaml-3.2.0.tar.bz2"
-  sha256 "8c3ba09febcb622f930731f8766e57b3c154987e8807380a4228fbf90e6e1441"
+  url "https://shibboleth.net/downloads/c++-opensaml/3.2.1/opensaml-3.2.1.tar.bz2"
+  sha256 "b402a89a130adcb76869054b256429c1845339fe5c5226ee888686b6a026a337"
   license "Apache-2.0"
 
   livecheck do
@@ -36,7 +36,11 @@ class Opensaml < Formula
   def install
     ENV.cxx11
 
-    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
+    system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    assert_match "see documentation for usage", shell_output("#{bin}/samlsign 2>&1", 255)
   end
 end
