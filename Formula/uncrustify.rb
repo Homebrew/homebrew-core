@@ -1,8 +1,8 @@
 class Uncrustify < Formula
   desc "Source code beautifier"
   homepage "https://uncrustify.sourceforge.io/"
-  url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.73.0.tar.gz"
-  sha256 "2df0326ba8c413d675b796e051d89a318b7c9cccebc993d66466e2e7fd970672"
+  url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.74.0.tar.gz"
+  sha256 "b7d24e256e7f919aa96289ac8167ac98340df7faa2d34b60d2242dc54700caaa"
   license "GPL-2.0-or-later"
   head "https://github.com/uncrustify/uncrustify.git", branch: "master"
 
@@ -23,14 +23,6 @@ class Uncrustify < Formula
   end
 
   fails_with gcc: "5"
-
-  # patches from https://github.com/uncrustify/uncrustify/pull/3178
-  # and https://github.com/uncrustify/uncrustify/pull/3179 that fix build failures
-  # can be removed for 0.74.0
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/52cd74a3a21841bd6dd6bf2d1e95af8e5e5dfa16/uncrustify/uncrustify-0.73.0.patch"
-    sha256 "9323551298cf2acdeffaa17737d2762241fd3403121272f0523402781cc750ee"
-  end
 
   def install
     ENV.cxx11
