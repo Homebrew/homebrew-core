@@ -1,8 +1,8 @@
 class When < Formula
   desc "Tiny personal calendar"
   homepage "https://www.lightandmatter.com/when/when.html"
-  url "https://github.com/bcrowell/when/archive/1.1.41.tar.gz"
-  sha256 "78bfd3f18e0d3e42797c7aacb16829d2354d935f12e04db9e467d4bec389c884"
+  url "https://github.com/bcrowell/when/archive/1.1.42.tar.gz"
+  sha256 "85a8ab4df5482de7be0eb5fe1e90f738dfb8c721f2d86725dc19369b89dd839d"
   head "https://github.com/bcrowell/when.git", branch: "master"
 
   bottle do
