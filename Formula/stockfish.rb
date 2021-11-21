@@ -1,8 +1,8 @@
 class Stockfish < Formula
   desc "Strong open-source chess engine"
   homepage "https://stockfishchess.org/"
-  url "https://github.com/official-stockfish/Stockfish/archive/sf_14.tar.gz"
-  sha256 "6f35e3e684da87d27d3f29ec7281ac81468a5a86b4d99ac5c599addc984a766c"
+  url "https://github.com/official-stockfish/Stockfish/archive/sf_14.1.tar.gz"
+  sha256 "11d71018af47ba047175f846be72d8d9878df698e9b5d708ab158cf530633600"
   license "GPL-3.0-only"
   head "https://github.com/official-stockfish/Stockfish.git", branch: "master"
 
