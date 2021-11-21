@@ -1,8 +1,8 @@
 class X3270 < Formula
   desc "IBM 3270 terminal emulator for the X Window System and Windows"
   homepage "http://x3270.bgp.nu/"
-  url "http://x3270.bgp.nu/download/04.00/suite3270-4.0ga14-src.tgz"
-  sha256 "9796f2b47ed222776d4fe2756a0db3617f84dbbf02d0a9374c36a13b1b416375"
+  url "http://x3270.bgp.nu/download/04.01/suite3270-4.1ga10-src.tgz"
+  sha256 "8216572d0a14d4d18e65db97f6e2dd1aeb66eed02b4d544c79ed8d34ea54be71"
   license "BSD-3-Clause"
 
   livecheck do
@@ -23,6 +23,10 @@ class X3270 < Formula
   uses_from_macos "tcl-tk"
 
   def install
+    # use BSD date options on macOS
+    # https://sourceforge.net/p/x3270/bugs/24/
+    inreplace "Common/mkversion.sh", "date -d@", "date -r" if OS.mac?
+
     args = %W[
       --prefix=#{prefix}
       --enable-c3270
@@ -30,7 +34,6 @@ class X3270 < Formula
       --enable-s3270
       --enable-tcl3270
     ]
-
     system "./configure", *args
     system "make", "install"
     system "make", "install.man"
