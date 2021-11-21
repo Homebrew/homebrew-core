@@ -22,6 +22,7 @@ class Hello < Formula
   conflicts_with "perkeep", because: "both install `hello` binaries"
 
   def install
+    odie OS.kernel_name
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
