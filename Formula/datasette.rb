@@ -2,8 +2,8 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/0c/8c/9746522466216b3196f5a47c73f274b3c150a33d99a3f4855a9350d35d3c/datasette-0.59.2.tar.gz"
-  sha256 "09e6413b67f1d3557d69f0e7cc1e7f77e0ef92e81ba92bd9b58ca44b015c1d24"
+  url "https://files.pythonhosted.org/packages/cb/2c/d9c31db21a2580feec6707af8cec6bd4189507bc210701d5ef1c9840c38f/datasette-0.59.3.tar.gz"
+  sha256 "c16dcfef2572f75453993d2c218b436078b82dace973b659ac929d473c7c2280"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git"
 
@@ -65,13 +65,13 @@ class Datasette < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/6a/90/334411fe5455d30498add7d77a8bf4833bfc4671289a954fb2fd43795338/httpcore-0.13.7.tar.gz"
-    sha256 "036f960468759e633574d7c121afba48af6419615d36ab8ede979f1ad6276fa3"
+    url "https://files.pythonhosted.org/packages/00/7e/7e2d8511e01069e03c3313203214709756a6e2f36ccfd793b7e238d24bab/httpcore-0.14.3.tar.gz"
+    sha256 "d10162a63265a0228d5807964bd964478cbdb5178f9a2eedfebb2faba27eef5d"
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/62/0d/9804c841eaf5e0f72890e54eff21bb49664289edf8cbe09bd47db513bd68/httpx-0.20.0.tar.gz"
-    sha256 "09606d630f070d07f9ff28104fbcea429ea0014c1e89ac90b4d8de8286c40e7b"
+    url "https://files.pythonhosted.org/packages/5d/d4/739bdfb68a7dee54c795e1977abd0c81f83235499488a10717b699dab061/httpx-0.21.1.tar.gz"
+    sha256 "02af20df486b78892a614a7ccd4e4e86a5409ec4981ab0e422c579a887acad83"
   end
 
   resource "hupper" do
@@ -110,8 +110,8 @@ class Datasette < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz"
-    sha256 "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "Pint" do
@@ -125,8 +125,8 @@ class Datasette < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
+    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
   end
 
   resource "python-baseconv" do
