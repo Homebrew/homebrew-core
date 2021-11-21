@@ -1,11 +1,9 @@
 class RtAudio < Formula
   desc "API for realtime audio input/output"
   homepage "https://www.music.mcgill.ca/~gary/rtaudio/"
-  url "https://www.music.mcgill.ca/~gary/rtaudio/release/rtaudio-5.1.0.tar.gz"
-  sha256 "ff138b2b6ed2b700b04b406be718df213052d4c952190280cf4e2fab4b61fe09"
+  url "https://www.music.mcgill.ca/~gary/rtaudio/release/rtaudio-5.2.0.tar.gz"
+  sha256 "d6089c214e5dbff136ab21f3f5efc284e93475ebd198c54d4b9b6c44419ef4e6"
   license "MIT"
-  revision 1
-  head "https://github.com/thestk/rtaudio.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "797faf66fdc3c2d026ff13be1af5557dbd0a510c9e7f47f782a91c6206790a21"
@@ -16,19 +14,30 @@ class RtAudio < Formula
     sha256 cellar: :any, mojave:         "b6a89413b4075ca42dfe7b6fb85e1546d02536dae94c5de5b23bbf231fde7247"
   end
 
+  head do
+    url "https://github.com/thestk/rtaudio.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    ENV.cxx11
+    system "./autogen.sh", "--no-configure" if build.head?
+    system "./configure", *std_configure_args
     system "make", "install"
-    doc.install %w[doc/release.txt doc/html doc/images]
+    doc.install %w[doc/release.txt doc/html doc/images] if build.stable?
     (pkgshare/"tests").install "tests/testall.cpp"
   end
 
   test do
-    system ENV.cxx, "-I#{include}/rtaudio", "-L#{lib}", "-lrtaudio",
-           pkgshare/"tests/testall.cpp", "-o", "test"
+    system ENV.cxx, pkgshare/"tests/testall.cpp", "-o", "test", "-std=c++11",
+           "-I#{include}/rtaudio", "-L#{lib}", "-lrtaudio"
     system "./test"
   end
 end
