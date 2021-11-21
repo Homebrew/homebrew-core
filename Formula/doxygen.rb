@@ -7,6 +7,11 @@ class Doxygen < Formula
   license "GPL-2.0-only"
   head "https://github.com/doxygen/doxygen.git"
 
+  livecheck do
+    url "https://www.doxygen.nl/download.html"
+    regex(/href=.*?doxygen[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e499b325b991b73028e5507e970d1cc32762b402c7eccf6f8c9c941ffdfe99d7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a7ba50b992a11544f4a94ab93374eddeaef6aea5cfb2dfefb0c27a2976ef644"
