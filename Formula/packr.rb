@@ -1,10 +1,9 @@
 class Packr < Formula
   desc "Easy way to embed static files into Go binaries"
   homepage "https://github.com/gobuffalo/packr"
-  url "https://github.com/gobuffalo/packr/archive/v2.8.1.tar.gz"
-  sha256 "648f8690e0349039300d3603708bd383f3568193ebaeb0760a87da8760dc7fa7"
+  url "https://github.com/gobuffalo/packr/archive/v2.8.2.tar.gz"
+  sha256 "bb5e64442b3165b99d9efab7acdbefc0f8faab0204fbeae453d20a736c36960d"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "91ef9a06865cbec47b550341990d78a1a1bc6034cb01ba9804d2c03d01dd1ce4"
@@ -19,10 +18,7 @@ class Packr < Formula
   depends_on "go" => [:build, :test]
 
   def install
-    system "go", "build", *std_go_args, "./packr"
-    cd "v2" do
-      system "go", "build", *std_go_args, "-o", bin/"packr2", "./packr2"
-    end
+    system "go", "build", *std_go_args, "-o", bin/"packr2", "./packr2"
   end
 
   test do
