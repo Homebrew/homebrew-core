@@ -1,10 +1,9 @@
 class PyqtAT5 < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/8e/a4/d5e4bf99dd50134c88b95e926d7b81aad2473b47fde5e3e4eac2c69a8942/PyQt5-5.15.4.tar.gz"
-  sha256 "2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be"
+  url "https://files.pythonhosted.org/packages/3b/27/fd81188a35f37be9b3b4c2db1654d9439d1418823916fe702ac3658c9c41/PyQt5-5.15.6.tar.gz"
+  sha256 "80343bcab95ffba619f2ed2467fd828ffeb0a251ad7225be5fc06dcc333af452"
   license "GPL-3.0-only"
-  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "90f347798a5ebddb45d87f5399c47afd7bb4e4b5e735eadf102eed7c14f02af2"
@@ -17,7 +16,6 @@ class PyqtAT5 < Formula
 
   depends_on "pyqt-builder" => :build
   depends_on "sip"          => :build
-
   depends_on "python@3.9"
   depends_on "qt@5"
 
@@ -34,33 +32,33 @@ class PyqtAT5 < Formula
   end
 
   resource "3d" do
-    url "https://files.pythonhosted.org/packages/c9/10/f90df77689e7bd11c42c21a6d5808cc08cf15aba971ad925605331c03bf8/PyQt3D-5.15.4.tar.gz"
-    sha256 "36bc56d7432ab6c59ea77e1df6f6f688d8abd6cdb340706d5cb0a9c665e13975"
+    url "https://files.pythonhosted.org/packages/44/af/58684ce08013c0e16839662844b29cd73259a909982c4d6517ce5ffda05f/PyQt3D-5.15.5.tar.gz"
+    sha256 "c025e8a2de12a27e3bd34671d01cac39f78305128cc6cea3f0ba99e4ca3ec41b"
   end
 
   resource "chart" do
-    url "https://files.pythonhosted.org/packages/e6/af/dd493297922be2935ae2de34daea818940c4f747a98d09acaaa5e84cd1dd/PyQtChart-5.15.4.tar.gz"
-    sha256 "e47750632851e105eabc27fdfa8180989d120b822181e512f6643b3c5c4d8074"
+    url "https://files.pythonhosted.org/packages/b3/14/a9fdca9b002f5bf01cf66f9854c65fd6b7ea12523e9e6ef063b0aba0e9e1/PyQtChart-5.15.5.tar.gz"
+    sha256 "e2cd55a8a72cef99bc0126f3b1daa914eb5f21e20a70127b6985299f1dc50107"
   end
 
   resource "datavis" do
-    url "https://files.pythonhosted.org/packages/b2/99/ffca927075ef4af724b4c294b3e95026bc15374e0d5f4ffa0abbab39abc3/PyQtDataVisualization-5.15.4.tar.gz"
-    sha256 "fe5e00193994cccc67215d527884d5503d296ae93d928cf4f60f3748ad4d54fa"
+    url "https://files.pythonhosted.org/packages/9c/ff/6ba767b4e1dbc32c7ffb93cd5d657048f6a4edf318c5b8810c8931a1733b/PyQtDataVisualization-5.15.5.tar.gz"
+    sha256 "8927f8f7aa70857ef00c51e3dfbf6f83dd9f3855f416e0d531592761cbb9dc7f"
   end
 
   resource "networkauth" do
-    url "https://files.pythonhosted.org/packages/ca/8e/579511ad413768091cdfbbabd0e512dea37a9190e4551f391832a27d9702/PyQtNetworkAuth-5.15.4.tar.gz"
-    sha256 "893b9f8afb26a64757e9fa3436261b8bfcb4e696efc2a364a9dc8ac44db67fa7"
+    url "https://files.pythonhosted.org/packages/85/b6/6b8f30ebd7c15ded3d91ed8d6082dee8aebaf79c4e8d5af77b1172c805c2/PyQtNetworkAuth-5.15.5.tar.gz"
+    sha256 "2230b6f56f4c9ad2e88bf5ac648e2f3bee9cd757550de0fb98fe0bcb31217b16"
   end
 
   resource "webengine" do
-    url "https://files.pythonhosted.org/packages/fb/5d/4c5bb7adca4f2436545a391fe311dcb4ccc711f1ce2ab7adb87475ec566e/PyQtWebEngine-5.15.4.tar.gz"
-    sha256 "cedc28f54165f4b8067652145aec7f732a17eadf6736835852868cf76119cc19"
+    url "https://files.pythonhosted.org/packages/60/66/56e118abb4cddd8e4bea6f89bdec834069b52479fb991748f1b21950811e/PyQtWebEngine-5.15.5.tar.gz"
+    sha256 "ab47608dccf2b5e4b950d5a3cc704b17711af035024d07a9b71ad29fc103b941"
   end
 
   resource "purchasing" do
-    url "https://files.pythonhosted.org/packages/12/c5/bc1dc2dd3add23b12b61e9ed7c039a3f3b0bd1b8466dc69f26bdfa50af47/PyQtPurchasing-5.15.4.tar.gz"
-    sha256 "b784a09f0a3adebd5c0d787fd8e139443f964dc44d81f801b7f6d1feb83cc4d5"
+    url "https://files.pythonhosted.org/packages/41/2a/354f0ae3fa02708719e2ed6a8c310da4283bf9a589e2a7fcf7dadb9638af/PyQtPurchasing-5.15.5.tar.gz"
+    sha256 "8bb1df553ba6a615f8ec3d9b9c5270db3e15e831a6161773dabfdc1a7afe4834"
   end
 
   def install
