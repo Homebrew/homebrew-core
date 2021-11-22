@@ -8,6 +8,11 @@ class Cups < Formula
   license "Apache-2.0"
   head "https://github.com/OpenPrinting/cups.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^(?:release[._-])?v?(\d+(?:\.\d+)+(?:op\d*)?)$/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "b1ae2e3f161a90bd0e5b38ba2111c924e2d380abcd7119c556a9495d12be1d92"
     sha256 arm64_big_sur:  "ac83d0ea52bebcdb2eff93c6ccbaf29c14369a7d2643bf3a85780ed34c13e0a4"
