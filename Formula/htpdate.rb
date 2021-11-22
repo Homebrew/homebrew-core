@@ -1,11 +1,11 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
-  homepage "http://www.vervest.org/htp/"
-  url "http://www.vervest.org/htp/archive/c/htpdate-1.2.2.tar.xz"
+  homepage "https://www.vervest.org/htp/"
+  url "https://www.vervest.org/htp/archive/c/htpdate-1.2.2.tar.xz"
   sha256 "5f1f959877852abb3153fa407e8532161a7abe916aa635796ef93f8e4119f955"
 
   livecheck do
-    url "http://www.vervest.org/htp/download"
+    url "https://www.vervest.org/htp/?download"
     regex(/href=.*?htpdate[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
