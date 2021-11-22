@@ -27,7 +27,7 @@ class Gmt < Formula
   end
 
   resource "dcw" do
-    url "https://github.com/GenericMappingTools/dcw-gmt/releases/download/2.0.0/dcw-gmt-2.0.1.tar.gz"
+    url "https://github.com/GenericMappingTools/dcw-gmt/releases/download/2.0.1/dcw-gmt-2.0.1.tar.gz"
     mirror "https://mirrors.ustc.edu.cn/gmt/dcw-gmt-2.0.1.tar.gz"
     sha256 "5c90b2968f4095cf5ea44a354dc9d8f9dd1b8fe5514e0338ff85b48e03547a25"
   end
