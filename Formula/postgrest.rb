@@ -7,6 +7,11 @@ class Postgrest < Formula
   revision 1
   head "https://github.com/PostgREST/postgrest.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "bd989403d46a8f5fa86ad41e813fb48e06ec60d6b4052f6bc5a3168c22671ba6"
     sha256 cellar: :any,                 arm64_big_sur:  "a505a99c6f164a72936e18584d9a172204be89694934adc2a4d168c33ae8f91a"
