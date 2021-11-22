@@ -5,6 +5,11 @@ class Dropbear < Formula
   sha256 "48235d10b37775dbda59341ac0c4b239b82ad6318c31568b985730c788aac53b"
   license "MIT"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dropbear[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c358a02ddb77666f1a523422e27f6805186a07d73cc5a20faf9b4fb134f64e29"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8681650c799bb023d972a9cc0dc9c07fd0ce37fc6f801a4b990af151f364b3b"
