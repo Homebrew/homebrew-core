@@ -22,10 +22,6 @@ class Lcov < Formula
   uses_from_macos "perl"
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "gcc" => :test
-  end
-
   resource "JSON" do
     url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.02.tar.gz"
     sha256 "444a88755a89ffa2a5424ab4ed1d11dca61808ebef57e81243424619a9e8627c"
@@ -62,12 +58,6 @@ class Lcov < Formula
   test do
     gcc = ENV.cc
     gcov = "gcov"
-
-    on_macos do
-      gcc_major_ver = Formula["gcc"].any_installed_version.major
-      gcc = Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}"
-      gcov = Formula["gcc"].opt_bin/"gcov-#{gcc_major_ver}"
-    end
 
     (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
