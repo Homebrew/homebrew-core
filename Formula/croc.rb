@@ -23,12 +23,19 @@ class Croc < Formula
   end
 
   test do
-    fork do
-      exec bin/"croc", "send", "--code=homebrew-test", "--text=mytext"
-    end
-    sleep 10
+    port=free_port
 
-    assert_match "mytext", pipe_output(bin/"croc --yes homebrew-test", "y\n") if OS.mac?
-    assert_match shell_output("#{bin}/croc --yes homebrew-test").chomp, "mytext" if OS.linux?
+    fork do
+      exec bin/"croc", "relay", "--ports=#{port}"
+    end
+    sleep 1
+
+    fork do
+      exec bin/"croc", "--relay=localhost:#{port}", "send", "--code=homebrew-test", "--text=mytext"
+    end
+    sleep 1
+
+    assert_match "mytext", pipe_output(bin/"croc --relay=localhost:#{port} --yes homebrew-test", "y\n") if OS.mac?
+    assert_match shell_output("#{bin}/croc --relay=localhost:#{port} --yes homebrew-test").chomp, "mytext" if OS.linux?
   end
 end
