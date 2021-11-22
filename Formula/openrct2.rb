@@ -2,8 +2,8 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      tag:      "v0.3.5",
-      revision: "b9bc8d0606845e4e73fda8b459a55650f23164de"
+      tag:      "v0.3.5.1",
+      revision: "61c67afc667bfee8a6c3b180e98e84e87f442550"
   license "GPL-3.0-only"
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
@@ -17,17 +17,16 @@ class Openrct2 < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "nlohmann-json" => :build
   depends_on "pkg-config" => :build
   depends_on "duktape"
-  depends_on "freetype" # for sdl2_ttf
+  depends_on "freetype"
   depends_on "icu4c"
   depends_on "libpng"
   depends_on "libzip"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
-  depends_on "nlohmann-json"
   depends_on "openssl@1.1"
   depends_on "sdl2"
-  depends_on "sdl2_ttf"
   depends_on "speexdsp"
 
   on_linux do
