@@ -35,9 +35,9 @@ class Rizin < Formula
         "-Duse_sys_openssl=enabled",
         "-Duse_sys_capstone=enabled",
         "-Duse_sys_xxhash=enabled",
-        "-Drizin_plugins=${HOMEBREW_PREFIX}/lib/rizin/rizin-plugins",
-        "-Drizin_extras=${HOMEBREW_PREFIX}/lib/rizin/rizin-extra",
-        "-Drizin_bindings=${HOMEBREW_PREFIX}/lib/rizin/rizin-bindings",
+        "-Drizin_plugins=${HOMEBREW_PREFIX}/lib/rizin/plugins",
+        "-Drizin_extras=${HOMEBREW_PREFIX}/lib/rizin/extras",
+        "-Drizin_bindings=${HOMEBREW_PREFIX}/lib/rizin/bindings",
         "-Denable_tests=false",
         "-Denable_rz_test=false",
       ]
@@ -46,6 +46,13 @@ class Rizin < Formula
       system "ninja"
       system "ninja", "install"
     end
+  end
+
+  def caveats
+    <<~EOS
+      By default, plugins, extras and bindings will installed located into:
+        #{HOMEBREW_PREFIX}/lib/rizin/
+    EOS
   end
 
   test do
