@@ -17,6 +17,8 @@ class Cuba < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "abd47d8d13cfefdaf542675e465b717cb95e8b1a8ba0ca2c3745bbcf0c6bd1d0"
   end
 
+  disable! date: "2021-11-22", because: :checksum_mismatch
+
   def install
     ENV.deparallelize # Makefile does not support parallel build
     system "./configure", "--prefix=#{prefix}"
