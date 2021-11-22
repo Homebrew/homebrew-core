@@ -61,9 +61,9 @@ jobs:
               path: Formula/.+@.+
               except:
                 - Formula/openssl@1.1.rb
-                - Formula/openssl@3.0.rb
-                - Formula/python@3.9
-                - Formula/python-tk@3.9.rb
+                - Formula/openssl@3.rb
+                - Formula/python@3.10
+                - Formula/python-tk@3.10.rb
 
             - label: missing license
               path: Formula/.+
