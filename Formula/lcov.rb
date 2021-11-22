@@ -37,6 +37,10 @@ class Lcov < Formula
   end
 
   def install
+    # Temporary patch. Use correct c++filt flag. Upstreamed at
+    # https://github.com/linux-test-project/lcov/pull/125
+    inreplace "bin/genhtml", "no-strip-underscores", "no-strip-underscore"
+
     ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
 
     resources.each do |r|
