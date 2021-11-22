@@ -8,6 +8,11 @@ class Zeek < Formula
   revision 1
   head "https://github.com/zeek/zeek.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "d02836b583b2b3934e2d8223d07a2717eea4c6938a9733770a6e22e92750b0c3"
     sha256 arm64_big_sur:  "1f2b6ade33c459c14955fb497c2be5219f54d61cb39ef011d2478cddfb06789d"
