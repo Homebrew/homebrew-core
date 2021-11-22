@@ -10,6 +10,7 @@ class Rizin < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "capstone"
+  depends_on "libmagic"
   depends_on "libuv"
   depends_on "libzip"
   depends_on "lz4"
@@ -35,6 +36,7 @@ class Rizin < Formula
         "-Duse_sys_openssl=enabled",
         "-Duse_sys_capstone=enabled",
         "-Duse_sys_xxhash=enabled",
+        "-Duse_sys_magic=enabled",
         "-Drizin_plugins=${HOMEBREW_PREFIX}/lib/rizin/plugins",
         "-Drizin_extras=${HOMEBREW_PREFIX}/lib/rizin/extras",
         "-Drizin_bindings=${HOMEBREW_PREFIX}/lib/rizin/bindings",
