@@ -1,23 +1,28 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://lammps.sandia.gov/"
-  url "https://github.com/lammps/lammps/archive/stable_29Sep2021.tar.gz"
+  url "https://github.com/lammps/lammps/archive/stable_29Sep2021_update1.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "2021-09-29"
-  sha256 "2dff656cb21fd9a6d46c818741c99d400cfb1b12102604844663b655fb2f893d"
+  version "20210929-update1"
+  sha256 "5000b422c9c245b92df63507de5aa2ea4af345ea1f00180167aaa084b711c27c"
   license "GPL-2.0-only"
-  revision 1
+
   # The `strategy` block below is used to massage upstream tags into the
   # YYYY-MM-DD format we use in the `version`. This is necessary for livecheck
   # to be able to do proper `Version` comparison.
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/stable[._-](\d{1,2}\w+\d{2,4})["' >]}i)
-    strategy :github_latest do |page, regex|
-      date_str = page[regex, 1]
-      date_str.present? ? Date.parse(date_str).to_s : []
+    regex(/^stable[._-](\d{1,2}\w+\d{2,4})(?:[._-](update\d*))?$/i)
+    strategy :git do |tags, regex|
+      tags.map do |tag|
+        match = tag.match(regex)
+        next if match.blank? || match[1].blank?
+
+        date_str = Date.parse(match[1]).strftime("%Y%m%d")
+        match[2].present? ? "#{date_str}-#{match[2]}" : date_str
+      end
     end
   end
 
