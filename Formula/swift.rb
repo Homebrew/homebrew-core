@@ -2,14 +2,14 @@ class Swift < Formula
   include Language::Python::Shebang
 
   desc "High-performance system programming language"
-  homepage "https://swift.org"
+  homepage "https://www.swift.org"
   # NOTE: Keep version in sync with resources below
   url "https://github.com/apple/swift/archive/swift-5.5.1-RELEASE.tar.gz"
   sha256 "b4092b2584919f718a55ad0ed460fbc48e84ec979a9397ce0adce307aba41ac9"
   license "Apache-2.0"
 
   livecheck do
-    url "https://swift.org/download/"
+    url "https://www.swift.org/download/"
     regex(/Releases<.*?>Swift v?(\d+(?:\.\d+)+)</im)
   end
 
@@ -396,16 +396,16 @@ class Swift < Formula
     (testpath/"foundation-test.swift").write <<~'EOS'
       import Foundation
 
-      let swifty = URLComponents(string: "https://swift.org")!
+      let swifty = URLComponents(string: "https://www.swift.org")!
       print("\(swifty.host!)")
     EOS
     output = shell_output("#{bin}/swift -v foundation-test.swift")
-    assert_match "swift.org\n", output
+    assert_match "www.swift.org\n", output
 
     # Test compiler
     system "#{bin}/swiftc", "-v", "foundation-test.swift", "-o", "foundation-test"
     output = shell_output("./foundation-test")
-    assert_match "swift.org\n", output
+    assert_match "www.swift.org\n", output
 
     # Test Swift Package Manager
     mkdir "swiftpmtest" do
@@ -416,7 +416,7 @@ class Swift < Formula
       system "#{bin}/swift", "package", "init", "--type=executable", "-v"
       cp "../foundation-test.swift", "Sources/swiftpmtest/main.swift"
       system "#{bin}/swift", "build", "-v", "--disable-sandbox"
-      assert_match "swift.org\n", shell_output("#{bin}/swift run --disable-sandbox")
+      assert_match "www.swift.org\n", shell_output("#{bin}/swift run --disable-sandbox")
     end
 
     # Make sure the default resource directory is not using a Cellar path
