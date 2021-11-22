@@ -123,6 +123,7 @@
   "recipes": "gnome-recipes",
   "resin-cli": "balena-cli",
   "root6": "root",
+  "rt-audio": "rtaudio",
   "saltstack": "salt",
   "scala211": "scala@2.11",
   "screenbrightness": "brightness",
