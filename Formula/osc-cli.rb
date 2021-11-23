@@ -3,8 +3,8 @@ class OscCli < Formula
 
   desc "Official Outscale CLI providing connectors to Outscale API"
   homepage "https://github.com/outscale/osc-cli"
-  url "https://files.pythonhosted.org/packages/7d/85/7682a1deb551d4350f47ccc5f99d333088f99edf376844f3c94581e26b8b/osc-sdk-1.7.0.tar.gz"
-  sha256 "58e76cec711e12f24d31b86519485e24749c14269090317876e195d00ae4b945"
+  url "https://files.pythonhosted.org/packages/88/27/82b58ed2c5180b065cc4b21d7de93b3c16d5e821f847ba62f1e6ab6ba253/osc-sdk-1.7.1.tar.gz"
+  sha256 "598b88cf63820bf217e685009f5a661d47c68fa050604b3c19f395df73e2df40"
   license "BSD-3-Clause"
 
   bottle do
@@ -25,8 +25,8 @@ class OscCli < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/2f/39/5d8ff929409113e9ff402e405a7c7880ab1fa6f118a4ab72443976a01711/charset-normalizer-2.0.8.tar.gz"
+    sha256 "735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"
   end
 
   resource "defusedxml" do
@@ -55,8 +55,8 @@ class OscCli < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/ed/12/c5079a15cf5c01d7f4252b473b00f7e68ee711be605b9f001528f0298b98/typing_extensions-3.10.0.2.tar.gz"
-    sha256 "49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e"
+    url "https://files.pythonhosted.org/packages/0d/4a/60ba3706797b878016f16edc5fbaf1e222109e38d0fa4d7d9312cb53f8dd/typing_extensions-4.0.1.tar.gz"
+    sha256 "4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e"
   end
 
   resource "urllib3" do
@@ -89,13 +89,13 @@ class OscCli < Formula
           "host": "outscale.com",
           "https": true,
           "method": "POST",
-          "region": "eu-west-2"
+          "region_name": "eu-west-2"
         }
       }
     EOS
 
     str = shell_output("#{bin}/osc-cli api ReadVms 2>&1 >/dev/null", 1)
-    match = "TypeError: OscApiException.__post_init__() missing 1 required positional argument: 'http_response'"
+    match = "raise OscApiException(http_response)"
     assert_match match, str
   end
 end
