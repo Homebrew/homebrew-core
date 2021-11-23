@@ -86,6 +86,7 @@ class ClickhouseCpp < Formula
       add_executable (test-client main.cpp)
       target_include_directories (test-client PRIVATE ${CLICKHOUSE_CPP_INCLUDE})
       target_link_libraries (test-client PRIVATE ${CLICKHOUSE_CPP_LIB})
+      target_compile_definitions (test-client PUBLIC WITH_OPENSSL)
     EOS
 
     system "cmake", "-S", testpath, "-B", (testpath/"build"), *std_cmake_args
