@@ -7,6 +7,11 @@ class Ecl < Formula
   revision 1
   head "https://gitlab.com/embeddable-common-lisp/ecl.git", branch: "develop"
 
+  livecheck do
+    url "https://common-lisp.net/project/ecl/static/files/release/"
+    regex(/href=.*?ecl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "f22e7b333050fe84c8a5e277c87666c16f42655ebf3c1bf76815db67c9520e7f"
     sha256 big_sur:       "6881f61f6abc60969a668260a05ee06c2f7420b201b9ed4c2fb4b78b3ca4ae3c"
