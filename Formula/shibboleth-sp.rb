@@ -4,7 +4,7 @@ class ShibbolethSp < Formula
   url "https://shibboleth.net/downloads/service-provider/3.2.3/shibboleth-sp-3.2.3.tar.bz2"
   sha256 "a02b441c09dc766ca65b78fe631277a17c5eb2f0a441b035cdb6a4720fb94024"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://shibboleth.net/downloads/service-provider/latest/"
@@ -21,8 +21,8 @@ class ShibbolethSp < Formula
 
   depends_on "apr" => :build
   depends_on "apr-util" => :build
+  depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
   depends_on "httpd" if MacOS.version >= :high_sierra
   depends_on "log4shib"
   depends_on "opensaml"
@@ -34,15 +34,9 @@ class ShibbolethSp < Formula
 
   def install
     ENV.cxx11
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
+    args = std_configure_args + %W[
       --localstatedir=#{var}
       --sysconfdir=#{etc}
-      --with-xmltooling=#{Formula["xml-tooling-c"].opt_prefix}
-      --with-saml=#{Formula["opensaml"].opt_prefix}
       --enable-apache-24
       DYLD_LIBRARY_PATH=#{lib}
     ]
