@@ -24,6 +24,9 @@ class Rizin < Formula
     (buildpath/"pkgconfig").install_symlink Formula["xxhash"].opt_lib/"pkgconfig/libxxhash.pc" => "xxhash.pc"
     ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"pkgconfig"
 
+    # Meson's `find_library` isn't able to find `libmagic` without help.
+    inreplace "meson.build", "cc.find_library('magic',", "\\0 dirs: '#{Formula["libmagic"].opt_lib}',"
+
     mkdir "build" do
       args = [
         "-Dpackager=#{tap.user}",
@@ -37,9 +40,9 @@ class Rizin < Formula
         "-Duse_sys_capstone=enabled",
         "-Duse_sys_xxhash=enabled",
         "-Duse_sys_magic=enabled",
-        "-Drizin_plugins=${HOMEBREW_PREFIX}/lib/rizin/plugins",
-        "-Drizin_extras=${HOMEBREW_PREFIX}/lib/rizin/extras",
-        "-Drizin_bindings=${HOMEBREW_PREFIX}/lib/rizin/bindings",
+        "-Drizin_plugins=#{HOMEBREW_PREFIX}/lib/rizin/plugins",
+        "-Drizin_extras=#{HOMEBREW_PREFIX}/lib/rizin/extras",
+        "-Drizin_bindings=#{HOMEBREW_PREFIX}/lib/rizin/bindings",
         "-Denable_tests=false",
         "-Denable_rz_test=false",
       ]
