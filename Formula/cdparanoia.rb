@@ -1,9 +1,10 @@
 class Cdparanoia < Formula
   desc "Audio extraction tool for sampling CDs"
   homepage "https://www.xiph.org/paranoia/"
-  url "https://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10.2.src.tgz"
+  url "https://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10.2.src.tgz", using: :homebrew_curl
   mirror "https://ftp.osuosl.org/pub/xiph/releases/cdparanoia/cdparanoia-III-10.2.src.tgz"
   sha256 "005db45ef4ee017f5c32ec124f913a0546e77014266c6a1c50df902a55fe64df"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/cdparanoia/?C=M&O=D"
@@ -22,6 +23,7 @@ class Cdparanoia < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   # Patches via MacPorts
   on_macos do
@@ -39,9 +41,11 @@ class Cdparanoia < Formula
   end
 
   def install
-    system "autoconf"
     # Libs are installed as keg-only because most software that searches for cdparanoia
     # will fail to link against it cleanly due to our patches
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{libexec}" if OS.linux?
+
+    system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--libdir=#{libexec}"
