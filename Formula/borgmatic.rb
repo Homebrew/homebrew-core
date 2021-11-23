@@ -3,10 +3,9 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/39/4a/351a1442af40867d6310327b0e72f43276f3700bcb0f9a1ec66bbd5ac256/borgmatic-1.5.20.tar.gz"
-  sha256 "0aa6705cd72c6bd8fec94ba9e5e13ba9e90e6671799af2f2f5cb91186b90b7e5"
+  url "https://files.pythonhosted.org/packages/a9/45/0a7915ba5e16e13f11c1c7ab941949a8a2d8e73055c20970aefc74f9c6e1/borgmatic-1.5.21.tar.gz"
+  sha256 "b8aa9dbf250b95b829827310c9638a17cd52fee160a437283eed23bffcae83cf"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f3b63222c508e05f4a676026ec8f8a22e301206bc6f4076c688bfc45e2bfa71"
@@ -46,8 +45,8 @@ class Borgmatic < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/f2/f7/1cb7e8e3a6eb85ffc0d8c14a1022214a1699f110bf51e3d3d178280df04d/jsonschema-4.1.0.tar.gz"
-    sha256 "9dd7c33b4a96138dc37bb86b3610d3b12d30d96433d4d73435ca3025804154a8"
+    url "https://files.pythonhosted.org/packages/ff/09/fa40d16ddcce69fc79e264c9458ac5ae693586d5f4c552e1e11889bdf971/jsonschema-4.2.1.tar.gz"
+    sha256 "390713469ae64b8a58698bb3cbc3859abe6925b565a973f87323ef21b09a27a8"
   end
 
   resource "pyrsistent" do
@@ -61,13 +60,8 @@ class Borgmatic < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/71/81/f597606e81f53eb69330e3f8287e9b5a3f7ed0481824036d550da705cd82/ruamel.yaml-0.17.16.tar.gz"
-    sha256 "1a771fc92d3823682b7f0893ad56cb5a5c87c48e62b5399d6f42c8759a583b33"
-  end
-
-  resource "ruamel.yaml.clib" do
-    url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
-    sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
+    url "https://files.pythonhosted.org/packages/4d/15/7fc04de02ca774342800c9adf1a8239703977c49c5deaadec1689ec85506/ruamel.yaml-0.17.17.tar.gz"
+    sha256 "9751de4cbb57d4bfbf8fc394e125ed4a2f170fbff3dc3d78abf50be85924f8be"
   end
 
   resource "urllib3" do
