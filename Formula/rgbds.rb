@@ -1,8 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://rgbds.gbdev.io"
-  url "https://github.com/gbdev/rgbds/archive/v0.5.1.tar.gz"
-  sha256 "1e5331b5638076c1f099a961f8663256e9f8be21135427277eb0000d3d6ee887"
+  url "https://github.com/gbdev/rgbds/archive/v0.5.2.tar.gz"
+  sha256 "29172a43c7a4f41e5809d8c40cb76b798a0d01dfc9f5340b160a405b89b3b182"
   license "MIT"
   head "https://github.com/gbdev/rgbds.git", branch: "master"
 
@@ -38,6 +38,7 @@ class Rgbds < Formula
       man1.install "rgbobj.1"
     end
     zsh_completion.install Dir["contrib/zsh_compl/_*"]
+    bash_completion.install Dir["contrib/bash_compl/_*"]
   end
 
   test do
