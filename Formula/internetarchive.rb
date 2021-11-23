@@ -17,7 +17,7 @@ class Internetarchive < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed7f2477545d884241f11c6ebb2a6f7be9a01d7f419c9c29237d79418554cc83"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "certifi" do
