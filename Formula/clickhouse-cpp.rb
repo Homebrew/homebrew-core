@@ -18,6 +18,7 @@ class ClickhouseCpp < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "abseil"
+  depends_on "openssl@1.1"
 
   on_linux do
     depends_on "gcc"
@@ -27,7 +28,8 @@ class ClickhouseCpp < Formula
   fails_with gcc: "6"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+      "-DWITH_OPENSSL=ON", "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
