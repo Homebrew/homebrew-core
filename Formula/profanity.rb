@@ -47,10 +47,16 @@ class Profanity < Formula
 
     # `configure` hardcodes `/usr/local/opt/readline`, which isn't portable.
     # https://github.com/profanity-im/profanity/issues/1612
+    # Remove in version 0.12.0.
     inreplace "configure", "/usr/local/opt/readline", Formula["readline"].opt_prefix
+
+    # We need to pass `BREW` to `configure` to make sure it can be found inside the sandbox in non-default
+    # prefixes. `configure` knows to check `/opt/homebrew` and `/usr/local`, but the sanitised build
+    # environment will prevent any other `brew` installations from being found.
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "BREW=#{HOMEBREW_BREW_FILE}"
     system "make", "install"
   end
 
