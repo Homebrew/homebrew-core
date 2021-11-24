@@ -3,6 +3,7 @@ class Gts < Formula
   homepage "https://gts.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gts/gts/0.7.6/gts-0.7.6.tar.gz"
   sha256 "059c3e13e3e3b796d775ec9f96abdce8f2b3b5144df8514eda0cc12e13e8b81e"
+  license "LGPL-2.0-or-later"
   revision 2
 
   bottle do
@@ -14,7 +15,11 @@ class Gts < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8574a923a6854116b836f04ffdd0b556d71c3e63da1127a90c2e6ac573900c88"
   end
 
-  depends_on "pkg-config" => :build
+  # We regenerate configure to avoid the `-flat_namespace` flag.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "gettext"
   depends_on "glib"
   depends_on "netpbm"
@@ -26,10 +31,34 @@ class Gts < Formula
   patch :DATA
 
   def install
+    # The `configure` passes `-flat_namespace` but none of our usual patches apply.
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
 
     system "make", "install"
+  end
+
+  test do
+    (testpath/"gtstest.c").write <<~EOS
+      #include "gts.h"
+      int main() {
+        GtsRange r;
+        gts_range_init(&r);
+
+        for (int i = 0; i < 10; ++i)
+          gts_range_add_value(&r, i);
+
+        gts_range_update(&r);
+
+        if (r.n == 10) return 0;
+        return 1;
+      }
+    EOS
+
+    cflags = Utils.safe_popen_read("pkg-config", "--cflags", "--libs", "gts").strip.split
+    system ENV.cc, "gtstest.c", *cflags, "-lm", "-o", "gtstest"
+    system "./gtstest"
   end
 end
 
