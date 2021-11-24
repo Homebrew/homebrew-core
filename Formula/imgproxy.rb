@@ -1,8 +1,8 @@
 class Imgproxy < Formula
   desc "Fast and secure server for resizing and converting remote images"
   homepage "https://imgproxy.net"
-  url "https://github.com/imgproxy/imgproxy/archive/v2.17.0.tar.gz"
-  sha256 "f04486e02ca40d14e65cf1774c7bad85d5a237de3798b14cc1160e9eafdb8200"
+  url "https://github.com/imgproxy/imgproxy/archive/v3.0.0.tar.gz"
+  sha256 "0bdc7f9dd999d4a7ebf515fd0e7394acf4f79d9a7a81e42e0d0d4891110af690"
   license "MIT"
   head "https://github.com/imgproxy/imgproxy.git"
 
@@ -40,13 +40,12 @@ class Imgproxy < Formula
     output = testpath/"test-converted.png"
 
     system "curl", "-s", "-o", output,
-           "http://127.0.0.1:#{port}/insecure/fit/100/100/no/0/plain/local:///test.jpg@png"
-    assert_equal 0, $CHILD_STATUS
+           "http://127.0.0.1:#{port}/insecure/resize:fit:100:100:true/plain/local:///test.jpg@png"
     assert_predicate output, :exist?
 
     file_output = shell_output("file #{output}")
     assert_match "PNG image data", file_output
-    assert_match "1 x 1", file_output
+    assert_match "100 x 100", file_output
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)
