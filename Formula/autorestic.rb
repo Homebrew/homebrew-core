@@ -31,11 +31,12 @@ class Autorestic < Formula
       "locations" => { "foo" => { "from" => "repo", "to" => ["bar"] } },
       "backends"  => { "bar" => { "type" => "local", "key" => "secret", "path" => "data" } },
     }
+    config["version"] = 2
     File.open(testpath/".autorestic.yml", "w") { |file| file.write(config.to_yaml) }
     (testpath/"repo"/"test.txt").write("This is a testfile")
     system "#{bin}/autorestic", "check"
     system "#{bin}/autorestic", "backup", "-a"
     system "#{bin}/autorestic", "restore", "-l", "foo", "--to", "restore"
-    assert compare_file testpath/"repo"/"test.txt", testpath/"restore"/"test.txt"
+    assert compare_file testpath/"repo"/"test.txt", testpath/"restore"/testpath/"repo"/"test.txt"
   end
 end
