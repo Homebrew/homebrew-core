@@ -13,6 +13,7 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
+  # Remove `coq` from `flat_namespace_allowlist` at version bump.
   url "https://caml.inria.fr/pub/distrib/ocaml-4.12/ocaml-4.12.0.tar.xz"
   sha256 "39ee9db8dc1e3eb65473dd81a71fabab7cc253dbd7b85e9f9b5b28271319bec3"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
