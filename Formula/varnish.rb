@@ -5,6 +5,7 @@ class Varnish < Formula
   mirror "https://fossies.org/linux/www/varnish-7.0.1.tgz"
   sha256 "c4e75beff0d461611742361fe8039ee1233ddf755b2b8a1e18a5fcacbe2b4660"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://varnish-cache.org/releases/"
@@ -32,7 +33,7 @@ class Varnish < Formula
   end
 
   def install
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = which("python3")
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
