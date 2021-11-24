@@ -27,7 +27,7 @@ class Gtksourceview5 < Formula
 
   def install
     args = std_meson_args + %w[
-      -Dgir=true
+      -Dintrospection=enabled
       -Dvapi=true
     ]
 
