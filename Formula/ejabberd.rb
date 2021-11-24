@@ -5,6 +5,11 @@ class Ejabberd < Formula
   sha256 "0e90cfd6c03191ca8aef344b9d543a038e272770be14c2288d83cc4d34825868"
   license "GPL-2.0-only"
 
+  livecheck do
+    url "https://www.process-one.net/en/ejabberd/downloads/"
+    regex(/href=.*?ejabberd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_monterey: "4b54e5246a1a00c93856d1786eb4067b3883f4293d3fb91a7345441fdc90ba76"
     sha256 cellar: :any, arm64_big_sur:  "c22a2bd2a9dfcbbdc1e6df1ea63ae25924234f1ddd4cb5f4b016fc2013b97487"
