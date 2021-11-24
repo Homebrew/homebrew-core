@@ -39,7 +39,6 @@ class Php < Formula
   depends_on "freetds"
   depends_on "gd"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "krb5"
