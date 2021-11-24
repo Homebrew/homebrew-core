@@ -57,8 +57,6 @@ class Graphviz < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
-
-    (bin/"gvmap.sh").unlink
   end
 
   test do
