@@ -73,7 +73,7 @@ class Cmake < Formula
 
   test do
     (testpath/"CMakeLists.txt").write("find_package(Ruby)")
-    system bin/"cmake", "."
+    safe_system(bin/"cmake", ".")
 
     # These should be supplied in a separate cmake-docs formula.
     refute_path_exists doc/"html"
