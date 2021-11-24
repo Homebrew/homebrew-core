@@ -3,6 +3,7 @@
   "arpack",
   "bind",
   "blast",
+  "coq",
   "libvirt",
   "mpich",
   "omniorb",
