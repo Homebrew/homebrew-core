@@ -73,7 +73,7 @@ class Csound < Formula
       -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_WEBSOCKET_OPCODE=OFF
-      -DCMAKE_INSTALL_RPATH=#{frameworks}
+      -DCMAKE_INSTALL_RPATH=@loader_path/../Frameworks;#{rpath}
       -DCS_FRAMEWORK_DEST=#{frameworks}
       -DGMM_INCLUDE_DIR=#{buildpath}/gmm
       -DJAVA_MODULE_INSTALL_DIR=#{libexec}
@@ -88,8 +88,7 @@ class Csound < Formula
 
     libexec.install buildpath/"interfaces/ctcsound.py"
 
-    python_version = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
-    (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
+    (prefix/Language::Python.site_packages("python3")/"homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
 
