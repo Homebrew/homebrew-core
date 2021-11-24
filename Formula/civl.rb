@@ -15,6 +15,7 @@ class Civl < Formula
     sha256 cellar: :any_skip_relocation, all: "c6c4de30805b69e53aacb7fb0069b67f42c48983418b3d23c97b9ef7013fe715"
   end
 
+  depends_on :macos # ships non-portable prebuilt Linux binaries
   depends_on "openjdk"
   depends_on "z3"
 
