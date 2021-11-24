@@ -13,7 +13,6 @@ class PyenvWhichExt < Formula
   deprecate! date: "2021-03-18", because: :deprecated_upstream
 
   depends_on "pyenv"
-  uses_from_macos "python" => :test
 
   def install
     ENV["PREFIX"] = prefix
@@ -21,7 +20,6 @@ class PyenvWhichExt < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin" if OS.linux?
-    shell_output("eval \"$(pyenv init -)\" && pyenv which python")
+    shell_output("eval \"$(pyenv init -)\" && pyenv which ls")
   end
 end
