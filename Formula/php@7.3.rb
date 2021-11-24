@@ -35,7 +35,6 @@ class PhpAT73 < Formula
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "jpeg"
