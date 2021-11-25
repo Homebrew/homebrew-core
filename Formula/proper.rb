@@ -21,6 +21,14 @@ class Proper < Formula
   def install
     system "make"
     prefix.install Dir["_build/default/lib/proper/ebin", "include"]
+    (prefix/"proper-#{version.major_minor}").install_symlink prefix/"ebin", include
+  end
+
+  def caveats
+    <<~EOS
+      To use PropEr in Erlang, you may need:
+        export ERL_LIBS=#{opt_prefix}/proper-#{version.major_minor}
+    EOS
   end
 
   test do
