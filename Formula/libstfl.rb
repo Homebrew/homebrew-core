@@ -6,11 +6,6 @@ class Libstfl < Formula
   license "LGPL-3.0-or-later"
   revision 13
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?stfl[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "0b1fd6b1765f50e9761dbdeac4f600cdb93be3e3a43e50c26fd4f5fa6ba334ea"
     sha256 cellar: :any,                 big_sur:       "76ddf39817cb57cd96f41b932f9f26cbe2d351ef5d8bbb3a28fe400bab623326"
@@ -18,6 +13,8 @@ class Libstfl < Formula
     sha256 cellar: :any,                 mojave:        "ad965ea1d3ccce63a01d2951182a5f9a87c81a08d72ff99a509e5977d68c49a0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "877cdb8227cbb5322b392b55cce951a46f6f5af2f8545998e72fb9daaf7b2117"
   end
+
+  deprecate! date: "2021-11-25", because: :repo_removed
 
   depends_on "python@3.9" => [:build, :test]
   depends_on "swig" => :build
