@@ -16,8 +16,6 @@ class Gitleaks < Formula
 
   depends_on "go" => :build
 
-  uses_from_macos "git"
-
   def install
     ldflags = "-X github.com/zricethezav/gitleaks/v#{version.major}/cmd.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
