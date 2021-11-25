@@ -4,6 +4,7 @@ class Civl < Formula
   url "https://vsl.cis.udel.edu/lib/sw/civl/1.20/r5259/release/CIVL-1.20_5259.tgz"
   version "1.20-5259"
   sha256 "15bf63b3a92300e8432e95397284e29aaa5897e405db9fc2d56cd086f9e330d3"
+  license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "BSD-3-Clause"]
   revision 1
 
   livecheck do
@@ -15,7 +16,6 @@ class Civl < Formula
     sha256 cellar: :any_skip_relocation, all: "c6c4de30805b69e53aacb7fb0069b67f42c48983418b3d23c97b9ef7013fe715"
   end
 
-  depends_on :macos # ships non-portable prebuilt Linux binaries
   depends_on "openjdk"
   depends_on "z3"
 
@@ -23,7 +23,8 @@ class Civl < Formula
     underscored_version = version.to_s.tr("-", "_")
     libexec.install "lib/civl-#{underscored_version}.jar"
     bin.write_jar_script libexec/"civl-#{underscored_version}.jar", "civl"
-    pkgshare.install "doc", "emacs", "examples", "licenses"
+    pkgshare.install "doc", "emacs", "licenses"
+    (pkgshare/"examples/concurrency/").install "examples/concurrency/locksBad.cvl"
   end
 
   test do
