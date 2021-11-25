@@ -1,10 +1,9 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.5.3.tar.gz"
-  sha256 "77f616ae4bea416674d8c373984b20c8bd55e7db887fd38c6df73463a0647bab"
+  url "https://github.com/opencv/opencv/archive/4.5.4.tar.gz"
+  sha256 "c20bb83dd790fc69df9f105477e24267706715a9d3c705ca1e7f613c7b3bad3d"
   license "Apache-2.0"
-  revision 3
 
   livecheck do
     url :stable
@@ -41,8 +40,8 @@ class Opencv < Formula
   uses_from_macos "zlib"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.5.3.tar.gz"
-    sha256 "73da052fd10e73aaba2560eaff10cc5177e2dcc58b27f8aedf7c649e24c233bc"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.4.tar.gz"
+    sha256 "ad74b440b4539619dc9b587995a16b691246023d45e34097c73e259f72de9f81"
   end
 
   def install
