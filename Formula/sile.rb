@@ -33,7 +33,6 @@ class Sile < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "expat"
-  uses_from_macos "git"
   uses_from_macos "zlib"
 
   resource "stdlib" do
