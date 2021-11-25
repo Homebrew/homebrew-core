@@ -6,6 +6,11 @@ class Enca < Formula
   license "GPL-2.0-only"
   head "https://github.com/nijel/enca.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?enca[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "305c3af3a704843192d4ed0bf9e75df33742d186ba3bcfec4273ced362dab5da"
     sha256 arm64_big_sur:  "bb6dbdce00c0f724d1c6bbb8afdf057e857851dac9d7ced14f61504382ce6ee0"
