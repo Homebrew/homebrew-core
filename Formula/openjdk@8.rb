@@ -16,6 +16,7 @@ class OpenjdkAT8 < Formula
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
+  depends_on "gawk" => :build if MacOS.version > :big_sur
   depends_on "pkg-config" => :build
   depends_on "freetype"
 
