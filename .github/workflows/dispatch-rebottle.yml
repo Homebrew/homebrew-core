@@ -1,4 +1,4 @@
-name: Dispatch rebottle (for all macOS versions)
+name: Dispatch rebottle (for all currently bottled OS versions)
 
 on:
   workflow_dispatch:
@@ -17,7 +17,7 @@ on:
         description: "Whether to upload built bottles or not (default: false)"
         required: false
       fail-fast:
-        description: "Whether to fail immediately on a single macOS version failure (default: true)"
+        description: "Whether to fail immediately on a single OS version failure (default: true)"
         default: "true"
         required: false
 
@@ -29,26 +29,50 @@ env:
   HOMEBREW_RELOCATE_RPATHS: 1
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu16.04:master
+    outputs:
+      runners: ${{steps.determine-runners.outputs.runners}}
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Determine runners
+        id: determine-runners
+        run: brew determine-rebottle-runners "${{github.event.inputs.formula}}" "${{github.event.inputs.timeout}}"
+
   bottle:
+    needs: setup
     strategy:
       matrix:
-        version: ["12-arm64", "12", "11-arm64", "11", "10.15"]
+        include: ${{fromJson(needs.setup.outputs.runners)}}
       fail-fast: ${{fromJson(github.event.inputs.fail-fast)}}
-    runs-on: ${{ matrix.version }}
+    runs-on: ${{matrix.runner}}
+    container: ${{matrix.container}}
     timeout-minutes: ${{fromJson(github.event.inputs.timeout)}}
+    defaults:
+      run:
+        working-directory: ${{matrix.workdir || github.workspace}}
     env:
-      PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-      GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK: 1
     steps:
       - name: ${{github.event.inputs.formula}}
         id: print_details
         run: |
           echo sender=${{github.event.sender.login}}
           echo formula=${{github.event.inputs.formula}}
+          echo timeout=${{github.event.inputs.timeout}}
           echo issue=${{github.event.inputs.issue}}
           echo upload=${{github.event.inputs.upload}}
+
+      - name: Set environment variables
+        if: runner.os == 'macOS'
+        run: |
+          echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
+          echo 'GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED=1' >> $GITHUB_ENV
 
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -84,13 +108,14 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: logs
-          path: bottles/logs
+          path: ${{matrix.workdir || github.workspace}}/bottles/logs
 
       - name: Delete logs and home
         if: always()
         run: |
           rm -rvf bottles/logs
           rm -rvf bottles/home
+          rm -rvf bottles/failed
 
       - name: Count bottles
         id: bottles
@@ -106,14 +131,13 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: bottles
-          path: bottles
+          path: ${{matrix.workdir || github.workspace}}/bottles
 
-      - run: brew test-bot --only-cleanup-after
+      - name: Post cleanup
         if: always()
-
-      - name: Post Cleanup
-        if: always()
-        run: rm -rvf bottles
+        run: |
+          brew test-bot --only-cleanup-after
+          rm -rvf bottles
 
       - name: Post comment on failure
         if: ${{!success() && github.event.inputs.issue > 0}}
@@ -124,6 +148,7 @@ jobs:
           body: ":x: @${{github.actor}} bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
           bot_body: ":x: Bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
           bot: BrewTestBot
+
   upload:
     runs-on: ubuntu-latest
     needs: bottle
@@ -131,15 +156,6 @@ jobs:
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
-      - name: ${{github.event.inputs.formula}}
-        id: print_details
-        run: |
-          echo sender=${{github.event.sender.login}}
-          echo formula=${{github.event.inputs.formula}}
-          echo version=${{github.event.inputs.macos}}
-          echo issue=${{github.event.inputs.issue}}
-          echo upload=${{github.event.inputs.upload}}
-
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
