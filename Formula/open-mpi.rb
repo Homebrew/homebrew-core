@@ -34,14 +34,8 @@ class OpenMpi < Formula
   conflicts_with "mpich", because: "both install MPI compiler wrappers"
 
   def install
-    if MacOS.version == :big_sur
-      # Fix for current GCC on Big Sur, which does not like 11 as version value
-      # (reported at https://github.com/iains/gcc-darwin-arm64/issues/31#issuecomment-750343944)
-      ENV["MACOSX_DEPLOYMENT_TARGET"] = "11.0"
-    else
-      # Otherwise libmpi_usempi_ignore_tkr gets built as a static library
-      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
-    end
+    # Otherwise libmpi_usempi_ignore_tkr gets built as a static library
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
     # Avoid references to the Homebrew shims directory
     %w[
