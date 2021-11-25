@@ -21,7 +21,7 @@ class OpenImageDenoise < Formula
   depends_on "tbb"
 
   def install
-    # Fix arm64 build targetting iOS
+    # Fix arm64 build targeting iOS
     inreplace "cmake/oidn_ispc.cmake", 'set(ISPC_TARGET_OS "--target-os=ios")', ""
 
     mkdir "build" do
