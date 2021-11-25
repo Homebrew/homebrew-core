@@ -22,8 +22,7 @@ class ArduinoCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9467a330e3df2f50d077c19af97e6a9cfa2e9a4546494f281c306a93450ca672"
   end
 
-  # Switch to Go 1.17 at version bump
-  depends_on "go@1.16" => :build
+  depends_on "go" => :build
 
   def install
     ldflags = %W[
