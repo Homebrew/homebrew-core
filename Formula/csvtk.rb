@@ -1,8 +1,8 @@
 class Csvtk < Formula
   desc "Cross-platform, efficient and practical CSV/TSV toolkit in Golang"
   homepage "https://bioinf.shenwei.me/csvtk"
-  url "https://github.com/shenwei356/csvtk/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "b8ccf2b86c815693af1c7d743ca711a68fcdde94d9a9279ac8557fdffa3f2fc8"
+  url "https://github.com/shenwei356/csvtk/archive/refs/tags/v0.24.0.tar.gz"
+  sha256 "d944e55d9555733990783bbe45200da5eaef47a13d4eac242ef084d9384d54f8"
   license "MIT"
 
   bottle do
