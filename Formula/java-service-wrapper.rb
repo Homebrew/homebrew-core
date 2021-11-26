@@ -16,6 +16,7 @@ class JavaServiceWrapper < Formula
   end
 
   test do
-    shell_output("#{libexec}/bin/testwrapper status", 1)
+    output = shell_output("#{libexec}/bin/testwrapper status", 1)
+    assert_match("Test Wrapper Sample Application", output)
   end
 end
