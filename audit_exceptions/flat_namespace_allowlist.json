@@ -4,6 +4,7 @@
   "bind",
   "blast",
   "coq",
+  "hdf5-mpi",
   "libvirt",
   "mpich",
   "omniorb",
