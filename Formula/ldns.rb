@@ -1,10 +1,9 @@
 class Ldns < Formula
   desc "DNS library written in C"
   homepage "https://nlnetlabs.nl/projects/ldns/"
-  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz"
-  sha256 "8ac84c16bdca60e710eea75782356f3ac3b55680d40e1530d7cea474ac208229"
+  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.0.tar.gz"
+  sha256 "82512507698031c37902e941c84deca3edad8cf791e7c3275a2d99d4e53f8cfc"
   license "BSD-3-Clause"
-  revision 4
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.
@@ -48,9 +47,10 @@ class Ldns < Formula
     system "./configure", *args
 
     if OS.mac?
+      # FIXME: Turn this into a proper patch and send it upstream.
       inreplace "Makefile" do |s|
-        s.change_make_var! "PYTHON_LDFLAGS", "-undefined dynamic_lookup"
-        s.gsub!(/(\$\(PYTHON_LDFLAGS\).*) -no-undefined/, "\\1")
+        s.change_make_var! "PYTHON_LIBS", "-undefined dynamic_lookup"
+        s.gsub!(/(\$\(PYTHON_CFLAGS\).*) -no-undefined/, "\\1")
       end
     end
 
