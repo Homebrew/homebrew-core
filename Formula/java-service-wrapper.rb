@@ -5,8 +5,8 @@ class JavaServiceWrapper < Formula
   sha256 "82e1d0c85488d1389d02e3abe3359a7f759119e356e3e3abd6c6d67615ae5ad8"
   license "GPL-2.0-only"
 
-  depends_on "openjdk@11" => :build
   depends_on "ant" => :build
+  depends_on "openjdk@11" => :build
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
