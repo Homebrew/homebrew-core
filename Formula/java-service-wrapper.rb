@@ -6,6 +6,7 @@ class JavaServiceWrapper < Formula
   license "GPL-2.0-only"
 
   depends_on "openjdk@11" => :build
+  depends_on "ant" => :build
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
