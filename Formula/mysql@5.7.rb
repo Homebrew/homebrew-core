@@ -29,12 +29,18 @@ class MysqlAT57 < Formula
     depends_on "pkg-config" => :build
   end
 
-  def datadir
-    var/"mysql"
+  # Fix build on Monterey.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fcbea58e245ea562fbb749bfe6e1ab178fd10025/mysql/monterey.diff"
+    sha256 "6709edb2393000bd89acf2d86ad0876bde3b84f46884d3cba7463cd346234f6f"
   end
 
   # Fixes loading of VERSION file, backported from mysql/mysql-server@51675dd
   patch :DATA
+
+  def datadir
+    var/"mysql"
+  end
 
   def install
     if OS.linux?
