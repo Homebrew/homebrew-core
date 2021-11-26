@@ -47,9 +47,10 @@ class Ldns < Formula
     system "./configure", *args
 
     if OS.mac?
+      # FIXME: Turn this into a proper patch and send it upstream.
       inreplace "Makefile" do |s|
-        s.change_make_var! "PYTHON_LDFLAGS", "-undefined dynamic_lookup"
-        s.gsub!(/(\$\(PYTHON_LDFLAGS\).*) -no-undefined/, "\\1")
+        s.change_make_var! "PYTHON_LIBS", "-undefined dynamic_lookup"
+        s.gsub!(/(\$\(PYTHON_CFLAGS\).*) -no-undefined/, "\\1")
       end
     end
 
