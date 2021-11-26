@@ -14,6 +14,8 @@ class Newsboat < Formula
     sha256 x86_64_linux:  "a8e76829cb365ae43de0e3aa6d442c1a95378abb59a19f6a2f006f0910e3d44b"
   end
 
+  deprecate! date: "2021-11-26", because: "libstfl is deprecated"
+
   depends_on "asciidoctor" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
