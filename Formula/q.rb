@@ -16,8 +16,16 @@ class Q < Formula
   depends_on xcode: ["12.4", :build]
 
   def install
+    arch_folder = if OS.linux?
+      "x86_64-unknown-linux-gnu"
+    elsif Hardware::CPU.intel?
+      "x86_64-apple-darwin"
+    else
+      "aarch64-apple-darwin"
+    end
+
     system "pyoxidizer", "build", "--release"
-    bin.install "./build/x86_64-apple-darwin/release/install/q"
+    bin.install "./build/#{arch_folder}/release/install/q"
 
     system "ronn", "--roff", "--section=1", "doc/USAGE.markdown"
     man1.install "doc/USAGE.1" => "q.1"
