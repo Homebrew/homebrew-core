@@ -1,8 +1,8 @@
 class Keptn < Formula
   desc "Is the CLI for keptn.sh a message-driven control-plane for application delivery"
   homepage "https://keptn.sh"
-  url "https://github.com/keptn/keptn/archive/0.9.2.tar.gz"
-  sha256 "0ba9f79f3428baa2453622e19eeff2a325c36b35a5b22f60b4589ef77cc77826"
+  url "https://github.com/keptn/keptn/archive/0.11.1.tar.gz"
+  sha256 "288120c7e193e8267c197fffd7f9f0a572519e049223c938354363233a2468cb"
   license "Apache-2.0"
 
   bottle do
@@ -20,7 +20,7 @@ class Keptn < Formula
   def install
     ldflags = %W[
       -s -w
-      -X main.Version=#{version}
+      -X github.com/keptn/keptn/cli/cmd.Version=#{version}
       -X main.KubeServerVersionConstraints=""
     ].join(" ")
 
@@ -34,8 +34,6 @@ class Keptn < Formula
     system bin/"keptn", "set", "config", "kubeContextCheck", "false"
 
     assert_match "Keptn CLI version: #{version}", shell_output(bin/"keptn version 2>&1")
-
-    assert_match "This command requires to be authenticated. See \"keptn auth\" for details",
-      shell_output(bin/"keptn status 2>&1", 1)
+    assert_match(/^Error: .*$/, shell_output(bin/"keptn status 2>&1", 1))
   end
 end
