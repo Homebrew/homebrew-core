@@ -10,6 +10,7 @@ class JavaServiceWrapper < Formula
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+    # Default javac target version is 1.4, use 1.6 which is the minimum available on openjdk@11
     system "ant", "-Dbits=64", "-Djavac.target.version=1.6"
     libexec.install "lib", "bin", "src/bin" => "scripts"
   end
