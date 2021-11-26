@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Formula for q
 class Q < Formula
   desc "Run SQL directly on CSV or TSV files"
   homepage "https://harelba.github.io/q/"
@@ -8,7 +7,6 @@ class Q < Formula
   sha256 "e63ba4ae49647f764c5255ad7065d2c614fdf03a2f7349a795de69529701fab8"
 
   license "GPL-3.0-or-later"
-  revision 1
 
   depends_on "pyoxidizer" => :build
   depends_on "python@3.8" => :build
