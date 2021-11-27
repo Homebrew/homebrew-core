@@ -1,8 +1,9 @@
 class Q < Formula
   desc "Run SQL directly on CSV or TSV files"
   homepage "https://harelba.github.io/q/"
-  url "https://github.com/harelba/q/archive/v3.1.6.tar.gz"
-  sha256 "e63ba4ae49647f764c5255ad7065d2c614fdf03a2f7349a795de69529701fab8"
+  url "https://github.com/harelba/q/archive/additional-fixes-for-brew.tar.gz"
+  version "3.1.7"
+  sha256 "bec6842e5407ecad2ed4c36f27f4814670b193a2ea1c0da5409d2064f06ff93d"
 
   license "GPL-3.0-or-later"
 
@@ -30,7 +31,7 @@ class Q < Formula
       "aarch64-apple-darwin"
     end
 
-    system "pyoxidizer", "build", "--release"
+    system "pyoxidizer", "build", "--release", "--var", "PYTHON_VERSION", "3.9"
     bin.install "./build/#{arch_folder}/release/install/q"
 
     system "ronn", "--roff", "--section=1", "doc/USAGE.markdown"
