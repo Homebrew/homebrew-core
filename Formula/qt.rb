@@ -93,6 +93,14 @@ class Qt < Formula
 
   fails_with gcc: "5"
 
+  # Fix build with assimp 5.1.
+  # Remove with 6.3.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0bfbbefc45142ec9be248ed66229782138bc7bc1/qt/qtquick3d-assimp-5.1.patch"
+    sha256 "31ae338ebcea3e423f3f10b9bc470ba3b46b0e35dd2b5ae1c067025f6bc0c109"
+    directory "qtquick3d"
+  end
+
   # Fix build with Xcode 13+ and a performance regression. Already merged and should be removed in next release.
   patch :DATA
 
