@@ -1,8 +1,8 @@
 class Fd < Formula
   desc "Simple, fast and user-friendly alternative to find"
   homepage "https://github.com/sharkdp/fd"
-  url "https://github.com/sharkdp/fd/archive/v8.2.1.tar.gz"
-  sha256 "429de7f04a41c5ee6579e07a251c72342cd9cf5b11e6355e861bb3fffa794157"
+  url "https://github.com/sharkdp/fd/archive/v8.3.0.tar.gz"
+  sha256 "3c5a8a03c4f6ade73b92432ed0ba51591db19b0d136073fa3ccfa99d63403d52"
   license "Apache-2.0"
   head "https://github.com/sharkdp/fd.git"
 
@@ -30,6 +30,6 @@ class Fd < Formula
   test do
     touch "foo_file"
     touch "test_file"
-    assert_equal "test_file", shell_output("#{bin}/fd test").chomp
+    assert_equal "./test_file", shell_output("#{bin}/fd test").chomp
   end
 end
