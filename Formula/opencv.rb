@@ -39,8 +39,7 @@ class Opencv < Formula
   uses_from_macos "zlib"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.5.3.tar.gz"
-    sha256 "73da052fd10e73aaba2560eaff10cc5177e2dcc58b27f8aedf7c649e24c233bc"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.4.tar.gz"
   end
 
   def install
