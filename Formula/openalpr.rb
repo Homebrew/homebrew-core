@@ -18,7 +18,7 @@ class Openalpr < Formula
   depends_on "leptonica"
   depends_on "libtiff"
   depends_on "log4cplus"
-  depends_on "opencv"
+  depends_on "opencv@3"
   depends_on "python@3.9"
   depends_on "tesseract"
 
@@ -26,8 +26,8 @@ class Openalpr < Formula
 
   # A photo of licence plate from https://commons.wikimedia.org/wiki/File:California_2018_license_plate_(USA).jpg
   resource "testdata" do
-    url "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/California_2018_license_plate_%28USA%29.jpg/320px-California_2018_license_plate_%28USA%29.jpg"
-    sha256 "dc30906e6e79f5cf3593ff5d545ff12f8446cc9e032b1bc9e35ecb2488873ee4"
+    url "https://upload.wikimedia.org/wikipedia/commons/b/b0/California_2018_license_plate_%28USA%29.jpg"
+    sha256 "dd58b62f4f75690280dd0b021b19422cef7f4f4381664d3ee512106e6f491e5c"
   end
 
   # Make compatible with opencv 4
