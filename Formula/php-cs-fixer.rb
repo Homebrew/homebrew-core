@@ -25,6 +25,7 @@ class PhpCsFixer < Formula
       $this->foo('homebrew rox');
     EOS
 
+    ENV["PHP_CS_FIXER_IGNORE_ENV"] = "1"
     system "#{bin}/php-cs-fixer", "fix", "test.php"
     assert compare_file("test.php", "correct_test.php")
   end
