@@ -1,9 +1,8 @@
 class Q < Formula
   desc "Run SQL directly on CSV or TSV files"
   homepage "https://harelba.github.io/q/"
-  url "https://github.com/harelba/q/archive/additional-fixes-for-brew.tar.gz"
-  version "3.1.7"
-  sha256 "bec6842e5407ecad2ed4c36f27f4814670b193a2ea1c0da5409d2064f06ff93d"
+  url "https://github.com/harelba/q/archive/v3.1.6.tar.gz"
+  sha256 "e63ba4ae49647f764c5255ad7065d2c614fdf03a2f7349a795de69529701fab8"
 
   license "GPL-3.0-or-later"
 
@@ -20,6 +19,8 @@ class Q < Formula
   depends_on "python@3.8" => :build
   depends_on "ronn" => :build
   depends_on xcode: ["12.4", :build]
+
+  patch :DATA
 
   def install
     arch_folder = if OS.linux?
@@ -43,3 +44,23 @@ class Q < Formula
     assert_equal "5050\n", output
   end
 end
+__END__
+diff --git a/pyoxidizer.bzl b/pyoxidizer.bzl
+index da79ba2..8a27c4b 100644
+--- a/pyoxidizer.bzl
++++ b/pyoxidizer.bzl
+@@ -3,11 +3,13 @@
+ # https://pyoxidizer.readthedocs.io/en/stable/ for details of this
+ # configuration file format.
+ 
++PYTHON_VERSION = VARS.get("PYTHON_VERSION","3.8")
++
+ # Configuration files consist of functions which define build "targets."
+ # This function creates a Python executable and installs it in a destination
+ # directory.
+ def make_exe():
+-    dist = default_python_distribution(python_version="3.8")
++    dist = default_python_distribution(python_version=PYTHON_VERSION)
+ 
+     policy = dist.make_python_packaging_policy()
+     policy.set_resource_handling_mode("classify")
