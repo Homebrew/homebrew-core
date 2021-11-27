@@ -4,7 +4,7 @@ class Openalpr < Formula
   url "https://github.com/openalpr/openalpr/archive/v2.3.0.tar.gz"
   sha256 "1cfcaab6f06e9984186ee19633a949158c0e2aacf9264127e2f86bd97641d6b9"
   license "AGPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_big_sur: "4413a608d96584a63180fcb7a8d1c794ef8277010b9bd76f03c3bdfd60e3fe5a"
@@ -26,8 +26,8 @@ class Openalpr < Formula
 
   # A photo of licence plate from https://commons.wikimedia.org/wiki/File:California_2018_license_plate_(USA).jpg
   resource "testdata" do
-    url "https://upload.wikimedia.org/wikipedia/commons/b/b0/California_2018_license_plate_%28USA%29.jpg"
-    sha256 "dd58b62f4f75690280dd0b021b19422cef7f4f4381664d3ee512106e6f491e5c"
+    url "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/California_2018_license_plate_%28USA%29.jpg/320px-California_2018_license_plate_%28USA%29.jpg"
+    sha256 "dc30906e6e79f5cf3593ff5d545ff12f8446cc9e032b1bc9e35ecb2488873ee4"
   end
 
   # Make compatible with opencv 4
