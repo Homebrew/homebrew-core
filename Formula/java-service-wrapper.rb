@@ -7,6 +7,9 @@ class JavaServiceWrapper < Formula
 
   depends_on "ant" => :build
   depends_on "openjdk@11" => :build
+  on_linux do
+    depends_on "cunit" => :build
+  end
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
