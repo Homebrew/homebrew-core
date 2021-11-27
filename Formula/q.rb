@@ -4,6 +4,8 @@ class Q < Formula
   url "https://github.com/harelba/q/archive/v3.1.6.tar.gz"
   sha256 "e63ba4ae49647f764c5255ad7065d2c614fdf03a2f7349a795de69529701fab8"
 
+  license "GPL-3.0-or-later"
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c72ca06a7c9dbe3b3eaee1b8db72811edbf7e64fbee5b694bcf2ed7e8d877d50"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c72ca06a7c9dbe3b3eaee1b8db72811edbf7e64fbee5b694bcf2ed7e8d877d50"
@@ -13,13 +15,11 @@ class Q < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bed14a331133ff96b85fa37e0729ca695bd273f78ee82e792185d137edf9917a"
   end
 
-  license "GPL-3.0-or-later"
-
-  depends_on arch: :x86_64
   depends_on "pyoxidizer" => :build
   depends_on "python@3.8" => :build
   depends_on "ronn" => :build
   depends_on xcode: ["12.4", :build]
+  depends_on arch: :x86_64
 
   def install
     arch_folder = if OS.linux?
