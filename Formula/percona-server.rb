@@ -61,6 +61,13 @@ class PerconaServer < Formula
     sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
   end
 
+  # Fix build on Monterey.
+  # Remove with the next version.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fcbea58e245ea562fbb749bfe6e1ab178fd10025/mysql/monterey.diff"
+    sha256 "6709edb2393000bd89acf2d86ad0876bde3b84f46884d3cba7463cd346234f6f"
+  end
+
   # Where the database files should be located. Existing installs have them
   # under var/percona, but going forward they will be under var/mysql to be
   # shared with the mysql and mariadb formulae.
