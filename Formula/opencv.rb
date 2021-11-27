@@ -40,6 +40,7 @@ class Opencv < Formula
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.5.4.tar.gz"
+    sha256 "ad74b440b4539619dc9b587995a16b691246023d45e34097c73e259f72de9f81"
   end
 
   def install
