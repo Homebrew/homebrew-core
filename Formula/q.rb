@@ -20,7 +20,6 @@ class Q < Formula
   depends_on "python@3.8" => :build
   depends_on "ronn" => :build
   depends_on xcode: ["12.4", :build]
-  depends_on arch: :x86_64
 
   def install
     arch_folder = if OS.linux?
