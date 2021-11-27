@@ -6,6 +6,11 @@ class Ffmpeg2theora < Formula
   revision 9
   head "https://gitlab.xiph.org/xiph/ffmpeg2theora.git"
 
+  livecheck do
+    url "http://v2v.cc/~j/ffmpeg2theora/download.html"
+    regex(/href=.*?ffmpeg2theora[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_monterey: "90738560daa49a15f7aabf51be18dd1ce4f4c748c35c669b279e394853200a89"
     sha256 cellar: :any, arm64_big_sur:  "114e5f48ead0a1375f4dab1217723fe5f6850529ee5fc3f5fe4042295adf327a"
