@@ -7,18 +7,16 @@ class Openalpr < Formula
   revision 3
 
   bottle do
-    sha256 arm64_big_sur: "4413a608d96584a63180fcb7a8d1c794ef8277010b9bd76f03c3bdfd60e3fe5a"
-    sha256 big_sur:       "a686b58100f9c397a2be1eb70595c773440e26e652a8539745bcfebd38359b12"
-    sha256 catalina:      "c1ba59a1d018a65f019ea162dd44efefc28ef54720f5b702c3763f21b5bdbb65"
-    sha256 mojave:        "6b61f23a1832eaea3acebf2ac5333d96eaa2ac9f978b8c1dbe6cfabadf0e980c"
-    sha256 x86_64_linux:  "a37d2f029a47097ea7c81936ed0400451780ae75594cf4aae10cc1647e5bc93e"
+    sha256 big_sur:  "32953a90e352cc25eea99daad7fac67c7ce11f042fe366af029b16cc3f372c07"
+    sha256 catalina: "0a05746932c63e1d0dd1749a7213ed0a9cff7d7da2cdfe49e032aeb1b1da56ad"
+    sha256 mojave:   "64dd8cef3f2fe311304e0fffae5ed50dd37123d6611aae751ba272be956bf334"
   end
 
   depends_on "cmake" => :build
   depends_on "leptonica"
   depends_on "libtiff"
   depends_on "log4cplus"
-  depends_on "opencv@3"
+  depends_on "opencv"
   depends_on "python@3.9"
   depends_on "tesseract"
 
