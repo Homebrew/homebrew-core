@@ -20,6 +20,7 @@ class Q < Formula
   depends_on "ronn" => :build
   depends_on xcode: ["12.4", :build]
 
+  # Patch to allow proper ARM builds by using python3.9. Will be removed in the next version since patch is already in the master
   patch :DATA
 
   def install
