@@ -7,11 +7,10 @@ class PysideAT2 < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "2da0d4e6f5578894be86e636e1c3e38c77d55fa822de1e8af8452568aaf3d521"
-    sha256 cellar: :any, arm64_big_sur:  "dea3a094619f3dd87bc875b261b837b5a9740307c17b708f770d27186d91e402"
-    sha256 cellar: :any, big_sur:        "92f859236a4a544d67d7156393e43f74e525936193fe4cbd78efce08b182f950"
-    sha256 cellar: :any, catalina:       "9910767e2fa6ae3e532e227d68e616deab536c9053f45027b3d3cb701816f67b"
-    sha256 cellar: :any, mojave:         "ba4fe20995f6d18ebd36773e2eefc67e83c165db8e78283599301bf66ed37426"
+    sha256 cellar: :any, arm64_monterey: "b4b284bad87b89396d35732b9f509b653c2f63c1dc3d7ca63174d2c2dc377d30"
+    sha256 cellar: :any, arm64_big_sur:  "e432cfa5235290c62d9880bead26e893d1b9a3720a986b5e75146a6f4f06811e"
+    sha256 cellar: :any, big_sur:        "d8ac145f45d791c6967ed76ce24bbfd9b111eabeb6459824aca396d50d08c858"
+    sha256 cellar: :any, catalina:       "ac9f88f0bf1ed4417551c57342cfdeb328c28b417cb6ec3dc4dd78451bfaaf02"
   end
 
   keg_only :versioned_formula
