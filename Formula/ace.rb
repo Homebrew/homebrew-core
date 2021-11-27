@@ -39,7 +39,7 @@ class Ace < Formula
                    "static_libs=0",
                    "install"
 
-    system "make", "-C", "examples"
+    system "make", "-C", "examples/Log_Msg"
     pkgshare.install "examples"
   end
 
