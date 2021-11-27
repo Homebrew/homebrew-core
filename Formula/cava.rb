@@ -6,6 +6,15 @@ class Cava < Formula
   license "MIT"
   head "https://github.com/karlstav/cava.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any, arm64_monterey: "a9bcaeba0b6e4a72d01e93909b89f5492c629447e059e19bc076315185e7be10"
+    sha256 cellar: :any, arm64_big_sur:  "eba8aee3d32a5903073a503200b4e4a28d3ea531263085e16ff4591a7b93454e"
+    sha256 cellar: :any, monterey:       "0ea0d7a31c270df64bc423de9623e8e3a32bea2f09ac4e700dc3c204b0b5ed7f"
+    sha256 cellar: :any, big_sur:        "8cfbe0a65351827ec14c810390951c577f48ab9cc21a05b84929d9dc9d4056d6"
+    sha256 cellar: :any, catalina:       "83320de97b0893a387b0e44778e55698ae5e2a6a167947de5b8d7cc6c21765e4"
+    sha256               x86_64_linux:   "9a61fb2396cad4d2a4132bb2027f9aee52d1daff2949187a6ece75c86452e058"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool"  => :build
