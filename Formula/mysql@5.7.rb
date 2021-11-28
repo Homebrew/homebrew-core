@@ -72,6 +72,8 @@ class MysqlAT57 < Formula
       -DWITH_INNODB_MEMCACHED=ON
     ]
 
+    args << "-DENABLE_DTRACE=0" if OS.linux?
+
     system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
