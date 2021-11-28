@@ -12,12 +12,12 @@ class TaskwarriorTui < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3797e16e8a1237bc5334fdfbd3752cb74d86f639d0b06bc176a8d7870d37a1d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "48f26747628321f030f7a37ab57afeaa2929492124a72c0ab23cb3d6b1bd2140"
-    sha256 cellar: :any_skip_relocation, monterey:       "e6d97884a5035889722c6b5d8358b0f04bc35ff9d35d967970729623019aff4c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "973841d46d8d10e26a8df1f2d97bb86af6580be0335af05ee5f6c3f1eff3161f"
-    sha256 cellar: :any_skip_relocation, catalina:       "c3c1e68396ed1439337e0aaf46b793d87f56a33e3448622494e52ad04a236bbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24b0a4651680213c5766b7708fbf99d401604d9d7fead48effa773ed9dcec698"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b869d051825f5ee764afcecc44d7c1872ef2bb7ccf26e85a2bd7d443d53cb83"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0786a221979df2109d09d783d7b51a77291e9e80cf43b79f326812cca708e06"
+    sha256 cellar: :any_skip_relocation, monterey:       "7c3a51af8e738be9a8c6d6152354067b430761fa032025cbce280d04585fc33d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a42a6d6a498cbc0839cfee26477a0ea896cd04c964a55d52598bc7e4fceac886"
+    sha256 cellar: :any_skip_relocation, catalina:       "e5b4d8aa731020d2fce452465969ac9bbbaa844d28432338f471bef6a9dc270f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b297d5bb260dd661d112df138a79f45058c3799112cd9123aac05959ea772d09"
   end
 
   depends_on "rust" => :build
