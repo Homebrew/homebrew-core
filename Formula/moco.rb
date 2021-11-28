@@ -11,7 +11,8 @@ class Moco < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "acd799b20fe83f3183af8c10c39cb7b78e43f0366c1137006f869649577f1765"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "856cb9381f9a8d2941327ba84c0c11978bb7d3aefe5aa04d4e5f451e3fd86571"
   end
 
   depends_on "openjdk"
