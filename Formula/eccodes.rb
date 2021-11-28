@@ -13,6 +13,7 @@ class Eccodes < Formula
   bottle do
     sha256 arm64_monterey: "26f7573565db98d674108f36818dc938e2fe61340fd8ace3535acc0eb4209cde"
     sha256 arm64_big_sur:  "b16288b8e285a187f91ae6b7cec94face9fc1f28bfc888eb8e1bf50aa74a765b"
+    sha256 monterey:       "7eaf6b6134b71951aa7abb351e10a1a008845e4d4df724be833c66c17d21ebd6"
     sha256 big_sur:        "b9bda6733d23098c49062f172ab721c2ccc56e37becf133c1e2d88fad17a904a"
     sha256 catalina:       "0d7e1a89a8631e9683e5303098be30a549f1369b98350d6475020e2708789f71"
     sha256 mojave:         "ec525f2dc9352dc64c33be76c8e0c6e24913caf6d7ec0302bc3e830305d6f9b9"
