@@ -13,7 +13,8 @@ class Sbuild < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7c54295e4c98758e18d7d5a5ffd76185e429561e59b4a716d25d3482e2546eeb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fc669892a90bc0937d4e475bf8d91916041f93b0c7819bef7a5af812b4572940"
   end
 
   depends_on "openjdk"

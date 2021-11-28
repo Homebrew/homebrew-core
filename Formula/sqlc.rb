@@ -1,19 +1,18 @@
 class Sqlc < Formula
   desc "Generate type safe Go from SQL"
   homepage "https://sqlc.dev/"
-  url "https://github.com/kyleconroy/sqlc/archive/v1.10.0.tar.gz"
-  sha256 "04a52021bc11bc0c8a6f600e2c2c49c644e0f8ea2a77d9bf7f5c4339f9e717cb"
+  url "https://github.com/kyleconroy/sqlc/archive/v1.11.0.tar.gz"
+  sha256 "6e18562a066ea70687e7abb642e3dde48a128633f71d29788c4df6a886eac1d1"
   license "MIT"
   head "https://github.com/kyleconroy/sqlc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb666cb62956f46089e845a75bbdf9e1dd2468e6de60b31efbb3b22e826f4b6f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3cb9142b29b5be3a4a051918c0f7105a54777ba34aab756e3ec30c32d4e54936"
-    sha256 cellar: :any_skip_relocation, monterey:       "2d28c4e3e14ecfdd3680ebcb4c6bba6e11fe6cd7040e08da1a30e08ed05c868c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "57822dbcd38cd5835b0e8d5ae8bed2ed010e925563b47cd0b406cc64f4055ef6"
-    sha256 cellar: :any_skip_relocation, catalina:       "7359588cc4700484e7a12867f93a289424100114d9d8af037f36d1a3231091ba"
-    sha256 cellar: :any_skip_relocation, mojave:         "4093ef305a8d00ad0acf13a87cd31340f17219560c58ac98b1d4ad2213e8fc89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0449046713f387fa8023eea6cb4e1a4d574e0897d15a28b27a4a3e3165112c89"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "40452ecb6dc329fc185384409864581c4d30fa91315c6d949b06e1787d6a6c94"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "487313b46c7c867430588f1035a8d43a9d7baa3d13de3546ba87a985376c7db8"
+    sha256 cellar: :any_skip_relocation, monterey:       "685dedde35b2bb87775f9ea49a35ad20570dbf668cedb2eb04bd8f8cfd5103b8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "098b43398bdea2d3fe4b9967084616f5854d8ad62d02966bcba5c8ff9532ae2d"
+    sha256 cellar: :any_skip_relocation, catalina:       "1e26901a8a591cae25ab8a7297dc996f8d5a1ca69b6430067ba0feb00ccf7e59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39bec999ea802a733c401ae35744d0d31900f9b1f2230a7923dba2b6d04819de"
   end
 
   depends_on "go" => :build

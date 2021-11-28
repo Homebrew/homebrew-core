@@ -5,7 +5,8 @@ class Jslint4java < Formula
   sha256 "078240b17256a0472f9981d68f11556238658ebaa67be49ea49958adafc96a81"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "42851a1611e21e6ea7b35510783b3165bd2f34606345931bd781ab993f3b0c38"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "6aa488cc941093b2d5be078041f08b5b90990519ed35f784960e0ea4c37dca29"
   end
 
   depends_on "openjdk"

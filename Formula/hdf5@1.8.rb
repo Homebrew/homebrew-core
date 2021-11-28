@@ -15,6 +15,7 @@ class Hdf5AT18 < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "993e6daccf524d67fb067decd0258e2d7d7f30d67d4e003b3b0638eb79c32724"
     sha256 cellar: :any,                 arm64_big_sur:  "802b34502415968c0a1322f55e68086c7122dbdd96026e26e21cdfe50bbef136"
+    sha256 cellar: :any,                 monterey:       "ef062baf9ecd358277129436555492b291eb15b50f92abda3f9e1f793622e910"
     sha256 cellar: :any,                 big_sur:        "25f4af91d8f934b8d706271bb31d27a6b1f42e9fa4c6186687cea9078c0e56a0"
     sha256 cellar: :any,                 catalina:       "65d03686011e2cd7c575c56829b9b639a0b04e1a94fb827f97e4897de2a9126c"
     sha256 cellar: :any,                 mojave:         "b2af62b2ad8128b5df29097a95d32555b072aaf10f39ab2d0f3b36ca5c8b5d56"

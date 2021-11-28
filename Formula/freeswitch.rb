@@ -5,6 +5,7 @@ class Freeswitch < Formula
       tag:      "v1.10.7",
       revision: "883d2cb662bed0316e157bd3beb9853e96c60d02"
   license "MPL-1.1"
+  revision 1
   head "https://github.com/signalwire/freeswitch.git"
 
   livecheck do
@@ -13,11 +14,11 @@ class Freeswitch < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "e126a823e6fbc7eccc6f6ad3bb3d188f52b366c2ea5005a336e5de69237dd018"
-    sha256 arm64_big_sur:  "9c6740da71f66b2cd9a11654ab4a6cd83b516ad6beeeca4185098f32862a6f34"
-    sha256 monterey:       "21b9427eb3d3477d3f9fbc82bc02abb7fd60efa1da1ae02682c234973ab4221f"
-    sha256 big_sur:        "e5cc98e621aaf831f4f539262a0babd3bbe09a0b2ae16dd3445ed5276a7c9cd6"
-    sha256 catalina:       "94122af9221e84a5fe6c119a0ff037e76a89965bd2da07cf6c1f38a9d885de06"
+    sha256 arm64_monterey: "8fc6c31f8213b557766a1dd74830a1b63b0ad51c8b671f6363c693b3c9d691b2"
+    sha256 arm64_big_sur:  "5592b4260505d588dbd71dd876237f42e43c02d828c558c8b283c2ae19bdc771"
+    sha256 monterey:       "6312612c5b73b613705180190fb97370e73a67e70337af044bd1b03139bf2f5c"
+    sha256 big_sur:        "c6a469900bd15ad7717dcd4473e534eb03f4de8a597c42e5f1cde4bd5e482056"
+    sha256 catalina:       "5b2d4218381689c4fab15f8c0b5a82a3d2b4a2cf26bef135d68f6229ba1c3a47"
   end
 
   depends_on "autoconf" => :build

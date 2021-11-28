@@ -15,6 +15,7 @@ class Cgns < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "3f77ff338091758fdef490782b0fb95b0775d58f505dfb60ac8919f2ecde027f"
     sha256               arm64_big_sur:  "990a1aa3109f6738e6f35317bbbea723281d1c1ac4ca79ad59eee7c6e86f7ab2"
+    sha256 cellar: :any, monterey:       "97c8085d3cd8040ec1afdc770de90444dfd566e4dfb4845d3f47751b5b8b0942"
     sha256               big_sur:        "ea9d83f6f0d4385054814f42152993db58582e7acd5dbde4b667aa5c7242207d"
     sha256               catalina:       "517dfe99a307d2f4d96aa4931707596a6862bcd30b64a798375bcd7ec40cc232"
     sha256               mojave:         "ee6e9edeb0e1b7d7b630501dd2e76091354a05e0f31c2850ca2288ed159445ce"

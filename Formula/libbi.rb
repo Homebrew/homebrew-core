@@ -10,6 +10,7 @@ class Libbi < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae593b0f46cfb4176070508a9ecf1379ab1ce5c6d6946f067455854751545ee9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95b9bd0f690a89f42ec6a1e670248a5464ba14fc7e80589a6bc4b28788a30f1d"
+    sha256 cellar: :any_skip_relocation, monterey:       "25e4409e1cc95c4759c2b0c338db8fdc30245c5ec6d6f068d77ed148a224a80d"
     sha256 cellar: :any_skip_relocation, big_sur:        "9739fadb79161f0b2db4e73d8ff9bbe2c2bc3f9c40bebc6fb6cadc9387121741"
     sha256 cellar: :any_skip_relocation, catalina:       "fa9a991443966cd592070a228cf2d8092b3e154eda52ac390ea756d03b30e670"
     sha256 cellar: :any_skip_relocation, mojave:         "c90c7105c8eaa9bb53ce0fc9e608dc0c4df8d082361846ce764dfc0d141ec5b4"

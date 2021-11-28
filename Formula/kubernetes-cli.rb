@@ -1,11 +1,14 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.22.4",
-      revision: "b695d79d4f967c403a96986f1750a35eb75e75f1"
   license "Apache-2.0"
-  head "https://github.com/kubernetes/kubernetes.git"
+
+  stable do
+    url "https://github.com/kubernetes/kubernetes.git",
+        tag:      "v1.22.4",
+        revision: "b695d79d4f967c403a96986f1750a35eb75e75f1"
+    depends_on "go@1.16" => :build
+  end
 
   livecheck do
     url :stable
@@ -21,9 +24,14 @@ class KubernetesCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "31dcccdfcba0ee62d713610c1302130f4cc1fb4fe581730f8766aaeddf152e7a"
   end
 
+  # HEAD builds with Go 1.17. Consolidate once v1.23 is released
+  head do
+    url "https://github.com/kubernetes/kubernetes.git"
+    depends_on "go" => :build
+  end
+
   depends_on "bash" => :build
   depends_on "coreutils" => :build
-  depends_on "go@1.16" => :build
 
   uses_from_macos "rsync" => :build
 

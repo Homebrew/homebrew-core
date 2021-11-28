@@ -13,7 +13,8 @@ class Frege < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8db1da28b4b5b2a376e5fff8577f3547d4e8c28271e528623e3aa7d8c44fa036"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "28f3c0d702b145adb8d615507d492ce37bf7309fde2dcda48b47397c2a387ffa"
   end
 
   depends_on "openjdk"

@@ -1,19 +1,18 @@
 class Gocloc < Formula
   desc "Little fast LoC counter"
   homepage "https://github.com/hhatto/gocloc"
-  url "https://github.com/hhatto/gocloc/archive/v0.4.1.tar.gz"
-  sha256 "528be5009996b4177936be508aa494c289adddf58e4694b1a36067bda433f783"
+  url "https://github.com/hhatto/gocloc/archive/v0.4.2.tar.gz"
+  sha256 "4b3c092b405d9bd50b49d1aee1c3fa284445812b3fcfae95989a0dd2b75a25c0"
   license "MIT"
-  head "https://github.com/hhatto/gocloc.git"
+  head "https://github.com/hhatto/gocloc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "49f452ad2b9ce78a4435c73aa520dca461ea09f549b128433787d0ea5cb7c801"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c6dc9d0d5c3a9da085aacd59dbd63516d9534dce80feb98e9b24f9972bd7dc99"
-    sha256 cellar: :any_skip_relocation, monterey:       "4affdbf0715eb9d0208efe63c1aa673be0fc400f6a62c35306ae77bdf5e8f9e5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d4afbefd3a175ef99e40ec8806a202f977738453f4dbcfee03c5c6edb71cd06d"
-    sha256 cellar: :any_skip_relocation, catalina:       "05e693c773c83c26b0ce21f3970407c17f1d5858402f7cded3c2032e52f86d19"
-    sha256 cellar: :any_skip_relocation, mojave:         "83e435c8906ee9c2a57fb8799f08a4a63c1b3a6cc34f18594f09226f7d61e21e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "982b94ff33ba7bf16db9e8d0341b7b1ca23aadc7b4528ecee23eebf24bb493bb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "72944d7b61a051c3d7bb54c1fb5e0f11e7c079dde00dfe62a45fc23c819aebfb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72944d7b61a051c3d7bb54c1fb5e0f11e7c079dde00dfe62a45fc23c819aebfb"
+    sha256 cellar: :any_skip_relocation, monterey:       "7b06f99a3af92cc9fbe73d1ce39868bc3b864e32dbcd4f2f332ef1541de2a1fa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7b06f99a3af92cc9fbe73d1ce39868bc3b864e32dbcd4f2f332ef1541de2a1fa"
+    sha256 cellar: :any_skip_relocation, catalina:       "7b06f99a3af92cc9fbe73d1ce39868bc3b864e32dbcd4f2f332ef1541de2a1fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3fd8cafbe6cf7216c82ba5fc49933094e76b4170932634b463524fd95c36b50"
   end
 
   depends_on "go" => :build

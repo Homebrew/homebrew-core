@@ -4,14 +4,13 @@ class PysideAT2 < Formula
   url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2-src/pyside-setup-opensource-src-5.15.2.tar.xz"
   sha256 "b306504b0b8037079a8eab772ee774b9e877a2d84bab2dbefbe4fa6f83941418"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "2da0d4e6f5578894be86e636e1c3e38c77d55fa822de1e8af8452568aaf3d521"
-    sha256 cellar: :any, arm64_big_sur:  "dea3a094619f3dd87bc875b261b837b5a9740307c17b708f770d27186d91e402"
-    sha256 cellar: :any, big_sur:        "92f859236a4a544d67d7156393e43f74e525936193fe4cbd78efce08b182f950"
-    sha256 cellar: :any, catalina:       "9910767e2fa6ae3e532e227d68e616deab536c9053f45027b3d3cb701816f67b"
-    sha256 cellar: :any, mojave:         "ba4fe20995f6d18ebd36773e2eefc67e83c165db8e78283599301bf66ed37426"
+    sha256 cellar: :any, arm64_monterey: "b4b284bad87b89396d35732b9f509b653c2f63c1dc3d7ca63174d2c2dc377d30"
+    sha256 cellar: :any, arm64_big_sur:  "e432cfa5235290c62d9880bead26e893d1b9a3720a986b5e75146a6f4f06811e"
+    sha256 cellar: :any, big_sur:        "d8ac145f45d791c6967ed76ce24bbfd9b111eabeb6459824aca396d50d08c858"
+    sha256 cellar: :any, catalina:       "ac9f88f0bf1ed4417551c57342cfdeb328c28b417cb6ec3dc4dd78451bfaaf02"
   end
 
   keg_only :versioned_formula
@@ -21,6 +20,12 @@ class PysideAT2 < Formula
   depends_on "llvm"
   depends_on "python@3.9"
   depends_on "qt@5"
+
+  # Don't copy qt@5 tools.
+  patch do
+    url "https://src.fedoraproject.org/rpms/python-pyside2/raw/009100c67a63972e4c5252576af1894fec2e8855/f/pyside2-tools-obsolete.patch"
+    sha256 "ede69549176b7b083f2825f328ca68bd99ebf8f42d245908abd320093bac60c9"
+  end
 
   def install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
@@ -57,8 +62,7 @@ class PysideAT2 < Formula
       Xml
     ]
 
-    # QT web engine is currently not supported on Apple
-    # silicon. Re-enable it once it has been enabled in the qt.rb.
+    # Qt web engine is not supported on Apple Silicon.
     modules << "WebEngineWidgets" unless Hardware::CPU.arm?
 
     modules.each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PySide2.Qt#{mod}" }

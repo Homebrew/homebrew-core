@@ -9,6 +9,7 @@ class Field3d < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "da4a49105b11ec76fd729d107b9f2d4a2ab0ad3dc462d7d9570a48b4baaebaeb"
     sha256 cellar: :any, arm64_big_sur:  "b12b7bbffb37cac1a70220ad329743dbd1eb47c44e7229a8646d9b14124151f2"
+    sha256 cellar: :any, monterey:       "d9c36b3f585c22752afc1cb4f8441439ea6de769e7bb44bc158821eddcba8e1a"
     sha256 cellar: :any, big_sur:        "90b0c9cc4ab05cfcbfa656aa634f808513d6f4e8f11a51f43d7a34abd8dd4f1f"
     sha256 cellar: :any, catalina:       "76d498d553b562262c1654c1cd717057eaf0bc78d03bbe20dfb3e55c55f5d5a4"
     sha256 cellar: :any, mojave:         "c5722c3960ff48af8007245cdf71a818d292ce76b85abf998c2a9623da3297a4"

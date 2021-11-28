@@ -11,7 +11,8 @@ class Scalariform < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3acab532156fd394ec7f9e116058be407834d673f63bc9ae243e7dc8c7f318a5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "0a155625340add1d947b67289ee0ebfad84655735801562fe67ed853840ec92a"
   end
 
   head do

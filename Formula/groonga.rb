@@ -20,7 +20,7 @@ class Groonga < Formula
   end
 
   head do
-    url "https://github.com/groonga/groonga.git"
+    url "https://github.com/groonga/groonga.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -50,7 +50,9 @@ class Groonga < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-zeromq
+      --disable-apache-arrow
       --enable-mruby
+      --with-luajit=no
       --with-ssl
       --with-zlib
       --without-libstemmer

@@ -1,18 +1,17 @@
 class Rbspy < Formula
   desc "Sampling profiler for Ruby"
   homepage "https://rbspy.github.io/"
-  url "https://github.com/rbspy/rbspy/archive/v0.8.1.tar.gz"
-  sha256 "ddbec968d632dc9bac7b0b71cdcf8a7316d1ba7d081e3b981f48f6d740b80301"
+  url "https://github.com/rbspy/rbspy/archive/v0.9.0.tar.gz"
+  sha256 "686f42289bd5ca8818dd87353fb22945cf4f78ee2714d8dd47f691b56852e43c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "750afa3423e233d70704d5d4677cd2d9cfe5e5aa606f25e943ce42e37ee50927"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dbed950fa25c0ff29944a5a61471c25cad5efee82b6105897575777fea7fb3a1"
-    sha256 cellar: :any_skip_relocation, monterey:       "deb6d13067858cd286adc432cedcbdcf3adbc10f09012d3a41a577fffea7b04b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "569bb211d59c916dee39ef09682bcac9f018bb6798f10df1b0b4c7adca0e2eb0"
-    sha256 cellar: :any_skip_relocation, catalina:       "29d02e56c40eabe356016d1fc1ac5540d5ec9424050f304ca36af1a407ee276a"
-    sha256 cellar: :any_skip_relocation, mojave:         "5a58cc5bbd4b797bd7fc1708ad7dc6ebdcd046bffce7b14c16f3d0f21fee71d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62d762cbcf2b91b6909ffb2c4b19ebb09c67ba1a1bacdfd5f2840c12e637e454"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f31fbddfcad0433c78ee28c334e4f5248cd3b63c499723882290063fc3fa37d6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a86a5b1fa285ed25ea69eafbbbd60b0e694fa10b1552c5de003204088dff54a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "b9d86634959eacf1cf3d7b7f912bb875b8ccfbed3f0f1e7a2d9f70ef1457a003"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d028c26a29600b213e934823f3f14367ed36edd9e34a0b7865eb0ab6e8234da0"
+    sha256 cellar: :any_skip_relocation, catalina:       "94e6dc8400a2b6c2d5bd62531bb5907c973503d46a5bfa36f9d9dfe33b0e3948"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16d35f50c23ae35212a577ef0cd9488e26014dc37930280a93ffe36bbb215336"
   end
 
   depends_on "rust" => :build

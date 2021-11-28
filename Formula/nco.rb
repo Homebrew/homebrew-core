@@ -8,6 +8,7 @@ class Nco < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "e59c2e57059cf8a2eda649b8a11534323e7eac176ce87ffe5172098c24fa2666"
     sha256 cellar: :any, arm64_big_sur:  "e43069a0e3e4eace7956060d43cc913f736aaf0fa38fc28d80d640525ed3c23f"
+    sha256 cellar: :any, monterey:       "51ff8f5ec3c6c3c0b3065d0941af7c36f7df530ad7d98299d922784f7ae70a5f"
     sha256 cellar: :any, big_sur:        "8694bfb9e3ff0b6f9d5aa7936fbc03607e337e446013cbb5bdbfa3ab6affccfa"
     sha256 cellar: :any, catalina:       "a44a5e35d6b8ca5a8cd4550cf81975f3f26d80df443d968b6d4a4ef019497456"
     sha256 cellar: :any, mojave:         "3223dfa302dfe10af6db64d743285ae85aa212de7fb3e231c08ccf94bd4e711c"
