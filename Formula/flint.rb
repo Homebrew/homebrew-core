@@ -6,6 +6,11 @@ class Flint < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/wbhart/flint2.git", branch: "trunk"
 
+  livecheck do
+    url "https://flintlib.org/downloads.html"
+    regex(/href=.*?flint[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "b5c3e6b7337b40d10f2ace7b9e0bb21284c7915c3b26baa67cba59e234018bff"
     sha256 cellar: :any,                 arm64_big_sur:  "e4206315f3530578a697c9ee0b5fd2b5b57a03a871037ba94ecd095ef4b304d0"
