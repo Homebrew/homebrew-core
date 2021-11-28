@@ -6,7 +6,7 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.70/gobject-introspection-1.70.0.tar.xz"
   sha256 "902b4906e3102d17aa2fcb6dad1c19971c70f2a82a159ddc4a94df73a3cafc4a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "b3415581141e6a2dd35baf1065aef21bfa07cacd582c8f18a728606750904a0c"
@@ -40,6 +40,14 @@ class GobjectIntrospection < Formula
   patch do
     url "https://gitlab.gnome.org/tschoonj/gobject-introspection/-/commit/a7be304478b25271166cd92d110f251a8742d16b.diff"
     sha256 "740c9fba499b1491689b0b1216f9e693e5cb35c9a8565df4314341122ce12f81"
+  end
+
+  # Fix compatibility with PyInstaller on Monterey.
+  # See: https://github.com/pyinstaller/pyinstaller/issues/6354
+  #      https://gitlab.gnome.org/GNOME/gobject-introspection/-/merge_requests/303
+  patch do
+    url "https://gitlab.gnome.org/rokm/gobject-introspection/-/commit/56df7b0f007fe260b2bd26ef9cc331ad73022700.diff"
+    sha256 "56312cd45b2b3a7fd74eaae89843a49b9a06d1423785fb57416a8a61b1cb811f"
   end
 
   def install
