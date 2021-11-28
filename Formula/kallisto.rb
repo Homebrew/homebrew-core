@@ -8,6 +8,7 @@ class Kallisto < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d7b9aff623b0268cfdf089a7869dd01eec0d7f54ca1e2bb065567e26296093f8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51a7725f81265fe4530962417b874176e534f916cad432db1cb2d5c5840da3a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "f400337f4259327b35a0c1e0d779e3488aa9b26ae4a6c4a3a4275b3946279ca3"
     sha256 cellar: :any_skip_relocation, big_sur:        "2c004978635382869062996fed516c2edd83597d3e2221984759fc32955854e5"
     sha256 cellar: :any_skip_relocation, catalina:       "7ef1f941663072b0a57597992acf8203ba3664129f305cb8626c0c346e51bf0c"
     sha256 cellar: :any_skip_relocation, mojave:         "b2e59c1cc0fc1b07d02bab1cbc1533bcca1edf4bc0b81791d5ac597a7b84cce0"
