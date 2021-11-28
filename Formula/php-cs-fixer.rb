@@ -4,16 +4,22 @@ class PhpCsFixer < Formula
   url "https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v3.3.2/php-cs-fixer.phar"
   sha256 "8a7cb6fcbf916f01d4b423b7850b4401bc687275011b6f437322679a4fc4613f"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "964e27354e1f618827381479ddebae75cc20b5ab3349f9a636c39eab9e7a3b4b"
   end
 
-  depends_on "php"
+  depends_on "php@8.0"
 
   def install
-    bin.install "php-cs-fixer.phar" => "php-cs-fixer"
+    libexec.install "php-cs-fixer.phar"
+
+    (bin/"php-cs-fixer").write <<~EOS
+      #!#{Formula["php@8.0"].opt_bin}/php
+      <?php require '#{libexec}/php-cs-fixer.phar';
+    EOS
   end
 
   test do
@@ -26,7 +32,6 @@ class PhpCsFixer < Formula
       $this->foo('homebrew rox');
     EOS
 
-    ENV["PHP_CS_FIXER_IGNORE_ENV"] = "1"
     system "#{bin}/php-cs-fixer", "fix", "test.php"
     assert compare_file("test.php", "correct_test.php")
   end
