@@ -3,8 +3,8 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  url "https://files.pythonhosted.org/packages/45/14/8a3bf633c8141bd58e027f36fc5e775da308c635437eb45f13d1633915ea/Sphinx-4.3.0.tar.gz"
-  sha256 "6d051ab6e0d06cba786c4656b0fe67ba259fe058410f49e95bee6e49c4052cbf"
+  url "https://files.pythonhosted.org/packages/2b/73/a12887680688cc9a2ca0efb404fa2ee2be768f9a9143b758e53fef5db858/Sphinx-4.3.1.tar.gz"
+  sha256 "32a5b3e9a1b176cc25ed048557d4d3d01af635e6b76c5bc7a43b0a34447fbd45"
   license "BSD-2-Clause"
 
   bottle do
@@ -39,8 +39,8 @@ class SphinxDoc < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/2f/39/5d8ff929409113e9ff402e405a7c7880ab1fa6f118a4ab72443976a01711/charset-normalizer-2.0.8.tar.gz"
+    sha256 "735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"
   end
 
   resource "docutils" do
@@ -74,8 +74,8 @@ class SphinxDoc < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz"
-    sha256 "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "Pygments" do
@@ -84,8 +84,8 @@ class SphinxDoc < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
+    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
   end
 
   resource "pytz" do
@@ -99,8 +99,8 @@ class SphinxDoc < Formula
   end
 
   resource "snowballstemmer" do
-    url "https://files.pythonhosted.org/packages/a3/3d/d305c9112f35df6efb51e5acd0db7009b74d86f35580e033451b5994a0a9/snowballstemmer-2.1.0.tar.gz"
-    sha256 "e997baa4f2e9139951b6f4c631bad912dfd3c792467e2f03d7239464af90e914"
+    url "https://files.pythonhosted.org/packages/44/7b/af302bebf22c749c56c9c3e8ae13190b5b5db37a33d9068652e8f73b7089/snowballstemmer-2.2.0.tar.gz"
+    sha256 "09b16deb8547d3412ad7b590689584cd0fe25ec8db3be37788be3810cbf19cb1"
   end
 
   resource "sphinxcontrib-applehelp" do
