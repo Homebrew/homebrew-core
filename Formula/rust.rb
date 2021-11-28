@@ -2,6 +2,7 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.56.1-src.tar.gz"
@@ -59,6 +60,14 @@ class Rust < Formula
       url "https://static.rust-lang.org/dist/2021-09-09/cargo-1.55.0-x86_64-unknown-linux-gnu.tar.gz"
       sha256 "bb18c74aea07fa29c7169ce78756dfd08c07da08c584874e09fa6929c8267ec1"
     end
+  end
+
+  # Make sure object files in static archives have distinct names.
+  # https://github.com/rust-lang/compiler-builtins/issues/443
+  patch do
+    url "https://github.com/rust-lang/compiler-builtins/commit/eaab9d29ecbf538369d7f26953425eb78dae8229.patch?full_index=1"
+    sha256 "2eaafddf3dad416431b42f3a5e222a2d4261ab026a165c7f23d6ec378a0ccff5"
+    directory "vendor/compiler_builtins"
   end
 
   def install
