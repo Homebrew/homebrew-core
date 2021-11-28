@@ -23,7 +23,6 @@ class Duck < Formula
   depends_on "pkg-config" => :build
   depends_on xcode: :build
 
-  depends_on arch: :x86_64
   depends_on "libffi"
   depends_on "openjdk"
 
