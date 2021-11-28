@@ -37,6 +37,7 @@ class Php < Formula
   depends_on "autoconf"
   depends_on "curl"
   depends_on "freetds"
+  depends_on "gcc"
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
@@ -66,6 +67,10 @@ class Php < Formula
     # see https://github.com/php/php-src/pull/3472
     patch :DATA
   end
+
+  # Default xcode compiler builds fail 1/4 times
+  # See https://bugs.php.net/bug.php?id=81666
+  fails_with :clang
 
   def install
     if OS.mac? && (MacOS.version == :el_capitan || MacOS.version == :sierra)
