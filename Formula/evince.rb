@@ -1,8 +1,8 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/41/evince-41.2.tar.xz"
-  sha256 "95abad0d6feeac9560db3ab80ba7c5eabb1fdf1ca0e3b3c93339af05453a24d8"
+  url "https://download.gnome.org/sources/evince/41/evince-41.3.tar.xz"
+  sha256 "3346b01f9bdc8f2d5ffea92f110a090c64a3624942b5b543aad4592a9de33bb0"
   license "GPL-2.0-or-later"
 
   bottle do
