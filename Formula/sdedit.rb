@@ -11,7 +11,8 @@ class Sdedit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a92bee655dd6bf28edde96603e762b443c3f6ed48430efb53b93e58dafa3f575"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "cf1ff79f7e7bd0648236f1a1aca45fe7204501dd69bb0ef30f1f8104569130f7"
   end
 
   depends_on "openjdk"
