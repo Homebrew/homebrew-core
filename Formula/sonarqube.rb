@@ -16,33 +16,29 @@ class Sonarqube < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "5bd7b5e142d30a1caf30979e5e077f462e076540c514505d354df4625e2be67d"
   end
 
-  # sonarqube ships pre-built x86_64 binaries
   depends_on "openjdk@11"
+  # Sonarqube ships pre-built x86_64 java-service-wrapper binaries, use arm64 binaries from Homebrew java-service-wrapper
+  if OS.mac? && Hardware::CPU.arm?
+    depends_on "java-service-wrapper" => :build
+  end
 
   conflicts_with "sonarqube-lts", because: "both install the same binaries"
 
-  resource "java-service-wrapper" do
-    url "https://download.tanukisoftware.com/wrapper/3.5.46/wrapper-macosx-arm-64-3.5.46.tar.gz"
-    sha256 "30472adf3e0c10d07f8ad2fbce446b699222378fb55605ec5f1559e205b3a46e"
-  end
-
   def install
-    # Use Java Service Wrapper 3.5.46 which is Apple Silicon compatible
-    resource("java-service-wrapper").stage do
-      cp "lib/wrapper.jar", "#{buildpath}/lib/jsw/wrapper-3.5.46.jar"
-      cp "lib/libwrapper.dylib", "#{buildpath}/bin/macosx-universal-64/lib/"
-      cp "bin/wrapper", "#{buildpath}/bin/macosx-universal-64/wrapper"
-      cp "src/bin/App.sh.in", "#{buildpath}/bin/macosx-universal-64/sonar.sh"
+    if OS.mac? && Hardware::CPU.arm?
+      # Use Java Service Wrapper 3.5.46 which is Apple Silicon compatible
+      cp Formula["java-service-wrapper"].opt_libexec/"lib/wrapper.jar", "#{buildpath}/lib/jsw/wrapper-3.5.46.jar"
+      cp Formula["java-service-wrapper"].opt_libexec/"lib/libwrapper.dylib", "#{buildpath}/bin/macosx-universal-64/lib/"
+      cp Formula["java-service-wrapper"].opt_libexec/"bin/wrapper", "#{buildpath}/bin/macosx-universal-64/"
+      cp Formula["java-service-wrapper"].opt_libexec/"scripts/App.sh.in", "#{buildpath}/bin/macosx-universal-64/sonar.sh"
+      sonar_sh_file = "bin/macosx-universal-64/sonar.sh"
+      inreplace sonar_sh_file, "@app.name@", "SonarQube"
+      inreplace sonar_sh_file, "@app.long.name@", "SonarQube"
+      inreplace sonar_sh_file, "../conf/wrapper.conf", "../../conf/wrapper.conf"
+      inreplace "conf/wrapper.conf", "wrapper-3.2.3.jar", "wrapper-3.5.46.jar"
+      rm "lib/jsw/wrapper-3.2.3.jar"
+      rm "bin/macosx-universal-64/lib/libwrapper.jnilib"
     end
-    sonar_sh_file = "bin/macosx-universal-64/sonar.sh"
-    inreplace sonar_sh_file, "@app.name@", "SonarQube"
-    inreplace sonar_sh_file, "@app.long.name@", "SonarQube"
-    inreplace sonar_sh_file, "../conf/wrapper.conf", "../../conf/wrapper.conf"
-    inreplace "conf/wrapper.conf", "wrapper-3.2.3.jar", "wrapper-3.5.46.jar"
-
-    # Remove unnecessary files from Java Service Wrapper 3.2.3
-    rm "lib/jsw/wrapper-3.2.3.jar"
-    rm "bin/macosx-universal-64/lib/libwrapper.jnilib"
 
     # Delete native bin directories for other systems
     remove, keep = if OS.mac?
@@ -65,6 +61,6 @@ class Sonarqube < Formula
   end
 
   test do
-    assert_match "SonarQube", shell_output("#{bin}/sonar status")
+    assert_match "SonarQube", shell_output("#{bin}/sonar status", 1)
   end
 end
