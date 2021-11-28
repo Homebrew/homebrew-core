@@ -22,6 +22,7 @@ class Pango < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "fribidi"
   depends_on "glib"
   depends_on "harfbuzz"
@@ -31,7 +32,9 @@ class Pango < Formula
       system "meson", *std_meson_args,
                       "-Ddefault_library=both",
                       "-Dintrospection=enabled",
-                      "-Duse_fontconfig=true",
+                      "-Dfontconfig=enabled",
+                      "-Dcairo=enabled",
+                      "-Dfreetype=enabled",
                       ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
