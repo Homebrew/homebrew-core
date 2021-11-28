@@ -18,6 +18,7 @@ class Ncview < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f80fbf9c909cc45a91d44cdb8244a64fa57e53e95765f9d3e24cfb22b4fc9ea1"
     sha256                               arm64_big_sur:  "891d85685f499d86b5666a688f1fed2e406a05082a0bd3916b5da325230d6c4b"
+    sha256 cellar: :any,                 monterey:       "f8248fcbfd8e33f1bbda3924d7dfcbd1c0a1968089f492ca0f0a487ef21beaa7"
     sha256                               big_sur:        "6129b591b2b0238a0e61ec86ebc5d875a494e677963656b679300e67f874c13c"
     sha256                               catalina:       "93d6850d0542b7ea67b442f1ea80d63b80a04c872f0c4d25d0713f3fba5b92a2"
     sha256                               mojave:         "0b8b3c63895071a605b80ab1c1576356d1bfe634857e78f2cf3cb22742de09c2"
