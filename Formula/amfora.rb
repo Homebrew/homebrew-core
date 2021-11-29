@@ -29,7 +29,7 @@ class Amfora < Formula
       -X main.commit=#{Utils.git_head}
       -X main.builtBy=homebrew
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+    system "go", "build", *std_go_args(ldflags: ldflags)
     pkgshare.install "contrib/themes"
   end
 
