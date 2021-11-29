@@ -18,7 +18,7 @@ class CiliumCli < Formula
 
   def install
     ldflags = "-s -w -X github.com/cilium/cilium-cli/internal/cli/cmd.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-o", "#{bin}/cilium", "./cmd/cilium"
+    system "go", "build", *std_go_args(output: bin/"cilium", ldflags: ldflags), "./cmd/cilium"
 
     bash_output = Utils.safe_popen_read(bin/"cilium", "completion", "bash")
     (bash_completion/"cilium").write bash_output
