@@ -29,7 +29,7 @@ class ArduinoCli < Formula
       -X github.com/arduino/arduino-cli/version.versionString=#{version}
       -X github.com/arduino/arduino-cli/version.commit=#{Utils.git_head(length: 8)}
       -X github.com/arduino/arduino-cli/version.date=#{time.iso8601}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     output = Utils.safe_popen_read(bin/"arduino-cli", "completion", "bash")
