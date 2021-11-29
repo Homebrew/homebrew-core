@@ -32,7 +32,7 @@ class AnycableGo < Formula
       "-X github.com/anycable/anycable-go/utils.version=#{version}"
     end
 
-    system "go", "build", "-mod=vendor", "-ldflags", ldflags.join(" "), *std_go_args,
+    system "go", "build", "-mod=vendor", *std_go_args(ldflags: ldflags),
                           "-v", "github.com/anycable/anycable-go/cmd/anycable-go"
   end
 
