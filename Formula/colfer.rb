@@ -19,7 +19,7 @@ class Colfer < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-o", bin/"colf", "./cmd/colf"
+    system "go", "build", *std_go_args(output: bin/"colf"), "./cmd/colf"
   end
 
   test do
