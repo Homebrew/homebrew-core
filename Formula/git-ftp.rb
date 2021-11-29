@@ -3,7 +3,7 @@ class GitFtp < Formula
   homepage "https://git-ftp.github.io/"
   url "https://github.com/git-ftp/git-ftp/archive/1.6.0.tar.gz"
   sha256 "088b58d66c420e5eddc51327caec8dcbe8bddae557c308aa739231ed0490db01"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 1
   head "https://github.com/git-ftp/git-ftp.git", branch: "develop"
 
