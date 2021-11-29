@@ -27,7 +27,7 @@ class CollectorSidecar < Formula
       -X github.com/Graylog2/collector-sidecar/common.CollectorVersion=#{version}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "-o", bin/"graylog-sidecar"
+    system "go", "build", *std_go_args(output: bin/"graylog-sidecar", ldflags: ldflags)
     (etc/"graylog/sidecar/sidecar.yml").install "sidecar-example.yml"
   end
 
