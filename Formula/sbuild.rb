@@ -47,6 +47,6 @@ class Sbuild < Formula
       }
     EOS
     system bin/"sbuild", "--create-stub"
-    assert_equal expected, (testpath/"Sbuild.scala").read
+    assert_equal expected, (testpath/"SBuild.scala").read
   end
 end
