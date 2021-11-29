@@ -35,15 +35,16 @@ class Evince < Formula
 
     args = %w[
       -Dnautilus=false
-      -Ddjvu=enabled
-      -Dgxps=enabled
       -Dcomics=enabled
+      -Ddjvu=enabled
+      -Dpdf=enabled
+      -Dps=enabled
+      -Dtiff=enabled
+      -Dxps=enabled
       -Dgtk_doc=false
       -Dintrospection=true
-      -Dbrowser_plugin=false
-      -Dgspell=enabled
       -Ddbus=false
-      -Dps=enabled
+      -Dgspell=enabled
     ]
 
     mkdir "build" do
