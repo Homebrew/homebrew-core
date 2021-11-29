@@ -26,7 +26,7 @@ class Cosign < Formula
       -X #{pkg}.gitCommit=#{Utils.git_head}
       -X #{pkg}.gitTreeState="clean"
       -X #{pkg}.buildDate=#{time.iso8601}
-    ].join(" ")
+    ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/cosign"
   end
