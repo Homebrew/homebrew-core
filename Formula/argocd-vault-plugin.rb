@@ -25,7 +25,7 @@ class ArgocdVaultPlugin < Formula
       -X github.com/IBM/argocd-vault-plugin/version.Version=#{version}
       -X github.com/IBM/argocd-vault-plugin/version.BuildDate=#{time.iso8601}
       -X github.com/IBM/argocd-vault-plugin/version.CommitSHA=#{Utils.git_head}
-    ].join(" ")
+    ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
