@@ -26,7 +26,7 @@ class Colima < Formula
       -X #{project}/config.appVersion=#{version}
       -X #{project}/config.revision=#{Utils.git_head}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd/colima"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/colima"
 
     (bash_completion/"colima").write Utils.safe_popen_read(bin/"colima", "completion", "bash")
     (zsh_completion/"_colima").write Utils.safe_popen_read(bin/"colima", "completion", "zsh")
