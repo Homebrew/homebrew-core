@@ -6,6 +6,7 @@ class Charmcraft < Formula
   url "https://files.pythonhosted.org/packages/0f/31/dc1df23a0ca9b4b19aaf2001dbc3bfcb116bc013ff984b1173ae548e868b/charmcraft-1.3.2.tar.gz"
   sha256 "6b5e76403abb7aae2e76c578a9d48e0722268c3254a30adda6d50f9bdbfc31e0"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e181dfb988120e0b6137df270705b62f77e21504c2dec2d9640ab948656b4971"
@@ -21,7 +22,7 @@ class Charmcraft < Formula
   depends_on "libsodium"
   depends_on "libyaml"
   depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "appdirs" do
