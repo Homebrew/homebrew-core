@@ -32,7 +32,7 @@ class Cwlogs < Formula
 
     cd "src/github.com/segmentio/cwlogs" do
       system "govendor", "sync"
-      system "go", "build", *std_go_args, "-ldflags", "-X main.Version=#{version}"
+      system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
     end
   end
 
