@@ -6,6 +6,7 @@ class Todoman < Formula
   url "https://files.pythonhosted.org/packages/57/54/04a7c526a466932cf8a72a5b164befe7ec43fe176d89210fa9aafacd99ce/todoman-4.0.1.tar.gz"
   sha256 "ec88f8009321e77deb0ae682f7d036c139edf4175f8413011b532905c6e7d2b1"
   license "ISC"
+  revision 1
   head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
@@ -18,7 +19,7 @@ class Todoman < Formula
   end
 
   depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   conflicts_with "devtodo", because: "both install a `todo` binary"
