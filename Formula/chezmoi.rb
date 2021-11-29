@@ -25,7 +25,7 @@ class Chezmoi < Formula
       -X main.commit=#{Utils.git_head}
       -X main.date=#{time.rfc3339}
       -X main.builtBy=#{tap.user}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     bash_completion.install "completions/chezmoi-completion.bash"
