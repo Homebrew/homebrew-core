@@ -33,7 +33,7 @@ class Convox < Formula
     ldflags = %W[
       -s -w
       -X main.version=#{version}
-    ].join(" ")
+    ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/convox"
   end
