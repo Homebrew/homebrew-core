@@ -23,11 +23,19 @@ class Pumba < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.Version=#{version}",
-           "-trimpath", "-o", bin/"pumba", "./cmd"
+    goldflags = %W[
+      -s -w
+      -X main.Version=#{version}
+      -X main.BuildTime=#{time.iso8601}
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: goldflags), "./cmd"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/pumba --version")
+    # CI runs in a Docker container, so the test does not run as expected.
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+
     output = pipe_output("#{bin}/pumba rm test-container 2>&1")
     assert_match "Is the docker daemon running?", output
   end
