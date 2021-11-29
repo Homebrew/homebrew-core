@@ -22,7 +22,7 @@ class BuildpulseTestReporter < Formula
       -s -w
       -X main.Version=#{version}
       -X main.Commit=#{tap.user}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags: goldflags), "./cmd/test-reporter"
   end
 
