@@ -23,7 +23,7 @@ class Driftctl < Formula
       -s -w
       -X github.com/cloudskiff/driftctl/build.env=release
       -X github.com/cloudskiff/driftctl/pkg/version.version=v#{version}
-    ].join(" ")
+    ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)
 
