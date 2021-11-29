@@ -16,6 +16,8 @@ class WildflyAs < Formula
 
   # Installs a pre-built x86_64-only `libwfssl`
   depends_on arch: :x86_64
+  # Installs a pre-built `libartemis-native-64.so` file with linkage to libaio.so.1
+  depends_on :macos
   depends_on "openjdk"
 
   def install
