@@ -23,6 +23,10 @@ class Lolcode < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "readline"
+  end
+
   conflicts_with "lci", because: "both install `lci` binaries"
 
   def install
