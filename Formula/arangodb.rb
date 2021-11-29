@@ -44,7 +44,7 @@ class Arangodb < Formula
         -X main.projectVersion=#{resource("starter").version}
         -X main.projectBuild=#{Utils.git_head}
       ]
-      system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "github.com/arangodb-helper/arangodb"
+      system "go", "build", *std_go_args(ldflags: ldflags), "github.com/arangodb-helper/arangodb"
     end
 
     mkdir "build" do
