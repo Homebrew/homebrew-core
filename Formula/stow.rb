@@ -4,7 +4,7 @@ class Stow < Formula
   url "https://ftp.gnu.org/gnu/stow/stow-2.3.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/stow/stow-2.3.1.tar.gz"
   sha256 "09d5d99671b78537fd9b2c0b39a5e9761a7a0e979f6fdb7eabfa58ee45f03d4b"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39057770aa013dbeb401c9fe470b7fddc414d0b700972f56a7308265df3458e6"
