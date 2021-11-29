@@ -22,7 +22,12 @@ class Batik < Formula
 
   test do
     font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
-    system bin/"batik-ttf2svg", "/Library/Fonts/#{font_name}", "-autorange",
+    font_path = if OS.mac?
+      "/Library/Fonts/#{font_name}"
+    else
+      "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+    end
+    system bin/"batik-ttf2svg", font_path, "-autorange",
            "-o", "Arial.svg", "-testcard"
     assert_match "abcdefghijklmnopqrstuvwxyz", File.read("Arial.svg")
   end
