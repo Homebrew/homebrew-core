@@ -19,7 +19,7 @@ class ContainerDiff < Formula
 
   def install
     pkg = "github.com/GoogleContainerTools/container-diff/version"
-    system "go", "build", *std_go_args, "-ldflags", "-s -w -X #{pkg}.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X #{pkg}.version=#{version}")
   end
 
   test do
