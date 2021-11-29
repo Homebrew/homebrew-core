@@ -12,35 +12,20 @@ class ApacheArchiva < Formula
   end
 
   depends_on "ant" => :build
-  depends_on "openjdk@8" => :build
-  depends_on arch: :x86_64 # openjdk@8 doesn't support ARM
+  depends_on "java-service-wrapper"
   depends_on "openjdk"
-
-  on_linux do
-    depends_on "cunit" => :build
-  end
-
-  resource "wrapper" do
-    url "https://downloads.sourceforge.net/project/wrapper/wrapper_src/Wrapper_3.5.46_20210903/wrapper_3.5.46_src.tar.gz"
-    sha256 "82e1d0c85488d1389d02e3abe3359a7f759119e356e3e3abd6c6d67615ae5ad8"
-  end
 
   def install
     libexec.install Dir["*"]
-    rm_f Dir["#{libexec}/bin/wrapper*"]
-    rm_f Dir["#{libexec}/lib/libwrapper*"]
-    (bin/"archiva").write_env_script libexec/"bin/archiva", JAVA_HOME: Formula["openjdk"].opt_prefix
+    rm_f libexec.glob("bin/wrapper*")
+    rm_f libexec.glob("lib/libwrapper*")
+    (bin/"archiva").write_env_script libexec/"bin/archiva", Language::Java.java_home_env
 
-    resource("wrapper").stage do
-      # Use openjdk@8, fixes: error: Target option 1.4 is no longer supported. Use 7 or later.
-      ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_prefix
-      ENV["ANT_HOME"] = Formula["ant"].opt_libexec
-      system "./build64.sh"
-      libexec.install "bin/wrapper" => "#{libexec}/bin/wrapper"
-      libext = OS.mac? ? "jnilib" : "so"
-      libexec.install "lib/libwrapper.#{libext}" => "#{libexec}/lib/libwrapper.#{libext}"
-      libexec.install "lib/wrapper.jar" => "#{libexec}/lib/wrapper.jar"
-    end
+    wrapper = Formula["java-service-wrapper"].opt_libexec
+    ln_sf wrapper/"bin/wrapper", libexec/"bin/wrapper"
+    libext = OS.mac? ? "jnilib" : "so"
+    ln_sf wrapper/"lib/libwrapper.#{libext}", libexec/"lib/libwrapper.#{libext}"
+    ln_sf wrapper/"lib/wrapper.jar", libexec/"lib/wrapper.jar"
   end
 
   def post_install
