@@ -18,7 +18,7 @@ class Cli53 < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/cli53"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cli53"
   end
 
   test do
