@@ -29,7 +29,7 @@ class Circleci < Formula
       -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
       -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{Utils.git_short_head}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     output = Utils.safe_popen_read("#{bin}/circleci", "--skip-update-check", "completion", "bash")
     (bash_completion/"circleck").write output
