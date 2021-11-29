@@ -11,6 +11,8 @@ class Ec2AmiTools < Formula
 
   depends_on "openjdk"
 
+  uses_from_macos "ruby"
+
   def install
     env = { JAVA_HOME: Formula["openjdk"].opt_prefix, EC2_AMITOOL_HOME: libexec }
     rm Dir["bin/*.cmd"] # Remove Windows versions
