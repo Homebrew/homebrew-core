@@ -24,7 +24,7 @@ class Doctl < Formula
       #{base_flag}.Minor=#{version.minor}
       #{base_flag}.Patch=#{version.patch}
       #{base_flag}.Label=release
-    ].join(" ")
+    ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/doctl"
 
