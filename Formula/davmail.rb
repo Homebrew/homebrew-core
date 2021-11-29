@@ -11,6 +11,8 @@ class Davmail < Formula
 
   depends_on "openjdk"
 
+  uses_from_macos "netcat" => :test
+
   def install
     libexec.install Dir["*"]
     bin.write_jar_script libexec/"davmail.jar", "davmail", "-Djava.awt.headless=true"
