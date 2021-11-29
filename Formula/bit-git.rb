@@ -20,7 +20,7 @@ class BitGit < Formula
   conflicts_with "bit", because: "both install `bit` binaries"
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-X main.version=v#{version}"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=v#{version}")
     bin.install_symlink "bit-git" => "bit"
   end
 
