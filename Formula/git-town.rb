@@ -21,7 +21,7 @@ class GitTown < Formula
     ldflags = %W[
       -X github.com/git-town/git-town/src/cmd.version=v#{version}
       -X github.com/git-town/git-town/src/cmd.buildDate=#{time.strftime("%Y/%m/%d")}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
