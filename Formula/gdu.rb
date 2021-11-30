@@ -27,7 +27,7 @@ class Gdu < Formula
       -X "github.com/dundee/gdu/v#{major}/build.Version=v#{version}"
       -X "github.com/dundee/gdu/v#{major}/build.Time=#{time}"
       -X "github.com/dundee/gdu/v#{major}/build.User=#{user}"
-    ].join(" ")
+    ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/gdu"
   end
