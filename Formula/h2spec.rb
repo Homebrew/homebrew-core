@@ -27,7 +27,7 @@ class H2spec < Formula
       -X main.VERSION=#{version}
       -X main.COMMIT=#{commit}
     ]
-    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "./cmd/h2spec"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/h2spec"
   end
 
   test do
