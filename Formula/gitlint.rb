@@ -3,10 +3,9 @@ class Gitlint < Formula
 
   desc "Linting for your git commit messages"
   homepage "https://jorisroovers.github.io/gitlint"
-  url "https://files.pythonhosted.org/packages/9a/0c/bacbf0ea52b924ff7d6984b2756e544d0e276c56663bb37e0c08781d4ad3/gitlint-0.16.0.tar.gz"
-  sha256 "30ee2bdae611bbf66df6326b5da1afc14bf0be337e1d3021fafeb7f13b37f55b"
+  url "https://files.pythonhosted.org/packages/91/77/2fc5418edff33060dd7a51aa323ee7d3df11503952b8e4e46ee65d18d815/gitlint-core-0.17.0.tar.gz"
+  sha256 "772dfd33effaa8515ca73e901466aa938c19ced894bec6783d19691f57429691"
   license "MIT"
-  head "https://github.com/jorisroovers/gitlint.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7f6931b626fbece9c095c2e5e0c209652372615253a6d35de78daf237e82bf68"
@@ -21,13 +20,13 @@ class Gitlint < Formula
   depends_on "python@3.10"
 
   resource "arrow" do
-    url "https://files.pythonhosted.org/packages/dc/bd/2565b8533bb8cf66e10a9e68a1d489ad839799b2050f0635039e614e3b1a/arrow-1.2.0.tar.gz"
-    sha256 "16fc29bbd9e425e3eb0fef3018297910a0f4568f21116fc31771e2760a50e074"
+    url "https://files.pythonhosted.org/packages/25/e2/85d4a709a3ea58f8e36b4db9eb7927560a2fa4b6f8f362fb6475962fec51/arrow-1.2.1.tar.gz"
+    sha256 "c2dde3c382d9f7e6922ce636bf0b318a7a853df40ecb383b29192e6c5cc82840"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
+    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
   end
 
   resource "python-dateutil" do
