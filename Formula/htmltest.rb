@@ -21,7 +21,7 @@ class Htmltest < Formula
     ldflags = %W[
       -X main.date=#{time.iso8601}
       -X main.version=#{version}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
