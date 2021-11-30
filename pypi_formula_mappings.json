@@ -182,7 +182,7 @@
   },
   "moto": {
     "package_name": "moto[all,server]",
-    "exclude_packages": ["junit-xml"],
+    "exclude_packages": ["junit-xml", "six"],
     "extra_packages": ["junit-xml-2"]
   },
   "mycli": {

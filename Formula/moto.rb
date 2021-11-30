@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/c2/d7/2ed0c3fe5829018fbe73c18ba1ffde96c60ba9076b3934117d485be6666d/moto-2.2.16.tar.gz"
-  sha256 "fef15c831b1356b22beeb4f1b4694945597485bdc111039f1b304ab091141444"
+  url "https://files.pythonhosted.org/packages/42/16/1687d15d67699bf89ebc11a9fecb3423e1e660ff4c4bd458bce2caf5e18c/moto-2.2.17.tar.gz"
+  sha256 "221ebd16b41b3ae157554ca5e540a8c1b4b1c93443cbf854c1f04751194c51b6"
   license "Apache-2.0"
 
   bottle do
@@ -17,7 +17,8 @@ class Moto < Formula
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+  depends_on "six"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
@@ -35,13 +36,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/d9/9b/f5d4096045dc39f50dbc34c0a9e92d10746e1483a4b604166dcd3cfe655a/boto3-1.20.13.tar.gz"
-    sha256 "bbf53a077d6a0575ddec8026f0475ca6ee6f41b227914bf315bf3e049a3d653a"
+    url "https://files.pythonhosted.org/packages/af/41/bc312768c294131d84b3af3a7e549d688a726ee5a127221bed136e4ec910/boto3-1.20.16.tar.gz"
+    sha256 "22808328fc81937244a971f739e5f8d95acd36c8e5638787e562d504b33727be"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/46/5a/fed8dbb5a19502aaf76fa09cabdf1d3b389de56c29ed6dd83607605d7e0e/botocore-1.23.13.tar.gz"
-    sha256 "35792b2196049ef900f538cae51fb8359c940156eef187962aa9e3bd2c0b8e8c"
+    url "https://files.pythonhosted.org/packages/f5/66/8f5331889af81695e5eae522412486441e94fef6e945c5613226a737efec/botocore-1.23.16.tar.gz"
+    sha256 "c813e67c0f7d45cbff97a1047d8241f334eb386b3f81825e9e87e29d3a0c2ddf"
   end
 
   resource "certifi" do
@@ -80,8 +81,8 @@ class Moto < Formula
   end
 
   resource "ecdsa" do
-    url "https://files.pythonhosted.org/packages/b0/9e/dffa648ea8f2bc9e58e96a9fcb8702c4b4f520047071b257acfb41d6924f/ecdsa-0.14.1.tar.gz"
-    sha256 "64c613005f13efec6541bb0a33290d0d03c27abab5f15fbab20fb0ee162bdd8e"
+    url "https://files.pythonhosted.org/packages/bf/3d/3d909532ad541651390bf1321e097404cbd39d1d89c2046f42a460220fb3/ecdsa-0.17.0.tar.gz"
+    sha256 "b9f500bb439e4153d0330610f5d26baaf18d17b8ced1bc54410d189385ea68aa"
   end
 
   resource "Flask" do
@@ -227,11 +228,6 @@ class Moto < Formula
   resource "sarif-om" do
     url "https://files.pythonhosted.org/packages/ba/de/bbdd93fe456d4011500784657c5e4a31e3f4fcbb276255d4db1213aed78c/sarif_om-1.0.4.tar.gz"
     sha256 "cd5f416b3083e00d402a92e449a7ff67af46f11241073eea0461802a3b5aef98"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "sshpubkeys" do
