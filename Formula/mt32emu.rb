@@ -29,8 +29,7 @@ class Mt32emu < Formula
       }
     EOS
 
-    ENV.append_to_cflags "-lmt32emu"
-    system "make", "mt32emu-test"
+    system ENV.cc, "mt32emu-test.c", "-I#{include}", "-L#{lib}", "-lmt32emu", "-o", "mt32emu-test"
     assert_match version.to_s, shell_output("./mt32emu-test")
   end
 end
