@@ -17,7 +17,7 @@ class Q < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bed14a331133ff96b85fa37e0729ca695bd273f78ee82e792185d137edf9917a"
   end
 
-  deprecate! date: "2021-11-30", because: "q has moved to its own tap. Use `brew install harelba/q/q` to install"
+  deprecate! date: "2021-11-30", because: "Installation changed. Please take a look at https://harelba.github.io/q/"
 
   depends_on "ronn" => :build
   depends_on "python@3.9"
