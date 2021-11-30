@@ -18,7 +18,7 @@ class GithubMarkdownToc < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-o", bin/"gh-md-toc"
+    system "go", "build", *std_go_args(output: bin/"gh-md-toc")
   end
 
   test do
