@@ -26,7 +26,7 @@ class FlintChecker < Formula
     ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/pengwynn").mkpath
     ln_sf buildpath, buildpath/"src/github.com/pengwynn/flint"
-    system "go", "build", *std_go_args, "-o", bin/"flint"
+    system "go", "build", *std_go_args(output: bin/"flint")
   end
 
   test do
