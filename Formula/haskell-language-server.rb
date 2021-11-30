@@ -30,6 +30,9 @@ class HaskellLanguageServer < Formula
     depends_on "ghc@8.8" => [:build, :test]
   end
 
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   def ghcs
     deps.map(&:to_formula)
         .select { |f| f.name.match? "ghc" }
