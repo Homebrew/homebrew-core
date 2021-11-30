@@ -21,7 +21,7 @@ class GitHooksGo < Formula
   conflicts_with "git-hooks", because: "both install `git-hooks` binaries"
 
   def install
-    system "go", "build", *std_go_args, "-o", "#{bin}/git-hooks"
+    system "go", "build", *std_go_args(output: bin/"git-hooks")
   end
 
   test do
