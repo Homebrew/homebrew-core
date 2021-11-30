@@ -30,7 +30,7 @@ class Mx < Formula
   end
 
   test do
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
+    ENV["JAVA_HOME"] = Language::Java.java_home
 
     testpath.install resource("testdata")
     cd "vm" do
