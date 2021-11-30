@@ -1,10 +1,11 @@
 class Druid < Formula
   desc "High-performance, column-oriented, distributed data store"
   homepage "https://druid.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=druid/0.22.0/apache-druid-0.22.0-bin.tar.gz"
+  url "https://dlcdn.apache.org/druid/0.22.0/apache-druid-0.22.0-bin.tar.gz"
   mirror "https://archive.apache.org/dist/druid/0.22.0/apache-druid-0.22.0-bin.tar.gz"
   sha256 "5ce9ba185361a20694fd107ffc818fb42d13a44911d010739227b5c62a8fc1da"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://druid.apache.org/downloads.html"
@@ -24,6 +25,10 @@ class Druid < Formula
     url "https://search.maven.org/remotecontent?filepath=mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar"
     sha256 "56e26caaa3821f5ae4af44f9c74f66cf8b84ea01516ad3803cbb0e9049b6eca8"
   end
+
+  # Fixes: node.sh: source: not found. Remove with next release
+  # https://github.com/apache/druid/pull/12014
+  patch :DATA
 
   def install
     libexec.install Dir["*"]
@@ -91,3 +96,16 @@ class Druid < Formula
     end
   end
 end
+
+__END__
+diff -Naur apache-druid-0.22.0-old/bin/node.sh apache-druid-0.22.0/bin/node.sh
+--- apache-druid-0.22.0-old/bin/node.sh	2021-11-30 21:39:18.000000000 +0100
++++ apache-druid-0.22.0/bin/node.sh	2021-11-30 21:40:08.000000000 +0100
+@@ -41,7 +41,7 @@
+ PID_DIR="${DRUID_PID_DIR:=var/druid/pids}"
+ WHEREAMI="$(dirname "$0")"
+ WHEREAMI="$(cd "$WHEREAMI" && pwd)"
+-JAVA_BIN_DIR="$(source "$WHEREAMI"/java-util && get_java_bin_dir)"
++JAVA_BIN_DIR="$(. /"$WHEREAMI"/java-util && get_java_bin_dir)"
+
+ pid=$PID_DIR/$nodeType.pid
