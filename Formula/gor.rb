@@ -28,7 +28,7 @@ class Gor < Formula
   uses_from_macos "libpcap"
 
   def install
-    system "go", "build", "-ldflags", "-X main.VERSION=#{version}", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-X main.VERSION=#{version}")
   end
 
   test do
