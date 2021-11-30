@@ -18,7 +18,7 @@ class FuncE < Formula
       -s -w
       -X main.version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
