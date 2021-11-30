@@ -1,9 +1,9 @@
 class Cataclysm < Formula
   desc "Fork/variant of Cataclysm Roguelike"
   homepage "https://github.com/CleverRaven/Cataclysm-DDA"
-  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.F-2.tar.gz"
-  version "0.F-2"
-  sha256 "0c607071302265af07a9b299d0bbdb0716b2b929caa3cbcf435cd415b14ccc56"
+  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.F-3.tar.gz"
+  version "0.F-3"
+  sha256 "5cde334df76f80723532896a995304fd789cc7207172dd817960ffdbb46d87a4"
   license "CC-BY-SA-3.0"
   head "https://github.com/CleverRaven/Cataclysm-DDA.git", branch: "master"
 
