@@ -15,9 +15,9 @@ class Q < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bed14a331133ff96b85fa37e0729ca695bd273f78ee82e792185d137edf9917a"
   end
 
-  depends_on "rust" => :build
   depends_on "pyoxidizer" => :build
   depends_on "ronn" => :build
+  depends_on "rust" => :build
   depends_on xcode: ["12.4", :build]
 
   # Patch to allow proper ARM builds by using python3.9.
