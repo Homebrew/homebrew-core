@@ -40,7 +40,7 @@ class Flux < Formula
     # Set up the influxdata pkg-config wrapper to enable just-in-time compilation & linking
     # of the Rust components in the server.
     resource("pkg-config-wrapper").stage do
-      system "go", "build", *std_go_args, "-o", buildpath/"bootstrap/pkg-config"
+      system "go", "build", *std_go_args(output: buildpath/"bootstrap/pkg-config")
     end
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
