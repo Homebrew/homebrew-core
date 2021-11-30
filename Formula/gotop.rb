@@ -18,9 +18,11 @@ class Gotop < Formula
   depends_on "go" => :build
 
   def install
-    time = `date +%Y%m%dT%H%M%S`.chomp
-    system "go", "build", *std_go_args, "-ldflags",
-           "-X main.Version=#{version} -X main.BuildDate=#{time}", "./cmd/gotop"
+    ldflags = %W[
+      -X main.Version=#{version}
+      -X main.BuildDate=#{time.strftime("%Y%m%dT%H%M%S")}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/gotop"
   end
 
   test do
