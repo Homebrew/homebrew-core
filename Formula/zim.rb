@@ -29,19 +29,25 @@ class Zim < Formula
   end
 
   def install
-    python_version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{python_version}/site-packages"
+    python3 = which("python3")
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3")
     resource("pyxdg").stage do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system python3, *Language::Python.setup_install_args(libexec/"vendor")
     end
     ENV["XDG_DATA_DIRS"] = libexec/"share"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{python_version}/site-packages"
-    system Formula["python@3.9"].opt_bin/"python3", "./setup.py", "install", "--prefix=#{libexec}"
+    system python3, "./setup.py", "install", "--prefix=#{libexec}"
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files libexec/"bin",
       PYTHONPATH:    ENV["PYTHONPATH"],
-      XDG_DATA_DIRS: ["#{HOMEBREW_PREFIX}/share", libexec/"share"].join(":")
+      XDG_DATA_DIRS: [HOMEBREW_PREFIX/"share", libexec/"share"].join(":")
     pkgshare.install "zim"
+
+    # Make the bottles uniform
+    inreplace [
+      libexec/Language::Python.site_packages("python3")/"zim/config/basedirs.py",
+      libexec/"vendor"/Language::Python.site_packages("python3")/"xdg/BaseDirectory.py",
+      pkgshare/"zim/config/basedirs.py",
+    ], "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
