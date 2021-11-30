@@ -24,7 +24,7 @@ class Goreleaser < Formula
       -X main.version=#{version}
       -X main.commit=#{Utils.git_head}
       -X main.builtBy=homebrew
-    ].join(" ")
+    ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)
 
