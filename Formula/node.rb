@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v17.0.1/node-v17.0.1.tar.xz"
-  sha256 "6ec480f872cb7c34877044985e3d7bd89329ace5b8e2ad90b57980601786341c"
+  url "https://nodejs.org/dist/v17.2.0/node-v17.2.0.tar.xz"
+  sha256 "2b47cc7b5ec189d7b637454732f36f8d3c2c0ef81bec3c278b566f67159e659a"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
