@@ -15,6 +15,7 @@ class Q < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bed14a331133ff96b85fa37e0729ca695bd273f78ee82e792185d137edf9917a"
   end
 
+  depends_on "rust" => :build
   depends_on "pyoxidizer" => :build
   depends_on "ronn" => :build
   depends_on xcode: ["12.4", :build]
@@ -32,7 +33,7 @@ class Q < Formula
       "aarch64-apple-darwin"
     end
 
-    system "pyoxidizer", "build", "--release", "--var", "PYTHON_VERSION", "3.9"
+    system "pyoxidizer", "build", "--release", "--system-rust", "--var", "PYTHON_VERSION", "3.9"
     bin.install "./build/#{arch_folder}/release/install/q"
 
     system "ronn", "--roff", "--section=1", "doc/USAGE.markdown"
