@@ -5,6 +5,11 @@ class Fping < Formula
   sha256 "ed38c0b9b64686a05d1b3bc1d66066114a492e04e44eef1821d43b1263cd57b8"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?fping[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "73000b5b7a0e589b23f8bc15084193df6fd94da230540de4dfcc86cb804daceb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65a1a6e1fee0af28a38006e2ce05f71915080907cacc8bb7ef4373ae041e75f2"
