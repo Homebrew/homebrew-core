@@ -29,7 +29,7 @@ class Glide < Formula
     glidepath.install buildpath.children
 
     cd glidepath do
-      system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}"
+      system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
     end
   end
 
