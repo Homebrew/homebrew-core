@@ -1,8 +1,8 @@
 class Dhall < Formula
   desc "Interpreter for the Dhall language"
   homepage "https://dhall-lang.org/"
-  url "https://hackage.haskell.org/package/dhall-1.40.1/dhall-1.40.1.tar.gz"
-  sha256 "21c23ed7c3949f6c8adb439666a934460a07636320ae4b3dfaced03455e24e54"
+  url "https://hackage.haskell.org/package/dhall-1.40.2/dhall-1.40.2.tar.gz"
+  sha256 "7e158dd30653c230692ddd5cee700cef6a42c27e61e8c47e007fdfe84e229093"
   license "BSD-3-Clause"
 
   bottle do
