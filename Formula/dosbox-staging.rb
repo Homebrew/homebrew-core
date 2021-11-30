@@ -4,6 +4,7 @@ class DosboxStaging < Formula
   url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.77.1.tar.gz"
   sha256 "85359efb7cd5c5c0336d88bdf023b7b462a8233490e00274fef0b85cca2f5f3c"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/dosbox-staging/dosbox-staging.git"
 
   bottle do
@@ -20,13 +21,14 @@ class DosboxStaging < Formula
   depends_on "pkg-config" => :build
   depends_on "fluid-synth"
   depends_on "libpng"
+  depends_on "mt32emu"
   depends_on "opusfile"
   depends_on "sdl2"
   depends_on "sdl2_net"
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, "-Duse_mt32emu=false", ".."
+      system "meson", *std_meson_args, "-Db_lto=true", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
