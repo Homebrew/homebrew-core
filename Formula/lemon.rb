@@ -1,6 +1,8 @@
 class Lemon < Formula
   desc "LALR(1) parser generator like yacc or bison"
   homepage "https://www.hwaci.com/sw/lemon/"
+  # FIXME: Add this back to `synced_versions_formula.json` when
+  #        this is updated to 3.37.0.
   url "https://www.sqlite.org/2021/sqlite-src-3360000.zip"
   version "3.36.0"
   sha256 "25a3b9d08066b3a9003f06a96b2a8d1348994c29cc912535401154501d875324"
