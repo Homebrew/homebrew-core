@@ -1,6 +1,6 @@
 name: New issue for Reproducible Bug
 description: "If you're sure it's reproducible and not just your machine: submit an issue so we can investigate."
-labels: bug
+labels: [bug]
 body:
   - type: markdown
     attributes:
@@ -13,6 +13,7 @@ body:
       required: true
   - type: checkboxes
     attributes:
+      label: Verification
       description: Please verify that you've followed these steps.
       options:
         - label: I ran `brew update` and am still able to reproduce my issue.
