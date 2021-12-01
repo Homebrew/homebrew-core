@@ -1,10 +1,10 @@
 class Cups < Formula
   desc "Common UNIX Printing System"
   homepage "https://github.com/OpenPrinting/cups"
-  url "https://github.com/OpenPrinting/cups/releases/download/v2.3.3op2/cups-2.3.3op2-source.tar.gz"
   # This is the author's fork of CUPS. Debian have switched to this fork:
   # https://lists.debian.org/debian-printing/2020/12/msg00006.html
-  sha256 "deb3575bbe79c0ae963402787f265bfcf8d804a71fc2c94318a74efec86f96df"
+  url "https://github.com/OpenPrinting/cups/releases/download/v2.4.0/cups-2.4.0-source.tar.gz"
+  sha256 "9abecec128ca6847c5bb2d3e3d30c87b782c0697b9acf284d16fa38f80a3a6de"
   license "Apache-2.0"
   head "https://github.com/OpenPrinting/cups.git", branch: "master"
 
@@ -27,6 +27,10 @@ class Cups < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gnutls"
+  end
 
   def install
     system "./configure", "--disable-debug",
