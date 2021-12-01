@@ -4,6 +4,7 @@ class Ccextractor < Formula
   url "https://github.com/CCExtractor/ccextractor/archive/v0.93.tar.gz"
   sha256 "0e66d3e360db1b02a88271af11313ca4c9bbda1b03728e264a44c4c9f77192e3"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/ccextractor/ccextractor.git", branch: "master"
 
   bottle do
