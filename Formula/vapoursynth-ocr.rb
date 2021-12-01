@@ -4,6 +4,7 @@ class VapoursynthOcr < Formula
   url "https://github.com/vapoursynth/vs-ocr/archive/R1.tar.gz"
   sha256 "a551354c78fdbe9bcaf29f9a29ee9a7d257ed74d1b6a8403049fcd57855fa0f4"
   license "MIT"
+  revision 1
   version_scheme 1
 
   head "https://github.com/vapoursynth/vs-ocr.git", branch: "master"
