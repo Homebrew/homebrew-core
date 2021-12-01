@@ -1,8 +1,8 @@
 class NodeAT16 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v16.13.0/node-v16.13.0.tar.xz"
-  sha256 "32114b3dc3945ed0f95f8bc33b42c68e0ef18c408cb56122572a163d907ecbcc"
+  url "https://nodejs.org/dist/v16.13.1/node-v16.13.1.tar.xz"
+  sha256 "4c23004fd75eaf799ad8e76fe34f53e0327f433d4acbfc883396f72e96cc63ad"
   license "MIT"
 
   livecheck do
@@ -22,14 +22,15 @@ class NodeAT16 < Formula
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
 
+  uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
 
   on_linux do
@@ -42,6 +43,13 @@ class NodeAT16 < Formula
   end
 
   fails_with gcc: "5"
+
+  # Fixes node incorrectly building vendored OpenSSL when we want system OpenSSL.
+  # https://github.com/nodejs/node/pull/40965
+  patch do
+    url "https://github.com/nodejs/node/commit/65119a89586b94b0dd46b45f6d315c9d9f4c9261.patch?full_index=1"
+    sha256 "7d05debcfaf7bcbce75e28e3e5b2a329fe9bbb80f25b7b721e1b23f20db4dc40"
+  end
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
