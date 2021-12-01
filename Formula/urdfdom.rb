@@ -27,8 +27,9 @@ class Urdfdom < Formula
 
   def install
     ENV.cxx11
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -48,5 +49,44 @@ class Urdfdom < Formula
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lurdfdom_world", "-std=c++11",
                     "-o", "test"
     system "./test"
+
+    (testpath/"test.xml").write <<~EOS
+      <robot name="test">
+        <joint name="j1" type="fixed">
+          <parent link="l1"/>
+          <child link="l2"/>
+        </joint>
+        <joint name="j2" type="fixed">
+          <parent link="l1"/>
+          <child link="l2"/>
+        </joint>
+        <link name="l1">
+          <visual>
+            <geometry>
+              <sphere radius="1.349"/>
+            </geometry>
+            <material name="">
+              <color rgba="1.0 0.65 0.0 0.01" />
+            </material>
+          </visual>
+          <inertial>
+            <mass value="8.4396"/>
+            <inertia ixx="0.087" ixy="0.14" ixz="0.912" iyy="0.763" iyz="0.0012" izz="0.908"/>
+          </inertial>
+        </link>
+        <link name="l2">
+          <visual>
+            <geometry>
+              <cylinder radius="3.349" length="7.5490"/>
+            </geometry>
+            <material name="red ish">
+              <color rgba="1 0.0001 0.0 1" />
+            </material>
+          </visual>
+        </link>
+      </robot>
+    EOS
+
+    system "#{bin}/check_urdf", testpath/"test.xml"
   end
 end
