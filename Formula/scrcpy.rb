@@ -1,8 +1,8 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/v1.20.tar.gz"
-  sha256 "0c667e7de043a67a740be99d3f236a7aa4107ff62c408e7c462f4fe291f045a7"
+  url "https://github.com/Genymobile/scrcpy/archive/v1.21.tar.gz"
+  sha256 "76e16a894bdb483b14b7ae7dcc1be8036ec17924dfab070cf0cb3b47653a6822"
   license "Apache-2.0"
 
   bottle do
@@ -20,8 +20,8 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.20/scrcpy-server-v1.20"
-    sha256 "b20aee4951f99b060c4a44000ba94de973f9604758ef62beb253b371aad3df34"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.21/scrcpy-server-v1.21"
+    sha256 "dbcccab523ee26796e55ea33652649e4b7af498edae9aa75e4d4d7869c0ab848"
   end
 
   def install
@@ -50,18 +50,23 @@ class Scrcpy < Formula
   test do
     fakeadb = (testpath/"fakeadb.sh")
 
-    # When running, scrcpy calls adb three times:
-    #  - adb push ... (to push scrcpy-server.jar)
-    #  - adb reverse ... tcp:PORT ...
-    #  - adb shell ...
-    # However, exiting on $1 = shell didn't work properly, so instead
-    # fakeadb exits on $1 = reverse
+    # When running, scrcpy calls adb four times:
+    #  - adb get-serialno
+    #  - adb -s SERIAL push ... (to push scrcpy-server.jar)
+    #  - adb -s SERIAL reverse ... tcp:PORT ...
+    #  - adb -s SERIAL shell ...
+    # However, exiting on $3 = shell didn't work properly, so instead
+    # fakeadb exits on $3 = reverse
 
     fakeadb.write <<~EOS
       #!/bin/sh
       echo $@ >> #{testpath/"fakeadb.log"}
 
-      if [ "$1" = "reverse" ]; then
+      if [ "$1" = "get-serialno" ]; then
+        echo emulator-1337
+      fi
+
+      if [ "$3" = "reverse" ]; then
         exit 42
       fi
     EOS
