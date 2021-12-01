@@ -14,7 +14,10 @@ class Ktlint < Formula
   def install
     libexec.install "ktlint"
     (libexec/"ktlint").chmod 0755
-    (bin/"ktlint").write_env_script libexec/"ktlint", JAVA_HOME: Formula["openjdk@11"].opt_prefix
+    (bin/"ktlint").write_env_script libexec/"ktlint",
+                                    Language::Java.java_home_env("11").merge(
+                                      PATH: "#{Formula["openjdk@11"].opt_bin}:${PATH}",
+                                    )
   end
 
   test do
