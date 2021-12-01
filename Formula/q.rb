@@ -17,7 +17,7 @@ class Q < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bed14a331133ff96b85fa37e0729ca695bd273f78ee82e792185d137edf9917a"
   end
 
-  deprecate! date: "2021-11-30", because: "Installation changed. Please take a look at https://harelba.github.io/q/"
+  deprecate! date: "2021-11-30", because: "requires PyOxidizer, which is a disallowed dependency in homebrew/core"
 
   depends_on "ronn" => :build
   depends_on "python@3.9"
@@ -29,6 +29,12 @@ class Q < Formula
     virtualenv_install_with_resources
     system "ronn", "--roff", "--section=1", "doc/USAGE.markdown"
     man1.install "doc/USAGE.1" => "q.1"
+  end
+
+  def caveats
+    <<~EOS
+      q is moving out of homebrew-core. See the web site for details.
+    EOS
   end
 
   test do
