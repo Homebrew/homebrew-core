@@ -5,6 +5,11 @@ class FseventsTools < Formula
   sha256 "498528e1794fa2b0cf920bd96abaf7ced15df31c104d1a3650e06fa3f95ec628"
   license "Apache-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?fsevents-tools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4485f966db472e54a07bc973d25945a4b72e110e68222bbd6ffb206bef843d74"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "613a2ee6e962c3681f00a36382fe87089c92a235d2db0dec7e8fb8e74f993b0e"
