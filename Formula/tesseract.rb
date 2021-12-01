@@ -1,8 +1,8 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/4.1.3.tar.gz"
-  sha256 "83dc56b544be938983f528c777e4e1d906205b0f6dc0110afc223f2cc1cec6d3"
+  url "https://github.com/tesseract-ocr/tesseract/archive/5.0.0.tar.gz"
+  sha256 "72467b7876dc0c39ef7fbcb0f793f73aee1c78d9fabab3ab19cbac1eb42e9fed"
   license "Apache-2.0"
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
@@ -28,13 +28,19 @@ class Tesseract < Formula
   depends_on "leptonica"
   depends_on "libtiff"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   resource "eng" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/eng.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.1.0/eng.traineddata"
     sha256 "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
   end
 
   resource "osd" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/osd.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.1.0/osd.traineddata"
     sha256 "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff"
   end
 
