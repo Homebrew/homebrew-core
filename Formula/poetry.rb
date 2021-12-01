@@ -17,7 +17,6 @@ class Poetry < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e33f71e0e2507519a6f11ecf51fc9657f932d01676ddf98186c55931441d4116"
   end
 
-  depends_on "python@3.9" => :test
   depends_on "python@3.10"
   depends_on "six"
 
@@ -201,16 +200,5 @@ class Poetry < Formula
     assert_predicate testpath/"homebrew/poetry.lock", :exist?
     assert_match "requests", (testpath/"homebrew/pyproject.toml").read
     assert_match "boto3", (testpath/"homebrew/pyproject.toml").read
-
-    # Check using different python versions
-    # See https://github.com/Homebrew/homebrew-core/issues/62910
-    pythons = deps.map(&:to_formula).select { |f| f.name.match?(/^python@3\.\d+$/) }
-    cd testpath/"homebrew" do
-      inreplace "pyproject.toml", /^python = "\^3.*"/, 'python = "^3"'
-      pythons.each do |python|
-        system bin/"poetry", "env", "use", python.opt_bin/"python3"
-        assert_match python.version.to_s, shell_output("#{bin}/poetry run python --version")
-      end
-    end
   end
 end
