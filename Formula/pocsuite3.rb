@@ -11,6 +11,7 @@ class Pocsuite3 < Formula
   depends_on "rust" => :build # for cryptography
   depends_on "openssl@1.1"
   depends_on "python@3.9"
+  depends_on "six"
 
   uses_from_macos "libffi"
 
@@ -101,11 +102,6 @@ class Pocsuite3 < Formula
   resource "scapy" do
     url "https://files.pythonhosted.org/packages/85/47/c919432ca258f354bb2c1e645623f891603f185bfc7563d4a21f6432e7ed/scapy-2.4.5.tar.gz"
     sha256 "bc707e3604784496b6665a9e5b2a69c36cc9fb032af4864b29051531b24c8593"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "termcolor" do
