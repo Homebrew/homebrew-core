@@ -15,7 +15,7 @@ class ZshFastSyntaxHighlighting < Formula
   def caveats
     <<~EOS
       To activate the syntax highlighting, add the following at the end of your .zshrc:
-        source #{HOMEBREW_PREFIX}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+        source #{opt_pkgshare}/fast-syntax-highlighting.plugin.zsh
     EOS
   end
 
