@@ -6,6 +6,7 @@ class Regipy < Formula
   url "https://files.pythonhosted.org/packages/a6/b6/3802f55a1bf3deac4f5d0affb27126413f42a5d5cdda656c053300a8f42d/regipy-2.2.2.tar.gz"
   sha256 "1c4efd310f72b199efaa7ceadc579045fbe7e96cb334775cd3f01a1700dda9fa"
   license "MIT"
+  revision 1
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Regipy < Formula
   end
 
   depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
@@ -51,7 +52,7 @@ class Regipy < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.9")
+    venv = virtualenv_create(libexec, "python3.10")
     res = resources.map(&:name).to_set
     res -= %w[test_hive]
 
