@@ -8,11 +8,6 @@ class Pocsuite3 < Formula
   license "GPL-2.0-only"
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   depends_on "rust" => :build # for cryptography
   depends_on "openssl@1.1"
   depends_on "python@3.9"
