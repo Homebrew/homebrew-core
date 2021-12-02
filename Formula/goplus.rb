@@ -12,8 +12,13 @@ class Goplus < Formula
     # Patch version to match the version of gop, currently it get version from git tag
     inreplace "env/version.go", /^\tbuildVersion string$/, "\tbuildVersion string = \"v#{version}\"" unless build.head?
 
+    build_script = "cmd/install.go"
+    # cmd/install.go renamed to cmd/make.go in the main branch
+    build_script = "cmd/make.go" if build.head?
+
     ENV["GOPROOT_FINAL"] = libexec
-    system "go", "run", "cmd/install.go", "--install"
+    system "go", "run", build_script, "--install"
+
     libexec.install Dir["*"] - Dir[".*"]
     bin.install_symlink Dir[libexec/"bin/*"]
   end
