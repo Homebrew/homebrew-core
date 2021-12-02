@@ -15,13 +15,7 @@ class Goplus < Formula
 
     ENV["GOPROOT_FINAL"] = libexec
     system "go", "run", "cmd/install.go", "--install"
-
-    Dir["*"].each do |f|
-      next if f.start_with?(".")
-
-      libexec.install f
-    end
-
+    libexec.install Dir["*"] - Dir[".*"]
     bin.install_symlink Dir[libexec/"bin/*"]
   end
 
