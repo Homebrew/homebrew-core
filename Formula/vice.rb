@@ -39,6 +39,11 @@ class Vice < Formula
   depends_on "librsvg"
   depends_on "libvorbis"
 
+  # Fix build against jpeg.
+  # https://sourceforge.net/p/vice-emu/code/40001/
+  # Remove with next release.
+  patch :DATA
+
   def install
     configure_flags = %W[
       --prefix=#{prefix}
@@ -67,3 +72,16 @@ class Vice < Formula
     assert_match "cycle limit reached", shell_output("#{bin}/x64sc -console -limitcycles 1000000 -logfile -", 1)
   end
 end
+
+__END__
+--- a/configure.ac
++++ b/configure.ac
+@@ -3186,7 +3186,7 @@
+ dnl check for jpeg support
+ if test x"$with_jpeg" = "xyes" ; then
+   dnl Check for the JPEG library.
+-  AC_CHECK_HEADER(jpeglib.h,,)
++  AC_CHECK_HEADER(jpeglib.h,,,-)
+ 
+   if test x"$ac_cv_header_jpeglib_h" = "xyes" ; then
+     AC_CHECK_LIB(jpeg, jpeg_CreateCompress, [
