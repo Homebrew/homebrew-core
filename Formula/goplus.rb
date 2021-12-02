@@ -10,12 +10,9 @@ class Goplus < Formula
   depends_on "go"
 
   def install
-    # Patch version to match the version of gop
-    unless build.head?
-      version_content = File.read("env/version.go")
-      version_content.sub!(/^\tbuildVersion string$/, "\t	buildVersion string = \"v#{version}\"")
-      File.open("env/version.go", "w") { |file| file.puts version_content }
-    end
+    # Patch version to match the version of gop, currently it get version from git tag
+    inreplace "env/version.go", /^\tbuildVersion string$/, "\tbuildVersion string = \"v#{version}\"" unless build.head?
+    system "cat", "env/version.go"
 
     ENV.prepend "GOPROOT_FINAL", libexec
     system "go", "run", "cmd/install.go", "--install"
