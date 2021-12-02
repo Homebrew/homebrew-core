@@ -4,7 +4,6 @@ class Goplus < Formula
   url "https://github.com/goplus/gop/archive/refs/tags/v1.0.32.tar.gz"
   sha256 "c008d6fcc8c8f3a08e69774a6e54dce82fae78414b6e5c45b5b619dd0572a139"
   license "Apache-2.0"
-
   head "https://github.com/goplus/gop.git", branch: "main"
 
   depends_on "go"
