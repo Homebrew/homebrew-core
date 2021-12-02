@@ -4,6 +4,7 @@ class Gitleaks < Formula
   url "https://github.com/zricethezav/gitleaks/archive/v8.0.6.tar.gz"
   sha256 "1d932828cc7758a775e413abfe20d4f20d48b58fccbfbdb688abfeec70bbb7bc"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f1796bad1a01c213aa8d8b3c67884da2d660ad92bdaa5f7fc7e6d0fbd46a8b83"
@@ -19,6 +20,15 @@ class Gitleaks < Formula
   def install
     ldflags = "-X github.com/zricethezav/gitleaks/v#{version.major}/cmd.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
+
+    bash_output = Utils.safe_popen_read(bin/"gitleaks", "completion", "bash")
+    (bash_completion/"gitleaks").write bash_output
+
+    zsh_output = Utils.safe_popen_read(bin/"gitleaks", "completion", "zsh")
+    (zsh_completion/"_gitleaks").write zsh_output
+
+    fish_output = Utils.safe_popen_read(bin/"gitleaks", "completion", "fish")
+    (fish_completion/"gitleaks.fish").write fish_output
   end
 
   test do
