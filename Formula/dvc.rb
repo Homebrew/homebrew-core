@@ -6,6 +6,7 @@ class Dvc < Formula
   url "https://files.pythonhosted.org/packages/43/f7/073e9299e0656c9f59a27b762b456ef1ea4f77e9f53f9c7c8426434c0cb1/dvc-2.8.3.tar.gz"
   sha256 "e28e63bbf256045d16ffccdfbd86721110afe117b6e9472e24ab4fe1e0b68a19"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "9a467a23ee85724c49b0f40e46fa4e9853d206438fb9acc26c39846bc03d0adc"
@@ -24,7 +25,7 @@ class Dvc < Formula
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   # When updating, check that the extra packages in pypi_formula_mappings.json
