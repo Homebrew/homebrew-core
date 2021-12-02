@@ -1,9 +1,9 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
-  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.11.0/freetype-2.11.0.tar.xz"
-  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.11.0.tar.xz"
-  sha256 "8bee39bd3968c4804b70614a0a3ad597299ad0e824bc8aad5ce8aaf48067bde7"
+  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.11.1/freetype-2.11.1.tar.xz"
+  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.11.1.tar.xz"
+  sha256 "3333ae7cfda88429c97a7ae63b7d01ab398076c3b67182e960e5684050f2c5c8"
   license "FTL"
 
   livecheck do
