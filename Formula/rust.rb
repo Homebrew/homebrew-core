@@ -2,17 +2,16 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.56.1-src.tar.gz"
-    sha256 "c3898dfaadaa193dc88ddbc5345946a163211b58621df1cfff70186b4fc79511"
+    url "https://static.rust-lang.org/dist/rustc-1.57.0-src.tar.gz"
+    sha256 "3546f9c3b91b1f8b8efd26c94d6b50312c08210397b4072ed2748e2bd4445c1a"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.57.0",
-          revision: "4ed5d137baff5eccf1bae5a7b2ae4b57efad4a7d"
+          tag:      "0.58",
+          revision: "b2e52d7cab0a286ee9fcc0c17510b1e72fcb53eb"
     end
   end
 
@@ -45,20 +44,20 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     on_macos do
-      # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
+      # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
       if Hardware::CPU.arm?
-        url "https://static.rust-lang.org/dist/2021-09-09/cargo-1.55.0-aarch64-apple-darwin.tar.gz"
-        sha256 "9e49c057f8020fa4f67e6530aa2929c175e5417d19fc9f3a14c9ffb168c2932d"
+        url "https://static.rust-lang.org/dist/2021-11-01/cargo-1.56.1-aarch64-apple-darwin.tar.gz"
+        sha256 "6ed30275214e956ee10b03db87b0b4297948fd102d39896cece01669555047ef"
       else
-        url "https://static.rust-lang.org/dist/2021-09-09/cargo-1.55.0-x86_64-apple-darwin.tar.gz"
-        sha256 "4e004cb231c8efbd4241b012c6abeefc7d61e2b4357cfe69feb0d4a448d30f05"
+        url "https://static.rust-lang.org/dist/2021-11-01/cargo-1.56.1-x86_64-apple-darwin.tar.gz"
+        sha256 "cd60c32d0bb0ed59508df96bebb83cf6f85accb9908fb5d63ca95c983a190cf3"
       end
     end
 
     on_linux do
-      # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2021-09-09/cargo-1.55.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "bb18c74aea07fa29c7169ce78756dfd08c07da08c584874e09fa6929c8267ec1"
+      # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
+      url "https://static.rust-lang.org/dist/2021-11-01/cargo-1.56.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "c896c033bb1f430c4e200ae8af0f74d792e4909a458086b9597f076e1dcc2ab2"
     end
   end
 
