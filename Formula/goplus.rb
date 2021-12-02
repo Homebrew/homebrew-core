@@ -11,7 +11,6 @@ class Goplus < Formula
   def install
     # Patch version to match the version of gop, currently it get version from git tag
     inreplace "env/version.go", /^\tbuildVersion string$/, "\tbuildVersion string = \"v#{version}\"" unless build.head?
-    system "cat", "env/version.go"
 
     ENV["GOPROOT_FINAL"] = libexec
     system "go", "run", "cmd/install.go", "--install"
@@ -30,7 +29,7 @@ class Goplus < Formula
     assert_equal "v#{version}", shell_output("#{bin}/gop env GOPVERSION").chomp unless head?
     system bin/"gop", "fmt", "hello.gop"
     assert_equal "Hello World\n", shell_output("#{bin}/gop run hello.gop")
-    
+
     (testpath/"go.mod").write <<~EOS
       module hello
     EOS
