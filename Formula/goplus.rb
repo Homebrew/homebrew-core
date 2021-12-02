@@ -25,22 +25,18 @@ class Goplus < Formula
     EOS
 
     # Run gop fmt, run, build
-    cd testpath do
-      ENV.prepend "GO111MODULE", "on"
+    ENV.prepend "GO111MODULE", "on"
 
-      assert_equal "v#{version}", shell_output("#{bin/"gop"} env GOPVERSION").chomp unless build.head?
+    assert_equal "v#{version}", shell_output("#{bin}/gop env GOPVERSION").chomp unless head?
+    system bin/"gop", "fmt", "hello.gop"
+    assert_equal "Hello World\n", shell_output("#{bin}/gop run hello.gop")
+    
+    (testpath/"go.mod").write <<~EOS
+      module hello
+    EOS
 
-      system bin/"gop", "fmt", "hello.gop"
-
-      assert_equal "Hello World\n", shell_output("#{bin/"gop"} run hello.gop")
-
-      (testpath/"go.mod").write <<~EOS
-        module hello
-      EOS
-
-      system "go", "get", "github.com/goplus/gop/builtin"
-      system bin/"gop", "build", "-o", "hello"
-      assert_equal "Hello World\n", shell_output("./hello")
-    end
+    system "go", "get", "github.com/goplus/gop/builtin"
+    system bin/"gop", "build", "-o", "hello"
+    assert_equal "Hello World\n", shell_output("./hello")
   end
 end
