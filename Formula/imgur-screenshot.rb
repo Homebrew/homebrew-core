@@ -23,7 +23,11 @@ class ImgurScreenshot < Formula
 
   test do
     # Check deps
-    system bin/"imgur-screenshot", test_fixtures("test.jpg")
-    system bin/"imgur-screenshot.sh", test_fixtures("test.png")
+    args = %w[
+      --open false
+      --auto-delete 1
+    ]
+    system bin/"imgur-screenshot", *args, test_fixtures("test.jpg")
+    system bin/"imgur-screenshot.sh", *args, test_fixtures("test.png")
   end
 end
