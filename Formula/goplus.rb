@@ -14,7 +14,7 @@ class Goplus < Formula
     inreplace "env/version.go", /^\tbuildVersion string$/, "\tbuildVersion string = \"v#{version}\"" unless build.head?
     system "cat", "env/version.go"
 
-    ENV.prepend "GOPROOT_FINAL", libexec
+    ENV["GOPROOT_FINAL"] = libexec
     system "go", "run", "cmd/install.go", "--install"
 
     Dir["*"].each do |f|
