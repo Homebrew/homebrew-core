@@ -6,6 +6,11 @@ class Gammu < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/gammu/gammu.git"
 
+  livecheck do
+    url "https://wammu.eu/download/gammu/"
+    regex(/href=.*?gammu[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "ec67090543b705c81803d19c3616cfa49db6bfb1d501df72ec754568a8b94a54"
     sha256 arm64_big_sur:  "d7a1bc97b049d30cd224c480d610f184e69672504b9159b591177723d5569f0a"
