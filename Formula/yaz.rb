@@ -2,6 +2,7 @@ class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/resources/software/yaz/"
   license "BSD-3-Clause"
+  revision 1
 
   stable do
     url "https://ftp.indexdata.com/pub/yaz/yaz-5.31.0.tar.gz"
@@ -37,6 +38,7 @@ class Yaz < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gnutls"
   depends_on "icu4c"
 
   uses_from_macos "libxml2"
@@ -45,6 +47,7 @@ class Yaz < Formula
     system "./buildconf.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--with-gnutls",
                           "--with-xml2"
     system "make", "install"
   end
