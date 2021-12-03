@@ -143,7 +143,7 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-skip-recursive-dependents
-              path: Formula/(gettext|openssl).rb
+              path: Formula/(gettext|openssl@(3|1.1)|sqlite).rb
               keep_if_no_match: true
 
             - label: CI-linux-wheezy
@@ -151,7 +151,7 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/(gdbm|go|openssl@1.1|python@3.9|rust|sqlite).rb
+              path: Formula/(gdbm|go|openssl@1.1|python@3.9).rb
               keep_if_no_match: true
 
             - label: bump-formula-pr
