@@ -13,6 +13,7 @@ class Vice < Formula
   end
 
   bottle do
+    sha256 monterey: "50ff8e44e61eaf98b9f11ab69191b8788519e92c907f906fbe86858482397f1f"
     sha256 big_sur:  "c07d71cebd01929ae44bb80611d761c10c5f8ae53b2ac8e855d2a77bb9ce2270"
     sha256 catalina: "32421c80ed1f4fd835143587ec1d666941aadaefa2ea5facd2bbd2355cc078c4"
     sha256 mojave:   "04964db736a6895edf14f3e0d1cd8dce585c18b56dd123f6376bb2743a1d9953"
