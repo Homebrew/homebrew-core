@@ -37,6 +37,7 @@ class Yaz < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gnutls"
   depends_on "icu4c"
 
   uses_from_macos "libxml2"
@@ -45,6 +46,7 @@ class Yaz < Formula
     system "./buildconf.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--with-gnutls",
                           "--with-xml2"
     system "make", "install"
   end
