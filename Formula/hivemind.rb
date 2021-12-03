@@ -4,7 +4,7 @@ class Hivemind < Formula
   url "https://github.com/DarthSim/hivemind/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "b4f7259663ef5b99906af0d98fe4b964d8f9a4d86a8f5aff30ab8df305d3a996"
   license "MIT"
-  head "https://github.com/DarthSim/hivemind.git"
+  head "https://github.com/DarthSim/hivemind.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f2935f664ce82d363c4c1aaea8aec7bff335e3e6f60bb682a44e31652d42891c"
@@ -21,10 +21,7 @@ class Hivemind < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/DarthSim/hivemind/").install Dir["*"]
-    system "go", "build", "-o", "#{bin}/hivemind", "-v", "github.com/DarthSim/hivemind/"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
