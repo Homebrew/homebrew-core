@@ -57,6 +57,7 @@ class Libvirt < Formula
         -Ddriver_qemu=enabled
         -Ddriver_network=enabled
         -Dinit_script=none
+        -Dqemu_datadir=#{Formula["qemu"].opt_pkgshare}
       ]
       system "meson", *std_meson_args, *args, ".."
       system "meson", "compile"
