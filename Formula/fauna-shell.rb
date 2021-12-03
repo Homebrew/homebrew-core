@@ -27,6 +27,10 @@ class FaunaShell < Formula
     output = shell_output("#{bin}/fauna list-endpoints 2>&1", 1)
     assert_match "No endpoints defined", output
 
+    # FIXME: This test seems to stall indefinitely on Linux.
+    # https://github.com/jdxcode/password-prompt/issues/12
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+
     pipe_output("#{bin}/fauna add-endpoint https://db.fauna.com:443", "your_fauna_secret\nfauna_endpoint\n")
 
     output = shell_output("#{bin}/fauna list-endpoints")
