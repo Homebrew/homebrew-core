@@ -20,9 +20,24 @@ class Wasmer < Formula
   depends_on "wabt" => :build
 
   def install
+    # wasmer CLI
     chdir "lib/cli" do
       system "cargo", "install", "--features", "cranelift", *std_cargo_args
     end
+
+    # Build C API
+    chdir "lib/c-api" do
+      system "cargo", "build",
+        "--features", "wat,universal,dylib,staticlib,wasi,middlewares,cranelift",
+        "--no-default-features",
+        "--release"
+    end
+
+    # Install C API
+    lib.install OS.mac? ? "target/release/libwasmer.dylib" : "target/release/libwasmer.so"
+    lib.install "target/release/libwasmer.a"
+    include.install "lib/c-api/wasmer.h"
+    include.install "lib/c-api/tests/wasm-c-api/include/wasm.h"
   end
 
   test do
