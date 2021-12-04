@@ -5,7 +5,7 @@ class Freeswitch < Formula
       tag:      "v1.10.7",
       revision: "883d2cb662bed0316e157bd3beb9853e96c60d02"
   license "MPL-1.1"
-  revision 1
+  revision 2
   head "https://github.com/signalwire/freeswitch.git"
 
   livecheck do
