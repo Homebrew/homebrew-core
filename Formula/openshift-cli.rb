@@ -6,9 +6,9 @@ class OpenshiftCli < Formula
 
   stable do
     url "https://github.com/openshift/oc.git",
-        tag:      "openshift-clients-4.6.0-202006250705.p0",
-        revision: "51011e4849252c723b520643d27d3fa164d28c61"
-    version "4.6.0"
+        # Latest commit of release-4.9 branch
+        revision: "96e95cef877ba04872b88e4e2597eabb0174d182"
+    version "4.9"
 
     # Add Makefile target to build arm64 binary
     # Upstream PR: https://github.com/openshift/oc/pull/889
@@ -71,17 +71,17 @@ end
 
 __END__
 diff --git a/Makefile b/Makefile
-index 940a90415..a3584fbc9 100644
+index 8de1907e04..d27c53dc3b 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -88,6 +88,10 @@ cross-build-darwin-amd64:
+@@ -103,6 +103,10 @@ cross-build-darwin-amd64:
  	+@GOOS=darwin GOARCH=amd64 $(MAKE) --no-print-directory build GO_BUILD_PACKAGES:=./cmd/oc GO_BUILD_FLAGS:="$(GO_BUILD_FLAGS_DARWIN)" GO_BUILD_BINDIR:=$(CROSS_BUILD_BINDIR)/darwin_amd64
  .PHONY: cross-build-darwin-amd64
-
+ 
 +cross-build-darwin-arm64:
 +	+@GOOS=darwin GOARCH=arm64 $(MAKE) --no-print-directory build GO_BUILD_PACKAGES:=./cmd/oc GO_BUILD_FLAGS:="$(GO_BUILD_FLAGS_DARWIN)" GO_BUILD_BINDIR:=$(CROSS_BUILD_BINDIR)/darwin_arm64
 +.PHONY: cross-build-darwin-arm64
 +
- cross-build-windows-amd64:
+ cross-build-windows-amd64: generate-versioninfo
  	+@GOOS=windows GOARCH=amd64 $(MAKE) --no-print-directory build GO_BUILD_PACKAGES:=./cmd/oc GO_BUILD_FLAGS:="$(GO_BUILD_FLAGS_WINDOWS)" GO_BUILD_BINDIR:=$(CROSS_BUILD_BINDIR)/windows_amd64
- .PHONY: cross-build-windows-amd64
+ 	$(RM) cmd/oc/oc.syso
