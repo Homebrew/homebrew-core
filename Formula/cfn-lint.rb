@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/26/fc/a22590897e9d8612c3659a3f472961152dea78714972f3f0d5a0a08afe43/cfn-lint-0.56.1.tar.gz"
-  sha256 "9cbc67e0380f51f28510628e8c9784a5c74c5e52e9eece06cb8078f1c647280a"
+  url "https://files.pythonhosted.org/packages/44/d1/a806e32c48caa92d0e18d6da87bd7f4e0ba1f814991844e26482f85b6417/cfn-lint-0.56.3.tar.gz"
+  sha256 "ce056cc54c3141b6da5f20066d14ac576a75ace1349a5994f772e12f2bcbfa57"
   license "MIT-0"
 
   bottle do
@@ -25,18 +25,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/3c/9e/c6ad47c90eb4d3c0a53d139a28c4df13bfb2dd6996a201cc4a1addbaaae0/aws-sam-translator-1.40.0.tar.gz"
-    sha256 "ae52c5941048ea7e4a2fd268dbd5d34a133e128913a641f41c9360f6d77b05c3"
+    url "https://files.pythonhosted.org/packages/f2/76/2b5c76cc8ae4d3373a793059b2073af1bb5f37189532dacd4788d2d142d3/aws-sam-translator-1.42.0.tar.gz"
+    sha256 "8a7976c0ee2fca004a590e17d3551a49c8d8ba14ed0cb3674ea270d41d0dcd5b"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/2c/93/b76997acb1f824ef59eefd0932adf18cf57f0ae412cca866615dedb2f73b/boto3-1.20.10.tar.gz"
-    sha256 "20a5109a37414a52c55d2048388f02cb7cf46fc0ca7be08b3bf81f4c5c053feb"
+    url "https://files.pythonhosted.org/packages/37/c0/711445eb6e41a1d4314136a237702c6248d2063a4186ce40ba2796c7bdef/boto3-1.20.20.tar.gz"
+    sha256 "2c5377b6ab74eeccccd16f0f21537ede87b05c8322b0ccc852a68f36ea6c16c9"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/26/79/ba027d96c5a670fb0715f483afa4eff5ecb2456aba302b7367b12b282453/botocore-1.23.10.tar.gz"
-    sha256 "0adda9a4a95221027312eaaee0ec9fe2239fb2f285fced3ddca54b1310b864ee"
+    url "https://files.pythonhosted.org/packages/ac/96/4d5434c7e5cc0ecb69cc129edd352c3c659bfc33e1228700afc48c7228a9/botocore-1.23.20.tar.gz"
+    sha256 "22e1c7b4b2b8b11d7001ca5ef2b41bda9a8be46fb3cb994a2948462666ac5ef1"
   end
 
   resource "jmespath" do
