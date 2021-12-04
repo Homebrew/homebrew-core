@@ -6,7 +6,7 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.70/gobject-introspection-1.70.0.tar.xz"
   sha256 "902b4906e3102d17aa2fcb6dad1c19971c70f2a82a159ddc4a94df73a3cafc4a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_monterey: "91dcf1a2b40ca6c4725cdd2dad4de38217492704f8e1f0519155b1319356b5ad"
@@ -39,6 +39,38 @@ class GobjectIntrospection < Formula
   patch do
     url "https://gitlab.gnome.org/tschoonj/gobject-introspection/-/commit/a7be304478b25271166cd92d110f251a8742d16b.diff"
     sha256 "740c9fba499b1491689b0b1216f9e693e5cb35c9a8565df4314341122ce12f81"
+  end
+
+  # Series of seven commits from MR-301 to Fix SEGV on Apple Silicon Macs
+  # See: https://github.com/Homebrew/homebrew-core/issues/88801
+  #      https://gitlab.gnome.org/GNOME/gobject-introspection/-/merge_requests/301
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/62c3c955547599a58786f20497748569c148379e.diff"
+    sha256 "2c02a6c15cf225df6841be264ea073d7f7949da2ba5c9a8327cb25c4bb87d075"
+  end
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/2a4dede7c2fdc3e6a6a5b063449ab3a8c58c11c0.diff"
+    sha256 "96ad396093968a01a9d564b211c261632e9e3da386e9b8072c177a8e6cee9842"
+  end
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/55a18f528e490f17c7fd5d790cca6075bb375c51.diff"
+    sha256 "2871add72ac041be97ea12591f28cd51375da4c55c1549191969f7f7e9d4ee18"
+  end
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/d81cad5ec57edb38f23b358c83e598c1609029a2.diff"
+    sha256 "91c4b9c8e345432c5f59b270ffd5a75f3e01c88952d0f230a7736a45db01858e"
+  end
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/3da41e13054dfe162dfa3a3ff750009f4aba745f.diff"
+    sha256 "b7dad6558aaabad0061d2d8864ac9b1fda8c17e864e0774244aab2563657c827"
+  end
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/f8ea3c90de233c635d502760ebff78c12390f9cf.diff"
+    sha256 "ecbd845dfcd7da7ae757b87f9af5df9611d444621f5f00be38c2a12fbeb80dd0"
+  end
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/d4d5fb294a89c5c25f966f5e8407d335c315b1c1.diff"
+    sha256 "8995b7153844bf311064c9b9a3d87781f8c8ae53274a2376eb5a53137aee7117"
   end
 
   # Fix compatibility with PyInstaller on Monterey.
