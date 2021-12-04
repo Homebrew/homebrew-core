@@ -4,6 +4,7 @@ class Pdf2djvu < Formula
   url "https://github.com/jwilk/pdf2djvu/releases/download/0.9.18.1/pdf2djvu-0.9.18.1.tar.xz"
   sha256 "ab45d7c70ba837f01e6b5b5c18acf8af6200dad4bae8e47e4c2ca01fbf2fa930"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/jwilk/pdf2djvu.git", branch: "master"
 
   bottle do
