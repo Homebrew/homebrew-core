@@ -3,7 +3,7 @@ class Libiio < Formula
   homepage "https://analogdevicesinc.github.io/libiio/"
   url "https://github.com/analogdevicesinc/libiio/archive/v0.21.tar.gz"
   sha256 "03d13165cbeb83b036743cbd9a10e336c728da162714f39d13250a3d94305cac"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only"
   head "https://github.com/analogdevicesinc/libiio.git"
 
   depends_on "cmake" => :build
