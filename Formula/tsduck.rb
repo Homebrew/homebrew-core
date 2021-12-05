@@ -13,11 +13,8 @@ class Tsduck < Formula
   depends_on "librist"
   depends_on "srt"
   uses_from_macos "curl"
-  on_linux do
-    depends_on "gcc" => :build
-    depends_on "libedit"
-    depends_on "pcsc-lite"
-  end
+  uses_from_macos "libedit"
+  uses_from_macos "pcsc-lite"
 
   def install
     ENV["LINUXBREW"] = "true" if OS.linux?
