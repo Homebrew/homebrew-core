@@ -1,11 +1,15 @@
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "https://gmsh.info/"
-  url "https://gmsh.info/src/gmsh-4.8.4-source.tgz"
-  sha256 "760dbdc072eaa3c82d066c5ba3b06eacdd3304eb2a97373fe4ada9509f0b6ace"
+  url "https://gmsh.info/src/gmsh-4.9.0-source.tgz"
+  sha256 "b8ef133c9b66ffe12df1747e72d4acf19f1eb1e9cd95eb0f577cbc4081d9bea3"
   license "GPL-2.0-or-later"
-  revision 1
-  head "https://gitlab.onelab.info/gmsh/gmsh.git"
+  head "https://gitlab.onelab.info/gmsh/gmsh.git", branch: "master"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?gmsh[._-]v?(\d+(?:\.\d+)+)[._-]source\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "c7de949241bd3b5a29cb6e2615282574cc22c30bf5c9f731fcdcdaa140f124f6"
