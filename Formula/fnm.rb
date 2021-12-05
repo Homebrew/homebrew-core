@@ -1,10 +1,10 @@
 class Fnm < Formula
   desc "Fast and simple Node.js version manager"
-  homepage "https://fnm.vercel.app"
-  url "https://github.com/Schniz/fnm/archive/v1.28.1.tar.gz"
-  sha256 "9c05bf2cf3f43baa197eb3df582efa2cde5eaf66e3b0446a78e0fe6e46bc23b5"
+  homepage "https://github.com/Schniz/fnm"
+  url "https://github.com/Schniz/fnm/archive/v1.28.2.tar.gz"
+  sha256 "02bec72f9978fc2fd7b2671b25cc2bb019a64c0f2d2fe7ab72ec0add91288599"
   license "GPL-3.0-only"
-  head "https://github.com/Schniz/fnm.git"
+  head "https://github.com/Schniz/fnm.git", branch: "master"
 
   livecheck do
     url :stable
@@ -27,13 +27,13 @@ class Fnm < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    (bash_completion/"fnm").write Utils.safe_popen_read("#{bin}/fnm", "completions", "--shell=bash")
-    (fish_completion/"fnm.fish").write Utils.safe_popen_read("#{bin}/fnm", "completions", "--shell=fish")
-    (zsh_completion/"_fnm").write Utils.safe_popen_read("#{bin}/fnm", "completions", "--shell=zsh")
+    (bash_completion/"fnm").write Utils.safe_popen_read(bin/"fnm", "completions", "--shell=bash")
+    (fish_completion/"fnm.fish").write Utils.safe_popen_read(bin/"fnm", "completions", "--shell=fish")
+    (zsh_completion/"_fnm").write Utils.safe_popen_read(bin/"fnm", "completions", "--shell=zsh")
   end
 
   test do
-    system("#{bin}/fnm", "install", "12.0.0")
+    system bin/"fnm", "install", "12.0.0"
     assert_match "v12.0.0", shell_output("#{bin}/fnm exec --using=12.0.0 -- node --version")
   end
 end
