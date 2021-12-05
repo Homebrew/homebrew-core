@@ -58,6 +58,7 @@ class Csound < Formula
 
   resource "csound-plugins" do
     url "https://github.com/csound/plugins.git",
+        branch:   "master",
         revision: "63b784625e66109babd3b669abcb55f5b404f976"
   end
 
@@ -71,19 +72,17 @@ class Csound < Formula
 
     resource("getfem").stage { cp_r "src/gmm", buildpath }
 
-    args = std_cmake_args + %W[
-      -DBUILD_JAVA_INTERFACE=ON
-      -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
-      -DBUILD_LUA_INTERFACE=OFF
-      -DBUILD_WEBSOCKET_OPCODE=OFF
-      -DCMAKE_INSTALL_RPATH=@loader_path/../Frameworks;#{rpath}
-      -DCS_FRAMEWORK_DEST=#{frameworks}
-      -DGMM_INCLUDE_DIR=#{buildpath}/gmm
-      -DJAVA_MODULE_INSTALL_DIR=#{libexec}
-    ]
-
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..",
+                      "-DBUILD_JAVA_INTERFACE=ON",
+                      "-DBUILD_LINEAR_ALGEBRA_OPCODES=ON",
+                      "-DBUILD_LUA_INTERFACE=OFF",
+                      "-DBUILD_WEBSOCKET_OPCODE=OFF",
+                      "-DCMAKE_INSTALL_RPATH=@loader_path/../Frameworks;#{rpath}",
+                      "-DCS_FRAMEWORK_DEST=#{frameworks}",
+                      "-DGMM_INCLUDE_DIR=#{buildpath}/gmm",
+                      "-DJAVA_MODULE_INSTALL_DIR=#{libexec}",
+                      *std_cmake_args
       system "make", "install"
     end
 
@@ -115,10 +114,6 @@ class Csound < Formula
 
   def caveats
     <<~EOS
-      To use the Python bindings, you may need to set:
-        export DYLD_FALLBACK_FRAMEWORK_PATH="$DYLD_FALLBACK_FRAMEWORK_PATH:#{opt_frameworks}"
-      Exercise caution when adding this to your #{shell_profile}.
-
       To use the Java bindings, you may need to add to #{shell_profile}:
         export CLASSPATH="#{opt_libexec}/csnd6.jar:."
       and link the native shared library into your Java Extensions folder:
@@ -169,9 +164,7 @@ class Csound < Formula
     EOS
     system bin/"csound", "--orc", "--syntax-check-only", "opcode-existence.orc"
 
-    with_env(DYLD_FALLBACK_FRAMEWORK_PATH: frameworks) do
-      system Formula["python@3.9"].bin/"python3", "-c", "import ctcsound"
-    end
+    system Formula["python@3.9"].bin/"python3", "-c", "import ctcsound"
 
     (testpath/"test.java").write <<~EOS
       import csnd6.*;
