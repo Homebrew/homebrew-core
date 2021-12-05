@@ -18,17 +18,17 @@ class Dungeon < Formula
     chdir "src" do
       # look for game files where homebrew installed them, not pwd
       inreplace "game.f" do |s|
-        s.gsub! "FILE='dindx',STATUS='OLD',", "FILE='#{opt_pkgshare}/dindx',"
+        s.gsub! "FILE='dindx',STATUS='OLD',", "FILE='#{opt_share}/dindx',"
         s.gsub! "1\tFORM='FORMATTED',ACCESS='SEQUENTIAL',ERR=1900)", "1\tSTATUS='OLD',FORM='FORMATTED'," \
                                                                      "\n\t2\tACCESS='SEQUENTIAL',ERR=1900)"
-        s.gsub! "FILE='dtext',STATUS='OLD',", "FILE='#{opt_pkgshare}/dtext',"
+        s.gsub! "FILE='dtext',STATUS='OLD',", "FILE='#{opt_share}/dtext',"
         s.gsub! "1\tFORM='UNFORMATTED',ACCESS='DIRECT',", "1\tSTATUS='OLD',FORM='UNFORMATTED',ACCESS='DIRECT',"
       end
       system "make"
       bin.install "dungeon"
     end
-    pkgshare.install "dindx"
-    pkgshare.install "dtext"
+    share.install "dindx"
+    share.install "dtext"
     man.install "dungeon.txt"
     man.install "hints.txt"
   end
