@@ -14,6 +14,7 @@ class Fnt < Formula
   end
 
   test do
-    system "#{bin}/fnt", "install agave"
+    system bin/"fnt", "update"
+    assert_match "Installing fonts-fonts-agave", shell_output("#{bin}/fnt install agave")
   end
 end
