@@ -1,10 +1,9 @@
 class Pdf2djvu < Formula
   desc "Create DjVu files from PDF files"
   homepage "https://jwilk.net/software/pdf2djvu"
-  url "https://github.com/jwilk/pdf2djvu/releases/download/0.9.18.1/pdf2djvu-0.9.18.1.tar.xz"
-  sha256 "ab45d7c70ba837f01e6b5b5c18acf8af6200dad4bae8e47e4c2ca01fbf2fa930"
+  url "https://github.com/jwilk/pdf2djvu/releases/download/0.9.18.2/pdf2djvu-0.9.18.2.tar.xz"
+  sha256 "9ea03f21d841a336808d89d65015713c0785e7295a6559d77771dc795333a9fa"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/jwilk/pdf2djvu.git", branch: "master"
 
   bottle do
