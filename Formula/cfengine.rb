@@ -1,8 +1,8 @@
 class Cfengine < Formula
   desc "Help manage and understand IT infrastructure"
   homepage "https://cfengine.com/"
-  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.18.0.tar.gz"
-  sha256 "d601a3af30f3fba7d51a37476c9e1a00b750682149bf96f4a0002e804bc87783"
+  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.18.1.tar.gz"
+  sha256 "9d22db44a0a879c6edae5759fc481ac86ff13f81374fb835fe5e73fe8bc57681"
   license all_of: ["BSD-3-Clause", "GPL-2.0-or-later", "GPL-3.0-only", "LGPL-2.0-or-later"]
 
   livecheck do
