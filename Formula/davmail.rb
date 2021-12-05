@@ -1,9 +1,9 @@
 class Davmail < Formula
   desc "POP/IMAP/SMTP/Caldav/Carddav/LDAP exchange gateway"
   homepage "https://davmail.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/davmail/davmail/6.0.0/davmail-6.0.0-3375.zip"
-  version "6.0.0"
-  sha256 "272cd4853fb4adc986318bd859933aa49ccdc1c59f457039a48ae0fbc0977f47"
+  url "https://downloads.sourceforge.net/project/davmail/davmail/6.0.1/davmail-6.0.1-3390.zip"
+  version "6.0.1"
+  sha256 "40ad06e29e5040fa2eebbc21bafcc61ce807db53cbd116fd3d8f31fada0c3fc4"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "6e77d76802b26f7a255a559ff31051b1d5d31cb50d3bac39d2ca964a33f8da11"
