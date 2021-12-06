@@ -1,10 +1,9 @@
 class Verilator < Formula
   desc "Verilog simulator"
   homepage "https://www.veripool.org/wiki/verilator"
-  url "https://www.veripool.org/ftp/verilator-4.200.tgz"
-  sha256 "773913f4410512a7a51de3d04964766438dc11fc22b213eab5c6c29730df3e36"
+  url "https://github.com/verilator/verilator/archive/refs/tags/v4.216.tar.gz"
+  sha256 "64e5093b629a7e96178e3b2494f208955f218dfac6f310a91e4fc07d050c980b"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
-  revision 1
 
   livecheck do
     url "https://github.com/verilator/verilator.git"
@@ -21,12 +20,13 @@ class Verilator < Formula
   end
 
   head do
-    url "https://git.veripool.org/git/verilator", using: :git
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
+    url "https://github.com/verilator/verilator.git", using: :git
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "python@3.10" => :build
+  depends_on "cmake" => :test
 
   uses_from_macos "bison"
   uses_from_macos "flex"
@@ -35,7 +35,7 @@ class Verilator < Formula
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
   def install
-    system "autoconf" if build.head?
+    system "autoconf"
     system "./configure", "--prefix=#{prefix}"
     # `make` and `make install` need to be separate for parallel builds
     system "make"
@@ -59,9 +59,16 @@ class Verilator < Formula
           exit(0);
       }
     EOS
-    system "/usr/bin/perl", bin/"verilator", "-Wall", "--cc", "test.v", "--exe", "test.cpp"
-    cd "obj_dir" do
-      system "make", "-j", "-f", "Vtest.mk", "Vtest"
+    (testpath/"CMakeLists.txt").write <<~EOS
+      project(test)
+      cmake_minimum_required(VERSION 3.12)
+      find_package(verilator)
+      add_executable(Vtest test.cpp)
+      verilate(Vtest SOURCES test.v)
+    EOS
+    system "cmake", "-B", "build", "."
+    system "cmake", "--build", "build", "--"
+    cd "build" do
       expected = <<~EOS
         Hello World
         - test.v:2: Verilog $finish
