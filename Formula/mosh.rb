@@ -2,7 +2,7 @@ class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
   license "GPL-3.0-or-later"
-  revision 16
+  revision 17
 
   stable do
     url "https://mosh.org/mosh-1.3.2.tar.gz"
@@ -19,6 +19,19 @@ class Mosh < Formula
     patch :p0 do
       url "https://raw.githubusercontent.com/macports/macports-ports/72fb5d9a79e581a5033bce38fb00ee25a0c2fdfe/net/mosh/files/patch-version-subdir.diff"
       sha256 "939e5435ce7d9cecb7b2bccaf31294092eb131b5bd41d5776a40d660ffc95982"
+    end
+
+    # Fix crashes when mosh gets confused by timestamps. See:
+    # https://github.com/mobile-shell/mosh/issues/1014
+    # https://github.com/mobile-shell/mosh/pull/1124
+    patch do
+      url "https://github.com/mobile-shell/mosh/commit/57b97a4c910e3294b1ed441acea55da2f9ca3cb1.patch?full_index=1"
+      sha256 "6557cb33d4c58476e4bc0ddb1eef417f6ac56eb62e07ee389b00d2d08e6f3171"
+    end
+
+    patch do
+      url "https://github.com/mobile-shell/mosh/commit/87fd565268c5498409d81584b34467bd7e16a81f.patch?full_index=1"
+      sha256 "66f8fff80fa6d7373f88abf940c1fb838d38283b87b4a8ec9bfb1bd271e47ddc"
     end
   end
 
