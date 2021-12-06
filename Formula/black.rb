@@ -3,8 +3,8 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/73/df/5a4c5af64a25212d494b31d7b62f8212424c0c8ffdac9462a7d15bc17b9f/black-21.11b1.tar.gz"
-  sha256 "a042adbb18b3262faad5aff4e834ff186bb893f95ba3a8013f09de1e5569def2"
+  url "https://files.pythonhosted.org/packages/f7/60/7a9775dc1b81a572eb26836c7e77c92bf454ada00693af4b2d2f2614971a/black-21.12b0.tar.gz"
+  sha256 "77b80f693a569e2e527958459634f18df9b0ba2625ba4e0c2d5da5be42e6f2b3"
   license "MIT"
 
   livecheck do
@@ -44,8 +44,8 @@ class Black < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do
@@ -83,19 +83,14 @@ class Black < Formula
     sha256 "367a5e80b3d04d2428ffa76d33f124cf11e8fff2acdaa9b43d545f5c7d661ef2"
   end
 
-  resource "regex" do
-    url "https://files.pythonhosted.org/packages/97/cd/93ad08b2f97ec95da0bd860380ce0ac7481eaccc760356ee11eda369c048/regex-2021.11.10.tar.gz"
-    sha256 "f341ee2df0999bfdf7a95e448075effe0db212a59387de1a70690e4acb03d4c6"
-  end
-
   resource "tomli" do
     url "https://files.pythonhosted.org/packages/aa/5b/62165da80cbc6e1779f342234c7ddc6c6bc9e64cef149046a9c0456f912b/tomli-1.2.2.tar.gz"
     sha256 "c6ce0015eb38820eaf32b5db832dbc26deb3dd427bd5f6556cf0acac2c214fee"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/1a/23/748b0c9a5578110b31580c8d2643319adcb3ec91f601b50a955051b51f1d/typing_extensions-4.0.0.tar.gz"
-    sha256 "2cdf80e4e04866a9b3689a51869016d36db0814d84b8d8a568d22781d45d27ed"
+    url "https://files.pythonhosted.org/packages/0d/4a/60ba3706797b878016f16edc5fbaf1e222109e38d0fa4d7d9312cb53f8dd/typing_extensions-4.0.1.tar.gz"
+    sha256 "4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e"
   end
 
   resource "yarl" do
