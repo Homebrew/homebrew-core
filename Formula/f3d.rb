@@ -1,10 +1,9 @@
 class F3d < Formula
   desc "Fast and minimalist 3D viewer"
-  homepage "https://kitware.github.io/F3D/"
-  url "https://gitlab.kitware.com/f3d/f3d/-/archive/v1.1.0/f3d-v1.1.0.tar.gz"
-  sha256 "93aa9759efcc4e77beac4568280aaeaca21bfb233d3c9f60262207ca595bde79"
+  homepage "https://f3d-app.github.io/f3d/"
+  url "https://github.com/f3d-app/f3d/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "0d72cc465af1adefdf71695481ceea95d4a94ee9e00125bc98c9f32b14ac2bf4"
   license "BSD-3-Clause"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5847e1bfb2246638f7db1d14732f165563c6cc54323304922f8c9af9e2455092"
@@ -15,6 +14,8 @@ class F3d < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "assimp"
+  depends_on "opencascade"
   depends_on "vtk"
 
   on_linux do
@@ -23,19 +24,14 @@ class F3d < Formula
 
   fails_with gcc: "5" # vtk is built with GCC
 
-  # Fix build with vtk 9.1.
-  # https://gitlab.kitware.com/f3d/f3d/-/commit/816b09c1e95622d6dc0384cd544572f73deed12c
-  patch do
-    url "https://gitlab.kitware.com/f3d/f3d/-/commit/816b09c1e95622d6dc0384cd544572f73deed12c.diff"
-    sha256 "425af94fc44916850f05a5ee12cb5d4d3047efe974fce8e43b1ac7364471d6fe"
-  end
-
   def install
     args = std_cmake_args + %W[
-      -DMACOSX_BUILD_BUNDLE:BOOL=OFF
+      -DF3D_MACOS_BUNDLE:BOOL=OFF
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_TESTING:BOOL=OFF
       -DF3D_INSTALL_DEFAULT_CONFIGURATION_FILE:BOOL=ON
+      -DF3D_MODULE_OCCT:BOOL=ON
+      -DF3D_MODULE_ASSIMP:BOOL=ON
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
       -DCMAKE_INSTALL_RPATH:STRING=#{lib}
     ]
