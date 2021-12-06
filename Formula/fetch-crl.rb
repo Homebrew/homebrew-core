@@ -1,8 +1,8 @@
 class FetchCrl < Formula
   desc "Retrieve certificate revocation lists (CRLs)"
   homepage "https://wiki.nikhef.nl/grid/FetchCRL3"
-  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.21.tar.gz"
-  sha256 "19a96b95a1c22da9d812014660744c6a31aac597b53ac17128068a77c269cde8"
+  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.22.tar.gz"
+  sha256 "09bcf5d1004ac8c3ced5e71b70e6b6afb7f713630aca0afbfa2db3244567cb2b"
   license "Apache-2.0"
 
   livecheck do
