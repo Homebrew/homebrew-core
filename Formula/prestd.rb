@@ -1,8 +1,8 @@
 class Prestd < Formula
   desc "Simplify and accelerate development on any Postgres application, existing or new"
   homepage "https://github.com/prest/prest"
-  url "https://github.com/prest/prest/archive/v1.0.11.tar.gz"
-  sha256 "7df1a5bf095f86b80138df2c8b2a1fc7165ec1ded7c475c65318e22dee6e3855"
+  url "https://github.com/prest/prest/archive/v1.0.12.tar.gz"
+  sha256 "faffa19741dc8c23930043a46e646f86722e969eff8535fe3cc3c469a0d5489f"
   license "MIT"
   head "https://github.com/prest/prest.git", branch: "main"
 
