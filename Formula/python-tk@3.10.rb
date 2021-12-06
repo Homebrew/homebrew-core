@@ -1,10 +1,9 @@
 class PythonTkAT310 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz"
-  sha256 "c4e0cbad57c90690cb813fb4663ef670b4d0f587d8171e2c42bd4c9245bd2758"
+  url "https://www.python.org/ftp/python/3.10.1/Python-3.10.1.tgz"
+  sha256 "b76117670e7c5064344b9c138e141a377e686b9063f3a8a620ff674fa8ec90d3"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     formula "python@3.10"
