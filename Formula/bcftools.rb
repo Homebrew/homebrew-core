@@ -6,6 +6,7 @@ class Bcftools < Formula
   # The bcftools source code is MIT/Expat-licensed, but when it is configured
   # with --enable-libgsl the resulting executable is GPL-licensed.
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
