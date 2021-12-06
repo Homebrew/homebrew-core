@@ -5,11 +5,6 @@ class Verilator < Formula
   sha256 "64e5093b629a7e96178e3b2494f208955f218dfac6f310a91e4fc07d050c980b"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
 
-  livecheck do
-    url "https://github.com/verilator/verilator.git"
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 arm64_monterey: "745234546ac4e29afcc4ed3ec60396b66a52d5f3ee1d5c50bff0b9f7adb9e6e0"
     sha256 arm64_big_sur:  "b4c783a956765b7cca12010b793fe3d8728942897107d7a37d805b53bb6b446f"
