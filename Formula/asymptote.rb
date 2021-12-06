@@ -5,6 +5,7 @@ class Asymptote < Formula
   url "https://downloads.sourceforge.net/project/asymptote/2.77/asymptote-2.77.src.tgz"
   sha256 "ae3ddc8e37ae666c75cbd23cd8b42df9c5e95ef6c311b5a2ee4db8b3c643b96c"
   license "LGPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
