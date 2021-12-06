@@ -28,18 +28,18 @@ class Hledger < Formula
   uses_from_macos "zlib"
 
   resource "hledger-lib" do
-    url "https://hackage.haskell.org/package/hledger-lib-1.23/hledger-lib-1.23.tar.gz"
-    sha256 "2c54ed631a23ef05531327b93d334d5303edf9831b598b71f60bab4b5c5257a0"
+    url "https://hackage.haskell.org/package/hledger-lib-1.24/hledger-lib-1.24.tar.gz"
+    sha256 "9496ed498c06f0eaf551092e5b533290be0fec48db2a053eaa1ccecab66458be"
   end
 
   resource "hledger-ui" do
-    url "https://hackage.haskell.org/package/hledger-ui-1.23/hledger-ui-1.23.tar.gz"
-    sha256 "3a3bd1d91fe1145414be62c828a8510fbd6a0c26c4a0c115adb4ec4c25b89a13"
+    url "https://hackage.haskell.org/package/hledger-ui-1.24/hledger-ui-1.24.tar.gz"
+    sha256 "2c65762ff976518603598f2624fe0789696b901172bbfafd496368e4ce311628"
   end
 
   resource "hledger-web" do
-    url "https://hackage.haskell.org/package/hledger-web-1.23/hledger-web-1.23.tar.gz"
-    sha256 "9113f2c469bf9adbd086ffdafb4b63c801ed6a7b7b75d4b78b54b4416085f06a"
+    url "https://hackage.haskell.org/package/hledger-web-1.24/hledger-web-1.24.tar.gz"
+    sha256 "71e56feaa76143f0dfb13815ba0021b86fe152f7926a336faaa0113dc336f276"
   end
 
   def install
