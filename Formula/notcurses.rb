@@ -1,8 +1,8 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.4.9.tar.gz"
-  sha256 "a2771ad1633e0158f8273fa8b30b5bce0f12e1205e863045f4ae186b6b52f537"
+  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "b4839108ca8f9aef31d2f537485cbd878356bbcd4ad4f7a4dd19e72201d01cee"
   license "Apache-2.0"
 
   bottle do
@@ -18,9 +18,9 @@ class Notcurses < Formula
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
+  depends_on "libdeflate"
   depends_on "libunistring"
   depends_on "ncurses"
-  uses_from_macos "zlib"
 
   fails_with gcc: "5"
 
