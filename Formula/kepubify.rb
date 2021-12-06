@@ -1,8 +1,8 @@
 class Kepubify < Formula
   desc "Convert ebooks from epub to kepub"
   homepage "https://pgaskin.net/kepubify/"
-  url "https://github.com/pgaskin/kepubify/archive/v4.0.1.tar.gz"
-  sha256 "30e497e3a8490bcf571d01a7bb6cc2410689fccd7f9a516c31a166460d901aa8"
+  url "https://github.com/pgaskin/kepubify/archive/v4.0.2.tar.gz"
+  sha256 "f6bf7065ec99e48766f60a126590e021f5bd4fac19754ecb2d90eaf106f4e39b"
   license "MIT"
   head "https://github.com/pgaskin/kepubify.git"
 
@@ -28,7 +28,6 @@ class Kepubify < Formula
     ].each do |p|
       system "go", "build", "-o", bin/p,
                    "-ldflags", "-s -w -X main.version=#{version}",
-                   "-tags", "zip117",
                    "./cmd/#{p}"
     end
   end
