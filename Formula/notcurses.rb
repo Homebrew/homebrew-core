@@ -24,6 +24,11 @@ class Notcurses < Formula
 
   fails_with gcc: "5"
 
+  patch do
+    url "https://nick-black.com/strndup-mingw-only.patch"
+    sha256 "8ea4a3be2181e1091e44868646830ea37f2efcfcde984a57e5d8dd48d6bb43e0"
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
