@@ -4,7 +4,7 @@ class Just < Formula
   url "https://github.com/casey/just/archive/0.10.5.tar.gz"
   sha256 "02e452c0045879161ce820dc66e60d10b3e2cb9b8b152ff86cdd9221eb65d1b2"
   license "CC0-1.0"
-  head "https://github.com/casey/just.git"
+  head "https://github.com/casey/just.git", branch: "master"
 
   livecheck do
     url :stable
