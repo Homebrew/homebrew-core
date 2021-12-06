@@ -22,6 +22,11 @@ class Mujs < Formula
     depends_on "readline"
   end
 
+  patch do
+    url "https://github.com/ccxvii/mujs/commit/f1434ee155d17db41c7e03c699472a963e2b5000.patch?full_index=1"
+    sha256 "b7797962a17a2894c5d191443221a95a80dfddff7c30b4f5c5054873f3873c59"
+  end
+
   def install
     system "make", "release"
     system "make", "prefix=#{prefix}", "install"
