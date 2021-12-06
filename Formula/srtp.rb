@@ -4,6 +4,7 @@ class Srtp < Formula
   url "https://github.com/cisco/libsrtp/archive/v2.4.2.tar.gz"
   sha256 "3b1bcb14ebda572b04b9bdf07574a449c84cb924905414e4d94e62837d22b628"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/cisco/libsrtp.git", branch: "master"
 
   livecheck do
@@ -22,9 +23,10 @@ class Srtp < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "openssl@1.1"
 
   def install
-    system "./configure", "--disable-debug", "--prefix=#{prefix}"
+    system "./configure", "--disable-debug", "--prefix=#{prefix}", "--enable-openssl"
     system "make", "test"
     system "make", "shared_library"
     system "make", "install" # Can't go in parallel of building the dylib
