@@ -2,10 +2,10 @@ class Flif < Formula
   desc "Free Loseless Image Format"
   homepage "https://flif.info/"
   # When updating, please check if FLIF switched to CMake yet
-  url "https://github.com/FLIF-hub/FLIF/archive/v0.3.tar.gz"
-  sha256 "aa02a62974d78f8109cff21ecb6d805f1d23b05b2db7189cfdf1f0d97ff89498"
-  license "LGPL-3.0"
-  head "https://github.com/FLIF-hub/FLIF.git"
+  url "https://github.com/FLIF-hub/FLIF/archive/v0.4.tar.gz"
+  sha256 "cc98313ef0dbfef65d72bc21f730edf2a97a414f14bd73ad424368ce032fdb7f"
+  license "LGPL-3.0-or-later"
+  head "https://github.com/FLIF-hub/FLIF.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "3562aa4e5c79586e5edd3908ae34bf87cd75d1d9ba35fe270166a0604c3dc6e8"
@@ -23,7 +23,7 @@ class Flif < Formula
   depends_on "libpng"
   depends_on "sdl2"
 
-  resource "test_c" do
+  resource "homebrew-test_c" do
     url "https://raw.githubusercontent.com/FLIF-hub/FLIF/dcc2011/tools/test.c"
     sha256 "a20b625ba0efdb09ad21a8c1c9844f686f636656f0e9bd6c24ad441375223afe"
   end
@@ -34,7 +34,7 @@ class Flif < Formula
   end
 
   test do
-    testpath.install resource("test_c")
+    testpath.install resource("homebrew-test_c")
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lflif", "-o", "test"
     system "./test", "dummy.flif"
     system bin/"flif", "-i", "dummy.flif"
