@@ -1,8 +1,8 @@
 class Grails < Formula
   desc "Web application framework for the Groovy language"
   homepage "https://grails.org"
-  url "https://github.com/grails/grails-core/releases/download/v5.0.1/grails-5.0.1.zip"
-  sha256 "e5a1c7de474969165a134decb1d0f7c72cb366e6bedaf2b7ea0d2926c3975489"
+  url "https://github.com/grails/grails-core/releases/download/v5.0.2/grails-5.0.2.zip"
+  sha256 "7ab83eae780db077724fc69425d43429f1af627a2ca83ddb527b4b79bfe88dd5"
   license "Apache-2.0"
 
   livecheck do
