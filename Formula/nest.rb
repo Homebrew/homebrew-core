@@ -4,6 +4,7 @@ class Nest < Formula
   url "https://github.com/nest/nest-simulator/archive/v3.2.tar.gz"
   sha256 "583d5725882ad5e8fd4fc7ffab425da97cbbb91fadbc327e940c184e8892b958"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "139e28c76e3b724158a3802836dcd8688941347788cab6400773e74bae677ea2"
