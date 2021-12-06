@@ -3,8 +3,8 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/ee/1b/3e671b14cdf2fd0bf3651cfa4ae3806c345ccbb96ee744a3469da30d9895/localstack-0.13.0.10.tar.gz"
-  sha256 "59e9ad94fee028f1fd93c9c80f77fb419d40031554d3f776f6bbabbf4b1f4024"
+  url "https://files.pythonhosted.org/packages/c0/c9/2afa816de13439f9d4c386a8aea2b720e70dec99389cb17c3cc76b2a76c2/localstack-0.13.0.11.tar.gz"
+  sha256 "d2aacfb3375dc3f1e6b46bf3c3ad540a89cc541186adf7e69e31edf73c4c03db"
   license "Apache-2.0"
 
   bottle do
@@ -65,6 +65,11 @@ class Localstack < Formula
     sha256 "e3f1c3a375c7ea5ca69dba6f7920f9368658318ff1d8a496293c79481f48e649"
   end
 
+  resource "dill" do
+    url "https://files.pythonhosted.org/packages/e2/96/518a8ea959a734b70d2e95fef98bcbfdc7adad1c1e5f5dd9148c835205a5/dill-0.3.2.zip"
+    sha256 "6e12da0d8e49c220e8d6e97ee8882002e624f1160289ce85ec2cc0a5246b3a2e"
+  end
+
   resource "dnslib" do
     url "https://files.pythonhosted.org/packages/46/fa/8aa9993017d381cff0908ef72c0e339733709e167557fbfb73eec4c2c9ed/dnslib-0.9.16.tar.gz"
     sha256 "2d66b43d563d60c469117c8cb615843e7d05bf8fb2e6cb00a637281d26b7ec7d"
@@ -96,13 +101,13 @@ class Localstack < Formula
   end
 
   resource "localstack-client" do
-    url "https://files.pythonhosted.org/packages/f7/84/15771f2e6ce325008c59cedcaaa4224718337270aeee22c9974399196c49/localstack-client-1.27.tar.gz"
-    sha256 "28876071b8d62e64c3aa6a4d537e1a2879cdecbf4781f380070a321b32d1031a"
+    url "https://files.pythonhosted.org/packages/2d/ca/19845cbd83383527a2ea85e940db448dd5c6c95876ade7c1ae142fb6d9a6/localstack-client-1.28.tar.gz"
+    sha256 "fd4bfa81444134ac7bd115876c8b0e63d0c34b66e448866cad7d61a86f3abe9c"
   end
 
   resource "localstack-ext" do
-    url "https://files.pythonhosted.org/packages/25/18/cfdbdca7462c5e9296031135b70f84172ed028f8ea5672f95667e39cc45b/localstack-ext-0.13.0.20.tar.gz"
-    sha256 "fc4cb0262eb6e81870d83bdd394ac02d7b1ce1519d6c3c7ca375523ee209fd01"
+    url "https://files.pythonhosted.org/packages/48/c9/e668b2ca3729ea861f4a91d26085ab34391e01338893c2027353219f6049/localstack-ext-0.13.0.21.tar.gz"
+    sha256 "db38728f6f66a45176eecaebccbbef138177678a116e2529d973ca43f964cd23"
   end
 
   resource "localstack-plugin-loader" do
