@@ -1,10 +1,12 @@
 class Offlineimap < Formula
+  include Language::Python::Virtualenv
+
   desc "Synchronizes emails between two repositories"
   homepage "https://www.offlineimap.org/"
-  url "https://files.pythonhosted.org/packages/09/12/73db8d38fea8ec3536cbccb8286b46b426639aff7e166840fa5e68e889e2/offlineimap-7.3.4.tar.gz"
-  sha256 "5dbd7167b8729d87caa50bed63562868b6634b888348d9bc088a721530c82fef"
+  url "https://github.com/OfflineIMAP/offlineimap3/archive/v8.0.0.tar.gz"
+  sha256 "5d40c163ca2fbf89658116e29f8fa75050d0c34c29619019eee1a84c90fcab32"
   license "GPL-2.0-or-later"
-  head "https://github.com/OfflineIMAP/offlineimap.git", branch: "master"
+  head "https://github.com/OfflineIMAP/offlineimap3.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e00518eec9664acc605e89da1bbc7c23e790ebef87e48982a2fbc58aa4985467"
@@ -15,45 +17,47 @@ class Offlineimap < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "8bad1b2782ecd2d85bb388c616d57ad98f10886384711dbf36447269d076f0d9"
   end
 
-  depends_on :macos # Due to Python 2 (Will never support Python 3)
-  # https://github.com/OfflineIMAP/offlineimap/issues/616#issuecomment-491003691
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
+  depends_on "python@3.9"
+
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
+  end
+
+  resource "decorator" do
+    url "https://files.pythonhosted.org/packages/92/3c/34f8448b61809968052882b830f7d8d9a8e1c07048f70deb039ae599f73c/decorator-5.1.0.tar.gz"
+    sha256 "e59913af105b9860aa2c8d3272d9de5a56a4e608db9a2f167a8480b323d529a7"
+  end
+
+  resource "distro" do
+    url "https://files.pythonhosted.org/packages/a5/26/256fa167fe1bf8b97130b4609464be20331af8a3af190fb636a8a7efd7a2/distro-1.6.0.tar.gz"
+    sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
+  end
+
+  resource "gssapi" do
+    url "https://files.pythonhosted.org/packages/e4/4d/03fcc6a2d052920336069df97866d7b506556ed9f3a5ee2ca1e0cbad45d4/gssapi-1.7.2.tar.gz"
+    sha256 "748efbcf7cfb31183cd75e5314493e79fe3521b3ec00d090a77e23f7c75fa59d"
+  end
+
+  resource "imaplib2" do
+    url "https://files.pythonhosted.org/packages/e4/1a/4ccb857f4832d2836a8c996f18fa7bcad19bfdf1a375dfa12e29dbe0e44a/imaplib2-3.6.tar.gz"
+    sha256 "96cb485b31868a242cb98d5c5dc67b39b22a6359f30316de536060488e581e5b"
+  end
+
+  resource "portalocker" do
+    url "https://files.pythonhosted.org/packages/38/2e/32172e8418f2ba284cee4fd67cb547d39a7debb3eed37d514da173786112/portalocker-2.3.2.tar.gz"
+    sha256 "75cfe02f702737f1726d83e04eedfa0bda2cc5b974b1ceafb8d6b42377efbd5f"
+  end
 
   resource "rfc6555" do
-    url "https://files.pythonhosted.org/packages/58/a8/1dfba2db1f744657065562386069e547eefea9432d3f520d4af5b5fabd28/rfc6555-0.0.0.tar.gz"
-    sha256 "191cbba0315b53654155321e56a93466f42cd0a474b4f341df4d03264dcb5217"
-  end
-
-  resource "selectors2" do
-    url "https://files.pythonhosted.org/packages/86/72/27ccb21c1ff9fa87e1ba45e38045722b4eff345ba61760224793560638f4/selectors2-2.0.2.tar.gz"
-    sha256 "1f1bbaac203a23fbc851dc1b5a6e92c50698cc8cefa5873eb5b89eef53d1d82b"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/f6/4b/24f953c3682c134e4d0f83c7be5ede44c6c653f7d2c0b06ebb3b117f005a/rfc6555-0.1.0.tar.gz"
+    sha256 "123905b8f68e2bec0c15f321998a262b27e2eaadea29a28bd270021ada411b67"
   end
 
   def install
-    ENV.delete("PYTHONPATH")
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    # Remove hardcoded python2 that does not exist on high-sierra or mojave
-    inreplace "Makefile", "python2", "python"
-    inreplace "bin/offlineimap", "python2", "python"
+    virtualenv_install_with_resources
 
     etc.install "offlineimap.conf", "offlineimap.conf.minimal"
-    libexec.install "bin/offlineimap" => "offlineimap.py"
-    libexec.install "offlineimap"
-    (bin/"offlineimap").write_env_script(libexec/"offlineimap.py",
-      PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   def caveats
@@ -68,7 +72,7 @@ class Offlineimap < Formula
   end
 
   service do
-    run [opt_bin/"offlinemap", "-q", "-u", "basic"]
+    run [opt_bin/"offlineimap", "-q", "-u", "basic"]
     run_type :interval
     interval 300
     environment_variables PATH: std_service_path_env
