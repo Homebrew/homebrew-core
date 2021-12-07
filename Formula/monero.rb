@@ -2,8 +2,8 @@ class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      tag:      "v0.17.2.3",
-      revision: "2222bea92fdeef7e6449d2d784cdfc3012641ee1"
+      tag:      "v0.17.3.0",
+      revision: "ab18fea3500841fc312630d49ed6840b3aedb34d"
   license "BSD-3-Clause"
 
   livecheck do
@@ -37,10 +37,6 @@ class Monero < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-
-    # Fix conflict with miniupnpc.
-    # This has been reported at https://github.com/monero-project/monero/issues/3862
-    rm lib/"libminiupnpc.a"
   end
 
   service do
