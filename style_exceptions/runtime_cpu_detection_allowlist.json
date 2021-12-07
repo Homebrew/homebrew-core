@@ -3,5 +3,6 @@
   "apache-arrow",
   "fftw",
   "libvpx",
-  "openblas"
+  "openblas",
+  "open-mpi"
 ]

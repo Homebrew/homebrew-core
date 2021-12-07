@@ -55,6 +55,7 @@ class OpenMpi < Formula
     end
 
     ENV.cxx11
+    ENV.runtime_cpu_detection
 
     args = %W[
       --prefix=#{prefix}
