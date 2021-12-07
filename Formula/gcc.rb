@@ -89,8 +89,8 @@ class Gcc < Formula
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
 
     args = %W[
-      --prefix=#{prefix}
-      --libdir=#{lib}/gcc/#{version_suffix}
+      --prefix=#{opt_prefix}
+      --libdir=#{opt_lib}/gcc/#{version_suffix}
       --disable-nls
       --enable-checking=release
       --with-gcc-major-version-only
@@ -111,12 +111,12 @@ class Gcc < Formula
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
       args << "--with-system-zlib"
 
-      # Xcode 10 dropped 32-bit support
-      args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+      # Xcode 10 dropped 32-bit Intel support
+      args << "--disable-multilib" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version >= 1000
 
-      # Workaround for Xcode 12.5 bug on Intel
+      # Workaround for Xcode 12.5 bug on Intel, remove in next version
       # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100340
-      args << "--without-build-config" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version >= 1205
+      args << "--without-build-config" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version == 1205
 
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
@@ -124,10 +124,6 @@ class Gcc < Formula
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{sdk}"
       end
-
-      # Ensure correct install names when linking against libgcc_s;
-      # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
-      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}"
@@ -142,17 +138,16 @@ class Gcc < Formula
 
     mkdir "build" do
       system "../configure", *args
+      system "make"
 
-      if OS.mac?
-        # Use -headerpad_max_install_names in the build,
-        # otherwise updated load commands won't fit in the Mach-O header.
-        # This is needed because `gcc` avoids the superenv shim.
-        system "make", "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
-        system "make", "install"
-      else
-        system "make"
-        system "make", "install-strip"
-      end
+      # On Linux, strip the binaries
+      install_target = OS.mac? ? "install" : "install-strip"
+
+      # To make sure GCC does not record cellar paths, we configure it with
+      # opt_prefix as the prefix. Then we use DESTDIR to install into a
+      # temporary location, then move into the cellar path.
+      system "make", install_target, "DESTDIR=#{Pathname.pwd}/../instdir"
+      mv Dir[Pathname.pwd/"../instdir/#{opt_prefix}/*"], prefix
 
       bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
       bin.install_symlink bin/"gdc-#{version_suffix}" => "gdc" if Hardware::CPU.intel?
