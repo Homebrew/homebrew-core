@@ -1,8 +1,8 @@
 class Frugal < Formula
   desc "Cross language code generator for creating scalable microservices"
   homepage "https://github.com/Workiva/frugal"
-  url "https://github.com/Workiva/frugal/archive/v3.14.10.tar.gz"
-  sha256 "982fe4e84aaadbcb04ee5bca2f7859b9e789d172e6b8641dec447246f4567aff"
+  url "https://github.com/Workiva/frugal/archive/v3.14.11.tar.gz"
+  sha256 "a9c5ca94cd3e10aac5630bcac6cec8b020ef76f3e4fc6026bbe684f46e392b7a"
   license "Apache-2.0"
 
   bottle do
