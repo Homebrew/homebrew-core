@@ -1,11 +1,11 @@
 class Mutanus < Formula
   desc "Performs mutation testing of you Swift project"
   homepage "https://github.com/SoriUR/mutanus/"
-  url "https://github.com/SoriUR/mutanus/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "a534071a0f6f234cd3dc412afab6e825d54181fd8de0a8cc2a3478f1ba2189a8"
+  url "https://github.com/SoriUR/mutanus/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "ec5f663a76166c18ee3a76e3fd69bfd1b29526dc567c3994e9a119624b992e34"
   license "MIT"
 
-  depends_on xcode: [">= 12.5", :build]
+  depends_on xcode: ["12.5", :build]
   depends_on macos: :catalina
 
   def install
@@ -14,6 +14,7 @@ class Mutanus < Formula
   end
 
   test do
-    system "#{bin}/mutanus", "--help"
+    system "#{bin}/mutanus", "config"
+    assert_predicate testpath/"MutanusConfig.json", :exist?
   end
 end
