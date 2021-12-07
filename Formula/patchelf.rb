@@ -21,7 +21,13 @@ class Patchelf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2d839514014027d8222d5de10868a4ba754c3b4cf5f502bfc791fc4d2eaa705"
   end
 
-  resource "helloworld" do
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # Needs std::optional
+
+  resource "homebrew-helloworld" do
     url "http://timelessname.com/elfbin/helloworld.tar.gz"
     sha256 "d8c1e93f13e0b7d8fc13ce75d5b089f4d4cec15dad91d08d94a166822d749459"
   end
@@ -41,7 +47,7 @@ class Patchelf < Formula
   end
 
   test do
-    resource("helloworld").stage do
+    resource("homebrew-helloworld").stage do
       assert_equal "/lib/ld-linux.so.2\n", shell_output("#{bin}/patchelf --print-interpreter chello")
       assert_equal "libc.so.6\n", shell_output("#{bin}/patchelf --print-needed chello")
       assert_equal "\n", shell_output("#{bin}/patchelf --print-rpath chello")
