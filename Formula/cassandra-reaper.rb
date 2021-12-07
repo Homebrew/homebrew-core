@@ -13,7 +13,7 @@ class CassandraReaper < Formula
   depends_on "openjdk@8"
 
   def install
-    inreplace "bin/cassandra-reaper", "/usr/share", prefix if OS.linux?
+    inreplace "bin/cassandra-reaper", "/usr/share", prefix
     prefix.install "bin"
     etc.install "resource" => "cassandra-reaper"
     share.install "server/target" => "cassandra-reaper"
