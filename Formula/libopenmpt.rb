@@ -1,9 +1,9 @@
 class Libopenmpt < Formula
   desc "Software library to decode tracked music files"
   homepage "https://lib.openmpt.org/libopenmpt/"
-  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.13+release.autotools.tar.gz"
-  version "0.5.13"
-  sha256 "6fa28ada93d95ee2428a2d37a5c24faaf9567ff6ede3d134c006b2a6cefbbfe8"
+  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.14+release.autotools.tar.gz"
+  version "0.5.14"
+  sha256 "a979c1a763dcb420d40004eaeadd5532153b63493e6bfb71362204ee8a75abdc"
   license "BSD-3-Clause"
 
   livecheck do
