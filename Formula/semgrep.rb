@@ -4,10 +4,9 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.75.0",
-      revision: "d786313c7bfdaac0c53e07cffc6fcb91a1b5c0ee"
+      tag:      "v0.76.1",
+      revision: "6fc40339c6ea8fb38ca0f94a24dedebd5e9a1485"
   license "LGPL-2.1-only"
-  revision 1
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
   livecheck do
@@ -29,6 +28,7 @@ class Semgrep < Formula
   depends_on "dune" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "pipenv" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre"
   depends_on "python@3.9"
@@ -58,8 +58,8 @@ class Semgrep < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do
