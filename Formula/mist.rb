@@ -4,7 +4,6 @@ class Mist < Formula
   url "https://github.com/ninxsoft/Mist/archive/refs/tags/v1.6.1.tar.gz"
   sha256 "0b1ec7fed7bbafb3221656376bf69407fe602ad4cdb938089d8cf7c585112394"
   license "MIT"
-
   head "https://github.com/ninxsoft/Mist.git", branch: "main"
 
   # Mist requires Swift 5.5
