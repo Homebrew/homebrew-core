@@ -16,6 +16,7 @@ class Sceptre < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc54b5f070c60a9653031e6cc20927dce2b4c3cb1142e73146a625fc7137a2e1"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.10"
   depends_on "six"
 
