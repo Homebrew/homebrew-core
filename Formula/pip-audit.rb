@@ -3,8 +3,8 @@ class PipAudit < Formula
 
   desc "Audits Python environments and dependency trees for known vulnerabilities"
   homepage "https://pypi.org/project/pip-audit/"
-  url "https://files.pythonhosted.org/packages/64/39/07bba0cff03c8126ab1ac319f00746ccc24c784ff8b4ae14963d440d4173/pip-audit-1.0.1.tar.gz"
-  sha256 "351f7f279ffb20cfad3fe876e84bf524a87aaa2a8830a4cad66f24f30b2a68f6"
+  url "https://files.pythonhosted.org/packages/74/a7/ac7f707eb56c000cdb129d12c2e88a4580b91c62e633295b902380c197d5/pip-audit-1.1.0.tar.gz"
+  sha256 "04af7911f2abc223c0d99669365ef346910beece5b344001b3b571facd959541"
   license "Apache-2.0"
 
   bottle do
@@ -30,8 +30,8 @@ class PipAudit < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2f/39/5d8ff929409113e9ff402e405a7c7880ab1fa6f118a4ab72443976a01711/charset-normalizer-2.0.8.tar.gz"
-    sha256 "735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "cyclonedx-python-lib" do

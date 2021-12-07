@@ -226,6 +226,9 @@
   "pgcli": {
     "exclude_packages": ["six", "tabulate"]
   },
+  "pip-audit": {
+    "exclude_packages": ["six"]
+  },
   "pipenv": {
     "exclude_packages": ["six"]
   },
