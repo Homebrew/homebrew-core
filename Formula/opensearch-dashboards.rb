@@ -1,3 +1,5 @@
+require "language/node"
+
 class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://opensearch.org/docs/dashboards/index/"
@@ -10,20 +12,34 @@ class OpensearchDashboards < Formula
     sha256 cellar: :any_skip_relocation, all: "462dc37bc221e9c30afc971d931c7d0fdd50b66b42675e02056d140d49eaf1b3"
   end
 
-  depends_on "python@3.9" => :build
   depends_on "yarn" => :build
   depends_on "node@10" # Switch to `node` after https://github.com/opensearch-project/OpenSearch-Dashboards/issues/406
 
   def install
     inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
 
+    # Do not download node and discard all actions related to this node
+    inreplace "src/dev/build/build_distributables.ts" do |s|
+      s.gsub! "await run(options.downloadFreshNode ? Tasks.DownloadNodeBuilds : Tasks.VerifyExistingNodeBuilds);", ""
+      s.gsub! "await run(Tasks.ExtractNodeBuilds);", ""
+    end
+    inreplace "src/dev/build/tasks/create_archives_sources_task.ts",
+              Regexp.new(<<~EOS), ""
+                \\s*await scanCopy\\(\\{
+                \\s*  source: getNodeDownloadInfo\\(config, platform\\).extractDir,
+                \\s*  destination: build.resolvePathForPlatform\\(platform, 'node'\\),
+                \\s*\\}\\);
+              EOS
+    inreplace "src/dev/notice/generate_build_notice_text.js",
+              "generateNodeNoticeText(nodeDir, nodeVersion)", "''"
+
     system "yarn", "osd", "bootstrap"
-    system "node", "scripts/build", "--release", "--skip-os-packages", "--skip-archives"
+    system "node", "scripts/build", "--release", "--skip-os-packages", "--skip-archives", "--skip-node-download"
 
     cd "build/opensearch-dashboards-#{version}-darwin-x64" do
       inreplace Dir["bin/*"],
-                "NODE=\"${DIR}/node/bin/node\"",
-                "NODE=\"#{Formula["node@10"].opt_bin/"node"}\""
+                "\"${DIR}/node/bin/node\"",
+                "\"#{Formula["node@10"].opt_bin/"node"}\""
 
       inreplace "config/opensearch_dashboards.yml",
                 /#\s*pid\.file: .+$/,
