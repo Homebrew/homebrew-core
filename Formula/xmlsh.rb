@@ -13,6 +13,13 @@ class Xmlsh < Formula
     sha256 cellar: :any_skip_relocation, all: "e9a08dc3cd955e21c5e170cb205584b19cf67d10f062a597bc6284ffca9dbc70"
   end
 
+  # Disabled as xmlsh has no license.
+  # It also does not build anymore (1.2.5 sources are gone)
+  # and there are no build instructions to build 1.3.x
+  # https://github.com/xmlsh/xmlsh1_3
+  # https://github.com/xmlsh/xmlsh/
+  disable! date: "2021-12-07", because: :no_license
+
   depends_on "openjdk@11"
 
   def install
