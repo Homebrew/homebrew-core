@@ -1,23 +1,23 @@
 class ApacheGeode < Formula
   desc "In-memory Data Grid for fast transactional data processing"
   homepage "https://geode.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=geode/1.14.0/apache-geode-1.14.0.tgz"
-  mirror "https://archive.apache.org/dist/geode/1.14.0/apache-geode-1.14.0.tgz"
-  mirror "https://downloads.apache.org/geode/1.14.0/apache-geode-1.14.0.tgz"
-  sha256 "d8a72225caf63889e41f8909cffc9303fb288515387f216d3207bc6d5457b947"
+  url "https://dlcdn.apache.org/geode/1.14.0/apache-geode-1.14.0-src.tgz"
+  sha256 "bc5f55dbafaa1a48913c6bcc9a3a0a1051967ecabc779eded6b2d6da56cb53af"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "219e2500b68c58788b63042b5d85c01bb766b39208f0848dcbb31bd6dcc72803"
   end
 
+  depends_on "gradle" => :build
+  # Could not find protoc-osx-aarch_64.exe (com.google.protobuf:protoc:3.11.4).
+  # https://github.com/grpc/grpc-java/issues/7690
+  depends_on arch: :x86_64
   depends_on "openjdk@11"
 
   def install
-    rm_f "bin/gfsh.bat"
-    bash_completion.install "bin/gfsh-completion.bash" => "gfsh"
-    libexec.install Dir["*"]
-    (bin/"gfsh").write_env_script libexec/"bin/gfsh", Language::Java.java_home_env("11")
+    system "./gradlew", "build", "--stacktrace"
   end
 
   test do
