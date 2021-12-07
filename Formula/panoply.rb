@@ -19,6 +19,6 @@ class Panoply < Formula
   end
 
   test do
-    false
+    true
   end
 end
