@@ -1,8 +1,8 @@
 class Psalm < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://psalm.dev"
-  url "https://github.com/vimeo/psalm/releases/download/v4.14.0/psalm.phar"
-  sha256 "4dfbab07d927486ae525e117ffb3c3983c606153d461552a02139b28f859ce89"
+  url "https://github.com/vimeo/psalm/releases/download/v4.15.0/psalm.phar"
+  sha256 "8ef50d9c0e4e4e6c378753b552bee95288e0539211830ab653f245fc1c8ed040"
   license "MIT"
 
   bottle do
