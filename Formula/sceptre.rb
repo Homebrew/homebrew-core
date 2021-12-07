@@ -3,8 +3,8 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://files.pythonhosted.org/packages/07/de/f3a9def5a49b9085e1b74f807d0087c8fb1c1e40497f692e92ed0d841117/sceptre-2.7.0.tar.gz"
-  sha256 "34e3bda077c87d22f6be2731baf18123a6be6d716d49c6b4e4a4024b3c435ee8"
+  url "https://files.pythonhosted.org/packages/b8/5a/b3d28fb95ae76cac0c59cbdc2d15d4fb5054f56f7ffb6674d5e4a092f30a/sceptre-2.7.1.tar.gz"
+  sha256 "e104af806bcbef41d6c36494d13997714df5e53ba213d3c1e0a74d003feb443e"
   license "Apache-2.0"
 
   bottle do
@@ -25,13 +25,13 @@ class Sceptre < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f2/03/837e75a4ac7fd3057861fd4c618053654317da75b2f9f510c47480ef04a3/boto3-1.20.8.tar.gz"
-    sha256 "81ebdcabc534a52e2b7a2bfcbe1a1d7f1e34f028f7fe1cb16ccd80e34cea867a"
+    url "https://files.pythonhosted.org/packages/95/a7/413caa923eff54277fa48f312c2202441ed8ce57c5bf135af9b700e0994d/boto3-1.20.21.tar.gz"
+    sha256 "2fb05cbe81b9ce11d9394fc6c4ffa5fd1cceb114dc1d2887dc61081707e44522"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/1f/06/613ec6132cafbf85d482bf6377ce3c24cba8b195ed8f0ee4e9be9fec2f6c/botocore-1.23.9.tar.gz"
-    sha256 "810e259776bdc233c60333ff9d5f4d14b48ca5adefb9198d5ac8410c1d90efc4"
+    url "https://files.pythonhosted.org/packages/7b/e6/b3aaa252218b0d4c6699de08d1daf94f90f320e3389e46b1286e18410c37/botocore-1.23.21.tar.gz"
+    sha256 "d7f8e82cba38aa1e66015cab0a5ca3204503e90afc4695e97228e28329a14c04"
   end
 
   resource "certifi" do
@@ -45,8 +45,8 @@ class Sceptre < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do
