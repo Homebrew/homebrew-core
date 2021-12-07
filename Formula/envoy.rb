@@ -7,7 +7,6 @@ class Envoy < Formula
       tag:      "v1.20.1",
       revision: "ea23f47b27464794980c05ab290a3b73d801405e"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
   # Apple M1/arm64 is pending envoyproxy/envoy#16482
