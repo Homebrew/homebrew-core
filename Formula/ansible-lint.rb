@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/06/4d/1758901c386330f974befd9588526c22ae253623e6962c911a4602689ffd/ansible-lint-5.3.0.tar.gz"
-  sha256 "2e568943ab99f6474df262bc35808d8b055754aa6b3204649d57884733bace2e"
+  url "https://files.pythonhosted.org/packages/3d/0b/9133c2b2eaf1285e3b433ac90161c8369b7f1e35128d5da7981664bf8269/ansible-lint-5.3.1.tar.gz"
+  sha256 "7d7bc74b9b90c5982be5c274c2afcba5b8073ec88cce793fab463fe6418a25f6"
   license "MIT"
 
   bottle do
