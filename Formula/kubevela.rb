@@ -55,7 +55,7 @@ class Kubevela < Formula
     EOS
 
     ENV["KUBECONFIG"] = testpath/"kube-config"
-    version_output = shell_output("#{bin}/vela version 2>&1", 0)
+    version_output = shell_output("#{bin}/vela version 2>&1")
     assert_match "Version: #{version}", version_output
   end
 end
