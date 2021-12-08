@@ -1,8 +1,8 @@
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
-  url "https://github.com/akamai/cli/archive/1.3.0.tar.gz"
-  sha256 "338d4be3e5878d52c764bb2e2e5faf5ecaf0510a37c582b3644615df39718141"
+  url "https://github.com/akamai/cli/archive/refs/tags/1.3.1.tar.gz"
+  sha256 "49ef54c474bd2e07c31516ac94a65d532c95499002a1ce0565d14702bc960a99"
   license "Apache-2.0"
 
   bottle do
