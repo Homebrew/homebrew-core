@@ -4,6 +4,7 @@ class Chapel < Formula
   url "https://github.com/chapel-lang/chapel/releases/download/1.25.1/chapel-1.25.1.tar.gz"
   sha256 "0c13d7da5892d0b6642267af605d808eb7dd5d4970766f262f38b94fa2405113"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "e11d484b8dbeb19649b46ebadb1ff063e79a3fa7c3e1befc258c6fd28a4712a2"
@@ -16,9 +17,11 @@ class Chapel < Formula
 
   depends_on "gmp"
   depends_on "llvm@11"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
-  # can be removed after https://github.com/chapel-lang/chapel/pull/18880 merged
+  # Include changes for Python 3.10 migration
+  # They are already merged upstream after 1.25.1
+  # TODO: Remove this in the next release
   patch :DATA
 
   def install
@@ -34,7 +37,7 @@ class Chapel < Formula
       system "echo CHPL_GMP=system >> chplconfig"
       system "echo CHPL_LLVM_CONFIG=#{HOMEBREW_PREFIX}/opt/llvm@11/bin/llvm-config >> chplconfig"
       system "./util/printchplenv", "--all"
-      with_env(CHPL_PIP_INSTALL_PARAMS: "--no-binary :all:") do
+      with_env(CHPL_PIP_FROM_SOURCE: "1") do
         system "make", "test-venv"
       end
       with_env(CHPL_LLVM: "none") do
@@ -43,7 +46,7 @@ class Chapel < Formula
       with_env(CHPL_LLVM: "system") do
         system "make"
       end
-      with_env(CHPL_PIP_INSTALL_PARAMS: "--no-binary :all:") do
+      with_env(CHPL_PIP_FROM_SOURCE: "1") do
         system "make", "chpldoc"
       end
       system "make", "mason"
@@ -86,13 +89,30 @@ class Chapel < Formula
 end
 
 __END__
-diff --git a/third-party/chpl-venv/Makefile b/third-party/chpl-venv/Makefile
-index eb227b116f..b72c05dc47 100644
 --- a/third-party/chpl-venv/Makefile
 +++ b/third-party/chpl-venv/Makefile
-@@ -24,47 +24,27 @@ OLD_PYTHON_ERROR="python3 version 3.5 or later is required to install chpldoc an
- #  (to allow for a different path to the system python3 in the future)
- $(CHPL_VENV_VIRTUALENV_DIR_OK):
+@@ -6,6 +6,13 @@ CHPL_MAKE_HOST_TARGET = --host
+ include $(CHPL_MAKE_HOME)/make/Makefile.base
+ include $(THIRD_PARTY_DIR)/chpl-venv/Makefile.include
+
++# CHPL_PIP_INSTALL_PARAMS can be set to adjust the pip arguments,
++# but if you want to build from source, set CHPL_PIP_FROM_SOURCE
++
++ifdef CHPL_PIP_FROM_SOURCE
++  CHPL_PIP_INSTALL_PARAMS=--no-binary :all:
++endif
++
+ default: all
+
+ all: test-venv chpldoc-venv
+@@ -20,51 +27,50 @@ clobber: FORCE clean
+
+ OLD_PYTHON_ERROR="python3 version 3.5 or later is required to install chpldoc and start_test dependencies. See https://www.python.org/"
+
+-# Create the virtualenv to use during build.
+-#  (to allow for a different path to the system python3 in the future)
+-$(CHPL_VENV_VIRTUALENV_DIR_OK):
++$(CHPL_VENV_VIRTUALENV_DIR_DEPS1_OK):
  	@# First check the python version is OK
 -	@case `$(PYTHON) --version` in \
 -	  *"Python 3.0"*) \
@@ -126,30 +146,51 @@ index eb227b116f..b72c05dc47 100644
 +	  echo $(OLD_PYTHON_ERROR); \
 +	  exit 1; \
 +	fi
- 
+
  	@# Now create the venv to use to get the dependencies
  	$(PYTHON) -m venv $(CHPL_VENV_VIRTUALENV_DIR)
++	@# Now install wheel so we can pip install
++	export PATH="$(CHPL_VENV_VIRTUALENV_BIN):$$PATH" && \
++	export VIRTUAL_ENV=$(CHPL_VENV_VIRTUALENV_DIR) && \
++	$(PIP) install --upgrade \
++	  $(CHPL_PIP_INSTALL_PARAMS) $(LOCAL_PIP_FLAGS) wheel && \
++	touch $(CHPL_VENV_VIRTUALENV_DIR_DEPS1_OK)
++
++ifdef CHPL_PIP_FROM_SOURCE
++$(CHPL_VENV_VIRTUALENV_DIR_DEPS2_OK): $(CHPL_VENV_VIRTUALENV_DIR_DEPS1_OK)
++	@# Now install source dependencies so we can build from source
  	export PATH="$(CHPL_VENV_VIRTUALENV_BIN):$$PATH" && \
  	export VIRTUAL_ENV=$(CHPL_VENV_VIRTUALENV_DIR) && \
 -	$(PIP) install \
 -	--upgrade $(CHPL_PIP_INSTALL_PARAMS) $(LOCAL_PIP_FLAGS) wheel && \
-+	$(PIP) install --upgrade $(CHPL_PIP_INSTALL_PARAMS) $(LOCAL_PIP_FLAGS) \
-+	  wheel && \
-+	$(PIP) install --upgrade $(CHPL_PIP_INSTALL_PARAMS) $(LOCAL_PIP_FLAGS) \
++	$(PIP) install --upgrade \
++	  $(CHPL_PIP_INSTALL_PARAMS) $(LOCAL_PIP_FLAGS) \
 +	  -r $(CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE1) && \
-+	$(PIP) install --upgrade $(CHPL_PIP_INSTALL_PARAMS) $(LOCAL_PIP_FLAGS) \
-+	  -r $(CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE2) && \
++	$(PIP) install --upgrade \
++	   $(CHPL_PIP_INSTALL_PARAMS) $(LOCAL_PIP_FLAGS) \
++	   -r $(CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE2) && \
++	touch $(CHPL_VENV_VIRTUALENV_DIR_DEPS2_OK)
++
++else
++$(CHPL_VENV_VIRTUALENV_DIR_DEPS2_OK): $(CHPL_VENV_VIRTUALENV_DIR_DEPS1_OK)
++	touch $(CHPL_VENV_VIRTUALENV_DIR_DEPS2_OK)
++
++endif
++
++# Create the virtualenv to use during build.
++#  (to allow for a different path to the system python3 in the future)
++$(CHPL_VENV_VIRTUALENV_DIR_OK): $(CHPL_VENV_VIRTUALENV_DIR_DEPS1_OK) $(CHPL_VENV_VIRTUALENV_DIR_DEPS2_OK)
  	touch $(CHPL_VENV_VIRTUALENV_DIR_OK)
- 
+
  # Phony convenience target for creating virtualenv.
  create-virtualenv: $(CHPL_VENV_VIRTUALENV_DIR_OK)
- 
+
 -$(CHPL_VENV_CHPLDEPS_MAIN): $(CHPL_VENV_VIRTUALENV_DIR_OK) $(CHPL_VENV_TEST_REQUIREMENTS_FILE) $(CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE) $(CHPL_VENV_C2CHAPEL_REQUIREMENTS_FILE) chpldeps-main.py
 +$(CHPL_VENV_CHPLDEPS_MAIN): $(CHPL_VENV_VIRTUALENV_DIR_OK) $(CHPL_VENV_TEST_REQUIREMENTS_FILE) $(CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE1) $(CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE2) $(CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE3) $(CHPL_VENV_C2CHAPEL_REQUIREMENTS_FILE) chpldeps-main.py
  	@# Install dependencies to $(CHPL_VENV_CHPLDEPS)
  	@# Rely on pip to create the directory
  	export PATH="$(CHPL_VENV_VIRTUALENV_BIN):$$PATH" && \
-@@ -72,7 +52,9 @@ $(CHPL_VENV_CHPLDEPS_MAIN): $(CHPL_VENV_VIRTUALENV_DIR_OK) $(CHPL_VENV_TEST_REQU
+@@ -72,7 +78,9 @@ $(CHPL_VENV_CHPLDEPS_MAIN): $(CHPL_VENV_VIRTUALENV_DIR_OK) $(CHPL_VENV_TEST_REQU
  	$(PIP) install --upgrade $(CHPL_PIP_INSTALL_PARAMS) $(LOCAL_PIP_FLAGS) \
  	  --target $(CHPL_VENV_CHPLDEPS) \
  	  -r $(CHPL_VENV_TEST_REQUIREMENTS_FILE) \
@@ -159,8 +200,8 @@ index eb227b116f..b72c05dc47 100644
 +	  -r $(CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE3) \
  	  -r $(CHPL_VENV_C2CHAPEL_REQUIREMENTS_FILE) && \
  	cp chpldeps-main.py $(CHPL_VENV_CHPLDEPS_MAIN)
- 
-@@ -89,8 +71,7 @@ install-requirements: install-chpldeps
+
+@@ -89,8 +97,7 @@ install-requirements: install-chpldeps
  $(CHPL_VENV_CHPLSPELL_REQS): $(CHPL_VENV_VIRTUALENV_DIR_OK) $(CHPL_VENV_CHPLSPELL_REQUIREMENTS_FILE)
  	export PATH="$(CHPL_VENV_VIRTUALENV_BIN):$$PATH" && \
  	export VIRTUAL_ENV=$(CHPL_VENV_VIRTUALENV_DIR) && \
@@ -169,68 +210,70 @@ index eb227b116f..b72c05dc47 100644
 +	$(PIP) install --upgrade $(CHPL_PIP_INSTALL_PARAMS) $(LOCAL_PIP_FLAGS) \
  	  -r $(CHPL_VENV_CHPLSPELL_REQUIREMENTS_FILE) && \
  	touch $(CHPL_VENV_CHPLSPELL_REQS)
- 
-diff --git a/third-party/chpl-venv/Makefile.include b/third-party/chpl-venv/Makefile.include
-index c5dbed5700..9ef60a02e1 100644
+
 --- a/third-party/chpl-venv/Makefile.include
 +++ b/third-party/chpl-venv/Makefile.include
 @@ -6,7 +6,9 @@
  CHPL_VENV_DIR=$(shell cd $(THIRD_PARTY_DIR)/chpl-venv && pwd)
- 
+
  CHPL_VENV_TEST_REQUIREMENTS_FILE=$(CHPL_VENV_DIR)/test-requirements.txt
 -CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE=$(CHPL_VENV_DIR)/chpldoc-requirements.txt
 +CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE1=$(CHPL_VENV_DIR)/chpldoc-requirements1.txt
 +CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE2=$(CHPL_VENV_DIR)/chpldoc-requirements2.txt
 +CHPL_VENV_CHPLDOC_REQUIREMENTS_FILE3=$(CHPL_VENV_DIR)/chpldoc-requirements3.txt
  CHPL_VENV_C2CHAPEL_REQUIREMENTS_FILE=$(CHPL_VENV_DIR)/c2chapel-requirements.txt
- 
+
  CHPL_VENV_CHPLSPELL_REQUIREMENTS_FILE=$(CHPL_VENV_DIR)/chplspell-requirements.txt
-diff --git a/third-party/chpl-venv/chpldoc-requirements.txt b/third-party/chpl-venv/chpldoc-requirements.txt
-index 864a42a56e..c063b1011a 100644
+@@ -23,6 +25,8 @@ PIP=$(PYTHON) -m pip
+ CHPL_VENV_BUILD=$(CHPL_VENV_DIR)/build
+ CHPL_VENV_VIRTUALENV_DIR=$(CHPL_VENV_BUILD)/build-venv
+ CHPL_VENV_VIRTUALENV_DIR_OK=$(CHPL_VENV_BUILD)/build-venv/ok
++CHPL_VENV_VIRTUALENV_DIR_DEPS1_OK=$(CHPL_VENV_BUILD)/build-venv/ok1
++CHPL_VENV_VIRTUALENV_DIR_DEPS2_OK=$(CHPL_VENV_BUILD)/build-venv/ok2
+ CHPL_VENV_VIRTUALENV_BIN=$(CHPL_VENV_VIRTUALENV_DIR)/bin
+ CHPL_VENV_INSTALL=$(CHPL_VENV_DIR)/install
+ CHPL_VENV_CHPLDEPS=$(CHPL_VENV_INSTALL)/chpldeps
+
 --- a/third-party/chpl-venv/chpldoc-requirements.txt
-+++ b/third-party/chpl-venv/chpldoc-requirements.txt
-@@ -3,7 +3,7 @@ MarkupSafe==2.0.1
- Pygments==2.9.0
- Sphinx==4.0.2
- docutils==0.16.0
++++ /dev/null
+@@ -1,9 +0,0 @@
+-Jinja2==3.0.1
+-MarkupSafe==2.0.1
+-Pygments==2.9.0
+-Sphinx==4.0.2
+-docutils==0.16.0
 -sphinx-rtd-theme==0.5.2
-+sphinx-rtd-theme==1.0.0
- sphinxcontrib-chapeldomain==0.0.20
- babel==2.9.1
- breathe==4.30.0
-diff --git a/third-party/chpl-venv/chpldoc-requirements1.txt b/third-party/chpl-venv/chpldoc-requirements1.txt
-new file mode 100644
-index 0000000000..c3025d5c0f
+-sphinxcontrib-chapeldomain==0.0.20
+-babel==2.9.1
+-breathe==4.30.0
+
 --- /dev/null
 +++ b/third-party/chpl-venv/chpldoc-requirements1.txt
-@@ -0,0 +1 @@
+@@ -0,0 +1,2 @@
++# Split into 3 files to work around problems with CHPL_PIP_FROM_SOURCE
 +MarkupSafe==2.0.1
-diff --git a/third-party/chpl-venv/chpldoc-requirements2.txt b/third-party/chpl-venv/chpldoc-requirements2.txt
-new file mode 100644
-index 0000000000..519cf147c4
+
 --- /dev/null
 +++ b/third-party/chpl-venv/chpldoc-requirements2.txt
-@@ -0,0 +1,5 @@
+@@ -0,0 +1,6 @@
++# Split into 3 files to work around problems with CHPL_PIP_FROM_SOURCE
 +Jinja2==3.0.1
 +Pygments==2.9.0
-+Sphinx==4.0.2
++Sphinx==4.3.2
 +docutils==0.16.0
 +babel==2.9.1
-diff --git a/third-party/chpl-venv/chpldoc-requirements3.txt b/third-party/chpl-venv/chpldoc-requirements3.txt
-new file mode 100644
-index 0000000000..ba1b71fbf7
+
 --- /dev/null
 +++ b/third-party/chpl-venv/chpldoc-requirements3.txt
-@@ -0,0 +1,3 @@
+@@ -0,0 +1,4 @@
++# Split into 3 files to work around problems with CHPL_PIP_FROM_SOURCE
 +sphinx-rtd-theme==1.0.0
-+sphinxcontrib-chapeldomain==0.0.20
-+breathe==4.30.0
-diff --git a/util/chplenv/chpl_llvm.py b/util/chplenv/chpl_llvm.py
-index 99e918e947..a16ca37fb7 100755
++sphinxcontrib-chapeldomain==0.0.21
++breathe==4.31.0
 --- a/util/chplenv/chpl_llvm.py
 +++ b/util/chplenv/chpl_llvm.py
-@@ -110,6 +110,10 @@ def check_llvm_config(llvm_config):
- 
+@@ -110,10 +110,16 @@ def check_llvm_config(llvm_config):
+
  @memoize
  def find_system_llvm_config():
 +    llvm_config = overrides.get('CHPL_LLVM_CONFIG', 'none')
@@ -240,10 +283,31 @@ index 99e918e947..a16ca37fb7 100755
      paths = [ ]
      for vers in llvm_versions():
          paths.append("llvm-config-" + vers + ".0")
-@@ -402,12 +406,16 @@ def get_clang_additional_args():
+         paths.append("llvm-config-" + vers)
++        # this format used by freebsd
++        paths.append("llvm-config" + vers)
+         # next ones are for Homebrew
+         paths.append("/usr/local/opt/llvm@" + vers + ".0/bin/llvm-config")
+         paths.append("/usr/local/opt/llvm@" + vers + "/bin/llvm-config")
+@@ -299,7 +305,14 @@ def llvm_enabled():
+ def get_gcc_prefix():
+     gcc_prefix = overrides.get('CHPL_LLVM_GCC_PREFIX', '')
+
++
+     if not gcc_prefix:
++        # darwin and FreeBSD default to clang
++        # so shouldn't need GCC prefix
++        host_platform = chpl_platform.get('host')
++        if host_platform == "darwin" or host_platform == "freebsd":
++            return ''
++
+         # When 'gcc' is a command other than '/usr/bin/gcc',
+         # compute the 'gcc' prefix that LLVM should use.
+         gcc_path = find_executable('gcc')
+@@ -402,12 +415,16 @@ def get_clang_additional_args():
          if arg == '-isysroot':
              has_sysroot = True
- 
+
 -    if has_sysroot:
 -        # Work around a bug in some versions of Clang that forget to
 +    # Check to see if Homebrew is installed. If it is,
@@ -258,6 +322,109 @@ index 99e918e947..a16ca37fb7 100755
 -        link_args.append('-L/usr/local/lib')
 +        comp_args.append('-I' + homebrew_prefix + '/include')
 +        link_args.append('-L' + homebrew_prefix + '/lib')
- 
+
      return (comp_args, link_args)
- 
+
+--- a/util/chplenv/chpl_compiler.py
++++ b/util/chplenv/chpl_compiler.py
+@@ -1,10 +1,9 @@
+ #!/usr/bin/env python3
+ import optparse
+ import os
++import shutil
+ import sys
+
+-from distutils.spawn import find_executable
+-
+ import chpl_platform, overrides
+ from utils import error, memoize, warning
+
+@@ -193,7 +192,7 @@ def get(flag='host'):
+         elif platform_val.startswith('pwr'):
+             compiler_val = 'ibm'
+         elif platform_val == 'darwin' or platform_val == 'freebsd':
+-            if find_executable('clang'):
++            if shutil.which('clang'):
+                 compiler_val = 'clang'
+             else:
+                 compiler_val = 'gnu'
+
+--- a/util/chplenv/chpl_launcher.py
++++ b/util/chplenv/chpl_launcher.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-from distutils.spawn import find_executable
++import shutil
+ import sys
+
+ import chpl_comm, chpl_comm_substrate, chpl_platform, overrides
+@@ -7,7 +7,7 @@ from utils import error, memoize, warning
+
+ def slurm_prefix(base_launcher, platform_val):
+     """ If salloc is available and we're on a cray-cs/hpe-apollo, prefix with slurm-"""
+-    if platform_val in ('cray-cs', 'hpe-apollo') and find_executable('salloc'):
++    if platform_val in ('cray-cs', 'hpe-apollo') and shutil.which('salloc'):
+         return 'slurm-{}'.format(base_launcher)
+     return base_launcher
+
+@@ -29,8 +29,8 @@ def get():
+         platform_val = chpl_platform.get('target')
+
+         if platform_val.startswith('cray-x') or platform_val.startswith('hpe-cray-'):
+-            has_aprun = find_executable('aprun')
+-            has_slurm = find_executable('srun')
++            has_aprun = shutil.which('aprun')
++            has_slurm = shutil.which('srun')
+             if has_aprun and has_slurm:
+                 launcher_val = 'none'
+             elif has_aprun:
+@@ -60,7 +60,7 @@ def get():
+             elif substrate_val == 'ofi':
+                 launcher_val = slurm_prefix('gasnetrun_ofi', platform_val)
+         else:
+-            if platform_val in ('cray-cs', 'hpe-apollo') and find_executable('srun'):
++            if platform_val in ('cray-cs', 'hpe-apollo') and shutil.which('srun'):
+                 launcher_val = 'slurm-srun'
+             else:
+                 launcher_val = 'none'
+
+--- a/util/chplenv/chpl_llvm.py
++++ b/util/chplenv/chpl_llvm.py
+@@ -1,8 +1,8 @@
+ #!/usr/bin/env python3
+ import optparse
+ import os
++import shutil
+ import sys
+-from distutils.spawn import find_executable
+ import re
+
+ import chpl_bin_subdir, chpl_arch, chpl_compiler, chpl_platform, overrides
+@@ -302,7 +302,7 @@ def get_gcc_prefix():
+     if not gcc_prefix:
+         # When 'gcc' is a command other than '/usr/bin/gcc',
+         # compute the 'gcc' prefix that LLVM should use.
+-        gcc_path = find_executable('gcc')
++        gcc_path = shutil.which('gcc')
+         if gcc_path == '/usr/bin/gcc' :
+             # In this common case, nothing else needs to be done,
+             # because we can assume that clang can find this gcc.
+
+--- a/util/chplenv/chpl_make.py
++++ b/util/chplenv/chpl_make.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-from distutils.spawn import find_executable
++import shutil
+ import sys
+
+ import chpl_platform, overrides
+@@ -14,7 +14,7 @@ def get():
+         if platform_val.startswith('cygwin') or platform_val == 'darwin':
+             make_val = 'make'
+         elif platform_val.startswith('linux'):
+-            if find_executable('gmake'):
++            if shutil.which('gmake'):
+                 make_val = 'gmake'
+             else:
+                 make_val = 'make'
