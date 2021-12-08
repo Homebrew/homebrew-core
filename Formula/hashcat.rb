@@ -8,6 +8,11 @@ class Hashcat < Formula
   version_scheme 1
   head "https://github.com/hashcat/hashcat.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?hashcat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "fa6cfd37e7dcc83390159e971d314cde0af53ab58e41c8f669919d8db1acd1f6"
     sha256 arm64_big_sur:  "9407d08fda25cba3b7500bb0d6b99823b325f6b1302b96203b44d46052b43df5"
