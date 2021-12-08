@@ -6,6 +6,7 @@ class Mercurial < Formula
   url "https://www.mercurial-scm.org/release/mercurial-6.0.tar.gz"
   sha256 "53b68b7e592adce3a4e421da3bffaacfc7721f403aac319e6d2c5122574de62f"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.mercurial-scm.org/release/"
@@ -21,17 +22,20 @@ class Mercurial < Formula
     sha256 x86_64_linux:   "3e2f28ff2702e50f54199485a43cb3719593ea462ff0ffc0365fd87c02bac407"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     ENV["HGPYTHON3"] = "1"
 
-    system "make", "PREFIX=#{prefix}", "PYTHON=python3", "install-bin"
+    system "make", "PREFIX=#{prefix}",
+                   "PYTHON=#{which("python3")}",
+                   "install-bin"
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
     cd "contrib/chg" do
-      system "make", "PREFIX=#{prefix}", "PYTHON=python3", "HGPATH=#{bin}/hg",
-                     "HG=#{bin}/hg"
+      system "make", "PREFIX=#{prefix}",
+                     "PYTHON=#{which("python3")}",
+                     "HGPATH=#{bin}/hg", "HG=#{bin}/hg"
       bin.install "chg"
     end
 
