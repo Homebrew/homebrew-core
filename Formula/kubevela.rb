@@ -19,7 +19,6 @@ class Kubevela < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    ENV["GO111MODULE"] = "on"
     ldflags = %W[
       -s -w
       -X github.com/oam-dev/kubevela/version.VelaVersion=#{version}
@@ -31,7 +30,32 @@ class Kubevela < Formula
 
   test do
     # Should error out as vela up need kubeconfig
-    status_output = shell_output("#{bin}/vela version 2>&1", 1)
+    status_output = shell_output("#{bin}/vela up 2>&1", 1)
     assert_match "get kubeConfig err invalid configuration: no configuration has been provided", status_output
+
+    (testpath/"kube-config").write <<~EOS
+      apiVersion: v1
+      clusters:
+      - cluster:
+          certificate-authority-data: test
+          server: http://127.0.0.1:8080
+        name: test
+      contexts:
+      - context:
+          cluster: test
+          user: test
+        name: test
+      current-context: test
+      kind: Config
+      preferences: {}
+      users:
+      - name: test
+        user:
+          token: test
+    EOS
+
+    ENV["KUBECONFIG"] = testpath/"kube-config"
+    version_output = shell_output("#{bin}/vela version 2>&1", 0)
+    assert_match "Version: #{version}", version_output
   end
 end
