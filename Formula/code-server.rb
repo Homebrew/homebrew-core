@@ -14,7 +14,7 @@ class CodeServer < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "7ca731bd99f09f23567cbead57850f886bed034036d27ca768b83ec5e889037e"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "yarn" => :build
   depends_on "node@14"
 
