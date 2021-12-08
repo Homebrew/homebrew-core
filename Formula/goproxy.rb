@@ -25,17 +25,15 @@ class Goproxy < Formula
   test do
     bind_address = "127.0.0.1:#{free_port}"
     begin
-      server = IO.popen(
-        ["#{bin}/goproxy", "-proxy=https://goproxy.io", "-listen=#{bind_address}"],
-        err: [:child, :out],
-      )
-      sleep 10
+      server = IO.popen("#{bin}/goproxy -proxy=https://goproxy.io -listen=#{bind_address}", err: [:child, :out])
+      sleep 1
       ENV["GOPROXY"] = "http://#{bind_address}"
       test_module = "github.com/spf13/cobra"
       system "go", "get", test_module
     ensure
-      Process.kill("SIGINT", server.pid)
-      Process.wait(server.pid)
+      nil
+      # Process.kill("SIGINT", server.pid)
+      # Process.wait(server.pid)
     end
     assert_match test_module, server.read
   end
