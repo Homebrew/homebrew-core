@@ -60,11 +60,11 @@ class I2pd < Formula
   end
 
   test do
-    pid = fork do
-      exec "#{bin}/i2pd", "--datadir=#{testpath}", "--daemon"
-    end
+    pidfile = testpath/"i2pd.pid"
+    system bin/"i2pd", "--datadir=#{testpath}", "--pidfile=#{pidfile}", "--daemon"
     sleep 5
-    Process.kill "TERM", pid
     assert_predicate testpath/"router.keys", :exist?, "Failed to start i2pd"
+    pid = pidfile.read.chomp.to_i
+    Process.kill "TERM", pid
   end
 end
