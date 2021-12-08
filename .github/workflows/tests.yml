@@ -122,8 +122,11 @@ jobs:
 
             if (label_names.includes('CI-long-timeout')) {
               const long_pr_count = ${{ needs.tap_syntax.outputs.long_pr_count }}
-              if (long_pr_count > 2) {
+              const maximum_long_pr_count = 2
+              if (long_pr_count > maximum_long_pr_count) {
                 core.setFailed(`Too many pull requests (${long_pr_count}) with the long-timeout label!`)
+                core.error(`Only ${maximum_long_pr_count} pull requests at a time can use this label.`)
+                core.error('Remove the long-timeout label from this or other PRs (once their CI has completed).')
               }
               console.log('CI-long-timeout label found. Setting long GitHub Actions timeout.')
               core.setOutput('timeout-minutes', '4320')
