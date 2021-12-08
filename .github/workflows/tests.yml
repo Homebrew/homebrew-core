@@ -60,8 +60,13 @@ jobs:
               name: context.repo.repo,
               label: 'CI-long-timeout'
             }
-            const { repository: { pullRequests: { totalCount } } }  = await github.graphql(query, variables)
-            core.setOutput('count', totalCount)
+            const response = await github.graphql(query, variables)
+            if (response.error) {
+              // The GitHub API query errored, so fail open and assume 0 PRs.
+              core.setOutput('count', 0)
+            } else {
+              core.setOutput('count', response.data.repository.pullRequests.totalCount)
+            }
 
   setup_tests:
     if: github.event_name == 'pull_request' && github.repository == 'Homebrew/homebrew-core'
