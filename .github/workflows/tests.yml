@@ -61,7 +61,7 @@ jobs:
               label: 'CI-long-timeout'
             }
             const response = await github.graphql(query, variables)
-            if (response.error) {
+            if (response.errors) {
               // The GitHub API query errored, so fail open and assume 0 PRs.
               core.setOutput('count', 0)
             } else {
