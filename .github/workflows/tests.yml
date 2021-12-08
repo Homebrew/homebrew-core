@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Count pull requests with the `CI-long-timeout` label
-        id: count_long_timeout_prs
+        if: contains(github.event.pull_request.labels.*.name, 'CI-long-timeout')
         uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -65,14 +65,9 @@ jobs:
             const { repository: { pullRequests: { totalCount } } }  = await github.graphql(query, variables)
             core.setOutput('count', totalCount)
 
-      - name: Remove `CI-long-timeout` label if applicable
-        if: fromJson(steps.count_long_timeout_prs.outputs.count) >= 2
-        uses: Homebrew/actions/label-pull-requests@master
-        with:
-          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          def: |
-            - label: CI-long-timeout
-              path: nonexistent/path/hack
+            if (totalCount > 2) {
+              core.setFailed(`Too many pull requests (${totalCount}) with the long-timeout label!`)
+            }
 
   setup_tests:
     if: github.event_name == 'pull_request' && github.repository == 'Homebrew/homebrew-core'
