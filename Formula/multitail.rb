@@ -1,10 +1,10 @@
 class Multitail < Formula
   desc "Tail multiple files in one terminal simultaneously"
   homepage "https://vanheusden.com/multitail/"
-  url "https://vanheusden.com/multitail/multitail-6.5.0.tgz"
+  url "https://fossies.org/linux/privat/multitail-6.5.0.tgz"
   sha256 "b29d5e77dfc663c7500f78da67de5d82d35d9417a4741a89a18ce9ee7bdba9ed"
   license "GPL-2.0"
-  head "https://github.com/flok99/multitail.git"
+  head "https://github.com/halturin/multitail.git"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "931b37ad30df49390ef2e7c2d191821a735202d38b9fbb85f5ab9b00ed248eea"
