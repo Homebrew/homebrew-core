@@ -6,6 +6,7 @@ class Gdbgui < Formula
   url "https://files.pythonhosted.org/packages/4b/67/63e55e2fde8628603326e5a9f1882bf831f49b2feaa966aee602fced77ae/gdbgui-0.15.0.1.tar.gz"
   sha256 "6f0ae578b9f7181c783227b692e8ed694a3e5c200b33e8512f2488644465060d"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "66ab0fe289baa0e06dca98ce2c3fbb6179093da983faab5119967ca33554e372"
@@ -16,7 +17,7 @@ class Gdbgui < Formula
   end
 
   depends_on "gdb"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "bidict" do
     url "https://files.pythonhosted.org/packages/bd/7c/83fbbc8568be511bc48704b97ef58f67ff2ab85ec4fcd1dad12cd2323c32/bidict-0.21.2.tar.gz"
