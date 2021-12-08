@@ -40,10 +40,50 @@ jobs:
         if: github.event_name == 'pull_request'
         id: formulae-detect
 
+  count_timeout_labels:
+    if: github.event_name == 'pull_request' && github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    outputs:
+      long-pr-count: ${{ steps.count.outputs.count }}
+    steps:
+      - name: Count pull requests with the `CI-long-timeout` label
+        id: count
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const query = `query($owner:String!, $name:String!, $label:String!) {
+              repository(owner:$owner, name:$name) {
+                pullRequests(last:100, states:OPEN, labels: [$label]) {
+                  totalCount
+                }
+              }
+            }`;
+            const variables = {
+              owner: context.repo.owner,
+              name: context.repo.repo,
+              label: 'CI-long-timeout'
+            }
+            const { repository: { pullRequests: { totalCount } } }  = await github.graphql(query, variables)
+            core.setOutput('count', totalCount)
+
+  remove_timeout_labels:
+    if: ${{ (github.event_name == 'pull_request') && (github.repository == 'Homebrew/homebrew-core') && (fromJson(needs.count_timeout_labels.outputs.long-pr-count) >= 2) }}
+    needs: count_timeout_labels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove `CI-long-timeout` label
+        uses: Homebrew/actions/label-pull-requests@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          def: |
+            - label: CI-long-timeout
+              path: nonexistent/path/hack
+
   setup_tests:
     if: github.event_name == 'pull_request' && github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
-    needs: tap_syntax
+    needs: [tap_syntax, remove_timeout_labels]
     outputs:
       syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
       linux-runner: ${{ steps.check-labels.outputs.linux-runner }}
