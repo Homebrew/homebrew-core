@@ -1,8 +1,8 @@
 class Firefoxpwa < Formula
   desc "Tool to install, manage and use Progressive Web Apps in Mozilla Firefox"
   homepage "https://github.com/filips123/PWAsForFirefox"
-  url "https://github.com/filips123/PWAsForFirefox/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "b34681e84a3f9018955f887a37beceb895d6009bc045a23d2127eab1ea1b7a57"
+  url "https://github.com/filips123/PWAsForFirefox/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "1bc056396893e8bb6859ba5d7560c44c6107e561601ffd31b2fae5b19d65956e"
   license "MPL-2.0"
   head "https://github.com/filips123/PWAsForFirefox.git", branch: "main"
 
