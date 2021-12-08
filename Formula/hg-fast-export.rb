@@ -6,15 +6,24 @@ class HgFastExport < Formula
   url "https://github.com/frej/fast-export/archive/v210917.tar.gz"
   sha256 "168f51301f01b4a2572bb00dd9474ee9a50b85f24aa5ed5a7b8abb12896d951a"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "f6532a51ead9d46a0ae6f957ae12f62467d265a741b2cf4be23b0808ed2be1fe"
   end
 
   depends_on "mercurial"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
+    # The Python executable is tested from PATH
+    # Prepend ours Python to the executable candidate list (python2 python python3)
+    # See https://github.com/Homebrew/homebrew-core/pull/90709#issuecomment-988548657
+    %w[hg-fast-export.sh hg-reset.sh].each do |f|
+      inreplace f, "for python_cmd in ",
+                   "for python_cmd in '#{which("python3")}' "
+    end
+
     libexec.install Dir["*"]
 
     %w[hg-fast-export.py hg-fast-export.sh hg-reset.py hg-reset.sh hg2git.py].each do |f|
