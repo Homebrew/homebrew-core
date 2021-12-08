@@ -41,33 +41,6 @@ jobs:
         if: github.event_name == 'pull_request'
         id: formulae-detect
 
-      - name: Count pull requests with the `CI-long-timeout` label
-        if: github.event_name == 'pull_request'
-        id: count_long_timeout_prs
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const query = `query($owner:String!, $name:String!, $label:String!) {
-              repository(owner:$owner, name:$name) {
-                pullRequests(last:100, states:OPEN, labels: [$label]) {
-                  totalCount
-                }
-              }
-            }`;
-            const variables = {
-              owner: context.repo.owner,
-              name: context.repo.repo,
-              label: 'CI-long-timeout'
-            }
-            const response = await github.graphql(query, variables)
-            if (response.errors) {
-              // The GitHub API query errored, so fail open and assume 0 PRs.
-              core.setOutput('count', 0)
-            } else {
-              core.setOutput('count', response.data.repository.pullRequests.totalCount)
-            }
-
   setup_tests:
     if: github.event_name == 'pull_request' && github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
@@ -126,7 +99,26 @@ jobs:
             }
 
             if (label_names.includes('CI-long-timeout')) {
-              const long_pr_count = ${{ needs.tap_syntax.outputs.long_pr_count }}
+              const labelCountQuery = `query($owner:String!, $name:String!, $label:String!) {
+                repository(owner:$owner, name:$name) {
+                  pullRequests(last: 100, states: OPEN, labels: [$label]) {
+                    totalCount
+                  }
+                }
+              }`;
+              const response = await github.graphql(
+                labelCountQuery, {
+                  owner: context.repo.owner,
+                  name: context.repo.repo,
+                  label: 'CI-long-timeout'
+                }
+              )
+              if (response.errors) {
+                // The GitHub API query errored, so fail open and assume 0 long PRs.
+                let long_pr_count = 0
+              } else {
+                let long_pr_count = response.data.repository.pullRequests.totalCount
+              }
               const maximum_long_pr_count = 2
               if (long_pr_count > maximum_long_pr_count) {
                 core.setFailed(`Too many pull requests (${long_pr_count}) with the long-timeout label!`)
