@@ -22,7 +22,7 @@ class NodeAT14 < Formula
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
