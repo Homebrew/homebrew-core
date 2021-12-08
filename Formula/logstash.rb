@@ -5,7 +5,7 @@ class Logstash < Formula
   sha256 "ab9bb302013ff4112446f1bfd5304463a5c2ccb67ad87fe3e5706be3bd3e95c8"
   license "Apache-2.0"
   version_scheme 1
-  head "https://github.com/elastic/logstash.git"
+  head "https://github.com/elastic/logstash.git", branch: "main"
 
   livecheck do
     url :stable
@@ -18,7 +18,7 @@ class Logstash < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "1270f53ef89f56359d7c076dfc9c8ad418714ca96d29ea98adfc8001f457621c"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   uses_from_macos "ruby" => :build
 
