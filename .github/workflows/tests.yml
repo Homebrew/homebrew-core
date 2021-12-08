@@ -106,6 +106,7 @@ jobs:
                   }
                 }
               }`;
+              var long_pr_count;
               try {
                 const response = await github.graphql(
                   labelCountQuery, {
@@ -114,10 +115,10 @@ jobs:
                     label: 'CI-long-timeout'
                   }
                 )
-                let long_pr_count = response.data.repository.pullRequests.totalCount
+                long_pr_count = response.data.repository.pullRequests.totalCount
               } catch (error) {
                 // The GitHub API query errored, so fail open and assume 0 long PRs.
-                let long_pr_count = 0
+                long_pr_count = 0
               }
               const maximum_long_pr_count = 2
               if (long_pr_count > maximum_long_pr_count) {
