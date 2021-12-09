@@ -14,7 +14,7 @@ class Crun < Formula
   depends_on "go-md2man" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   depends_on "libcap"
   depends_on "libseccomp"
