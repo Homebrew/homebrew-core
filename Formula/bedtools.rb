@@ -15,7 +15,7 @@ class Bedtools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b255c530815fd12473089bb12c3adfa1cb290dc40c802a8e4716b1ef434de4b5"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "xz"
 
   uses_from_macos "bzip2"
