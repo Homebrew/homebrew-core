@@ -1,8 +1,8 @@
 class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
-  url "https://github.com/kyma-project/cli/archive/1.24.8.tar.gz"
-  sha256 "eb4d3fe1877f025f240a322693e882b2c52cb6d87c9bf07ae9970536283aff58"
+  url "https://github.com/kyma-project/cli/archive/2.0.0.tar.gz"
+  sha256 "e686577464c849c85e6c6fe0d4c84b33cd6e116107fc7e437d4013ba71a48b6e"
   license "Apache-2.0"
   head "https://github.com/kyma-project/cli.git"
 
@@ -22,8 +22,6 @@ class KymaCli < Formula
     ldflags = %W[
       -s -w
       -X github.com/kyma-project/cli/cmd/kyma/version.Version=#{version}
-      -X github.com/kyma-project/cli/cmd/kyma/install.DefaultKymaVersion=#{version}
-      -X github.com/kyma-project/cli/cmd/kyma/upgrade.DefaultKymaVersion=#{version}
     ]
 
     system "go", "build", *std_go_args(output: bin/"kyma", ldflags: ldflags), "./cmd"
