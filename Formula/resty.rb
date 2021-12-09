@@ -6,6 +6,7 @@ class Resty < Formula
   url "https://github.com/micha/resty/archive/v3.0.tar.gz"
   sha256 "9ed8f50dcf70a765b3438840024b557470d7faae2f0c1957a011ebb6c94b9dd1"
   license "MIT"
+  revision 1
   head "https://github.com/micha/resty.git", branch: "master"
 
   bottle do
@@ -24,7 +25,7 @@ class Resty < Formula
   uses_from_macos "perl"
 
   on_linux do
-    depends_on "python@3.9"
+    depends_on "python@3.10"
   end
 
   conflicts_with "nss", because: "both install `pp` binaries"
