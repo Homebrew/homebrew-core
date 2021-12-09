@@ -5,6 +5,7 @@ class TomcatAT9 < Formula
   mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.56/bin/apache-tomcat-9.0.56.tar.gz"
   sha256 "960ce89fa93099a412f7d1b828d6d97465d5e11500247e9c58a637fded523e0d"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -30,7 +31,7 @@ class TomcatAT9 < Formula
     libexec.install_symlink pkgetc => "conf"
 
     libexec.install Dir["*"]
-    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", Language::Java.overridable_java_home_env
   end
 
   def caveats
