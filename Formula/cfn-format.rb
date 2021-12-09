@@ -5,6 +5,10 @@ class CfnFormat < Formula
   sha256 "064bc2b563c9b759d16147f33fe5c64bf0af3640cb4ae543e49615ae17b22e01"
   license "Apache-2.0"
 
+  livecheck do
+    formula "rain"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "746d5b7a5493b01f9263de7ae57d14f7debcc09ae37ed9b88e3ca94e71cccb96"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae53259389b4dfb638b10beb48257b7edaf84797b2b1873cb18ce915c61cc8ad"
