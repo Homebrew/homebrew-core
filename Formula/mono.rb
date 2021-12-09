@@ -4,6 +4,7 @@ class Mono < Formula
   url "https://download.mono-project.com/sources/mono/mono-6.12.0.122.tar.xz"
   sha256 "29c277660fc5e7513107aee1cbf8c5057c9370a4cdfeda2fc781be6986d89d23"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://www.mono-project.com/download/stable/"
@@ -19,7 +20,7 @@ class Mono < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "unzip" => :build
 
