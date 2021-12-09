@@ -23,11 +23,11 @@ class Serd < Formula
   depends_on "pkg-config" => :build
 
   on_linux do
-    depends_on "python@3.9" => :build
+    depends_on "python@3.10" => :build
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin" if OS.linux?
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin" if OS.linux?
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf"
     system "./waf", "install"
