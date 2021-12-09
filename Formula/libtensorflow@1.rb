@@ -18,10 +18,10 @@ class LibtensorflowAT1 < Formula
   deprecate! date: "2021-01-06", because: :versioned_formula
 
   depends_on "bazel" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   def install
-    ENV["PYTHON_BIN_PATH"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON_BIN_PATH"] = Formula["python@3.10"].opt_bin/"python3"
     ENV["CC_OPT_FLAGS"] = "-march=native"
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
