@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/10/9e/bbac490d6de6f2b8e924ed938657e402c0ae75bac49f8245e32387142eee/checkov-2.0.630.tar.gz"
-  sha256 "3b08b20d656103dbb893e2abfc730f73914fa31e3c8eacd63eb8cd7971e67bde"
+  url "https://files.pythonhosted.org/packages/9a/e2/80bbd9eebc502b090b31e8102194901515bd93ada7036d4e014350bbfe92/checkov-2.0.645.tar.gz"
+  sha256 "49c617d787d1937d4ac679d1eb2abfd6f596d17e6674aae273c998c5eccf9d28"
   license "Apache-2.0"
 
   bottle do
@@ -52,8 +52,8 @@ class Checkov < Formula
   end
 
   resource "bc-python-hcl2" do
-    url "https://files.pythonhosted.org/packages/c7/6f/622978d9d98ea2ad9272afb76cb3f0075dcd628b1855ce0a07446c42e9d0/bc-python-hcl2-0.3.24.tar.gz"
-    sha256 "62c88c9133d148a478e75d5cb093aff7f25fd5bdd355433b3769489de8dd36b4"
+    url "https://files.pythonhosted.org/packages/3d/9e/160b5898ed2949cb4d4e69c75ccb93b941e3d433f9da731a29bb2c6da600/bc-python-hcl2-0.3.28.tar.gz"
+    sha256 "74e4b21d329b6bd9396617d075b835e5c0cb2ecdbd951fee631886de81f69c80"
   end
 
   resource "beautifulsoup4" do
@@ -62,13 +62,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/95/a7/413caa923eff54277fa48f312c2202441ed8ce57c5bf135af9b700e0994d/boto3-1.20.21.tar.gz"
-    sha256 "2fb05cbe81b9ce11d9394fc6c4ffa5fd1cceb114dc1d2887dc61081707e44522"
+    url "https://files.pythonhosted.org/packages/f0/97/04398f2e81e24a995677acbe40e6a8fc0fc5123047219df6023d4da60e42/boto3-1.20.23.tar.gz"
+    sha256 "c39cb6ed376ba1d4689ac8f6759a2b2d8a0b0424dbec0cd3af1558079bcf06e8"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/7b/e6/b3aaa252218b0d4c6699de08d1daf94f90f320e3389e46b1286e18410c37/botocore-1.23.21.tar.gz"
-    sha256 "d7f8e82cba38aa1e66015cab0a5ca3204503e90afc4695e97228e28329a14c04"
+    url "https://files.pythonhosted.org/packages/32/c9/0019f82ee913fbf08a18f4601a710330d6edb047296965ca2b75d1bf5c89/botocore-1.23.23.tar.gz"
+    sha256 "640b62110aa6d1c25553eceafb5bcd89aedeb84b191598d1f6492ad24374d285"
   end
 
   resource "cached-property" do
@@ -107,8 +107,8 @@ class Checkov < Formula
   end
 
   resource "cloudsplaining" do
-    url "https://files.pythonhosted.org/packages/5a/4d/1339d77c26be908e241cfea5ad72683805747bc83ef29ce9d334df1706e0/cloudsplaining-0.4.8.tar.gz"
-    sha256 "db4dd6da5da5c1a6a9ebfb4ded638941def7d05c90ff3f2836f2b78e4114ade7"
+    url "https://files.pythonhosted.org/packages/a9/51/93e2e0dd768bcf2df760942e4154b859c1512ed92dc5a6904c3b87a86a64/cloudsplaining-0.4.9.tar.gz"
+    sha256 "42bbbf939490c17eb8fb2a98d199bd8ae3e07f10723affcdfcf557f57a9c64eb"
   end
 
   resource "colorama" do
@@ -127,8 +127,8 @@ class Checkov < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/13/ea/5720270a0e984e5dd238ec8e75a8acccb042ac97bcb215be9e2cb339dc1f/cyclonedx-python-lib-0.11.1.tar.gz"
-    sha256 "cb0f1730ebe23c37820a9a2d4b42fc1d19fb3e8e6e92dfd3489673c76152e43c"
+    url "https://files.pythonhosted.org/packages/29/f7/71382e7f03c1ce32ba6e1192497d8c8d6cae715d950527c75a86b2fa3cf0/cyclonedx-python-lib-0.12.2.tar.gz"
+    sha256 "7730651c5a27618b0417898a5f4edad8e4b4f342fa2b870504cfe7099312478b"
   end
 
   resource "deep_merge" do
@@ -337,8 +337,8 @@ class Checkov < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/4e/8f/b5c45af5a1def38b07c09a616be932ad49c35ebdc5e3cbf93966d7ed9750/websocket-client-1.2.1.tar.gz"
-    sha256 "8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d"
+    url "https://files.pythonhosted.org/packages/b6/fa/72e77d094563208174abbbaa73c32f28c43a31193b843bddf233c7c87644/websocket-client-1.2.3.tar.gz"
+    sha256 "1315816c0acc508997eb3ae03b9d3ff619c9d12d544c9a9b553704b1cc4f6af5"
   end
 
   resource "yarl" do
