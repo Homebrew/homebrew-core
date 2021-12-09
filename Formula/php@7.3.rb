@@ -8,11 +8,6 @@ class PhpAT73 < Formula
   license "PHP-3.01"
   revision 1
 
-  livecheck do
-    url "https://www.php.net/downloads"
-    regex(/href=.*?php[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.t/i)
-  end
-
   bottle do
     sha256 monterey:     "93126a75527f2ebb61854eca3d828a2c85be368810d958891e82d01079186fcc"
     sha256 big_sur:      "e1e2f43e53f5324dd918cb3c53ced792eb39d1a328fdc995df2cc11377c24f4f"
