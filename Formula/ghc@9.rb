@@ -18,7 +18,7 @@ class GhcAT9 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "sphinx-doc" => :build
 
   # https://www.haskell.org/ghc/download_ghc_9_0_1.html#macosx_x86_64
