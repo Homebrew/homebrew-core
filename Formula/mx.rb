@@ -4,6 +4,7 @@ class Mx < Formula
   url "https://github.com/graalvm/mx/archive/refs/tags/5.296.0.tar.gz"
   sha256 "d6867cdfa80575c70a3e64ada62e8cb22a226e2df6dc4c4bf6db5964bd9a8fde"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -16,7 +17,7 @@ class Mx < Formula
 
   depends_on "openjdk" => :test
   depends_on arch: :x86_64
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource("testdata") do
     url "https://github.com/oracle/graal/archive/refs/tags/vm-21.0.0.2.tar.gz"
@@ -25,7 +26,7 @@ class Mx < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"mx").write_env_script libexec/"mx", MX_PYTHON: "#{Formula["python@3.9"].opt_bin}/python3"
+    (bin/"mx").write_env_script libexec/"mx", MX_PYTHON: "#{Formula["python@3.10"].opt_bin}/python3"
     bash_completion.install libexec/"bash_completion/mx" => "mx"
   end
 
