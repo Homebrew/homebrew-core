@@ -19,7 +19,7 @@ class Kibana < Formula
   # https://www.elastic.co/blog/licensing-change
   deprecate! date: "2021-01-14", because: "is switching to an incompatible license"
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "yarn" => :build
   depends_on "node@10"
 
