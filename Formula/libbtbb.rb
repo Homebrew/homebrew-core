@@ -7,6 +7,7 @@ class Libbtbb < Formula
   version "2020-12-R1"
   sha256 "9478bb51a38222921b5b1d7accce86acd98ed37dbccb068b38d60efa64c5231f"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/greatscottgadgets/libbtbb.git"
 
   bottle do
@@ -20,7 +21,7 @@ class Libbtbb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     mkdir "build" do
