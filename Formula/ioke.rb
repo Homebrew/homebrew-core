@@ -4,11 +4,6 @@ class Ioke < Formula
   url "https://ioke.org/dist/ioke-P-ikj-0.4.0.tar.gz"
   sha256 "701d24d8a8d0901cde64f11c79605c21d43cafbfb2bdd86765b664df13daec7c"
 
-  livecheck do
-    url "https://ioke.org/download.html"
-    regex(/href=.*?ioke-P-ikj[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "952a64519aebf02d5c58f64414703741267651dde48243f8a77629434a77e702"
