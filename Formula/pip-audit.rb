@@ -3,8 +3,8 @@ class PipAudit < Formula
 
   desc "Audits Python environments and dependency trees for known vulnerabilities"
   homepage "https://pypi.org/project/pip-audit/"
-  url "https://files.pythonhosted.org/packages/74/a7/ac7f707eb56c000cdb129d12c2e88a4580b91c62e633295b902380c197d5/pip-audit-1.1.0.tar.gz"
-  sha256 "04af7911f2abc223c0d99669365ef346910beece5b344001b3b571facd959541"
+  url "https://files.pythonhosted.org/packages/89/f0/6a39ff253ecc8123d6bfede7ce515cd87985ea06be98055de6e36e4e3ccb/pip-audit-1.1.1.tar.gz"
+  sha256 "61d772968b6ef644f43ecceace89665d28d7ea521a9390e59188c4189d580856"
   license "Apache-2.0"
 
   bottle do
@@ -70,8 +70,8 @@ class PipAudit < Formula
   end
 
   resource "pip-api" do
-    url "https://files.pythonhosted.org/packages/59/34/5e2ad3bf3ac650fa6cfeb7b673e8a3592cd3d12516fd4885248837faae55/pip-api-0.0.25.tar.gz"
-    sha256 "f41a337d1a7f81c0712da01da353c016f1f75fc7b1b5bf47af5bfca16b2df5a1"
+    url "https://files.pythonhosted.org/packages/04/7c/1f9f60995d031d08975ba1f05082c77951cbacc74a46e672f3ec55d4ff8d/pip-api-0.0.26.tar.gz"
+    sha256 "d1266be311f1cd1ddd0d501e99275c7f6ff1fd0ec6db46d521f56e747d9286e5"
   end
 
   resource "progress" do
