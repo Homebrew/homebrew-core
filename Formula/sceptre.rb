@@ -3,20 +3,21 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://files.pythonhosted.org/packages/07/de/f3a9def5a49b9085e1b74f807d0087c8fb1c1e40497f692e92ed0d841117/sceptre-2.7.0.tar.gz"
-  sha256 "34e3bda077c87d22f6be2731baf18123a6be6d716d49c6b4e4a4024b3c435ee8"
+  url "https://files.pythonhosted.org/packages/b8/5a/b3d28fb95ae76cac0c59cbdc2d15d4fb5054f56f7ffb6674d5e4a092f30a/sceptre-2.7.1.tar.gz"
+  sha256 "e104af806bcbef41d6c36494d13997714df5e53ba213d3c1e0a74d003feb443e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "de29080653659f42a5d7f85c63dc1fe9c270096767a6f4825842e0dcd9620aaa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "44a7168ebb7106f4fa5004d8c32d9bcf80190482312f0854e1b292b0dca705f6"
-    sha256 cellar: :any_skip_relocation, monterey:       "a8b3b2d5035bf3fa8cd567759ae7f2e8aadae5497ffabaa0ddd8483a05be0d05"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e2ce201707f1c39f777f373a871de47d4db1eeee3d9fa288e8fb9753542a44a7"
-    sha256 cellar: :any_skip_relocation, catalina:       "c8a7931a9164b8c08febafd1ae2dcc9eec4153bfbad94eff28a5afdcdaf5122c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc54b5f070c60a9653031e6cc20927dce2b4c3cb1142e73146a625fc7137a2e1"
+    sha256 cellar: :any,                 arm64_monterey: "9082eda2de7f42ab021af18d00f40e0cea670b2c16e82906d28f4c35a9a70779"
+    sha256 cellar: :any,                 arm64_big_sur:  "2779d28f19ddd9055fe60d0ac9ffe1ec42dd6420c5d42af6b0fccf1d665d1090"
+    sha256 cellar: :any,                 monterey:       "8f526f96238d39df6fbd17da1db5d1638d39a847452c7caa75fca5d78e560dc0"
+    sha256 cellar: :any,                 big_sur:        "f55a2c5137e071866bb81e8c340aff10f13f19a787fb7955e7ffc8a20a79ff64"
+    sha256 cellar: :any,                 catalina:       "3ab732521baec3b2a00545ebb73848cdec3d3f35466d2b1a6926216eb52ad92d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7268af6fb8f223f13dea4bcf219fc22605b1dc0a6678aa77b3c9274f05155726"
   end
 
-  depends_on "python@3.9"
+  depends_on "libyaml"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "attrs" do
@@ -25,13 +26,13 @@ class Sceptre < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f2/03/837e75a4ac7fd3057861fd4c618053654317da75b2f9f510c47480ef04a3/boto3-1.20.8.tar.gz"
-    sha256 "81ebdcabc534a52e2b7a2bfcbe1a1d7f1e34f028f7fe1cb16ccd80e34cea867a"
+    url "https://files.pythonhosted.org/packages/95/a7/413caa923eff54277fa48f312c2202441ed8ce57c5bf135af9b700e0994d/boto3-1.20.21.tar.gz"
+    sha256 "2fb05cbe81b9ce11d9394fc6c4ffa5fd1cceb114dc1d2887dc61081707e44522"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/1f/06/613ec6132cafbf85d482bf6377ce3c24cba8b195ed8f0ee4e9be9fec2f6c/botocore-1.23.9.tar.gz"
-    sha256 "810e259776bdc233c60333ff9d5f4d14b48ca5adefb9198d5ac8410c1d90efc4"
+    url "https://files.pythonhosted.org/packages/7b/e6/b3aaa252218b0d4c6699de08d1daf94f90f320e3389e46b1286e18410c37/botocore-1.23.21.tar.gz"
+    sha256 "d7f8e82cba38aa1e66015cab0a5ca3204503e90afc4695e97228e28329a14c04"
   end
 
   resource "certifi" do
@@ -45,8 +46,8 @@ class Sceptre < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do

@@ -1,19 +1,18 @@
 class Kepubify < Formula
   desc "Convert ebooks from epub to kepub"
   homepage "https://pgaskin.net/kepubify/"
-  url "https://github.com/pgaskin/kepubify/archive/v4.0.1.tar.gz"
-  sha256 "30e497e3a8490bcf571d01a7bb6cc2410689fccd7f9a516c31a166460d901aa8"
+  url "https://github.com/pgaskin/kepubify/archive/v4.0.2.tar.gz"
+  sha256 "f6bf7065ec99e48766f60a126590e021f5bd4fac19754ecb2d90eaf106f4e39b"
   license "MIT"
   head "https://github.com/pgaskin/kepubify.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "48839929a4ccdd8c9064ba6ec3062b1b2ca3b14d02e96514850e06d3b7aa7de5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6cd624dfcd004722ed211e192749443e2ca43117d499eb28929c420589978f5"
-    sha256 cellar: :any_skip_relocation, monterey:       "060e52b0317d377be3b83d5a180a0ad1ed1afc08a1a95d98d46f18acbba4497a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d7b68d8c1c34a5fe214b38c88eb5a18c11bff5698026e57d440f6f77c8f29297"
-    sha256 cellar: :any_skip_relocation, catalina:       "c8f88fe65e8d02bd957a70630d43fd4007b2c5e8f65c65789353de8b138c765f"
-    sha256 cellar: :any_skip_relocation, mojave:         "e2fdeb917185ea975bb51d87f5e50d214d4d4c8d961b16ab3634ba32dc713eb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad4d4a9dbc75d617f3e8b87f77251c1f82885477915e16c52cfa8f032b13b242"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f9441df1c3869ebae8dec5a4e8005f5e83658c94f3a57e4270d9d16848c0cc7b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "731aea9ef8144eedb062f0c53e1596fbf948e0e418839d5576d3c15aad5306e9"
+    sha256 cellar: :any_skip_relocation, monterey:       "1e480134eba73674c068f64df27333ed6883ecc2f54ba96c63791beb45c410c0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d20188b7dccbf64e2e57a6f3d8b24ced300c1663e58fc8de3d28cb9ae251b479"
+    sha256 cellar: :any_skip_relocation, catalina:       "b6a97a1431d6cb1bfb0bc607b8f26c0bf84bf531a182ba36a551ba45ba691d3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9eb47ff6159cf9969c8c838b7b4f24348b5e75aa4899a213e222d176e975891d"
   end
 
   depends_on "go" => :build
@@ -28,7 +27,6 @@ class Kepubify < Formula
     ].each do |p|
       system "go", "build", "-o", bin/p,
                    "-ldflags", "-s -w -X main.version=#{version}",
-                   "-tags", "zip117",
                    "./cmd/#{p}"
     end
   end

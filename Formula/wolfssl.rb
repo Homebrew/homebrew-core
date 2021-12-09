@@ -2,8 +2,8 @@ class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      tag:      "v4.8.1-stable",
-      revision: "723ed009ae5dc68acc14cd7664f93503d64cd51d"
+      tag:      "v5.0.0-stable",
+      revision: "7e01af012157bc20c840011a018619915380f05c"
   license "GPL-2.0-or-later"
   head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
@@ -14,13 +14,12 @@ class Wolfssl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "525c3bb7de024ce851ebb2ded4b09ec85e7b4232b2396b17754dd4e09358719c"
-    sha256 cellar: :any,                 arm64_big_sur:  "630d303a592f178e4af58d75c1d957b8330e1e72ffb8b815aebd059c768f2452"
-    sha256 cellar: :any,                 monterey:       "a90d64e4537cb874902181fe6f7bc4f23b3c40862b4cf112b04a9bc8039b0515"
-    sha256 cellar: :any,                 big_sur:        "753f16d4de6f2a439ecdf3a554608edeaa7af98b9f6e724421c786a23c64a8e7"
-    sha256 cellar: :any,                 catalina:       "2cffe3c281ead906a9449ec5f85a4c1d7be09ab7a90d4c37ecac0d76f81d2428"
-    sha256 cellar: :any,                 mojave:         "13dcbf8ef5cbccb7bf18aeb017e04d8a1ac116a4ec0eb3e44a842eabd91a0aa9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b23130ec9484bdd913cd3fb7e8ec1ca6800b4f2c60d635bf5e5a0e66a98c21e2"
+    sha256 cellar: :any,                 arm64_monterey: "a9c52a50fdb62fa0d271bf07c142d34aac58298f4cbc53ab912b89cd9c9e09ad"
+    sha256 cellar: :any,                 arm64_big_sur:  "be37fd66414c26384aa1e916eb3f8d1ebe75eafd08c3edefbaf07ff6e587cecb"
+    sha256 cellar: :any,                 monterey:       "8f45caaa9bf2671b120d47209bbbf8d799a83dacce706a1471f182d142d38295"
+    sha256 cellar: :any,                 big_sur:        "7592fcaac010d4fb4359d077607d1542c9acead3952e8ced0e1c08b64f56acef"
+    sha256 cellar: :any,                 catalina:       "c2e154f861afe9bbc4b0d2ce471fc6a5b3ed404155cd0902d4d4d895e8f205f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad7114e6e781c32e5cba140f1a95ab156f205d934674f59be56d51f19d9327f9"
   end
 
   depends_on "autoconf" => :build

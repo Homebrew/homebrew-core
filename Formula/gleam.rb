@@ -1,18 +1,17 @@
 class Gleam < Formula
   desc "✨ A statically typed language for the Erlang VM"
   homepage "https://gleam.run"
-  url "https://github.com/gleam-lang/gleam/archive/v0.17.0.tar.gz"
-  sha256 "9530e616d42b4158ffcc5dd1befdc87ab2ea2af784fce6c57aec8c42a71a4ce2"
+  url "https://github.com/gleam-lang/gleam/archive/v0.18.0.tar.gz"
+  sha256 "9aead695a3baf2e62b462dbacb588be3f3ac778415afc57ab85087fc7955f0ac"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9bcd68363e64c7946796e349a9f3fc84d6746d0278850c826ac1c13e3a212d24"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c3c84d492dbf86c9041469cabfb8c698660ded0a2da658678d9583ea21667b7"
-    sha256 cellar: :any_skip_relocation, monterey:       "4c5fcc18e6714172d522b76aa637f46797a809c6831eed67b9b9da25ee1c35fe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1fbe03b66b76929c8cb919508f59e7fd9cfae2cd10ec177a775d60c8ef5f8b94"
-    sha256 cellar: :any_skip_relocation, catalina:       "c33692e53fbf7eca2cac472d3ca6e7a2555edbc14048a95e123160840853f314"
-    sha256 cellar: :any_skip_relocation, mojave:         "f1de3efb23c8eee281157668801ef6e1974d410a90c7708b16d3667d96f5632f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "005e249588fb532d3711b4a478f0c7ec176951ca143e1687cc8d0e465f294948"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "830000afc81d902711b369ecdb8cdc258015ad38d735c162a64d084a52ec829d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a302f1308e00e73f9a319d6cc50491e627f43ca54bca0402a79951894749b57"
+    sha256 cellar: :any_skip_relocation, monterey:       "916e2e52da573c4f2ce85a4e0123ef75c8242da4c944263508df9d2ad614c2f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c5d224fc1348e60b39604bea981449d8da80382c6d3e46be17b7eb38b5e76a09"
+    sha256 cellar: :any_skip_relocation, catalina:       "746d22a1362f949c8e38d62b9471d8c2b0db7a782188a3b1a8063a8d8277245a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e0f15fecda49b9d4b1e56bd93cc10bd6e161bd0f64bf07257c9df4d46fce4a9"
   end
 
   depends_on "rust" => :build

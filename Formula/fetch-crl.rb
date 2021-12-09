@@ -1,8 +1,8 @@
 class FetchCrl < Formula
   desc "Retrieve certificate revocation lists (CRLs)"
   homepage "https://wiki.nikhef.nl/grid/FetchCRL3"
-  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.21.tar.gz"
-  sha256 "19a96b95a1c22da9d812014660744c6a31aac597b53ac17128068a77c269cde8"
+  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.22.tar.gz"
+  sha256 "09bcf5d1004ac8c3ced5e71b70e6b6afb7f713630aca0afbfa2db3244567cb2b"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class FetchCrl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "96804f5b491baeb338b76d851e8f7f3b06c509e6105abb7c9b826060c0c83980"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a4c9b13b21861b5d6f591234a814e7fafcf83622aa2aefa4d11d64352538d017"
-    sha256 cellar: :any_skip_relocation, catalina:      "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3"
-    sha256 cellar: :any_skip_relocation, mojave:        "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b388cc3cce924c20dc770dca8e62dc6cf6117e9150fdf3a614bcbba7db707e8"
-    sha256 cellar: :any_skip_relocation, all:           "ca0ef602b4a737043ba54b9c43324faabc98fc65768a57220afe282571b92826"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "31195e7618b568140819ca5220581f5fee24d18049a925116e144aff0e07410c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31195e7618b568140819ca5220581f5fee24d18049a925116e144aff0e07410c"
+    sha256 cellar: :any_skip_relocation, monterey:       "31195e7618b568140819ca5220581f5fee24d18049a925116e144aff0e07410c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "31195e7618b568140819ca5220581f5fee24d18049a925116e144aff0e07410c"
+    sha256 cellar: :any_skip_relocation, catalina:       "31195e7618b568140819ca5220581f5fee24d18049a925116e144aff0e07410c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c479b15b49f159bd6371fe3e609024bf716caf93561861e4e6c0aaca296755fd"
   end
 
   uses_from_macos "perl"

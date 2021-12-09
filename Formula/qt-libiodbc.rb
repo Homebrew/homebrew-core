@@ -1,8 +1,8 @@
 class QtLibiodbc < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.2/6.2.1/submodules/qtbase-everywhere-src-6.2.1.tar.xz"
-  sha256 "2c5f07b5c3ea27d3fc1a46686ea3fb6724f94dddf1fb007de3eb0bdb87429079"
+  url "https://download.qt.io/official_releases/qt/6.2/6.2.2/submodules/qtbase-everywhere-src-6.2.2.tar.xz"
+  sha256 "85ab9180180c2eaf84cd11ae4c6d5a6a69f2f8fd7260aaccfd91a3e7e7232c1a"
   license all_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -10,11 +10,11 @@ class QtLibiodbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "019936819120fb814f9e79322d77fd63f4821fc9987c60ea8253fc0086715fb2"
-    sha256 cellar: :any, arm64_big_sur:  "90ace75ce98f53d6f3ba219b3aafc795627085cc3bba5c7d17ba6ab9d640cd7e"
-    sha256 cellar: :any, monterey:       "29933c54131d6e8b5fcf5c5e9b6c6c71da3a281de8dc0aa0ba4f9e68a809a280"
-    sha256 cellar: :any, big_sur:        "dbf03e92421cee1972143c5a4877366076c5fa911326034457ea26f7323f61f1"
-    sha256 cellar: :any, catalina:       "852667c4234305a7469bfff930b514f89ada8ca6272ae8bcdd8b075876f656ce"
+    sha256 cellar: :any, arm64_monterey: "9c7dc46a302ac2e21c03c6dfcadad133f64abc9195b8bc7197b730af658fe3b4"
+    sha256 cellar: :any, arm64_big_sur:  "d0d9ba323155d4940e62a3842298a190d87bc9a4ff8fa702e2d9a647faa1cd76"
+    sha256 cellar: :any, monterey:       "2a5bdd4181e8e0aba1ce39bc55570c0add9f5081b002db991a56582c2741cd1e"
+    sha256 cellar: :any, big_sur:        "953edc570df69fc1b6a10638137b30a586cc58b482c9cdec4a79f976e339e705"
+    sha256 cellar: :any, catalina:       "e8305c9d5f143643b8fb291a14a0e5bd1a891b1cee9c76cf61312046c100fadc"
   end
 
   depends_on "cmake" => [:build, :test]

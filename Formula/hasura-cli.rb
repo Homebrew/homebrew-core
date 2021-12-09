@@ -25,7 +25,7 @@ class HasuraCli < Formula
       -s -w
       -X github.com/hasura/graphql-engine/cli/v2/version.BuildVersion=#{version}
       -X github.com/hasura/graphql-engine/cli/v2/plugins.IndexBranchRef=master
-    ].join(" ")
+    ]
 
     # Based on `make build-cli-ext`, but only build a single host-specific binary
     cd "cli-ext" do
@@ -39,7 +39,7 @@ class HasuraCli < Formula
       os = OS.kernel_name.downcase
 
       cp "../cli-ext/bin/cli-ext-hasura", "./internal/cliext/static-bin/#{os}/#{arch}/cli-ext"
-      system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"hasura", "./cmd/hasura/"
+      system "go", "build", *std_go_args(output: bin/"hasura", ldflags: ldflags), "./cmd/hasura/"
 
       output = Utils.safe_popen_read("#{bin}/hasura", "completion", "bash")
       (bash_completion/"hasura").write output

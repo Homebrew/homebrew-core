@@ -19,8 +19,7 @@ class Kubespy < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args,
-              "-ldflags", "-X github.com/pulumi/kubespy/version.Version=#{version}"
+    system "go", "build", *std_go_args(ldflags: "-X github.com/pulumi/kubespy/version.Version=#{version}")
   end
 
   test do

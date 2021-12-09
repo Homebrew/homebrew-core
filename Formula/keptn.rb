@@ -22,7 +22,7 @@ class Keptn < Formula
       -s -w
       -X main.Version=#{version}
       -X main.KubeServerVersionConstraints=""
-    ].join(" ")
+    ]
 
     cd buildpath/"cli" do
       system "go", "build", *std_go_args(ldflags: ldflags)

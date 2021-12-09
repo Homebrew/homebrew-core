@@ -2,15 +2,15 @@ class Coin3d < Formula
   desc "Open Inventor 2.1 API implementation (Coin) with Python bindings (Pivy)"
   homepage "https://coin3d.github.io/"
   license all_of: ["BSD-3-Clause", "ISC"]
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/coin3d/coin/archive/Coin-4.0.0.tar.gz"
     sha256 "b00d2a8e9d962397cf9bf0d9baa81bcecfbd16eef675a98c792f5cf49eb6e805"
 
     resource "pivy" do
-      url "https://github.com/coin3d/pivy/archive/0.6.5.tar.gz"
-      sha256 "16f2e339e5c59a6438266abe491013a20f53267e596850efad1559564a2c1719"
+      url "https://github.com/coin3d/pivy/archive/0.6.6.tar.gz"
+      sha256 "27204574d894cc12aba5df5251770f731f326a3e7de4499e06b5f5809cc5659e"
     end
   end
 
@@ -20,11 +20,10 @@ class Coin3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "cb3d9a2625bc3dc1991c54ad642121966666a84c211d16bac340c42fda93b12e"
-    sha256               arm64_big_sur:  "6d8bb0e053410225f3d83a4457d0b2a7582b1551035ee792c8fead40a80cf044"
-    sha256               big_sur:        "74fc8c889f099dd649513d06609990b9012ba96036dcde2f465f75ba8e8c7ba3"
-    sha256               catalina:       "8be84b25f7f685bdae957607ab4e1aa37095f32eb5614fc9979399a6ab990705"
-    sha256               mojave:         "07a8e2f4807dbcc411cba20a7b7b5696be3648303f2f0636e7075fd155b7b902"
+    sha256 cellar: :any, arm64_monterey: "8e41a76dd70e03a75e7938927aa64ef227af9cf17bf8308349c5da7de6f69e1f"
+    sha256 cellar: :any, arm64_big_sur:  "589ce0ee26bfd558250461b006fb6b8be25b49e033bdf331d495c3eaf2a77579"
+    sha256 cellar: :any, big_sur:        "4cb262e52fb59b9c79d8aa11e32ec5498335ec536fdf7659c5249a4e17e4c3db"
+    sha256 cellar: :any, catalina:       "0a3b78ed23e5c8071a5b507e932d9ead227ef73477b2ec0d17180089c4c84074"
   end
 
   head do

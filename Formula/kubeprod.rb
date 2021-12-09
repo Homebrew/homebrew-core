@@ -19,7 +19,7 @@ class Kubeprod < Formula
 
   def install
     cd "kubeprod" do
-      system "go", "build", *std_go_args, "-ldflags", "-X main.version=v#{version}", "-mod=vendor"
+      system "go", "build", *std_go_args(ldflags: "-X main.version=v#{version}"), "-mod=vendor"
     end
   end
 

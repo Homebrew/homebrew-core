@@ -20,7 +20,7 @@ class Lab < Formula
 
   def install
     ldflags = "-X main.version=#{version} -s -w"
-    system "go", "build", *std_go_args, "-ldflags=#{ldflags}"
+    system "go", "build", *std_go_args(ldflags: ldflags)
     output = Utils.safe_popen_read("#{bin}/lab", "completion", "bash")
     (bash_completion/"lab").write output
     output = Utils.safe_popen_read("#{bin}/lab", "completion", "zsh")

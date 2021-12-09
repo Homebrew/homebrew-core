@@ -11,7 +11,6 @@ class Javarepl < Formula
     sha256 cellar: :any_skip_relocation, all: "fb7f0cc6ad4aa7b39635b74969d7eafd2e665085d0b4bb58f63598806b050a8f"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install

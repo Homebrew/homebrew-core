@@ -4,6 +4,7 @@ class Halide < Formula
   url "https://github.com/halide/Halide/archive/v13.0.1.tar.gz"
   sha256 "8d4b0ad622ef0ff9e28770cd950baf45a055d1229131be44f8e6333a548183f9"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,18 +12,18 @@ class Halide < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "e23c255e366cfe5f8b2799e8f445e850fe8353b16fd04e8d666867e9b78b76b6"
-    sha256 cellar: :any, arm64_big_sur:  "e1cccd883d7210fbc6142bf2a7d3bbee38a6f1674df4b793caf7eb144a873db2"
-    sha256 cellar: :any, monterey:       "cd6c353ad562c8e9180ac1d6f79db39906aca67756fb58d1a92fd59e9487120c"
-    sha256 cellar: :any, big_sur:        "5a1cb256d2c812126a07bb8c20d0df5c97ddcf0ef2195808731dd595c64e898e"
-    sha256 cellar: :any, catalina:       "1d81ccfc6c7c410c0e307abd6a9de17ecb20234983621731491befe65e19b5e1"
+    sha256 cellar: :any, arm64_monterey: "d5a97b2b3c391bf63ff746c1403b80bc82c44eaa5d5ca38d232254402d1154ab"
+    sha256 cellar: :any, arm64_big_sur:  "1f699bf2cf781876c7000035594cf2f0a983e07558806b9816ab350830fc6a66"
+    sha256 cellar: :any, monterey:       "01d6a51835dd75a60dd150192edad9f294008967eebef0b4a6813395396b6a1f"
+    sha256 cellar: :any, big_sur:        "5cf6fe459107a26ecaf7a5cbd07dc5a612f5dd46d90c17673498fa8055265b6e"
+    sha256 cellar: :any, catalina:       "cd84e6b14d31425abac2b9c5843a0fc4820c66fb7fc1ea582c83736a555c8d57"
   end
 
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "llvm"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     mkdir "build" do

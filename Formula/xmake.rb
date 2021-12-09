@@ -1,18 +1,18 @@
 class Xmake < Formula
   desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.5.9/xmake-v2.5.9.tar.gz"
-  sha256 "5b50e3f28956cabcaa153624c91781730387ceb7c056f3f9b5306b1c77460d8f"
+  url "https://github.com/xmake-io/xmake/releases/download/v2.6.1/xmake-v2.6.1.tar.gz"
+  sha256 "97837c2388f1b841100b70afa087e6bbb1bb9fe804f6a9ff5b1519a94def8c8d"
   license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "36cd5067ca7998d06b6266b6233b9ebd9395896b81fbdb1bb585fec6b39d8482"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8bc227e357e5438787a1d3c7ed15a65d7ad020fe48036dcbaba0d8851e25c86"
-    sha256 cellar: :any_skip_relocation, monterey:       "5e0ff48a37e6e62108c798493e072be38fc8d9d0b5274fd3d91d59da0511625f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dbe0397acf297160003a8f8f73906e44afc746033d4bf7591cd09898caa77dbd"
-    sha256 cellar: :any_skip_relocation, catalina:       "12153f7e13ef7d654bba10bb908f368c9092619e39a248f1398c033671a261d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e72219ec96d022d8cb10aa13fcdf60dcb1de47d4fa674bb086289827adbfd03"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bdce80b841e3745b70a0b76fc9d0815f72f78bf16789e1de87221f3633bfd0b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2bdce80b841e3745b70a0b76fc9d0815f72f78bf16789e1de87221f3633bfd0b"
+    sha256 cellar: :any_skip_relocation, monterey:       "76c9c177c438f37e42100e581016a504d69857fd371983c839927aaa82617228"
+    sha256 cellar: :any_skip_relocation, big_sur:        "14f3fed3d7fb77715b5d7edaadb04b369c6bcf0e15b3fcf0e46593761c16e7cf"
+    sha256 cellar: :any_skip_relocation, catalina:       "28ac6935bcabf82d70acaa38b70eadac05bd1bbe9209436c82e78a1766d06bf7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "620e5d52ed7eb72c7bab501543219aa405841be32f210a979020268601fcbf90"
   end
 
   on_linux do

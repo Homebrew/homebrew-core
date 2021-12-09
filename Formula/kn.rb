@@ -25,7 +25,7 @@ class Kn < Formula
       -X knative.dev/client/pkg/kn/commands/version.Version=v#{version}
       -X knative.dev/client/pkg/kn/commands/version.GitRevision=#{Utils.git_head(length: 8)}
       -X knative.dev/client/pkg/kn/commands/version.BuildDate=#{time.iso8601}
-    ].join(" ")
+    ]
 
     system "go", "build", "-mod=vendor", *std_go_args(ldflags: ldflags), "./cmd/..."
   end

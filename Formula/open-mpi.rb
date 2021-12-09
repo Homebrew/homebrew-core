@@ -1,10 +1,9 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.bz2"
-  sha256 "e24f7a778bd11a71ad0c14587a7f5b00e68a71aa5623e2157bafee3d44c07cda"
+  url "https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.2.tar.bz2"
+  sha256 "9b78c7cf7fc32131c5cf43dd2ab9740149d9d87cadb2e2189f02685749a6b527"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
     url :homepage
@@ -12,13 +11,12 @@ class OpenMpi < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "123ffa8203d626457a3a66117cad431eb95065f230751aca14e6ccdbb40d9327"
-    sha256 arm64_big_sur:  "c24af00250fad2b097822d0d6e51f1027915e375dcbc0590b385b30ef8af6453"
-    sha256 monterey:       "0d95be67b57f68afb81d7524098d6a33fb8a9c18538c66f7dbf6b196954f8e3b"
-    sha256 big_sur:        "da310195e62c1a27aea7365b325cb15dd48f99dd673fd1f685f8b5247cfbb48d"
-    sha256 catalina:       "27f25156376078df9cb6e41a57c370cb030f16092ee7dfe85d7a8000f252240e"
-    sha256 mojave:         "4d57102ec2e06043bc97d34130ae5cd9115a6a1718331476f5fbd71d8bef149e"
-    sha256 x86_64_linux:   "0c6558437eedbf31810f41163ddff64c610ec5d5065bb4080e2559961ab3668d"
+    sha256 arm64_monterey: "ed4c20df651ef9c71c9f9b9e39db1e7c365aaa50528515bbe81a8b49d146ac3e"
+    sha256 arm64_big_sur:  "a96a415cdde33add4d1f4f61d785734df7fd4ac642778b143ad877268a5a9c3a"
+    sha256 monterey:       "380caa56100f528862c699244a14747ad66ef8abc109767f6e4573bf561e58a4"
+    sha256 big_sur:        "57559e283299c56ef3285bbda752cf9b1a5e1ac22936cbecb41b6ee15b002f82"
+    sha256 catalina:       "0605a2da6ef4d646095c1b780311df026207d75d2f3451afaf58174058059122"
+    sha256 x86_64_linux:   "3a2969e4feeb5734fba133bd4f496ff9138a847ed0c6707d3d03e3db475dc07a"
   end
 
   head do
@@ -56,6 +54,7 @@ class OpenMpi < Formula
     end
 
     ENV.cxx11
+    ENV.runtime_cpu_detection
 
     args = %W[
       --prefix=#{prefix}

@@ -1,8 +1,8 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.2/6.2.1/single/qt-everywhere-src-6.2.1.tar.xz"
-  sha256 "e03fffc5c3b5fea09dcc161444df7dfbbe24e8a8ce9377014ec21b66f48d43cd"
+  url "https://download.qt.io/official_releases/qt/6.2/6.2.2/single/qt-everywhere-src-6.2.2.tar.xz"
+  sha256 "907994f78d42b30bdea95e290e91930c2d9b593f3f8dd994f44157e387feee0f"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
@@ -14,12 +14,12 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5ad884d3bedbf5542c52a80bf152f54745ffe380031f14434a8182bc74cbdb28"
-    sha256 cellar: :any,                 arm64_big_sur:  "364565426ee2c9705605b0399b380c294e9fa9950ec53532fe7f9f10842c7c17"
-    sha256 cellar: :any,                 monterey:       "395e2d015c222231f7b98a9dba9f807b0bae45136018ba06a6b1198e857a8e9c"
-    sha256 cellar: :any,                 big_sur:        "9fab2511823cbd1c1b725055a62de9b330ae8cbd6df705195dbbeadb242de6a8"
-    sha256 cellar: :any,                 catalina:       "948e7e7b155f2f3f876d9b879deee284d7a080d6016cb87e54c905b0cd0ec6a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62a0afcb76f2b19351886a01515a97a300451372e37ad452e0dea230423f68f0"
+    sha256 cellar: :any,                 arm64_monterey: "1f27fa98abc66f49b7a1cc240f1f82a162f20510414345a674094a3b7c2cf49a"
+    sha256 cellar: :any,                 arm64_big_sur:  "0099420a50681340a3a24158b7624047c84b7d309b1450144679bab430a0591f"
+    sha256 cellar: :any,                 monterey:       "518bd9b50bdd54e4cd2088b3d3d0cfeee4c8a0c01011aa04eab33d6952a0a26b"
+    sha256 cellar: :any,                 big_sur:        "c76275715703cff6d611c096f1eaa61edabdab7b282c1ecb5677b21eafdd0754"
+    sha256 cellar: :any,                 catalina:       "31fbb69118d531109f73ee9f9a1076598c99799ec2dd2a3808cec280bdce92c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a67bb703efa1208eb737d641a8b06020227ee3a002aea282a4c44801c4e0f8b"
   end
 
   depends_on "cmake"      => [:build, :test]
@@ -100,9 +100,6 @@ class Qt < Formula
     sha256 "31ae338ebcea3e423f3f10b9bc470ba3b46b0e35dd2b5ae1c067025f6bc0c109"
     directory "qtquick3d"
   end
-
-  # Fix build with Xcode 13+ and a performance regression. Already merged and should be removed in next release.
-  patch :DATA
 
   def install
     # FIXME: GN requires clang in clangBasePath/bin
@@ -276,44 +273,3 @@ class Qt < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h b/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
-index 5d4b6d6a71..cc7193d8b7 100644
---- a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
-+++ b/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
-@@ -43,6 +43,7 @@
- #include <qpa/qplatformgraphicsbuffer.h>
- #include <private/qcore_mac_p.h>
- 
-+#include <CoreGraphics/CGColorSpace.h>
- #include <IOSurface/IOSurface.h>
- 
- QT_BEGIN_NAMESPACE
-
----
- qtbase/src/widgets/widgets/qscrollarea.cpp | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
-
-diff --git a/qtbase/src/widgets/widgets/qscrollarea.cpp b/src/widgets/widgets/qscrollarea.cpp
-index f880240ea72..e8fdadb6483 100644
---- a/qtbase/src/widgets/widgets/qscrollarea.cpp
-+++ b/qtbase/src/qtbase/widgets/widgets/qscrollarea.cpp
-@@ -203,10 +203,13 @@ void QScrollAreaPrivate::updateScrollBars()
-             if (vbarpolicy == Qt::ScrollBarAsNeeded) {
-                 int vbarWidth = vbar->sizeHint().width();
-                 QSize m_hfw = m.expandedTo(min).boundedTo(max);
--                while (h > m.height() && vbarWidth) {
--                    --vbarWidth;
--                    --m_hfw.rwidth();
--                    h = widget->heightForWidth(m_hfw.width());
-+                // is there any point in searching?
-+                if (widget->heightForWidth(m_hfw.width() - vbarWidth) <= m.height()) {
-+                    while (h > m.height() && vbarWidth) {
-+                        --vbarWidth;
-+                        --m_hfw.rwidth();
-+                        h = widget->heightForWidth(m_hfw.width());
-+                    }
-                 }
-                 max = QSize(m_hfw.width(), qMax(m_hfw.height(), h));
-             }

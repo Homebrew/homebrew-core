@@ -17,7 +17,7 @@ class Lf < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.gVersion=#{version}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.gVersion=#{version}")
     man1.install "lf.1"
     zsh_completion.install "etc/lf.zsh" => "_lf"
     fish_completion.install "etc/lf.fish"

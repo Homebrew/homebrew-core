@@ -4,8 +4,8 @@ class V8 < Formula
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
   # revert back to GitHub mirror tar.gz archives once it's synced again
   url "https://chromium.googlesource.com/v8/v8.git",
-      tag:      "9.6.180.12",
-      revision: "7a8373f18e2327d7dc52600fc9e52cc2f5b6abf6"
+      tag:      "9.6.180.20",
+      revision: "2fa3b13a180ad29f209e523af0bc64278749471f"
   license "BSD-3-Clause"
 
   livecheck do
@@ -14,12 +14,12 @@ class V8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e7cd6b0efcc6d7eb1a4b57d2d4a4c4107da8ef9098385d28bad396dac30e2273"
-    sha256 cellar: :any,                 arm64_big_sur:  "9496646bef7628aead9c18cf20c31e791ad0a3fa7e2552845fa642000f9551f9"
-    sha256 cellar: :any,                 monterey:       "980388cd772387826fe7f1073dfab708f9692aade7c86184368d5139e3518eb2"
-    sha256 cellar: :any,                 big_sur:        "dffe46546bcfbaf327339979781e14e24b5a0d4a488648af722ecb425d8615cf"
-    sha256 cellar: :any,                 catalina:       "70d23194cacb0fd1ee18e2749c2131e4e578d4d0ac239b37be4c74aa7fc576f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "042ce95864d48640c50b1dc425a99a7f765ebc61c35d312327402499f0c93ac3"
+    sha256 cellar: :any,                 arm64_monterey: "71d76ca6a4e51a94bae041fc3a582073a2d7e62c2cfdae3c21faa4c6dd73a99c"
+    sha256 cellar: :any,                 arm64_big_sur:  "34dc6a5e968c4adf743d44ad5f06a2abfa4b4b2ae66d3727028edac39edbc424"
+    sha256 cellar: :any,                 monterey:       "34702d264dc0504c7a35daab8eac9940359ef828adc1515a5cba4b6e76a9b766"
+    sha256 cellar: :any,                 big_sur:        "e559c308263b2aa063330ba02c5cbff63b74330c3f32594427eb2dc96aa949b5"
+    sha256 cellar: :any,                 catalina:       "96f8c2f843a916deb6ab7523507205cbdab7262bece27fe1ddafc677d8542e4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ae4b2052134b01d5bcafd8bc0e6c273ee4be909d6589b6d3aa813eb92dfa71a"
   end
 
   depends_on "ninja" => :build
@@ -39,13 +39,13 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.6.180.12/DEPS#52
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.6.180.20/DEPS#52
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
         revision: "0153d369bbccc908f4da4993b1ba82728055926a"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.6.180.12/DEPS#93
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.6.180.20/DEPS#93
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
         revision: "68d816952258c9d817bba656ee2664b35507f01b"

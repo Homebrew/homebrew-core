@@ -22,7 +22,7 @@ class Liqoctl < Formula
     ldflags = %W[
       -s -w
       -X github.com/liqotech/liqo/pkg/liqoctl/version.liqoctlVersion=v#{version}
-    ].join(" ")
+    ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/liqoctl"
 

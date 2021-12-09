@@ -3,18 +3,18 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-21.3.0.tar.xz"
-  sha256 "a2753c09deef0ba14d35ae8a2ceff3fe5cd13698928c7bb62c2ec8736eb09ce1"
+  url "https://mesa.freedesktop.org/archive/mesa-21.3.1.tar.xz"
+  sha256 "2b0dc2540cb192525741d00f706dbc4586349185dafc65729c7fda0800cc474d"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "c43f818be097a86009dc39c9f4f3826511f5ab783dbd3c4d307202efbf2e241b"
-    sha256 arm64_big_sur:  "e8ba6edd75b81a5639b3d700e5284e875dd76c3ce800e83b83c849172a82f2da"
-    sha256 monterey:       "1ed99c219fc789d87f997d0bc76f73e2d6498bd6a2a6a4209679bfa8c1ef5079"
-    sha256 big_sur:        "0cb0f0ea8e57c0e7c3707949e582bd20b7d9cfb03d598361095cb9a29d75f035"
-    sha256 catalina:       "cedeacee7e167fcf1295bec493384490df08cddab15b5fce0a0d957590a5edb3"
-    sha256 x86_64_linux:   "9f2538d09c8df76926d374bf224df91d96269b4519b694b676dcec2ab295ccde"
+    sha256 arm64_monterey: "0b24328f86e2ec2abc0b94ff2ad93b6a8e5e9c990da9713080f0afad33c3f30a"
+    sha256 arm64_big_sur:  "28d4473154c77c6fd26c5a29291af6b8af2ae4e9b0cba443e2c825bca7fcacad"
+    sha256 monterey:       "6d61cc330d58ed3876bb4b9deb6c12272bef628894ccd6d17a6f75bc03b359f8"
+    sha256 big_sur:        "4c6846d55c0b46196b5f689ceeafc6dbb4b7ec55f02b68d439f2956533a8817b"
+    sha256 catalina:       "0be7bf943d14e317ceb1c380bec5c2f89839654c57d704f2649b5f650b0d3679"
+    sha256 x86_64_linux:   "a6d24f2f891c0209c70e2cedc13a152caa3abb652d67393c0ae4f243324398e0"
   end
 
   depends_on "meson" => :build

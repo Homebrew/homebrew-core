@@ -1,19 +1,18 @@
 class Hcxtools < Formula
   desc "Utils for conversion of cap/pcap/pcapng WiFi dump files"
   homepage "https://github.com/ZerBea/hcxtools"
-  url "https://github.com/ZerBea/hcxtools/archive/6.2.4.tar.gz"
-  sha256 "74299313dd15ed38f07b42201903ab85ebbc3ad220a01fff1bd5c967cfea817d"
+  url "https://github.com/ZerBea/hcxtools/archive/6.2.5.tar.gz"
+  sha256 "7ce5f8263cf9354f01008ba710c6e3cc2dcc861c550bd7a943ca33d29738bec3"
   license "MIT"
   head "https://github.com/ZerBea/hcxtools.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b473d82b8435a07a793c0dab13138c3eb1cf03a7a5c4141fd580cc482582053c"
-    sha256 cellar: :any,                 arm64_big_sur:  "71ab36699020855a425e5dab7dd64e6ed2de1dbbbedc3a84ca48c99ec60ab29d"
-    sha256 cellar: :any,                 monterey:       "4f6f64cb36999b4eb9195dcaa0d285113f61687955e1ca9094e2aff5ce48d35b"
-    sha256 cellar: :any,                 big_sur:        "e823f093cc594fcd8cec3c9fe7c5743d37323bfefc1f0c423ae7cab401936830"
-    sha256 cellar: :any,                 catalina:       "97f4b6d9401be82a0d1c48ed80be2070147ff374be07a3123b763cc0f7210696"
-    sha256 cellar: :any,                 mojave:         "9a93ac0c1f2b3172d3eb2b5f822c9c043a1d269fa881f35172f195f10628ff60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad17f6c779701195a56f451f8e862f3b7b6e13739cc4de746b76fd3da4996456"
+    sha256 cellar: :any,                 arm64_monterey: "644d2bf7094986be6b1cafc2410b40938f843880d051a796316e3bac0e37d75e"
+    sha256 cellar: :any,                 arm64_big_sur:  "55b88dbc39f39c4ec5f07c3afc708a5dc04b259d7354f5f18cc232df7beb79df"
+    sha256 cellar: :any,                 monterey:       "2e0b78e597ffc2590319dbcb5cc986bfb6449d75705d7da474cc02fb9e16446a"
+    sha256 cellar: :any,                 big_sur:        "6d9f1847e331af5bcbd975ed58053dcc12bc00a185c39e8e6c0e54e45f0641b0"
+    sha256 cellar: :any,                 catalina:       "dd54bad400bc297dcdef20dc923d0b774b7e00660b15d233b02c2f6d40ccb7e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73dd363d7194dbe9d6a7e825209506b40b6edcf44e9604fe82731ece609ca068"
   end
 
   depends_on "pkg-config" => :build

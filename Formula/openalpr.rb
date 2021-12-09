@@ -15,6 +15,8 @@ class Openalpr < Formula
     sha256 x86_64_linux:   "a37d2f029a47097ea7c81936ed0400451780ae75594cf4aae10cc1647e5bc93e"
   end
 
+  deprecate! date: "2021-12-03", because: :unsupported
+
   depends_on "cmake" => :build
   depends_on "leptonica"
   depends_on "libtiff"

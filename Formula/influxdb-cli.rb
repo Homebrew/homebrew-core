@@ -30,10 +30,9 @@ class InfluxdbCli < Formula
       -X main.version=#{version}
       -X main.commit=#{Utils.git_short_head(length: 10)}
       -X main.date=#{time.iso8601}
-    ].join(" ")
+    ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags),
-           "-o", bin/"influx", "./cmd/influx"
+    system "go", "build", *std_go_args(output: bin/"influx", ldflags: ldflags), "./cmd/influx"
 
     bash_complete = buildpath/"bash-completion"
     bash_complete.write Utils.safe_popen_read(bin/"influx", "completion", "bash")

@@ -6,15 +6,16 @@ class MoltenVk < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "dc33ce1f332cc2865e473416248f180ff757725d9de27c9720986d7d772b4946"
-    sha256 cellar: :any, arm64_big_sur:  "7024aba78af306dfb1521af03d6b84bd7e673ce69c7613b7d18661b86f45d04d"
-    sha256 cellar: :any, monterey:       "9a9d11245720637800803adda3008efff14484c3d750ee471f2c2dcec1bf534a"
-    sha256 cellar: :any, big_sur:        "2687d398f94b9d0ffc63a1ae0d368ac094544384d8f75a6e7cbb0786b2994f26"
-    sha256 cellar: :any, catalina:       "36781ca7dcb3ecba8c0860cba4e74d3741ca550fa0ec0e8ad50326e3fc540dc7"
+    rebuild 1
+    sha256 cellar: :any, arm64_monterey: "b418bafc1442c5f28c8d333f8aa282f7371037a2d4bce1bd901756ab66c8cf3d"
+    sha256 cellar: :any, arm64_big_sur:  "c69e79e50663066064bfa257dffe0043740738ddbe3460e50f4ea66e4ca4ea20"
+    sha256 cellar: :any, monterey:       "7d6e9e6e96983ea03c155cfaa9869d7416d7aebba685837dece49008675b4419"
+    sha256 cellar: :any, big_sur:        "f075e4e91d443eabf19305df8fec19004711dca462bc6f2302c2760cc3a7aeee"
+    sha256 cellar: :any, catalina:       "542ad9e876724b948bd66956316fcffb42b97c3deaec8a26689e5f4bc285a703"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on xcode: ["11.7", :build]
   # Requires IOSurface/IOSurfaceRef.h.
   depends_on macos: :sierra

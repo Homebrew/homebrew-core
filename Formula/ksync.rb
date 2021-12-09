@@ -34,7 +34,7 @@ class Ksync < Formula
       -X #{project}/pkg/ksync.BuildDate=#{time.rfc3339(9)}
       -X #{project}/pkg/ksync.VersionString=#{tap.user}
       -X #{project}/pkg/ksync.GoVersion=go#{Formula["go"].version}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags), "#{project}/cmd/ksync"
   end
 

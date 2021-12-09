@@ -3,8 +3,8 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/73/df/5a4c5af64a25212d494b31d7b62f8212424c0c8ffdac9462a7d15bc17b9f/black-21.11b1.tar.gz"
-  sha256 "a042adbb18b3262faad5aff4e834ff186bb893f95ba3a8013f09de1e5569def2"
+  url "https://files.pythonhosted.org/packages/f7/60/7a9775dc1b81a572eb26836c7e77c92bf454ada00693af4b2d2f2614971a/black-21.12b0.tar.gz"
+  sha256 "77b80f693a569e2e527958459634f18df9b0ba2625ba4e0c2d5da5be42e6f2b3"
   license "MIT"
 
   livecheck do
@@ -13,12 +13,12 @@ class Black < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc79c4cc39815fb42cb2378c05a743d70a7d5c1b8b2a7825b2c10e48d71f079e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2fdc06339aed16f31a3e38a406405587bbab2372853840af032d7f521283a142"
-    sha256 cellar: :any_skip_relocation, monterey:       "59225b6c9ae64e8b87dbe634c4356b991d91c063b5713df324b30a5cdf9a609e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1d661ee5a0e34a3bb8e99ab6b7eab38753f6bfd7ef8925cba7c22cc7b67bf006"
-    sha256 cellar: :any_skip_relocation, catalina:       "d9d301d16b59707c1544d9214f1ff3f579c26692f37aff8a7aa9b586dc0adc69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a56b43dacc326a8aeb51a1cf79887655b2d4784cf4d5c40b2ebfc10248c573a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "23e1a9a9d8b2e8ccccc8e8d24f0a07a6a7f12287d549a958250155acbe360d0b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1599997d9698468e54bf2bd732f10e3663766c9bffe21c65c4157455b2473e7"
+    sha256 cellar: :any_skip_relocation, monterey:       "b8b5e4790c436c07c73528caf77fd4ba7359dd09189a882a89341f53ec60e4b2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6691831bac05169413e524db00ebf5f7a0f1fc9b9dba76f6b27ab660efcee3d5"
+    sha256 cellar: :any_skip_relocation, catalina:       "b3c8a560e5d2d8ad1a9c3fe2a5ddac747191713d221a1734d95840a231a6fef9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "803a535882d98fbd1a948e54c82287dabcaf4c52181ed4483e891c58fa1ae942"
   end
 
   depends_on "python@3.10"
@@ -44,8 +44,8 @@ class Black < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do
@@ -83,19 +83,14 @@ class Black < Formula
     sha256 "367a5e80b3d04d2428ffa76d33f124cf11e8fff2acdaa9b43d545f5c7d661ef2"
   end
 
-  resource "regex" do
-    url "https://files.pythonhosted.org/packages/97/cd/93ad08b2f97ec95da0bd860380ce0ac7481eaccc760356ee11eda369c048/regex-2021.11.10.tar.gz"
-    sha256 "f341ee2df0999bfdf7a95e448075effe0db212a59387de1a70690e4acb03d4c6"
-  end
-
   resource "tomli" do
     url "https://files.pythonhosted.org/packages/aa/5b/62165da80cbc6e1779f342234c7ddc6c6bc9e64cef149046a9c0456f912b/tomli-1.2.2.tar.gz"
     sha256 "c6ce0015eb38820eaf32b5db832dbc26deb3dd427bd5f6556cf0acac2c214fee"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/1a/23/748b0c9a5578110b31580c8d2643319adcb3ec91f601b50a955051b51f1d/typing_extensions-4.0.0.tar.gz"
-    sha256 "2cdf80e4e04866a9b3689a51869016d36db0814d84b8d8a568d22781d45d27ed"
+    url "https://files.pythonhosted.org/packages/0d/4a/60ba3706797b878016f16edc5fbaf1e222109e38d0fa4d7d9312cb53f8dd/typing_extensions-4.0.1.tar.gz"
+    sha256 "4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e"
   end
 
   resource "yarl" do

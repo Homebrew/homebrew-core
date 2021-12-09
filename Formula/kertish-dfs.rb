@@ -19,10 +19,10 @@ class KertishDfs < Formula
 
   def install
     cd "fs-tool" do
-      system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}", "-o", "#{bin}/krtfs"
+      system "go", "build", *std_go_args(output: bin/"krtfs", ldflags: "-X main.version=#{version}")
     end
     cd "admin-tool" do
-      system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}", "-o", "#{bin}/krtadm"
+      system "go", "build", *std_go_args(output: bin/"krtadm", ldflags: "-X main.version=#{version}")
     end
   end
 

@@ -1,8 +1,8 @@
 class CdogsSdl < Formula
   desc "Classic overhead run-and-gun game"
   homepage "https://cxong.github.io/cdogs-sdl/"
-  url "https://github.com/cxong/cdogs-sdl/archive/1.1.1.tar.gz"
-  sha256 "a1a18efbd128249ac607f7bf04e09e4625d35509209be7e256461f2fabddd98e"
+  url "https://github.com/cxong/cdogs-sdl/archive/1.2.0.tar.gz"
+  sha256 "20ed6d261dcc1a6c5f197ffa49aeb2b9c30d2ece514745b144c6ebaeada9bcaf"
   license "GPL-2.0-or-later"
   head "https://github.com/cxong/cdogs-sdl.git", branch: "master"
 
@@ -12,19 +12,18 @@ class CdogsSdl < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "1eeb228fb876c92c3809c3b1c4c3818b8ecb4917aa779a807eaf5b8a41763811"
-    sha256 arm64_big_sur:  "9db72aa1904869a7bb28afc1c550ce26939efa6981f783dfbc5ff0ff60ae7920"
-    sha256 monterey:       "e48b864e67aed9b18433a983f4aef44b374b61276c1421e7763ebebab9dbf12e"
-    sha256 big_sur:        "47ac08b78f35ae9ec4ba966f16c824fa42163e1020eb3ec2d144ac9fca4e057c"
-    sha256 catalina:       "10d48265e4705b1bda33270ff02beed252093aef168e1ce85ecd3e95d145ef3b"
-    sha256 mojave:         "4973b9b193c93618a7e7cafd8223ecd9bda40c62e0ff0438497a829469e4557d"
-    sha256 x86_64_linux:   "dc3a2562c440f36b419192cce13c3ca42e3397777d414286e230793360b7d554"
+    sha256 arm64_monterey: "c159c6d0a53ab555f2b3f473967cc8c0c11ad235a811399f2004d8f29c77a7b8"
+    sha256 arm64_big_sur:  "b71a4e9df6b6f42a8db31498cfc49ab46b5b306d0d253e23ecdb5a962303a782"
+    sha256 monterey:       "9ece0f8d47f2fc0523aae22669004bac107760b58a9ffe34fe933fd80b516e3d"
+    sha256 big_sur:        "73391582f496c9104dad24676514d602289085cf130763ee06c1f98594cfbad4"
+    sha256 catalina:       "0e1adcac780529aa0744956d6cd3aea7c1cf920576cad4cfcfbb4ad4475688ba"
+    sha256 x86_64_linux:   "f4ce24c36f22aa62ef0838000c884a98a17bf065685b46ad6217bdf9c13dd27f"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"

@@ -14,7 +14,6 @@ class Nuget < Formula
     sha256 cellar: :any_skip_relocation, all: "50204ffb4ac052f70e5ceec3198377f9a7dadf51b5b4fab8d2047add32a1f089"
   end
 
-  depends_on arch: :x86_64
   depends_on "mono"
 
   def install

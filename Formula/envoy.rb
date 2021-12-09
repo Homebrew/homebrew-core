@@ -7,8 +7,8 @@ class Envoy < Formula
       tag:      "v1.20.1",
       revision: "ea23f47b27464794980c05ab290a3b73d801405e"
   license "Apache-2.0"
+  head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
-  # Apple M1/arm64 is pending envoyproxy/envoy#16482
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "ea4ba641eacee0a0772b1defb5d405470acb21835957007962d6ee170b63e33e"
     sha256 cellar: :any_skip_relocation, big_sur:      "092ddc72b6b2c2bf7ec681b15fe5667ab19a0a24c52c5f49be736c11e66822fd"
@@ -22,6 +22,9 @@ class Envoy < Formula
   depends_on "coreutils" => :build
   depends_on "libtool" => :build
   depends_on "ninja" => :build
+  # Starting with 1.21, envoy requires a full Xcode installation, not just
+  # command-line tools. See envoyproxy/envoy#16482
+  depends_on xcode: :build
   depends_on macos: :catalina
 
   on_linux do

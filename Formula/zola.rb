@@ -1,18 +1,17 @@
 class Zola < Formula
   desc "Fast static site generator in a single binary with everything built-in"
   homepage "https://www.getzola.org/"
-  url "https://github.com/getzola/zola/archive/v0.14.1.tar.gz"
-  sha256 "28e50071009a1430c5f8df94e2585d095f85f906f04101fe35ee9ed53c353cc4"
+  url "https://github.com/getzola/zola/archive/v0.15.0.tar.gz"
+  sha256 "944e200a8ad5f4126ca08bbae576d1979b99755b554460f0f6fa3ba0924be30d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bdc97c1e7b7902c6b07cc7743ebce62af4fcd2b20447c11791568bfff4c4df3f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e420fb483377ec551235f9a7d269e8c9828af2658eca768ab6c2732e92dc20b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7796efc9d8d93b269f8de5ece4a96e120244dfbf00eb2f81670c4d047784002b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5a49c5001b16f01f12295f9066dcda62c9e088ab781ee70787d2c7734422206b"
-    sha256 cellar: :any_skip_relocation, catalina:       "ea76bba77f6b6752f303327ee2e10b246355f43f904596073edaed5259ecfaf4"
-    sha256 cellar: :any_skip_relocation, mojave:         "5e553968c1abcd38fbde7ea397b6026f2fbb8843d69d5916eeaec7b01020d717"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a63250e7b1e0daa4975a931ab5f883f94c5c5cdb7edba6c46639428dc0567c9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "358cd43ee01981dc2b344fcc8fe96ae180fac36b0926b2145085359ab2e8a814"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "581eaad6733df3dcc4dbebed9df55447bb32e7e2fc847cf6688aaca016eac040"
+    sha256 cellar: :any_skip_relocation, monterey:       "89544b3105438d2c3235ccd86072777826f69d8ee08ac91097be397e49fb75de"
+    sha256 cellar: :any_skip_relocation, big_sur:        "75190c5c0f0d52b1157cb2b32a399ea190ead18f2d807dc02687c67091b3d0a4"
+    sha256 cellar: :any_skip_relocation, catalina:       "92a095f48b3810b1ba5ba3833ae5c4103a11c7333cc04812f524c6a32b09978e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "028a8912a6d99d808017f326f466e96e3e948d0880ee79fed819c484e25a0583"
   end
 
   depends_on "cmake" => :build

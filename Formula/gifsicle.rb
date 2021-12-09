@@ -5,6 +5,11 @@ class Gifsicle < Formula
   sha256 "92f67079732bf4c1da087e6ae0905205846e5ac777ba5caa66d12a73aa943447"
   license "GPL-2.0-only"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?gifsicle[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e566d5e1a954201d5adf69c8eceba9c9bb037e8bc84a9fc36afc63b099c5e2e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad499b676a6a5e433964de6303f658838239c09b69e02ce2db62b6c5ffc1a017"

@@ -6,6 +6,11 @@ class Halibut < Formula
   license all_of: ["MIT", :cannot_represent]
   head "https://git.tartarus.org/simon/halibut.git", branch: "main"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?halibut[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "15128f8454d3cbfbe26c615f8a49daeeb3f7a6566be8f390370bf1b789ec3aa1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b45d0f3af3aba76ea7e2b5e0c447f0ae7674db57330c2d03c6a6dc8e5ef9a53"

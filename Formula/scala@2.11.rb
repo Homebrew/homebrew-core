@@ -15,7 +15,6 @@ class ScalaAT211 < Formula
 
   deprecate! date: "2017-11-09", because: :unsupported
 
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install

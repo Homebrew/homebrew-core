@@ -14,7 +14,6 @@ class Ckan < Formula
     sha256 cellar: :any_skip_relocation, all: "ef445fe525dcb9ddece0844663621a439e6cf159889d00005aa86e7ab1c20583"
   end
 
-  depends_on arch: :x86_64 # Remove this when `mono` is bottled for ARM
   depends_on "mono"
 
   def install

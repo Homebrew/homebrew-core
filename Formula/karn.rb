@@ -18,7 +18,7 @@ class Karn < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/karn/karn.go"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/karn/karn.go"
   end
 
   test do

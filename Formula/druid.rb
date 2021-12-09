@@ -17,7 +17,6 @@ class Druid < Formula
   end
 
   depends_on "zookeeper" => :test
-  depends_on arch: :x86_64
   depends_on "openjdk@8"
 
   resource "mysql-connector-java" do

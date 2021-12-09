@@ -16,7 +16,6 @@ class AmdatuBootstrap < Formula
     sha256 cellar: :any_skip_relocation, all: "7efb4581ff91f9931f43d21974df335b66497e8d05488f91cdb9868a4c6ea0ac"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 doesn't support ARM
   depends_on "openjdk@8"
 
   def install

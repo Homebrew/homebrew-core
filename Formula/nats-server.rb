@@ -18,7 +18,7 @@ class NatsServer < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   service do

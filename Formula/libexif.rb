@@ -1,18 +1,17 @@
 class Libexif < Formula
   desc "EXIF parsing library"
   homepage "https://libexif.github.io/"
-  url "https://github.com/libexif/libexif/releases/download/v0.6.23/libexif-0.6.23.tar.xz"
-  sha256 "a740a99920eb81ae0aa802bb46e683ce6e0cde061c210f5d5bde5b8572380431"
+  url "https://github.com/libexif/libexif/releases/download/v0.6.24/libexif-0.6.24.tar.bz2"
+  sha256 "d47564c433b733d83b6704c70477e0a4067811d184ec565258ac563d8223f6ae"
   license "LGPL-2.1"
 
   bottle do
-    sha256 arm64_monterey: "07f9ad919f5bdbb2857580549cba37da0aee5c1fb88cd5eb410ac3ec857de11d"
-    sha256 arm64_big_sur:  "f2a133f663a82d1d39ba238692f6c56de3c6bae12add2107204a75af2f6d923a"
-    sha256 monterey:       "8765b62cdc2dd20a77ed83f8e4acdfbfea0cb1ad55a53b40372c912a796aa13d"
-    sha256 big_sur:        "17a348763e827089c2d2fb2b2c631f38df87d99234d81f2bbbe1c7219577522c"
-    sha256 catalina:       "5b2a8266f5236b9fe1921040976c07d9eda3cc178a2c2d82824254de82df0e2e"
-    sha256 mojave:         "85e039d08a8668365cd7f71a9012c587028e4e6d6dfe0a9cc082bcc99ca7b643"
-    sha256 x86_64_linux:   "6b20530c09fffe2d4dcda90dfd9b8c1869e1ff58fe94eb9e74763d2f705f1a9e"
+    sha256 arm64_monterey: "b71456dcf43a1697530075ed530dd4561e921de1ef9ac872ae173fb3c4b70596"
+    sha256 arm64_big_sur:  "89e01320edd8d164b9a885c8f72b08215e175cece967f6c86a9bcf472e4d85bc"
+    sha256 monterey:       "b49a9f852c06e2a0df9310f0e550d952cd0ae0a675a3a2eab44a51583a8089bb"
+    sha256 big_sur:        "e8f4e1e32cba740b59dd9dfeea98c45d6fecfb3e5f52553da7963c92a83bc632"
+    sha256 catalina:       "ebbc780bac1eac5bf0afb384a36eea408e8dc35369558b256eea4283ff2c0c39"
+    sha256 x86_64_linux:   "9a72e30a88de8a164a4b249e181747639b9b2e2fc2b089f0e1cbaf850d6a0acb"
   end
 
   depends_on "autoconf" => :build

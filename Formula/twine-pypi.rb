@@ -3,18 +3,18 @@ class TwinePypi < Formula
 
   desc "Utilities for interacting with PyPI"
   homepage "https://github.com/pypa/twine"
-  url "https://files.pythonhosted.org/packages/85/81/95fb7385d079d9f79c32143dcc3dc84f5021c9b63c1254f14f577bff818a/twine-3.7.0.tar.gz"
-  sha256 "8d6a0ad895576c97e9ad4a5da2d6adea37fd5434ecabace0054013d537ddbc6c"
+  url "https://files.pythonhosted.org/packages/9d/12/0e4c8df764d87c15b8256444d0b8b433c183ce3a986ffae3086df3f876ef/twine-3.7.1.tar.gz"
+  sha256 "28460a3db6b4532bde6a5db6755cf2dce6c5020bada8a641bb2c5c7a9b1f35b8"
   license "Apache-2.0"
   head "https://github.com/pypa/twine.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c6a39144abeb6581d07fe74676f94058695b295c011b87331b46208d7de28862"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "75040de6a872cc5e836cd5cfe93f48e7e744212680f4e00a6f9348ce59bee850"
-    sha256 cellar: :any_skip_relocation, monterey:       "f3a1a643a0980c385438d9384720f4d837de2d6bf4f75bec71ce284154b8c684"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b792cd4ffe4b80c1630258be259f066993954b5182b7074578b2303d0bcb9ea9"
-    sha256 cellar: :any_skip_relocation, catalina:       "b5feb3b09baaa121af65f49f015771777934a802158596244ca23dbb90210228"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f2e1796a5e4ba9f274a245b68ea90d7b68308bc4e50c894cf422811c22634aa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff68550de52a9a4e014594ef2f9f61be29640aac3da281ff038fa290ebadd2b7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15845549fca0251348353546bd0bbdc2ba6feba822845177d4cc8d1e24b5d7be"
+    sha256 cellar: :any_skip_relocation, monterey:       "34c4b475063557f9ee8fce82da72f0a697b59ae08544502dd0c7e4b865418843"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fd985feea809df545d624a023227d189583e349027eeae20f70fcbc9cf35fa2e"
+    sha256 cellar: :any_skip_relocation, catalina:       "10681b12a633a1b8c84b905df2b896a57319985346ab8538c2290e0a262f8422"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bc88eec440423cd509908987d397309d9238508e03b1d7082ce2c38f806f9a7"
   end
 
   depends_on "python@3.10"
@@ -31,8 +31,8 @@ class TwinePypi < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2f/39/5d8ff929409113e9ff402e405a7c7880ab1fa6f118a4ab72443976a01711/charset-normalizer-2.0.8.tar.gz"
-    sha256 "735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "colorama" do

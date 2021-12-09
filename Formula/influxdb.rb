@@ -46,7 +46,7 @@ class Influxdb < Formula
     # Set up the influxdata pkg-config wrapper to enable just-in-time compilation & linking
     # of the Rust components in the server.
     resource("pkg-config-wrapper").stage do
-      system "go", "build", *std_go_args, "-o", buildpath/"bootstrap/pkg-config"
+      system "go", "build", *std_go_args(output: buildpath/"bootstrap/pkg-config")
     end
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
@@ -63,10 +63,10 @@ class Influxdb < Formula
       -X main.version=#{version}
       -X main.commit=#{Utils.git_short_head(length: 10)}
       -X main.date=#{time.iso8601}
-    ].join(" ")
+    ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags),
-           "-tags", "assets,sqlite_foreign_keys,sqlite_json", "-o", bin/"influxd", "./cmd/influxd"
+    system "go", "build", *std_go_args(output: bin/"influxd", ldflags: ldflags),
+           "-tags", "assets,sqlite_foreign_keys,sqlite_json", "./cmd/influxd"
 
     data = var/"lib/influxdb2"
     data.mkpath

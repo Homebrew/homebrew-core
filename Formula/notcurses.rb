@@ -1,16 +1,17 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.4.9.tar.gz"
-  sha256 "a2771ad1633e0158f8273fa8b30b5bce0f12e1205e863045f4ae186b6b52f537"
+  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "b4839108ca8f9aef31d2f537485cbd878356bbcd4ad4f7a4dd19e72201d01cee"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_monterey: "aec4a3abff403d5f738c721ae4f17066c855889de36e2d27589bd814ff2495ba"
-    sha256 arm64_big_sur:  "630f194a6d12b321def6fe2637b00db853dd9449e427de90ac25399c15cd1fc4"
-    sha256 monterey:       "47865472978bd2bbab407134d04a2656b8ef637dbd71531b72d25c7f2e6e1da0"
-    sha256 big_sur:        "e5563070d3751c4ffb5b8723eff201c04b0f27c7aa04d8a4e97345a70356dd19"
-    sha256 catalina:       "ec3bf3fbc15be7de373947e72321569bbb8554bcf0ec088b6a2964636044cc32"
+    sha256 arm64_monterey: "3f3e0ae16d53e70cf75f524cafa33ab4d3788a3506034c60f0e7d95bbc9df270"
+    sha256 arm64_big_sur:  "f0288ba7187d310ebd1351d1ea2cf6544db314ce56bed73b6051c0da1911a423"
+    sha256 monterey:       "cc70b219fb6d8d484f2ef75c22ebd9b246491c2b1bae7759192eb10b718b0f2e"
+    sha256 big_sur:        "f3d7743f9536342395d835f3a053d003d5005c62ed53b1a027357ad865cbd963"
+    sha256 catalina:       "54c05406d94551aa9f702e7346b148dcf37aa7d376c6b7ba35bbc94c4aa1e4cf"
+    sha256 x86_64_linux:   "309ac26c730b2faeb2bce1b9d8e631cc168aded7e8b35ef17c691e471e50869f"
   end
 
   depends_on "cmake" => :build
@@ -18,11 +19,16 @@ class Notcurses < Formula
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
+  depends_on "libdeflate"
   depends_on "libunistring"
   depends_on "ncurses"
-  uses_from_macos "zlib"
 
   fails_with gcc: "5"
+
+  patch do
+    url "https://nick-black.com/strndup-mingw-only.patch"
+    sha256 "8ea4a3be2181e1091e44868646830ea37f2efcfcde984a57e5d8dd48d6bb43e0"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"

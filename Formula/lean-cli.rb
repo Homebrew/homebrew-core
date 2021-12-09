@@ -19,11 +19,7 @@ class LeanCli < Formula
 
   def install
     build_from = build.head? ? "homebrew-head" : "homebrew"
-    system "go", "build",
-            "-ldflags", "-s -w -X main.pkgType=#{build_from}",
-            *std_go_args,
-            "-o", bin/"lean",
-            "./lean"
+    system "go", "build", *std_go_args(output: bin/"lean", ldflags: "-s -w -X main.pkgType=#{build_from}"), "./lean"
 
     bash_completion.install "misc/lean-bash-completion" => "lean"
     zsh_completion.install "misc/lean-zsh-completion" => "_lean"

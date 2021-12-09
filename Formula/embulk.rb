@@ -20,7 +20,6 @@ class Embulk < Formula
     sha256 cellar: :any_skip_relocation, all: "c1b31ac422dff1e3232caf302ebb9f5673c08abd9fd723820e83fc903db5254a"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install

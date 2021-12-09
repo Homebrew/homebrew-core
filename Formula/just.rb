@@ -1,10 +1,10 @@
 class Just < Formula
   desc "Handy way to save and run project-specific commands"
   homepage "https://github.com/casey/just"
-  url "https://github.com/casey/just/archive/0.10.4.tar.gz"
-  sha256 "81d7e7d5496861a37f8668dbeb845381c41ea0ef5fa087c7b8bd41b70134218d"
+  url "https://github.com/casey/just/archive/0.10.5.tar.gz"
+  sha256 "02e452c0045879161ce820dc66e60d10b3e2cb9b8b152ff86cdd9221eb65d1b2"
   license "CC0-1.0"
-  head "https://github.com/casey/just.git"
+  head "https://github.com/casey/just.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class Just < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bae9785bdc153e1d591ea8b02ac5c91a46ad88a63cd342322e21fd2f706e733a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96890ef0a3dd0196021f90fe3f5ed59800c8a001c78bbd1afd00184b58f6d236"
-    sha256 cellar: :any_skip_relocation, monterey:       "8aaf68098fc50c988c97c38ba68dbc548ee9852f973b18bb5e46dd1b14b245f2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6387ce3af5769bc5136c7176b7de5c027edee04abc411b16e53ad40fa50d562e"
-    sha256 cellar: :any_skip_relocation, catalina:       "c29ee1411073506cec9d103b6e7a9b2fc7e48a76431bd99aacbd35fdd21d6a29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20b3f50da02c3270d2f10c2db22680a89fc432f7c5011f7a71bf4f66ba98443e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "123d4bd7492b348ac8085d28d945fad7c99de20ba97013f22bd479133e95474f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0db2388f20c62c83222a86573765874cfdf7886952670f25dc58d969db441b14"
+    sha256 cellar: :any_skip_relocation, monterey:       "f7f118824a68f084bff602bfae694c952b7714e70c2ea7cf59aa61df678f3cd9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "da6919e878953362cf0070f9bd4fcd8d5eb59c2a694899dedef59ee919cea029"
+    sha256 cellar: :any_skip_relocation, catalina:       "5bfe28f0fd7e67574277e6b0edbef6c427da9b7d2248ab522675a888df21c6b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba4650a96bbbcd7f5e071f88522073271d6d3d2800ed793d3eefb01a8d29343b"
   end
 
   depends_on "rust" => :build

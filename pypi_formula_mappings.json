@@ -130,6 +130,9 @@
   "gimme-aws-creds": {
     "exclude_packages": ["six"]
   },
+  "git-remote-codecommit": {
+    "exclude_packages": ["six"]
+  },
   "homeassistant-cli": {
     "exclude_packages": ["tabulate"]
   },
@@ -223,6 +226,9 @@
   "pgcli": {
     "exclude_packages": ["six", "tabulate"]
   },
+  "pip-audit": {
+    "exclude_packages": ["six"]
+  },
   "pipenv": {
     "exclude_packages": ["six"]
   },
@@ -234,8 +240,7 @@
     "exclude_packages": ["tabulate"]
   },
   "poetry": {
-    "exclude_packages": ["six"],
-    "extra_packages": ["importlib-metadata", "typing-extensions"]
+    "exclude_packages": ["six"]
   },
   "pre-commit": {
     "exclude_packages": ["six"]

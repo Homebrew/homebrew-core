@@ -29,7 +29,7 @@ class Kubebuilder < Formula
       -X main.gitCommit=#{Utils.git_head}
       -X main.buildDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
 
     output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "bash")
     (bash_completion/"kubebuilder").write output

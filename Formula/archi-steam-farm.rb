@@ -18,7 +18,6 @@ class ArchiSteamFarm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "7fd2d66547817e45e8f13a9e54a12bfffd78736d1b077590a2dc664a8d143c5d"
   end
 
-  depends_on arch: :x86_64 # dotnet does not support ARM
   depends_on "dotnet"
 
   def install

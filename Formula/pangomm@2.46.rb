@@ -1,8 +1,8 @@
 class PangommAT246 < Formula
   desc "C++ interface to Pango"
   homepage "https://www.pango.org/"
-  url "https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.1.tar.xz"
-  sha256 "c885013fe61a4c5117fda395770d507563411c63e49f4a3aced4c9efe34d9975"
+  url "https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.2.tar.xz"
+  sha256 "57442ab4dc043877bfe3839915731ab2d693fc6634a71614422fb530c9eaa6f4"
   license "LGPL-2.1-only"
 
   livecheck do
@@ -11,13 +11,12 @@ class PangommAT246 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cfefd6ec5d9e367caea2a329f4e13bd741c0e0cfacf9640f484f9716d3467f5b"
-    sha256 cellar: :any,                 arm64_big_sur:  "a06a2a84e675036071a0c1926ddad0234afc6f039dc8f893256a99fa2a811e8f"
-    sha256 cellar: :any,                 monterey:       "2664875b0591aaf1b36070942acdd0d23354e863d80af669a4de36482fc60858"
-    sha256 cellar: :any,                 big_sur:        "a59a4d40e0438b99f7cf5027d68e9a3c5701911a732e21908126eb2408862a55"
-    sha256 cellar: :any,                 catalina:       "cfa4595bc6f7dd8e5eb2d8c05426a4879112bebe57711b8fa8a944eecc8b1acd"
-    sha256 cellar: :any,                 mojave:         "29ea5bd59f1116d43d019345e6e3a338ac4199a7a5070112082063769637ab94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "277e2b45b4fdb94cc2fb2799c464e3eb7ff3cd33513bd9ae06d0edd251a88d08"
+    sha256 cellar: :any,                 arm64_monterey: "c794e69f80086920c974a7a8982034cee2a72c3543156346768ce6c11fd04e62"
+    sha256 cellar: :any,                 arm64_big_sur:  "28a5885682e8cabb5240af2d46c4d982f4a74e87e0909d573a5d8f11941dab22"
+    sha256 cellar: :any,                 monterey:       "2670e2d8fcc5bcfe06c37c6b68c3871286312202329033341ed52a22db42be0b"
+    sha256 cellar: :any,                 big_sur:        "41a5c473ca7eb840d0238df3147aeab957c757afc0eb65fff3c5dce3ed0f7c83"
+    sha256 cellar: :any,                 catalina:       "93c8dc4f62582d30a9c48995923bba460e8a10600c9406d6d690c5406f231614"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2564f1187494082130a06400670c5b7b9d7a6e82f4c49172799ef00c3eacb22"
   end
 
   depends_on "meson" => :build

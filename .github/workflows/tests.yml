@@ -29,6 +29,7 @@ jobs:
       testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
       added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
       deleted_formulae: ${{ steps.formulae-detect.outputs.deleted_formulae }}
+      long_pr_count: ${{ steps.count_long_timeout_prs.outputs.count }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -98,6 +99,33 @@ jobs:
             }
 
             if (label_names.includes('CI-long-timeout')) {
+              const labelCountQuery = `query($owner:String!, $name:String!, $label:String!) {
+                repository(owner:$owner, name:$name) {
+                  pullRequests(last: 100, states: OPEN, labels: [$label]) {
+                    totalCount
+                  }
+                }
+              }`;
+              var long_pr_count;
+              try {
+                const response = await github.graphql(
+                  labelCountQuery, {
+                    owner: context.repo.owner,
+                    name: context.repo.repo,
+                    label: 'CI-long-timeout'
+                  }
+                )
+                long_pr_count = response.data.repository.pullRequests.totalCount
+              } catch (error) {
+                // The GitHub API query errored, so fail open and assume 0 long PRs.
+                long_pr_count = 0
+              }
+              const maximum_long_pr_count = 2
+              if (long_pr_count > maximum_long_pr_count) {
+                core.setFailed(`Too many pull requests (${long_pr_count}) with the long-timeout label!`)
+                core.error(`Only ${maximum_long_pr_count} pull requests at a time can use this label.`)
+                core.error('Remove the long-timeout label from this or other PRs (once their CI has completed).')
+              }
               console.log('CI-long-timeout label found. Setting long GitHub Actions timeout.')
               core.setOutput('timeout-minutes', '4320')
             } else {

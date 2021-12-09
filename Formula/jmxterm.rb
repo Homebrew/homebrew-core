@@ -11,7 +11,6 @@ class Jmxterm < Formula
     sha256 cellar: :any_skip_relocation, all: "2e3d2fb1fd7afec204e7556a5c7567cab6c7ce3484e91730dcf0b34c1e8729aa"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install

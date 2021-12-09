@@ -12,7 +12,6 @@ class JoobyBootstrap < Formula
 
   deprecate! date: "2020-11-13", because: :unmaintained
 
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "maven"
   depends_on "openjdk@8"
 

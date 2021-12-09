@@ -9,7 +9,6 @@ class Bee < Formula
     sha256 cellar: :any_skip_relocation, all: "373b0d51bd283feb4af1f7fee4dd6e7c9664d759c14812bbf65875dce9711e5e"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 doesn't support ARM
   depends_on "openjdk@8"
 
   def install

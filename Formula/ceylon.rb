@@ -18,7 +18,6 @@ class Ceylon < Formula
     sha256 cellar: :any_skip_relocation, all: "1f342bf2e58a868fc50db9e9a241135c690afa264d853c46c148af971a3c4ec1"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install

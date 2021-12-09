@@ -1,18 +1,18 @@
 class GitBranchless < Formula
   desc "High-velocity, monorepo-scale workflow for Git"
   homepage "https://github.com/arxanas/git-branchless"
-  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.3.7.tar.gz"
-  sha256 "d23341766c0f81fc5e0768a399139738d472bcdd315c62b2b5ac9ac857d0d501"
+  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.3.8.tar.gz"
+  sha256 "9046d5b93c8bc959b7d8ab5238d3656c7e5463e2b68951300a1feb86aa533276"
   license "GPL-2.0-only"
   head "https://github.com/arxanas/git-branchless.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f02ca20ad8e2ae17f3c9d70a97ab93512b7c456d3c3a731d800001513205600b"
-    sha256 cellar: :any,                 arm64_big_sur:  "29f7389c6a175326fc9edb033c688e9bda35d3936311bee5524923522d544d46"
-    sha256 cellar: :any,                 monterey:       "27d7843209fa4a91ba769190879239d47019f70099ef409e30ab536e0402b560"
-    sha256 cellar: :any,                 big_sur:        "69d0dfd0467f1764c402b20f75bdf86f2cd328b3a82370078e7ff34c674dc5cc"
-    sha256 cellar: :any,                 catalina:       "a88c1c8649d4010106050bf21d8824ff26343cc4eae87905218b41a1b5052be6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4427f6afba2a7fb7b220545829e95973f7e969dd9d2d5d0cca39fead8250f19a"
+    sha256 cellar: :any,                 arm64_monterey: "ae4c5411e40a717d845bbc44fb21c4878cad26a366bf596b59940d10464cbc03"
+    sha256 cellar: :any,                 arm64_big_sur:  "c51f1f14c0af8a45b17a310bdfa6f7ea83aac123550bd78219275612ded69a38"
+    sha256 cellar: :any,                 monterey:       "cfe2387df1bc3690ccd528cab11163f4bfa93923fadb33fb60293ba656557232"
+    sha256 cellar: :any,                 big_sur:        "b6b3bd8eba0c7e4d245ed98ece5b42a0a600214486183c23cf7eaf324febe626"
+    sha256 cellar: :any,                 catalina:       "dc385af481b405f0bc9f07530d5a2131032a2f0735dc5ffc609d7388073343c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a82846c6858c32e810a1307ca647bb01525222b2d33fdf1791ce803266b58ac"
   end
 
   depends_on "rust" => :build

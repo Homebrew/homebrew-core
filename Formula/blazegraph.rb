@@ -16,7 +16,6 @@ class Blazegraph < Formula
   end
 
   # Dependencies can be lifted in the upcoming release, > 2.1.5
-  depends_on arch: :x86_64 # openjdk@8 doesn't support ARM
   depends_on "openjdk@8"
 
   def install

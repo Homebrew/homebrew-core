@@ -1,18 +1,18 @@
 class Autorestic < Formula
   desc "High level CLI utility for restic"
   homepage "https://autorestic.vercel.app/"
-  url "https://github.com/cupcakearmy/autorestic/archive/v1.5.0.tar.gz"
-  sha256 "77562969c95be1b4096160ffb24c079089f78a3fb6b84d7ac4b54a7feb4e3f53"
+  url "https://github.com/cupcakearmy/autorestic/archive/v1.5.1.tar.gz"
+  sha256 "f0ad322b51408d5a47435923b9cc4858c4ba030bc0e7ad192ec40c5e7cc80e67"
   license "Apache-2.0"
   head "https://github.com/cupcakearmy/autorestic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2227c50c02d248f27e76e3f7f22288888c1f9fe6e7ac9b200a6e429409b5d819"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1436abb1a262becc7da8227085d03d0b5dd85468ebe096ab3015c6325a2af8cb"
-    sha256 cellar: :any_skip_relocation, monterey:       "5ec397b9d4ed003121057f114ec2fe5f4c0f7fa0448ce927e3bdba9bcfc25072"
-    sha256 cellar: :any_skip_relocation, big_sur:        "54909863e41204aebc7a1f0cbf6e298a2eb548584d36774815c23972232ad8cc"
-    sha256 cellar: :any_skip_relocation, catalina:       "0361c1253edbcbeb5f239ab5fbe2b5e4d11f8229948cd4e31009882ac37df406"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59a0f7bbd160ed3d12961a46747039c3578ddd9826c20914980d52fb4638179c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "552199bf5cbb62d1b449959202cbeb96432074fd4e006fa919afe5923dcaf3e5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28d3b47d0c8710949ef2d1c758078b065e9fb7f215b81438defe564cd6228c08"
+    sha256 cellar: :any_skip_relocation, monterey:       "7f7d1cc3b3ef65a561dd6792e7b946c8b194a71753d9958c36ea29642bb3dc37"
+    sha256 cellar: :any_skip_relocation, big_sur:        "118d6e0abe7588d7ca40eb3744f4b6bf518b9652ce510ca778dbff2fd703dff5"
+    sha256 cellar: :any_skip_relocation, catalina:       "6c47c02a5e21d3754fc8960660328982f4d52b0fcbc7d0396d32e30faace9086"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf42e1779cbb641919354a277022b015aff2be2d9564bf668b4afe0c892d3d29"
   end
 
   depends_on "go" => :build

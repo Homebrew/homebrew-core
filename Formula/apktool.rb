@@ -10,7 +10,6 @@ class Apktool < Formula
     sha256 cellar: :any_skip_relocation, all: "2b7f71c67cdaf038871d235a22fdf80f3ee5ffb353424bcb5f0d17503560bb11"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 doesn't support ARM
   depends_on "openjdk@8"
 
   resource "sample.apk" do

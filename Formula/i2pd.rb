@@ -6,11 +6,12 @@ class I2pd < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "cff84e998bb2781223a5384e944a3a28d6c693acbb28aef64319f1399a1bf4be"
-    sha256 cellar: :any, arm64_big_sur:  "431bcc8bb585f504062092bcd0584880aa9ae89f41692d3e6c578c8694b64647"
-    sha256 cellar: :any, monterey:       "bc8dba11ea436286889df672cbcdbb423d4d1038e6ae0938f18c76417cf7084b"
-    sha256 cellar: :any, big_sur:        "77631a8ce2044e3e8c6c32a1ed3f9d6113f3a444d1a4ee40faad42a1ea854854"
-    sha256 cellar: :any, catalina:       "c2c6fc26a6ea516e9b6c87ffc01a6f62da37fb5ad4bf083cab850baaefb98994"
+    rebuild 1
+    sha256 cellar: :any, arm64_monterey: "550dc26ffd266bbf7b913f132fe4aba1c04e94a43e3604f32e99a0205109726c"
+    sha256 cellar: :any, arm64_big_sur:  "df56a21abd4fd938d18861b89a3b3c2915de281d0d48691b252aa2a2995d8216"
+    sha256 cellar: :any, monterey:       "0eeb3cb89d507c2bc2c5e2efc3b723f1353fb957fd652e03053cbdd7042d049e"
+    sha256 cellar: :any, big_sur:        "518e30dd51f2bfa19f0a4919fa54cb1ce1b426ba9fb8c8af759ad193cba6e00d"
+    sha256 cellar: :any, catalina:       "57cbbd26efba51eba1391e59f1499e066971ae6842c8eb95c3079cedba37c2a1"
   end
 
   depends_on "boost"
@@ -60,11 +61,11 @@ class I2pd < Formula
   end
 
   test do
-    pid = fork do
-      exec "#{bin}/i2pd", "--datadir=#{testpath}", "--daemon"
-    end
+    pidfile = testpath/"i2pd.pid"
+    system bin/"i2pd", "--datadir=#{testpath}", "--pidfile=#{pidfile}", "--daemon"
     sleep 5
-    Process.kill "TERM", pid
     assert_predicate testpath/"router.keys", :exist?, "Failed to start i2pd"
+    pid = pidfile.read.chomp.to_i
+    Process.kill "TERM", pid
   end
 end

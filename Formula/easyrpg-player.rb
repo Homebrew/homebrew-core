@@ -10,12 +10,13 @@ class EasyrpgPlayer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e4d6d21e250a0d98f8c655b845b648b5c4e512aeb6de9190e25dc11479933074"
-    sha256 cellar: :any,                 arm64_big_sur:  "86ba836aaad3a38cc862c39e0f41658eb1fc899d8e63763caf4e8c376ad8418a"
-    sha256 cellar: :any,                 monterey:       "9151058014064597af9c404f707a5cfad0dbf33662301822aab3541b5dd1d63b"
-    sha256 cellar: :any,                 big_sur:        "b1aa0ec02ee7b1faed7a6357aa67f6418480ae03aceddbf6581ba2d30380942b"
-    sha256 cellar: :any,                 catalina:       "bf296509905e0a781150b999881e792080687bddbca1c1570847d9a83a3656a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad4a2e6397a8909e5a3964584661dd8ea0b397e14f7bae802d0bcf13f3f10c86"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "35402a4ebf31126dc698f350b6b643e84cdf082348cbf91753ddc2ad1edea8b4"
+    sha256 cellar: :any,                 arm64_big_sur:  "cdd4dd54d40d8e659bd0d820deeef99740c46ff2dff90a6d0e788d2a086412bb"
+    sha256 cellar: :any,                 monterey:       "7b925302866f43541ae010d252712bdada3062128eb520c0d89cfdc5ce8118e2"
+    sha256 cellar: :any,                 big_sur:        "941f5709c777356910481260328d4e7c07bbdb30cd226d52640c631da22736bd"
+    sha256 cellar: :any,                 catalina:       "15e33be5dbde27d8df446a845f2ed3a18f36b5d7ae6fdf4f70f7d8af1bbb2df4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50d1d39d37367d259f49aa643d8070d29b585d3c50ca353a8c33be20e6352463"
   end
 
   depends_on "cmake" => :build
@@ -35,6 +36,7 @@ class EasyrpgPlayer < Formula
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "alsa-lib"
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"

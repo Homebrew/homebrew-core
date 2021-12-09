@@ -20,8 +20,7 @@ class Iamy < Formula
   depends_on "awscli"
 
   def install
-    system "go", "build", *std_go_args, "-ldflags",
-            "-s -w -X main.Version=v#{version}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=v#{version}")
   end
 
   test do

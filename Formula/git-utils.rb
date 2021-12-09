@@ -9,6 +9,8 @@ class GitUtils < Formula
     sha256 cellar: :any_skip_relocation, all: "7c7e5940ae9e46d0dfacb6b2b8db5dcf98626012d57d563a9ec1ca852bf9f0fb"
   end
 
+  disable! date: "2021-12-07", because: :no_license
+
   conflicts_with "git-extras",
     because: "both install a `git-pull-request` script"
   conflicts_with "willgit",

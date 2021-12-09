@@ -4,7 +4,7 @@ class Mrbayes < Formula
   url "https://github.com/NBISweden/MrBayes/archive/v3.2.7a.tar.gz"
   sha256 "3eed2e3b1d9e46f265b6067a502a89732b6f430585d258b886e008e846ecc5c6"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/NBISweden/MrBayes.git", branch: "develop"
 
   livecheck do
@@ -13,12 +13,12 @@ class Mrbayes < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7ec10b0d029883853ed249d1f67902459eef0b6e4a80271c9be88422370917b4"
-    sha256 cellar: :any,                 arm64_big_sur:  "d85976c7cecd8c8344b5345858d61e0da354abd69f189a8666175ef3ee6ae1be"
-    sha256 cellar: :any,                 monterey:       "d25a16dece00097ddaeeeba8b094f4baf56bed9e695c310852ad39455d68d800"
-    sha256 cellar: :any,                 big_sur:        "3b7d81480c2cbe7dda28cdf4294bb75ef82739df3398882ab51690b00715b7bf"
-    sha256 cellar: :any,                 catalina:       "c80eace4ebe7e49e7eda28d53d223a78c0717115bbeea0ab887f06eab98b4d9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a1a4c724b79f47549f569ae633dd4d9d6d10586cca5284f15c0f4279d4beced"
+    sha256 cellar: :any,                 arm64_monterey: "0f10a97438542d44f93ba830bc401fe8bd8d21e92a0ee9b398b9b76791e57ba3"
+    sha256 cellar: :any,                 arm64_big_sur:  "09d39ce28dfe9f820b68cc23c70b8e4bf4b795b475c5b5ba9989be7476b780e3"
+    sha256 cellar: :any,                 monterey:       "f6ebfc9fd1ccf792b1c385c42e5f8011158fb080f0a4370767f95646fbc6fa6b"
+    sha256 cellar: :any,                 big_sur:        "f14702af22530faa81dd6e87fc240b4486408c1f14360fdf9b771c4f20a4e3f0"
+    sha256 cellar: :any,                 catalina:       "2c9ad63eaaabbf59329ba205bbe37ef3b2650235931f86a921e08b43a5e9bdb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40751b431b49a864fcbf42fcf80eeb2ebc6cbd535152c226a6565371f8eb661e"
   end
 
   depends_on "pkg-config" => :build

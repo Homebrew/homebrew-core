@@ -1,8 +1,8 @@
 class Patchelf < Formula
   desc "Modify dynamic ELF executables"
   homepage "https://github.com/NixOS/patchelf"
-  url "https://github.com/NixOS/patchelf/releases/download/0.13/patchelf-0.13.tar.bz2"
-  sha256 "4c7ed4bcfc1a114d6286e4a0d3c1a90db147a4c3adda1814ee0eee0f9ee917ed"
+  url "https://github.com/NixOS/patchelf/releases/download/0.14.3/patchelf-0.14.3.tar.bz2"
+  sha256 "a017ec3d2152a19fd969c0d87b3f8b43e32a66e4ffabdc8767a56062b9aec270"
   license "GPL-3.0-or-later"
   head "https://github.com/NixOS/patchelf.git", branch: "master"
 
@@ -12,16 +12,21 @@ class Patchelf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c47328128ef6c7bf407b3ba9bbdffb0100edfdf5f0f468ce486d0e592b7b573"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d2c5ae0910087e5d745179a034d334b994d48a54398deab50c7efa389d0ad5de"
-    sha256 cellar: :any_skip_relocation, monterey:       "cfabb87851b51b722fe08e72cefa869b57e09eed314c7cdc992d42ad39e9141f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6ce62acab3314332cc248a08ba8285882a8d33d976196f1cfb8b1d6553035635"
-    sha256 cellar: :any_skip_relocation, catalina:       "5a42eb843bb076dd938eb114e8e751ee871ca04f1db023051e0ae546b5e9fc79"
-    sha256 cellar: :any_skip_relocation, mojave:         "d2f37f5a48c8054def582fd9cfda48b114a6f4f3287d45719d0d9a58adf6d5de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2d839514014027d8222d5de10868a4ba754c3b4cf5f502bfc791fc4d2eaa705"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86440e9f58c2b2451844fdc7a30bcc18f3ddc0e01adca2c1dcff6aea4475d2c7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d21bf1cb91b7457afcaf0c3f85da7858b3dd862542e4e19bac5235b7a3b40ef"
+    sha256 cellar: :any_skip_relocation, monterey:       "1e070e3bbfa9942aebdc0bd7d7b0cde5ebf96677f490a5a9c28f41463092d017"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bfe10a967964115789954ec3866be9cfb3ea273cf7f025a3f8afda71d3e4b0f1"
+    sha256 cellar: :any_skip_relocation, catalina:       "d5b64e5588d18dbae9ffc01c0ea07c45db379cd1c592b3affce58284cdf234cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "298d89f90bd63ad3170f4f767fa304c3e2b7d722a4eec71242d0e7f7bc8ed22c"
   end
 
-  resource "helloworld" do
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # Needs std::optional
+
+  resource "homebrew-helloworld" do
     url "http://timelessname.com/elfbin/helloworld.tar.gz"
     sha256 "d8c1e93f13e0b7d8fc13ce75d5b089f4d4cec15dad91d08d94a166822d749459"
   end
@@ -41,7 +46,7 @@ class Patchelf < Formula
   end
 
   test do
-    resource("helloworld").stage do
+    resource("homebrew-helloworld").stage do
       assert_equal "/lib/ld-linux.so.2\n", shell_output("#{bin}/patchelf --print-interpreter chello")
       assert_equal "libc.so.6\n", shell_output("#{bin}/patchelf --print-needed chello")
       assert_equal "\n", shell_output("#{bin}/patchelf --print-rpath chello")

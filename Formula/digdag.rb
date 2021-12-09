@@ -15,7 +15,6 @@ class Digdag < Formula
     sha256 cellar: :any_skip_relocation, all: "ca2ef842dc4f5b70a20896b7ba3fbeb34d14537b5dfc081ebe3e4c7150c04e8f"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install

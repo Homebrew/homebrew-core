@@ -4,10 +4,9 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.75.0",
-      revision: "d786313c7bfdaac0c53e07cffc6fcb91a1b5c0ee"
+      tag:      "v0.76.2",
+      revision: "bddf674c52fbc294b11f298704b975dba98f8aa7"
   license "LGPL-2.1-only"
-  revision 1
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
   livecheck do
@@ -16,12 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "5f1eaa8e44be3d73edd4160c34b21269a36daa8fc0aebc21ab73a9d64fcd5d2b"
-    sha256 cellar: :any, arm64_big_sur:  "7c5b6cbdf761cab2bfc285e2874d07fa082ef3e0df98b3848890975096af3d10"
-    sha256 cellar: :any, monterey:       "862546e93481a1f815a874ec0992e9983303e1f7f9ef5aef64334d79309c67cc"
-    sha256 cellar: :any, big_sur:        "22dc5dbdf5c549194ea60b92d03b959cfb14569302286ffda1f321de0d91f508"
-    sha256 cellar: :any, catalina:       "abfb03fa46f8e5d82b0efe16a7a8b91b1c6de95871f461b7a41ffa51cc788a5d"
-    sha256               x86_64_linux:   "e05007ecae77aa863bec312f1a5314a226f0661dfdeb0755ba31c2d1533cc6ab"
+    sha256 cellar: :any, arm64_monterey: "5158ee3d6bd9e992ffa545bb147520540f231f2efff858463bdc4fdac160f7af"
+    sha256 cellar: :any, arm64_big_sur:  "b6be608e29caafb419e1f6382bfcbad602876c9877ee48bd44c71952511c2593"
+    sha256 cellar: :any, monterey:       "845a38b32960a886b5c29d7dab20e91c76021af268ef29cc8751df3eba1763fc"
+    sha256 cellar: :any, big_sur:        "1f74cabb0b19a96423ea151ceddb62ed0986d0cdb198911dc9add37733f2e06e"
+    sha256 cellar: :any, catalina:       "68a2634844e88b9065cdc9dc889cc5ac48de9c05913b8f75720859f954f333b5"
+    sha256               x86_64_linux:   "075f04e76ba7c7fc685e26a6283f04431bc0c09de30d0d722b4d39c8c085e336"
   end
 
   depends_on "cmake" => :build
@@ -29,6 +28,7 @@ class Semgrep < Formula
   depends_on "dune" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "pipenv" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre"
   depends_on "python@3.9"
@@ -58,8 +58,8 @@ class Semgrep < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do

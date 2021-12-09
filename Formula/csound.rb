@@ -57,8 +57,8 @@ class Csound < Formula
   end
 
   resource "csound-plugins" do
-    url "https://github.com/csound/plugins.git",
-        revision: "63b784625e66109babd3b669abcb55f5b404f976"
+    url "https://github.com/csound/plugins/archive/63b784625e66109babd3b669abcb55f5b404f976.tar.gz"
+    sha256 "c4ae6754990ae7caf5b7f4e8f3c11f2323379d576a0e4cb10185b4d6d688ed41"
   end
 
   resource "getfem" do
@@ -71,21 +71,18 @@ class Csound < Formula
 
     resource("getfem").stage { cp_r "src/gmm", buildpath }
 
-    args = std_cmake_args + %W[
-      -DBUILD_JAVA_INTERFACE=ON
-      -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
-      -DBUILD_LUA_INTERFACE=OFF
-      -DBUILD_WEBSOCKET_OPCODE=OFF
-      -DCMAKE_INSTALL_RPATH=@loader_path/../Frameworks;#{rpath}
-      -DCS_FRAMEWORK_DEST=#{frameworks}
-      -DGMM_INCLUDE_DIR=#{buildpath}/gmm
-      -DJAVA_MODULE_INSTALL_DIR=#{libexec}
-    ]
-
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_JAVA_INTERFACE=ON",
+                    "-DBUILD_LINEAR_ALGEBRA_OPCODES=ON",
+                    "-DBUILD_LUA_INTERFACE=OFF",
+                    "-DBUILD_WEBSOCKET_OPCODE=OFF",
+                    "-DCMAKE_INSTALL_RPATH=@loader_path/../Frameworks;#{rpath}",
+                    "-DCS_FRAMEWORK_DEST=#{frameworks}",
+                    "-DGMM_INCLUDE_DIR=#{buildpath}/gmm",
+                    "-DJAVA_MODULE_INSTALL_DIR=#{libexec}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     include.install_symlink frameworks/"CsoundLib64.framework/Headers" => "csound"
 
@@ -98,27 +95,22 @@ class Csound < Formula
     resource("ableton-link").stage buildpath/"ableton-link"
 
     resource("csound-plugins").stage do
-      mkdir "build" do
-        system "cmake", "..",
-                        "-DABLETON_LINK_HOME=#{buildpath}/ableton-link",
-                        "-DBUILD_ABLETON_LINK_OPCODES=ON",
-                        "-DBUILD_CHUA_OPCODES=OFF",
-                        "-DCSOUNDLIB=CsoundLib64",
-                        "-DCSOUND_INCLUDE_DIR=#{include}/csound",
-                        "-DCS_FRAMEWORK_DEST=#{frameworks}",
-                        "-DUSE_FLTK=OFF",
-                        *std_cmake_args
-        system "make", "install"
-      end
+      system "cmake", "-S", ".", "-B", "build",
+                      "-DABLETON_LINK_HOME=#{buildpath}/ableton-link",
+                      "-DBUILD_ABLETON_LINK_OPCODES=ON",
+                      "-DBUILD_CHUA_OPCODES=OFF",
+                      "-DCSOUNDLIB=CsoundLib64",
+                      "-DCSOUND_INCLUDE_DIR=#{include}/csound",
+                      "-DCS_FRAMEWORK_DEST=#{frameworks}",
+                      "-DUSE_FLTK=OFF",
+                      *std_cmake_args
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
     end
   end
 
   def caveats
     <<~EOS
-      To use the Python bindings, you may need to set:
-        export DYLD_FALLBACK_FRAMEWORK_PATH="$DYLD_FALLBACK_FRAMEWORK_PATH:#{opt_frameworks}"
-      Exercise caution when adding this to your #{shell_profile}.
-
       To use the Java bindings, you may need to add to #{shell_profile}:
         export CLASSPATH="#{opt_libexec}/csnd6.jar:."
       and link the native shared library into your Java Extensions folder:
@@ -169,9 +161,7 @@ class Csound < Formula
     EOS
     system bin/"csound", "--orc", "--syntax-check-only", "opcode-existence.orc"
 
-    with_env(DYLD_FALLBACK_FRAMEWORK_PATH: frameworks) do
-      system Formula["python@3.9"].bin/"python3", "-c", "import ctcsound"
-    end
+    system Formula["python@3.9"].bin/"python3", "-c", "import ctcsound"
 
     (testpath/"test.java").write <<~EOS
       import csnd6.*;

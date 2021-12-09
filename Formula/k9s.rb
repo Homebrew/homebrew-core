@@ -19,10 +19,12 @@ class K9s < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags",
-             "-s -w -X github.com/derailed/k9s/cmd.version=#{version}
-             -X github.com/derailed/k9s/cmd.commit=#{Utils.git_head}",
-             *std_go_args
+    ldflags = %W[
+      -s -w
+      -X github.com/derailed/k9s/cmd.version=#{version}
+      -X github.com/derailed/k9s/cmd.commit=#{Utils.git_head}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     bash_output = Utils.safe_popen_read(bin/"k9s", "completion", "bash")
     (bash_completion/"k9s").write bash_output

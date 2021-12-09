@@ -1,20 +1,18 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
-  url "https://github.com/bulletphysics/bullet3/archive/3.17.tar.gz"
-  sha256 "baa642c906576d4d98d041d0acb80d85dd6eff6e3c16a009b1abf1ccd2bc0a61"
+  url "https://github.com/bulletphysics/bullet3/archive/3.21.tar.gz"
+  sha256 "49d1ee47aa8cbb0bc6bb459f0a4cfb9579b40e28f5c7d9a36c313e3031fb3965"
   license "Zlib"
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "9ebae8edbbf4df12b7190daa7ef11f32651a478dd5ac3e07c81c2d4378bdf554"
-    sha256 cellar: :any,                 arm64_big_sur:  "1f2000191b311d231c5e1a949aba892992e533df61cb3cf05cd1ec7ded01cb3f"
-    sha256 cellar: :any,                 monterey:       "2ccc0eff9a5116600282123ebaa2d3adaed572103a4c372467577b4aa5e02671"
-    sha256 cellar: :any,                 big_sur:        "85bf74ad7500b0bc9b15f212cc45d1d3ad6e2a2e427a1878ac571e7fd7007d97"
-    sha256 cellar: :any,                 catalina:       "76e1c4ed888700e335545275f080f954071d76164784881488b0b31f295bdbb3"
-    sha256 cellar: :any,                 mojave:         "3b39c389a9b532dfdbc0f3652bf9530fc68e1d453d1df5e017028b41f448e6c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2887fa28d8a3e81b07eff60948ee01179438333e826e1692799d6253e3fcc27"
+    sha256 cellar: :any,                 arm64_monterey: "ed4d4e01d663fe04ff8e27f3f7bf8b85dbd0737c0bdc4cbdd1e397737b257f43"
+    sha256 cellar: :any,                 arm64_big_sur:  "0922421129df15920cc29e38684f6b8ac6dd88fc275eb4afe77f2c244676d827"
+    sha256 cellar: :any,                 monterey:       "7f94b5aa89d25a67477240fbc1d9791498cd6f947c54ec9d98542adcf737f092"
+    sha256 cellar: :any,                 big_sur:        "4dea7d88d2f4e986caafaf55868e5f35148f5727b0c71b135f61001a7621da65"
+    sha256 cellar: :any,                 catalina:       "38141da23a12028cd82b1932b1bf4571058ee690f4f2f248f20c7f0ef5a8e4ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99337f0a712e95589b277d350f50516eac5336653b586b3170d2e77e7633febc"
   end
 
   depends_on "cmake" => :build

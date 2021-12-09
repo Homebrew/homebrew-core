@@ -9,18 +9,19 @@ class Ppsspp < Formula
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c8effda7a7500a6144675a367395b70c0d7da252eccc5449e5e0e60153ccbc50"
-    sha256 cellar: :any,                 arm64_big_sur:  "efb8896e778451364b3d7f3c91507a0f9d390aa8b5255a31c3ca1f6eeac70d46"
-    sha256 cellar: :any,                 monterey:       "7ce9efcf47d1a9ebeacc36d6c8a13bc0379bb99d26135ebebbb69cee2fe7e4f1"
-    sha256 cellar: :any,                 big_sur:        "15a4c66eb2b8fc4af70e8992714660a95b0546b58979c4eb6c076c7ce398efbc"
-    sha256 cellar: :any,                 catalina:       "701e9c89b53df03f4c80c2a0c9a7a957126ec0ab0d5b523e766cd4bc96fec027"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d32caa759246b16d155dcb2a8474202a28f640357d7f811d9d6db33b15b1e81"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "820c71423a73e7ed26f1b8d80f41e98243b3ba166e5b5873d8e8a727d5724156"
+    sha256 cellar: :any,                 arm64_big_sur:  "2d86272ee827c8b963afe31ce499e542ecdf103a31e306644ceacf1bc699abc4"
+    sha256 cellar: :any,                 monterey:       "599033f13849e0e6c787bc2cf42891cdf6d21e97e89eef26abef29705431cde2"
+    sha256 cellar: :any,                 big_sur:        "83955e43102eb47e77bcde940baf292970d70afc4c000bdc0517ce6882870fd3"
+    sha256 cellar: :any,                 catalina:       "bd285a8e382947c6cb0e2f5ff94e3e968802bb7c57f5ebc008a706b116a08f75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee975b8d60106f1fbcc11d94edc856bf3e328820e3233c054655b7f1cd17079f"
   end
 
   depends_on "cmake" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "libpng"
   depends_on "libzip"
   depends_on "sdl2"

@@ -16,7 +16,6 @@ class JvmMon < Formula
     sha256 cellar: :any, all: "054e482f025dfb8f3487dadd1a6c4faea207c16b8fe56ecfbdbe293745ddb8b9"
   end
 
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install

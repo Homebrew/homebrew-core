@@ -14,7 +14,6 @@ class Kettle < Formula
     sha256 cellar: :any_skip_relocation, all: "0ccda9f659deb86487578d026cf3e82dfd26bd2c3850d6ef486c6fa2d44de07f"
   end
 
-  depends_on arch: :x86_64
   depends_on "openjdk@8"
 
   def install
