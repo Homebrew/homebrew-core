@@ -4,6 +4,7 @@ class Uftrace < Formula
   url "https://github.com/namhyung/uftrace/archive/v0.11.tar.gz"
   sha256 "101dbb13cb3320ee76525ec26426f2aa1de4e3ee5af74f79cb403ae4d2c6c871"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/namhyung/uftrace.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Uftrace < Formula
   depends_on :linux
   depends_on "luajit-openresty"
   depends_on "ncurses"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     # Obsolete with git master, to be removed when updating to next release
