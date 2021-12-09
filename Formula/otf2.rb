@@ -4,6 +4,7 @@ class Otf2 < Formula
   url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-2.3/otf2-2.3.tar.gz"
   sha256 "36957428d37c40d35b6b45208f050fb5cfe23c54e874189778a24b0e9219c7e3"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :homepage
@@ -23,7 +24,7 @@ class Otf2 < Formula
   depends_on "sphinx-doc" => :build
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "future" do
     url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
@@ -31,7 +32,7 @@ class Otf2 < Formula
   end
 
   def install
-    python3 = Formula["python@3.9"].opt_bin/"python3"
+    python3 = Formula["python@3.10"].opt_bin/"python3"
     xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
