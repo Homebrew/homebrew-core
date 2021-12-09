@@ -6,7 +6,7 @@ class X8664ElfGdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-10.2.tar.xz"
   sha256 "aaa1223d534c9b700a8bec952d9748ee1977513f178727e1bee520ee000b4f29"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   livecheck do
@@ -23,7 +23,7 @@ class X8664ElfGdb < Formula
   end
 
   depends_on "x86_64-elf-gcc" => :test
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "xz"
 
   uses_from_macos "zlib"
@@ -48,7 +48,7 @@ class X8664ElfGdb < Formula
       --disable-debug
       --disable-dependency-tracking
       --with-lzma
-      --with-python=#{Formula["python@3.9"].opt_bin}/python3
+      --with-python=#{Formula["python@3.10"].opt_bin}/python3
       --with-system-zlib
       --disable-binutils
     ]
