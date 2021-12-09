@@ -6,6 +6,7 @@ class NeovimRemote < Formula
   url "https://files.pythonhosted.org/packages/cc/d8/82aec85fc7ad0853afca2c88e73ecc7d3a50c66988c44aa9748ccbc9b689/neovim-remote-2.4.0.tar.gz"
   sha256 "f199ebb61c3decf462feed4e7d467094ed38d8afaf43620736b5983a12fe2427"
   license "MIT"
+  revision 1
   head "https://github.com/mhinz/neovim-remote.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class NeovimRemote < Formula
   end
 
   depends_on "neovim"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "greenlet" do
     url "https://files.pythonhosted.org/packages/47/6d/be10df2b141fcb1020c9605f7758881b5af706fb09a05b737e8eb7540387/greenlet-1.1.0.tar.gz"
