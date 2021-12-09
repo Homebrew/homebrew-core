@@ -20,7 +20,7 @@ class Filebeat < Formula
 
   depends_on "go" => :build
   depends_on "mage" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   uses_from_macos "rsync" => :build
 
