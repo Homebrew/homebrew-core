@@ -18,7 +18,7 @@ class Hsd < Formula
     sha256 catalina: "32607b1d4de029dfe5be50508b30aca83ee087a5e43fad5e275c4b753ba28c57"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "node@10"
   depends_on "unbound"
 
