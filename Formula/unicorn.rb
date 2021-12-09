@@ -15,7 +15,7 @@ class Unicorn < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.10" => [:build, :test]
 
   def install
     ENV["PREFIX"] = prefix
@@ -26,7 +26,7 @@ class Unicorn < Formula
     system "make", "install"
 
     cd "bindings/python" do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
@@ -78,6 +78,6 @@ class Unicorn < Formula
                    "-pthread", "-lpthread", "-lm", "-L#{lib}", "-lunicorn"
     system testpath/"test1"
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import unicorn; print(unicorn.__version__)"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import unicorn; print(unicorn.__version__)"
   end
 end
