@@ -13,7 +13,7 @@ class Xkeyboardconfig < Formula
   depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   uses_from_macos "libxslt" => :build
 
   def install
