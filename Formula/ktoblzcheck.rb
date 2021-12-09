@@ -4,7 +4,7 @@ class Ktoblzcheck < Formula
   url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.53.tar.gz"
   sha256 "18b9118556fe83240f468f770641d2578f4ff613cdcf0a209fb73079ccb70c55"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -23,7 +23,7 @@ class Ktoblzcheck < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
