@@ -6,7 +6,7 @@ class MpsYoutube < Formula
   url "https://files.pythonhosted.org/packages/b1/8e/5156416119545e3f5ba16ec0fdbb2c7d0b57fad9e19ee8554856cd4a41ad/mps-youtube-0.2.8.tar.gz"
   sha256 "59ce3944626fbd1a041e1e1b15714bbd138ebc71ceb89e32ea9470d8152af083"
   license "GPL-3.0-or-later"
-  revision 11
+  revision 12
 
   bottle do
     rebuild 2
@@ -18,7 +18,7 @@ class MpsYoutube < Formula
   end
 
   depends_on "mplayer"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "pafy" do
     url "https://files.pythonhosted.org/packages/7e/02/b70f4d2ad64bbc7d2a00018c6545d9b9039208553358534e73e6dd5bbaf6/pafy-0.5.5.tar.gz"
