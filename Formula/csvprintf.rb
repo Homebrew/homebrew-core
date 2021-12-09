@@ -1,8 +1,8 @@
 class Csvprintf < Formula
   desc "Command-line utility for parsing CSV files"
   homepage "https://github.com/archiecobbs/csvprintf"
-  url "https://github.com/archiecobbs/csvprintf/archive/1.2.1.tar.gz"
-  sha256 "1a13017b5acd6bc536bda1827e8acbc190aacd57204c34b5b9d9427b8ae0d1d8"
+  url "https://github.com/archiecobbs/csvprintf/archive/1.3.0.tar.gz"
+  sha256 "f15737526f0505f0a26dbdd7799f7f3acc950001c64b18a5b233b8b0fd301b0c"
   license "Apache-2.0"
 
   bottle do
@@ -18,6 +18,12 @@ class Csvprintf < Formula
   depends_on "automake" => :build
 
   uses_from_macos "libxslt"
+
+  # Fix for missing 'u_char', remove in next version
+  patch do
+    url "https://github.com/archiecobbs/csvprintf/commit/c8798ed8.patch?full_index=1"
+    sha256 "94142117ec45922d8f6aa001ef17421e76600f761689e096015448fd3424f301"
+  end
 
   def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
