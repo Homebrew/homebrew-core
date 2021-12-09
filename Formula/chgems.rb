@@ -19,6 +19,8 @@ class Chgems < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "aac706b654c0e5a617bfa9dab9310334d874d561f2eca10a16778a3b49804545"
   end
 
+  deprecate! date: "2021-12-09", because: :repo_archived
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
