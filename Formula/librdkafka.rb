@@ -22,7 +22,7 @@ class Librdkafka < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "lz4"
   depends_on "lzlib"
   depends_on "openssl@1.1"
