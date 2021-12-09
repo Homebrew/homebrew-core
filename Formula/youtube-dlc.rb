@@ -4,6 +4,7 @@ class YoutubeDlc < Formula
   url "https://github.com/blackjack4494/yt-dlc/archive/2020.11.11-3.tar.gz"
   sha256 "649f8ba9a6916ca45db0b81fbcec3485e79895cec0f29fd25ec33520ffffca84"
   license "Unlicense"
+  revision 1
   head "https://github.com/blackjack4494/yt-dlc.git", branch: "master"
 
   livecheck do
@@ -22,7 +23,7 @@ class YoutubeDlc < Formula
   end
 
   depends_on "pandoc" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   uses_from_macos "zip" => :build
 
   def install
