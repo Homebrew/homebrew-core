@@ -222,6 +222,7 @@ jobs:
       - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
         id: brew-test-bot-formulae
         run: |
+          rm -rf bottles
           mkdir bottles
           cd bottles
           brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
