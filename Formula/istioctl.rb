@@ -2,8 +2,8 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://istio.io/"
   url "https://github.com/istio/istio.git",
-      tag:      "1.12.0",
-      revision: "016bc46f4a5e0ef3fa135b3c5380ab7765467c1a"
+      tag:      "1.12.1",
+      revision: "88902a51acfb0383809608ccff169319560f768c"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git"
 
@@ -26,7 +26,7 @@ class Istioctl < Formula
   end
 
   def install
-    # make parallelization should be fixed in version > 1.12.0
+    # make parallelization should be fixed in version > 1.12.1
     ENV.deparallelize
     ENV["VERSION"] = version.to_s
     ENV["TAG"] = version.to_s
