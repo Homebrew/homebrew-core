@@ -1,9 +1,9 @@
 class Hdt < Formula
   desc "Header Dictionary Triples (HDT) is a compression format for RDF data"
   homepage "https://github.com/rdfhdt/hdt-cpp"
-  url "http://srvgal80.deri.ie/~pabtor/hdt/hdt-1.3.3.tar.gz"
-  sha256 "ac624802909ce04cbc046f00173496fb44768b45157d284d258d394477ae23b9"
-  license "LGPL-2.1"
+  url "https://github.com/rdfhdt/hdt-cpp/archive/v1.3.3.tar.gz"
+  sha256 "3abc8af7a0b19760654acf149f0ec85d4e9589a32c4331d3bfbe2fcd825173e6"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "934a8c000b23ee6a63cda409118c47737d4549a5f0fd260a1652ecfc6b49f1d2"
@@ -13,12 +13,16 @@ class Hdt < Formula
     sha256 cellar: :any, high_sierra:   "709ea815a3a24e104b0bd873948d8cbaca317ed235098f1c042ab308f7c3cb6f"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "serd"
 
   uses_from_macos "zlib"
 
   def install
+    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
