@@ -29,6 +29,9 @@ class AbiComplianceChecker < Formula
   def install
     system "perl", "Makefile.pl", "-install", "-prefix", prefix
     (bin/"abi-compliance-checker.cmd").unlink if OS.mac?
+
+    # Make bottles uniform
+    inreplace pkgshare/"modules/Internals/SysFiles.pm", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
