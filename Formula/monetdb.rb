@@ -24,7 +24,7 @@ class Monetdb < Formula
   depends_on "bison" => :build # macOS bison is too old
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "pcre"
