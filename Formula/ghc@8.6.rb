@@ -21,7 +21,7 @@ class GhcAT86 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on arch: :x86_64
 
   uses_from_macos "m4" => :build
@@ -60,7 +60,7 @@ class GhcAT86 < Formula
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
 
     args = %w[--enable-numa=no]
     if OS.mac?
