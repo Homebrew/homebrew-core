@@ -9,6 +9,9 @@ class Libcaca < Formula
 
   livecheck do
     url :stable
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.gsub(/\.?beta/, "b") }
+    end
   end
 
   bottle do
