@@ -4,6 +4,7 @@ class MmCommon < Formula
   url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.3.tar.xz"
   sha256 "e81596625899aacf1d0bf27ccc2fcc7f373405ec48735ca1c7273c0fbcdc1ef5"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f40a6de3865dbb9c453f82b2eae422bb54ae0e422ee287ad41cea24f4b084937"
@@ -16,7 +17,7 @@ class MmCommon < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     mkdir "build" do
