@@ -21,7 +21,7 @@ class Openmsx < Formula
     sha256 cellar: :any, mojave:         "57e29bb1e9e2ed95d628b7933c1929eb99da46f9bfc4885bc9b072a94afd6c0e"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "freetype"
   depends_on "glew"
   depends_on "libogg"
