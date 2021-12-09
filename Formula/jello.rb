@@ -25,7 +25,7 @@ class Jello < Formula
 
   def install
     virtualenv_install_with_resources
-    man1.install "jello/man/jello.1"
+    man1.install "man/jello.1"
   end
 
   test do
