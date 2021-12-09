@@ -36,7 +36,7 @@ class Subversion < Formula
 
   depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "scons" => :build # For Serf
   depends_on "swig" => :build
   depends_on "apr"
@@ -167,7 +167,7 @@ class Subversion < Formula
       --enable-javahl
       --without-jikes
       PERL=#{perl}
-      PYTHON=#{Formula["python@3.9"].opt_bin}/python3
+      PYTHON=#{Formula["python@3.10"].opt_bin}/python3
       RUBY=#{ruby}
     ]
 
@@ -187,7 +187,7 @@ class Subversion < Formula
 
     system "make", "swig-py"
     system "make", "install-swig-py"
-    (lib/"python3.9/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
+    (lib/"python3.10/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
     # Java and Perl support don't build correctly in parallel:
     # https://github.com/Homebrew/homebrew/issues/20415
