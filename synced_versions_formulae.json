@@ -2,6 +2,7 @@
   ["advancemame", "advancemenu"],
   ["apache-arrow", "apache-arrow-glib"],
   ["arm-linux-gnueabihf-binutils", "binutils"],
+  ["aws-console", "cfn-format", "rain"],
   ["binutils", "i686-elf-binutils", "x86_64-elf-binutils"],
   ["bundler-completion", "gem-completion", "rails-completion", "ruby-completion"],
   ["cmake", "cmake-docs"],
