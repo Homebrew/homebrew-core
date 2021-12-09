@@ -7,6 +7,7 @@ class Semgrep < Formula
       tag:      "v0.76.2",
       revision: "bddf674c52fbc294b11f298704b975dba98f8aa7"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
   livecheck do
@@ -31,7 +32,7 @@ class Semgrep < Formula
   depends_on "pipenv" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "tree-sitter"
 
   uses_from_macos "rsync" => :build
@@ -179,7 +180,7 @@ class Semgrep < Formula
     ENV["SEMGREP_SKIP_BIN"] = "1"
     python_path = "semgrep"
     cd python_path do
-      venv = virtualenv_create(libexec, Formula["python@3.9"].bin/"python3.9")
+      venv = virtualenv_create(libexec, Formula["python@3.10"].bin/"python3.10")
       venv.pip_install resources.reject { |r| r.name == "ocaml-tree-sitter" }
       venv.pip_install_and_link buildpath/python_path
     end
