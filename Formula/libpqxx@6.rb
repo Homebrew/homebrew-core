@@ -22,12 +22,12 @@ class LibpqxxAT6 < Formula
   deprecate! date: "2020-06-23", because: :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "xmlto" => :build
   depends_on "libpq"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
 
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
