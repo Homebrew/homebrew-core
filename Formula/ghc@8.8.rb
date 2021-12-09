@@ -21,7 +21,7 @@ class GhcAT88 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on arch: :x86_64
 
   uses_from_macos "m4" => :build
