@@ -3,7 +3,7 @@ class Glslang < Formula
   homepage "https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/"
   url "https://github.com/KhronosGroup/glslang/archive/11.7.1.tar.gz"
   sha256 "ab2e2ddc507bb418b9227cbe6f443eb06e89e2387944f42026d82c0b4ef79b0a"
-  license all_of: ["BSD-3-clause", "GPL-3.0-or-later", "MIT", "Apache-2.0"]
+  license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "MIT", "Apache-2.0"]
   head "https://github.com/KhronosGroup/glslang.git"
 
   livecheck do
