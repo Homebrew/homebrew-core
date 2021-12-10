@@ -1,15 +1,14 @@
 class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.2/synfig-1.4.2.tar.gz"
-  mirror "https://github.com/synfig/synfig/releases/download/v1.4.2/synfig-1.4.2.tar.gz"
-  sha256 "e66688b908ab2f05f87cc5a364f958a1351f101ccab3b3ade33a926453002f4e"
+  url "https://github.com/synfig/synfig/releases/download/v1.5.1/synfig-1.5.1.tar.gz"
+  sha256 "aa91593c28a89f269be1be9c8bd9ecca6491f9e6af26744d1c160c6553ee2ced"
   license "GPL-3.0-or-later"
-  head "https://svn.code.sf.net/p/synfig/code/"
+  head "https://github.com/synfig/synfig.git", branch: "master"
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/synfig[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
