@@ -29,7 +29,9 @@ class Flif < Formula
   end
 
   def install
-    system "make", "PREFIX=#{prefix}", "install", "install-dev"
+    system "cmake", "-S", "src", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     doc.install "doc/flif.pdf"
   end
 
