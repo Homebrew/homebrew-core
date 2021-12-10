@@ -4,8 +4,8 @@ class Envoy < Formula
   # Switch to a tarball when the following issue is resolved:
   # https://github.com/envoyproxy/envoy/issues/2181
   url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.20.1",
-      revision: "ea23f47b27464794980c05ab290a3b73d801405e"
+      tag:      "v1.21.0",
+      revision: "a9d72603c68da3a10a1c0d021d01c7877e6f2a30"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -31,7 +31,7 @@ class Envoy < Formula
     # GCC added as a test dependency to work around Homebrew issue. Otherwise `brew test` fails.
     # CompilerSelectionError: envoy cannot be built with any available compilers.
     depends_on "gcc@9" => [:build, :test]
-    depends_on "python@3.9" => :build
+    depends_on "python@3.10" => :build
   end
 
   # https://github.com/envoyproxy/envoy/tree/main/bazel#supported-compiler-versions
@@ -49,7 +49,7 @@ class Envoy < Formula
     env_path = if OS.mac?
       "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
     else
-      "#{Formula["python@3.9"].opt_libexec}/bin:#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+      "#{Formula["python@3.10"].opt_bin}:#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
     end
     args = %W[
       --compilation_mode=opt
@@ -59,6 +59,12 @@ class Envoy < Formula
       --action_env=PATH=#{env_path}
       --host_action_env=PATH=#{env_path}
     ]
+
+    if OS.linux?
+      # Disable extension `tcp_stats` which requires Linux headers >= 4.6
+      # It's a directive with absolute path `#include </usr/include/linux/tcp.h>`
+      args << "--//source/extensions/transport_sockets/tcp_stats:enabled=false"
+    end
 
     system Formula["bazelisk"].opt_bin/"bazelisk", "build", *args, "//source/exe:envoy-static"
     bin.install "bazel-bin/source/exe/envoy-static" => "envoy"
