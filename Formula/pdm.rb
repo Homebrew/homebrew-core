@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/ac/5d/17295171f7fc132356177eefa6478948584e9232e699d34e482ab2c814e8/pdm-1.11.1.tar.gz"
-  sha256 "3a3af246b0a1261188c40f9b6e46388f1ee0cc118ff745d29bea93d4759c06d1"
+  url "https://files.pythonhosted.org/packages/b0/10/e4e68d9e8f5dbb7c2a3b56b957c9d1a16fbf9041ff10771661ea2facc914/pdm-1.11.2.tar.gz"
+  sha256 "f85410858879b23017b79ec30d98b0dbae11cc0b5ccbadfbe932433969636209"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -20,14 +20,9 @@ class Pdm < Formula
   depends_on "python@3.10"
   depends_on "six"
 
-  resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
-    sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
-  end
-
   resource "atoml" do
-    url "https://files.pythonhosted.org/packages/9d/aa/8d4cf5524bc78caf154f2649bebbf1826caa493a680acab9a84bfc38030a/atoml-1.1.0.tar.gz"
-    sha256 "061ae4cade56de5100f67678097167a3d4285a448f9e0be53e86513730eb72bb"
+    url "https://files.pythonhosted.org/packages/df/bb/d9733f8070c6bb66817a27ec53a0847c63b53395d797d091a477ece5f4c7/atoml-1.1.1.tar.gz"
+    sha256 "cda7b3cee4383e37d88e040d9339e75cd257bb1995054046b61d6746f110146c"
   end
 
   resource "attrs" do
@@ -63,6 +58,11 @@ class Pdm < Formula
   resource "pep517" do
     url "https://files.pythonhosted.org/packages/0a/65/6e656d49c679136edfba25f25791f45ffe1ea4ae2ec1c59fe9c35e061cd1/pep517-0.12.0.tar.gz"
     sha256 "931378d93d11b298cf511dd634cf5ea4cb249a28ef84160b3247ee9afb4e8ab0"
+  end
+
+  resource "platformdirs" do
+    url "https://files.pythonhosted.org/packages/4b/96/d70b9462671fbeaacba4639ff866fb4e9e558580853fc5d6e698d0371ad4/platformdirs-2.4.0.tar.gz"
+    sha256 "367a5e80b3d04d2428ffa76d33f124cf11e8fff2acdaa9b43d545f5c7d661ef2"
   end
 
   resource "pyparsing" do
