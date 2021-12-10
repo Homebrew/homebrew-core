@@ -2,8 +2,8 @@ class Tilt < Formula
   desc "Define your dev environment as code. For microservice apps on Kubernetes"
   homepage "https://tilt.dev/"
   url "https://github.com/tilt-dev/tilt.git",
-    tag:      "v0.23.2",
-    revision: "34b9d2be3392d83bbf32b587a5a9c38612651c21"
+    tag:      "v0.23.3",
+    revision: "a71350c746352224017049deb9791c5d12ac0707"
   license "Apache-2.0"
   head "https://github.com/tilt-dev/tilt.git", branch: "master"
 
