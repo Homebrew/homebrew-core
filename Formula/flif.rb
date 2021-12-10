@@ -19,6 +19,7 @@ class Flif < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff311c649c3357c593fa165175971438c4c5cc5b582307845c722da847579479"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "libpng"
   depends_on "sdl2"
