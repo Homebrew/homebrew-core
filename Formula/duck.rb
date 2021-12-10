@@ -24,7 +24,7 @@ class Duck < Formula
   depends_on xcode: :build
 
   depends_on "libffi"
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   uses_from_macos "zlib"
 
@@ -130,7 +130,7 @@ class Duck < Formula
       libdir.install buildpath/"JavaNativeFoundation.framework"
       # Replace runtime with already installed dependency
       rm_r "#{libexec}/Contents/PlugIns/Runtime.jre"
-      ln_s Formula["openjdk@17"].libexec/"openjdk.jdk", "#{libexec}/Contents/PlugIns/Runtime.jre"
+      ln_s Formula["openjdk"].libexec/"openjdk.jdk", "#{libexec}/Contents/PlugIns/Runtime.jre"
     else
       libexec.install Dir["cli/linux/target/release/duck/*"]
     end
