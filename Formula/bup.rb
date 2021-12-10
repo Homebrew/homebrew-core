@@ -4,6 +4,7 @@ class Bup < Formula
   url "https://github.com/bup/bup/archive/0.32.tar.gz"
   sha256 "a894cfa96c44b9ef48003b2c2104dc5fa6361dd2f4d519261a93178984a51259"
   license all_of: ["BSD-2-Clause", "LGPL-2.0-only"]
+  revision 1
   head "https://github.com/bup/bup.git", branch: "master"
 
   bottle do
@@ -18,10 +19,10 @@ class Bup < Formula
 
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
 
     system "make", "PREFIX=#{prefix}", "install"
   end
