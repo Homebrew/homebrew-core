@@ -1,7 +1,7 @@
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
-  homepage "https://github.com/bitnami/kubecfg"
-  url "https://github.com/bitnami/kubecfg/archive/v0.22.0.tar.gz"
+  homepage "https://github.com/kubecfg/kubecfg"
+  url "https://github.com/kubecfg/kubecfg/archive/v0.22.0.tar.gz"
   sha256 "1a27df34f815069c843da18430bca2ae0aa7d3156ea17c5bd4efcfa23014b768"
   license "Apache-2.0"
 
@@ -18,9 +18,9 @@ class Kubecfg < Formula
   depends_on "go" => :build
 
   def install
-    (buildpath/"src/github.com/bitnami/kubecfg").install buildpath.children
+    (buildpath/"src/github.com/kubecfg/kubecfg").install buildpath.children
 
-    cd "src/github.com/bitnami/kubecfg" do
+    cd "src/github.com/kubecfg/kubecfg" do
       system "make", "VERSION=v#{version}"
       bin.install "kubecfg"
       pkgshare.install Dir["examples/*"], "testdata/kubecfg_test.jsonnet"
