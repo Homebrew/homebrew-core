@@ -5,6 +5,7 @@ class TerraformRover < Formula
   url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.2.2.tar.gz"
   sha256 "91dc4ff26e0adafde011db1e6111a8a3c545cddbae1a70c8f4c3abc484b0be0b"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5367581968ec927f8b2d8a5c576c5b9a381f45da7e135a03093772cc4d54c1f6"
@@ -19,6 +20,12 @@ class TerraformRover < Formula
   depends_on "go" => :build
   depends_on "node"
   depends_on "terraform"
+
+  # Update terraform components, remove in next version
+  patch do
+    url "https://github.com/im2nguyen/rover/commit/a2a1e57ffcbedcc9a8d39c2696d4cee84eec8cd6.patch?full_index=1"
+    sha256 "d085834625def68e9ebaaee89a6d077fba12220df5347529412f82c9cc69d7cd"
+  end
 
   def install
     Language::Node.setup_npm_environment
