@@ -15,7 +15,7 @@ class Blockhash < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "imagemagick"
 
   resource "homebrew-testdata" do
@@ -24,7 +24,7 @@ class Blockhash < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_bin
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_bin
 
     system "./waf", "configure", "--prefix=#{prefix}"
     # pkg-config adds -fopenmp flag during configuring
