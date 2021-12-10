@@ -8,6 +8,7 @@ class Lammps < Formula
   version "20210929-update1"
   sha256 "5000b422c9c245b92df63507de5aa2ea4af345ea1f00180167aaa084b711c27c"
   license "GPL-2.0-only"
+  revision 1
 
   # The `strategy` block below is used to massage upstream tags into the
   # YYYY-MM-DD format we use in the `version`. This is necessary for livecheck
@@ -40,23 +41,19 @@ class Lammps < Formula
   depends_on "gcc" # for gfortran
   depends_on "jpeg"
   depends_on "kim-api"
+  depends_on "libomp"
   depends_on "libpng"
   depends_on "open-mpi"
 
   def install
     ENV.cxx11
 
-    # Disable some packages for which we do not have dependencies, that are
-    # deprecated or require too much configuration.
-    disabled_packages = %w[gpu kokkos latte mscg message mpiio poems python voronoi]
-
     %w[serial mpi].each do |variant|
       cd "src" do
-        disabled_packages.each do |package|
-          system "make", "no-#{package}"
-        end
-
-        system "make", "yes-basic"
+        system "make", "yes-all"
+        system "make", "no-lib"
+        system "make", "no-intel"
+        system "make", "yes-kim"
 
         system "make", variant,
                        "LMP_INC=-DLAMMPS_GZIP",
