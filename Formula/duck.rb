@@ -45,6 +45,11 @@ class Duck < Formula
     sha256 "97680b8ddb5c0f01e50f63d04680d0823a5cb2d9b585287094de38278d2e6625"
   end
 
+  resource "rococoa" do
+    url "https://github.com/iterate-ch/rococoa/archive/refs/tags/0.9.1.tar.gz"
+    sha256 "62c3c36331846384aeadd6014c33a30ad0aaff7d121b775204dc65cb3f00f97b"
+  end
+
   resource "JavaNativeFoundation" do
     url "https://github.com/apple/openjdk/archive/refs/tags/iTunesOpenJDK-1014.0.2.12.1.tar.gz"
     sha256 "e8556a73ea36c75953078dfc1bafc9960e64593bc01e733bc772d2e6b519fd4a"
@@ -102,6 +107,15 @@ class Duck < Formula
       end
     end
 
+    resource("rococoa").stage do
+      next unless OS.mac?
+
+      cd "rococoa/rococoa-core" do
+        xcodebuild "VALID_ARCHS=#{Hardware::CPU.arch}", "-project", "rococoa.xcodeproj"
+        buildpath.install shared_library("build/Release/librococoa")
+      end
+    end
+
     os = if OS.mac?
       xcconfig = buildpath/"Overrides.xcconfig"
       xcconfig.write <<~EOS
@@ -132,6 +146,8 @@ class Duck < Formula
       # Replace runtime with already installed dependency
       rm_r "#{libexec}/Contents/PlugIns/Runtime.jre"
       ln_s Formula["openjdk"].libexec/"openjdk.jdk", "#{libexec}/Contents/PlugIns/Runtime.jre"
+      rm libdir/shared_library("librococoa")
+      libdir.install buildpath/shared_library("librococoa")
     else
       libexec.install Dir["cli/linux/target/release/duck/*"]
     end
