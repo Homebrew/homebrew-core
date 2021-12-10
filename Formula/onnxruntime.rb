@@ -2,8 +2,8 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-      tag:      "v1.9.1",
-      revision: "2a96b73a1afa9aaafb510749627e267c4e8dee63"
+      tag:      "v1.10.0",
+      revision: "0d9030e79888d1d5828730b254fedc53c7b640c1"
   license "MIT"
 
   livecheck do
@@ -25,7 +25,7 @@ class Onnxruntime < Formula
   depends_on "python@3.9" => :build
 
   on_linux do
-    depends_on "gcc" => :build
+    depends_on "gcc"
   end
 
   fails_with gcc: "5" # GCC version < 7 is no longer supported
