@@ -2,8 +2,8 @@ class Amfora < Formula
   desc "Fancy terminal browser for the Gemini protocol"
   homepage "https://github.com/makeworld-the-better-one/amfora"
   url "https://github.com/makeworld-the-better-one/amfora.git",
-      tag:      "v1.9.1",
-      revision: "48d83d13d2029ad0158ed9a9388bcbb0813c9da4"
+      tag:      "v1.9.2",
+      revision: "61d864540140f463a183e187e4211c258bd518bf"
   license all_of: [
     "GPL-3.0-only",
     any_of: ["GPL-3.0-only", "MIT"], # rr
