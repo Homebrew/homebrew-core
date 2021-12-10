@@ -1,8 +1,8 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/releases/download/v0.9.0/signal-cli-0.9.0.tar.gz"
-  sha256 "c24f2493e3c6d27c36384ee671c1a33f8df9484cad4ad472d6e9f183a12a3fff"
+  url "https://github.com/AsamK/signal-cli/releases/download/v0.9.2/signal-cli-0.9.2.tar.gz"
+  sha256 "0ae9ab22538f9af437c7b51ae48d86ed99534806e12e001030f520e08e5609e4"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -24,16 +24,16 @@ class SignalCli < Formula
 
   resource "libsignal-client" do
     # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libsignal-client
-    # we want the specific libsignal-client version from 'signal-cli-0.9.0/lib/signal-client-XXXX-X.X.X.jar'
-    url "https://github.com/signalapp/libsignal-client/archive/refs/tags/v0.9.0.tar.gz"
-    sha256 "7caa3a337190d473052a7e84cb7b2cfdb83b59209bfab30ed68b2c346637d54e"
+    # we want the specific libsignal-client version from 'signal-cli-0.9.2/lib/signal-client-XXXX-X.X.X.jar'
+    url "https://github.com/signalapp/libsignal-client/archive/v0.9.7.tar.gz"
+    sha256 "d6ba63e0147befd5901d01d24a5025d476651e3d1bf66a9991fc8e3952b54075"
   end
 
   resource "libzkgroup" do
     # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libzkgroup
     # we want to use the same version signal-cli uses; see 'signal-cli-X.X.X/lib/zkgroup-java-X.X.X.jar'
-    url "https://github.com/signalapp/zkgroup/archive/refs/tags/v0.7.0.tar.gz"
-    sha256 "6479d00f7b4f5acab3694c6970849502879f6fa82a74ab2879d7128d79a42007"
+    url "https://github.com/signalapp/zkgroup/archive/v0.8.2.tar.gz"
+    sha256 "c2f758cb96c4e49b18439c8c0ae06d129a8f46549b63a9498cf54d7d64489dcc"
   end
 
   def install
