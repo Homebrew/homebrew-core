@@ -13,7 +13,7 @@ class Chakra < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "icu4c"
 
   uses_from_macos "llvm" => [:build, :test]
