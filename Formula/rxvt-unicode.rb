@@ -20,6 +20,7 @@ class RxvtUnicode < Formula
     sha256 x86_64_linux:   "33700270809fe7d85c106cc6ef8aeb0c85c053ea52f39e6124464cfbf01a8309"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "freetype"
@@ -31,6 +32,11 @@ class RxvtUnicode < Formula
 
   uses_from_macos "perl"
 
+  resource "libptytty" do
+    url "https://github.com/yusiwen/libptytty/archive/b9694ea18e0dbd78213f55233a430325c13ad63e.tar.gz"
+    sha256 "dbe67f6dbe5ba4bb3e0f0a2195b6837aedc32ee6d39d1b5484777a608f8709fb"
+  end
+
   # Patches 1 and 2 remove -arch flags for compiling perl support
   # Patch 3 fixes `make install` target on case-insensitive filesystems
   patch do
@@ -39,6 +45,12 @@ class RxvtUnicode < Formula
   end
 
   def install
+    resource("libptytty").stage do
+      system "cmake", ".", "-DCMAKE_INSTALL_PREFIX=#{libexec}", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+      system "make", "install"
+    end
+    ENV.prepend_path "PATH", libexec/"lib"
+
     args = %W[
       --prefix=#{prefix}
       --enable-256-color
