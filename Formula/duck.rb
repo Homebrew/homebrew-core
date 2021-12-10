@@ -106,6 +106,7 @@ class Duck < Formula
       xcconfig = buildpath/"Overrides.xcconfig"
       xcconfig.write <<~EOS
         OTHER_LDFLAGS = -headerpad_max_install_names
+        VALID_ARCHS=#{Hardware::CPU.arch}
       EOS
       ENV["XCODE_XCCONFIG_FILE"] = xcconfig
 
