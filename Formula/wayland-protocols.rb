@@ -14,19 +14,18 @@ class WaylandProtocols < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "46ff9ea4c52643e3a0c7291e4dcf3badcb3adc64648e6c3e3c949fdca53b4f49"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "wayland" => :build
   depends_on :linux
 
   def install
-    system "./autogen.sh", "--prefix=#{prefix}",
-                           "--sysconfdir=#{etc}",
-                           "--localstatedir=#{var}",
-                           "--disable-silent-rules"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
