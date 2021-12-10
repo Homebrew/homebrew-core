@@ -13,6 +13,10 @@ class Scs < Formula
     sha256 cellar: :any, catalina:       "299e64e7238afb223b721ca1586d168128f6981432058f6f76e766954f1fee5f"
   end
 
+  on_linux do
+    depends_on "openblas"
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "test/problems/random_prob"
