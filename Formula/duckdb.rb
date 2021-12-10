@@ -5,6 +5,8 @@ class Duckdb < Formula
       tag:      "v0.3.1",
       revision: "88aa81c6b1b851c538145e6431ea766a6e0ef435"
   license "MIT"
+  revision 1
+  head "https://github.com/duckdb/duckdb.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -18,21 +20,27 @@ class Duckdb < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.10" => :build
-  depends_on "utf8proc"
 
   def install
-    ENV.deparallelize if OS.linux? # amalgamation builds take GBs of RAM
-    mkdir "build/amalgamation"
+    args = %w[
+      BUILD_ICU=1
+      BUILD_TPCH=1
+      BUILD_FTS=1
+      BUILD_REST=1
+    ]
+
+    # make install includes individual headers, so do it like duckdb does releases
+    system "make", *args
     system Formula["python@3.10"].opt_bin/"python3", "scripts/amalgamation.py", "--extended"
-    cd "build/amalgamation" do
-      system "cmake", "../..", *std_cmake_args, "-DAMALGAMATION_BUILD=ON"
-      system "make"
-      system "make", "install"
-      bin.install "duckdb"
-      # The cli tool was renamed (0.1.8 -> 0.1.9)
-      # Create a symlink to not break compatibility
-      bin.install_symlink bin/"duckdb" => "duckdb_cli"
-    end
+
+    include.install "src/amalgamation/duckdb.hpp"
+    include.install "src/include/duckdb.h"
+    lib.install Dir["build/release/src/libduckdb*.{dylib,so}"]
+    bin.install "build/release/duckdb"
+    bin.install "build/release/tools/rest/duckdb_rest_server"
+    # The cli tool was renamed (0.1.8 -> 0.1.9)
+    # Create a symlink to not break compatibility
+    bin.install_symlink bin/"duckdb" => "duckdb_cli"
   end
 
   test do
@@ -51,6 +59,29 @@ class Duckdb < Formula
       └───────────┘
     EOS
 
-    assert_equal expected_output, shell_output("#{bin}/duckdb_cli < #{path}")
+    assert_equal expected_output, shell_output("#{bin}/duckdb test.duckdb < #{path}")
+
+    port = free_port
+    begin
+      args = %W[
+        --listen=localhost
+        --port=#{port}
+        --read_only
+        --fetch_timeout=2
+        --database=test.duckdb
+      ]
+      pid = fork do
+        exec bin/"duckdb_rest_server", *args
+      end
+      sleep 1
+
+      TCPSocket.open("localhost", port) do |sock|
+        sock.puts("GET /query?q=SELECT+AVG(temp)+FROM+weather HTTP/1.0\r\n\r\n")
+        assert_match "[[45.0]]", sock.read
+        sock.close
+      end
+    ensure
+      Process.kill("TERM", pid)
+    end
   end
 end
