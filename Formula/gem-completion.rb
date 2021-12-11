@@ -21,6 +21,6 @@ class GemCompletion < Formula
 
   test do
     assert_match "-F __gem",
-      shell_output("source #{bash_completion}/gem && complete -p gem")
+      shell_output("bash -c 'source #{bash_completion}/gem && complete -p gem'")
   end
 end
