@@ -6,6 +6,11 @@ class Jrsonnet < Formula
   license "MIT"
   head "https://github.com/CertainLach/jrsonnet.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fcb5b5d99df55c43c70b475ea291ee1d614b76e705be867d688f17bb22ac9842"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "583e666fb6a076a89b1d447ad9220d30409cc62e931c1f4c9dd99cfee9291252"
