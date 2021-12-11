@@ -25,6 +25,6 @@ class RustcCompletion < Formula
 
   test do
     assert_match "-F _rustc",
-      shell_output("source #{bash_completion}/rustc && complete -p rustc")
+      shell_output("bash -c 'source #{bash_completion}/rustc && complete -p rustc'")
   end
 end
