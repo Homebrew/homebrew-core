@@ -4,6 +4,7 @@ class Dovecot < Formula
   url "https://dovecot.org/releases/2.3/dovecot-2.3.17.tar.gz"
   sha256 "224412cd77a23a3ffb857da294da200883d956082cff7257942eff2789bd2df9"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
+  revision 1
 
   livecheck do
     url "https://www.dovecot.org/download/"
@@ -26,6 +27,7 @@ class Dovecot < Formula
 
   on_linux do
     depends_on "linux-pam"
+    depends_on "zstd"
   end
 
   resource "pigeonhole" do
