@@ -3,7 +3,7 @@ class GetIplayer < Formula
   homepage "https://github.com/get-iplayer/get_iplayer"
   url "https://github.com/get-iplayer/get_iplayer/archive/v3.28.tar.gz"
   sha256 "8ba1e398001609c5893604ea6aac6058c833b54ed00ef150a14fa1cb094b0df3"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/get-iplayer/get_iplayer.git", branch: "develop"
 
   bottle do
