@@ -29,6 +29,6 @@ class FabricCompletion < Formula
 
   test do
     assert_match "-F __fab_completion",
-      shell_output("source #{bash_completion}/fabric && complete -p fab")
+      shell_output("bash -c 'source #{bash_completion}/fabric && complete -p fab'")
   end
 end
