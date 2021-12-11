@@ -6,6 +6,11 @@ class Neovim < Formula
   license "Apache-2.0"
   head "https://github.com/neovim/neovim.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "ec4155754605b16da518787995c7ab51e5b163792117f3183ea205cbae5c9e1c"
     sha256 arm64_big_sur:  "4da15cf92d2cf0f113e190c00e431c06c997391be35b5144b81cc218028dc7c2"
