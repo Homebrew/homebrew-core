@@ -6,6 +6,12 @@ class Uuu < Formula
   license "BSD-3-Clause"
   head "https://github.com/NXPmicro/mfgtools.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(%r{href=["']?[^"' >]*?/tag/(?:uuu[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :github_latest
+  end
+
   bottle do
     sha256 arm64_monterey: "56a412dd091e6e8f16eece2399fe09a6bb60f17f27b3cc9e7ba3a2fa831a1f32"
     sha256 arm64_big_sur:  "3155b7adc7452904671c7da18cbaa59766dfdd567e85a2b242c24cd8dfede40a"
