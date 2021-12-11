@@ -4,6 +4,7 @@ class Weechat < Formula
   url "https://weechat.org/files/src/weechat-3.3.tar.xz"
   sha256 "cafeab8af8be4582ccfd3e74fd40e5086a1efa158231f2c26b8b05c3950fcbdf"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/weechat/weechat.git", branch: "master"
 
   bottle do
@@ -26,7 +27,7 @@ class Weechat < Formula
   depends_on "lua"
   depends_on "ncurses"
   depends_on "perl"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "ruby"
 
   uses_from_macos "curl"
