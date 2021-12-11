@@ -6,6 +6,11 @@ class Certigo < Formula
   license "Apache-2.0"
   head "https://github.com/square/certigo.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8d58d141ec797642a5328639290a50e8af1aab185a38c36be13d4a5e8c7aa0a6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbb97e3b924fe9c0074b14c885682c3eec696ded881a65db17af607bfeb85c97"
