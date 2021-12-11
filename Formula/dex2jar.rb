@@ -5,6 +5,11 @@ class Dex2jar < Formula
   sha256 "7a9bdf843d43de4d1e94ec2e7b6f55825017b0c4a7ee39ff82660e2493a46f08"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "19befbca4d509e7895c346200eb08faf8fba035a297760bc6e3f60785901add1"
   end
