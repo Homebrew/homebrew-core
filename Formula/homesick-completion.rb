@@ -17,6 +17,6 @@ class HomesickCompletion < Formula
 
   test do
     assert_match "-F _homesick",
-      shell_output("source #{bash_completion}/homesick && complete -p homesick")
+      shell_output("bash -c 'source #{bash_completion}/homesick && complete -p homesick'")
   end
 end
