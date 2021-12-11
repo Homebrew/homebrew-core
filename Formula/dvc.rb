@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/a1/94/9b2746056915ebee774a63485d037712238958014acaede5341827d81c4a/dvc-2.9.1.tar.gz"
-  sha256 "777020ed96d411cd0257ea4fdb842307a02a187b6ff8eacb7d97397507b5a007"
+  url "https://files.pythonhosted.org/packages/88/45/421a2109fd4411bd9355fbf243f02b2a30c69c308853af06fe201e150491/dvc-2.9.2.tar.gz"
+  sha256 "543257907a843952c44bdb1ea84f2ae33d8693584c1175eb49eb95da0c2a2e49"
   license "Apache-2.0"
 
   bottle do
@@ -361,8 +361,8 @@ class Dvc < Formula
   end
 
   resource "mailchecker" do
-    url "https://files.pythonhosted.org/packages/33/7f/b11cf22b06c40a40261e716bc821b15fd99642311ccc80eb7c74972b122b/mailchecker-4.1.4.tar.gz"
-    sha256 "a47efddc93c70f55eca3491472da1694549f14f63098a05add769a5c16df69fb"
+    url "https://files.pythonhosted.org/packages/9d/63/d5254da4c8ce3d9f8a25c5e88a9209a376bb761726a626ca8f05e269d82e/mailchecker-4.1.6.tar.gz"
+    sha256 "bf56e590dde59eb7498d8226e46fbc5a39e13615487bd97d2cb29ddd2340e069"
   end
 
   resource "msal" do
@@ -566,8 +566,8 @@ class Dvc < Formula
   end
 
   resource "scmrepo" do
-    url "https://files.pythonhosted.org/packages/9b/a8/2b7aa05e42c7ecbfd09d67744f63c0792778d53fc8227196f40762af059a/scmrepo-0.0.3.tar.gz"
-    sha256 "d29d9fb3e218c3632bf7f7b71500927d8a36f3f2d62ab888206913965b9afb1c"
+    url "https://files.pythonhosted.org/packages/5d/00/3338360c8f983e8ac866454f49fced38094fc4775b65c195bdaa411402d6/scmrepo-0.0.4.tar.gz"
+    sha256 "e00a46f1c5f560c35bafd792fd14b07144e1a2d1c384e20ab44a25f5f1d7c335"
   end
 
   resource "shortuuid" do
