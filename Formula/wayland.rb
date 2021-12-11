@@ -1,10 +1,9 @@
 class Wayland < Formula
   desc "Protocol for a compositor to talk to its clients"
   homepage "https://wayland.freedesktop.org"
-  url "https://wayland.freedesktop.org/releases/wayland-1.19.0.tar.xz"
-  sha256 "baccd902300d354581cd5ad3cc49daa4921d55fb416a5883e218750fef166d15"
+  url "https://wayland.freedesktop.org/releases/wayland-1.20.0.tar.xz"
+  sha256 "b8a034154c7059772e0fdbd27dbfcda6c732df29cae56a82274f6ec5d7cd8725"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://wayland.freedesktop.org/releases.html"
@@ -15,6 +14,8 @@ class Wayland < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "2f1d90edbb445d3aed8bb61eb9f2ab528a7f2a8d528ab960adb4942f7b29f952"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on :linux
 
@@ -23,18 +24,11 @@ class Wayland < Formula
   uses_from_macos "libxml2"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --sysconfdir=#{etc}
-      --localstatedir=#{var}
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --disable-documentation
-    ]
-
-    system "./configure", *args
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dtests=false", "-Ddocumentation=false", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
