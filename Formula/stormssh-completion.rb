@@ -15,6 +15,6 @@ class StormsshCompletion < Formula
 
   test do
     assert_match "-F __stormssh",
-      shell_output("source #{bash_completion}/stormssh && complete -p storm")
+      shell_output("bash -c 'source #{bash_completion}/stormssh && complete -p storm'")
   end
 end
