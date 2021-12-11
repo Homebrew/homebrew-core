@@ -21,6 +21,6 @@ class RailsCompletion < Formula
 
   test do
     assert_match "-F __rails",
-      shell_output("source #{bash_completion}/rails && complete -p rails")
+      shell_output("bash -c 'source #{bash_completion}/rails && complete -p rails'")
   end
 end
