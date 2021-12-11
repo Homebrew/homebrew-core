@@ -25,6 +25,6 @@ class PipCompletion < Formula
 
   test do
     assert_match "-F _pip",
-      shell_output("source #{bash_completion}/pip && complete -p pip")
+      shell_output("bash -c 'source #{bash_completion}/pip && complete -p pip'")
   end
 end
