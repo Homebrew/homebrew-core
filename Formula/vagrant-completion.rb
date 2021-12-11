@@ -17,6 +17,6 @@ class VagrantCompletion < Formula
 
   test do
     assert_match "-F _vagrant",
-      shell_output("/bin/bash -c 'source #{bash_completion}/vagrant && complete -p vagrant'")
+      shell_output("bash -c 'source #{bash_completion}/vagrant && complete -p vagrant'")
   end
 end
