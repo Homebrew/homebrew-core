@@ -15,6 +15,6 @@ class MixCompletion < Formula
 
   test do
     assert_match "-F _mix",
-      shell_output("source #{bash_completion}/mix && complete -p mix")
+      shell_output("bash -c 'source #{bash_completion}/mix && complete -p mix'")
   end
 end
