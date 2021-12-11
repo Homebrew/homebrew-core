@@ -15,6 +15,6 @@ class ApmBashCompletion < Formula
 
   test do
     assert_match "-F __apm",
-      shell_output("source #{bash_completion}/apm && complete -p apm")
+      shell_output("bash -c 'source #{bash_completion}/apm && complete -p apm'")
   end
 end
