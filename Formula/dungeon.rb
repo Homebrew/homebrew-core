@@ -3,6 +3,7 @@ class Dungeon < Formula
   homepage "https://github.com/GOFAI/dungeon"
   url "https://github.com/GOFAI/dungeon/archive/4.1.tar.gz"
   sha256 "b88c49ef60e908e8611257fbb5a6a41860e1058760df2dfcb7eb141eb34e198b"
+  license "HPND"
   revision 2
 
   bottle do
@@ -23,6 +24,9 @@ class Dungeon < Formula
                                                                      "\n\t2\tACCESS='SEQUENTIAL',ERR=1900)"
         s.gsub! "FILE='dtext',STATUS='OLD',", "FILE='#{opt_pkgshare}/dtext',"
         s.gsub! "1\tFORM='UNFORMATTED',ACCESS='DIRECT',", "1\tSTATUS='OLD',FORM='UNFORMATTED',ACCESS='DIRECT',"
+      end
+      inreplace "Makefile" do |s|
+        s.gsub! "gfortran -g", "gfortran -ffixed-line-length-none -g"
       end
       system "make"
       bin.install "dungeon"
