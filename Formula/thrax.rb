@@ -6,6 +6,7 @@ class Thrax < Formula
   url "https://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.6.tar.gz"
   sha256 "5f00a2047674753cba6783b010ab273366dd3dffc160bdb356f7236059a793ba"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://www.openfst.org/twiki/bin/view/GRM/ThraxDownload"
@@ -26,7 +27,7 @@ class Thrax < Formula
 
   on_linux do
     depends_on "gcc"
-    depends_on "python@3.9"
+    depends_on "python@3.10"
   end
 
   fails_with gcc: "5"
