@@ -26,6 +26,7 @@ class Synfig < Formula
   depends_on "fftw"
   depends_on "freetype"
   depends_on "gettext"
+  depends_on "imagemagick"
   depends_on "libpng"
   depends_on "libsigc++@2"
   depends_on "libtool"
