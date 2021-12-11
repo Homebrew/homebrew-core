@@ -24,6 +24,6 @@ class TmuxinatorCompletion < Formula
 
   test do
     assert_match "-F _tmuxinator",
-      shell_output("source #{bash_completion}/tmuxinator && complete -p tmuxinator")
+      shell_output("bash -c 'source #{bash_completion}/tmuxinator && complete -p tmuxinator'")
   end
 end
