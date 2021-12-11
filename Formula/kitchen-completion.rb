@@ -16,6 +16,6 @@ class KitchenCompletion < Formula
 
   test do
     assert_match "-F __kitchen_options",
-      shell_output("source #{bash_completion}/kitchen && complete -p kitchen")
+      shell_output("bash -c 'source #{bash_completion}/kitchen && complete -p kitchen'")
   end
 end
