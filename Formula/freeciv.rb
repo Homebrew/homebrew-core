@@ -1,8 +1,8 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "http://freeciv.org"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.5/freeciv-2.6.5.tar.bz2"
-  sha256 "2e64e1c74dae12acb17bbf5daa980efc7e9fd57820afed5135319ca95291ec59"
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.6/freeciv-2.6.6.tar.bz2"
+  sha256 "7bcfe5dd3c081122e7cde7cdb24f57c3681d6a9667496faed207a91ac3165811"
   license "GPL-2.0-or-later"
 
   livecheck do
