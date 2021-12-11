@@ -46,8 +46,9 @@ class RxvtUnicode < Formula
 
   def install
     resource("libptytty").stage do
-      system "cmake", ".", "-DCMAKE_INSTALL_PREFIX=#{libexec}", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
-      system "make", "install"
+      system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args(install_prefix: libexec)
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
     end
     ENV.prepend_path "PATH", libexec/"lib"
 
