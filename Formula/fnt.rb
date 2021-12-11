@@ -9,8 +9,7 @@ class Fnt < Formula
   depends_on "lcdf-typetools"
 
   def install
-    bin.install "fnt"
-    man.install "fnt.1"
+    system "make", "BINDIR=#{bin}", "MANDIR=#{man}", "ZCOMPDIR=#{zsh_completion}", "install"
   end
 
   test do
