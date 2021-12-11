@@ -1,10 +1,10 @@
 class ApacheGeode < Formula
   desc "In-memory Data Grid for fast transactional data processing"
   homepage "https://geode.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=geode/1.14.0/apache-geode-1.14.0.tgz"
-  mirror "https://archive.apache.org/dist/geode/1.14.0/apache-geode-1.14.0.tgz"
-  mirror "https://downloads.apache.org/geode/1.14.0/apache-geode-1.14.0.tgz"
-  sha256 "d8a72225caf63889e41f8909cffc9303fb288515387f216d3207bc6d5457b947"
+  url "https://www.apache.org/dyn/closer.lua?path=geode/1.14.1/apache-geode-1.14.1.tgz"
+  mirror "https://archive.apache.org/dist/geode/1.14.1/apache-geode-1.14.1.tgz"
+  mirror "https://downloads.apache.org/geode/1.14.1/apache-geode-1.14.1.tgz"
+  sha256 "1be5c03d82ef852eb8bb914af6927af545cbe69d62fd645eb122f077674a014f"
   license "Apache-2.0"
 
   bottle do
