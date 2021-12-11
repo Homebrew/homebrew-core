@@ -17,6 +17,6 @@ class GruntCompletion < Formula
 
   test do
     assert_match "-F _grunt_completions",
-      shell_output("source #{bash_completion}/grunt && complete -p grunt")
+      shell_output("bash -c 'source #{bash_completion}/grunt && complete -p grunt'")
   end
 end
