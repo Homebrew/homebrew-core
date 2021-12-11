@@ -16,6 +16,6 @@ class MavenCompletion < Formula
 
   test do
     assert_match "-F _mvn",
-      shell_output("source #{bash_completion}/maven && complete -p mvn")
+      shell_output("bash -c 'source #{bash_completion}/maven && complete -p mvn'")
   end
 end
