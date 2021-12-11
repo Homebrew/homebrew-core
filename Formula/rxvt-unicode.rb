@@ -50,7 +50,7 @@ class RxvtUnicode < Formula
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
     end
-    ENV.prepend_path "PATH", libexec/"lib"
+    ENV.prepend_path "PATH", libexec/"bin"
 
     args = %W[
       --prefix=#{prefix}
