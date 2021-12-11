@@ -14,6 +14,6 @@ class CapCompletion < Formula
 
   test do
     assert_match "-F _cap",
-      shell_output("source #{bash_completion}/cap && complete -p cap")
+      shell_output("bash -c 'source #{bash_completion}/cap && complete -p cap'")
   end
 end
