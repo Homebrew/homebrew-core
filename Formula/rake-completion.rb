@@ -15,6 +15,6 @@ class RakeCompletion < Formula
 
   test do
     assert_match "-F _rakecomplete",
-      shell_output("source #{bash_completion}/rake && complete -p rake")
+      shell_output("bash -c 'source #{bash_completion}/rake && complete -p rake'")
   end
 end
