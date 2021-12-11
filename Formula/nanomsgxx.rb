@@ -16,7 +16,7 @@ class Nanomsgxx < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "nanomsg"
 
   # Add python3 support
