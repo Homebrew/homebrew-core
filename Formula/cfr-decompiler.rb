@@ -2,8 +2,8 @@ class CfrDecompiler < Formula
   desc "Yet Another Java Decompiler"
   homepage "https://www.benf.org/other/cfr/"
   url "https://github.com/leibnitz27/cfr.git",
-      tag:      "0.151",
-      revision: "fecd6421a8b9de98ade2b9f9b89caecf4a8c93d8"
+      tag:      "0.152",
+      revision: "68477be3ff7171ee17ddd1a26064b9b253f1604f"
   license "MIT"
   head "https://github.com/leibnitz27/cfr.git", branch: "master"
 
