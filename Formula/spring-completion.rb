@@ -21,6 +21,6 @@ class SpringCompletion < Formula
 
   test do
     assert_match "-F _spring",
-      shell_output("source #{bash_completion}/spring && complete -p spring")
+      shell_output("bash -c 'source #{bash_completion}/spring && complete -p spring'")
   end
 end
