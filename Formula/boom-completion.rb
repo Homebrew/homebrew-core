@@ -17,6 +17,6 @@ class BoomCompletion < Formula
 
   test do
     assert_match "-F _boom_complete",
-      shell_output("source #{bash_completion}/boom && complete -p boom")
+      shell_output("bash -c 'source #{bash_completion}/boom && complete -p boom'")
   end
 end
