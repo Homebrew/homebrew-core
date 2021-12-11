@@ -40,6 +40,10 @@ class Amfora < Formula
     input.puts "stty rows 80 cols 43"
     input.puts "env TERM=xterm #{bin}/amfora"
     sleep 1
+    input.putc "1"
+    sleep 1
+    input.putc "1"
+    sleep 1
     input.putc "q"
 
     screenlog = (testpath/"screenlog.txt").read
