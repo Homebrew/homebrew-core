@@ -17,6 +17,6 @@ class TCompletion < Formula
 
   test do
     assert_match "-F _t",
-      shell_output("source #{bash_completion}/t && complete -p t")
+      shell_output("bash -c 'source #{bash_completion}/t && complete -p t'")
   end
 end
