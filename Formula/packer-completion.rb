@@ -16,6 +16,6 @@ class PackerCompletion < Formula
 
   test do
     assert_match "-F _packer_completion",
-      shell_output("source #{bash_completion}/packer && complete -p packer")
+      shell_output("bash -c 'source #{bash_completion}/packer && complete -p packer'")
   end
 end
