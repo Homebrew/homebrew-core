@@ -23,7 +23,7 @@ class OpenAdventure < Formula
   end
 
   depends_on "asciidoc" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   uses_from_macos "libxml2" => :build
   uses_from_macos "libedit"
@@ -38,7 +38,7 @@ class OpenAdventure < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.9")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resources
     system libexec/"bin/python", "./make_dungeon.py"
     system "make"
