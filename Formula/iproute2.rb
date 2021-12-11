@@ -6,6 +6,11 @@ class Iproute2 < Formula
   license "GPL-2.0-only"
   head "https://git.kernel.org/pub/scm/network/iproute2/iproute2.git", branch: "main"
 
+  livecheck do
+    url "https://mirrors.edge.kernel.org/pub/linux/utils/net/iproute2/"
+    regex(/href=.*?iproute2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 x86_64_linux: "1101f8a608be6e4c999c0d2abe3cc980466faca68f7f5b04696b67fadba84c28"
   end
