@@ -21,6 +21,6 @@ class RubyCompletion < Formula
 
   test do
     assert_match "-F __ruby",
-      shell_output("source #{bash_completion}/ruby && complete -p ruby")
+      shell_output("bash -c 'source #{bash_completion}/ruby && complete -p ruby'")
   end
 end
