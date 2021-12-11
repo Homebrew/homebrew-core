@@ -7,6 +7,11 @@ class Colima < Formula
   license "MIT"
   head "https://github.com/abiosoft/colima.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9747ca65ca6be26b4263e1bce95c1a940701c536fd0f87b58832691f74881896"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81d0c6180696757c3a29e4688128a31ef06b3f3ff6a45a7098e67ca5f2fa0e99"
