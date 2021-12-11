@@ -21,6 +21,6 @@ class BundlerCompletion < Formula
 
   test do
     assert_match "-F __bundle",
-      shell_output("source #{bash_completion}/bundler && complete -p bundle")
+      shell_output("bash -c 'source #{bash_completion}/bundler && complete -p bundle'")
   end
 end
