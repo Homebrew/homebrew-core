@@ -21,6 +21,6 @@ class DjangoCompletion < Formula
 
   test do
     assert_match "-F _django_completion",
-      shell_output("source #{bash_completion}/django && complete -p django-admin.py")
+      shell_output("bash -c 'source #{bash_completion}/django && complete -p django-admin.py'")
   end
 end
