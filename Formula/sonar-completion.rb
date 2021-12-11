@@ -16,6 +16,6 @@ class SonarCompletion < Formula
 
   test do
     assert_match "-F _sonar",
-      shell_output("source #{bash_completion}/sonar && complete -p sonar")
+      shell_output("bash -c 'source #{bash_completion}/sonar && complete -p sonar'")
   end
 end
