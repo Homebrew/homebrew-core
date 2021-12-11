@@ -16,6 +16,6 @@ class WpCliCompletion < Formula
 
   test do
     assert_match "-F _wp_complete",
-      shell_output("source #{bash_completion}/wp && complete -p wp")
+      shell_output("bash -c 'source #{bash_completion}/wp && complete -p wp'")
   end
 end
