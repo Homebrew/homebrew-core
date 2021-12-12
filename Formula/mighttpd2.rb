@@ -1,8 +1,8 @@
 class Mighttpd2 < Formula
   desc "HTTP server"
   homepage "https://kazu-yamamoto.github.io/mighttpd2/"
-  url "https://hackage.haskell.org/package/mighttpd2-4.0.0/mighttpd2-4.0.0.tar.gz"
-  sha256 "5afc8acb4e268401dc19964b710230e5013399b8ad3baa7ae6d5e5802ad4ac42"
+  url "https://hackage.haskell.org/package/mighttpd2-4.0.2/mighttpd2-4.0.2.tar.gz"
+  sha256 "1d4dc43b96a3064a8c0b752f71591cb04d769b76e3b922a5ea3529057d530960"
   license "BSD-3-Clause"
 
   bottle do
