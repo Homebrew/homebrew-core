@@ -24,7 +24,7 @@ class RaxmlNg < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
-  resource "example" do
+  resource "homebrew-example" do
     url "https://sco.h-its.org/exelixis/resource/download/hands-on/dna.phy"
     sha256 "c2adc42823313831b97af76b3b1503b84573f10d9d0d563be5815cde0effe0c2"
   end
@@ -44,7 +44,7 @@ class RaxmlNg < Formula
   end
 
   test do
-    testpath.install resource("example")
+    testpath.install resource("homebrew-example")
     system "#{bin}/raxml-ng", "--msa", "dna.phy", "--start", "--model", "GTR"
   end
 end
