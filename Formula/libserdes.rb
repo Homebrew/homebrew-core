@@ -2,8 +2,8 @@ class Libserdes < Formula
   desc "Schema ser/deserializer lib for Avro + Confluent Schema Registry"
   homepage "https://github.com/confluentinc/libserdes"
   url "https://github.com/confluentinc/libserdes.git",
-      tag:      "v7.0.0",
-      revision: "a04cc80dc38aaf4ed7b4c9c60b781ebf4cbfda5e"
+      tag:      "v7.0.1",
+      revision: "8c02e4cd98f0eaf6113fc1fa0b8a0ee9350c4961"
   license "Apache-2.0"
   head "https://github.com/confluentinc/libserdes.git"
 
