@@ -6,7 +6,7 @@ class Panoply < Formula
   url "https://files.pythonhosted.org/packages/cd/0e/0f1941eddb73b39c969f5ea17891593e83b3877f0a67049a2ffdb0fd6736/panoply-0.1.45.tar.gz"
   sha256 "d8f5d2241da0294e47fdbde12ef140b4c87599b752d30e187ed977712919cafc"
 
-  depends_on 'python@3.9'
+  depends_on "python@3.9"
 
   resource "simple-term-menu" do
     url "https://files.pythonhosted.org/packages/de/08/08c19f7653a9d7c73df024090243a8a44583b613f8f1ed51d79cbb5ae70e/simple-term-menu-1.4.1.tar.gz"
