@@ -1,9 +1,9 @@
 class Ipbt < Formula
   desc "Program for recording a UNIX terminal session"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/ipbt-20210215.5a9cb02.tar.gz"
-  version "20210215"
-  sha256 "0aeafaacbccb89d2aaf044d6c6582c71cb66f607847854f2df514a21f6a5cb70"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/ipbt-20211203.104f822.tar.gz"
+  version "20211203"
+  sha256 "631ee26dce8d4906e52963bbd7b579c91e9902d0f28903d90415d20ea5b730ba"
   license "MIT"
 
   livecheck do
