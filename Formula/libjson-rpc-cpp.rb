@@ -1,8 +1,8 @@
 class LibjsonRpcCpp < Formula
   desc "C++ framework for json-rpc"
   homepage "https://github.com/cinemast/libjson-rpc-cpp"
-  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.4.0.tar.gz"
-  sha256 "8fef7628eadbc0271c685310082ef4c47f1577c3df2e4c8bd582613d1bd10599"
+  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.4.1.tar.gz"
+  sha256 "7a057e50d6203e4ea0a10ba5e4dbf344c48b177e5a3bf82e850eb3a783c11eb5"
   license "MIT"
   head "https://github.com/cinemast/libjson-rpc-cpp.git"
 
