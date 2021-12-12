@@ -2,12 +2,11 @@ class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
   license "NCSA"
-  revision 2
 
   stable do
-    url "https://include-what-you-use.org/downloads/include-what-you-use-0.16.src.tar.gz"
-    sha256 "8d6fc9b255343bc1e5ec459e39512df1d51c60e03562985e0076036119ff5a1c"
-    depends_on "llvm@12" # include-what-you-use 0.16 is compatible with llvm 12.0
+    url "https://include-what-you-use.org/downloads/include-what-you-use-0.17.src.tar.gz"
+    sha256 "eca7c04f8b416b6385ed00e33669a7fa4693cd26cb72b522cde558828eb0c665"
+    depends_on "llvm" # include-what-you-use 0.17 is compatible with llvm 13.0
   end
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
