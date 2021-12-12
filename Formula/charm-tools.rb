@@ -17,6 +17,12 @@ class CharmTools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "05fcfb6cc67603f0b7f063b8a1fadcd4821a17d693d5bfa84c9397ec1c4fa7f0"
   end
 
+  # Upstream did not respond to https://github.com/juju/charm-tools/issues/
+  # Also, fails to build due to blessing 1.6 dependency, which did not get
+  # the necessary fixes to remove 2_to_3, https://github.com/erikrose/blessings/issues/68
+  # which fails with current setuptools
+  deprecate! date: "2021-12-12", because: :does_not_build
+
   depends_on "rust" => :build
   depends_on "charm"
   depends_on "libyaml"
