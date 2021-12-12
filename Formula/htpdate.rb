@@ -30,6 +30,6 @@ class Htpdate < Formula
   end
 
   test do
-    system "#{bin}/htpdate", "-q", "-d", "-u", ENV["USER"], "example.org"
+    system "#{sbin}/htpdate", "-q", "-d", "-u", ENV["USER"], "example.org"
   end
 end
