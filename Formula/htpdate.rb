@@ -1,8 +1,8 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
   homepage "https://www.vervest.org/htp/"
-  url "https://www.vervest.org/htp/archive/c/htpdate-1.2.3.tar.xz"
-  sha256 "6b4e3fbf93d552a3a20f30a3906bf0caac05d9626bd508220744010fe9dd53f0"
+  url "https://www.vervest.org/htp/archive/c/htpdate-1.2.4.tar.gz"
+  sha256 "8c735ccef0857b71478a838b136d7e177b8d78283a6b51633472b273cc46dd18"
   license "GPL-2.0-or-later"
 
   livecheck do
