@@ -26,7 +26,7 @@ class Nco < Formula
   depends_on "texinfo"
   depends_on "udunits"
 
-  resource "example_nc" do
+  resource "homebrew-example_nc" do
     url "https://www.unidata.ucar.edu/software/netcdf/examples/WMI_Lear.nc"
     sha256 "e37527146376716ef335d01d68efc8d0142bdebf8d9d7f4e8cbe6f880807bdef"
   end
@@ -40,7 +40,7 @@ class Nco < Formula
   end
 
   test do
-    testpath.install resource("example_nc")
+    testpath.install resource("homebrew-example_nc")
     output = shell_output("#{bin}/ncks --json -M WMI_Lear.nc")
     assert_match "\"time\": 180", output
   end
