@@ -16,7 +16,7 @@ class Libmwaw < Formula
   depends_on "pkg-config" => :build
   depends_on "librevenge"
 
-  resource "test_document" do
+  resource "homebrew-test_document" do
     url "https://github.com/openpreserve/format-corpus/raw/825c8a5af012a93cf7aac408b0396e03a4575850/office-examples/Old%20Word%20file/NEWSSLID.DOC"
     sha256 "df0af8f2ae441f93eb6552ed2c6da0b1971a0d82995e224b7663b4e64e163d2b"
   end
@@ -30,7 +30,7 @@ class Libmwaw < Formula
   end
 
   test do
-    testpath.install resource("test_document")
+    testpath.install resource("homebrew-test_document")
     # Test ID on an actual office document
     assert_equal shell_output("#{bin}/mwawFile #{testpath}/NEWSSLID.DOC").chomp,
                  "#{testpath}/NEWSSLID.DOC:Microsoft Word 2.0[pc]"
