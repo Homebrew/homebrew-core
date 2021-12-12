@@ -3,7 +3,7 @@ class Isync < Formula
   homepage "https://isync.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/isync/isync/1.4.4/isync-1.4.4.tar.gz"
   sha256 "7c3273894f22e98330a330051e9d942fd9ffbc02b91952c2f1896a5c37e700ff"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://git.code.sf.net/p/isync/isync.git", branch: "master"
 
   bottle do
