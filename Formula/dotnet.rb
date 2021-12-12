@@ -5,6 +5,7 @@ class Dotnet < Formula
       tag:      "v5.0.207-SDK",
       revision: "52296950a9e8d1b34a2e0e10e4b8bb06daba2dcc"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
