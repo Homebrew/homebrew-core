@@ -14,6 +14,7 @@ class LttngUst < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "2a1aaa6c23382092d5f4e8422dd1db1330b46a80631c63bb4f3441d04dc30244"
   end
 
+  depends_on "pkg-config" => :build
   depends_on :linux
   depends_on "numactl"
   depends_on "userspace-rcu"
