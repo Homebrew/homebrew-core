@@ -420,6 +420,9 @@
     "exclude_packages": ["numpy"]
   },
   "semgrep": "semgrep",
+  "shallow-backup": {
+    "exclude_packages": ["six"]
+  },
   "sphinx-doc": {
     "extra_packages": ["numpydoc"]
   },
