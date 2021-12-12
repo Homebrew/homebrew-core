@@ -1,9 +1,9 @@
 class Libosip < Formula
   desc "Implementation of the eXosip2 stack"
   homepage "https://www.gnu.org/software/osip/"
-  url "https://ftp.gnu.org/gnu/osip/libosip2-5.2.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/osip/libosip2-5.2.1.tar.gz"
-  sha256 "ee3784bc8e7774f56ecd0e2ca6e3e11d38b373435115baf1f1aa0ca0bfd02bf2"
+  url "https://ftp.gnu.org/gnu/osip/libosip2-5.3.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/osip/libosip2-5.3.0.tar.gz"
+  sha256 "f4725916c22cf514969efb15c3c207233d64739383f7d42956038b78f6cae8c8"
   license "LGPL-2.1-or-later"
 
   livecheck do
