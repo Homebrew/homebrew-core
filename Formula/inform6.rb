@@ -16,7 +16,7 @@ class Inform6 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "43a33f80c3d186855817dae7774121a878a349e46f9c8a7f6cfec3b1d6ebafb1"
   end
 
-  resource "test_resource" do
+  resource "homebrew-test_resource" do
     url "https://inform-fiction.org/examples/Adventureland/Adventureland.inf"
     sha256 "3961388ff00b5dfd1ccc1bb0d2a5c01a44af99bdcf763868979fa43ba3393ae7"
   end
@@ -28,7 +28,7 @@ class Inform6 < Formula
   end
 
   test do
-    resource("test_resource").stage do
+    resource("homebrew-test_resource").stage do
       system "#{bin}/inform", "Adventureland.inf"
       assert_predicate Pathname.pwd/"Adventureland.z5", :exist?
     end
