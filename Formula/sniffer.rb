@@ -2,7 +2,7 @@ class Sniffer < Formula
   desc "Modern alternative network traffic sniffer"
   homepage "https://github.com/chenjiandongx/sniffer"
   url "https://github.com/chenjiandongx/sniffer/archive/v0.5.1.tar.gz"
-  sha256 "6517f4edf3f655963c3ff7f57a7f8c472bf8d2f4638f86d1ae06aef8a3e72e15"
+  sha256 "b9fbead3f72e31a6599e0dffa6e5f7e09b9a68baf6de69b7313f568988e93c6b"
   license "MIT"
   
   depends_on "go" => :build
