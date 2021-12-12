@@ -1,8 +1,8 @@
 class LttngUst < Formula
   desc "Linux Trace Toolkit Next Generation Userspace Tracer"
   homepage "https://lttng.org/"
-  url "https://lttng.org/files/lttng-ust/lttng-ust-2.12.2.tar.bz2"
-  sha256 "bcd0f064b6ca88c72d84e760eac3472ae5c828411c634435922bee9fce359fc7"
+  url "https://lttng.org/files/lttng-ust/lttng-ust-2.13.1.tar.bz2"
+  sha256 "5667bf0269e1e62e2d9cb974c456ff86e0401bd7aa3bfc8d5fdb97233249eddc"
   license all_of: ["LGPL-2.1-only", "MIT", "GPL-2.0-only", "BSD-3-Clause", "BSD-2-Clause", "GPL-3.0-or-later"]
 
   livecheck do
