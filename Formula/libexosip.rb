@@ -1,10 +1,10 @@
 class Libexosip < Formula
   desc "Toolkit for eXosip2"
   homepage "https://savannah.nongnu.org/projects/exosip"
-  url "https://download.savannah.gnu.org/releases/exosip/libexosip2-5.2.1.tar.gz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/exosip/libexosip2-5.2.1.tar.gz"
-  sha256 "87256b45a406f3c038e1e75e31372d526820366527c2af3bb89329bafd87ec42"
-  license "GPL-2.0"
+  url "https://download.savannah.gnu.org/releases/exosip/libexosip2-5.3.0.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/exosip/libexosip2-5.3.0.tar.gz"
+  sha256 "5b7823986431ea5cedc9f095d6964ace966f093b2ae7d0b08404788bfcebc9c2"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/exosip/"
