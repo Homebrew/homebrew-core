@@ -9,7 +9,7 @@ class PhpCsFixer < Formula
     sha256 cellar: :any_skip_relocation, all: "1c7ae560f6187651f5517778dc71c6e3be71fd4cf50bf49c2091bf7f3f6811d2"
   end
 
-  depends_on "php@8.0"
+  depends_on "php"
 
   def install
     libexec.install "php-cs-fixer.phar"
