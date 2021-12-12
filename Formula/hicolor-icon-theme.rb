@@ -3,7 +3,12 @@ class HicolorIconTheme < Formula
   homepage "https://wiki.freedesktop.org/www/Software/icon-theme/"
   url "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz"
   sha256 "317484352271d18cbbcfac3868eab798d67fff1b8402e740baa6ff41d588a9d8"
-  license "GPL-2.0"
+  license all_of: ["FSFUL", "FSFULLR", "GPL-2.0-only", "X11"]
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?hicolor-icon-theme[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1153e436e03439c74a2eae87b6b5fbb6c8192607420dd5b01d0295a8ef29d2e5"
@@ -20,7 +25,7 @@ class HicolorIconTheme < Formula
   end
 
   head do
-    url "https://gitlab.freedesktop.org/xdg/default-icon-theme.git"
+    url "https://gitlab.freedesktop.org/xdg/default-icon-theme.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
