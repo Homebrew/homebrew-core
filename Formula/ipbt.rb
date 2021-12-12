@@ -20,11 +20,12 @@ class Ipbt < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "5678b11877df9433ceb47661596d3f0b4d0894e44a4173ae118b746117938e59"
   end
 
+  depends_on "cmake" => :build
+
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
