@@ -3,8 +3,9 @@ class Skaffold < Formula
   homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
       tag:      "v1.35.1",
-      revision: "4ec4a23aeac4eab0ec6eaefc5aff459cd59166ba"
+      revision: "6945c5b1cfcffc4a168f26673c0f6695f2088dd2"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/GoogleContainerTools/skaffold.git", branch: "main"
 
   bottle do
