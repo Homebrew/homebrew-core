@@ -23,6 +23,12 @@ class Qjackctl < Formula
   depends_on "jack"
   depends_on "qt@5"
 
+  # Patch the build, remove in next release
+  patch do
+    url "https://github.com/rncbc/qjackctl/commit/86c482fcdae2612dac7370296c58b9bcb3b134d1.patch?full_index=1"
+    sha256 "dd3cdd6f21322a18012da8934000419819d8366477ce8a2bcdf49de82e6d7f51"
+  end
+
   def install
     ENV.cxx11
     system "./configure", "--disable-debug",
