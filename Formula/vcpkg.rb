@@ -38,7 +38,7 @@ class Vcpkg < Formula
     # fix for conflicting declaration of 'char* ctermid(char*)' on Mojave
     # https://github.com/microsoft/vcpkg/issues/9029
     ENV.prepend "CXXFLAGS", "-D_CTERMID_H_" if MacOS.version == :mojave
-    ENV["VCPKG_USE_SYSTEM_BINARIES"] = 1
+    ENV["VCPKG_USE_SYSTEM_BINARIES"] = "1"
 
     args = %w[-disableMetrics]
     args << "-allowAppleClang" if MacOS.version > :mojave
