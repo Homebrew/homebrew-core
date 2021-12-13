@@ -1,13 +1,10 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.17.src.tar.gz"
+  sha256 "eca7c04f8b416b6385ed00e33669a7fa4693cd26cb72b522cde558828eb0c665"
   license "NCSA"
-
-  stable do
-    url "https://include-what-you-use.org/downloads/include-what-you-use-0.17.src.tar.gz"
-    sha256 "eca7c04f8b416b6385ed00e33669a7fa4693cd26cb72b522cde558828eb0c665"
-    depends_on "llvm" # include-what-you-use 0.17 is compatible with llvm 13.0
-  end
+  head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
   # version scheme like `Clang+LLVM 3.5` (25 November 2014). The current
@@ -28,18 +25,16 @@ class IncludeWhatYouUse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "67fb75245fd62d1724bcaebbc22012f19a0721c8d1d661c74e2cf87923732e50"
   end
 
-  head do
-    url "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
-    depends_on "llvm"
-  end
-
   depends_on "cmake" => :build
+  depends_on "llvm"
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  fails_with gcc: "5" # LLVM is built with GCC
+
   def llvm
-    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+    deps.map(&:to_formula).find { |f| f.name.match? "^llvm(@\d+(\.\d+)*)?$" }
   end
 
   def install
@@ -47,18 +42,11 @@ class IncludeWhatYouUse < Formula
     # so install to libexec to ensure that the resource path, which is always
     # computed relative to the location of the include-what-you-use executable
     # and is not configurable, is also located under libexec.
-    args = std_cmake_args + %W[
-      -DCMAKE_INSTALL_PREFIX=#{libexec}
-      -DCMAKE_PREFIX_PATH=#{llvm.opt_lib}
-    ]
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec)
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-    mkdir "build" do
-      system "cmake", *args, ".."
-      system "make"
-      system "make", "install"
-    end
-
-    bin.write_exec_script Dir["#{libexec}/bin/*"]
+    bin.write_exec_script libexec.glob("bin/*")
 
     # include-what-you-use needs a copy of the clang and libc++ headers to be
     # located in specific folders under its resource path. These may need to be
