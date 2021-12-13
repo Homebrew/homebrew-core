@@ -9,7 +9,7 @@ class Phpmd < Formula
     sha256 cellar: :any_skip_relocation, all: "5ed3d4023ff0e8fef0b07b838d75f40f42ae3f61f531a47abdb9a100dce84705"
   end
 
-  depends_on "php@8.0" => :test
+  depends_on "php"
 
   def install
     bin.install "phpmd.phar" => "phpmd"
