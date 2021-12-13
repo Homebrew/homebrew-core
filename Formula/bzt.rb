@@ -6,7 +6,7 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/bc/44/802b7f740ef7ce53aed555223279760e1a253cebb9f3dd665e7f01f8db40/bzt-1.15.2.tar.gz"
   sha256 "c06b3eb7e965583394832550581a52bb2c53d076beebe74d23d795802ed2b522"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
@@ -20,7 +20,7 @@ class Bzt < Formula
 
   depends_on "rust" => :build
   depends_on "numpy"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -247,7 +247,7 @@ class Bzt < Formula
     virtualenv_install_with_resources
 
     # remove non-native binary
-    (libexec/"lib/python3.9/site-packages/selenium/webdriver/firefox/x86/x_ignore_nofocus.so").unlink if OS.linux?
+    (libexec/"lib/python3.10/site-packages/selenium/webdriver/firefox/x86/x_ignore_nofocus.so").unlink if OS.linux?
   end
 
   test do
