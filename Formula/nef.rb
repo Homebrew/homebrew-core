@@ -16,8 +16,8 @@ class Nef < Formula
   depends_on xcode: "11.4"
 
   def install
-    inreplace "Makefile", '$(MAKE) bash', ''
-    inreplace "Makefile", '$(MAKE) zsh', ''
+    inreplace "Makefile", "$(MAKE) bash", ""
+    inreplace "Makefile", "$(MAKE) zsh", ""
     system "make", "install", "prefix=#{prefix}", "version=#{version}"
   end
 
