@@ -209,6 +209,11 @@ jobs:
           echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
           echo 'GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED=1' >> $GITHUB_ENV
 
+      - name: Set HOMEBREW_CURL_RETRIES
+        if: ${{always() && fromJson(needs.setup_tests.outputs.fail-fast) == false}}
+        run: |
+          echo 'HOMEBREW_CURL_RETRIES=10' >> $GITHUB_ENV
+
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
