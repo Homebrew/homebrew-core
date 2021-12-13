@@ -11,12 +11,11 @@ class Pegtl < Formula
 
   depends_on "cmake" => :build
 
-  if MacOS.version <= :mojave
+  on_linux do
     depends_on "gcc"
-    fails_with :clang do
-      cause "'path' is unavailable in c++ < 17: introduced in macOS 10.15"
-    end
   end
+
+  fails_with gcc: "5"
 
   def install
     mkdir "build" do
