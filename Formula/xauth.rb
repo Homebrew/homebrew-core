@@ -1,8 +1,8 @@
 class Xauth < Formula
   desc "X.Org Applications: xauth"
   homepage "https://www.x.org/"
-  url "https://www.x.org/pub/individual/app/xauth-1.1.tar.bz2"
-  sha256 "6d1dd1b79dd185107c5b0fdd22d1d791ad749ad6e288d0cdf80964c4ffa7530c"
+  url "https://www.x.org/pub/individual/app/xauth-1.1.1.tar.bz2"
+  sha256 "164ea0a29137b284a47b886ef2affcb0a74733bf3aad04f9b106b1a6c82ebd92"
   license "MIT-open-group"
 
   bottle do
