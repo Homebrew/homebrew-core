@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/42/16/1687d15d67699bf89ebc11a9fecb3423e1e660ff4c4bd458bce2caf5e18c/moto-2.2.17.tar.gz"
-  sha256 "221ebd16b41b3ae157554ca5e540a8c1b4b1c93443cbf854c1f04751194c51b6"
+  url "https://files.pythonhosted.org/packages/bd/1a/0156dc4299d009acbca3ecc99eb065eedc6b088d7fb52226f8cd7d29a4b9/moto-2.2.18.tar.gz"
+  sha256 "e33f13e49d3c10944e7ab3feffb9a842e47f7735c78630989ee63008cebb4118"
   license "Apache-2.0"
 
   bottle do
@@ -31,18 +31,18 @@ class Moto < Formula
   end
 
   resource "aws-xray-sdk" do
-    url "https://files.pythonhosted.org/packages/f5/3d/8b58be10b0976942c993c9cd312fbee7b79c455a9d74a06601a784ac306e/aws-xray-sdk-2.8.0.tar.gz"
-    sha256 "90c2fcc982a770e86d009a4c3d2b5c3e372da91cb8284d982bae458e2c0bb268"
+    url "https://files.pythonhosted.org/packages/49/26/927206007f1ac57b0801046dc9baed8df9ccbdc7622b79bdaf0c193e8051/aws-xray-sdk-2.9.0.tar.gz"
+    sha256 "b0cd972db218d4d8f7b53ad806fc6184626b924c4997ae58fc9f2a8cd1281568"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/af/41/bc312768c294131d84b3af3a7e549d688a726ee5a127221bed136e4ec910/boto3-1.20.16.tar.gz"
-    sha256 "22808328fc81937244a971f739e5f8d95acd36c8e5638787e562d504b33727be"
+    url "https://files.pythonhosted.org/packages/f0/97/04398f2e81e24a995677acbe40e6a8fc0fc5123047219df6023d4da60e42/boto3-1.20.23.tar.gz"
+    sha256 "c39cb6ed376ba1d4689ac8f6759a2b2d8a0b0424dbec0cd3af1558079bcf06e8"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/f5/66/8f5331889af81695e5eae522412486441e94fef6e945c5613226a737efec/botocore-1.23.16.tar.gz"
-    sha256 "c813e67c0f7d45cbff97a1047d8241f334eb386b3f81825e9e87e29d3a0c2ddf"
+    url "https://files.pythonhosted.org/packages/32/c9/0019f82ee913fbf08a18f4601a710330d6edb047296965ca2b75d1bf5c89/botocore-1.23.23.tar.gz"
+    sha256 "640b62110aa6d1c25553eceafb5bcd89aedeb84b191598d1f6492ad24374d285"
   end
 
   resource "certifi" do
@@ -56,13 +56,13 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/56/3b/50e04c10a02e137d4252e036986a91ee99bb5457cfe8e4696aa368e8a855/cfn-lint-0.56.2.tar.gz"
-    sha256 "b7258f90ad3d727a8a3523eec55b90ba375d99594e6449b37a3e6ccadfab6be8"
+    url "https://files.pythonhosted.org/packages/44/d1/a806e32c48caa92d0e18d6da87bd7f4e0ba1f814991844e26482f85b6417/cfn-lint-0.56.3.tar.gz"
+    sha256 "ce056cc54c3141b6da5f20066d14ac576a75ace1349a5994f772e12f2bcbfa57"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2f/39/5d8ff929409113e9ff402e405a7c7880ab1fa6f118a4ab72443976a01711/charset-normalizer-2.0.8.tar.gz"
-    sha256 "735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do
@@ -241,8 +241,8 @@ class Moto < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/4e/8f/b5c45af5a1def38b07c09a616be932ad49c35ebdc5e3cbf93966d7ed9750/websocket-client-1.2.1.tar.gz"
-    sha256 "8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d"
+    url "https://files.pythonhosted.org/packages/b6/fa/72e77d094563208174abbbaa73c32f28c43a31193b843bddf233c7c87644/websocket-client-1.2.3.tar.gz"
+    sha256 "1315816c0acc508997eb3ae03b9d3ff619c9d12d544c9a9b553704b1cc4f6af5"
   end
 
   resource "Werkzeug" do
