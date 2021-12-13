@@ -14,6 +14,7 @@ class Sniffer < Formula
   end
 
   test do
-    system bin/"sniffer", "-l"
+    output = shell_output("#{bin}/sniffer -l")
+    assert_equal true, (output.include? "lo")
   end
 end
