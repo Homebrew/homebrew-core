@@ -19,7 +19,7 @@ class Vcpkg < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
-  uses_from_macos "zip"
+  uses_from_macos "unzip"
 
   on_linux do
     depends_on "gcc" # for C++17
@@ -38,8 +38,9 @@ class Vcpkg < Formula
     # fix for conflicting declaration of 'char* ctermid(char*)' on Mojave
     # https://github.com/microsoft/vcpkg/issues/9029
     ENV.prepend "CXXFLAGS", "-D_CTERMID_H_" if MacOS.version == :mojave
+    ENV["VCPKG_USE_SYSTEM_BINARIES"] = 1
 
-    args = %w[-useSystemBinaries -disableMetrics]
+    args = %w[-disableMetrics]
     args << "-allowAppleClang" if MacOS.version > :mojave
     system "./bootstrap-vcpkg.sh", *args
 
