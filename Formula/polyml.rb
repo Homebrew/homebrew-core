@@ -3,7 +3,7 @@ class Polyml < Formula
   homepage "https://www.polyml.org/"
   url "https://github.com/polyml/polyml/archive/v5.9.tar.gz"
   sha256 "5aa452a49f2ac0278668772af4ea0b9bf30c93457e60ff7f264c5aec2023c83e"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   head "https://github.com/polyml/polyml.git", branch: "master"
 
   bottle do
