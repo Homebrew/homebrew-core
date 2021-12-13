@@ -3,8 +3,8 @@ class Pocsuite3 < Formula
 
   desc "Open-sourced remote vulnerability testing framework"
   homepage "https://pocsuite.org/"
-  url "https://files.pythonhosted.org/packages/5d/b6/3084cf84a7b012a629c3098cea5c887c0d3976057e31c2e92287024d8811/pocsuite3-1.8.7.tar.gz"
-  sha256 "fb43b4d0684390bdffe38c8d56714a5635e405ce7946c1b186e78cc7d224287c"
+  url "https://files.pythonhosted.org/packages/6e/a1/c71488704d4a150d356fb464f260f04cee718f662d596e4eb4aa5787c1d8/pocsuite3-1.8.8.tar.gz"
+  sha256 "50e76c2b335a6ecd5a88858a63a4185b7e6ff8b8ea86e28b2d888199ce629ea5"
   license "GPL-2.0-only"
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
@@ -33,19 +33,14 @@ class Pocsuite3 < Formula
     sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
-    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
-  end
-
   resource "chardet" do
     url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
     sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2f/39/5d8ff929409113e9ff402e405a7c7880ab1fa6f118a4ab72443976a01711/charset-normalizer-2.0.8.tar.gz"
-    sha256 "735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "colorama" do
@@ -58,14 +53,9 @@ class Pocsuite3 < Formula
     sha256 "344f73204009e4c83c5b6beb00b3c45dc70fcdae3c80db919e0a4171d006fde8"
   end
 
-  resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/1c/15/aceb9a2535c9fa805316b49e42fde0a83d1a0492b4e3608a4a5dc9b04b46/cryptography-3.2.tar.gz"
-    sha256 "e4789b84f8dedf190148441f7c5bfe7244782d9cbb194a36e17b91e7d3e1cca9"
-  end
-
   resource "Faker" do
-    url "https://files.pythonhosted.org/packages/97/28/7a088e10e6654835d2423f12aec34aae16fe24c392106823dbe4c25ca7b8/Faker-9.9.0.tar.gz"
-    sha256 "7227703a3db36ed8241108547544445f45aa45db2f3f63e885cb9b5699383f0e"
+    url "https://files.pythonhosted.org/packages/8c/d7/75b2629546c8d676bc3db1d91670bdb1452024e2813e8cd1162b125f1809/Faker-10.0.0.tar.gz"
+    sha256 "530690ad12a2a054071af95fc8a354c5fd57b5e7707053a9662f40f14a87b68e"
   end
 
   resource "idna" do
@@ -78,14 +68,9 @@ class Pocsuite3 < Formula
     sha256 "18e56447f636b447096977d468849c1e2d3cfa0af8e7b5acfcf83a64790c0aca"
   end
 
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-  end
-
-  resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/09/67/38a1080fabbb908515c47694238e00b6a73a82d9dbc76372263a231abfcb/pyOpenSSL-20.0.0.tar.gz"
-    sha256 "92f08eccbd73701cf744e8ffd6989aa7842d48cbe3fea8a7c031c5647f590ac5"
+  resource "pycryptodome" do
+    url "https://files.pythonhosted.org/packages/dd/3b/38d83c2725fec5b837fc05d5c6e0178a420ff839a6ad5872f10c89244899/pycryptodome-3.12.0.zip"
+    sha256 "12c7343aec5a3b3df5c47265281b12b611f26ec9367b6129199d67da54b768c1"
   end
 
   resource "PySocks" do

@@ -239,6 +239,9 @@
   "platformio": {
     "exclude_packages": ["tabulate"]
   },
+  "pocsuite3": {
+    "exclude_packages": ["six"]
+  },
   "poetry": {
     "exclude_packages": ["six"]
   },
