@@ -35,7 +35,14 @@ class Keptn < Formula
 
     assert_match "Keptn CLI version: #{version}", shell_output(bin/"keptn version 2>&1")
 
-    assert_match "Error: credentials not found in native keychain",
-      shell_output(bin/"keptn status 2>&1", 1)
+    on_macos do
+      assert_match "Error: credentials not found in native keychain",
+        shell_output(bin/"keptn status 2>&1", 1)
+    end
+
+    on_linux do
+      assert_match ".keptn/.keptn____keptn: no such file or directory",
+        shell_output(bin/"keptn status 2>&1", 1)
+    end
   end
 end
