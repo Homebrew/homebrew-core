@@ -1,8 +1,8 @@
 class Rav1e < Formula
   desc "Fastest and safest AV1 video encoder"
   homepage "https://github.com/xiph/rav1e"
-  url "https://github.com/xiph/rav1e/archive/v0.5.0.tar.gz"
-  sha256 "ee56c49dbb50a0810257445e434edb99da01c968da0635403f31bd9677886871"
+  url "https://github.com/xiph/rav1e/archive/v0.5.1.tar.gz"
+  sha256 "7b3060e8305e47f10b79f3a3b3b6adc3a56d7a58b2cb14e86951cc28e1b089fd"
   license "BSD-2-Clause"
   head "https://github.com/xiph/rav1e.git", branch: "master"
 
