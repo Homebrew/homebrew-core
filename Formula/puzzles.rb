@@ -2,9 +2,9 @@ class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
   # Extract https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.tar.gz to get the version number
-  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20211031.640f923.tar.gz"
-  version "20211031"
-  sha256 "7562d65731d98b5d07d3bb5c0f5bf3704ea2279156ff41012a48e69d0f3d50cd"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20211212.b56c994.tar.gz"
+  version "20211212"
+  sha256 "0795a58fb0e958be178b5531f2e4793c18993907162fdf77b22e0106d62daa1a"
   license "MIT"
   head "https://git.tartarus.org/simon/puzzles.git", branch: "main"
 
