@@ -1,8 +1,8 @@
 class Immudb < Formula
   desc "Lightweight, high-speed immutable database"
   homepage "https://www.codenotary.io"
-  url "https://github.com/codenotary/immudb/archive/v1.1.0.tar.gz"
-  sha256 "ae8785ccf13f46ed5c117798fbf353efd215fac0a5ee1b28f218cf738fdc1cc3"
+  url "https://github.com/codenotary/immudb/archive/v1.2.1.tar.gz"
+  sha256 "b8e8efe5721ae7b2d2830be456765a58de2df4d5f12d3959e3df9765e4118e1b"
   license "Apache-2.0"
 
   livecheck do
@@ -31,14 +31,11 @@ class Immudb < Formula
     port = free_port
 
     fork do
-      exec bin/"immudb", "--auth=true", "-p", port.to_s
+      exec bin/"immudb", "--port=#{port}"
     end
     sleep 3
 
-    system bin/"immuclient", "login", "--tokenfile=./tkn", "--username=immudb", "--password=immudb", "-p", port.to_s
-    system bin/"immuclient", "--tokenfile=./tkn", "safeset", "hello", "world", "-p", port.to_s
-    assert_match "world", shell_output("#{bin}/immuclient --tokenfile=./tkn safeget hello -p #{port}")
-
-    assert_match "OK", shell_output("#{bin}/immuadmin status -p #{port}")
+    assert_match "immuclient", shell_output("#{bin}/immuclient version")
+    assert_match "immuadmin", shell_output("#{bin}/immuadmin version")
   end
 end
