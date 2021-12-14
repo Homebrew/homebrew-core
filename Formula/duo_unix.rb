@@ -1,8 +1,8 @@
 class DuoUnix < Formula
   desc "Two-factor authentication for SSH"
   homepage "https://www.duosecurity.com/docs/duounix"
-  url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.11.4.tar.gz"
-  sha256 "2fcba3e50fd477699d013c789ffc73a0b10c204d25c455abe7c81a2ecd886579"
+  url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.11.5.tar.gz"
+  sha256 "5da37d8e7bca9c6e6016ee07537de63b2eba58baf473d5cbf0c03aba7c66c749"
   license "GPL-2.0"
 
   livecheck do
