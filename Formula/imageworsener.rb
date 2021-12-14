@@ -14,6 +14,11 @@ class Imageworsener < Formula
     end
   end
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?imageworsener[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "59a3ec8b38b32f1dd73a0e68ed6b04143f5f017c8e2f67104f1c4b04581a9a91"
     sha256 cellar: :any,                 arm64_big_sur:  "0ee5c5f12bf988c164ce3ea06ce3c6a22af96427edaf241fb68f91c3e951d2de"
@@ -25,7 +30,7 @@ class Imageworsener < Formula
   end
 
   head do
-    url "https://github.com/jsummers/imageworsener.git"
+    url "https://github.com/jsummers/imageworsener.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
