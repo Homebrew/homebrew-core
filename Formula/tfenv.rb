@@ -23,6 +23,13 @@ class Tfenv < Formula
     prefix.install %w[bin lib libexec share]
   end
 
+  def caveats
+    <<~EOS
+      Add the following line to your ~/.bash_profile:
+        export TFENV_ARCH=`uname -m`
+    EOS
+  end
+
   test do
     assert_match "0.10.0", shell_output("#{bin}/tfenv list-remote")
   end
