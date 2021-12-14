@@ -183,7 +183,6 @@ class PhpAT80 < Formula
       --with-sqlite3
       --with-tidy=#{Formula["tidy-html5"].opt_prefix}
       --with-unixODBC
-      --with-xmlrpc
       --with-xsl
       --with-zip
       --with-zlib
