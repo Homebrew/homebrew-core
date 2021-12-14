@@ -32,14 +32,14 @@ class Onednn < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <mkldnn.h>
+      #include <oneapi/dnnl/dnnl.h>
       int main() {
-        mkldnn_engine_t engine;
-        mkldnn_status_t status = mkldnn_engine_create(&engine, mkldnn_cpu, 0);
-        return !(status == mkldnn_success);
+        dnnl_engine_t engine;
+        dnnl_status_t status = dnnl_engine_create(&engine, dnnl_cpu, 0);
+        return !(status == dnnl_success);
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lmkldnn", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-ldnnl", "-o", "test"
     system "./test"
   end
 end
