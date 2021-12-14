@@ -14,8 +14,8 @@ class Pandocomatic < Formula
     sha256 cellar: :any_skip_relocation, all:           "edde182eb548bb6cf6fc909820e0c9f7377592ab70be9342cbcb13a75a8e421e"
   end
 
-  depends_on "ruby" => :build
   depends_on "pandoc"
+  depends_on "ruby"
 
   def install
     ENV["GEM_HOME"] = libexec
