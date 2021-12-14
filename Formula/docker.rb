@@ -52,6 +52,14 @@ class Docker < Formula
 
   test do
     assert_match "Docker version #{version}", shell_output("#{bin}/docker --version")
-    assert_match "ERROR: Cannot connect to the Docker daemon", shell_output("#{bin}/docker info", 1)
+
+    on_macos do
+      assert_match "ERROR: Cannot connect to the Docker daemon", shell_output("#{bin}/docker info", 1)
+    end
+
+    on_linux do
+      assert_match "ERROR: Got permission denied while trying to connect to the Docker daemon socket",
+        shell_output("#{bin}/docker info", 1)
+    end
   end
 end
