@@ -25,7 +25,7 @@ class Profanity < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "curl"
   depends_on "glib"
   depends_on "gnutls"
@@ -41,7 +41,7 @@ class Profanity < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
 
     system "./bootstrap.sh" if build.head?
 
