@@ -15,26 +15,19 @@ class Libraqm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9435ed91d1d18865b406874aedd92b2b7c34e211970d19aaccf550b20a68303a"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "gtk-doc" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "fribidi"
   depends_on "harfbuzz"
 
   def install
-    ENV["LIBTOOL"] = Formula["libtool"].bin
-    ENV["PKG_CONFIG"] = Formula["pkg-config"].bin/"pkg-config"
-
-    # for the docs
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
-    system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}", "--enable-gtk-doc"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
