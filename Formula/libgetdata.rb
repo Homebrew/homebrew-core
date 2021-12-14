@@ -3,6 +3,7 @@ class Libgetdata < Formula
   homepage "https://getdata.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/getdata/getdata/0.11.0/getdata-0.11.0.tar.xz"
   sha256 "d16feae0907090047f5cc60ae0fb3500490e4d1889ae586e76b2d3a2e1c1b273"
+  license "LGPL-2.1-or-later"
 
   bottle do
     rebuild 3
