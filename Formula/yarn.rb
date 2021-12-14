@@ -4,7 +4,7 @@ class Yarn < Formula
   url "https://yarnpkg.com/downloads/1.22.17/yarn-v1.22.17.tar.gz"
   sha256 "267982c61119a055ba2b23d9cf90b02d3d16c202c03cb0c3a53b9633eae37249"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     skip("1.x line is frozen and features/bugfixes only happen on 2.x")
@@ -21,12 +21,8 @@ class Yarn < Formula
 
   def install
     libexec.install buildpath.glob("*")
-    (bin/"yarn").write_env_script libexec/"bin/yarn.js",
-                                  PREFIX:            HOMEBREW_PREFIX,
-                                  NPM_CONFIG_PYTHON: "python3"
-    (bin/"yarnpkg").write_env_script libexec/"bin/yarn.js",
-                                      PREFIX:            HOMEBREW_PREFIX,
-                                      NPM_CONFIG_PYTHON: "python3"
+    (bin/"yarn").write_env_script libexec/"bin/yarn.js", PREFIX: HOMEBREW_PREFIX
+    (bin/"yarnpkg").write_env_script libexec/"bin/yarn.js", PREFIX: HOMEBREW_PREFIX
     inreplace libexec/"lib/cli.js", "/usr/local", HOMEBREW_PREFIX
     inreplace libexec/"package.json", '"installationMethod": "tar"',
                                       "\"installationMethod\": \"#{tap.user.downcase}\""
