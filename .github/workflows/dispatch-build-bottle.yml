@@ -70,14 +70,11 @@ jobs:
           echo wheezy=${{github.event.inputs.wheezy}}
 
       - name: Set environment variables
+        if: runner.os == 'macOS'
         run: |
-          if [ "$RUNNER_OS" = 'macOS' ]; then
-            echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
-            echo 'GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED=1' >> $GITHUB_ENV
-          else
-            # No PATH needed on Linux as set by Docker
-            echo 'HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1' >> $GITHUB_ENV
-          fi
+          echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
+          # TODO: remove the line below once set in the runner .env file
+          echo 'GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED=1' >> $GITHUB_ENV
 
       - name: Run Docker container
         if: runner.os == 'Linux'

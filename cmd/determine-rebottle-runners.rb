@@ -35,7 +35,7 @@ module Homebrew
       runner:    linux_runner,
       container: {
         image:   "ghcr.io/homebrew/ubuntu16.04:master",
-        options: "--user=linuxbrew",
+        options: "--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED",
       },
       workdir:   "/github/home",
     }
