@@ -1,8 +1,8 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/releases/download/v0.9.2/signal-cli-0.9.2.tar.gz"
-  sha256 "0ae9ab22538f9af437c7b51ae48d86ed99534806e12e001030f520e08e5609e4"
+  url "https://github.com/AsamK/signal-cli/releases/download/v0.10.0/signal-cli-0.10.0.tar.gz"
+  sha256 "d89a1f0c2abd1ec17ed833b9c3339bcc000b6c9989f472609aeb922500eed6f6"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -24,16 +24,9 @@ class SignalCli < Formula
 
   resource "libsignal-client" do
     # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libsignal-client
-    # we want the specific libsignal-client version from 'signal-cli-0.9.2/lib/signal-client-XXXX-X.X.X.jar'
-    url "https://github.com/signalapp/libsignal-client/archive/v0.9.7.tar.gz"
-    sha256 "d6ba63e0147befd5901d01d24a5025d476651e3d1bf66a9991fc8e3952b54075"
-  end
-
-  resource "libzkgroup" do
-    # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libzkgroup
-    # we want to use the same version signal-cli uses; see 'signal-cli-X.X.X/lib/zkgroup-java-X.X.X.jar'
-    url "https://github.com/signalapp/zkgroup/archive/v0.8.2.tar.gz"
-    sha256 "c2f758cb96c4e49b18439c8c0ae06d129a8f46549b63a9498cf54d7d64489dcc"
+    # we want the specific libsignal-client version from 'signal-cli-0.11.0/lib/signal-client-XXXX-X.X.X.jar'
+    url "https://github.com/signalapp/libsignal-client/archive/v0.11.0.tar.gz"
+    sha256 "ae7797b5f840c90261010bee54b8a424a2f943f08d75317c4cde3f53f25aeaca"
   end
 
   def install
@@ -58,35 +51,6 @@ class SignalCli < Formula
         cd "java/src/main/resources" do
           system "zip", "-u", libsignal_client_jar, shared_library("libsignal_jni")
         end
-      end
-    end
-
-    resource("libzkgroup").stage do
-      # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libzkgroup
-
-      zkgroup_jar = Dir[libexec/"lib/zkgroup-java-*.jar"].first
-      # rm originally-embedded libzkgroup library
-      system "zip", "-d", zkgroup_jar, "libzkgroup.so"
-
-      # https://github.com/Homebrew/homebrew-core/pull/83322#issuecomment-918945146
-      # this fix is needed until signal-cli updates to zkgroup v0.7.3
-      # use the same version of the rust-toolchain used in libsignal-client
-      inreplace "rust-toolchain", "1.41.1", "nightly-2021-06-08" if Hardware::CPU.arm?
-
-      # build & embed library for current platform
-      target = if OS.mac? && !Hardware::CPU.arm?
-        "mac_dylib"
-      else
-        "libzkgroup"
-      end
-      system "make", target
-      location = if Hardware::CPU.arm?
-        "target/release"
-      else
-        "ffi/java/src/main/resources"
-      end
-      cd location do
-        system "zip", "-u", zkgroup_jar, shared_library("libzkgroup")
       end
     end
   end
