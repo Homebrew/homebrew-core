@@ -2,14 +2,14 @@ class Swift < Formula
   include Language::Python::Shebang
 
   desc "High-performance system programming language"
-  homepage "https://swift.org"
+  homepage "https://www.swift.org"
   # NOTE: Keep version in sync with resources below
-  url "https://github.com/apple/swift/archive/swift-5.5.1-RELEASE.tar.gz"
-  sha256 "b4092b2584919f718a55ad0ed460fbc48e84ec979a9397ce0adce307aba41ac9"
+  url "https://github.com/apple/swift/archive/swift-5.5.2-RELEASE.tar.gz"
+  sha256 "0046ecab640475441251b1cceb3dd167a4c7729852104d7675bdbd75fced6b82"
   license "Apache-2.0"
 
   livecheck do
-    url "https://swift.org/download/"
+    url "https://www.swift.org/download/"
     regex(/Releases<.*?>Swift v?(\d+(?:\.\d+)+)</im)
   end
 
@@ -48,13 +48,13 @@ class Swift < Formula
     depends_on "six" => :build
 
     resource "swift-corelibs-foundation" do
-      url "https://github.com/apple/swift-corelibs-foundation/archive/swift-5.5.1-RELEASE.tar.gz"
-      sha256 "ab99fbcf0e8ede00482c614cfd0c4c42a27ae94744ca3ce0d9b03a52a3f8d4d0"
+      url "https://github.com/apple/swift-corelibs-foundation/archive/swift-5.5.2-RELEASE.tar.gz"
+      sha256 "19e909e006c72813309360d22c3ce13680be5634a0924e78baf10f75fb45f6df"
     end
 
     resource "swift-corelibs-libdispatch" do
-      url "https://github.com/apple/swift-corelibs-libdispatch/archive/swift-5.5.1-RELEASE.tar.gz"
-      sha256 "de280f470850d98887eeb0f2b4dc3524d0f2f8eb93af5618d4f1e5312d4cbbdf"
+      url "https://github.com/apple/swift-corelibs-libdispatch/archive/swift-5.5.2-RELEASE.tar.gz"
+      sha256 "2611b4dc9530207e19dae07599355622f76c32694aca3ef909149a7ecf48dfc7"
 
       # Fix unused refcount error.
       # Remove with Swift 5.6.
@@ -65,8 +65,8 @@ class Swift < Formula
     end
 
     resource "swift-corelibs-xctest" do
-      url "https://github.com/apple/swift-corelibs-xctest/archive/swift-5.5.1-RELEASE.tar.gz"
-      sha256 "11ee237c61dcd1fb20b30c35a552e5c0044d069cbaad9fb9bddd175efec4f984"
+      url "https://github.com/apple/swift-corelibs-xctest/archive/swift-5.5.2-RELEASE.tar.gz"
+      sha256 "24aa1314ac89904d801e5009ebf9e3c1838d40dd22d1f8ab5a34c14b722844aa"
     end
   end
 
@@ -74,8 +74,8 @@ class Swift < Formula
   fails_with :gcc
 
   resource "llvm-project" do
-    url "https://github.com/apple/llvm-project/archive/swift-5.5.1-RELEASE.tar.gz"
-    sha256 "095763d76000b95910ce19837d45b932a48f8ab4a002a8b27e986b1a29e8432f"
+    url "https://github.com/apple/llvm-project/archive/swift-5.5.2-RELEASE.tar.gz"
+    sha256 "8e4c58ed8b3518252e8ab96110d2f2e801d7ea1a2e2c176ba55bb13bbd698910"
 
     # Fix handling of arm64e in REPL mode.
     # Remove with Swift 5.6.
@@ -93,38 +93,38 @@ class Swift < Formula
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/swift-5.5.1-RELEASE.tar.gz"
-    sha256 "36c9de0d5a7f71455542c780b8a0a4bd703e6f0d1456a5a1a9caf22e3cb4182a"
+    url "https://github.com/apple/swift-cmark/archive/swift-5.5.2-RELEASE.tar.gz"
+    sha256 "90ce146d7e0fda81aa8ecc74fa9401ec9f68596ed6b2c89dbfd0fde11244aa07"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/swift-5.5.1-RELEASE.tar.gz"
-    sha256 "39998792dea9d36ec1b98d07e9e6100a9853e9a3f845b319de81cf1aaae6a8dd"
+    url "https://github.com/apple/swift-llbuild/archive/swift-5.5.2-RELEASE.tar.gz"
+    sha256 "6767df1c14d09c990e72c2e9ec9c61765610c1fe7801c92894afa36f9928d320"
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/swift-5.5.1-RELEASE.tar.gz"
-    sha256 "73331ad0d27f1e40a0d50d45337f986e0303dd0c872a0991db916126bd3949fe"
+    url "https://github.com/apple/swift-package-manager/archive/swift-5.5.2-RELEASE.tar.gz"
+    sha256 "4c16cb5073759c9bd9de110f96b8fb0983a8255bf28e7b39709876f3bae90e5a"
   end
 
   resource "indexstore-db" do
-    url "https://github.com/apple/indexstore-db/archive/swift-5.5.1-RELEASE.tar.gz"
-    sha256 "a678003f61b2795ee76d89fd4f008a77fab4522d275764db413ecce8b0aa66e2"
+    url "https://github.com/apple/indexstore-db/archive/swift-5.5.2-RELEASE.tar.gz"
+    sha256 "d4d1cb6300a2b5fb81e3e77cba50284ffd6405bc264464db465ee7c2c285807d"
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.5.1-RELEASE.tar.gz"
-    sha256 "9c5f3358e854cf42af1a03567e02d04476bb5b47c3b914512f29ecc46117e445"
+    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.5.2-RELEASE.tar.gz"
+    sha256 "ecaeeaddcf750379e561798719290affa6ffd3573754a496d3afa3b3d0f46597"
   end
 
   resource "swift-driver" do
-    url "https://github.com/apple/swift-driver/archive/swift-5.5.1-RELEASE.tar.gz"
-    sha256 "f8ea378f1d9466fbd0206796dabb03e178390f3fd6584e582038ae75fd75fece"
+    url "https://github.com/apple/swift-driver/archive/swift-5.5.2-RELEASE.tar.gz"
+    sha256 "73416d9b329d88f37d607f0d0a6583368eeec2140a28fb8877ee1fb0125a496e"
   end
 
   resource "swift-tools-support-core" do
-    url "https://github.com/apple/swift-tools-support-core/archive/swift-5.5.1-RELEASE.tar.gz"
-    sha256 "a2f21a2814286ee23766ae55eebe5a4797ad04fd674ef37a9411a9bd40782222"
+    url "https://github.com/apple/swift-tools-support-core/archive/swift-5.5.2-RELEASE.tar.gz"
+    sha256 "811ab41295b175d79b940151feacf05fa10787ff250ee3ca8af877041d49d87e"
   end
 
   # To find the version to use, check the release/#{version.major_minor} entry of:
@@ -156,6 +156,7 @@ class Swift < Formula
 
   # Fix shim and Clang headers not being copied when stdlib isn't built.
   # https://github.com/apple/swift/pull/39405
+  # Remove with Swift 5.6.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/939cc44b01a7f4c0c0ae1c9f037867de38ef5239/swift/5.5-copy_shim_headers.diff"
     sha256 "0e2c2dc96895931e4444f90533cb2b8e1b04c2591f9a2c0492145661efab1760"
@@ -163,6 +164,7 @@ class Swift < Formula
 
   # Fix libdispatch building with tests enabled.
   # https://github.com/apple/swift/pull/39970
+  # Remove with Swift 5.6.
   patch do
     url "https://github.com/apple/swift/commit/6be2b40fdd831e6a77baa789820df31e6d2dc6bd.patch?full_index=1"
     sha256 "9203072ae9cdcc07ec1fa2821d9caebb295d816ecb62253447a076dc685e7a6a"
@@ -291,8 +293,6 @@ class Swift < Formula
           -DLLDB_FRAMEWORK_COPY_SWIFT_RESOURCES=0
           -DCMAKE_INSTALL_RPATH=@loader_path
         ]
-        # Needed until back-deploy concurrency lands.
-        extra_cmake_options << "-DSWIFT_IMPLICIT_CONCURRENCY_IMPORT=OFF" if MacOS.version < :monterey
       end
       if OS.linux?
         args += %W[
@@ -396,16 +396,16 @@ class Swift < Formula
     (testpath/"foundation-test.swift").write <<~'EOS'
       import Foundation
 
-      let swifty = URLComponents(string: "https://swift.org")!
+      let swifty = URLComponents(string: "https://www.swift.org")!
       print("\(swifty.host!)")
     EOS
     output = shell_output("#{bin}/swift -v foundation-test.swift")
-    assert_match "swift.org\n", output
+    assert_match "www.swift.org\n", output
 
     # Test compiler
     system "#{bin}/swiftc", "-v", "foundation-test.swift", "-o", "foundation-test"
     output = shell_output("./foundation-test")
-    assert_match "swift.org\n", output
+    assert_match "www.swift.org\n", output
 
     # Test Swift Package Manager
     mkdir "swiftpmtest" do
@@ -416,7 +416,7 @@ class Swift < Formula
       system "#{bin}/swift", "package", "init", "--type=executable", "-v"
       cp "../foundation-test.swift", "Sources/swiftpmtest/main.swift"
       system "#{bin}/swift", "build", "-v", "--disable-sandbox"
-      assert_match "swift.org\n", shell_output("#{bin}/swift run --disable-sandbox")
+      assert_match "www.swift.org\n", shell_output("#{bin}/swift run --disable-sandbox")
     end
 
     # Make sure the default resource directory is not using a Cellar path
