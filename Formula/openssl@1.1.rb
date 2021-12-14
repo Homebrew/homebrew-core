@@ -7,7 +7,6 @@ class OpensslAT11 < Formula
   mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1m.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1m.tar.gz"
   mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1m.tar.gz"
-  # These are for when a new version is released and the old URL stops working:
   sha256 "f89199be8b23ca45fc7cb9f1d8d3ee67312318286ad030f5316aca6462db6c96"
   license "OpenSSL"
   version_scheme 1
