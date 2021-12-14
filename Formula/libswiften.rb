@@ -3,6 +3,7 @@ class Libswiften < Formula
   homepage "https://swift.im/swiften.html"
   url "https://swift.im/downloads/releases/swift-4.0.2/swift-4.0.2.tar.gz"
   sha256 "1c7c9fb981ecb9b589890c36523dbbabde2f0a708f71a66eb71e9526bf8e0a70"
+  license "GPL-3.0-only"
 
   livecheck do
     url "https://swift.im/downloads.html"
