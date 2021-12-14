@@ -44,7 +44,8 @@ class SonarqubeLts < Formula
   end
 
   service do
-    run [opt_bin/"sonar", "start"]
+    run [opt_bin/"sonar", "console"]
+    keep_alive true
   end
 
   test do
