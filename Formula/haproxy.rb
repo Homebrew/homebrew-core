@@ -4,6 +4,7 @@ class Haproxy < Formula
   url "https://www.haproxy.org/download/2.5/src/haproxy-2.5.0.tar.gz"
   sha256 "16a5ed6256ca3670e41b76366a892b08485643204a3ce72b6e7a2d9a313aa225"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
+  revision 1
 
   livecheck do
     url :homepage
@@ -20,26 +21,24 @@ class Haproxy < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   uses_from_macos "zlib"
 
   def install
     args = %w[
-      USE_POLL=1
-      USE_PCRE=1
+      USE_PCRE2=1
+      USE_PCRE2_JIT=1
       USE_OPENSSL=1
-      USE_THREAD=1
       USE_ZLIB=1
-      ADDLIB=-lcrypto
     ]
-    if OS.mac?
-      args << "TARGET=generic"
-      # BSD only:
-      args << "USE_KQUEUE=1"
+
+    target = if OS.mac?
+      "osx"
     else
-      args << "TARGET=linux-glibc"
+      "linux-glibc"
     end
+    args << "TARGET=#{target}"
 
     # We build generic since the Makefile.osx doesn't appear to work
     system "make", *args
