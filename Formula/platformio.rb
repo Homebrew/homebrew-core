@@ -3,8 +3,8 @@ class Platformio < Formula
 
   desc "Professional collaborative platform for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/47/6a/b017d99d9a741466d0baf878742df22627119773041d6449809cfd2aa312/platformio-5.2.3.tar.gz"
-  sha256 "94584b1cfd8cc82ee5c51cbecba57e884f906b0c3f2903b136049796d62ae86a"
+  url "https://files.pythonhosted.org/packages/5f/15/607b6732589cbec35ab6d40946d6e038a72fc69893f8f45191bf05a2945d/platformio-5.2.4.tar.gz"
+  sha256 "822ac16e1bcf578b2645466c728f2779e1083ccb4fa21336f4d6539acec53e08"
   license "Apache-2.0"
 
   bottle do
@@ -20,8 +20,8 @@ class Platformio < Formula
   depends_on "python@3.9"
 
   resource "aiofiles" do
-    url "https://files.pythonhosted.org/packages/06/f0/af90f3fb4066b0707b6a5af3ffd5fd9b3809bbb52f0153a3c7550e594de3/aiofiles-0.7.0.tar.gz"
-    sha256 "a1c4fc9b2ff81568c83e21392a82f344ea9d23da906e4f6a52662764545e19d4"
+    url "https://files.pythonhosted.org/packages/10/ca/c416cfacf6a47e1400dad56eab85aa86c92c6fbe58447d12035e434f0d5c/aiofiles-0.8.0.tar.gz"
+    sha256 "8334f23235248a3b2e83b2c3a78a22674f39969b96397126cc93664d9a901e59"
   end
 
   resource "ajsonrpc" do
@@ -30,8 +30,8 @@ class Platformio < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/66/02/ca9061e93c487a897859e3a41f6c1a4f494038d2791382169b9a0c528175/anyio-3.3.4.tar.gz"
-    sha256 "67da67b5b21f96b9d3d65daa6ea99f5d5282cb09f50eb4456f8fb51dffefc3ff"
+    url "https://files.pythonhosted.org/packages/dc/e7/7452227e8c091db6838d7f1b50dc4e6323e8463ed8c2d0b651ac9b7f7fce/anyio-3.4.0.tar.gz"
+    sha256 "24adc69309fb5779bc1e06158e143e0b6d2c56b302a3ac3de3083c705a6ed39d"
   end
 
   resource "asgiref" do
@@ -50,8 +50,8 @@ class Platformio < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do
@@ -80,8 +80,8 @@ class Platformio < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/ee/a6/9e2ad34649f2ea933ee7a3f28a106c4ccba0cb4b2150a03f16b928184fd9/marshmallow-3.14.0.tar.gz"
-    sha256 "bba1a940985c052c5cc7849f97da196ebc81f3b85ec10c56ef1f3228aa9cbe74"
+    url "https://files.pythonhosted.org/packages/ff/04/9a03e7e8e68b1cee2396f51d41cd8741920a8c7b74b32a9e6b29da56e40f/marshmallow-3.14.1.tar.gz"
+    sha256 "4c05c1684e0e97fe779c62b91878f173b937fe097b356cd82f793464f5bc6138"
   end
 
   resource "pyelftools" do
@@ -110,8 +110,8 @@ class Platformio < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/73/8f/8397d6abe5c491ba854164785b10bc6427b03b9299e6106407a56c90a1a2/starlette-0.17.0.tar.gz"
-    sha256 "31a889e7d7bf487f70d9d197ed7efadb47fa938c58626ed93e381480833c5b84"
+    url "https://files.pythonhosted.org/packages/11/d3/c346849b8201f0e0339e23850c8db1cebd477e44e8b5212f40e1acbb490c/starlette-0.17.1.tar.gz"
+    sha256 "57eab3cc975a28af62f6faec94d355a410634940f10b30d68d31cb5ec1b44ae8"
   end
 
   resource "urllib3" do
@@ -120,8 +120,8 @@ class Platformio < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/3c/06/758c0ce8fe0053a86c99824c69eaabf0dacf2a0d935a9cfde18bbef9360a/uvicorn-0.15.0.tar.gz"
-    sha256 "d9a3c0dd1ca86728d3e235182683b4cf94cd53a867c288eaeca80ee781b2caff"
+    url "https://files.pythonhosted.org/packages/b8/68/bdce2f0775162b3939991765588ae755796af6ecac4f5c3d020a92873dc6/uvicorn-0.16.0.tar.gz"
+    sha256 "eacb66afa65e0648fcbce5e746b135d09722231ffffc61883d4fac2b62fbea8d"
   end
 
   resource "wsproto" do
@@ -130,8 +130,8 @@ class Platformio < Formula
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/cc/66/4b509ea71cf2daf2e590eb1194753b26ee0a593ecbab85dcf1838bac3073/zeroconf-0.36.12.tar.gz"
-    sha256 "1f1994f550abfeda10a9d5924c7e5b463213ea5ca87198da751c74995f59e780"
+    url "https://files.pythonhosted.org/packages/5e/82/791c22d47f4622ce83553756461b682a0a1be1cbc0251201c6cf58a3fd66/zeroconf-0.37.0.tar.gz"
+    sha256 "f901eda390160bc270aeba95ef2d6aa0a736503301dac393e7d5fd95fa17043a"
   end
 
   def install
