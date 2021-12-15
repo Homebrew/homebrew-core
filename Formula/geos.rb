@@ -4,6 +4,7 @@ class Geos < Formula
   url "https://download.osgeo.org/geos/geos-3.10.1.tar.bz2"
   sha256 "a8148eec9636814c8ab0f8f5266ce6f9b914ed65b0d083fc43bb0bbb01f83648"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/geos/"
@@ -25,6 +26,9 @@ class Geos < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "static"
+    lib.install Dir["static/lib/*.a"]
   end
 
   test do
