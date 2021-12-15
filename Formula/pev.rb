@@ -4,6 +4,7 @@ class Pev < Formula
   url "https://downloads.sourceforge.net/project/pev/pev-0.81/pev-0.81.tar.gz"
   sha256 "4192691c57eec760e752d3d9eca2a1322bfe8003cfc210e5a6b52fca94d5172b"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/merces/pev.git", branch: "master"
 
   bottle do
@@ -13,8 +14,21 @@ class Pev < Formula
     sha256 mojave:        "0ff3ab7fe514f498dd088d42fd60e63bbd5c7fb3d94222aac68c5a4302404f2f"
   end
 
+  deprecate! date: "2022-02-28", because: :repo_archived
+
   depends_on "openssl@1.1"
-  depends_on "pcre"
+
+  # Remove -flat_namespace.
+  patch do
+    url "https://github.com/merces/pev/commit/8169e6e9bbc4817ac1033578c2e383dc7f419106.patch?full_index=1"
+    sha256 "015035b34e5bed108b969ecccd690019eaa2f837c0880fa589584cb2f7ede7c0"
+  end
+
+  # Make builds reproducible.
+  patch do
+    url "https://github.com/merces/pev/commit/cbcd9663ba9a5f903d26788cf6e86329fd513220.patch?full_index=1"
+    sha256 "8f047c8db01d3a5ef5905ce05d8624ff7353e0fab5b6b00aa877ea6a3baaadcc"
+  end
 
   def install
     ENV.deparallelize
