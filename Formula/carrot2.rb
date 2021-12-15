@@ -13,15 +13,23 @@ class Carrot2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "66b3d79a8e8e5ef99f385a2b22c392a240cc3be1475d136eca377c4bf802c499"
   end
 
-  # Switch to `gradle` when carrot2 supports Gradle 7+
-  depends_on "gradle@6" => :build
-  depends_on "openjdk@11"
+  depends_on "gradle" => :build
+  depends_on "node@16" => :build
+  depends_on "yarn" => :build
+  depends_on "openjdk"
 
   def install
     # Make possible to build the formula with the latest available in Homebrew gradle
     inreplace "gradle/validation/check-environment.gradle",
       /expectedGradleVersion = '[^']+'/,
-      "expectedGradleVersion = '#{Formula["gradle@6"].version}'"
+      "expectedGradleVersion = '#{Formula["gradle"].version}'"
+
+    # Use yarn and node from Homebrew
+    inreplace "gradle/node/yarn-projects.gradle", "download = true", "download = false"
+    inreplace "build.gradle" do |s|
+      s.gsub! "node: '16.13.0'", "node: '#{Formula["node@16"].version}'"
+      s.gsub! "yarn: '1.22.15'", "yarn: '#{Formula["yarn"].version}'"
+    end
 
     system "gradle", "assemble", "--no-daemon"
 
@@ -31,7 +39,7 @@ class Carrot2 < Formula
     end
 
     (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs",
-      JAVA_CMD:    "exec '#{Formula["openjdk@11"].opt_bin}/java'",
+      JAVA_CMD:    "exec '#{Formula["openjdk"].opt_bin}/java'",
       SCRIPT_HOME: libexec/"dcs"
   end
 
