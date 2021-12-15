@@ -1,8 +1,9 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4c.tar.gz"
-  sha256 "6646b76382f56d320135a4f6b8eba3e2133d53256f9ff3646b97866a2576062c"
+  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4c-2.tar.gz"
+  version "4.4c-2"
+  sha256 "3e139639812f7cf9293e77ce250311a38a4a2cac516a7bfb38f964a06ef3300c"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -27,7 +28,25 @@ class Bigloo < Formula
   depends_on "libuv"
   depends_on "openjdk"
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
+  # Fix gmp detection.
+  # https://github.com/manuel-serrano/bigloo/pull/69
+  patch do
+    url "https://github.com/manuel-serrano/bigloo/commit/d3f9c4e6a6b3eb9a922eb92a2e26b15bc5c879dc.patch?full_index=1"
+    sha256 "3b3522b30426770c82b620d3307db560852c2aadda5d80b62b18296d325cc38c"
+  end
+
+  # Fix pcre2 detection.
+  # https://github.com/manuel-serrano/bigloo/pull/70
+  patch do
+    url "https://github.com/manuel-serrano/bigloo/commit/4a5ec57b92fef4e23eb7d56dca402fb2b1f6eeb2.patch?full_index=1"
+    sha256 "d81b3dbc22e6a78b7517ff761d8c1ab5edef828b1a782cb9c4a672923844b948"
+  end
 
   def install
     # Force bigloo not to use vendored libraries
@@ -39,16 +58,22 @@ class Bigloo < Formula
       --prefix=#{prefix}
       --mandir=#{man1}
       --infodir=#{info}
-      --os-macosx
       --customgc=no
+      --customgmp=no
       --customlibuv=no
+      --customunistring=no
       --native=yes
-      --disable-alsa
       --disable-mpg123
       --disable-flac
-      --disable-srfi27
       --jvm=yes
     ]
+
+    if OS.mac?
+      args += %w[
+        --os-macosx
+        --disable-alsa
+      ]
+    end
 
     system "./configure", *args
 
