@@ -25,15 +25,15 @@ class Ccextractor < Formula
   depends_on "tesseract"
   depends_on "utf8proc"
 
-  resource "test.mxf" do
+  resource "homebrew-test.mxf" do
     url "https://raw.githubusercontent.com/alebcay/example-artifacts/5e8d84effab76c4653972ef72513fcee1d00d3c3/mxf/test.mxf"
     sha256 "e027aca08a2cce64a9fb6623a85306b5481a2f1c3f97a06fd5d3d1b45192b12a"
   end
 
   # Patch build script to allow building with Homebrew libs rather than upstream's bundled libs
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9bc4ef5a88b9a4d55dead30130aa79f8eee5faf7/ccextractor/unbundle-libs.patch"
-    sha256 "b610950e4ae54a8fce3f5952be6d909cb9790a9c46ff356f83e8d8255c7f1ed1"
+    url "https://raw.githubusercontent.com/alebcay/formula-patches/e5fddd607fb4e2b6b16044eb47fa3407d4d1fdb0/ccextractor/unbundle-libs.patch"
+    sha256 "eb545afad2d1d47a22f50ec0cdad0da11e875d5119213b0e5ace36488f08d237"
   end
 
   def install
@@ -56,7 +56,7 @@ class Ccextractor < Formula
   end
 
   test do
-    resource("test.mxf").stage do
+    resource("homebrew-test.mxf").stage do
       system bin/"ccextractor", "test.mxf", "-out=txt"
       assert_equal "This is a test video.", (Pathname.pwd/"test.txt").read.strip
     end
