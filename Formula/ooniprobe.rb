@@ -3,7 +3,7 @@ class Ooniprobe < Formula
   homepage "https://ooni.org/"
   url "https://github.com/ooni/probe-cli/archive/v3.13.0.tar.gz"
   sha256 "a055aed8c2d0d898b7cdb843cf247cf3b593c8ac7045103c08b3088b7d4d1737"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
