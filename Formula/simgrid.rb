@@ -24,7 +24,6 @@ class Simgrid < Formula
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "graphviz"
-  depends_on "pcre"
   depends_on "python@3.9"
 
   on_linux do
