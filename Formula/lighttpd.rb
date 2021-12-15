@@ -4,6 +4,7 @@ class Lighttpd < Formula
   url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.63.tar.xz"
   sha256 "2aef7f0102ebf54a1241a1c3ea8976892f8684bfb21697c9fffb8de0e2d6eab9"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://download.lighttpd.net/lighttpd/releases-1.4.x/"
@@ -25,7 +26,7 @@ class Lighttpd < Formula
   depends_on "pkg-config" => :build
   depends_on "openldap"
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   # default max. file descriptors; this option will be ignored if the server is not started as root
   MAX_FDS = 512
@@ -52,10 +53,12 @@ class Lighttpd < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --sbindir=#{bin}
-      --with-openssl
-      --with-ldap
-      --with-zlib
       --with-bzip2
+      --with-ldap
+      --with-openssl
+      --without-pcre
+      --with-pcre2
+      --with-zlib
     ]
 
     # autogen must be run, otherwise prebuilt configure may complain
