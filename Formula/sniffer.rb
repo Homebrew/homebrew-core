@@ -14,7 +14,6 @@ class Sniffer < Formula
   end
 
   test do
-    output = shell_output("#{bin}/sniffer -l")
-    assert_match "lo", output
+    assert_match "lo", shell_output("#{bin}/sniffer -l")
   end
 end
