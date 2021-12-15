@@ -1,8 +1,8 @@
 class Driftctl < Formula
   desc "Detect, track and alert on infrastructure drift"
   homepage "https://driftctl.com"
-  url "https://github.com/cloudskiff/driftctl/archive/v0.17.0.tar.gz"
-  sha256 "e50c84cf26b29cf0738fc960fc3afd34a0f784714c2abbc26259a34ed6ed854e"
+  url "https://github.com/snyk/driftctl/archive/v0.18.0.tar.gz"
+  sha256 "79efee13665303fd959d2a8fd5c57c983307bf9640033b48f519edfb5c005236"
   license "Apache-2.0"
 
   bottle do
@@ -21,8 +21,8 @@ class Driftctl < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/cloudskiff/driftctl/build.env=release
-      -X github.com/cloudskiff/driftctl/pkg/version.version=v#{version}
+      -X github.com/snyk/driftctl/build.env=release
+      -X github.com/snyk/driftctl/pkg/version.version=v#{version}
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)
