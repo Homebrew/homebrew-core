@@ -6,6 +6,11 @@ class Innoextract < Formula
   license "Zlib"
   head "https://github.com/dscharrer/innoextract.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?innoextract[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2d6ec2e245a2ba6eab0039a3ed0b958c280a38f1a6914e8da041b45d299c4e7d"
     sha256 cellar: :any,                 arm64_big_sur:  "0b3f7137df6e506c374ac8ffbed6cba4724beb4a14e59b0db0b8259d3ea6ccc7"
