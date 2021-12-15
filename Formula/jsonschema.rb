@@ -3,8 +3,8 @@ class Jsonschema < Formula
 
   desc "Implementation of JSON Schema for Python"
   homepage "https://github.com/Julian/jsonschema"
-  url "https://files.pythonhosted.org/packages/ff/09/fa40d16ddcce69fc79e264c9458ac5ae693586d5f4c552e1e11889bdf971/jsonschema-4.2.1.tar.gz"
-  sha256 "390713469ae64b8a58698bb3cbc3859abe6925b565a973f87323ef21b09a27a8"
+  url "https://files.pythonhosted.org/packages/bc/fe/b6abb45f1336458a4b9c86697c4f012fd62e92b22c73762935e3d68238db/jsonschema-4.3.0.tar.gz"
+  sha256 "cb7f57b40f870409d7571844d0623f66d8078c90a9c255d9a4d4314b5ec3fc7c"
   license "MIT"
   head "https://github.com/Julian/jsonschema.git", branch: "main"
 
