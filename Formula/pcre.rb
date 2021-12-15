@@ -4,8 +4,7 @@ class Pcre < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://ftp.pcre.org/pub/pcre/pcre-8.45.tar.bz2"
-    mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.45.tar.bz2"
+    url "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.45.tar.bz2"
     sha256 "4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8"
 
     # Fix -flat_namespace being used on Big Sur and later.
@@ -15,10 +14,8 @@ class Pcre < Formula
     end
   end
 
-  livecheck do
-    url "https://ftp.pcre.org/pub/pcre/"
-    regex(/href=.*?pcre[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  # See https://pcre.org/
+  deprecate! date: "2021-06-22", because: :unmaintained
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "11193fd0a113c0bb330b1c2c21ab6f40d225c1893a451bba85e8a1562b914a1c"
