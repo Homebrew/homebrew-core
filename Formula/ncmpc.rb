@@ -4,6 +4,7 @@ class Ncmpc < Formula
   url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.46.tar.xz"
   sha256 "177f77cf09dd4ab914e8438be399cdd5d83c9aa992abc8d9abac006bb092934e"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.musicpd.org/download/ncmpc/0/"
@@ -25,7 +26,7 @@ class Ncmpc < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libmpdclient"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   on_linux do
     depends_on "gcc"
@@ -35,7 +36,10 @@ class Ncmpc < Formula
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, "-Dcolors=false", "-Dnls=disabled", ".."
+      system "meson", *std_meson_args, "-Dcolors=false",
+                                       "-Dnls=disabled",
+                                       "-Dregex=enabled",
+                                       ".."
       system "ninja", "install"
     end
   end
