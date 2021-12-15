@@ -18,6 +18,7 @@ class VpnSlice < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c1e691a28af9d74ef1453b1b4b2e782cd5c8271ea1a991694daf3fab7c4dc3a"
   end
 
+  depends_on "rust" => :build # for cryptography, can remove if dnspython has new release
   depends_on "python@3.10"
 
   resource "dnspython" do
