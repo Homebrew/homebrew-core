@@ -1,8 +1,8 @@
 class Bee < Formula
   desc "Tool for managing database changes"
   homepage "https://github.com/bluesoft/bee"
-  url "https://github.com/bluesoft/bee/releases/download/1.84/bee-1.84.zip"
-  sha256 "e93bf876ef9701381b677892eea5080faf8c53c2bd8bb96fa99ed31f27167e13"
+  url "https://github.com/bluesoft/bee/releases/download/1.85/bee-1.85.zip"
+  sha256 "160dae8859fadcf454ebe5857f2af9045f9399ea8a6110403d8f34e395274708"
   license "MPL-1.1"
 
   bottle do
