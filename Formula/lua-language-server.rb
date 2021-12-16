@@ -3,8 +3,8 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/sumneko/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/sumneko/lua-language-server.git",
-      tag:      "2.5.3",
-      revision: "dc5ee0b01a9610389e275ed8ff0746ba78cdd367"
+      tag:      "2.5.4",
+      revision: "091be40543d0866cc37b10a4f76eeb2c86e4c2b1"
   license "MIT"
   head "https://github.com/sumneko/lua-language-server.git", branch: "master"
 
@@ -28,27 +28,23 @@ class LuaLanguageServer < Formula
   def install
     ENV.cxx11
 
-    # Disable `filesystem.test_appdata_path`.
-    # This test expects to find user cache directories under ${HOME},
-    # which is not compatible with homebrew's build environment.
-    # See https://github.com/actboy168/bee.lua/issues/21
-    inreplace buildpath.glob("**/3rd/bee.lua/test/test_filesystem.lua"),
-              "test_fs:test_appdata_path()",
-              "\\0 do return end"
+    # disable all tests by build script (fail in build environment)
+    inreplace buildpath.glob("**/3rd/bee.lua/test/test.lua"),
+      "local success = lt.run()",
+      "local success = true"
 
     chdir "3rd/luamake" do
       system "compile/install.sh"
     end
-    system "3rd/luamake/luamake", "rebuild"
-
-    bindir = if OS.mac?
-      "bin/macOS"
+    if OS.mac? && Hardware::CPU.arm?
+      system "3rd/luamake/luamake", "rebuild", "-platform", "darwin-arm64"
     else
-      "bin/Linux"
+      system "3rd/luamake/luamake", "rebuild"
     end
-    (libexec/bindir).install "#{bindir}/lua-language-server", "#{bindir}/main.lua"
+
+    (libexec/"bin").install "bin/lua-language-server", "bin/main.lua"
     libexec.install "main.lua", "debugger.lua", "locale", "meta", "script"
-    bin.write_exec_script libexec/bindir/"lua-language-server"
+    bin.write_exec_script libexec/"bin/lua-language-server"
     (libexec/"log").mkpath
   end
 
