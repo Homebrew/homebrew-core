@@ -366,21 +366,8 @@ class Theharvester < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec/"venv", "python3")
-
-    resource("orjson").stage do
-      system Formula["maturin"].bin/"maturin", "build", "--no-sdist",
-                                                        "--release",
-                                                        "--strip",
-                                                        "--compatibility", "linux",
-                                                        "--cargo-extra-args=--locked"
-      venv.pip_install Dir[Pathname.pwd/"target/wheels/orjson*.whl"]
-    end
-
-    res = resources.map(&:name).to_set - ["orjson"]
-    res.each do |r|
-      venv.pip_install resource(r)
-    end
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv.pip_install resources
 
     libexec.install Dir["*"]
     (libexec/"theHarvester.py").chmod 0755
