@@ -11,6 +11,7 @@ class Libosmium < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "lz4"
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
