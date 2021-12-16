@@ -2,8 +2,8 @@ class Mage < Formula
   desc "Make/rake-like build tool using Go"
   homepage "https://magefile.org"
   url "https://github.com/magefile/mage.git",
-      tag:      "v1.11.0",
-      revision: "07afc7d24f4d6d6442305d49552f04fbda5ccb3e"
+      tag:      "v1.12.0",
+      revision: "2f1ec406dfa856a4b8378ef837061abc2a0ce01b"
   license "Apache-2.0"
   head "https://github.com/magefile/mage.git"
 
