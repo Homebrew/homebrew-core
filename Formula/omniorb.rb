@@ -29,17 +29,20 @@ class Omniorb < Formula
   end
 
   def install
+    ENV["PYTHON"] = which("python3")
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
 
     resource("bindings").stage do
-      system "./configure", "--prefix=#{prefix}", "PYTHON=python3"
+      system "./configure", "--prefix=#{prefix}"
       system "make", "install"
     end
   end
 
   test do
     system "#{bin}/omniidl", "-h"
+    system "#{bin}/omniidl", "-bcxx", "-u"
+    system "#{bin}/omniidl", "-bpython", "-u"
   end
 end
