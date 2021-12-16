@@ -3,6 +3,7 @@
   "autoconf@2.13",
   "bash-completion@2",
   "cairomm@1.14",
+  "clang-format@5",
   "clang-format@8",
   "clang-format@11",
   "gcc@4.9",
