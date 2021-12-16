@@ -32,7 +32,7 @@ class Ccextractor < Formula
 
   # Patch build script to allow building with Homebrew libs rather than upstream's bundled libs
   patch do
-    url "https://raw.githubusercontent.com/alebcay/formula-patches/e5fddd607fb4e2b6b16044eb47fa3407d4d1fdb0/ccextractor/unbundle-libs.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e5fddd607fb4e2b6b16044eb47fa3407d4d1fdb0/ccextractor/unbundle-libs.patch"
     sha256 "eb545afad2d1d47a22f50ec0cdad0da11e875d5119213b0e5ace36488f08d237"
   end
 
