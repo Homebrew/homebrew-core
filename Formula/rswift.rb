@@ -1,8 +1,8 @@
 class Rswift < Formula
   desc "Get strong typed, autocompleted resources like images, fonts and segues"
   homepage "https://github.com/mac-cain13/R.swift"
-  url "https://github.com/mac-cain13/R.swift/releases/download/v5.4.0/rswift-v5.4.0-source.tar.gz"
-  sha256 "5153e7d122412ced4f04b6fc92c10dad0a861900858543a77ce1bf11850d4184"
+  url "https://github.com/mac-cain13/R.swift/releases/download/v6.1.0/rswift-v6.1.0-source.tar.gz"
+  sha256 "f4b4c3f8748358c569c219d7f506d3b34ea5af82c882ee4a23381f23c4d277c8"
   license "MIT"
   head "https://github.com/mac-cain13/R.swift.git", branch: "master"
 
