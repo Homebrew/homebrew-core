@@ -6,6 +6,11 @@ class Ipsumdump < Formula
   license "MIT"
   head "https://github.com/kohler/ipsumdump.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ipsumdump[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "1494705fff0bb7937d74557efd7484896a8c87133dad9a4e40ee2ee5b5da67eb"
     sha256 arm64_big_sur:  "6348649ec33f562a3622f97fb7b253d39ed8b3f919a9aa2af8fa84b8d67d765a"
