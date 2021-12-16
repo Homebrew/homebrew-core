@@ -1,8 +1,8 @@
 class Cpmtools < Formula
   desc "Tools to access CP/M file systems"
   homepage "http://www.moria.de/~michael/cpmtools/"
-  url "http://www.moria.de/~michael/cpmtools/files/cpmtools-2.21.tar.gz"
-  sha256 "a0032a17f9350ad1a2b80dea52c94c66cb2b49dfb38e402b5df22bdc2c5029d0"
+  url "http://www.moria.de/~michael/cpmtools/files/cpmtools-2.22.tar.gz"
+  sha256 "0377c65be9713911eac369dbd0afe00dfdaa1896f7590c9f9834c6de1e43511a"
   license "GPL-3.0-or-later"
 
   livecheck do
