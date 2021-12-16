@@ -8,9 +8,9 @@ class Coursier < Formula
   depends_on "openjdk"
 
   def install
-    (libexec/"bin").install "coursier.jar" => "coursier"
-    chmod 0755, libexec/"bin/coursier"
-    (bin/"coursier").write_env_script libexec/"bin/coursier", Language::Java.overridable_java_home_env
+    (libexec/"bin").install "coursier.jar"
+    chmod 0755, libexec/"bin/coursier.jar"
+    (bin/"coursier").write_env_script libexec/"bin/coursier.jar", Language::Java.overridable_java_home_env
   end
 
   test do
