@@ -21,6 +21,8 @@ class Wrk < Formula
     depends_on "makedepend" => :build
     depends_on "pkg-config" => :build
   end
+  
+  uses_from_macos "unzip" => :build
 
   conflicts_with "wrk-trello", because: "both install `wrk` binaries"
 
