@@ -26,6 +26,10 @@ class Theharvester < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
+  # How to update the resources
+  # tar -zxvf theHarvester-4.0.3.tar.gz
+  # cd theHarvester-4.0.3 && pip install -r requirements/base.txt
+  # run homebrew-pypi-poet on the freezed dependencies
   resource "aiodns" do
     url "https://files.pythonhosted.org/packages/27/79/df72e25df0fdd9bf5a5ab068539731d27c5f2ae5654621ae0c92ceca94cf/aiodns-3.0.0.tar.gz"
     sha256 "946bdfabe743fceeeb093c8a010f5d1645f708a241be849e17edfb0e49e08cd6"
