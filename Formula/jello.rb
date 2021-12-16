@@ -3,8 +3,8 @@ class Jello < Formula
 
   desc "Filter JSON and JSON Lines data with Python syntax"
   homepage "https://github.com/kellyjonbrazil/jello"
-  url "https://files.pythonhosted.org/packages/fe/98/558adcfc12ae91fbfdb20f88547877dd02d485a378c15602822d52263fcf/jello-1.5.1.tar.gz"
-  sha256 "2d5cd7655bcb887b31afe5da4e7d13ffa4565da9ca0c36d90f7c2c0eacf060a0"
+  url "https://files.pythonhosted.org/packages/2c/b5/1d5293540c7506296b3777656a24272d192db69e9cce5a9b155df1c74574/jello-1.5.2.tar.gz"
+  sha256 "9f52b526febf4ce6f74d6df44517d1bca7df57a1d76c81f21c7f7c9354f61643"
   license "MIT"
 
   bottle do
