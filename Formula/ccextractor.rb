@@ -42,14 +42,14 @@ class Ccextractor < Formula
 
     if OS.mac?
       platform = "mac"
-      build_script = "./build.command"
+      build_script = ["./build.command", "OCR"]
     else
       platform = "linux"
-      build_script = "./build"
+      build_script = ["./build", "-without-rust"]
     end
 
     cd platform do
-      system build_script, "OCR"
+      system(*build_script)
       bin.install "ccextractor"
     end
     (pkgshare/"examples").install "docs/ccextractor.cnf.sample"
