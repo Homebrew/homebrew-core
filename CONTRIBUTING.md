@@ -6,26 +6,26 @@ Ensure your commits follow the [commit style guide](https://docs.brew.sh/Formula
 
 ### To report a bug
 
-* run `brew update` (twice)
-* run and read `brew doctor`
-* read [the Troubleshooting Checklist](https://docs.brew.sh/Troubleshooting)
-* open an issue on the formula's repository
+* Run `brew update` (twice).
+* Run and read `brew doctor`.
+* Read [the Troubleshooting Checklist](https://docs.brew.sh/Troubleshooting).
+* Open an issue on the formula's repository.
 
 ### To submit a version upgrade for the `foo` formula
 
-* check if the same upgrade has been already submitted by [searching the open pull requests for `foo`](https://github.com/Homebrew/homebrew-core/pulls?utf8=✓&q=is%3Apr+is%3Aopen+foo).
+* Check if the same upgrade has been already submitted by [searching the open pull requests for `foo`](https://github.com/Homebrew/homebrew-core/pulls?utf8=✓&q=is%3Apr+is%3Aopen+foo).
 * `brew bump-formula-pr --strict foo` with one of the following:
-  * `--url=...` and `--sha256=...`
-  * `--tag=...` and `--revision=...`
-  * `--version=...`
+  * `--url=...` and `--sha256=...`.
+  * `--tag=...` and `--revision=...`.
+  * `--version=...`.
 
 ### To add a new formula for `foo` version `2.3.4` from `$URL`
 
-* read [the Formula Cookbook](https://docs.brew.sh/Formula-Cookbook) or: `brew create $URL` and make edits
-* `brew install --build-from-source foo`
-* `brew audit --new-formula foo`
-* `git commit` with message formatted `foo 2.3.4 (new formula)`
-* [open a pull request](https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request) and fix any failing tests
+* Read [the Formula Cookbook](https://docs.brew.sh/Formula-Cookbook) or: `brew create $URL` and make edits.
+* `brew install --build-from-source foo`.
+* `brew audit --new-formula foo`.
+* `git commit` with message formatted `foo 2.3.4 (new formula)`.
+* [Open a pull request](https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request) and fix any failing tests.
 
 Once you've addressed any potential feedback and a member of the Homebrew org has approved your pull request, the [BrewTestBot](https://github.com/BrewTestBot) will automatically merge it a couple of minutes later.
 
@@ -55,11 +55,11 @@ about it from the introduction at
 https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request and then proceed as
 follows:
 
-* run `brew edit foo` and make edits
-* leave the section `bottle do ... end` unchanged
-* test your changes using the commands listed above
-* run `git commit` with message formatted `foo <insert new version number>` or `foo: <insert details>`
-* open a pull request as described in the introduction linked to above, wait for the automated test results, and fix any failing tests
+* Run `brew edit foo` and make edits.
+* Leave the section `bottle do ... end` unchanged.
+* Lest your changes using the commands listed above.
+* Run `git commit` with message formatted `foo <insert new version number>` or `foo: <insert details>`.
+* Open a pull request as described in the introduction linked to above, wait for the automated test results, and fix any failing tests.
 
 Once you've addressed any potential feedback and a member of the Homebrew org has approved your pull request, the [BrewTestBot](https://github.com/BrewTestBot) will automatically merge it a couple of minutes later.
 
