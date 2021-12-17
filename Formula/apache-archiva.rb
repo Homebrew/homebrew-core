@@ -1,11 +1,10 @@
 class ApacheArchiva < Formula
   desc "Build Artifact Repository Manager"
   homepage "https://archiva.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=archiva/2.2.5/binaries/apache-archiva-2.2.5-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/archiva/2.2.5/binaries/apache-archiva-2.2.5-bin.tar.gz"
-  sha256 "01119af2d9950eacbcce0b7f8db5067b166ad26c1e1701bef829105441bb6e29"
+  url "https://www.apache.org/dyn/closer.lua?path=archiva/2.2.6/binaries/apache-archiva-2.2.6-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/archiva/2.2.6/binaries/apache-archiva-2.2.6-bin.tar.gz"
+  sha256 "407490ca925a3b128ddf528bc9574f9284ae4d99d37031215c85a7713c5593c6"
   license all_of: ["Apache-2.0", "GPL-2.0-only"]
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "aaaa03ae8f9cbafef6a26cdc3c25607c79b7706084a4f88a2982a7e145091819"
