@@ -4,8 +4,8 @@ class V8 < Formula
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
   # revert back to GitHub mirror tar.gz archives once it's synced again
   url "https://chromium.googlesource.com/v8/v8.git",
-      tag:      "9.6.180.21",
-      revision: "f7fbc9b2fdaef29e377c9cb2fbcdd2cc092974a4"
+      tag:      "9.7.106.18",
+      revision: "96e2674d6126c2ae64d44024aaa7968c853ac4a2"
   license "BSD-3-Clause"
 
   livecheck do
@@ -39,36 +39,36 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.6.180.21/DEPS#52
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.7.106.18/DEPS#43
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "0153d369bbccc908f4da4993b1ba82728055926a"
+        revision: "8926696a4186279489cc2b8d768533e61bba73d7"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.6.180.21/DEPS#93
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.7.106.18/DEPS#84
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        revision: "68d816952258c9d817bba656ee2664b35507f01b"
+        revision: "7f36dbc19d31e2aad895c60261ca8f726442bfbb"
   end
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "ebad8533842661f66b9b905e0ee9890a32f628d5"
+        revision: "cf325916d58a194a935c26a56fcf6b525d1e2bf4"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "3b49be074d5c1340eeb447e6a8e78427051e675a"
+        revision: "16f637fbf4ffc3f7a01fa4eceb7906634565242f"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "3f443830bd52d3aa5fab3c1aa2b6d0848bb5039d"
+        revision: "eedbaf76e49d28465d9119b10c30b82906e606ff"
   end
 
   resource "v8/third_party/jinja2" do
     url "https://chromium.googlesource.com/chromium/src/third_party/jinja2.git",
-        revision: "6db8da1615a13fdfab925688bc4bf2eb394a73af"
+        revision: "ee69aa00ee8536f61db6a451f3858745cf587de6"
   end
 
   resource "v8/third_party/markupsafe" do
@@ -78,7 +78,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "dfa96e81458fb3b39676e45f7e9e000dff789b05"
+        revision: "6da1d53b97c89b07e47714d88cab61f1ce003c68"
   end
 
   def install
