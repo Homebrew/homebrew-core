@@ -2,8 +2,8 @@ class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://k3d.io"
   url "https://github.com/rancher/k3d.git",
-    tag:      "v5.2.1",
-    revision: "d243bc9dc1465e15af49e8c1fff61fe171a9aba6"
+    tag:      "v5.2.2",
+    revision: "0c57cf24ca65fecba4dd24624a27364def22fbca"
   license "MIT"
 
   livecheck do
