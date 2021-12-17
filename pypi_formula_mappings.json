@@ -44,6 +44,7 @@
   },
   "buku": {
     "package_name": "buku[server]",
+    "extra_packages": ["flask==1.1.4"],
     "exclude_packages": ["six"]
   },
   "certbot": {
