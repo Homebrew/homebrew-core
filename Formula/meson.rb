@@ -4,6 +4,7 @@ class Meson < Formula
   url "https://github.com/mesonbuild/meson/releases/download/0.60.2/meson-0.60.2.tar.gz"
   sha256 "64e6968565bf1b8152f4f9d6ca8154efb9e14caa9aabf7b22e71e6c5d053e921"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
@@ -12,6 +13,13 @@ class Meson < Formula
 
   depends_on "ninja"
   depends_on "python@3.10"
+
+  # Fix GNOME install_dir handling.
+  # Remove with 0.60.3.
+  patch do
+    url "https://github.com/mesonbuild/meson/commit/3074bb14a14c00aeb350bf592acf635a93b52d9a.patch?full_index=1"
+    sha256 "2829c181b5a3a152b0d0d3b20ea3dccda04b22c362473dfa636b7e2ec2f7ffff"
+  end
 
   def install
     python3 = Formula["python@3.10"].opt_bin/"python3"
