@@ -31,7 +31,7 @@ class Ship < Formula
     assert_match(/#{version}/, shell_output("#{bin}/ship version"))
     assert_match(/Usage:/, shell_output("#{bin}/ship --help"))
 
-    test_chart = "https://github.com/replicatedhq/test-charts/tree/master/plain-k8s"
+    test_chart = "https://github.com/replicatedhq/test-charts/tree/HEAD/plain-k8s"
     system bin/"ship", "init", "--headless", test_chart
   end
 end
