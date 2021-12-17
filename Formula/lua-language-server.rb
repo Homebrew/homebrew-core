@@ -3,8 +3,8 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/sumneko/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/sumneko/lua-language-server.git",
-      tag:      "2.5.4",
-      revision: "091be40543d0866cc37b10a4f76eeb2c86e4c2b1"
+      tag:      "2.5.5",
+      revision: "4f74c75c6a777f17752178dea8e5a92179db86e0"
   license "MIT"
   head "https://github.com/sumneko/lua-language-server.git", branch: "master"
 
@@ -36,11 +36,7 @@ class LuaLanguageServer < Formula
     chdir "3rd/luamake" do
       system "compile/install.sh"
     end
-    if OS.mac? && Hardware::CPU.arm?
-      system "3rd/luamake/luamake", "rebuild", "-platform", "darwin-arm64"
-    else
-      system "3rd/luamake/luamake", "rebuild"
-    end
+    system "3rd/luamake/luamake", "rebuild"
 
     (libexec/"bin").install "bin/lua-language-server", "bin/main.lua"
     libexec.install "main.lua", "debugger.lua", "locale", "meta", "script"
