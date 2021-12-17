@@ -23,7 +23,7 @@ class V8 < Formula
   end
 
   depends_on "ninja" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   on_macos do
     depends_on "llvm" => :build
