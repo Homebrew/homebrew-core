@@ -7,6 +7,7 @@ class CAres < Formula
   mirror "http://fresh-center.net/linux/misc/dns/legacy/c-ares-1.18.1.tar.gz"
   sha256 "1a7d52a8a84a9fbffb1be9133c0f6e17217d91ea5a6fa61f6b4729cda78ebbcf"
   license "MIT"
+  revision 1
   head "https://github.com/c-ares/c-ares.git", branch: "main"
 
   livecheck do
@@ -26,7 +27,7 @@ class CAres < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -45,5 +46,7 @@ class CAres < Formula
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lcares", "-o", "test"
     system "./test"
+
+    system "#{bin}/ahost", "127.0.0.1"
   end
 end
