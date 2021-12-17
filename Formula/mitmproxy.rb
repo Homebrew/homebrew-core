@@ -6,7 +6,7 @@ class Mitmproxy < Formula
   url "https://github.com/mitmproxy/mitmproxy/archive/v7.0.4.tar.gz"
   sha256 "8728d18c69053f0043acebcdabf46f2eeea51f0f0b60c528e1d356cf48ed2ca2"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/mitmproxy/mitmproxy.git", branch: "main"
 
   bottle do
@@ -195,6 +195,11 @@ class Mitmproxy < Formula
     sha256 "52de08355fd5cfb3ef4533891092bb96229d43c2069703d4aff04fdbedf9c92f"
   end
 
+  # Allow protobuf 3.19 usage
+  # Remove with next release
+  # see https://github.com/mitmproxy/mitmproxy/commit/9249c0ddd37a55657e3714bff0bbef5bba464631#diff-60f61ab7a8d1910d86d9fda2261620314edcae5894d5aaa236b821c7256badd7
+  patch :DATA
+
   def install
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resource("cffi")
@@ -207,3 +212,17 @@ class Mitmproxy < Formula
     assert_match version.to_s, shell_output("#{bin}/mitmproxy --version 2>&1")
   end
 end
+
+__END__
+diff -Naur a/setup.py b/setup.py
+--- a/setup.py	2021-09-28 18:43:29.000000000 +0200
++++ b/setup.py	2021-12-18 23:05:52.000000000 +0100
+@@ -81,7 +81,7 @@
+         "ldap3>=2.8,<2.10",
+         "msgpack>=1.0.0, <1.1.0",
+         "passlib>=1.6.5, <1.8",
+-        "protobuf>=3.14,<3.19",
++        "protobuf>=3.14,<3.20",
+         "pyOpenSSL>=20.0,<20.1",
+         "pyparsing>=2.4.2,<2.5",
+         "pyperclip>=1.6.0,<1.9",
