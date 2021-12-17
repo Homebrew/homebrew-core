@@ -26,8 +26,6 @@ class Binaryen < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
-
     system "cmake", ".", *std_cmake_args
     system "make", "install"
 
