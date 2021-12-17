@@ -6,6 +6,11 @@ class IsoCodes < Formula
   license "LGPL-2.1-or-later"
   head "https://salsa.debian.org/iso-codes-team/iso-codes.git"
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/i/iso-codes/"
+    regex(/href=.*?iso-codes[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "613c6efbb22e9ca0b242d79edb9c9dd5493dfd484ee737e70da547424a6a6cc7"
