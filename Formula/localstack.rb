@@ -3,8 +3,8 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/d6/0d/631fd13ffd4b2b72da7816849624e74e13e2a5ccf07d180354e8add74c74/localstack-0.13.1.1.tar.gz"
-  sha256 "cfc50793fccd3e162a486d5b97ee878f98d38e04c112b5d7beab9174ce3df64b"
+  url "https://files.pythonhosted.org/packages/a0/79/336f893c4e69d769a72a83228e6a3c15bcab70611c337deb6a0b64939298/localstack-0.13.1.2.tar.gz"
+  sha256 "fdbd4e02ea809816a8828dfecbb6d2afe0ce6f06f5da27f1efe55f0b00c52599"
   license "Apache-2.0"
 
   bottle do
@@ -61,8 +61,8 @@ class Localstack < Formula
   end
 
   resource "deepdiff" do
-    url "https://files.pythonhosted.org/packages/75/ee/d6a0129ae8ade3e8082e2b92d9f1e93bf7f727d828243bd4de04c2d9b581/deepdiff-5.6.0.tar.gz"
-    sha256 "e3f1c3a375c7ea5ca69dba6f7920f9368658318ff1d8a496293c79481f48e649"
+    url "https://files.pythonhosted.org/packages/44/46/94a28a8a12889f61ab5a63f68665123d1b671b6eaf861d3ad3ed65614bf1/deepdiff-5.7.0.tar.gz"
+    sha256 "838766484e323dcd9dec6955926a893a83767dc3f3f94542773e6aa096efe5d4"
   end
 
   resource "dill" do
