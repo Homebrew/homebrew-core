@@ -3,7 +3,7 @@ class Kcov < Formula
   homepage "https://simonkagstrom.github.io/kcov/"
   url "https://github.com/SimonKagstrom/kcov/archive/v40.tar.gz"
   sha256 "6b1c11b066d57426d61375a31c3816f1fcd2610b447050c86d9920e22d5200b3"
-  license "GPL-2.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/SimonKagstrom/kcov.git", branch: "master"
 
   # We check the Git tags because, as of writing, the "latest" release on GitHub
