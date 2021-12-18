@@ -1,8 +1,8 @@
 class Vitess < Formula
   desc "Database clustering system for horizontal scaling of MySQL"
   homepage "https://vitess.io"
-  url "https://github.com/vitessio/vitess/archive/v12.0.1.tar.gz"
-  sha256 "f5c0d93c57e5926d4c29e3a4f3d0938b8a06d29cdc33ab66c8791322b378feb3"
+  url "https://github.com/vitessio/vitess/archive/v12.0.2.tar.gz"
+  sha256 "4d37b60cef3e2c926d916d3f0930baa1ec0988b60ecf88304198b678fedc2b46"
   license "Apache-2.0"
 
   bottle do
