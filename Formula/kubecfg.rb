@@ -1,8 +1,8 @@
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
   homepage "https://github.com/kubecfg/kubecfg"
-  url "https://github.com/kubecfg/kubecfg/archive/v0.22.0.tar.gz"
-  sha256 "1a27df34f815069c843da18430bca2ae0aa7d3156ea17c5bd4efcfa23014b768"
+  url "https://github.com/kubecfg/kubecfg/archive/v0.23.0.tar.gz"
+  sha256 "2508f6422be5532cdffa3e077e452915334f9b241877dbc903598cad0fe08141"
   license "Apache-2.0"
 
   bottle do
