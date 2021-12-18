@@ -1,8 +1,8 @@
 class Prips < Formula
   desc "Print the IP addresses in a given range"
   homepage "https://devel.ringlet.net/sysutils/prips/"
-  url "https://devel.ringlet.net/files/sys/prips/prips-1.1.1.tar.xz"
-  sha256 "16efeac69b8bd9d13c80ec365ea66bc3bb8326dc23975acdac03184ee8da63a8"
+  url "https://devel.ringlet.net/files/sys/prips/prips-1.2.0.tar.xz"
+  sha256 "de28d8a5a619a30d0b3c8a76f9c09c3529d197f3e74b04c8aa994096ab8349d4"
 
   livecheck do
     url :homepage
