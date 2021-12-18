@@ -3,6 +3,7 @@ class Prips < Formula
   homepage "https://devel.ringlet.net/sysutils/prips/"
   url "https://devel.ringlet.net/files/sys/prips/prips-1.2.0.tar.xz"
   sha256 "de28d8a5a619a30d0b3c8a76f9c09c3529d197f3e74b04c8aa994096ab8349d4"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
