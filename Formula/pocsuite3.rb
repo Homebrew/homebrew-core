@@ -3,8 +3,8 @@ class Pocsuite3 < Formula
 
   desc "Open-sourced remote vulnerability testing framework"
   homepage "https://pocsuite.org/"
-  url "https://files.pythonhosted.org/packages/6e/a1/c71488704d4a150d356fb464f260f04cee718f662d596e4eb4aa5787c1d8/pocsuite3-1.8.8.tar.gz"
-  sha256 "50e76c2b335a6ecd5a88858a63a4185b7e6ff8b8ea86e28b2d888199ce629ea5"
+  url "https://files.pythonhosted.org/packages/46/b9/83852a1b8c8dd7d7d9f9475d4085788be0ee2410119bd48c5e4d32ec331d/pocsuite3-1.8.9.tar.gz"
+  sha256 "bd6e02ef768d497aa930a260556cab1678c0c4620765c8e81f72c163b46a15c2"
   license "GPL-2.0-only"
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
