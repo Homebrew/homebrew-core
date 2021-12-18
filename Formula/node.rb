@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v17.2.0/node-v17.2.0.tar.xz"
-  sha256 "2b47cc7b5ec189d7b637454732f36f8d3c2c0ef81bec3c278b566f67159e659a"
+  url "https://nodejs.org/dist/v17.3.0/node-v17.3.0.tar.xz"
+  sha256 "e4e4c4e64854698f2590144a177bcc7e7c0befb52020288fdae5c0da0d015d03"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
@@ -52,8 +52,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-8.1.4.tgz"
-    sha256 "3959175ecd0a8ad86a6e8a63819fb200fb10a795f077ae22b241bac639bb6a17"
+    url "https://registry.npmjs.org/npm/-/npm-8.3.0.tgz"
+    sha256 "b02b4d1d9f8904bd6e5542af79ae052c023fa2efe2ae6d085cdff464dc8ca848"
   end
 
   # Fixes node incorrectly building vendored OpenSSL when we want system OpenSSL.
