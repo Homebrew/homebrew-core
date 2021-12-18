@@ -1,8 +1,8 @@
 class BoshCli < Formula
   desc "Cloud Foundry BOSH CLI v2"
   homepage "https://bosh.io/docs/cli-v2/"
-  url "https://github.com/cloudfoundry/bosh-cli/archive/v6.4.9.tar.gz"
-  sha256 "eb7a82f390d1a5238e0ea9d8a2d545ffc323ca91a23481185879963cc40be2bc"
+  url "https://github.com/cloudfoundry/bosh-cli/archive/v6.4.10.tar.gz"
+  sha256 "1d16660f0eeca65bb2ab5a814b1b5c6fba82a09af1f4a6f65cc8075d10bb721a"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/bosh-cli.git", branch: "main"
 
