@@ -4,7 +4,7 @@ class Sysdig < Formula
   url "https://github.com/draios/sysdig/archive/0.27.1.tar.gz"
   sha256 "b9d05854493d245a7a7e75f77fc654508f720aab5e5e8a3a932bd8eb54e49bda"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
