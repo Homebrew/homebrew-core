@@ -10,7 +10,7 @@ class Sniffer < Formula
   uses_from_macos "libpcap"
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
