@@ -1,15 +1,10 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites"
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/2.0.10.tar.gz"
-  sha256 "bb7bb0ff037aa5579b3ee0cf91aa41ab04ac073592b5d95ad3fab820f5000f6e"
+  url "https://github.com/rbsec/sslscan/archive/2.0.11.tar.gz"
+  sha256 "74bdf97c834b961afb342cae1ea32067af0e05f58239979d0f2d3fab82acae1c"
   license "GPL-3.0-or-later"
   head "https://github.com/rbsec/sslscan.git", branch: "master"
-
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)(?:-rbsec)?$/i)
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "37745e63d793135ca96ffe7d28637c16a63c1b4d1f6e899b98a2af102159d67b"
@@ -25,6 +20,10 @@ class Sslscan < Formula
 
   def install
     # use `libcrypto.dylib|so` built from `openssl@1.1`
+    inreplace "Makefile", "./openssl/libssl.a",
+                          "#{Formula["openssl@1.1"].opt_lib}/#{shared_library("libssl")}"
+    inreplace "Makefile", "./openssl/libcrypto.a",
+                          "#{Formula["openssl@1.1"].opt_lib}/#{shared_library("libcrypto")}"
     inreplace "Makefile", "static: openssl/libcrypto.a",
                           "static: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libcrypto")}"
 
