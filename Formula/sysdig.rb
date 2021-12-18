@@ -40,16 +40,9 @@ class Sysdig < Formula
   fails_with gcc: "5" # C++17
 
   # More info on https://gist.github.com/juniorz/9986999
-  resource "sample_file" do
+  resource "homebrew-sample_file" do
     url "https://gist.githubusercontent.com/juniorz/9986999/raw/a3556d7e93fa890a157a33f4233efaf8f5e01a6f/sample.scap"
     sha256 "efe287e651a3deea5e87418d39e0fe1e9dc55c6886af4e952468cd64182ee7ef"
-  end
-
-  # Fix build with GRPC 1.41. Reported upstream at:
-  # https://github.com/draios/sysdig/issues/1778
-  patch do
-    url "https://raw.githubusercontent.com/archlinux/svntogit-community/d0e6e96ed2f95336d1f75266fcf896034268abe4/trunk/0.27.1-grpc-absl-sync.patch"
-    sha256 "9390c4c2d8aef6110aae63835aab07585bbe9856c820020750e0ba678e4da653"
   end
 
   def install
@@ -72,7 +65,7 @@ class Sysdig < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    (pkgshare/"demos").install resource("sample_file").files("sample.scap")
+    (pkgshare/"demos").install resource("homebrew-sample_file").files("sample.scap")
   end
 
   test do
