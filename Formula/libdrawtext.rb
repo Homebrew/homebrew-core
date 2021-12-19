@@ -4,7 +4,7 @@ class Libdrawtext < Formula
   url "https://github.com/jtsiomb/libdrawtext/archive/v0.5.tar.gz"
   sha256 "7eea99dbf9c86698b5b00ad7f0675b9327098112bf5c11f1bad0635077eae8a9"
   license "LGPL-3.0"
-  head "https://github.com/jtsiomb/libdrawtext.git"
+  head "https://github.com/jtsiomb/libdrawtext.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "0159f6a1ff8d4337e94df6fd14c7746906e2cc813b6557bf5792bf609c9f9262"
