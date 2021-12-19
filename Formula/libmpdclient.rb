@@ -4,7 +4,7 @@ class Libmpdclient < Formula
   url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.20.tar.xz"
   sha256 "18793f68e939c3301e34d8fcadea1f7daa24143941263cecadb80126194e277d"
   license "BSD-3-Clause"
-  head "https://github.com/MusicPlayerDaemon/libmpdclient.git"
+  head "https://github.com/MusicPlayerDaemon/libmpdclient.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "cf069d8465152e64482a30cdd9be6d9db373eb6e033e20b36f5ed0c6ff787a81"
