@@ -5,7 +5,7 @@ class Gojq < Formula
       tag:      "v0.12.6",
       revision: "886515fe1b7e28bf5193778770619dce4787d85c"
   license "MIT"
-  head "https://github.com/itchyny/gojq.git"
+  head "https://github.com/itchyny/gojq.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "caf7bede815438e456d70e06320a1978446458eb5d04d7be58774a18819cfb18"
