@@ -4,7 +4,7 @@ class Gist < Formula
   url "https://github.com/defunkt/gist/archive/v6.0.0.tar.gz"
   sha256 "ddfb33c039f8825506830448a658aa22685fc0c25dbe6d0240490982c4721812"
   license "MIT"
-  head "https://github.com/defunkt/gist.git"
+  head "https://github.com/defunkt/gist.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f3d176c1e7f99c3d702bd439fd7f0c86a8a5b57e82d4564cfa7df7a9773e1fb"
