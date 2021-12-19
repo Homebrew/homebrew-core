@@ -4,7 +4,7 @@ class Libusrsctp < Formula
   url "https://github.com/sctplab/usrsctp/archive/0.9.5.0.tar.gz"
   sha256 "260107caf318650a57a8caa593550e39bca6943e93f970c80d6c17e59d62cd92"
   license "BSD-3-Clause"
-  head "https://github.com/sctplab/usrsctp.git"
+  head "https://github.com/sctplab/usrsctp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2bf65d4cad3f3abcec79432f82c040761b3bf8b5b04417172ea343efc7ff878c"
