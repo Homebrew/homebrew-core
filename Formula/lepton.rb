@@ -4,7 +4,7 @@ class Lepton < Formula
   url "https://github.com/dropbox/lepton/archive/1.2.1.tar.gz"
   sha256 "c4612dbbc88527be2e27fddf53aadf1bfc117e744db67e373ef8940449cdec97"
   license "Apache-2.0"
-  head "https://github.com/dropbox/lepton.git"
+  head "https://github.com/dropbox/lepton.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "76ad15c6eea9edaf46a6dd3cad91d20c74c234001c1af3a46a9f7bbf4f44ff95"
