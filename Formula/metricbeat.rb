@@ -5,7 +5,7 @@ class Metricbeat < Formula
       tag:      "v7.16.1",
       revision: "7e56c4a053a2fe26c0cac168dd974780428a2aa6"
   license "Apache-2.0"
-  head "https://github.com/elastic/beats.git"
+  head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "28c38d8b425cfeeff84bf73c4107725a76184d6495cff6bea75a53275213efee"
