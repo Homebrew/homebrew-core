@@ -5,7 +5,7 @@ class Libsass < Formula
       tag:      "3.6.5",
       revision: "f6afdbb9288d20d1257122e71d88e53348a53af3"
   license "MIT"
-  head "https://github.com/sass/libsass.git"
+  head "https://github.com/sass/libsass.git", branch: "master"
 
   livecheck do
     url :stable
