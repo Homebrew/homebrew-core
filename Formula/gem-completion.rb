@@ -5,7 +5,7 @@ class GemCompletion < Formula
       revision: "f3e4345042b0cc48317e45b673dfd3d23904b9a7"
   version "2"
   license "MIT"
-  head "https://github.com/mernen/completion-ruby.git"
+  head "https://github.com/mernen/completion-ruby.git", branch: "master"
 
   livecheck do
     formula "ruby-completion"
