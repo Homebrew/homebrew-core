@@ -4,7 +4,7 @@ class IosWebkitDebugProxy < Formula
   url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.8.tar.gz"
   sha256 "5b743276f7fbcd145e6212e892867304c5e49e7c75c0f4a331ec6deb6a8d5b3e"
   license "BSD-3-Clause"
-  head "https://github.com/google/ios-webkit-debug-proxy.git"
+  head "https://github.com/google/ios-webkit-debug-proxy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "6c36002c9d2488188b33d7f89c49b5dea290be833a7f2785b45213eff93c183b"
