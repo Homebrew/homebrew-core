@@ -4,7 +4,7 @@ class Gistit < Formula
   url "https://github.com/jrbasso/gistit/archive/v0.1.4.tar.gz"
   sha256 "9d87cfdd6773ebbd3f6217b11d9ebcee862ee4db8be7e18a38ebb09634f76a78"
   license "MIT"
-  head "https://github.com/jrbasso/gistit.git"
+  head "https://github.com/jrbasso/gistit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "a56fc428aa4bb3b6c0f81c25542fe92b5c78ddc7f10159b1e626dad75356c4f7"
