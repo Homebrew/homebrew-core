@@ -4,7 +4,7 @@ class Gx < Formula
   url "https://github.com/whyrusleeping/gx/archive/v0.14.3.tar.gz"
   sha256 "2c0b90ddfd3152863f815c35b37e94d027216c6ba1c6653a94b722bf6e2b015d"
   license "MIT"
-  head "https://github.com/whyrusleeping/gx.git"
+  head "https://github.com/whyrusleeping/gx.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f1323ff13674b582766dccca83ee63a63314eb3fbc0ccfd815dd9138e073b1f1"
