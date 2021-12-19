@@ -5,7 +5,7 @@ class Klee < Formula
   sha256 "1ff2e37ed3128e005b89920fad7bcf98c7792a11a589dd443186658f5eb91362"
   license "NCSA"
   revision 3
-  head "https://github.com/klee/klee.git"
+  head "https://github.com/klee/klee.git", branch: "master"
 
   bottle do
     sha256 big_sur:  "3534cffd757f8fa4c3be4f05c7534dbe705e54657512bb4a1b9d8b13cbe6b337"
