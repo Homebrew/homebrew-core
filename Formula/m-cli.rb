@@ -4,7 +4,7 @@ class MCli < Formula
   url "https://github.com/rgcr/m-cli/archive/refs/tags/v0.3.0.tar.gz"
   sha256 "623be61aebf074754b148e725933aebe205fbf2d7d2ea3854a8aa6054ea3307e"
   license "MIT"
-  head "https://github.com/rgcr/m-cli.git"
+  head "https://github.com/rgcr/m-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dad811c6cd0ca58a310fe482101f036bfcfe99e4675bf0682b6736db7e3d8a80"
