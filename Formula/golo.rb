@@ -5,7 +5,7 @@ class Golo < Formula
   sha256 "35df1aca1c7161a1a33855dbd8deafa8e4dbe9627f5f17a9211eae3db3486229"
   license "EPL-2.0"
   revision 2
-  head "https://github.com/eclipse/golo-lang.git"
+  head "https://github.com/eclipse/golo-lang.git", branch: "master"
 
   livecheck do
     url "https://golo-lang.org/download/"
