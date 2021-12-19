@@ -4,7 +4,7 @@ class Mailhog < Formula
   desc "Web and API based SMTP testing tool"
   homepage "https://github.com/mailhog/MailHog"
   license "MIT"
-  head "https://github.com/mailhog/MailHog.git"
+  head "https://github.com/mailhog/MailHog.git", branch: "master"
 
   stable do
     url "https://github.com/mailhog/MailHog/archive/v1.0.1.tar.gz"
