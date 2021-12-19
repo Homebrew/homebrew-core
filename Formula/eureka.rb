@@ -4,7 +4,7 @@ class Eureka < Formula
   url "https://github.com/simeg/eureka/archive/v1.8.1.tar.gz"
   sha256 "d10d412c71dea51b4973c3ded5de1503a4c5de8751be5050de989ac08eb0455e"
   license "MIT"
-  head "https://github.com/simeg/eureka.git"
+  head "https://github.com/simeg/eureka.git", branch: "master"
 
   bottle do
     rebuild 1
