@@ -7,7 +7,7 @@ class HomeassistantCli < Formula
   sha256 "daf9c2a256cd2e63fc173c7c96b3462211f045a66639778302eb4f9d125b06a2"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/home-assistant-ecosystem/home-assistant-cli.git"
+  head "https://github.com/home-assistant-ecosystem/home-assistant-cli.git", branch: "dev"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ba4c685762ef4327cf4e5bab91710f36cc25fa547725211ffe6258b5f838f67d"
