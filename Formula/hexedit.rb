@@ -4,7 +4,7 @@ class Hexedit < Formula
   url "https://github.com/pixel/hexedit/archive/1.5.tar.gz"
   sha256 "27a2349f659e995d7731ad672450f61a2e950330049a6fb59b77490c5e0015ac"
   license "GPL-2.0-or-later"
-  head "https://github.com/pixel/hexedit.git"
+  head "https://github.com/pixel/hexedit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "822359fa020c176fbe606947118d09d520821b9fd7f253ce7e747c0353829e53"
