@@ -4,7 +4,7 @@ class Mpdas < Formula
   url "https://www.50hz.ws/mpdas/mpdas-0.4.5.tar.gz"
   sha256 "c9103d7b897e76cd11a669e1c062d74cb73574efc7ba87de3b04304464e8a9ca"
   license "BSD-3-Clause"
-  head "https://github.com/hrkfdn/mpdas.git"
+  head "https://github.com/hrkfdn/mpdas.git", branch: "master"
 
   bottle do
     rebuild 1
