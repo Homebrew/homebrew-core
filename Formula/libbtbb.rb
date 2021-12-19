@@ -8,7 +8,7 @@ class Libbtbb < Formula
   sha256 "9478bb51a38222921b5b1d7accce86acd98ed37dbccb068b38d60efa64c5231f"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/greatscottgadgets/libbtbb.git"
+  head "https://github.com/greatscottgadgets/libbtbb.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2904d63b321c2a3b6810b42f9d8bbf865925a757b7248a4d9466ebcca87d21ed"
