@@ -5,7 +5,7 @@ class Goenv < Formula
   sha256 "1559f2907ee0339328466fe93f3c9637b7674917db81754412c7f842749e3201"
   license "MIT"
   version_scheme 1
-  head "https://github.com/syndbg/goenv.git"
+  head "https://github.com/syndbg/goenv.git", branch: "master"
 
   livecheck do
     url :stable
