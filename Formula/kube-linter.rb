@@ -4,7 +4,7 @@ class KubeLinter < Formula
   url "https://github.com/stackrox/kube-linter/archive/0.2.5.tar.gz"
   sha256 "5d2e724e291b00b6a61ebd2bd97f3f3c26298f890be2b555b60f0fb719c5384f"
   license "Apache-2.0"
-  head "https://github.com/stackrox/kube-linter.git"
+  head "https://github.com/stackrox/kube-linter.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "edc3e9482784907ac7c598cf0e07c724373d37cfa264b3be14ffe6e4c0142add"
