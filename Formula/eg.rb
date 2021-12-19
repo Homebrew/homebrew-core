@@ -4,7 +4,7 @@ class Eg < Formula
   url "https://github.com/davep/eg/archive/v1.02.tar.gz"
   sha256 "6b73fff51b5cf82e94cdd60f295a8f80e7bbb059891d4c75d5b1a6f0c5cc7003"
   license "GPL-2.0"
-  head "https://github.com/davep/eg.git"
+  head "https://github.com/davep/eg.git", branch: "master"
 
   bottle do
     sha256                               arm64_monterey: "e2612dfd6d458297a3c8b0b405ff7663150c28f5a7665e3b69158d61da5e80be"
