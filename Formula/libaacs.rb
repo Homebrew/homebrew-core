@@ -5,6 +5,11 @@ class Libaacs < Formula
   sha256 "6d884381fbb659e2a565eba91e72499778635975e4b3d6fd94ab364a25965387"
   license "LGPL-2.1-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libaacs[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "628a46b83ed82425221046952f86bd52c06d7fadc93307dfef15164b16ab821e"
     sha256 cellar: :any,                 arm64_big_sur:  "dcbccde309919c3349987341fda3259e218549d5ec5c34c38c628ff6ada98bce"
@@ -17,7 +22,7 @@ class Libaacs < Formula
   end
 
   head do
-    url "https://code.videolan.org/videolan/libaacs.git"
+    url "https://code.videolan.org/videolan/libaacs.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
