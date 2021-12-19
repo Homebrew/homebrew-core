@@ -6,7 +6,7 @@ class Graphviz < Formula
       revision: "ca43e4c6a217650447e2928c2e9cb493c73ebd7d"
   license "EPL-1.0"
   version_scheme 1
-  head "https://gitlab.com/graphviz/graphviz.git"
+  head "https://gitlab.com/graphviz/graphviz.git", branch: "main"
 
   bottle do
     sha256 arm64_big_sur: "437ed6697432b7b5c9b6e4d4e90b5c77ccc35a2e22546463a328425bf7fe9600"
