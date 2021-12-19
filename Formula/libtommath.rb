@@ -5,7 +5,7 @@ class Libtommath < Formula
   sha256 "b7c75eecf680219484055fcedd686064409254ae44bc31a96c5032843c0e18b1"
   license "Unlicense"
   revision 3
-  head "https://github.com/libtom/libtommath.git"
+  head "https://github.com/libtom/libtommath.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ea435dd09c0b6d91970b9dc536520c5edc7ddec508d91843526afb7ca80c878c"
