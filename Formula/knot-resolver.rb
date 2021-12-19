@@ -4,7 +4,7 @@ class KnotResolver < Formula
   url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.4.3.tar.xz"
   sha256 "488729eb93190336b6bca10de0d78ecb7919f77fcab105debc0a644aa7d0a506"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
+  head "https://gitlab.labs.nic.cz/knot/knot-resolver.git", branch: "master"
 
   livecheck do
     url "https://secure.nic.cz/files/knot-resolver/"
