@@ -4,7 +4,7 @@ class EasyRsa < Formula
   url "https://github.com/OpenVPN/easy-rsa/archive/v3.0.8.tar.gz"
   sha256 "fd6b67d867c3b8afd53efa2ca015477f6658a02323e1799432083472ac0dd200"
   license "GPL-2.0-only"
-  head "https://github.com/OpenVPN/easy-rsa.git"
+  head "https://github.com/OpenVPN/easy-rsa.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f9267df5fe6f53503330444514b391a5e35892a3f5f3e381b1016f9402d1d7fc"
