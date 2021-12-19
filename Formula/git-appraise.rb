@@ -4,7 +4,7 @@ class GitAppraise < Formula
   url "https://github.com/google/git-appraise/archive/v0.6.tar.gz"
   sha256 "5c674ee7f022cbc36c5889053382dde80b8e80f76f6fac0ba0445ed5313a36f1"
   license "Apache-2.0"
-  head "https://github.com/google/git-appraise.git"
+  head "https://github.com/google/git-appraise.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "60da80e86332479908e34bd54fa119a7a59211a9d188f0bf0264d25985306880"
