@@ -4,7 +4,7 @@ class ImessageRuby < Formula
   url "https://github.com/linjunpop/imessage/archive/v0.3.1.tar.gz"
   sha256 "74ccd560dec09dcf0de28cd04fc4d512812c3348fc5618cbb73b6b36c43e14ef"
   license "MIT"
-  head "https://github.com/linjunpop/imessage.git"
+  head "https://github.com/linjunpop/imessage.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cb42cee42f6011f5a9d7489b35750f2fb2edca3cf1f77fb224de3befc80615bb"
