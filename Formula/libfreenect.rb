@@ -4,7 +4,7 @@ class Libfreenect < Formula
   url "https://github.com/OpenKinect/libfreenect/archive/v0.6.2.tar.gz"
   sha256 "e135f5e60ae290bf1aa403556211f0a62856a9e34f12f12400ec593620a36bfa"
   license any_of: ["Apache-2.0", "GPL-2.0-only"]
-  head "https://github.com/OpenKinect/libfreenect.git"
+  head "https://github.com/OpenKinect/libfreenect.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "073fbf9d9bb1106eb7999520bc08f4a7b801aea678691227ecbdac938e48880b"
