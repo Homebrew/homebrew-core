@@ -4,7 +4,7 @@ class Gost < Formula
   url "https://github.com/ginuerzh/gost/archive/v2.11.1.tar.gz"
   sha256 "d94b570a7a84094376b8c299d740528f51b540d9162f1db562247a15a89340bf"
   license "MIT"
-  head "https://github.com/ginuerzh/gost.git"
+  head "https://github.com/ginuerzh/gost.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "df106492b26740e17ae7036416ca7cb2ca737117e8a7115d1e12f9d14c790baf"
