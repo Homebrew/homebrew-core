@@ -4,7 +4,7 @@ class Hcxtools < Formula
   url "https://github.com/ZerBea/hcxtools/archive/6.2.5.tar.gz"
   sha256 "7ce5f8263cf9354f01008ba710c6e3cc2dcc861c550bd7a943ca33d29738bec3"
   license "MIT"
-  head "https://github.com/ZerBea/hcxtools.git"
+  head "https://github.com/ZerBea/hcxtools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "644d2bf7094986be6b1cafc2410b40938f843880d051a796316e3bac0e37d75e"
