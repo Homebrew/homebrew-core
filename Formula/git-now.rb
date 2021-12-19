@@ -2,7 +2,7 @@ class GitNow < Formula
   desc "Light, temporary commits for git"
   homepage "https://github.com/iwata/git-now"
   license "GPL-2.0"
-  head "https://github.com/iwata/git-now.git"
+  head "https://github.com/iwata/git-now.git", branch: "master"
 
   stable do
     url "https://github.com/iwata/git-now.git",
