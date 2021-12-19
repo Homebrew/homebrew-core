@@ -7,7 +7,7 @@ class Encfs < Formula
   # The main programs (encfs, encfsctl, etc) are licensed under the GPL.
   license "GPL-3.0"
   revision 3
-  head "https://github.com/vgough/encfs.git"
+  head "https://github.com/vgough/encfs.git", branch: "master"
 
   bottle do
     sha256 catalina:     "c41dd4f6c6eae27645695e7540a6e1ec25cd4a15756e5f5ed97a345cd39372fc"
