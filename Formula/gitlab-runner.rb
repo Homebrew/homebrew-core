@@ -5,7 +5,7 @@ class GitlabRunner < Formula
       tag:      "v14.5.0",
       revision: "f0a95a76c6db80232ae46716938e1b3c27950b3b"
   license "MIT"
-  head "https://gitlab.com/gitlab-org/gitlab-runner.git"
+  head "https://gitlab.com/gitlab-org/gitlab-runner.git", branch: "main"
 
   livecheck do
     url :stable
