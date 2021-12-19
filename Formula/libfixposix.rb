@@ -4,7 +4,7 @@ class Libfixposix < Formula
   url "https://github.com/sionescu/libfixposix/archive/v0.4.3.tar.gz"
   sha256 "78fe8bcebf496520ac29b5b65049f5ec1977c6bd956640bdc6d1da6ea04d8504"
   license "BSL-1.0"
-  head "https://github.com/sionescu/libfixposix.git"
+  head "https://github.com/sionescu/libfixposix.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "859d953cc09b75417c3d4d0dfd4dad5cca3ffeff7f5a3b357cce4bc595f3b910"
