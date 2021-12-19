@@ -4,7 +4,7 @@ class Glfw < Formula
   url "https://github.com/glfw/glfw/archive/3.3.6.tar.gz"
   sha256 "ed07b90e334dcd39903e6288d90fa1ae0cf2d2119fec516cf743a0a404527c02"
   license "Zlib"
-  head "https://github.com/glfw/glfw.git"
+  head "https://github.com/glfw/glfw.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "8f155b434f74ac11c303fab7887b5b41b2ea6440f438e101172b2b0a813ca004"
