@@ -4,7 +4,7 @@ class Mlkit < Formula
   url "https://github.com/melsman/mlkit/archive/v4.5.14.tar.gz"
   sha256 "72e98ad09b6454abb739871443b01dbbf0225e85ec5fc6f2d988c81f2763e721"
   license "GPL-2.0"
-  head "https://github.com/melsman/mlkit.git"
+  head "https://github.com/melsman/mlkit.git", branch: "master"
 
   livecheck do
     url :stable
