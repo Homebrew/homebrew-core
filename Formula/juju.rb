@@ -6,7 +6,7 @@ class Juju < Formula
       revision: "07164c4b2c6a9f5b576b1c151bd85dd3a699be16"
   license "AGPL-3.0-only"
   version_scheme 1
-  head "https://github.com/juju/juju.git"
+  head "https://github.com/juju/juju.git", branch: "develop"
 
   livecheck do
     url :stable
