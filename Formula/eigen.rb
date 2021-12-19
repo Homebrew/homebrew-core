@@ -5,7 +5,7 @@ class Eigen < Formula
   sha256 "8586084f71f9bde545ee7fa6d00288b264a2b7ac3607b974e54d13e7162c1c72"
   license "MPL-2.0"
   revision 1
-  head "https://gitlab.com/libeigen/eigen.git"
+  head "https://gitlab.com/libeigen/eigen.git", branch: "master"
 
   livecheck do
     url :stable
