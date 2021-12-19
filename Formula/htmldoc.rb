@@ -4,7 +4,7 @@ class Htmldoc < Formula
   url "https://github.com/michaelrsweet/htmldoc/archive/v1.9.13.tar.gz"
   sha256 "e020936267afe2c36d9cecd96a054994947207cbe231c94f59c98e08ca24dd37"
   license "GPL-2.0-only"
-  head "https://github.com/michaelrsweet/htmldoc.git"
+  head "https://github.com/michaelrsweet/htmldoc.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "4eaaa2e07a9790dbbd7056dee92f970d96285e37b82ade49710327f9cdb7cdb8"
