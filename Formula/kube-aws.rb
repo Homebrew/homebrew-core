@@ -5,7 +5,7 @@ class KubeAws < Formula
       tag:      "v0.16.4",
       revision: "c74d91ecd6760d33111dc8c7f8f51bf816424310"
   license "Apache-2.0"
-  head "https://github.com/kubernetes-retired/kube-aws.git"
+  head "https://github.com/kubernetes-retired/kube-aws.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f04ba02f28cb91e0abfb59c82c1231b6094ea944b70dd815a903448bfeea470b"
