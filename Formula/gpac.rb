@@ -12,7 +12,7 @@ class Gpac < Formula
   url "https://github.com/gpac/gpac/archive/v1.0.1.tar.gz"
   sha256 "3b0ffba73c68ea8847027c23f45cd81d705110ec47cf3c36f60e669de867e0af"
   license "LGPL-2.1-or-later"
-  head "https://github.com/gpac/gpac.git"
+  head "https://github.com/gpac/gpac.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "74f3336aa8d6f9cfc15c19ddd56a855adae55546875f113d95ac1be249688119"
