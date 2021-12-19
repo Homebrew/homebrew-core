@@ -4,7 +4,7 @@ class Libfabric < Formula
   url "https://github.com/ofiwg/libfabric/releases/download/v1.14.0/libfabric-1.14.0.tar.bz2"
   sha256 "fc261388848f3cff555bd653f5cb901f6b9485ad285e5c53328b13f0e69f749a"
   license any_of: ["BSD-2-Clause", "GPL-2.0-only"]
-  head "https://github.com/ofiwg/libfabric.git"
+  head "https://github.com/ofiwg/libfabric.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "d940a430c5b1d773851e425239fc924155f08fab327a46c5c60cec3d5bb538d3"
