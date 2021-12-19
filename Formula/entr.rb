@@ -4,7 +4,7 @@ class Entr < Formula
   url "https://eradman.com/entrproject/code/entr-5.0.tar.gz"
   sha256 "2a87bb7d9e5e89b6f614495937b557dbb8144ea53d0c1fa1812388982cd41ebb"
   license "ISC"
-  head "https://github.com/eradman/entr.git"
+  head "https://github.com/eradman/entr.git", branch: "master"
 
   livecheck do
     url "https://eradman.com/entrproject/code/"
