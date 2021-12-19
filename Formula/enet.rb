@@ -4,7 +4,7 @@ class Enet < Formula
   url "http://enet.bespin.org/download/enet-1.3.17.tar.gz"
   sha256 "a38f0f194555d558533b8b15c0c478e946310022d0ec7b34334e19e4574dcedc"
   license "MIT"
-  head "https://github.com/lsalzman/enet.git"
+  head "https://github.com/lsalzman/enet.git", branch: "master"
 
   livecheck do
     url "http://enet.bespin.org/Downloads.html"
