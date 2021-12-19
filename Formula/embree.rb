@@ -4,7 +4,7 @@ class Embree < Formula
   url "https://github.com/embree/embree/archive/v3.13.2.tar.gz"
   sha256 "dcda827e5b7a606c29d00c1339f1ef00f7fa6867346bc46a2318e8f0a601c6f9"
   license "Apache-2.0"
-  head "https://github.com/embree/embree.git"
+  head "https://github.com/embree/embree.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "f528ba35b704466b1e7b1fa48dc57b5a248403228211959e23f0dfd8a6754beb"
