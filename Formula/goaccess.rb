@@ -4,7 +4,7 @@ class Goaccess < Formula
   url "https://tar.goaccess.io/goaccess-1.5.3.tar.gz"
   sha256 "f6276978af7e5fef6f53def24bbb775acbb0d5357337c6708356d0443f27a16b"
   license "MIT"
-  head "https://github.com/allinurl/goaccess.git"
+  head "https://github.com/allinurl/goaccess.git", branch: "master"
 
   livecheck do
     url "https://goaccess.io/download"
