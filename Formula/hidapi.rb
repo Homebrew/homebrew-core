@@ -4,7 +4,7 @@ class Hidapi < Formula
   url "https://github.com/libusb/hidapi/archive/hidapi-0.11.0.tar.gz"
   sha256 "391d8e52f2d6a5cf76e2b0c079cfefe25497ba1d4659131297081fc0cd744632"
   license :cannot_represent
-  head "https://github.com/libusb/hidapi.git"
+  head "https://github.com/libusb/hidapi.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "065513adb8485ea792f77c55a1ea9dcfb91c5c7aa4ed0fe2e033f847ffed425e"
