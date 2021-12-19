@@ -6,7 +6,7 @@ class Minio < Formula
       revision: "f2bd026d0e531b35b553b3f2f1045b85189eb8f1"
   version "20211210230339"
   license "AGPL-3.0-or-later"
-  head "https://github.com/minio/minio.git"
+  head "https://github.com/minio/minio.git", branch: "master"
 
   livecheck do
     url :stable
