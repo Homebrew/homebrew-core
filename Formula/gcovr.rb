@@ -7,7 +7,7 @@ class Gcovr < Formula
   sha256 "1d80264cbaadff356b3dda71b8c62b3aa803e5b3eb6d526a24932cd6660a2576"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/gcovr/gcovr.git"
+  head "https://github.com/gcovr/gcovr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "02cac4be3ce9887e5dd058e755ae3fe9698bb2088a26bf6a89a4e3552c6c9adb"
