@@ -4,7 +4,7 @@ class LeanCli < Formula
   url "https://github.com/leancloud/lean-cli/archive/v0.29.1.tar.gz"
   sha256 "4729760a59d8390c615457d0a01ee38ff8f1055e9fa8645d5763d878c8239d74"
   license "Apache-2.0"
-  head "https://github.com/leancloud/lean-cli.git"
+  head "https://github.com/leancloud/lean-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "297e5b3365b8b9962c9043f83187d134f1dfbde6a5e9bf701ffdf930a04aef34"
