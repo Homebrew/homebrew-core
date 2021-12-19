@@ -6,7 +6,7 @@ class Libgusb < Formula
   url "https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.9.tar.xz"
   sha256 "1f51ebe8c91140cffbd1c4d58602c96b884170cae4c74f6f7e302a91d5b7c972"
   license "LGPL-2.1-only"
-  head "https://github.com/hughsie/libgusb.git"
+  head "https://github.com/hughsie/libgusb.git", branch: "main"
 
   bottle do
     sha256 arm64_big_sur: "e49a1087dc43571fbe06d41bb8f315446a825ee77cc4f5880c0b88eb86c0a4fb"
