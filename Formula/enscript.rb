@@ -6,7 +6,7 @@ class Enscript < Formula
   sha256 "6d56bada6934d055b34b6c90399aa85975e66457ac5bf513427ae7fc77f5c0bb"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://git.savannah.gnu.org/git/enscript.git"
+  head "https://git.savannah.gnu.org/git/enscript.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "ac95ac1708b9b4d6e7210df933fe8a52821bbd93ee5bec97624898cbacfd8ac2"
