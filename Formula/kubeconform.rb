@@ -4,7 +4,7 @@ class Kubeconform < Formula
   url "https://github.com/yannh/kubeconform/archive/v0.4.12.tar.gz"
   sha256 "3887c007061995a299bc58017e47a38dba27c561743da372e00dedec09a20875"
   license "Apache-2.0"
-  head "https://github.com/yannh/kubeconform.git"
+  head "https://github.com/yannh/kubeconform.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22cdc56e1e472411eba3441dec3a07ef340601bb775a82fd96aad40c6e701dfb"
