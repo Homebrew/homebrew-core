@@ -4,7 +4,7 @@ class Elektra < Formula
   url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.9.8.tar.gz"
   sha256 "b1e8908c138b84e788fdff25eab1c2b07e0b422a5fd1667814539ea02f151c58"
   license "BSD-3-Clause"
-  head "https://github.com/ElektraInitiative/libelektra.git"
+  head "https://github.com/ElektraInitiative/libelektra.git", branch: "master"
 
   livecheck do
     url "https://www.libelektra.org/ftp/elektra/releases/"
