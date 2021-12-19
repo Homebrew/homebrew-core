@@ -5,7 +5,7 @@ class Epeg < Formula
   sha256 "f8285b94dd87fdc67aca119da9fc7322ed6902961086142f345a39eb6e0c4e29"
   license "MIT-enna"
   revision 1
-  head "https://github.com/mattes/epeg.git"
+  head "https://github.com/mattes/epeg.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "23d5cd2ef6cfda33341c0109ef84ec9aee615287b0a3826d9e4ad23d8637de3e"
