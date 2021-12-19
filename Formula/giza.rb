@@ -4,7 +4,7 @@ class Giza < Formula
   url "https://github.com/danieljprice/giza/archive/v1.2.1.tar.gz"
   sha256 "8bf02828dc3e25a51ca1ac9229df41e86ba2a779af49d06c1a3077ecc4721821"
   license "GPL-2.0-or-later"
-  head "https://github.com/danieljprice/giza.git"
+  head "https://github.com/danieljprice/giza.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "6e6c5ef3d58c6fdc7b19d900a6c94ae9f7e961f2e92af33c6b1a082d0f9d18ff"
