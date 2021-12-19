@@ -4,7 +4,7 @@ class Jql < Formula
   url "https://github.com/yamafaktory/jql/archive/v3.0.6.tar.gz"
   sha256 "d931301c920b35ed2943902e1460fcd5c71afccce10c4d334a410d30707b6a0e"
   license "MIT"
-  head "https://github.com/yamafaktory/jql.git"
+  head "https://github.com/yamafaktory/jql.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "56f65f5503dc665a9f03199b24605e35a1b4faac2610631c242e369fae6e1786"
