@@ -5,7 +5,7 @@ class Inko < Formula
   sha256 "311f6e675e6f7ca488a71022b62edbbc16946f907d7e1695f3f96747ece2051f"
   license "MPL-2.0"
   revision 1
-  head "https://gitlab.com/inko-lang/inko.git"
+  head "https://gitlab.com/inko-lang/inko.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "962edbc75373209c6aa77517acd6b150cb4ddb799a3cf513485b6566aca73a65"
