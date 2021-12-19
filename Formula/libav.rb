@@ -5,7 +5,7 @@ class Libav < Formula
   sha256 "6893cdbd7bc4b62f5d8fd6593c8e0a62babb53e323fbc7124db3658d04ab443b"
   license "GPL-2.0-or-later"
   revision 8
-  head "https://git.libav.org/libav.git"
+  head "https://git.libav.org/libav.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "d163d72bbc94cf659325285190fbbf60f8e3232bb60eba917c57bb3fa4189983"
