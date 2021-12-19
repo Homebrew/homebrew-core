@@ -7,7 +7,7 @@ class GitImerge < Formula
   sha256 "df5818f40164b916eb089a004a47e5b8febae2b4471a827e3aaa4ebec3831a3f"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/mhagger/git-imerge.git"
+  head "https://github.com/mhagger/git-imerge.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9f53c94437082875ac6cbf092b4cd428d24d8d9e257978e161961f2e47cb43bb"
