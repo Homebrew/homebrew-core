@@ -3,7 +3,7 @@ class Mkvdts2ac3 < Formula
   homepage "https://github.com/JakeWharton/mkvdts2ac3"
   license "Apache-2.0"
   revision 3
-  head "https://github.com/JakeWharton/mkvdts2ac3.git"
+  head "https://github.com/JakeWharton/mkvdts2ac3.git", branch: "master"
 
   stable do
     url "https://github.com/JakeWharton/mkvdts2ac3/archive/1.6.0.tar.gz"
