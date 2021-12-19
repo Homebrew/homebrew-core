@@ -5,7 +5,7 @@ class Libgit2Glib < Formula
   sha256 "e05a75c444d9c8d5991afc4a5a64cd97d731ce21aeb7c1c651ade1a3b465b9de"
   license "LGPL-2.1"
   revision 4
-  head "https://github.com/GNOME/libgit2-glib.git"
+  head "https://github.com/GNOME/libgit2-glib.git", branch: "master"
 
   livecheck do
     url :stable
