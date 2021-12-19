@@ -5,7 +5,7 @@ class K9s < Formula
       tag:      "v0.25.15",
       revision: "df613ec88d2d77d5b6e8804ceca959a544218391"
   license "Apache-2.0"
-  head "https://github.com/derailed/k9s.git"
+  head "https://github.com/derailed/k9s.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a8aed4f6acb3ce6ad23b63a57d0fe17db8f5608102933184fad22490d69804d3"
