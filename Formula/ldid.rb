@@ -5,7 +5,7 @@ class Ldid < Formula
       tag:      "v2.1.5",
       revision: "a23f0faadd29ec00a6b7fb2498c3d15af15a7100"
   license "AGPL-3.0-or-later"
-  head "https://git.saurik.com/ldid.git"
+  head "https://git.saurik.com/ldid.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "0ac9a13e531213216609846e8119f52647b3a5a40f2e24a29cd4a1c670326c76"
