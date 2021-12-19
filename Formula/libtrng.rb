@@ -4,7 +4,7 @@ class Libtrng < Formula
   url "https://github.com/rabauke/trng4/archive/refs/tags/v4.24.tar.gz"
   sha256 "92dd7ab4de95666f453b4fef04827fa8599d93a3e533cdc604782c15edd0c13c"
   license "BSD-3-Clause"
-  head "https://github.com/rabauke/trng4.git"
+  head "https://github.com/rabauke/trng4.git", branch: "master"
 
   livecheck do
     url :stable
