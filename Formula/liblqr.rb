@@ -3,7 +3,7 @@ class Liblqr < Formula
   homepage "https://liblqr.wikidot.com/"
   license "LGPL-3.0"
   revision 1
-  head "https://github.com/carlobaldassi/liblqr.git"
+  head "https://github.com/carlobaldassi/liblqr.git", branch: "master"
 
   stable do
     url "https://github.com/carlobaldassi/liblqr/archive/v0.4.2.tar.gz"
