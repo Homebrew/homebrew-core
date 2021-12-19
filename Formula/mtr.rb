@@ -4,7 +4,7 @@ class Mtr < Formula
   url "https://github.com/traviscross/mtr/archive/v0.94.tar.gz"
   sha256 "ea036fdd45da488c241603f6ea59a06bbcfe6c26177ebd34fff54336a44494b8"
   license "GPL-2.0-only"
-  head "https://github.com/traviscross/mtr.git"
+  head "https://github.com/traviscross/mtr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "36ce33f2a57a1ae2d38579526ef8263b29d3bb1976d33cbebf59c3c38b8a47ef"
