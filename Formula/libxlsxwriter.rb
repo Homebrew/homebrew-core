@@ -4,7 +4,7 @@ class Libxlsxwriter < Formula
   url "https://github.com/jmcnamara/libxlsxwriter/archive/RELEASE_1.1.4.tar.gz"
   sha256 "b379eb35fdd9c653ebe72485b9c992f612c7ea66f732784457997d6e782f619b"
   license "BSD-2-Clause"
-  head "https://github.com/jmcnamara/libxlsxwriter.git"
+  head "https://github.com/jmcnamara/libxlsxwriter.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "38f257e506a3a9ba0db30c48e3db144d9c87a6a86648ba9627b09877e11c9e6c"
