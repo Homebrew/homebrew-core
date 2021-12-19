@@ -4,7 +4,7 @@ class Libwbxml < Formula
   url "https://github.com/libwbxml/libwbxml/archive/libwbxml-0.11.7.tar.gz"
   sha256 "35e2cf033066edebc0d96543c0bdde87273359e4f4e59291299d41e103bd6338"
   license "LGPL-2.1"
-  head "https://github.com/libwbxml/libwbxml.git"
+  head "https://github.com/libwbxml/libwbxml.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "79c3653734dc5a8fbd8707a17e085f8eb3d93367a51aa62f76da1d9ac5001ef2"
