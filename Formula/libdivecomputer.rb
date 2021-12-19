@@ -4,7 +4,7 @@ class Libdivecomputer < Formula
   url "https://www.libdivecomputer.org/releases/libdivecomputer-0.7.0.tar.gz"
   sha256 "80d9f194ea24502039df98598482e0afc6b0e333de79db34c29b2d68934d25b9"
   license "LGPL-2.1-or-later"
-  head "https://github.com/libdivecomputer/libdivecomputer.git"
+  head "https://github.com/libdivecomputer/libdivecomputer.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c5f918bf0cf0716949639440453e31eb929a918d5328fb1d4dd50ad6f6a497a5"
