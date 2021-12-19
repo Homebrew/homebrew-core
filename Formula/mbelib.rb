@@ -4,7 +4,7 @@ class Mbelib < Formula
   url "https://github.com/szechyjs/mbelib/archive/v1.3.0.tar.gz"
   sha256 "5a2d5ca37cef3b6deddd5ce8c73918f27936c50eb0e63b27e4b4fc493310518d"
   license "ISC"
-  head "https://github.com/szechyjs/mbelib.git"
+  head "https://github.com/szechyjs/mbelib.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "4a189fcd966e9a57fb11df30a7e136d98bd7b2e989d01af3731117475e2afc94"
