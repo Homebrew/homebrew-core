@@ -4,7 +4,7 @@ class MongoCDriver < Formula
   url "https://github.com/mongodb/mongo-c-driver/releases/download/1.20.0/mongo-c-driver-1.20.0.tar.gz"
   sha256 "a97242866212bdcf9dfb8030b31a32eef9ff83082b34e1027339c805a3c50b0d"
   license "Apache-2.0"
-  head "https://github.com/mongodb/mongo-c-driver.git"
+  head "https://github.com/mongodb/mongo-c-driver.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "374efdef4f8445ef889e34b59e36b9aa36f2d1cf278e638ef47a7159ab5e5374"
