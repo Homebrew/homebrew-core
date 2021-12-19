@@ -4,7 +4,7 @@ class Mplayershell < Formula
   url "https://github.com/donmelton/MPlayerShell/archive/0.9.3.tar.gz"
   sha256 "a1751207de9d79d7f6caa563a3ccbf9ea9b3c15a42478ff24f5d1e9ff7d7226a"
   license "MIT"
-  head "https://github.com/donmelton/MPlayerShell.git"
+  head "https://github.com/donmelton/MPlayerShell.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:    "394a7fd5b3beef51cc57058e2210cccfd9fda7ae045fba2551c1e62149bae6df"
