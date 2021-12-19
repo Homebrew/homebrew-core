@@ -5,7 +5,7 @@ class Mpw < Formula
   version "2.7-cli-1"
   sha256 "480206dfaad5d5a7d71fba235f1f3d9041e70b02a8c1d3dda8ecba1da39d3e96"
   license "GPL-3.0-or-later"
-  head "https://gitlab.com/MasterPassword/MasterPassword.git"
+  head "https://gitlab.com/MasterPassword/MasterPassword.git", branch: "master"
 
   # The first-party site doesn't seem to list version information, so it's
   # necessary to check the tags from the `head` repository instead.
