@@ -4,7 +4,7 @@ class Memcached < Formula
   url "https://www.memcached.org/files/memcached-1.6.12.tar.gz"
   sha256 "f291a35f82ef9756ed1d952879ef5f4be870f932bdfcb2ab61356609abf82346"
   license "BSD-3-Clause"
-  head "https://github.com/memcached/memcached.git"
+  head "https://github.com/memcached/memcached.git", branch: "master"
 
   livecheck do
     url :homepage
