@@ -4,7 +4,7 @@ class Gox < Formula
   url "https://github.com/mitchellh/gox/archive/v1.0.1.tar.gz"
   sha256 "25aab55a4ba75653931be2a2b95e29216b54bd8fecc7931bd416efe49a388229"
   license "MPL-2.0"
-  head "https://github.com/mitchellh/gox.git"
+  head "https://github.com/mitchellh/gox.git", branch: "master"
 
   bottle do
     rebuild 2
