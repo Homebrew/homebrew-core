@@ -4,7 +4,7 @@ class Giflossy < Formula
   url "https://github.com/kornelski/giflossy/archive/1.91.tar.gz"
   sha256 "b97f6aadf163ff5dd96ad1695738ad3d5aa7f1658baed8665c42882f11d9ab22"
   license "GPL-2.0-only"
-  head "https://github.com/kornelski/giflossy.git"
+  head "https://github.com/kornelski/giflossy.git", branch: "master"
 
   bottle do
     rebuild 2
