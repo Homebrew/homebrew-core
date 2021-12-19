@@ -4,7 +4,7 @@ class Hatari < Formula
   url "https://download.tuxfamily.org/hatari/2.3.1/hatari-2.3.1.tar.bz2"
   sha256 "44a2f62ca995e38d9e0874806956f0b9c3cc84ea89e0169a63849b63cd3b64bd"
   license "GPL-2.0-or-later"
-  head "https://git.tuxfamily.org/hatari/hatari.git"
+  head "https://git.tuxfamily.org/hatari/hatari.git", branch: "master"
 
   livecheck do
     url "https://download.tuxfamily.org/hatari/"
