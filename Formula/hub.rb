@@ -4,7 +4,7 @@ class Hub < Formula
   url "https://github.com/github/hub/archive/v2.14.2.tar.gz"
   sha256 "e19e0fdfd1c69c401e1c24dd2d4ecf3fd9044aa4bd3f8d6fd942ed1b2b2ad21a"
   license "MIT"
-  head "https://github.com/github/hub.git"
+  head "https://github.com/github/hub.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "00602733d9a4c8049e34cb20a7c96dbd51f98a60e1cb5fbc9aec72663324ce89"
