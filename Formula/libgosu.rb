@@ -4,7 +4,7 @@ class Libgosu < Formula
   url "https://github.com/gosu/gosu/archive/v1.2.0.tar.gz"
   sha256 "89e3d175c7a7c27ae9722a719e7307a77aefac0d28c9c9e2b531ca84e080aab6"
   license "MIT"
-  head "https://github.com/gosu/gosu.git"
+  head "https://github.com/gosu/gosu.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "177e0764d488b1fc2c65930a8a6517241abc0c874c039fa7123aa174866e355a"
