@@ -4,7 +4,7 @@ class GitSecrets < Formula
   url "https://github.com/awslabs/git-secrets/archive/1.3.0.tar.gz"
   sha256 "f1d50c6c5c7564f460ff8d279081879914abe920415c2923934c1f1d1fac3606"
   license "Apache-2.0"
-  head "https://github.com/awslabs/git-secrets.git"
+  head "https://github.com/awslabs/git-secrets.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9de924f892439c26efd7c99bf498edb0425f2ca2ed1b2f6a41894f22a45e362"
