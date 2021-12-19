@@ -4,7 +4,7 @@ class Libstrophe < Formula
   url "https://github.com/strophe/libstrophe/archive/0.11.0.tar.gz"
   sha256 "090185bcf5800663e18340313410e3b6e4e742e065daac9e7cfa5dbb83dab8f5"
   license any_of: ["GPL-3.0", "MIT"]
-  head "https://github.com/strophe/libstrophe.git"
+  head "https://github.com/strophe/libstrophe.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "13e67f5e28df838ffbf4bdcaded2308ae38abb6665cafa6bd36deba5c6ed2cb9"
