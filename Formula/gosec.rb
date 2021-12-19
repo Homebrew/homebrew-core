@@ -4,7 +4,7 @@ class Gosec < Formula
   url "https://github.com/securego/gosec/archive/v2.9.5.tar.gz"
   sha256 "7c6fd7e05e8ae8b8c8816616f61cf334f44e17dff0b3b1294daea0f04aa92f01"
   license "Apache-2.0"
-  head "https://github.com/securego/gosec.git"
+  head "https://github.com/securego/gosec.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1abb42c11452494d96d362d730a6940ad8e5928addbf539d4f37f19b30e8c88b"
