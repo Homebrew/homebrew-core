@@ -4,7 +4,7 @@ class Lean < Formula
   url "https://github.com/leanprover-community/lean/archive/v3.35.1.tar.gz"
   sha256 "501170db2958a9302e075c6f1c849c42e12c2623fb3e7c527f3a5da3483eea93"
   license "Apache-2.0"
-  head "https://github.com/leanprover-community/lean.git"
+  head "https://github.com/leanprover-community/lean.git", branch: "master"
 
   # The Lean 3 repository (https://github.com/leanprover/lean/) is archived
   # and there won't be any new releases. Lean 4 is being developed but is still
