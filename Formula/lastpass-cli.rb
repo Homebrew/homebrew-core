@@ -5,7 +5,7 @@ class LastpassCli < Formula
   sha256 "b94f591627e06c9fed3bc38007b1adc6ea77127e17c7175c85d497096768671b"
   license "GPL-2.0"
   revision 1
-  head "https://github.com/lastpass/lastpass-cli.git"
+  head "https://github.com/lastpass/lastpass-cli.git", branch: "master"
 
   bottle do
     rebuild 4
