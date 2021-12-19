@@ -5,7 +5,7 @@ class Ledger < Formula
   sha256 "92bf09bc385b171987f456fe3ee9fa998ed5e40b97b3acdd562b663aa364384a"
   license "BSD-3-Clause"
   revision 7
-  head "https://github.com/ledger/ledger.git"
+  head "https://github.com/ledger/ledger.git", branch: "master"
 
   livecheck do
     url :stable
