@@ -4,7 +4,7 @@ class Librealsense < Formula
   url "https://github.com/IntelRealSense/librealsense/archive/v2.49.0.tar.gz"
   sha256 "2578ea0e75546aeebd908da732f52e0122bf37750d5a45f3adf92945a673aefd"
   license "Apache-2.0"
-  head "https://github.com/IntelRealSense/librealsense.git"
+  head "https://github.com/IntelRealSense/librealsense.git", branch: "master"
 
   livecheck do
     url :stable
