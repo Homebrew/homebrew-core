@@ -2,7 +2,7 @@ class Harbour < Formula
   desc "Portable, xBase-compatible programming language and environment"
   homepage "https://harbour.github.io"
   license "GPL-2.0"
-  head "https://github.com/harbour/core.git"
+  head "https://github.com/harbour/core.git", branch: "master"
 
   # Missing a header that was deprecated by libcurl @ version 7.12.0 and
   # deleted sometime after Harbour 3.0.0 release.
