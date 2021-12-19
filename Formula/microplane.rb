@@ -4,7 +4,7 @@ class Microplane < Formula
   url "https://github.com/Clever/microplane/archive/v0.0.34.tar.gz"
   sha256 "289b3df07b3847fecb0d815ff552dad1b1b1e4f662eddc898ca7b1e7d81d6d7c"
   license "Apache-2.0"
-  head "https://github.com/Clever/microplane.git"
+  head "https://github.com/Clever/microplane.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9683ab03d43b65a9b9f2800126aa5ebe96fa9c639dbe9d5bdd86d53334fac010"
