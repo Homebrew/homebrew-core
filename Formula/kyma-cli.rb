@@ -4,7 +4,7 @@ class KymaCli < Formula
   url "https://github.com/kyma-project/cli/archive/2.0.0.tar.gz"
   sha256 "e686577464c849c85e6c6fe0d4c84b33cd6e116107fc7e437d4013ba71a48b6e"
   license "Apache-2.0"
-  head "https://github.com/kyma-project/cli.git"
+  head "https://github.com/kyma-project/cli.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "05ebce0c8616190dbb5b5e55597a690e53e9a0d921dae479bce49262de72d8c3"
