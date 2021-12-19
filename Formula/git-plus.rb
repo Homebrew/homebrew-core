@@ -7,7 +7,7 @@ class GitPlus < Formula
   sha256 "22e0e118ed94bdc4413a763774e8cf8dfd167a1209b9ee831eac1835d4bb5302"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/tkrajina/git-plus.git"
+  head "https://github.com/tkrajina/git-plus.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8bc27d01ae10334384f7bfa583f7cf3558246738d95a15969d234a3744808c61"
