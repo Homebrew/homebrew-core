@@ -4,7 +4,7 @@ class Graphite2 < Formula
   url "https://github.com/silnrsi/graphite/releases/download/1.3.14/graphite2-1.3.14.tgz"
   sha256 "f99d1c13aa5fa296898a181dff9b82fb25f6cc0933dbaa7a475d8109bd54209d"
   license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "MPL-1.1+"]
-  head "https://github.com/silnrsi/graphite.git"
+  head "https://github.com/silnrsi/graphite.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2254ea02844280605c79ab735ce1c5eb4a943fe897c3119611de54169130a88e"
