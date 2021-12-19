@@ -4,7 +4,7 @@ class GitUrlSub < Formula
   url "https://github.com/gosuri/git-url-sub/archive/1.0.1.tar.gz"
   sha256 "6c943b55087e786e680d360cb9e085d8f1d7b9233c88e8f2e6a36f8e598a00a9"
   license "MIT"
-  head "https://github.com/gosuri/git-url-sub.git"
+  head "https://github.com/gosuri/git-url-sub.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8975feb6b79a015095edec52863982710396e64089ad4f3ff5ad8e0258c5d86b"
