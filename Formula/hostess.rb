@@ -4,7 +4,7 @@ class Hostess < Formula
   url "https://github.com/cbednarski/hostess/archive/v0.5.2.tar.gz"
   sha256 "ece52d72e9e886e5cc877379b94c7d8fe6ba5e22ab823ef41b66015e5326da87"
   license "MIT"
-  head "https://github.com/cbednarski/hostess.git"
+  head "https://github.com/cbednarski/hostess.git", branch: "master"
 
   bottle do
     rebuild 1
