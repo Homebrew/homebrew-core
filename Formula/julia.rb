@@ -5,7 +5,7 @@ class Julia < Formula
   sha256 "8e870dbef71bc72469933317a1a18214fd1b4b12f1080784af7b2c56177efcb4"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   revision 1
-  head "https://github.com/JuliaLang/julia.git"
+  head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 monterey:     "63b4f101a3d62f67611a1a8a659ad99e3fe5a8661205e3782e44629a7be4590b"
