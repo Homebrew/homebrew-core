@@ -4,7 +4,7 @@ class Libcpuid < Formula
   url "https://github.com/anrieff/libcpuid/archive/v0.5.1.tar.gz"
   sha256 "36d62842ef43c749c0ba82237b10ede05b298d79a0e39ef5fd1115ba1ff8e126"
   license "BSD-2-Clause"
-  head "https://github.com/anrieff/libcpuid.git"
+  head "https://github.com/anrieff/libcpuid.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 monterey:     "10ee187d9e292dac42be9924bf2b5ea2f495267335e5e5a56a35779d28ff3036"
