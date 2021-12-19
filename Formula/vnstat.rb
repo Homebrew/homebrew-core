@@ -4,7 +4,7 @@ class Vnstat < Formula
   url "https://humdi.net/vnstat/vnstat-2.8.tar.gz"
   sha256 "03f858a7abf6bd85bb8cd595f3541fc3bd31f8f400ec092ef3034825ccb77c25"
   license "GPL-2.0-only"
-  head "https://github.com/vergoh/vnstat.git"
+  head "https://github.com/vergoh/vnstat.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "17d72eee03c37131ab65a80500885f44f5b96cdd242eb25dcb887a08eac29bfe"
