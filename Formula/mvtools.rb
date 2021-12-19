@@ -5,7 +5,7 @@ class Mvtools < Formula
   sha256 "3b5fdad2b52a2525764510a04af01eab3bc5e8fe6a02aba44b78955887a47d44"
   license "GPL-2.0"
   revision 1
-  head "https://github.com/dubhater/vapoursynth-mvtools.git"
+  head "https://github.com/dubhater/vapoursynth-mvtools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 monterey:     "5fc1c4a4fda847ebc2a78fe9972fd99fa7c4f7f52b74cb68825181634f9c3d5e"
