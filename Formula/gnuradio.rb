@@ -7,7 +7,7 @@ class Gnuradio < Formula
   sha256 "4073ac72524f95fed4bda7dd553cb946f66d2e00bd07c4ae7758f1b787d507e0"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/gnuradio/gnuradio.git"
+  head "https://github.com/gnuradio/gnuradio.git", branch: "master"
 
   livecheck do
     url :stable
