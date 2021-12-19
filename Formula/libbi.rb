@@ -5,7 +5,7 @@ class Libbi < Formula
   sha256 "af2b6d30e1502f99a3950d63ceaf7d7275a236f4d81eff337121c24fbb802fbe"
   license "GPL-2.0-only"
   revision 4
-  head "https://github.com/lawmurray/LibBi.git"
+  head "https://github.com/lawmurray/LibBi.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae593b0f46cfb4176070508a9ecf1379ab1ce5c6d6946f067455854751545ee9"
