@@ -8,7 +8,7 @@ class Lcov < Formula
   url "https://github.com/linux-test-project/lcov/releases/download/v1.15/lcov-1.15.tar.gz"
   sha256 "c1cda2fa33bec9aa2c2c73c87226cfe97de0831887176b45ee523c5e30f8053a"
   license "GPL-2.0-or-later"
-  head "https://github.com/linux-test-project/lcov.git"
+  head "https://github.com/linux-test-project/lcov.git", branch: "master"
 
   bottle do
     rebuild 1
