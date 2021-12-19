@@ -4,7 +4,7 @@ class Httpdiff < Formula
   url "https://github.com/jgrahamc/httpdiff/archive/v1.0.0.tar.gz"
   sha256 "b2d3ed4c8a31c0b060c61bd504cff3b67cd23f0da8bde00acd1bfba018830f7f"
   license "GPL-2.0"
-  head "https://github.com/jgrahamc/httpdiff.git"
+  head "https://github.com/jgrahamc/httpdiff.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e8e0883f20c870f02e78385ba604f33cca56c29e41037c1b42c98b9e231a1845"
