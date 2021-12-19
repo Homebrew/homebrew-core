@@ -4,7 +4,7 @@ class Janet < Formula
   url "https://github.com/janet-lang/janet/archive/v1.19.2.tar.gz"
   sha256 "02ff892f4bfc060a8a37f4a5c3e659bf34ba5f1f1c5eb07d60dc2642c5cf0476"
   license "MIT"
-  head "https://github.com/janet-lang/janet.git"
+  head "https://github.com/janet-lang/janet.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5f8328a386323763770d5df1e9eb77376a8da5fd792cb5fe1b31111409bae9e3"
