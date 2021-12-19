@@ -4,7 +4,7 @@ class MacosTrash < Formula
   url "https://github.com/sindresorhus/macos-trash/archive/v1.2.0.tar.gz"
   sha256 "c4472b5c8024806720779bc867da1958fe871fbd93d200af8a2cc4ad1941be28"
   license "MIT"
-  head "https://github.com/sindresorhus/macos-trash.git"
+  head "https://github.com/sindresorhus/macos-trash.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0cff573086ce20b6b3c1ace838570390605cd758965e455c1b36b097b3130ccb"
