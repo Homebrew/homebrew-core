@@ -4,7 +4,7 @@ class Mgba < Formula
   url "https://github.com/mgba-emu/mgba/archive/0.9.3.tar.gz"
   sha256 "692ff0ac50e18380df0ff3ee83071f9926715200d0dceedd9d16a028a59537a0"
   license "MPL-2.0"
-  head "https://github.com/mgba-emu/mgba.git"
+  head "https://github.com/mgba-emu/mgba.git", branch: "master"
 
   livecheck do
     url :stable
