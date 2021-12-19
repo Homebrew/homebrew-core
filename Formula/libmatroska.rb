@@ -4,7 +4,7 @@ class Libmatroska < Formula
   url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.6.3.tar.xz"
   sha256 "daf91a63f58dd157ca340c457871e66260cb9c3333fefb008b318befbb0e081a"
   license "LGPL-2.1"
-  head "https://github.com/Matroska-Org/libmatroska.git"
+  head "https://github.com/Matroska-Org/libmatroska.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "8547a058752a4a107227a379565968ca1240846464ebcc85478ea986f3a14caf"
