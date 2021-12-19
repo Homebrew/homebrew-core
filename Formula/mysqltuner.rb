@@ -4,7 +4,7 @@ class Mysqltuner < Formula
   url "https://github.com/major/MySQLTuner-perl/archive/1.8.3.tar.gz"
   sha256 "9b8b1dff03550f03c659d2b850cb287d784f0d79f193c1d8a969516cc44738cb"
   license "GPL-3.0-or-later"
-  head "https://github.com/major/MySQLTuner-perl.git"
+  head "https://github.com/major/MySQLTuner-perl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "11245f159d339a4e3df8759f3e71e15ead6a6388b9c4711b3b9c3cdc7480b535"
