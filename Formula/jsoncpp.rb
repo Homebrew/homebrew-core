@@ -5,7 +5,7 @@ class Jsoncpp < Formula
   sha256 "e34a628a8142643b976c7233ef381457efad79468c67cb1ae0b83a33d7493999"
   license "MIT"
   revision 1
-  head "https://github.com/open-source-parsers/jsoncpp.git"
+  head "https://github.com/open-source-parsers/jsoncpp.git", branch: "master"
 
   livecheck do
     url :stable
