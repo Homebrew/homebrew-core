@@ -4,7 +4,7 @@ class Immortal < Formula
   url "https://github.com/immortal/immortal/archive/0.24.3.tar.gz"
   sha256 "e31d5afb9028fb5047b5a2cc5f96c844f6480d600643a12075550f497e65f5cb"
   license "BSD-3-Clause"
-  head "https://github.com/immortal/immortal.git"
+  head "https://github.com/immortal/immortal.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "01fb4ace3e58bd7f6a1b2c16816286b06862b73e4aeb9b52e17b2d1372451c5a"
