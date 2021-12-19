@@ -4,7 +4,7 @@ class Libmaa < Formula
   url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.7/libmaa-1.4.7.tar.gz"
   sha256 "4e01a9ebc5d96bc9284b6706aa82bddc2a11047fa9bd02e94cf8753ec7dcb98e"
   license "MIT"
-  head "https://github.com/cheusov/libmaa.git"
+  head "https://github.com/cheusov/libmaa.git", branch: "master"
 
   livecheck do
     url :stable
