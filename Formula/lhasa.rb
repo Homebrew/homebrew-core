@@ -4,7 +4,7 @@ class Lhasa < Formula
   url "https://github.com/fragglet/lhasa/archive/v0.3.1.tar.gz"
   sha256 "ad76d763c7e91f47fde455a1baef4bfb0d1debba424039eabe0140fa8f115c5e"
   license "ISC"
-  head "https://github.com/fragglet/lhasa.git"
+  head "https://github.com/fragglet/lhasa.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f2584155441658b209d336823dd3428b4da20896e6c478d34ef6870cef4b4c74"
