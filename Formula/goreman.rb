@@ -4,7 +4,7 @@ class Goreman < Formula
   url "https://github.com/mattn/goreman/archive/v0.3.8.tar.gz"
   sha256 "b3d14310e84103d7557505dbd0d4649109c0574a3677a459683fba2721aedfc6"
   license "MIT"
-  head "https://github.com/mattn/goreman.git"
+  head "https://github.com/mattn/goreman.git", branch: "master"
 
   livecheck do
     url :homepage
