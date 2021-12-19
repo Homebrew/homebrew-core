@@ -4,7 +4,7 @@ class Lab < Formula
   url "https://github.com/zaquestion/lab/archive/v0.23.0.tar.gz"
   sha256 "8f20d5f1931e9b5daa0aa2d30fc3176d82dcca91b368905a1e1c05e2b36254b9"
   license "CC0-1.0"
-  head "https://github.com/zaquestion/lab.git"
+  head "https://github.com/zaquestion/lab.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e6c5f7468bcdda2dd60824e289016e574356a3d12687200f483a3511813a96a"
