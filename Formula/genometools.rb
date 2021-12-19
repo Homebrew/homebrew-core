@@ -5,7 +5,7 @@ class Genometools < Formula
   url "https://github.com/genometools/genometools/archive/v1.6.2.tar.gz"
   sha256 "974825ddc42602bdce3d5fbe2b6e2726e7a35e81b532a0dc236f6e375d18adac"
   license "ISC"
-  head "https://github.com/genometools/genometools.git"
+  head "https://github.com/genometools/genometools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "08242bc47368b56715af9ff71c75e61bf65d1b74e545007b53411a85c286dd2c"
