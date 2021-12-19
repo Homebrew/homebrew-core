@@ -2,7 +2,7 @@ class Libebml < Formula
   desc "Sort of a sbinary version of XML"
   homepage "https://www.matroska.org/"
   license "LGPL-2.1-or-later"
-  head "https://github.com/Matroska-Org/libebml.git"
+  head "https://github.com/Matroska-Org/libebml.git", branch: "master"
 
   # Remove stable block in next release with merged patch
   stable do
