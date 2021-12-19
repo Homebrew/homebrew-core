@@ -4,7 +4,7 @@ class GitGerrit < Formula
   url "https://github.com/fbzhong/git-gerrit/archive/v0.3.0.tar.gz"
   sha256 "433185315db3367fef82a7332c335c1c5e0b05dabf8d4fbeff9ecf6cc7e422eb"
   license "BSD-3-Clause"
-  head "https://github.com/fbzhong/git-gerrit.git"
+  head "https://github.com/fbzhong/git-gerrit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "865ffd990de756622dd9c3bb37fd0f8e7af04eba58bd38013cda9b6a6c551f95"
