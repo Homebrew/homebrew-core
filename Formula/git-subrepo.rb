@@ -4,7 +4,7 @@ class GitSubrepo < Formula
   url "https://github.com/ingydotnet/git-subrepo/archive/0.4.3.tar.gz"
   sha256 "d2e3cc58f8ac3d90f6f351ae2f9cc999b133b8581ab7a0f7db4933dec8e62c2a"
   license "MIT"
-  head "https://github.com/ingydotnet/git-subrepo.git"
+  head "https://github.com/ingydotnet/git-subrepo.git", branch: "master"
 
   livecheck do
     url :stable
