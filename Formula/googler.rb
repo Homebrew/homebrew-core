@@ -7,7 +7,7 @@ class Googler < Formula
   sha256 "bd59af407e9a45c8a6fcbeb720790cb9eccff21dc7e184716a60e29f14c68d54"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/jarun/googler.git"
+  head "https://github.com/jarun/googler.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "18cddbd924b8544fa84dce44221443c08053e1939f4b638538e0da04a696df03"
