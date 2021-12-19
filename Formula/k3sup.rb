@@ -5,7 +5,7 @@ class K3sup < Formula
       tag:      "0.11.1",
       revision: "95cf0b1332c3b2b7eed4bb2d7154bec790b8ea41"
   license "MIT"
-  head "https://github.com/alexellis/k3sup.git"
+  head "https://github.com/alexellis/k3sup.git", branch: "master"
 
   livecheck do
     url :stable
