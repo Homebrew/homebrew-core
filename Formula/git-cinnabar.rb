@@ -4,7 +4,7 @@ class GitCinnabar < Formula
   url "https://github.com/glandium/git-cinnabar/archive/0.5.8.tar.gz"
   sha256 "7971c2ae17d2b919f915efab35e3aba583b951d53ca2bc6ebf69bbd0c22f1067"
   license "GPL-2.0-only"
-  head "https://github.com/glandium/git-cinnabar.git"
+  head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "19ed5d8d7c8a59fe542ed94aa565a8d134aedb3d10936ed6a797516ee8e6f315"
