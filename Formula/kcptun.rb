@@ -4,7 +4,7 @@ class Kcptun < Formula
   url "https://github.com/xtaci/kcptun/archive/v20210922.tar.gz"
   sha256 "f6a08f0fe75fa85d15f9c0c28182c69a5ad909229b4c230a8cbe38f91ba2d038"
   license "MIT"
-  head "https://github.com/xtaci/kcptun.git"
+  head "https://github.com/xtaci/kcptun.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd7100a62dee2ca46b25ebd4fccf13d4db334720447d4c9258b8ba5df97ae8c0"
