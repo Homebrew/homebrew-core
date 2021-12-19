@@ -4,7 +4,7 @@ class Liquigraph < Formula
   url "https://github.com/liquigraph/liquigraph/archive/liquigraph-4.0.4.tar.gz"
   sha256 "2ccadb61da07ede6860c32695853456e4844eeb5e64c05f3e61b3c914587a072"
   license "Apache-2.0"
-  head "https://github.com/liquigraph/liquigraph.git"
+  head "https://github.com/liquigraph/liquigraph.git", branch: "4.x"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "be3ede90f882b6636ca5c0374274e659b924bdfee4b67eea10ef8f78596d7b74"
