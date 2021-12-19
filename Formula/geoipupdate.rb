@@ -4,7 +4,7 @@ class Geoipupdate < Formula
   url "https://github.com/maxmind/geoipupdate/archive/v4.8.0.tar.gz"
   sha256 "ca718c3ffcc595ef441363699888d20150f1d3a6583ac2d60bcbd34f052db09f"
   license "Apache-2.0"
-  head "https://github.com/maxmind/geoipupdate.git"
+  head "https://github.com/maxmind/geoipupdate.git", branch: "main"
 
   bottle do
     sha256 arm64_monterey: "3fd3f5ed2425347901d41d310a94a177fe8fcfccb9cd8755bcb8c7ec8a5756a3"
