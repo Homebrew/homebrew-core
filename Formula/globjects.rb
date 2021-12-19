@@ -4,7 +4,7 @@ class Globjects < Formula
   url "https://github.com/cginternals/globjects/archive/v1.1.0.tar.gz"
   sha256 "68fa218c1478c09b555e44f2209a066b28be025312e0bab6e3a0b142a01ebbc6"
   license "MIT"
-  head "https://github.com/cginternals/globjects.git"
+  head "https://github.com/cginternals/globjects.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "f268fe12c238a3714fd1bec33a818b7c372fb53e26f019596146538b2f2f7868"
