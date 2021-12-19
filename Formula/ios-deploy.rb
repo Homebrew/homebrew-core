@@ -4,7 +4,7 @@ class IosDeploy < Formula
   url "https://github.com/ios-control/ios-deploy/archive/1.11.4.tar.gz"
   sha256 "52aa0a5985fb5638c9b35351f7380b416651d172a460ca991fc02d1ae84611f6"
   license all_of: ["GPL-3.0-or-later", "BSD-3-Clause"]
-  head "https://github.com/ios-control/ios-deploy.git"
+  head "https://github.com/ios-control/ios-deploy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e149d628fae457011dc5d3af6215ae3e8311ec08f4affbc96f00a3de5ef47791"
