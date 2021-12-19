@@ -4,7 +4,7 @@ class Makefile2graph < Formula
   url "https://github.com/lindenb/makefile2graph/archive/2021.11.06.tar.gz"
   sha256 "5be8e528fa2945412357a8ef233e68fa3729639307ec1c38fd63768aad642c41"
   license "MIT"
-  head "https://github.com/lindenb/makefile2graph.git"
+  head "https://github.com/lindenb/makefile2graph.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5eb90095c4579d7d8616732bec7f266164f7b5f7665ef15fd3272720a4577cae"
