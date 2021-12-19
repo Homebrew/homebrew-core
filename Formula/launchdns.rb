@@ -5,7 +5,7 @@ class Launchdns < Formula
   sha256 "60f6010659407e3d148c021c88e1c1ce0924de320e99a5c58b21c8aece3888aa"
   license "MIT"
   revision 2
-  head "https://github.com/josh/launchdns.git"
+  head "https://github.com/josh/launchdns.git", branch: "master"
 
   bottle do
     rebuild 1
