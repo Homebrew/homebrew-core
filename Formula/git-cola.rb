@@ -4,7 +4,7 @@ class GitCola < Formula
   url "https://github.com/git-cola/git-cola/archive/v3.11.0.tar.gz"
   sha256 "5f14ab41508ee9c8756097d6fa81f471fce58089b178317cc25d948d42620994"
   license "GPL-2.0-or-later"
-  head "https://github.com/git-cola/git-cola.git"
+  head "https://github.com/git-cola/git-cola.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e32f65fad03f9c1c918ce61a206cf37f94b239cc69a5cc511288d8e887fe184"
