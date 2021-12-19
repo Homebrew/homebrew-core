@@ -6,7 +6,7 @@ class Eleventy < Formula
   url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-0.12.1.tgz"
   sha256 "688cd47c4e23ed67a98392e2639c170bf6b65f896739acb8cbf55b4258bef24d"
   license "MIT"
-  head "https://github.com/11ty/eleventy.git"
+  head "https://github.com/11ty/eleventy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1be838b599d0c0dca800c43821d05fdffd641627089025245dc99e301227c096"
