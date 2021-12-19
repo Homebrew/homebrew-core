@@ -4,8 +4,7 @@ class Jenv < Formula
   url "https://github.com/jenv/jenv/archive/0.5.4.tar.gz"
   sha256 "15a78dab7310fb487d2c2cad7f69e05d5d797dc13f2d5c9e7d0bbec4ea3f2980"
   license "MIT"
-
-  head "https://github.com/jenv/jenv.git"
+  head "https://github.com/jenv/jenv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "521a1ad6e28b90f1e37893d279950e35957a0580464d639ec74c398f8da6d466"
