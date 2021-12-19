@@ -5,7 +5,7 @@ class Md5deep < Formula
   sha256 "dbda8ab42a9c788d4566adcae980d022d8c3d52ee732f1cbfa126c551c8fcc46"
   license "GPL-2.0"
   revision 1
-  head "https://github.com/jessek/hashdeep.git"
+  head "https://github.com/jessek/hashdeep.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b64f262b089ff96008078a6dc0f84cce93deec0740b3476279931d982bc9636"
