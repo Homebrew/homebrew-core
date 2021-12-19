@@ -4,7 +4,7 @@ class Gifify < Formula
   url "https://github.com/jclem/gifify/archive/v4.0.tar.gz"
   sha256 "4cb967e8d0ba897bc91a60006e34299687f388dd47e05fd534f2eff8379fe479"
   license "MIT"
-  head "https://github.com/jclem/gifify.git"
+  head "https://github.com/jclem/gifify.git", branch: "master"
 
   bottle do
     rebuild 1
