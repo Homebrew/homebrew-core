@@ -5,7 +5,7 @@ class Io < Formula
   sha256 "9ac5cd94bbca65c989cd254be58a3a716f4e4f16480f0dc81070457aa353c217"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/IoLanguage/io.git"
+  head "https://github.com/IoLanguage/io.git", branch: "master"
 
   bottle do
     sha256 monterey:     "7e191e8affbfeb613d6cf895ae482a077f54de8f2087ca2f4a8742fc488c73f2"
