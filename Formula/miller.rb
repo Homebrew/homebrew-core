@@ -4,7 +4,7 @@ class Miller < Formula
   url "https://github.com/johnkerl/miller/releases/download/v5.10.3/miller-5.10.3.tar.gz"
   sha256 "bbab4555c2bc207297554b0593599ea2cd030a48ad1350d00e003620e8d3c0ea"
   license "BSD-2-Clause"
-  head "https://github.com/johnkerl/miller.git"
+  head "https://github.com/johnkerl/miller.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "745c0e00c92719c72c3f456dbe1156b635a6f5d02846a91afb685ff40de4eb84"
