@@ -4,7 +4,7 @@ class GitDelta < Formula
   url "https://github.com/dandavison/delta/archive/0.11.3.tar.gz"
   sha256 "cf68f43d4d26c10551c0137a7e718719958e52267d83f29a8f7794af12095b9e"
   license "MIT"
-  head "https://github.com/dandavison/delta.git"
+  head "https://github.com/dandavison/delta.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "38f445182717dc92fb654871935d936ee932baaa49617a3a217325a4a5a8d033"
