@@ -5,7 +5,7 @@ class LincityNg < Formula
   sha256 "e05a2c1e1d682fbf289caecd0ea46ca84b0db9de43c7f1b5add08f0fdbf1456b"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/lincity-ng/lincity-ng.git"
+  head "https://github.com/lincity-ng/lincity-ng.git", branch: "master"
 
   bottle do
     sha256 monterey:    "2b2110aea3703ee4b4edaa104d610d5780e4bb116a2268dc95b57ac6446c5a19"
