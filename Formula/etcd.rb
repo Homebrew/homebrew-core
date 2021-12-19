@@ -5,7 +5,7 @@ class Etcd < Formula
       tag:      "v3.5.1",
       revision: "d42e8589e1305d893eeec9e7db746f6f4a76c250"
   license "Apache-2.0"
-  head "https://github.com/etcd-io/etcd.git"
+  head "https://github.com/etcd-io/etcd.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "668aac1a566e6927021845c8b5ae1a5c35e7eda18cfb9d034f61562f07e52751"
