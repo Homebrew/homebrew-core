@@ -4,7 +4,7 @@ class Kona < Formula
   url "https://github.com/kevinlawler/kona/archive/Win64-20201009.tar.gz"
   sha256 "ec00734f36e966dd8b16e3752bee963a85b9ad415a4f1b200ae7ca28a3ad4d37"
   license "ISC"
-  head "https://github.com/kevinlawler/kona.git"
+  head "https://github.com/kevinlawler/kona.git", branch: "master"
 
   livecheck do
     url :stable
