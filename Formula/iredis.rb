@@ -7,7 +7,7 @@ class Iredis < Formula
   sha256 "628479debd444c671cba866e96877b266ce1581c632d78a243549906db1ef946"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/laixintao/iredis.git"
+  head "https://github.com/laixintao/iredis.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "42c16776a00ab75e483cb165926fb7abc46fc776f7ec4ebef27c4145f656fd02"
