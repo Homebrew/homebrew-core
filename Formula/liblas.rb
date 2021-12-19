@@ -5,7 +5,7 @@ class Liblas < Formula
   sha256 "9adb4a98c63b461ed2bc82e214ae522cbd809cff578f28511122efe6c7ea4e76"
   license "BSD-3-Clause"
   revision 3
-  head "https://github.com/libLAS/libLAS.git"
+  head "https://github.com/libLAS/libLAS.git", branch: "master"
 
   bottle do
     sha256 catalina:    "c63d0d75db5b8e129c13add1de8fe94b2a38d5c15d101b62d6a7f59b796f53a3"
