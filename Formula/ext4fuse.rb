@@ -4,7 +4,7 @@ class Ext4fuse < Formula
   url "https://github.com/gerard/ext4fuse/archive/v0.1.3.tar.gz"
   sha256 "550f1e152c4de7d4ea517ee1c708f57bfebb0856281c508511419db45aa3ca9f"
   license "GPL-2.0"
-  head "https://github.com/gerard/ext4fuse.git"
+  head "https://github.com/gerard/ext4fuse.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 catalina:     "446dde5e84b058966ead0cde5e38e9411f465732527f6decfa1c0dcdbd4abbef"
