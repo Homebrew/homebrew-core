@@ -4,7 +4,7 @@ class Httpflow < Formula
   url "https://github.com/six-ddc/httpflow/archive/0.0.9.tar.gz"
   sha256 "2347bd416641e165669bf1362107499d0bc4524ed9bfbb273ccd3b3dd411e89c"
   license "MIT"
-  head "https://github.com/six-ddc/httpflow.git"
+  head "https://github.com/six-ddc/httpflow.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "90a537d7db4c639129394ae490211a16378c9549a777e80b3e050197fac49d84"
