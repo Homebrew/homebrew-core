@@ -5,7 +5,7 @@ class Libxslt < Formula
   sha256 "98b1bd46d6792925ad2dfe9a87452ea2adebf69dcb9919ffd55bf926a7f93f7f"
   license "X11"
   revision 3
-  head "https://gitlab.gnome.org/GNOME/libxslt.git"
+  head "https://gitlab.gnome.org/GNOME/libxslt.git", branch: "master"
 
   livecheck do
     url "http://xmlsoft.org/sources/"
