@@ -7,7 +7,7 @@ class Khal < Formula
   sha256 "3fdb980a9a61c0206d7a82b16f77b408a4f341a2b866b9c9fcf6a641850d129f"
   license "MIT"
   revision 1
-  head "https://github.com/pimutils/khal.git"
+  head "https://github.com/pimutils/khal.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "898dc596dee4d352dfd3ab4bfd2cd5302dcaad46cc5328e8a966972c71d23be8"
