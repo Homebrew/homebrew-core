@@ -7,7 +7,7 @@ class Gitfs < Formula
   sha256 "921e24311e3b8ea3a5448d698a11a747618ee8dd62d5d43a85801de0b111cbf3"
   license "Apache-2.0"
   revision 8
-  head "https://github.com/presslabs/gitfs.git"
+  head "https://github.com/presslabs/gitfs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "5ac737aa93de2901de21b51cf1938665df9d1d8b2b21e514e2ff209d6249ed2a"
