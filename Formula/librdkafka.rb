@@ -4,7 +4,7 @@ class Librdkafka < Formula
   url "https://github.com/edenhill/librdkafka/archive/refs/tags/v1.8.2.tar.gz"
   sha256 "6a747d293a7a4613bd2897e28e8791476fbe1ae7361f2530a876e0fd483482a6"
   license "BSD-2-Clause"
-  head "https://github.com/edenhill/librdkafka.git"
+  head "https://github.com/edenhill/librdkafka.git", branch: "master"
 
   livecheck do
     url :stable
