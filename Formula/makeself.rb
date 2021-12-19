@@ -4,7 +4,7 @@ class Makeself < Formula
   url "https://github.com/megastep/makeself/archive/release-2.4.5.tar.gz"
   sha256 "91deafdbfddf130abe67d7546f0c50be6af6711bb1c351b768043bd527bd6e45"
   license "GPL-2.0-or-later"
-  head "https://github.com/megastep/makeself.git"
+  head "https://github.com/megastep/makeself.git", branch: "master"
 
   bottle do
     rebuild 1
