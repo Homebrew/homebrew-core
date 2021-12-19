@@ -6,7 +6,7 @@ class Gdm < Formula
   url "https://github.com/sparrc/gdm/archive/1.4.tar.gz"
   sha256 "2ac8800319d922fe2816e57f30e23ddd9a11ce2e93294c533318b9f081debde4"
   license "Unlicense"
-  head "https://github.com/sparrc/gdm.git"
+  head "https://github.com/sparrc/gdm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "45fa20615c4ff168b2753f538d396a9a92cc851ead7eab94c2a21faac5bee814"
