@@ -4,7 +4,7 @@ class Irrtoolset < Formula
   url "https://github.com/irrtoolset/irrtoolset/archive/release-5.1.3.tar.gz"
   sha256 "a3eff14c2574f21be5b83302549d1582e509222d05f7dd8e5b68032ff6f5874a"
   license :cannot_represent
-  head "https://github.com/irrtoolset/irrtoolset.git"
+  head "https://github.com/irrtoolset/irrtoolset.git", branch: "master"
 
   livecheck do
     url :stable
