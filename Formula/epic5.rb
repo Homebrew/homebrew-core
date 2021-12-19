@@ -5,7 +5,7 @@ class Epic5 < Formula
   mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/epic5/epic5-2.1.6.tar.xz"
   sha256 "84d59cc22cb20ffac9cbea6c97b35d1d7e4993e7b1221fa5e82bcb0f03b9066d"
   license "BSD-3-Clause"
-  head "http://git.epicsol.org/epic5.git"
+  head "http://git.epicsol.org/epic5.git", branch: "master"
 
   livecheck do
     url "http://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/"
