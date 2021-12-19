@@ -4,7 +4,7 @@ class LeafProxy < Formula
   url "https://github.com/eycorsican/leaf/archive/v0.3.1.tar.gz"
   sha256 "895057e2424a8b99c2fc330a8b9f34895a377d7fcff5d5fb7b867d357a3bdd83"
   license "Apache-2.0"
-  head "https://github.com/eycorsican/leaf.git"
+  head "https://github.com/eycorsican/leaf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "008f26d03671d662a26bc67c6e039f0037a75b81946b9136fe90a5df3f440102"
