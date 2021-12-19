@@ -7,7 +7,7 @@ class Mitmproxy < Formula
   sha256 "8728d18c69053f0043acebcdabf46f2eeea51f0f0b60c528e1d356cf48ed2ca2"
   license "MIT"
   revision 1
-  head "https://github.com/mitmproxy/mitmproxy.git"
+  head "https://github.com/mitmproxy/mitmproxy.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "6fb2d7d8085b8bc9d29d2809ea71d938231e95604fe0ed53b31753287ae08b96"
