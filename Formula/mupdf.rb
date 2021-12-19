@@ -4,7 +4,7 @@ class Mupdf < Formula
   url "https://mupdf.com/downloads/archive/mupdf-1.19.0-source.tar.xz"
   sha256 "38f39943e408d60a3e7d6c2fca0d705163540ca24d65682d4426dc6f1fee28c5"
   license "AGPL-3.0-or-later"
-  head "https://git.ghostscript.com/mupdf.git"
+  head "https://git.ghostscript.com/mupdf.git", branch: "master"
 
   livecheck do
     url "https://mupdf.com/downloads/archive/"
