@@ -4,7 +4,7 @@ class Luaradio < Formula
   url "https://github.com/vsergeev/luaradio/archive/v0.10.0.tar.gz"
   sha256 "d540aac3363255c4a1f47313888d9133b037cc5d1edca0d428499a272710b992"
   license "MIT"
-  head "https://github.com/vsergeev/luaradio.git"
+  head "https://github.com/vsergeev/luaradio.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "b04641f0b463cd38e257f954a7b2fb49a5b4fe3ee671a5faa09f9603023f7ed2"
