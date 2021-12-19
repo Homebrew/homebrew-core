@@ -4,7 +4,7 @@ class Infracost < Formula
   url "https://github.com/infracost/infracost/archive/v0.9.15.tar.gz"
   sha256 "1a0239c140e762987687f1e52fef929e434d15566f18008ca3251876a9f9cc03"
   license "Apache-2.0"
-  head "https://github.com/infracost/infracost.git"
+  head "https://github.com/infracost/infracost.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e86567448661737333dbb278e50caccaddecba83a1d3476594d2eee38c885f63"
