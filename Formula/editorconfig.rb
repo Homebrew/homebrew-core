@@ -4,7 +4,7 @@ class Editorconfig < Formula
   url "https://github.com/editorconfig/editorconfig-core-c/archive/v0.12.5.tar.gz"
   sha256 "b2b212e52e7ea6245e21eaf818ee458ba1c16117811a41e4998f3f2a1df298d2"
   license "BSD-2-Clause"
-  head "https://github.com/editorconfig/editorconfig-core-c.git"
+  head "https://github.com/editorconfig/editorconfig-core-c.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e1be5f7ae1a5d746932cde2791637c52c9457abf4decffa0c3339600e1f7b2f3"
