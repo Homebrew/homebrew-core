@@ -5,7 +5,7 @@ class GitIf < Formula
   version "1.3.6"
   sha256 "28d8d7b8d81dac65c19f0b994d54b3c34b182045e86ca399fea65934918d1cf3"
   license "MIT"
-  head "https://github.com/DavidKinder/Git.git"
+  head "https://github.com/DavidKinder/Git.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1cbdac43ba193647b00e4dca570d079cfdf975e520c445e98d9352d51100b91c"
