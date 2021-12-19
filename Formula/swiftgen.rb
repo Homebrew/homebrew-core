@@ -4,7 +4,7 @@ class Swiftgen < Formula
   url "https://github.com/SwiftGen/SwiftGen/archive/6.5.1.tar.gz"
   sha256 "bcd52ddc581eea94070eaaab7b94218971f7424b7800696f6be0a1accfc7a0a9"
   license "MIT"
-  head "https://github.com/SwiftGen/SwiftGen/archive/develop.tar.gz"
+  head "https://github.com/SwiftGen/SwiftGen.git", branch: "stable"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf3abab4eac9a3886d79d6eb625b1d010c4490cd04391d02a78d44ea67ffbc5f"
