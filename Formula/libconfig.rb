@@ -4,7 +4,7 @@ class Libconfig < Formula
   url "https://github.com/hyperrealm/libconfig/archive/v1.7.3.tar.gz"
   sha256 "68757e37c567fd026330c8a8449aa5f9cac08a642f213f2687186b903bd7e94e"
   license "LGPL-2.1-or-later"
-  head "https://github.com/hyperrealm/libconfig.git"
+  head "https://github.com/hyperrealm/libconfig.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "8074ac817099b848dfda57a98dcb10eac98781d1aeb85425d6e1713650da8c09"
