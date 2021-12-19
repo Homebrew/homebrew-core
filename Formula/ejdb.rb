@@ -4,7 +4,7 @@ class Ejdb < Formula
   url "https://github.com/Softmotions/ejdb/archive/v2.62.tar.gz"
   sha256 "8369b09483bb639c6cbc75a307a7ac5d605740c44c9281bad6df0748eaf7bbd6"
   license "MIT"
-  head "https://github.com/Softmotions/ejdb.git"
+  head "https://github.com/Softmotions/ejdb.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2c80641ca8f801cfbf20f0da4cf9612aa12c22975362235da788b89ec54f1b5b"
