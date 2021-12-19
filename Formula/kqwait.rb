@@ -4,7 +4,7 @@ class Kqwait < Formula
   url "https://github.com/sschober/kqwait/archive/kqwait-v1.0.3.tar.gz"
   sha256 "878560936d473f203c0ccb3d42eadccfb50cff15e6f15a59061e73704474c531"
   license "BSD-2-Clause"
-  head "https://github.com/sschober/kqwait.git"
+  head "https://github.com/sschober/kqwait.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "647d43de225f13a8d44c1b496bea51d180645b5c51cee5de9c82484117549d7b"
