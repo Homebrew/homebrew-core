@@ -3,7 +3,7 @@ class HasteClient < Formula
   homepage "https://hastebin.com/"
   license "MIT"
   revision 5
-  head "https://github.com/seejohnrun/haste-client.git"
+  head "https://github.com/seejohnrun/haste-client.git", branch: "master"
 
   stable do
     url "https://github.com/seejohnrun/haste-client/archive/v0.2.3.tar.gz"
