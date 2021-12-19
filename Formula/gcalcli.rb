@@ -7,7 +7,7 @@ class Gcalcli < Formula
   sha256 "d00081460276027196e8fb957880b29ba4f22ea43136f9e232a9408016abc110"
   license "MIT"
   revision 1
-  head "https://github.com/insanum/gcalcli.git"
+  head "https://github.com/insanum/gcalcli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2e67e167840ac9eb7f74ff86f92fcec21a3521c9d646bffe627cf6c1e7159b9a"
