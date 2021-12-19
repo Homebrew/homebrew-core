@@ -4,7 +4,7 @@ class GithubRelease < Formula
   url "https://github.com/github-release/github-release/archive/v0.10.0.tar.gz"
   sha256 "79bfaa465f549a08c781f134b1533f05b02f433e7672fbaad4e1764e4a33f18a"
   license "MIT"
-  head "https://github.com/github-release/github-release.git"
+  head "https://github.com/github-release/github-release.git", branch: "master"
 
   bottle do
     rebuild 1
