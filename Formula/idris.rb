@@ -4,7 +4,7 @@ class Idris < Formula
   url "https://github.com/idris-lang/Idris-dev/archive/v1.3.4.tar.gz"
   sha256 "7289f5e2501b7a543d81035252ca9714003f834f58b558f45a16427a3c926c0f"
   license "BSD-3-Clause"
-  head "https://github.com/idris-lang/Idris-dev.git"
+  head "https://github.com/idris-lang/Idris-dev.git", branch: "master"
 
   bottle do
     sha256 monterey: "704add14a985699c70650b364a9069f1a2b4ad52f9238890067d695744db63e4"
