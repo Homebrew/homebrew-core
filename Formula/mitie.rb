@@ -5,7 +5,7 @@ class Mitie < Formula
   sha256 "0830955e64c2a4cceab803884355f090cf8e9086e68ac5df43058f05c34697e8"
   license "BSL-1.0"
   revision 3
-  head "https://github.com/mit-nlp/MITIE.git"
+  head "https://github.com/mit-nlp/MITIE.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "85090e5f3a58d0e1b4d809bb67813684bce137134f9d903dfeae192e4540ffe8"
