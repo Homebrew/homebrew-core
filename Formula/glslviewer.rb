@@ -5,7 +5,7 @@ class Glslviewer < Formula
   sha256 "4a03e989dc81587061714ccc130268cc06ddaff256ea24b7492ca28dc855e8d6"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/patriciogonzalezvivo/glslViewer.git"
+  head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e1031838f5fa625dd142dd058a812aed71f7f7696fff345b46bec303a66a46df"
