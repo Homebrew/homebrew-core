@@ -6,7 +6,7 @@ class GitReview < Formula
   url "https://files.pythonhosted.org/packages/bb/0f/5eef0fc4a55d0ad2326330f183529ffb874685c9b3a69bd1093da09d2c65/git-review-2.2.0.tar.gz"
   sha256 "fd97a00e5c15173eb097cef8e8b7915df96d878ad11eb62cb44983642b8f3a63"
   license "Apache-2.0"
-  head "https://opendev.org/opendev/git-review.git"
+  head "https://opendev.org/opendev/git-review.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a8a0b77015a08b8e6399d7e35e1c19f5e1dfa7581a1159bc571ca42ce2353ccd"
