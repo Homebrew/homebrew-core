@@ -5,7 +5,7 @@ class Logstash < Formula
   sha256 "a3f35a1e0f7f7982eac73059aadece589b7c17fa655aafd0c592a2fead192c30"
   license "Apache-2.0"
   version_scheme 1
-  head "https://github.com/elastic/logstash.git"
+  head "https://github.com/elastic/logstash.git", branch: "main"
 
   livecheck do
     url :stable
