@@ -6,7 +6,7 @@ class Mujs < Formula
       tag:      "1.2.0",
       revision: "dd0a0972b4428771e6a3887da2210c7c9dd40f9c"
   license "ISC"
-  head "https://github.com/ccxvii/mujs.git"
+  head "https://github.com/ccxvii/mujs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5a94e31250222ad2105bb9ada248540edf2709980dc7f160909416f067744647"
