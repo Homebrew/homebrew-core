@@ -2,8 +2,8 @@ class Chezmoi < Formula
   desc "Manage your dotfiles across multiple diverse machines, securely"
   homepage "https://chezmoi.io/"
   url "https://github.com/twpayne/chezmoi.git",
-      tag:      "v2.9.3",
-      revision: "c33f12d2853bababe24e7e57a2554e40f785915c"
+      tag:      "v2.9.4",
+      revision: "7f0702503528fb708a5d9fc7b2a826decb777b26"
   license "MIT"
   head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
