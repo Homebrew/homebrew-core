@@ -4,7 +4,7 @@ class Gauge < Formula
   url "https://github.com/getgauge/gauge/archive/v1.4.2.tar.gz"
   sha256 "6b87277a5d31894f3bc5baa80af1d808e39fce30ec4a27041799c8ec5f052de9"
   license "Apache-2.0"
-  head "https://github.com/getgauge/gauge.git"
+  head "https://github.com/getgauge/gauge.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "671b8e9c25a5374b2895762d9e33b4c5c97afe1ea627771696192c9696f61c0d"
