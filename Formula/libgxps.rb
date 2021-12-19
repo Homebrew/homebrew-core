@@ -5,7 +5,7 @@ class Libgxps < Formula
   sha256 "6d27867256a35ccf9b69253eb2a88a32baca3b97d5f4ef7f82e3667fa435251c"
   license "LGPL-2.1-or-later"
   revision 1
-  head "https://gitlab.gnome.org/GNOME/libgxps.git"
+  head "https://gitlab.gnome.org/GNOME/libgxps.git", branch: "master"
 
   livecheck do
     url :stable
