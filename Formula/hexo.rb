@@ -6,7 +6,7 @@ class Hexo < Formula
   url "https://registry.npmjs.org/hexo/-/hexo-5.4.0.tgz"
   sha256 "bf80f6d840f2e6cc5f6dd5e4ea0246dc45ae8f387d66f3b8d1ba3d49474f8399"
   license "MIT"
-  head "https://github.com/hexojs/hexo.git"
+  head "https://github.com/hexojs/hexo.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "45740245dd9dc4d32082c287c2e8d0690d51cc8ed78f330308196dfc9ceaf02b"
