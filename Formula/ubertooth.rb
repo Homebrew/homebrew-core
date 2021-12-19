@@ -5,7 +5,7 @@ class Ubertooth < Formula
   version "2020-12-R1"
   sha256 "93a4ce7af8eddcc299d65aff8dd3a0455293022f7fea4738b286353f833bf986"
   license "GPL-2.0-or-later"
-  head "https://github.com/greatscottgadgets/ubertooth.git"
+  head "https://github.com/greatscottgadgets/ubertooth.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "2fc607947bb5299bb3a4ae6e598db9d9f381bea18763c0b1375bb65217467ed0"
