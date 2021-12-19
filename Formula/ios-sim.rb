@@ -6,7 +6,7 @@ class IosSim < Formula
   url "https://github.com/ios-control/ios-sim/archive/9.0.0.tar.gz"
   sha256 "8c72c8c5f9b0682c218678549c08ca01b3ac2685417fc2ab5b4b803d65a21958"
   license "Apache-2.0"
-  head "https://github.com/ios-control/ios-sim.git"
+  head "https://github.com/ios-control/ios-sim.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c1a5c50ae49619b4df9dee4cfd1f010de791d35d939cf4a635e68dd1ba6a8fd3"
