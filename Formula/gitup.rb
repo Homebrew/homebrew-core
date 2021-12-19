@@ -7,7 +7,7 @@ class Gitup < Formula
   sha256 "4f787079cd65d8f60c5842181204635e1b72d3533ae91f0c619624c6b20846dd"
   license "MIT"
   revision 5
-  head "https://github.com/earwig/git-repo-updater.git"
+  head "https://github.com/earwig/git-repo-updater.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ff1d31029cc66522b235ec285341133a1074781dd57ff709e53caccb305ba3ee"
