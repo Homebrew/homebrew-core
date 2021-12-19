@@ -4,7 +4,7 @@ class Liblcf < Formula
   url "https://easyrpg.org/downloads/player/0.7.0/liblcf-0.7.0.tar.xz"
   sha256 "ed76501bf973bf2f5bd7240ab32a8ae3824dce387ef7bb3db8f6c073f0bc7a6a"
   license "MIT"
-  head "https://github.com/EasyRPG/liblcf.git"
+  head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7f1164e942934fc234d035cfc9eab11330831244bc69a96061fb3cefc00dd03b"
