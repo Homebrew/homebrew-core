@@ -2,7 +2,7 @@ class Mpssh < Formula
   desc "Mass parallel ssh"
   homepage "https://github.com/ndenev/mpssh"
   license "BSD-3-Clause"
-  head "https://github.com/ndenev/mpssh.git"
+  head "https://github.com/ndenev/mpssh.git", branch: "master"
 
   stable do
     url "https://github.com/ndenev/mpssh/archive/1.3.3.tar.gz"
