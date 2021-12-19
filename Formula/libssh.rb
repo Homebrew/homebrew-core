@@ -4,7 +4,7 @@ class Libssh < Formula
   url "https://www.libssh.org/files/0.9/libssh-0.9.6.tar.xz"
   sha256 "86bcf885bd9b80466fe0e05453c58b877df61afa8ba947a58c356d7f0fab829b"
   license "LGPL-2.1-or-later"
-  head "https://git.libssh.org/projects/libssh.git"
+  head "https://git.libssh.org/projects/libssh.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "8487fa5c9e40e22b37862ac114c93e10384f2fd42b810bd290db627663b48af5"
