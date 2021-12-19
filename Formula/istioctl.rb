@@ -5,7 +5,7 @@ class Istioctl < Formula
       tag:      "1.12.1",
       revision: "88902a51acfb0383809608ccff169319560f768c"
   license "Apache-2.0"
-  head "https://github.com/istio/istio.git"
+  head "https://github.com/istio/istio.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "415b3d9cd0c3882745612081c6f8227a45fcf66641fab6ff05b78bf659df1ac6"
