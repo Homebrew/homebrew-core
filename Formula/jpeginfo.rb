@@ -5,7 +5,7 @@ class Jpeginfo < Formula
   sha256 "629e31cf1da0fa1efe4a7cc54c67123a68f5024f3d8e864a30457aeaed1d7653"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/tjko/jpeginfo.git"
+  head "https://github.com/tjko/jpeginfo.git", branch: "master"
 
   livecheck do
     url :homepage
