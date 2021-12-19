@@ -7,7 +7,7 @@ class GitRemoteHg < Formula
   sha256 "916072d134cde65b7ffa7d1da1acaabb0f29b65c017d0560e907e7a94063d1b1"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/felipec/git-remote-hg.git"
+  head "https://github.com/felipec/git-remote-hg.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, catalina:    "efcac93a209213486fcf837f83b364b6325adefba09493551e3e6017e669aa9f"
