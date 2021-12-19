@@ -5,7 +5,7 @@ class Minikube < Formula
       tag:      "v1.24.0",
       revision: "76b94fb3c4e8ac5062daf70d60cf03ddcc0a741b"
   license "Apache-2.0"
-  head "https://github.com/kubernetes/minikube.git"
+  head "https://github.com/kubernetes/minikube.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3672e4faa44598b7a4015607c05861969461a9831f3ddfd894b4731896c69e01"
