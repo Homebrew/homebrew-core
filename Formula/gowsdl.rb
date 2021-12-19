@@ -5,7 +5,7 @@ class Gowsdl < Formula
       tag:      "v0.5.0",
       revision: "51f3ef6c0e8f41ed1bdccce4c04e86b6769da313"
   license "MPL-2.0"
-  head "https://github.com/hooklift/gowsdl.git"
+  head "https://github.com/hooklift/gowsdl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0391c1e4a9fdbd2f14d5daff2789d490802da3b4a09a227d021dcb1a58b2f92a"
