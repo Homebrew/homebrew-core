@@ -4,7 +4,7 @@ class Iblinter < Formula
   url "https://github.com/IBDecodable/IBLinter/archive/0.4.27.tar.gz"
   sha256 "1403d4b104d41a8cfbc66b8533b53f1f94255f00904dfb97e91a88230f07dcfc"
   license "MIT"
-  head "https://github.com/IBDecodable/IBLinter.git"
+  head "https://github.com/IBDecodable/IBLinter.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ac6b0a40f7cad78d4afef1dd7c874356fbf870275349aecb82de7733d620f958"
