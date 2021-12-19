@@ -4,7 +4,7 @@ class Lz4 < Formula
   url "https://github.com/lz4/lz4/archive/v1.9.3.tar.gz"
   sha256 "030644df4611007ff7dc962d981f390361e6c97a34e5cbc393ddfbe019ffe2c1"
   license "BSD-2-Clause"
-  head "https://github.com/lz4/lz4.git"
+  head "https://github.com/lz4/lz4.git", branch: "dev"
 
   livecheck do
     url :stable
