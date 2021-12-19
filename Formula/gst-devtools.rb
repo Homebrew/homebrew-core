@@ -7,7 +7,7 @@ class GstDevtools < Formula
   sha256 "fecffc86447daf5c2a06843c757a991d745caa2069446a0d746e99b13f7cb079"
   license "LGPL-2.1-or-later"
   revision 1
-  head "https://gitlab.freedesktop.org/gstreamer/gst-devtools.git"
+  head "https://gitlab.freedesktop.org/gstreamer/gst-devtools.git", branch: "master"
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-devtools/"
