@@ -5,7 +5,7 @@ class Heksa < Formula
       tag:      "v1.14.0",
       revision: "045ea335825556c856b2f4dee606ae91c61afe7d"
   license "Apache-2.0"
-  head "https://github.com/raspi/heksa.git"
+  head "https://github.com/raspi/heksa.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f4cab211255c75ce7044df346f1b85d3a548c2a760be570a10fcc970a3aec5fb"
