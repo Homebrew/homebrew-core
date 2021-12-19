@@ -4,7 +4,7 @@ class Libusbmuxd < Formula
   url "https://github.com/libimobiledevice/libusbmuxd/archive/2.0.2.tar.gz"
   sha256 "8ae3e1d9340177f8f3a785be276435869363de79f491d05d8a84a59efc8a8fdc"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  head "https://github.com/libimobiledevice/libusbmuxd.git"
+  head "https://github.com/libimobiledevice/libusbmuxd.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "27d1d27bbc4b9b2079bebe6460610c4c57acc9f2cffe51374ede91b717f7b49b"
