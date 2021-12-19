@@ -4,7 +4,7 @@ class Kubeaudit < Formula
   url "https://github.com/Shopify/kubeaudit/archive/refs/tags/0.16.0.tar.gz"
   sha256 "1f1c21352a5788586e5903dee499668d45318fb388b0cc3860b1a0d09bb489fc"
   license "MIT"
-  head "https://github.com/Shopify/kubeaudit.git"
+  head "https://github.com/Shopify/kubeaudit.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "172262ee505a8213747a2e387dae92df3a6d22a56820902cc1bb655a7628e127"
