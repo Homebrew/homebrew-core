@@ -4,7 +4,7 @@ class Kore < Formula
   url "https://kore.io/releases/kore-4.1.0.tar.gz"
   sha256 "b7d73b005fde0ea01c356a54e4bbd8a209a4dff9cf315802a127ce7267efbe61"
   license "ISC"
-  head "https://github.com/jorisvink/kore.git"
+  head "https://github.com/jorisvink/kore.git", branch: "master"
 
   livecheck do
     url "https://kore.io/source"
