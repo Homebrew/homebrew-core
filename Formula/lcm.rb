@@ -5,7 +5,7 @@ class Lcm < Formula
   sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
   license "LGPL-2.1"
   revision 6
-  head "https://github.com/lcm-proj/lcm.git"
+  head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "6f663f930c725a6e01f5186aa3b73ad6f8a247673d5dca58921f3c49dc4992ab"
