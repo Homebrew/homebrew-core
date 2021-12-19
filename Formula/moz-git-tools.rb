@@ -5,7 +5,7 @@ class MozGitTools < Formula
       tag:      "v0.1",
       revision: "cfe890e6f81745c8b093b20a3dc22d28f9fc0032"
   license "GPL-2.0"
-  head "https://github.com/mozilla/moz-git-tools.git"
+  head "https://github.com/mozilla/moz-git-tools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "99c55678ff5156827bc42fe79089d693c196375a77872c071e65dd9c295b308e"
