@@ -5,7 +5,7 @@ class Grok < Formula
   sha256 "40edbdba488ff9145832c7adb04b27630ca2617384fbef2af014d0e5a76ef636"
   license "BSD-2-Clause"
   revision 2
-  head "https://github.com/jordansissel/grok.git"
+  head "https://github.com/jordansissel/grok.git", branch: "master"
 
   livecheck do
     url :stable
