@@ -3,7 +3,7 @@ class Uchardet < Formula
   homepage "https://www.freedesktop.org/wiki/Software/uchardet/"
   url "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.7.tar.xz"
   sha256 "3fc79408ae1d84b406922fa9319ce005631c95ca0f34b205fad867e8b30e45b1"
-  head "https://gitlab.freedesktop.org/uchardet/uchardet.git"
+  head "https://gitlab.freedesktop.org/uchardet/uchardet.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "6f144a202080194afbba458511b7250a27a5b0ff5f0baa4f81a4ab4148906aa5"
