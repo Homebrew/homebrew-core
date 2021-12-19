@@ -4,7 +4,7 @@ class Mapcidr < Formula
   url "https://github.com/projectdiscovery/mapcidr/archive/v0.0.8.tar.gz"
   sha256 "8ff4b6ba994f8346197e5266b3939e469dec541d65701bc71134c9081e01e3ee"
   license "MIT"
-  head "https://github.com/projectdiscovery/mapcidr.git"
+  head "https://github.com/projectdiscovery/mapcidr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "92ecb467386d10bfab30928188f047eff374ce8f9866ae10cb302e07966be7fd"
