@@ -4,7 +4,7 @@ class Jerryscript < Formula
   url "https://github.com/jerryscript-project/jerryscript/archive/v2.4.0.tar.gz"
   sha256 "5850947c23db6fbce032d15560551408ab155b16a94a7ac4412dc3bb85762d2d"
   license "Apache-2.0"
-  head "https://github.com/jerryscript-project/jerryscript.git"
+  head "https://github.com/jerryscript-project/jerryscript.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d9fc5ed6b4d4694e46177bad3a5b3b8b6542e088224e10a4797e7bff39313077"
