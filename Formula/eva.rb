@@ -4,7 +4,7 @@ class Eva < Formula
   url "https://github.com/NerdyPepper/eva/archive/v0.2.7.tar.gz"
   sha256 "72b2e47e987102d67c9dcbb60e26c4ff0b20e6f844d0d2b9d91c3f073374aee0"
   license "MIT"
-  head "https://github.com/NerdyPepper/eva.git"
+  head "https://github.com/NerdyPepper/eva.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dd68adf80b50a921c0312d3064056ca7b80e99423e93990c009b1d587abcd75f"
