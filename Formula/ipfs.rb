@@ -8,7 +8,7 @@ class Ipfs < Formula
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
   ]
-  head "https://github.com/ipfs/go-ipfs.git"
+  head "https://github.com/ipfs/go-ipfs.git", branch: "master"
 
   livecheck do
     url :stable
