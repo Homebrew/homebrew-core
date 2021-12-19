@@ -4,7 +4,7 @@ class Laszip < Formula
   url "https://github.com/LASzip/LASzip/releases/download/3.4.3/laszip-src-3.4.3.tar.gz"
   sha256 "53f546a7f06fc969b38d1d71cceb1862b4fc2c4a0965191a0eee81a57c7b373d"
   license "LGPL-2.1-or-later"
-  head "https://github.com/LASzip/LASzip.git"
+  head "https://github.com/LASzip/LASzip.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5064bc999925063dab10850a16565f0e6146565496fe53357b138dffbe5ade18"
