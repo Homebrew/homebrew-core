@@ -6,7 +6,7 @@ class Ipython < Formula
   url "https://files.pythonhosted.org/packages/19/8f/8dfb6d79f39a225d2f65422392f725e904b14c4d33b5531c9a3a258c359f/ipython-7.30.1.tar.gz"
   sha256 "cb6aef731bf708a7727ab6cde8df87f0281b1427d41e65d62d4b68934fa54e97"
   license "BSD-3-Clause"
-  head "https://github.com/ipython/ipython.git"
+  head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2e6363458e5543a8dda910566e77296987bbfdb2878cbaf33ef8ab6020cb33b3"
