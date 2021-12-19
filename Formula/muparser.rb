@@ -5,7 +5,7 @@ class Muparser < Formula
   sha256 "b35fc84e3667d432e3414c8667d5764dfa450ed24a99eeef7ee3f6647d44f301"
   license "BSD-2-Clause"
   revision 2
-  head "https://github.com/beltoforion/muparser.git"
+  head "https://github.com/beltoforion/muparser.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "247811d2beb59f456963c712936a90cc3a9364cfea31ce4f66f23d6f45faded0"
