@@ -4,7 +4,7 @@ class GitHooksGo < Formula
   url "https://github.com/git-hooks/git-hooks/archive/v1.3.1.tar.gz"
   sha256 "c37cedf52b3ea267b7d3de67dde31adad4d2a22a7780950d6ca2da64a8b0341b"
   license "MIT"
-  head "https://github.com/git-hooks/git-hooks.git"
+  head "https://github.com/git-hooks/git-hooks.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b44ba2ea899d62f65370ebbf36356d2534ccd3af038f72e06774252f8770546"
