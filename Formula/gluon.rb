@@ -4,7 +4,7 @@ class Gluon < Formula
   url "https://github.com/gluon-lang/gluon/archive/v0.17.2.tar.gz"
   sha256 "8fc8cc2211cff7a3d37a64c0b1f0901767725d3c2c26535cb9aabbfe921ba18e"
   license "MIT"
-  head "https://github.com/gluon-lang/gluon.git"
+  head "https://github.com/gluon-lang/gluon.git", branch: "master"
 
   livecheck do
     url :stable
