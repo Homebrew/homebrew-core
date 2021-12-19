@@ -6,7 +6,7 @@ class Httpie < Formula
   url "https://files.pythonhosted.org/packages/53/96/cbcfec73c186f076e4443faf3d91cbbc868f18f6323703afd348b1aba46d/httpie-2.6.0.tar.gz"
   sha256 "ef929317b239bbf0a5bb7159b4c5d2edbfc55f8a0bcf9cd24ce597daec2afca5"
   license "BSD-3-Clause"
-  head "https://github.com/httpie/httpie.git"
+  head "https://github.com/httpie/httpie.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "83aab05ffbcd4c3baa6de6158d57ebdaa67c148bef8c872527d90bdaebff0504"
