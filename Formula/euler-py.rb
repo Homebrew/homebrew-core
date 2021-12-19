@@ -5,7 +5,7 @@ class EulerPy < Formula
   sha256 "0d2f633bc3985c8acfd62bc76ff3f19d0bfb2274f7873ec7e40c2caef315e46d"
   license "MIT"
   revision 2
-  head "https://github.com/iKevinY/EulerPy.git"
+  head "https://github.com/iKevinY/EulerPy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "5fc159b1ad9e6d6cd8fd7f7ab14186f6e894e0be2f46d6966f13f72723effec2"
