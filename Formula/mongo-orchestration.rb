@@ -7,7 +7,7 @@ class MongoOrchestration < Formula
   sha256 "f297a1fb81d742ab8397257da5b1cf1fd43153afcc2261c66801126b78973982"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/10gen/mongo-orchestration.git"
+  head "https://github.com/10gen/mongo-orchestration.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dd965e6c5f77a0d14a7eb917db11b60268677ce338fa303c50f69eda3cd0bab3"
