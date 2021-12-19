@@ -4,7 +4,7 @@ class GoogleBenchmark < Formula
   url "https://github.com/google/benchmark/archive/v1.6.0.tar.gz"
   sha256 "1f71c72ce08d2c1310011ea6436b31e39ccab8c2db94186d26657d41747c85d6"
   license "Apache-2.0"
-  head "https://github.com/google/benchmark.git"
+  head "https://github.com/google/benchmark.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "42ea93b4351c4da96577f12309f27bda4b0c89b135f00673422a785dc57218e3"
