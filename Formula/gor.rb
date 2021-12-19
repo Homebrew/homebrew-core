@@ -5,7 +5,7 @@ class Gor < Formula
       tag:      "1.3.3",
       revision: "f8ef77e8cf4aae59029daf6cbd2fc784af811cee"
   license "LGPL-3.0-only"
-  head "https://github.com/buger/goreplay.git"
+  head "https://github.com/buger/goreplay.git", branch: "master"
 
   livecheck do
     url :stable
