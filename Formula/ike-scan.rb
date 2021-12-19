@@ -4,8 +4,7 @@ class IkeScan < Formula
   url "https://github.com/royhills/ike-scan/archive/1.9.5.tar.gz"
   sha256 "5152bf06ac82d0cadffb93a010ffb6bca7efd35ea169ca7539cf2860ce2b263f"
   license "GPL-3.0-or-later"
-
-  head "https://github.com/royhills/ike-scan.git"
+  head "https://github.com/royhills/ike-scan.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "e2d29c13c00ac946fa360ecca65524a151e342f876fe4515e0bc2abdecccf7fa"
