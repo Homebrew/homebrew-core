@@ -4,7 +4,7 @@ class Libcouchbase < Formula
   url "https://packages.couchbase.com/clients/c/libcouchbase-3.2.4.tar.gz"
   sha256 "ac5774695906d5482ea5d92cc9e47826eb979c6a784114a259bd748aa4774c3a"
   license "Apache-2.0"
-  head "https://github.com/couchbase/libcouchbase.git"
+  head "https://github.com/couchbase/libcouchbase.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "5a779c707052e820cd2faed4e8e4b6f96ceede06f57277161c3b6b38561c32f9"
