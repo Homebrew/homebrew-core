@@ -4,7 +4,7 @@ class Libmonome < Formula
   url "https://github.com/monome/libmonome/archive/v1.4.4.tar.gz"
   sha256 "466acc432b023e6c0bfa8dfb46d79abb1fb8c870f16279ffca7cf5286a63a823"
   license "ISC"
-  head "https://github.com/monome/libmonome.git"
+  head "https://github.com/monome/libmonome.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "415d02f115ed624be7e04e5f71dc56b57b313b8c0b35090fc8f73da367f8f5f9"
