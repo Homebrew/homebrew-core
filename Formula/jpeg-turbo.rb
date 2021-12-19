@@ -4,7 +4,7 @@ class JpegTurbo < Formula
   url "https://downloads.sourceforge.net/project/libjpeg-turbo/2.1.2/libjpeg-turbo-2.1.2.tar.gz"
   sha256 "09b96cb8cbff9ea556a9c2d173485fd19488844d55276ed4f42240e1e2073ce5"
   license "IJG"
-  head "https://github.com/libjpeg-turbo/libjpeg-turbo.git"
+  head "https://github.com/libjpeg-turbo/libjpeg-turbo.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ebc3311796e243227d153577d2ec65957c882eeb09a6741fc1aff4d5c0e399b6"
