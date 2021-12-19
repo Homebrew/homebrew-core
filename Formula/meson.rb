@@ -5,7 +5,7 @@ class Meson < Formula
   sha256 "64e6968565bf1b8152f4f9d6ca8154efb9e14caa9aabf7b22e71e6c5d053e921"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/mesonbuild/meson.git"
+  head "https://github.com/mesonbuild/meson.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "0717992dc7de126faa0d4ed2e1c3faab632cb380dbb53679dc6a64f99e1a0a21"
