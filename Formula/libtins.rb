@@ -4,7 +4,7 @@ class Libtins < Formula
   url "https://github.com/mfontanini/libtins/archive/v4.3.tar.gz"
   sha256 "c70bce5a41a27258bf0e3ad535d8238fb747d909a4b87ea14620f25dd65828fd"
   license "BSD-2-Clause"
-  head "https://github.com/mfontanini/libtins.git"
+  head "https://github.com/mfontanini/libtins.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "792e4fd9072bc8300a8005210760a0c0678e4d5afbc82ef0bedffbfb37ff4de3"
