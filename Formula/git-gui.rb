@@ -4,7 +4,7 @@ class GitGui < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.34.1.tar.xz"
   sha256 "3a0755dd1cfab71a24dd96df3498c29cd0acd13b04f3d08bf933e81286db802c"
   license "GPL-2.0-only"
-  head "https://github.com/git/git.git"
+  head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
     formula "git"
