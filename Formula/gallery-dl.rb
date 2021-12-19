@@ -6,7 +6,7 @@ class GalleryDl < Formula
   url "https://files.pythonhosted.org/packages/03/52/c789b2166196133ec9522f48d3502f7abafa62f441b66aae77f4a51a2e17/gallery_dl-1.19.3.tar.gz"
   sha256 "db3973a17f1074e4f4cb99b635b94c1926bdd549263e1df909498f3c6aa93484"
   license "GPL-2.0-only"
-  head "https://github.com/mikf/gallery-dl.git"
+  head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e51d932b4258d0bcb53f6a65375126f06fead5c41118301222be0fe5de4afbc0"
