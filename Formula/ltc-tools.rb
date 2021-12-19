@@ -4,7 +4,7 @@ class LtcTools < Formula
   url "https://github.com/x42/ltc-tools/archive/v0.7.0.tar.gz"
   sha256 "5b7a2ab7f98bef6c99bafbbc5605a3364e01c9c19fe81411ddea0e1a01cd6287"
   license "GPL-2.0"
-  head "https://github.com/x42/ltc-tools.git"
+  head "https://github.com/x42/ltc-tools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "d8d6d714abdb13a7c1a42503b1f367af936975d51454967bb445acb631b58259"
