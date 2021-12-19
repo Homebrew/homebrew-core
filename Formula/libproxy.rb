@@ -5,7 +5,7 @@ class Libproxy < Formula
   sha256 "88c624711412665515e2800a7e564aabb5b3ee781b9820eca9168035b0de60a9"
   license "LGPL-2.1-or-later"
   revision 1
-  head "https://github.com/libproxy/libproxy.git"
+  head "https://github.com/libproxy/libproxy.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "ea29465d14b64ce0efdd879f98ecfad0731ba1bafff27aae5e257d78f4ddc84f"
