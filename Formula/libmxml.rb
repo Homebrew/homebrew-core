@@ -4,7 +4,7 @@ class Libmxml < Formula
   url "https://github.com/michaelrsweet/mxml/releases/download/v3.3/mxml-3.3.tar.gz"
   sha256 "7cf976366f9e8e4f8cff7d35a59bcf6201c769fce9e58015d64f4b6de1fe3dd8"
   license "Apache-2.0"
-  head "https://github.com/michaelrsweet/mxml.git"
+  head "https://github.com/michaelrsweet/mxml.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "dc96370d86c83265e3effd6049c143dddb4248382d727642ceb65a66532588de"
