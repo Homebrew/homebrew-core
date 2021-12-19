@@ -5,7 +5,7 @@ class Gnirehtet < Formula
   sha256 "2b55b56e1b21d1b609a0899fe85d1f311120bb12b04761ec586187338daf6ec5"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/Genymobile/gnirehtet.git"
+  head "https://github.com/Genymobile/gnirehtet.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8e895ff323e648db638a97542eeed9d71936f882c36b95e410bd50a7ff272ffd"
