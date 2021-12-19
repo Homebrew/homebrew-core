@@ -4,7 +4,7 @@ class GoogleSparsehash < Formula
   url "https://github.com/sparsehash/sparsehash/archive/sparsehash-2.0.4.tar.gz"
   sha256 "8cd1a95827dfd8270927894eb77f62b4087735cbede953884647f16c521c7e58"
   license "BSD-3-Clause"
-  head "https://github.com/sparsehash/sparsehash.git"
+  head "https://github.com/sparsehash/sparsehash.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1cee10f1f45f9aa17c0a63573fb8065dea21f9f79c075fafeee699649d50f28d"
