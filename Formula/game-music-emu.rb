@@ -5,7 +5,7 @@ class GameMusicEmu < Formula
   sha256 "aba34e53ef0ec6a34b58b84e28bf8cfbccee6585cebca25333604c35db3e051d"
   license one_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   revision 2
-  head "https://bitbucket.org/mpyne/game-music-emu.git"
+  head "https://bitbucket.org/mpyne/game-music-emu.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "1346614b5a9561f7eaace297b5493eeb99ec4c3e561acc65669ca6dbb0cd6793"
