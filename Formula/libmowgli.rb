@@ -5,7 +5,7 @@ class Libmowgli < Formula
   sha256 "b7faab2fb9f46366a52b51443054a2ed4ecdd04774c65754bf807c5e9bdda477"
   license "ISC"
   revision 1
-  head "https://github.com/atheme/libmowgli-2.git"
+  head "https://github.com/atheme/libmowgli-2.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "fe4733bd50b52c347b5f4f4af0e0126454227646a0851a15b01bd4dc90637f50"
