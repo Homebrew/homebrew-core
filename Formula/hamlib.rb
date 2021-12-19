@@ -4,7 +4,7 @@ class Hamlib < Formula
   url "https://github.com/Hamlib/Hamlib/releases/download/4.4/hamlib-4.4.tar.gz"
   sha256 "8bf0107b071f52f08587f38e2dee8a7848de1343435b326f8f66d95e1f8a2487"
   license "LGPL-2.1-or-later"
-  head "https://github.com/hamlib/hamlib.git"
+  head "https://github.com/hamlib/hamlib.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "402e4d11f14737861fc0e1b848b3750dd244155148a1e7d209368c52c536f492"
