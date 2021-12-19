@@ -4,7 +4,7 @@ class Hydra < Formula
   url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.2.tar.gz"
   sha256 "1a28f064763f9144f8ec574416a56ef51c0ab1ae2276e35a89ceed4f594ec5d2"
   license "AGPL-3.0-only"
-  head "https://github.com/vanhauser-thc/thc-hydra.git"
+  head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "690b9daa523f9fdf95925cb2c8225ffb77df1e212d5b8267a05c63ba16ec21fe"
