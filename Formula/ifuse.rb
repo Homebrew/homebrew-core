@@ -4,7 +4,7 @@ class Ifuse < Formula
   url "https://github.com/libimobiledevice/ifuse/archive/1.1.4.tar.gz"
   sha256 "2a00769e8f1d8bad50898b9d00baf12c8ae1cda2d19ff49eaa9bf580e5dbe78c"
   license "LGPL-2.1-or-later"
-  head "https://cgit.sukimashita.com/ifuse.git"
+  head "https://cgit.sukimashita.com/ifuse.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 catalina:     "cdce9fc5dbaf44641743b4a77434d340ae11cb8ed98f17b1a86a5653d2b6e1a2"
