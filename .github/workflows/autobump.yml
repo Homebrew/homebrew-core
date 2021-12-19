@@ -18,10 +18,12 @@ env:
     apidoc
     argo
     artifactory
+    atuin
     autorest
     aws-cdk
     b3sum
     bcoin
+    broot
     buildkit
     bundletool
     cadence
@@ -39,9 +41,11 @@ env:
     circleci
     clair
     cliclick
+    cloudflare-wrangler
     consul
     consul-template
     cubejs-cli
+    deno
     detekt
     detox
     devspace
@@ -50,6 +54,8 @@ env:
     docker-compose
     docker-slim
     doctl
+    docuum
+    dprint
     envconsul
     esbuild
     eslint
@@ -57,20 +63,26 @@ env:
     exploitdb
     fennel
     firebase-cli
+    flux
     fuse-overlayfs
     gatsby-cli
+    git-cliff
+    git-delta
     gitleaks
+    gleam
     glooctl
     gofish
     golang-migrate
     goreleaser
     gosec
     gostatic
+    gpg-tui
     hcloud
     helm
     helmfile
     ircd-hybrid
     jfrog-cli
+    jql
     just
     k3d
     k9s
@@ -81,6 +93,8 @@ env:
     lazydocker
     lexbor
     liboqs
+    localstack
+    macchina
     marked
     marp-cli
     mdbook
@@ -89,6 +103,7 @@ env:
     micro
     minikube
     mmctl
+    moto
     nativefier
     navi
     ncc
@@ -98,32 +113,43 @@ env:
     node-sass
     nomad
     nushell
+    oci-cli
     octant
     okteto
     oxipng
     pnpm
+    pocsuite3
+    procs
+    rbw
     rollup
     selene
     serverless
     skaffold
     skopeo
+    solana
     starship
     stress-ng
     svgo
+    svtplay-dl
     syncthing
     teleport
     termshark
     terraform-ls
     toast
+    topgrade
     traefik
     vale
     vercel-cli
     virgil
     vite
+    vpn-slice
     vue-cli
+    wasmtime
     webpack
     webtorrent-cli
     whistle
+    xplr
+    zellij
 
 jobs:
   autobump:
