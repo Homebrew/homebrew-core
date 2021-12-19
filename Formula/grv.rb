@@ -4,7 +4,7 @@ class Grv < Formula
   url "https://github.com/rgburke/grv/releases/download/v0.3.2/grv-0.3.2-src.tar.gz"
   sha256 "988788cce5c581531c26df9048e4187440c5ebc9811afd371d565436dfb65d57"
   license "GPL-3.0"
-  head "https://github.com/rgburke/grv.git"
+  head "https://github.com/rgburke/grv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, big_sur:     "b432708e238c550cd9e0c0cfa560d658eeaaf8f41f724316b81e6a56b77ff4ea"
