@@ -4,7 +4,7 @@ class JsonFortran < Formula
   url "https://github.com/jacobwilliams/json-fortran/archive/8.2.5.tar.gz"
   sha256 "16eec827f64340c226ba9a8463f001901d469bc400a1e88b849f258f9ef0d100"
   license "BSD-3-Clause"
-  head "https://github.com/jacobwilliams/json-fortran.git"
+  head "https://github.com/jacobwilliams/json-fortran.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "3b5514eebeaab114f4d15eaecf38801243dbf459678dca3e34abde711fb9d464"
