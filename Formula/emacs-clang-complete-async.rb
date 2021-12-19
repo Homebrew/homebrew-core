@@ -3,7 +3,7 @@ class EmacsClangCompleteAsync < Formula
   homepage "https://github.com/Golevka/emacs-clang-complete-async"
   license "GPL-3.0"
   revision 6
-  head "https://github.com/Golevka/emacs-clang-complete-async.git"
+  head "https://github.com/Golevka/emacs-clang-complete-async.git", branch: "master"
 
   stable do
     url "https://github.com/Golevka/emacs-clang-complete-async/archive/v0.5.tar.gz"
