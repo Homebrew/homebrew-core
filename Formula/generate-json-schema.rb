@@ -6,7 +6,7 @@ class GenerateJsonSchema < Formula
   url "https://registry.npmjs.org/generate-schema/-/generate-schema-2.6.0.tgz"
   sha256 "1ddbf91aab2d649108308d1de7af782d9270a086919edb706f48d0216d51374a"
   license "MIT"
-  head "https://github.com/Nijikokun/generate-schema.git"
+  head "https://github.com/Nijikokun/generate-schema.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d19c2a0542dea7690c93f7a8e97a25c8979c7e489dca485dcfc35f6073d47beb"
