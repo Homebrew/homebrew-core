@@ -4,7 +4,7 @@ class GitVendor < Formula
   url "https://github.com/brettlangdon/git-vendor/archive/v1.2.2.tar.gz"
   sha256 "f7b3b73ab2246a7572d55eec4e634467bd1ae9414aae8f11a1d4e59e587326ca"
   license "MIT"
-  head "https://github.com/brettlangdon/git-vendor.git"
+  head "https://github.com/brettlangdon/git-vendor.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "e1829f03d6c7439fa2ee659fce71db2cc3bc159477d58233d497125fbc14c281"
