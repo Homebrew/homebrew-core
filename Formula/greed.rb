@@ -4,7 +4,7 @@ class Greed < Formula
   url "http://www.catb.org/~esr/greed/greed-4.2.tar.gz"
   sha256 "702bc0314ddedb2ba17d4b55d873384a1606886e8d69f35ce67f6e3024a8d3fd"
   license "BSD-2-Clause"
-  head "https://gitlab.com/esr/greed.git"
+  head "https://gitlab.com/esr/greed.git", branch: "master"
 
   livecheck do
     url :homepage
