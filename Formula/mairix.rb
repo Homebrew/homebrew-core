@@ -4,7 +4,7 @@ class Mairix < Formula
   url "https://downloads.sourceforge.net/project/mairix/mairix/0.24/mairix-0.24.tar.gz"
   sha256 "a0702e079c768b6fbe25687ebcbabe7965eb493d269a105998c7c1c2caef4a57"
   license "GPL-2.0"
-  head "https://github.com/rc0/mairix.git"
+  head "https://github.com/rc0/mairix.git", branch: "master"
 
   livecheck do
     url :stable
