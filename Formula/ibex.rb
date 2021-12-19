@@ -4,7 +4,7 @@ class Ibex < Formula
   url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.9.tar.gz"
   sha256 "fee448b3fa3929a50d36231ff2f14e5480a0b82506594861536e3905801a6571"
   license "LGPL-3.0-only"
-  head "https://github.com/ibex-team/ibex-lib.git"
+  head "https://github.com/ibex-team/ibex-lib.git", branch: "master"
 
   livecheck do
     url :stable
