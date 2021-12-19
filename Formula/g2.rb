@@ -4,7 +4,7 @@ class G2 < Formula
   url "https://github.com/orefalo/g2/archive/v1.1.tar.gz"
   sha256 "bc534a4cb97be200ba4e3cc27510d8739382bb4c574e3cf121f157c6415bdfba"
   license "MIT"
-  head "https://github.com/orefalo/g2.git"
+  head "https://github.com/orefalo/g2.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e41e0df4fe1e129acfc132add642219228b9bafafef804ad6528e8a42b3ed7d6"
