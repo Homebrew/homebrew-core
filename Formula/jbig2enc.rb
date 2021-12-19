@@ -4,7 +4,7 @@ class Jbig2enc < Formula
   url "https://github.com/agl/jbig2enc/archive/0.29.tar.gz"
   sha256 "bfcf0d0448ee36046af6c776c7271cd5a644855723f0a832d1c0db4de3c21280"
   license "Apache-2.0"
-  head "https://github.com/agl/jbig2enc.git"
+  head "https://github.com/agl/jbig2enc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "4bff64113b56cc1d6ded8508bf89159bff934f6bc9e3c6165e2be0c8091cec4c"
