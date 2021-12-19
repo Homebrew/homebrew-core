@@ -5,7 +5,7 @@ class Languagetool < Formula
       tag:      "v5.5",
       revision: "5e782cc63ab86c9e6c353157dc22f6ea2477c0d7"
   license "LGPL-2.1-or-later"
-  head "https://github.com/languagetool-org/languagetool.git"
+  head "https://github.com/languagetool-org/languagetool.git", branch: "master"
 
   livecheck do
     url :stable
