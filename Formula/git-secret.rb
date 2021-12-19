@@ -2,7 +2,7 @@ class GitSecret < Formula
   desc "Bash-tool to store the private data inside a git repo"
   homepage "https://git-secret.io"
   license "MIT"
-  head "https://github.com/sobolevn/git-secret.git"
+  head "https://github.com/sobolevn/git-secret.git", branch: "master"
 
   stable do
     url "https://github.com/sobolevn/git-secret/archive/v0.4.0.tar.gz"
