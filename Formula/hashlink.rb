@@ -5,7 +5,7 @@ class Hashlink < Formula
   sha256 "b087ded7b93c7077f5b093b999f279a37aa1e31df829d882fa965389b5ad1aea"
   license "MIT"
   revision 4
-  head "https://github.com/HaxeFoundation/hashlink.git"
+  head "https://github.com/HaxeFoundation/hashlink.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, monterey: "efbc13a485bb3240b0fb805077d76acd3b1faac6b8c5a99e8d4ffa6120bce116"
