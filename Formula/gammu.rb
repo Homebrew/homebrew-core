@@ -4,7 +4,7 @@ class Gammu < Formula
   url "https://dl.cihar.com/gammu/releases/gammu-1.42.0.tar.xz"
   sha256 "d8f152314d7e4d3d643610d742845e0a016ce97c234ad4b1151574e1b09651ee"
   license "GPL-2.0-or-later"
-  head "https://github.com/gammu/gammu.git"
+  head "https://github.com/gammu/gammu.git", branch: "master"
 
   livecheck do
     url "https://wammu.eu/download/gammu/"
