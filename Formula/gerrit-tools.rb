@@ -4,7 +4,7 @@ class GerritTools < Formula
   url "https://github.com/indirect/gerrit-tools/archive/v1.0.0.tar.gz"
   sha256 "c3a84af2ddb0f17b7a384e5dbc797329fb94d2499a75b6d8f4c8ed06a4a482dd"
   license "Apache-2.0"
-  head "https://github.com/indirect/gerrit-tools.git"
+  head "https://github.com/indirect/gerrit-tools.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1d1eb15677d4ed0974a06c21e3ad17fe49b543acbea1ebc0052ef0b2900f65f0"
