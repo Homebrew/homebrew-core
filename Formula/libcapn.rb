@@ -3,7 +3,7 @@ class Libcapn < Formula
   homepage "https://web.archive.org/web/20181220090839/libcapn.org/"
   license "MIT"
   revision 1
-  head "https://github.com/adobkin/libcapn.git"
+  head "https://github.com/adobkin/libcapn.git", branch: "master"
 
   stable do
     url "https://github.com/adobkin/libcapn/archive/v2.0.0.tar.gz"
