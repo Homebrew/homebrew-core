@@ -6,7 +6,7 @@ class GnuSmalltalk < Formula
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
   license "GPL-2.0"
   revision 10
-  head "https://github.com/gnu-smalltalk/smalltalk.git"
+  head "https://github.com/gnu-smalltalk/smalltalk.git", branch: "master"
 
   bottle do
     sha256 monterey: "f68902246ecd9c5e7a3d0f764143fbf870920179294f29377ad3101c1a266b06"
