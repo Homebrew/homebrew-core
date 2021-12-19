@@ -4,7 +4,7 @@ class Glog < Formula
   url "https://github.com/google/glog/archive/v0.5.0.tar.gz"
   sha256 "eede71f28371bf39aa69b45de23b329d37214016e2055269b3b5e7cfd40b59f5"
   license "BSD-3-Clause"
-  head "https://github.com/google/glog.git"
+  head "https://github.com/google/glog.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ddb4061510011a572bb536e3a705929f7d74b26a2477db7c45f0a5273aabcb12"
