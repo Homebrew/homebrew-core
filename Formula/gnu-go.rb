@@ -5,7 +5,7 @@ class GnuGo < Formula
   mirror "https://ftpmirror.gnu.org/gnugo/gnugo-3.8.tar.gz"
   sha256 "da68d7a65f44dcf6ce6e4e630b6f6dd9897249d34425920bfdd4e07ff1866a72"
   revision 1
-  head "https://git.savannah.gnu.org/git/gnugo.git"
+  head "https://git.savannah.gnu.org/git/gnugo.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ed049166ae53dc93586ab3ac5b3a3b40209dc46c9acaec335683a6c6b2c104ea"
