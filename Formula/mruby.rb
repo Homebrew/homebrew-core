@@ -4,7 +4,7 @@ class Mruby < Formula
   url "https://github.com/mruby/mruby/archive/3.0.0.tar.gz"
   sha256 "95b798cdd931ef29d388e2b0b267cba4dc469e8722c37d4ef8ee5248bc9075b0"
   license "MIT"
-  head "https://github.com/mruby/mruby.git"
+  head "https://github.com/mruby/mruby.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2520cc7e452e43d9816e92a1e42be2caf7fefcc69d18936c18c5a96adc3902b0"
