@@ -4,7 +4,7 @@ class Enca < Formula
   url "https://dl.cihar.com/enca/enca-1.19.tar.gz"
   sha256 "4c305cc59f3e57f2cfc150a6ac511690f43633595760e1cb266bf23362d72f8a"
   license "GPL-2.0-only"
-  head "https://github.com/nijel/enca.git"
+  head "https://github.com/nijel/enca.git", branch: "master"
 
   livecheck do
     url :homepage
