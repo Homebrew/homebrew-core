@@ -5,7 +5,7 @@ class Mpv < Formula
   sha256 "f654fb6275e5178f57e055d20918d7d34e19949bc98ebbf4a7371902e88ce309"
   license :cannot_represent
   revision 1
-  head "https://github.com/mpv-player/mpv.git"
+  head "https://github.com/mpv-player/mpv.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "4083cfb8a3d0908c63c62c23951932d663703ba66ef91df47002af8864e6edac"
