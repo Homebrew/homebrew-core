@@ -6,7 +6,7 @@ class Mlton < Formula
   sha256 "ec7a5a54deb39c7c0fa746d17767752154e9cb94dbcf3d15b795083b3f0f154b"
   license "HPND"
   version_scheme 1
-  head "https://github.com/MLton/mlton.git"
+  head "https://github.com/MLton/mlton.git", branch: "master"
 
   livecheck do
     url :stable
