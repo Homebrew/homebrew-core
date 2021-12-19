@@ -4,7 +4,7 @@ class Html2text < Formula
   url "https://github.com/grobian/html2text/archive/v2.0.0.tar.gz"
   sha256 "061125bfac658c6d89fa55e9519d90c5eeb3ba97b2105748ee62f3a3fa2449de"
   license "GPL-2.0"
-  head "https://github.com/grobian/html2text.git"
+  head "https://github.com/grobian/html2text.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "05f7f6728c741d0b2d8ea997746f6179e8c446c70eb616315ade8c938aa7b197"
