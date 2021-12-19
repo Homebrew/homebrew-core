@@ -5,7 +5,7 @@ class GitBug < Formula
       tag:      "v0.7.2",
       revision: "cc4a93c8ce931b1390c61035b888ad17110b7bd6"
   license "GPL-3.0-or-later"
-  head "https://github.com/MichaelMure/git-bug.git"
+  head "https://github.com/MichaelMure/git-bug.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "beeb321dc338263445c5a092cee6d627679ef38f65ef449cbcbf1d3dee53983b"
