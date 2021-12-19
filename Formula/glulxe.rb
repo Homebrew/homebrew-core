@@ -5,7 +5,7 @@ class Glulxe < Formula
   version "0.5.4"
   sha256 "1fc26f8aa31c880dbc7c396ede196c5d2cdff9bdefc6b192f320a96c5ef3376e"
   license "MIT"
-  head "https://github.com/erkyrath/glulxe.git"
+  head "https://github.com/erkyrath/glulxe.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5d7b38cab2ce276b1757967e7f63a0fa20ab9ed0ba8e9deb18865e403862d144"
