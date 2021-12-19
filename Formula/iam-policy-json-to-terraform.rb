@@ -4,7 +4,7 @@ class IamPolicyJsonToTerraform < Formula
   url "https://github.com/flosell/iam-policy-json-to-terraform/archive/1.8.0.tar.gz"
   sha256 "428ee4c7c40a77c3f2c08f1ea5b5ac145db684bba038ab113848e1697ef906dc"
   license "Apache-2.0"
-  head "https://github.com/flosell/iam-policy-json-to-terraform.git"
+  head "https://github.com/flosell/iam-policy-json-to-terraform.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "783a05da4dc552503162f5011070a1f6246ef0ab7d6303220c341ea068d7b7fc"
