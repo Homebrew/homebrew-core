@@ -5,7 +5,7 @@ class Inform6 < Formula
   version "6.35-r6"
   sha256 "f4c0d444da64b2aacf627c363e898897c69cbc4a42e76a7570ffc252ecd941be"
   license "Artistic-2.0"
-  head "https://gitlab.com/DavidGriffith/inform6unix.git"
+  head "https://gitlab.com/DavidGriffith/inform6unix.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ac1cb08b86f4c562479c2a6116d1d352802fcc6ccf31364ad783cde9efe0ffab"
