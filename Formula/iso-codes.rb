@@ -4,7 +4,7 @@ class IsoCodes < Formula
   url "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.8.0.orig.tar.xz"
   sha256 "b02b9c8bb81dcfa03e4baa25b266df47710832cbf550081cf43f72dcedfc8768"
   license "LGPL-2.1-or-later"
-  head "https://salsa.debian.org/iso-codes-team/iso-codes.git"
+  head "https://salsa.debian.org/iso-codes-team/iso-codes.git", branch: "main"
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/i/iso-codes/"
