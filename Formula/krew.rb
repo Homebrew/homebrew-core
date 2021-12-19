@@ -5,7 +5,7 @@ class Krew < Formula
       tag:      "v0.4.2",
       revision: "6fcdb794c532d3f2849bb4a8a942a19c09ef3002"
   license "Apache-2.0"
-  head "https://github.com/kubernetes-sigs/krew.git"
+  head "https://github.com/kubernetes-sigs/krew.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "01c440b830f40fd4f1aaec78a00f8ab2ab1602bba6dc1be7a367d44bd6941edf"
