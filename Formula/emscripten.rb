@@ -10,7 +10,7 @@ class Emscripten < Formula
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
     any_of: ["MIT", "NCSA"], # emscripten
   ]
-  head "https://github.com/emscripten-core/emscripten.git"
+  head "https://github.com/emscripten-core/emscripten.git", branch: "main"
 
   livecheck do
     url :stable
