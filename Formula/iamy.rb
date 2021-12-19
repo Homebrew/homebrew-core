@@ -4,7 +4,7 @@ class Iamy < Formula
   url "https://github.com/99designs/iamy/archive/v2.4.0.tar.gz"
   sha256 "13bd9e66afbeb30d386aa132a4af5d2e9a231d2aadf54fe8e5dc325583379359"
   license "MIT"
-  head "https://github.com/99designs/iamy.git"
+  head "https://github.com/99designs/iamy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b0283107c1a133b0f8e7295de2fc2970a4824a2638011c63eb37cc55c654f8f1"
