@@ -4,7 +4,7 @@ class Libfaketime < Formula
   url "https://github.com/wolfcw/libfaketime/archive/v0.9.9.tar.gz"
   sha256 "57d0181150361c0a9b5c8eef05b11392f6134ada2c2d998e92e63daed639647c"
   license "GPL-2.0-only"
-  head "https://github.com/wolfcw/libfaketime.git"
+  head "https://github.com/wolfcw/libfaketime.git", branch: "master"
 
   bottle do
     sha256 big_sur:      "cf7b4559e89a7ea8049e9cfef460f7cf1f6e9403f743562e26010d4ef2705454"
