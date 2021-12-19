@@ -4,7 +4,7 @@ class KertishDfs < Formula
   url "https://github.com/freakmaxi/kertish-dfs/archive/v21.2.0066.tar.gz"
   sha256 "f76db2e933c1a3ad952f750d08712ca5ec664fc7e3e9acdf6fac98349e9b170d"
   license "GPL-3.0-only"
-  head "https://github.com/freakmaxi/kertish-dfs.git"
+  head "https://github.com/freakmaxi/kertish-dfs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cf7f947642a17c024dafd70f2f291adc818466e71d5596677ea19d87f0c41fa6"
