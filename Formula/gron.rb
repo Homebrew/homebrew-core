@@ -4,7 +4,7 @@ class Gron < Formula
   url "https://github.com/tomnomnom/gron/archive/v0.6.1.tar.gz"
   sha256 "eef150a425aa4eaa8b2e36a75ee400d4247525403f79e24ed32ccb346dc653ff"
   license "MIT"
-  head "https://github.com/tomnomnom/gron.git"
+  head "https://github.com/tomnomnom/gron.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0a2b33efe431b4a44c97a0ce660fb35af397525b4785947b48bdd938770d56a4"
