@@ -4,7 +4,7 @@ class Unar < Formula
   url "https://github.com/MacPaw/XADMaster/archive/refs/tags/v1.10.7.tar.gz"
   sha256 "3d766dc1856d04a8fb6de9942a6220d754d0fa7eae635d5287e7b1cf794c4f45"
   license "LGPL-2.1-or-later"
-  head "https://github.com/MacPaw/XADMaster.git"
+  head "https://github.com/MacPaw/XADMaster.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "5cedc1ed00cb1f638f6e7d7f026196c19aaf8e2ce9eacb7d9220b98cae2f0649"
