@@ -4,7 +4,7 @@ class Kepubify < Formula
   url "https://github.com/pgaskin/kepubify/archive/v4.0.2.tar.gz"
   sha256 "f6bf7065ec99e48766f60a126590e021f5bd4fac19754ecb2d90eaf106f4e39b"
   license "MIT"
-  head "https://github.com/pgaskin/kepubify.git"
+  head "https://github.com/pgaskin/kepubify.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f9441df1c3869ebae8dec5a4e8005f5e83658c94f3a57e4270d9d16848c0cc7b"
