@@ -5,7 +5,7 @@ class Mmseqs2 < Formula
   version "13-45111"
   sha256 "6444bb682ebf5ced54b2eda7a301fa3e933c2a28b7661f96ef5bdab1d53695a2"
   license "GPL-3.0-or-later"
-  head "https://github.com/soedinglab/MMseqs2.git"
+  head "https://github.com/soedinglab/MMseqs2.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "510d513310f2372e90eb1cd63a3e03e8f86e92d286fc9bc28e11c64c6e953ebb"
