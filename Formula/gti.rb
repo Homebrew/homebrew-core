@@ -3,7 +3,7 @@ class Gti < Formula
   homepage "https://r-wos.org/hacks/gti"
   url "https://github.com/rwos/gti/archive/v1.7.0.tar.gz"
   sha256 "cea8baf25ac5e6272f9031bd5e36a17a4b55038830b108f4f24e7f55690198f7"
-  head "https://github.com/rwos/gti.git"
+  head "https://github.com/rwos/gti.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f087f6d12603c40322d99c2219d4ff1fa365e2465ff4acfcd76359d5f7172472"
