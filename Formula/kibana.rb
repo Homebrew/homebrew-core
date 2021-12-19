@@ -6,7 +6,7 @@ class Kibana < Formula
       tag:      "v7.10.2",
       revision: "a0b793698735eb1d0ab1038f8e5d7a951524e929"
   license "Apache-2.0"
-  head "https://github.com/elastic/kibana.git"
+  head "https://github.com/elastic/kibana.git", branch: "master"
 
   bottle do
     rebuild 1
