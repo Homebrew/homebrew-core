@@ -7,7 +7,7 @@ class Epr < Formula
   sha256 "5e931653ff954ca8e9fc734efa1e0c0a49512fe2a8652f83a6ca63a8d1c4f2af"
   license "MIT"
   revision 1
-  head "https://github.com/wustho/epr.git"
+  head "https://github.com/wustho/epr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "99d91cc2d45112cc563aa030bbb735bf2fa55b0bd3fc81f664ea6bb842fda5c9"
