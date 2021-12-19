@@ -5,7 +5,7 @@ class GitCal < Formula
   sha256 "783fa73197b349a51d90670480a750b063c97e5779a5231fe046315af0a946cd"
   license "MIT"
   revision 1
-  head "https://github.com/k4rthik/git-cal.git"
+  head "https://github.com/k4rthik/git-cal.git", branch: "master"
 
   livecheck do
     url :stable
