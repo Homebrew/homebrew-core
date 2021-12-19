@@ -4,7 +4,7 @@ class Hpack < Formula
   url "https://github.com/sol/hpack/archive/0.34.6.tar.gz"
   sha256 "c2a6dc1f3db7bd97ef34d1f40b51d81e6f3775a99082c2d5186abf8f88e48e62"
   license "MIT"
-  head "https://github.com/sol/hpack.git"
+  head "https://github.com/sol/hpack.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4547d44abc0430152312179e3add1b5992177a5370b4c464d7111b60c455064b"
