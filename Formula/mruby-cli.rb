@@ -4,7 +4,7 @@ class MrubyCli < Formula
   url "https://github.com/hone/mruby-cli/archive/v0.0.4.tar.gz"
   sha256 "97d889b5980193c562e82b42089b937e675b73950fa0d0c4e46fbe71d16d719f"
   license "MIT"
-  head "https://github.com/hone/mruby-cli.git"
+  head "https://github.com/hone/mruby-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ac082ff3a558eba68662a837eba2a9dfed46d52b757bb0e0b046b6a4d2d1105a"
