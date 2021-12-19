@@ -4,7 +4,7 @@ class Lychee < Formula
   url "https://github.com/lycheeverse/lychee/archive/v0.8.1.tar.gz"
   sha256 "88416f4c674fdf76cb92cf1b744b4f246116aaf9bdbe0da05a3b75f73f64fcf5"
   license any_of: ["Apache-2.0", "MIT"]
-  head "https://github.com/lycheeverse/lychee.git"
+  head "https://github.com/lycheeverse/lychee.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "21adc8780a508fe8b1658ee97c311872c70a4b128e1b418ed6c40dc31cdd8e77"
