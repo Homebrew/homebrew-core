@@ -4,7 +4,7 @@ class IosClassGuard < Formula
   url "https://github.com/Polidea/ios-class-guard/archive/0.8.tar.gz"
   sha256 "4446993378f1e84ce1d1b3cbace0375661e3fe2fa1a63b9bf2c5e9370a6058ff"
   license "GPL-2.0"
-  head "https://github.com/Polidea/ios-class-guard.git"
+  head "https://github.com/Polidea/ios-class-guard.git", branch: "master"
 
   # The latest version tags in the Git repository are `0.8` (2015-10-14) and
   # `0.6` (2014-08-20) but versions before these are like `3.5` (2013-11-16),
