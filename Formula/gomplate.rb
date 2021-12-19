@@ -4,7 +4,7 @@ class Gomplate < Formula
   url "https://github.com/hairyhenderson/gomplate/archive/v3.10.0.tar.gz"
   sha256 "f9a30d8e94b81eefbbe3455c21dc547ec0ebf0e010a809c72db617a4b37223a6"
   license "MIT"
-  head "https://github.com/hairyhenderson/gomplate.git"
+  head "https://github.com/hairyhenderson/gomplate.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dd9583c59cdd27102266f6c324d4e7613470e48cdb5a30d1ffdcf677e497f54e"
