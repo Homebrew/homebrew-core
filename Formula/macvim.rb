@@ -7,7 +7,7 @@ class Macvim < Formula
   sha256 "1ef6766abefc6d67dd717f1a92aa294304817a462a98153f2696e83340ffce25"
   license "Vim"
   revision 1
-  head "https://github.com/macvim-dev/macvim.git"
+  head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "87e1904216e8f0131e055f5a44b2c863b812ed855c53f377ec1d0afe81c30230"
