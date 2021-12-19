@@ -4,7 +4,7 @@ class Libhttpserver < Formula
   url "https://github.com/etr/libhttpserver/archive/0.18.2.tar.gz"
   sha256 "1dfe548ac2add77fcb6c05bd00222c55650ffd02b209f4e3f133a6e3eb29c89d"
   license "LGPL-2.1-or-later"
-  head "https://github.com/etr/libhttpserver.git"
+  head "https://github.com/etr/libhttpserver.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a7373b51c70174b698e57eb9543662b342a9c277d87dc096fd00359e82e83c85"
