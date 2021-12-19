@@ -4,7 +4,7 @@ class Libvpx < Formula
   url "https://github.com/webmproject/libvpx/archive/v1.11.0.tar.gz"
   sha256 "965e51c91ad9851e2337aebcc0f517440c637c506f3a03948062e3d5ea129a83"
   license "BSD-3-Clause"
-  head "https://chromium.googlesource.com/webm/libvpx.git"
+  head "https://chromium.googlesource.com/webm/libvpx.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "0f00a294d49ccafb88029fb76958fb2762805ca7669f64d521a0cd261df1a8ad"
