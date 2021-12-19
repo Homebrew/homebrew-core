@@ -4,7 +4,7 @@ class Jvgrep < Formula
   url "https://github.com/mattn/jvgrep/archive/v5.8.9.tar.gz"
   sha256 "37e1b9aa4571f98a102b4f7322d7f581c608c0fcd50542dfaa7af742184fb1dc"
   license "MIT"
-  head "https://github.com/mattn/jvgrep.git"
+  head "https://github.com/mattn/jvgrep.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a8e3bfa63ba343fe5be6e0386101e43e5b4e51eb5883f7d0aafac15b66de8ed9"
