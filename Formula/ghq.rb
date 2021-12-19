@@ -5,7 +5,7 @@ class Ghq < Formula
       tag:      "v1.2.1",
       revision: "dd139fb46cb7c1a3b19bca7a0c3762090c7c522f"
   license "MIT"
-  head "https://github.com/x-motemen/ghq.git"
+  head "https://github.com/x-motemen/ghq.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "99932f495196aeb90f4fefbff02ab6c4ab8e6b23ff91b5f68acb6ca0fd28ebc0"
