@@ -5,7 +5,7 @@ class Ghi < Formula
   sha256 "ffc17cfbdc8b88bf208f5f762e62c211bf8fc837f447354ad53cce39b1400671"
   license "MIT"
   revision 4
-  head "https://github.com/stephencelis/ghi.git"
+  head "https://github.com/stephencelis/ghi.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "320e13830aac81ab0bcbef032e548f6a5f9bf71ce713d7dab24fc813087f4d4c"
