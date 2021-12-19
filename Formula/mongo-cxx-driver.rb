@@ -4,7 +4,7 @@ class MongoCxxDriver < Formula
   url "https://github.com/mongodb/mongo-cxx-driver/archive/r3.6.6.tar.gz"
   sha256 "f989c371800458ae45ef69f6d9566e010f9420435a01bf5eb14db77fc024662e"
   license "Apache-2.0"
-  head "https://github.com/mongodb/mongo-cxx-driver.git"
+  head "https://github.com/mongodb/mongo-cxx-driver.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "85b5e04bec351118575d548d41fa4158aef2770bc440896e578e132a997b4621"
