@@ -4,7 +4,7 @@ class Libforensic1394 < Formula
   url "https://freddie.witherden.org/tools/libforensic1394/releases/libforensic1394-0.2.tar.gz"
   sha256 "50a82fe2899aa901104055da2ac00b4c438cf1d0d991f5ec1215d4658414652e"
   license "LGPL-3.0"
-  head "https://github.com/FreddieWitherden/libforensic1394.git"
+  head "https://github.com/FreddieWitherden/libforensic1394.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2d9682194518c3caddd083694da02163afa45a5cff22a0855103da7dcccf2efa"
