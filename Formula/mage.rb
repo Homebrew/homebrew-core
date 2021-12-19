@@ -5,7 +5,7 @@ class Mage < Formula
       tag:      "v1.12.0",
       revision: "2f1ec406dfa856a4b8378ef837061abc2a0ce01b"
   license "Apache-2.0"
-  head "https://github.com/magefile/mage.git"
+  head "https://github.com/magefile/mage.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a76f89e81261e2f223fa94dfe025d989809304a3236cfac36d6816c3f2932e56"
