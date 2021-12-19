@@ -7,7 +7,7 @@ class Mkvtomp4 < Formula
   sha256 "8514aa744963ea682e6a5c4b3cfab14c03346bfc78194c3cdc8b3a6317902f12"
   license "MIT"
   revision 2
-  head "https://github.com/gavinbeatty/mkvtomp4.git"
+  head "https://github.com/gavinbeatty/mkvtomp4.git", branch: "main"
 
   bottle do
     rebuild 2
