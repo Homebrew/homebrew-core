@@ -4,7 +4,7 @@ class Jlog < Formula
   url "https://github.com/omniti-labs/jlog/archive/2.5.3.tar.gz"
   sha256 "66730afc62aa9c9f93ef686998a5396f8721edca3750097d4a2848a688d55bf9"
   license "BSD-3-Clause"
-  head "https://github.com/omniti-labs/jlog.git"
+  head "https://github.com/omniti-labs/jlog.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a47745b2bd24e09f7be0a6e55171d9e989c03914747e732153358ab76176fae6"
