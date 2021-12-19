@@ -8,7 +8,7 @@ class Moreutils < Formula
     "GPL-2.0-or-later",
     { any_of: ["GPL-2.0-only", "Artistic-2.0"] },
   ]
-  head "https://git.joeyh.name/git/moreutils.git"
+  head "https://git.joeyh.name/git/moreutils.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c93055c0a353c93a20b0421a85eb055cc54340d1793cf12dd0fad275be123b71"
