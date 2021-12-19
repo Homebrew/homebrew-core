@@ -4,7 +4,7 @@ class GitTracker < Formula
   url "https://github.com/stevenharman/git_tracker/archive/v2.0.0.tar.gz"
   sha256 "ec0a8d6dd056b8ae061d9ada08f1cc2db087e13aaecf4e0d150c1808e0250504"
   license "MIT"
-  head "https://github.com/stevenharman/git_tracker.git"
+  head "https://github.com/stevenharman/git_tracker.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f74c420720d35b85637c46102e5c897f099b7b0e049fb9114e757604c54d2da1"
