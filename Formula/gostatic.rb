@@ -4,7 +4,7 @@ class Gostatic < Formula
   url "https://github.com/piranha/gostatic/archive/2.32.tar.gz"
   sha256 "857de1667660e71f890de019a230ce6c0ab5fdb2420511c4cf74d5f73a5a224a"
   license "ISC"
-  head "https://github.com/piranha/gostatic.git"
+  head "https://github.com/piranha/gostatic.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b9aad98ab7d7c5886f7cddebe62ca2ae9d2b4cf8c03af5224f562fb2883fbd0c"
