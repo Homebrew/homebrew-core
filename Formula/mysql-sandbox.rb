@@ -5,7 +5,7 @@ class MysqlSandbox < Formula
   sha256 "3af4af111536e4e690042bc80834392f46a7e55c7143332d229ff2eb32321e89"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/datacharmer/mysql-sandbox.git"
+  head "https://github.com/datacharmer/mysql-sandbox.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f71cc981e6e405e869a7c2f3b8ad9d2a7b93f288f94a5ad052c8a5b60e4372a"
