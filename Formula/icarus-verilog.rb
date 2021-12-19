@@ -5,7 +5,7 @@ class IcarusVerilog < Formula
   mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_11.0.orig.tar.gz"
   sha256 "6327fb900e66b46803d928b7ca439409a0dc32731d82143b20387be0833f1c95"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  head "https://github.com/steveicarus/iverilog.git"
+  head "https://github.com/steveicarus/iverilog.git", branch: "master"
 
   livecheck do
     url :stable
