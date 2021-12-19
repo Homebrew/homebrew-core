@@ -6,7 +6,7 @@ class Hashcat < Formula
   sha256 "6f6899d7ad899659f7b43a4d68098543ab546d2171f8e51d691d08a659378969"
   license "MIT"
   version_scheme 1
-  head "https://github.com/hashcat/hashcat.git"
+  head "https://github.com/hashcat/hashcat.git", branch: "master"
 
   livecheck do
     url :homepage
