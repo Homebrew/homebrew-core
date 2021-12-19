@@ -6,7 +6,7 @@ class GxGo < Formula
   url "https://github.com/whyrusleeping/gx-go/archive/v1.9.0.tar.gz"
   sha256 "f3a0ee17359e0e5efab8008361da0e312ca723a0c9e165342a0306caba55a535"
   license "MIT"
-  head "https://github.com/whyrusleeping/gx-go.git"
+  head "https://github.com/whyrusleeping/gx-go.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be5396fc6d5a6908b2a41a321dd7aa4f87d78ffb656bf54a14869fb4cb1e51d4"
