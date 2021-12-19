@@ -4,7 +4,7 @@ class Jpegoptim < Formula
   url "https://github.com/tjko/jpegoptim/archive/RELEASE.1.4.6.tar.gz"
   sha256 "c44dcfac0a113c3bec13d0fc60faf57a0f9a31f88473ccad33ecdf210b4c0c52"
   license "GPL-2.0"
-  head "https://github.com/tjko/jpegoptim.git"
+  head "https://github.com/tjko/jpegoptim.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "35c8849ace2b6b5e3ecab77e67ca84ff8e929a6ffb8782562b8c8d2cee70ce6b"
