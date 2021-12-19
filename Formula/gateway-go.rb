@@ -5,7 +5,7 @@ class GatewayGo < Formula
       tag:      "v0.2.1",
       revision: "a11b5bb2f7a39846510a82b54b7d7f0cb376c8cc"
   license "MIT"
-  head "https://github.com/OpenIoTHub/gateway-go.git"
+  head "https://github.com/OpenIoTHub/gateway-go.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a30b9b9d633124d60f8740c95751313cc9c87bb450995ee600f4c681cec48663"
