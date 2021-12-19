@@ -4,7 +4,7 @@ class GstLibav < Formula
   url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.5.tar.xz"
   sha256 "822e008a910e9dd13aedbdd8dc63fedef4040c0ee2e927bab3112e9de693a548"
   license "LGPL-2.1-or-later"
-  head "https://gitlab.freedesktop.org/gstreamer/gst-libav.git"
+  head "https://gitlab.freedesktop.org/gstreamer/gst-libav.git", branch: "master"
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-libav/"
