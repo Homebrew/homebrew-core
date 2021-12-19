@@ -5,7 +5,7 @@ class Gel < Formula
   sha256 "fe7c4bd67a2ea857b85b754f5b4d336e26640eda7199bc99b9a1570043362551"
   license "MIT"
   revision 1
-  head "https://github.com/gel-rb/gel.git"
+  head "https://github.com/gel-rb/gel.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9fb1011ea19b25229dd71f48f46b6aab94f5e3eb2699ac50486fb04825cc936f"
