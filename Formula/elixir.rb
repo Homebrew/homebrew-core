@@ -4,7 +4,7 @@ class Elixir < Formula
   url "https://github.com/elixir-lang/elixir/archive/v1.13.1.tar.gz"
   sha256 "deaba8156b11777adfa28e54e76ddf49ab1a0132cca54c41d9d7648e800edcc8"
   license "Apache-2.0"
-  head "https://github.com/elixir-lang/elixir.git"
+  head "https://github.com/elixir-lang/elixir.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "924e318c70b4fbb380a5dc40fa73a764c331dc0983721a57899c58e3674d9ac6"
