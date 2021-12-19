@@ -5,7 +5,7 @@ class Mapnik < Formula
   sha256 "43d76182d2a975212b4ad11524c74e577576c11039fdab5286b828397d8e6261"
   license "LGPL-2.1-or-later"
   revision 4
-  head "https://github.com/mapnik/mapnik.git"
+  head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
     url :stable
