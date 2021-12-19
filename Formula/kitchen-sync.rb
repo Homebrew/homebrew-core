@@ -5,7 +5,7 @@ class KitchenSync < Formula
   sha256 "8755c79d18054ae842b8744575fdfb55b76a8667cea8186fa22cb68bd5fa60ba"
   license "MIT"
   revision 1
-  head "https://github.com/willbryant/kitchen_sync.git"
+  head "https://github.com/willbryant/kitchen_sync.git", branch: "master"
 
   livecheck do
     url :stable
