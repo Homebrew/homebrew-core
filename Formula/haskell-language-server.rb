@@ -44,7 +44,10 @@ class HaskellLanguageServer < Formula
     newest_ghc = ghcs.max_by(&:version)
 
     ghcs.each do |ghc|
-      system "cabal", "v2-install", "-w", ghc.bin/"ghc", *std_cabal_v2_args
+      # for --enable-executable-dynamic flag, explained in
+      # https://haskell-language-server.readthedocs.io/en/latest/troubleshooting.html#support-for-template-haskell
+      args = ["-w", ghc.bin/"ghc", "--enable-executable-dynamic"]
+      system "cabal", "v2-install", *args, *std_cabal_v2_args
 
       hls = "haskell-language-server"
       bin.install bin/hls => "#{hls}-#{ghc.version}"
