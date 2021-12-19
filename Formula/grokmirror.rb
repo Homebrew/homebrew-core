@@ -7,7 +7,7 @@ class Grokmirror < Formula
   sha256 "6bc1310dc9a0e97836201e6bb14ecbbee332b0f812b9ff345a8386cb267c908c"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/mricon/grokmirror.git"
+  head "https://github.com/mricon/grokmirror.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "06b15553ec31d5e3a41c51fa728d7eb6b40c2882c21180ea5cdcefaddf2d42d4"
