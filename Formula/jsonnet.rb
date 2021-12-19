@@ -4,7 +4,7 @@ class Jsonnet < Formula
   url "https://github.com/google/jsonnet/archive/v0.17.0.tar.gz"
   sha256 "076b52edf888c01097010ad4299e3b2e7a72b60a41abbc65af364af1ed3c8dbe"
   license "Apache-2.0"
-  head "https://github.com/google/jsonnet.git"
+  head "https://github.com/google/jsonnet.git", branch: "master"
 
   livecheck do
     url :stable
