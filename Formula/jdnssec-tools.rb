@@ -5,7 +5,7 @@ class JdnssecTools < Formula
   sha256 "1d4905652639b8b23084366eb2e2b33d5f534bf29fbf9b4becbf9e29f9b39fdf"
   license "LGPL-2.1"
   revision 1
-  head "https://github.com/dblacka/jdnssec-tools.git"
+  head "https://github.com/dblacka/jdnssec-tools.git", branch: "master"
 
   livecheck do
     url :stable
