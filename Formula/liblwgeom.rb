@@ -5,7 +5,7 @@ class Liblwgeom < Formula
   sha256 "146d59351cf830e2a2a72fa14e700cd5eab6c18ad3e7c644f57c4cee7ed98bbe"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://git.osgeo.org/gitea/postgis/postgis.git"
+  head "https://git.osgeo.org/gitea/postgis/postgis.git", branch: "master"
 
   bottle do
     rebuild 1
