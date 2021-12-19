@@ -4,7 +4,7 @@ class Kvazaar < Formula
   url "https://github.com/ultravideo/kvazaar/archive/v2.1.0.tar.gz"
   sha256 "bbdd3112182e5660a1c339e30677f871b6eac1e5b4ff1292ee1ae38ecbe11029"
   license "BSD-3-Clause"
-  head "https://github.com/ultravideo/kvazaar.git"
+  head "https://github.com/ultravideo/kvazaar.git", branch: "master"
 
   livecheck do
     url :stable
