@@ -4,7 +4,7 @@ class Jump < Formula
   url "https://github.com/gsamokovarov/jump/archive/v0.40.0.tar.gz"
   sha256 "f005f843fc65b7be1d4159da7d4c220eef0229ecec9935c6ac23e4963eef645e"
   license "MIT"
-  head "https://github.com/gsamokovarov/jump.git"
+  head "https://github.com/gsamokovarov/jump.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a22ec459650a0e62e4ef082ddf29b1bb64cfd636fb696714107feb11efcace8e"
