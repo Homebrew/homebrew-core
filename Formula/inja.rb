@@ -4,7 +4,7 @@ class Inja < Formula
   url "https://github.com/pantor/inja/archive/v3.3.0.tar.gz"
   sha256 "e628d994762dcdaa9a97f63a9b8b73d9af51af0ffa5acea6bdbba0aceaf8ee25"
   license "MIT"
-  head "https://github.com/pantor/inja.git"
+  head "https://github.com/pantor/inja.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "173097b1702c4d03d7f6010dba26a9163cde204d021762cc8108cb171a6e27b2"
