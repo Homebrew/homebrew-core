@@ -6,7 +6,7 @@ class Jsdoc3 < Formula
   url "https://registry.npmjs.org/jsdoc/-/jsdoc-3.6.7.tgz"
   sha256 "c081fb764e73565c2fbc5cfb559c3d0a6a3d82d337dcf146ece76a2ea17b99b8"
   license "Apache-2.0"
-  head "https://github.com/jsdoc3/jsdoc.git"
+  head "https://github.com/jsdoc3/jsdoc.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "d18ac53656e46fd69eef87db5b293f9d54f34edb2de1fb178955116ce522fcc2"
