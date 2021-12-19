@@ -5,7 +5,7 @@ class H2spec < Formula
       tag:      "v2.6.0",
       revision: "70ac2294010887f48b18e2d64f5cccd48421fad1"
   license "MIT"
-  head "https://github.com/summerwind/h2spec.git"
+  head "https://github.com/summerwind/h2spec.git", branch: "master"
 
   bottle do
     rebuild 1
