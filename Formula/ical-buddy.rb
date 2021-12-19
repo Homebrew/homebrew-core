@@ -4,7 +4,7 @@ class IcalBuddy < Formula
   url "https://github.com/DavidKaluta/icalBuddy64/releases/download/v1.10.1/icalBuddy-v1.10.1.zip"
   sha256 "720a6a3344ce32c2cab7c3d2b686ad8de8d9744b747ac48b275247ed54cb3945"
   license "MIT"
-  head "https://github.com/DavidKaluta/icalBuddy64.git"
+  head "https://github.com/DavidKaluta/icalBuddy64.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fde583324695c0393cad4e545697c010d2e14dca39281ceff644dee8ed9230ab"
