@@ -4,7 +4,7 @@ class JsonTable < Formula
   url "https://github.com/micha/json-table/archive/4.3.3.tar.gz"
   sha256 "0ab7bb2a705ad3399132060b30b32903762473ff79b5a6e6f52f086e507b0911"
   license "EPL-1.0"
-  head "https://github.com/micha/json-table.git"
+  head "https://github.com/micha/json-table.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b90e09e62cd09817662e86c0c9854cd7a6e02b128dec008eeaa24d6c89482f11"
