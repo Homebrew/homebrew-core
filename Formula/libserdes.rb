@@ -5,7 +5,7 @@ class Libserdes < Formula
       tag:      "v7.0.1",
       revision: "8c02e4cd98f0eaf6113fc1fa0b8a0ee9350c4961"
   license "Apache-2.0"
-  head "https://github.com/confluentinc/libserdes.git"
+  head "https://github.com/confluentinc/libserdes.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "1424e3206b7588beb80933b213e0154c8250ed1f6b9b57f14ef967b55a983f57"
