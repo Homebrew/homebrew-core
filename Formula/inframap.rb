@@ -4,7 +4,7 @@ class Inframap < Formula
   url "https://github.com/cycloidio/inframap/archive/v0.6.7.tar.gz"
   sha256 "e9d6daa48c6fa1a8ecc5437c7121cb5072eb81c29c88ca9e6d778637c8442332"
   license "MIT"
-  head "https://github.com/cycloidio/inframap.git"
+  head "https://github.com/cycloidio/inframap.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "763af27a8d3dbb2ccb3c7bcb63d337ee96e7f5c011dcecbee7768d76214814e4"
