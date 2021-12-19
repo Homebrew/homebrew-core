@@ -5,7 +5,7 @@ class Kustomize < Formula
       tag:      "kustomize/v4.4.1",
       revision: "b2d65ddc98e09187a8e38adc27c30bab078c1dbf"
   license "Apache-2.0"
-  head "https://github.com/kubernetes-sigs/kustomize.git"
+  head "https://github.com/kubernetes-sigs/kustomize.git", branch: "master"
 
   livecheck do
     url :stable
