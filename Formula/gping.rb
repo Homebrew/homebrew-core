@@ -4,7 +4,7 @@ class Gping < Formula
   url "https://github.com/orf/gping/archive/gping-v1.2.6.tar.gz"
   sha256 "e36d5bc02157708c803d1855be4b2a9daa27d077fffe86c58b12c746fdc04c8f"
   license "MIT"
-  head "https://github.com/orf/gping.git"
+  head "https://github.com/orf/gping.git", branch: "master"
 
   # The GitHub repository has a "latest" release but it can sometimes point to
   # a release like `v1.2.3-post`, `v1.2.3-post2`, etc. We're checking the Git
