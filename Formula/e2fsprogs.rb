@@ -10,7 +10,7 @@ class E2fsprogs < Formula
     "BSD-3-Clause",      # lib/uuid
     "MIT",               # lib/et, lib/ss
   ]
-  head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
+  head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git", branch: "master"
 
   livecheck do
     url :stable
