@@ -4,7 +4,7 @@ class Exodriver < Formula
   url "https://github.com/labjack/exodriver/archive/v2.6.0.tar.gz"
   sha256 "d2ccf992bf42b50e7c009ae3d9d3d3191a67bfc8a2027bd54ba4cbd4a80114b2"
   license "MIT"
-  head "https://github.com/labjack/exodriver.git"
+  head "https://github.com/labjack/exodriver.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5df43dee856d5a6ea4cce237bd351ba39bdf6ed4ef61427de673c03ac87a45e2"
