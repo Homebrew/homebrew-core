@@ -4,7 +4,7 @@ class Envchain < Formula
   url "https://github.com/sorah/envchain/archive/v1.0.1.tar.gz"
   sha256 "09af1fe1cfba3719418f90d59c29c081e1f22b38249f0110305b657bd306e9ae"
   license "MIT"
-  head "https://github.com/sorah/envchain.git"
+  head "https://github.com/sorah/envchain.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b0a5fa3a01e3e241b4ae293e706dd4017dc6a11be8c0ca441858e8c97e94e50"
