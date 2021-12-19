@@ -4,7 +4,7 @@ class Msgpuck < Formula
   url "https://github.com/rtsisyk/msgpuck/archive/2.0.tar.gz"
   sha256 "01e6aa55d4d52a5b19f7ce9a9845506d9ab3f5abcf844a75e880b8378150a63d"
   license "BSD-2-Clause"
-  head "https://github.com/rtsisyk/msgpuck.git"
+  head "https://github.com/rtsisyk/msgpuck.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4ca7fca2ee5beb10e49b21dd3f810450442147158a291e023acc8e7982630c7f"
