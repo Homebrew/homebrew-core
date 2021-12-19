@@ -4,7 +4,7 @@ class Httpx < Formula
   url "https://github.com/projectdiscovery/httpx/archive/v1.1.4.tar.gz"
   sha256 "9726db14c0f13ccd12de84f4766c815100a52fbb755c4fdfc8a6f645daf81241"
   license "MIT"
-  head "https://github.com/projectdiscovery/httpx.git"
+  head "https://github.com/projectdiscovery/httpx.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "984c02625af7ee5226922ce63903cfe70e84a445b6e473a13539aae81528e73c"
