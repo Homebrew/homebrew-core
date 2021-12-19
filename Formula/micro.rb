@@ -5,7 +5,7 @@ class Micro < Formula
       tag:      "v2.0.10",
       revision: "b97638566ea8431712f0faafe23661da2db0e8ec"
   license "MIT"
-  head "https://github.com/zyedidia/micro.git"
+  head "https://github.com/zyedidia/micro.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c8a19557c64667e27d9dea4c4321465297ec8669d05566518b7f2bc4b39cd88b"
