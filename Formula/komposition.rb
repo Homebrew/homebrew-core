@@ -5,7 +5,7 @@ class Komposition < Formula
   sha256 "cedb41c68866f8d6a87579f566909fcd32697b03f66c0e2a700a94b6a9263b88"
   license "MPL-2.0"
   revision 5
-  head "https://github.com/owickstrom/komposition.git"
+  head "https://github.com/owickstrom/komposition.git", branch: "master"
 
   disable! date: "2021-04-08", because: :does_not_build
 
