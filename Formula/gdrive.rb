@@ -4,7 +4,7 @@ class Gdrive < Formula
   url "https://github.com/gdrive-org/gdrive/archive/2.1.1.tar.gz"
   sha256 "9092cb356acf58f2938954784605911e146497a18681199d0c0edc65b833a672"
   license "MIT"
-  head "https://github.com/gdrive-org/gdrive.git"
+  head "https://github.com/gdrive-org/gdrive.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c352c82a925ec14ef3e88e2483bdb7147de246226fb35fe6830e9f28eb6f6805"
