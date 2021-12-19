@@ -5,7 +5,7 @@ class Latino < Formula
       tag:      "v1.4.1",
       revision: "3ec6ab29902acb0b353cfe9a7b5d0317785fbd88"
   license "MIT"
-  head "https://github.com/lenguaje-latino/latino.git"
+  head "https://github.com/lenguaje-latino/latino.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e7ac6aa7973d222c73097942a233c2998e542358b21aa725dcbbf8e1e6010b06"
