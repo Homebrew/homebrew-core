@@ -4,7 +4,7 @@ class Hypre < Formula
   url "https://github.com/hypre-space/hypre/archive/v2.23.0.tar.gz"
   sha256 "8a9f9fb6f65531b77e4c319bf35bfc9d34bf529c36afe08837f56b635ac052e2"
   license any_of: ["MIT", "Apache-2.0"]
-  head "https://github.com/hypre-space/hypre.git"
+  head "https://github.com/hypre-space/hypre.git", branch: "master"
 
   livecheck do
     url :stable
