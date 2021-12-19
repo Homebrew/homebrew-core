@@ -4,7 +4,7 @@ class Hlint < Formula
   url "https://hackage.haskell.org/package/hlint-3.3.5/hlint-3.3.5.tar.gz"
   sha256 "812218e0e3eeceebe9ba8c9767543e2381ae163dafc81a762274951965493edf"
   license "BSD-3-Clause"
-  head "https://github.com/ndmitchell/hlint.git"
+  head "https://github.com/ndmitchell/hlint.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a5a8e72dd1f1e09edacc8a2f3461d88f732304b10b636b5d5e768459cd588c1a"
