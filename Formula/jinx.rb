@@ -4,7 +4,7 @@ class Jinx < Formula
   url "https://github.com/JamesBoer/Jinx/archive/v1.2.0.tar.gz"
   sha256 "18a88ef34b06c63210ac966429785c5e6f7ec4369719260f2af4a3dee1544e1b"
   license "MIT"
-  head "https://github.com/JamesBoer/Jinx.git"
+  head "https://github.com/JamesBoer/Jinx.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b91d30facce35e18f79655ab8ce200e413d63175e520d45e5c7276383dfcaea9"
