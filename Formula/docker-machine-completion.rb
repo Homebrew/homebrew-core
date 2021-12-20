@@ -4,7 +4,7 @@ class DockerMachineCompletion < Formula
   url "https://github.com/docker/machine/archive/v0.16.2.tar.gz"
   sha256 "af8bff768cd1746c787e2f118a3a8af45ed11679404b6e45d5199e343e550059"
   license "Apache-2.0"
-  head "https://github.com/docker/machine.git"
+  head "https://github.com/docker/machine.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "a953e0a6776024c35f839a0f4a23a782e186318fd07fdaa0a8405f41fadbd01a"
