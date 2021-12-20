@@ -4,7 +4,7 @@ class Fq < Formula
   url "https://github.com/circonus-labs/fq/archive/v0.13.10.tar.gz"
   sha256 "fe304987145ec7ce0103a3d06a75ead38ad68044c0f609ad0bcc20c06cbfd62e"
   license "MIT"
-  head "https://github.com/circonus-labs/fq.git"
+  head "https://github.com/circonus-labs/fq.git", branch: "master"
 
   bottle do
     sha256 monterey: "08bdc96d9e8587b7cfa430fe6eebdc0bdaef042f8b2d0150309977c8fcd46fc0"
