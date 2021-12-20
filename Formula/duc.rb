@@ -5,7 +5,7 @@ class Duc < Formula
   sha256 "f4e7483dbeca4e26b003548f9f850b84ce8859bba90da89c55a7a147636ba922"
   license "LGPL-3.0"
   revision 1
-  head "https://github.com/zevv/duc.git"
+  head "https://github.com/zevv/duc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ddafd5a26ee09470e18b2a56f389de3ed734ee83e5d149aa99de6c7b7b8bb576"
