@@ -4,7 +4,7 @@ class Drafter < Formula
   url "https://github.com/apiaryio/drafter/releases/download/v5.0.0/drafter-5.0.0.tar.gz"
   sha256 "a35894a8f4de8b9ead216056b6a77c8c03a4156b6a6e7eae46d9e11d116a748e"
   license "MIT"
-  head "https://github.com/apiaryio/drafter.git"
+  head "https://github.com/apiaryio/drafter.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "e87c12f12a181902f5013f06c3ca34608c68de6216d90f3c2fa568d4f8a35a5e"
