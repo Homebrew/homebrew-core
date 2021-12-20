@@ -4,7 +4,7 @@ class Flvmeta < Formula
   url "https://flvmeta.com/files/flvmeta-1.2.2.tar.gz"
   sha256 "a51a2f18d97dfa1d09729546ce9ac690569b4ce6f738a75363113d990c0e5118"
   license "GPL-2.0"
-  head "https://github.com/noirotm/flvmeta.git"
+  head "https://github.com/noirotm/flvmeta.git", branch: "master"
 
   livecheck do
     url :homepage
