@@ -4,7 +4,7 @@ class Frotz < Formula
   url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.53/frotz-2.53.tar.bz2"
   sha256 "8da558828dd74d6d6ee30483bb32276ef918b8b72b7f6e89b4f7cb27e7abf58b"
   license "GPL-2.0-or-later"
-  head "https://gitlab.com/DavidGriffith/frotz.git"
+  head "https://gitlab.com/DavidGriffith/frotz.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "4b52b494b83a2d60e856a5663e4b84bb2e20d0479ff4781e77a1148dcdf155b3"
