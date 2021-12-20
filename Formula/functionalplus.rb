@@ -5,7 +5,7 @@ class Functionalplus < Formula
   version "0.2.18"
   sha256 "ffc63fc86f89a205accafa85c35790eda307adf5f1d6d51bb7ceb5c5e21e013b"
   license "BSL-1.0"
-  head "https://github.com/Dobiasd/FunctionalPlus.git"
+  head "https://github.com/Dobiasd/FunctionalPlus.git", branch: "master"
 
   livecheck do
     url :stable
