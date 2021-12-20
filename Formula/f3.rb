@@ -4,7 +4,7 @@ class F3 < Formula
   url "https://github.com/AltraMayor/f3/archive/v8.0.tar.gz"
   sha256 "fb5e0f3b0e0b0bff2089a4ea6af53278804dfe0b87992499131445732e311ab4"
   license "GPL-3.0-only"
-  head "https://github.com/AltraMayor/f3.git"
+  head "https://github.com/AltraMayor/f3.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2b2b9129b2048339b1087ae700292d8d323cfa0f15cbc003c05fd30e7b5e051f"
