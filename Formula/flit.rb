@@ -6,7 +6,7 @@ class Flit < Formula
   url "https://files.pythonhosted.org/packages/a8/bc/4bbb98f1ce0ae4e778f3486c39c487a066d69f5ffe4e762c79664dfd5df8/flit-3.5.1.tar.gz"
   sha256 "2e3b7377714483ecc54b236330d7bf3467b9f5b909b22333b50b6b4324162510"
   license "BSD-3-Clause"
-  head "https://github.com/takluyver/flit.git"
+  head "https://github.com/takluyver/flit.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "25e0c7a5795e1d8430ac245e59fa90b55e86ed87daee1c2550c802e7a794e352"
