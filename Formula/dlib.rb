@@ -4,7 +4,7 @@ class Dlib < Formula
   url "http://dlib.net/files/dlib-19.22.tar.bz2"
   sha256 "20b8aad5d65594a34e22f59abbf0bf89450cb4a2a6a8c3b9eb49c8308f51d572"
   license "BSL-1.0"
-  head "https://github.com/davisking/dlib.git"
+  head "https://github.com/davisking/dlib.git", branch: "master"
 
   livecheck do
     url :homepage
