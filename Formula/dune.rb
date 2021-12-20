@@ -4,7 +4,7 @@ class Dune < Formula
   url "https://github.com/ocaml/dune/releases/download/2.9.1/dune-2.9.1.tbz"
   sha256 "b374feb22b34099ccc6dd32128e18d088ff9a81837952b29f05110b308c09f26"
   license "MIT"
-  head "https://github.com/ocaml/dune.git"
+  head "https://github.com/ocaml/dune.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f3fc019e810f9a91b423e700f49983fd6d2f22b32b8c68d99a1cd7a2eee29eb"
