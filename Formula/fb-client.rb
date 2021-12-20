@@ -7,7 +7,7 @@ class FbClient < Formula
   sha256 "8fbcffc853b298a8497ab0f66b254c0c9ae4cbd31ab9889912a44a8c5c7cef0e"
   license "GPL-3.0-only"
   revision 3
-  head "https://git.server-speed.net/users/flo/fb", using: :git
+  head "https://git.server-speed.net/users/flo/fb", using: :git, branch: "master"
 
   livecheck do
     url :homepage
