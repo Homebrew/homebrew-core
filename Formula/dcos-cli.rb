@@ -4,7 +4,7 @@ class DcosCli < Formula
   url "https://github.com/dcos/dcos-cli/archive/1.2.0.tar.gz"
   sha256 "d75c4aae6571a7d3f5a2dad0331fe3adab05a79e2966c0715409d6a2be2c6105"
   license "Apache-2.0"
-  head "https://github.com/dcos/dcos-cli.git"
+  head "https://github.com/dcos/dcos-cli.git", branch: "master"
 
   livecheck do
     url :stable
