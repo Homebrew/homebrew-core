@@ -5,7 +5,7 @@ class Dockviz < Formula
       tag:      "v0.6.3",
       revision: "15f77275c4f7e459eb7d9f824b5908c165cd0ba4"
   license "Apache-2.0"
-  head "https://github.com/justone/dockviz.git"
+  head "https://github.com/justone/dockviz.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f9d998ff992f496ca6f6dbb2c36f7310a83393144b8710c7d3411296b6bcdf5b"
