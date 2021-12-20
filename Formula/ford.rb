@@ -6,7 +6,7 @@ class Ford < Formula
   url "https://files.pythonhosted.org/packages/22/cb/925f9d663a1f56c00667d86c439da7212871f45f3ac6e0197a2ea1b05619/FORD-6.1.5.tar.gz"
   sha256 "24c5868b02a584464c74acfa48b673a8a27ff84c7dc9beda5a37acd4cd3671e0"
   license "GPL-3.0-or-later"
-  head "https://github.com/Fortran-FOSS-Programmers/ford.git"
+  head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "70f5ff6ac0c983729eeac784f242d960bb7eaa689e89fececd008dcf1e3ce509"
