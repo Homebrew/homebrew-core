@@ -4,7 +4,7 @@ class DotenvLinter < Formula
   url "https://github.com/dotenv-linter/dotenv-linter/archive/v3.1.1.tar.gz"
   sha256 "662856500db625c34b14f699a5e6f64af7fed0b2e06b6b8fee47103b637f1435"
   license "MIT"
-  head "https://github.com/dotenv-linter/dotenv-linter.git"
+  head "https://github.com/dotenv-linter/dotenv-linter.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c04c036c9bcece657db245e527c7fb89d201c7a9dda9033745fa040f2639d56a"
