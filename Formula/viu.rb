@@ -23,7 +23,7 @@ class Viu < Formula
   end
 
   test do
-    expected_output = "\e[0m\e[38;5;202m\e[48;5;202m▄\e[0m"
+    expected_output = "\e[0m\e[38;5;202m▀\e[0m"
     output = shell_output("#{bin}/viu #{test_fixtures("test.jpg")}").chomp
     assert_equal expected_output, output
   end
