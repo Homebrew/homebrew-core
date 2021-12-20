@@ -4,7 +4,7 @@ class Fd < Formula
   url "https://github.com/sharkdp/fd/archive/v8.3.0.tar.gz"
   sha256 "3c5a8a03c4f6ade73b92432ed0ba51591db19b0d136073fa3ccfa99d63403d52"
   license "Apache-2.0"
-  head "https://github.com/sharkdp/fd.git"
+  head "https://github.com/sharkdp/fd.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "89f7c27602bf8d146b8cbac9545bc25089f155e193fd30a3812cf17478937b5a"
