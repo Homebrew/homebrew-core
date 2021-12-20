@@ -4,7 +4,7 @@ class Dsvpn < Formula
   url "https://github.com/jedisct1/dsvpn/archive/0.1.4.tar.gz"
   sha256 "b98604e1ca2ffa7a909bf07ca7cf0597e3baa73c116fbd257f93a4249ac9c0c5"
   license "MIT"
-  head "https://github.com/jedisct1/dsvpn.git"
+  head "https://github.com/jedisct1/dsvpn.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "533ca096976136d7eeb0923c0164a0b3e8305d344036c1ad095a586f8768f5a2"
