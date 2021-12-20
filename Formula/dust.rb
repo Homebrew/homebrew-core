@@ -4,7 +4,7 @@ class Dust < Formula
   url "https://github.com/bootandy/dust/archive/v0.7.5.tar.gz"
   sha256 "f892aaf7a0a7852e12d01b2ced6c2484fb6dc5fe7562abdf0c44a2d08aa52618"
   license "Apache-2.0"
-  head "https://github.com/bootandy/dust.git"
+  head "https://github.com/bootandy/dust.git", branch: "master"
 
   livecheck do
     url :stable
