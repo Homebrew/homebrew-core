@@ -6,7 +6,7 @@ class FileFormula < Formula
   sha256 "13e532c7b364f7d57e23dfeea3147103150cb90593a57af86c10e4f6e411603f"
   # file-formula has a BSD-2-Clause-like license
   license :cannot_represent
-  head "https://github.com/file/file.git"
+  head "https://github.com/file/file.git", branch: "master"
 
   livecheck do
     url "https://astron.com/pub/file/"
