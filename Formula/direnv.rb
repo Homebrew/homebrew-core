@@ -4,7 +4,7 @@ class Direnv < Formula
   url "https://github.com/direnv/direnv/archive/v2.29.0.tar.gz"
   sha256 "a0ceb76a58a6ca81a8669a9ef2631fbad41d7c1a27cc0ec738c71c6d71f9751f"
   license "MIT"
-  head "https://github.com/direnv/direnv.git"
+  head "https://github.com/direnv/direnv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e565d2a681d1b0c1421b0e22430af07897a03d0685b1dd02b1f6f807397d8ea5"
