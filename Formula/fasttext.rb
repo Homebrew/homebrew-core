@@ -4,7 +4,7 @@ class Fasttext < Formula
   url "https://github.com/facebookresearch/fastText/archive/v0.9.2.tar.gz"
   sha256 "7ea4edcdb64bfc6faaaec193ef181bdc108ee62bb6a04e48b2e80b639a99e27e"
   license "MIT"
-  head "https://github.com/facebookresearch/fastText.git"
+  head "https://github.com/facebookresearch/fastText.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5a2a2a202ee6d5b21bc1857be97e41876353e9ef9c4a2af5466b7def501bc1ce"
