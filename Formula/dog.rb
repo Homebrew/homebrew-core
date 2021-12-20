@@ -4,7 +4,7 @@ class Dog < Formula
   url "https://github.com/ogham/dog/archive/v0.1.0.tar.gz"
   sha256 "82387d38727bac7fcdb080970e84b36de80bfe7923ce83f993a77d9ac7847858"
   license "EUPL-1.2"
-  head "https://github.com/ogham/dog.git"
+  head "https://github.com/ogham/dog.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f90bf064348fb099a5ecc0de69a6ef9cee7b45583d2cdaeb844214d5e773f17"
