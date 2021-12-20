@@ -4,7 +4,7 @@ class Dash < Formula
   url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.11.5.tar.gz"
   sha256 "db778110891f7937985f29bf23410fe1c5d669502760f584e54e0e7b29e123bd"
   license "BSD-3-Clause"
-  head "https://git.kernel.org/pub/scm/utils/dash/dash.git"
+  head "https://git.kernel.org/pub/scm/utils/dash/dash.git", branch: "master"
 
   livecheck do
     url "http://gondor.apana.org.au/~herbert/dash/files/"
