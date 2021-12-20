@@ -32,6 +32,7 @@ class Sundials < Formula
   def install
     blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
     args = std_cmake_args + %W[
+      -DCMAKE_C_STANDARD=99
       -DBUILD_SHARED_LIBS=ON
       -DKLU_ENABLE=ON
       -DKLU_LIBRARY_DIR=#{Formula["suite-sparse"].opt_lib}
@@ -46,6 +47,9 @@ class Sundials < Formula
       system "cmake", "..", *args
       system "make", "install"
     end
+
+    # build issue reported in here, https://github.com/LLNL/sundials/issues/99
+    include.install "src/sundials/sundials_context_impl.h"
 
     # Only keep one example for testing purposes
     (pkgshare/"examples").install Dir[prefix/"examples/nvector/serial/*"] \
