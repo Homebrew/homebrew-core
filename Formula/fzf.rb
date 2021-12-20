@@ -4,7 +4,7 @@ class Fzf < Formula
   url "https://github.com/junegunn/fzf/archive/0.28.0.tar.gz"
   sha256 "05bbfa4dd84b72e55afc3fe56c0fc185d6dd1fa1c4eef56a1559b68341f3d029"
   license "MIT"
-  head "https://github.com/junegunn/fzf.git"
+  head "https://github.com/junegunn/fzf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428"
