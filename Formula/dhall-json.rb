@@ -4,7 +4,7 @@ class DhallJson < Formula
   url "https://hackage.haskell.org/package/dhall-json-1.7.9/dhall-json-1.7.9.tar.gz"
   sha256 "f6b9f4f6046648d2c51c6a7d11b5c08b0935d820cc5dfb67aaec5363b7213487"
   license "BSD-3-Clause"
-  head "https://github.com/dhall-lang/dhall-haskell.git"
+  head "https://github.com/dhall-lang/dhall-haskell.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20fd32c39d1b0fba9c6b65b91419284283ccca19a3e10e492dfe62ae4f31ad9b"
