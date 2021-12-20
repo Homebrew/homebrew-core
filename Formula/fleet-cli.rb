@@ -5,7 +5,7 @@ class FleetCli < Formula
       tag:      "v0.3.8",
       revision: "ce9c0d6c0a455d61e87c0f19df79d0ee11a89eeb"
   license "Apache-2.0"
-  head "https://github.com/rancher/fleet.git"
+  head "https://github.com/rancher/fleet.git", branch: "master"
 
   livecheck do
     url :stable
