@@ -5,7 +5,7 @@ class Fairymax < Formula
       tag:      "5.0b",
       revision: "f7a7847ea2d4764d9a0a211ba6559fa98e8dbee6"
   version "5.0b"
-  head "http://hgm.nubati.net/git/fairymax.git"
+  head "http://hgm.nubati.net/git/fairymax.git", branch: "master"
 
   bottle do
     sha256                               arm64_monterey: "85ed95611bf8ffcdec73d5d5f3f3372b4e72d73a0c4eed0dcf3183b2ec94743d"
