@@ -4,7 +4,7 @@ class DhallYaml < Formula
   url "https://hackage.haskell.org/package/dhall-yaml-1.2.9/dhall-yaml-1.2.9.tar.gz"
   sha256 "8637b4e78b60a9318d17ffe99a45a9931886e0a4f5e99922d2b246187196c93e"
   license "BSD-3-Clause"
-  head "https://github.com/dhall-lang/dhall-haskell.git"
+  head "https://github.com/dhall-lang/dhall-haskell.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b8dd55ac7cc30a3956d0a70572ad5677436b4e70d8ade82a781b72c88217dd44"
