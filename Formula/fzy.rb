@@ -4,7 +4,7 @@ class Fzy < Formula
   url "https://github.com/jhawthorn/fzy/releases/download/1.0/fzy-1.0.tar.gz"
   sha256 "80257fd74579e13438b05edf50dcdc8cf0cdb1870b4a2bc5967bd1fdbed1facf"
   license "MIT"
-  head "https://github.com/jhawthorn/fzy.git"
+  head "https://github.com/jhawthorn/fzy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "594f670b4c7aead7e05fb1ee3b756d6373abe49c8a05c9422acee94a932ebfcb"
