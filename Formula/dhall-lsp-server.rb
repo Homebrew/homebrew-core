@@ -4,7 +4,7 @@ class DhallLspServer < Formula
   url "https://hackage.haskell.org/package/dhall-lsp-server-1.0.17/dhall-lsp-server-1.0.17.tar.gz"
   sha256 "88433b4334d75c625d76b61859359b31e173531f11bb858ea4776eed46949c40"
   license "BSD-3-Clause"
-  head "https://github.com/dhall-lang/dhall-haskell.git"
+  head "https://github.com/dhall-lang/dhall-haskell.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e2db9ffeec60593d9c34d32bdbb09cb9dab790ab7b8191a5eac77570a7551cb7"
