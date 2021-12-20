@@ -4,7 +4,7 @@ class Davix < Formula
   url "https://github.com/cern-fts/davix/releases/download/R_0_8_0/davix-0.8.0.tar.gz"
   sha256 "2f108da0408a83fb5b9f0c68150d360ba733e4b3a0fe298d45b0d32d28ab7124"
   license "LGPL-2.1-or-later"
-  head "https://github.com/cern-fts/davix.git"
+  head "https://github.com/cern-fts/davix.git", branch: "devel"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "be805f236e6bda40acfbccc744bf856ffdb10bdcf51dc77c4113dc02e8d58de9"
