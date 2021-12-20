@@ -4,7 +4,7 @@ class DoubleConversion < Formula
   url "https://github.com/google/double-conversion/archive/v3.1.6.tar.gz"
   sha256 "8a79e87d02ce1333c9d6c5e47f452596442a343d8c3e9b234e8a62fce1b1d49c"
   license "BSD-3-Clause"
-  head "https://github.com/google/double-conversion.git"
+  head "https://github.com/google/double-conversion.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ba80263bde683392415555020c38aa1d86e81f5ec14f2f7ade34bca13a78d148"
