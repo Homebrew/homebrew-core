@@ -5,7 +5,7 @@ class Dub < Formula
   sha256 "fb800f3355f167ac7f997f77e31e331db9d33477779fdaaf2851b3abcecc801a"
   license "MIT"
   version_scheme 1
-  head "https://github.com/dlang/dub.git"
+  head "https://github.com/dlang/dub.git", branch: "master"
 
   livecheck do
     url :stable
