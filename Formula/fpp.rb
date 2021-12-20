@@ -5,7 +5,7 @@ class Fpp < Formula
   sha256 "f2b233b1e18bdafb1cd1728305e926aabe217406e65091f1e58589e6157e1952"
   license "MIT"
   revision 3
-  head "https://github.com/facebook/pathpicker.git"
+  head "https://github.com/facebook/pathpicker.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6efaf75a2e334b6c87e51be515d5bd32ba6ad1aedc8cd64253020772a9be63da"
