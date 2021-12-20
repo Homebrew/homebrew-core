@@ -5,7 +5,7 @@ class DosboxX < Formula
   sha256 "5a7eb5c7de8c540ce8d41914e43393bfbd17c99ace48311b646e5df0d08e80b2"
   license "GPL-2.0-or-later"
   version_scheme 1
-  head "https://github.com/joncampbell123/dosbox-x.git"
+  head "https://github.com/joncampbell123/dosbox-x.git", branch: "master"
 
   livecheck do
     url :stable
