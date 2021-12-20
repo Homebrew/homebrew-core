@@ -4,7 +4,7 @@ class DockerCredentialHelper < Formula
   url "https://github.com/docker/docker-credential-helpers/archive/v0.6.4.tar.gz"
   sha256 "b97d27cefb2de7a18079aad31c9aef8e3b8a38313182b73aaf8b83701275ac83"
   license "MIT"
-  head "https://github.com/docker/docker-credential-helpers.git"
+  head "https://github.com/docker/docker-credential-helpers.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d31528c850fd10e73e89f24aeff4485ff17778de58c279389cd2c214c62228b5"
