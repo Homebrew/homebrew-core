@@ -4,7 +4,7 @@ class Dosfstools < Formula
   url "https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz"
   sha256 "64926eebf90092dca21b14259a5301b7b98e7b1943e8a201c7d726084809b527"
   license "GPL-3.0-or-later"
-  head "https://github.com/dosfstools/dosfstools.git"
+  head "https://github.com/dosfstools/dosfstools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "41e7da04f31a04e5ad7fc460b9c15b6526780fab0de0339fcdea540dfbaec964"
