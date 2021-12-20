@@ -1,10 +1,10 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
   homepage "https://facebook.github.io/zstd/"
-  url "https://github.com/facebook/zstd/archive/v1.5.0.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/zstd-1.5.0.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/zstd-1.5.0.tar.gz"
-  sha256 "0d9ade222c64e912d6957b11c923e214e2e010a18f39bec102f572e693ba2867"
+  url "https://github.com/facebook/zstd/archive/v1.5.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/zstd-1.5.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/zstd-1.5.1.tar.gz"
+  sha256 "ca534730ccc9e216d4ffa0409994d0d226f6c3935968e7cf51161b6ae9513e3f"
   license "BSD-3-Clause"
   head "https://github.com/facebook/zstd.git", branch: "dev"
 
