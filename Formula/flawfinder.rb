@@ -7,7 +7,7 @@ class Flawfinder < Formula
   sha256 "fe550981d370abfa0a29671346cc0b038229a9bd90b239eab0f01f12212df618"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/david-a-wheeler/flawfinder.git"
+  head "https://github.com/david-a-wheeler/flawfinder.git", branch: "master"
 
   livecheck do
     url :homepage
