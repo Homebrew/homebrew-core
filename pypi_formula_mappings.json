@@ -147,6 +147,9 @@
     "exclude_packages": ["six"],
     "extra_packages": ["ipykernel"]
   },
+  "iredis": {
+    "exclude_packages": ["six"]
+  },
   "jenkins-job-builder": {
     "exclude_packages": ["six"]
   },
