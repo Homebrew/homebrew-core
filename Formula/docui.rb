@@ -4,7 +4,7 @@ class Docui < Formula
   url "https://github.com/skanehira/docui/archive/2.0.4.tar.gz"
   sha256 "9af1a720aa7c68bea4469f1d7eea81ccb68e15a47ccfc9c83011a06d696ad30d"
   license "MIT"
-  head "https://github.com/skanehira/docui.git"
+  head "https://github.com/skanehira/docui.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b051dececee7d5ec01e3b2a2c235dfc919bdca2a856c1235aacb0ff99fc4a06c"
