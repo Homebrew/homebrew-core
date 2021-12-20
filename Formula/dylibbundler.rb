@@ -4,7 +4,7 @@ class Dylibbundler < Formula
   url "https://github.com/auriamg/macdylibbundler/archive/1.0.2.tar.gz"
   sha256 "6aed5e11078e597e3609cc5a02dfacb4218c12acc87066f6ae9e2dfb3b7c0b35"
   license "MIT"
-  head "https://github.com/auriamg/macdylibbundler.git"
+  head "https://github.com/auriamg/macdylibbundler.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2cf3e58dd1749774265a74e36af79478846bc5a3fa0e5724d69a78737690112a"
