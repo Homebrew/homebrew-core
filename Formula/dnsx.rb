@@ -4,7 +4,7 @@ class Dnsx < Formula
   url "https://github.com/projectdiscovery/dnsx/archive/v1.0.7.tar.gz"
   sha256 "3ddf978dd97df76675f48a45b3e5eb7f6da33a5941f88115972e4329f7efbfd0"
   license "MIT"
-  head "https://github.com/projectdiscovery/dnsx.git"
+  head "https://github.com/projectdiscovery/dnsx.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a32975eb17338ddd32d27288bacf1a167f4a1e6254c3b0202e116e31bff04f4"
