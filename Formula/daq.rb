@@ -5,7 +5,7 @@ class Daq < Formula
   mirror "https://fossies.org/linux/misc/libdaq-3.0.5.tar.gz"
   sha256 "4281464c5502037669e69d314b628df863420f590c4999c5b567c8016cd1e658"
   license "GPL-2.0-only"
-  head "https://github.com/snort3/libdaq.git"
+  head "https://github.com/snort3/libdaq.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "0d3e31e4c3f477da99af902e3d94041e525161ecb62ebf7035a6f0849df15385"
