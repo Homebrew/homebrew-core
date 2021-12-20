@@ -6,7 +6,7 @@ class Darglint < Formula
   url "https://files.pythonhosted.org/packages/d4/2c/86e8549e349388c18ca8a4ff8661bb5347da550f598656d32a98eaaf91cc/darglint-1.8.1.tar.gz"
   sha256 "080d5106df149b199822e7ee7deb9c012b49891538f14a11be681044f0bb20da"
   license "MIT"
-  head "https://github.com/terrencepreilly/darglint.git"
+  head "https://github.com/terrencepreilly/darglint.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7462727f3dc2fa353d3a7c06d2151acd34d361c7e2756c13f61b6f6834c03870"
