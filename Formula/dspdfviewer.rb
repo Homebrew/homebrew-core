@@ -5,7 +5,7 @@ class Dspdfviewer < Formula
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
   license "GPL-2.0-or-later"
   revision 11
-  head "https://github.com/dannyedel/dspdfviewer.git"
+  head "https://github.com/dannyedel/dspdfviewer.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "d3d3383fcb214390beda2e696d2b01ffe97705352ac7486aeae9398f829fe832"
