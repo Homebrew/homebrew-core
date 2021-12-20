@@ -5,7 +5,7 @@ class Fastd < Formula
       tag:      "v22",
       revision: "0f47d83eac2047d33efdab6eeaa9f81f17e3ebd1"
   license "BSD-2-Clause"
-  head "https://github.com/NeoRaider/fastd.git"
+  head "https://github.com/NeoRaider/fastd.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "e8c034f7725b6783bc9d811026120c2fe7730c8654da37b890e043654755e4a7"
