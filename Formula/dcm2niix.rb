@@ -5,7 +5,7 @@ class Dcm2niix < Formula
   sha256 "44b737d0101483de17ac1273f2d2c6a4d572a7b76ea040d69aa34d5e484144b9"
   license "BSD-3-Clause"
   version_scheme 1
-  head "https://github.com/rordenlab/dcm2niix.git"
+  head "https://github.com/rordenlab/dcm2niix.git", branch: "master"
 
   livecheck do
     url :stable
