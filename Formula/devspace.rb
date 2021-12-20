@@ -5,7 +5,7 @@ class Devspace < Formula
       tag:      "v5.18.1",
       revision: "2f47f02edcabbb94dd571f561db438fbdc932a86"
   license "Apache-2.0"
-  head "https://github.com/loft-sh/devspace.git"
+  head "https://github.com/loft-sh/devspace.git", branch: "master"
 
   livecheck do
     url :stable
