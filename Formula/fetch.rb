@@ -4,7 +4,7 @@ class Fetch < Formula
   url "https://github.com/gruntwork-io/fetch/archive/v0.4.2.tar.gz"
   sha256 "b8ba80823e961fd2761ef2d855d308b69313930e0ffd445e34840a2ef9b4c6fb"
   license "MIT"
-  head "https://github.com/gruntwork-io/fetch.git"
+  head "https://github.com/gruntwork-io/fetch.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cf51eff4cbaa2c04a0e44dd3b720694df1c3fa3a396d0a42ff9c2a089b1c2f27"
