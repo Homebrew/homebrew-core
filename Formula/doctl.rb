@@ -4,7 +4,7 @@ class Doctl < Formula
   url "https://github.com/digitalocean/doctl/archive/v1.68.0.tar.gz"
   sha256 "63bf2c754cc6da01eeacf43c139cab3dd04458d16be4047f5a1f238b9e0e5cb9"
   license "Apache-2.0"
-  head "https://github.com/digitalocean/doctl.git"
+  head "https://github.com/digitalocean/doctl.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a4030122905cd98a819e91e15996d0cc3077f655061c40bbe9b46ec809c2d836"
