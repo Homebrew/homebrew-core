@@ -4,7 +4,7 @@ class Flatbuffers < Formula
   url "https://github.com/google/flatbuffers/archive/v2.0.0.tar.gz"
   sha256 "9ddb9031798f4f8754d00fca2f1a68ecf9d0f83dfac7239af1311e4fd9a565c4"
   license "Apache-2.0"
-  head "https://github.com/google/flatbuffers.git"
+  head "https://github.com/google/flatbuffers.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a127e4a829de86f314a3990b9d85bf14d854bb682e8f8e32272990095b2b654a"
