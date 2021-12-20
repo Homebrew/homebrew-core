@@ -4,7 +4,7 @@ class Futhark < Formula
   url "https://github.com/diku-dk/futhark/archive/v0.21.1.tar.gz"
   sha256 "af9a94e957970a80d10519fee5039b15146c748e1c59936b4f40c0ccbbab98b5"
   license "ISC"
-  head "https://github.com/diku-dk/futhark.git"
+  head "https://github.com/diku-dk/futhark.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f56c2c5f84554f4b438498768dad2bbc5116b644a9395dc075b81251c0149a4"
