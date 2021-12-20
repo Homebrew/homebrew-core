@@ -5,7 +5,7 @@ class Fades < Formula
   sha256 "77192b76efbd08dfabce65fe6012805a2383ec1b893c12091efe35fbfd9677f6"
   license "GPL-3.0"
   revision 2
-  head "https://github.com/PyAr/fades.git"
+  head "https://github.com/PyAr/fades.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "17c25515247ef1c89e14618c1a156b0d9e4dfafd61f9dbd2b93aee1c07bc030e"
