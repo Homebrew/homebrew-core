@@ -4,7 +4,7 @@ class Librtlsdr < Formula
   url "https://github.com/steve-m/librtlsdr/archive/0.6.0.tar.gz"
   sha256 "80a5155f3505bca8f1b808f8414d7dcd7c459b662a1cde84d3a2629a6e72ae55"
   license "GPL-2.0"
-  head "https://git.osmocom.org/rtl-sdr.git", branch: "master"
+  head "https://git.osmocom.org/rtl-sdr", using: :git, branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f61808ab70f1d625cbc411d4f5e5e68a26b14f93eb926352353523cc54e188a6"
