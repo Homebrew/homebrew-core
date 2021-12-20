@@ -5,7 +5,7 @@ class Dirt < Formula
   sha256 "bb1ae52311813d0ea3089bf3837592b885562518b4b44967ce88a24bc10802b6"
   license "GPL-3.0"
   revision 1
-  head "https://github.com/tidalcycles/Dirt.git"
+  head "https://github.com/tidalcycles/Dirt.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "82bbbe42458acf9ec7e5f628eae3aaa8e8c9df057e083ff45e044e0a64339c88"
