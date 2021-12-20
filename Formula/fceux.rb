@@ -5,7 +5,7 @@ class Fceux < Formula
       tag:      "fceux-2.5.0",
       revision: "6c3a31a4f2c09be297a32f510e74b383f858773b"
   license "GPL-2.0-only"
-  head "https://github.com/TASEmulators/fceux.git"
+  head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "87c20cd5b6be81a5119f9efbe9dd5d6d7a7fd63c3c6eddaa09357d3dff75835a"
