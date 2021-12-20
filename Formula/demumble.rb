@@ -4,7 +4,7 @@ class Demumble < Formula
   url "https://github.com/nico/demumble/archive/refs/tags/v1.2.2.tar.gz"
   sha256 "663e5d205c83cc36a257bb168d3ecbc2a49693088c0451b2405d25646651c63e"
   license "Apache-2.0"
-  head "https://github.com/nico/demumble.git"
+  head "https://github.com/nico/demumble.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ff3563d728d6ad3ba851fe1a9e95e599f0fb835ea6e046b30e329537f19aaedc"
