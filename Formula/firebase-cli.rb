@@ -6,7 +6,7 @@ class FirebaseCli < Formula
   url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-10.0.1.tgz"
   sha256 "cfa57ac33a7b81e923ab3712fa5e0c10cc4c514294a4d1aa77442bfca5525df3"
   license "MIT"
-  head "https://github.com/firebase/firebase-tools.git"
+  head "https://github.com/firebase/firebase-tools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "afaf0369360eb7c072a3ef5c0acdc232fd8ab6e4a3c0a63b7fbcc4797119dc76"
