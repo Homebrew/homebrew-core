@@ -5,7 +5,7 @@ class FonFlashCli < Formula
   version "1.12.0"
   sha256 "722520cb6774f011dccf80d6d91893de608b76ebf12372cfdd5d004d99a4012a"
   license "GPL-2.0"
-  head "https://github.com/ericpaulbishop/gargoyle.git"
+  head "https://github.com/ericpaulbishop/gargoyle.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c6640a91909961082cfe444d7d10a53dee5ebf69355f6f1c37470957a9ccaee9"
