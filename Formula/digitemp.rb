@@ -4,7 +4,7 @@ class Digitemp < Formula
   url "https://github.com/bcl/digitemp/archive/v3.7.2.tar.gz"
   sha256 "683df4ab5cc53a45fe4f860c698f148d34bcca91b3e0568a342f32d64d12ba24"
   license "GPL-2.0"
-  head "https://github.com/bcl/digitemp.git"
+  head "https://github.com/bcl/digitemp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "8de47e480d9a46e00ca897acad3787f7c6897aefe28e63f3008aa7c736112e17"
