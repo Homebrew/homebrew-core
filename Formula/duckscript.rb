@@ -4,7 +4,7 @@ class Duckscript < Formula
   url "https://github.com/sagiegurari/duckscript/archive/0.8.10.tar.gz"
   sha256 "20b4cd633e0d7e72bdb3e9e4018f1342acfea6b22fd271c90bc915d2339e8e6b"
   license "Apache-2.0"
-  head "https://github.com/sagiegurari/duckscript.git"
+  head "https://github.com/sagiegurari/duckscript.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20f37cfb00100b2b219b90bf858b71a2aa8623da37df5fb571dca2aaae1a3b2e"
