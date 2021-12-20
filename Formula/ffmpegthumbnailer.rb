@@ -5,7 +5,7 @@ class Ffmpegthumbnailer < Formula
   sha256 "8c4c42ab68144a9e2349710d42c0248407a87e7dc0ba4366891905322b331f92"
   license "GPL-2.0"
   revision 6
-  head "https://github.com/dirkvdb/ffmpegthumbnailer.git"
+  head "https://github.com/dirkvdb/ffmpegthumbnailer.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a160e239d14eddf3962d5043bd6fd873d78cd6a01308ed6e068fdaa6d9c6e134"
