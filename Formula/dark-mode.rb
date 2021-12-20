@@ -4,7 +4,7 @@ class DarkMode < Formula
   url "https://github.com/sindresorhus/dark-mode/archive/v3.0.2.tar.gz"
   sha256 "fda7d4337fe3f0af92267fb517a17f11a267b5f8f38ec2db0c416526efd42619"
   license "MIT"
-  head "https://github.com/sindresorhus/dark-mode.git"
+  head "https://github.com/sindresorhus/dark-mode.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e1e6bb2d24e1d8c7e2c8bc07bdfffbe0a9c13136e92066b97a24dcbbda938220"
