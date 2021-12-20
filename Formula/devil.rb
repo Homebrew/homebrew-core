@@ -3,7 +3,7 @@ class Devil < Formula
   homepage "https://sourceforge.net/projects/openil/"
   license "LGPL-2.1-only"
   revision 2
-  head "https://github.com/DentonW/DevIL.git"
+  head "https://github.com/DentonW/DevIL.git", branch: "master"
 
   stable do
     url "https://downloads.sourceforge.net/project/openil/DevIL/1.8.0/DevIL-1.8.0.tar.gz"
