@@ -4,7 +4,7 @@ class Dnsprobe < Formula
   url "https://github.com/projectdiscovery/dnsprobe/archive/v1.0.3.tar.gz"
   sha256 "ab57f348177594018cc5b5b5e808710c88e597888c6d504cb10554d60627eae1"
   license "MIT"
-  head "https://github.com/projectdiscovery/dnsprobe.git"
+  head "https://github.com/projectdiscovery/dnsprobe.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8a164e0990055bf9c9a0007ad586e2fe71da6123ce295f9a28380dca030694fd"
