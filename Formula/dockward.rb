@@ -6,7 +6,7 @@ class Dockward < Formula
   url "https://github.com/abiosoft/dockward/archive/0.0.4.tar.gz"
   sha256 "b96244386ae58aefb16177837d7d6adf3a9e6d93b75eea3308a45eb8eb9f4116"
   license "Apache-2.0"
-  head "https://github.com/abiosoft/dockward.git"
+  head "https://github.com/abiosoft/dockward.git", branch: "master"
 
   bottle do
     rebuild 1
