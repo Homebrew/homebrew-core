@@ -4,7 +4,7 @@ class Flarectl < Formula
   url "https://github.com/cloudflare/cloudflare-go/archive/v0.28.0.tar.gz"
   sha256 "39b77f35a0d8d9b573436d65a2ca8cc36ad835956a00df64d524fed02f4a40a5"
   license "BSD-3-Clause"
-  head "https://github.com/cloudflare/cloudflare-go.git"
+  head "https://github.com/cloudflare/cloudflare-go.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "db3363e64a9a9c25c7c66bebb369558f4684713152e9907438f642622639c39b"
