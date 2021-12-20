@@ -5,7 +5,7 @@ class Dscanner < Formula
       tag:      "v0.11.1",
       revision: "7809598da0e06a319d35d3b6edb4277710fa776b"
   license "BSL-1.0"
-  head "https://github.com/dlang-community/D-Scanner.git"
+  head "https://github.com/dlang-community/D-Scanner.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "9b0dd1d5cfd2489f6d41e39503c6409d623678ecce927065a5ee53a3dc20131c"
