@@ -4,7 +4,7 @@ class DhallBash < Formula
   url "https://hackage.haskell.org/package/dhall-bash-1.0.39/dhall-bash-1.0.39.tar.gz"
   sha256 "68ce22ada11dcd7d92268b79363bd51c835aecd1f44e8b93ce1e448d5be1c02f"
   license "BSD-3-Clause"
-  head "https://github.com/dhall-lang/dhall-haskell.git"
+  head "https://github.com/dhall-lang/dhall-haskell.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c6caad7ccfc94810c715b13339c454c19108d0d1b3f5a8d81583b570e2a947bf"
