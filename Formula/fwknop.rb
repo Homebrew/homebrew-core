@@ -4,7 +4,7 @@ class Fwknop < Formula
   url "https://github.com/mrash/fwknop/archive/2.6.10.tar.gz"
   sha256 "a7c465ba84261f32c6468c99d5512f1111e1bf4701477f75b024bf60b3e4d235"
   license "GPL-2.0-or-later"
-  head "https://github.com/mrash/fwknop.git"
+  head "https://github.com/mrash/fwknop.git", branch: "master"
 
   livecheck do
     url :stable
