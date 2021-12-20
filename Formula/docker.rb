@@ -5,7 +5,7 @@ class Docker < Formula
       tag:      "v20.10.12",
       revision: "e91ed5707e038b02af3b5120fa0835c5bedfd42e"
   license "Apache-2.0"
-  head "https://github.com/docker/cli.git"
+  head "https://github.com/docker/cli.git", branch: "master"
 
   livecheck do
     url :stable
