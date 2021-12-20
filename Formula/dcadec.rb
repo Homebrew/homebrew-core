@@ -5,7 +5,7 @@ class Dcadec < Formula
       tag:      "v0.2.0",
       revision: "0e074384c9569e921f8facfe3863912cdb400596"
   license "LGPL-2.1"
-  head "https://github.com/foo86/dcadec.git"
+  head "https://github.com/foo86/dcadec.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d458c3484034748b9b1fee9074d5f3018354447d11914f132c6e41899de17491"
