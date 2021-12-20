@@ -4,7 +4,7 @@ class Fblog < Formula
   url "https://github.com/brocode/fblog/archive/v3.1.2.tar.gz"
   sha256 "a5cf45d9dbe3b5803edc8d6d100d1e995df35dda7b0a8b14dbc4e2b0f881da76"
   license "WTFPL"
-  head "https://github.com/brocode/fblog.git"
+  head "https://github.com/brocode/fblog.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "024bfa3d837322d3a476984de0fbc6c597d7af5515273ad4384cf73ba908ecff"
