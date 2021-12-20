@@ -5,7 +5,7 @@ class DosboxStaging < Formula
   sha256 "85359efb7cd5c5c0336d88bdf023b7b462a8233490e00274fef0b85cca2f5f3c"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/dosbox-staging/dosbox-staging.git"
+  head "https://github.com/dosbox-staging/dosbox-staging.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "88b43a601ab9da67fc95ad8f6300ed97bb1712c88c59823ad958846b48d6c6c8"
