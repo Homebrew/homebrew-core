@@ -5,7 +5,7 @@ class Dwm < Formula
   sha256 "97902e2e007aaeaa3c6e3bed1f81785b817b7413947f1db1d3b62b8da4cd110e"
   license "MIT"
   revision 2
-  head "https://git.suckless.org/dwm", using: :git
+  head "https://git.suckless.org/dwm", using: :git, branch: "master"
 
   livecheck do
     url "https://dl.suckless.org/dwm/"
