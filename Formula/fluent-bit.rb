@@ -4,7 +4,7 @@ class FluentBit < Formula
   url "https://github.com/fluent/fluent-bit/archive/v1.8.11.tar.gz"
   sha256 "52273a0281ee1afe0088d88a54462a424ce88181ca76f72daab7c2b96d2994c2"
   license "Apache-2.0"
-  head "https://github.com/fluent/fluent-bit.git"
+  head "https://github.com/fluent/fluent-bit.git", branch: "master"
 
   livecheck do
     url :stable
