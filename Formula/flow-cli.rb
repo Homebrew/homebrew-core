@@ -4,7 +4,7 @@ class FlowCli < Formula
   url "https://github.com/onflow/flow-cli/archive/v0.30.1.tar.gz"
   sha256 "8b90e5aa3d22114733e3b9c458cd51f6aab0b639778620e29b613f967c133c80"
   license "Apache-2.0"
-  head "https://github.com/onflow/flow-cli.git"
+  head "https://github.com/onflow/flow-cli.git", branch: "master"
 
   livecheck do
     url :stable
