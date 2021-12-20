@@ -5,7 +5,7 @@ class DockerMachine < Formula
       tag:      "v0.16.2",
       revision: "bd45ab13d88c32a3dd701485983354514abc41fa"
   license "Apache-2.0"
-  head "https://github.com/docker/machine.git"
+  head "https://github.com/docker/machine.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c941d688b50d6eae302320aa5e702d5da26e4e38ceac2f925a24b6efe6c589db"
