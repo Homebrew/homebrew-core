@@ -5,7 +5,7 @@ class DockerMachineParallels < Formula
       tag:      "v2.0.1",
       revision: "a1c3d495487413bdd24a562c0edee1af1cfc2f0f"
   license "MIT"
-  head "https://github.com/Parallels/docker-machine-parallels.git"
+  head "https://github.com/Parallels/docker-machine-parallels.git", branch: "master"
 
   bottle do
     rebuild 1
