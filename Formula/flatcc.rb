@@ -4,7 +4,7 @@ class Flatcc < Formula
   url "https://github.com/dvidelabs/flatcc/archive/v0.6.0.tar.gz"
   sha256 "a92da3566d11e19bb807a83554b1a2c644a5bd91c9d9b088514456bb56e1c666"
   license "Apache-2.0"
-  head "https://github.com/dvidelabs/flatcc.git"
+  head "https://github.com/dvidelabs/flatcc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e3136d54add516459ec378f5c7a4f40fb666f6cbd396d96705c0dc55e8da8366"
