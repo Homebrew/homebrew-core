@@ -7,7 +7,7 @@ class Filebeat < Formula
   # Outside of the "x-pack" folder, source code in a given file is licensed
   # under the Apache License Version 2.0
   license "Apache-2.0"
-  head "https://github.com/elastic/beats.git"
+  head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c9ecfbb9c7837cc1ce5f65b8adb41031fb90891f5be7eedcf802f4a189ab86de"
