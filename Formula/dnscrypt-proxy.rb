@@ -4,7 +4,7 @@ class DnscryptProxy < Formula
   url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/2.1.1.tar.gz"
   sha256 "cc4a2f274ce48c3731ff981e940e6475d912fb356a80481e91725e81d67bde14"
   license "ISC"
-  head "https://github.com/DNSCrypt/dnscrypt-proxy.git"
+  head "https://github.com/DNSCrypt/dnscrypt-proxy.git", branch: "master"
 
   livecheck do
     url :stable
