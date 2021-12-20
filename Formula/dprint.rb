@@ -4,7 +4,7 @@ class Dprint < Formula
   url "https://github.com/dprint/dprint/archive/0.19.2.tar.gz"
   sha256 "13d8e07d4998801b12dfd1a287f23b2f2600db16f310af1af90b1c7b4eb23d15"
   license "MIT"
-  head "https://github.com/dprint/dprint.git"
+  head "https://github.com/dprint/dprint.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cbf8dbd1e32f8053e707135a90588272293f117b3d688a07ec23df34ceb1a0f8"
