@@ -7,7 +7,7 @@ class Deheader < Formula
   sha256 "6856e4fa3efa664a0444b81c2e1f0209103be3b058455625c79abe65cf8db70d"
   license "BSD-2-Clause"
   revision 3
-  head "https://gitlab.com/esr/deheader.git"
+  head "https://gitlab.com/esr/deheader.git", branch: "master"
 
   livecheck do
     url :homepage
