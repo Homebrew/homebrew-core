@@ -5,7 +5,7 @@ class Flamegraph < Formula
   sha256 "c5ba824228a4f7781336477015cb3b2d8178ffd86bccd5f51864ed52a5ad6675"
   license "CDDL-1.0"
   revision 1
-  head "https://github.com/brendangregg/FlameGraph.git"
+  head "https://github.com/brendangregg/FlameGraph.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "621349d1ff958232ca392b15d7154a7092ed3479a18521df49f6ef291fc40067"
