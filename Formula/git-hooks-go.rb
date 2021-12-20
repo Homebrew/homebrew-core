@@ -18,8 +18,6 @@ class GitHooksGo < Formula
 
   depends_on "go" => :build
 
-  conflicts_with "git-hooks", because: "both install `git-hooks` binaries"
-
   def install
     system "go", "build", *std_go_args(output: bin/"git-hooks")
   end
