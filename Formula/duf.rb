@@ -4,7 +4,7 @@ class Duf < Formula
   url "https://github.com/muesli/duf/archive/v0.6.2.tar.gz"
   sha256 "f2314d8e5e133a6ce93968b3450c1710a3e432cb4a5dfc528aa0317d968a8988"
   license "MIT"
-  head "https://github.com/muesli/duf.git"
+  head "https://github.com/muesli/duf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d39f5af97caee8ff21fde60d4c4cf5904501187dd49e993b9c6bd5e1c835ec15"
