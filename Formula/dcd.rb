@@ -5,7 +5,7 @@ class Dcd < Formula
       tag:      "v0.13.6",
       revision: "02acaa534b9be65142aed7b202a6a8d5524abf2a"
   license "GPL-3.0-or-later"
-  head "https://github.com/dlang-community/dcd.git"
+  head "https://github.com/dlang-community/dcd.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "9e223a3fef8a39d75bbec9012bfa534d50772aa2d536857160c39221fe08f5bb"
