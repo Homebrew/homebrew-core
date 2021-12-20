@@ -6,7 +6,7 @@ class Fonttools < Formula
   url "https://files.pythonhosted.org/packages/ce/1b/d4cd86f4e6cbd54a3c4f807015b116299bcd6d6587ea0645d88ba9d932bb/fonttools-4.28.5.zip"
   sha256 "545c05d0f7903a863c2020e07b8f0a57517f2c40d940bded77076397872d14ca"
   license "MIT"
-  head "https://github.com/fonttools/fonttools.git"
+  head "https://github.com/fonttools/fonttools.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f4a4b5eb00742c3a4c1fba336ab327a4f01d0cd2346ab7be02a2825b0a10f994"
