@@ -4,7 +4,7 @@ class Dasel < Formula
   url "https://github.com/TomWright/dasel/archive/v1.22.1.tar.gz"
   sha256 "2d80f2eaa326aef1aca1e535f89d73da0642c7c5709ee51a30b972d1bdd132d1"
   license "MIT"
-  head "https://github.com/TomWright/dasel.git"
+  head "https://github.com/TomWright/dasel.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "943acac1b078dd41b7019f3df90dcb9fba852c077d0ea86d564b7b6e2d1c53c7"
