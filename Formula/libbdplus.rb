@@ -4,7 +4,12 @@ class Libbdplus < Formula
   url "https://download.videolan.org/pub/videolan/libbdplus/0.1.2/libbdplus-0.1.2.tar.bz2"
   mirror "https://ftp.osuosl.org/pub/videolan/libbdplus/0.1.2/libbdplus-0.1.2.tar.bz2"
   sha256 "a631cae3cd34bf054db040b64edbfc8430936e762eb433b1789358ac3d3dc80a"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?libbdplus[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "cb6b78de3bdd4e5158919461939900bbe9283a6ac09c34d2c24bb7fd53561b40"
@@ -21,7 +26,7 @@ class Libbdplus < Formula
   end
 
   head do
-    url "https://code.videolan.org/videolan/libbdplus.git"
+    url "https://code.videolan.org/videolan/libbdplus.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
