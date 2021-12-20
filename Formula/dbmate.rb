@@ -4,7 +4,7 @@ class Dbmate < Formula
   url "https://github.com/amacneil/dbmate/archive/v1.12.1.tar.gz"
   sha256 "63aaa1ec734e62d52331ee80706b24e9e3abc856a26d8e8289ce9228d38d87c8"
   license "MIT"
-  head "https://github.com/amacneil/dbmate.git"
+  head "https://github.com/amacneil/dbmate.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2cd5ad3a25f80d2d2f42baa1b230180f8ff223eb782fd303834e41597427266c"
