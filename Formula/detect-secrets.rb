@@ -7,7 +7,7 @@ class DetectSecrets < Formula
   sha256 "68250b31bc108f665f05f0ecfb34f92423280e48e65adbb887fdf721ed909627"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/Yelp/detect-secrets.git"
+  head "https://github.com/Yelp/detect-secrets.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "c4a8923080d7b896ac352b5c13cbc18c0dd74cc56a6452e3d0bbcc759e12dad0"
