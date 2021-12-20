@@ -4,7 +4,7 @@ class Forcecli < Formula
   url "https://github.com/ForceCLI/force/archive/v0.32.0.tar.gz"
   sha256 "6ece64315c576eac8d5650fb1d8f1895b5810d268355d2c4b0e83fcea8bb9a5f"
   license "MIT"
-  head "https://github.com/ForceCLI/force.git"
+  head "https://github.com/ForceCLI/force.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b2104638f28f680848e219fbe3ad57988306b4ea25d6bb06fb04a451d3feaecb"
