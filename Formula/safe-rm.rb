@@ -4,7 +4,7 @@ class SafeRm < Formula
   url "https://launchpad.net/safe-rm/trunk/1.1.0/+download/safe-rm-1.1.0.tar.gz"
   sha256 "a1c916894c5b70e02a6ec6c33abbb2c3b3827464cffd4baffd47ffb69a56a1e0"
   license "GPL-3.0-or-later"
-  head "https://git.launchpad.net/safe-rm.git", branch: "master"
+  head "https://git.launchpad.net/safe-rm", using: :git, branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c20fa231e0866acc6808e17a8c570d77c9f288f538c0aabeceeb1e69c835031a"
