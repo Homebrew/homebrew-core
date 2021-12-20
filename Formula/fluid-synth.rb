@@ -4,7 +4,7 @@ class FluidSynth < Formula
   url "https://github.com/FluidSynth/fluidsynth/archive/v2.2.4.tar.gz"
   sha256 "83cb1dba04c632ede74f0c0717018b062c0e00b639722203b23f77a961afd390"
   license "LGPL-2.1-or-later"
-  head "https://github.com/FluidSynth/fluidsynth.git"
+  head "https://github.com/FluidSynth/fluidsynth.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "293adfc90a45fc9f7428090379879ab399aab32cb7ffe7d77ca3c47ce4124de3"
