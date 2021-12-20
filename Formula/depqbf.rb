@@ -4,7 +4,7 @@ class Depqbf < Formula
   url "https://github.com/lonsing/depqbf/archive/version-6.03.tar.gz"
   sha256 "9684bb1562bfe14559007401f52975554373546d3290a19618ee71d709bce76e"
   license "GPL-3.0-or-later"
-  head "https://github.com/lonsing/depqbf.git"
+  head "https://github.com/lonsing/depqbf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "afc477a7b941f95abf0a3e7db86d60b2ee9ef9e8b2f4ecb84d84044a9dbb0bdf"
