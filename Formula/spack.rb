@@ -34,6 +34,11 @@ class Spack < Formula
   test do
     system bin/"spack", "--version"
     assert_match "zlib", shell_output("#{bin}/spack info zlib")
-    assert_match "gcc", shell_output("spack compiler list")
+    on_macos do
+      assert_match "clang", shell_output("spack compiler list")
+    end
+    on_linux do
+      assert_match "gcc", shell_output("spack compiler list")
+    end
   end
 end
