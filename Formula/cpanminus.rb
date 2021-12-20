@@ -3,7 +3,6 @@ class Cpanminus < Formula
   homepage "https://github.com/miyagawa/cpanminus"
   url "https://github.com/miyagawa/cpanminus/archive/1.9019.tar.gz"
   sha256 "d0a37547a3c4b6dbd3806e194cd6cf4632158ebed44d740ac023e0739538fb46"
-  # dual licensed same as perl
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/miyagawa/cpanminus.git", branch: "devel"
 
