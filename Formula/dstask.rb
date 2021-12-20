@@ -4,7 +4,7 @@ class Dstask < Formula
   url "https://github.com/naggie/dstask/archive/v0.25.tar.gz"
   sha256 "7a8b4e9d2d3ce6a59551fa181201148a008c35505d43593f80b1fe80493fdb8c"
   license "MIT"
-  head "https://github.com/naggie/dstask.git"
+  head "https://github.com/naggie/dstask.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e297da28f9916641f3b3fafd8c3581db2939dc1ce96e6d784d8a99f00081bac7"
