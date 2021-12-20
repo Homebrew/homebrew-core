@@ -4,7 +4,7 @@ class FseventWatch < Formula
   url "https://github.com/proger/fsevent_watch/archive/v0.2.tar.gz"
   sha256 "1cfd66d551bb5a7ef80b53bcc7952b766cf81ce2059aacdf7380a9870aa0af6c"
   license "MIT"
-  head "https://github.com/proger/fsevent_watch.git"
+  head "https://github.com/proger/fsevent_watch.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a87436ee7bfcf74cf7c0383b32c809161fabedba58405c21d20ba591540a890"
