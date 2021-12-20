@@ -5,7 +5,7 @@ class Datasette < Formula
   url "https://files.pythonhosted.org/packages/4a/3d/1fff50463be336f6926538401109a4262da423989fb76f725f74b76fd897/datasette-0.59.4.tar.gz"
   sha256 "6eea9eab7ad65e0bb0c043ab50daf31c2eb4c13f099809e3432dfc71c69b1dce"
   license "Apache-2.0"
-  head "https://github.com/simonw/datasette.git"
+  head "https://github.com/simonw/datasette.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0ef1a79489983076f0823326b09d17b860f4c2657125dd192b19fdba1b37cc98"
