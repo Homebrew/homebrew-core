@@ -3,10 +3,9 @@ class Xxh < Formula
 
   desc "Bring your favorite shell wherever you go through the ssh"
   homepage "https://github.com/xxh/xxh"
-  url "https://files.pythonhosted.org/packages/2d/71/3fbc4861cc5dbf9bdc0515aa98526fe1dfd0d666a90252a43f922f74a174/xxh-xxh-0.8.7.tar.gz"
-  sha256 "3608144e2035b7d3a8a24873b3dd74ea1b4460892971e265506fd46274ad2973"
+  url "https://files.pythonhosted.org/packages/21/10/ecf32b1205e9e5be1eeb0e9f9bac665d1c978d2ae2c8c1c54e2d4945f8f0/xxh-xxh-0.8.8.tar.gz"
+  sha256 "0e49dee04455465bf6f77a9fd625f87ec9dae48306dddf423c18a0ef01a2ce1c"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1568bf8ddbffef649c1184ab8fd1c8e1add294b15333c2eaba896bc0e3ba4390"
@@ -31,8 +30,8 @@ class Xxh < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   def install
