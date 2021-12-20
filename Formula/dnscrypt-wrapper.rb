@@ -5,7 +5,7 @@ class DnscryptWrapper < Formula
   sha256 "911856dc4e211f906ca798fcf84f5b62be7fdbf73c53e5715ce18d553814ac86"
   license "ISC"
   revision 1
-  head "https://github.com/Cofyc/dnscrypt-wrapper.git"
+  head "https://github.com/Cofyc/dnscrypt-wrapper.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 monterey:     "95c31e73ffe3e10426f4859731e62d1c29bd1d8454bdc4b822828e5cf5f57ba8"
