@@ -8,7 +8,7 @@ class Ffms2 < Formula
   # are licensed under the GPL because GPL components of FFmpeg are used.
   license "GPL-2.0"
   revision 1
-  head "https://github.com/FFMS/ffms2.git"
+  head "https://github.com/FFMS/ffms2.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "320b01b2ff9f7e02f2c9084ff3f5eecfa82ac965be08bb772ab93389e734db87"
