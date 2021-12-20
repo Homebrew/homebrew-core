@@ -4,7 +4,7 @@ class Forego < Formula
   url "https://github.com/ddollar/forego/archive/20180216151118.tar.gz"
   sha256 "23119550cc0e45191495823aebe28b42291db6de89932442326340042359b43d"
   license "Apache-2.0"
-  head "https://github.com/ddollar/forego.git"
+  head "https://github.com/ddollar/forego.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "add9895abd190b3c092406ff31939139d7f4e84ea4b8826a3e81e701ce5a482f"
