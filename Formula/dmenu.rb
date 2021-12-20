@@ -5,7 +5,7 @@ class Dmenu < Formula
   sha256 "fe18e142c4dbcf71ba5757dbbdea93b1c67d58fc206fc116664f4336deef6ed3"
   license "MIT"
   revision 1
-  head "https://git.suckless.org/dmenu/", using: :git
+  head "https://git.suckless.org/dmenu/", using: :git, branch: "master"
 
   livecheck do
     url "https://dl.suckless.org/tools/"
