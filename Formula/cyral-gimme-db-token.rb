@@ -3,8 +3,8 @@ class CyralGimmeDbToken < Formula
 
   desc "Eases using Cyral for SSO login to databases"
   homepage "https://cyral.com/docs/connect/repo-connect/#cli-token-retriever-for-sso"
-  url "https://files.pythonhosted.org/packages/cf/79/0a26383c600658d42a874297550f14b031bf491db8b74db8e241cf0f9e6d/cyral-gimme-db-token-0.6.1.tar.gz"
-  sha256 "45997cb8f6b425a45d09b9ac2f7859a9e9472e388a3b1ed3b3920f085f7ae433"
+  url "https://files.pythonhosted.org/packages/4c/3f/a4100bc61e4019119b56567abcb9e2173df65f3d58f61022264b26c29f0b/cyral-gimme-db-token-0.7.0.tar.gz"
+  sha256 "a5d455f68ba814ce7ce4f3de74a52b9d0fb1500260c814b2ac21d76af2091b08"
   license "Apache-2.0"
 
   bottle do
@@ -28,13 +28,13 @@ class CyralGimmeDbToken < Formula
   end
 
   resource "awscli" do
-    url "https://files.pythonhosted.org/packages/24/90/d2daeb4a893e92112ce6b0f9c752a0c617a0e601f3088fac56632b5c5312/awscli-1.21.7.tar.gz"
-    sha256 "6a180b0eca109055bd97a6e85597e340cdb1071bb90eb208ead9d0487d5ad80e"
+    url "https://files.pythonhosted.org/packages/31/61/75178dfbbc00cdcf80e59ced73da3de4c91f942b94483b42d10e7fe0bbdd/awscli-1.22.25.tar.gz"
+    sha256 "20299b5c3d5f2e6d4eb0692aabf104e1cf936c8f6dea5cb394c8014ba719839b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/5d/28/de19b5fc27fc41dce0a315d7558e7d11e7cac73f34038e495a8095af0d36/botocore-1.22.7.tar.gz"
-    sha256 "d7c190ed4e1ddb24f9872a0641b28da4afc04b6b993f0ec3dd5224a847df5519"
+    url "https://files.pythonhosted.org/packages/65/d9/1a5553176d724be09a9d23752433395676e14da29b52ef4190f482f19599/botocore-1.23.25.tar.gz"
+    sha256 "9eb71d5ee1ea335b3968751346601e923c66a7b324b1dc58e360d14e0d2ac136"
   end
 
   resource "certifi" do
@@ -48,8 +48,8 @@ class CyralGimmeDbToken < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do
@@ -88,8 +88,8 @@ class CyralGimmeDbToken < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
-    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
+    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "python-dateutil" do
