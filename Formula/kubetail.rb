@@ -8,6 +8,8 @@ class Kubetail < Formula
 
   depends_on "kubernetes-cli" => :test
 
+  uses_from_macos "bash"
+
   def install
     bin.install "kubetail"
 
