@@ -4,7 +4,7 @@ class Zstd < Formula
   url "https://github.com/facebook/zstd/archive/v1.5.1.tar.gz"
   mirror "http://fresh-center.net/linux/misc/zstd-1.5.1.tar.gz"
   mirror "http://fresh-center.net/linux/misc/legacy/zstd-1.5.1.tar.gz"
-  sha256 "ca534730ccc9e216d4ffa0409994d0d226f6c3935968e7cf51161b6ae9513e3f"
+  sha256 "dc05773342b28f11658604381afd22cb0a13e8ba17ff2bd7516df377060c18dd"
   license "BSD-3-Clause"
   head "https://github.com/facebook/zstd.git", branch: "dev"
 
