@@ -94,26 +94,9 @@ class IscDhcp < Formula
 
   plist_options startup: true
 
-  def plist
-    <<~EOS
-      <?xml version='1.0' encoding='UTF-8'?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-                      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version='1.0'>
-      <dict>
-      <key>Label</key><string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/dhcpd</string>
-          <string>-f</string>
-        </array>
-      <key>Disabled</key><false/>
-      <key>KeepAlive</key><true/>
-      <key>RunAtLoad</key><true/>
-      <key>LowPriorityIO</key><true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"dhcpd", "-f"]
+    keep_alive true
   end
 
   def plist_dhcpd6
