@@ -30,33 +30,10 @@ class Logrotate < Formula
     (etc/"logrotate.d").mkpath
   end
 
-  plist_options manual: "logrotate"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{sbin}/logrotate</string>
-            <string>#{etc}/logrotate.conf</string>
-          </array>
-          <key>RunAtLoad</key>
-          <false/>
-          <key>StartCalendarInterval</key>
-          <dict>
-            <key>Hour</key>
-            <integer>6</integer>
-            <key>Minute</key>
-            <integer>25</integer>
-          </dict>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"logrotate", etc/"logrotate.conf"]
+    run_type :cron
+    cron "25 6 * * *"
   end
 
   test do
