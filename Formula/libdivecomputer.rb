@@ -6,6 +6,11 @@ class Libdivecomputer < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/libdivecomputer/libdivecomputer.git", branch: "master"
 
+  livecheck do
+    url "https://www.libdivecomputer.org/releases/"
+    regex(/href=.*?libdivecomputer[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c5f918bf0cf0716949639440453e31eb929a918d5328fb1d4dd50ad6f6a497a5"
     sha256 cellar: :any,                 big_sur:       "80a648490411d90cee0ae9bbafbc91e48e6ee1d4b449bfad5795cd375b5337d0"
