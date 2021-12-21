@@ -71,7 +71,7 @@ class GitlabCiLocal < Formula
         merge = refs/heads/master
     EOS
 
-    assert_match(/name              description  stage  when        allow_failure  needs\n/,
+    assert_match(/name\s*?description\s*?stage\s*?when\s*?allow_failure\s*?needs\n/,
         shell_output("#{bin}/gitlab-ci-local --list"))
   end
 end
