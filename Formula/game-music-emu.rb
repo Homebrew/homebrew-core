@@ -44,8 +44,12 @@ class GameMusicEmu < Formula
       }
     EOS
 
-    ubsan_libdir = Dir["#{MacOS::CLT::PKG_PATH}/usr/lib/clang/*/lib/darwin"].first
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-Wl,-rpath,#{ubsan_libdir}",
+    if OS.mac?
+      ubsan_libdir = Dir["#{MacOS::CLT::PKG_PATH}/usr/lib/clang/*/lib/darwin"].first
+      rpath = "-Wl,-rpath,#{ubsan_libdir}"
+    end
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", *(rpath if OS.mac?),
                    "-lgme", "-o", "test", *ENV.cflags.to_s.split
     system "./test"
   end
