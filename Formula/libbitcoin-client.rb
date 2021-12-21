@@ -4,7 +4,7 @@ class LibbitcoinClient < Formula
   url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.6.0.tar.gz"
   sha256 "75969ac0a358458491b101cae784de90452883b5684199d3e3df619707802420"
   license "AGPL-3.0"
-  revision 7
+  revision 8
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "54e596753c425921e98f9237f5f9b0eea6771edf2c785a79650b840fee30d770"
@@ -20,6 +20,8 @@ class LibbitcoinClient < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  # https://github.com/libbitcoin/libbitcoin-system/issues/1234
+  depends_on "boost@1.76"
   depends_on "libbitcoin-protocol"
 
   def install
@@ -30,12 +32,12 @@ class LibbitcoinClient < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
+                          "--with-boost-libdir=#{Formula["boost@1.76"].opt_lib}"
     system "make", "install"
   end
 
   test do
-    boost = Formula["boost"]
+    boost = Formula["boost@1.76"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/client.hpp>
       class stream_fixture
@@ -93,9 +95,10 @@ class LibbitcoinClient < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-I#{boost.include}",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-lbitcoin-client",
-                    "-L#{boost.opt_lib}", "-lboost_system"
+                    "-L#{boost.lib}", "-lboost_system"
     system "./test"
   end
 end
