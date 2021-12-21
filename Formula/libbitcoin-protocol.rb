@@ -4,7 +4,7 @@ class LibbitcoinProtocol < Formula
   url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.6.0.tar.gz"
   sha256 "fc41c64f6d3ee78bcccb63fd0879775c62bba5326f38c90b4c6804e2b9e8686e"
   license "AGPL-3.0"
-  revision 7
+  revision 8
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "53f88eac4cf06ce839e7cd1015e59ea9cd2c2d5a68f25d95d949a07966879f6f"
@@ -20,6 +20,8 @@ class LibbitcoinProtocol < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  # https://github.com/libbitcoin/libbitcoin-system/issues/1234
+  depends_on "boost@1.76"
   depends_on "libbitcoin"
   depends_on "zeromq"
 
@@ -31,12 +33,12 @@ class LibbitcoinProtocol < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
+                          "--with-boost-libdir=#{Formula["boost@1.76"].opt_lib}"
     system "make", "install"
   end
 
   test do
-    boost = Formula["boost"]
+    boost = Formula["boost@1.76"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/protocol.hpp>
       int main() {
@@ -47,9 +49,10 @@ class LibbitcoinProtocol < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-I#{boost.include}",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-lbitcoin-protocol",
-                    "-L#{boost.opt_lib}", "-lboost_system"
+                    "-L#{boost.lib}", "-lboost_system"
     system "./test"
   end
 end
