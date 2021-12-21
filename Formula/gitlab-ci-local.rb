@@ -3,8 +3,8 @@ require "language/node"
 class GitlabCiLocal < Formula
   desc "Run gitlab pipelines locally as shell executor or docker executor"
   homepage "https://github.com/firecow/gitlab-ci-local"
-  url "https://registry.npmjs.org/gitlab-ci-local/-/gitlab-ci-local-4.27.1.tgz"
-  sha256 "2ee40ca9dbafa2185de5a06c5aa7a6edd1c489079d39ec6e6db2136416cc9683"
+  url "https://registry.npmjs.org/gitlab-ci-local/-/gitlab-ci-local-4.28.0.tgz"
+  sha256 "edc28c090af3a3342b767e22e65930fd48b4df2d91e6041fb755631dfcfc3a11"
   license "MIT"
   head "https://github.com/firecow/gitlab-ci-local.git", branch: "master"
 
