@@ -26,6 +26,8 @@ class Zig < Formula
 
   depends_on "cmake" => :build
 
+  fails_with gcc: "5" # LLVM is build with GCC
+
   def install
     system "cmake", ".", *std_cmake_args, "-DZIG_STATIC_LLVM=ON"
     system "make", "install"
@@ -44,6 +46,9 @@ class Zig < Formula
 
     (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
+      #ifdef __APPLE__
+      #   include <TargetConditionals.h>
+      #endif
       int main() {
         fprintf(stdout, "Hello, world!");
         return 0;
