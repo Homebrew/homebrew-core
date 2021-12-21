@@ -29,43 +29,14 @@ class Znapzend < Formula
     (var/"run/znapzend").mkpath
   end
 
-  plist_options startup: true, manual: "sudo znapzend --daemonize"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>PATH</key>
-            <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:#{HOMEBREW_PREFIX}/bin</string>
-          </dict>
-          <key>KeepAlive</key>
-          <true/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/znapzend</string>
-            <string>--connectTimeout=120</string>
-            <string>--logto=#{var}/log/znapzend/znapzend.log</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/znapzend/znapzend.err.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/znapzend/znapzend.out.log</string>
-          <key>ThrottleInterval</key>
-          <integer>30</integer>
-          <key>WorkingDirectory</key>
-          <string>#{var}/run/znapzend</string>
-        </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_bin/"znapzend", "--connectTimeout=120", "--logto=#{var}/log/znapzend/znapzend.log"]
+    environment_variables PATH: std_service_path_env
+    keep_alive true
+    error_log_path var/"log/znapzend.err.log"
+    log_path var/"log/znapzend.out.log"
+    working_dir var/"run/znapzend"
   end
 
   test do
