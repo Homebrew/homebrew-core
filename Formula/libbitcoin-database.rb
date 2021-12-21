@@ -4,7 +4,7 @@ class LibbitcoinDatabase < Formula
   url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.6.0.tar.gz"
   sha256 "d65b35745091b93feed61c5665b5a07b404b578e2582640e93c1a01f6b746f5a"
   license "AGPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -21,6 +21,8 @@ class LibbitcoinDatabase < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  # https://github.com/libbitcoin/libbitcoin-system/issues/1234
+  depends_on "boost@1.76"
   depends_on "libbitcoin"
 
   def install
@@ -30,11 +32,12 @@ class LibbitcoinDatabase < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
+                          "--with-boost-libdir=#{Formula["boost@1.76"].opt_lib}"
     system "make", "install"
   end
 
   test do
+    boost = Formula["boost@1.76"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/database.hpp>
       using namespace libbitcoin::database;
@@ -48,9 +51,10 @@ class LibbitcoinDatabase < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-I#{boost.include}",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-lbitcoin-database",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
+                    "-L#{boost.lib}", "-lboost_system"
     system "./test"
   end
 end
