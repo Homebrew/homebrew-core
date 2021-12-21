@@ -3,10 +3,10 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.16.2.tar.gz"
+  url "https://files.pythonhosted.org/packages/4c/9f/6395fa31ebabdcc0363ec0f4a9553522cfdca45a7e369c0520dac8aad3ab/bzt-1.16.2.tar.gz"
   sha256 "011fca5b981830df1c1620c138e8458939527fd4035ecf9f76ae5be8a4bb29c9"
-  head "https://github.com/Blazemeter/taurus.git"
   license "Apache-2.0"
+  head "https://github.com/Blazemeter/taurus.git"
   revision 1
 
   bottle do
@@ -19,9 +19,9 @@ class Bzt < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "six"
   depends_on "numpy"
   depends_on "python@3.9"
+  depends_on "six"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
