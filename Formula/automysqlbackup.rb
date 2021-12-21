@@ -38,40 +38,15 @@ class Automysqlbackup < Formula
         #{etc}/automysqlbackup/automysqlbackup.conf
       to set AutoMySQLBackup up to find your database and backup directory.
 
-      The included plist file will run AutoMySQLBackup every day at 04:00.
+      The included service will run AutoMySQLBackup every day at 04:00.
     EOS
   end
 
-  plist_options manual: "automysqlbackup"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>OnDemand</key>
-          <true/>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StartCalendarInterval</key>
-          <dict>
-            <key>Hour</key>
-            <integer>04</integer>
-            <key>Minute</key>
-            <integer>00</integer>
-          </dict>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{sbin}/automysqlbackup</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_sbin/"automysqlbackup"
+    working_dir HOMEBREW_PREFIX
+    run_type :cron
+    cron "0 4 * * *"
   end
 
   test do
