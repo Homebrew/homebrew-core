@@ -52,31 +52,12 @@ class Pdnsd < Formula
     EOS
   end
 
-  plist_options startup: true, manual: "sudo pdnsd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Program</key>
-        <string>#{opt_sbin}/pdnsd</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/pdnsd.log</string>
-        <key>StandardOutputPath</key>
-        <string>#{var}/log/pdnsd.log</string>
-        <key>Disabled</key>
-        <false/>
-      </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run opt_sbin/"pdnsd"
+    keep_alive true
+    error_log_path var/"log/pdnsd.log"
+    log_path var/"log/pdnsd.log"
   end
 
   test do
