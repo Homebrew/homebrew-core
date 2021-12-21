@@ -4,7 +4,7 @@ class LibbitcoinExplorer < Formula
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.6.0.tar.gz"
   sha256 "e1b3fa2723465f7366a6e8c55e14df53106e90b82cc977db638c78f9bc5c47db"
   license "AGPL-3.0"
-  revision 7
+  revision 8
 
   bottle do
     sha256 arm64_monterey: "e2a189dd066f9d5fa56f5aeebf8a2346a5cf4ab17f001c836436d00a038532a7"
