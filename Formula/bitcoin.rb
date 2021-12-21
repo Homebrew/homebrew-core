@@ -4,6 +4,7 @@ class Bitcoin < Formula
   url "https://bitcoincore.org/bin/bitcoin-core-22.0/bitcoin-22.0.tar.gz"
   sha256 "d0e9d089b57048b1555efa7cd5a63a7ed042482045f6f33402b1df425bf9613b"
   license "MIT"
+  revision 1
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
   livecheck do
@@ -27,7 +28,7 @@ class Bitcoin < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "berkeley-db@4"
-  depends_on "boost"
+  depends_on "boost@1.76"
   depends_on "libevent"
   depends_on "miniupnpc"
   depends_on "zeromq"
@@ -43,10 +44,10 @@ class Bitcoin < Formula
     ENV.delete("SDKROOT") if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
 
     system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
+                          "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}",
-                          "--prefix=#{prefix}"
+                          "--with-boost-libdir=#{Formula["boost@1.76"].opt_lib}"
     system "make", "install"
     pkgshare.install "share/rpcauth"
   end
