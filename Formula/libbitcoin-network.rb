@@ -4,7 +4,7 @@ class LibbitcoinNetwork < Formula
   url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.6.0.tar.gz"
   sha256 "68d36577d44f7319280c446a5327a072eb20749dfa859c0e1ac768304c9dd93a"
   license "AGPL-3.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f3793425b364b897fc7916d488a7645f735dc385edd645beb96e6b5681891ea8"
@@ -20,6 +20,8 @@ class LibbitcoinNetwork < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  # https://github.com/libbitcoin/libbitcoin-system/issues/1234
+  depends_on "boost@1.76"
   depends_on "libbitcoin"
 
   def install
@@ -30,12 +32,12 @@ class LibbitcoinNetwork < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
+                          "--with-boost-libdir=#{Formula["boost@1.76"].opt_lib}"
     system "make", "install"
   end
 
   test do
-    boost = Formula["boost"]
+    boost = Formula["boost@1.76"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/network.hpp>
       int main() {
@@ -47,9 +49,10 @@ class LibbitcoinNetwork < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-I#{boost.include}",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-lbitcoin-network",
-                    "-L#{boost.opt_lib}", "-lboost_system"
+                    "-L#{boost.lib}", "-lboost_system"
     system "./test"
   end
 end
