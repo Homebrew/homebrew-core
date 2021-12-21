@@ -4,7 +4,7 @@ class LibbitcoinBlockchain < Formula
   url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.6.0.tar.gz"
   sha256 "18c52ebda4148ab9e6dec62ee8c2d7826b60868f82710f21e40ff0131bc659e0"
   license "AGPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -21,6 +21,8 @@ class LibbitcoinBlockchain < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  # https://github.com/libbitcoin/libbitcoin-system/issues/1234
+  depends_on "boost@1.76"
   depends_on "libbitcoin-consensus"
   depends_on "libbitcoin-database"
 
@@ -31,11 +33,12 @@ class LibbitcoinBlockchain < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
+                          "--with-boost-libdir=#{Formula["boost@1.76"].opt_lib}"
     system "make", "install"
   end
 
   test do
+    boost = Formula["boost@1.76"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/blockchain.hpp>
       int main() {
@@ -48,10 +51,11 @@ class LibbitcoinBlockchain < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-I#{boost.include}",
                     "-I#{libexec}/include",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-L#{libexec}/lib", "-lbitcoin-blockchain",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
+                    "-L#{boost.lib}", "-lboost_system"
     system "./test"
   end
 end
