@@ -41,13 +41,11 @@ class Luvit < Formula
     luajit = Formula["luajit-openresty"]
 
     resource("luvi").stage do
-      # Build scripts set LUA_PATH before invoking LuaJIT, but that causes errors.
-      # Reported at https://github.com/luvit/luvi/issues/242
-      inreplace "cmake/Modules/LuaJITAddExecutable.cmake",
-                "COMMAND \"LUA_PATH=${LUA_PATH}\" luajit", "COMMAND luajit"
+      # The build scripts require `LUA_PATH` to be set in the environment.
+      ENV["LUA_PATH"] = "';;'"
 
       # Build scripts double the prefix of this directory, so we set it manually.
-      # Reported in the issue linked above.
+      # Reported at https://github.com/luvit/luvi/issues/242
       ENV["LPEGLIB_DIR"] = "deps/lpeg"
 
       # CMake flags adapted from
