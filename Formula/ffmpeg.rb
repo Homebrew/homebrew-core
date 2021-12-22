@@ -6,7 +6,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -120,8 +120,11 @@ class Ffmpeg < Formula
     # Remove in the next release
     args << "--enable-avresample" unless build.head?
 
-    # Needs corefoundation, coremedia, corevideo
-    args << "--enable-videotoolbox" if OS.mac?
+    if OS.mac?
+      # Needs corefoundation, coremedia, corevideo
+      args << "--enable-videotoolbox"
+      args << "--enable-neon" if Hardware::CPU.arm?
+    end
 
     # Replace hardcoded default VMAF model path
     %w[doc/filters.texi libavfilter/vf_libvmaf.c].each do |f|
