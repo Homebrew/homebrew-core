@@ -1,8 +1,8 @@
 class FuseOverlayfs < Formula
   desc "FUSE implementation for overlayfs"
   homepage "https://github.com/containers/fuse-overlayfs"
-  url "https://github.com/containers/fuse-overlayfs/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "fe2c076aed7b8669e7970301a99c0b197759b611035d8199de4c0add7d2fb2b4"
+  url "https://github.com/containers/fuse-overlayfs/archive/refs/tags/v1.8.tar.gz"
+  sha256 "8916737248fc33ab43033a64b287a91b923bda5489e804c49998b7a4031d2e81"
   license "GPL-3.0-or-later"
 
   bottle do
