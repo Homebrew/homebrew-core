@@ -3,8 +3,8 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/3b/1b/1b6a4b9e35e2884651f94ccc31f96a8cb5fde57c2c531767b12d561c8377/sqlfluff-0.8.2.tar.gz"
-  sha256 "e48db0e1f7775c4609aa843cc8fa7fbc4a42d38fef640a78cc33d335ad385c62"
+  url "https://files.pythonhosted.org/packages/56/92/aa8c47aaff4d3d51e8ec70b0ca12f74b2a4be27b1f8d4cd88893bc2504a2/sqlfluff-0.9.0.tar.gz"
+  sha256 "aa1fda929572098393270fa9451a61f46ea57eb8b741f292b93611ac16fc9042"
   license "MIT"
 
   bottle do
@@ -48,14 +48,9 @@ class Sqlfluff < Formula
     sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
-  resource "configparser" do
-    url "https://files.pythonhosted.org/packages/02/a8/5fae273a45a3e4e34ea560c99a4843fe2d9fc6fb691de064dc9c72c46e57/configparser-5.2.0.tar.gz"
-    sha256 "1b35798fdf1713f1c3139016cfcbc461f09edbf099d1fb658d4b7479fcaa3daa"
-  end
-
   resource "diff-cover" do
-    url "https://files.pythonhosted.org/packages/19/0a/32489dbdf5eed5d4e1ed4201227648d1f62f6e5eef2c09b40ac461bcbc4c/diff_cover-6.4.3.tar.gz"
-    sha256 "d192651ffea783b17b26c34b835b443130364d877d89176850466f1179f46c8f"
+    url "https://files.pythonhosted.org/packages/2f/20/54914c269627d2ab18b0d0bb2276613d6b3313451e173ff28f07e5736959/diff_cover-6.4.4.tar.gz"
+    sha256 "b1d782c1ce53ad4b2c5545f8b7aa799eb61a0b12a62b376a18e2313c6f2d77f1"
   end
 
   resource "iniconfig" do
@@ -116,6 +111,11 @@ class Sqlfluff < Formula
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
     sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
+  end
+
+  resource "regex" do
+    url "https://files.pythonhosted.org/packages/97/cd/93ad08b2f97ec95da0bd860380ce0ac7481eaccc760356ee11eda369c048/regex-2021.11.10.tar.gz"
+    sha256 "f341ee2df0999bfdf7a95e448075effe0db212a59387de1a70690e4acb03d4c6"
   end
 
   resource "tblib" do
