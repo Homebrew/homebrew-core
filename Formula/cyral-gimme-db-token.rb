@@ -3,8 +3,8 @@ class CyralGimmeDbToken < Formula
 
   desc "Eases using Cyral for SSO login to databases"
   homepage "https://cyral.com/docs/connect/repo-connect/#cli-token-retriever-for-sso"
-  url "https://files.pythonhosted.org/packages/4c/3f/a4100bc61e4019119b56567abcb9e2173df65f3d58f61022264b26c29f0b/cyral-gimme-db-token-0.7.0.tar.gz"
-  sha256 "a5d455f68ba814ce7ce4f3de74a52b9d0fb1500260c814b2ac21d76af2091b08"
+  url "https://files.pythonhosted.org/packages/56/53/978bedcc5ba6190b145728cc44b030938bc3f6c3002bbb620902b84f0445/cyral-gimme-db-token-0.7.1.tar.gz"
+  sha256 "df96ffb40ce828957ec1be584ba60b64def3fda3b36273fa4bfd51efbfb69a9e"
   license "Apache-2.0"
 
   bottle do
@@ -28,13 +28,13 @@ class CyralGimmeDbToken < Formula
   end
 
   resource "awscli" do
-    url "https://files.pythonhosted.org/packages/31/61/75178dfbbc00cdcf80e59ced73da3de4c91f942b94483b42d10e7fe0bbdd/awscli-1.22.25.tar.gz"
-    sha256 "20299b5c3d5f2e6d4eb0692aabf104e1cf936c8f6dea5cb394c8014ba719839b"
+    url "https://files.pythonhosted.org/packages/e1/04/b3281ebad507cd1fbfc5a3053f95aaf33104c08f01ce02c152dbd26b85ed/awscli-1.22.26.tar.gz"
+    sha256 "cd4f526b492bb1491b01360e08d9e0abe309d783dbeebbbfc2b733a74c370542"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/65/d9/1a5553176d724be09a9d23752433395676e14da29b52ef4190f482f19599/botocore-1.23.25.tar.gz"
-    sha256 "9eb71d5ee1ea335b3968751346601e923c66a7b324b1dc58e360d14e0d2ac136"
+    url "https://files.pythonhosted.org/packages/d0/c0/0f8026e7d0bbb633ab048cdd121aa4446e30c39aada083af4d724be0822a/botocore-1.23.26.tar.gz"
+    sha256 "0a933e3af6ecf79666beb2dfcb52a60f8ad1fee7df507f2a9202fe26fe569483"
   end
 
   resource "certifi" do
