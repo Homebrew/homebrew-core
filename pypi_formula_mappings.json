@@ -34,6 +34,9 @@
   "b2-tools": {
     "exclude_packages": ["six"]
   },
+  "bandcamp-dl": {
+    "exclude_packages": ["six"]
+  },
   "black": "black[d]",
   "bpython": {
     "exclude_packages": ["six"]
