@@ -23,7 +23,7 @@
     "exclude_packages": ["six", "tabulate"]
   },
   "aws-google-auth": {
-    "exclude_packages": ["pillow", "tabulate"]
+    "exclude_packages": ["pillow", "six", "tabulate"]
   },
   "awscli@1": {
     "exclude_packages": ["six"]
