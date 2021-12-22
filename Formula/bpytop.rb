@@ -4,10 +4,9 @@ class Bpytop < Formula
 
   desc "Linux/OSX/FreeBSD resource monitor"
   homepage "https://github.com/aristocratos/bpytop"
-  url "https://github.com/aristocratos/bpytop/archive/v1.0.67.tar.gz"
-  sha256 "e3f0267bd40a58016b5ac81ed6424f1c8d953b33a537546b22dd1a2b01b07a97"
+  url "https://github.com/aristocratos/bpytop/archive/v1.0.68.tar.gz"
+  sha256 "3a936f8899efb66246e82bbcab33249bf94aabcefbe410e56f045a1ce3c9949f"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "302be18ca15e6b772a1537c906a0571015ac9147d6d9be981877831faed125c7"
