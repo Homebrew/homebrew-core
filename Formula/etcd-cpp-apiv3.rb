@@ -84,8 +84,6 @@ class EtcdCppApiv3 < Formula
         end
       end
 
-
-
       exec "#{Formula["etcd"].opt_prefix}/bin/etcd",
         "--force-new-cluster",
         "--data-dir=#{testpath}",
