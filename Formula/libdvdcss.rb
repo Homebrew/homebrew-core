@@ -3,7 +3,12 @@ class Libdvdcss < Formula
   homepage "https://www.videolan.org/developers/libdvdcss.html"
   url "https://download.videolan.org/pub/videolan/libdvdcss/1.4.3/libdvdcss-1.4.3.tar.bz2"
   sha256 "233cc92f5dc01c5d3a96f5b3582be7d5cee5a35a52d3a08158745d3d86070079"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://download.videolan.org/pub/libdvdcss/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c96a2adbc32a57e271a9a91d338571ab9b0a6524a95e3fe48270dd5c4a277b21"
@@ -16,7 +21,7 @@ class Libdvdcss < Formula
   end
 
   head do
-    url "https://code.videolan.org/videolan/libdvdcss.git"
+    url "https://code.videolan.org/videolan/libdvdcss.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
