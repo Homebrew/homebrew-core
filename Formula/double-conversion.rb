@@ -1,8 +1,8 @@
 class DoubleConversion < Formula
   desc "Binary-decimal and decimal-binary routines for IEEE doubles"
   homepage "https://github.com/google/double-conversion"
-  url "https://github.com/google/double-conversion/archive/v3.1.6.tar.gz"
-  sha256 "8a79e87d02ce1333c9d6c5e47f452596442a343d8c3e9b234e8a62fce1b1d49c"
+  url "https://github.com/google/double-conversion/archive/v3.1.7.tar.gz"
+  sha256 "a0204d6ab48223f2c8f53a932014e7f245125e7a5267764b1fbeebe4fa0ee8b9"
   license "BSD-3-Clause"
   head "https://github.com/google/double-conversion.git", branch: "master"
 
