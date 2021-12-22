@@ -20,6 +20,8 @@ class X265 < Formula
   depends_on "cmake" => :build
   depends_on "nasm" => :build if Hardware::CPU.intel?
 
+  patch :DATA if build.head?
+
   def install
     # Build based off the script at ./build/linux/multilib.sh
     args = std_cmake_args + %W[
@@ -74,3 +76,23 @@ class X265 < Formula
     assert_equal header.unpack("m"), [x265_path.read(10)]
   end
 end
+
+__END__
+diff --git a/source/common/aarch64/asm-primitives.cpp b/source/common/aarch64/asm-primitives.cpp
+index c41bb4c31..25cc44c98 100644
+--- a/source/common/aarch64/asm-primitives.cpp
++++ b/source/common/aarch64/asm-primitives.cpp
+@@ -109,10 +109,10 @@ void setupAssemblyPrimitives(EncoderPrimitives &p, int cpuMask)
+ {
+     if (cpuMask & X265_CPU_NEON)
+     {
++#if !HIGH_BIT_DEPTH
+     	  // quant
+         p.quant = PFX(quant_neon);
+-        
+-#if !HIGH_BIT_DEPTH
++
+         p.pu[LUMA_4x8].satd   = PFX(pixel_satd_4x8_neon);
+         p.pu[LUMA_4x16].satd  = PFX(pixel_satd_4x16_neon);
+ 
+
