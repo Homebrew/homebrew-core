@@ -4,6 +4,7 @@ class Jack < Formula
   url "https://github.com/jackaudio/jack2/archive/v1.9.19.tar.gz"
   sha256 "9030f4dc11773351b6ac96affd9c89803a5587ebc1b091e5ff866f433327e4b0"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +26,7 @@ class Jack < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "berkeley-db"
   depends_on "libsamplerate"
   depends_on "libsndfile"
@@ -46,9 +47,9 @@ class Jack < Formula
       ENV.append "LDFLAGS", "-Wl,-compatibility_version,1"
       ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
-    system Formula["python@3.9"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}"
-    system Formula["python@3.9"].opt_bin/"python3", "./waf", "build"
-    system Formula["python@3.9"].opt_bin/"python3", "./waf", "install"
+    system Formula["python@3.10"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}"
+    system Formula["python@3.10"].opt_bin/"python3", "./waf", "build"
+    system Formula["python@3.10"].opt_bin/"python3", "./waf", "install"
 
     # Remove Python script used to control D-Bus JACK as it isn't enabled in formula
     rm bin/"jack_control"
