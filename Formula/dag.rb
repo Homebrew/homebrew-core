@@ -9,6 +9,10 @@ class Dag < Formula
 
   def install
     system "make", "release"
-    bin.install Dir["target/release/dag"]
+    bin.install "target/release/dag"
+  end
+
+  test do
+    system "#{bin}/dag", "--help"
   end
 end
