@@ -34,21 +34,14 @@ class EtcdCppApiv3 < Formula
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test etcd-cpp-apiv3`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
+    port = free_port
+
     (testpath/"test.cc").write <<~EOS
       #include <iostream>
       #include <etcd/Client.hpp>
 
       int main() {
-        etcd::Client etcd("http://127.0.0.1:2379");
+        etcd::Client etcd("http://127.0.0.1:#{port}");
         etcd.set("foo", "bar").wait();
         auto response = etcd.get("foo").get();
         std::cout << response.value().as_string() << std::endl;
@@ -91,11 +84,13 @@ class EtcdCppApiv3 < Formula
         end
       end
 
+
+
       exec "#{Formula["etcd"].opt_prefix}/bin/etcd",
-        "--enable-v2", # enable etcd v2 client support
         "--force-new-cluster",
-        "--logger=zap", # default logger (`capnslog`) to be deprecated in v3.5
-        "--data-dir=#{testpath}"
+        "--data-dir=#{testpath}",
+        "--listen-client-urls=http://127.0.0.1:#{port}",
+        "--advertise-client-urls=http://127.0.0.1:#{port}"
     end
 
     # sleep to let etcd get its wits about it
