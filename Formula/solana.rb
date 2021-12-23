@@ -51,6 +51,6 @@ class Solana < Formula
   end
 
   test do
-    assert_match(/pubkey: \w{44}/, shell_output("#{bin}/solana-keygen new --no-bip39-passphrase --no-outfile"))
+    assert_match "Generating a new keypair", shell_output("#{bin}/solana-keygen new --no-bip39-passphrase --no-outfile")
   end
 end
