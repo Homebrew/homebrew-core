@@ -64,9 +64,7 @@ class Termshark < Formula
     packet += [0x6d, 0x2e, 0x31, 0x00, 0x6f, 0x63, 0x74, 0x65]
     packet += [0x74, 0x00]
 
-    File.open("#{HOMEBREW_TEMP}/termshark-test.pcap", "w+") do |f|
-      f.write(packet.pack("C*"))
-    end
+    File.write("#{HOMEBREW_TEMP}/termshark-test.pcap", packet.pack("C*"))
 
     # Rely on exit code of grep - if termshark works correctly, it will
     # detect stdout is not a tty, defer to tshark and display the grepped IP.
