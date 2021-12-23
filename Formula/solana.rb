@@ -52,5 +52,6 @@ class Solana < Formula
 
   test do
     assert_match "Generating a new keypair", shell_output("#{bin}/solana-keygen new --no-bip39-passphrase --no-outfile")
+    assert_match version.to_s, shell_output("#{bin}/solana-keygen --version")
   end
 end
