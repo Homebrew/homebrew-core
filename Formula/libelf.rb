@@ -54,9 +54,7 @@ class Libelf < Formula
                    "4000000000000000000000034002000010000000000000001000000000000000080040" \
                    "80080040874000000740000000500000000100000B00431DB43B96980040831D2B20CC" \
                    "D8031C040CD8048656C6C6F20776F726C640A"
-    File.open(testpath/"elf", "w+b") do |file|
-      file.write([elf_content].pack("H*"))
-    end
+    File.binwrite(testpath/"elf", [elf_content].pack("H*"))
 
     (testpath/"test.c").write <<~EOS
       #include <gelf.h>
