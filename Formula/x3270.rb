@@ -24,10 +24,6 @@ class X3270 < Formula
   uses_from_macos "tcl-tk"
 
   def install
-    # use BSD date options on macOS
-    # https://sourceforge.net/p/x3270/bugs/24/
-    inreplace "Common/mkversion.sh", "-d@", "-r" if OS.mac?
-
     args = %W[
       --prefix=#{prefix}
       --enable-c3270
