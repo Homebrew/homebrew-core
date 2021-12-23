@@ -6,6 +6,7 @@ class Ciphey < Formula
   url "https://files.pythonhosted.org/packages/a5/db/9e0411803c768cd7f5c6986c9da406ae7e4b6b6a1d8ad0dc191cff6dbdaf/ciphey-5.14.0.tar.gz"
   sha256 "302a90261e9acc9b56ea29c313192f0c6f6ce112d37f4f9d404915052e19bf09"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "2a3bc8da84e2bf093629eedaf0e499373fc5a8583a6266d462bd7525c44f286d"
@@ -23,6 +24,13 @@ class Ciphey < Formula
   depends_on "libyaml"
   depends_on "python@3.9"
   depends_on "six"
+
+  on_linux do
+    depends_on "rust" => :build
+    depends_on "gcc" # For C++20
+  end
+
+  fails_with gcc: "5"
 
   resource "cipheycore" do
     url "https://github.com/Ciphey/CipheyCore/archive/v0.3.2.tar.gz"
@@ -162,11 +170,16 @@ class Ciphey < Formula
   def install
     venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    python_path = if OS.mac?
+      Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{xy}"
+    else
+      Formula["python@3.9"].opt_include/"python#{xy}"
+    end
 
     resource("cipheycore").stage do
       args = std_cmake_args + %W[
         -DCIPHEY_CORE_TEST=OFF
-        -DCIPHEY_CORE_PYTHON=#{Formula["python@3.9"].opt_frameworks}/Python.framework/Versions/#{xy}
+        -DCIPHEY_CORE_PYTHON=#{python_path}
       ]
       system "cmake", "-S", ".", "-B", "build", *args
       system "cmake", "--build", "build", "-t", "ciphey_core"
