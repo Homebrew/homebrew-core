@@ -13,13 +13,6 @@ class Meson < Formula
   depends_on "ninja"
   depends_on "python@3.10"
 
-  # Fix GNOME install_dir handling.
-  # Remove with 0.60.3.
-  patch do
-    url "https://github.com/mesonbuild/meson/commit/3074bb14a14c00aeb350bf592acf635a93b52d9a.patch?full_index=1"
-    sha256 "2829c181b5a3a152b0d0d3b20ea3dccda04b22c362473dfa636b7e2ec2f7ffff"
-  end
-
   def install
     python3 = Formula["python@3.10"].opt_bin/"python3"
     system python3, *Language::Python.setup_install_args(prefix)
