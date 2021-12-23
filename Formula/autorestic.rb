@@ -32,7 +32,7 @@ class Autorestic < Formula
       "backends"  => { "bar" => { "type" => "local", "key" => "secret", "path" => "data" } },
     }
     config["version"] = 2
-    File.open(testpath/".autorestic.yml", "w") { |file| file.write(config.to_yaml) }
+    File.write(testpath/".autorestic.yml", config.to_yaml)
     (testpath/"repo"/"test.txt").write("This is a testfile")
     system "#{bin}/autorestic", "check"
     system "#{bin}/autorestic", "backup", "-a"
