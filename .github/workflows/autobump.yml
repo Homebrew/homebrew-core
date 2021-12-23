@@ -73,7 +73,6 @@ env:
     firebase-cli
     flux
     fuse-overlayfs
-    fuse-overlayfs
     futhark
     gatsby-cli
     git-cliff
