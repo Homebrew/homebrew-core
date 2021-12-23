@@ -3,7 +3,7 @@ class Lout < Formula
   homepage "https://savannah.nongnu.org/projects/lout"
   url "https://github.com/william8000/lout/archive/refs/tags/3.42.tar.gz"
   sha256 "971c37b39e6613731c2b8e46d729b65dcc2f2897d0bb7a9bd4d6700dba801169"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/lout/"
