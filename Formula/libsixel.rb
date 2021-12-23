@@ -21,7 +21,7 @@ class Libsixel < Formula
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, "..", "-Dgdk-pixbuf2=false", "-Dtests=false"
+      system "meson", *std_meson_args, "..", "-Dgdk-pixbuf2=disabled", "-Dtests=disabled"
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
