@@ -64,7 +64,7 @@ class Lmod < Formula
 
     (testpath/"lmodtest.sh").write <<~EOS
       #!/bin/sh
-      source #{sh_init}
+      . #{sh_init}
       module list
     EOS
 
