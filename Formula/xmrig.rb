@@ -17,7 +17,6 @@ class Xmrig < Formula
     sha256                               monterey:       "ed6a11a74d73984f0ab21e13e8de8dd10c1484fde131c6aaa380d01a5d79e92c"
     sha256                               big_sur:        "168639732fe4f0c2dc1d30b01f195cfc5ca78eacccd96d5663978f3230a8f2c7"
     sha256                               catalina:       "dac5221dbbb32d6a92f67489a4e60f44cbb7ef6d141ce97151a26463fe361e25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "078d570abeca3c805325c17b0a3dbbdbb1d977dc94ea6f955e2c29fc9a1ad4b7"
   end
 
   depends_on "cmake" => :build
