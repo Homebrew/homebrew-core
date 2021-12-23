@@ -1,7 +1,7 @@
 class Libgetdata < Formula
   desc "Reference implementation of the Dirfile Standards"
   homepage "https://getdata.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/getdata/getdata/0.11.0/getdata-0.11.0.tar.xz"
+  url "https://github.com/ketiltrout/getdata/releases/download/v0.11.0/getdata-0.11.0.tar.xz"
   sha256 "d16feae0907090047f5cc60ae0fb3500490e4d1889ae586e76b2d3a2e1c1b273"
 
   bottle do
@@ -20,7 +20,7 @@ class Libgetdata < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-fortran",
