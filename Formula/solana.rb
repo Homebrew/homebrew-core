@@ -21,10 +21,12 @@ class Solana < Formula
 
   depends_on "protobuf" => :build
   depends_on "rust" => :build
+  depends_on "rustfmt" => :build
 
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "llvm" => :build
     depends_on "pkg-config" => :build
 
     depends_on "openssl@1.1"
@@ -33,20 +35,33 @@ class Solana < Formula
 
   def install
     %w[
+      accounts-bench
+      accounts-cluster-bench
       cli
       bench-streamer
+      bench-tps
+      dos
       faucet
+      genesis
+      gossip
       keygen
+      ledger-tool
       log-analyzer
+      merkle-root-bench
       net-shaper
+      net-utils
+      poh-bench
+      rbpf-cli
+      replica-node
       stake-accounts
       sys-tuner
       tokens
+      transaction-dos
+      upload-perf
+      validator
       watchtower
     ].each do |bin|
-      cd bin do
-        system "cargo", "install", "--no-default-features", *std_cargo_args
-      end
+      system "cargo", "install", *std_cargo_args(path: "./#{bin}")
     end
   end
 
