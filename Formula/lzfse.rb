@@ -28,9 +28,7 @@ class Lzfse < Formula
   end
 
   test do
-    File.open("original", "wb") do |f|
-      f.write(Random.new.bytes(0xFFFF))
-    end
+    File.binwrite("original", Random.new.bytes(0xFFFF))
 
     system "#{bin}/lzfse", "-encode", "-i", "original", "-o", "encoded"
     system "#{bin}/lzfse", "-decode", "-i", "encoded", "-o", "decoded"
