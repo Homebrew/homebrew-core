@@ -27,7 +27,7 @@ class S6 < Formula
 
   resource "execline" do
     url "https://skarnet.org/software/execline/execline-2.8.2.0.tar.gz"
-    sha256 "5e27425ddffc6e230236267367699928ae74ad92b6edf5ce7d0f39c54e10e0c7"
+    sha256 "2fdf7607f306e94fe42ebe2b49872d0f654aa2297a576d5a2d8037d4d9583341"
   end
 
   def install
