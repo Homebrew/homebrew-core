@@ -667,7 +667,7 @@ class Dvc < Formula
     # NOTE: dvc uses this file [1] to know which package it was installed from,
     # so that it is able to provide appropriate instructions for updates.
     # [1] https://github.com/iterative/dvc/blob/0.68.1/dvc/utils/pkg.py
-    File.open("dvc/utils/build.py", "w+") { |file| file.write("PKG = \"brew\"") }
+    File.write("dvc/utils/build.py", "PKG = \"brew\"")
 
     venv.pip_install_and_link buildpath
 
