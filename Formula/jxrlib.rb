@@ -34,7 +34,7 @@ class Jxrlib < Formula
     bmp = "Qk06AAAAAAAAADYAAAAoAAAAAQAAAAEAAAABABgAAAAAAAQAAADDDgAAww4AAAAAAAAAAAAA////AA==".unpack1("m")
     infile  = "test.bmp"
     outfile = "test.jxr"
-    File.open(infile, "wb") { |f| f.write bmp }
+    File.binwrite(infile, bmp)
     system bin/"JxrEncApp", "-i", infile,  "-o", outfile
     system bin/"JxrDecApp", "-i", outfile, "-o", infile
   end
