@@ -1,15 +1,9 @@
 class Gerbv < Formula
   desc "Gerber (RS-274X) viewer"
-  homepage "http://gerbv.gpleda.org/"
-  # 2.6.1 is the latest official stable release but it is very buggy and incomplete
-  url "https://downloads.sourceforge.net/project/gerbv/gerbv/gerbv-2.7.0/gerbv-2.7.0.tar.gz"
-  sha256 "c5ee808c4230ce6be3ad10ab63c547098386d43022704de25ddb9378e62053b4"
-  license "GPL-2.0"
-
-  livecheck do
-    url :stable
-    regex(%r{/gerbv/gerbv[._-]v?(\d+(?:\.\d+)+)/}i)
-  end
+  homepage "https://gerbv.github.io/"
+  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.8.2.tar.gz"
+  sha256 "588ec0bf86994ff5fff50716f9644562c5b74332e19ada5ec8af2256f040c0a0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_monterey: "6867c2ab1f095c2bd952bc294544146d98c005cb844bea396ead8655db22e92a"
@@ -21,16 +15,28 @@ class Gerbv < Formula
     sha256 high_sierra:    "246a26e96d930c979db7bdb533807c71418ac0ad5c74bd12749d0c08b903e409"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gettext" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+"
 
   def install
-    ENV.append "CPPFLAGS", "-DQUARTZ"
-    system "./configure", "--disable-debug",
+    ENV.append "CPPFLAGS", "-DQUARTZ" if OS.mac?
+    inreplace "autogen.sh", "libtool", "glibtool"
+
+    # Disable commit reference in include dir
+    inreplace "utils/git-version-gen.sh" do |s|
+      s.gsub! 'RELEASE_COMMIT=`"${GIT}" rev-parse HEAD`', "RELEASE_COMMIT=\"\""
+      s.gsub! "${PREFIX}~", "${PREFIX}"
+    end
+    system "./autogen.sh"
+    system "./configure", *std_configure_args,
                           "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
                           "--disable-update-desktop-database",
                           "--disable-schemas-compile"
+    system "make"
     system "make", "install"
   end
 
@@ -70,7 +76,7 @@ class Gerbv < Formula
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gerbv-2.7.0
+      -I#{include}/gerbv-#{version}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
       -I#{pixman.opt_include}/pixman-1
