@@ -41,7 +41,7 @@ class MscGenerator < Formula
     (testpath/"simple.signalling").write("a->b;")
     system "#{bin}/msc-gen", "simple.signalling"
     assert_predicate testpath/"simple.png", :exist?
-    bytes = File.open(testpath/"simple.png", "rb").read
+    bytes = File.binread(testpath/"simple.png")
     assert_equal bytes[0..7], "\x89PNG\r\n\x1a\n".force_encoding("ASCII-8BIT")
   end
 end
