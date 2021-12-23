@@ -22,7 +22,7 @@ class S6 < Formula
 
   resource "skalibs" do
     url "https://skarnet.org/software/skalibs/skalibs-2.11.1.0.tar.gz"
-    sha256 "e826a1e3a3fc3639aa97d476e01a1d5a3f371749be0f0b16562208ab6c851d66"
+    sha256 "400180b4d5b651e4fafaf0297b933f5f863b467d357f5b36a6545cf6eb14eab9"
   end
 
   resource "execline" do
