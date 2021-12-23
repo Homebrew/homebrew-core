@@ -15,15 +15,16 @@ class Libsixel < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "753e5b3da8b5137258aaa7a2645caae3024ab6d41e8fe980642a2be114a5e965"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "jpeg"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--with-jpeg=#{Formula["jpeg"].prefix}",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "..", "-Dgdk-pixbuf2=false", "-Dtests=false"
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
