@@ -1,8 +1,8 @@
 class Vsearch < Formula
   desc "Versatile open-source tool for microbiome analysis"
   homepage "https://github.com/torognes/vsearch"
-  url "https://github.com/torognes/vsearch/archive/v2.18.0.tar.gz"
-  sha256 "faa585ec2767e15a8ad3c2b78921b789a3b174fe3b0eecb3397b1c795808e982"
+  url "https://github.com/torognes/vsearch/archive/v2.19.0.tar.gz"
+  sha256 "74bc30786512d07e49836320af1e745ef527c4472317621d3bd0b50cbc218736"
   license any_of: ["BSD-2-Clause", "GPL-3.0-or-later"]
 
   bottle do
