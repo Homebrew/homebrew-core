@@ -1,6 +1,7 @@
 class Libdvdnav < Formula
   desc "DVD navigation library"
   homepage "https://www.videolan.org/developers/libdvdnav.html"
+  license "GPL-2.0-or-later"
 
   stable do
     url "https://download.videolan.org/pub/videolan/libdvdnav/6.1.1/libdvdnav-6.1.1.tar.bz2"
@@ -11,6 +12,11 @@ class Libdvdnav < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
+  end
+
+  livecheck do
+    url "https://download.videolan.org/pub/videolan/libdvdnav/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
@@ -24,7 +30,7 @@ class Libdvdnav < Formula
   end
 
   head do
-    url "https://code.videolan.org/videolan/libdvdnav.git"
+    url "https://code.videolan.org/videolan/libdvdnav.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
