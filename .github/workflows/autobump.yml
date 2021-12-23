@@ -71,6 +71,7 @@ env:
     exploitdb
     fennel
     firebase-cli
+    flarectl
     flux
     fuse-overlayfs
     futhark
@@ -95,6 +96,7 @@ env:
     imagemagick@6
     imap-backup
     ircd-hybrid
+    jenkins
     jfrog-cli
     jql
     jsonnet
@@ -104,6 +106,7 @@ env:
     keptn
     keydb
     kubeaudit
+    kubecfg
     kumactl
     kustomize
     lazydocker
@@ -122,6 +125,8 @@ env:
     minikube
     mmctl
     moto
+    murex
+    mypy
     nativefier
     navi
     ncc
@@ -143,6 +148,7 @@ env:
     pnpm
     pocsuite3
     procs
+    protoc-gen-go-grpc
     rbw
     rollup
     s2n
@@ -176,7 +182,9 @@ env:
     webpack
     webtorrent-cli
     whistle
+    xcbeautify
     xplr
+    yaegi
     zellij
 
 jobs:
