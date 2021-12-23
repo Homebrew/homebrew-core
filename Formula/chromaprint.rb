@@ -3,7 +3,7 @@ class Chromaprint < Formula
   homepage "https://acoustid.org/chromaprint"
   url "https://github.com/acoustid/chromaprint/releases/download/v1.5.1/chromaprint-1.5.1.tar.gz"
   sha256 "a1aad8fa3b8b18b78d3755b3767faff9abb67242e01b478ec9a64e190f335e1c"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     rebuild 1
