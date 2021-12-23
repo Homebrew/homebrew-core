@@ -34,7 +34,7 @@ class Clarinet < Formula
   end
 
   test do
-    system bin/"clarinet", "new", "test-project"
+    pipe_output("#{bin}/clarinet new test-project", "n\n")
     assert_match "name = \"test-project\"", (testpath/"test-project/Clarinet.toml").read
     system bin/"clarinet", "check", "--manifest-path", "test-project/Clarinet.toml"
   end
