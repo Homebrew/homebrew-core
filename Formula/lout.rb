@@ -5,11 +5,6 @@ class Lout < Formula
   sha256 "971c37b39e6613731c2b8e46d729b65dcc2f2897d0bb7a9bd4d6700dba801169"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url "https://download.savannah.gnu.org/releases/lout/"
-    regex(/href=.*?lout[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 arm64_monterey: "3a87b31938c939e6462d9ac00da2d3763fc2559c82b52141260ab4e8f94e0dee"
     sha256 arm64_big_sur:  "83b6f34bde01cfc2a8aa909d5e68dba9427c9bd1700859c83d0b57e4e8567dfd"
