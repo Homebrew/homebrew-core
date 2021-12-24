@@ -16,11 +16,11 @@ class Ncdu < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "48c1a3244bf54b0ea5246bfa45130f18710f4943a30b897c9c104435585d26ca"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "zig" => :build
   uses_from_macos "ncurses"
 
   def install
-    ENV["ZIG_SYSTEM_LINKER_HACK"] = "1"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
