@@ -42,6 +42,8 @@ class Systemd < Formula
   end
 
   def install
+    ENV["PYTHONPATH"] = Formula["jinja2-cli"].opt_libexec/Language::Python.site_packages("python3")
+
     args = %W[
       --prefix=#{prefix}
       --libdir=lib
