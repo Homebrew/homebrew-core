@@ -4,7 +4,7 @@ class Ncdu < Formula
   url "https://dev.yorhel.nl/download/ncdu-2.0.tar.gz"
   sha256 "66cda6804767b2e91b78cfdca825f9fdaf6a0a4c6e400625a01ad559541847cc"
   license "MIT"
-  head "https://g.blicky.net/ncdu.git"
+  head "https://g.blicky.net/ncdu.git", branch: "zig"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "68eb33234f67d014f1bb2edfd2750df4b96398af51063b135dd7c19de2caa8ab"
