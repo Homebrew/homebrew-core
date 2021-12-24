@@ -20,10 +20,16 @@ class Ncdu < Formula
   uses_from_macos "ncurses"
 
   def install
+    ENV["ZIG_SYSTEM_LINKER_HACK"] = "1"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/ncdu -v")
+    system bin/"ncdu", "-o", "test"
+    output = JSON.parse((testpath/"test").read)
+    assert_equal "ncdu", output[2]["progname"]
+    assert_equal version.to_s, output[2]["progver"]
+    assert_equal Pathname.pwd.size, output[3][0]["asize"]
   end
 end
