@@ -1,8 +1,8 @@
 class Kepubify < Formula
   desc "Convert ebooks from epub to kepub"
   homepage "https://pgaskin.net/kepubify/"
-  url "https://github.com/pgaskin/kepubify/archive/v4.0.2.tar.gz"
-  sha256 "f6bf7065ec99e48766f60a126590e021f5bd4fac19754ecb2d90eaf106f4e39b"
+  url "https://github.com/pgaskin/kepubify/archive/v4.0.3.tar.gz"
+  sha256 "6e511240b1ac080940fdf4718f8dabac214f1088026e9337a82d8c6a7a0ba82a"
   license "MIT"
   head "https://github.com/pgaskin/kepubify.git", branch: "master"
 
