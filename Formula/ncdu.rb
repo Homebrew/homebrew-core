@@ -4,6 +4,7 @@ class Ncdu < Formula
   url "https://dev.yorhel.nl/download/ncdu-2.0.tar.gz"
   sha256 "66cda6804767b2e91b78cfdca825f9fdaf6a0a4c6e400625a01ad559541847cc"
   license "MIT"
+  head "https://g.blicky.net/ncdu.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "68eb33234f67d014f1bb2edfd2750df4b96398af51063b135dd7c19de2caa8ab"
@@ -15,20 +16,11 @@ class Ncdu < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "48c1a3244bf54b0ea5246bfa45130f18710f4943a30b897c9c104435585d26ca"
   end
 
-  head do
-    url "https://g.blicky.net/ncdu.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
+  depends_on "zig" => :build
   uses_from_macos "ncurses"
 
   def install
-    system "autoreconf", "-i" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
