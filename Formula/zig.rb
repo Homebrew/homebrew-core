@@ -26,7 +26,7 @@ class Zig < Formula
 
   depends_on "cmake" => :build
 
-  fails_with gcc: "5" # LLVM is build with GCC
+  fails_with gcc: "5" # LLVM is built with GCC
 
   def install
     system "cmake", ".", *std_cmake_args, "-DZIG_STATIC_LLVM=ON"
@@ -44,6 +44,8 @@ class Zig < Formula
     system "#{bin}/zig", "build-exe", "hello.zig"
     assert_equal "Hello, world!", shell_output("./hello")
 
+    # error: 'TARGET_OS_IPHONE' is not defined, evaluates to 0
+    # https://github.com/ziglang/zig/issues/10377
     ENV.delete "CPATH"
     (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
