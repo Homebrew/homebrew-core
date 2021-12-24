@@ -44,11 +44,9 @@ class Zig < Formula
     system "#{bin}/zig", "build-exe", "hello.zig"
     assert_equal "Hello, world!", shell_output("./hello")
 
+    ENV.delete "CPATH"
     (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
-      #ifdef __APPLE__
-      #   include <TargetConditionals.h>
-      #endif
       int main() {
         fprintf(stdout, "Hello, world!");
         return 0;
