@@ -6,6 +6,7 @@ class Moto < Formula
   url "https://files.pythonhosted.org/packages/91/6c/15c4210675d4452ac864242dda652de912029acc8f0395d643b5c0217f8c/moto-2.2.19.tar.gz"
   sha256 "c07dba1bf56c7f0b67899936f8c2bfcbd0b77cbaba97056c2871de806a06fe8f"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ed50730e6fa323cc2e02355acd340a2ba24fca5c6fa40cc5a85d883739815f56"
@@ -71,8 +72,8 @@ class Moto < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/60/06/d9109aba62c0b42466195e5b9b30dded26621a675b73998218070d8cc637/cryptography-36.0.0.tar.gz"
-    sha256 "52f769ecb4ef39865719aedc67b4b7eae167bafa48dbc2a26dd36fa56460507f"
+    url "https://files.pythonhosted.org/packages/f9/4b/1cf8e281f7ae4046a59e5e39dd7471d46db9f61bb564fddbff9084c4334f/cryptography-36.0.1.tar.gz"
+    sha256 "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
   end
 
   resource "docker" do
