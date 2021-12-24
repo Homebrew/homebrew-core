@@ -11,9 +11,9 @@ class LibgrapeLite < Formula
   depends_on "open-mpi"
 
   def install
+    ENV.cx11
+
     system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_CXX_STANDARD=11",
-                    "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
