@@ -6,7 +6,7 @@ class Fdroidserver < Formula
   url "https://files.pythonhosted.org/packages/16/2c/b301fe0f1dbc40fa00bf16891bf01549c0c99e9eb6eaac7febcea58dd30c/fdroidserver-2.0.3.tar.gz"
   sha256 "220ea8dd563229fcb2c3f6d6d7da0c7854b46a08e7b4b8a5be05576c83c72ebf"
   license "AGPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2461f9c0c0add5d4b29dcdf8b456b058b4d5de16b9684b0c6a6594f05e013f95"
@@ -98,8 +98,8 @@ class Fdroidserver < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "Cycler" do
