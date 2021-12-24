@@ -6,6 +6,7 @@ class Certbot < Formula
   url "https://files.pythonhosted.org/packages/a2/44/afa71a3f9652b2722e372ba45ac8e7c53cc75b6d78eae698db49cd6265e7/certbot-1.22.0.tar.gz"
   sha256 "48c7a094445c607b0b73b7254ac4460d4eebea291f12826ec8cfc33207e5ee67"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/certbot/certbot.git", branch: "master"
 
   bottle do
@@ -71,8 +72,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/60/06/d9109aba62c0b42466195e5b9b30dded26621a675b73998218070d8cc637/cryptography-36.0.0.tar.gz"
-    sha256 "52f769ecb4ef39865719aedc67b4b7eae167bafa48dbc2a26dd36fa56460507f"
+    url "https://files.pythonhosted.org/packages/f9/4b/1cf8e281f7ae4046a59e5e39dd7471d46db9f61bb564fddbff9084c4334f/cryptography-36.0.1.tar.gz"
+    sha256 "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
   end
 
   resource "distro" do
