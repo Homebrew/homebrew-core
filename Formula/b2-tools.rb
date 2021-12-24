@@ -3,8 +3,8 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://files.pythonhosted.org/packages/4c/8e/9b9f6a0ff5734fa0461e68283bb6e4879ee4bb43a76815843cafa065ac09/b2-3.1.0.tar.gz"
-  sha256 "411232733599a7553bd146e842e84b15530712aead26d71ff68b81fec754d62b"
+  url "https://files.pythonhosted.org/packages/10/02/1739f37baf93974034283b9e432e0cb04dfe7b181040cff63b4e072216fa/b2-3.2.0.tar.gz"
+  sha256 "744e1e2d3354e8ed03b1cc0df3e9b551a1b8e9d6c8d03896cde24ae3d194bca0"
   license "MIT"
 
   bottle do
@@ -22,13 +22,13 @@ class B2Tools < Formula
   conflicts_with "boost-build", because: "both install `b2` binaries"
 
   resource "arrow" do
-    url "https://files.pythonhosted.org/packages/ec/74/1cf2d9912921cebdba3fa954949206c8aa159c9cc803b88140fb227f8a0e/arrow-0.17.0.tar.gz"
-    sha256 "ff08d10cda1d36c68657d6ad20d74fbea493d980f8b2d45344e00d6ed2bf6ed4"
+    url "https://files.pythonhosted.org/packages/25/e2/85d4a709a3ea58f8e36b4db9eb7927560a2fa4b6f8f362fb6475962fec51/arrow-1.2.1.tar.gz"
+    sha256 "c2dde3c382d9f7e6922ce636bf0b318a7a853df40ecb383b29192e6c5cc82840"
   end
 
   resource "b2sdk" do
-    url "https://files.pythonhosted.org/packages/ce/29/f914ad4f11f27c5c11e1fe717f930b9a3567599dbbfe2d5c1e5d0eaccfa6/b2sdk-1.13.0.tar.gz"
-    sha256 "43d07ce5cf9685acc3797b0c4764b4688777db12d8f0102e6118f8403db5c759"
+    url "https://files.pythonhosted.org/packages/51/05/8e3a694095ff7c24d2496413133784aab81a4854db92d528c8e5d546d287/b2sdk-1.14.0.tar.gz"
+    sha256 "900da60f9e569e02405b85db35541a79e1cac776ace5d054498b107982ea443c"
   end
 
   resource "certifi" do
@@ -37,8 +37,8 @@ class B2Tools < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "docutils" do
