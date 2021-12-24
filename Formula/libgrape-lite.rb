@@ -10,13 +10,7 @@ class LibgrapeLite < Formula
   depends_on "glog"
   depends_on "open-mpi"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   def install
-    ENV.cxx11
-
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=11",
                     "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
