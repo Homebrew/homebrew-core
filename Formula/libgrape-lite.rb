@@ -57,6 +57,6 @@ class LibgrapeLite < Formula
                     "-lmpi",
                     "-o", "test_libgrape_lite"
 
-    assert_equal("0\n", shell_output("./test_libgrape_lite"))
+    assert_equal("current worker id: 0\n", shell_output("./test_libgrape_lite"))
   end
 end
