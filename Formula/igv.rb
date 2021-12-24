@@ -30,6 +30,6 @@ class Igv < Formula
 
     ENV.append "_JAVA_OPTIONS", "-Duser.home=#{testpath}"
     (testpath/"script").write "exit"
-    assert_match "Version", shell_output("#{bin}/igv -b script")
+    assert_match "Using system JDK.", shell_output("#{bin}/igv -b script")
   end
 end
