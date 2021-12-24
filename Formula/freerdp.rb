@@ -4,6 +4,7 @@ class Freerdp < Formula
   url "https://github.com/FreeRDP/FreeRDP/archive/2.4.1.tar.gz"
   sha256 "20cc4e234613db9bf89f885fc1d0bb820080b1cad66e0650fe3cb6c02ec48a59"
   license "Apache-2.0"
+  head "https://github.com/FreeRDP/FreeRDP.git"
 
   bottle do
     sha256 arm64_big_sur: "13930739489389e5ecad0f8afa3d05bf41698a01b880c561f0ad05e099a9a8f3"
@@ -13,13 +14,9 @@ class Freerdp < Formula
     sha256 x86_64_linux:  "a5c914c81394cb1c941d78ebfb2813ba94494af167d5bcb3d4e71cb3bfec10a1"
   end
 
-  head do
-    url "https://github.com/FreeRDP/FreeRDP.git"
-    depends_on xcode: :build
-  end
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on xcode: :build
   depends_on "jpeg"
   depends_on "libusb"
   depends_on "libx11"
