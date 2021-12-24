@@ -6,6 +6,7 @@ class Pwntools < Formula
   url "https://files.pythonhosted.org/packages/db/b8/fe3ea322af7401959b33137e61da32bff45d328e5a495bf35c84748a5a75/pwntools-4.7.0.tar.gz"
   sha256 "74388e28675e7a1929f763df5a1cec6a3d589641049b6cf476bb1c56ec50a88e"
   license "MIT"
+  revision 1
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
@@ -70,8 +71,8 @@ class Pwntools < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "idna" do
