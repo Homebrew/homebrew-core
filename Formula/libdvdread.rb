@@ -1,7 +1,7 @@
 class Libdvdread < Formula
   desc "C library for reading DVD-video images"
   homepage "https://www.videolan.org/developers/libdvdnav.html"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   stable do
     url "https://download.videolan.org/pub/videolan/libdvdread/6.1.2/libdvdread-6.1.2.tar.bz2"
@@ -12,6 +12,11 @@ class Libdvdread < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
+  end
+
+  livecheck do
+    url "https://download.videolan.org/pub/videolan/libdvdread/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
@@ -25,7 +30,7 @@ class Libdvdread < Formula
   end
 
   head do
-    url "https://code.videolan.org/videolan/libdvdread.git"
+    url "https://code.videolan.org/videolan/libdvdread.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
