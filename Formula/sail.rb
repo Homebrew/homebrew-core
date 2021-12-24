@@ -6,6 +6,7 @@ class Sail < Formula
   url "https://files.pythonhosted.org/packages/d6/1f/c01f45df9eede284c0f6509d4482014f7f7ebf333ce2892d3a4fc54d174c/sailed.io-0.10.2.tar.gz"
   sha256 "36f652eea1fc3e2f7a35315070edcd397c78608eedf317a7964859f2d4d2c882"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5458b712a16ac589f606c5f20fdb801eb7d85b278cc015c67472e8b97d3a8cec"
@@ -46,8 +47,8 @@ class Sail < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/60/06/d9109aba62c0b42466195e5b9b30dded26621a675b73998218070d8cc637/cryptography-36.0.0.tar.gz"
-    sha256 "52f769ecb4ef39865719aedc67b4b7eae167bafa48dbc2a26dd36fa56460507f"
+    url "https://files.pythonhosted.org/packages/f9/4b/1cf8e281f7ae4046a59e5e39dd7471d46db9f61bb564fddbff9084c4334f/cryptography-36.0.1.tar.gz"
+    sha256 "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
   end
 
   resource "fabric" do
