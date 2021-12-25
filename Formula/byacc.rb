@@ -1,8 +1,8 @@
 class Byacc < Formula
   desc "(Arguably) the best yacc variant"
   homepage "https://invisible-island.net/byacc/"
-  url "https://invisible-mirror.net/archives/byacc/byacc-20210808.tgz"
-  sha256 "f158529be9d0594263c7f11a87616a49ea23e55ac63691252a2304fbbc7d3a83"
+  url "https://invisible-mirror.net/archives/byacc/byacc-20211224.tgz"
+  sha256 "7bc42867a095df2189618b64497016298818e88e513fca792cb5adc9a68ebfb8"
   license :public_domain
 
   livecheck do
