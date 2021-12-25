@@ -16,7 +16,7 @@ class ZlibNg < Formula
   end
 
   # https://zlib.net/zlib_how.html
-  resource "test_artifact" do
+  resource "homebrew-test_artifact" do
     url "https://zlib.net/zpipe.c"
     sha256 "68140a82582ede938159630bca0fb13a93b4bf1cb2e85b08943c26242cf8f3a6"
   end
@@ -28,7 +28,7 @@ class ZlibNg < Formula
 
   test do
     # Test uses an example of code for zlib and overwrites its API with zlib-ng API
-    testpath.install resource("test_artifact")
+    testpath.install resource("homebrew-test_artifact")
     inreplace "zpipe.c", "#include \"zlib.h\"", <<~EOS
       #include \"zlib-ng.h\"
       #define inflate     zng_inflate
