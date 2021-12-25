@@ -1,8 +1,8 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.3.tar.xz"
-  sha256 "88cc7f0f021f15c4cd62b1f922e3a401697f7943551fe45b1fdf4f2417a17a9c"
+  url "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.0.tar.gz"
+  sha256 "50a0504c6edcb4d61ce6b8cfdbddaa95707195fab0ecd7b5e92654b2a9412854"
   license "Ruby"
 
   livecheck do
@@ -38,8 +38,8 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.2.32.tgz"
-    sha256 "1a8223ad81c442badc4735df35d92a642401419fd107942966d4f0468a500b9c"
+    url "https://rubygems.org/rubygems/rubygems-3.3.3.tgz"
+    sha256 "92dbe63e8bd2f937d61e9db2d407ed6891f44fdfcb5faf4683a3f88afc7a5363"
   end
 
   def api_version
@@ -53,6 +53,11 @@ class Ruby < Formula
   def install
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
+
+    # Prevent `make` from trying to install headers into the SDK
+    # TODO: Remove this workaround when the following PR is merged/resolved:
+    #       https://github.com/Homebrew/brew/pull/12508
+    inreplace "tool/mkconfig.rb", /^(\s+val = )'"\$\(SDKROOT\)"'\+/, "\\1"
 
     system "./autogen.sh" if build.head?
 
