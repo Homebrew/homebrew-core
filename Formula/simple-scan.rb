@@ -1,8 +1,8 @@
 class SimpleScan < Formula
   desc "GNOME document scanning application"
   homepage "https://gitlab.gnome.org/GNOME/simple-scan"
-  url "https://download.gnome.org/sources/simple-scan/40/simple-scan-40.6.tar.xz"
-  sha256 "f2ff305998cc44636c1fdde20cd8ab1d441d4863a059e2d7a60f8e77afe8f171"
+  url "https://download.gnome.org/sources/simple-scan/40/simple-scan-40.7.tar.xz"
+  sha256 "7c551852cb5af7d34aa989f8ad5ede3cbe31828cf8dd5aec2b2b6fdcd1ac3d53"
   license "GPL-3.0-or-later"
 
   bottle do
