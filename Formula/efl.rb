@@ -51,7 +51,6 @@ class Efl < Formula
       -Davahi=false
       -Dbuild-examples=false
       -Dbuild-tests=false
-      -Dcocoa=true
       -Dembedded-lz4=false
       -Deeze=false
       -Dglib=true
@@ -62,6 +61,8 @@ class Efl < Formula
       -Dv4l2=false
       -Dx11=false
     ]
+
+    args << "-Dcocoa=true" if OS.mac?
 
     # Install in our Cellar - not dbus's
     inreplace "dbus-services/meson.build", "dep.get_pkgconfig_variable('session_bus_services_dir')",
