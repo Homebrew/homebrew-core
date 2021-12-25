@@ -15,6 +15,11 @@ class Libebml < Formula
     patch :DATA
   end
 
+  livecheck do
+    url "https://dl.matroska.org/downloads/libebml/"
+    regex(/href=.*?libebml[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c7ba4bf364135ac436fc50211c4d72557d0c7921d1f0e9af47a530c503354c9f"
     sha256 cellar: :any,                 arm64_big_sur:  "fce6d01b12243501223e4e9294528b8eab1818815b18e4ffe777fd14cec0e525"
