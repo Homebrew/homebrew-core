@@ -1,8 +1,8 @@
 class Nqp < Formula
   desc "Lightweight Perl 6-like environment for virtual machines"
   homepage "https://github.com/Raku/nqp"
-  url "https://github.com/Raku/nqp/releases/download/2021.10/nqp-2021.10.tar.gz"
-  sha256 "48135bc1b3ce22c1c57ccef46531e7688eec83d6b905b502ffcefd6c23294b49"
+  url "https://github.com/Raku/nqp/releases/download/2021.12/nqp-2021.12.tar.gz"
+  sha256 "0e1d534fd1ee61a4c8072309bafbc04660e9ae72d88618daa0e8f15022f0d913"
   license "Artistic-2.0"
 
   bottle do
