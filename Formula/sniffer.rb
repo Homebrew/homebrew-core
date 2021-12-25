@@ -1,8 +1,8 @@
 class Sniffer < Formula
   desc "Modern alternative network traffic sniffer"
   homepage "https://github.com/chenjiandongx/sniffer"
-  url "https://github.com/chenjiandongx/sniffer/archive/v0.5.1.tar.gz"
-  sha256 "b9fbead3f72e31a6599e0dffa6e5f7e09b9a68baf6de69b7313f568988e93c6b"
+  url "https://github.com/chenjiandongx/sniffer/archive/v0.6.0.tar.gz"
+  sha256 "5f6479baf3fa003aa25247d280f4a8bf2130a346a20e6feb497633650900056f"
   license "MIT"
 
   bottle do
