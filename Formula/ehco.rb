@@ -1,8 +1,9 @@
 class Ehco < Formula
   desc "Network relay tool and a typo :)"
   homepage "https://github.com/Ehco1996/ehco"
-  url "https://github.com/Ehco1996/ehco/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "4717a6131aff9cb78682408be57e448d575ce6c9ad731e0babeb1121803f8a5a"
+  url "https://github.com/Ehco1996/ehco.git",
+      tag:      "v1.1.1",
+      revision: "c723fa0c3fefcc7f89c3847c6cd753cfdaf30486"
   license "GPL-3.0-only"
 
   livecheck do
@@ -22,26 +23,30 @@ class Ehco < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "cmd/ehco/main.go"
+    ldflags = %W[
+      -s -w
+      -X github.com/Ehco1996/ehco/internal/constant.GitBranch=master
+      -X github.com/Ehco1996/ehco/internal/constant.GitRevision=#{Utils.git_short_head}
+      -X github.com/Ehco1996/ehco/internal/constant.BuildTime=#{time.iso8601}
+    ]
+
+    system "go", "build", *std_go_args(ldflags: ldflags), "cmd/ehco/main.go"
   end
 
   test do
-    version_info = shell_output("#{bin}/ehco -v")
-    assert_match "ehco version #{version}", version_info
+    version_info = shell_output("#{bin}/ehco -v 2>&1")
+    assert_match "Version=#{version}", version_info
 
     # run nc server
     nc_port = free_port
-    nc_pid = spawn "nc", "-l", nc_port.to_s
+    spawn "nc", "-l", nc_port.to_s
     sleep 1
 
     # run ehco server
     listen_port = free_port
-    ehco_pid = spawn bin/"ehco", "-l", "localhost:#{listen_port}", "-r", "localhost:#{nc_port}"
+    spawn bin/"ehco", "-l", "localhost:#{listen_port}", "-r", "localhost:#{nc_port}"
     sleep 1
 
     system "nc", "-z", "localhost", listen_port.to_s
-  ensure
-    Process.kill("HUP", ehco_pid)
-    Process.kill("HUP", nc_pid)
   end
 end
