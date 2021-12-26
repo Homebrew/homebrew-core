@@ -12,6 +12,12 @@ class Minetest < Formula
       url "https://github.com/minetest/minetest_game/archive/5.4.1.tar.gz"
       sha256 "b4bfa0755b88230cf4bdb6af6a0951dd1248f6cdf87fecc340e43ac12c80b0b2"
     end
+
+    # Fix build for newer GCC
+    patch do
+      url "https://github.com/minetest/minetest/commit/7c2826cbc0f36027d4a9781f433150d1c5d0d03f.patch?full_index=1"
+      sha256 "9a0dd960ba1dab7ee5eef799e705d495a1bf0aa7c9e0ac8fde4b5d4a33e10854"
+    end
   end
 
   livecheck do
