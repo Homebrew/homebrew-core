@@ -31,9 +31,11 @@ class Musepack < Formula
   end
 
   def install
+    ENV.append "LDFLAGS", "-lm" if OS.linux?
+
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-    lib.install "libmpcdec/libmpcdec.dylib"
+    lib.install "libmpcdec/#{shared_library("libmpcdec")}"
   end
 
   test do
