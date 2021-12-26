@@ -61,9 +61,17 @@ class Minetest < Formula
     args << "-DENABLE_GETTEXT=1" << "-DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}"
 
     system "cmake", ".", *args
-    system "make", "package"
-    system "unzip", "minetest-*-osx.zip"
-    prefix.install "minetest.app"
+
+    if OS.mac?
+      # install app bundle on macOS
+      # (`make install` is no-op on macOS)
+      system "make", "package"
+      system "unzip", "minetest-*-osx.zip"
+      prefix.install "minetest.app"
+    else
+      # install binary
+      system "make", "install"
+    end
   end
 
   def caveats
@@ -78,6 +86,10 @@ class Minetest < Formula
   end
 
   test do
-    system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--version"
+    if OS.mac?
+      system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--version"
+    else
+      system bin/"minetest", "--version"
+    end
   end
 end
