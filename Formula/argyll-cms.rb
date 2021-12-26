@@ -1,8 +1,8 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V2.2.1_src.zip"
-  sha256 "24cbef0e81a7ce8424957cbcb399cdea2f069f64866536d181e879ce1ed18ff8"
+  url "https://www.argyllcms.com/Argyll_V2.3.0_src.zip"
+  sha256 "daa21b6de8e20b5319a10ea8f72829d32eadae14c6581b50972f2f8dd5cde924"
   license "AGPL-3.0-only"
 
   livecheck do
