@@ -1,13 +1,13 @@
 class Latexml < Formula
   desc "LaTeX to XML/HTML/MathML Converter"
-  homepage "https://dlmf.nist.gov/LaTeXML/"
-  url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.5.tar.gz"
+  homepage "https://math.nist.gov/~BMiller/LaTeXML/"
+  url "https://math.nist.gov/~BMiller/LaTeXML/releases/LaTeXML-0.8.5.tar.gz"
   sha256 "1de821d0df8c88041ee10820188f33feac77d5618de4c0798a296a425f4e2637"
   license :public_domain
   head "https://github.com/brucemiller/LaTeXML.git", branch: "master"
 
   livecheck do
-    url "https://dlmf.nist.gov/LaTeXML/get.html"
+    url "https://math.nist.gov/~BMiller/LaTeXML/get.html"
     regex(/href=.*?LaTeXML[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
