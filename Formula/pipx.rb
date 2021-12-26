@@ -1,10 +1,11 @@
 class Pipx < Formula
+  include Language::Python::Virtualenv
+
   desc "Execute binaries from Python packages in isolated environments"
-  homepage "https://github.com/pypa/pipx"
-  url "https://files.pythonhosted.org/packages/8c/38/b9cbadcccc01be38f7fd47e52acc623657a0ecfc51eb43129c3825efc84c/pipx-0.16.4.tar.gz"
-  sha256 "992e78082c0b33c7bc708176ce9e0df9bac9ae3b08bf111c368571bc32e723d6"
+  homepage "https://pypa.github.io/pipx"
+  url "https://files.pythonhosted.org/packages/40/ff/bf70ebf9f5a58a80e7099462a836ae0dd0dba2f339962a2955427a3c8f91/pipx-0.16.5.tar.gz"
+  sha256 "2a12ee8911d36c0fc08ad3dba78c7d002797810e562739a34e1a2ce6acd85019"
   license "MIT"
-  revision 2
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
@@ -25,8 +26,8 @@ class Pipx < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
+    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
   end
 
   resource "distro" do
@@ -37,13 +38,13 @@ class Pipx < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
-    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
+    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
   end
 
   resource "userpath" do
@@ -52,19 +53,8 @@ class Pipx < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec)
-      end
-    end
-
-    system "python3", *Language::Python.setup_install_args(libexec)
-    (bin/"pipx").write_env_script(libexec/"bin/pipx", PYTHONPATH: ENV["PYTHONPATH"])
-    (bin/"register-python-argcomplete").write_env_script(libexec/"bin/register-python-argcomplete",
-      PYTHONPATH: ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
+    bin.install_symlink libexec/"bin/register-python-argcomplete"
 
     # Install shell completions
     output = Utils.safe_popen_read(libexec/"bin/register-python-argcomplete", "--shell=bash", "pipx")
@@ -76,9 +66,9 @@ class Pipx < Formula
 
   test do
     assert_match "PIPX_HOME", shell_output("#{bin}/pipx --help")
-    system "#{bin}/pipx", "install", "csvkit"
+    system bin/"pipx", "install", "csvkit"
     assert_predicate testpath/".local/bin/csvjoin", :exist?
-    system "#{bin}/pipx", "uninstall", "csvkit"
+    system bin/"pipx", "uninstall", "csvkit"
     refute_match "csvjoin", shell_output("#{bin}/pipx list")
   end
 end
