@@ -59,7 +59,6 @@ class Minetest < Formula
     args << "-DBUILD_CLIENT=1" << "-DBUILD_SERVER=0"
     args << "-DENABLE_FREETYPE=1" << "-DCMAKE_EXE_LINKER_FLAGS='-L#{Formula["freetype"].opt_lib}'"
     args << "-DENABLE_GETTEXT=1" << "-DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}"
-    args << "-DIRRLICHT_LIBRARY=#{Formula["irrlicht"].opt_frameworks}/IrrFramework.framework"
 
     system "cmake", ".", *args
     system "make", "package"
