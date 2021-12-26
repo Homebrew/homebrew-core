@@ -22,6 +22,8 @@ class Ehco < Formula
 
   depends_on "go" => :build
 
+  uses_from_macos "netcat" => :test
+
   def install
     ldflags = %W[
       -s -w
