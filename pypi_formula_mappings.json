@@ -293,7 +293,10 @@
   "s4cmd": {
     "exclude_packages": ["six"]
   },
-  "sail": "sailed-io",
+  "sail": {
+    "package_name": "sailed-io",
+    "exclude_packages": ["six"]
+  },
   "salt": {
     "extra_packages": ["pycryptodome", "pygit2"],
     "exclude_packages": [

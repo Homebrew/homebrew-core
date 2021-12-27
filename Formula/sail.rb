@@ -3,10 +3,9 @@ class Sail < Formula
 
   desc "CLI toolkit to provision and deploy WordPress applications to DigitalOcean"
   homepage "https://sailed.io"
-  url "https://files.pythonhosted.org/packages/d6/1f/c01f45df9eede284c0f6509d4482014f7f7ebf333ce2892d3a4fc54d174c/sailed.io-0.10.2.tar.gz"
-  sha256 "36f652eea1fc3e2f7a35315070edcd397c78608eedf317a7964859f2d4d2c882"
+  url "https://files.pythonhosted.org/packages/af/cb/2208b1d34b328227117417141ca46edf6fb4e1ad3a2554704f2351fffc37/sailed.io-0.10.3.tar.gz"
+  sha256 "cd132d12d9f7088809427451e2c79e67563d1e582cbafa9a6194b4c06d186d52"
   license "GPL-3.0-only"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "cb08b7fe2cdd4542a8548e9ed6ce724cea4a90b6a5cbfe10cbd1c5252fe5c199"
@@ -42,8 +41,8 @@ class Sail < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
+    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
   end
 
   resource "cryptography" do
@@ -57,8 +56,8 @@ class Sail < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/79/3f/aae4a951dc5bd2738901e053c057f4b317bf12199f09351f63a002442117/filelock-3.4.0.tar.gz"
-    sha256 "93d512b32a23baf4cac44ffd72ccf70732aeff7b8050fcaf6d3ec406d954baf4"
+    url "https://files.pythonhosted.org/packages/11/d1/22318a1b5bb06c9be4c065ad6a09cb7bfade737758dc08235c99cd6cf216/filelock-3.4.2.tar.gz"
+    sha256 "38b4f4c989f9d06d44524df1b24bd19e167d851f19b50bf3e3559952dddc5b80"
   end
 
   resource "idna" do
@@ -72,8 +71,8 @@ class Sail < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f8/86/7c0eb6e8b05385d1ce682abc0f994abd1668e148fb52603fa86e15d4c110/Jinja2-3.0.2.tar.gz"
-    sha256 "827a0e32839ab1600d4eb1c4c33ec5a8edfbc5cb42dafa13b81f182f97784b45"
+    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
+    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
   end
 
   resource "jsonpickle" do
@@ -87,18 +86,23 @@ class Sail < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
-    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/dd/67/6b3a5f3d730b15b5ff77d13e6f05f9189ae44d8a8bad4967d16694eaac8b/paramiko-2.8.0.tar.gz"
-    sha256 "e673b10ee0f1c80d46182d3af7751d033d9b573dd7054d2d0aa46be186c3c1d2"
+    url "https://files.pythonhosted.org/packages/01/78/bc696bac815e17af33b804f1d30525b7954bcfdec4bb9df8ef9bc77c52c4/paramiko-2.9.1.tar.gz"
+    sha256 "a1fdded3b55f61d23389e4fe52d9ae428960ac958d2edf50373faa5d8926edd0"
+  end
+
+  resource "pathlib2" do
+    url "https://files.pythonhosted.org/packages/df/16/e9d6bcf1aed52a55bc1696324ab22586716053b3e97b85266e0f3ad36bae/pathlib2-2.3.6.tar.gz"
+    sha256 "7d8bcb5555003cdf4a8d2872c538faa3a0f5d20630cb360e518ca3b981795e5f"
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/00/8d/95441120aa870aa800f8b4c6cf650bf0739d7a41883fe81769ab593556c9/prettytable-2.2.0.tar.gz"
-    sha256 "bd81678c108e6c73d4f1e47cd4283de301faaa6ff6220bcd1d4022038c56b416"
+    url "https://files.pythonhosted.org/packages/e4/35/21bf22e21b29102bbe81730caf498dfb3e1eed2642ac71f323472ead673a/prettytable-2.5.0.tar.gz"
+    sha256 "f7da57ba63d55116d65e5acb147bfdfa60dceccabf0d607d6817ee2888a05f2c"
   end
 
   resource "pycparser" do
@@ -122,8 +126,8 @@ class Sail < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   resource "requests" do
