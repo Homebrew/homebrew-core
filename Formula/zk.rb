@@ -13,7 +13,7 @@ class Zk < Formula
   uses_from_macos "sqlite"
 
   def install
-    system "go", "build", *std_go_args, "-tags", "fts5,icu", "-ldflags", "-X=main.Version=#{version} -X=main.Build=brew"
+    system "go", "build", *std_go_args(ldflags: "-X=main.Version=#{version} -X=main.Build=#{tap.user}"), "-tags", "fts5,icu"
   end
 
   test do
