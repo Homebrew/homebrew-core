@@ -8,6 +8,11 @@ class Libgusb < Formula
   license "LGPL-2.1-only"
   head "https://github.com/hughsie/libgusb.git", branch: "main"
 
+  livecheck do
+    url "https://people.freedesktop.org/~hughsient/releases/"
+    regex(/href=.*?libgusb[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "e49a1087dc43571fbe06d41bb8f315446a825ee77cc4f5880c0b88eb86c0a4fb"
     sha256 monterey:      "ae80f7e2687d38eabfd4e6da73991661140cb50e8929ed88d7bf85bb2476fa03"
