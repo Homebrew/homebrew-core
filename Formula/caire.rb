@@ -19,11 +19,11 @@ class Caire < Formula
   depends_on "go" => :build
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "libxcursor" => :build
-    depends_on "libxkbcommon" => :build
-    depends_on "mesa" => :build
     depends_on "vulkan-headers" => :build
-    depends_on "wayland" => :build
+    depends_on "libxcursor"
+    depends_on "libxkbcommon"
+    depends_on "mesa"
+    depends_on "wayland"
   end
 
   def install
