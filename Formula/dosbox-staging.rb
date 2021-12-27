@@ -1,10 +1,9 @@
 class DosboxStaging < Formula
   desc "Modernized DOSBox soft-fork"
   homepage "https://dosbox-staging.github.io/"
-  url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.77.1.tar.gz"
-  sha256 "85359efb7cd5c5c0336d88bdf023b7b462a8233490e00274fef0b85cca2f5f3c"
+  url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.78.0.tar.gz"
+  sha256 "2e6dcfc45d7345b2d89287911718c93f30463f1d58a9bfdc3a353000520cbbf8"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/dosbox-staging/dosbox-staging.git", branch: "main"
 
   bottle do
@@ -20,6 +19,7 @@ class DosboxStaging < Formula
   depends_on "pkg-config" => :build
   depends_on "fluid-synth"
   depends_on "libpng"
+  depends_on "libslirp"
   depends_on "mt32emu"
   depends_on "opusfile"
   depends_on "sdl2"
