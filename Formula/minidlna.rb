@@ -4,6 +4,7 @@ class Minidlna < Formula
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.0/minidlna-1.3.0.tar.gz"
   sha256 "47d9b06b4c48801a4c1112ec23d24782728b5495e95ec2195bbe5c81bc2d3c63"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     rebuild 1
@@ -41,12 +42,14 @@ class Minidlna < Formula
   end
 
   def post_install
-    (pkgshare/"minidlna.conf").write <<~EOS
+    conf = <<~EOS
       friendly_name=Mac DLNA Server
       media_dir=#{ENV["HOME"]}/.config/minidlna/media
       db_dir=#{ENV["HOME"]}/.config/minidlna/cache
       log_dir=#{ENV["HOME"]}/.config/minidlna
     EOS
+
+    (pkgshare/"minidlna.conf").write conf unless File.exist? pkgshare/"minidlna.conf"
   end
 
   def caveats
