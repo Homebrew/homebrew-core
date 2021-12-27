@@ -4,6 +4,7 @@ class Exiv2 < Formula
   url "https://www.exiv2.org/builds/exiv2-0.27.5-Source.tar.gz"
   sha256 "35a58618ab236a901ca4928b0ad8b31007ebdc0386d904409d825024e45ea6e2"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Exiv2/exiv2.git", branch: "main"
 
   livecheck do
@@ -41,6 +42,7 @@ class Exiv2 < Formula
       -DEXIV2_ENABLE_WEBREADY=ON
       -DEXIV2_ENABLE_CURL=ON
       -DEXIV2_ENABLE_SSH=ON
+      -DEXIV2_ENABLE_BMFF=ON
       -DEXIV2_BUILD_SAMPLES=OFF
       -DSSH_LIBRARY=#{Formula["libssh"].opt_lib}/#{shared_library("libssh")}
       -DSSH_INCLUDE_DIR=#{Formula["libssh"].opt_include}
