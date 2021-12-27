@@ -27,6 +27,13 @@ class ParquetCli < Formula
     sha256 "5caf572cb0df5ce9d6893609de82d2369b42c3c81c611847b6f921d912040118"
   end
 
+  # Patches snappy to 1.1.8.3 for MacOS arm64 support, won't be needed in >= 1.13.0
+  # See https://issues.apache.org/jira/browse/PARQUET-2025
+  patch do
+    url "https://github.com/apache/parquet-mr/commit/095c78fec3378189296d38fede1255b0a4d05fd4.patch?full_index=1"
+    sha256 "9a5b54275c2426a56e246bdf4b7a799d5af8efe85c2dcdc3c32e23da3101f9d7"
+  end
+
   def install
     cd "parquet-cli" do
       system "mvn", "clean", "package", "-DskipTests=true"
