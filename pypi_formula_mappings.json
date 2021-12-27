@@ -80,6 +80,9 @@
   "cppman": {
     "exclude_packages": ["six"]
   },
+  "credstash": {
+    "exclude_packages": ["six"]
+  },
   "csvkit": {
     "exclude_packages": ["six"]
   },
