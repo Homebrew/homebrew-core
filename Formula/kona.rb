@@ -1,8 +1,8 @@
 class Kona < Formula
   desc "Open-source implementation of the K programming language"
   homepage "https://github.com/kevinlawler/kona"
-  url "https://github.com/kevinlawler/kona/archive/Win64-20201009.tar.gz"
-  sha256 "ec00734f36e966dd8b16e3752bee963a85b9ad415a4f1b200ae7ca28a3ad4d37"
+  url "https://github.com/kevinlawler/kona/archive/Win64-20211225.tar.gz"
+  sha256 "cd5dcc03394af275f0416b3cb2914574bf51ec60d1c857020fbd34b5427c5faf"
   license "ISC"
   head "https://github.com/kevinlawler/kona.git", branch: "master"
 
