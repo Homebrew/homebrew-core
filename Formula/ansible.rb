@@ -605,5 +605,19 @@ class Ansible < Formula
     # Ensure requests[security] is activated
     script = "import requests as r; r.get('https://mozilla-modern.badssl.com')"
     system libexec/"bin/python3", "-c", script
+
+    # Ensure ansible-vault can encrypt/decrypt files.
+    (testpath/"vault-password.txt").write("12345678")
+    (testpath/"vault-test-file.txt").write <<~EOS
+      ---
+      content:
+        hello: world
+    EOS
+    system bin/"ansible-vault", "encrypt",
+           "--vault-password-file", testpath/"vault-password.txt",
+           testpath/"vault-test-file.txt"
+    system bin/"ansible-vault", "decrypt",
+           "--vault-password-file", testpath/"vault-password.txt",
+           testpath/"vault-test-file.txt"
   end
 end
