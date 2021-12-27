@@ -1,9 +1,9 @@
 class Jmeter < Formula
   desc "Load testing and performance measurement application"
   homepage "https://jmeter.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=jmeter/binaries/apache-jmeter-5.4.2.tgz"
-  mirror "https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.2.tgz"
-  sha256 "aedbfaf000aa2d19e3534cc4062acb9f97308711b2d37ba965643222a7840b10"
+  url "https://www.apache.org/dyn/closer.lua?path=jmeter/binaries/apache-jmeter-5.4.3.tgz"
+  mirror "https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.3.tgz"
+  sha256 "72521214c0cb87dac5b974c1c6e83a17a009c7fd377b55bf23525c72403b1dee"
   license "Apache-2.0"
 
   bottle do
@@ -13,8 +13,8 @@ class Jmeter < Formula
   depends_on "openjdk"
 
   resource "jmeter-plugins-manager" do
-    url "https://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.6/jmeter-plugins-manager-1.6.jar"
-    sha256 "6f391eb6c935bd63ff9e356fb5f353d3c80b27bb762fcb5ce2c0c88f71fbd514"
+    url "https://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.7/jmeter-plugins-manager-1.7.jar"
+    sha256 "2ae43743c5bc73d557e08e79fb9b137d301626bb393c2c03aa381b1dc8fc40ed"
   end
 
   def install
