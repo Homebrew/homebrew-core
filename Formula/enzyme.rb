@@ -1,7 +1,7 @@
 class Enzyme < Formula
   desc "High-performance automatic differentiation of LLVM"
   homepage "https://enzyme.mit.edu"
-  url "https://github.com/wsmoses/Enzyme/archive/v0.0.26.tar.gz"
+  url "https://github.com/wsmoses/Enzyme/archive/v0.0.26.tar.gz", using: :homebrew_curl
   sha256 "b212bf13a50c3297fb0ca9fa3094cfd16b399f7c57a928b8eb9e293006fa0c32"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/wsmoses/Enzyme.git", branch: "main"
@@ -16,6 +16,12 @@ class Enzyme < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm"
+
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
