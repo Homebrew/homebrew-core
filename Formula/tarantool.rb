@@ -1,10 +1,9 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/2.8/src/tarantool-2.8.2.0.tar.gz"
-  sha256 "f2e966fc6b644254270fd84f78ccc4dd1434500a6986fe9361b34804acae7e10"
+  url "https://download.tarantool.org/tarantool/2.8/src/tarantool-2.8.3.0.tar.gz"
+  sha256 "953614448f23f37370c49c7832dba05b66c3b507c7047674403e05dbdc96bda8"
   license "BSD-2-Clause"
-  revision 1
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
@@ -26,13 +25,6 @@ class Tarantool < Formula
 
   uses_from_macos "curl"
   uses_from_macos "ncurses"
-
-  # Fix build on Monterey.
-  # Remove with 2.9.
-  patch do
-    url "https://github.com/tarantool/tarantool/commit/11e87877df9001a4972019328592d79d55d1bb01.patch?full_index=1"
-    sha256 "af867163bc78a14498959a755d9e8733e4ae13d30dd51a69f7e9fdc46a46137a"
-  end
 
   def install
     # Avoid keeping references to Homebrew's clang/clang++ shims
