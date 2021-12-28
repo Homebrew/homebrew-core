@@ -3,10 +3,9 @@ class Supervisor < Formula
 
   desc "Process Control System"
   homepage "http://supervisord.org/"
-  url "https://files.pythonhosted.org/packages/d3/7f/c780b7471ba0ff4548967a9f7a8b0bfce222c3a496c3dfad0164172222b0/supervisor-4.2.2.tar.gz"
-  sha256 "5b2b8882ec8a3c3733cce6965cc098b6d80b417f21229ab90b18fe551d619f90"
+  url "https://files.pythonhosted.org/packages/14/0f/3b13e5626fd1e57bfd4e0271c49201b00b043a54c8f89019e7adf33520e1/supervisor-4.2.3.tar.gz"
+  sha256 "6472da45fd552184c64713b4b9c0bcc586beec21d22af271e1bf8efe60b08836"
   license "BSD-3-Clause-Modification"
-  revision 1
   head "https://github.com/Supervisor/supervisor.git", branch: "master"
 
   bottle do
