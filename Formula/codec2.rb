@@ -3,6 +3,7 @@ class Codec2 < Formula
   homepage "https://www.rowetel.com/?page_id=452"
   # Linked from https://freedv.org/
   url "https://github.com/drowe67/codec2/archive/v1.03.tar.gz"
+  version "1.0.3"
   sha256 "d1b156035b806fd89a29371a5ab0eefca3ccecfeff303dac0672c59d5c0c1235"
   license "LGPL-2.1-only"
 
