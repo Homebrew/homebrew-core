@@ -1,10 +1,9 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.5.4.tar.gz"
-  sha256 "c20bb83dd790fc69df9f105477e24267706715a9d3c705ca1e7f613c7b3bad3d"
+  url "https://github.com/opencv/opencv/archive/4.5.5.tar.gz"
+  sha256 "a1cfdcf6619387ca9e232687504da996aaa9f7b5689986b8331ec02cb61d28ad"
   license "Apache-2.0"
-  revision 4
 
   livecheck do
     url :stable
@@ -43,8 +42,8 @@ class Opencv < Formula
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.5.4.tar.gz"
-    sha256 "ad74b440b4539619dc9b587995a16b691246023d45e34097c73e259f72de9f81"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.5.tar.gz"
+    sha256 "a97c2eaecf7a23c6dbd119a609c6d7fae903e5f9ff5f1fe678933e01c67a6c11"
   end
 
   def install
