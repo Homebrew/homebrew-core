@@ -6,6 +6,11 @@ class Libmatroska < Formula
   license "LGPL-2.1"
   head "https://github.com/Matroska-Org/libmatroska.git", branch: "master"
 
+  livecheck do
+    url "https://dl.matroska.org/downloads/libmatroska/"
+    regex(/href=.*?libmatroska[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "8547a058752a4a107227a379565968ca1240846464ebcc85478ea986f3a14caf"
     sha256 cellar: :any,                 arm64_big_sur:  "80b085f93f8bd5a189b65ef9f9792d1070a3e2743d5b0d80fea37320a05f7821"
