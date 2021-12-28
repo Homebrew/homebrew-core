@@ -20,12 +20,12 @@ class Gauche < Formula
     sha256 x86_64_linux:   "45f73c386af54c74febe68a0c0e022eb534e6d521ff8190789cd01cd185b07ab"
   end
 
-  depends_on "mbedtls@2"
+  depends_on "mbedtls"
 
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--enable-multibyte=utf-8"
     system "make"
     system "make", "install"
