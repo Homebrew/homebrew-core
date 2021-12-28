@@ -22,7 +22,7 @@ class Libunwind < Formula
   uses_from_macos "zlib"
 
   def install
-    ENV.append_to_cflags '-fPIC'
+    ENV.append_to_cflags "-fPIC"
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
