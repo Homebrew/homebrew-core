@@ -1,5 +1,5 @@
 class Libiberty < Formula
-  desc "Libiberty library is a collection of subroutines used by various GNU programs"
+  desc "Collection of subroutines used by various GNU programs"
   homepage "https://gcc.gnu.org/onlinedocs/libiberty"
   url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0/gcc-11.2.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
