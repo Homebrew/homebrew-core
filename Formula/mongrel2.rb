@@ -5,8 +5,8 @@ class Mongrel2 < Formula
   head "https://github.com/mongrel2/mongrel2.git", branch: "develop"
 
   stable do
-    url "https://github.com/mongrel2/mongrel2/releases/download/v1.11.0/mongrel2-v1.11.0.tar.bz2"
-    sha256 "917f2ce07c0908cae63ac03f3039815839355d46568581902377ba7e41257bed"
+    url "https://github.com/mongrel2/mongrel2/releases/download/v1.13.0/mongrel2-v1.13.0.tar.bz2"
+    sha256 "b6f1f50c9f65b605342d8792b1cc8a1c151105339030313b9825b6a68d400c10"
 
     # ensure unit tests work on 1.11.0. remove after next release
     patch do
