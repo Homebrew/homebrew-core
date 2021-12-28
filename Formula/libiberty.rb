@@ -1,5 +1,5 @@
 class Libiberty < Formula
-  desc "The libiberty library is a collection of subroutines used by various GNU programs."
+  desc "Libiberty library is a collection of subroutines used by various GNU programs"
   homepage "https://gcc.gnu.org/onlinedocs/libiberty"
   url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0/gcc-11.2.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
@@ -27,18 +27,17 @@ class Libiberty < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-    #include <stdlib.h>
-    #include <string.h>
-    #include <iostream>
-    # define HAVE_DECL_BASENAME 1
-    #include <libiberty/demangle.h>
-    int main() {
-      std::string str(
-          cplus_demangle_v3(typeid(std::string).name(), DMGL_PARAMS | DMGL_ANSI | DMGL_TYPES));
-      std::cout << str << std::endl;
-      // REQUIRE(str == "std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >");
-      return 0;
-    }
+      #include <stdlib.h>
+      #include <string.h>
+      #include <iostream>
+      # define HAVE_DECL_BASENAME 1
+      #include <libiberty/demangle.h>
+      int main() {
+        std::string str(
+            cplus_demangle_v3(typeid(std::string).name(), DMGL_PARAMS | DMGL_ANSI | DMGL_TYPES));
+        std::cout << str << std::endl;
+        return 0;
+      }
     EOS
 
     system Formula["gcc@11"].opt_bin / "g++-11", "test.cpp", "-I#{opt_include}", "#{opt_lib}/libiberty.a"
