@@ -1,9 +1,9 @@
 class Libmicrohttpd < Formula
   desc "Light HTTP/1.1 server library"
   homepage "https://www.gnu.org/software/libmicrohttpd/"
-  url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.74.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.74.tar.gz"
-  sha256 "42035d0261373324bfb434018f4ab892514b10253d1af232e41b4cc2c11e650b"
+  url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.75.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.75.tar.gz"
+  sha256 "9278907a6f571b391aab9644fd646a5108ed97311ec66f6359cebbedb0a4e3bb"
   license "LGPL-2.1-or-later"
 
   bottle do
