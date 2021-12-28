@@ -1,8 +1,9 @@
 class Goplus < Formula
   desc "Programming language for engineering, STEM education, and data science"
   homepage "https://goplus.org"
-  url "https://github.com/goplus/gop/archive/v1.0.38.tar.gz"
-  sha256 "32f364e648f1f1509f04e37925cc98b373a58775d751bdcb9ded7cfd3d57478a"
+  url "https://github.com/goplus/gop.git",
+      tag:      "v1.0.38",
+      revision: "8ab2d87ef7948cf9fb66b3edeeb7caa1320db47c"
   license "Apache-2.0"
   head "https://github.com/goplus/gop.git", branch: "main"
 
@@ -18,9 +19,6 @@ class Goplus < Formula
   depends_on "go"
 
   def install
-    # Patch version to match the version of gop, currently it get version from git tag
-    inreplace "env/version.go", /^\tbuildVersion string$/, "\tbuildVersion string = \"v#{version}\"" unless build.head?
-
     ENV["GOPROOT_FINAL"] = libexec
     system "go", "run", "cmd/make.go", "--install"
 
