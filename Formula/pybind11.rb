@@ -1,8 +1,8 @@
 class Pybind11 < Formula
   desc "Seamless operability between C++11 and Python"
   homepage "https://github.com/pybind/pybind11"
-  url "https://github.com/pybind/pybind11/archive/v2.8.1.tar.gz"
-  sha256 "f1bcc07caa568eb312411dde5308b1e250bd0e1bc020fae855bf9f43209940cc"
+  url "https://github.com/pybind/pybind11/archive/v2.9.0.tar.gz"
+  sha256 "057fb68dafd972bc13afb855f3b0d8cf0fa1a78ef053e815d9af79be7ff567cb"
   license "BSD-3-Clause"
 
   livecheck do
