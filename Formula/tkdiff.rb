@@ -1,9 +1,9 @@
 class Tkdiff < Formula
   desc "Graphical side by side diff utility"
   homepage "https://tkdiff.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/tkdiff/tkdiff/5.2.1/tkdiff-5-2-1.zip"
-  version "5.2.1"
-  sha256 "942bf2431b409ecfdcd1789b9911888f69908e63e02c923bb5b04b2aeb14633d"
+  url "https://downloads.sourceforge.net/project/tkdiff/tkdiff/5.3/tkdiff-5-3.zip"
+  version "5.3"
+  sha256 "193476bd40766e5c49e2e27c30dc446f97abca8b0b5fe82e6ce8af6e71ea85e7"
   license "GPL-2.0-only"
 
   livecheck do
@@ -14,6 +14,8 @@ class Tkdiff < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, all: "93b6ec3f509020b353acdbe67041c2fab28d08e4e80e0471c3742a6174740b6f"
   end
+
+  uses_from_macos "tcl-tk"
 
   def install
     bin.install "tkdiff"
