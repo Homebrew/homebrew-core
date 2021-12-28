@@ -96,6 +96,7 @@
   "mobile-shell": "mosh",
   "mongo-c": "mongo-c-driver",
   "mpich2": "mpich",
+  "mr2": "zoro",
   "mysql-connector-c": "mysql-client",
   "mysql56": "mysql@5.6",
   "newsbeuter": "newsboat",
