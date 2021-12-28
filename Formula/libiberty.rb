@@ -6,11 +6,9 @@ class Libiberty < Formula
   sha256 "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
-  depends_on "gcc@11" => :build
+  depends_on "gcc" => :build
 
   def install
-    ENV["CC"] = Formula["gcc@11"].opt_bin / "gcc-11"
-    ENV["CXX"] = Formula["gcc@11"].opt_bin / "g++-11"
     ENV.append_to_cflags "-fPIC"
 
     args = %W[
@@ -40,7 +38,7 @@ class Libiberty < Formula
       }
     EOS
 
-    system Formula["gcc@11"].opt_bin / "g++-11", "test.cpp", "-I#{opt_include}", "#{opt_lib}/libiberty.a"
+    system ENV.cxx, "test.cpp", "-I#{opt_include}", "#{opt_lib}/libiberty.a"
 
     assert_match "std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >",
       shell_output("./a.out")
