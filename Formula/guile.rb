@@ -42,7 +42,7 @@ class Guile < Formula
   # To be removed after Guile 3.0.8 is released.
   patch do
     url "https://git.savannah.gnu.org/cgit/guile.git/patch/?id=1f100a4f20c3a6e57922fb26fce212997e2a03cb"
-    sha256 "a5adf2586b30381cf24524c7fc0364115f7cb1f568d2b69a9f3fb49ad8355b55"
+    sha256 "a857c5fde2eb1c05379a97ba88047404da1c5b1da0291903f036d0a8745d85b5"
   end
 
   def install
