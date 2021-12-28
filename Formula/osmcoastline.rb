@@ -18,6 +18,7 @@ class Osmcoastline < Formula
   depends_on "gdal"
   depends_on "geos"
   depends_on "libspatialite"
+  depends_on "lz4"
 
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
