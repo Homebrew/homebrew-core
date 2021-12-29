@@ -6,6 +6,11 @@ class Libmpdclient < Formula
   license "BSD-3-Clause"
   head "https://github.com/MusicPlayerDaemon/libmpdclient.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libmpdclient[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "cf069d8465152e64482a30cdd9be6d9db373eb6e033e20b36f5ed0c6ff787a81"
     sha256 cellar: :any,                 arm64_big_sur:  "5b121fcd7d0df82dd8b3f9ee14f2084441e3cf4ad116d7b9deb556ed06fe2244"
