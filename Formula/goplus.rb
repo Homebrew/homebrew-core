@@ -1,9 +1,8 @@
 class Goplus < Formula
   desc "Programming language for engineering, STEM education, and data science"
   homepage "https://goplus.org"
-  url "https://github.com/goplus/gop.git",
-      tag:      "v1.0.38",
-      revision: "8ab2d87ef7948cf9fb66b3edeeb7caa1320db47c"
+  url "https://github.com/goplus/gop/archive/v1.0.38.tar.gz"
+  sha256 "32f364e648f1f1509f04e37925cc98b373a58775d751bdcb9ded7cfd3d57478a"
   license "Apache-2.0"
   head "https://github.com/goplus/gop.git", branch: "main"
 
@@ -20,6 +19,7 @@ class Goplus < Formula
 
   def install
     ENV["GOPROOT_FINAL"] = libexec
+    (buildpath/"VERSION").write "v#{version}"
     system "go", "run", "cmd/make.go", "--install"
 
     libexec.install Dir["*"] - Dir[".*"]
