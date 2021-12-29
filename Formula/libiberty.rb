@@ -28,6 +28,7 @@ class Libiberty < Formula
       #include <stdlib.h>
       #include <string.h>
       #include <iostream>
+      #include <typeinfo>
       # define HAVE_DECL_BASENAME 1
       #include <libiberty/demangle.h>
       int main() {
