@@ -3,8 +3,8 @@ class Pipx < Formula
 
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://pypa.github.io/pipx"
-  url "https://files.pythonhosted.org/packages/40/ff/bf70ebf9f5a58a80e7099462a836ae0dd0dba2f339962a2955427a3c8f91/pipx-0.16.5.tar.gz"
-  sha256 "2a12ee8911d36c0fc08ad3dba78c7d002797810e562739a34e1a2ce6acd85019"
+  url "https://files.pythonhosted.org/packages/66/a1/1efba0467d87a569d2ae3627422334bd9df6ba0db728d1b685ba85f359c9/pipx-0.17.0.tar.gz"
+  sha256 "3cb13a918491181b317606cd883bcf573435d535d786aa69bc15a76c7f494de2"
   license "MIT"
   head "https://github.com/pypa/pipx.git", branch: "main"
 
@@ -27,13 +27,6 @@ class Pipx < Formula
   resource "click" do
     url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
     sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
-  end
-
-  resource "distro" do
-    on_linux do
-      url "https://files.pythonhosted.org/packages/a5/26/256fa167fe1bf8b97130b4609464be20331af8a3af190fb636a8a7efd7a2/distro-1.6.0.tar.gz"
-      sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
-    end
   end
 
   resource "packaging" do
