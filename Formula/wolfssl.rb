@@ -2,8 +2,8 @@ class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      tag:      "v5.0.0-stable",
-      revision: "7e01af012157bc20c840011a018619915380f05c"
+      tag:      "v5.1.0-stable",
+      revision: "2b670c026debc8e70621eb5c75b60931c9aa0bc5"
   license "GPL-2.0-or-later"
   head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
