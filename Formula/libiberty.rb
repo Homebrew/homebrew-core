@@ -11,11 +11,6 @@ class Libiberty < Formula
   def install
     ENV.append_to_cflags "-fPIC"
 
-    args = %W[
-      --prefix=#{prefix}
-      --enable-install-libiberty
-    ]
-
     mkdir "build" do
       system "../libiberty/configure", *std_configure_args, "--enable-install-libiberty"
       system "make"
