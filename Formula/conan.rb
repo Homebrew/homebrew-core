@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/4c/d1/11e2d0a758e539a7edd1ec9c4ac7b8f0ff4281ce438ca6693169bc6dfbed/conan-1.43.2.tar.gz"
-  sha256 "338e0cd9b814bc36f9c01bc9cc535629786abaa8a67759526aa08c329a219a24"
+  url "https://files.pythonhosted.org/packages/e6/2d/3bbfaa59c2093fb4644b7161eb5a632255d204d0ee93185f1fdce281fde7/conan-1.44.0.tar.gz"
+  sha256 "17b0593e22354b4a602b0c11f9db4fe2414cd427097e4a5b5df18d070c4e3808"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
@@ -60,8 +60,8 @@ class Conan < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/4f/e7/65300e6b32e69768ded990494809106f87da1d436418d5f1367ed3966fd7/Jinja2-2.11.3.tar.gz"
-    sha256 "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
+    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
+    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
   end
 
   resource "MarkupSafe" do
