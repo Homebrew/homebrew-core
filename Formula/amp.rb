@@ -31,7 +31,7 @@ class Amp < Formula
     # Upstream specifies very old versions of onig_sys/cc that
     # cause issues when using Homebrew's clang shim on Apple Silicon.
     # Forcefully upgrade `onig_sys` and `cc` to slightly newer versions
-    # that enable a succesful build.
+    # that enable a successful build.
     # https://github.com/jmacdonald/amp/issues/222
     inreplace "Cargo.lock" do |f|
       f.gsub! "68.0.1", "68.2.1"
