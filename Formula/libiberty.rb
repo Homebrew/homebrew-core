@@ -17,7 +17,7 @@ class Libiberty < Formula
     ]
 
     mkdir "build" do
-      system "../libiberty/configure", *args
+      system "../libiberty/configure", *std_configure_args, "--enable-install-libiberty"
       system "make"
       system "make", "install"
     end
