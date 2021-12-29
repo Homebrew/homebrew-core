@@ -25,6 +25,7 @@ env:
     b3sum
     bcoin
     bottom
+    brew-php-switcher
     broot
     buildkit
     bundletool
@@ -63,6 +64,7 @@ env:
     double-conversion
     dprint
     dvc
+    easyengine
     envconsul
     esbuild
     eslint
@@ -144,11 +146,17 @@ env:
     okteto
     opensearch
     oxipng
+    phoronix-test-suite
+    php-code-sniffer
+    php-cs-fixer
+    phpmd
+    phpstan
     pickle
     pnpm
     pocsuite3
     procs
     protoc-gen-go-grpc
+    psalm
     rbw
     rollup
     s2n
