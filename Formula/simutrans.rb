@@ -1,8 +1,8 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "9274"
-  version "122.0"
+  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "10317"
+  version "123.0"
   license "Artistic-1.0"
   head "https://github.com/aburch/simutrans.git", branch: "master"
 
@@ -33,8 +33,8 @@ class Simutrans < Formula
   uses_from_macos "unzip"
 
   resource "pak64" do
-    url "https://downloads.sourceforge.net/project/simutrans/pak64/122-0/simupak64-122-0.zip"
-    sha256 "ce2ebf0e4e0c8df5defa10be114683f65559d5a994d1ff6c96bdece7ed984b74"
+    url "https://downloads.sourceforge.net/project/simutrans/pak64/123-0/simupak64-123-0.zip"
+    sha256 "b8a0a37c682d8f62a3b715c24c49bc738f91d6e1e4600a180bb4d2e9f85b86c1"
   end
 
   def install
@@ -45,12 +45,17 @@ class Simutrans < Formula
       BACKEND=sdl2
       MULTI_THREAD=1
       OPTIMISE=1
-      OSTYPE=mac
       USE_FREETYPE=1
       USE_UPNP=0
       USE_ZSTD=0
     ]
-    args << "AV_FOUNDATION=1" if MacOS.version >= :sierra
+    if OS.mac?
+      args << "AV_FOUNDATION=1" if MacOS.version >= :sierra
+      args << "OSTYPE=mac"
+    elsif OS.linux?
+      args << "OSTYPE=linux"
+    end
+
     system "autoreconf", "-ivf"
     system "./configure", "--prefix=#{prefix}", "CC=#{ENV.cc}"
     system "make", "all", *args
