@@ -17,6 +17,8 @@ class Rssh < Formula
     sha256 yosemite:       "a63ead463b79c5375e0b919976173db13a236fcea06c4fa038a719375a550ca9"
   end
 
+  deprecate! date: "2021-01-22", because: :unmaintained
+
   # Submitted upstream:
   # https://sourceforge.net/p/rssh/mailman/message/32251335/
   patch do
