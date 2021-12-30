@@ -4,7 +4,7 @@ class Direvent < Formula
   url "https://ftp.gnu.org/gnu/direvent/direvent-5.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/direvent/direvent-5.2.tar.gz"
   sha256 "239822cdda9ecbbbc41a69181b34505b2d3badd4df5367e765a0ceb002883b55"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c9879af22d0f9bba86a36cb76f7497377da85b061115615d500445be7741f24d"
