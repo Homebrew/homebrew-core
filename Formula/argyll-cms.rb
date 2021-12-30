@@ -24,6 +24,10 @@ class ArgyllCms < Formula
   depends_on "libpng"
   depends_on "libtiff"
 
+  on_linux do
+    depends_on "libx11"
+  end
+
   conflicts_with "num-utils", because: "both install `average` binaries"
 
   # Fixes a missing header, which is an error by default on arm64 but not x86_64
