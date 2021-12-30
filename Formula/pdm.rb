@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/ed/b9/883c5318b3ddb48c9f605263356300de736dac6b323f94ec58d4dbe668c6/pdm-1.12.1.tar.gz"
-  sha256 "e1cddce4607db70aa865d89bbfc5853d623b3177f83c76d76901f00b9be159e4"
+  url "https://files.pythonhosted.org/packages/27/58/5067bb6527c1a1c29198d5f164ea11072c85fc0daf497d8584d1bfde97cc/pdm-1.12.2.tar.gz"
+  sha256 "3e870eb8500e6dc76ec3d905e8d644c17c58c79e03bf54072405cd0b8289eebd"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -21,8 +21,8 @@ class Pdm < Formula
   depends_on "six"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
-    sha256 "ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"
+    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
+    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
   end
 
   resource "blinker" do
@@ -61,8 +61,8 @@ class Pdm < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/4b/96/d70b9462671fbeaacba4639ff866fb4e9e558580853fc5d6e698d0371ad4/platformdirs-2.4.0.tar.gz"
-    sha256 "367a5e80b3d04d2428ffa76d33f124cf11e8fff2acdaa9b43d545f5c7d661ef2"
+    url "https://files.pythonhosted.org/packages/be/00/bd080024010e1652de653bd61181e2dfdbef5fa73bfd32fec4c808991c31/platformdirs-2.4.1.tar.gz"
+    sha256 "440633ddfebcc36264232365d7840a970e75e1018d15b4327d11f91909045fda"
   end
 
   resource "pyparsing" do
