@@ -23,8 +23,11 @@ class Socat < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  # Fix `error: use of undeclared identifier 'TCP_INFO'`
+  patch :DATA
+
   def install
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make", "install"
   end
 
@@ -33,3 +36,26 @@ class Socat < Formula
     assert_match "HTTP/1.0", output.lines.first
   end
 end
+
+__END__
+diff --git a/filan.c b/filan.c
+index 3465f7c..77c22a4 100644
+--- a/filan.c
++++ b/filan.c
+@@ -905,6 +905,7 @@ int tcpan(int fd, FILE *outfile) {
+ #if WITH_TCP
+
+ int tcpan2(int fd, FILE *outfile) {
++#ifdef TCP_INFO
+    struct tcp_info tcpinfo;
+    socklen_t tcpinfolen = sizeof(tcpinfo);
+    int result;
+@@ -930,6 +931,8 @@ int tcpan2(int fd, FILE *outfile) {
+    // fprintf(outfile, "%s={%u}\t", "TCPI_", tcpinfo.tcpi_);
+
+    return 0;
++#endif
++   return -1;
+ }
+
+ #endif /* WITH_TCP */
