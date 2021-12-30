@@ -6,6 +6,11 @@ class Libxkbcommon < Formula
   license "MIT"
   head "https://github.com/xkbcommon/libxkbcommon.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libxkbcommon[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "a0e6a5b584a7f3fc1d50a73fe23219fece03acfccde7aefc64eb02b387ada6bd"
     sha256 arm64_big_sur:  "1eb1269f05403fc56cde1b2ba18316db80c3d7bc06343c744856df94a35fca05"
