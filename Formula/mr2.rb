@@ -1,8 +1,8 @@
 class Mr2 < Formula
   desc "Expose local server to external network"
   homepage "https://github.com/txthinking/mr2"
-  url "https://github.com/txthinking/mr2/archive/refs/tags/v20210401.tar.gz"
-  sha256 "3cf2874a5945e79fd9ca270181de1a9d6a662434455c58e2e20e5dbfdebd64c7"
+  url "https://github.com/txthinking/mr2/archive/refs/tags/v20211230.tar.gz"
+  sha256 "5e78704f4d955cc4fd6dcc3395392e52516f00296cb65454f6959d4b7b54e319"
   license "GPL-3.0-only"
 
   bottle do
