@@ -8,8 +8,8 @@ class Dtm < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.Version=v1.8.1", "-o", bin/"dtm"
-    system "go", "build", "-ldflags", "-s -w", "-o", bin/"dtm-qs", "qs/main.go"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=v#{version}"), "-o", bin/"dtm"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/"dtm-qs", "qs/main.go"
   end
 
   test do
@@ -23,5 +23,4 @@ class Dtm < Formula
     # clean up the dtm process before we leave
     Process.kill("HUP", dtm_pid)
   end
-
 end
