@@ -1,33 +1,19 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.10.7/ghc-8.10.7-src.tar.xz"
-  sha256 "e3eef6229ce9908dfe1ea41436befb0455fefb1932559e860ad4c606b0d03c9d"
-  # We bundle a static GMP so GHC inherits GMP's license
-  license all_of: [
-    "BSD-3-Clause",
-    any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
-  ]
-  revision 1
+  url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-src.tar.xz"
+  sha256 "140e42b96346322d1a39eb17602bcdc76e292028ad4a69286b230bab188a9197"
+  license "BSD-3-Clause"
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
-    regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(8(?:\.\d+)+)\s*?</i)
+    regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(9(?:\.\d+)+)\s*?</i)
   end
 
-  bottle do
-    sha256 cellar: :any,                 arm64_monterey: "41e846a0479f930390ae2c65cf7ae0f3ea3755ff26df56822fb999722fb4932e"
-    sha256 cellar: :any,                 arm64_big_sur:  "7ddd8e8dabdb5654f167aa079ef9a1290e20aa151ce3580eed24042d95d47b57"
-    sha256                               monterey:       "c50034c3553a0f6099e2dfc3c7c33ca148256fedc8bc9be492cc942284bb473e"
-    sha256                               big_sur:        "68f447996de80ef0aa655b9b0f5cc048503a09366b17edf77b101f9c1a38fe0b"
-    sha256                               catalina:       "14f6f4c4faa2ef0e4de7b225346c3b084de3356f069ac77eed05768046c70e28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bea0a8011b453e37e99855a6640642303d60c6611db366cb5f2d02a7546da19b"
-  end
-
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "sphinx-doc" => :build
-  # GHC 8.10.7 user manual recommend use LLVM 9 through 12
-  # https://downloads.haskell.org/~ghc/8.10.7/docs/html/users_guide/8.10.7-notes.html
+  # GHC 9.0.2 user manual recommend use LLVM 9 through 12
+  # https://downloads.haskell.org/~ghc/9.0.2/docs/html/users_guide/9.0.2-notes.html
   # and we met some unknown issue w/ LLVM 13 before https://gitlab.haskell.org/ghc/ghc/-/issues/20559
   # so conservatively use LLVM 12 here
   depends_on "llvm@12" if Hardware::CPU.arm?
@@ -35,36 +21,23 @@ class Ghc < Formula
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
 
-  on_macos do
-    resource "gmp" do
-      url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
-      mirror "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
-      mirror "https://ftpmirror.gnu.org/gmp/gmp-6.2.1.tar.xz"
-      sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
-    end
-  end
-
-  on_linux do
-    depends_on "gmp" => :build
-  end
-
-  # https://www.haskell.org/ghc/download_ghc_8_10_7.html#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_9_0_2.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
       if Hardware::CPU.intel?
-        url "https://downloads.haskell.org/~ghc/8.10.7/ghc-8.10.7-x86_64-apple-darwin.tar.xz"
-        sha256 "287db0f9c338c9f53123bfa8731b0996803ee50f6ee847fe388092e5e5132047"
+        url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-x86_64-apple-darwin.tar.xz"
+        sha256 "e1fe990eb987f5c4b03e0396f9c228a10da71769c8a2bc8fadbc1d3b10a0f53a"
       else
-        url "https://downloads.haskell.org/ghc/8.10.7/ghc-8.10.7-aarch64-apple-darwin.tar.xz"
-        sha256 "dc469fc3c35fd2a33a5a575ffce87f13de7b98c2d349a41002e200a56d9bba1c"
+        url "https://downloads.haskell.org/ghc/9.0.2/ghc-9.0.2-aarch64-apple-darwin.tar.xz"
+        sha256 "b1fcab17fe48326d2ff302d70c12bc4cf4d570dfbbce68ab57c719cfec882b05"
       end
     end
 
     on_linux do
-      url "https://downloads.haskell.org/~ghc/8.10.7/ghc-8.10.7-x86_64-deb9-linux.tar.xz"
-      sha256 "ced9870ea351af64fb48274b81a664cdb6a9266775f1598a79cbb6fdd5770a23"
+      url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-x86_64-deb9-linux.tar.xz"
+      sha256 "805f5628ce6cec678ba77ff48c924831ebdf75ec2c66368e8935a618913a150e"
     end
   end
 
@@ -73,44 +46,19 @@ class Ghc < Formula
     ENV["LD"] = "ld"
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
-    args = %w[--enable-numa=no]
-    if OS.mac?
-      # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
-      # executables link to Homebrew's GMP.
-      gmp = libexec/"integer-gmp"
-
-      # GMP *does not* use PIC by default without shared libs so --with-pic
-      # is mandatory or else you'll get "illegal text relocs" errors.
-      resource("gmp").stage do
-        cpu = Hardware::CPU.arm? ? "aarch64" : Hardware.oldest_cpu
-        system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
-                              "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
-        system "make"
-        system "make", "install"
-      end
-
-      args = ["--with-gmp-includes=#{gmp}/include",
-              "--with-gmp-libraries=#{gmp}/lib"]
-    end
+    # https://gitlab.haskell.org/ghc/ghc/-/issues/20592#note_391266
+    ENV["C_INCLUDE_PATH"] = `xcrun --show-sdk-path`.strip + "/usr/include/ffi" if Hardware::CPU.arm? && OS.mac?
 
     resource("binary").stage do
       binary = buildpath/"binary"
 
-      binary_args = args
-      if OS.linux?
-        binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
-        binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
-      end
-
-      system "./configure", "--prefix=#{binary}", *binary_args
+      system "./configure", "--prefix=#{binary}"
       ENV.deparallelize { system "make", "install" }
 
       ENV.prepend_path "PATH", binary/"bin"
     end
 
-    args << "--with-intree-gmp" if OS.linux?
-
-    system "./configure", "--prefix=#{prefix}", *args
+    system "./configure", "--prefix=#{prefix}"
     system "make"
 
     ENV.deparallelize { system "make", "install" }

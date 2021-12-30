@@ -29,6 +29,7 @@ class HaskellLanguageServer < Formula
   if Hardware::CPU.intel?
     depends_on "ghc@8.6" => [:build, :test]
     depends_on "ghc@8.8" => [:build, :test]
+    depends_on "ghc@8.10" => [:build, :test]
   end
 
   uses_from_macos "ncurses"
