@@ -22,6 +22,7 @@ class Grokj2k < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "pkg-config" => :build
   depends_on "exiftool"
   depends_on "jpeg-turbo"
   depends_on "libpng"
