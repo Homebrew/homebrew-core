@@ -27,8 +27,8 @@ class Ipmiutil < Formula
     inreplace "configure.ac", "test \"$archp\" = \"powerpc\"", "true"
     system "autoreconf", "-fiv"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
+                          "--disable-lanplus",
                           "--enable-sha256",
                           "--enable-gpl"
 
