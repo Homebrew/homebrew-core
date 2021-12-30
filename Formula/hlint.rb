@@ -1,8 +1,8 @@
 class Hlint < Formula
   desc "Haskell source code suggestions"
   homepage "https://github.com/ndmitchell/hlint"
-  url "https://hackage.haskell.org/package/hlint-3.3.5/hlint-3.3.5.tar.gz"
-  sha256 "812218e0e3eeceebe9ba8c9767543e2381ae163dafc81a762274951965493edf"
+  url "https://hackage.haskell.org/package/hlint-3.3.6/hlint-3.3.6.tar.gz"
+  sha256 "ae2526f4ca5c4c7090a451b1e0dedddcad98b0ab7d07c05b20de72da41b78e3c"
   license "BSD-3-Clause"
   head "https://github.com/ndmitchell/hlint.git", branch: "master"
 
