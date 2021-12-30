@@ -8,7 +8,7 @@ class Dtm < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=v#{version}"), "-o", bin/"dtm"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=v#{version}")
     system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/"dtm-qs", "qs/main.go"
   end
 
