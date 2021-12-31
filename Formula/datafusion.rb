@@ -19,6 +19,11 @@ class Datafusion < Formula
   # building ballista requires installing rustfmt
   depends_on "rustfmt" => :build
 
+  # Fix https://github.com/apache/arrow-datafusion/issues/1498, remove after next release
+  # Patch is equivalent to https://github.com/apache/arrow-datafusion/pull/1499,
+  # but does not apply cleanly
+  patch :DATA
+
   def install
     system "cargo", "install", *std_cargo_args(path: "datafusion-cli")
   end
@@ -28,3 +33,17 @@ class Datafusion < Formula
     assert_equal "[{\"n\":3}]", shell_output("#{bin}/datafusion-cli -q --format json -f datafusion_test.sql").strip
   end
 end
+
+__END__
+diff --git a/ballista/rust/core/Cargo.toml b/ballista/rust/core/Cargo.toml
+index 3d15e21e..9e9ad658 100644
+--- a/ballista/rust/core/Cargo.toml
++++ b/ballista/rust/core/Cargo.toml
+@@ -43,6 +43,7 @@ tonic = "0.5"
+ uuid = { version = "0.8", features = ["v4"] }
+ chrono = "0.4"
+
++quote = "=1.0.10"
+ arrow-flight = { version = "6.1.0"  }
+
+ datafusion = { path = "../../../datafusion", version = "6.0.0" }
