@@ -13,6 +13,7 @@ class Dtm < Formula
   end
 
   test do
+    assert_match "dtm version: v#{version}", shell_output("#{bin}/dtm -v")
     dtm_pid = fork do
       exec bin/"dtm"
     end
