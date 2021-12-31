@@ -4,6 +4,7 @@ class Ncdu < Formula
   url "https://dev.yorhel.nl/download/ncdu-2.0.tar.gz"
   sha256 "66cda6804767b2e91b78cfdca825f9fdaf6a0a4c6e400625a01ad559541847cc"
   license "MIT"
+  revision 1
   head "https://g.blicky.net/ncdu.git", branch: "zig"
 
   bottle do
@@ -20,7 +21,20 @@ class Ncdu < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "make", "PREFIX=#{prefix}", "install"
+    # Fix illegal instruction errors when using bottles on older CPUs.
+    # https://github.com/Homebrew/homebrew-core/issues/92282
+    cpu = case Hardware.oldest_cpu
+    when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
+    else Hardware.oldest_cpu
+    end
+
+    args = %W[--prefix #{prefix} -Drelease-fast=true]
+    args << "-Dcpu=#{cpu}" if build.bottle?
+
+    # Avoid the Makefile for now so that we can pass `-Dcpu` to `zig build`.
+    # https://code.blicky.net/yorhel/ncdu/issues/185
+    system "zig", "build", *args
+    man1.install "ncdu.1"
   end
 
   test do
