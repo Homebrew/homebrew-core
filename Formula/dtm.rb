@@ -9,7 +9,7 @@ class Dtm < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=v#{version}")
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/"dtm-qs", "qs/main.go"
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"dtm-qs"), "qs/main.go"
   end
 
   test do
