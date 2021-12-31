@@ -1,8 +1,8 @@
 class YazeAg < Formula
   desc "Yet Another Z80 Emulator (by AG)"
   homepage "https://www.mathematik.uni-ulm.de/users/ag/yaze-ag/"
-  url "https://www.mathematik.uni-ulm.de/users/ag/yaze-ag/devel/yaze-ag-2.51.1.1.tar.gz"
-  sha256 "0bcbb394b882bec91317c5fc08b7260a329b815b3fa4b50e669e1fc1ae49f5e4"
+  url "https://www.mathematik.uni-ulm.de/users/ag/yaze-ag/devel/yaze-ag-2.51.2.tar.gz"
+  sha256 "fc95cb1fc62cd5f69fc074261d8b5ceaef49a9be8679170f38f473f7bae7266d"
   license "GPL-2.0-or-later"
 
   livecheck do
