@@ -1,10 +1,9 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter-4.1.1.tar.gz"
-  sha256 "4cce3a4770a0d9a2691d21e3379fe616797e583a47273d69d1ec44f48b98836d"
+  url "https://mikutter.hachune.net/bin/mikutter-5.0.0.tar.gz"
+  sha256 "0d4bb9767c1446176ab7745e9ad18fe18682cec199bb910b14640929ba9cdd5b"
   license "MIT"
-  revision 2
   head "git://mikutter.hachune.net/mikutter.git", branch: "develop"
 
   livecheck do
