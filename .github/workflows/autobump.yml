@@ -21,9 +21,13 @@ env:
     ammonite-repl
     angular-cli
     ant
+    ant@1.9
     apache-archiva
+    apache-drill
     apache-flink
+    apache-geode
     apache-opennlp
+    apache-spark
     apidoc
     apktool
     argo
@@ -34,6 +38,7 @@ env:
     aws-cdk
     b3sum
     ballerina
+    batik
     bazel
     bazelisk
     bbtools
@@ -75,6 +80,7 @@ env:
     composer
     consul
     consul-template
+    couchdb
     cromwell
     crowdin
     crun
@@ -84,6 +90,7 @@ env:
     davmail
     deno
     dependency-check
+    derby
     detekt
     detox
     devspace
@@ -115,8 +122,10 @@ env:
     firebase-cli
     flank
     flarectl
+    flume
     flux
     flyway
+    fop
     fuse-overlayfs
     fuseki
     futhark
@@ -141,10 +150,12 @@ env:
     grails
     groovy
     groovysdk
+    hadoop
     hapi-fhir-cli
     hcloud
     helm
     helmfile
+    hive
     htmldoc
     hugo
     igv
@@ -153,6 +164,7 @@ env:
     imap-backup
     ipopt
     ircd-hybrid
+    ivy
     jadx
     java-service-wrapper
     jena
@@ -166,6 +178,7 @@ env:
     jql
     jruby
     jsonnet
+    jsvc
     just
     k3d
     k9s
@@ -187,6 +200,7 @@ env:
     librdkafka
     liquibase
     localstack
+    log4cxx
     lout
     macchina
     marked
@@ -236,6 +250,7 @@ env:
     phpstan
     picard-tools
     pickle
+    pig
     plantuml
     pmd
     pnpm
@@ -244,6 +259,7 @@ env:
     procs
     protoc-gen-go-grpc
     psalm
+    qpid-proton
     questdb
     rbw
     riemann
@@ -261,6 +277,7 @@ env:
     sleuthkit
     solana
     solr
+    solr@7.7
     sonarqube
     sonarqube-lts
     sponge
@@ -271,6 +288,7 @@ env:
     storm
     stress-ng
     structurizr-cli
+    subversion
     svgo
     svtplay-dl
     swagger-codegen
@@ -279,14 +297,19 @@ env:
     teleport
     termshark
     terraform-ls
+    thrift
     tika
     toast
     tomcat
     tomcat-native
     tomcat@8
     tomcat@9
+    tomee-plume
+    tomee-plus
+    tomee-webprofile
     topgrade
     traefik
+    trafficserver
     trino
     typedb
     vale
@@ -303,11 +326,14 @@ env:
     whistle
     wildfly-as
     wiremock-standalone
+    xalan-c
     xcbeautify
+    xerces-c
     xgboost
     xplr
     yaegi
     zellij
+    zookeeper
 
 jobs:
   autobump:
