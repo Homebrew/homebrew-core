@@ -3,7 +3,7 @@ class Mlkit < Formula
   homepage "https://melsman.github.io/mlkit"
   url "https://github.com/melsman/mlkit/archive/v4.6.0.tar.gz"
   sha256 "361756998e7828bbea12cdde150f3c484a7a41d14502788d199f7bb97d3bca51"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/melsman/mlkit.git", branch: "master"
 
   livecheck do
