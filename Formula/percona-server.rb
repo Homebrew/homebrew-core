@@ -18,11 +18,6 @@ class PerconaServer < Formula
     sha256 x86_64_linux:  "d444e36e30dc23b1a4c844f7d8ac5dfe506ca2ee3b4fd5a0c7cc6dbc4716ac9f"
   end
 
-  pour_bottle? do
-    reason "The bottle needs a var/mysql datadir (yours is var/percona)."
-    satisfy { datadir == var/"mysql" }
-  end
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
@@ -68,13 +63,6 @@ class PerconaServer < Formula
     sha256 "6709edb2393000bd89acf2d86ad0876bde3b84f46884d3cba7463cd346234f6f"
   end
 
-  # Where the database files should be located. Existing installs have them
-  # under var/percona, but going forward they will be under var/mysql to be
-  # shared with the mysql and mariadb formulae.
-  def datadir
-    @datadir ||= (var/"percona").directory? ? var/"percona" : var/"mysql"
-  end
-
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
@@ -88,7 +76,7 @@ class PerconaServer < Formula
       -DINSTALL_MANDIR=share/man
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DINSTALL_PLUGINDIR=lib/percona-server/plugin
-      -DMYSQL_DATADIR=#{datadir}
+      -DMYSQL_DATADIR=#{var}/mysql
       -DSYSCONFDIR=#{etc}
       -DENABLED_LOCAL_INFILE=1
       -DWITH_EMBEDDED_SERVER=ON
@@ -168,10 +156,10 @@ class PerconaServer < Formula
     # Don't initialize database, it clashes when testing other MySQL-like implementations.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    unless (datadir/"mysql/user.frm").exist?
+    unless (var/"mysql/mysql/user.frm").exist?
       ENV["TMPDIR"] = nil
       system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
-        "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
+        "--basedir=#{prefix}", "--datadir=#{var}/mysql", "--tmpdir=/tmp"
     end
   end
 
@@ -193,9 +181,9 @@ class PerconaServer < Formula
   end
 
   service do
-    run [opt_bin/"mysqld_safe", "--datadir", datadir]
+    run [opt_bin/"mysqld_safe", "--datadir", var/"mysql"]
     keep_alive true
-    working_dir datadir
+    working_dir var/"mysql"
   end
 
   test do
