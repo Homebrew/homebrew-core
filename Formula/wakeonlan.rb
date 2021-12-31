@@ -1,8 +1,8 @@
 class Wakeonlan < Formula
   desc "Sends magic packets to wake up network-devices"
   homepage "https://github.com/jpoliv/wakeonlan"
-  url "https://github.com/jpoliv/wakeonlan/archive/wakeonlan-0.41.tar.gz"
-  sha256 "1d8c3cd106f515167e49134abb8209af891ca152a00ee94a8c5137f654e079bc"
+  url "https://github.com/jpoliv/wakeonlan/archive/v0.42.tar.gz"
+  sha256 "4f533f109f7f4294f6452b73227e2ce4d2aa81091cf6ae1f4fa2f87bad04a031"
   license "Artistic-1.0-Perl"
 
   bottle do
