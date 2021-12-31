@@ -20,6 +20,9 @@ class AskCli < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.write_exec_script libexec/"bin/ask"
+
+    # Replace universal binaries with native slices
+    deuniversalize_machos
   end
 
   test do
