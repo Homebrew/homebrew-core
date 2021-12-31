@@ -24,6 +24,7 @@ class Socat < Formula
   depends_on "readline"
 
   # Fix `error: use of undeclared identifier 'TCP_INFO'`
+  # Remove in the next release
   patch :DATA
 
   def install
