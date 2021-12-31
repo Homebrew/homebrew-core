@@ -4,6 +4,7 @@ class Redis < Formula
   url "https://download.redis.io/releases/redis-6.2.6.tar.gz"
   sha256 "5b2b8b7a50111ef395bf1c1d5be11e6e167ac018125055daa8b5c2317ae131ab"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/redis/redis.git", branch: "unstable"
 
   livecheck do
