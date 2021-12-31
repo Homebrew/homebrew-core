@@ -24,7 +24,7 @@ class Redis < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
+    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes", "MALLOC=jemalloc"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
