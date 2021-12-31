@@ -1,6 +1,7 @@
 [
   ["advancemame", "advancemenu"],
   ["apache-arrow", "apache-arrow-glib"],
+  ["apache-pulsar", "libpulsar"],
   ["arm-linux-gnueabihf-binutils", "binutils"],
   ["aws-console", "cfn-format", "rain"],
   ["binutils", "i686-elf-binutils", "x86_64-elf-binutils"],
