@@ -1,7 +1,7 @@
 class Loudmouth < Formula
   desc "Lightweight C library for the Jabber protocol"
   homepage "https://mcabber.com"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   stable do
     url "https://mcabber.com/files/loudmouth/loudmouth-1.5.4.tar.bz2"
@@ -12,6 +12,11 @@ class Loudmouth < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
+  end
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?loudmouth[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
@@ -25,7 +30,7 @@ class Loudmouth < Formula
   end
 
   head do
-    url "https://github.com/mcabber/loudmouth.git"
+    url "https://github.com/mcabber/loudmouth.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
