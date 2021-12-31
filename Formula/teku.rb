@@ -34,7 +34,7 @@ class Teku < Formula
     fork do
       exec bin/"teku", "--rest-api-enabled", "--rest-api-port=#{rest_port}", "--p2p-enabled=false"
     end
-    sleep 10
+    sleep 15
 
     output = shell_output("curl -sS -XGET http://127.0.0.1:#{rest_port}/eth/v1/node/syncing")
     assert_match "is_syncing", output
