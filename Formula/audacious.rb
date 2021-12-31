@@ -68,13 +68,12 @@ class Audacious < Formula
 
   def install
     args = std_meson_args + %w[
-      -Ddbus=false
       -Dgtk=false
       -Dqt=true
     ]
 
     mkdir "build" do
-      system "meson", *args, ".."
+      system "meson", *args, "-Ddbus=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
