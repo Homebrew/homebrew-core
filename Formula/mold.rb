@@ -20,9 +20,6 @@ class Mold < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    # mold can only link ELF executables (for now)
-    # https://github.com/rui314/mold/issues/189
-    depends_on "x86_64-elf-gcc" => :test
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1200
   end
 
@@ -55,18 +52,31 @@ class Mold < Formula
     ]
     args << "STRIP=true" if OS.mac?
     system "make", *args, "install"
+
+    inreplace buildpath.glob("test/*/*.sh") do |s|
+      s.gsub!('mold="$(pwd)', "mold=\"#{bin}")
+      s.gsub!(/"?\$mold"?-wrapper/, lib/"mold/mold-wrapper", false)
+    end
+    pkgshare.install "test"
   end
 
   test do
+    # Avoid use of the `llvm_clang` shim.
+    ENV.clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
+
     (testpath/"test.c").write <<~EOS
       int main(void) { return 0; }
     EOS
 
-    ENV["CC"] = "x86_64-elf-gcc" if OS.mac?
+    # GCC 12.1.0+ can also use `-fuse-ld=mold`
+    linker_flag = case ENV.compiler
+    when :clang then "-fuse-ld=mold"
+    when /^gcc(-\d+)?$/ then "-B#{libexec}/mold"
+    else raise "unexpected compiler"
+    end
 
-    system ENV.cc, "-c", "test.c"
-    system bin/"mold", "test.o"
-    assert_predicate testpath/"a.out", :exist?
+    system ENV.cc, linker_flag, "test.c"
+    system "./a.out"
     return if OS.mac?
 
     system bin/"mold", "-run", ENV.cc, "test.c", "-o", "test"
