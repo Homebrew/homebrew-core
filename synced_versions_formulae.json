@@ -32,6 +32,7 @@
   ["mecab-unidic", "mecab-unidic-extended"],
   ["minizip", "zlib"],
   ["moarvm", "nqp", "rakudo"],
+  ["moreutils", "sponge"],
   ["mupdf", "mupdf-tools"],
   ["mysql", "mysql-client"],
   ["nifi-registry", "nifi"],
