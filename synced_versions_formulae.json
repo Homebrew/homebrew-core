@@ -3,6 +3,7 @@
   ["apache-arrow", "apache-arrow-glib"],
   ["apache-pulsar", "libpulsar"],
   ["arm-linux-gnueabihf-binutils", "binutils"],
+  ["avro-c", "avro-cpp", "avro-tools"],
   ["aws-console", "cfn-format", "rain"],
   ["binutils", "i686-elf-binutils", "x86_64-elf-binutils"],
   ["bundler-completion", "gem-completion", "rails-completion", "ruby-completion"],
