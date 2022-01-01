@@ -1,8 +1,10 @@
 class Pyside < Formula
+  include Language::Python::Virtualenv
+
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.2.1-src/pyside-setup-opensource-src-6.2.1.tar.xz"
-  sha256 "e0df6f42ed92e039d44ae9bf7d23cc4ee2fc4722c87adddbeafc6376074c4cd4"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.2.2-src/pyside-setup-opensource-src-6.2.2.tar.xz"
+  sha256 "70a74c7c7c9e5af46cae5b1943bc39a1399c4332b342d2c48103a1cfe99891a8"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -28,14 +30,25 @@ class Pyside < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
+  fails_with gcc: "5"
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+  end
+
   def install
     # upstream issue: https://bugreports.qt.io/browse/PYSIDE-1684
     inreplace "sources/pyside6/cmake/Macros/PySideModules.cmake",
               "${shiboken_include_dirs}",
               "${shiboken_include_dirs}:#{Formula["qt"].opt_include}"
 
+    python = Formula["python@3.9"]
+    venv = virtualenv_create(buildpath/"venv", python.opt_bin/"python3")
+    venv.pip_install resources
+
     qt = Formula["qt"]
-    site_packages = prefix/Language::Python.site_packages("python3")
+    site_packages = prefix/Language::Python.site_packages(python.opt_bin/"python3")
     site_pyside = site_packages/"PySide6"
     pyside_args = %w[
       --no-examples
@@ -44,7 +57,7 @@ class Pyside < Formula
       --shorter-paths
       --skip-docs
     ]
-    system "python3", *Language::Python.setup_install_args(prefix), *pyside_args
+    system buildpath/"venv/bin/python3", *Language::Python.setup_install_args(prefix), *pyside_args
 
     # install tools symlinks
     %w[lupdate lrelease].each { |x| ln_s (qt.opt_bin/x).relative_path_from(site_pyside), site_pyside }
