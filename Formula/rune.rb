@@ -9,12 +9,8 @@ class Rune < Formula
   depends_on "rust" => :build
 
   def install
-    cd "crates/rune-cli" do
-      system "cargo", "install", *std_cargo_args
-    end
-    cd "crates/rune-languageserver" do
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args(path: "crates/rune-cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/rune-languageserver")
   end
 
   test do
