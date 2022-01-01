@@ -1,10 +1,20 @@
 class Sdl2Mixer < Formula
   desc "Sample multi-channel audio mixer library"
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
-  url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz"
-  sha256 "b4cf5a382c061cd75081cf246c2aa2f9df8db04bdda8dcdc6b6cca55bede2419"
   license "Zlib"
-  revision 2
+  revision 3
+
+  stable do
+    url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz"
+    sha256 "b4cf5a382c061cd75081cf246c2aa2f9df8db04bdda8dcdc6b6cca55bede2419"
+
+    # Fix fluidsynth use-after-free bug until the release after 2.0.4, upstream patch
+    # https://github.com/libsdl-org/SDL_mixer/commit/6160668079f91d57a5d7bf0b40ffdd843be70daf
+    patch :p3 do
+      url "https://github.com/libsdl-org/SDL_mixer/commit/6160668079f91d57a5d7bf0b40ffdd843be70daf.patch?full_index=1"
+      sha256 "73e5ebf9136818b7a65f1e8fcbeb99c350654d7d9e53629adc26887e9e169d8d"
+    end
+  end
 
   livecheck do
     url :homepage
