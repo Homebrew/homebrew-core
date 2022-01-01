@@ -28,7 +28,8 @@ class Theharvester < Formula
 
   # How to update the resources
   # tar -zxvf theHarvester-4.0.3.tar.gz
-  # cd theHarvester-4.0.3 && pip install -r requirements/base.txt
+  # cd theHarvester-4.0.3 && virtualenv -p python3.10 . && source bin/activate && pip install -r requirements/base.txt
+  # pip freeze > dependencies.log
   # run homebrew-pypi-poet on the freezed dependencies
   resource "aiodns" do
     url "https://files.pythonhosted.org/packages/27/79/df72e25df0fdd9bf5a5ab068539731d27c5f2ae5654621ae0c92ceca94cf/aiodns-3.0.0.tar.gz"
