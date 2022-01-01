@@ -6,6 +6,11 @@ class Luarocks < Formula
   license "MIT"
   head "https://github.com/luarocks/luarocks.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(%r{/luarocks[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3c1d3b809e453e3754e920e6b915ebe9ad2562e7de23bcea9dff62e253681882"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c1d3b809e453e3754e920e6b915ebe9ad2562e7de23bcea9dff62e253681882"
