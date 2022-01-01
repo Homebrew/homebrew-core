@@ -23,11 +23,15 @@ class Omega < Formula
   depends_on "pcre"
   depends_on "xapian"
 
+  # Fix `query.cc:303:35: error: no member named 'FLAG_NO_POSITIONS' in 'Xapian::QueryParser'`
+  # remove in next version
+  patch do
+    url "https://github.com/xapian/xapian/commit/64c322212060a43d0b3d6a0e8a43516f487f3ba0.patch?full_index=1"
+    sha256 "39c0a72a979a694156ac28eefb0e48b93127142115def8bf3c4f3ef56d62bcbd"
+  end
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
