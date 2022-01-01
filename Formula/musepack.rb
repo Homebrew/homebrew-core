@@ -31,7 +31,8 @@ class Musepack < Formula
   end
 
   def install
-    ENV.append "LDFLAGS", "-lm" if OS.linux?
+    # Fix missing linkage to libm on Linux
+    (buildpath/"libmpcdec/CMakeLists.txt").append_lines "target_link_libraries(mpcdec m)\n" if OS.linux?
 
     system "cmake", ".", *std_cmake_args
     system "make", "install"
