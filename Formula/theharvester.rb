@@ -366,12 +366,9 @@ class Theharvester < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
-    venv.pip_install resources
-
-    libexec.install Dir["*"]
-    (libexec/"theHarvester.py").chmod 0755
-    (bin/"theharvester").write_env_script("#{libexec}/theHarvester.py", PATH: "#{libexec}/venv/bin:$PATH")
+    inreplace "setup.py", "/etc/theHarvester", etc/"theharvester"
+    virtualenv_install_with_resources
+    bin.install_symlink libexec/"bin/theHarvester" => "theharvester"
   end
 
   test do
