@@ -1,8 +1,10 @@
 class I2p < Formula
   desc "Anonymous overlay network - a network within a network"
   homepage "https://geti2p.net"
-  url "https://launchpad.net/i2p/trunk/0.9.50/+download/i2pinstall_0.9.50.jar"
-  sha256 "34902d2a7e678fda9261d489ab315661bd2915b9d0d81165acdee008d9031430"
+  url "https://download.i2p2.de/releases/1.6.1/i2pinstall_1.6.1.jar"
+  mirror "https://launchpad.net/i2p/trunk/1.6.1/+download/i2pinstall_1.6.1.jar"
+  sha256 "2ae90f28d51b84796079430bde53589e1c2117125d5fb7bb5c036c4e1ad1eb80"
+  license :public_domain
 
   livecheck do
     url "https://geti2p.net/en/download"
@@ -29,6 +31,10 @@ class I2p < Formula
     (bin/"eepget").write_env_script libexec/"eepget", JAVA_HOME: Formula["openjdk@11"].opt_prefix
     (bin/"i2prouter").write_env_script libexec/"i2prouter", JAVA_HOME: Formula["openjdk@11"].opt_prefix
     man1.install Dir["#{libexec}/man/*"]
+  end
+
+  service do
+    run [opt_bin/"i2prouter", "start"]
   end
 
   test do
