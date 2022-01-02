@@ -4,6 +4,7 @@ class NodeAT16 < Formula
   url "https://nodejs.org/dist/v16.13.1/node-v16.13.1.tar.xz"
   sha256 "4c23004fd75eaf799ad8e76fe34f53e0327f433d4acbfc883396f72e96cc63ad"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -78,11 +79,6 @@ class NodeAT16 < Formula
     ]
     system "python3", "configure.py", *args
     system "make", "install"
-
-    # Make sure that:
-    # - `node` can find our keg-only `python3`
-    # - npm and npx use our keg-only `node`
-    bin.env_script_all_files libexec, PATH: "#{which("python3").dirname}:#{bin}:${PATH}"
   end
 
   def post_install
