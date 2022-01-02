@@ -26,10 +26,15 @@ class Trafficserver < Formula
 
   depends_on "pkg-config" => :build
   depends_on "hwloc"
-  depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
   depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "yaml-cpp"
+
+  # remove in next release
+  patch do
+    url "https://github.com/apache/trafficserver/commit/35d50da093d8a536c972993a7dc2e1d943969581?full_index=1"
+    sha256 "2b602921fecffcee45bdb2c9b637db9b4e997c1f6a3002223592dc754f072bbe"
+  end
 
   def install
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
