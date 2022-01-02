@@ -1,8 +1,8 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
   homepage "https://www.latex2html.org"
-  url "https://github.com/latex2html/latex2html/archive/v2021.2.tar.gz"
-  sha256 "892714d87d2ab357488679bda91ae1333b1da6d9743fd42443cc71aaf069cb83"
+  url "https://github.com/latex2html/latex2html/archive/v2022.tar.gz"
+  sha256 "9b3ba484226a2e39fb20695729370372b355f71bd65eeb4dd14f2c78699ed59a"
   license "GPL-2.0-or-later"
 
   livecheck do
