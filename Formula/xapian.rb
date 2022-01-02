@@ -1,8 +1,8 @@
 class Xapian < Formula
   desc "C++ search engine library"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz"
-  sha256 "196ddbb4ad10450100f0991a599e4ed944cbad92e4a6fe813be6dce160244b77"
+  url "https://oligarchy.co.uk/xapian/1.4.19/xapian-core-1.4.19.tar.xz"
+  sha256 "1fca48fca6cc3526cc4ba93dd194fe9c1326857b78edcfb37e68d086d714a9c3"
   license "GPL-2.0-or-later"
   version_scheme 1
 
