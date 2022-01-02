@@ -32,7 +32,7 @@ class Trafficserver < Formula
 
   # remove in next release
   patch do
-    url "https://github.com/apache/trafficserver/commit/35d50da093d8a536c972993a7dc2e1d943969581?full_index=1"
+    url "https://github.com/apache/trafficserver/commit/35d50da093d8a536c972993a7dc2e1d943969581.patch?full_index=1"
     sha256 "2b602921fecffcee45bdb2c9b637db9b4e997c1f6a3002223592dc754f072bbe"
   end
 
