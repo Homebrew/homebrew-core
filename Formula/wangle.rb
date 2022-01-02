@@ -4,6 +4,7 @@ class Wangle < Formula
   url "https://github.com/facebook/wangle/releases/download/v2021.12.27.00/wangle-v2021.12.27.00.tar.gz"
   sha256 "306ac9b25a380fdefe2a6dac91b51802da2758a93d5b414d1cdf17e4c2839cc7"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/facebook/wangle.git", branch: "master"
 
   bottle do
