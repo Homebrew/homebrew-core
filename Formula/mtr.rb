@@ -4,6 +4,7 @@ class Mtr < Formula
   url "https://github.com/traviscross/mtr/archive/v0.94.tar.gz"
   sha256 "ea036fdd45da488c241603f6ea59a06bbcfe6c26177ebd34fff54336a44494b8"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/traviscross/mtr.git", branch: "master"
 
   bottle do
@@ -20,6 +21,7 @@ class Mtr < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
+  depends_on "jansson"
 
   def install
     # Fix UNKNOWN version reported by `mtr --version`.
