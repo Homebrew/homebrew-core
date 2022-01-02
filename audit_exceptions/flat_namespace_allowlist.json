@@ -5,6 +5,7 @@
   "blast",
   "coq",
   "hdf5-mpi",
+  "lablgtk",
   "libvirt",
   "mpich",
   "omniorb",
