@@ -4,8 +4,8 @@ class Spdlog < Formula
   url "https://github.com/gabime/spdlog/archive/v1.9.2.tar.gz"
   sha256 "6fff9215f5cb81760be4cc16d033526d1080427d236e86d70bb02994f85e3d38"
   license "MIT"
-  head "https://github.com/gabime/spdlog.git", branch: "v1.x"
   revision 1
+  head "https://github.com/gabime/spdlog.git", branch: "v1.x"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3322b0afb1b04d54503384ad22c23b0d7f93ef7f949bb1c0623a112df7adbe6d"
