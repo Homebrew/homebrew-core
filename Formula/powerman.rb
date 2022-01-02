@@ -4,8 +4,8 @@ class Powerman < Formula
   license "GPL-2.0"
 
   stable do
-    url "https://github.com/chaos/powerman/releases/download/2.3.26/powerman-2.3.26.tar.gz"
-    sha256 "19e213127f468b835165b8e2082ff2dfff62d6832f3332160f2c6ba8b2d286ad"
+    url "https://github.com/chaos/powerman/releases/download/v2.3.27/powerman-2.3.27.tar.gz"
+    sha256 "1575f0c2cc49ba14482582b9bbba19e95496434f95d52de6ad2412e66200d2d8"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
