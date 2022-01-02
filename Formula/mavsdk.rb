@@ -122,7 +122,7 @@ class Mavsdk < Formula
                     "-I#{include}", "-L#{lib}", "-lmavsdk"
     assert_match "v#{version}-#{tap.user}", shell_output("./test").chomp
 
-    assert_equal "Usage: #{bin}/mavsdk_server [-h | --help]",
+    assert_equal "Usage: #{bin}/mavsdk_server [Options] [Connection URL]",
                  shell_output("#{bin}/mavsdk_server --help").split("\n").first
   end
 end
