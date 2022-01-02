@@ -20,10 +20,10 @@ class Scotch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "085ce19d188ae760959d428a7da362de763e74d4d83efc598cef3cb2772df291"
   end
 
+  depends_on "bison" => :build
   depends_on "open-mpi"
 
-  uses_from_macos "bison"
-  uses_from_macos "flex"
+  uses_from_macos "flex" => :build
   uses_from_macos "zlib"
 
   def install
