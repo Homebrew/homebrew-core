@@ -6,7 +6,7 @@ class Freshenv < Formula
   url "https://files.pythonhosted.org/packages/88/91/75539ca1a7b0aec86dc5759be1a6167edc017e950beecd1d67f3018587d6/freshenv-0.1.2.tar.gz"
   sha256 "9cbed9143cb904b5fa5c2f226ecd95a9f9b5692cee773b85cfb402020176d273"
   license "MIT"
-  depends_on "python@3.7"
+  depends_on "python@3.8"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
