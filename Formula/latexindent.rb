@@ -1,8 +1,8 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://ctan.org/pkg/latexindent"
-  url "https://github.com/cmhughes/latexindent.pl/archive/V3.13.4.tar.gz"
-  sha256 "70338e1cc75fa0ea5cf080ddd34d8f8ce0ec911dafe8207b0dbff8f7b1dee17f"
+  url "https://github.com/cmhughes/latexindent.pl/archive/V3.13.5.tar.gz"
+  sha256 "8e79dcdad9c38f1040ad534c8515e9f7b90db28911a0581f145408d63d99e2b3"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -84,8 +84,8 @@ class Latexindent < Formula
   end
 
   resource "MRO::Compat" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/MRO-Compat-0.14_01.tar.gz"
-    sha256 "bc214d7964bc72f5a4015cc6b0d27376071cb64bd955280fea40c046b64d911a"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/MRO-Compat-0.15.tar.gz"
+    sha256 "0d4535f88e43babd84ab604866215fc4d04398bd4db7b21852d4a31b1c15ef61"
   end
 
   resource "Module::Build" do
