@@ -19,7 +19,9 @@ class Htpdate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8f689a5fc8281aded19911218b02501c17ce75df1eae2ca2a98c09fa77b2cc0"
   end
 
-  depends_on macos: :high_sierra # needs <sys/timex.h>
+  # https://github.com/twekkel/htpdate/pull/9
+  # remove in next release
+  patch :DATA
 
   def install
     system "make", "prefix=#{prefix}",
@@ -33,3 +35,17 @@ class Htpdate < Formula
     system "#{sbin}/htpdate", "-q", "-d", "-u", ENV["USER"], "example.org"
   end
 end
+
+__END__
+diff --git a/htpdate.c b/htpdate.c
+index e25bb3c..fbed343 100644
+--- a/htpdate.c
++++ b/htpdate.c
+@@ -52,7 +52,7 @@
+ #include <pwd.h>
+ #include <grp.h>
+
+-#if defined __NetBSD__ || defined __FreeBSD__
++#if defined __NetBSD__ || defined __FreeBSD__ || defined __APPLE__
+ #define adjtimex ntp_adjtime
+ #endif
