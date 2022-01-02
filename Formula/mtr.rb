@@ -48,7 +48,11 @@ class Mtr < Formula
   end
 
   test do
+    # We patch generation of the version, so let's check that we did that properly.
+    assert_match "mtr #{version}", shell_output("#{sbin}/mtr --version")
     # mtr will not run without root privileges
     assert_match "Failure to open", shell_output("#{sbin}/mtr google.com 2>&1", 1)
+    # Check that the `--json` flag is recognised.
+    assert_match "Failure to open", shell_output("#{sbin}/mtr --json google.com 2>&1", 1)
   end
 end
