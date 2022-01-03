@@ -21,12 +21,11 @@ class Tesseract < Formula
   end
 
   depends_on "autoconf" => :build
-  depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "leptonica"
-  depends_on "libtiff"
+  depends_on "libarchive"
 
   on_linux do
     depends_on "gcc"
