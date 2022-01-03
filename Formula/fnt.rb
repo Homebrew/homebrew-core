@@ -15,6 +15,6 @@ class Fnt < Formula
   end
 
   test do
-    system "#{bin}/fnt", "info"
+    assert_match "Available Fonts", shell_output("#{bin}/fnt info")
   end
 end
