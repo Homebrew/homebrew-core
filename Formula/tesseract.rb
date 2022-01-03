@@ -27,6 +27,8 @@ class Tesseract < Formula
   depends_on "leptonica"
   depends_on "libarchive"
 
+  uses_from_macos "curl"
+
   on_linux do
     depends_on "gcc"
   end
