@@ -19,6 +19,10 @@ class Yafc < Formula
   depends_on "libssh"
   depends_on "readline"
 
+  on_linux do
+    depends_on "libbsd"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
