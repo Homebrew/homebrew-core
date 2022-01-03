@@ -21,8 +21,8 @@ class Ortp < Formula
   # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
   # https://github.com/BelledonneCommunications/bctoolbox
   resource "bctoolbox" do
-    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.0.61/bctoolbox-5.0.61.tar.bz2"
-    sha256 "84e18d00887770852a55c64493ac98fc8d9a3aa51e8aac4ab32a55cd5b618b0a"
+    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.0.63/bctoolbox-5.0.63.tar.bz2"
+    sha256 "ac08b7d5ca646e0cf35dd504c1ac1ef520ab497df1a8cd4b00dc429368698ec5"
   end
 
   def install
