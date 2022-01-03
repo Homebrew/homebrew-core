@@ -1,10 +1,9 @@
 class Travis < Formula
   desc "Command-line client for Travis CI"
   homepage "https://github.com/travis-ci/travis.rb/"
-  url "https://github.com/travis-ci/travis.rb/archive/v1.10.0.tar.gz"
-  sha256 "b63991faebbd5da0e92bf1547775b69a0dbed01dd57e8b469d23a2a7bd79da43"
+  url "https://github.com/travis-ci/travis.rb/archive/v1.11.0.tar.gz"
+  sha256 "76cb0821aeb60e3e302932365dd437a393674de80e02972873bf3e511af564ca"
   license "MIT"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e568ccee54871068ca97e2715e9b15a920d83250c5668c03ed67c0ea5d633224"
