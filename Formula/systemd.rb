@@ -33,7 +33,7 @@ class Systemd < Formula
   depends_on "util-linux" # for libmount
   depends_on "xz"
   depends_on "zstd"
-  
+
   patch do
     url "https://github.com/SMillerDev/systemd/commit/fb945d00b98b9f63d48cceca7da92f183dd369c1.patch?full_index=1"
     sha256 "3422c3f8404350ca09de5e5ab03440053e4dd8be0c7919345cab3993c0a41dd4"
