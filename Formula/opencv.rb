@@ -4,7 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/4.5.4.tar.gz"
   sha256 "c20bb83dd790fc69df9f105477e24267706715a9d3c705ca1e7f613c7b3bad3d"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
