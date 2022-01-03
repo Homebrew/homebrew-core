@@ -44,6 +44,9 @@ class Ngspice < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    # remove conflict lib files with libngspice
+    rm_rf Dir[lib/"ngspice"]
   end
 
   test do
