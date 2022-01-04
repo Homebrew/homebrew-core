@@ -46,6 +46,7 @@ class R < Formula
   skip_clean "lib/R/bin", "lib/R/doc"
 
   def install
+
     # BLAS detection fails with Xcode 12 due to missing prototype
     # https://bugs.r-project.org/bugzilla/show_bug.cgi?id=18024
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
@@ -99,11 +100,18 @@ class R < Formula
 
     r_home = lib/"R"
 
-    # make Homebrew packages discoverable for R CMD INSTALL
     inreplace r_home/"etc/Makeconf" do |s|
+      
+      # make Homebrew packages discoverable for R CMD INSTALL
       s.gsub!(/^CPPFLAGS =.*/, "\\0 -I#{HOMEBREW_PREFIX}/include")
       s.gsub!(/^LDFLAGS =.*/, "\\0 -L#{HOMEBREW_PREFIX}/lib")
       s.gsub!(/.LDFLAGS =.*/, "\\0 $(LDFLAGS)")
+
+      # configure R with Objective C++ compiler
+      if OS.mac?
+        s.gsub!(/^OBJCXX =.*/, "OBJCXX = $(CXX)")
+      end
+
     end
 
     include.install_symlink Dir[r_home/"include/*"]
