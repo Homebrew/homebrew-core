@@ -1,9 +1,9 @@
 class Libpano < Formula
   desc "Build panoramic images from a set of overlapping images"
   homepage "https://panotools.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/panotools/libpano13/libpano13-2.9.20/libpano13-2.9.20.tar.gz"
-  version "13-2.9.20"
-  sha256 "3b532836c37b8cd75cd2227fd9207f7aca3fdcbbd1cce3b9749f056a10229b89"
+  url "https://downloads.sourceforge.net/project/panotools/libpano13/libpano13-2.9.21/libpano13-2.9.21.tar.gz"
+  version "13-2.9.21"
+  sha256 "79e5a1452199305e2961462720ef5941152779c127c5b96fc340d2492e633590"
 
   livecheck do
     url :stable
@@ -20,20 +20,39 @@ class Libpano < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c9f6180154f15419ba4f2486eddd5f110098ebc3150b2007f867e9459c24b4b"
   end
 
+  depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
+  uses_from_macos "zlib"
+
+  patch :DATA
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make"
+      system "make", "install"
+    end
   end
 end
+
+__END__
+diff --git a/panorama.h b/panorama.h
+index 70a9fae..2942993 100644
+--- a/panorama.h
++++ b/panorama.h
+@@ -53,8 +53,12 @@
+ #define PT_BIGENDIAN 1
+ #endif
+ #else
++#if defined(__APPLE__)
++#include <machine/endian.h>
++#else
+ #include <endian.h>
+ #endif
++#endif
+ #if defined(__BYTE_ORDER) && (__BYTE_ORDER == __BIG_ENDIAN)
+ #define PT_BIGENDIAN 1
+ #endif
