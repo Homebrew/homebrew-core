@@ -15,6 +15,7 @@ class Vte3 < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "llvm" => :build if MacOS.version <= :catalina # for c++20
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
