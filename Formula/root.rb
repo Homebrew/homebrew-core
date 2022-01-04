@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.24.06.source.tar.gz"
   sha256 "907f69f4baca1e4f30eeb4979598ca7599b6aa803ca046e80e25b6bbaa0ef522"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
@@ -37,7 +38,7 @@ class Root < Formula
   depends_on "python@3.9"
   depends_on "sqlite"
   depends_on "tbb"
-  depends_on :xcode if MacOS.version <= :catalina
+  depends_on :xcode
   depends_on "xrootd"
   depends_on "xz" # for LZMA
   depends_on "zstd"
