@@ -21,6 +21,7 @@ class Overdrive < Formula
 
   test do
     # A full run would require an authentic file, which can only be used once
-    assert_match "warning: failed to load", shell_output("#{bin}/overdrive download fake_file.odm 2>&1", 1)
+    assert_match "Specified media file does not exist",
+      shell_output("#{bin}/overdrive download fake_file.odm 2>&1", 2)
   end
 end
