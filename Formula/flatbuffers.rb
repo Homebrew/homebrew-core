@@ -6,6 +6,11 @@ class Flatbuffers < Formula
   license "Apache-2.0"
   head "https://github.com/google/flatbuffers.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a127e4a829de86f314a3990b9d85bf14d854bb682e8f8e32272990095b2b654a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd07b2efac10b35609da3ab52c9549d360c6db6b6193d5b916dc5eb98c27267b"
