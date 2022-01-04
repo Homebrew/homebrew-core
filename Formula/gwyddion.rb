@@ -1,8 +1,8 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.59/gwyddion-2.59.tar.gz"
-  sha256 "b777eaa9a53a971c55a5ae2f7cd6695d1dbde78ffb84b9cf8885361400f051c7"
+  url "http://gwyddion.net/download/2.60/gwyddion-2.60.tar.gz"
+  sha256 "1ec7f188d65d0d7276157400f0e9661fb13243a923cc65eea58fe1ec3d8d900d"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -10,12 +10,12 @@ class Gwyddion < Formula
     regex(/stable version Gwyddion v?(\d+(?:\.\d+)+):/i)
   end
 
-  bottle do
-    sha256 arm64_big_sur: "84daa1965a976e10f7fc3c86181060ab41de374e60e40f4c583d1708c62f4e2d"
-    sha256 big_sur:       "0843f910f945f7ccfa32b172e499733f03f5bd1ffb5651cd09dd9e4908bfa098"
-    sha256 catalina:      "ff6670705c707245cc11ae74a4b7c3ae973e6a5fdda03a4edf2cd1a114da0c13"
-    sha256 mojave:        "78eb5e116ce465537772408846a45680195b1184f616fc3663fe60fa3db6a02b"
-  end
+  # bottle do
+  #   sha256 arm64_big_sur: "84daa1965a976e10f7fc3c86181060ab41de374e60e40f4c583d1708c62f4e2d"
+  #   sha256 big_sur:       "0843f910f945f7ccfa32b172e499733f03f5bd1ffb5651cd09dd9e4908bfa098"
+  #   sha256 catalina:      "ff6670705c707245cc11ae74a4b7c3ae973e6a5fdda03a4edf2cd1a114da0c13"
+  #   sha256 mojave:        "78eb5e116ce465537772408846a45680195b1184f616fc3663fe60fa3db6a02b"
+  # end
 
   depends_on "pkg-config" => :build
   depends_on "fftw"
@@ -24,6 +24,9 @@ class Gwyddion < Formula
   depends_on "gtksourceview"
   depends_on "libxml2"
   depends_on "minizip"
+  depends_on "pygobject"
+  depends_on "pygtk"
+  depends_on "python@2"
 
   on_macos do
     depends_on "gtk-mac-integration"
@@ -33,8 +36,8 @@ class Gwyddion < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-desktop-file-update",
                           "--prefix=#{prefix}",
-                          "--with-html-dir=#{doc}",
-                          "--disable-pygwy"
+                          "--with-html-dir=#{doc}" #,
+                          # "--disable-pygwy"
     system "make", "install"
   end
 
