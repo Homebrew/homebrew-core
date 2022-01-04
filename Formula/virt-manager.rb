@@ -86,6 +86,6 @@ class VirtManager < Formula
   end
 
   test do
-    assert_match "help", shell_output("#{bin}/virt-manager --help")
+    system "#{bin}/virt-manager", "-c", "test:///default", "--no-fork"
   end
 end
