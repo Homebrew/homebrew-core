@@ -1,8 +1,8 @@
 class LeakcanaryShark < Formula
   desc "CLI Java memory leak explorer for LeakCanary"
   homepage "https://square.github.io/leakcanary/shark/"
-  url "https://github.com/square/leakcanary/releases/download/v2.7/shark-cli-2.7.zip"
-  sha256 "6a4198deec2369f6b7e03e4a0175eb1cdba74b02989159f652b729016e140468"
+  url "https://github.com/square/leakcanary/releases/download/v2.8/shark-cli-2.8.zip"
+  sha256 "d1787c5268be1b9a9234f580c4e442eb99d9d35404709a0821392e456d29a2e2"
   license "Apache-2.0"
 
   bottle do
