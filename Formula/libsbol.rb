@@ -4,7 +4,7 @@ class Libsbol < Formula
   url "https://github.com/SynBioDex/libSBOL/archive/v2.3.2.tar.gz"
   sha256 "c85de13b35dec40c920ff8a848a91c86af6f7c7ee77ed3c750f414bbbbb53924"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "98d0945d4d7e7fd37d5e71cde652b92f7b4a3b80164ae46fe50cd2cfabad160a"
