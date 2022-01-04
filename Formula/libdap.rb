@@ -1,9 +1,17 @@
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "https://www.opendap.org/"
-  url "https://www.opendap.org/pub/source/libdap-3.20.9.tar.gz"
-  sha256 "77fc93159d2c71d6ace5709babd9dec598285186aecfba358cb623be29a8e5b9"
   license "LGPL-2.1-or-later"
+
+  stable do
+    url "https://www.opendap.org/pub/source/libdap-3.20.9.tar.gz"
+    sha256 "77fc93159d2c71d6ace5709babd9dec598285186aecfba358cb623be29a8e5b9"
+
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   livecheck do
     url "https://www.opendap.org/pub/source/"
