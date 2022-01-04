@@ -8,7 +8,7 @@ class Gauche < Formula
   livecheck do
     url :stable
     strategy :github_latest
-    regex(/href=.*?Gauche[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?Gauche[._-]v?(\d+(?:\.\d+)+(?:[._-]p\d+)?)\.t/i)
   end
 
   bottle do
