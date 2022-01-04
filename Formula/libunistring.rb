@@ -1,10 +1,10 @@
 class Libunistring < Formula
   desc "C string library for manipulating Unicode strings"
   homepage "https://www.gnu.org/software/libunistring/"
-  url "https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libunistring/libunistring-0.9.10.tar.gz"
-  mirror "http://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.gz"
-  sha256 "a82e5b333339a88ea4608e4635479a1cfb2e01aafb925e1290b65710d43f610b"
+  url "https://ftp.gnu.org/gnu/libunistring/libunistring-1.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libunistring/libunistring-1.0.tar.gz"
+  mirror "http://ftp.gnu.org/gnu/libunistring/libunistring-1.0.tar.gz"
+  sha256 "3c0184c0e492d7c208ce31d25dd1d2c58f0c3ed6cbbe032c5b248cddad318544"
   license any_of: ["GPL-2.0-only", "LGPL-3.0-or-later"]
 
   bottle do
