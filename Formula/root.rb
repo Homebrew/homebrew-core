@@ -4,7 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.24.06.source.tar.gz"
   sha256 "907f69f4baca1e4f30eeb4979598ca7599b6aa803ca046e80e25b6bbaa0ef522"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
