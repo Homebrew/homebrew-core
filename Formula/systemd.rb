@@ -34,6 +34,12 @@ class Systemd < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  # Fix missing mount constants, remove in next version
+  patch do
+    url "https://github.com/systemd/systemd/commit/0764e3a327573e7bda2f0e1a914f28482ab00574.patch?full_index=1"
+    sha256 "ad34441deb22b37272d4fd6a307a804f8ceffc0452c17f2353a144b3c04d5451"
+  end
+
   def install
     ENV["PYTHONPATH"] = Formula["jinja2-cli"].opt_libexec/Language::Python.site_packages("python3")
 
