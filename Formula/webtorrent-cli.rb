@@ -22,18 +22,14 @@ class WebtorrentCli < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Remove incompatible pre-built binaries
-    modules_dir = libexec/"lib/node_modules"/name/"node_modules"
-    modules_dir.glob("*/prebuilds/{win32-,linux-arm}*").map(&:rmtree)
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    libexec.glob("lib/node_modules/webtorrent-cli/node_modules/{bufferutil,utf-8-validate}/prebuilds/*")
+           .each { |dir| dir.rmtree if dir.basename.to_s != "#{os}-#{arch}" }
 
-    arch_to_remove = if OS.linux?
-      "*"
-    elsif Hardware::CPU.intel?
-      "arm64"
-    else
-      "x64"
-    end
-    modules_dir.glob("*/prebuilds/darwin-#{arch_to_remove}").map(&:rmtree)
-  end
+    # Replace universal binaries with their native slices
+    deuniversalize_machos
+ end
 
   test do
     magnet_uri = <<~EOS.gsub(/\s+/, "").strip
