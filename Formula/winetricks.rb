@@ -6,6 +6,11 @@ class Winetricks < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/Winetricks/winetricks.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d{6,8})$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "322c2e6e1dd72073bfb03a230820eb039592c016103d0c442739e9f6c9f3470b"
   end
