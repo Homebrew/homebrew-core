@@ -29,7 +29,7 @@ class WebtorrentCli < Formula
 
     # Replace universal binaries with their native slices
     deuniversalize_machos
- end
+  end
 
   test do
     magnet_uri = <<~EOS.gsub(/\s+/, "").strip
