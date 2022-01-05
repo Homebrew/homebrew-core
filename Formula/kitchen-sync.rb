@@ -30,12 +30,6 @@ class KitchenSync < Formula
 
   fails_with gcc: "5"
 
-  # remove in next version
-  patch do
-    url "https://github.com/willbryant/kitchen_sync/commit/8a160b46ff8e35832e9a4c891dbc50706ccba95b.patch?full_index=1"
-    sha256 "eae7c668242a8505fe9648d5a2b25ec974ff166f518548df3ff53851a4426473"
-  end
-
   def install
     system "cmake", ".",
                     "-DMySQL_INCLUDE_DIR=#{Formula["mysql-client"].opt_include}/mysql",
