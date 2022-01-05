@@ -1,13 +1,13 @@
 class GradleProfiler < Formula
   desc "Profiling and benchmarking tool for Gradle builds"
   homepage "https://github.com/gradle/gradle-profiler/"
-  url "https://repo1.maven.org/maven2/org/gradle/profiler/gradle-profiler/0.17.0/gradle-profiler-0.17.0.zip"
+  url "https://search.maven.org/remotecontent?filepath=org/gradle/profiler/gradle-profiler/0.17.0/gradle-profiler-0.17.0.zip"
   sha256 "c71812c0fc79e23d8c9eafc831ba2f016bb7744935912b0aac1a98972dc30abe"
   license "Apache-2.0"
   revision 1
 
   livecheck do
-    url "https://repo1.maven.org/maven2/org/gradle/profiler/gradle-profiler/maven-metadata.xml"
+    url "https://search.maven.org/remotecontent?filepath=org/gradle/profiler/gradle-profiler/maven-metadata.xml"
     regex(%r{<version>\s*v?(\d+(?:\.\d+)+)\s*</version>}i)
   end
 
