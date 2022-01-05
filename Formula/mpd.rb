@@ -7,6 +7,11 @@ class Mpd < Formula
   revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
+  livecheck do
+    url "https://www.musicpd.org/download.html"
+    regex(/href=.*?mpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_monterey: "54c7e52bf6b8c63e1633524062ee8d824c744231bc37e1e9ab67379c5726d1b9"
     sha256 cellar: :any, arm64_big_sur:  "38267e1c03e97cd53c3225326656ba5cab228e715f30ea4b4b6b2e1393149022"
