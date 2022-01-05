@@ -1,8 +1,8 @@
 class ElasticsearchAT6 < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.21.tar.gz"
-  sha256 "157b6a6b991e80eb27a864abc1f847a1590218eb1632776b0fc3bfa88079f4dd"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.22.tar.gz"
+  sha256 "836a50df324a98837dcadbc7d55782cc9525f15cc6a8aa0c657e199667ebb996"
   license "Apache-2.0"
 
   bottle do
