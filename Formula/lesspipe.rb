@@ -10,6 +10,7 @@ class Lesspipe < Formula
   end
 
   def install
+    inreplace "configure", "/etc/bash_completion.d", bash_completion
     system "./configure", "--prefix=#{prefix}", "--yes"
     man1.mkpath
     system "make", "install"
