@@ -3,8 +3,9 @@ class Doxygen < Formula
   homepage "https://www.doxygen.org/"
   url "https://doxygen.nl/files/doxygen-1.9.3.src.tar.gz"
   mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.9.3/doxygen-1.9.3.src.tar.gz"
-  sha256 "1a413e7122a0f9bb519697613ba05247afad1adc5699390b6e6ee387d42c0b2d"
+  sha256 "f352dbc3221af7012b7b00935f2dfdc9fb67a97d43287d2f6c81c50449d254e0"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/doxygen/doxygen.git", branch: "master"
 
   livecheck do
