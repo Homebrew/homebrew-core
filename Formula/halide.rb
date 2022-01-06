@@ -24,6 +24,8 @@ class Halide < Formula
   depends_on "llvm"
   depends_on "python@3.10"
 
+  fails_with gcc: "5" # LLVM is built with Homebrew GCC
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DHalide_SHARED_LLVM=ON"
