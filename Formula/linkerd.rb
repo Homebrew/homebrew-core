@@ -27,16 +27,19 @@ class Linkerd < Formula
 
     system "bin/build-cli-bin"
     bin.install Dir["target/cli/*/linkerd"]
+    prefix.install_metafiles
 
     # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/linkerd", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"linkerd", "completion", "bash")
     (bash_completion/"linkerd").write output
 
     # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/linkerd", "completion", "zsh")
-    (zsh_completion/"linkerd").write output
+    output = Utils.safe_popen_read(bin/"linkerd", "completion", "zsh")
+    (zsh_completion/"_linkerd").write output
 
-    prefix.install_metafiles
+    # Install fish completion
+    output = Utils.safe_popen_read(bin/"linkerd", "completion", "fish")
+    (fish_completion/"linkerd.fish").write output
   end
 
   test do
@@ -45,9 +48,8 @@ class Linkerd < Formula
 
     version_output = shell_output("#{bin}/linkerd version --client 2>&1")
     assert_match "Client version: ", version_output
-    stable_resource = stable.instance_variable_get(:@resource)
-    assert_match stable_resource.instance_variable_get(:@specs)[:tag], version_output if build.stable?
+    assert_match stable.specs[:tag], version_output if build.stable?
 
-    system "#{bin}/linkerd", "install", "--ignore-cluster"
+    system bin/"linkerd", "install", "--ignore-cluster"
   end
 end
