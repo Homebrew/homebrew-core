@@ -4,6 +4,7 @@ class Apktool < Formula
   url "https://github.com/iBotPeaches/Apktool/releases/download/v2.6.0/apktool_2.6.0.jar"
   sha256 "f750a3cd2c1f942f27f5f7fd5d17eada3bdaff0a6643f49db847e842579fdda5"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
