@@ -1,8 +1,8 @@
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
-  url "https://github.com/zquestz/s/archive/v0.6.2.tar.gz"
-  sha256 "acc38953fcb21e1dd2cd761b9d2bf8272aa6aa30fed2adb657f2dba7e4df872f"
+  url "https://github.com/zquestz/s/archive/v0.6.4.tar.gz"
+  sha256 "5829a18da40cb5a936f32240b4244d2a0543cb85dc3d5e013ae5aa08557c148f"
   license "MIT"
   head "https://github.com/zquestz/s.git", branch: "master"
 
