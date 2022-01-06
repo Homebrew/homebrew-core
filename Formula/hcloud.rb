@@ -20,10 +20,12 @@ class Hcloud < Formula
     ldflags = "-s -w -X github.com/hetznercloud/cli/internal/version.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/hcloud"
 
-    output = Utils.safe_popen_read("#{bin}/hcloud", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"hcloud", "completion", "bash")
     (bash_completion/"hcloud").write output
-    output = Utils.safe_popen_read("#{bin}/hcloud", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"hcloud", "completion", "zsh")
     (zsh_completion/"_hcloud").write output
+    output = Utils.safe_popen_read(bin/"hcloud", "completion", "fish")
+    (fish_completion/"hcloud.fish").write output
   end
 
   test do
