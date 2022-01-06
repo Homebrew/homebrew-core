@@ -21,6 +21,19 @@ class Ghc < Formula
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
 
+  on_macos do
+    resource "gmp" do
+      url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
+      mirror "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
+      mirror "https://ftpmirror.gnu.org/gmp/gmp-6.2.1.tar.xz"
+      sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
+    end
+  end
+
+  on_linux do
+    depends_on "gmp" => :build
+  end
+
   # https://www.haskell.org/ghc/download_ghc_9_0_2.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   # A binary of ghc is needed to bootstrap ghc
