@@ -22,6 +22,7 @@ class Flatbuffers < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.10" => :build
 
   def install
     system "cmake", "-G", "Unix Makefiles", *std_cmake_args
