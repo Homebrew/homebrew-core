@@ -29,18 +29,23 @@ class Kops < Formula
     kopspath = buildpath/"src/k8s.io/kops"
     kopspath.install Dir["*"]
     system "make", "-C", kopspath
-    bin.install("bin/kops")
+    bin.install "bin/kops"
 
     # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/kops", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"kops", "completion", "bash")
     (bash_completion/"kops").write output
 
     # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/kops", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"kops", "completion", "zsh")
     (zsh_completion/"_kops").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read(bin/"kops", "completion", "fish")
+    (fish_completion/"kops.fish").write output
   end
 
   test do
-    system "#{bin}/kops", "version"
+    assert_match version.to_s, shell_output("#{bin}/kops version")
+    assert_match "no context set in kubecfg", shell_output("#{bin}/kops validate cluster 2>&1", 1)
   end
 end
