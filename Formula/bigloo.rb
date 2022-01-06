@@ -35,20 +35,6 @@ class Bigloo < Formula
     depends_on "alsa-lib"
   end
 
-  # Fix gmp detection.
-  # https://github.com/manuel-serrano/bigloo/pull/69
-  patch do
-    url "https://github.com/manuel-serrano/bigloo/commit/d3f9c4e6a6b3eb9a922eb92a2e26b15bc5c879dc.patch?full_index=1"
-    sha256 "3b3522b30426770c82b620d3307db560852c2aadda5d80b62b18296d325cc38c"
-  end
-
-  # Fix pcre2 detection.
-  # https://github.com/manuel-serrano/bigloo/pull/70
-  patch do
-    url "https://github.com/manuel-serrano/bigloo/commit/4a5ec57b92fef4e23eb7d56dca402fb2b1f6eeb2.patch?full_index=1"
-    sha256 "d81b3dbc22e6a78b7517ff761d8c1ab5edef828b1a782cb9c4a672923844b948"
-  end
-
   def install
     # Force bigloo not to use vendored libraries
     inreplace "configure", /(^\s+custom\w+)=yes$/, "\\1=no"
