@@ -17,20 +17,25 @@ class Kubecm < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-X github.com/sunny0826/kubecm/cmd.kubecmVersion=#{version}")
+    ldflags = "-s -w -X github.com/sunny0826/kubecm/cmd.kubecmVersion=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/kubecm", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"kubecm", "completion", "bash")
     (bash_completion/"kubecm").write output
 
     # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/kubecm", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"kubecm", "completion", "zsh")
     (zsh_completion/"_kubecm").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read(bin/"kubecm", "completion", "fish")
+    (fish_completion/"kubecm.fish").write output
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/kubecm version")
     # Should error out as switch context need kubeconfig
-    status_output = shell_output("#{bin}/kubecm switch 2>&1", 1)
-    assert_match "Error: open", status_output
+    assert_match "Error: open", shell_output("#{bin}/kubecm switch 2>&1", 1)
   end
 end
