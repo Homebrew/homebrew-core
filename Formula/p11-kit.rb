@@ -4,7 +4,7 @@ class P11Kit < Formula
   url "https://github.com/p11-glue/p11-kit/releases/download/0.24.0/p11-kit-0.24.0.tar.xz"
   sha256 "81e6140584f635e4e956a1b93a32239acf3811ff5b2d3a5c6094e94e99d2c685"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "5709b9c664f0e70a5b8ab1ae42d55c91f1e32cad67e2d0098e5cb4ba9b2915b1"
@@ -17,7 +17,7 @@ class P11Kit < Formula
   end
 
   head do
-    url "https://github.com/p11-glue/p11-kit.git"
+    url "https://github.com/p11-glue/p11-kit.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -26,7 +26,9 @@ class P11Kit < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "ca-certificates"
   depends_on "libffi"
+  depends_on "libtasn1"
 
   def install
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1
@@ -39,11 +41,10 @@ class P11Kit < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--disable-trust-module",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-module-config=#{etc}/pkcs11/modules",
-                          "--without-libtasn1"
+                          "--with-trust-paths=#{etc}/ca-certificates/cert.pem"
     system "make"
     system "make", "install"
   end
