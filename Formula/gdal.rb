@@ -43,7 +43,7 @@ class Gdal < Formula
   depends_on "netcdf"
   depends_on "numpy"
   depends_on "openjpeg"
-  depends_on "pcre2"
+  depends_on "pcre"
   depends_on "poppler-qt5"
   depends_on "proj@7"
   depends_on "python@3.9"
