@@ -1,16 +1,10 @@
 class Cwb3 < Formula
   desc "Tools for managing and querying large text corpora with linguistic annotations"
   homepage "https://cwb.sourceforge.io/"
+  url "https://downloads.sourceforge.net/project/cwb/cwb/cwb-3.5-RC/cwb-3.4.33-src.tar.gz"
+  sha256 "947d5f6d710fd8f818c2dc027e991b898308d581cb9b89c4ce6db054fbb20948"
   license "GPL-2.0-or-later"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/cwb/cwb/cwb-3.5-RC/cwb-3.4.33-src.tar.gz"
-    sha256 "947d5f6d710fd8f818c2dc027e991b898308d581cb9b89c4ce6db054fbb20948"
-  end
-
-  head do
-    url "svn://svn.code.sf.net/p/cwb/code/cwb/trunk"
-  end
+  head "svn://svn.code.sf.net/p/cwb/code/cwb/trunk"
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
