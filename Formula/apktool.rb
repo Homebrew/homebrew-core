@@ -10,7 +10,7 @@ class Apktool < Formula
     sha256 cellar: :any_skip_relocation, all: "2b7f71c67cdaf038871d235a22fdf80f3ee5ffb353424bcb5f0d17503560bb11"
   end
 
-  depends_on "openjdk@8"
+  depends_on "openjdk"
 
   resource "sample.apk" do
     url "https://github.com/downloads/stephanenicolas/RoboDemo/robodemo-sample-1.0.1.apk"
@@ -19,9 +19,7 @@ class Apktool < Formula
 
   def install
     libexec.install "apktool_#{version}.jar"
-    (libexec/"bin").write_jar_script libexec/"apktool_#{version}.jar", "apktool"
-    (libexec/"bin/apktool").chmod 0755
-    (bin/"apktool").write_env_script libexec/"bin/apktool", Language::Java.java_home_env("1.8")
+    bin.write_jar_script libexec/"apktool_#{version}.jar", "apktool"
   end
 
   test do
