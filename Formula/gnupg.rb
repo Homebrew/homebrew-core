@@ -37,6 +37,9 @@ class Gnupg < Formula
   end
 
   def install
+    libusb = Formula["libusb"]
+    ENV.append "CPPFLAGS", "-I#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
