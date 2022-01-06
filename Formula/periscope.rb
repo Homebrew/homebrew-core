@@ -19,19 +19,24 @@ class Periscope < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags",
-      "-s -w -X main.version=#{version} -X main.commit=#{Utils.git_head}",
-      "-trimpath", "./cmd/psc"
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+      -X main.commit=#{Utils.git_head}
+    ]
+    system "go", "build", *std_go_args(output: bin/"psc", ldflags: ldflags), "./cmd/psc"
 
-    bin.install "psc"
-
-    # install bash completion
-    output = Utils.safe_popen_read("#{bin}/psc", "completion", "bash")
+    # Install bash completion
+    output = Utils.safe_popen_read(bin/"psc", "completion", "bash")
     (bash_completion/"psc").write output
 
-    # install zsh completion
-    output = Utils.safe_popen_read("#{bin}/psc", "completion", "zsh")
+    # Install zsh completion
+    output = Utils.safe_popen_read(bin/"psc", "completion", "zsh")
     (zsh_completion/"_psc").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read(bin/"psc", "completion", "fish")
+    (fish_completion/"psc.fish").write output
   end
 
   test do
