@@ -28,12 +28,16 @@ class OperatorSdk < Formula
     system "make", "install"
 
     # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/operator-sdk", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"operator-sdk", "completion", "bash")
     (bash_completion/"operator-sdk").write output
 
     # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/operator-sdk", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"operator-sdk", "completion", "zsh")
     (zsh_completion/"_operator-sdk").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read(bin/"operator-sdk", "completion", "fish")
+    (fish_completion/"operator-sdk.fish").write output
   end
 
   test do
