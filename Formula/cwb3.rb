@@ -92,7 +92,9 @@ class Cwb3 < Formula
           return 0;
         }
       STOP
-      system("#{ENV.cc} -o test `#{bin}/cwb-config -I` test.c `#{bin}/cwb-config -L`")
+      cppflags = Utils.safe_popen_read("#{bin}/cwb-config", "-I").strip.split
+      ldflags = Utils.safe_popen_read("#{bin}/cwb-config", "-L").strip.split
+      system ENV.cc, "-o", "test", *cppflags, "test.c", *ldflags
       assert_equal("3\n", shell_output("./test"),
         "compiled test program works")
     end
