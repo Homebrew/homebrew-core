@@ -63,12 +63,15 @@ class Crystal < Formula
   end
 
   def install
+    llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
+               .to_formula
+
     (buildpath/"boot").install resource("boot")
     ENV.append_path "PATH", "boot/bin"
     ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["bdw-gc"].opt_lib
     ENV.append_path "CRYSTAL_LIBRARY_PATH", ENV["HOMEBREW_LIBRARY_PATHS"]
     ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["libevent"].opt_lib
-    ENV.append_path "LLVM_CONFIG", Formula["llvm@13"].opt_bin/"llvm-config"
+    ENV.append_path "LLVM_CONFIG", llvm.opt_bin/"llvm-config"
 
     # Build crystal
     crystal_build_opts = []
