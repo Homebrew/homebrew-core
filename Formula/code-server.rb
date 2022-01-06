@@ -34,9 +34,9 @@ class CodeServer < Formula
     arch = `uname -m`
     path_to_prebuilds = "vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds"
     if arch == "arm64"
-      FileUtils.remove_dir("#{path_to_prebuilds}/darwin-x64")
+      remove_dir("#{path_to_prebuilds}/darwin-x64")
     else
-      FileUtils.remove_dir("#{path_to_prebuilds}/darwin-arm64")
+      remove_dir("#{path_to_prebuilds}/darwin-arm64")
     end
     libexec.install Dir["*"]
     env = { PATH: "#{node.opt_bin}:$PATH" }
