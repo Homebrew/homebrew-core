@@ -3,12 +3,13 @@ class Readline < Formula
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
   url "https://ftp.gnu.org/gnu/readline/readline-8.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz"
-  version "8.1.1"
+  version "8.1.2"
   sha256 "f8ceb4ee131e3232226a17f51b164afc46cd0b9e6cef344be87c65962cb82b02"
   license "GPL-3.0-or-later"
 
   %w[
     001 682a465a68633650565c43d59f0b8cdf149c13a874682d3c20cb4af6709b9144
+    002 e55be055a68cb0719b0ccb5edc9a74edcc1d1f689e8a501525b3bc5ebad325dc
   ].each_slice(2) do |p, checksum|
     patch :p0 do
       url "https://ftp.gnu.org/gnu/readline/readline-8.1-patches/readline81-#{p}"
