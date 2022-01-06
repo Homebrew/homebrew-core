@@ -19,7 +19,6 @@ class Goplus < Formula
 
   def install
     ENV["GOPROOT_FINAL"] = libexec
-    (buildpath/"VERSION").write "v#{version}"
     system "go", "run", "cmd/make.go", "--install"
 
     libexec.install Dir["*"] - Dir[".*"]
