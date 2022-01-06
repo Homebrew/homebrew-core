@@ -44,6 +44,12 @@ class Crystal < Formula
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   # Every new crystal release is built from the previous one. The exceptions are
   # when crystal make a minor release (only bug fixes). Resason is because those
   # bugs could make the compiler from stopping compiling the next compiler.
