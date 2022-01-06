@@ -27,12 +27,12 @@ class Eksctl < Formula
     system "make", "build"
     bin.install "eksctl"
 
-    bash_output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "bash")
+    bash_output = Utils.safe_popen_read(bin/"eksctl", "completion", "bash")
     (bash_completion/"eksctl").write bash_output
-    zsh_output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "zsh")
+    zsh_output = Utils.safe_popen_read(bin/"eksctl", "completion", "zsh")
     (zsh_completion/"_eksctl").write zsh_output
-    fish_output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "fish")
-    (zsh_completion/"eksctl.fish").write fish_output
+    fish_output = Utils.safe_popen_read(bin/"eksctl", "completion", "fish")
+    (fish_completion/"eksctl.fish").write fish_output
   end
 
   test do
