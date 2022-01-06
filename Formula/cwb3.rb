@@ -23,13 +23,17 @@ class Cwb3 < Formula
   uses_from_macos "ncurses"
 
   def install
-    system("make", "all",
-      "PLATFORM=homebrew-formula", "SITE=homebrew-formula", "FULL_MESSAGES=1",
-      "PREFIX=#{prefix}", "HOMEBREW_ROOT=#{HOMEBREW_PREFIX}")
+    args = %W[
+      PLATFORM=homebrew-formula
+      SITE=homebrew-formula
+      FULL_MESSAGES=1
+      PREFIX=#{prefix}
+      HOMEBREW_ROOT=#{HOMEBREW_PREFIX}
+    ]
+
+    system "make", "all", *args
     ENV.deparallelize
-    system("make", "install",
-      "PLATFORM=homebrew-formula", "SITE=homebrew-formula", "FULL_MESSAGES=1",
-      "PREFIX=#{prefix}", "HOMEBREW_ROOT=#{HOMEBREW_PREFIX}")
+    system "make", "install", *args
   end
 
   def post_install
