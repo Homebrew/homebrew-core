@@ -30,15 +30,6 @@ class Rizin < Formula
   uses_from_macos "zlib"
 
   def install
-    # Workarounds for finding Homebrew dependences. Reported at:
-    # https://github.com/rizinorg/rizin/issues/2013
-
-    # Meson looks for `xxhash.pc` but we only have `libxxhash.pc`.
-    (buildpath/"pkgconfig").install_symlink Formula["xxhash"].opt_lib/"pkgconfig/libxxhash.pc" => "xxhash.pc"
-    ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"pkgconfig"
-    # Meson's `find_library` isn't able to find `libmagic` without help.
-    inreplace "meson.build", "cc.find_library('magic',", "\\0 dirs: '#{Formula["libmagic"].opt_lib}',"
-
     mkdir "build" do
       args = [
         "-Dpackager=#{tap.user}",
