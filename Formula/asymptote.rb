@@ -33,8 +33,8 @@ class Asymptote < Formula
   end
 
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/2.74/asymptote.pdf"
-    sha256 "16d5e0de4bfba631f548ddf6528f68d11de63f82882c4bcddd45717f97e9a65b"
+    url "https://downloads.sourceforge.net/project/asymptote/2.75/asymptote.pdf"
+    sha256 "090fb10f9a2cb58781af38974cedd64ea1d7a9f4b0a379660b1a0fc9688654ca"
   end
 
   def install
