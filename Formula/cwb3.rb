@@ -31,8 +31,8 @@ class Cwb3 < Formula
   end
 
   def post_install
-    default_registry = HOMEBREW_PREFIX/"share/cwb/registry"
-    default_registry.mkpath # make sure default registry exists
+    # make sure default registry exists
+    (HOMEBREW_PREFIX/"share/cwb/registry").mkpath
   end
 
   def caveats
