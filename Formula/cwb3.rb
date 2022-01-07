@@ -38,7 +38,7 @@ class Cwb3 < Formula
   def caveats
     default_registry = HOMEBREW_PREFIX/"share/cwb/registry"
     <<~STOP
-      CWB default registry directory for this build: #{default_registry}
+      CWB registry directory: #{default_registry}
     STOP
   end
 
