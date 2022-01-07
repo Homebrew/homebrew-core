@@ -17,7 +17,7 @@ class Dxpy < Formula
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   on_macos do
