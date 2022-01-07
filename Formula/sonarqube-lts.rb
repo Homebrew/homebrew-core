@@ -49,6 +49,6 @@ class SonarqubeLts < Formula
   end
 
   test do
-    assert_match "SonarQube", shell_output("#{bin}/sonar status", 1)
+    assert_match "SonarQube", shell_output("#{bin}/sonar status")
   end
 end
