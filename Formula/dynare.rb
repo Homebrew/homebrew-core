@@ -37,8 +37,8 @@ class Dynare < Formula
   depends_on "suite-sparse"
 
   resource "io" do
-    url "https://octave.sourceforge.io/download.php?package=io-2.6.3.tar.gz", using: :nounzip
-    sha256 "6bc63c6498d79cada01a6c4446f793536e0bb416ddec2a5201dd8d741d459e10"
+    url "https://octave.sourceforge.io/download.php?package=io-2.6.4.tar.gz", using: :nounzip
+    sha256 "a74a400bbd19227f6c07c585892de879cd7ae52d820da1f69f1a3e3e89452f5a"
   end
 
   resource "slicot" do
@@ -47,8 +47,8 @@ class Dynare < Formula
   end
 
   resource "statistics" do
-    url "https://octave.sourceforge.io/download.php?package=statistics-1.4.2.tar.gz", using: :nounzip
-    sha256 "7976814f837508e70367548bfb0a6d30aa9e447d4e3a66914d069efb07876247"
+    url "https://octave.sourceforge.io/download.php?package=statistics-1.4.3.tar.gz", using: :nounzip
+    sha256 "9801b8b4feb26c58407c136a9379aba1e6a10713829701bb3959d9473a67fa05"
   end
 
   def install
