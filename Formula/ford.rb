@@ -17,7 +17,7 @@ class Ford < Formula
   end
 
   depends_on "graphviz"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
