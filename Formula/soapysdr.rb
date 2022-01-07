@@ -4,6 +4,7 @@ class Soapysdr < Formula
   url "https://github.com/pothosware/SoapySDR/archive/soapy-sdr-0.8.1.tar.gz"
   sha256 "a508083875ed75d1090c24f88abef9895ad65f0f1b54e96d74094478f0c400e6"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/pothosware/SoapySDR.git", branch: "master"
 
   bottle do
@@ -19,6 +20,9 @@ class Soapysdr < Formula
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "python@3.9"
+
+  # Remove -flat_namespace flag
+  patch :DATA
 
   def install
     args = std_cmake_args + %W[
@@ -39,3 +43,19 @@ class Soapysdr < Formula
     assert_match "Loading modules... done", shell_output("#{bin}/SoapySDRUtil --check=null")
   end
 end
+
+__END__
+--- a/lib/CMakeLists.txt	2022-01-07 23:53:21.000000000 +0100
++++ b/lib/CMakeLists.txt	2022-01-07 23:53:25.000000000 +0100
+@@ -99,11 +99,6 @@
+     target_compile_definitions(SoapySDR PUBLIC -DNOMINMAX) #enables std::min and std::max
+ endif ()
+
+-if(APPLE)
+-    #fixes issue with duplicate module registry when using application bundle
+-    target_link_libraries(SoapySDR PUBLIC "-flat_namespace")
+-endif()
+-
+ if ("${CMAKE_SYSTEM_NAME}" STREQUAL "FreeBSD")
+     target_compile_options(SoapySDR PUBLIC -stdlib=libc++)
+ endif()
