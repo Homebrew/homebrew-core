@@ -82,6 +82,7 @@ class Crystal < Formula
     # Build crystal
     crystal_build_opts = []
     crystal_build_opts << "release=true"
+    crystal_build_opts << "interpreter=1"
     crystal_build_opts << "FLAGS=--no-debug"
     crystal_build_opts << "CRYSTAL_CONFIG_LIBRARY_PATH="
     crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.git_short_head}" if build.head?
