@@ -2,7 +2,7 @@ class Cwb3 < Formula
   desc "Tools for managing and querying large text corpora with linguistic annotations"
   homepage "https://cwb.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/cwb/cwb/cwb-3.5-RC/cwb-3.4.33-src.tar.gz"
-  sha256 "947d5f6d710fd8f818c2dc027e991b898308d581cb9b89c4ce6db054fbb20948"
+  sha256 "856b72785522d42f13f4a0528d2b80c2bf422c10411234a8e4b61df111af77dd"
   license "GPL-2.0-or-later"
   head "svn://svn.code.sf.net/p/cwb/code/cwb/trunk"
 
@@ -15,6 +15,11 @@ class Cwb3 < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "ncurses"
+
+  resource("tutorial_data") do
+    url "https://cwb.sourceforge.io/files/encoding_tutorial_data.zip"
+    sha256 "bbd37514fdbdfd25133808afec6a11037fb28253e63446a9e548fb437cbdc6f0"
+  end
 
   def install
     args = %W[
@@ -38,16 +43,11 @@ class Cwb3 < Formula
   def caveats
     default_registry = HOMEBREW_PREFIX/"share/cwb/registry"
     <<~STOP
-      CWB registry directory: #{default_registry}
+      CWB default registry directory: #{default_registry}
     STOP
   end
 
   test do
-    resource("tutorial_data") do
-      url "https://cwb.sourceforge.io/files/encoding_tutorial_data.zip"
-      sha256 "bbd37514fdbdfd25133808afec6a11037fb28253e63446a9e548fb437cbdc6f0"
-    end
-
     resource("tutorial_data").stage do
       Pathname("registry").mkdir
       Pathname("data").mkdir
