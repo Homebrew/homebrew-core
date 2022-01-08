@@ -6,6 +6,11 @@ class Ncdu < Formula
   license "MIT"
   head "https://g.blicky.net/ncdu.git", branch: "zig"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ncdu[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c64a0d0632324546644eeea92b3602c575f03d78deb2683322ee717a3c26d7dc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f3701146877931592e1ee5da09419d9b8c1468690c8299e24e00aa1eb6ef11b1"
