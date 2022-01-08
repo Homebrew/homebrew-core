@@ -26,7 +26,7 @@ class Coinutils < Formula
   depends_on "pkg-config" => :build
   depends_on "openblas"
 
-  resource "coin-or-tools-data-sample-p0201-mps" do
+  resource "homebrew-coin-or-tools-data-sample-p0201-mps" do
     url "https://raw.githubusercontent.com/coin-or-tools/Data-Sample/releases/1.2.11/p0201.mps"
     sha256 "8352d7f121289185f443fdc67080fa9de01e5b9bf11b0bf41087fba4277c07a4"
   end
@@ -53,7 +53,7 @@ class Coinutils < Formula
   end
 
   test do
-    resource("coin-or-tools-data-sample-p0201-mps").stage testpath
+    resource("homebrew-coin-or-tools-data-sample-p0201-mps").stage testpath
     (testpath/"test.cpp").write <<~EOS
       #include <CoinMpsIO.hpp>
       int main() {
