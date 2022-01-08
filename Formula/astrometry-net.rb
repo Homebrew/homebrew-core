@@ -3,10 +3,10 @@ class AstrometryNet < Formula
 
   desc "Automatic identification of astronomical images"
   homepage "https://github.com/dstndstn/astrometry.net"
-  url "https://github.com/dstndstn/astrometry.net/releases/download/0.85/astrometry.net-0.85.tar.gz"
-  sha256 "e5aa28cbd6c5dd2eaf6df68f95398c3cae190668d86e9922521d29689fc27221"
+  url "https://github.com/dstndstn/astrometry.net/releases/download/0.88/astrometry.net-0.88.tar.gz"
+  sha256 "f57d129547ad176a4ff04dc86fc7523d2e7437a9a7f9b567989b81db813b92d2"
   license "BSD-3-Clause"
-  revision 2
+  revision 1
 
   livecheck do
     url :stable
@@ -31,8 +31,8 @@ class AstrometryNet < Formula
   depends_on "wcslib"
 
   resource "fitsio" do
-    url "https://files.pythonhosted.org/packages/98/2b/0b36a6d039d10da5bfa96d0d6206523f8787fbcc4b8aa0b8107e5139b8b4/fitsio-1.1.4.tar.gz"
-    sha256 "59c281648ea8fe50ed557857b201eacb21671b83ae60956a7e22c2a7e2a82b9d"
+    url "https://files.pythonhosted.org/packages/23/ec/280f91842d5aeaa1a95dc1d86d64d3fe57a5a37a98bb39b73a963f5dc91d/fitsio-1.1.6.tar.gz"
+    sha256 "3e7e5d4fc025d8b6328ae330e72628b92784d4c2bb2f1f0caeb75e730b2f91a5"
   end
 
   def install
