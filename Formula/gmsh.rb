@@ -55,6 +55,6 @@ class Gmsh < Formula
   end
 
   test do
-    system "#{bin}/gmsh", "#{share}/doc/gmsh/tutorial/t1.geo", "-parse_and_exit"
+    system "#{bin}/gmsh", "#{share}/doc/gmsh/examples/simple_geo/tower.geo", "-parse_and_exit"
   end
 end
