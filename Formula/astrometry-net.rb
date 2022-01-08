@@ -6,7 +6,6 @@ class AstrometryNet < Formula
   url "https://github.com/dstndstn/astrometry.net/releases/download/0.88/astrometry.net-0.88.tar.gz"
   sha256 "f57d129547ad176a4ff04dc86fc7523d2e7437a9a7f9b567989b81db813b92d2"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
