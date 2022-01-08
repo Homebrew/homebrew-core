@@ -19,27 +19,25 @@ class Xray < Formula
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202109060310/geoip.dat"
-    sha256 "ed94122961f358abede9f1954722039d5a0300b614c77cc27d92618c08b97bb8"
+    url "https://github.com/v2fly/geoip/releases/download/202201060033/geoip.dat"
+    sha256 "27f9cf6d647f018be425188a25ceb095076f6d29544bac843c2d51e0000d00a0"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20210906031055/dlc.dat"
-    sha256 "7618b876fd5a1066d0b44c1c8ce04608495ae991806890f8b1cbfafe79caf6c1"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20220108151752/dlc.dat"
+    sha256 "f1961b28a8a7aa386d69c7480bf5d7bac7fa466fb8dcba499ed2d964f470d9fc"
   end
 
   resource "example_config" do
-    # borrow v2ray (v4.36.2) example config
-    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v4.41.1/release/config/config.json"
+    # borrow v2ray example config
+    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v4.44.0/release/config/config.json"
     sha256 "1bbadc5e1dfaa49935005e8b478b3ca49c519b66d3a3aee0b099730d05589978"
   end
 
   def install
     ldflags = "-s -w -buildid="
     execpath = libexec/name
-    system "go", "build", *std_go_args, "-o", execpath,
-                 "-ldflags", ldflags,
-                 "./main"
+    system "go", "build", *std_go_args(output: execpath, ldflags: ldflags), "./main"
     (bin/"xray").write_env_script execpath,
       XRAY_LOCATION_ASSET: "${XRAY_LOCATION_ASSET:-#{pkgshare}}"
 
