@@ -1,10 +1,9 @@
 class Coinutils < Formula
   desc "COIN-OR utilities"
   homepage "https://github.com/coin-or/CoinUtils"
-  url "https://github.com/coin-or/CoinUtils/archive/releases/2.11.4.tar.gz"
-  sha256 "d4effff4452e73356eed9f889efd9c44fe9cd68bd37b608a5ebb2c58bd45ef81"
+  url "https://github.com/coin-or/CoinUtils/archive/releases/2.11.5.tar.gz"
+  sha256 "771a5647e5fd42e8974b9a56b3edb380a1346c3d3cca1a4262ec02e45ecd9fa9"
   license "EPL-1.0"
-  revision 1
   head "https://github.com/coin-or/CoinUtils.git", branch: "master"
 
   livecheck do
