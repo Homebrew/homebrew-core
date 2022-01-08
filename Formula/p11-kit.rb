@@ -45,6 +45,8 @@ class P11Kit < Formula
                           "--with-module-config=#{etc}/pkcs11/modules",
                           "--with-trust-paths=#{etc}/ca-certificates/cert.pem"
     system "make"
+    # This formula is used with crypto libraries, so let's run the test suite.
+    system "make", "check"
     system "make", "install"
   end
 
