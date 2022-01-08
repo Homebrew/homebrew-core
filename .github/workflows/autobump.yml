@@ -31,19 +31,29 @@ env:
     apidoc
     apktool
     argo
+    argocd
+    argocd-autopilot
+    argocd-vault-plugin
+    armadillo
     artifactory
     asciidoctorj
+    asymptote
     atuin
     autorest
+    avrdude
     aws-cdk
     b3sum
+    baidupcs-go
     ballerina
+    bash_unit
     batik
     bazel
     bazelisk
     bbtools
     bcoin
+    bear
     bee
+    bigloo
     bnd
     bottom
     brew-php-switcher
@@ -52,6 +62,7 @@ env:
     buildkit
     buildozer
     bundletool
+    byacc
     byteman
     cadence
     calicoctl
@@ -66,6 +77,7 @@ env:
     carrot2
     cassandra
     cassandra-reaper
+    catch2
     cdk8s
     cfr-decompiler
     checkstyle
@@ -73,10 +85,13 @@ env:
     chromaprint
     circleci
     clair
+    clash
     cliclick
     clojurescript
     closure-compiler
     cloudflare-wrangler
+    code-minimap
+    coinutils
     composer
     consul
     consul-template
@@ -84,10 +99,13 @@ env:
     cromwell
     crowdin
     crun
+    css-crush
     cubejs-cli
     cypher-shell
     dafny
+    datree
     davmail
+    deark
     deno
     dependency-check
     derby
@@ -96,6 +114,7 @@ env:
     devspace
     dex2jar
     digdag
+    django-completion
     djl-serving
     dnscrypt-proxy
     docker
@@ -106,8 +125,10 @@ env:
     double-conversion
     dprint
     druid
+    dtm
     dvc
     easyengine
+    efm-langserver
     elasticsearch@6
     emscripten
     envconsul
@@ -118,6 +139,8 @@ env:
     exploitdb
     fabric-installer
     fantom
+    faudio
+    feh
     fennel
     firebase-cli
     flank
@@ -125,18 +148,28 @@ env:
     flume
     flux
     flyway
+    fmt
     fop
+    ford
     fuse-overlayfs
     fuseki
     futhark
+    futhark
     gatsby-cli
+    ginac
+    git-annex
     git-cliff
     git-delta
+    gitbackup
     gitbucket
     gitleaks
     glassfish
     gleam
     glooctl
+    gmsh
+    gnunet
+    gnupg-pkcs11-scd
+    gnuplot
     gofish
     golang-migrate
     google-java-format
@@ -151,17 +184,22 @@ env:
     groovy
     groovysdk
     hadoop
+    halide
     hapi-fhir-cli
     hcloud
     helm
     helmfile
+    hidapi
     hive
     htmldoc
+    htmlq
+    htpdate
     hugo
     igv
     imagemagick
     imagemagick@6
     imap-backup
+    ipmiutil
     ipopt
     ircd-hybrid
     ivy
@@ -169,23 +207,30 @@ env:
     java-service-wrapper
     jena
     jenkins
+    jenkins-job-builder
     jenkins-lts
     jetty
     jetty-runner
     jfrog-cli
     jhipster
     jmeter
+    jnethack
     jql
     jruby
     jsonnet
+    jsonschema
     jsvc
     just
     k3d
     k9s
     kafka
+    kalker
     keptn
     keydb
     ki
+    kitchen-sync
+    knot
+    knot-resolver
     kotlin
     ktlint
     kubeaudit
@@ -193,22 +238,33 @@ env:
     kumactl
     kustomize
     languagetool
+    latex2html
+    latexml
     lazydocker
     leiningen
     lexbor
+    libdap
+    libgetdata
+    libgr
     liboqs
+    libpano
+    libpipeline
     librdkafka
     liquibase
+    lmod
     localstack
     log4cxx
     lout
     macchina
+    mailutils
     marked
     marp-cli
     maven
+    mavsdk
     maxwell
     mdbook
     mdcat
+    mdzk
     meson
     metabase
     micro
@@ -216,9 +272,12 @@ env:
     mill
     minikube
     mmctl
+    moco
     moto
+    mpv
     murex
     mypy
+    nanoflann
     nativefier
     navi
     ncc
@@ -237,12 +296,16 @@ env:
     octant
     octave
     okteto
+    onedrive
     opensearch
     orc-tools
     orientdb
+    ortp
     oxipng
+    pacapt
     payara
     pdftk-java
+    pgloader
     phoronix-test-suite
     php-code-sniffer
     php-cs-fixer
@@ -251,6 +314,7 @@ env:
     picard-tools
     pickle
     pig
+    pillow
     plantuml
     pmd
     pnpm
@@ -262,14 +326,25 @@ env:
     qpid-proton
     questdb
     rbw
+    rebar3
+    regina-rexx
+    reminiscence
     riemann
     rollup
+    rqlite
     rubberband
     s2n
     sbt
     scala
+    scotch
+    scummvm
+    scummvm-tools
+    sdl2
+    seaweedfs
     selene
     selenium-server
+    seqkit
+    ser2net
     serverless
     sjk
     skaffold
@@ -282,6 +357,7 @@ env:
     sonarqube-lts
     sponge
     spotbugs
+    sqlmap
     stanford-corenlp
     starship
     stdman
@@ -294,6 +370,8 @@ env:
     swagger-codegen
     swagger-codegen@2
     syncthing
+    tcsh
+    tealdeer
     teleport
     termshark
     terraform-ls
@@ -312,6 +390,7 @@ env:
     trafficserver
     trino
     typedb
+    universal-ctags
     vale
     vault-cli
     vercel-cli
@@ -320,18 +399,22 @@ env:
     vpn-slice
     vsearch
     vue-cli
+    wakatime-cli
     wasmtime
     webpack
     webtorrent-cli
     whistle
+    whois
     wildfly-as
     wiremock-standalone
+    wolfssl
     xalan-c
     xcbeautify
     xerces-c
     xgboost
     xplr
     yaegi
+    zbctl
     zellij
     zookeeper
 
