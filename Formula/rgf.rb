@@ -1,8 +1,8 @@
 class Rgf < Formula
   desc "Regularized Greedy Forest library"
   homepage "https://github.com/RGF-team/rgf"
-  url "https://github.com/RGF-team/rgf/archive/3.11.0.tar.gz"
-  sha256 "c345b1495bc2ed421e2ef7d68357fd9683e59543c6b8136751fcaca7255effa9"
+  url "https://github.com/RGF-team/rgf/archive/3.12.0.tar.gz"
+  sha256 "c197977b8709c41aa61d342a01497d26f1ad704191a2a6b699074fe7ee57dc86"
   license "MIT"
 
   livecheck do
