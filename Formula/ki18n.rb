@@ -72,7 +72,7 @@ class Ki18n < Formula
     args = std_cmake_args + %W[
       -S .
       -B build
-      -DQt5_DIR=#{Formula["qt@5"].opt_prefix}/lib/cmake/Qt5
+      -DQt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5
       -DLibIntl_INCLUDE_DIRS=#{Formula["gettext"].include}
       -DLibIntl_LIBRARIES=#{Formula["gettext"].lib}/libintl.dylib
     ]
