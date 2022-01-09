@@ -52,7 +52,7 @@ class Ki18n < Formula
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.5)
       include(FeatureSummary)
-      find_package(ECM 5.90.0 NO_MODULE)
+      find_package(ECM #{version} NO_MODULE)
       set_package_properties(ECM PROPERTIES TYPE REQUIRED)
       set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} "#{pkgshare}/cmake")
       set(CMAKE_CXX_STANDARD 17)
