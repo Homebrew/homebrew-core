@@ -32,6 +32,7 @@ class Karchive < Formula
 
   depends_on "qt@5"
   depends_on "xz"
+  depends_on "zstd"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
@@ -43,11 +44,14 @@ class Karchive < Formula
   fails_with gcc: "5"
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_TESTING=OFF"
-    args << "-DBUILD_QCH=ON"
+    args = std_cmake_args + %w[
+      -S .
+      -B build
+      -DBUILD_TESTING=OFF
+      -DBUILD_QCH=ON
+    ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -56,8 +60,10 @@ class Karchive < Formula
 
   test do
     ENV.delete "CPATH"
-    args = std_cmake_args
-    args << "-DQt5Core_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5Core"}"
+    args = std_cmake_args + %W[
+      -DQt5Core_DIR=#{Formula["qt@5"].opt_prefix}/lib/cmake/Qt5Core
+      -DQT_MAJOR_VERSION=5
+    ]
 
     %w[bzip2gzip
        helloworld
