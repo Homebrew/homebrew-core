@@ -21,6 +21,13 @@ class Dieharder < Formula
     sha256 cellar: :any, sierra:         "8a40fb61aef5230ad77b3b851a6e8b6d575ff2adaa747c3b73a75cd203197945"
   end
 
+  # At the time of writing (2022-01-17), the webhome.phy.duke.edu server has
+  # an incomplete SSL certificate chain, which causes an error on Linux
+  # and with brewed curl on macOS (`curl: (60) SSL certificate problem: unable
+  # to get local issuer certificate`). We may be able to revert this deprecation
+  # if this issue is fixed on the upstream server in the future.
+  deprecate! date: "2022-01-17", because: "uses an upstream server with an incomplete SSL certificate chain"
+
   depends_on "gsl"
 
   on_linux do
