@@ -41,7 +41,7 @@ class Threadweaver < Formula
 
   test do
     ENV.delete "CPATH"
-    qt5_arg = "-DQt5Core_DIR=#{Formula["qt@5"].opt_prefix}/lib/cmake/Qt5Core"
+    qt5_arg = "-DQt5Core_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Core"
     system "cmake", (pkgshare/"examples/HelloWorld"), *std_cmake_args, qt5_arg
     system "make"
 
