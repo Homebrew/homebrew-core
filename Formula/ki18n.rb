@@ -58,7 +58,7 @@ class Ki18n < Formula
       set(CMAKE_CXX_STANDARD 17)
       set(QT_MAJOR_VERSION 5)
       set(BUILD_WITH_QML ON)
-      set(REQUIRED_QT_VERSION 5.15.2)
+      set(REQUIRED_QT_VERSION #{Formula["qt@5"].version})
       find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED Core Qml)
       find_package(KF5I18n REQUIRED)
       INCLUDE(CheckCXXSourceCompiles)
