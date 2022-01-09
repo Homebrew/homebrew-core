@@ -26,13 +26,16 @@ class ExtraCmakeModules < Formula
   depends_on "sphinx-doc" => :build
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_HTML_DOCS=ON"
-    args << "-DBUILD_MAN_DOCS=ON"
-    args << "-DBUILD_QTHELP_DOCS=ON"
-    args << "-DBUILD_TESTING=OFF"
+    args = std_cmake_args + %w[
+      -S .
+      -B build
+      -DBUILD_HTML_DOCS=ON
+      -DBUILD_MAN_DOCS=ON
+      -DBUILD_QTHELP_DOCS=ON
+      -DBUILD_TESTING=OFF
+    ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
