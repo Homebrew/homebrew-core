@@ -61,7 +61,7 @@ class Karchive < Formula
   test do
     ENV.delete "CPATH"
     args = std_cmake_args + %W[
-      -DQt5Core_DIR=#{Formula["qt@5"].opt_prefix}/lib/cmake/Qt5Core
+      -DQt5Core_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Core
       -DQT_MAJOR_VERSION=5
     ]
 
