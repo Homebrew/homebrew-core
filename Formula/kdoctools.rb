@@ -73,7 +73,7 @@ class Kdoctools < Formula
       find_package(ECM #{version} NO_MODULE)
       set_package_properties(ECM PROPERTIES TYPE REQUIRED)
       set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} "#{pkgshare}/cmake")
-      find_package(Qt5 5.15.2 REQUIRED Core)
+      find_package(Qt5 #{Formula["qt@5"].version} REQUIRED Core)
       find_package(KF5DocTools REQUIRED)
 
       find_package(LibXslt)
