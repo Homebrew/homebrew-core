@@ -1,9 +1,10 @@
 class Libmodbus < Formula
   desc "Portable modbus library"
   homepage "https://libmodbus.org/"
-  url "https://libmodbus.org/releases/libmodbus-3.1.7.tar.gz"
-  sha256 "b7a274a6869f9e0e57f022ae835bed16157cd70bd86ee05e5db6350ec69b0978"
-  license "LGPL-2.1"
+  url "https://github.com/stephane/libmodbus/archive/v3.1.7.tar.gz"
+  sha256 "af8ade1eec30fe3dc6ddf8f711b37f9a931532287f39a40f54e6f475402df389"
+  license "LGPL-2.1-or-later"
+  head "https://github.com/stephane/libmodbus.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "1e62812f7192b8e435c5f1d63b61af72f075da1bf12ea73ae6ed9ccc79926d4e"
@@ -17,16 +18,12 @@ class Libmodbus < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf1b1ce41283ff26162992d636cbdece2884c2f21aea21572b8b81e8c62f063e"
   end
 
-  head do
-    url "https://github.com/stephane/libmodbus.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
