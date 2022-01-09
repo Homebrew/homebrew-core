@@ -25,7 +25,7 @@ class Mono < Formula
 
   conflicts_with "xsd", because: "both install `xsd` binaries"
   conflicts_with cask: "mono-mdk"
-  conflicts_with cask: "mono-mdk-for-visual-studio"
+  conflicts_with cask: "homebrew/cask-versions/mono-mdk-for-visual-studio"
 
   # xbuild requires the .exe files inside the runtime directories to
   # be executable
