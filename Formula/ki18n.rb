@@ -35,7 +35,6 @@ class Ki18n < Formula
     args = std_cmake_args + %w[
       -S .
       -B build
-      -DBUILD_TESTING=OFF
       -DBUILD_QCH=ON
       -DBUILD_WITH_QML=ON
     ]
