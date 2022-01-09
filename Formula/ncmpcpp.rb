@@ -6,6 +6,11 @@ class Ncmpcpp < Formula
   license "GPL-2.0-or-later"
   revision 3
 
+  livecheck do
+    url "https://rybczak.net/ncmpcpp/installation/"
+    regex(/href=.*?ncmpcpp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "94960d768fe4de3022c3d9f5a58086bc2cdf3212eb3c3735f1c62989f2337ddc"
     sha256 cellar: :any,                 arm64_big_sur:  "589a36dfb83da7b7093605e58cdf6a9ae6f58e8bc915fc84a937742b17aafad6"
@@ -17,7 +22,7 @@ class Ncmpcpp < Formula
   end
 
   head do
-    url "https://github.com/ncmpcpp/ncmpcpp.git"
+    url "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
