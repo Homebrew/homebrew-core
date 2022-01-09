@@ -4,6 +4,7 @@ class Julia < Formula
   url "https://github.com/JuliaLang/julia/releases/download/v1.7.1/julia-1.7.1.tar.gz"
   sha256 "17d298e50e4e3dd897246ccebd9f40ce5b89077fa36217860efaec4576aa718e"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
+  revision 1
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   bottle do
@@ -47,6 +48,13 @@ class Julia < Formula
 
   fails_with gcc: "5"
 
+  # Fix segfaults with Curl 7.81. We need to patch the contents of a tarball, so this can't be a `patch` block.
+  # https://github.com/JuliaLang/Downloads.jl/issues/172
+  resource "curl-patch" do
+    url "https://raw.githubusercontent.com/archlinux/svntogit-community/packages/julia/trunk/julia-curl-7.81.patch"
+    sha256 "710587dd88c7698dc5cdf47a1a50f6f144b584b7d9ffb85fac3f5f79c65fce11"
+  end
+
   # Fix compatibility with LibGit2 1.2.0+
   # https://github.com/JuliaLang/julia/pull/43250
   patch do
@@ -59,6 +67,24 @@ class Julia < Formula
   patch :DATA
 
   def install
+    # Fix segfaults with Curl 7.81. Remove when this is resolved upstream.
+    srccache = buildpath/"stdlib/srccache"
+    srccache.install resource("curl-patch")
+
+    cd srccache do
+      tarball = Pathname.glob("Downloads-*.tar.gz").first
+      system "tar", "-xzf", tarball
+      extracted_dir = Pathname.glob("JuliaLang-Downloads.jl-*").first
+      to_patch = extracted_dir/"src/Curl/Multi.jl"
+      system "patch", to_patch, "julia-curl-7.81.patch"
+      system "tar", "-czf", tarball, extracted_dir
+
+      md5sum = Digest::MD5.file(tarball).hexdigest
+      sha512sum = Digest::SHA512.file(tarball).hexdigest
+      (buildpath/"deps/checksums"/tarball/"md5").atomic_write md5sum
+      (buildpath/"deps/checksums"/tarball/"sha512").atomic_write sha512sum
+    end
+
     # Build documentation available at
     # https://github.com/JuliaLang/julia/blob/v#{version}/doc/build/build.md
     args = %W[
@@ -205,6 +231,10 @@ class Julia < Formula
 
     assert_equal "4", shell_output("#{bin}/julia #{args.join(" ")} --print '2 + 2'").chomp
     system bin/"julia", *args, "--eval", 'Base.runtests("core")'
+
+    # Check that installing packages works.
+    # https://github.com/Homebrew/discussions/discussions/2749
+    system bin/"julia", *args, "--eval", 'using Pkg; Pkg.add("Example")'
 
     # Check that Julia can load stdlibs that load non-Julia code.
     # Most of these also check that Julia can load Homebrew-provided libraries.
