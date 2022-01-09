@@ -26,11 +26,14 @@ class Threadweaver < Formula
   depends_on "qt@5"
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_TESTING=OFF"
-    args << "-DBUILD_QCH=ON"
+    args = std_cmake_args + %w[
+      -S .
+      -B build
+      -DBUILD_TESTING=OFF
+      -DBUILD_QCH=ON
+    ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -39,7 +42,7 @@ class Threadweaver < Formula
 
   test do
     ENV.delete "CPATH"
-    qt5_arg = "-DQt5Core_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5Core"}"
+    qt5_arg = "-DQt5Core_DIR=#{Formula["qt@5"].opt_prefix}/lib/cmake/Qt5Core"
     system "cmake", (pkgshare/"examples/HelloWorld"), *std_cmake_args, qt5_arg
     system "make"
 
