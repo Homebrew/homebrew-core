@@ -4,6 +4,7 @@
   "bind",
   "blast",
   "coq",
+  "gnuradio",
   "hdf5-mpi",
   "lablgtk",
   "libvirt",
