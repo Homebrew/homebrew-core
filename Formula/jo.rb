@@ -3,7 +3,7 @@ class Jo < Formula
   homepage "https://github.com/jpmens/jo"
   url "https://github.com/jpmens/jo/releases/download/1.6/jo-1.6.tar.gz"
   sha256 "eb15592f1ba6d5a77468a1438a20e3d21c3d63bb7d045fb3544f223340fcd1a1"
-  license "GPL-2.0"
+  license all_of: ["GPL-2.0-or-later", "MIT"]
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "43022572a3a5ff871de0e49654370793f67318322b215aa2488a5f22be1942a4"
