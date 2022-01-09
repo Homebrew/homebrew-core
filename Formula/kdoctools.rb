@@ -53,11 +53,14 @@ class Kdoctools < Formula
       system "make", "install"
     end
 
-    args = std_cmake_args
-    args << "-DBUILD_TESTING=OFF"
-    args << "-DBUILD_QCH=ON"
+    args = std_cmake_args + %w[
+      -S .
+      -B build
+      -DBUILD_TESTING=OFF
+      -DBUILD_QCH=ON
+    ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -68,10 +71,10 @@ class Kdoctools < Formula
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.5)
       include(FeatureSummary)
-      find_package(ECM 5.71.0 NO_MODULE)
+      find_package(ECM 5.90.0 NO_MODULE)
       set_package_properties(ECM PROPERTIES TYPE REQUIRED)
       set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} "#{pkgshare}/cmake")
-      find_package(Qt5 5.12.0 REQUIRED Core)
+      find_package(Qt5 5.15.2 REQUIRED Core)
       find_package(KF5DocTools REQUIRED)
 
       find_package(LibXslt)
@@ -101,10 +104,13 @@ class Kdoctools < Formula
     cp_r (pkgshare/"autotests"), testpath
     cp_r (pkgshare/"tests"), testpath
 
-    args = std_cmake_args
-    args << "-DQt5_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5"}"
+    args = std_cmake_args + %W[
+      -S .
+      -B build
+      -DQt5_DIR=#{Formula["qt@5"].opt_prefix}/lib/cmake/Qt5
+    ]
 
-    system "cmake", testpath.to_s, *args
-    system "make"
+    system "cmake", *args
+    system "cmake", "--build", "build"
   end
 end
