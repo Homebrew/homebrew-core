@@ -106,7 +106,7 @@ class Kdoctools < Formula
     args = std_cmake_args + %W[
       -S .
       -B build
-      -DQt5_DIR=#{Formula["qt@5"].opt_prefix}/lib/cmake/Qt5
+      -DQt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5
     ]
 
     system "cmake", *args
