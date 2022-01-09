@@ -35,13 +35,16 @@ class Cwb3 < Formula
     system "make", "install", *args
   end
 
+  def default_registry
+    HOMEBREW_PREFIX/"share/cwb/registry"
+  end
+
   def post_install
     # make sure default registry exists
-    (HOMEBREW_PREFIX/"share/cwb/registry").mkpath
+    default_registry.mkpath
   end
 
   def caveats
-    default_registry = HOMEBREW_PREFIX/"share/cwb/registry"
     <<~STOP
       CWB default registry directory: #{default_registry}
     STOP
