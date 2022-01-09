@@ -32,7 +32,6 @@ class ExtraCmakeModules < Formula
       -DBUILD_HTML_DOCS=ON
       -DBUILD_MAN_DOCS=ON
       -DBUILD_QTHELP_DOCS=ON
-      -DBUILD_TESTING=OFF
     ]
 
     system "cmake", *args
