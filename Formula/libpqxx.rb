@@ -1,8 +1,8 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "http://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/7.6.0.tar.gz"
-  sha256 "8194ce4eff3fee5325963ccc28d3542cfaa54ba1400833d0df6948de3573c118"
+  url "https://github.com/jtv/libpqxx/archive/7.6.1.tar.gz"
+  sha256 "7f4ad37fce20e8c9a61387cd5d6f85cf264f2bc9c0e6b27e8d5751a5429f87d0"
   license "BSD-3-Clause"
 
   bottle do
