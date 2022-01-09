@@ -56,7 +56,6 @@ class Kdoctools < Formula
     args = std_cmake_args + %w[
       -S .
       -B build
-      -DBUILD_TESTING=OFF
       -DBUILD_QCH=ON
     ]
 
