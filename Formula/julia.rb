@@ -1,11 +1,44 @@
 class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
-  url "https://github.com/JuliaLang/julia/releases/download/v1.7.1/julia-1.7.1.tar.gz"
-  sha256 "17d298e50e4e3dd897246ccebd9f40ce5b89077fa36217860efaec4576aa718e"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  revision 1
+  revision 2
   head "https://github.com/JuliaLang/julia.git", branch: "master"
+
+  stable do
+    url "https://github.com/JuliaLang/julia/releases/download/v1.7.1/julia-1.7.1.tar.gz"
+    sha256 "17d298e50e4e3dd897246ccebd9f40ce5b89077fa36217860efaec4576aa718e"
+
+    # Patches for compatibility with LLVM 13
+    patch do
+      url "https://github.com/JuliaLang/julia/commit/677ce6d3adc2f70886f72795b0e5c739e75730ee.patch?full_index=1"
+      sha256 "ebcedfbc61b6cc77c0dd9aebb9f1dfa477326241bf5a54209533e4886aad5af3"
+    end
+
+    patch do
+      url "https://github.com/JuliaLang/julia/commit/47f9139e88917813cb7beee5e690c48c2ac65de4.patch?full_index=1"
+      sha256 "cdc41494b2a163ca363da8ea9bcf27d7541a6dc9e6b4eff72f6c8ff8ce1b67b6"
+    end
+
+    patch do
+      url "https://github.com/JuliaLang/julia/commit/1eb063f1957b2e287ad0c7435debc72af58bb6f1.patch?full_index=1"
+      sha256 "d95b9fb5f327bc3ac351c35317a776ef6a46c1cdff248562e70c76e58eb9a903"
+    end
+
+    # Backported from:
+    # https://github.com/JuliaLang/julia/commit/f8c918b00f7c62e204d324a827e2ee2ef05bb66a
+    patch do
+      url "https://raw.githubusercontent.com/archlinux/svntogit-community/074e62e4e946201779d2d6df9a261c91d111720f/trunk/f8c918b0.patch"
+      sha256 "bc6c85cbbca489ef0b2876dbeb6ae493c11573e058507b8bcb9e01273bc3a38c"
+    end
+
+    # Backported from:
+    # https://github.com/JuliaLang/julia/commit/6330398088e235e4d4fdbda38c41c87e02384edb.patch
+    patch do
+      url "https://raw.githubusercontent.com/archlinux/svntogit-community/df73abb8162e31e6541d2143d1db5f9f1d70b632/trunk/63303980.patch"
+      sha256 "ce9cd140c3bc39987d60340bf365d6238e79cf4d5385494272c49c64af22ef78"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 monterey:     "f16f404c28635062356bf0c28624a5914e8f8fa7b858d86844971cad9224ce8b"
@@ -24,7 +57,7 @@ class Julia < Formula
   depends_on "libgit2"
   depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "llvm@12"
+  depends_on "llvm"
   depends_on "mbedtls@2"
   depends_on "mpfr"
   depends_on "openblas"
@@ -51,7 +84,7 @@ class Julia < Formula
   # Fix segfaults with Curl 7.81. We need to patch the contents of a tarball, so this can't be a `patch` block.
   # https://github.com/JuliaLang/Downloads.jl/issues/172
   resource "curl-patch" do
-    url "https://raw.githubusercontent.com/archlinux/svntogit-community/packages/julia/trunk/julia-curl-7.81.patch"
+    url "https://raw.githubusercontent.com/archlinux/svntogit-community/6751794c82949589805db950119afba77549554a/trunk/julia-curl-7.81.patch"
     sha256 "710587dd88c7698dc5cdf47a1a50f6f144b584b7d9ffb85fac3f5f79c65fce11"
   end
 
@@ -173,6 +206,11 @@ class Julia < Formula
     inreplace "Make.inc" do |s|
       s.change_make_var! "LOCALBASE", HOMEBREW_PREFIX
     end
+
+    # Don't try to use patchelf on our libLLVM.so. This is only present on 1.7.1.
+    patchelf = Regexp.escape("$(PATCHELF)")
+    shlib_ext = Regexp.escape(".$(SHLIB_EXT)")
+    inreplace "Makefile", %r{^\s+#{patchelf} --set-rpath .*/libLLVM#{shlib_ext}$}, "" if OS.linux? && build.stable?
 
     # Remove library versions from MbedTLS_jll, nghttp2_jll and libLLVM_jll
     # https://git.archlinux.org/svntogit/community.git/tree/trunk/julia-hardcoded-libs.patch?h=packages/julia
