@@ -19,7 +19,8 @@ class Beansdb < Formula
 
   # Deprecated upstream in favor of `gobeansdb`:
   # https://github.com/douban/gobeansdb
-  deprecate! date: "2018-06-11", because: :repo_archived
+  # Original deprecation date: 2018-06-11
+  disable! date: "2022-01-09", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
