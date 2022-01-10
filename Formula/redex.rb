@@ -9,6 +9,12 @@ class Redex < Formula
     url "https://github.com/facebook/redex/archive/v2017.10.31.tar.gz"
     sha256 "18a840e4db0fc51f79e17dfd749b2ffcce65a28e7ef9c2b3c255c5ad89f6fd6f"
 
+    # Fix for automake 1.16.5
+    patch do
+      url "https://github.com/facebook/redex/commit/4696e1882cf88707bf7560a2994a4207a8b7c7a3.patch?full_index=1"
+      sha256 "dccc41146688448ea2d99dd04d4d41fdaf7e174ae1888d3abb10eb2dfa6ed1da"
+    end
+
     # Fix compilation on High Sierra
     # Fix boost issue (https://github.com/facebook/redex/pull/564)
     # Remove for next release
