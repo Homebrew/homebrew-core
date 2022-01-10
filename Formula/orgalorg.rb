@@ -3,7 +3,7 @@ class Orgalorg < Formula
   homepage "https://github.com/reconquest/orgalorg"
   url "https://github.com/reconquest/orgalorg.git",
       tag:      "1.2.0",
-      revision: "6608ee908273ac16fa881d37ef7b55051a31073d"
+      revision: "5024122fb3efaad577fa509e2d17aab1f12217de"
   license "MIT"
   head "https://github.com/reconquest/orgalorg.git", branch: "master"
 
