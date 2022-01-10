@@ -19,14 +19,13 @@ class Zrepl < Formula
 
   depends_on "go" => :build
 
-  resource "sample_config" do
+  resource "homebrew-sample_config" do
     url "https://raw.githubusercontent.com/zrepl/zrepl/master/config/samples/local.yml"
     sha256 "f27b21716e6efdc208481a8f7399f35fd041183783e00c57f62b3a5520470c05"
   end
 
   def install
-    system "go", "build", *std_go_args,
-      "-ldflags", "-X github.com/zrepl/zrepl/version.zreplVersion=#{version}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/zrepl/zrepl/version.zreplVersion=#{version}")
   end
 
   def post_install
