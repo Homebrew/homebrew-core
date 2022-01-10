@@ -5,7 +5,7 @@ class Pinot < Formula
   sha256 "c253eb9ce93f11f368498229282846588f478cb6e0359e24167b13e97417c025"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/apache/pinot.git", branch: "release-0.9.3"
+  head "https://github.com/apache/pinot.git", branch: "master"
 
   depends_on "libtool" => :build
 
