@@ -9,6 +9,8 @@ class Pinotbase < Formula
 
   depends_on "libtool" => :build
 
+  depends_on "openjdk"
+
   def install
     libexec.install "lib"
     libexec.install "plugins"
