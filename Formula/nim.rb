@@ -6,6 +6,11 @@ class Nim < Formula
   license "MIT"
   head "https://github.com/nim-lang/Nim.git", branch: "devel"
 
+  livecheck do
+    url "https://nim-lang.org/install.html"
+    regex(/href=.*?nim[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c7daaa6628706cef3ec4b193bbefdb0c3804dd7019841d01608eecca994448c1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f2c52131f50e173728bbd873c32656e051c20b0d13a5a90ee1b4e59f6d746f8"
