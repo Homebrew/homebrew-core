@@ -37,8 +37,8 @@ class Ocp < Formula
   uses_from_macos "zlib"
 
   resource "unifont" do
-    url "https://ftp.gnu.org/gnu/unifont/unifont-13.0.06/unifont-13.0.06.tar.gz"
-    sha256 "68def7a46df44241c7bf62de7ce0444e8ee9782f159c4b7553da9cfdc00be925"
+    url "https://ftp.gnu.org/gnu/unifont/unifont-14.0.01/unifont-14.0.01.tar.gz"
+    sha256 "7ad1daeecc466685cdb3c60bdd57d6f3553131f076c1a18ab2f95e2020b26d72"
   end
 
   def install
@@ -47,9 +47,9 @@ class Ocp < Formula
     # Required for SDL2
     resource("unifont").stage do
       cd "font/precompiled" do
-        share.install "unifont-13.0.06.ttf" => "unifont.ttf"
-        share.install "unifont_csur-13.0.06.ttf" => "unifont_csur.ttf"
-        share.install "unifont_upper-13.0.06.ttf" => "unifont_upper.ttf"
+        share.install "unifont-14.0.01.ttf" => "unifont.ttf"
+        share.install "unifont_csur-14.0.01.ttf" => "unifont_csur.ttf"
+        share.install "unifont_upper-14.0.01.ttf" => "unifont_upper.ttf"
       end
     end
 
