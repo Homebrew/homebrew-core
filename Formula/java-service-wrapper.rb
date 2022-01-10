@@ -4,6 +4,7 @@ class JavaServiceWrapper < Formula
   url "https://downloads.sourceforge.net/project/wrapper/wrapper_src/Wrapper_3.5.48_20211222/wrapper_3.5.48_src.tar.gz"
   sha256 "c2800d8702ce86f4e7abe06773ccc220364424ebf7b3035f788ff79d0ed8d523"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cf865b681713fc4139699491e6ec9e6c40987d95bb3a0ac2bb8c1a13ad578ba8"
@@ -23,9 +24,17 @@ class JavaServiceWrapper < Formula
     # Default javac target version is 1.4, use 1.6 which is the minimum available on openjdk@11
     system "ant", "-Dbits=64", "-Djavac.target.version=1.6"
     libexec.install "lib", "bin", "src/bin" => "scripts"
+    if OS.mac?
+      if Hardware::CPU.arm?
+        ln_s "libwrapper.dylib", libexec/"lib/libwrapper.jnilib"
+      else
+        ln_s "libwrapper.jnilib", libexec/"lib/libwrapper.dylib"
+      end
+    end
   end
 
   test do
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     output = shell_output("#{libexec}/bin/testwrapper status", 1)
     assert_match("Test Wrapper Sample Application", output)
   end
