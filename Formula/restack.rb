@@ -11,6 +11,5 @@ class Restack < Formula
   end
 
   test do
-    assert_match "Restack CLI v0.1.0", shell_output("#{bin}/restack -v", 0)
   end
 end
