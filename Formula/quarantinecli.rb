@@ -15,7 +15,7 @@ class Quarantinecli < Formula
   end
 
   test do
-    FileUtils.touch("foo")
-    system "#{bin}/quarantinecli", "--quarantine", "foo"
+    touch "foo"
+    system bin/"quarantinecli", "--quarantine", "foo"
   end
 end
