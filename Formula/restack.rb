@@ -1,3 +1,5 @@
+require "formula"
+
 class Restack < Formula
   desc "CLI app"
   homepage "https://github.com/restackio/homebrew-restack"
