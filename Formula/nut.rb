@@ -16,6 +16,11 @@ class Nut < Formula
     end
   end
 
+  livecheck do
+    url "https://networkupstools.org/download.html"
+    regex(/href=.*?nut[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 arm64_monterey: "de8faf2fdb4127d92e1e0df5289d485b7936da149055fefb136f23978da49c4b"
@@ -28,7 +33,7 @@ class Nut < Formula
   end
 
   head do
-    url "https://github.com/networkupstools/nut.git"
+    url "https://github.com/networkupstools/nut.git", branch: "master"
     depends_on "asciidoc" => :build
   end
 
