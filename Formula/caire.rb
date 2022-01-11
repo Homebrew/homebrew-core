@@ -1,8 +1,8 @@
 class Caire < Formula
   desc "Content aware image resize tool"
   homepage "https://github.com/esimov/caire"
-  url "https://github.com/esimov/caire/archive/v1.4.0.tar.gz"
-  sha256 "5c7b136137a4599e2fd4eb044f92f302405d70bd9c79a0069f30a2427366f25f"
+  url "https://github.com/esimov/caire/archive/v1.4.1.tar.gz"
+  sha256 "2676d646c4a9b75d3734ac49e4c27d62008bd889aad0297874d34906a526e8cc"
   license "MIT"
   head "https://github.com/esimov/caire.git", branch: "master"
 
@@ -16,6 +16,7 @@ class Caire < Formula
   end
 
   depends_on "go" => :build
+
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "vulkan-headers" => :build
@@ -26,12 +27,18 @@ class Caire < Formula
   end
 
   def install
-    system "go", "build", *std_go_args, "./cmd/caire"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}"), "./cmd/caire"
   end
 
   test do
-    system bin/"caire", "-in", test_fixtures("test.png"), "-out", testpath/"test_out.png",
-           "-width=1", "-height=1", "-perc=1"
-    assert_predicate testpath/"test_out.png", :exist?
+    pid = fork do
+      system bin/"caire", "-in", test_fixtures("test.png"), "-out", testpath/"test_out.png",
+            "-width=1", "-height=1", "-perc=1"
+      assert_predicate testpath/"test_out.png", :exist?
+    end
+
+    assert_match version.to_s, shell_output("#{bin}/caire -help 2>&1")
+  ensure
+    Process.kill("HUP", pid)
   end
 end
