@@ -1,8 +1,8 @@
 class Coinutils < Formula
   desc "COIN-OR utilities"
   homepage "https://github.com/coin-or/CoinUtils"
-  url "https://github.com/coin-or/CoinUtils/archive/releases/2.11.5.tar.gz"
-  sha256 "771a5647e5fd42e8974b9a56b3edb380a1346c3d3cca1a4262ec02e45ecd9fa9"
+  url "https://github.com/coin-or/CoinUtils/archive/releases/2.11.6.tar.gz"
+  sha256 "6ea31d5214f7eb27fa3ffb2bdad7ec96499dd2aaaeb4a7d0abd90ef852fc79ca"
   license "EPL-1.0"
   head "https://github.com/coin-or/CoinUtils.git", branch: "master"
 
