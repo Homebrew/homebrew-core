@@ -3,7 +3,7 @@ class Tealdeer < Formula
   homepage "https://github.com/dbrgn/tealdeer"
   url "https://github.com/dbrgn/tealdeer/archive/v1.5.0.tar.gz"
   sha256 "00902a50373ab75fedec4578c6c2c02523fad435486918ad9a86ed01f804358a"
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0d1d7ba657937c479ae47d27942e66d1ff15cc3f957596d223e28b26361d9021"
