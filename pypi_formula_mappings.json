@@ -60,6 +60,10 @@
   "cfn-lint": {
     "exclude_packages": ["junit-xml", "six"]
   },
+  "charmcraft": {
+    "extra_packages": ["appdirs", "pydantic", "pyyaml"],
+    "exclude_packages": ["six", "tabulate"]
+  },
   "ciphey": {
     "exclude_packages": ["six"]
   },
