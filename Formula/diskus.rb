@@ -3,7 +3,7 @@ class Diskus < Formula
   homepage "https://github.com/sharkdp/diskus"
   url "https://github.com/sharkdp/diskus/archive/v0.7.0.tar.gz"
   sha256 "64b1b2e397ef4de81ea20274f98ec418b0fe19b025860e33beaba5494d3b8bd1"
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "81ccae56cd463196bfd65dcc54a3ffc2825fa873f38fd50e01580237ae010ce5"
