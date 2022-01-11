@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/21/93/1c2709551b7dd5bc4ce6061984822e3ef73cffd9bc9fe0486851442bcf65/pdm-1.12.3.tar.gz"
-  sha256 "70c7c653a63d90a1e8ce95cf03ed5b5ea773023a62872f8ef48f102bca788888"
+  url "https://files.pythonhosted.org/packages/b6/14/71a0c670cb8158f3f5f2e6a660c9d61d8137a07a35a4a7229c1aa53469bc/pdm-1.12.4.tar.gz"
+  sha256 "147e3f506b38ae6deb9e2be0b2d20f3a957db9921fabf634814e2398207a383e"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
