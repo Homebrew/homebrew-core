@@ -1,8 +1,9 @@
 class Libre < Formula
   desc "Toolkit library for asynchronous network I/O with protocol stacks"
-  homepage "https://github.com/creytiv/re"
-  url "https://github.com/creytiv/re/releases/download/v0.6.1/re-0.6.1.tar.gz"
-  sha256 "cd5bfc79640411803b200c7531e4ba8a230da3806746d3bd2de970da2060fe43"
+  homepage "https://github.com/baresip/re"
+  url "https://github.com/baresip/re/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "43aa439b96aff75fe5768b9f9d49dea97042e42e7647df47b345465763e2f7ed"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f4bc1ae32fab88d187eaa9e4ae4d7dd2fdc0323c39e3d4465f841b1270f1f808"
