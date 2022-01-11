@@ -3,7 +3,7 @@ class Tokei < Formula
   homepage "https://github.com/XAMPPRocky/tokei"
   url "https://github.com/XAMPPRocky/tokei/archive/v12.1.2.tar.gz"
   sha256 "81ef14ab8eaa70a68249a299f26f26eba22f342fb8e22fca463b08080f436e50"
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "MIT"]
 
   livecheck do
     url :stable
