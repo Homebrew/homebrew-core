@@ -3,7 +3,7 @@ class Cmdshelf < Formula
   homepage "https://github.com/toshi0383/cmdshelf"
   url "https://github.com/toshi0383/cmdshelf/archive/2.0.2.tar.gz"
   sha256 "dea2ea567cfa67196664629ceda5bc775040b472c25e96944c19c74892d69539"
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     rebuild 2
