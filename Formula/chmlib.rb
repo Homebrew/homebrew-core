@@ -36,6 +36,18 @@ class Chmlib < Formula
     system "./configure", "--disable-io64", "--enable-examples", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <chm_lib.h>
+      int main() {
+        struct chmFile* chm = chm_open("file-that-doesnt-exist.chm");
+        return chm != 0; // Fail if non-null.
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lchm", "-o", "test"
+    system "./test"
+  end
 end
 
 __END__
