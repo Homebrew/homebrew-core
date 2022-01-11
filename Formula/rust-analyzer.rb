@@ -5,7 +5,7 @@ class RustAnalyzer < Formula
        tag:      "2022-01-10",
        revision: "0f8c96c92689af8378dbe9f466c6bf15a3a27458"
   version "2022-01-10"
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9fe0507d3902db1e52dbe3961ce6afe1bb956079c6c6e0126cbcd73e2b33c854"
