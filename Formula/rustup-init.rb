@@ -3,7 +3,7 @@ class RustupInit < Formula
   homepage "https://github.com/rust-lang/rustup"
   url "https://github.com/rust-lang/rustup/archive/1.24.3.tar.gz"
   sha256 "24a8cede4ccbbf45ab7b8de141d92f47d1881bb546b3b9180d5a51dc0622d0f6"
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f3e0c708bf0bc403fb5591b9f6991d709c68800ee230793cd587286c76c3711a"
