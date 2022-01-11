@@ -1,10 +1,9 @@
 class Mtr < Formula
   desc "'traceroute' and 'ping' in a single tool"
   homepage "https://www.bitwizard.nl/mtr/"
-  url "https://github.com/traviscross/mtr/archive/v0.94.tar.gz"
-  sha256 "ea036fdd45da488c241603f6ea59a06bbcfe6c26177ebd34fff54336a44494b8"
+  url "https://github.com/traviscross/mtr/archive/v0.95.tar.gz"
+  sha256 "12490fb660ba5fb34df8c06a0f62b4f9cbd11a584fc3f6eceda0a99124e8596f"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/traviscross/mtr.git", branch: "master"
 
   bottle do
