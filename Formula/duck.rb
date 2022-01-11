@@ -143,11 +143,17 @@ class Duck < Formula
       libexec.install Dir["cli/osx/target/duck.bundle/*"]
       rm_rf libdir/"JavaNativeFoundation.framework"
       libdir.install buildpath/"JavaNativeFoundation.framework"
-      # Replace runtime with already installed dependency
-      rm_r "#{libexec}/Contents/PlugIns/Runtime.jre"
-      ln_s Formula["openjdk"].libexec/"openjdk.jdk", "#{libexec}/Contents/PlugIns/Runtime.jre"
       rm libdir/shared_library("librococoa")
       libdir.install buildpath/shared_library("librococoa")
+
+      # Replace runtime with already installed dependency
+      rm_r libexec/"Contents/PlugIns/Runtime.jre"
+      if Hardware::CPU.intel?
+        ln_s Formula["openjdk"].libexec/"openjdk.jdk", libexec/"Contents/PlugIns/Runtime.jre"
+      else
+        # We need to `codesign` this on ARM, so let's copy it over.
+        cp_r Formula["openjdk"].libexec/"openjdk.jdk", libexec/"Contents/PlugIns/Runtime.jre"
+      end
     else
       libexec.install Dir["cli/linux/target/release/duck/*"]
     end
@@ -155,6 +161,14 @@ class Duck < Formula
     rm libdir/shared_library("libjnidispatch")
     libdir.install buildpath/shared_library("libjnidispatch")
     bin.install_symlink "#{bindir}/duck" => "duck"
+  end
+
+  # FIXME: Bottling seems to break the ad-hoc signature.
+  # https://github.com/Homebrew/homebrew-core/issues/92180
+  def post_install
+    return if !OS.mac? || !Hardware::CPU.arm?
+
+    quiet_system "codesign", "--force", "--deep", "--sign", "-", libexec
   end
 
   test do
