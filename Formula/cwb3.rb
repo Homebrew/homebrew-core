@@ -6,6 +6,11 @@ class Cwb3 < Formula
   license "GPL-2.0-or-later"
   head "svn://svn.code.sf.net/p/cwb/code/cwb/trunk"
 
+  livecheck do
+    url "https://sourceforge.net/projects/cwb/"
+    regex(%r{url=.*?/CWB-CL[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "58a4e7511ce2b101990a19f53e9c23056ad6bbd1548ea58b35b0d44c18a263a5"
     sha256 cellar: :any,                 arm64_big_sur:  "6bf55b83b4a38bb31b6725401ee566b483e2d4f9f9e599d7f93fa002b98193a4"
