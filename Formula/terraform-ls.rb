@@ -1,8 +1,8 @@
 class TerraformLs < Formula
   desc "Terraform Language Server"
   homepage "https://github.com/hashicorp/terraform-ls"
-  url "https://github.com/hashicorp/terraform-ls/archive/v0.25.1.tar.gz"
-  sha256 "78e6aa82d4379ee8e19129340f769498cebdac23e81e0afb6298cfb29c253266"
+  url "https://github.com/hashicorp/terraform-ls/archive/v0.25.2.tar.gz"
+  sha256 "ec028b03bb80a220e6ebed17c470ac6319839f53c6ad0a83b0e060e08a197ac1"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform-ls.git", branch: "main"
 
