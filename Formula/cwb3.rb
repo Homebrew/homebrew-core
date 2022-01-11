@@ -7,8 +7,8 @@ class Cwb3 < Formula
   head "svn://svn.code.sf.net/p/cwb/code/cwb/trunk"
 
   livecheck do
-    url "https://sourceforge.net/projects/cwb/"
-    regex(%r{url=.*?/CWB-CL[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    url "https://sourceforge.net/projects/cwb/rss?path=/cwb"
+    regex(%r{url=.*?/cwb[._-]v?(\d+(?:\.\d+)+)-src\.t}i)
   end
 
   bottle do
