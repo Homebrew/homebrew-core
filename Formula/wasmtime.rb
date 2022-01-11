@@ -4,7 +4,7 @@ class Wasmtime < Formula
   url "https://github.com/bytecodealliance/wasmtime.git",
       tag:      "v0.33.0",
       revision: "8043c1f919a77905255eded33e4e51a6fbfd1de1"
-  license "Apache-2.0"
+  license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/bytecodealliance/wasmtime.git", branch: "main"
 
   livecheck do
