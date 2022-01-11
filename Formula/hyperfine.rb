@@ -3,7 +3,7 @@ class Hyperfine < Formula
   homepage "https://github.com/sharkdp/hyperfine"
   url "https://github.com/sharkdp/hyperfine/archive/v1.12.0.tar.gz"
   sha256 "2120870a97e68fa3426eac5646a071c9646e96d2309220e3c258bf588e496454"
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "08143e785ff6982bc64c1299aac9f16f0230850ea4e8fcb9b9728176e6c7c20a"
