@@ -3,6 +3,7 @@ class ReginaRexx < Formula
   homepage "https://regina-rexx.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/regina-rexx/regina-rexx/3.9.3/regina-rexx-3.9.3.tar.gz"
   sha256 "1712aabee5978fdf57aeac82cd5a1a112b8980db8c5d7d045523f6a8b74b0531"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_monterey: "6ee431b4c05183e8d40cc5a8ae8116bacbd98626e3dc0b77689dea21e60143f2"
