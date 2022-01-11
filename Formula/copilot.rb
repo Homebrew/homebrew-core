@@ -15,12 +15,13 @@ class Copilot < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d45375c1edeb398a9e44c6974a1d13ef804cf661e406c646279863b00657382"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8eae09415d5dcf0ea922aa1dcf69e30e6e5d9f065082aeef2d9dc1a23e17f94b"
-    sha256 cellar: :any_skip_relocation, monterey:       "c22dde2c56748828f962902701f2027458ddfb909d775e4361460d49402885d3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7df9163d5a52884497f510852719d8e86db16349c9f0559d1437fa6583aeceb5"
-    sha256 cellar: :any_skip_relocation, catalina:       "b23d12b311ab01011702bf13e78e001ef58e880f014b834742518fc38315a965"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ada1dd76149c43180c2831008a0b080a4ae8b83b96c6d65fb9d8d5bfcff080b7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70e5e3bf4cf0a7442203d9bfe4e2bfc20d6c3a1c531b0a918ca297d438a8d153"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4560e82379e7974a9adef2b4d5f099832173fdb1f3723fdfef503f8a5b3066ac"
+    sha256 cellar: :any_skip_relocation, monterey:       "cc2fe400f8753cb686e3ce44e36d295d5c71188f8c43a9fa9ea92fdb1737e824"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7cd6349a40f556d22160773d80e1a521b8be70a72f728fcbaaff9d09bd4e25b7"
+    sha256 cellar: :any_skip_relocation, catalina:       "c8dbb1307021b03b9f72cdc75109a162633d5e58b4e6fc8491968b5348ad5fe0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9167fb1843d6331555af256f28d10413f393b153bf9c671f4ed9bbde265e451b"
   end
 
   depends_on "go" => :build
@@ -35,11 +36,14 @@ class Copilot < Formula
 
     bin.install "bin/local/copilot"
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/copilot", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"copilot", "completion", "bash")
     (bash_completion/"copilot").write output
 
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/copilot", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"copilot", "completion", "zsh")
     (zsh_completion/"_copilot").write output
+
+    output = Utils.safe_popen_read(bin/"copilot", "completion", "fish")
+    (fish_completion/"copilot.fish").write output
   end
 
   test do

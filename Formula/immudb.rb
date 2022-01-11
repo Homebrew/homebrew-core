@@ -26,6 +26,18 @@ class Immudb < Formula
     bin.install %w[immudb immuclient immuadmin]
   end
 
+  def post_install
+    (var/"immudb").mkpath
+  end
+
+  service do
+    run opt_bin/"immudb"
+    keep_alive true
+    error_log_path var/"log/immudb.log"
+    log_path var/"log/immudb.log"
+    working_dir var/"immudb"
+  end
+
   test do
     port = free_port
 

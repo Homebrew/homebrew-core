@@ -1,8 +1,8 @@
 class Libpipeline < Formula
   desc "C library for manipulating pipelines of subprocesses"
   homepage "https://libpipeline.nongnu.org/"
-  url "https://download.savannah.nongnu.org/releases/libpipeline/libpipeline-1.5.4.tar.gz"
-  sha256 "db785bddba0a37ef14b4ef82ae2d18b8824e6983dfb9910319385e28df3f1a9c"
+  url "https://download.savannah.nongnu.org/releases/libpipeline/libpipeline-1.5.5.tar.gz"
+  sha256 "0c8367f8b82bb721b50647a647115b6e62a37e3b2e954a9685e4d933f30c00cc"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libpipeline < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6c0e638760186cc65964b13cbef1c02cb62bd445ddcbaafb5968122e08e2cc92"
-    sha256 cellar: :any,                 arm64_big_sur:  "88b581ef72ef218c98d11fd16fefc6988a4e26338726384c9848be3c5ab33700"
-    sha256 cellar: :any,                 monterey:       "32582c61e92be4a8327cd38a2f5dcde4b69b43c2a4900754f8d1e4ab0fa880b0"
-    sha256 cellar: :any,                 big_sur:        "0ae6625daee8bfc66e83c6d0176ebd45cc4cc10d682313e6dd4c6f8016f773ff"
-    sha256 cellar: :any,                 catalina:       "a2ab80d839a14d5568de6bd78c2e8ccc16efb2d78ad0dafd6c684a850d430d09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88464e66b9f58c437fbca14cdb88850cd4a2bf533a165060565c4696cf4f5ac4"
+    sha256 cellar: :any,                 arm64_monterey: "0c7e76c20cff63cb6bf424ab9ed15761c10d2c873ccaa879605b87a68924706c"
+    sha256 cellar: :any,                 arm64_big_sur:  "1baa2e3a2cbc33184b3bf60f51f66bef818c51922bc97f836d2a442c719497ac"
+    sha256 cellar: :any,                 monterey:       "0ea83c70eea28ad8ce5db21311d6a6f7ec63c129d06b04b97f19b2cb84497cac"
+    sha256 cellar: :any,                 big_sur:        "23561a9dd187280f6b2fc7e1d1ef6fcae4d9f027ae7606ffb1541c269f7205e8"
+    sha256 cellar: :any,                 catalina:       "aef70c833c5b3c1b6c45f54a1a7be505e4edc57cf54f3b4bb2de265cba3c78f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a90fa10efacae46000534e2ffd57a36eae8feeab863f96859a225ab73feff953"
   end
 
   def install

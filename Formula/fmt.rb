@@ -1,18 +1,17 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmt.dev/"
-  url "https://github.com/fmtlib/fmt/archive/8.0.1.tar.gz"
-  sha256 "b06ca3130158c625848f3fb7418f235155a4d389b2abc3a6245fb01cb0eb1e01"
+  url "https://github.com/fmtlib/fmt/archive/8.1.1.tar.gz"
+  sha256 "3d794d3cf67633b34b2771eb9f073bde87e846e0d395d254df7b211ef1ec7346"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "73db4f891010951987fe242ce0cdba2f81e0ac92ddbea69e58d7277a903da231"
-    sha256 cellar: :any,                 arm64_big_sur:  "f9b84ce76a3226dc6f7e892b844de4238b1ea278bd77949839afbbc4b0bdce57"
-    sha256 cellar: :any,                 monterey:       "e1906db10884e41bb0fbeb4bea9bab584ecbcc425a776047ec83032e870eab16"
-    sha256 cellar: :any,                 big_sur:        "20e10af8ee859764717466c355812a03b4ed4e23b7e97f155b1bc0b391dfe2ba"
-    sha256 cellar: :any,                 catalina:       "08d31cecf8c989a946b205aec6e5cb305f2982a59ea345ba343a4349cef998b7"
-    sha256 cellar: :any,                 mojave:         "f0d905746ce5dc69067e240b33c2e37268c9f88889c65578fb96b7c373cc0e80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4edba06a41ddb0fcea04cfb3b71c95dd945df125aee3d1de2f22abfa2b65fd6b"
+    sha256 cellar: :any,                 arm64_monterey: "6cbc489146c6c0dce9a3f9726d3a3fe4e81c5df58cfd506609244d5c22382dec"
+    sha256 cellar: :any,                 arm64_big_sur:  "e1925c87f70cc2ede44a701644f78db7e914708a3298830565b431259333e498"
+    sha256 cellar: :any,                 monterey:       "61b668c0df47c7c2a7dd502c85dff74389efd44f64bddf097e8859290607f2bd"
+    sha256 cellar: :any,                 big_sur:        "0f63eebbc6c149acd695783eb97a104b782393778287324df962389f487d7fea"
+    sha256 cellar: :any,                 catalina:       "4a9e162c919b4f81791f2b3933dc6d01d7050636de0630baee30a87a0d7a8445"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c6d92ff37caff6323e45ff52d0e832b517af291f8ce70a82af1d8a0c768ee79"
   end
 
   depends_on "cmake" => :build

@@ -4,6 +4,7 @@ class Librist < Formula
   url "https://code.videolan.org/rist/librist/-/archive/v0.2.6/librist-v0.2.6.tar.gz"
   sha256 "88b35b86af1ef3d306f33674f2d9511a27d3ff4ec76f20d3a3b3273b79a4521d"
   license "BSD-2-Clause"
+  revision 1
   head "https://code.videolan.org/rist/librist.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,12 @@ class Librist < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a49ba8240dce8d368b193a8d6388553b1688f09eb698891fe059c52829d941b9"
-    sha256 cellar: :any,                 arm64_big_sur:  "33edba89ab01a727ae17d5c76742a20e61030c0dc5b46c5063a07fd31ec16214"
-    sha256 cellar: :any,                 monterey:       "9b5c174610b58707c25b27c9f9ef5cac947e928cc3a1f7d80789648c5c3d0dc5"
-    sha256 cellar: :any,                 big_sur:        "32ca4949e0b34daff4eac02cef3fc018a08a29b531a16c5199c5549317292b84"
-    sha256 cellar: :any,                 catalina:       "a78e9af5a97225aa3caf5f3a700d819fd7ab011537f742fffc9ffa55ec8be035"
-    sha256 cellar: :any,                 mojave:         "4a4e0782ae28a9832313a46cfc5af148b95c0f1760dca560baefd46bf537e828"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d5676085eb79786f4165816df783eb0662e59a715432c1d5c5700b01b7ee95b"
+    sha256 cellar: :any,                 arm64_monterey: "4d72554a101bdc2828090eb8403226f041226b2a19e73ac22f6579bb8980b20c"
+    sha256 cellar: :any,                 arm64_big_sur:  "417402199b57d04ad74c097e649d72fbb18573c32621af8b31ad18a97117ddf2"
+    sha256 cellar: :any,                 monterey:       "00d5af03d5ade1b78e2b9ffe5ddde2a47219d3aba5bb86770b3f4c5a9d4718f3"
+    sha256 cellar: :any,                 big_sur:        "74f30c477bd07b734fe287d0a08520d66db9a21c4800197b2bfd282e8089c517"
+    sha256 cellar: :any,                 catalina:       "6433c18aeeffd921e6d068db2e634ee5c0b3daa4244e2bb0112271a1ba1906de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c4031495d0ab4d7a8ad966a9f87d07059add7e7f02fe7eca66abd312fcca1ed"
   end
 
   depends_on "meson" => :build

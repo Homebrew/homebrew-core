@@ -6,31 +6,37 @@ class Kubecm < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1280c573ac13426ef189d3708a37c0db0daf962490bbc94b650d76bc8bd32adb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "327ed093c61beb41450aabdc7220e45821bb76f08df4c7f94b55de8bae722cba"
-    sha256 cellar: :any_skip_relocation, monterey:       "ce8c6d750c4d69570a2e649ec0bbfa66916a931d3b43a54d3f92016dabca7728"
-    sha256 cellar: :any_skip_relocation, big_sur:        "96246e3be41ce88170e67c398eef549e4a818bc68aa90f0ac45e07ee0a51ab71"
-    sha256 cellar: :any_skip_relocation, catalina:       "13f1346904430f3f4f99a6c7bb6d21a6fecdad0a5171ef896a6ceef8c6aebe51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc920c5ad91e3301786a23b6eef1be86204687f224791dfaa2845e04d20a37f2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "963191a58acd64f1850727ef85a98ba8152dcf7892058f5ea5f88b992650dda7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72db3ab2eb040beab05575160702e1badb7b56f448e3fa99d186ccd717ee3f93"
+    sha256 cellar: :any_skip_relocation, monterey:       "55457ff2b2b63f598a4cbf839988201aa28e056f4724024fa605972f253b018b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f3225ac3c412f809d1d37959bd29d49716c6a528f6962e1a314a6632e22afd34"
+    sha256 cellar: :any_skip_relocation, catalina:       "c5203b6b68e268bab2b2603a1bfec4db4d23782205de930e22fe0b005440adb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb2ba6dad5e4e636fdd27caa08fd3fb5f0befb57e2417015925ca3d56240247d"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-X github.com/sunny0826/kubecm/cmd.kubecmVersion=#{version}")
+    ldflags = "-s -w -X github.com/sunny0826/kubecm/cmd.kubecmVersion=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/kubecm", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"kubecm", "completion", "bash")
     (bash_completion/"kubecm").write output
 
     # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/kubecm", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"kubecm", "completion", "zsh")
     (zsh_completion/"_kubecm").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read(bin/"kubecm", "completion", "fish")
+    (fish_completion/"kubecm.fish").write output
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/kubecm version")
     # Should error out as switch context need kubeconfig
-    status_output = shell_output("#{bin}/kubecm switch 2>&1", 1)
-    assert_match "Error: open", status_output
+    assert_match "Error: open", shell_output("#{bin}/kubecm switch 2>&1", 1)
   end
 end

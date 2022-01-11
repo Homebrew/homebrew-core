@@ -3,8 +3,13 @@ class Mftrace < Formula
   homepage "https://lilypond.org/mftrace/"
   url "https://lilypond.org/downloads/sources/mftrace/mftrace-1.2.20.tar.gz"
   sha256 "626b7a9945a768c086195ba392632a68d6af5ea24ef525dcd0a4a8b199ea5f6f"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   revision 1
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?mftrace[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9c6697dda8331a25dfebad452baa00d2b896246dd2e793be153f4d3dffcd523b"
@@ -17,7 +22,7 @@ class Mftrace < Formula
   end
 
   head do
-    url "https://github.com/hanwen/mftrace.git"
+    url "https://github.com/hanwen/mftrace.git", branch: "master"
     depends_on "autoconf" => :build
   end
 

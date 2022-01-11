@@ -1,17 +1,17 @@
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
   homepage "https://github.com/kubecfg/kubecfg"
-  url "https://github.com/kubecfg/kubecfg/archive/v0.24.0.tar.gz"
-  sha256 "f75c9e0ca1523be10fa7968d64cacde2002ecd51b82df6724671ef2556aaa926"
+  url "https://github.com/kubecfg/kubecfg/archive/v0.24.1.tar.gz"
+  sha256 "4e5d01a92b04080cda5df729b21e54d44e5536904340301f183d65800eaf6818"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cea6f0bd94e973bea9120755ee7e943a63e8e8d18eec7fc02b86aa53d0ad3a00"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd84c4e921d6e282f952045d25ecfe23de3d8c91ea1f6e33f47f0c710ed4b068"
-    sha256 cellar: :any_skip_relocation, monterey:       "3acbb99c1e5e5a6b5110254dba1bfc635282d96cb7ec99f2d5b46e6c7f6e1753"
-    sha256 cellar: :any_skip_relocation, big_sur:        "35a591b4e348eeadffd7f62a24cfa72215858e5405d40d6562bb17a51cb37620"
-    sha256 cellar: :any_skip_relocation, catalina:       "e2ff8df6ffb8c5c3455f86a7140ac4a9cbfd284e0ce1bee81de876a3fbf01d2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8cc147138e3c82603b3fae7b5282a9a5831f301066b939a0b579c96e60def40"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f36809c4e68be88403bdeb87f48db8d1ce5df6124680d93661017bc42a1f0d5f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0a3ffa549e43c5c1627cee4a31c2a370872c24ae88905349f3be1b39d752481"
+    sha256 cellar: :any_skip_relocation, monterey:       "62e5ea9af0f539c88836fc9dd442bf4b93bbc286401d24e74e6d0d104705b896"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1a0f57c70a3471df56b701ae4b819acf0804a5b76b8d6b32ba21cc163cacd683"
+    sha256 cellar: :any_skip_relocation, catalina:       "7552c424643826d4ff34af252f185d9a131def789f74560f2a470fa44c964ed3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a87514db6c083d908ee63724f7c0f67191e5598f5f19e6c586dcb2e529447739"
   end
 
   depends_on "go" => :build

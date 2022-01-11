@@ -2,20 +2,18 @@ class ChartTesting < Formula
   desc "Testing and linting Helm charts"
   homepage "https://github.com/helm/chart-testing"
   url "https://github.com/helm/chart-testing.git",
-      tag:      "v3.4.0",
-      revision: "68a43ac09699ef9473266457e893a7ddd7ef6b5b"
+      tag:      "v3.5.0",
+      revision: "e97261b3ebac4a3828958b06ff63d2c56a0d60b3"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/helm/chart-testing.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "87ab1fdbd3cca5c5a1d431eac46e4308df855c5367e2a47a58bf46a7474ffcb0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66bd1f0419bfcf97ce06a3a91f107735563ee94e1e5953bcad7e48d5f1a31e9f"
-    sha256 cellar: :any_skip_relocation, monterey:       "e02e13c98a1c82bcd1805265057ed63b94160027ca53e2a23a5e6393212a6650"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a6179e0090f93f5bf67f92cd13fa391f898496211f7e1b58a1d3989f9b37b22c"
-    sha256 cellar: :any_skip_relocation, catalina:       "556430cab62f842bfdcac97db34b96448bad3588a359aec2e2f9f21c5339f363"
-    sha256 cellar: :any_skip_relocation, mojave:         "65760b4336f5f2005cdb7d001d3902c16530ed0dd6eeb68bdaab2d6389f63d0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f3e74a28ac59c912d7f8fcb685305937f3b59d5757c60c4f5b434ace478de2d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c28e4a9b970053d9e9a4d1dc1fda58abeb059b636bf94547cbe54051694b5306"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2448cbf08768d95639f0afc111dcb74ae3b3b54acdfc16e9d41078842fab41e5"
+    sha256 cellar: :any_skip_relocation, monterey:       "691f0f6353686aacd567021cca105aa5799ccfe1df9a1db84b909fe21ff77b3a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4dc26ff560ec30b8f5c72c038f56887bbd3fb48535c8940012b4dd5e99ad90e7"
+    sha256 cellar: :any_skip_relocation, catalina:       "560db5e9b008db385b7d357af1b48457e6cb7cb6061d88a6b1a5a77bc87d2271"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edf8d4e16fea3447e5b1468f96fbf8e1a3a1ccb38011257a6c01344ecfaf91ba"
   end
 
   depends_on "go" => :build

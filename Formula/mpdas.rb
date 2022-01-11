@@ -6,6 +6,11 @@ class Mpdas < Formula
   license "BSD-3-Clause"
   head "https://github.com/hrkfdn/mpdas.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?mpdas[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 arm64_monterey: "89b5e45abcb88c8df236dea703162ed9d7f372c0872c3af23630c56e18e31c8e"

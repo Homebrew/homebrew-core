@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/index.html"
-  url "https://sqlite.org/2021/sqlite-autoconf-3370100.tar.gz"
-  version "3.37.1"
-  sha256 "40f22a13bf38bbcd4c7ac79bcfb42a72d5aa40930c1f3f822e30ccce295f0f2e"
+  url "https://sqlite.org/2022/sqlite-autoconf-3370200.tar.gz"
+  version "3.37.2"
+  sha256 "4089a8d9b467537b3f246f217b84cd76e00b1d1a971fe5aca1e30e230e46b2d8"
   license "blessing"
 
   livecheck do
@@ -15,12 +15,12 @@ class Sqlite < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2e9774179ea081aa6b4d1ac4f0ff909918e746ab112415f20bc1ce9ab2e71524"
-    sha256 cellar: :any,                 arm64_big_sur:  "2cfc5aa33ad0dc40144efcca1f333f39f64c7e22bbcaf6e251eda247e5366a07"
-    sha256 cellar: :any,                 monterey:       "8bb9bda5a0915f5fa0e5465ddd14e74962f56c0d1d8250d3c827322520e0d3e1"
-    sha256 cellar: :any,                 big_sur:        "7f734acce1459afa08637461e97eaf1eea571587e363ea16953d48dff21b5a1b"
-    sha256 cellar: :any,                 catalina:       "d1000e32424de78b2ade9ac9e0605989b026d97fdf9074e40f3969e544d59281"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "540840fa28739d52f563dfebef9d28fa8d0a7460297dc8b846b7b83419ace4f4"
+    sha256 cellar: :any,                 arm64_monterey: "debcf87141c39a5902b5142d64b1d91935677eb44f9838d60e52abc37a42a31e"
+    sha256 cellar: :any,                 arm64_big_sur:  "ee147de3d4d57624ffc26e230806cb2d8a99524f22401fbef8049e0b8b41c9b9"
+    sha256 cellar: :any,                 monterey:       "263146083f3cffb859312957fbb6b4dd8a11c87dafe22f3d3712d39566dfd026"
+    sha256 cellar: :any,                 big_sur:        "bf63198a72c33149f4d58a1004a189d176a0e135949e3d6e8ec96a7301de6caf"
+    sha256 cellar: :any,                 catalina:       "b3abf39f3b606267be4f712973e5fe5e693bc6aafcea3fe2d9a259482717a1c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23897fa4059f171f81d329fd9b52ad7d3c301e70f76619ac23e24e6673022f22"
   end
 
   keg_only :provided_by_macos

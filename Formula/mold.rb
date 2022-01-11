@@ -7,12 +7,13 @@ class Mold < Formula
   head "https://github.com/rui314/mold.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "f3762565b2b74ee55c28d80b121b9bb0c9ed940fd45dde37c08d0f686bfc4481"
-    sha256 arm64_big_sur:  "9e86a84670f20f9ff3ba1c074a045a9f2aa8e2be9caf1381c1644e77c78c4eca"
-    sha256 monterey:       "9b275f3950aaa2411bdddd51687d402fc21226599d6a7dafb6d6091c338fb270"
-    sha256 big_sur:        "8507515e39bbd20ee428ebb1457a94fb28498cfe9c94908fd06ea32a96a8d199"
-    sha256 catalina:       "5e9c985f9b13dc6fb081e01105617cbaf02dce84be59b835a477b67a89be0dfe"
-    sha256 x86_64_linux:   "5dbf095b179aa148a1193c59e2ddd07659cc3d0498ade0ca446bd3b62e513807"
+    rebuild 1
+    sha256 arm64_monterey: "3781e61f8fb03d6672d6e1d8b846abaefedf49602db4663338df817ae6cc5c2d"
+    sha256 arm64_big_sur:  "e5dada695a6c6e59b9ae334ba2dda63fda1144e7f507e1601bbcca82d0c2f087"
+    sha256 monterey:       "332282d118bad7686376da63c25465c31c1056002358fdc400655966e06f3b99"
+    sha256 big_sur:        "03c3f38e45e0ae85263c693598a08623981a13764401a91f2f9451fc53fef18d"
+    sha256 catalina:       "8f1200a17e13e0019456671a639dcb6dd5af654c4e57598bdfd072d5a72267cd"
+    sha256 x86_64_linux:   "44acff1b888add128a9f9ec09ab35289518868194bcaad3d508dd354d4207fd3"
   end
 
   depends_on "tbb"
@@ -20,9 +21,6 @@ class Mold < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    # mold can only link ELF executables (for now)
-    # https://github.com/rui314/mold/issues/189
-    depends_on "x86_64-elf-gcc" => :test
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1200
   end
 
@@ -55,18 +53,31 @@ class Mold < Formula
     ]
     args << "STRIP=true" if OS.mac?
     system "make", *args, "install"
+
+    inreplace buildpath.glob("test/*/*.sh") do |s|
+      s.gsub!('mold="$(pwd)', "mold=\"#{bin}")
+      s.gsub!(/"?\$mold"?-wrapper/, lib/"mold/mold-wrapper", false)
+    end
+    pkgshare.install "test"
   end
 
   test do
+    # Avoid use of the `llvm_clang` shim.
+    ENV.clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
+
     (testpath/"test.c").write <<~EOS
       int main(void) { return 0; }
     EOS
 
-    ENV["CC"] = "x86_64-elf-gcc" if OS.mac?
+    # GCC 12.1.0+ can also use `-fuse-ld=mold`
+    linker_flag = case ENV.compiler
+    when :clang then "-fuse-ld=mold"
+    when /^gcc(-\d+)?$/ then "-B#{libexec}/mold"
+    else raise "unexpected compiler"
+    end
 
-    system ENV.cc, "-c", "test.c"
-    system bin/"mold", "test.o"
-    assert_predicate testpath/"a.out", :exist?
+    system ENV.cc, linker_flag, "test.c"
+    system "./a.out"
     return if OS.mac?
 
     system bin/"mold", "-run", ENV.cc, "test.c", "-o", "test"

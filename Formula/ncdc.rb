@@ -5,6 +5,11 @@ class Ncdc < Formula
   sha256 "d15fd378aa345f423e59a38691c668f69b516cd4b8afbbcdc446007740c3afad"
   license "MIT"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ncdc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3851c0505db606f727353c388b30563b23001ea02e9190216495f7e6df1ce03d"
     sha256 cellar: :any,                 arm64_big_sur:  "7dfeff7bcbd463dd11bcc08b52114a445cacfae8ca7f0f6c8fae65c9e4b19d4a"
@@ -18,7 +23,7 @@ class Ncdc < Formula
   end
 
   head do
-    url "https://g.blicky.net/ncdc.git"
+    url "https://g.blicky.net/ncdc.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

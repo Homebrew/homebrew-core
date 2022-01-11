@@ -4,10 +4,9 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v0.44.0",
-      revision: "ee84bd93b7e0ef802963503a34783772e31eb10e"
+      tag:      "v0.50.1",
+      revision: "21ac1ec4f4baabb278d774f6ec2d14a407041a64"
   license "BSD-3-Clause"
-  revision 6
 
   livecheck do
     url :stable
@@ -15,12 +14,12 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5f6ee58ed8b3a6d08a3a50c729a7fb90a40b10054aa6ba6030a0a83751823195"
-    sha256 cellar: :any,                 arm64_big_sur:  "2584c86d02dcfecc4a298b58691e519cb254baac7004cc6c9c1d6116a2648cf4"
-    sha256 cellar: :any,                 monterey:       "6487eacb1be40645eb89c5beccfece77590680ffd726f59dcc0007abaafb5819"
-    sha256 cellar: :any,                 big_sur:        "f105927f6757d468ce92da03478f7519ca9eb129665798e72bb899b9f370c229"
-    sha256 cellar: :any,                 catalina:       "9cb82ad4e59a94a18d15f4104aede29e66f537f2f68eab758a4d1457d4373de5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebb2c3e02aefa8fd23cfc00c33ab356962819f0449593af69d3833b97041ee93"
+    sha256 cellar: :any,                 arm64_monterey: "9c7cdb9c08560e501158a6c885d758fdbccc673e44b781ce239da806e41ab9f8"
+    sha256 cellar: :any,                 arm64_big_sur:  "1f1d6872c7ad0c426564f35734468fec78ed4f7623373edd1686837c74cb37e1"
+    sha256 cellar: :any,                 monterey:       "569876eddf3292efdea08624bf9d920843ec78760f9bd39e52b2058c857f04b6"
+    sha256 cellar: :any,                 big_sur:        "2cd97ccbe6c950fd77086b54e6924c9c88cdf09f16ebd1b04f1c64a0a856b25f"
+    sha256 cellar: :any,                 catalina:       "fc56c21cfacb798c788add59c69c345a12a3cf286588dea44f0f2626812a3760"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f68e9b10e7b87d83965b2a9b6f6b21dc09e1fcd3e836d688c393af6cb86d3dd"
   end
 
   depends_on "cmake" => :build
@@ -60,8 +59,8 @@ class Mavsdk < Formula
   # These resources are needed to install protoc-gen-mavsdk, which we use to regenerate protobuf headers.
   # This is needed when brewed protobuf is newer than upstream's vendored protobuf.
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/39/11/8076571afd97303dfeb6e466f27187ca4970918d4b36d5326725514d3ed3/Jinja2-3.0.1.tar.gz"
-    sha256 "703f484b47a6af502e743c9122595cc812b0271f661722403114f71a79d0f5a4"
+    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
+    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
   end
 
   resource "MarkupSafe" do
@@ -123,7 +122,7 @@ class Mavsdk < Formula
                     "-I#{include}", "-L#{lib}", "-lmavsdk"
     assert_match "v#{version}-#{tap.user}", shell_output("./test").chomp
 
-    assert_equal "Usage: #{bin}/mavsdk_server [-h | --help]",
+    assert_equal "Usage: #{bin}/mavsdk_server [Options] [Connection URL]",
                  shell_output("#{bin}/mavsdk_server --help").split("\n").first
   end
 end

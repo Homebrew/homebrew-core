@@ -1,17 +1,18 @@
 class Teku < Formula
   desc "Java Implementation of the Ethereum 2.0 Beacon Chain"
   homepage "https://docs.teku.consensys.net/"
-  url "https://github.com/ConsenSys/teku/archive/refs/tags/21.12.2.tar.gz"
-  sha256 "fdd2e23ee8228b0bcb883f3bdfb4c24b82b21346a0444309e933ff019d5c3f39"
+  url "https://github.com/ConsenSys/teku.git",
+        tag:      "22.1.0",
+        revision: "5b85ef197f5468c32b4aeb869ebe74201b9875bf"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4bdb86599a5102ce0bbd8ee05a098b79984ed3b5e0282ca1e19c96362dae98ad"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "84e498231cd8f34ffe9a805824934cb21c2b1d5e42ba429ad8ac1cd6d52f8bea"
-    sha256 cellar: :any_skip_relocation, monterey:       "1fe8a4709b1417f64a05a0743ee685a0480b2b20bdf40543b3d877baa8c2e714"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cfdbfac65edae03a4a54343aa5a04cfc33c3e038af65b174d6e3b329a2839a59"
-    sha256 cellar: :any_skip_relocation, catalina:       "81b7c2f8b657cc7ad95b448a4320c3c382e5f68375f61028f45161511a301617"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "650bcdbcc039721899dca388a83b79ead91fce8d035db9d6921d961a9331bd6a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "97c4812694ee813a13e31c262f0a96a81a487e23d86065b6aea8096b2868f346"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17b9b1daaf04d9b9eb5a58af1a6491370604d85d2be8775e80d61622699b6166"
+    sha256 cellar: :any_skip_relocation, monterey:       "6642ee3a33ee28091e5383a12ccd61f7ae99126ec79bf9c452ede5c7ae79c4ce"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5df91c28062d0f89de22e1c83fa667c9b9b936cefe74e17df28da1fac7f60753"
+    sha256 cellar: :any_skip_relocation, catalina:       "84f38e89404ec53d5219e4c96138a3c93448a842f6fce5c7a8fd50a6fe766ee0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71a63323115c7087dab604abb812ca1a58e9948a68c22f5319778adf7726ed38"
   end
 
   depends_on "gradle" => :build
@@ -32,7 +33,7 @@ class Teku < Formula
     fork do
       exec bin/"teku", "--rest-api-enabled", "--rest-api-port=#{rest_port}", "--p2p-enabled=false"
     end
-    sleep 10
+    sleep 15
 
     output = shell_output("curl -sS -XGET http://127.0.0.1:#{rest_port}/eth/v1/node/syncing")
     assert_match "is_syncing", output

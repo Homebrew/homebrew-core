@@ -1,32 +1,26 @@
 class Libmodbus < Formula
   desc "Portable modbus library"
   homepage "https://libmodbus.org/"
-  url "https://libmodbus.org/releases/libmodbus-3.1.6.tar.gz"
-  sha256 "d7d9fa94a16edb094e5fdf5d87ae17a0dc3f3e3d687fead81835d9572cf87c16"
-  license "LGPL-2.1"
+  url "https://github.com/stephane/libmodbus/archive/v3.1.7.tar.gz"
+  sha256 "af8ade1eec30fe3dc6ddf8f711b37f9a931532287f39a40f54e6f475402df389"
+  license "LGPL-2.1-or-later"
+  head "https://github.com/stephane/libmodbus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1e62812f7192b8e435c5f1d63b61af72f075da1bf12ea73ae6ed9ccc79926d4e"
-    sha256 cellar: :any,                 arm64_big_sur:  "66a192cf8e326af9dce6bec7a12a757aba263473dd054b2584b6498275061833"
-    sha256 cellar: :any,                 monterey:       "b1d87a2902177666828620e9abdcd30068fff6c4bbc66dafdbe91bb556be2fac"
-    sha256 cellar: :any,                 big_sur:        "46814e801373eb51c88d17dcd044c0c6260d1866e27315ae431cbd90236c0f36"
-    sha256 cellar: :any,                 catalina:       "dd69c46175e27a8a79938c12dbdcbdb67d3d1b74a0c4ad067a394eaa7a5869ca"
-    sha256 cellar: :any,                 mojave:         "0dd32373b5988d09317728357780b3cdc54cad290afcb51b390f33a50fa653e0"
-    sha256 cellar: :any,                 high_sierra:    "d821c77d787cf51c96811c37374d5cc42c7948636c84d7b7b6251a7e0afa29a0"
-    sha256 cellar: :any,                 sierra:         "462dd4e48e87bab1e48ef64f3f3a907392994a9f8c0753c8b739ca5207882b32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf1b1ce41283ff26162992d636cbdece2884c2f21aea21572b8b81e8c62f063e"
+    sha256 cellar: :any,                 arm64_monterey: "fc2d5dcb26e376825f443f62e519611a4b41ccdffc41f2548845299de8d48874"
+    sha256 cellar: :any,                 arm64_big_sur:  "e244f011a09c4544dfcff26ca37a5b1ac14437f265dbba0ffaf3a5828a3f247c"
+    sha256 cellar: :any,                 monterey:       "21609d282cb0f2820eca845eacd27646c6094d4f31befb422c2bb9cc127cf414"
+    sha256 cellar: :any,                 big_sur:        "d5997eb25c8f5c97149ed2c1b1955186f89683e58662d9f0298546666bb5bb2b"
+    sha256 cellar: :any,                 catalina:       "a721d3fe6901bbe5905610361c34c08a2b429e4fa99deb7c4db36553781d5092"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57a694edda6a85dc6f7c8619074690825aab88a631016f270486d4e2c350994f"
   end
 
-  head do
-    url "https://github.com/stephane/libmodbus.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

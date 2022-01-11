@@ -35,6 +35,10 @@ class Gnutls < Formula
   depends_on "p11-kit"
   depends_on "unbound"
 
+  on_linux do
+    depends_on "autogen"
+  end
+
   def install
     # Fix build with Xcode 12
     # https://gitlab.com/gnutls/gnutls/-/issues/1116

@@ -1,20 +1,19 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.25/newsboat-2.25.tar.xz"
-  sha256 "41aaab378f1dc9eff5094fc4a686a602c76497cb6c4b656c65e843a71fa6017e"
+  url "https://newsboat.org/releases/2.26/newsboat-2.26.tar.xz"
+  sha256 "34a4834e00f06c0151c700d6af065f5b8776872227d9d4484d247ae7a4413c18"
   license "MIT"
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "a421778c2fd02d013e3fba6727a392f3ab6c70a32aad94dca38274f8c0a15102"
-    sha256 big_sur:       "96697aefcedc5c791b07e1734d8cd6f74eb2842e5dd51283c0b9757b64e62747"
-    sha256 catalina:      "e259be3ed054eab870bcbc69ac9bcb008dcb9cdd8934d57ccef924db735c66a3"
-    sha256 mojave:        "f92958ea54f0a648755c5b5df384bf1bf88280dfeac15a4a06aa122e19af087b"
-    sha256 x86_64_linux:  "a8e76829cb365ae43de0e3aa6d442c1a95378abb59a19f6a2f006f0910e3d44b"
+    sha256 arm64_monterey: "8737923b1800dc469b6714edb999e0287fb56a8455cd1e4362fd920e4380c71a"
+    sha256 arm64_big_sur:  "7438a9a7faf80e156c409a0631e13c5a1ae33ef6003b4cbd4881dd09faaa617f"
+    sha256 monterey:       "d0813d37c35317a9c454a04098f82d5afd232ce4d30b7e685dce93910f05559c"
+    sha256 big_sur:        "2ca14c38d9d7f6364429fa19412fba0922cdb270b09f2b7335c1c15ad0eec8a3"
+    sha256 catalina:       "bcfff7b4f44afa72a3ee645a0a4e11fc212be936c184867abcf5810702d81050"
+    sha256 x86_64_linux:   "df5b6c0947f0d09ecd72dbe6d95210e3c98ab35bca35de89995613e383cfd397"
   end
-
-  deprecate! date: "2021-11-26", because: "libstfl is deprecated"
 
   depends_on "asciidoctor" => :build
   depends_on "pkg-config" => :build
@@ -22,20 +21,67 @@ class Newsboat < Formula
   depends_on "xz" => :build
   depends_on "gettext"
   depends_on "json-c"
-  depends_on "libstfl"
 
   uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+  uses_from_macos "ncurses"
   uses_from_macos "sqlite"
 
+  # Newsboat have their own libstfl fork. Upstream libsftl is gone:
+  # https://github.com/Homebrew/homebrew-core/pull/89981
+  # They do not want to be the new upstream, but use that fork as a temporary
+  # workaround until they migrate to some rust crate
+  # https://github.com/newsboat/newsboat/issues/1881
+  resource("libstfl") do
+    url "https://github.com/newsboat/stfl.git",
+        revision: "c2c10b8a50fef613c0aacdc5d06a0fa610bf79e9"
+  end
+
   def install
+    resource("libstfl").stage do
+      if OS.mac?
+        ENV.append "LDLIBS", "-liconv"
+        ENV.append "LIBS", "-lncurses -lruby -liconv"
+
+        inreplace "stfl_internals.h", "ncursesw/ncurses.h", "ncurses.h"
+        inreplace %w[stfl.pc.in ruby/Makefile.snippet], "ncursesw", "ncurses"
+
+        inreplace "Makefile" do |s|
+          s.gsub! "ncursesw", "ncurses"
+          s.gsub! "-Wl,-soname,$(SONAME)", "-Wl"
+          s.gsub! "libstfl.so.$(VERSION)", "libstfl.$(VERSION).dylib"
+          s.gsub! "libstfl.so", "libstfl.dylib"
+        end
+
+        # Fix ncurses linkage for Perl bundle
+        inreplace "perl5/Makefile.PL", "-lncursesw", "-L#{MacOS.sdk_path}/usr/lib -lncurses"
+      else
+        ENV.append "LIBS", "-lncursesw -lruby"
+        inreplace "Makefile", "$(LDLIBS) $^", "$^ $(LDLIBS)"
+      end
+
+      # Fails race condition of test:
+      #   ImportError: dynamic module does not define init function (init_stfl)
+      #   make: *** [python/_stfl.so] Error 1
+      ENV.deparallelize do
+        system "make"
+        system "make", "install", "prefix=#{libexec}"
+      end
+
+      cp (libexec/"lib/libstfl.so"), (libexec/"lib/libstfl.so.0") if OS.linux?
+    end
+
     gettext = Formula["gettext"]
 
     ENV["GETTEXT_BIN_DIR"] = gettext.opt_bin.to_s
     ENV["GETTEXT_LIB_DIR"] = gettext.lib.to_s
     ENV["GETTEXT_INCLUDE_DIR"] = gettext.include.to_s
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
+    # Remove once libsftl is not used anymore
+    ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{libexec}/lib"
 
     system "make", "install", "prefix=#{prefix}"
   end

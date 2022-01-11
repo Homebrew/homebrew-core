@@ -1,8 +1,8 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/4.1.3.tar.gz"
-  sha256 "83dc56b544be938983f528c777e4e1d906205b0f6dc0110afc223f2cc1cec6d3"
+  url "https://github.com/tesseract-ocr/tesseract/archive/5.0.1.tar.gz"
+  sha256 "b5b0e561650ed67feb1e9de38d4746121d302ae4c876c95b99b8b6f9f89d5c58"
   license "Apache-2.0"
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
@@ -12,29 +12,34 @@ class Tesseract < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b4c8d0a135ad213fe5b92913c645ee957fc117453e05b7297cc2156688c5bfa4"
-    sha256 cellar: :any,                 arm64_big_sur:  "7eabb9d6a6cd2a45a76c0c986b718781589310c31c2a374a39ba8e12d457b443"
-    sha256 cellar: :any,                 monterey:       "431a3f7e56b41324490cf53e9b5adf2bd28f250d3b61bb8c12f01c81aa5d4aff"
-    sha256 cellar: :any,                 big_sur:        "1b67091dce98b42c6c561981a01738fe01c19ac69a1dc4de6d8e43fe885177f0"
-    sha256 cellar: :any,                 catalina:       "2ba16f094a3752d79c0d1d2cf47a85ec823caf29568ae184bdc170898f64ae87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad761056605931d1ee29ab29dbebc85b562d518c595808f34cbb9778744aaa32"
+    sha256 cellar: :any,                 arm64_monterey: "8f4ad2b8fe6f083eccbb782c6be2cd554893f872b08375eb4eede8757b06b614"
+    sha256 cellar: :any,                 arm64_big_sur:  "be55b6ba351573c84c2e58452fe59a35e24d6a6c5bca7ff30a1e1f3e5d0322c1"
+    sha256 cellar: :any,                 monterey:       "457870267d040396ccc855e9c74fc4f59620d91edc98daf1f5ffba7d8bfb9d67"
+    sha256 cellar: :any,                 big_sur:        "401f3acf9ef492bee47cc0d3ba640845372e264f5f6d9e901fe986d846fd5e89"
+    sha256 cellar: :any,                 catalina:       "b681741918afbb2a13a3ad37e2f6e20fe81bd196ba0a9f281d9cb49793d65081"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3da532d7591ff535c7b54a9005df5a5bbde94df324a9283187a581a426af1df"
   end
 
   depends_on "autoconf" => :build
-  depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "leptonica"
-  depends_on "libtiff"
+  depends_on "libarchive"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   resource "eng" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/eng.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.1.0/eng.traineddata"
     sha256 "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
   end
 
   resource "osd" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/osd.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.1.0/osd.traineddata"
     sha256 "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff"
   end
 

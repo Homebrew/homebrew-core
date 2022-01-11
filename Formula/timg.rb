@@ -1,19 +1,18 @@
 class Timg < Formula
   desc "Terminal image and video viewer"
   homepage "https://timg.sh/"
-  url "https://github.com/hzeller/timg/archive/refs/tags/v1.4.2.tar.gz"
-  sha256 "7607efaffbed0b65b3c824956de421b155a4f14243e7a752b19454f88bf9d563"
+  url "https://github.com/hzeller/timg/archive/refs/tags/v1.4.3.tar.gz"
+  sha256 "46eac8d5434b281afa6d64ced5f46c732c1c4d0699e16a22175b7df179221e2c"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/hzeller/timg.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "28d0c27b753c1a104b5120352c7939565a547919388ff2b0fa03a563efeb149f"
-    sha256 cellar: :any,                 arm64_big_sur:  "f3eb242ecbe5c59c5f3b29b5045f7666139327995dbcf6d24deec8d62b0092b3"
-    sha256 cellar: :any,                 monterey:       "a648d114be31886b6450ea88a1440d2c99dd856938421c345bd042183c5e3d9e"
-    sha256 cellar: :any,                 big_sur:        "e8c461f3728f413833bbb2d7fb6e1f25d1de01fccd1518df9ab0f310d3c3f155"
-    sha256 cellar: :any,                 catalina:       "6bcff3160692be766cb27955e90adca0daded1f7af9ab6768f45dab3ddb76c94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a083f6de16d632bd1a43351036f4da8dfdb74b742a3af4ecdc0e58351df2812"
+    sha256 cellar: :any,                 arm64_monterey: "531c30dd7c35e063b3275906ed52852787515e919aa0509061e8f6aa9d104b29"
+    sha256 cellar: :any,                 arm64_big_sur:  "da011715f8a4d17401ae07f6df5785793ce40b3427ab2614aefe37004fa785aa"
+    sha256 cellar: :any,                 monterey:       "a463826c4fefc87b00b263f20089bc19ea9ed9a03e06bc3a6cb54c656ce3da22"
+    sha256 cellar: :any,                 big_sur:        "4b3469d10b9bb86a593d712e336b668bfb7c4182d095394d17ebee6431673f32"
+    sha256 cellar: :any,                 catalina:       "a5e09b3923a28853aabc4538f84891ec9d7b4a80b9996873bfd0bd9cee2ae0a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f2282c858059757eecbb0546315b00966f67baf5d48b732be29683350c5bff2"
   end
 
   depends_on "cmake" => :build

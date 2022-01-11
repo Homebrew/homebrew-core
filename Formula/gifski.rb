@@ -1,18 +1,17 @@
 class Gifski < Formula
   desc "Highest-quality GIF encoder based on pngquant"
   homepage "https://gif.ski/"
-  url "https://github.com/ImageOptim/gifski/archive/1.5.1.tar.gz"
-  sha256 "88beeb896b6a1138046f665c3495f85670a74a527e34743080d8976d3f1b73b7"
+  url "https://github.com/ImageOptim/gifski/archive/1.6.0.tar.gz"
+  sha256 "47733f7b90f40a5ed8abd6cf3a88a4fa9edaaf1a94ae1a996782d118ebc6b740"
   license "AGPL-3.0-only"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2ffc2bc0e39598db641205b5bc890d73b7732ddc7bf423c047e1ff98557911a3"
-    sha256 cellar: :any,                 arm64_big_sur:  "517f8d4c5a645597e7a7766a1ba9e74d56ec6981471adb094b7e507d70b10d49"
-    sha256 cellar: :any,                 monterey:       "3120bccc885a4f6162a9a8f96d242ccd42d742e91a2968dd17d8358bbbb0b913"
-    sha256 cellar: :any,                 big_sur:        "50eac7eb295237c2962591c65d00359073d01c9df48bfb222da2c107185ef32e"
-    sha256 cellar: :any,                 catalina:       "fb579482e70e738cca521cfc3a47d5369a5354f281c7889b93a2fa78e85de40a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c58d0b0830a267a73fb438d4fec4b1c9306d87f0522f83899749b062f28c0ae"
+    sha256 cellar: :any,                 arm64_monterey: "7db52af190acca7e1dab68c5746efbe18160ec190448c6ceeffcbf4ca7efbfc3"
+    sha256 cellar: :any,                 arm64_big_sur:  "38c427ee4d685a96f1edbdbe270d086115f4ed57f5c87923fd3f1db2437b9a45"
+    sha256 cellar: :any,                 monterey:       "e5d491e498349c95632a311016d9beaf2adcc10d74eb46ec7b9c6c4390e4c59e"
+    sha256 cellar: :any,                 big_sur:        "ee2064c1977056e1255f9ce14c5415b83b4702b106de2be140d6972481d388b6"
+    sha256 cellar: :any,                 catalina:       "c4e3e2288b24e66061d74a3333f33609b1a51684c4a35dd560e1b494db2264c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c42fa9c7d155f6ece86ae7d775823c9ce9814516611b667f9c8a38520bb86cf"
   end
 
   depends_on "pkg-config" => :build

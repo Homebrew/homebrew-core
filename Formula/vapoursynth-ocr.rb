@@ -4,18 +4,18 @@ class VapoursynthOcr < Formula
   url "https://github.com/vapoursynth/vs-ocr/archive/R1.tar.gz"
   sha256 "a551354c78fdbe9bcaf29f9a29ee9a7d257ed74d1b6a8403049fcd57855fa0f4"
   license "MIT"
+  revision 1
   version_scheme 1
 
   head "https://github.com/vapoursynth/vs-ocr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "a7a6a9f8639cb97e67fb5e6bdd7d8571303adf861e9c509078844594db1b036c"
-    sha256 cellar: :any, arm64_big_sur:  "abef84d6213651b91d9e60d32ae065b3227de72a2371f97266825b81f50d7148"
-    sha256 cellar: :any, monterey:       "1a6aac2710a3c004da08525b72426c1fb0512c302fca6ba488451687bcf34622"
-    sha256 cellar: :any, big_sur:        "d31d4f0eb749e5797e856de45e1c1f3e862abe31e897696887e20123330a29ae"
-    sha256 cellar: :any, catalina:       "6c7e3eb62e6cf0a5140b158fce51c5fca682e04b7b1074fd6425c9b0bf8ef40b"
-    sha256 cellar: :any, mojave:         "916f671b1aabc46a37c7197f061bf73c0360a8d3e22a72cce74009802b341351"
-    sha256               x86_64_linux:   "f1f688bb5c6cadf726d4df511ce40d58453839d74185f29a219e7e681b2abb9c"
+    sha256 cellar: :any, arm64_monterey: "55ae2c3a8f8bf67d64d2346254daf47e219cfbc6d9614b116501f5d55133ef33"
+    sha256 cellar: :any, arm64_big_sur:  "03340882c45e954d15c563d411e2ceb2404bc0ea7fed0eb05104a9ce6630236b"
+    sha256 cellar: :any, monterey:       "e40bc92d88cc7ff8aa3954bf35d53c79a4ec30d1c4ee0ab2daecebde31a83c2e"
+    sha256 cellar: :any, big_sur:        "8e66e52b80e58b395be03091c5db3fa3425a04ef75be84ec7ef9cd076424fd95"
+    sha256 cellar: :any, catalina:       "aba262d2cf52d59e3e434ccba8172bd356a27f593057fabc5d2bd576ff7552e1"
+    sha256               x86_64_linux:   "def0dfdcb4b66e5dca864366768dc2992acf72bad181de0a7feaee789ba0544d"
   end
 
   depends_on "meson" => :build

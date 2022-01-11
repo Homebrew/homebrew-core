@@ -4,14 +4,14 @@ class Gspell < Formula
   url "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz"
   sha256 "cf4d16a716e813449bd631405dc1001ea89537b8cdae2b8abfb3999212bd43b4"
   license "LGPL-2.1-or-later"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 arm64_big_sur: "b416223cc5ef39e22d9fd2bd38249950887c939d5c8289736ddd83ecde4db36a"
-    sha256 monterey:      "28cb639653b29a411a0290558fab64bf136db226b05737ba354f5508dc058a96"
-    sha256 big_sur:       "fcff5951ae4c5e194de05634549b0a8204b32cd7bd68f6c962e5e0916eed7879"
-    sha256 catalina:      "4c226894cf20ba3dfcd3c50ec596f5f7dce6fa6383b1f6b3b78becc4753381d3"
-    sha256 x86_64_linux:  "281e242800bb9f73d4c1889680a329da75e9640131ca58743874f9d2e1d7c354"
+    sha256 arm64_big_sur: "2ee4a35046b74bc0683baeea277ace95fbf929f64a80d33a3f18b430f86cd895"
+    sha256 monterey:      "d6a84e05eabbb7c37823dc3c7622920c5476d4b18d7349133fdf39c64f3ea551"
+    sha256 big_sur:       "3b5a01439377cb87b9eb6e515bc5019fe3be40907f6dcc7ba072649fb169f259"
+    sha256 catalina:      "297f8d03c748f1f0d8d9ae59826d65c6d408b6c29eb7ca2188ceccaced83eed7"
+    sha256 x86_64_linux:  "a9796edf66803b8301545cd811df36d0d5b7f621d979b527c94dc3eecb7984a1"
   end
 
   depends_on "autoconf" => :build

@@ -35,6 +35,11 @@ class Mosh < Formula
     end
   end
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?mosh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e3a5496b74f6d67bc7076816a84ff0c9930eb8ceab3896f87aafeddda2f6929a"
     sha256 cellar: :any,                 arm64_big_sur:  "8e44cdac777141ab536453dd0ad8447e04667f5f430ef3aa488b265467e9e3da"
@@ -45,7 +50,7 @@ class Mosh < Formula
   end
 
   head do
-    url "https://github.com/mobile-shell/mosh.git"
+    url "https://github.com/mobile-shell/mosh.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

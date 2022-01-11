@@ -2,18 +2,18 @@ class Libserdes < Formula
   desc "Schema ser/deserializer lib for Avro + Confluent Schema Registry"
   homepage "https://github.com/confluentinc/libserdes"
   url "https://github.com/confluentinc/libserdes.git",
-      tag:      "v7.0.1",
-      revision: "8c02e4cd98f0eaf6113fc1fa0b8a0ee9350c4961"
+      tag:      "v8.0.0",
+      revision: "152fad7ddec001e886452726e71f3b6a5c8e8c65"
   license "Apache-2.0"
   head "https://github.com/confluentinc/libserdes.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1424e3206b7588beb80933b213e0154c8250ed1f6b9b57f14ef967b55a983f57"
-    sha256 cellar: :any,                 arm64_big_sur:  "2e68f2c9e1b7a574107c82b5e9512c37ffbfbe27c569aaafdebc0eb2bca86124"
-    sha256 cellar: :any,                 monterey:       "3480af68db7d85e153c2583cf98774c87972924c3fb5faaf6ce7b37027e3ffa8"
-    sha256 cellar: :any,                 big_sur:        "fd1f0c1afc009be2eb9244446e649d15e5226425be29ca4d8095157c5b722eb5"
-    sha256 cellar: :any,                 catalina:       "8af57d2315fc117a6443236a77ed3c91dde296e8523f7932d122728e5dbc3da4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31920199303177f95399259bd3515d102518d618529087aa7c07ace23a718e08"
+    sha256 cellar: :any,                 arm64_monterey: "6496f4d41457a209c42b3221b91be84209a6b1fa25f1be8fba95f1398dbadfb5"
+    sha256 cellar: :any,                 arm64_big_sur:  "0c3c3421a41fb3faceaf574465cf7554ee61ddfca287dd669fef6cddbbc56a44"
+    sha256 cellar: :any,                 monterey:       "a31419be0041dd57cef418fdce0a51c9c9af4aa00e0ca0faa40622b359c94a7d"
+    sha256 cellar: :any,                 big_sur:        "86eb44c16b5a2f33da010ec7e13df64521270c7a43b8395646effe886254066a"
+    sha256 cellar: :any,                 catalina:       "6530d6f15114bb1670201170b6e564415eb610072944609d6b2fa029329fd722"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc8f04a8a7f87996e1dc8f16ca51c16d07986352fdc1f46cb2c87e5fd73afdc5"
   end
 
   depends_on "avro-c"

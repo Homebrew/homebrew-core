@@ -3,8 +3,8 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.43.tar.bz2"
-  sha256 "5f1bee094220cfb24868db0faf47f8e2ffd26f77dd709995842e4d9e898da86c"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.44.tar.bz2"
+  sha256 "2dd8c31b65eb9404b78af1413d2c8896e247fa5bf81dfcbe56fcaa27af82df26"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -13,10 +13,10 @@ class GraphTool < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "2f2973ca8db4eb184b24638d801923c58a531848670cc4fdae6ed8e7e7acafc6"
-    sha256 big_sur:       "40f1736ec142b690e56b7ffa303dbaf0bdc6d9b1ac3f035fd0be22348ab0056e"
-    sha256 catalina:      "78024e647e51caf76b877adc7a4501dacc88abad35745e1a74b30b082f6dcb0e"
-    sha256 mojave:        "facfb9c0b303bc4be5d72be7eb8b603ce3a750b7a866ec9950d183d3e191c8c9"
+    sha256 arm64_big_sur: "e49b0f0c6a0ccff776e936ffe2581fd6c87fd215091476425842b94e8be65592"
+    sha256 monterey:      "e5d41985629eec5f0d0565b6fbccf497334833fd989a88c30cc75e10a3058af5"
+    sha256 big_sur:       "32550b73d3392976b554cb019edc977fd5962725c1c2113923feb45e0861de6c"
+    sha256 catalina:      "15384530cd337b144787379876be83451a8cb360d8425732e96a8157c9b38d0d"
   end
 
   depends_on "autoconf" => :build

@@ -4,6 +4,7 @@ class Libvirt < Formula
   url "https://libvirt.org/sources/libvirt-7.10.0.tar.xz"
   sha256 "cb318014af097327928c6e3d72922e3be02a3e6401247b2aa52d9ab8e0b480f9"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
   head "https://gitlab.com/libvirt/libvirt.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Libvirt < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "9a3965e2aeac2e96d1dd8d145d1b816b3b2b58a991e9439a7eedb29b08669598"
-    sha256 arm64_big_sur:  "1f0aeb8d5f8290bb9c4f934120c686000f9e4a44e754b4af7a060940c24b23da"
-    sha256 monterey:       "69e8451e0d24773bb7212d46a96fa99fdd9ac0fe827c10c87b256adf64ca98a7"
-    sha256 big_sur:        "2ff2402e0b97c6db4c18a70bd0afbe464c6d041668c3b43ee24edbc5c4ec3b2d"
-    sha256 catalina:       "be50ad0a90b7140d72c6ffc8cad5743a1277c2ceedb68e55b7e661f7a2d771a8"
-    sha256 x86_64_linux:   "1d45a7ce93bcb5dac4878e2d7059bbcc0d15a31921f19b69834ec91f68bae098"
+    sha256 arm64_monterey: "f157ec2148e509becfcfa7d2f093a40f2ddef006687a1a503a984a56c20149a9"
+    sha256 arm64_big_sur:  "ae5b59937198b088873ea400c601ba99b2930e08186b960b0a0a3338e69afc0e"
+    sha256 monterey:       "5f3e532a6f37cc24b9ff38bdfa1ab6deb76a6079af8008504fdc03deae7bb0b4"
+    sha256 big_sur:        "6c475624430a0251278ba2e08b49ad0bc59f0634033a4914b62ef854fcb2ed1a"
+    sha256 catalina:       "f4bf14b1d3e236a5d71de7cf1b8801adc8bd2b05181ad197975c01adbaa28edc"
+    sha256 x86_64_linux:   "6626249198109787d347375c988bf5374677e30ea0bcdd4042de170bae35bb54"
   end
 
   depends_on "docutils" => :build
@@ -45,6 +46,25 @@ class Libvirt < Formula
 
   on_linux do
     depends_on "libtirpc"
+  end
+
+  # Don't generate accelerator command line on macOS
+  #
+  # This makes it once again possible to use the
+  #
+  #   <qemu:commandline>
+  #     <qemu:arg value='-machine'/>
+  #     <qemu:arg value='q35,accel=hvf'/>
+  #   </qemu:commandline>
+  #
+  # workaround to enable hardware acceleration.
+  #
+  # Drop once proper HVF support is added to libvirt.
+  #
+  # https://gitlab.com/libvirt/libvirt/-/issues/147
+  patch do
+    url "https://gitlab.com/abologna/libvirt/-/commit/da138afc3609a92d473fddcffa54b2020759f986.diff"
+    sha256 "4eb3c9f0ca140a4d8eb5002acde0b6f1234011f82df7d8cc85252be35e8a5cff"
   end
 
   def install

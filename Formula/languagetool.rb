@@ -2,8 +2,8 @@ class Languagetool < Formula
   desc "Style and grammar checker"
   homepage "https://www.languagetool.org/"
   url "https://github.com/languagetool-org/languagetool.git",
-      tag:      "v5.5",
-      revision: "5e782cc63ab86c9e6c353157dc22f6ea2477c0d7"
+      tag:      "v5.6",
+      revision: "e1a27564b91dff5d4133b9fa64955da9e36c889b"
   license "LGPL-2.1-or-later"
   head "https://github.com/languagetool-org/languagetool.git", branch: "master"
 
@@ -13,10 +13,10 @@ class Languagetool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "b4ce087e229010a40944175a2a26fc6411f48adba76ea6fbba779270dee065f4"
-    sha256 cellar: :any_skip_relocation, catalina:     "ac41ce087286dd11421a77324bbf80a43b3ada72f2e1469087982f3dc3310a75"
-    sha256 cellar: :any_skip_relocation, mojave:       "88fcbe3f245913ab116db15b38409d7c309f1a5f3f49344ae774d441f87e991f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3cb6cc220af4bb9f7d363e3c1c2de30b7e4d3316124f383c94cfc33dac5e4319"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f45b959adfa17dadeaf94774ccab302dc8d57d4e96b2f5170e345712d4912bf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ad70857fd5e0bd6a1ceb6779286fb25ee4d7c1a1cc9b964ef8ef582aad4c473d"
+    sha256 cellar: :any_skip_relocation, catalina:      "29ff4bd293e7ac389c1c0db6ebe76c87719a9426271d9b4ec365d022e5fcf5b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2da21638d0ce92a4fe5c72b4f2e00ff92e33703212ec18c4c76468a0921b9d8d"
   end
 
   depends_on "maven" => :build

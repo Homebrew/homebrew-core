@@ -1,19 +1,18 @@
 class Pillow < Formula
   desc "Friendly PIL fork (Python Imaging Library)"
   homepage "https://python-pillow.org"
-  url "https://files.pythonhosted.org/packages/7d/2a/2fc11b54e2742db06297f7fa7f420a0e3069fdcf0e4b57dfec33f0b08622/Pillow-8.4.0.tar.gz"
-  sha256 "b8e2f83c56e141920c39464b852de3719dfbfb6e3c99a2d8da0edf4fb33176ed"
+  url "https://files.pythonhosted.org/packages/b0/43/3e286c93b9fa20e233d53532cc419b5aad8a468d91065dbef4c846058834/Pillow-9.0.0.tar.gz"
+  sha256 "ee6e2963e92762923956fe5d3479b1fdc3b76c83f290aad131a2f98c3df0593e"
   license "HPND"
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "5b957e5afdd859268f4451665d142f7b8a1ed9186f6b36f22fe901891affa2dd"
-    sha256 cellar: :any, arm64_big_sur:  "b3ef0a8ef99c29d197ff4735a75d5dfcd7dba93d85f6957367da187b65fb5a3d"
-    sha256 cellar: :any, monterey:       "b5ca0c6fb4391f2d9e5e9f5d6984b034b0ccf0051225524ccf029c0ad5cd44e2"
-    sha256 cellar: :any, big_sur:        "59e29e62a00a1a7c743af405f5ca86919d4a72c266f03498a035e025a6a9e70c"
-    sha256 cellar: :any, catalina:       "7d202a4c71e5c3ecd5508e34a89082496441dcf4cbabd47174edaf1c6fb06dd8"
-    sha256 cellar: :any, mojave:         "7d9654f09ff31d8caf4363b25a11da203cd3c2725014fdbb8df6e1a7a9a91399"
-    sha256               x86_64_linux:   "af8b0493c459338a4cc5f7ac4a8bc6a88cee2640577e142557524e039accaa2e"
+    sha256 cellar: :any, arm64_monterey: "ccd9d22e4471abdd8c6a81309b8ed313e71f26eaa0edae7f1ab3e4e76cd86224"
+    sha256 cellar: :any, arm64_big_sur:  "d70f9c21e1d0830b373c3df2ed319f849ea53f405dbe8fa977b9c1c0a3ba434d"
+    sha256 cellar: :any, monterey:       "be5c26a11865575cb902745f01b4012cdae63a388503cb514ead037eab4dd0f7"
+    sha256 cellar: :any, big_sur:        "ee2f117d7136ecedaef3595f0aa96b0d7a8d26be89887d8e012464cef9bdb397"
+    sha256 cellar: :any, catalina:       "9a95ca0b087091386d5f87e0f2e3095abb36bce73aa8b6540d6fd16c725f6553"
+    sha256               x86_64_linux:   "ae48d33496be433465650ff0d981b9344f86a11d74b3e0382f616c474a50fa56"
   end
 
   depends_on "pkg-config" => :build

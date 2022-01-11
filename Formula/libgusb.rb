@@ -3,8 +3,8 @@ class Libgusb < Formula
 
   desc "GObject wrappers for libusb1"
   homepage "https://github.com/hughsie/libgusb"
-  url "https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.9.tar.xz"
-  sha256 "1f51ebe8c91140cffbd1c4d58602c96b884170cae4c74f6f7e302a91d5b7c972"
+  url "https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.10.tar.xz"
+  sha256 "0eb0b9ab0f8bba0c59631c809c37b616ef34eb3c8e000b0b9b71cf11e4931bdc"
   license "LGPL-2.1-only"
   head "https://github.com/hughsie/libgusb.git", branch: "main"
 
@@ -14,11 +14,11 @@ class Libgusb < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "e49a1087dc43571fbe06d41bb8f315446a825ee77cc4f5880c0b88eb86c0a4fb"
-    sha256 monterey:      "ae80f7e2687d38eabfd4e6da73991661140cb50e8929ed88d7bf85bb2476fa03"
-    sha256 big_sur:       "30b059b64aa9e2cf3730e05cb0e21465b074a60b536d246bbe7315e1eabfcc38"
-    sha256 catalina:      "476120d62c6ed7c34cf06fbdc1ee3b0cf438e54b29050aa60a341982bd690605"
-    sha256 x86_64_linux:  "50f5397f7182998ef06d9e462043fe5cfe9c281c6c6e613934d249a7b42a15d7"
+    sha256 arm64_big_sur: "f6134de07f56b644a6eaad1a89b242c5a894ce7dd3e208bb6aca0e018c8bf915"
+    sha256 monterey:      "e73694daf4e1af0b676471e2e608b180761d93004c79574a94097d1624e73fa5"
+    sha256 big_sur:       "eb972073fabe0280e785d734d4f456bb703b4b602deff16d9d3211da5604e8cb"
+    sha256 catalina:      "d2822cd3978da5ffb0ff27f2e792bae66e2c4cc6b1f8d814afbef6ae283291c0"
+    sha256 x86_64_linux:  "47eb5f3aab7e66f6145891370c5061571c33106c57aab378143f258e76516032"
   end
 
   depends_on "gobject-introspection" => :build

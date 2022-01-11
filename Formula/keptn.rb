@@ -5,6 +5,11 @@ class Keptn < Formula
   sha256 "8420785707859d64d7cabd66bea46e8da7e0ebcd725e3cb311a408058e4cfcce"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6ea417458a88b18417cdb12db9233338921cfe281bb4cf7e785547ff5a7b7e6f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a462c977cfbce6f0f13aa6bc531ba7ed222109fa02eafff5b30d52b9f178175"

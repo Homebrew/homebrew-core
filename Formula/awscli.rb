@@ -3,18 +3,18 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.4.7.tar.gz"
-  sha256 "c23545a9edcd215d068526f3d2cfb1f58355af2e6fcdd1c95c6bb19bafe79b37"
+  url "https://github.com/aws/aws-cli/archive/2.4.9.tar.gz"
+  sha256 "042a975a2a9b741117cf4f9a05c7bf542d1e6e3abd9f683394e3ff1058869e47"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a9733ad2bee61d3b1e8193f637a59cc5e6c7b39a92c72931e5400ce52e2b66f4"
-    sha256 cellar: :any,                 arm64_big_sur:  "ab4a8585d4a0008f004d0d3cddb80e0ebed3d83c04a0cda16ecb1860a4e71c3c"
-    sha256 cellar: :any,                 monterey:       "2e19ae3a3d9eed617417728ffd4c7405c067cb224e144ba7fa9eccdbecd063dc"
-    sha256 cellar: :any,                 big_sur:        "fe12c5b11b7e7c18993dea4ff5ea371e3143ab4578cd4fd8020e8d5fcdc8af25"
-    sha256 cellar: :any,                 catalina:       "a5ed54c288b29c20de5006b54a8f11899d3a25d98fe47a5aec4a0090322896ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13b01a63f5d7820af642a2a1753c3c2ac615f78574fdb94ee67ed50ce0a0fc16"
+    sha256 cellar: :any,                 arm64_monterey: "e5e93191f987ccf7d6044d6f44df69af0db851ff680ad8800291eda994e8a9bd"
+    sha256 cellar: :any,                 arm64_big_sur:  "edea737427d055e76cab89f74b119062ec0ae97f855874b26a5dce764c9d2105"
+    sha256 cellar: :any,                 monterey:       "d2d3de468dee00e160200be1712fcf44a540c1679664bc74d2e543a000422788"
+    sha256 cellar: :any,                 big_sur:        "277ac3809f32b54b608c58f8783f96e63d3dbe73a56791042a3d94ed72ab79b7"
+    sha256 cellar: :any,                 catalina:       "6ae9c3486fef5a6aee821163182dc9b6c8bf44a19d41ec7b89bf1b641e4d1ce8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5df38a3bc32691e5d5b2dd49e023e2b324560f425d18d04b772bdc0afeeb5f6c"
   end
 
   depends_on "cmake" => :build

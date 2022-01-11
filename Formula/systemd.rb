@@ -1,13 +1,13 @@
 class Systemd < Formula
   desc "System and service manager"
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
-  url "https://github.com/systemd/systemd/archive/v249.tar.gz"
-  sha256 "174091ce5f2c02123f76d546622b14078097af105870086d18d55c1c2667d855"
+  url "https://github.com/systemd/systemd/archive/v250.tar.gz"
+  sha256 "389935dea020caf6e2e81a4e90e556bd5599a2086861045efdc06197776e94e1"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 x86_64_linux: "d528e99c79c4206c87137c8968d0b6691e30c6c4ec335c9630f449688fb50351"
+    sha256 x86_64_linux: "96a8f5d8b180751f9ef2b4dba98b6ed88d8f58b0999ad2328c60ef9e6eff595d"
   end
 
   depends_on "coreutils" => :build
@@ -34,10 +34,10 @@ class Systemd < Formula
   depends_on "xz"
   depends_on "zstd"
 
-  # Fix newer meson compatibility, remove after next release
+  # Fix missing mount constants, remove in next version
   patch do
-    url "https://github.com/systemd/systemd/commit/c29537f39e4f413a6cbfe9669fa121bdd6d8b36f.patch?full_index=1"
-    sha256 "fc7f07d3f4710a6b798a3976f51bd375f4051495246ae519e887146a13dc6130"
+    url "https://github.com/systemd/systemd/commit/0764e3a327573e7bda2f0e1a914f28482ab00574.patch?full_index=1"
+    sha256 "ad34441deb22b37272d4fd6a307a804f8ceffc0452c17f2353a144b3c04d5451"
   end
 
   def install

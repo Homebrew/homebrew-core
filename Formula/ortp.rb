@@ -1,17 +1,17 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://www.linphone.org/technical-corner/ortp"
-  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.0.61/ortp-5.0.61.tar.bz2"
-  sha256 "283ada22cd397b2b7a1dacedf1c02f40e3961f849dc917736f92e092f4373dd8"
+  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.0.66/ortp-5.0.66.tar.bz2"
+  sha256 "f71c8a526281a6450a7d56fd8671aebde4e94d16df9d8ab9a45087d18e4b0650"
   license "GPL-3.0-or-later"
   head "https://gitlab.linphone.org/BC/public/ortp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "dce450bf81b4462e312856c6e44c28495844d59eebeca0ec873a95bd4fcbf498"
-    sha256 cellar: :any, arm64_big_sur:  "87af543cb16c22240ff95ca29de37d2263fecd047a14153c905aaed57c8c6f6c"
-    sha256 cellar: :any, monterey:       "a6a3247bb76e7fe0aa9ebebca248a8a020968519245ac29700a3c48b2bea8f5d"
-    sha256 cellar: :any, big_sur:        "a5c1e679fd123711828c1267c83732e0818f7f3204e0d8949723f9fbe71acae3"
-    sha256 cellar: :any, catalina:       "3920fd7d06f9610aa51dcba05d261dfcd8809f82c34daf7e37e4fcc4aae60fd8"
+    sha256 cellar: :any, arm64_monterey: "4e335e442ab8b7714fe6735567cbd4a8f89d3a6bb7fd785ee506c899d5564757"
+    sha256 cellar: :any, arm64_big_sur:  "e813fa372e0e41246e95ee5eb418e16d19d130449a2743bebd994b986440a342"
+    sha256 cellar: :any, monterey:       "c4a50e8aacb06b5ce76dc67c2f279b2d9ea8ba6f3c0e378194c439760767bc98"
+    sha256 cellar: :any, big_sur:        "e33582285d2b36d65d4b03eb7ea85e890d3d30d95168c4a7e3b6c42c856227dd"
+    sha256 cellar: :any, catalina:       "0a151712a042b19805312c37aa007178cb394f18fc3a45fe1ecc8e1b8a4e9a75"
   end
 
   depends_on "cmake" => :build
@@ -21,8 +21,8 @@ class Ortp < Formula
   # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
   # https://github.com/BelledonneCommunications/bctoolbox
   resource "bctoolbox" do
-    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.0.61/bctoolbox-5.0.61.tar.bz2"
-    sha256 "84e18d00887770852a55c64493ac98fc8d9a3aa51e8aac4ab32a55cd5b618b0a"
+    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.0.66/bctoolbox-5.0.66.tar.bz2"
+    sha256 "6e8c0ff800fffebc07ef465a33a1c0f1809664e546791e2dca2f6e4f23c27196"
   end
 
   def install

@@ -6,29 +6,35 @@ class Velero < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4aeef8b082ff57608666b2e81a606997699d6b9617c59af08f649678a67d99f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a269259419a540292e7f63f90c52af53a289ba928af445427f6dc528d850e4df"
-    sha256 cellar: :any_skip_relocation, monterey:       "44492998753e5ad53f300a575747d8fba3012d70715acfd045f5d9e43d3caef0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cb66509c1c8d0f0de93b3ecf683e95843e8c50d1855cdc3de05add3851986dc5"
-    sha256 cellar: :any_skip_relocation, catalina:       "eecacf4e67cceff0d1b087c37614bc5513f3532ded33d77ec50fa974a2999860"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34c17c8ba1cebd7e21225bcffc5e4f7ae6962e34d013a71491dbc1ad97175f36"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e96eeec41a5dcac7d04a063999c61bbf30d55a4c9fce57b6f4fcd8197e64c39b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e1380bb4d04eae84d4a9cb5210e98ce16d99a2f18b8dc8dd3e6d6bd54d7e2ae3"
+    sha256 cellar: :any_skip_relocation, monterey:       "e9bef0f0f023267baa52886357ac482b4cbc85ccbc9c9405e50fed0e9f39184b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cbb0fe2a50ede42fd99ab6dc70a0137ca843d4bec77cbf80e3295428bf755453"
+    sha256 cellar: :any_skip_relocation, catalina:       "9f6402b61b970c220eb4178d14739ee1b5dbad44eab79907797209d95449b351"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bc3ebeaed2018400b6f1633b64a2219f43c222fb26b835076f1acce89cdf36e"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-installsuffix", "static",
-                  "-ldflags",
-                  "-s -w -X github.com/vmware-tanzu/velero/pkg/buildinfo.Version=v#{version}",
-                  "./cmd/velero"
+    ldflags = %W[
+      -s -w
+      -X github.com/vmware-tanzu/velero/pkg/buildinfo.Version=v#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags), "-installsuffix", "static", "./cmd/velero"
 
     # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/velero", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"velero", "completion", "bash")
     (bash_completion/"velero").write output
 
     # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/velero", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"velero", "completion", "zsh")
     (zsh_completion/"_velero").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read(bin/"velero", "completion", "fish")
+    (fish_completion/"velero.fish").write output
   end
 
   test do

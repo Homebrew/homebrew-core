@@ -1,8 +1,8 @@
 class GnupgPkcs11Scd < Formula
   desc "Enable the use of PKCS#11 tokens with GnuPG"
   homepage "https://gnupg-pkcs11.sourceforge.io"
-  url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.9.3/gnupg-pkcs11-scd-0.9.3.tar.bz2"
-  sha256 "939cf532336ab57901cc5c31a871532d38057fa3cadbc90c6752907d43b8c516"
+  url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.10.0/gnupg-pkcs11-scd-0.10.0.tar.bz2"
+  sha256 "29bf29e7780f921c6d3a11f608e2b0483c1bb510c5afa8473090249dd57c5249"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class GnupgPkcs11Scd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c783d038482db57a2d8d2c6752db239b851cd4efdbcd246dcb5be6d72809621f"
-    sha256 cellar: :any,                 arm64_big_sur:  "c66622684e3b7200502f7f900c89db167e86b1886d3ac0f55868af58cb4d7b10"
-    sha256 cellar: :any,                 monterey:       "515f27e4a0f27055fb2f7baab59ef6ec5aae2853e63c3b15f5ec641f994e4022"
-    sha256 cellar: :any,                 big_sur:        "f14a431b4b3a20f193d279afd4aaaba3700af4c1d9cb059ed06e9469f2eb6812"
-    sha256 cellar: :any,                 catalina:       "728f08c91b4137c0472594d0e53ea171e808ab90376b3a8c2e1f9cd65eff452f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63e019746caec337a340e65ce8fa26a1d02a07837777fa65e863d1e6c51d5de2"
+    sha256 cellar: :any,                 arm64_monterey: "6a9e558c32ca0a72baba7945d2a883132adea17654befea53138c7a057add793"
+    sha256 cellar: :any,                 arm64_big_sur:  "1c3702b21e91a23530aa6e16807c748151433312f38ebeb6a7944a654ee57bb4"
+    sha256 cellar: :any,                 monterey:       "f79ae4cbac8bda88dc0902fe2a36ace5ecc961a5bbcd88187127d3eb3484d4e5"
+    sha256 cellar: :any,                 big_sur:        "0019a8eac93fa627cf2ee05d66409042386e65d0462aaf2225d048ce6ad792d2"
+    sha256 cellar: :any,                 catalina:       "fa6b2bfb9afff54c8e32072413513e293d6f53012c0f225794711d81aeca1ddf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4252b9d56d7a919df5f59ddcf3cb31f7b1694e703d310552bb8f3218d0bd5d8a"
   end
 
   depends_on "autoconf" => :build

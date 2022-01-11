@@ -20,7 +20,8 @@ class Cosi < Formula
 
   # Deprecated in favor of the Cothority `blcosi` package.
   # See: https://github.com/dedis/cothority/tree/master/cosi
-  deprecate! date: "2018-03-01", because: :deprecated_upstream
+  # Original deprecation date: 2018-03-01
+  disable! date: "2022-01-09", because: :deprecated_upstream
 
   depends_on "go" => :build
 

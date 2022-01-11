@@ -1,19 +1,18 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://libuv.org"
-  url "https://github.com/libuv/libuv/archive/v1.42.0.tar.gz"
-  sha256 "371e5419708f6aaeb8656671f89400b92a9bba6443369af1bb70bcd6e4b3c764"
+  url "https://github.com/libuv/libuv/archive/v1.43.0.tar.gz"
+  sha256 "9e27825a55279de69a7c43e42d509fd1337c9bece2547c761e91a1592e91cc4d"
   license "MIT"
   head "https://github.com/libuv/libuv.git", branch: "v1.x"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7b0a2b27ac3b806ff9e5949494398837a80eae0852dcf9bc4d64905f4eb4686d"
-    sha256 cellar: :any,                 arm64_big_sur:  "68f6757ac44fdd21a8c3d697ca201b2063dfa2e995c783637189a4467d87f71b"
-    sha256 cellar: :any,                 monterey:       "9065ec0fbc415fa235ed422edb22fd45b28d5a3207ce9e1b0565903f2ce33fd4"
-    sha256 cellar: :any,                 big_sur:        "b11e3f74f2caca70d334f8d1172c50ac06d9d53018b959d8fbd0310783c05652"
-    sha256 cellar: :any,                 catalina:       "98fb2b7b02c165f7a652be5a9a2d012887ca583fc27eb4ee84b61cbfae9801ac"
-    sha256 cellar: :any,                 mojave:         "80f10e3328caec6ffcb667226cecd4d3bf699e1886c6a6e0915671278fd48493"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a43766cfe240a62321678b85556fcca67604d899cd6f93b800107feb11d5a202"
+    sha256 cellar: :any,                 arm64_monterey: "729b79258effb55f6d0299e1a9183374c18f9b7a6b952285c77c9824151d62ab"
+    sha256 cellar: :any,                 arm64_big_sur:  "879a2b183bb839026d2320c121ae6144abd3862a340a4ffa8d2030ec1736fe45"
+    sha256 cellar: :any,                 monterey:       "0544ef6db3658b228088960be43db6018a5223a09cb7c577d361c017bb1b0419"
+    sha256 cellar: :any,                 big_sur:        "bfc5b2597304936e050797edb6831d61867cd6e22ec9751dbfb391bd96e6ea84"
+    sha256 cellar: :any,                 catalina:       "a103bf3322d5cc7506f727ed4d20d3f4c90fc5cc68f004cdb7c45b7b689c69f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b40de630a921e31ff5484dfe52547938a8e6f937fa9990340133b55d99ebc8d"
   end
 
   depends_on "autoconf" => :build

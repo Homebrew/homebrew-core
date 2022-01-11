@@ -1,12 +1,12 @@
 class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
-  url "https://github.com/broadinstitute/cromwell/releases/download/72/cromwell-72.jar"
-  sha256 "c995fc90db0923412c7c78a7da5557d8956d1af70c8a859a3906ec91242fc6c3"
+  url "https://github.com/broadinstitute/cromwell/releases/download/73/cromwell-73.jar"
+  sha256 "7963a08868731400826d2dfb3efc56ff631de7e3dc3b435feebe65572794dac2"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1c55a48039c0a8a9545679a452313f0d234978cdb3147dd8e6006c3eec46485d"
+    sha256 cellar: :any_skip_relocation, all: "0339004609318abd649fe40c8d1a8afb033e0f7d6c32eb26e91f073de3af6a56"
   end
 
   head do
@@ -17,8 +17,8 @@ class Cromwell < Formula
   depends_on "openjdk"
 
   resource "womtool" do
-    url "https://github.com/broadinstitute/cromwell/releases/download/72/womtool-72.jar"
-    sha256 "fe433bb9f44af618d61bba20e5bb241d98727b68b5930e6a154aaad9ec056711"
+    url "https://github.com/broadinstitute/cromwell/releases/download/73/womtool-73.jar"
+    sha256 "3baa84c39b1edad8926cbda2e79b180f33e5474bdbd43491d95e96129e49649a"
   end
 
   def install

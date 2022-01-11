@@ -119,6 +119,7 @@ jobs:
               } catch (error) {
                 // The GitHub API query errored, so fail open and assume 0 long PRs.
                 long_pr_count = 0
+                core.warning('CI-long-timeout label count query failed. Assuming no long PRs.')
               }
               const maximum_long_pr_count = 2
               if (long_pr_count > maximum_long_pr_count) {

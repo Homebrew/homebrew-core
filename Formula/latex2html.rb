@@ -1,8 +1,8 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
   homepage "https://www.latex2html.org"
-  url "https://github.com/latex2html/latex2html/archive/v2021.2.tar.gz"
-  sha256 "892714d87d2ab357488679bda91ae1333b1da6d9743fd42443cc71aaf069cb83"
+  url "https://github.com/latex2html/latex2html/archive/v2022.tar.gz"
+  sha256 "9b3ba484226a2e39fb20695729370372b355f71bd65eeb4dd14f2c78699ed59a"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Latex2html < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "35d8dd368554c0e423354e6bb52795018f2fca7638628dab28b746f52c39d749"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2f36d7818ab517829c087122323281ac9e66cbcf89a9a105c16f11f6efc7466b"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa1123c5c4c1fff6c2c2fc6f1e1f83ac00dd7475700c4f3c26303e26b1448a2e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bcfcf542ab089c183d2e112f92ffb5b5319ca7114fce654923a289cf8978fb47"
-    sha256 cellar: :any_skip_relocation, catalina:       "e02b5c3a133eb5d4f3c570dc785aebae13bc7c2af0880cbfe2165cdd80df63a5"
-    sha256 cellar: :any_skip_relocation, mojave:         "dd89940ad2d5d7c2e9100a051221b072645f684d0fa73456ca116c315ec7a680"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17be21fc177c428856ad769efadb47a2cb2b2a3ab874fa2fbed0f3d776fc9dca"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6641561f400242f33c0aa593dafdca76d2c1914bdfa37338907969d1e21c0b16"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "16c4b37f5a8ed8ba3535b4dd6f310763e75423079793ed18653bff59fa9ddfdd"
+    sha256 cellar: :any_skip_relocation, monterey:       "d7fe8a4deeccc36569dc7635a651364055b5dbb8aa0f1fa38141c3fcf6a83657"
+    sha256 cellar: :any_skip_relocation, big_sur:        "70f14cb4a800970e48f2bdccb22162793bd650a308617fd83a90011542c4f2e6"
+    sha256 cellar: :any_skip_relocation, catalina:       "09624775c9cfa2fd114e9a32915a5330e2d55102076e1bdd2e7eebefa6f89600"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7d37099d9ed061779a20ff667cc71229ae8f52cadf737bda0af1b7da9b7cbd5"
   end
 
   depends_on "ghostscript"

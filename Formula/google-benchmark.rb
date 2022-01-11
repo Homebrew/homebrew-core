@@ -1,19 +1,18 @@
 class GoogleBenchmark < Formula
   desc "C++ microbenchmark support library"
   homepage "https://github.com/google/benchmark"
-  url "https://github.com/google/benchmark/archive/v1.6.0.tar.gz"
-  sha256 "1f71c72ce08d2c1310011ea6436b31e39ccab8c2db94186d26657d41747c85d6"
+  url "https://github.com/google/benchmark/archive/v1.6.1.tar.gz"
+  sha256 "6132883bc8c9b0df5375b16ab520fac1a85dc9e4cf5be59480448ece74b278d4"
   license "Apache-2.0"
   head "https://github.com/google/benchmark.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "42ea93b4351c4da96577f12309f27bda4b0c89b135f00673422a785dc57218e3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ac2ad887a8ab80ef3f35f1649eea685fef772b3997d22571dd4079b0cbdaaac"
-    sha256 cellar: :any_skip_relocation, monterey:       "d159c7a8e95e47e5ab306c8c039d68534ccf6db85b5c9201af0d35d0a1cd031a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "51f30b3d6cc75e55817edf118fb3e3ff26326a6fda89ddfe825cc7ee14b0466f"
-    sha256 cellar: :any_skip_relocation, catalina:       "2bf63b419594d52b6bfd2a3a70bc972e8854a25df324de1fe9767dc3afd43b01"
-    sha256 cellar: :any_skip_relocation, mojave:         "2f53d7a2fb5622dc85f1d6fc08086395ea464b7ec538059b9b8b8d37e8b9bc0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eadb938649288a88f2e7f16cc78f27385c197aa72786de75d2d70a65b5861820"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "60c03524e82c56126f86ca6740a46183f5f726a8f97ea0464dca1125aa6a4343"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6c2cb648a5de80cb70553bd6efb0d1450f300c7a5a6c25d84f3536e6925da9d"
+    sha256 cellar: :any_skip_relocation, monterey:       "627dfdf6e7ae9e020c1ef09fcc7d83180a4258d65d3957a1a621362e713949c0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b6895756afa835ca89843ec24bdea614ab34fdb20d33ddcd864b6dbb063ade39"
+    sha256 cellar: :any_skip_relocation, catalina:       "86aae7890ad973abda30dca7c097c31bc643ca9c5ddad9b49ddc6ee8d1b57867"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2630432d244fa03c2b5574e831b30a3bee3decf846df2483c3b060608db671c5"
   end
 
   depends_on "cmake" => :build

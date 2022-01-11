@@ -1,17 +1,17 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://ctan.org/pkg/latexindent"
-  url "https://github.com/cmhughes/latexindent.pl/archive/V3.13.4.tar.gz"
-  sha256 "70338e1cc75fa0ea5cf080ddd34d8f8ce0ec911dafe8207b0dbff8f7b1dee17f"
+  url "https://github.com/cmhughes/latexindent.pl/archive/V3.14.tar.gz"
+  sha256 "59ad9808a140cb9b6a39b20dae0ce690ce8292491030f2a81a4c36060b49c667"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "358e624cb6c94e46e3b578991cb345996a2f5c6fb1fe922dee8b9afa446ad920"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f3019c83fcf49f95cc9330da2d096c6a3c5d9576ec088888615bb0f15be10e83"
-    sha256 cellar: :any_skip_relocation, monterey:       "284d689229c30cb0ec2c862272a39d9f8ccec06dcc606a468c18eb0bf3042c34"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5b0a1bf6ef574998faf42e1f5a5ed518ef76c262078dd5e1ab3ed5463fb58c6f"
-    sha256 cellar: :any_skip_relocation, catalina:       "b945407561004b4c22fe6d754a354080b03c94456f65be8044857d8bb555592c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d4be66be037fad1f3da58cef5f4262d8db98a966bfaa5e3076d50133b735f85"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "36666d1c95f10f3191a5a74133bdf016f781efcd095c7b83cd33fb3d6154bad5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ac67f5d2587982f0bc5d694b3c58a3cd41720bbf48c9503858e775976179152"
+    sha256 cellar: :any_skip_relocation, monterey:       "35e34e6e29d524acfeb9c7818b287a8591d0c1f4a3be193a1f56a9debc186834"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5c8c6d788adc58db37a46b5d612dd79c4ace4b6a6b9d2014978083daa1a9fbd7"
+    sha256 cellar: :any_skip_relocation, catalina:       "551051b9054d7be61b78bbabbd91c6f6a3d561029f25582255eab62ddeeb1e2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f1c65e35f1b1bfdcdd401630b5dfe24afec4b8d274b8aaa98ee6f68ef1b30ff"
   end
 
   depends_on "perl"
@@ -84,8 +84,8 @@ class Latexindent < Formula
   end
 
   resource "MRO::Compat" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/MRO-Compat-0.14_01.tar.gz"
-    sha256 "bc214d7964bc72f5a4015cc6b0d27376071cb64bd955280fea40c046b64d911a"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/MRO-Compat-0.15.tar.gz"
+    sha256 "0d4535f88e43babd84ab604866215fc4d04398bd4db7b21852d4a31b1c15ef61"
   end
 
   resource "Module::Build" do

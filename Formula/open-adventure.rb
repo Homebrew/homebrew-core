@@ -13,17 +13,17 @@ class OpenAdventure < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25b220fb93f56b0e6007f9b25d31d9d64d86e6976a6cbc479c0abd115bcd468d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3e6e5fe49a6e152e07666b01ef6ce83063f1de437e65970079656e8ae4c2e357"
-    sha256 cellar: :any_skip_relocation, monterey:       "da5283e16c1fb5a6ed671bd8490e43065325268d30289872851c43c477514c89"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a3ec563817f679d2ed97360b1d32e3fef297eaa3fcaf582044213532a338d217"
-    sha256 cellar: :any_skip_relocation, catalina:       "19315161a1ca025476f7bff681bbed32d52e0c462ad8de013ae2442f5cf37d08"
-    sha256 cellar: :any_skip_relocation, mojave:         "950ef945af942573058ad712f85547fff68d282caa403ae8645ccf4a90ae3d30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "477e0809fe0844f0075943170f4554b716638a2b9f43b2c41531d48311edcf20"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "359a060e1126c9c92249c695d873a69f32b64078f912d4a59bed24ba679e1678"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfe7240131a460a308e8740cd7500ce914e661102f689e28c05998bf1858adc8"
+    sha256 cellar: :any_skip_relocation, monterey:       "744e6d786d9c1d113a0b9f0a843f144082a71856cddbe11919b8dccfd26ce738"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0440f57ddba9ae3272b08ff64837622cafa7ebded06015199370528b4ff09865"
+    sha256 cellar: :any_skip_relocation, catalina:       "f1b5692c2de3a40ee6790bc88e33a31bca0d99eab3e6272f62540821a5890acb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95ac0518e04137c3cdb6ff8c9bd6665a8e5319ea7677c7378704ab4d5c0415ba"
   end
 
   depends_on "asciidoc" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   uses_from_macos "libxml2" => :build
   uses_from_macos "libedit"
@@ -38,7 +38,7 @@ class OpenAdventure < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.9")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resources
     system libexec/"bin/python", "./make_dungeon.py"
     system "make"

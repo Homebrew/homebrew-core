@@ -2,18 +2,18 @@ class BrigadeCli < Formula
   desc "Brigade command-line interface"
   homepage "https://brigade.sh"
   url "https://github.com/brigadecore/brigade.git",
-      tag:      "v2.1.0",
-      revision: "92a824cff34255774e246be64693230db555efe1"
+      tag:      "v2.2.0",
+      revision: "da052e9b8b220296b216be536364d320e8778637"
   license "Apache-2.0"
   head "https://github.com/brigadecore/brigade.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cba7e7e7ef72000d33222e554bb7be0e17ad36a16142954fbcc1b21a10a5c09e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0c8167028e40782a3cc431a32fd2ede9f11783bbc7025af8b726ea09f674f7b"
-    sha256 cellar: :any_skip_relocation, monterey:       "99cefe3567397a58f3108c2a9fb5288a257bf330ce82900c50c3aa278a56fc73"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f88aedf8eebf204c572b94b027214da4aabdfed44570d0590eb89bc3171cca98"
-    sha256 cellar: :any_skip_relocation, catalina:       "a79e472ddf433f43b93df75be2f228344f6dfa6d6bf0c42ab535a6e4973c4231"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a79036c75f95a1bddc2255d4991f1a85badf24fd2e20bf3e8fdb444464f0e52"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4dd1f838e598091458ef918d05bd852942c7067a1615f1f1e702a9f15352e6f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "863bf65be33e8a9e986e63b04f5b7ab9673d24f484af96e8ed1bdf3d04a92ca5"
+    sha256 cellar: :any_skip_relocation, monterey:       "b587ad76c9d46dc5d2acd959849c7bc07b3b9bbac02d6d3f48d4a8735d5083e8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c20b9b671b50a9827bc60f64a8312f246d772eaf2995fc376210d43521ef6cb0"
+    sha256 cellar: :any_skip_relocation, catalina:       "ae703f89adbe8a4a856209b3361eff903c523201a60ac7aa4caa343c0c3697a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b72328b4955ca9bf9c25e445d5157147550783e516069e7a590f973b41d740af"
   end
 
   depends_on "go" => :build

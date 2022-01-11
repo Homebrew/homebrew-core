@@ -11,6 +11,7 @@ class Scrcpy < Formula
     sha256 monterey:       "6e0ad67e3469cee34e8c1ba584630200a57d366531e1f732532f6cff8b351e2b"
     sha256 big_sur:        "cf5c7c1bd463e1654a0a4d795dbf6700a9cfebb6a409aa315cd758a070073afa"
     sha256 catalina:       "5eb45bf3851d6b3d79f04429977c54c02fd915c6d01f399a5ccdbc95d25d8618"
+    sha256 x86_64_linux:   "cb9f1de049f42509af987720d6085cfb4b0553b2ae32f733b96572bc7a9388e1"
   end
 
   depends_on "meson" => :build
@@ -18,6 +19,13 @@ class Scrcpy < Formula
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "sdl2"
+
+  on_linux do
+    depends_on "gcc" => :build
+    depends_on "libusb"
+  end
+
+  fails_with gcc: "5"
 
   resource "prebuilt-server" do
     url "https://github.com/Genymobile/scrcpy/releases/download/v1.21/scrcpy-server-v1.21"
@@ -76,7 +84,7 @@ class Scrcpy < Formula
 
     # It's expected to fail after adb reverse step because fakeadb exits
     # with code 42
-    out = shell_output("#{bin}/scrcpy -p 1337 2>&1", 1)
+    out = shell_output("#{bin}/scrcpy --no-display --record=file.mp4 -p 1337 2>&1", 1)
     assert_match(/ 42/, out)
 
     log_content = File.read(testpath/"fakeadb.log")

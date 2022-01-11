@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v17.3.0/node-v17.3.0.tar.xz"
-  sha256 "e4e4c4e64854698f2590144a177bcc7e7c0befb52020288fdae5c0da0d015d03"
+  url "https://nodejs.org/dist/v17.3.1/node-v17.3.1.tar.xz"
+  sha256 "cf088f7854aa78d5aef7f9bc58bdb8d7342a0197ba24af62afd2fc3233f21d1c"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "444a4eb475752fea6168ffee447b6c27beb3686af0075cd1a610d2558cc7c58c"
-    sha256 cellar: :any,                 arm64_big_sur:  "1352b09c7a768aa4a752624a50b80d06d4b9ceaf13d0787b61ae4d15b0ccbfb6"
-    sha256 cellar: :any,                 monterey:       "d2ca921aa8849d4492d5de83bcd47b3db062a17e73b25d9cc4fe6649f59b51cb"
-    sha256 cellar: :any,                 big_sur:        "3cd289e7840a0bab736ba9c50756eb61da94bb88a8607093dae371bc419b1b79"
-    sha256 cellar: :any,                 catalina:       "521f3b0d88e35d198401f31e38f70fc5931f53e185bf033664c91d04626311d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec5a9674e2b1305f0a16b12bebc40aab268cf2f8d5f9032e24f041a277efbd2f"
+    sha256 cellar: :any,                 arm64_monterey: "ea190ddadcca8a9e77d1c48bb8b37bfe0a4bdee1c1c8973bf35e767252617aef"
+    sha256 cellar: :any,                 arm64_big_sur:  "abac3fcab418d792756454bb66bdfbbc3b84ecc0ad7bca8739ca38e3bad50112"
+    sha256 cellar: :any,                 monterey:       "53866e0666d555098a1e67c665a08cb3ddce4146d160fa5d3a17e7ee7c5da0cc"
+    sha256 cellar: :any,                 big_sur:        "3a983b6ec8168a40e4d1b4ec77d5a6ef195cb65be69f55082c823a7fedc98ca3"
+    sha256 cellar: :any,                 catalina:       "65a0ad746c8e1504d9424c8c859ed746b440149b237a02009063e6e232319d04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccb1dc55881cbe49389239a33c74f112380457329d3ff39d88338053762cb4ac"
   end
 
   depends_on "pkg-config" => :build

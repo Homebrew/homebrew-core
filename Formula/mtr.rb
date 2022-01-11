@@ -1,19 +1,18 @@
 class Mtr < Formula
   desc "'traceroute' and 'ping' in a single tool"
   homepage "https://www.bitwizard.nl/mtr/"
-  url "https://github.com/traviscross/mtr/archive/v0.94.tar.gz"
-  sha256 "ea036fdd45da488c241603f6ea59a06bbcfe6c26177ebd34fff54336a44494b8"
+  url "https://github.com/traviscross/mtr/archive/v0.95.tar.gz"
+  sha256 "12490fb660ba5fb34df8c06a0f62b4f9cbd11a584fc3f6eceda0a99124e8596f"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/traviscross/mtr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4847c8258dc9313eed7d21bed16dfc35d201b5d5f3e71e9b7b2ac26f9c22d0c8"
-    sha256 cellar: :any,                 arm64_big_sur:  "c3fc137c2d301be6228f09bce1bbeb0ca8b1686521c5682ed4c2c8c8fb115a3e"
-    sha256 cellar: :any,                 monterey:       "1fb7173c99c636612d9c67057d1caf80bd3dd118214662bc46a4bef3292b026b"
-    sha256 cellar: :any,                 big_sur:        "4e2466cde6fe93ab84bced0e3fe5639a2d36b524a36372ffd9fa73d64da40778"
-    sha256 cellar: :any,                 catalina:       "9d81a6e600be3a19d5e8c7f3a5d88be22646ded4a30ce70f6eb5058fd7bef203"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d9e7526b639e429052a90924d330e703c193db552537a684488391064d4ff20"
+    sha256 cellar: :any,                 arm64_monterey: "832e28a80e1b4340c19c4dc3511504672ec03ff5cb54d7294e932b7d9aa80085"
+    sha256 cellar: :any,                 arm64_big_sur:  "0e41037f1e0f662b87155307468c740594d2e16761e2b120a3086e0922c7bda5"
+    sha256 cellar: :any,                 monterey:       "8388e7af1b04e7749ffa93b3a9479df605cbe16d7a88c02625ecd229e36043f9"
+    sha256 cellar: :any,                 big_sur:        "bb07a178a739fc8c8a15fc7645efc7fe749b81663752bcd66cb1efcd47217371"
+    sha256 cellar: :any,                 catalina:       "7ee23cbae756e561d02a0ffe3b32476cd635b54f70240a937c43e7608c27766d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b2707211f207742525047d68e4b3e870b524f093ea8ce8f76b8fb3999e6f8d5"
   end
 
   depends_on "autoconf" => :build

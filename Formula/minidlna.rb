@@ -4,16 +4,15 @@ class Minidlna < Formula
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.0/minidlna-1.3.0.tar.gz"
   sha256 "47d9b06b4c48801a4c1112ec23d24782728b5495e95ec2195bbe5c81bc2d3c63"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "aa5d1420c5a2b0e89ac9e1dba2dc076b80b97fd90535367837fcbbc9c26d7c68"
-    sha256 cellar: :any,                 arm64_big_sur:  "3296fc2759c028ff9316c712504be6644eb5e1fb15155e2aea1f8c4bb609cc33"
-    sha256 cellar: :any,                 monterey:       "dedb1a51edc778969549199ed98fb2a5f4a4ec7cc4bb8e758d3f2afbc239f01d"
-    sha256 cellar: :any,                 big_sur:        "92e3ced10e41d5528a06befe8124b0badde96b3542c094109c0d9b07315af0c4"
-    sha256 cellar: :any,                 catalina:       "e43528eb7559099f5dd38d278c75ac2555be3f28474c84a7005e5a16f920e528"
-    sha256 cellar: :any,                 mojave:         "fc24ceaaed86d9b4417349afa20ad6c86b765097314cc01bb2bb81d83a4c4639"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "384178070afc9696895c67b06ae128b82bc094be413fbb8e148aa30afdb58272"
+    sha256 cellar: :any,                 arm64_monterey: "db29d32f52db2f939303ebfe9fadc4198cbf124b3eaea49708d862910dd397c9"
+    sha256 cellar: :any,                 arm64_big_sur:  "d35c538a159b100120b6adb5f61c659fdf2a9d0e436abd089cc27a88f3e874ed"
+    sha256 cellar: :any,                 monterey:       "e08ad5a4607e1b18dc9102fff5a18609e6288b28ef466e59064a15386fd0a3ef"
+    sha256 cellar: :any,                 big_sur:        "84ad29fbefad1de42626e8cee294439c48f9d517edb2600221943faae4b2263b"
+    sha256 cellar: :any,                 catalina:       "96292e855293ce1fa5b3b24ad9d50d26deb183c572ce8020d60571337c014574"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d09940a0842037febe0e1e4d08e0e810ede2462c2a6049f86c5346d8dab92d7"
   end
 
   head do
@@ -41,12 +40,14 @@ class Minidlna < Formula
   end
 
   def post_install
-    (pkgshare/"minidlna.conf").write <<~EOS
+    conf = <<~EOS
       friendly_name=Mac DLNA Server
       media_dir=#{ENV["HOME"]}/.config/minidlna/media
       db_dir=#{ENV["HOME"]}/.config/minidlna/cache
       log_dir=#{ENV["HOME"]}/.config/minidlna
     EOS
+
+    (pkgshare/"minidlna.conf").write conf unless File.exist? pkgshare/"minidlna.conf"
   end
 
   def caveats

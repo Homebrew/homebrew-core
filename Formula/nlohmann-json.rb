@@ -1,14 +1,13 @@
 class NlohmannJson < Formula
   desc "JSON for modern C++"
   homepage "https://github.com/nlohmann/json"
-  url "https://github.com/nlohmann/json/archive/v3.10.4.tar.gz"
-  sha256 "1155fd1a83049767360e9a120c43c578145db3204d2b309eba49fbbedd0f4ed3"
+  url "https://github.com/nlohmann/json/archive/v3.10.5.tar.gz"
+  sha256 "5daca6ca216495edf89d167f808d1d03c4a4d929cef7da5e10f135ae1540c7e4"
   license "MIT"
   head "https://github.com/nlohmann/json.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "8a6449d5fc0f166a43b6f4a426007a312f838b01e0eca915ef8bc557bf82e809"
+    sha256 cellar: :any_skip_relocation, all: "6c7473b0acc64f87a1697bea4df7c439ee2c90ccec4343d7c95024cfec17a5e6"
   end
 
   depends_on "cmake" => :build

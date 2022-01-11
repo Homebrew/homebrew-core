@@ -18,6 +18,7 @@ class Libtasn1 < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
                           "--disable-silent-rules"
+    system "make", "check"
     system "make", "install"
   end
 

@@ -1,22 +1,27 @@
 class Flatbuffers < Formula
   desc "Serialization library for C++, supporting Java, C#, and Go"
   homepage "https://google.github.io/flatbuffers"
-  url "https://github.com/google/flatbuffers/archive/v2.0.0.tar.gz"
-  sha256 "9ddb9031798f4f8754d00fca2f1a68ecf9d0f83dfac7239af1311e4fd9a565c4"
+  url "https://github.com/google/flatbuffers/archive/v2.0.5.tar.gz"
+  sha256 "b01e97c988c429e164c5c7df9e87c80007ca87f593c0d73733ba536ddcbc8f98"
   license "Apache-2.0"
   head "https://github.com/google/flatbuffers.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a127e4a829de86f314a3990b9d85bf14d854bb682e8f8e32272990095b2b654a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd07b2efac10b35609da3ab52c9549d360c6db6b6193d5b916dc5eb98c27267b"
-    sha256 cellar: :any_skip_relocation, monterey:       "ccc0b4894dcef07cc2f7ab8b08822b0d32b418e51caf1f091dc58260f73871c3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c5a82ba1d1ce4c4b77053bc294af6a5e6094c5b7e59e4b4c946b4301dd71b6b3"
-    sha256 cellar: :any_skip_relocation, catalina:       "149eda4aca1b555fd228e9edc2bf4987eee46e0445ae1bff79404177149e6f72"
-    sha256 cellar: :any_skip_relocation, mojave:         "3827dfa116cdaf777f7bb5023b3eaecb2820265bcc57dce833724f84d2c17065"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfcaa60b345226421198d8413ba4973db4d9f56ce471c6e95a7d50e0cabee3f9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f355a5549cf028d9fd0df696bfc16680be7837b30e809113fd35f8fabf129f81"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "09ebfe4c000192534f0a91f1aa5a25975315c040590bbd36fd22c8ea92db3732"
+    sha256 cellar: :any_skip_relocation, monterey:       "84eaa16ae8f1d2399e2feb1c2599e4494d00fd1dfaf52e379d5c852e45142507"
+    sha256 cellar: :any_skip_relocation, big_sur:        "41031bbb5ad0412bc8d837e2e09f24506cd3c5a78dc43a9932c6a9d1d66e67b9"
+    sha256 cellar: :any_skip_relocation, catalina:       "53e9e6c3912b2fe2dc2e41efb7631f0ecf51a16184648d209efc1aa3bc1a65a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d530fd61f53dd077534c310d7472f24fbb5a87ba6825cf9e868ca6f8e3f661bf"
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.10" => :build
 
   def install
     system "cmake", "-G", "Unix Makefiles", *std_cmake_args

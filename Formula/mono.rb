@@ -4,6 +4,7 @@ class Mono < Formula
   url "https://download.mono-project.com/sources/mono/mono-6.12.0.122.tar.xz"
   sha256 "29c277660fc5e7513107aee1cbf8c5057c9370a4cdfeda2fc781be6986d89d23"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://www.mono-project.com/download/stable/"
@@ -11,21 +12,20 @@ class Mono < Formula
   end
 
   bottle do
-    sha256 monterey: "4a4560ef7bd6dc638600e6fae876c3e27b3443698719a1dae45fe49fc1987f78"
-    sha256 big_sur:  "fdd17b0e0eb154047fa8091b52763f1f0df0fc921c216f6633d4d59f7cd62af5"
-    sha256 catalina: "428998efcf415948ca793b166d7ed6e242814205238e77111419de828fd33cfe"
-    sha256 mojave:   "d25b6982b6bd7af6b001e5f7b53ff0dad68937ce11ba0dce9d1529e2b0608b85"
+    sha256 monterey: "6b1245459ebdd01ad9346be8fed038eeb6dd42e3407212c2b971927dde3b80df"
+    sha256 big_sur:  "e9382010f5f96504a354f6328339a1a2339a327fa70cfc58f60cc3fc8a3970fb"
+    sha256 catalina: "c9d98a348a207121c203e4089d292785695b630b9c78db7688381368a81575c2"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "unzip" => :build
 
   conflicts_with "xsd", because: "both install `xsd` binaries"
   conflicts_with cask: "mono-mdk"
-  conflicts_with cask: "mono-mdk-for-visual-studio"
+  conflicts_with cask: "homebrew/cask-versions/mono-mdk-for-visual-studio"
 
   # xbuild requires the .exe files inside the runtime directories to
   # be executable

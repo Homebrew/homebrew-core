@@ -1,19 +1,17 @@
 class Jo < Formula
   desc "JSON output from a shell"
   homepage "https://github.com/jpmens/jo"
-  url "https://github.com/jpmens/jo/releases/download/1.4/jo-1.4.tar.gz"
-  sha256 "24c64d2eb863900947f58f32b502c95fec8f086105fd31151b91f54b7b5256a2"
-  license "GPL-2.0"
+  url "https://github.com/jpmens/jo/releases/download/1.6/jo-1.6.tar.gz"
+  sha256 "eb15592f1ba6d5a77468a1438a20e3d21c3d63bb7d045fb3544f223340fcd1a1"
+  license all_of: ["GPL-2.0-or-later", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8208a1f1fee8b3d703b0ce2e795527689d9e95b1eada80569c070298967b874"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef0996d00e1c8859a597d160af04803aeb7eacc2b8f417f0494979bb9e3de753"
-    sha256 cellar: :any_skip_relocation, monterey:       "b524bfcf6ff1597fe928b7e36f14d669d63b442f3abad05dd2d542c6f4020693"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e7e0509c877e132429eb5cd71b4150c3ea573c9604e92b4bb31c2de4508eb182"
-    sha256 cellar: :any_skip_relocation, catalina:       "15bee62d31331c60c1768949ca11916d242fbe96aafcdc7a66a8359c0f4a9c3c"
-    sha256 cellar: :any_skip_relocation, mojave:         "6741c18bb9a9519e325ac4b30989cdd0c735107ee34772097d3d8fde103880eb"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "bd19a24ded348995844cf428f74729dc91b3c23a9f144ca1b117108c3d3b5401"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cba7692fdbb89e05db0125becd99b851bb1009d1da5fa9f19e6fa42187c02c16"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee1505a91b7311ab4df7b1ef03c0d86390eede2ae654654afd8447c4f6f83f5d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3347176b77aed759f5216aca83092020d3d7509dd38abb24483bf2ecae2b293f"
+    sha256 cellar: :any_skip_relocation, monterey:       "0683bc5162ed66717cc09a5d0ebb822334dc165daf71ef5dde7a9fda7f9940d7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "23a93bcbe720a84429bd69cf4e350a44a3664cb725458c3aa28eb305869c1bdc"
+    sha256 cellar: :any_skip_relocation, catalina:       "400ad597a36fdd45e5333747a9d74b3a98839c9fb1cb3e1b2e62e805fe084b3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae411861718b9027c834e28771ad11effc512f69907f58b78a5d852f55ba36b2"
   end
 
   head do

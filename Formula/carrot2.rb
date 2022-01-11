@@ -2,17 +2,17 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://search.carrot2.org/"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.4.1",
-      revision: "541cac3ad50294281b5ca8fc93fb73b92a117b56"
+      tag:      "release/4.4.2",
+      revision: "33dbd68df542e32700e42b930a75e29d1e64ee83"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd9af8fb197f3899ca86a997be76f214d71ec7653002442f6e6c85e5087064f6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b20d930f9810dcbbd60534b84d7ed928a7fe39419c92eb6601798dcbcf86b98"
-    sha256 cellar: :any_skip_relocation, monterey:       "77cff0fab82a213b316fda870e9d7c3e9307a7357ba81bbf08519a7f42969d88"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1d21bcc5fade38c8d8618002e1fdf9e9c3d06e23c7202553ecfc5fe81f966072"
-    sha256 cellar: :any_skip_relocation, catalina:       "fa27ece482d74ebbb9db210877252124e61997facdc4087a5f8a33dd8c6471f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53bc7e87ee4131bab1e39ad4f3020fd5d0f8d6f419039196fceb2000f1d8a554"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa61fd0d5efc0ef0c1da45cf36fc1c9c63b2efc17e34e2560954a75ba37d07ba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd979a744c5552dc4026042d99492855122e8bfa9912a1aefec61012406d2d10"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4fcf3526dfe6fe7c3da96d842048d5e801690bffbaea1ea3a779a9c2274d453"
+    sha256 cellar: :any_skip_relocation, big_sur:        "938cf87839d3cf6f72eb1905be5651a7bca907e53d81bf8115173a3136c1d750"
+    sha256 cellar: :any_skip_relocation, catalina:       "2a8ed66de6badfb2be9353df69d6c98f21b39f7230eab75ff78fb305be59e067"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d31c41cabf7fd6c9d6b7044c079f05cb1d540219798550258f231eea01f8549"
   end
 
   depends_on "gradle" => :build

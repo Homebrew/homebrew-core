@@ -1,10 +1,9 @@
 class Dwm < Formula
   desc "Dynamic window manager"
   homepage "https://dwm.suckless.org/"
-  url "https://dl.suckless.org/dwm/dwm-6.2.tar.gz"
-  sha256 "97902e2e007aaeaa3c6e3bed1f81785b817b7413947f1db1d3b62b8da4cd110e"
+  url "https://dl.suckless.org/dwm/dwm-6.3.tar.gz"
+  sha256 "badaa028529b1fba1fd7f9a84f3b64f31190466c858011b53e2f7b70c6a3078d"
   license "MIT"
-  revision 2
   head "https://git.suckless.org/dwm", using: :git, branch: "master"
 
   livecheck do
@@ -13,13 +12,11 @@ class Dwm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "3971098bdbc2dee1f4acac3020a38052d6be49f777543c422e93e2c2f361e3bf"
-    sha256 cellar: :any, arm64_big_sur:  "7fd3a01a1f29927ca94c2c5ea32b4ee0c9f31d9ea39adc04e76ab40517663149"
-    sha256 cellar: :any, monterey:       "ac0754547b75d1e161c9401e78dcad9c9560d76f45483c19fbd1890429b88cc7"
-    sha256 cellar: :any, big_sur:        "afd787afd9c6ea4cc81c100f324d2b8aa4c65c2a06e43ca87d54135425b347cf"
-    sha256 cellar: :any, catalina:       "d872be09d1f5c11c9fb4d34002cc5f4622fbc259691800e1742354573b9effb0"
-    sha256 cellar: :any, mojave:         "e4ec85368754c0594847dad5272770a36e69876ed433fdd390d73a7d05c43263"
-    sha256 cellar: :any, high_sierra:    "b22ec01678edc39f1b82837087bb69ac311bce937eb10cb096fc8b1002f97701"
+    sha256 cellar: :any, arm64_monterey: "2229c9fa0e2b34b02d6ceb6529b655e5100e6c96f3684fe9ba106908a1e59d81"
+    sha256 cellar: :any, arm64_big_sur:  "9544c01783dbd47a049adc2f1ae4269f79aa0a1ca0272e94414589d4acb9ca39"
+    sha256 cellar: :any, monterey:       "fed2ddf1b8509e7ecb5f236432ac23a5b2c843fc7ec84b16c7f0aa220a5cd59f"
+    sha256 cellar: :any, big_sur:        "96c4b987f4d8173368692428bd362c76ece48d34b267bb3040cb1fbac4406dab"
+    sha256 cellar: :any, catalina:       "513bb01c5c1276e7606edb577504b101240c1245558ab30fe724be6b9d7c2dbe"
   end
 
   depends_on "dmenu"

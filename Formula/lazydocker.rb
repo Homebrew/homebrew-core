@@ -2,18 +2,17 @@ class Lazydocker < Formula
   desc "Lazier way to manage everything docker"
   homepage "https://github.com/jesseduffield/lazydocker"
   url "https://github.com/jesseduffield/lazydocker.git",
-      tag:      "v0.12",
-      revision: "6fd5337cc272289463eb562606e67515f48b4aff"
+      tag:      "v0.13",
+      revision: "048c4c9731faac6ab240c7fa8feb9b79dd95343c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e4f56ebb860ee23e8c18792962cb03d16409252106a3f38f370da029baa8c69"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a4097503e3348206114d757b8f532fadaf8868eb3de2c1cb4795a4bb1ddbcdd0"
-    sha256 cellar: :any_skip_relocation, monterey:       "1677cf0771a5f9bb9a73099b35e973dc09e5509cfba53a16f6dd01c7ec249472"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9854a209f403c2e2fc43d69cbf8b42e3e80844992c31321c7b960f4f187d093e"
-    sha256 cellar: :any_skip_relocation, catalina:       "ac9d6261cbc3e0827b4d7a96666340e0bcd13ed177bfd115a6248fcdb63926e0"
-    sha256 cellar: :any_skip_relocation, mojave:         "99ffcce11cdc7e5e61e28d81255c9eba0dfe5c004919629dec01b3dc9a71f878"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "011b4cd8ae02e19eead518ce13329cab6afc53a13acc41b87c24142d34d2d1ea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5206bb97f1b97937bd3a7f55ef60e3cdcf7dcd11a528213669647ed5624dd87"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d5fc99b6f69ee9397be2f136247ad7d049419144de1fc6cd767ae229c93385c"
+    sha256 cellar: :any_skip_relocation, monterey:       "513c7b6ab8549e9e59a31172167a69b1dd96ed4c3c20147b42174ae32ab725d0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "abadea905b75a2569f452f77a19126057fbfb2a702e982e3bdb01a8308aa3935"
+    sha256 cellar: :any_skip_relocation, catalina:       "67e73e0d74ff5920cdfca6c786b729e18207166d4cfb1b7237f981a57ab494ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb946c3fa3d69068bd29ffa13eb6bbda0d987bf398bb60d34bf9c1dfb01a2007"
   end
 
   depends_on "go" => :build

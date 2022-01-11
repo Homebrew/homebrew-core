@@ -1,8 +1,8 @@
 class Ki18n < Formula
   desc "KDE Gettext-based UI text internationalization"
   homepage "https://api.kde.org/frameworks/ki18n/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.89/ki18n-5.89.0.tar.xz"
-  sha256 "e6815b02f5ca8ddf8c4fd3687c8d6d2ca45dbb396d8fdd78b4ca42d4b80798fe"
+  url "https://download.kde.org/stable/frameworks/5.90/ki18n-5.90.0.tar.xz"
+  sha256 "dce136afa95e1f0b41c3bb52f53dda74b5fa46cc45bad51865dcb757e79a688e"
   license all_of: [
     "BSD-3-Clause",
     "LGPL-2.0-or-later",
@@ -18,9 +18,9 @@ class Ki18n < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "90f84eaab721a70ed06c3840a08091a3df597617f4a9bab21c8517c583ced0c2"
-    sha256 cellar: :any, big_sur:       "ed5ae9921e1a72c1275309e89ae00aa5ca9ee1ac57c64027a424b2c6aec2bbaf"
-    sha256 cellar: :any, catalina:      "f8f842c45a751d2443f1abe878379ea02274b2903d1dd116246d0dbae9a97263"
+    sha256 arm64_big_sur: "4fa6083867f9c4c16a06f3813b1ab818d56474f6b049ffa3ee2eee95e99b2252"
+    sha256 big_sur:       "4df0355554fd0c38e7d0fe802a945af1a3b5d448a76a9cf7368974dd13f21231"
+    sha256 catalina:      "9e30582364f3e6239e63bed95cc079bb15e00f9267ba4023bc95294398b03def"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -28,14 +28,18 @@ class Ki18n < Formula
   depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "graphviz" => :build
   depends_on "gettext"
+  depends_on "iso-codes"
   depends_on "qt@5"
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_TESTING=OFF"
-    args << "-DBUILD_QCH=ON"
+    args = std_cmake_args + %w[
+      -S .
+      -B build
+      -DBUILD_QCH=ON
+      -DBUILD_WITH_QML=ON
+    ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -47,10 +51,14 @@ class Ki18n < Formula
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.5)
       include(FeatureSummary)
-      find_package(ECM 5.71.0 NO_MODULE)
+      find_package(ECM #{version} NO_MODULE)
       set_package_properties(ECM PROPERTIES TYPE REQUIRED)
       set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} "#{pkgshare}/cmake")
-      find_package(Qt5 5.12.0 REQUIRED Core)
+      set(CMAKE_CXX_STANDARD 17)
+      set(QT_MAJOR_VERSION 5)
+      set(BUILD_WITH_QML ON)
+      set(REQUIRED_QT_VERSION #{Formula["qt@5"].version})
+      find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED Core Qml)
       find_package(KF5I18n REQUIRED)
       INCLUDE(CheckCXXSourceCompiles)
       find_package(LibIntl)
@@ -60,12 +68,15 @@ class Ki18n < Formula
 
     cp_r (pkgshare/"autotests"), testpath
 
-    args = std_cmake_args
-    args << "-DQt5_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5"}"
-    args << "-DLibIntl_INCLUDE_DIRS=#{Formula["gettext"].include}"
-    args << "-DLibIntl_LIBRARIES=#{Formula["gettext"].lib/"libintl.dylib"}"
+    args = std_cmake_args + %W[
+      -S .
+      -B build
+      -DQt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5
+      -DLibIntl_INCLUDE_DIRS=#{Formula["gettext"].include}
+      -DLibIntl_LIBRARIES=#{Formula["gettext"].lib}/libintl.dylib
+    ]
 
-    system "cmake", testpath.to_s, *args
-    system "make"
+    system "cmake", *args
+    system "cmake", "--build", "build"
   end
 end

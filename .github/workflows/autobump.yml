@@ -14,22 +14,79 @@ env:
   HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
   FORMULAE: |
     ack
+    activemq
+    alda
+    aliddns
+    aliyun-cli
+    allure
+    alluxio
+    ammonite-repl
     angular-cli
+    annie
+    ant
+    ant@1.9
+    anycable-go
     apache-archiva
+    apache-drill
+    apache-flink
+    apache-geode
+    apache-opennlp
+    apache-spark
     apidoc
+    apktool
+    archiver
     argo
+    argocd
+    argocd-autopilot
+    argocd-vault-plugin
+    armadillo
     artifactory
+    asciidoctorj
+    assh
+    asymptote
+    atlantis
     atuin
     autorest
+    autorestic
+    avrdude
     aws-cdk
+    aws-es-proxy
+    azcopy
     b3sum
+    bagit
+    baidupcs-go
+    ballerina
+    bash_unit
+    batik
+    bazel
+    bazelisk
+    bbtools
     bcoin
+    bear
+    bee
+    benthos
+    berglas
+    bettercap
+    bigloo
+    bnd
+    bosh-cli
     bottom
     brew-php-switcher
+    brook
     broot
+    bubblewrap
+    buildifier
     buildkit
+    buildozer
+    buildpulse-test-reporter
     bundletool
+    butane
+    byacc
+    byteman
+    caddy
     cadence
+    cadence-workflow
+    caire
     calicoctl
     cargo-audit
     cargo-bloat
@@ -39,161 +96,547 @@ env:
     cargo-llvm-lines
     cargo-outdated
     cargo-watch
+    carrot2
+    cassandra
+    cassandra-reaper
+    catch2
     cdk8s
+    cfr-decompiler
+    cfssl
+    chamber
+    cheat
+    checkstyle
     chezmoi
     chromaprint
+    chronograf
+    cilium-cli
     circleci
     clair
+    clash
     cliclick
+    clojurescript
+    closure-compiler
+    cloud-nuke
     cloudflare-wrangler
+    clusterctl
+    code-minimap
+    cointop
+    coinutils
     composer
+    conftest
     consul
     consul-template
+    convox
+    copilot
+    coredns
+    cortex
+    cosign
+    couchdb
+    crane
+    croc
+    cromwell
+    crowdin
     crun
+    css-crush
+    csvtk
+    ctop
     cubejs-cli
+    cypher-shell
+    dafny
+    datree
+    davmail
+    dbdeployer
+    deark
+    delve
     deno
+    dependency-check
+    derby
     detekt
     detox
     devspace
+    dex2jar
+    digdag
+    django-completion
+    djl-serving
+    dnscontrol
     dnscrypt-proxy
+    dnsx
     docker
     docker-compose
+    docker-compose-completion
+    docker-credential-helper
     docker-slim
+    docker-squash
     doctl
     docuum
+    dolt
     double-conversion
     dprint
+    driftctl
+    drone-cli
+    druid
+    dstask
+    dtm
     dvc
     easyengine
+    efm-langserver
+    ehco
+    eksctl
+    elan-init
+    elasticsearch@6
+    elfutils
+    emscripten
     envconsul
+    envoy
     esbuild
     eslint
     etcd
     ethereum
     exploitdb
+    faas-cli
+    fabric-installer
+    fantom
+    faudio
+    feh
     fennel
     firebase-cli
+    flank
     flarectl
+    fleet-cli
+    flow-cli
+    fluent-bit
+    flume
     flux
+    fluxctl
+    flyway
+    fmt
+    fn
+    fop
+    ford
+    fortio
+    frugal
+    func-e
     fuse-overlayfs
+    fuseki
     futhark
     gatsby-cli
+    gau
+    gauge
+    gdu
+    gh
+    ghz
+    ghz-web
+    ginac
+    git-annex
     git-cliff
     git-delta
+    git-lfs
+    gitbackup
+    gitbucket
+    gitlab-runner
     gitleaks
+    gitql
+    glassfish
     gleam
+    global
     glooctl
+    gmailctl
+    gmsh
+    gnunet
+    gnupg-pkcs11-scd
+    gnuplot
+    go-md2man
+    go@1.16
     gofish
+    gofumpt
+    gojq
     golang-migrate
+    golangci-lint
+    google-java-format
+    goose
+    gopass
+    gopls
+    gor
+    goredo
     goreleaser
+    goreman
     gosec
     gostatic
+    govc
+    gowsdl
     gpg-tui
+    gradle
+    gradle-completion
+    gradle-profiler
+    grafana
+    grails
+    groovy
+    groovysdk
+    gsoap
+    hadoop
+    halide
+    hapi-fhir-cli
+    hasura-cli
     hcloud
     helm
     helmfile
+    helmsman
+    hidapi
+    hive
+    hivemind
     htmldoc
+    htmlq
+    htmltest
+    htpdate
+    httpx
     hugo
+    iamy
+    igv
     imagemagick
     imagemagick@6
     imap-backup
+    imgproxy
+    influxdb
+    influxdb-cli
+    influxdb@1
+    inlets
+    ioctl
+    ipinfo-cli
+    ipmiutil
+    ipopt
     ircd-hybrid
+    istioctl
+    ivy
+    jadx
+    java-service-wrapper
+    jena
     jenkins
+    jenkins-job-builder
+    jenkins-lts
+    jetty
+    jetty-runner
     jfrog-cli
+    jhipster
+    jmeter
+    jnethack
     jql
+    jruby
     jsonnet
+    jsonschema
+    jsvc
+    juju
     just
+    k2tf
     k3d
+    k3sup
+    k6
     k9s
+    kafka
+    kahip
+    kalker
+    kamel
+    kapacitor
+    kcptun
     keptn
+    kepubify
     keydb
+    ki
+    kind
+    kitchen-sync
+    kn
+    knot
+    knot-resolver
+    ko
+    kompose
+    kops
+    kotlin
+    krew
+    ktlint
+    kube-aws
+    kube-linter
     kubeaudit
+    kubebuilder
     kubecfg
+    kubecm
+    kubeconform
+    kubeless
+    kubeprod
+    kubergrunt
+    kubernetes-cli
+    kubernetes-service-catalog-client
+    kubeseal
+    kubespy
+    kubevela
     kumactl
     kustomize
+    kyma-cli
+    languagetool
+    latex2html
+    latexml
     lazydocker
+    lean-cli
+    lefthook
+    lego
+    leiningen
     lexbor
+    libdap
+    libgetdata
+    libgr
     liboqs
+    libpano
+    libpipeline
+    librdkafka
+    lima
+    linkerd
+    liquibase
+    lmod
     localstack
+    log4cxx
     lout
     macchina
+    mage
+    mailutils
+    mapcidr
     marked
     marp-cli
+    matterbridge
+    maven
+    mavsdk
+    maxwell
     mdbook
     mdcat
+    mdzk
     meson
     metabase
     micro
+    micronaut
+    mill
     minikube
+    mmark
     mmctl
+    moar
+    mockery
+    moco
+    mongocli
     moto
+    mpv
+    muffet
     murex
     mypy
+    naabu
+    nanoflann
     nativefier
+    nats-server
+    nats-streaming-server
     navi
     ncc
+    neo4j
     neofetch
     netlify-cli
+    newrelic-cli
+    nexus
     nfpm
     nng
+    node_exporter
     node-sass
     nomad
     notcurses
+    nsq
+    nuclei
     nushell
     oauth2_proxy
     oci-cli
     octant
+    octave
     okteto
+    onedrive
+    ooniprobe
+    opa
     opensearch
+    operator-sdk
+    oras
+    orc-tools
+    orientdb
+    ortp
     oxipng
+    pacapt
+    packer
+    packr
+    payara
+    pdftk-java
+    pgloader
+    pgweb
     phoronix-test-suite
     php-code-sniffer
     php-cs-fixer
     phpmd
     phpstan
+    picard-tools
     pickle
+    pig
+    pillow
+    pkg-config-wrapper
+    plantuml
+    plow
+    pmd
+    pngquant
     pnpm
     pocsuite3
+    podman
+    pre-commit
+    prestd
+    presto
     procs
     protoc-gen-go-grpc
     psalm
+    qpid-proton
+    questdb
+    rancher-cli
     rbw
+    rclone
+    rebar3
+    regina-rexx
+    reminiscence
+    reposurgeon
+    revive
+    riemann
+    rke
     rollup
+    rosa-cli
+    rqlite
+    rubberband
+    s-search
     s2n
+    saml2aws
+    sbt
+    scala
+    scorecard
+    scotch
+    scummvm
+    scummvm-tools
+    scw
+    sdl2
+    seaweedfs
     selene
+    selenium-server
+    seqkit
+    ser2net
+    server-go
     serverless
+    shellz
+    shfmt
+    singularity
+    sjk
     skaffold
     skopeo
+    slackcat
+    sleuthkit
+    slides
+    smimesign
     solana
+    solr
+    solr@7.7
+    sonarqube
+    sonarqube-lts
+    sonobuoy
     sponge
+    spotbugs
+    sqlc
+    sqlmap
+    stanford-corenlp
     starship
     stdman
+    step
+    storm
     stress-ng
+    structurizr-cli
+    subversion
     svgo
     svtplay-dl
+    swagger-codegen
+    swagger-codegen@2
     syncthing
+    talisman
+    tanka
+    tcsh
+    tctl
+    tealdeer
+    tectonic
+    tektoncd-cli
     teleport
+    tendermint
+    tengo
+    termius
     termshark
+    terracognita
+    terraform-inventory
     terraform-ls
+    terraform-provider-libvirt
+    terraformer
+    terragrunt
+    terrascan
+    tfsec
+    thanos
+    thrift
+    tika
+    tile38
+    tm
     toast
+    tomcat
+    tomcat-native
+    tomcat@8
+    tomcat@9
+    tomee-plume
+    tomee-plus
+    tomee-webprofile
     topgrade
     traefik
+    traefik@1
+    trafficserver
+    trino
+    trojan-go
+    typedb
+    tz
+    universal-ctags
+    v2ray
     vale
+    vault
     vault-cli
+    velero
     vercel-cli
+    vgrep
     virgil
+    virustotal-cli
     vite
+    vitess
     vpn-slice
     vsearch
+    vsh
     vue-cli
+    wakatime-cli
+    wasmer
     wasmtime
+    waypoint
     webpack
     webtorrent-cli
+    wgcf
     whistle
+    whois
+    wildfly-as
+    wiremock-standalone
+    wolfssl
+    xalan-c
     xcbeautify
+    xerces-c
+    xgboost
     xplr
+    xray
     yaegi
+    youtubedr
+    yq
+    zbctl
     zellij
+    zookeeper
 
 jobs:
   autobump:

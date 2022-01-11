@@ -1,8 +1,8 @@
 class Alluxio < Formula
   desc "Open Source Memory Speed Virtual Distributed Storage"
   homepage "https://www.alluxio.io/"
-  url "https://downloads.alluxio.io/downloads/files/2.7.0/alluxio-2.7.0-bin.tar.gz"
-  sha256 "102c3af73ef51c9d9610dd9f1330d7f2599fc20b41167a11a843b6ed5aab1298"
+  url "https://downloads.alluxio.io/downloads/files/2.7.2/alluxio-2.7.2-bin.tar.gz"
+  sha256 "e428acfe0704cc68801ae2aa7b7ba920a0e35af9dded66b280649fc1d280a3d4"
   license "Apache-2.0"
 
   livecheck do
@@ -11,9 +11,9 @@ class Alluxio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cc9417cc7892d1ff31ecaf49b4624ff9fc6bcb4036a038074858fde251ec1fec"
-    sha256 cellar: :any_skip_relocation, big_sur:       "98e950cfdc8528df077823f7f0c776cd41a18a8c8a2bf445846a11eb1113079d"
-    sha256 cellar: :any_skip_relocation, catalina:      "98e950cfdc8528df077823f7f0c776cd41a18a8c8a2bf445846a11eb1113079d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9a50ee2f9a8b7a486fddf67f61b03f19783855ab13eb193b972f7f9c5b4f72d4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d2c73e41d28cbd794ea51c286987641e796eac18de2124745eeb25ca3862f244"
+    sha256 cellar: :any_skip_relocation, catalina:      "d2c73e41d28cbd794ea51c286987641e796eac18de2124745eeb25ca3862f244"
   end
 
   # Alluxio requires Java 8 or Java 11

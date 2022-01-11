@@ -3,8 +3,9 @@ class Doxygen < Formula
   homepage "https://www.doxygen.org/"
   url "https://doxygen.nl/files/doxygen-1.9.3.src.tar.gz"
   mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.9.3/doxygen-1.9.3.src.tar.gz"
-  sha256 "1a413e7122a0f9bb519697613ba05247afad1adc5699390b6e6ee387d42c0b2d"
+  sha256 "f352dbc3221af7012b7b00935f2dfdc9fb67a97d43287d2f6c81c50449d254e0"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/doxygen/doxygen.git", branch: "master"
 
   livecheck do
@@ -13,12 +14,12 @@ class Doxygen < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd1c00d5fd57d5802654c303ba9d7c3f3951d2e74b384ab106172428a031180e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "37487464a76f3fb3831e99a1da8e36730e74394beae43b245e1a7442910d0d53"
-    sha256 cellar: :any_skip_relocation, monterey:       "1c57103a32256859cd79711105d80018de29a77d12475c66e7ed548cdbded1e9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "69c69a7105b8e22992ed19ac505a026fb3446924436f54f2a5be48f6abf93298"
-    sha256 cellar: :any_skip_relocation, catalina:       "69fd14aae993e7a48240a1c3fae8d7c14b23e8068ffce313588c4a50a6453247"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2aee78dca571810183f92dca5d693c36fa1119b809c173655214d79503c04be"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4480d3fc744af8e694082acf0f49eb1177efa777b052772dfae462d3d721c0a6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "394d436a05fa82a549ceff74805491fdc789c27a5ae93cfbf42d4990e24e19a5"
+    sha256 cellar: :any_skip_relocation, monterey:       "861eb638fe0f4af8f43f53a0cb4c09ceb154695ff0896e9bab21531b99088a54"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0e08a4950256754440a961bbc22829fefeee4778c7b5249e59df0d145d247d47"
+    sha256 cellar: :any_skip_relocation, catalina:       "e725c473cf26d1f43e2b85bf5859c31f6ea87c9c367153cf85f63b29ce6c318f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14f8ff5de43df4782711ca36f9d667530f53c6c2c96e396f183e8cc29ab34c53"
   end
 
   depends_on "bison" => :build

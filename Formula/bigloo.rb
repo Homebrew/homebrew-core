@@ -1,9 +1,9 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4c-2.tar.gz"
-  version "4.4c-2"
-  sha256 "3e139639812f7cf9293e77ce250311a38a4a2cac516a7bfb38f964a06ef3300c"
+  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4c-4.tar.gz"
+  version "4.4c-4"
+  sha256 "4ed71a86c6d762c35352e9f04871a11fe90fa5dbc974e728a86d9e8229d7c70f"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,10 +12,10 @@ class Bigloo < Formula
   end
 
   bottle do
-    sha256 monterey:     "ed335d97b009a6203d2bca3c87df2f4ed98c4f79e0a3545b41b98b7844104ded"
-    sha256 big_sur:      "e9db76f06fb4772881892f28ec4fb5a94250182bf6634e2f4580fd8ec4a9f3bf"
-    sha256 catalina:     "1fdadbe6cf4b68c7dc09c47e5af14e3917af3c265338bd387ce4770fb8f63bc7"
-    sha256 x86_64_linux: "4ec5c1d9728e08e76b25363109a7fc23c89791f70f32d256daad990d35c65f18"
+    sha256 monterey:     "5584d706ebdcabd22decf7b6c21437f518f02b42b93290c9d6e2f2cccbc578cb"
+    sha256 big_sur:      "c960e247b0ea8492e1afde1fd02e76723651a4cd05fd5d4cd5ce4f8b653e09fb"
+    sha256 catalina:     "2f33fa4caac94d93c2657a8d670fd4256876bcd15e20b4cff6cc2526bc2ee03a"
+    sha256 x86_64_linux: "c02ce6371b839fe6910178f12668da807b581b72d251327ea9c2f4e635f52860"
   end
 
   depends_on "autoconf" => :build
@@ -33,20 +33,6 @@ class Bigloo < Formula
 
   on_linux do
     depends_on "alsa-lib"
-  end
-
-  # Fix gmp detection.
-  # https://github.com/manuel-serrano/bigloo/pull/69
-  patch do
-    url "https://github.com/manuel-serrano/bigloo/commit/d3f9c4e6a6b3eb9a922eb92a2e26b15bc5c879dc.patch?full_index=1"
-    sha256 "3b3522b30426770c82b620d3307db560852c2aadda5d80b62b18296d325cc38c"
-  end
-
-  # Fix pcre2 detection.
-  # https://github.com/manuel-serrano/bigloo/pull/70
-  patch do
-    url "https://github.com/manuel-serrano/bigloo/commit/4a5ec57b92fef4e23eb7d56dca402fb2b1f6eeb2.patch?full_index=1"
-    sha256 "d81b3dbc22e6a78b7517ff761d8c1ab5edef828b1a782cb9c4a672923844b948"
   end
 
   def install

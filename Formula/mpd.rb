@@ -4,15 +4,21 @@ class Mpd < Formula
   url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.5.tar.xz"
   sha256 "f22c2c25093a05f4566f9cd7207cfbcd8405af67ed29a989bcf8905f80b7a299"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
+  livecheck do
+    url "https://www.musicpd.org/download.html"
+    regex(/href=.*?mpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_monterey: "05a1bfc7e55dc393d896b8e8df22fde32687ff5c7bf56c8077bbe2e460e66921"
-    sha256 cellar: :any, arm64_big_sur:  "4c5cbed8ed3b290d312cd4461f3395aeac17736c66ee707ba3ac2e4b4aa8ce63"
-    sha256 cellar: :any, monterey:       "2c2f446e3de739cef30d96e46781b552c058f4dc2d7fb455c607038b88f747e8"
-    sha256 cellar: :any, big_sur:        "0ce780601f044697ec980c61205eaf786b8a45ed9650eeb5e1397162af0c1364"
-    sha256 cellar: :any, catalina:       "58662cd464e559a839be065b0bc991cd090d9324dda727d052037d6b4ee462c7"
-    sha256               x86_64_linux:   "54558ea9e806fe7f00ba3e569915aa478d5a73d870653dbddd7e346d8b7173e9"
+    sha256 cellar: :any, arm64_monterey: "54c7e52bf6b8c63e1633524062ee8d824c744231bc37e1e9ab67379c5726d1b9"
+    sha256 cellar: :any, arm64_big_sur:  "38267e1c03e97cd53c3225326656ba5cab228e715f30ea4b4b6b2e1393149022"
+    sha256 cellar: :any, monterey:       "9d450b2e2a34f3b4fcd80854071c616551fdd11263dd45562532e50502a54168"
+    sha256 cellar: :any, big_sur:        "3f2fa75a60ea9c732356887fea96d87bcb1a102382051b72fd087c63277f7215"
+    sha256 cellar: :any, catalina:       "e8bf5e5b2dbbf0b4cd4a5e4444fc98408db3934e9038a6ea51567f37eeb981f7"
+    sha256               x86_64_linux:   "72507953e20773ca5df4ed5393bb0f68d1e7fce1c5fa0ed1d9fb5108a2a750d8"
   end
 
   depends_on "boost" => :build

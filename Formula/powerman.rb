@@ -4,8 +4,8 @@ class Powerman < Formula
   license "GPL-2.0"
 
   stable do
-    url "https://github.com/chaos/powerman/releases/download/2.3.26/powerman-2.3.26.tar.gz"
-    sha256 "19e213127f468b835165b8e2082ff2dfff62d6832f3332160f2c6ba8b2d286ad"
+    url "https://github.com/chaos/powerman/releases/download/v2.3.27/powerman-2.3.27.tar.gz"
+    sha256 "1575f0c2cc49ba14482582b9bbba19e95496434f95d52de6ad2412e66200d2d8"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -15,14 +15,12 @@ class Powerman < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "0be4dbeddfeb398db2b50b7b6ce1004622927529c603a03427833e9ec00b437b"
-    sha256 arm64_big_sur:  "fad852bdb968ec275c82d4973145d05cd92103d9b144d622304fd70a18ec1989"
-    sha256 monterey:       "1beee0d2dc66fd39addaef18784d2f0db9a85702008fcc058628606d9ea162a7"
-    sha256 big_sur:        "4bf4916e05827d1274117637d9a76ea3e6cd3c1165db8cfc587ba777dca1e915"
-    sha256 catalina:       "aaa93f0be2fa1d4092c2d06cec0b7fbcc00d4817ff2d6dc4601301a8cb3917fc"
-    sha256 mojave:         "a2d26575a0a9816dc1f8b0b212531c8ea455a6c8322a42d5fb2630e3a2f85b1b"
-    sha256 high_sierra:    "9dd898b2222ba55a6c2aeb4e4414d6eb68d9c9e19794da533b4d1bd6970e6469"
-    sha256 x86_64_linux:   "22d8c104f089a2a5ba9655e2e86cd77929d7f6bab010249884362d6827b25f3a"
+    sha256 arm64_monterey: "bf7397842c0e10d990a848340dfb2287596ed94591840997a946886edfb307d9"
+    sha256 arm64_big_sur:  "9742622a1433440ff96eb624c08a9b28c30fa12d4d120bc3d73072acc371a968"
+    sha256 monterey:       "518f201a1163ea0c947a9322360f7020f45f5d115752b06497baadbe0cc3f987"
+    sha256 big_sur:        "a493a8832e7af6dce239bdea4db718455d5d919c39ff3fc027a5b7192f0416f4"
+    sha256 catalina:       "a453e51a5217c9bb4846590f195710c693aa38382ea78b14750437a3fba53784"
+    sha256 x86_64_linux:   "15e926da608bdb3d7aa8ddd394f85608cd7effaa775df653059a5ed6c4809f32"
   end
 
   head do

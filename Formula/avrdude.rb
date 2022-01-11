@@ -1,11 +1,19 @@
 class Avrdude < Formula
   desc "Atmel AVR MCU programmer"
   homepage "https://savannah.nongnu.org/projects/avrdude/"
-  url "https://download.savannah.gnu.org/releases/avrdude/avrdude-6.3.tar.gz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/avrdude/avrdude-6.3.tar.gz"
-  sha256 "0f9f731b6394ca7795b88359689a7fa1fba818c6e1d962513eb28da670e0a196"
   license "GPL-2.0-or-later"
-  revision 2
+
+  stable do
+    url "https://download.savannah.gnu.org/releases/avrdude/avrdude-6.4.tar.gz"
+    mirror "https://download-mirror.savannah.gnu.org/releases/avrdude/avrdude-6.4.tar.gz"
+    sha256 "a9be7066f70a9dcf4bf0736fcf531db6a3250aed1a24cc643add27641b7110f9"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/avrdude/"
@@ -13,11 +21,12 @@ class Avrdude < Formula
   end
 
   bottle do
-    sha256                               arm64_big_sur: "5f2a5f228b32d34036bc9d2909212523fe6f0be30812e61c20d867e236181bfc"
-    sha256                               big_sur:       "08ea02dd2d51688a0f0b590c16f98e055909f7177536d74bafec8a9db6b5787e"
-    sha256                               catalina:      "3c30bd1e1bd1419b23b04aa6103600d0691ea6c88967fa721f482c5194105f11"
-    sha256                               mojave:        "0def40dd2ad77f5baf9b31b95678994a795c5691fec160ed3e2e5bbd96c36f74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d251e554f650596a0f491f5b71e5f2af54da8226fdbd61cdbfe87f25776297a6"
+    sha256                               arm64_monterey: "821406c4c60f5383f4bfceee5211b331c908eb93629404a0c1e26892e9370978"
+    sha256                               arm64_big_sur:  "c472df48fa356bdd26621443582d76b654cbe1c3fb7f9db9a29fb9d5c561bde6"
+    sha256                               monterey:       "5326b3bff216db9fb62f51bd0871ca23873d4eb590c58f29fb053141c342e771"
+    sha256                               big_sur:        "395adf45495411a3f57fb13d3f1e252f5f2a61cb93168df252ee76fc6f9bca77"
+    sha256                               catalina:       "debed94abb0466713751de4aef0b6efed24e97f93fc8cade91102cf065f1e3fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c1e9ff5079c2b0792dd0bf3ede4a5aaf1d7d650cb437487767101985745cc24"
   end
 
   head do
