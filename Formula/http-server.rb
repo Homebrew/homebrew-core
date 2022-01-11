@@ -3,8 +3,8 @@ require "language/node"
 class HttpServer < Formula
   desc "Simple zero-configuration command-line HTTP server"
   homepage "https://github.com/http-party/http-server"
-  url "https://registry.npmjs.org/http-server/-/http-server-14.0.0.tgz"
-  sha256 "fbe42ce2338184bc08c414f98b512d272039803f93c3759ecb0678deaa728c7e"
+  url "https://registry.npmjs.org/http-server/-/http-server-14.1.0.tgz"
+  sha256 "98437beb1fdb90768092f0208849bd283b1bbd4e07197b7bbf4269648a1507f7"
   license "MIT"
   head "https://github.com/http-party/http-server.git", branch: "master"
 
