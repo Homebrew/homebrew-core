@@ -39,7 +39,6 @@ class GerbilScheme < Formula
       system "./build.sh"
       system "./install"
 
-      rm "#{bin}/.keep"
       mv "#{share}/emacs/site-lisp/gerbil", "#{share}/emacs/site-lisp/gerbil-scheme"
     end
   end
