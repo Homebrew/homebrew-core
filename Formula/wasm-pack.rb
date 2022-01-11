@@ -3,7 +3,7 @@ class WasmPack < Formula
   homepage "https://rustwasm.github.io/wasm-pack/"
   url "https://github.com/rustwasm/wasm-pack/archive/v0.10.2.tar.gz"
   sha256 "533b7f63c04411e5d771d406b1c56134e3045b48fb1673985ad8fed1bc937517"
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rustwasm/wasm-pack.git", branch: "master"
 
   bottle do
