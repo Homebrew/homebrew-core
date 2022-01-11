@@ -1,8 +1,9 @@
 class Librem < Formula
   desc "Toolkit library for real-time audio and video processing"
-  homepage "https://github.com/creytiv/rem"
-  url "https://github.com/creytiv/rem/releases/download/v0.6.0/rem-0.6.0.tar.gz"
-  sha256 "417620da3986461598aef327c782db87ec3dd02c534701e68f4c255e54e5272c"
+  homepage "https://github.com/baresip/rem"
+  url "https://github.com/baresip/rem/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "bcc91bb521fae183357fb422b00a3981477a22e99d3afe165c4ec50a6bbed9da"
+  license "BSD-3-Clause"
 
   bottle do
     rebuild 1
