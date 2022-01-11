@@ -1,8 +1,8 @@
 class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/Release_2021_09_3.tar.gz"
-  sha256 "3d9d47e9ea3f7563ca83bf24fc6d3419c3892ea77d831e1cf68d81f602ad1afc"
+  url "https://github.com/rdkit/rdkit/archive/Release_2021_09_4.tar.gz"
+  sha256 "ce192e85bbdc1dcf24d327197229099c8625ee20ef022fcbd980791fdbfc7203"
   license "BSD-3-Clause"
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
