@@ -1,8 +1,8 @@
 class GoCritic < Formula
   desc "Opinionated Go source code linter"
   homepage "https://go-critic.com"
-  url "https://github.com/go-critic/go-critic/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "5d20e626a2803317abb80a8705f80b3ee107f75fd097ca8efaff73173409dd52"
+  url "https://github.com/go-critic/go-critic/archive/refs/tags/v0.6.2.tar.gz"
+  sha256 "75248d8a909e8655040b3af778d92b27beca271dcc210e546607abecc9589d09"
   license "MIT"
   head "https://github.com/go-critic/go-critic.git", branch: "master"
 
