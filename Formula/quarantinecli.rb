@@ -7,7 +7,7 @@ class Quarantinecli < Formula
   license "MIT"
 
   depends_on :macos
-  depends_on :xcode => "12.3"
+  depends_on xcode: "12.3"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
