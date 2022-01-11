@@ -120,6 +120,15 @@ class Openjdk < Formula
     end
   end
 
+  # Other formulae (e.g. `duck`) need this to be codesigned.
+  # https://github.com/Homebrew/homebrew-core/issues/92180
+  # https://github.com/Homebrew/homebrew-core/pull/92924
+  def post_install
+    return if !OS.mac? || !Hardware::CPU.arm?
+
+    quiet_system "codesign", "-f", "--deep", "-s", "-", libexec
+  end
+
   def caveats
     on_macos do
       <<~EOS
