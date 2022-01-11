@@ -29,9 +29,26 @@ class Chmlib < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
+  # Add aarch64 to 64-bit integer platform list.
+  patch :DATA
 
   def install
     system "./configure", "--disable-io64", "--enable-examples", "--prefix=#{prefix}"
     system "make", "install"
   end
 end
+
+__END__
+diff --git a/src/chm_lib.c b/src/chm_lib.c
+index 6c6736c..06908c0 100644
+--- a/src/chm_lib.c
++++ b/src/chm_lib.c
+@@ -164,7 +164,7 @@ typedef unsigned long long      UInt64;
+
+ /* x86-64 */
+ /* Note that these may be appropriate for other 64-bit machines. */
+-#elif __x86_64__ || __ia64__
++#elif __x86_64__ || __ia64__ || __aarch64__
+ typedef unsigned char           UChar;
+ typedef short                   Int16;
+ typedef unsigned short          UInt16;
