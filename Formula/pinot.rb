@@ -6,8 +6,6 @@ class Pinot < Formula
   license "Apache-2.0"
   head "https://github.com/apache/pinot.git", branch: "master"
 
-  depends_on "libtool" => :build
-
   depends_on "openjdk"
 
   def install
@@ -18,13 +16,13 @@ class Pinot < Formula
 
     prefix.install "bin"
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env)
-    Dir["#{bin}/*.sh"].each { |f| mv f, f.to_s.gsub(/.sh$/, "") }
+    bin.glob("*.sh").each { |f| mv f, bin/f.basename(".sh") }
   end
 
   service do
-    run ["/usr/local/bin/pinot-admin", "QuickStart", "-type", "BATCH", "-dataDir", var/"lib/pinot/data"]
+    run [opt_bin/"pinot-admin", "QuickStart", "-type", "BATCH", "-dataDir", var/"lib/pinot/data"]
     keep_alive true
-    working_dir HOMEBREW_PREFIX
+    working_dir var/"lib/pinot"
     log_path var/"log/pinot/pinot_output.log"
     error_log_path var/"log/pinot/pinot_output.log"
   end
