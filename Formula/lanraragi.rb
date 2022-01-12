@@ -3,8 +3,8 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/v.0.8.1.tar.gz"
-  sha256 "b87ca0f3b08147308d2ceee344c77e9f7068742f9b4705ed0ac298f08b4a5bad"
+  url "https://github.com/Difegue/LANraragi/archive/v.0.8.4.tar.gz"
+  sha256 "c812c93c29cc69a7b513a9d34168816182cdd71fef93bba8575e9370b9ca855c"
   license "MIT"
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
@@ -15,6 +15,7 @@ class Lanraragi < Formula
     sha256 cellar: :any, mojave:        "fb8c7b0db15297e6174933b439a816ff4bd9eacee21779d322973a619a249d22"
   end
 
+  depends_on "nettle" => :build
   depends_on "pkg-config" => :build
   depends_on "cpanminus"
   depends_on "ghostscript"
@@ -38,11 +39,6 @@ class Lanraragi < Formula
   resource "libarchive-headers" do
     url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.100.2.tar.gz"
     sha256 "e54049be1b1d4f674f33488fdbcf5bb9f9390db5cc17a5b34cbeeb5f752b207a"
-  end
-
-  resource "Archive::Peek::Libarchive" do
-    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Archive-Peek-Libarchive-0.38.tar.gz"
-    sha256 "332159603c5cd560da27fd80759da84dad7d8c5b3d96fbf7586de2b264f11b70"
   end
 
   def install
@@ -69,17 +65,7 @@ class Lanraragi < Formula
       end
     end
 
-    resource("Archive::Peek::Libarchive").stage do
-      inreplace "Makefile.PL" do |s|
-        s.gsub! "$autoconf->_get_extra_compiler_flags", "$autoconf->_get_extra_compiler_flags .$ENV{CFLAGS}"
-      end
-
-      system "cpanm", "Config::AutoConf", "--notest", "-l", libexec
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make"
-      system "make", "install"
-    end
-
+    system "cpanm", "Config::AutoConf", "--notest", "-l", libexec
     system "npm", "install", *Language::Node.local_npm_install_args
     system "perl", "./tools/install.pl", "install-full"
 
