@@ -2,10 +2,9 @@ require "language/node"
 class TerraformRover < Formula
   desc "Terraform Visualizer"
   homepage "https://github.com/im2nguyen/rover"
-  url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.2.2.tar.gz"
-  sha256 "91dc4ff26e0adafde011db1e6111a8a3c545cddbae1a70c8f4c3abc484b0be0b"
+  url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "9479b189b9cd8d3b409d801fcc7436fbeb8f0500b32eecdc4a277f6e931e135c"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3412ce96504fca6f97e7d041c06ea24a83969e03e0a5881b17196821c9a4d14e"
@@ -19,12 +18,6 @@ class TerraformRover < Formula
   depends_on "go" => :build
   depends_on "node"
   depends_on "terraform"
-
-  # Update terraform components, remove in next version
-  patch do
-    url "https://github.com/im2nguyen/rover/commit/a2a1e57ffcbedcc9a8d39c2696d4cee84eec8cd6.patch?full_index=1"
-    sha256 "d085834625def68e9ebaaee89a6d077fba12220df5347529412f82c9cc69d7cd"
-  end
 
   def install
     Language::Node.setup_npm_environment
