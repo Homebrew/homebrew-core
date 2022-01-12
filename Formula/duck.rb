@@ -144,6 +144,8 @@ class Duck < Formula
     if OS.mac?
       libexec.install Dir["cli/osx/target/duck.bundle/*"]
 
+      # Remove the `*.tbd` files. They're not needed, and they cause codesigning issues.
+      buildpath.glob("JavaNativeFoundation.framework/**/JavaNativeFoundation.tbd").map(&:unlink)
       rm_rf libdir/"JavaNativeFoundation.framework"
       libdir.install buildpath/"JavaNativeFoundation.framework"
 
@@ -153,14 +155,6 @@ class Duck < Formula
       # Replace runtime with already installed dependency
       rm_r libexec/"Contents/PlugIns/Runtime.jre"
       ln_s Formula["openjdk"].libexec/"openjdk.jdk", libexec/"Contents/PlugIns/Runtime.jre"
-
-      if Hardware::CPU.arm?
-        # Replace Apple signature by ad-hoc one (otherwise relocation will break it)
-        java_foundation_framework = libdir/"JavaNativeFoundation.framework"
-        system "codesign", "-f", "-s", "-", java_foundation_framework/"Versions/A/JavaNativeFoundation"
-        system "codesign", "-f", "-s", "-", java_foundation_framework/"Versions/A/JavaNativeFoundation.tbd"
-        system "codesign", "-f", "--deep", "-s", "-", java_foundation_framework
-      end
     else
       libexec.install Dir["cli/linux/target/release/duck/*"]
     end
@@ -168,14 +162,6 @@ class Duck < Formula
     rm libdir/shared_library("libjnidispatch")
     libdir.install buildpath/shared_library("libjnidispatch")
     bin.install_symlink "#{bindir}/duck" => "duck"
-  end
-
-  def post_install
-    return if !OS.mac? || !Hardware::CPU.arm?
-
-    # The first time didn't seem to be enough.
-    java_framework = libexec/"Contents/Frameworks/JavaNativeFoundation.framework"
-    system "codesign", "--force", "--deep", "--sign", "-", java_framework
   end
 
   test do
