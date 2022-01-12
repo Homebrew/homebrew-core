@@ -1,9 +1,10 @@
 class Promtail < Formula
   desc "Log agent for Loki"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.4.1.tar.gz"
-  sha256 "a26c22941b406b8c42e55091c23798301181df74063aaaf0f678acffc66d8c27"
+  url "https://github.com/grafana/loki/archive/v2.4.2.tar.gz"
+  sha256 "725af867fa3bece6ccd46e0722eb68fe72462b15faa15c8ada609b5b2a476b07"
   license "AGPL-3.0-only"
+  head "https://github.com/grafana/loki.git", branch: "main"
 
   livecheck do
     formula "loki"
