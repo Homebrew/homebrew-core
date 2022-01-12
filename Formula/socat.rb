@@ -3,7 +3,7 @@ class Socat < Formula
   homepage "http://www.dest-unreach.org/socat/"
   url "http://www.dest-unreach.org/socat/download/socat-1.7.4.3.tar.gz"
   sha256 "d697245144731423ddbbceacabbd29447089ea223e9a439b28f9ff90d0dd216e"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url "http://www.dest-unreach.org/socat/download/"
