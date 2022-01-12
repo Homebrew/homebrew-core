@@ -2,8 +2,8 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   url "https://github.com/TASEmulators/fceux.git",
-      tag:      "fceux-2.5.0",
-      revision: "6c3a31a4f2c09be297a32f510e74b383f858773b"
+      tag:      "fceux-2.6.0",
+      revision: "c075043727920bdd1250184c2b6bd33585c7ab43"
   license "GPL-2.0-only"
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
