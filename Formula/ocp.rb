@@ -23,6 +23,7 @@ class Ocp < Formula
   depends_on "flac"
   depends_on "freetype"
   depends_on "jpeg-turbo"
+  depends_on "libdiscid"
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
