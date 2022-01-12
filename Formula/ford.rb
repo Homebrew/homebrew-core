@@ -3,8 +3,8 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/22/cb/925f9d663a1f56c00667d86c439da7212871f45f3ac6e0197a2ea1b05619/FORD-6.1.5.tar.gz"
-  sha256 "24c5868b02a584464c74acfa48b673a8a27ff84c7dc9beda5a37acd4cd3671e0"
+  url "https://files.pythonhosted.org/packages/e0/1c/5d81ac365a32d2865dfcda360f5d739ce6f7d98255616a77ad55b930ba03/FORD-6.1.6.tar.gz"
+  sha256 "c286206e6ce8c12f2e00f6c73e3b76dae830dce7b5b6f52a54512585fcfae12a"
   license "GPL-3.0-or-later"
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
@@ -28,13 +28,13 @@ class Ford < Formula
   end
 
   resource "graphviz" do
-    url "https://files.pythonhosted.org/packages/09/6b/17598d682eecf296ea77df7ec1866f0c5bb3448dffc0a6a6610d8563d5dd/graphviz-0.19.zip"
-    sha256 "b42554a1c47f24a9473b7f4e380d17b228586a067c97ea69d5354d6074be8dfd"
+    url "https://files.pythonhosted.org/packages/f6/14/aa3ec10e4ab1524ba69f4742ef9cfa01fd668d0840afe5d5e6f708a95031/graphviz-0.19.1.zip"
+    sha256 "09ed0cde452d015fe77c4845a210eb642f28d245f5bc250d4b97808cb8f49078"
   end
 
-  resource "importlib_metadata" do
-    url "https://files.pythonhosted.org/packages/2e/6d/4508b1922b1610f6646fd95681fa1b0c092df35ec14018218f4638b7342a/importlib_metadata-4.8.2.tar.gz"
-    sha256 "75bdec14c397f528724c1bfd9709d660b33a4d2e77387a3358f20b848bb5e5fb"
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/50/05/fef7fbb7e781e0632ebba4e6e37bcc88b9615e76338850dc31435091ddc0/importlib_metadata-4.10.0.tar.gz"
+    sha256 "92a8b58ce734b2a4494878e0ecf7d79ccd7a128b5fc6014c401e0b61f006f0f6"
   end
 
   resource "Jinja2" do
@@ -63,8 +63,8 @@ class Ford < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
-    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
+    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
+    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
   end
 
   resource "soupsieve" do
@@ -83,8 +83,8 @@ class Ford < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/02/bf/0d03dbdedb83afec081fefe86cae3a2447250ef1a81ac601a9a56e785401/zipp-3.6.0.tar.gz"
-    sha256 "71c644c5369f4a6e07636f0aa966270449561fcea2e3d6747b8d23efaa9d7832"
+    url "https://files.pythonhosted.org/packages/94/64/3115548d41cb001378099cb4fc6a6889c64ef43ac1b0e68c9e80b55884fa/zipp-3.7.0.tar.gz"
+    sha256 "9f50f446828eb9d45b267433fd3e9da8d801f614129124863f9c51ebceafb87d"
   end
 
   def install
