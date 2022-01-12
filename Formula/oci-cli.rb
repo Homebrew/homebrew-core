@@ -3,10 +3,9 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/fa/8d/67c86557fa04ed68e3cce481a4e2797fef11838df07b2aff3213633f93b0/oci-cli-3.4.1.tar.gz"
-  sha256 "3a70004f03d1f6ee70ac2959ec474109166e3ff1276b2e95476f5d1337d68728"
+  url "https://files.pythonhosted.org/packages/44/c5/3c32b089aac6f69ae839b6cf79f140c99c0e41681512d948c9d14d934a89/oci-cli-3.4.2.tar.gz"
+  sha256 "fc2c20b7d68187402c8728db4b28f6a5abfd26cec2d5cd6d5aad32e2204fae04"
   license any_of: ["UPL-1.0", "Apache-2.0"]
-  revision 1
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
@@ -48,8 +47,8 @@ class OciCli < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
-    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
+    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
+    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
   end
 
   resource "jmespath" do
@@ -58,8 +57,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/ce/76/e3b9b03fd3b7513f5771961e8cf63e250fe6378f2b7a457eeda6fb6b23bf/oci-2.53.1.tar.gz"
-    sha256 "c7636c86597a1079852a32b5fc342de672d38896e41ff6691851b08a9b712a8e"
+    url "https://files.pythonhosted.org/packages/cf/da/df57db0d4a609092200ed1b4fb02443104bb554b36923ec49aaa1e23ceb4/oci-2.54.0.tar.gz"
+    sha256 "c0555a0d59b1ac19a577fef86c1c79fb72a4fd18af0506f885c9d4772f4b700b"
   end
 
   resource "pycparser" do
