@@ -28,19 +28,36 @@ class Pinot < Formula
   end
 
   test do
-    fork do
-      system opt_bin/"pinot-admin", "StartZookeeper", "-zkPort", "7689"
+    zkport = free_port
+    controller_port = free_port
+
+    zkpid = fork do
+      exec "#{opt_bin}/pinot-admin",
+        "StartZookeeper",
+        "-zkPort",
+        zkport.to_s
     end
 
     sleep 10
 
-    fork do
-      system opt_bin/"pinot-admin StartController -zkAddress localhost:7689 -controllerPort 6969"
+    controller_pid = fork do
+      exec "#{opt_bin}/pinot-admin",
+        "StartController",
+        "-zkAddress",
+        "localhost:#{zkport}",
+        "-controllerPort",
+        controller_port.to_s
     end
 
-    # wait for startup
     sleep 40
 
-    assert_match("HTTP/1.1 200 OK", shell_output("curl -i http://localhost:6969 2>&1"))
+    assert_match("HTTP/1.1 200 OK", shell_output("curl -i http://localhost:#{controller_port} 2>&1"))
+
+    ensure
+      system "kill", "-0", controller_pid
+      Process.kill "TERM", controller_pid
+      Process.wait controller_pid
+      Process.kill "TERM", zkpid
+      Process.wait zkpid
   end
 end
