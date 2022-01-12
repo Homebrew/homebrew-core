@@ -4,6 +4,7 @@ class Ivtools < Formula
   url "https://github.com/vectaport/ivtools/archive/refs/tags/ivtools-2.0.11d.tar.gz"
   sha256 "8c6fe536dff923f7819b4210a706f0abe721e13db8a844395048ded484fb2437"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 big_sur:  "a349834ee1394a4dbf95392aebfe1e89a29fb0f28892296a43b0585c55a15703"
@@ -21,6 +22,9 @@ class Ivtools < Formula
     system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
+
+    # Conflicts with dialog
+    mv man3/"Dialog.3", man3/"Dialog_ivtools.3"
   end
 
   test do
