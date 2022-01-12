@@ -1,8 +1,8 @@
 class Libdeflate < Formula
   desc "Heavily optimized DEFLATE/zlib/gzip compression and decompression"
   homepage "https://github.com/ebiggers/libdeflate"
-  url "https://github.com/ebiggers/libdeflate/archive/v1.8.tar.gz"
-  sha256 "50711ad4e9d3862f8dfb11b97eb53631a86ee3ce49c0e68ec2b6d059a9662f61"
+  url "https://github.com/ebiggers/libdeflate/archive/v1.9.tar.gz"
+  sha256 "a537ab6125c226b874c02b166488b326aece954930260dbf682d88fc339137e3"
   license "MIT"
 
   bottle do
