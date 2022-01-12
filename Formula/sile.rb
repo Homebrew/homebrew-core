@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.12.0/sile-0.12.0.tar.xz"
-  sha256 "c983a2b32d171ba392191eb29de2c3b433452d6cb514f270b17a7b3889fb6de6"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.12.1/sile-0.12.1.tar.xz"
+  sha256 "91086ff951322b283fcab178bb9d681460ba50b6dbdeae25dc2055e18bc688b7"
   license "MIT"
 
   bottle do
@@ -104,8 +104,8 @@ class Sile < Formula
   end
 
   resource "penlight" do
-    url "https://luarocks.org/manifests/tieske/penlight-1.11.0-1.src.rock"
-    sha256 "4bc3e5a5869313a326fe39f23a6d02c4e13d1780cb4559f0aed04c414b1297cf"
+    url "https://luarocks.org/manifests/tieske/penlight-1.12.0-1.src.rock"
+    sha256 "99e2d88d5539901989f785100c8d216ef8e9461e08f93a850e9ea6abc9952927"
   end
 
   # Depends on luafilesystem and penlight
