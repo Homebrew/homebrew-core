@@ -1,8 +1,8 @@
 class Dtm < Formula
   desc "Cross-language distributed transaction manager"
   homepage "http://d.dtm.pub"
-  url "https://github.com/dtm-labs/dtm/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "e3dc74cafdc3c290da6636036861ee2f7b8b1e9e7447a3a9f21b53a20a5bd980"
+  url "https://github.com/dtm-labs/dtm/archive/refs/tags/v1.10.1.tar.gz"
+  sha256 "6a4154260a99c3717d1a11922181129cb11fc27ec2b645a7892d10fc1b58ad39"
   license "BSD-3-Clause"
 
   bottle do
