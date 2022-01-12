@@ -28,6 +28,19 @@ class Pinot < Formula
   end
 
   test do
-    assert_match("StartController", shell_output("#{bin}/pinot-admin -h 2>&1"))
+    fork do
+      system opt_bin/"pinot-admin", "StartZookeeper", "-zkPort", "7689"
+    end
+
+    sleep 10
+
+    fork do
+      system opt_bin/"pinot-admin StartController -zkAddress localhost:7689 -controllerPort 6969"
+    end
+
+    # wait for startup
+    sleep 40
+
+    assert_match("HTTP/1.1 200 OK", shell_output("curl -i http://localhost:6969 2>&1"))
   end
 end
