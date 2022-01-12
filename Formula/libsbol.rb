@@ -16,15 +16,27 @@ class Libsbol < Formula
   depends_on "pkg-config" => :build
   depends_on "jsoncpp"
   depends_on "raptor"
+  depends_on "rasqal"
+
+  uses_from_macos "curl"
+  uses_from_macos "libxslt"
 
   def install
     # upstream issue: https://github.com/SynBioDex/libSBOL/issues/215
     inreplace "source/CMakeLists.txt", "measure.h", "measurement.h"
 
-    system "cmake", ".", "-DCMAKE_CXX_FLAGS=-I/System/Library/Frameworks/Python.framework/Headers",
-                         "-DSBOL_BUILD_SHARED=TRUE",
-                         "-DSBOL_BUILD_STATIC=FALSE",
-                         *std_cmake_args
+    args = std_cmake_args
+    args << "-DSBOL_BUILD_SHARED=TRUE"
+    args << "-DRAPTOR_INCLUDE_DIR=#{Formula["raptor"].opt_include}/raptor2"
+    args << "-DRASQAL_INCLUDE_DIR=#{Formula["rasqal"].opt_include}"
+
+    if OS.mac? && (sdk = MacOS.sdk_path_if_needed)
+      args << "-DCURL_LIBRARY=#{sdk}/usr/lib/libcurl.tbd"
+      args << "-DLIBXSLT_INCLUDE_DIR=#{sdk}/usr/include/"
+      args << "-DLIBXSLT_LIBRARIES=#{sdk}/usr/lib/libxslt.tbd"
+    end
+
+    system "cmake", ".", *args
     system "make", "install"
   end
 
