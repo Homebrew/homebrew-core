@@ -16,7 +16,7 @@ class Solargraph < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ea302b96d25305df9675aa39f2ab7270cfdf81c13f977a69dcc45abe5cca860"
   end
 
-  uses_from_macos "ruby"
+  uses_from_macos "ruby", since: :catalina
 
   def install
     ENV["GEM_HOME"] = libexec
