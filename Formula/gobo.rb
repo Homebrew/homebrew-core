@@ -1,8 +1,8 @@
 class Gobo < Formula
   desc "Free and portable Eiffel tools and libraries"
   homepage "http://www.gobosoft.com/"
-  url "https://downloads.sourceforge.net/project/gobo-eiffel/gobo-eiffel/20.05/gobo2005-src.tar.gz"
-  sha256 "047b6710abd94d1c1366316b4411d5cc1a3752bb60155c24e2a6d81494d63e5b"
+  url "https://downloads.sourceforge.net/project/gobo-eiffel/gobo-eiffel/22.01/gobo2201-src.tar.gz"
+  sha256 "ed2d82ce3c271e60914a42bde1d1c99446df8902ae1b62fd0e4dca2b99de8068"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "1f302b672e67e600556c1d5e30751bb0ca1a47f19f8167bf7661b1fd9dc9e7d4"
