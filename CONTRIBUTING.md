@@ -4,6 +4,8 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 
 Ensure your commits follow the [commit style guide](https://docs.brew.sh/Formula-Cookbook#commit).
 
+Thanks for contributing!
+
 ### To report a bug
 
 * run `brew update` (twice)
@@ -63,4 +65,30 @@ follows:
 
 Once you've addressed any potential feedback and a member of the Homebrew org has approved your pull request, the [BrewTestBot](https://github.com/BrewTestBot) will automatically merge it a couple of minutes later.
 
-Thanks!
+### Dealing with CI failures
+
+Pull requests with failing CI should not be merged, so the failures will need to be fixed. Start by looking for errors in the CI log. Some errors will show up as annotations in the "Files changed" tab of your pull request. If there are no annotations, or the annotations do not contain the relevant errors, then the complete build log can be found in the "Checks" tab of your pull request.
+
+Once you've identified the error(s), check whether you can reproduce them locally. You should be able to do this with one or more of `brew install --build-from-source`, `brew audit --strict`, and `brew test`. Don't forget to checkout your PR branch before trying this! If you can reproduce the failure(s), then it is likely that the formula needs to be fixed. Read the error messages carefully. Many errors provide hints on how to fix them. Failing that: looking up the error message is often a fruitful source of hints for what to do next.
+
+If you can't reproduce an error, then you need to identify what makes your local environment different from the build environment in CI. It is likely that one of those differences is driving the CI failure. It may help to try to make your local environment as similar to CI as possible to try to reproduce the failure. If the CI failure occurs on Linux, you can use the Homebrew Docker container to emulate the CI environment. See the next section for a guide on how to do this.
+
+If you're still stuck: don't fret. Leave a comment on your PR describing what you've done to try to diagnose and fix the CI failure and we'll do our best to help you resolve them.
+
+### Homebrew Docker container
+
+Linux CI runs on a Docker container running Ubuntu 16.04. If you have Docker installed, you can use our container with:
+
+```
+docker run --interactive --tty --rm --pull always homebrew/ubuntu16.04:latest /bin/bash
+```
+
+If you don't have Docker installed:
+
+```
+brew install --formula docker lima
+limactl start "$(brew --prefix)/share/doc/lima/examples/docker.yaml"
+export DOCKER_HOST="unix:///${HOME}/.lima/docker/sock/docker.sock"
+```
+
+You should now be able to run the `docker` command shown above.
