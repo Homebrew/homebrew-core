@@ -3,6 +3,7 @@ class OpenMesh < Formula
   homepage "https://openmesh.org/"
   url "https://www.openmesh.org/media/Releases/8.1/OpenMesh-8.1.tar.bz2"
   sha256 "9bc43a3201ba27ed63de66c4c09e23746272882c37a3451e71f0cf956f9be076"
+  license "BSD-3-Clause"
   head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git", branch: "master"
 
   livecheck do
