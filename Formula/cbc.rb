@@ -1,8 +1,8 @@
 class Cbc < Formula
   desc "Mixed integer linear programming solver"
   homepage "https://github.com/coin-or/Cbc"
-  url "https://github.com/coin-or/Cbc/archive/releases/2.10.5.tar.gz"
-  sha256 "cc44c1950ff4615e7791d7e03ea34318ca001d3cac6dc3f7f5ee392459ce6719"
+  url "https://github.com/coin-or/Cbc/archive/releases/2.10.6.tar.gz"
+  sha256 "59d0f45c4c6ce399b723e528d637fb8e409dba7449b91ae27edbb5c0617cc65d"
   # update to EPL-2.0 on next release
   license "EPL-1.0"
 
