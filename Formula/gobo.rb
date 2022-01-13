@@ -3,6 +3,7 @@ class Gobo < Formula
   homepage "http://www.gobosoft.com/"
   url "https://downloads.sourceforge.net/project/gobo-eiffel/gobo-eiffel/22.01/gobo2201-src.tar.gz"
   sha256 "ed2d82ce3c271e60914a42bde1d1c99446df8902ae1b62fd0e4dca2b99de8068"
+  license "MIT"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "1f302b672e67e600556c1d5e30751bb0ca1a47f19f8167bf7661b1fd9dc9e7d4"
