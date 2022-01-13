@@ -1,8 +1,8 @@
 class Buildozer < Formula
   desc "Rewrite bazel BUILD files using standard commands"
   homepage "https://github.com/bazelbuild/buildtools"
-  url "https://github.com/bazelbuild/buildtools/archive/4.2.4.tar.gz"
-  sha256 "44a6e5acc007e197d45ac3326e7f993f0160af9a58e8777ca7701e00501c0857"
+  url "https://github.com/bazelbuild/buildtools/archive/4.2.5.tar.gz"
+  sha256 "d368c47bbfc055010f118efb2962987475418737e901f7782d2a966d1dc80296"
   license "Apache-2.0"
   head "https://github.com/bazelbuild/buildtools.git", branch: "master"
 
