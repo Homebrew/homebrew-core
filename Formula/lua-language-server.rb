@@ -3,8 +3,8 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/sumneko/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/sumneko/lua-language-server.git",
-      tag:      "2.5.6",
-      revision: "913b3b45af8c41c95515756602f8dc8ef46fe748"
+      tag:      "2.6.0",
+      revision: "2d1119fac03e102a376140006a3eb9c8a4c59e3b"
   license "MIT"
   head "https://github.com/sumneko/lua-language-server.git", branch: "master"
 
@@ -47,6 +47,11 @@ class LuaLanguageServer < Formula
   test do
     output = /Content-Length: \d+\r\n\r\n/
 
-    assert_match output, pipe_output("#{bin}/lua-language-server", 0)
+    lua_ls = spawn bin/"lua-language-server", out: "lua-ls.out"
+    sleep 40
+    assert_match output, (testpath/"lua-ls.out").read
+  ensure
+    Process.kill "TERM", lua_ls
+    Process.wait lua_ls
   end
 end
