@@ -4,7 +4,7 @@ class MathComp < Formula
   url "https://github.com/math-comp/math-comp/archive/mathcomp-1.13.0.tar.gz"
   sha256 "4334e915736f96032e1d4d502e70537047220af1a1c7a6740f770e45601bdab0"
   license "CECILL-B"
-  revision 1
+  revision 2
   head "https://github.com/math-comp/math-comp.git", branch: "master"
 
   bottle do
