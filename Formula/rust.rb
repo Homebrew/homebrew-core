@@ -2,17 +2,16 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.57.0-src.tar.gz"
-    sha256 "3546f9c3b91b1f8b8efd26c94d6b50312c08210397b4072ed2748e2bd4445c1a"
+    url "https://static.rust-lang.org/dist/rustc-1.58.1-src.tar.gz"
+    sha256 "a839afdd3625d6f3f3c4c10b79813675d1775c460d14be1feaf33a6c829c07c7"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.58",
-          revision: "b2e52d7cab0a286ee9fcc0c17510b1e72fcb53eb"
+          tag:      "0.59.0",
+          revision: "7f08ace4f1305de7f3b1b0e2f765911957226bd4"
     end
   end
 
@@ -47,18 +46,18 @@ class Rust < Formula
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
       if Hardware::CPU.arm?
-        url "https://static.rust-lang.org/dist/2021-11-01/cargo-1.56.1-aarch64-apple-darwin.tar.gz"
-        sha256 "6ed30275214e956ee10b03db87b0b4297948fd102d39896cece01669555047ef"
+        url "https://static.rust-lang.org/dist/2021-12-02/cargo-1.57.0-aarch64-apple-darwin.tar.gz"
+        sha256 "2171ecf2c18fadd90588252aa294272aeb740f065772076ef36d04b1b4bfcc4e"
       else
-        url "https://static.rust-lang.org/dist/2021-11-01/cargo-1.56.1-x86_64-apple-darwin.tar.gz"
-        sha256 "cd60c32d0bb0ed59508df96bebb83cf6f85accb9908fb5d63ca95c983a190cf3"
+        url "https://static.rust-lang.org/dist/2021-12-02/cargo-1.57.0-x86_64-apple-darwin.tar.gz"
+        sha256 "26129f0e3ecd42e730f62d9c693e1a89aedfe6b7c8108cf970b2f1ed51900fb8"
       end
     end
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
-      url "https://static.rust-lang.org/dist/2021-11-01/cargo-1.56.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "c896c033bb1f430c4e200ae8af0f74d792e4909a458086b9597f076e1dcc2ab2"
+      url "https://static.rust-lang.org/dist/2021-12-02/cargo-1.57.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "2b341034e4c30bede47a432751935549a28e40b566a1fd4b59c824ccd0a26ff6"
     end
   end
 
@@ -136,10 +135,10 @@ __END__
 
  [[package]]
  name = "compiler_builtins"
--version = "0.1.49"
+-version = "0.1.53"
 +version = "0.1.55"
  source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "20b1438ef42c655665a8ab2c1c6d605a305f031d38d9be689ddfef41a20f3aa2"
+-checksum = "2467ff455350a4df7d02f1ed1449d0279605a763de5d586dcf6aa7d732508bcb"
 +checksum = "c9ac60765140c97aaf531dae151a287646b0805ec725805da9e2a3ee31cd501c"
  dependencies = [
   "cc",
