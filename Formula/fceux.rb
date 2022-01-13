@@ -3,8 +3,9 @@ class Fceux < Formula
   homepage "https://fceux.com/"
   url "https://github.com/TASEmulators/fceux.git",
       tag:      "fceux-2.6.0",
-      revision: "c075043727920bdd1250184c2b6bd33585c7ab43"
+      revision: "1ca8b8e9d0c401b8a9687b019af30aa088d1c4d2"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   bottle do
