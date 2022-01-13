@@ -1,16 +1,22 @@
 class Lean < Formula
   desc "Theorem prover"
   homepage "https://leanprover-community.github.io/"
-  url "https://github.com/leanprover-community/lean/archive/v3.35.1.tar.gz"
-  sha256 "501170db2958a9302e075c6f1c849c42e12c2623fb3e7c527f3a5da3483eea93"
+  url "https://github.com/leanprover-community/lean/archive/v3.38.0.tar.gz"
+  sha256 "3b6fdfc2847a5553511943c88e166b3c14cafb78fecab33eb5acc89b9c2952a1"
   license "Apache-2.0"
   head "https://github.com/leanprover-community/lean.git", branch: "master"
 
-  # The Lean 3 repository (https://github.com/leanprover/lean/) is archived
-  # and there won't be any new releases. Lean 4 is being developed but is still
-  # a work in progress: https://github.com/leanprover/lean4
   livecheck do
-    skip "Lean 3 is archived; add a new check once Lean 4 is stable"
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.map do |tag|
+        version = tag[regex, 1]
+        next if version == "9.9.9" # Omit a problematic version tag
+
+        version
+      end
+    end
   end
 
   bottle do
