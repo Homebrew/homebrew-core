@@ -3,7 +3,12 @@ class OpenMesh < Formula
   homepage "https://openmesh.org/"
   url "https://www.openmesh.org/media/Releases/8.1/OpenMesh-8.1.tar.bz2"
   sha256 "9bc43a3201ba27ed63de66c4c09e23746272882c37a3451e71f0cf956f9be076"
-  head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git"
+  head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git", branch: "master"
+
+  livecheck do
+    url "https://www.openmesh.org/download/"
+    regex(/href=.*?OpenMesh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e066cb3914efa547fa06a4dfdbb4f5d4ecaf54c4eeaeecd4d41d4a0f3d16d23a"
