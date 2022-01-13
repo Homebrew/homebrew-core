@@ -25,7 +25,7 @@ class Jolie < Formula
   test do
     file = testpath/"test.ol"
     file.write <<~EOS
-      from Console import Console, ConsoleIface
+      from console import Console, ConsoleIface
 
       interface PowTwoInterface { OneWay: powTwo( int ) }
 
