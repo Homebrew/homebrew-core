@@ -1,8 +1,8 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.14.1.tar.gz"
-  sha256 "3cbfc1e1a72b16d4744f5b64ede59586071e31d9c11c811a0372060727bfd9c3"
+  url "https://github.com/coq/coq/archive/V8.15.0.tar.gz"
+  sha256 "73466e61f229b23b4daffdd964be72bd7a110963b9d84bd4a86bb05c5dc19ef3"
   license "LGPL-2.1-only"
   head "https://github.com/coq/coq.git", branch: "master"
 
@@ -31,7 +31,7 @@ class Coq < Formula
   def install
     system "./configure", "-prefix", prefix,
                           "-mandir", man,
-                          "-coqdocdir", "#{pkgshare}/latex",
+                          "-docdir", "#{pkgshare}/latex",
                           "-coqide", "no",
                           "-with-doc", "no"
     system "make", "world"
