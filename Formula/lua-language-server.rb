@@ -45,11 +45,14 @@ class LuaLanguageServer < Formula
   end
 
   test do
-    output = /Content-Length: \d+\r\n\r\n/
+    require "pty"
+    output = /^Content-Length: \d+\s*$/
 
-    lua_ls = spawn bin/"lua-language-server", out: "lua-ls.out"
-    sleep 40
-    assert_match output, (testpath/"lua-ls.out").read
+    stdout, stdin, lua_ls = PTY.spawn bin/"lua-language-server"
+    sleep 5
+    stdin.write "\n"
+    sleep 25
+    assert_match output, stdout.readline
   ensure
     Process.kill "TERM", lua_ls
     Process.wait lua_ls
