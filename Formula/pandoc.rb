@@ -36,7 +36,8 @@ class Pandoc < Formula
     EOS
     expected_html = <<~EOS
       <h1 id="homebrew">Homebrew</h1>
-      <p>A package manager for humans. Cats should take a look at Tigerbrew.</p>
+      <p>A package manager for humans. Cats should take a look at
+      Tigerbrew.</p>
     EOS
     assert_equal expected_html, pipe_output("#{bin}/pandoc -f markdown -t html5", input_markdown)
   end
