@@ -1,12 +1,11 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.4.1.tar.xz"
-  sha256 "eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8d68569a4651e30e02"
+  url "https://ffmpeg.org/releases/ffmpeg-5.0.tar.xz"
+  sha256 "51e919f7d205062c0fd4fae6243a84850391115104ccf1efc451733bc0ac7298"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 5
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -68,6 +67,8 @@ class Ffmpeg < Formula
     depends_on "gcc" # because rubbernand is compiled with gcc
   end
 
+  conflicts_with "chromaprint", because: "build reasons"
+
   fails_with gcc: "5"
 
   def install
@@ -118,10 +119,6 @@ class Ffmpeg < Formula
       --disable-libjack
       --disable-indev=jack
     ]
-
-    # libavresample has been deprecated and removed but some non-updated formulae are still linked to it
-    # Remove in the next release
-    args << "--enable-avresample" unless build.head?
 
     # Needs corefoundation, coremedia, corevideo
     args << "--enable-videotoolbox" if OS.mac?
