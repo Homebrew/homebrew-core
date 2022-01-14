@@ -21,10 +21,10 @@ class Ldc < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "gcc" => :build # for gdc
   depends_on "libconfig" => :build
   depends_on "pkg-config" => :build
 
-  uses_from_macos "libxml2" => :build
   # CompilerSelectionError: ldc cannot be built with any available compilers.
   uses_from_macos "llvm" => [:build, :test]
 
@@ -41,21 +41,14 @@ class Ldc < Formula
   fails_with :gcc
 
   resource "ldc-bootstrap" do
-    on_macos do
-      if Hardware::CPU.intel?
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.28.0/ldc2-1.28.0-osx-x86_64.tar.xz"
-        sha256 "02472507de988c8b5dd83b189c6df3b474741546589496c2ff3d673f26b8d09a"
-      else
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.28.0/ldc2-1.28.0-osx-arm64.tar.xz"
-        sha256 "f9786b8c28d8af1fdd331d8eb889add80285dbebfb97ea47d5dd9110a7df074b"
-      end
-    end
-
-    on_linux do
-      # ldc 1.27 requires glibc 2.27, which is too new for Ubuntu 16.04 LTS.  The last version we can bootstrap with
-      # is 1.26.  Change this when we migrate to Ubuntu 18.04 LTS.
-      url "https://github.com/ldc-developers/ldc/releases/download/v1.26.0/ldc2-1.26.0-linux-x86_64.tar.xz"
-      sha256 "06063a92ab2d6c6eebc10a4a9ed4bef3d0214abc9e314e0cd0546ee0b71b341e"
+    if Hardware::CPU.arm?
+      # We need this because GCC does not provide `gdc` on ARM.
+      url "https://github.com/ldc-developers/ldc/releases/download/v1.28.0/ldc2-1.28.0-osx-arm64.tar.xz"
+      sha256 "f9786b8c28d8af1fdd331d8eb889add80285dbebfb97ea47d5dd9110a7df074b"
+    else
+      # Latest commit at https://github.com/D-Programming-GDC/gdmd.git
+      url "https://github.com/D-Programming-GDC/gdmd/archive/ff2c97a47408fb71c18a2d453294d18808a97cc5.tar.gz"
+      sha256 "65e9e7e2faf80cc941777b90b80e36f172adc48cb2851b7a0b078cbf13d604f9"
     end
   end
 
@@ -67,15 +60,23 @@ class Ldc < Formula
 
   def install
     ENV.cxx11
-    (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
+    bootstrap = buildpath/"ldc-bootstrap"
+    bootstrap.install resource("ldc-bootstrap")
 
-    # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
-    ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib if OS.linux?
+    dc = if Hardware::CPU.arm?
+      "ldmd2"
+    else
+      (bootstrap/"bin").install_symlink which("gdc")
+      (bootstrap/"share/man/man1").mkpath
+      system "make", "-C", bootstrap, "prefix=#{bootstrap}", "install"
+
+      "gdmd"
+    end
 
     args = %W[
       -DLLVM_ROOT_DIR=#{llvm.opt_prefix}
       -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
-      -DD_COMPILER=#{buildpath}/ldc-bootstrap/bin/ldmd2
+      -DD_COMPILER=#{bootstrap}/bin/#{dc}
     ]
     args << "-DCMAKE_INSTALL_RPATH=#{rpath};@loader_path/#{llvm.opt_lib.relative_path_from(lib)}" if OS.mac?
 
