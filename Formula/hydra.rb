@@ -4,6 +4,7 @@ class Hydra < Formula
   url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.2.tar.gz"
   sha256 "1a28f064763f9144f8ec574416a56ef51c0ab1ae2276e35a89ceed4f594ec5d2"
   license "AGPL-3.0-only"
+  revision 1
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
@@ -20,6 +21,8 @@ class Hydra < Formula
   depends_on "libssh"
   depends_on "mysql-client"
   depends_on "openssl@1.1"
+  depends_on "pcre"
+  uses_from_macos "ncurses"
 
   conflicts_with "ory-hydra", because: "both install `hydra` binaries"
 
@@ -27,9 +30,23 @@ class Hydra < Formula
     inreplace "configure" do |s|
       # Link against our OpenSSL
       # https://github.com/vanhauser-thc/thc-hydra/issues/80
-      s.gsub! "/opt/local/lib", Formula["openssl@1.1"].opt_lib
-      s.gsub! "/opt/local/*ssl", Formula["openssl@1.1"].opt_lib
-      s.gsub! "/opt/*ssl/include", Formula["openssl@1.1"].opt_include
+      s.gsub!(/^SSL_PATH=""$/, "SSL_PATH=#{Formula["openssl@1.1"].opt_lib}")
+      s.gsub!(/^SSL_IPATH=""$/, "SSL_IPATH=#{Formula["openssl@1.1"].opt_include}")
+      s.gsub!(/^SSLNEW=""$/, "SSLNEW=YES")
+      s.gsub!(/^CRYPTO_PATH=""$/, "CRYPTO_PATH=#{Formula["openssl@1.1"].opt_lib}")
+      s.gsub!(/^SSH_PATH=""$/, "SSH_PATH=#{Formula["libssh"].opt_lib}")
+      s.gsub!(/^SSH_IPATH=""$/, "SSH_IPATH=#{Formula["libssh"].opt_include}")
+      s.gsub!(/^MYSQL_PATH=""$/, "MYSQL_PATH=#{Formula["mysql-client"].opt_lib}")
+      s.gsub!(/^MYSQL_IPATH=""$/, "MYSQL_IPATH=#{Formula["mysql-client"].opt_include}/mysql")
+      s.gsub!(/^PCRE_PATH=""$/, "PCRE_PATH=#{Formula["pcre"].opt_lib}")
+      s.gsub!(/^PCRE_IPATH=""$/, "PCRE_IPATH=#{Formula["pcre"].opt_include}")
+      if OS.mac?
+        s.gsub!(/^CURSES_PATH=""$/, "CURSES_PATH=#{MacOS.sdk_path_if_needed}/usr/lib")
+        s.gsub!(/^CURSES_IPATH=""$/, "CURSES_IPATH=#{MacOS.sdk_path_if_needed}/usr/include")
+      else
+        s.gsub!(/^CURSES_PATH=""$/, "CURSES_PATH=#{Formula["ncurses"].opt_lib}")
+        s.gsub!(/^CURSES_IPATH=""$/, "CURSES_IPATH=#{Formula["ncurses"].opt_include}")
+      end
       # Avoid opportunistic linking of everything
       %w[
         gtk+-2.0
@@ -57,6 +74,6 @@ class Hydra < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/hydra", 255)
+    assert_match(/ mysql .* ssh /, shell_output("#{bin}/hydra", 255))
   end
 end
