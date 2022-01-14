@@ -24,11 +24,20 @@ class Ldc < Formula
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkg-config" => :build
-  depends_on "llvm@12"
 
   uses_from_macos "libxml2" => :build
   # CompilerSelectionError: ldc cannot be built with any available compilers.
   uses_from_macos "llvm" => [:build, :test]
+
+  on_macos do
+    depends_on "llvm"
+  end
+
+  on_linux do
+    # When built with LLVM, errors with:
+    # undefined reference to `std::__throw_bad_array_new_length()'
+    depends_on "llvm@12"
+  end
 
   fails_with :gcc
 
@@ -54,30 +63,26 @@ class Ldc < Formula
   def llvm
     deps.reject { |d| d.build? || d.test? }
         .map(&:to_formula)
-        .find { |f| f.name.match? "^llvm" }
+        .find { |f| f.name.match?(/^llvm(@\d+)?$/) }
   end
 
   def install
     ENV.cxx11
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
 
-    if OS.linux?
-      # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
-      ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib
-    end
+    # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
+    ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib if OS.linux?
 
-    mkdir "build" do
-      args = std_cmake_args + %W[
-        -DLLVM_ROOT_DIR=#{llvm.opt_prefix}
-        -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
-        -DD_COMPILER=#{buildpath}/ldc-bootstrap/bin/ldmd2
-      ]
-      args << "-DCMAKE_INSTALL_RPATH=#{rpath};@loader_path/#{llvm.opt_lib.relative_path_from(lib)}" if OS.mac?
+    args = %W[
+      -DLLVM_ROOT_DIR=#{llvm.opt_prefix}
+      -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
+      -DD_COMPILER=#{buildpath}/ldc-bootstrap/bin/ldmd2
+    ]
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath};@loader_path/#{llvm.opt_lib.relative_path_from(lib)}" if OS.mac?
 
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
