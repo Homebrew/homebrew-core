@@ -3,7 +3,7 @@ class Onscripter < Formula
   homepage "https://onscripter.osdn.jp/onscripter.html"
   url "https://onscripter.osdn.jp/onscripter-20220110.tar.gz"
   sha256 "e5fa2744a7731b64df6f9c04a2e254048011f0bfecfd879590ba9924b3edb3be"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
