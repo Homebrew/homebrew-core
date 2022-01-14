@@ -6,6 +6,11 @@ class OpenalSoft < Formula
   license "LGPL-2.0-or-later"
   head "https://github.com/kcat/openal-soft.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?openal-soft[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "92e045739dcb27b75019946bb931011495b64a1cdebef9413401f476d6480cd0"
     sha256 cellar: :any,                 arm64_big_sur:  "7e15f3c0087f0bce3c5bcad1efd612ffb83327b3cd25702ffc474f6513307d73"
