@@ -28,7 +28,8 @@ class Pandocomatic < Formula
     EOS
     expected_html = <<~EOS
       <h1 id="homebrew">Homebrew</h1>
-      <p>A package manager for humans. Cats should take a look at Tigerbrew.</p>
+      <p>A package manager for humans. Cats should take a look at
+      Tigerbrew.</p>
     EOS
     system "#{bin}/pandocomatic", "-i", "test.md", "-o", "test.html"
     assert_equal expected_html, (testpath/"test.html").read
