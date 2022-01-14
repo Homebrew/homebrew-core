@@ -21,8 +21,8 @@ class Prestodb < Formula
   depends_on "openjdk"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.267/presto-cli-0.267-executable.jar"
-    sha256 "fc61eb9a1d527705f209f0ee85016612508d74d9a378eeb25d98f675732223c0"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.268/presto-cli-0.268-executable.jar"
+    sha256 "d40dc657e852a344ba22f0a013c67f808e6fa3ce0a79d9fc9d6783c4f59f8951"
   end
 
   def install
