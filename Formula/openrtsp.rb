@@ -29,7 +29,8 @@ class Openrtsp < Formula
       Formula["openssl@1.1"].opt_lib/"libssl.dylib",
     ]
 
-    system "./genMakefiles", "macosx-no-openssl"
+    os_flag = if OS.mac? ? "macosx-no-openssl" : "linux-no-openssl"
+    system "./genMakefiles", os_flag
     system "make", "PREFIX=#{prefix}",
            "LIBS_FOR_CONSOLE_APPLICATION=#{libs.join(" ")}", "install"
 
