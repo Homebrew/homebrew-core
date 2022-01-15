@@ -4,6 +4,8 @@ class Fmt < Formula
   url "https://github.com/fmtlib/fmt/archive/8.1.1.tar.gz"
   sha256 "3d794d3cf67633b34b2771eb9f073bde87e846e0d395d254df7b211ef1ec7346"
   license "MIT"
+  revision 1
+  head "https://github.com/fmtlib/fmt.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "6cbc489146c6c0dce9a3f9726d3a3fe4e81c5df58cfd506609244d5c22382dec"
@@ -15,6 +17,13 @@ class Fmt < Formula
   end
 
   depends_on "cmake" => :build
+
+  # Fix Watchman build.
+  # https://github.com/fmtlib/fmt/issues/2717
+  patch do
+    url "https://github.com/fmtlib/fmt/commit/8f8a1a02d5c5cb967d240feee3ffac00d66f22a2.patch?full_index=1"
+    sha256 "ac5d7a8f9eabd40e34f21b1e0034fbc4147008f13b7bf2314131239fb3a7bdab"
+  end
 
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=TRUE", *std_cmake_args
