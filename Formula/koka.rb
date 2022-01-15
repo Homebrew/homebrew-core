@@ -4,7 +4,7 @@ class Koka < Formula
   url "https://github.com/koka-lang/koka/releases/download/v2.3.8/koka-v2.3.9-source.tar.gz"
   sha256 "ae3e8127b46e51cc4df3525c5f913ecfbaeeb29f0a268e4a3d2e0ac809bc987f"
   license "Apache-2.0"
-  head "https://github.com/koka-lang/koka.git", branch: "dev"
+  head "https://github.com/koka-lang/koka.git", branch: "master"
 
   livecheck do
     url :stable
