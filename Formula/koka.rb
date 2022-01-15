@@ -6,11 +6,6 @@ class Koka < Formula
   license "Apache-2.0"
   head "https://github.com/koka-lang/koka.git", branch: "master"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "vcpkg"
