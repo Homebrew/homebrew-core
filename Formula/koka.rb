@@ -21,26 +21,6 @@ class Koka < Formula
     bin.install Dir["bundle/local-brew/bin/*"]
   end
 
-  def caveats
-    if File.exist?("/usr/local/bin/koka")
-      kokaver = `/usr/local/bin/koka --version --console=raw`
-      kokaver = kokaver[/Koka\s*v?([\d.]+)/, 1]
-      <<~EOS
-        It seems you have already koka v#{kokaver} installed at '/usr/local/bin/koka'.
-        This version may hide the brew installed koka as it may come earlier in the PATH.
-        You can uninstall the previous koka fully using:
-
-        $ curl -sSL https://github.com/koka-lang/koka/releases/latest/download/install.sh | sh -s -- --uninstall --version=v#{kokaver}
-
-        or by only removing the symlink (to '/usr/local/bin/koka-v#{kokaver}'):
-
-        $ sudo rm /usr/local/bin/koka
-      EOS
-    else
-      ""
-    end
-  end
-
   test do
     (testpath/"hellobrew.kk").write('pub fun main() println("Hello Homebrew")')
     assert_match "Hello Homebrew", shell_output("#{bin}/koka -e hellobrew.kk")
