@@ -2,6 +2,7 @@ class Avrdude < Formula
   desc "Atmel AVR MCU programmer"
   homepage "https://savannah.nongnu.org/projects/avrdude/"
   license "GPL-2.0-or-later"
+  revision 1
 
   stable do
     url "https://download.savannah.gnu.org/releases/avrdude/avrdude-6.4.tar.gz"
@@ -38,6 +39,7 @@ class Avrdude < Formula
   end
 
   depends_on "automake" => :build
+  depends_on "hidapi"
   depends_on "libftdi0"
   depends_on "libhid"
   depends_on "libusb-compat"
