@@ -6,6 +6,7 @@ class Vgmstream < Formula
       revision: "6b84f258e4238edd627e24ec8460a7040613d054"
   version "r1667"
   license "ISC"
+  revision 1
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
 
@@ -30,6 +31,8 @@ class Vgmstream < Formula
   depends_on "libao"
   depends_on "libvorbis"
   depends_on "mpg123"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", *std_cmake_args, "."
