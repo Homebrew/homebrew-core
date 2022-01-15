@@ -4,6 +4,7 @@ class VapoursynthSub < Formula
   url "https://github.com/vapoursynth/subtext/archive/R2.tar.gz"
   sha256 "509fd9b00f44fd3db5ad0de4bfac6ccff3e458882281d479a11c10ac7dfc37e4"
   license "MIT"
+  revision 1
   version_scheme 1
 
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
@@ -23,6 +24,8 @@ class VapoursynthSub < Formula
   depends_on "ffmpeg"
   depends_on "libass"
   depends_on "vapoursynth"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     # A meson-based install method has been added but is not present
