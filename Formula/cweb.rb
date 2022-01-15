@@ -3,6 +3,8 @@ class Cweb < Formula
   homepage "https://cs.stanford.edu/~knuth/cweb.html"
   url "https://github.com/ascherer/cweb/archive/cweb-4.6.1.tar.gz"
   sha256 "9a6558bce53e668e8474bf51990060237a521e27603629b7eb4c5f6788be8155"
+  # See disucssions in this thread, https://github.com/ascherer/cweb/issues/29
+  license :cannot_represent
 
   livecheck do
     url :stable
