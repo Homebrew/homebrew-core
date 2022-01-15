@@ -101,6 +101,13 @@ class Qt < Formula
     directory "qtquick3d"
   end
 
+  # Fix style issues with QToolButton
+  patch do
+    url "https://codereview.qt-project.org/gitweb?p=qt/qtbase.git;a=patch;h=271ec02c2dc1f7bdbe9a07aa2f0190c6d48c9896"
+    sha256 "3988289202dac632c59ccbdf160c5b8cee1ead84b888739b667b7c39010234ec"
+    directory "qtbase"
+  end
+
   def install
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/BUILD.gn",
