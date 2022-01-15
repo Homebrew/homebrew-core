@@ -15,10 +15,7 @@ class Koka < Formula
     system "cabal", "new-build", "-j"
     system "cabal", "new-run", "koka", "--",
            "-e", "util/bundle.kk", "--",
-           "--prefix=bundle/local-brew", "--postfix=brew"
-    share.install Dir["bundle/local-brew/share/*"]
-    lib.install Dir["bundle/local-brew/lib/*"]
-    bin.install Dir["bundle/local-brew/bin/*"]
+           "--prefix=#{prefix}", "--install"
   end
 
   test do
