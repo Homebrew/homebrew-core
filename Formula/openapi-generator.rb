@@ -5,12 +5,17 @@ class OpenapiGenerator < Formula
   sha256 "81dc1b3fb1102b43becd2f46098cfd861e9c4e84fbebb534ad67d7c6b0eeff77"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/maven-metadata.xml"
+    regex(%r{<version>v?(\d+(?:\.\d+)+)</version>}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ead0082bf72df72f7349393f1733daaeff4f52a1d1910384fbfe2004fff4add3"
   end
 
   head do
-    url "https://github.com/OpenAPITools/openapi-generator.git"
+    url "https://github.com/OpenAPITools/openapi-generator.git", branch: "master"
 
     depends_on "maven" => :build
   end
