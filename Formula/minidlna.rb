@@ -4,7 +4,7 @@ class Minidlna < Formula
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.0/minidlna-1.3.0.tar.gz"
   sha256 "47d9b06b4c48801a4c1112ec23d24782728b5495e95ec2195bbe5c81bc2d3c63"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "db29d32f52db2f939303ebfe9fadc4198cbf124b3eaea49708d862910dd397c9"
@@ -32,6 +32,8 @@ class Minidlna < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sqlite"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     system "./autogen.sh" if build.head?
