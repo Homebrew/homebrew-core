@@ -1,8 +1,8 @@
 class PythonAT310 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.1/Python-3.10.1.tgz"
-  sha256 "b76117670e7c5064344b9c138e141a377e686b9063f3a8a620ff674fa8ec90d3"
+  url "https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz"
+  sha256 "3c0ede893011319f9b0a56b44953a3d52c7abf9657c23fb4bc9ced93b86e9c97"
   license "Python-2.0"
 
   livecheck do
@@ -45,18 +45,33 @@ class PythonAT310 < Formula
               "bin/easy_install-3.7", "bin/easy_install-3.8", "bin/easy_install-3.9"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/e6/e2/f2bfdf364e016f7a464db709ea40d1101c4c5a463dd7019dae0a42dbd1c6/setuptools-59.5.0.tar.gz"
-    sha256 "d144f85102f999444d06f9c0e8c737fd0194f10f2f7e5fdb77573f6e2fa4fad0"
+    url "https://files.pythonhosted.org/packages/8f/89/9fec81ec84737c925a1ee992af2c6c7153aec4051c26afeadd6b822354d2/setuptools-60.6.0.tar.gz"
+    sha256 "eb83b1012ae6bf436901c2a2cee35d45b7260f31fd4b65fd1e50a9f99c11d7f8"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/da/f6/c83229dcc3635cdeb51874184241a9508ada15d8baa337a41093fab58011/pip-21.3.1.tar.gz"
-    sha256 "fd11ba3d0fdb4c07fbc5ecbba0b1b719809420f25038f8ee3cd913d3faa3033a"
+    url "https://files.pythonhosted.org/packages/d9/c1/146b24a7648fdf3f8b4dc6521ab0b26ac151ef903bac0b63a4e1450cb4d1/pip-22.0.2.tar.gz"
+    sha256 "27b4b70c34ec35f77947f777070d8331adbb1e444842e98e7150c288dc0caea4"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/4e/be/8139f127b4db2f79c8b117c80af56a3078cc4824b5b94250c7f81a70e03b/wheel-0.37.0.tar.gz"
-    sha256 "e2ef7239991699e3355d54f8e968a21bb940a1dbf34a4d226741e64462516fad"
+    url "https://files.pythonhosted.org/packages/c0/6c/9f840c2e55b67b90745af06a540964b73589256cb10cc10057c87ac78fc2/wheel-0.37.1.tar.gz"
+    sha256 "e9a504e793efbca1b8e0e9cb979a249cf4a0a7b5b8c9e8b65a5e39d49529c1c4"
+  end
+
+  # Modify default sysconfig to match the brew install layout.
+  # Remove when a non-patching mechanism is added (https://bugs.python.org/issue43976).
+  # We (ab)use osx_framework_library to exploit pip behaviour to allow --prefix to still work.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a1618a5005d0b01d63b720321806820a03432f1a/python/3.10-sysconfig.diff"
+    sha256 "51bc741a7f201bf7382067f5561a10968476c98d952e54a4f1931f17f1397ef8"
+  end
+
+  # Make bundled distutils look at preferred sysconfig scheme.
+  # Remove with Python 3.12.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a1618a5005d0b01d63b720321806820a03432f1a/python/3.10-distutils-scheme.diff"
+    sha256 "d1a29b3c9ecf8aecd65e1e54efc42fb1422b2f5d05cba0c747178f4ef8a69683"
   end
 
   def lib_cellar
@@ -136,6 +151,9 @@ class PythonAT310 < Formula
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
     args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
 
+    # Resolve HOMEBREW_PREFIX in our sysconfig modification.
+    inreplace "Lib/sysconfig.py", "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
+
     # Disable _tkinter - this is built in a separate formula python-tk
     inreplace "setup.py", "DISABLED_MODULE_LIST = []", "DISABLED_MODULE_LIST = ['_tkinter']"
 
@@ -193,7 +211,7 @@ class PythonAT310 < Formula
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py",
                     lib_cellar/"config*/Makefile",
-                    frameworks/"Python.framework/Versions/3*/lib/pkgconfig/python-3.?.pc"],
+                    frameworks/"Python.framework/Versions/3*/lib/pkgconfig/python-3*.pc"],
                 prefix, opt_prefix
 
       # Help third-party packages find the Python framework
@@ -210,7 +228,7 @@ class PythonAT310 < Formula
       inreplace Dir[lib_cellar/"**/_sysconfigdata_*linux_x86_64-*.py",
                     lib_cellar/"config*/Makefile",
                     bin/"python#{version.major_minor}-config",
-                    lib/"pkgconfig/python-3.?.pc"],
+                    lib/"pkgconfig/python-3*.pc"],
                 prefix, opt_prefix
 
       inreplace bin/"python#{version.major_minor}-config",
@@ -329,22 +347,6 @@ class PythonAT310 < Formula
     }.each do |unversioned_name, versioned_name|
       (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
     end
-
-    # Help distutils find brewed stuff when building extensions
-    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
-                    Formula["sqlite"].opt_include]
-    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib,
-                    Formula["sqlite"].opt_lib]
-
-    cfg = lib_cellar/"distutils/distutils.cfg"
-
-    cfg.atomic_write <<~EOS
-      [install]
-      prefix=#{HOMEBREW_PREFIX}
-      [build_ext]
-      include_dirs=#{include_dirs.join ":"}
-      library_dirs=#{library_dirs.join ":"}
-    EOS
   end
 
   def sitecustomize
