@@ -1,10 +1,9 @@
 class Jack < Formula
   desc "Audio Connection Kit"
   homepage "https://jackaudio.org/"
-  url "https://github.com/jackaudio/jack2/archive/v1.9.19.tar.gz"
-  sha256 "9030f4dc11773351b6ac96affd9c89803a5587ebc1b091e5ff866f433327e4b0"
+  url "https://github.com/jackaudio/jack2/archive/v1.9.20.tar.gz"
+  sha256 "915ad2900992159bdb729b9fc4ea134b962ce32b2df0b384fee40a2c5808835d"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
