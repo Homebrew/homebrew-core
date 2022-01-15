@@ -4,6 +4,7 @@ class Cmus < Formula
   url "https://github.com/cmus/cmus/archive/v2.9.1.tar.gz"
   sha256 "6fb799cae60db9324f03922bbb2e322107fd386ab429c0271996985294e2ef44"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/cmus/cmus.git", branch: "master"
 
   bottle do
@@ -26,6 +27,8 @@ class Cmus < Formula
   depends_on "mad"
   depends_on "mp4v2"
   depends_on "opusfile"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     system "./configure", "prefix=#{prefix}", "mandir=#{man}",
