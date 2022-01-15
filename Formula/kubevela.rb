@@ -31,7 +31,7 @@ class Kubevela < Formula
   test do
     # Should error out as vela up need kubeconfig
     status_output = shell_output("#{bin}/vela up 2>&1", 1)
-    assert_match "get kubeConfig err invalid configuration: no configuration has been provided", status_output
+    assert_match "Error: invalid configuration: no configurationError:", status_output
 
     (testpath/"kube-config").write <<~EOS
       apiVersion: v1
