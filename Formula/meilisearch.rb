@@ -24,7 +24,7 @@ class Meilisearch < Formula
   def install
     cd "meilisearch-http" do
       # remove when version > 0.25.1 is released, see https://github.com/meilisearch/MeiliSearch/issues/2078
-      inreplace "cargo.toml", "0.25.0", "0.25.1"
+      inreplace "Cargo.toml", "0.25.0", "0.25.1"
 
       system "cargo", "install", *std_cargo_args
     end
