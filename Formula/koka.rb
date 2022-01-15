@@ -44,5 +44,6 @@ class Koka < Formula
   test do
     (testpath/"hellobrew.kk").write('pub fun main() println("Hello Homebrew")')
     assert_match "Hello Homebrew", shell_output("#{bin}/koka -e hellobrew.kk")
+    assert_match "420000", shell_output("#{bin}/koka -O2 -e samples/basic/rbtree")
   end
 end
