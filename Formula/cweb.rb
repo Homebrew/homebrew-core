@@ -1,8 +1,8 @@
 class Cweb < Formula
   desc "Literate documentation system for C, C++, and Java"
   homepage "https://cs.stanford.edu/~knuth/cweb.html"
-  url "https://github.com/ascherer/cweb/archive/cweb-4.6.tar.gz"
-  sha256 "9b9d47d1c93616b07b2aa0ebbc31b928990ebd5328dfa68040c73b4c39f93729"
+  url "https://github.com/ascherer/cweb/archive/cweb-4.6.1.tar.gz"
+  sha256 "9a6558bce53e668e8474bf51990060237a521e27603629b7eb4c5f6788be8155"
 
   livecheck do
     url :stable
