@@ -10,6 +10,6 @@ class Utopiops < Formula
   end
 
   test do
-    system "#{bin}/utopiops", "--help"
+    system "#{bin}/utopiops", "create --help"
   end
 end
