@@ -107,6 +107,6 @@ class NodeAT16 < Formula
     system "#{bin}/npm", *npm_args, "install", "ref-napi"
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
-    assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")
+    assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
   end
 end
