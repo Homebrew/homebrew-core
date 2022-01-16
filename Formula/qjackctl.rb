@@ -1,8 +1,8 @@
 class Qjackctl < Formula
   desc "Simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.5/qjackctl-0.9.5.tar.gz"
-  sha256 "3b9b15cafc6b61540596240db216c59338e6e4a1fb9042a0a5bc59dd35efc1bc"
+  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.6/qjackctl-0.9.6.tar.gz"
+  sha256 "39ca2b9d83acfdd16a4c9b3eccd80e1483e1f9a446626f5d00ac297e6f8a166b"
   license "GPL-2.0-or-later"
   head "https://git.code.sf.net/p/qjackctl/code.git", branch: "master"
 
@@ -18,27 +18,21 @@ class Qjackctl < Formula
     sha256 catalina:       "f6ed6c17172898b5b6899835a1fabf88e2f667602efa9741c3ad9558ce179aba"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "jack"
-  depends_on "qt@5"
-
-  # Patch the build, remove in next release
-  patch do
-    url "https://github.com/rncbc/qjackctl/commit/86c482fcdae2612dac7370296c58b9bcb3b134d1.patch?full_index=1"
-    sha256 "dd3cdd6f21322a18012da8934000419819d8366477ce8a2bcdf49de82e6d7f51"
-  end
+  depends_on "qt"
 
   def install
-    ENV.cxx11
-    system "./configure", "--disable-debug",
-                          "--disable-dbus",
-                          "--disable-portaudio",
-                          "--disable-xunique",
-                          "--prefix=#{prefix}",
-                          "--with-jack=#{Formula["jack"].opt_prefix}",
-                          "--with-qt=#{Formula["qt@5"].opt_prefix}"
+    args = std_cmake_args + %w[
+      -DCONFIG_DBUS=OFF
+      -DCONFIG_PORTAUDIO=OFF
+      -DCONFIG_XUNIQUE=OFF
+    ]
 
-    system "make", "install"
+    system "cmake", *args
+    system "cmake", "--build", "."
+    system "cmake", "--install", "."
+
     prefix.install bin/"qjackctl.app"
     bin.install_symlink prefix/"qjackctl.app/Contents/MacOS/qjackctl"
   end
