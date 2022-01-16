@@ -1,9 +1,9 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.4/gtk-4.4.1.tar.xz"
-  sha256 "0faada983dc6b0bc409cb34c1713c1f3267e67c093f86b1e3b17db6100a3ddf4"
-  license "LGPL-2.0-or-later"
+  url "https://download.gnome.org/sources/gtk/4.6/gtk-4.6.0.tar.xz"
+  sha256 "782d5951fbfd585fc9ec76c09d07e28e6014c72db001fb567fff217fb96e4d8c"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :stable
@@ -21,6 +21,7 @@ class Gtk4 < Formula
 
   depends_on "docbook" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "docutils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -40,13 +41,6 @@ class Gtk4 < Formula
     depends_on "libxkbcommon"
     depends_on "libxcursor"
   end
-
-  # This patch (embedded below) backports the upstream fix made by PR !4008
-  # (https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/4008) to 4.4.1. It was
-  # unfortunately missed when the changes for 4.4.1 were reviewed but Gtk apps
-  # will crash on Apple Silicon Macs without it. The fix should be included in
-  # 4.6.0 when it is released, so this patch can be removed at that point.
-  patch :DATA
 
   def install
     args = std_meson_args + %w[
@@ -102,19 +96,3 @@ class Gtk4 < Formula
     assert_match version.to_s, shell_output("cat #{lib}/pkgconfig/gtk4.pc").strip
   end
 end
-__END__
-diff --git a/gdk/macos/gdkmacosglcontext.c b/gdk/macos/gdkmacosglcontext.c
-index cc0b5fa..9ab268a 100644
---- a/gdk/macos/gdkmacosglcontext.c
-+++ b/gdk/macos/gdkmacosglcontext.c
-@@ -227,8 +227,8 @@ gdk_macos_gl_context_real_realize (GdkGLContext  *context,
- 
-   swapRect[0] = 0;
-   swapRect[1] = 0;
--  swapRect[2] = surface->width;
--  swapRect[3] = surface->height;
-+  swapRect[2] = surface ? surface->width : 0;
-+  swapRect[3] = surface ? surface->height : 0;
- 
-   CGLSetParameter (cgl_context, kCGLCPSwapRectangle, swapRect);
-   CGLSetParameter (cgl_context, kCGLCPSwapInterval, &sync_to_framerate);
