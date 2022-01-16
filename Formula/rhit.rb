@@ -1,8 +1,8 @@
 class Rhit < Formula
   desc "Nginx log explorer"
   homepage "https://dystroy.org/rhit/"
-  url "https://github.com/Canop/rhit/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "76236126f3918e606e3fa333f06e7316ab85d5783a29c59ea893e58ec1bfa96a"
+  url "https://github.com/Canop/rhit/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "23f26ffd517949b70f7bc27955f2f219d744dca2bb44a3948ef09206478c678f"
   license "MIT"
   head "https://github.com/Canop/rhit.git", branch: "main"
 
