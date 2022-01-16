@@ -1,9 +1,9 @@
 class Jpeg < Formula
   desc "Image manipulation library"
   homepage "https://www.ijg.org/"
-  url "https://www.ijg.org/files/jpegsrc.v9d.tar.gz"
-  mirror "https://fossies.org/linux/misc/jpegsrc.v9d.tar.gz"
-  sha256 "6c434a3be59f8f62425b2e3c077e785c9ce30ee5874ea1c270e843f273ba71ee"
+  url "https://www.ijg.org/files/jpegsrc.v9e.tar.gz"
+  mirror "https://fossies.org/linux/misc/jpegsrc.v9e.tar.gz"
+  sha256 "4077d6a6a75aeb01884f708919d25934c93305e49f7e3f36db9129320e6f4f3d"
   license "IJG"
 
   livecheck do
