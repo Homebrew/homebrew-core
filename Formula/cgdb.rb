@@ -1,8 +1,8 @@
 class Cgdb < Formula
   desc "Curses-based interface to the GNU Debugger"
   homepage "https://cgdb.github.io/"
-  url "https://cgdb.me/files/cgdb-0.7.1.tar.gz"
-  sha256 "bb723be58ec68cb59a598b8e24a31d10ef31e0e9c277a4de07b2f457fe7de198"
+  url "https://cgdb.me/files/cgdb-0.8.0.tar.gz"
+  sha256 "0d38b524d377257b106bad6d856d8ae3304140e1ee24085343e6ddf1b65811f1"
   license "GPL-2.0-or-later"
 
   livecheck do
