@@ -47,9 +47,6 @@ class Jack < Formula
     system Formula["python@3.10"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}"
     system Formula["python@3.10"].opt_bin/"python3", "./waf", "build"
     system Formula["python@3.10"].opt_bin/"python3", "./waf", "install"
-
-    # Remove Python script used to control D-Bus JACK as it isn't enabled in formula
-    rm bin/"jack_control"
   end
 
   service do
