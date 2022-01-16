@@ -22,8 +22,61 @@ class Dxflib < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "6ab01712961c1a8561d2fc7926397b75169bb67ef89ebfadf4ee7ead4581d4c3"
   end
 
+  depends_on "qt" => :build
+
+  # Sample DXF file made available under GNU LGPL license.
+  # See https://people.math.sc.edu/Burkardt/data/dxf/dxf.html.
+  resource "testfile" do
+    url "https://people.math.sc.edu/Burkardt/data/dxf/cube.dxf"
+    sha256 "e5744edaa77d1612dec44d1a47adad4aad3d402dbf53ea2aff5a57c34ae9bafa"
+  end
+
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+    # For libdxflib.a
+    system "qmake", "dxflib.pro"
+    system "make"
+
+    # Build shared library
+    inreplace "dxflib.pro", "CONFIG += staticlib", "CONFIG += shared"
+    system "qmake", "dxflib.pro"
+    system "make"
+
+    (include/"dxflib").install Dir["src/*"]
+    lib.install Dir["*.a", shared_library("*")]
+  end
+
+  test do
+    resource("testfile").stage testpath
+
+    (testpath/"test.cpp").write <<~EOS
+      #include <dxflib/dl_dxf.h>
+      #include <dxflib/dl_creationadapter.h>
+
+      using namespace std;
+
+      class MyDxfFilter : public DL_CreationAdapter {
+        virtual void addLine(const DL_LineData& d);
+      };
+
+      void MyDxfFilter::addLine(const DL_LineData& d) {
+        cout << d.x1 << "/" << d.y1 << " "
+             << d.x2 << "/" << d.y2 << endl;
+      }
+
+      int main() {
+        MyDxfFilter f;
+        DL_Dxf* dxf = new DL_Dxf();
+        dxf->test();
+        if (!dxf->in("cube.dxf", &f)) return 1;
+        return 0;
+      }
+    EOS
+
+    system ENV.cxx, "test.cpp", "-o", "test",
+           "-I#{include}/dxflib", "-L#{lib}", "-ldxflib"
+    output = shell_output("./test")
+    assert_match "1 buf1: '  10", output
+    assert_match "2 buf1: '10'", output
+    assert_match "-0.5/-0.5 0.5/-0.5", output.split("\n")[16]
   end
 end
