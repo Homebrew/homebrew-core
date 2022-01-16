@@ -17,7 +17,7 @@ class Dnsprobe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "badafaac8f8da8392fc966e9339ef5989e851bef8901655705de1cdd4e45e740"
   end
 
-  # repo derecated in favor of `projectdiscovery/dnsx`
+  # repo deprecated in favor of `projectdiscovery/dnsx`
   deprecate! date: "2020-11-13", because: :repo_archived
 
   depends_on "go" => :build
