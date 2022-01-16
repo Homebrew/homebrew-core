@@ -7,6 +7,11 @@ class Openclonk < Formula
   revision 3
   head "https://github.com/openclonk/openclonk.git", branch: "master"
 
+  livecheck do
+    url "https://www.openclonk.org/download/"
+    regex(/href=.*?openclonk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_monterey: "7934144ac831d263bb0c51284f06f2bcac0004cf395d0404c52b1f3bf1c0189b"
     sha256 cellar: :any, arm64_big_sur:  "ebd7f7efa0efc4c70b14071e98a5f2d314c16e5b6f28fe11257738619f0c813b"
