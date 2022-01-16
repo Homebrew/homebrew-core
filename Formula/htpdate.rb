@@ -19,10 +19,6 @@ class Htpdate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4eef93b8260bd3f09ab23db16a00e60dcc68a3bf08c2b9ffb1688f47a278a7f2"
   end
 
-  # https://github.com/twekkel/htpdate/pull/9
-  # remove in next release
-  patch :DATA
-
   def install
     system "make", "prefix=#{prefix}",
                    "STRIP=/usr/bin/strip",
@@ -35,17 +31,3 @@ class Htpdate < Formula
     system "#{sbin}/htpdate", "-q", "-d", "-u", ENV["USER"], "example.org"
   end
 end
-
-__END__
-diff --git a/htpdate.c b/htpdate.c
-index e25bb3c..fbed343 100644
---- a/htpdate.c
-+++ b/htpdate.c
-@@ -52,7 +52,7 @@
- #include <pwd.h>
- #include <grp.h>
-
--#if defined __NetBSD__ || defined __FreeBSD__
-+#if defined __NetBSD__ || defined __FreeBSD__ || defined __APPLE__
- #define adjtimex ntp_adjtime
- #endif
