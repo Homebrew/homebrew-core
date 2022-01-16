@@ -6,7 +6,7 @@ class Crowdin < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/crowdin/crowdin-cli.git"
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
