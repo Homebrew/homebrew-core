@@ -17,6 +17,10 @@ class Libswiften < Formula
     sha256 cellar: :any, sierra:      "07e2d9467520a4c814e15b5328bec8b989449284161c66e120b036f09eed8d14"
   end
 
+  # All the scons scripts are Python 2 only
+  # Upstream does not look active with no release in the last 4 years
+  disable! date: "2022-01-17", because: :does_not_build
+
   depends_on "scons" => :build
   depends_on "boost"
   depends_on "libidn"
