@@ -20,6 +20,7 @@ class Iproute2 < Formula
   depends_on :linux
 
   def install
+    system "make"
     system "make", "install",
            "PREFIX=#{prefix}",
            "SBINDIR=#{sbin}",
