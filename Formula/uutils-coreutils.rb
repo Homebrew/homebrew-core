@@ -1,8 +1,8 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://github.com/uutils/coreutils"
-  url "https://github.com/uutils/coreutils/archive/0.0.8.tar.gz"
-  sha256 "11a975110bf75151106b491666b4087a25c9c753f697ee0125fa52c567042bc0"
+  url "https://github.com/uutils/coreutils/archive/0.0.9.tar.gz"
+  sha256 "eba8b545eb495757980c1599e9aca0e8df231856afce03586cb86e69edd993b4"
   license "MIT"
   head "https://github.com/uutils/coreutils.git", branch: "master"
 
@@ -22,6 +22,13 @@ class UutilsCoreutils < Formula
   conflicts_with "coreutils", because: "uutils-coreutils and coreutils install the same binaries"
   conflicts_with "aardvark_shell_utils", because: "both install `realpath` binaries"
   conflicts_with "truncate", because: "both install `truncate` binaries"
+
+  # build patch for `failed to select a version for the requirement `uu_stdbuf = "^0.0.8"``
+  # remove in next release
+  patch do
+    url "https://github.com/uutils/coreutils/commit/c5e2515833f8eefc12fe65f0a3ffba7cbfea0ff9.patch?full_index=1"
+    sha256 "e3ca918c02bbb22e280739e80933353c74af8aec54887f0b4343082c4f19dea2"
+  end
 
   def install
     man1.mkpath
