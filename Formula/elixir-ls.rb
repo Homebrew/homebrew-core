@@ -16,11 +16,19 @@ class ElixirLs < Formula
     system "mix", "compile"
     system "mix", "elixir_ls.release", "-o", libexec
 
-    bin.install_symlink libexec/"language_server.sh" => "language_server.sh"
+    bin.install_symlink libexec/"language_server.sh" => "elixir-ls"
   end
 
   test do
-    assert_predicate bin/"language_server.sh", :exist?
-    assert_match "", pipe_output("#{bin}/language_server.sh", "")
+    assert_predicate bin/"elixir-ls", :exist?
+    input =
+      "Content-Length: 152\r\n" \
+      "\r\n" \
+      "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"" \
+      "processId\":88075,\"rootUri\":null,\"capabilities\":{},\"trace\":\"ver" \
+      "bose\",\"workspaceFolders\":null}}\r\n"
+
+    output = pipe_output("#{bin}/elixir-ls", input, 0)
+    assert_match "Content-Length", output
   end
 end
