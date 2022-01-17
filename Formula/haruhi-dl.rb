@@ -7,8 +7,9 @@ class HaruhiDl < Formula
   sha256 "069dc4a5f82f98861a291c7edd8bb1ca01eb74602dd36220343a75cb7bb617a8"
   license "LGPL-3.0-or-later"
   revision 1
+
   deprecate! date: "2022-01-15", because: :deprecated_upstream
-  
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "966c61dfcc9b8849d593007e07c3254a5e243093ef7b3b3d74f7f1e06be569b6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "966c61dfcc9b8849d593007e07c3254a5e243093ef7b3b3d74f7f1e06be569b6"
