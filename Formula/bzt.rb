@@ -188,11 +188,7 @@ class Bzt < Formula
   def install
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
-
     virtualenv_install_with_resources
-
-    # remove non-native binary
-    (libexec/"lib/python3.9/site-packages/selenium/webdriver/firefox/x86/x_ignore_nofocus.so").unlink if OS.linux?
   end
 
   test do
