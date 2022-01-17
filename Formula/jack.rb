@@ -66,6 +66,7 @@ class Jack < Formula
         exec "#{bin}/jackd", "-d", "dummy"
       end
     end
+    sleep 5
     system "#{bin}/jack_wait", "--wait", "--timeout", "10"
     fork do
       exec "#{bin}/jack_midiseq", source_name, "16000", "0", "60", "8000"
