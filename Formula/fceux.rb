@@ -5,7 +5,6 @@ class Fceux < Formula
       tag:      "fceux-2.6.1",
       revision: "7173d283c3a12f634ad5189c5a90ff495e1d266a"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   bottle do
