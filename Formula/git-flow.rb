@@ -2,6 +2,7 @@ class GitFlow < Formula
   desc "Extensions to follow Vincent Driessen's branching model"
   homepage "https://github.com/nvie/gitflow"
   license "BSD-2-Clause"
+  revision 1
 
   stable do
     # Use the tag instead of the tarball to get submodules
@@ -42,11 +43,18 @@ class GitFlow < Formula
   def install
     system "make", "prefix=#{libexec}", "install"
     bin.write_exec_script libexec/"bin/git-flow"
-
     resource("completion").stage do
+      # Fix a comment referencing `/usr/local` that causes deviations between bottles.
+      inreplace "git-flow-completion.bash", "/usr/local", HOMEBREW_PREFIX
       bash_completion.install "git-flow-completion.bash"
-      zsh_completion.install "git-flow-completion.zsh"
     end
+  end
+
+  def caveats
+    <<~EOS
+      To install Zsh completions:
+        brew install zsh-completions
+    EOS
   end
 
   test do
