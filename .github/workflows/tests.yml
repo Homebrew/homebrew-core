@@ -55,6 +55,18 @@ jobs:
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
     steps:
+      - name: Show GraphQL Query Response Headers
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          QUERY='query{ repository(owner:\"Homebrew\", name:\"homebrew-core\") { pullRequests(last: 100, states: OPEN, labels: [\"CI-long-timeout\"]) { totalCount } } }'
+          curl \
+            --include \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            --request POST \
+            --data "{ \"query\": \"$QUERY\" }" \
+            https://api.github.com/graphql
+
       - name: Check for CI labels
         id: check-labels
         uses: actions/github-script@v3
