@@ -22,6 +22,11 @@ class Parrot < Formula
     end
   end
 
+  livecheck do
+    url "http://ftp.parrot.org/releases/supported/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     sha256 arm64_monterey: "91f7d2f17e362ea66be0f7706414a1241d5af6f8bce0c7054c1e0ef1ba39bad5"
     sha256 arm64_big_sur:  "d8a39b997791e6fc739322075c52ae288072b787d5f3f401b1040a6548649f63"
