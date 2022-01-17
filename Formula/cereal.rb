@@ -1,8 +1,8 @@
 class Cereal < Formula
   desc "C++11 library for serialization"
   homepage "https://uscilab.github.io/cereal/"
-  url "https://github.com/USCiLab/cereal/archive/v1.3.0.tar.gz"
-  sha256 "329ea3e3130b026c03a4acc50e168e7daff4e6e661bc6a7dfec0d77b570851d5"
+  url "https://github.com/USCiLab/cereal/archive/v1.3.1.tar.gz"
+  sha256 "65ea6ddda98f4274f5c10fb3e07b2269ccdd1e5cbb227be6a2fd78b8f382c976"
   license "BSD-3-Clause"
   head "https://github.com/USCiLab/cereal.git", branch: "develop"
 
