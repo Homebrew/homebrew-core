@@ -3,8 +3,8 @@ class Pgcli < Formula
 
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/45/ae/4e11eaba77b0a6e662bbd18e39ecd66b18d95bb45ed1cf862fb7381b2dea/pgcli-3.3.0.tar.gz"
-  sha256 "3d0ed40df691d60254ccb4d5654a52c1c6373f77d2b3cf6a90aea6ee99fea439"
+  url "https://files.pythonhosted.org/packages/54/22/c2d050a14a41d1518491edfe2130382610d096878f6c9bcca04a36de466b/pgcli-3.3.1.tar.gz"
+  sha256 "fccc9e55ca68a4ad0887acfa2991afb3b8af93f3cce9ada249e6ad89879933a1"
   license "BSD-3-Clause"
 
   bottle do
@@ -24,8 +24,8 @@ class Pgcli < Formula
   depends_on "six"
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/86/ed/eb0468849a425a9ef0d15f789e2272bb5fc4081926f0261542927599177b/cli_helpers-2.2.0.tar.gz"
-    sha256 "733f65d8c921e0cffa8f7ae4c8735bd7ecdffec383c5246f647ddd0fddb33448"
+    url "https://files.pythonhosted.org/packages/d9/5d/bd0b08f7f8f9d02f44055cf4b41aafa658c1b0731237f303b9fdb49fc8d7/cli_helpers-2.2.1.tar.gz"
+    sha256 "0ccc1cfcda1ac64dc7ed83d7013055cf19e5979d29e56c21f3b692de01555aae"
   end
 
   resource "click" do
@@ -59,8 +59,8 @@ class Pgcli < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/15/53/5345177cafa79a49e02c27102019a01ef1682ab170d2138deca47a4c8924/Pygments-2.11.1.tar.gz"
-    sha256 "59b895e326f0fb0d733fd28c6839bd18ad0687ba20efc26d4277fd1d30b971f4"
+    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
+    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
   end
 
   resource "python-dateutil" do
