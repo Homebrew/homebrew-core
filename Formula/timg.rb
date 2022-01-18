@@ -4,6 +4,7 @@ class Timg < Formula
   url "https://github.com/hzeller/timg/archive/refs/tags/v1.4.3.tar.gz"
   sha256 "46eac8d5434b281afa6d64ced5f46c732c1c4d0699e16a22175b7df179221e2c"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/hzeller/timg.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class Timg < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "graphicsmagick"
   depends_on "jpeg-turbo"
   depends_on "libexif"
