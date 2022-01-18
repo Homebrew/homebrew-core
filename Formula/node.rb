@@ -52,8 +52,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-8.3.0.tgz"
-    sha256 "b02b4d1d9f8904bd6e5542af79ae052c023fa2efe2ae6d085cdff464dc8ca848"
+    url "https://registry.npmjs.org/npm/-/npm-8.3.1.tgz"
+    sha256 "314a6f525c60c81bb1d87d1028731777642836457e5eaed76b96e3d9e38f2f16"
   end
 
   # Fixes node incorrectly building vendored OpenSSL when we want system OpenSSL.
