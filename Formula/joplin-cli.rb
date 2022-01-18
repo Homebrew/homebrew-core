@@ -14,6 +14,7 @@ class JoplinCli < Formula
     sha256 catalina:      "248fab15de1b4c16463ec33bf6b2dd9b3f7ecdc64a8e463d38530c3143e64934"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "node"
   depends_on "sqlite"
