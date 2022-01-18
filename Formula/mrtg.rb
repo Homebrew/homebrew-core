@@ -1,8 +1,8 @@
 class Mrtg < Formula
   desc "Multi router traffic grapher"
   homepage "https://oss.oetiker.ch/mrtg/"
-  url "https://oss.oetiker.ch/mrtg/pub/mrtg-2.17.8.tar.gz"
-  sha256 "1ac2e0af69e0ecdef755e798ca59834ab78ac185c2a5effdb7685c58f2ef01b4"
+  url "https://oss.oetiker.ch/mrtg/pub/mrtg-2.17.9.tar.gz"
+  sha256 "c971c53705967b83c8e8d4cbbccf441345a28c83a90eaead1aa0e3eda2833a70"
 
   livecheck do
     url "https://oss.oetiker.ch/mrtg/pub/"
