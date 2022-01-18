@@ -79,11 +79,6 @@ class Texlive < Formula
     sha256 "74eac0855e1e40c8db4f28b24ef354bd7263c1f76031bdc02b52156b572b7a1d"
   end
 
-  resource "texlive-texmf" do
-    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2021/texlive-20210325-texmf.tar.xz"
-    sha256 "ff12d436c23e99fb30aad55924266104356847eb0238c193e839c150d9670f1c"
-  end
-
   resource "Module::Build" do
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
     sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
@@ -320,7 +315,7 @@ class Texlive < Formula
     ENV["PERL_MM_USE_DEFAULT"] = "1"
     ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
 
-    tex_resources = %w[texlive-extra install-tl texlive-texmf]
+    tex_resources = %w[texlive-extra install-tl]
     python_resources = %w[Pygments]
 
     resources.each do |r|
@@ -358,20 +353,16 @@ class Texlive < Formula
       end
     end
 
-    resource("texlive-texmf").stage do
-      share.install "texmf-dist"
-    end
+    # Create empty texmf-dist folder
+    mkdir share/"texmf-dist"
 
     # Clean unused files
-    rm_rf share/"texmf-dist/doc"
     rm_rf share/"tlpkg/installer/wget"
     rm_rf share/"tlpkg/installer/xz"
 
     # Set up config files to use the correct path for the TeXLive root
     inreplace buildpath/"texk/kpathsea/texmf.cnf",
       "TEXMFROOT = $SELFAUTOPARENT", "TEXMFROOT = $SELFAUTODIR/share"
-    inreplace share/"texmf-dist/web2c/texmfcnf.lua",
-      "selfautoparent:texmf", "selfautodir:share/texmf"
 
     # Fix path resolution in some scripts.  The fix for tlmgr.pl, TLUTils.pm, and
     # tlshell is being upstreamed here: https://www.tug.org/pipermail/tex-live/2021-September/047394.html.
@@ -446,74 +437,12 @@ class Texlive < Formula
     rm bin/"latexdiff-vc" # provided by latexdiff formula
     rm bin/"latexrevise" # provided by latexdiff formula
 
-    # Wrap some Perl scripts in an env script so that they can find dependencies
-    env_script_files = %w[
-      crossrefware/bbl2bib.pl
-      crossrefware/bibdoiadd.pl
-      crossrefware/bibmradd.pl
-      crossrefware/biburl2doi.pl
-      crossrefware/bibzbladd.pl
-      crossrefware/ltx2crossrefxml.pl
-      ctan-o-mat/ctan-o-mat.pl
-      ctanify/ctanify
-      ctanupload/ctanupload.pl
-      exceltex/exceltex
-      latex-git-log/latex-git-log
-      pax/pdfannotextractor.pl
-      ptex-fontmaps/kanji-fontmap-creator.pl
-      purifyeps/purifyeps
-      svn-multi/svn-multi.pl
-      texdoctk/texdoctk.pl
-      ulqda/ulqda.pl
-    ]
-
-    env_script_files.each do |perl_script|
-      bin_name = File.basename(perl_script, ".pl")
-      rm bin/bin_name
-      (bin/bin_name).write_env_script(share/"texmf-dist/scripts"/perl_script, PERL5LIB: ENV["PERL5LIB"])
-    end
-
     # Wrap some Python scripts so they can find dependencies and fix depythontex.
     python_path = libexec/Language::Python.site_packages("python3")
     ENV.prepend_path "PYTHONPATH", python_path
     rm bin/"pygmentex"
     rm bin/"pythontex"
     rm bin/"depythontex"
-    (bin/"pygmentex").write_env_script(share/"texmf-dist/scripts/pygmentex/pygmentex.py",
-      PYTHONPATH: ENV["PYTHONPATH"])
-    (bin/"pythontex").write_env_script(share/"texmf-dist/scripts/pythontex/pythontex3.py",
-      PYTHONPATH: ENV["PYTHONPATH"])
-    ln_sf share/"texmf-dist/scripts/pythontex/depythontex3.py", bin/"depythontex"
-
-    # Rewrite shebangs in some Python scripts so they use brewed Python.
-    python_shebang_rewrites = %w[
-      dviasm/dviasm.py
-      latex-make/figdepth.py
-      latex-make/gensubfig.py
-      latex-make/latexfilter.py
-      latex-make/svg2dev.py
-      latex-make/svgdepth.py
-      latex-papersize/latex-papersize.py
-      lilyglyphs/lilyglyphs_common.py
-      lilyglyphs/lily-glyph-commands.py
-      lilyglyphs/lily-image-commands.py
-      lilyglyphs/lily-rebuild-pdfs.py
-      pdfbook2/pdfbook2
-      pygmentex/pygmentex.py
-      pythontex/depythontex3.py
-      pythontex/pythontex3.py
-      pythontex/pythontex_install.py
-      spix/spix.py
-      texliveonfly/texliveonfly.py
-      webquiz/webquiz
-      webquiz/webquiz.py
-      webquiz/webquiz_makequiz.py
-      webquiz/webquiz_util.py
-    ]
-
-    python_shebang_rewrites.each do |python_script|
-      rewrite_shebang detected_python_shebang, share/"texmf-dist/scripts"/python_script
-    end
 
     # Delete ebong because it requires Python 2
     rm bin/"ebong"
