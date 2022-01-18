@@ -4,7 +4,7 @@ class Unpaper < Formula
   url "https://www.flameeyes.com/files/unpaper-6.1.tar.xz"
   sha256 "237c84f5da544b3f7709827f9f12c37c346cdf029b1128fb4633f9bafa5cb930"
   license "GPL-2.0-or-later"
-  revision 7
+  revision 8
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "294f7cece1a54c389382ed61101719710e0ec7c5f26dd679cd9fa9ce68e919f4"
@@ -23,7 +23,7 @@ class Unpaper < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
 
   uses_from_macos "libxslt"
 
@@ -31,6 +31,8 @@ class Unpaper < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     system "autoreconf", "-i" if build.head?
