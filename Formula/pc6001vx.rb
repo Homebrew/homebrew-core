@@ -4,6 +4,7 @@ class Pc6001vx < Formula
   url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.8.2_src.tar.gz"
   sha256 "7abe9b10aa6f683eda279794bc03ee05e1b0b2239e38718860333d35f91b4858"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
@@ -14,12 +15,14 @@ class Pc6001vx < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "qt@5"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     # Need to explicitly set up include directories
-    ENV.append_to_cflags "-I#{Formula["ffmpeg"].opt_include}"
+    ENV.append_to_cflags "-I#{Formula["ffmpeg@4"].opt_include}"
 
     mkdir "build" do
       qt5 = Formula["qt@5"].opt_prefix
