@@ -4,7 +4,7 @@ class Glslviewer < Formula
   url "https://github.com/patriciogonzalezvivo/glslViewer/archive/1.7.0.tar.gz"
   sha256 "4a03e989dc81587061714ccc130268cc06ddaff256ea24b7492ca28dc855e8d6"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
 
   bottle do
@@ -17,7 +17,7 @@ class Glslviewer < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "glfw"
 
   on_linux do
