@@ -4,6 +4,7 @@ class OpencvAT3 < Formula
   url "https://github.com/opencv/opencv/archive/3.4.16.tar.gz"
   sha256 "5e37b791b2fe42ed39b52d9955920b951ee42d5da95f79fbc9765a08ef733399"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "39e9d703951125f7f2cf9847d7c7243f4fc609c4c69b942c9b3885ed70707cf2"
@@ -20,7 +21,7 @@ class OpencvAT3 < Formula
   depends_on "pkg-config" => :build
   depends_on "ceres-solver"
   depends_on "eigen"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "gflags"
   depends_on "glog"
   depends_on "jpeg"
@@ -30,6 +31,8 @@ class OpencvAT3 < Formula
   depends_on "openexr"
   depends_on "python@3.9"
   depends_on "tbb"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/3.4.16.tar.gz"
