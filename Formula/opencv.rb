@@ -4,7 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/4.5.4.tar.gz"
   sha256 "c20bb83dd790fc69df9f105477e24267706715a9d3c705ca1e7f613c7b3bad3d"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -24,7 +24,7 @@ class Opencv < Formula
   depends_on "pkg-config" => :build
   depends_on "ceres-solver"
   depends_on "eigen"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "glog"
   depends_on "harfbuzz"
   depends_on "jpeg"
@@ -40,6 +40,8 @@ class Opencv < Formula
   depends_on "webp"
 
   uses_from_macos "zlib"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.5.4.tar.gz"
