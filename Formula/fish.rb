@@ -4,6 +4,7 @@ class Fish < Formula
   url "https://github.com/fish-shell/fish-shell/releases/download/3.3.1/fish-3.3.1.tar.xz"
   sha256 "b5b4ee1a5269762cbbe993a4bd6507e675e4100ce9bbe84214a5eeb2b19fae89"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,16 +22,18 @@ class Fish < Formula
   end
 
   head do
-    url "https://github.com/fish-shell/fish-shell.git"
+    url "https://github.com/fish-shell/fish-shell.git", branch: "master"
 
-    depends_on "sphinx-doc" => :build
+    # The source tarballs come with prebuilt documentation.
+    # It's only needed for git checkouts, and even then it's optional,
+    # as fish will fall back to using documentation hosted in a versioned
+    # path at fish-shell.com/docs/. This can actually be safely skipped.
+    depends_on "sphinx-doc" => :reccomended
   end
 
   depends_on "cmake" => :build
-  # Apple ncurses (5.4) is 15+ years old and
-  # has poor support for modern terminals
-  depends_on "ncurses"
   depends_on "pcre2"
+  uses_from_macos "ncurses"
 
   def install
     args = %W[
@@ -49,7 +52,24 @@ class Fish < Formula
     (pkgshare/"vendor_conf.d").mkpath
   end
 
+  def caveats
+    <<~EOS
+      #{Tty.bold}fish#{Tty.reset} has been installed to #{Tty.underline}#{HOMEBREW_PREFIX}/bin/fish#{Tty.reset}
+
+      To set fish as your default login shell:
+
+      #{Tty.bold}chsh -s #{HOMEBREW_PREFIX}/bin/fish#{Tty.reset}
+
+      If you get a "non-standard shell" error:
+
+      All shells must be listed in /etc/shells to permit use as a login shell.
+      So append the install list of paths as sudo:
+
+      #{Tty.bold}echo #{HOMEBREW_PREFIX}/bin/fish | sudo tee -a /etc/shells#{Tty.reset}
+    EOS
+  end
+
   test do
-    system "#{bin}/fish", "-c", "echo"
+    system "#{bin}/fish", "-c", "math 5 + 5"
   end
 end
