@@ -257,6 +257,12 @@ jobs:
           cat bottles/steps_output.txt
           rm bottles/steps_output.txt
 
+      - name: Output brew linkage result
+        if: always()
+        run: |
+          cat bottles/linkage_output.txt
+          rm bottles/linkage_output.txt
+
       - name: Output brew bottle result
         if: always()
         run: |
