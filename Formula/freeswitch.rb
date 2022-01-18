@@ -5,7 +5,7 @@ class Freeswitch < Formula
       tag:      "v1.10.7",
       revision: "883d2cb662bed0316e157bd3beb9853e96c60d02"
   license "MPL-1.1"
-  revision 2
+  revision 3
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
 
   livecheck do
@@ -27,7 +27,7 @@ class Freeswitch < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "jpeg"
   depends_on "ldns"
   depends_on "libpq"
@@ -45,6 +45,8 @@ class Freeswitch < Formula
 
   uses_from_macos "libedit"
   uses_from_macos "zlib"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   # https://github.com/Homebrew/homebrew/issues/42865
 
