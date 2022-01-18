@@ -4,6 +4,7 @@ class Mpv < Formula
   url "https://github.com/mpv-player/mpv/archive/v0.34.1.tar.gz"
   sha256 "32ded8c13b6398310fa27767378193dc1db6d78b006b70dbcbd3123a1445e746"
   license :cannot_represent
+  revision 1
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
   bottle do
@@ -20,7 +21,7 @@ class Mpv < Formula
   depends_on "python@3.9" => :build
   depends_on xcode: :build
 
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "jpeg"
   depends_on "libarchive"
   depends_on "libass"
@@ -30,6 +31,8 @@ class Mpv < Formula
   depends_on "uchardet"
   depends_on "vapoursynth"
   depends_on "yt-dlp"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     # LANG is unset by default on macOS and causes issues when calling getlocale
