@@ -4,6 +4,7 @@ class GstLibav < Formula
   url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.5.tar.xz"
   sha256 "822e008a910e9dd13aedbdd8dc63fedef4040c0ee2e927bab3112e9de693a548"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://gitlab.freedesktop.org/gstreamer/gst-libav.git", branch: "master"
 
   livecheck do
@@ -24,9 +25,11 @@ class GstLibav < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "gst-plugins-base"
   depends_on "xz" # For LZMA
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     mkdir "build" do
