@@ -132,7 +132,7 @@ class Samba < Formula
     port = free_port
     spawn smbd, "--debug-stdout", "-F", "--configfile=smb.conf", "--port=#{port}", "--debuglevel=4", in: "/dev/null"
 
-    sleep 5
+    sleep 30
     mkdir_p "got"
     system "smbclient", "-p", port.to_s, "-N", "//127.0.0.1/test", "-c", "get hello #{testpath}/got/hello"
     assert_equal "hello", (testpath/"got/hello").read
