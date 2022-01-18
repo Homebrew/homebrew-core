@@ -86,6 +86,14 @@ class VirtManager < Formula
   end
 
   test do
-    system "#{bin}/virt-manager", "-c", "test:///default", "--no-fork"
+    begin
+      pid = fork do
+        exec bin/"virt-manager", "-c", "test:///default", "--no-fork"
+      end
+      sleep 3
+    ensure
+      Process.kill("TERM", pid)
+      Process.wait(pid)
+    end
   end
 end
