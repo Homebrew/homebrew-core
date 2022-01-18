@@ -20,7 +20,7 @@ class Cweb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "42d15c7cbde3e6f2372aebbb46d8438fa32dfeb680a65f01c83148e939ce735a"
   end
 
-  conflicts_with "texlive", because: "both install `cweb` binaries"
+  conflicts_with "texlive-bin", because: "both install `cweb` binaries"
 
   def install
     ENV.deparallelize
