@@ -11,9 +11,9 @@ class Koka < Formula
   depends_on "vcpkg"
 
   def install
-    system "cabal", "new-update"
-    system "cabal", "new-build", "-j"
-    system "cabal", "new-run", "koka", "--",
+    system "cabal", "update"
+    system "cabal", "build", "-j"
+    system "cabal", "run", "koka", "--",
            "-e", "util/bundle.kk", "--",
            "--prefix=#{prefix}", "--install"
   end
