@@ -4,6 +4,7 @@ class Corsixth < Formula
   url "https://github.com/CorsixTH/CorsixTH/archive/v0.65.1.tar.gz"
   sha256 "b8a1503371fa0c0f3d07d3b39a3de2769b8ed25923d0d931b7075bc88e3f508f"
   license "MIT"
+  revision 1
   head "https://github.com/CorsixTH/CorsixTH.git", branch: "master"
 
   bottle do
@@ -18,11 +19,13 @@ class Corsixth < Formula
   depends_on "cmake" => :build
   depends_on "luarocks" => :build
   depends_on xcode: :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "freetype"
   depends_on "lua"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "lpeg" do
     url "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.2.tar.gz"
