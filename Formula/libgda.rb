@@ -24,6 +24,12 @@ class Libgda < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
+
   def install
     # this build uses the sqlite source code that comes with libgda,
     # as opposed to using the system or brewed sqlite3, which is not supported on macOS,
