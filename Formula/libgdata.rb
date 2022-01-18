@@ -23,11 +23,16 @@ class Libgdata < Formula
   depends_on "json-glib"
   depends_on "liboauth"
   depends_on "libsoup@2"
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
     ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
+
+    curl_lib = OS.mac? ? MacOS.sdk_path_if_needed/"usr/lib" : Formula["curl"].opt_lib
+    ENV.append "LDFLAGS", "-L#{curl_lib} -lcurl"
 
     mkdir "build" do
       system "meson", *std_meson_args,
@@ -59,6 +64,8 @@ class Libgdata < Formula
     json_glib = Formula["json-glib"]
     liboauth = Formula["liboauth"]
     libsoup = Formula["libsoup@2"]
+    libxml2_prefix = OS.mac? ? MacOS.sdk_path_if_needed/"usr" : Formula["libxml2"].opt_prefix
+    curl_lib = OS.mac? ? MacOS.sdk_path_if_needed/"usr/lib" : Formula["curl"].opt_lib
     flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
@@ -67,12 +74,13 @@ class Libgdata < Formula
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{liboauth.opt_include}
       -I#{libsoup.opt_include}/libsoup-2.4
-      -I#{MacOS.sdk_path}/usr/include/libxml2
+      -I#{libxml2_prefix}/include/libxml2
       -D_REENTRANT
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
       -L#{json_glib.opt_lib}
       -L#{libsoup.opt_lib}
+      -L#{curl_lib}
       -L#{lib}
       -lgdata
       -lgio-2.0
@@ -82,6 +90,7 @@ class Libgdata < Formula
       -ljson-glib-1.0
       -lsoup-2.4
       -lxml2
+      -lcurl
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
