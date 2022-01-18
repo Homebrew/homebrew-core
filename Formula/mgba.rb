@@ -4,6 +4,7 @@ class Mgba < Formula
   url "https://github.com/mgba-emu/mgba/archive/0.9.3.tar.gz"
   sha256 "692ff0ac50e18380df0ff3ee83071f9926715200d0dceedd9d16a028a59537a0"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/mgba-emu/mgba.git", branch: "master"
 
   livecheck do
@@ -20,12 +21,14 @@ class Mgba < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "libepoxy"
   depends_on "libpng"
   depends_on "libzip"
   depends_on "qt@5"
   depends_on "sdl2"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     # Install .app bundle into prefix, not prefix/Applications
