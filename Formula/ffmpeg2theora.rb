@@ -3,7 +3,7 @@ class Ffmpeg2theora < Formula
   homepage "https://v2v.cc/~j/ffmpeg2theora/"
   url "https://v2v.cc/~j/ffmpeg2theora/downloads/ffmpeg2theora-0.30.tar.bz2"
   sha256 "4f6464b444acab5d778e0a3359d836e0867a3dcec4ad8f1cdcf87cb711ccc6df"
-  revision 9
+  revision 10
   head "https://gitlab.xiph.org/xiph/ffmpeg2theora.git", branch: "master"
 
   livecheck do
@@ -22,11 +22,13 @@ class Ffmpeg2theora < Formula
 
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "libkate"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "theora"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   # Use python3 print()
   patch do
