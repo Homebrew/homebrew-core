@@ -1,8 +1,8 @@
 class AwsVault < Formula
   desc "Securely store and access AWS credentials in development environments"
   homepage "https://github.com/99designs/aws-vault"
-  url "https://github.com/99designs/aws-vault/archive/v6.3.1.tar.gz"
-  sha256 "433df90b7ed1cf1ec08aa75a4f1f993edfe5fa3fecfff5519574613ab0ab4630"
+  url "https://github.com/99designs/aws-vault/archive/v6.4.0.tar.gz"
+  sha256 "28845a2191e9f777d78151308b883fc7db4475a1c1df80ff24d13ced948a8f96"
   license "MIT"
 
   bottle do
@@ -20,7 +20,7 @@ class AwsVault < Formula
   def install
     # Remove this line because we don't have a certificate to code sign with
     inreplace "Makefile",
-      "codesign --options runtime --timestamp --sign \"$(CERT_ID)\" $(INSTALL_DIR)/aws-vault || true", ""
+      "codesign --options runtime --timestamp --sign \"$(CERT_ID)\" $@", ""
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
 
