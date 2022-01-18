@@ -50,7 +50,7 @@ class Lilypond < Formula
   depends_on "pkg-config" => :build
   depends_on "t1utils" => :build
   depends_on "texinfo" => :build # makeinfo >= 6.1 is required
-  depends_on "texlive" => :build
+  depends_on "texlive-texmf" => :build
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "ghostscript"
@@ -66,7 +66,7 @@ class Lilypond < Formula
     system "./configure",
             "--prefix=#{prefix}",
             "--datadir=#{share}",
-            "--with-texgyre-dir=#{Formula["texlive"].opt_share}/texmf-dist/fonts/opentype/public/tex-gyre",
+            "--with-texgyre-dir=#{Formula["texlive-bin"].opt_share}/texmf-dist/fonts/opentype/public/tex-gyre",
             "--disable-documentation"
     ENV.prepend_path "LTDL_LIBRARY_PATH", Formula["guile@2"].opt_lib
     system "make"
