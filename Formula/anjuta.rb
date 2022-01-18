@@ -3,6 +3,7 @@ class Anjuta < Formula
   homepage "http://anjuta.org"
   url "https://download.gnome.org/sources/anjuta/3.34/anjuta-3.34.0.tar.xz"
   sha256 "42a93130ed3ee02d064a7094e94e1ffae2032b3f35a87bf441e37fc3bb3a148f"
+  license "GPL-2.0-or-later"
   revision 4
 
   bottle do
@@ -30,14 +31,16 @@ class Anjuta < Formula
   depends_on "vte3"
 
   def install
+    ENV["PYTHON"] = which("python3")
+    ENV.append "LDFLAGS", "-Wl,-undefined,dynamic_lookup" if OS.mac?
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--disable-schemas-compile"
 
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages("python3")
     system "make", "install"
   end
 
