@@ -144,6 +144,7 @@
   "tomee-jax-rs": "tomee-plus",
   "transfig": "fig2dev",
   "transmission": "transmission-cli",
+  "texlive": "texlive-bin",
   "usbmuxd": "libusbmuxd",
   "v8-315": "v8@3.15",
   "weboob": "woob",

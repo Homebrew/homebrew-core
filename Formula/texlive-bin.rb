@@ -1,4 +1,4 @@
-class Texlive < Formula
+class TexliveBin < Formula
   include Language::Python::Shebang
   include Language::Python::Virtualenv
 
