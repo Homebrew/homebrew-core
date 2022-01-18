@@ -4,6 +4,7 @@ class Scrcpy < Formula
   url "https://github.com/Genymobile/scrcpy/archive/v1.22.tar.gz"
   sha256 "96af955957f354cca78971be0fb54dfbd86a5b520f98a2563d3f0b0a54f4ec5a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "26a7dade69f3af308367c8adda381e1a6c1b130c4ebbffccac7334a9d2337bba"
@@ -17,7 +18,7 @@ class Scrcpy < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "sdl2"
 
   on_linux do
