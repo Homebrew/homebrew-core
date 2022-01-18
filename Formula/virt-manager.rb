@@ -60,29 +60,29 @@ class VirtManager < Formula
     venv.pip_install resources
 
     # virt-manager uses distutils, doesn't like --single-version-externally-managed
-    system "#{libexec}/bin/python", "setup.py",
-                     "configure",
-                     "--prefix=#{libexec}"
-    system "#{libexec}/bin/python", "setup.py",
+    system libexec/"bin/python", "setup.py",
+                   "configure",
+                   "--prefix=#{libexec}"
+    system libexec/"bin/python", "setup.py",
                      "--no-user-cfg",
                      "--no-update-icon-cache",
                      "--no-compile-schemas",
                      "install"
 
     # install virt-manager commands with PATH set to Python virtualenv environment
-    bin.install Dir[libexec/"bin/virt-*"]
+    bin.install libexec.glob("bin/virt-*")
     bin.env_script_all_files(libexec/"bin", PATH: "#{libexec}/bin:$PATH")
 
-    share.install Dir[libexec/"share/man"]
-    share.install Dir[libexec/"share/glib-2.0"]
-    share.install Dir[libexec/"share/icons"]
+    share.install libexec/"share/man"
+    share.install libexec/"share/glib-2.0"
+    share.install libexec/"share/icons"
   end
 
   def post_install
     # manual schema compile step
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
+    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
     # manual icon cache update step
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", HOMEBREW_PREFIX/"share/icons/hicolor"
   end
 
   test do
