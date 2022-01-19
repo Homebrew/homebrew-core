@@ -18,8 +18,8 @@ class Libosmium < Formula
   uses_from_macos "zlib"
 
   resource "protozero" do
-    url "https://github.com/mapbox/protozero/archive/v1.7.0.tar.gz"
-    sha256 "beffbdfab060854fd770178a8db9c028b5b6ee4a059a2fed82c46390a85f3f31"
+    url "https://github.com/mapbox/protozero/archive/v1.7.1.tar.gz"
+    sha256 "27e0017d5b3ba06d646a3ec6391d5ccc8500db821be480aefd2e4ddc3de5ff99"
   end
 
   def install
