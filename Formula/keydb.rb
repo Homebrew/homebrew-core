@@ -20,13 +20,6 @@ class Keydb < Formula
     depends_on "util-linux"
   end
 
-  # Fix build on macOS (https://github.com/EQ-Alpha/KeyDB/issues/384)
-  # Patch accepted upstream, remove on next release
-  patch do
-    url "https://github.com/EQ-Alpha/KeyDB/commit/7a32ec39fdb738e9c3cd2b73ee18355ced793a65.patch?full_index=1"
-    sha256 "06d29f24ff08032f3c211f1c322ba50f64dda9d40fbbe914ce16d8553fd68870"
-  end
-
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
