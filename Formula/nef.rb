@@ -13,11 +13,10 @@ class Nef < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "770c78fd20020f2a5fa6fc30759d55af95e7aabab81f91680b6113917bdc2457"
   end
 
-  depends_on xcode: "11.4"
+  depends_on :macos
+  depends_on xcode: "13.1"
 
   def install
-    inreplace "Makefile", "$(MAKE) bash", ""
-    inreplace "Makefile", "$(MAKE) zsh", ""
     system "make", "install", "prefix=#{prefix}", "version=#{version}"
   end
 
