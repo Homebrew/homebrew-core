@@ -1,8 +1,8 @@
 class Verilator < Formula
   desc "Verilog simulator"
   homepage "https://www.veripool.org/wiki/verilator"
-  url "https://github.com/verilator/verilator/archive/refs/tags/v4.216.tar.gz"
-  sha256 "64e5093b629a7e96178e3b2494f208955f218dfac6f310a91e4fc07d050c980b"
+  url "https://github.com/verilator/verilator/archive/refs/tags/v4.218.tar.gz"
+  sha256 "ef7b1e6ddb715ddb3cc998fcbefc7150cfa2efc5118cf43ddb594bf41ea41cc7"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
 
   bottle do
@@ -21,7 +21,6 @@ class Verilator < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "python@3.10" => :build
-  depends_on "cmake" => :test
 
   uses_from_macos "bison"
   uses_from_macos "flex"
@@ -54,16 +53,9 @@ class Verilator < Formula
           exit(0);
       }
     EOS
-    (testpath/"CMakeLists.txt").write <<~EOS
-      project(test)
-      cmake_minimum_required(VERSION 3.12)
-      find_package(verilator)
-      add_executable(Vtest test.cpp)
-      verilate(Vtest SOURCES test.v)
-    EOS
-    system "cmake", "-B", "build", "."
-    system "cmake", "--build", "build", "--"
-    cd "build" do
+    system "/usr/bin/perl", bin/"verilator", "-Wall", "--cc", "test.v", "--exe", "test.cpp"
+    cd "obj_dir" do
+      system "make", "-j", "-f", "Vtest.mk", "Vtest"
       expected = <<~EOS
         Hello World
         - test.v:2: Verilog $finish
