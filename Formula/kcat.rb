@@ -2,8 +2,8 @@ class Kcat < Formula
   desc "Generic command-line non-JVM Apache Kafka producer and consumer"
   homepage "https://github.com/edenhill/kcat"
   url "https://github.com/edenhill/kcat.git",
-      tag:      "1.7.0",
-      revision: "f2236ae5d985b9f31631b076df24ca6c33542e61"
+      tag:      "1.7.1",
+      revision: "9ca33cdbb8cb1f762d118ef76f96711125ccb091"
   license "BSD-2-Clause"
   head "https://github.com/edenhill/kcat.git", branch: "master"
 
