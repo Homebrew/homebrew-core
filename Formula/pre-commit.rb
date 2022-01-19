@@ -66,14 +66,6 @@ class PreCommit < Formula
   end
 
   def install
-    # Point hook shebang to virtualenv Python.
-    # The global one also works - but may be keg-only.
-    # A full path can also move around if we use versioned formulae.
-    # Git hooks should only have to be installed once and never need changing.
-    inreplace "pre_commit/commands/install_uninstall.py",
-              "f'#!/usr/bin/env {py}'",
-              "'#!#{opt_libexec}/bin/python3'"
-
     # Avoid Cellar path reference, which is only good for one version.
     inreplace "pre_commit/commands/install_uninstall.py",
               "f'INSTALL_PYTHON={shlex.quote(sys.executable)}\\n'",
