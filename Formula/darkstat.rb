@@ -1,13 +1,10 @@
 class Darkstat < Formula
   desc "Network traffic analyzer"
   homepage "https://unix4lyfe.org/darkstat/"
-  url "https://unix4lyfe.org/darkstat/darkstat-3.0.719.tar.bz2"
-  sha256 "aeaf909585f7f43dc032a75328fdb62114e58405b06a92a13c0d3653236dedd7"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?darkstat[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  url "https://github.com/emikulic/darkstat/archive/3.0.721.tar.gz"
+  sha256 "0b405a6c011240f577559d84db22684a6349b25067c3a800df12439783c25494"
+  license all_of: ["BSD-4-Clause-UC", "GPL-2.0-only", "GPL-3.0-or-later", "X11"]
+  head "https://github.com/emikulic/darkstat.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -22,11 +19,8 @@ class Darkstat < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "4e67244fc36d17dbdbe9ae33cc38bd79d2e016eeed0139c164d323e89b15c15e"
   end
 
-  head do
-    url "https://www.unix4lyfe.org/git/darkstat", using: :git
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   # Patch reported to upstream on 2017-10-08
   # Work around `redefinition of clockid_t` issue on 10.12 SDK or newer
@@ -36,7 +30,7 @@ class Darkstat < Formula
   end
 
   def install
-    system "autoreconf", "-iv" if build.head?
+    system "autoreconf", "-iv"
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "install"
   end
