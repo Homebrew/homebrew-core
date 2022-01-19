@@ -3,8 +3,8 @@ class AwsSsoUtil < Formula
 
   desc "Smooth out the rough edges of AWS SSO (temporarily, until AWS makes it better)"
   homepage "https://github.com/benkehoe/aws-sso-util"
-  url "https://files.pythonhosted.org/packages/74/05/b89d999b662d955ff362ebdf9a4494bd0966deaa689ef65f5fbbf175febc/aws-sso-util-4.26.0.tar.gz"
-  sha256 "10a5b6919b8931f83217968758528880aeee6059f65cebf4e4ed926294129c89"
+  url "https://files.pythonhosted.org/packages/96/af/4605e5ab4f0979aa1678c65a39a35164d683706d5fe889d8af951034027b/aws-sso-util-4.27.0.tar.gz"
+  sha256 "7fb9a9eeab36b0731489c7927d20419b7daf98e2687105dc3606b62a3f45a939"
   license "Apache-2.0"
   head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
 
@@ -31,23 +31,23 @@ class AwsSsoUtil < Formula
   end
 
   resource "aws-error-utils" do
-    url "https://files.pythonhosted.org/packages/d6/a5/4b1213a8789314adb4a6d465fd77aec32f12bb2fedaa197525cbd4aedd32/aws-error-utils-1.2.0.tar.gz"
-    sha256 "164f2a5bdd69c4cecc647d6e080c21243472c44c4d3caba15908f69d7fcfe16b"
+    url "https://files.pythonhosted.org/packages/4e/7b/622c18e41b17935ac72f4f7b8775e18fe6dd6ecca0d1068fd95f5cbd91f9/aws-error-utils-1.3.0.tar.gz"
+    sha256 "188159a8897552408dc3545aed55b49a12532cbde841aad0490e2b93a1275cfc"
   end
 
   resource "aws-sso-lib" do
-    url "https://files.pythonhosted.org/packages/5a/07/ec48f0a588325450d3bf9592a482477063de01eaf8150c6aa8e45a667a7d/aws-sso-lib-1.9.0.tar.gz"
-    sha256 "d278c7ca3adb0dc1e4ea05c24621ff109786d771928950e939d0285d040036f3"
+    url "https://files.pythonhosted.org/packages/d4/14/31dff409363cc243eb5407ebe7fa71e8cc6ddc5c90e3708898adb3c98d19/aws-sso-lib-1.10.0.tar.gz"
+    sha256 "2f4e2d10c85286598bab665d8c64dcf8dd3f958fb87dcc9a51967605cf9761ec"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ef/9c/8ad10de7177dec675a25397ffe922be9d9f42d35483ed1b983b8af4c810a/boto3-1.20.31.tar.gz"
-    sha256 "3003d64ebef678b89a9909d2df3836160c7cbad5cbfe6c995a61de0875b36237"
+    url "https://files.pythonhosted.org/packages/72/4c/e3dab7ff6795f43a8b50581b805815ca94c3714fc2dfe54ebc8852d6748b/boto3-1.20.38.tar.gz"
+    sha256 "edeae6d38c98691cb9da187c541f3033e0f30d6b2a0b54b5399a44d9b3ba4f61"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/4b/81/e94b2fce65006f17b46e9f87ae09dd5a69578b4b807d0d2f862958b962d5/botocore-1.23.31.tar.gz"
-    sha256 "bb34fa60ab894f9a4a1f7de36e32a68ce17f302108f83732c3ca99c7da2bf68c"
+    url "https://files.pythonhosted.org/packages/f7/d9/cac2d315df95037cfbb5ce14146ea61c4687b4ab65cd9630b32dcfb00b7c/botocore-1.23.38.tar.gz"
+    sha256 "f733bc565f144f0ec97ffe0d51235d358ad2f5f12b331563b69d9e9227262a36"
   end
 
   resource "certifi" do
@@ -81,8 +81,8 @@ class AwsSsoUtil < Formula
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/f4/d7/0fa558c4fb00f15aabc6d42d365fcca7a15fcc1091cd0f5784a14f390b7f/pyrsistent-0.18.0.tar.gz"
-    sha256 "773c781216f8c2900b42a7b638d5b517bb134ae1acbebe4d1e8f1f41ea60eb4b"
+    url "https://files.pythonhosted.org/packages/42/ac/455fdc7294acc4d4154b904e80d964cc9aae75b087bbf486be04df9f2abd/pyrsistent-0.18.1.tar.gz"
+    sha256 "d4d61f8b993a7255ba714df3aca52700f8125289f84f704cf80916517c46eb96"
   end
 
   resource "python-dateutil" do
