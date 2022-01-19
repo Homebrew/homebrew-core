@@ -3,6 +3,14 @@ class Ipinfo < Formula
   homepage "https://kyberdigi.cz/projects/ipinfo/"
   url "https://kyberdigi.cz/projects/ipinfo/files/ipinfo-1.2.tar.gz"
   sha256 "19e6659f781a48b56062a5527ff463a29c4dcc37624fab912d1dce037b1ddf2d"
+  license "Beerware"
+
+  # The content of the download page is generated using JavaScript and software
+  # versions are the first string in certain array literals in the page source.
+  livecheck do
+    url :homepage
+    regex(/(?:new Array\(|\[)["']v?(\d+(?:\.\d+)+)["'],/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e36096abf98dc91542e89ef61e240b9470d7b4203d721f18d9e0021a0bc373e8"
