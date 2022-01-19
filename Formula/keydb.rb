@@ -1,8 +1,8 @@
 class Keydb < Formula
   desc "Multithreaded fork of Redis"
   homepage "https://keydb.dev"
-  url "https://github.com/EQ-Alpha/KeyDB/archive/v6.2.1.tar.gz"
-  sha256 "9376b5e14f317840cfd05fee06467e6ad7612e32da98bcb8991f5674d61d550b"
+  url "https://github.com/EQ-Alpha/KeyDB/archive/v6.2.2.tar.gz"
+  sha256 "e65eea13500c30c65f705121b67cffeb3551a1c7cc7d07b60fe6191acd4dec58"
   license "BSD-3-Clause"
 
   bottle do
