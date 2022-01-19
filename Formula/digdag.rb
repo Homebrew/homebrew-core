@@ -1,8 +1,8 @@
 class Digdag < Formula
   desc "Workload Automation System"
   homepage "https://www.digdag.io/"
-  url "https://dl.digdag.io/digdag-0.10.3.jar"
-  sha256 "200911b6a35a3d8b40e25f028753fb9652aeb19dbd05b8f950dc35ff69547c34"
+  url "https://dl.digdag.io/digdag-0.10.4.jar"
+  sha256 "2020fa9395e74e14fdf4ada93bff0684dcea64f564788afd6a3ecc54e3bbd4bf"
   license "Apache-2.0"
 
   livecheck do
