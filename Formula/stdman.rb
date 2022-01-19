@@ -1,5 +1,5 @@
 class Stdman < Formula
-  desc "Formatted C++ language & standard library man pages from cppreference.com"
+  desc "Formatted C++ stdlib man pages from cppreference.com"
   homepage "https://github.com/jeaye/stdman"
   url "https://github.com/jeaye/stdman/archive/2021.12.21.tar.gz"
   sha256 "5cfea407f0cd6da0c66396814cafc57504e90df518b7c9fa3748edd5cfdd08e3"
