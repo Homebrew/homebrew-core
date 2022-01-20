@@ -27,7 +27,20 @@ class ScIm < Formula
   uses_from_macos "bison" => :build
 
   def install
+    # Enable plotting with `gnuplot` if available.
+    ENV.append_to_cflags "-DGNUPLOT"
+
     cd "src" do
+      inreplace "Makefile" do |s|
+        # Increase `MAXROWS` to the maximum possible value.
+        # This is the same limit that Microsoft Excel has.
+        s.gsub! "MAXROWS=65536", "MAXROWS=1048576"
+        if OS.mac?
+          # Use `pbcopy` and `pbpaste` as the default clipboard commands.
+          s.gsub!(/^CFLAGS.*(xclip|tmux).*/, "#\\0")
+          s.gsub!(/^#(CFLAGS.*pb(copy|paste).*)$/, "\\1")
+        end
+      end
       system "make", "prefix=#{prefix}"
       system "make", "prefix=#{prefix}", "install"
     end
