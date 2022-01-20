@@ -4,6 +4,7 @@ class Botan < Formula
   url "https://botan.randombit.net/releases/Botan-2.19.1.tar.xz"
   sha256 "e26e00cfefda64082afdd540d3c537924f645d6a674afed2cd171005deff5560"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/randombit/botan.git", branch: "master"
 
   livecheck do
@@ -21,6 +22,7 @@ class Botan < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "openssl@1.1"
   depends_on "python@3.10"
   depends_on "sqlite"
 
@@ -34,14 +36,13 @@ class Botan < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
-
     args = %W[
       --prefix=#{prefix}
       --docdir=share/doc
       --with-zlib
       --with-bzip2
       --with-sqlite3
+      --with-openssl
     ]
 
     system "python3", "configure.py", *args
