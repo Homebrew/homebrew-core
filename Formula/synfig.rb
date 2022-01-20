@@ -5,6 +5,7 @@ class Synfig < Formula
   mirror "https://github.com/synfig/synfig/releases/download/v1.4.2/synfig-1.4.2.tar.gz"
   sha256 "e66688b908ab2f05f87cc5a364f958a1351f101ccab3b3ade33a926453002f4e"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://svn.code.sf.net/p/synfig/code/"
 
   livecheck do
@@ -34,6 +35,11 @@ class Synfig < Formula
   depends_on "mlt"
   depends_on "openexr"
   depends_on "pango"
+
+  on_linux do
+    depends_on "gcc"
+  end
+  fails_with gcc: "5"
 
   def install
     ENV.cxx11
