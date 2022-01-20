@@ -2,7 +2,7 @@ class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
   homepage "https://openmesh.org/"
   url "https://www.openmesh.org/media/Releases/9.0/OpenMesh-9.0.tar.bz2"
-  sha256 "76232d86ba7cffe7bf663960ff89f50ab822a0c204ed5e936f1490cf952b59df"
+  sha256 "69311a75b6060993b07fef005b328ea62178c13fbb0c44773874137231510218"
   license "BSD-3-Clause"
   head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git", branch: "master"
 
