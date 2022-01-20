@@ -4,8 +4,8 @@ class V8 < Formula
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
   # revert back to GitHub mirror tar.gz archives once it's synced again
   url "https://chromium.googlesource.com/v8/v8.git",
-      tag:      "9.7.106.18",
-      revision: "96e2674d6126c2ae64d44024aaa7968c853ac4a2"
+      tag:      "9.7.106.19",
+      revision: "41de66111ed4ab6aec3d798a2ded2c1b730dcb71"
   license "BSD-3-Clause"
 
   livecheck do
@@ -39,13 +39,13 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.7.106.18/DEPS#43
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.7.106.19/DEPS#43
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
         revision: "8926696a4186279489cc2b8d768533e61bba73d7"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.7.106.18/DEPS#84
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.7.106.19/DEPS#84
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
         revision: "7f36dbc19d31e2aad895c60261ca8f726442bfbb"
