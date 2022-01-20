@@ -1,10 +1,10 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
-  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.0.tgz"
-  mirror "http://fresh-center.net/linux/misc/openldap-2.6.0.tgz"
-  mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.0.tgz"
-  sha256 "b71c580eac573e9aba15d95f33dd4dd08f2ed4f0d7fc09e08ad4be7ed1e41a4f"
+  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.1.tgz"
+  mirror "http://fresh-center.net/linux/misc/openldap-2.6.1.tgz"
+  mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.1.tgz"
+  sha256 "9d576ea6962d7db8a2e2808574e8c257c15aef55f403a1fb5a0faf35de70e6f3"
   license "OLDAP-2.8"
 
   livecheck do
