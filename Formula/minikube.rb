@@ -2,8 +2,8 @@ class Minikube < Formula
   desc "Run a Kubernetes cluster locally"
   homepage "https://minikube.sigs.k8s.io/"
   url "https://github.com/kubernetes/minikube.git",
-      tag:      "v1.24.0",
-      revision: "76b94fb3c4e8ac5062daf70d60cf03ddcc0a741b"
+      tag:      "v1.25.0",
+      revision: "3edf4801f38f3916c9ff96af4284df905a347c86"
   license "Apache-2.0"
   head "https://github.com/kubernetes/minikube.git", branch: "master"
 
@@ -24,13 +24,13 @@ class Minikube < Formula
     system "make"
     bin.install "out/minikube"
 
-    output = Utils.safe_popen_read("#{bin}/minikube", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"minikube", "completion", "bash")
     (bash_completion/"minikube").write output
 
-    output = Utils.safe_popen_read("#{bin}/minikube", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"minikube", "completion", "zsh")
     (zsh_completion/"_minikube").write output
 
-    output = Utils.safe_popen_read("#{bin}/minikube", "completion", "fish")
+    output = Utils.safe_popen_read(bin/"minikube", "completion", "fish")
     (fish_completion/"minikube.fish").write output
   end
 
