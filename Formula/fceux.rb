@@ -5,6 +5,7 @@ class Fceux < Formula
       tag:      "fceux-2.6.1",
       revision: "7173d283c3a12f634ad5189c5a90ff495e1d266a"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   bottle do
@@ -21,6 +22,11 @@ class Fceux < Formula
   depends_on "qt@5"
   depends_on "sdl2"
   depends_on "x264"
+
+  on_linux do
+    depends_on "gcc"
+  end
+  fails_with gcc: "5"
 
   def install
     ENV["CXXFLAGS"] = "-DPUBLIC_RELEASE=1" if build.stable?
