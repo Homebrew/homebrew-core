@@ -17,6 +17,8 @@ class Juliaup < Formula
 
   depends_on "rust" => :build
 
+  conflicts_with "julia", because: "both install `julia` binaries"
+
   def install
     system "cargo", "install", *std_cargo_args
   end
