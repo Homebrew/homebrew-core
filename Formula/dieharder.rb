@@ -26,7 +26,8 @@ class Dieharder < Formula
   # and with brewed curl on macOS (`curl: (60) SSL certificate problem: unable
   # to get local issuer certificate`). We may be able to revert this deprecation
   # if this issue is fixed on the upstream server in the future.
-  deprecate! date: "2022-01-17", because: "uses an upstream server with an incomplete SSL certificate chain"
+  # Original deprecation date: 2022-01-19
+  disable! date: "2022-01-20", because: "uses an upstream server with an incomplete SSL certificate chain"
 
   depends_on "gsl"
 
