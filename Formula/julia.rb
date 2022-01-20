@@ -79,6 +79,8 @@ class Julia < Formula
     depends_on "libunwind"
   end
 
+  conflicts_with "juliaup", because: "both install `julia` binaries"
+
   fails_with gcc: "5"
 
   # Fix segfaults with Curl 7.81. We need to patch the contents of a tarball, so this can't be a `patch` block.
