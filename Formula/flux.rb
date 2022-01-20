@@ -2,8 +2,8 @@ class Flux < Formula
   desc "Lightweight scripting language for querying databases"
   homepage "https://www.influxdata.com/products/flux/"
   url "https://github.com/influxdata/flux.git",
-      tag:      "v0.149.0",
-      revision: "e401eeca8585c09974e33b6f3c0c0aa2475a8b97"
+      tag:      "v0.150.1",
+      revision: "7da5c2d32884577f449ca6629e33d8ec720918bd"
   license "MIT"
   head "https://github.com/influxdata/flux.git", branch: "master"
 
@@ -31,8 +31,8 @@ class Flux < Formula
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/v0.2.10.tar.gz"
-    sha256 "460b389eeccf5e2e073ba3c77c04e19181e25e67e55891c75d6a46de811f60ce"
+    url "https://github.com/influxdata/pkg-config/archive/v0.2.11.tar.gz"
+    sha256 "52b22c151163dfb051fd44e7d103fc4cde6ae8ff852ffc13adeef19d21c36682"
   end
 
   def install
