@@ -28,7 +28,6 @@ jobs:
       testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
       added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
       deleted_formulae: ${{ steps.formulae-detect.outputs.deleted_formulae }}
-      long_pr_count: ${{ steps.count_long_timeout_prs.outputs.count }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -54,17 +53,24 @@ jobs:
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
     steps:
-      - name: Show GraphQL Query Response Headers
-        if: ${{ github.event_name == 'pull_request' }}
+      - name: Count 'CI-long-timeout' labels
+        id: count_long_timeout_prs
         run: |
-          QUERY='query{ repository(owner:\"Homebrew\", name:\"homebrew-core\") { pullRequests(last: 100, states: OPEN, labels: [\"CI-long-timeout\"]) { totalCount } } }'
-          curl \
-            --include \
-            --header 'Content-Type: application/json' \
-            --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-            --request POST \
-            --data "{ \"query\": \"$QUERY\" }" \
-            https://api.github.com/graphql
+          OWNER='${{ github.repository_owner }}'
+          REPO_NAME="$(echo '${{ github.repository }}' | cut -f 2 -d '/')"
+          LABEL='CI-long-timeout'
+          QUERY="query { repository(owner:\\\"${OWNER}\\\", name:\\\"${REPO_NAME}\\\") { pullRequests(last: 100, states: OPEN, labels: [\\\"${LABEL}\\\"]) { totalCount } } }"
+
+          JQ_FILTER='.data.repository.pullRequests.totalCount'
+          RESPONSE="$(curl \
+                        --header 'Content-Type: application/json' \
+                        --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+                        --request POST \
+                        --data "{ \"query\": \"${QUERY}\" }" \
+                        '${{ github.graphql_url }}' |
+                          jq "${JQ_FILTER}")"
+
+          echo "::set-output name=count::${RESPONSE}"
 
       - name: Check for CI labels
         id: check-labels
@@ -110,28 +116,7 @@ jobs:
             }
 
             if (label_names.includes('CI-long-timeout')) {
-              const labelCountQuery = `query($owner:String!, $name:String!, $label:String!) {
-                repository(owner:$owner, name:$name) {
-                  pullRequests(last: 100, states: OPEN, labels: [$label]) {
-                    totalCount
-                  }
-                }
-              }`;
-              var long_pr_count;
-              try {
-                const response = await github.graphql(
-                  labelCountQuery, {
-                    owner: context.repo.owner,
-                    name: context.repo.repo,
-                    label: 'CI-long-timeout'
-                  }
-                )
-                long_pr_count = response.data.repository.pullRequests.totalCount
-              } catch (error) {
-                // The GitHub API query errored, so fail open and assume 0 long PRs.
-                long_pr_count = 0
-                core.warning('CI-long-timeout label count query failed. Assuming no long PRs.')
-              }
+              const long_pr_count = ${{ steps.count_long_timeout_prs.outputs.count }};
               const maximum_long_pr_count = 2
               if (long_pr_count > maximum_long_pr_count) {
                 core.setFailed(`Too many pull requests (${long_pr_count}) with the long-timeout label!`)
