@@ -35,12 +35,6 @@ class Openldap < Formula
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
-  # Fix https://bugs.openldap.org/show_bug.cgi?id=9733, remove in next release
-  patch do
-    url "https://git.openldap.org/openldap/openldap/-/commit/eb989be4081cf996bd7e7eb6a529bbc1dc483a59.patch"
-    sha256 "d083c2ca7c0ec5c211df53a98ffb02e1ba926abf108bbe4d88550fa6064536a4"
-  end
-
   def install
     args = %W[
       --disable-dependency-tracking
