@@ -1,9 +1,17 @@
 class Jsmin < Formula
   desc "Minify JavaScript code"
   homepage "https://www.crockford.com/javascript/jsmin.html"
-  url "https://github.com/douglascrockford/JSMin/archive/1bf6ce5f74a9f8752ac7f5d115b8d7ccb31cfe1b.tar.gz"
-  version "2013-03-29"
-  sha256 "aae127bf7291a7b2592f36599e5ed6c6423eac7abe0cd5992f82d6d46fe9ed2d"
+  url "https://github.com/douglascrockford/JSMin/archive/430bfe68dc0823d8c0f92c08d426e517cbc8de5e.tar.gz"
+  version "2019-10-30"
+  sha256 "24e3ad04979ace5d734e38b843f62f0dc832f94f5ba48642da31b4a33ccec9ac"
+  license "JSON"
+
+  # The GitHub repository doesn't contain any tags, so we have to check the
+  # date in the comment at the top of the `jsmin.c` file.
+  livecheck do
+    url "https://raw.githubusercontent.com/douglascrockford/JSMin/master/jsmin.c"
+    regex(/jsmin\.c\s*(\d{4}-\d{1,2}-\d{1,2})/im)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e471be3d192ef30727fd5f4091216cc04409092d9db4d0ecc89854a668c06afd"
