@@ -28,7 +28,6 @@ jobs:
       testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
       added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
       deleted_formulae: ${{ steps.formulae-detect.outputs.deleted_formulae }}
-      long_pr_count: ${{ steps.count_long_timeout_prs.outputs.count }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -54,18 +53,6 @@ jobs:
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
     steps:
-      - name: Show GraphQL Query Response Headers
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          QUERY='query{ repository(owner:\"Homebrew\", name:\"homebrew-core\") { pullRequests(last: 100, states: OPEN, labels: [\"CI-long-timeout\"]) { totalCount } } }'
-          curl \
-            --include \
-            --header 'Content-Type: application/json' \
-            --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-            --request POST \
-            --data "{ \"query\": \"$QUERY\" }" \
-            https://api.github.com/graphql
-
       - name: Check for CI labels
         id: check-labels
         uses: actions/github-script@v3
@@ -126,7 +113,7 @@ jobs:
                     label: 'CI-long-timeout'
                   }
                 )
-                long_pr_count = response.data.repository.pullRequests.totalCount
+                long_pr_count = response.repository.pullRequests.totalCount
               } catch (error) {
                 // The GitHub API query errored, so fail open and assume 0 long PRs.
                 long_pr_count = 0
