@@ -23,13 +23,6 @@ class GitlabRunner < Formula
 
   depends_on "go" => :build
 
-  # Remove patch for Go FD=0 bug (CVE-2021-44717), as go is already patched against this CVE.
-  # Remove during v14.7.0 update.
-  patch do
-    url "https://gitlab.com/gitlab-org/gitlab-runner/-/commit/99f7b8063024357389f07f1e977d280ec35195e1.diff"
-    sha256 "115eb6f9c02eaa05fea945d76a42ef5585cac7c5ee9938cab0183330401506a6"
-  end
-
   def install
     proj = "gitlab.com/gitlab-org/gitlab-runner"
     ldflags = %W[
