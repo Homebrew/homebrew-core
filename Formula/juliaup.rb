@@ -20,7 +20,10 @@ class Juliaup < Formula
   conflicts_with "julia", because: "both install `julia` binaries"
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--bin", "juliaup", *std_cargo_args
+    system "cargo", "install", "--bin", "julialauncher", *std_cargo_args
+
+    bin.install_symlink "julialauncher" => "julia"
   end
 
   test do
