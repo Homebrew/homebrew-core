@@ -6,6 +6,11 @@ class Arkade < Formula
       revision: "fda8a74d6a8ee80f135cdd6474ed2fdcb1ed3bcc"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "78ffbb8bdc72b0ab92f5100e841a693c71fdaf7ff18b726c18aa37c12addfc82"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "903dfb939042af9121395267dd58f539a6f3d4293a7c62f25eaf7d70da977eac"
