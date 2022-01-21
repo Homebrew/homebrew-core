@@ -16,6 +16,7 @@ class Lighthouse < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
+  depends_on "llvm" => :build
 
   uses_from_macos "zlib"
 
