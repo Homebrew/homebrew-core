@@ -33,6 +33,12 @@ class Botan < Formula
 
   fails_with gcc: "5"
 
+  # remove in next release
+  patch do
+    url "https://github.com/randombit/botan/commit/066b959fcb5142ff65a5e4750e5ccf262b2b0406.patch?full_index=1"
+    sha256 "387583139972747f8be86d197a16bedd9e3cd17bef587b06164a8453ea4f1044"
+  end
+
   def install
     ENV.cxx11
 
