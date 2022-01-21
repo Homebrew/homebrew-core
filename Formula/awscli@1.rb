@@ -82,7 +82,12 @@ class AwscliAT1 < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # setuptools>=60 prefers its own bundled distutils, which is incompatabile with docutils~=0.15
+    # Force the previous behavior of using distutils from the stdlib
+    # Remove when fixed upstream: https://github.com/aws/aws-cli/pull/6011
+    with_env(SETUPTOOLS_USE_DISTUTILS: "stdlib") do
+      virtualenv_install_with_resources
+    end
     pkgshare.install "awscli/examples"
 
     rm Dir["#{bin}/{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]
