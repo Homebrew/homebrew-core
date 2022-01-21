@@ -1,8 +1,8 @@
 class Gpsbabel < Formula
   desc "Converts/uploads GPS waypoints, tracks, and routes"
   homepage "https://www.gpsbabel.org/"
-  url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_7_0.tar.gz"
-  sha256 "30b186631fb43db576b8177385ed5c31a5a15c02a6bc07bae1e0d7af9058a797"
+  url "https://github.com/GPSBabel/gpsbabel/archive/gpsbabel_1_8_0.tar.gz"
+  sha256 "448379f0bf5f5e4514ed9ca8a1069b132f4d0e2ab350e2277e0166bf126b0832"
   license "GPL-2.0-or-later"
   revision 1
 
@@ -22,7 +22,7 @@ class Gpsbabel < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libusb"
-  depends_on "qt@5"
+  depends_on "qt"
   depends_on "shapelib"
 
   uses_from_macos "zlib"
@@ -32,12 +32,6 @@ class Gpsbabel < Formula
   end
 
   fails_with gcc: "5"
-
-  # upstream https://github.com/gpsbabel/gpsbabel/pull/611 added support for configuration of third party libraries.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8122e505c149fdb42132a18a9749f7b8c9940b77/gpsbabel/1.7.0.patch"
-    sha256 "8f6572aa8dc3a7b4db028bf75d952d97f7b47de278a91c3cc86bebed608be86a"
-  end
 
   def install
     ENV.cxx11
