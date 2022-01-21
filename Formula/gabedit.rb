@@ -6,7 +6,7 @@ class Gabedit < Formula
   sha256 "efcb00151af383f662d535a7a36a2b0ed2f14c420861a28807feaa9e938bff9e"
 
   # Consider switching back to checking SourceForge releases once we can alter
-  # the matched version from `250` to `2.5.1`.
+  # the matched version from `251` to `2.5.1`.
   livecheck do
     url "https://sites.google.com/site/allouchear/Home/gabedit/download"
     regex(/current stable version of gabedit is v?(\d+(?:\.\d+)+)/i)
