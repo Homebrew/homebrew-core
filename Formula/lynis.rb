@@ -1,14 +1,9 @@
 class Lynis < Formula
   desc "Security and system auditing tool to harden systems"
   homepage "https://cisofy.com/lynis/"
-  url "https://github.com/CISOfy/lynis/archive/3.0.6.tar.gz"
-  sha256 "584ed6f6fa9dedeea1b473d888a4fe92fa9716400284fe41c92aed09cf10ec3e"
+  url "https://github.com/CISOfy/lynis/archive/3.0.7.tar.gz"
+  sha256 "13cedb14b17f0fff6c0ae7cdcc0550a887975bb3da4db96b47b2caf41c1c143b"
   license "GPL-3.0-only"
-
-  livecheck do
-    url "https://cisofy.com/downloads/lynis/"
-    regex(%r{href=.*?/lynis[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fc0a9524b52fc385fe438af0ec82772adffd8eb80fe8e54207130cb2945b1102"
