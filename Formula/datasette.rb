@@ -2,8 +2,8 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/21/a5/4fa9454fbce20d2ddbffcecaac8621ea900fd7ff98d15983fda8b3a0d027/datasette-0.60.tar.gz"
-  sha256 "59e325aabd66340b83a5d48ffb37d14223a651ce6d2141810be1fa053b1adbbc"
+  url "https://files.pythonhosted.org/packages/f3/68/3fc960a20ed177fd6c0c07022b69354d31b1cbb05a2fb278dcde308c7986/datasette-0.60.1.tar.gz"
+  sha256 "4fd83e1351bed5279712d00b91cdee6376231c5421e07ac65ec5589d2cbaaa98"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git", branch: "main"
 
@@ -65,8 +65,8 @@ class Datasette < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/61/bf/867a16c12621a77bcd884259baae89fcb88aedf9361ce8b1860cbb07d7f6/httpcore-0.14.4.tar.gz"
-    sha256 "d4305811f604d3c2e22869147392f134796976ff946c96a8cfba87f4e0171d83"
+    url "https://files.pythonhosted.org/packages/73/17/1978fc33d5d46d510c711a403cd2704d83141ce3df25452c79a201ae60c2/httpcore-0.14.5.tar.gz"
+    sha256 "435ab519628a6e2393f67812dea3ca5c6ad23b457412cd119295d9f906d96a2b"
   end
 
   resource "httpx" do
@@ -160,8 +160,8 @@ class Datasette < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/b8/68/bdce2f0775162b3939991765588ae755796af6ecac4f5c3d020a92873dc6/uvicorn-0.16.0.tar.gz"
-    sha256 "eacb66afa65e0648fcbce5e746b135d09722231ffffc61883d4fac2b62fbea8d"
+    url "https://files.pythonhosted.org/packages/82/50/3c1ae075f624dbbd5beae39c55189e316f96b4175e5f62c4c946124cf1f5/uvicorn-0.17.0.tar.gz"
+    sha256 "192c2422b056a3beb512c6c260bf77a7a884204a4ae41856719c1913ead63bbb"
   end
 
   def install
