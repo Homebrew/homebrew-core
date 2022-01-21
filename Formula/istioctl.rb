@@ -32,24 +32,23 @@ class Istioctl < Formula
     ENV["HUB"] = "docker.io/istio"
     ENV["BUILD_WITH_CONTAINER"] = "0"
 
-    dirpath = if OS.linux?
-      "linux_amd64"
-    elsif Hardware::CPU.arm?
-      # Fix missing "amd64" for macOS ARM in istio/common/scripts/setup_env.sh
-      # Can remove when upstream adds logic to detect `$(uname -m) == "arm64"`
-      ENV["TARGET_ARCH"] = "arm64"
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
 
-      "darwin_arm64"
-    else
-      "darwin_amd64"
-    end
+    system "make", "istioctl"
+    bin.install "out/#{os}_#{arch}/istioctl"
 
-    system "make", "istioctl", "istioctl.completion"
-    cd "out/#{dirpath}" do
-      bin.install "istioctl"
-      bash_completion.install "release/istioctl.bash"
-      zsh_completion.install "release/_istioctl"
-    end
+    # Install bash completion
+    output = Utils.safe_popen_read(bin/"istioctl", "completion", "bash")
+    (bash_completion/"istioctl").write output
+
+    # Install zsh completion
+    output = Utils.safe_popen_read(bin/"istioctl", "completion", "zsh")
+    (zsh_completion/"_istioctl").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read(bin/"istioctl", "completion", "fish")
+    (fish_completion/"istioctl.fish").write output
   end
 
   test do
