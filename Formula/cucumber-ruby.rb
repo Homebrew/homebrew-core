@@ -5,6 +5,11 @@ class CucumberRuby < Formula
   sha256 "8eafa529f1c8793de09b550b68067af1f3d1b05e8eca798f5755d05ee0aacf8c"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256                               monterey:     "d6ff6562f6a7d518d4ed7ad5986a2f58f7331bfa87d67f03b35603e4cdcdf15d"
     sha256                               big_sur:      "a92759a27d110dd3884a8d421d7c507e3f0424afc5cc3994912ec57dfce1a47a"
