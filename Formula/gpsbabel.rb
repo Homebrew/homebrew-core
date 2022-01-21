@@ -4,7 +4,6 @@ class Gpsbabel < Formula
   url "https://github.com/GPSBabel/gpsbabel/archive/gpsbabel_1_8_0.tar.gz"
   sha256 "448379f0bf5f5e4514ed9ca8a1069b132f4d0e2ab350e2277e0166bf126b0832"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
