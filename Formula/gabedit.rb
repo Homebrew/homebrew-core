@@ -1,13 +1,12 @@
 class Gabedit < Formula
   desc "GUI to computational chemistry packages like Gamess-US, Gaussian, etc."
   homepage "https://gabedit.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/gabedit/gabedit/Gabedit250/GabeditSrc250.tar.gz"
-  version "2.5.0"
-  sha256 "45cdde213a09294bbf2df5f324ea11fc4c4045b3f9d58e4d67979e6f071c7689"
-  revision 2
+  url "https://downloads.sourceforge.net/projects/gabedit/files/gabedit/Gabedit251/GabeditSrc251.tar.gz"
+  version "2.5.1"
+  sha256 "efcb00151af383f662d535a7a36a2b0ed2f14c420861a28807feaa9e938bff9e"
 
   # Consider switching back to checking SourceForge releases once we can alter
-  # the matched version from `250` to `2.5.0`.
+  # the matched version from `250` to `2.5.1`.
   livecheck do
     url "https://sites.google.com/site/allouchear/Home/gabedit/download"
     regex(/current stable version of gabedit is v?(\d+(?:\.\d+)+)/i)
