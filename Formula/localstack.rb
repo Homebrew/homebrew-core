@@ -3,8 +3,8 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/88/a9/2cf25e15e01450cfc378194dfa3f53988fc937bdc4f78cc925e8a82f4ba5/localstack-0.13.3.1.tar.gz"
-  sha256 "56f90e6dc93bdff263187cb08625c93d5c94d51e274412b3320b31c56bbfecbd"
+  url "https://files.pythonhosted.org/packages/9c/51/21cad8ea8a489f989e256b8ad57876ea28ba061627e766027970057a6df2/localstack-0.13.3.3.tar.gz"
+  sha256 "3ff85544162f0a92371c65047ac3d89ed86a95c385bb3c846b237eb575a55e77"
   license "Apache-2.0"
 
   bottle do
@@ -26,13 +26,18 @@ class Localstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/06/24/319a8cef953b44e40a59b8aade91483342aff6691d10c7a775a7b3452ce3/boto3-1.20.37.tar.gz"
-    sha256 "0e2f8aa8ee71f144d8afbe9ff7d0bb40525b94535e0695bdb200687970c9f452"
+    url "https://files.pythonhosted.org/packages/7a/d3/60e2bb10ab79ad7bfa455797a436f510d1ef5058fd079e76f8ff46fa9eb4/boto3-1.20.40.tar.gz"
+    sha256 "66aef9a6d8cad393f69166112ba49e14e2c6766f9278c96134101314a9af2992"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/b2/be/36b3eb5168eb06cfb64be2c20e74dc6802da9aea8b77c39877a6e2885170/botocore-1.23.37.tar.gz"
-    sha256 "f3077f1ca19e6ab6b7a84c61e01e136a97c7732078a8d806908aee44f1042f5f"
+    url "https://files.pythonhosted.org/packages/12/95/974284900c269501df0372c196d9a2a3bb1845475f85125a1b0e0f632bbc/botocore-1.23.40.tar.gz"
+    sha256 "49baa1fca4483b24769f0743fbf72afe4db391f41f1fc12ea34e06036db642a4"
+  end
+
+  resource "cachetools" do
+    url "https://files.pythonhosted.org/packages/ae/37/7fd45996b19200e0cb2027a0b6bef4636951c4ea111bfad36c71287247f6/cachetools-3.1.1.tar.gz"
+    sha256 "8ea2d3ce97850f31e4a08b0e2b5e6c34997d7216a9d2c98e0f3978630d4da69a"
   end
 
   resource "certifi" do
@@ -71,13 +76,13 @@ class Localstack < Formula
   end
 
   resource "dnslib" do
-    url "https://files.pythonhosted.org/packages/ef/4f/9012c6bcd68a087df8d9438d59a9293c9b271e12c6e3b4c7f3eb9e34ea32/dnslib-0.9.18.tar.gz"
-    sha256 "71a60664e275b411e08d9807aaafd2ee897a872bed003d5c8fdf12f5818503da"
+    url "https://files.pythonhosted.org/packages/e1/96/5889c7fc3b55e727deae20d6a3157423f1355d3dac010c1f1c53dca017bd/dnslib-0.9.19.tar.gz"
+    sha256 "a6e36ca96c289e2cb4ac6aa05c037cbef318401ba8ff04a8676892ca79749c77"
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/13/27/5277de856f605f3429d752a39af3588e29d10181a3aa2e2ee471d817485a/dnspython-2.1.0.zip"
-    sha256 "e4a87f0b573201a0f3727fa18a516b055fd1107e0e5477cded4a2de497df1dd4"
+    url "https://files.pythonhosted.org/packages/84/f4/84eca79c279640671b8b7086ef1b97268c2b7ba17f7cfe0a19b466a6f95c/dnspython-2.2.0.tar.gz"
+    sha256 "e79351e032d0b606b98d38a4b0e6e2275b31a5b85c873e587cc11b73aca026d6"
   end
 
   resource "docker" do
@@ -106,8 +111,8 @@ class Localstack < Formula
   end
 
   resource "localstack-ext" do
-    url "https://files.pythonhosted.org/packages/b8/c6/e08a2f43cd507109e8f665c4e08a21cc69e793c27e8a23cf3bf3accb9c05/localstack-ext-0.13.3.3.tar.gz"
-    sha256 "ef6efe2496ab43c7ac8986466571a15eb7f2568831b227110433619f84069bf5"
+    url "https://files.pythonhosted.org/packages/16/55/504474aef04ce6c0cdaff6b16a3abfe0c07b136ed9b03c58c8fc6a4808a7/localstack-ext-0.13.3.6.tar.gz"
+    sha256 "0200a069c9ae635cf394d14ee0c601a162206fed215a26161438da24081da571"
   end
 
   resource "localstack-plugin-loader" do
