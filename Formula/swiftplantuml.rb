@@ -1,8 +1,8 @@
 class Swiftplantuml < Formula
   desc "Generate UML class diagrams from Swift sources"
   homepage "https://github.com/MarcoEidinger/SwiftPlantUML"
-  url "https://github.com/MarcoEidinger/SwiftPlantUML/archive/0.5.2.tar.gz"
-  sha256 "3c785f7f4095d40be9749e0bb717268a51015e4be0a44dc81e5d3e01902dbf7b"
+  url "https://github.com/MarcoEidinger/SwiftPlantUML/archive/0.6.0.tar.gz"
+  sha256 "139f9bdf69e11719448508830b59d00e5215b72408f39e5b5e5e7082d75bd646"
   license "MIT"
 
   bottle do
