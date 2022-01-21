@@ -6,6 +6,11 @@ class Juliaup < Formula
   license "MIT"
   head "https://github.com/JuliaLang/juliaup.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1ca0f2e8e6e98e45f0dd9647d7581c6f0b5cabca77576b39e895f4e62a4705db"
