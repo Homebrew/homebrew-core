@@ -4,6 +4,7 @@ class Aerc < Formula
   url "https://git.sr.ht/~rjarry/aerc/archive/0.7.1.tar.gz"
   sha256 "e149236623c103c8526b1f872b4e630e67f15be98ac604c0ea0186054dbef0cc"
   license "MIT"
+  revision 1
 
   bottle do
     sha256                               arm64_monterey: "57d6954219e420d87ac3eb38d66c832c5b4ddb3b16aabfd49924627fbf749007"
@@ -18,7 +19,7 @@ class Aerc < Formula
   depends_on "scdoc" => :build
 
   def install
-    system "make", "PREFIX=#{prefix}"
+    system "make", "SHAREDIR=#{opt_pkgshare}", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
