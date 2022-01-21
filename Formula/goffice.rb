@@ -4,8 +4,8 @@ class Goffice < Formula
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
   stable do
-    url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.50.tar.xz"
-    sha256 "2c5c3ddc7b08b3452408c81b121c5f012a734981d75e444debccb1c58e5cbfdc"
+    url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.51.tar.xz"
+    sha256 "2e8410884d6a51ae00c9420928abfa73f7a552c1aa222371df4f2dc5acc3cd23"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
