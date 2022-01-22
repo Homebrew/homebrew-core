@@ -17,6 +17,7 @@ class LaunchSocketServer < Formula
   end
 
   depends_on "go" => :build
+  depends_on :macos
 
   def install
     ENV["GOPATH"] = buildpath
@@ -25,46 +26,13 @@ class LaunchSocketServer < Formula
   end
 
   plist_options startup: true
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_sbin}/launch_socket_server</string>
-            <string>-</string>
-          </array>
-          <key>Sockets</key>
-          <dict>
-            <key>Socket</key>
-            <dict>
-              <key>SockNodeName</key>
-              <string>0.0.0.0</string>
-              <key>SockServiceName</key>
-              <string>80</string>
-            </dict>
-          </dict>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>LAUNCH_PROGRAM_TCP_ADDRESS</key>
-            <string>127.0.0.1:8080</string>
-          </dict>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/launch_socket_server.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/launch_socket_server.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"launch_socket_server", "-"]
+    environment_variables LAUNCH_PROGRAM_TCP_ADDRESS: "127.0.0.1:8080"
+    keep_alive true
+    error_log_path var/"log/launch_socket_server.log"
+    log_path var/"log/launch_socket_server.log"
+    sockets "tcp://0.0.0.0:80"
   end
 
   test do
