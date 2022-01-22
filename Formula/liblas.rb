@@ -13,7 +13,8 @@ class Liblas < Formula
     sha256 high_sierra: "b47d0b9c82040703d212e22a436b7e11aff24632f0649db959e2073e0ae48548"
   end
 
-  deprecate! date: "2018-01-01", because: :unsupported
+  # Original deprecation date: 2018-01-01
+  disable! date: "2022-01-22", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "boost"
