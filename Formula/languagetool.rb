@@ -43,34 +43,11 @@ class Languagetool < Formula
     EOS
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/bin/languagetool-server --port 8081 --allow-origin"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{HOMEBREW_PREFIX}/bin/languagetool-server</string>
-          <string>--port</string>
-          <string>8081</string>
-          <string>--allow-origin</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/languagetool/languagetool-server.log</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/languagetool/languagetool-server.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [bin/"languagetool-server", "--port", "8081", "--allow-origin"]
+    keep_alive true
+    log_path var/"log/languagetool/languagetool-server.log"
+    error_log_path var/"log/languagetool/languagetool-server.log"
   end
 
   test do
