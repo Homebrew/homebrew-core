@@ -23,6 +23,8 @@ class LcdfTypetools < Formula
     sha256 x86_64_linux:   "ba34cee40d5450d1deba4434cc43458d5407ef47b9f0563530b04dfac8fadc7a"
   end
 
+  conflicts_with "texlive", because: "both install a `cfftot1` executable"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
