@@ -163,6 +163,7 @@ class Gdal < Formula
       ENV.append "CFLAGS", "-I#{buildpath}/gnm"
     end
 
+    ENV.append "CXXFLAGS", "-std=c++17" # poppler-qt5 uses std::optional
     system "./configure", *args
     system "make"
     system "make", "install"
