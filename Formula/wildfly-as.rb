@@ -52,38 +52,10 @@ class WildflyAs < Formula
     EOS
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/wildfly-as/libexec/bin/standalone.sh --server-config=standalone.xml"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <dict>
-          <key>SuccessfulExit</key>
-          <false/>
-          <key>Crashed</key>
-          <true/>
-        </dict>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_libexec}/bin/standalone.sh</string>
-          <string>--server-config=standalone.xml</string>
-        </array>
-        <key>EnvironmentVariables</key>
-        <dict>
-          <key>JBOSS_HOME</key>
-          <string>#{opt_libexec}</string>
-          <key>WILDFLY_HOME</key>
-          <string>#{opt_libexec}</string>
-        </dict>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_libexec/"bin/standalone.sh", "--server-config=standalone.xml"]
+    environment_variables JBOSS_HOME: opt_libexec, WILDFLY_HOME: opt_libexec
+    keep_alive successful_exit: false, crashed: true
   end
 
   test do
