@@ -1,8 +1,8 @@
 class FuncE < Formula
   desc "Easily run Envoy"
   homepage "https://func-e.io"
-  url "https://github.com/tetratelabs/func-e/archive/v1.1.1.tar.gz"
-  sha256 "487eccb74c93a388cd90a99a93af0266d9b4290ae41a6b030dcf5e268802433f"
+  url "https://github.com/tetratelabs/func-e/archive/v1.1.2.tar.gz"
+  sha256 "4a7d5f295adc6715df37b2503b9fb73a08b683ebeab5bf9b120c4cbf6ad1423b"
   license "Apache-2.0"
 
   bottle do
