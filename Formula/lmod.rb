@@ -1,8 +1,8 @@
 class Lmod < Formula
   desc "Lua-based environment modules system to modify PATH variable"
   homepage "https://lmod.readthedocs.io"
-  url "https://github.com/TACC/Lmod/archive/8.6.5.tar.gz"
-  sha256 "4a1823264187340be11104d82f8226905daa8149186fa8615dfc742b6d19c2ce"
+  url "https://github.com/TACC/Lmod/archive/8.6.6.tar.gz"
+  sha256 "ed53160fb8e7eba43c22ffde480b56a3ef312e143a35c324828e7654297b51a8"
   license "MIT"
 
   bottle do
