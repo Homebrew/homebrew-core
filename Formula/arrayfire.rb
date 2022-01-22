@@ -19,6 +19,13 @@ class Arrayfire < Formula
   depends_on "openblas"
 
   def install
+    # Fix for: `ArrayFire couldn't locate any backends.`
+    if OS.mac?
+      ENV.append "LDFLAGS", "-Wl,-rpath,@loader_path/#{Formula["fftw"].opt_lib.relative_path_from(lib)}"
+      ENV.append "LDFLAGS", "-Wl,-rpath,@loader_path/#{Formula["openblas"].opt_lib.relative_path_from(lib)}"
+      ENV.append "LDFLAGS", "-Wl,-rpath,@loader_path/#{(HOMEBREW_PREFIX/"lib").relative_path_from(lib)}"
+    end
+
     system "cmake", "-S", ".", "-B", "build",
                     "-DAF_BUILD_CUDA=OFF",
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
