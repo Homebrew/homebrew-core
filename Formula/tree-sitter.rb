@@ -3,8 +3,8 @@ require "language/node"
 class TreeSitter < Formula
   desc "Parser generator tool and incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/v0.20.2.tar.gz"
-  sha256 "2a0445f8172bbf83db005aedb4e893d394e2b7b33251badd3c94c2c5cc37c403"
+  url "https://github.com/tree-sitter/tree-sitter/archive/v0.20.3.tar.gz"
+  sha256 "ab52fe93e0c658cff656b9d10d67cdd29084247052964eba13ed6f0e9fa3bd36"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
