@@ -19,11 +19,13 @@ class Arrayfire < Formula
   depends_on "openblas"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DAF_BUILD_CUDA=OFF"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DAF_BUILD_CUDA=OFF",
+                    "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     pkgshare.install "examples"
   end
 
