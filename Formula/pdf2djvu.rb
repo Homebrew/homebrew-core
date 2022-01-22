@@ -4,6 +4,7 @@ class Pdf2djvu < Formula
   url "https://github.com/jwilk/pdf2djvu/releases/download/0.9.18.2/pdf2djvu-0.9.18.2.tar.xz"
   sha256 "9ea03f21d841a336808d89d65015713c0785e7295a6559d77771dc795333a9fa"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/jwilk/pdf2djvu.git", branch: "master"
 
   bottle do
@@ -28,6 +29,7 @@ class Pdf2djvu < Formula
   fails_with gcc: "5" # poppler compiles with GCC
 
   def install
+    ENV.append "CXXFLAGS", "-std=gnu++17" # poppler uses std::optional
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
