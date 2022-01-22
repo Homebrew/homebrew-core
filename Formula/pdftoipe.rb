@@ -4,7 +4,7 @@ class Pdftoipe < Formula
   url "https://github.com/otfried/ipe-tools/archive/v7.2.24.1.tar.gz"
   sha256 "561b18fc2a7ae45c37c5d0390443b37f4585549f09cd7765d856456be24e5dbc"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "3b4d0ff51a0c2b8f85e7cf239979009bb8d3c510e9356edbe7304a830365945a"
@@ -18,8 +18,6 @@ class Pdftoipe < Formula
   depends_on "poppler"
 
   def install
-    ENV.cxx11
-
     cd "pdftoipe" do
       system "make"
       bin.install "pdftoipe"
