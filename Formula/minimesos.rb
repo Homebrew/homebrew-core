@@ -13,7 +13,8 @@ class Minimesos < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "630f067087841be66ac8118b072d4619c4aa1c3e28f07f6ac48c2b94483a164a"
   end
 
-  deprecate! date: "2018-06-22", because: :repo_archived
+  # Original deprecation date: 2018-06-22
+  disable! date: "2022-01-22", because: :repo_archived
 
   def install
     bin.install "bin/minimesos"
