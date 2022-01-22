@@ -123,8 +123,7 @@ class Rust < Formula
     system "#{bin}/rustc", "hello.rs"
     assert_equal "Hello World!\n", `./hello`
     system "#{bin}/cargo", "new", "hello_world", "--bin"
-    assert_equal "Hello, world!",
-                 (testpath/"hello_world").cd { `#{bin}/cargo run`.split("\n").last }
+    assert_equal "Hello, world!", cd("hello_world") { shell_output("#{bin}/cargo run").split("\n").last }
   end
 end
 
