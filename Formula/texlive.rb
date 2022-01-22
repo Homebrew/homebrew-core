@@ -66,6 +66,7 @@ class Texlive < Formula
   end
 
   conflicts_with "cweb", because: "both install `cweb` binaries"
+  conflicts_with "lcdf-typetools", because: "both install a `cfftot1` executable"
 
   fails_with gcc: "5"
 
