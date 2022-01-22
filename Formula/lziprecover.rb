@@ -1,8 +1,8 @@
 class Lziprecover < Formula
   desc "Data recovery tool and decompressor for files in the lzip compressed data format"
   homepage "https://www.nongnu.org/lzip/lziprecover.html"
-  url "https://download-mirror.savannah.gnu.org/releases/lzip/lziprecover/lziprecover-1.22.tar.gz"
-  sha256 "fd958a0975f7729c44f3b784e566891f736c3dc68374dbd2149ee692a16d0862"
+  url "https://download-mirror.savannah.gnu.org/releases/lzip/lziprecover/lziprecover-1.23.tar.gz"
+  sha256 "f29804177f06dd51c3fa52615ae198a76002b6ce8d961c3575546c3740f4b572"
   license "GPL-2.0-or-later"
 
   livecheck do
