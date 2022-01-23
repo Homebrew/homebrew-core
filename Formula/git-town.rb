@@ -18,10 +18,16 @@ class GitTown < Formula
 
   def install
     ldflags = %W[
+      -s -w
       -X github.com/git-town/git-town/v7/src/cmd.version=v#{version}
       -X github.com/git-town/git-town/v7/src/cmd.buildDate=#{time.strftime("%Y/%m/%d")}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
+
+    # Install shell completions
+    (bash_completion/"git-town").write Utils.safe_popen_read(bin/"git-town", "completions", "bash")
+    (zsh_completion/"_git-town").write Utils.safe_popen_read(bin/"git-town", "completions", "zsh")
+    (fish_completion/"git-town.fish").write Utils.safe_popen_read(bin/"git-town", "completions", "fish")
   end
 
   test do
@@ -32,6 +38,6 @@ class GitTown < Formula
     system "git", "add", "testing.txt"
     system "git", "commit", "-m", "Testing!"
 
-    system "#{bin}/git-town", "config"
+    system bin/"git-town", "config"
   end
 end
