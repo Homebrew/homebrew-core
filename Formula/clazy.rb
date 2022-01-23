@@ -29,7 +29,10 @@ class Clazy < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  fails_with gcc: "5" # C++17
+
   def install
+    ENV.append "CXXFLAGS", "-std=gnu++17" # Fix `std::regex` support detection.
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
