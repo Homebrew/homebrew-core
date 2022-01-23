@@ -26,6 +26,10 @@ class Scotch < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "glibc" # for `sys/sysctl.h`
+  end
+
   def install
     cd "src" do
       (buildpath/"src").install_symlink "Make.inc/Makefile.inc.i686_mac_darwin10" => "Makefile.inc"
