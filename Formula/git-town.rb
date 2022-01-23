@@ -18,8 +18,8 @@ class GitTown < Formula
 
   def install
     ldflags = %W[
-      -X github.com/git-town/git-town/src/cmd.version=v#{version}
-      -X github.com/git-town/git-town/src/cmd.buildDate=#{time.strftime("%Y/%m/%d")}
+      -X github.com/git-town/git-town/v7/src/cmd.version=v#{version}
+      -X github.com/git-town/git-town/v7/src/cmd.buildDate=#{time.strftime("%Y/%m/%d")}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
