@@ -4,7 +4,7 @@ class Exiv2 < Formula
   url "https://www.exiv2.org/builds/exiv2-0.27.5-Source.tar.gz"
   sha256 "35a58618ab236a901ca4928b0ad8b31007ebdc0386d904409d825024e45ea6e2"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/Exiv2/exiv2.git", branch: "main"
 
   livecheck do
@@ -29,6 +29,13 @@ class Exiv2 < Formula
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
+  # Backport of https://github.com/Exiv2/exiv2/commit/0bbaa6e.
+  # Needed for formulae that depend on both Poppler 22.01+ and Exiv2 (e.g. `pdf2djvu`).
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/df11d3369100766e04529a6bdf4855ad5e0d535d/exiv2/unique_ptr.patch"
+    sha256 "144b7f749e28ec3681e6d6e9d6edbe8d21634f607fe68c14c9becfec15633435"
+  end
+
   def install
     args = std_cmake_args
     args += %W[
@@ -44,7 +51,7 @@ class Exiv2 < Formula
       -DEXIV2_ENABLE_SSH=ON
       -DEXIV2_ENABLE_BMFF=ON
       -DEXIV2_BUILD_SAMPLES=OFF
-      -DSSH_LIBRARY=#{Formula["libssh"].opt_lib}/#{shared_library("libssh")}
+      -DSSH_LIBRARY=#{Formula["libssh"].opt_lib/shared_library("libssh")}
       -DSSH_INCLUDE_DIR=#{Formula["libssh"].opt_include}
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
       ..
