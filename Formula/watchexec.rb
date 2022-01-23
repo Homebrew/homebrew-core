@@ -22,6 +22,8 @@ class Watchexec < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "zlib"
+
   def install
     cd "cli" do
       system "cargo", "install", *std_cargo_args
