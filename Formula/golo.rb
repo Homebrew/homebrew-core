@@ -1,15 +1,14 @@
 class Golo < Formula
   desc "Lightweight dynamic language for the JVM"
   homepage "https://golo-lang.org/"
-  url "https://www.eclipse.org/downloads/download.php?file=/golo/golo-3.3.0.zip&r=1"
-  sha256 "35df1aca1c7161a1a33855dbd8deafa8e4dbe9627f5f17a9211eae3db3486229"
+  url "https://github.com/eclipse/golo-lang/releases/download/release%2F3.4.0/golo-3.4.0.zip"
+  sha256 "867c462a41a20e4b7dc1aef461b809d193a505c2a757477b147f0e30235bd545"
   license "EPL-2.0"
-  revision 2
   head "https://github.com/eclipse/golo-lang.git", branch: "master"
 
   livecheck do
-    url "https://golo-lang.org/download/"
-    regex(/href=.*?golo[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+    url :stable
+    regex(%r{^release/v?(\d+(?:\.\d+)+)$}i)
   end
 
   bottle do
