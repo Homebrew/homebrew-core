@@ -57,7 +57,7 @@ class Scotch < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lscotch"
+    system ENV.cc, "test.c", "-L#{lib}", "-lscotch", "-pthread"
     assert_match version.to_s, shell_output("./a.out")
 
     system ENV.cc, pkgshare/"test_strat_seq.c", "-o", "test_strat_seq",
