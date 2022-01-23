@@ -33,7 +33,7 @@ class Clazy < Formula
 
   def install
     ENV.append "CXXFLAGS", "-std=gnu++17" # Fix `std::regex` support detection.
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCLAZY_LINK_CLANG_DYLIB=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
