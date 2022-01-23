@@ -31,6 +31,8 @@ class Expat < Formula
 
   keg_only :provided_by_macos
 
+  depends_on :macos
+
   def install
     cd "expat" if build.head?
     system "autoreconf", "-fiv" if build.head?
