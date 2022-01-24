@@ -62,11 +62,13 @@ class Scotch < Formula
     assert_match version.to_s, shell_output("./a.out")
 
     system ENV.cc, pkgshare/"test_strat_seq.c", "-o", "test_strat_seq",
-           "-I#{include}", "-L#{lib}", "-lscotch", "-lscotcherr", "-lm", "-pthread"
+                   "-I#{include}", "-L#{lib}", "-lscotch", "-lscotcherr", "-lm", "-pthread",
+                   "-L#{Formula["zlib"].opt_lib}", "-lz"
     assert_match "Sequential mapping strategy, SCOTCH_STRATDEFAULT", shell_output("./test_strat_seq")
 
     system "mpicc", pkgshare/"test_strat_par.c", "-o", "test_strat_par",
-           "-I#{include}", "-L#{lib}", "-lptscotch", "-lscotch", "-lptscotcherr", "-lm", "-pthread"
+                    "-I#{include}", "-L#{lib}", "-lptscotch", "-lscotch", "-lptscotcherr", "-lm", "-pthread",
+                    "-L#{Formula["zlib"].opt_lib}", "-lz"
     assert_match "Parallel mapping strategy, SCOTCH_STRATDEFAULT", shell_output("./test_strat_par")
   end
 end
