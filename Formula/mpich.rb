@@ -59,6 +59,7 @@ class Mpich < Formula
       --enable-shared
       --with-pm=hydra
       FC=gfortran-#{Formula["gcc"].any_installed_version.major}
+      FCFLAGS=-fallow-argument-mismatch
       F77=gfortran-#{Formula["gcc"].any_installed_version.major}
       --disable-silent-rules
       --prefix=#{prefix}
