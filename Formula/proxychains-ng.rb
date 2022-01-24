@@ -15,13 +15,6 @@ class ProxychainsNg < Formula
     sha256 x86_64_linux:   "999f3b69f901f7f5d1604e28193a0fd585f4e4e92346e1876c25313a6c1202b8"
   end
 
-  # Fix regression in detecting linker options, resulting in build failure for v4.15
-  # Patch included upstream, remove on next release
-  patch do
-    url "https://github.com/rofl0r/proxychains-ng/commit/7de7dd0de1ff387a627620ac3482b4cd9b3fba95.patch?full_index=1"
-    sha256 "dd38fec48f675e17207e320d6f708d7c0c747de57cdd8aafb59bbb0ab805a984"
-  end
-
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     system "make"
