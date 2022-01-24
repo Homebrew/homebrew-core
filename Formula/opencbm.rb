@@ -1,8 +1,8 @@
 class Opencbm < Formula
   desc "Provides access to various floppy drive formats"
   homepage "https://spiro.trikaliotis.net/opencbm"
-  url "https://github.com/OpenCBM/OpenCBM/archive/v0.4.99.103.tar.gz"
-  sha256 "026b0aa874b85763027641cfd206af92172d1120b9c667f35050bcfe53ba0b73"
+  url "https://github.com/OpenCBM/OpenCBM/archive/v0.4.99.104.tar.gz"
+  sha256 "5499cd1143b4a246d6d7e93b94efbdf31fda0269d939d227ee5bcc0406b5056a"
   license "GPL-2.0-only"
   head "https://git.code.sf.net/p/opencbm/code.git", branch: "master"
 
