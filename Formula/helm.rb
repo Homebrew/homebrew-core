@@ -2,8 +2,8 @@ class Helm < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      tag:      "v3.7.2",
-      revision: "663a896f4a815053445eec4153677ddc24a0a361"
+      tag:      "v3.8.0",
+      revision: "d14138609b01886f544b2025f5000351c9eb092e"
   license "Apache-2.0"
   head "https://github.com/helm/helm.git", branch: "main"
 
@@ -47,7 +47,7 @@ class Helm < Formula
     version_output = shell_output(bin/"helm version 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
     if build.stable?
-      revision = stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision]
+      revision = stable.specs[:revision]
       assert_match "GitCommit:\"#{revision}\"", version_output
       assert_match "Version:\"v#{version}\"", version_output
     end
