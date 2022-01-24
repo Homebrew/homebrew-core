@@ -31,9 +31,12 @@ class Luajit < Formula
     # 1 - Override the hardcoded gcc.
     # 2 - Remove the "-march=i686" so we can set the march in cflags.
     # Both changes should persist and were discussed upstream.
+    # Also: Set `LUA_ROOT` to `HOMEBREW_PREFIX` so that Luajit can find modules outside its own keg.
+    # This should avoid the need for writing env scripts that specify `LUA_PATH` or `LUA_CPATH`.
     inreplace "src/Makefile" do |f|
       f.change_make_var! "CC", ENV.cc
-      f.change_make_var! "CCOPT_x86", ""
+      f.gsub!(/-march=\w+\s?/, "")
+      f.gsub!(/^(  TARGET_XCFLAGS\+= -DLUA_ROOT=)\\"\$\(PREFIX\)\\"$/, "\\1\\\"#{HOMEBREW_PREFIX}\\\"")
     end
 
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
@@ -75,11 +78,13 @@ class Luajit < Formula
   end
 
   test do
-    system "#{bin}/luajit", "-e", <<~EOS
+    system bin/"luajit", "-e", <<~EOS
       local ffi = require("ffi")
       ffi.cdef("int printf(const char *fmt, ...);")
       ffi.C.printf("Hello %s!\\n", "#{ENV["USER"]}")
     EOS
+    # Check that LuaJIT can find its own `jit.*` modules
+    system bin/"luajit", "-l", "jit.bcsave", "-e", ""
   end
 end
 
