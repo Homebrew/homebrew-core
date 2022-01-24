@@ -22,6 +22,13 @@ class Numpy < Formula
 
   fails_with gcc: "5"
 
+  # numpy requires setuptools < 60.0
+  # https://github.com/numpy/numpy/issues/20824
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/ef/75/2bc7bef4d668f9caa9c6ed3f3187989922765403198243040d08d2a52725/setuptools-59.8.0.tar.gz"
+    sha256 "09980778aa734c3037a47997f28d6db5ab18bdf2af0e49f719bfc53967fd2e82"
+  end
+
   def install
     openblas = Formula["openblas"].opt_prefix
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
@@ -38,9 +45,15 @@ class Numpy < Formula
 
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
+    ENV.prepend_path "PYTHONPATH", buildpath/"temp/lib/python#{xy}/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python3", *Language::Python.setup_install_args(buildpath/"temp")
+      end
+    end
 
     system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build",
-        "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
+        "--fcompiler=#{Formula["gcc"].opt_bin}/gfortran", "--parallel=#{ENV.make_jobs}"
     system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
