@@ -40,7 +40,7 @@ class Scotch < Formula
         s.change_make_var! "CCD", "mpicc"
       end
 
-      system "make", "scotch", "ptscotch"
+      system "make", "libscotch", "libptscotch"
       lib.install buildpath.glob("lib/*.a")
       system "make", "realclean"
 
@@ -64,6 +64,10 @@ class Scotch < Formula
       pkgshare.install "check/test_strat_seq.c"
       pkgshare.install "check/test_strat_par.c"
     end
+
+    # License file has a non-standard filename
+    prefix.install buildpath.glob("LICEN[CS]E_*.txt")
+    doc.install (buildpath/"doc").children
   end
 
   test do
