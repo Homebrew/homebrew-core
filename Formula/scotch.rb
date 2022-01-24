@@ -68,7 +68,7 @@ class Scotch < Formula
 
     system "mpicc", pkgshare/"test_strat_par.c", "-o", "test_strat_par",
                     "-I#{include}", "-L#{lib}", "-lptscotch", "-lscotch", "-lptscotcherr", "-lm", "-pthread",
-                    "-L#{Formula["zlib"].opt_lib}", "-lz"
+                    "-L#{Formula["zlib"].opt_lib}", "-lz", "-Wl,-rpath,#{lib}"
     assert_match "Parallel mapping strategy, SCOTCH_STRATDEFAULT", shell_output("./test_strat_par")
   end
 end
