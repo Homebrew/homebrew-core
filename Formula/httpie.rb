@@ -3,8 +3,8 @@ class Httpie < Formula
 
   desc "User-friendly cURL replacement (command-line HTTP client)"
   homepage "https://httpie.io/"
-  url "https://files.pythonhosted.org/packages/7b/f9/13070f19226b7db3641fb787df36bb715063abe1b8ca03fbaeca0f465d27/httpie-3.0.1.tar.gz"
-  sha256 "0e9bc93ebdcdd2d32ec24b8fa46cf7e4fde9eec7a6bd0c5d0ef224f25d7466b2"
+  url "https://files.pythonhosted.org/packages/97/42/fff91fbf037e5a0cfbc0d5c3fae7e99afcb4867a2a8c896d4a1c90b2b7fe/httpie-3.0.2.tar.gz"
+  sha256 "27f17454b2a1fdde79d1ed0ee679941894596829c07fadb9cfe3872d7a455e99"
   license "BSD-3-Clause"
   head "https://github.com/httpie/httpie.git", branch: "master"
 
