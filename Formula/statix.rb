@@ -17,6 +17,13 @@ class Statix < Formula
 
   depends_on "rust" => :build
 
+  # Fix test failure due to `nix` installation requirement
+  # remove in next release
+  patch do
+    url "https://github.com/nerdypepper/statix/commit/7cc887807552b2286c0db5806a9426b3bb50a2be.patch?full_index=1"
+    sha256 "542f484fe28c38e3080b3296315025814b332899408a5b30ce2c073afd30de53"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "bin")
   end
@@ -29,7 +36,5 @@ class Statix < Formula
 
     system bin/"statix", "fix", "test.nix"
     system bin/"statix", "check", "test.nix"
-
-    assert_match version.to_s, shell_output("#{bin}/statix --version")
   end
 end
