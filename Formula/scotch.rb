@@ -57,7 +57,8 @@ class Scotch < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lscotch", "-pthread", "-L#{Formula["zlib"].opt_lib}", "-lz", "-lm"
+    system ENV.cc, "test.c", "-L#{lib}", "-lscotch", "-lscotcherr",
+                             "-pthread", "-L#{Formula["zlib"].opt_lib}", "-lz", "-lm"
     assert_match version.to_s, shell_output("./a.out")
 
     system ENV.cc, pkgshare/"test_strat_seq.c", "-o", "test_strat_seq",
