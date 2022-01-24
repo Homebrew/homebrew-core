@@ -23,6 +23,7 @@ class MysqlClient < Formula
 
   depends_on "cmake" => :build
   depends_on "libevent"
+  depends_on "libfido2"
   # GCC is not supported either, so exclude for El Capitan.
   depends_on macos: :sierra if DevelopmentTools.clang_build_version < 900
   depends_on "openssl@1.1"
