@@ -16,6 +16,7 @@ class KotlinLanguageServer < Formula
   depends_on "openjdk@11"
 
   def install
+    ENV["JAVA_HOME"] = Language::Java.java_home("11")
     #  Remove Windows files
     rm "gradlew.bat"
 
