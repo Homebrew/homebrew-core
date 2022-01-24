@@ -48,13 +48,6 @@ class Mysql < Formula
 
   fails_with gcc: "5"
 
-  # Fix build on Monterey.
-  # Remove with the next version.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fcbea58e245ea562fbb749bfe6e1ab178fd10025/mysql/monterey.diff"
-    sha256 "6709edb2393000bd89acf2d86ad0876bde3b84f46884d3cba7463cd346234f6f"
-  end
-
   def datadir
     var/"mysql"
   end
