@@ -27,14 +27,35 @@ class Scotch < Formula
   uses_from_macos "zlib"
 
   def install
-    makefile_inc_suffix = OS.mac? ? "i686_mac_darwin10" : "x86-64_pc_linux2.shlib"
+    makefile_inc_suffix = OS.mac? ? "i686_mac_darwin10" : "x86-64_pc_linux2"
     (buildpath/"src").install_symlink "Make.inc/Makefile.inc.#{makefile_inc_suffix}" => "Makefile.inc"
 
     cd "src" do
-      inreplace "Makefile.inc" do |s|
+      inreplace_files = ["Makefile.inc"]
+      inreplace_files << "Make.inc/Makefile.inc#{makefile_inc_suffix}.shlib" unless OS.mac?
+
+      inreplace inreplace_files do |s|
         s.change_make_var! "CCS", ENV.cc
         s.change_make_var! "CCP", "mpicc"
         s.change_make_var! "CCD", "mpicc"
+      end
+
+      system "make", "scotch", "ptscotch"
+      lib.install buildpath.glob("lib/*.a")
+      system "make", "realclean"
+
+      # Build shared libraries. See `Makefile.inc.*.shlib`.
+      if OS.mac?
+        inreplace "Makefile.inc" do |s|
+          s.change_make_var! "LIB", ".dylib"
+          s.change_make_var! "AR", ENV.cc
+          s.change_make_var! "ARFLAGS", "-shared -Wl,-undefined,dynamic_lookup -o"
+          s.change_make_var! "CLIBFLAGS", "-shared -fPIC"
+          s.change_make_var! "RANLIB", "true"
+        end
+      else
+        Pathname("Makefile.inc").unlink
+        ln_sf "Make.inc/Makefile.inc.#{makefile_inc_suffix}.shlib" => "Makefile.inc"
       end
 
       system "make", "scotch", "ptscotch"
