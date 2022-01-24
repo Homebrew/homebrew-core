@@ -30,14 +30,27 @@ class Fbthrift < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
+  end
+
   on_linux do
     depends_on "gcc@10"
+  end
+
+  fails_with :clang do
+    build 1100
+    cause <<~EOS
+      error: 'asm goto' constructs are not supported yet
+    EOS
   end
 
   fails_with gcc: "5" # C++ 17
   fails_with gcc: "11" # https://github.com/facebook/folly#ubuntu-lts-centos-stream-fedora
 
   def install
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+
     # The static libraries are a bit annoying to build. If modifying this formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
     # instead of the static ones (e.g. `libcompiler_base`, `libcompiler_lib`, etc.)
