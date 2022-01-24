@@ -18,12 +18,6 @@ class RustAnalyzer < Formula
 
   depends_on "rust" => :build
 
-  # Fix build using rust 1.57. Remove with next release.
-  patch do
-    url "https://github.com/rust-analyzer/rust-analyzer/commit/df5340386365b2b16c4e9bbae546504b97564c41.patch?full_index=1"
-    sha256 "296078507fd4a3b86d8bc2ea2acc8ae87ac908430eedd773730924d53cd3dd45"
-  end
-
   def install
     cd "crates/rust-analyzer" do
       system "cargo", "install", "--bin", "rust-analyzer", *std_cargo_args
