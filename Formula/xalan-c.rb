@@ -1,11 +1,15 @@
 class XalanC < Formula
   desc "XSLT processor"
-  homepage "https://xalan.apache.org/xalan-c/"
-  url "https://www.apache.org/dyn/closer.lua?path=xalan/xalan-c/sources/xalan_c-1.11-src.tar.gz"
-  mirror "https://archive.apache.org/dist/xalan/xalan-c/sources/xalan_c-1.11-src.tar.gz"
-  sha256 "4f5e7f75733d72e30a2165f9fdb9371831cf6ff0d1997b1fb64cdd5dc2126a28"
+  homepage "https://apache.github.io/xalan-c/"
+  url "https://www.apache.org/dyn/closer.lua?path=xalan/xalan-c/sources/xalan_c-1.12.tar.gz"
+  mirror "https://archive.apache.org/dist/xalan/xalan-c/sources/xalan_c-1.12.tar.gz"
+  sha256 "ee7d4b0b08c5676f5e586c7154d94a5b32b299ac3cbb946e24c4375a25552da7"
   license "Apache-2.0"
-  revision 1
+
+  livecheck do
+    url :stable
+    regex(/href=["']?xalan[_-]c[._-]v?(\d+(?:\.\d+)+)(?:[._-]src)?\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 monterey:     "0c1f0cf5ca6206f15e8d2beed36761c3e09b21e78f388e28dbbd38a686d7459a"
@@ -18,36 +22,18 @@ class XalanC < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "b1190a346ef882ca4c00f05ea0ccb72b1f148347e6200b6ccfed08613267823c"
   end
 
+  depends_on "cmake" => :build
   depends_on "xerces-c"
-
-  # Fix segfault. See https://issues.apache.org/jira/browse/XALANC-751
-  # Build with char16_t casts.  See https://issues.apache.org/jira/browse/XALANC-773
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/71f4b091e4c4939c3fa95981298580a827788e6f/xalan-c/xerces-char16.patch"
-    sha256 "ebd4ded1f6ee002351e082dee1dcd5887809b94c6263bbe4e8e5599f56774ebf"
-  end
-
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/71f4b091e4c4939c3fa95981298580a827788e6f/xalan-c/locator-system-id.patch"
-    sha256 "7c317c6b99cb5fb44da700e954e6b3e8c5eda07bef667f74a42b0099d038d767"
-  end
 
   def install
     ENV.cxx11
-    ENV.deparallelize # See https://issues.apache.org/jira/browse/XALANC-696
-    ENV["XALANCROOT"] = "#{buildpath}/c"
-    ENV["XALAN_LOCALE_SYSTEM"] = "inmem"
-    ENV["XALAN_LOCALE"] = "en_US"
 
-    cd "c" do
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{prefix}"
-      system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-      # Clean up links
-      rm Dir["#{lib}/*.dylib.*"]
-    end
+    # Clean up links
+    rm Dir["#{lib}/*.dylib.*"]
   end
 
   test do
