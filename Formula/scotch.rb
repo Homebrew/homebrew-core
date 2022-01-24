@@ -32,7 +32,7 @@ class Scotch < Formula
 
     cd "src" do
       inreplace_files = ["Makefile.inc"]
-      inreplace_files << "Make.inc/Makefile.inc#{makefile_inc_suffix}.shlib" unless OS.mac?
+      inreplace_files << "Make.inc/Makefile.inc.#{makefile_inc_suffix}.shlib" unless OS.mac?
 
       inreplace inreplace_files do |s|
         s.change_make_var! "CCS", ENV.cc
