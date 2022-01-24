@@ -55,7 +55,7 @@ class Scotch < Formula
         end
       else
         Pathname("Makefile.inc").unlink
-        ln_sf "Make.inc/Makefile.inc.#{makefile_inc_suffix}.shlib" => "Makefile.inc"
+        ln_sf "Make.inc/Makefile.inc.#{makefile_inc_suffix}.shlib", "Makefile.inc"
       end
 
       system "make", "scotch", "ptscotch"
