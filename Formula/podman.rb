@@ -38,6 +38,10 @@ class Podman < Formula
     ENV["CGO_ENABLED"] = "1"
     os = OS.kernel_name.downcase
 
+    inreplace "vendor/github.com/containers/common/pkg/config/config_#{os}.go",
+              "/usr/local/libexec/podman",
+              libexec
+
     system "make", "podman-remote-#{os}"
     if OS.mac?
       bin.install "bin/#{os}/podman" => "podman-remote"
