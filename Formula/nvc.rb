@@ -36,7 +36,8 @@ class Nvc < Formula
     system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
                           "--with-system-cc=/usr/bin/clang",
-                          "--enable-vhpi"
+                          "--enable-vhpi",
+                          "--disable-silent-rules"
     system "make"
     system "make", "install"
   end
