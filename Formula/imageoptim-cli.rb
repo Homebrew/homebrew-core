@@ -20,7 +20,7 @@ class ImageoptimCli < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "6f1aa4b2e4de3e7a1502f1f8747283589697e5f0f0506f4d24acd53381311706"
   end
 
-  depends_on "node@10" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
 
   def install
