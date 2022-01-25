@@ -39,6 +39,6 @@ class Baresip < Formula
   end
 
   test do
-    system "#{bin}/baresip", "-f", "#{ENV["HOME"]}/.baresip", "-t"
+    system bin/"baresip", "-f", testpath/".baresip", "-t", "5"
   end
 end
