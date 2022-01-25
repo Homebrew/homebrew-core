@@ -39,7 +39,8 @@ class Baresip < Formula
                               "USE_OPENGL=1",
                               "USE_STDIO=1",
                               "USE_UUID=1",
-                              "HAVE_GETOPT=1"
+                              "HAVE_GETOPT=1",
+                              "V=1"
   end
 
   test do
