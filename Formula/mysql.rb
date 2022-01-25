@@ -93,8 +93,12 @@ class Mysql < Formula
       -DMY_PKG_CONFIG_EXECUTABLE=pkg-config
       -DPKG_CONFIG_FOUND=TRUE
       -DPKG_CONFIG_VERSION_STRING=#{Formula["pkg-config"].version}
-      -DPKG_CONFIG_EXECUTABLE=pkg-config
+      -DPKG_CONFIG_EXECUTABLE=#{Formula["pkg-config"].opt_bin}/pkg-config
     ]
+
+    if OS.mac? && ENV["HOMEBREW_SDKROOT"].present?
+      args << "-DPKG_CONFIG_ARGN=--define-variable=homebrew_sdkroot=#{ENV["HOMEBREW_SDKROOT"]}"
+    end
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"
