@@ -24,10 +24,14 @@ class Baresip < Formula
     end
 
     libre = Formula["libre"]
+    librem = Formula["librem"]
+    # NOTE: `LIBRE_SO` is a directory but `LIBREM_SO` is a shared library.
     system "make", "install", "PREFIX=#{prefix}",
                               "LIBRE_MK=#{libre.opt_share}/re/re.mk",
                               "LIBRE_INC=#{libre.opt_include}/re",
                               "LIBRE_SO=#{libre.opt_lib}",
+                              "LIBREM_PATH=#{librem.opt_prefix}",
+                              "LIBREM_SO=#{librem.opt_lib/shared_library("librem")}",
                               "MOD_AUTODETECT=",
                               "USE_AVCAPTURE=1",
                               "USE_COREAUDIO=1",
