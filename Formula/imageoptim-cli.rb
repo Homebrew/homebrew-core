@@ -24,6 +24,7 @@ class ImageoptimCli < Formula
   depends_on "yarn" => :build
 
   def install
+    Language::Node.setup_npm_environment
     system "yarn"
     system "npm", "run", "build"
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
