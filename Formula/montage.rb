@@ -3,6 +3,8 @@ class Montage < Formula
   homepage "http://montage.ipac.caltech.edu"
   url "http://montage.ipac.caltech.edu/download/Montage_v4.0.tar.gz"
   sha256 "de143e4d4b65086f04bb75cf482dfa824965a5a402f3431f9bceb395033df5fe"
+  license "BSD-3-Clause"
+  head "https://github.com/Caltech-IPAC/Montage.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "304f02cffd94ee9e118026fda40db0f27d4ae25c2d42c74e45b3426d11f1ed3d"
