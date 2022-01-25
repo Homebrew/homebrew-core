@@ -22,6 +22,7 @@ class MysqlClient < Formula
   keg_only "it conflicts with mysql (which contains client libraries)"
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "libfido2"
   # GCC is not supported either, so exclude for El Capitan.
