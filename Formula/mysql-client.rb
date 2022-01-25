@@ -41,9 +41,6 @@ class MysqlClient < Formula
 
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
-    # Their CMake macros check for `pkg-config` only on Linux and FreeBSD,
-    # so let's set `MY_PKG_CONFIG_EXECUTABLE` and `PKG_CONFIG_*` to make
-    # sure `pkg-config` is found and used.
     args = %W[
       -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
@@ -63,14 +60,22 @@ class MysqlClient < Formula
       -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
       -DWITHOUT_SERVER=ON
-      -DMY_PKG_CONFIG_EXECUTABLE=pkg-config
-      -DPKG_CONFIG_FOUND=TRUE
-      -DPKG_CONFIG_VERSION_STRING=#{Formula["pkg-config"].version}
-      -DPKG_CONFIG_EXECUTABLE=#{Formula["pkg-config"].opt_bin}/pkg-config
     ]
 
-    if OS.mac? && ENV["HOMEBREW_SDKROOT"].present?
-      args << "-DPKG_CONFIG_ARGN=--define-variable=homebrew_sdkroot=#{ENV["HOMEBREW_SDKROOT"]}"
+    # Their CMake macros check for `pkg-config` only on Linux and FreeBSD,
+    # so let's set `MY_PKG_CONFIG_EXECUTABLE` and `PKG_CONFIG_*` to make
+    # sure `pkg-config` is found and used.
+    if OS.mac?
+      args += %W[
+        -DMY_PKG_CONFIG_EXECUTABLE=pkg-config
+        -DPKG_CONFIG_FOUND=TRUE
+        -DPKG_CONFIG_VERSION_STRING=#{Formula["pkg-config"].version}
+        -DPKG_CONFIG_EXECUTABLE=#{Formula["pkg-config"].opt_bin}/pkg-config
+      ]
+
+      if ENV["HOMEBREW_SDKROOT"].present?
+        args << "-DPKG_CONFIG_ARGN=--define-variable=homebrew_sdkroot=#{ENV["HOMEBREW_SDKROOT"]}"
+      end
     end
 
     system "cmake", ".", *std_cmake_args, *args
