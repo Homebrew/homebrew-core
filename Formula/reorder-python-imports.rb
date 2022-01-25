@@ -3,10 +3,9 @@ class ReorderPythonImports < Formula
 
   desc "Rewrites source to reorder python imports"
   homepage "https://github.com/asottile/reorder_python_imports"
-  url "https://files.pythonhosted.org/packages/f8/8c/447338a4a8098f28bed79b264a43fbfae4d5d70ec2cc034fc4bc4cfaa827/reorder_python_imports-2.6.0.tar.gz"
-  sha256 "f4dc03142bdb57625e64299aea80e9055ce0f8b719f8f19c217a487c9fa9379e"
+  url "https://files.pythonhosted.org/packages/b6/9d/593603be8cc619b022709b85727c80984d2f73304387ba9809026efb5237/reorder_python_imports-2.7.0.tar.gz"
+  sha256 "8f6e8ea23905058f964d12a03b7dfb1227d11a877c2d1db0535039a10b568cbb"
   license "MIT"
-  revision 1
   head "https://github.com/asottile/reorder_python_imports.git", branch: "master"
 
   bottle do
