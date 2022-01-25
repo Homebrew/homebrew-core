@@ -39,9 +39,6 @@ class Mysql < Formula
     depends_on "gcc" # for C++17
 
     ignore_missing_libraries "metadata_cache.so"
-
-    # Disable ABI checking
-    patch :DATA
   end
 
   conflicts_with "mariadb", "percona-server",
@@ -59,6 +56,9 @@ class Mysql < Formula
       # against `_ZN17Gcs_debug_options12m_debug_noneB5cxx11E' can not be used when making
       # a shared object; recompile with -fPIC
       ENV.append_to_cflags "-fPIC"
+
+      # Disable ABI checking
+      inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
     end
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
@@ -193,18 +193,3 @@ class Mysql < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
-
-__END__
-diff --git a/cmake/abi_check.cmake b/cmake/abi_check.cmake
-index 0e1886bb..87b7aff7 100644
---- a/cmake/abi_check.cmake
-+++ b/cmake/abi_check.cmake
-@@ -30,7 +30,7 @@
- # (Solaris) sed or diff might act differently from GNU, so we run only 
- # on systems we can trust.
- IF(LINUX)
--  SET(RUN_ABI_CHECK 1)
-+  SET(RUN_ABI_CHECK 0)
- ELSE()
-   SET(RUN_ABI_CHECK 0)
- ENDIF()
