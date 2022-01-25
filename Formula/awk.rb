@@ -20,16 +20,10 @@ class Awk < Formula
 
   uses_from_macos "bison"
 
-  conflicts_with "gawk",
-    because: "both install an `awk` executable"
+  conflicts_with "gawk", because: "both install an `awk` executable"
 
   def install
-    ENV.deparallelize
-    # the yacc command the makefile uses results in build failures:
-    # /usr/bin/bison: missing operand after `awkgram.y'
-    # makefile believes -S to use sprintf instead of sprint, but the
-    # -S flag is not supported by `bison -y`
-    system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "YACC=yacc -d"
+    system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "a.out" => "awk"
     man1.install "awk.1"
   end
