@@ -4,6 +4,7 @@ class Mednafen < Formula
   url "https://mednafen.github.io/releases/files/mednafen-1.29.0.tar.xz"
   sha256 "da3fbcf02877f9be0f028bfa5d1cb59e953a4049b90fe7e39388a3386d9f362e"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://mednafen.github.io/releases/"
@@ -33,7 +34,7 @@ class Mednafen < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", "--enable-ss"
     system "make", "install"
   end
 
