@@ -1,8 +1,8 @@
 class Tfproviderlint < Formula
   desc "Terraform Provider Lint Tool"
   homepage "https://github.com/bflad/tfproviderlint"
-  url "https://github.com/bflad/tfproviderlint/archive/v0.27.1.tar.gz"
-  sha256 "92bbef65ccc2a2947e5dc8e0cfdf20d0485dbf87a21fbc10c865ff25210fb6a8"
+  url "https://github.com/bflad/tfproviderlint/archive/v0.28.0.tar.gz"
+  sha256 "ee30f1a621cfaeceea00a83a45dd6704ad186aa10954324cbd88200abd27d9aa"
   license "MPL-2.0"
   head "https://github.com/bflad/tfproviderlint.git", branch: "main"
 
