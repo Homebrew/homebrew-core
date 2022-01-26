@@ -38,8 +38,9 @@ class Nvc < Formula
                           "--with-system-cc=/usr/bin/clang",
                           "--enable-vhpi",
                           "--disable-silent-rules"
-    system "make"
-    system "make", "install"
+    ENV.deparallelize
+    system "make", "V=1"
+    system "make", "V=1", "install"
   end
 
   test do
