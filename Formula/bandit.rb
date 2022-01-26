@@ -3,8 +3,8 @@ class Bandit < Formula
 
   desc "Security-oriented static analyser for Python code"
   homepage "https://github.com/PyCQA/bandit"
-  url "https://files.pythonhosted.org/packages/1a/99/499f1aba344a3b71042d959529264855caf3409f07c3dfcfa1689a7bf6b8/bandit-1.7.1.tar.gz"
-  sha256 "a81b00b5436e6880fa8ad6799bc830e02032047713cbb143a12939ac67eb756c"
+  url "https://files.pythonhosted.org/packages/67/f3/99409392d1eb5e3d65efacf2d30e94b2d2c4e24e0849fab2e84f35748a3b/bandit-1.7.2.tar.gz"
+  sha256 "6d11adea0214a43813887bfe71a377b5a9955e4c826c8ffd341b494e3ab25260"
   license "Apache-2.0"
   head "https://github.com/PyCQA/bandit.git", branch: "master"
 
@@ -25,13 +25,13 @@ class Bandit < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/34/cc/aaa7a0d066ac9e94fbffa5fcf0738f5742dd7095bdde950bd582fca01f5a/GitPython-3.1.24.tar.gz"
-    sha256 "df83fdf5e684fef7c6ee2c02fc68a5ceb7e7e759d08b694088d0cacb4eba59e5"
+    url "https://files.pythonhosted.org/packages/70/b0/23e3245248f63eac75335828527016c7636c1780e7ad934a341970b47a78/GitPython-3.1.26.tar.gz"
+    sha256 "fc8868f63a2e6d268fb25f481995ba185a85a66fcad126f039323ff6635669ee"
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/69/7e/e420b9b6b06f9597827571e871f9492512701497971a4cf3f4638c03bc7a/pbr-5.7.0.tar.gz"
-    sha256 "4651ca1445e80f2781827305de3d76b3ce53195f2227762684eb08f17bc473b7"
+    url "https://files.pythonhosted.org/packages/f5/0c/3fa7b1f9006e4d454a49b48eac995167cf8617e19375c6963a6b048af0d0/pbr-5.8.0.tar.gz"
+    sha256 "672d8ebee84921862110f23fcec2acea191ef58543d34dfe9ef3d9f13c31cddf"
   end
 
   resource "PyYAML" do
