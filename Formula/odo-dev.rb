@@ -18,7 +18,7 @@ class OdoDev < Formula
   test do
     # try set preference
     ENV["GLOBALODOCONFIG"] = "#{testpath}/preference.yaml"
-    shell_output("#{bin}/odo preference set ConsentTelemetry false")
+    system bin/"odo", "preference", "set", "ConsentTelemetry", "false"
     assert_predicate testpath/"preference.yaml", :exist?
 
     # test version
