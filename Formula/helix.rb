@@ -16,6 +16,18 @@ class Helix < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/hx --version")
+    require "open3"
+    Open3.popen3("#{bin}/hx") do |stdin, _stdout, stderr, wait_thr|
+      on_macos do
+        error_msg = "Piping into helix-term is currently not supported on macOS"
+        assert_match error_msg, stderr.read
+        assert_equal 1, wait_thr.value.exitstatus
+      end
+      on_linux do
+        stdin.write "test"
+        sleep 5.seconds
+        system "kill", "-SIGTERM", wait_thr.pid.to_s
+      end
+    end
   end
 end
