@@ -2,8 +2,8 @@ class SqliteUtils < Formula
   include Language::Python::Virtualenv
   desc "CLI utility for manipulating SQLite databases"
   homepage "https://sqlite-utils.datasette.io/"
-  url "https://files.pythonhosted.org/packages/d1/23/58949f93716d19490f2a0810fca2cbd8eadea1564688f8a3a413df8ac7a7/sqlite-utils-3.22.tar.gz"
-  sha256 "24803ea4d63e2123d2040db2da43fea95fabada80e1af1fe1da69643ae376689"
+  url "https://files.pythonhosted.org/packages/15/87/f6d42d599826037c7aef82e7a23d8f657d4f5cf657b0001d73ed25bc1c98/sqlite-utils-3.22.1.tar.gz"
+  sha256 "35ebb4f7e2b09f1818b36e7da6dc62f1ca57e2c0d99a9cbc8151e634d75a7906"
   license "Apache-2.0"
 
   bottle do
