@@ -8,7 +8,6 @@ class OdoDev < Formula
   head "https://github.com/redhat-developer/odo.git", branch: "main"
 
   depends_on "go" => :build
-  conflicts_with "odo", because: "odo also ships 'odo' binary"
 
   def install
     system "make", "bin"
@@ -23,8 +22,13 @@ class OdoDev < Formula
 
     # test version
     version_output = shell_output("#{bin}/odo version --client 2>&1").strip
-    assert_match "odo #{version} (#{Utils.git_head})", version_output
+    assert_match(/odo v#{version} \([a-f0-9]{9}\)/, version_output)
 
-    # almost all other odo commands require connection to OpenShift cluster
+    # try to creation new component
+    system bin/"odo", "create", "nodejs"
+    assert_predicate testpath/"devfile.yaml", :exist?
+
+    push_output = shell_output("#{bin}/odo push 2>&1", 1).strip
+    assert_match("invalid configuration", push_output)
   end
 end
