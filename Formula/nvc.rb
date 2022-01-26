@@ -26,6 +26,8 @@ class Nvc < Formula
 
   uses_from_macos "flex" => :build
 
+  fails_with gcc: "5" # LLVM is built with GCC
+
   resource "homebrew-test" do
     url "https://github.com/suoto/vim-hdl-examples.git",
         revision: "fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b"
@@ -35,7 +37,7 @@ class Nvc < Formula
     system "./autogen.sh" if build.head?
     system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
-                          "--with-system-cc=/usr/bin/clang",
+                          "--with-system-cc=#{ENV.cc}",
                           "--enable-vhpi",
                           "--disable-silent-rules"
     ENV.deparallelize
