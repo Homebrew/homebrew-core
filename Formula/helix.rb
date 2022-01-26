@@ -11,9 +11,8 @@ class Helix < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "helix-term")
-    prefix.install "runtime"
-    mv bin/"hx", bin/"hx-bin"
-    (bin/"hx").write_env_script(bin/"hx-bin", HELIX_RUNTIME: prefix/"runtime")
+    libexec.install "runtime"
+    bin.env_script_all_files libexec/"bin", HELIX_RUNTIME: libexec/"runtime"
   end
 
   test do
