@@ -25,9 +25,7 @@ class OdoDev < Formula
 
     # test version
     version_output = shell_output("#{bin}/odo version --client 2>&1").strip
-    tag = stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:tag]
-    short_rev = stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision].slice(0, 9)
-    assert_match "odo #{tag} (#{short_rev})", version_output
+    assert_match "odo #{version} (#{Utils.git_head})", version_output
 
     # almost all other odo commands require connection to OpenShift cluster
   end
