@@ -4,7 +4,7 @@ class Qsoas < Formula
   url "https://bip.cnrs.fr/wp-content/uploads/qsoas/qsoas-3.0.tar.gz"
   sha256 "54b54f54363f69a9845b3e9aa4da7dae9ceb7bb0f3ed59ba92ffa3b408163850"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://github.com/fourmond/QSoas.git"
