@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/96/87/072889173d63cc425c468092e935178c4766ab99ec3fa9b04ef1759ed6a2/moto-3.0.0.tar.gz"
-  sha256 "d6b00a2663290e7ebb06823d5ffcb124c8dc9bf526b878539ef7c4a377fd8255"
+  url "https://files.pythonhosted.org/packages/06/5e/ba8c29f720ee9d5d7b0a1ffff38a9b2a0461ca63be4715388912b2ab77ea/moto-3.0.1.tar.gz"
+  sha256 "b1bf9306ff9dc40d814766190023a392b55ce84386e118118f0555d4229e1861"
   license "Apache-2.0"
 
   bottle do
@@ -36,13 +36,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7a/d3/60e2bb10ab79ad7bfa455797a436f510d1ef5058fd079e76f8ff46fa9eb4/boto3-1.20.40.tar.gz"
-    sha256 "66aef9a6d8cad393f69166112ba49e14e2c6766f9278c96134101314a9af2992"
+    url "https://files.pythonhosted.org/packages/f9/d5/2dd0d754b6803c652b0b0895a281f326a37aef04ff8c541f583421cb1d14/boto3-1.20.43.tar.gz"
+    sha256 "219cba1d078b3c0f3bd1678ee355e07c4a07ea75ee75adee6c306d89d60c555c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/12/95/974284900c269501df0372c196d9a2a3bb1845475f85125a1b0e0f632bbc/botocore-1.23.40.tar.gz"
-    sha256 "49baa1fca4483b24769f0743fbf72afe4db391f41f1fc12ea34e06036db642a4"
+    url "https://files.pythonhosted.org/packages/80/77/9322025cbd28c5ba8243f4ead92336148a59ddcbb700716e5d6b01af69cf/botocore-1.23.43.tar.gz"
+    sha256 "f8c60dff90a7aea7f84908f0e4e778890d4f08c883d2da111c15c10d7c199102"
   end
 
   resource "certifi" do
@@ -131,8 +131,8 @@ class Moto < Formula
   end
 
   resource "jsondiff" do
-    url "https://files.pythonhosted.org/packages/37/53/df2401ddcdc20289e715d3ab30080a0f286a897b6c9c6511bad869ee1ea1/jsondiff-1.3.0.tar.gz"
-    sha256 "5122bf4708a031b02db029366184a87c5d0ddd5a327a5884ee6cf0193e599d71"
+    url "https://files.pythonhosted.org/packages/21/c6/57158093587de0ab578da6f27467e00b037d63b3538204fc27860d427144/jsondiff-1.3.1.tar.gz"
+    sha256 "04cfaebd4a5e5738948ab615710dc3ee98efbdf851255fd3977c4c2ee59e7312"
   end
 
   resource "jsonpatch" do
