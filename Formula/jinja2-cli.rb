@@ -3,10 +3,9 @@ class Jinja2Cli < Formula
 
   desc "CLI for the Jinja2 templating language"
   homepage "https://github.com/mattrobenolt/jinja2-cli"
-  url "https://files.pythonhosted.org/packages/23/67/6f05f5f8a9fc108c58e4eac9b9b7876b400985d33149fe2faa87a9ca502b/jinja2-cli-0.7.0.tar.gz"
-  sha256 "9ccd8d530dad5d031230afd968cf54637b49842a13ececa6e17c2f67f6e9336e"
+  url "https://files.pythonhosted.org/packages/b4/d8/db91896b7bc075d93da3658095948dd6ff62e692c7acef463e41ef47e274/jinja2-cli-0.8.0.tar.gz"
+  sha256 "9098a9f554bbfc91153547cbaafd48254698bed94e6d57d906d8286a3c8620c7"
   license "BSD-2-Clause"
-  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5e7e9f7d2a1b88f8f5d2d7484edeb62234a51d045b578df6963b044298e58615"
@@ -21,8 +20,8 @@ class Jinja2Cli < Formula
   depends_on "python@3.10"
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f8/86/7c0eb6e8b05385d1ce682abc0f994abd1668e148fb52603fa86e15d4c110/Jinja2-3.0.2.tar.gz"
-    sha256 "827a0e32839ab1600d4eb1c4c33ec5a8edfbc5cb42dafa13b81f182f97784b45"
+    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
+    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
   end
 
   resource "MarkupSafe" do
