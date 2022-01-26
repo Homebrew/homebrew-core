@@ -1,8 +1,8 @@
 class Rmw < Formula
   desc "Safe-remove utility for the command-line"
   homepage "https://remove-to-waste.info/"
-  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.8.0/rmw-0.8.0-2.tar.gz"
-  sha256 "a01b8472a7cbecc2bed5ba301e360f8defcd77821cef812051d68d4c38f12e95"
+  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.8.1/rmw-0.8.1.tar.gz"
+  sha256 "abad25d8c0b2d6593fe426ca2c2d064207630e6a827a7d769f4991cbb583337b"
   license "GPL-3.0-or-later"
   head "https://github.com/theimpossibleastronaut/rmw.git", branch: "master"
 
@@ -24,6 +24,7 @@ class Rmw < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "canfigger"
   depends_on "gettext"
   # Slightly buggy with system ncurses
   # https://github.com/theimpossibleastronaut/rmw/issues/205
