@@ -23,6 +23,7 @@ class ImageoptimCli < Formula
   depends_on "node" => :build
   depends_on "yarn" => :build
   depends_on arch: :x86_64 # Installs pre-built x86-64 binaries
+  depends_on :macos
 
   def install
     Language::Node.setup_npm_environment
