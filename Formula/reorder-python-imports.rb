@@ -3,8 +3,8 @@ class ReorderPythonImports < Formula
 
   desc "Rewrites source to reorder python imports"
   homepage "https://github.com/asottile/reorder_python_imports"
-  url "https://files.pythonhosted.org/packages/b6/9d/593603be8cc619b022709b85727c80984d2f73304387ba9809026efb5237/reorder_python_imports-2.7.0.tar.gz"
-  sha256 "8f6e8ea23905058f964d12a03b7dfb1227d11a877c2d1db0535039a10b568cbb"
+  url "https://files.pythonhosted.org/packages/0f/0e/af881028b7bcb296d8982425555865a3e76ec4df13d57a0e602864594403/reorder_python_imports-2.7.1.tar.gz"
+  sha256 "1ae34422f13f5a4b4669f340774909d721bfc0a8311973c70b3a50540b595bc5"
   license "MIT"
   head "https://github.com/asottile/reorder_python_imports.git", branch: "master"
 
@@ -20,8 +20,8 @@ class ReorderPythonImports < Formula
   depends_on "python@3.10"
 
   resource "aspy.refactor-imports" do
-    url "https://files.pythonhosted.org/packages/a9/e9/cabb3bd114aa24877084f2bb6ecad8bd77f87724d239d360efd08f6fe9db/aspy.refactor_imports-2.2.0.tar.gz"
-    sha256 "78ca24122963fd258ebfc4a8dc708d23a18040ee39dca8767675821e84e9ea0a"
+    url "https://files.pythonhosted.org/packages/63/e3/74f8042eb50fe161cd08cb94bc93f17a05fe76c387aeb22087db03e8173e/aspy.refactor_imports-2.2.1.tar.gz"
+    sha256 "f5b2fcbf9fd68361168588f14eda64d502d029eefe632d15094cd0683ae12984"
   end
 
   resource "cached-property" do
