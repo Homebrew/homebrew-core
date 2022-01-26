@@ -22,6 +22,8 @@ class GitAnnex < Formula
   depends_on "quvi"
 
   def install
+    ENV["LLC"] = which("llc")
+    ENV["OPT"] = which("opt")
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args,
                     "--flags=+S3"
