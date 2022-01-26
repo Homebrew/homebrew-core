@@ -5,6 +5,12 @@ class Osm < Formula
       tag:      "v0.11.1",
       revision: "c01aefae509d59735d7908a32a359327ff3f2322"
   license "Apache-2.0"
+  head "https://github.com/openservicemesh/osm.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c83f900219fa1b556c68a1eb7761f8d0bb0ad3dc6072977ad36eb6fadc7e4eec"
@@ -19,7 +25,7 @@ class Osm < Formula
   depends_on "helm" => :build
 
   def install
-    ENV["VERSION"] = "v"+version
+    ENV["VERSION"] = "v"+version unless build.head?
     ENV["BUILD_DATE"] = time.strftime("%Y-%m-%d-%H:%M")
     system "make", "build-osm"
     bin.install "bin/osm"
