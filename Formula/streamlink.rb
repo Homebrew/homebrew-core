@@ -3,8 +3,8 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/ec/4b/125fc0d84de9eafe9be299f4b1aba0af78c72f555a159037ebe6c7a3efc5/streamlink-3.1.0.tar.gz"
-  sha256 "4f6334be0f8160876bdb509c76bac17fb6d5565654fad289586db17c13283258"
+  url "https://files.pythonhosted.org/packages/f1/79/8fef2dc65c220eb9e6bd45d6e3faeffe2d6f79c46a8471a5d38a18639b95/streamlink-3.1.1.tar.gz"
+  sha256 "855cd31e900e3ae1d5328a37123bfffe2aec501a1d74bcdd12f0d2a2758060e4"
   license "BSD-2-Clause"
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
@@ -58,8 +58,8 @@ class Streamlink < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/dd/3b/38d83c2725fec5b837fc05d5c6e0178a420ff839a6ad5872f10c89244899/pycryptodome-3.12.0.zip"
-    sha256 "12c7343aec5a3b3df5c47265281b12b611f26ec9367b6129199d67da54b768c1"
+    url "https://files.pythonhosted.org/packages/72/8e/9249abf44e184905b2f610ddb5dc8eccec7ab5e91109fc6df2be8647ae46/pycryptodome-3.13.0.tar.gz"
+    sha256 "95bacf9ff7d1b90bba537d3f5f6c834efe6bfbb1a0195cb3573f29e6716ef08d"
   end
 
   resource "PySocks" do
