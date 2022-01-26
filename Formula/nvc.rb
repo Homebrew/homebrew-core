@@ -35,6 +35,8 @@ class Nvc < Formula
 
   def install
     system "./autogen.sh" if build.head?
+    # Avoid hardcoding path to the `ld` shim.
+    inreplace "configure", "\\\"$linker_path\\\"", "\\\"ld\\\"" if OS.linux?
     system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
                           "--with-system-cc=#{ENV.cc}",
