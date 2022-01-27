@@ -1,8 +1,17 @@
 class Pmccabe < Formula
   desc "Calculate McCabe-style cyclomatic complexity for C/C++ code"
-  homepage "https://packages.debian.org/sid/pmccabe"
-  url "https://deb.debian.org/debian/pool/main/p/pmccabe/pmccabe_2.6.tar.gz"
-  sha256 "e490fe7c9368fec3613326265dd44563dc47182d142f579a40eca0e5d20a7028"
+  homepage "https://gitlab.com/pmccabe/pmccabe"
+  url "https://gitlab.com/pmccabe/pmccabe/-/archive/v2.8/pmccabe-v2.8.tar.bz2"
+  sha256 "d37cafadfb64507c32d75297193f99f1afcf12289b7fcc1ddde4a852f0f2ac8a"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:[._]\d+)+[a-z]?)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
+  end
 
   bottle do
     rebuild 1
@@ -22,7 +31,7 @@ class Pmccabe < Formula
   def install
     ENV.append_to_cflags "-D__unix"
 
-    system "make"
+    system "make", "CFLAGS=#{ENV.cflags}"
     bin.install "pmccabe", "codechanges", "decomment", "vifn"
     man1.install Dir["*.1"]
   end
