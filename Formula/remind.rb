@@ -22,12 +22,6 @@ class Remind < Formula
   conflicts_with "rem", because: "both install `rem` binaries"
 
   def install
-    # Remove unnecessary sleeps when running on Apple
-    inreplace "configure", "sleep 1", "true"
-    inreplace "src/init.c" do |s|
-      s.gsub! "sleep(5);", ""
-      s.gsub!(/rkrphgvba\(.\);/, "")
-    end
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
