@@ -1,8 +1,10 @@
 class Solid < Formula
   desc "Collision detection library for geometric objects in 3D space"
-  homepage "http://www.dtecta.com/"
-  url "http://www.dtecta.com/files/solid-3.5.6.tgz"
-  sha256 "4acfa20266f0aa5722732794f8e93d7bb446e467719c947a3ca583f197923af0"
+  homepage "https://github.com/dtecta/solid3/"
+  url "https://github.com/dtecta/solid3/archive/ec3e218616749949487f81165f8b478b16bc7932.tar.gz"
+  version "3.5.8"
+  sha256 "e3a23751ebbad5e35f50e685061f1ab9e1bd3777317efc6912567f55259d0f15"
+  license any_of: ["GPL-2.0-only", "QPL-1.0"]
 
   bottle do
     rebuild 1
@@ -15,39 +17,35 @@ class Solid < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cb9ab57cd86c4d1b5da960ea243a776e1b7a695652bf3cbced579bfcf01c312"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
+  uses_from_macos "texinfo" => :build
+
   # This patch fixes a broken build on clang-600.0.56.
   # Was reported to bugs@dtecta.com (since it also applies to solid-3.5.6)
   patch :DATA
 
   def install
+    # Avoid `required file not found` errors
+    touch ["AUTHORS", "ChangeLog", "NEWS"]
+
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-debug",
                           "--prefix=#{prefix}",
                           "--infodir=#{info}"
 
-    # exclude the examples from compiling!
-    # the examples do not compile because the include statements
-    # for the GLUT library are not platform independent
-    inreplace "Makefile", " examples ", " "
+    # Don't make examples, as they do not compile because the include
+    # statements for the GLUT library are not platform independent
+    inreplace "Makefile", /^(SUBDIRS *=.*) examples( .+)?/, '\1\2'
 
     system "make", "install"
   end
 end
 
 __END__
-diff --git a/include/MT/Quaternion.h b/include/MT/Quaternion.h
-index 3726b4f..3393697 100644
---- a/include/MT/Quaternion.h
-+++ b/include/MT/Quaternion.h
-@@ -154,7 +154,7 @@ namespace MT {
-
-		Quaternion<Scalar> inverse() const
-		{
--			return conjugate / length2();
-+			return conjugate() / length2();
-		}
-
-		Quaternion<Scalar> slerp(const Quaternion<Scalar>& q, const Scalar& t) const
 diff --git a/src/complex/DT_CBox.h b/src/complex/DT_CBox.h
 index 7fc7c5d..16ce972 100644
 --- a/src/complex/DT_CBox.h
