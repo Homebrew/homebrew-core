@@ -18,7 +18,8 @@ class Ascii2binary < Formula
                           "--disable-debug",
                           "--disable-dependency-tracking"
 
-    system "make", "-d", "install"
+    system "make", "install"
+    man1.install "ascii2binary.1", "binary2ascii.1"
   end
 
   test do
