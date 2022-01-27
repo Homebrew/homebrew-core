@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/bc/4b/adfb55a008acf2816db38c3a5c8ed2e7f542f2316a8e11e3c4b98948af00/checkov-2.0.750.tar.gz"
-  sha256 "afa1fb53d58094b4ffcf37f9fccd63064ab67c85ba841f26782ca82730214f8a"
+  url "https://files.pythonhosted.org/packages/82/ac/1e73a202a6822c3091172c69a603b1de6a78922defdd66e72701c9964d45/checkov-2.0.765.tar.gz"
+  sha256 "c968db72e9d650600e2e2aee12cd07aee4a4c675deed3ecb2abfb9b389e70dac"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/b8/51/76cb44aa2480775e14fa8add802d1c026c74701e22d9d338a662054d0613/boto3-1.20.42.tar.gz"
-    sha256 "d2fce99e42cb7cb263f3ff272bc707aa6a66bc6ab30d90bf0ff6cbdddd867cfa"
+    url "https://files.pythonhosted.org/packages/8a/20/dbbc839406347cf99e443c19f9b55b30515bda0eaf8932458c68f17bf69b/boto3-1.20.44.tar.gz"
+    sha256 "4470f64e4af609ff678055338c96a6f7cbe601d1fb06a4ea7dc8d9223c2e527a"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/14/f6/5ca4d62dd7a8a00f6536bdcb7b390c325b7bbafdbeb9cedb24a6a77c7e08/botocore-1.23.42.tar.gz"
-    sha256 "a58f1e559ff2c65495f55ac48217afefb56f2d709d30f7377c40287e8c5765d0"
+    url "https://files.pythonhosted.org/packages/84/0e/11c665cc3e2dcdb4fb32e94f3c74d1cb378d9294a820428cf9234391b3ad/botocore-1.23.44.tar.gz"
+    sha256 "8e5317f84fc1118bff58fa6fa79a9b62083e75a2a9c62feb3ea73694c550b99d"
   end
 
   resource "cached-property" do
@@ -261,6 +261,11 @@ class Checkov < Formula
     sha256 "116b808554d7ea75efc97b4cb904085546db45934ef315175cb4755c7a4489de"
   end
 
+  resource "prettytable" do
+    url "https://files.pythonhosted.org/packages/71/19/d65d4c39aa12a5630a8aa02ead8324cfaae3217146b19dd25d88d763bbdf/prettytable-3.0.0.tar.gz"
+    sha256 "69fe75d78ac8651e16dd61265b9e19626df5d630ae294fc31687aa6037b97a58"
+  end
+
   resource "pycares" do
     url "https://files.pythonhosted.org/packages/83/61/17bd0cfb9c4dc8c3738484d604b50d47c78fe4fcfe0ca2c58a61a106f578/pycares-4.1.2.tar.gz"
     sha256 "03490be0e7b51a0c8073f877bec347eff31003f64f57d9518d419d9369452837"
@@ -359,6 +364,11 @@ class Checkov < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
     sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+  end
+
+  resource "wcwidth" do
+    url "https://files.pythonhosted.org/packages/89/38/459b727c381504f361832b9e5ace19966de1a235d73cdbdea91c771a1155/wcwidth-0.2.5.tar.gz"
+    sha256 "c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
   end
 
   resource "websocket-client" do
