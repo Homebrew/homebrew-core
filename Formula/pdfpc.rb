@@ -23,8 +23,9 @@ class Pdfpc < Formula
   depends_on "poppler"
 
   def install
-    system "cmake", ".", "-DMOVIES=on", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DMOVIES=ON", "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
