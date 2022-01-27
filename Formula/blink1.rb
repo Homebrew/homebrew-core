@@ -2,8 +2,8 @@ class Blink1 < Formula
   desc "Control blink(1) indicator light"
   homepage "https://blink1.thingm.com/"
   url "https://github.com/todbot/blink1-tool.git",
-      tag:      "v2.2.0",
-      revision: "99d272ab1e398b744e2a17b4f4a20bfb1c1d606c"
+      tag:      "v2.3.0",
+      revision: "69561a9ed9e83ff67c95cc70187c394150f51cd5"
   license "CC-BY-SA-3.0"
   head "https://github.com/todbot/blink1-tool.git", branch: "master"
 
