@@ -19,6 +19,8 @@ class Odo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "23644efe576abf9c3e3a469cf1baad05b3a3cde749998045b2992c290cf57884"
   end
 
+  conflicts_with "odo-dev", because: "odo-dev also ships 'odo' binary"
+
   def install
     system "make"
     man1.mkpath
