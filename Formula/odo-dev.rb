@@ -17,6 +17,7 @@ class OdoDev < Formula
   end
 
   depends_on "go" => :build
+  conflicts_with "odo", because: "odo also ships 'odo' binary"
 
   def install
     system "make", "bin"
