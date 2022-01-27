@@ -33,6 +33,7 @@ class Bind < Formula
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libidn2"
+  depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@1.1"
   depends_on "python@3.10"
