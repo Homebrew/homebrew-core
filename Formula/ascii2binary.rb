@@ -23,10 +23,8 @@ class Ascii2binary < Formula
   end
 
   test do
-    (testpath/"meaning_of_life.txt").write "42"
-    system "#{bin}/ascii2binary -t ui < #{testpath}/meaning_of_life.txt > #{testpath}/meaning_of_life.bin"
-    ascii = shell_output("#{bin}/binary2ascii -t ui < #{testpath}/meaning_of_life.bin").strip
-
+    binary = pipe_output("#{bin}/ascii2binary -t ui", "42")
+    ascii = pipe_output("#{bin}/binary2ascii -t ui", binary).strip
     assert_equal "42", ascii
   end
 end
