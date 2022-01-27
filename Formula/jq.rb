@@ -16,8 +16,7 @@ class Jq < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/jq[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/^(?:jq[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
