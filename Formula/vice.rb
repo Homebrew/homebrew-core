@@ -65,6 +65,6 @@ class Vice < Formula
   end
 
   test do
-    assert_match "cycle limit reached", shell_output("#{bin}/x64sc -console -limitcycles 1000000 -logfile -", 1)
+    assert_match "Initializing.", shell_output("#{bin}/x64sc -console -limitcycles 1000000 -logfile -", 1)
   end
 end
