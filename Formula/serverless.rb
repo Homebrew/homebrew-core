@@ -3,8 +3,8 @@ require "language/node"
 class Serverless < Formula
   desc "Build applications with serverless architectures"
   homepage "https://www.serverless.com/"
-  url "https://github.com/serverless/serverless/archive/v2.72.2.tar.gz"
-  sha256 "0f88100164d3cb9477e325f626123163562198cec1091f4725217bd6e0918524"
+  url "https://github.com/serverless/serverless/archive/v3.0.0.tar.gz"
+  sha256 "89785f75308550c5160848783d5d0958a828559f16bc2d9790b388b32d0940b1"
   license "MIT"
   head "https://github.com/serverless/serverless.git", branch: "master"
 
@@ -42,7 +42,7 @@ class Serverless < Formula
     EOS
 
     system("#{bin}/serverless", "config", "credentials", "--provider", "aws", "--key", "aa", "--secret", "xx")
-    output = shell_output("#{bin}/serverless package")
-    assert_match "Serverless: Packaging service...", output
+    output = shell_output("#{bin}/serverless package 2>&1")
+    assert_match "Packaging homebrew-test for stage dev", output
   end
 end
