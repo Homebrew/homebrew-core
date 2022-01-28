@@ -4,7 +4,7 @@ class Aerc < Formula
   url "https://git.sr.ht/~rjarry/aerc/archive/0.7.1.tar.gz"
   sha256 "e149236623c103c8526b1f872b4e630e67f15be98ac604c0ea0186054dbef0cc"
   license "MIT"
-  revision 2
+  revision 1
   head "https://git.sr.ht/~rjarry/aerc", branch: "master"
 
   bottle do
