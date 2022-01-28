@@ -5,8 +5,8 @@ class Ipv6calc < Formula
 
   desc "Small utility for manipulating IPv6 addresses"
   homepage "https://www.deepspace6.net/projects/ipv6calc.html"
-  url "https://github.com/pbiering/ipv6calc/archive/4.0.0.tar.gz"
-  sha256 "4d23c471b472271b48421b5d18309492f615c85c75f2abc17c5c5a4d8e3a4635"
+  url "https://github.com/pbiering/ipv6calc/archive/4.0.1.tar.gz"
+  sha256 "0de7dbe66c0e3602becc18bb8f69a278a02eeaf5d58779cd1c0e0069eb80a7e6"
   license "GPL-2.0-only"
 
   bottle do
