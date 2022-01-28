@@ -18,17 +18,16 @@ class Gambit < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "wxwidgets@3.0"
+  depends_on "wxwidgets"
 
   def install
-    wxwidgets = Formula["wxwidgets@3.0"]
-    ENV["WX_CONFIG"] = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
-
-    system "autoreconf", "-fvi"
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-wx-prefix=#{Formula["wxwidgets"].opt_prefix}"
     system "make", "install"
+
     # Sanitise references to Homebrew shims
     rm Dir["contrib/**/Makefile*"]
     pkgshare.install "contrib"
