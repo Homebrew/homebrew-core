@@ -29,6 +29,9 @@ class Pdfpc < Formula
   end
 
   test do
+    # Gtk-WARNING **: 00:25:01.545: cannot open display
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+
     system "#{bin}/pdfpc", "--version"
   end
 end
