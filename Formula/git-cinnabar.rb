@@ -4,6 +4,7 @@ class GitCinnabar < Formula
   url "https://github.com/glandium/git-cinnabar/archive/0.5.8.tar.gz"
   sha256 "7971c2ae17d2b919f915efab35e3aba583b951d53ca2bc6ebf69bbd0c22f1067"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
   bottle do
@@ -14,8 +15,8 @@ class GitCinnabar < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "29f41d5d2c312a84893e3d4d284dd3d72a8d518b512c5caebb1c19a6bad980b7"
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "mercurial"
+  depends_on "python@3.10"
 
   uses_from_macos "curl"
 
@@ -25,7 +26,8 @@ class GitCinnabar < Formula
     system "make", "helper"
     prefix.install "cinnabar"
     bin.install "git-cinnabar", "git-cinnabar-helper", "git-remote-hg"
-    bin.env_script_all_files(libexec, PYTHONPATH: prefix)
+    bin.env_script_all_files(libexec, PYTHONPATH:          prefix,
+                                      GIT_CINNABAR_PYTHON: Formula["python@3.10"].opt_bin/"python3")
   end
 
   test do
