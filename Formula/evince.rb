@@ -30,6 +30,13 @@ class Evince < Formula
   depends_on "poppler"
   depends_on "python@3.9"
 
+  # Fix compilation failure due to incorrect args for `i18n.merge_file`
+  # https://gitlab.gnome.org/GNOME/evince/-/issues/1732
+  patch do
+    url "https://gitlab.gnome.org/GNOME/evince/-/commit/1060b24d051607f14220f148d2f7723b29897a54.diff"
+    sha256 "5e9690beee8a472148a7c6fda78793a3499d5d0c38e08f61e1589598fab68f1a"
+  end
+
   def install
     ENV["DESTDIR"] = "/"
 
