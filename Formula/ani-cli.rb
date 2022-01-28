@@ -11,10 +11,11 @@ class AniCli < Formula
   depends_on "cask"
   depends_on "aria2"
   depends_on "cask"
+  depends_on cask: 'virtualbox'
   
   def install
     # Resolve cask dependencies
-    system "/usr/local/bin/brew", "install", "--cask", "iina"
+    # system "/usr/local/bin/brew", "install", "--cask", "iina"
     bin.install 'ani-cli'
   end
   def caveats
