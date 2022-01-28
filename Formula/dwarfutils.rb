@@ -7,8 +7,8 @@ class Dwarfutils < Formula
   version_scheme 1
 
   livecheck do
-    url :stable
-    regex(/^libdwarf[._-]v?(\d+(?:\.\d+)+)$/i)
+    url :homepage
+    regex(%r{href=(?:["']?|.*?/)libdwarf[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
