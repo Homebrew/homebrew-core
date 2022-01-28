@@ -4,6 +4,7 @@ class Git < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.35.0.tar.xz"
   sha256 "47e677b475226857ceece569fb6ded8b85838ede97ae1e01bd365ac32a468fc8"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
@@ -33,13 +34,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.34.0.tar.xz"
-    sha256 "c95d838dbd4b8c28d9f00beca776c06d94031be05fa39cf33fb08ae5f0aee250"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.35.0.tar.xz"
+    sha256 "a92cafb3668d066c68b86037ac4752a72a08a101d6540d972b993f6939274d0d"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.34.0.tar.xz"
-    sha256 "47eafa3517ef5fc7a6e914ad2ee6a6e4d830a4bb6830dba13175850860492c72"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.35.0.tar.xz"
+    sha256 "438625a0639d2e627a7a2edab94d999c200ec7464cc19a8052322641b5272ca9"
   end
 
   resource "Net::SMTP::SSL" do
