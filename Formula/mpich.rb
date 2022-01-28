@@ -5,6 +5,7 @@ class Mpich < Formula
   mirror "https://fossies.org/linux/misc/mpich-4.0.tar.gz"
   sha256 "df7419c96e2a943959f7ff4dc87e606844e736e30135716971aba58524fbff64"
   license "mpich2"
+  revision 1
 
   livecheck do
     url "https://www.mpich.org/static/downloads/"
@@ -69,8 +70,6 @@ class Mpich < Formula
     # Flag for compatibility with GCC 10
     # https://lists.mpich.org/pipermail/discuss/2020-January/005863.html
     args << "FFLAGS=-fallow-argument-mismatch"
-    args << "CXXFLAGS=-Wno-deprecated"
-    args << "CFLAGS=-fgnu89-inline -Wno-deprecated"
 
     if OS.linux?
       # Use libfabric https://lists.mpich.org/pipermail/discuss/2021-January/006092.html
