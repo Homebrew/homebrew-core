@@ -1,8 +1,8 @@
 class Libnfs < Formula
   desc "C client library for NFS"
   homepage "https://github.com/sahlberg/libnfs"
-  url "https://github.com/sahlberg/libnfs/archive/libnfs-4.0.0.tar.gz"
-  sha256 "6ee77e9fe220e2d3e3b1f53cfea04fb319828cc7dbb97dd9df09e46e901d797d"
+  url "https://github.com/sahlberg/libnfs/archive/libnfs-5.0.1.tar.gz"
+  sha256 "7ef445410b42f36b9bad426608b53ccb9ccca4101e545c383f564c11db672ca8"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -21,15 +21,6 @@ class Libnfs < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  on_linux do
-    # Fix error: field 'atime' has incomplete type
-    # Related upstream issue: https://github.com/sahlberg/libnfs/issues/272
-    patch do
-      url "https://raw.githubusercontent.com/buildroot/buildroot/582fd7c094c697a3408c054b87406fcf249bcf72/package/libnfs/0001-Fix-include-sys-time.h.patch"
-      sha256 "1300b85067c870b5ef92a90cdb1ab2b0d02e81f0401362e8fff5fd439b3dfedf"
-    end
-  end
-
   def install
     system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",
@@ -41,6 +32,9 @@ class Libnfs < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
+      #if defined(__linux__)
+      # include <sys/time.h>
+      #endif
       #include <stddef.h>
       #include <nfsc/libnfs.h>
 
