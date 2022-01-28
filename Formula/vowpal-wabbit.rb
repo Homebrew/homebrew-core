@@ -3,8 +3,8 @@ class VowpalWabbit < Formula
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
   # pull from git tag to get submodules
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-      tag:      "8.11.0",
-      revision: "96ed8316de4391b77f4f29af69f885552a644769"
+      tag:      "9.0.0",
+      revision: "01bdf2c2af3435057702c6c4c3ee070c43293dd2"
   license "BSD-3-Clause"
   revision 1
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
