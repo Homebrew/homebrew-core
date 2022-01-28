@@ -1,10 +1,9 @@
 class Gambit < Formula
   desc "Software tools for game theory"
   homepage "http://www.gambit-project.org"
-  url "https://github.com/gambitproject/gambit/archive/v16.0.1.tar.gz"
-  sha256 "56bb86fd17575827919194e275320a5dd498708fd8bb3b20845243d492c10fef"
+  url "https://github.com/gambitproject/gambit/archive/v16.0.2.tar.gz"
+  sha256 "49837f2ccb9bb65dad2f3bba9c436c7a7df8711887e25f6bf54b074508a682d4"
   license "Apache-2.0"
-  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b92ff6853ffbf21cb1999cce85620f289cbaeecb51b06c219eff10afe839794e"
