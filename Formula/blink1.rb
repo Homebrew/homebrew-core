@@ -15,11 +15,17 @@ class Blink1 < Formula
     sha256 cellar: :any, catalina:       "52a3d5efa444acbd4fe4a76ba38152513bdbfa7138d66e799401aeb0ac87af78"
   end
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "systemd"
+  end
+
   def install
     system "make"
     bin.install "blink1-tool"
-    lib.install "libBlink1.dylib"
     include.install "blink1-lib.h"
+    library = OS.mac? ? "libBlink1.dylib" : "libblink1.so"
+    lib.install library
   end
 
   test do
