@@ -1,10 +1,9 @@
 class Lua < Formula
   desc "Powerful, lightweight programming language"
   homepage "https://www.lua.org/"
-  url "https://www.lua.org/ftp/lua-5.4.3.tar.gz"
-  sha256 "f8612276169e3bfcbcfb8f226195bfc6e466fe13042f1076cbde92b7ec96bbfb"
+  url "https://www.lua.org/ftp/lua-5.4.4.tar.gz"
+  sha256 "164c7849653b80ae67bec4b7473b884bf5cc8d2dca05653475ec2ed27b9ebf61"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://www.lua.org/ftp/"
@@ -12,12 +11,12 @@ class Lua < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d0ac5ebb4064dea9bb4afa547eb634f16ceed7662c653c3a9c24d28c4a2b75ec"
-    sha256 cellar: :any,                 arm64_big_sur:  "d0137a42c7c544f32393f4673d205f9dbfb5afbf50051cb78424810808e10cde"
-    sha256 cellar: :any,                 monterey:       "918a63c8c529672f227327e3f4a747e04df918f2a5e5c37adffd911183fb7205"
-    sha256 cellar: :any,                 big_sur:        "03e5112423f6542a6951e1fbd748150f1d8e6bdeaadd02a3ad14c7579503e26c"
-    sha256 cellar: :any,                 catalina:       "723d8fe07a4c9f430ecf3d26d56aeba31112f3d908b5cf9a69ad57ca66fa80f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a74b17d1390fc31bd922c5fea400b5480e59d4048d5c3281bf2bd5013b8ef947"
+    sha256 cellar: :any,                 arm64_monterey: "801bc01f4821a3f69e7496a00d609d9669ac9f6cac0b7b5bfad540ca5c9317cc"
+    sha256 cellar: :any,                 arm64_big_sur:  "685fff4864fabe098295955b09a5eb7696ea1d48f9d034b0d2c528b76a2ae64a"
+    sha256 cellar: :any,                 monterey:       "05acee0902b938fe8d3154906f85fdd5b4d5947cecf5a1df8ea6d7cfe56ae038"
+    sha256 cellar: :any,                 big_sur:        "61c13421560dc5875669c591c5b8fd7b9adff8f50fee07db6883f7c278f73c5a"
+    sha256 cellar: :any,                 catalina:       "15ae93c61d7a2da10404dc915e76846fd0cd30421ad44989b9f83ea8fa9671ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9577e9329eec0de7cd8136e1557b62c135a0aa39e9f22a21be4cdee532d1e17"
   end
 
   uses_from_macos "unzip" => :build

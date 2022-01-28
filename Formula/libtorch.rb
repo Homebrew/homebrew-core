@@ -4,10 +4,9 @@ class Libtorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.10.1",
-      revision: "302ee7bfb604ebef384602c56e3853efed262030"
+      tag:      "v1.10.2",
+      revision: "71f889c7d265b9636b93ede9d651c0a9c4bee191"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -15,12 +14,12 @@ class Libtorch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "aa6da3e784849b35d69bf25445bc4c8f9dc7349d860bb48e7fa2d9c3a8ec97d0"
-    sha256 cellar: :any,                 arm64_big_sur:  "90359d7a71c27ee0e39f8c1fba9e6481ccaf61ac3eed5c90a63ed833c50e4e20"
-    sha256 cellar: :any,                 monterey:       "ce508d0f36449d28f9439eb9557be2a2841df10e7460ca06bfe8f03919881aa5"
-    sha256 cellar: :any,                 big_sur:        "bff45c48480510c69e0cb0fcc8a3e8157315e3e5968beaad1e78490a6622952a"
-    sha256 cellar: :any,                 catalina:       "43f82b7fc95313453390a85888bee794b40fa9dbf569e5390738c3e9b9622adf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "692b4c045c53528e1c26f09f23111a7c49cd8ee759b585d902820ce5b6e0132e"
+    sha256 cellar: :any,                 arm64_monterey: "5ce1f2a40f787dc61b762bde001027393cef039ffd94b0a63d800a78d0601d9d"
+    sha256 cellar: :any,                 arm64_big_sur:  "8122c594fe8d1cd192542bc0c7f7d458253d9e105743101d37b9a2cb885dad98"
+    sha256 cellar: :any,                 monterey:       "95cec86cdc2c96c18955058fa918b2a6d0b9e6ac536814a6866cd56f94fe6c25"
+    sha256 cellar: :any,                 big_sur:        "238dc4802a6684e19c4036e80313305be83ff65a8514606ddd815426fe15e397"
+    sha256 cellar: :any,                 catalina:       "834b65640273592324e8c718c0770be73b972ea3c25a67f71dd239946aaa220b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2ea263eb6e8fecdbba9689cdc5254191bd3f6de32fa7af0720f7cfc482fa044"
   end
 
   depends_on "cmake" => :build
@@ -37,8 +36,8 @@ class Libtorch < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/ed/12/c5079a15cf5c01d7f4252b473b00f7e68ee711be605b9f001528f0298b98/typing_extensions-3.10.0.2.tar.gz"
-    sha256 "49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e"
+    url "https://files.pythonhosted.org/packages/0d/4a/60ba3706797b878016f16edc5fbaf1e222109e38d0fa4d7d9312cb53f8dd/typing_extensions-4.0.1.tar.gz"
+    sha256 "4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e"
   end
 
   def install

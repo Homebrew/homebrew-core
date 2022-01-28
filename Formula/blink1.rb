@@ -2,25 +2,31 @@ class Blink1 < Formula
   desc "Control blink(1) indicator light"
   homepage "https://blink1.thingm.com/"
   url "https://github.com/todbot/blink1-tool.git",
-      tag:      "v2.2.0",
-      revision: "99d272ab1e398b744e2a17b4f4a20bfb1c1d606c"
+      tag:      "v2.3.0",
+      revision: "69561a9ed9e83ff67c95cc70187c394150f51cd5"
   license "CC-BY-SA-3.0"
   head "https://github.com/todbot/blink1-tool.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "0edd4b1388d7fc0a779bfe546d3ea35537f04e6c5161f16015a604ea31255477"
-    sha256 cellar: :any, arm64_big_sur:  "889f3e102d43f059049cec76aa5b80bb099add9927f1bd7d29f7decaa4009741"
-    sha256 cellar: :any, monterey:       "1f42d94401931ac01d662006c16df3cc0ac8649264af6ff595ceabda6d0b04bd"
-    sha256 cellar: :any, big_sur:        "14af896b923b60092a1bf250dc4e048e7b0fe2c6cd1d503f9b6b90a49e04acff"
-    sha256 cellar: :any, catalina:       "1f6cd75723e3fd2ae1620da782c237b4193bb89c6b594e0e5518cea7acebbef3"
-    sha256 cellar: :any, mojave:         "f4dba39b59bba805cef467d468f03e927583b97979786357d0ceb32683955491"
+    sha256 cellar: :any,                 arm64_monterey: "6aaa7efbcc86913250293edca2410848c30e01bf1e0ef70efd798fcd9c893ca8"
+    sha256 cellar: :any,                 arm64_big_sur:  "9e57a3c3f96ad7a97056aebfeadb075a5471fe43fa078f4e7f02fdebc3582979"
+    sha256 cellar: :any,                 monterey:       "23bc96b6e6a9b1e9b0abdacc11033c85cd680a7ca3fc51836ebaadeb0e4be373"
+    sha256 cellar: :any,                 big_sur:        "dfbcb34a56386bd9ce68d770bfe3355c408ed0d93197f1f07da69e53312b01c8"
+    sha256 cellar: :any,                 catalina:       "52a3d5efa444acbd4fe4a76ba38152513bdbfa7138d66e799401aeb0ac87af78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "947b96287a04a1ee9fbe4dd3e0316e084a3cb54a73dbeb411f59959c991dabc4"
+  end
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "systemd"
   end
 
   def install
     system "make"
     bin.install "blink1-tool"
-    lib.install "libBlink1.dylib"
     include.install "blink1-lib.h"
+    library = OS.mac? ? "libBlink1.dylib" : "libblink1.so"
+    lib.install library
   end
 
   test do

@@ -1,16 +1,17 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://github.com/nickg/nvc"
-  url "https://github.com/nickg/nvc/releases/download/r1.5.3/nvc-1.5.3.tar.gz"
-  sha256 "a9232d645321f5f560fc466cae43d2e514db801b9e4a9bcb24f881c473206513"
+  url "https://github.com/nickg/nvc/releases/download/r1.6.0/nvc-1.6.0.tar.gz"
+  sha256 "1e93e461b53261254b123ed0a88ba72316ed61d9985bb4439a473bd08b81da88"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "f062caad9512a3c0d4d6a98f279355882922e2994ca2eae6b948adcb337ccaac"
-    sha256 arm64_big_sur:  "0b77a79a7970ac8b0d53b6527ab1f5ef0cc7982012d526b2538f9b2c5277491b"
-    sha256 monterey:       "ceb5b84552da80889605d9ca8b887955029d146f03f530da8c550394f50122f1"
-    sha256 big_sur:        "419611c66adec0332e11016ab6fa9b56ba116254fef1062a9d526a971dc3abba"
-    sha256 catalina:       "12cc92837fa8206d53be4c4be56c7fb568bf976a28feb6a3f314c119a34c59ea"
+    sha256 arm64_monterey: "c8443bb8a6e8507928caee878fbfc6b3d81066f2367f23b7e2a0a850b2e2a05d"
+    sha256 arm64_big_sur:  "d885152a1fa7e6fc323570499b5bdf559129f40d8b1e358d2a34c2cf30dc2174"
+    sha256 monterey:       "ead7036621f66ae97fca966b50439d89b8226eb518c9aad83152222dc6d86e08"
+    sha256 big_sur:        "a851a0c58fff15af6d04072921df0b04c541b05d9ef5e2e1f87b7225ddc4ed71"
+    sha256 catalina:       "3247453098e6c2f1fde5bc9f9dc1809205465e895049567c941c1ff5747847dc"
+    sha256 x86_64_linux:   "c5a6d4059ad6b4a304f513eb2df6840431b1207ad65e0619c54d66e0d3d1c126"
   end
 
   head do
@@ -26,6 +27,8 @@ class Nvc < Formula
 
   uses_from_macos "flex" => :build
 
+  fails_with gcc: "5" # LLVM is built with GCC
+
   resource "homebrew-test" do
     url "https://github.com/suoto/vim-hdl-examples.git",
         revision: "fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b"
@@ -33,12 +36,16 @@ class Nvc < Formula
 
   def install
     system "./autogen.sh" if build.head?
+    # Avoid hardcoding path to the `ld` shim.
+    inreplace "configure", "\\\"$linker_path\\\"", "\\\"ld\\\"" if OS.linux?
     system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
-                          "--with-system-cc=/usr/bin/clang",
-                          "--enable-vhpi"
-    system "make"
-    system "make", "install"
+                          "--with-system-cc=#{ENV.cc}",
+                          "--enable-vhpi",
+                          "--disable-silent-rules"
+    ENV.deparallelize
+    system "make", "V=1"
+    system "make", "V=1", "install"
   end
 
   test do
