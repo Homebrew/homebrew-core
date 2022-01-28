@@ -6,7 +6,6 @@ class VowpalWabbit < Formula
       tag:      "9.0.0",
       revision: "01bdf2c2af3435057702c6c4c3ee070c43293dd2"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
   bottle do
