@@ -8,8 +8,7 @@ class Ghp < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", "ghp"
-    bin.install "ghp"
+    system "go", "build", *std_go_args
 
     # Install bash completion
     output = Utils.safe_popen_read("#{bin}/ghp", "completion", "bash")
