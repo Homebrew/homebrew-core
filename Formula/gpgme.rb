@@ -20,7 +20,7 @@ class Gpgme < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d96889a4f0d9e5098a59f6c76d1dd42fe4cf5232d7db748754c73576c639c8a"
   end
 
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.10" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
@@ -33,7 +33,9 @@ class Gpgme < Formula
   end
 
   def install
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    python_executable = which("python3")
+    ENV["PYTHON"] = python_executable
+    ENV["PYTHON_VERSION"] = Language::Python.major_minor_version python_executable
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -48,6 +50,6 @@ class Gpgme < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gpg; print(gpg.version.versionstr)"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import gpg; print(gpg.version.versionstr)"
   end
 end
