@@ -3,10 +3,9 @@ class Sshuttle < Formula
 
   desc "Proxy server that works as a poor man's VPN"
   homepage "https://github.com/sshuttle/sshuttle"
-  url "https://files.pythonhosted.org/packages/e9/4b/51d6aaa900a6a13efb380b0a084a327c41aad28a267d4c1f074cb2e41baa/sshuttle-1.0.5.tar.gz"
-  sha256 "fd8c691aac2cb80933aae7f94d9d9e271a820efc5c48e73408f1a90da426a1bd"
+  url "https://files.pythonhosted.org/packages/c5/a1/6691395e9b3ad453947fea7192744f316ba3d020d295370db55ba0b48573/sshuttle-1.1.0.tar.gz"
+  sha256 "21fb91bdf392b50e78db6b8d75e95b73ac9dafd361e2657e784e674561219315"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/sshuttle/sshuttle.git", branch: "master"
 
   bottle do
@@ -20,11 +19,6 @@ class Sshuttle < Formula
   end
 
   depends_on "python@3.10"
-
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
-    sha256 "0c9ccb99ab76025f2f0bbecf341d4656e9c1351db8cc8a03ccd62e318ab4b5c6"
-  end
 
   def install
     # Building the docs requires installing
