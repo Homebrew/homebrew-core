@@ -1,10 +1,9 @@
 class Openh264 < Formula
   desc "H.264 codec from Cisco"
   homepage "https://www.openh264.org/"
-  url "https://github.com/cisco/openh264/archive/v2.1.1.tar.gz"
-  sha256 "af173e90fce65f80722fa894e1af0d6b07572292e76de7b65273df4c0a8be678"
+  url "https://github.com/cisco/openh264/archive/v2.2.0.tar.gz"
+  sha256 "e4e5c8ba48e64ba6ce61e8b6e2b76b2d870c74c270147649082feabb40f25905"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/cisco/openh264.git", branch: "master"
 
   bottle do
