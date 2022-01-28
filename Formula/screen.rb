@@ -54,11 +54,18 @@ class Screen < Formula
     # https://savannah.gnu.org/bugs/index.php?59465
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--infodir=#{info}",
-                          "--enable-colors256",
-                          "--enable-pam"
+    # master branch configure script has no
+    # --enable-colors256, so don't use it
+    # when `brew install screen --HEAD`
+    args = [
+      "--prefix=#{prefix}",
+      "--mandir=#{man}",
+      "--infodir=#{info}",
+      "--enable-pam",
+    ]
+    args << "--enable-colors256" unless build.head?
+
+    system "./configure", *args
 
     system "make"
     system "make", "install"
