@@ -45,6 +45,6 @@ class Tfsec < Formula
     good_output = shell_output("#{bin}/tfsec #{testpath}/good")
     assert_match "No problems detected!", good_output
     bad_output = shell_output("#{bin}/tfsec #{testpath}/bad 2>&1", 1)
-    assert_match "1 potential problems detected.", bad_output
+    assert_match "1 potential problem(s) detected.", bad_output
   end
 end
