@@ -10,18 +10,9 @@ class AniCli < Formula
   depends_on "openssl"
   depends_on "cask"
   depends_on "aria2"
-  depends_on "cask"
-  depends_on cask: 'virtualbox'
+  depends_on "mpv"
   
   def install
-    # Resolve cask dependencies
-    # system "/usr/local/bin/brew", "install", "--cask", "iina"
     bin.install 'ani-cli'
-  end
-  def caveats
-    <<~EOS
-    Add the following in your ~/.zshrc or ~/.profile:
-      alias ani-cli='ani-cli -i'
-    EOS
   end
 end
