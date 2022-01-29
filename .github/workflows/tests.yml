@@ -257,7 +257,7 @@ jobs:
           rm bottles/bottle_output.txt
 
       - name: Upload logs
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@main
         with:
           name: logs-${{ matrix.runner }}
