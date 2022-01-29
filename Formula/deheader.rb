@@ -14,7 +14,7 @@ class Deheader < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c796513f79f19f17be962e08802c9542d0dcddbe7fffdc44e2c66538c704a325"
+    sha256 cellar: :any_skip_relocation, all: "35fcae1dfb59ef0c9fce339453c212eabfc380c70b1820ca4b69275606cc2678"
   end
 
   depends_on "xmlto" => :build
