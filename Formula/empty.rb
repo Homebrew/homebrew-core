@@ -19,6 +19,9 @@ class Empty < Formula
   end
 
   def install
+    # Fix incorrect link order in Linux
+    inreplace "Makefile", "${LIBS} -o empty empty.c", "empty.c ${LIBS} -o empty" if OS.linux?
+
     system "make", "all"
     system "make", "PREFIX=#{prefix}", "install"
     rm_rf "#{prefix}/man"
@@ -27,14 +30,15 @@ class Empty < Formula
   end
 
   test do
-    (testpath/"test.sh").write <<~EOS
-      #!/bin/bash
-      empty -f -i in -o out -p test.pid cat
-      empty -s -o in "Hello, world\n"
-      empty -w -i out -o in ", world" "We have liftoff!\n"
-      empty -w -i out -o in "liftoff!"
-      empty -k `cat test.pid`
-    EOS
-    system "bash", "test.sh"
+    require "pty"
+
+    # Looks like PTY must be attached for the process to be started
+    PTY.spawn(bin/"empty", "-f", "-i", "in", "-o", "out", "-p", "test.pid", "cat") { |_r, _w, pid| Process.wait(pid) }
+    system bin/"empty", "-s", "-o", "in", "Hello, world!\n"
+    assert_equal "Hello, world!\n", shell_output(bin/"empty -r -i out")
+
+    system bin/"empty", "-k", File.read(testpath/"test.pid")
+    sleep 1
+    %w[in out test.pid].each { |file| refute_predicate testpath/file, :exist? }
   end
 end
