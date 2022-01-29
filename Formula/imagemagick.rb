@@ -12,12 +12,12 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "b5b13e38634648e818745de68c7636a58a867700beeeffaf25d4f8b59103ded5"
-    sha256 arm64_big_sur:  "576de3f82e3c25f5bffe9ea38c1b07a53dae30eb023b9a6f1924a27cfc0a725d"
-    sha256 monterey:       "800a732dddae9eec8efb8eb789d3f9ffcbf44034181475a1ff3f93358cea1b32"
-    sha256 big_sur:        "b378a76344e45279d6e4c447fd4a36b676ebd53d1a805a5587dccefac4ed63b4"
-    sha256 catalina:       "f08cd229ec96c6a5d78b034c3fd139023c6cde2214ce47d48120725cc015e2b0"
-    sha256 x86_64_linux:   "37e645b5c612c5083c2e749d9daca57d0f2a73242dd76868cc82f7cc514f4f49"
+    sha256 arm64_monterey: "d0be64f26ee984b684554887ab1eb5f29f28d21fdfd05a3857587f30c77d602e"
+    sha256 arm64_big_sur:  "562372613f1a3a16df93c0d5763e27e07044fbfd61849dfb62cbced887bc004e"
+    sha256 monterey:       "cbfeb0cc8d1c87d80e320b7f5e341c321e2a8b5de5e06fa0863615714528fb4d"
+    sha256 big_sur:        "2f8f3a6f5653c147a7e1796e491e7b664d09806199e441889aba1d4753e31b3a"
+    sha256 catalina:       "374f4b06d9890ae7b41622464fd4e7d8a8b3bc92faea8d321880c72a74def5e5"
+    sha256 x86_64_linux:   "7a1cb8a57da991ae26ed3c23ee519ec913276e5e483ae8c578751210cde00996"
   end
 
   depends_on "pkg-config" => :build
