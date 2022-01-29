@@ -1,8 +1,8 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "10317"
-  version "123.0"
+  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "10421"
+  version "123.0.1"
   license "Artistic-1.0"
   head "https://github.com/aburch/simutrans.git", branch: "master"
 
@@ -31,7 +31,7 @@ class Simutrans < Formula
   uses_from_macos "unzip"
 
   on_linux do
-    depends_on "gcc" => :build
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"
