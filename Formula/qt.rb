@@ -1,8 +1,8 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.2/6.2.2/single/qt-everywhere-src-6.2.2.tar.xz"
-  sha256 "907994f78d42b30bdea95e290e91930c2d9b593f3f8dd994f44157e387feee0f"
+  url "https://download.qt.io/official_releases/qt/6.2/6.2.3/single/qt-everywhere-src-6.2.3.tar.xz"
+  sha256 "f784998a159334d1f47617fd51bd0619b9dbfe445184567d2cd7c820ccb12771"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
@@ -39,6 +39,7 @@ class Qt < Formula
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libb2"
+  depends_on "libmng"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "md4c"
@@ -101,6 +102,21 @@ class Qt < Formula
     directory "qtquick3d"
   end
 
+  # Remove symlink check causing build to bail out and fail.
+  # https://gitlab.kitware.com/cmake/cmake/-/issues/23251
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c363f0edf9e90598d54bc3f4f1bacf95abbda282/qt/qt_internal_check_if_path_has_symlinks.patch"
+    sha256 "1afd8bf3299949b2717265228ca953d8d9e4201ddb547f43ed84ac0d7da7a135"
+    directory "qtbase"
+  end
+
+  # Patch for https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25255
+  patch do
+    url "https://download.qt.io/official_releases/qt/6.2/CVE-2022-25255-qprocess6-2.diff"
+    sha256 "62068c168dd1fde7fa7b0b574fcb692ca0c20e44165fa2aafae586ca199b9f00"
+    directory "qtbase"
+  end
+
   def install
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/BUILD.gn",
@@ -112,7 +128,6 @@ class Qt < Formula
     inreplace "qtwebengine/src/3rdparty/gn/src/base/files/file_util_posix.cc",
               "FilePath(full_path)", "FilePath(input)"
     %w[
-      qtbase/CMakeLists.txt
       qtwebengine/cmake/Gn.cmake
       qtwebengine/cmake/Functions.cmake
       qtwebengine/src/core/api/CMakeLists.txt
