@@ -23,8 +23,26 @@ class GitAnnex < Formula
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args,
-                    "--flags=+S3"
+    args = ["--flags=+S3"]
+
+    # Workaround for:
+    # ghc: could not execute: opt
+    # ghc: could not execute: llc
+    # FIXME: This shouldn't be needed since we wrap `ghc` in an env script on ARM.
+    if Hardware::CPU.arm?
+      llvm = Formula["ghc"].deps
+                           .find { |d| d.name.match?(/^llvm(@\d+)?$/) }
+                           .to_formula
+
+      args << "--extra-prog-path=#{llvm.opt_bin}"
+      args << "--verbose=3"
+
+      ENV["LLC"] = (llvm.opt_bin/"llc").to_s
+      ENV["OPT"] = (llvm.opt_bin/"opt").to_s
+      ENV.append "PATH", llvm.opt_bin.to_s
+    end
+
+    system "cabal", "v2-install", *std_cabal_v2_args, *args
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
