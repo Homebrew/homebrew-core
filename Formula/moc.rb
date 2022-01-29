@@ -1,7 +1,7 @@
 class Moc < Formula
   desc "Terminal-based music player"
   homepage "https://moc.daper.net/"
-  revision 5
+  revision 6
 
   stable do
     url "http://ftp.daper.net/pub/soft/moc/stable/moc-2.5.2.tar.bz2"
@@ -61,10 +61,12 @@ class Moc < Formula
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "berkeley-db"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "jack"
   depends_on "libtool"
   depends_on "ncurses"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     # Not needed for > 2.5.2
