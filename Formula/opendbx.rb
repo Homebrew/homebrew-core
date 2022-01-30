@@ -3,6 +3,7 @@ class Opendbx < Formula
   homepage "https://linuxnetworks.de/doc/index.php/OpenDBX"
   url "https://linuxnetworks.de/opendbx/download/opendbx-1.4.6.tar.gz"
   sha256 "2246a03812c7d90f10194ad01c2213a7646e383000a800277c6fb8d2bf81497c"
+  license "LGPL-2.0-or-later"
   revision 2
 
   # The download page includes a `libopendbx` development release, so we use a
@@ -26,7 +27,7 @@ class Opendbx < Formula
 
   def install
     # Reported upstream: http://bugs.linuxnetworks.de/index.php?do=details&id=40
-    inreplace "utils/Makefile.in", "$(LIBSUFFIX)", ".dylib"
+    inreplace "utils/Makefile.in", "$(LIBSUFFIX)", ".dylib" if OS.mac?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -46,6 +47,6 @@ class Opendbx < Formula
     EOS
 
     assert_match '"Hello"',
-      shell_output("#{bin}/odbx-sql odbx-sql -h ./ -d test.sqlite3 -b sqlite3 < #{testpath}/test.sql")
+      pipe_output("#{bin}/odbx-sql odbx-sql -h ./ -d test.sqlite3 -b sqlite3", File.read(testpath/"test.sql"))
   end
 end
