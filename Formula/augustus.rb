@@ -1,10 +1,9 @@
 class Augustus < Formula
   desc "Predict genes in eukaryotic genomic sequences"
   homepage "https://bioinf.uni-greifswald.de/augustus/"
-  url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.3.3/augustus-3.3.3.tar.gz"
-  sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
+  url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.4.0/augustus-3.4.0.tar.gz"
+  sha256 "246772737862d16755ab0197bb1d4656cafb31db9b38c2cd991a8e8db6f116c8"
   license "Artistic-1.0"
-  revision 2
   head "https://github.com/Gaius-Augustus/Augustus.git", branch: "master"
 
   livecheck do
