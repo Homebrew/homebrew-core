@@ -1,8 +1,8 @@
 class AescryptPacketizer < Formula
   desc "Encrypt and decrypt using 256-bit AES encryption"
   homepage "https://www.aescrypt.com"
-  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.14.tgz"
-  sha256 "5051394529bf3f99c42b57f755b2269e6abaae8b0e3fd90869c4b0bb58f5f1c7"
+  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.15.tgz"
+  sha256 "263c0abd1da22d8cffd181a2d99c6d90410e5c2c6deeb1d6286f01b08a2f6763"
 
   livecheck do
     url "https://www.aescrypt.com/download/"
