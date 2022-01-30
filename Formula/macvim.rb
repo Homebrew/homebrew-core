@@ -6,7 +6,7 @@ class Macvim < Formula
   version "8.2-171"
   sha256 "1ef6766abefc6d67dd717f1a92aa294304817a462a98153f2696e83340ffce25"
   license "Vim"
-  revision 1
+  revision 2
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
   bottle do
@@ -22,7 +22,7 @@ class Macvim < Formula
   depends_on "lua"
   depends_on :macos
   depends_on "python@3.9"
-  depends_on "ruby"
+  depends_on "ruby@3.0"
 
   conflicts_with "vim",
     because: "vim and macvim both install vi* binaries"
@@ -56,6 +56,8 @@ class Macvim < Formula
     system "make"
 
     prefix.install "src/MacVim/build/Release/MacVim.app"
+    # Remove autoupdating universal binaries
+    (prefix/"MacVim.app/Contents/Frameworks/Sparkle.framework").rmtree
     bin.install_symlink prefix/"MacVim.app/Contents/bin/mvim"
 
     # Create MacVim vimdiff, view, ex equivalents
