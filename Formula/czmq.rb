@@ -31,7 +31,7 @@ class Czmq < Formula
   end
 
   head do
-    url "https://github.com/zeromq/czmq.git"
+    url "https://github.com/zeromq/czmq.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -41,7 +41,6 @@ class Czmq < Formula
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
-  depends_on :macos # Due to Python 2
   depends_on "zeromq"
 
   def install
