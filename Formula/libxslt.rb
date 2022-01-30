@@ -1,11 +1,26 @@
 class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
-  url "http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz"
-  sha256 "98b1bd46d6792925ad2dfe9a87452ea2adebf69dcb9919ffd55bf926a7f93f7f"
   license "X11"
   revision 3
-  head "https://gitlab.gnome.org/GNOME/libxslt.git", branch: "master"
+
+  stable do
+    url "http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz"
+    sha256 "98b1bd46d6792925ad2dfe9a87452ea2adebf69dcb9919ffd55bf926a7f93f7f"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+
+    # Fix configure script for libxml2
+    # Remove in the next release
+    # Generated from the following commit:
+    # https://gitlab.gnome.org/GNOME/libxslt/-/commit/90c34c8bb90e095a8a8fe8b2ce368bd9ff1837cc
+    # We're not using the above patch to avoid having to regenerate `configure`.
+    patch :DATA
+  end
 
   livecheck do
     url "http://xmlsoft.org/sources/"
@@ -20,12 +35,16 @@ class Libxslt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4644ffb9534613738889d7bf32b204c2e257a6a5154ab8e80209709a4a6f4f3f"
   end
 
+  head do
+    url "https://gitlab.gnome.org/GNOME/libxslt.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   keg_only :provided_by_macos
 
-  # Move `autoconf`, `automake` and `libtool` to head block in the next release
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "libgcrypt"
   depends_on "libxml2"
 
@@ -33,17 +52,8 @@ class Libxslt < Formula
     depends_on "pkg-config" => :build
   end
 
-  # Fix configure script for libxml2
-  # Remove in the next release
-  patch do
-    url "https://gitlab.gnome.org/GNOME/libxslt/-/commit/90c34c8bb90e095a8a8fe8b2ce368bd9ff1837cc.diff"
-    sha256 "0ddf5ec74855e7e2fddcf8c963fe1d83f71462823a0131fc3a76a369d00f1851"
-  end
-
   def install
-    # Make it only for head builds (if build.head?) in the next release
-    system "autoreconf", "-fiv"
-
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
@@ -75,3 +85,18 @@ class Libxslt < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index c63adc5..6061227 100755
+--- a/configure
++++ b/configure
+@@ -14860,7 +14860,7 @@ PKG_CONFIG=$_save_PKG_CONFIG
+ fi
+ 
+ 
+-if test "x$LIBXML_LIBS" = "x" && ${XML_CONFIG} --libs print > /dev/null 2>&1
++if test "x$LIBXML_LIBS" = "x" && ${XML_CONFIG} --libs > /dev/null 2>&1
+ then
+     { $as_echo "$as_me:${as_lineno-$LINENO}: checking for libxml libraries >= $LIBXML_REQUIRED_VERSION" >&5
+ $as_echo_n "checking for libxml libraries >= $LIBXML_REQUIRED_VERSION... " >&6; }
