@@ -28,8 +28,8 @@ class Scrcpy < Formula
   fails_with gcc: "5"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.21/scrcpy-server-v1.21"
-    sha256 "dbcccab523ee26796e55ea33652649e4b7af498edae9aa75e4d4d7869c0ab848"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.22/scrcpy-server-v1.22"
+    sha256 "c05d273eec7533c0e106282e0254cf04e7f5e8f0c2920ca39448865fab2a419b"
   end
 
   def install
