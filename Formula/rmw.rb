@@ -12,13 +12,12 @@ class Rmw < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "71bcd7c6fbbc2a909c108eafdaf1d0835ffa485fa10b66849fc5e94feb867a18"
-    sha256 arm64_big_sur:  "ad98937dac5160507c46d8ee5b1534cd7eb05d67bc63aa53bf5f0f5a79fd63ef"
-    sha256 monterey:       "8ff06a7a59fee410da0d4a8c8475da6893f84079ab4dbf0cd14f6642410f1d22"
-    sha256 big_sur:        "23b5d0c9666688244a17288ed08968479d83069da180ff78e9dc19c78f218afd"
-    sha256 catalina:       "c3da3134ecd1edfad6bbd1c156e38161eb9ba1487e29efd4094ec42c503d66a4"
-    sha256 mojave:         "0f86e5bd748141d0b39e2fd5e399cf764d3aec6b0bd24b065f92c24e7e97f8cf"
-    sha256 x86_64_linux:   "8be94be0f19f65faa4c19ec1c0898af1439b5488ad51c81e59f30fed3d918a88"
+    sha256 arm64_monterey: "e9b973e0ab336b1b16d0dc382c17c54fe1e1810fc026d58c2359ef4baa722752"
+    sha256 arm64_big_sur:  "5997ee629e5d8f967bee558280199846efb08ef96237ce2e2930d8f71cd14fab"
+    sha256 monterey:       "067944109685808a58fff34cbafde328a429fc99629073c8f27a7f327eb30622"
+    sha256 big_sur:        "22c455586c92ed7d09430b2f59b4a2e8dbbca71167025b361fc6ede8b58b212d"
+    sha256 catalina:       "278ae8ceb668e433b18cdf27714ad151a177260c1aeba61e17decdd5c90657c4"
+    sha256 x86_64_linux:   "23834c1e879ed7df29f94f96d806ec8738f44dd89a032d424b20c02d513ccaf5"
   end
 
   depends_on "meson" => :build
