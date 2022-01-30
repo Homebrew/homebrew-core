@@ -70,6 +70,6 @@ class Fish < Formula
   end
 
   test do
-    system "#{bin}/fish", "-c", "math 5 + 5"
+    assert_equal "10\n", shell_output("#{bin}/fish -c \"math 5 + 5\"")
   end
 end
