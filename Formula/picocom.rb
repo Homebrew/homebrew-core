@@ -3,7 +3,8 @@ class Picocom < Formula
   homepage "https://github.com/npat-efault/picocom"
   url "https://github.com/npat-efault/picocom/archive/3.1.tar.gz"
   sha256 "e6761ca932ffc6d09bd6b11ff018bdaf70b287ce518b3282d29e0270e88420bb"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "49b453b20209e299a37963f80551f4f9f1b103494dd30f599099d74b5f651df4"
@@ -16,6 +17,15 @@ class Picocom < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "fb1bd439cb84f2667feee5e5c125ec9a51698e7d153c56decf95502848edc621"
     sha256 cellar: :any_skip_relocation, el_capitan:     "ec353723ddf1f785bd75bb3a0e9bd5e92adacbe5b4a86ed5dabe53d20b1a362c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5efdd0b93eaac77e24ef389d941f63ffa072fac37f49b2a47a2c2abbbbfacf2b"
+  end
+
+  # Upstream picocom supports arbitrary baud-rate settings on macOS out of the
+  # box, but only applies that to i386 and x86_64 systems. With the advent of
+  # arm64 macs, it is now necessary to expand that support.
+  # https://github.com/npat-efault/picocom/pull/129
+  patch do
+    url "https://github.com/npat-efault/picocom/commit/f806bf28266cccdb75ba89d754de8d8fa64c6127.patch?full_index=1"
+    sha256 "b1a29265d5b5e0e7e7f8f3194b818802de8c7d18e80525bc43cbb896a6def590"
   end
 
   def install
