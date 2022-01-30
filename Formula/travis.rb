@@ -4,6 +4,7 @@ class Travis < Formula
   url "https://github.com/travis-ci/travis.rb/archive/v1.11.0.tar.gz"
   sha256 "76cb0821aeb60e3e302932365dd437a393674de80e02972873bf3e511af564ca"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c958a67e6b4dfdbfaaebf46cd0969cc50acb2a6858c01cc20b261b4d0b674525"
@@ -15,13 +16,8 @@ class Travis < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ruby"
-
-  if MacOS.version < :catalina
-    depends_on "libffi"
-  else
-    uses_from_macos "libffi"
-  end
+  depends_on "ruby@3.0"
+  uses_from_macos "libffi", since: :catalina
 
   resource "activesupport" do
     url "https://rubygems.org/gems/activesupport-5.2.4.4.gem"
