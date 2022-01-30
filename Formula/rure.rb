@@ -14,7 +14,7 @@ class Rure < Formula
   def install
     system "cargo", "build", "--manifest-path", "regex-capi/Cargo.toml", "--release"
     include.install "regex-capi/include/rure.h"
-    lib.install Dir["target/release/librure.{a,dylib}"]
+    lib.install Pathname.glob("target/release/librure.*") - [Pathname.new("target/release/librure.d")]
   end
 
   test do
