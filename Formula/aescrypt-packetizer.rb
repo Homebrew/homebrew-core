@@ -22,7 +22,7 @@ class AescryptPacketizer < Formula
   end
 
   head do
-    url "https://github.com/paulej/AESCrypt.git"
+    url "https://github.com/paulej/AESCrypt.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
