@@ -1,8 +1,8 @@
 class Fnm < Formula
   desc "Fast and simple Node.js version manager"
   homepage "https://github.com/Schniz/fnm"
-  url "https://github.com/Schniz/fnm/archive/v1.29.2.tar.gz"
-  sha256 "dca05a18787945d3d47882223266185045f9d806f1bcd193d14774f461280e30"
+  url "https://github.com/Schniz/fnm/archive/v1.30.1.tar.gz"
+  sha256 "5b1ad1e23c10d38b85a27b87affa7275a1116ecab8fa36b7040bfbbbaafbaa4c"
   license "GPL-3.0-only"
   head "https://github.com/Schniz/fnm.git", branch: "master"
 
