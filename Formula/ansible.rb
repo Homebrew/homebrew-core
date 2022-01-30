@@ -6,6 +6,7 @@ class Ansible < Formula
   url "https://files.pythonhosted.org/packages/53/16/a310988652058973aadef8f511183324d2b387b4c92985ff70ebd687bb8a/ansible-5.2.0.tar.gz"
   sha256 "c6d448f229cb4a77a6026bd61bcd5bcf062f4f666f1ed24432ba043d145499cb"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
@@ -48,6 +49,7 @@ class Ansible < Formula
   #   openshift (k8s module support)
   #   pexpect (expect module support)
   #   ntc-templates (Parsing semi-structured text)
+  #   proxmoxer (Proxmox VE support)
 
   # Automatically updated resources
   resource "ansible-core" do
@@ -348,6 +350,11 @@ class Ansible < Formula
   resource "prettytable" do
     url "https://files.pythonhosted.org/packages/71/19/d65d4c39aa12a5630a8aa02ead8324cfaae3217146b19dd25d88d763bbdf/prettytable-3.0.0.tar.gz"
     sha256 "69fe75d78ac8651e16dd61265b9e19626df5d630ae294fc31687aa6037b97a58"
+  end
+
+  resource "proxmoxer" do
+    url "https://files.pythonhosted.org/packages/7d/32/6610728dd9ae1d7e02aa04e0b661a2115e3728474776fbc1b6e3a2b4fc5f/proxmoxer-1.2.0.tar.gz"
+    sha256 "d1261c1cefd4d4faa6c654922c8db72cfee51e811e5ede4eb38a48cc62dac80e"
   end
 
   resource "ptyprocess" do
