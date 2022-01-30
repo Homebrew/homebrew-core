@@ -1,8 +1,8 @@
 class Aqbanking < Formula
   desc "Generic online banking interface"
   homepage "https://www.aquamaniac.de/sites/aqbanking/"
-  url "https://www.aquamaniac.de/rdm/attachments/download/386/aqbanking-6.3.2.tar.gz"
-  sha256 "a97ab42f7298cbb2617b2bda53ca51a2b0fe5f780bde098a39a5f4a3243e3418"
+  url "https://www.aquamaniac.de/rdm/attachments/download/400/aqbanking-6.4.1.tar.gz"
+  sha256 "79adeaf05e99b5aa0d31c3eac3db37a56bb375f537b3f106a9acfcf844dadd77"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -18,7 +18,7 @@ class Aqbanking < Formula
   end
 
   head do
-    url "https://git.aquamaniac.de/git/aqbanking.git"
+    url "https://git.aquamaniac.de/git/aqbanking.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -31,7 +31,7 @@ class Aqbanking < Formula
   depends_on "ktoblzcheck"
   depends_on "libxml2"
   depends_on "libxmlsec1"
-  depends_on "libxslt"
+  depends_on "libxslt" # Our libxslt links with libgcrypt
   depends_on "pkg-config" # aqbanking-config needs pkg-config for execution
 
   def install
@@ -42,6 +42,8 @@ class Aqbanking < Formula
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-cli"
+    # This is banking software, so let's run the test suite.
+    system "make", "check"
     system "make", "install"
   end
 
