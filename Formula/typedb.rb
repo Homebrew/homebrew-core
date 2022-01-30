@@ -1,8 +1,8 @@
 class Typedb < Formula
   desc "Distributed hyper-relational database for knowledge engineering"
   homepage "https://vaticle.com/"
-  url "https://github.com/vaticle/typedb/releases/download/2.5.0/typedb-all-mac-2.5.0.zip"
-  sha256 "881e5a50ed0a961d1c091da1d669285135738431b5e6bd72da6dfad9765d3eea"
+  url "https://github.com/vaticle/typedb/releases/download/2.6.2/typedb-all-mac-2.6.2.zip"
+  sha256 "a404859f013ccf0061a9c4a9136f8fc3b586a79fc6d843653d2c5207270d7aaa"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -22,6 +22,6 @@ class Typedb < Formula
   end
 
   test do
-    assert_match "A STRONGLY-TYPED DATABASE", shell_output("#{bin}/typedb server status")
+    assert_match "A STRONGLY-TYPED DATABASE", shell_output("#{bin}/typedb server --help")
   end
 end
