@@ -18,7 +18,8 @@ class Dbmate < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s", "-o", bin/"dbmate", "."
+    system "make", "build"
+    bin.install "dist/dbmate"
   end
 
   test do
