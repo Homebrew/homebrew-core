@@ -6,6 +6,11 @@ class Xray < Formula
   license all_of: ["MPL-2.0", "CC-BY-SA-4.0"]
   head "https://github.com/XTLS/Xray-core.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b1d8494e7cd54a18c4959ed904e7209de1a9006f0862f2a1b217557ebd14aeea"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ad6babecdbb110c00d55a647024837394e9711dc888541788611f79fdf41422"
