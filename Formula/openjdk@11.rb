@@ -78,6 +78,7 @@ class OpenjdkAT11 < Formula
       --with-boot-jdk=#{boot_jdk}
       --with-debug-level=release
       --with-conf-name=release
+      --with-jvm-features=shenandoahgc
       --with-jvm-variants=server
       --with-native-debug-symbols=none
       --with-vendor-bug-url=#{tap.issues_url}
