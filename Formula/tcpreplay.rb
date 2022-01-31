@@ -30,20 +30,11 @@ class Tcpreplay < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-dynamic-link
+      --with-libdnet=#{Formula["libdnet"].opt_prefix}
     ]
 
     args << if OS.mac?
       ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
-
-      # The SDK is currently found using `xcrun --sdk macosx<V>` starting with
-      # input `--with-macosx-sdk=<V>` and then going from older 10.8 onward.
-      # On ARM, for Big Sur 11.4 the correct SDK is 11.3 (as of 2021-07-11);
-      # however, the logic picks 10.15, which causes configure failure.
-      # As a workaround, we remove all 10.x versions from SDK detection logic.
-      #
-      # Check in next release if the workaround can be removed.
-      # Upstream issue: https://github.com/appneta/tcpreplay/issues/668
-      inreplace "configure.ac", /(\$with_macosx_sdk\s+)(?:10\.\d+\s+)+/, "\\1" if Hardware::CPU.arm?
 
       "--with-macosx-sdk=#{MacOS.version}"
     else
