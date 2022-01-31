@@ -50,6 +50,6 @@ class Opendbx < Formula
     EOS
 
     assert_match '"Hello"',
-      pipe_output("#{bin}/odbx-sql odbx-sql -h ./ -d test.sqlite3 -b sqlite3", File.read(testpath/"test.sql"))
+      pipe_output("#{bin}/odbx-sql odbx-sql -h ./ -d test.sqlite3 -b sqlite3", (testpath/"test.sql").read)
   end
 end
