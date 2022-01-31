@@ -1,8 +1,8 @@
 class RosaCli < Formula
   desc "RedHat OpenShift Service on AWS (ROSA) command-line interface"
   homepage "https://www.openshift.com/products/amazon-openshift"
-  url "https://github.com/openshift/rosa/archive/refs/tags/v1.1.7.tar.gz"
-  sha256 "af3277264678b50740678336d7860630e7253975358275659f4c3cedbacedd51"
+  url "https://github.com/openshift/rosa/archive/refs/tags/v1.1.8.tar.gz"
+  sha256 "8bf81ca69d57f2f2c21cc385cdcb49ccdb92ca276c4930ee31e9da0a9ece1823"
   license "Apache-2.0"
   head "https://github.com/openshift/rosa.git", branch: "master"
 
@@ -13,12 +13,12 @@ class RosaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a19ecdf3227e106d2bfbcaa9e30e3542b3b2f9e76d633be8456a404c8392a604"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "10f080608e8a1a87ab780352263fb4d5072ee3b8156b3789ebde711cb707bdcc"
-    sha256 cellar: :any_skip_relocation, monterey:       "a18a56f3ba726f0018ad70aa0d384a5442c37611d33ea9dd0b1404934d099668"
-    sha256 cellar: :any_skip_relocation, big_sur:        "493037297df60ef504232ef090b3ce20a260434d4725772ba6b988e9e7cf6a29"
-    sha256 cellar: :any_skip_relocation, catalina:       "7f5ce18c15a8f3f15d424bebce0544e0b224a627460f3b09d59a1f78b01ac380"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8295c4381200cbfb3f8afc3642f984d6ddbb8e03db5aad8630ffdf521bd88e73"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8f9eec0fabbec03ec4a573e322d46d343b61dd0995beb71117b95224d730cd84"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ddad2bef49aba32e30c9307801d1d4f1c5941ebd242556a9b2374f620a870071"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c15f7befa8c00c86ae4012e4ebade0a75ec68130c5d90a0aff482ed1eb3420d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1ca8a02585cd8d5dba61c61108c409c6610edea79ba73286ea8fdea26617386b"
+    sha256 cellar: :any_skip_relocation, catalina:       "8ae91dafe614e5ad9e32e623f48c2dde7e735a4f1847b6718ed71e60ddeccc95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a9873b5333b648a4ce6d3276440cc56b122677dcc810d4e72b452d73b98baef"
   end
 
   depends_on "go" => :build

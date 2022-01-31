@@ -1,8 +1,8 @@
 class Aqbanking < Formula
   desc "Generic online banking interface"
   homepage "https://www.aquamaniac.de/sites/aqbanking/"
-  url "https://www.aquamaniac.de/rdm/attachments/download/386/aqbanking-6.3.2.tar.gz"
-  sha256 "a97ab42f7298cbb2617b2bda53ca51a2b0fe5f780bde098a39a5f4a3243e3418"
+  url "https://www.aquamaniac.de/rdm/attachments/download/400/aqbanking-6.4.1.tar.gz"
+  sha256 "79adeaf05e99b5aa0d31c3eac3db37a56bb375f537b3f106a9acfcf844dadd77"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,15 @@ class Aqbanking < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "68e171896fd9c1c8e4da47726a8e6c8e40aaf318a2da026cba67fd0a89cdcf9f"
-    sha256 big_sur:       "2ec730d26adbca6c0745aa4301ab2aea51894b6b2db5bc4f61f06a91db678a6a"
-    sha256 catalina:      "7421db73ffd8f34a960d3a095ed93d32b22bbdda1eaf63675083750e42986ba9"
-    sha256 mojave:        "8f0fc769af2fcdc03281a0b0447e93ee6653df51650a43c5e5513dd16628ccde"
+    sha256 arm64_monterey: "5a86ff8e93a1e454ae3588bb749378fb863230e353be6b862a36a6cf5bfed7df"
+    sha256 arm64_big_sur:  "d83a2a3067d0151089605f34c2b96b72cc55b4f5258bc84575094f04c22ddb8f"
+    sha256 big_sur:        "e15bcadc4d81ae9214ccd2b71cd9596f1431cc0d80032f4ba443cc46c7481283"
+    sha256 catalina:       "329934083304ca7ca6a3a30832ca652973fa0eaacf3a493520cc850675a22b68"
+    sha256 x86_64_linux:   "84a998567c4b0898daeabaf3c6bf6bf6027f625c3fbe060911dc8e9bebc35c74"
   end
 
   head do
-    url "https://git.aquamaniac.de/git/aqbanking.git"
+    url "https://git.aquamaniac.de/git/aqbanking.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -31,7 +32,7 @@ class Aqbanking < Formula
   depends_on "ktoblzcheck"
   depends_on "libxml2"
   depends_on "libxmlsec1"
-  depends_on "libxslt"
+  depends_on "libxslt" # Our libxslt links with libgcrypt
   depends_on "pkg-config" # aqbanking-config needs pkg-config for execution
 
   def install
@@ -42,6 +43,8 @@ class Aqbanking < Formula
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-cli"
+    # This is banking software, so let's run the test suite.
+    system "make", "check"
     system "make", "install"
   end
 

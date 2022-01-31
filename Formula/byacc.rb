@@ -1,8 +1,8 @@
 class Byacc < Formula
   desc "(Arguably) the best yacc variant"
   homepage "https://invisible-island.net/byacc/"
-  url "https://invisible-mirror.net/archives/byacc/byacc-20220114.tgz"
-  sha256 "d131475970018ab03531ce1bac21a8deba0eea23a4ecc051b54c850dad69e479"
+  url "https://invisible-mirror.net/archives/byacc/byacc-20220128.tgz"
+  sha256 "42c1805cc529314e6a76326fe1b33e80c70862a44b01474da362e2f7db2d749c"
   license :public_domain
 
   livecheck do
@@ -11,12 +11,12 @@ class Byacc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "90da7a202b63169cd56356de9da590562bedd5a97fad44953c0c15d7daaf3b6a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66c634b569502332b51e7703d03e9800a55db28e36bc458a791719339663ac4d"
-    sha256 cellar: :any_skip_relocation, monterey:       "76e44fa9288ecf0206986ad85441d64e65a080c07b045e83d15bc9a364c397f5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ea6f7dbf17c79bc18f92c6d409a52732e0b149acc8cda578206a87d27751f234"
-    sha256 cellar: :any_skip_relocation, catalina:       "b5adba9840b4bf16453fed0c51ac4e932c3aa2a87d0e5c8134b27dbf74bfa628"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ca2a4cdbc4f8c477d1fd35d5bbcdf0c7d502aed0d2b2fbe8eb3bd13753cfd4d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3430fbe56c15d37df9c04f65a70e33b9edd4a164e57d7c57711418c9be42200c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b97c8854a810125af12aef0764f7fd0f87ff6a15bb35df9b908b900d6fec0287"
+    sha256 cellar: :any_skip_relocation, monterey:       "741dc5e9b6da24cbbc4b20b6d6b6987315303e4c034f41197d58fa865f3315c2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d829258da9ba14b1d9b2baf8f184a1e2ce4d1a9cca25dd96a66bb1672816fa75"
+    sha256 cellar: :any_skip_relocation, catalina:       "0cb07633c321bceb79924b3b2ff00aaa2e9b22859e305d09d2d0dac292722de6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d9e33281a24cefd3024f27f388db71a723da9839e4e60dd8d2a69deeb81be41"
   end
 
   def install

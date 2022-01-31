@@ -1,24 +1,24 @@
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
-  url "https://github.com/pyenv/pyenv/archive/refs/tags/v2.2.4.tar.gz"
-  sha256 "7eb5a444cbcde94cbc4f67d056dff3a4db1502d4c491d7fcabb7870d8ecb595a"
+  url "https://github.com/pyenv/pyenv/archive/refs/tags/v2.2.4-1.tar.gz"
+  sha256 "6aa38fb7c7d7aa68e6a3c8b812b273e15e367f629f31dd9d24552403b48df459"
   license "MIT"
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git", branch: "master"
 
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+(-\d+)?)$/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e8722cbd1c09ff13b80baa68c28195cc4c658d34c11f6c84e75c9a6d9adc91f9"
-    sha256 cellar: :any,                 arm64_big_sur:  "997241e6b7eff2813a2aa8eb70a89cd3a385dc0d7c5a7de1c7c954384cc7e702"
-    sha256 cellar: :any,                 monterey:       "8c5efccd67fb7ba2a06de90559a403839a2ae79d9f4dd3306c6c3d70c3fefaea"
-    sha256 cellar: :any,                 big_sur:        "fac7c55606a7dcbb432515661256ed041138f37d93fdad9986162febd9423fb2"
-    sha256 cellar: :any,                 catalina:       "18ced381be21a2ec7003e685f1fd45bc5a3b19b9e0728860577129f54668ab75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "457ea36b5bc6b5ea1e8546c49451ecc8c0af6ef41b3244b882fd24b50d41428a"
+    sha256 cellar: :any,                 arm64_monterey: "8ad522eb229b702dbe82444a11d5358ffa07d429d23c3ce689a5639a39d7568e"
+    sha256 cellar: :any,                 arm64_big_sur:  "24b0dc8ff20aa550332108314ecbd544bd056851b94915ee51d53dff3324b7ee"
+    sha256 cellar: :any,                 monterey:       "f3961eb526561c9a75fd07946e689d5e9a005bd61c09b3f578ad56d58f6cc726"
+    sha256 cellar: :any,                 big_sur:        "71dce77542c76862cde0a4a12a93fbe7825fd5e5ea5c6019fdc7d07d72bedcfc"
+    sha256 cellar: :any,                 catalina:       "da9627aef795c2d7c90e50df2a742f62fd807c8c9bb5fccbaca4a2d427b4048f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef3d3c3003adb228e39edeb2122d9a63caba8c7d731962497763808ad0ee1a8f"
   end
 
   depends_on "autoconf"

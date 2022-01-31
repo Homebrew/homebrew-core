@@ -1,18 +1,18 @@
 class Dylibbundler < Formula
   desc "Utility to bundle libraries into executables for macOS"
   homepage "https://github.com/auriamg/macdylibbundler"
-  url "https://github.com/auriamg/macdylibbundler/archive/1.0.3.tar.gz"
-  sha256 "84e37c6884b71a6d40d99202729dfc21479d53a82a343488f1d5378f0561d615"
+  url "https://github.com/auriamg/macdylibbundler/archive/1.0.4.tar.gz"
+  sha256 "839c6a30be2c974bba70ab80faf8167713955bb010427662b14d4af7df8d5f19"
   license "MIT"
   head "https://github.com/auriamg/macdylibbundler.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "22cca810ba11f2a8138dd9180d2987bc04b259ed816665c97dbbb404bc7c0c61"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a2d6eca0963e1553807a61892bf4d789bcbf9b36411987eec6ea2a500a9d5aa4"
-    sha256 cellar: :any_skip_relocation, monterey:       "5340336e6a50dc062a89d52a2ac8a36228471e3fe5d34a32e8e10af46b95e58d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "097f428274d356ef743f2f4b968c0c5c176fb637bc6c57a5500e6e08c75407f8"
-    sha256 cellar: :any_skip_relocation, catalina:       "f79375380d2110fbb5e9e6c682aa95d05a8e7207d8a5aa4fe1789b82c7326e01"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e857c47f4ca1f33326fd079d3a99ef6d8640ef5e383cab691d46d499ac8b17b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "906a8b5293262c5416a17657e70bd7283ef007a2eaac10b0627729f14da3d685"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0c87ee93247dfb14af9096049d1eac119b2f52bed32eba7e8b7743ff3de76c4"
+    sha256 cellar: :any_skip_relocation, monterey:       "7459d9405ef5405c0be7fbc6db4987fbc4a4ce1dbca93c8902b945dd7b9d3307"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f6699edbfc9c65203e3dba211bfbed054e1c98420155f7aa2c90c2c08de1419d"
+    sha256 cellar: :any_skip_relocation, catalina:       "f0e0cb6d2d0f852911795684b2817a13357c16077f153fead1e40fdc0e84edfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9f64c147777fe104678a78648a73fbed44471f02ba99698d382565f26b20c98"
   end
 
   def install

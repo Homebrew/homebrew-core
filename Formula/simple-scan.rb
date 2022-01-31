@@ -11,6 +11,7 @@ class SimpleScan < Formula
     sha256 monterey:       "292f3703162d805bdaa178c94810a2d32092310520f4d5fdaac24a430cc3e85f"
     sha256 big_sur:        "e0c98f814d427e8841231d9c497def9b7e3a8a8f0dc9adb7842e27e9dc560c29"
     sha256 catalina:       "2e71257a943ada0dfe2e4fec0ed8ac14c996e64a817ce6f952e7a1968335f06b"
+    sha256 x86_64_linux:   "1c4641ee787593202ce678cc0f3d27a105c0647d5921db31cb83ad7c5d177758"
   end
 
   depends_on "itstool" => :build
@@ -47,6 +48,9 @@ class SimpleScan < Formula
   end
 
   test do
+    # Errors with `Cannot open display`
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+
     system "#{bin}/simple-scan", "-v"
   end
 end

@@ -23,10 +23,7 @@ class Libsecret < Formula
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "libgcrypt"
-
-  on_linux do
-    depends_on "libxslt" => :build
-  end
+  uses_from_macos "libxslt" => :build
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

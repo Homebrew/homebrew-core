@@ -3,10 +3,9 @@ class Deheader < Formula
 
   desc "Analyze C/C++ files for unnecessary headers"
   homepage "http://www.catb.org/~esr/deheader/"
-  url "http://www.catb.org/~esr/deheader/deheader-1.7.tar.gz"
-  sha256 "6856e4fa3efa664a0444b81c2e1f0209103be3b058455625c79abe65cf8db70d"
+  url "http://www.catb.org/~esr/deheader/deheader-1.8.tar.gz"
+  sha256 "ebf144b441cc12ff5003e3e36c16e772382a153968c44334d5d6a892b44cab06"
   license "BSD-2-Clause"
-  revision 3
   head "https://gitlab.com/esr/deheader.git", branch: "master"
 
   livecheck do
@@ -15,7 +14,7 @@ class Deheader < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c796513f79f19f17be962e08802c9542d0dcddbe7fffdc44e2c66538c704a325"
+    sha256 cellar: :any_skip_relocation, all: "35fcae1dfb59ef0c9fce339453c212eabfc380c70b1820ca4b69275606cc2678"
   end
 
   depends_on "xmlto" => :build

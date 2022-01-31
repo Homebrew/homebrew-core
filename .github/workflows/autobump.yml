@@ -12,7 +12,7 @@ on:
 
 env:
   HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
-  FORMULAE: |
+  FORMULAE: >
     ack
     activemq
     alda

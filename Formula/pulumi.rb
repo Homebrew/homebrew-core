@@ -2,18 +2,18 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      tag:      "v3.23.0",
-      revision: "e0b67987fedaa6b26ce2f11ee264d62ce1372516"
+      tag:      "v3.23.2",
+      revision: "1bad3b9f9e9a83dee15d7527bf93557d5d3e18be"
   license "Apache-2.0"
   head "https://github.com/pulumi/pulumi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "64626978df335ad9fcc30b297c42e56ef3625a44148af061de65c152ee448e81"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9193ea8bb57560665276d83a83118c0037c13a86c6608da64e3c8ee26b0093c"
-    sha256 cellar: :any_skip_relocation, monterey:       "182c406546d33739b8f634cf86ed196464edf185301e49c46c044dd180ab64ab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f26e89bb6af4be095825c4994c83280f97cd2846ec6c0b933c845121cb2e8044"
-    sha256 cellar: :any_skip_relocation, catalina:       "6f78a3062d55fdca46e84ee29ab0193ea7362c3383bb5ff022e5acc3dec4d8b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0be89a030888788ddffcd830f558a73695bca417f147038d9da2740e9560afe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3df45fa1f61e370837fe9ce65da8dd2485b6e966d7b568c490a10641e34763a9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d82e97309eb57e505d8ed3dd27959e62fae6d163e6915245c83af008a343e830"
+    sha256 cellar: :any_skip_relocation, monterey:       "4b1b4f102e217a723430f410b53fecd9fad9125a82c9203f947bc4f612aa4c4e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "59faa35439a6f2d1727e7dbc9ece8f6aa119c452746e7b534dce8f085aa5b4ba"
+    sha256 cellar: :any_skip_relocation, catalina:       "7ad9cc70fc8b1e91e458ea3aa3fcbe56c2faba61708aaae58408ae4d8c69380e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ae9e043a4516b5056299da58960065cbdacc39f6ee4299b966fbbee770cef61"
   end
 
   depends_on "go" => :build

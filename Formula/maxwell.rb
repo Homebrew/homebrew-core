@@ -1,8 +1,8 @@
 class Maxwell < Formula
   desc "Reads MySQL binlogs and writes row updates as JSON to Kafka"
   homepage "https://maxwells-daemon.io/"
-  url "https://github.com/zendesk/maxwell/releases/download/v1.34.1/maxwell-1.34.1.tar.gz"
-  sha256 "dfad47cc29a69312241361964bf663de082f518e1e14399340ca4e23a0e128d8"
+  url "https://github.com/zendesk/maxwell/releases/download/v1.37.0/maxwell-1.37.0.tar.gz"
+  sha256 "1252ed98d936de7784db5fde09d916c22c295c86b6b09200a7337830e52ee94d"
   license "Apache-2.0"
 
   livecheck do
@@ -11,8 +11,7 @@ class Maxwell < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "4f54382b653988bc3fede7e964e1fbc9f988be4a22d56a507a4052fcd9dcdd74"
+    sha256 cellar: :any_skip_relocation, all: "40d0293f9c9df9c9f0e80db8a751cebdd11dcedd85f189fbf865427de27b750a"
   end
 
   depends_on "openjdk@11"
@@ -40,6 +39,6 @@ class Maxwell < Formula
     sleep 15
 
     # Validate that we actually got in to Maxwell far enough to attempt to connect.
-    assert_match "ERROR Maxwell - SQLException: Communications link failure", log.read
+    assert_match "CommunicationsException: Communications link failure", log.read
   end
 end

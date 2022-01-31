@@ -1,17 +1,17 @@
 class Roapi < Formula
   desc "Full-fledged APIs for static datasets without writing a single line of code"
   homepage "https://roapi.github.io/docs"
-  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-http-v0.5.2.tar.gz"
-  sha256 "d145f36063548b7d90baf03ab93bbd0b31775663a42a0eb13d4f7f217bf41df6"
+  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-http-v0.5.3.tar.gz"
+  sha256 "96b101d6cb9ed638985fc3989fdaf45c47847085779e0fc51f7baa3375518b89"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "97bf719e3683e4ad0718b9529e75eb3fe7763e5867b8f2bb05edbe70bf9bcac1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fdd9431f46f5f498a3c95f3b039802b9d5d8be10b1482262849ae8852944729f"
-    sha256 cellar: :any_skip_relocation, monterey:       "65ad1d0d32ed504eac22cdf76a546aff2b323dede67662207404ac31928bf451"
-    sha256 cellar: :any_skip_relocation, big_sur:        "36f571b9c87f7a10b56654abd703911203c116412a737b2aae72e4b6234c011a"
-    sha256 cellar: :any_skip_relocation, catalina:       "0d52cd6a52e577b2d910fb2b58a935aeb407f8c4069f2d34c0744a8a384f1ed6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ff8c1e15afc4a592c757f539080960f09e865c093aa02c65c52c56bbb21869e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "860764039a521160940b729c54e99f46c635123e00a959da5ad7adda1ff63562"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f3df865db1db0b6c67f18a9c1d62a6e2cf6e6e45289af90cd6ef9949eb72548"
+    sha256 cellar: :any_skip_relocation, monterey:       "a0d5100d88ba4f4120703f8583779cbfbeef1ba6372741c337671c9ea770fbae"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9657fa78fc050f4e6171e64063b580d374048df1945e01e0cd1b83ab8f0c8a1b"
+    sha256 cellar: :any_skip_relocation, catalina:       "f77443e8516f3c5258fde1907e52570cf66b9fa3a877615888da1f1343ec98e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecae7c8fa73bcf5952eca610e8b60622659af0c4416b9ce75b33d45f061c46a7"
   end
 
   depends_on "rust" => :build

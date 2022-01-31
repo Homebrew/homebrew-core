@@ -1,18 +1,18 @@
 class Fetch < Formula
   desc "Download assets from a commit, branch, or tag of GitHub repositories"
   homepage "https://www.gruntwork.io/"
-  url "https://github.com/gruntwork-io/fetch/archive/v0.4.3.tar.gz"
-  sha256 "e2cb76e0954c7367dd833367cbc7ab310f2fcbb644bd5d985cf2eefd9117cd63"
+  url "https://github.com/gruntwork-io/fetch/archive/v0.4.4.tar.gz"
+  sha256 "5e5af89111a2e986d7d59c156c55ca301c9f2199369c9dc89b80dc94cb62b31a"
   license "MIT"
   head "https://github.com/gruntwork-io/fetch.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4107e5ba168a30b083ef1e868f405d68d2ae823b1fadb92e2f967dfe3de7b94"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41302187efc88f0ead1e3274615d5a5099b79f8cd8e78fc9728da52260f8a338"
-    sha256 cellar: :any_skip_relocation, monterey:       "d1108cdfb654a6b1c900d79149b359c64e4c837aa5d38fe012115cfc890bd545"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a79784fe018af23a3866358f66d5fb44ae8696cab834d500d364d42eabcbf368"
-    sha256 cellar: :any_skip_relocation, catalina:       "382428577c8ab2f1305918a09f33446fb9b0441d827747d9cf0c9d96c572d745"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eed1540bc4b522561c4ae714464b8b7f5bdfd7cb544c6dc933e72035f6fb7c56"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "837779f78d0700888b4f42cd0c3ae77bfb4365dcc1ffc4480082375b3de4750f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f1a5814ad2577387d356b1a10bf897b3ec2185b5b9de9a44fdbcd11f9116258"
+    sha256 cellar: :any_skip_relocation, monterey:       "0d5dba201cabff02a8da2779a805ef4552ef54098b4eab86b110085c7d81c8b5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "da985a806b15f92791d6df43b5e541df94e2fb9f6a0238a8fe3b4ae6064a52ac"
+    sha256 cellar: :any_skip_relocation, catalina:       "85ce4f6c485a19995f8e4ed2f80a7bd898b31bc28a734175268d3087fc4457d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c415e6fb8720c825034807d77167f4ddcd382ab9c1374d912ba46398b4f41643"
   end
 
   depends_on "go" => :build

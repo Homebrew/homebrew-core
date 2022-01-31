@@ -5,6 +5,7 @@ class Mpich < Formula
   mirror "https://fossies.org/linux/misc/mpich-4.0.tar.gz"
   sha256 "df7419c96e2a943959f7ff4dc87e606844e736e30135716971aba58524fbff64"
   license "mpich2"
+  revision 1
 
   livecheck do
     url "https://www.mpich.org/static/downloads/"
@@ -12,12 +13,12 @@ class Mpich < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0a0f17ff72d5f29366b1cce89d78281ea47e6f075cacfedcaccfefae5ef7cba3"
-    sha256 cellar: :any,                 arm64_big_sur:  "32fc7f54a324693041e979d33110df18f66abab1abcff6b2a20792dda6485611"
-    sha256 cellar: :any,                 monterey:       "ae10aee401572334d43d9422a755937098c076ac150b07164c90c43ca289c349"
-    sha256 cellar: :any,                 big_sur:        "44cd8592d35988bb7fef0b2aff12acd29168a9042499490cb2bf009c2c9fa42b"
-    sha256 cellar: :any,                 catalina:       "2313e0a798e92a22320ad24d272568889bb83c8b244d8d6d70f742eec884b082"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d615b3a038aa75b4033d72377b9d4e204f1766670dc1c0f566d91da6b4f1708"
+    sha256 cellar: :any,                 arm64_monterey: "91445e1fc1f84a77667d3a8e8174a6bfda179fc56c2886bf8bd050e4524e42c1"
+    sha256 cellar: :any,                 arm64_big_sur:  "9a42f6858cd050bd54c4b138834e757cfbd0dda6ad73d03c8588557decb781de"
+    sha256 cellar: :any,                 monterey:       "7163ea9c7ae98143bb2563dc7a7e67c621cf70196ba7840c3ea4dbbc0d838670"
+    sha256 cellar: :any,                 big_sur:        "9911d97c7a251d5104bf9010c47b538a4f1b3651d0c10de73288a24a77dd0411"
+    sha256 cellar: :any,                 catalina:       "e11e24ed8ccfb516ddde1d2ee7f4a9e3e74ed0c449f886416489d49f382adc11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8fc1d3f36c67eb5a1ea353d79b424f2abffa646334c83773d670a52b8667c59"
   end
 
   head do
@@ -69,8 +70,6 @@ class Mpich < Formula
     # Flag for compatibility with GCC 10
     # https://lists.mpich.org/pipermail/discuss/2020-January/005863.html
     args << "FFLAGS=-fallow-argument-mismatch"
-    args << "CXXFLAGS=-Wno-deprecated"
-    args << "CFLAGS=-fgnu89-inline -Wno-deprecated"
 
     if OS.linux?
       # Use libfabric https://lists.mpich.org/pipermail/discuss/2021-January/006092.html

@@ -3,17 +3,17 @@ class Richmd < Formula
 
   desc "Format Markdown in the terminal with Rich"
   homepage "https://github.com/willmcgugan/rich"
-  url "https://files.pythonhosted.org/packages/eb/be/bd5d6c37f5de55f31cb9432e0d926ceeab1b2ee774bd696557b53bc15012/rich-11.0.0.tar.gz"
-  sha256 "c32a8340b21c75931f157466fefe81ae10b92c36a5ea34524dff3767238774a4"
+  url "https://files.pythonhosted.org/packages/81/d2/64751634e1af18e61454e9946c8c792ab3866c2b309615844fc435036715/rich-11.1.0.tar.gz"
+  sha256 "43e03d8eec12e21beaecc22c828a41c4247356414a12d5879834863d4ad53816"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c8f4f76cec64c5aff9776a64b4c76afe2a4f566dc51091911ede79f44c34f51"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0ce11b360500d245d3afd5b5acbca4ae319d65523cea7b5a6a25db492fcf464"
-    sha256 cellar: :any_skip_relocation, monterey:       "664a5e5e7919791a60a0661d09869771c9df81c23797e2070a107d444a7af8c4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6c573471a88e2ed89d3e5d9fe2efda1cb5bce25375d1150321c25dbd6c290450"
-    sha256 cellar: :any_skip_relocation, catalina:       "26a12225bf72172f20ded603f7eac0184e8a56a00c16c13fdf2a7a9fc83cd235"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fc79ef4d30872acc06e04c3b6f2dc705463c0c0eae8b52cce88bc75bf531f47"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5dadbf6e89b0315a4491e2ff0231b445b40b1fb4c1c9596ec0abba53c64bda85"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f788089ec5b2be4bfa4b4fe02e043e7276d46eff1c35b7720ce2fcb8a11cf5f9"
+    sha256 cellar: :any_skip_relocation, monterey:       "286906bfc29e8be78d0ff57a697822183229e7f4a2efbc5a9f8f5107901c5c88"
+    sha256 cellar: :any_skip_relocation, big_sur:        "17e312a52b6fd5e113b7e3bcd7d905e2af3a5fa4bccd7916d12cbe72acffb9d7"
+    sha256 cellar: :any_skip_relocation, catalina:       "8df3bc4aa94376d809832d6078e13e508259ca357ce3ff7daa5d75e734916c40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fe69c0c2ca3aa757c39b8b004d831b2211da0e87dfcd637b5484d2ca3ba586a"
   end
 
   depends_on "python@3.10"

@@ -1,18 +1,18 @@
 class Sheldon < Formula
   desc "Fast, configurable, shell plugin manager"
   homepage "https://sheldon.cli.rs"
-  url "https://github.com/rossmacarthur/sheldon/archive/0.6.5.tar.gz"
-  sha256 "f546eedce0a81aad5972671eded7c743c6abcc812ccf17b610d1b53e9331779e"
+  url "https://github.com/rossmacarthur/sheldon/archive/0.6.6.tar.gz"
+  sha256 "9d6cdc8fe011c4defe65fbe1507e48a51f8efdeebb5d5b0b39fbde2c73566973"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rossmacarthur/sheldon.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1090747f162944d0308ca56479203a8b8e35591df181979af778f7aa12a90a79"
-    sha256 cellar: :any,                 arm64_big_sur:  "e3e23a06f48f11bf0f574ea59d27e5be6e7c3d50205441bbaa0751664fa71203"
-    sha256 cellar: :any,                 monterey:       "ad532042778ad7107d15ffb4139934bf7b9948b11f1e2febf9fab7740c0e2e31"
-    sha256 cellar: :any,                 big_sur:        "e8bcf6d734440947f11449e4d8c03a7007eac344f4624089d288483ea907003f"
-    sha256 cellar: :any,                 catalina:       "cc233a109dba1ba6392a4d9e0ba5c40a306578a3f12e2c495194d288d1cec4fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e2aafadbd208e3418c6cbc0aea43de58d9bb07d77d80597bcdd19335d2344f8"
+    sha256 cellar: :any,                 arm64_monterey: "bea66f2f424e7d4d5ca7bc8a43f4f972e2d7fa0f7e96d6a529ddd9c7ec056941"
+    sha256 cellar: :any,                 arm64_big_sur:  "ea1ace82500b5f2cd0d8a9c7ce613246a054e7523991c90227caf76dfc5c2ad1"
+    sha256 cellar: :any,                 monterey:       "f4c691f11e4898193a2c9a203a3e3ed8bb543f719131f4de89aa43e762666662"
+    sha256 cellar: :any,                 big_sur:        "a8e57a37ac0645beb8672becca7a14e6d7559ba7270e171870454fb7ada91a6c"
+    sha256 cellar: :any,                 catalina:       "726a11a98a2756256c383072fa52f469dbd767e8fbe25eb0283dd1d8e1812c05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16e37b1849f9c60215c701bcd6c256955c96b4edb62a866b9d6c678ac105b0ec"
   end
 
   depends_on "rust" => :build
@@ -27,6 +27,9 @@ class Sheldon < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    bash_completion.install "completions/sheldon.bash" => "sheldon"
+    zsh_completion.install "completions/sheldon.zsh" => "_sheldon"
   end
 
   test do

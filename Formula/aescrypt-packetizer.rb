@@ -1,8 +1,8 @@
 class AescryptPacketizer < Formula
   desc "Encrypt and decrypt using 256-bit AES encryption"
   homepage "https://www.aescrypt.com"
-  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.14.tgz"
-  sha256 "5051394529bf3f99c42b57f755b2269e6abaae8b0e3fd90869c4b0bb58f5f1c7"
+  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.15.tgz"
+  sha256 "263c0abd1da22d8cffd181a2d99c6d90410e5c2c6deeb1d6286f01b08a2f6763"
 
   livecheck do
     url "https://www.aescrypt.com/download/"
@@ -10,19 +10,16 @@ class AescryptPacketizer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "de66e84b41d921084a1ffabf6f88ce3c72da2a698a5986008dce692a3354c7ad"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a8c3dda5abdaa6d42a63a7fdd2c38c910b3286404313ef0195cebc50b433503a"
-    sha256 cellar: :any_skip_relocation, monterey:       "af7d04167dc1195cea4e1e3fc93de7fb6b9c38a82ca26ace58f81929de1d75ca"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ab6619fc5b646e2cd062f887735b95b9ba26b53b684a5d6318f2d99974dc2885"
-    sha256 cellar: :any_skip_relocation, catalina:       "1615637765b9c2c4aa26bb5c858962d2b5614d7098aa45ebb8154c839fcde13a"
-    sha256 cellar: :any_skip_relocation, mojave:         "063038d7a6789ce5052fa1f7bf1be43ab9cd5c4157d5f9d1d37a91382b007958"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "ad36c0bff9d673c364b18795669f51329d8e7c5ea862af2ef3614051976cf601"
-    sha256 cellar: :any_skip_relocation, sierra:         "39463bd2c693eaa4060f10e8d663346189ff1ebcc9bfa20971158e9e265b7b1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4270271fe50cf425748d27e1546a42bcae3ff117d91ee499c2904f8463cc370d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "49b442496a0e28351481eeab21d287fdddcc417678d3324cc504b0877a0b8703"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd8cfede21bcd86dbc5f3d6daa1dcc8388e90c63908717c4229f3bee138a25e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "eccc27387b7f6dca75067c976b0bebbaa9306000613c3b31d926d746085eaf77"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e70a5b340fb34d4d6619abd8ad18e92ff20f0424b8a6807d19dd8efed5abab04"
+    sha256 cellar: :any_skip_relocation, catalina:       "457939887ed6ea960166c2190287603beef6182d92544d9ee60c15e11cb5d487"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bb98dc9a63f2c2d73588d79d7ad185e6c34a616e18c617de531cf4dbecacf92"
   end
 
   head do
-    url "https://github.com/paulej/AESCrypt.git"
+    url "https://github.com/paulej/AESCrypt.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -11,11 +11,13 @@ class Libwps < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0259e5d1fa798cec14c2680bbcf4ffa4791f2089840e9f27951900066f3f54bd"
-    sha256 cellar: :any, big_sur:       "b90de41ccfbd2b12fa25c90985a9a526f42f38ffba22839583d8d8dca7680f57"
-    sha256 cellar: :any, catalina:      "df168fef776884800b6e739e914ca328b2ed2011fb2f7c650a95ffb410669ff9"
-    sha256 cellar: :any, mojave:        "6858e4fc67b746fa2f392c717eab3abf2af4826e7499489b4da45d98b9539b24"
-    sha256 cellar: :any, high_sierra:   "cfba7b4a80156e0783277ea263ee303ecc2194b1a1147493e9b8e6ccafb3885d"
+    sha256 cellar: :any, arm64_monterey: "ba873b5642db93a461f0f7f98d3504373b21a1906fc5641fea0508ed363bd879"
+    sha256 cellar: :any, arm64_big_sur:  "0259e5d1fa798cec14c2680bbcf4ffa4791f2089840e9f27951900066f3f54bd"
+    sha256 cellar: :any, monterey:       "761c1217f5a73534b8646eb87b308a21e1227c6a53e7ebad713d9240e0fde9c7"
+    sha256 cellar: :any, big_sur:        "b90de41ccfbd2b12fa25c90985a9a526f42f38ffba22839583d8d8dca7680f57"
+    sha256 cellar: :any, catalina:       "df168fef776884800b6e739e914ca328b2ed2011fb2f7c650a95ffb410669ff9"
+    sha256 cellar: :any, mojave:         "6858e4fc67b746fa2f392c717eab3abf2af4826e7499489b4da45d98b9539b24"
+    sha256 cellar: :any, high_sierra:    "cfba7b4a80156e0783277ea263ee303ecc2194b1a1147493e9b8e6ccafb3885d"
   end
 
   depends_on "boost" => :build

@@ -1,18 +1,18 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/v1.0.2.tar.gz"
-  sha256 "1a5c4779d10c6c81d21092ea776504f51e6a4994121f536550c60a8e7bb6a028"
+  url "https://github.com/rui314/mold/archive/v1.0.3.tar.gz"
+  sha256 "488c12058b4c7c77bff94c6f919e40b2f12c304214e2e0d7d4833c21167837c0"
   license "AGPL-3.0-only"
   head "https://github.com/rui314/mold.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "eb6727a0176d76f1c211dfabee365c0c8a0d4d8b7b234a7c7808572823cb347b"
-    sha256 arm64_big_sur:  "290ea04b26902231c07ce12e90bfe9b1fe45df599258b55b14804c370d7aec57"
-    sha256 monterey:       "24b64743c5314863f47b47ad6dd911dd1bb61010a32cdd4748273f6c061b8bbd"
-    sha256 big_sur:        "9b073fc78fd7f91927b1cc9e6ef448e403917a791cf0e5b6e86c31d3ba4221df"
-    sha256 catalina:       "87d413911114a89529a48f3dfb16ce1309ad148d423ebad6c28b72d10d686293"
-    sha256 x86_64_linux:   "ee4c785aa85d2142b62591b7d8ea239894751e11ca0f3ed30e47fc5615535bc4"
+    sha256 arm64_monterey: "b6d0872dc4e78f4d0fdfbc9ab76cf26dc5268e0ee29f15307c1d9cd0a2107494"
+    sha256 arm64_big_sur:  "1dd8464a8856c146cddfec7f2077c6cf70a18967f091e136aaee5d9345544165"
+    sha256 monterey:       "2120612b7735e17adbce710adef6be309383fac0d4a8fb35b1c3f09b8b14649d"
+    sha256 big_sur:        "7689c4e59a576512baa9ba5e4ecee6d45217a1efba6b0333e935aec9c8044951"
+    sha256 catalina:       "f426e485c2a9416c73e5a41e79c12ecaaede5baf62a4ae89906969c9347af108"
+    sha256 x86_64_linux:   "e3fc5dbe542dea1d5c55bd2e8668b6f16be51f0a99dcd633f812e2bbbc1668ef"
   end
 
   depends_on "tbb"

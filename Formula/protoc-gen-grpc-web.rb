@@ -3,18 +3,17 @@ require "language/node"
 class ProtocGenGrpcWeb < Formula
   desc "Protoc plugin that generates code for gRPC-Web clients"
   homepage "https://github.com/grpc/grpc-web"
-  url "https://github.com/grpc/grpc-web/archive/1.3.0.tar.gz"
-  sha256 "6ba86d2833ad0ed5e98308790bea4ad81214e1f4fc8838fe34c2e5ee053b73e6"
+  url "https://github.com/grpc/grpc-web/archive/1.3.1.tar.gz"
+  sha256 "d292df306b269ebf83fb53a349bbec61c07de4d628bd6a02d75ad3bd2f295574"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "694f70b69029f55a659d0981473b025467dc9f88ec84195f6b88d6ca2d67c3cf"
-    sha256 cellar: :any,                 arm64_big_sur:  "b8c378b553e2ac95659369ada0af31198ef30e72391c3ac867faa999be965ede"
-    sha256 cellar: :any,                 monterey:       "25779d4c29e4c1f8299db7ada86e4d568cd8d6a5ce8bbce2956d1f6a2785e347"
-    sha256 cellar: :any,                 big_sur:        "f4ffae6839a5a559e198d61c79bc567a714fa0fc884f0f6f031ebd9c78c83115"
-    sha256 cellar: :any,                 catalina:       "7480b35d0d8e6e280da6824c70a8e0c58308a51511f4010fdf2c165f1d8e14ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae7d825f02135ab092f592229bea5a3d0dff5ae02374bebb3ff6920efcd9b7f0"
+    sha256 cellar: :any,                 arm64_monterey: "e679f48db0744502049cda46308f89de294134b522ba731fcfc88486589e992d"
+    sha256 cellar: :any,                 arm64_big_sur:  "fcf29b351eb68c7db6dbe314dd819bd5f89909e46135008745362e345934d898"
+    sha256 cellar: :any,                 monterey:       "0834212bc2e4be2c88985582ba06b15481cbd0fe2b8da2f1543c69089f64b5dd"
+    sha256 cellar: :any,                 big_sur:        "e93c341c55c974b7be14075b248a1cac4722b3371ddd46dd5a1656e1ea5d817e"
+    sha256 cellar: :any,                 catalina:       "4e46ddd1da2a1d3ddd2081ab8870b8cf813bf099b48a7a000e4bf8e524b3d748"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24c1d8d62acd218135d6cee0bfdfa0962604121cfcd3b42c6c56d0edb14b49c7"
   end
 
   depends_on "cmake" => :build

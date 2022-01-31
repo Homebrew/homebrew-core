@@ -3,17 +3,17 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/1c/6d/9e20a4f588f213062dd2705b1fd04a6f37d4f7c0c070b846ee62cfd449f8/sqlfluff-0.9.3.tar.gz"
-  sha256 "33ac3ba63dc9e4b2ee3ff1ea3051f8d05f88667e30da1c22a80a37c4038aa092"
+  url "https://files.pythonhosted.org/packages/95/30/f64ffedd4627b9c25b15698fae6be02519ef3c14c86f9706fbadd30bd564/sqlfluff-0.9.4.tar.gz"
+  sha256 "0e55c7b460d95ea1986852fc43926add391734f04888788aea350a1612b94be2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "173bfbae66a08145f790f6bbf246e6186a85ddbe5b56ca393ca7979f53242653"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5524906a863926ad687a88a2c0363bd9ea667f8510060cf48ca98c0fe68d40ce"
-    sha256 cellar: :any_skip_relocation, monterey:       "c81264e71e78c29928feeb88dc4d5da42f5c052aad346e81504a9ae5e37dbe09"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a9bec4e9ca8b62e52cb9e477f9a5d22a4b0ffa2bbc82fc8a7078546d77ab6373"
-    sha256 cellar: :any_skip_relocation, catalina:       "63763e2cfe456148dc878925f53fe9778b9a77f5cbd721a5b6ac2871f2e85f82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3723e3711be1bc49747645c0a0a309136f58bd7a5c7bd2a6c44083c15d94da5c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f07a80469faada0b9a8c7c3a665edcf0c28f730787b016cbe91c019d7f851fd5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be3a2caa85124d8c4b83fded24adf669dbd39f1a19037ecddbc8d9c3def5c8df"
+    sha256 cellar: :any_skip_relocation, monterey:       "9d6b7f290cd0f22ea134061457486ee555f62e5aed4227843963fbb24b596570"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0704932b61730dfc17a78838622f8b5eaae7da7fac421f26c7c1762e8612fbde"
+    sha256 cellar: :any_skip_relocation, catalina:       "5a1edc51031ff59ba524df78fe567f0eddf6e7fd962cadf159828e1aa3f9ff9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e28d1d01f90fa394953d4c39a20982f59bad947b858c355e3624ba3a20841d27"
   end
 
   depends_on "python@3.10"

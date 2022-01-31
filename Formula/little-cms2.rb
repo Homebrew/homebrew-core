@@ -3,8 +3,8 @@ class LittleCms2 < Formula
   homepage "https://www.littlecms.com/"
   # Ensure release is announced at https://www.littlecms.com/categories/releases/
   # (or https://www.littlecms.com/blog/)
-  url "https://downloads.sourceforge.net/project/lcms/lcms/2.12/lcms2-2.12.tar.gz"
-  sha256 "18663985e864100455ac3e507625c438c3710354d85e5cbb7cd4043e11fe10f5"
+  url "https://downloads.sourceforge.net/project/lcms/lcms/2.13/lcms2-2.13.tar.gz"
+  sha256 "0c67a5cc144029cfa34647a52809ec399aae488db4258a6a66fba318474a070f"
   license "MIT"
   version_scheme 1
 
@@ -18,13 +18,12 @@ class LittleCms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ad365804b4bcc8ed8bee33d9604ae5509a450a6ae20a26b3ebbfd88d722c485f"
-    sha256 cellar: :any,                 arm64_big_sur:  "83c79aaa225d6363154151a6b1099bb23ee0c7c1ffed35cb4682b993e047f4a0"
-    sha256 cellar: :any,                 monterey:       "108695cdb406b516bec2a66db2f72e25b81b7398bdd288d49e421aeb2893e31f"
-    sha256 cellar: :any,                 big_sur:        "70eaa9b280425731f7dcf104e75d4ae1e6a90421e1a741e0fe82859361c8ae84"
-    sha256 cellar: :any,                 catalina:       "0f782fa69d2e12e9c1765df4ae1b7bd87143402aa1840d483092f3b74f89ae19"
-    sha256 cellar: :any,                 mojave:         "69af639323557bdd2c09fdaf354d9830441014f98609609146a8c836c752ac10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e5b2bda05c916175417f4f7db8e22d43e116d696177b399496c1f168b7cf834"
+    sha256 cellar: :any,                 arm64_monterey: "bf1401db2c4733d9979b562ceef7441d32c4ceea61ae2f6eaa67434e39ebbe7d"
+    sha256 cellar: :any,                 arm64_big_sur:  "c156e887110385516a29e5a118321f3c2449a6212173008a89943020f51d5eb2"
+    sha256 cellar: :any,                 monterey:       "143b7de00312a4bf4684f01bed8daef204ed22a7932999ac9c33163ee7ce33a5"
+    sha256 cellar: :any,                 big_sur:        "81d979f654532cc61edbf6492e49511edca3be33ea0903a368ee495ea29d6bb2"
+    sha256 cellar: :any,                 catalina:       "642bde34490428c4afdcdb74c39b15648ff3170f38863f0ede93ace456a97f3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fdce440186265d320501ead116aa22ab63118474b0f72564beeca6e587faae2"
   end
 
   depends_on "jpeg"

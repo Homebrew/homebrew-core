@@ -1,9 +1,9 @@
 class Clzip < Formula
   desc "C language version of lzip"
   homepage "https://www.nongnu.org/lzip/clzip.html"
-  url "https://download.savannah.gnu.org/releases/lzip/clzip/clzip-1.12.tar.gz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/clzip/clzip-1.12.tar.gz"
-  sha256 "fcc92b3006d87b7c4affa03fe9dcc4869a802253052653200c26f6ba718bfee8"
+  url "https://download.savannah.gnu.org/releases/lzip/clzip/clzip-1.13.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/clzip/clzip-1.13.tar.gz"
+  sha256 "7ac9fbf5036bf50fb0b6a20e84d2293cb0d24d4044eaf33cbe9760bb9e7fea7a"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,13 +12,12 @@ class Clzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3907dfa594ee7d6d237ae118fade57365a6c1318379da8ea709845ffca68af76"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ae403fecae4e6688b40662a5160f7fbc55e5636ce1a9447dba83c14c60e825f"
-    sha256 cellar: :any_skip_relocation, monterey:       "23691b3d00a35a10480592393ab1c3442950e663768369d64f09df09a3a63b4b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e82b38513ecfa60b53ea584aa573682fd4b7df5db3e45ccbe633840258f547ee"
-    sha256 cellar: :any_skip_relocation, catalina:       "dc96f1ee14b4b904dd1ecfef38cb3fae30cefd7b490eb31b78e57942df72c2b9"
-    sha256 cellar: :any_skip_relocation, mojave:         "d4cbf4b08330488cf80bbdf6c16d740038c72028760e1bba043122f217e00721"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a1ea519aedf9b7ad116ad71caf65ca8fa08f2b0f444945f8127c6faf05fa6c6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7faa899c7e36a92d614d28d6f27ac41b4c46ec681e5e4e885ccc01cd4b988c01"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de1b081d3b78675d6d98fec39e721ef5dad132fc8f6aa22b95ccdd85562986c6"
+    sha256 cellar: :any_skip_relocation, monterey:       "09aef3ef6a00306fa16929c87253b892e00ab1fb8c571136d914113f3a55422e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fde4d37b9bde23fe59e800fb9c20fddea867152bad5e996c1083f4c0a4d99fc0"
+    sha256 cellar: :any_skip_relocation, catalina:       "f72ce2568e31d226d104aa3c49e7963fcfa8096cb40460dd1f171336255a041c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f84e0c820f33a10c1d26d30d53bbea51d1cf77f8e56460f7fe293378818290d"
   end
 
   def install

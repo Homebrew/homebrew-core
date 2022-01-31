@@ -23,15 +23,16 @@ class Czmq < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "2e98cdc427523e0b6557dee75c9c7e02243e6deca7f154511de816a363380ae3"
-    sha256 cellar: :any, arm64_big_sur:  "f038de51f9c505a739ca6d35804e800908e3180684516cd5df36e261207eb1e9"
-    sha256 cellar: :any, monterey:       "659fd630f7a622c2e0677c74c43d0dffb0d6e000c3fd623f154f14534c71dd85"
-    sha256 cellar: :any, big_sur:        "3adaa226cebf483c1f84a58dbc57ba6b75c51213216506d11b7dba6fde9f5ebb"
-    sha256 cellar: :any, catalina:       "b7641290a58b85221b10754a16819de04db2258f852e0debc2e5a3b6581e6f6d"
+    sha256 cellar: :any,                 arm64_monterey: "2e98cdc427523e0b6557dee75c9c7e02243e6deca7f154511de816a363380ae3"
+    sha256 cellar: :any,                 arm64_big_sur:  "f038de51f9c505a739ca6d35804e800908e3180684516cd5df36e261207eb1e9"
+    sha256 cellar: :any,                 monterey:       "659fd630f7a622c2e0677c74c43d0dffb0d6e000c3fd623f154f14534c71dd85"
+    sha256 cellar: :any,                 big_sur:        "3adaa226cebf483c1f84a58dbc57ba6b75c51213216506d11b7dba6fde9f5ebb"
+    sha256 cellar: :any,                 catalina:       "b7641290a58b85221b10754a16819de04db2258f852e0debc2e5a3b6581e6f6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6567f78da8a3aec0856b30c7892a69933062b96b16a26170915ebfa86ce60bc5"
   end
 
   head do
-    url "https://github.com/zeromq/czmq.git"
+    url "https://github.com/zeromq/czmq.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -41,7 +42,6 @@ class Czmq < Formula
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
-  depends_on :macos # Due to Python 2
   depends_on "zeromq"
 
   def install
