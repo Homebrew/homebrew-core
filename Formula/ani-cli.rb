@@ -15,7 +15,7 @@ class AniCli < Formula
     bin.install "ani-cli"
   end
   test do
-    output = pipe_output("#{bin}/ani-cli"
+    output = pipe_output("#{bin}/ani-cli")
     assert_match "", output
     end
 end
