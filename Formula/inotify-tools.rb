@@ -5,6 +5,10 @@ class InotifyTools < Formula
   sha256 "da81010756866966e6dfb1521c2be2f0946e7626fa29122e1672dc654fc89ff3"
   license "GPL-2.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "97eb76c31505fcb014fabe62cdd25edf17a15bcea48d594dcd0d6cf232fa1317"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
