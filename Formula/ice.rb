@@ -19,8 +19,15 @@ class Ice < Formula
   end
 
   depends_on "lmdb"
-  depends_on macos: :catalina
   depends_on "mcpp"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "expat"
+  uses_from_macos "libedit"
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     args = [
@@ -40,6 +47,8 @@ class Ice < Formula
 
     system "make", "install", *args
 
+    # We install these binaries to libexec because they conflict with those
+    # installed along with the ice packages from PyPI, RubyGems and npm.
     (libexec/"bin").mkpath
     %w[slice2py slice2rb slice2js].each do |r|
       mv bin/r, libexec/"bin"
@@ -57,7 +66,7 @@ class Ice < Formula
   end
 
   test do
-    (testpath / "Hello.ice").write <<~EOS
+    (testpath/"Hello.ice").write <<~EOS
       module Test
       {
           interface Hello
@@ -66,7 +75,10 @@ class Ice < Formula
           }
       }
     EOS
-    (testpath / "Test.cpp").write <<~EOS
+
+    port = free_port
+
+    (testpath/"Test.cpp").write <<~EOS
       #include <Ice/Ice.h>
       #include <Hello.h>
 
@@ -79,16 +91,17 @@ class Ice < Formula
       int main(int argc, char* argv[])
       {
         Ice::CommunicatorHolder ich(argc, argv);
-        auto adapter = ich->createObjectAdapterWithEndpoints("Hello", "default -h localhost -p 10000");
+        auto adapter = ich->createObjectAdapterWithEndpoints("Hello", "default -h 127.0.0.1 -p #{port}");
         adapter->add(std::make_shared<HelloI>(), Ice::stringToIdentity("hello"));
         adapter->activate();
         return 0;
       }
     EOS
-    system "#{bin}/slice2cpp", "Hello.ice"
+
+    system bin/"slice2cpp", "Hello.ice"
     system ENV.cxx, "-DICE_CPP11_MAPPING", "-std=c++11", "-c", "-I#{include}", "-I.", "Hello.cpp"
     system ENV.cxx, "-DICE_CPP11_MAPPING", "-std=c++11", "-c", "-I#{include}", "-I.", "Test.cpp"
-    system ENV.cxx, "-L#{lib}", "-o", "test", "Test.o", "Hello.o", "-lIce++11"
+    system ENV.cxx, "-L#{lib}", "-o", "test", "Test.o", "Hello.o", "-lIce++11", "-pthread"
     system "./test"
   end
 end
