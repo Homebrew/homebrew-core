@@ -9,6 +9,8 @@ class ApibuilderCli < Formula
     sha256 cellar: :any_skip_relocation, all: "53513c0623771a5d5fe3de708e2b89f99f930de4502d40612f317e51d0703e55"
   end
 
+  uses_from_macos "ruby"
+
   def install
     system "./install.sh", prefix
   end
