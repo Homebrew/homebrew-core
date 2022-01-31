@@ -30,10 +30,6 @@ class Cava < Formula
     # force autogen.sh to look for and use our glibtoolize
     inreplace "autogen.sh", "libtoolize", "glibtoolize"
 
-    # to be remove with versions greater 0.7.4:
-    # correct Makefile.am with hardcoded libpath
-    inreplace "Makefile.am", "/usr/local", HOMEBREW_PREFIX unless build.head?
-
     system "./autogen.sh"
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
