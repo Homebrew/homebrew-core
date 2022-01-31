@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/3.2.5.tar.gz"
-  sha256 "f55f55c09671b4d72fa7c336d072514a3dbc080a7c54a46003cdf2c8d25b3cd2"
+  url "https://github.com/convox/convox/archive/3.3.0.tar.gz"
+  sha256 "b10bf1ffedda005d66f4c4fd6a986b6b861ca318b7854c8587b9ec5b3c66f64c"
   license "Apache-2.0"
   version_scheme 1
 
@@ -35,7 +35,7 @@ class Convox < Formula
       -X main.version=#{version}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/convox"
+    system "go", "build", "-mod=readonly", *std_go_args(ldflags: ldflags), "./cmd/convox"
   end
 
   test do
