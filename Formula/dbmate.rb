@@ -18,8 +18,7 @@ class Dbmate < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "build"
-    bin.install "dist/dbmate"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags", "sqlite_omit_load_extension,sqlite_json"
   end
 
   test do
