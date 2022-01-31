@@ -1,8 +1,8 @@
 class Tcpreplay < Formula
   desc "Replay saved tcpdump files at arbitrary speeds"
   homepage "https://tcpreplay.appneta.com/"
-  url "https://github.com/appneta/tcpreplay/releases/download/v4.3.4/tcpreplay-4.3.4.tar.gz"
-  sha256 "ee065310806c22e2fd36f014e1ebb331b98a7ec4db958e91c3d9cbda0640d92c"
+  url "https://github.com/appneta/tcpreplay/releases/download/v4.4.0/tcpreplay-4.4.0.tar.gz"
+  sha256 "a3b125c0319bd096d68f821c4a08051b2d3d9278bac6fe18cfe3c9201703a567"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause", "GPL-3.0-or-later", "ISC"]
 
   bottle do
@@ -30,20 +30,11 @@ class Tcpreplay < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-dynamic-link
+      --with-libdnet=#{Formula["libdnet"].opt_prefix}
     ]
 
     args << if OS.mac?
       ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
-
-      # The SDK is currently found using `xcrun --sdk macosx<V>` starting with
-      # input `--with-macosx-sdk=<V>` and then going from older 10.8 onward.
-      # On ARM, for Big Sur 11.4 the correct SDK is 11.3 (as of 2021-07-11);
-      # however, the logic picks 10.15, which causes configure failure.
-      # As a workaround, we remove all 10.x versions from SDK detection logic.
-      #
-      # Check in next release if the workaround can be removed.
-      # Upstream issue: https://github.com/appneta/tcpreplay/issues/668
-      inreplace "configure.ac", /(\$with_macosx_sdk\s+)(?:10\.\d+\s+)+/, "\\1" if Hardware::CPU.arm?
 
       "--with-macosx-sdk=#{MacOS.version}"
     else
