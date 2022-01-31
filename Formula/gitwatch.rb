@@ -11,7 +11,14 @@ class Gitwatch < Formula
   end
 
   depends_on "coreutils"
-  depends_on "fswatch"
+
+  on_macos do
+    depends_on "fswatch"
+  end
+
+  on_linux do
+    depends_on "inotify-tools"
+  end
 
   def install
     bin.install "gitwatch.sh" => "gitwatch"
