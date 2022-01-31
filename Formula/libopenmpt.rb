@@ -12,12 +12,12 @@ class Libopenmpt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "eb4748d7f639e41c8ec98446eb5ab65c52b50161a9d1bad2751eb9171f0b591d"
-    sha256 cellar: :any,                 arm64_big_sur:  "26aae39f981e16dae7215ba424a6b75aa1dcdb8f5ebcd062dc084da1bdaa4abe"
-    sha256 cellar: :any,                 monterey:       "422836c96f7070b8d28b50280ed48cfa81be5140e27cb258d9620b217959ab82"
-    sha256 cellar: :any,                 big_sur:        "b324fcdd6ba39e7bfcf1d087f21ab59594ac4e0219c9509ad8279b3b7116756f"
-    sha256 cellar: :any,                 catalina:       "9774466a4b1e5f3cee7a9fe792eb434658c98a72c4947fa5dc1b13b803c03459"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a47f741ea6a6d2ed527f23095b955d4c3c6b783b50a106e2333aadfcb065c51d"
+    sha256 cellar: :any,                 arm64_monterey: "5ae693ffcf795c795753afa50d8306ed888b90c6569c1fcb3bde280912d26c3d"
+    sha256 cellar: :any,                 arm64_big_sur:  "37a157780ba7ef0507a3da11bd350796d3e26a16ac7cc9e128c07d76e0ad163b"
+    sha256 cellar: :any,                 monterey:       "e1acfb7fc4921077f5700c1e51be6f7ce2a15cd8cfcb9cb13be9595969a337b5"
+    sha256 cellar: :any,                 big_sur:        "9207908fabb5d34783165c9d46bcf792940bf6c7fdb90991c7dcf51705fca428"
+    sha256 cellar: :any,                 catalina:       "88a75a6df13605b5b3398aebe2489c38bf5b347c50e4cdb630d8c53096032677"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18c7ae4c72b1606180b5eca6780df3603408d5a3908bf6ca25f74dda7a1930e3"
   end
 
   depends_on "pkg-config" => :build
