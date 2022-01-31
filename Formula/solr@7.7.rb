@@ -1,7 +1,7 @@
 class SolrAT77 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://solr.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/7.7.3/solr-7.7.3.tgz"
+  url "https://dlcdn.apache.org/lucene/solr/7.7.3/solr-7.7.3.tgz"
   mirror "https://archive.apache.org/dist/lucene/solr/7.7.3/solr-7.7.3.tgz"
   sha256 "3ec67fa430afa5b5eb43bb1cd4a659e56ee9f8541e0116d6080c0d783870baee"
   license "Apache-2.0"
@@ -63,6 +63,12 @@ class SolrAT77 < Formula
     shell_output(bin/"solr -i")
     # Impossible to start a second Solr node on the same port => exit code 1
     shell_output(bin/"solr start -p #{port}", 1)
+
+    # Test fails in docker, see https://github.com/apache/solr/pull/250
+    # Newset solr version has been fixed, this legacy version will not be patched,
+    # so just ignore the test.
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     # Stop a Solr node => exit code 0
     shell_output(bin/"solr stop -p #{port}")
     # No Solr node left to stop => exit code 1
