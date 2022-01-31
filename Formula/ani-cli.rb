@@ -6,16 +6,15 @@ class AniCli < Formula
   license "GPL-3.0"
 
   uses_from_macos "curl"
+  uses_from_macos "grep"
   depends_on "aria2"
-  depends_on "grep"
   depends_on "mpv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     bin.install "ani-cli"
   end
   test do
-    output = pipe_output("#{bin}/ani-cli")
-    assert_match "", output
+    assert_match version.to_s, shell_output("#{bin}/ani-cli -v")
     end
 end
