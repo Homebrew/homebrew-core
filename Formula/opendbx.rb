@@ -22,6 +22,7 @@ class Opendbx < Formula
     sha256 mojave:         "9f4ed6175131681d7aa68a5cc62a3fab535f428f05982873c756d534ce4a71f9"
     sha256 high_sierra:    "8acc7893f16018ca7946d5a087459f7defbaa3fa3a17759d9eec5eaaffd27458"
     sha256 sierra:         "4adab552ad5d1fca471ba71734b784de2d6005717cef6908c0e8366b217c4dd1"
+    sha256 x86_64_linux:   "9ef3f4d6acb641cbe910f05f8ec191ffdc886b80c1bed89a962a27031071a940"
   end
 
   depends_on "readline"
