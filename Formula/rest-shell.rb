@@ -20,6 +20,8 @@ class RestShell < Formula
   end
 
   test do
-    system "#{bin}/rest-shell"
+    pid = Process.spawn(bin/"rest-shell")
+    sleep(5)
+    Process.kill("TERM", pid)
   end
 end
