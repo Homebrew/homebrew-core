@@ -8,7 +8,6 @@ class AniCli < Formula
   depends_on "grep"
   depends_on "curl"
   depends_on "openssl"
-  depends_on "cask"
   depends_on "aria2"
   depends_on "mpv"
   
