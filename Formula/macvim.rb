@@ -2,11 +2,10 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-171.tar.gz"
-  version "8.2-171"
-  sha256 "1ef6766abefc6d67dd717f1a92aa294304817a462a98153f2696e83340ffce25"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-172.tar.gz"
+  version "8.2-172"
+  sha256 "b5e16d721444d8cb6231df739b1b74dec8f3cb0bde1fe8327dd86e25fc322331"
   license "Vim"
-  revision 2
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
   bottle do
@@ -22,7 +21,7 @@ class Macvim < Formula
   depends_on "lua"
   depends_on :macos
   depends_on "python@3.9"
-  depends_on "ruby@3.0"
+  depends_on "ruby"
 
   conflicts_with "vim",
     because: "vim and macvim both install vi* binaries"
