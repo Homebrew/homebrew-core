@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calico.git",
-      tag:      "v3.21.4",
-      revision: "220d04c9429e8f157caccc70e4ed4c92e1d24e8d"
+      tag:      "v3.22.0",
+      revision: "a86e41d021c4c60e1f73d8dce396fe249d708cc7"
   license "Apache-2.0"
   head "https://github.com/projectcalico/calico.git", branch: "master"
 
@@ -32,7 +32,7 @@ class Calicoctl < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/calicoctl version", 1)
+    assert_match version.to_s, shell_output("#{bin}/calicoctl version")
 
     assert_match "invalid configuration: no configuration has been provided",
       shell_output("#{bin}/calicoctl datastore migrate lock 2>&1", 1)
