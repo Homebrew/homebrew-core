@@ -3,8 +3,8 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/1c/6d/9e20a4f588f213062dd2705b1fd04a6f37d4f7c0c070b846ee62cfd449f8/sqlfluff-0.9.3.tar.gz"
-  sha256 "33ac3ba63dc9e4b2ee3ff1ea3051f8d05f88667e30da1c22a80a37c4038aa092"
+  url "https://files.pythonhosted.org/packages/95/30/f64ffedd4627b9c25b15698fae6be02519ef3c14c86f9706fbadd30bd564/sqlfluff-0.9.4.tar.gz"
+  sha256 "0e55c7b460d95ea1986852fc43926add391734f04888788aea350a1612b94be2"
   license "MIT"
 
   bottle do
