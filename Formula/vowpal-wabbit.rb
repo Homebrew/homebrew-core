@@ -1,12 +1,9 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
-  # pull from git tag to get submodules
-  url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-      tag:      "8.11.0",
-      revision: "96ed8316de4391b77f4f29af69f885552a644769"
+  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.0.1.tar.gz"
+  sha256 "50c0a766c3f0f4a4ba29ac1db8949ee352e0d7e4f2df819fb410f8a34e3ea051"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
   bottle do
@@ -46,6 +43,7 @@ class VowpalWabbit < Formula
     rm bin/"vw-validate.html"
     rm bin/"clang-format"
     rm_r bin/"flatbuffer"
+    rm_r bin/"dump_options"
   end
 
   test do
