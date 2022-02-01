@@ -601,7 +601,6 @@ env:
     rke
     rollup
     rosa-cli
-    rover
     rpg-cli
     rqlite
     rubberband
