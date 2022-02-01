@@ -262,7 +262,6 @@ env:
     fortio
     frugal
     fselect
-    fst
     func-e
     fuse-overlayfs
     fuseki
