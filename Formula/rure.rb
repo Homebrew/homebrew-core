@@ -12,7 +12,7 @@ class Rure < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--manifest-path", "regex-capi/Cargo.toml", "--release"
+    system "cargo", "build", "--lib", "--manifest-path", "regex-capi/Cargo.toml", "--release"
     include.install "regex-capi/include/rure.h"
     lib.install Pathname.glob("target/release/#{shared_library("librure")}")
     lib.install Pathname.glob("target/release/librure.a")
