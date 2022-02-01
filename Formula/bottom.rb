@@ -7,12 +7,12 @@ class Bottom < Formula
   head "https://github.com/ClementTsang/bottom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b835e61aced353b7ed4d026b2b9fb7795b95be6e602b08eecf80dc0026712d45"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de21ad9f96ee4b82576b1c0348a8d23eaa8cff94480a435423a8ba4d6c62f189"
-    sha256 cellar: :any_skip_relocation, monterey:       "6773f765d85e25a82aa671a396798fa58d77d991ab8dadbe4b04a26974539c43"
-    sha256 cellar: :any_skip_relocation, big_sur:        "41e032d62c7119e33bd4f0844550b9340429329f56591878ec6bf51cf40948e7"
-    sha256 cellar: :any_skip_relocation, catalina:       "05bd8396c06f8e209509899eaebaad8c0803c95fd29844a3e7e72d181536e7a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d286d974fb73242f108ebcda4a49da71a8c17b747b87b193d6b0ee28ca4eed17"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a28ac019ba285bcf7647ab12cfb763dee8bee61d558016bf9126b10b1bc3cfee"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a2775ecb39e9041ba6c6b759b339896c0a8db89e58cb9dc17d61e9b94c2efe8e"
+    sha256 cellar: :any_skip_relocation, monterey:       "4e62a3c98dbe25c38c1a392ebf8fc462c21adcd162cc5f9b724ea385756491df"
+    sha256 cellar: :any_skip_relocation, big_sur:        "730ba8ae598420883843bbbf3a8ccd6226c866c6ccb496ff9a4786b312755dc7"
+    sha256 cellar: :any_skip_relocation, catalina:       "4852626bd5223cafd1521d9877338cfae13eeab3aee9389e7ce41180ab333cf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8def55a9974e13a13618f057b82e778d54e32f0aa3ad5a868711e12ede6a45c"
   end
 
   depends_on "rust" => :build
