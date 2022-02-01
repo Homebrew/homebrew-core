@@ -1,8 +1,8 @@
 class NodeAT14 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v14.18.3/node-v14.18.3.tar.xz"
-  sha256 "783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769d608"
+  url "https://nodejs.org/dist/v14.19.0/node-v14.19.0.tar.xz"
+  sha256 "e92e846300e6117547d37ea8d5bd32244c19b2fcefcb39e1420a47637f45030c"
   license "MIT"
 
   livecheck do
