@@ -4,7 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.4.1/gdal-3.4.1.tar.xz"
   sha256 "332f053516ca45101ef0f7fa96309b64242688a8024780a5d93be0230e42173d"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -48,11 +48,11 @@ class Gdal < Formula
   depends_on "poppler-qt5"
   depends_on "proj@7"
   depends_on "python@3.9"
-  depends_on "sqlite" # To ensure compatibility with SpatiaLite
-  depends_on "unixodbc" # macOS version is not complete enough
+  depends_on "sqlite"
+  depends_on "unixodbc"
   depends_on "webp"
   depends_on "xerces-c"
-  depends_on "xz" # get liblzma compression algorithm library from XZutils
+  depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "curl"
@@ -66,6 +66,12 @@ class Gdal < Formula
   conflicts_with "cpl", because: "both install cpl_error.h"
 
   fails_with gcc: "5"
+
+  # Support hdf5 1.13, remove in next release
+  patch :p2 do
+    url "https://github.com/OSGeo/gdal/commit/2ad92c8d1afe8e36c5f075034c0938da4eff94f0.patch?full_index=1"
+    sha256 "9adf69784da0b5d0fdc6c418f61690f8f017a6fe5d01337b4cc68a8047e93e16"
+  end
 
   def install
     args = [
