@@ -30,6 +30,9 @@ class Plotutils < Formula
     # Fix usage of libpng to be 1.5 compatible
     inreplace "libplot/z_write.c", "png_ptr->jmpbuf", "png_jmpbuf (png_ptr)"
 
+    # Avoid `-flat_namespace` flag.
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -37,6 +40,8 @@ class Plotutils < Formula
       --prefix=#{prefix}
       --enable-libplotter
     ]
+    # Prevent opportunistic linkage to X11
+    args << "--without-x" if OS.mac?
 
     system "./configure", *args
     system "make"
