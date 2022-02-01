@@ -12,12 +12,12 @@ class Tfsec < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "307200c08ea045ecb261782a67491ffdd6ff8748bd9a49e7d5a91c0a2c2c2845"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "25161e8a9112974f1f96cae6588b73b1485162475d73510ef629298d3115356f"
-    sha256 cellar: :any_skip_relocation, monterey:       "e534bf05a56916612a7124812e1ea3c4561721d55874d9ff22373338d3b9447a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "496d118371903dd614a8f060a92e94254bf0774445e8e6eadb75fbdcb60b7eb8"
-    sha256 cellar: :any_skip_relocation, catalina:       "01c71e89b8f1e2686f6295dc3e78d0070cd4f11de493a5b1698c10098b1a1a81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d52e8de2f53275ec61ead1a0fe00828205173f1cb34b54b705533d81a5f94cb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca47ffb805fb372906198bd9e9577a017bb3d129dc135d191a7010bcf2ba2dab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "829fca0b5bbef5b278ec196a10fee75757b79727142621565322d87fec90c2da"
+    sha256 cellar: :any_skip_relocation, monterey:       "a8de953467cb1fa6390a709b0bde84ecc2c44de08d9e44a6284567ca427ab91a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8d594fb40dca261bd65b8b1f162a99aee31ecf79439a0133eeb32fdb8b9126af"
+    sha256 cellar: :any_skip_relocation, catalina:       "38884ca7bb30d65db9040b8fe3457be681d7a6a559453cb7b67e0a9c5b06c5e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09822053c996514fe53145f51ec0e63e28c7c983cadcf13f855e471d66ba7c80"
   end
 
   depends_on "go" => :build
