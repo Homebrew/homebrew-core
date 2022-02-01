@@ -1,9 +1,8 @@
 class Fastme < Formula
   desc "Accurate and fast distance-based phylogeny inference program"
   homepage "http://www.atgc-montpellier.fr/fastme/"
-  url "https://gite.lirmm.fr/atgc/FastME/raw/v2.1.6.1/tarball/fastme-2.1.6.1.tar.gz"
-  sha256 "ac05853bc246ccb3d88b8bc075709a82cfe096331b0f4682b639f37df2b30974"
-  revision 3
+  url "https://gite.lirmm.fr/atgc/FastME/raw/v2.1.6.3/tarball/fastme-2.1.6.3.tar.gz"
+  sha256 "09a23ea94e23c0821ab75f426b410ec701dac47da841943587443a25b2b85030"
 
   livecheck do
     url "https://gite.lirmm.fr/atgc/FastME.git"
