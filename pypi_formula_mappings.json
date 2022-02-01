@@ -53,6 +53,9 @@
     "extra_packages": ["flask==1.1.4"],
     "exclude_packages": ["six"]
   },
+  "bzt": {
+    "exclude_packages": ["numpy", "six"]
+  },
   "certbot": {
     "extra_packages": ["certbot-apache", "certbot-nginx"],
     "exclude_packages": ["six"]
