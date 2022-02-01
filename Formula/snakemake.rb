@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/fb/fb/fc32beab5b73967cca97205a58cac49074875e07a1a041d962c0c95273e2/snakemake-6.15.0.tar.gz"
-  sha256 "ae57bdddb579b1cbe643918fe511d29369b07ff1e4318b5e2b20c8c3706af4f2"
+  url "https://files.pythonhosted.org/packages/a7/11/1fcb957dd6cf61cb5dca23c598c098aa96615de5d1b7f8ef6d398f0ee163/snakemake-6.15.1.tar.gz"
+  sha256 "a219601d57037f565ead9963e6bd8d04d3bdd985d172371e54197dcbdba79865"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -36,8 +36,8 @@ class Snakemake < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/48/44/76b179e0d1afe6e6a91fd5661c284f60238987f3b42b676d141d01cd5b97/charset-normalizer-2.0.10.tar.gz"
-    sha256 "876d180e9d7432c5d1dfd4c5d26b72f099d503e8fcc0feb7532c9289be60fcbd"
+    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
+    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
   end
 
   resource "ConfigArgParse" do
