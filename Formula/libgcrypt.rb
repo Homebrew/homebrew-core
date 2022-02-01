@@ -1,10 +1,9 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://gnupg.org/related_software/libgcrypt/"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.9.4.tar.bz2"
-  sha256 "ea849c83a72454e3ed4267697e8ca03390aee972ab421e7df69dfe42b65caaf7"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.10.0.tar.bz2"
+  sha256 "6a00f5c05caa4c4acc120c46b63857da0d4ff61dc4b4b03933fa8d46013fae81"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/libgcrypt/"
@@ -22,25 +21,6 @@ class Libgcrypt < Formula
   end
 
   depends_on "libgpg-error"
-
-  # libgcrypt's libtool.m4 doesn't properly support macOS >= 11.x (see
-  # libtool.rb formula). This causes the library to be linked with a flat
-  # namespace which might cause issues when dynamically loading the library with
-  # dlopen under some modes, see:
-  #
-  #  https://lists.gnupg.org/pipermail/gcrypt-devel/2021-September/005176.html
-  #
-  # We patch `configure` directly so we don't need additional build dependencies
-  # (e.g. autoconf, automake, libtool)
-  #
-  # This patch has been applied upstream so it can be removed in the next
-  # release.
-  #
-  # https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgcrypt.git;a=commit;h=c9cebf3d1824d6ec90fd864a744bb81c97ac7d31
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
