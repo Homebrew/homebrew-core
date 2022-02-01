@@ -8,10 +8,11 @@ class Neo4jAT3 < Formula
   livecheck do
     url "https://neo4j.com/download-center/"
     regex(/href=.*?edition=community[^"' >]+release=v?(\d+(?:\.\d+)+)[&"' >]
-          |href=.*?release=v?(\d+(?:\.\d+)+)[^"' >]+edition=community/ix)
+    |href=.*?release=v?(\d+(?:\.\d+)+)[^"' >]+edition=community/ix)
   end
 
   keg_only :versioned_formula
+  deprecate! date: "2022-05-27", because: "Neo4j 3.5 EOL https://support.neo4j.com/hc/en-us/articles/4407792164755-Neo4j-3-5-EOL-End-of-Life-Extension"
 
   depends_on "openjdk@8"
 
