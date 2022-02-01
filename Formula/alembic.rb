@@ -4,6 +4,7 @@ class Alembic < Formula
   url "https://github.com/alembic/alembic/archive/1.8.3.tar.gz"
   sha256 "b0bc74833bff118a869e81e6acb810a58797e77ef63143954b2f8e817c7f65cb"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/alembic/alembic.git", branch: "master"
 
   bottle do
