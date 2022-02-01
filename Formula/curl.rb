@@ -32,7 +32,9 @@ class Curl < Formula
 
   keg_only :provided_by_macos
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "brotli"
   depends_on "libidn2"
   depends_on "libnghttp2"
@@ -45,7 +47,32 @@ class Curl < Formula
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
+  # Build with quiche:
+  #   https://github.com/curl/curl/blob/master/docs/HTTP3.md#quiche-version
+  resource "quiche" do
+    url "https://static.crates.io/crates/quiche/quiche-0.11.0.crate"
+    sha256  "e13d446fb8075d41871388a3d44ce8ea72b144e590443e0681f6944568f45085"
+  end
+
   def install
+    mkdir_p buildpath/"quiche"
+    system "tar", "-C", "quiche", "--strip-components", "1", "-xzvf", resource("quiche").cached_download
+
+    cd "quiche" do
+      # Build static libs only
+      inreplace "Cargo.toml", /^crate-type = .*/, "crate-type = [\"staticlib\"]"
+      # Fixup target directory
+      inreplace "src/build.rs", %r{../target/}, "target/"
+
+      system "cargo", "build",
+                      "--release",
+                      "--features=ffi,pkg-config-meta,qlog"
+
+      mkdir_p "deps/boringssl/src/lib"
+      cp Dir.glob("target/release/build/*/out/build/libcrypto.a"), "deps/boringssl/src/lib"
+      cp Dir.glob("target/release/build/*/out/build/libssl.a"), "deps/boringssl/src/lib"
+    end
+
     system "./buildconf" if build.head?
 
     args = %W[
@@ -53,9 +80,7 @@ class Curl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
-      --without-ca-bundle
-      --without-ca-path
+      --with-ssl=#{Pathname.pwd}/quiche/deps/boringssl/src
       --with-ca-fallback
       --with-secure-transport
       --with-default-ssl-backend=openssl
@@ -63,6 +88,8 @@ class Curl < Formula
       --with-librtmp
       --with-libssh2
       --without-libpsl
+      --with-quiche=#{Pathname.pwd}/quiche/target/release
+      --enable-alt-svc
     ]
 
     args << if OS.mac?
