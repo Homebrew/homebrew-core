@@ -3,10 +3,9 @@ class VowpalWabbit < Formula
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
   # pull from git tag to get submodules
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-      tag:      "8.11.0",
-      revision: "96ed8316de4391b77f4f29af69f885552a644769"
+      tag:      "9.0.1",
+      revision: "57e8ff252a8b790d14acdb7867ba25b55f3b6d26"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
   bottle do
@@ -46,6 +45,7 @@ class VowpalWabbit < Formula
     rm bin/"vw-validate.html"
     rm bin/"clang-format"
     rm_r bin/"flatbuffer"
+    rm_r bin/"dump_options"
   end
 
   test do
