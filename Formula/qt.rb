@@ -39,6 +39,7 @@ class Qt < Formula
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libb2"
+  depends_on "libmng"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "md4c"
