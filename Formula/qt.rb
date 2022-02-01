@@ -102,6 +102,13 @@ class Qt < Formula
     directory "qtquick3d"
   end
 
+  # Remove symlink check causing build to bail out and fail
+  patch do
+    url "https://raw.githubusercontent.com/owine/formula-patches/c51f27098004a007f012888ccff1f44090dfdd19/qt/qt_internal_check_if_path_has_symlinks.patch"
+    sha256 "1afd8bf3299949b2717265228ca953d8d9e4201ddb547f43ed84ac0d7da7a135"
+    directory "qtbase"
+  end
+
   def install
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/BUILD.gn",
