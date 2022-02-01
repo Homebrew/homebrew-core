@@ -216,7 +216,6 @@ env:
     dune
     dust
     dvc
-    dwarfutils
     easyengine
     efm-langserver
     ehco
