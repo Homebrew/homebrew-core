@@ -37,6 +37,15 @@ class Colima < Formula
     (fish_completion/"colima.fish").write Utils.safe_popen_read(bin/"colima", "completion", "fish")
   end
 
+  service do
+    run [opt_bin/"colima", "start"]
+    keep_alive true
+    environment_variables HOME: ENV["HOME"], PATH: std_service_path_env
+    error_log_path var/"log/colima.log"
+    log_path var/"log/colima.log"
+    working_dir ENV["HOME"]
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/colima version 2>&1")
     assert_match "colima is not running", shell_output("#{bin}/colima status 2>&1", 1)
