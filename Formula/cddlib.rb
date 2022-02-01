@@ -14,9 +14,15 @@ class Cddlib < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cbfdb16a069a1c098e379da5b3f12c461f639f09f36addc65e5f07f27e1f1e9"
   end
 
+  # Regenerate `configure` to avoid `-flat_namespace` bug.
+  # None of our usual patches apply.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gmp"
 
   def install
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
