@@ -11,7 +11,6 @@ class Neo4jAT3 < Formula
           |href=.*?release=v?(\d+(?:\.\d+)+)[^"' >]+edition=community/ix)
   end
 
-  bottle :unneeded
   keg_only :versioned_formula
 
   depends_on "openjdk@8"
