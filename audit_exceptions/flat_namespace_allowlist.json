@@ -16,5 +16,6 @@
   "scalapack",
   "soapysdr",
   "tcl-tk",
+  "xmlrpc-c",
   "xvid"
 ]
