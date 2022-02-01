@@ -4,7 +4,6 @@ class TektoncdCli < Formula
   url "https://github.com/tektoncd/cli/archive/v0.22.0.tar.gz"
   sha256 "6aea6f79f97f17e707a13ea16c75b2693ad2e942991285452e11be240d3411f3"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
