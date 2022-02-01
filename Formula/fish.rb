@@ -54,18 +54,8 @@ class Fish < Formula
 
   def caveats
     <<~EOS
-      #{Tty.bold}fish#{Tty.reset} has been installed to #{Tty.underline}#{HOMEBREW_PREFIX}/bin/fish#{Tty.reset}
-
-      To set fish as your default login shell:
-
-      #{Tty.bold}chsh -s #{HOMEBREW_PREFIX}/bin/fish#{Tty.reset}
-
-      If you get a "non-standard shell" error:
-
-      All shells must be listed in /etc/shells to permit use as a login shell.
-      So append the install list of paths as sudo:
-
-      #{Tty.bold}echo #{HOMEBREW_PREFIX}/bin/fish | sudo tee -a /etc/shells#{Tty.reset}
+      fish has been installed to:
+        #{opt_bin}/bin/fish
     EOS
   end
 
