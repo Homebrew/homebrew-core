@@ -3,8 +3,8 @@ class NodeSass < Formula
 
   desc "JavaScript implementation of a Sass compiler"
   homepage "https://github.com/sass/dart-sass"
-  url "https://registry.npmjs.org/sass/-/sass-1.49.4.tgz"
-  sha256 "36bb83b40a6efe537e0dffac665066609a44d0dc817a0d719139e914b6792d65"
+  url "https://registry.npmjs.org/sass/-/sass-1.49.7.tgz"
+  sha256 "4f41378bb578d02829a1a53b8056b2dc759e9dbd2caa9bf64583062a7af95210"
   license "MIT"
 
   bottle do
