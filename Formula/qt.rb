@@ -120,7 +120,6 @@ class Qt < Formula
     inreplace "qtwebengine/src/3rdparty/gn/src/base/files/file_util_posix.cc",
               "FilePath(full_path)", "FilePath(input)"
     %w[
-      qtbase/CMakeLists.txt
       qtwebengine/cmake/Gn.cmake
       qtwebengine/cmake/Functions.cmake
       qtwebengine/src/core/api/CMakeLists.txt
