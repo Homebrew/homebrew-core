@@ -486,6 +486,9 @@
   "virtualenv": {
     "exclude_packages": ["six"]
   },
+  "volatility": {
+    "extra_packages": ["capstone", "pycryptodome", "yara-python"]
+  },
   "woob": {
     "exclude_packages": ["pillow", "six"],
     "extra_packages": ["colorama"]
