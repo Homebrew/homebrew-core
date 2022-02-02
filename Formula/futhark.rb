@@ -32,7 +32,7 @@ class Futhark < Formula
 
   test do
     (testpath/"test.fut").write <<~EOS
-      let main (n: i32) = reduce (*) 1 (1...n)
+      def main (n: i32) = reduce (*) 1 (1...n)
     EOS
     system "#{bin}/futhark", "c", "test.fut"
     assert_equal "3628800i32", pipe_output("./test", "10", 0).chomp
