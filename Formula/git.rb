@@ -25,7 +25,7 @@ class Git < Formula
 
   uses_from_macos "curl", since: :catalina # macOS < 10.15.6 has broken cert path logic
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+  uses_from_macos "zlib", since: :high_sierra
 
   on_linux do
     depends_on "linux-headers@4.4"
