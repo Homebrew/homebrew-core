@@ -40,7 +40,7 @@ class Gupnp < Formula
       system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
-      bin.find { |f| rewrite_shebang detected_python_shebang, f }
+      rewrite_shebang detected_python_shebang, *bin.children
     end
   end
 
