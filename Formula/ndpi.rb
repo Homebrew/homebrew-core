@@ -7,12 +7,11 @@ class Ndpi < Formula
   head "https://github.com/ntop/nDPI.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "a64affa1ea8a62120fbd60ce78cb9ed2d057963183e7ac50a734ae966480a416"
-    sha256 cellar: :any, arm64_big_sur:  "715cd2c118ed42c2200c324ca4c929f86c37466fb08ff4b6b958ba1f7fe11658"
-    sha256 cellar: :any, monterey:       "f37761fc6e35ce2b2104af482f3034bbe26945b2d314aa8ecef95cdcd7f7b939"
-    sha256 cellar: :any, big_sur:        "eb9f83ab515f4d710dc245aac5cedb809dd5a5fd6192b4d075bdfbfb28d81c70"
-    sha256 cellar: :any, catalina:       "8366ae839e98cf9aa0b6358ce0f110ffc4138fb9dcc4ba97bf9cf1c5872a61ff"
-    sha256 cellar: :any, mojave:         "438bc0a2c96515c8a6318b38d9c7b52dcf49111fc8721e7ae59f0e65249729fa"
+    sha256 cellar: :any, arm64_monterey: "67f203560cd7389e2eeefcaf4333d1c2c177184c363fd049d38c954e28f54151"
+    sha256 cellar: :any, arm64_big_sur:  "65f77fdd73e981b20f3bb393533d2b721cce0842cf1ce3874a651d95eeca571f"
+    sha256 cellar: :any, monterey:       "0a194f0a5086f827e76947b695dd06908ecc0d08b4066e1cfc2d291592b7c76c"
+    sha256 cellar: :any, big_sur:        "6d492a1b34e348a6d39711c406b7c582b17bcdfe3c056a58fafe63904b1543de"
+    sha256 cellar: :any, catalina:       "ab97d26b5b5b8beeed6a8d9157c21d8d29a0d36776c1ba73017cbc37e3286ec2"
   end
 
   depends_on "autoconf" => :build
