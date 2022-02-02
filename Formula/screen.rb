@@ -61,6 +61,6 @@ class Screen < Formula
   end
 
   test do
-    shell_output("#{bin}/screen -h", 1)
+    system bin/"screen", "-h"
   end
 end
