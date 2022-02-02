@@ -2,8 +2,8 @@ class Osm < Formula
   desc "Open Service Mesh (OSM)"
   homepage "https://openservicemesh.io/"
   url "https://github.com/openservicemesh/osm.git",
-      tag:      "v0.11.1",
-      revision: "c01aefae509d59735d7908a32a359327ff3f2322"
+      tag:      "v1.0.0",
+      revision: "26886c4f16ae5cc92ddfe4c62c87cd82f1cd965c"
   license "Apache-2.0"
   head "https://github.com/openservicemesh/osm.git", branch: "main"
 
@@ -33,6 +33,6 @@ class Osm < Formula
 
   test do
     assert_match "Error: Could not list namespaces related to osm", shell_output("#{bin}/osm namespace list 2>&1", 1)
-    assert_match "Version: v#{version};", shell_output("#{bin}/osm version 2>&1")
+    assert_match "Version:\"v#{version}\"", shell_output("#{bin}/osm version 2>&1", 1)
   end
 end
