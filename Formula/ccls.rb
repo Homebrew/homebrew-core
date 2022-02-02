@@ -4,7 +4,7 @@ class Ccls < Formula
   url "https://github.com/MaskRay/ccls/archive/0.20210330.tar.gz"
   sha256 "28c228f49dfc0f23cb5d581b7de35792648f32c39f4ca35f68ff8c9cb5ce56c2"
   license "Apache-2.0"
-  revision 3
+  revision 4
   head "https://github.com/MaskRay/ccls.git", branch: "master"
 
   bottle do
