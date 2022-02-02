@@ -190,10 +190,11 @@ jobs:
           - runner: ${{needs.setup_tests.outputs.linux-runner}}
             container: ${{fromJson(needs.setup_tests.outputs.container)}}
             workdir: /github/home
+            timeout: 4320
       fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
     runs-on: ${{matrix.runner}}
     container: ${{matrix.container}}
-    timeout-minutes: ${{ (runner.os == 'Linux' && 4320) || fromJson(needs.setup_tests.outputs.timeout-minutes) }}
+    timeout-minutes: ${{ matrix.timeout || fromJson(needs.setup_tests.outputs.timeout-minutes) }}
     defaults:
       run:
         shell: /bin/bash -e {0}
