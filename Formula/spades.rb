@@ -42,7 +42,7 @@ class Spades < Formula
       system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
-    bin.find { |f| rewrite_shebang detected_python_shebang, f }
+    rewrite_shebang detected_python_shebang, *bin.children
   end
 
   test do
