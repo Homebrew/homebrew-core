@@ -45,7 +45,7 @@ class Simgrid < Formula
                     *std_cmake_args
     system "make", "install"
 
-    bin.find { |f| rewrite_shebang detected_python_shebang, f }
+    rewrite_shebang detected_python_shebang, *bin.children
   end
 
   test do
