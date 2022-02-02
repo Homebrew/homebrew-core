@@ -1,8 +1,8 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
   homepage "https://www.geeqie.org/"
-  url "https://github.com/BestImageViewer/geeqie/releases/download/v1.6/geeqie-1.6.tar.xz"
-  sha256 "48f8a4474454d182353100e43878754b76227f3b8f30cfc258afc9d90a4e1920"
+  url "https://github.com/BestImageViewer/geeqie/releases/download/v1.7.2/geeqie-1.7.2.tar.xz"
+  sha256 "186c10fae05dd81783f5218432e777cae2e9579ce884e65afa0884c357192269"
   license "GPL-2.0-or-later"
 
   livecheck do
