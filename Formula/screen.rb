@@ -2,6 +2,7 @@ class Screen < Formula
   desc "Terminal multiplexer with VT100/ANSI terminal emulation"
   homepage "https://www.gnu.org/software/screen"
   license "GPL-3.0-or-later"
+  head "https://git.savannah.gnu.org/git/screen.git", branch: "master"
 
   stable do
     url "https://ftp.gnu.org/gnu/screen/screen-4.9.0.tar.gz"
@@ -27,25 +28,12 @@ class Screen < Formula
     sha256 x86_64_linux:   "a9c0638b44b8fc6852effac19a000d7f75f5901631e5336891e805b969e34145"
   end
 
-  head do
-    url "https://git.savannah.gnu.org/git/screen.git"
-
-    depends_on "autoconf@2.69" => :build
-    depends_on "automake" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   uses_from_macos "ncurses"
 
   def install
-    if build.head?
-      cd "src"
-      system "./autogen.sh"
-    end
-
-    # With parallel build, it fails
-    # because of trying to compile files which depend osdef.h
-    # before osdef.sh script generates it.
-    ENV.deparallelize
+    cd "src" if build.head?
 
     # Fix error: dereferencing pointer to incomplete type 'struct utmp'
     ENV.append_to_cflags "-include utmp.h"
@@ -65,6 +53,7 @@ class Screen < Formula
     ]
     args << "--enable-colors256" unless build.head?
 
+    system "./autogen.sh"
     system "./configure", *args
 
     system "make"
