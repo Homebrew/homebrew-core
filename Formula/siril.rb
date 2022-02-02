@@ -4,7 +4,7 @@ class Siril < Formula
   url "https://free-astro.org/download/siril-0.99.10.1.tar.bz2"
   sha256 "a0b3debc1efb313a84958fb1819b3a5d0a1395b096db54cce7e3e34a463a5c79"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   bottle do
@@ -37,6 +37,8 @@ class Siril < Formula
   depends_on "netpbm"
   depends_on "opencv"
   depends_on "openjpeg"
+
+  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
     # siril uses pkg-config but it has wrong include paths for several
