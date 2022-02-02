@@ -3,8 +3,8 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/28/cd/c3671b9dccf3066eab95e934f71c9bf808d06800be486d2f96ccc1d7af71/FORD-6.1.7.tar.gz"
-  sha256 "4436f6def39a09dbe10e44aa6866c3a0142beeff93b73bafcfbde486ea29ed63"
+  url "https://files.pythonhosted.org/packages/48/b9/bc941c3a50a8c1d876a74587c60b4ff2767e755bae9a65a13036ec000edf/FORD-6.1.8.tar.gz"
+  sha256 "64535c50f57a0630b642e125f046e74f3603d6d7d2813aed8b5ee46fbbe4f33c"
   license "GPL-3.0-or-later"
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
@@ -91,7 +91,7 @@ class Ford < Formula
   def install
     virtualenv_install_with_resources
     doc.install "2008standard.pdf", "2003standard.pdf"
-    pkgshare.install "example-project-file.md"
+    pkgshare.install "example/example-project-file.md"
   end
 
   test do
