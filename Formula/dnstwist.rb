@@ -3,8 +3,8 @@ class Dnstwist < Formula
 
   desc "Test domains for typo squatting, phishing and corporate espionage"
   homepage "https://github.com/elceef/dnstwist"
-  url "https://files.pythonhosted.org/packages/9e/af/673d81e5043b4f7350df64fcebfca3ac42de2c16c4f5caca0fab2f21ddc4/dnstwist-20220120.tar.gz"
-  sha256 "05bd341bc4cc138cb7ec92ea217c82166371496b34dba96cc4439b0301d76fff"
+  url "https://files.pythonhosted.org/packages/74/8e/4924079d630a5035e06bafcedad13bcd90cd0062205b43646726b5199bb4/dnstwist-20220131.tar.gz"
+  sha256 "8c65c64651ee2fc8cccbfb0dfb30674cb326fd00855df1e9e79b46bd3d59674b"
   license "Apache-2.0"
 
   bottle do
@@ -21,16 +21,6 @@ class Dnstwist < Formula
   depends_on "ssdeep"
 
   uses_from_macos "libffi"
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
-  end
-
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
-    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
-  end
 
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/84/f4/84eca79c279640671b8b7086ef1b97268c2b7ba17f7cfe0a19b466a6f95c/dnspython-2.2.0.tar.gz"
@@ -52,19 +42,9 @@ class Dnstwist < Formula
     sha256 "acc74bb902e6d21b03d39aed740597093c6562185bfe06da9b5272e01c80a1ff"
   end
 
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
-  end
-
   resource "tld" do
     url "https://files.pythonhosted.org/packages/c1/39/68d5ecb596e02d235fc3b0914b1bf0840d8fbc155fa6ff194eee718469d9/tld-0.12.6.tar.gz"
     sha256 "69fed19d26bb3f715366fb4af66fdeace896c55c052b00e8aaba3a7b63f3e7f0"
-  end
-
-  resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
   end
 
   resource "whois" do
