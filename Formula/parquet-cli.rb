@@ -5,6 +5,7 @@ class ParquetCli < Formula
       tag:      "apache-parquet-1.12.0",
       revision: "db75a6815f2ba1d1ee89d1a90aeb296f1f3a8f20"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
@@ -18,6 +19,11 @@ class ParquetCli < Formula
   end
 
   depends_on "maven" => :build
+
+  # parquet-cli has problems running on Linux, for more information:
+  # https://github.com/Homebrew/homebrew-core/pull/94318#issuecomment-1049229342
+  depends_on :macos
+
   depends_on "openjdk"
 
   # This file generated with `red-parquet` gem:
@@ -29,10 +35,13 @@ class ParquetCli < Formula
 
   # Patches snappy to 1.1.8.3 for MacOS arm64 support, won't be needed in >= 1.13.0
   # See https://issues.apache.org/jira/browse/PARQUET-2025
-  patch do
-    url "https://github.com/apache/parquet-mr/commit/095c78fec3378189296d38fede1255b0a4d05fd4.patch?full_index=1"
-    sha256 "9a5b54275c2426a56e246bdf4b7a799d5af8efe85c2dcdc3c32e23da3101f9d7"
-  end
+  #
+  # We're using locally patch data because parquet-cli/pom.xml is linked to parquet-hadoop project
+  # remotely, which depends on a bad version of snappy-java, so we need to add a direct dependency
+  # from parquet-cli/pom.xml to snappy-java 1.1.8.3, which overrides the dependency version given
+  # from parquet-hadoop.
+  #
+  patch :DATA
 
   def install
     cd "parquet-cli" do
@@ -55,3 +64,21 @@ class ParquetCli < Formula
     assert_match "{\"values\": \"Homebrew\"}", output
   end
 end
+
+__END__
+diff --git a/parquet-cli/pom.xml b/parquet-cli/pom.xml
+index 379e81b4e..96ea4d161 100644
+--- a/parquet-cli/pom.xml
++++ b/parquet-cli/pom.xml
+@@ -96,6 +96,11 @@
+       <version>${hadoop.version}</version>
+       <scope>provided</scope>
+     </dependency>
++    <dependency>
++     <groupId>org.xerial.snappy</groupId>
++     <artifactId>snappy-java</artifactId>
++     <version>1.1.8.3</version>
++    </dependency>
+   </dependencies>
+ 
+   <build>
