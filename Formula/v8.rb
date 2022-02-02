@@ -4,8 +4,8 @@ class V8 < Formula
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
   # revert back to GitHub mirror tar.gz archives once it's synced again
   url "https://chromium.googlesource.com/v8/v8.git",
-      tag:      "9.7.106.19",
-      revision: "41de66111ed4ab6aec3d798a2ded2c1b730dcb71"
+      tag:      "9.8.177.9",
+      revision: "db77a493a5595b835655b243202ac0c2fb1898a6"
   license "BSD-3-Clause"
 
   livecheck do
@@ -39,13 +39,13 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.7.106.19/DEPS#43
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.8.177.9/DEPS#43
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "8926696a4186279489cc2b8d768533e61bba73d7"
+        revision: "fc295f3ac7ca4fe7acc6cb5fb052d22909ef3a8f"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.7.106.19/DEPS#84
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.8.177.9/DEPS#84
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
         revision: "7f36dbc19d31e2aad895c60261ca8f726442bfbb"
@@ -53,17 +53,17 @@ class V8 < Formula
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "cf325916d58a194a935c26a56fcf6b525d1e2bf4"
+        revision: "9cfc74504f0c5093fe6799e70f15bded2423b5b4"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "16f637fbf4ffc3f7a01fa4eceb7906634565242f"
+        revision: "4c5650f68866e3c2e60361d5c4c95c6f335fb64b"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "eedbaf76e49d28465d9119b10c30b82906e606ff"
+        revision: "edf883ad2db9c723b058a6a17a146d68d6343143"
   end
 
   resource "v8/third_party/jinja2" do
@@ -78,7 +78,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "6da1d53b97c89b07e47714d88cab61f1ce003c68"
+        revision: "efd9399ae01364926be2a38946127fdf463480db"
   end
 
   def install
@@ -115,6 +115,7 @@ class V8 < Formula
       clang_use_chrome_plugins:     false, # disable the usage of Google's custom clang plugins
       use_custom_libcxx:            false, # uses system libc++ instead of Google's custom one
       treat_warnings_as_errors:     false, # ignore not yet supported clang argument warnings
+      use_lld:                      false, # upstream use LLD but this leads to build failure on ARM
     }
 
     if OS.linux?
