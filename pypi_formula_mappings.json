@@ -131,6 +131,9 @@
   "dxpy": {
     "exclude_packages": ["six"]
   },
+  "esphome": {
+    "exclude_packages": ["protobuf", "six", "tabulate"]
+  },
   "esptool": {
     "exclude_packages": ["six"]
   },
