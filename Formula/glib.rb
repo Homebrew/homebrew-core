@@ -52,7 +52,7 @@ class Glib < Formula
       system "meson", *args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
-      bin.find { |f| rewrite_shebang detected_python_shebang, f }
+      rewrite_shebang detected_python_shebang, *bin.children
     end
 
     # ensure giomoduledir contains prefix, as this pkgconfig variable will be
