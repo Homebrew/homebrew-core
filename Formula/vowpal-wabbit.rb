@@ -1,10 +1,7 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
-  # pull from git tag to get submodules
-  url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-      tag:      "9.0.1",
-      revision: "57e8ff252a8b790d14acdb7867ba25b55f3b6d26"
+  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.0.1.tar.gz",
   license "BSD-3-Clause"
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
