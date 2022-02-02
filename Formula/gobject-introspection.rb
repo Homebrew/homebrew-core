@@ -104,7 +104,7 @@ class GobjectIntrospection < Formula
         ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
-      bin.find { |f| rewrite_shebang detected_python_shebang, f }
+      rewrite_shebang detected_python_shebang, *bin.children
     end
   end
 
