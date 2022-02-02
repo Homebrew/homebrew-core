@@ -1,11 +1,10 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/llvm-project-13.0.0.src.tar.xz"
-  sha256 "6075ad30f1ac0e15f07c1bf062c1e1268c241d674f11bd32cdf0e040c71f2bf3"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.1/llvm-project-13.0.1.src.tar.xz"
+  sha256 "326335a830f2e32d06d0a36393b5455d17dc73e0bd1211065227ee014f92cbf8"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 2
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -129,18 +128,19 @@ class Llvm < Formula
 
     # gcc-5 fails at building compiler-rt. Enable PGO
     # build on Linux when we switch to Ubuntu 18.04.
-    pgo_build = false
-    if OS.mac?
+    pgo_build = if OS.mac?
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
 
-      # Skip the PGO build on HEAD installs or non-bottle source builds
-      pgo_build = build.stable? && build.bottle?
-    end
+      # Apple does this for the components of LLVM they ship
+      args << "-DLLVM_INSTALL_BINUTILS_SYMLINKS=ON"
+      args << "-DLLVM_INSTALL_CCTOOLS_SYMLINKS=ON"
 
-    if OS.linux?
+      # Skip the PGO build on HEAD installs or non-bottle source builds
+      build.stable? && build.bottle?
+    else
       ENV.append "CXXFLAGS", "-fpermissive -Wno-free-nonheap-object"
       ENV.append "CFLAGS", "-fpermissive -Wno-free-nonheap-object"
 
@@ -172,6 +172,8 @@ class Llvm < Formula
 
       # Prevent compiler-rt from building i386 targets, as this is not portable.
       args << "-DBUILTINS_CMAKE_ARGS=-DCOMPILER_RT_DEFAULT_TARGET_ONLY=ON"
+
+      false
     end
 
     llvmpath = buildpath/"llvm"
