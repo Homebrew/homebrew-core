@@ -1,18 +1,18 @@
 class Cava < Formula
   desc "Console-based Audio Visualizer for ALSA"
   homepage "https://github.com/karlstav/cava"
-  url "https://github.com/karlstav/cava/archive/0.7.4.tar.gz"
-  sha256 "fefd3cc04d41b03ca416630cafadbfda6c75e2ca0869da1f03963dcb13e1ecb7"
+  url "https://github.com/karlstav/cava/archive/0.7.5.tar.gz"
+  sha256 "863578e7d091735fd9c673239058515300faa79ff76304849a93c37ae3bd93cf"
   license "MIT"
   head "https://github.com/karlstav/cava.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "a9bcaeba0b6e4a72d01e93909b89f5492c629447e059e19bc076315185e7be10"
-    sha256 cellar: :any, arm64_big_sur:  "eba8aee3d32a5903073a503200b4e4a28d3ea531263085e16ff4591a7b93454e"
-    sha256 cellar: :any, monterey:       "0ea0d7a31c270df64bc423de9623e8e3a32bea2f09ac4e700dc3c204b0b5ed7f"
-    sha256 cellar: :any, big_sur:        "8cfbe0a65351827ec14c810390951c577f48ab9cc21a05b84929d9dc9d4056d6"
-    sha256 cellar: :any, catalina:       "83320de97b0893a387b0e44778e55698ae5e2a6a167947de5b8d7cc6c21765e4"
-    sha256               x86_64_linux:   "9a61fb2396cad4d2a4132bb2027f9aee52d1daff2949187a6ece75c86452e058"
+    sha256 cellar: :any, arm64_monterey: "b9a0428949158a1c41d65288431f680c7852fff122a8e989877489a7758ee85b"
+    sha256 cellar: :any, arm64_big_sur:  "90037b3a25613aba832f187a1c744eee7c88cc778cb152d2294cc3dbb4ae292d"
+    sha256 cellar: :any, monterey:       "72a65af7592fc0a51c90f9c8bbb49a0434d7a7f45ec0ffb5b09b9751850085d5"
+    sha256 cellar: :any, big_sur:        "93fd5c02f56cce078610dcac879905fa85a86a245e2329d287215fca3bf33f20"
+    sha256 cellar: :any, catalina:       "0724c4e35cff72b75142831b06c191d95c3e134c5c8de3faee1ecda419b6c894"
+    sha256               x86_64_linux:   "4f8e76b8b7203526f9ed11858483059703f3d991121c03216cb39040c94da2f3"
   end
 
   depends_on "autoconf" => :build
@@ -29,10 +29,6 @@ class Cava < Formula
     inreplace "configure.ac", "ncursesw", "ncurses"
     # force autogen.sh to look for and use our glibtoolize
     inreplace "autogen.sh", "libtoolize", "glibtoolize"
-
-    # to be remove with versions greater 0.7.4:
-    # correct Makefile.am with hardcoded libpath
-    inreplace "Makefile.am", "/usr/local", HOMEBREW_PREFIX unless build.head?
 
     system "./autogen.sh"
     system "./configure", *std_configure_args, "--disable-silent-rules"

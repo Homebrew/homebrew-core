@@ -1,8 +1,8 @@
 class VespaCli < Formula
   desc "Command-line tool for Vespa.ai"
   homepage "https://vespa.ai"
-  url "https://github.com/vespa-engine/vespa/archive/v7.528.38.tar.gz"
-  sha256 "f74a389711c4203e64a2cd6849c4a36bccd75f625021428d14a6af9364f6b729"
+  url "https://github.com/vespa-engine/vespa/archive/v7.534.29.tar.gz"
+  sha256 "40903560256fa239c1bde4e3334f6044c6a0d01bd7c0bcdf17b4ca41337278b7"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,12 @@ class VespaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "049304abd643d826e21ca2393e4411e89245bc3b1eb0b497ed30445bf50f1012"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd10c4d6aa73bc7340469afa9a0bc9798495bcf925432d3c5486bacc7b71cb80"
-    sha256 cellar: :any_skip_relocation, monterey:       "51bd23d9608e8d44674b0f5839397c396b9e812d1e80c1fbbf8649960da5b5da"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b25437e12a459f2b7738e4c0882b05f7286a3fff1e28df090c3b0934c652dc8d"
-    sha256 cellar: :any_skip_relocation, catalina:       "c529d34128e75d97c09b4181b0cca81cc9f3d4442b641b3faabb1e7e0c69004f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "619233435cd9b2922aa42b255ec6f7a8bc349006421820ddf8e238cc63fded49"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "122da09cdb6303cbec73685a46ddf35ae0b8dc6e74bffcea0f0ff93b2938de3f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f5d5a8863a0563ec7d0c8aa0dd0cd7b49828eefa04a06fb765829775c0e7629e"
+    sha256 cellar: :any_skip_relocation, monterey:       "dfc009c0d3dc0016339ec398433afb4a1eca7e92992395eee9c9421036c4ad6c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9124b8aeecbe8d7485ec3a029070fdd454edc74d60fb04728c316d5a7d53db71"
+    sha256 cellar: :any_skip_relocation, catalina:       "83616f16c9bbac0c6abe3ace4f3194f56dd9d188fe54572f8d986e43ba7085c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ea8c709f601c60f1d535c04fa5e990905c9bbfc79eef9bdc0284badadc637b1"
   end
 
   depends_on "go" => :build

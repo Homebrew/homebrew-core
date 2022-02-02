@@ -1,18 +1,18 @@
 class BoshCli < Formula
   desc "Cloud Foundry BOSH CLI v2"
   homepage "https://bosh.io/docs/cli-v2/"
-  url "https://github.com/cloudfoundry/bosh-cli/archive/v6.4.12.tar.gz"
-  sha256 "6b39556672e4d23cb55ebfccb490992f6eb564eb7f503e523f1d8ed27bf4c89a"
+  url "https://github.com/cloudfoundry/bosh-cli/archive/v6.4.13.tar.gz"
+  sha256 "f5c61ab0d863668804e06491ea8c0b6de41d58d30a1b0c63c2e519f5bfaebc9a"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/bosh-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da6ce27b977874bab402fdf99ecc94780c764d0c4b0ff0d2065439bf019d96c9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24636af98ae15fd41f715b0057588209eeceb6ed9583c40c1b0031d51255cde9"
-    sha256 cellar: :any_skip_relocation, monterey:       "451b75a923a8c7e151da8ea7a1dfcd5dc8b0972f87013c8c3e2035f452fcc079"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5420daeb3be449e4ddb4471c8d7595d52c76d17f55ceca850225dc419692a7b3"
-    sha256 cellar: :any_skip_relocation, catalina:       "0772247314f71a58dbbee017b662a508c97bcd446c830c0ebc6afaad84a936ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98e00e9330276b040fa3e138503d5ef25cf1874d362973ec5f0bfbd7102b68ea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6c2a7dd2a57f97cea7c064e28053364c5934cca9dad089e74d89895a9e7b7be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dedbb97a1e78ae66a3a76c1de5a03babbb283753782b9ad08af0a908804ca6a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "bcc7eacecfb85717d4876e9c58a2fc103a91369964b5e85a7b85995eec01e6ae"
+    sha256 cellar: :any_skip_relocation, big_sur:        "71f45f1968514d0cd51f0f103dafb7eb6a27d9e41b11a4cfb5a39760077c1d37"
+    sha256 cellar: :any_skip_relocation, catalina:       "ae86733716d0af7893426e2d7e4871eb65981fb18c5f01a9827ee2ec16ecab8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa4bd505928feca1984ca4ffc6d9370af50e33d42505f2a33728eb9598c0436a"
   end
 
   depends_on "go" => :build

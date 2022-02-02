@@ -1,18 +1,18 @@
 class Tm < Formula
   desc "TriggerMesh CLI to work with knative objects"
   homepage "https://triggermesh.com"
-  url "https://github.com/triggermesh/tm/archive/v1.13.0.tar.gz"
-  sha256 "f05aff83e3ba52bfc3a8d54e934e0578cefae987391937e843fc4a78e41203eb"
+  url "https://github.com/triggermesh/tm/archive/v1.14.0.tar.gz"
+  sha256 "56b4133b096265f459bc44ab68b4f085a31fd1cbf075230a9de3b886b760406f"
   license "Apache-2.0"
   head "https://github.com/triggermesh/tm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "53c6992c549c1806cff5bd706ffe18bfe89c2b97b2a446e29b531d329dca1a0d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "583416efe2ce6179dc7ef2adc5a3605862efeeb71de8eb142164c933489d6bcc"
-    sha256 cellar: :any_skip_relocation, monterey:       "3f87470ac28b45dd12056ae83cb0e80ee08b4af21384c7ba411b64a86c32273e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "34349e144e14b8151acf31b52c615e17f312502a0646d722858a3b1b851329f0"
-    sha256 cellar: :any_skip_relocation, catalina:       "d644a1c8bfba10098675d0967cf43bb5dba5d0607cfe5621f2f61356f0ea1c50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e0320a4713bc4adf6cde486dbec454439f11d7b0047aa85f2ed61e86f6f3e27"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7dc35727f294bae8409754cff0e3462fed565c8c19aef526e957cb6509562234"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f5d4e164201f3dae27391b9de766b23a0b8b54cb344784f91c44a5644f85132"
+    sha256 cellar: :any_skip_relocation, monterey:       "8bf5790627f1e388982506bbd47f7e520a118c74db38c8cc63f61f64545ce2b6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d51c43427e855c225399912b28537860b32938db4db0ad94a5da1ca881557c20"
+    sha256 cellar: :any_skip_relocation, catalina:       "dbd1d463c42c8763d354d1fc3fc1ec7106c4775ba06c7690a8b4572a0334f680"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b269e910e51cf88348d99b13ca3d9d6e21efa5239c6dc17ff9388e814e6fb13"
   end
 
   depends_on "go" => :build

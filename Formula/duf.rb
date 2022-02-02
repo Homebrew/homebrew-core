@@ -1,18 +1,18 @@
 class Duf < Formula
   desc "Disk Usage/Free Utility - a better 'df' alternative"
   homepage "https://github.com/muesli/duf"
-  url "https://github.com/muesli/duf/archive/v0.7.0.tar.gz"
-  sha256 "6f70fd0f0d51bfcfe20b8acc8c3a52573fc1ceed44ce97dbbb9d470bbe4467dc"
+  url "https://github.com/muesli/duf/archive/v0.8.0.tar.gz"
+  sha256 "6b483e68ec783821d07f03cb85629832b8c6f302a7d1bca25af142f891381e8b"
   license "MIT"
   head "https://github.com/muesli/duf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f26aad46efec8b7eb2f7f4bb171df069a59cb97c2c8f5544a6387ab1455a30c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f26aad46efec8b7eb2f7f4bb171df069a59cb97c2c8f5544a6387ab1455a30c"
-    sha256 cellar: :any_skip_relocation, monterey:       "91f5b21829679cd1ee9ae3455feed392bef5519d53afbc562271f625bad059d0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "91f5b21829679cd1ee9ae3455feed392bef5519d53afbc562271f625bad059d0"
-    sha256 cellar: :any_skip_relocation, catalina:       "91f5b21829679cd1ee9ae3455feed392bef5519d53afbc562271f625bad059d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0083b8706d77389a3fc916001ec864bdffb972c9fe4d71c4320a2e8088227f79"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c704ba3b5361d571ec3dc2c40cec90d5db83253e51271464d486da9145ff5f2d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c704ba3b5361d571ec3dc2c40cec90d5db83253e51271464d486da9145ff5f2d"
+    sha256 cellar: :any_skip_relocation, monterey:       "eab2485bf3467c0be77983348430656856faad10d6b8b2947162bd6448c15536"
+    sha256 cellar: :any_skip_relocation, big_sur:        "eab2485bf3467c0be77983348430656856faad10d6b8b2947162bd6448c15536"
+    sha256 cellar: :any_skip_relocation, catalina:       "eab2485bf3467c0be77983348430656856faad10d6b8b2947162bd6448c15536"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c51a0704f4f7c4bf6690e58c7fe841ce4af109def8d242146c938df82352af4f"
   end
 
   depends_on "go" => :build

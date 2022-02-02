@@ -7,16 +7,24 @@ class Cddlib < Formula
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a6cc39c5866ef92484b20b3e4fa71916e4fe02f91314f5a90e64a8ac6d477f5e"
-    sha256 cellar: :any,                 big_sur:       "2d9ded9039be48632f55065ccc0cac90ee53bb41e9a900bd955997ae113eabd8"
-    sha256 cellar: :any,                 catalina:      "3e3369de96b6c33641ec2c5a3e490afb72ad94b6fb913385f574089ec4b2b0be"
-    sha256 cellar: :any,                 mojave:        "362934e5d50dc994ce268a690706d6950f17e1b191f315617adc0eeacc0b51b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cbfdb16a069a1c098e379da5b3f12c461f639f09f36addc65e5f07f27e1f1e9"
+    sha256 cellar: :any,                 arm64_monterey: "dc6b3a52efe03676d1d97d2c70b3bb7d7f09bff623f13f259c2afb2f0d247704"
+    sha256 cellar: :any,                 arm64_big_sur:  "a6cc39c5866ef92484b20b3e4fa71916e4fe02f91314f5a90e64a8ac6d477f5e"
+    sha256 cellar: :any,                 monterey:       "06ea555e6166ee528da1ebb86ba65dabf584d472ee7ebcdb5abb59f5dfe2381a"
+    sha256 cellar: :any,                 big_sur:        "2d9ded9039be48632f55065ccc0cac90ee53bb41e9a900bd955997ae113eabd8"
+    sha256 cellar: :any,                 catalina:       "3e3369de96b6c33641ec2c5a3e490afb72ad94b6fb913385f574089ec4b2b0be"
+    sha256 cellar: :any,                 mojave:         "362934e5d50dc994ce268a690706d6950f17e1b191f315617adc0eeacc0b51b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cbfdb16a069a1c098e379da5b3f12c461f639f09f36addc65e5f07f27e1f1e9"
   end
 
+  # Regenerate `configure` to avoid `-flat_namespace` bug.
+  # None of our usual patches apply.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gmp"
 
   def install
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

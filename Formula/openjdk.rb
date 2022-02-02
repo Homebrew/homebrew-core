@@ -1,10 +1,9 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.1-ga.tar.gz"
-  sha256 "f27e2f3fd2dcfd144f875e610e7d6c2d9d957e1be96e4f865307b6df381cf7a9"
+  url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.2-ga.tar.gz"
+  sha256 "f7b1540b12d72ca4710376292b6084fac13819a90bcaa1e5e81734c1b3b09517"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class Openjdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "73913da0c2baf6138150626cae5ed87381becc130e16298cc79c0c0a5942e0d1"
-    sha256 cellar: :any, arm64_big_sur:  "ae00dfa7d574f2692052739b31a0886a88093583333f3997ec8b2ade4ec1919a"
-    sha256 cellar: :any, monterey:       "bcbefe19b5b240fb33b05cdeb0b26e133ed698f8b829b1383a7ad3cb45b871c2"
-    sha256 cellar: :any, big_sur:        "75ee17c1331022fa8bf1e63f00fe903f23fe31d3a09021117d46b5f6ed1e26e1"
-    sha256 cellar: :any, catalina:       "43ed8d59b409bed727b11254eeb6758a7ad40fc88daf3124ab969f42e6dd8e32"
-    sha256               x86_64_linux:   "bd08867a4737b75e6bd9e0ecd9702000fd5c086d9d66c9316dc5c89232315cee"
+    sha256 cellar: :any, arm64_monterey: "3f099ba19adf82555e67ffc0d370d1560bc94b0f3d794091ef190e439c25247d"
+    sha256 cellar: :any, arm64_big_sur:  "62a165e05ba267cda9576e2c72ac71b86c02974964b02de97d4658aedc71c4fd"
+    sha256 cellar: :any, monterey:       "29512989f1140e3bc65419933d71b21d690cb6236347cdbcd8d1d4da4b0ae37f"
+    sha256 cellar: :any, big_sur:        "2376255643d9acce5ccead1be9aecd137fda743320d1d5e56972b479950b766f"
+    sha256 cellar: :any, catalina:       "67b74b88e883e0e13c44a2c502880cec03c97ced164ec6e51cabb1a64d2b63ff"
+    sha256               x86_64_linux:   "424bbd4492c56bd8eb56086d4c6844d27409162d76b5d41103d4a2ff5c53aaf5"
   end
 
   keg_only :shadowed_by_macos

@@ -11,6 +11,7 @@ class Bind < Formula
   url "https://downloads.isc.org/isc/bind9/9.18.0/bind-9.18.0.tar.xz"
   sha256 "56525bf5caf01fd8fd9d90910880cc0f8a90a27a97d169187d651d4ecf0c411c"
   license "MPL-2.0"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
 
@@ -22,12 +23,12 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "38d3f6ed11b223f8e59f2e5809dfcbd5ba62fadb7037c04b4df64f6e5071c188"
-    sha256 arm64_big_sur:  "07f69ba87573029f1535afcdc918a6d5cadd74d1deb2b25e8d1883eb0d3a3d50"
-    sha256 monterey:       "add88fc24a0b9be38ad5c5bfbb9f5b7bfad579d404b167c1d3db21076a0026dc"
-    sha256 big_sur:        "f5bc8ce9fa617819bc4114383da8c10c651c4efdd42498298a7f832917a32151"
-    sha256 catalina:       "c83c615a69fa138e17a7add0a4c2ea62fc98aaa5ea9516da2130c51ef6fa27ad"
-    sha256 x86_64_linux:   "b1d28370272f70cf20832eb8e80d2658d4a7af0a58e1829df13f13c846b6f4cc"
+    sha256 arm64_monterey: "fcf31d918b5942a4be406b59d10a57f7c81bbeee17f8ee4931ddad747ab69c25"
+    sha256 arm64_big_sur:  "d8fbc5c20da3da1d3c8cda33f7b988fa703714104cbd9288c96b786d5c6384b5"
+    sha256 monterey:       "219596d158d6bd69de2be6f42cd9f6e06c4f13bbe69c23c2db9a7f53d6497e7b"
+    sha256 big_sur:        "4b7c6b05b7707c84e8b4e83bd47a618635ae8a2d60b99b7ff188cf8185d0e075"
+    sha256 catalina:       "77c121c141793af106ddd3903fe208f31610b1aefc1e34bc37c66dd0922c7697"
+    sha256 x86_64_linux:   "3395d0c08ba996a1e47b6e7473d002daa630ef0ce42dfb867c692f327044ebb2"
   end
 
   depends_on "pkg-config" => :build
@@ -36,23 +37,8 @@ class Bind < Formula
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
-
-  resource "ply" do
-    url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
-    sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
-  end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
-    vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
-    resources.each do |r|
-      r.stage do
-        system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
     # Fix "configure: error: xml2-config returns badness"
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
@@ -62,8 +48,6 @@ class Bind < Formula
       "--with-json-c",
       "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
       "--with-libjson=#{Formula["json-c"].opt_prefix}",
-      "--with-python-install-dir=#{vendor_site_packages}",
-      "--with-python=#{Formula["python@3.10"].opt_bin}/python3",
       "--without-lmdb",
       "--with-libidn2=#{Formula["libidn2"].opt_prefix}",
     ]

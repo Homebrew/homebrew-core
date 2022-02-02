@@ -7,10 +7,12 @@ class Ship < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "af6a5db56e57811acfa331631f24380ed7c3606c0bb0ab60b74e1f50bdb26c1a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "dbf6c3cfa97ee48ea7c8faaac11280c4d078d86f81a5674a8cad07667114b991"
-    sha256 cellar: :any_skip_relocation, catalina:      "45a18b612b3039e2a00af84c257041bfd8a5f054057d62981f8364704b0723dc"
-    sha256 cellar: :any_skip_relocation, mojave:        "c3974dea38bf106223fc9bccb8c3e2eaff6f8d951a95ddad849a63edc6040578"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b463c20ccb6a500aa706ac5a925b090b72f4c59ddcd1ac9a702366da3273af1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af6a5db56e57811acfa331631f24380ed7c3606c0bb0ab60b74e1f50bdb26c1a"
+    sha256 cellar: :any_skip_relocation, monterey:       "b87c88bd0fee9a18e44c8f813113125a94bf55da46ed85ab717ab301a159427f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dbf6c3cfa97ee48ea7c8faaac11280c4d078d86f81a5674a8cad07667114b991"
+    sha256 cellar: :any_skip_relocation, catalina:       "45a18b612b3039e2a00af84c257041bfd8a5f054057d62981f8364704b0723dc"
+    sha256 cellar: :any_skip_relocation, mojave:         "c3974dea38bf106223fc9bccb8c3e2eaff6f8d951a95ddad849a63edc6040578"
   end
 
   depends_on "go" => :build

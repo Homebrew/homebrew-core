@@ -1,8 +1,8 @@
 class Expat < Formula
   desc "XML 1.0 parser"
   homepage "https://libexpat.github.io/"
-  url "https://github.com/libexpat/libexpat/releases/download/R_2_4_3/expat-2.4.3.tar.xz"
-  sha256 "b1f9f1b1a5ebb0acaa88c9ff79bfa4e145823b78aa5185e5c5d85f060824778a"
+  url "https://github.com/libexpat/libexpat/releases/download/R_2_4_4/expat-2.4.4.tar.xz"
+  sha256 "b5d25d6e373351c2ed19b562b4732d01d2589ac8c8e9e7962d8df1207cc311b8"
   license "MIT"
 
   livecheck do
@@ -12,12 +12,12 @@ class Expat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "94238b974a7bff73e18efb14d41e67c3568a678a50f9932c05ec79cc3e205c77"
-    sha256 cellar: :any,                 arm64_big_sur:  "674ecd0c906963d97b67f22f590c334256550a9328480e93d3d909300c6b5752"
-    sha256 cellar: :any,                 monterey:       "2554f17ec818c20f3d01b584da88f735635128df229e513c09d732551bd3e4ce"
-    sha256 cellar: :any,                 big_sur:        "4d636004a158c35f52dceb4dbb38182a67c9d17600f4aa61c114b5122154c665"
-    sha256 cellar: :any,                 catalina:       "7abf3ea85305e079fd48ee551bce6be9126273b54b2a1b608ac5bd5eb26704cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5b7b8a3fa2f3f4d172f73d034b28c93351de39154c8d85fc6a6a910d28650f3"
+    sha256 cellar: :any,                 arm64_monterey: "b06264f72ef3ae93b728d34bed0b0f76269189175436d1db4ad7932f4d0beb42"
+    sha256 cellar: :any,                 arm64_big_sur:  "be935657a1afb856dff1d62ccef05c23a75457286d59dafd6e7467a6311f0b8d"
+    sha256 cellar: :any,                 monterey:       "855f6ebb10eb903243199614bf884f6f36131fcd9df8c7fddf72d7fdd7e1a701"
+    sha256 cellar: :any,                 big_sur:        "4d8e172f524ece9c4ad134fa24fe5d8c2bf26374384df011ffaf4fbaf52c780a"
+    sha256 cellar: :any,                 catalina:       "dd9b2732bb6f33329abc1d4686bdcacca3fd8b3d8a8e93242df8c838809e6e9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8901df5a5f24f348299b1c650d909bc955df828ea838ba4da524ff67bd453c5"
   end
 
   head do

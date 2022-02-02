@@ -5,7 +5,7 @@ class Serialosc < Formula
       tag:      "v1.4.3",
       revision: "12fa410a14b2759617c6df2ff9088bc79b3ee8de"
   license "ISC"
-  head "https://github.com/monome/serialosc.git", branch: "master"
+  head "https://github.com/monome/serialosc.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "307d8cd2d6a4a8cedbb5728dcc4f68175b5428c2d54b289b8dea2c08b6a8e488"
@@ -24,6 +24,13 @@ class Serialosc < Formula
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf", "build"
     system "./waf", "install"
+  end
+
+  service do
+    run [opt_bin/"serialoscd"]
+    keep_alive true
+    log_path var/"log/serialoscd.log"
+    error_log_path var/"log/serialoscd.log"
   end
 
   test do

@@ -1,22 +1,18 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
-  # pull from git tag to get submodules
-  url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-      tag:      "8.11.0",
-      revision: "96ed8316de4391b77f4f29af69f885552a644769"
+  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.0.1.tar.gz"
+  sha256 "50c0a766c3f0f4a4ba29ac1db8949ee352e0d7e4f2df819fb410f8a34e3ea051"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "12d34acaa90b6dad0f9424623131ab9cc17afb22ac4ca3c2cfc78cd3bb87f444"
-    sha256 cellar: :any,                 arm64_big_sur:  "b409d89003bcdf98e7ed731a30ebb197e06f151b75ac4f6f3906572a431eeb1f"
-    sha256 cellar: :any,                 monterey:       "76f0db5043b1538fd89d46feb993a874859a438d59f2ea9725bc7dc4551fbe10"
-    sha256 cellar: :any,                 big_sur:        "aa088ed972a626863ef2535ce3f2929ddaf7d5e64d8a7944cbff8d7d03714804"
-    sha256 cellar: :any,                 catalina:       "6340e02d379e0381d079cf8b5c6ae64bce24fbd6d808a0d5ecc0734d08094893"
-    sha256 cellar: :any,                 mojave:         "d9bcb3816f6e0cb53dad0ceb692fcd44c277471f500ea443ef4af25f733e2e48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c906f6f596bbc7e075ab1e192458dddf0bc5370d315d93e5d7f02aedbd36bbb2"
+    sha256 cellar: :any,                 arm64_monterey: "fc78eab7ec3eac56761a5ed7cac5023fcc7771afe39ad650d80c253fcc634fcc"
+    sha256 cellar: :any,                 arm64_big_sur:  "5b5c86e9abf9fd672d82cab7864f40d9f934e9b350a346021c2245c7300c164b"
+    sha256 cellar: :any,                 monterey:       "6b93cb9196ef088ec85328d688a7ab1c0758baf18c0cf5a8b80e815858585fde"
+    sha256 cellar: :any,                 big_sur:        "b0a1403a1574d0ce4f53b8cb08280ad61a62ffd141073033b80ce28982e96da3"
+    sha256 cellar: :any,                 catalina:       "ca4f7bbd6f06ed349100488a28dbb6ac953f12f636bdc614f3b41ea9b226e9b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f200bfa7872bf9e9ffdf69687c313c6f43a4d13c0c6a222adcb0cc9c5d137231"
   end
 
   depends_on "cmake" => :build
@@ -46,6 +42,7 @@ class VowpalWabbit < Formula
     rm bin/"vw-validate.html"
     rm bin/"clang-format"
     rm_r bin/"flatbuffer"
+    rm_r bin/"dump_options"
   end
 
   test do

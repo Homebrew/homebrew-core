@@ -1,18 +1,18 @@
 class Rqlite < Formula
   desc "Lightweight, distributed relational database built on SQLite"
   homepage "http://www.rqlite.com/"
-  url "https://github.com/rqlite/rqlite/archive/v7.1.0.tar.gz"
-  sha256 "7cd458c7c2d4aa1348a454669ff0bf251f816755b348df1f11841a023ecc4835"
+  url "https://github.com/rqlite/rqlite/archive/v7.2.0.tar.gz"
+  sha256 "889ef025fc94564b647e8be59f8c53d4db707231bbf9a2f5b3a43f12a713db7b"
   license "MIT"
   head "https://github.com/rqlite/rqlite.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c5a0d62bb6a6ce3f121c0efde1f1eb67bfbfb6510f1bc6a80983e74f2da65c5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a19ea92b0d642622e8bc5226a591c9aa1777e6c3c29880822b6b504984d86cb"
-    sha256 cellar: :any_skip_relocation, monterey:       "d956861a892fc8e59b68a18b4816168c6a32d5ad49fe37e70bbc6202fa9729d9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1f4510ade20986643aa4adf4ad7fd46e9e80f288a1d34266eadacd1cfc6b7050"
-    sha256 cellar: :any_skip_relocation, catalina:       "313878ed127fa72f49293d194d8f28b87b7798a596fac27e82ae98e6efc89b8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b083cf575c328878d7c2c4c989cffd6d7a744d5fc4bc616ef7fc6d9588bfdf8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "752823b2d05a21fe9b9618d1d6fc3337eb511c2cadbc7ca3df6cec2e708cb788"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8596100ed921c2f9c726e24825d19d4e80c5c772f97c1ff52196defb5ced1493"
+    sha256 cellar: :any_skip_relocation, monterey:       "6efd8a5610a9425e72fdd18ee5cd7e6bcbd492aed170c8c3d715c6c1c89eed5b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4c5a7f58b3d53891ac9b35cf3c32f4521690220504279b37762c30ff5f0353b5"
+    sha256 cellar: :any_skip_relocation, catalina:       "06ae4052328ab89b9085b898bcb73d838b48cb5d8470b7942806a7b919210833"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1178190ca21378a16330a50f7e364dd61765ad392e6d8098b6aa17249c8e4e6e"
   end
 
   depends_on "go" => :build

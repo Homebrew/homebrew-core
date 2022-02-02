@@ -11,9 +11,9 @@ class Fits < Formula
 
   # Installs pre-built x86_64 binaries
   depends_on arch: :x86_64
+  # Installs pre-built .so files linking to system zlib
+  depends_on :macos
   depends_on "openjdk"
-
-  uses_from_macos "zlib"
 
   def install
     # Remove Windows, PPC, and 32-bit Linux binaries

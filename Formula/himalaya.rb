@@ -1,17 +1,17 @@
 class Himalaya < Formula
   desc "CLI email client written in Rust"
   homepage "https://github.com/soywod/himalaya"
-  url "https://github.com/soywod/himalaya/archive/v0.5.1.tar.gz"
-  sha256 "13567726903243f04a4aa64e96b88e0d0fd5c3ccbe4953357f3a8ef1c569dad9"
+  url "https://github.com/soywod/himalaya/archive/v0.5.2.tar.gz"
+  sha256 "4de18f908e08d562f3b765a61225467588d23d1c9a72710025a6c648034729ef"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d89a9bf558bdd09234e2291f533ef7624fa81d17adc828358bbed18aef861378"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0c3660ccba1c8e963fde7868c2988bc14bccf31085f73f32a64dfaac04e8cd2"
-    sha256 cellar: :any_skip_relocation, monterey:       "887d9d994ee1872f9bc8a8c25693ea42b8a85c713719f70ee6af8cf196609b0f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "db1315d616ab86550f596947fe09d87dfd7584a8cdc947f95e44dffe8a4c4002"
-    sha256 cellar: :any_skip_relocation, catalina:       "238d680a288267b1002c9cab1ef339ac6f12caa1f1f236a49d2323ce8dff33a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58e32176b2da5bc28e56e3711892d822066c0f1e5f2de6239419d8329cb96271"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "21c5c1ff373c3a7fb4d7fcef1f064023566e95e2f6b174a97c6fe8fd734c7540"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2bd3e1469fa2ddea0e192ef2da08dab4880afc3b3b03804243b17dd0759a81cb"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec639f53bf5e8acf1d602f412f8aa5953d4f51831c95a86a431f90f1f35aac48"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e9a537247fa2adc5a4dfcebeb02176d3efc588a72ac507a9f2347ef0ad95eada"
+    sha256 cellar: :any_skip_relocation, catalina:       "07974133842d04c2195ba095f19ef476709ff6b9822ea66986526ec89c018364"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b6e1224f86fbcb1833110fdd23091201bbd483a1a69829da34d9e1b950f6fbe"
   end
 
   depends_on "rust" => :build

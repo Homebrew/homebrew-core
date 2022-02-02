@@ -6,10 +6,12 @@ class Pstoedit < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "93f094bcabc8c0d24377e8cf6e6567cdb3b40f4e8eed2eb38961b28c44f15346"
-    sha256 big_sur:       "d0e97ac142787f5b0c16c0138675c476f747403e4b94b6c12dad23c70e05d268"
-    sha256 catalina:      "cdc3a9c75a626efd0562e786f08fd57dada5b764f9d39dec61c748eca707ccc9"
-    sha256 x86_64_linux:  "9b5b7269382d2ed28060b51eb8ab82339127121675df1a73de76aabedcb088ff"
+    sha256 arm64_monterey: "0f232079d87357a6a68542eb29625272b61826ab8d0e20620532751bfd080147"
+    sha256 arm64_big_sur:  "93f094bcabc8c0d24377e8cf6e6567cdb3b40f4e8eed2eb38961b28c44f15346"
+    sha256 monterey:       "3403d2caa0bba4718c2c7b26fc9e0449f9a962743d86e1db1d8b25023af1d21b"
+    sha256 big_sur:        "d0e97ac142787f5b0c16c0138675c476f747403e4b94b6c12dad23c70e05d268"
+    sha256 catalina:       "cdc3a9c75a626efd0562e786f08fd57dada5b764f9d39dec61c748eca707ccc9"
+    sha256 x86_64_linux:   "9b5b7269382d2ed28060b51eb8ab82339127121675df1a73de76aabedcb088ff"
   end
 
   depends_on "pkg-config" => :build

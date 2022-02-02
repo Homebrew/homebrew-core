@@ -1,8 +1,8 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.12.1/vips-8.12.1.tar.gz"
-  sha256 "474d8439244cd26c504812fd623259f806c32553b38d2a54798c9766135f5a5c"
+  url "https://github.com/libvips/libvips/releases/download/v8.12.2/vips-8.12.2.tar.gz"
+  sha256 "565252992aff2c7cd10c866c7a58cd57bc536e03924bde29ae0f0cb9e074010b"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "86e751f24a0962423d436e312c401bdcf635bf403064587cb7757e1609548e84"
-    sha256 arm64_big_sur:  "9c25395fd7c46809cd1fbc887fd53d7e1dadc74182ff48fc361c6f34b4706a68"
-    sha256 monterey:       "3671ae76c280fda2dc28bdaf967669e5512f37b3d870e4fe020b07ab7bd119dd"
-    sha256 big_sur:        "3ca7cf19414b876ca30e4451b015cff9f9055495dafdad804b38bfb3dfb93043"
-    sha256 catalina:       "aaebf8e5098d8a4c9b11fa868176a0c18dd7c139fda45f642bc0de91b9fcc4e1"
-    sha256 x86_64_linux:   "36ab07426a800f4913a513ada5493ba47def5cadf65e071061dc4468ed798570"
+    sha256 arm64_monterey: "20d671529252314b17c8f3eb4be159543c864c96c429cb68cbe8a7bcf85770ac"
+    sha256 arm64_big_sur:  "f125f9b4ff5157974ff9d0b72397e2bdb1a8dae0c89a7f5d4e22ed725437840a"
+    sha256 monterey:       "8f6f1c98bba10185571a371349d73dbaab6ea91aa776c318b280037cf6371375"
+    sha256 big_sur:        "0d42d2f1ce288913155cf7cb7ae74882c6929f7613d8f89bc6da370c55c3661b"
+    sha256 catalina:       "17daae6e1c77856c58df8278eee46bc72c89ef8f6172979817930d842ed51875"
+    sha256 x86_64_linux:   "33d5a6b70eed88db1973afea1121b771df265a1853054bf7c0a96f828e1e3bae"
   end
 
   depends_on "pkg-config" => :build

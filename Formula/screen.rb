@@ -2,11 +2,12 @@ class Screen < Formula
   desc "Terminal multiplexer with VT100/ANSI terminal emulation"
   homepage "https://www.gnu.org/software/screen"
   license "GPL-3.0-or-later"
+  head "https://git.savannah.gnu.org/git/screen.git", branch: "master"
 
   stable do
-    url "https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz"
-    mirror "https://ftpmirror.gnu.org/screen/screen-4.8.0.tar.gz"
-    sha256 "6e11b13d8489925fde25dfb0935bf6ed71f9eb47eff233a181e078fde5655aa1"
+    url "https://ftp.gnu.org/gnu/screen/screen-4.9.0.tar.gz"
+    mirror "https://ftpmirror.gnu.org/screen/screen-4.9.0.tar.gz"
+    sha256 "f9335281bb4d1538ed078df78a20c2f39d3af9a4e91c57d084271e0289c730f4"
 
     # This patch is to disable the error message
     # "/var/run/utmp: No such file or directory" on launch
@@ -17,35 +18,20 @@ class Screen < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "ecc1aea0ba2f09f1aced218c50e77ac8d844eb7536ad6825838f1b0140662f2f"
-    sha256 arm64_big_sur:  "8ba1521db91bbc7fe1852d22c56b1de1c14e93fd8d4510b627948b211ee90f77"
-    sha256 monterey:       "ca5548e901ed578eab81a3b935e82c713951e5526ed6e8ddeb3a65972cf24755"
-    sha256 big_sur:        "6a4935174331a3d96eb0fb5e05af4a095d188565f5f87d7e6dbf6a8478490644"
-    sha256 catalina:       "f3787a0e1c889106ab14d89c4f1bed001716ce1eb79e44e56b20e71b7448e172"
-    sha256 mojave:         "30dfe7b1bc6c74d64be57224852e50ebd5d4c6d4939872eaceac5f06d9935208"
-    sha256 high_sierra:    "1e63b4fd4ae798111980a7d9ed47c3fcb867cbad2c4253164b55722efc65d53e"
-    sha256 x86_64_linux:   "a9c0638b44b8fc6852effac19a000d7f75f5901631e5336891e805b969e34145"
+    sha256 arm64_monterey: "fe5385e7a06b3b3c7b619979a2506ab727c0c2abc0f69eba749fe9f737a934ac"
+    sha256 arm64_big_sur:  "b6cf1074628d7dbbf2fd816234c666f56f2a4f0a58f6ec5d6cce97fd4d0150b1"
+    sha256 monterey:       "7df16eac999996ffccb6215a711039ccac9e4a7b576a3ae07b90be855bd017c0"
+    sha256 big_sur:        "8d4a322e94a212359803fb59f0dd306fda8baf7ae825e47dee1f307feb0dfb43"
+    sha256 catalina:       "3d60abe23c16c832fab478a211305c30e86f19e3d859d19f5855b3ab21dd0082"
+    sha256 x86_64_linux:   "2b36866a15b6811d4682815c4d446e05c93cad630f1ad3ca2b97e7589429b81c"
   end
 
-  head do
-    url "https://git.savannah.gnu.org/git/screen.git"
-
-    depends_on "autoconf@2.69" => :build
-    depends_on "automake" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   uses_from_macos "ncurses"
 
   def install
-    if build.head?
-      cd "src"
-      system "./autogen.sh"
-    end
-
-    # With parallel build, it fails
-    # because of trying to compile files which depend osdef.h
-    # before osdef.sh script generates it.
-    ENV.deparallelize
+    cd "src" if build.head?
 
     # Fix error: dereferencing pointer to incomplete type 'struct utmp'
     ENV.append_to_cflags "-include utmp.h"
@@ -65,6 +51,7 @@ class Screen < Formula
     ]
     args << "--enable-colors256" unless build.head?
 
+    system "./autogen.sh"
     system "./configure", *args
 
     system "make"
@@ -72,6 +59,6 @@ class Screen < Formula
   end
 
   test do
-    shell_output("#{bin}/screen -h", 1)
+    system bin/"screen", "-h"
   end
 end
