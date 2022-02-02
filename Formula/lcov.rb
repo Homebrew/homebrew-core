@@ -58,7 +58,7 @@ class Lcov < Formula
     # Disable dynamic selection of perl which may cause segfault when an
     # incompatible perl is picked up.
     # https://github.com/Homebrew/homebrew-core/issues/4936
-    bin.find { |f| rewrite_shebang detected_perl_shebang, f }
+    rewrite_shebang detected_perl_shebang, *bin.children
 
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
