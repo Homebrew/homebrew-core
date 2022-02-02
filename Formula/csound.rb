@@ -2,10 +2,9 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   url "https://github.com/csound/csound.git",
-      tag:      "6.16.2",
-      revision: "fb5bdb3681e15f56c216b4e4487b45848aa6b9f4"
+      tag:      "6.17.0",
+      revision: "f5b4258794a82c99f7d85f1807c6638f2e80ccac"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -31,10 +30,12 @@ class Csound < Formula
   depends_on "gettext"
   depends_on "hdf5"
   depends_on "jack"
+  depends_on "lame"
   depends_on "liblo"
   depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
+  depends_on "libwebsockets"
   depends_on "numpy"
   depends_on "openjdk"
   depends_on "portaudio"
@@ -57,8 +58,8 @@ class Csound < Formula
   end
 
   resource "csound-plugins" do
-    url "https://github.com/csound/plugins/archive/63b784625e66109babd3b669abcb55f5b404f976.tar.gz"
-    sha256 "c4ae6754990ae7caf5b7f4e8f3c11f2323379d576a0e4cb10185b4d6d688ed41"
+    url "https://github.com/csound/plugins/archive/9b9911b92297cc3329274094195a95dde4b9e27c.tar.gz"
+    sha256 "40828b3836653d369c093d8582a29531c2c5ace0e575b625069fb4dad64cc342"
   end
 
   resource "getfem" do
@@ -69,16 +70,11 @@ class Csound < Formula
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].libexec/"openjdk.jdk/Contents/Home"
 
-    resource("getfem").stage { cp_r "src/gmm", buildpath }
-
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_JAVA_INTERFACE=ON",
-                    "-DBUILD_LINEAR_ALGEBRA_OPCODES=ON",
                     "-DBUILD_LUA_INTERFACE=OFF",
-                    "-DBUILD_WEBSOCKET_OPCODE=OFF",
                     "-DCMAKE_INSTALL_RPATH=@loader_path/../Frameworks;#{rpath}",
                     "-DCS_FRAMEWORK_DEST=#{frameworks}",
-                    "-DGMM_INCLUDE_DIR=#{buildpath}/gmm",
                     "-DJAVA_MODULE_INSTALL_DIR=#{libexec}",
                     *std_cmake_args
     system "cmake", "--build", "build"
@@ -92,17 +88,33 @@ class Csound < Formula
       import site; site.addsitedir('#{libexec}')
     EOS
 
-    resource("ableton-link").stage buildpath/"ableton-link"
-
     resource("csound-plugins").stage do
+      resource("ableton-link").stage buildpath/"ableton-link"
+      resource("getfem").stage { cp_r "src/gmm", buildpath }
+
       system "cmake", "-S", ".", "-B", "build",
                       "-DABLETON_LINK_HOME=#{buildpath}/ableton-link",
                       "-DBUILD_ABLETON_LINK_OPCODES=ON",
-                      "-DBUILD_CHUA_OPCODES=OFF",
-                      "-DCSOUNDLIB=CsoundLib64",
+                      "-DBUILD_CHUA_OPCODES=ON",
+                      "-DBUILD_CUDA_OPCODES=OFF",
+                      "-DBUILD_FAUST_OPCODES=ON",
+                      "-DBUILD_FLUID_OPCODES=ON",
+                      "-DBUILD_HDF5_OPCODES=ON",
+                      "-DBUILD_IMAGE_OPCODES=ON",
+                      "-DBUILD_JACK_OPCODES=ON",
+                      "-DBUILD_LINEAR_ALGEBRA_OPCODES=ON",
+                      "-DBUILD_MP3OUT_OPCODE=ON",
+                      "-DBUILD_OPENCL_OPCODES=OFF",
+                      "-DBUILD_P5GLOVE_OPCODES=ON",
+                      "-DBUILD_PYTHON_OPCODES=ON",
+                      "-DBUILD_STK_OPCODES=ON",
+                      "-DBUILD_WEBSOCKET_OPCODE=ON",
+                      "-DBUILD_WIIMOTE_OPCODES=ON",
+                      "-DCSOUND_FRAMEWORK=#{frameworks}/CsoundLib64.framework",
                       "-DCSOUND_INCLUDE_DIR=#{include}/csound",
-                      "-DCS_FRAMEWORK_DEST=#{frameworks}",
-                      "-DUSE_FLTK=OFF",
+                      "-DGMM_INCLUDE_DIR=#{buildpath}",
+                      "-DPLUGIN_INSTALL_DIR=#{frameworks}/CsoundLib64.framework/Resources/Opcodes64",
+                      "-DUSE_FLTK=ON",
                       *std_cmake_args
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
@@ -133,6 +145,7 @@ class Csound < Formula
           a_signal STKPlucked 440, 1
           a_, a_ hrtfstat a_signal, 0, 0, sprintf("hrtf-%d-left.dat", sr), sprintf("hrtf-%d-right.dat", sr), 9, sr
           hdf5write "test.h5", a_signal
+          mp3out a_signal, a_signal, "test.mp3"
           out a_signal
       endin
     EOS
@@ -146,16 +159,17 @@ class Csound < Formula
     ENV["RAWWAVE_PATH"] = Formula["stk"].pkgshare/"rawwaves"
     ENV["SADIR"] = frameworks/"CsoundLib64.framework/Versions/Current/samples"
 
-    output = shell_output "#{bin}/csound test.orc test.sco 2>&1"
-    assert_match(/^rtaudio:/, output)
-    assert_match(/^rtmidi:/, output)
+    system bin/"csound", "test.orc", "test.sco"
 
     assert_predicate testpath/"test.aif", :exist?
     assert_predicate testpath/"test.h5", :exist?
+    assert_predicate testpath/"test.mp3", :exist?
 
     (testpath/"opcode-existence.orc").write <<~EOS
       JackoInfo
       instr 1
+          p5gconnect
+          i_output websocket 8888, 0
           i_success wiiconnect 1, 1
       endin
     EOS
