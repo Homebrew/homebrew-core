@@ -16,6 +16,7 @@ class Rure < Formula
     include.install "regex-capi/include/rure.h"
     lib.install "target/release/#{shared_library("librure")}"
     lib.install "target/release/librure.a"
+    prefix.install "regex-capi/README.md" => "README-capi.md"
   end
 
   test do
