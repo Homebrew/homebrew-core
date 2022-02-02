@@ -26,6 +26,13 @@ class Serialosc < Formula
     system "./waf", "install"
   end
 
+  service do
+    run [opt_bin/"serialoscd"]
+    keep_alive true
+    log_path var/"log/serialoscd.log"
+    error_log_path var/"log/serialoscd.log"
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/serialoscd -v")
   end
