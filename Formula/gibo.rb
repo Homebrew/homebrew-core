@@ -6,12 +6,12 @@ class Gibo < Formula
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f2eb6cdf80716ffe27ff74f8feb53bb17e557b15124f286c7bf0282a302cec3d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2eb6cdf80716ffe27ff74f8feb53bb17e557b15124f286c7bf0282a302cec3d"
-    sha256 cellar: :any_skip_relocation, monterey:       "3b5c82bda1b0dd1e7d1cfc69aa6205d41ab4cbce64a4e919e73f066868435d40"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3b5c82bda1b0dd1e7d1cfc69aa6205d41ab4cbce64a4e919e73f066868435d40"
-    sha256 cellar: :any_skip_relocation, catalina:       "3b5c82bda1b0dd1e7d1cfc69aa6205d41ab4cbce64a4e919e73f066868435d40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2eb6cdf80716ffe27ff74f8feb53bb17e557b15124f286c7bf0282a302cec3d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "49494492756fd72667dbd899a0406b32f89cc044b93a4d31cb03cfafafbdb3b4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49494492756fd72667dbd899a0406b32f89cc044b93a4d31cb03cfafafbdb3b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "473b0891bf471637cb3d0bd53e44cefd3e32abe1d596579a9cf243ed3f589288"
+    sha256 cellar: :any_skip_relocation, big_sur:        "473b0891bf471637cb3d0bd53e44cefd3e32abe1d596579a9cf243ed3f589288"
+    sha256 cellar: :any_skip_relocation, catalina:       "473b0891bf471637cb3d0bd53e44cefd3e32abe1d596579a9cf243ed3f589288"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49494492756fd72667dbd899a0406b32f89cc044b93a4d31cb03cfafafbdb3b4"
   end
 
   def install
