@@ -19,7 +19,7 @@ class Helix < Formula
     require "pty"
     require "io/console"
 
-    test_file = testpath / "test.txt"
+    test_file = testpath/"test.txt"
 
     r, w, pid = PTY.spawn bin/"hx", test_file
     r.winsize = [80, 43]
