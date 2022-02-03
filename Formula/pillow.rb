@@ -1,8 +1,8 @@
 class Pillow < Formula
   desc "Friendly PIL fork (Python Imaging Library)"
   homepage "https://python-pillow.org"
-  url "https://files.pythonhosted.org/packages/b0/43/3e286c93b9fa20e233d53532cc419b5aad8a468d91065dbef4c846058834/Pillow-9.0.0.tar.gz"
-  sha256 "ee6e2963e92762923956fe5d3479b1fdc3b76c83f290aad131a2f98c3df0593e"
+  url "https://files.pythonhosted.org/packages/03/a3/f61a9a7ff7969cdef2a6e0383a346eb327495d20d25a2de5a088dbb543a6/Pillow-9.0.1.tar.gz"
+  sha256 "6c8bc8238a7dfdaf7a75f5ec5a663f4173f8c367e5a39f87e720495e1eed75fa"
   license "HPND"
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
@@ -23,6 +23,7 @@ class Pillow < Formula
   depends_on "libimagequant"
   depends_on "libraqm"
   depends_on "libtiff"
+  depends_on "libxcb"
   depends_on "little-cms2"
   depends_on "openjpeg"
   depends_on "tcl-tk"
@@ -58,8 +59,15 @@ class Pillow < Formula
     ]
 
     ENV["MAX_CONCURRENCY"] = ENV.make_jobs.to_s
-    ENV.prepend "CPPFLAGS", "-I#{Formula["tcl-tk"].opt_include}"
-    ENV.prepend "LDFLAGS", "-L#{Formula["tcl-tk"].opt_lib}"
+    deps.each do |dep|
+      next if dep.build? || dep.test?
+
+      ENV.prepend "CPPFLAGS", "-I#{dep.to_formula.opt_include}"
+      ENV.prepend "LDFLAGS", "-L#{dep.to_formula.opt_lib}"
+    end
+
+    # Useful in case of build failures.
+    inreplace "setup.py", "DEBUG = False", "DEBUG = True"
 
     pythons.each do |python|
       system python, "setup.py", "build_ext", *pre_args, "install", *post_args
