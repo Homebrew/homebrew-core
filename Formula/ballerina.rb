@@ -1,8 +1,8 @@
 class Ballerina < Formula
   desc "Programming Language for Network Distributed Applications"
   homepage "https://ballerina.io"
-  url "https://dist.ballerina.io/downloads/1.2.25/ballerina-1.2.25.zip"
-  sha256 "c06a9e1e61121398e5e0d28742f86308844a4769a6dbb8b52fcb1e1098c4e4d8"
+  url "https://dist.ballerina.io/downloads/2201.0.0/ballerina-2201.0.0-swan-lake.zip"
+  sha256 "213b7263dd4d610faed10702e64a22725410d7c285489a75fc81aaef34e2332e"
   license "Apache-2.0"
 
   livecheck do
@@ -14,7 +14,7 @@ class Ballerina < Formula
     sha256 cellar: :any_skip_relocation, all: "0abb34e7a2f8481276cecd2ac6495edf2f4096a7172859bc5beedae0ffd423e6"
   end
 
-  depends_on "openjdk@8"
+  depends_on "openjdk@11"
 
   def install
     # Remove Windows files
@@ -24,7 +24,7 @@ class Ballerina < Formula
 
     bin.install "bin/bal"
     libexec.install Dir["*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("11"))
   end
 
   test do
