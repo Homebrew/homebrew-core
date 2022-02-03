@@ -8,13 +8,12 @@ class Cmus < Formula
   head "https://github.com/cmus/cmus.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "239fb9f0fa15ab6c051e28fa5d3b0804aba83436bd3a644e3a90ff83cf03e791"
-    sha256 arm64_big_sur:  "ecccaccd592e7f937d93e0baf6c839d022bfd0142fb4c1ba1fb737bc5320cb8d"
-    sha256 monterey:       "8cc6dae807e40748e229dc15f0037a637413d79f762f2f66b9283bf3fdc7cfa5"
-    sha256 big_sur:        "39c4a5d3220e312651d65e83987f9deb6671a15229a268c050edbfe43ea259b2"
-    sha256 catalina:       "b08d0e0bde83d0dd8bffdbb68e93c0a56675460ac5c7d89c0f734c8e9ef75cca"
-    sha256 mojave:         "068793d374ba393662864da1a542a1bf036508bbd02ee9ac17249694ec93f5d2"
-    sha256 x86_64_linux:   "2c089a54101cd2868df2d2312bdb0fe771a66492884baffc9ea1070854aeea1a"
+    sha256 arm64_monterey: "c8442ac4518d870f91a68e917251fb9050ba7f477fce412597eabd4ab68c8008"
+    sha256 arm64_big_sur:  "e9bf47dcc8350d948fc841f18c0b5b68d72299f488338a68d0df2e52245f62aa"
+    sha256 monterey:       "d993861d232ff31bf395af15846d39e6d5872c6b0d075ae227983b3296e4841c"
+    sha256 big_sur:        "6704b64f4bd2e163be11e1146e076252ec6af54f6eaff80cb54bcce7b2047214"
+    sha256 catalina:       "185a420e4b5b7ac9a88232f0fe74d1110483ea682a1b9198335e9cd8b733d3a8"
+    sha256 x86_64_linux:   "8b51575dd6d4de96abb655cccd3bccbcb77018b15b2383172aac3d465e0e2fa6"
   end
 
   depends_on "pkg-config" => :build
