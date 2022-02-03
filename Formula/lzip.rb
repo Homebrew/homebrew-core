@@ -11,13 +11,12 @@ class Lzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee55e7181bf5a30a39133e75e63a20498f6df1f300d7b211f647656be1e04b9b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "78014ac2f6011ba98beeabd7aa79e37b6ee78a5e9c72b7bf7594005bfcc7f082"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4fe11b4de4a0c31e14057828fd3b75d5f71a9c83af8047b90f98946d1312afe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dd3e7b00a64e6de1f1cbb0446c2a3c0dac5033dd9b2de5f52fe56d7375c0d339"
-    sha256 cellar: :any_skip_relocation, catalina:       "91a7214e357c949e0a06736e6a73eb667c0c487efaeebeb4df6fae99ee660575"
-    sha256 cellar: :any_skip_relocation, mojave:         "7c4d9d33bda8dd4043a48903d9348e683c1c64c1b0ab39b1680fcaadb952896f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72895e72f99898b116d3b89b7e594a21917d95a08a46f927a9a2532e5269133d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa06da82d08249d2e0db4a1293198a078bc580e374b81802724f45831e0e1958"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "174810e3b1231739b79e446f2587fea14174ce8c8e6881497ed08fbc02997b0c"
+    sha256 cellar: :any_skip_relocation, monterey:       "b1401a8dfc54c0232aa17846ca0faef93c4a8dc9582ee48c125e64f89154c18b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "db2f8103042e39c5471c3dbe9600dc0c55aa1d2ad693a75849488864d3208eed"
+    sha256 cellar: :any_skip_relocation, catalina:       "c347c85a891de174408618a9d2ba1ded61c4ff276a7072334a9bd4ef731aaf44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb70d29539d6ae13b2a6638c79dbb5149eacec480557fc2f3567c4adfc228829"
   end
 
   def install
