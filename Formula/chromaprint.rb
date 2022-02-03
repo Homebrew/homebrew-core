@@ -18,8 +18,6 @@ class Chromaprint < Formula
   depends_on "cmake" => :build
   depends_on "ffmpeg@4"
 
-  conflicts_with "ffmpeg", because: "build reasons"
-
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
