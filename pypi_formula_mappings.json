@@ -85,7 +85,8 @@
     "exclude_packages": ["six"]
   },
   "conan": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["six"],
+    "extra_packages": ["distro"]
   },
   "cppman": {
     "exclude_packages": ["six"]
