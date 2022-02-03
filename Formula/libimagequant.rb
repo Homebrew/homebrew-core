@@ -14,9 +14,13 @@ class Libimagequant < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "755d6d5ede65e921ff0ecc6f8efb56cf639ea884a8d4904d9b58a7035d46f2bc"
   end
 
+  depends_on "cargo-c" => :build
+  depends_on "rust" => :build
+
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+    cd "imagequant-sys" do
+      system "cargo", "cinstall", "--prefix", prefix
+    end
   end
 
   test do
