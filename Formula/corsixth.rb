@@ -8,12 +8,11 @@ class Corsixth < Formula
   head "https://github.com/CorsixTH/CorsixTH.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "36611a5f4a62cc90fef41ca741dc799d166002964a52ee877103cf2101d17e08"
-    sha256 arm64_big_sur:  "85159ab0c32c43fbe98e88181abd47c941acec95b5760646237d350f18ac403a"
-    sha256 monterey:       "56e6fa94b1c1a026e48ffefe5a784a3718efedde66541de92176be1073b48f11"
-    sha256 big_sur:        "7e0c673a852830521e8c5bf1edd8c0c55a73eb8e3fff9dd32e6939bbcf239620"
-    sha256 catalina:       "4e32cf5b1460d07b4e354fec82d0a5267be4c03e1d3af92fc5d96046c44f8f8c"
-    sha256 mojave:         "edb9df35dc84bddd751ecc716c37f7ef7f6f832a1b1613905214a8af6f507ea6"
+    sha256 arm64_monterey: "654811f4e5a3540862b868be587f6a44c25453a946952d36d9c0b67a06bafff2"
+    sha256 arm64_big_sur:  "85711a57a88a670524cb047baef9f8fe98ce5e2023fb0b513d08a8473ca46ed4"
+    sha256 monterey:       "45fcd5591710383a1b437f6d74266b6a9d1f587f3b820b8a0499199bf581e4c2"
+    sha256 big_sur:        "400cdf58edc5407ba28bdc2437fef922a1ab4748c6c74dc047a6a6273291f583"
+    sha256 catalina:       "d4b4c1abbd7c4329792a2a96304d95b8289d5f5f4be841872e5a9079e2349cf0"
   end
 
   depends_on "cmake" => :build
