@@ -12,12 +12,12 @@ class Pianod < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "a6a0d3d09f37467874c46890a433ed9aec355546a37134e20ff06c9f7bc12fe4"
-    sha256 arm64_big_sur:  "89128e2bd19a66a0e1b5de123934476cd6903bc87113d88445d40171382fdf56"
-    sha256 monterey:       "b2f7d2be7b2f6b69be17556a5f6eaed586462e755cfbf1975cb5e3556b185cf7"
-    sha256 big_sur:        "5a8f72e099726bf3b32e651fe095c1a683c12410a4778c46ea464e78176365d9"
-    sha256 catalina:       "7e694341f6ccf08808c9f156253d407449334d60121bbd6352093e088546b9dc"
-    sha256 x86_64_linux:   "cc7b9f0d948a2f1a0c1673bce83a543844bfcd58a6fd9b83ed7738ebb0918ab9"
+    sha256 arm64_monterey: "dd206cf35e1a07f0f68400cf16ac18086c3afa7d7e8acfc40e2e7a963031b6c3"
+    sha256 arm64_big_sur:  "3174a7fa46e88cab7f8b059a9b4644085a440b783041e7a80b764c5131113c92"
+    sha256 monterey:       "83dcf7863e64c0eea4b753b405ed444798b23be7c4ab0fdd4899f3139781520c"
+    sha256 big_sur:        "8458fbc6e9701e6db6242654fffe197e08cb1053b3adab5d1952fd9ab507905d"
+    sha256 catalina:       "1e2b9ea9d68f670875cd8359ee56d21a7f670c3286bcfd4dcef70f58bb6a0923"
+    sha256 x86_64_linux:   "a5e3c64179f2a2508bb8176c3522f463b7e7753376789824f9526fdf857233fb"
   end
 
   depends_on "pkg-config" => :build
