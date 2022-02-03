@@ -12,6 +12,15 @@ class FfmpegAT4 < Formula
     regex(/href=.*?ffmpeg[._-]v?(4(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_monterey: "e5bb29c1f83c1c48bc0b3adcb05b5bc9ac04f5d99d5d1e1f8bd02a115e9b5104"
+    sha256 arm64_big_sur:  "545c2a76da393e9f4719209493f1d4a50ff25899b5ce5ac59fe4d719b4715e51"
+    sha256 monterey:       "397d1907352f6ada22576bf8944034d841cce24233fe5bc9ed9b249cd79d1825"
+    sha256 big_sur:        "7e4be682fe8f62668b25f991e697290cb7ad909c9c31ebaa24d8a4b670715834"
+    sha256 catalina:       "4d836cc976f06fa4b67ba53f900b4c94d4097ce88db5846547351fad2a8c4af7"
+    sha256 x86_64_linux:   "aac393e201fd79971e19f697c440f27f0be57e6cc1f3469d61e384b231f058e3"
+  end
+
   keg_only :versioned_formula
 
   depends_on "nasm" => :build
