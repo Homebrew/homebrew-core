@@ -42,11 +42,12 @@ class Moc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "1c1dbfb0ba7a9dc7615aac9f0a16b3e94062333c5db842edecfd9b10849c53ac"
-    sha256 big_sur:       "1d670ee6bdc6441b88295a64d325837e0b9aa845a9457b8b1bb173a6589d4135"
-    sha256 catalina:      "80578cca9b28f6e2afbf628b12cfecdec8560675710e49f73b607a0a7d039c12"
-    sha256 mojave:        "40df76109b9d7cc1f23ad67ab9824029375d083b37c8dc0e417ff5ad5379892c"
+    sha256 arm64_monterey: "ede1647dc7294609486c67127f1038eed89089ecb0a412f4b28315f21e1d0381"
+    sha256 arm64_big_sur:  "e0d4300414cfc0e63102cc677b8f5b9760c6a5c85796348f95d21d2909dd06d9"
+    sha256 monterey:       "b6359e887ac7f9c6c0b4a882258b0486e401ecb98a1c55ab325940e34bb4091a"
+    sha256 big_sur:        "a039c169c94918fe290d154eba80cd6075c685ddf89e0e37caa28c208ae1e19c"
+    sha256 catalina:       "aa76f7971087c19de921c2d2722f4734f222d252f7fc4e4d2c5684fe5efe3638"
+    sha256 x86_64_linux:   "7a3ca44601779ec514d831971f2aae1097639aaae2a96cfc3aec27c55ac44239"
   end
 
   head do
