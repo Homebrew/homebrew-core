@@ -10,13 +10,12 @@ class VapoursynthSub < Formula
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "28810861f7eea8d5c0b1225edcd8547ce264d11add68186d470b6b46ef5a39f0"
-    sha256 cellar: :any,                 arm64_big_sur:  "77ff99cf76d94fa5cbcc961e58a739c1af1fce4cd3587a8b7bb34561e7179473"
-    sha256 cellar: :any,                 monterey:       "40238f510f53a8e03d0e75a7a00a4c7d1d9f18361d1fe4bc06a84116609495b8"
-    sha256 cellar: :any,                 big_sur:        "9970926b50e25df64e9c8a13e3c575d823cbf5ff93b4244257941af17932bd9b"
-    sha256 cellar: :any,                 catalina:       "dd5762ff060f077b961b229cf4daecb93f5b3130fdcd23d6b0fed8cfbdd49e09"
-    sha256 cellar: :any,                 mojave:         "146a023ced7c207b5b1a054abc25b7587b1e3e6513034e97bf4c57fb7bbbaa22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cd479be090c286ebbe0c2e7af858d597d6581b52178748c9b629ed608b771c3"
+    sha256 cellar: :any,                 arm64_monterey: "1d566a35094458188b0ef7503f4313d564b3d39d14698ba3d6ad33e812395934"
+    sha256 cellar: :any,                 arm64_big_sur:  "5be9a2f65b43236d03eebbc934971f1146cb5d442a9ef925b07c4087112a7d92"
+    sha256 cellar: :any,                 monterey:       "1343035d03a7207ed4fb65dcffcc1a53e742b855709993acc71b6f1b1eb3c6a0"
+    sha256 cellar: :any,                 big_sur:        "5ec53b9369f41673d1787985213f4984d4c6ff29b9f311882834193b4e80af69"
+    sha256 cellar: :any,                 catalina:       "d54510ddb431b6a0f959e402d5c3b02476e34b4d14a4a03ac94a40187c3f260b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b19e13e669af79fef8f897b445e4d72da584e739974bc5d7f759aa2bf8e8e97"
   end
 
   depends_on "cmake" => :build
