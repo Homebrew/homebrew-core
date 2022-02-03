@@ -22,7 +22,8 @@ class Ncdu < Formula
 
   depends_on "pkg-config" => :build
   depends_on "zig" => :build
-  uses_from_macos "ncurses"
+  # Without this, `ncdu` is unusable when `TERM=tmux-256color`.
+  depends_on "ncurses"
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
