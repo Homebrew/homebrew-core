@@ -12,12 +12,11 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "44199cf7982c6990e206d002b22da98481e42d4db371f25371d60dadad9f2106"
-    sha256 arm64_big_sur:  "70ae341c8129b66476214670c5cc35e7042bb274cffb8febf400f2fd8a7369c1"
-    sha256 monterey:       "e22779842a84948276f01d9fadb1c3e817b32b30fce65a459a17d0d8798003b7"
-    sha256 big_sur:        "9bce33f073613ded8b9dfc6bb6fc72286db7a876d7e382735a2343ccc6be3b76"
-    sha256 catalina:       "a7e1e90c460f850c8b45d27d2e9cd87eb047fbd563d03372cf4be7895edabe25"
-    sha256 x86_64_linux:   "b948e0b3a22205e5ca5a48a241daec908edc22a34df259653cfcf7667d961342"
+    sha256                               arm64_monterey: "0b8eed8bfbdb17ff2fa0d527f9d9eb84d1d6a25a5ad582ac373cab73cc6fb473"
+    sha256                               arm64_big_sur:  "6edac2cec751a071096bf5f7453882cf3dd0f717b59f0a0617ba96ba111c18a5"
+    sha256                               big_sur:        "2c42270eb3f5b20b40975120645b58e667992892278557609d5fa0e6ce930c97"
+    sha256                               catalina:       "b1e0918e3bb9c7f001f8389f1674d225b6268ce7bb28b624a6176cd06bbd6375"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2368bc3aa345fc6366fe39b4e67b9018b485a2547dc07669190f7a834c22f27e"
   end
 
   depends_on "cmake" => :build
