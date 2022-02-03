@@ -6,15 +6,12 @@ class LiquidDsp < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "74396eb970944751b930155a3377f357ca8753c98c29ea29a966e25bb27ea7d6"
-    sha256 cellar: :any,                 arm64_big_sur:  "64eefc1203dbbcfb3e1313fcb1a290ed3d2d0e7373c4eeb683306fbe754f48c8"
-    sha256 cellar: :any,                 monterey:       "039aec59367c8a32644b7c103313d850b734fce005026de5392308635e7ec8f6"
-    sha256 cellar: :any,                 big_sur:        "3fc321af6dc365c262fe1707c9e96b21685fb1ab364bfc34b244b98f1f35b9fa"
-    sha256 cellar: :any,                 catalina:       "1b1e21733e9789f6c1e3f8c3e5bb2076151f96a1f3602ed0e3905ad3ff45c18b"
-    sha256 cellar: :any,                 mojave:         "12702bbff57912c18a4f637df59da56054f8afcc11f96467341af3bd26ec0992"
-    sha256 cellar: :any,                 high_sierra:    "f0a6f6caba39b3e06a972aa89293161fa6d4d3759751709f40f2cc8d7ea3c913"
-    sha256 cellar: :any,                 sierra:         "10bca6603365aeefad410287fbf1657b6b2401544e2cc16f1f2ef6f9ffbe8bc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6154ce47ac55f2e9fd18afbb96725099523d11b2f8a40709563d679c73418d6f"
+    sha256 cellar: :any,                 arm64_monterey: "5525a2714e2baa91de8f2a08f1c650446358185b6c560038bf996096d6944b91"
+    sha256 cellar: :any,                 arm64_big_sur:  "857eb55de818dc04505bcc75c87d9a90dba7ad4adfe3c1e7a499def9fccb0459"
+    sha256 cellar: :any,                 monterey:       "43302c6bab18caf9875454bbb1be50b9d21941d1acd2f1b89d3b62c189434be9"
+    sha256 cellar: :any,                 big_sur:        "f922ccf08ab5854dd13926f597cc2941a7da65782979f96ac18fec489ed76e7b"
+    sha256 cellar: :any,                 catalina:       "7e4e09278e8c3cc2fd14284cf203563db6c471ba6411457391be897d48f05495"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b44afc5d89530c5a20db1f0cd619fffcfd34a13619331068b9277ceb0739bd3c"
   end
 
   depends_on "autoconf" => :build
