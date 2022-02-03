@@ -6,7 +6,6 @@ class Sshs < Formula
   license "MIT"
 
   depends_on "go" => :build
-  depends_on "make" => :build
 
   def install
     system "make", "build", "VERSION=#{version}", "OUTPUT=#{bin}/sshs"
