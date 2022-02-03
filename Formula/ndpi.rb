@@ -20,6 +20,8 @@ class Ndpi < Formula
   depends_on "pkg-config" => :build
   depends_on "json-c"
 
+  uses_from_macos "libpcap"
+
   def install
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
