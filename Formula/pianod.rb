@@ -4,6 +4,7 @@ class Pianod < Formula
   url "https://deviousfish.com/Downloads/pianod2/pianod2-388.tar.gz"
   sha256 "a677a86f0cbc9ada0cf320873b3f52b466d401a25a3492ead459500f49cdcd99"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://deviousfish.com/Downloads/pianod2/"
@@ -30,7 +31,7 @@ class Pianod < Formula
 
   on_linux do
     # pianod uses avfoundation on macOS, ffmpeg on Linux
-    depends_on "ffmpeg"
+    depends_on "ffmpeg@4"
     depends_on "gcc"
     depends_on "gnutls"
     depends_on "libbsd"
