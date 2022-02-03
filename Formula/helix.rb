@@ -16,18 +16,19 @@ class Helix < Formula
   end
 
   test do
-    require "open3"
-    Open3.popen3("#{bin}/hx") do |stdin, _stdout, stderr, wait_thr|
-      on_macos do
-        error_msg = "Piping into helix-term is currently not supported on macOS"
-        assert_match error_msg, stderr.read
-        assert_equal 1, wait_thr.value.exitstatus
-      end
-      on_linux do
-        stdin.write "test"
-        sleep 5.seconds
-        system "kill", "-SIGTERM", wait_thr.pid.to_s
-      end
-    end
+    require "pty"
+    require "io/console"
+
+    test_file = testpath / "test.txt"
+
+    r, w, pid = PTY.spawn bin/"hx", test_file
+    r.winsize = [80, 43]
+    sleep 1
+    w.write "itest\e"
+    sleep 1
+    w.write ":wq\n"
+    sleep 1
+    Process.wait(pid)
+    assert_equal "test", test_file.read.chomp
   end
 end
