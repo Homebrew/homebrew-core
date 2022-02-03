@@ -6,12 +6,12 @@ class Dtm < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "63cbeea1b6bf256131cb4d0f546d0621d88e5edaeb8676a20c9e242daf78e28e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a07b34b2c32254616f7d94e366013bcf26baee8bbc64b2bc9b755199c18c23d"
-    sha256 cellar: :any_skip_relocation, monterey:       "80e0f30516790ad16429d3f159b3a4593507b91e93761b52353d9eb919d9a936"
-    sha256 cellar: :any_skip_relocation, big_sur:        "45d0e9511b7ba65ef5ce6eb34c69c8aaea8f88fc35311158c26255e5f2391198"
-    sha256 cellar: :any_skip_relocation, catalina:       "5569745496c642593a93ea2d9003fb24dc651b3d25d629671e3f048d3f724c7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78967056121a64b3dca831fdc6027a16cef61f6bbbe4c0d7512ccd8847cd7ea7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "242a0b5df99811d2d367512381935f8823dcf9ea66c0bca60b073e82153a7c63"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71c0d0d4170018bb6652339be12437c9cc84c7638964a4600ed872b30c0aa719"
+    sha256 cellar: :any_skip_relocation, monterey:       "0b1c2b22e9e0ae1eb554355d5ceaacd52cf944540f0aead22dce7eca83b2d1fe"
+    sha256 cellar: :any_skip_relocation, big_sur:        "173f6774898d902a170fd282ad8dd0dc82c4be406dfb68454d9e2a65a3b4a8e5"
+    sha256 cellar: :any_skip_relocation, catalina:       "03a05c42d79c0df17184ca0bae0a90a1b695f8f20d0c6b68b99c56c30202ebc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73a707cdd55363a4923be87a738b8bcbe692150ef01c1f0ddc313ed37875ea19"
   end
 
   depends_on "go" => :build
