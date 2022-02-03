@@ -1,8 +1,8 @@
 class Openfst < Formula
   desc "Library for weighted finite-state transducers"
   homepage "https://www.openfst.org/twiki/bin/view/FST/WebHome"
-  url "https://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.1.tar.gz"
-  sha256 "24fb53b72bb687e3fa8ee96c72a31ff2920d99b980a0a8f61dda426fca6713f0"
+  url "https://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.2.tar.gz"
+  sha256 "de987bf3624721c5d5ba321af95751898e4f4bb41c8a36e2d64f0627656d8b42"
   license "Apache-2.0"
 
   livecheck do
@@ -25,12 +25,6 @@ class Openfst < Formula
   end
 
   fails_with gcc: "5"
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
