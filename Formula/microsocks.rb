@@ -17,10 +17,6 @@ class Microsocks < Formula
   end
 
   def install
-    # fix `illegal option -- D` issue for the build
-    # upstream issue report, https://github.com/rofl0r/microsocks/issues/42
-    inreplace "Makefile", "install -D", "install -c"
-
     system "make", "install", "prefix=#{prefix}"
   end
 
