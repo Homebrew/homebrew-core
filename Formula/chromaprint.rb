@@ -7,12 +7,12 @@ class Chromaprint < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "26dc9a1ce770ef8efe048f194d785e773a2da16b1cfe7403c9266e53f7a917c3"
-    sha256 cellar: :any,                 arm64_big_sur:  "63b9b5fd1b84a9ef5b07b52e345df2b4a0802316eb24b70d59ab13519497d256"
-    sha256 cellar: :any,                 monterey:       "d0b826d0914eafce9b64cd18ee118cf41f97119f644e039fb6a91f1de3e43e4a"
-    sha256 cellar: :any,                 big_sur:        "02bf8ea8cea0398faa3f78383e46f7036ea572cf98f9ffe4dfe6d4580af186eb"
-    sha256 cellar: :any,                 catalina:       "4d56eefb86910204094735bc1a8271136081f874bdeb30227bf03d2996951cf1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef289dd77b9835de98f22c0ebf9c3f6611cefbc0d13524f15acac0d8926782cd"
+    sha256 cellar: :any,                 arm64_monterey: "d4479962c7c30dbc07c8d4639639198e8de0015f35ce7e3ac47c5e87e492333f"
+    sha256 cellar: :any,                 arm64_big_sur:  "8ce15ae4efe13275af05b62e83fbcde65644d7baee3dd4ae37fae7007396b80c"
+    sha256 cellar: :any,                 monterey:       "86d59168bfd57c19029084ea626953a99976361f4d0aadcdc6d51fbda8b8ca6b"
+    sha256 cellar: :any,                 big_sur:        "f9df429a357d408b65f6e1e5effc720005bb75bc10e069891acbba25430b755d"
+    sha256 cellar: :any,                 catalina:       "935e7dbb82458a6dd276b3265d8df41390c6aa236cbdf4ef4287662961f5d97d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aecf570ed20d986f95f0071c52c0cca65eb96ef6d308a60d83529b1f16984682"
   end
 
   depends_on "cmake" => :build
