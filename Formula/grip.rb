@@ -8,13 +8,12 @@ class Grip < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "09105fcd1084565db2b5e649864af1fb80941638beba1dcca290791d6c526ac2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfc5788cdd426b916854e205ef98a6216afd86c8acbcedd1590b57ac8276cca2"
-    sha256 cellar: :any_skip_relocation, monterey:       "163ab17a989cb816ada5aa778db688b3b2f2e371b523d9601fff1da489e3f7b7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "60f6b63e4dc026f60c4c8e0321c1c40f962662fba4d355edde94d0bc59435691"
-    sha256 cellar: :any_skip_relocation, catalina:       "20845cfa7d409cd8a401f4fd9cc78dc2cf5c2b14ded670d4c1a2b0a90fa8030f"
-    sha256 cellar: :any_skip_relocation, mojave:         "1a1fc037a3861aee7a694a6bfe43e8accd32165d01ca2815c2a4c7b45e573b67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "200d3c977a0488bede732b29557e50b139bf675e10d82b0829d8ae46573bd73f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e564ad88fed2b41a9d2adeb033c5fe3e15672e4f5f12d089107ac62018a4364e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b18f07d1478fc88d0f66d1fdac54b66047e4ec126f34664ec1cad162ef4db28"
+    sha256 cellar: :any_skip_relocation, monterey:       "3703ede651152d8d1b9117ebd4979f6847840bb6ac00af22135b0726be678fe6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "aa387a2b9b55ec8628f05f6dc374bb060ff52a0dd3b04b8e0f879f0dd34ea834"
+    sha256 cellar: :any_skip_relocation, catalina:       "9bd2a7f3e38d8e08258432b403f174c8ad2db11f3634bfcd11aa61a7c57843d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd8f8d73f0668178c38eb7c3c3ab83b013c0a177f4ffaf9c0a05c41f64cb5e8d"
   end
 
   depends_on "python@3.10"
