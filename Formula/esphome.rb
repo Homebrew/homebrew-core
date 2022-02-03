@@ -7,6 +7,15 @@ class Esphome < Formula
   sha256 "3ce8e499d9d5d8ec4c290f494ef004eb147783e1e700d0a3225e6a68540d5402"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "b1f0a3b5e1b6824c07edfa57ab1a8535e141f568f261ce705a1653838015d265"
+    sha256 cellar: :any,                 arm64_big_sur:  "8356b09017c0c54b41535897b1847b566254ba18b3a04163dfe094824e9f7623"
+    sha256 cellar: :any,                 monterey:       "ad23a1d2f9212a3ae0f197d30b044f714787d7399cafa16b37fa698c1f45ea97"
+    sha256 cellar: :any,                 big_sur:        "6a2702ccb9d7e78065fc57051e2ee5f7f8f9ab17d79570c6e1179a32db430813"
+    sha256 cellar: :any,                 catalina:       "5b33379de0ee7daebe927e0404c65430ff554ffda3a6715d4f4e1adef90ed532"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68245a5dbc79c4d28d0a5113979dde512c9f5283f273580e2da920b55c7d868c"
+  end
+
   depends_on "rust" => :build # for cryptography
   depends_on "protobuf"
   depends_on "python-tabulate"
