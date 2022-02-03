@@ -8,6 +8,15 @@ class LinodeCli < Formula
   license "BSD-3-Clause"
   head "https://github.com/linode/linode-cli.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2eca8b3b309fa866ad6267f5cdbf2db9da14ec29fb47a01043788b375b846ce"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "edf527935eb8c9a3c1867f9844a87abc522c6cd85a5aebf137730bba98624556"
+    sha256 cellar: :any_skip_relocation, monterey:       "54906c81d040bd613884c98d93fabc9b6ab243c9791c0da4e6ab335507c40ddd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "021cfe16a9701f04ace4ba4f2bac181fc5a52e296ff265c475ce583777d68258"
+    sha256 cellar: :any_skip_relocation, catalina:       "a373410efbb04cd4249dfc91c421a19e6e93157de1deded115f6987ac8036370"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "811bd0c77eef4af438628d1f107505d65a8f10cd07d44d6e50c3449431f733de"
+  end
+
   depends_on "poetry" => :build # for terminaltables
   depends_on "openssl@1.1"
   depends_on "python@3.10"
