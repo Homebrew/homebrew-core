@@ -3,8 +3,8 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   # The build system uses git to recover version information
   url "https://github.com/EttusResearch/uhd.git",
-      tag:      "v4.1.0.4",
-      revision: "25d617cad7db69fa04699df5f93ece06b0a61199"
+      tag:      "v4.1.0.5",
+      revision: "6bd0be9cda5db97081e4f3ee3127c45eed21239c"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
@@ -30,8 +30,8 @@ class Uhd < Formula
   depends_on "python@3.9"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/d1/42/ff293411e980debfc647be9306d89840c8b82ea24571b014f1a35b2ad80f/Mako-1.1.5.tar.gz"
-    sha256 "169fa52af22a91900d852e937400e79f535496191c63712e3b9fda5a9bed6fc3"
+    url "https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz"
+    sha256 "4e9e345a41924a954251b95b4b28e14a301145b544901332e658907a7464b6b2"
   end
 
   def install
