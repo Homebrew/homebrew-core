@@ -7,7 +7,7 @@ class Jena < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c60bec09fe651ecd7724210baab86dc9adcf6484d2da982fd51f415286773a20"
+    sha256 cellar: :any_skip_relocation, all: "8f2de42e58c625bdf7be71a9bd0a9e3557e70f69c47202f979748fa0504b5289"
   end
 
   depends_on "openjdk"
