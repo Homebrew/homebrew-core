@@ -7,13 +7,12 @@ class Nave < Formula
   head "https://github.com/isaacs/nave.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6ff38b0db8f9d8329ea20a685e09ddc7f8f5c3132e046d9c64076e6025b9dc9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e7f74d74b71447c296c6b5873047496a1988e4c7c20fef6af032f7621a15528"
-    sha256 cellar: :any_skip_relocation, monterey:       "110df5e0a85c6489ef4c23c7d9e3d59a2e39c809a967d9f735949116c7cde0f4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6358f668346849c8058739a2bb84757647e2b3612be49446ee849cdd76e102eb"
-    sha256 cellar: :any_skip_relocation, catalina:       "6358f668346849c8058739a2bb84757647e2b3612be49446ee849cdd76e102eb"
-    sha256 cellar: :any_skip_relocation, mojave:         "6358f668346849c8058739a2bb84757647e2b3612be49446ee849cdd76e102eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e7f74d74b71447c296c6b5873047496a1988e4c7c20fef6af032f7621a15528"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3713cbd8e1945c7af7a5582c0e85ad1f4ca03dc4820d48472921c20f03ee16b7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3713cbd8e1945c7af7a5582c0e85ad1f4ca03dc4820d48472921c20f03ee16b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "617b3d4825d3fa11020eb73f5bdcd4ee5b2844b5bab084ef7ed821c588a32fac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "617b3d4825d3fa11020eb73f5bdcd4ee5b2844b5bab084ef7ed821c588a32fac"
+    sha256 cellar: :any_skip_relocation, catalina:       "617b3d4825d3fa11020eb73f5bdcd4ee5b2844b5bab084ef7ed821c588a32fac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3713cbd8e1945c7af7a5582c0e85ad1f4ca03dc4820d48472921c20f03ee16b7"
   end
 
   def install
