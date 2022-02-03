@@ -11,13 +11,12 @@ class Ffms2 < Formula
   head "https://github.com/FFMS/ffms2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "320b01b2ff9f7e02f2c9084ff3f5eecfa82ac965be08bb772ab93389e734db87"
-    sha256 cellar: :any,                 arm64_big_sur:  "221a3acdb567fd7414a8c8c7a452a878a941962c9c88fb238e6242ae5d7fc1b3"
-    sha256 cellar: :any,                 monterey:       "ccab0f325a1aba510fb1f1ae8078243126d43344c1cac035aaf9d1b2829708f6"
-    sha256 cellar: :any,                 big_sur:        "d3933ecde477f9ad7156ab174af028a409cf1a9e9def84f775036704a413101e"
-    sha256 cellar: :any,                 catalina:       "978c5addaa61cde403d5f5cf51448d6b9512e68c08570385b3ef645e39813d8b"
-    sha256 cellar: :any,                 mojave:         "4c9b2aa7932969e43df33c69c559df7bbc3212011e94a073cfb3024e334f7fee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86d18d8d718e46acabd4fa3a305667cdae70d9e82bc2905d2857f06c600ae049"
+    sha256 cellar: :any,                 arm64_monterey: "f1a45dd4f0f5e982e77b21dd054188c6d21cc92c4ff4b74aad393018066b7961"
+    sha256 cellar: :any,                 arm64_big_sur:  "4a15ca2c400590fec38ceae34130e55068b921b361e8bddb78515e698dbe1f8e"
+    sha256 cellar: :any,                 monterey:       "d347d4e6c60e31b9c34011ce612292163516a9e2ee2d6a7ae6a33202aef8b3f7"
+    sha256 cellar: :any,                 big_sur:        "7068a2792f96145b9d506969e6c8be67860a3761dd85626ea1ea4d2b2fbe952d"
+    sha256 cellar: :any,                 catalina:       "b6b9aec2667d3563abe27f82fceab498df32315040caccd22efe365c4d1da205"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62658f1852d235f4ce47d3911687a9319717e6e34efe8dd4c7bedc98c798a18c"
   end
 
   depends_on "autoconf" => :build
