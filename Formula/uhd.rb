@@ -3,8 +3,8 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   # The build system uses git to recover version information
   url "https://github.com/EttusResearch/uhd.git",
-      tag:      "v4.1.0.4",
-      revision: "25d617cad7db69fa04699df5f93ece06b0a61199"
+      tag:      "v4.1.0.5",
+      revision: "6bd0be9cda5db97081e4f3ee3127c45eed21239c"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
