@@ -24,12 +24,14 @@ class Jd < Formula
   test do
     (testpath/"a.json").write('{"foo":"bar"}')
     (testpath/"b.json").write('{"foo":"baz"}')
+    (testpath/"c.json").write('{"foo":"baz"}')
     expected = <<~EOF
       @ ["foo"]
       - "bar"
       + "baz"
     EOF
-    output = shell_output("#{bin}/jd a.json b.json")
+    output = shell_output("#{bin}/jd a.json b.json", 1)
     assert_equal output, expected
+    assert_empty shell_output("#{bin}/jd b.json c.json")
   end
 end
