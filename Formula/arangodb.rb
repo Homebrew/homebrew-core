@@ -1,14 +1,14 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.8.5.tar.bz2"
-  sha256 "445c1406ed5f2afd83611c96bc9ca6b02b8fc0d30fc408cfac7e68fb853200ab"
+  url "https://download.arangodb.com/Source/ArangoDB-3.8.5-1.tar.bz2"
+  sha256 "3c953644f0e5c86bcfe40407c1bb8fcb4b60b75463e109b7085d82be36efc3c0"
   license "Apache-2.0"
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
   livecheck do
     url "https://www.arangodb.com/download-major/source/"
-    regex(/href=.*?ArangoDB[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?ArangoDB[._-]v?(\d+(?:\.\d+)+)(-\d+)?\.t/i)
   end
 
   bottle do
@@ -22,6 +22,12 @@ class Arangodb < Formula
   depends_on "python@3.9" => :build
   depends_on macos: :mojave
   depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   # the ArangoStarter is in a separate github repository;
   # it is used to easily start single server and clusters
