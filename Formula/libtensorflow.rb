@@ -14,7 +14,7 @@ class Libtensorflow < Formula
   depends_on "numpy" => :build
   depends_on "python@3.9" => :build
 
-  resource "test-model" do
+  resource "homebrew-test-model" do
     url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
     sha256 "147fab50ddc945972818516418942157de5e7053d4b67e7fca0b0ada16733ecb"
   end
@@ -88,7 +88,7 @@ class Libtensorflow < Formula
     system ENV.cc, "-L#{lib}", "-ltensorflow", "-o", "test_tf", "test.c"
     assert_equal version, shell_output("./test_tf")
 
-    resource("test-model").stage(testpath)
+    resource("homebrew-test-model").stage(testpath)
 
     summarize_graph_output = shell_output("#{bin}/summarize_graph --in_graph=#{testpath}/graph.pb 2>&1")
     variables_match = /Found \d+ variables:.+$/.match(summarize_graph_output)
