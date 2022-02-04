@@ -1,9 +1,9 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://downloads.apache.org/trafficserver/trafficserver-9.1.0.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-9.1.0.tar.bz2"
-  sha256 "f1cb90bcf4afaba8ad1395c4d5a824b9909a5cac3abda74788540fdb48d8df21"
+  url "https://downloads.apache.org/trafficserver/trafficserver-9.1.1.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-9.1.1.tar.bz2"
+  sha256 "90cfa975858d50bc1995bee195f13ff45497773c2f90363332516fd3fdafd7e8"
   license "Apache-2.0"
 
   bottle do
@@ -40,10 +40,11 @@ class Trafficserver < Formula
       --prefix=#{prefix}
       --mandir=#{man}
       --localstatedir=#{var}
-      --sysconfdir=#{etc}/trafficserver
+      --sysconfdir=#{pkgetc}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-yaml-cpp=#{Formula["yaml-cpp"].opt_prefix}
       --with-group=admin
+      --disable-tests
       --disable-silent-rules
       --enable-experimental-plugins
     ]
@@ -58,6 +59,7 @@ class Trafficserver < Formula
       "Makefile.PL INSTALLDIRS=$(INSTALLDIRS)",
       "Makefile.PL INSTALLDIRS=$(INSTALLDIRS) INSTALLSITEMAN3DIR=#{man3}"
 
+    ENV.append "LDFLAGS", "-Wl,-undefined,dynamic_lookup" if OS.mac?
     system "make" if build.head?
     system "make", "install"
   end
