@@ -6,12 +6,12 @@ class TRec < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c052439df721dd53c46d20f21aa41020dbb888fa055011a8062d9fc3d5a2c87"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "603799fd2e15d6648aca52bafe05acb6080b9393c7d08cb3150d51925ae1c642"
-    sha256 cellar: :any_skip_relocation, monterey:       "d4f6bd99d824977f78c75abb6656f2308f4d499535e631ef64467eb2bd52281c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8a5defb7fca8e7ab14917db19fbc399c80dc76324de615ff54ab9aacd4c535af"
-    sha256 cellar: :any_skip_relocation, catalina:       "92ac6a8a7fc95f138bb0df69dd44c384f79e7fec2a31d4e39e063dab5f41b17b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84fa4ceb8d13057499aa2d51b654b6ea5e4a5dbaff0aacf34193a222ca4d2b10"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cfff7da1f56eaca62aaa2e27dd35e71e66553ae2d7c41caa0ca0150da6216bf2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31d4d0be86295ff08fce1d2c8235271a2706767eb152cf677de594c745f946a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "f21631da76eef32d3bc8f9831344d73aca25fae2f915cf78aa1a4759cc35f46d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "45dbc89105d598e67e1e9f55779a5f98244e651d05c0d36d761ff653befb9210"
+    sha256 cellar: :any_skip_relocation, catalina:       "96a217c4649c7ff1316c6704785d88a6db45378b3534bc09e3caa04c904d3b70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a36310fb1f5d6dbe42448dbf822810e23d1838967ac2f94bed719401b0cc4082"
   end
 
   depends_on "rust" => :build
