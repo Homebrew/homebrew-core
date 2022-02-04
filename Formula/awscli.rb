@@ -9,12 +9,12 @@ class Awscli < Formula
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "488408a9f74c266b39c26ef733a77a0c1c390119774e2e88e88c56104780de1b"
-    sha256 cellar: :any,                 arm64_big_sur:  "a85af6d79afc944e362b83e5e1ffc6a4de85329446f680a8043128eda749da49"
-    sha256 cellar: :any,                 monterey:       "476037108e064d32aca245b27c91eb23c8af45a8414be5bbc475523c75e8ab8e"
-    sha256 cellar: :any,                 big_sur:        "4e30ae79e6d75cc2dd6c46d55d66ea3910ac2f94b0abeba82ab5e0000f138651"
-    sha256 cellar: :any,                 catalina:       "f0fe88e60a1b747f03d2a453f991c872d19e91dcbcd649f91c0893fd3243e263"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ef497cc49a3ed39a5eb29969e994dc77da7903bd4b46e1d1798d2077d0f0679"
+    sha256 cellar: :any,                 arm64_monterey: "a01facecbe1096b0aa6478c99b93ecd57e03d6f4de4ed7ac9748366af010a09f"
+    sha256 cellar: :any,                 arm64_big_sur:  "a37594d769e4a9d1bef8ab5b61a802a475c64f17b434e1cb1a74ddd27e316549"
+    sha256 cellar: :any,                 monterey:       "ccfdfcc56ba657fa501737465a112ec2c611be23fe0b1ea40f726674eef4d750"
+    sha256 cellar: :any,                 big_sur:        "053fd0eb37931e6105f1b177fbe2a7e5b342df74e92f0810f10c2a851c8877e9"
+    sha256 cellar: :any,                 catalina:       "01381e41a464059712b3ce5b0a6caa1f4a1a966cba38e63fc0c5876f46866a78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6629e2bad223cbed622effdf2982e6de58562fdcad69b75c36e3a7b58a37437a"
   end
 
   depends_on "cmake" => :build
