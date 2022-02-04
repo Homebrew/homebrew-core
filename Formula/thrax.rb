@@ -3,10 +3,9 @@ class Thrax < Formula
 
   desc "Tools for compiling grammars into finite state transducers"
   homepage "https://www.openfst.org/twiki/bin/view/GRM/Thrax"
-  url "https://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.6.tar.gz"
-  sha256 "5f00a2047674753cba6783b010ab273366dd3dffc160bdb356f7236059a793ba"
+  url "https://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.8.tar.gz"
+  sha256 "e21c449798854f7270bb5ac723f6a8d292e149fc6bbe24fd9f345c85aabc7cd4"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url "https://www.openfst.org/twiki/bin/view/GRM/ThraxDownload"
@@ -22,6 +21,12 @@ class Thrax < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d0e00d373787505de5368a5004a5dd99e71c033628acb12d8872a9ba97a0eae"
   end
 
+  # Regenerate `configure` to avoid `-flat_namespace` bug.
+  # None of our usual patches apply.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   depends_on "openfst"
 
   on_linux do
@@ -31,13 +36,8 @@ class Thrax < Formula
 
   fails_with gcc: "5"
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
     rewrite_shebang detected_python_shebang, bin/"thraxmakedep" if OS.linux?
