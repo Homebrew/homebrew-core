@@ -4,6 +4,7 @@ class Sdl2Ttf < Formula
   url "https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.0.18/SDL2_ttf-2.0.18.tar.gz"
   sha256 "7234eb8883514e019e7747c703e4a774575b18d435c22a4a29d068cb768a2251"
   license "Zlib"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "01abc453be483984acdcc80e8e9d3f1ce880a6b06344e8c96295e29935148458"
@@ -24,6 +25,7 @@ class Sdl2Ttf < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
+  depends_on "harfbuzz"
   depends_on "sdl2"
 
   def install
@@ -31,8 +33,12 @@ class Sdl2Ttf < Formula
 
     system "./autogen.sh" if build.head?
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # `--enable-harfbuzz` is the default, but we pass it
+    # explicitly to generate an error when it isn't found.
+    system "./configure", "--disable-freetype-builtin",
+                          "--disable-harfbuzz-builtin",
+                          "--enable-harfbuzz",
+                          *std_configure_args
     system "make", "install"
   end
 
