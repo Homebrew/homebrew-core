@@ -22,8 +22,6 @@ class Numpy < Formula
 
   fails_with gcc: "5"
 
-  # numpy requires setuptools < 60.0
-  # https://github.com/numpy/numpy/issues/20824
   def install
     openblas = Formula["openblas"].opt_prefix
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
