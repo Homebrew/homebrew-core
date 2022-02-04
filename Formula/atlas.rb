@@ -4,6 +4,7 @@ class Atlas < Formula
   url "https://github.com/ariga/atlas/archive/v0.3.3.tar.gz"
   sha256 "62ceb2609c6a4ffc11e79e7497ec45e48bd9785b1dd986e1220bc3ad54d96c4e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ariga/atlas.git", branch: "master"
 
   bottle do
@@ -23,6 +24,15 @@ class Atlas < Formula
       -X ariga.io/atlas/cmd/action.version=v#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/atlas"
+
+    bash_output = Utils.safe_popen_read(bin/"atlas", "completion", "bash")
+    (bash_completion/"atlas").write bash_output
+
+    zsh_output = Utils.safe_popen_read(bin/"atlas", "completion", "zsh")
+    (zsh_completion/"_atlas").write zsh_output
+
+    fish_output = Utils.safe_popen_read(bin/"atlas", "completion", "fish")
+    (fish_completion/"atlas.fish").write fish_output
   end
 
   test do
