@@ -7,12 +7,11 @@ class Pioneer < Formula
   head "https://github.com/pioneerspacesim/pioneer.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "cf660f08f7b18489c4a7fc5e5ff0f800f846886b48a0dcd78f6d7b3e6216a47a"
-    sha256 arm64_big_sur:  "f81b47bad4f1c6cef0655b91da3c805735c75c3111495eba83bda3bc917ce3bb"
-    sha256 monterey:       "dbb827cc837f5a275df362739ff2c2131050507f73c8026db06720fa4ea0d9d1"
-    sha256 big_sur:        "dedb56a9bf9ed68885724b45c5ff371247d9e42acbf1376bdf283e1b2bb2f301"
-    sha256 catalina:       "caf101b903a64522ee78327951b73b76499a110a9a32cea3ca1de699ff1e2574"
-    sha256 mojave:         "713fe514265cdbb7ed9f4c21fea203ba479aea835c75ac34be191f901c06eb12"
+    sha256 arm64_monterey: "5577df2b19b517a48ee396f4845017b72ea189d5df6438f8386c81a1f4e33432"
+    sha256 arm64_big_sur:  "706079cb77f9fe77b3e93898d898891b7469b9a7e27cb69122d251c0b947df42"
+    sha256 monterey:       "b73fcfc1fe6b1c8976ed07b8ac0e82a390d972854483b2503437c04653a3dc95"
+    sha256 big_sur:        "f725756669261a1fee10c39fec3a79bdbe4a4aaed5bbcb4680d2cf3de86241ef"
+    sha256 catalina:       "45938119b01299002a7152f09472dc89afeba39473af90eb03b155c6b6b469f3"
   end
 
   depends_on "cmake" => :build
