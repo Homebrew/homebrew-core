@@ -8,12 +8,12 @@ class WebtorrentCli < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_monterey: "d0265f744d3d88141991939ce76ce844b71b82aa9002d31444a97ecf948e5259"
-    sha256                               arm64_big_sur:  "c15e1dcb96e69c143c75671f100ee2b566756b8a7f7519bd84a4753246a303c5"
-    sha256                               monterey:       "a0b5174808ff98cd8a1d68157deb2b9e90266a2e9a40bb0373a069dcd55b565c"
-    sha256                               big_sur:        "445c94adfe4eac86ff02b6488c158f40651dfcbac81c5169b7be94d9e117eaaa"
-    sha256                               catalina:       "34704644f1ed6f548cc021b701b72d4365d1bdbe8f5ff935a9f3f084d26e685b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ca2fffcf58c185f4cf6e3adffe679743cc32b8b0a4d040f374f158d1a41a648"
+    sha256                               arm64_monterey: "527a416531ee2a2b2c5df2a15d2983df7546059c73de4142bdc00744d3fe6b82"
+    sha256                               arm64_big_sur:  "798c810d0489bd8d6664ec648c97d07407c5647bc1cbf7bd36de2804bf4b1154"
+    sha256                               monterey:       "84bf71b3a59f9073f40ba6b4cd8d172d5039303922f8d9ee0d25241f4121c90a"
+    sha256                               big_sur:        "3b266de81074ecaed9edda04a70a02731e3b8db3428a5b8de5f6e58fcd6f757a"
+    sha256                               catalina:       "79a0dba49fdc352a4aca1641dc658140ca2eab2ae7fe41df7f10ecc25b4a3d5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5735224576fb1a2f80b3c37d92795f52faa75e19a1f31bc380fa06e63ac7012"
   end
 
   depends_on "node"
