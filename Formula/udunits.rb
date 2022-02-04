@@ -1,12 +1,12 @@
 class Udunits < Formula
   desc "Unidata unit conversion library"
   homepage "https://www.unidata.ucar.edu/software/udunits/"
-  url "https://artifacts.unidata.ucar.edu/repository/downloads-udunits/udunits-2.2.28.tar.gz"
+  url "https://artifacts.unidata.ucar.edu/repository/downloads-udunits/2.2.28/udunits-2.2.28.tar.gz"
   sha256 "590baec83161a3fd62c00efa66f6113cec8a7c461e3f61a5182167e0cc5d579e"
 
   livecheck do
-    url "https://artifacts.unidata.ucar.edu/service/rest/repository/browse/downloads-udunits/"
-    regex(%r{href=.*?/udunits[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    url "https://artifacts.unidata.ucar.edu/service/rest/repository/browse/downloads-udunits/current/"
+    regex(/href=.*?udunits[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
