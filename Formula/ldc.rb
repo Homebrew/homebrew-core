@@ -4,6 +4,7 @@ class Ldc < Formula
   url "https://github.com/ldc-developers/ldc/releases/download/v1.28.1/ldc-1.28.1-src.tar.gz"
   sha256 "654958bca5378cd97819f2ef61d3f220aa652a9d2b5ff41d6f2109302ae6eb94"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
   livecheck do
@@ -23,20 +24,11 @@ class Ldc < Formula
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkg-config" => :build
+  depends_on "llvm@12"
 
   uses_from_macos "libxml2" => :build
   # CompilerSelectionError: ldc cannot be built with any available compilers.
   uses_from_macos "llvm" => [:build, :test]
-
-  on_macos do
-    depends_on "llvm"
-  end
-
-  on_linux do
-    # When built with LLVM, errors with:
-    # undefined reference to `std::__throw_bad_array_new_length()'
-    depends_on "llvm@12"
-  end
 
   fails_with :gcc
 
