@@ -3,6 +3,7 @@ class Cppp < Formula
   homepage "https://www.muppetlabs.com/~breadbox/software/cppp.html"
   url "https://www.muppetlabs.com/~breadbox/pub/software/cppp-2.7.tar.gz"
   sha256 "15b3283f1f98d730840c1973d2109d9edbeba43736d5b9c32c34b559c4d10ac3"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
