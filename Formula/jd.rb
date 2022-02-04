@@ -1,8 +1,8 @@
 class Jd < Formula
   desc "JSON diff and patch"
   homepage "https://github.com/josephburnett/jd"
-  url "https://github.com/josephburnett/jd/archive/v1.4.0.tar.gz"
-  sha256 "9b1547b3c34652c61944a59e1449b8f819f196b86808c006e85ae8816d6c4d06"
+  url "https://github.com/josephburnett/jd/archive/v1.5.1.tar.gz"
+  sha256 "6cc716026d366b4a3b235cf7142a29a0234459a4c845c01c6e94a13e02efc7d3"
   license "MIT"
 
   bottle do
@@ -24,12 +24,14 @@ class Jd < Formula
   test do
     (testpath/"a.json").write('{"foo":"bar"}')
     (testpath/"b.json").write('{"foo":"baz"}')
+    (testpath/"c.json").write('{"foo":"baz"}')
     expected = <<~EOF
       @ ["foo"]
       - "bar"
       + "baz"
     EOF
-    output = shell_output("#{bin}/jd a.json b.json")
+    output = shell_output("#{bin}/jd a.json b.json", 1)
     assert_equal output, expected
+    assert_empty shell_output("#{bin}/jd b.json c.json")
   end
 end
