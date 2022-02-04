@@ -1,8 +1,8 @@
 class Obfs4proxy < Formula
   desc "Pluggable transport proxy for Tor, implementing obfs4"
   homepage "https://gitlab.com/yawning/obfs4"
-  url "https://gitlab.com/yawning/obfs4/-/archive/obfs4proxy-0.0.12/obfs4-obfs4proxy-0.0.12.tar.gz"
-  sha256 "aac3d4c4ba30dd2d2ec7d9356b384ae87f688a0c3188020e7d54047228c6020e"
+  url "https://gitlab.com/yawning/obfs4/-/archive/obfs4proxy-0.0.13/obfs4-obfs4proxy-0.0.13.tar.gz"
+  sha256 "ddd9291cb7c41326f076f622118816f09148e1aac79ec440d46436e802918e84"
   license "BSD-2-Clause"
 
   livecheck do
