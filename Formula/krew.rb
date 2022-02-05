@@ -8,13 +8,12 @@ class Krew < Formula
   head "https://github.com/kubernetes-sigs/krew.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "01c440b830f40fd4f1aaec78a00f8ab2ab1602bba6dc1be7a367d44bd6941edf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9bd45bf4ce538f251c393ba6279d18c7599866abb46e556fb9fa26e2e7473249"
-    sha256 cellar: :any_skip_relocation, monterey:       "532c892b298dcb35aec75424e3f102f4223b4c068c9999e67775ecb6515a6b96"
-    sha256 cellar: :any_skip_relocation, big_sur:        "17c8fd8f71c8a92ede7c9f9d56382b1c6ffc962d4a7f6e9719e7e9a9d9f1755a"
-    sha256 cellar: :any_skip_relocation, catalina:       "3405b2bbbedd29dad0cec63a9a74d959ff9f8ef1ee1ce8c9d540156a225492ed"
-    sha256 cellar: :any_skip_relocation, mojave:         "500cfe13d69c132e42b689b2c575317dbdb1d4d1364d0edaeb53a3db07ebf055"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "542f5e62f150e93e2dcc5fc91493301ad8c96f2e014735b90b47f500a0a68c3a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "93179328dd5beac3e977ab799d596925d927efa4420a6cb0950970386e4e8146"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b9585376236e8f86e158864ff610edeca3eb83ad5566fa4a2a09f3fc35d6fe88"
+    sha256 cellar: :any_skip_relocation, monterey:       "d814754adf0a451c529a745b5ddc6587c0057d8050294610f396f97271e23e42"
+    sha256 cellar: :any_skip_relocation, big_sur:        "286bae73781b3ced48cb18133afc6c3224dd15fef262dee1e17a53a8bed2dd6f"
+    sha256 cellar: :any_skip_relocation, catalina:       "9c95c5f27125a2edcd294310c83d01c5ecbe0e1bb456fa3cc57ba6a632987278"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dbbeefb32e6340c061091a744b4d5e4c7573e96a3512b27064349f286a1976e"
   end
 
   depends_on "go" => :build
