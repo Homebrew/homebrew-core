@@ -2,8 +2,8 @@ class Krew < Formula
   desc "Package manager for kubectl plugins"
   homepage "https://sigs.k8s.io/krew/"
   url "https://github.com/kubernetes-sigs/krew.git",
-      tag:      "v0.4.2",
-      revision: "6fcdb794c532d3f2849bb4a8a942a19c09ef3002"
+      tag:      "v0.4.3",
+      revision: "dbfefa58e3087bdd8eb1985a28f7caa7427c4e4d"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/krew.git", branch: "master"
 
