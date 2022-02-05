@@ -49,15 +49,11 @@ class Vgmstream < Formula
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
-    ENV["LIBRARY_PATH"] = "#{HOMEBREW_PREFIX}/lib"
-    Dir.mkdir("build")
-    Dir.chdir("build") do
-      system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", ".."
-      system "make"
-      bin.install "cli/vgmstream-cli"
-      bin.install "cli/vgmstream123"
-      lib.install "src/libvgmstream.a"
-    end
+    ENV["LIBRARY_PATH"] = HOMEBREW_PREFIX/"lib"
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_AUDACIOUS:BOOL=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    bin.install "build/cli/vgmstream-cli", "build/cli/vgmstream123"
+    lib.install "build/src/libvgmstream.a"
   end
 
   test do
