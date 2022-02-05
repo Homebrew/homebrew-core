@@ -1,9 +1,10 @@
 class Libgetdata < Formula
   desc "Reference implementation of the Dirfile Standards"
   homepage "https://getdata.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/getdata/getdata/0.10.0/getdata-0.10.0.tar.xz"
-  sha256 "d547a022f435b9262dcf06dc37ebd41232e2229ded81ef4d4f5b3dbfc558aba3"
-  revision 1
+  # TODO: Check if extra `make` call can be removed at version bump.
+  url "https://downloads.sourceforge.net/project/getdata/getdata/0.11.0/getdata-0.11.0.tar.xz"
+  sha256 "d16feae0907090047f5cc60ae0fb3500490e4d1889ae586e76b2d3a2e1c1b273"
+  license "LGPL-2.1-or-later"
 
   bottle do
     rebuild 3
@@ -20,6 +21,12 @@ class Libgetdata < Formula
   uses_from_macos "perl"
   uses_from_macos "zlib"
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
@@ -30,7 +37,13 @@ class Libgetdata < Formula
                           "--disable-python",
                           "--without-liblzma",
                           "--without-libzzip"
+
+    ENV.deparallelize # can't open file: .libs/libgetdatabzip2-0.11.0.so (No such file or directory)
     system "make"
+    # The Makefile seems to try to install things in the wrong order.
+    # Remove this when the following PR is merged/resolved and lands in a release:
+    # https://github.com/ketiltrout/getdata/pull/6
+    system "make", "-C", "bindings/perl", "install-nodist_perlautogetdataSCRIPTS"
     system "make", "install"
   end
 
