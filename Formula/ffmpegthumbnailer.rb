@@ -3,7 +3,7 @@ class Ffmpegthumbnailer < Formula
   homepage "https://github.com/dirkvdb/ffmpegthumbnailer"
   url "https://github.com/dirkvdb/ffmpegthumbnailer/archive/2.2.2.tar.gz"
   sha256 "8c4c42ab68144a9e2349710d42c0248407a87e7dc0ba4366891905322b331f92"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 7
   head "https://github.com/dirkvdb/ffmpegthumbnailer.git", branch: "master"
 
@@ -42,7 +42,7 @@ class Ffmpegthumbnailer < Formula
   end
 
   test do
-    f = Formula["ffmpeg"].opt_bin/"ffmpeg"
+    f = Formula["ffmpeg@4"].opt_bin/"ffmpeg"
     png = test_fixtures("test.png")
     system f.to_s, "-loop", "1", "-i", png.to_s, "-c:v", "libx264", "-t", "30",
                    "-pix_fmt", "yuv420p", "v.mp4"
