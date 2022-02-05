@@ -11,12 +11,12 @@ class Ghz < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff8a6d79afa5694cefcd9cc3c3f72c33071c8ccc76eed447d27038f446b42e55"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e38b1235a1ebab376be277382c02546cacfe1f9e0a08a8365988b1682b22cc4"
-    sha256 cellar: :any_skip_relocation, monterey:       "d9152852174612aff8590723914e3b49024b84b7090c982b5b269ee314559761"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ce1a72d4502cee7ea20f115e20a641c8e743f4a3337c3c2d2fd4c55264e14f1b"
-    sha256 cellar: :any_skip_relocation, catalina:       "b4ab069a8b10fd6de21f42709ef0f02f438522ae8fe688878b4b1f65938c2424"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a451bcc71c45978cd6cd84ce54557a081b1025af4a5a873486d694a38b4902a9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "68ca4bf9ef63f4127c5df453aa2ca4162f677d37861a58f4008530428a45b259"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1884add4c30123a37bf0e50e44e06992ea68f1cb8cb397de08a0cbd6f8e7a51"
+    sha256 cellar: :any_skip_relocation, monterey:       "b8f539f04e0ca3b4c12191daf6a609f9bfef19d7bf6b218944ea20c94557a425"
+    sha256 cellar: :any_skip_relocation, big_sur:        "639f607d5f37be5394191898727e381f9c8697b48c3310ca3698d06045dc125d"
+    sha256 cellar: :any_skip_relocation, catalina:       "c827cf5bdc7c977318dfc2a595464c4c93358c23cae6b39b526cbac0239003c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4538393aa9ffd8076136aa31a29c181f12d67cc75e2b163ee2f07ed2f6d5fd09"
   end
 
   depends_on "go" => :build
