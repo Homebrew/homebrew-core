@@ -644,7 +644,6 @@ env:
     solr
     solr@7.7
     sonarqube
-    sonarqube-lts
     sonobuoy
     sponge
     spotbugs
