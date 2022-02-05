@@ -12,7 +12,7 @@ class Vcpkg < Formula
   livecheck do
     url :stable
     strategy :github_latest
-    regex(/href=.*?\/tag\/v?(\d{4}(?:[._-]\d{2}){2})["' >]/i)
+    regex(%r{href=.*?/tag/v?(\d{4}(?:[._-]\d{2}){2})["' >]}i)
   end
 
   bottle do
@@ -35,9 +35,9 @@ class Vcpkg < Formula
   fails_with gcc: "5"
 
   def install
-    system "cmake", "-S", ".","-B", "build",
+    system "cmake", "-S", ".", "-B", "build",
                     "-DVCPKG_DEVELOPMENT_WARNINGS=OFF",
-                    "-DVCPKG_BASE_VERSION=#{version.to_s.gsub(".", "-")}",
+                    "-DVCPKG_BASE_VERSION=#{version.to_s.tr(".", "-")}",
                     "-DVCPKG_VERSION=#{version}",
                     "-DVCPKG_DEPENDENCY_EXTERNAL_FMT=ON",
                     *std_cmake_args
