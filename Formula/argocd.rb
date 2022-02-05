@@ -2,8 +2,8 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.github.io/cd"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v2.2.4",
-      revision: "78d749ec88bea5a5e851fc48b9404fdf067192b6"
+      tag:      "v2.2.5",
+      revision: "8f981ccfcf942a9eb00bc466649f8499ba0455f5"
   license "Apache-2.0"
 
   bottle do
