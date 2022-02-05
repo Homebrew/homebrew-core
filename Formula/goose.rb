@@ -6,12 +6,12 @@ class Goose < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2353e68eb4fc9f222d965dbfc185aabb95818469e5db272d83d21967fb8a769e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "efad649f90cfd0fffd84efad450d8b4371e0ae7d548e0b937808e32cca78a661"
-    sha256 cellar: :any_skip_relocation, monterey:       "69940db8db2d226e8271209f4badc5102185934e4b766c497201a1654c43ad78"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bb529a3d15360967f4831073cb4c06bdfd3c76f622e3e79415464951cd361c0a"
-    sha256 cellar: :any_skip_relocation, catalina:       "bd85664ce428000e7d56fd3529966f3969bc0571ecc698a3fb74d439151dac0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e444b28ac225ee92121a0319a1378de2f02d7ddc2be33a7dfe92f32032619ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8c8d256f4798ea90d90c2391596b1e0894dede53ac48fa83e8310efe5153683"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3fcc9aad5c035bd9ad73bc1e7dbad0471f11b273c4a81d5f0411806969987817"
+    sha256 cellar: :any_skip_relocation, monterey:       "117fc550382e79ba46fa25cb7271092be4fc8985d54dd62464db34e6e316602f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f28448c63ec85b699975b74a3d1f36ef92bce182553c5fd717666b6a8daa33dc"
+    sha256 cellar: :any_skip_relocation, catalina:       "8bda3d2463277881f286c9d706b6acb3f59fff0d202b256dc395f385f71053b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13e380915742156334659ee1856db44460541d87dc2fa3c81cf9cf3209882d1c"
   end
 
   depends_on "go" => :build
