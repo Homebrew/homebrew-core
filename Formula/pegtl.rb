@@ -6,7 +6,7 @@ class Pegtl < Formula
   license "BSL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7145f6499d938c72f17e974d9c080057d48db4c4d73d6f280848e2bd84209b33"
+    sha256 cellar: :any_skip_relocation, all: "4dc4bafe8b8cfe160fe41341ee919b88afdf891e5a3e187af4f7a8470642fa18"
   end
 
   depends_on "cmake" => :build
