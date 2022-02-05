@@ -20,12 +20,12 @@ class Freetds < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "d203009c2ff863167f80411a02326956ee387cc0f0abf3e930174d9417f415bc"
-    sha256 arm64_big_sur:  "38f5e44c76416ca953a012bdb857fffe7e3b83339910e3bb160ef98c94ac4ae3"
-    sha256 monterey:       "3cb6c6076000df7d31cb2d22f8478b920f68ce588078084a70653f2dea44a3ae"
-    sha256 big_sur:        "7bc90d9628882dc4144a5c10d2fa5919c30b9ac35e44cc1e1c8b36468f641a1f"
-    sha256 catalina:       "44cc5808fdfa2407beca1d96d37ea625e9e5ae3e0fb844b85371102200f0a84c"
-    sha256 x86_64_linux:   "cb8377ac326adef3086c73180905a36b1bad117d025ef58f2cd63763b93a764d"
+    sha256 arm64_monterey: "00fc9202b0f05a0799e1552a07b5aaf3dc646b8663ee0acbf4acf0cad56615fd"
+    sha256 arm64_big_sur:  "dfd7b48b9f9dae1b2738539c4d9243b775d89360faa4d3ae498991ef995e7716"
+    sha256 monterey:       "13aa339e1efa4d6718ddf4d8db862f044869af65ac796b4436e4837cac3d7029"
+    sha256 big_sur:        "8d5a3022198800395d6cb8735f264c14bb367190e41cc1ee1fdd8d5704ed1a27"
+    sha256 catalina:       "328c91d6ded280e017288f277d8e5c9592a93f6d799a600c03f00117dc1e4cac"
+    sha256 x86_64_linux:   "b29593efb4e5428c02634fb157dd7bfc97129dfcf97b9e638179771e03e0ba88"
   end
 
   head do
