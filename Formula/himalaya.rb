@@ -1,9 +1,9 @@
 class Himalaya < Formula
   desc "CLI email client written in Rust"
   homepage "https://github.com/soywod/himalaya"
-  url "https://github.com/soywod/himalaya/archive/v0.5.3.tar.gz"
-  sha256 "743f8ec9ebe382b807ada94680724ca244790a0b117ccd537d131338b8b149b4"
-  license "BSD-3-Clause"
+  url "https://github.com/soywod/himalaya/archive/v0.5.4.tar.gz"
+  sha256 "48d7444789b5775036985a9ce4060005bc0329f90a4c8eb8a7169702fe2210c0"
+  license "BSD-4-Clause"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1ff9a79fbb4900a769192e91b640f86288d1a7f030e705b658872f7e83054920"
