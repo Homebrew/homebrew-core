@@ -7,6 +7,14 @@ class Vcpkg < Formula
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
+  # The source repository has pre-release tags with the same
+  # format as the stable tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(/href=.*?\/tag\/v?(\d{4}(?:[._-]\d{2}){2})["' >]/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8116bce6059d312ab0532fc41b37d7a1e96b3676aab2e36b1d700cdb4b777807"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e58d2e3fbf843883563579ec544828788ca051c9b5bd46edc0e5df71c35b90dc"
