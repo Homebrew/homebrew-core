@@ -1,10 +1,11 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg/archive/2022.02.02.tar.gz"
+  url "https://github.com/microsoft/vcpkg-tool/archive/2022-02-01.tar.gz"
+  version "2022.02.01"
   sha256 "c32c8e98ba705d054dced56003dd7a9b7e367d0908b0b57730be54dc4024abf4"
   license "MIT"
-  head "https://github.com/microsoft/vcpkg.git", branch: "master"
+  head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8116bce6059d312ab0532fc41b37d7a1e96b3676aab2e36b1d700cdb4b777807"
@@ -17,7 +18,7 @@ class Vcpkg < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ninja" => :build
+  depends_on "fmt"
 
   on_linux do
     depends_on "gcc" # for C++17
@@ -25,35 +26,27 @@ class Vcpkg < Formula
 
   fails_with gcc: "5"
 
-  if MacOS.version <= :mojave
-    depends_on "gcc"
-    fails_with :clang do
-      cause "'file_status' is unavailable: introduced in macOS 10.15"
-    end
-  end
-
   def install
-    # fix for conflicting declaration of 'char* ctermid(char*)' on Mojave
-    # https://github.com/microsoft/vcpkg/issues/9029
-    ENV.prepend "CXXFLAGS", "-D_CTERMID_H_" if MacOS.version == :mojave
-
-    args = %w[-useSystemBinaries -disableMetrics]
-    args << "-allowAppleClang" if MacOS.version > :mojave
-    system "./bootstrap-vcpkg.sh", *args
-
-    bin.install "vcpkg"
-    bin.env_script_all_files(libexec/"bin", VCPKG_ROOT: libexec)
-    libexec.install Dir["*.txt", ".vcpkg-root", "{ports,scripts,triplets}"]
+    system "cmake", "-S", ".","-B", "build",
+                    "-DVCPKG_DEVELOPMENT_WARNINGS=OFF",
+                    "-DVCPKG_BASE_VERSION=#{version.to_s.gsub(".", "-")}",
+                    "-DVCPKG_VERSION=#{version}",
+                    "-DVCPKG_DEPENDENCY_EXTERNAL_FMT=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
-  def post_install
-    (var/"vcpkg/installed").mkpath
-    (var/"vcpkg/packages").mkpath
-    ln_s var/"vcpkg/installed", libexec/"installed"
-    ln_s var/"vcpkg/packages", libexec/"packages"
+  # This is specific to the way we install only the `vcpkg` tool.
+  def caveats
+    <<~EOS
+      To use vcpkg:
+        git clone https://github.com/microsoft/vcpkg "$HOME/vcpkg"
+        export VCPKG_ROOT="$HOME/vcpkg"
+    EOS
   end
 
   test do
-    assert_match "sqlite3", shell_output("#{bin}/vcpkg search sqlite")
+    assert_match "Error", shell_output("#{bin}/vcpkg search sqlite", 1)
   end
 end
