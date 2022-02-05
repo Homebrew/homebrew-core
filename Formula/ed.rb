@@ -7,13 +7,12 @@ class Ed < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "37681e29529497522f49d21538e9aa3ac82a36419ca1e54e2ef2a0b87cd2bc3c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c564d371bbcdfbbe568291254d591c12d220b23a502944aa68d3a890d4f73e3"
-    sha256 cellar: :any_skip_relocation, monterey:       "0c7dc67abe4606ed94fa33680fd662e763e1be53320ffb272b7745c1739a5865"
-    sha256 cellar: :any_skip_relocation, big_sur:        "57c700308a2ae32fb9a161f33665e040432a0bce4eafc746ece9c1a515b4097d"
-    sha256 cellar: :any_skip_relocation, catalina:       "7ed89b34fe7b4120255d4a6bd493a924c07c3ad31f3e8099a81ef526dc60b704"
-    sha256 cellar: :any_skip_relocation, mojave:         "2de3bede199b9f95bb617315e8eb8c8e30276dfcda7f17836c9fcc2dc5253580"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecd2f65aa59dc4a5748db7e74fe2e840df872b271c31859e2b5991e586a9b47a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e11a548c78fe21d0e7b4d87e96cd3318df87754e86143d04cc395d62e3d23240"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0a969e4576aacc3385cc0482fca8752e8e07b54fb2696d9b12dfba2a54da346"
+    sha256 cellar: :any_skip_relocation, monterey:       "c83bebea01405eda32c70d694c3195fa86c3f3f2a32ee3923454844fd5f5ff5d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f3c819b566fc68283182dd9c52c7978716df84d665eb10fc46400ddbfeb42d21"
+    sha256 cellar: :any_skip_relocation, catalina:       "672b391318a2780fa8b5d352d4785eb652f268a8d23acb18742b6f9a29792029"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "001caf95484a8f15b673838cb04fe1023ae43484c723accd5f271f072c7b7fef"
   end
 
   keg_only :provided_by_macos
