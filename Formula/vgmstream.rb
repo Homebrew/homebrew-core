@@ -1,14 +1,26 @@
 class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://vgmstream.org"
-  url "https://github.com/vgmstream/vgmstream.git",
-      tag:      "r1667",
-      revision: "6b84f258e4238edd627e24ec8460a7040613d054"
-  version "r1667"
+  version "r1702"
   license "ISC"
-  revision 1
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
+
+  stable do
+    url "https://github.com/vgmstream/vgmstream.git",
+        tag:      "r1702",
+        revision: "a76ac04dcd41f1926a721e626657397bd9656a74"
+
+    # patches for fixing macOS build error, remove them at next release
+    patch do
+      url "https://github.com/vgmstream/vgmstream/commit/04b5a1f098f348c4c438ada85ee86f5a9abce2ff.patch?full_index=1"
+      sha256 "37d5d9567435eda96bf4e51b5abbac1677391e08daf4e50b1d7edc6996772919"
+    end
+    patch do
+      url "https://github.com/vgmstream/vgmstream/commit/f9230158d953dfb0fb14a2a57052a8460a5d43dd.patch?full_index=1"
+      sha256 "10ff07d7c6f48275af235d720f279ef62d444c88cde78f2fecaf065e120d134d"
+    end
+  end
 
   livecheck do
     url :stable
@@ -25,6 +37,8 @@ class Vgmstream < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb21895ea0256c867a24bc300cc5bc254c2e769e4e74a4cb2766ae9f5662fe57"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "ffmpeg"
   depends_on "jansson"
@@ -35,11 +49,15 @@ class Vgmstream < Formula
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
-    system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", *std_cmake_args, "."
-    system "cmake", "--build", ".", "--config", "Release", "--target", "vgmstream_cli", "vgmstream123"
-    bin.install "cli/vgmstream-cli"
-    bin.install "cli/vgmstream123"
-    lib.install "src/libvgmstream.a"
+    ENV["LIBRARY_PATH"] = "#{HOMEBREW_PREFIX}/lib"
+    Dir.mkdir("build")
+    Dir.chdir("build") do
+      system "cmake", "-DBUILD_AUDACIOUS:BOOL=OFF", ".."
+      system "make"
+      bin.install "cli/vgmstream-cli"
+      bin.install "cli/vgmstream123"
+      lib.install "src/libvgmstream.a"
+    end
   end
 
   test do
