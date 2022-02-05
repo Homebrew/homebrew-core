@@ -7,12 +7,12 @@ class Sdl2Ttf < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "01abc453be483984acdcc80e8e9d3f1ce880a6b06344e8c96295e29935148458"
-    sha256 cellar: :any,                 arm64_big_sur:  "c3829e2aff4e9137a1f9dbb72f39aed6b097960c3fd204163ba3bce44f5e0e32"
-    sha256 cellar: :any,                 monterey:       "7672ccbe096152da61a813a2870887fef6076031679616e4ba42888007d88fc3"
-    sha256 cellar: :any,                 big_sur:        "93155231163ee6ebd5d7c36c859341629ce96abfb8d0ca00aa928e3b219128d9"
-    sha256 cellar: :any,                 catalina:       "f0aadd0fa8f1dedc706efac6e361dad6cae614413357e4ab3150a57bd766bb4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf5e495a8ec43101ee5a4387710de8103caf1f24a8c09d52a27d245089de0ec4"
+    sha256 cellar: :any,                 arm64_monterey: "28d5056700c673afc9015cc76ac7db652ed0a916399246e432ba5e2bcb8a09c3"
+    sha256 cellar: :any,                 arm64_big_sur:  "bd4b97e8b2aa48eb25a9d02c974ce4c22677424554609aa1206aa06da83d389c"
+    sha256 cellar: :any,                 monterey:       "5d772f784a63098751c71bb1a353ea329a7e491b7e4a5b99e8d9352248d95228"
+    sha256 cellar: :any,                 big_sur:        "9b718acaa1960181907a0830c383aea817ed12e894d8fe8827214e76c3f06d63"
+    sha256 cellar: :any,                 catalina:       "90eec1f51b053c9c8b58f808b0e185ae08c44ef7aca41449531c4c617b6d297e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dc8925d5cae9a76e69fd9f928d22b7a2fc30801cfeb3964b166b01c0160e4a1"
   end
 
   head do
