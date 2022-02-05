@@ -10,9 +10,12 @@ class Volatility < Formula
   head "https://github.com/volatilityfoundation/volatility3.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any, catalina:    "f41ce1f3f70a5bb1eab7efac3d74ace7dad7bdf581bcb16b7a09d34e27e38d50"
-    sha256 cellar: :any, mojave:      "5bcfa94349a26dc291af274bcf3427851ed2654e36781d05e3774018ee8f7781"
-    sha256 cellar: :any, high_sierra: "0d156b81c472080d117d567167d7a6d294376bab6d3c4751b4ca343a25fefa3d"
+    sha256 cellar: :any,                 arm64_monterey: "47c80bb6fbcd1a28b29c17c0f075dcafdeea21d9712c7287cdb616c27f1b3370"
+    sha256 cellar: :any,                 arm64_big_sur:  "7cc64ebdfab980c2adada359294a740f97fabe625f5bfed0a96446135ed3e95e"
+    sha256 cellar: :any,                 monterey:       "562a1ed474b40be1a3fab6323a83cbaa4bd80083cb99e9af09eeaf8e44908947"
+    sha256 cellar: :any,                 big_sur:        "731dc36bfd7cfff233e6a67ff87cbe5acce1acf738d2183cfca00027f33f4966"
+    sha256 cellar: :any,                 catalina:       "8943a1caa39999c27d69270590ab04663fdb58d9630795cfd6e555fd31a1cee4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "daa60fec3438d911e956b383e08bf230399fcee69a4ef0cdf403111fd9172329"
   end
 
   depends_on "jsonschema"
