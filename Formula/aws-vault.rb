@@ -1,8 +1,8 @@
 class AwsVault < Formula
   desc "Securely store and access AWS credentials in development environments"
   homepage "https://github.com/99designs/aws-vault"
-  url "https://github.com/99designs/aws-vault/archive/v6.4.0.tar.gz"
-  sha256 "28845a2191e9f777d78151308b883fc7db4475a1c1df80ff24d13ced948a8f96"
+  url "https://github.com/99designs/aws-vault/archive/v6.5.0.tar.gz"
+  sha256 "b2127b20a58fd75d92a2af28e77368dd9ab3c576dc73c3d56c3817e496a45515"
   license "MIT"
 
   bottle do
