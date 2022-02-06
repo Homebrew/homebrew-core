@@ -12,12 +12,12 @@ class Dnscontrol < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e871455e6eaff3b4d0d8af3038e06ab090b71e72ec6e590f558f1f73a814564"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f04c89c0bf7437df39331343c04b257211199121e089e3500cd3ceedda1600a"
-    sha256 cellar: :any_skip_relocation, monterey:       "cb05ddcef24c41effa5aaae45a675075508cf6e32572804e335f2792ac953cb3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "67328c03c13a86825399205ebad5765e9a5352c0999f7a213f9ae9087eeb0f1d"
-    sha256 cellar: :any_skip_relocation, catalina:       "a4eadf5c1128a82b20396ed784c02488c570cee8b9ae7e555d2cab76d39638f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1974cd55654f559127a68818af132cd15f36b1f9ed9c365e3d25c3e980049b90"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c32fdb2995aba8c6d9fc1f7d5f11063f530768203907a706da3c52cd407b625"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "755c1dfecb770a586c749cde55a8965ca2a8868f4d65cce81e4444e65c4c5203"
+    sha256 cellar: :any_skip_relocation, monterey:       "1a3d68c80c44e77dc942dfd728a0dd789c69314427a845362671f659c82219ad"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7f1e727e118b8ba9f1df76e92476965fb3cded82de3c3e535722bb1d5bd5f5de"
+    sha256 cellar: :any_skip_relocation, catalina:       "d69fe0ed0a43a192e87749f8ce44272a025769de444462b20dce50a41e9e82d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73ece0c1a74196fb0a7779bbf319e420f77a6120f91bb1c713b48520b243285a"
   end
 
   depends_on "go" => :build
