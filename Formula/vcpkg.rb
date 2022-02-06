@@ -3,7 +3,7 @@ class Vcpkg < Formula
   homepage "https://github.com/microsoft/vcpkg"
   url "https://github.com/microsoft/vcpkg-tool/archive/2022-02-01.tar.gz"
   version "2022.02.01"
-  sha256 "c32c8e98ba705d054dced56003dd7a9b7e367d0908b0b57730be54dc4024abf4"
+  sha256 "cbbefd729f5ba60f3ab0c9db64f271ac931a432781baae333939f4bd57db949c"
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
