@@ -6,12 +6,12 @@ class Libical < Formula
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cdafb3e229c246ea5e340d313375f4d89102a265d1a4053e0b037b4ddcf32f4f"
-    sha256 cellar: :any,                 arm64_big_sur:  "994d26307e071d46943fe9ee53927ab7b930c3cd6e6691788177aa4215f97c23"
-    sha256 cellar: :any,                 monterey:       "fc197a1dd6a88e2772c921a9193e8792252d80e626bf655d0c0969ae29e2fc59"
-    sha256 cellar: :any,                 big_sur:        "b8681965365ca7cc2c7d0991b7ffc560180fc9ad74530114123fb25ac451882c"
-    sha256 cellar: :any,                 catalina:       "7219b20efc82b1a0bb714b590f362b2619e7b0e83ddc2806f1d4bc8e52381a4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2421e0fc97384a4005dcdd36753cacda8bd5e388c56eecd8c6ef27caf2bdd543"
+    sha256 cellar: :any,                 arm64_monterey: "a0dcdc93cd6a7c28c73da05c462e4b3a1ff939a79a8e63773a4c3d0cedf4f3d5"
+    sha256 cellar: :any,                 arm64_big_sur:  "c842d3fd0bf2289290594347a2f033d430d46bb6dd7d2f14032d572e9fb50ef7"
+    sha256 cellar: :any,                 monterey:       "e0c35326c070cea82baf73a4de5e6c345a8f21caf3856b218ec848d2e26e40ca"
+    sha256 cellar: :any,                 big_sur:        "254b698a3e6585c454fe3016163ebb4a2c79af2f8dc52c7021f060e11e5fc9a6"
+    sha256 cellar: :any,                 catalina:       "5291e0837b718b5c4492e1bb341cce0b41a5b5103e1fc9435133b9a3a56984b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb299a37b4ef679be59e4c384f0704dba419394617627d5c00aa877282a593b4"
   end
 
   depends_on "cmake" => :build
