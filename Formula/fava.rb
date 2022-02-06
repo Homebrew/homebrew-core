@@ -18,7 +18,7 @@ class Fava < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "116064e7dd7a2b7b57c00fc111f274c0e0d1309a3540f13fae883fe5dbd690e2"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libxslt"
