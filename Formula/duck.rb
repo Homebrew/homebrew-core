@@ -44,8 +44,8 @@ class Duck < Formula
   end
 
   resource "jna" do
-    url "https://github.com/java-native-access/jna/archive/refs/tags/5.8.0.tar.gz"
-    sha256 "97680b8ddb5c0f01e50f63d04680d0823a5cb2d9b585287094de38278d2e6625"
+    url "https://github.com/java-native-access/jna/archive/refs/tags/5.10.0.tar.gz"
+    sha256 "6ef63cbf6ff7c8eea7d72331958e79c9fd3635c987ce419c9f296db6c4fd66a4"
   end
 
   resource "rococoa" do
