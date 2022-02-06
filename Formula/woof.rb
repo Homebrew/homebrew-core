@@ -8,7 +8,7 @@ class Woof < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "854310e14cd958d44e42c8b6dd5aac3ca360ae2154763a0967cfbe4dee76a512"
+    sha256 cellar: :any_skip_relocation, all: "0b65de07c5c918fb82b3c7a047c4c22c2771ef3897cd2f3c1abb64a76a7a867d"
   end
 
   depends_on "python@3.10"
