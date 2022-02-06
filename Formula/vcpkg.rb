@@ -35,6 +35,10 @@ class Vcpkg < Formula
   fails_with gcc: "5"
 
   def install
+    # Improve error message when user fails to set `VCPKG_ROOT`.
+    inreplace ["src/vcpkg/vcpkgpaths.cpp", "locales/messages.json"],
+              "If you are trying to use a copy of vcpkg that you've built, y", "Y"
+
     system "cmake", "-S", ".", "-B", "build",
                     "-DVCPKG_DEVELOPMENT_WARNINGS=OFF",
                     "-DVCPKG_BASE_VERSION=#{version.to_s.tr(".", "-")}",
@@ -55,6 +59,7 @@ class Vcpkg < Formula
   end
 
   test do
-    assert_match "Error", shell_output("#{bin}/vcpkg search sqlite", 1)
+    message = "Error: Could not detect vcpkg-root. You must define the VCPKG_ROOT environment variable"
+    assert_match message, shell_output("#{bin}/vcpkg search sqlite", 1)
   end
 end
