@@ -7,12 +7,12 @@ class Cppcheck < Formula
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "dc4896e48c3d1a225d757b24481ff53b1db8d269d969c0354a6be6031d2f62c8"
-    sha256 arm64_big_sur:  "30da5d569f4c708752076a4dbab5c0e131ba3fe32c1323ba2e251b843cba274c"
-    sha256 monterey:       "0f42605f4700f7d21d4140edc5e2217c316208370d74e5448f966c675eddc59d"
-    sha256 big_sur:        "42908fd473c77843fe450818b9b8af9394002b0e0d86c0bb7d23fc20d26e6944"
-    sha256 catalina:       "e1313af4d5c7df2a6c4b0ed5fba5252a9598e373d3bf95480ee6e3de02adfb0c"
-    sha256 x86_64_linux:   "f2e08d1d610a511b3a9d40f81296a92394c9c0fd2ff52cd5b157828a7b6d5455"
+    sha256 arm64_monterey: "6c932617b1fcd32c57b575a0b0a627ef5819891332bf848a72166dce690c0c36"
+    sha256 arm64_big_sur:  "fe348de57052e61a2e0a0d089b689d01fba3e38010cdd28516adb6f536f713d0"
+    sha256 monterey:       "9585633d7ec129faf03f22bd3b6834aa35b0b518dddb82d4451c2ba221cf3de7"
+    sha256 big_sur:        "1034118a9e0866b1c10bddd8640456cde261c7458097910e81a53f6be8a2e9b5"
+    sha256 catalina:       "5ce1b5c8847f5282acaacac3d2cce7a0d0865d1aed0e548f15ba05d271a3cc82"
+    sha256 x86_64_linux:   "54582a30d49a55e83e8802eccc59bb5045bec2a3ad61c8c7b6d6208cafe8dd02"
   end
 
   depends_on "cmake" => :build
