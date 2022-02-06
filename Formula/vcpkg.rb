@@ -27,6 +27,7 @@ class Vcpkg < Formula
 
   depends_on "cmake" => :build
   depends_on "fmt"
+  depends_on "ninja" # This will install its own copy at runtime if one isn't found.
 
   on_linux do
     depends_on "gcc" # for C++17
