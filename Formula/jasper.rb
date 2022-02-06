@@ -1,8 +1,8 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://ece.engr.uvic.ca/~frodo/jasper/"
-  url "https://github.com/jasper-software/jasper/releases/download/version-2.0.33/jasper-2.0.33.tar.gz"
-  sha256 "28d28290cc2eaf70c8756d391ed8bcc8ab809a895b9a67ea6e89da23a611801a"
+  url "https://github.com/jasper-software/jasper/releases/download/version-3.0.2/jasper-3.0.2.tar.gz"
+  sha256 "8b823a5354812c3be36a8e5a1b5b34a281bdc0e73f38d3c9a86303ee9e3cfbd3"
   license "JasPer-2.0"
 
   livecheck do
@@ -28,7 +28,7 @@ class Jasper < Formula
   end
 
   def install
-    mkdir "build" do
+    mkdir "tmp_cmake" do
       args = std_cmake_args
       args << "-DJAS_ENABLE_DOC=OFF"
 
