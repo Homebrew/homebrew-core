@@ -4,6 +4,7 @@ class Sha3sum < Formula
   url "https://github.com/maandree/sha3sum/archive/1.2.1.tar.gz"
   sha256 "3ab7cecf3fbbf096ce43573f48dab9969866e8f8662beefb2777a6713891a4d9"
   license "ISC"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2612ba6b36a58c1b56c779c1049d9e36b6ae4a74c2564c3729d8dd6f16a63df4"
