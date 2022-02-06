@@ -7,12 +7,11 @@ class Iblinter < Formula
   head "https://github.com/IBDecodable/IBLinter.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac6b0a40f7cad78d4afef1dd7c874356fbf870275349aecb82de7733d620f958"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8b7e60ab04bde225bb1a598f48f816a3672ae079262438de162678e2802e48d"
-    sha256 cellar: :any_skip_relocation, monterey:       "a42624bde4bddb39236ac2261b75cd118afeca63fabfd40bd23fd6220115cb77"
-    sha256 cellar: :any_skip_relocation, big_sur:        "01a92d21d4bcafd3f50d095be30903dddbc6abfea1d05b2535a2d2b8a86d5048"
-    sha256 cellar: :any_skip_relocation, catalina:       "d1f695ee4af2122773fb1d5113cbc1ffc18520da4267a051ed275e3b01ff326d"
-    sha256 cellar: :any_skip_relocation, mojave:         "c8c64fb3319c716d4cd0d69cc383b1ae6c152112093eeaad5e7ee9aa07c50f20"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "83ffc3e0bd87735dce4868ce4540fb025d94c8a491e6b029d537f7594d653935"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1022dcabaa9a097c554000519d2ba6c424d7612a6cb344c8b2697477f7f40e2a"
+    sha256 cellar: :any_skip_relocation, monterey:       "c29c85d68c136f5c706167c47c79092facfbc4a5b02956233ea6d8617ac6aa05"
+    sha256 cellar: :any_skip_relocation, big_sur:        "aa478f72715391c8e25e31ead3a9b25503158eb37a6d4d4ae5ab222f5026c13a"
+    sha256 cellar: :any_skip_relocation, catalina:       "558920fbd33ed70ba3ebe56543756dc51fbece752be655691e46ac33b8bec8e0"
   end
 
   depends_on xcode: ["10.2", :build]
