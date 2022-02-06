@@ -13,11 +13,13 @@ class Ecl < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f22e7b333050fe84c8a5e277c87666c16f42655ebf3c1bf76815db67c9520e7f"
-    sha256 big_sur:       "6881f61f6abc60969a668260a05ee06c2f7420b201b9ed4c2fb4b78b3ca4ae3c"
-    sha256 catalina:      "81e01b8b899eaa0d835f6c303ad9346251c3f234c60ff34e2d70e59adefb21c6"
-    sha256 mojave:        "fa6ce6c90d52cb11ec897693d18485fbcb7e2b066ea46fb3f588ff2cad3e1cc1"
-    sha256 x86_64_linux:  "25bb43cb6297d30bbd4d8045ba179f8e17c431b723fb7d9d3768e77fe3d348b8"
+    sha256 arm64_monterey: "c5bbe46b56fdf28377e30063a6cd05d4281bb9a4ecbfd7783a412efcb01bbd66"
+    sha256 arm64_big_sur:  "f22e7b333050fe84c8a5e277c87666c16f42655ebf3c1bf76815db67c9520e7f"
+    sha256 monterey:       "be308892de7bfb5b9dea08dadc264363698ead8f2ae6f7b253c541f0feae8019"
+    sha256 big_sur:        "6881f61f6abc60969a668260a05ee06c2f7420b201b9ed4c2fb4b78b3ca4ae3c"
+    sha256 catalina:       "81e01b8b899eaa0d835f6c303ad9346251c3f234c60ff34e2d70e59adefb21c6"
+    sha256 mojave:         "fa6ce6c90d52cb11ec897693d18485fbcb7e2b066ea46fb3f588ff2cad3e1cc1"
+    sha256 x86_64_linux:   "25bb43cb6297d30bbd4d8045ba179f8e17c431b723fb7d9d3768e77fe3d348b8"
   end
 
   depends_on "texinfo" => :build # Apple's is too old
