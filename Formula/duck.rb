@@ -12,12 +12,13 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "f66306925377a83b55ad1289f328d70dd6c0a5e9e323b29578d73a7392bc2a1e"
-    sha256 cellar: :any, arm64_big_sur:  "b2add015a80c60972378ab835a73315d7abe8209a24debcc42a16acd1ed146f7"
-    sha256 cellar: :any, monterey:       "7dd46628cbfb6e7259b52938669312eecebac464e92eedf1bd1081fab0ef7e0a"
-    sha256 cellar: :any, big_sur:        "4411de2eddd01f050206d63cd79c2e34d6a99a43fc7cf5f373bc5efb45733c16"
-    sha256 cellar: :any, catalina:       "bfb20efc848b66220a8c1e9c423e9758f5f39fb1e3a2876ee656ef9adc36e132"
-    sha256               x86_64_linux:   "686544190dd75438764316cae5b462138248319879019f18c3649349e67cf84f"
+    rebuild 1
+    sha256 cellar: :any, arm64_monterey: "8b18cc3ea62de0c60c1046c21df442e2aa93d0dc506f1e2ab1222aae5869e137"
+    sha256 cellar: :any, arm64_big_sur:  "98f330613320f5d71b24c90b1b5ef716b8ee6c446380655715ad3fdd85e672e1"
+    sha256 cellar: :any, monterey:       "186e95d4158099a4d6e150917819bddfdfba34eefde383249d86d9bf6e57b616"
+    sha256 cellar: :any, big_sur:        "b359584a5a1fb30c30fd9975ef36ffbfbee51a1994126563d4339d6982367748"
+    sha256 cellar: :any, catalina:       "1f783e6fcd3acb4b87a5d6a6d0df0f9328e871b360de491912649a50d2831900"
+    sha256               x86_64_linux:   "7bbbd14e36c5f21a134a8954080018bb38d77ef65e46fd9d7f96485c6b85e6d3"
   end
 
   depends_on "ant" => :build
