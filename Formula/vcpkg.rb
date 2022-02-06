@@ -48,7 +48,7 @@ class Vcpkg < Formula
   # This is specific to the way we install only the `vcpkg` tool.
   def caveats
     <<~EOS
-      To use vcpkg:
+      This formula provieds only the `vcpkg` executable. To use vcpkg:
         git clone https://github.com/microsoft/vcpkg "$HOME/vcpkg"
         export VCPKG_ROOT="$HOME/vcpkg"
     EOS
