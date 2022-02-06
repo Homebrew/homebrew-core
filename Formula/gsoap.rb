@@ -11,12 +11,12 @@ class Gsoap < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "327b6775f26bece57bef8c448a937e9baa3d3832986d2a16b2486a4c3f3a7869"
-    sha256 arm64_big_sur:  "6e80b1fbc9a49b16cb50447ddbf9e6a97aa7c2ec885608dd8e6463cbf22c7903"
-    sha256 monterey:       "d05d4a63c86c3ec5e84bffc31f8d2d5cd9374fb1da29e4da4e67a535791793db"
-    sha256 big_sur:        "768b9f385bdcf8c68dddac2ac453471b71146fa4003ea6360339007b40097e2c"
-    sha256 catalina:       "5e21be665e7eb46cfe722f72639d6330f14cd795efe52c2f5be69b6dfac8a60f"
-    sha256 x86_64_linux:   "16a8adc9b0c571760523bd9b9108ef3d0a87d0147560d1c740648d880df727c2"
+    sha256 arm64_monterey: "5d506ef7c623e517059afb57a339650058fb9b77d638273b637ee0b7a8414144"
+    sha256 arm64_big_sur:  "be36e14c8cf83f90232de3379c2da8817991a1c2cfbfab0dd4aaecd4e5836e1b"
+    sha256 monterey:       "8968b0bd6bf1d371b63965972021918f9d1ea8b2bf36076b712f26c9570e46b5"
+    sha256 big_sur:        "a17a5bffe8c0d3fddccdc0db0174e40c116e77083ac41ee254812025f8ba31cb"
+    sha256 catalina:       "d64269092774ff12bfa7010ea741774114fb5b7e6033cd535eb84e290d2a74d8"
+    sha256 x86_64_linux:   "af0d697ca7521ba0ca234573333f608e1679955d817dc1784aaebf77911b685d"
   end
 
   depends_on "autoconf" => :build
