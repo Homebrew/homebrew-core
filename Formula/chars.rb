@@ -7,14 +7,12 @@ class Chars < Formula
   head "https://github.com/antifuchs/chars.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "02586356b7cee242264fc0182f5c7483f19c37bf8da4c38915069f29c68b4b04"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae5975ad693a89f4d3c82809ba33f27d9387f7da07afaade8488d4d01e6460a6"
-    sha256 cellar: :any_skip_relocation, monterey:       "a9a38f825fa7d6a59ba3cf38e659e5d99b56f69c8199c6a29942bc6c1e37243e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7bf84510e842b1887ff71b0bb040954208fc3e190c6c184f7ee9d8fd3053cb8a"
-    sha256 cellar: :any_skip_relocation, catalina:       "66d0f3de7a9eede7244c30cf630a6491db948abffed597c5754a9a23cdcd5931"
-    sha256 cellar: :any_skip_relocation, mojave:         "9cee1f2bff403ab54515841d52575702ae2cd080a21bca940a0b99dafe0e20c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "878af4769fdef2626bf346316ffe28ebf3fb42deeda26c6f720eea5f11847fd3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "65d4047f46ba1526f22d731c7b74de64ca33d59acda6791ff25f9680ad92d261"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c1f8f9c18e61de6516ffacd7a8d0012dc5a79440d91ba27e3c444c90346375e"
+    sha256 cellar: :any_skip_relocation, monterey:       "d500b53477aa281423107e2671e7375da0b653b387a2f7397e6c5692c34dbb0c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bfddb7bd963efcdf967cbeb1ed7086816431d9f494f198e201dd6888d7844f34"
+    sha256 cellar: :any_skip_relocation, catalina:       "b67bf752923b6943a07bc90cbd7b3a3a64e02968fe752579266561844e979763"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d2f9a30b1ddfee10bac0c2b65d8c99be8755a2b6166b88111a244eafa27a768"
   end
 
   depends_on "rust" => :build
