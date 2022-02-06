@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/56/6b/39461f6a4b33155916bbb87fe30334ce5be97b1b8ef4c71a33f73637f89a/esphome-2022.1.2.tar.gz"
-  sha256 "3ce8e499d9d5d8ec4c290f494ef004eb147783e1e700d0a3225e6a68540d5402"
+  url "https://files.pythonhosted.org/packages/5e/51/846db2bcb8c98b8b681eaf9011c4cdca2dce3abd1125c2cc0c9fcfa7667c/esphome-2022.1.3.tar.gz"
+  sha256 "be8eefcc5e8e829722cd8637fd65760aa6b60d0759262c1cc574a4388bfc3b07"
   license "MIT"
 
   bottle do
@@ -148,8 +148,8 @@ class Esphome < Formula
   end
 
   resource "pyelftools" do
-    url "https://files.pythonhosted.org/packages/6b/b5/f7022f2d950327ba970ec85fb8f85c79244031092c129b6f34ab17514ae0/pyelftools-0.27.tar.gz"
-    sha256 "cde854e662774c5457d688ca41615f6594187ba7067af101232df889a6b7a66b"
+    url "https://files.pythonhosted.org/packages/e9/80/00247e07e32e85b964ef81c9fd556b332f85e743e3eaf332325f579c82eb/pyelftools-0.28.tar.gz"
+    sha256 "53e5609cac016471d40bd88dc410cd90755942c25e58a61021cfdf7abdfeacff"
   end
 
   resource "pyserial" do
