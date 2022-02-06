@@ -12,12 +12,12 @@ class ImagemagickAT6 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "cb7d1a2a64f72130b6926b9d802a471a46fe6cf93aef7693f57a9d20bc260612"
-    sha256 arm64_big_sur:  "520ef31feb2f562c01d0d217c91a20713c2df07208bf54044bc915bb62af713a"
-    sha256 monterey:       "1ce7a0624780079eabab4fb636d0cf64ee736256cbe4ca6d690c65ecad400fd2"
-    sha256 big_sur:        "77d64ea14b1b6886686f7ca386b6da546fcbf60105453259e6e45d9da1cd68dd"
-    sha256 catalina:       "75e889da8e2e36321b28a5f0ce0569b91be05fe1a0173c625eda93ca5525d968"
-    sha256 x86_64_linux:   "7e232771e7538595b225756f7662cdf09036d188a875d3a28e43ad8278bb8768"
+    sha256 arm64_monterey: "e83118e82232518f42684504205046e94af2deca9e8fe2005364fb9193e3830e"
+    sha256 arm64_big_sur:  "acc0eeaabc06501cc86b7d7f711a2fe80ff8e42944b064931e00bdf21e798b21"
+    sha256 monterey:       "521a35d2f8b47f880e5201289d9cbab5d57f512f9ec6951aca9d308b2753cfbc"
+    sha256 big_sur:        "507fd3356347c8842523282060d59c9c6030afd2425ba5c9b4c8d7ffc07a3870"
+    sha256 catalina:       "12bf1db6328334b463a4562164cae5d40ec65a3524b0861555188dec08477510"
+    sha256 x86_64_linux:   "62cd3909e01b01f4dcfdeb9785aa0c2e346e7642f64fc0b47e37d599e77d8f83"
   end
 
   keg_only :versioned_formula
