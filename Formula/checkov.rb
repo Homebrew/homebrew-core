@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/93/64/eee3facbe700ef95a839f516e19d8bd3e4e4fcd3baa4398f436eedf0fcea/checkov-2.0.780.tar.gz"
-  sha256 "02a65b3c55070dbb9f68cebc9075d65a7b60e64720dfc76a3448b272d29b19b9"
+  url "https://files.pythonhosted.org/packages/47/c2/fa9bc1686badedaedf7d4f1db5d51d751665d7b0d6bd0a26ba3d883d82e5/checkov-2.0.795.tar.gz"
+  sha256 "4310895163e191063619e646b00797a91d54d34818057053aa39401d402422f9"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f6/b0/e42a79e8dc51ff9d9817c12d911893049cfddefbe3e2c062401306102fb9/boto3-1.20.46.tar.gz"
-    sha256 "d7effba509d7298ef49316ba2da7a2ea115f2a7ff691f875f6354666663cf386"
+    url "https://files.pythonhosted.org/packages/3e/f6/54e4ee1c7bb79669a4bae68f104bd333fd821d0bb307f8d5038d89762baa/boto3-1.20.49.tar.gz"
+    sha256 "34d170d24d10adb8ffe2a907ff35878e22ed2ceb24d16d191f8070053f11fc18"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/97/b9/f55bf7f44377c1093f16f789979b39d9bed51ad1f2069d17d1ca55d2d4c2/botocore-1.23.46.tar.gz"
-    sha256 "38dd4564839f531725b667db360ba7df2125ceb3752b0ba12759c3e918015b95"
+    url "https://files.pythonhosted.org/packages/5e/e7/e9c6ed9e957d8432423fc9f3541bcfe67fafe0a0ebd5c4b771e0881c59f2/botocore-1.23.49.tar.gz"
+    sha256 "b013b2911379d1de896eb6ef375126bb2fc2b77b3e0af75821661b7ea817d029"
   end
 
   resource "cached-property" do
@@ -252,8 +252,8 @@ class Checkov < Formula
   end
 
   resource "policy-sentry" do
-    url "https://files.pythonhosted.org/packages/12/8c/363de39a82ae1340d27226fa24344fc07dadbe23b5eac9044c3a847a75df/policy_sentry-0.12.1.tar.gz"
-    sha256 "a3304752dd3b5c82a7665fcf586d2aeb87433fbc9b4ae7130b141b24f63312f7"
+    url "https://files.pythonhosted.org/packages/56/e8/f41574e1b00c053555788e0cd2c76217b1d0cbe3d1dc9c12040c56eaf315/policy_sentry-0.12.2.tar.gz"
+    sha256 "c38c16ab224b9860e8d2d18271e3338824147672a04d1827100585271933dc14"
   end
 
   resource "policyuniverse" do
@@ -302,8 +302,8 @@ class Checkov < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/88/ef/4d1b3f52ae20a7e72151fde5c9f254cd83f8a49047351f34006e517e1655/s3transfer-0.5.0.tar.gz"
-    sha256 "50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c"
+    url "https://files.pythonhosted.org/packages/66/e2/cc19f36aade1ef40cba69555fcf713d942ec9e31ecff2415948bd885911d/s3transfer-0.5.1.tar.gz"
+    sha256 "69d264d3e760e569b78aaa0f22c97e955891cd22e32b10c51f784eeda4d9d10a"
   end
 
   resource "schema" do
@@ -312,8 +312,8 @@ class Checkov < Formula
   end
 
   resource "semantic-version" do
-    url "https://files.pythonhosted.org/packages/d4/52/3be868c7ed1f408cb822bc92ce17ffe4e97d11c42caafce0589f05844dd0/semantic_version-2.8.5.tar.gz"
-    sha256 "d2cb2de0558762934679b9a104e82eca7af448c9f4974d1f3eeccff651df8a54"
+    url "https://files.pythonhosted.org/packages/cb/56/4aa487b46d09646eb1863faa7026551d8309ece2281794bf13b20f28ab94/semantic_version-2.9.0.tar.gz"
+    sha256 "abf54873553e5e07a6fd4d5f653b781f5ae41297a493666b59dcf214006a12b2"
   end
 
   resource "smmap" do
