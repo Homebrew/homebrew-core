@@ -6,12 +6,12 @@ class Bingrep < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5151f9b1fd95008aaa11974caab78ea7262ea1b33717310ce450e3121be7e0c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77ed0815d04b29d3183adb7b17cca3fe9a5d3cab4f5292713e3e297bfa2e770c"
-    sha256 cellar: :any_skip_relocation, monterey:       "2cb7058a166c4a754246634704a72b5810d43128f414e7a0bf09731d297e8944"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ee688ff6abecc9f34641de0c25b494fe799e221cb0b1c467955eb0a34688b28f"
-    sha256 cellar: :any_skip_relocation, catalina:       "e0168bb41b7a5ae6e611402538c944f3b848e8594ad62c223425f8ee6ea22def"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a9a46ff051a336c1141236e6b734489fae187c06dfe8db288142d95f088c92c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed7cfc283a7e589a22b0751e1c416500a59ce073f4d3577e41052d5c28a8d848"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c926b06c7d43b625a339c3088f72f965aec3a3f8428fc4a98f39d87b6c867d7"
+    sha256 cellar: :any_skip_relocation, monterey:       "49ea632d7836a2c89456c0832daabc478268c6a0b321b4f41c8831b20401c725"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f48aa8ad89841d14d4693bdab7819cd77081473f9e4dee3d695e2bef84d94100"
+    sha256 cellar: :any_skip_relocation, catalina:       "d4f99329364718a9b25f71bae476860ada92d4ce378a67746d731df63748a0ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee4cfd308fc82bc518538dbaf2dbe0fea09fec0e965767088b1402f0fbbd9c84"
   end
 
   depends_on "rust" => :build
