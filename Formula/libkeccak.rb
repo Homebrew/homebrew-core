@@ -1,8 +1,8 @@
 class Libkeccak < Formula
   desc "Keccak-family hashing library"
   homepage "https://github.com/maandree/libkeccak"
-  url "https://github.com/maandree/libkeccak/archive/1.3.tar.gz"
-  sha256 "4234155de0a11ee3fa6fea0933af987d3ee73c55d3385e624472615bd3217a7d"
+  url "https://github.com/maandree/libkeccak/archive/1.3.1.tar.gz"
+  sha256 "f13331e014d9b0b14c2be7b834c3ca817c171cad16801e58e6f1ec5eb981a2ce"
   license "ISC"
 
   bottle do
