@@ -28,6 +28,9 @@ class Ecl < Formula
   def install
     ENV.deparallelize
 
+    # Avoid -flat_namespace usage on macOS
+    inreplace "src/configure", "-flat_namespace -undefined suppress ", "" if OS.mac?
+
     system "./configure", "--prefix=#{prefix}",
                           "--enable-threads=yes",
                           "--enable-boehm=system",
