@@ -1,8 +1,8 @@
 class Chars < Formula
   desc "Command-line tool to display information about unicode characters"
   homepage "https://github.com/antifuchs/chars/"
-  url "https://github.com/antifuchs/chars/archive/v0.5.0.tar.gz"
-  sha256 "5e2807b32bd75862d8b155fa774db26b649529b62da26a74e817bec5a26e1d7c"
+  url "https://github.com/antifuchs/chars/archive/v0.6.0.tar.gz"
+  sha256 "34537fd7b8b5fdc79a35284236443b07c54dded81d558c5bb774a2a354b498c7"
   license "MIT"
   head "https://github.com/antifuchs/chars.git", branch: "master"
 
