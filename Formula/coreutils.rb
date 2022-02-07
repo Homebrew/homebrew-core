@@ -8,13 +8,12 @@ class Coreutils < Formula
   revision 1
 
   bottle do
-    sha256 arm64_monterey: "9a72c1fef593eef2757398be776c656885def021d5e276be11ab26174bfe5d91"
-    sha256 arm64_big_sur:  "875e9ec351a0624e65d19e742a7271fc409ce912fa4a4ad9147ab21eaa126bad"
-    sha256 monterey:       "e59c6a7cd6993b3d61dfa133b4091f731220d10ed7c23f8808870a22bc3ad8a7"
-    sha256 big_sur:        "6c6b84b32d923e26b1c67e8c9aee801f7ab2f0b9f94d9b455b784eb3a2dc575c"
-    sha256 catalina:       "9b24df176ef9ec342e83af6880c27e0235e4fcc436d0143fb37eb24695de51a6"
-    sha256 mojave:         "6755e3bb94c35dae4ebbd525633691bc5ff1dc82a84f5b968b952d7be86652d7"
-    sha256 x86_64_linux:   "6ab4d61127fac0e193a82881b9262e3121ada87566f470abdf6a2b9c63ab6768"
+    sha256 arm64_monterey: "e7d849e225505512eaa003bfa599bed9b17d935467e3d33f13ff44017118ab41"
+    sha256 arm64_big_sur:  "cb659580e450fa90dc63b9bf3b0cd85aea2b2636e9d6844dc7c098179ec9128d"
+    sha256 monterey:       "b01dbccfa5988b39fb63031999d14dd0f3777df2eafe4e18e86ec000f36c6a23"
+    sha256 big_sur:        "a5f2ae877c7b2d542e8156e5739a166652482f270dce0bc79cf5f85c4629d358"
+    sha256 catalina:       "d7942e4d7f275b9bc17a7d6e7b1d916ac1e7359b58fdeadadd5e6de9040d1080"
+    sha256 x86_64_linux:   "93f2bb75dd42786a4c72c97f839a918cfe3f32cd9040dbdc174606473803335b"
   end
 
   head do
