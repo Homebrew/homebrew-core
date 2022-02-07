@@ -2,7 +2,7 @@ class Devil < Formula
   desc "Cross-platform image library"
   homepage "https://sourceforge.net/projects/openil/"
   license "LGPL-2.1-only"
-  revision 2
+  revision 3
   head "https://github.com/DentonW/DevIL.git", branch: "master"
 
   stable do
@@ -49,6 +49,9 @@ class Devil < Formula
   depends_on "libtiff"
   depends_on "little-cms2"
 
+  # allow compiling against jasper >= 3.0.0
+  patch :DATA
+
   def install
     cd "DevIL" do
       system "cmake", ".", *std_cmake_args
@@ -69,3 +72,31 @@ class Devil < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/DevIL/src-IL/src/il_jp2.cpp b/DevIL/src-IL/src/il_jp2.cpp
+index 89075a52..f46028a9 100644
+--- a/DevIL/src-IL/src/il_jp2.cpp
++++ b/DevIL/src-IL/src/il_jp2.cpp
+@@ -323,7 +323,9 @@ ILboolean iLoadJp2Internal(jas_stream_t	*Stream, ILimage *Image)
+ //
+ // see: https://github.com/OSGeo/gdal/commit/9ef8e16e27c5fc4c491debe50bf2b7f3e94ed334
+ //      https://github.com/DentonW/DevIL/issues/90
+-#if defined(PRIjas_seqent)
++#if JAS_VERSION_MAJOR >= 3
++static ssize_t iJp2_file_read(jas_stream_obj_t *obj, char *buf, size_t cnt)
++#elif defined(PRIjas_seqent)
+ static int iJp2_file_read(jas_stream_obj_t *obj, char *buf, unsigned cnt)
+ #else
+ static int iJp2_file_read(jas_stream_obj_t *obj, char *buf, int cnt)
+@@ -333,7 +335,9 @@ static int iJp2_file_read(jas_stream_obj_t *obj, char *buf, int cnt)
+ 	return iread(buf, 1, cnt);
+ }
+
+-#if defined(JAS_INCLUDE_JP2_CODEC)
++#if JAS_VERSION_MAJOR >= 3
++static ssize_t iJp2_file_write(jas_stream_obj_t *obj, const char *buf, size_t cnt)
++#elif defined(JAS_INCLUDE_JP2_CODEC)
+ static int iJp2_file_write(jas_stream_obj_t *obj, const char *buf, unsigned cnt)
+ #elif defined(PRIjas_seqent)
+ static int iJp2_file_write(jas_stream_obj_t *obj, char *buf, unsigned cnt)
