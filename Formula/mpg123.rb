@@ -26,6 +26,7 @@ class Mpg123 < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --with-module-suffix=.so
+      --enable-static
     ]
 
     args << "--with-default-audio=coreaudio" if OS.mac?
