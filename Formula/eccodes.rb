@@ -4,6 +4,7 @@ class Eccodes < Formula
   url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.24.2-Source.tar.gz"
   sha256 "c60ad0fd89e11918ace0d84c01489f21222b11d6cad3ff7495856a0add610403"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/ECC/Releases"
@@ -21,16 +22,20 @@ class Eccodes < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
-  depends_on "jasper"
   depends_on "libpng"
   depends_on "netcdf"
+  depends_on "openjpeg"
 
   def install
-    inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
-
     mkdir "build" do
-      system "cmake", "..", "-DENABLE_NETCDF=ON", "-DENABLE_PNG=ON",
-                            "-DENABLE_PYTHON=OFF", "-DENABLE_ECCODES_THREADS=ON",
+      system "cmake", "..", "-DENABLE_NETCDF=ON",
+                            "-DENABLE_FORTRAN=ON",
+                            "-DENABLE_PNG=ON",
+                            "-DENABLE_JPG=ON",
+                            "-DENABLE_JPG_LIBOPENJPEG=ON",
+                            "-DENABLE_JPG_LIBJASPER=OFF",
+                            "-DENABLE_PYTHON=OFF",
+                            "-DENABLE_ECCODES_THREADS=ON",
                              *std_cmake_args
       system "make", "install"
     end
