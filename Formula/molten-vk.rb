@@ -18,6 +18,7 @@ class MoltenVk < Formula
   depends_on xcode: ["11.7", :build]
   # Requires IOSurface/IOSurfaceRef.h.
   depends_on macos: :sierra
+  depends_on :macos # Linux does not have a Metal implementation. Not implied by the line above.
 
   # MoltenVK depends on very specific revisions of its dependencies.
   # For each resource the path to the file describing the expected
