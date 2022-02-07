@@ -4,6 +4,7 @@ class Ronn < Formula
   url "https://github.com/rtomayko/ronn/archive/0.7.3.tar.gz"
   sha256 "808aa6668f636ce03abba99c53c2005cef559a5099f6b40bf2c7aad8e273acb4"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
