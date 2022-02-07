@@ -40,6 +40,7 @@ class Libmodplug < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--enable-static",
                           "--prefix=#{prefix}"
 
     system "make", "install"
