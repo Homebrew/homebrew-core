@@ -35,7 +35,6 @@ class Tarlz < Formula
     assert_predicate lzipfilepath, :exist?
 
     system "#{bin}/tarlz", "-C", dpath, "-xf", lzipfilepath
-    assert_equal 0, $CHILD_STATUS.exitstatus
     assert_equal "TEST CONTENT", dtestfilepath.read
   end
 end
