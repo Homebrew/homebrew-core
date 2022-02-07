@@ -11,7 +11,6 @@ class Tarlz < Formula
     regex(/href=.*?tarlz[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-
   depends_on "lzlib"
 
   def install
@@ -20,7 +19,6 @@ class Tarlz < Formula
     ENV.deparallelize
     system "make", "install"
   end
-
 
   test do
     testfilepath = testpath + "sample_in.txt"
