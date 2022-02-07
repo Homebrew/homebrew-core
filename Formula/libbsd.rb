@@ -26,6 +26,6 @@ class Libbsd < Formula
   end
 
   test do
-    assert_match "strtonum", shell_output("nm #{lib/"libbsd.so"}")
+    assert_match "strtonum", shell_output("nm #{lib/"libbsd.so.#{version}"}")
   end
 end
