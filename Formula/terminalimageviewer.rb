@@ -16,6 +16,7 @@ class Terminalimageviewer < Formula
   end
 
   depends_on "imagemagick"
+  depends_on macos: :catalina
 
   on_linux do
     depends_on "gcc"
