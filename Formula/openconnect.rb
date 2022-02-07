@@ -5,6 +5,7 @@ class Openconnect < Formula
   mirror "https://fossies.org/linux/privat/openconnect-8.10.tar.gz"
   sha256 "30e64c6eca4be47bbf1d61f53dc003c6621213738d4ea7a35e5cf1ac2de9bab1"
   license "LGPL-2.1-only"
+  revision 1
 
   livecheck do
     url "https://www.infradead.org/openconnect/download.html"
@@ -36,8 +37,8 @@ class Openconnect < Formula
   depends_on "stoken"
 
   resource "vpnc-script" do
-    url "https://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/c0122e891f7e033f35f047dad963702199d5cb9e:/vpnc-script"
-    sha256 "3ddd9d6b46e92d76e6e26d89447e3a82d797ecda125d31792f14c203742dea0f"
+    url "https://gitlab.com/openconnect/vpnc-scripts/raw/cda38498bee5e21cb786f2c9e78ecab251c997c3/vpnc-script"
+    sha256 "f17be5483ee048973af5869ced7b080f824aff013bb6e7a02e293d5cd9dff3b8"
   end
 
   def install
