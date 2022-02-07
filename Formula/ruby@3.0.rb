@@ -10,6 +10,15 @@ class RubyAT30 < Formula
     regex(/href=.*?ruby[._-]v?(3\.0(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_monterey: "1b39726ab3491e4db65dfe24d06dedee670c07ca282f57d4dedb118a5cb05edc"
+    sha256 arm64_big_sur:  "d97f9d0a366d7d300070f26ce037707e6ed5a751654591fe94f3cb00f7a7a989"
+    sha256 monterey:       "9d01ca79af1fc1ec9142dfdf0498332fb291febd4f9a310ad7a875f832cc99e3"
+    sha256 big_sur:        "4eb82d655f19b9a400917d9b452e00acdf2eae7a1412831d267fa94efe7f7319"
+    sha256 catalina:       "3ca7dc471eba36875c00e86747bd3998f7536f9d72a43c95c14864741e693dc1"
+    sha256 x86_64_linux:   "da8eb852065f3dc4567b1eef7d1e2d686c12793faade765bd3278697a15a01cc"
+  end
+
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
