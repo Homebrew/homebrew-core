@@ -14,7 +14,7 @@ class Tarlz < Formula
   depends_on "lzlib"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     ENV.deparallelize
     system "make", "install"
