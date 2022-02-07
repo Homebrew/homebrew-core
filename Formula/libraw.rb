@@ -4,6 +4,7 @@ class Libraw < Formula
   url "https://www.libraw.org/data/LibRaw-0.20.2.tar.gz"
   sha256 "dc1b486c2003435733043e4e05273477326e51c3ea554c6864a4eafaff1004a6"
   license any_of: ["LGPL-2.1-only", "CDDL-1.0"]
+  revision 1
 
   livecheck do
     url "https://www.libraw.org/download/"
