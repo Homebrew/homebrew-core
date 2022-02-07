@@ -7,11 +7,12 @@ class Freerdp < Formula
   revision 1
 
   bottle do
-    sha256 arm64_big_sur: "13930739489389e5ecad0f8afa3d05bf41698a01b880c561f0ad05e099a9a8f3"
-    sha256 big_sur:       "0350c39447e947f7d860d12d4658eb6481f1afa83316a84249cba336e1b79776"
-    sha256 catalina:      "02424460eacaf34e564f922c26e096c74a145fde68067cfd2f3426c811dc0b11"
-    sha256 mojave:        "8c029ee46cd1ea1662c5969858aadb78f2311f4cfe4397d5119ac94aa039a650"
-    sha256 x86_64_linux:  "a5c914c81394cb1c941d78ebfb2813ba94494af167d5bcb3d4e71cb3bfec10a1"
+    sha256 arm64_monterey: "187c40da430fbc9e2030bab48cbc96b92449ebec81932357f1801f7c7e513efa"
+    sha256 arm64_big_sur:  "c7394ffbab31aca3baf2dde8ad790add11dba4b17f28b8dbd64d64ead1d7349b"
+    sha256 monterey:       "8e8d221c837ba22a5a334386b6cd455af199e64c07bb67910077b6fbcdc817cb"
+    sha256 big_sur:        "33b3d2b721d56ff90c2795ef0aa4d9258cbb2720ae214bf669b07fcdbbbdb765"
+    sha256 catalina:       "4aa3704ddc6a134b9239084cf5a7ff6169f64bf69232049f1c0318220540b124"
+    sha256 x86_64_linux:   "b196a3e07873e4a97ec4c93b0e8c2df48dbf90b9a86b8d5e17963181026f4862"
   end
 
   head do
