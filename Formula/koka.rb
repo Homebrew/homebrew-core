@@ -1,8 +1,8 @@
 class Koka < Formula
   desc "Compiler for the Koka language"
   homepage "http://koka-lang.org"
-  url "https://github.com/koka-lang/koka/releases/download/v2.3.8/koka-v2.3.9-source.tar.gz"
-  sha256 "ae3e8127b46e51cc4df3525c5f913ecfbaeeb29f0a268e4a3d2e0ac809bc987f"
+  url "https://github.com/koka-lang/koka/releases/download/v2.4.0/koka-v2.4.0-source.tar.gz"
+  sha256 "3433ffe6b78d0bac9b25be2a1b3230610fb6e8b4a6a059d592278184f074ebb1"
   license "Apache-2.0"
   head "https://github.com/koka-lang/koka.git", branch: "master"
 
