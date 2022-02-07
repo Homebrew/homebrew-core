@@ -11,14 +11,12 @@ class Fping < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73000b5b7a0e589b23f8bc15084193df6fd94da230540de4dfcc86cb804daceb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65a1a6e1fee0af28a38006e2ce05f71915080907cacc8bb7ef4373ae041e75f2"
-    sha256 cellar: :any_skip_relocation, monterey:       "18a6e94a256db8c3eb6156016400d7e8af64e9f84847ecf1654989470ca8ea76"
-    sha256 cellar: :any_skip_relocation, big_sur:        "012cad012acbaf32885f1d260cfa464478a0a71ad396f0711813c7f2b183112d"
-    sha256 cellar: :any_skip_relocation, catalina:       "bd1255921afca543ba440bbf84f86f7c3b0b10db4bbf1aa659a2aa686496e4d5"
-    sha256 cellar: :any_skip_relocation, mojave:         "47f38d4902f03da1e407331848e1f3a75a2b8692e4366d8a0a341e66f36962f1"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "e2d14a6c1de9032a244f7185ba8a629d61f8ed2964b96490890c87336ff4d521"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c021898c3eb3c2496cb915101a86618f895a8234b3281cee553531353300c71"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "087d83a0737273f2a17e731d6dd3a850a73b09bb8bb1ffa79d557af23acbddbe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f5fa545f848ec9144a99596c909227193d63858b01cdb0feacf564a2a021846d"
+    sha256 cellar: :any_skip_relocation, monterey:       "11128619d0c6500c6aadc9b81f4953fc78ea965fe158d296072519089708a674"
+    sha256 cellar: :any_skip_relocation, big_sur:        "04bb01d86dd906a4fc5b63ed165a4bc936ab436fd17b567f8f6ddcd051ab4ab5"
+    sha256 cellar: :any_skip_relocation, catalina:       "fc706bf9bcb8a3fa881fe02b1987618745bfb50be7cfa4ace24b02ad40d7f8dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10618282a7eb3078c424117e81046f0d58f87fa98bbae3ad415d8aa8d47b26c8"
   end
 
   head do
