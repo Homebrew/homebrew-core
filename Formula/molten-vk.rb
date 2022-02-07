@@ -32,37 +32,37 @@ class MoltenVk < Formula
   resource "Vulkan-Headers" do
     # ExternalRevisions/Vulkan-Headers_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-        revision: "8c1c27d5a9b9de8a17f500053bd08c7ca6bba19c"
+        revision: "1dace16d8044758d32736eb59802d171970e9448"
   end
 
   resource "SPIRV-Cross" do
     # ExternalRevisions/SPIRV-Cross_repo_revision
     url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-        revision: "7c3cb0b12c9965497b08403c82ac1b82846fa7be"
+        revision: "131278458ea8eebe6a6e9c476fbcf71278726e1a"
   end
 
   resource "glslang" do
     # ExternalRevisions/glslang_repo_revision
     url "https://github.com/KhronosGroup/glslang.git",
-        revision: "c9706bdda0ac22b9856f1aa8261e5b9e15cd20c5"
+        revision: "2742e959347ae2fac58acd0d022c92a0ff1f24bf"
   end
 
   resource "SPIRV-Tools" do
-    # External/glslang/known_good.json
+    # known_good.json in the glslang repository
     url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        revision: "21e3f681e2004590c7865bc8c0195a4ab8e66c88"
+        revision: "45dd184c790d6bfc78a5a74a10c37e888b1823fa"
   end
 
   resource "SPIRV-Headers" do
-    # External/glslang/known_good.json
+    # known_good.json in the glslang repository
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "814e728b30ddd0f4509233099a3ad96fd4318c07"
+        revision: "b42ba6d92faf6b4938e6f22ddd186dbdacc98d78"
   end
 
   resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-        revision: "691252756218fcbd1f0f8d7cc14e753123f08940"
+        revision: "bb32aa13d4920261b5086219028ef329605d0126"
   end
 
   def install
