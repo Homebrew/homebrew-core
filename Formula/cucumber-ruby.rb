@@ -12,11 +12,10 @@ class CucumberRuby < Formula
   end
 
   bottle do
-    sha256                               monterey:     "d6ff6562f6a7d518d4ed7ad5986a2f58f7331bfa87d67f03b35603e4cdcdf15d"
-    sha256                               big_sur:      "a92759a27d110dd3884a8d421d7c507e3f0424afc5cc3994912ec57dfce1a47a"
-    sha256 cellar: :any,                 catalina:     "91f7a0452a265adc52220a926b74daf33d346a6659d71448110acbbb56781854"
-    sha256 cellar: :any,                 mojave:       "0fc96a4a30d70ddd88e725f6f3ffd4ecfc4f5f0d640546fea803d8407f392752"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e9e9cea603b814907f60395901d4d9ca039a897930dde2a718516e8a4385aa4f"
+    sha256                               monterey:     "baa01f4500a6ddda6ce2260f20482e9d0f2bfc9ab55f52bf373f06566c1b94d4"
+    sha256                               big_sur:      "8da8aa2314fef7577cfdbd3b580303d06dd26883f4242de6e5158707eacae4f0"
+    sha256 cellar: :any,                 catalina:     "8e10228d88f7a1bf07335a9c54d83872acd107f29c341cd854bc7631d7271662"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c651216b9c2ca701d3e32c08facfc3851e3b8f18d5f4779464424e9eff6b4797"
   end
 
   depends_on "pkg-config" => :build
