@@ -1,6 +1,6 @@
 class Tarlz < Formula
   desc "Data compressor"
-  homepage "https://www.nongnu.org/lzip/plzip.html"
+  homepage "https://www.nongnu.org/lzip/tarlz.html"
   url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.22.tar.lz"
   mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.22.tar.lz"
   sha256 "fccf7226fa24b55d326cab13f76ea349bec446c5a8df71a46d343099a05091dc"
@@ -21,14 +21,23 @@ class Tarlz < Formula
   end
 
   test do
-    testfilepath = testpath + "sample_in.txt"
-    lzipfilepath = testpath + "sample_in.txt.tar.lz"
+    spath = testpath + "source"
+    dpath = testpath + "destination"
+    stestfilepath = spath + "test.txt"
+    dtestfilepath = dpath + "source/test.txt"
+    lzipfilepath = testpath + "test.tar.lz"
+    stestfilepath.write "TEST CONTENT"
 
-    testfilepath.write "TEST CONTENT"
+    mkdir_p spath
+    mkdir_p dpath
 
-    system "#{bin}/tarlz -cf", testfilepath
-    system "#{bin}/tarlz -xf", lzipfilepath
+    system "#{bin}/tarlz", "-C", "#{testpath}", "-cf", "#{lzipfilepath}", "source"
+    assert_equal 0, $CHILD_STATUS.exitstatus
+    assert_predicate lzipfilepath, :exist?
 
-    assert_equal "TEST CONTENT", testfilepath.read
+    system "#{bin}/tarlz", "-C", dpath, "-xf", lzipfilepath
+    assert_equal 0, $CHILD_STATUS.exitstatus
+    assert_equal "TEST CONTENT", dtestfilepath.read
+
   end
 end
