@@ -2,7 +2,7 @@ class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
   license "MIT"
-  revision 5
+  revision 6
   head "https://github.com/seejohnrun/haste-client.git", branch: "master"
 
   stable do
