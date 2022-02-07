@@ -21,11 +21,11 @@ class Tarlz < Formula
   end
 
   test do
-    spath = testpath + "source"
-    dpath = testpath + "destination"
-    stestfilepath = spath + "test.txt"
-    dtestfilepath = dpath + "source/test.txt"
-    lzipfilepath = testpath + "test.tar.lz"
+    spath = testpath/"source"
+    dpath = testpath/"destination"
+    stestfilepath = spath/"test.txt"
+    dtestfilepath = dpath/"source/test.txt"
+    lzipfilepath = testpath/"test.tar.lz"
     stestfilepath.write "TEST CONTENT"
 
     mkdir_p spath
