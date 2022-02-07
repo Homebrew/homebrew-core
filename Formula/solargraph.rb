@@ -9,12 +9,12 @@ class Solargraph < Formula
   revision 1
 
   bottle do
-    sha256                               arm64_monterey: "4bdfb2bae2ea0e6651f3880e20163094d0a9e434b8f45595f74dd97174297bd7"
-    sha256                               arm64_big_sur:  "8d2bdef34ad980b87a793e6f67490e68a647162f5294b6e005cb4737eca29089"
-    sha256                               monterey:       "53cdf43975c36f6759dd78b0d94c7511ed06b47f1350a41f346b3c67b32c21ab"
-    sha256                               big_sur:        "cc5a0e00350109e2ce3dfc09afd60b427fc20416bfcfeb68dd5fc4de96682e29"
-    sha256                               catalina:       "572e7ab925e723236509671f9a10f2814417c41771c81b3e155dae990ead1179"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ea302b96d25305df9675aa39f2ab7270cfdf81c13f977a69dcc45abe5cca860"
+    sha256                               arm64_monterey: "a54f53dad171c5621b4d14fc4696580eb5cb40d61b851644cfc5a1dce156435b"
+    sha256                               arm64_big_sur:  "f2d635dd863160e24a10d4d90db18e6f166335a6fa0a23f7c30e3560b698917c"
+    sha256                               monterey:       "678c2dbb27e90671dc658ca58af29eaa0af24835368a0b9043daf551d67f6f27"
+    sha256                               big_sur:        "b9a7df028d7c6a1dae8db9e0b9f5a2ba05431a854c2a7d6c0a6d65b84f80835a"
+    sha256                               catalina:       "015655f02883f8192893d617ae44193acf2a4b101aa732ae0d969bfd83237d31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71e2e9306955dcd1d6645f6776c7b2ee5c7a1128038970f3f8d7315408bd4563"
   end
 
   uses_from_macos "ruby", since: :catalina
