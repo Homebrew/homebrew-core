@@ -22,8 +22,9 @@ class Tagref < Formula
       Here's a tag: [tag:bar]
     EOS
 
-    output, status = Open3.capture2e({ "NO_COLOR" => "true" }, "#{bin}/tagref")
-    assert(status.success?, "Tagref did not exit successfully.")
+    with_env(NO_COLOR: true) do
+      output = shell_output("#{bin}/tagref 2>&1")
+    end
     assert_match(
       /2 tags and 2 references validated in \d+ files\./,
       output,
