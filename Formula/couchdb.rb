@@ -12,9 +12,8 @@ class Couchdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "4d0f0c145720db23f52483fdf3b35363f9343e3b39285c91255da1993ab91bff"
-    sha256 cellar: :any, catalina: "3a2892f1076c575372e4012c8858c23fc05a787abfa679376ce1c4a7ea4fa8ae"
-    sha256 cellar: :any, mojave:   "ef4e1a3ef761a58fe16b4d163c0b4331f1ffd3833b7fe6d7cf820c6a5064c37d"
+    sha256 cellar: :any, big_sur:  "d9cf6a2a9391564687d13d399483531a16b359b58e7e360e9bb5e07077a4b5ff"
+    sha256 cellar: :any, catalina: "d3143b2e8fde79e0cec1472d9318988f32dd4337c742f25b98e41c43f01d39f0"
   end
 
   depends_on "autoconf" => :build
