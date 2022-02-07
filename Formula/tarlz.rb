@@ -31,13 +31,12 @@ class Tarlz < Formula
     mkdir_p spath
     mkdir_p dpath
 
-    system "#{bin}/tarlz", "-C", "#{testpath}", "-cf", "#{lzipfilepath}", "source"
+    system "#{bin}/tarlz", "-C", testpath, "-cf", lzipfilepath, "source"
     assert_equal 0, $CHILD_STATUS.exitstatus
     assert_predicate lzipfilepath, :exist?
 
     system "#{bin}/tarlz", "-C", dpath, "-xf", lzipfilepath
     assert_equal 0, $CHILD_STATUS.exitstatus
     assert_equal "TEST CONTENT", dtestfilepath.read
-
   end
 end
