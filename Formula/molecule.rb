@@ -250,7 +250,7 @@ class Molecule < Formula
 
   test do
     # Test the Vagrant driver
-    system bin/"molecule", "init", "role", "foo-vagrant", "--driver-name",
+    system bin/"molecule", "init", "role", "acme.foo-vagrant", "--driver-name",
                            "vagrant", "--verifier-name", "testinfra"
     assert_predicate testpath/"foo-vagrant/molecule/default/molecule.yml", :exist?,
                      "Failed to create 'foo-vagrant/molecule/default/molecule.yml' file!"
