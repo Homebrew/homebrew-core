@@ -5,6 +5,15 @@ class Vkectl < Formula
   sha256 "15f0f3786c03d53702306ba4ae8812afe59e0094356d1202c292cca87242ac77"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b448a0543341c7f1e85e5348d4870e863abd6f1bcb336e67251e7b166fb7c5cb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "777027b5b9c97203ff135ad143f69578cd04395df4ffdff191cb370b64df246d"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4d4672f1f6f879dac715753429379de492bbecbb60ea963c8e3343bd053c108"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ed46bcdf4004aef00d92ae0caae727a2c66caf39da08423276fbb0f2a5880f74"
+    sha256 cellar: :any_skip_relocation, catalina:       "d00a281f29eef8ec8f0a9772d94b9e6b63937984c2d5bd8be74a11c9a4a6e29b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7369d566f5a8d7701bee09d76174a2145bcd7b1601311f20484e2f96fb0fe5ea"
+  end
+
   depends_on "go" => :build
 
   def install
