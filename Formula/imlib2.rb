@@ -6,12 +6,12 @@ class Imlib2 < Formula
   license "Imlib2"
 
   bottle do
-    sha256 arm64_monterey: "42ce6444ed4ea88182a2224bd9bc41678f3c5b1541643d00a927194fd008564b"
-    sha256 arm64_big_sur:  "8819e6881ab37a4ed403a09907bd4e2b50c58fe95a49f9e7eb01ee1273f22902"
-    sha256 monterey:       "acfdb90aedcf59df54b9b4c6401e3a953453ae395267145d8f0e94ea2536ad02"
-    sha256 big_sur:        "4d307ed31a85d37607ff47a074a98feed643a5ce3cb01a7bce7ea1726d1a915d"
-    sha256 catalina:       "ec75b72d588f58183ee2aee240a7125799c517bbf8e4b6862e7c495dcaf88cce"
-    sha256 x86_64_linux:   "9ad7868a77d3a89b8fed50b2fd0571e531c406a7a783dfab35c7eb33ad946944"
+    sha256 arm64_monterey: "b2de245f18e78b436d4d07f3014c56d8270b3492fb69fdeb3582a0d15bf4b67f"
+    sha256 arm64_big_sur:  "36251f3feb076561ea14d370a835cc083784dc5e474eacbf245e2fd45b9a57d5"
+    sha256 monterey:       "9aa38042fc2b718761512b6a15e83b42e72ded8dd8c2ef7c31d725bb6e24541f"
+    sha256 big_sur:        "705df97598ac9dcc97cbebe1c1e0c73e00bfe3767026beab67d4a323895c19b5"
+    sha256 catalina:       "29986753fc1e8df3308f04e97c8ac84e1bbeb7261782aeacc368d15e15da4105"
+    sha256 x86_64_linux:   "3515128d61ab7d33f66381177b0a99d5001ec5b23b9f121906d40db994c30804"
   end
 
   depends_on "pkg-config" => :build
