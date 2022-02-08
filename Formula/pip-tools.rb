@@ -3,8 +3,8 @@ class PipTools < Formula
 
   desc "Locking and sync for Pip requirements files"
   homepage "https://pip-tools.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/b6/1b/f639642e8a9d00e46b4241ace3e93932ba7dfed8edfb55559661e2b79cb2/pip-tools-6.5.0.tar.gz"
-  sha256 "d14ea4fc2c118db2a6af65a4345a8b9b355e792aedad6bf64dd3eb97c5fc5fee"
+  url "https://files.pythonhosted.org/packages/9a/0a/b1bad74966a949a07b57d0ce0be241a8d8c75afde1be915b7a66008f696c/pip-tools-6.5.1.tar.gz"
+  sha256 "80f562aa699fc76a424539697e0bef41e490a050e57a6a21468531981a9d419e"
   license "BSD-3-Clause"
 
   bottle do
@@ -29,8 +29,8 @@ class PipTools < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/3d/6e/d290c9bf16159f02b70c432386aa5bfe22c2857ff460591912fd907b61f6/tomli-2.0.0.tar.gz"
-    sha256 "c292c34f58502a1eb2bbb9f5bbc9a5ebc37bee10ffb8c2d6bbdfa8eb13cc14e1"
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "wheel" do
