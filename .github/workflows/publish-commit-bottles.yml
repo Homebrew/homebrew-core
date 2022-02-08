@@ -8,7 +8,7 @@ on:
         required: true
       args:
         description: "Extra arguments to `brew pr-pull`"
-        default: ""
+        default: "--autosquash"
 
 env:
   HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
