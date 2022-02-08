@@ -1,8 +1,8 @@
 class Pybind11 < Formula
   desc "Seamless operability between C++11 and Python"
   homepage "https://github.com/pybind/pybind11"
-  url "https://github.com/pybind/pybind11/archive/v2.9.0.tar.gz"
-  sha256 "057fb68dafd972bc13afb855f3b0d8cf0fa1a78ef053e815d9af79be7ff567cb"
+  url "https://github.com/pybind/pybind11/archive/v2.9.1.tar.gz"
+  sha256 "c6160321dc98e6e1184cc791fbeadd2907bb4a0ce0e447f2ea4ff8ab56550913"
   license "BSD-3-Clause"
 
   livecheck do
@@ -34,10 +34,11 @@ class Pybind11 < Formula
 
     pythons.each do |python|
       # Install Python package too
-      system python.opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+      site_packages = Language::Python.site_packages python.opt_bin/"python3"
+      system python.opt_bin/"python3", *Language::Python.setup_install_args(libexec),
+                                       "--install-lib=#{libexec/site_packages}"
 
       pyversion = Language::Python.major_minor_version python.opt_bin/"python3"
-      site_packages = Language::Python.site_packages python.opt_bin/"python3"
       pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
       (prefix/site_packages/"homebrew-pybind11.pth").write pth_contents
 
