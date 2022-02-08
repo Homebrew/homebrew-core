@@ -36,12 +36,12 @@ class WebpPixbufLoader < Formula
   # After the loader is linked in, update the global cache of pixbuf loaders
   def post_install
     ENV["GDK_PIXBUF_MODULEDIR"] = "#{HOMEBREW_PREFIX}/#{module_subdir}"
-    system "#{HOMEBREW_PREFIX}/bin/gdk-pixbuf-query-loaders", "--update-cache"
+    system "#{Formula["gdk-pixbuf"].opt_bin}/gdk-pixbuf-query-loaders", "--update-cache"
   end
 
   test do
     # Generate a .webp file to test with.
-    system "#{HOMEBREW_PREFIX}/bin/cwebp", test_fixtures("test.png"), "-o", "test.webp"
+    system "#{Formula["webp"].opt_bin}/cwebp", test_fixtures("test.png"), "-o", "test.webp"
 
     # Sample program to load a .webp file via gdk-pixbuf.
     (testpath/"test.c").write <<~EOS
