@@ -2,12 +2,11 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  revision 3
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   stable do
-    url "https://github.com/JuliaLang/julia/releases/download/v1.7.1/julia-1.7.1.tar.gz"
-    sha256 "17d298e50e4e3dd897246ccebd9f40ce5b89077fa36217860efaec4576aa718e"
+    url "https://github.com/JuliaLang/julia/releases/download/v1.7.2/julia-1.7.2.tar.gz"
+    sha256 "0847943dd65001f3322b00c7dc4e12f56e70e98c6b798ccbd4f02d27ce161fef"
 
     # Patches for compatibility with LLVM 13
     patch do
