@@ -17,17 +17,17 @@ class Sshs < Formula
     # Homebrew testing environment doesn't have ~/.ssh/config by default
     assert_match "no such file or directory", shell_output(bin/"sshs 2>&1 || true").strip
 
-    require "pty"
-    require "io/console"
-
-    ENV["TERM"] = "xterm"
-
     (testpath/".ssh/config").write <<~EOS
       Host "Test"
         HostName example.com
         User root
         Port 22
     EOS
+
+    require "pty"
+    require "io/console"
+
+    ENV["TERM"] = "xterm"
 
     PTY.spawn(bin/"sshs") do |r, w, _pid|
       r.winsize = [80, 40]
