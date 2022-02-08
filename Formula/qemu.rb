@@ -36,6 +36,7 @@ class Qemu < Formula
 
   on_linux do
     depends_on "gcc"
+    depends_on "gtk+3"
   end
 
   fails_with gcc: "5"
@@ -61,7 +62,6 @@ class Qemu < Formula
       --enable-vde
       --extra-cflags=-DNCURSES_WIDECHAR=1
       --disable-sdl
-      --disable-gtk
     ]
     # Sharing Samba directories in QEMU requires the samba.org smbd which is
     # incompatible with the macOS-provided version. This will lead to
@@ -70,7 +70,9 @@ class Qemu < Formula
     # Samba installations from external taps.
     args << "--smbd=#{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd"
 
+    args << "--disable-gtk" if OS.mac?
     args << "--enable-cocoa" if OS.mac?
+    args << "--enable-gtk" if OS.linux?
 
     system "./configure", *args
     system "make", "V=1", "install"
