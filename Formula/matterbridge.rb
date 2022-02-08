@@ -1,8 +1,8 @@
 class Matterbridge < Formula
   desc "Protocol bridge for multiple chat platforms"
   homepage "https://github.com/42wim/matterbridge"
-  url "https://github.com/42wim/matterbridge/archive/v1.23.2.tar.gz"
-  sha256 "5f00556b89855db7ce171c91552f51de1d053e463b8c858049a872fadd5c22a6"
+  url "https://github.com/42wim/matterbridge/archive/v1.24.0.tar.gz"
+  sha256 "65ee39770b4799ebbe6676206cae3d067b4c7ea29773a1e7fb26c657d4b151a6"
   license "Apache-2.0"
 
   bottle do
