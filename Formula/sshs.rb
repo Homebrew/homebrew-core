@@ -5,6 +5,15 @@ class Sshs < Formula
   sha256 "cc6cdfe6be6f3efea29c8acc5a60ea037a88e445bced1619e7002a851d9bbe88"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "584f99a623ca4c9ba0edde67252b2aa96b90db9bdb5debbd7ed4ad117bf55a24"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a2cfe6191b9ba89d0fded044cce7407b1c0af1c79eee94ab99eae362f0fc1e3"
+    sha256 cellar: :any_skip_relocation, monterey:       "91a5c6d3f5ab8cf61c6f4163386f871c0e644182a096520c750e9ef3fe330a4d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d012528d8b0b300a6f8f813dad9eca1d079cc94a9a95f1660194cc25ee50d6fa"
+    sha256 cellar: :any_skip_relocation, catalina:       "d00faf7599582e85726e985096d5dd337374b81c5678be585e296fa7b6e956e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bef012dbb553c9ff0cd35497c013386376f20c9c4c35ff7818a5f1330156f96"
+  end
+
   depends_on "go" => :build
 
   def install
