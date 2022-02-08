@@ -155,7 +155,7 @@ class OrganizeTool < Formula
   test do
     (testpath/"config.yaml").write <<~EOS
       rules:
-        - folders: #{testpath}
+        - locations: #{testpath}
           filters:
             - extension: txt
           actions:
