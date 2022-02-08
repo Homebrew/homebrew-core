@@ -1,8 +1,8 @@
 class TtyShare < Formula
   desc "Terminal sharing over the Internet"
   homepage "https://tty-share.com/"
-  url "https://github.com/elisescu/tty-share/archive/v2.2.0.tar.gz"
-  sha256 "a72cf839c10a00e65292e2de83e69cc1507b95850d949c9bd776566eae1a4f51"
+  url "https://github.com/elisescu/tty-share/archive/v2.2.1.tar.gz"
+  sha256 "c42119dff70eb2ec861463ed7d1d60de44c0c93d83c10a88873c11393decfbc2"
   license "MIT"
 
   bottle do
