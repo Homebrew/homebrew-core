@@ -1,8 +1,8 @@
 class Hss < Formula
   desc "Interactive parallel SSH client"
   homepage "https://github.com/six-ddc/hss"
-  url "https://github.com/six-ddc/hss/archive/1.8.tar.gz"
-  sha256 "60481274403c551f5b717599c813d619877a009832c4a8a84fcead18e39382fa"
+  url "https://github.com/six-ddc/hss/archive/1.9.tar.gz"
+  sha256 "d7846ee657fe6a600c7d6f8e91f17ffa238efcaeb6f79856caa9fdedd96e3bca"
   license "MIT"
 
   bottle do
