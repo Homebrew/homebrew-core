@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v8.1.4.tar.gz"
-  sha256 "970be2acce6aadf003c018d4e47daab0d609b390f39fa245c04a35c7dac75950"
+  url "https://github.com/gravitational/teleport/archive/v8.1.5.tar.gz"
+  sha256 "a6ee273b0b698381e9b9572e29d71174fe59a678a59dfc31d3de79d151acc14d"
   license "Apache-2.0"
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -34,8 +34,8 @@ class Teleport < Formula
 
   # Keep this in sync with https://github.com/gravitational/teleport/tree/v#{version}
   resource "webassets" do
-    url "https://github.com/gravitational/webassets/archive/ea3c67c941c56cfb6c228612e88100df09fb6f9c.tar.gz"
-    sha256 "66812b99e4cc00d34fb2b022ffe9d5e13abb740a165fcf3f518dada52c631c51"
+    url "https://github.com/gravitational/webassets/archive/187a1f13821b2b33a4312a10af216963175c3d40.tar.gz"
+    sha256 "c0ced56af408ac905c90a2afde3bda1301423ed08cb63149d69266b62c19297e"
   end
 
   def install
@@ -45,8 +45,9 @@ class Teleport < Formula
   end
 
   test do
-    webassets = shell_output("curl \"https://api.github.com/repos/gravitational/teleport/contents/webassets?ref=v#{version}\"")
-    assert_match resource("webassets").version.to_s, webassets
+    curl_output = shell_output("curl \"https://api.github.com/repos/gravitational/teleport/contents/webassets?ref=v#{version}\"")
+    webassets_version = JSON.parse(curl_output)["sha"]
+    assert_match webassets_version, resource("webassets").url
     assert_match version.to_s, shell_output("#{bin}/teleport version")
     assert_match version.to_s, shell_output("#{bin}/tsh version")
     assert_match version.to_s, shell_output("#{bin}/tctl version")
