@@ -3,8 +3,8 @@ class Sail < Formula
 
   desc "CLI toolkit to provision and deploy WordPress applications to DigitalOcean"
   homepage "https://sailed.io"
-  url "https://files.pythonhosted.org/packages/0e/d8/6cd8f95e1ad7abc50ce2e3cb4f21039cb56ffd68eb9cd4619defebd030f6/sailed.io-0.10.4.tar.gz"
-  sha256 "3c2b29beb1a1cacc1865cb7a5f0bf4cdd66a53a6aea485d10c5a5cf58e23f326"
+  url "https://files.pythonhosted.org/packages/60/4a/7d5a2481c233136d2234fed05569ed20ed97446e889f3996ee53e0132619/sailed.io-0.10.5.tar.gz"
+  sha256 "8dd2b00760389226470da22437daccfa2bc0f87134381d3742cc041ea2b39516"
   license "GPL-3.0-only"
 
   bottle do
@@ -36,8 +36,8 @@ class Sail < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/48/44/76b179e0d1afe6e6a91fd5661c284f60238987f3b42b676d141d01cd5b97/charset-normalizer-2.0.10.tar.gz"
-    sha256 "876d180e9d7432c5d1dfd4c5d26b72f099d503e8fcc0feb7532c9289be60fcbd"
+    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
+    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
   end
 
   resource "click" do
@@ -116,8 +116,8 @@ class Sail < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
-    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
+    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
+    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
   end
 
   resource "python-digitalocean" do
