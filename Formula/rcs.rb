@@ -1,9 +1,9 @@
 class Rcs < Formula
   desc "GNU revision control system"
   homepage "https://www.gnu.org/software/rcs/"
-  url "https://ftp.gnu.org/gnu/rcs/rcs-5.10.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/rcs/rcs-5.10.0.tar.xz"
-  sha256 "3a0d9f958c7ad303e475e8634654974edbe6deb3a454491f3857dc1889bac5c5"
+  url "https://ftp.gnu.org/gnu/rcs/rcs-5.10.1.tar.lz"
+  mirror "https://ftpmirror.gnu.org/rcs/rcs-5.10.1.tar.lz"
+  sha256 "43ddfe10724a8b85e2468f6403b6000737186f01e60e0bd62fde69d842234cc5"
   license "GPL-3.0-or-later"
 
   bottle do
