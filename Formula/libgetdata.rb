@@ -7,13 +7,12 @@ class Libgetdata < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_big_sur: "731e469e2d2f4de61115fc882715a9dbaf33da5f14cc89fc628a1440766738fd"
-    sha256 cellar: :any,                 big_sur:       "3ee0053d39a05cadec5f4ed7edc3f143af7afd3d53b0fb7ee89b905ef7a220c6"
-    sha256 cellar: :any,                 catalina:      "f133f438e1833bff0f5cf43109e27768a983a068dec90a767ba9027d2bc2f0b9"
-    sha256 cellar: :any,                 mojave:        "6c5f143bb202c280c3b3e340a420a1cf6c6d936cba70faf837cd215e451987fe"
-    sha256 cellar: :any,                 high_sierra:   "6b8b5f7801a6cf31ecd5ac82ee02ca344f9634ad01c235a828e3875d0354931b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef662c1fb66b8a46d82839d88417254970ff479eed33345b3d67cfec6d2c7f57"
+    sha256 cellar: :any,                 arm64_monterey: "4e167251c910442b10cd6c7da9c7dd0f3ded3926669c87d618f2330e8c76af82"
+    sha256 cellar: :any,                 arm64_big_sur:  "e8a11d9e2b1ab217a0984ba6dffd8f7bf721df6d1846f9d7ec07c3fa9816c808"
+    sha256 cellar: :any,                 monterey:       "3050afede9476adb4b8af36a097218742decd02873eb20a9dc8e3876a1c6b085"
+    sha256 cellar: :any,                 big_sur:        "8d192c117f205049f5547300b397c792d35d8d5f95854043563d02ca144b1a11"
+    sha256 cellar: :any,                 catalina:       "8d05ffb11f957a9dc351f4b969c4d63d5878b5099c18efd6a4c454cb2b3a7069"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9ea4ca51936e1f4a68e32eba62aca9e3edc2b8c1eb078c5045d34637dcc2f97"
   end
 
   depends_on "libtool"
