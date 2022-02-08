@@ -34,6 +34,6 @@ class RpkiClient < Formula
   end
 
   test do
-    assert_match "parse file ta:", shell_output("#{sbin}/rpki-client -n -d . -R . 2>&1").lines.last
+    assert_match "parse file ta/", shell_output("#{sbin}/rpki-client -n -d . -R . 2>&1").lines.last
   end
 end
