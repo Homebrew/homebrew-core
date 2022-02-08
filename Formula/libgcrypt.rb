@@ -11,13 +11,12 @@ class Libgcrypt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "db8ca3ac372b23c25be44950acae40a4bb8faa4312df72023a28959a09cd8ea7"
-    sha256 cellar: :any,                 arm64_big_sur:  "ebe24d93edccd91ac094387b74b0c42aeebd44a6bb5f583816c8d1690690cf57"
-    sha256 cellar: :any,                 monterey:       "b8b834ecc967d71931b73f4102ef74be06812358def29cf37700ae1d57494c80"
-    sha256 cellar: :any,                 big_sur:        "19f11700630c036864c3acaf39d6b26b8d7f46a96b7eab4cab5d118ce5a0c28a"
-    sha256 cellar: :any,                 catalina:       "22b69fca91210d5598644b6164980ea3d53ccbb9a66124314ae3836b9100a4bf"
-    sha256 cellar: :any,                 mojave:         "d40e101e9605d7ba2b56fa6c441565192a85b3bb67302ab4feeac4d38a56d261"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c199805c55e5f11d84e19554b3583d78a2e681a0ba549508927c2528d07372cd"
+    sha256 cellar: :any,                 arm64_monterey: "814ad8451d7a20b03590289dcea6232d17412ffb910886fc8ae8b903de4c38b3"
+    sha256 cellar: :any,                 arm64_big_sur:  "9421cc3b2166199f598f523123048e28001d20fe549e15be4f8ff68672ca34c2"
+    sha256 cellar: :any,                 monterey:       "a85e017efead8890447ef3dd82a0d5abdcb4ac1d55c67ac11ec4fc8b955258a8"
+    sha256 cellar: :any,                 big_sur:        "f41a416b42273557a1747c89b936160147bba984edf90d05dcdd90977255c4b2"
+    sha256 cellar: :any,                 catalina:       "744c2e13d08b46aceba533ff905cf61eebf84030e81146db3eb708a226709227"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "938afdcee08b2d6e0cd1b5c4b125c1ff693848e0adc621283b4f3486ad2b54a4"
   end
 
   depends_on "libgpg-error"
