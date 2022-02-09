@@ -8,6 +8,15 @@ class Yamale < Formula
   license "MIT"
   head "https://github.com/23andMe/Yamale.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "20239cbb6c91b60b6498719d9975890b2ae04024ce27f04de6606054e5cea52f"
+    sha256 cellar: :any,                 arm64_big_sur:  "f6f73561bd55c42a6d269f1d1088191f2a2c3d0c59bf47458ebcfdcdaa813a74"
+    sha256 cellar: :any,                 monterey:       "2cc0f0d1e82b8f0196e1d47bdf72f186a7fe63fa29cc8f20bf0079c1b5c888fe"
+    sha256 cellar: :any,                 big_sur:        "57edaa9dbb31711ed0152049e0d952bf87d9bb8d6bb33f93065f9592913b3f13"
+    sha256 cellar: :any,                 catalina:       "9ff707f6faef7e4806770bc94314f5c09ead2120ea2c1140740018ddd32b5f1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2e31112970b1897b3c58bce4533460d45f36cbdbaa7352d652ce3864ffa7dfe"
+  end
+
   depends_on "libyaml"
   depends_on "python@3.10"
 
