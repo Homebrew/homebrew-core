@@ -11,13 +11,14 @@ class WebpPixbufLoader < Formula
   depends_on "gdk-pixbuf"
   depends_on "webp"
 
-  # Constants for gdk-pixbuf's multiple version numbers.
+  # Constants for gdk-pixbuf's multiple version numbers, which are the same as
+  # the constants in the gdk-pixbuf formula.
   def gdk_so_ver
-    "2.0"
+    Formula["gdk-pixbuf"].gdk_so_ver
   end
 
   def gdk_module_ver
-    "2.10.0"
+    Formula["gdk-pixbuf"].gdk_module_ver
   end
 
   # Subfolder that pixbuf loaders are installed into.
