@@ -14,11 +14,10 @@ class Spades < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "4488276aba5695c211bce6ded3078c83a14cfe376bf11fd870a2d423cd53d55d"
-    sha256 cellar: :any_skip_relocation, big_sur:      "1709900ba50cdaec70d864c3b7f6c68eaa4e7396055abc6fe540e3529296d84b"
-    sha256 cellar: :any_skip_relocation, catalina:     "07c4724e3a1236f19f6c9a7899077035c17501f1581838428849fc9ec8d25d78"
-    sha256 cellar: :any_skip_relocation, mojave:       "6efc26bfefb204c0ed9370b2d46a2ec0e12c999b6f150d3e2a22c2d38e15d93d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "aa82716b39775ce1f1a5961aad0322514723e92138f9f525db36bc389d47f694"
+    sha256 cellar: :any_skip_relocation, monterey:     "b9da94286c55d210de91d60327d8853b6d6f5a3f5696d826bff7796db5221584"
+    sha256 cellar: :any_skip_relocation, big_sur:      "c14663b2aa9502bece0210c2563ce6c9cc00586625f090accc59278611ba3e24"
+    sha256 cellar: :any_skip_relocation, catalina:     "fcf3d8860c032d7402115b9c16be93056a7ecd9d1b3f328fa8be825b7e1b62fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c1fa79f789782f57ea36e5afa4b020a94aa0ec746d181e20083665166bd05682"
   end
 
   depends_on "cmake" => :build
