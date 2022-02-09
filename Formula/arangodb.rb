@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.8.5-1.tar.bz2"
-  sha256 "3c953644f0e5c86bcfe40407c1bb8fcb4b60b75463e109b7085d82be36efc3c0"
+  url "https://download.arangodb.com/Source/ArangoDB-3.9.0.tar.bz2"
+  sha256 "a6fb06bdfcaa8884d8a060e4aa1164d94db12bf2df332a2e44b2de2283204bca"
   license "Apache-2.0"
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
@@ -18,7 +18,7 @@ class Arangodb < Formula
 
   depends_on "ccache" => :build
   depends_on "cmake" => :build
-  depends_on "go@1.13" => :build
+  depends_on "go@1.16" => :build
   depends_on "python@3.9" => :build
   depends_on macos: :mojave
   depends_on "openssl@1.1"
@@ -44,7 +44,6 @@ class Arangodb < Formula
     resource("starter").stage do
       ENV["GO111MODULE"] = "on"
       ENV["DOCKERCLI"] = ""
-      system "make", "deps"
       ldflags = %W[
         -s -w
         -X main.projectVersion=#{resource("starter").version}
