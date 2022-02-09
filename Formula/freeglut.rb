@@ -1,10 +1,9 @@
 class Freeglut < Formula
   desc "Open-source alternative to the OpenGL Utility Toolkit (GLUT) library"
   homepage "https://freeglut.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/freeglut/freeglut/3.2.1/freeglut-3.2.1.tar.gz"
-  sha256 "d4000e02102acaf259998c870e25214739d1f16f67f99cb35e4f46841399da68"
+  url "https://downloads.sourceforge.net/project/freeglut/freeglut/3.2.2/freeglut-3.2.2.tar.gz"
+  sha256 "c5944a082df0bba96b5756dddb1f75d0cd72ce27b5395c6c1dde85c2ff297a50"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "b2ba809784fa9d9aa7364b8a9bfa7604f03db29ee33b8f471327cf676e26a6a9"
