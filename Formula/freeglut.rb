@@ -6,14 +6,12 @@ class Freeglut < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b2ba809784fa9d9aa7364b8a9bfa7604f03db29ee33b8f471327cf676e26a6a9"
-    sha256 cellar: :any,                 arm64_big_sur:  "203bade82803af2a0b0fae9e3049ed61d9a4e1f4f6efd42fc6160c7296a54f2e"
-    sha256 cellar: :any,                 monterey:       "3e7c1021010984328014280c1e734e69fbcd7b41882c9c8e3697d827be972b90"
-    sha256 cellar: :any,                 big_sur:        "078bc333780fea9d4dd745529c91326a3ea4bcd393c18a0d817fd7870d90b7a2"
-    sha256 cellar: :any,                 catalina:       "21e92d3aa8a1615937c6776292dd823912220d272a4a437f66917d1e6dd0b655"
-    sha256 cellar: :any,                 mojave:         "8d71afe59334afe060d513d68e8c76b3fc0927cf05d61b146dd1444c66d5db35"
-    sha256 cellar: :any,                 high_sierra:    "0a30955c90e594481f1ebf4dd218065768386704e2fdcdc0aae45055171dfd2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b6950bd59195ef3256e524f3b78fcc01f0a79c8f43f83346b285154b773d4b9"
+    sha256 cellar: :any,                 arm64_monterey: "85f94ee7f0436554c19f3e8f50fda475bdf913c04fec8e23792056adc1e1fb79"
+    sha256 cellar: :any,                 arm64_big_sur:  "b2cbc54b86715fbf75f671e11165d1a2b61ae5185d5d5e73c6fefe1fb36ccd5a"
+    sha256 cellar: :any,                 monterey:       "b4bb0d39e2a2d9d67298665b11cdd28e2e66ab58e6d35ffc2a9f7a3962574273"
+    sha256 cellar: :any,                 big_sur:        "1a218709c3f10ddf43df97c79ee616d7ad9aa5f5c8c10f44060266e3ae641b42"
+    sha256 cellar: :any,                 catalina:       "74a7a0bf713cb2030d4eb0f9d6d234bec221c97d5113ba36b1ebb71df6257d52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "057c5a28a73b5c225322f4c8fd878f80b632e22e13f294a733e2ce1c9b7c4149"
   end
 
   depends_on "cmake" => :build
