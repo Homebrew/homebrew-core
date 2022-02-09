@@ -18,7 +18,6 @@ class Duckdb < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.10" => :build
-  depends_on "utf8proc"
 
   def install
     ENV.deparallelize if OS.linux? # amalgamation builds take GBs of RAM
