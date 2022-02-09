@@ -14,11 +14,11 @@ class Csound < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "460ae791ab283dbbeb13a1fb30525ad7d75aa9256ad8242aef8c7ef1ee736073"
-    sha256 arm64_big_sur:  "14cee00ca18bf54adf546479249eeb4f99e9a443c094e88e0efeaddf35bfee49"
-    sha256 monterey:       "c9f3cf5b396f839cad7be830d6d173dd05fa315749bf4e0a675eb215b2955687"
-    sha256 big_sur:        "dd92dff6596b61e0f9d216e6953ddec628470575cfe36b65f8574ff7765d83fc"
-    sha256 catalina:       "d1a9e3f4e140e611c751bab30ed207306a43694221395229a2f8915476a5048d"
+    sha256 arm64_monterey: "1d88baa0fd231f32f8c781de1cb1f6171e61f0fce6a6c4f57ac6230ef83fa056"
+    sha256 arm64_big_sur:  "98d99dd13d7dafa803d1ad78c6981b3f8444ffdc3710aecf03293a58fa19db60"
+    sha256 monterey:       "9d2581375ec142229d4cae9ac8b22810b4901a93386ed75df1df4a829318b361"
+    sha256 big_sur:        "91cc6037680ba3dc8021f3627ce70d2b4577f4292519d811be7e158c65667117"
+    sha256 catalina:       "4ef08888599afb3ed78d0e6a2ec2387c42a8b14d89781d3e76d599d0061e6347"
   end
 
   depends_on "asio" => :build
