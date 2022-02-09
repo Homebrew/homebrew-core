@@ -10,17 +10,12 @@ class Libspnav < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "9c1fa37e3a61db6b730641e296d23495ec282ad38ebeec11e78fcf88ea063de0"
-    sha256 cellar: :any,                 arm64_big_sur:  "421df09aff21f173833bb55fd801f83a8cdfb06855c27d02fcc1e0a22cf79991"
-    sha256 cellar: :any,                 monterey:       "2bb7289ac82328298256386641456bd3e60716613177d34074a3c349966dba22"
-    sha256 cellar: :any,                 big_sur:        "8260c77f747105cff878f66c1c622d9138cb8040c3423b87f5fdfd85ae0a4698"
-    sha256 cellar: :any,                 catalina:       "9d7234296b1bdb5c4dd0f1aa5855cca877d2eba7fa83812c34438e7cf401a3cf"
-    sha256 cellar: :any,                 mojave:         "a428a0b1037ff3dfd5a7ba2463f6ca96717e69be734627d8d7abd079f17fb7d5"
-    sha256 cellar: :any,                 high_sierra:    "d61c3082aef6a700ad02d553304add7bb6bb2541236a97cf0a571dcc88f67d16"
-    sha256 cellar: :any,                 sierra:         "55cf0552148451302bb50c04a843d8d3834ca95a38c79bf5270f20ac49f82d41"
-    sha256 cellar: :any,                 el_capitan:     "48685db33ebe4acb821b33dbd609f95d03c47bd6c316b08f1bc1110d86271643"
-    sha256 cellar: :any,                 yosemite:       "87bf93469bb14eef1a24de81cd521f6a62363a6aa7c04a319f3f18905de039b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c755ddda17eddc3ee679f19f0a7528a894791ac4e0440658f755f630230ae2c"
+    sha256 cellar: :any,                 arm64_monterey: "92c34da77f70181b7e459c709cd3b2dbca2d13d22891542b466b355e5fe52f5b"
+    sha256 cellar: :any,                 arm64_big_sur:  "af3b951bb445de1a2eed22da15ececaaa94e02d810f796b602a6e2e36a16c997"
+    sha256 cellar: :any,                 monterey:       "526cd023fc31cb67690ca317f30054616e29699cea56443daeb8a77e89c8bd6d"
+    sha256 cellar: :any,                 big_sur:        "6de5e4376307295e64248d5ede4a35ba9e7d90b513c758145a4b7aa4e71350e9"
+    sha256 cellar: :any,                 catalina:       "84802266fecdc3162ffa9cef35b91df321ea50f65321440b9c3bef5befb8fdc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b381f749f71d3ca171b3e3b71482c53773d77b408bf7d698d3cb9629af04314b"
   end
 
   def install
