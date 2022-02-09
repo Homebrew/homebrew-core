@@ -25,7 +25,7 @@ class Kopia < Formula
     (zsh_completion/"_kopia").write output
 
     output = Utils.safe_popen_read(bin/"kopia", "--help-man")
-    (man/"man1/kopia.1").write output
+    (man1/"kopia.1").write output
   end
 
   test do
