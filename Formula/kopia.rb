@@ -37,7 +37,7 @@ class Kopia < Formula
     output = shell_output("#{bin}/kopia --version").strip
 
     # verify version output, note we're unable to verify the git hash in tests
-    assert_match(/#{version} build: .* from: kopia\/kopia/, output)
+    assert_match(%r{#{version} build: .* from: kopia/kopia}, output)
 
     system "#{bin}/kopia", "repository", "create", "filesystem", "--path", testpath/"repo", "--no-persist-credentials"
     assert_predicate testpath/"repo/kopia.repository.f", :exist?
