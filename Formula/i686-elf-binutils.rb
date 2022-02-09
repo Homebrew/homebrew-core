@@ -1,9 +1,9 @@
 class I686ElfBinutils < Formula
   desc "GNU Binutils for i686-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.37.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.37.tar.xz"
-  sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.38.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.38.tar.xz"
+  sha256 "e316477a914f567eccc34d5d29785b8b0f5a10208d36bbacedcc39048ecfe024"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -19,6 +19,8 @@ class I686ElfBinutils < Formula
     sha256 mojave:         "e7d88b4c27231de4e75cd4568a37c6ad17261ed3857dafc199f130d0bb92d9c9"
     sha256 x86_64_linux:   "adc65062f3bb607eab945a84dee5031394abc3bb9c0f8751bf111c27003c4a02"
   end
+
+  uses_from_macos "texinfo"
 
   def install
     target = "i686-elf"
