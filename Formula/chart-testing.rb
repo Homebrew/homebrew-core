@@ -8,12 +8,13 @@ class ChartTesting < Formula
   head "https://github.com/helm/chart-testing.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c28e4a9b970053d9e9a4d1dc1fda58abeb059b636bf94547cbe54051694b5306"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2448cbf08768d95639f0afc111dcb74ae3b3b54acdfc16e9d41078842fab41e5"
-    sha256 cellar: :any_skip_relocation, monterey:       "691f0f6353686aacd567021cca105aa5799ccfe1df9a1db84b909fe21ff77b3a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4dc26ff560ec30b8f5c72c038f56887bbd3fb48535c8940012b4dd5e99ad90e7"
-    sha256 cellar: :any_skip_relocation, catalina:       "560db5e9b008db385b7d357af1b48457e6cb7cb6061d88a6b1a5a77bc87d2271"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edf8d4e16fea3447e5b1468f96fbf8e1a3a1ccb38011257a6c01344ecfaf91ba"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "57a952a013cdca3607e50fc891feb37e53f095ee5feb5d389e7172408faf4ca2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6353994158dce52ebb39ed9b349572f948ea1eb6aefae379919845f74bcd8934"
+    sha256 cellar: :any_skip_relocation, monterey:       "e5bc4a1590a4b3230caf43e1dd551c46f4b22a510db21164b8ad7be7d9e0c0fc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7953cdb4762204e168677390434d95f7d274f63c6fe39f175158ece267fcea06"
+    sha256 cellar: :any_skip_relocation, catalina:       "64021f365503221f021e146f870d578480217ee313bfc0ae81903552e10f6b0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5b50ea823b97f1aeaee64823069080b3e7a881d6f92dfa4837971dbdbb63820"
   end
 
   depends_on "go" => :build
