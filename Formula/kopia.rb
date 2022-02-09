@@ -13,6 +13,7 @@ class Kopia < Formula
       -s -w
       -X github.com/kopia/kopia/repo.BuildInfo=#{Utils.git_head}
       -X github.com/kopia/kopia/repo.BuildVersion=#{version}
+      -X github.com/kopia/kopia/repo.BuildGitHubRepo=kopia/kopia
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)
@@ -24,7 +25,7 @@ class Kopia < Formula
     (zsh_completion/"_kopia").write output
 
     output = Utils.safe_popen_read(bin/"kopia", "--help-man")
-    (man/"kopia.1").write output
+    (man/"man1/kopia.1").write output
   end
 
   test do
@@ -32,6 +33,11 @@ class Kopia < Formula
     (testpath/"testdir/testfile").write("This is a test.")
 
     ENV["KOPIA_PASSWORD"] = "dummy"
+
+    output = shell_output("#{bin}/kopia --version").strip
+
+    # verify version output, note we're unable to verify the git hash in tests
+    assert_match(/#{version} build: .* from: kopia\/kopia/, output)
 
     system "#{bin}/kopia", "repository", "create", "filesystem", "--path", testpath/"repo", "--no-persist-credentials"
     assert_predicate testpath/"repo/kopia.repository.f", :exist?
