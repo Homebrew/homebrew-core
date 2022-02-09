@@ -22,10 +22,8 @@ class Tagref < Formula
       Here's a tag: [tag:bar]
     EOS
 
-    output = nil
-    with_env(NO_COLOR: "true") do
-      output = shell_output("#{bin}/tagref 2>&1")
-    end
+    ENV["NO_COLOR"] = "true"
+    output = shell_output("#{bin}/tagref 2>&1")
     assert_match(
       /2 tags and 2 references validated in \d+ files\./,
       output,
@@ -36,8 +34,7 @@ class Tagref < Formula
       Here's a reference to a non-existent tag: [ref:baz]
     EOS
 
-    output, status = Open3.capture2e({ "NO_COLOR" => "true" }, "#{bin}/tagref")
-    assert(!status.success?, "Tagref did not fail as expected.")
+    output = shell_output("#{bin}/tagref 2>&1", 1)
     assert_match(
       "No tag found for [ref:baz] @ ./file-3.txt:1.",
       output,
