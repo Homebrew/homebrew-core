@@ -19,6 +19,7 @@ class ChartTesting < Formula
   depends_on "go" => :build
   depends_on "helm" => :test
   depends_on "yamllint" => :test
+  depends_on "yamale"
 
   def install
     # Fix default search path for configuration files, needed for ARM
