@@ -9,11 +9,12 @@ class Kopia < Formula
   depends_on "go" => :build
 
   def install
+    # do not set github.com/kopia/kopia/repo.BuildGitHubRepo to disable
+    # update notifications
     ldflags = %W[
       -s -w
       -X github.com/kopia/kopia/repo.BuildInfo=#{Utils.git_head}
       -X github.com/kopia/kopia/repo.BuildVersion=#{version}
-      -X github.com/kopia/kopia/repo.BuildGitHubRepo=kopia/kopia
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)
@@ -37,7 +38,7 @@ class Kopia < Formula
     output = shell_output("#{bin}/kopia --version").strip
 
     # verify version output, note we're unable to verify the git hash in tests
-    assert_match(%r{#{version} build: .* from: kopia/kopia}, output)
+    assert_match(%r{#{version} build: .* from:}, output)
 
     system "#{bin}/kopia", "repository", "create", "filesystem", "--path", testpath/"repo", "--no-persist-credentials"
     assert_predicate testpath/"repo/kopia.repository.f", :exist?
