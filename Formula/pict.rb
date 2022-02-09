@@ -15,6 +15,8 @@ class Pict < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "f6ebf8ee9bb2ff705de0f9975cc96a4284a127b093ece87b44643d83f5b636de"
     sha256 cellar: :any_skip_relocation, sierra:         "6ba3b37a9a8a0ce77430baddda0f57eebd71ad4adcf412c8f2f6b935073d7548"
   end
+  
+  fails_with gcc: "5"
 
   resource "testfile" do
     url "https://gist.githubusercontent.com/glsorre/9f67891c69c21cbf477c6cedff8ee910/raw/84ec65cf37e0a8df5428c6c607dbf397c2297e06/pict.txt"
