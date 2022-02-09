@@ -46,7 +46,7 @@ class Gdal < Formula
   depends_on "openjpeg"
   depends_on "pcre2"
   depends_on "poppler-qt5"
-  depends_on "proj@7"
+  depends_on "proj"
   depends_on "python@3.9"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
   depends_on "unixodbc" # macOS version is not complete enough
