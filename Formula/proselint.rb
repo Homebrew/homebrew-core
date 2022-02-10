@@ -6,6 +6,7 @@ class Proselint < Formula
   url "https://files.pythonhosted.org/packages/a2/be/2c1bcc43d85b23fe97dae02efd3e39b27cd66cca4a9f9c70921718b74ac2/proselint-0.13.0.tar.gz"
   sha256 "7dd2b63cc2aa390877c4144fcd3c80706817e860b017f04882fbcd2ab0852a58"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/amperser/proselint.git", branch: "main"
 
   bottle do
@@ -17,7 +18,7 @@ class Proselint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb8027460f8ffaf0acab19e6dbd12291b2115c440ade85105b67a76d302daff7"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "click" do
