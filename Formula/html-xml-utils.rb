@@ -1,8 +1,8 @@
 class HtmlXmlUtils < Formula
   desc "Tools for manipulating HTML and XML files"
   homepage "https://www.w3.org/Tools/HTML-XML-utils/"
-  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-8.1.tar.gz"
-  sha256 "db7482350a68d2e74f6c2a6e17d871ba06c94101ece1e74a357ea7821bb419eb"
+  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-8.2.tar.gz"
+  sha256 "00db3cc6877c885bfcd4009933ce7d427d472156f2502a27ca16bcaf01faae64"
   license "W3C"
 
   livecheck do
