@@ -9,7 +9,7 @@ class Kopia < Formula
   depends_on "go" => :build
 
   def install
-    # do not set github.com/kopia/kopia/repo.BuildGitHubRepo to disable
+    # removed github.com/kopia/kopia/repo.BuildGitHubRepo to disable
     # update notifications
     ldflags = %W[
       -s -w
