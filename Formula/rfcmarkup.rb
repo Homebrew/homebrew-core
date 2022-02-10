@@ -19,7 +19,10 @@ class Rfcmarkup < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "993672e2e414a95a06259ac6960d37ac9cf324093766fbf28adf3579fd450678"
   end
 
+  deprecate! date: "2022-03-05", because: "depends on Python 2"
+
   depends_on :macos # Due to Python 2
+  depends_on maximum_macos: :big_sur # Python 2 removed in macOS 12.3
 
   def install
     bin.install "rfcmarkup"
