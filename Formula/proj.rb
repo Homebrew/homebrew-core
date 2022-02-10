@@ -4,6 +4,7 @@ class Proj < Formula
   url "https://github.com/OSGeo/PROJ/releases/download/8.2.1/proj-8.2.1.tar.gz"
   sha256 "76ed3d0c3a348a6693dfae535e5658bbfd47f71cb7ff7eb96d9f12f7e068b1cf"
   license "MIT"
+  head "https://github.com/OSGeo/proj.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "62cb9712728f6564c3a16dbc0ff0039018190140006a116d859f33d74b25ae97"
@@ -14,13 +15,8 @@ class Proj < Formula
     sha256 x86_64_linux:   "402f0a4d03f0fc03f8ee6faa81dd13bf7e207d3df58de2790c9e51e950ac1725"
   end
 
-  head do
-    url "https://github.com/OSGeo/proj.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "cmake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libtiff"
 
@@ -39,10 +35,9 @@ class Proj < Formula
 
   def install
     (buildpath/"nad").install resource("datumgrid")
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
