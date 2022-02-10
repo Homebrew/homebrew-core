@@ -14,8 +14,11 @@ class AppscaleTools < Formula
     sha256 cellar: :any, high_sierra: "70e89498336894ae025118e51e418528d8d73da9b1e2786559b6bcbe6055f55b"
   end
 
+  deprecate! date: "2022-03-05", because: "depends on Python 2"
+
   depends_on "libyaml"
   depends_on :macos # Due to Python 2 (Uses SOAPPy, which does not support Python 3)
+  depends_on maximum_macos: :big_sur # Python 2 removed in macOS 12.3
   depends_on "openssl@1.1"
 
   uses_from_macos "libffi"
