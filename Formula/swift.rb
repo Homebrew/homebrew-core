@@ -4,8 +4,8 @@ class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://www.swift.org"
   # NOTE: Keep version in sync with resources below
-  url "https://github.com/apple/swift/archive/swift-5.5.2-RELEASE.tar.gz"
-  sha256 "0046ecab640475441251b1cceb3dd167a4c7729852104d7675bdbd75fced6b82"
+  url "https://github.com/apple/swift/archive/swift-5.5.3-RELEASE.tar.gz"
+  sha256 "41c926ae261a2756fe5ff761927aafe297105dc62f676a27c3da477f13251888"
   license "Apache-2.0"
 
   livecheck do
@@ -48,13 +48,13 @@ class Swift < Formula
     depends_on "six" => :build
 
     resource "swift-corelibs-foundation" do
-      url "https://github.com/apple/swift-corelibs-foundation/archive/swift-5.5.2-RELEASE.tar.gz"
-      sha256 "19e909e006c72813309360d22c3ce13680be5634a0924e78baf10f75fb45f6df"
+      url "https://github.com/apple/swift-corelibs-foundation/archive/swift-5.5.3-RELEASE.tar.gz"
+      sha256 "aa11982d45f1eb238547be30c1b34409b08ee2de35fcf3a4981992d21839d0fc"
     end
 
     resource "swift-corelibs-libdispatch" do
-      url "https://github.com/apple/swift-corelibs-libdispatch/archive/swift-5.5.2-RELEASE.tar.gz"
-      sha256 "2611b4dc9530207e19dae07599355622f76c32694aca3ef909149a7ecf48dfc7"
+      url "https://github.com/apple/swift-corelibs-libdispatch/archive/swift-5.5.3-RELEASE.tar.gz"
+      sha256 "dc0912c2812953c84eea996358abd6a2dbeb97f334d5c1d4064e077ca43d569f"
 
       # Fix unused refcount error.
       # Remove with Swift 5.6.
@@ -65,8 +65,8 @@ class Swift < Formula
     end
 
     resource "swift-corelibs-xctest" do
-      url "https://github.com/apple/swift-corelibs-xctest/archive/swift-5.5.2-RELEASE.tar.gz"
-      sha256 "24aa1314ac89904d801e5009ebf9e3c1838d40dd22d1f8ab5a34c14b722844aa"
+      url "https://github.com/apple/swift-corelibs-xctest/archive/swift-5.5.3-RELEASE.tar.gz"
+      sha256 "2c08d83a9c051329cadb248dd0dd5cddfe582f00bc1d569dc8dc59433c4906f3"
     end
   end
 
@@ -74,8 +74,8 @@ class Swift < Formula
   fails_with :gcc
 
   resource "llvm-project" do
-    url "https://github.com/apple/llvm-project/archive/swift-5.5.2-RELEASE.tar.gz"
-    sha256 "8e4c58ed8b3518252e8ab96110d2f2e801d7ea1a2e2c176ba55bb13bbd698910"
+    url "https://github.com/apple/llvm-project/archive/swift-5.5.3-RELEASE.tar.gz"
+    sha256 "d28f71363f6ae5fec59ec3c21e53ab91e3a196c833150329397888259765098b"
 
     # Fix handling of arm64e in REPL mode.
     # Remove with Swift 5.6.
@@ -93,38 +93,38 @@ class Swift < Formula
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/swift-5.5.2-RELEASE.tar.gz"
-    sha256 "90ce146d7e0fda81aa8ecc74fa9401ec9f68596ed6b2c89dbfd0fde11244aa07"
+    url "https://github.com/apple/swift-cmark/archive/swift-5.5.3-RELEASE.tar.gz"
+    sha256 "f00df80d917cf6b3e1870a75f7b29bc7ac8b94479c0961167359e4156dcd1220"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/swift-5.5.2-RELEASE.tar.gz"
-    sha256 "6767df1c14d09c990e72c2e9ec9c61765610c1fe7801c92894afa36f9928d320"
+    url "https://github.com/apple/swift-llbuild/archive/swift-5.5.3-RELEASE.tar.gz"
+    sha256 "8444b840137f17d465e4080f8437b6b5fe68a01a095b4976e8e3e2f1a629b96a"
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/swift-5.5.2-RELEASE.tar.gz"
-    sha256 "4c16cb5073759c9bd9de110f96b8fb0983a8255bf28e7b39709876f3bae90e5a"
+    url "https://github.com/apple/swift-package-manager/archive/swift-5.5.3-RELEASE.tar.gz"
+    sha256 "6e46827b118f5449cf7c32b7c9eb6060829ff09a94c2278dd4253f7e56a35cac"
   end
 
   resource "indexstore-db" do
-    url "https://github.com/apple/indexstore-db/archive/swift-5.5.2-RELEASE.tar.gz"
-    sha256 "d4d1cb6300a2b5fb81e3e77cba50284ffd6405bc264464db465ee7c2c285807d"
+    url "https://github.com/apple/indexstore-db/archive/swift-5.5.3-RELEASE.tar.gz"
+    sha256 "b7c0f46f944e90e1ffa298b96f4cfc5ddeebf67d0935edee9858e0dfe8e30db6"
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.5.2-RELEASE.tar.gz"
-    sha256 "ecaeeaddcf750379e561798719290affa6ffd3573754a496d3afa3b3d0f46597"
+    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.5.3-RELEASE.tar.gz"
+    sha256 "ef956db48fa2e80eefabdc4bfb68433b9e8555c6e39ec6b48a9b5b5628d8d5e4"
   end
 
   resource "swift-driver" do
-    url "https://github.com/apple/swift-driver/archive/swift-5.5.2-RELEASE.tar.gz"
-    sha256 "73416d9b329d88f37d607f0d0a6583368eeec2140a28fb8877ee1fb0125a496e"
+    url "https://github.com/apple/swift-driver/archive/swift-5.5.3-RELEASE.tar.gz"
+    sha256 "47d04b5120eaf508e73ed658b0564fab2fccb9313ef5180afc84d3040c31ccfc"
   end
 
   resource "swift-tools-support-core" do
-    url "https://github.com/apple/swift-tools-support-core/archive/swift-5.5.2-RELEASE.tar.gz"
-    sha256 "811ab41295b175d79b940151feacf05fa10787ff250ee3ca8af877041d49d87e"
+    url "https://github.com/apple/swift-tools-support-core/archive/swift-5.5.3-RELEASE.tar.gz"
+    sha256 "bf82f281d1c47a8f7762c0b01f2d772726a9da71fdd867b031e52bd15967504c"
   end
 
   # To find the version to use, check the release/#{version.major_minor} entry of:
@@ -168,6 +168,14 @@ class Swift < Formula
   patch do
     url "https://github.com/apple/swift/commit/6be2b40fdd831e6a77baa789820df31e6d2dc6bd.patch?full_index=1"
     sha256 "9203072ae9cdcc07ec1fa2821d9caebb295d816ecb62253447a076dc685e7a6a"
+  end
+
+  # Add a targetOSVersionAtLeast builtin.
+  # This is needed for compatibility with the macOS 12.1 and later SDK.
+  # Remove with Swift 5.6.
+  patch do
+    url "https://github.com/apple/swift/commit/3abd7b0e1fc94bf1ceef802b360e32f66aa5bf35.patch?full_index=1"
+    sha256 "42f7807189e2ab738d32b2cb691bb4ddff8530dbfd0bd6079b8bb8e23f4aacbd"
   end
 
   # Fix arm64 build not being able to use the arm64e standard library.
