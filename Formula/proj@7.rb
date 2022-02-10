@@ -17,8 +17,6 @@ class ProjAT7 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2020-03-01", because: :unsupported
-
   depends_on "pkg-config" => :build
   depends_on "libtiff"
 
