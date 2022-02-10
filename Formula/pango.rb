@@ -7,12 +7,12 @@ class Pango < Formula
   head "https://gitlab.gnome.org/GNOME/pango.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "f22db6d8b168be9f10df5ee7e9d439665dd180a9d05626d16701d313e26a73d3"
-    sha256 cellar: :any, arm64_big_sur:  "f5d0068b9b7be1e3f73de3ed5849afb93814dbeddc94c5241c230188b95f00cf"
-    sha256 cellar: :any, monterey:       "135a1cdcbc6e705dbe00772c01bbeeb0ea95694b0a3cd76d5c3d30bf4df48d88"
-    sha256 cellar: :any, big_sur:        "469f5768ce3ac691dad77b5c4b77d7a9b706883afcc595f2e5f1cf7f7cecd330"
-    sha256 cellar: :any, catalina:       "2e50912a0903b1625bb976ecb19e09ab1136f2ccabccebc4427b09a1ed0a4cb4"
-    sha256               x86_64_linux:   "d8cf7803c5cca6acd5368a7f8970079f4459b9dfb1acf6087bc77f60ea847521"
+    sha256 cellar: :any, arm64_monterey: "df36e5f3b64895adf6a5a5de39ef71b01c99c6bda6a8ac45e6a5ef527d0a40e0"
+    sha256 cellar: :any, arm64_big_sur:  "bb0263479f72d47a46483706990208fbe7c29594989599d0fe8157110f834022"
+    sha256 cellar: :any, monterey:       "cebb0e2360cbbe60e56afef30d4cbb3563d436037d0e3c8e78a81b22eda3e70c"
+    sha256 cellar: :any, big_sur:        "19694d3771d06baed767faca055c7f22d7f1133c463f0b1525c035ff637e8629"
+    sha256 cellar: :any, catalina:       "d99bc31f59a189ae413e5978f2870cc5c7424185506c13bfd5995c3fb7911c7b"
+    sha256               x86_64_linux:   "0a5499b66788373a8914b87eff41b5f60444836ca162aa31999bf6164c9f3e5e"
   end
 
   depends_on "gobject-introspection" => :build
