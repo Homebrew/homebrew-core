@@ -2,7 +2,7 @@ class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  revision 2
 
   stable do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.0.1.tar.gz"
@@ -45,7 +45,7 @@ class Libspatialite < Formula
   depends_on "librttopo"
   depends_on "libxml2"
   depends_on "minizip"
-  depends_on "proj@7"
+  depends_on "proj"
   depends_on "sqlite"
 
   def install
