@@ -1,8 +1,8 @@
 class Statix < Formula
   desc "Lints and suggestions for the nix programming language"
   homepage "https://github.com/nerdypepper/statix"
-  url "https://github.com/nerdypepper/statix/archive/v0.4.2.tar.gz"
-  sha256 "a5285a28739a4281f9727a6aa71d3d1d300f802caa2da5a3b1089badf00832b3"
+  url "https://github.com/nerdypepper/statix/archive/v0.5.3.tar.gz"
+  sha256 "250ed47096dd58a350af3e08b6959a8ac77b0618381057fb631b40be25892012"
   license "MIT"
   head "https://github.com/nerdypepper/statix.git", branch: "master"
 
@@ -25,7 +25,7 @@ class Statix < Formula
     (testpath/"test.nix").write <<~EOS
       github:nerdypepper/statix
     EOS
-    assert_match "Found unquoted URI expression", shell_output("#{bin}/statix check test.nix")
+    assert_match "Found unquoted URI expression", shell_output("#{bin}/statix check test.nix", 1)
 
     system bin/"statix", "fix", "test.nix"
     system bin/"statix", "check", "test.nix"
