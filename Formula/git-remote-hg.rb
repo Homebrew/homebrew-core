@@ -15,8 +15,11 @@ class GitRemoteHg < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "1380e5053a25462f27d9be329840b6dda55b08e01b70ed6c581f3c625c7b332d"
   end
 
+  deprecate! date: "2022-03-05", because: "depends on Python 2"
+
   depends_on "asciidoc" => :build
   depends_on :macos # Due to Python 2
+  depends_on maximum_macos: :big_sur # Python 2 removed in macOS 12.3
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
