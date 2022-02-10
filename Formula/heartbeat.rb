@@ -2,8 +2,8 @@ class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/beats/heartbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.17.0",
-      revision: "93708bd74e909e57ed5d9bea3cf2065f4cc43af3"
+      tag:      "v8.0.0",
+      revision: "2ab3a7334016f570e0bfc7e9a577a35a22e02df5"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "master"
 
@@ -82,7 +82,14 @@ class Heartbeat < Formula
     end
     sleep 5
     assert_match "hello", pipe_output("nc -l #{port}", "goodbye\n", 0)
+
     sleep 5
-    assert_match "\"status\":\"up\"", (testpath/"heartbeat/heartbeat").read
+    output = JSON.parse((testpath/"data/meta.json").read)
+    assert_includes output, "first_start"
+
+    (testpath/"data").glob("heartbeat-*.ndjson") do |file|
+      s = JSON.parse(file.read)
+      assert_match "up", s["status"]
+    end
   end
 end
