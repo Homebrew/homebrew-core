@@ -1,6 +1,3 @@
-# typed: false
-# frozen_string_literal: true
-
 class GrafanaAgent < Formula
   desc "Exporter for Prometheus Metrics, Loki Logs, and Tempo Traces"
   homepage "https://grafana.com/docs/agent/"
