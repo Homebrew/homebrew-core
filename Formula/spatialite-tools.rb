@@ -4,7 +4,7 @@ class SpatialiteTools < Formula
   url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/spatialite-tools-5.0.1.tar.gz"
   sha256 "9604c205e87f037789bc52302c66ccd1371c3e98c74e8ec4e29b0752de35171c"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/"
@@ -23,19 +23,16 @@ class SpatialiteTools < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libspatialite"
-  depends_on "proj@7"
+  depends_on "proj"
   depends_on "readosm"
 
   def install
     # See: https://github.com/Homebrew/homebrew/issues/3328
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     # Ensure Homebrew SQLite is found before system SQLite.
-    #
-    # spatialite-tools picks `proj` (instead of `proj@7`) if installed
     sqlite = Formula["sqlite"]
-    proj = Formula["proj@7"]
-    ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3 -L#{proj.opt_lib}"
-    ENV.prepend "CFLAGS", "-I#{sqlite.opt_include} -I#{proj.opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3"
+    ENV.prepend "CFLAGS", "-I#{sqlite.opt_include}"
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
