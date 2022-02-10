@@ -7,13 +7,12 @@ class CrispyDoom < Formula
   head "https://github.com/fabiangreffrath/crispy-doom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "06236817abc6d69fec168a719edafd7196908f1610359228bf74894fae7b86f7"
-    sha256 cellar: :any,                 arm64_big_sur:  "6d9000bd5ee7e800eecf8748c419ea4f8d42dc1e5c78ec5e49e91ab095e34895"
-    sha256 cellar: :any,                 monterey:       "ae6437bd7678cdfb5a4ac4f318126d1f089f9a74105efa267b008a2451bc7b5b"
-    sha256 cellar: :any,                 big_sur:        "cbd514df66ecb0eb170169ce1f099fedefafa17f79cdeb2dfe00120d7e2fa03a"
-    sha256 cellar: :any,                 catalina:       "07ab97bfe589f66a63007f32ab6f5a937aec221fb3528ab33259fc3c6652bb60"
-    sha256 cellar: :any,                 mojave:         "ae4f7e635129aa417d47826af76123678ae786c0889b4baad08c59b3c730c36a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef1289f3ed451a8f7c301f9e56446139d349e9664f4be42c0858d082e148f935"
+    sha256 cellar: :any,                 arm64_monterey: "62424f03d1719164f319e10f34ec766e2658f27d7cabac13de13495942a7945f"
+    sha256 cellar: :any,                 arm64_big_sur:  "55ce1400ac1900297819b41649b54737d7c35e91c3d5320de35211f59bd4683a"
+    sha256 cellar: :any,                 monterey:       "50b73994eb25420223433d3dd274514d1d09afa26df795011b05e75b4c45713e"
+    sha256 cellar: :any,                 big_sur:        "0a6c4fa39687a9a3fe2637001bb9f99f67fce0d5616e1f49cab9567a8cc252f2"
+    sha256 cellar: :any,                 catalina:       "13340eeb2e02f30cdb97f1866f78844119b2c54b04986571775622aef6b1cf70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c28c1f1a20d791a543bae547d50abb94f7449d7f0b47f5b196b0b9a1046defd"
   end
 
   depends_on "autoconf" => :build
