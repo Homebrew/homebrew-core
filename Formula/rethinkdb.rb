@@ -19,7 +19,10 @@ class Rethinkdb < Formula
     sha256 cellar: :any, mojave:   "35771b918dd1e41939aea3a8eec2b3fa8ee38ca4236c1ad0bd2695c3bb598caf"
   end
 
+  deprecate! date: "2022-03-05", because: "depends on Python 2"
+
   depends_on "boost" => :build
+  depends_on maximum_macos: [:big_sur, :build] # Python 2 removed in macOS 12.3
   depends_on :macos # Due to Python 2 (v8 and gyp fail to build)
   # https://github.com/Homebrew/linuxbrew-core/pull/19614
   # https://github.com/rethinkdb/rethinkdb/pull/6401
