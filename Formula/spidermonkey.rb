@@ -22,7 +22,7 @@ class Spidermonkey < Formula
     sha256 cellar: :any, mojave:   "8c0b46bc04a7e95f99262969b22cc311ee1f7d83413af05865318743ccd96944"
   end
 
-  depends_on :macos # Due to Python 2
+  depends_on "python@3.10" => :build
   depends_on "nspr"
   depends_on "readline"
 
