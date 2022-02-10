@@ -1,8 +1,8 @@
 class Hurl < Formula
   desc "Run and Test HTTP Requests with plain text and curl"
   homepage "https://hurl.dev"
-  url "https://github.com/Orange-OpenSource/hurl/archive/refs/tags/1.5.0.tar.gz"
-  sha256 "469cca44022d9339fad246fd417b22703258164fd1cdbe040476a1c127791184"
+  url "https://github.com/Orange-OpenSource/hurl/archive/refs/tags/1.6.0.tar.gz"
+  sha256 "6b47a273fccde64d1e82d6f87e9a7524f9a4f4a7e02dc4cf3d902386dc3da063"
   license "Apache-2.0"
   head "https://github.com/Orange-OpenSource/hurl.git", branch: "master"
 
@@ -15,7 +15,6 @@ class Hurl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6d9da7f2583875f9eee5f1518dc63156257557bf6e727d0fa2b260279a2a230"
   end
 
-  depends_on "python@3.10" => :build
   depends_on "rust" => :build
 
   uses_from_macos "curl"
@@ -32,10 +31,8 @@ class Hurl < Formula
     system "cargo", "install", *std_cargo_args(path: "packages/hurl")
     system "cargo", "install", *std_cargo_args(path: "packages/hurlfmt")
 
-    (buildpath/"hurl.1").write Utils.safe_popen_read("python3", "ci/gen_manpage.py", "docs/hurl.md")
-    (buildpath/"hurlfmt.1").write Utils.safe_popen_read("python3", "ci/gen_manpage.py", "docs/hurlfmt.md")
-    man1.install "hurl.1"
-    man1.install "hurlfmt.1"
+    man1.install "docs/man/hurl.1"
+    man1.install "docs/man/hurlfmt.1"
   end
 
   test do
