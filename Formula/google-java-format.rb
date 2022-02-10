@@ -8,7 +8,7 @@ class GoogleJavaFormat < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c8c651c5f2e77a127ad39a48b29776d92a6b5de39ea1e9239fa339dbe02f7841"
+    sha256 cellar: :any_skip_relocation, all: "092f89e63ef8e627e7a1601bbf78a8de3e5e2d3a8854ca0d19bcd793c3e57f76"
   end
 
   depends_on "openjdk"
