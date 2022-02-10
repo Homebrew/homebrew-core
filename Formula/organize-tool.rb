@@ -137,14 +137,6 @@ class OrganizeTool < Formula
       # `macos-tags` and its dependencies are only needed on macOS
       # TODO: Currently requires manual check to confirm PyPI dependency tree
       dependencies -= %w[macos-tags mdfind-wrapper xattr cffi pycparser]
-      # `pytzdata` uses full `poetry` as build-system rather than `poetry-core`,
-      # which ends up needing `rust` for Linux dependency tree. Instead, can
-      # directly build wheel with `poetry` formula and install it.
-      dependencies -= %w[pytzdata]
-      resource("pytzdata").stage do
-        system "poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
-        venv.pip_install Dir["dist/pytzdata-*.whl"].first
-      end
     end
     dependencies.each do |r|
       venv.pip_install resource(r)
