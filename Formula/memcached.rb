@@ -12,12 +12,12 @@ class Memcached < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1dcaa5b54129dcc309c8e9aa5eeb5d033c801a813934a5e089cbd414b82ad8b0"
-    sha256 cellar: :any,                 arm64_big_sur:  "bd23e157ce3a123eef0c202dd56de402c2ffbb4f4f951942b079f15d25048d96"
-    sha256 cellar: :any,                 monterey:       "b8aab839c44f491b0086fac8f6b14507db205dacbc2a848a5ee018f886dba475"
-    sha256 cellar: :any,                 big_sur:        "9d17fddea277e6c462a8c3cb8c744f2d8a5ec9cb4deb6bf3bc84ab5ece7b4df6"
-    sha256 cellar: :any,                 catalina:       "a414edcafce0460cfa6b266bd1caca47adf78fbb8866c13aae078e394ef5a576"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2321eb8f43aed5e6374f2f1a1b1b4709df49bcfbe04d22233abfa08f3e8f008"
+    sha256 cellar: :any,                 arm64_monterey: "a6a8fd0dfe19188ea6e42fc750c8ed3a09ba34b3bfa80694fe6c1a398e051763"
+    sha256 cellar: :any,                 arm64_big_sur:  "01603a7f7791ced3c8271e0e036d19dbea9afeb39e75d6b057af4c058521da31"
+    sha256 cellar: :any,                 monterey:       "0757348fb5c89a131dbe3a9b8dee3b76a2341bf6a264d5796d480969a20e8ddb"
+    sha256 cellar: :any,                 big_sur:        "632a9163d97df61899d84e10e7dfceb788fbe5da01a2147a445b07288b7800b9"
+    sha256 cellar: :any,                 catalina:       "d09725fb66e581866a8e7a996500323d6781b1390fd4921b876c546a9e28e390"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27cf32dbaa1858fd5d595dff3c706c448cdfb6406b42b11dd136ac8c0245ae37"
   end
 
   depends_on "libevent"
