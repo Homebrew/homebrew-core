@@ -4,6 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.4.2/gdal-3.4.2.tar.xz"
   sha256 "16baf03dfccf9e3f72bb2e15cd2d5b3f4be0437cdff8a785bceab0c7be557335"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -20,7 +21,7 @@ class Gdal < Formula
   end
 
   head do
-    url "https://github.com/OSGeo/gdal.git"
+    url "https://github.com/OSGeo/gdal.git", branch: "master"
     depends_on "doxygen" => :build
   end
 
@@ -46,7 +47,7 @@ class Gdal < Formula
   depends_on "openjpeg"
   depends_on "pcre2"
   depends_on "poppler-qt5"
-  depends_on "proj@7"
+  depends_on "proj"
   depends_on "python@3.9"
   depends_on "sqlite"
   depends_on "unixodbc"
@@ -96,7 +97,7 @@ class Gdal < Formula
       "--with-spatialite=#{Formula["libspatialite"].opt_prefix}",
       "--with-pcre2=yes",
       "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
-      "--with-proj=#{Formula["proj@7"].opt_prefix}",
+      "--with-proj=#{Formula["proj"].opt_prefix}",
       "--with-zstd=#{Formula["zstd"].opt_prefix}",
       "--with-liblzma=yes",
       "--with-cfitsio=#{Formula["cfitsio"].opt_prefix}",
