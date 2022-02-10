@@ -7,12 +7,12 @@ class Rbw < Formula
   head "https://github.com/doy/rbw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6c6956ec60f9b308eebedc096d0914b237944bc3205d00fad76122b612eb774"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "75f11e7f8410cf22253cd3f96e478e07aac17f1beb629666e2c93b969a923780"
-    sha256 cellar: :any_skip_relocation, monterey:       "44726d5d7a3c5025ad4e01c4fbc43389cb4fef1de0f7ab476d26ba05cc833395"
-    sha256 cellar: :any_skip_relocation, big_sur:        "617806ad5eb8c1e751e478122e309b685b99105ef7035136a747bab5bd847fa3"
-    sha256 cellar: :any_skip_relocation, catalina:       "9742cbc7301d8c7e688329a972f35c8e942ba0cf6540930fa25268de8cc5ea02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01c53c86695d45773aa92d7409b41e0d1c4bd5fedf7813a17dc52d5145b0dd58"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "04ecd2fae3aa1f8c9a79e54b10374d2d3883cd2f7da6f80cb10c5b312a766b62"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0ad0d1f9b000d402207edd421dbd4a855e6ca2fc1ef38d0ac49cb0ddb6ea14b"
+    sha256 cellar: :any_skip_relocation, monterey:       "06a9d7f7b124b71d004a28f2162279281b1ac9510d171257349df982a8b1c7f9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "27916f0155a5abc5b4e649988a4b2c87162ebdf07dc2bc246696aaca0cdf2a07"
+    sha256 cellar: :any_skip_relocation, catalina:       "be1da47f5a8b893c358cad317ae86538510838c023a9afb6c3d4abce34a8edb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edfd511d66167df5910476b102c00d5f3f24fcc299cdbf6cc6f3571305a8f870"
   end
 
   depends_on "rust" => :build
