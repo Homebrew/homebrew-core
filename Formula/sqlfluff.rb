@@ -3,8 +3,8 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/95/30/f64ffedd4627b9c25b15698fae6be02519ef3c14c86f9706fbadd30bd564/sqlfluff-0.9.4.tar.gz"
-  sha256 "0e55c7b460d95ea1986852fc43926add391734f04888788aea350a1612b94be2"
+  url "https://files.pythonhosted.org/packages/56/ec/c2dab62cd9518be12fdcd6ecf848f27d60322d98c66c13c4b402acc3aa63/sqlfluff-0.10.0.tar.gz"
+  sha256 "01867a9b8b9f5e88546e5ad178b3e72d6d9a4275c687943f99d75a1f266c2c72"
   license "MIT"
 
   bottle do
@@ -94,8 +94,8 @@ class Sqlfluff < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/4b/24/7d1f2d2537de114bdf1e6875115113ca80091520948d370c964b88070af2/pytest-6.2.5.tar.gz"
-    sha256 "131b36680866a76e6781d13f101efb86cf674ebb9762eb70d3082b6f29889e89"
+    url "https://files.pythonhosted.org/packages/68/89/31bf5c9b68f4a99e9c0bfd16131e9756f02b861466d96fae45a168751801/pytest-7.0.0.tar.gz"
+    sha256 "dad48ffda394e5ad9aa3b7d7ddf339ed502e5e365b1350e0af65f4a602344b11"
   end
 
   resource "PyYAML" do
@@ -116,6 +116,11 @@ class Sqlfluff < Formula
   resource "toml" do
     url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
+  end
+
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "tqdm" do
