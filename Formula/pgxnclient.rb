@@ -6,6 +6,7 @@ class Pgxnclient < Formula
   url "https://github.com/pgxn/pgxnclient/archive/refs/tags/v1.3.2.tar.gz"
   sha256 "0d02a91364346811ce4dbbfc2f543356dac559e4222a3131018c6570d32e592a"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b01b1cd829a51e48ffc0c9d20ddef2d372306aaaad390b07a572fa84d7231c67"
@@ -17,7 +18,7 @@ class Pgxnclient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "314501fdd23bd8b4a1c3ddf104d309a2965cc0c1a987434112894b84db5eeb69"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   def install
