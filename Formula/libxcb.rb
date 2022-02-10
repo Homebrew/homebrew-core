@@ -7,14 +7,12 @@ class Libxcb < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "2f27ce523b926966e075a8abef580e8553be84780eae15f60b4cf7551894e33c"
-    sha256 cellar: :any,                 arm64_big_sur:  "5ffb8c3b6520d99063e973ae9f26110737757f57e4c63fb88d8462666d96d777"
-    sha256 cellar: :any,                 monterey:       "fc23652d4a3d41e021ab3ae0b1df443dd5940b466315b48865155295b0345909"
-    sha256 cellar: :any,                 big_sur:        "990819c1dd57e74dc867ba37d1952fc0e7baa69273aa6a809ce5b4c18346eac4"
-    sha256 cellar: :any,                 catalina:       "7f40d617b2092e9dc4fed78b032a1cde7658b813b26bcabb349770cd6c744208"
-    sha256 cellar: :any,                 mojave:         "3a21a6aee4bda8851599df53ed9ebe6b282ff3264be763badcb7c3346d89c90a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31ccfc5e31bd8914f9d54b415d38cd6d1889112f7568c74a5c5138ae4dff2d8b"
+    sha256 cellar: :any,                 arm64_monterey: "6c7154002b268eb74f36215a5d0b6496dacb3ff786bb40c29a2151359c219476"
+    sha256 cellar: :any,                 arm64_big_sur:  "e473ad5c0877fa07f64037bcf12df7396f5aed59a2ff89a1b5eaa1a6e2885fcd"
+    sha256 cellar: :any,                 monterey:       "aa439c61a2c0174f7d9f505fed55798a2dd4309221f3c51535c4fba5caa5162e"
+    sha256 cellar: :any,                 big_sur:        "c499695d4451922107256515154334e89fbafb3825b68f9c9f5d957f1398968e"
+    sha256 cellar: :any,                 catalina:       "118d9fa08edc88e58530f3920ddccba38e3eae0d08b280ff61e5eed9b5a87e9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "105c626775006b99f03f67dd80a0ec5ef84e9163353cd33a8b39193fdf231936"
   end
 
   depends_on "pkg-config" => :build
