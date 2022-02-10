@@ -8,12 +8,12 @@ class Platformio < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "20b3ce9787c112121a91aaa04a5e2e8e6091dab20a8bcd0f70ad216df35750ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "739a7777f0e1909339d2dab78e6b838026af1e76841c6f3012a99d65ac303209"
-    sha256 cellar: :any_skip_relocation, monterey:       "8f092cc09005bfd762510042e61da0808c4f1079c950355ba3fc8fbb585a6248"
-    sha256 cellar: :any_skip_relocation, big_sur:        "be3054c7906e1e621f19f53d22650d07e5b0ad27dc031d360edf121af9250b34"
-    sha256 cellar: :any_skip_relocation, catalina:       "2dfb9eebd48864a536e87edcd5b9aa8023dce218da0cfc7e024414dd0afac5a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28fe1c08cfff2a908611937ce3f1dd3f22065cad9606babb674daea6a5b9dc32"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a29db1f9f19f41cc8c753cea288205e18268f5753414770ac884ce2e688b63d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "acb6f179b8fac0ce6e8943103fe61bd646c6204ccd0bb2e4411f757998878a08"
+    sha256 cellar: :any_skip_relocation, monterey:       "e8123fdb3d4acb14040bd1a034ec354df8a7fef1b40b02cbb958221ca75b1bf9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "024b2143cf183f2bb0ef570145cd6dbd7aee08bd10d6e4cf89cf833dcff2fcaa"
+    sha256 cellar: :any_skip_relocation, catalina:       "abdcade97c71de7c6b7d8007422ae08adf10b5a42e05f07efaa0f49f9e68a18a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdace9f4f3bceb48a77ba3157b9577ce6b996e9496413db6f0de4725a2433fc9"
   end
 
   depends_on "python-tabulate"
