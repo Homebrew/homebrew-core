@@ -3,8 +3,8 @@ class GoogleJavaFormat < Formula
 
   desc "Reformats Java source code to comply with Google Java Style"
   homepage "https://github.com/google/google-java-format"
-  url "https://github.com/google/google-java-format/releases/download/v1.13.0/google-java-format-1.13.0-all-deps.jar"
-  sha256 "a036ac9392ff6f2e668791324c26bd73963b09682ed4a0d4cbc117fd6ea3fe55"
+  url "https://github.com/google/google-java-format/releases/download/v1.14.0/google-java-format-1.14.0-all-deps.jar"
+  sha256 "0d27d3e58c3a9d91d89b424d467fabde24e8c67b4662606153bcd01b383ebd77"
   license "Apache-2.0"
 
   bottle do
@@ -15,7 +15,7 @@ class GoogleJavaFormat < Formula
   depends_on "python@3.10"
 
   resource "google-java-format-diff" do
-    url "https://raw.githubusercontent.com/google/google-java-format/v1.13.0/scripts/google-java-format-diff.py"
+    url "https://raw.githubusercontent.com/google/google-java-format/v1.14.0/scripts/google-java-format-diff.py"
     sha256 "4c46a4ed6c39c2f7cbf2bc7755eefd7eaeb0a3db740ed1386053df822f15782b"
   end
 
