@@ -36,14 +36,6 @@ class Guile < Formula
 
   uses_from_macos "gperf"
 
-  # This patch fixes an issue where Guile >= 3.0.6 doesn't properly load dynamic
-  # libraries on macOS.
-  # To be removed after Guile 3.0.8 is released.
-  patch do
-    url "https://git.savannah.gnu.org/cgit/guile.git/patch/?id=1f100a4f20c3a6e57922fb26fce212997e2a03cb"
-    sha256 "a857c5fde2eb1c05379a97ba88047404da1c5b1da0291903f036d0a8745d85b5"
-  end
-
   def install
     # Avoid superenv shim
     inreplace "meta/guile-config.in", "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
