@@ -1,10 +1,9 @@
 class Tarsnap < Formula
   desc "Online backups for the truly paranoid"
   homepage "https://www.tarsnap.com/"
-  url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz"
-  sha256 "5613218b2a1060c730b6c4a14c2b34ce33898dd19b38fb9ea0858c5517e42082"
+  url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.99.tgz"
+  sha256 "6446e12b936b6e12a723de29d4478c81e91eb139de214f5aeaac75a80bae8dfc"
   license "0BSD"
-  revision 1
 
   livecheck do
     url "https://www.tarsnap.com/download/"
