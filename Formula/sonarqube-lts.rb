@@ -11,12 +11,10 @@ class SonarqubeLts < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cb7b43a7396102cfa85ab32e9647bf04ae88dfb5855104d52e664f71338cc9fc"
-    sha256 cellar: :any_skip_relocation, big_sur:       "975d8370e016c2fd615699e67787c5ea2a00cd202ed6faa259964461a57384c5"
-    sha256 cellar: :any_skip_relocation, catalina:      "975d8370e016c2fd615699e67787c5ea2a00cd202ed6faa259964461a57384c5"
-    sha256 cellar: :any_skip_relocation, mojave:        "b4ffb6a083fc4eb59d55b9fc5ddaa95dce91408a6439f905c5d92a9c44be3b20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "790c3b1664d331817bf85ae9b99de3b960689085b9f7707ac424d73de6cee5c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f4b212c262b028ed6c66a5cd2aa0e04fa440026c292bc2162614935d0625bd64"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b05170203410efd95ac67d72c598aed4763923302797f4cae0916b9c1f3378b2"
+    sha256 cellar: :any_skip_relocation, catalina:      "385fdfd81d6826cde16eef701a37ee6c34430ef78ed8b1c6cfbc68e8f56aa125"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78cacee1de2bbfbd80f62f1d416739f2d61d7154e826a7fcd5353df0c7d8fe0c"
   end
 
   depends_on "java-service-wrapper"
