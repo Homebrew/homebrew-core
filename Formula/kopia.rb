@@ -6,6 +6,15 @@ class Kopia < Formula
       revision: "3447f1865f0b0536653aa6e9c07896ce73c3e600"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc40c8e0ed974ba5ea8a3cafa05a5dd8a5400fbc72fd8585391314fd23ea2b55"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41866d63f5cc6cdb0e56bafd621b7252f784c3de160e85f0516e163a58c685d9"
+    sha256 cellar: :any_skip_relocation, monterey:       "54cc61c3d4eb9a92c321bbace006b40ae3a031d6ebfb5eccf4ad35b8be5fad89"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3ead702b48aac3e940399b81a6e09470ba8197c71d757d64419e7aeea0d8aef8"
+    sha256 cellar: :any_skip_relocation, catalina:       "707d905cd012de78f58091fc9648f28a2355cb9058838236978ec284ca67d282"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6920ca4acad3ad3673999d8c353af39882235745e1502e01fa8e3e36b2f60d95"
+  end
+
   depends_on "go" => :build
 
   def install
