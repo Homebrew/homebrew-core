@@ -26,5 +26,6 @@
   "pyqt@5",
   "python@3.9",
   "python-tk@3.9",
+  "spidermonkey@78",
   "wxwidgets@3.0"
 ]
