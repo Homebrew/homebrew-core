@@ -7,12 +7,12 @@ class Opa < Formula
   head "https://github.com/open-policy-agent/opa.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "97ecc4f3606e2167482973a57a4c9d62532b19cf19681bf914d9c8bdeb3cf8bd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "53d2637a7446b30544a69668816f5e1fb036985082e86122809064892a6d4847"
-    sha256 cellar: :any_skip_relocation, monterey:       "b7d0aeb04093bbc41f78c2d79108937dd41ef335c5087e806f86513d61360cbb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bc3e9433402a3d21143cbb9688d0ee6e94cad3b447a00b11f40f143c41e2d7f5"
-    sha256 cellar: :any_skip_relocation, catalina:       "d89adbc07d4d7aa3675b66ac0ee008f85b7dc9734268c1b527ed59183e01d4f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5d4413c327ffbf9fd6d7eca2523f1a743c525f76018a586140e63a6994884bb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d126b69a392eb55ee686263018bde088a2e0b890c1e8a5aa6f6c7088045e602e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f9f0d7c5315e0ab4a242877a312570fae3e808efaeca6e89b1925ea61c55226"
+    sha256 cellar: :any_skip_relocation, monterey:       "b761296a05723f9c047477df4267037b913273efcfadb6a8bbc809f9fc5f7cd5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "47012b445fec2f643290723904ee241218c10d5d56d7630d123fcd1b2dfea9d4"
+    sha256 cellar: :any_skip_relocation, catalina:       "74184a0f777dd4bebe97f58a1f8d91a1804ed793786c851acdab6baaa5d47a37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc06df2d2e3ac5ff53ccc78aaf912be1b60d77c7e2c458359c6e879d03c44b77"
   end
 
   depends_on "go" => :build
