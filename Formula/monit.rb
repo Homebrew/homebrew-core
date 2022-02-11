@@ -11,12 +11,12 @@ class Monit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2f6358307e57abfb67bed43795f111e35b4c73cc3b8aa2fb55dcf4faab15a4c1"
-    sha256 cellar: :any,                 arm64_big_sur:  "a1675e5bc8df5ba9fa78fbc81a343745cfb223872b5a2a1ffbfbdbbb8d911210"
-    sha256 cellar: :any,                 monterey:       "583be054633b9b3f9d2c12d119e1e62987edaff1faef91e410863a463bba0477"
-    sha256 cellar: :any,                 big_sur:        "3cace631abc2ab4efb7fe4728f18899a66ad2eacaae6dc9e950ba531ddc98d80"
-    sha256 cellar: :any,                 catalina:       "9d64bbb0b2be8e5293fce0e6c3eb453ae593f9e212474342061a85003b049db4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dfdf7ae8ddf0bc11e2612b8bc9da3acc990bb9d112b72bccf57bf984ddd1f49"
+    sha256 cellar: :any,                 arm64_monterey: "d0c869144ad74de97de38c78d54c24b22fdd5f25075fe6fe4c845203a5fcb913"
+    sha256 cellar: :any,                 arm64_big_sur:  "e317566f85aa939cee30c614e37462cff9fbef889edb9b81762a315c0e9a618a"
+    sha256 cellar: :any,                 monterey:       "52f3a10837dff3eb40bbdb1543b93af6bd6abd08dc8745d90cd7dea8aca9a569"
+    sha256 cellar: :any,                 big_sur:        "ce93eb445df52e88c24c338bf7cdcbb6630af3b9988b9b30209ba1143b15f377"
+    sha256 cellar: :any,                 catalina:       "a223f6e56e30e08610846ab97aef8c4218ff0ee6eb7849539e125ca193533fbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "739f3c099dd8224601d36dc64e8a7611f0ab66bc307c24d8fffa2cad23b8d80d"
   end
 
   depends_on "openssl@1.1"
