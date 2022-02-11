@@ -134,8 +134,8 @@ jobs:
               path: Formula/.+
               content: system "swift", "build"
 
-            - label: CI-long-timeout
-              path: Formula/(boost|qt).rb
+            - label: long build
+              path: Formula/(agda|arangodb|boost|deno|gcc|ghc|llvm|node|ponyc|rust|swift|texlive|qt)(@[0-9]+)?.rb
               keep_if_no_match: true
 
             - label: CI-build-dependents-from-source

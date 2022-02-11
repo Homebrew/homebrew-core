@@ -96,6 +96,7 @@ jobs:
               core.setOutput('test-dependents', 'true')
             }
 
+            const maximum_long_pr_count = 2
             if (label_names.includes('CI-long-timeout')) {
               const labelCountQuery = `query($owner:String!, $name:String!, $label:String!) {
                 repository(owner:$owner, name:$name) {
@@ -119,7 +120,6 @@ jobs:
                 long_pr_count = 0
                 core.warning('CI-long-timeout label count query failed. Assuming no long PRs.')
               }
-              const maximum_long_pr_count = 2
               if (long_pr_count > maximum_long_pr_count) {
                 core.setFailed(`Too many pull requests (${long_pr_count}) with the long-timeout label!`)
                 core.error(`Only ${maximum_long_pr_count} pull requests at a time can use this label.`)
@@ -130,6 +130,13 @@ jobs:
             } else {
               console.log('No CI-long-timeout label found. Setting short GitHub Actions timeout.')
               core.setOutput('timeout-minutes', '60')
+
+              if (label_names.includes('long build')) {
+                core.setFailed('PR requires the CI-long-timeout label but it is not set!')
+                core.error('If the longer timeout is not required, remove the "long build" label.')
+                core.error('Otherwise, add the "CI-long-timeout" label.')
+                core.error(`No more than ${maximum_long_pr_count} PRs at a time may use "CI-long-timeout".`)
+              }
             }
 
             const container = {}
