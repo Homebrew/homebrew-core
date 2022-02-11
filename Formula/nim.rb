@@ -12,12 +12,12 @@ class Nim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c7daaa6628706cef3ec4b193bbefdb0c3804dd7019841d01608eecca994448c1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f2c52131f50e173728bbd873c32656e051c20b0d13a5a90ee1b4e59f6d746f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "26f0d2faa4867a8e614de4d7e433e0fa6a31747c27efd1787789140c77f4697f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d7228fccca15018d2315112e6fcbdef1026e73d19f158af49d19904e959c72c"
-    sha256 cellar: :any_skip_relocation, catalina:       "3c6f4cb8efc2fa744f3bf5920bf5f3b031891fa700a4c41c2d421532a7aa2561"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c04834ff02bde41a8fe8608fe1d547ce83be2603bb4864c97d84ee3568475e0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4a7e68fb892c546e674671774713bf76d7be95154c610ec2793c926dd4ffa96"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c10eb8bb909b783bf629a33655d69136350ccc01f7639a604ee79c3f741eb618"
+    sha256 cellar: :any_skip_relocation, monterey:       "fd10b9b391ef637d9449fccbcc5e135d28ba5a7276dc6ad9fa291f98d23ede30"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c8adf8aada9d632b409cf8273ca71a54f3e34ec116d2bd67927ad2fda2df1cc8"
+    sha256 cellar: :any_skip_relocation, catalina:       "917525edb84f0c1be727c07d6da89d62e5308bf5e92a682f0339440088660ffb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "803dde375825c0e6943bb8c76d6d770fb2fe9a37f149c2f4761907bfd59fdfb7"
   end
 
   depends_on "help2man" => :build
