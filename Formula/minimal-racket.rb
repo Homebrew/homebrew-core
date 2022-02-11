@@ -1,8 +1,8 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/8.3/racket-minimal-8.3-src.tgz"
-  sha256 "dc67673f50f45cc5b7e2ee2602ba27c4a5ded3c037b5ac0cf1ca520bb9c37d62"
+  url "https://mirror.racket-lang.org/installers/8.4/racket-minimal-8.4-src.tgz"
+  sha256 "1599545af8ed8a87b84bc80f7ad8fbbdd9de557ea310582e268e23db026c280c"
   license any_of: ["MIT", "Apache-2.0"]
 
   # File links on the download page are created using JavaScript, so we parse
@@ -28,12 +28,6 @@ class MinimalRacket < Formula
 
   # these two files are amended when (un)installing packages
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"
-
-  # fix build error on Monterey, remove it at next release
-  patch :p2 do
-    url "https://github.com/racket/racket/commit/3a8a7102abff334ee4e054c3597bebba32bda307.patch?full_index=1"
-    sha256 "16e0999348e991757b623748386d6ede3462a416cb95c1fa30421432a46f6ae9"
-  end
 
   def install
     # configure racket's package tool (raco) to do the Right Thing
