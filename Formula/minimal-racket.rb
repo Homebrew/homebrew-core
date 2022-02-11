@@ -29,12 +29,6 @@ class MinimalRacket < Formula
   # these two files are amended when (un)installing packages
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"
 
-  # fix build error on Monterey, remove it at next release
-  patch :p2 do
-    url "https://github.com/racket/racket/commit/3a8a7102abff334ee4e054c3597bebba32bda307.patch?full_index=1"
-    sha256 "16e0999348e991757b623748386d6ede3462a416cb95c1fa30421432a46f6ae9"
-  end
-
   def install
     # configure racket's package tool (raco) to do the Right Thing
     # see: https://docs.racket-lang.org/raco/config-file.html
