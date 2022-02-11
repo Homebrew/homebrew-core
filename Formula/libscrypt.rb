@@ -1,8 +1,8 @@
 class Libscrypt < Formula
   desc "Library for scrypt"
   homepage "https://github.com/technion/libscrypt"
-  url "https://github.com/technion/libscrypt/archive/v1.21.tar.gz"
-  sha256 "68e377e79745c10d489b759b970e52d819dbb80dd8ca61f8c975185df3f457d3"
+  url "https://github.com/technion/libscrypt/archive/v1.22.tar.gz"
+  sha256 "a2d30ea16e6d288772791de68be56153965fe4fd4bcd787777618b8048708936"
   license "BSD-2-Clause"
 
   bottle do
@@ -21,8 +21,8 @@ class Libscrypt < Formula
 
   def install
     if OS.mac?
-      system "make", "install-osx", "PREFIX=#{prefix}", "LDFLAGS=", "CFLAGS_EXTRA="
-      system "make", "check", "LDFLAGS=", "CFLAGS_EXTRA="
+      system "make", "install-osx", "PREFIX=#{prefix}", "LDFLAGS=", "LDFLAGS_EXTRA=", "CFLAGS_EXTRA="
+      system "make", "check", "LDFLAGS=", "LDFLAGS_EXTRA=", "CFLAGS_EXTRA="
     else
       system "make"
       system "make", "check"
