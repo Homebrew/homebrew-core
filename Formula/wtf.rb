@@ -23,6 +23,6 @@ class Wtf < Formula
   end
 
   test do
-    system bin/"wtf", "needle"
+    assert_match "where's the food", shell_output("#{bin}/wtf wtf")
   end
 end
