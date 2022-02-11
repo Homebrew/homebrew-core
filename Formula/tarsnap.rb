@@ -7,8 +7,8 @@ class Tarsnap < Formula
   revision 1
 
   livecheck do
-    url "https://www.tarsnap.com/download/"
-    regex(/href=.*?tarsnap-autoconf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://www.tarsnap.com/download.html"
+    regex(/href=.*?tarsnap-autoconf[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
   bottle do
@@ -24,7 +24,7 @@ class Tarsnap < Formula
   end
 
   head do
-    url "https://github.com/Tarsnap/tarsnap.git"
+    url "https://github.com/Tarsnap/tarsnap.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
