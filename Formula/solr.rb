@@ -8,7 +8,7 @@ class Solr < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f7621f424db5174a69c1f1fef6c102356490f73a840cc57a29ce2cb2f33da3d1"
+    sha256 cellar: :any_skip_relocation, all: "6e04a40c5e79ab36c410cae43a72c57895e3fa6f82a33eb2efe1d6cfdd632a7c"
   end
 
   depends_on "openjdk"
