@@ -1,8 +1,8 @@
 class GitBranchless < Formula
   desc "High-velocity, monorepo-scale workflow for Git"
   homepage "https://github.com/arxanas/git-branchless"
-  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.3.8.tar.gz"
-  sha256 "9046d5b93c8bc959b7d8ab5238d3656c7e5463e2b68951300a1feb86aa533276"
+  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.3.9.tar.gz"
+  sha256 "eb785437ec9968b3f70472db16cf61658b5105da5fb541991546ac3ad32548af"
   license "GPL-2.0-only"
   head "https://github.com/arxanas/git-branchless.git", branch: "master"
 
