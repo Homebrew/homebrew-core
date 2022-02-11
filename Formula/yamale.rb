@@ -3,8 +3,8 @@ class Yamale < Formula
 
   desc "Schema and validator for YAML"
   homepage "https://github.com/23andMe/Yamale"
-  url "https://files.pythonhosted.org/packages/c9/7b/3c0e9ecf5f5ad25700cc9993efb607d748658b2cd2492bda0adf8b6087dc/yamale-4.0.2.tar.gz"
-  sha256 "4168f8b3650cece80552fd32edd894ab9081dd9ef959cadd9f1f23795629e4f2"
+  url "https://files.pythonhosted.org/packages/d7/b6/e4304b6c1227d3fafebe24a41658f487b0d7528d58af0dc25231a3297d7a/yamale-4.0.3.tar.gz"
+  sha256 "1efb07da8de7dbebecfd353daab9b42334d5e4904a7a2d4b454839d81ae01bfd"
   license "MIT"
   head "https://github.com/23andMe/Yamale.git", branch: "master"
 
@@ -21,8 +21,8 @@ class Yamale < Formula
   depends_on "python@3.10"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   def install
