@@ -3,8 +3,8 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.70/glib-2.70.3.tar.xz"
-  sha256 "233fa4841c1e19e396db7607d58f6b75ba3313c50bf0fce07b2e3532d5eb7d46"
+  url "https://download.gnome.org/sources/glib/2.70/glib-2.70.4.tar.xz"
+  sha256 "ab3d176f3115dcc4e5d02db795984e04e4f4b48d836252e23e8c468e9d423c33"
   license "LGPL-2.1-or-later"
 
   bottle do
