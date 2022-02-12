@@ -6,12 +6,12 @@ class MmCommon < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0753684dbf7615426643a2bb78d83b487da30f8274a09c4faf49d6200c5ec14f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0753684dbf7615426643a2bb78d83b487da30f8274a09c4faf49d6200c5ec14f"
-    sha256 cellar: :any_skip_relocation, monterey:       "0753684dbf7615426643a2bb78d83b487da30f8274a09c4faf49d6200c5ec14f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0753684dbf7615426643a2bb78d83b487da30f8274a09c4faf49d6200c5ec14f"
-    sha256 cellar: :any_skip_relocation, catalina:       "3a57404ead5025c9860efdd96a5ce3bca0cc4c577c4a62bed893221f16c954ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54d669050d610b82d1079a9c6a1659c93b76954e23b03ae84d7b1b610d034655"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ea4a58e05333043201f42255d32ff54645f6443a221b093676b83d750954f35"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ea4a58e05333043201f42255d32ff54645f6443a221b093676b83d750954f35"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ea4a58e05333043201f42255d32ff54645f6443a221b093676b83d750954f35"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2ea4a58e05333043201f42255d32ff54645f6443a221b093676b83d750954f35"
+    sha256 cellar: :any_skip_relocation, catalina:       "2ea4a58e05333043201f42255d32ff54645f6443a221b093676b83d750954f35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fc4b178ecf7b46ce823e3e99f056f5375859018a669cb93fbfe8ee7944ea162"
   end
 
   depends_on "meson" => :build
