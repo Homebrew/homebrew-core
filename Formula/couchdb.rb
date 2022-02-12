@@ -25,12 +25,29 @@ class Couchdb < Formula
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
-  depends_on "spidermonkey"
+  # NOTE: Check for supported `spidermonkey` versions when updating at
+  # https://github.com/apache/couchdb/blob/#{version}/src/couch/rebar.config.script
+  depends_on "spidermonkey@78"
+
+  on_linux do
+    depends_on "gcc"
+  end
 
   conflicts_with "ejabberd", because: "both install `jiffy` lib"
 
+  fails_with :gcc do
+    version "5"
+    cause "mfbt (and Gecko) require at least gcc 6.1 to build."
+  end
+
   def install
-    system "./configure"
+    spidermonkey = Formula["spidermonkey@78"]
+    inreplace "src/couch/rebar.config.script" do |s|
+      s.gsub! "-I/usr/local/include/mozjs", "-I#{spidermonkey.opt_include}/mozjs"
+      s.gsub! "-L/usr/local/lib", "-L#{spidermonkey.opt_lib} -L#{HOMEBREW_PREFIX}/lib"
+    end
+
+    system "./configure", "--spidermonkey-version", spidermonkey.version.major
     system "make", "release"
     # setting new database dir
     inreplace "rel/couchdb/etc/default.ini", "./data", "#{var}/couchdb/data"
