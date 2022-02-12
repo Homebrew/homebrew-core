@@ -1,8 +1,8 @@
 class Ansilove < Formula
   desc "ANSI/ASCII art to PNG converter"
   homepage "https://www.ansilove.org"
-  url "https://github.com/ansilove/ansilove/releases/download/4.1.5/ansilove-4.1.5.tar.gz"
-  sha256 "dcc6e82fab1587a0f556ee64a6cda9c91dcaaa37306cccc4a4d25f7c96b04d19"
+  url "https://github.com/ansilove/ansilove/releases/download/4.1.6/ansilove-4.1.6.tar.gz"
+  sha256 "acc3d6431cdb53e275e5ddfc71de5f27df2f2c5ecc46dc8bb62be9e6f15a1cd0"
   license "BSD-2-Clause"
 
   bottle do
