@@ -18,13 +18,6 @@ class Istioctl < Formula
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
-  # Fix https://github.com/istio/istio/issues/35831
-  # remove in next release
-  patch do
-    url "https://github.com/istio/istio/commit/6d9c69f10431bca2ee2beefcfdeaad5e5f62071b.patch?full_index=1"
-    sha256 "47e175fc0ac5e34496c6c0858eefbc31e45073dad9683164f7a21c74dbaa6055"
-  end
-
   def install
     ENV["VERSION"] = version.to_s
     ENV["TAG"] = version.to_s
