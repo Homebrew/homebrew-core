@@ -7,12 +7,12 @@ class Buildozer < Formula
   head "https://github.com/bazelbuild/buildtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb71df0b3f97a73b177d29ea25cfe0ad120a45a7a55d567903be3252c7a9022b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb71df0b3f97a73b177d29ea25cfe0ad120a45a7a55d567903be3252c7a9022b"
-    sha256 cellar: :any_skip_relocation, monterey:       "a756f1ed4b2b16994beecb07070438eda196dd9218e4e0e59726bfc0e78b56d2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a756f1ed4b2b16994beecb07070438eda196dd9218e4e0e59726bfc0e78b56d2"
-    sha256 cellar: :any_skip_relocation, catalina:       "a756f1ed4b2b16994beecb07070438eda196dd9218e4e0e59726bfc0e78b56d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2383f99d1430d7d83714f81ad78772c8d80e213cc213c2680143601aa4f1fd8f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "da914b7dd7abae2efb9ec9e65d4aa9fff355df31790f4768cc4751899545e585"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da914b7dd7abae2efb9ec9e65d4aa9fff355df31790f4768cc4751899545e585"
+    sha256 cellar: :any_skip_relocation, monterey:       "a04b9e99a5420450a02f304a2d0562fc7583edd11439dc2fad59f1bca359b387"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a04b9e99a5420450a02f304a2d0562fc7583edd11439dc2fad59f1bca359b387"
+    sha256 cellar: :any_skip_relocation, catalina:       "a04b9e99a5420450a02f304a2d0562fc7583edd11439dc2fad59f1bca359b387"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "22b749e3831ffd4d9160cfa76b5b18d66f30fea581bb11ce418d2dbb08d2ac56"
   end
 
   depends_on "go" => :build
