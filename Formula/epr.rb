@@ -3,10 +3,9 @@ class Epr < Formula
 
   desc "Command-line EPUB reader"
   homepage "https://github.com/wustho/epr"
-  url "https://files.pythonhosted.org/packages/7f/4c/caab0fccc12990aa1a9d3ceaa5c7aeab313158293c8386c032e2e767569c/epr-reader-2.4.11.tar.gz"
-  sha256 "5e931653ff954ca8e9fc734efa1e0c0a49512fe2a8652f83a6ca63a8d1c4f2af"
+  url "https://files.pythonhosted.org/packages/c6/d7/3af4967567358fc5e6573a961ebe262179950fd5030ea1d4ee5efda1a76a/epr-reader-2.4.13.tar.gz"
+  sha256 "e9fc3a8053e307cbf6aa1298c78678786329eb405f14e971f9888f69a7950212"
   license "MIT"
-  revision 1
   head "https://github.com/wustho/epr.git", branch: "master"
 
   bottle do
