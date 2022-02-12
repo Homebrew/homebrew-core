@@ -1,10 +1,9 @@
 class Ocamlbuild < Formula
   desc "Generic build tool for OCaml"
   homepage "https://github.com/ocaml/ocamlbuild"
-  url "https://github.com/ocaml/ocamlbuild/archive/0.14.0.tar.gz"
-  sha256 "87b29ce96958096c0a1a8eeafeb6268077b2d11e1bf2b3de0f5ebc9cf8d42e78"
-  license "LGPL-2.0"
-  revision 2
+  url "https://github.com/ocaml/ocamlbuild/archive/0.14.1.tar.gz"
+  sha256 "4e1279ff0ef80c862eaa5207a77020d741e89ef94f0e4a92a37c4188dbf08256"
+  license "LGPL-2.0-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocamlbuild.git", branch: "master"
 
   livecheck do
