@@ -27,7 +27,10 @@ class Readosm < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
+    # Install examples but don't include Makefiles or objects
     doc.install "examples"
+    rm doc.glob("examples/Makefile*")
+    rm doc.glob("examples/*.o")
 
     if OS.linux?
       # Remove shim references
@@ -35,18 +38,17 @@ class Readosm < Formula
         doc/"examples/test_osm1",
         doc/"examples/test_osm2",
         doc/"examples/test_osm3",
-        doc/"examples/Makefile",
       ]
 
       shim_files.each do |f|
-        inreplace f, Superenv.shims_path, ""
+        inreplace f, Superenv.shims_path, HOMEBREW_PREFIX/bin
       end
     end
   end
 
   test do
     system ENV.cc, doc/"examples/test_osm1.c", "-o", testpath/"test",
-      "-I#{include}", "-L#{lib}", "-lreadosm"
+                   "-I#{include}", "-L#{lib}", "-lreadosm"
     assert_equal "usage: test_osm1 path-to-OSM-file",
                  shell_output("./test 2>&1", 255).chomp
   end
