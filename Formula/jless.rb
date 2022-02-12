@@ -5,6 +5,15 @@ class Jless < Formula
   sha256 "8b36d117ac0ef52fa0261e06b88b5ae77c2ff4beeb54f2c906a57f066dc46179"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "57c907a913f3ff76f5d512c2e9ae8a2fe04274145d1229b4061d47f42e705c58"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1d98ace9bbd3e9e9f6bed4cf88f14d64da1be7e2519228526cfc3f76a0016cc4"
+    sha256 cellar: :any_skip_relocation, monterey:       "a54c215233d330c415682c03859e8565fcc7be354091f02d56bc24971745d62a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2c8a0fb4b7d42da4feab7a818a687cc5dc03d7892d8db7f80a91187780551f46"
+    sha256 cellar: :any_skip_relocation, catalina:       "fab76051b8085b8b705f480fd9fa88225a2b11559b53f40222fa119e272dffb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "760ddb38ad6a95b70aae4e0a77c3a6dc1f593f45977a98b58a7a8eff8146cf17"
+  end
+
   depends_on "rust" => :build
 
   def install
