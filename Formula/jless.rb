@@ -14,7 +14,7 @@ class Jless < Formula
   test do
     (testpath/"example.json").write('{"hello": "world"}')
     res, process = Open3.capture2("#{bin}/jless example.json")
-    assert_match(/"hello": "world"/, res)
+    assert_equal("world", JSON.parse(res)["hello"])
     assert_equal(process.exitstatus, 0)
   end
 end
