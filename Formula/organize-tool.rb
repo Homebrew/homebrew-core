@@ -3,8 +3,8 @@ class OrganizeTool < Formula
 
   desc "File management automation tool"
   homepage "https://github.com/tfeldmann/organize"
-  url "https://files.pythonhosted.org/packages/1b/4d/2196f9bc400e36a41673c8f9438d0b48714eab6952c97f0720811fb3fc33/organize-tool-2.0.3.tar.gz"
-  sha256 "b4c5303da195d578c921f8cefa75a4cb6032824b70e11fd07bd74dce2e128194"
+  url "https://files.pythonhosted.org/packages/a9/8d/438401d1b076a8d574cfc0d24cb5486bab4ba7a3a7f9d91a633847d5a4ae/organize-tool-2.1.0.tar.gz"
+  sha256 "70c9f84e651078ca076c8392c28ee30748a9ed918bbc6618f09c661a1c9f4997"
   license "MIT"
 
   bottle do
@@ -20,10 +20,6 @@ class OrganizeTool < Formula
   depends_on "openjpeg"
   depends_on "python@3.10"
   depends_on "six"
-
-  on_linux do
-    depends_on "poetry" => :build
-  end
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -95,6 +91,16 @@ class OrganizeTool < Formula
     sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
   end
 
+  resource "pyobjc-core" do
+    url "https://files.pythonhosted.org/packages/59/b0/abf64f846a4c3c115b546b4fa68b734bb750eed87fd5af6f73a5489eecd6/pyobjc-core-8.2.tar.gz"
+    sha256 "6afb8ee1dd0647cbfaaf99906eca3b43ce045b27e3d4510462d04e7e5361c89b"
+  end
+
+  resource "pyobjc-framework-Cocoa" do
+    url "https://files.pythonhosted.org/packages/d2/75/0e01d51f4b4cc5c1bf2509fe622f5d3eac09626bc5ebe3c7ad34fe5cfdff/pyobjc-framework-Cocoa-8.2.tar.gz"
+    sha256 "f0901998e2f18415ef6d1f8a12b083f69fc93bd56b3e88040002e3c09bd8c304"
+  end
+
   resource "pytz" do
     url "https://files.pythonhosted.org/packages/e3/8e/1cde9d002f48a940b9d9d38820aaf444b229450c0854bdf15305ce4a3d1a/pytz-2021.3.tar.gz"
     sha256 "acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"
@@ -106,8 +112,8 @@ class OrganizeTool < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/81/d2/64751634e1af18e61454e9946c8c792ab3866c2b309615844fc435036715/rich-11.1.0.tar.gz"
-    sha256 "43e03d8eec12e21beaecc22c828a41c4247356414a12d5879834863d4ad53816"
+    url "https://files.pythonhosted.org/packages/72/de/b3a53cf1dfdbdc124e8110a60d6c6da8e39d4610c82491fc862383960552/rich-11.2.0.tar.gz"
+    sha256 "1a6266a5738115017bb64a66c59c717e7aa047b3ae49a011ede4abdeffc6536e"
   end
 
   resource "schema" do
@@ -137,6 +143,8 @@ class OrganizeTool < Formula
       # `macos-tags` and its dependencies are only needed on macOS
       # TODO: Currently requires manual check to confirm PyPI dependency tree
       dependencies -= %w[macos-tags mdfind-wrapper xattr cffi pycparser]
+      # Same for `pyobjc-framework-cocoa` and its dependencies
+      dependencies -= %w[pyobjc-framework-Cocoa pyobjc-core]
     end
     dependencies.each do |r|
       venv.pip_install resource(r)
@@ -158,7 +166,7 @@ class OrganizeTool < Formula
     touch testpath/"homebrew.txt"
 
     assert_match "Found: homebrew.txt", shell_output("#{bin}/organize sim --config-file=#{testpath}/config.yaml")
-    system "#{bin}/organize", "run", "--config-file=#{testpath}/config.yaml"
+    system bin/"organize", "run", "--config-file=#{testpath}/config.yaml"
     refute_predicate testpath/"homebrew.txt", :exist?
   end
 end
