@@ -12,13 +12,11 @@ class Dmenu < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "85b7fd3740477dda3c7e03f71bab77d9e85c2b2dbaf867c17d525d4703a02106"
-    sha256 cellar: :any, arm64_big_sur:  "8a7740f82ecab5606dfe3b9fccf6924e4fd00b76d9aa0efacca839279b470edb"
-    sha256 cellar: :any, monterey:       "36d4357efb9a6243b9856a89871b3fed7ea6a75bcab1dc420c428e18966d2e56"
-    sha256 cellar: :any, big_sur:        "1512aa45817b4bdb25a1190ea923e5454f6c4f08feece65b48b1c05bc75cd1db"
-    sha256 cellar: :any, catalina:       "d92a894ca1d4bb9904b4671f7c849738e266a0cd99d28fcd49324edfd888b367"
-    sha256 cellar: :any, mojave:         "e08e8de333a1d00b6ba7c94f6d3916bce646cbf651cd04eb1cdd604df49639c8"
-    sha256 cellar: :any, high_sierra:    "e94b31e21d9ea3d307b61661fa766592a0856ab13111f17be9a4ae4227759a01"
+    sha256 cellar: :any, arm64_monterey: "1e24f7e58c83a9d5e7b8aa03d6f585e126238f4eaf4e9a0cdfb5fc6a066b7430"
+    sha256 cellar: :any, arm64_big_sur:  "4e7b1c05be6aec0421ce1a0504047b80ca4f6acef5cebf25fbd0ff51e83e4c9c"
+    sha256 cellar: :any, monterey:       "4ea5c73d6392527698e9e82db9c541c0e1eb3944e7103363163f59c3573fcabd"
+    sha256 cellar: :any, big_sur:        "c84d2df11a31969f91e8d03aae0b6e21220835f8e0c12d81808ed9126aa0283b"
+    sha256 cellar: :any, catalina:       "d28486b555358a932c8d4f93aa7d2c2384f867426fa060812ae3fce7204a9013"
   end
 
   depends_on "fontconfig"
