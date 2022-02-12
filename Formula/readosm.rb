@@ -19,17 +19,34 @@ class Readosm < Formula
     sha256 cellar: :any, mojave:         "fcc1af52f7c13bfe4b3df0e1ca559ab79cee172c8941f51a335fb0fbb505027f"
   end
 
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
 
     doc.install "examples"
+
+    if OS.linux?
+      # Remove shim references
+      shim_files = [
+        doc/"examples/test_osm1",
+        doc/"examples/test_osm2",
+        doc/"examples/test_osm3",
+        doc/"examples/Makefile",
+      ]
+
+      shim_files.each do |f|
+        inreplace f, Superenv.shims_path, ""
+      end
+    end
   end
 
   test do
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lreadosm",
-           doc/"examples/test_osm1.c", "-o", testpath/"test"
+    system ENV.cc, doc/"examples/test_osm1.c", "-o", testpath/"test",
+      "-I#{include}", "-L#{lib}", "-lreadosm"
     assert_equal "usage: test_osm1 path-to-OSM-file",
                  shell_output("./test 2>&1", 255).chomp
   end
