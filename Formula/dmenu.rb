@@ -1,10 +1,9 @@
 class Dmenu < Formula
   desc "Dynamic menu for X11"
   homepage "https://tools.suckless.org/dmenu/"
-  url "https://dl.suckless.org/tools/dmenu-5.0.tar.gz"
-  sha256 "fe18e142c4dbcf71ba5757dbbdea93b1c67d58fc206fc116664f4336deef6ed3"
+  url "https://dl.suckless.org/tools/dmenu-5.1.tar.gz"
+  sha256 "1f4d709ebba37eb7326eba0e665e0f13be4fa24ee35c95b0d79c30f14a348fd5"
   license "MIT"
-  revision 1
   head "https://git.suckless.org/dmenu/", using: :git, branch: "master"
 
   livecheck do
