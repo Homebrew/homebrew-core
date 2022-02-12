@@ -19,7 +19,7 @@ class Postgis < Formula
   end
 
   head do
-    url "https://git.osgeo.org/gitea/postgis/postgis.git"
+    url "https://git.osgeo.org/gitea/postgis/postgis.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -36,6 +36,12 @@ class Postgis < Formula
   depends_on "proj@7"
   depends_on "protobuf-c" # for MVT (map vector tiles) support
   depends_on "sfcgal" # for advanced 2D/3D functions
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     ENV.deparallelize
@@ -56,16 +62,23 @@ class Postgis < Formula
     system "./configure", *args
     system "make"
 
+    # Install to a staging directory to circumvent the hardcoded install paths
+    # set by the PGXS makefiles.
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
 
-    bin.install Dir["stage/**/bin/*"]
-    lib.install Dir["stage/**/lib/*"]
-    include.install Dir["stage/**/include/*"]
-    (doc/"postgresql/extension").install Dir["stage/**/share/doc/postgresql/extension/*"]
-    (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
-    pkgshare.install Dir["stage/**/contrib/postgis-*/*"]
-    (share/"postgis_topology").install Dir["stage/**/contrib/postgis_topology-*/*"]
+    # Some files are stored in the stage directory with the cellar prefix of
+    # the version of postgresql used to build postgis.  Since we copy these
+    # files into the postgis keg and symlink them to HOMEBREW_PREFIX, postgis
+    # only needs to be rebuilt when there is a new major version of postgresql.
+    postgresql_prefix = Formula["postgresql"].prefix.realpath
+    postgresql_stage_path = File.join("stage", postgresql_prefix)
+    bin.install (buildpath/postgresql_stage_path/"bin").children
+    doc.install (buildpath/postgresql_stage_path/"share/doc").children
+
+    stage_path = File.join("stage", HOMEBREW_PREFIX)
+    lib.install (buildpath/stage_path/"lib").children
+    share.install (buildpath/stage_path/"share").children
 
     # Extension scripts
     bin.install %w[
@@ -78,14 +91,13 @@ class Postgis < Formula
       utils/test_geography_joinestimation.pl
       utils/test_joinestimation.pl
     ]
-
-    man1.install Dir["doc/**/*.1"]
   end
 
   test do
     pg_version = Formula["postgresql"].version.major
     expected = /'PostGIS built for PostgreSQL % cannot be loaded in PostgreSQL %',\s+#{pg_version}\.\d,/
-    assert_match expected, (share/"postgis/postgis.sql").read
+    postgis_version = Formula["postgis"].version.major_minor
+    assert_match expected, (share/"postgresql/contrib/postgis-#{postgis_version}/postgis.sql").read
 
     require "base64"
     (testpath/"brew.shp").write ::Base64.decode64 <<~EOS
