@@ -7,14 +7,12 @@ class Zsh < Formula
   license "MIT-Modern-Variant"
 
   bottle do
-    sha256 arm64_monterey: "d2a170f7ddb628efabfe7c9909e2d769980fa29d38739d74530dba83ef3b6795"
-    sha256 arm64_big_sur:  "01ae59e3ea21dd7691120aec89552e4f4c10c6489a24b9cc23256129e3cbe7b6"
-    sha256 monterey:       "768904862c98184cdd5e204469c96678652b323ad7d108807dd8afe6cc5c51c0"
-    sha256 big_sur:        "a93717bcbb1a41829ac7549f7dea0e2be4bb11985be734f03801150338d6b8e6"
-    sha256 catalina:       "aaf19f69f79ac2ef80ff31d3b2f0017f400bf40022f8626d5ae046990961a5f5"
-    sha256 mojave:         "a40a54e4b686eb75f04e7dcc57391245a4f6b08a39825f7f6ebc9f76ebcbff46"
-    sha256 high_sierra:    "edfbc09a9571fadf351e0f94e545a88aa33763518a3330c0bae497a6a259d63f"
-    sha256 x86_64_linux:   "f37a99a35ac7b20d78a5e0d83420b4ad74d63cedc426cfd3d964cebe79935183"
+    sha256 arm64_monterey: "750505b1f918835561d0faed812ba007b26ca6f85f658407874a7e764d05aec7"
+    sha256 arm64_big_sur:  "f6150fb2971ff3e1f127d5a41e2178593723bfe83dbff1162024581aa657f790"
+    sha256 monterey:       "bc2f7567c37e90c76f6d0e59fa026f00379ba764d8eb6d77d3e96775af74f99d"
+    sha256 big_sur:        "56e6e6569dfa2871dbe7337b70f800698b7fecb2a40bb0130f4c41a3e8d39387"
+    sha256 catalina:       "622fb66e31fbea6b09c733fc786d17f884cbadc465849885d725310edd89d3e1"
+    sha256 x86_64_linux:   "abe61492a141121b3d46c06358b7760b49a866f524b96345dc070f955304cc2d"
   end
 
   head do
