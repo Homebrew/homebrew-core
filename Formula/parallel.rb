@@ -33,6 +33,14 @@ class Parallel < Formula
     inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
   end
 
+  def caveats
+    <<~EOS
+      To use the --csv option, the Perl Text::CSV module has to be installed.
+      You can install it via:
+        perl -MCPAN -e'install Text::CSV'
+    EOS
+  end
+
   test do
     assert_equal "test\ntest\n",
                  shell_output("#{bin}/parallel --will-cite echo ::: test test")
