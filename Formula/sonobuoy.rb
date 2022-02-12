@@ -6,12 +6,12 @@ class Sonobuoy < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "abfa2dcb072ca7515273c72ff5420859043a3bc6eed29926d89616afabcc65af"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e11f09337902bf06d7196ce167ec8f4484e3c5d0061949a605c99b0d379555e"
-    sha256 cellar: :any_skip_relocation, monterey:       "d598b8c9aa35fb68bec97c13aa155ca87c5fb27170a4faf6da5e2a1fb035b36d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "99e1d4afccbb08f92410414bd9b6eb7225184b0930688b6d16b026d458033985"
-    sha256 cellar: :any_skip_relocation, catalina:       "8a30c7ffc461153149b7445b5d134e2c45e4635e3e25634b5cadd9c8bd1c5565"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6907af4f535531e35c638a9299373aa3c4f121b985170bf5e3e41d81377d847"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c6e7f4eaf07691b70b73093e578a76715118e808b158325f6cd6353d8de24db8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a3a45feb3237190c37c612859418b83347039a1104677406a6302dad361d76e"
+    sha256 cellar: :any_skip_relocation, monterey:       "a2b4bbbaa9b29610bc4ba2af6460d12380385269e5ac3ea705133f477d7cf8fb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "510f3e21d5b942f86972312fc4a3eb35847cd3de46b2912a4a78e7f91ed4b478"
+    sha256 cellar: :any_skip_relocation, catalina:       "9b3642428c30dfcb2d0149d6e131aa820a576eb8725faac7889d1df724df1317"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a67cc85abfac96616b5749ea89e88b46c9fe5981e85dd9adbba5996fb87bc3a"
   end
 
   depends_on "go" => :build
