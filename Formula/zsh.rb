@@ -1,11 +1,10 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.8/zsh-5.8.tar.xz"
-  mirror "https://www.zsh.org/pub/zsh-5.8.tar.xz"
-  sha256 "dcc4b54cc5565670a65581760261c163d720991f0d06486da61f8d839b52de27"
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.8.1/zsh-5.8.1.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.8.1.tar.xz"
+  sha256 "b6973520bace600b4779200269b1e5d79e5f505ac4952058c11ad5bbf0dd9919"
   license "MIT-Modern-Variant"
-  revision 1
 
   bottle do
     sha256 arm64_monterey: "d2a170f7ddb628efabfe7c9909e2d769980fa29d38739d74530dba83ef3b6795"
@@ -29,9 +28,9 @@ class Zsh < Formula
   uses_from_macos "texinfo"
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.8/zsh-5.8-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.8-doc.tar.xz"
-    sha256 "9b4e939593cb5a76564d2be2e2bfbb6242509c0c56fd9ba52f5dba6cf06fdcc4"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.8.1/zsh-5.8.1-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.8.1-doc.tar.xz"
+    sha256 "8b9cb53d6432f13e9767a8680b642e8e8a52c7f1b8decd211756ca20c667f917"
   end
 
   def install
