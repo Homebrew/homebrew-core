@@ -15,6 +15,7 @@
   "pypy3",
   "scalapack",
   "soapysdr",
+  "soci",
   "tcl-tk",
   "xmlrpc-c",
   "xvid"
