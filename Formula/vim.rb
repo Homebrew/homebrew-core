@@ -8,12 +8,12 @@ class Vim < Formula
   head "https://github.com/vim/vim.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "759bb62427355e68bcdde43b941b4329c14cc4e9f4a8bbdba0469a4fe354d53d"
-    sha256 arm64_big_sur:  "16270ba0f756ec59fe80e643acff7a3bab80e10be824bbaf02457edce87674c7"
-    sha256 monterey:       "7bf9f1efe6438c870095192a53dbbd9891898acd6c1ff296df93a7e8a17469ab"
-    sha256 big_sur:        "1286dc1bc015241c72010d904b7ad789822e7fcca8bedd0a6080d344b99d5402"
-    sha256 catalina:       "aa4a042aca20e5ddbf8f96cf182935c89310d4548b83ae04be4018bb6c22ee19"
-    sha256 x86_64_linux:   "714018114c9fbd30b3728cbb1c40c17e41f6d3d99f5d27687cc519f144003118"
+    sha256 arm64_monterey: "1b5e43145ed8158274a2c5d0092e2731fc512de8e5415f32bbea51b37d0a6ff8"
+    sha256 arm64_big_sur:  "108dfe230abe743677df789df20b8dff067a699bff23982c5635086071a84590"
+    sha256 monterey:       "dab51a5ee970be11bda13757cc8684f168d1edc1f63d867084c03db17e069671"
+    sha256 big_sur:        "33840d96077be7794ec80c8c8973080f746a04ec2d0294229ea392e4003d2a0e"
+    sha256 catalina:       "26e08d0996248f1b254548a4bffd5465e8684562f4eafebb0080bb3eee23ecd5"
+    sha256 x86_64_linux:   "456daa396393ddfc5ac7783960a5d23decf113a78777e55e4c33a7b21b4f8a8c"
   end
 
   depends_on "gettext"
