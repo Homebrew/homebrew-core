@@ -19,8 +19,8 @@ class Ansilove < Formula
   depends_on "gd"
 
   resource "libansilove" do
-    url "https://github.com/ansilove/libansilove/releases/download/1.2.8/libansilove-1.2.8.tar.gz"
-    sha256 "ef02eda605e3b38edbeac5874f2de22201db123cb7aab9228fd05cb288d0c0bc"
+    url "https://github.com/ansilove/libansilove/releases/download/1.2.9/libansilove-1.2.9.tar.gz"
+    sha256 "88057f7753bf316f9a09ed15721b9f867ad9f5654c0b49af794d8d98b9020a66"
   end
 
   def install
