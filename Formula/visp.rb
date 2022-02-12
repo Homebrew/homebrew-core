@@ -1,10 +1,9 @@
 class Visp < Formula
   desc "Visual Servoing Platform library"
   homepage "https://visp.inria.fr/"
-  url "https://visp-doc.inria.fr/download/releases/visp-3.4.0.tar.gz"
-  sha256 "6c12bab1c1ae467c75f9e5831e01a1f8912ab7eae64249faf49d3a0b84334a77"
+  url "https://visp-doc.inria.fr/download/releases/visp-3.5.0.tar.gz"
+  sha256 "494a648b2570da2a200ba326ed61a14e785eb9ee08ef12d3ad178b2f384d3d30"
   license "GPL-2.0-or-later"
-  revision 4
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -31,9 +30,6 @@ class Visp < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
-
-  # Fix Apple Silicon build
-  patch :DATA
 
   def install
     ENV.cxx11
@@ -117,29 +113,3 @@ class Visp < Formula
     assert_equal version.to_s, shell_output("./test").chomp
   end
 end
-
-__END__
-diff --git a/3rdparty/simdlib/Simd/SimdEnable.h b/3rdparty/simdlib/Simd/SimdEnable.h
-index a5ca71702..6c79eb0d9 100644
---- a/3rdparty/simdlib/Simd/SimdEnable.h
-+++ b/3rdparty/simdlib/Simd/SimdEnable.h
-@@ -44,8 +44,8 @@
- #include <TargetConditionals.h>             // To detect OSX or IOS using TARGET_OS_IPHONE or TARGET_OS_IOS macro
- #endif
-
--// The following includes <sys/auxv.h> and <asm/hwcap.h> are not available for iOS.
--#if (TARGET_OS_IOS == 0) // not iOS
-+// The following includes <sys/auxv.h> and <asm/hwcap.h> are not available for macOS, iOS.
-+#if !defined(__APPLE__) // not macOS, iOS
- #if defined(SIMD_PPC_ENABLE) || defined(SIMD_PPC64_ENABLE) || defined(SIMD_ARM_ENABLE) || defined(SIMD_ARM64_ENABLE)
- #include <unistd.h>
- #include <fcntl.h>
-@@ -124,7 +124,7 @@ namespace Simd
-     }
- #endif//defined(SIMD_X86_ENABLE) || defined(SIMD_X64_ENABLE)
-
--#if (TARGET_OS_IOS == 0) // not iOS
-+#if !defined(__APPLE__) // not macOS, iOS
- #if defined(__GNUC__) && (defined(SIMD_PPC_ENABLE) || defined(SIMD_PPC64_ENABLE) || defined(SIMD_ARM_ENABLE) || defined(SIMD_ARM64_ENABLE))
-     namespace CpuInfo
-     {
