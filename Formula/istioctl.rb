@@ -2,8 +2,8 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://istio.io/"
   url "https://github.com/istio/istio.git",
-      tag:      "1.12.2",
-      revision: "af0d66fd0aa363e9a7b0164f3a94ba36252fe60f"
+      tag:      "1.13.0",
+      revision: "75ee7514615d3a642a7eabaa0ad7c22cea1a1ed0"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git", branch: "master"
 
@@ -17,13 +17,6 @@ class Istioctl < Formula
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
-
-  # Fix https://github.com/istio/istio/issues/35831
-  # remove in next release
-  patch do
-    url "https://github.com/istio/istio/commit/6d9c69f10431bca2ee2beefcfdeaad5e5f62071b.patch?full_index=1"
-    sha256 "47e175fc0ac5e34496c6c0858eefbc31e45073dad9683164f7a21c74dbaa6055"
-  end
 
   def install
     ENV["VERSION"] = version.to_s
