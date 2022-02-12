@@ -16,8 +16,8 @@ class SolrAT77 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "d6c1393dd7b6230c255ad1d2c632b542eb9a7d569e24661acf9d8cd14e5967c1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "2ece595725317381657387652c053d0e88069f7238c8ce9decbd91794ab5fc7e"
   end
 
   keg_only :versioned_formula
