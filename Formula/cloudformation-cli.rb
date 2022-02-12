@@ -291,7 +291,7 @@ class CloudformationCli < Formula
 
       spawn #{bin}/cfn init
 
-      expect -exact "Do you want to develop a new resource(r) or a module(m)?."
+      expect -exact "Do you want to develop a new resource(r) or a module(m) or a hook(h)?."
       send -- "r\r"
 
       expect -exact "What's the name of your resource type?"
