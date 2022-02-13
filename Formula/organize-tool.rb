@@ -21,10 +21,6 @@ class OrganizeTool < Formula
   depends_on "python@3.10"
   depends_on "six"
 
-  on_linux do
-    depends_on "poetry" => :build
-  end
-
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
     sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
@@ -147,6 +143,8 @@ class OrganizeTool < Formula
       # `macos-tags` and its dependencies are only needed on macOS
       # TODO: Currently requires manual check to confirm PyPI dependency tree
       dependencies -= %w[macos-tags mdfind-wrapper xattr cffi pycparser]
+      # Same for `pyobjc-framework-cocoa` and its dependencies
+      dependencies -= %w[pyobjc-framework-Cocoa pyobjc-core]
     end
     dependencies.each do |r|
       venv.pip_install resource(r)
@@ -168,7 +166,7 @@ class OrganizeTool < Formula
     touch testpath/"homebrew.txt"
 
     assert_match "Found: homebrew.txt", shell_output("#{bin}/organize sim --config-file=#{testpath}/config.yaml")
-    system "#{bin}/organize", "run", "--config-file=#{testpath}/config.yaml"
+    system bin/"organize", "run", "--config-file=#{testpath}/config.yaml"
     refute_predicate testpath/"homebrew.txt", :exist?
   end
 end
