@@ -4,6 +4,7 @@ class Biber < Formula
   url "https://github.com/plk/biber/archive/refs/tags/v2.17.tar.gz"
   sha256 "1ee7efdd8343e982046f2301c1b0dcf09e1f9a997ac86ed1018dcb41d04c9e88"
   license "Artistic-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "6fc144d7d8a045356ef3fd0fccf5de17f6e3ac63d6b269a0a85f4809a9f00c43"
@@ -330,12 +331,8 @@ class Biber < Formula
     sha256 "122c8900000a9d388aa8e44f911cab6c118fe8497417917a84a8ec183971b449"
   end
   resource "Net::SSLeay" do
-    url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.90.tar.gz"
-    sha256 "f8696cfaca98234679efeedc288a9398fcf77176f1f515dbc589ada7c650dc93"
-    # workaround for `dyld` behaviour change (https://openradar.appspot.com/FB9725981)
-    # adapted from https://github.com/macports/macports-ports/commit/08e3e0bd0f0383263a88331336bcab244a902a31
-    # upstream issue link: https://github.com/radiator-software/p5-net-ssleay/issues/329
-    patch :p0, :DATA if MacOS.version == :monterey
+    url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.92.tar.gz"
+    sha256 "47c2f2b300f2e7162d71d699f633dd6a35b0625a00cbda8c50ac01144a9396a9"
   end
   resource "URI" do
     url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz"
@@ -569,15 +566,3 @@ class Biber < Formula
     assert_predicate testpath/"test.bbl", :exist?
   end
 end
-
-__END__
---- Makefile.PL
-+++ Makefile.PL
-@@ -157,7 +157,7 @@
-     for ("$prefix/include", "$prefix/inc32", '/usr/kerberos/include') {
-       push @{$opts->{inc_paths}}, $_ if -f "$_/openssl/ssl.h";
-     }
--    for ($prefix, "$prefix/lib64", "$prefix/lib", "$prefix/out32dll") {
-+    for ("$prefix/lib64", "$prefix/lib", "$prefix/out32dll") {
-       push @{$opts->{lib_paths}}, $_ if -d $_;
-     }
