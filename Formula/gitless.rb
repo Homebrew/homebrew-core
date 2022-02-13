@@ -6,7 +6,7 @@ class Gitless < Formula
   url "https://files.pythonhosted.org/packages/9c/2e/457ae38c636c5947d603c84fea1cf51b7fcd0c8a5e4a9f2899b5b71534a0/gitless-0.8.8.tar.gz"
   sha256 "590d9636d2ca743fdd972d9bf1f55027c1d7bc2ab1d5e877868807c3359b78ef"
   license "MIT"
-  revision 11
+  revision 12
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "9819d2fec72194b54351868a51f4723e7cc52d30a705e0a0df4837b7aba776e5"
@@ -52,15 +52,8 @@ class Gitless < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/6b/23/a8c5b726a58282fe2cadcc63faaddd4be147c3c8e0bd38b233114adf98fd/pygit2-1.6.1.tar.gz"
-    sha256 "c3303776f774d3e0115c1c4f6e1fc35470d15f113a7ae9401a0b90acfa1661ac"
-
-    # libgit2 1.3 support
-    # https://github.com/libgit2/pygit2/pull/1089
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/54d3a0d1f241fdd4e9229312ced0d8da85d964b1/pygit2/libgit2-1.3.0.patch"
-      sha256 "4d501c09d6642d50d89a1a4d691980e3a4a2ebcb6de7b45d22cce16a451b9839"
-    end
+    url "https://files.pythonhosted.org/packages/7e/8c/c162e50ad20c36b457aa97a9d96536fde316d90052fb03fc4ae22a7fe9ea/pygit2-1.9.0.tar.gz"
+    sha256 "c5e8588acad5e32fa0595582571059e6b90ec7c487c58b4e53c2800dcbde44c8"
   end
 
   resource "sh" do
@@ -73,7 +66,7 @@ class Gitless < Formula
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
-  # Allow to be dependent on pygit2 1.4.0
+  # Allow to be dependent on pygit2 1.9.0
   # Remove for next version
   patch :DATA
 
@@ -101,7 +94,7 @@ index 05f190a..5eb025f 100644
  # make sure to update setup.py
 
 -pygit2==0.28.2  # requires libgit2 0.28
-+pygit2==1.4.0  # requires libgit2 0.28
++pygit2==1.9.0  # requires libgit2 1.4
  clint==0.5.1
  sh==1.12.14;sys_platform!='win32'
  pbs==0.110;sys_platform=='win32'
@@ -114,7 +107,7 @@ index 68a3a87..d1704a8 100755
      install_requires=[
        # make sure it matches requirements.txt
 -      'pygit2==0.28.2', # requires libgit2 0.28
-+      'pygit2==1.4.0', # requires libgit2 0.28
++      'pygit2==1.9.0', # requires libgit2 1.4
        'clint>=0.3.6',
        'sh>=1.11' if sys.platform != 'win32' else 'pbs>=0.11'
      ],
