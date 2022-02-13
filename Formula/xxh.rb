@@ -3,8 +3,8 @@ class Xxh < Formula
 
   desc "Bring your favorite shell wherever you go through the ssh"
   homepage "https://github.com/xxh/xxh"
-  url "https://files.pythonhosted.org/packages/21/10/ecf32b1205e9e5be1eeb0e9f9bac665d1c978d2ae2c8c1c54e2d4945f8f0/xxh-xxh-0.8.8.tar.gz"
-  sha256 "0e49dee04455465bf6f77a9fd625f87ec9dae48306dddf423c18a0ef01a2ce1c"
+  url "https://files.pythonhosted.org/packages/63/71/7b985e754543e4fc9fc53cf36f405ee5b8044931cffa45898c4edf74275a/xxh-xxh-0.8.10.tar.gz"
+  sha256 "5afe1d9803143e3b6659f48a6e4ec8134b952046e8efd9089b791aeeb8fe1045"
   license "BSD-2-Clause"
 
   bottle do
