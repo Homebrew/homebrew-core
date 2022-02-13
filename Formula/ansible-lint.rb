@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/fa/8f/73f43b56d270dbebe36760c49132acbc18a824121b249a5810d2b13a385c/ansible-lint-5.3.2.tar.gz"
-  sha256 "9ba886db4c44e59360bc8d668f0beae6193c0a1fcbb9e76127000ca3aced7c28"
+  url "https://files.pythonhosted.org/packages/7a/c4/69057a31e1608a890be27d22c0cdcc1e0ba8f1a5e8f801c991f10f3345c5/ansible-lint-5.4.0.tar.gz"
+  sha256 "2160a60b4ab034c04006d701a1779340ffb0f6e28f030ff8de958e1062a88962"
   license "MIT"
 
   bottle do
@@ -52,8 +52,8 @@ class AnsibleLint < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
-    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
+    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
+    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
   end
 
   resource "PyYAML" do
@@ -62,13 +62,13 @@ class AnsibleLint < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/eb/be/bd5d6c37f5de55f31cb9432e0d926ceeab1b2ee774bd696557b53bc15012/rich-11.0.0.tar.gz"
-    sha256 "c32a8340b21c75931f157466fefe81ae10b92c36a5ea34524dff3767238774a4"
+    url "https://files.pythonhosted.org/packages/72/de/b3a53cf1dfdbdc124e8110a60d6c6da8e39d4610c82491fc862383960552/rich-11.2.0.tar.gz"
+    sha256 "1a6266a5738115017bb64a66c59c717e7aa047b3ae49a011ede4abdeffc6536e"
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/2d/b1/b672cbe8be9ea09d85d2be8c3693811362295aa8483849e85b41caaadb85/ruamel.yaml-0.17.20.tar.gz"
-    sha256 "4b8a33c1efb2b443a93fcaafcfa4d2e445f8e8c29c528d9f5cdafb7cc9e4004c"
+    url "https://files.pythonhosted.org/packages/46/a9/6ed24832095b692a8cecc323230ce2ec3480015fbfa4b79941bd41b23a3c/ruamel.yaml-0.17.21.tar.gz"
+    sha256 "8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"
   end
 
   resource "ruamel.yaml.clib" do
