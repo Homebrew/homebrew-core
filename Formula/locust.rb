@@ -8,12 +8,12 @@ class Locust < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "335732b3b11dec2d6acb2b91f462b7a1c304df00d0aebaa715744a8cdf4f0462"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "008443604a317e95008421d40d641a22ae7ba81b4426bb7ada58695fa8ecb6ab"
-    sha256 cellar: :any_skip_relocation, monterey:       "e7d6c124ca5570bdf8ccd09c0dfe16830ceb920901459ddb4dbac00d04930271"
-    sha256 cellar: :any_skip_relocation, big_sur:        "349ae123d6b5025cc95b50350c1bcfcc180c0776ff4c424377c78f78470afcfd"
-    sha256 cellar: :any_skip_relocation, catalina:       "2c994704974c524fb57759447e4d5881a63009aaf981a2958b45942eebefcbe1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2481dffb6ebaccb001f756064f7903dc580051ed15f581c6ce6cb63c228f7f04"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b367fa0fe501f6707cd99690b611b5761fd40af0d8196811c3ab614627ce6b0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a676ae542a92d111b5960f3ee7b5ea24c9b45a712c389f8daa84d20b7e2ba5e"
+    sha256 cellar: :any_skip_relocation, monterey:       "d631ff9c2f52a488fac0297d1cc76ede09a4e08d2cc3a2ac6cb1e6e9a37fc0fc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2b95e37d2a9e6787c12d96a05bfc193d31bcb15075f9109b5f971a92649e990a"
+    sha256 cellar: :any_skip_relocation, catalina:       "32451c0c7d1ccd903b245ec46ab9681abc1ee87dcf0ad9caa9ea95f9856285fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91315e9754b823bfac3cea6308cace9b1101ae9370fe18eb9d58dd1d1867e204"
   end
 
   depends_on "python@3.10"
