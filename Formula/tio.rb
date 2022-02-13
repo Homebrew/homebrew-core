@@ -16,13 +16,15 @@ class Tio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fa7b1f65d234ea6358e451925ce7b1759ce08f35a919ae89ea5dd81182610b6"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-bash-completion-dir=#{bash_completion}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
