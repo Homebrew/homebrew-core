@@ -20,7 +20,7 @@ class Kubescape < Formula
     output = Utils.safe_popen_read(bin/"kubescape", "completion", "zsh")
     (zsh_completion/"_kubescape").write output
     output = Utils.safe_popen_read(bin/"kubescape", "completion", "fish")
-    (fish_completion/"kubescape").write output
+    (fish_completion/"kubescape.fish").write output
   end
 
   test do
