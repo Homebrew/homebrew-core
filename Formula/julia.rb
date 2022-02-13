@@ -2,7 +2,7 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  revision 2
+  revision 3
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   stable do
@@ -95,6 +95,12 @@ class Julia < Formula
   patch do
     url "https://github.com/JuliaLang/julia/commit/4d7fc8465ed9eb820893235a6ff3d40274b643a7.patch?full_index=1"
     sha256 "3a34a2cd553929c2aee74aba04c8e42ccb896f9d491fb677537cd4bca9ba7caa"
+  end
+
+  # Fix compatibility with LibGit2 1.4.0+
+  patch do
+    url "https://raw.githubusercontent.com/archlinux/svntogit-community/cd813138d8a6fd496d0972a033d55028613be06d/trunk/julia-libgit-1.4.patch"
+    sha256 "cfe498a090d0026b92f9db4ed65ac3818c2efa5ec83bcefed728d27abff73081"
   end
 
   # Remove broken tests running in `test` block. Reported at:
