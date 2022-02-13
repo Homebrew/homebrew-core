@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/13/65/6c822bd269712df9c47350b5e5eb03976e934aaacac948c8a594ec357491/locust-2.7.3.tar.gz"
-  sha256 "7b3b14dfb28d28bada51cb672f6f19640c8dba3beaa781ee070e34e72ffebf95"
+  url "https://files.pythonhosted.org/packages/49/e6/1dfa470f5869d059f7624db9d05cab7f1484a8a25434ddf2319fede53fba/locust-2.8.0.tar.gz"
+  sha256 "0b351146bbb66ecb5ef83253e01a00affc5be383a1de89a4eed93d08cbf581ff"
   license "MIT"
 
   bottle do
@@ -30,8 +30,8 @@ class Locust < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
-    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "click" do
@@ -120,8 +120,8 @@ class Locust < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0d/4a/60ba3706797b878016f16edc5fbaf1e222109e38d0fa4d7d9312cb53f8dd/typing_extensions-4.0.1.tar.gz"
-    sha256 "4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e"
+    url "https://files.pythonhosted.org/packages/0b/61/f231a1297068b3c0544577c997e558cbfafe49e750cc7fcb503224df23c4/typing_extensions-4.1.0.tar.gz"
+    sha256 "ba97c5143e5bb067b57793c726dd857b1671d4b02ced273ca0538e71ff009095"
   end
 
   resource "urllib3" do
@@ -130,8 +130,8 @@ class Locust < Formula
   end
 
   resource "Werkzeug" do
-    url "https://files.pythonhosted.org/packages/83/3c/ecdb36f49ab06defb0d5a466cfeb4ae90a55d02cfef379f781da2801a45d/Werkzeug-2.0.2.tar.gz"
-    sha256 "aa2bb6fc8dee8d6c504c0ac1e7f5f7dc5810a9903e793b6f715a9f015bdadb9a"
+    url "https://files.pythonhosted.org/packages/6c/a8/60514fade2318e277453c9588545d0c335ea3ea6440ce5cdabfca7f73117/Werkzeug-2.0.3.tar.gz"
+    sha256 "b863f8ff057c522164b6067c9e28b041161b4be5ba4d0daceeaa50a163822d3c"
   end
 
   resource "zope.event" do
@@ -163,6 +163,6 @@ class Locust < Formula
     ENV["LOCUST_HOST"] = "http://httpbin.org"
     ENV["LOCUST_USERS"] = "2"
 
-    system "locust", "--headless", "--run-time", "30s"
+    system "locust", "--headless", "--run-time", "10s"
   end
 end
