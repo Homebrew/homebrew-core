@@ -8,12 +8,12 @@ class Mage < Formula
   head "https://github.com/magefile/mage.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a76f89e81261e2f223fa94dfe025d989809304a3236cfac36d6816c3f2932e56"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a76f89e81261e2f223fa94dfe025d989809304a3236cfac36d6816c3f2932e56"
-    sha256 cellar: :any_skip_relocation, monterey:       "3fd75c25b71b64fc8a379a013bec915947b2584a1880060c8396b3d6eb5f5a40"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3fd75c25b71b64fc8a379a013bec915947b2584a1880060c8396b3d6eb5f5a40"
-    sha256 cellar: :any_skip_relocation, catalina:       "3fd75c25b71b64fc8a379a013bec915947b2584a1880060c8396b3d6eb5f5a40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a271902ea09ef3318c350bea322817e8903a97b87069b124ea82069f49c8f81"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "582631a00f73b95e8e3d41b5409fbe6210e6f20c22977296ca430c8d16e80bc7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "582631a00f73b95e8e3d41b5409fbe6210e6f20c22977296ca430c8d16e80bc7"
+    sha256 cellar: :any_skip_relocation, monterey:       "d2da91d98adad62480fb9efd3f311f0d56a5406772d3f5c0ac3af7cd5da0fd96"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d2da91d98adad62480fb9efd3f311f0d56a5406772d3f5c0ac3af7cd5da0fd96"
+    sha256 cellar: :any_skip_relocation, catalina:       "d2da91d98adad62480fb9efd3f311f0d56a5406772d3f5c0ac3af7cd5da0fd96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ed02d4428c2c712929e78a1c51b8b20ff851e4cea12807607b0a82dcee0ebea"
   end
 
   depends_on "go"
