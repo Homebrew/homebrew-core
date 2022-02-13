@@ -1,8 +1,8 @@
 class Tio < Formula
   desc "Simple TTY terminal I/O application"
   homepage "https://tio.github.io"
-  url "https://github.com/tio/tio/releases/download/v1.32/tio-1.32.tar.xz"
-  sha256 "a8f5ed6994cacb96780baa416b19e5a6d7d67e8c162a8ea4fd9eccd64984ae44"
+  url "https://github.com/tio/tio/releases/download/v1.34/tio-1.34.tar.xz"
+  sha256 "ec5f659fcab6ebab5ff3aa8737d67809441e6f69f62fc8f38ab11986908254e1"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -16,13 +16,15 @@ class Tio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fa7b1f65d234ea6358e451925ce7b1759ce08f35a919ae89ea5dd81182610b6"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-bash-completion-dir=#{bash_completion}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
