@@ -6,6 +6,7 @@ class Dvc < Formula
   url "https://files.pythonhosted.org/packages/e9/46/33ac44445fd6974fe6b52f01ab4794c5b5dda927cfb520ac64382e629905/dvc-2.9.5.tar.gz"
   sha256 "d4bd89c074ddac14f775c8eec95ad22821b863c0aeb51c0defd20a036d36e0ca"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c61c911e4451a4a0d6da6b317189726769ef2ff701a736a264e59ab77631a018"
@@ -471,8 +472,8 @@ class Dvc < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/30/55/3dbb6ebc87e523d6cdb622e73b46b2da477a94f8a3c8b2734232383ffe29/pygit2-1.8.0.tar.gz"
-    sha256 "6e2c5cff5aa1e43f43103480761152f5c5d6bef40f5c1f50c8758a6e89e66cb6"
+    url "https://files.pythonhosted.org/packages/7e/8c/c162e50ad20c36b457aa97a9d96536fde316d90052fb03fc4ae22a7fe9ea/pygit2-1.9.0.tar.gz"
+    sha256 "c5e8588acad5e32fa0595582571059e6b90ec7c487c58b4e53c2800dcbde44c8"
   end
 
   resource "Pygments" do
