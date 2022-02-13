@@ -17,11 +17,6 @@ class Dssim < Formula
   depends_on "nasm" => :build
   depends_on "rust" => :build
 
-  # build patch, commit ref,
-  # https://github.com/kornelski/dssim/commit/5039fa8c96d4a0ceac207968b3ef15819822cf54
-  # remove in next release
-  patch :DATA
-
   def install
     system "cargo", "install", *std_cargo_args
   end
@@ -30,18 +25,3 @@ class Dssim < Formula
     system "#{bin}/dssim", test_fixtures("test.png"), test_fixtures("test.png")
   end
 end
-
-__END__
-diff --git a/src/lib.rs b/src/lib.rs
-index c04be07..319dc7f 100644
---- a/src/lib.rs
-+++ b/src/lib.rs
-@@ -8,7 +8,7 @@ use load_image::*;
- use std::path::Path;
-
- fn load(attr: &Dssim, path: &Path) -> Result<DssimImage<f32>, lodepng::Error> {
--    let img = load_image::load_path(path, false)?;
-+    let img = load_image::load_path(path)?;
-     Ok(match img.bitmap {
-         ImageData::RGB8(ref bitmap) => attr.create_image(&Img::new(bitmap.to_rgblu(), img.width, img.height)),
-         ImageData::RGB16(ref bitmap) => attr.create_image(&Img::new(bitmap.to_rgblu(), img.width, img.height)),
