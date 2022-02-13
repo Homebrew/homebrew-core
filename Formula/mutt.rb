@@ -15,12 +15,12 @@ class Mutt < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "3483c07437536c21ba4d1f6b681f400529d3133245cd355c27484b62f7217664"
-    sha256 arm64_big_sur:  "22e79015bbc9f306381a78f36e6ee7be93a1f0e94ff73fce17f4cbe1489df6c8"
-    sha256 monterey:       "3aa936c55b3caf659f51553c84f627e220c6fa138bdb23693d0aa3997e91dd9b"
-    sha256 big_sur:        "44e8eef2d00180b80288176ede885d2701f6883666dd6281d309be41c602cde2"
-    sha256 catalina:       "c93132da3fa6a17b22ce3e25e20efb8404197e9b52195bc3227f3df128477f7a"
-    sha256 x86_64_linux:   "88e1f1a47727ff07abd48668db73a2b5c1509e3255de8fbd1e814a9b605dffa3"
+    sha256 arm64_monterey: "a4a4d8c529ae1a0a66645febc8654c3ec0d863dab22d88a5a47ea8837649d2db"
+    sha256 arm64_big_sur:  "b06cc5746b9f918dc86271481ddd87b1b558a14e4a64d375eabdfb289a668f88"
+    sha256 monterey:       "b997a6bb78937ab954cd797245dddcf1208182b19438a6b65115cc60154ae0db"
+    sha256 big_sur:        "aa8a544b1cda68dad8957825d2dac5ce559d4a622ab3a8dc110383b36a6ecd0c"
+    sha256 catalina:       "f33de45bee4967bc23d5c1d4a8e0fb2e02054b33cfd8f554d27262cd93ace125"
+    sha256 x86_64_linux:   "231ea6f3dbe19aeb051a8b517c5e8e16470bcf035af05845741e296f75857fa4"
   end
 
   head do
