@@ -4,7 +4,7 @@ class CargoEdit < Formula
   url "https://github.com/killercup/cargo-edit/archive/v0.8.0.tar.gz"
   sha256 "4a08e914c17204cb3ab303b62362ca30d44cf457b3b1d7bde117b8ab4cb2fa64"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "89c3c054b982aaa72718173a5a21c91987d1aa09adc7415b20e56b3dd19caed9"
@@ -19,6 +19,19 @@ class CargoEdit < Formula
   depends_on "libgit2"
   depends_on "openssl@1.1"
   depends_on "rust" # uses `cargo` at runtime
+
+  # Fix build with newer crates-index needed for libgit2 fix.
+  # TODO: Remove in the next release
+  patch do
+    url "https://github.com/killercup/cargo-edit/commit/2c25b5fbcd0924ac0f962a799bcfdf77b168410b.patch?full_index=1"
+    sha256 "45ad9a6e2a898320a9653327949db854a4c9ee1f1b3ca9da03109662950da1af"
+  end
+
+  # Fix issue with libgit2 >= 1.4 and git2-rs < 0.14.
+  # Issue ref: https://github.com/killercup/cargo-edit/issues/641
+  # Issue ref: https://github.com/rust-lang/git2-rs/issues/813
+  # TODO: Remove in the next release
+  patch :DATA
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -49,3 +62,24 @@ class CargoEdit < Formula
     end
   end
 end
+
+__END__
+diff --git a/Cargo.toml b/Cargo.toml
+index 18c744ce..177a71dd 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -51,12 +51,12 @@ required-features = ["set-version"]
+ [dependencies]
+ atty = { version = "0.2.14", optional = true }
+ cargo_metadata = "0.14.0"
+-crates-index = "0.18.1"
++crates-index = "0.18.7"
+ dunce = "1.0"
+ dirs-next = "2.0.0"
+ env_proxy = "0.4.1"
+ error-chain = "0.12.4"
+-git2 = "0.13.22"
++git2 = "0.14"
+ hex = "0.4.2"
+ regex = "1.3.9"
+ serde = "1.0.116"
