@@ -2,8 +2,8 @@ class Dfmt < Formula
   desc "Formatter for D source code"
   homepage "https://github.com/dlang-community/dfmt"
   url "https://github.com/dlang-community/dfmt.git",
-      tag:      "v0.14.1",
-      revision: "b776d5a9b96df283ab93b19a9bc689d633bdcb83"
+      tag:      "v0.14.2",
+      revision: "6a24f0dc7c490f4cb06cdc9d21b841bee84615f4"
   license "BSL-1.0"
   head "https://github.com/dlang-community/dfmt.git", branch: "v0.x.x"
 
