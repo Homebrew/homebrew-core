@@ -3,8 +3,9 @@ class Revive < Formula
   homepage "https://revive.run"
   url "https://github.com/mgechev/revive.git",
       tag:      "v1.1.3",
-      revision: "8aab7c604229a40f443a5fb3b1112b7ebb0b8e31"
+      revision: "baa70eb87ce60e5905df49d63815a9f712c8058f"
   license "MIT"
+  revision 1
   head "https://github.com/mgechev/revive.git", branch: "master"
 
   bottle do
