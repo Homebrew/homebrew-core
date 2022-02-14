@@ -14,12 +14,12 @@ class Cppad < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "9ffeb62d7e9a1717836b92be32000ed2fa6fd367f22b8f2726ac46fa495d7bed"
-    sha256 cellar: :any,                 arm64_big_sur:  "9fcf5c304a8b4eb987b2236936f694d7ca3062bc36313186788478f8e4484004"
-    sha256 cellar: :any,                 monterey:       "31057c97fb265ea21203b96dd413d95a00266003685397541ebc410b288b5198"
-    sha256 cellar: :any,                 big_sur:        "a7e34bb78c6af7628fe55961380ce3d68472501700115aa49b1e38cd8e35c7bc"
-    sha256 cellar: :any,                 catalina:       "709af37b49613ef03dd63c456ac1efb3b8b3f975469e828e6647c4c8a29c4ebf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6aac249ea8ef47d8d50c5322f4bfb2a699274ec2787d31d61ff34d2907633cd"
+    sha256 cellar: :any,                 arm64_monterey: "4bf638f87ef91e08200f860e3dd6073e16f653de91637b50b2eab717cf6c0180"
+    sha256 cellar: :any,                 arm64_big_sur:  "e8ab2a0462ba2f7a0ce0801e81c65e0cb86ccd73bc39bdc67401edd4784162ec"
+    sha256 cellar: :any,                 monterey:       "fa31d5517dbbaeaf87d0db041ab6bb91a0f9c2ffda42091a02aad9083b29ef49"
+    sha256 cellar: :any,                 big_sur:        "79db2a1511c61b7d0a7f000bb17088b97d633e21bf0504b8b24f4813a4fd1b1d"
+    sha256 cellar: :any,                 catalina:       "adb9ccfaa8aeceb4ff09ef0215f412e03fc404b3a1ffc499a41f0a0a8cb74c06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93017c4eef160255f23db2a6d7f576ba5a61e6711bc9f997be49700e4d0eb937"
   end
 
   depends_on "cmake" => :build
