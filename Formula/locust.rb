@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/33/7b/6815f702d48d1ce42625e804de3a5cb8fec0992f8bfd10c239ea75011d7e/locust-2.8.1.tar.gz"
-  sha256 "97988707a374c4c38e5855c4ec08e29751e2632faba6f4e2335da4c64c4c482a"
+  url "https://files.pythonhosted.org/packages/8d/27/aba8c715bebd78826efa8da107f003dd79394ed227a0b3378926dd8fefd5/locust-2.8.2.tar.gz"
+  sha256 "88fc93042410fe0ce85d7a0056156cfc8936238bc042a319ccb0cdc482f5e4c1"
   license "MIT"
 
   bottle do
@@ -120,8 +120,8 @@ class Locust < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0b/61/f231a1297068b3c0544577c997e558cbfafe49e750cc7fcb503224df23c4/typing_extensions-4.1.0.tar.gz"
-    sha256 "ba97c5143e5bb067b57793c726dd857b1671d4b02ced273ca0538e71ff009095"
+    url "https://files.pythonhosted.org/packages/b1/5a/8b5fbb891ef3f81fc923bf3cb4a578c0abf9471eb50ce0f51c74212182ab/typing_extensions-4.1.1.tar.gz"
+    sha256 "1a9462dcc3347a79b1f1c0271fbe79e844580bb598bafa1ed208b94da3cdcd42"
   end
 
   resource "urllib3" do
