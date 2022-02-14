@@ -7,12 +7,12 @@ class Biber < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6fc144d7d8a045356ef3fd0fccf5de17f6e3ac63d6b269a0a85f4809a9f00c43"
-    sha256 cellar: :any,                 arm64_big_sur:  "204d7cb929fa459938ec758687ca0525d0fa3061f8586de14fbeed12416a7c21"
-    sha256 cellar: :any,                 monterey:       "362e43be7f9798a76ba0be58e0e5e655d47f394a9cc62110e671f6c4f6059bf0"
-    sha256 cellar: :any,                 big_sur:        "8e83851811d503f7c587a95030a25d3ca1fc80f00ed2bb4306de248d6c68fc73"
-    sha256 cellar: :any,                 catalina:       "82981029f2e3f61ff004ee96715aeecc34073b9854f1368579dffcc0abb0c7cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd69f40c992696f6cf3887cf3e7dd71081c10abbaa557a4910f2b7521edd78ab"
+    sha256 cellar: :any,                 arm64_monterey: "f35f6be9f3e6ad82ace58f3cdd49717f6fad197f2ca783fd7367ccc47e4fd74e"
+    sha256 cellar: :any,                 arm64_big_sur:  "2f7c036d7cbd21b0f12874032d3417953fd91bbff4f59315ad8cebb3175f36ed"
+    sha256 cellar: :any,                 monterey:       "66d7d16f6adab843313f54ebde6cc18e2d97c9bc9d9a1730acfc09402dab0d5b"
+    sha256 cellar: :any,                 big_sur:        "770c78fba24df599a30105c093ec796519b2eb0acaae190eec22ed29298c0782"
+    sha256 cellar: :any,                 catalina:       "5676d01ffbc46b053f04bf74889852c16031954d75ed7da6183112a5166f18bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "283427c168ec790e3cb2bfecbcb2b1859fdd32ef0bec611d3ef3e955bfd58f0b"
   end
 
   depends_on "pkg-config" => :build
