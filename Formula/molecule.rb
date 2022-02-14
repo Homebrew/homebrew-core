@@ -250,6 +250,7 @@ class Molecule < Formula
 
   test do
     mkdir_p testpath/"tmp"
+    ENV["HOME"] = testpath
     ENV["DEFAULT_LOCAL_TMP"] = testpath/"tmp"
     # Test the Vagrant driver
     system bin/"molecule", "init", "role", "acme.foo_vagrant", "--driver-name",
