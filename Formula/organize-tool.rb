@@ -3,8 +3,8 @@ class OrganizeTool < Formula
 
   desc "File management automation tool"
   homepage "https://github.com/tfeldmann/organize"
-  url "https://files.pythonhosted.org/packages/a9/8d/438401d1b076a8d574cfc0d24cb5486bab4ba7a3a7f9d91a633847d5a4ae/organize-tool-2.1.0.tar.gz"
-  sha256 "70c9f84e651078ca076c8392c28ee30748a9ed918bbc6618f09c661a1c9f4997"
+  url "https://files.pythonhosted.org/packages/93/2a/c9463d10ace823cb26311774ba61ba31740524dce058c118746357303904/organize-tool-2.1.2.tar.gz"
+  sha256 "dd4c894d1c864b68995fbc28c136b986c0a795facfa2e89d1488dd8bac4b0457"
   license "MIT"
 
   bottle do
