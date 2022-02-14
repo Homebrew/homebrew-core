@@ -3,8 +3,9 @@ class TerraformRover < Formula
   desc "Terraform Visualizer"
   homepage "https://github.com/im2nguyen/rover"
   url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "8d880bdd2a4f0c6817c71d5da4e22c5ba5dafa2cec712101950fce530f20ea12"
+  sha256 "72b86f11f0674e88c01753e262947425e8ff4396aacfe03ddb7d3bf17b89e8dd"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9eb9869e672b22066b7c186dedb0393ba18594cf891d7ff13243613ed8958b6c"
