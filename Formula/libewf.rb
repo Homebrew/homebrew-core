@@ -17,7 +17,7 @@ class Libewf < Formula
   end
 
   head do
-    url "https://github.com/libyal/libewf.git"
+    url "https://github.com/libyal/libewf.git", branch: "main"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
