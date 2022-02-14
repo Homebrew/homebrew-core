@@ -7,12 +7,12 @@ class GitDelta < Formula
   head "https://github.com/dandavison/delta.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "38f445182717dc92fb654871935d936ee932baaa49617a3a217325a4a5a8d033"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98e71c99827e083aea7fde4edcfbe11bc9ab5b1bff8731f8726cc9ad70378c40"
-    sha256 cellar: :any_skip_relocation, monterey:       "4bd9f1eb9ddca369f2b1792c7a74ef8086fad5758d28c9fa035e7f0fdbd1c414"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2c046081a409513ccf0d871b6ca6f26be882d95b691f735da74502fa2ff6ee21"
-    sha256 cellar: :any_skip_relocation, catalina:       "0878dc6e9edfdad87d5caa270869da90766cca1ce91a4c0abbf3f12c53c24c26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e9ffeba04833087f884c88ca779f909cb42ad2b0741d504d0adff3f022db13a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a56e38b61f4f78fb03cbf03c746c1d004963ccc11bca42fdb2955b16345a3c8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "777c8de36e8bf00b6da3d483bfde2b401aa27bc4897a5cb3af3d827c9547341c"
+    sha256 cellar: :any_skip_relocation, monterey:       "f1b2d99f12331d735b1a533fe0aa577f755d281427c3f98b6a2a57935d7c63b8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "660fd74bee5c0829e6c4ab337837e49aefd6e8f2b92f03c8d11bd1636d7a284f"
+    sha256 cellar: :any_skip_relocation, catalina:       "84b6d2b089325dd6ec92c15b10e7324a004fb7b069f8a02a286da0b3220713c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c515d11fdd950edd2523ae73bec231e9bdfc68458b04f6a525687a8bff20929b"
   end
 
   depends_on "rust" => :build
