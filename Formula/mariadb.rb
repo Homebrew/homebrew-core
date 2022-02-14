@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.7/source/mariadb-10.6.7.tar.gz"
-  sha256 "75ee0f1f865a765fc461ab165419417a719e308faba784b2c97ecbe9e4b4b2c5"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.7.3/source/mariadb-10.7.3.tar.gz"
+  sha256 "da286919ffc9c913282202349709b6ba4ebcd342815e8dae0aa6b6bd8f515cd4"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
@@ -31,9 +31,11 @@ class Mariadb < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "fmt"
   depends_on "groonga"
   depends_on "openssl@1.1"
   depends_on "pcre2"
+  depends_on "zstd"
 
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
@@ -47,10 +49,13 @@ class Mariadb < Formula
 
   conflicts_with "mysql", "percona-server",
     because: "mariadb, mysql, and percona install the same binaries"
+
   conflicts_with "mytop", because: "both install `mytop` binaries"
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
 
   fails_with gcc: "5"
+
+  patch :DATA
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
@@ -65,6 +70,7 @@ class Mariadb < Formula
     rm_r "storage/mroonga/vendor/groonga"
 
     # -DINSTALL_* are relative to prefix
+    # -DWITH_LIBFMT=system can't find fmt
     args = %W[
       -DMYSQL_DATADIR=#{var}/mysql
       -DINSTALL_INCLUDEDIR=include/mysql
@@ -72,7 +78,7 @@ class Mariadb < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_SSL=yes
+      -DWITH_SSL=system
       -DWITH_UNIT_TESTS=OFF
       -DDEFAULT_CHARSET=utf8mb4
       -DDEFAULT_COLLATION=utf8mb4_general_ci
@@ -184,3 +190,30 @@ class Mariadb < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+<<<<<<< HEAD
+=======
+
+__END__
+diff --git a/client/mysql.cc b/client/mysql.cc
+index 37f506a99cd..6bfbfd87b95 100644
+--- a/client/mysql.cc
++++ b/client/mysql.cc
+@@ -2743,7 +2743,7 @@ static void initialize_readline ()
+   rl_terminal_name= getenv("TERM");
+ 
+   /* Tell the completer that we want a crack first. */
+-#if defined(USE_NEW_READLINE_INTERFACE)
++#if defined(USE_NEW_READLINE_INTERFACE) && !defined(__APPLE_CC__)
+   rl_attempted_completion_function= (rl_completion_func_t*)&new_mysql_completion;
+   rl_completion_entry_function= (rl_compentry_func_t*)&no_completion;
+ 
+@@ -2753,7 +2753,7 @@ static void initialize_readline ()
+   setlocale(LC_ALL,""); /* so as libedit use isprint */
+ #endif
+   rl_attempted_completion_function= (CPPFunction*)&new_mysql_completion;
+-  rl_completion_entry_function= &no_completion;
++  /* rl_completion_entry_function= &no_completion; */
+   rl_add_defun("magic-space", (Function*)&fake_magic_space, -1);
+ #else
+   rl_attempted_completion_function= (CPPFunction*)&new_mysql_completion;
+>>>>>>> 8f3661b2e7b (mariadb 10.7.3)
