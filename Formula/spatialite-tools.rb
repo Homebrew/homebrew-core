@@ -27,7 +27,7 @@ class SpatialiteTools < Formula
 
   def install
     # See: https://github.com/Homebrew/homebrew/issues/3328
-    ENV.append "LDFLAGS", "-liconv"
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
     # Ensure Homebrew SQLite is found before system SQLite.
     #
     # spatialite-tools picks `proj` (instead of `proj@7`) if installed
