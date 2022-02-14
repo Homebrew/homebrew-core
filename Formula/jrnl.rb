@@ -3,10 +3,9 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
-  url "https://files.pythonhosted.org/packages/82/95/0853c227abcbead539b624cd0c98f959f141e261dbe7c9be350aecdfdbfe/jrnl-2.8.3.tar.gz"
-  sha256 "089c7f2e61c31809b96efc4e3d3ae9fcc6354257e27406754f3a4a1a37029574"
+  url "https://files.pythonhosted.org/packages/11/5c/dfbccbe2d5042b89240c9e3af48aa8c79c462981330e397b656490a9b997/jrnl-2.8.4.tar.gz"
+  sha256 "3838f0b55708b9b9b2c2706fb671bd83f444d321635e3ce19cda2304992d4f60"
   license "GPL-3.0-only"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "be807b30e2379a91e3ffa21346371e56ac498ebfa1d40c1135d8d4c33f2f2ca6"
@@ -32,8 +31,8 @@ class Jrnl < Formula
   end
 
   resource "asteval" do
-    url "https://files.pythonhosted.org/packages/f0/81/c1385350267c5c02be74acba7167fd6608083324a51421c6b8a57240eb35/asteval-0.9.25.tar.gz"
-    sha256 "bea22b7d8fa16bcba95ebc72052ae5d8ca97114c9959bb47f8b8eebf30e4342f"
+    url "https://files.pythonhosted.org/packages/52/7f/f3c62addf40b81a2deb55f484fcaf8655984b595055a652f37fee9d20e2f/asteval-0.9.26.tar.gz"
+    sha256 "36125613ec21ed3e33e370ca8960a1f1e8a2324d78a8016bfa5ad76f1e16ef05"
   end
 
   resource "cffi" do
@@ -52,13 +51,13 @@ class Jrnl < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/50/05/fef7fbb7e781e0632ebba4e6e37bcc88b9615e76338850dc31435091ddc0/importlib_metadata-4.10.0.tar.gz"
-    sha256 "92a8b58ce734b2a4494878e0ecf7d79ccd7a128b5fc6014c401e0b61f006f0f6"
+    url "https://files.pythonhosted.org/packages/28/ac/befd6d793f230c17c366959f518a7fb2f38c0168b850944ec70ba0566271/importlib_metadata-4.11.0.tar.gz"
+    sha256 "9e5e553bbba1843cb4a00823014b907616be46ee503d2b9ba001d214a8da218f"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/28/46/d9b750ae5fb5b4fd77d169f16d87987db7d358a5eefc72be7967d4493d17/keyring-23.4.0.tar.gz"
-    sha256 "88f206024295e3c6fb16bb0a60fb4bb7ec1185629dc5a729f12aa7c236d01387"
+    url "https://files.pythonhosted.org/packages/22/2b/e840597838cc63f96926bd7daca67936031635cfe6c81ee12dc652bd2dce/keyring-23.5.0.tar.gz"
+    sha256 "9012508e141a80bd1c0b6778d5c610dd9f8c464d75ac6774248500503f972fb9"
   end
 
   resource "parsedatetime" do
