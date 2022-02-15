@@ -1,8 +1,8 @@
 class Dafny < Formula
   desc "Verification-aware programming language"
   homepage "https://github.com/dafny-lang/dafny/blob/master/README.md"
-  url "https://github.com/dafny-lang/dafny/archive/v3.3.0.tar.gz"
-  sha256 "0cdbffa90d2556e068cb6fb8601c9ecda649dc671734354cd6071d3b8b948b41"
+  url "https://github.com/dafny-lang/dafny/archive/v3.4.0.tar.gz"
+  sha256 "3f97cdea0cf9383e5b1fbee5fab8c5c23cda883f4d82430de67215e15ff04c3c"
   license "MIT"
 
   livecheck do
@@ -16,8 +16,6 @@ class Dafny < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "nuget" => :build
-  depends_on arch: :x86_64 # dotnet does not support ARM
   depends_on "dotnet"
   depends_on "openjdk@11"
 
