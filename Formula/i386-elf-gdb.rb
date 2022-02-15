@@ -28,14 +28,6 @@ class I386ElfGdb < Formula
   uses_from_macos "texinfo" => :build
   uses_from_macos "zlib"
 
-  # Fix for https://sourceware.org/bugzilla/show_bug.cgi?id=26949#c8
-  # Remove when upstream includes this commit
-  # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=b413232211bf
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/242630de4b54d6c57721e12ce88988a0f4e41202/gdb/gdb-10.2.patch"
-    sha256 "36652e9d97037266650a3b31f9f39539c4b376d31016fa4fc325dc0aa7930acc"
-  end
-
   def install
     target = "i386-elf"
     args = %W[
