@@ -1,8 +1,8 @@
 class Btop < Formula
   desc "Resource monitor. C++ version and continuation of bashtop and bpytop"
   homepage "https://github.com/aristocratos/btop"
-  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "9e16b76ad74086948fa3dce4899a5532095a1656e6f1deec3e807f992d22f47c"
+  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.2.3.tar.gz"
+  sha256 "8348bb37b642bf899b5ce0850d64e12cf9671c8c9624f3d21b58a015cd502107"
   license "Apache-2.0"
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
