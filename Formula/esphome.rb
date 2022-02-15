@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/5e/51/846db2bcb8c98b8b681eaf9011c4cdca2dce3abd1125c2cc0c9fcfa7667c/esphome-2022.1.3.tar.gz"
-  sha256 "be8eefcc5e8e829722cd8637fd65760aa6b60d0759262c1cc574a4388bfc3b07"
+  url "https://files.pythonhosted.org/packages/33/d5/7ad75b8197bbbedd36cab5a8df59a393f9332c08e659e8726b91c5430e95/esphome-2022.1.4.tar.gz"
+  sha256 "b74c31a375ab0e2aada4b73cdbfacced8f39c4c531a598691fe40ae42a45709f"
   license "MIT"
 
   bottle do
@@ -68,8 +68,8 @@ class Esphome < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
-    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "click" do
