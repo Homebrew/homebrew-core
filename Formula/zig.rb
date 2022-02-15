@@ -4,8 +4,8 @@ class Zig < Formula
   license "MIT"
 
   stable do
-    url "https://ziglang.org/download/0.9.0/zig-0.9.0.tar.xz"
-    sha256 "cd1be83b12f8269cc5965e59877b49fdd8fa638efb6995ac61eb4cea36a2e381"
+    url "https://ziglang.org/download/0.9.1/zig-0.9.1.tar.xz"
+    sha256 "38cf4e84481f5facc766ba72783e7462e08d6d29a5d47e3b75c8ee3142485210"
 
     depends_on "llvm"
   end
