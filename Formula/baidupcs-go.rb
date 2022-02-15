@@ -1,8 +1,8 @@
 class BaidupcsGo < Formula
   desc "Terminal utility for Baidu Network Disk"
   homepage "https://github.com/qjfoidnh/BaiduPCS-Go"
-  url "https://github.com/qjfoidnh/BaiduPCS-Go/archive/v3.8.5.tar.gz"
-  sha256 "0d1a95b6ae3e6fb330d157368337ee1c596498eb4a10c5984c3ee100e981506c"
+  url "https://github.com/qjfoidnh/BaiduPCS-Go/archive/v3.8.6.tar.gz"
+  sha256 "9e263f8ba81870536e9c7453ab06ef9524696a0ddbcf5ea3f56132cd448c7e27"
   license "Apache-2.0"
   head "https://github.com/qjfoidnh/BaiduPCS-Go.git", branch: "main"
 
