@@ -7,6 +7,15 @@ class Kyverno < Formula
   license "Apache-2.0"
   head "https://github.com/kyverno/kyverno.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbd5a15c710f28d1f481ce428cc01217fc2e92f915174eca7268f666cf4e5e66"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "90d2cc3ac15f59db62ce8d719ceadd6472e102237a87c44490f0b8f0fefac6ac"
+    sha256 cellar: :any_skip_relocation, monterey:       "da4498ec238aeadffcddd85c6526fdf946df6d16a9d3a165b9357d2b38b34beb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "58a3dcd79628e4111bd4fc88c42eccaab8dacc5fa01983de6e0957cf76add227"
+    sha256 cellar: :any_skip_relocation, catalina:       "a38eb8df5861149a89b7f400e5d226dd1d81357e497a3be7a4eabbdbfdfe6a84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b31e7cb7664d21b7d07dcfce7792b8693c9c68bfa306128a5ba312f60b58b15"
+  end
+
   depends_on "go" => :build
 
   def install
