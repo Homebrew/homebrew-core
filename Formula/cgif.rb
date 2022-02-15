@@ -6,12 +6,12 @@ class Cgif < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "179a4f69a4e8877dd17a18483e56f7ff9fa0c7999983eba4ddfcecdc5b45ded4"
-    sha256 cellar: :any,                 arm64_big_sur:  "1cca71fb27aae3e6dbb0077646c2d0baf13f892713dc99b5ead755863a826daf"
-    sha256 cellar: :any,                 monterey:       "da19f5c2ec72ded85131e8d29e7880d548246bae3e3a59c5bb0954d9eb639f98"
-    sha256 cellar: :any,                 big_sur:        "b26e87b4f8c4a82c77701c1c8c15657d5d7b0b1595f08a96241a3853a239c012"
-    sha256 cellar: :any,                 catalina:       "240e734b94eb80733203a873f937b0b395f338936924f809f4075b9ccc38f44f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0344481b59132128d60b819a4ac5b107010702b402eaa7addbd888b49f7f568a"
+    sha256 cellar: :any,                 arm64_monterey: "9c4ee721422717949a7e5d690ea8f1de6d16b1fc91e746973d96c8697f18de11"
+    sha256 cellar: :any,                 arm64_big_sur:  "e536f896892e03b989fd4329ed8f65ca56c05f468cd6a5a6cea16b23760517e6"
+    sha256 cellar: :any,                 monterey:       "d0dbe94e38c186c8d45d7d2e82e619b192df9174755a67cefde89058a78071c6"
+    sha256 cellar: :any,                 big_sur:        "2a829869d1737adaab47c6307ae64fbd852138d34bca4a2a4700c9a9a3d02484"
+    sha256 cellar: :any,                 catalina:       "e442b1f1809a98d898c1c01892159e23a59c1209e0c6f7b3209fec0cfd3c1170"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2d703babf1282f2676f82a0d773e94eccc5b63d98f8753222675732d521cb85"
   end
 
   depends_on "meson" => :build
