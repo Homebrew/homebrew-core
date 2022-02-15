@@ -9,7 +9,12 @@ class Meson < Formula
   head "https://github.com/mesonbuild/meson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4e7a608cbefd2c07d3a649adc57dee99bdbef2828a535b96088a7a1bfda5a79e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aee80bab5dfe834fb055caa14d4be68618ddb4e64c67ec72bb6f7cf9e795d770"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b9250e26f115ffb02500d43fc4bded70c856c37d088820775c25e3271a0dc13b"
+    sha256 cellar: :any_skip_relocation, monterey:       "4f620c91502427dcf6bfc3d2f14d3eb9a1ddf98cb3beb7db54c0b73f4b1eabf3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f42c1aa6764bb04616f574dd1a1c22c4105c61e7f5b109177f6e5c581f687139"
+    sha256 cellar: :any_skip_relocation, catalina:       "66e5aee5a7f15af8025db6939189450fc8a3efbdf4f6ca9b8f158bec587e497f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0dfc61a3fbfee202ac695ff0df2f045de9b6cf88423029807be4da0e772ad000"
   end
 
   depends_on "ninja"
