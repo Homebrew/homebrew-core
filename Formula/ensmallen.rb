@@ -1,8 +1,8 @@
 class Ensmallen < Formula
   desc "Flexible C++ library for efficient mathematical optimization"
   homepage "https://ensmallen.org"
-  url "https://github.com/mlpack/ensmallen/archive/2.18.1.tar.gz"
-  sha256 "573964639bb52f7a5518f41d1d4c673dc69685f5d36dad3d87deaaa5f8c23e87"
+  url "https://github.com/mlpack/ensmallen/archive/2.18.2.tar.gz"
+  sha256 "62f17232d1f8236f71de967f349ef4d7d09ffd3d80c8fb9236bbdf2b5a6ea22b"
   license "BSD-3-Clause"
   head "https://github.com/mlpack/ensmallen.git", branch: "master"
 
