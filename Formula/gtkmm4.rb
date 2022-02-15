@@ -11,12 +11,11 @@ class Gtkmm4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "8678fd72c6111120f7b5ea4bdf0a55940a34aa52aec23e724b7d0ad2719095ee"
-    sha256 cellar: :any, arm64_big_sur:  "88cc51b5d7ff82f704b0fd4a1b53d6932ee5aeb3d5319c70226080a502ad7bf9"
-    sha256 cellar: :any, monterey:       "fb4d1543767a9513992776d3bcb15d74faa121edafc16616ec166395e60fa980"
-    sha256 cellar: :any, big_sur:        "ac0d436909b6be289508ff5aac82d6ab59c36f144145b7259b77234e2b544116"
-    sha256 cellar: :any, catalina:       "6a67aa2c9ae11a5dea8c142f221a0b6fdaece0f6ceecfd9747aeda99782cea21"
-    sha256 cellar: :any, mojave:         "5f21219575cf773cb21686b592cdf8e05617567490111a7919b87dc5d165fb63"
+    sha256 cellar: :any, arm64_monterey: "545eb165acca93f629a8c81990e613a98bf5422bf13a1a375168d3e4d5edd438"
+    sha256 cellar: :any, arm64_big_sur:  "e16ecff079d681f1368580dbe0efe61655afdc18c3eca50da1349f2688ef822e"
+    sha256 cellar: :any, monterey:       "cbebe92ac8a5dd174e22ade3a4b2462572f7d86aedd9f6ed3e808743408b1c3c"
+    sha256 cellar: :any, big_sur:        "be3236c68c6ff0c3d949b6c3bccd0abc78a622e7b860d7a3e559fcaed0616880"
+    sha256 cellar: :any, catalina:       "344bd014f985af0e55bea9109ad1a43ce19c2509d2efc58a65795adb0d2eb354"
   end
 
   depends_on "meson" => :build
