@@ -20,12 +20,12 @@ class Lean < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ee80bfa3c711ce9ddb31e48ddc29316e7cc0e53d9192c443f47221760e640b2f"
-    sha256 cellar: :any,                 arm64_big_sur:  "6bae3ab4c53145f275dbf121e88f7d53db01edf3ddb8e390d1c767b8740a6a2d"
-    sha256 cellar: :any,                 monterey:       "31cb8e3eb8b12c0808b8513ec8856d2118528192fc473ba4e0dcd91fb0f9f2a8"
-    sha256 cellar: :any,                 big_sur:        "3bdd15dab0d81a28abd515bf9699db1220fa0e658af4ba6ba797c80d196eac08"
-    sha256 cellar: :any,                 catalina:       "029a3b2367fbeca9dd3baa0bd0bb88eb5cfbece6cc45e1c335255adaf33440f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8ba6db0394ecfb7f8a5821f7a2a383c1c5186a4c0811f9326af4506003db560"
+    sha256 cellar: :any,                 arm64_monterey: "be7bd6c36b83ecd997ca27cf6dcbd713bf1ae1f8700a6c6e50b9e1f8115387f9"
+    sha256 cellar: :any,                 arm64_big_sur:  "dbec39107d8914a71618b4a91f03b2be85dc6aad3a8da3e4f2dc03700153f035"
+    sha256 cellar: :any,                 monterey:       "eac0e5811abfc8c4995bacd88f2e46358579a8226e5c85a72d34d92a4338bb1d"
+    sha256 cellar: :any,                 big_sur:        "7bece78a4f567b4af5f46ec0155170fcecd31a7d3d23bef1371ed67f7316caa3"
+    sha256 cellar: :any,                 catalina:       "a732155fa6f15f98072b378aca8b20166dfb63c542ad6a47b376a677155851c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a15ec98d6deded1d613573606e34f03ebb0e7d51e4043be652f411374ae81c0c"
   end
 
   depends_on "cmake" => :build
