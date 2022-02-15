@@ -2,9 +2,9 @@ class X8664ElfGdb < Formula
   desc "GNU debugger for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
   # Please add to synced_versions_formulae.json once version synced with gdb
-  url "https://ftp.gnu.org/gnu/gdb/gdb-11.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-11.1.tar.xz"
-  sha256 "cccfcc407b20d343fb320d4a9a2110776dd3165118ffd41f4b1b162340333f94"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-11.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-11.2.tar.xz"
+  sha256 "1497c36a71881b8671a9a84a0ee40faab788ca30d7ba19d8463c3cc787152e32"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -46,8 +46,8 @@ class X8664ElfGdb < Formula
 
     mkdir "build" do
       system "../configure", *args
+      ENV.deparallelize # Error: common/version.c-stamp.tmp: No such file or directory
       system "make"
-
       system "make", "install-gdb"
     end
   end
