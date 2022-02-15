@@ -1,10 +1,9 @@
 class Libspectre < Formula
   desc "Small library for rendering Postscript documents"
   homepage "https://wiki.freedesktop.org/www/Software/libspectre/"
-  url "https://libspectre.freedesktop.org/releases/libspectre-0.2.9.tar.gz"
-  sha256 "49ae9c52b5af81b405455c19fe24089d701761da2c45d22164a99576ceedfbed"
+  url "https://libspectre.freedesktop.org/releases/libspectre-0.2.10.tar.gz"
+  sha256 "cf60b2a80f6bfc9a6b110e18f08309040ceaa755210bf94c465a969da7524d07"
   license "GPL-2.0-or-later"
-  revision 3
 
   livecheck do
     url "https://libspectre.freedesktop.org/releases/"
