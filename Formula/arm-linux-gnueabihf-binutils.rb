@@ -11,13 +11,12 @@ class ArmLinuxGnueabihfBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "ce85c9e96511b8da8c5c3f06044b496bf1fe1b267c9e4a00eaa12c0c75e2cf55"
-    sha256 arm64_big_sur:  "f090259411ea17662b23b08700cc6bb63116624932ef17388e80cb88ec431fa5"
-    sha256 monterey:       "f536d989370b32b15fb0d55026dc4f6722fd30b4e89ec918a3ae18f772a2fda9"
-    sha256 big_sur:        "6fae8a0bdc7ef15c1f6dcfac0ae2a8bd533f0e5cbbdb44e857f48c5412b90a0c"
-    sha256 catalina:       "1ab534b59889553b9880a283d78800e5a334e3b883d896879f2f2a8d0f2e9531"
-    sha256 mojave:         "3d2a120a2968b69da655591646fe673023631e237e197c00e8e6301bcc1a6dad"
-    sha256 x86_64_linux:   "8d75311051fcd313c68ff04c1bdef32d740177f259dad09dc4fdea83584e706b"
+    sha256 arm64_monterey: "729928ef4235b88356212ad30314b0a5543133b87d6a269bd16e609f853d1bc5"
+    sha256 arm64_big_sur:  "affec31d67e52ebf0356255ee7b0b898f333e6019e11cc9004878116ffa266b8"
+    sha256 monterey:       "f3d38b79845de8e16ae966af77f55ec09b137f28731c82b06af0c56bcb94525a"
+    sha256 big_sur:        "00e3c86d150d5b6f31b4ac2b62690a3df9e241a4e35d8f2a5ccbee115873829c"
+    sha256 catalina:       "e7e27fc6eaf46d76fa75111061e6e94b43cda5c3d121b4e9bb4ba946b2f1b501"
+    sha256 x86_64_linux:   "d95ef9a584dec102bc33909ff25ff80e32f6f064f2d9da4b4a85a1ba873ac190"
   end
 
   uses_from_macos "texinfo"
