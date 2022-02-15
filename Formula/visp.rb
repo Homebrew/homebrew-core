@@ -2,7 +2,7 @@ class Visp < Formula
   desc "Visual Servoing Platform library"
   homepage "https://visp.inria.fr/"
   url "https://visp-doc.inria.fr/download/releases/visp-3.5.0.tar.gz"
-  sha256 "108cf31f1206393ba456d8f7eba7a512b776699a32b4ea235f1015ce211e1cd4"
+  sha256 "494a648b2570da2a200ba326ed61a14e785eb9ee08ef12d3ad178b2f384d3d30"
   license "GPL-2.0-or-later"
 
   livecheck do
