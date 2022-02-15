@@ -1,8 +1,9 @@
 class Ejdb < Formula
   desc "Embeddable JSON Database engine C11 library"
   homepage "https://ejdb.org"
-  url "https://github.com/Softmotions/ejdb/archive/v2.62.tar.gz"
-  sha256 "8369b09483bb639c6cbc75a307a7ac5d605740c44c9281bad6df0748eaf7bbd6"
+  url "https://github.com/Softmotions/ejdb.git",
+      tag:      "v2.71",
+      revision: "392da086773d008ab5cee0efd88b04fcbc1c2647"
   license "MIT"
   head "https://github.com/Softmotions/ejdb.git", branch: "master"
 
@@ -17,9 +18,24 @@ class Ejdb < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "curl" => :build
+
+  on_linux do
+    depends_on "gcc" => [:build, :test]
+  end
+
+  fails_with :gcc do
+    version "7"
+    cause <<-EOS
+      build/src/extern_iwnet/src/iwnet.c: error: initializer element is not constant
+      Fixed in GCC 8.1, see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=69960
+    EOS
+  end
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
+      ENV.deparallelize # CMake Error: WSLAY Not Found
       system "make", "install"
     end
   end
