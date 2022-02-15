@@ -6,12 +6,12 @@ class GnuGetopt < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2cfca1954d025f4ae98d1ad3e88072d97fdb154222ca34dfbfbfd70faebc17df"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "955c4c395e0652d5b124a76c333d1eb1656d04ecc1fa1f621c00854264a5681e"
-    sha256 cellar: :any_skip_relocation, monterey:       "835d08df086515c0ed35a8017a6ff197c277bd530beb6e4d5a809ffcafb5b736"
-    sha256 cellar: :any_skip_relocation, big_sur:        "539510d4ae396e51b7da2aba0a1a4eb99422b16046383ad262e7294ae08b5b65"
-    sha256 cellar: :any_skip_relocation, catalina:       "172481cea692d4f962cb964fdf77dee1ef45a62e977392db4aaa91330364c5cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccaff552650b2faca1a8803d55e0d712392f57767b2c55707e996e5c77fbca9a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "921d27f26477fdaab5bb26e05c18e6632d6f70148fd3146b369e809315f47ee7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab03d3ec493c05c601a045e75b2630063ce6a9c0fc4d0ef08b03740461e603d3"
+    sha256 cellar: :any_skip_relocation, monterey:       "7fa16133ac2bf8620f45b731e245309d797291ba006f0c8b27b49c1057c3c59a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a9b13a5cf0ca461780e2f5a7866b00abea8884e663404489c870570451b5b248"
+    sha256 cellar: :any_skip_relocation, catalina:       "91a066c638475bde088d05d5d9d47021f8700671bc4672430dbcbffb2e508400"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae03962a4d30074e89c5b44aa4b60a44974cfb70f76e37e9677ae159931ca397"
   end
 
   keg_only :provided_by_macos
