@@ -14,10 +14,10 @@ class Threadweaver < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "68a9081693d23f4a39e22cc709d3422eac05a50adb9c95a3e3c530c06d07cb80"
-    sha256 cellar: :any, arm64_big_sur:  "685d570a49809a4436b5f16cee6f23f72cadf847ed1b403c49d9603e8d826ea8"
-    sha256 cellar: :any, big_sur:        "37a596b4ffeec3b957521d6eb4e5d57f60e930871739b7fa5e36438f82e9d0fb"
-    sha256 cellar: :any, catalina:       "4e4e4da2a10f15ea27dbd31a7cdbadeb372fd97926b63b1e4271cd834de088c7"
+    sha256 cellar: :any, arm64_monterey: "a5158cf0b870ba951db1f3f2b50f35d41d925173f1d41b7c1dd073de39e3adc4"
+    sha256 cellar: :any, arm64_big_sur:  "700982fb92f7a0c85ab1048a79250b0e4ddf395a83c685e6c1867d7bbab7c5c0"
+    sha256 cellar: :any, big_sur:        "b31e8ec013eba219feb3dcc559f0436473192af61650988720e61d02e113b7dc"
+    sha256 cellar: :any, catalina:       "778808ce5c3ad1f3c8c834e37c4bd0d562b404bb37bcec3e736a8107add3701d"
   end
 
   depends_on "cmake" => [:build, :test]
