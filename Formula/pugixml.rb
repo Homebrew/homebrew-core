@@ -11,12 +11,12 @@ class Pugixml < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1058e0344bc06b6f527be38a98df08f6324faefd0c0460e37178a8b352e75b20"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "00eb54391dc64a7acd061b4dc579df1b8705acf44e764c1068c2ce64499c6f3b"
-    sha256 cellar: :any_skip_relocation, monterey:       "71c19cd9aa12465109f6554caab1029f313c875fd4e289fc58711f18a0507b2c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5f031dc613170692049dcb683b8d264c2d9570b6ae064c3171e7ad773a10fecb"
-    sha256 cellar: :any_skip_relocation, catalina:       "f3c1292023222567b181efc6786f534a8ba93e848217df3ce6149ef465ab8919"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "508376120cbb612d741b666fbf96ac99cdc99d7dcea20120ac01f0085acf14ec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7413361442c9abad17da7d95698553b64f32218d45bfbfb25c0eccbadc64b3d2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a8bcaab7ffa6bc363b3ee06bc27d93512d86fb3b805fd52b15f2cf22850d4c0"
+    sha256 cellar: :any_skip_relocation, monterey:       "9a053f8669cb6a274c35bbd2c3c070a8d42d68e7f25f870cc49344b15cc1f06f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ea310c8f98a257ef09cd30c6dcd7e811b198b8612e277151a312d9b8c3554842"
+    sha256 cellar: :any_skip_relocation, catalina:       "7a047ad63c666fabf1c3a65b7e3d9d6f5156dba4e663f0fa37c13e6ba3fb4517"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad31c8f9950b70f43cc6f28ebaae6c9ce755a5c65c2fd1aab52707a8329bca1a"
   end
 
   depends_on "cmake" => :build
