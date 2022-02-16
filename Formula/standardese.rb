@@ -6,7 +6,7 @@ class Standardese < Formula
       tag:      "0.5.2",
       revision: "0b23537e235690e01ba7f8362a22d45125e7b675"
   license "MIT"
-  revision 3
+  revision 2
   head "https://github.com/standardese/standardese.git", branch: "master"
 
   bottle do
@@ -24,31 +24,19 @@ class Standardese < Formula
   depends_on "llvm" # must be Homebrew LLVM, not system, because of `llvm-config`
 
   def install
+    # Don't build shared libraries to avoid having to manually install and relocate
+    # libstandardese, libtiny-process-library, and libcppast. These libraries belong
+    # to no install targets and are not used elsewhere.
     system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DBUILD_SHARED_LIBS=OFF",
                     "-DCMARK_LIBRARY=#{Formula["cmark-gfm"].opt_lib/shared_library("libcmark-gfm")}",
                     "-DCMARK_INCLUDE_DIR=#{Formula["cmark-gfm"].opt_include}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    lib.install "build/src/#{shared_library("libstandardese")}"
-    lib.install "build/external/cppast/external/tpl/#{shared_library("libtiny-process-library")}"
-    lib.install "build/external/cppast/src/#{shared_library("libcppast")}"
-
     include.install "include/standardese"
     (lib/"cmake/standardese").install "standardese-config.cmake"
-
-    if OS.mac?
-      [bin/"standardese", *lib.children].each do |macho|
-        macho.dynamically_linked_libraries.each do |dll|
-          next unless dll.start_with? "@rpath"
-
-          libname = dll.delete_prefix("@rpath/")
-          MachO::Tools.change_install_name("#{bin}/standardese", dll, (lib/libname).to_s)
-        end
-      end
-    end
   end
 
   test do
