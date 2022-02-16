@@ -7,12 +7,12 @@ class Fn < Formula
   head "https://github.com/fnproject/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "66f0ee5a858fd45315cee2f349801053f815308d09e43d3810f318f9aaec9988"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eff4e23a9c6c8c3ada8492430cb3c509a843ee5defdb7cfd26f95ff065d64f9b"
-    sha256 cellar: :any_skip_relocation, monterey:       "5f48e64d4cd7e3e7151267254de4f8a31fedab3e537916f18b5e1ac0e332e393"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a70f793707845cdb9b89a68cb0c6ddcfe7cb4fc5a8201cf2a9a8481e824942c1"
-    sha256 cellar: :any_skip_relocation, catalina:       "64548a23e8d0c393fb3259d5b20b5d965ed558a600b2fa124b5b911ea47d1236"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75747402ee1afd4881479b96866606cc1e7915bd8f8196c6687a281eb99f32ad"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "73d9e99f87010815ed799a710d09a54f5a0fb1b11e84562f177587fbd130c4c9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1f00fe0ff17acb527f37fefb172f367ef9fc5d0e264af5690be90ee8ce17cc2"
+    sha256 cellar: :any_skip_relocation, monterey:       "db18d20e3040c0bbf0e23fcb85a19f2bc5eab53357c9dea17737bd640b769da6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7263f6be5883a0b5bfc7ec52768d6bfaf1d39f99f14a9dd765c608e558242eb2"
+    sha256 cellar: :any_skip_relocation, catalina:       "ad053ab4be537fd7f650e87ddd399594297615d2e3e7b1b4360394358b7f72d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cca720737fdc492d6a91033b78dded9de7562a4a6b32e63d9b49ae40dfcf25d7"
   end
 
   depends_on "go" => :build
