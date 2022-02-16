@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/9b/85/2e92a7e58d2b867a236934e31564327255bc668767e579d9076db37d3080/checkov-2.0.840.tar.gz"
-  sha256 "30b9843a9fe2bd9dbd676023af043b339f471ee33f37ea4a3c00e9f14cf111f1"
+  url "https://files.pythonhosted.org/packages/47/e0/dfb42ca920d8d9cbb0480c2a595a3308d4285f4e38f40fdf00d925d6cee3/checkov-2.0.855.tar.gz"
+  sha256 "20bfbc3829a7b4eb594c8e8420684dd4fd8a2412957c9f18c762f56b1d0238db"
   license "Apache-2.0"
 
   bottle do
@@ -237,8 +237,8 @@ class Checkov < Formula
   end
 
   resource "packageurl-python" do
-    url "https://files.pythonhosted.org/packages/60/fd/09f5df3935db11417aee20b179908c21b383dc73e57cc0438c955b61121f/packageurl-python-0.9.8.1.tar.gz"
-    sha256 "675e0ec8058fa0837a0405047178bdea6a7d0b46966983fa79e1c0a1afab1c9e"
+    url "https://files.pythonhosted.org/packages/6e/ee/8d89d660da6e44d77f547de9949b380dc93b08b758ee361bc237bcc8b179/packageurl-python-0.9.9.tar.gz"
+    sha256 "872a0434b9a448b3fa97571711f69dd2a3fb72345ad66c90b17d827afea82f09"
   end
 
   resource "packaging" do
