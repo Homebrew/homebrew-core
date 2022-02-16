@@ -7,8 +7,8 @@ class LinuxHeadersAT516 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :linux
   depends_on "rsync" => :build
+  depends_on :linux
 
   def install
     system "make", "headers_install", "INSTALL_HDR_PATH=#{prefix}"
