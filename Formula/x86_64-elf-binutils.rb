@@ -11,12 +11,12 @@ class X8664ElfBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "e2b52bc2a30d1f122cd507e6871b78f11184bdd3901bd2a63542b89cb7f92dd4"
-    sha256 arm64_big_sur:  "2fcc7c012e83de82cfdcf2ec7e85422cebb1729a49e5cb0aeec067b9f0f9f204"
-    sha256 monterey:       "565f5c0a2f5bdc98f05de4a67d0ea00d001d1d1eb2558dc42b61a0d434476c1e"
-    sha256 big_sur:        "b4f920096a5671531df12d37641b6d1080a0fdcb670075a8a574fdfc16024e95"
-    sha256 catalina:       "8ad3dc59de911df54f04db679b11e4fabc905dc4da3d01fb2a20ffa8532fdc34"
-    sha256 x86_64_linux:   "b205d585e76879c684ab13f623d2c5d43f2f99e8383738d1d107f00227327e41"
+    sha256 arm64_monterey: "864342c720566a79bd30617e74365c206ebcc9ff1b20c2582ad647711a066b2d"
+    sha256 arm64_big_sur:  "830cd093f6b42aca05346d933bcbb64a93a9eead2a5ec13920f6d313516ef730"
+    sha256 monterey:       "42afd81a158f1fe611fb8ffb8e91b3436d706ff4ad78752a6b4b16d4a69c0cd5"
+    sha256 big_sur:        "a43738a9cb6aca9e002aa843c0eef8f28c1e1ece2221d0009a4611b536676ab1"
+    sha256 catalina:       "aa3cb73baeda44aae190cd7b8c3160dbabd42164aaf852f49fa65a7641b647ef"
+    sha256 x86_64_linux:   "598e0d52a3eb37d1284e4f7ace39e6cdbb6d620db54252e25e895cbd230a3ec9"
   end
 
   uses_from_macos "texinfo"
