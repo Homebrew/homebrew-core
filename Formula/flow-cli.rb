@@ -12,12 +12,12 @@ class FlowCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a9b7811a4e6d01a0562cc22bd22af7a5f94b428de4528a218c2ca60afffdb44"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9879a501bdf49de308c1a68a55655326c55313cb354d85c28192cebf93346212"
-    sha256 cellar: :any_skip_relocation, monterey:       "65317541f65d8a950442814773f2bf2743a2141b66460cf0a456a7273d914a8a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e235afc63fb5999f600c20d729d9a6ec0914b4d6e22752b3bbaafa24529c0173"
-    sha256 cellar: :any_skip_relocation, catalina:       "cb7d72d4529f8d4dbf085d111d2ca3102d39c43af24a4af10876c76fd4b8323c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "623d0ae62cb14c73e639b3a9d4c121b5155e040ddc82ebe5e9508db06a80ae7c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0220bc576246aab72aeff01748f9d4b93c8f33ec1e3b9a6e45f947c12e7b3f10"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dcb375292e54ea267e39e8f6f83ef60e5c8a9d11848ab1c11a86c1d120e34d7c"
+    sha256 cellar: :any_skip_relocation, monterey:       "2a65e2ba49de887cc6a055fc2553e9e99bbbb51da2af13fbe32e1de818d04efd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dbdf13e142f34209597807b82169322e1edcbff8a6c15899d9a7b0989139b2ea"
+    sha256 cellar: :any_skip_relocation, catalina:       "7aea679d76317d1757a8804210070028d8110e9657cbeff59c9f81c4a3c27355"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60cc1916b614d53e2eef2ac4eba18aca353bdbe485e02182c1d5719513176693"
   end
 
   depends_on "go" => :build
