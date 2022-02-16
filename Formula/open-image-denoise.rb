@@ -6,11 +6,11 @@ class OpenImageDenoise < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "7ccb9cbf6c69638ff0190c2eef9946a3f0fe1ec3d404a543fd8dabfdaad199f9"
-    sha256 cellar: :any, arm64_big_sur:  "57d90b61463c7e359dfc75b7cdba573b20f46400948b6bf4e4d7a4a267049630"
-    sha256 cellar: :any, monterey:       "cdaa29005cfe96944c8cf39f2a9de9604d8c82eb563c27cae06b83b20c9e8132"
-    sha256 cellar: :any, big_sur:        "5b27bf1bfd0a38fc2c0c93a9803a0566602e0bc9ee62d2123c6c44d2982fb942"
-    sha256 cellar: :any, catalina:       "a9eeddeaa15621dc64daf7db3978a4f6d0ce0ce4281c1fe71866127b9a2db558"
+    sha256 cellar: :any, arm64_monterey: "abcfb384ec75c0be7933f21fb5b20a5f82cd5d8f45b5f64754c5b46071d71a56"
+    sha256 cellar: :any, arm64_big_sur:  "763b04f83cdb7ebcc7cf21c57f52b67bd5e231cd33a6d7388647bd33df1c691f"
+    sha256 cellar: :any, monterey:       "c19c4706250613ffb8832e3256f238c2c1745136bd629b13fc69052f3235783b"
+    sha256 cellar: :any, big_sur:        "ef4e28b6d261098552eb6b295e4d1cd9a7ea55536fca0aa6d80a67ac7d3adc1b"
+    sha256 cellar: :any, catalina:       "1fb2669f02c65527f8be5e6ce33dea156e13a2bd4127286e818da13de9708b6a"
   end
 
   depends_on "cmake" => :build
