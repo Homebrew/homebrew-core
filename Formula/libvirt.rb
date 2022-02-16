@@ -45,6 +45,7 @@ class Libvirt < Formula
 
   on_linux do
     depends_on "libtirpc"
+    depends_on "linux-headers@5.16"
   end
 
   # Don't generate accelerator command line on macOS
