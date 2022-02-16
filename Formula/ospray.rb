@@ -1,8 +1,8 @@
 class Ospray < Formula
   desc "Ray-tracing-based rendering engine for high-fidelity visualization"
   homepage "https://www.ospray.org/"
-  url "https://github.com/ospray/ospray/archive/v2.8.0.tar.gz"
-  sha256 "2dabc75446a0e2e970952d325f930853a51a9b4d1868c8135f05552a4ae04d39"
+  url "https://github.com/ospray/ospray/archive/v2.9.0.tar.gz"
+  sha256 "0145e09c3618fb8152a32d5f5cff819eb065d90975ee4e35400d2db9eb9f6398"
   license "Apache-2.0"
   head "https://github.com/ospray/ospray.git", branch: "master"
 
