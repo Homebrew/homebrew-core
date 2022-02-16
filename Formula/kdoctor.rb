@@ -6,13 +6,13 @@ class Kdoctor < Formula
   license "Apache-2.0"
   head "https://github.com/Kotlin/kdoctor.git", branch: "master"
 
-  depends_on "openjdk@11"
+  depends_on "gradle"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
-    mac_suffix = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    mac_suffix = Hardware::CPU.intel? ? "X64" : Hardware::CPU.arch.to_s.capitalize
     build_task = "linkReleaseExecutableMacos#{mac_suffix}"
-    system "./gradlew", "clean", build_task
+    system "gradle", "clean", build_task
     binary = "kdoctor/build/bin/macos#{mac_suffix}/releaseExecutable/kdoctor.kexe"
     bin.install binary => "kdoctor"
   end
