@@ -39,7 +39,7 @@ class GitAnnex < Formula
 
       ENV["LLC"] = (llvm.opt_bin/"llc").to_s
       ENV["OPT"] = (llvm.opt_bin/"opt").to_s
-      ENV.append "PATH", llvm.opt_bin.to_s
+      ENV.append_path "PATH", llvm.opt_bin.to_s
     end
 
     system "cabal", "v2-install", *std_cabal_v2_args, *args
