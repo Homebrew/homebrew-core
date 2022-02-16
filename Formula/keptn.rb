@@ -11,12 +11,12 @@ class Keptn < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ed3b6528c9d6f76fcc8c4843625959a095b7e2b411a9571ce9b9d96d87ac01c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e34065881e2f8228aa9557b0430f3ba721c93eafd182bc61fde689a775ab9856"
-    sha256 cellar: :any_skip_relocation, monterey:       "edecc06ebb5fab67162574047db75f0b3bc8e99053bfe6be1f2c2b0ece7d40c9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4ba5892f0e2da03b4b1564e06b289bc4a26a46a5f3e09cf2091560f5fd3b1e24"
-    sha256 cellar: :any_skip_relocation, catalina:       "254f8535f57b629d5c06c33d62f63b5ed76ec8c9e4b2ac6268d11c882f129608"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26f430ef37612b22e28be1b31605e72072724c41cbcb5af839b1a8d78e7afee9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e52ec0e56e5c4cc870833754673cfed25112713a6a15ad3ad94e2fffeac6c02"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1bf985a483f191d8b882523c1ef89a6e597da25ecc59036299f26d0609d7780d"
+    sha256 cellar: :any_skip_relocation, monterey:       "8139b66733d51310f95071dea2e89c969f4026490c3f7c649c378caa77431197"
+    sha256 cellar: :any_skip_relocation, big_sur:        "82c51024ba5b2f2e6736574e67098f588dd21c862bd2d3578ed8b5858748d7e1"
+    sha256 cellar: :any_skip_relocation, catalina:       "c9bfedf826a6ed47ec76533045dfda17e110235864334fe5ee01d8ed7ba6c68b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d8635ba855ac43b730201726ba8c58b256dd91b12a67baf6f73afa1e67e42c8"
   end
 
   depends_on "go" => :build
