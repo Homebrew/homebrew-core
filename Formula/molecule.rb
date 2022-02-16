@@ -249,9 +249,7 @@ class Molecule < Formula
   end
 
   test do
-    mkdir_p testpath/"tmp"
-    ENV["HOME"] = testpath
-    ENV["DEFAULT_LOCAL_TMP"] = testpath/"tmp"
+    ENV["ANSIBLE_REMOTE_TMP"] = testpath/"tmp"
     # Test the Vagrant driver
     system bin/"molecule", "init", "role", "acme.foo_vagrant", "--driver-name",
                            "vagrant", "--verifier-name", "testinfra"
@@ -259,7 +257,7 @@ class Molecule < Formula
                      "Failed to create 'foo_vagrant/molecule/default/molecule.yml' file!"
     assert_predicate testpath/"foo_vagrant/molecule/default/tests/test_default.py", :exist?,
                      "Failed to create 'foo_vagrant/molecule/default/tests/test_default.py' file!"
-    cd "foo-vagrant" do
+    cd "foo_vagrant" do
       system bin/"molecule", "list"
     end
   end
