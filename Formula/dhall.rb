@@ -23,6 +23,7 @@ class Dhall < Formula
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
+    man1.install "man/dhall.1"
   end
 
   test do
