@@ -22,10 +22,11 @@ class Msmtp < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
+  depends_on "gsasl"
   depends_on "libidn2"
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules", "--with-macosx-keyring"
+    system "./configure", *std_configure_args, "--disable-silent-rules", "--with-libgsasl", "--with-macosx-keyring"
     system "make", "install"
     (pkgshare/"scripts").install "scripts/msmtpq"
   end
