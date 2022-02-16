@@ -27,6 +27,7 @@ class Rdkit < Formula
   depends_on "swig" => :build
   depends_on "boost"
   depends_on "boost-python3"
+  depends_on "catch2"
   depends_on "eigen"
   depends_on "freetype"
   depends_on "numpy"
