@@ -6,7 +6,7 @@ class Standardese < Formula
       tag:      "0.5.2",
       revision: "0b23537e235690e01ba7f8362a22d45125e7b675"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/standardese/standardese.git", branch: "master"
 
   bottle do
@@ -38,6 +38,17 @@ class Standardese < Formula
 
     include.install "include/standardese"
     (lib/"cmake/standardese").install "standardese-config.cmake"
+
+    if OS.mac?
+      [bin/"standardese", *lib.children].each do |macho|
+        macho.dynamically_linked_libraries.each do |dll|
+          next unless dll.start_with? "@rpath"
+
+          libname = dll.delete_prefix("@rpath/")
+          MachO::Tools.change_install_name("#{bin}/standardese", dll, (lib/libname).to_s)
+        end
+      end
+    end
   end
 
   test do
