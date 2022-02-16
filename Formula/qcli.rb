@@ -1,10 +1,9 @@
 class Qcli < Formula
   desc "Report audiovisual metrics via libavfilter"
   homepage "https://bavc.org/preserve-media/preservation-tools"
-  url "https://github.com/bavc/qctools/archive/v1.2.tar.gz"
-  sha256 "d648a5fb6076c6367e4eac320018ccbd1eddcb2160ce175b361b46fcf0d4a710"
+  url "https://github.com/bavc/qctools/archive/v1.2.1.tar.gz"
+  sha256 "17cdc326819d3b332574968ee99714ac982c3a8e19a9c80bcbd3dc6dcb4db2b1"
   license "GPL-3.0-or-later"
-  revision 5
   head "https://github.com/bavc/qctools.git", branch: "master"
 
   bottle do
@@ -39,7 +38,7 @@ class Qcli < Formula
   test do
     # Create an example mp4 file
     mp4out = testpath/"video.mp4"
-    system "ffmpeg", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
+    system "#{Formula["ffmpeg@4"].bin}/ffmpeg", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
     # Create a qcli report from the mp4
     qcliout = testpath/"video.mp4.qctools.xml.gz"
     system bin/"qcli", "-i", mp4out, "-o", qcliout
