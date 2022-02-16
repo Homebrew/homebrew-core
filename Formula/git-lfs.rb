@@ -6,12 +6,12 @@ class GitLfs < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "003941719623f2b66e8304a33c822f5f641ef7d60ae0a0e73908a0fe94cd4033"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c446f108807f122d8fc2bda50db508b0d6cd30fbac838907c1e93a1841e64911"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf18fec26566a927a07e6296c5ba017c45ba06c1ccd42c8a3f3081335040ddd4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c8badc22ff338d2b9586044ee0758981fca60b960da1c511ea3e0fc9f79a3856"
-    sha256 cellar: :any_skip_relocation, catalina:       "c1685e20dda8b14c40037e57642591fef5ce2b450c2e4d7cc44509b5d134bb13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91ec5f2f61ef6a819347d93c46048987d5bb285d040352bff475fb698e6876af"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7147e21ff6c086bc90ece19b9dad1add6a91267e9233eff034308e4ffd3c9f34"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3aaa1c15a3cf3c518303b7b87e56236c277b6c41d7b8d2bbcfd0d65c6eaa6cbb"
+    sha256 cellar: :any_skip_relocation, monterey:       "4c44391922fbb7eb87d99789ae441633593576b624da68b83ac72f0bafd88c00"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b5e2d3fbf079c66e4efffd9934454fb16c64cddd60f63cd545886c94e4cd2961"
+    sha256 cellar: :any_skip_relocation, catalina:       "8685ece5029a27fcd843cf215f6582ddf4daaf2d7d318ea3cbc441777f8b34cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2f9ebbce14aa9cd511a7379928bd00b5ebf99d8fdd370e080dcc0c6a67fd696"
   end
 
   depends_on "go" => :build
