@@ -7,12 +7,12 @@ class Ncnn < Formula
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "bea2ae4a528d0d80cca1bc5d76fcc49eee89d8622983adbaede73b8cabbc2a32"
-    sha256 cellar: :any,                 arm64_big_sur:  "3b2ace104fee555142786d022be8ff9b882bdca6e3dc088e82064a8ac78043ea"
-    sha256 cellar: :any,                 monterey:       "511d520641156e822ee7818cf8809301beab07f9b7ea4e8487a30c52240d0b46"
-    sha256 cellar: :any,                 big_sur:        "d54512b5c612a7f576b9dfe4fc51e43705e85e089be61460dc9aeddcf3b954b0"
-    sha256 cellar: :any,                 catalina:       "88940c4005ebb130e305cd647c50b999094734c1e3146665ce0c0d5c17c01078"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd806e5fdc52d219fffe865b240b7ad31f872e31d72da707f5381614fdf4d981"
+    sha256 cellar: :any,                 arm64_monterey: "3d1c2c65ad69481855c8f0e0bc8d29416da865a318303b5810d68b8fd28f99b2"
+    sha256 cellar: :any,                 arm64_big_sur:  "0599f69f9e46b10b02d5743e755b2fa04fb678f042bfef28c8d44d6dbd7c011f"
+    sha256 cellar: :any,                 monterey:       "33af0b2928a648abf4e52dbc0591c5e59538bb4776c6eb4bffa62a03e201cc99"
+    sha256 cellar: :any,                 big_sur:        "cfd081a9f12444dda227887013fe8dc4cb5305f82c188a765f15f6c91933a2e5"
+    sha256 cellar: :any,                 catalina:       "68443a0cc213d62524bba7c854c319e753062fa5939eace87685d2d390b00c62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "958ef420a03d104ee9cd5d7d04c8e54f9e1cc17a6db830b8d02c75473a392b14"
   end
 
   depends_on "cmake" => :build
