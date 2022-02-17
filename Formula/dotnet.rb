@@ -7,10 +7,12 @@ class Dotnet < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "dd058f1a46a84ee8cfbdf5450a5248ca1b5af91ae018efd5f96b0b760a4cc84f"
-    sha256 cellar: :any,                 catalina:     "a9c2b8e900351d1cb074100a60de404f033436032c1116c6094351446253e777"
-    sha256 cellar: :any,                 mojave:       "b7a7a743c0b409569cc5f139ada574e0b32f331b2950252a5afb2809123514d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dd46b0305e565a6a6da6768a2d8d15a4e080cae9b9f29c4e9595067ed068d8c9"
+    sha256 cellar: :any,                 arm64_monterey: "5da394797cc4591cab024e9e0fe2f3fba24ec4905fecd4fbddefcc0050469d70"
+    sha256 cellar: :any,                 arm64_big_sur:  "ca1798917487fd700ca0058e3a311b4dee678e8207ae36505697c05f96723a57"
+    sha256 cellar: :any,                 monterey:       "fde61d787ee05b2796ecf63f25d04d5a5567b9a24759ef5b17d345a7ad5bb09e"
+    sha256 cellar: :any,                 big_sur:        "da8e83fc8191baeebef6875ff70894ffc7366244f373a1255968fc6b6a268e5f"
+    sha256 cellar: :any,                 catalina:       "5dae07f638d20f0e53149c83dd440d67b278d2c31fd7d55e313b4105870f4ad8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cabfbed0228d338416f7057fd7123986b0c483ab86e8280e160ff81510eef6c1"
   end
 
   depends_on "cmake" => :build
