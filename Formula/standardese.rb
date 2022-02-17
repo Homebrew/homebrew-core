@@ -24,17 +24,16 @@ class Standardese < Formula
   depends_on "llvm" # must be Homebrew LLVM, not system, because of `llvm-config`
 
   def install
+    # Don't build shared libraries to avoid having to manually install and relocate
+    # libstandardese, libtiny-process-library, and libcppast. These libraries belong
+    # to no install targets and are not used elsewhere.
     system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DBUILD_SHARED_LIBS=OFF",
                     "-DCMARK_LIBRARY=#{Formula["cmark-gfm"].opt_lib/shared_library("libcmark-gfm")}",
                     "-DCMARK_INCLUDE_DIR=#{Formula["cmark-gfm"].opt_include}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    lib.install "build/src/#{shared_library("libstandardese")}"
-    lib.install "build/external/cppast/external/tpl/#{shared_library("libtiny-process-library")}"
-    lib.install "build/external/cppast/src/#{shared_library("libcppast")}"
 
     include.install "include/standardese"
     (lib/"cmake/standardese").install "standardese-config.cmake"
