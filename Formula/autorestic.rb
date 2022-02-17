@@ -2,7 +2,7 @@ class Autorestic < Formula
   desc "High level CLI utility for restic"
   homepage "https://autorestic.vercel.app/"
   url "https://github.com/cupcakearmy/autorestic/archive/v1.5.5.tar.gz"
-  sha256 "4ee28913c32342ea6056b5f31f0bfe0bdb847788c3c4fc203975e378f08663f8"
+  sha256 "6088973a2803799d314e308b736e1612afaedafffc76cf07d89bcacc7128d8da"
   license "Apache-2.0"
   head "https://github.com/cupcakearmy/autorestic.git", branch: "master"
 
