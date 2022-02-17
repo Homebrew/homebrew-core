@@ -6,10 +6,10 @@ class Gitversion < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "da4483fe73a5085dd3a54034bdac7a17e12710c18ca53e90fe1386a188cb6946"
-    sha256 cellar: :any,                 catalina:     "106a5e3b8ac1e69809bbd4e86733bcab971f2f35fed40a2a7197f9b57d28a039"
-    sha256 cellar: :any,                 mojave:       "b5d5943589f696a3bbcdb61d0827374cd45e5903203a3e574f40bf2c19c16da1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "029c5c10ede90c0f116a12fe47af0d2e9b0da43542b70117c5eae946756f24df"
+    sha256 cellar: :any,                 monterey:     "dda1da1aeeaa5636493bc80a17263e5a8816a476b33661c7326422d27e69beb1"
+    sha256 cellar: :any,                 big_sur:      "5162d8ade4eecc0e4d35f4907a28942b0a2bcfbbcc73e65f500cb17fd49cebcf"
+    sha256 cellar: :any,                 catalina:     "0b00bd24212432502ddb04b1a04f98c6ee055056744cb20a253ee6b349aae894"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7b803214f62636fcd0fe455f5f6c0587124679e377b53486763d9322c7948b80"
   end
 
   depends_on "dotnet"
