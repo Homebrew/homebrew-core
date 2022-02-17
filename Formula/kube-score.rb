@@ -2,18 +2,18 @@ class KubeScore < Formula
   desc "Kubernetes object analysis recommendations for improved reliability and security"
   homepage "https://kube-score.com"
   url "https://github.com/zegl/kube-score.git",
-      tag:      "v1.13.0",
-      revision: "d1ad91defc1a5814f7c7395ed64cd7039d259158"
+      tag:      "v1.14.0",
+      revision: "3d6392471f65c47a1c617d78d9f84a53457c5f5d"
   license "MIT"
   head "https://github.com/zegl/kube-score.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "166de56ea1b76d175c6234d6f9644c654cce58ad61767b0edf449afb6bd0aa2c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14ae4f4fe357a21a85db5693502581f559e71eceb03fa8a2f3e8e383da76cb2d"
-    sha256 cellar: :any_skip_relocation, monterey:       "ea6f7ba1498dad2dc4d95628fae213dd46b7d19c7d66dc358f4a794a10ed14b9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "76eb89b240b58af512d99eb134d9c796cb4131c0384b5efee098408a67902e40"
-    sha256 cellar: :any_skip_relocation, catalina:       "98043d871527b391420ca2b538361062decb69a22866c18f3acb5ddbdda37be4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e86bd5092c9c88399cf9a297c6f3cc7f7519cd3c6446daa72e1cc400a2790c6e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "28d65ca4f637272e9c26f9488c34f06ae1f97f09207899f6afe38cb0db4eaf91"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9263d0aeab0f5ee03f541dd149669a3d227e92305735c37f89322d8ccfbcbd82"
+    sha256 cellar: :any_skip_relocation, monterey:       "db28c4baa1d32c6688288f002c735c64f39433a6ab010d5c05ec3036b919417f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9a2c2f4a974e02af3a7bbbf2ec80931860d8581f3fe2c74ea79b9706664785fe"
+    sha256 cellar: :any_skip_relocation, catalina:       "051dd60d5d5e40cdf7cf9a1d26e3ea8d735bff0faa1a300dd373e92c73a26494"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd66fefdb488875005d4f2e998084569e534b60e0ceba45add602bf5f6d897d9"
   end
 
   depends_on "go" => :build
