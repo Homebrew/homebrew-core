@@ -22,4 +22,9 @@ class Kryptor < Formula
     env = { DOTNET_ROOT: "${DOTNET_ROOT:-#{Formula["dotnet"].opt_libexec}}" }
     (bin/"kryptor").write_env_script libexec/"kryptor", env
   end
+
+  test do
+    pipe_output("#{bin}/kryptor -e -p:'Jet-Visa-Famine-Antivirus' test")
+    assert_equal "test", shell_output("#{bin}/kryptor -d -p:'Jet-Visa-Famine-Antivirus' test.kryptor")
+  end
 end
