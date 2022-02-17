@@ -11,8 +11,9 @@ class Dafny < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "10862f4e7daaf0dd2a310686384984301f43ceeecfdad21398ab984c4c3cd485"
-    sha256 cellar: :any_skip_relocation, catalina: "2a46518f73e9ae9a7d1b6457d65176dfdeedbf1d5b2395a914badc73c35a964b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cafe436fc36a25d764dbd6df575e439946b0f053cb345dfadd24f985f267a249"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a3d5478bedb09f2fd726b742f22487a4c871b4332b605a5e01798c5c09cc4c67"
+    sha256 cellar: :any_skip_relocation, catalina:      "b0fa4440abcd948f144364214b46696ef42588ae7b660c94504d42959fa53f77"
   end
 
   depends_on "gradle" => :build
