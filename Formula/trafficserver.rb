@@ -18,7 +18,12 @@ class Trafficserver < Formula
   end
 
   bottle do
-    sha256 catalina: "c28ab8ba05de3d98d81bcdbfa89c771d458a3326023909a76d2893a6fd20e89c"
+    sha256 arm64_monterey: "4efb76b02a88e4375b837459a630089881ea48a17c63d2b2f28419ef78797190"
+    sha256 arm64_big_sur:  "c6872bc513326e322fa8d048ea3e29a44d98762e4dce7d84ef5591fbbba549aa"
+    sha256 monterey:       "79bf087797667d9ab36566368523b05163fe9dbf3c83de2237e9da2918a26c4d"
+    sha256 big_sur:        "59ae7264246bf3d6eb1051b782afefc0e901d5cec4c2d9953dfb587e4918dc1a"
+    sha256 catalina:       "d972e0d8de12c3afb02c1fecd9dba47aaa57c0798206e1478dd21df7abf67f29"
+    sha256 x86_64_linux:   "db111c976bb89b349fdbbe0c87d2f5bbacf972535eed9935a274637be477fcc0"
   end
 
   head do
