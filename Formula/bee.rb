@@ -6,7 +6,7 @@ class Bee < Formula
   license "MPL-1.1"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dafd1f5d70b1d88ef5cd43f2a53e2aab92eedbe9d4ed069d3e7573cfc8d903a0"
+    sha256 cellar: :any_skip_relocation, all: "754a11010f3da239d8282a4e79fac79e10eba3d15df8c0f5839ccdd3d23ad962"
   end
 
   depends_on "openjdk@8"
