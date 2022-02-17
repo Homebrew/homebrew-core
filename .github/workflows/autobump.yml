@@ -359,6 +359,8 @@ env:
     influxdb-cli
     influxdb@1
     inlets
+    inso
+    insomnia
     ioctl
     ipinfo-cli
     ipmiutil
