@@ -9,12 +9,12 @@ class ApacheArrow < Formula
   head "https://github.com/apache/arrow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ba1490c4a660fc6ff334d70a1b0207a4b032c8e9536000b824b7353da9e0a36d"
-    sha256 cellar: :any,                 arm64_big_sur:  "7c98dab853fe7ede5fe5087697b9231e1091c8fe0cc648f551c377fdfbfc5548"
-    sha256 cellar: :any,                 monterey:       "e257bbca8a539ff1a4bc00fafa0227596492b2628d02bb5ffd4a0f7547a8493e"
-    sha256 cellar: :any,                 big_sur:        "03ed274142b7958352cfe63a92259de5a9d84da150e75771ec73219043dcb8be"
-    sha256 cellar: :any,                 catalina:       "59287cf462b9fd0267696b57c20f4659ec5170d654ff92278a56a52a6911aa45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1ce769eb52390cd9a0cd63d05d92c7e58bda5c87356a7b0e7370f3e0d1c9421"
+    sha256 cellar: :any,                 arm64_monterey: "36b5a42ad89cb19a47e861fe4326892208e5e97f8893353a838f7987ef268436"
+    sha256 cellar: :any,                 arm64_big_sur:  "9999248c4f1c34ffb354d0e89716672aaccaef4cc2830526696593fac7d2322e"
+    sha256 cellar: :any,                 monterey:       "755b3757c6335e00241efcc83678c88b5309dc0ca5d3bb2f4511969c94806802"
+    sha256 cellar: :any,                 big_sur:        "d13cb62be948b003db86de904dae58be7b864614f82128bcfc364c0097e5aca3"
+    sha256 cellar: :any,                 catalina:       "9d9240caeb1a2e43a128fcc29e303fedf819cedf4a84e711666975ce6269c417"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "22ff11e419f7e96989f64fafb8707edca24400b19be127676fae37760cecfdb8"
   end
 
   depends_on "boost" => :build
