@@ -3,8 +3,8 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/11/0e/42f2c3a1d99019b2c8f5e7aadbec10ed72a2bf6305eab0255eaf916ff6cb/molecule-3.6.0.tar.gz"
-  sha256 "2efeeea8c0cdb6d987c9e6374725b99e745a669ff7489346e69ab7a62dc86448"
+  url "https://files.pythonhosted.org/packages/3e/34/df573d20078d2056c90b0f7ddf8f43cd06da830a5e87881c6f415877a1a1/molecule-3.6.1.tar.gz"
+  sha256 "3b7d5ba2978c15a034df8c7aa59dec5436f7d3260d1f9db2c78ae14ae3a9deeb"
   license "MIT"
 
   bottle do
@@ -70,8 +70,8 @@ class Molecule < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
-    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "click" do
@@ -105,8 +105,8 @@ class Molecule < Formula
   end
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/a5/26/256fa167fe1bf8b97130b4609464be20331af8a3af190fb636a8a7efd7a2/distro-1.6.0.tar.gz"
-    sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
+    url "https://files.pythonhosted.org/packages/b5/7e/ddfbd640ac9a82e60718558a3de7d5988a7d4648385cf00318f60a8b073a/distro-1.7.0.tar.gz"
+    sha256 "151aeccf60c216402932b52e40ee477a939f8d58898927378a02abbe852c1c39"
   end
 
   resource "docker-py" do
@@ -195,8 +195,8 @@ class Molecule < Formula
   end
 
   resource "python-slugify" do
-    url "https://files.pythonhosted.org/packages/bc/a4/57893fbaf7cbf303a4f2307564cf83855a5f2cc34544656e7263125a0d1e/python-slugify-5.0.2.tar.gz"
-    sha256 "f13383a0b9fcbe649a1892b9c8eb4f8eab1d6d84b84bb7a624317afa98159cab"
+    url "https://files.pythonhosted.org/packages/b9/1b/f2d89e911b8234e6902b2065b1db5a375ee0867e4c65997a6c9fc584d77f/python-slugify-6.0.1.tar.gz"
+    sha256 "ba72aa9d9f0514c0c3dd4430442f698ccc27a24d19630473663a71e3ec606bc1"
   end
 
   resource "python-vagrant" do
@@ -215,8 +215,8 @@ class Molecule < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/81/d2/64751634e1af18e61454e9946c8c792ab3866c2b309615844fc435036715/rich-11.1.0.tar.gz"
-    sha256 "43e03d8eec12e21beaecc22c828a41c4247356414a12d5879834863d4ad53816"
+    url "https://files.pythonhosted.org/packages/72/de/b3a53cf1dfdbdc124e8110a60d6c6da8e39d4610c82491fc862383960552/rich-11.2.0.tar.gz"
+    sha256 "1a6266a5738115017bb64a66c59c717e7aa047b3ae49a011ede4abdeffc6536e"
   end
 
   resource "selinux" do
