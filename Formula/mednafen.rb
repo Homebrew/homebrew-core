@@ -12,12 +12,12 @@ class Mednafen < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "38b6257a9ff7c5200d09b518d7085bee6a6fc293e1fd2d59f6a9a6685473e291"
-    sha256 arm64_big_sur:  "9b0532261a2b51bb52fdb108094589e000beba6605a04d16fc9959e3faeb2bb7"
-    sha256 monterey:       "8d23dff00bab779a86b30c9f97420500e16b3e77567e3971918b5cb6e6e3b0e6"
-    sha256 big_sur:        "a3850277082fa95903be57fb69ce907f44d4560ae96a977cf32957f4ddc2790a"
-    sha256 catalina:       "a1e8abd3e99532bac5655c40e7d1f1cdb5992f493c736d3662f268c2b3d203a7"
-    sha256 x86_64_linux:   "dbd52fbecc93a6fc71cc602ecceca18d0073ba4e1bc7aaf01c051a31ae2664b8"
+    sha256 arm64_monterey: "64283880545351f69af0c0256e96a8c03ce26a9f21c962ec50757cefdadb50c0"
+    sha256 arm64_big_sur:  "51c237c994ce03894cda2cf49e84ee58c76344a3f7b474d10a18b7a927c0c0eb"
+    sha256 monterey:       "73fdf0c65754598ea47914e993825eeda57bb7170d7f53cc64a9400a051ed48c"
+    sha256 big_sur:        "998091202b281789570c4e2225858320789473227a5b4bdd2201b4b7414f65b6"
+    sha256 catalina:       "8c5675abeb5a41e3585335b1542bf285aceaf12e49d25379ef522ee27d245244"
+    sha256 x86_64_linux:   "c811b17ac96212e0b49acc386e49a61948cf77011c57530d661150a1ef8d60c2"
   end
 
   depends_on "pkg-config" => :build
