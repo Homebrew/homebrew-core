@@ -14,8 +14,7 @@ class Kdoctor < Formula
     mac_suffix = Hardware::CPU.intel? ? "X64" : Hardware::CPU.arch.to_s.capitalize
     build_task = "linkReleaseExecutableMacos#{mac_suffix}"
     system "gradle", "clean", build_task
-    binary = "kdoctor/build/bin/macos#{mac_suffix}/releaseExecutable/kdoctor.kexe"
-    bin.install binary => "kdoctor"
+    bin.install "kdoctor/build/bin/macos#{mac_suffix}/releaseExecutable/kdoctor.kexe" => "kdoctor"
   end
 
   test do
