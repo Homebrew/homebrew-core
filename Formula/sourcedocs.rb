@@ -13,7 +13,7 @@ class Sourcedocs < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "71442a1bb13f262c5aad88da184352ae817f15b18f65f17abf2dabc39d85ca40"
   end
 
-  depends_on xcode: ["10.3", :build, :test]
+  depends_on xcode: ["12.0", :build, :test]
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
