@@ -22,6 +22,7 @@ class I386ElfGdb < Formula
   end
 
   depends_on "i686-elf-gcc" => :test
+  depends_on "gmp"
   depends_on "python@3.10"
   depends_on "xz" # required for lzma support
 
@@ -47,6 +48,7 @@ class I386ElfGdb < Formula
 
     mkdir "build" do
       system "../configure", *args
+      ENV.deparallelize # Error: common/version.c-stamp.tmp: No such file or directory
       system "make"
 
       # Don't install bfd or opcodes, as they are provided by binutils
