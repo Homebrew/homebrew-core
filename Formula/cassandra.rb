@@ -10,10 +10,10 @@ class Cassandra < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "18a80fa38ccad4ed1780b4ea91205e00993e4ea7d6e4337b30c987044e6bdaec"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6d21e646f30fae63e62cb7bd06b6d0b0f2f447e2a3cb035ca0954326cc3b75cc"
-    sha256 cellar: :any_skip_relocation, catalina:      "6189bc5e09313681a6c7150375385212fbe03c56c1faaf5a8779125bf45438fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3633518092d5c0c43c176ee7a61470637308cae5f5163f5904be9ae28f043d9d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "295d78b46ac3bca4c9d86f2ed95e4cdb674460eeb233a910b0eeee11954bf1bb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a05b39bcb9190959ee54ca9e51d304fc355aa7685abb4811a728522f74f9276a"
+    sha256 cellar: :any_skip_relocation, catalina:      "6d9552d54cb712149d01ad9014911af25fb47f00604943db15f91bd81ce6ba21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8719f63db4e26e335895e243ce9f317b448cf9eeb83559530d6126e96ebe25dd"
   end
 
   depends_on "cython" => :build
