@@ -67,6 +67,13 @@ class Libvirt < Formula
     sha256 "4eb3c9f0ca140a4d8eb5002acde0b6f1234011f82df7d8cc85252be35e8a5cff"
   end
 
+  # Fix PermissionError: [Errno 1] Operation not permitted: '/usr/local/Cellar/yajl/2.1.0/include/libvirt'
+  # Remove with next release
+  patch do
+    url "https://gitlab.com/libvirt/libvirt/-/commit/9f2d3cb472fd4d86dc4de5d57fcf8acb14e33e00.diff"
+    sha256 "ee14a4922ddc405c6ff6c5f7e9183b83f50cfa448b2ab9e1428f3f1c47e0d34c"
+  end
+
   def install
     mkdir "build" do
       args = %W[
