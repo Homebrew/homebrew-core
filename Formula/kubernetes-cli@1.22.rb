@@ -2,8 +2,8 @@ class KubernetesCliAT122 < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.22.6",
-      revision: "f59f5c2fda36e4036b49ec027e556a15456108f0"
+      tag:      "v1.22.7",
+      revision: "b56e432f2191419647a6a13b9f5867801850f969"
   license "Apache-2.0"
 
   livecheck do
@@ -66,7 +66,7 @@ class KubernetesCliAT122 < Formula
     version_output = shell_output("#{bin}/kubectl version --client 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
     if build.stable?
-      revision = stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision]
+      revision = stable.specs[:revision]
       assert_match revision.to_s, version_output
     end
   end
