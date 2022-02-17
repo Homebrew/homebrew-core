@@ -11,12 +11,12 @@ class Solana < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "829b671df4802c8e03cce40ff19a2be9f7819a9997bb16ef0692702aa59ce0c7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f8eeef7e3b42ea9bc586c90f5a97d67a98f61742e50b20da56432f2bd768bffb"
-    sha256 cellar: :any_skip_relocation, monterey:       "19cd1be6f8a74c064e679e352eefaa3f353146ec7682d5b59384b2aa02577c08"
-    sha256 cellar: :any_skip_relocation, big_sur:        "14c319801320bb19568f85ac77510612c1d718dea421e4a83ec347f445ac4e46"
-    sha256 cellar: :any_skip_relocation, catalina:       "d8f544ce447c6598336a3f754f72c3bd4b0bb8e8e8f5b1e98f0583be1ed447d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "abbb96cd620d178652ecb99187d279a85514761d945435edbd4513726dae5c57"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "54677710445dcaeeaea5a5075fd38da7cd4472a981580722381cd22cf3f3b570"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2de7539f233451246514e02cd9b2e8567cb18c09409810232b3cd55afd03f7f2"
+    sha256 cellar: :any_skip_relocation, monterey:       "06664f31a99556b5870177b30e2776f353f612544c60cbe735b9d9f3331850d7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5bde5af4f771324d26847fc13edcf8855fdc92e09a4d4249cc455a2e9d292e6c"
+    sha256 cellar: :any_skip_relocation, catalina:       "495ecc09c3671e01555277ea84a16501342a5beeef5ece4547b2a267b75ee2b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04fe5fe71d0add48f29cc3fcba545a95795b94dfbe4756a3a55918390ab6e93b"
   end
 
   depends_on "protobuf" => :build
