@@ -6,12 +6,12 @@ class Librsvg < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256                               arm64_monterey: "83e2f0abdc61c62986ce60cb243c9996ddc14321fab83b64af9beb0483e0e72f"
-    sha256                               arm64_big_sur:  "9b7b6b18890cdee1a4f227774556995eb6a6e84ac3b9dcdd62d7938300f9b113"
-    sha256                               monterey:       "25e4b29b4599cbb0dfac01c03aa55d35ef331c0d05c5bbfdad8d24008b0532cf"
-    sha256                               big_sur:        "7d56a8e320e894e04cb9e78a8923cb483f02fc5a3ba1eb8bc473c7affe38d74e"
-    sha256                               catalina:       "9c6702f2d5a0031e8b13f176cfedb3dfbfee5767190cc263a2fe36a3946ae799"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "809043724ce46d0d12d642b94c3c91a36b175566db853b716eb663c5af684c39"
+    sha256                               arm64_monterey: "3ae9c2be700cbffc3fba1be84c2588f068799737408cf7fcd4bae954da7e0e6b"
+    sha256                               arm64_big_sur:  "19d6a6bae28c9109ab6bffc2982fd207bb337b0c7964f959238a7d3ea79e904e"
+    sha256                               monterey:       "f5812acbbe90b455eee65640ebb2cb7235126af4c212e30ab570b83650a58ab7"
+    sha256                               big_sur:        "da2690af234f810bf90ce07089b7a1469f11738d6079904d9a5c22aad52ea265"
+    sha256                               catalina:       "056ad0c2e69f30cad2b2931eef802eedfe086859c6d0c76e4745f568a33ce01f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6fc71ac3c99694f6b031c950367abed7c040bef95198b857ed05b38c6380d86"
   end
 
   depends_on "gobject-introspection" => :build
