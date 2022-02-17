@@ -38,6 +38,7 @@ class Scotch < Formula
         s.change_make_var! "CCS", ENV.cc
         s.change_make_var! "CCP", "mpicc"
         s.change_make_var! "CCD", "mpicc"
+        s.gsub! "-DSCOTCH_PTHREAD_MPI", ""
       end
 
       system "make", "libscotch", "libptscotch"
