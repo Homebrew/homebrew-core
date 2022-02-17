@@ -9,10 +9,11 @@ class Kryptor < Formula
 
   def install
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
     system "dotnet", "publish", "src/KryptorCLI/KryptorCLI.csproj",
            "-c", "Release",
-           "-r", "#{os}-x64",
+           "-r", "#{os}-#{arch}",
            "-p:PublishTrimmed=true",
            "-p:IncludeNativeLibrariesForSelfExtract=true",
            "-p:PublishSingleFile=true",
