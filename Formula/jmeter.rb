@@ -10,7 +10,7 @@ class Jmeter < Formula
     sha256 cellar: :any_skip_relocation, all: "71af8d00cd769598a7a1291565a1d15d97f9ef78ea4dc23d0025b8d4d503e76a"
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   resource "jmeter-plugins-manager" do
     url "https://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.7/jmeter-plugins-manager-1.7.jar"
