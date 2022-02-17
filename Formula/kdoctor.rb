@@ -20,7 +20,7 @@ class Kdoctor < Formula
   end
 
   test do
-    r = /(.|\n)*(System)(.|\n)*(Java)(.|\n)*(Android Studio)(.|\n)*(Xcode)(.|\n)*(Cocoapods)(.|\n)*/
+    r = /(.*)(System)(.*)(Java)(.*)(Android Studio)(.*)(Xcode)(.*)(Cocoapods)(.*)/m
     assert_match r, shell_output("#{bin}/kdoctor")
   end
 end
