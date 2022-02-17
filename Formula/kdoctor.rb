@@ -6,7 +6,9 @@ class Kdoctor < Formula
   license "Apache-2.0"
   head "https://github.com/Kotlin/kdoctor.git", branch: "master"
 
+  depends_on xcode: ["12.5", :build]
   depends_on "gradle"
+  depends_on :macos
   depends_on "openjdk"
 
   def install
