@@ -20,5 +20,8 @@ class Rospo < Formula
 
   test do
     system "rospo", "-v"
+    system "rospo", "keygen", "-s"
+    assert_predicate testpath/"identity", :exist?
+    assert_predicate testpath/"identity.pub", :exist?
   end
 end
