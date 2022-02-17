@@ -1,8 +1,8 @@
 class Wiggle < Formula
   desc "Program for applying patches with conflicting changes"
-  homepage "https://neil.brown.name/blog/20100324064620"
-  url "https://neil.brown.name/wiggle/wiggle-1.2.tar.gz"
-  sha256 "31375badb76a4a586f2113e49d13486dbc64844962ae80976a81c6542e901622"
+  homepage "https://github.com/neilbrown/wiggle"
+  url "https://github.com/neilbrown/wiggle/archive/refs/tags/v1.3.tar.gz"
+  sha256 "ff92cf0133c1f4dce33563e263cb30e7ddb6f4abdf86d427b1ec1490bec25afa"
   license "GPL-2.0"
 
   livecheck do
