@@ -71,7 +71,7 @@ class Dotnet < Formula
     # TODO: Remove this in future release with .NET runtime v6.0.2+
     (buildpath/"src/SourceBuild/tarball/patches/runtime").install resource("runtime-clang13-patch")
 
-    Dir.mktempdir do |sourcedir|
+    Dir.mktmpdir do |sourcedir|
       system "./build.sh", "/p:ArcadeBuildTarball=true", "/p:TarballDir=#{sourcedir}"
 
       cd sourcedir
