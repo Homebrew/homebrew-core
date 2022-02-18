@@ -20,7 +20,11 @@ class Kdoctor < Formula
   end
 
   test do
-    r = /(.*)(System)(.*)(Java)(.*)(Android Studio)(.*)(Xcode)(.*)(Cocoapods)(.*)/m
-    assert_match r, shell_output("#{bin}/kdoctor")
+    output = shell_output(bin/"kdoctor")
+    assert_match "System", output
+    assert_match "Java", output
+    assert_match "Android Studio", output
+    assert_match "Xcode", output
+    assert_match "Cocoapods", output
   end
 end
