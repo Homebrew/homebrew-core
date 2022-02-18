@@ -1,10 +1,9 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/2.5.5.tar.gz"
-  sha256 "c6c81fa8bdc2d7f8c8d851e5a4b936109f5d996abd8c6f809539f753581c6288"
+  url "https://github.com/MiniZinc/libminizinc/archive/2.6.0.tar.gz"
+  sha256 "35559e75db3b9b5cd939879935ea5b4f343104040c9ca40aafef06b44ddc6fd7"
   license "MPL-2.0"
-  revision 1
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
