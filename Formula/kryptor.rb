@@ -6,6 +6,7 @@ class Kryptor < Formula
   license "GPL-3.0-or-later"
 
   depends_on "dotnet"
+  depends_on "libsodium"
 
   def install
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
