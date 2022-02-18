@@ -28,6 +28,8 @@ class OsrmBackend < Formula
   depends_on "lua"
   depends_on "tbb@2020"
 
+  conflicts_with "flatbuffers", because: "both install flatbuffers headers"
+
   def install
     lua = Formula["lua"]
     luaversion = lua.version.major_minor
