@@ -27,7 +27,10 @@ class Gpgme < Formula
   depends_on "libgpg-error"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = which("python3")
+    # setuptools>=60 prefers its own bundled distutils, which breaks the installation
+    # Remove when distutils is no longer used. Related PR: https://dev.gnupg.org/D545
+    ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
