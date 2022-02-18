@@ -7,12 +7,10 @@ class Activemq < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b21f6a33e97037eb0f2610588e1be30d59c45dfdea65f5633eb15463f1bed5ce"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96fea1abd0d9c574c1180eef96b627d25557d76421cbf69d0be648ae5a448eb9"
-    sha256 cellar: :any_skip_relocation, monterey:       "555c0807f5ed9ba4381c908581851eb00ef9bc02536e5c96780648894d862393"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e0feb1f5e6b47220ddfff5bcb293da5d44d096294c773b3a94cf89fcd9cecab6"
-    sha256 cellar: :any_skip_relocation, catalina:       "e0feb1f5e6b47220ddfff5bcb293da5d44d096294c773b3a94cf89fcd9cecab6"
-    sha256 cellar: :any_skip_relocation, mojave:         "e0feb1f5e6b47220ddfff5bcb293da5d44d096294c773b3a94cf89fcd9cecab6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6e44d8c98bb98950feba410e9f99f43c9423057fbf2762c69ff3b9f1935db69c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5e729e282ec91d20565892e5af21e41901df77717bc4c38e4a0a9277e6443eeb"
+    sha256 cellar: :any_skip_relocation, catalina:      "fc7ec05532568cb610c161ba2c7050941ee3c9ec6bd0e23e544e2cdb62b425d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c77a23d5a9d62036cd3617525cf875c01f50343c7ab903f521e93809194b5233"
   end
 
   depends_on "java-service-wrapper"
