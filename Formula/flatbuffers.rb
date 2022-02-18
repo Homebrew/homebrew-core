@@ -23,6 +23,8 @@ class Flatbuffers < Formula
   depends_on "cmake" => :build
   depends_on "python@3.10" => :build
 
+  conflicts_with "osrm-backend", because: "both install flatbuffers headers"
+
   def install
     system "cmake", "-G", "Unix Makefiles", *std_cmake_args
     system "make", "install"
