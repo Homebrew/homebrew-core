@@ -6,6 +6,13 @@ class Kdoctor < Formula
   license "Apache-2.0"
   head "https://github.com/Kotlin/kdoctor.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea987c7db59ea361a50681b7311a28ba3736957a8dbffe52593686903e747a7f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea987c7db59ea361a50681b7311a28ba3736957a8dbffe52593686903e747a7f"
+    sha256 cellar: :any_skip_relocation, monterey:       "d84364629903fae72979bffc6bdf89f31e6d766e6cf88ad9231cdd400f712834"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d84364629903fae72979bffc6bdf89f31e6d766e6cf88ad9231cdd400f712834"
+  end
+
   depends_on "gradle" => :build
   depends_on "openjdk" => :build
   depends_on xcode: ["12.5", :build]
