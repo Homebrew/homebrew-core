@@ -1,8 +1,13 @@
 class Luau < Formula
   desc "Fast, safe, gradually typed embeddable scripting language derived from Lua"
   homepage "https://luau-lang.org"
-  url "https://github.com/Roblox/luau/archive/0.514.tar.gz"
-  sha256 "130023aa8ff9becbb7c4a04a345bfd7212d1fd3f5710c90af5db6aab10709cd8"
+  # Download from a commit temporarily since we can't untar the tagged release.
+  # This commit is the same as the tagged release but includes a fix that prevents
+  # us from using the release tag. Switch back to a release tag tarball in the next release.
+  # https://github.com/Roblox/luau/issues/373
+  url "https://github.com/Roblox/luau/archive/a9bdce6cc06577cb412c38db757e44ea783f7c05.tar.gz"
+  version "0.515"
+  sha256 "6234ea76f65f7f7eaae2e285dd834dbfe64a58a8aebc4e4681654dd635b35dfa"
   license "MIT"
   head "https://github.com/Roblox/luau.git", branch: "master"
 
