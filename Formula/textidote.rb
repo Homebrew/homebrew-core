@@ -12,7 +12,7 @@ class Textidote < Formula
   def install
     # Build the JAR
     system "ant", "download-deps"
-    system "ant", "-Dbuild.targetjdk=17"
+    system "ant", "-Dbuild.targetjdk=#{Formula["openjdk"].version.major"
 
     # Install the JAR + a wrapper script
     libexec.install "textidote.jar"
