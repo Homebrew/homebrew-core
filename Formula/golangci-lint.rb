@@ -8,12 +8,12 @@ class GolangciLint < Formula
   head "https://github.com/golangci/golangci-lint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f42528341e702bdbb53fb485d836911347b43996e9460cf63d7e304e06400ddc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dc31e7befdb1020327d7248c4fbb89864a08d89937c777703bf1e84e87c2f847"
-    sha256 cellar: :any_skip_relocation, monterey:       "e5d2cc629c6b97d5c0c8d7622f75022de289db92aadaee378cfee0d1740f26ae"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d077bef9f443fa477459f7bd941347af688896746d63bbf380926995c2a100d3"
-    sha256 cellar: :any_skip_relocation, catalina:       "0bb937cb57bbf331da747cb1423f4bec62d50070366e1eb6e38b620c004b9461"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06e8fffbf1a9bc27738c4541f76f5b58e9b73dc6397da5681875bbe484ceca32"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d40f6f96ab015c34d0864e7a7b378ae63594085a725993a0ea037cbed87bf4b3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c4ec94207ef51428a1f5166dada3c40f6589f709e1950a0b023e3647419d59f"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ed4613779d65c18e57abb2c0f49c70be5c174ca3b73ef8bdf5502b1a8f5ce84"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e9c9648ae8ad7f61bd598fd8cbc1d7c0678f68ef025dca036141ea70035e4a95"
+    sha256 cellar: :any_skip_relocation, catalina:       "f324b4956312e539a2d2cf8e8019b5086f60717d5f4fc82ce188984e76275c19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be97f50d4811fa804a73d419885b9dbeb6209ef012472005f4f53364909e6111"
   end
 
   depends_on "go"
