@@ -11,13 +11,12 @@ class Gpgme < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b732123358ed02a82a0d42a2a7f4adc0ead134196da5ed522f5d86610cca8e95"
-    sha256 cellar: :any,                 arm64_big_sur:  "a6408468cf32338ff783f685eea507a779b63f21aa1074e8be250088832de2fb"
-    sha256 cellar: :any,                 monterey:       "fe3c49857c2badaade514c1e3083542309777916c1a309e97f933043d9dcfd38"
-    sha256 cellar: :any,                 big_sur:        "93ef1638eedcb613c2d4992917c081409985aba3d20db3a3c5bbd9b02e008ee3"
-    sha256 cellar: :any,                 catalina:       "4d51fe3ce646233005f33c6f53fd50e2111dfa21891b03d4cce9ce3845da2373"
-    sha256 cellar: :any,                 mojave:         "5f69a086be935cd7f1994bc709a1510e5c3182865240bf32c9ef1d7ea8cd82dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d96889a4f0d9e5098a59f6c76d1dd42fe4cf5232d7db748754c73576c639c8a"
+    sha256 cellar: :any,                 arm64_monterey: "fa9c9596573a776d4775e64844f725e7709ec1c0463bba67580e79a47fc57ce2"
+    sha256 cellar: :any,                 arm64_big_sur:  "1752f1a4412b47fc3fcf2144ad98c61f191293df9cd0dd927d4f555b12d97489"
+    sha256 cellar: :any,                 monterey:       "18893c493073d693c73e9b9f1f1c2201a63af44acddf17a15a20bffa857db756"
+    sha256 cellar: :any,                 big_sur:        "702aa2a55f6613946cbee4542500ea3f58cf7744ea0ca6e94bb3d9e26668b347"
+    sha256 cellar: :any,                 catalina:       "b04b768b07c6a2957034ad472e0ffea68becd592364e6a8e768b805e53d2ff98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df6315a9725a441e3ac230165a242b88350054060570d6e3b4326ec697273a6d"
   end
 
   depends_on "python@3.9" => [:build, :test]
