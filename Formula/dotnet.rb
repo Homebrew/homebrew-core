@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.100",
-      revision: "9e8b04bbff820c93c142f99a507a46b976f5c14c"
+      tag:      "v6.0.102-source-build",
+      revision: "49861cb924cdd74be8de19206b48de4f04c0ecbe"
   license "MIT"
 
   bottle do
@@ -41,22 +41,6 @@ class Dotnet < Formula
   # GCC builds have limited support via community.
   fails_with :gcc
 
-  # Fix build with Clang 13.
-  # PR ref: https://github.com/dotnet/runtime/pull/63314
-  # TODO: Remove this in future release with .NET runtime v6.0.2+
-  resource "runtime-clang13-patch" do
-    url "https://github.com/dotnet/runtime/commit/f86caa54678535ead8e1977da37025a96e2afe8a.patch?full_index=1"
-    sha256 "bc264ce2a1f9f7f3d27db10276bb2d1b979f66da06727aaa04be15c36086a9a3"
-  end
-
-  # Fix previously-source-built bootstrap.
-  # PR ref: https://github.com/dotnet/installer/pull/12642
-  # TODO: Remove this in the next release
-  patch do
-    url "https://github.com/dotnet/installer/commit/7f02ccd30f55e7ac3436bd32af4b207869541ebf.patch?full_index=1"
-    sha256 "ff51630f9bfc4bbb502f57c6b1348d2e530a006234150606f9327fedcbb6591c"
-  end
-
   # Fix build failure on macOS due to missing ILAsm/ILDAsm
   # Fix build failure on macOS ARM due to `osx-x64` override
   patch :DATA
@@ -68,19 +52,16 @@ class Dotnet < Formula
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
     end
 
-    # TODO: Remove this in future release with .NET runtime v6.0.2+
-    (buildpath/"src/SourceBuild/tarball/patches/runtime").install resource("runtime-clang13-patch")
-
     Dir.mktmpdir do |sourcedir|
       system "./build.sh", "/p:ArcadeBuildTarball=true", "/p:TarballDir=#{sourcedir}"
 
       cd sourcedir
-      # Disable package validation in source-build for reliability
-      # PR ref: https://github.com/dotnet/runtime/pull/60881
-      # TODO: Remove this in the next release
-      inreplace Dir["src/runtime.*/eng/packaging.targets"].first,
-                "<EnablePackageValidation>true</EnablePackageValidation>",
-                "<EnablePackageValidation>false</EnablePackageValidation>"
+      # Workaround for error MSB4018 while building 'installer in tarball' due
+      # to trying to find aspnetcore-runtime-internal v6.0.0 rather than current.
+      # TODO: Remove when packaging is fixed
+      inreplace Dir["src/installer.*/src/redist/targets/GenerateLayout.targets"].first,
+                "$(MicrosoftAspNetCoreAppRuntimePackageVersion)",
+                "$(MicrosoftAspNetCoreAppRuntimewinx64PackageVersion)"
 
       # Rename patch fails on case-insensitive systems like macOS
       # TODO: Remove whenever patch is no longer used
@@ -199,4 +180,3 @@ index 0a2fcff17..9033ff11a 100644
    </ItemGroup>
 
    <Target Name="BuildBoostrapPreviouslySourceBuilt" AfterTargets="Restore">
-
