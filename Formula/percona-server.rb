@@ -1,8 +1,8 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.26-16/source/tarball/percona-server-8.0.26-16.tar.gz"
-  sha256 "3db3939bd9b317dbcfc1a5638779ff87e755f62d7e6feeb3137876be8bb59d6a"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.26-17/source/tarball/percona-server-8.0.26-17.tar.gz"
+  sha256 "b861ba44c83ed3a233d255fc04c3e3e6c0c3b204a375d3287ef4325834e13764"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,10 +11,12 @@ class PerconaServer < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "014a5ba2286003e56befbed0ba6d7189aa6ce6f13d86a640b55b6a727a9a3cd5"
-    sha256 big_sur:       "d5a07dec3cb81121637a91383ec55a921a0bfda07f402004c59687b3a038a3d2"
-    sha256 catalina:      "bc8d54fa6d65f7830dac2a7b9a8c1c975067500483b4bed034e89f89fa173d0b"
-    sha256 x86_64_linux:  "a5b2f1b1f061e39e3183b6cceba56bc99ab3cf1ab5b7914e628fc7b599a79515"
+    sha256 arm64_monterey: "eed459b84efe156880bd064e4c699008cece4e561c9f259d01e40643a777f725"
+    sha256 arm64_big_sur:  "cdac7712f7fe0bae261ba51d0e125f644240ea3090e0a3568f054ca73df68e37"
+    sha256 monterey:       "f3bbc3dd7af5f40092796bf42c2af92bfa394935ce9db976e55f589d4266771e"
+    sha256 big_sur:        "7c620f3b358462dffedf11cf4307d114c982b5067e5ad9cdd8017306ab8d2cf9"
+    sha256 catalina:       "111ad91b3285d47ca9c7d48ab39cc70e3a1881e72d725cce568521cae6db3887"
+    sha256 x86_64_linux:   "1646a7bc159a5f7ef6c523fbceda581602fe2027f6e9b5301fa02a5b075ce7d9"
   end
 
   depends_on "cmake" => :build
@@ -57,10 +59,17 @@ class PerconaServer < Formula
   end
 
   # Fix build on Monterey.
-  # Remove with the next version.
+  # Remove with 8.0.28.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/fcbea58e245ea562fbb749bfe6e1ab178fd10025/mysql/monterey.diff"
     sha256 "6709edb2393000bd89acf2d86ad0876bde3b84f46884d3cba7463cd346234f6f"
+  end
+
+  # Fix build on Monterey.
+  # Remove with the next version.
+  patch do
+    url "https://github.com/percona/percona-server/commit/e5b2df737987ce72d285b68fb802cf5b1a15f843.patch?full_index=1"
+    sha256 "6b529dc9e756d137429c36625aafb309298510c46705d0bef71b9265d53e6d80"
   end
 
   def install
@@ -82,20 +91,17 @@ class PerconaServer < Formula
       -DWITH_EMBEDDED_SERVER=ON
       -DWITH_INNODB_MEMCACHED=ON
       -DWITH_UNIT_TESTS=OFF
+      -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system
       -DWITH_ICU=system
       -DWITH_LIBEVENT=system
       -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
-      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
+      -DWITH_SSL=system
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
     ]
-
-    if OS.linux?
-      args << "-DWITH_LDAP=#{Formula["openldap"].opt_prefix}"
-      args << "-DWITH_SASL=#{Formula["cyrus-sasl"].opt_prefix}"
-    end
 
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
     # version check in place to ensure it only builds against expected release.
