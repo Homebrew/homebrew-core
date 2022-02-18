@@ -1,8 +1,8 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://files.pythonhosted.org/packages/7b/1b/f0890aa97808ee8dc1da87250bcc169c688bb530e2a6de0303a5145594c7/yle-dl-20211213.tar.gz"
-  sha256 "39123bbb42f9f2b8ed25f5f815590df19ac773b61e5f60b6860cb7932c3cf486"
+  url "https://files.pythonhosted.org/packages/88/7f/bd83f99ce0de2a6b05dbf2b67657b167f5c23b46d86029f4b8f17bef6cc8/yle-dl-20220213.tar.gz"
+  sha256 "b6b1cc9d03d5416f342bcfd2c0304988e6cc3f8bd09e0c1bf5a63790cf775f9d"
   license "GPL-3.0-or-later"
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
@@ -36,8 +36,8 @@ class YleDl < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
-    sha256 "ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"
+    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
+    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
   end
 
   resource "certifi" do
@@ -46,8 +46,8 @@ class YleDl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
-    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "ConfigArgParse" do
@@ -61,18 +61,18 @@ class YleDl < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/84/74/4a97db45381316cd6e7d4b1eb707d7f60d38cb2985b5dfd7251a340404da/lxml-4.7.1.tar.gz"
-    sha256 "a1613838aa6b89af4ba10a0f3a972836128801ed008078f8c1244e65958f1b24"
+    url "https://files.pythonhosted.org/packages/3b/94/e2b1b3bad91d15526c7e38918795883cee18b93f6785ea8ecf13f8ffa01e/lxml-4.8.0.tar.gz"
+    sha256 "f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
-    sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
+    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
+    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
-    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
+    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
+    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
   end
 
   def install
