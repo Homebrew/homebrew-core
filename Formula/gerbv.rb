@@ -6,13 +6,11 @@ class Gerbv < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "6867c2ab1f095c2bd952bc294544146d98c005cb844bea396ead8655db22e92a"
-    sha256 arm64_big_sur:  "4b51c047b7ce52537ab152f477fed3fe4ba6b2218cd5445258e672f54acc8c0f"
-    sha256 monterey:       "e476fc21dd1ef61b3d6136d0e8bb1643481bfcd873f3482e11c1225906b774bc"
-    sha256 big_sur:        "529a2d42b7018cb8edc81eb32e2572c936670c1088bd7934d627d8f358b1eefc"
-    sha256 catalina:       "eb27af6bcb6cfc6203297f617d88851e656c5b72fae84b10593429158d1861d6"
-    sha256 mojave:         "5995b2ff9b132c129e9e2ca08eb205c58883f63e22eec11c4c53e24ec6dfd4e3"
-    sha256 high_sierra:    "246a26e96d930c979db7bdb533807c71418ac0ad5c74bd12749d0c08b903e409"
+    sha256 arm64_monterey: "f66e716949ccfc877189a277f4e478f4033b0468a4f913485dfc09e74a58883a"
+    sha256 arm64_big_sur:  "111759f730af4169548f0916f07adbb1b3af0ae2eb9492db25ec3f7a998521e0"
+    sha256 monterey:       "49a9b2b0cdbdffc46674672b2059ad8d60c876a5e2c3f9152c2b68ff0cfa25ac"
+    sha256 big_sur:        "1176f012cc14ceccedfdc2efa037bb8ade39999c768cd1e498d83959e3e19845"
+    sha256 catalina:       "40348ebda0206d74e078b53fa1c9216695bcf42d5f6d9a9b01a1af43e6684a92"
   end
 
   depends_on "autoconf" => :build
