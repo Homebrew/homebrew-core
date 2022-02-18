@@ -6,6 +6,7 @@ class Bond < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "37815143a583b49b32f7b6133eead8456fbe42fcf54ce40d2bd0f06aaa202066"
     sha256 cellar: :any,                 big_sur:      "9cc49b023fbd14c296f04cd5ae537bf6098f9b09025812a350a99a72bed00fea"
     sha256 cellar: :any,                 catalina:     "5d78ce28f6865648b61de0d5fc449c13e6ebc3093209efe781073d560b1b29b7"
     sha256 cellar: :any,                 mojave:       "54718f979d4ee63570fe76d4d96682f1c169791c3e1b91fc32471aee3bcccd0e"
