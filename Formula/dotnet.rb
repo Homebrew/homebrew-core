@@ -71,25 +71,28 @@ class Dotnet < Formula
     # TODO: Remove this in future release with .NET runtime v6.0.2+
     (buildpath/"src/SourceBuild/tarball/patches/runtime").install resource("runtime-clang13-patch")
 
-    sourcedir = buildpath.parent/"dotnet-sources"
-    system "./build.sh", "/p:ArcadeBuildTarball=true",
-                         "/p:TarballDir=#{sourcedir}"
-    cd sourcedir
-    # Disable package validation in source-build for reliability
-    # PR ref: https://github.com/dotnet/runtime/pull/60881
-    # TODO: Remove this in the next release
-    inreplace Dir["src/runtime.*/eng/packaging.targets"].first,
-              "<EnablePackageValidation>true</EnablePackageValidation>",
-              "<EnablePackageValidation>false</EnablePackageValidation>"
-    # Rename patch fails on case-insensitive systems like macOS
-    # TODO: Remove whenever patch is no longer used
-    rm Dir["src/nuget-client.*/eng/source-build-patches/0001-Rename-NuGet.Config*.patch"].first if OS.mac?
-    system "./prep.sh", "--bootstrap"
-    system "./build.sh"
+    Dir.mktmpdir do |sourcedir|
+      system "./build.sh", "/p:ArcadeBuildTarball=true", "/p:TarballDir=#{sourcedir}"
 
-    libexec.mkpath
-    tarball = Dir["artifacts/*/Release/dotnet-sdk-#{version}-*.tar.gz"].first
-    system "tar", "-xzf", tarball, "--directory", libexec
+      cd sourcedir
+      # Disable package validation in source-build for reliability
+      # PR ref: https://github.com/dotnet/runtime/pull/60881
+      # TODO: Remove this in the next release
+      inreplace Dir["src/runtime.*/eng/packaging.targets"].first,
+                "<EnablePackageValidation>true</EnablePackageValidation>",
+                "<EnablePackageValidation>false</EnablePackageValidation>"
+
+      # Rename patch fails on case-insensitive systems like macOS
+      # TODO: Remove whenever patch is no longer used
+      rm Dir["src/nuget-client.*/eng/source-build-patches/0001-Rename-NuGet.Config*.patch"].first if OS.mac?
+      system "./prep.sh", "--bootstrap"
+      system "./build.sh"
+
+      libexec.mkpath
+      tarball = Dir["artifacts/*/Release/dotnet-sdk-#{version}-*.tar.gz"].first
+      system "tar", "-xzf", tarball, "--directory", libexec
+    end
+
     doc.install Dir[libexec/"*.txt"]
     (bin/"dotnet").write_env_script libexec/"dotnet", DOTNET_ROOT: libexec
   end
