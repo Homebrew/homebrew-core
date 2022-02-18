@@ -9,8 +9,8 @@ class SpeedtestCli < Formula
   head "https://github.com/sivel/speedtest-cli.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "ebf51e9de63f99e3fcea09b61015488a25e7769422fd9656fee9c0ecf7ba08b3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "6fb6b22ba1667932a8d147f193482271048e44de064004a270d8c13d637d9b67"
   end
 
   depends_on "python@3.10"
