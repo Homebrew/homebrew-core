@@ -17,6 +17,7 @@ class Dafny < Formula
   end
 
   depends_on "gradle" => :build
+  depends_on "python@3.10" => :build # for z3
   depends_on "dotnet"
   depends_on "openjdk@11"
 
@@ -36,6 +37,7 @@ class Dafny < Formula
     dst_z3_bin.mkpath
 
     resource("z3").stage do
+      ENV["PYTHON"] = which("python3")
       system "./configure"
       system "make", "-C", "build"
       mv("build/z3", dst_z3_bin/"z3")
