@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/b6/08/5225df8919caea6939a6c2cc6608e25bfb16d5f7bb181096487f87385bfc/pdm-1.12.8.tar.gz"
-  sha256 "760f83289d208ddb01d4b58f0087ad2943f937f17dff454e35129d779133a490"
+  url "https://files.pythonhosted.org/packages/c1/b0/56232d37617fa4c2cddc41880b0047d1e3ea286266f2c77b334305d019a4/pdm-1.13.0.tar.gz"
+  sha256 "4a7bc4238367aaf3907345c329b10b82344b387e81c58cf4caea016137bcb0db"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -51,8 +51,8 @@ class Pdm < Formula
   end
 
   resource "pdm-pep517" do
-    url "https://files.pythonhosted.org/packages/78/b0/797847bec485f269e12780839d73a4f60cf8c85ffda32f4f1d092ff8d64d/pdm-pep517-0.10.2.tar.gz"
-    sha256 "83bb71a7588df69ea0d77dc6524741c3a1af54ad5f421341428de648bfc03a29"
+    url "https://files.pythonhosted.org/packages/d3/70/f312e27fed1ad25decefae7a8e125349669b86f96a8e135a5086f244e566/pdm-pep517-0.11.2.tar.gz"
+    sha256 "e000bab43502c191d71808a2630dd44ece301a319d26e002a1caea3a7307cd20"
   end
 
   resource "pep517" do
@@ -61,8 +61,8 @@ class Pdm < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/be/00/bd080024010e1652de653bd61181e2dfdbef5fa73bfd32fec4c808991c31/platformdirs-2.4.1.tar.gz"
-    sha256 "440633ddfebcc36264232365d7840a970e75e1018d15b4327d11f91909045fda"
+    url "https://files.pythonhosted.org/packages/47/73/046da71a75870bbcc0469e2ea71b56ffc865e2b4b39337754e8fdb516028/platformdirs-2.5.0.tar.gz"
+    sha256 "8ec11dfba28ecc0715eb5fb0147a87b1bf325f349f3da9aab2cd6b50b96b692b"
   end
 
   resource "pyparsing" do
@@ -91,13 +91,13 @@ class Pdm < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/3d/6e/d290c9bf16159f02b70c432386aa5bfe22c2857ff460591912fd907b61f6/tomli-2.0.0.tar.gz"
-    sha256 "c292c34f58502a1eb2bbb9f5bbc9a5ebc37bee10ffb8c2d6bbdfa8eb13cc14e1"
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/ba/ce/b140a544f834a1789c0c05be42327e71980b1a36318fc8bed932daee219e/tomlkit-0.9.0.tar.gz"
-    sha256 "5a83672c565f78f5fc8f1e44e5f2726446cc6b765113efd21d03e9331747d9ab"
+    url "https://files.pythonhosted.org/packages/c7/f0/cc387a2ff7da8f9450d6af4c108bed1f9b7289695330b6b5f412ebc8d6aa/tomlkit-0.10.0.tar.gz"
+    sha256 "d99946c6aed3387c98b89d91fb9edff8f901bf9255901081266a84fb5604adcd"
   end
 
   resource "wheel" do
