@@ -1,9 +1,9 @@
 class Snap < Formula
   desc "Tool to work with .snap files"
   homepage "https://snapcraft.io/"
-  url "https://github.com/snapcore/snapd/releases/download/2.46/snapd_2.46.vendor.tar.xz"
-  version "2.46"
-  sha256 "c4f532018ca9d2a5f87a95909b3674f8e299e97ba5cb5575895bcdd29be23db3"
+  url "https://github.com/snapcore/snapd/releases/download/2.54.3/snapd_2.54.3.vendor.tar.xz"
+  version "2.54.3"
+  sha256 "462b2f5fdc74632ed5891cc589045c43f11687951863f7f51f260d52fde60801"
   license "GPL-3.0-only"
 
   livecheck do
@@ -26,19 +26,14 @@ class Snap < Formula
   depends_on "squashfs"
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/snapcore/snapd").install buildpath.children
+    system "./mkversion.sh", version
+    tags = OS.mac? ? ["-tags=nosecboot"] : []
+    system "go", "build", *std_go_args(ldflags: "-s -w"), *tags, "./cmd/snap"
 
-    cd "src/github.com/snapcore/snapd" do
-      system "./mkversion.sh", version
-      system "go", "build", *std_go_args, "./cmd/snap"
+    bash_completion.install "data/completion/bash/snap"
+    zsh_completion.install "data/completion/zsh/_snap"
 
-      bash_completion.install "data/completion/bash/snap"
-      zsh_completion.install "data/completion/zsh/_snap"
-
-      (man8/"snap.8").write Utils.safe_popen_read("#{bin}/snap", "help", "--man")
-    end
+    (man8/"snap.8").write Utils.safe_popen_read(bin/"snap", "help", "--man")
   end
 
   test do
@@ -49,7 +44,7 @@ class Snap < Formula
       summary: simple summary
       description: short description
     EOS
-    system "#{bin}/snap", "pack", "pkg"
-    system "#{bin}/snap", "version"
+    system bin/"snap", "pack", "pkg"
+    system bin/"snap", "version"
   end
 end
