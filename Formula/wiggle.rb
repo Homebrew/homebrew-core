@@ -3,7 +3,7 @@ class Wiggle < Formula
   homepage "https://github.com/neilbrown/wiggle"
   url "https://github.com/neilbrown/wiggle/archive/refs/tags/v1.3.tar.gz"
   sha256 "ff92cf0133c1f4dce33563e263cb30e7ddb6f4abdf86d427b1ec1490bec25afa"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://neil.brown.name/wiggle/"
@@ -17,6 +17,9 @@ class Wiggle < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "233a538ebdde21f7038aafd73fb4a20afb0dbb6715f54f4fc305ad7ca4966672"
     sha256 cellar: :any_skip_relocation, catalina:       "e50353191b0368db9dd898d730b74ea3612c1cff728717fc8b5904a6d44e2015"
   end
+
+  uses_from_macos "groff" => :build
+  uses_from_macos "ncurses"
 
   def install
     system "make", "OptDbg=#{ENV.cflags}", "wiggle", "wiggle.man", "test"
