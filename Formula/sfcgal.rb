@@ -6,12 +6,13 @@ class Sfcgal < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4e5830b19bfb9193625b1cc8149d2f678b873134b9edfcdffcc73b5545a6d04b"
-    sha256 cellar: :any,                 arm64_big_sur:  "24af7d6e9dae322da56ec1cb51c429b972a41e6a297956f6baf607e3fa6af836"
-    sha256 cellar: :any,                 monterey:       "3c83e7b2aed9400f9d48c7e43e1ed2f095eba9fda57628c1101ef43e1b670a86"
-    sha256 cellar: :any,                 big_sur:        "0066a1386a0b985a98b7e06f42d7aa43d227d4e9bc234aff3a6b36056ea956e2"
-    sha256 cellar: :any,                 catalina:       "39dd3c723b7d47a807f1fffa6c1de053d7091ac15e2180341588c2c94ff247f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efd13dbab941fee7f795c1fc7ae62299158c2325df7d1d83c8858b14985677de"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "1e98264a7df119a546c5ab80bcd017ee9cabe50299bc55543a20735427fe2d4b"
+    sha256 cellar: :any,                 arm64_big_sur:  "a0e9c2ba3a9887f8b7fcf6b0e4604a2c2d806519d4ffa3c50918d2b8eb1c12ab"
+    sha256 cellar: :any,                 monterey:       "bba4e08da94c953fe43557508cf3bc9a6af42bf7d550541cd6c295a49d9ed6c4"
+    sha256 cellar: :any,                 big_sur:        "12c0ff36264354e9d59d3ed910e3c40843938892397b9d9ee8930166b5334bb9"
+    sha256 cellar: :any,                 catalina:       "f2342ad06c38171b85bed939520c49f70228fcf811478ac86a0f8f8f693ef874"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af7f415f696b65fa7d5151edaf146655c74b8a27cded760a26b7d001dee88892"
   end
 
   depends_on "cmake" => :build
