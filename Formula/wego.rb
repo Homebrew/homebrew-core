@@ -7,17 +7,12 @@ class Wego < Formula
   head "https://github.com/schachmat/wego.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e1facb6e34de84897466683821fb2b3b0198bfb063a4eaa75658e0d7e2ea099"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2dd22ca29b4b1c7ffd10d9780a4db4dfb9db52dcef73ba07fe85f23a14aa472b"
-    sha256 cellar: :any_skip_relocation, monterey:       "b2b25857aaa0a48c2990b53e7efded2a2b6feaab8d92f476b931e3cc530cb3d9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ff772c99d0aebc8e471aa4785b7a429fda2c0af8ede5d43fb2ee1ba8c7617246"
-    sha256 cellar: :any_skip_relocation, catalina:       "5ac6a153a25c0d68564d000f52642d0891fc85de2183732b9d7b171b5e629146"
-    sha256 cellar: :any_skip_relocation, mojave:         "436dbf3a2dd0f517635078c987d95985941be4aaae3efc65b5fb2e3562af87cd"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "dc3714d72fde13770cec00100aa1ee843b944512c454e00ad131c822e868cedb"
-    sha256 cellar: :any_skip_relocation, sierra:         "504d831a34c22ec006a610f7af4d11000708570513e5391e2077d021ca6b3758"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "ccdba75878ffe9b62b49265f6f4b375da80f44e6c5b7c5a40294501fda8903b1"
-    sha256 cellar: :any_skip_relocation, yosemite:       "97e7c2edfa9b1a312a0f4f4bce9553b1c8e884409aca3f7acfed2dc99fcef05d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48f143251c87b71fcfaedb410aace7b51d56127c882bc023a7c8f28458d8ef89"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e7809fee9e62e0aeeb501a13e3ee9a760e646d3df267d86c78875285f92ec0d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "48bddc880f5aefc99f67e4ec492e2bc95b35d5337864eb44eea34ef79ad7f55c"
+    sha256 cellar: :any_skip_relocation, monterey:       "28aa7cd9c990adca931cc0ae80c226eea67b448f7c4732cdcfb1850a4b0d906a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "68076fd25f18feff40f249330b10ab5e26730296f1a5934581abf049e287aa42"
+    sha256 cellar: :any_skip_relocation, catalina:       "18352908f8e018f7a6031aeb0f816d11410c04a250031812a0aa69fab0f2c3f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee3da37c7f2b5a15c5c6da56eec204c7d32356c50553969052dab69a8b1caead"
   end
 
   depends_on "go" => :build
