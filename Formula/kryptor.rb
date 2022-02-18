@@ -14,6 +14,7 @@ class Kryptor < Formula
     system "dotnet", "publish", "src/KryptorCLI/KryptorCLI.csproj",
            "-c", "Release",
            "-r", "#{os}-#{arch}",
+           "--output", libexec,
            "-p:PublishTrimmed=true",
            "-p:IncludeNativeLibrariesForSelfExtract=true",
            "-p:PublishSingleFile=true",
