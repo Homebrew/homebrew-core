@@ -16,6 +16,7 @@ class Wiggle < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "6ef8230cd01f245db7718475da9c898919bc52b9729b2a603e797dce13d796fc"
     sha256 cellar: :any_skip_relocation, big_sur:        "233a538ebdde21f7038aafd73fb4a20afb0dbb6715f54f4fc305ad7ca4966672"
     sha256 cellar: :any_skip_relocation, catalina:       "e50353191b0368db9dd898d730b74ea3612c1cff728717fc8b5904a6d44e2015"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9181d60a846d40b7850bb1647b1dcfba43a56f46d26bda4965df7e6f9857900"
   end
 
   uses_from_macos "groff" => :build
