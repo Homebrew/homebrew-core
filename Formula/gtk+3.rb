@@ -45,6 +45,13 @@ class Gtkx3 < Formula
     depends_on "wayland-protocols"
   end
 
+  # Patch to fix QuartzCore linking and compiling
+  # Remove in next minor release
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtk/-/commit/8352dee082db9e5ae989a2ed2c38e1060044bada.diff"
+    sha256 "d1a4acee4382cd8840d138958e46076bf4209f6e9e64ec34c364277bba9ca380"
+  end
+
   def install
     args = std_meson_args + %w[
       -Dgtk_doc=false
