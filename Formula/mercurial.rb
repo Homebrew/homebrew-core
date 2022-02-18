@@ -3,8 +3,8 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-6.0.2.tar.gz"
-  sha256 "5fb4c36d3856292ebf584051d59306d96ad8aa32b5537452b1d9c476f95ab11a"
+  url "https://www.mercurial-scm.org/release/mercurial-6.0.3.tar.gz"
+  sha256 "67f13647a46517a2b567cdcb73c98721d75d36a0432debb15022b77f9c138333"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -25,6 +25,14 @@ class Mercurial < Formula
 
   def install
     ENV["HGPYTHON3"] = "1"
+
+    # FIXME: python@3.10 formula's "prefix scheme" patch tries to install into
+    # HOMEBREW_PREFIX/{lib,bin}, which fails due to sandbox. As workaround,
+    # manually set the installation paths to behave like prior python versions.
+    site_packages = prefix/Language::Python.site_packages("python3")
+    inreplace "Makefile",
+              "--prefix=\"$(PREFIX)\"",
+              "\\0 --install-lib=\"#{site_packages}\" --install-scripts=\"#{prefix}/bin\""
 
     system "make", "PREFIX=#{prefix}",
                    "PYTHON=#{which("python3")}",
