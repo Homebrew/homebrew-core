@@ -12,12 +12,12 @@ class Libphonenumber < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ebc737f3cbac2486316e70c25e232ce0f524873d0e684af7f72f7a7dffd2d973"
-    sha256 cellar: :any,                 arm64_big_sur:  "82b3418487ac1e44776c083eb45b53bc34f6474411ca4b0e8b2a9914ddf4bfec"
-    sha256 cellar: :any,                 monterey:       "ce073644a95648ed27f3b4a56e414199b7936fc4bbde37a1e0a953d3abf5f559"
-    sha256 cellar: :any,                 big_sur:        "a8ff3bed1a48581c8c39a8564fa7a89b5298bf730fa66974060eda875069341f"
-    sha256 cellar: :any,                 catalina:       "97a088b0f356b4b23529ed1a90ab717d2507f23889e3c0e18c3d28682fcdc723"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9722ef0f73d7273d9af6b3fe4875d92263cb055e1ed1b34ed91ff4cda0ea6e1"
+    sha256 cellar: :any,                 arm64_monterey: "8d5e2206ae9c67232c1bf965e1a1bf384445a54eaf9ba02e95bc938b1c3577f3"
+    sha256 cellar: :any,                 arm64_big_sur:  "6a165a7da76b1a77ded8fd08d070c6baa586f3ea05daabc690f06b3328651dc9"
+    sha256 cellar: :any,                 monterey:       "e540a70968b872b655f59284be3be08ff792b3dbb7d2b9f3223dfda59f7e65ac"
+    sha256 cellar: :any,                 big_sur:        "a809d9df4449af310f365a34d5173ea679dd22d9c9a3c5d46eeb171814093035"
+    sha256 cellar: :any,                 catalina:       "f55e556c4d811ea2563a87a4709681d4e9945b4139e8c6834ce6cd3edf77c951"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be7b75ae28b56e8389be9471f69fead52c1f57f177b0b16183df7fd088aec1ce"
   end
 
   depends_on "cmake" => :build
