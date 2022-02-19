@@ -7,13 +7,12 @@ class LibbitcoinClient < Formula
   revision 8
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "54e596753c425921e98f9237f5f9b0eea6771edf2c785a79650b840fee30d770"
-    sha256 cellar: :any,                 arm64_big_sur:  "1436d1f380bb51199a8b92053c9822e314c0febac9bc8757bf0f4c51fbcc7798"
-    sha256 cellar: :any,                 monterey:       "46e417e5a41ee798bf9834494a9a0b4499b144c7c3104aad32a4c51e6bb07458"
-    sha256 cellar: :any,                 big_sur:        "8c0a09aefcaf36a2b9831884c7ce698d2ad533f3aca8b4d30a4f63611022535a"
-    sha256 cellar: :any,                 catalina:       "d44ec063ad2da0e31a12d9f59c65962b03e60c1fedfbe002b62dbae6cedc727a"
-    sha256 cellar: :any,                 mojave:         "fed0d06847db159818373b9c8845f185dc58dbeaa761f0f8a8bc6267f3b4030a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2f962444775e331d8e13c937a16ea977b1080c32a2c10750bd304de03e4719e"
+    sha256 cellar: :any,                 arm64_monterey: "c39d34c74a9162ff8fe454100407ff6aefe8dedcdfd144df5435ed321d1a243b"
+    sha256 cellar: :any,                 arm64_big_sur:  "9940b9110b8ff68a6be7c67dbeabe7c7f8d42114185990d637753ec799ac2a92"
+    sha256 cellar: :any,                 monterey:       "da7f7247c47202c3fa6d43ab62a815a1514b8453040776844df05688462ce583"
+    sha256 cellar: :any,                 big_sur:        "9b9131622c37929c721083d3ae02d5db5b74d47730617ecdff0e5345bd326b56"
+    sha256 cellar: :any,                 catalina:       "d0198baac9163a586987faf548f8f27f1918291a3454ed2e397a7c6040b87170"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ddf5a6b6f46abdca1942682e3863fc1ae75f53195f60419089b15cedb1e90d15"
   end
 
   depends_on "autoconf" => :build
