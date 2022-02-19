@@ -6,11 +6,12 @@ class Pict < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6bb6e6db107a569972037aad09cc8c0c579b6ed53c812eb30c79d380673ca87"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "649b038bfe848fc40420a8bcb8c873dbaf61a5671fec09d6afd78e298b941321"
-    sha256 cellar: :any_skip_relocation, monterey:       "60e82b5a1d49f22b5bcfffe29b87ce3d6dbe92ca0582a833e81137b736e41a9e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "92e7326170e175b898a30a79f4524afda931e0be0b29e68638f1120ea1855df3"
-    sha256 cellar: :any_skip_relocation, catalina:       "f7f1b4d4385fed18927decfa5fc38c8b890edbe8abf7c851876cf174b3339a78"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "403ec2807ccae261d90907f5b94fd0bf830a4d177b806b8897bc5284f186b83e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c3370ed3f5f86086f6babbde9e3a4d5c57a436e3d2f7b6ceef5cad62f5e8610"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c20f971ae5a8ffaaadc73afbde0c76445abc8a05b58a36fd2b00d98ac28e088"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2f08584a5024865fdb0b31eef4e3c21cdfcda79e8fbb9730a1fe8432d1a51cde"
+    sha256 cellar: :any_skip_relocation, catalina:       "680c75c7dcfc952e3553957b58b1f9e132dba1f398cb2b3ed1f91d7df1d2fe82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbc58f036d00ae3d485030e8dc8f1d23e756f8982de86404d12a32c264f11e86"
   end
 
   fails_with gcc: "5"
