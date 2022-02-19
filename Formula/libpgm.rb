@@ -1,9 +1,10 @@
 class Libpgm < Formula
   desc "Implements the PGM reliable multicast protocol"
-  homepage "https://code.google.com/archive/p/openpgm/"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/openpgm/libpgm-5.2.122~dfsg.tar.gz"
-  version "5.2.122"
-  sha256 "e296f714d7057e3cdb87f4e29b1aecb3b201b9fcb60aa19ed4eec29524f08bd8"
+  homepage "https://github.com/steve-o/openpgm"
+  url "https://github.com/steve-o/openpgm/archive/release-5-3-128.tar.gz"
+  version "5.3.128"
+  sha256 "8d707ef8dda45f4a7bc91016d7f2fed6a418637185d76c7ab30b306499c6d393"
+  head "https://github.com/steve-o/openpgm.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -19,17 +20,17 @@ class Libpgm < Formula
     sha256 cellar: :any, yosemite:       "ae0d1d980f84677fcaa08b1d9f35f1c9d4858e4239598530b7485e9f248def73"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-    directory "openpgm/pgm"
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
-    cd "openpgm/pgm" do
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}"
+    workdir = build.stable? ? "openpgm/pgm" : "pgm"
+    cd workdir do
+      # Fix version number
+      cp "openpgm-5.2.pc.in", "openpgm-5.3.pc.in" if build.stable?
+      system "./bootstrap.sh"
+      system "./configure", *std_configure_args
       system "make", "install"
     end
   end
