@@ -29,6 +29,6 @@ class Nbsdgames < Formula
   end
 
   test do
-    assert_equal "2 <= size <= 7", shell_output("#{bin}/sudoku 1", 1).chomp
+    assert_equal "2 <= size <= 7", shell_output("#{bin}/sudoku -s 1", 1).chomp
   end
 end
