@@ -4,6 +4,8 @@ class CpuFeatures < Formula
   url "https://github.com/google/cpu_features/archive/v0.6.0.tar.gz"
   sha256 "95a1cf6f24948031df114798a97eea2a71143bd38a4d07d9a758dda3924c1932"
   license "Apache-2.0"
+  revision 1
+  head "https://github.com/google/cpu_features.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "e4cc8363ff01721edffa3c1c48fdefc2f50973468f130feb2c8a8635da723b7c"
@@ -17,8 +19,14 @@ class CpuFeatures < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # Install static lib too
+    system "cmake", "-S", ".", "-B", "build/static", *std_cmake_args
+    system "cmake", "--build", "build/static"
+    lib.install "build/static/libcpu_features.a"
   end
 
   test do
