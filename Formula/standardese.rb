@@ -10,12 +10,11 @@ class Standardese < Formula
   head "https://github.com/standardese/standardese.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "663a3efb5ce8cc1a65fb8c02367c645f50af660c1ac9ae55f3927bd800df2d24"
-    sha256 arm64_big_sur:  "521548ec3aeb1793584f40be44305171edb186cd5574803f647cc3cb8c52798c"
-    sha256 monterey:       "ddf33e6b5ce26f15659b2e6000f421a003d30cf38479190e3a930d76aa599b7e"
-    sha256 big_sur:        "8a78f106d9698053ba0893682ee1015571a8b045dd0bd67221a85e447096891b"
-    sha256 catalina:       "9bdb9f9b5ad83fd207747ca32fdefc6919decabfd72ca43064b8b4c2d0d0f73b"
-    sha256 mojave:         "5dcbae4f7f53a6cf2a654c04a0cdd407c4af89a0aada89fe69791f150d04c7f5"
+    sha256 arm64_monterey: "e1fe493b847108a48c5cb4e6e032845c7aed99b3edf48541a49058cd185ac297"
+    sha256 arm64_big_sur:  "f98cef4f60828772102b69e5ad5a42ed491e41ad34e6dd264504fa717e8ac318"
+    sha256 monterey:       "2eda251a6f304c9c65f645a0bbdd401d926a6c87bd53557c146880498a858054"
+    sha256 big_sur:        "c8b5a7fb67afdbc7513a47a6e675119cbbc6b7f8e7e0d8573c05feae3f222e2e"
+    sha256 catalina:       "2d943cbf611d175de619d386510c1577e1cdef483aa4c5b78f506b07263d82ea"
   end
 
   depends_on "cmake" => :build
