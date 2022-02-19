@@ -1,8 +1,8 @@
 class Duktape < Formula
   desc "Embeddable Javascript engine with compact footprint"
   homepage "https://duktape.org"
-  url "https://github.com/svaarala/duktape/releases/download/v2.6.0/duktape-2.6.0.tar.xz"
-  sha256 "96f4a05a6c84590e53b18c59bb776aaba80a205afbbd92b82be609ba7fe75fa7"
+  url "https://github.com/svaarala/duktape/releases/download/v2.7.0/duktape-2.7.0.tar.xz"
+  sha256 "90f8d2fa8b5567c6899830ddef2c03f3c27960b11aca222fa17aa7ac613c2890"
   license "MIT"
 
   livecheck do
@@ -22,7 +22,7 @@ class Duktape < Formula
   end
 
   def install
-    inreplace "Makefile.sharedlibrary", /INSTALL_PREFIX\s*=.*$/, "INSTALL_PREFIX = #{prefix}"
+    ENV["INSTALL_PREFIX"] = prefix
     system "make", "-f", "Makefile.sharedlibrary", "install"
     system "make", "-f", "Makefile.cmdline"
     bin.install "duk"
