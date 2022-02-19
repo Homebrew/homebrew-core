@@ -12,12 +12,12 @@ class Pdns < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "689b5b7873869c5cb3b1fac746552f7b77e2294b8a63b708b52bc04a3de0eee5"
-    sha256 arm64_big_sur:  "9bf2eab288fb7ffa0f9b625110a88b71249d513f0e7462814dbcfb619f762a71"
-    sha256 monterey:       "69c257f5b8da96ffd5cd8be410db4c4cab4121895c6add4aa18b0bdf2b4ca239"
-    sha256 big_sur:        "1348e019298751d9eff1e233ec3a4542a9aa075b290a466d31818458ee94d3b6"
-    sha256 catalina:       "88b5bd486cc787675be0dd85a99e4b0ff20ba6e0471d47317bacce3860759595"
-    sha256 x86_64_linux:   "a752a23dd132efb7b5ddf85175dd9cd71452a443dc7ebfb4140f919f0d8d059f"
+    sha256 arm64_monterey: "334db8dc8d54c6fbdcc468b38c65edaa10d4739625c92366704b729dc397fc38"
+    sha256 arm64_big_sur:  "db64572ebb4e56b58b66eed8de689e706e09b1eb52c9a75e0769fb52d45560a7"
+    sha256 monterey:       "156638102833357e96c24bd695cd652f650d19425f314123d7d3fc4317413310"
+    sha256 big_sur:        "1e6dcd422466787c2d294e3eccb0c007dc7c19c57fca0c26c14f373d7fd0c66b"
+    sha256 catalina:       "17470dcf7e06e20d8f0ae61ed32816b27e5e9e44d949aac472d523a0ceb0d6af"
+    sha256 x86_64_linux:   "fde20ea04ff5af88a89af9fb3d543d9d6dd77e0884b11c9bee55048e9b386a3c"
   end
 
   head do
