@@ -22,6 +22,8 @@ class Standardese < Formula
   depends_on "cmark-gfm"
   depends_on "llvm" # must be Homebrew LLVM, not system, because of `llvm-config`
 
+  fails_with gcc: "5" # LLVM is built with Homebrew GCC
+
   def install
     # Don't build shared libraries to avoid having to manually install and relocate
     # libstandardese, libtiny-process-library, and libcppast. These libraries belong
