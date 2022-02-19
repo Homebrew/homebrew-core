@@ -1,8 +1,8 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/v1.0.6.tar.gz"
-  sha256 "e8df48831f4d9ae8fe5dc7a8428660b4c87c4fb3bf8d1ae620e030af74269ffa"
+  url "https://github.com/Nukesor/pueue/archive/v2.0.0.tar.gz"
+  sha256 "6069cff79a31dfdfc97a03ce1ee1d7df94ae649b4703394000936724cf88cf44"
   license "MIT"
   head "https://github.com/Nukesor/pueue.git", branch: "master"
 
@@ -20,10 +20,14 @@ class Pueue < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    system "./build_completions.sh"
-    bash_completion.install "utils/completions/pueue.bash" => "pueue"
-    fish_completion.install "utils/completions/pueue.fish" => "pueue.fish"
-    zsh_completion.install "utils/completions/_pueue" => "_pueue"
+    mkdir "utils/completions" do
+      system "#{bin}/pueue", "completions", "bash", "."
+      bash_completion.install "pueue.bash" => "pueue"
+      system "#{bin}/pueue", "completions", "fish", "."
+      fish_completion.install "pueue.fish" => "pueue.fish"
+      system "#{bin}/pueue", "completions", "zsh", "."
+      zsh_completion.install "_pueue" => "_pueue"
+    end
 
     prefix.install_metafiles
   end
