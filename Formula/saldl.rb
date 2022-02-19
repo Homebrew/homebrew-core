@@ -18,27 +18,30 @@ class Saldl < Formula
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
   depends_on "curl" # curl >= 7.55 is required
   depends_on "libevent"
+
+  uses_from_macos "libxslt"
 
   def install
     ENV.refurbish_args
 
     # a2x/asciidoc needs this to build the man page successfully
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     args = ["--prefix=#{prefix}"]
 
     # head uses git describe to acquire a version
     args << "--saldl-version=v#{version}" unless build.head?
 
-    system "./waf", "configure", *args
-    system "./waf", "build"
-    system "./waf", "install"
+    system "python3", "./waf", "configure", *args
+    system "python3", "./waf", "build"
+    system "python3", "./waf", "install"
   end
 
   test do
-    system "#{bin}/saldl", "https://brew.sh/index.html"
+    system bin/"saldl", "https://brew.sh/index.html"
     assert_predicate testpath/"index.html", :exist?
   end
 end
