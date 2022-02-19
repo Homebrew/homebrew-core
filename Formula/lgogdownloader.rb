@@ -12,11 +12,11 @@ class Lgogdownloader < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "7db73c105d2b409c8cbbbd8565783238265ce8395c2bdba7ae73cb3544aca399"
-    sha256 cellar: :any, arm64_big_sur:  "06c491c1378854a709d616ff3ecf337a3aece6be79053ffc260878a9e9060b5a"
-    sha256 cellar: :any, monterey:       "723f700220a6a02569f8059f2821f23fa8f765c3f381494bf90d8680bde25cfe"
-    sha256 cellar: :any, big_sur:        "7d3584594771dc3041df0ebcbfff164d01e806373e5e60d62aeb5cbf57b8a037"
-    sha256 cellar: :any, catalina:       "2e05ee62dc093de7bc144429db2bbcdb98f00497759af349b1e4b28e80ff5221"
+    sha256 cellar: :any, arm64_monterey: "608cdf54c36258a9767484b0b4b438ca4a2ba6faf89b16b5cb0cd7160e00d0a5"
+    sha256 cellar: :any, arm64_big_sur:  "8879639d2a294cbd65336ad479510d2f158099d3832460bbb4435841eeed8d51"
+    sha256 cellar: :any, monterey:       "4f26ab65e771664b7511ed551fd2ca835900bf6cd385693629203c3fd07c0382"
+    sha256 cellar: :any, big_sur:        "b529aea5b1beb3a6367bfc61b20ad22ccf6aec8377bfea8e02b987f0801ee852"
+    sha256 cellar: :any, catalina:       "3129fbdeb795eca7cd7a176dd9b2db7d1eb28cec1f346c06ed3b79ff887f8475"
   end
 
   depends_on "cmake" => :build
