@@ -101,7 +101,7 @@ class V2ray < Formula
         }
       }
     EOS
-    output = shell_output "#{bin}/v2ray -c #{testpath}/config.json -test"
+    output = shell_output "#{bin}/v2ray test -c #{testpath}/config.json"
 
     assert_match "Configuration OK", output
     assert_predicate testpath/"log", :exist?
