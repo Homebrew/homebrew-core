@@ -25,14 +25,12 @@ class Blockhash < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_bin
-
-    system "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
     # pkg-config adds -fopenmp flag during configuring
     # This fails the build on system clang, and OpenMP is not used in blockhash
     inreplace "build/c4che/_cache.py", "-fopenmp", ""
-    system "./waf"
-    system "./waf", "install"
+    system "python3", "./waf"
+    system "python3", "./waf", "install"
   end
 
   test do
