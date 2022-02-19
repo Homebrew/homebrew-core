@@ -7,6 +7,11 @@ class Skaffold < Formula
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a7483c78a9adbacd146d8cc962c6252fcb950a30b69ef118cb6a3a61a2c1ec4b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4edc59e15b3ff5caffe62e9777ff3408df4b603fb99723a0a971802fbb43fa46"
