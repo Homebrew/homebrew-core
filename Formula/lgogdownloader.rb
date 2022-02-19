@@ -30,6 +30,8 @@ class Lgogdownloader < Formula
   depends_on "rhash"
   depends_on "tinyxml2"
 
+  uses_from_macos "curl"
+
   def install
     system "cmake", ".", *std_cmake_args, "-DJSONCPP_INCLUDE_DIR=#{Formula["jsoncpp"].opt_include}"
 
