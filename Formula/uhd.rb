@@ -29,6 +29,12 @@ class Uhd < Formula
   depends_on "libusb"
   depends_on "python@3.9"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz"
     sha256 "4e9e345a41924a954251b95b4b28e14a301145b544901332e658907a7464b6b2"
