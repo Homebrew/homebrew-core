@@ -1,9 +1,20 @@
 class Libpgm < Formula
   desc "Implements the PGM reliable multicast protocol"
-  homepage "https://code.google.com/archive/p/openpgm/"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/openpgm/libpgm-5.2.122~dfsg.tar.gz"
-  version "5.2.122"
-  sha256 "e296f714d7057e3cdb87f4e29b1aecb3b201b9fcb60aa19ed4eec29524f08bd8"
+  homepage "https://github.com/steve-o/openpgm"
+  license "LGPL-2.1-or-later"
+  head "https://github.com/steve-o/openpgm.git", branch: "master"
+
+  stable do
+    url "https://github.com/steve-o/openpgm/archive/release-5-3-128.tar.gz"
+    version "5.3.128"
+    sha256 "8d707ef8dda45f4a7bc91016d7f2fed6a418637185d76c7ab30b306499c6d393"
+
+    # Fix build on ARM. Remove in the next release along with stable block
+    patch do
+      url "https://github.com/steve-o/openpgm/commit/8d507fc0af472762f95da44036fb77662ff4cd2a.patch?full_index=1"
+      sha256 "070c3b52fd29f6c594bb6728a960bc19e4ea7d00b2c7eac51e33433e07d775b3"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -19,18 +30,34 @@ class Libpgm < Formula
     sha256 cellar: :any, yosemite:       "ae0d1d980f84677fcaa08b1d9f35f1c9d4858e4239598530b7485e9f248def73"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-    directory "openpgm/pgm"
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
-    cd "openpgm/pgm" do
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}"
+    workdir = build.stable? ? "openpgm/pgm" : "pgm"
+    cd workdir do
+      # Fix version number
+      cp "openpgm-5.2.pc.in", "openpgm-5.3.pc.in" if build.stable?
+      system "./bootstrap.sh"
+      system "./configure", *std_configure_args
       system "make", "install"
     end
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <pgm/pgm.h>
+
+      int main(void) {
+        pgm_error_t* pgm_err = NULL;
+        if (!pgm_init (&pgm_err)) {
+          return 1;
+        }
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}/pgm-5.3", "-L#{lib}", "-lpgm", "-o", "test"
+    system "./test"
   end
 end
