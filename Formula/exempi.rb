@@ -3,6 +3,7 @@ class Exempi < Formula
   homepage "https://wiki.freedesktop.org/libopenraw/Exempi/"
   url "https://libopenraw.freedesktop.org/download/exempi-2.6.1.tar.bz2"
   sha256 "072451ac1e0dc97ed69a2e5bfc235fd94fe093d837f65584d0e3581af5db18cd"
+  license "BSD-3-Clause"
 
   livecheck do
     url "https://libopenraw.freedesktop.org/exempi/"
