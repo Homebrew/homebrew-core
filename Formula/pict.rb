@@ -27,8 +27,11 @@ class Pict < Formula
 
   test do
     resource("testfile").stage testpath
-    output = shell_output("#{bin}/pict pict.txt").split("\n")
-    assert_equal output[0], "LANGUAGES\tCURRIENCIES"
-    assert_equal output[4], "en_US\tGBP"
+    output = shell_output("#{bin}/pict pict.txt")
+    assert_equal output.split("\n")[0], "LANGUAGES\tCURRIENCIES"
+    assert_match "en_US\tGBP", output
+    assert_match "en_US\tUSD", output
+    assert_match "en_UK\tGBP", output
+    assert_match "en_UK\tUSD", output
   end
 end
