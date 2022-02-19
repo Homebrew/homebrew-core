@@ -1,8 +1,8 @@
 class Cppp < Formula
   desc "Partial Preprocessor for C"
   homepage "https://www.muppetlabs.com/~breadbox/software/cppp.html"
-  url "https://www.muppetlabs.com/~breadbox/pub/software/cppp-2.7.tar.gz"
-  sha256 "15b3283f1f98d730840c1973d2109d9edbeba43736d5b9c32c34b559c4d10ac3"
+  url "https://www.muppetlabs.com/~breadbox/pub/software/cppp-2.8.tar.gz"
+  sha256 "a369cec68cbc3b9ad595ee83c130ae7ce7d5f74479387755c22a4a5ff7387ff5"
   license "GPL-2.0-or-later"
 
   livecheck do
