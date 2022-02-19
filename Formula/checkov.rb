@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/47/e0/dfb42ca920d8d9cbb0480c2a595a3308d4285f4e38f40fdf00d925d6cee3/checkov-2.0.855.tar.gz"
-  sha256 "20bfbc3829a7b4eb594c8e8420684dd4fd8a2412957c9f18c762f56b1d0238db"
+  url "https://files.pythonhosted.org/packages/ae/03/9eacca80ca525e7d7fa4ba20681a17cc337c6a77626819b47a74bf3fe3dd/checkov-2.0.870.tar.gz"
+  sha256 "24d63c2b4dbbd35dac5de873d0632a68a0a99be012a9911e4c17fb0233a57925"
   license "Apache-2.0"
 
   bottle do
@@ -57,8 +57,8 @@ class Checkov < Formula
   end
 
   resource "bc-python-hcl2" do
-    url "https://files.pythonhosted.org/packages/3d/9e/160b5898ed2949cb4d4e69c75ccb93b941e3d433f9da731a29bb2c6da600/bc-python-hcl2-0.3.28.tar.gz"
-    sha256 "74e4b21d329b6bd9396617d075b835e5c0cb2ecdbd951fee631886de81f69c80"
+    url "https://files.pythonhosted.org/packages/7a/51/f3f79b82f55d28a7acddef89838182cae5704df364d5c26e4dc598675f93/bc-python-hcl2-0.3.30.tar.gz"
+    sha256 "c1f71320f29b30f6bbc695f3905b719f11b66511734f0df910fedfe33c07c5cb"
   end
 
   resource "beautifulsoup4" do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/43/3f/a101f08cc93930b03ac06baf0d5f1b7c7ab0cdd76127bbb37e8dc9b7fe72/boto3-1.21.0.tar.gz"
-    sha256 "cc40566dec3f48611a82ace07b29489848e9bd35a51e3e992d1902a3c037e9fc"
+    url "https://files.pythonhosted.org/packages/b3/41/bf307ce8c5c0d75fe53d09adb20918bbc5561a0623f5e0c60e443fab38be/boto3-1.21.3.tar.gz"
+    sha256 "aa00024cc1f3d24b2318dae4d5dbaa173c8da8bc6f9d12f0b2e67467ec460989"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/02/8c/f3f6ce40815587d03996d956fd9b2de16b16e430e4bfe0bc9bf37e917453/botocore-1.24.0.tar.gz"
-    sha256 "47723cef6112f451630bf2446cfd6be2782cc1d6b1b92acb12ff00797588c5f3"
+    url "https://files.pythonhosted.org/packages/36/ae/e2a16367140d66a5b45df2f831da20dcb2cb8824e0e334554294647a2ac0/botocore-1.24.3.tar.gz"
+    sha256 "979e5c5e826ff115f4903fe9887b191f3809229f694a747f910e1221fe63efc7"
   end
 
   resource "cached-property" do
@@ -102,8 +102,8 @@ class Checkov < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
-    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
+    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
+    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
   end
 
   resource "click-option-group" do
@@ -147,8 +147,8 @@ class Checkov < Formula
   end
 
   resource "detect-secrets" do
-    url "https://files.pythonhosted.org/packages/fc/79/c5d0c23c552934ba6305a30817652b4c17686cc20d9bd4f762480199b1fb/detect_secrets-1.1.0.tar.gz"
-    sha256 "68250b31bc108f665f05f0ecfb34f92423280e48e65adbb887fdf721ed909627"
+    url "https://files.pythonhosted.org/packages/cd/b6/08bc0bf3cf2cf0d7b08442d4d2bcf2d94144db7e22f0d4aa5621789c0e15/detect_secrets-1.2.0.tar.gz"
+    sha256 "c160e897b3d0e81bf9cf0f6cc2e5e6434fa609a159f9a2849fcae0a08b4e2a30"
   end
 
   resource "docker" do
@@ -222,8 +222,8 @@ class Checkov < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
-    sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
+    url "https://files.pythonhosted.org/packages/62/0f/52c009332fdadd484e898dc8f2acca0663c1031b3517070fd34ad9c1b64e/MarkupSafe-2.1.0.tar.gz"
+    sha256 "80beaf63ddfbc64a0452b841d8036ca0611e049650e20afcb882f5d3c266d65f"
   end
 
   resource "multidict" do
@@ -262,8 +262,8 @@ class Checkov < Formula
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/01/55/a4a1a0f73f7665744cd5712fd6f982e5406c8e7459a0730a69299a3c1e2b/prettytable-3.1.0.tar.gz"
-    sha256 "7c2e104031614b5ba013516440241702bfaa369534069de3bacca015ffd0f27b"
+    url "https://files.pythonhosted.org/packages/89/c1/3043e85bf06f252f51817dad51a37368daaf7b1c101b43cd5aa6100f09b1/prettytable-3.1.1.tar.gz"
+    sha256 "43c9e23272ca253d038ae76fe3adde89794e92e7fcab2ddf5b94b38642ef4f21"
   end
 
   resource "pycares" do
