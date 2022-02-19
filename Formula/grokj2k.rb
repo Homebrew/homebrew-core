@@ -29,8 +29,16 @@ class Grokj2k < Formula
   depends_on "little-cms2"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_DOC=ON"
-    system "make", "install"
+    # Ensure we use Homebrew little-cms2
+    inreplace "thirdparty/CMakeLists.txt" do |s|
+      s.gsub! "add_subdirectory(liblcms2)", ""
+      s.gsub! %r{(set\(LCMS_INCLUDE_DIRNAME) \$\{GROK_SOURCE_DIR\}/thirdparty/liblcms2/include},
+              "\\1 #{Formula["little-cms2"].opt_include}"
+    end
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_DOC=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     include.install_symlink "grok-#{version.major_minor}" => "grok"
   end
 
