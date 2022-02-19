@@ -17,6 +17,7 @@ class ColladaDom < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "pcre"
+  uses_from_macos "libxml2"
 
   def install
     system "cmake", ".", *std_cmake_args
