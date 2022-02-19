@@ -22,7 +22,7 @@ class Duktape < Formula
   end
 
   def install
-    inreplace "Makefile.sharedlibrary", /INSTALL_PREFIX\s*=.*$/, "INSTALL_PREFIX = #{prefix}"
+    ENV["INSTALL_PREFIX"] = prefix
     system "make", "-f", "Makefile.sharedlibrary", "install"
     system "make", "-f", "Makefile.cmdline"
     bin.install "duk"
