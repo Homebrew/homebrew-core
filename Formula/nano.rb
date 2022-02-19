@@ -11,12 +11,12 @@ class Nano < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "9be4185befd0667d6f0eeb7e4ceb6f939f5c75bcfdcdeb6cb2a96257c0531ff1"
-    sha256 arm64_big_sur:  "1e13818fb344b86e0a77c715e42f1c6ddea8ee70235b191054c2a64cd2359f47"
-    sha256 monterey:       "306f9a86f78dac8d3650c9576d0752ac8de6eefc43f2164e265d0f335e51f122"
-    sha256 big_sur:        "e3989960984cb26656c493dc9444b58b4785354214de294e83bc944dd05da736"
-    sha256 catalina:       "eb71bdb96fd7bc39a00be9263b63d04114a6d939281d2a55bcd18736b83b220a"
-    sha256 x86_64_linux:   "0f4bb9643dd542f6ac784917589b004f4e75eca55f1c4ea3a0366f03956d12aa"
+    sha256 arm64_monterey: "5b3590d6a17c81459809cdc2943a56bb779b97d703fa592d5236eff789fd9103"
+    sha256 arm64_big_sur:  "82226cbe2b0b909aa6c33d1abbb8a2562df36029058012d7dc54779e10dec336"
+    sha256 monterey:       "1156f0aaaf6dd4952ca5238987de4f78b2030f5eddfd5895b07ca340799db3db"
+    sha256 big_sur:        "1f82dc14c291e0cdce4040268f2a12759be3e506a880e11894ef1d0b7d662549"
+    sha256 catalina:       "d35a6aa34fe8d1e7864028d96243c18ef900f37cf0241952058b0ffe6d746dec"
+    sha256 x86_64_linux:   "858c7ccf4e05e4f726c71ba6cfdd76d8055a94920ec84d47262c0bbddaf7fd66"
   end
 
   depends_on "pkg-config" => :build
