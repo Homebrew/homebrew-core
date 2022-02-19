@@ -5,6 +5,15 @@ class BoostAT176 < Formula
   sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
   license "BSL-1.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "66c3280102fef504a4745988edce253576591420244417926df42dee23328384"
+    sha256 cellar: :any,                 arm64_big_sur:  "912ed05cdd06011e8bb53b017e9d04a45fc26fc0c335b9a88dfbfbc157ec2310"
+    sha256 cellar: :any,                 monterey:       "3c332adb7b16e9f306e75f6395fa868d36575c92538f19b0b9be6e07c5ae2447"
+    sha256 cellar: :any,                 big_sur:        "b54acddcd7d3520774abe9099446aa7f111a0a4f2b30390be7482b06b428e4e8"
+    sha256 cellar: :any,                 catalina:       "bb8fe7a9e6337c3173890ab85867df3b2cb945eae79b388a86f1b67ee022e9c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fecb70b60d27b3c5e6110e8dde21b2937bdf92ddbb6b8741cf05c4b6f6716021"
+  end
+
   keg_only :versioned_formula
 
   depends_on "icu4c"
