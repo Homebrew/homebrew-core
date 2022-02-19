@@ -46,11 +46,6 @@ class V2ray < Formula
     system "go", "build", *std_go_args, "-o", execpath,
                  "-ldflags", ldflags,
                  "./main"
-    system "go", "build", *std_go_args,
-                 "-ldflags", ldflags,
-                 "-tags", "confonly",
-                 "-o", bin/"v2ctl",
-                 "./infra/control/main"
     (bin/"v2ray").write_env_script execpath,
       V2RAY_LOCATION_ASSET: "${V2RAY_LOCATION_ASSET:-#{pkgshare}}"
 
