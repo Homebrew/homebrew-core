@@ -190,8 +190,6 @@ class Mariadb < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
-<<<<<<< HEAD
-=======
 
 __END__
 diff --git a/client/mysql.cc b/client/mysql.cc
@@ -216,4 +214,3 @@ index 37f506a99cd..6bfbfd87b95 100644
    rl_add_defun("magic-space", (Function*)&fake_magic_space, -1);
  #else
    rl_attempted_completion_function= (CPPFunction*)&new_mysql_completion;
->>>>>>> 8f3661b2e7b (mariadb 10.7.3)
