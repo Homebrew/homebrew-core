@@ -1,8 +1,8 @@
 class Svgbob < Formula
   desc "Convert your ascii diagram scribbles into happy little SVG"
   homepage "https://ivanceras.github.io/svgbob-editor/"
-  url "https://github.com/ivanceras/svgbob/archive/0.6.4.tar.gz"
-  sha256 "b609542317ddd7adac69b038cca7478849ee0012a3fa18caa8fae2748918c051"
+  url "https://github.com/ivanceras/svgbob/archive/0.6.5.tar.gz"
+  sha256 "afbf44bc536d34b974536b2d10059400a1e8e055d30e019520a2322a13a77c28"
   license "Apache-2.0"
   head "https://github.com/ivanceras/svgbob.git", branch: "master"
 
@@ -18,7 +18,7 @@ class Svgbob < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "packages/cli")
+    system "cargo", "install", *std_cargo_args(path: "packages/svgbob_cli")
     # The cli tool was renamed (0.6.2 -> 0.6.3)
     # Create a symlink to not break compatibility
     bin.install_symlink bin/"svgbob_cli" => "svgbob"
