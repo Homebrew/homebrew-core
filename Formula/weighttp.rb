@@ -19,16 +19,22 @@ class Weighttp < Formula
     sha256 cellar: :any, yosemite:       "e83c9f99b524b57ba31571dc673ab6d2d2a5e38a5374ce45130f11a51c063662"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "libev"
 
   def install
-    system "./waf", "configure"
-    system "./waf", "build"
-    bin.install "build/default/weighttp"
+    system "autoupdate"
+    system "./autogen.sh"
+    system "./configure", *std_configure_args
+    system "make"
+    system "make", "install"
   end
 
   test do
     # Stick with HTTP to avoid 'error: no ssl support yet'
-    system "#{bin}/weighttp", "-n", "1", "http://redmine.lighttpd.net/projects/weighttp/wiki"
+    system bin/"weighttp", "-n", "1", "http://redmine.lighttpd.net/projects/weighttp/wiki"
   end
 end
