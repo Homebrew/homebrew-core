@@ -13,12 +13,11 @@ class OsrmBackend < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "f858c74b178e7d35752ca0ae3a61772421ea04ccff1041d27ee05433184b12d2"
-    sha256 cellar: :any, arm64_big_sur:  "a5247545b04b669711587d73ce192211669e4af288c5bce14923413936d285bf"
-    sha256 cellar: :any, monterey:       "c93ccda074ddfe27d18e17ef25aae4d5956dbab10eb45f4e1ac6ffb4ab9b3d03"
-    sha256 cellar: :any, big_sur:        "8aa632bde01a2f6566bbb006876a8d50af00bea45956e17ae0ddc87dd2278294"
-    sha256 cellar: :any, catalina:       "7caf6151936c3279afdf5c4e4b3bd5a81dbad1c33266a8fe80d3dbbeae5f7f79"
-    sha256 cellar: :any, mojave:         "e0b2e44267afd48717484ffc86fdee8096ec27020dcd2be0e2735b3cb2aef468"
+    sha256 cellar: :any, arm64_monterey: "4a88710e2228747584c05029032b01ec71634bc470487c3da79d8e374fe12ffa"
+    sha256 cellar: :any, arm64_big_sur:  "273e540157c193740db4b9490bd4da38261b8479ff9b40431545d72c5507696e"
+    sha256 cellar: :any, monterey:       "d74e62b2ffba6f19c1995da7548881c71b054693763a620488d510b8b0dfeb9d"
+    sha256 cellar: :any, big_sur:        "170a08f79eafd445d62ccf687bbdee628380c3b836739bf8fc0b7fcb8d5e3bb7"
+    sha256 cellar: :any, catalina:       "71573db82a0f2c535e3a391c112ed29d6002b1f26f9bc9835be004dd99735079"
   end
 
   depends_on "cmake" => :build
