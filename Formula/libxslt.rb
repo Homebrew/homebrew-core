@@ -2,29 +2,23 @@ class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
   license "X11"
-  revision 3
 
   stable do
-    url "http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz"
-    sha256 "98b1bd46d6792925ad2dfe9a87452ea2adebf69dcb9919ffd55bf926a7f93f7f"
+    url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.35.tar.xz"
+    sha256 "8247f33e9a872c6ac859aa45018bc4c4d00b97e2feac9eebc10c93ce1f34dd79"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
-
-    # Fix configure script for libxml2
-    # Remove in the next release
-    # Generated from the following commit:
-    # https://gitlab.gnome.org/GNOME/libxslt/-/commit/90c34c8bb90e095a8a8fe8b2ce368bd9ff1837cc
-    # We're not using the above patch to avoid having to regenerate `configure`.
-    patch :DATA
   end
 
+  # We use a common regex because libxslt doesn't use GNOME's "even-numbered
+  # minor is stable" version scheme.
   livecheck do
-    url "http://xmlsoft.org/sources/"
-    regex(/href=.*?libxslt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/libxslt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
@@ -87,18 +81,3 @@ class Libxslt < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index c63adc5..6061227 100755
---- a/configure
-+++ b/configure
-@@ -14860,7 +14860,7 @@ PKG_CONFIG=$_save_PKG_CONFIG
- fi
- 
- 
--if test "x$LIBXML_LIBS" = "x" && ${XML_CONFIG} --libs print > /dev/null 2>&1
-+if test "x$LIBXML_LIBS" = "x" && ${XML_CONFIG} --libs > /dev/null 2>&1
- then
-     { $as_echo "$as_me:${as_lineno-$LINENO}: checking for libxml libraries >= $LIBXML_REQUIRED_VERSION" >&5
- $as_echo_n "checking for libxml libraries >= $LIBXML_REQUIRED_VERSION... " >&6; }
