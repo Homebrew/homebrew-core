@@ -19,7 +19,7 @@ class Aerc < Formula
   depends_on "scdoc" => :build
 
   def install
-    system "make", "SHAREDIR=#{opt_pkgshare}", "PREFIX=#{prefix}"
+    system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
