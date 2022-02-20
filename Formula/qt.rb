@@ -109,6 +109,13 @@ class Qt < Formula
     directory "qtbase"
   end
 
+  # Patch for https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25255
+  patch do
+    url "https://download.qt.io/official_releases/qt/6.2/CVE-2022-25255-qprocess6-2.diff"
+    sha256 "62068c168dd1fde7fa7b0b574fcb692ca0c20e44165fa2aafae586ca199b9f00"
+    directory "io"
+  end
+
   def install
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/BUILD.gn",
