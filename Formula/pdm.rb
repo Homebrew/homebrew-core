@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/c3/f2/958b1127730f0291965ebac0d1f3811de8bed7d13f61c409fd805dafc4c3/pdm-1.13.1.tar.gz"
-  sha256 "9ae60cfc5f0ea6358e1076b6c648acbb9461d6aebfa36a21b897ae63bec82445"
+  url "https://files.pythonhosted.org/packages/78/2b/e8c84ddd43cb0fb350ee36f1cb11efdc0fa46c0e6537be379ed6d2287c1a/pdm-1.13.2.tar.gz"
+  sha256 "4d6c33a5f1053c91bcc7a6b494108602d3727bb5120889a897fcd1fb7b779033"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -36,8 +36,8 @@ class Pdm < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
-    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
+    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
+    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
   end
 
   resource "installer" do
@@ -61,8 +61,8 @@ class Pdm < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/47/73/046da71a75870bbcc0469e2ea71b56ffc865e2b4b39337754e8fdb516028/platformdirs-2.5.0.tar.gz"
-    sha256 "8ec11dfba28ecc0715eb5fb0147a87b1bf325f349f3da9aab2cd6b50b96b692b"
+    url "https://files.pythonhosted.org/packages/33/66/61da40aa546141b0d70b37fe6bb4ef1200b4b4cb98849f131b58faa9a5d2/platformdirs-2.5.1.tar.gz"
+    sha256 "7535e70dfa32e84d4b34996ea99c5e432fa29a708d0f4e394bbcb2a8faa4f16d"
   end
 
   resource "pyparsing" do
@@ -76,8 +76,8 @@ class Pdm < Formula
   end
 
   resource "pythonfinder" do
-    url "https://files.pythonhosted.org/packages/e5/47/86274134782f8a3aec25a5d27d12243ed5f21e788f0bc3cab597ec170000/pythonfinder-1.2.9.tar.gz"
-    sha256 "1a7f756c7f1b47558c9287bce87298c33760ded4552f06b82c28f3f0eee7b91f"
+    url "https://files.pythonhosted.org/packages/f9/25/958288d4748436b63622e41ef875ef84702488cdcbbce16849bc3e139d40/pythonfinder-1.2.10.tar.gz"
+    sha256 "ce2a1c2b313d605788173caf68d074f80c00b067364bc57047e68735bc9037d0"
   end
 
   resource "resolvelib" do
