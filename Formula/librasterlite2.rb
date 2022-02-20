@@ -4,6 +4,7 @@ class Librasterlite2 < Formula
   url "https://www.gaia-gis.it/gaia-sins/librasterlite2-sources/librasterlite2-1.1.0-beta1.tar.gz"
   sha256 "f7284cdfc07ad343a314e4878df0300874b0145d9d331b063b096b482e7e44f4"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "954d42bad006a1564d10ef4dab4f01309b561019309d8c1240a57785fa49b56f"
@@ -31,7 +32,7 @@ class Librasterlite2 < Formula
   depends_on "minizip"
   depends_on "openjpeg"
   depends_on "pixman"
-  depends_on "proj@7"
+  depends_on "proj"
   depends_on "sqlite"
   depends_on "webp"
   depends_on "xz"
