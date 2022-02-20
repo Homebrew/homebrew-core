@@ -29,6 +29,7 @@ class LinkGrammar < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
 
+  uses_from_macos "flex" => :build
   uses_from_macos "sqlite"
 
   def install
