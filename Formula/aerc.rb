@@ -1,10 +1,9 @@
 class Aerc < Formula
   desc "Email client that runs in your terminal"
   homepage "https://aerc-mail.org/"
-  url "https://git.sr.ht/~rjarry/aerc/archive/0.7.1.tar.gz"
-  sha256 "e149236623c103c8526b1f872b4e630e67f15be98ac604c0ea0186054dbef0cc"
+  url "https://git.sr.ht/~rjarry/aerc/archive/0.8.1.tar.gz"
+  sha256 "5bea713b211dcd85599c697a0f6563e07e2c04fd1443416545eea0a9a83a4f8d"
   license "MIT"
-  revision 1
   head "https://git.sr.ht/~rjarry/aerc", branch: "master"
 
   bottle do
@@ -20,7 +19,7 @@ class Aerc < Formula
   depends_on "scdoc" => :build
 
   def install
-    system "make", "SHAREDIR=#{opt_pkgshare}", "PREFIX=#{prefix}"
+    system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
