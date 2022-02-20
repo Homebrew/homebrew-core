@@ -5,7 +5,7 @@ class Auditbeat < Formula
       tag:      "v8.0.0",
       revision: "2ab3a7334016f570e0bfc7e9a577a35a22e02df5"
   license "Apache-2.0"
-  head "https://github.com/elastic/beats.git", branch: "master"
+  head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "23d0e93cfd2858fcf1ead2665e70442f3cbdbdf3ca4305ab542699b94279896c"
