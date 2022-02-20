@@ -8,12 +8,10 @@ class CpuFeatures < Formula
   head "https://github.com/google/cpu_features.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "e4cc8363ff01721edffa3c1c48fdefc2f50973468f130feb2c8a8635da723b7c"
-    sha256 cellar: :any_skip_relocation, big_sur:      "f6bebf333094fed54f5a96c9dc96280f7a2ca6c7b075cbed9c77a9214fafd8c4"
-    sha256 cellar: :any_skip_relocation, catalina:     "ba67bb2d2166f43b17aba3fb4f8306b577e17779e8a8facea32a16451c7b369d"
-    sha256 cellar: :any_skip_relocation, mojave:       "9f7d3b134c25934208808a47a8c8ecde61d8a7c3d429246ce807d9183930bd66"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "057d70560cecfd8863543a562ddb0ec64147ac3ce6292adedf0bc28c74a92349"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "eba6a3614e0c50480292250b36dfce454e572696b73eb6a6be476fb637688101"
+    sha256 cellar: :any,                 monterey:     "43bd36cdcfd069f70a6aeed0b69d9d1bd530a9da640c3a76555bc6208a0c5ffa"
+    sha256 cellar: :any,                 big_sur:      "c3364cf6afd756eb5fd6faf3b6dfd84daf2dd6884375e69d03f09d8a1de30448"
+    sha256 cellar: :any,                 catalina:     "235e33e78650bccb4441c00c0244a72f40b1e63ef6c6c86e3a34c9d0aadd2e79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a5c78ef0f40b9357bd23610159a17f37db77d8934c7b23cdf773462aea790492"
   end
 
   depends_on "cmake" => :build
