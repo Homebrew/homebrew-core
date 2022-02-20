@@ -1,6 +1,6 @@
 class Libming < Formula
   desc "C library for generating Macromedia Flash files"
-  homepage "http://www.libming.org"
+  homepage "https://github.com/libming/libming"
   url "https://github.com/libming/libming/archive/ming-0_4_8.tar.gz"
   sha256 "2a44cc8b7f6506adaa990027397b6e0f60ba0e3c1fe8c9514be5eb8e22b2375c"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
@@ -19,19 +19,18 @@ class Libming < Formula
   depends_on "freetype"
   depends_on "giflib"
   depends_on "libpng"
-  depends_on :macos # Due to Python 2
   depends_on "perl"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   def install
+    ENV.deparallelize if OS.linux?
     system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--enable-perl",
-                          "--enable-python"
+                          "--enable-perl"
     system "make", "DEBUG=", "install"
   end
 
