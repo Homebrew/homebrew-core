@@ -1,8 +1,8 @@
 class GstPluginsUgly < Formula
   desc "Library for constructing graphs of media-handling components"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.18.5.tar.xz"
-  sha256 "df32803e98f8a9979373fa2ca7e05e62f977b1097576d3a80619d9f5c69f66d9"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.20.0.tar.xz"
+  sha256 "4e8dcb5d26552f0a4937f6bc6279bd9070f55ca6ae0eaa32d72d264c44001c2e"
   license "LGPL-2.0-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-ugly.git", branch: "master"
 
@@ -27,7 +27,6 @@ class GstPluginsUgly < Formula
   depends_on "gettext"
   depends_on "gst-plugins-base"
   depends_on "jpeg"
-  depends_on "libmms"
   depends_on "libshout"
   depends_on "libvorbis"
   depends_on "pango"
@@ -35,7 +34,9 @@ class GstPluginsUgly < Formula
   depends_on "x264"
 
   def install
+    # Plugins with GPL-licensed dependencies: x264
     args = std_meson_args + %w[
+      -Dgpl=enabled
       -Damrnb=disabled
       -Damrwbdec=disabled
     ]
