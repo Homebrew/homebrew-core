@@ -10,12 +10,12 @@ class DuoUnix < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "1457a1359599d6cb19c628162b4d88557ce9b12a772d56847ee224415f9c680a"
-    sha256 arm64_big_sur:  "64eb033ebb55d7967cbec701c231788d9d4068e24b5b5d8e9738560dfb84690a"
-    sha256 monterey:       "afe4984d8ac5b0523e115d9be26d7ac7db427988ab5b984b9a71612caa9244e2"
-    sha256 big_sur:        "bd7b8e00a0429f7126cc1073afec7b5e40d4cf48a55ee1a15fac4fa1bf56eb47"
-    sha256 catalina:       "e55e0de7ff5fe08d58f7a8dca4239d5b0d2ce9fa65202fb490bbdc5e6325851e"
-    sha256 x86_64_linux:   "bfe161f3e7b59719cc300ac792dcf4dd3a75d2952669d918ede56c27d2c00828"
+    sha256 arm64_monterey: "d0a13ed5c65f4f57bde81d5145ade4c2940136462b5a0b4f3f43dced52966290"
+    sha256 arm64_big_sur:  "4b7eebf362ed0e9bd22ee9137d1b0effeda2e1cd21d9bdceedd71e7ee99bd0c9"
+    sha256 monterey:       "e4748bebacc4747803d83ab1805390e629600f5ad8afb68cb8a57d7f0b20c30b"
+    sha256 big_sur:        "919d2ef949347b5f4343c8c9cedfa7a9bce062c6c849e22220eef6ba276d4e28"
+    sha256 catalina:       "172d63fa9e99f36b6f407f5b8cec6b6e8e410588740cbdfd6e45c20837b4fee9"
+    sha256 x86_64_linux:   "18b8c94c610e131d0d1036bdc7f44380e2405c1e0aa3648cae9fc19b4a0126ab"
   end
 
   depends_on "autoconf" => :build
