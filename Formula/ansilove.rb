@@ -1,8 +1,8 @@
 class Ansilove < Formula
   desc "ANSI/ASCII art to PNG converter"
   homepage "https://www.ansilove.org"
-  url "https://github.com/ansilove/ansilove/releases/download/4.1.5/ansilove-4.1.5.tar.gz"
-  sha256 "dcc6e82fab1587a0f556ee64a6cda9c91dcaaa37306cccc4a4d25f7c96b04d19"
+  url "https://github.com/ansilove/ansilove/releases/download/4.1.6/ansilove-4.1.6.tar.gz"
+  sha256 "acc3d6431cdb53e275e5ddfc71de5f27df2f2c5ecc46dc8bb62be9e6f15a1cd0"
   license "BSD-2-Clause"
 
   bottle do
@@ -19,8 +19,8 @@ class Ansilove < Formula
   depends_on "gd"
 
   resource "libansilove" do
-    url "https://github.com/ansilove/libansilove/releases/download/1.2.8/libansilove-1.2.8.tar.gz"
-    sha256 "ef02eda605e3b38edbeac5874f2de22201db123cb7aab9228fd05cb288d0c0bc"
+    url "https://github.com/ansilove/libansilove/releases/download/1.2.9/libansilove-1.2.9.tar.gz"
+    sha256 "88057f7753bf316f9a09ed15721b9f867ad9f5654c0b49af794d8d98b9020a66"
   end
 
   def install
@@ -30,7 +30,7 @@ class Ansilove < Formula
       system "cmake", "--install", "build"
     end
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
