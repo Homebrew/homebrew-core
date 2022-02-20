@@ -7,6 +7,9 @@ class Skaffold < Formula
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git", branch: "main"
 
+  # This uses the `GithubLatest` strategy to work around an old `v2.2.3` tag
+  # that is always seen as newer than the latest version. If Skaffold ever
+  # reaches version 2.2.3, we can switch back to the `Git` strategy.
   livecheck do
     url :stable
     strategy :github_latest
