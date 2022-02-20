@@ -5,7 +5,7 @@ class Amp < Formula
   sha256 "9279efcecdb743b8987fbedf281f569d84eaf42a0eee556c3447f3dc9c9dfe3b"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/jmacdonald/amp.git", branch: "master"
+  head "https://github.com/jmacdonald/amp.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a16ac20a15f1ff7716824be467f4980b0e3ab1f99326539d9a8b086eece946bb"
