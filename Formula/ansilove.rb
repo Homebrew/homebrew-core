@@ -6,13 +6,12 @@ class Ansilove < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "8153bad43ca6f245a5266ada677be1b53a6aa3436113849360ea7f28eefd723a"
-    sha256 cellar: :any,                 arm64_big_sur:  "ce746bff57bf9c61f3dae89126257d741593d68587d740f7267ef5e1b2a3a111"
-    sha256 cellar: :any,                 monterey:       "95fbd757366e5ec61fb261941e109d8e5462d82c84dd9e174da73ff7bc83e074"
-    sha256 cellar: :any,                 big_sur:        "6b82fee266c64e4738ebef22c745f3a457dccad114a285bc85972651c2545c26"
-    sha256 cellar: :any,                 catalina:       "78487b299437decd72a5a2152caf81ba4997e9300016032ed449981cfc174641"
-    sha256 cellar: :any,                 mojave:         "d40386a9e4ab3b22d87f894f1a018bd481592c26792fe95ea86fc918e4f3c26f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f25e133bbae1b11f1422da43fd27da11bf42cd3d2caf68e92024143726d24d02"
+    sha256 cellar: :any,                 arm64_monterey: "d132cbebe0b7721ff99b005736e156fda26d3c00f6b30237082e94b998235e90"
+    sha256 cellar: :any,                 arm64_big_sur:  "50bf2d107f2f652d5001663abb0093c81b2097df35debfc9a6bffabb18b66058"
+    sha256 cellar: :any,                 monterey:       "55dc300fa60aa6c07ceca616d721d37fd8bb80f1a0089a629193c78c5ee3cbb7"
+    sha256 cellar: :any,                 big_sur:        "def7370b111a3bab2d6fcfc5642ddef272b3384d7a38d129b5a06252d271bcfa"
+    sha256 cellar: :any,                 catalina:       "23311433311e4ac5df9d720d0f54903188b98cf08dc243be5e4c5984876d4e10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f6e591444c9d1288a71cc45904bb9bd1de75d878b44c3898cdeacdfae0834e7"
   end
 
   depends_on "cmake" => :build
