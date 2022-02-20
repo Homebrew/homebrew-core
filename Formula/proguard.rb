@@ -3,7 +3,7 @@ class Proguard < Formula
   homepage "https://www.guardsquare.com/en/products/proguard"
   url "https://github.com/Guardsquare/proguard/releases/download/v7.2.1/proguard-7.2.1.tar.gz"
   sha256 "c3a7062d42d2388445c4b699a131cae3f1c3c7b91834db0fbd4d964bc6376e4b"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
