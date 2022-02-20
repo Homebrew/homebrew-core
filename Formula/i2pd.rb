@@ -1,8 +1,8 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.40.0.tar.gz"
-  sha256 "4443f484ad40753e892170a26c8ee8126e8338bf416d04eab0c55c1c94a4e193"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.41.0.tar.gz"
+  sha256 "7b333cd26670903ef0672cf87aa9f895814ce2bbef2e587e69d66ad9427664e6"
   license "BSD-3-Clause"
 
   bottle do
@@ -17,6 +17,12 @@ class I2pd < Formula
   depends_on "boost"
   depends_on "miniupnpc"
   depends_on "openssl@1.1"
+
+  # apply commit 5c15a12116c1e4447b94fd0f36caecfd2e5a40de to fix mutex lock on stop
+  patch do
+    url "https://github.com/PurpleI2P/i2pd/commit/5c15a12116c1e4447b94fd0f36caecfd2e5a40de.patch?full_index=1"
+    sha256 "bc3b1234966bd7d7dd13dcc71fd72f8db316b865aa7fb4e7bffa4fdd2efa4eb9"
+  end
 
   def install
     args = %W[
