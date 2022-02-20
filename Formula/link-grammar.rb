@@ -12,13 +12,12 @@ class LinkGrammar < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "2497cfab315f6c199b5a4d751d08354e3997b0ab7d2bf139b1f433765f26b877"
-    sha256 arm64_big_sur:  "58f608417bce28f09eb9af4ecaf696ef8dc81085c41b6d41e9226026000dd79b"
-    sha256 monterey:       "84b1c36c5cdfb1dbce496d3ea10c7182a6b1deb66369146088a9cf77fde7e2c4"
-    sha256 big_sur:        "45fd5772d8e9438a0d4a82055bea5b32ae0cb2ded6942ae455b6ceedf4042547"
-    sha256 catalina:       "690244f41acdcc0dc7821d0f3ca6d8453c82a8ba237f185bf18b3f79efa67791"
-    sha256 x86_64_linux:   "d183af52518aa19ed2e0628496fb925b0c355b3310a37997b83a7f281874c5ba"
+    sha256 arm64_monterey: "9d3c2064646f6be246876ed348481b291a5869b06793e03fca87e67ecc98615f"
+    sha256 arm64_big_sur:  "8ed6448e255fef875deb8c7d2cccf8f804e2cf8ee9fc57bdf0083dc02b5a4726"
+    sha256 monterey:       "741e76f60e1aae9b9389704b8b74c0803b1696da2cc3272452f9f88009f6b2ec"
+    sha256 big_sur:        "57353f7624c91fe0a3cc4107dd8bec7a03c2df2462d22748736fa8d06de42b01"
+    sha256 catalina:       "9145c0d64b5eaf99fcb6687544362d5eafb3e64f2d1cff0746482a1088e5258b"
+    sha256 x86_64_linux:   "a41e9efa99f8615254faa5f3024f236fa0fe59cc7cede0ac8d936269599b121a"
   end
 
   depends_on "ant" => :build
