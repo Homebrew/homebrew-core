@@ -5,6 +5,15 @@ class Librasterlite2 < Formula
   sha256 "f7284cdfc07ad343a314e4878df0300874b0145d9d331b063b096b482e7e44f4"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "954d42bad006a1564d10ef4dab4f01309b561019309d8c1240a57785fa49b56f"
+    sha256 cellar: :any,                 arm64_big_sur:  "e75aedb1481b518abe8604322c6cb2eb9d65e41660615109fa0aef0b057993d7"
+    sha256 cellar: :any,                 monterey:       "0e88777916b6b91f5e738fd6bf807a0201db1b0301631f09cd46cedd1c070ab5"
+    sha256 cellar: :any,                 big_sur:        "794be42718985e2d7af7e329ef9180faad6f50da76c17ef59aefcf7d3a38dd23"
+    sha256 cellar: :any,                 catalina:       "85b26685a584ae48bca118ce78369eef1d31510fad29096821ff295d974f38fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83594e1a63cf7024bc281c86141e320c4c6415705f8b2fcc6edabc9ec8ab6f94"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
