@@ -4,6 +4,7 @@ class Libepoxy < Formula
   url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.9.tar.xz"
   sha256 "d168a19a6edfdd9977fef1308ccf516079856a4275cf876de688fb7927e365e4"
   license "MIT"
+  revision 1
 
   # We use a common regex because libepoxy doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -25,7 +26,7 @@ class Libepoxy < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   on_linux do
     depends_on "freeglut"
