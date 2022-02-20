@@ -1,8 +1,8 @@
 class WlaDx < Formula
   desc "Yet another crossassembler package"
   homepage "https://github.com/vhelin/wla-dx"
-  url "https://github.com/vhelin/wla-dx/archive/v10.0.tar.gz"
-  sha256 "0ccc2b9a43b9ae9f6a95a6df6032e15d0815132476ec176e5759b9d14d0077d4"
+  url "https://github.com/vhelin/wla-dx/archive/v10.1.tar.gz"
+  sha256 "a3a985b28c210426650da444eed60f66c593b97d26c402386f1dac78617ea56a"
   license "GPL-2.0"
 
   livecheck do
