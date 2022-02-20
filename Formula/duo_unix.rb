@@ -3,7 +3,7 @@ class DuoUnix < Formula
   homepage "https://www.duosecurity.com/docs/duounix"
   url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.12.0.tar.gz"
   sha256 "a4479f893e036f38a5809d71ce47f69118f6ef61822cc1c66afccf143c5d71f8"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://github.com/duosecurity/duo_unix.git"
