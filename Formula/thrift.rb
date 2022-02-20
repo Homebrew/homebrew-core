@@ -53,6 +53,7 @@ class Thrift < Formula
       --without-php
       --without-php_extension
       --without-python
+      --without-py3
       --without-ruby
       --without-swift
     ]
