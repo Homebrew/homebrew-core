@@ -26,12 +26,12 @@ class ClojureLsp < Formula
   end
 
   depends_on "clojure" => :build
-  # The Java Runtime version only recognizes class file versions up to 52.0
+  # The Java Runtime version only recognizes class file versions up to 55.0
   depends_on "openjdk@11"
 
   def install
-    system "make", "prod-bin"
-    jar = "clojure-lsp.jar"
+    system "make", "prod-cli"
+    jar = "clojure-lsp"
     libexec.install jar
     bin.write_jar_script libexec/jar, "clojure-lsp", java_version: "11"
   end
