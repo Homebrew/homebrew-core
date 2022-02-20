@@ -8,6 +8,7 @@
   "premake": "4.4-beta",
   "pwnat": "0.3-beta",
   "recode": "3.7-beta",
+  "spatialite-gui": "2.1.0-beta",
   "tcptraceroute": "1.5beta",
   "tiny-fugue": "5.0b",
   "vbindiff": "3.0_beta"
