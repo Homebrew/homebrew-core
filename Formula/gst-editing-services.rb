@@ -1,10 +1,9 @@
 class GstEditingServices < Formula
   desc "GStreamer Editing Services"
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
-  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.18.5.tar.xz"
-  sha256 "8af4a8394d051f3e18280686db49a6efaccc95c0c59a17f0f564e32000590df5"
+  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.20.0.tar.xz"
+  sha256 "f837adcf4073d19a5908984e879cd039f4192ca368e71d39e8ccd8a56b9feedf"
   license "LGPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-editing-services/"
@@ -37,6 +36,7 @@ class GstEditingServices < Formula
     args = std_meson_args + %w[
       -Dintrospection=enabled
       -Dtests=disabled
+      -Dvalidate=disabled
     ]
     # https://gitlab.freedesktop.org/gstreamer/gst-editing-services/-/issues/114
     # https://github.com/Homebrew/homebrew-core/pull/84906
