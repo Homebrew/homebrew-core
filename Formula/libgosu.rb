@@ -7,13 +7,12 @@ class Libgosu < Formula
   head "https://github.com/gosu/gosu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "177e0764d488b1fc2c65930a8a6517241abc0c874c039fa7123aa174866e355a"
-    sha256 cellar: :any,                 arm64_big_sur:  "2fdd60050495a39676631ff20b6adce12f08509dfafc07d5544922d6bbc07ea2"
-    sha256 cellar: :any,                 monterey:       "e24ea7efd2ad3863304dfcd2aba1505490b781457f9b3e30e60c9b0d019f23db"
-    sha256 cellar: :any,                 big_sur:        "81fcf49b8dcd3c32e765c1c160fde1587fd7fc72dc69a02e0369a2f6933b2c7d"
-    sha256 cellar: :any,                 catalina:       "260af0d8a2ec9e279c80748fab5824583bf452c92ae1fd2ad974effc7e79c946"
-    sha256 cellar: :any,                 mojave:         "681e8df033559e1f7af28bd4d9da638be31e56261ddaca28338f6a2a91cfc569"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07df8bc6b2dbf05c618bcb323dd32b59762faa0ca996d238fcc15a0ed2ddad4d"
+    sha256 cellar: :any,                 arm64_monterey: "123cd8c6795e69e593c86274fff30d7fb5261369f6fc9771ae11914cb6c66e23"
+    sha256 cellar: :any,                 arm64_big_sur:  "fef5d8ff919a520e720ff7b3b7fb7e673efc3ec1d073402979e590f03b1c5ac6"
+    sha256 cellar: :any,                 monterey:       "fdf4e91332cad00c9b1dc8cb5779a31e23fb330c052393fdb59c4d29cbfb8ef4"
+    sha256 cellar: :any,                 big_sur:        "fd42748a6359d9942eca93db1139c6e967758c5d27cedb6380a1b838f0913c6f"
+    sha256 cellar: :any,                 catalina:       "58c348cc0c0f34b88763b78d414b6054723a67e759b9377173a32fd59c584e51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9ca33086397d4162d96272a7e542339e479bec84353ebac20d9d95a1e86650a"
   end
 
   depends_on "cmake" => :build
