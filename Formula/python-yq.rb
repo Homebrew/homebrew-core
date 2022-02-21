@@ -1,4 +1,6 @@
 class PythonYq < Formula
+  include Language::Python::Virtualenv
+
   desc "Command-line YAML and XML processor that wraps jq"
   homepage "https://kislyuk.github.io/yq/"
   url "https://files.pythonhosted.org/packages/e4/df/9c2efc3c99c07a4bd09dfd763fc87d1e50db0ee3c67ad2ffe418f523ae4e/yq-2.14.0.tar.gz"
@@ -40,25 +42,7 @@ class PythonYq < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV["PYTHONPATH"] = libexec/"lib/python#{xy}/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    env = {
-      PATH:       "#{Formula["jq"].opt_bin}:$PATH",
-      PYTHONPATH: ENV["PYTHONPATH"],
-    }
-    bin.env_script_all_files(libexec/"bin", env)
+    virtualenv_install_with_resources
   end
 
   test do
