@@ -47,7 +47,6 @@ class Mold < Formula
       LTO=1
       SYSTEM_MIMALLOC=1
       SYSTEM_TBB=1
-      SYSTEM_XXHASH=1
     ]
     args << "STRIP=true" if OS.mac?
     system "make", *args, "install"
