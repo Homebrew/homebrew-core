@@ -1,8 +1,8 @@
 class Onedpl < Formula
   desc "C++ standard library algorithms with support for execution policies"
   homepage "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/dpc-library.html"
-  url "https://github.com/oneapi-src/oneDPL/archive/refs/tags/oneDPL-2021.6.0-release.tar.gz"
-  sha256 "c05738365b359e662234a25d7093314ba550f79ac8eb918e87116246b934470b"
+  url "https://github.com/oneapi-src/oneDPL/archive/refs/tags/oneDPL-2021.6.1-release.tar.gz"
+  sha256 "4995fe2ed2724b89cdb52c4b6c9af22e146b48d2561abdafdaaa06262dbd67c4"
   # Apache License Version 2.0 with LLVM exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
 
