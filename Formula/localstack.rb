@@ -3,8 +3,8 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/c1/1c/e1d0855abf02023b73df37cafd610c5cdfa71e81f5a23643b879a43613cd/localstack-0.14.0.1.tar.gz"
-  sha256 "de212d71d55752d704329375da0c173d8b9cf6e00af46265bd5830b02fabe7d9"
+  url "https://files.pythonhosted.org/packages/96/93/b3f7aeed606ef9d55155dff58f3baf347b5f5d2bab95ae7ee9e9ef7a21aa/localstack-0.14.0.3.tar.gz"
+  sha256 "0111b67cdd84126967a3f5e5ec595be3702fd54cffe732f85faf41a1d378056c"
   license "Apache-2.0"
 
   bottle do
@@ -26,13 +26,13 @@ class Localstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/47/e0/cd466dabb1de4ffc4e9e9e85b6200630b00c488704ac3a8133914156b64b/boto3-1.21.2.tar.gz"
-    sha256 "e46133e44d5600e3de6739c60af2cc47d23742234df149aab3ccff4f1edec64d"
+    url "https://files.pythonhosted.org/packages/c2/b1/21097a7762ba045fa145719e73737c8e8e0b1bff03c3ab611614b748d141/boto3-1.21.4.tar.gz"
+    sha256 "bbe4f4ddfc13469d306f0ca5fa77441ec37ad50dc270755e93260aeafb06d3d1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/54/ee/2f69115dde69c0ae54447b9434daf363b4d9acbf97c8e31300318ee57908/botocore-1.24.2.tar.gz"
-    sha256 "c017dd174285a07db4e1b844750c43550c1f51e8256e722f1e69030c4f6c78f1"
+    url "https://files.pythonhosted.org/packages/87/33/43f4b6ca1dc096888b9797dd95c3bcbd936497305b61835a6d123ff64793/botocore-1.24.4.tar.gz"
+    sha256 "8e9ae6b718ca318b4aeeee45aa9fad5f52e882a2291d919cfa4b753928223abb"
   end
 
   resource "cachetools" do
@@ -51,8 +51,8 @@ class Localstack < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
-    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
+    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
+    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
   end
 
   resource "colorama" do
@@ -106,8 +106,8 @@ class Localstack < Formula
   end
 
   resource "localstack-ext" do
-    url "https://files.pythonhosted.org/packages/24/44/3c654c38e99a8e66bdc99f5bf0a280ad64dec471b70adf0595faa8a716a4/localstack-ext-0.14.0.8.tar.gz"
-    sha256 "7b6d16a3cf728a3ca03bd63bcea9a97fd46832685c3ade54cb7cf5b6d37e5939"
+    url "https://files.pythonhosted.org/packages/92/b0/f36f0c2ec1370b1d6d81f05b6490eca6c63e289cf08fa5fdcc242b565727/localstack-ext-0.14.0.10.tar.gz"
+    sha256 "b7a3860b17403f8c7bdb8ade0f2a5092c8bf8618afe59d755ccfe040749a4c0d"
   end
 
   resource "localstack-plugin-loader" do
