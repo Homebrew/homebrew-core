@@ -1,8 +1,8 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/v1.0.3.tar.gz"
-  sha256 "488c12058b4c7c77bff94c6f919e40b2f12c304214e2e0d7d4833c21167837c0"
+  url "https://github.com/rui314/mold/archive/v1.1.tar.gz"
+  sha256 "2f04bb2cd58797258c4f5f6f29fd2667f8b6c6b2bc76c731fede526884ea9a0c"
   license "AGPL-3.0-only"
   head "https://github.com/rui314/mold.git", branch: "main"
 
@@ -54,7 +54,7 @@ class Mold < Formula
     system "make", *args, "install"
 
     inreplace buildpath.glob("test/*/*.sh") do |s|
-      s.gsub!('mold="$(pwd)', "mold=\"#{bin}")
+      s.gsub!(/^mold=.*((?:ld64\.)?mold)"?$/, "mold=\"#{bin}/\\1\"")
       s.gsub!(/"?\$mold"?-wrapper/, lib/"mold/mold-wrapper", false)
     end
     pkgshare.install "test"
