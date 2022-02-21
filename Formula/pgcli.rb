@@ -3,8 +3,8 @@ class Pgcli < Formula
 
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/54/22/c2d050a14a41d1518491edfe2130382610d096878f6c9bcca04a36de466b/pgcli-3.3.1.tar.gz"
-  sha256 "fccc9e55ca68a4ad0887acfa2991afb3b8af93f3cce9ada249e6ad89879933a1"
+  url "https://files.pythonhosted.org/packages/3b/1b/aa6c9b4373a72bf44baec1ccfe37c1383e02f4709708026d14a6bc375709/pgcli-3.4.0.tar.gz"
+  sha256 "d566c6eda99aad1a27680bdfd74657e25bc0586d04eaf0b1626bb58bde75cfb6"
   license "BSD-3-Clause"
 
   bottle do
@@ -29,8 +29,8 @@ class Pgcli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
-    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
+    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
+    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
   end
 
   resource "configobj" do
@@ -49,8 +49,8 @@ class Pgcli < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/15/e4/f138d6319c02a6052a590ef32e94366b74581973b43665c2960b07b9ec24/prompt_toolkit-3.0.24.tar.gz"
-    sha256 "1bb05628c7d87b645974a1bad3f17612be0c29fa39af9f7688030163f680bad6"
+    url "https://files.pythonhosted.org/packages/37/34/c34c376882305c5051ed7f086daf07e68563d284015839bfb74d6e61d402/prompt_toolkit-3.0.28.tar.gz"
+    sha256 "9f1cd16b1e86c2968f2519d7fb31dd9d669916f515612c269d14e9ed52b51650"
   end
 
   resource "psycopg2" do
