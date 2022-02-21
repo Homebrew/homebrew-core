@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/ff/50/521af493dc1ea855eebfd88a6b4fc23eb9e7dddf7f5210bcb9e853aa7333/cfn-lint-0.58.0.tar.gz"
-  sha256 "404b95a89c598c46c553b9ba3640e20695cb910735f44c4397be408568001914"
+  url "https://files.pythonhosted.org/packages/ae/c1/dee1709e921a4cc9cfac87faa8a5630d12224dcffaf727218007ab694575/cfn-lint-0.58.1.tar.gz"
+  sha256 "0e3f0e0f5f8f48e9b137bfd003686a0d2b12261dd8c1b53c5c7e68b22e73ee34"
   license "MIT-0"
 
   bottle do
@@ -30,13 +30,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f6/b0/e42a79e8dc51ff9d9817c12d911893049cfddefbe3e2c062401306102fb9/boto3-1.20.46.tar.gz"
-    sha256 "d7effba509d7298ef49316ba2da7a2ea115f2a7ff691f875f6354666663cf386"
+    url "https://files.pythonhosted.org/packages/c2/b1/21097a7762ba045fa145719e73737c8e8e0b1bff03c3ab611614b748d141/boto3-1.21.4.tar.gz"
+    sha256 "bbe4f4ddfc13469d306f0ca5fa77441ec37ad50dc270755e93260aeafb06d3d1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/97/b9/f55bf7f44377c1093f16f789979b39d9bed51ad1f2069d17d1ca55d2d4c2/botocore-1.23.46.tar.gz"
-    sha256 "38dd4564839f531725b667db360ba7df2125ceb3752b0ba12759c3e918015b95"
+    url "https://files.pythonhosted.org/packages/87/33/43f4b6ca1dc096888b9797dd95c3bcbd936497305b61835a6d123ff64793/botocore-1.24.4.tar.gz"
+    sha256 "8e9ae6b718ca318b4aeeee45aa9fad5f52e882a2291d919cfa4b753928223abb"
   end
 
   resource "jmespath" do
@@ -81,8 +81,8 @@ class CfnLint < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/f5/0c/3fa7b1f9006e4d454a49b48eac995167cf8617e19375c6963a6b048af0d0/pbr-5.8.0.tar.gz"
-    sha256 "672d8ebee84921862110f23fcec2acea191ef58543d34dfe9ef3d9f13c31cddf"
+    url "https://files.pythonhosted.org/packages/51/da/eb358ed53257a864bf9deafba25bc3d6b8d41b0db46da4e7317500b1c9a5/pbr-5.8.1.tar.gz"
+    sha256 "66bc5a34912f408bb3925bf21231cb6f59206267b7f63f3503ef865c1a292e25"
   end
 
   resource "pyrsistent" do
@@ -101,8 +101,8 @@ class CfnLint < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/88/ef/4d1b3f52ae20a7e72151fde5c9f254cd83f8a49047351f34006e517e1655/s3transfer-0.5.0.tar.gz"
-    sha256 "50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c"
+    url "https://files.pythonhosted.org/packages/66/e2/cc19f36aade1ef40cba69555fcf713d942ec9e31ecff2415948bd885911d/s3transfer-0.5.1.tar.gz"
+    sha256 "69d264d3e760e569b78aaa0f22c97e955891cd22e32b10c51f784eeda4d9d10a"
   end
 
   resource "sarif-om" do
