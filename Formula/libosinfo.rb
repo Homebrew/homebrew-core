@@ -1,10 +1,9 @@
 class Libosinfo < Formula
   desc "Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.9.0.tar.xz"
-  sha256 "b4f3418154ef3f43d9420827294916aea1827021afc06e1644fc56951830a359"
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.10.0.tar.xz"
+  sha256 "a252e00fc580deb21da0da8c0aa03b8c31e8440b8448c8b98143fab477d32305"
   license "LGPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
@@ -28,7 +27,7 @@ class Libosinfo < Formula
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "libsoup@2"
+  depends_on "libsoup"
   depends_on "osinfo-db"
   depends_on "usb.ids"
 
@@ -37,8 +36,8 @@ class Libosinfo < Formula
   uses_from_macos "libxslt"
 
   resource "pci.ids" do
-    url "https://raw.githubusercontent.com/pciutils/pciids/7906a7b1f2d046072fe5fed27236381cff4c5624/pci.ids"
-    sha256 "255229b8b37474c949736bc4a048a721e31180bb8dae9d8f210e64af51089fe8"
+    url "https://raw.githubusercontent.com/pciutils/pciids/7d42acec647d327f0824260c2d4656410d48986a/pci.ids"
+    sha256 "7e6314c5ecab564af740b1a7da0b2839690716344504420f19ae21bb8cf7ae9e"
   end
 
   def install
