@@ -30,8 +30,8 @@ class ClojureLsp < Formula
   depends_on "openjdk@11"
 
   def install
-    system "make", "prod-cli"
-    jar = "clojure-lsp"
+    system "make", "lib-jar"
+    jar = "clojure-lsp.jar"
     libexec.install jar
     bin.write_jar_script libexec/jar, "clojure-lsp", java_version: "11"
   end
