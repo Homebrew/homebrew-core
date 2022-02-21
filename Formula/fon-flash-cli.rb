@@ -1,10 +1,9 @@
 class FonFlashCli < Formula
   desc "Flash La Fonera and Atheros chipset compatible devices"
   homepage "https://www.gargoyle-router.com/wiki/doku.php?id=fon_flash"
-  url "https://www.gargoyle-router.com/downloads/src/gargoyle_1.12.0-src.tar.gz"
-  version "1.12.0"
-  sha256 "722520cb6774f011dccf80d6d91893de608b76ebf12372cfdd5d004d99a4012a"
-  license "GPL-2.0"
+  url "https://github.com/ericpaulbishop/gargoyle/archive/1.13.0.tar.gz"
+  sha256 "8086c5c0725f520b659eecca5784a9f0f25eb8eac0deafc967f0264977b3fbe1"
+  license "GPL-2.0-or-later"
   head "https://github.com/ericpaulbishop/gargoyle.git", branch: "master"
 
   bottle do
@@ -14,6 +13,8 @@ class FonFlashCli < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "6d8285e23b9ab3563c43ffa9d02c99dc3506a29a07174b7ff2ed7f709bbd7117"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f60605913533cdc90c6ef163efc7b112af2a61f606b53a715639e08288838dbf"
   end
+
+  uses_from_macos "libpcap"
 
   def install
     cd "fon-flash" do
