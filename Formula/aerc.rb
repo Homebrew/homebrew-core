@@ -1,26 +1,25 @@
 class Aerc < Formula
   desc "Email client that runs in your terminal"
   homepage "https://aerc-mail.org/"
-  url "https://git.sr.ht/~rjarry/aerc/archive/0.7.1.tar.gz"
-  sha256 "e149236623c103c8526b1f872b4e630e67f15be98ac604c0ea0186054dbef0cc"
+  url "https://git.sr.ht/~rjarry/aerc/archive/0.8.1.tar.gz"
+  sha256 "5bea713b211dcd85599c697a0f6563e07e2c04fd1443416545eea0a9a83a4f8d"
   license "MIT"
-  revision 1
   head "https://git.sr.ht/~rjarry/aerc", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "21bdeceaa6bab688e01ab21299f9af779bbdac39ad6612d5c6a172ee5a584522"
-    sha256 arm64_big_sur:  "33a9b4869c535a0a3997245ae62d20f45f54e2ae4f30e8d36f7592291653477c"
-    sha256 monterey:       "32531a8590bc57ade718c9996b3240e1221cc35743f702fc451073c3b26c67fc"
-    sha256 big_sur:        "c0c3f30bad8fd4edbefc3384fa162116a2c21ac4c5ece29e5967b74db642c5d6"
-    sha256 catalina:       "d9d199059735bf249bf19d3f06045ac1ddf760f2a3d4952cd4f1a5f5cf0f897d"
-    sha256 x86_64_linux:   "4fbaee40f1193c8c048b0ceceaaae16017cbf191e0e7c2d9b77e7641965086d7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "502a4d7bd81afa858719d02d93eb32378b9d7702b704d40fd3bbd6ced996d2c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "200c8c27f08e0e7060eb4cf417eb984fb7cc73f4b2daecb66b8f5d54128159f4"
+    sha256 cellar: :any_skip_relocation, monterey:       "6d537f0f3f21f76ac36097b670c55c019304195bd6478a9705ece8232f143fd5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b9386f12b6883a7a8b69e06ee2f25344a2f6a1040b5bedc5fd860d011b9aceba"
+    sha256 cellar: :any_skip_relocation, catalina:       "d8e674c173654a573b464804abfb9950f66ffda46b1a611010bce6f1c85f09a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "502657f907934fd7caa1babc8147b3fac7ccf8ab30b9f94479bbdb4f2e0a112e"
   end
 
   depends_on "go" => :build
   depends_on "scdoc" => :build
 
   def install
-    system "make", "SHAREDIR=#{opt_pkgshare}", "PREFIX=#{prefix}"
+    system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
