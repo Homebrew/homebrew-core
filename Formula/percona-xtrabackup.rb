@@ -1,8 +1,8 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.25-17/source/tarball/percona-xtrabackup-8.0.25-17.tar.gz"
-  sha256 "9f59d6d6a781043291c69c1a14e888f64b32ad95bead2eafc2940e3d984793df"
+  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.27-19/source/tarball/percona-xtrabackup-8.0.27-19.tar.gz"
+  sha256 "0bcfc60b2b19723ea348e43b04bd904c49142f58d326ab32db11e69dda00b733"
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
@@ -10,13 +10,12 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "8fb924ae54f28708933b9afcd06423e45b40f9a33b0c6dd72d0156a430c3f43a"
-    sha256 arm64_big_sur:  "45e372cb3dbc06e4598b9730a2d966b7b5acdbf26f1cdd1fec476c9343a76264"
-    sha256 monterey:       "3fe3ef97609466a2213e6d301584bfa0071cf13b30fdfb3c6252283075f59bf9"
-    sha256 big_sur:        "7678afb4036a12a8a57ecc72544ad01ee8daf1987da5e6b9fd15644e13e163e0"
-    sha256 catalina:       "ac2777de2bced8fc020ef76f1275da999f11cb3c60481d97006f8cbac9403a97"
-    sha256 mojave:         "880abb4be9f118120660818a079cdc4562cc7411a1a9070d3ef005c8aee23f35"
-    sha256 x86_64_linux:   "bbe0e5b72dc9bd03415c999aaa45a8ed4d30294f56bad35200fbdbc8d1f552df"
+    sha256 arm64_monterey: "79c2503f36e248d1ea6359b93dae4f08fd47df196bf641a3cc5e3174f31b1c15"
+    sha256 arm64_big_sur:  "d6d69ad3d8eaac0cd857d501108918ff856aa8b8e9a19c6e2b12f1282b74ead1"
+    sha256 monterey:       "c18308e63a27c0e9a248952c739e2fb25cb2be95336acf232ee7f84e79ae7c17"
+    sha256 big_sur:        "c949c6eeeb273196e2b7f782a6a0d89982aa5ac89e2016e48d04b914616369e6"
+    sha256 catalina:       "7a486c4e5f32d58ca96f01b6e0388767c6ed1fd470e0909d9e03f89f79141849"
+    sha256 x86_64_linux:   "078970832f38184664309696ff21aee42ceec078b2e87e1418e65e69558a5aef"
   end
 
   depends_on "cmake" => :build
@@ -40,7 +39,13 @@ class PerconaXtrabackup < Formula
 
   on_linux do
     depends_on "patchelf" => :build
+    depends_on "gcc" # Requires GCC 7.1 or later
     depends_on "libaio"
+  end
+
+  fails_with :gcc do
+    version "6"
+    cause "The build requires GCC 7.1 or later."
   end
 
   # Should be installed before DBD::mysql
@@ -73,7 +78,31 @@ class PerconaXtrabackup < Formula
     sha256 "6709edb2393000bd89acf2d86ad0876bde3b84f46884d3cba7463cd346234f6f"
   end
 
+  # Fix linkage errors on macOS.
+  # Remove with the next version.
+  patch do
+    url "https://github.com/percona/percona-xtrabackup/commit/89004bb0a67b73daeafc6a5008d0eefc2e80134b.patch?full_index=1"
+    sha256 "53f1f444e7d924b6a58844a3f9be521ccde70d2adeed7e6ba4f513ceedc82ec4"
+  end
+
+  # Fix compilation error on macOS.
+  # https://github.com/percona/percona-xtrabackup/pull/1265
+  patch do
+    url "https://github.com/percona/percona-xtrabackup/commit/b3884892797f405c88a130923d35d0d3350098d1.patch?full_index=1"
+    sha256 "2c9287f807a796ff538f2f0d3527fbe384f3f2cc01ad8daba991f176f3a9a9e7"
+  end
+
+  # Fix CMake install error with manpages.
+  # https://github.com/percona/percona-xtrabackup/pull/1266
+  patch do
+    url "https://github.com/percona/percona-xtrabackup/commit/1d733eade782dd9fdf8ef66b9e9cb9e00f572606.patch?full_index=1"
+    sha256 "9b38305b4e4bae23b085b3ef9cb406451fa3cc14963524e95fc1e6cbf761c7cf"
+  end
+
   def install
+    # Disable ABI checking
+    inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
+
     cmake_args = %W[
       -DBUILD_CONFIG=xtrabackup_release
       -DCOMPILATION_COMMENT=Homebrew
@@ -81,12 +110,14 @@ class PerconaXtrabackup < Formula
       -DINSTALL_MANDIR=share/man
       -DWITH_MAN_PAGES=ON
       -DINSTALL_MYSQLTESTDIR=
+      -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system
       -DWITH_ICU=system
       -DWITH_LIBEVENT=system
       -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
-      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
+      -DWITH_SSL=system
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
     ]
