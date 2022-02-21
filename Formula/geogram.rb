@@ -1,10 +1,8 @@
 class Geogram < Formula
   desc "Programming library of geometric algorithms"
   homepage "http://alice.loria.fr/software/geogram/doc/html/index.html"
-  # Homepage links to gforge.inria.fr for downloads, which gives a 403 response.
-  # We're using a GitHub tarball unless/until upstream finds a new home.
-  url "https://github.com/alicevision/geogram/archive/v1.7.7.tar.gz"
-  sha256 "7323d9f6a38fbaff3e07c47955e0c8f310906871d38171536ec8bc0758e816aa"
+  url "https://members.loria.fr/BLevy/PACKAGES/geogram_1.7.8.tar.gz"
+  sha256 "28e70b353705faec555700d8a7b7b9d703687702f46866bad09e033f86a96faf"
   license all_of: ["BSD-3-Clause", :public_domain, "LGPL-3.0-or-later", "MIT"]
 
   bottle do
