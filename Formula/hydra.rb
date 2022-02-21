@@ -1,10 +1,9 @@
 class Hydra < Formula
   desc "Network logon cracker which supports many services"
   homepage "https://github.com/vanhauser-thc/thc-hydra"
-  url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.2.tar.gz"
-  sha256 "1a28f064763f9144f8ec574416a56ef51c0ab1ae2276e35a89ceed4f594ec5d2"
+  url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.3.tar.gz"
+  sha256 "3977221a7eb176cd100298c6d47939999a920a628868ae1aceed408a21e04013"
   license "AGPL-3.0-only"
-  revision 1
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
@@ -24,6 +23,13 @@ class Hydra < Formula
   uses_from_macos "ncurses"
 
   conflicts_with "ory-hydra", because: "both install `hydra` binaries"
+
+  # Fix "non-void function 'add_header' should return a value", issue introduced in version 9.3
+  # Patch accepted upstream, remove on next release
+  patch do
+    url "https://github.com/vanhauser-thc/thc-hydra/commit/e5996654ed48b385bc7f842d84d8b2ba72d29be1.patch?full_index=1"
+    sha256 "146827f84a20a8e26e28118430c3400f23e7ca429eff62d0664e900aede207cc"
+  end
 
   def install
     inreplace "configure" do |s|
@@ -65,9 +71,6 @@ class Hydra < Formula
     # https://github.com/vanhauser-thc/thc-hydra/issues/22
     system "./configure", "--prefix=#{prefix}"
     bin.mkpath
-    # remove unsupported ld flags on mac
-    # related to https://github.com/vanhauser-thc/thc-hydra/issues/622
-    inreplace "Makefile", "-Wl,--allow-multiple-definition", "" if OS.mac?
     system "make", "all", "install"
     share.install prefix/"man" # Put man pages in correct place
   end
