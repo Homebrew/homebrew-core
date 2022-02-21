@@ -55,8 +55,6 @@ class Mariadb < Formula
 
   fails_with gcc: "5"
 
-  patch :DATA
-
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
@@ -190,27 +188,3 @@ class Mariadb < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
-
-__END__
-diff --git a/client/mysql.cc b/client/mysql.cc
-index 37f506a99cd..6bfbfd87b95 100644
---- a/client/mysql.cc
-+++ b/client/mysql.cc
-@@ -2743,7 +2743,7 @@ static void initialize_readline ()
-   rl_terminal_name= getenv("TERM");
- 
-   /* Tell the completer that we want a crack first. */
--#if defined(USE_NEW_READLINE_INTERFACE)
-+#if defined(USE_NEW_READLINE_INTERFACE) && !defined(__APPLE_CC__)
-   rl_attempted_completion_function= (rl_completion_func_t*)&new_mysql_completion;
-   rl_completion_entry_function= (rl_compentry_func_t*)&no_completion;
- 
-@@ -2753,7 +2753,7 @@ static void initialize_readline ()
-   setlocale(LC_ALL,""); /* so as libedit use isprint */
- #endif
-   rl_attempted_completion_function= (CPPFunction*)&new_mysql_completion;
--  rl_completion_entry_function= &no_completion;
-+  /* rl_completion_entry_function= &no_completion; */
-   rl_add_defun("magic-space", (Function*)&fake_magic_space, -1);
- #else
-   rl_attempted_completion_function= (CPPFunction*)&new_mysql_completion;
