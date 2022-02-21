@@ -1,8 +1,8 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.25-17/source/tarball/percona-xtrabackup-8.0.25-17.tar.gz"
-  sha256 "9f59d6d6a781043291c69c1a14e888f64b32ad95bead2eafc2940e3d984793df"
+  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.27-19/source/tarball/percona-xtrabackup-8.0.27-19.tar.gz"
+  sha256 "0bcfc60b2b19723ea348e43b04bd904c49142f58d326ab32db11e69dda00b733"
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
@@ -40,7 +40,13 @@ class PerconaXtrabackup < Formula
 
   on_linux do
     depends_on "patchelf" => :build
+    depends_on "gcc" # Requires GCC 7.1 or later
     depends_on "libaio"
+  end
+
+  fails_with :gcc do
+    version "6"
+    cause "The build requires GCC 7.1 or later."
   end
 
   # Should be installed before DBD::mysql
@@ -73,7 +79,20 @@ class PerconaXtrabackup < Formula
     sha256 "6709edb2393000bd89acf2d86ad0876bde3b84f46884d3cba7463cd346234f6f"
   end
 
+  # Fix linkage errors on macOS.
+  # Remove with the next version.
+  patch do
+    url "https://github.com/percona/percona-xtrabackup/commit/89004bb0a67b73daeafc6a5008d0eefc2e80134b.patch?full_index=1"
+    sha256 "53f1f444e7d924b6a58844a3f9be521ccde70d2adeed7e6ba4f513ceedc82ec4"
+  end
+
+  # Fix build on macOS.
+  patch :DATA
+
   def install
+    # Disable ABI checking
+    inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
+
     cmake_args = %W[
       -DBUILD_CONFIG=xtrabackup_release
       -DCOMPILATION_COMMENT=Homebrew
@@ -81,12 +100,14 @@ class PerconaXtrabackup < Formula
       -DINSTALL_MANDIR=share/man
       -DWITH_MAN_PAGES=ON
       -DINSTALL_MYSQLTESTDIR=
+      -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system
       -DWITH_ICU=system
       -DWITH_LIBEVENT=system
       -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
-      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
+      -DWITH_SSL=system
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
     ]
@@ -153,3 +174,82 @@ class PerconaXtrabackup < Formula
     assert_match "Failed to connect to MySQL server", output
   end
 end
+
+__END__
+diff --git a/man/CMakeLists.txt b/man/CMakeLists.txt
+index 26894cd6..8ab7e3d7 100644
+--- a/man/CMakeLists.txt
++++ b/man/CMakeLists.txt
+@@ -25,55 +25,11 @@ FILE(GLOB MAN1 *.1)
+ FILE(GLOB MAN1_NDB ndb*.1)
+ FILE(GLOB MAN8 *.8)
+ FILE(GLOB MAN8_NDB ndb*.8)
++
+ IF(MAN1_NDB AND NOT WITH_NDBCLUSTER)
+   LIST(REMOVE_ITEM MAN1 ${MAN1_NDB})
+ ENDIF()
+-
+-SET(MAN1_NDB
+-  ndb_blob_tool.1
+-  ndb_config.1
+-  ndb_cpcd.1
+-  ndb_delete_all.1
+-  ndb_desc.1
+-  ndb_drop_index.1
+-  ndb_drop_table.1
+-  ndb_error_reporter.1
+-  ndb_import.1
+-  ndb_index_stat.1
+-  ndb_mgm.1
+-  ndb_move_data.1
+-  ndb_perror.1
+-  ndb_print_backup_file.1
+-  ndb_print_file.1
+-  ndb_print_frag_file.1
+-  ndb_print_schema_file.1
+-  ndb_print_sys_file.1
+-  ndb_redo_log_reader.1
+-  ndb_restore.1
+-  ndb_select_all.1
+-  ndb_select_count.1
+-  ndb_show_tables.1
+-  ndb_size.pl.1
+-  ndb_top.1
+-  ndb_waiter.1
+-  ndbinfo_select_all.1
+-)
+-SET(MAN1_ROUTER
+-  mysqlrouter.1
+-  mysqlrouter_passwd.1
+-  mysqlrouter_plugin_info.1
+-)
+-SET(MAN8
+-  mysqld.8
+-  )
+-SET(MAN8_NDB
+-  ndb_mgmd.8
+-  ndbd.8
+-  ndbmtd.8
+-)
+-
+ INSTALL(FILES ${MAN1} DESTINATION ${INSTALL_MANDIR}/man1 COMPONENT ManPages)
+-INSTALL(FILES ${MAN8} DESTINATION ${INSTALL_MANDIR}/man8 COMPONENT ManPages)
+ 
+ IF(MAN8_NDB AND NOT WITH_NDBCLUSTER)
+   LIST(REMOVE_ITEM MAN8 ${MAN8_NDB})
+diff --git a/storage/innobase/xtrabackup/src/ds_local.cc b/storage/innobase/xtrabackup/src/ds_local.cc
+index d7f9613e..a5ec8126 100644
+--- a/storage/innobase/xtrabackup/src/ds_local.cc
++++ b/storage/innobase/xtrabackup/src/ds_local.cc
+@@ -25,7 +25,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+ #include <mysql/service_mysql_alloc.h>
+ #include <mysql_version.h>
+ #include <mysys_err.h>
++
++#ifdef HAVE_FALLOC_PUNCH_HOLE_AND_KEEP_SIZE
+ #include <linux/falloc.h>
++#endif
++
+ #include "common.h"
+ #include "datasink.h"
+ 
