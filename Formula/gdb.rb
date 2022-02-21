@@ -14,6 +14,7 @@ class Gdb < Formula
     sha256 x86_64_linux: "271013a91e3dbc94654df18414018c4a66af56ef3976ae37263fada80e76a070"
   end
 
+  depends_on arch: :x86_64 # gdb is not supported on macOS ARM
   depends_on "gmp"
   depends_on "python@3.10"
   depends_on "xz" # required for lzma support
