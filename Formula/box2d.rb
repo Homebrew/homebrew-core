@@ -4,7 +4,7 @@ class Box2d < Formula
   url "https://github.com/erincatto/box2d/archive/v2.4.1.tar.gz"
   sha256 "d6b4650ff897ee1ead27cf77a5933ea197cbeef6705638dd181adc2e816b23c2"
   license "MIT"
-  head "https://github.com/erincatto/Box2D.git", branch: "master"
+  head "https://github.com/erincatto/Box2D.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:    "ce38e11785a57c7cd416fd4cb6a9cd2567363e1f1bc4938d010b13e0b2eefc34"
