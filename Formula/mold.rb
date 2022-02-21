@@ -16,7 +16,6 @@ class Mold < Formula
   end
 
   depends_on "tbb"
-  depends_on "xxhash"
   uses_from_macos "zlib"
 
   on_macos do
