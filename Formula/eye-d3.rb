@@ -7,6 +7,7 @@ class EyeD3 < Formula
   mirror "https://files.pythonhosted.org/packages/fb/f2/27b42a10b5668df27ce87aa22407e5115af7fce9b1d68f09a6d26c3874ec/eyeD3-0.9.6.tar.gz"
   sha256 "4b5064ec0fb3999294cca0020d4a27ffe4f29149e8292fdf7b2de9b9cabb7518"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://github.com/nicfit/eyeD3.git"
@@ -23,14 +24,14 @@ class EyeD3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a85e5aba1fe2b28c9b7587e06cbea8b65585b0d5eb958a22fb760948092b0826"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # Looking for documentation? Please submit a PR to build some!
   # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
 
   resource "coverage" do
-    url "https://files.pythonhosted.org/packages/40/05/2c1d1405edeec38114abcd404f15a35a41029b89d0514aa8ad11ffcbde81/coverage-5.3.1.tar.gz"
-    sha256 "38f16b1317b8dd82df67ed5daa5f5e7c959e46579840d77a67a4ceb9cef0a50b"
+    url "https://files.pythonhosted.org/packages/38/df/d5e67851e83948def768d7fb1a0fd373665b20f56ff63ed220c6cd16cb11/coverage-5.5.tar.gz"
+    sha256 "ebe78fe9a0e874362175b02371bdfbee64d8edc42a044253ddf4ee7d3c15212c"
   end
 
   resource "deprecation" do
@@ -39,18 +40,18 @@ class EyeD3 < Formula
   end
 
   resource "filetype" do
-    url "https://files.pythonhosted.org/packages/56/86/1a6b76adf5be0e88ebc084beacb80fa3fb0eab68890ed1030ad50ac83c3a/filetype-1.0.7.tar.gz"
-    sha256 "da393ece8d98b47edf2dd5a85a2c8733e44b769e32c71af4cd96ed8d38d96aa7"
+    url "https://files.pythonhosted.org/packages/89/4c/20819cc9250a657606c3d0f8d3c1d6e68cafab90dc5ec84ba54f80c86e0f/filetype-1.0.10.tar.gz"
+    sha256 "323a13500731b6c65a253bc3930bbce9a56dfba71e90b60ffd968ab69d9ae937"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
-    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
+    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
   end
 
   resource "toml" do
@@ -59,17 +60,7 @@ class EyeD3 < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    python_path = libexec/Language::Python.site_packages("python3")
-    ENV.prepend_path "PYTHONPATH", python_path
-
-    venv.pip_install resources
-    system "python3", "setup.py", "build"
-    system "python3", "setup.py", "install", "--prefix=#{libexec}",
-      "--single-version-externally-managed", "--root=/"
-    share.install Dir["docs/*"]
-
-    (bin/"eyeD3").write_env_script(libexec/"bin/eyeD3", PYTHONPATH: ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
