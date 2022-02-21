@@ -3,7 +3,7 @@ class Bench < Formula
   homepage "https://github.com/Gabriel439/bench"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/Gabriel439/bench.git", branch: "master"
+  head "https://github.com/Gabriel439/bench.git", branch: "main"
 
   stable do
     url "https://hackage.haskell.org/package/bench-1.0.12/bench-1.0.12.tar.gz"
