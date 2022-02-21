@@ -8,6 +8,5 @@
   "predictionio",
   "pyside",
   "pyside@2",
-  "sqoop",
-  "watchman"
+  "sqoop"
 ]

@@ -11,7 +11,6 @@
   ["docker", "docker-completion"],
   ["etl", "synfig"],
   ["file-formula", "libmagic"],
-  ["fb303", "fbthrift", "fizz", "folly", "wangle", "watchman"],
   ["frpc", "frps"],
   ["gcc", "libgccjit"],
   ["ghz", "ghz-web"],

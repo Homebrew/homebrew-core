@@ -23,6 +23,7 @@ class Folly < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "libevent"
+  depends_on :linux
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "snappy"
@@ -50,6 +51,7 @@ class Folly < Formula
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+    ENV.append "CXXFLAGS", "-include cstdint"
 
     mkdir "_build" do
       args = std_cmake_args + %w[
