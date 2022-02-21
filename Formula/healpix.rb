@@ -1,9 +1,9 @@
 class Healpix < Formula
   desc "Hierarchical Equal Area isoLatitude Pixelization of a sphere"
   homepage "https://healpix.jpl.nasa.gov"
-  url "https://downloads.sourceforge.net/project/healpix/Healpix_3.80/Healpix_3.80_2021Jun22.tar.gz"
-  version "3.80"
-  sha256 "8de4aabaa3d55e0c63a62c621bfd77298732c6b75782016217f5659143acbcf5"
+  url "https://downloads.sourceforge.net/project/healpix/Healpix_3.81/Healpix_3.81_2022Jan25.tar.gz"
+  version "3.81"
+  sha256 "82d92bb21626371f9d280e59e82ad0f47d9ae62c70d86ccd1026e0310f193551"
   license "GPL-2.0-or-later"
 
   bottle do
