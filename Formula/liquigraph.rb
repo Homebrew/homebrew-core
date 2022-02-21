@@ -1,8 +1,8 @@
 class Liquigraph < Formula
   desc "Migration runner for Neo4j"
   homepage "https://www.liquigraph.org/"
-  url "https://github.com/liquigraph/liquigraph/archive/liquigraph-4.0.4.tar.gz"
-  sha256 "2ccadb61da07ede6860c32695853456e4844eeb5e64c05f3e61b3c914587a072"
+  url "https://github.com/liquigraph/liquigraph/archive/liquigraph-4.0.6.tar.gz"
+  sha256 "c51283a75346f8d4c7bb44c6a39461eb3918ac5b150ec3ae157f9b12c4150566"
   license "Apache-2.0"
   head "https://github.com/liquigraph/liquigraph.git", branch: "4.x"
 
@@ -13,6 +13,8 @@ class Liquigraph < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "7f0ec2c088008c2ba5f96f596dc86dfd4e28e81c93154f14754e33b13ac3978d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "78fbde2400bc144473a61ecb4f65f92a4ad1eb5244928f5844de51d819225f7c"
   end
+
+  deprecate! date: "2022-02-21", because: :unsupported
 
   depends_on "maven" => :build
   depends_on "openjdk@11"
