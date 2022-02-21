@@ -20,13 +20,12 @@ class Opencascade < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "dce66270316070ee693c391fb5582af701b543d085cb1f51229103e11541a4e9"
-    sha256 cellar: :any,                 arm64_big_sur:  "22b4d090a706334cbf99c2f37ea2057701b10c06b193984c2b1d86fbd5860497"
-    sha256 cellar: :any,                 monterey:       "8cc2c94e0eba90f74648d876e9a4879e4b459d685b07d30892365a3f7610a5f2"
-    sha256 cellar: :any,                 big_sur:        "e648acdcf39d6e3da6c3af8904a8d80fae9ad1201d55b75eb1e8058b0afa6f71"
-    sha256 cellar: :any,                 catalina:       "aa3035c445f7d9f746a75494945b0c50aa1a8aaacf1b00c5d200090e9ee55108"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c0284917e0d46ff89e1f084082012b168458e632da37be0dd341dff38f95af4"
+    sha256 cellar: :any,                 arm64_monterey: "b644006d509ec7ce892c0ab6f43c5d2504db5a71b0a33664ec9258aada6b8651"
+    sha256 cellar: :any,                 arm64_big_sur:  "d4401dfa5877c0fbe9f57754da085a3385d2add72adf9fab748ca8b4325e3015"
+    sha256 cellar: :any,                 monterey:       "b648155d3e07648a573806d9e042be76679ccb54d80c3d9d7810f270b8cffa37"
+    sha256 cellar: :any,                 big_sur:        "4312f5eaf4ed92c249e991c1b2a4378559219ade72a2a79504447615101faf46"
+    sha256 cellar: :any,                 catalina:       "9786c4a2ab41a1856201dfae2b4cfbb67cf32baa1f607758d25d0d8e797d4b3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95d1d6e66b367210adcd332e6cec2b7e56230d7d7891334a8c0e243e5c6b421b"
   end
 
   depends_on "cmake" => :build
