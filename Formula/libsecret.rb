@@ -1,8 +1,8 @@
 class Libsecret < Formula
   desc "Library for storing/retrieving passwords and other secrets"
   homepage "https://wiki.gnome.org/Projects/Libsecret"
-  url "https://download.gnome.org/sources/libsecret/0.20/libsecret-0.20.4.tar.xz"
-  sha256 "325a4c54db320c406711bf2b55e5cb5b6c29823426aa82596a907595abb39d28"
+  url "https://download.gnome.org/sources/libsecret/0.20/libsecret-0.20.5.tar.xz"
+  sha256 "3fb3ce340fcd7db54d87c893e69bfc2b1f6e4d4b279065ffe66dac9f0fd12b4d"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -19,6 +19,8 @@ class Libsecret < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "glib"
@@ -28,17 +30,13 @@ class Libsecret < Formula
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --enable-introspection
-      --enable-vala
-    ]
-
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "meson", "..", "-Dbashcompdir=#{bash_completion}",
+                            "-Dgtk_doc=false",
+                            *std_meson_args
+      system "ninja", "--verbose"
+      system "ninja", "install", "--verbose"
+    end
   end
 
   test do
