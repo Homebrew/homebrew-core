@@ -6,12 +6,12 @@ class Libadwaita < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_monterey: "4912d1df5884d1ac12df98026bf8b9e3bc77493ee682e3852fad7cc1467110e4"
-    sha256 arm64_big_sur:  "e356fe20ec6553d912ca7cafd2ab865d3d5f37aaebdc3d88d66258a16ce8224b"
-    sha256 monterey:       "aeea3cb18115883487efea75fc0f8318eb6b7272f0815168256c7516d3f8308c"
-    sha256 big_sur:        "57cfa283583385ee480fc3cf5b89e2245cab7f4d590ced36929dc7ec4d74720c"
-    sha256 catalina:       "c432dd1122cc382263cf78ee3d7db5f7f3cff57b8bb50b7c184ced2ac1a147a9"
-    sha256 x86_64_linux:   "3a35ef42ae77db6761be7e0b70930388a03cd9c1605e1b2a89dc0d764c7619f6"
+    sha256 arm64_monterey: "c88a962ad53cc5965136aa38ebdd058f1fe2c34e5e21d3490b81435bc4d508d9"
+    sha256 arm64_big_sur:  "cc52f34b8328adc4266e5391dd11d335eae0413f05867266455b19d7bcb90451"
+    sha256 monterey:       "d5a6991723d6f25f547313b98f35de3d8ac6cd4f2907b6f35cae7a25c1cbcb7d"
+    sha256 big_sur:        "1f248de299d342c65b8f928801d42382f130786ac05bfa451bb70c1fe6b8676d"
+    sha256 catalina:       "ef6eacabf8994d4b48a4769069782c3bc8dfd02fbcf2fee9ad43f1db5465812a"
+    sha256 x86_64_linux:   "252d8427bfa691cb4ece1ff6f1d5a9812b955f74d4f99c3d514280df6afc0db7"
   end
 
   depends_on "gobject-introspection" => :build
