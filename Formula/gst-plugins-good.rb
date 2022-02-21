@@ -34,6 +34,7 @@ class GstPluginsGood < Formula
   depends_on "libshout"
   depends_on "libsoup@2"
   depends_on "libvpx"
+  depends_on "mpg123"
   depends_on "orc"
   depends_on "speex"
   depends_on "taglib"
