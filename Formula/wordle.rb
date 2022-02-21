@@ -12,6 +12,6 @@ class Wordle < Formula
   end
 
   test do
-    system "test", "-f", "#{bin}/program"
+    system "test", "-f", "#{bin}/wordle"
   end
 end
