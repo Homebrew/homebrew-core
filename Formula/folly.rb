@@ -48,6 +48,13 @@ class Folly < Formula
 
   fails_with gcc: "5"
 
+  # Fix build failure on Linux.
+  # https://github.com/facebook/folly/pull/1721
+  patch do
+    url "https://github.com/facebook/folly/commit/f2088bc7d0be8f28c99d34a49d835654810f476f.patch?full_index=1"
+    sha256 "412e41f4bb4855bd975b32c5f01a0decfa519490e85068c84b0f66f54daef3c7"
+  end
+
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
