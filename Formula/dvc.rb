@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/25/dd/dcd527ab77f9227220d051e2e27a76a29aecdf262212e46a79a383308090/dvc-2.9.4.tar.gz"
-  sha256 "8c35383154309592e969dcdcb64a4aeb679a4b27d3c188335510054a6acd8fc1"
+  url "https://files.pythonhosted.org/packages/e9/46/33ac44445fd6974fe6b52f01ab4794c5b5dda927cfb520ac64382e629905/dvc-2.9.5.tar.gz"
+  sha256 "d4bd89c074ddac14f775c8eec95ad22821b863c0aeb51c0defd20a036d36e0ca"
   license "Apache-2.0"
 
   bottle do
@@ -261,8 +261,8 @@ class Dvc < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/70/b0/23e3245248f63eac75335828527016c7636c1780e7ad934a341970b47a78/GitPython-3.1.26.tar.gz"
-    sha256 "fc8868f63a2e6d268fb25f481995ba185a85a66fcad126f039323ff6635669ee"
+    url "https://files.pythonhosted.org/packages/d6/39/5b91b6c40570dc1c753359de7492404ba8fe7d71af40b618a780c7ad1fc7/GitPython-3.1.27.tar.gz"
+    sha256 "1c885ce809e8ba2d88a29befeb385fcea06338d3640712b59ca623c220bb5704"
   end
 
   resource "google-api-core" do
@@ -431,8 +431,8 @@ class Dvc < Formula
   end
 
   resource "portalocker" do
-    url "https://files.pythonhosted.org/packages/38/2e/32172e8418f2ba284cee4fd67cb547d39a7debb3eed37d514da173786112/portalocker-2.3.2.tar.gz"
-    sha256 "75cfe02f702737f1726d83e04eedfa0bda2cc5b974b1ceafb8d6b42377efbd5f"
+    url "https://files.pythonhosted.org/packages/dc/60/9646b57d473d38fd23af22f18dce6baa4d591f37024e0c3dcd2d66814d50/portalocker-2.4.0.tar.gz"
+    sha256 "a648ad761b8ea27370cb5915350122cd807b820d2193ed5c9cc28f163df637f4"
   end
 
   resource "psutil" do
@@ -501,8 +501,8 @@ class Dvc < Formula
   end
 
   resource "python-benedict" do
-    url "https://files.pythonhosted.org/packages/c6/7f/8c151e65e99ca1764c102fce5f96e6be546974a2890f584cff150c330d9e/python-benedict-0.24.3.tar.gz"
-    sha256 "f9d7b41cbe7fe79b3df0c12285eacf297a157fa7b5d9da461132908ab13c390f"
+    url "https://files.pythonhosted.org/packages/7c/70/70e608eb72fe03203e277ce1f0f5a517468b764b3c7ffcb0b8776396c977/python-benedict-0.25.0.tar.gz"
+    sha256 "60f50c44c8292bea34e89b7b60f441820228ef05c6d4007098c1c1705137372d"
   end
 
   resource "python-dateutil" do
@@ -516,8 +516,8 @@ class Dvc < Formula
   end
 
   resource "python-slugify" do
-    url "https://files.pythonhosted.org/packages/bc/a4/57893fbaf7cbf303a4f2307564cf83855a5f2cc34544656e7263125a0d1e/python-slugify-5.0.2.tar.gz"
-    sha256 "f13383a0b9fcbe649a1892b9c8eb4f8eab1d6d84b84bb7a624317afa98159cab"
+    url "https://files.pythonhosted.org/packages/b9/1b/f2d89e911b8234e6902b2065b1db5a375ee0867e4c65997a6c9fc584d77f/python-slugify-6.0.1.tar.gz"
+    sha256 "ba72aa9d9f0514c0c3dd4430442f698ccc27a24d19630473663a71e3ec606bc1"
   end
 
   resource "PyYAML" do
