@@ -1,8 +1,8 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/40/gedit-40.1.tar.xz"
-  sha256 "55e394a82cb65678b1ab49526cf5bd43f00d8fba21476a4849051a8e137d3691"
+  url "https://download.gnome.org/sources/gedit/41/gedit-41.0.tar.xz"
+  sha256 "7a9b18b158808d1892989165f3706c4f1a282979079ab7458a79d3c24ad4deb5"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -33,7 +33,6 @@ class Gedit < Formula
   depends_on "libsoup"
   depends_on "libxml2"
   depends_on "pango"
-  depends_on "tepl"
 
   def install
     ENV["DESTDIR"] = "/"
