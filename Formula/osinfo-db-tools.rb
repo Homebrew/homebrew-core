@@ -11,13 +11,12 @@ class OsinfoDbTools < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "8be0254023c9cc2b6020ceb0cfbe0ded607b618f466d59e9877a38e03f658cb8"
-    sha256 arm64_big_sur:  "16e25d6c6f291ee858eb7d6bce60c75470269317a02c5e94a6b67a7378020177"
-    sha256 monterey:       "a10baa04d411298ffa19ff71899990e29ce7ce4f752a86eb19b97a640e9c6078"
-    sha256 big_sur:        "dc0ff11e571cdceb53a3d581d5259b638726181bb4413ae94106d8754d29de5c"
-    sha256 catalina:       "5f4ba5dfa744e36530bb021d094febe34d788badea61cc8280a7371fab4847c1"
-    sha256 x86_64_linux:   "f3673bced7bf3ed645d14930dbeddf2c298884dc2110487b253d68ba9364b784"
+    sha256 arm64_monterey: "1d1c7ce896178ca36d6e80d74c4ee079ccef9d33aa23b3497507ae10a0e639ba"
+    sha256 arm64_big_sur:  "82486837eb8ac3f291f0c19417fb3c039a6f8dc964a53cdbefd38a3ace4f4082"
+    sha256 monterey:       "5fd3aecf2c0b5d73a53ca7f040492b18488fcae29e95a87f472e5b7748b4656d"
+    sha256 big_sur:        "b8f2bb99ccdf6e52e3b9210047975945e145b710066a870562a16ab1d1e8fa1d"
+    sha256 catalina:       "b15b9a51705d8bdcfd115f9e43fd9129a84a7004efc3229e19d3e0286432914d"
+    sha256 x86_64_linux:   "ff2927f346097164c57287e06974a74455e79d9f0ef62f438ff0e4ffadfaa266"
   end
 
   depends_on "meson" => :build
