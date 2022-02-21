@@ -6,7 +6,7 @@ class Bandit < Formula
   url "https://files.pythonhosted.org/packages/67/f3/99409392d1eb5e3d65efacf2d30e94b2d2c4e24e0849fab2e84f35748a3b/bandit-1.7.2.tar.gz"
   sha256 "6d11adea0214a43813887bfe71a377b5a9955e4c826c8ffd341b494e3ab25260"
   license "Apache-2.0"
-  head "https://github.com/PyCQA/bandit.git", branch: "master"
+  head "https://github.com/PyCQA/bandit.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3d1a5802305f29b27b9a403e54a32c4c0316b79d0b79e1a415b3cce8cae1e910"
