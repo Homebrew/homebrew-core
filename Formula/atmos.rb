@@ -1,8 +1,8 @@
 class Atmos < Formula
   desc "Universal Tool for DevOps and Cloud Automation"
   homepage "https://github.com/cloudposse/atmos"
-  url "https://github.com/cloudposse/atmos/archive/v1.3.27.tar.gz"
-  sha256 "3dc354ca4fc5a25eae2f2738b55edff55e0f7b16286759f0aa1e63d3e48b3c41"
+  url "https://github.com/cloudposse/atmos/archive/v1.3.29.tar.gz"
+  sha256 "2d42adb86b555c34f88bc2c6d09e70c455fcc94a0516d7094f65d4154a9baf1e"
   license "Apache-2.0"
 
   bottle do
@@ -70,6 +70,7 @@ class Atmos < Formula
         tenant: tenant1
         region: us-east-2
         environment: ue2
+        stage: dev
 
       components:
         terraform:
