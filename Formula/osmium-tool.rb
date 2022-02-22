@@ -17,6 +17,7 @@ class OsmiumTool < Formula
   depends_on "cmake" => :build
   depends_on "libosmium" => :build
   depends_on "boost"
+  depends_on "lz4"
 
   uses_from_macos "expat"
 
