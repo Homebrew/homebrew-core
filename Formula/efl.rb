@@ -36,7 +36,7 @@ class Efl < Formula
   depends_on "libsndfile"
   depends_on "libspectre"
   depends_on "libtiff"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "poppler"
@@ -44,6 +44,10 @@ class Efl < Formula
   depends_on "shared-mime-info"
 
   uses_from_macos "zlib"
+
+  # Remove LuaJIT 2.0 linker args -pagezero_size and -image_base
+  # to fix ARM build using LuaJIT 2.1+ via `luajit-openresty`
+  patch :DATA
 
   def install
     args = std_meson_args + %w[
@@ -54,6 +58,7 @@ class Efl < Formula
       -Dembedded-lz4=false
       -Deeze=false
       -Dglib=true
+      -Dinput=false
       -Dlibmount=false
       -Dopengl=full
       -Dphysics=true
@@ -82,3 +87,19 @@ class Efl < Formula
     system bin/"eet", "-V"
   end
 end
+
+__END__
+diff --git a/meson.build b/meson.build
+index a1c5967b82..b10ca832db 100644
+--- a/meson.build
++++ b/meson.build
+@@ -32,9 +32,6 @@ endif
+
+ #prepare a special linker args flag for binaries on macos
+ bin_linker_args = []
+-if host_machine.system() == 'darwin'
+-  bin_linker_args = ['-pagezero_size', '10000', '-image_base', '100000000']
+-endif
+
+ windows = ['windows', 'cygwin']
+ #bsd for meson 0.46 and 0.47
