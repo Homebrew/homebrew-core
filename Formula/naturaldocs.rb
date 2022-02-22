@@ -1,9 +1,9 @@
 class Naturaldocs < Formula
   desc "Extensible, multi-language documentation generator"
   homepage "https://www.naturaldocs.org/"
-  url "https://downloads.sourceforge.net/project/naturaldocs/Stable%20Releases/2.1.1/Natural_Docs_2.1.1.zip"
-  mirror "https://naturaldocs.org/download/natural_docs/2.1.1/Natural_Docs_2.1.1.zip"
-  sha256 "00ebfee968c4b88ebd213d1e48be37686d717d938dfa6c739c23b769bdf03c1f"
+  url "https://downloads.sourceforge.net/project/naturaldocs/Stable%20Releases/2.2/Natural_Docs_2.2.zip"
+  mirror "https://naturaldocs.org/download/natural_docs/2.2/Natural_Docs_2.2.zip"
+  sha256 "2d0d13c3373f30668a1fc7b08b8f3680c49182df4597cfe868573347fdf0e8ba"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -18,6 +18,7 @@ class Naturaldocs < Formula
   depends_on "mono"
 
   def install
+    rm_f "libNaturalDocs.Engine.SQLite.Mac32.so"
     libexec.install Dir["*"]
     (bin/"naturaldocs").write <<~EOS
       #!/bin/bash
