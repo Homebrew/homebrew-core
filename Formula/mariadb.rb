@@ -55,6 +55,9 @@ class Mariadb < Formula
 
   fails_with gcc: "5"
 
+  # Fix finding Homebrew `fmt`
+  patch :DATA
+
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
@@ -68,7 +71,6 @@ class Mariadb < Formula
     rm_r "storage/mroonga/vendor/groonga"
 
     # -DINSTALL_* are relative to prefix
-    # -DWITH_LIBFMT=system can't find fmt
     args = %W[
       -DMYSQL_DATADIR=#{var}/mysql
       -DINSTALL_INCLUDEDIR=include/mysql
@@ -76,6 +78,7 @@ class Mariadb < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DWITH_LIBFMT=system
       -DWITH_SSL=system
       -DWITH_UNIT_TESTS=OFF
       -DDEFAULT_CHARSET=utf8mb4
@@ -188,3 +191,17 @@ class Mariadb < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+
+__END__
+diff --git a/cmake/libfmt.cmake b/cmake/libfmt.cmake
+index 6a260569..a8418754 100644
+--- a/cmake/libfmt.cmake
++++ b/cmake/libfmt.cmake
+@@ -26,6 +26,7 @@ ENDMACRO()
+ 
+ MACRO (CHECK_LIBFMT)
+   IF(WITH_LIBFMT STREQUAL "system" OR WITH_LIBFMT STREQUAL "auto")
++    SET(CMAKE_REQUIRED_FLAGS "-std=c++11")
+     CHECK_CXX_SOURCE_COMPILES(
+     "#define FMT_STATIC_THOUSANDS_SEPARATOR ','
+      #define FMT_HEADER_ONLY 1
