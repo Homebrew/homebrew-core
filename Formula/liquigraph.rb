@@ -6,7 +6,7 @@ class Liquigraph < Formula
   license "Apache-2.0"
   head "https://github.com/liquigraph/liquigraph.git", branch: "4.x"
 
-  deprecate! date: "2022-02-21", because: "Check out `liquibase` and its Neo4j plugin instead"
+  deprecate! date: "2022-02-21", because: :unsupported
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "be3ede90f882b6636ca5c0374274e659b924bdfee4b67eea10ef8f78596d7b74"
