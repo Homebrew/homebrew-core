@@ -2,6 +2,7 @@ class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/commercialhaskell/stack.git", branch: "master"
 
   stable do
