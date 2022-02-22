@@ -13,7 +13,7 @@ class Liquigraph < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "7f0ec2c088008c2ba5f96f596dc86dfd4e28e81c93154f14754e33b13ac3978d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "78fbde2400bc144473a61ecb4f65f92a4ad1eb5244928f5844de51d819225f7c"
   end
-  
+
   deprecate! date: "2022-02-21", because: :unsupported
 
   depends_on "maven" => :build
