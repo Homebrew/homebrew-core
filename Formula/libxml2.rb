@@ -4,9 +4,8 @@ class Libxml2 < Formula
   license "MIT"
 
   stable do
-    url "http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.12.tar.gz"
-    sha256 "c8d6681e38c56f172892c85ddc0852e1fd4b53b4209e7f4ebf17f7e2eae71d92"
+    url "https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.13.tar.xz"
+    sha256 "276130602d12fe484ecc03447ee5e759d0465558fbc9d6bd144e3745306ebf0e"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -15,9 +14,11 @@ class Libxml2 < Formula
     end
   end
 
+  # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
+  # minor is stable" version scheme.
   livecheck do
-    url "http://xmlsoft.org/sources/"
-    regex(/href=.*?libxml2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/libxml2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
@@ -31,7 +32,7 @@ class Libxml2 < Formula
   end
 
   head do
-    url "https://gitlab.gnome.org/GNOME/libxml2.git"
+    url "https://gitlab.gnome.org/GNOME/libxml2.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -78,7 +79,7 @@ class Libxml2 < Formula
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
                             "includes_dir = ['#{include}', '#{sdk_include}',"
-      system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install", "--prefix=#{prefix}"
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
