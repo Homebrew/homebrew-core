@@ -1,8 +1,8 @@
 class S2n < Formula
   desc "Implementation of the TLS/SSL protocols"
   homepage "https://github.com/aws/s2n-tls"
-  url "https://github.com/aws/s2n-tls/archive/v1.3.6.tar.gz"
-  sha256 "014eb4190b4cc9301b99bbbc11cc874c38fbf1c73ba77bca922458a052a58ed3"
+  url "https://github.com/aws/s2n-tls/archive/v1.3.7.tar.gz"
+  sha256 "64b141b6f79bf131d29ff6a0fe053f77a6f3dd946f19298b544a6dafacbecfcf"
   license "Apache-2.0"
   head "https://github.com/aws/s2n-tls.git", branch: "main"
 
@@ -38,6 +38,7 @@ class S2n < Formula
       }
     EOS
     system ENV.cc, "test.c", "-L#{opt_lib}", "-ls2n", "-o", "test"
+    ENV["S2N_DONT_MLOCK"] = "1" if OS.linux?
     system "./test"
   end
 end
