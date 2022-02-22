@@ -13,12 +13,12 @@ class Babl < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "a00ab8fc3289e795384974ddbfc26d43631f2e3bc5c5440031835842f6c3aa99"
-    sha256 monterey:      "fce2f8b126bee4b3fd597f8a36afb7e98577542f8209fe12909faefb5224e7a7"
-    sha256 big_sur:       "f2e800564684938cfca18fc994eebcb3a2373f7362047513ca1a24f16c1937b0"
-    sha256 catalina:      "33616239de78a0b3918cbb825913edd26ea49d2dbd0550a79ed7441052acb0a3"
-    sha256 mojave:        "54e1710cab528ac2fd32300a1aa9577e1eb71ceae931792c356d2e5e582b2eaa"
-    sha256 x86_64_linux:  "85379477d14b40b5972b729060678e5e91d2c13323c27c7f197434cc0650486d"
+    sha256 arm64_monterey: "1ecbc84d8f7a0a2bc9a6f58b0d575632b71a3fb2f1e7f3a51a9b5e0d784b862b"
+    sha256 arm64_big_sur:  "58bb5d38e7e04ecbb34f9e8bd9b5e192c31e19d8e4773467cc820635ede4e13e"
+    sha256 monterey:       "3430b24cae096c8c2f00495508a8162af480235e2370d6e155904423a7c00e46"
+    sha256 big_sur:        "ac951ddf734bd392fc3e4b9dfd5dffedbf39c6028e913f4f2cd5a80675385263"
+    sha256 catalina:       "60aa4cf85fa631caa0501e494e990e77c523b3b32a2cacbe17766b98700b0c73"
+    sha256 x86_64_linux:   "2cda652edb873aacf928ee293cea2f9d9a8b020bf7c2b53fbf502de339b2f0ca"
   end
 
   depends_on "glib" => :build # for gobject-introspection
