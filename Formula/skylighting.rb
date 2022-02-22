@@ -1,8 +1,8 @@
 class Skylighting < Formula
   desc "Flexible syntax highlighter using KDE XML syntax descriptions"
   homepage "https://github.com/jgm/skylighting"
-  url "https://github.com/jgm/skylighting/archive/0.12.2.tar.gz"
-  sha256 "6b2512e528f69969be6736b6b881351e0dedb3446377ef407d16dd707de6dff9"
+  url "https://github.com/jgm/skylighting/archive/0.12.3.tar.gz"
+  sha256 "50126e6589a3507f19bc5ec83a933441c6f61b95fb5754a9d7c400194dceae70"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/skylighting.git", branch: "master"
 
@@ -16,6 +16,8 @@ class Skylighting < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+
+  uses_from_macos "zlib"
 
   def install
     system "cabal", "v2-update"
