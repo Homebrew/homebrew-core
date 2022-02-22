@@ -19,6 +19,8 @@ class Libsecret < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "glib"
@@ -28,17 +30,13 @@ class Libsecret < Formula
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --enable-introspection
-      --enable-vala
-    ]
-
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "meson", "..", "-Dbashcompdir=#{bash_completion}",
+                            "-Dgtk_doc=false",
+                            *std_meson_args
+      system "ninja", "--verbose"
+      system "ninja", "install", "--verbose"
+    end
   end
 
   test do
