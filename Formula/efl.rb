@@ -45,6 +45,12 @@ class Efl < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # poppler is built with GCC
+
   # Remove LuaJIT 2.0 linker args -pagezero_size and -image_base
   # to fix ARM build using LuaJIT 2.1+ via `luajit-openresty`
   patch :DATA
@@ -54,7 +60,6 @@ class Efl < Formula
       -Davahi=false
       -Dbuild-examples=false
       -Dbuild-tests=false
-      -Dcocoa=true
       -Dembedded-lz4=false
       -Deeze=false
       -Dglib=true
@@ -66,6 +71,7 @@ class Efl < Formula
       -Dv4l2=false
       -Dx11=false
     ]
+    args << "-Dcocoa=true" if OS.mac?
 
     # Install in our Cellar - not dbus's
     inreplace "dbus-services/meson.build", "dep.get_pkgconfig_variable('session_bus_services_dir')",
