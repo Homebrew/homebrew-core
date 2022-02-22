@@ -11,9 +11,12 @@ class Efl < Formula
   end
 
   bottle do
-    sha256 monterey: "e2bb44a2d447e9c9e5301f806bdc76dc15fe42daf47591ce1de0f45ab358382b"
-    sha256 big_sur:  "bbaebb6cf807494d5081a5d524989d9d69f788130883b691463c22b83e8a05f0"
-    sha256 catalina: "bcd8fb418d7016654d36ab1640a19aeb6814ae6cd676e4cd15f4efd6eeeca183"
+    sha256 arm64_monterey: "4e5419af6ae133d283eb21a6d21323539fe476e82954166c234c39731d3b3211"
+    sha256 arm64_big_sur:  "208c7fed52c78fbd218e187bd5e0a7c25b71797ef9360be6ce6587ee97b8b335"
+    sha256 monterey:       "e5e9a7cd7ea454590be9b04e8c3738fb06f9938af8baee744ce54ba4214a20a9"
+    sha256 big_sur:        "dcb683ba7af8b8ab4e273535ec53b67149bc598210546d8c828bfd8dc2690d1b"
+    sha256 catalina:       "0761cc1408d03ad98c8fc57b7c4d6e15ca3e69687396fcecbcb4fcea7563e790"
+    sha256 x86_64_linux:   "a9935da9d1ca8a269eb2de4d2552f8e72aa4a5537f1c7ab13de2760049367ddb"
   end
 
   depends_on "meson" => :build
