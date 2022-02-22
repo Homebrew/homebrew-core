@@ -1,8 +1,8 @@
 class Brook < Formula
   desc "Cross-platform strong encryption and not detectable proxy. Zero-Configuration"
   homepage "https://txthinking.github.io/brook/"
-  url "https://github.com/txthinking/brook/archive/refs/tags/v20210401.tar.gz"
-  sha256 "6229b2f0b53d94acb873e246d10f2a4662af2a031a03e7fb5c3befffcd998731"
+  url "https://github.com/txthinking/brook/archive/refs/tags/v20220401.tar.gz"
+  sha256 "cd3c467d23f4677c51e6764e0a3203cf39ac6c1081203bfd9f5c79680317be22"
   license "GPL-3.0-only"
 
   bottle do
@@ -18,13 +18,11 @@ class Brook < Formula
   depends_on "go" => :build
 
   def install
-    cd "cli/brook" do
-      system "go", "build", *std_go_args(ldflags: "-s -w")
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cli/brook"
   end
 
   test do
-    output = shell_output "#{bin}/brook link -s 1.2.3.4:56789"
-    assert_match "brook://1.2.3.4%3A56789", output
+    output = shell_output "#{bin}/brook link --server 1.2.3.4:56789 --password hello"
+    assert_match "brook://server?address=&insecure=&name=&password=hello&server=1.2.3.4%3A56789&username=", output
   end
 end
