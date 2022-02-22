@@ -22,6 +22,8 @@ class Pnetcdf < Formula
   depends_on "gcc"
   depends_on "open-mpi"
 
+  uses_from_macos "m4" => :build
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
