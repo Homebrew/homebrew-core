@@ -4,6 +4,7 @@ class Wolfmqtt < Formula
   url "https://github.com/wolfSSL/wolfMQTT/archive/refs/tags/v1.11.0.tar.gz"
   sha256 "5d0c14ff0c5c571907802f51b91990e1528f7a586df4b6d796cf157b470f5712"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/wolfSSL/wolfMQTT.git", branch: "master"
 
   bottle do
