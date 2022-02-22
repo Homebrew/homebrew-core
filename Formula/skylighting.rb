@@ -17,6 +17,8 @@ class Skylighting < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
+  uses_from_macos "zlib"
+
   def install
     system "cabal", "v2-update"
 
