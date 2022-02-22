@@ -3,7 +3,8 @@ class Byobu < Formula
   homepage "https://launchpad.net/byobu"
   url "https://launchpad.net/byobu/trunk/5.133/+download/byobu_5.133.orig.tar.gz"
   sha256 "4d8ea48f8c059e56f7174df89b04a08c32286bae5a21562c5c6f61be6dab7563"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e4b6177bef58c89b06a356a0bb96aae9cf60678442af57f9a5e7489b3a162ae6"
@@ -23,7 +24,6 @@ class Byobu < Formula
   end
 
   depends_on "coreutils"
-  depends_on "gnu-sed" # fails with BSD sed
   depends_on "newt"
   depends_on "tmux"
 
@@ -36,13 +36,18 @@ class Byobu < Formula
     end
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-  end
 
-  def caveats
-    <<~EOS
-      Add the following to your shell configuration file:
-        export BYOBU_PREFIX=#{HOMEBREW_PREFIX}
-    EOS
+    byobu_python = Formula["newt"].deps
+                                  .find { |d| d.name.match?(/^python@\d\.\d+$/) }
+                                  .to_formula
+                                  .opt_bin/"python3"
+
+    lib.glob("byobu/include/*.py").each do |script|
+      byobu_script = "byobu-#{script.basename(".py")}"
+
+      libexec.install(bin/byobu_script)
+      (bin/byobu_script).write_env_script(libexec/byobu_script, BYOBU_PYTHON: byobu_python)
+    end
   end
 
   test do
