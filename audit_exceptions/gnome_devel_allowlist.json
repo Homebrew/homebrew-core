@@ -3,6 +3,7 @@
   "gtk-mac-integration": "2.1",
   "libart": "2.3",
   "libepoxy": "1.5",
+  "libxml2": "2.9",
   "libxslt": "1.1",
   "tracker": "3.1"
 }
