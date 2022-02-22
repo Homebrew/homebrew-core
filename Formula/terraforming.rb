@@ -16,7 +16,9 @@ class Terraforming < Formula
     sha256 cellar: :any_skip_relocation, all:           "9fec9a488184066c7ef10f728be33fcc30afe004d9d5bc6dbe7c187a768b8165"
   end
 
-  uses_from_macos "ruby"
+  on_linux do
+    depends_on "ruby@2.7"
+  end
 
   resource "aws-sdk-autoscaling" do
     url "https://rubygems.org/gems/aws-sdk-autoscaling-1.20.0.gem"
