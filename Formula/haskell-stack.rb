@@ -38,13 +38,12 @@ class HaskellStack < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f787639247b432194d1adb01b7c012de6e30b141095644c95b516c25af7c69c1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1febdf95d90161093914f0b130a2e560e3e536316b414ab4d894195f2ffbec61"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2b504eb4506d7cc0aa84e917018897ff0b00f9f863b8abd6c0f05ecbd5fa9c7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5e9185c5fb43ee4aa892bd5e9460fba19874c741df8cb0791af25ec7dab40575"
-    sha256 cellar: :any_skip_relocation, catalina:       "eff4da14356490588c31bbdf4d327605c5209957956d2964eb42e65bb9f687ba"
-    sha256 cellar: :any_skip_relocation, mojave:         "f57fdcf4118acc46b507b6e091f8898f9f1200f5041d20460ac97cc57fe21364"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c0e6d39df1e8c28c0ed815df4a2f02a3e302a758fb9dade1aaf3d13212ce5ad"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "223039df16db8fd0b74fa529d88109f1effcf55bec6e8db742219500b2e556a0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "25d33ae56faa45f19fb0c60c0c497aa076e5d77451b9cf6125dee9e537c6c488"
+    sha256 cellar: :any_skip_relocation, monterey:       "2bdd09925b65740a5f2009f177e45652eb6cfdc52a92c8f8071cdad38c09d0da"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f10cce9b46dc8c6c73dabb0d7993952bf7e4eb5ae8a7b1849621f96e52b009a6"
+    sha256 cellar: :any_skip_relocation, catalina:       "04c2148cecf6ea05c7bd108d66659bdbd830111076ee71e4e4a73ad0db78a615"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4bd509e68d1f143445d86738c2cb7a366349989cb9cce0ae8b26b91e71b0b9d0"
   end
 
   depends_on "cabal-install" => :build
