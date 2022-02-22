@@ -52,7 +52,7 @@ class Mold < Formula
     system "make", *args, "install"
 
     inreplace buildpath.glob("test/*/*.sh") do |s|
-      s.gsub!(/^mold=.*((?:ld64\.)?mold)"?$/, "mold=\"#{bin}/\\1\"")
+      s.gsub!(/^mold=.+?((?:ld64\.)?mold)"?$/, "mold=\"#{bin}/\\1\"")
       s.gsub!(/"?\$mold"?-wrapper/, lib/"mold/mold-wrapper", false)
     end
     pkgshare.install "test"
@@ -75,9 +75,18 @@ class Mold < Formula
 
     system ENV.cc, linker_flag, "test.c"
     system "./a.out"
-    return if OS.mac?
+    # Lots of tests fail on ARM Big Sur for some reason.
+    return if MacOS.version == :big_sur && Hardware::CPU.arm?
 
-    system bin/"mold", "-run", ENV.cc, "test.c", "-o", "test"
-    system "./test"
+    if OS.mac?
+      cp_r pkgshare/"test", testpath
+      # Remove some failing tests.
+      untested = %w[headerpad* pagezero-size basic response-file]
+      testpath.glob("test/macho/{#{untested.join(",")}}.sh").map(&:unlink)
+      (testpath/"test/macho").children.each { |t| system t }
+    else
+      system bin/"mold", "-run", ENV.cc, "test.c", "-o", "test"
+      system "./test"
+    end
   end
 end
