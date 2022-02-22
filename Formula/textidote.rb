@@ -6,6 +6,15 @@ class Textidote < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/sylvainhalle/textidote.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c43727c26715f20b4f584dc84f451892795aa2a0ea7acd126b8f60e3b75a7ea6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "699f0bfbe3ec8667be03c956935ded5af3eca9c22ad7a6a627a29dc40224e863"
+    sha256 cellar: :any_skip_relocation, monterey:       "306ad9dd1d5cfa96ea9976fa349ec38bd0a246f0feaf27223fff86f51bcd879d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "62cb64ee83a30dae725475d3bb5b5260ed74784ce4b7bfe071a2cf0c7bb7a917"
+    sha256 cellar: :any_skip_relocation, catalina:       "2c307c617920b39a668b3b4d877da206912f615bf409cdafa17e4a0063393171"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0571032b89ba4edb5560e4358dab877bcdd15eb8a8d76c8656405362e0da8923"
+  end
+
   depends_on "ant" => :build
   depends_on "openjdk"
 
