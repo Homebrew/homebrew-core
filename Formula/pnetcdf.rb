@@ -1,10 +1,9 @@
 class Pnetcdf < Formula
   desc "Parallel netCDF library for scientific data using the OpenMPI library"
   homepage "https://parallel-netcdf.github.io/index.html"
-  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.12.2.tar.gz"
-  sha256 "3ef1411875b07955f519a5b03278c31e566976357ddfc74c2493a1076e7d7c74"
+  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz"
+  sha256 "439e359d09bb93d0e58a6e3f928f39c2eae965b6c97f64e67cd42220d6034f77"
   license "NetCDF"
-  revision 1
 
   livecheck do
     url "https://parallel-netcdf.github.io/wiki/Download.html"
@@ -22,6 +21,8 @@ class Pnetcdf < Formula
 
   depends_on "gcc"
   depends_on "open-mpi"
+
+  uses_from_macos "m4" => :build
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
