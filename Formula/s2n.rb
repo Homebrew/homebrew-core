@@ -38,6 +38,7 @@ class S2n < Formula
       }
     EOS
     system ENV.cc, "test.c", "-L#{opt_lib}", "-ls2n", "-o", "test"
+    ENV["S2N_DONT_MLOCK"] = "1" if OS.linux?
     system "./test"
   end
 end
