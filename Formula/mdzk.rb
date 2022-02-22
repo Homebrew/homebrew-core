@@ -1,8 +1,8 @@
 class Mdzk < Formula
   desc "Plain text Zettelkasten based on mdBook"
   homepage "https://mdzk.app/"
-  url "https://github.com/mdzk-rs/mdzk/archive/0.5.0.tar.gz"
-  sha256 "f8b72c70cee068896a7786fdffc4c7900085aa2f1f53e973759b829183c9a8e2"
+  url "https://github.com/mdzk-rs/mdzk/archive/0.5.1.tar.gz"
+  sha256 "347f52b6fc221d3b3692c311afe4dbf55adcccb225be97a05c50928a0942cf3f"
   license "MPL-2.0"
   head "https://github.com/mdzk-rs/mdzk.git", branch: "main"
 
