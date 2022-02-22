@@ -7,12 +7,12 @@ class Watchman < Formula
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "a17cb20e09f964505dbcc8ce690252bafdb699444c295bfd05ee2edc1a110db9"
-    sha256 cellar: :any, arm64_big_sur:  "d687120b74f8097c9d9be56220464f2b48438aad3069d8f36755e1b4a12167aa"
-    sha256 cellar: :any, monterey:       "0e69c1317cc15cee2ab026bcaa1e07f0f0d578e0a4f2228ac83e18c5d7a810d0"
-    sha256 cellar: :any, big_sur:        "9b0437d417a213862cf0f268b512762002afbf01c2a8d3312f4f8a33fe610a83"
-    sha256 cellar: :any, catalina:       "b74bd7a2fc852fc8978940591bd0d13d93eece6be1d5f6746db529e07552913e"
-    sha256               x86_64_linux:   "d23dbea274bd72952221032f011e22ff8894d57efe6aa2be137c028395c4d1a6"
+    sha256 cellar: :any, arm64_monterey: "eb6e9e36051329c69b6a26eeca5a2df92442d0ebcd0564c153e3c8c979211b02"
+    sha256 cellar: :any, arm64_big_sur:  "fe8b1a02ac0cec9715ca3efad98c6563f216b3d21086e6a683b65ced142c84f7"
+    sha256 cellar: :any, monterey:       "cb71cb5bec0548703534f32243535bef0947cdc840d9ccc5b789c748cd752155"
+    sha256 cellar: :any, big_sur:        "60f6db45c54338a1f0b7a3b9bad045cdf3fa6f4d33d30b357f8ce0c798898946"
+    sha256 cellar: :any, catalina:       "dbabf02f9e01131fa06c4baf4dedd95521126ba44736ec05ca5b1225ca216b47"
+    sha256               x86_64_linux:   "807ab1dad241b8c037ca5fa597e57f66f36284eb9c6a9e3d347d62051165946b"
   end
 
   # https://github.com/facebook/watchman/issues/963
