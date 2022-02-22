@@ -4,7 +4,7 @@ class F3d < Formula
   url "https://github.com/f3d-app/f3d/archive/refs/tags/v1.2.1.tar.gz"
   sha256 "0d72cc465af1adefdf71695481ceea95d4a94ee9e00125bc98c9f32b14ac2bf4"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7af4b0e2f978c95c22156f0b96ed9703fff312eff2db793cbed042344cb206e6"
