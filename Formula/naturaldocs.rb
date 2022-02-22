@@ -12,7 +12,7 @@ class Naturaldocs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, all: "b3f1bd9379493b6a369f464f0af31524da2c7182bfd5f5076c1384813da98c28"
+    sha256 cellar: :any, all: "567b95832d650915a5e845129d79a4cfdc0f0cab20870fad118425fd048e69db"
   end
 
   depends_on "mono"
