@@ -18,6 +18,7 @@ class Naturaldocs < Formula
   depends_on "mono"
 
   def install
+    rm_f "libNaturalDocs.Engine.SQLite.Mac32.so"
     libexec.install Dir["*"]
     (bin/"naturaldocs").write <<~EOS
       #!/bin/bash
