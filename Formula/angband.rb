@@ -12,13 +12,12 @@ class Angband < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "0012d8a153dcf3036a9eab9314fb048031e0113209318aa919a6114edfaafdc8"
-    sha256 arm64_big_sur:  "ab6002b750047f4c544b8427a2f021395b75ab7f9f93c26fc0f3625b758f5842"
-    sha256 monterey:       "119541b0dec51b0e8f6dbb01b5d00b2f202921477154411adb4265cb5fbc2c10"
-    sha256 big_sur:        "3f6aee791649219ab05f70d1c9170e09137d23ee31fcfdd3862c242dd2165771"
-    sha256 catalina:       "c983b2033647d198120ae6295302f812fc7f35fc5d43e4bb430ff63f1fd89c31"
-    sha256 mojave:         "6eb8682054143520fbf931cac520aa8b1c3e8776db5d8e13c374698563fba23e"
-    sha256 x86_64_linux:   "c846da0bf2b065f0867cf114896938c321c5a86de031dfd0ec7bd94913425ac0"
+    sha256 arm64_monterey: "a35fe8d9924485cd51dceb3ba4cd1c915bfc65b6b1bd8eb7f67a9fc5e505fe42"
+    sha256 arm64_big_sur:  "94495ff709647df63efa6c16f22f5be1de4ac52c404047fadcbb08a4aef55a3e"
+    sha256 monterey:       "b68729b3a66c3c3f4777af5e5abf53752a192773f5c2f9a2ef9dea5844e95808"
+    sha256 big_sur:        "925eb3391381b336266c068b43779d7ebfd22aba15a9e61fba4b853cba4dc624"
+    sha256 catalina:       "f34102aa4cd0341970481bbca15a98de6021d68b493c5e9ba4f882a79745e5c3"
+    sha256 x86_64_linux:   "3cfa3f60f7b88f2aa13cbbcae6b90e0aec128f5aef92e49c2860e61075c32af3"
   end
 
   def install
