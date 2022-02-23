@@ -12,12 +12,12 @@ class Gmsh < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4aa718a4b7d1faeadcaa874c87e4e4ca2e82da5c378058ce751ac78feb358a49"
-    sha256 cellar: :any,                 arm64_big_sur:  "50d6de6b1b0b2fdfcf2e8db39c9f817c00b50f7840efce24039f86bae64ff1a3"
-    sha256 cellar: :any,                 monterey:       "9585de98f12992a5333eeb4e96c907f2815dc7edbdf95c525eb586366d401b18"
-    sha256 cellar: :any,                 big_sur:        "c7fcff67537fd10502e48dfb2f6c48e260f325532501e407a1a36a0ede42f7b5"
-    sha256 cellar: :any,                 catalina:       "40ee85113f84a38cda1b6985fd35d321e91bae762a6eb8b6c51e4cd64f6a19a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f27da0009ee69eb3a6a4068c76ac386aa528251c3236a15578e9a247b33aaf17"
+    sha256 cellar: :any,                 arm64_monterey: "3f38fbbd2be5f747bd2d9937c15788eed5cb43f0acdbe5c98dc38c7dc26f8fbf"
+    sha256 cellar: :any,                 arm64_big_sur:  "18fa3b1c00c5a185852ed937c5b9edd7be051a6c020af2b7ef46751c957c8161"
+    sha256 cellar: :any,                 monterey:       "fc233a6e88ef1fdba36fbb88ba2caa3f7e767c0ccddced18019893bc070a49f3"
+    sha256 cellar: :any,                 big_sur:        "2328f48aa6b82f596dfaf71316e88fb91f99351d989129d3ca3899d2d5dd5da8"
+    sha256 cellar: :any,                 catalina:       "585726ce8e97641cd2da630830975eb4cbf03ec8e7fecdedb9f807e0feb5fd5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2296aaf51930c372144d71349aae84427dd117ddd1275733335cfe254424872"
   end
 
   depends_on "cmake" => :build
