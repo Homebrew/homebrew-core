@@ -22,14 +22,16 @@ class Zstd < Formula
   uses_from_macos "zlib"
 
   def install
-    cd "build/cmake" do
-      system "cmake", "-S", ".", "-B", "builddir",
-                      "-DZSTD_BUILD_CONTRIB=ON",
-                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                      *std_cmake_args
-      system "cmake", "--build", "builddir"
-      system "cmake", "--install", "builddir"
-    end
+    # Legacy support is the default after
+    # https://github.com/facebook/zstd/commit/db104f6e839cbef94df4df8268b5fecb58471274
+    # Set it to `ON` to be explicit about the configuration.
+    system "cmake", "-S", "build/cmake", "-B", "builddir",
+                    "-DZSTD_BUILD_CONTRIB=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DZSTD_LEGACY_SUPPORT=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "builddir"
+    system "cmake", "--install", "builddir"
   end
 
   test do
