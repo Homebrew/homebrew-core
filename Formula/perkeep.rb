@@ -2,6 +2,7 @@ class Perkeep < Formula
   desc "Lets you permanently keep your stuff, for life"
   homepage "https://perkeep.org/"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/perkeep/perkeep.git", branch: "master"
 
   stable do
@@ -9,10 +10,11 @@ class Perkeep < Formula
         tag:      "0.11",
         revision: "76755286451a1b08e2356f549574be3eea0185e5"
 
-    # gopherjs doesn't tag releases, so just pick the most recent revision for now
     resource "gopherjs" do
-      url "https://github.com/gopherjs/gopherjs/archive/fce0ec30dd00773d3fa974351d04ce2737b5c4d9.tar.gz"
-      sha256 "e5e6ede5f710fde77e48aa1f6a9b75f5afeb1163223949f76c1300ae44263b84"
+      url "https://github.com/gopherjs/gopherjs/",
+          tag:      "1.17.1+go1.17.3",
+          revision: "ed9a9b14a74738df4185b7627b276902ad07d06f"
+      sha256 "fa79140b23cf54349d1e23caf1362df08a6733c420197bfd117a280b60ea3c2f"
     end
   end
 
@@ -34,13 +36,9 @@ class Perkeep < Formula
   def install
     if build.stable?
       ENV["GOPATH"] = buildpath
-      ENV["CAMLI_GOPHERJS_GOROOT"] = Formula["go@1.12"].opt_libexec
+      ENV["CAMLI_GOPHERJS_GOROOT"] = Formula["go"].opt_libexec
 
       (buildpath/"src/perkeep.org").install buildpath.children
-
-      # Vendored version of gopherjs requires go 1.10, so use the newest available gopherjs, which
-      # supports up to go 1.12
-      rm_rf buildpath/"src/perkeep.org/vendor/github.com/gopherjs/gopherjs"
       resource("gopherjs").stage buildpath/"src/perkeep.org/vendor/github.com/gopherjs/gopherjs"
 
       cd "src/perkeep.org" do
