@@ -58,8 +58,9 @@ class Scrcpy < Formula
   test do
     fakeadb = (testpath/"fakeadb.sh")
 
-    # When running, scrcpy calls adb four times:
-    #  - adb get-serialno
+    # When running, scrcpy calls adb five times:
+    #  - adb start-server
+    #  - adb devices -l
     #  - adb -s SERIAL push ... (to push scrcpy-server.jar)
     #  - adb -s SERIAL reverse ... tcp:PORT ...
     #  - adb -s SERIAL shell ...
@@ -68,10 +69,11 @@ class Scrcpy < Formula
 
     fakeadb.write <<~EOS
       #!/bin/sh
-      echo $@ >> #{testpath/"fakeadb.log"}
+      echo "$@" >> #{testpath/"fakeadb.log"}
 
-      if [ "$1" = "get-serialno" ]; then
-        echo emulator-1337
+      if [ "$1" = "devices" ]; then
+        echo "List of devices attached"
+        echo "emulator-1337          device product:sdk_gphone64_x86_64 model:sdk_gphone64_x86_64 device:emulator64_x86_64_arm64 transport_id:1"
       fi
 
       if [ "$3" = "reverse" ]; then
