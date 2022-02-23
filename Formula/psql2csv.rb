@@ -6,7 +6,7 @@ class Psql2csv < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9c6880c0b5911b3d8bbc35d5076acd31742f1a09238fc8404501dcb5ffb2bc35"
+    sha256 cellar: :any_skip_relocation, all: "6c33e20a01b09f6161318136ae5e4529cea292fd1783ce8b81bdf13a58c5453b"
   end
 
   depends_on "postgresql"
