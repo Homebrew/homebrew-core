@@ -18,11 +18,11 @@ class Scrcpy < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg@4"
+  depends_on "libusb"
   depends_on "sdl2"
 
   on_linux do
     depends_on "gcc" => :build
-    depends_on "libusb"
   end
 
   fails_with gcc: "5"
