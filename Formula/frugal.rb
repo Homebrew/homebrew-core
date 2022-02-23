@@ -6,12 +6,12 @@ class Frugal < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f575e917ff1867a686adf9f072443b36592ac4af4c28344e8acfa49c5e14850"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f575e917ff1867a686adf9f072443b36592ac4af4c28344e8acfa49c5e14850"
-    sha256 cellar: :any_skip_relocation, monterey:       "3b0bffd77b25a21eda9dc1a54af113ddadedf565e211f61411223d7948fa5b47"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3b0bffd77b25a21eda9dc1a54af113ddadedf565e211f61411223d7948fa5b47"
-    sha256 cellar: :any_skip_relocation, catalina:       "3b0bffd77b25a21eda9dc1a54af113ddadedf565e211f61411223d7948fa5b47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "068e167af836f25aa0080eaee9e0fedb85f61c0317230fbac5d9428e88b574db"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6411d232f8e449cf7add2f3a8e625c4ffd7ff36b6c0fa342a5816f58882267b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6411d232f8e449cf7add2f3a8e625c4ffd7ff36b6c0fa342a5816f58882267b"
+    sha256 cellar: :any_skip_relocation, monterey:       "46d1ca2083d1073277cab4446d4ce24f43a36097892015b2a8f4fb731fa51d31"
+    sha256 cellar: :any_skip_relocation, big_sur:        "46d1ca2083d1073277cab4446d4ce24f43a36097892015b2a8f4fb731fa51d31"
+    sha256 cellar: :any_skip_relocation, catalina:       "46d1ca2083d1073277cab4446d4ce24f43a36097892015b2a8f4fb731fa51d31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4798bd6396e7a10f9b31ed9fe62b1f1b1ef0f683f988f1a812991dbb7f4a7576"
   end
 
   depends_on "go" => :build
