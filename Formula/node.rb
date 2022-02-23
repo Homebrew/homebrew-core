@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v17.5.0/node-v17.5.0.tar.xz"
-  sha256 "9b24e6830576c57ee36ba48333def8be575232987b4da939568b7b89f773cdc3"
+  url "https://nodejs.org/dist/v17.6.0/node-v17.6.0.tar.xz"
+  sha256 "ea6aaa70aba9c974ee145f19af36e7edd06b07017b4b2c697e337812080d83fd"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
@@ -52,15 +52,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-8.4.1.tgz"
-    sha256 "e008d48f53009f644321c342cd2598d6fd1157424a55a9663f722c0ef0686498"
-  end
-
-  # Fixes node incorrectly building vendored OpenSSL when we want system OpenSSL.
-  # https://github.com/nodejs/node/pull/40965
-  patch do
-    url "https://github.com/nodejs/node/commit/65119a89586b94b0dd46b45f6d315c9d9f4c9261.patch?full_index=1"
-    sha256 "7d05debcfaf7bcbce75e28e3e5b2a329fe9bbb80f25b7b721e1b23f20db4dc40"
+    url "https://registry.npmjs.org/npm/-/npm-8.5.1.tgz"
+    sha256 "56e89227babea8acb15454482986862f93f43b728b2e820453973cc4d7aa9232"
   end
 
   def install
@@ -175,8 +168,8 @@ class Node < Formula
     assert_predicate HOMEBREW_PREFIX/"bin/npm", :exist?, "npm must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
-    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
-    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "ref-napi" unless head?
+    system HOMEBREW_PREFIX/"bin/npm", *npm_args, "install", "npm@latest"
+    system HOMEBREW_PREFIX/"bin/npm", *npm_args, "install", "ref-napi" unless head?
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --yes cowsay hello")
