@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
-  url "https://github.com/ooni/probe-cli/archive/v3.13.0.tar.gz"
-  sha256 "a055aed8c2d0d898b7cdb843cf247cf3b593c8ac7045103c08b3088b7d4d1737"
+  url "https://github.com/ooni/probe-cli/archive/v3.14.0.tar.gz"
+  sha256 "30ada9f266ab62ab4044c17e9523edfb7a751169d114890506dfc4e3101af8a6"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -20,6 +20,7 @@ class Ooniprobe < Formula
   end
 
   depends_on "go" => :build
+  depends_on "tor"
 
   def install
     system "go", "run", "./internal/cmd/getresources"
