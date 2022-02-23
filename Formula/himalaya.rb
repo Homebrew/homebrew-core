@@ -6,12 +6,12 @@ class Himalaya < Formula
   license "BSD-4-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e1fdea7dc5b590796a1d773727c84f95432b5e15336d9fa8231af14bbf408c4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0db2b25a7cbd96f0683325a6f1a2457783dc08a9157ebf39d3b66048e903db1"
-    sha256 cellar: :any_skip_relocation, monterey:       "1a07648c4f99312d25bccc37f1d5c9d67946bd3cbfaf5d793e44edd39c091749"
-    sha256 cellar: :any_skip_relocation, big_sur:        "049be660f6ef56e0bd25a9c703ac9e9fd54e0dd69f44fef8b493a9d5c920b45c"
-    sha256 cellar: :any_skip_relocation, catalina:       "8b1623653d54d94d392cb71e509b9ee000366ef7a55bf994bb78589730127b74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "857ff8b134bccb418fb4df60f1efdd5525457666bf709ff14945fc0136f2c975"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fdfe6b8e75c650c35ecad06df3a8b65e26931886b4f999df4500b9ececeb98af"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e9bbb8d3795732599a2bb1f2f79dc987b0c589418ee858658b739fe9b1b0a5c"
+    sha256 cellar: :any_skip_relocation, monterey:       "d7e4dd903667b64ee53526baa4d487ac9b05dbb704458231ec67616d1b7e04b1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8b5904995f185028a48daddf1671b36cb83fa9cc39d6e8994e70a75f4c40e3c1"
+    sha256 cellar: :any_skip_relocation, catalina:       "e6f44f83c01ffc4e6365f2e0f71a313624abc2294bc679211009209294256ebd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6f25ca9c9039242270ca640b9609baf194a8aec54ebe1fbda1d3beb5e2088e3"
   end
 
   depends_on "rust" => :build
