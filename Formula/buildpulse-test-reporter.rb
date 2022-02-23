@@ -6,6 +6,11 @@ class BuildpulseTestReporter < Formula
   license "MIT"
   head "https://github.com/buildpulse/test-reporter.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8058fc7befab1fca308927f42c006f5a07422d223db3bb61cb7dc963c6a6196f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e2f8443094f637f0248dab74dd5b35028588c5fb0b303116d1ef22dde5478d6"
