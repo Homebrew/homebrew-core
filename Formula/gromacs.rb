@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2021.5.tar.gz"
-  sha256 "eba63fe6106812f72711ef7f76447b12dd1ee6c81b3d8d4d0e3098cd9ea009b6"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2022.tar.gz"
+  sha256 "fad60d606c02e6164018692c6c9f2c159a9130c2bf32e8c5f4f1b6ba2dda2b68"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -37,7 +37,7 @@ class Gromacs < Formula
     gcc = Formula["gcc"]
     cc = gcc.opt_bin/"gcc-#{gcc.any_installed_version.major}"
     cxx = gcc.opt_bin/"g++-#{gcc.any_installed_version.major}"
-    inreplace "src/gromacs/gromacs-toolchain.cmake.cmakein" do |s|
+    inreplace "src/gromacs/gromacs-hints.in.cmake" do |s|
       s.gsub! "@CMAKE_LINKER@", "/usr/bin/ld"
       s.gsub! "@CMAKE_C_COMPILER@", cc
       s.gsub! "@CMAKE_CXX_COMPILER@", cxx
