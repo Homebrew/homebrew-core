@@ -8,10 +8,10 @@ class GitAnnex < Formula
   head "git://git-annex.branchable.com/", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "f8221a669cbe8dbb0d4e8df022be5803a4aec20c6881cec64c42b41e277f5e7b"
-    sha256 cellar: :any,                 big_sur:      "dc3dcca57c906471cfa717ca0555b858ab382a6d4f104ce1584fcbb54c106b72"
-    sha256 cellar: :any,                 catalina:     "00be8997746cc257d5aeeed2aadcd8c9cb44d00c9c555feee0b44d6ee2364649"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "87bc237adb3cf2c16dd18bee968085386038e5e2bf148800972fa2322607f872"
+    sha256 cellar: :any,                 monterey:     "a7b53fc52d46134776c1591b8fe6b0098f81afd6e642c5a996ec33d5344aee03"
+    sha256 cellar: :any,                 big_sur:      "a6b32aaba3e7a113348ff24032e0bae027c1cb3249330b7dfa1ccdd039e9ea71"
+    sha256 cellar: :any,                 catalina:     "4ba478d9721c6b45783b1d642ce94e9ab96a33c996001942650e45feefcf0d48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ef1e103c5d4362072368fb2dd5c95ca833a8b51b753ab8eca050a388ba196b8c"
   end
 
   depends_on "cabal-install" => :build
