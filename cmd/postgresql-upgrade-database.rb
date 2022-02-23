@@ -67,7 +67,7 @@ module Homebrew
       # https://www.postgresql.org/docs/10/static/pgupgrade.html
       ohai "Upgrading #{name} data from #{pg_version_data} to #{pg_version_installed}..."
 
-      if /#{name}\s+started/.match?(Utils.popen_read("brew", "services", "list"))
+      if /#{name}\s+/.match?(Utils.popen_read("brew", "services", "list"))
         system "brew", "services", "stop", name
         service_stopped = true
       elsif quiet_system "#{bin}/pg_ctl", "-D", datadir, "status"
@@ -76,7 +76,7 @@ module Homebrew
       end
 
       # Shut down old server if it is up via brew services
-      if /#{old_pg_name}\s+started/.match?(Utils.popen_read("brew", "services", "list"))
+      if /#{old_pg_name}\s+/.match?(Utils.popen_read("brew", "services", "list"))
         system "brew", "services", "stop", old_pg_name
       end
 
