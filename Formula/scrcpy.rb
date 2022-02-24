@@ -17,7 +17,7 @@ class Scrcpy < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
   depends_on "libusb"
   depends_on "sdl2"
 
