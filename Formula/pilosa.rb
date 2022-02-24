@@ -12,6 +12,9 @@ class Pilosa < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "776da185052f34aa5c973e92bfefb27304168a7d24f5cbb1dd1a951e1330cd5e"
   end
 
+  # https://github.com/pilosa/pilosa/issues/2149#issuecomment-993029527
+  deprecate! date: "2021-12-14", because: :unmaintained
+
   depends_on "go" => :build
 
   def install
