@@ -7,12 +7,12 @@ class NatsServer < Formula
   head "https://github.com/nats-io/nats-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "95120165fbe58919d6c17546a07f908764a7e6e35702396e9483bc69b1fa8339"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c6ee2a5cf326e0db9ae415f264b91d1b3d46a94728ed079b6d3df6da3ce6e08"
-    sha256 cellar: :any_skip_relocation, monterey:       "d0296a2da871f926c82bbcf04128bdae09328684c923542ccecaaf4dd52c92c3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5b65b46d685af569c5cd5d689446f5276bf5ed05e478cbc523c6eb10f278d147"
-    sha256 cellar: :any_skip_relocation, catalina:       "cbd35445ef7fdc8c8317e6bae0a3831581cf6add47dd031009ede42a3abdac7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7de90276cdde7fa664edf30144819512cc7ffe0f274abb353261774d8fbf6f93"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbd04df771c8513f28596127cb75cb765fb7c8b0e265e58a2ed28f35ac82bdfb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "61c0551c0aa1317357c3e5e55088e05435f0a05114852734f5386b12d9609090"
+    sha256 cellar: :any_skip_relocation, monterey:       "1a0886c24a4db6ab4abf19d5b07070d557efa6cddd385ea0b0aa79aab316eb72"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fd00bc0830bb84d708d94ba70d2dfac5325324b6932e5a514cf5566167d17aea"
+    sha256 cellar: :any_skip_relocation, catalina:       "a1a2311ee63fefcf3a8cf0da7057991a653b77558f8cfab99fe6e57deb1eaf4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7564c906d9bb01e944b74e11841126483ac8e786bea175f0069b741c7f0c0514"
   end
 
   depends_on "go" => :build
