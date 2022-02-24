@@ -66,8 +66,10 @@ module Homebrew
       # Following instructions from:
       # https://www.postgresql.org/docs/10/static/pgupgrade.html
       ohai "Upgrading #{name} data from #{pg_version_data} to #{pg_version_installed}..."
-      sys_services = JSON.parse(Utils.popen_read("brew", "services", "info", "--all", "--json"))
-      if sys_services.any? { |svc| svc['name'] == name }
+      services_json_output = Utils.popen_read("brew", "services", "info", "--all", "--json")
+      services_json = JSON.parse(services_json_output, object_class: OpenStruct)
+      running_service_names = services_json.select(&:running).map(&:name)
+      if running_service_names.include?(name)
         system "brew", "services", "stop", name
         service_stopped = true
       elsif quiet_system "#{bin}/pg_ctl", "-D", datadir, "status"
