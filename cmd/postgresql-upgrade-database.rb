@@ -68,8 +68,8 @@ module Homebrew
       ohai "Upgrading #{name} data from #{pg_version_data} to #{pg_version_installed}..."
       services_json_output = Utils.popen_read("brew", "services", "info", "--all", "--json")
       services_json = JSON.parse(services_json_output, object_class: OpenStruct)
-      running_service_names = services_json.select(&:running).map(&:name)
-      if running_service_names.include?(name)
+      service_names = services_json.map(&:name)
+      if service_names.include?(name)
         system "brew", "services", "stop", name
         service_stopped = true
       elsif quiet_system "#{bin}/pg_ctl", "-D", datadir, "status"
@@ -78,7 +78,7 @@ module Homebrew
       end
 
       # Shut down old server if it is up via brew services
-      if sys_services.any? { |svc| svc['name'] == old_pg_name }
+      if service_names.include?(old_pg_name)
         system "brew", "services", "stop", old_pg_name
       end
 
