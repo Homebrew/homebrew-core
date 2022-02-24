@@ -3,8 +3,8 @@ class Flit < Formula
 
   desc "Simplified packaging of Python modules"
   homepage "https://github.com/takluyver/flit"
-  url "https://files.pythonhosted.org/packages/85/d7/88c66e3d9ce4097cb37e25161b338dc1d1683fbd9ce7771523b5ee6cd77b/flit-3.7.0.tar.gz"
-  sha256 "73545a1067799c606432f7d8ab3200f0bd6e0ad8a5df7b34ed65822352bf29ee"
+  url "https://files.pythonhosted.org/packages/a0/62/4fe47656976da4a95bbe9ab3cc710b2c16a0b5a5ffa308780a2ab208ef50/flit-3.7.1.tar.gz"
+  sha256 "3c9bd9c140515bfe62dd938c6610d10d6efb9e35cc647fc614fe5fb3a5036682"
   license "BSD-3-Clause"
   head "https://github.com/takluyver/flit.git", branch: "main"
 
@@ -35,8 +35,8 @@ class Flit < Formula
   end
 
   resource "flit_core" do
-    url "https://files.pythonhosted.org/packages/12/c8/ce203079be7deab7b4cdc1aaf20c95e15c584daec712cb55807e2ef1c7f1/flit_core-3.7.0.tar.gz"
-    sha256 "c2aa7757bb3e056ecf741427fb8f1f759a180d7235a8c5f9b4aa929f3dd4e327"
+    url "https://files.pythonhosted.org/packages/15/d1/d8798b83e953fd6f86ca9b50f93eec464a9305b0661469c8234e61095481/flit_core-3.7.1.tar.gz"
+    sha256 "14955af340c43035dbfa96b5ee47407e377ee337f69e70f73064940d27d0a44f"
   end
 
   resource "idna" do
