@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require "cli/parser"
@@ -78,9 +79,7 @@ module Homebrew
       end
 
       # Shut down old server if it is up via brew services
-      if service_names.include?(old_pg_name)
-        system "brew", "services", "stop", old_pg_name
-      end
+      system "brew", "services", "stop", old_pg_name if service_names.include?(old_pg_name)
 
       # get 'lc_collate' from old DB"
       unless quiet_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status"
