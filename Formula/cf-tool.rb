@@ -15,6 +15,8 @@ class CfTool < Formula
   end
 
   depends_on "go" => :build
+  # https://github.com/shirou/gopsutil/issues/1000
+  depends_on arch: :x86_64
 
   def install
     ENV["GOPATH"] = buildpath
