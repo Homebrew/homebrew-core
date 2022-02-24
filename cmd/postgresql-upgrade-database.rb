@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require "cli/parser"
@@ -66,8 +67,10 @@ module Homebrew
       # Following instructions from:
       # https://www.postgresql.org/docs/10/static/pgupgrade.html
       ohai "Upgrading #{name} data from #{pg_version_data} to #{pg_version_installed}..."
-
-      if /#{name}\s+started/.match?(Utils.popen_read("brew", "services", "list"))
+      services_json_output = Utils.popen_read("brew", "services", "info", "--all", "--json")
+      services_json = JSON.parse(services_json_output, object_class: OpenStruct)
+      loaded_service_names = services_json.select(&:loaded).map(&:name)
+      if loaded_service_names.include?(name)
         system "brew", "services", "stop", name
         service_stopped = true
       elsif quiet_system "#{bin}/pg_ctl", "-D", datadir, "status"
@@ -76,9 +79,7 @@ module Homebrew
       end
 
       # Shut down old server if it is up via brew services
-      if /#{old_pg_name}\s+started/.match?(Utils.popen_read("brew", "services", "list"))
-        system "brew", "services", "stop", old_pg_name
-      end
+      system "brew", "services", "stop", old_pg_name if loaded_service_names.include?(old_pg_name)
 
       # get 'lc_collate' from old DB"
       unless quiet_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status"
