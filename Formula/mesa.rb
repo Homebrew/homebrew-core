@@ -9,12 +9,12 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "b9896161e14b443b182c7567af486efcbf7c8fe29ccb4814328f188cc4ad707f"
-    sha256 arm64_big_sur:  "632481e11f5986db8f61f626b0d31c841edaae883df4c331d82a303ff2dff08c"
-    sha256 monterey:       "22b341ac896fa08be156ccdd58a744e4c86deb5931648c5d855d876f17298402"
-    sha256 big_sur:        "cf87cfe21f2bce354ef149458e3a5a861798a24296413aa49ca6fc7139882c49"
-    sha256 catalina:       "64e828a3749dd133d9afc791421ea97c1b1361e9d6a985cd2a790cf880c4159d"
-    sha256 x86_64_linux:   "a7528d2c25c73653b7a055ee217e163e276d2dc72896f5f83f46820ec3542028"
+    sha256 arm64_monterey: "a86b84ef1f21395613bbb80966cbbcea6e18e7feae1502fb64463013756f10b7"
+    sha256 arm64_big_sur:  "57c6a1a25567f3fef46a52844e99452e4f2a4a3081b73febd9e104e0e637f856"
+    sha256 monterey:       "f029b8682d4dba6ed5d9d6e67c2cd10a54c2eddb54e38b798b507d1a29d70e57"
+    sha256 big_sur:        "cb140a53c8190a6d921c310c2b973d53e047a1fd25fc1796718c51dca605c4ce"
+    sha256 catalina:       "dd65c2238ed9f3f0969411835ad940b33ae0b3ca8f05fddc6a832905356f83cf"
+    sha256 x86_64_linux:   "4583fce96fa7f3494a16035ac1dc4a3d9752b240b9c24260565ececa122aca49"
   end
 
   depends_on "meson" => :build
