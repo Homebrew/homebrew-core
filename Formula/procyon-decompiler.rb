@@ -5,6 +5,10 @@ class ProcyonDecompiler < Formula
   sha256 "821da96012fc69244fa1ea298c90455ee4e021434bc796d3b9546ab24601b779"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "ee55d23c048aa221e0f2c76eaa0ac264f83b0ac6ebf7388479878cc387fad122"
+  end
+
   depends_on "openjdk"
 
   def install
