@@ -19,6 +19,11 @@ class ParquetCli < Formula
   end
 
   depends_on "maven" => :build
+
+  # parquet-cli has problems running on Linux, for more information:
+  # https://github.com/Homebrew/homebrew-core/pull/94318#issuecomment-1049229342
+  depends_on :macos
+
   depends_on "openjdk"
 
   # This file generated with `red-parquet` gem:
