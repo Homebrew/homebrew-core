@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/5f/e2/b8bbdca54f8f49065670f100d64d17d4e26c014805905cc9c67e5b7d0ca4/twarc-2.9.2.tar.gz"
-  sha256 "a881b8fba287e457b99ef2ce9db60b16b0e8303a3b077f1dd6ec0ce4ad54b5db"
+  url "https://files.pythonhosted.org/packages/71/9d/5a5e9b09d789720f63cc52d9462d6a834253efc7c6726f852148fa0932a5/twarc-2.9.4.tar.gz"
+  sha256 "af88b2df5b18c5b90b4ad5993cc799862cac5744e6316a5bf4fe300bb9d86fcf"
   license "MIT"
 
   bottle do
@@ -25,13 +25,13 @@ class Twarc < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
-    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
-    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
+    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
+    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
   end
 
   resource "click-config-file" do
@@ -50,8 +50,8 @@ class Twarc < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/f5/11/2634362bfe1db5e7d5cd92cd6d1be023005d00062dcf1c0bdb6699ed5e13/humanize-3.14.0.tar.gz"
-    sha256 "60dd8c952b1df1ad83f0903844dec50a34ba7a04eea22a6b14204ffb62dbb0a4"
+    url "https://files.pythonhosted.org/packages/db/08/dbe660b435f7dcc9cd78c928cabba90e3088c10b2a90843c102cc3671154/humanize-4.0.0.tar.gz"
+    sha256 "ee1f872fdfc7d2ef4a28d4f80ddde9f96d36955b5d6b0dac4bdeb99502bddb00"
   end
 
   resource "idna" do
