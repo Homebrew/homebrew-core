@@ -11,12 +11,12 @@ class Goredo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6375d7ba811d5204854dd322cc1b4b512cbc38e593429c4637e703515e2a660e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6375d7ba811d5204854dd322cc1b4b512cbc38e593429c4637e703515e2a660e"
-    sha256 cellar: :any_skip_relocation, monterey:       "6f2feccb1321deaf482e8584b1ab33b68a0ed6865a545c78ae403df5c04a01b3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6f2feccb1321deaf482e8584b1ab33b68a0ed6865a545c78ae403df5c04a01b3"
-    sha256 cellar: :any_skip_relocation, catalina:       "6f2feccb1321deaf482e8584b1ab33b68a0ed6865a545c78ae403df5c04a01b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "415d31ceb8650b834a6696527e29789ed06952e6a24c36dc376d9c5b722650cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5f99456a16ae5496c2e542217ec9795aae6f89f7372457b01fe8e09b0d3bff1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f5f99456a16ae5496c2e542217ec9795aae6f89f7372457b01fe8e09b0d3bff1"
+    sha256 cellar: :any_skip_relocation, monterey:       "1bc231d2c10e5fdbcc7d9dfbd878714770d2c1a8823093f3d216131bc128ea64"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1bc231d2c10e5fdbcc7d9dfbd878714770d2c1a8823093f3d216131bc128ea64"
+    sha256 cellar: :any_skip_relocation, catalina:       "1bc231d2c10e5fdbcc7d9dfbd878714770d2c1a8823093f3d216131bc128ea64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96830b5bd88dbdcb26bd5bd31e2abf7e0eb3ea65d710c89b3c683d8bef2aee4b"
   end
 
   depends_on "go" => :build
