@@ -18,9 +18,9 @@ class Peru < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "edf871502a89345ab82d466d2d99d1e727618273af9c23713da1f2c5eb4a925a"
   end
 
+  depends_on "git"
   depends_on "libyaml"
   depends_on "python@3.10"
-  depends_on "git"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
