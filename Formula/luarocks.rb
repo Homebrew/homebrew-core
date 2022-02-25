@@ -22,7 +22,7 @@ class Luarocks < Formula
 
   depends_on "lua@5.1" => :test
   depends_on "lua@5.3" => :test
-  depends_on "luajit" => :test unless Hardware::CPU.arm?
+  depends_on "luajit-openresty" => :test
   depends_on "lua"
 
   uses_from_macos "unzip"
@@ -76,12 +76,10 @@ class Luarocks < Formula
           "Luafilesystem failed to create the expected directory"
 
         # LuaJIT is compatible with lua5.1, so we can also test it here
-        unless Hardware::CPU.arm?
-          rmdir testpath/"blank_space"
-          system "#{Formula["luajit"].bin}/luajit", "lfs_#{luaversion}test.lua"
-          assert_predicate testpath/"blank_space", :directory?,
-            "Luafilesystem failed to create the expected directory"
-        end
+        rmdir testpath/"blank_space"
+        system "#{Formula["luajit-openresty"].bin}/luajit", "lfs_#{luaversion}test.lua"
+        assert_predicate testpath/"blank_space", :directory?,
+          "Luafilesystem failed to create the expected directory"
       else
         (testpath/"lfs_#{luaversion}test.lua").write <<~EOS
           require("lfs")
