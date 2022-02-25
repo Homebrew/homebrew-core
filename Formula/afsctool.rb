@@ -1,11 +1,10 @@
 class Afsctool < Formula
-  desc "Utility for manipulating HFS+ compressed files"
+  desc "Utility for manipulating APFS and ZFS compressed files"
   homepage "https://brkirch.wordpress.com/afsctool/"
-  url "https://docs.google.com/uc?export=download&id=0BwQlnXqL939ZQjBQNEhRQUo0aUk"
-  version "1.6.4"
-  sha256 "bb6a84370526af6ec1cee2c1a7199134806e691d1093f4aef060df080cd3866d"
-  license "GPL-3.0"
-  revision 2
+  url "https://github.com/RJVB/afsctool/archive/refs/tags/1.7.2.tar.gz"
+  sha256 "a0d01953e36a333c29369a126a81b905b70a5603533caeebc2f04bbd3aa1b0df"
+  license all_of: ["GPL-3.0-only", "BSL-1.0"]
+  head "https://github.com/RJVB/afsctool.git"
 
   bottle do
     rebuild 2
@@ -17,23 +16,16 @@ class Afsctool < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "96437b04a2974c215979550d3d70b4c8e3f609e76954ca41059c6f246da452ee"
   end
 
+  depends_on "cmake" => :build
+  depends_on "google-sparsehash" => :build
+  depends_on "pkg-config" => :build
   depends_on :macos
 
-  # Fixes Sierra "Unable to compress" issue; reported upstream on 24 July 2017
-  patch :p2 do
-    url "https://github.com/vfx01j/afsctool/commit/26293a3809c9ad1db5f9bff9dffaefb8e201a089.patch?full_index=1"
-    sha256 "69ec72b2d6f89b53e93c7bacef1916ea4cf815e4b3e7ab4ee8010c31de1d4e66"
-  end
-
-  # Fixes High Sierra "Expecting f_type of 17 or 23. f_type is 24" issue
-  # Acknowledged by upstream 12 Apr 2018:
-  # https://github.com/Homebrew/homebrew-core/pull/20898#issuecomment-380727547
-  patch :p2, :DATA
-
   def install
-    system ENV.cc, ENV.cflags, "-lz", "afsctool.c",
-                   "-framework", "CoreServices", "-o", "afsctool"
+    system "cmake", ".", *std_cmake_args
+    system "cmake", "--build", "."
     bin.install "afsctool"
+    bin.install "zfsctool"
   end
 
   test do
@@ -41,22 +33,8 @@ class Afsctool < Formula
     path.write "some text here."
     system "#{bin}/afsctool", "-c", path
     system "#{bin}/afsctool", "-v", path
+
+    system "#{bin}/zfsctool", "-c", path
+    system "#{bin}/zfsctool", "-v", path
   end
 end
-
-__END__
-diff --git a/afsctool_34/afsctool.c b/afsctool_34/afsctool.c
-index 8713407fa673f216e69dfc36152c39bc1dea4fe7..7038859f43e035be44c9b8cfbb1bb76a93e26e0a 100644
---- a/afsctool_34/afsctool.c
-+++ b/afsctool_34/afsctool.c
-@@ -104,8 +104,8 @@ void compressFile(const char *inFile, struct stat *inFileInfo, long long int max
-
-	if (statfs(inFile, &fsInfo) < 0)
-		return;
--	if (fsInfo.f_type != 17 && fsInfo.f_type != 23) {
--		printf("Expecting f_type of 17 or 23. f_type is %i.\n", fsInfo.f_type);
-+	if (fsInfo.f_type != 17 && fsInfo.f_type != 23 && fsInfo.f_type != 24) {
-+		printf("Expecting f_type of 17, 23 or 24. f_type is %i.\n", fsInfo.f_type);
-		return;
-	}
-	if (!S_ISREG(inFileInfo->st_mode))
