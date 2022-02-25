@@ -9,14 +9,12 @@ class Lilypond < Formula
     :public_domain,
     "MIT",
   ]
-  revision 1
 
   stable do
-    url "https://lilypond.org/download/sources/v2.22/lilypond-2.22.1.tar.gz"
-    sha256 "72ac2d54c310c3141c0b782d4e0bef9002d5519cf46632759b1f03ef6969cc30"
+    url "https://lilypond.org/download/sources/v2.22/lilypond-2.22.2.tar.gz"
+    sha256 "dde90854fa7de1012f4e1304a68617aea9ab322932ec0ce76984f60d26aa23be"
 
-    # Distinguishes Lilypond homebrew installation that uses Guile 2.2 while
-    # others use Guile 1.8.
+    # Shows LilyPond's Guile version (Homebrew uses v2, other builds use v1).
     # See https://gitlab.com/lilypond/lilypond/-/merge_requests/950
     patch do
       url "https://gitlab.com/lilypond/lilypond/-/commit/a6742d0aadb6ad4999dddd3b07862fe720fe4dbf.diff"
@@ -63,11 +61,13 @@ class Lilypond < Formula
 
   def install
     system "./autogen.sh", "--noconfigure" if build.head?
-    system "./configure",
-            "--prefix=#{prefix}",
-            "--datadir=#{share}",
-            "--with-texgyre-dir=#{Formula["texlive"].opt_share}/texmf-dist/fonts/opentype/public/tex-gyre",
-            "--disable-documentation"
+
+    texgyre_dir = "#{Formula["texlive"].opt_share}/texmf-dist/fonts/opentype/public/tex-gyre"
+    system "./configure", "--prefix=#{prefix}",
+                          "--datadir=#{share}",
+                          "--with-texgyre-dir=#{texgyre_dir}",
+                          "--disable-documentation"
+
     ENV.prepend_path "LTDL_LIBRARY_PATH", Formula["guile@2"].opt_lib
     system "make"
     system "make", "install"
