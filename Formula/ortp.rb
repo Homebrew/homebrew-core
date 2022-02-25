@@ -1,8 +1,8 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://www.linphone.org/technical-corner/ortp"
-  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.1.2/ortp-5.1.2.tar.bz2"
-  sha256 "ee571a59c45e59d323347f2130015e71764f2147c8a77a0eca632e0443fe04a9"
+  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.1.3/ortp-5.1.3.tar.bz2"
+  sha256 "80f1c5c33900c9dddb60248ce5b8f07af2d75275af340a42616a73dff2762fa4"
   license "GPL-3.0-or-later"
   head "https://gitlab.linphone.org/BC/public/ortp.git", branch: "master"
 
@@ -21,21 +21,18 @@ class Ortp < Formula
   # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
   # https://github.com/BelledonneCommunications/bctoolbox
   resource "bctoolbox" do
-    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.1.2/bctoolbox-5.1.2.tar.bz2"
-    sha256 "2f839e1e4981f14687554df0140f7e1e48ebf7102bffbfc43a18acc78af20470"
+    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.1.3/bctoolbox-5.1.3.tar.bz2"
+    sha256 "272fe3b419c7ce8c9b042f2cdcd800a8b04940e5fedd1d488112c9bd471ee961"
   end
 
   def install
     resource("bctoolbox").stage do
-      args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
-        -DCMAKE_INSTALL_PREFIX=#{libexec}
-        -DENABLE_TESTS_COMPONENT=OFF
-      ]
-      system "cmake", ".", *args
+      system "cmake", ".", *std_cmake_args(install_prefix: libexec), "-DENABLE_TESTS_COMPONENT=OFF"
       system "make", "install"
     end
 
     ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{libexec}/lib" if OS.linux?
 
     args = std_cmake_args + %W[
       -DCMAKE_PREFIX_PATH=#{libexec}
