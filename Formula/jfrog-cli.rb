@@ -20,9 +20,17 @@ class JfrogCli < Formula
     system "go", "build", *std_go_args(ldflags: "-s -w -extldflags '-static'", output: bin/"jf")
     bin.install_symlink "jf" => "jfrog"
 
-    system "go", "generate", "./completion/shells/..."
-    bash_completion.install "completion/shells/bash/jfrog"
-    zsh_completion.install "completion/shells/zsh/jfrog" => "_jf"
+    # Install bash completion
+    output = Utils.safe_popen_read(bin/"jf", "completion", "bash")
+    (bash_completion/"jf").write output
+
+    # Install zsh completion
+    output = Utils.safe_popen_read(bin/"jf", "completion", "zsh")
+    (zsh_completion/"_jf").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read(bin/"jf", "completion", "fish")
+    (fish_completion/"jf.fish").write output
   end
 
   test do
