@@ -1,8 +1,8 @@
 class Typedb < Formula
   desc "Distributed hyper-relational database for knowledge engineering"
   homepage "https://vaticle.com/"
-  url "https://github.com/vaticle/typedb/releases/download/2.6.4/typedb-all-mac-2.6.4.zip"
-  sha256 "893d68ce7756397ee91c734e2799ee055cedf0e5d855930836d85f91f5f05e40"
+  url "https://github.com/vaticle/typedb/releases/download/2.7.0/typedb-all-mac-2.7.0.zip"
+  sha256 "3a74ab0b36aed46e88f50d41ed317141d207471f7873348eef88ad4ead88decd"
   license "AGPL-3.0-or-later"
 
   bottle do
