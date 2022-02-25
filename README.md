@@ -1,13 +1,32 @@
-# Homebrew Core
+# dotfiles
 
-Core formulae for the Homebrew package manager.
+User-specific application configuration.
 
- [Homebrew/discussions (forum)](https://github.com/homebrew/discussions/discussions)
+## Install
 
-## How do I install these formulae?
+```sh
+$ git clone git@github.com:jaredhanson/dotfiles.git ~/.dotfiles
+```
 
-Just `brew install <formula>`. This is the default tap for Homebrew and is installed by default.
+## Usage
 
-## More Documentation, Troubleshooting, Contributing, Security, Community, Donations, License and Sponsors
+#### Setting up a new macOS system
 
-See these sections in [Homebrew/brew's README](https://github.com/Homebrew/brew#homebrew).
+
+Because these dotfiles are stored on GitHub, they first need to be cloned to the
+local system.  But in order to do this, the local system needs access to GitHub.
+
+This can be done by [generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+for the new system.
+
+```
+$ ssh-keygen -t ed25519 -C "jaredhanson@macbook-pro-2021.local"
+```
+
+```sh
+$ cd ~/.dotfiles/brew
+$ make install
+
+$ cd ~/.dotfiles/stow
+$ make install
+```

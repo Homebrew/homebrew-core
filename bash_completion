@@ -1,0 +1,4 @@
+source ~/.bash_completion.d/brew
+source ~/.bash_completion.d/git
+source ~/.bash_completion.d/nvm
+
