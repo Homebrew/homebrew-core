@@ -1,8 +1,8 @@
 class JfrogCli < Formula
   desc "Command-line interface for JFrog products"
   homepage "https://www.jfrog.com/confluence/display/CLI/JFrog+CLI"
-  url "https://github.com/jfrog/jfrog-cli/archive/v2.12.1.tar.gz"
-  sha256 "e7cf9aa7b31ad2958e912402ffe4b3d8b4dc8234244509f0d347947ff2ff7abd"
+  url "https://github.com/jfrog/jfrog-cli/archive/v2.13.0.tar.gz"
+  sha256 "1284879a4ec256b752d226dccea20929f042a8d816d21f630a36b3492c5e9df1"
   license "Apache-2.0"
 
   bottle do
@@ -29,7 +29,8 @@ class JfrogCli < Formula
     assert_match version.to_s, shell_output("#{bin}/jf -v")
     assert_match version.to_s, shell_output("#{bin}/jfrog -v")
     with_env(JFROG_CLI_REPORT_USAGE: "false", CI: "true") do
-      assert_match "\"version\": \"#{version}\"", shell_output("#{bin}/jf rt bp --dry-run --url=http://127.0.0.1")
+      assert_match "build name must be provided in order to generate build-info",
+        shell_output("#{bin}/jf rt bp --dry-run --url=http://127.0.0.1 2>&1", 1)
     end
   end
 end
