@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/88/bb/114f8364399d493cc5201744eeea76ec0e1c7550b474e25d3a7926e5a0f3/checkov-2.0.885.tar.gz"
-  sha256 "493ded4f5445c4836e488ef83fac001f02ba1e1dc713a6cff8b61e5d06a4cf96"
+  url "https://files.pythonhosted.org/packages/90/3c/3c2ba9fd1aa04a54d363a25d014ae30617bb731b1d8a76ec765171c45364/checkov-2.0.900.tar.gz"
+  sha256 "e237b6393959ccd26f92354ca15ec51087b73ad3cf9d384f3db99031cbbc02d7"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/c2/b1/21097a7762ba045fa145719e73737c8e8e0b1bff03c3ab611614b748d141/boto3-1.21.4.tar.gz"
-    sha256 "bbe4f4ddfc13469d306f0ca5fa77441ec37ad50dc270755e93260aeafb06d3d1"
+    url "https://files.pythonhosted.org/packages/ff/fd/c25bdb2515c92c0e4e9d66d157e5275aee35f055f92b540e5e557ae56f9a/boto3-1.21.7.tar.gz"
+    sha256 "8f59383fe578ac9107466a464d7198933e5332d85a4790f2e01cf24a4a7f635b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/87/33/43f4b6ca1dc096888b9797dd95c3bcbd936497305b61835a6d123ff64793/botocore-1.24.4.tar.gz"
-    sha256 "8e9ae6b718ca318b4aeeee45aa9fad5f52e882a2291d919cfa4b753928223abb"
+    url "https://files.pythonhosted.org/packages/b6/27/82dcaa46588c3071b195f75ec1c3ce5d6ce8aad26701dcc661cbca4961be/botocore-1.24.7.tar.gz"
+    sha256 "5d1a2a2ac72461bbaa79317b3e4cb72c7ebb315aef184d90f72ec1f6dba0ca6c"
   end
 
   resource "cached-property" do
@@ -302,8 +302,8 @@ class Checkov < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/66/e2/cc19f36aade1ef40cba69555fcf713d942ec9e31ecff2415948bd885911d/s3transfer-0.5.1.tar.gz"
-    sha256 "69d264d3e760e569b78aaa0f22c97e955891cd22e32b10c51f784eeda4d9d10a"
+    url "https://files.pythonhosted.org/packages/7e/19/f82e4af435a19b28bdbfba63f338ea20a264f4df4beaf8f2ab9bfa34072b/s3transfer-0.5.2.tar.gz"
+    sha256 "95c58c194ce657a5f4fb0b9e60a84968c808888aed628cd98ab8771fe1db98ed"
   end
 
   resource "schema" do
