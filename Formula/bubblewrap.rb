@@ -1,8 +1,8 @@
 class Bubblewrap < Formula
   desc "Unprivileged sandboxing tool for Linux"
   homepage "https://github.com/containers/bubblewrap"
-  url "https://github.com/containers/bubblewrap/releases/download/v0.5.0/bubblewrap-0.5.0.tar.xz"
-  sha256 "16fdaf33799d63104e347e0133f909196fe90d0c50515d010bcb422eb5a00818"
+  url "https://github.com/containers/bubblewrap/releases/download/v0.6.0/bubblewrap-0.6.0.tar.xz"
+  sha256 "11393cf2058f22e6a6c6e9cca3c85ff4c4239806cb28fee657c62a544df35693"
   license "LGPL-2.0-or-later"
 
   bottle do
