@@ -2,8 +2,8 @@ class Wordle < Formula
   desc "Play wordle in command-line"
   homepage "https://git.hanabi.in/wordle-cli"
   url "https://git.hanabi.in/repos/wordle-cli.git",
-    revision: "757ede5453457f58b5299fec0b6a0e79fbb27fa9",
-    tag:      "v2.0.0"
+      tag:      "v2.0.0",
+      revision: "757ede5453457f58b5299fec0b6a0e79fbb27fa9"
   license "AGPL-3.0-only"
 
   depends_on "go" => :build
