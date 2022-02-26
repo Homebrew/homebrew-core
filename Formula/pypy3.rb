@@ -1,8 +1,8 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.7-v7.3.7-src.tar.bz2"
-  sha256 "2ed02ac9e710859c41bc82deafb08619792bb9a27eeaa1676c741ededd214dd7"
+  url "https://downloads.python.org/pypy/pypy3.7-v7.3.8-src.tar.bz2"
+  sha256 "35752be62b148fa6f7fb69e58e1f993c7cc319bea54928eb03ed2e75b8248d5f"
   license "MIT"
   head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.7"
 
