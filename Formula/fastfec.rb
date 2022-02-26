@@ -1,8 +1,8 @@
 class Fastfec < Formula
   desc "Extremely fast FEC filing parser written in C"
   homepage "https://github.com/washingtonpost/FastFEC"
-  url "https://github.com/washingtonpost/FastFEC/archive/refs/tags/0.0.4.tar.gz"
-  sha256 "8c508e0a93416a1ce5609536152dcbdab0df414c3f3a791e11789298455d1c71"
+  url "https://github.com/washingtonpost/FastFEC/archive/refs/tags/0.0.8.tar.gz"
+  sha256 "c626615e50bf50f88f71125ffbeef3ba5d2f44059370b55c25142bc6f435c40e"
   license "MIT"
 
   bottle do
