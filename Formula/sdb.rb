@@ -7,12 +7,12 @@ class Sdb < Formula
   head "https://github.com/radare/sdb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ed54ade000c39bfef143406c05788247863392ec9aecd50a79d5ab9481a06a7b"
-    sha256 cellar: :any,                 arm64_big_sur:  "5cef0bdc9c6e5a9f5a3eb1b05d4e07df8cb22bb63c6a6baac9069a7ddd336c42"
-    sha256 cellar: :any,                 monterey:       "c2773743db31227bdb3604cb307b83745d0f5d319ca6f4b850c3846d056f7a3a"
-    sha256 cellar: :any,                 big_sur:        "16a5644fc9e7993ee6efdac28c26a8768d92f6b14eab8c5acab34527d20fd0eb"
-    sha256 cellar: :any,                 catalina:       "9fa03e102442171281fa15710299371c7ef6414b3d54083b60c4a7c461cba6a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12baa0b0dfc81229a5edec54dbdfc358ceb2116745f4fe155670ba73c7134e83"
+    sha256 cellar: :any,                 arm64_monterey: "be36bdcd1618af66b970c9065c53f4fd8decc8b1444a2ba50c64de87baf2e000"
+    sha256 cellar: :any,                 arm64_big_sur:  "f57086d47de992aed35787eb990c7e5cf9a678c45b61c004188156156623ce27"
+    sha256 cellar: :any,                 monterey:       "b9fad697dbb950e3b7cf84fa876a4557e56bbb94eea3b9a952184073db3de54f"
+    sha256 cellar: :any,                 big_sur:        "ce9d738ae013083d6993b255468964919b2b19c911c95a27a8c7eb13ed3eaa3a"
+    sha256 cellar: :any,                 catalina:       "dd9e453d898cc2c456fb5cd5ee943aa5a843c83381fea81b542cba014cad6886"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dcb88db1e47a0e12c96ecf7cb7486f20161e2a377c73e59118a2104dba943268"
   end
 
   depends_on "pkg-config" => :build
