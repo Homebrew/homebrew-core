@@ -13,7 +13,6 @@ class Wordle < Formula
   end
 
   test do
-    system "test", "-f", "#{bin}/wordle"
     require "pty"
     master, slave = PTY.open
     read, write = IO.pipe
