@@ -1,9 +1,10 @@
 class Wordle < Formula
   desc "Play wordle in command-line"
   homepage "https://git.hanabi.in/wordle-cli"
-  url "https://git.hanabi.in/repos/wordle-cli.git", revision: "06f22bd2c41032901c514dfb74509392456fefe3", tag: "v1.0.0"
+  url "https://git.hanabi.in/repos/wordle-cli.git",
+    revision: "757ede5453457f58b5299fec0b6a0e79fbb27fa9",
+    tag:      "v2.0.0"
   license "AGPL-3.0-only"
-  head "git.hanabi.in/repos/wordle-cli.git", tag: "v1.0.0", revision: "06f22bd2c41032901c514dfb74509392456fefe3"
 
   depends_on "go" => :build
 
@@ -13,5 +14,14 @@ class Wordle < Formula
 
   test do
     system "test", "-f", "#{bin}/wordle"
+    require "pty"
+    master, slave = PTY.open
+    read, write = IO.pipe
+    spawn("wordle", in: read, out: slave)
+    read.close
+    slave.close
+    foo = master.gets.strip
+    write.close
+    p foo == "Guess a 5-letter word.  You have 6 tries."
   end
 end
