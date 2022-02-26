@@ -1,18 +1,18 @@
 class Youtubeuploader < Formula
   desc "Scripted uploads to Youtube"
   homepage "https://github.com/porjo/youtubeuploader"
-  url "https://github.com/porjo/youtubeuploader/archive/21.06.tar.gz"
-  sha256 "d15c11ffdab59421348d6ef79b19c7bf0069531ea72726bcb964eeb1940121df"
+  url "https://github.com/porjo/youtubeuploader/archive/21.07.tar.gz"
+  sha256 "ca3f43fc9921370ee70d35c5d0a5bd2d7258dcdb5d41660bde7539d8a6839b26"
   license "Apache-2.0"
   head "https://github.com/porjo/youtubeuploader.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1931eb72da137173d72cbda46b18c58e42afa23a32dbaec5e8c759aa186e13e0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c0ac49032fec510c75a81e89fdcdee398aea5bcd6b0e5fa298cf171339e1cce"
-    sha256 cellar: :any_skip_relocation, monterey:       "151459821f39c89ea63b3f521adbe096535bb52562af2c5fe03b8537a7efc5c5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "46ad156b3a52e7da02e4c8292a0d3e9347696ea63167d1b960e8da490925e453"
-    sha256 cellar: :any_skip_relocation, catalina:       "96377a82a1904ffd47b7a8d91eec7a6138649f75bd3bb086fe0b177ef0ea2403"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bbce5c73438e514b21186d6751f7df3e8e62076b2ea9b17a0e264fd758eba4bd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "07f5fd2bbd8b8044a7d4af363dc2f1552788492acdcd168c27a4e61229219d2b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6144153ac8cbe5fc8a93639edc3aca080a7d8e52af62f47d17ac148a0044098"
+    sha256 cellar: :any_skip_relocation, monterey:       "bc317e56e9574fbcd88221fea1a7ef2e99fff3cbef0b04466fe054ee947e443b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "16453ad4d17a6b2cd82df8a8343275e015d24b9cfee71cf06596cc7883eb1476"
+    sha256 cellar: :any_skip_relocation, catalina:       "a9cfd69ce29480574c4eb1f8d35e7cfdde6e74294179769e6562039a1e0dbb64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40be54af44494434c2ca6854b81e62fafaed052ddaef7634f37856961104e5b2"
   end
 
   depends_on "go" => :build

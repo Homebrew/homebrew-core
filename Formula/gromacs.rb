@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2021.5.tar.gz"
-  sha256 "eba63fe6106812f72711ef7f76447b12dd1ee6c81b3d8d4d0e3098cd9ea009b6"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2022.tar.gz"
+  sha256 "fad60d606c02e6164018692c6c9f2c159a9130c2bf32e8c5f4f1b6ba2dda2b68"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "29d1a7cab3e8920cc02d1bc88d8541f8766abd9bb80a6ddb0819dab9580864c1"
-    sha256 arm64_big_sur:  "0d9dc48b1a99c937d9e8098c50a519a11e89c79079c5dfa5d5e27ec3c5ecc27e"
-    sha256 monterey:       "30b91d9b0b975fae0a4e368db51f3ca5e35f014703a5b4106b4d60afe36af2e4"
-    sha256 big_sur:        "e21332f62443344a4ab804d2a07834c701f7d4a28fffe949d97e73942740c240"
-    sha256 catalina:       "a954a737e2b29d9284145da3f12e0cc5863d821c050bf66681770ed92219f50f"
-    sha256 x86_64_linux:   "a90670abac029ad4abbf449d0b134ff8dfa8ba9aceb85cafb2d18812d6bee0c4"
+    sha256 arm64_monterey: "3d35e4ea1e4c7fa4fdcde54ab2e8d282696ed75af001700ec5a9bae2bbe3e4b4"
+    sha256 arm64_big_sur:  "ba2a9c53c317c3638bb7bd016dbea1628c2ec59dca48a551e7bec097a0b6394d"
+    sha256 monterey:       "bcb3b9d29162c3770a3c3483f3fe21ee4b2b28f45f87ba9454ecccafcb785573"
+    sha256 big_sur:        "2bfd158e1a9b084e8702d6896fa7e1c727649f56bb0d49a4c4e7f4b9c3a7a827"
+    sha256 catalina:       "0a2c0708b2f776e2f1426c3eed1eb28b1da752c1c5e7f9cba812b8416f99a6c1"
+    sha256 x86_64_linux:   "61eb1c4f9ddac25ccf24715ecfab900025c15c775f819b86b1a48f40b6f6d3b9"
   end
 
   depends_on "cmake" => :build
@@ -37,7 +37,7 @@ class Gromacs < Formula
     gcc = Formula["gcc"]
     cc = gcc.opt_bin/"gcc-#{gcc.any_installed_version.major}"
     cxx = gcc.opt_bin/"g++-#{gcc.any_installed_version.major}"
-    inreplace "src/gromacs/gromacs-toolchain.cmake.cmakein" do |s|
+    inreplace "src/gromacs/gromacs-hints.in.cmake" do |s|
       s.gsub! "@CMAKE_LINKER@", "/usr/bin/ld"
       s.gsub! "@CMAKE_C_COMPILER@", cc
       s.gsub! "@CMAKE_CXX_COMPILER@", cxx

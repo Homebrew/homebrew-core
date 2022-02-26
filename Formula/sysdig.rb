@@ -4,7 +4,7 @@ class Sysdig < Formula
   url "https://github.com/draios/sysdig/archive/0.28.0.tar.gz"
   sha256 "817e595d501acf3fe11dc659a154aadbba848dd87ae801f5bf34a42e84979f37"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -12,10 +12,10 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               monterey:     "c3affa1008c1c41381e9980f4d8a6d27b85e7e4b385e6a13ebf965f5ec66c7b2"
-    sha256                               big_sur:      "7983e5dfdf9148eadbf9446a0df93561bf4e9c44317c706f7103ac90a525d37e"
-    sha256                               catalina:     "f55a45f24991b32e77519c8d61ca96877e4a748e537b65c3658882997cf55496"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7cb2654ce3a73546b4903677e75ad5b38a348e9307030763b229d4648bd28139"
+    sha256                               monterey:     "27f12b16506648c0008931a50dd62f95e471a6f3f9e7595b7ab70e66e0ba8e30"
+    sha256                               big_sur:      "a2d83b0067680f370a49439986ab6ffe15aa40b18be6449055d62f3c363cc418"
+    sha256                               catalina:     "e1ca7ff40901f9b89f38a36f3e8e211d6da2799d3bd5ce8ed2edeb0784fe25e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "848cb41fbe1057fbcd8579642abca78eae8ab5d2e22d86c30cc8871395d5110d"
   end
 
   depends_on "cmake" => :build

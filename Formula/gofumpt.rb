@@ -1,17 +1,17 @@
 class Gofumpt < Formula
   desc "Stricter gofmt"
   homepage "https://github.com/mvdan/gofumpt"
-  url "https://github.com/mvdan/gofumpt/archive/v0.2.1.tar.gz"
-  sha256 "699557d9d9221bd3530cb707ddbbe8dd5c3ffec34fc3cf3cdc56a642bcadc045"
+  url "https://github.com/mvdan/gofumpt/archive/v0.3.0.tar.gz"
+  sha256 "41d88f985ca145d8f3fc3a02bfd92a8fd17aa9d581623f0b5d4b022ca88f2712"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cbb42ea25305a98a90c0640c9e1b27b38629778b5bdc2343d7947ccdc06d1963"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbb42ea25305a98a90c0640c9e1b27b38629778b5bdc2343d7947ccdc06d1963"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba47b9fc0c0a5de5e109a8c7f5ab5cea74dfe233e892f2d3e585bfad49293d11"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ba47b9fc0c0a5de5e109a8c7f5ab5cea74dfe233e892f2d3e585bfad49293d11"
-    sha256 cellar: :any_skip_relocation, catalina:       "ba47b9fc0c0a5de5e109a8c7f5ab5cea74dfe233e892f2d3e585bfad49293d11"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f509d2d0ae3ae0d472c6b61d5d0ea74fb4be545c2c84251bb0fae054a3ff280"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "474830bed41943d0f1d5ec322fb2bbd2884e8361bf4ce3b875b89220b55118e4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "474830bed41943d0f1d5ec322fb2bbd2884e8361bf4ce3b875b89220b55118e4"
+    sha256 cellar: :any_skip_relocation, monterey:       "a0cf68ce6b440d73d0cda78a1bc0736e2f4cdc95d3b9a6508895b495dae2110d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a0cf68ce6b440d73d0cda78a1bc0736e2f4cdc95d3b9a6508895b495dae2110d"
+    sha256 cellar: :any_skip_relocation, catalina:       "a0cf68ce6b440d73d0cda78a1bc0736e2f4cdc95d3b9a6508895b495dae2110d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c95870742191146c3c4eca0bba4e7dc904711145d4eab50c3976920fdf1b1cc"
   end
 
   depends_on "go"

@@ -1,17 +1,17 @@
 class Vitess < Formula
   desc "Database clustering system for horizontal scaling of MySQL"
   homepage "https://vitess.io"
-  url "https://github.com/vitessio/vitess/archive/v12.0.3.tar.gz"
-  sha256 "f517a013fec7751a7da43ca2a11a4827d75ba1fbafd310bb10b9b3066549df60"
+  url "https://github.com/vitessio/vitess/archive/v13.0.0.tar.gz"
+  sha256 "99bf9be6dd4639d3547adea35031471d1d1a183753d721744f2f45c422032e53"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7408c0c135fd24477d0372bea43bd800a6f3c556fb793bcb1144153467ca37a0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bdd83add8df585cb7b35773a885a9932b9125ee1639027a4b54c45286efd565f"
-    sha256 cellar: :any_skip_relocation, monterey:       "8a9fe9b58b840eb1c9c956869338b249f5c6ed724b6a46b1eed6aec46c4c1951"
-    sha256 cellar: :any_skip_relocation, big_sur:        "48c2e3bf47e6b8db640cec9f67d8849edfc835100aed51120d560f0d861ec95d"
-    sha256 cellar: :any_skip_relocation, catalina:       "a1b76a95ff2e7660e1cc896ffbe0057df245a0ec95c2d05357a9f648820ede9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "861bafece13fc35de445b82638f94bab9c00c4694ea5f7dbfe80504fe0c89639"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "356ad69d70c2663e1ef1da9726c17c963d72da2eaad419b1029189ea993e2ad7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca36bab3d5eaba9992cc3fa13ebd02a47040c53f9129ab067683add21e906659"
+    sha256 cellar: :any_skip_relocation, monterey:       "cdf1d0e220d33196a3136255022525bd8ddc09a752404275d1f19a0677188791"
+    sha256 cellar: :any_skip_relocation, big_sur:        "88212b2971ab6fa4278e46708f8a2652ae465b232e7becd08ab02a9a58d4f25c"
+    sha256 cellar: :any_skip_relocation, catalina:       "19aec85755db5387f0ea132eb7755277fe9f34fa96cb542c2d65b75ed89c5b18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8291852afc3d7c75d709c1886e35dd7f20e52fa5e545e0a58618f5563163d18"
   end
 
   depends_on "go" => :build

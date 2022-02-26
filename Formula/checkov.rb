@@ -4,17 +4,17 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/ae/03/9eacca80ca525e7d7fa4ba20681a17cc337c6a77626819b47a74bf3fe3dd/checkov-2.0.870.tar.gz"
-  sha256 "24d63c2b4dbbd35dac5de873d0632a68a0a99be012a9911e4c17fb0233a57925"
+  url "https://files.pythonhosted.org/packages/90/3c/3c2ba9fd1aa04a54d363a25d014ae30617bb731b1d8a76ec765171c45364/checkov-2.0.900.tar.gz"
+  sha256 "e237b6393959ccd26f92354ca15ec51087b73ad3cf9d384f3db99031cbbc02d7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4cd7cbaa42a1555b7d0d346d7ec21c700fb1810dcfd3d07e96454b69a3155d88"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a01e1ad7f6542afd9e766198e1763a1955438027ead942c270f5e7354a94a15"
-    sha256 cellar: :any_skip_relocation, monterey:       "ccf2c50a7df69138bd59326ba5f5c14b3871418890bd5fcebe1f92568b1a2b92"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a2bde2c6ae5674d4e5cbf01353397d888336a486df1553cc7cfdae94c6019bc8"
-    sha256 cellar: :any_skip_relocation, catalina:       "b9ddf86082161474a50b1a37a575127bcd534ddf5528570c7c4f67b2f90a511b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26f95d00d57e25c74f2f529aaabe2738d400d92fcc95ed11b605777c7029f196"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6680a6f17b57293fcd267a2d367470916be238b830de32e5a19264299e2055a0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bce5479d1365610bb46834c0565a8e1002330370dfa1f3a510f635a8b71f07a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "6eafd5acb79efc6a5fcb1659ad8feaa5a38581948a8e163464221102123207cb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fa17549257cd21bb180b9f90050887ee4ac48ae8d6870869c7d8f0e5250f6af1"
+    sha256 cellar: :any_skip_relocation, catalina:       "2580fec5ef2ed650dfc8d3e1fc3363aa5eaeb1d0f1f1bcefd36740eb077b745c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "789536f54434fc5d40b4f01495fe55608972ff364b5e26d575e9b99a7e237dfa"
   end
 
   depends_on "python-tabulate"
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/b3/41/bf307ce8c5c0d75fe53d09adb20918bbc5561a0623f5e0c60e443fab38be/boto3-1.21.3.tar.gz"
-    sha256 "aa00024cc1f3d24b2318dae4d5dbaa173c8da8bc6f9d12f0b2e67467ec460989"
+    url "https://files.pythonhosted.org/packages/ff/fd/c25bdb2515c92c0e4e9d66d157e5275aee35f055f92b540e5e557ae56f9a/boto3-1.21.7.tar.gz"
+    sha256 "8f59383fe578ac9107466a464d7198933e5332d85a4790f2e01cf24a4a7f635b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/36/ae/e2a16367140d66a5b45df2f831da20dcb2cb8824e0e334554294647a2ac0/botocore-1.24.3.tar.gz"
-    sha256 "979e5c5e826ff115f4903fe9887b191f3809229f694a747f910e1221fe63efc7"
+    url "https://files.pythonhosted.org/packages/b6/27/82dcaa46588c3071b195f75ec1c3ce5d6ce8aad26701dcc661cbca4961be/botocore-1.24.7.tar.gz"
+    sha256 "5d1a2a2ac72461bbaa79317b3e4cb72c7ebb315aef184d90f72ec1f6dba0ca6c"
   end
 
   resource "cached-property" do
@@ -177,8 +177,8 @@ class Checkov < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/70/b0/23e3245248f63eac75335828527016c7636c1780e7ad934a341970b47a78/GitPython-3.1.26.tar.gz"
-    sha256 "fc8868f63a2e6d268fb25f481995ba185a85a66fcad126f039323ff6635669ee"
+    url "https://files.pythonhosted.org/packages/d6/39/5b91b6c40570dc1c753359de7492404ba8fe7d71af40b618a780c7ad1fc7/GitPython-3.1.27.tar.gz"
+    sha256 "1c885ce809e8ba2d88a29befeb385fcea06338d3640712b59ca623c220bb5704"
   end
 
   resource "idna" do
@@ -302,8 +302,8 @@ class Checkov < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/66/e2/cc19f36aade1ef40cba69555fcf713d942ec9e31ecff2415948bd885911d/s3transfer-0.5.1.tar.gz"
-    sha256 "69d264d3e760e569b78aaa0f22c97e955891cd22e32b10c51f784eeda4d9d10a"
+    url "https://files.pythonhosted.org/packages/7e/19/f82e4af435a19b28bdbfba63f338ea20a264f4df4beaf8f2ab9bfa34072b/s3transfer-0.5.2.tar.gz"
+    sha256 "95c58c194ce657a5f4fb0b9e60a84968c808888aed628cd98ab8771fe1db98ed"
   end
 
   resource "schema" do

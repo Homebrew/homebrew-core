@@ -3,41 +3,36 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/78/2b/e8c84ddd43cb0fb350ee36f1cb11efdc0fa46c0e6537be379ed6d2287c1a/pdm-1.13.2.tar.gz"
-  sha256 "4d6c33a5f1053c91bcc7a6b494108602d3727bb5120889a897fcd1fb7b779033"
+  url "https://files.pythonhosted.org/packages/d2/ab/ebbaada6eab1ff02316ce87cc55d85c4dc76c7136c5585069d0c5373760f/pdm-1.13.3.tar.gz"
+  sha256 "e7e6e38e58e693700768356363336e0bb96492f9692daf7f82b2a07661110bb9"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2201a2088099047134cacd6af31707c7d3856d364f5cf3e41a54a165e08fc855"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2e174bd3652dd94a4f12b4feb21fa666093e18e7e8353bafbee988ed8d81b34b"
-    sha256 cellar: :any_skip_relocation, monterey:       "72b9490962285b62e2024c9b1a91c5bc213008bd287fc5e0d7ccd7c699fa2fff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a2551c624f39caf255ff179132276ffd619985c8bc0c2eede19975db11830725"
-    sha256 cellar: :any_skip_relocation, catalina:       "65a4c08430e716774613b212ccb8e886f56c9ef95c0c9e75972d1f60f755179c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98ff3001c0b5a6cf9f3d39e6d123c8aabff83bde393f6efd59a58ff09e6ea0ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac41b4b1a08ba05d8b5b7e53bd711d1646b83ada33d68d824e533bb02add00fa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a7d7e56b990356347b1dc14a55b51d7b635cd0aa4722043a9271fa5545b9657"
+    sha256 cellar: :any_skip_relocation, monterey:       "da0944b97bb166ba8c9f85b87170449f825e37d60eba13e746cbc656582a44d1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "46775cf312281733398178f7b2476485827912f5b15f7962617ebe1687effb92"
+    sha256 cellar: :any_skip_relocation, catalina:       "d5c37966525da9ffc9fc733c6c2b7b1c82fd0c316d40f78228fb512e45c7cb9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83235302e0f959ecbac1cb2075bc33ed8d6ba706ec05b06c88e596cc55885dfc"
   end
 
   depends_on "python@3.10"
   depends_on "six"
-
-  resource "attrs" do
-    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
-    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
-  end
 
   resource "blinker" do
     url "https://files.pythonhosted.org/packages/1b/51/e2a9f3b757eb802f61dc1f2b09c8c99f6eb01cf06416c0671253536517b6/blinker-1.4.tar.gz"
     sha256 "471aee25f3992bd325afa3772f1063dbdbbca947a041b8b89466dc00d606f8b6"
   end
 
-  resource "cached-property" do
-    url "https://files.pythonhosted.org/packages/61/2c/d21c1c23c2895c091fa7a91a54b6872098fea913526932d21902088a7c41/cached-property-1.5.2.tar.gz"
-    sha256 "9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"
-  end
-
   resource "click" do
     url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
     sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
+  end
+
+  resource "findpython" do
+    url "https://files.pythonhosted.org/packages/ec/8f/30913986b7a2f880cf4e3cc276aedbfb5560b28840d5b85e591651b2d6c6/findpython-0.1.3.tar.gz"
+    sha256 "b55a416b9fcf2d28721bfbea1ceb2a6cb67a00f99ec4b94a76da22c7a2002870"
   end
 
   resource "installer" do
@@ -73,11 +68,6 @@ class Pdm < Formula
   resource "python-dotenv" do
     url "https://files.pythonhosted.org/packages/49/62/4f25667e10561303a34cb89e3187c35985c0889b99f6f1468aaf17fbb03e/python-dotenv-0.19.2.tar.gz"
     sha256 "a5de49a31e953b45ff2d2fd434bbc2670e8db5273606c1e737cc6b93eff3655f"
-  end
-
-  resource "pythonfinder" do
-    url "https://files.pythonhosted.org/packages/f9/25/958288d4748436b63622e41ef875ef84702488cdcbbce16849bc3e139d40/pythonfinder-1.2.10.tar.gz"
-    sha256 "ce2a1c2b313d605788173caf68d074f80c00b067364bc57047e68735bc9037d0"
   end
 
   resource "resolvelib" do

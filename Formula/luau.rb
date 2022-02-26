@@ -1,23 +1,18 @@
 class Luau < Formula
   desc "Fast, safe, gradually typed embeddable scripting language derived from Lua"
   homepage "https://luau-lang.org"
-  # Download from a commit temporarily since we can't untar the tagged release.
-  # This commit is the same as the tagged release but includes a fix that prevents
-  # us from using the release tag. Switch back to a release tag tarball in the next release.
-  # https://github.com/Roblox/luau/issues/373
-  url "https://github.com/Roblox/luau/archive/a9bdce6cc06577cb412c38db757e44ea783f7c05.tar.gz"
-  version "0.515"
-  sha256 "6234ea76f65f7f7eaae2e285dd834dbfe64a58a8aebc4e4681654dd635b35dfa"
+  url "https://github.com/Roblox/luau/archive/0.516.tar.gz"
+  sha256 "b7c7110873b40ac82ba3d8b2a59c090c49194b7850fe48f65850b7ccc1875ac6"
   license "MIT"
   head "https://github.com/Roblox/luau.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf5d26b7511f3315647e4091c2148a4b58a1761aa83c6b777b47209535f6b9ce"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b8e5d8d13fb3bb0dd514f39c5d52137e8c07f7eba7d32529d4015c41a9b3f98b"
-    sha256 cellar: :any_skip_relocation, monterey:       "900d6c7f2e7e6d1b9be6e7e0085e18905fab3a4b9609097a506c8d140bd5b98f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "584e4b4cc5445128ddd4dce02beb692993588fef08de3a4d6366b3bbca00cb45"
-    sha256 cellar: :any_skip_relocation, catalina:       "0883e52129f8a6cde2e29308c997170207735b1d100f692917c3a6c5a8609fb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17b2810ba26c8a81138c93460a1f796bbbbb0de696cbe726196cdf21b4efa51f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1de33f9f976dbf694f0587229de1118c00de63075a5a0e38cc84c7075a69e477"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fb209998c8a3ec07b085b26acb299788a04705ed721abb185e63d1da073136a"
+    sha256 cellar: :any_skip_relocation, monterey:       "024859e4e8c4c289ded2cd78b4097114d14655105848f4e2577bf3520ab12d25"
+    sha256 cellar: :any_skip_relocation, big_sur:        "39b6f04119b31d420d12188502eeacd1be7ec6f5d4f9a37ab431f683886397c7"
+    sha256 cellar: :any_skip_relocation, catalina:       "0e70971dcd80761ca706363462f94de45ff5a2ac778270d1c5064132d268c2d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a83ce3c06e2e5be088f765b6a8ef6d23359e0bcbd8d39360aa8a5c343a4b6385"
   end
 
   depends_on "cmake" => :build

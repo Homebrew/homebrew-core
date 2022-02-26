@@ -1,17 +1,17 @@
 class Ioctl < Formula
   desc "Command-line interface for interacting with the IoTeX blockchain"
   homepage "https://docs.iotex.io/"
-  url "https://github.com/iotexproject/iotex-core/archive/v1.6.3.tar.gz"
-  sha256 "783c72fb8901b9cb0f33c25aa98079c4f5e21657d02c4379bb5c9303c38448af"
+  url "https://github.com/iotexproject/iotex-core/archive/v1.6.4.tar.gz"
+  sha256 "1a54d59db80aee21cd5925bd8ef0829b91cd40b45f1259c6127388d35c5b9272"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "655ab814a74cfd55276cf1a7e43af539e8dc01b4a291017420cbc80890baaaf2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "707a90c46dcd0384a3acd6e01517b8c450a207837a6ad370bbf2a592b5a42852"
-    sha256 cellar: :any_skip_relocation, monterey:       "4e40a57f1d3bdf7da3ade977882931e76eae2280b92b8427c3e146a42e7efda8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f2bf4bffcab21572c5b51b3b8152e27e7f54dcd153a84e067949039760089172"
-    sha256 cellar: :any_skip_relocation, catalina:       "57fd2cacf9de413be4815aa8051965b02a54b606f16a3f227a4b414394d00772"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f54550e51659902683f7f47b4dda4da5bf210dfe4fdf4b5aad93e87b20555d48"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c4dda862c1575cac60eb9c2b4d0a5d5c1e3a539fe17a8bf6cf17375a3c49e4a4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f2cf3d48701cdbd3d49317794920ad2e8d35f31a9032e54f1477cb5870470d9"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c15711285d89cab292bb97d24abbe52a4991910d84848e9029021306036d02a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8bb5b6d7c35c212ea35850d87d1a9081540c78059ea157c8aa6acdfd5d9472e8"
+    sha256 cellar: :any_skip_relocation, catalina:       "238e59674a89680c8e86c3269d1f85969429e28ce09baee9ce8e656d8ba35ebe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb32ee8f8cc1034758c738c1b0c0ad58c8365728ebee3441ca31ffa717187473"
   end
 
   depends_on "go" => :build

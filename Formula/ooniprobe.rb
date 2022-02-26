@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
-  url "https://github.com/ooni/probe-cli/archive/v3.13.0.tar.gz"
-  sha256 "a055aed8c2d0d898b7cdb843cf247cf3b593c8ac7045103c08b3088b7d4d1737"
+  url "https://github.com/ooni/probe-cli/archive/v3.14.1.tar.gz"
+  sha256 "8bb85d526fae0ec544b3766e6e988e696e83252aed24a29e4de8c10f5beb094e"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,18 +11,18 @@ class Ooniprobe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "207b5687cc32f010d5f6f55e2b95f69e086fb28a2825078bbbfd4861bfc09c61"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5d36efcb051f08355c23b62c0a244cd67e706b8674302903a908c428a2ac6d5"
-    sha256 cellar: :any_skip_relocation, monterey:       "e6fc0c3d3350eea9206523e06283e6842989d63cbd865d80610c1e1a3c7867d8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7125b855b7a0edeb91597e8b0aa525a5ccde50c6ac0bd2c23b5671b898b12699"
-    sha256 cellar: :any_skip_relocation, catalina:       "0c57f460123364905bbfa22a88943bc7566e318c26298847d3925664a67a5196"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8321538ff21f1692b8b9f569476ba61dc76feda24bc05a9adab72a9f2a77c177"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "629c52976e62f9ce99bc355a5c4a0a7b68884c35a58409496191418218283a63"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9626936e5028a5768f5617e7b49629245c7f2849499b19cfa8232a39085402e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "09ba9ecd9ee4d359dbb23d31042acf6ac1c5551a58676f132488a6ccc36ac2c8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7aacfc5035440c50d1107374fde821133da1c8f30f1d1bee2e1a04c103827c41"
+    sha256 cellar: :any_skip_relocation, catalina:       "931f92c33c4bdf58ba336d738e631baed9ad00c45a9d0e69e06c095c4ef66f06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1a9d290ccdcdbef535ddd9eca13dc7b184b8702e0fd132b3c7c31192618dab8"
   end
 
   depends_on "go" => :build
+  depends_on "tor"
 
   def install
-    system "go", "run", "./internal/cmd/getresources"
     system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/ooniprobe"
     (var/"ooniprobe").mkpath
   end

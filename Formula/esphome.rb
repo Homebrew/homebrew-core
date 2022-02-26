@@ -3,17 +3,17 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/26/1c/9462c6fb6fb9cab8fbe5b4ab4914dd6ee50022f9e8b3a69f3e7d1a72cdc7/esphome-2022.2.3.tar.gz"
-  sha256 "4030814385dd9fcacd149b6b7e114175a1cbc7f45be12bbadfb76ae794c6106e"
+  url "https://files.pythonhosted.org/packages/eb/48/78d7342a01ff57a6a79e34fac2d51c139f4089711a763b4824e0b81ae312/esphome-2022.2.5.tar.gz"
+  sha256 "8d27e25d4b649dbbc1c99888cbd0bebef7783ae5214930c546201c0e7ca38886"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7d83cf6df3146556bd46b86264befe2e7536c54e5ad526de2f87db9db024ea59"
-    sha256 cellar: :any,                 arm64_big_sur:  "7fc3ec4e3b6e90d6f807e1d714f1f72044d1ce54343325f6231bd1104bf587b2"
-    sha256 cellar: :any,                 monterey:       "ebd8ab72a0db0ad5335f1f4696b115d8a8c9915a6a324cf9bcf9862854b6a933"
-    sha256 cellar: :any,                 big_sur:        "603aeb5b17c7d77c92ec4659335bb3e5d4ec4b84ccba94ca7fd773df525f1d51"
-    sha256 cellar: :any,                 catalina:       "a949fbe90a8a7fec00628f271e24585e8c16d4bca276e09f4ed17c7c0bb6f1e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "845e64d06e0ee4542e79460ec29d69cbb4773314e2a61848b877fefa27916096"
+    sha256 cellar: :any,                 arm64_monterey: "ea0cf39feba377a5fddf7ce513345b730e97f368f5514cc7cbfb33db1e5070c0"
+    sha256 cellar: :any,                 arm64_big_sur:  "9fa7596263ab80c564cc4613d4a4f1444ab8bee5606e5aaf367849b84d7d5bef"
+    sha256 cellar: :any,                 monterey:       "1bd1cdb5a20fd6407d3922b40c57166e9fb8c80e330405256cb3ed680d6644be"
+    sha256 cellar: :any,                 big_sur:        "86704cf67f73aacda5eadf222a7851732a7f8875b3f7377a45afabe494c010cf"
+    sha256 cellar: :any,                 catalina:       "7cd1184f05f837152f524fe2f18371623e466a7da046493c07177f166dad9359"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b101379fff0f55e7dd5ffa8569d940cf2745ba844fe4837b91deaf2bc9c76c70"
   end
 
   depends_on "rust" => :build # for cryptography

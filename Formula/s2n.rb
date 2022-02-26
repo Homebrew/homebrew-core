@@ -1,8 +1,8 @@
 class S2n < Formula
   desc "Implementation of the TLS/SSL protocols"
   homepage "https://github.com/aws/s2n-tls"
-  url "https://github.com/aws/s2n-tls/archive/v1.3.6.tar.gz"
-  sha256 "014eb4190b4cc9301b99bbbc11cc874c38fbf1c73ba77bca922458a052a58ed3"
+  url "https://github.com/aws/s2n-tls/archive/v1.3.7.tar.gz"
+  sha256 "64b141b6f79bf131d29ff6a0fe053f77a6f3dd946f19298b544a6dafacbecfcf"
   license "Apache-2.0"
   head "https://github.com/aws/s2n-tls.git", branch: "main"
 
@@ -12,11 +12,12 @@ class S2n < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "48043394517a02aadc63c9e32405853611a14af764795fd2ca1c3dbea5c91d86"
-    sha256 cellar: :any, arm64_big_sur:  "8015da5fb967d35344547b9ca590abc781b38ad4008d653ed7909d5882a5a354"
-    sha256 cellar: :any, monterey:       "f425d689026df981a0acdde3e9e5ca0fb81d9bd244e4dce630205e30f99bfb74"
-    sha256 cellar: :any, big_sur:        "03fada70a5721d919894acc183ffb579cc7e7404143b1edea95dac9713f718df"
-    sha256 cellar: :any, catalina:       "0480e8dd5e5fa66b7ea30f2b1db8d0b845bcaee620c730c3c83bad07439705c4"
+    sha256 cellar: :any,                 arm64_monterey: "a5a956486457b1b2a2e21547aece964ef86b56b8f6e7636bc75405e34164f9e2"
+    sha256 cellar: :any,                 arm64_big_sur:  "15b4c10eeec8033b0e626a503a3b08fde0b098421b307327f8d5a143e4c5732a"
+    sha256 cellar: :any,                 monterey:       "364c5e2bb2394262b28c5f306075ec7803fb42e3f7521e51c63eb8d3657b40bc"
+    sha256 cellar: :any,                 big_sur:        "74b51ee3f7096890762e6e3b2847888fcc87bdbfd9d8070e3693f0a8c7538e5a"
+    sha256 cellar: :any,                 catalina:       "885b08c3d9ed6e4216733579726e3e7163000b9bbf38c835071b2ca283638aa9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "384ca8d8785e4f61a683b0ddd30c0a3ccd565499ce2f55b1e4015eeaaed3de81"
   end
 
   depends_on "cmake" => :build
@@ -38,6 +39,7 @@ class S2n < Formula
       }
     EOS
     system ENV.cc, "test.c", "-L#{opt_lib}", "-ls2n", "-o", "test"
+    ENV["S2N_DONT_MLOCK"] = "1" if OS.linux?
     system "./test"
   end
 end

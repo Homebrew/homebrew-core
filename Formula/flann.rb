@@ -4,16 +4,15 @@ class Flann < Formula
   url "https://github.com/flann-lib/flann/archive/refs/tags/1.9.1.tar.gz"
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
   license "BSD-3-Clause"
-  revision 11
+  revision 12
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cac48947f1d981a8285a90646badcdff6bb690b987c3f1bee3996613312273da"
-    sha256 cellar: :any,                 arm64_big_sur:  "4f7bdd32f4a2e7e4ae1f9367585da94b5cdb6ede82dee359046ab5e6cf59efdd"
-    sha256 cellar: :any,                 monterey:       "3056de985dc8eeda62f162cb87f77c49704aae0f7d2e87225aecd8431ba7afab"
-    sha256 cellar: :any,                 big_sur:        "33278f699e22bd607e44ba0d556e34ed492adb8bd5c73a1c414a7241423f8bf7"
-    sha256 cellar: :any,                 catalina:       "ef260f54e418a03d2320369da486148caacc0c6d5697f00e6efdbda4116f00fb"
-    sha256 cellar: :any,                 mojave:         "59a708f81108cbbb05e885ed2125437fdecb6d8dc91ad901b48c92641b4dc199"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3f5c8f11a5191d8418c20be00b5616c9717c832f0c79a9a997011bda3eaae1c"
+    sha256 cellar: :any,                 arm64_monterey: "d7655dd941d2d9c595b2f04c35f8bd7f0e1a1faf513d01ff26084b8e1a2dc5b6"
+    sha256 cellar: :any,                 arm64_big_sur:  "66fbccb32f9c000e4c9895a9e6289287ed80960bbbad550a54f02d434016edbe"
+    sha256 cellar: :any,                 monterey:       "daae6ca168f1a9127c69d6c90a48f1b1eb65c3ac7e5d1c53290c221a98de6f5c"
+    sha256 cellar: :any,                 big_sur:        "9ae192a790d2c63463152f30286818df10f66dc78b2f908631173bd9d20a303f"
+    sha256 cellar: :any,                 catalina:       "c131f386424a08dedc3770a9364af7f8dcce5d70e3415bc87a09df6f82ad8399"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31842ceba155505d9f6661afb37b091a3b6d49e51b66652566cdc43ad38a17c5"
   end
 
   depends_on "cmake" => :build

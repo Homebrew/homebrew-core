@@ -1,21 +1,24 @@
 class Skylighting < Formula
   desc "Flexible syntax highlighter using KDE XML syntax descriptions"
   homepage "https://github.com/jgm/skylighting"
-  url "https://github.com/jgm/skylighting/archive/0.12.2.tar.gz"
-  sha256 "6b2512e528f69969be6736b6b881351e0dedb3446377ef407d16dd707de6dff9"
+  url "https://github.com/jgm/skylighting/archive/0.12.3.tar.gz"
+  sha256 "50126e6589a3507f19bc5ec83a933441c6f61b95fb5754a9d7c400194dceae70"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/skylighting.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "28c95d34f806f3ab9fb325773ceace9a4200afb59054fcd80f10fa05bd95fd1b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d2a4797a28618b465d0aa8d9d3c69cb37e97b9d952b577e360113fa207e32e49"
-    sha256 cellar: :any_skip_relocation, monterey:       "ebd01223b73eadc2796addb04a479139ad2014357bb50f065d5496e3552fb5a7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "96080fdf6c2700135382b3b9b34f1132da2f3db5824cda95b5bf39a126e29702"
-    sha256 cellar: :any_skip_relocation, catalina:       "ddff21c9f171249f781c0e8461413e26d61ed4cc0feea36175cdb6ad05013154"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6361c56a877edd985d119f47beb2f3373da15308f919f1c09fa365204812573"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f4f674513c229f92cb5ef509c63e8cc1eab96ebf891c559dc0ea63fa0109a260"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6be3405550535352133fbb98008f87b733260af6cada1c34c40f1cef74345f5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f86128838ce68540a2d67648e100ba3dbbd1f138b693cd6d2367170a27eb37ff"
+    sha256 cellar: :any_skip_relocation, catalina:       "5cf4fa77d96e296388409747439f034b868b93933f7b17c64edbbaa654cf2c2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cc48bc6dad6b29a12a42cdf43008f55d3c754a602fd82c87cfeb1e402f15d72"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+
+  uses_from_macos "zlib"
 
   def install
     system "cabal", "v2-update"

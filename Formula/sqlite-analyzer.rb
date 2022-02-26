@@ -1,9 +1,9 @@
 class SqliteAnalyzer < Formula
   desc "Analyze how space is allocated inside an SQLite file"
   homepage "https://www.sqlite.org/"
-  url "https://www.sqlite.org/2022/sqlite-src-3370200.zip"
-  version "3.37.2"
-  sha256 "486770b4d5f88b5bb0dba540dd6ee1763067d7539dfee18a7c66fe9bb03d16d9"
+  url "https://sqlite.org/2022/sqlite-src-3380000.zip"
+  version "3.38.0"
+  sha256 "77c53d4812cad7856f5f1a1e07d2a2c2a3444d26a965274279f8dd9faa6ff480"
   license "blessing"
 
   livecheck do
@@ -11,12 +11,12 @@ class SqliteAnalyzer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e38b7476bda89b16ff0955f35f6e32ad7a15e75af600930338fac32b33aec1f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca75fb3a2b5c12770d9c706403b007dd6264d687b848d525e27e7b509c587ce0"
-    sha256 cellar: :any_skip_relocation, monterey:       "8c5f513b1e09418456d32dc747c3205fbcbbcf6bdd77cf7aae6bbd22097ad0dc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a983b13a3ebd77926930ba47ff66b7baf49e6866e60f6905ad8282ce27b19b01"
-    sha256 cellar: :any_skip_relocation, catalina:       "92cfddfc8777e0c91e6c8546a5b9f63022d324da8d9f0d092077e7161b303a59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30feeeb98e952dbb78e3de149db8372309fa71e67048e41de2a2ac97899d2afe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5771f92136920ea8070f4fa309fa39b6b1ce05eefa79bef257d20d72189bb0eb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "babc545e54d00450583087b74553ea9b0d474af20b2605d8e9ff78115e2431fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "5b3ec4ff1d74dddc6a217372a3332ac21f9bdc51fc425bea4e92786a9838f1de"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8c5753ccb5c35081d6a6d385f421ac6c6ad63a0801db1d6aa28bb2fef674b811"
+    sha256 cellar: :any_skip_relocation, catalina:       "7ea52a9a7ac85e52d8bebcdbb0550b4425de61b8ba25e940bb2c211fe13357be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "109c2229f634d37792af5a98d38e69d96ee220e8b615ee564e26f4bacc85620b"
   end
 
   uses_from_macos "sqlite" => :test

@@ -1,18 +1,17 @@
 class So < Formula
   desc "Terminal interface for StackOverflow"
   homepage "https://github.com/samtay/so"
-  url "https://github.com/samtay/so/archive/v0.4.5.tar.gz"
-  sha256 "e036d2690c1b35bdc092527f6f0d2ff46616350c3eb360badf58fb93ea730b45"
+  url "https://github.com/samtay/so/archive/v0.4.6.tar.gz"
+  sha256 "47a3cf5cef9d87dea223ef1c8fae3cf8c2ae0673d9eb4c8d73d733ce8ff45619"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b5432cbe9c768d66cd14d39ebc5f60c2bb5ef79bde72a7863f37698d822ec8e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "610b5f0641c444faa1b1593ccb7555f2cf13d60753fec19fe12f73b32a1f7502"
-    sha256 cellar: :any_skip_relocation, monterey:       "8acf900ff9c9eed60d163bd0b3349d19d831e6ea35e0d8405f238e433dd76b8c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9fd6e485c657d6fefe2309ef533cd9c199f1633d1a499d5bc9abcaabd6a831d7"
-    sha256 cellar: :any_skip_relocation, catalina:       "e6e42abbaeacfec3ae573d3851b3d223e9cc258b8b7da6f044c57ac9b4881299"
-    sha256 cellar: :any_skip_relocation, mojave:         "dcec7fc7c8093201de8c9b7e71d2b326198e6ab7a1d7df7d8fb57638b051ab5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8aa3bf1298fc5707ab57ffa6e44c9e98c5c8a75c83baabfad77424a76e28324"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "199e629ef6386f815a96b097540fdaa66e89a917a173d5f41c547e9b3b792444"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "91acaa4fdf4a518890230e765da744990ecdd9ecbf308dfbafe7cc26b5b654c8"
+    sha256 cellar: :any_skip_relocation, monterey:       "3efa45b62460e33061a77d58c040ae6ef6d235ae344a3dcfaca4e3e7f6ddd514"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3dbacd10d72b7b5ec356081908444652a964c570f93a931dcbd5e039d5547c68"
+    sha256 cellar: :any_skip_relocation, catalina:       "7f52bc1fef4395083b6eaf27b25922a621785e5f5aab0cd6ca1776f3af4ddd68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfbb7bf0c006fd09e463af561ee6d6e71c81d9684df445f636834ee64baa4214"
   end
 
   depends_on "rust" => :build

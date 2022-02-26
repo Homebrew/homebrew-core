@@ -1,12 +1,11 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.8p1.tar.gz"
-  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.8p1.tar.gz"
-  version "8.8p1"
-  sha256 "4590890ea9bb9ace4f71ae331785a3a5823232435161960ed5fc86588f331fe9"
+  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.9p1.tar.gz"
+  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.9p1.tar.gz"
+  version "8.9p1"
+  sha256 "fd497654b7ab1686dac672fb83dfb4ba4096e8b5ffcdaccd262380ae58bec5e7"
   license "SSH-OpenSSH"
-  revision 2
 
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
@@ -14,12 +13,12 @@ class Openssh < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "3a50d8f5d6bd03010f6d89e11954bfa8dc88823dc8eacc6b0e94b567773605c5"
-    sha256 arm64_big_sur:  "44d83024beb93c0d5c77105960327a265a92507a4a6207593f812ada8d9ee0ca"
-    sha256 monterey:       "60463ed37e4903ecfa47c37b9bf75735a97dc706ba202d9fa1b6afdd138599db"
-    sha256 big_sur:        "fb85274c9ec3ad16a158933d4fa5b180be70bf4dfc6f38807917c3936dd61103"
-    sha256 catalina:       "7036fbc5d3334a23bd2222f1956e0358cb3974c4624967fd152a5ca01079f6fb"
-    sha256 x86_64_linux:   "048e4a9a1a440e759e79055294316b7a61e0cf3a94a1749927300ce0e4360c48"
+    sha256 arm64_monterey: "f1c8e81d5e7734c64644ed31bc3fa3de78a33d7f37c1a47ad199a4e2ab1a1ec6"
+    sha256 arm64_big_sur:  "d52762eb6c1458494badf79b7e51a29951cf8a7fef0c8d0bf38037b6263efd8b"
+    sha256 monterey:       "b90cdd46e7cffabd61bf81708061d2847d3f9b75e588938ec55bff52d62a568a"
+    sha256 big_sur:        "1cfcf7520d2bd1152d79366b5fbe42a7bd6be6eceb7e7d5deb98b228b4497a78"
+    sha256 catalina:       "54031902906a38ea9b08ddec573c294058af80a31705f32e4d0b11e184c892aa"
+    sha256 x86_64_linux:   "7796e206592b14ccd0e6cb08c6e77ab3e7b148a43d66dacc3e3558115a79493e"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.

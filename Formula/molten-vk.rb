@@ -1,16 +1,16 @@
 class MoltenVk < Formula
   desc "Implementation of the Vulkan graphics and compute API on top of Metal"
   homepage "https://github.com/KhronosGroup/MoltenVK"
-  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.7.tar.gz"
-  sha256 "657f8ccb5d51323c55ba64fa91da2e5ddb7326189b648f60f5e7323ddc21c42f"
+  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.8.tar.gz"
+  sha256 "f316c814d0cb6d60a0e8ad164d8cafa64010dee9dd41748b038b6b67fa40f08a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "026a359f528fd8595fb2f7de001dee78f68fddcffd310d3b370afb8752ae07c7"
-    sha256 cellar: :any, arm64_big_sur:  "9025529b512bf776b237071a321d8bf6c5a49984842fd9e52f05465060aa023a"
-    sha256 cellar: :any, monterey:       "de840658d17ffb4a822c3294e7544439cae0e673855ed5e163fc66819e15ffdf"
-    sha256 cellar: :any, big_sur:        "e9ac3922ef255656ae6ccf14856788788a56f30b4b998e48daefdb3d80a8edcb"
-    sha256 cellar: :any, catalina:       "b55955c3522410d2d8b10add00f6cd4f690f2164db784be9e485fdd57f0d32d4"
+    sha256 cellar: :any, arm64_monterey: "40ecbe1cb7fa39206e044bb65de6d1d947ce8c3b9c66dc6d1ad4d13d9852e100"
+    sha256 cellar: :any, arm64_big_sur:  "21f71933c797a2dd8707b185de6e73cfe3019ed74a745798ad92e5e3bffa19b4"
+    sha256 cellar: :any, monterey:       "dbf1a33eb34c9a29dd9655ebe0f4f1ea4f5fa5312297ddef629599ef7514cdd7"
+    sha256 cellar: :any, big_sur:        "740ca02b3a6099e098a309615e3226cfb689e6b6618faa405eb16ac062524845"
+    sha256 cellar: :any, catalina:       "54a083e8b4cd0e6e9da512cd9f8112c866ac58ef36e016a1dffd96111244ddfb"
   end
 
   depends_on "cmake" => :build

@@ -5,14 +5,14 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-6.4.0.tar.xz"
   sha256 "6c1555f5aff0e655b88cad8e8bc2b740ec3a6f3f61898e4997359c2af55e5d20"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_monterey: "c1298f719776789c9c57fcfdc5e17d28236c7199ddbe45dfc6b0d8ea62b7c303"
-    sha256 arm64_big_sur:  "142423c2700e341d524291d668230a872811cd42a3a474d845912d7c176511e6"
-    sha256 big_sur:        "7d30b44ae67c570f9408414a6f94ccfa1259335ed806ac9c009b6ede9922f559"
-    sha256 catalina:       "31f5f6eaafc15d1f9ee86a7c6b6c5a7576474ae87264e6807109ed28de3977a4"
-    sha256 x86_64_linux:   "372020c01a1f1f8e49cf18fa23c4e12ee259ceb1594a5abed899c4de1f9869ca"
+    sha256 arm64_monterey: "7ec858b4da283ca8ea257372b025aaf7d04f7ced77c2367bcf4bec42700cfa4b"
+    sha256 arm64_big_sur:  "7d9bb1d842f7477af4ba5f36a960866bfb60b6809eec14f71590ade94c651de1"
+    sha256 big_sur:        "d9f655356b88de2268804c382f95dfe65558ff66c11530d02168e7647443c791"
+    sha256 catalina:       "14d275a2bb3b2e61c2af040a1d0ebada781bae57f879188aee290abf5ae39190"
+    sha256 x86_64_linux:   "db3e3b515e0be02b6bef8f717853de4eb7bc888244c6c4326bcf1e20e3c9e7cf"
   end
 
   head do

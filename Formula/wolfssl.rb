@@ -2,8 +2,8 @@ class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      tag:      "v5.1.1-stable",
-      revision: "c3513bf2573c30f6d2df815de216120e92142020"
+      tag:      "v5.2.0-stable",
+      revision: "e6c07a296d2996e8d5c3cc615dfc50013bbcc794"
   license "GPL-2.0-or-later"
   head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
@@ -14,12 +14,12 @@ class Wolfssl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ad04cefb0d479781709b210cefd26b3cf8ee8cb04d79c3f2210133b591355cc4"
-    sha256 cellar: :any,                 arm64_big_sur:  "ec34ca5bb0b65f1918fcd4835d33bab5f1adcc51bce65e5f1e5420f6da92d93d"
-    sha256 cellar: :any,                 monterey:       "28863258041c123401a49e8b622f49887c364ffdf6daf975e53251c3c83492fe"
-    sha256 cellar: :any,                 big_sur:        "f5cb8b0ec5d8fa59ebdb2a90e61ce62615747accd074252a414ec9aa1ac96c09"
-    sha256 cellar: :any,                 catalina:       "44474125af92e29c4a264a04cc91b6fc026b5a552c79d18fb9b63217a011ad64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb017bfa60e294ca0366c8b4681ab3a591c5c3e6d81253eb92987013795ca319"
+    sha256 cellar: :any,                 arm64_monterey: "ed3fb91c95c2cc8057fb45e1bce0f6566c5cfbd621e78affa746704aa1eb4bba"
+    sha256 cellar: :any,                 arm64_big_sur:  "db93fc9bc8f5b8869e402c8278a311f358832cafbf228667f06d1a6c7ea8f256"
+    sha256 cellar: :any,                 monterey:       "7bcf2cf2773eee838dc3958332fc63163b159d336a7891d0b2c641f9333360d9"
+    sha256 cellar: :any,                 big_sur:        "acb9373f6d6997c3754692f537731737890800913e41edc7cbcdd65c02504a24"
+    sha256 cellar: :any,                 catalina:       "8565cca5219dae8747eb17b1856291681e2dcdd26640f76c1ca5b543b0e6a64a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b122c6438357cf52a54d8256fb7a2770d93c38499b198257cc36cf0a21f00991"
   end
 
   depends_on "autoconf" => :build

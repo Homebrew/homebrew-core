@@ -1,18 +1,19 @@
 class Liquigraph < Formula
   desc "Migration runner for Neo4j"
   homepage "https://www.liquigraph.org/"
-  url "https://github.com/liquigraph/liquigraph/archive/liquigraph-4.0.4.tar.gz"
-  sha256 "2ccadb61da07ede6860c32695853456e4844eeb5e64c05f3e61b3c914587a072"
+  url "https://github.com/liquigraph/liquigraph/archive/liquigraph-4.0.6.tar.gz"
+  sha256 "c51283a75346f8d4c7bb44c6a39461eb3918ac5b150ec3ae157f9b12c4150566"
   license "Apache-2.0"
   head "https://github.com/liquigraph/liquigraph.git", branch: "4.x"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "be3ede90f882b6636ca5c0374274e659b924bdfee4b67eea10ef8f78596d7b74"
-    sha256 cellar: :any_skip_relocation, big_sur:       "888bf68d5125b6c36a89907ae3fab0fbbcef809bf1df7893b02171ba2191edb9"
-    sha256 cellar: :any_skip_relocation, catalina:      "7f0ec2c088008c2ba5f96f596dc86dfd4e28e81c93154f14754e33b13ac3978d"
-    sha256 cellar: :any_skip_relocation, mojave:        "7f0ec2c088008c2ba5f96f596dc86dfd4e28e81c93154f14754e33b13ac3978d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78fbde2400bc144473a61ecb4f65f92a4ad1eb5244928f5844de51d819225f7c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2657ed5db8ad3d0e90a2fe423ab3cd6dc80a5e2ab31491a1e28321ea18ecba8e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c9b148e1dc0d02e6cc2ead6239afa1d9722b66a6735b3e04a09fee53c449c473"
+    sha256 cellar: :any_skip_relocation, catalina:      "9edfa9189feac35f00e7ff23b05b65591c66d8ca39af1ce39729223152c3fe41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a431c7b9691e73bccbe98fdb79dfa02ceaefdd2cd37a41ecc323edf93301e7b2"
   end
+
+  deprecate! date: "2022-02-21", because: :unsupported
 
   depends_on "maven" => :build
   depends_on "openjdk@11"

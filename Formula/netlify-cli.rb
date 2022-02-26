@@ -3,18 +3,18 @@ require "language/node"
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-9.6.5.tgz"
-  sha256 "88ca279ce6c49278fde81706fd31d50708243e210e3e9acccfdba30a3a08fbc2"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-9.8.0.tgz"
+  sha256 "40b878b9ec0b2a889308d45bb01b5f49dff41b92bae9d8dacfa1ad6aeda6f85f"
   license "MIT"
   head "https://github.com/netlify/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c082af2dc0fd07cf75b3089ebd91abc271110b53056df60ad8ee21bd95fb2655"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c082af2dc0fd07cf75b3089ebd91abc271110b53056df60ad8ee21bd95fb2655"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae8e147f27eb33ee4181d19dcf2e9fd4f692452ec51d5d559a878e393cffa352"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ae8e147f27eb33ee4181d19dcf2e9fd4f692452ec51d5d559a878e393cffa352"
-    sha256 cellar: :any_skip_relocation, catalina:       "ae8e147f27eb33ee4181d19dcf2e9fd4f692452ec51d5d559a878e393cffa352"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8babe27280bb019f78beaecce8d85cd77ec013475bc888e8637dc37480e8615e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "05fc7c0d81937e1b87d1ed57009b290e768ceb0190466ddfd332b3c4335fce9a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "05fc7c0d81937e1b87d1ed57009b290e768ceb0190466ddfd332b3c4335fce9a"
+    sha256 cellar: :any_skip_relocation, monterey:       "52254d9d89fc156fbf49ad563edf0a03a4e2c181b6d5f73b028727cbfe7618fd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "52254d9d89fc156fbf49ad563edf0a03a4e2c181b6d5f73b028727cbfe7618fd"
+    sha256 cellar: :any_skip_relocation, catalina:       "52254d9d89fc156fbf49ad563edf0a03a4e2c181b6d5f73b028727cbfe7618fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6770903eee71435a7e7314f003b46716e91373ef48c3adfd57f4eb90f47e177f"
   end
 
   depends_on "node"

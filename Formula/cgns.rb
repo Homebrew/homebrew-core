@@ -4,7 +4,7 @@ class Cgns < Formula
   url "https://github.com/CGNS/CGNS/archive/v4.2.0.tar.gz"
   sha256 "090ec6cb0916d90c16790183fc7c2bd2bd7e9a5e3764b36c8196ba37bf1dc817"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/CGNS/CGNS.git", branch: "develop"
 
   livecheck do
@@ -13,12 +13,11 @@ class Cgns < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "3f77ff338091758fdef490782b0fb95b0775d58f505dfb60ac8919f2ecde027f"
-    sha256               arm64_big_sur:  "990a1aa3109f6738e6f35317bbbea723281d1c1ac4ca79ad59eee7c6e86f7ab2"
-    sha256 cellar: :any, monterey:       "97c8085d3cd8040ec1afdc770de90444dfd566e4dfb4845d3f47751b5b8b0942"
-    sha256               big_sur:        "ea9d83f6f0d4385054814f42152993db58582e7acd5dbde4b667aa5c7242207d"
-    sha256               catalina:       "517dfe99a307d2f4d96aa4931707596a6862bcd30b64a798375bcd7ec40cc232"
-    sha256               mojave:         "ee6e9edeb0e1b7d7b630501dd2e76091354a05e0f31c2850ca2288ed159445ce"
+    sha256 cellar: :any, arm64_monterey: "b3794591ae0b846e2f1c728c18a5db5b3c97beca954cc4599d218a72f836de6b"
+    sha256 cellar: :any, arm64_big_sur:  "4909d07e2cae4653a55444bcb1992e1f532fb42f10cce3748cdba822c249f21f"
+    sha256 cellar: :any, monterey:       "dbbee3bae1e83039ef6aa333d7899f393f8f2ee6261cae2d8a66c3579eb5dc75"
+    sha256 cellar: :any, big_sur:        "8fad1a58b1be173ef9316a30e1ecabe4560c7dd8ef41fcab1c06205ce759a31a"
+    sha256 cellar: :any, catalina:       "c5a97b569c001723fa527a80b543a1b450fdff8fa19afd85af67ba13931450e0"
   end
 
   depends_on "cmake" => :build

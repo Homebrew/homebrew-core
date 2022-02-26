@@ -16,6 +16,8 @@ class Dvm < Formula
   end
 
   depends_on "go" => :build
+  # Fails to build on ARM
+  depends_on arch: :x86_64
 
   def install
     ENV["GOPATH"] = buildpath

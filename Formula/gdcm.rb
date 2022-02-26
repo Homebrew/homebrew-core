@@ -4,6 +4,7 @@ class Gdcm < Formula
   url "https://github.com/malaterre/GDCM/archive/v3.0.10.tar.gz"
   sha256 "a3fd3579ca0bb4a2a41ee18770e7303b22fd5460c3a2000e51ff0be6799e1d85"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,11 +12,11 @@ class Gdcm < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "5138339123c826603f3b95494e7311fc7488503bc16ee59cfbf60d90a1a562de"
-    sha256 big_sur:       "7311b7b638ba5453aa9ac44521bd608f62c9d14fe8fb62106930268425fbf420"
-    sha256 catalina:      "61776638059c775c87c91e11f4e6ccd8c9c30d7f56d6b2c8c3544ad88f703202"
-    sha256 mojave:        "667f8feb062beb81b1d6d67404dfa6001aa1c731d39d3ed3627f5971f041647e"
-    sha256 x86_64_linux:  "1ac6acce8386972afb7bfd2ac2c1ad25b44e6599d6d24ce99b4f695dfdd0488c"
+    sha256 arm64_monterey: "079d2b926e385a57861a4a49c1adadb0807ef6c7b13aa4b2376535219974bc64"
+    sha256 arm64_big_sur:  "5dcabe7f86535f8286e5a52a59e01fa5e3783f6052fd1add90b1cb9914dab07c"
+    sha256 big_sur:        "2444192229efedacb3148eca8648221ea1c609d3e88d32e4097a12b3d1c9ff20"
+    sha256 catalina:       "18ffa7ef542d0ab58e2666fb254fe26bf9809d3fd00cd6c14b2de38adb164ed5"
+    sha256 x86_64_linux:   "922e0fbed6f8bc970af36086db9df457fc7c129022a75a3d925e4d832b3b3540"
   end
 
   depends_on "cmake" => :build

@@ -1,17 +1,17 @@
 class Scmpuff < Formula
   desc "Adds numbered shortcuts for common git commands"
   homepage "https://mroth.github.io/scmpuff/"
-  url "https://github.com/mroth/scmpuff/archive/v0.4.0.tar.gz"
-  sha256 "2f43ab94a4027b114cde4232c5c91722bc2d7eb44b4d04ff03565fa39b642014"
+  url "https://github.com/mroth/scmpuff/archive/v0.5.0.tar.gz"
+  sha256 "e07634c7207dc51479d39895e546dd0107a50566faf5c2067f61a3b92c824fbf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6fb55c67fdaedbce13f78ac544a998fed18dc96038e3b0e68dbe14b758f02e14"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d14133971e78b28d3c1c6531b2bd6b30553301fcae87cd7ff8b6adfc09cd5677"
-    sha256 cellar: :any_skip_relocation, monterey:       "590f950e4e67a3f87c7eafd1e028bd22213f7e106d140d35f3270fdd8dd0f12b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "08cd314e495b756c9a76621a10f2b53264b9f9983f80ac265362e068c878d647"
-    sha256 cellar: :any_skip_relocation, catalina:       "736e0f055819fc55cfaf66435781ebb824758f3e88d8ae6c098fc0181f92ae83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06e98d0e836cc48d1080f3bb4229a1981fd7b90abd9e31673c0144f91b5bf3b9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "37bdb546a920a6c1c1fd70d047a37e872de2058469f4782cda61d349a28e00e7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33983dedea1c7f4cec6bdc8b3a8814f58ac8da892a7bc415c98b1e441ecbe4f2"
+    sha256 cellar: :any_skip_relocation, monterey:       "acd7800600cbf0326f2f792d647a119b7174c508d846ad694f7ea98decf48525"
+    sha256 cellar: :any_skip_relocation, big_sur:        "41d08601121e1ebb24cedcc58596b4a89c5cfd66663848640b83f838eccdab84"
+    sha256 cellar: :any_skip_relocation, catalina:       "fe527b88da1db127392fa45238013ec0b7152848ab17ee082d1e7bf03d2440c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96edc62c0602395ade99c3772fd371d7eb833c6e467c99236902f45014108dae"
   end
 
   depends_on "go" => :build

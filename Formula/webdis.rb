@@ -1,17 +1,17 @@
 class Webdis < Formula
   desc "Redis HTTP interface with JSON output"
   homepage "https://webd.is/"
-  url "https://github.com/nicolasff/webdis/archive/0.1.19.tar.gz"
-  sha256 "a77d0124589673c7816d45ddcc9d7c505ccb535759ee115d562b72fa22be4777"
+  url "https://github.com/nicolasff/webdis/archive/0.1.20.tar.gz"
+  sha256 "1f0c8e8e8b68486fb7ccfc68a2c0d28167f7b243004b8a521c2552d0f9bbbe84"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "40a0b0c2b314516596d16c4ef37c36fa34efdf3ce452d50fd85e4483fb24e6a5"
-    sha256 cellar: :any,                 arm64_big_sur:  "1546d2c7db2beb4447bad667dded47935af8a57491cab99291c129028dcaf0e6"
-    sha256 cellar: :any,                 monterey:       "72dc23016a7d1d15f2e3d8012941d12b790db7842e83b732235a09950d58c034"
-    sha256 cellar: :any,                 big_sur:        "43a32b3cec20bac3e721d5b16567c7dce0bb77f52be2ebd0d35405100345aa82"
-    sha256 cellar: :any,                 catalina:       "11558b9866a0fff0a952353559309d942413e297c15c8803490668bbd1ce2320"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e3e86a0841eaccc4f6516ed5c8f585b91d9b952ccb19b6caf5ba7a8fe591535"
+    sha256 cellar: :any,                 arm64_monterey: "01d68d884586fcc671ac5db5ee136eab325c122791193fae278ad6542f793ec7"
+    sha256 cellar: :any,                 arm64_big_sur:  "e214f9eb12345cc5998c5e30930eb18b67751540e9be07c7cad9b466f91d147d"
+    sha256 cellar: :any,                 monterey:       "25c756e3714e87f34fb9ba04f03c1ac06a905291a2d67460067f0c43c5965716"
+    sha256 cellar: :any,                 big_sur:        "8121d9e66429ec5b2c94683c7781cbabfdde8c71a90e7a4b986f02bcc451ad53"
+    sha256 cellar: :any,                 catalina:       "ec7bd136523ac94e2644d8d6f8e7e4d9f0163e733af9504ae0e7769906550835"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd85baa15e4d7f640c83712d2e507683307fbd8df46257e8c38a59f6967263c5"
   end
 
   depends_on "libevent"

@@ -1,8 +1,8 @@
 class Mdzk < Formula
   desc "Plain text Zettelkasten based on mdBook"
   homepage "https://mdzk.app/"
-  url "https://github.com/mdzk-rs/mdzk/archive/0.5.0.tar.gz"
-  sha256 "f8b72c70cee068896a7786fdffc4c7900085aa2f1f53e973759b829183c9a8e2"
+  url "https://github.com/mdzk-rs/mdzk/archive/0.5.2.tar.gz"
+  sha256 "292a0ae7b91d535ffa1cfd3649d903b75a1bb1604abc7d98202f3e13e97de702"
   license "MPL-2.0"
   head "https://github.com/mdzk-rs/mdzk.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Mdzk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae803ef0541eb3f295aad2ec48172962c9f8e4a6b8d25777334eb24f74e4cb35"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a4f414bbb57c800dbed55711594558e7502ec7d1e540b104196572496d0773ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "b069c104ec9b8525b8119aad475a7715397626b0c117a26c554de33c596361f9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "430e188c14494e3800db946b76bad5cd1def8405daaf1a366043cd9a943f2b2e"
-    sha256 cellar: :any_skip_relocation, catalina:       "2b9e738df0e6fe3340dc12d4c54c7d21299e86cd26d52d3742d74497439eeb2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65451c0fc85ad37d60bae8033239f21cafbade69240092f689a76acd5cb688e0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "140dcfda6cb0fd9c4174dea54ab773fdf33e5c982290d19b691b92b690005bbe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8fee53c9fd45936faef71d26b4fd09b63aa210427b9958c9a6dbe59d3eeb4b43"
+    sha256 cellar: :any_skip_relocation, monterey:       "7eb13864d25ec8c705244ac9b2ceee231bab3480b851a5aa1821edb14d0be2c4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8a83366746029b34f303966e7db78e29573894d35e6577f3a307536b21e3f230"
+    sha256 cellar: :any_skip_relocation, catalina:       "3849a8d5b995c251dc0ad89a456b87104dcfc6d3c50e0d6e344de90dc177abc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff24a92ce07d5e0c9cb76598f9eae2e1c2e07435fd76760b7b360aabfce7ab4e"
   end
 
   depends_on "rust" => :build

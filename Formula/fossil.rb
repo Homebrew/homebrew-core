@@ -1,8 +1,8 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/home/"
-  url "https://fossil-scm.org/home/tarball/version-2.17/fossil-src-2.17.tar.gz"
-  sha256 "5c7f1c73f7b5e2af24e10e40f0e07391909c1230b9e284a9d548059e7f377dbf"
+  url "https://fossil-scm.org/home/tarball/version-2.18/fossil-src-2.18.tar.gz"
+  sha256 "300c1d5cdd6224ec6e8c88ab3f38d50f80e4071b503731b75bd61274cf310733"
   license "BSD-2-Clause"
   head "https://www.fossil-scm.org/", using: :fossil
 
@@ -12,13 +12,12 @@ class Fossil < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0d253775540cedf23dfb2d3135f7a147be6aafcef658ae9567eec0f702254fe4"
-    sha256 cellar: :any,                 arm64_big_sur:  "465292116e1bb204aefa96b56c1350c08af43c2963975ef7a06a71f278637858"
-    sha256 cellar: :any,                 monterey:       "22187e1f35814920ea0df4139f2c5f0e60a5b249f7f186345b1791a9a8b5af64"
-    sha256 cellar: :any,                 big_sur:        "e4ab11e3b0739b51fa4ce5ef8b020df84704c2050a52b1a89a804008ad9fb9d8"
-    sha256 cellar: :any,                 catalina:       "c2464646ca8502f36e67f1a0730d93192e6ddf0eb1b113690c1a64689f4a8d4e"
-    sha256 cellar: :any,                 mojave:         "a0b10c2b031c7c54b51bf919fcd1d79c0f7047804851192af34b4d2c1e377bc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8b5b3ad3e442b166240b72299c66eb22b989d47b5e06ca96a13e2527be1dc48"
+    sha256 cellar: :any,                 arm64_monterey: "84d5f38c5c255511f45d83f92021c5cb35d97487615267f4cb5e4adf3273850c"
+    sha256 cellar: :any,                 arm64_big_sur:  "90f5144c381820554b28de7f37d6a74b07dccf0e9244098a4f45d9b5110343b3"
+    sha256 cellar: :any,                 monterey:       "fe99b0cf0e77a8b7801bcf40bb6fdc17720c10d42a96356a05c7fe3db35bf2c9"
+    sha256 cellar: :any,                 big_sur:        "4d809209bcdb6c15a896e27718c4bf0ce0383bb43dd36d46f9e3fc186c9cdd86"
+    sha256 cellar: :any,                 catalina:       "c6275833e4dff742fdf394cc769078aab4dd2a5df9cad261fc655470e55229c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f021d8c90ad5e56e6dec0e7adf455c69ae481592b946815b41fb193f7b64d014"
   end
 
   depends_on "openssl@1.1"

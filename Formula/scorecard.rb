@@ -1,18 +1,18 @@
 class Scorecard < Formula
   desc "Security health metrics for Open Source"
   homepage "https://github.com/ossf/scorecard"
-  url "https://github.com/ossf/scorecard/archive/v4.0.1.tar.gz"
-  sha256 "8545d4aacaa2ffafbf545aeee7bccc381d2c00ffa0e4e9cb65190e68ece543d6"
+  url "https://github.com/ossf/scorecard/archive/v4.1.0.tar.gz"
+  sha256 "c460ae4cf019dbf7a582c353cf052f14524f187e9fab76132a1af1d674ef8613"
   license "Apache-2.0"
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b98516e75752ae178b4061068445d2aaad68a4ff2ac390be3eea72d6cfd21d5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b65bd5ac96dd6d7ead8330f8aa34d92c81aaf35f7ff19ad9be9aa71bdc0ded09"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a7b05b4f0b1b7797a09354c073bf1ccd100dd18a1119f80df48dce934e13af1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8f2703873320ed11163debe4e6cf4c79b0dae688ef718a5d745559ca52b33a8e"
-    sha256 cellar: :any_skip_relocation, catalina:       "5308bd0ea17f06a639a45dc50e0c0bbe49c008551d68ad0174b5af7149b6a449"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8da94f514cf0b0f834d25d27ae2503e8e69633dcf18637b5b8cf78851bd767ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a16bbfc7c49f62ce079e29dc53998cebf8fef13b284cc0819adb06893a23843"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "217619e3c112497e3855d37573815964eb8da8e97a8970df0cb5e3a5aa30250d"
+    sha256 cellar: :any_skip_relocation, monterey:       "709ab2224f01859b214d80a0a3c4a1622ff08dad099ce34d379ec96c333484d2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7a854372e5db0a6fca7563fd036520c296447942fd807200b324027ecd40031f"
+    sha256 cellar: :any_skip_relocation, catalina:       "bbc22cca40e2d83e6a137ca6c919f7859e2366ca29a0809cadeb4026dab83506"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5305613482626e39425225348e291dbfc193e0c04381dcf3373884d3e112eb16"
   end
 
   depends_on "go" => :build

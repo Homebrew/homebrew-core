@@ -1,8 +1,8 @@
 class Txr < Formula
   desc "Original, new programming language for convenient data munging"
   homepage "https://www.nongnu.org/txr/"
-  url "http://www.kylheku.com/cgit/txr/snapshot/txr-273.tar.bz2"
-  sha256 "974a3ad0d92d22c2a7ef6d243bcc73c9240130056b7d8861599f0be4af10ad48"
+  url "http://www.kylheku.com/cgit/txr/snapshot/txr-274.tar.bz2"
+  sha256 "6d6833d2498f2cdd15d2b9054620aac6406384df0557d7cbf95bbc192c3d25ae"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,11 +11,11 @@ class Txr < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "bdd667913a470691f16f3c852a87637a48f107e81e20b88e493d12d3b73bccd6"
-    sha256 cellar: :any, arm64_big_sur:  "17abc8b2fe72184327bbb6db9638093aa91ec757b40c5d99308de7d91acd0eba"
-    sha256 cellar: :any, monterey:       "786cb663b29a0ff89185870eaf33e4328b75b3d58f4390878619935e7a87e436"
-    sha256 cellar: :any, big_sur:        "38d2106e8658d58ae923ad89154cb98fe4c7ed2b26ed5aa273829082194ebef0"
-    sha256 cellar: :any, catalina:       "9d4d18b352e5bb2eb5813824d4880d70703296b18d005d8ac80cd61de48b635e"
+    sha256 cellar: :any, arm64_monterey: "7b93bba38aed8c8d12efc1419fddda466a11cbf29f961778d85e713cb8751d42"
+    sha256 cellar: :any, arm64_big_sur:  "be6af755e745f2f3d239e89a14e2ae7237783ff7b42e3d02a120f625925a4027"
+    sha256 cellar: :any, monterey:       "6fb5423b9cff5be581d05d58f8f68dd8ce632c7740146e51d8ab29d013f21be8"
+    sha256 cellar: :any, big_sur:        "3343e75170881a43edfadfff821ba93f6ad63dfb7eaeb8fb8731f5183baf1b62"
+    sha256 cellar: :any, catalina:       "6cafa17c4ed4892449eb4fb1345e99477468295895926a2e61af8ce14c240d4d"
   end
 
   depends_on "libffi"

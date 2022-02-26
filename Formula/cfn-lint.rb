@@ -3,17 +3,17 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/ff/50/521af493dc1ea855eebfd88a6b4fc23eb9e7dddf7f5210bcb9e853aa7333/cfn-lint-0.58.0.tar.gz"
-  sha256 "404b95a89c598c46c553b9ba3640e20695cb910735f44c4397be408568001914"
+  url "https://files.pythonhosted.org/packages/ae/c1/dee1709e921a4cc9cfac87faa8a5630d12224dcffaf727218007ab694575/cfn-lint-0.58.1.tar.gz"
+  sha256 "0e3f0e0f5f8f48e9b137bfd003686a0d2b12261dd8c1b53c5c7e68b22e73ee34"
   license "MIT-0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0e52fc1ec7184767fd62c914f6ceb52e988fa0ee24cc233feb64b4a85f4c6a32"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbe29d15f830da3e72314153ad14e0f436c97ef784d1a70a39f86db067608fae"
-    sha256 cellar: :any_skip_relocation, monterey:       "f05aba8f76e120e6de85a741dd27861c11678b5e90929bc70819a78deff36f69"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fd7f5bc419968c820c78b9a0ceec5c722e2d30907b8fa1114548484b457eba29"
-    sha256 cellar: :any_skip_relocation, catalina:       "7c328185125162d15cb722f33fc0a852e141417a4145cf04a4209243f56de984"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24ea44e4d9148ce21d30a662573163167cb583d13fa7c7fe67c5170619303a46"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c70ee5da516e5af54a7223d12487596db1a809726aa356ded89e17e108e3a5cc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b21b7059f16426cb525375bcb73c31217644b391f60f41a26edafb8772123a82"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f1c71098a19e29ccccb3d3f0e3d23ff7dd9d788233ebb5e403e0c72b8c901e1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2e3dea628bab341ad458425d929cf20368b76eaa62f2ea7dcc6efd35543bce7d"
+    sha256 cellar: :any_skip_relocation, catalina:       "754e8783de9f56c61e3a038c933b4e2a1ec71bb8bac42d995ecb2b7dc0cb0718"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c11253c5d76238c65c0d1a6648f30cc58709c01ac3ae53a7f90ef2f1644e0646"
   end
 
   depends_on "python@3.10"
@@ -30,13 +30,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f6/b0/e42a79e8dc51ff9d9817c12d911893049cfddefbe3e2c062401306102fb9/boto3-1.20.46.tar.gz"
-    sha256 "d7effba509d7298ef49316ba2da7a2ea115f2a7ff691f875f6354666663cf386"
+    url "https://files.pythonhosted.org/packages/c2/b1/21097a7762ba045fa145719e73737c8e8e0b1bff03c3ab611614b748d141/boto3-1.21.4.tar.gz"
+    sha256 "bbe4f4ddfc13469d306f0ca5fa77441ec37ad50dc270755e93260aeafb06d3d1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/97/b9/f55bf7f44377c1093f16f789979b39d9bed51ad1f2069d17d1ca55d2d4c2/botocore-1.23.46.tar.gz"
-    sha256 "38dd4564839f531725b667db360ba7df2125ceb3752b0ba12759c3e918015b95"
+    url "https://files.pythonhosted.org/packages/87/33/43f4b6ca1dc096888b9797dd95c3bcbd936497305b61835a6d123ff64793/botocore-1.24.4.tar.gz"
+    sha256 "8e9ae6b718ca318b4aeeee45aa9fad5f52e882a2291d919cfa4b753928223abb"
   end
 
   resource "jmespath" do
@@ -81,8 +81,8 @@ class CfnLint < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/f5/0c/3fa7b1f9006e4d454a49b48eac995167cf8617e19375c6963a6b048af0d0/pbr-5.8.0.tar.gz"
-    sha256 "672d8ebee84921862110f23fcec2acea191ef58543d34dfe9ef3d9f13c31cddf"
+    url "https://files.pythonhosted.org/packages/51/da/eb358ed53257a864bf9deafba25bc3d6b8d41b0db46da4e7317500b1c9a5/pbr-5.8.1.tar.gz"
+    sha256 "66bc5a34912f408bb3925bf21231cb6f59206267b7f63f3503ef865c1a292e25"
   end
 
   resource "pyrsistent" do
@@ -101,8 +101,8 @@ class CfnLint < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/88/ef/4d1b3f52ae20a7e72151fde5c9f254cd83f8a49047351f34006e517e1655/s3transfer-0.5.0.tar.gz"
-    sha256 "50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c"
+    url "https://files.pythonhosted.org/packages/66/e2/cc19f36aade1ef40cba69555fcf713d942ec9e31ecff2415948bd885911d/s3transfer-0.5.1.tar.gz"
+    sha256 "69d264d3e760e569b78aaa0f22c97e955891cd22e32b10c51f784eeda4d9d10a"
   end
 
   resource "sarif-om" do
