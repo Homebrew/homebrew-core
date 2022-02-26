@@ -14,6 +14,7 @@ class Fastfec < Formula
     sha256               x86_64_linux:   "20a3766b4146a2279677f2510b066b238eef632c7f19e30c9a589deceaaa6f9a"
   end
 
+  depends_on "curl" => :build
   depends_on "pkg-config" => :build
   depends_on "zig" => :build
   depends_on "pcre"
