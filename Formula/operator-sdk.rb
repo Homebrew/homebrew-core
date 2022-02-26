@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      tag:      "v1.17.0",
-      revision: "704b02a9ba86e85f43edb1b20457859e9eedc6e6"
+      tag:      "v1.18.0",
+      revision: "c9c61b6921b29d731e64cd3cc33d268215fb3b25"
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
