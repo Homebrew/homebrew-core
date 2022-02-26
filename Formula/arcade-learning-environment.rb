@@ -45,7 +45,7 @@ class ArcadeLearningEnvironment < Formula
   end
 
   # TODO: Check to see if `importlib-metadata` resource should be removed when switching to `python@3.10`
-  # e.g. https://github.com/mgbellemare/Arcade-Learning-Environment/blob/v#{version}/src/python/roms/utils.py
+  # https://github.com/mgbellemare/Arcade-Learning-Environment/blob/v#{version}/setup.cfg
   resource "importlib-metadata" do
     url "https://files.pythonhosted.org/packages/82/10/600b88188a4e94562cfdf202ef1aca6fedda0723acae8a47376350ec0d5d/importlib_metadata-4.11.1.tar.gz"
     sha256 "175f4ee440a0317f6e8d81b7f8d4869f93316170a65ad2b007d2929186c8052c"
@@ -72,10 +72,16 @@ class ArcadeLearningEnvironment < Formula
 
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources.reject { |r| r.name == "homebrew-test-tetris.bin" }
+
     # error: no member named 'signbit' in the global namespace
-    ENV.delete "SDKROOT"
-    ENV.delete "HOMEBREW_SDKROOT"
-    venv.pip_install_and_link buildpath
+    python_args = Language::Python.setup_install_args(libexec)
+    python_cmake_options = "--cmake-options=-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
+    python_args.insert((python_args.index "install"), python_cmake_options) if OS.mac?
+
+    # `venv.pip_install_and_link buildpath` alternative to allow passing in arguments
+    bin_before = Dir[libexec/"bin/*"].to_set
+    system libexec/"bin/python3", *python_args
+    bin.install_symlink (Dir[libexec/"bin/*"].to_set - bin_before).to_a
 
     site_packages = Language::Python.site_packages("python3")
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
