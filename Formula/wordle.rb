@@ -22,6 +22,6 @@ class Wordle < Formula
     slave.close
     foo = master.gets.strip
     write.close
-    p foo == "Guess a 5-letter word.  You have 6 tries."
+    assert_equal foo, "Guess a 5-letter word.  You have 6 tries."
   end
 end
