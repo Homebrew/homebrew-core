@@ -1,10 +1,9 @@
 class CyrusSasl < Formula
   desc "Simple Authentication and Security Layer"
   homepage "https://www.cyrusimap.org/sasl/"
-  url "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz"
-  sha256 "26866b1549b00ffd020f188a43c258017fa1c382b3ddadd8201536f72efb05d5"
+  url "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.28/cyrus-sasl-2.1.28.tar.gz"
+  sha256 "7ccfc6abd01ed67c1a0924b353e526f1b766b21f42d4562ee635a8ebfc5bb38c"
   license "BSD-3-Clause-Attribution"
-  revision 1
 
   bottle do
     sha256 arm64_monterey: "231a048fc10dff729b35fd1c88899ed2dc8c277d58100ecea126c5b2d5c44026"
