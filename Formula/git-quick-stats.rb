@@ -1,8 +1,8 @@
 class GitQuickStats < Formula
   desc "Simple and efficient way to access statistics in git"
   homepage "https://github.com/arzzen/git-quick-stats"
-  url "https://github.com/arzzen/git-quick-stats/archive/2.3.0.tar.gz"
-  sha256 "28095fa6ff57fb22528793e58c0d571829682f81d4a922825c8f82830920bf9a"
+  url "https://github.com/arzzen/git-quick-stats/archive/2.4.0.tar.gz"
+  sha256 "751db1aeb06e39eaf78388b85cdf8b041de1038525e4eaae922805fdfda6da74"
   license "MIT"
 
   bottle do
@@ -15,6 +15,7 @@ class GitQuickStats < Formula
 
   def install
     bin.install "git-quick-stats"
+    man1.install "git-quick-stats.1"
   end
 
   test do
