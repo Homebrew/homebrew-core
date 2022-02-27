@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v8.4.1.tar.gz"
-  sha256 "574c5a7f809f8b1f2c3c5c1f902e0aa504f3d260d9a80c6d9a91cee35a3dc9e8"
+  url "https://github.com/grafana/grafana/archive/v8.4.2.tar.gz"
+  sha256 "51c29c3f44229057c343c2164c941500aa0185a5356969775330fe7e1ac56f7b"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -27,12 +27,11 @@ class Grafana < Formula
   end
 
   def install
-    ENV["NODE_OPTIONS"] = "--max-old-space-size=4096"
+    ENV["NODE_OPTIONS"] = "--max-old-space-size=8000"
     system "make", "gen-go"
     system "go", "run", "build.go", "build"
 
     system "yarn", "install"
-
     system "yarn", "build"
 
     if OS.mac?
