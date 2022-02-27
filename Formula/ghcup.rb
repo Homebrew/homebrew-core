@@ -26,14 +26,6 @@ class Ghcup < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  # Disable self-upgrade functionality. Backported from:
-  # https://gitlab.haskell.org/haskell/ghcup-hs/-/commit/b245c11b1d77236c75c29fb094bbb9cfd70eed48
-  # Remove at next release.
-  patch do
-    url "https://gitlab.haskell.org/haskell/ghcup-hs/-/snippets/3838/raw/main/0001-Allow-to-disable-self-upgrade-functionality-wrt-305.patch"
-    sha256 "a20152dead868cf1f35f9c0a3cb2fca30bb4ef09c4543764c1f1dc71a8ba47f7"
-  end
-
   def install
     system "cabal", "v2-update"
     # `+disable-upgrade` disables the self-upgrade feature.
