@@ -4,16 +4,17 @@ class Zk < Formula
   url "https://github.com/mickael-menu/zk/archive/refs/tags/v0.9.0.tar.gz"
   sha256 "102754f2722e7e4ff0a83715085c8bfdac090b440f89020123481a95b566730f"
   license "GPL-3.0-only"
+  revision 1
 
   head "https://github.com/mickael-menu/zk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ce112a10870e5cdd752cbe76281d209cfec19247719771b52391028ad1b7139c"
-    sha256 cellar: :any,                 arm64_big_sur:  "d36bd7d94f0008c736de5cfe2e4223d0c7c20787e14cf649889a9a6ebe6683f9"
-    sha256 cellar: :any,                 monterey:       "1b25ef03a856fd00f78fb9abab558388f7382ab4060d518ffe8304be02b46c64"
-    sha256 cellar: :any,                 big_sur:        "8e775095be3f5055eae9e8187c954a887068a0c8de021e43e1514cce13fa2768"
-    sha256 cellar: :any,                 catalina:       "9d28c3e240b0ceed53da7701f39c8927642d17e8f90bc9c2388cfbbb02685551"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5aca583595a78d57225fab2d6dc7f9fc0c84223e725c6c3f6b287fd283f917c6"
+    sha256 cellar: :any,                 arm64_monterey: "1ecd4c4a83f2676c61918eb3ff0f7b0013a8a2bceae5a3b678443356ea9fd03c"
+    sha256 cellar: :any,                 arm64_big_sur:  "292db4b6028b6a480119311ac979d37d1241740d0e6314ffe7f6ef30a04237c4"
+    sha256 cellar: :any,                 monterey:       "4a16bc95bac724ef0fa2acf8ee6c7ff260b407db5ceae41695ff7cc25eeeb121"
+    sha256 cellar: :any,                 big_sur:        "b5888a0672f0a1ff905a0fc762384b93dbf02fbe543a4fc219ee5d01d5c90a33"
+    sha256 cellar: :any,                 catalina:       "50c4fa5f0aa49980a566d7c96f157386b8d6b51f335c78b119d0c55193a8bf2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f5e2ce08ded8f8ce1e8903a3aa6d5a88e85b18ff75bd09b80feecba9664b65d"
   end
 
   depends_on "go" => :build
