@@ -1,8 +1,8 @@
 class Purescript < Formula
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
-  url "https://hackage.haskell.org/package/purescript-0.14.5/purescript-0.14.5.tar.gz"
-  sha256 "36c86445da58b8017aa98ba2ab975af7812b9ef739f0b8e7360740d5200ac319"
+  url "https://hackage.haskell.org/package/purescript-0.14.7/purescript-0.14.7.tar.gz"
+  sha256 "9962aa1af2162c4250ddea2e108dbf3eeb9bad6e0b803ba720cc7433f1501129"
   license "BSD-3-Clause"
   head "https://github.com/purescript/purescript.git", branch: "master"
 
