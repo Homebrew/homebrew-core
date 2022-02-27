@@ -8,7 +8,6 @@ class GitTools < Formula
 
   def install
     bin.install Dir.glob("git-*")
-    man.mkpath
     man1.install Dir.glob("man1/*")
   end
 
