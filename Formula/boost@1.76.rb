@@ -4,14 +4,15 @@ class BoostAT176 < Formula
   url "https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2"
   sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
   license "BSL-1.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "66c3280102fef504a4745988edce253576591420244417926df42dee23328384"
-    sha256 cellar: :any,                 arm64_big_sur:  "912ed05cdd06011e8bb53b017e9d04a45fc26fc0c335b9a88dfbfbc157ec2310"
-    sha256 cellar: :any,                 monterey:       "3c332adb7b16e9f306e75f6395fa868d36575c92538f19b0b9be6e07c5ae2447"
-    sha256 cellar: :any,                 big_sur:        "b54acddcd7d3520774abe9099446aa7f111a0a4f2b30390be7482b06b428e4e8"
-    sha256 cellar: :any,                 catalina:       "bb8fe7a9e6337c3173890ab85867df3b2cb945eae79b388a86f1b67ee022e9c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fecb70b60d27b3c5e6110e8dde21b2937bdf92ddbb6b8741cf05c4b6f6716021"
+    sha256 cellar: :any,                 arm64_monterey: "1c89c5b9d19f1d1f7cd3e8453c5ef6a3e0123cb3b14be43a02364d2d80f2f796"
+    sha256 cellar: :any,                 arm64_big_sur:  "10a10ba5817a0256d89a2f76abd76963fe8c3c73ec004f2b7067cca6bd3668cd"
+    sha256 cellar: :any,                 monterey:       "b3ca5b530ab16616b5d40078f875fce0670ad990d9282877fb6f14580b8380bf"
+    sha256 cellar: :any,                 big_sur:        "8f62566feafc51c198bea5e8136c0c91fa84fab0420202f5809b08df8f7d55bc"
+    sha256 cellar: :any,                 catalina:       "1b37925c41586e7638575f90e9446eb4c15c35163d7244e80c2a8d54381e4914"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "887c726d1969e6931f04411c6c6ae7ce16dba04bf0b62d6d5168dbccca41f11f"
   end
 
   keg_only :versioned_formula
