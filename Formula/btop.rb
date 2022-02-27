@@ -7,12 +7,12 @@ class Btop < Formula
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ec8b2efef8f849e062d55e003aa15cf9aaf1c988ece7908cc654e57e894d18da"
-    sha256 cellar: :any,                 arm64_big_sur:  "a9c89bc80ce208d91ace1b65f40e99f08bd17985de3362247d77a136ac88ccba"
-    sha256 cellar: :any,                 monterey:       "8be5e0c48512f87d73231e844b1ce5e449f2fed25b2f0c7bd58ea0e1e0510762"
-    sha256 cellar: :any,                 big_sur:        "1a7ad33cc37021c4c38dfe235303726a84deb09e09daeb705f1f40c7ca16e118"
-    sha256 cellar: :any,                 catalina:       "85e62c7b80d9aff4b94d9d7194c47d08b9c11a8625490a0eef641616ffb4696a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7352b5601def8eedc9332d1298321c5d65e359ffea27c468125ebc616ac49e7b"
+    sha256 cellar: :any,                 arm64_monterey: "879a9dd160b78a585cc23800cfaa585931ecae474b0124444d102f6db1abc690"
+    sha256 cellar: :any,                 arm64_big_sur:  "82ba393f5802e8c79799ba1ecade90d6d68744551e0941b36bef0aa6905ce398"
+    sha256 cellar: :any,                 monterey:       "d6a2bda090dc8a6926240532cd03e2a38db9148bf8e4b93b5349eee4a516ae82"
+    sha256 cellar: :any,                 big_sur:        "189cf039590bb7faeaa6953c0f1d87ee21e56bc8a4d3347431fc40132dfcafe3"
+    sha256 cellar: :any,                 catalina:       "c13956c07d43794b803de27446371e0dcb070115146b44eb81095fb9d6b5edf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3acac9e6532c2775d0b83a22321e45cdb9a464df6848b12679641b5f1216a2d"
   end
 
   depends_on "coreutils" => :build
