@@ -12,12 +12,12 @@ class Xrootd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b2a5aefe008650dd5e01a1d71cfbb2395ac2a0444902ea7179664057597665c0"
-    sha256 cellar: :any,                 arm64_big_sur:  "9167abc89bd89afb1657dfd64b6e2cbece205aa9a49b44d4c3e2efc9602ba7cd"
-    sha256 cellar: :any,                 monterey:       "769d801771e6ee7bb3a06c8c31f4d10e88054aedfae8babc26a0809ca04fa86c"
-    sha256 cellar: :any,                 big_sur:        "eb29f32da099a9efe0605ada9fde2b4dd67799ac6a9be7ac07cbb32a78df093b"
-    sha256 cellar: :any,                 catalina:       "5077903be9fe376f9a2bb53682b677bd78b0bb8e3bce93542681d8cfc0977178"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff574603392f40dcbb5f133440a1de1aafea712299069ab56fca4e849b3df2ff"
+    sha256 cellar: :any,                 arm64_monterey: "ab9648c132f5d46d20e981426c3a099c9b0c58ac39a48e8abc67a2de610fdfe0"
+    sha256 cellar: :any,                 arm64_big_sur:  "f8c4bb0697aba4bc1db32f6342db977f8dcfface3ef2b46b206af4dbc8f493e5"
+    sha256 cellar: :any,                 monterey:       "e469c3a0c2648342fa28a97e4c58f8b843c1d54cf44d8dbdc78fc668a42c8938"
+    sha256 cellar: :any,                 big_sur:        "5c701131bf75722601bd7ef2acdc5f8172bf2d32ba84cbaa1c5e3b2459140210"
+    sha256 cellar: :any,                 catalina:       "10456f773e443657beaa449002f61076a40ced8af91d36a33fefbf25bc40f523"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0c2a61c9941103358c21f7871ade2ca2f9b614b27cb9c6c6fbde5ed149ae0d0"
   end
 
   depends_on "cmake" => :build
