@@ -1,9 +1,9 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.15.3.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.15.3.tar.gz"
-  sha256 "d62669a8f41e078eaa220ce77a32f4f3f801e3099357ae8c705498fe73884ec5"
+  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.16.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.16.0.tar.gz"
+  sha256 "d32da6f13ff1cd8670525719ea0f79e9f76d2de7f6069860e0a77fc69a360068"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -32,7 +32,7 @@ class Gnunet < Formula
 
   def install
     ENV.deparallelize if OS.linux?
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--with-microhttpd"
     system "make", "install"
   end
 
