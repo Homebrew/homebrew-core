@@ -17,33 +17,25 @@ class Xkeyboardconfig < Formula
   end
 
   depends_on "gettext" => :build
-  depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "python@3.10" => :build
+
   uses_from_macos "libxslt" => :build
 
   def install
-    # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5"
-
-    args = %W[
-      --prefix=#{prefix}
-      --sysconfdir=#{etc}
-      --localstatedir=#{var}
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --with-xkb-rules-symlink=xorg
-      --disable-runtime-deps
-    ]
-
-    system "./configure", *args
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
     assert_predicate man7/"xkeyboard-config.7", :exist?
     assert_equal "#{share}/X11/xkb", shell_output("pkg-config --variable=xkb_base xkeyboard-config").chomp
-    assert_match "Language: en_GB", shell_output("strings #{share}/locale/en_GB/LC_MESSAGES/xkeyboard-config.mo")
+    assert_match "Language-Team: English",
+      shell_output("strings #{share}/locale/en_GB/LC_MESSAGES/xkeyboard-config.mo")
   end
 end
