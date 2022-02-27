@@ -8,12 +8,12 @@ class Solargraph < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_monterey: "a54f53dad171c5621b4d14fc4696580eb5cb40d61b851644cfc5a1dce156435b"
-    sha256                               arm64_big_sur:  "f2d635dd863160e24a10d4d90db18e6f166335a6fa0a23f7c30e3560b698917c"
-    sha256                               monterey:       "678c2dbb27e90671dc658ca58af29eaa0af24835368a0b9043daf551d67f6f27"
-    sha256                               big_sur:        "b9a7df028d7c6a1dae8db9e0b9f5a2ba05431a854c2a7d6c0a6d65b84f80835a"
-    sha256                               catalina:       "015655f02883f8192893d617ae44193acf2a4b101aa732ae0d969bfd83237d31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71e2e9306955dcd1d6645f6776c7b2ee5c7a1128038970f3f8d7315408bd4563"
+    sha256                               arm64_monterey: "fb2d64a97289ed55cbbda7e58fd2deb65681cd33401295613733e7c654456fbb"
+    sha256                               arm64_big_sur:  "72f1135e0d8ceb77e4bfe84dc61ec8e8f82bb483799a0888df19a0685384264e"
+    sha256                               monterey:       "5d041394b5e3f3d74cb10bb196007547fe300d8cecbcd404aaa02f4c3b74922e"
+    sha256                               big_sur:        "d60569c6fe265aebac155db50bed8d7afe292cc8e8d994e52fff45f8b342e58c"
+    sha256                               catalina:       "d913d62fa820d99f1f5c75e27f969479371b2cd12e5b5de52160885e317e22b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2251244ab5e365ef8c5363aecaf8b79dc0a5578bd21fa900fc7fe4f9a04cd078"
   end
 
   uses_from_macos "ruby", since: :catalina
