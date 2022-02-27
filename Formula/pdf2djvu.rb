@@ -30,6 +30,7 @@ class Pdf2djvu < Formula
 
   def install
     ENV.append "CXXFLAGS", "-std=gnu++17" # poppler uses std::optional
+    ENV.append "CXXFLAGS", "-D_LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR=1" if ENV.compiler == :clang
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
