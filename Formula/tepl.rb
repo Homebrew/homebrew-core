@@ -4,6 +4,7 @@ class Tepl < Formula
   url "https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz"
   sha256 "a86397a895dca9c0de7a5ccb063bda8f7ef691cccb950ce2cfdee367903e7a63"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "0e4dbf7150d529840a821f20d2d0eaf2b569c6e3bd1afbbec242fedec7b9aaaf"
@@ -24,6 +25,7 @@ class Tepl < Formula
   depends_on "pkg-config" => :build
   depends_on "amtk"
   depends_on "gtksourceview4"
+  depends_on "icu4c"
   depends_on "uchardet"
 
   # Submitted upstream at https://gitlab.gnome.org/GNOME/tepl/-/merge_requests/8
