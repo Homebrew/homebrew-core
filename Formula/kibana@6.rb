@@ -14,6 +14,8 @@ class KibanaAT6 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2022-02-10", because: :unsupported
+
   depends_on "yarn" => :build
   depends_on :macos # Due to Python 2
   depends_on "node@10"
