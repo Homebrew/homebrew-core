@@ -6,12 +6,12 @@ class Dhall < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0cc2bae4735fcb42228ee3bc7af4148d9153e6d58580a403003da415988c58c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8fa029427964fb30ec93ed20f47ebd690f9482153e429df2cac834a957064980"
-    sha256 cellar: :any_skip_relocation, monterey:       "d5ca50eb37b6e4552ae8bf34637b09052bb7896649fed4e121e624456867ca4e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8548f501282fd5d402a2253a8508c6ce100a4f60bf7989cc07b052ce40ea84ef"
-    sha256 cellar: :any_skip_relocation, catalina:       "13df84eed84e1d128dbd4e462f5306c49b897748f3cdf1461b00b1e2e69a2d89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ebb0b8be8598a3d133d4d3ee2d43cdaab53f9e181415995146db01c29292a71"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e079ff66385d346a3f8fc53d9364bac2e28fb362fd10268c162775c9cc976733"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28d158f3b6806696debb26dd9eb8b93bd952266788adc2a99f6a953b9a6bae95"
+    sha256 cellar: :any_skip_relocation, monterey:       "cb99eaed623aa732a18f0b1078a27fac36ae46ba5d22e7250ca467c7e6add498"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a02655ca8842ff04324f4ea67d08cb73201e874b792006e7db9bb8cbb5ff189c"
+    sha256 cellar: :any_skip_relocation, catalina:       "2ecbf911a9e975ed2fa129e082e6a85cfaa238f3b6d72b3f3a19bdf5c82f0d2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9262f5f74ef22618e7549027b50a5d8066e6f3b2544f66e8e1dea791fd383f2"
   end
 
   depends_on "cabal-install" => :build
