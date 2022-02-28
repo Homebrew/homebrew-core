@@ -1,8 +1,8 @@
 class Mmv < Formula
   desc "Move, copy, append, and link multiple files"
   homepage "https://packages.debian.org/unstable/utils/mmv"
-  url "https://deb.debian.org/debian/pool/main/m/mmv/mmv_1.01b.orig.tar.gz"
-  sha256 "0399c027ea1e51fd607266c1e33573866d4db89f64a74be8b4a1d2d1ff1fdeef"
+  url "https://deb.debian.org/debian/pool/main/m/mmv/mmv_2.1.orig.tar.gz"
+  sha256 "5e475e7cb6fe8979aea42e44eadde64ff844eaad684a3dacb3dded015051df61"
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/m/mmv/"
