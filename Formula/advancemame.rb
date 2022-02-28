@@ -4,6 +4,7 @@ class Advancemame < Formula
   url "https://github.com/amadvance/advancemame/releases/download/v3.9/advancemame-3.9.tar.gz"
   sha256 "3e4628e1577e70a1dbe104f17b1b746745b8eda80837f53fbf7b091c88be8c2b"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class Advancemame < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  depends_on "sdl"
+  depends_on "sdl2"
 
   uses_from_macos "expat"
   uses_from_macos "ncurses"
@@ -32,7 +33,9 @@ class Advancemame < Formula
   conflicts_with "advancemenu", because: "both install `advmenu` binaries"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-freetype",
+                          "--enable-sdl2"
     system "make", "install", "LDFLAGS=#{ENV.ldflags}", "mandir=#{man}", "docdir=#{doc}"
   end
 
