@@ -4,6 +4,7 @@ class ArxLibertatis < Formula
   url "https://arx-libertatis.org/files/arx-libertatis-1.2/arx-libertatis-1.2.tar.xz"
   sha256 "bacf7768c4e21c9166c7ea57083d4f20db0deb8f0ee7d96b5f2829e73a75ad0c"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://arx-libertatis.org/files/"
@@ -34,7 +35,13 @@ class ArxLibertatis < Formula
   depends_on "freetype"
   depends_on "glew"
   depends_on "innoextract"
-  depends_on "sdl"
+  depends_on "sdl2"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openal-soft"
+  end
 
   conflicts_with "rnv", because: "both install `arx` binaries"
 
@@ -48,7 +55,11 @@ class ArxLibertatis < Formula
     end
 
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *args,
+                            "-DBUILD_CRASHREPORTER=OFF",
+                            "-DSTRICT_USE=ON",
+                            "-DWITH_OPENGL=glew",
+                            "-DWITH_SDL=2"
       system "make", "install"
     end
   end
