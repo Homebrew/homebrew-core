@@ -8,8 +8,8 @@ class Netcdf < Formula
   head "https://github.com/Unidata/netcdf-c.git", branch: "main"
 
   livecheck do
-    url "https://www.unidata.ucar.edu/downloads/netcdf/"
-    regex(/href=.*?netcdf-c[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://downloads.unidata.ucar.edu/netcdf-c/release_info.json"
+    regex(/["']version["']:\s*["']v?(\d+(?:\.\d+)+)["']/i)
   end
 
   bottle do
@@ -28,7 +28,7 @@ class Netcdf < Formula
   uses_from_macos "curl"
 
   resource "cxx" do
-    url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx4-4.3.1.tar.gz"
+    url "https://downloads.unidata.ucar.edu/netcdf-cxx/4.3.1/netcdf-cxx4-4.3.1.tar.gz"
     mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-cxx4-4.3.1.tar.gz"
     sha256 "6a1189a181eed043b5859e15d5c080c30d0e107406fbb212c8fb9814e90f3445"
   end
