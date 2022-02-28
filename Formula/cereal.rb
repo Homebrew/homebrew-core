@@ -7,7 +7,7 @@ class Cereal < Formula
   head "https://github.com/USCiLab/cereal.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7dc12c1ee5081634ef84aa6e05921c1679aff2cfdad8bce12076a4016b793539"
+    sha256 cellar: :any_skip_relocation, all: "13b3cb91e465c3857b307912e79bc1531167deccf9a2823d1c6e69abb8833792"
   end
 
   depends_on "cmake" => :build
