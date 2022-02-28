@@ -29,6 +29,8 @@ class Lgogdownloader < Formula
   depends_on "rhash"
   depends_on "tinyxml2"
 
+  uses_from_macos "curl"
+
   def install
     system "cmake", ".", *std_cmake_args, "-DJSONCPP_INCLUDE_DIR=#{Formula["jsoncpp"].opt_include}"
 
@@ -45,7 +47,13 @@ class Lgogdownloader < Formula
       secret
     EOS
     writer.close
-    assert_equal "HTTP: Login failed", reader.read.lines.last.chomp
+    lastline = ""
+    begin
+      reader.each_line { |line| lastline = line }
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    end
+    assert_equal "HTTP: Login failed", lastline.chomp
     reader.close
   end
 end
