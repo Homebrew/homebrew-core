@@ -7,12 +7,12 @@ class Xplr < Formula
   head "https://github.com/sayanarijit/xplr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e1ba5919879ca88058860b81be576c5367d2a71c7722cbbc17976f742bbbccd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04f7c4ec3b3039aec32e453fac171cc6a9964e1045f7d1f39b763c12b19037a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "a7f2814610a6e259b471df9f8761ca402c7f4ba18b8c62dd24632d5b5b602c17"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ef552823aa02a4fd97b55c95197860a6325bdaf82588e0a5976bf074ade12456"
-    sha256 cellar: :any_skip_relocation, catalina:       "6cd2d865934c45fbab63945458b7668b81a72803a0de278e094f81cd2b0fb086"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a34b115486e1f50835bc4efd79c64b6912cb65567d4c3cc8bfd9066b74cd3d73"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7ff8a1defb3b4ab9d3b033b9fa7b485ec338e6f1515083848ddd418fabc182cd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31a36975f9b19effb63dae071fca7f2b8197bbd9bda0832385fd0ae214da4842"
+    sha256 cellar: :any_skip_relocation, monterey:       "12b5c04319504fabf28851e22a75a6214569a8496862f933a2a0e113fea27ef2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8f4fd4282a0e879aa0cdaf6aeb1633c35fa16319340a7e1ca3b4ef81d0c29679"
+    sha256 cellar: :any_skip_relocation, catalina:       "bfa31a14a01d457935fd653f9ae78fe840c5bdca18e46892379a94710310df88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0395b53640218b49e238d3c3e265085d568187a612b10b46bba774bef03c0f0c"
   end
 
   depends_on "rust" => :build
