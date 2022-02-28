@@ -4,7 +4,7 @@ class Grace < Formula
   url "https://deb.debian.org/debian/pool/main/g/grace/grace_5.1.25.orig.tar.gz"
   sha256 "751ab9917ed0f6232073c193aba74046037e185d73b77bab0f5af3e3ff1da2ac"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/g/grace/"
@@ -32,15 +32,14 @@ class Grace < Formula
   depends_on "libxpm"
   depends_on "libxt"
   depends_on "openmotif"
-  # pdflib-lite is not essential and does not currently support Apple Silicon
-  depends_on "pdflib-lite" if Hardware::CPU.intel?
 
   def install
     ENV.O1 # https://github.com/Homebrew/homebrew/issues/27840#issuecomment-38536704
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
-                          "--enable-grace-home=#{prefix}"
+                          "--enable-grace-home=#{prefix}",
+                          "--disable-pdfdrv"
     system "make", "install"
     share.install "fonts", "examples"
     man1.install Dir["doc/*.1"]
