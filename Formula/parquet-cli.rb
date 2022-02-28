@@ -9,13 +9,11 @@ class ParquetCli < Formula
   head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0534ab800669ce2048ff05409d7b6568df34bf7aa6507fc2e4417da8418ba89"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2047e61a6366122dde6a70c01f49b464d16fb4a044ab949278ff0e4cc37e735"
-    sha256 cellar: :any_skip_relocation, monterey:       "25a014f843a9ccd2d1b3e715d8dcf2ffe6b24bcfa0bc78739d1b1caf3529e1e3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9140045b83453b50a13384917993e14068d48285ba4410c09d22347f2c00f9be"
-    sha256 cellar: :any_skip_relocation, catalina:       "b522b0d1481308650dac17bc1e4b7fab207a501038e663d41ee9d11a535288ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3d896f727c127f43d5e0d476f3f9b7d314f96aada084846d3659eab7e1d200a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a7f4b4e29da9fa2d8863a2eaaadc8ca3bf8acbdc0741dda876dd5da4ecd88cf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d0e06f39fa4b245b07df6409a8e6e1c4d35c59e137dd2008efa0657cdd691c9"
+    sha256 cellar: :any_skip_relocation, monterey:       "2dcede432341637bc31ed4af5c605dd5d1a3baf286107b1ed30cede335358b1b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f587352d399452e0088903375768b48c7a8c6430e60262df098a39e150b17b2f"
+    sha256 cellar: :any_skip_relocation, catalina:       "c937e506bbc39c013dbab6f7679348fd7916b0c04921c6a643ba8100ad9fba04"
   end
 
   depends_on "maven" => :build
