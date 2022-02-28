@@ -1,8 +1,8 @@
 class Driftctl < Formula
   desc "Detect, track and alert on infrastructure drift"
   homepage "https://driftctl.com"
-  url "https://github.com/snyk/driftctl/archive/v0.20.0.tar.gz"
-  sha256 "5b5d849b558c97e41fb7aaab4a7692fb0d6569fd8e9bca7c8b553f24d3f2fb41"
+  url "https://github.com/snyk/driftctl/archive/v0.21.0.tar.gz"
+  sha256 "5241d428c22689f60b489ae7c40314201a337a87a29b34db7742206c5a95ed4c"
   license "Apache-2.0"
 
   bottle do
@@ -40,6 +40,6 @@ class Driftctl < Formula
   test do
     assert_match "v#{version}", shell_output("#{bin}/driftctl version")
     assert_match "Downloading terraform provider: aws",
-      shell_output("#{bin}/driftctl --no-version-check scan 2>&1", 1)
+      shell_output("#{bin}/driftctl --no-version-check scan 2>&1", 2)
   end
 end
