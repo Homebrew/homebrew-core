@@ -13,10 +13,10 @@ class Kamel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "81af020bb729671c37fbdb3c80a83f8a0ed566d867cbd589c8258877a2103a51"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6bb0296ca01de2472629f21b1a7ce23ea659b23bf0a6cfa6bb290ba007cef964"
-    sha256 cellar: :any_skip_relocation, catalina:      "dde46e992610679b2e3f58cd83a6fd9afb5ee97cd95b0fcaa63e3a6d8194bcbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4070e26e7d3cd55d7c42ac8379dc49cef852804be1e3d32e6cffede8a8f3f213"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ee73e9da7dd54055a28a55cebd0e37411da36f506c5da5cfc705082b7cab2fe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "effe37ab46b50fceaf4a6c73016f36e0033bcc91e504f0346c5f07964052e556"
+    sha256 cellar: :any_skip_relocation, catalina:      "bfaf7a5dc9dc5275798e35f6deb0278ea62c53b47aa0600cd5980679919a2ba6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d46532a22703718c40d5ab919b5de25257b0470e31509c1c06b33aa1bc522f34"
   end
 
   depends_on "go" => :build
