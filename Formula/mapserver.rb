@@ -22,7 +22,7 @@ class Mapserver < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "swig@3" => :build
+  depends_on "swig" => :build
   depends_on "cairo"
   depends_on "fcgi"
   depends_on "freetype"
