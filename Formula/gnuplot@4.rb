@@ -4,7 +4,7 @@ class GnuplotAT4 < Formula
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/4.6.7/gnuplot-4.6.7.tar.gz"
   sha256 "26d4d17a00e9dcf77a4e64a28a3b2922645b8bbfe114c0afd2b701ac91235980"
   license "gnuplot"
-  revision 3
+  revision 4
 
   bottle do
     sha256 big_sur:     "ba4b45a1536cae2fcaadc4ad4655e978d69676c4ce443673d576e29faed43c9f"
@@ -16,6 +16,8 @@ class GnuplotAT4 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2022-02-28", because: :unsupported
+
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "gd"
@@ -23,7 +25,6 @@ class GnuplotAT4 < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "lua@5.1"
-  depends_on "pdflib-lite"
   depends_on "readline"
 
   def install
@@ -32,7 +33,6 @@ class GnuplotAT4 < Formula
     # Do not build with Aquaterm
     inreplace "configure", "-laquaterm", ""
 
-    pdflib = Formula["pdflib-lite"].opt_prefix
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
@@ -41,10 +41,10 @@ class GnuplotAT4 < Formula
       --with-aquaterm
       --with-gd=#{Formula["gd"].opt_prefix}
       --with-lispdir=#{elisp}
-      --with-pdf=#{pdflib}
       --with-readline=#{Formula["readline"].opt_prefix}
       --without-cairo
       --without-latex
+      --without-pdf
       --without-tutorial
       --without-x
     ]
