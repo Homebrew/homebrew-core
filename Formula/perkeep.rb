@@ -18,13 +18,12 @@ class Perkeep < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbb070655d3eb90155a51c54d327108fc21fa80843d07dd9ab8302d75f31928a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9df8643ff9e18a35f5c36e7ad3f894ac9c1ca6ec005964d0d7d67e7f1df34c4a"
-    sha256 cellar: :any_skip_relocation, monterey:       "86a30148823155af535d6bdae10b265cdaf5b499ed38985bb0a988f19ff67718"
-    sha256 cellar: :any_skip_relocation, big_sur:        "893d6cfc23b18401987de13cb5630bb259f9d3d4d0de56ebaa7d2f3f7e93333a"
-    sha256 cellar: :any_skip_relocation, catalina:       "c676479c6b5f7e5bbee45c7b0d31b26c05915195c2ab7b61156ac46257b14cb6"
-    sha256 cellar: :any_skip_relocation, mojave:         "e05528f7efbb84fa9bbb39a68f3d0bb48073806a204eba8d0f70a52871ed83fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec90f3dab9f58090d10ab37c5043d98832493e60af73794cc668584c6fe5c524"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "80b74aa6f9784371b2a2b4f79ed15fb8d998a3589f1cc85885ba60d259196dea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b02cb9968771e49d46b9f605d53f88b61bb32cd765d46146280b2426abffc00f"
+    sha256 cellar: :any_skip_relocation, monterey:       "a30e484cd077d745047fcf919d857ed2d1ca68589b7017e91e0417fa5c256b6b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "663b51444cae568b049afdc4c3bffb0dadd70dc0d63764cf6a9e9d9f5568afc1"
+    sha256 cellar: :any_skip_relocation, catalina:       "6ccd732cc142a7efb8b78b150909eb0eabde2d9fbb9683fdfaaf550c2ebbbbdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3822eb5d2bc22fb31733101ca980db8baf8ebc4ab1994a47fc0739ab35a998d"
   end
 
   depends_on "go" => :build
