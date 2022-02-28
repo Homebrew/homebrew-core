@@ -30,8 +30,6 @@ class Advancemame < Formula
   uses_from_macos "expat"
   uses_from_macos "ncurses"
 
-  conflicts_with "advancemenu", because: "both install `advmenu` binaries"
-
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--enable-freetype",
