@@ -26,6 +26,8 @@ class Nnn < Formula
     bash_completion.install "misc/auto-completion/bash/nnn-completion.bash"
     zsh_completion.install "misc/auto-completion/zsh/_nnn"
     fish_completion.install "misc/auto-completion/fish/nnn.fish"
+
+    pkgshare.install "misc/quitcd"
   end
 
   test do
