@@ -7,11 +7,11 @@ class GnuplotAT4 < Formula
   revision 4
 
   bottle do
-    sha256 big_sur:     "ba4b45a1536cae2fcaadc4ad4655e978d69676c4ce443673d576e29faed43c9f"
-    sha256 catalina:    "aca6da067597cd60e147c1534d0f6cf86f874de847a62888fda313ad66ea5d79"
-    sha256 mojave:      "e1444a4c413bb9e5d6670c3b8216761f097dd1ba6943f075f3014391184bd2d5"
-    sha256 high_sierra: "63368d69e33d92bd7f36e5ebd4f5245263c656171ff2e9d346183d0e3ea45534"
-    sha256 sierra:      "d6439eb67f9da39adfacfbeef4719efa6a88ebeb6a4f8091b5e1dac267479d3b"
+    sha256 arm64_monterey: "efa6e1ee1c2c04c013bfe3f5ff0647c0141e6e319115a083f0a6f6d83924a790"
+    sha256 arm64_big_sur:  "d888310976f77989dee4e9be57ed338ac7c17921878f17bed9c36bf38dfa82e7"
+    sha256 monterey:       "eb8e43f689561ce88af9dc218bb082225e639c7940310d5615184dc9550e9dd0"
+    sha256 big_sur:        "9c6bcfd67e5eecdce98190cb3ef40a4a2af3807d7d64dff0374f487fd38cb9ab"
+    sha256 catalina:       "50fca4d825a24a009c45d5f677000340ef638deb11fe1f9701208595f829af08"
   end
 
   keg_only :versioned_formula
