@@ -17,6 +17,8 @@ class Virgil < Formula
   end
 
   depends_on "go" => :build
+  # https://github.com/VirgilSecurity/virgil-cli/issues/58
+  depends_on arch: :x86_64
 
   def install
     system "make"
