@@ -11,13 +11,12 @@ class Calceph < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0b9a27bf445e9369110bca6ce6d307e4792484249cde4befb7a6405d5e890b85"
-    sha256 cellar: :any,                 arm64_big_sur:  "9c3abdc353fa28b0f073f59579866f5f4ebe1394af3f48cceff39664077f2d67"
-    sha256 cellar: :any,                 monterey:       "e68ea66a767bd309f19b691fcb210248cd3e3f0254e68c35aeb2b9690c31d68e"
-    sha256 cellar: :any,                 big_sur:        "09f5d187d213d349fe8f0035cc26a08f8cee34e43efa691f1bd882df968540b2"
-    sha256 cellar: :any,                 catalina:       "36e5388c8789221831f181d7e9ec7d2ad822e4f76afca20533912508ca38913c"
-    sha256 cellar: :any,                 mojave:         "22799e0c12c14a7a50062e5d0c482460d1fd8317a32fbf8063aca797d7e83bc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6684443f24392f477d629d6d3da6a067d1bf73892dd465e6bd8421037118c54"
+    sha256 cellar: :any,                 arm64_monterey: "7d57b2878163732d50d7bbb920d7d1a4ffdb18f5a3e6a2b6d066d40f169316d5"
+    sha256 cellar: :any,                 arm64_big_sur:  "0f3762cdf0a7d25f268340f36bde4cb4963ed8d472c82e83e217506f84a83433"
+    sha256 cellar: :any,                 monterey:       "fd5bb3cad77f4e9e7fc4488cb812d7d5fb45fa0e25c97baeac488cf610d75fbb"
+    sha256 cellar: :any,                 big_sur:        "353dcab7ad416277151c61feefcf673d25bb4f952aaaab3df6ead34a9828ab24"
+    sha256 cellar: :any,                 catalina:       "5856594c37d877e282d9ba9ffab5789628f15a4252f506ae231d7dc8a7fb9f2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c00da491fe489ea4e7a4a3013b62d26e16c49e1c248db2f2725272bc788f43e"
   end
 
   depends_on "gcc" # for gfortran
