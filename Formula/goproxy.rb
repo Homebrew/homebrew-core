@@ -1,3 +1,4 @@
+# Test
 class Goproxy < Formula
   desc "Global proxy for Go modules"
   homepage "https://github.com/goproxyio/goproxy"
