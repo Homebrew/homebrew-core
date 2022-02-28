@@ -6,12 +6,12 @@ class Sshs < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "694c9027f9b63c89b2e214c6152bbdcce8535ebf6e9cdd2bbcc9fe5c8ab3c94f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b39cb1bbbe606d1187aaea3d55dc464bef71544b5b766fbc17898404fd4d2b1f"
-    sha256 cellar: :any_skip_relocation, monterey:       "2dd165e209c7dec45f6e9beb29cd5a4f19d8592666811f0f193639b3abca8de9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "367db5e651c77dba9ffa500d0d6ff6e5e4eafa79e324ce410f104c27b44f95a2"
-    sha256 cellar: :any_skip_relocation, catalina:       "a9fdee503915b4373ed0b4b6a68626238d22f6031eb4125d81cdb54e390ef65c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8d902bfb6a452cec887d2f1ed31f8219f4027efed52a01cb155870180a1dbee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f124405f2995020e1241fd6bca1ea8bac218f3a97b30f886f37bba74311d3fe7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ccbd1e70efd8dad941b1c63f4f55860c89400836c6d7c1a8814dc2d7cb90dc5"
+    sha256 cellar: :any_skip_relocation, monterey:       "14e4f3ffc6f25638dfab32c921f051ab5107fc4984e2c45b3fc7f897bf3b8c37"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d54e845edbc14bac5bbf5941a2891c6319a99f836bc9c78b628b84a30c7c9ac3"
+    sha256 cellar: :any_skip_relocation, catalina:       "e7693b44c1b83c2eb138e13e6dd318b376568d0021b0428c4440505d6548f40a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c165cc97d0a234a33dbacce59acaad0852e3aff1e4510a8c19c4232d9813df2d"
   end
 
   depends_on "go" => :build
