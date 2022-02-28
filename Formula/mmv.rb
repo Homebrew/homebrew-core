@@ -24,11 +24,6 @@ class Mmv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0b1481a85dc9d2e3c10baaa9a873eb4ad049a2685445bf30ea45b045fea2e6a"
   end
 
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0f8a80f7b337416d1a63ce453740fbe5bb5d158d/mmv/mmv_1.01b-15.diff"
-    sha256 "76f111f119c3e69e5b543276b3c680f453b9b72a0bfc12b4e95fb40770db60c1"
-  end
-
   def install
     system "make", "CC=#{ENV.cc}", "LDFLAGS="
 
