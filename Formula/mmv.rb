@@ -1,13 +1,9 @@
 class Mmv < Formula
   desc "Move, copy, append, and link multiple files"
-  homepage "https://packages.debian.org/unstable/utils/mmv"
-  url "https://deb.debian.org/debian/pool/main/m/mmv/mmv_1.01b.orig.tar.gz"
-  sha256 "0399c027ea1e51fd607266c1e33573866d4db89f64a74be8b4a1d2d1ff1fdeef"
-
-  livecheck do
-    url "https://deb.debian.org/debian/pool/main/m/mmv/"
-    regex(/href=.*?mmv[._-]v?(\d+(?:\.\d+)+[a-z]?)\.orig\.t/i)
-  end
+  homepage "https://github.com/rrthomas/mmv"
+  url "https://github.com/rrthomas/mmv/releases/download/v2.3/mmv-2.3.tar.gz"
+  sha256 "bb5bd39e4df944143acefb5bf1290929c0c0268154da3345994059e6f9ac503a"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
@@ -24,28 +20,27 @@ class Mmv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0b1481a85dc9d2e3c10baaa9a873eb4ad049a2685445bf30ea45b045fea2e6a"
   end
 
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0f8a80f7b337416d1a63ce453740fbe5bb5d158d/mmv/mmv_1.01b-15.diff"
-    sha256 "76f111f119c3e69e5b543276b3c680f453b9b72a0bfc12b4e95fb40770db60c1"
-  end
+  depends_on "pkg-config" => :build
+  depends_on "bdw-gc"
 
   def install
-    system "make", "CC=#{ENV.cc}", "LDFLAGS="
-
-    bin.install "mmv"
-    man1.install "mmv.1"
-
-    %w[mcp mad mln].each do |mxx|
-      bin.install_symlink "mmv" => mxx
-      man1.install_symlink "mmv.1" => "#{mxx}.1"
-    end
+    system "./configure", *std_configure_args
+    system "make", "install"
   end
 
   test do
-    touch testpath/"a"
-    touch testpath/"b"
-    pipe_output(bin/"mmv", "a b\nb c\n")
+    (testpath/"a").write "1"
+    (testpath/"b").write "2"
+
+    assert_match "a -> b : old b would have to be deleted", shell_output("#{bin}/mmv -p a b 2>&1", 1)
+    assert_predicate testpath/"a", :exist?
+    assert_match "a -> b (*) : done", shell_output("#{bin}/mmv -d -v a b")
     refute_predicate testpath/"a", :exist?
-    assert_predicate testpath/"c", :exist?
+    assert_equal "1", (testpath/"b").read
+
+    assert_match "b -> c : done", shell_output("#{bin}/mmv -s -v b c")
+    assert_predicate testpath/"b", :exist?
+    assert_predicate testpath/"c", :symlink?
+    assert_equal "1", (testpath/"c").read
   end
 end
