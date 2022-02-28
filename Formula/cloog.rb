@@ -1,14 +1,9 @@
 class Cloog < Formula
   desc "Generate code for scanning Z-polyhedra"
-  homepage "http://www.bastoul.net/cloog/"
-  url "http://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
-  sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
-  revision 4
-
-  livecheck do
-    url "http://www.bastoul.net/cloog/download.php"
-    regex(/href=.*?cloog[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  homepage "https://github.com/periscop/cloog"
+  url "https://github.com/periscop/cloog/releases/download/cloog-0.20.0/cloog-0.20.0.tar.gz"
+  sha256 "835c49951ff57be71dcceb6234d19d2cc22a3a5df84aea0a9d9760d92166fc72"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7e5820ebe53dcad85cc6cf960e5d645f2517a58d7869b573a884939ad995d51e"
@@ -21,22 +16,25 @@ class Cloog < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gmp"
-  depends_on "isl@0.18"
+  depends_on "isl"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install
+    # Avoid doc build.
+    ENV["ac_cv_prog_TEXI2DVI"] = ""
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--with-gmp=system",
                           "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
                           "--with-isl=system",
-                          "--with-isl-prefix=#{Formula["isl@0.18"].opt_prefix}"
+                          "--with-isl-prefix=#{Formula["isl"].opt_prefix}"
     system "make", "install"
   end
 
