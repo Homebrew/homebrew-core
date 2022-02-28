@@ -1,8 +1,8 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2022.02.21.00.tar.gz"
-  sha256 "038a9c2262ba868cefdbc1f8d8ef11b4260489e6793f2562d5abe4a03a5805d3"
+  url "https://github.com/facebook/folly/archive/v2022.02.28.00.tar.gz"
+  sha256 "1342c8bacb87482c8c6e96ad6ac9df58b5e9bd6f51a897cd71b4b345f08d7bce"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git", branch: "main"
 
@@ -47,13 +47,6 @@ class Folly < Formula
   end
 
   fails_with gcc: "5"
-
-  # Fix build failure on Linux.
-  # https://github.com/facebook/folly/pull/1721
-  patch do
-    url "https://github.com/facebook/folly/commit/f2088bc7d0be8f28c99d34a49d835654810f476f.patch?full_index=1"
-    sha256 "412e41f4bb4855bd975b32c5f01a0decfa519490e85068c84b0f66f54daef3c7"
-  end
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
