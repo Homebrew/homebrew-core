@@ -12,12 +12,12 @@ class Poppler < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "cd16bf882b47d25a821c7403588606d3887040e9614392090af4b522aa624eb9"
-    sha256 arm64_big_sur:  "09f2559f75bdcc64e53eacfab21aa79965bf814e4c800049107e9d4efa355c44"
-    sha256 monterey:       "30a686b276d0299510a37c8f506ce5bb14608efaf8d0f962a9ccbdd2722c5fbb"
-    sha256 big_sur:        "fad8829869b4072c7ae705769e0ab443a89d567938c9de4968d3d6e5363846f8"
-    sha256 catalina:       "164e8cfd4010abc8bf7a4ca017e2be544cc2acc3294a4c4d025e2b46e0075d50"
-    sha256 x86_64_linux:   "fe8aac915d923d15295a7fb810979cc696a09cf3df8473607807e7dfec2f25bb"
+    sha256 arm64_monterey: "630ddfca6952fb9200d6f7d255e3614167f8da9d48b8083e892c12ccb523d417"
+    sha256 arm64_big_sur:  "c7a991bb704a7939bab2cc69c14639bf8c6afbd80347ce763083353e9471ea65"
+    sha256 monterey:       "78891dd5853bc4ac6ba0e7e7faf8fc4a47dc37f070d67f41cc40ecf4f38ebb56"
+    sha256 big_sur:        "bc72a9ee248165884e1e9194db2fdd75b2c5af5ca6ac2f2c72aad45f2f24d0b3"
+    sha256 catalina:       "ef3ec81699b9c2f29ac96da190d951b400106757a7d43e7e62f16b287e2d3a39"
+    sha256 x86_64_linux:   "7bf671efd31c38df1ca5c5cabb2f05a35b18d81169ddfe73504e4feb956d9c8d"
   end
 
   depends_on "cmake" => :build
