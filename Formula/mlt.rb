@@ -8,10 +8,10 @@ class Mlt < Formula
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "90da35634d99fdc9d29eb921e13d444f0fe9a3ced4ba2e83a2b3378c3cb67f8a"
-    sha256 cellar: :any, big_sur:       "aa8ecfb467b2d2d0963c95a62008b24c91b285319a44c245aef6c91edd0b57bd"
-    sha256 cellar: :any, catalina:      "930332fecb1ad269581a75f17a89bd3e56ebe2ca1c705a4342d1293bbd8a330a"
-    sha256               x86_64_linux:  "c5d66c6b67a37304ebe7ded0bc6d4b4867fbd32b1ee0213fe7f62b7ce2cb0b9d"
+    sha256 cellar: :any, arm64_big_sur: "a0c0dd611fb0ab03c02c96979255acd569fb77984aa19486e169cb5375ffc221"
+    sha256 cellar: :any, big_sur:       "b2e7e2107aec1cbf470030fdc8609713dda27559c4f0fde868793b992213f132"
+    sha256 cellar: :any, catalina:      "d3ee23e4d6e421c3266411dccd20d2f04ecd21594951e36c8cbadc1850b115b4"
+    sha256               x86_64_linux:  "03ea590c7009f352ab684bbab364a04201e99ce353709c1f39e78a91fd28607a"
   end
 
   depends_on "cmake" => :build
