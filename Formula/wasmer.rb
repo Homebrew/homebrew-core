@@ -1,8 +1,8 @@
 class Wasmer < Formula
   desc "🚀 The Universal WebAssembly Runtime"
   homepage "https://wasmer.io"
-  url "https://github.com/wasmerio/wasmer/archive/2.1.1.tar.gz"
-  sha256 "f2ca1f3c48983de854b01c87b521e02245654f235d48d339a0e25229e184a322"
+  url "https://github.com/wasmerio/wasmer/archive/2.2.0.tar.gz"
+  sha256 "86d742a59025c4fe49838e8fb98aec754315cb9e0710c1b793e16f8caa566cfb"
   license "MIT"
   head "https://github.com/wasmerio/wasmer.git", branch: "master"
 
@@ -19,10 +19,13 @@ class Wasmer < Formula
   depends_on "rust" => :build
   depends_on "wabt" => :build
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libxkbcommon"
+  end
+
   def install
-    chdir "lib/cli" do
-      system "cargo", "install", "--features", "cranelift", *std_cargo_args
-    end
+    system "cargo", "install", "--features", "cranelift", *std_cargo_args(path: "lib/cli")
   end
 
   test do
