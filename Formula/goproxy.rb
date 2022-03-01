@@ -28,12 +28,10 @@ class Goproxy < Formula
       server = IO.popen("#{bin}/goproxy -proxy=https://goproxy.io -listen=#{bind_address}", err: [:child, :out])
       sleep 1
       ENV["GOPROXY"] = "http://#{bind_address}"
-      test_module = "github.com/spf13/cobra"
-      system "go", "get", test_module
+      system "go", "get", "golang.org/x/net@latest"
     ensure
       Process.kill("SIGINT", server.pid)
-      Process.wait(server.pid)
     end
-    assert_match test_module, server.read
+    assert_match "200 /golang.org/x/net/", server.read
   end
 end
