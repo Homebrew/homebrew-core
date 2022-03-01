@@ -1,8 +1,8 @@
 class DockerSlim < Formula
   desc "Minify and secure Docker images"
   homepage "https://dockersl.im"
-  url "https://github.com/docker-slim/docker-slim/archive/1.37.3.tar.gz"
-  sha256 "6c8bb386314b9e3674c28b4b3a3baf2a62656999374d93d7c741f9cc9a594a7c"
+  url "https://github.com/docker-slim/docker-slim/archive/1.37.4.tar.gz"
+  sha256 "380239e1ac484ce168c9716868101e3fb02eded389f10c4b9078175e047dc64c"
   license "Apache-2.0"
 
   livecheck do
