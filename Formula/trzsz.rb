@@ -7,6 +7,15 @@ class Trzsz < Formula
   sha256 "97b008cd5441583e9090c9078854e90b3cdfe2fd95a1cfb717efee1b935a7737"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d83b307cd2d45e468ff4ef76842e1e9e13a8253a11a2ecadd4322ec90716a20"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d83b307cd2d45e468ff4ef76842e1e9e13a8253a11a2ecadd4322ec90716a20"
+    sha256 cellar: :any_skip_relocation, monterey:       "76d8e6f94f7c4654bd566924f153c3edeeaae51e4c7d47ee51c72cc9e792da41"
+    sha256 cellar: :any_skip_relocation, big_sur:        "76d8e6f94f7c4654bd566924f153c3edeeaae51e4c7d47ee51c72cc9e792da41"
+    sha256 cellar: :any_skip_relocation, catalina:       "76d8e6f94f7c4654bd566924f153c3edeeaae51e4c7d47ee51c72cc9e792da41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f28ee46bd735a4db1ff2539e59edb9250a06aa2df5f647500aef8e5326c112a"
+  end
+
   depends_on "python@3.10"
 
   resource "trzsz-libs" do
