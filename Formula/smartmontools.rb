@@ -6,13 +6,12 @@ class Smartmontools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "566032c867e1637d14de60f18fb16d7467dd8b52ac0c87a2528cf28fb6edeb5c"
-    sha256 arm64_big_sur:  "27f51cc884f31b7ba77754294e701a9a219e06e8070d4e7630310cf1d01c0b1e"
-    sha256 monterey:       "e8293cfbe0e6f3c3d3e4ca5cf85b207f61ad8385c880cc398876170131366f33"
-    sha256 big_sur:        "9cccb94c747cd2897d458da6a31c2e5c03acfd81faa30c99260fe77ec8c140f0"
-    sha256 catalina:       "34aa008976f95dc5568c90c0b99eccdcec7983df3787ac4be1e02284f307c1e7"
-    sha256 mojave:         "3f699e7deb392d47d805cf4dad81e53cf67fe0186b00f42e798235fa9079f388"
-    sha256 x86_64_linux:   "ab856ea947e68cee8cb149c53571c933802635e00a342501a1be072db56a081b"
+    sha256 arm64_monterey: "e6dcb98550cdf4dbf6e175655a81a8413f71e974ad8b73b352492bbe65bf7b67"
+    sha256 arm64_big_sur:  "4fffd7dccb8c3668da027dae7ce63dee48bc2af088da5beac7fa6f714ef09d37"
+    sha256 monterey:       "3707ed37f1a3636388b7af716ef2e4082eabd70142141834c0168dc19f212967"
+    sha256 big_sur:        "b14a14633dc1557f0c619a583ae1ec15b83f5b2c56f6088de063c6a9b5e8181d"
+    sha256 catalina:       "ebac716671db6e00439ce86aedc0d62a55324ce0949d2d9b69d9ee5a2298a630"
+    sha256 x86_64_linux:   "e3c590b7a88dbfc59e44adcd5fd42f6f959748ee144988329dc49fb3abf64336"
   end
 
   def install
