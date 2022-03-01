@@ -12,10 +12,11 @@ class Nsxiv < Formula
   depends_on "libexif"
   depends_on "libx11"
   depends_on "libxft"
+  depends_on "webp"
 
   def install
     system "make", "PREFIX=#{prefix}", "HAVE_INOTIFY=0",
-                   "CPPFLAGS=-I#{Formula["freetype2"].opt_include}/freetype2",
+      "CPPFLAGS='-I#{Formula["freetype2"].opt_include}/freetype2 -I#{Formula["webp"].opt_include}/webp'",
                    "install"
   end
 
