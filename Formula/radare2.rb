@@ -12,12 +12,12 @@ class Radare2 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "6c542e77cba46225c0770a0713ca43ef093eae9a733ee6add71a9d96fb804c45"
-    sha256 arm64_big_sur:  "de7363dc5df1ef1f94b9f4624250061b101761ea79ad9fe827198d713a4e735e"
-    sha256 monterey:       "e122a0cd39ceb6b6404d3fedfa2ef69e7f25f13a3b5503d97b20826cb287a3c0"
-    sha256 big_sur:        "f046007f2b9f14be358094c87d452e0bbca6a9865a2a62a3f92810a054e0daa8"
-    sha256 catalina:       "c819b3c6a5d5685c9c743061e3d91c161f84a758e8e78d088eafb4f07dbe04a8"
-    sha256 x86_64_linux:   "71786fe41cbfdaabf12ddb54cdbe001ef853471034c9d7ed7cf548ceec055d0d"
+    sha256 arm64_monterey: "0c8fdf19707bef9879d9e440e2ec43243f78603d2d878fe37c6b87729e440f35"
+    sha256 arm64_big_sur:  "0b60ba58f6defcc8f69faa3f0686a97b00248965c6676be09ed1e59209afa2a4"
+    sha256 monterey:       "97c819c34678390752ac39909b20ffc02e628554ff1e228c032b3483a2b9ec6f"
+    sha256 big_sur:        "fee5fffd2c51c48381035f571a3e264b2cb4f121b30436036f433ba51509a2e8"
+    sha256 catalina:       "57472f3d96ff938be5713e6cb58c948b2a03b9254ffc88620722008853fa0117"
+    sha256 x86_64_linux:   "fe4072a2d7e484ab4e224acd81a674175d37aef208a4078c19ed7c3d713c133a"
   end
 
   def install
