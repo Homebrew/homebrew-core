@@ -30,8 +30,8 @@ class Mariadb < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
+  depends_on "fmt" => :build
   depends_on "pkg-config" => :build
-  depends_on "fmt"
   depends_on "groonga"
   depends_on "openssl@1.1"
   depends_on "pcre2"
@@ -55,10 +55,9 @@ class Mariadb < Formula
 
   fails_with gcc: "5"
 
-  # Fix finding Homebrew `fmt`
-  patch :DATA
-
   def install
+    ENV.cxx11
+
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
@@ -191,17 +190,3 @@ class Mariadb < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
-
-__END__
-diff --git a/cmake/libfmt.cmake b/cmake/libfmt.cmake
-index 6a260569..a8418754 100644
---- a/cmake/libfmt.cmake
-+++ b/cmake/libfmt.cmake
-@@ -26,6 +26,7 @@ ENDMACRO()
- 
- MACRO (CHECK_LIBFMT)
-   IF(WITH_LIBFMT STREQUAL "system" OR WITH_LIBFMT STREQUAL "auto")
-+    SET(CMAKE_REQUIRED_FLAGS "-std=c++11")
-     CHECK_CXX_SOURCE_COMPILES(
-     "#define FMT_STATIC_THOUSANDS_SEPARATOR ','
-      #define FMT_HEADER_ONLY 1
