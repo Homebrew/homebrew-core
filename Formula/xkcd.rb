@@ -2,8 +2,8 @@ class Xkcd < Formula
   desc "Fetch latest, random or any particular xkcd comic right in your terminal"
   homepage "https://git.hanabi.in/xkcd-go"
   url "https://git.hanabi.in/repos/xkcd-go.git",
-    tag:      "v2.0.0",
-    revision: "5e68ef5b2e7e6806dd57586e9b7ed4f97f64dba0"
+      tag:      "v2.0.0",
+      revision: "5e68ef5b2e7e6806dd57586e9b7ed4f97f64dba0"
   license "AGPL-3.0-only"
 
   depends_on "go" => :build
