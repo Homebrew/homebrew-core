@@ -8,12 +8,12 @@ class Pipgrip < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3cbe666e083749001c83953248641c1bdf9e5156be0a3b05a6aa4b53ad6477cf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc81bc9d56af0565abf4dc741f27389804e0f5ea82eae42e12f80bd8b8a3673e"
-    sha256 cellar: :any_skip_relocation, monterey:       "d019aa022d60398fdbbaeb83b6eb1ec68a823720227aca2ef0ddcfcd9b966783"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e53b4d46599826185ac266ea7638310f6418bcb6021beb0b04be553ab584d076"
-    sha256 cellar: :any_skip_relocation, catalina:       "492fbe789d5a115971fc157a634a0be82f6732f3a0f89d8fb9f4fc454f4ae2b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56a9e23ef63392d84791d6d33b85b8cad6aef06de243783868adaf3e510b6134"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d65001dbc6d0ac1df870abdb5b9b0c9832ec025271818ada4c7ef87a135347e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2da3ba78c6eb9bbd45b27c4cad8e4e61fc7d30bd331f1fc629068310fbde3c72"
+    sha256 cellar: :any_skip_relocation, monterey:       "55f5f4a0b959301383def35c9c444c1e63b9a0c2580dcccee292e59d49cffd2f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "beb1cefe7072013544c220d685834fba8183018395d220c5eb10f4539ccb33bb"
+    sha256 cellar: :any_skip_relocation, catalina:       "c990e3bd386fc9220f1114699adc5f9aeef7303f724c42ec350712bf9b2889f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d9db6c2a9974a1813f8cfcadd75082f87ad874fdbddd1df2136fc6e35ebcf9e"
   end
 
   depends_on "python@3.10"
