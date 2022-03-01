@@ -13,11 +13,11 @@ class DosboxX < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "f402741efe099ad48be3d5bb48c6e591768179d0ff217cdbb4c3dffec3bf22bc"
-    sha256 cellar: :any, arm64_big_sur:  "fb904cb7b2ae35f367b7d22ddb1bf813b113009a596b49ee10a1898d1ffe114a"
-    sha256 cellar: :any, monterey:       "965647d46689d0b32401c6de7eb09d86d020025259ebd83de06ee603e96dcb6c"
-    sha256 cellar: :any, big_sur:        "a15d4feb3beb53fe5c59e9962f1a7068c0cdc9d6b183e8ce36ace848ffde321a"
-    sha256 cellar: :any, catalina:       "458f0308a0a564988e173a5fea7de76a1d7c06e2ce0ad8d7bb726f375d973a41"
+    sha256 cellar: :any, arm64_monterey: "a984c3c2a245bb5d8de54e130d0f4a4d5a5310c1d2de01d805e54844fd777c19"
+    sha256 cellar: :any, arm64_big_sur:  "c680218a908629e4693ef2c0c391f851be73db66c37e72f681ef494ed81c1618"
+    sha256 cellar: :any, monterey:       "e172480c57b0ce656b418aa5efc26534f1b303f5e1f26bd44368801e19df222a"
+    sha256 cellar: :any, big_sur:        "41faca6a5b569f295efcecde34cca6a419f759b9e69996ed3567f41a7d110420"
+    sha256 cellar: :any, catalina:       "9d5b415e05834a05d2cc3f9031172c55b33e6a028b499bd775ee0082ad8afd9d"
   end
 
   depends_on "autoconf" => :build
