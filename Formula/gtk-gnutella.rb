@@ -6,13 +6,12 @@ class GtkGnutella < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "7ee623e147c60e1b63884efc6c896eb8d96f3aa7e6efd2b3420ccc8e62c3a970"
-    sha256 arm64_big_sur:  "98aa9cfd5659dfa91fef5339e478925ebe373effba12029ec043b3e560b42f39"
-    sha256 monterey:       "c0e426bf82a42fcf11ee38d37a154afc6f3317adc3a392c63127d406ba95a2ab"
-    sha256 big_sur:        "2ae7a1fadb8b12cd84d511c9a638b87af3c60e3ec1a7a3018b2a5734d70f8431"
-    sha256 catalina:       "22e50581e33db28747e0b19e1e96b93b8d8ca97c9c66361b14eed10caae0735b"
-    sha256 mojave:         "e886bafacfe443cdf8084edeea890c26a58cf7a63733bb1541eb69745d9b5bf5"
-    sha256 x86_64_linux:   "6d1a4d0092864577bb73fa58361bfbc3acdcd0449566403c4f3eb1474229f583"
+    sha256 arm64_monterey: "dfc1a6e5ea48981b08e4ec2a74dbf2e60204c0577ebd42512252dfd465dfb312"
+    sha256 arm64_big_sur:  "e6569a85d4d46b2583050ab09c1716ebabef593d560c07808e9530a629b5db79"
+    sha256 monterey:       "50e16867768e56729aa34a8a8b96a103652b056c508744542cf1108d11a9937c"
+    sha256 big_sur:        "92c2fcc1744502b5b1baf63ad167e70414c0434ad2d7aaf6598bfd2625ed8c5f"
+    sha256 catalina:       "78151f5c823fce4c91ec7fec4cd8845c420117b558f3664c38846172a05b6129"
+    sha256 x86_64_linux:   "801d4b14d9fe1195d465389d0281a1b3812f77bc116cb322f5213a5b87e7df77"
   end
 
   depends_on "pkg-config" => :build
