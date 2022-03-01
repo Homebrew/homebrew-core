@@ -13,11 +13,11 @@ class Scummvm < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "499e754572a4803c5ccd2eee366804ce51d239113db3aeb1f9473e30ced5da34"
-    sha256 monterey:      "a59f32a800e4124e579c42d17401d914ba6c909125f06df01b96beff490fbe6e"
-    sha256 big_sur:       "a0ca0490722005ea791c40103753923f20208941b757fe1003cd4702a8dd9f3f"
-    sha256 catalina:      "37d16389dfcf103348c0c953ce6b5625f8e56959f27511bcf22555459974f8b9"
-    sha256 x86_64_linux:  "4b5fb89756bfdfb9a15d073d8dea71096883683160395ccca09215fc1685bdaf"
+    sha256 arm64_big_sur: "af380525ea154276ad0d373bf6118f3a6838113cbeb9968902ae338cd25cf3c4"
+    sha256 monterey:      "d05447bbd2eee2531f7adf1b37f52a70a839b306df931e2abddffb833918b534"
+    sha256 big_sur:       "64322552466bf84d7c908349c1d3b2a9033c0f296d654732fd23dc09e37ce556"
+    sha256 catalina:      "f4955d7d9be4be813bd81ae4e1895307f97f52cc8af5df8c99c61356cc42cb5a"
+    sha256 x86_64_linux:  "a84d8f59c66e8a3f8556909a6086e00a1afae1c1054b6b1bb7ede2e3b26189ce"
   end
 
   depends_on "a52dec"
