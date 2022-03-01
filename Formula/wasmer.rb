@@ -19,10 +19,12 @@ class Wasmer < Formula
   depends_on "rust" => :build
   depends_on "wabt" => :build
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
-    chdir "lib/cli" do
-      system "cargo", "install", "--features", "cranelift", *std_cargo_args
-    end
+    system "cargo", "install", "--features", "cranelift", *std_cargo_args(path: "lib/cli")
   end
 
   test do
