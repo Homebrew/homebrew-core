@@ -22,6 +22,8 @@ class ErlangAT21 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2022-03-01", because: :unsupported
+
   depends_on "autoconf@2.69" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
