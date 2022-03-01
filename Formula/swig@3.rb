@@ -18,6 +18,8 @@ class SwigAT3 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2022-03-01", because: :unsupported
+
   depends_on "pcre"
 
   uses_from_macos "ruby" => :test
