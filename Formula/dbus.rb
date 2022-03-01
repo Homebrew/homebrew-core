@@ -13,14 +13,12 @@ class Dbus < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "0e2aad84a0961daecdb9a3c588b6038ff88d500b549c02fdc38c7c785b4c8a76"
-    sha256 arm64_big_sur:  "98319ca7d3dda690a932243a20a1ebaebe89e2386282bad7232f842f2abecbc5"
-    sha256 monterey:       "71e9a67e7580064db9b92c433188975181854b873a905bff16d79fd261a46d4b"
-    sha256 big_sur:        "e3ff464367ad79df35c0f81d70a58607a174e9fa63cd507b575f0988ec913b7d"
-    sha256 catalina:       "23513ea5d75203fe4374ab37cc4226f23f34ec604449ef572fd6a2b48a612ff3"
-    sha256 mojave:         "912da7c3211a981762dc45e4f67fbedd1afd379459a40244340c83caa4134382"
-    sha256 high_sierra:    "6c98efff3cb8fdbba552351a2953f85953f053e12a8af891461118d37affdb73"
-    sha256 x86_64_linux:   "21857954e349d0ff49abec1ed39f574cb7c2dce10587a085030c30a8cf98cabc"
+    sha256 arm64_monterey: "c9fd5fca636d95d017c791c0b5b87ec99cd3ac3ef7d194c3bb05448a52e2933a"
+    sha256 arm64_big_sur:  "26e8143ae21a90e27e9d3218c69fe7ac509379bf6adc75e0293234c366a89b35"
+    sha256 monterey:       "25e7cbac037a07c9bef1f0cf8346c6c755fa46ce1b71471e46f64f396441f734"
+    sha256 big_sur:        "76ec924fed127229906ab2e90b30ecf1a856f0f50e9ab6519cbcee1f1202632f"
+    sha256 catalina:       "8b983bdc674dff5647af3ecab82e44abacbb460db8c60435e16ae351f22bfacb"
+    sha256 x86_64_linux:   "ccf0fc79f59fa7c0ac014861c70d2df8b0c8f8c7f688d548d84b74ce998ecd38"
   end
 
   head do
