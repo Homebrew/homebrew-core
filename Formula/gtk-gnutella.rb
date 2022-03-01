@@ -3,7 +3,7 @@ class GtkGnutella < Formula
   homepage "https://gtk-gnutella.sourceforge.io"
   url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.2.2/gtk-gnutella-1.2.2.tar.xz"
   sha256 "95a5d86878f6599df649b95db126bd72b9e0cecadb96f41acf8fdcc619771eb6"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_monterey: "7ee623e147c60e1b63884efc6c896eb8d96f3aa7e6efd2b3420ccc8e62c3a970"
