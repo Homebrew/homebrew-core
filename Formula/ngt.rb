@@ -11,12 +11,12 @@ class Ngt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3ff1994baec3cdbd93629c55fdb845d81183aaef04f4f6907279e971f92a0216"
-    sha256 cellar: :any,                 arm64_big_sur:  "17935d6f93036acc9c2075e5e8ca648519610e2c5ffd67fc1b9a2fcadaa36a21"
-    sha256 cellar: :any,                 monterey:       "8dd1daa419c8e77966807ffda9fd4de781dba35ea1aad1566d0b83f0d8145628"
-    sha256 cellar: :any,                 big_sur:        "507100b0f640aeff2016fc2f2dd0472d72583e6bc29c88f5beb986c21604cfea"
-    sha256 cellar: :any,                 catalina:       "89c5bab2de745a7b2b448cdee35b7d095eaa48d2409cfa75cef32b75b7aee800"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b28c3b33efca116dfff5997aee40ee84185f2f985bc63f76537c69a831376bfb"
+    sha256 cellar: :any,                 arm64_monterey: "319e1a5f01d84a1ab3b530970c6a243560667fc484fb63570aee8fcca0e28421"
+    sha256 cellar: :any,                 arm64_big_sur:  "ace13556a5334a255eab6c632b5a2323847ceb112b27c7c0e712e26f3df20536"
+    sha256 cellar: :any,                 monterey:       "2e16c8d92bbb5ba21a510c25498a02386afe6689ad2df30d26f213115f3f065f"
+    sha256 cellar: :any,                 big_sur:        "4490d0e160f4a326679e62dc5e0459fce3c7f6f4c2f29131bbb36704ff892f11"
+    sha256 cellar: :any,                 catalina:       "6b8d4bacacf99a24b722b50c790e58e6451169c92cefd10ada65a6c06fc19fef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ef908d4dc4d3dfc124cab68a31619469b97b3bbebfc14a14e5a88793c7c8523"
   end
 
   depends_on "cmake" => :build
