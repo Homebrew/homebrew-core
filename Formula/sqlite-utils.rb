@@ -2,8 +2,8 @@ class SqliteUtils < Formula
   include Language::Python::Virtualenv
   desc "CLI utility for manipulating SQLite databases"
   homepage "https://sqlite-utils.datasette.io/"
-  url "https://files.pythonhosted.org/packages/9e/47/62ee3582da24a2a910e6384fca0966f9783d1514658161fc25e2bf30eec1/sqlite-utils-3.24.tar.gz"
-  sha256 "d1b92f8752fe1eac87e7f18a6b0e09f8e3c9ff247cf36260588e2f047eafd253"
+  url "https://files.pythonhosted.org/packages/e8/a7/303f09589b916e0ad96906aea5f85311d520514212d364ea1fad0db3de60/sqlite-utils-3.25.tar.gz"
+  sha256 "38a970b97c17194d9605ab84df749802e1f3bcf06135dc180779d0a39576b142"
   license "Apache-2.0"
 
   bottle do
@@ -20,8 +20,8 @@ class SqliteUtils < Formula
   depends_on "six"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
-    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
+    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
+    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
   end
 
   resource "click-default-group" do
