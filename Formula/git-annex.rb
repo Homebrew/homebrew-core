@@ -16,6 +16,7 @@ class GitAnnex < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "llvm@12" => :build if Hardware::CPU.arm?
   depends_on "pkg-config" => :build
   depends_on "gsasl"
   depends_on "libmagic"
@@ -30,12 +31,10 @@ class GitAnnex < Formula
     # ghc: could not execute: llc
     # FIXME: This shouldn't be needed since we wrap `ghc` in an env script on ARM.
     if Hardware::CPU.arm?
-      llvm = Formula["ghc"].deps
-                           .find { |d| d.name.match?(/^llvm(@\d+)?$/) }
-                           .to_formula
-
+      llvm = Formula["llvm@12"]
       args << "--extra-prog-path=#{llvm.opt_bin}"
       args << "--verbose=3"
+      args << "--ghc-option=-fllvm"
 
       ENV["LLC"] = (llvm.opt_bin/"llc").to_s
       ENV["OPT"] = (llvm.opt_bin/"opt").to_s
