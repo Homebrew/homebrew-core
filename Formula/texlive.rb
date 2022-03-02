@@ -185,7 +185,7 @@ class Texlive < Formula
     sha256 "365d6294dfbd37ebc51def8b65b81eb79b3934ecbc95a2ec2d4d827efe6a922b"
   end
 
-  resource "LWP::Mediatypes" do
+  resource "LWP::MediaTypes" do
     url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-MediaTypes-6.04.tar.gz"
     sha256 "8f1bca12dab16a1c2a7c03a49c5e58cce41a6fec9519f0aadfba8dad997919d9"
   end
@@ -220,7 +220,7 @@ class Texlive < Formula
     sha256 "e2f6a4029a6a242d50054044f1fb86770b9b5cc4daeb1a967f91ffb42716a8c5"
   end
 
-  resource "Font::Metrics" do
+  resource "Font::AFM" do
     url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Font-AFM-1.20.tar.gz"
     sha256 "32671166da32596a0f6baacd0c1233825a60acaf25805d79c81a3f18d6088bc1"
   end
@@ -275,7 +275,7 @@ class Texlive < Formula
     sha256 "7daa8c7eaff4005501c3431c8bf478d58bbee7b836f863581aa14afe1b4b6227"
   end
 
-  resource "HTML::Server::Simple" do
+  resource "HTTP::Server::Simple" do
     url "https://cpan.metacpan.org/authors/id/B/BP/BPS/HTTP-Server-Simple-0.52.tar.gz"
     sha256 "d8939fa4f12bd6b8c043537fd0bf96b055ac3686b9cdd9fa773dca6ae679cb4c"
   end
