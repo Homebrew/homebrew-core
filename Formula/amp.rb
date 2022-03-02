@@ -8,13 +8,12 @@ class Amp < Formula
   head "https://github.com/jmacdonald/amp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a16ac20a15f1ff7716824be467f4980b0e3ab1f99326539d9a8b086eece946bb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f001a886b5ea456bc925ae37ef45c6f5ae70ef8506ae576fe3f831e78f2ecbcb"
-    sha256 cellar: :any_skip_relocation, monterey:       "08fbf3e6231fec7cafca9fcaa85e498276b12a5866bb4f918384b551a704599e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "db4b6bdf3468476c2f2b6696f755c05b2471f6d09bc47bf783fbd6c65b1b1aac"
-    sha256 cellar: :any_skip_relocation, catalina:       "6b886491460ff6245f9f6ecd22d0a856f51afbd06ec7adf13e2c8be974693656"
-    sha256 cellar: :any_skip_relocation, mojave:         "8d11d70c1a7ae6bb4cf3c4460ad93a303a7ec4bdc63166ce0796f4025c05d517"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c6bbda9b197a6d0e83923d15d82cee7e0f72cd5d7416dc32dd3bd993c8a8fc4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c99dae746f17d7d8e4143e4443ebf9ad1781e27d3061beb919c466f3157e50e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7b4c3f1b6f8141a900f33c21ecf4e5429cd2e1fc470ed3cbceb487e5e3ce9bf1"
+    sha256 cellar: :any_skip_relocation, monterey:       "72d80518bdae9da8407b87dc47c7feb070b48c5a840e27cd828d69379c717860"
+    sha256 cellar: :any_skip_relocation, big_sur:        "52bb7fbf00bfa3f0b32c9808d3ebbe640b365d722cff6765c12b7d942feb93af"
+    sha256 cellar: :any_skip_relocation, catalina:       "f16cea1bd35d231e567117c12d58798de1eeac4d5e3c36934d92ca00bbf9e1f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fcbee7b32cbec24b48e2964500b7162ff5808db7311b0ad3f3acbf9c9160c8bd"
   end
 
   depends_on "cmake" => :build
