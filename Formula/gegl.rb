@@ -1,8 +1,8 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "https://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.34.tar.xz"
-  sha256 "ef63f0bca5b431c6119addd834ca7fbb507c900c4861c57b3667b6f4ccfcaaaa"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.36.tar.xz"
+  sha256 "6fd58a0cdcc7702258adaeffb573a389228ae8f0eff47578efda2309b61b2ca6"
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://gitlab.gnome.org/GNOME/gegl.git", branch: "master"
 
@@ -24,7 +24,7 @@ class Gegl < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "babl"
   depends_on "gettext"
   depends_on "glib"
@@ -39,12 +39,6 @@ class Gegl < Formula
   conflicts_with "coreutils", because: "both install `gcut` binaries"
 
   def install
-    # Generate .cl.h files from .cl files before proceeding with the rest of the build
-    # Upstream bug at https://gitlab.gnome.org/GNOME/gegl/-/issues/288
-    Dir.glob("opencl/*.cl").each do |f|
-      system Formula["python@3.9"].opt_bin/"python3", "opencl/cltostring.py", f, "#{f}.h"
-    end
-
     args = std_meson_args + %w[
       -Ddocs=false
       -Dcairo=disabled
