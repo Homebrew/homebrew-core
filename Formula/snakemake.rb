@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/7d/7e/7f50dde70a3da362f06816075ca010143c32b01bad99a0c97babc924ccc7/snakemake-7.0.1.tar.gz"
-  sha256 "800aa22f09f32df16400a933a3526b0df392f14555476159625feb030479522b"
+  url "https://files.pythonhosted.org/packages/ca/a3/f6b2826767491b505498b18b0b8f2a8a9e01c06570769a0f07b451f20653/snakemake-7.0.2.tar.gz"
+  sha256 "d988ea1914203452dc93200c0d54f283f806b109934534cc4448f9359fa185c8"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -201,8 +201,8 @@ class Snakemake < Formula
   end
 
   resource "yte" do
-    url "https://files.pythonhosted.org/packages/5a/f1/282fd019eeb16916210fd4ca37e89602e30db3397f6569387f405b30dfed/yte-1.0.0.tar.gz"
-    sha256 "4c94a0223f04e4661a41824d7fba087340b8ac87397f6dc385ee34499832ed5c"
+    url "https://files.pythonhosted.org/packages/8b/c7/3f881643f360d74c745c548aba23694bc4a57d3be688825aa7c0d995c9b3/yte-1.2.0.tar.gz"
+    sha256 "0368f220bb96fb3290bbd5a90e3d218af483d0d3e5abf9b08b24e29b150f151e"
   end
 
   def install
