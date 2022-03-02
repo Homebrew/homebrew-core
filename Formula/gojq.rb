@@ -8,12 +8,12 @@ class Gojq < Formula
   head "https://github.com/itchyny/gojq.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "caf7bede815438e456d70e06320a1978446458eb5d04d7be58774a18819cfb18"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "caf7bede815438e456d70e06320a1978446458eb5d04d7be58774a18819cfb18"
-    sha256 cellar: :any_skip_relocation, monterey:       "b54989ae9bb2edc65694af274051d280cc2b334cd3a1f67f945b2293163d210c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b54989ae9bb2edc65694af274051d280cc2b334cd3a1f67f945b2293163d210c"
-    sha256 cellar: :any_skip_relocation, catalina:       "b54989ae9bb2edc65694af274051d280cc2b334cd3a1f67f945b2293163d210c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b9aa91a2f8dd3cd1e9d7ea0aac5364d2292ff167f75a8dbabba30a54720be09"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "af1d459d464bba79cf965bb29db184411efbf7eab1e2cd715d1709bc7d7bf318"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af1d459d464bba79cf965bb29db184411efbf7eab1e2cd715d1709bc7d7bf318"
+    sha256 cellar: :any_skip_relocation, monterey:       "f61144c783de64cdea1ec7b4a1a922aa9f5cab54a38fa1499dba091a851475ff"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f61144c783de64cdea1ec7b4a1a922aa9f5cab54a38fa1499dba091a851475ff"
+    sha256 cellar: :any_skip_relocation, catalina:       "f61144c783de64cdea1ec7b4a1a922aa9f5cab54a38fa1499dba091a851475ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d39040111299d994ef8af0a5c1fd7fe422def13be042dff3ef63234fc9b9b335"
   end
 
   depends_on "go" => :build
