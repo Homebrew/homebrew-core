@@ -4,8 +4,8 @@ class Texlive < Formula
 
   desc "Free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
-  url "https://github.com/TeX-Live/texlive-source/archive/refs/tags/svn58837.tar.gz"
-  sha256 "0afa6919e44675b7afe0fa45344747afef07b6ee98eeb14ff6a2ef78f458fc12"
+  url "https://github.com/TeX-Live/texlive-source/archive/refs/tags/svn62297.tar.gz"
+  sha256 "bbb4c939fb1f6f6ca13531305cada7fd246dc9f67fca2d0e48f665be29abaee2"
   license :public_domain
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
