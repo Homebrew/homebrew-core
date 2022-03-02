@@ -8,12 +8,12 @@ class KertishDfs < Formula
   head "https://github.com/freakmaxi/kertish-dfs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf7f947642a17c024dafd70f2f291adc818466e71d5596677ea19d87f0c41fa6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a9015a0c6be0e921eb0470d04812a17c894d294cffed43e78b4e7a2b7080271"
-    sha256 cellar: :any_skip_relocation, monterey:       "b1dc66436cc1efb40b9aca2aaf0843a1bd07c019add74629b424a16b9e54020f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f9bcc0055874504298902d5cb6b5e227c0b38ad7ae43ad7862e4bb44a2cfd9d7"
-    sha256 cellar: :any_skip_relocation, catalina:       "00518fa80ad894cd6b0bc1b847a1b15fc25ba6cc98e8880c9d16a0d11a9f1a1e"
-    sha256 cellar: :any_skip_relocation, mojave:         "1286f6d85148c7fc94ba9a1987fe202f5fe4b24295fb164884c950a2b46adeb4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d3f56111dd712f97ff71450eb7f09577e5dc0108482de91064c57fc312609b4e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e13c905be95c3f1d28bda7568811d2824e1125126f7a6f99a40aa937994a4fc8"
+    sha256 cellar: :any_skip_relocation, monterey:       "08510e2f6ab40696f456d604a7d79372dfd585cc41c0b3703f2c09c7432a1483"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c9abefe4002333c21d00fe422d4d22b79fb665f923539e92e9da243eecaa0236"
+    sha256 cellar: :any_skip_relocation, catalina:       "9faebdf52cff91734a78c929bb51cd460fffd6f8334c5e42c6db8ed8b337b023"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa06124d7915154e90dcd81cd7a25888fa2baaecae519cc7cd8fed706f7b4fca"
   end
 
   depends_on "go" => :build
