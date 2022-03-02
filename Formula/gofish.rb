@@ -2,8 +2,8 @@ class Gofish < Formula
   desc "Cross-platform systems package manager"
   homepage "https://gofi.sh"
   url "https://github.com/fishworks/gofish.git",
-      tag:      "v0.14.0",
-      revision: "313faece77b4fe5645def5fe2da996dd7c20efd5"
+      tag:      "v0.15.0",
+      revision: "691768d1a77f2adb3e57271cddf6fea31cc6dadf"
   license "Apache-2.0"
 
   bottle do
