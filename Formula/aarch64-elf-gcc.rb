@@ -10,6 +10,15 @@ class Aarch64ElfGcc < Formula
     formula "gcc"
   end
 
+  bottle do
+    sha256 arm64_monterey: "92474692b6ef287cb63ec41a10514aeaad71affbf192407ee29855c170eda306"
+    sha256 arm64_big_sur:  "2a4d21fcaea6782bd26d412d678708360233295cd7571ac322c6d9e214eaf7e4"
+    sha256 monterey:       "a98058438dfd98f239883fdc781ecf7cd2be11a52664e4ce2a6c21680e9f693b"
+    sha256 big_sur:        "d7c2e86dddb3b3f8eeee5eb1c779d799f81f96876aa8fcb02bbfdc19087eeb5b"
+    sha256 catalina:       "0303660a6f129a103c50aa5e6b3953ea9ede1b30730b6c2d908665bce6aa68b8"
+    sha256 x86_64_linux:   "189149b0bf9d4070e762a1ffc6270a15e10183b0496ffcb0253b50126f8bc99d"
+  end
+
   depends_on "aarch64-elf-binutils"
   depends_on "gmp"
   depends_on "libmpc"
