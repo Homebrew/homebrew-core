@@ -5,6 +5,7 @@ class Llvm < Formula
   sha256 "326335a830f2e32d06d0a36393b5455d17dc73e0bd1211065227ee014f92cbf8"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -133,10 +134,6 @@ class Llvm < Formula
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
-
-      # Apple does this for the components of LLVM they ship
-      args << "-DLLVM_INSTALL_BINUTILS_SYMLINKS=ON"
-      args << "-DLLVM_INSTALL_CCTOOLS_SYMLINKS=ON"
 
       # Skip the PGO build on HEAD installs or non-bottle source builds
       build.stable? && build.bottle?
