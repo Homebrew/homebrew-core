@@ -4,7 +4,7 @@ class Amp < Formula
   url "https://github.com/jmacdonald/amp/archive/0.6.2.tar.gz"
   sha256 "9279efcecdb743b8987fbedf281f569d84eaf42a0eee556c3447f3dc9c9dfe3b"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/jmacdonald/amp.git", branch: "main"
 
   bottle do
@@ -23,7 +23,7 @@ class Amp < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "python@3.9" => :build
+    depends_on "python@3.10" => :build
     depends_on "libxcb"
   end
 
