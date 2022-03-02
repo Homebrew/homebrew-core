@@ -1,8 +1,8 @@
 class Goredo < Formula
   desc "Go implementation of djb's redo, a Makefile replacement that sucks less"
   homepage "http://www.goredo.cypherpunks.ru/"
-  url "http://www.goredo.cypherpunks.ru/download/goredo-1.23.0.tar.zst"
-  sha256 "9ff516c79ee3db0a452362819bc3df60e237c7540d62db9b4af2c6dbe775546b"
+  url "http://www.goredo.cypherpunks.ru/download/goredo-1.24.0.tar.zst"
+  sha256 "656e96d9f3efa45f035c2dd096fa91763854dbf1a09a37409c25ffc25cbc358f"
   license "GPL-3.0-only"
 
   livecheck do
