@@ -12,12 +12,12 @@ class Tesseract < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "8f4ad2b8fe6f083eccbb782c6be2cd554893f872b08375eb4eede8757b06b614"
-    sha256 cellar: :any,                 arm64_big_sur:  "be55b6ba351573c84c2e58452fe59a35e24d6a6c5bca7ff30a1e1f3e5d0322c1"
-    sha256 cellar: :any,                 monterey:       "457870267d040396ccc855e9c74fc4f59620d91edc98daf1f5ffba7d8bfb9d67"
-    sha256 cellar: :any,                 big_sur:        "401f3acf9ef492bee47cc0d3ba640845372e264f5f6d9e901fe986d846fd5e89"
-    sha256 cellar: :any,                 catalina:       "b681741918afbb2a13a3ad37e2f6e20fe81bd196ba0a9f281d9cb49793d65081"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3da532d7591ff535c7b54a9005df5a5bbde94df324a9283187a581a426af1df"
+    sha256 cellar: :any,                 arm64_monterey: "9ccac58d048015f4a413b77e101efb3dd887705013c8171cff4f1de291dd56d3"
+    sha256 cellar: :any,                 arm64_big_sur:  "84bd6cc90719599508c9519f51dbf991f6ce55fbdfa4ad3c1dce6af1f62759e2"
+    sha256 cellar: :any,                 monterey:       "8e95648b19daa92b54b9da27c7fdff4b1073395abb0e723117b1ff7766b16f02"
+    sha256 cellar: :any,                 big_sur:        "68816323f1e265054a84cdb323026756e9402840cb2ccdcbe91ca19089cc77c5"
+    sha256 cellar: :any,                 catalina:       "4410c76a07b5dfb8b5af20ee8b2622d29a0ffeed1d41141ef7722d1b2365f6c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bc3bcc900da9ac8f0dfa3f7223e809b6b68c9d481aa48c62b35c1de70407d95"
   end
 
   depends_on "autoconf" => :build
