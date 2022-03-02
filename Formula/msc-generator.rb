@@ -1,8 +1,8 @@
 class MscGenerator < Formula
   desc "Draws signalling charts from textual description"
   homepage "https://sourceforge.net/p/msc-generator"
-  url "https://downloads.sourceforge.net/project/msc-generator/msc-generator/v7.x/msc-generator-7.1.tar.gz"
-  sha256 "cecd1d3ef2dd2018eb95ee1ece5dea37f5f2f7811da2fe6f4a6884898c1eb489"
+  url "https://downloads.sourceforge.net/project/msc-generator/msc-generator/v7.x/msc-generator-7.2.tar.gz"
+  sha256 "40c7a45e1bce96bc93440b604eb0fd2b7894985fa0a723bf6483565bef026a2e"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -26,8 +26,13 @@ class MscGenerator < Formula
 
   fails_with :clang # needs std::range
 
+  fails_with :gcc do
+    version "9"
+    cause "needs std::range"
+  end
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--disable-font-checks"
     # Dance around upstream trying to build everything in doc/ which we don't do for now
     # system "make", "install"
     system "make", "-C", "src", "install"
