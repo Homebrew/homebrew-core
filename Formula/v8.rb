@@ -37,13 +37,13 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.8.177.9/DEPS#43
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.9.115.8/DEPS#43
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "fc295f3ac7ca4fe7acc6cb5fb052d22909ef3a8f"
+        revision: "80a40b07305373617eba2d5878d353532af77da3"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.8.177.9/DEPS#84
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.9.115.8/DEPS#84
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
         revision: "7f36dbc19d31e2aad895c60261ca8f726442bfbb"
@@ -51,17 +51,17 @@ class V8 < Formula
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "9cfc74504f0c5093fe6799e70f15bded2423b5b4"
+        revision: "f3be6e847f004923466a350274aae3fbf048c19c"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "4c5650f68866e3c2e60361d5c4c95c6f335fb64b"
+        revision: "c9643a2e45ed0cb18b8409c62994be7c6e66dc1b"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "edf883ad2db9c723b058a6a17a146d68d6343143"
+        revision: "b9f6d0a5c5375dc4643f35360d257dba37c1d3e1"
   end
 
   resource "v8/third_party/jinja2" do
@@ -76,7 +76,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "efd9399ae01364926be2a38946127fdf463480db"
+        revision: "fc5cfd78a357d5bb7735a58f383634faaafe706a"
   end
 
   def install
