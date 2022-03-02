@@ -1,8 +1,9 @@
 class KertishDfs < Formula
   desc "Kertish FileSystem and Cluster Administration CLI"
   homepage "https://github.com/freakmaxi/kertish-dfs"
-  url "https://github.com/freakmaxi/kertish-dfs/archive/v21.2.0066.tar.gz"
-  sha256 "f76db2e933c1a3ad952f750d08712ca5ec664fc7e3e9acdf6fac98349e9b170d"
+  url "https://github.com/freakmaxi/kertish-dfs/archive/v22.2.0147.tar.gz"
+  version "22.2.0147-532592"
+  sha256 "a13d55b3f48ed0e16b1add3a44587072b22d21a9f95c444893dbf92e19ee5cee"
   license "GPL-3.0-only"
   head "https://github.com/freakmaxi/kertish-dfs.git", branch: "master"
 
