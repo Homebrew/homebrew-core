@@ -41,6 +41,7 @@ class GitlabRunner < Formula
     working_dir ENV["HOME"]
     keep_alive true
     macos_legacy_timers true
+    process_type :interactive
   end
 
   test do
