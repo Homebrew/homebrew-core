@@ -7,12 +7,12 @@ class Proj < Formula
   head "https://github.com/OSGeo/proj.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "62cb9712728f6564c3a16dbc0ff0039018190140006a116d859f33d74b25ae97"
-    sha256 arm64_big_sur:  "14de62fb7c0938043e569eeb2bfe0a5f9bc210a1e01cc0fdc6cd5bd1a39fd582"
-    sha256 monterey:       "6e01afdab9239b4acade4884b58b0e7e27621caecdfb8d8f21edc7d77f8c0d42"
-    sha256 big_sur:        "bf91fd3fb71763f796699e3cf8dcfc477c31cc6f9fd579fec6a489d82c7fbcf0"
-    sha256 catalina:       "f6af4ae5830d82a9c9c4aa6f36d91a8949bd025b46a3d778c3ad8a7cdf63c854"
-    sha256 x86_64_linux:   "402f0a4d03f0fc03f8ee6faa81dd13bf7e207d3df58de2790c9e51e950ac1725"
+    sha256 arm64_monterey: "41cda6ba8300463d30e7779df5733439c6bfbec75ea7444860e2077932a021f8"
+    sha256 arm64_big_sur:  "8866b82dd9abc74cd4b641384701ef0667a11980a5b9fc8e74387bed8bd61b9d"
+    sha256 monterey:       "8a3e638910eedcf4048f0dad2a7b2162436a3fc4a69ce7cc97976030cdfbc124"
+    sha256 big_sur:        "69b22cef6b1b22c15243b43f63cc40b53902c192a6f2fc9edfe105b61f7e8b39"
+    sha256 catalina:       "e3ff7034a575136fb142157af00dd1fcc0972ca76be08a9a09dadda173744564"
+    sha256 x86_64_linux:   "1e9845b299ed00a4fc564372a7a8a7586897ea6aa8cce0a0d182ee0dbe775d38"
   end
 
   depends_on "cmake" => :build
