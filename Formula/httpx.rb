@@ -7,12 +7,12 @@ class Httpx < Formula
   head "https://github.com/projectdiscovery/httpx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "59f126eb20dd8f3fb93a7e13d0f87d0dcaab6e1c6abd75e383a351710732dde7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6ef6bc73fd9616054bff98f4c8e89c046a532a6e3af42e16f2b67058194029b4"
-    sha256 cellar: :any_skip_relocation, monterey:       "147b63b50ec008943f52fd194fd96c662be06f62ce39708b23191989f96678f8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f8cdee91d1fe7dab1920d5c74ec1aaa9b4563af112da17b364085c62b7147a17"
-    sha256 cellar: :any_skip_relocation, catalina:       "685dbf1fdcc9ddc0462478ade05aab75ddb114a000002a58f258dc0116a082e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9568b8ea796354bb94a995a06d11dba554770931342ae1b792c5a4b24086117"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "98851efed9baef9f0adeb339b6f9308e2f7f11bc9e6b702c22938b5e5f99fec7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e79859079b920f030243af6f2d9332895d7745879fd3963ab262ed09f44ea9f4"
+    sha256 cellar: :any_skip_relocation, monterey:       "4cd92a1f94d8befcf8cf84fd76fc3ee5e950b7c6ad0997f4071b78b73a5f4837"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fcc78ce8d87134dd5d2381e5a3d87c076003f76b8d6b878cd20d9fc93888fdd9"
+    sha256 cellar: :any_skip_relocation, catalina:       "faf1d4f61ca079acc894be34a1c0ad5943a76678bdeb24e473bf4a624486b7c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c65ceaa745489f84ae7d98883085679052068d0702c6fbb70e6e86722893be3"
   end
 
   depends_on "go" => :build
