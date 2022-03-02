@@ -7,13 +7,12 @@ class Gofish < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "08d879c6dd357bd178ffb161803bd0e6626a7bc75dff054b535a4336aeac4ad2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d92c1849719ea381570b7c62067ec452eaf6fc9bfe5d26a948012ce226f1c9d8"
-    sha256 cellar: :any_skip_relocation, monterey:       "09cee8ca50085af3d6892697f3cf0598f47eec3470e3741881a527e5e438322d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f860c600c7319d12ab83f32ddb9b4ddfb4217af80a49a3e77ee0b5db7901719d"
-    sha256 cellar: :any_skip_relocation, catalina:       "3f039b3d2118be9f07571c23ebca418bbdfed67cd30a775651fa6af142be8665"
-    sha256 cellar: :any_skip_relocation, mojave:         "a80b48b522048d266fa8d265d7901cb249fa15e43149deb3bfe24917a746edce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "757fbd2b35c402ecaa216f7a0c566b10a632483e62718c39204c22d5d7b7b467"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "945720778ed876253c3c8f11ded7a7e00cc5f67f053b5a58a0bad9c441e0de13"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d6f1b84bfba814847440e1b0e4e91b6cc884a7326a97e992ec9e31d198894e5a"
+    sha256 cellar: :any_skip_relocation, monterey:       "52a8ba4df8e73f678998ce22aae82547a1f376dc72cbccb6f8f8c95fc0ae4a6a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "eb495999ef2e9e147d6f852992aa18643c1d2eb5372ddf5db9fed4ca2b870acd"
+    sha256 cellar: :any_skip_relocation, catalina:       "8d0f1db0582aad9e2759ca39e1cb472dc6d819a915601cef48f6cc87ad7ba6ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "181a39788ace1382d777946a38893160482dd514a05d576c167a2f5c73630b02"
   end
 
   depends_on "go" => :build
