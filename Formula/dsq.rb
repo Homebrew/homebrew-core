@@ -1,8 +1,8 @@
 class Dsq < Formula
   desc "CLI tool for running SQL queries against JSON, CSV, Excel, Parquet, and more"
   homepage "https://github.com/multiprocessio/dsq"
-  url "https://github.com/multiprocessio/dsq/archive/refs/tags/0.4.0.tar.gz"
-  sha256 "2875f659816e824f4b064f3097f6a0ac3d2b72f44a331b9ace5118f4b16cbbd5"
+  url "https://github.com/multiprocessio/dsq/archive/refs/tags/0.5.0.tar.gz"
+  sha256 "bc28ecb1cc78c9446d67d9ec3e4333691802adcf3bbfd430ba3c548c5415af40"
   license "Apache-2.0"
   head "https://github.com/multiprocessio/dsq.git", branch: "main"
 
