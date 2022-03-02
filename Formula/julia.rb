@@ -37,6 +37,13 @@ class Julia < Formula
       url "https://raw.githubusercontent.com/archlinux/svntogit-community/df73abb8162e31e6541d2143d1db5f9f1d70b632/trunk/63303980.patch"
       sha256 "ce9cd140c3bc39987d60340bf365d6238e79cf4d5385494272c49c64af22ef78"
     end
+
+    # Fix compatibility with LibGit2 1.2.0+
+    # https://github.com/JuliaLang/julia/pull/43250
+    patch do
+      url "https://github.com/JuliaLang/julia/commit/4d7fc8465ed9eb820893235a6ff3d40274b643a7.patch?full_index=1"
+      sha256 "3a34a2cd553929c2aee74aba04c8e42ccb896f9d491fb677537cd4bca9ba7caa"
+    end
   end
 
   bottle do
@@ -89,22 +96,11 @@ class Julia < Formula
     sha256 "710587dd88c7698dc5cdf47a1a50f6f144b584b7d9ffb85fac3f5f79c65fce11"
   end
 
-  # Fix compatibility with LibGit2 1.2.0+
-  # https://github.com/JuliaLang/julia/pull/43250
-  patch do
-    url "https://github.com/JuliaLang/julia/commit/4d7fc8465ed9eb820893235a6ff3d40274b643a7.patch?full_index=1"
-    sha256 "3a34a2cd553929c2aee74aba04c8e42ccb896f9d491fb677537cd4bca9ba7caa"
-  end
-
   # Fix compatibility with LibGit2 1.4.0+
   patch do
     url "https://raw.githubusercontent.com/archlinux/svntogit-community/cd813138d8a6fd496d0972a033d55028613be06d/trunk/julia-libgit-1.4.patch"
     sha256 "cfe498a090d0026b92f9db4ed65ac3818c2efa5ec83bcefed728d27abff73081"
   end
-
-  # Remove broken tests running in `test` block. Reported at:
-  # https://github.com/JuliaLang/julia/issues/43004
-  patch :DATA
 
   def install
     # Fix segfaults with Curl 7.81. Remove when this is resolved upstream.
@@ -317,19 +313,3 @@ class Julia < Formula
     system bin/"julia", *args, "library_test.jl"
   end
 end
-
-__END__
-diff --git a/test/core.jl b/test/core.jl
-index 74edc7c..0d6eaef 100644
---- a/test/core.jl
-+++ b/test/core.jl
-@@ -3516,9 +3516,6 @@ end
- @test_throws TypeError Union{Int, 1}
-
- @test_throws ErrorException Vararg{Any,-2}
--@test_throws ErrorException Vararg{Int, N} where N<:T where T
--@test_throws ErrorException Vararg{Int, N} where N<:Integer
--@test_throws ErrorException Vararg{Int, N} where N>:Integer
-
- mutable struct FooNTuple{N}
-     z::Tuple{Integer, Vararg{Int, N}}
