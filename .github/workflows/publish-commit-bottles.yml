@@ -9,13 +9,19 @@ on:
       args:
         description: "Extra arguments to `brew pr-pull`"
         default: ""
+      self_hosted:
+        description: "Whether to run the upload job on a self-hosted runner (default: false)"
+        required: false
 
 env:
-  HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
+  GNUPGHOME: /tmp/gnupghome
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
 
 jobs:
   upload:
-    runs-on: ubuntu-latest
+    runs-on: ${{github.event.inputs.self_hosted == 'true' && 'linux-self-hosted-1' || 'ubuntu-latest'}}
+    container: ${{github.event.inputs.self_hosted == 'true' && fromJson('{"image":"ghcr.io/homebrew/ubuntu16.04:master","options":"--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"}') || ''}}
     steps:
       - name: Post comment once started
         uses: Homebrew/actions/post-comment@master
@@ -29,15 +35,19 @@ jobs:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
+        with:
+          test-bot: false
 
       # Workaround until the `cache` action uses the changes from
       # https://github.com/actions/toolkit/pull/580.
       - name: Unlink workspace
+        if: github.event.inputs.self_hosted != 'true'
         run: |
           mv "${GITHUB_WORKSPACE}" "${GITHUB_WORKSPACE}-link"
           mkdir "${GITHUB_WORKSPACE}"
 
       - name: Cache gems
+        if: github.event.inputs.self_hosted != 'true'
         uses: actions/cache@v2
         with:
           path: ${{steps.set-up-homebrew.outputs.gems-path}}
@@ -47,11 +57,13 @@ jobs:
       # Workaround until the `cache` action uses the changes from
       # https://github.com/actions/toolkit/pull/580.
       - name: Re-link workspace
+        if: github.event.inputs.self_hosted != 'true'
         run: |
           rmdir "${GITHUB_WORKSPACE}"
           mv "${GITHUB_WORKSPACE}-link" "${GITHUB_WORKSPACE}"
 
       - name: Install gems
+        if: github.event.inputs.self_hosted != 'true'
         run: brew install-bundler-gems
 
       - name: Configure Git user
@@ -75,6 +87,7 @@ jobs:
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          directory: /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
         env:
           GIT_COMMITTER_NAME: BrewTestBot
           GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
@@ -101,6 +114,7 @@ jobs:
       # Workaround until the `cache` action uses the changes from
       # https://github.com/actions/toolkit/pull/580.
       - name: Unlink workspace
+        if: github.event.inputs.self_hosted != 'true'
         run: |
           rm "${GITHUB_WORKSPACE}"
           mkdir "${GITHUB_WORKSPACE}"
