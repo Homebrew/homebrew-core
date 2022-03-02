@@ -1,8 +1,8 @@
 class PinboardNotesBackup < Formula
   desc "Efficiently back up the notes you've saved to Pinboard"
   homepage "https://github.com/bdesham/pinboard-notes-backup"
-  url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.5.3.tar.gz"
-  sha256 "75491e082812493096b68de0031f71a21b8e9e5e8b981b4bc648bb520c5432dc"
+  url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.5.4.tar.gz"
+  sha256 "c2a239f8f5d7acba04c8a5bdf6e0f337e547f99c29d37db638d915712b97505d"
   license "GPL-3.0-or-later"
   head "https://github.com/bdesham/pinboard-notes-backup.git", branch: "main"
 
@@ -14,7 +14,7 @@ class PinboardNotesBackup < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
 
   uses_from_macos "zlib"
 
