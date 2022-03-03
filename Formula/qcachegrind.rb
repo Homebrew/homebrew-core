@@ -15,6 +15,7 @@ class Qcachegrind < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "8619763947eaf693c010150aad23ab4c1b1e546cec7948c34b126e89e48db432"
     sha256 cellar: :any,                 arm64_big_sur:  "8619763947eaf693c010150aad23ab4c1b1e546cec7948c34b126e89e48db432"
+    sha256 cellar: :any,                 monterey:       "8c1241689b6173bc6cae6a123b1db86328857bfd736b0e13fa06dd833de5f301"
     sha256 cellar: :any,                 big_sur:        "097a4341a2588f34c710791ea3e5135d45a9fe77745922f2ba566fa475f2dc33"
     sha256 cellar: :any,                 catalina:       "df370cd35ed1fe7a168a3d8937e69f5953b43c5f8a0f459697315649ee19c04a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a20772bb80ac52d434dd54acf9c364dd52dd063b51c0b62911d29b2d927f4e1a"
