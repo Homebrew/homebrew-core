@@ -7,6 +7,7 @@ class Texlive < Formula
   url "https://github.com/TeX-Live/texlive-source/archive/refs/tags/svn58837.tar.gz"
   sha256 "0afa6919e44675b7afe0fa45344747afef07b6ee98eeb14ff6a2ef78f458fc12"
   license :public_domain
+  revision 1
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -116,13 +117,13 @@ class Texlive < Formula
   end
 
   resource "Try::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz"
-    sha256 "da5bd0d5c903519bbf10bb9ba0cb7bcac0563882bcfe4503aee3fb143eddef6b"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.31.tar.gz"
+    sha256 "3300d31d8a4075b26d8f46ce864a1d913e0e8467ceeba6655d5d2b2e206c11be"
   end
 
   resource "Path::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.118.tar.gz"
-    sha256 "32138d8d0f4c9c1a84d2a8f91bc5e913d37d8a7edefbb15a10961bfed560b0fd"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.122.tar.gz"
+    sha256 "4bc6f76d0548ccd8b38cb66291a885bf0de453d0167562c7b82e8861afdcfb7c"
   end
 
   resource "File::Copy::Recursive" do
@@ -141,8 +142,8 @@ class Texlive < Formula
   end
 
   resource "URI" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz"
-    sha256 "03e63ada499d2645c435a57551f041f3943970492baa3b3338246dab6f1fae0a"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.10.tar.gz"
+    sha256 "16325d5e308c7b7ab623d1bf944e1354c5f2245afcfadb8eed1e2cae9a0bd0b5"
   end
 
   resource "TimeDate" do
@@ -185,7 +186,7 @@ class Texlive < Formula
     sha256 "365d6294dfbd37ebc51def8b65b81eb79b3934ecbc95a2ec2d4d827efe6a922b"
   end
 
-  resource "LWP::Mediatypes" do
+  resource "LWP::MediaTypes" do
     url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-MediaTypes-6.04.tar.gz"
     sha256 "8f1bca12dab16a1c2a7c03a49c5e58cce41a6fec9519f0aadfba8dad997919d9"
   end
@@ -196,8 +197,8 @@ class Texlive < Formula
   end
 
   resource "HTTP::Request::Common" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.33.tar.gz"
-    sha256 "23b967f71b852cb209ec92a1af6bac89a141dff1650d69824d29a345c1eceef7"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.36.tar.gz"
+    sha256 "576a53b486af87db56261a36099776370c06f0087d179fc8c7bb803b48cddd76"
   end
 
   resource "HTML::Tagset" do
@@ -216,11 +217,11 @@ class Texlive < Formula
   end
 
   resource "File::Slurper" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/File-Slurper-0.012.tar.gz"
-    sha256 "4efb2ea416b110a1bda6f8133549cc6ea3676402e3caf7529fce0313250aa578"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/File-Slurper-0.013.tar.gz"
+    sha256 "e2f6a4029a6a242d50054044f1fb86770b9b5cc4daeb1a967f91ffb42716a8c5"
   end
 
-  resource "Font::Metrics" do
+  resource "Font::AFM" do
     url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Font-AFM-1.20.tar.gz"
     sha256 "32671166da32596a0f6baacd0c1233825a60acaf25805d79c81a3f18d6088bc1"
   end
@@ -241,8 +242,8 @@ class Texlive < Formula
   end
 
   resource "HTTP::Daemon" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.12.tar.gz"
-    sha256 "df47bed10c38670c780fd0116867d5fd4693604acde31ba63380dce04c4e1fa6"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.13.tar.gz"
+    sha256 "d184d1f3e51e690d60e4b00195aa69f679169c858f2aab419997c70892014516"
   end
 
   resource "HTTP::Negotiate" do
@@ -251,8 +252,8 @@ class Texlive < Formula
   end
 
   resource "Net::HTTP" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.21.tar.gz"
-    sha256 "375aa35b76be99f06464089174d66ac76f78ce83a5c92a907bbfab18b099eec4"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.22.tar.gz"
+    sha256 "62faf9a5b84235443fe18f780e69cecf057dea3de271d7d8a0ba72724458a1a2"
   end
 
   resource "WWW::RobotRules" do
@@ -261,13 +262,13 @@ class Texlive < Formula
   end
 
   resource "LWP" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.57.tar.gz"
-    sha256 "30c242359cb808f3fe2b115fb90712410557f0786ad74844f9801fd719bc42f8"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.61.tar.gz"
+    sha256 "2f69069bd0df0ee222e25d41093bcc42e58d0a45885fba400356454c25621a5f"
   end
 
   resource "CGI" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEEJO/CGI-4.53.tar.gz"
-    sha256 "c67e732f3c96bcb505405fd944f131fe5c57b46e5d02885c00714c452bf14e60"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEEJO/CGI-4.54.tar.gz"
+    sha256 "9608a044ae2e87cefae8e69b113e3828552ddaba0d596a02f9954c6ac17fa294"
   end
 
   resource "HTML::Form" do
@@ -275,29 +276,29 @@ class Texlive < Formula
     sha256 "7daa8c7eaff4005501c3431c8bf478d58bbee7b836f863581aa14afe1b4b6227"
   end
 
-  resource "HTML::Server::Simple" do
+  resource "HTTP::Server::Simple" do
     url "https://cpan.metacpan.org/authors/id/B/BP/BPS/HTTP-Server-Simple-0.52.tar.gz"
     sha256 "d8939fa4f12bd6b8c043537fd0bf96b055ac3686b9cdd9fa773dca6ae679cb4c"
   end
 
   resource "WWW::Mechanize" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-2.05.tar.gz"
-    sha256 "0c77284103e93d098fa8b277802b589cfd1df8c11a8968e5ecd377f863c21dd9"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-2.06.tar.gz"
+    sha256 "d97cd31e35fd1ff7078d3f568b62e3fe3911843a64d3c2d078eebd3ff9b8b38d"
   end
 
   resource "Mozilla::CA" do
-    url "https://cpan.metacpan.org/authors/id/A/AB/ABH/Mozilla-CA-20200520.tar.gz"
-    sha256 "b3ca0002310bf24a16c0d5920bdea97a2f46e77e7be3e7377e850d033387c726"
+    url "https://cpan.metacpan.org/authors/id/A/AB/ABH/Mozilla-CA-20211001.tar.gz"
+    sha256 "122c8900000a9d388aa8e44f911cab6c118fe8497417917a84a8ec183971b449"
   end
 
   resource "Net::SSLeay" do
-    url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.90.tar.gz"
-    sha256 "f8696cfaca98234679efeedc288a9398fcf77176f1f515dbc589ada7c650dc93"
+    url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.92.tar.gz"
+    sha256 "47c2f2b300f2e7162d71d699f633dd6a35b0625a00cbda8c50ac01144a9396a9"
   end
 
   resource "IO::Socket::SSL" do
-    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.072.tar.gz"
-    sha256 "b5bee81db3905a9069340a450a48e1e1b32dec4ede0064f5703bafb9a707b89d"
+    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.074.tar.gz"
+    sha256 "36486b6be49da4d029819cf7069a7b41ed48af0c87e23be0f8e6aba23d08a832"
   end
 
   resource "LWP::Protocol::https" do
@@ -311,8 +312,8 @@ class Texlive < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
-    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
+    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
+    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
   end
 
   def install
