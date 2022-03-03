@@ -13,6 +13,7 @@ class Gecode < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f3cdbbfb25adcd0da1e9c5c41f3e5dec376b11925637c32aa107804697587842"
     sha256 cellar: :any,                 arm64_big_sur:  "e0f6097e794cc4e9c329707cf95f23ff9dae359cae580f5dbb3024eb7d4d6053"
+    sha256 cellar: :any,                 monterey:       "95a66c471cd8e046619670b975b5d4e328577b3c8507f8bdae0f13d1fc4ffddc"
     sha256 cellar: :any,                 big_sur:        "c3f810ac6de7a14b4822df9605150d209ec30b19635e0ee76447f36837e68d0c"
     sha256 cellar: :any,                 catalina:       "aefca2af2ff839b0089eb1cb82cb77351ccd8edfb89a43231b9f33faf5e35fd2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c1527a7288d9563ccb403b3b9a7bf42fec644efa476661d36d3c36a05aed017"
