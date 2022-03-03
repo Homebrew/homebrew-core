@@ -241,8 +241,8 @@ class Charmcraft < Formula
   # Fixes unspecified dependency: https://github.com/canonical/charmcraft/issues/617
   # Remove this and `extra_packages` from `pypi_formula_mappings.json` when fixed
   resource "craft-cli" do
-    url "https://github.com/canonical/craft-cli/archive/0.1.tar.gz"
-    sha256 "6b4fcff2cd43c86632d305882451aa3832d68ae09f70d3aa952e613e8a2b9eaf"
+    url "https://github.com/canonical/craft-cli/archive/4af19f9c0da733321dc754be1180aea28f3feeb1.tar.gz"
+    sha256 "c568748b7e6b114af7d4ecfc90a1705dc40ee665fc059f0997c2cb3138053177"
   end
 
   def install
