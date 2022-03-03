@@ -9,6 +9,7 @@ class PysideAT2 < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "b4b284bad87b89396d35732b9f509b653c2f63c1dc3d7ca63174d2c2dc377d30"
     sha256 cellar: :any, arm64_big_sur:  "e432cfa5235290c62d9880bead26e893d1b9a3720a986b5e75146a6f4f06811e"
+    sha256 cellar: :any, monterey:       "0fd3d7a6d1a73189e3c6fd1a4fd1d23f0dc645ab4bf9dbc390a6c8f4b2c96c3b"
     sha256 cellar: :any, big_sur:        "d8ac145f45d791c6967ed76ce24bbfd9b111eabeb6459824aca396d50d08c858"
     sha256 cellar: :any, catalina:       "ac9f88f0bf1ed4417551c57342cfdeb328c28b417cb6ec3dc4dd78451bfaaf02"
   end
