@@ -9,6 +9,7 @@ class Inspectrum < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a0fb5fe1d6d28598185e4b550c3eb023edd06caa538965143ad9368fb12fde29"
+    sha256 cellar: :any,                 monterey:      "8ea325ef7a0b15bf6dab7e9eb427cdcb0930864bb0a36158ca377a863baac981"
     sha256 cellar: :any,                 big_sur:       "50970461c14baf9ad20ddaf10ce822fab5d1a3d3c50119864ec18ada903c4bc4"
     sha256 cellar: :any,                 catalina:      "d1fab945b3121deb6e5e9fbfe761bbb550c2478f1c169266cc467fcf143c1ce1"
     sha256 cellar: :any,                 mojave:        "1bb0c291cfea17440808f50296634ff87ef9c6b1ddd28e3f1ea816eb4018597d"
