@@ -17,7 +17,11 @@ class Lsd < Formula
   depends_on "rust" => :build
 
   def install
+    ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
+    bash_completion.install "lsd.bash"
+    fish_completion.install "lsd.fish"
+    zsh_completion.install "_lsd"
   end
 
   test do
