@@ -150,7 +150,9 @@
     "exclude_packages": ["six"]
   },
   "gimme-aws-creds": {
-    "exclude_packages": ["six"]
+    "package_name": "gimme-aws-creds",
+    "exclude_packages": ["six"],
+    "extra_packages": ["pyobjc-framework-LocalAuthentication", "SecretStorage", "jeepney"]
   },
   "git-remote-codecommit": {
     "exclude_packages": ["six"]
