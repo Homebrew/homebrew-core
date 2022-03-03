@@ -16,6 +16,7 @@ class ExtraCmakeModules < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "abe243d0a9f54d6f80c1cac4d02b1c912df09921df6cc3d324fa9689a999ae88"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "09df0f178df062e3db1d9b40c224a09fdcf7fcfa202b789cf392cd0172841ce3"
+    sha256 cellar: :any_skip_relocation, monterey:       "273b1d3b008c8ccaac09f4095edb8dd0f1c5a29cf2ca004043d9af6fa6e10cd9"
     sha256 cellar: :any_skip_relocation, big_sur:        "ee4dc9bcfc563322bdfe0c2a27ff39bacbd36d966dd607b6c8594652affb158c"
     sha256 cellar: :any_skip_relocation, catalina:       "273b1d3b008c8ccaac09f4095edb8dd0f1c5a29cf2ca004043d9af6fa6e10cd9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b6a73ea3b29dc8548412fda751f2a2ff576bab7b592632874215535a8394bcb"
