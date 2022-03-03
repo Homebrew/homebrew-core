@@ -30,6 +30,8 @@ class Jenkins < Formula
     libexec.install Dir["**/jenkins.war", "**/cli-#{version}.jar"]
     bin.write_jar_script libexec/"jenkins.war", "jenkins", java_version: "11"
     bin.write_jar_script libexec/"cli-#{version}.jar", "jenkins-cli", java_version: "11"
+
+    (var/"log/jenkins").mkpath
   end
 
   def caveats
@@ -41,6 +43,9 @@ class Jenkins < Formula
   service do
     run [Formula["openjdk@11"].opt_bin/"java", "-Dmail.smtp.starttls.enable=true", "-jar", opt_libexec/"jenkins.war",
          "--httpListenAddress=127.0.0.1", "--httpPort=8080"]
+    keep_alive true
+    log_path var/"log/jenkins/output.log"
+    error_log_path var/"log/jenkins/error.log"
   end
 
   test do
