@@ -54,7 +54,7 @@ class Root < Formula
   skip_clean "bin"
 
   def install
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root" if OS.linux?
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root"
 
     inreplace "cmake/modules/SearchInstalledSoftware.cmake" do |s|
       # Enforce secure downloads of vendored dependencies. These are
@@ -153,7 +153,7 @@ class Root < Formula
       }
     EOS
     flags = %w[cflags libs ldflags].map { |f| "$(root-config --#{f})" }
-    flags << "-Wl,-rpath,#{lib}/root" if OS.linux?
+    flags << "-Wl,-rpath,#{lib}/root"
     shell_output("$(root-config --cxx) test.cpp #{flags.join(" ")}")
     assert_equal "Hello, world!\n", shell_output("./a.out")
 
