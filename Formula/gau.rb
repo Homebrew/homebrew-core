@@ -7,12 +7,12 @@ class Gau < Formula
   head "https://github.com/lc/gau.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c4330bc568a051aebfa06aff3210ce2ce8ff2f9e32460d107ad064282e722ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de3e33cbb1e861d60b6ef6e0e1711297be0f68110388d8c766f7fcbeaa52dd2c"
-    sha256 cellar: :any_skip_relocation, monterey:       "9660714535c33fd6a322d0ea3d6a825697e8dbd816e397a843636f37015f257d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6e1606b2462ba3c3b47f47589e0c6a5dac36c0f8557a50b2c3b3441239be9949"
-    sha256 cellar: :any_skip_relocation, catalina:       "d0e528c607348bb37cb7a856516088ed6607cd36da5bd208b102e047c5d4bd77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b29f6260b4fc9161e3ef840a98432fb78031a14bc36361e35f5532c189c0ea3d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "94b9fb1ae39b235596dea6ff2259f0cacc182496e49586cbcc5b6b1854225745"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5593c85afbab96e6a52f9764c72b7b8f205c76c10276dff8b5a0aad44e0f27be"
+    sha256 cellar: :any_skip_relocation, monterey:       "9e06986ce5bbf8482d9b8b8f5ce1aaaa93f48be825cfb099dbc12b9ae9744b5f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "382558664ef70b3b4c8a81097b609cbc4e54730c5b24ade3781f4c309dd795fc"
+    sha256 cellar: :any_skip_relocation, catalina:       "64b2acc2c15b8efe7bad6d0472d34a14e18b41fe88a7f11879dc5ed9ef3cbcd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b232e161d1d7a5fb8611ed3bb41ca8cfcdc7276b3bc4343655516648df1c7a9a"
   end
 
   depends_on "go" => :build
