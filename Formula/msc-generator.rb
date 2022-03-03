@@ -26,6 +26,11 @@ class MscGenerator < Formula
 
   fails_with :clang # needs std::range
 
+  fails_with :gcc do
+    version "9"
+    cause "needs std::range"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-font-checks"
     # Dance around upstream trying to build everything in doc/ which we don't do for now
