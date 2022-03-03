@@ -4,7 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.4.1/gdal-3.4.1.tar.xz"
   sha256 "332f053516ca45101ef0f7fa96309b64242688a8024780a5d93be0230e42173d"
   license "MIT"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
