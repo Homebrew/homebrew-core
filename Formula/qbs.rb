@@ -14,6 +14,7 @@ class Qbs < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "d25684d484d6d72528248a8fc04f48172e86a6627010a67c82dc12f935224011"
     sha256 cellar: :any, arm64_big_sur:  "9ba4c82c358e5374c06ec726014a50bf56533eb7b81c4fdbb37815da16ecaac5"
+    sha256 cellar: :any, monterey:       "5c4f0669be6779f00f7f2332ca196ccbfeb35cfc0ddc6ed0592500d581fadf3d"
     sha256 cellar: :any, big_sur:        "4af6da2dade9b8aa140d80808d7f51b7730ce7f0fac6db2658b20994eaf36c2a"
     sha256 cellar: :any, catalina:       "b82a2d921e75e74140b84d3093a1bf0138c7ab395043afba89f7adbb21efdb08"
   end
