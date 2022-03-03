@@ -9,6 +9,7 @@ class Codequery < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "fd2941c284a98300e9e5a1a97d4c548d3b421d56816ae19610de0d53b8d53d99"
     sha256 cellar: :any,                 arm64_big_sur:  "b6911db7943e77b1da9e37997f578c3d66b8f2fbefee757f343dcc180b88d9bd"
+    sha256 cellar: :any,                 monterey:       "1b6df250a388c520c73b6549b4f9ee0411ab788720d5d5ff01f3a4e53af477e1"
     sha256 cellar: :any,                 big_sur:        "1fe79b4632dd2e794bb09758ce9a776b7b751dddf4fd03ff47eeb0c79d16f729"
     sha256 cellar: :any,                 catalina:       "feca768a985ac4578a99290c1070b8f1dfe0716017da89a1b6f01e9ae7685acd"
     sha256 cellar: :any,                 mojave:         "c49d64f50a33ecc8de70d9431dab346d40de6f0fdc077b826d24b19db9cba99b"
