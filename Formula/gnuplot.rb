@@ -8,6 +8,7 @@ class Gnuplot < Formula
   bottle do
     sha256 arm64_monterey: "eb85e735b54d3525eebc7e9023e35e0265633a189a0a7a28eb67d923c2672503"
     sha256 arm64_big_sur:  "4458590e1c71fee35fe0324b964a984fa2332a91b4bb0dc2af4c1ef4b55c3b63"
+    sha256 monterey:       "4f84ad58c448e94fe7670189cdbf554eb1c88a8642dc312fe7dbd13c71097ada"
     sha256 big_sur:        "fdf18f8bd7001fe7f05e049e0b953b080c6fdcbf7e3e17a39b4645528bb397ca"
     sha256 catalina:       "b84af4fca336fe10b6447fe7307b56f526784aee1288c6de508019f4eb2bad83"
     sha256 x86_64_linux:   "04affc7a3e9b83f0c6a7a5e12bc39bf8d4493debadf635a394229f1ed412d475"
