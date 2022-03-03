@@ -6,12 +6,13 @@ class Lsd < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf151090b2e9b91712ef7e68b49fde1c29df7f297b95befd0a7bb54a5cc31af0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49d300c388aeddf3f8bd5317e8e57e8dfccb58951012c645b21f08b3d44aa8fb"
-    sha256 cellar: :any_skip_relocation, monterey:       "efc272c6b18fef9d8bb8aae68fdac4ddda5015ec1f3b9083efbd4fcaac48ca52"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0bada68a80bf51a2e53517f5bdb8fa4dd5c7be5c7870805d4f713873010877bd"
-    sha256 cellar: :any_skip_relocation, catalina:       "eab4df3f96017b2bb0ccf8686ec43be80375ac087a0e64b06aef5bf86d4272f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68647aaecd3c6a95dd6ef0abc42ed5fb2a609e24616a537c71f0743a837d8ba4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb1ae021488b265d2f05e71b9c1b79ffa6113c2cac1f77e7287b9525315add2b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "706fdc3ceb41d2ad2ebdbc11b3930d87c5546d109331c9b965cb7d29875bd100"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b8a883d68c3ea85695a5e33602e99b3d6f8866f34444eeedbb4d9131112af90"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d14efa8c804908f25d88f0cea0ecea253d6a059d971de1f630ffb29af2f691d8"
+    sha256 cellar: :any_skip_relocation, catalina:       "b42295c9884214ecf4e6afc90aca429d739cd509f72f54e8ee590e6afc26aed4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90f92d5c4d38f5c3e84c13bc171c3bdae04f50da02a7fc2bd6680ea82368f3fe"
   end
 
   depends_on "rust" => :build
