@@ -8,6 +8,7 @@ class Libgr < Formula
   bottle do
     sha256 arm64_monterey: "74970ed8d0e0ecec128e79788046311f06b292ad0d4acf684b81d9fa43cc94a1"
     sha256 arm64_big_sur:  "33abc59575fff2d39e71918935fa06d0a60dc563dfe2f61f5ae5b13cd0c3b0ef"
+    sha256 monterey:       "d387060cb3d72fc09d73d31ceeb8dda98a04a6808e39572fee414d5bbe6ef2ee"
     sha256 big_sur:        "ed32855aef185d8523fc67cca9c7f677a2e7b55ec1e291fdb8670cf040f384d4"
     sha256 catalina:       "c0409f0bd6d5d34781870147bff6e8970ba36dc4651fe3c7b9c85623b60dcf14"
   end
