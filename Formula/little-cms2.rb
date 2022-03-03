@@ -14,7 +14,7 @@ class LittleCms2 < Formula
   # that the post URLs, headings, etc. maintain a consistent format.
   livecheck do
     url "https://www.littlecms.com/categories/releases/"
-    regex(%r{href=.*lcms2[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
+    regex(/Little\s*CMS\s+v?(\d+(?:\.\d+)+)\s+released/im)
   end
 
   bottle do
