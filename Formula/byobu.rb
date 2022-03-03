@@ -7,13 +7,7 @@ class Byobu < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e4b6177bef58c89b06a356a0bb96aae9cf60678442af57f9a5e7489b3a162ae6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d3b41a0d0546732f6bbbdedae5357df00625f5c9f7be0b631c4a0778107d3549"
-    sha256 cellar: :any_skip_relocation, catalina:      "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6"
-    sha256 cellar: :any_skip_relocation, mojave:        "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f84ea55ef2950c34c48f77609c4d00d9a35bd5ca13140aa98b8175ea1a04cf2f"
-    sha256 cellar: :any_skip_relocation, all:           "f84ea55ef2950c34c48f77609c4d00d9a35bd5ca13140aa98b8175ea1a04cf2f"
+    sha256 cellar: :any_skip_relocation, all: "45b2277b96cd2c4c4170fbbe4a8ac92665062e8d0c835bfbd24ee3e3d52f2616"
   end
 
   head do
