@@ -13,6 +13,7 @@ class Gwenhywfar < Formula
   bottle do
     sha256 arm64_monterey: "c6b7e8774871144765aaa290bf21a1229c5958655a0ffb935390ed126caea03a"
     sha256 arm64_big_sur:  "bf520ea77cda2130b9e364559bf97df84d20a26fa5f0d45b0a8e03c039cd7510"
+    sha256 monterey:       "391eba3ba29eadaeb7115d67880656b5cecb311f0d7c001d87c6c1a39ac96d04"
     sha256 big_sur:        "05ad94e5aa6b8814396b83483667e858cc2877e67baeb411159e4ffbf7a35a02"
     sha256 catalina:       "4e48342c4d12d0ce2f8174c5d80c89f6ee5f34d6c134ebb9cf229528474f11fb"
     sha256 x86_64_linux:   "0b046cac0eef3fb8bfa3d55a7cbf92bc78b9572e5fda72fc9ce9cb744fe5467a"
