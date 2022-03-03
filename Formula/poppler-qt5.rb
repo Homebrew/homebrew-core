@@ -13,6 +13,7 @@ class PopplerQt5 < Formula
   bottle do
     sha256                               arm64_monterey: "ef7999a24a946a28bc245b512f662692e3b6cee85999f8bcbcf83d91a5f0e37d"
     sha256                               arm64_big_sur:  "57304717a2a2e40595cfbd2e9265c82ef21fb4d85155c293d2c09965d6e78110"
+    sha256                               monterey:       "02158b5c347b0af5c10fa32aea03e13c3530005676e9554d03345b4e474fc4af"
     sha256                               big_sur:        "98139a5995b89c80177192d9b81f75d38df5b23b0ea4152232573be5a1529ab1"
     sha256                               catalina:       "03631b6eea266478dd3305e25062b8be11844e601e565a423e729b8a1cbc13ed"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "701fa57a1df0182d1d1920f583969670e408840932873e6d492dfe1ecb15babd"
