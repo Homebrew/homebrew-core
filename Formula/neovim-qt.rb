@@ -9,6 +9,7 @@ class NeovimQt < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "6dcf4d452effff77aa85c4d556fb82f6cf7bf616d4bb6c937dac8c7c6fd9516a"
     sha256 cellar: :any, arm64_big_sur:  "2459483bd8c8a6d9520a729b3c7b37881908fce5da4b01755d42ac4370bf350e"
+    sha256 cellar: :any, monterey:       "04550c385410779e9af1f8982a7317cfeefc95ef09f9a62fcfa66efba5a28ab7"
     sha256 cellar: :any, big_sur:        "42019f88da4ede0e143b06779a6d89c3c02c7b61e5029e97a11966ac62e8a4a8"
     sha256 cellar: :any, catalina:       "14c3958fc58680157c242535783da6b4979667630ca634983ab30700f220f455"
     sha256 cellar: :any, mojave:         "787697eae5c8c23f259fada57c9f3ea2b54c2db356f0635d5982dc2041341c81"
