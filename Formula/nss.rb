@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_75_RTM/src/nss-3.75.tar.gz"
-  sha256 "fd571507827284644f4dd522a032acda2286835f6683ed22a1c2d3878cc58582"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_76_RTM/src/nss-3.76.tar.gz"
+  sha256 "1b8e0310add364d2ade40620cde0f1c37f4f00a6999b2d3e7ea8dacda4aa1630"
   license "MPL-2.0"
 
   livecheck do
