@@ -14,6 +14,7 @@ class Xpdf < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c2f34a435bad7b953e62d43cf0de079be73d3e2f8047e8848c7d2243d20a97e1"
     sha256 cellar: :any,                 arm64_big_sur:  "052d966e5649b652bb61db7ff96386e5ca543fd65fb06818ab002b2f1138086b"
+    sha256 cellar: :any,                 monterey:       "4e8aaaeb1b10561b9fb8fbd7b94f7786360dfd1c2c52c81f0140976424046732"
     sha256 cellar: :any,                 big_sur:        "2c74e3ae45d2666271efb5a3a913db86a300110d2e89acb97f27b4e6d5c2af7f"
     sha256 cellar: :any,                 catalina:       "af0d633049cdccbb05a15b92e1dddb2951ea6d2994a2bee343400681bfbf1a2d"
     sha256 cellar: :any,                 mojave:         "d5a0e1f2c8d6897bda1290648814b351ffebf0aadbbe856b19f7088d2673baf5"
