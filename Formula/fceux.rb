@@ -10,6 +10,7 @@ class Fceux < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "22e13ed6bc659da8e941863c7ef34f31385d31d766debaa71ad7c4f2878b4fc2"
     sha256 cellar: :any, arm64_big_sur:  "d267bc35a0b3230082e48c786e09d42b24e16ee5fe0223eabdab346c01b53612"
+    sha256 cellar: :any, monterey:       "4dc044f7200df4dca1e80f041405e156e94a067ce940af83f81f77838859f3bc"
     sha256 cellar: :any, big_sur:        "b9b6430e809a99b47d3c7dcba39950d808f85b491dfa65068529776a2a4d07a6"
     sha256 cellar: :any, catalina:       "f867e4798505b2d2947dc0a5b2e9c659ba22b6bf67942d2f4309d2c93f5f47ed"
   end
