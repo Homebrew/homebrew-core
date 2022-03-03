@@ -27,7 +27,7 @@ class MscGenerator < Formula
   fails_with :clang # needs std::range
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--disable-font-checks"
     # Dance around upstream trying to build everything in doc/ which we don't do for now
     # system "make", "install"
     system "make", "-C", "src", "install"
