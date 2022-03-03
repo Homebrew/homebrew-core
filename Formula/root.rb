@@ -1,11 +1,24 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.24.06.source.tar.gz"
-  sha256 "907f69f4baca1e4f30eeb4979598ca7599b6aa803ca046e80e25b6bbaa0ef522"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/root-project/root.git", branch: "master"
+
+  stable do
+    url "https://root.cern.ch/download/root_v6.26.00.source.tar.gz"
+    sha256 "5fb9be71fdf0c0b5e5951f89c2f03fcb5e74291d043f6240fb86f5ca977d4b31"
+
+    # ROOT 6.26.00 doesn't support installation in directories starting with a
+    # dot (.linuxbrew, for example) - two commit merge
+    patch do
+      url "https://github.com/root-project/root/commit/6802514256e948582c26ad938c2c34f22b2d1bc3.patch?full_index=1"
+      sha256 "7988fa9e842c821c9be681c0e783dc299ecc74805750a4323e2921da26e7fc5b"
+    end
+    patch do
+      url "https://github.com/root-project/root/commit/efc67e432206771fe934ad7763529cf3621696a1.patch?full_index=1"
+      sha256 "b3ca4e06abd9c69315433717ae3a75677d8175cb53b8731c93f655634df1e22c"
+    end
+  end
 
   livecheck do
     url "https://root.cern.ch/download/"
@@ -54,8 +67,10 @@ class Root < Formula
 
   skip_clean "bin"
 
+  fails_with gcc: "5"
+
   def install
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root" if OS.linux?
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root"
 
     inreplace "cmake/modules/SearchInstalledSoftware.cmake" do |s|
       # Enforce secure downloads of vendored dependencies. These are
@@ -69,6 +84,7 @@ class Root < Formula
       -DCLING_CXX_PATH=clang++
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DCMAKE_CXX_STANDARD=17
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
       -Dbuiltin_glew=OFF
@@ -90,9 +106,6 @@ class Root < Formula
       -Dxrootd=ON
       -GNinja
     ]
-
-    cxx_version = (MacOS.version < :mojave) ? 14 : 17
-    args << "-DCMAKE_CXX_STANDARD=#{cxx_version}"
 
     # Homebrew now sets CMAKE_INSTALL_LIBDIR to /lib, which is incorrect
     # for ROOT with gnuinstall, so we set it back here.
@@ -154,7 +167,7 @@ class Root < Formula
       }
     EOS
     flags = %w[cflags libs ldflags].map { |f| "$(root-config --#{f})" }
-    flags << "-Wl,-rpath,#{lib}/root" if OS.linux?
+    flags << "-Wl,-rpath,#{lib}/root"
     shell_output("$(root-config --cxx) test.cpp #{flags.join(" ")}")
     assert_equal "Hello, world!\n", shell_output("./a.out")
 
