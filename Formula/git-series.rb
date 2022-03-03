@@ -7,13 +7,12 @@ class GitSeries < Formula
   revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a238e7eea725642aafeaeb5f90d66a97f4e5b2caa681d51aaa47abe4d2ec371b"
-    sha256 cellar: :any,                 arm64_big_sur:  "d75d535676dda5c4289d8547cd6959f02aa6d5fa47364ebb561fe8a858683c95"
-    sha256 cellar: :any,                 monterey:       "83049175c7154cda07fcb03ec3d2950412e49be5a50180aa51e67d2721815fe8"
-    sha256 cellar: :any,                 big_sur:        "40f73d58772d698175f87acceaf11f97720e3248f2cf7182bae19889899ed61d"
-    sha256 cellar: :any,                 catalina:       "944e5375b6975f35b298b03f8ccdd9d530a9991593c6374aa3d93a69a8a0baac"
-    sha256 cellar: :any,                 mojave:         "9edf9487a836d8ddb3b822f1a14931d2e2413edd9d3df29b389259a684681190"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52c715891324bf3e223e02ca509db21d171fcddc8e741479ad18164f385c3d4f"
+    sha256 cellar: :any,                 arm64_monterey: "8e62e399cbba54341ee1bc7102862926e8c12d08b852d24fab6b8e45e253cdcb"
+    sha256 cellar: :any,                 arm64_big_sur:  "e394b22f7dad47f5fad8551ac8ec850581dfb30014a476a6adbdadb170d89d98"
+    sha256 cellar: :any,                 monterey:       "85dc9d45f805faf62c56845d34dbbcba950ff1a894399b8ada665349c58141db"
+    sha256 cellar: :any,                 big_sur:        "e5e96220146d2666fffa5bfbf61c56a03213227583e09f7f82780a5113233f1e"
+    sha256 cellar: :any,                 catalina:       "628b077ef0b4a60f22637802a65369eeea31d778af2ce926f548f8b4e1aefcd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdd1be3900aa1bf6e374228cb0f8bf0bd37e34592bf077fe412109e28c9ea8d0"
   end
 
   depends_on "cmake" => :build
