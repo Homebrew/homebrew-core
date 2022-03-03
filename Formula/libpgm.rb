@@ -24,6 +24,9 @@ class Libpgm < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  # Fix build on ARM
+  patch :DATA
+
   def install
     workdir = build.stable? ? "openpgm/pgm" : "pgm"
     cd workdir do
@@ -35,3 +38,25 @@ class Libpgm < Formula
     end
   end
 end
+
+__END__
+diff --git a/openpgm/pgm/cpu.c b/openpgm/pgm/cpu.c
+index cbcc988..f5da471 100644
+--- a/openpgm/pgm/cpu.c
++++ b/openpgm/pgm/cpu.c
+@@ -33,6 +33,7 @@
+ //#define CPU_DEBUG
+
+
++#if defined(__i386__) || defined(__x86_64__)
+ #ifndef _MSC_VER
+ static
+ void
+@@ -59,7 +60,6 @@ _xgetbv(uint32_t xcr) {
+ #endif
+
+
+-#if defined(__i386__) || defined(__x86_64__)
+ PGM_GNUC_INTERNAL
+ void
+ pgm_cpuid (pgm_cpu_t* cpu)
