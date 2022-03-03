@@ -10,6 +10,7 @@ class Pc6001vx < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "73d707de08c1ce389e5403c7f1d664ae75d87493ee8bc0fc0b3830f978219c6d"
     sha256 cellar: :any, arm64_big_sur:  "73d707de08c1ce389e5403c7f1d664ae75d87493ee8bc0fc0b3830f978219c6d"
+    sha256 cellar: :any, monterey:       "942ef1ebe6393fdafacc173b10cedfba80094b547fb0fe1c40fea1de9ab3a87e"
     sha256 cellar: :any, big_sur:        "58bca7fa9e3ae2225da6a740640f62272a5242b2f8438a8584071a4bc280b0cd"
     sha256 cellar: :any, catalina:       "a7c28f9c58413ddb04a1da6dade0116deebbeb77332ab4e49f471c912ea369b3"
   end
