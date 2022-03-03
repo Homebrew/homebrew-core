@@ -10,6 +10,7 @@ class Zurl < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f4f20dfa4fa21116538bf6150b3ed05fb8e1ade026fa0a08b67d00f033c13de1"
     sha256 cellar: :any,                 arm64_big_sur:  "dbe3e4510bfb54034ca28ad3eb228314d9bde1c68e666af0c76b7676136c105b"
+    sha256 cellar: :any,                 monterey:       "10197ca2f6b2b2e783781b0e33800f76c3a17d05cd423c19c228113c3b7d074b"
     sha256 cellar: :any,                 big_sur:        "156dbba9a7152ab28f5f70670de6692857c7910a00449e7040fb7ae89431a08c"
     sha256 cellar: :any,                 catalina:       "5d251122a34705e001a53b33539895698a31e8aad29a3bf7e0c6eaa3579b6a1c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b83d6978ef49ead8934309eb8d3db989e849479bbcc0eb695f80df53a460db5"
