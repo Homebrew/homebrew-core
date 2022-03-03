@@ -4,6 +4,7 @@ class Nnn < Formula
   url "https://github.com/jarun/nnn/archive/v4.4.tar.gz"
   sha256 "e04a3f0f0c2af1e18cb6f005d18267c7703644274d21bb93f03b30e4fd3d1653"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/jarun/nnn.git", branch: "master"
 
   bottle do
@@ -17,9 +18,8 @@ class Nnn < Formula
   end
 
   depends_on "gnu-sed"
+  depends_on "ncurses"
   depends_on "readline"
-
-  uses_from_macos "ncurses"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
