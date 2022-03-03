@@ -9,12 +9,12 @@ class Ipython < Formula
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a33f4aa674f41f75d716bb8e5e9dad0f56b4020cbc9a5e1dcc5291a12dfc1eff"
-    sha256 cellar: :any,                 arm64_big_sur:  "95ebf3e4be60a2194911d851e9da97910c15dd482abdc0951c2c4afac8b04dce"
-    sha256 cellar: :any,                 monterey:       "fa7d841da33b345b7435267726bbb18a774854a115ebbf1d348641899ecbc978"
-    sha256 cellar: :any,                 big_sur:        "b1027ea60ad6a91abfaa2173092caa828b60f95eb4a41aa4f472c1fec54903d3"
-    sha256 cellar: :any,                 catalina:       "a40d876692c304e8bc7dc66a7e0caa4d9007705e073202139a188014df9d1844"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3214576dedaaab6bce1eb635f14067609adee2ff3876ba5bc341a089cb176488"
+    sha256 cellar: :any,                 arm64_monterey: "d581d7ba526e3d3d235f27f180dad22a8d286187b814344cb47361c2e2d12ff9"
+    sha256 cellar: :any,                 arm64_big_sur:  "2b869c3014d53f5abb84c1cfdba8cdcbf26b7f60c91c1ce1ca58a3e3412b1750"
+    sha256 cellar: :any,                 monterey:       "9742e8015dcb98bb815da8ed790a49483230b68901289ea4f4d3005c87faf172"
+    sha256 cellar: :any,                 big_sur:        "e8cedd0c8836ac1137abc03aa8b60d22647f01a5e0ba3f38f27cbd8e431e5a78"
+    sha256 cellar: :any,                 catalina:       "77076fae84f977232d8412d7691e9a17846335d262669328bef4883832b23672"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58b8755c28f4758409f7d042417eadd737e341ce8a3025b14f72383133e66bc9"
   end
 
   depends_on "python@3.10"
