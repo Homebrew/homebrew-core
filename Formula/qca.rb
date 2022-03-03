@@ -15,6 +15,7 @@ class Qca < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "98d19292c58b6c97318f57f28fabe01f3fd47fc6468fdeae5332b216c98a2ed7"
     sha256 cellar: :any, arm64_big_sur:  "c48666bc26a0fa8feb41eac998a47e16dad343e2b6492dd9c70fd42e542c7e0b"
+    sha256 cellar: :any, monterey:       "35ee3bfc6250c22dc31d22a480fb03f899e1905718bb2687057450a295263b37"
     sha256 cellar: :any, big_sur:        "5b6a1f3bfda2eb1f81ae83b7dcfff6ff76c5531944537d588db5b74dbf4d8cb3"
     sha256 cellar: :any, catalina:       "f35cba38f07f642e6645d9efb8972714ea801b44020e6ad74749022611edf298"
   end
