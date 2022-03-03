@@ -374,25 +374,8 @@ class Texlive < Formula
     inreplace share/"texmf-dist/web2c/texmfcnf.lua",
       "selfautoparent:texmf", "selfautodir:share/texmf"
 
-    # Fix path resolution in some scripts.  The fix for tlmgr.pl, TLUTils.pm, and
-    # tlshell is being upstreamed here: https://www.tug.org/pipermail/tex-live/2021-September/047394.html.
-    # The fix for cjk-gs-integrate.pl is being upstreamed here: https://github.com/texjporg/cjk-gs-support/pull/50.
-    # The author of crossrefware and pedigree-perl has been contacted by email.
-    pathfix_files = %W[
-      #{buildpath}/texk/texlive/linked_scripts/cjk-gs-integrate/cjk-gs-integrate.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/bbl2bib.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/bibdoiadd.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/bibmradd.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/biburl2doi.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/bibzbladd.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/ltx2crossrefxml.pl
-      #{buildpath}/texk/texlive/linked_scripts/texlive/tlmgr.pl
-      #{buildpath}/texk/texlive/linked_scripts/pedigree-perl/pedigree.pl
-      #{buildpath}/texk/texlive/linked_scripts/tlshell/tlshell.tcl
-      #{share}/tlpkg/TeXLive/TLUtils.pm
-    ]
-
-    inreplace pathfix_files, "SELFAUTOPARENT", "TEXMFROOT"
+    # Fix path resolution in TLUtils.pm. Remove with next release of install-tl resource.
+    inreplace share/"tlpkg/TeXLive/TLUtils.pm", "SELFAUTOPARENT", "TEXMFROOT"
 
     args = std_configure_args + [
       "--disable-dvisvgm", # needs its own formula
