@@ -1,8 +1,10 @@
 class Trino < Formula
+  include Language::Python::Shebang
+
   desc "Distributed SQL query engine for big data"
   homepage "https://trino.io"
-  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/371/trino-server-371.tar.gz"
-  sha256 "ff3e2502905e63e0b99c82308924ac76f9942c2595a0722ea26db52470f8b4a8"
+  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/372/trino-server-372.tar.gz"
+  sha256 "ca2dfc24f86050b3454ec018d273b9f5d58e0f71a9b4aea86b94059dabe827a3"
   license "Apache-2.0"
 
   livecheck do
@@ -16,17 +18,17 @@ class Trino < Formula
 
   depends_on "gnu-tar" => :build
   depends_on arch: :x86_64
-  depends_on :macos # test fails on Linux
   depends_on "openjdk"
+  depends_on "python@3.10"
 
   resource "trino-src" do
-    url "https://github.com/trinodb/trino/archive/371.tar.gz", using: :nounzip
-    sha256 "0feef530057e09214383f240610a8419c55c51bdc3d4c18f4f997643aea1bbd5"
+    url "https://github.com/trinodb/trino/archive/372.tar.gz", using: :nounzip
+    sha256 "d81b88f823e22b0a09ee749adfc15a9c589cf3fbf0c68219297d84ef59ed08e5"
   end
 
   resource "trino-cli" do
-    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/371/trino-cli-371-executable.jar"
-    sha256 "c42b456ca630ff0dd2d5804089779c07d9873c2f3af577ccfe6217fe199425f8"
+    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/372/trino-cli-372-executable.jar"
+    sha256 "61121f9dda87586ddaddc1d969102a2587f6408b7285e6a2a8218be9ecc4c9b9"
   end
 
   def install
@@ -43,6 +45,7 @@ class Trino < Formula
       inreplace libexec/"etc/node.properties", "/data/trino", var/"trino/data"
     end
 
+    rewrite_shebang detected_python_shebang, libexec/"bin/launcher.py"
     (bin/"trino-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
 
     resource("trino-cli").stage do
