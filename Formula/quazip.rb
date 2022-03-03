@@ -8,6 +8,7 @@ class Quazip < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "b53bf839a2479d91bd033530ea182453a15a8376a92663b8b1c292e360ee81d6"
     sha256 cellar: :any,                 arm64_big_sur:  "0fa2cc876d433725d8db9ea3ba88281b073205ad178fc775b3b35d6a97cae736"
+    sha256 cellar: :any,                 monterey:       "0527912fbff9a2699c9580afd57944a90b68043e0b675c9331ca9610a6d8d65a"
     sha256 cellar: :any,                 big_sur:        "16dfeecdd918f9d3b3149b75e6a9fa6a035e123b561d07dadc6da536fb775566"
     sha256 cellar: :any,                 catalina:       "5597a6c0cf6f0c002bd6b89f4f3880d360b70d10514233ff99c642435df11025"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d8a371641c6977250974eed98c54fe85267f37af8433e177bde4bab1fcd9908"
