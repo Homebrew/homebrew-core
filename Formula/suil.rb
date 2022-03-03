@@ -15,6 +15,7 @@ class Suil < Formula
   bottle do
     sha256 arm64_monterey: "4b952357f77ca23c77da7b02bd5b95da858d74e33378272a7bf7c63e759fb0af"
     sha256 arm64_big_sur:  "11af96a8cd470b08da0bd49cb3b620ae81d89e9589c5ed44a533e2cb93d5133f"
+    sha256 monterey:       "ce9decde67d416caaae2d8e0be74eb1a2f0497d856f6a4e40d13a84c71ebd3b2"
     sha256 big_sur:        "02a8eed42b15c099954dce4741c71b0e5f9ae652fce48921e4920a3efc779e01"
     sha256 catalina:       "4a74f4c1cbf9b1e67c7fbda45e5ca67b5163757b70ee62c33a7e66b136a2d4c1"
     sha256 mojave:         "2bc87e39cf2cb0a66c983c01834d39c2f1cccdddbe4db28331e0dcb6cf64c3fb"
