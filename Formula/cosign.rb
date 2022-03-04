@@ -2,8 +2,8 @@ class Cosign < Formula
   desc "Container Signing"
   homepage "https://github.com/sigstore/cosign"
   url "https://github.com/sigstore/cosign.git",
-      tag:      "v1.5.2",
-      revision: "8ffcd1228c463e1ad26ccce68ae16deeca2960b4"
+      tag:      "v1.6.0",
+      revision: "4b2c3c0c8ee97f31b9dac3859b40e0a48b8648ee"
   license "Apache-2.0"
   head "https://github.com/sigstore/cosign.git", branch: "main"
 
@@ -19,10 +19,10 @@ class Cosign < Formula
   depends_on "go" => :build
 
   def install
-    pkg = "github.com/sigstore/cosign/pkg/version"
+    pkg = "sigs.k8s.io/release-utils/version"
     ldflags = %W[
       -s -w
-      -X #{pkg}.GitVersion=#{version}
+      -X #{pkg}.gitVersion=#{version}
       -X #{pkg}.gitCommit=#{Utils.git_head}
       -X #{pkg}.gitTreeState="clean"
       -X #{pkg}.buildDate=#{time.iso8601}
@@ -36,6 +36,6 @@ class Cosign < Formula
       pipe_output("#{bin}/cosign generate-key-pair 2>&1", "foo\nfoo\n")
     assert_predicate testpath/"cosign.pub", :exist?
 
-    assert_match version.to_s, shell_output(bin/"cosign version")
+    assert_match version.to_s, shell_output(bin/"cosign version 2>&1")
   end
 end
