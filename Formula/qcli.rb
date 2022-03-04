@@ -9,6 +9,7 @@ class Qcli < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c938fd599d5673faa37050128aee9a772b4839d06904f5590e58418236d12777"
     sha256 cellar: :any,                 arm64_big_sur:  "c21c3d3503c25df679252810f0fe02ce8804d2ca17beca67e4e8d664a40757d0"
+    sha256 cellar: :any,                 monterey:       "0848ef18376ea60af79db5a6dacd3238057d3026d58301fb2a7005e88835627e"
     sha256 cellar: :any,                 big_sur:        "834aa115e6d3564ecd1b2ee6aa92bb614205c04f219b31ab3afa49394bc4823d"
     sha256 cellar: :any,                 catalina:       "c2bca545b18f596970d770bdcfdd8e8d28fbf8066da7ec1916e6ed8efdd6b45b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec653e796249edd74fa133508baaf3577ed5acbcfead80fa040db92ce741275c"
