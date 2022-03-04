@@ -6,13 +6,12 @@ class Qrcp < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a17126d0da69e86af27da5a5f519074c57fba00c3587895b802d2b862022123b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8286ab8384850578862e84cceebb7aa8efc5d2bafd1d372a0e9e1f6930a7a726"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e3a7ccb0226a080b8d0ef18e85d5e05c9aac9de20ace9c2b409624d475df7cf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b90c0f156ce21a2ec39f23405fd1213008d96a8e1d62f17cd0d5c83c17b055ea"
-    sha256 cellar: :any_skip_relocation, catalina:       "954c095b0cd034464bd929a3b28855f932d09e0cb59a741939009221f6fdac94"
-    sha256 cellar: :any_skip_relocation, mojave:         "a319771dea04ac593d2928e8e937ce1fd5a7c55c67999e9505b258cbddbe226c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "564e4415f63d446ce140cbb3baccae5902ff4be08b041ceb8bc028c2c90376e8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c6ea1800b725f5753fc15c0ed5b476f1fc0e25d273f4962774d1e0502b3f5a9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bffb8cf3fa70e631d2bb06c1252240a9ca917ff5afa3240316856e780f20ad33"
+    sha256 cellar: :any_skip_relocation, monterey:       "f0f9d9be295b4275742d70f874dd162e76e7dada8985e27fae37ac7244ee091c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e85f7e17a9f2a5d54e273e940eb1977713332396e39edd145b783db6c4de95cf"
+    sha256 cellar: :any_skip_relocation, catalina:       "3a58dc12ed69cc6c49f29e8d650ae4616dfe95ca3e0b2632aef8d8fcad05b99c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0649b9ed447a8a8d36d9d8cae7d64b285ff36fbb0107bec89f50acaa5a6c956c"
   end
 
   depends_on "go" => :build
