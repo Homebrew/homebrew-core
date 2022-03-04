@@ -4,6 +4,7 @@ class Singular < Formula
   url "https://service.mathematik.uni-kl.de/ftp/pub/Math/Singular/src/4-3-0/singular-4.3.0.tar.gz"
   sha256 "74f38288203720e3f280256f2f8deb94030dd032b4237d844652aff0faab36e7"
   license "GPL-2.0-or-later"
+  head "https://github.com/Singular/Singular.git", branch: "spielwiese"
 
   bottle do
     sha256 arm64_big_sur: "abff098b3e9ee836f54f320103eb4a34b418d54dc4776ddfa391c9a698728fbb"
@@ -13,21 +14,18 @@ class Singular < Formula
     sha256 x86_64_linux:  "0b05cf52f0373c446904b561bed84b31019915bb101ad11c350736ae710ae0a5"
   end
 
-  head do
-    url "https://github.com/Singular/Singular.git", branch: "spielwiese"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  # Use `autoconf`, `automake`, and `libtool` to regenerate `configure` to
+  # remove use of the `-flat_namespace` flag. Otherwise this is needed only for HEAD.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ntl"
   depends_on "python@3.10"
 
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
