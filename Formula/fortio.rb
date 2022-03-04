@@ -2,8 +2,8 @@ class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://fortio.org/"
   url "https://github.com/fortio/fortio.git",
-      tag:      "v1.21.0",
-      revision: "4b1eec7b82bc0a626af9c253a270673fa3721751"
+      tag:      "v1.21.1",
+      revision: "7965771ec8feec9de2e1c6a3752c594aee7350b0"
   license "Apache-2.0"
 
   livecheck do
@@ -23,7 +23,8 @@ class Fortio < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "official-build-clean", "official-build-version", "OFFICIAL_BIN=#{bin}/fortio"
+    system "make", "-j1", "official-build-clean", "official-build-version", "OFFICIAL_BIN=#{bin}/fortio",
+      "BUILD_DIR=./tmp/fortio_build"
   end
 
   test do
