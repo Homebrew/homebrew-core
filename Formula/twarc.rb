@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/71/9d/5a5e9b09d789720f63cc52d9462d6a834253efc7c6726f852148fa0932a5/twarc-2.9.4.tar.gz"
-  sha256 "af88b2df5b18c5b90b4ad5993cc799862cac5744e6316a5bf4fe300bb9d86fcf"
+  url "https://files.pythonhosted.org/packages/d7/16/eed054d5b35f20f7b1a5bdd9fca315b52b7981c9887a585a170d101f0ab0/twarc-2.9.5.tar.gz"
+  sha256 "d27a531eec1f7703e4da0e84858694473422820738db5d1ea37cc8338dde102e"
   license "MIT"
 
   bottle do
@@ -80,8 +80,8 @@ class Twarc < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
-    sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
+    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
+    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
   end
 
   resource "urllib3" do
