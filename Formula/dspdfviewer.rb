@@ -10,6 +10,7 @@ class Dspdfviewer < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "da24ba97fbae24b36492e878571a4a1cf07cf7979ded00ccc07c23f86e26ce1c"
     sha256 cellar: :any,                 arm64_big_sur:  "8b5db6a6870b1e825274f0a28a1f41da06e7325d45b21e700f2de94c59cf7e72"
+    sha256 cellar: :any,                 monterey:       "26f5ad626166f23fe820ea41ded7cb9c3ab328178ee3f9d0eb5319fe02819f16"
     sha256 cellar: :any,                 big_sur:        "9a7b4b3ada6b75e933a8d577f9dc67e86eed733f5eab383ebe59dbf8c6fb2cd8"
     sha256 cellar: :any,                 catalina:       "de51c0869902887ee1f385d68358a04414bd85adea00aa481e1310a417e0749d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "faeff34b7271731f882d46087c907b565b5218c77a6b57eba2227fb477cf42ab"
