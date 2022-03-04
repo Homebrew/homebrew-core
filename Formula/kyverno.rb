@@ -2,10 +2,17 @@ class Kyverno < Formula
   desc "Kubernetes Native Policy Management"
   homepage "https://kyverno.io/"
   url "https://github.com/kyverno/kyverno.git",
-      tag:      "v1.6.0",
-      revision: "5b4d4c266353981a559fe210b4e85100fa3bf397"
+      tag:      "v1.6.1",
+      revision: "346a7c41c8041f03c553690eb2ab61d2db3e8742"
   license "Apache-2.0"
   head "https://github.com/kyverno/kyverno.git", branch: "main"
+
+  # This regex is intended to match Kyverno version tags (e.g., `v1.2.3`) and
+  # omit unrelated tags (e.g., `helm-chart-v2.0.3`).
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dbd5a15c710f28d1f481ce428cc01217fc2e92f915174eca7268f666cf4e5e66"
