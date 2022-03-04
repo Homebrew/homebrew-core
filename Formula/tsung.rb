@@ -10,6 +10,7 @@ class Tsung < Formula
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_monterey: "19a9d329b07bf0f12e1cd44363b33aa8fdae0a583b51c7f17e21f779220a5045"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e48b00e815ae6bd028601423ce94a47d0ece9694fbb162808ff58f5d69e484f"
+    sha256 cellar: :any_skip_relocation, monterey:       "c8f5e4f5aaf60ddd4c8c4ac6c3fab88d6ac8bfbf8b0a443f388f758eae35cbb4"
     sha256 cellar: :any_skip_relocation, big_sur:        "82f9c26269d705ce0757bb7b1f0485737b62bb6ab440c3a349a3910c2c929c31"
     sha256 cellar: :any_skip_relocation, catalina:       "5ba49316a6d401d171ddd27e366c9bfb1a73aaeced24b562a326dbe1bd1249ab"
     sha256 cellar: :any_skip_relocation, mojave:         "bfd02c24483727832c624e5de2e289efec4eaf30b651be8da85696c1c896c091"
