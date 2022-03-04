@@ -20,6 +20,7 @@ class Ki18n < Formula
   bottle do
     sha256 arm64_monterey: "8a25ca3c4e89e1e21d6ecc015fd4c454fe70952178650656d47a1515566dfa21"
     sha256 arm64_big_sur:  "712779c93db0ca77b30353c9b68cba97332c4bfb742d8ccd82dc4dfaae1617a5"
+    sha256 monterey:       "abede5e43b9eb1fbca5113a1545eb646d7422b198cce653f0ba01ced68a499b7"
     sha256 big_sur:        "432638a9391fc35b7674956fcfd180fc80d17d0c7eee397942f8c83302fbb569"
     sha256 catalina:       "4144cec293ff3c4f47078eaacd40a54f32f32b26e6cc6b51d43f55a7052e56ce"
   end
