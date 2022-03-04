@@ -51,6 +51,8 @@ class Root < Formula
     depends_on "libxpm"
   end
 
+  fails_with gcc: "5"
+
   skip_clean "bin"
 
   def install
@@ -68,6 +70,7 @@ class Root < Formula
       -DCLING_CXX_PATH=clang++
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DCMAKE_CXX_STANDARD=17
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
       -Dbuiltin_glew=OFF
@@ -89,9 +92,6 @@ class Root < Formula
       -Dxrootd=ON
       -GNinja
     ]
-
-    cxx_version = (MacOS.version < :mojave) ? 14 : 17
-    args << "-DCMAKE_CXX_STANDARD=#{cxx_version}"
 
     # Homebrew now sets CMAKE_INSTALL_LIBDIR to /lib, which is incorrect
     # for ROOT with gnuinstall, so we set it back here.
