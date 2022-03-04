@@ -6,10 +6,12 @@ class Enkits < Formula
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a16d0e8f1b5ad4069eba83f3df23924dd498916b41a6f0f6a81c3dce22d42b7a"
-    sha256 cellar: :any, big_sur:       "52f4e994abed0b9c4d9a7ccc225b98d1cf4f4fe462aea61f2fd1b116f518c904"
-    sha256 cellar: :any, catalina:      "4b263189bb7bf94c1a1f9907fd4c988658c217db6a1897ad4d022354da32be56"
-    sha256 cellar: :any, mojave:        "be477295d82fdc58a9745c310c4a286fbaf77f74211a40ed9042cbed1f58810a"
+    sha256 cellar: :any,                 arm64_monterey: "d73910b2e106da68ef13675c76e4d18a265b2c514f898a1e3ab557a5a7d52caa"
+    sha256 cellar: :any,                 arm64_big_sur:  "6adefc872b396df076df8123bd17d61dd0fc1309dea9b3699df3ade05b28c578"
+    sha256 cellar: :any,                 monterey:       "cfd9a6e5f1c88e091ae948867231254e177bbce5c04acc48a05117dd16ff9ea8"
+    sha256 cellar: :any,                 big_sur:        "d8a9e68c02f80beb48beb2f8b39bf12bebb5077682cc623fa25244ce9ca0364f"
+    sha256 cellar: :any,                 catalina:       "675a3d006f1afd2efdcb396b178160fbfa64a40799e12d5a58364d6fa468cff7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb5764d88d00d8df8970a0253f177b70a4d11535dfcf87a8f98a984cc81d0b1a"
   end
 
   depends_on "cmake" => :build
