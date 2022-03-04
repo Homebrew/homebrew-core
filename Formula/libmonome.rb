@@ -3,8 +3,8 @@ class Libmonome < Formula
 
   desc "Library for easy interaction with monome devices"
   homepage "https://monome.org/"
-  url "https://github.com/monome/libmonome/archive/v1.4.5.tar.gz"
-  sha256 "c7109014f47f451f7b86340c40a1a05ea5c48e8c97493b1d4c0102b9ee375cd4"
+  url "https://github.com/monome/libmonome/archive/v1.4.6.tar.gz"
+  sha256 "dbb886eacb465ea893465beb7b5ed8340ae77c25b24098ab36abcb69976ef748"
   license "ISC"
   head "https://github.com/monome/libmonome.git", branch: "main"
 
@@ -21,11 +21,6 @@ class Libmonome < Formula
   depends_on "liblo"
 
   def install
-    # Fix build on Mojave
-    # https://github.com/monome/libmonome/issues/62
-    inreplace "wscript", /conf.env.append_unique.*-mmacosx-version-min=10.5.*/,
-                         "pass"
-
     rewrite_shebang detected_python_shebang, *Dir.glob("**/{waf,wscript}")
 
     system "./waf", "configure", "--prefix=#{prefix}"
