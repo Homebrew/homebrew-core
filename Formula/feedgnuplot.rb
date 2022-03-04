@@ -8,6 +8,7 @@ class Feedgnuplot < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e4e173e7fe3dc5d0c2a875cd8607b1f06e933242aff823d74615666f4675ae31"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1dac5f96953b5707c4e8a78bf674d6e767a870693ca438eef83fb251cda40311"
+    sha256 cellar: :any_skip_relocation, monterey:       "e4e173e7fe3dc5d0c2a875cd8607b1f06e933242aff823d74615666f4675ae31"
     sha256 cellar: :any_skip_relocation, big_sur:        "1dac5f96953b5707c4e8a78bf674d6e767a870693ca438eef83fb251cda40311"
     sha256 cellar: :any_skip_relocation, catalina:       "f2cade7e47e498c9bd2590f2f44cec6e8546b6b70670d8915175fc61c9e51695"
     sha256 cellar: :any_skip_relocation, mojave:         "488ac3106785ec103d653bec7ff854e3678583489c4f0e5320c8d984bbdda9ce"
