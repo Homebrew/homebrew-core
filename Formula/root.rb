@@ -51,9 +51,9 @@ class Root < Formula
     depends_on "libxpm"
   end
 
-  fails_with gcc: "5"
-
   skip_clean "bin"
+
+  fails_with gcc: "5"
 
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root"
