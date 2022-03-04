@@ -15,6 +15,7 @@ class Gdal < Formula
     rebuild 1
     sha256 arm64_monterey: "414e6078d9cc3e3528013cd85c0e0fd35719c8f731bdff2d3c6d8cacd7537ead"
     sha256 arm64_big_sur:  "f717eb2b3f6a926ff9f7865bd531f4c9cb73e55f8647304b85cde5c8e42692d4"
+    sha256 monterey:       "f381199f205f11c824a9c00a2945fed68773c609d298f69175e78bc0a721cfb8"
     sha256 big_sur:        "16002a30dfffb39dc2fd9b7cfa9aeb4eafe1bf5daef280a1d666a3dab5ddb689"
     sha256 catalina:       "5e84cca5805b6425f99b35e6f8d11ba4624f9989635879db5c39d2e13708b316"
     sha256 x86_64_linux:   "eba1555f2387567dfd57b944a2576152a3e81beff00fa4b1f263f6707bf29e35"
