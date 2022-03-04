@@ -1,9 +1,9 @@
 class Mtools < Formula
   desc "Tools for manipulating MSDOS files"
   homepage "https://www.gnu.org/software/mtools/"
-  url "https://ftp.gnu.org/gnu/mtools/mtools-4.0.37.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mtools/mtools-4.0.37.tar.gz"
-  sha256 "426dc3d15017aae8daf68c9119c0f5f2eafb30deb4a4b417d7d763c4ab728c7b"
+  url "https://ftp.gnu.org/gnu/mtools/mtools-4.0.38.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mtools/mtools-4.0.38.tar.gz"
+  sha256 "0f89d7c1c948b94a1bac02734743f1189148fde8c3233833aeb52ef7fad530f2"
   license "GPL-3.0-or-later"
 
   bottle do
