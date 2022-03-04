@@ -9,12 +9,12 @@ class Libmonome < Formula
   head "https://github.com/monome/libmonome.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "bda08cc1624e2e73d7689d6c0e67ee1db9710ca9b07e6b30f68ee597e7c9e381"
-    sha256 cellar: :any,                 arm64_big_sur:  "a7ad0fdf9885518b8924fefcfc865eeab54a41baa72f26aa6bb5708dea1a3e08"
-    sha256 cellar: :any,                 monterey:       "32a37f45e31690d3fc2f1b5458c54e06e4f99f56f498fa8d800d47e0b08f5d53"
-    sha256 cellar: :any,                 big_sur:        "1b101119d4a04e2bf678cc84f1ea69f1bd073b04f85f92d0ec7ba6d7e60d2bb8"
-    sha256 cellar: :any,                 catalina:       "5d0c42d1a5796e00a46433dae63e4647ae17367e54b7be7e0cd5dbe5fbba86a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f89d4a6067bcf5980280cea1ea3b9cceccccefc4c043a23f27c79a78aea1aca"
+    sha256 cellar: :any,                 arm64_monterey: "455620731ad9f9bc98ad32c9ccb03965ddfd24aa61bec2a6e38b542f66141d81"
+    sha256 cellar: :any,                 arm64_big_sur:  "051b068ad68c55ea65d3baf4d63f93a71022ba23e2aa0de67641d0552a6da939"
+    sha256 cellar: :any,                 monterey:       "d88e4c2403568cb058a660889b3217f5b599b1e2c775d50085ad16fc5ca7f4f2"
+    sha256 cellar: :any,                 big_sur:        "1b3081ea5174c5152a277459f3f20c6f19bcd9e6fac2383a2500f5252c68add7"
+    sha256 cellar: :any,                 catalina:       "dced07a10f36947199fcc4e1caf5a977e0ca3800981ea4a7cdc7c085371fc94d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ca287c1aaf218fefae314b503f2ae1b4cd112c37dd317c4fda95106f2284354"
   end
 
   depends_on "python@3.10" => :build
