@@ -11,6 +11,7 @@ class Litani < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a25e4d13a3193cd600b742049453080991c91c39493419b6002a984790f5331f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3130b0703b598d5babdffa714ebde0502d0fad9a188209ec568c9761f8819b9e"
+    sha256 cellar: :any_skip_relocation, monterey:       "f62db94e3c956b80d46684a4f0b257358d924b730e0bf52f9600ccb0db900f97"
     sha256 cellar: :any_skip_relocation, big_sur:        "7be6ac664a48f43f9273bdc57bf58ac4f0f3607fb351905c95dad2c746bbb383"
     sha256 cellar: :any_skip_relocation, catalina:       "731aaa700db00c3354aa369541cc41795c587d1772dd398880df43410f56bdf2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c146c694346758b3779a2215f03c2a73585f855958de819a82466ae0f899576b"
