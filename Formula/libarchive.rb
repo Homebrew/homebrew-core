@@ -6,7 +6,7 @@ class Libarchive < Formula
   license "BSD-2-Clause"
 
   livecheck do
-    url "https://libarchive.org/downloads/"
+    url :homepage
     regex(/href=.*?libarchive[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
