@@ -22,6 +22,7 @@ class Eccodes < Formula
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "jasper"
+  depends_on "libaec"
   depends_on "libpng"
   depends_on "netcdf"
 
