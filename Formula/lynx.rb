@@ -43,6 +43,7 @@ class Lynx < Formula
                           "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--enable-ipv6",
                           "--with-screen=ncurses",
+                          "--enable-externs",
                           "--disable-config-info"
     system "make", "install"
   end
