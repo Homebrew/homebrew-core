@@ -24,11 +24,15 @@ class Enchant < Formula
                           "--enable-relocatable"
 
     system "make", "install"
+    if OS.mac?
+      # Use AppleSpell for all languages by default
+      system "echo *:AppleSpell > #{share}/enchant/enchant.ordering"
+    end
     ln_s "enchant-2.pc", lib/"pkgconfig/enchant.pc"
   end
 
   test do
-    text = "Teh quikc brwon fox iumpz ovr teh lAzy d0g"
+    text = "Teh quikc brwon fox iumpz ovr teh"
     enchant_result = text.sub("fox ", "").split.join("\n")
     file = "test.txt"
     (testpath/file).write text
