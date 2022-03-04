@@ -13,6 +13,7 @@ class Aqbanking < Formula
   bottle do
     sha256 arm64_monterey: "5a86ff8e93a1e454ae3588bb749378fb863230e353be6b862a36a6cf5bfed7df"
     sha256 arm64_big_sur:  "d83a2a3067d0151089605f34c2b96b72cc55b4f5258bc84575094f04c22ddb8f"
+    sha256 monterey:       "f4820594692e060267a740df585c979feda7ac75adb6eae42269ecd77cfcf98b"
     sha256 big_sur:        "e15bcadc4d81ae9214ccd2b71cd9596f1431cc0d80032f4ba443cc46c7481283"
     sha256 catalina:       "329934083304ca7ca6a3a30832ca652973fa0eaacf3a493520cc850675a22b68"
     sha256 x86_64_linux:   "84a998567c4b0898daeabaf3c6bf6bf6027f625c3fbe060911dc8e9bebc35c74"
