@@ -3,7 +3,7 @@ class BibTool < Formula
   homepage "http://www.gerd-neugebauer.de/software/TeX/BibTool/en/"
   url "https://github.com/ge-ne/bibtool/releases/download/BibTool_2_68/BibTool-2.68.tar.gz"
   sha256 "e1964d199b0726f431f9a1dc4ff7257bb3dba879b9fa221803e0aa7840dee0e0"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256                               arm64_monterey: "d9e9e76159ba4398731428fd7ab2523d9066c325b28efc7b6012b5e9784bfd95"
