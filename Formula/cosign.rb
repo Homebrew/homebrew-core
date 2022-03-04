@@ -19,10 +19,10 @@ class Cosign < Formula
   depends_on "go" => :build
 
   def install
-    pkg = "github.com/sigstore/cosign/pkg/version"
+    pkg = "sigs.k8s.io/release-utils/version"
     ldflags = %W[
       -s -w
-      -X #{pkg}.GitVersion=#{version}
+      -X #{pkg}.gitVersion=#{version}
       -X #{pkg}.gitCommit=#{Utils.git_head}
       -X #{pkg}.gitTreeState="clean"
       -X #{pkg}.buildDate=#{time.iso8601}
@@ -36,6 +36,6 @@ class Cosign < Formula
       pipe_output("#{bin}/cosign generate-key-pair 2>&1", "foo\nfoo\n")
     assert_predicate testpath/"cosign.pub", :exist?
 
-    assert_match version.to_s, shell_output(bin/"cosign version")
+    assert_match version.to_s, shell_output(bin/"cosign version 2>&1")
   end
 end
