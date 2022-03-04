@@ -6,11 +6,11 @@ class CodeServer < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "4e9c96957c8af6d4a6b96e800c1590f90112a58ab3abdb97dfc84c10354bfb98"
-    sha256 cellar: :any, arm64_big_sur:  "94f657a8e93216fa36fe06a1a29a98e089c15c40a25a16b79ac58f6ed6f2940c"
-    sha256 cellar: :any, monterey:       "3b8089f0154639d0398b5b6865729a6bbed6491534af23ec2831ca6e9fe53b3a"
-    sha256 cellar: :any, big_sur:        "f161223669bdf4dcb24d2b89b9e87645c0b32adc6747d81fe4d61b9636092729"
-    sha256 cellar: :any, catalina:       "387ad90bcb83c2e8ab2a969c319c9eecf9d993a77165ec300c0f439d4a967656"
+    sha256 cellar: :any, arm64_monterey: "984f3070138600afb99d89dce861cfbd5cb930db48053a4779293c851a999377"
+    sha256 cellar: :any, arm64_big_sur:  "96746096b2efdf0139874df821db6947924788156bf4ae44fe9a67e6538cdf8a"
+    sha256 cellar: :any, monterey:       "4f6b5ef1ac015003daafbaa781b8b55ea0e6b76560d928df23fa4fac62f87742"
+    sha256 cellar: :any, big_sur:        "8fb769d31eadcb11f88cfc0cf2e2666c04d4ec4d4cdfa31ce44a81914229796c"
+    sha256 cellar: :any, catalina:       "a91151dff53840d5d44520357d8fcf7aa3e9c04e1162540d4a22be7232e8815a"
   end
 
   depends_on "bash" => :build
