@@ -18,6 +18,7 @@ class Qscintilla2 < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c8fe944fd61b3501cfa69b21945e6ba0bee5de83d054aee61189c2160cb88e45"
     sha256 cellar: :any,                 arm64_big_sur:  "b50669602ec28b423ff37fd752d763154870c88f10a6384ced07e77aeb5d594a"
+    sha256 cellar: :any,                 monterey:       "5dfd857a55ed423144758c0c6a50ee510d5d382c08738b73a1ca87ba7582a767"
     sha256 cellar: :any,                 big_sur:        "39dc87200786163924fbabdabaf1fef976c61fb12d63888047567fabbcfa255b"
     sha256 cellar: :any,                 catalina:       "4fc7f6b0dea043e74676c249633979f265f2809d4310cef1cdf45b0b5011cb6f"
     sha256 cellar: :any,                 mojave:         "8401229918ea4b92eca28715baa00174957b6143238b4b2f5dac29a17aaaa5ba"
