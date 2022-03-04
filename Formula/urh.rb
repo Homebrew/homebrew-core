@@ -9,6 +9,7 @@ class Urh < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "f932d73089bd4efbec62d2d043c6a971518a9f92a6f54640862b4bf06a5d2d7a"
     sha256 cellar: :any, arm64_big_sur:  "09dc76c4ab1a6fade85309ced90029fadec5e323768c4bf373f016b25c5aef73"
+    sha256 cellar: :any, monterey:       "209aea192ab624cfa0e0be32046c9435db860fae1066abe8d023daa37dd68324"
     sha256 cellar: :any, big_sur:        "9e250394aeddc6784c732b991f583ad6cdac03888c3f3e7ff477c8cfda2a7856"
     sha256 cellar: :any, catalina:       "6a0dd1e02d615789893fbf96ef3d1bc127dd927033fbfc0d6a42945c55d22070"
     sha256 cellar: :any, mojave:         "8c61a1fb6e05c52a17c4bd2d5b22fe2b3de41e4fb8cf4199de4eceef2bd661dc"
