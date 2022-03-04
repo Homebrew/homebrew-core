@@ -7,6 +7,12 @@ class Kyverno < Formula
   license "Apache-2.0"
   head "https://github.com/kyverno/kyverno.git", branch: "main"
 
+  # ignore helm chart releases
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dbd5a15c710f28d1f481ce428cc01217fc2e92f915174eca7268f666cf4e5e66"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "90d2cc3ac15f59db62ce8d719ceadd6472e102237a87c44490f0b8f0fefac6ac"
