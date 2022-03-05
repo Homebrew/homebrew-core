@@ -31,6 +31,7 @@ class StellarCore < Formula
 
   on_linux do
     depends_on "gcc"
+    depends_on "libunwind"
   end
 
   # Needs libraries at runtime:
