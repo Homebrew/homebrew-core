@@ -22,6 +22,11 @@ class Sratoolkit < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, monterey:     "7288ce0e3eca352589f120ae8a24f60009bd5ee7ad7b5fcd3ef68960ee0cb144"
     sha256 cellar: :any, big_sur:      "3ed43023475647f878bc0876f69ed16e46dee7eea3d6ebcbd5fa1e5e8849f4ce"
