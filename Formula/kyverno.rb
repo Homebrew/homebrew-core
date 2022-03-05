@@ -7,7 +7,8 @@ class Kyverno < Formula
   license "Apache-2.0"
   head "https://github.com/kyverno/kyverno.git", branch: "main"
 
-  # ignore helm chart releases
+  # This regex is intended to match Kyverno version tags (e.g., `v1.2.3`) and
+  # omit unrelated tags (e.g., `helm-chart-v2.0.3`).
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
