@@ -12,6 +12,7 @@ class Iproute2mac < Formula
     sha256 cellar: :any_skip_relocation, all: "6ae5a1243448e699b5e82c093c9dfcdcdc13b84b586f7d77bc1959c6942ad21c"
   end
 
+  depends_on :macos
   depends_on "python@3.10"
 
   def install
