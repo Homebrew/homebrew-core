@@ -9,6 +9,11 @@ class Envoy < Formula
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf22e01df08c56e453469d1b9057bc4735bbbcb15edb6e81a557a10e103897a0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "82a538bffdfe021e54774e9713351c8555bbb7b2766c6f9b96998918fdcaaa11"
