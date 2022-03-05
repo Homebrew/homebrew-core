@@ -8,12 +8,12 @@ class Jupyterlab < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "8d6938459817ce71ec0fa8789a6dd5f6b63d5000ec39da1721e7f2a659c5297a"
-    sha256 cellar: :any,                 arm64_big_sur:  "5a341ca31dac098e1025f02e64a009fa5a35c34f595e3b5d677577f0b66183fe"
-    sha256 cellar: :any,                 monterey:       "5be6d91530da0a078b1e7f188827c55964384f8c19ea7aca353c69b2dc0aa4d9"
-    sha256 cellar: :any,                 big_sur:        "355a7bb01f38258963b2edb316be97e1664b51d4674e15354ed624a0ed33856b"
-    sha256 cellar: :any,                 catalina:       "2ff6c264610a6c190dbcb53a73cf40f1662f0ba1e468440554e7d788f3911ec6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3afcedf345c01647bb6a49b084ca865c5d011f7b8ea6af0727f3939b00bdbdd"
+    sha256 cellar: :any,                 arm64_monterey: "31c3e0fa9f8366813d1469ee35137ff20632390c2319e757140e4792e435c791"
+    sha256 cellar: :any,                 arm64_big_sur:  "f1d05c8a409bb6473c968726c66dff354012dd75f91d057eaef98888acee5c71"
+    sha256 cellar: :any,                 monterey:       "13290a715085203133ec7a803f4c946a51c3f452414951c9be2af3ad8f89ad65"
+    sha256 cellar: :any,                 big_sur:        "c42d92a5498f394138be3d03bd17dc3a3354179710018dcc1cc270b41e1f106e"
+    sha256 cellar: :any,                 catalina:       "e8893428014fe86967fb9f729d0afeefde9b6a67feb3bb5f6ffe3289dcc658c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e3eff9468df07842cb6ccd6def946b1cdc4f89f196da5ac4645eb1f153849f4"
   end
 
   depends_on "node"
