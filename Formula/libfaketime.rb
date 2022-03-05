@@ -7,10 +7,10 @@ class Libfaketime < Formula
   head "https://github.com/wolfcw/libfaketime.git", branch: "master"
 
   bottle do
-    sha256 big_sur:      "cf7b4559e89a7ea8049e9cfef460f7cf1f6e9403f743562e26010d4ef2705454"
-    sha256 catalina:     "b5e7ab51f854c78569b3bd6b52f3a668cf2b99e38fb5324f6a195c073f62f950"
-    sha256 mojave:       "e35274e338e72a603ed6b338437d09fc58427b65077a09e0159514e4df249317"
-    sha256 x86_64_linux: "56e8541e3caa6c07d631991e8034232244f4251d7b8bcbdcc4a718e83d64faf8"
+    sha256 monterey:     "0ec1aa518fba8d2e20ff358fdeac7ab640488eeb47dcbdf7900601d53c79b7ce"
+    sha256 big_sur:      "d852f9c059965fb8750e5202c6b59ed6806dbc19d0aac339dfec71cca3856dbc"
+    sha256 catalina:     "c826fdd7a0b8b1be7a8957665ddf3403bbc9e12f9da052a616e714c80c429602"
+    sha256 x86_64_linux: "a30d8e38cbe2d90d06ceb803a766750c07c5b2034931db350b6eca7879343eae"
   end
 
   on_macos do
