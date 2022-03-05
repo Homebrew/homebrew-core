@@ -17,7 +17,16 @@ class TaLib < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea1e73b80ebe89bd831b478daab8102fb6252f6d4bab39e11b67b46a05b02509"
   end
 
+  on_macos do
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
+    ENV.deparallelize
+    # Call autoreconf on macOS to fix -flat_namespace usage
+    system "autoreconf", "-fvi" if OS.mac?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
