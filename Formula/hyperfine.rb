@@ -6,13 +6,12 @@ class Hyperfine < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "08143e785ff6982bc64c1299aac9f16f0230850ea4e8fcb9b9728176e6c7c20a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1955b632a89c2d6a672a265f01c44905e7ea8a83f1de6989ae3076de5ebe0ba2"
-    sha256 cellar: :any_skip_relocation, monterey:       "5a962e56a6de7e1290f5a178b51cf5ae827150bc3e867ef97dedbbea54de9226"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4db28055aefe73394c24765e35b24058bc57dfcadabccf9b991801f1716f8bde"
-    sha256 cellar: :any_skip_relocation, catalina:       "051e15f3b65040b2b9dddde55881f85c2baaff8dbf36a721e3f8cdcc889182db"
-    sha256 cellar: :any_skip_relocation, mojave:         "2e36e883eac7d17dbb95e053845d7e39e8d3b4f3d6013ff158b3dc01ab89a183"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95f4b040d2f037e3c3a177a8b14a0541cf67929433a95228603fe26b8630b420"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "afb094b1970220105faeb1fc7196e5bfdca61fb061ec494383887c782bbe886b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d24a5a1eca94b1559dc0703e9691ce73798af668dcfa0242603c73e7ab6f851"
+    sha256 cellar: :any_skip_relocation, monterey:       "16d940f6bfb8d398c131765df6feaa3da2527b4db09a938961f1b71764e8e872"
+    sha256 cellar: :any_skip_relocation, big_sur:        "00afb7b8800cbda436e644d81d6fd507e6fc320d31e36f6fbf4eb00959ee8efa"
+    sha256 cellar: :any_skip_relocation, catalina:       "0c75bcc04f21e239b71a8a37b5f92e23b714253478b7d132458204932d9ab3a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6718cdf9aa2cec11e42b88ea8175e92bee9fc1977ec84db1880577772d072934"
   end
 
   depends_on "rust" => :build
