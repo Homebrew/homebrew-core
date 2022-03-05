@@ -1,10 +1,15 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://cdn.zabbix.com/zabbix/sources/stable/5.4/zabbix-5.4.10.tar.gz"
-  sha256 "462b1c7506f22545916a8c6ffc50c297c952e21125a9240dedcf858070e59877"
+  url "https://cdn.zabbix.com/zabbix/sources/stable/6.0/zabbix-6.0.1.tar.gz"
+  sha256 "2dd92383cc169ce8b8cbbe660ed656e5d6b5b75bf4936743b8a9d59cdfcf3af1"
   license "GPL-2.0-or-later"
   head "https://github.com/zabbix/zabbix.git", branch: "master"
+
+  livecheck do
+    url "https://www.zabbix.com/download_sources"
+    regex(/href=.*?zabbix[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_monterey: "2efc79af9056617493577ab25993352cd15b4c4690ae8f36d28174d5516093d3"
