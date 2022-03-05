@@ -8,6 +8,9 @@ class Nss < Formula
   livecheck do
     url "https://ftp.mozilla.org/pub/security/nss/releases/"
     regex(%r{href=.*?NSS[._-]v?(\d+(?:[._]\d+)+)[._-]RTM/?["' >]}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match.first.tr("_", ".") }
+    end
   end
 
   bottle do
