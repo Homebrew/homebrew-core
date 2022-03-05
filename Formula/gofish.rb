@@ -7,12 +7,12 @@ class Gofish < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "945720778ed876253c3c8f11ded7a7e00cc5f67f053b5a58a0bad9c441e0de13"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d6f1b84bfba814847440e1b0e4e91b6cc884a7326a97e992ec9e31d198894e5a"
-    sha256 cellar: :any_skip_relocation, monterey:       "52a8ba4df8e73f678998ce22aae82547a1f376dc72cbccb6f8f8c95fc0ae4a6a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "eb495999ef2e9e147d6f852992aa18643c1d2eb5372ddf5db9fed4ca2b870acd"
-    sha256 cellar: :any_skip_relocation, catalina:       "8d0f1db0582aad9e2759ca39e1cb472dc6d819a915601cef48f6cc87ad7ba6ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "181a39788ace1382d777946a38893160482dd514a05d576c167a2f5c73630b02"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e1f3f5a121da38eba0d123472b4a9409e74323b6b6b816582ea227182fc0ffc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "07174f536e39b42396a75fda7422b9588f55d95795ba78efbf7406d60cf7d0c6"
+    sha256 cellar: :any_skip_relocation, monterey:       "8d84b7fa8d5d68de16a45dfa95f8d0924403457874815d79531d200e3b75b428"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cd32668dbb388a6f877e70218754982a101f165c6b1e7c5772d9ba44d581927b"
+    sha256 cellar: :any_skip_relocation, catalina:       "f47a1458fcf3225657bfac99adead69fa765ee10b2058fe038085d81c6f1e93d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "917decf5660f645a7ec7feaac8959f8d1cf3ca6a28cf085fdc6c74544274f83a"
   end
 
   depends_on "go" => :build
