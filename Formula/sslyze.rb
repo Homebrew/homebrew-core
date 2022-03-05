@@ -4,15 +4,14 @@ class Sslyze < Formula
   desc "SSL scanner"
   homepage "https://github.com/nabla-c0d3/sslyze"
   license "AGPL-3.0-only"
-  revision 1
 
   stable do
-    url "https://files.pythonhosted.org/packages/d5/b9/195ada85f8577e5b99a45338974e6de2d81aabeccee303fe66e455e91125/sslyze-4.1.0.tar.gz"
-    sha256 "76a50297aa2e3f4d8e2660865ca648eff672b0a5967fa052bb26b8b05e0d3ff9"
+    url "https://files.pythonhosted.org/packages/9b/84/8f3b381bc74a36f4f3bd39171d0bc597db083123d897143fb8500f33084e/sslyze-5.0.2.tar.gz"
+    sha256 "9023e7b43745c07fdc4f525aadbd1a86620c4c7f1a89cf048c25acd2cdda130f"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/4.0.0.tar.gz"
-      sha256 "b8a00062bf4cc7cf4fd09600d0a6845840833a8d3c593c0e615d36abac74f36e"
+      url "https://github.com/nabla-c0d3/nassl/archive/4.0.2.tar.gz"
+      sha256 "440296e07ee021dc283bfe7b810f3139349e26445bc21b5e05820808e15186a2"
     end
   end
 
@@ -25,62 +24,64 @@ class Sslyze < Formula
   end
 
   head do
-    url "https://github.com/nabla-c0d3/sslyze.git"
+    url "https://github.com/nabla-c0d3/sslyze.git", branch: "release"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl.git"
+      url "https://github.com/nabla-c0d3/nassl.git", branch: "release"
     end
   end
 
-  depends_on "pipenv" => :build
-  depends_on "rust" => :build
+  depends_on "pyinvoke" => :build
+  depends_on "rust" => :build # for cryptography
   depends_on "libffi"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
-    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
+    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
+    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/f9/4b/1cf8e281f7ae4046a59e5e39dd7471d46db9f61bb564fddbff9084c4334f/cryptography-36.0.1.tar.gz"
+    sha256 "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
-    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
+    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
+  end
+
+  resource "pydantic" do
+    url "https://files.pythonhosted.org/packages/b9/d2/12a808613937a6b98cd50d6467352f01322dc0d8ca9fb5b94441625d6684/pydantic-1.8.2.tar.gz"
+    sha256 "26464e57ccaafe72b7ad156fdaa4e9b9ef051f69e175dbbb463283000c05ab7b"
   end
 
   resource "tls-parser" do
-    url "https://files.pythonhosted.org/packages/66/4e/da7f727a76bd9abee46f4035dbd7a4711cde408f286dae00c7a1f9dd9cbb/tls_parser-1.2.2.tar.gz"
-    sha256 "83e4cb15b88b00fad1a856ff54731cc095c7e4f1ff90d09eaa24a5f48854da93"
+    url "https://files.pythonhosted.org/packages/12/fc/282d5dd9e90d3263e759b0dfddd63f8e69760617a56b49ea4882f40a5fc5/tls_parser-2.0.0.tar.gz"
+    sha256 "3beccf892b0b18f55f7a9a48e3defecd1abe4674001348104823ff42f4cbc06b"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/b1/5a/8b5fbb891ef3f81fc923bf3cb4a578c0abf9471eb50ce0f51c74212182ab/typing_extensions-4.1.1.tar.gz"
+    sha256 "1a9462dcc3347a79b1f1c0271fbe79e844580bb598bafa1ed208b94da3cdcd42"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.9")
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources.reject { |r| r.name == "nassl" }
 
-    res = resources.map(&:name).to_set
-    res -= %w[nassl]
-
-    res.each do |r|
-      venv.pip_install resource(r)
-    end
-
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
     resource("nassl").stage do
-      nassl_path = Pathname.pwd
-      inreplace "Pipfile", 'python_version = "3.7"', 'python_version = "3.9"'
-      system "pipenv", "install", "--dev"
-      system "pipenv", "run", "invoke", "build.all"
-      venv.pip_install nassl_path
+      system "invoke", "build.all"
+      venv.pip_install Pathname.pwd
     end
 
     venv.pip_install_and_link buildpath
   end
 
   test do
-    assert_match "SCAN COMPLETED", shell_output("#{bin}/sslyze --regular google.com")
+    assert_match "SCANS COMPLETED", shell_output("#{bin}/sslyze --mozilla_config=old google.com")
     refute_match("exception", shell_output("#{bin}/sslyze --certinfo letsencrypt.org"))
   end
 end
