@@ -1,12 +1,12 @@
 class LadspaSdk < Formula
   desc "Linux Audio Developer's Simple Plugin"
-  homepage "https://ladspa.org"
+  homepage "https://www.ladspa.org"
   url "https://www.ladspa.org/download/ladspa_sdk_1.17.tgz"
   sha256 "d9d596171d93f9c226fcdb7e27c6f917422ac487efe2c05e0a18094df4268061"
   license "LGPL-2.1-only"
 
   livecheck do
-    url "https://www.ladspa.org/download/"
+    url "https://www.ladspa.org/download/index.html"
     regex(/href=.*?ladspa[._-]sdk[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
