@@ -16,6 +16,10 @@ class NumpyAT116 < Formula
     sha256 cellar: :any, high_sierra:    "ed8d4fa6634bea85689ae4d5e316e9a3546469e44358aba6a9f73183fdcb4272"
   end
 
+  # was used only by opencv@2 which was deprecated on the same date
+  # also uses Python 2 which is not supported anymore
+  deprecate! date: "2015-02-01", because: :unsupported
+
   depends_on "gcc" => :build # for gfortran
   depends_on :macos # Due to Python 2
   depends_on "openblas"
