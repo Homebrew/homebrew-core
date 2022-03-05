@@ -24,6 +24,16 @@ class Snap7 < Formula
   end
 
   test do
-    system "python", "-c", "import ctypes.util,sys;ctypes.util.find_library('snap7') or sys.exit(1)"
+    (testpath/"test.c").write <<~EOS
+      #include "snap7.h"
+      int main()
+      {
+        S7Object Client = Cli_Create();
+        Cli_Destroy(&Client);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-lsnap7"
+    system "./test"
   end
 end
