@@ -1,8 +1,8 @@
 class Feedgnuplot < Formula
   desc "Tool to plot realtime and stored data from the command-line"
   homepage "https://github.com/dkogan/feedgnuplot"
-  url "https://github.com/dkogan/feedgnuplot/archive/v1.60.tar.gz"
-  sha256 "ac84f6f316fc1b5ecc5e5afb47da1385110e3fde39e0d7429b67beee8f465722"
+  url "https://github.com/dkogan/feedgnuplot/archive/v1.61.tar.gz"
+  sha256 "4239fe61a03232ea47909edd59af767b98481b205f58910b2e30d2d41f9caa80"
   license any_of: ["GPL-1.0-or-later", "Artistic-1.0"]
 
   bottle do
@@ -16,7 +16,25 @@ class Feedgnuplot < Formula
 
   depends_on "gnuplot"
 
+  uses_from_macos "perl"
+
+  on_linux do
+    resource "List::MoreUtils" do
+      url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.430.tar.gz"
+      sha256 "63b1f7842cd42d9b538d1e34e0330de5ff1559e4c2737342506418276f646527"
+    end
+  end
+
   def install
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    resources.each do |r|
+      r.stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "install"
+      end
+    end
+
     system "perl", "Makefile.PL", "prefix=#{prefix}"
     system "make"
     system "make", "install"
