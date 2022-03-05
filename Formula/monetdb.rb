@@ -7,7 +7,7 @@ class Monetdb < Formula
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
   livecheck do
-    url "https://www.monetdb.org/downloads/sources/Latest/"
+    url "https://www.monetdb.org/downloads/sources/archive/"
     regex(/href=.*?MonetDB[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
