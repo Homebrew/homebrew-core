@@ -1,8 +1,8 @@
 class Silk < Formula
   desc "Collection of traffic analysis tools"
   homepage "https://tools.netsa.cert.org/silk/"
-  url "https://tools.netsa.cert.org/releases/silk-3.19.1.tar.gz"
-  sha256 "b287de07502c53d51e9ccdcc17a46d8a4d7a59db9e5ae7add7b82458a9da45a7"
+  url "https://tools.netsa.cert.org/releases/silk-3.19.2.tar.gz"
+  sha256 "358ba718208dcfb14a22664a6d935f343bd7a1976729e5619ba7c702b70e3a7d"
 
   livecheck do
     url :homepage
@@ -26,12 +26,6 @@ class Silk < Formula
   depends_on "yaf"
 
   uses_from_macos "libpcap"
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     args = %W[
