@@ -5,11 +5,6 @@ class Wiggle < Formula
   sha256 "ff92cf0133c1f4dce33563e263cb30e7ddb6f4abdf86d427b1ec1490bec25afa"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url "https://neil.brown.name/wiggle/"
-    regex(/href=.*?wiggle[._-](\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2340430acf70ad6cff33fb034eda572c80f359b3847b90ebcce1c732cc2bb792"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f585911f982b406255e79f0c3b6a4a71b7e438b0d102f1d9c39d1fdb806fe40e"
