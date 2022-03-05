@@ -27,12 +27,20 @@ class Boringtun < Formula
     system "cargo", "install", *std_cargo_args
   end
 
+  def caveats
+    <<~EOS
+      boringtun requires root privileges so you will need to run `sudo boringtun utun`.
+      You should be certain that you trust any software you grant root privileges.
+    EOS
+  end
+
   test do
     system "#{bin}/boringtun", "--help"
     assert_match "boringtun " + version.to_s, shell_output("#{bin}/boringtun -V").chomp
-    shell_output("#{bin}/boringtun utun -v --log #{testpath}/boringtun.log", 1)
+
+    output = shell_output("#{bin}/boringtun utun -v --log #{testpath}/boringtun.log 2>&1", 1)
     assert_predicate testpath/"boringtun.log", :exist?
-    boringtun_log = File.read(testpath/"boringtun.log")
-    assert_match "Success, daemonized", boringtun_log.split("/n").first
+    # requires `sudo` to start
+    assert_match "BoringTun failed to start", output
   end
 end
