@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v18.3.0",
-      revision: "2f9ce11b2e7eba7d7d38b123ee6da9e0144249f8"
+      tag:      "v18.4.0",
+      revision: "13ef7c0f3ae85306ddb8633702c649c8f6ee94bb"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
@@ -31,12 +31,22 @@ class StellarCore < Formula
 
   on_linux do
     depends_on "gcc"
+    depends_on "libunwind"
   end
 
-  # Needs libraries at runtime:
-  # /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found
-  # Upstream has explicitly stated gcc-5 is too old: https://github.com/stellar/stellar-core/issues/1903
-  fails_with gcc: "5"
+  # https://github.com/stellar/stellar-core/blob/master/INSTALL.md#build-dependencies
+  fails_with :gcc do
+    version "7"
+    cause "Requires C++17 filesystem"
+  end
+
+  # Fix GCC error: xdrpp/marshal.cc:24:59: error: 'size' is not a constant expression.
+  # Remove when release has updated `xdrpp` submodule.
+  patch do
+    url "https://github.com/xdrpp/xdrpp/commit/b4979a55fe19b1fd6b716f6bd2400d519aced435.patch?full_index=1"
+    sha256 "5c74c40b0e412c80d994cec28e9d0c2d92d127bc5b9f8173fd525d2812513073"
+    directory "lib/xdrpp"
+  end
 
   def install
     system "./autogen.sh"
