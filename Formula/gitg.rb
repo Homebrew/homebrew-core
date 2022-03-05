@@ -3,6 +3,12 @@ class Gitg < Formula
   homepage "https://wiki.gnome.org/Apps/Gitg"
   url "https://download.gnome.org/sources/gitg/41/gitg-41.tar.xz"
   sha256 "7fb61b9fb10fbaa548d23d7065babd72ad63e621de55840c065ce6e3986c4629"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(/gitg[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "a2bf23c4cb3fdfdcdb05f250b5bf62d33bc60d01072f182f1209a40b604674df"
