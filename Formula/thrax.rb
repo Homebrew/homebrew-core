@@ -31,7 +31,7 @@ class Thrax < Formula
   fails_with gcc: "5"
 
   # Fix -flat_namespace being used on Big Sur and later.
-  # patch ref
+  # patch ref, https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff
   patch :DATA
 
   def install
