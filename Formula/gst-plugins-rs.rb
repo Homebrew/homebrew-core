@@ -1,8 +1,8 @@
 class GstPluginsRs < Formula
   desc "GStreamer plugins written in Rust"
   homepage "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs"
-  url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/0.8.1/gst-plugins-rs-0.8.1.tar.bz2"
-  sha256 "ab5f33b119257d3e663b7f3733e182433bfd2c7e919aba497aebe3aa5f7ac857"
+  url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/0.8.2/gst-plugins-rs-0.8.2.tar.bz2"
+  sha256 "e4c7f92119be776dbdb76f051db3cb543b7f3f38fc190424f396b793187695aa"
   license "MIT"
 
   bottle do
