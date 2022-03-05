@@ -7,12 +7,12 @@ class SwiftProtobuf < Formula
   head "https://github.com/apple/swift-protobuf.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a5c84ddd827e0126c615d5dd274beda8d257d1bf63b27ceb3c615bd12eaa0ef"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5a1c709bf25fa4c7d02cdbcb5ff481fa8d0ba37897a03c6f1a58b1d38248bc32"
-    sha256 cellar: :any_skip_relocation, monterey:       "81496b6246fa89194d7ffa490ae303332ffc6dcd2f2efd7786a25a3a82202651"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ae0390c500b0ca6e9665f23c8e4a0224f790ed232184d530bf9c8c772f068f89"
-    sha256 cellar: :any_skip_relocation, catalina:       "172f3e61a551548eeb7d93ae2fb001b0b99c38cc440c905aa72d907037730a4e"
-    sha256                               x86_64_linux:   "0b7c5288ec35491c7a435cd5cae5deb553221c6ee1d50946af12271f9f264fbe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "162f55cf00aaa89d9952feff713ce918d7d24917f1abc033c52dda6fcbabbcd7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ef362651f4151963a0aaa4c027f4a99aed89e3ba26bc8137c783150d3807b55"
+    sha256 cellar: :any_skip_relocation, monterey:       "5d71a9a9fb687cc6b27113b8f8afbfa3dcdd3b25583460b92b503c31ead6b1b5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "db70e4ba5b715c05d422814f027b8a61995c7ab6fef79e108b7d70d006ee591d"
+    sha256 cellar: :any_skip_relocation, catalina:       "8a49fbfb63668dbe460488ce0c28ab624a9f604ead58aa958fb45b69db2c6a6f"
+    sha256                               x86_64_linux:   "b8f0227011218a882befd20e7b7d1fc254e32b09e35de368e6ae567d95f007cd"
   end
 
   depends_on xcode: ["8.3", :build]
