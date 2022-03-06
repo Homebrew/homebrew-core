@@ -67,6 +67,8 @@ class Sdl < Formula
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
   deprecate! date: "2013-08-17", because: :deprecated_upstream
 
+  conflicts_with "sdl12-compat", because: "sdl12-compat is a drop-in replacement for sdl"
+
   def install
     # we have to do this because most build scripts assume that all sdl modules
     # are installed to the same prefix. Consequently SDL stuff cannot be
