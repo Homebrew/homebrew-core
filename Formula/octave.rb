@@ -10,6 +10,7 @@ class Octave < Formula
   bottle do
     sha256 arm64_monterey: "7ec858b4da283ca8ea257372b025aaf7d04f7ced77c2367bcf4bec42700cfa4b"
     sha256 arm64_big_sur:  "7d9bb1d842f7477af4ba5f36a960866bfb60b6809eec14f71590ade94c651de1"
+    sha256 monterey:       "0ca82daa9ed45613f911b32d38d9893cb8a65d27c5341a9042c072a211f839e5"
     sha256 big_sur:        "d9f655356b88de2268804c382f95dfe65558ff66c11530d02168e7647443c791"
     sha256 catalina:       "14d275a2bb3b2e61c2af040a1d0ebada781bae57f879188aee290abf5ae39190"
     sha256 x86_64_linux:   "db3e3b515e0be02b6bef8f717853de4eb7bc888244c6c4326bcf1e20e3c9e7cf"
