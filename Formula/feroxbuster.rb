@@ -6,12 +6,12 @@ class Feroxbuster < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d835d2cb3c9361b19eb17fbb582a47e6676c44243629ed95fb3882bb63b4bd41"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42708949a32a68a2a75cb951c0f89a58bdc603e12a45ea2e56e0457a6abe5e03"
-    sha256 cellar: :any_skip_relocation, monterey:       "3cf391d96de0bd291d786df340cb7e1657c25f7133f6b7840f9a0be53447a378"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4eaf2ce3f2d1f87de147602c56b7c463c0d67d64eacf42aa3ed7a4e4c6a9fb76"
-    sha256 cellar: :any_skip_relocation, catalina:       "faa55119e22344b7bfc06267faf20f5c5da0a99a7b1f71ed0dd9de1d51e6bf20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d84458b71cec3aad074232c97c765e015bb2a72203fac35aad2e3021e7830ea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2008ee74d1261c85447892f0f8e283050ed8a36e4640f43e9c88be4cb1e5a76e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4e6dabb70373426844758d1eac54f597cacc159244127546ade02ea6b2a9af12"
+    sha256 cellar: :any_skip_relocation, monterey:       "a45a21b9b4f54d53b42d87ffaca641003292a10195bfda880df02f84cbc38617"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2006193ff118a6c4cdffef4472b124e16aaa683df9b8c19ef65fb7ef148b9a61"
+    sha256 cellar: :any_skip_relocation, catalina:       "a4dfc06080ea27fc9d9f65495db95a472b5bd685f21fc21d0a3cb3a252a5816e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c6fddfcbfde977252e80ac3c55d2a30115a19274afc4cc210371d3445f7c8be"
   end
 
   depends_on "rust" => :build
