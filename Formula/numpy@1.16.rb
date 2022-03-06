@@ -7,13 +7,12 @@ class NumpyAT116 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "e740c127d61b149b3530b91b5b30763843f9245ac930f0bf7b53495371aa2c84"
-    sha256 cellar: :any, arm64_big_sur:  "b2d618920646238a8711dba0c021600ea1153a50490ba3e379107fb3f96d0e77"
-    sha256 cellar: :any, monterey:       "758a9c34c4e5d7b4f752b4ce60d9692c4f9c4219431b0eaeed202e3650e8de09"
-    sha256 cellar: :any, big_sur:        "0b95667bfd54232190975066a1e70a0770b84d37129c3fcda418bbba34926c88"
-    sha256 cellar: :any, catalina:       "fff9f604e35a06cc3197cc818a851d037f6d8f30df04fc7640144966bfb15c91"
-    sha256 cellar: :any, mojave:         "0d6a4439397cf4c684b6e01fb7038ed9b9943582d5ef15f080503755330ca615"
-    sha256 cellar: :any, high_sierra:    "ed8d4fa6634bea85689ae4d5e316e9a3546469e44358aba6a9f73183fdcb4272"
+    rebuild 1
+    sha256 cellar: :any, arm64_monterey: "44632bb6f64ba1e0c69135cedb6492366d1bb694db485e98d5ad9154c2de7fe1"
+    sha256 cellar: :any, arm64_big_sur:  "7642b59316ab6f72a98404891e507f30ace7fa4155b51f0bee34bd0420616b7b"
+    sha256 cellar: :any, monterey:       "d6bb3264733e935d0d0de1d88169424cf4135bc93ff3f634a5878054531f035f"
+    sha256 cellar: :any, big_sur:        "06715ef4325d085e529164cc2818e5cf21acb4ef38014a36f93a13adcdbf66c8"
+    sha256 cellar: :any, catalina:       "e394780485048f7e2629b168da0a01d0ad55d17200f69749a33e7ac1059f7aac"
   end
 
   # was used only by opencv@2 which was deprecated on the same date
