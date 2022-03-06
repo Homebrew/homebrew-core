@@ -10,6 +10,7 @@ class VtkAT82 < Formula
     rebuild 1
     sha256                               arm64_monterey: "ee325de2481066de0d5a310681be27d8b69075761de970b03c3ac5d4f623fa94"
     sha256                               arm64_big_sur:  "5ada273760e541d09da596b14552ce792ee9844a243b592a7fae76e988df4714"
+    sha256                               monterey:       "c99f5d89e48984c565431fdcd66fa30a95fea2f2939738d7b809d052cbfba3e0"
     sha256                               big_sur:        "f588c1f6c99f842c807a440bfeebd7b2411dadec4c869f2348348668054ca2a8"
     sha256                               catalina:       "5fbc2c1c449782fe77a92febe6872dee0b2487e5da4462f3255318e84e1a9292"
     sha256                               mojave:         "5509812315e9589e0adeff8b780bab961ee9d89233179653d508d8a9f620977b"
