@@ -34,6 +34,11 @@ class Borgbackup < Formula
     sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
+    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
+  end
+
   def install
     ENV["BORG_LIBB2_PREFIX"] = Formula["libb2"].prefix
     ENV["BORG_LIBLZ4_PREFIX"] = Formula["lz4"].prefix
