@@ -20,7 +20,7 @@ class Kubescape < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/armosec/kubescape/cautils.BuildNumber="v"#{version}
+      -X github.com/armosec/kubescape/cautils.BuildNumber=v#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
