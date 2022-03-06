@@ -9,12 +9,12 @@ class Streamlink < Formula
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e5db5946a4402df16f636c02d79a872c67426fb0af3a975a6e5401b55310ae5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4b8e21f7964987d91c45a3a4107108d4e0a47a898e271cb4588c4079c967634"
-    sha256 cellar: :any_skip_relocation, monterey:       "d08943cc086b04f73839057b728a4f550be35cd46cd0fb2d069b9d65aacdc7e7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fab65959c3a142daaf8674495a3f6d2c1b73dce0a3b14640f686263414865a9d"
-    sha256 cellar: :any_skip_relocation, catalina:       "d825504e1009d8d5d25797665afcc4002907076cf43cae031ec69dd6ec189be2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d620b916ac561d3510b6ac364edb323410c7e94684917a636e1c6ae1bc9651d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a67cb9403116c3a76a652c4e564ff594abd2610eb325f68b78c3c82f4bc180f8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ac5dcbdfc9553708e3323d6bfd808c1f264f65312a8d5f287357c8abe9e53bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "49a94708a24d7ecbe11a5d52dfdcad5bb309dd15f842c9f6b3079a707ee61b44"
+    sha256 cellar: :any_skip_relocation, big_sur:        "67da6b831fca4564ef238571bec773c0cd21e949939d18882f549558cf393c62"
+    sha256 cellar: :any_skip_relocation, catalina:       "fbf5d98cb452180115650764ee4cf2cd3bcd8c99428bbb6f538e9ac213a040bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec086ee7aef710b90f91456501e4f4a1c87dca52f5f1d6add3ca3f118b80b842"
   end
 
   depends_on "python@3.10"
