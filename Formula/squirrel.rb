@@ -1,14 +1,17 @@
 class Squirrel < Formula
   desc "High level, imperative, object-oriented programming language"
   homepage "http://www.squirrel-lang.org"
-  url "https://downloads.sourceforge.net/project/squirrel/squirrel3/squirrel%203.1%20stable/squirrel_3_1_stable.tar.gz"
-  version "3.1.0"
-  sha256 "4845a7fb82e4740bde01b0854112e3bb92a0816ad959c5758236e73f4409d0cb"
+  url "https://downloads.sourceforge.net/project/squirrel/squirrel3/squirrel%203.2%20stable/squirrel_3_2_stable.tar.gz"
+  sha256 "211f1452f00b24b94f60ba44b50abe327fd2735600a7bacabc5b774b327c81db"
   license "MIT"
+  head "https://github.com/albertodemichelis/squirrel.git", branch: "master"
 
   livecheck do
     url :stable
     regex(%r{url=.*?/squirrel[._-]v?(\d+(?:[_-]\d+)+)[._-]stable\.t}i)
+    strategy :sourceforge do |page, regex|
+      page.scan(regex).map { |match| match.first.tr("_", ".") }
+    end
   end
 
   bottle do
@@ -25,14 +28,16 @@ class Squirrel < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef0fb28b06ae9677d7f573189e5e2c8b012f1eb52d42b8d23d385117a826c2e5"
   end
 
-  # Upstream patch to fix compilation with Xcode 9
-  # https://github.com/albertodemichelis/squirrel/commit/a3a78eec
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/dcaba40/squirrel/xcode9.patch"
-    sha256 "7821b25b11c477341553c29dce5fb3fca2541e829276be2b2e3cd0c5b5a225d2"
-  end
-
   def install
+    # The tarball files are in a subdirectory, unlike the upstream repository.
+    # Moving tarball files out of the subdirectory allows us to use the same
+    # build steps for stable and HEAD builds.
+    squirrel_subdir = "squirrel#{version.major}"
+    if Dir.exist?(squirrel_subdir)
+      mv Dir["squirrel#{version.major}/*"], "."
+      rmdir squirrel_subdir
+    end
+
     system "make"
     prefix.install %w[bin include lib]
     doc.install Dir["doc/*.pdf"]
