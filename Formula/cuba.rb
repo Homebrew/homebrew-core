@@ -1,8 +1,8 @@
 class Cuba < Formula
   desc "Library for multidimensional numerical integration"
   homepage "http://www.feynarts.de/cuba/"
-  url "http://www.feynarts.de/cuba/Cuba-4.2.1.tar.gz"
-  sha256 "84935a6f72712e183e8741715f09402c716d1cf816e452a47bdc5dd44b13567b"
+  url "http://www.feynarts.de/cuba/Cuba-4.2.2.tar.gz"
+  sha256 "8d9f532fd2b9561da2272c156ef7be5f3960953e4519c638759f1b52fe03ed52"
   license "LGPL-3.0"
 
   livecheck do
@@ -16,8 +16,6 @@ class Cuba < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "758999a8bef3aeaf37f38402affd375ff55b4293cbdb52ee76846a25ba7f5209"
     sha256 cellar: :any_skip_relocation, mojave:        "abd47d8d13cfefdaf542675e465b717cb95e8b1a8ba0ca2c3745bbcf0c6bd1d0"
   end
-
-  disable! date: "2021-11-22", because: :checksum_mismatch
 
   def install
     ENV.deparallelize # Makefile does not support parallel build
