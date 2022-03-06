@@ -4,6 +4,7 @@ class Kubescape < Formula
   url "https://github.com/armosec/kubescape/archive/v2.0.149.tar.gz"
   sha256 "6a97eab6d41ea65216fa399c676337434783465bedf06ce8827ae1be939fccee"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/armosec/kubescape.git", branch: "master"
 
   bottle do
@@ -20,7 +21,7 @@ class Kubescape < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/armosec/kubescape/cautils.BuildNumber=#{version}
+      -X github.com/armosec/kubescape/cautils.BuildNumber=v#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
