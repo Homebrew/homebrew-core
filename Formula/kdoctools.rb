@@ -21,6 +21,7 @@ class Kdoctools < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "e18d8677e0c3ffd6d61dabb96f32f6358cc35174ac3cdb36074820b511ecc2a1"
     sha256 cellar: :any, arm64_big_sur:  "becce4bb11ef82cfcec0848bd1c79e796e64837eae449b492f53ed0c30c073b9"
+    sha256 cellar: :any, monterey:       "6820a75703bc31f258cee35b9a079b5c27cd8909cbdc220da8c77168b9e4676b"
     sha256 cellar: :any, big_sur:        "f7493484fd34be0179ebbdde6f8b97048158890e8386dc9f1acd5b9b61a829dd"
     sha256 cellar: :any, catalina:       "941c6841ceff5e6eb896ee747a04ec791ec54299d1621cd8f3a3aa286e81b26d"
   end
