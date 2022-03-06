@@ -4,6 +4,7 @@ class Git < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.35.1.tar.xz"
   sha256 "d768528e6443f65a203036266f1ca50f9d127ba89751e32ead37117ed9191080"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
@@ -20,10 +21,10 @@ class Git < Formula
     sha256 x86_64_linux:   "34b29f7801095ae255f03bae5d0dde6fc98910811f17266e8b4af73310c3c314"
   end
 
+  depends_on "curl"
   depends_on "gettext"
   depends_on "pcre2"
 
-  uses_from_macos "curl", since: :catalina # macOS < 10.15.6 has broken cert path logic
   uses_from_macos "expat"
   uses_from_macos "zlib", since: :high_sierra
 
@@ -81,6 +82,7 @@ class Git < Formula
       CFLAGS=#{ENV.cflags}
       LDFLAGS=#{ENV.ldflags}
       NO_TCLTK=1
+      CURLDIR=#{Formula["curl"].opt_prefix}
     ]
 
     args += if OS.mac?
