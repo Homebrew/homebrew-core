@@ -14,6 +14,7 @@ class Postgis < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "fe01d34be0797dfff4b0f4442ca2e9c31ce797c0456b1414b288d7847b228064"
     sha256 cellar: :any,                 arm64_big_sur:  "150a331b5aff05a8534a80ac96ef302faeac17a1633e16fa5a390a1366e5b8dd"
+    sha256 cellar: :any,                 monterey:       "91fb7ee25452558239c6580f8561afa056cbeb0785e8f5451b22e56cd9994c66"
     sha256 cellar: :any,                 big_sur:        "d82ded3dad84a3f426e62762299185b9e2a852d58504491a16bb090e64a903c0"
     sha256 cellar: :any,                 catalina:       "9bbe99340fa5529ad85bcc6faa2452424efda60c434fab75a3cb60d6797d958f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0cb2d22187aaeace22bb16dd48e47cda84cf1aed2295bc9734cb9cae4cd9aa8"
