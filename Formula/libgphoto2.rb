@@ -1,8 +1,8 @@
 class Libgphoto2 < Formula
   desc "Gphoto2 digital camera library"
   homepage "http://www.gphoto.org/proj/libgphoto2/"
-  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.28/libgphoto2-2.5.28.tar.bz2"
-  sha256 "9600596a03208c15ed76f2d30441d75261dec00d93e80779ed0fc56f03725ebd"
+  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.29/libgphoto2-2.5.29.tar.bz2"
+  sha256 "dbe3cefad8c634fc134d93467a33e242cb1030f0b9829deb9f1703f368ac027e"
   license "LGPL-2.1-or-later"
 
   livecheck do
