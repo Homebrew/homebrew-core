@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/7d/f5/a59e6c586ee3e22992b43a8ba162aad45f4da83eacfc11851cac4591365b/moto-3.0.5.tar.gz"
-  sha256 "85f2ece0ad0305aa13a39139ce648ab3afe1c04cb32ac1db8d5e5e9117d4d10e"
+  url "https://files.pythonhosted.org/packages/c5/d0/6e42772040657ae8a88f05b95344315d1cd4774abfded68a03c3b8638737/moto-3.0.6.tar.gz"
+  sha256 "53ab3b6647382f61ad5aef8351ccba3712fa9595b7826883e4a38a4ac5c9b5a7"
   license "Apache-2.0"
 
   bottle do
@@ -36,13 +36,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/bd/c5/beaf8233d437106d84be4cabaca840d565f213c6053f93a0bf7fab166642/boto3-1.21.8.tar.gz"
-    sha256 "f2ce641957c1782e382548ced4a447189e45851bbe58c1f6752ff2b661527de7"
+    url "https://files.pythonhosted.org/packages/a4/1f/ab159d65cd9c4524945fe8ba776fd0bfa6b5325c5db7cb831f9ce4baee2f/boto3-1.21.13.tar.gz"
+    sha256 "16fae86d0c4993fd5112128bb4622a879f02363bccd045153cc0bbd7722cc9a5"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d5/1a/46a4f7676b15abb03d830724c1567dd0e1d13b7f33903a0a8cbe25d32d97/botocore-1.24.8.tar.gz"
-    sha256 "a5431d806dc75fb1844463d921759fcd8d387674443af8d7fd0867f296b02759"
+    url "https://files.pythonhosted.org/packages/d8/7c/31b6e0a0524dc4f92872cd4147f8a3ec80ef4ff7855feee443f89722430c/botocore-1.24.13.tar.gz"
+    sha256 "46e51f56f1c5784e4245e036503635fa71b722775657b6e1acf21ec5b906974c"
   end
 
   resource "certifi" do
@@ -166,8 +166,8 @@ class Moto < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/97/ae/7497bc5e1c84af95e585e3f98585c9f06c627fac6340984c4243053e8f44/networkx-2.6.3.tar.gz"
-    sha256 "c0946ed31d71f1b732b5aaa6da5a0388a345019af232ce2f49c766e2d6795c51"
+    url "https://files.pythonhosted.org/packages/9e/9e/3d67df5d543ffd743f4ccb12c9c90929e4f48136e3062e15a6d971d91202/networkx-2.7.1.tar.gz"
+    sha256 "d1194ba753e5eed07cdecd1d23c5cd7a3c772099bd8dbd2fea366788cf4de7ba"
   end
 
   resource "pbr" do
