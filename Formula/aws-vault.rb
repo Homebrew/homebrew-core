@@ -5,6 +5,11 @@ class AwsVault < Formula
   sha256 "b2127b20a58fd75d92a2af28e77368dd9ab3c576dc73c3d56c3817e496a45515"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "80407756d1e871340bc0020530f872ecd4ddd465431413ab224241ab7ffed1f3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6da544cac7966d7df67b58a7666f076d5cbec4e2384776f432217f14cddd8ffd"
