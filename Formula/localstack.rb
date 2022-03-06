@@ -3,8 +3,8 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/14/94/42b2a5883d17ce11bfded3f760e2660ca512120dd99acb4026851ff7cc0e/localstack-0.14.0.8.tar.gz"
-  sha256 "920044e5c531549186f9fd838b03b2df2e3d77062deb8ac3d0d08c217372f813"
+  url "https://files.pythonhosted.org/packages/e7/3e/c49a2db2abc6724b86c1512da11ed322a513a31c376b150523320605f147/localstack-0.14.0.9.tar.gz"
+  sha256 "c0072087b95e6075e5110d6883e3b7c03f0490b47bf9ba6159bd4d5dd0266827"
   license "Apache-2.0"
 
   bottle do
@@ -86,8 +86,8 @@ class Localstack < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/77/42/8a7669dbea5086ed2ee759d75414764a8256070d3c9adcf0e2067ebd9891/dulwich-0.20.32.tar.gz"
-    sha256 "dc5498b072bdc12c1effef4b6202cd2a4542bb1c6dbb4ddcfc8c6d53e08b488c"
+    url "https://files.pythonhosted.org/packages/de/42/c4218857c39ebc9b13c4a5c8d684e4d873ea0c680927ad1cc20e79db258a/dulwich-0.20.33.tar.gz"
+    sha256 "9537abef8cabee96b0c09af950661b883057879a788d98f1187b79e32fee9650"
   end
 
   resource "idna" do
