@@ -20,10 +20,13 @@ class Librasterlite < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6daf56bea60e8cff42c3375976009255c9998ae09c65d939700f81f1db4a1449"
   end
 
+  deprecate! date: "2022-03-05", because: :deprecated_upstream
+
   depends_on "pkg-config" => :build
   depends_on "libgeotiff"
   depends_on "libpng"
   depends_on "libspatialite"
+  depends_on "proj@7"
   depends_on "sqlite"
 
   def install
