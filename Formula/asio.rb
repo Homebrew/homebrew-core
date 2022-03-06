@@ -1,8 +1,8 @@
 class Asio < Formula
   desc "Cross-platform C++ Library for asynchronous programming"
   homepage "https://think-async.com/Asio"
-  url "https://downloads.sourceforge.net/project/asio/asio/1.20.0%20%28Stable%29/asio-1.20.0.tar.bz2"
-  sha256 "204374d3cadff1b57a63f4c343cbadcee28374c072dc04b549d772dbba9f650c"
+  url "https://downloads.sourceforge.net/project/asio/asio/1.22.0%20%28Stable%29/asio-1.22.0.tar.bz2"
+  sha256 "1e0737d43fa192938c77c16d80809e5b40630549de44d649a1371a07c39d4550"
   license "BSL-1.0"
   head "https://github.com/chriskohlhoff/asio.git", branch: "master"
 
