@@ -17,6 +17,8 @@ class Sdl12Compat < Formula
   depends_on "cmake" => :build
   depends_on "sdl2"
 
+  conflicts_with "sdl", because: "sdl12-compat is a drop-in replacement for sdl"
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DSDL2_PATH=#{Formula["sdl2"].opt_prefix}",
