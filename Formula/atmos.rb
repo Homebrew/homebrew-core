@@ -6,12 +6,12 @@ class Atmos < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9fce0e558ec0955a4e56ab4af07cefab746fdb600f3f50bbb4ef6f766a104ceb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6edd02e94699979c74c58eb3c87d593f0e1214b14139beec31bde16887db8efc"
-    sha256 cellar: :any_skip_relocation, monterey:       "08f182543a15c117e8ad38c1d9ec3600b28951005818c267629d979f9ae53beb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "373707c8ebc3f6294fad6f5425809953f7254f8081c4f9aab508fbb6aff09970"
-    sha256 cellar: :any_skip_relocation, catalina:       "de9993950a03beb03738b6d1bd823648979c2307dbb652701c412e697460c9d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2870e884f2ee7a0031db192b922978b10dd93b43e952dabb8ef7e8263f0a5f1e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f763ac5ba65e873e659c0b60641c94fecad74d67d24edb98718f107391f4b215"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ea28ff12a3f59903a6de578dfcc0ed9d2c6462eb6a929fdeae3e6c6b3aa1b3f"
+    sha256 cellar: :any_skip_relocation, monterey:       "35cf59e0e67eab9d17526692089fc8d54ad18380be5cd43e9d31724e55b89c46"
+    sha256 cellar: :any_skip_relocation, big_sur:        "75475b8fd52c7fdf60d1373ba636d9a3daa9ec44a471e47ba847e2a17f0cb82f"
+    sha256 cellar: :any_skip_relocation, catalina:       "1dbc100d662a983eb8b1854071e0530f9c0f80980274178752c5a5676f278d01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5080706e13c14756c4154830fce960b3c8b4c97ecca2b961245d0398765c92e7"
   end
 
   depends_on "go" => :build
