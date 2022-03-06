@@ -1,9 +1,9 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/3.1.23.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort3-3.1.23.0.tar.gz"
-  sha256 "faa450152a52e4ea6deb388476585fd976a544d8916e728f4406751b52885541"
+  url "https://github.com/snort3/snort3/archive/3.1.24.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.1.24.0.tar.gz"
+  sha256 "b40243dc1158b3abeecc90aa31ca9abe8b8a63cd50f4ea2263043d29b5e9bab7"
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
@@ -51,6 +51,12 @@ class Snort < Formula
     # These flags are not needed for LuaJIT 2.1 (Ref: https://luajit.org/install.html).
     # On Apple ARM, building with flags results in broken binaries and they need to be removed.
     inreplace "cmake/FindLuaJIT.cmake", " -pagezero_size 10000 -image_base 100000000\"", "\""
+
+    # Starting with flatbuffers 2.0.6, the function flatbuffer_version_string was renamed to
+    # flatbuffers_version_string. Upstream issue at https://github.com/snort3/snort3/issues/235.
+    inreplace "src/utils/util.cc",
+              "flatbuffers::flatbuffer_version_string",
+              "flatbuffers::flatbuffers_version_string()"
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DENABLE_TCMALLOC=ON"
