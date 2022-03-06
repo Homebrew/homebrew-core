@@ -7,10 +7,10 @@ class Mist < Formula
   head "https://github.com/ninxsoft/Mist.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "35375786bef6d615bdcb87cb580f18dd0e3825a48eb297b6e18e8a4de0b4c25a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffcafe421bb04ffa7b4509ae724f900d11a894891e27252398cc198ad330aa89"
-    sha256 cellar: :any_skip_relocation, monterey:       "a385b61b7c5db3f570ad7f004d63fe16e87f8d9e19b5cf12c648f10cdb544f18"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ab75aa8de44adc4fd72be7d70feb92eced0603238c209d0461c25e2341b1cb4e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0874f6cc33272436447fe0f363348d4b9170fef67a5913373a0d6ed8f5feee9c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54eca06d7652fbb198304ca71a7b12006dcaf3ca914c6b84f938b8bc24e9ec73"
+    sha256 cellar: :any_skip_relocation, monterey:       "55847742460e3637d910a4f24e7e5574a576ce4db931e1739abacb3179a10c8e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "71e2ef77f7c6bd38ac1691b65b754465a0513fe087f4d7d2f1267d4a322774cf"
   end
 
   # Mist requires Swift 5.5
