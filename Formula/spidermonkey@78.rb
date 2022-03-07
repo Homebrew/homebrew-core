@@ -6,6 +6,13 @@ class SpidermonkeyAT78 < Formula
   sha256 "a4438d84d95171a6d4fea9c9f02c2edbf0475a9c614d968ebe2eedc25a672151"
   license "MPL-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 monterey:     "0c2c93d407197f7cdb8606682cd3c0b3e6216a5f7b9ea300c697aac9564481e2"
+    sha256 cellar: :any,                 big_sur:      "caa0c1a936d04a4dc31106dfd6b483fe9b245abebcf1f18c56adec7210b384f2"
+    sha256 cellar: :any,                 catalina:     "3f417ef0808366725734977fcaae80010c5cbe29b3954fd178056cb2dc952fbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4b9188b778310a6365e4b879cc94b593ab6b3eb4fc879eed813f9001eb252ec2"
+  end
+
   depends_on "autoconf@2.13" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
