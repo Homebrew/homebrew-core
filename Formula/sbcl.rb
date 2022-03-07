@@ -9,6 +9,7 @@ class Sbcl < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3e3a18922707c656a3cae33e08576464f2b6f97954fea8cebc566ea59c5007ad"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1f40fa7fff59aef4b65264a566050b4d241571e715a3c02a3a04fdb98d4fb09"
+    sha256 cellar: :any_skip_relocation, monterey:       "bac94839ec0f26e94352b303fc81c40aeb831774e1910af4e8044d26c195bd76"
     sha256 cellar: :any_skip_relocation, big_sur:        "f8c9ec0cd0498ff23069576bae6d5c959a07d30341f0fd7289a70226936cb6fb"
     sha256 cellar: :any_skip_relocation, catalina:       "b3bb2b67fb0850705d1fec5ae20630087e189fcf1c7c2ac5bc6adce71dbefa16"
     sha256 cellar: :any_skip_relocation, mojave:         "9ea1618b1a189c93353622f61fbd7f3b115b389d69ba2d95fe466defb741ba6a"
