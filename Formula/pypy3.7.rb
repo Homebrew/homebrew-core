@@ -1,4 +1,4 @@
-class Pypy3 < Formula
+class Pypy37 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
   url "https://downloads.python.org/pypy/pypy3.7-v7.3.8-src.tar.bz2"
@@ -69,7 +69,7 @@ class Pypy3 < Formula
              "--make-jobs", ENV.make_jobs, "targetpypystandalone.py"
 
       with_env(PYTHONPATH: buildpath) do
-        system "./pypy3-c", buildpath/"lib_pypy/pypy_tools/build_cffi_imports.py"
+        system "./pypy3.7-c", buildpath/"lib_pypy/pypy_tools/build_cffi_imports.py"
       end
     end
 

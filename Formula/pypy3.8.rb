@@ -1,4 +1,4 @@
-class Pypy3AT38 < Formula
+class Pypy38 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
   url "https://downloads.python.org/pypy/pypy3.8-v7.3.8-src.tar.bz2"
@@ -69,7 +69,7 @@ class Pypy3AT38 < Formula
              "--make-jobs", ENV.make_jobs, "targetpypystandalone.py"
 
       with_env(PYTHONPATH: buildpath) do
-        system "./pypy3-c", buildpath/"lib_pypy/pypy_tools/build_cffi_imports.py"
+        system "./pypy3.8-c", buildpath/"lib_pypy/pypy_tools/build_cffi_imports.py"
       end
     end
 
@@ -80,14 +80,14 @@ class Pypy3AT38 < Formula
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy3.tar.bz2"
     end
 
-    (libexec/"lib").install libexec/"bin/#{shared_library("libpypy3-c")}" => shared_library("libpypy3-c")
+    (libexec/"lib").install libexec/"bin/#{shared_library("libpypy3.8-c")}" => shared_library("libpypy3.8-c")
 
     if OS.mac?
-      MachO::Tools.change_install_name("#{libexec}/bin/pypy3",
-                                       "@rpath/libpypy3-c.dylib",
-                                       "#{libexec}/lib/libpypy3-c.dylib")
-      MachO::Tools.change_dylib_id("#{libexec}/lib/libpypy3-c.dylib",
-                                   "#{opt_libexec}/lib/libpypy3-c.dylib")
+      MachO::Tools.change_install_name("#{libexec}/bin/pypy3.8",
+                                       "@rpath/libpypy3.8-c.dylib",
+                                       "#{libexec}/lib/libpypy3.8-c.dylib")
+      MachO::Tools.change_dylib_id("#{libexec}/lib/libpypy3.8-c.dylib",
+                                   "#{opt_libexec}/lib/libpypy3.8-c.dylib")
     end
 
     (libexec/"lib-python").install "lib-python/3"
@@ -97,15 +97,14 @@ class Pypy3AT38 < Formula
     # (like /opt) and symlinking in binaries as needed. Specifically,
     # we want to avoid putting PyPy's Python.h somewhere that configure
     # scripts will find it.
-    bin.install_symlink libexec/"bin/pypy3"
-    bin.install_symlink libexec/"bin/pypy" => "pypy3.8"
-    lib.install_symlink libexec/"lib/#{shared_library("libpypy3-c")}"
+    bin.install_symlink libexec/"bin/pypy3.8"
+    lib.install_symlink libexec/"lib/#{shared_library("libpypy3.8-c")}"
 
     # Delete two files shipped which we do not want to deliver
     # These files make patchelf fail
     if OS.linux?
-      rm_f libexec/"bin/libpypy3-c.so.debug"
-      rm_f libexec/"bin/pypy3.debug"
+      rm_f libexec/"bin/libpypy3.8-c.so.debug"
+      rm_f libexec/"bin/pypy3.8.debug"
     end
   end
 
@@ -113,7 +112,7 @@ class Pypy3AT38 < Formula
     # Precompile cffi extensions in lib_pypy
     # list from create_cffi_import_libraries in pypy/tool/release/package.py
     %w[_sqlite3 _curses syslog gdbm _tkinter].each do |module_name|
-      quiet_system bin/"pypy3", "-c", "import #{module_name}"
+      quiet_system bin/"pypy3.8", "-c", "import #{module_name}"
     end
 
     # Post-install, fix up the site-packages and install-scripts folders
@@ -135,13 +134,13 @@ class Pypy3AT38 < Formula
 
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do
-        system bin/"pypy3", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
+        system bin/"pypy3.8", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
       end
     end
 
     # Symlinks to easy_install_pypy3 and pip_pypy3
-    bin.install_symlink scripts_folder/"easy_install" => "easy_install_pypy3"
-    bin.install_symlink scripts_folder/"pip" => "pip_pypy3"
+    bin.install_symlink scripts_folder/"easy_install" => "easy_install_pypy3.8"
+    bin.install_symlink scripts_folder/"pip" => "pip_pypy3.8"
 
     # post_install happens after linking
     %w[easy_install_pypy3 pip_pypy3].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
@@ -154,15 +153,15 @@ class Pypy3AT38 < Formula
       specifying the install-scripts folder as:
         #{scripts_folder}
 
-      If you install Python packages via "pypy3 setup.py install", easy_install_pypy3,
-      or pip_pypy3, any provided scripts will go into the install-scripts folder
+      If you install Python packages via "pypy3.8 setup.py install", easy_install_pypy3.8,
+      or pip_pypy3.8, any provided scripts will go into the install-scripts folder
       above, so you may want to add it to your PATH *after* #{HOMEBREW_PREFIX}/bin
       so you don't overwrite tools from CPython.
 
-      Setuptools and pip have been installed, so you can use easy_install_pypy3 and
-      pip_pypy3.
+      Setuptools and pip have been installed, so you can use easy_install_pypy3.8 and
+      pip_pypy3.8.
       To update pip and setuptools between pypy3 releases, run:
-          pip_pypy3 install --upgrade pip setuptools
+          pip_pypy3.8 install --upgrade pip setuptools
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS
@@ -184,8 +183,8 @@ class Pypy3AT38 < Formula
   end
 
   test do
-    system bin/"pypy3", "-c", "print('Hello, world!')"
-    system bin/"pypy3", "-c", "import time; time.clock()"
+    system bin/"pypy3.8", "-c", "print('Hello, world!')"
+    system bin/"pypy3.8", "-c", "import time; time.clock()"
     system scripts_folder/"pip", "list"
   end
 end
