@@ -2,8 +2,8 @@ class Kopia < Formula
   desc "Fast and secure open-source backup"
   homepage "https://kopia.io"
   url "https://github.com/kopia/kopia.git",
-      tag:      "v0.10.5",
-      revision: "512dcebaf4e4dd2b2ed04bfffb340640724f00f6"
+      tag:      "v0.10.6",
+      revision: "766cb57160477fba0935634e98c2bdfd440557f3"
   license "Apache-2.0"
 
   bottle do
