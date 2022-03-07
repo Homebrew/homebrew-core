@@ -2,34 +2,11 @@ class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/commercialhaskell/stack.git", branch: "master"
 
   stable do
-    url "https://github.com/commercialhaskell/stack/archive/v2.7.3.tar.gz"
-    sha256 "37f4bc0177534782609ec3a67ec413548d3f2cabff7c4c0bc8a92a36e49c6877"
-
-    # Due to recent update of aeson-2.0.0.0, stack can no longer be built with
-    # cabal-install. So I patched stack to freeze cabal dependencies using
-    # stackage 17.15 LTS.
-    #
-    # Reference:
-    #   https://github.com/commercialhaskell/stack/pull/5677
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/05951f21.patch?full_index=1"
-      sha256 "bc12787bffb450ac7246a34987e2d546325e6ecb0b5c75f6bfccf1b32f9693aa"
-    end
-
-    # HEAD version of stack has already been patched to support Apple Silicon.
-    # However, the next release containing that patch hasn't release yet. So I
-    # manually patched stack v2.7.3 to support Apple Silicon.
-    #
-    # Reference:
-    #   https://github.com/commercialhaskell/stack/pull/5562
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/32b80476.patch?full_index=1"
-      sha256 "36e09f68c951adb0b35a0d9a510c9c367554058d690c667636147f1cb483ef8d"
-    end
+    url "https://github.com/commercialhaskell/stack/archive/v2.7.5.tar.gz"
+    sha256 "7e77a91c9e2366b6be292188c1a36c96f8830f8a5f4a079fae7f73b9b0d2c8b6"
   end
 
   livecheck do
@@ -60,8 +37,11 @@ class HaskellStack < Formula
   uses_from_macos "zlib"
 
   def install
+    # https://github.com/JustusAdam/mustache/issues/41
+    cabal_install_constraints = ["--constraint=mustache^>=2.3.1"]
+
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", *std_cabal_v2_args, *cabal_install_constraints
 
     bin.env_script_all_files libexec, PATH: "${PATH}:#{Formula["llvm@12"].opt_bin}" if Hardware::CPU.arm?
   end
