@@ -18,17 +18,6 @@ class HaskellStack < Formula
       url "https://github.com/commercialhaskell/stack/commit/05951f21.patch?full_index=1"
       sha256 "bc12787bffb450ac7246a34987e2d546325e6ecb0b5c75f6bfccf1b32f9693aa"
     end
-
-    # HEAD version of stack has already been patched to support Apple Silicon.
-    # However, the next release containing that patch hasn't release yet. So I
-    # manually patched stack v2.7.3 to support Apple Silicon.
-    #
-    # Reference:
-    #   https://github.com/commercialhaskell/stack/pull/5562
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/32b80476.patch?full_index=1"
-      sha256 "36e09f68c951adb0b35a0d9a510c9c367554058d690c667636147f1cb483ef8d"
-    end
   end
 
   livecheck do
