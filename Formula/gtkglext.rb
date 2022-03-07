@@ -1,6 +1,6 @@
 class Gtkglext < Formula
   desc "OpenGL extension to GTK+"
-  homepage "https://developer.gnome.org/gtkglext/stable/"
+  homepage "https://gitlab.gnome.org/Archive/gtkglext"
   url "https://download.gnome.org/sources/gtkglext/1.2/gtkglext-1.2.0.tar.gz"
   sha256 "e5073f3c6b816e7fa67d359d9745a5bb5de94a628ac85f624c992925a46844f9"
   revision 3
@@ -17,6 +17,21 @@ class Gtkglext < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gtk+"
+
+  on_linux do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "mesa-glu"
+
+    resource("pangox-compat") do
+      url "https://gitlab.gnome.org/Archive/pangox-compat/-/archive/0.0.2/pangox-compat-0.0.2.tar.gz"
+      sha256 "c8076b3d54d5088974dbb088a9d991686d7340f368beebaf437b78dfed6c5cd5"
+
+      # Taken from https://aur.archlinux.org/cgit/aur.git/plain/0002-disable-shaper.patch?h=pangox-compat.
+      patch :DATA
+    end
+  end
 
   # All these MacPorts patches have already been included upstream. A new release
   # of gtkglext for gtk+2.0 remains uncertain though.
@@ -76,10 +91,27 @@ class Gtkglext < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--without-x"
+    unless OS.mac?
+      resource("pangox-compat").stage do
+        system "./autogen.sh"
+        system "./configure", "--prefix=#{libexec}"
+        system "make"
+        system "make", "install"
+      end
+      ENV.append_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
+
+      system "autoreconf", "-fvi"
+    end
+
+    args = *std_configure_args
+    if OS.mac?
+      args << "--without-x"
+      # Fix flat_namespace usage
+      inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress",
+                "${wl}-undefined ${wl}dynamic_lookup"
+    end
+
+    system "./configure", *args
     system "make", "install"
   end
 
@@ -132,22 +164,44 @@ class Gtkglext < Formula
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
-      -lgdk_pixbuf-2.0
-      -lgdkglext-quartz-1.0
       -lgio-2.0
       -lglib-2.0
       -lgmodule-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
-      -lgtkglext-quartz-1.0
-      -lintl
+      -lgdk_pixbuf-2.0
       -lpango-1.0
       -lpangocairo-1.0
-      -framework AppKit
-      -framework OpenGL
     ]
+
+    if OS.mac?
+      flags += %w[
+        -lgdk-quartz-2.0
+        -lgtk-quartz-2.0
+        -lgdkglext-quartz-1.0
+        -lgtkglext-quartz-1.0
+        -lintl
+        -framework AppKit
+        -framework OpenGL
+      ]
+    end
+
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
 end
+
+__END__
+--- pangox-compat/pangox.c.orig 2020-05-04 18:31:53.421197064 -0400
++++ pangox-compat/pangox.c      2020-05-04 18:32:41.251146923 -0400
+@@ -277,11 +277,11 @@ pango_x_font_class_init (PangoXFontClass
+   object_class->finalize = pango_x_font_finalize;
+   object_class->dispose = pango_x_font_dispose;
+
+   font_class->describe = pango_x_font_describe;
+   font_class->get_coverage = pango_x_font_get_coverage;
+-  font_class->find_shaper = pango_x_font_find_shaper;
++  /* font_class->find_shaper = pango_x_font_find_shaper; */
+   font_class->get_glyph_extents = pango_x_font_get_glyph_extents;
+   font_class->get_metrics = pango_x_font_get_metrics;
+   font_class->get_font_map = pango_x_font_get_font_map;
+ }
