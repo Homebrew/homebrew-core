@@ -8,9 +8,11 @@ class Osm2pgrouting < Formula
   head "https://github.com/pgRouting/osm2pgrouting.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "eae9b9f7b4fc4229bc85a8e484c3c85b6fdf10bb4eadf334efd3bc9d5a46cde4"
-    sha256 cellar: :any, big_sur:       "e9c0bcc9363b8291d5e3e729b0ac32c14036dfcf7c4eb4920e46b5c8bec924e8"
-    sha256 cellar: :any, catalina:      "fca50921c8c7058ee70868858e3581cbd90606db8617a057a6af6f9b95393c3e"
+    sha256 cellar: :any, arm64_monterey: "7a16273c49d8a30b48460b6ec896d979d06c06e46bfb38b655633190827779cb"
+    sha256 cellar: :any, arm64_big_sur:  "eae9b9f7b4fc4229bc85a8e484c3c85b6fdf10bb4eadf334efd3bc9d5a46cde4"
+    sha256 cellar: :any, monterey:       "8ad1a0713c06714fb3aa63f6ddbf4c73985cd71b74cec74d3b89c2f881c222c4"
+    sha256 cellar: :any, big_sur:        "e9c0bcc9363b8291d5e3e729b0ac32c14036dfcf7c4eb4920e46b5c8bec924e8"
+    sha256 cellar: :any, catalina:       "fca50921c8c7058ee70868858e3581cbd90606db8617a057a6af6f9b95393c3e"
   end
 
   depends_on "cmake" => :build
