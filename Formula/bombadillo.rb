@@ -29,7 +29,13 @@ class Bombadillo < Formula
     r.winsize = [80, 43]
     sleep 1
     w.write "q"
-    assert_match "Bombadillo is a non-web browser", r.read
+    output = ""
+    begin
+      r.each_line { |line| output += line }
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    end
+    assert_match "Bombadillo is a non-web browser", output
 
     status = PTY.check(pid)
     refute_nil status
