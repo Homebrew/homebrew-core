@@ -8,13 +8,12 @@ class Csvkit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "96158e624e5d2d22d8f010f13d3aa8e32672169ca10e2794b07078e3bcc3591f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aed40922284925d839684f97dd4e3cb63f4cfa21d9adcd45ed25d270e6d89f95"
-    sha256 cellar: :any_skip_relocation, monterey:       "24491b76d82bdcae83c6b30d5d8e1378d79d5ba1e1e4afe0565c24e7a5fb2e59"
-    sha256 cellar: :any_skip_relocation, big_sur:        "286fb9d4d74b154881b61e2775fa9e3c8b180467708091df354e4ea5ff084079"
-    sha256 cellar: :any_skip_relocation, catalina:       "a2d07acf8dfae4b6644d102ed1a7ce19926c67ea82155ec948dc1efb96d5b19d"
-    sha256 cellar: :any_skip_relocation, mojave:         "217dcc1a45154cfae961bbcb93f8a5ba2a326f550991df30a3a965e3a35bd4eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3373715812233b761a23b2dd274076fbbedcbb7c40121040c491cf8f47920d1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ce619c2a98a1cf8ea48dd9ab7437caea868a82b93f2b5a814b87fb0c8d63be2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a176d551aa7b0163b141faf10bd1711832645aa17eb8cfa570097d10198d3e92"
+    sha256 cellar: :any_skip_relocation, monterey:       "823c9ea885ca02aca2be5725553580b5970a10820aa00ec05b9931130cdea7df"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4f2615d7e78d84b693e41df56a234b832e32a557ddb592c016f7cc18c511da20"
+    sha256 cellar: :any_skip_relocation, catalina:       "7500a9feecc89292868e73a7b3c1d8c903c7c508366a383bf915763a613a8c76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbceae6bcc8fc99e129e18df45cda1de02be54d6a95dedcdf4b66f8fa8919bbf"
   end
 
   depends_on "python@3.10"
