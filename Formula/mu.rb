@@ -46,6 +46,8 @@ class Mu < Formula
     depends_on "gcc"
   end
 
+  conflicts_with "mu-repo", because: "both install `mu` binaries"
+
   fails_with gcc: "5"
 
   def install
