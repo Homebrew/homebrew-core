@@ -40,7 +40,7 @@ class GhcAT9 < Formula
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
 
     resource("binary").stage do
       binary = buildpath/"binary"
