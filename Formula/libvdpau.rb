@@ -1,8 +1,8 @@
 class Libvdpau < Formula
   desc "Open source Video Decode and Presentation API library"
   homepage "https://www.freedesktop.org/wiki/Software/VDPAU/"
-  url "https://gitlab.freedesktop.org/vdpau/libvdpau/-/archive/1.4/libvdpau-1.4.tar.bz2"
-  sha256 "4258824c5a4555ef31de0a7d82b3caf19e75a16a13949f1edafc5f6fb2d33f30"
+  url "https://gitlab.freedesktop.org/vdpau/libvdpau/-/archive/1.5/libvdpau-1.5.tar.bz2"
+  sha256 "a5d50a42b8c288febc07151ab643ac8de06a18446965c7241f89b4e810821913"
   license "MIT"
 
   livecheck do
