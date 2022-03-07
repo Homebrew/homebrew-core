@@ -36,7 +36,7 @@ class Boringtun < Formula
 
   test do
     system "#{bin}/boringtun", "--help"
-    assert_match "boringtun " + version.to_s, shell_output("#{bin}/boringtun -V").chomp
+    assert_match "boringtun #{version}", shell_output("#{bin}/boringtun -V").chomp
 
     output = shell_output("#{bin}/boringtun utun -v --log #{testpath}/boringtun.log 2>&1", 1)
     assert_predicate testpath/"boringtun.log", :exist?
