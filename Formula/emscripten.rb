@@ -63,7 +63,16 @@ class Emscripten < Formula
   end
 
   def install
-    ENV.cxx11
+    # Avoid hardcoding the executables we pass to `write_env_script` below.
+    # Prefer executables without `.py` extensions, but include those with `.py`
+    # extensions if there isn't a matching executable without the `.py` extension.
+    emscripts = buildpath.children.select do |pn|
+      next false unless pn.file?
+      next false unless pn.executable?
+      next false if pn.extname == ".py" && pn.basename(".py").exist?
+
+      true
+    end.map(&:basename)
 
     # All files from the repository are required as emscripten is a collection
     # of scripts which need to be installed in the same layout as in the Git
@@ -95,8 +104,7 @@ class Emscripten < Formula
       # can almost be treated as an entirely different build from llvm.
       ENV.permit_arch_flags
 
-      args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
-        -DCMAKE_INSTALL_PREFIX=#{libexec}/llvm
+      args = std_cmake_args(install_prefix: libexec/"llvm") + %W[
         -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
         -DLLVM_TARGETS_TO_BUILD=#{targets.join(";")}
         -DLLVM_LINK_LLVM_DYLIB=ON
@@ -109,12 +117,6 @@ class Emscripten < Formula
       sdk = MacOS.sdk_path_if_needed
       args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
 
-      if MacOS.version == :mojave && MacOS::CLT.installed?
-        # Mojave CLT linker via software update is older than Xcode.
-        # Use it to retain compatibility.
-        args << "-DCMAKE_LINKER=/Library/Developer/CommandLineTools/usr/bin/ld"
-      end
-
       mkdir llvmpath/"build" do
         # We can use `make` and `make install` here, but prefer these commands
         # for consistency with the llvm formula.
@@ -125,12 +127,9 @@ class Emscripten < Formula
     end
 
     resource("binaryen").stage do
-      args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
-        -DCMAKE_INSTALL_PREFIX=#{libexec}/binaryen
-      ]
-
-      system "cmake", ".", *args
-      system "make", "install"
+      system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec/"binaryen")
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
     end
 
     cd libexec do
@@ -149,8 +148,7 @@ class Emscripten < Formula
     emscript_env = { PYTHON: Formula["python@3.10"].opt_bin/"python3" }
     emscript_env.merge! Language::Java.overridable_java_home_env if OS.linux? || Hardware::CPU.arm?
 
-    %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
-       emranlib emrun emscons].each do |emscript|
+    emscripts.each do |emscript|
       (bin/emscript).write_env_script libexec/emscript, emscript_env
     end
   end
