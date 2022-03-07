@@ -7,12 +7,12 @@ class Kopia < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9aace7affc33b85370b794d2dc595faceb2ce9658b683e3f71b90d2307b9db5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4520ba7f3577c1df2c488fda9c1fcc67c34576a72d811e78ad588321f590734a"
-    sha256 cellar: :any_skip_relocation, monterey:       "79263d89764b2b139f1f1353b3315b6873e39d102b553e9ae7b59e9dc66747c6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "25b0e3cc9254cf39629f86abf04a31cfbd7e246699f1ca94ccb6e91e78688c5c"
-    sha256 cellar: :any_skip_relocation, catalina:       "5b9161d189b341d76bbba128919b874179894c0e6da6075bca80eb863fd72dda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "575d2c46d17999589f9efda01c41f2cd018bea6b780cf13931acccb741a7f101"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "79b623ed9bf1c0c531929173cc6afd3960e4de7ed86d7dda28684c602f501c6d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aabdf3fb00ed7ab1b6efa2d8f4494b2ca386bf0aaf1e4ca2e0d1d4f69201e791"
+    sha256 cellar: :any_skip_relocation, monterey:       "4cb377e9e1aaf8ce0f77f79b7c0ef139bd16c661b799300720a8f50c8b679915"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b24e2722cb98b2ed5ab9117b87b2f522a1e85e5bc7303943e9e7221d74075013"
+    sha256 cellar: :any_skip_relocation, catalina:       "56d4ecf2534907c189d6165af05a98aeebe17470a20877119e5feb7d11d3b310"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "642473d57c7e0dcf747f122190e7a65a7cb5ec7fd92d1df47096adf47a4e1055"
   end
 
   depends_on "go" => :build
