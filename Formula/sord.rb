@@ -20,13 +20,14 @@ class Sord < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
   depends_on "pcre"
   depends_on "serd"
 
   def install
-    system "./waf", "configure", "--prefix=#{prefix}"
-    system "./waf"
-    system "./waf", "install"
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf"
+    system "python3", "./waf", "install"
   end
 
   test do
