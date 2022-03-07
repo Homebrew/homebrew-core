@@ -32,8 +32,24 @@ class Sdl12Compat < Formula
 
   test do
     assert_predicate lib/shared_library("libSDL"), :exist?
-    assert_predicate lib/shared_library("libSDL-1.2.0"), :exist?
+    versioned_libsdl = "libSDL-1.2"
+    versioned_libsdl << ".0" if OS.mac?
+    assert_predicate lib/shared_library(versioned_libsdl), :exist?
     assert_predicate lib/"libSDLmain.a", :exist?
     assert_equal version.to_s, shell_output("#{bin}/sdl-config --version").strip
+
+    (testpath/"test.c").write <<~EOS
+      #include <SDL.h>
+
+      int main() {
+        SDL_Init(SDL_INIT_EVERYTHING);
+        SDL_Quit();
+        return 0;
+      }
+    EOS
+    flags = Utils.safe_popen_read(bin/"sdl-config", "--cflags", "--libs").split
+    flags << "-Wl,-rpath,#{lib},-rpath,#{Formula["sdl2"].opt_lib}"
+    system ENV.cc, "test.c", "-o", "test", *flags
+    system "./test"
   end
 end
