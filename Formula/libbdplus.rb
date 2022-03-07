@@ -1,9 +1,9 @@
 class Libbdplus < Formula
   desc "Implements the BD+ System Specifications"
   homepage "https://www.videolan.org/developers/libbdplus.html"
-  url "https://download.videolan.org/pub/videolan/libbdplus/0.1.2/libbdplus-0.1.2.tar.bz2"
-  mirror "https://ftp.osuosl.org/pub/videolan/libbdplus/0.1.2/libbdplus-0.1.2.tar.bz2"
-  sha256 "a631cae3cd34bf054db040b64edbfc8430936e762eb433b1789358ac3d3dc80a"
+  url "https://download.videolan.org/pub/videolan/libbdplus/0.2.0/libbdplus-0.2.0.tar.bz2"
+  mirror "https://ftp.osuosl.org/pub/videolan/libbdplus/0.2.0/libbdplus-0.2.0.tar.bz2"
+  sha256 "b93eea3eaef33d6e9155d2c34b068c505493aa5a4936e63274f4342ab0f40a58"
   license "LGPL-2.1-or-later"
 
   livecheck do
