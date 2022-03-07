@@ -1,10 +1,10 @@
-class Pypy3 < Formula
+class Pypy39 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.7-v7.3.9-src.tar.bz2"
-  sha256 "70426163b194ee46009986eea6d9426098a3ffb552d9cdbd3dfaa64a47373f49"
+  url "https://downloads.python.org/pypy/pypy3.9-v7.3.8-src.tar.bz2"
+  sha256 "546b7fc3789728869d5ada7b6a95ce9d03047e8489b92ada84613c900e431ee9"
   license "MIT"
-  head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.7"
+  head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.9"
 
   livecheck do
     url "https://downloads.python.org/pypy/"
@@ -12,11 +12,10 @@ class Pypy3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 ventura:      "8166d5fba4c9c575b6622c85f3ccf630ce9511a261c312d5d3605c72aef49830"
-    sha256 cellar: :any,                 monterey:     "f74380e1d4d5b14922bf29f6bfa665b0429a646e57fb1e852b101df3bf2dfd3a"
-    sha256 cellar: :any,                 big_sur:      "a3d09f1aa40e583d77b868358a372edc500062e349b31f4bd83490ed64a487e9"
-    sha256 cellar: :any,                 catalina:     "bcffe5403e66a1a56d58284690d9d3c0930cac6de0f661708bf4a1cab32c2d28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d1954346420c8afcbe23af810ee8f52be9db616ad0f63a3f8eaec0781ad29f22"
+    sha256 cellar: :any,                 monterey:     "b72341e1a96c616296a8afc53fa1405340f1f925cd2a6b0cea3ff13bf7efe39b"
+    sha256 cellar: :any,                 big_sur:      "8c8ded93dfabde0b4fff50983443c8302d16b9dfcd8ee292a30a84e1a047c361"
+    sha256 cellar: :any,                 catalina:     "8db527712191e77911d2bbf70a23d514d99a30ce3a0aeb31267c34c1257bde6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7d2eafd1103122fdadc952db92e2d7b334aa2e7bfd6e9104cb16f9045bc69147"
   end
 
   depends_on "pkg-config" => :build
@@ -35,16 +34,14 @@ class Pypy3 < Formula
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
-  # setuptools >= 60 required sysconfig patch
-  # See https://github.com/Homebrew/homebrew-core/pull/99892#issuecomment-1108492321
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ef/75/2bc7bef4d668f9caa9c6ed3f3187989922765403198243040d08d2a52725/setuptools-59.8.0.tar.gz"
-    sha256 "09980778aa734c3037a47997f28d6db5ab18bdf2af0e49f719bfc53967fd2e82"
+    url "https://files.pythonhosted.org/packages/1e/5c/3d7b3d91a86d71faf5038c5d259ed36b5d05b7804648e2c43251d574a6e6/setuptools-58.2.0.tar.gz"
+    sha256 "2c55bdb85d5bb460bd2e3b12052b677879cffcf46c0c688f2e5bf51d36001145"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/33/c9/e2164122d365d8f823213a53970fa3005eb16218edcfc56ca24cb6deba2b/pip-22.0.4.tar.gz"
-    sha256 "b3a9de2c6ef801e9247d1527a4b16f92f2cc141cd1489f3fffaf6a9e96729764"
+    url "https://files.pythonhosted.org/packages/00/5f/d6959d6f25f202e3e68e3a53b815af42d770c829c19382d0acbf2c3e2112/pip-21.3.tar.gz"
+    sha256 "741a61baab1dbce2d8ca415effa48a2b6a964564f81a9f4f1fce4c433346c034"
   end
 
   # Build fixes:
@@ -72,7 +69,7 @@ class Pypy3 < Formula
              "--make-jobs", ENV.make_jobs, "targetpypystandalone.py"
 
       with_env(PYTHONPATH: buildpath) do
-        system "./pypy3-c", buildpath/"lib_pypy/pypy_tools/build_cffi_imports.py"
+        system "./pypy3.9-c", buildpath/"lib_pypy/pypy_tools/build_cffi_imports.py"
       end
     end
 
@@ -83,14 +80,14 @@ class Pypy3 < Formula
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy3.tar.bz2"
     end
 
-    (libexec/"lib").install libexec/"bin/#{shared_library("libpypy3-c")}" => shared_library("libpypy3-c")
+    (libexec/"lib").install libexec/"bin/#{shared_library("libpypy3.9-c")}" => shared_library("libpypy3.9-c")
 
     if OS.mac?
-      MachO::Tools.change_install_name("#{libexec}/bin/pypy3",
-                                       "@rpath/libpypy3-c.dylib",
-                                       "#{libexec}/lib/libpypy3-c.dylib")
-      MachO::Tools.change_dylib_id("#{libexec}/lib/libpypy3-c.dylib",
-                                   "#{opt_libexec}/lib/libpypy3-c.dylib")
+      MachO::Tools.change_install_name("#{libexec}/bin/pypy3.9",
+                                       "@rpath/libpypy3.9-c.dylib",
+                                       "#{libexec}/lib/libpypy3.9-c.dylib")
+      MachO::Tools.change_dylib_id("#{libexec}/lib/libpypy3.9-c.dylib",
+                                   "#{opt_libexec}/lib/libpypy3.9-c.dylib")
     end
 
     (libexec/"lib-python").install "lib-python/3"
@@ -100,15 +97,14 @@ class Pypy3 < Formula
     # (like /opt) and symlinking in binaries as needed. Specifically,
     # we want to avoid putting PyPy's Python.h somewhere that configure
     # scripts will find it.
-    bin.install_symlink libexec/"bin/pypy3"
-    bin.install_symlink libexec/"bin/pypy" => "pypy3.7"
-    lib.install_symlink libexec/"lib/#{shared_library("libpypy3-c")}"
+    bin.install_symlink libexec/"bin/pypy3.9"
+    lib.install_symlink libexec/"lib/#{shared_library("libpypy3.9-c")}"
 
     # Delete two files shipped which we do not want to deliver
     # These files make patchelf fail
     if OS.linux?
-      rm_f libexec/"bin/libpypy3-c.so.debug"
-      rm_f libexec/"bin/pypy3.debug"
+      rm_f libexec/"bin/libpypy3.9-c.so.debug"
+      rm_f libexec/"bin/pypy3.9.debug"
     end
   end
 
@@ -116,7 +112,7 @@ class Pypy3 < Formula
     # Precompile cffi extensions in lib_pypy
     # list from create_cffi_import_libraries in pypy/tool/release/package.py
     %w[_sqlite3 _curses syslog gdbm _tkinter].each do |module_name|
-      quiet_system bin/"pypy3", "-c", "import #{module_name}"
+      quiet_system bin/"pypy3.9", "-c", "import #{module_name}"
     end
 
     # Post-install, fix up the site-packages and install-scripts folders
@@ -138,15 +134,16 @@ class Pypy3 < Formula
 
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do
-        system bin/"pypy3", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
+        system bin/"pypy3.9", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
       end
     end
 
-    # Symlinks to pip_pypy3
-    bin.install_symlink scripts_folder/"pip" => "pip_pypy3"
+    # Symlinks to easy_install_pypy3 and pip_pypy3
+    bin.install_symlink scripts_folder/"easy_install" => "easy_install_pypy3.9"
+    bin.install_symlink scripts_folder/"pip" => "pip_pypy3.9"
 
     # post_install happens after linking
-    (HOMEBREW_PREFIX/"bin").install_symlink bin/"pip_pypy3"
+    %w[easy_install_pypy3 pip_pypy3].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
   end
 
   def caveats
@@ -156,14 +153,15 @@ class Pypy3 < Formula
       specifying the install-scripts folder as:
         #{scripts_folder}
 
-      If you install Python packages via "pypy3 setup.py install" or pip_pypy3,
-      any provided scripts will go into the install-scripts folder
+      If you install Python packages via "pypy3.9 setup.py install", easy_install_pypy3.9,
+      or pip_pypy3.9, any provided scripts will go into the install-scripts folder
       above, so you may want to add it to your PATH *after* #{HOMEBREW_PREFIX}/bin
       so you don't overwrite tools from CPython.
 
-      Setuptools and pip have been installed, so you can use pip_pypy3.
+      Setuptools and pip have been installed, so you can use easy_install_pypy3.9 and
+      pip_pypy3.9.
       To update pip and setuptools between pypy3 releases, run:
-          pip_pypy3 install --upgrade pip setuptools
+          pip_pypy3.9 install --upgrade pip setuptools
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS
@@ -185,8 +183,8 @@ class Pypy3 < Formula
   end
 
   test do
-    system bin/"pypy3", "-c", "print('Hello, world!')"
-    system bin/"pypy3", "-c", "import time; time.clock()"
+    system bin/"pypy3.9", "-c", "print('Hello, world!')"
+    system bin/"pypy3.9", "-c", "import time; time.clock()"
     system scripts_folder/"pip", "list"
   end
 end
