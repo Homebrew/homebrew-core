@@ -1,8 +1,8 @@
 class Bombadillo < Formula
   desc "Non-web browser, designed for a growing list of protocols"
   homepage "https://bombadillo.colorfield.space/"
-  url "https://tildegit.org/sloum/bombadillo/archive/2.3.3.tar.gz"
-  sha256 "2d4ec15cac6d3324f13a4039cca86fecf3141503f556a6fa48bdbafb86325f1c"
+  url "https://tildegit.org/sloum/bombadillo/archive/2.4.0.tar.gz"
+  sha256 "e0daed1d9d0fe7cbea52bc3e6ecff327749b54e792774e6b985e0d64b7a36437"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -29,7 +29,13 @@ class Bombadillo < Formula
     r.winsize = [80, 43]
     sleep 1
     w.write "q"
-    assert_match "Bombadillo is a non-web browser", r.read
+    output = ""
+    begin
+      r.each_line { |line| output += line }
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    end
+    assert_match "Bombadillo is a non-web browser", output
 
     status = PTY.check(pid)
     refute_nil status
