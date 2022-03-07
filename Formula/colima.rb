@@ -2,8 +2,8 @@ class Colima < Formula
   desc "Container runtimes on MacOS with minimal setup"
   homepage "https://github.com/abiosoft/colima/blob/main/README.md"
   url "https://github.com/abiosoft/colima.git",
-      tag:      "v0.3.3",
-      revision: "ac876a5d9e4eda7d1d015896ebfbe1dd16b8c203"
+      tag:      "v0.3.4",
+      revision: "5a4a70481ca8d1e794677f22524e3c1b79a9b4ae"
   license "MIT"
   head "https://github.com/abiosoft/colima.git", branch: "main"
 
