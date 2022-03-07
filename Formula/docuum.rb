@@ -6,12 +6,12 @@ class Docuum < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3433c43d448845a7ded4102396bed5e0dc2600ac9cac53a950bf68e23292e1a4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0e5a6a7aef178480c56ee865832a7766260972804fe45186c45ec171fcf9d72"
-    sha256 cellar: :any_skip_relocation, monterey:       "e419b0e0e78110cd6e3a1fa7b61d6cd09c8d435e1c12e2de27c6b2d0baa6ebdb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a4eb0a5b9b334ee1a814b67c53483d0bec292c98851762d3733fe095219400a1"
-    sha256 cellar: :any_skip_relocation, catalina:       "747bd07b374e67fe353b12a1cd90544d2d88def19826a08e9fcb91ce75ac27cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5332a07b4680ddddc6399a8c2d84e8093c00a0078ab279d3e288875408db0f27"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "522dfc02c0e048df75890eb180260c029bbd2697b98b6e58f1a508000c5afd44"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ba50a8305769c48caad3e9bbddaf5cbd158bb08ee0b1c0523a8d037e15bde6b"
+    sha256 cellar: :any_skip_relocation, monterey:       "601f6974757e348ba9993f070bae3eca308f9d51462c72b80a866458bc78fabf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "31f94906755b535e2f7ced1370823ef9398a050bb6ad7b3b8c5eaa75f1ab4e86"
+    sha256 cellar: :any_skip_relocation, catalina:       "4ac55b613e69442098752f2e8928397320842bb2541dab968a35a8ec39b4403e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4f68d38631516ce33424792b0cf638548df0d192534a508202b6ece3220728a"
   end
 
   depends_on "rust" => :build
