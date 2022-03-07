@@ -2,12 +2,11 @@ class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/commercialhaskell/stack.git", branch: "master"
 
   stable do
-    url "https://github.com/commercialhaskell/stack/archive/v2.7.3.tar.gz"
-    sha256 "37f4bc0177534782609ec3a67ec413548d3f2cabff7c4c0bc8a92a36e49c6877"
+    url "https://github.com/commercialhaskell/stack/archive/v2.7.5.tar.gz"
+    sha256 "7e77a91c9e2366b6be292188c1a36c96f8830f8a5f4a079fae7f73b9b0d2c8b6"
 
     # Due to recent update of aeson-2.0.0.0, stack can no longer be built with
     # cabal-install. So I patched stack to freeze cabal dependencies using
