@@ -9,6 +9,7 @@ class F3d < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "febbe7bae8d515424ef1b91f600658b5c53f890f198b90a1e3ff46e360f62c49"
     sha256 cellar: :any,                 arm64_big_sur:  "7e688e6dd0ec957a961b5ac8be3db927c960ddeec693648fe86f9d436f06c737"
+    sha256 cellar: :any,                 monterey:       "d19ab0b49754f24325bb08e9f66de9f3824a992a471894fbd67fbfd3c2c5e527"
     sha256 cellar: :any,                 big_sur:        "a01ba382b5b5e63b8da5ffccd5002ea81f4733309ce1894575f0d8a80614cfdd"
     sha256 cellar: :any,                 catalina:       "ac965c5f65b9bb06e16b8d7483220d44f56672246377b0d9d5f11362ce35b64e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fd08d47ce278716e1a238aafb6d1dd637f316196f1794a23f17d1397d77fb98"
