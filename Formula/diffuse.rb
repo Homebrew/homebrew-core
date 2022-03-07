@@ -9,6 +9,7 @@ class Diffuse < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
 
+  depends_on "gtk+3"
   depends_on "pygobject3"
   depends_on "python@3.9"
 
