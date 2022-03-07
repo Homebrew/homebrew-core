@@ -23,7 +23,14 @@ class Diffuse < Formula
   end
 
   test do
+    require "pty"
+
     system "#{bin}/diffuse", "--help"
     assert_match version.to_s, shell_output("#{bin}/diffuse --version")
+
+    _, _, pid = PTY.spawn "#{bin}/diffuse"
+    sleep 1
+  ensure
+    Process.kill("TERM", pid)
   end
 end
