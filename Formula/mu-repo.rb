@@ -18,6 +18,8 @@ class MuRepo < Formula
 
   depends_on "python@3.10"
 
+  conflicts_with "mu", because: "both install `mu` binaries"
+
   def install
     virtualenv_install_with_resources
   end
