@@ -6,12 +6,12 @@ class StressNg < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae18e1d842b41d92b356b4189debe63e2eb86c0922594f60b13b19e7ec9a1ee1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a243d1a986a0f12984984c3728809973074b24f4784b5499dc6b67f87a9495a"
-    sha256 cellar: :any_skip_relocation, monterey:       "c7f5c336ed7410bd3eb1bf4d8e1e5db13adfb5bdd9711a77009b345e4b34041a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "40e64518ace7210afe958566bfc5540d2d13800b34a7e1ba826e5b6aef6a873a"
-    sha256 cellar: :any_skip_relocation, catalina:       "b8dd4c426a357953ed8d8db07949b4405e38ab313b85a97b3f655a7fa3e8fa8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7aa0c41e8157971bc23f52a0e638e9e654ba92c0a619f3828096706e28d593a5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a770f70d5cb4fe34cd9e802fbf096912ba7ad4b9615360109f93ff66254ee97d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02009f5667760e93a569086ee6d9e99141b9dfaf736df0da356aad9b4cc8756c"
+    sha256 cellar: :any_skip_relocation, monterey:       "9b62617f6b22b642a7949cb6439427788c85c7d84269a6ffd6d976f1b5d7cee8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ed8f5f01fc1d326f0bb93dcfc490463e0603d63aec94e789664479aeb91bfa58"
+    sha256 cellar: :any_skip_relocation, catalina:       "b07d8be03e26ccc2b73d596e00dca2ebf00c0393cdbaa557133d31265b608ac6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4b599502e47da03e594f8c58a8a9a4b6b8662e9cb8164d5894233a4f4c4ad82"
   end
 
   depends_on macos: :sierra
