@@ -10,6 +10,7 @@ class Pcl < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "506ae8aa44c231fee8cf4d066ea8e887d79c715061b3350c77d1525821e156b9"
     sha256 cellar: :any,                 arm64_big_sur:  "70314d35cc85b9cc971a03c8e7b24c3ce5fd15034863aada8b43516243523151"
+    sha256 cellar: :any,                 monterey:       "30ab2097f58b8eb99de71640a110776d519339bc636de51d2b9f9ac083ff50b1"
     sha256 cellar: :any,                 big_sur:        "d2bf3b0c51fb5214f079f1816f86bf944472c689a5ce7383277f67d05f178a04"
     sha256 cellar: :any,                 catalina:       "f4f7c9ae6c3d46c43af1b56454a75a5ae293edd628bb7d841efc6a15512f59f5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad772e3f05d40a6314c6d6539036b0ba0e92a2719e4e5ec676e94ee897b19b2b"
