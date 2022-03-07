@@ -10,6 +10,7 @@ class Siril < Formula
   bottle do
     sha256 arm64_monterey: "3452a13a60d554326f38b94cadc30e40825505be16b13cb29ac702c04f7a96d8"
     sha256 arm64_big_sur:  "e4f44608df244db1cf93aaae0552a78939161e3e56bd419a8d295c8ead458949"
+    sha256 monterey:       "cbaedd63971bde183f4bc86ad48ccce009921ca2b4ef4253cf457701a5a4d8ce"
     sha256 big_sur:        "39e80b1af4a4d24885c88a1df965f745a4a321bdca33e2c78d4f7ecbe76a9396"
     sha256 catalina:       "56dcd8c9268959c755422b9f1425d2bd46ad698edd65df04f3acd6585f247700"
   end
