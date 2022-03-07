@@ -6,11 +6,6 @@ class Boringtun < Formula
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/boringtun.git", branch: "master"
 
-  livecheck do
-    url "https://crates.io/api/v1/crates/boringtun/versions"
-    regex(/"num":\s*"(\d+(?:\.\d+)+)"/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "97dc60eaf03ff668094d700af5ef656c7033e0fe6b6e7cacf287ebaddf8c5b46"
     sha256 cellar: :any_skip_relocation, big_sur:      "0de06cdb03839450dbe101b3f1042820f82aee7eda323039be0f48a0b2baf3e9"
