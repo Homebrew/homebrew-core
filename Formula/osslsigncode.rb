@@ -6,13 +6,12 @@ class Osslsigncode < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "89dfd9f7741028336512626fe08a64e0b60611978425d2114bb0847e52249238"
-    sha256 cellar: :any,                 arm64_big_sur:  "d6311e4481c2b8b65c911bf24c42851557cdbd75801f92cf279b304953a2752a"
-    sha256 cellar: :any,                 monterey:       "c721706515d601e7ea11833a75722277631e05261b9ba415bc17aa302183e674"
-    sha256 cellar: :any,                 big_sur:        "6e61b636105463514c06a1a85b69fc5c6a6820ca37c52bd77d9183ef43c18048"
-    sha256 cellar: :any,                 catalina:       "c9f8e8e0e6f50ee007996a837d369fd86a420d3b33ad96f93147e33b2c9e8b2a"
-    sha256 cellar: :any,                 mojave:         "673f0150f56426a6218d02743c1b3ed3e564a0bb454d335eda0f1795dd513dd1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68479dd084bd4a06ccba9a64756904b6ffea34d49acb93384371778b316ae07e"
+    sha256 cellar: :any,                 arm64_monterey: "1548079408eb4af20b65cd3e139670cb0cf2b13a5479e54858d2f2bd11b0fda1"
+    sha256 cellar: :any,                 arm64_big_sur:  "8761a83191bdd8dff87f0e516bf62fa050d6934dc21d6e8babc05278582c5637"
+    sha256 cellar: :any,                 monterey:       "f297b56522de080dbab85a8205655a3abdb1bd5e83c410d16c8972ed75e355dc"
+    sha256 cellar: :any,                 big_sur:        "89c13c082ebd82eb6fa9ecb007b759b9159d270542666ad2f383e90627c501a4"
+    sha256 cellar: :any,                 catalina:       "bd1a562399486c6f212ec5c61562bd0f53ffb08224778c76fd787d07900920fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2549903650fdd0189c1083a177af1c789364758080828b8ea6cf46c376ed6d65"
   end
 
   depends_on "autoconf" => :build
