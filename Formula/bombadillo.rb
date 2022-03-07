@@ -6,12 +6,12 @@ class Bombadillo < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e26d1d89a51dad792be45b0ea71013d7b22dd3fa6d8709ac85f5cb8a8467b64"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e357ed7326ddf882e90730882661cd701d2b44cd878c46a60a3902276100f9be"
-    sha256 cellar: :any_skip_relocation, monterey:       "79338cb69e6372ae3c7fb62f3ca46e55dae5bd35f9a2734eecb50f44bcec7be3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c03e55627ed6afed8053bd7b008a7097acc3cabe631c72aa37779c1a1bed4671"
-    sha256 cellar: :any_skip_relocation, catalina:       "3de46b1bf2270bbc62922a26cd95e5096f8ff145538e2a648309d1e09a5c9ff9"
-    sha256 cellar: :any_skip_relocation, mojave:         "2aa718cebff527b3ecac75022b1c9ecf602cf5f516ca09dac2a2c67df22a435c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d78dae1cc03b2b801036ba0dfd19dbb9d47e491acac9ad1ea141a40eb6b4961b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02c4423c500ab7e3fb19df4e68708cb9ded9197986aae6e1783cb3a79d592fd7"
+    sha256 cellar: :any_skip_relocation, monterey:       "ae21a5cc0383684f7080eb62468d91db698f901c3ce4332e933b5a72edce3041"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cb6a7684e76b5d8eebc23776181cbf6a3e798b3c6a1156772c2fff010fd6fc12"
+    sha256 cellar: :any_skip_relocation, catalina:       "3b9db819279bf4f5453b702fb4947564b69b57e237ba7fdc11e56431ada415ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8512c76f2d7a4ed9535fad9ed424f0e0da8a39240bbd90448c3e37600b13d650"
   end
 
   depends_on "go" => :build
