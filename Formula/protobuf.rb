@@ -57,7 +57,10 @@ class Protobuf < Formula
 
     cd "python" do
       ["3.9", "3.10"].each do |xy|
-        system "python#{xy}", *Language::Python.setup_install_args(prefix), "--cpp_implementation"
+        site_packages = prefix/Language::Python.site_packages("python#{xy}")
+        system "python#{xy}", *Language::Python.setup_install_args(prefix),
+                              "--install-lib=#{site_packages}",
+                              "--cpp_implementation"
       end
     end
   end
