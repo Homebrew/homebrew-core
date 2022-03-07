@@ -14,6 +14,7 @@ class Visp < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "8cfe4fdc76612710b245a9f20ff23f4b8a0e31dd21a632c918dcbae3f311259b"
     sha256 cellar: :any, arm64_big_sur:  "faddbd4e18caba15dbc033a686c6ecfde11006a45f2849ef7fd0cdff9da3ce66"
+    sha256 cellar: :any, monterey:       "ab699c9e421d6a09f49cc880f1585aea6336aba3e7bd5945652df96292dbc53c"
     sha256 cellar: :any, big_sur:        "2cd260cb6587cfe9a4739c78cbb972e2190b428c8c7e29305f33476b4e9fd654"
     sha256 cellar: :any, catalina:       "23f11b05c01c2aa107b077a5f9bf5287da606ed91ada7c27995665f457cb8586"
   end
