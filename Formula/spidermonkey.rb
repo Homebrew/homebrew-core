@@ -15,10 +15,12 @@ class Spidermonkey < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, big_sur:  "2d684e4bc093674e45578d2cdf7905cdececf8661ec75fe3fd4b29ce7db5eeb4"
-    sha256 cellar: :any, catalina: "aa2807a42c05e6611cf530b84ce8165e77344a7a9da4eaa0af01c4023b9a7479"
-    sha256 cellar: :any, mojave:   "8c0b46bc04a7e95f99262969b22cc311ee1f7d83413af05865318743ccd96944"
+    sha256 cellar: :any,                 arm64_monterey: "99dabad43db0d169afcf06e8e52bc5896e56115566324a1358b28a502435a3cf"
+    sha256 cellar: :any,                 arm64_big_sur:  "a1a6f7eb61618373b794f797a37ca89cb4323dced4ae7850ea7cc47c13102c23"
+    sha256 cellar: :any,                 monterey:       "66fd3815420fdddad2fe88ac419ca9e3eea0a722d8ab9f4b92ecf660ab5a8e1c"
+    sha256 cellar: :any,                 big_sur:        "d36cc7044f8fac1341411a550b3a75c1f9a780bc00c983028931a37e52ef8a4a"
+    sha256 cellar: :any,                 catalina:       "38120fc5a7a0cc4b56e0ef868b11ff7c92c03864b464ad4c8aae001ced4d666b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc4421f5f10120478b75ae58e77da93950aaf283e16dc941daea969d31f0f8cb"
   end
 
   depends_on "autoconf@2.13" => :build
