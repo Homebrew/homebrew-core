@@ -156,13 +156,12 @@ class Emscripten < Formula
   end
 
   def post_install
-    system bin/"emcc", "--check"
-    if File.exist?(libexec/".emscripten") && !File.exist?(libexec/".homebrew")
-      touch libexec/".homebrew"
-      inreplace "#{libexec}/.emscripten" do |s|
-        s.gsub!(/^(LLVM_ROOT.*)/, "#\\1\nLLVM_ROOT = \"#{opt_libexec}/llvm/bin\"\\2")
-        s.gsub!(/^(BINARYEN_ROOT.*)/, "#\\1\nBINARYEN_ROOT = \"#{opt_libexec}/binaryen\"\\2")
-      end
+    return if (libexec/".emscripten").exist?
+
+    system bin/"emcc", "--generate-config"
+    inreplace libexec/".emscripten" do |s|
+      s.gsub!(/^(LLVM_ROOT.*)/, "#\\1\nLLVM_ROOT = \"#{libexec}/llvm/bin\"\\2")
+      s.gsub!(/^(BINARYEN_ROOT.*)/, "#\\1\nBINARYEN_ROOT = \"#{libexec}/binaryen\"\\2")
     end
   end
 
