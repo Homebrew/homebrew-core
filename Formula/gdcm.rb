@@ -14,6 +14,7 @@ class Gdcm < Formula
   bottle do
     sha256 arm64_monterey: "079d2b926e385a57861a4a49c1adadb0807ef6c7b13aa4b2376535219974bc64"
     sha256 arm64_big_sur:  "5dcabe7f86535f8286e5a52a59e01fa5e3783f6052fd1add90b1cb9914dab07c"
+    sha256 monterey:       "b503491bddfbce1aee99d8b4632711cd4231b3ede20d16cbc92fa8c4f6a1b060"
     sha256 big_sur:        "2444192229efedacb3148eca8648221ea1c609d3e88d32e4097a12b3d1c9ff20"
     sha256 catalina:       "18ffa7ef542d0ab58e2666fb254fe26bf9809d3fd00cd6c14b2de38adb164ed5"
     sha256 x86_64_linux:   "922e0fbed6f8bc970af36086db9df457fc7c129022a75a3d925e4d832b3b3540"
