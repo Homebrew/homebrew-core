@@ -8,12 +8,12 @@ class YamlLanguageServer < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1951d267c881e8aa7c3dffa66459c6eecc7b24c42c44210a562626568346c99a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1951d267c881e8aa7c3dffa66459c6eecc7b24c42c44210a562626568346c99a"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ffe139ffbbb29457d2ca4fc337c08c8d94bb0e6bf0712aceb248ede135ebcfd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2ffe139ffbbb29457d2ca4fc337c08c8d94bb0e6bf0712aceb248ede135ebcfd"
-    sha256 cellar: :any_skip_relocation, catalina:       "2ffe139ffbbb29457d2ca4fc337c08c8d94bb0e6bf0712aceb248ede135ebcfd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1951d267c881e8aa7c3dffa66459c6eecc7b24c42c44210a562626568346c99a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8cbcc916424d03fc9c63042c103003e0b4b6b89f44b3f316c0e5e8ed2727d8cf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8cbcc916424d03fc9c63042c103003e0b4b6b89f44b3f316c0e5e8ed2727d8cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "77d508305d041e845b0d9e5637a0202c1939cc64f33e02e8c3ee8dfd92068a72"
+    sha256 cellar: :any_skip_relocation, big_sur:        "77d508305d041e845b0d9e5637a0202c1939cc64f33e02e8c3ee8dfd92068a72"
+    sha256 cellar: :any_skip_relocation, catalina:       "77d508305d041e845b0d9e5637a0202c1939cc64f33e02e8c3ee8dfd92068a72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cbcc916424d03fc9c63042c103003e0b4b6b89f44b3f316c0e5e8ed2727d8cf"
   end
 
   depends_on "node"
