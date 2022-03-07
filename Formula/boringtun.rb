@@ -1,8 +1,8 @@
 class Boringtun < Formula
   desc "Userspace WireGuard implementation in Rust"
   homepage "https://github.com/cloudflare/boringtun"
-  url "https://static.crates.io/crates/boringtun/boringtun-0.4.0.crate"
-  sha256 "bcaf3e6d388237249ec234ec6890bfc68634043f9b048011de8d0fc0025c3698"
+  url "https://github.com/cloudflare/boringtun/archive/v0.4.0.tar.gz"
+  sha256 "23a02ae0c01d194ce428c465de46538f683c696fa23a82cfc42d07d40e668e74"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/boringtun.git", branch: "master"
 
@@ -23,7 +23,6 @@ class Boringtun < Formula
   depends_on "rust" => :build
 
   def install
-    system "tar", "--strip-components", "1", "-xzvf", "boringtun-#{version}.crate"
     system "cargo", "install", *std_cargo_args
   end
 
