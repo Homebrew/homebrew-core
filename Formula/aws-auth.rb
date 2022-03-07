@@ -7,6 +7,15 @@ class AwsAuth < Formula
   sha256 "e0d25fb35f1f1ba9e597d54f37ad2c5f16af85129542d08151e2cc01da7c3573"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1694c736bd80eb996c804085fb03a034efd51a25670fa09df8f4cad5400b59d3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1694c736bd80eb996c804085fb03a034efd51a25670fa09df8f4cad5400b59d3"
+    sha256 cellar: :any_skip_relocation, monterey:       "9d26afa60bfddbde1bb485b3760093a83c1cba8474f6517d35fb57accdead0eb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9d26afa60bfddbde1bb485b3760093a83c1cba8474f6517d35fb57accdead0eb"
+    sha256 cellar: :any_skip_relocation, catalina:       "9d26afa60bfddbde1bb485b3760093a83c1cba8474f6517d35fb57accdead0eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1694c736bd80eb996c804085fb03a034efd51a25670fa09df8f4cad5400b59d3"
+  end
+
   depends_on "node"
 
   def install
