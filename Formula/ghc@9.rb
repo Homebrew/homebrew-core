@@ -22,18 +22,18 @@ class GhcAT9 < Formula
   depends_on "python@3.10" => :build
   depends_on "sphinx-doc" => :build
 
-  # https://www.haskell.org/ghc/download_ghc_9_0_1.html#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_9_0_2.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
-      url "https://downloads.haskell.org/~ghc/9.0.1/ghc-9.0.1-x86_64-apple-darwin.tar.xz"
-      sha256 "122d60509147d0117779d275f0215bde2ff63a64cda9d88f149432d0cae71b22"
+      url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-x86_64-apple-darwin.tar.xz"
+      sha256 "e1fe990eb987f5c4b03e0396f9c228a10da71769c8a2bc8fadbc1d3b10a0f53a"
     end
 
     on_linux do
-      url "https://downloads.haskell.org/~ghc/9.0.1/ghc-9.0.1-x86_64-deb9-linux.tar.xz"
-      sha256 "4ca6252492f59fe589029fadca4b6f922d6a9f0ff39d19a2bd9886fde4e183d5"
+      url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-x86_64-deb9-linux.tar.xz"
+      sha256 "805f5628ce6cec678ba77ff48c924831ebdf75ec2c66368e8935a618913a150e"
     end
   end
 
