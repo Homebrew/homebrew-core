@@ -3,8 +3,8 @@ class Httpie < Formula
 
   desc "User-friendly cURL replacement (command-line HTTP client)"
   homepage "https://httpie.io/"
-  url "https://files.pythonhosted.org/packages/97/42/fff91fbf037e5a0cfbc0d5c3fae7e99afcb4867a2a8c896d4a1c90b2b7fe/httpie-3.0.2.tar.gz"
-  sha256 "27f17454b2a1fdde79d1ed0ee679941894596829c07fadb9cfe3872d7a455e99"
+  url "https://files.pythonhosted.org/packages/32/85/bb095699be20cc98731261cb80884e9458178f8fef2a38273530ce77c0a5/httpie-3.1.0.tar.gz"
+  sha256 "2e4a2040b84a912e65c01fb34f7aafe88cad2a3af2da8c685ca65080f376feda"
   license "BSD-3-Clause"
   head "https://github.com/httpie/httpie.git", branch: "master"
 
@@ -25,8 +25,8 @@ class Httpie < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/48/44/76b179e0d1afe6e6a91fd5661c284f60238987f3b42b676d141d01cd5b97/charset-normalizer-2.0.10.tar.gz"
-    sha256 "876d180e9d7432c5d1dfd4c5d26b72f099d503e8fcc0feb7532c9289be60fcbd"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "defusedxml" do
