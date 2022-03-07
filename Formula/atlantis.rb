@@ -7,12 +7,12 @@ class Atlantis < Formula
   head "https://github.com/runatlantis/atlantis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dcc12c24a94894c6d2e46ba7e925849a178a924c45a4ba9ac90e61f1b96dc41c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b09c4dd7a3a32c4200754b4e0c02ae85d9dd72a6986c4ff8f4e6247ed11ab96a"
-    sha256 cellar: :any_skip_relocation, monterey:       "2a37d69d5cff218cf2c3968163955cf41e943c385d40b8896a907c4e9aad17fd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "97a356b9e49ad7d5117bab99b5eca29a645518b3a72fd90bd318475039e6076f"
-    sha256 cellar: :any_skip_relocation, catalina:       "312ec20001822c97fab61fe507a390df9e324f1871e66bef8e78ce3d3961925b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf5c365cdc3616fcd31da124a1538b09495dcd3606ce7cdafce4db349be2397e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0beed30daeff2472f213081e214c7f407b0e5f3da7046dd375ba31e8dea28bc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a37f42336e5cd3d78698242cd11490a55b5f9e538eb088ba3e6a83ee4eeb2d0f"
+    sha256 cellar: :any_skip_relocation, monterey:       "996a357225d97a4ddf3ef05cb75f95b379ff566ec429cd649d0ad6ac8a800a6a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0c1c4358f5234a39b934010b9001c9a1062f44a61229f03dc9e4c60eaaf6a208"
+    sha256 cellar: :any_skip_relocation, catalina:       "c1a488377255e9583fa91a413d29ec7a434d909a554b20fc8150e99fceed376f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88c991003b07e4d98d5adb2b0f7c43e4e86dfb1420d5b8e20ccceb45830bea75"
   end
 
   depends_on "go" => :build
