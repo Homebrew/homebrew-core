@@ -12,12 +12,12 @@ class MdaLv2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "b2af5a11588172d4f3a6df39aa6e364d5bf80308801d18df16c92599af6b9753"
-    sha256 cellar: :any, arm64_big_sur:  "70a7e6c2ec6687191da96a243d428d3a36f39f2eafbbea149fd2518dc70001af"
-    sha256 cellar: :any, monterey:       "fd1f1846a982e6a4dd7a9ba034061d9afcb568bbcb9b95bb768250f53fa5d669"
-    sha256 cellar: :any, big_sur:        "11305c6dd1065f380811fc8fa2058d2885360eabc95592a926e583fe43c0d6a7"
-    sha256 cellar: :any, catalina:       "479125c63a6736dbe110711d9978764f1b44bb2520aa9646c2ca2fb7aa914f4a"
-    sha256 cellar: :any, mojave:         "d10c751b2b276f037f4ee8b4cbe00871fc390c47661957ba96713161b1f6411a"
+    sha256 cellar: :any,                 arm64_monterey: "be90e08c58a3300485e41b72ce72911e5eba897023a14a69aff4a1b599e900bc"
+    sha256 cellar: :any,                 arm64_big_sur:  "6993a3e9c831ee18705dc648a7ce96db6bbec3527f872847ed2de2b47d3ed2ca"
+    sha256 cellar: :any,                 monterey:       "c056cab2b7cdfb21b75ddd7e8582614f9e3240d82fc573a2b1e8558e4a8dd965"
+    sha256 cellar: :any,                 big_sur:        "0d67451b324decf5a25c46e03ee5d498338fe84d331c7779746da8f9964f4d11"
+    sha256 cellar: :any,                 catalina:       "6568406b88d52d06ec8dd26a31b43716b15c7782f05871894d211ea1ff66b82b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa6b5b92eb36d3dc33c0fa271c2fd61ba0986737a8dc4097682c88d9862ae8ce"
   end
 
   depends_on "pkg-config" => :build
