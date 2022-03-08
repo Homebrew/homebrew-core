@@ -11,10 +11,9 @@ class GhcAT9 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 monterey: "a68d3bd94035ca937a774c26a430249c084cee19e4c28a2727e02bcd9122e76f"
-    sha256 big_sur:  "167ea0c28443596500a924e7a646a68a599b08ae8f8ffe53d09f0d6c98ff2d58"
-    sha256 catalina: "9fee2bc2c5e9518ece84356ada1aa2c360fbbaea87ed59bed8f664078c25f8a1"
+    sha256 monterey: "d1b4862f6ec80b498423dab73d60da81bcd5dfa4fb5569a69a5f5df6185f1d84"
+    sha256 big_sur:  "d6158ca8d61870d78034503fa1a8a9490a6d2bdc0af1e03d3892a23b3f0c0352"
+    sha256 catalina: "3f9c3a54bba1eb35b4575d8a20704f0e6d8d079b3f6ae9536b150255948f6e48"
   end
 
   keg_only :versioned_formula
