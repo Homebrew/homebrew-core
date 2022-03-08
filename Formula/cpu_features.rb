@@ -7,10 +7,10 @@ class CpuFeatures < Formula
   head "https://github.com/google/cpu_features.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "43bd36cdcfd069f70a6aeed0b69d9d1bd530a9da640c3a76555bc6208a0c5ffa"
-    sha256 cellar: :any,                 big_sur:      "c3364cf6afd756eb5fd6faf3b6dfd84daf2dd6884375e69d03f09d8a1de30448"
-    sha256 cellar: :any,                 catalina:     "235e33e78650bccb4441c00c0244a72f40b1e63ef6c6c86e3a34c9d0aadd2e79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a5c78ef0f40b9357bd23610159a17f37db77d8934c7b23cdf773462aea790492"
+    sha256 cellar: :any,                 monterey:     "96d648cebc111c56cc4ce8d8c371dcfd61ec9a0b5ded7ade4f7382d2f6fbc2e7"
+    sha256 cellar: :any,                 big_sur:      "f38f676b5869a9e36c57a6e06f0fc8406155e274f6fa6e40fa619d677ab6f2ed"
+    sha256 cellar: :any,                 catalina:     "b0a9fe84986d1905ce1f05319e05b4b3f7b382c9816cdbec5107d6583845dca7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "861a3a31b94d4f853f252f6b430fc20f4aba9aa704eb83c8b85a83478f3e8678"
   end
 
   depends_on "cmake" => :build
