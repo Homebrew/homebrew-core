@@ -4,12 +4,30 @@ class Podman < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/containers/podman/archive/v3.4.4.tar.gz"
-    sha256 "718c9e1e734c2d374fcf3c59e4cc7c1755acb954fc7565093e1d636c04b72e3a"
+    url "https://github.com/containers/podman/archive/v4.0.2.tar.gz"
+    sha256 "cac4328b0a5e618f4f6567944e255d15fad3e1f7901df55603f1efdd7aaeda95"
+
+    patch do
+      url "https://github.com/containers/podman/commit/cdb6deb148f72cad9794dec176e4df1b81d31d08.patch?full_index=1"
+      sha256 "10d1383f4179fd4af947f554677c301dc64c53c13d2f0f59aa7b4d370de49fcf"
+    end
+    patch do
+      url "https://fedorapeople.org/groups/podman/testing/darwin_qemu_search_paths.patch"
+      sha256 "6315f2c8071b0bdba5c3346c4581aaed70696a7e63c3a361a1e1bd78eb5a3f51"
+    end
 
     resource "gvproxy" do
       url "https://github.com/containers/gvisor-tap-vsock/archive/v0.3.0.tar.gz"
       sha256 "6ca454ae73fce3574fa2b615e6c923ee526064d0dc2bcf8dab3cca57e9678035"
+    end
+
+    resource "podman-qemu" do
+      url "https://download.qemu.org/qemu-6.2.0.tar.xz"
+      sha256 "68e15d8e45ac56326e0b9a4afa8b49a3dfe8aba3488221d098c84698bca65b45"
+      patch do
+        url "https://github.com/qemu/qemu/compare/v6.2.0...willcohen:0024dfc24f88410fe9d85ef8e4a27cbc7283b87a.patch"
+        sha256 "72a35081f1ad79529580a78339dfbcc808c85e7de4120e0b47d1769330b59449"
+      end
     end
   end
 
@@ -25,7 +43,6 @@ class Podman < Formula
 
   head do
     url "https://github.com/containers/podman.git", branch: "main"
-
     resource "gvproxy" do
       url "https://github.com/containers/gvisor-tap-vsock.git", branch: "main"
     end
@@ -33,7 +50,33 @@ class Podman < Formula
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
-  depends_on "qemu"
+  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+
+  depends_on "glib"
+  depends_on "gnutls"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libslirp"
+  depends_on "libssh"
+  depends_on "libusb"
+  depends_on "lzo"
+  depends_on "ncurses"
+  depends_on "nettle"
+  depends_on "pixman"
+  depends_on "snappy"
+  depends_on "vde"
+
+  on_linux do
+    depends_on "attr"
+    depends_on "gcc"
+    depends_on "gtk+3"
+    depends_on "libcap-ng"
+  end
+
+  fails_with gcc: "5"
 
   def install
     ENV["CGO_ENABLED"] = "1"
@@ -47,6 +90,7 @@ class Podman < Formula
     if OS.mac?
       bin.install "bin/#{os}/podman" => "podman-remote"
       bin.install_symlink bin/"podman-remote" => "podman"
+      bin.install "bin/#{os}/podman-mac-helper" => "podman-mac-helper"
     else
       bin.install "bin/podman-remote"
     end
@@ -56,12 +100,39 @@ class Podman < Formula
       libexec.install "bin/gvproxy"
     end
 
-    if build.head?
-      system "make", "podman-remote-#{os}-docs"
-    else
-      system "make", "install-podman-remote-#{os}-docs"
+    resource("podman-qemu").stage do
+      ENV["LIBTOOL"] = "glibtool"
+      args = %W[
+        --prefix=#{libexec}
+        --cc=#{ENV.cc}
+        --host-cc=#{ENV.cc}
+        --disable-bsd-user
+        --disable-guest-agent
+        --enable-curses
+        --enable-libssh
+        --enable-slirp=system
+        --enable-vde
+        --enable-virtfs
+        --extra-cflags=-DNCURSES_WIDECHAR=1
+        --disable-sdl
+        --target-list=aarch64-softmmu,x86_64-softmmu
+      ]
+      # Sharing Samba directories in QEMU requires the samba.org smbd which is
+      # incompatible with the macOS-provided version. This will lead to
+      # silent runtime failures, so we set it to a Homebrew path in order to
+      # obtain sensible runtime errors. This will also be compatible with
+      # Samba installations from external taps.
+      args << "--smbd=#{Formula["samba"].opt_sbin}/samba-dot-org-smbd"
+      args << "--disable-gtk" if OS.mac?
+      args << "--enable-cocoa" if OS.mac?
+      args << "--enable-gtk" if OS.linux?
+
+      mv "hw/9pfs/9p-util.c", "hw/9pfs/9p-util-linux.c" unless build.head?
+      system "./configure", *args
+      system "make", "V=1", "install"
     end
 
+    system "make", "podman-remote-#{os}-docs"
     man1.install Dir["docs/build/remote/#{os}/*.1"]
 
     bash_completion.install "completions/bash/podman"
