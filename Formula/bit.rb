@@ -6,7 +6,7 @@ class Bit < Formula
   url "https://registry.npmjs.org/bit-bin/-/bit-bin-14.8.8.tgz"
   sha256 "25d899bacd06d77fad41026a9b19cbe94c8fb986f5fe59ead7ccec9f60fd0ef9"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/teambit/bit.git", branch: "master"
 
   bottle do
@@ -15,7 +15,6 @@ class Bit < Formula
     sha256 catalina: "c8122cc1152f05f8daf5087cc02e864d68246412180c927bca1d2cd06123ac70"
   end
 
-  depends_on arch: :x86_64 # installs an x86_64 `node.napi.node`
   depends_on "node"
 
   on_macos do
