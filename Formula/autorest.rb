@@ -27,7 +27,7 @@ class Autorest < Formula
   test do
     resource("homebrew-petstore").stage do
       system (bin/"autorest"), "--input-file=petstore.yaml",
-                               "--nodejs",
+                               "--typescript",
                                "--output-folder=petstore"
       assert_includes File.read("petstore/package.json"), "Microsoft Corporation"
     end
