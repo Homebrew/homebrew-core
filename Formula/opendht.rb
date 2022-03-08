@@ -5,6 +5,15 @@ class Opendht < Formula
   sha256 "3c902f30bae21c6ac1ff08417f01c9a6ad252db32afac72508ed321d8478c5ab"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "6b02071aea1361517a67f4e65099b10df43e9c2d416a2b3ffefc27acd3901ca8"
+    sha256 cellar: :any,                 arm64_big_sur:  "db64e0dd355b897f2d07dd964d935f55ce2812a51206ac86a333b1661db371fd"
+    sha256 cellar: :any,                 monterey:       "daedd911c92fadfffb35bab2384bf87238f993fa62d30936528daca7d9916454"
+    sha256 cellar: :any,                 big_sur:        "a1a3c7456e773fd4416248c49cfc90967899c73a7d0e3afec2464c51be17b5a3"
+    sha256 cellar: :any,                 catalina:       "ade9c301decfd041aae026918b44bc400be948d5afe294091c1fd8d993dcd426"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65b248b4d40a9e4a5eb2dee91d59ac95337c951da68a1d6af87abbb5db330591"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "argon2"
