@@ -7,11 +7,11 @@ class Autodiff < Formula
   head "https://github.com/autodiff/autodiff.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f383a9380292ebd0780141f13d09b74fca197a76c86e2f699ec66bd4c11eb340"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba45df80dee6bf1e5c00cb4c8d52d66be260fbad9ead68dff18274fcdb9cf118"
-    sha256 cellar: :any_skip_relocation, monterey:       "15c1c82af7b202a39db7f824e02597de9aff35866be4483115b9ff26fec0818c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8542aa380961c401581f79dfdebc8494818924c3e0ee9e6fe9a7bbe0a607df45"
-    sha256 cellar: :any_skip_relocation, catalina:       "4e48bc6bc5af21478837be025b58ad50fa2f032870dc6cf52d2249cfa3cf762b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "43ca6932cf78994ac0e84ca0db2deff9b76b22c864a497e4eda6790365f895b0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3fed4acfe7e6b3bdf8ceae4762187540484576c0191a55db270d51756bb4363d"
+    sha256 cellar: :any_skip_relocation, monterey:       "738db87fc43476e3ca4a5102c4bcffe568c499d4dfe999afe27e0bd72e6aec1d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "97a21fa250a573d1a0a6c3d99ef1b58f38854e6354ce8d78db8d5bc95859cf5d"
+    sha256 cellar: :any_skip_relocation, catalina:       "e3060054265e6eb197cc6b1c633f56d17588e67fceeacbddc8d08f164ca1216f"
   end
 
   depends_on "cmake" => :build
