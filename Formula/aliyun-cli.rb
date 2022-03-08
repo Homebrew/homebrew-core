@@ -2,8 +2,8 @@ class AliyunCli < Formula
   desc "Universal Command-Line Interface for Alibaba Cloud"
   homepage "https://github.com/aliyun/aliyun-cli"
   url "https://github.com/aliyun/aliyun-cli.git",
-      tag:      "v3.0.110",
-      revision: "ae1fe5444acc5717bcfc2dfb816f6446180dc42b"
+      tag:      "v3.0.111",
+      revision: "7e290f756a5bc6033192f1409a2fd837e0e68b80"
   license "Apache-2.0"
 
   bottle do
@@ -18,8 +18,8 @@ class AliyunCli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/aliyun/aliyun-cli/cli.Version=#{version}"),
-                          "-o", bin/"aliyun", "main/main.go"
+    ldflags = "-s -w -X github.com/aliyun/aliyun-cli/cli.Version=#{version}"
+    system "go", "build", *std_go_args(output: bin/"aliyun", ldflags: ldflags), "main/main.go"
   end
 
   test do
