@@ -11,13 +11,12 @@ class Jasper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3d81460f695f07a776aed0a304cbf71e32db97d439d2daf3bc4a64d1c2e4d648"
-    sha256 cellar: :any,                 arm64_big_sur:  "d3a5b5039c95970e08dc6265aa845e4a4e675987519fd1cfe5ae3990b0b236b8"
-    sha256 cellar: :any,                 monterey:       "7f5cd02f1f30c50f98dceafc0f9cc5bbf30bd85667f141e44eef5ceb8ae61af5"
-    sha256 cellar: :any,                 big_sur:        "7462315306489ccf06bddad20b9ba97b5872574f8155dfa7f5d316d905da76b8"
-    sha256 cellar: :any,                 catalina:       "7c7ae386ed0221d5b04f50b0258afddda977ec8e968f3dcb1e099a1826bb30d7"
-    sha256 cellar: :any,                 mojave:         "4c6c520094341ba62068984ed5ee928c992c942d3040956818a92c6a43f26724"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f37c44732a8782727150b229ad8dc04bd4f2261b95be05c5d11bebbf197326d"
+    sha256 cellar: :any,                 arm64_monterey: "a7f5983e4f88c149e5fa38dbeb162e2e1924035d2a088487b04769bdc3826809"
+    sha256 cellar: :any,                 arm64_big_sur:  "8adaea7ef3954878bf55f587b91e637d45650209ff72e63870615bfefd3d3a78"
+    sha256 cellar: :any,                 monterey:       "78bdc025dddc46d04ab8ccc1d9be3902d28ef56aa4a532ae7c8567bc5fd5a9f2"
+    sha256 cellar: :any,                 big_sur:        "441e89fac20bb2247eac97c25d1012e703b6efaa19b47c69f749ba20ba9ca965"
+    sha256 cellar: :any,                 catalina:       "8c46069a65f2247ab46ad8d43a02bffd7000c199a1bf3df023b76ac01ba2c3d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eff44eb2f9507f7457f6cefc1c84f49922b45f8c2cc4b67a5faba9b8c095b9a"
   end
 
   depends_on "cmake" => :build
