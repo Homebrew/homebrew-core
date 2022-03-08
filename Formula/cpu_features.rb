@@ -1,10 +1,9 @@
 class CpuFeatures < Formula
   desc "Cross platform C99 library to get cpu features at runtime"
   homepage "https://github.com/google/cpu_features"
-  url "https://github.com/google/cpu_features/archive/v0.6.0.tar.gz"
-  sha256 "95a1cf6f24948031df114798a97eea2a71143bd38a4d07d9a758dda3924c1932"
+  url "https://github.com/google/cpu_features/archive/v0.7.0.tar.gz"
+  sha256 "df80d9439abf741c7d2fdcdfd2d26528b136e6c52976be8bd0cd5e45a27262c0"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/google/cpu_features.git", branch: "main"
 
   bottle do
@@ -17,7 +16,10 @@ class CpuFeatures < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
