@@ -12,14 +12,12 @@ class Libraw < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2cd59dec94bf52c1ae7c3e3a401532ded98d823a9047cac5e21626b6a7eb4a7e"
-    sha256 cellar: :any,                 arm64_big_sur:  "91215928c6f416f820d2d73c4be22175a00a7c9aa555b2dc01a3f649d888e20f"
-    sha256 cellar: :any,                 monterey:       "06fca4f57f1358542eee753e4c0ceb1a46796c5ebada6ed9a65e579e20f8932a"
-    sha256 cellar: :any,                 big_sur:        "89a0ce1dc2548f25b9813e32b9a234b44c3dab57adaf98fa204ca35f75b2f2eb"
-    sha256 cellar: :any,                 catalina:       "465ba53999bd9b1297fed5283b8cf09ccc600fc1ca00ea4be58a6193a96910d4"
-    sha256 cellar: :any,                 mojave:         "2c62cfe8160a4cf45819255cc2a1bb77427827bfa7c4cf782a42f95ee9822112"
-    sha256 cellar: :any,                 high_sierra:    "dd4ab6f94e1dc725cb23ea1f4ee0267b632e01c7187c7a2b109053f457a17284"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88e847382d3000609414ddce26389f6a4e19392e6209e32cd5067b8d6a05616c"
+    sha256 cellar: :any,                 arm64_monterey: "9602e190b1f8832e73e1051483ce19d6bd70b5e62de19a3ef111fdbd00808554"
+    sha256 cellar: :any,                 arm64_big_sur:  "23249a1e63273e0d9b5af9ee3cedd67bcb6e5f8ab732c373e564e6f78cc7c247"
+    sha256 cellar: :any,                 monterey:       "10810b4d3f4bd93770c831d32c2feb7e65d3fb8150c33a559f9cda90d12a3b92"
+    sha256 cellar: :any,                 big_sur:        "aa06e46a54ce57dc4be77bb8ad8b65275938a2b2b18184258e990a22fc242f7c"
+    sha256 cellar: :any,                 catalina:       "da61cecad94bd946f622d18440360ba02751dde1ceeea072f930e41dacfcde59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59c038b9e4c35a477afb9ed9fd5834d622a43288c88e8375684c358e45a87013"
   end
 
   depends_on "autoconf" => :build
