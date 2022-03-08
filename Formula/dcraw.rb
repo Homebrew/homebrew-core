@@ -12,16 +12,12 @@ class Dcraw < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "54aef6cd7f83a16ad41f6094d2a1821bae08b307dcc2fcf40a83705c195f53d4"
-    sha256 cellar: :any,                 arm64_big_sur:  "743f571022d74442fa2d81309c916ff665114303a4e916d1b9a970c50ddb71e3"
-    sha256 cellar: :any,                 monterey:       "963aaef6e14ec562514c95e81f9dfd5ef3e94ffc27815f75d4b3819f394145c5"
-    sha256 cellar: :any,                 big_sur:        "fc0e1b6d2ac47be836929a68ee33d693bb2e455c4ecdd1dee7beafb3a5c123c6"
-    sha256 cellar: :any,                 catalina:       "df26056a9b3374154b499b4dbdee4a1417a58a15cffe22ac40f095747ee1f8a7"
-    sha256 cellar: :any,                 mojave:         "4673710b946c4fa3eb47d0b693b380e8abb636202ce86e0e13372a8539141bd8"
-    sha256 cellar: :any,                 high_sierra:    "21f31347e500f314a1f2e6fe03f0d6009b25fa5bd9f1f339b0fe77fc38050e81"
-    sha256 cellar: :any,                 sierra:         "dc99d6de1166a3f4fa66d23b798dad9a58e0fac24f72c02ab38ea32e74b30a9e"
-    sha256 cellar: :any,                 el_capitan:     "022f85e8da7b4cd8c68d7251d39bf3084ec28a15cb859d9cfe49bd439e312466"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df4ae1286e4b5cadcc8db82146d0ef622eda6e8d5e494e00a1ad53961c3cf32f"
+    sha256 cellar: :any,                 arm64_monterey: "81ca4e8b50071303c1bed20a3901dc5041ac72468d470344ed8618307746a662"
+    sha256 cellar: :any,                 arm64_big_sur:  "b80d00af67db54c3b346050ee774286b89487e278a91973e2ee1d0ed30a1bb68"
+    sha256 cellar: :any,                 monterey:       "d808e057798d60c3daf76cdb9adffce5e762f75b7eeb9f95156b702f46d622ba"
+    sha256 cellar: :any,                 big_sur:        "46bb8e39ef71d4fddab93eeafacfacfc942226257452b9491728104c37673380"
+    sha256 cellar: :any,                 catalina:       "dd48d13f966ac2d9230a14ca53048438bf9a1976ac63a1b23554b7ed042fd6da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8daabf2c986c54cfb169810a2796f2281703366280605cfb3406d9708b290007"
   end
 
   depends_on "jasper"
