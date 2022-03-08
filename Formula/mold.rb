@@ -7,13 +7,12 @@ class Mold < Formula
   head "https://github.com/rui314/mold.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "7ef0d4b8bb277514a0d7d23cc360db1e9795aedb4506432fa417dfd34e16a1b9"
-    sha256 arm64_big_sur:  "e89d234396f3c5bdc2bc5fa3546f47e91b753a0fda83f4d891049554ed9249b6"
-    sha256 monterey:       "4234857a5bbe9e3a3d698ab75d14b6a4be78342497b3986d9ca4366412843e63"
-    sha256 big_sur:        "aaf3cfa5c621e63bc7053d4ce392d1874fdefe3407a8b7805c5f19dcd75e080d"
-    sha256 catalina:       "0ca759994e09f1562a4c67c0da8bad40c3d9cce759bc4d90f692d11e25f779d4"
-    sha256 x86_64_linux:   "0e8624390f9d070681ef9c221863ac2d1ddeac431c24ab00f8bf861b3258850c"
+    sha256 arm64_monterey: "54fd2aa58e34b16de07e43bf7fca4278069547fc9adc41cdbb4fe5f476735a45"
+    sha256 arm64_big_sur:  "9cbd6a16091a5bec3dfe781c55b54e538c9b4b325f72ec14de85ead7e300115b"
+    sha256 monterey:       "dad283ead1dda3d5209091fbe0b07633745eaf2fe85faf242dfa2b35e9c11994"
+    sha256 big_sur:        "55adb693ed2aa555defde2ed7d8749aba94ff7ad5d36450c5c3f86569af18e1d"
+    sha256 catalina:       "71d2a690281992686f844b4faee02108afbd42d2e577f1f1898ee22836c462d1"
+    sha256 x86_64_linux:   "ebdebec0ea664c0106e27c19d54aaff04337f8747fdc3a39c28b990493aca1f6"
   end
 
   depends_on "tbb"
