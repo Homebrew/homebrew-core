@@ -7,7 +7,7 @@ class Lv2 < Formula
   url "https://lv2plug.in/spec/lv2-1.18.2.tar.bz2"
   sha256 "4e891fbc744c05855beb5dfa82e822b14917dd66e98f82b8230dbd1c7ab2e05e"
   license "ISC"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://lv2plug.in/spec/"
@@ -60,15 +60,15 @@ class Lv2 < Formula
 
   def install
     # Python resources and virtualenv are for the lv2specgen.py script that is installed
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
     rw_info = python_shebang_rewrite_info("#{libexec}/bin/python3")
     rewrite_shebang rw_info, *Dir.glob("lv2specgen/*.py")
 
-    system Formula["python@3.9"].opt_bin/"python3", "./waf", "configure",
-           "--prefix=#{prefix}", "--no-plugins", "--lv2dir=#{lib}"
-    system Formula["python@3.9"].opt_bin/"python3", "./waf", "build"
-    system Formula["python@3.9"].opt_bin/"python3", "./waf", "install"
+    system "python3", "./waf", "configure",
+           "--prefix=#{prefix}", "--no-plugins", "--lv2dir=#{lib}/lv2"
+    system "python3", "./waf", "build"
+    system "python3", "./waf", "install"
 
     (pkgshare/"example").install "plugins/eg-amp.lv2/amp.c"
   end
