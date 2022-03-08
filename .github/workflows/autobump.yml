@@ -37,7 +37,6 @@ env:
     apidoc
     apktool
     arb
-    archiver
     argo
     argocd
     argocd-autopilot
@@ -71,7 +70,6 @@ env:
     bbtools
     bcoin
     bear
-    bee
     benthos
     berglas
     bettercap
@@ -155,21 +153,18 @@ env:
     cortex
     cosign
     couchdb
-    crane
     croc
     cromwell
     crowdin
     crun
     css-crush
     csvtk
-    ctop
     cubejs-cli
     cweb
     cypher-shell
     dafny
     darkstat
     datree
-    davmail
     dbdeployer
     ddrescue
     deark
@@ -210,7 +205,6 @@ env:
     drone-cli
     druid
     dstask
-    dtm
     dua-cli
     duckscript
     dune
@@ -252,7 +246,6 @@ env:
     flow-cli
     fluent-bit
     flume
-    flux
     fluxctl
     flyway
     fmt
@@ -268,7 +261,6 @@ env:
     futhark
     gatsby-cli
     gau
-    gauge
     gdu
     geeqie
     geph4
@@ -300,7 +292,6 @@ env:
     gnuplot
     go-md2man
     go@1.16
-    gofish
     gofumpt
     gojq
     golang-migrate
@@ -347,7 +338,6 @@ env:
     htmltest
     htpdate
     httpx
-    hugo
     hyperfine
     iamy
     igv
@@ -373,7 +363,6 @@ env:
     jenkins-job-builder
     jenkins-lts
     jetty
-    jetty-runner
     jfrog-cli
     jhipster
     jmeter
@@ -500,7 +489,6 @@ env:
     nats-server
     nats-streaming-server
     navi
-    ncc
     ncspot
     neo4j
     neofetch
@@ -558,10 +546,8 @@ env:
     phpstan
     pianod
     picard-tools
-    pickle
     pig
     pillow
-    pkg-config-wrapper
     plantuml
     plow
     pmd
@@ -682,7 +668,6 @@ env:
     teleport
     tendermint
     tengo
-    termius
     termshark
     terracognita
     terraform-inventory
@@ -703,7 +688,6 @@ env:
     tomcat-native
     tomcat@8
     tomcat@9
-    tomee-plume
     tomee-plus
     tomee-webprofile
     topgrade
