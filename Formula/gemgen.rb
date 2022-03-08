@@ -6,6 +6,15 @@ class Gemgen < Formula
   license "GPL-3.0-or-later"
   head "https://git.sr.ht/~kota/gemgen", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "784c371394fa6476daea9391ef69a942f02e0a7086cf0daaeacea8ceaca8eae4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c36ace2b3b409206241e66b32567762ab6c448d89a8e050cf26f419f5ef0bd6"
+    sha256 cellar: :any_skip_relocation, monterey:       "8fd891edc0e50292ca76deb0a63696d1c06b231cebaa067e99ce99bad886c96c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6f780a553c7050f67c43216d76d06d041d3a341bf5cc67a2072810c912ae6a96"
+    sha256 cellar: :any_skip_relocation, catalina:       "0857a312379268423766b69c2874172e716a92c22d6e63d3ce7fa6430c06a9b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb58367b892d290ae3a9801e4e297413cda4b890183de712db3b1f635a04e646"
+  end
+
   depends_on "go" => :build
   depends_on "scdoc" => :build
 
