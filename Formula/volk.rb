@@ -9,12 +9,12 @@ class Volk < Formula
   revision 1
 
   bottle do
-    sha256 arm64_monterey: "70fd5051aedcc1d69d4f8753cce4e4f3d525941c3ed585afc489dc917278d6e8"
-    sha256 arm64_big_sur:  "547404790c044f95094495013e08be847a9391c0aa0f83edd00f6b1d641d08d4"
-    sha256 monterey:       "7a5649c751b5d0eb132f56dc0e824c8777f5a4a52817db8d669ee172444c1bd3"
-    sha256 big_sur:        "b2b1e6881db8b03120589969f93c94de26b7fa61442fe6823401c0d3c86a84ef"
-    sha256 catalina:       "a872a8cfae761d6667225a9b69acc0856ca8663942f06df654f997f2a045f286"
-    sha256 x86_64_linux:   "5d978d61f37c0a0266f0f72197ade95efa8c87ddcbed36cf6611c06b921f2676"
+    sha256 arm64_monterey: "cd08be9bd078c3132652c270cfd6af087adc72855e36f2919e049d39fc22ba3a"
+    sha256 arm64_big_sur:  "e7e77a6f19eaf1443460933a1937794300c76b00bc64fca7b0ebf9535e771f5e"
+    sha256 monterey:       "0c8208cf15c8b3013fa8f1901fc06c0612458991a10e15db6f50744259e82e8e"
+    sha256 big_sur:        "e5edefdbf14fdba429f56369c8c4b10f5fb7be7f5f3cd09a84d4542d0cd181a2"
+    sha256 catalina:       "568e33a05f0a5efc390fd7181f1876bab39ca96abbbd9d9aca46027f61c540e8"
+    sha256 x86_64_linux:   "985a55137a6942852d81447f577458d174979718475d60fc0e0cd9d2f4167fc5"
   end
 
   depends_on "cmake" => :build
