@@ -7,12 +7,12 @@ class Trafficserver < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_monterey: "4efb76b02a88e4375b837459a630089881ea48a17c63d2b2f28419ef78797190"
-    sha256 arm64_big_sur:  "c6872bc513326e322fa8d048ea3e29a44d98762e4dce7d84ef5591fbbba549aa"
-    sha256 monterey:       "79bf087797667d9ab36566368523b05163fe9dbf3c83de2237e9da2918a26c4d"
-    sha256 big_sur:        "59ae7264246bf3d6eb1051b782afefc0e901d5cec4c2d9953dfb587e4918dc1a"
-    sha256 catalina:       "d972e0d8de12c3afb02c1fecd9dba47aaa57c0798206e1478dd21df7abf67f29"
-    sha256 x86_64_linux:   "db111c976bb89b349fdbbe0c87d2f5bbacf972535eed9935a274637be477fcc0"
+    sha256 arm64_monterey: "69c21ff3257e64c403f265da0c4659842ab37d91abc9e238c889043990679369"
+    sha256 arm64_big_sur:  "8e4d17cdfffb1d59acd4d171dacfb5e888c057c342ade85b452bd2e4c06ca00b"
+    sha256 monterey:       "2052122c991d4cdf429cd6712708a69b56be7ecaf94c12f32e466e3c9fed9108"
+    sha256 big_sur:        "d49195bafda8a14f47a144ee7f6448a17389b8953e9ef5abb61866e0a0dda0dd"
+    sha256 catalina:       "c415c841e8920c3fe51143cf59710888d5e5e6853df2ea37ae0b29fd2e150382"
+    sha256 x86_64_linux:   "824e57e837fa58a49ae56f7226aed66b5c4d4c8a35929531179d02ddc4a4e329"
   end
 
   head do
