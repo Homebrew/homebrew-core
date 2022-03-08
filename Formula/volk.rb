@@ -6,6 +6,7 @@ class Volk < Formula
   url "https://github.com/gnuradio/volk/releases/download/v2.5.1/volk-2.5.1.tar.gz"
   sha256 "8f7f2f8918c6ba63ebe8375fe87add347046b8b3acbba2fb582577bebd8852df"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "70fd5051aedcc1d69d4f8753cce4e4f3d525941c3ed585afc489dc917278d6e8"
