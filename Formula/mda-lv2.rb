@@ -4,6 +4,7 @@ class MdaLv2 < Formula
   url "https://download.drobilla.net/mda-lv2-1.2.6.tar.bz2"
   sha256 "cd66117024ae049cf3aca83f9e904a70277224e23a969f72a9c5d010a49857db"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.drobilla.net"
@@ -20,11 +21,21 @@ class MdaLv2 < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
+  depends_on "sord" => :test
   depends_on "lv2"
 
   def install
-    system "./waf", "configure", "--prefix=#{prefix}"
-    system "./waf"
-    system "./waf", "install", "--destdir=#{prefix}"
+    ENV.cxx11
+    system "python3", "./waf", "configure", "--prefix=#{prefix}", "--lv2dir=#{lib}/lv2"
+    system "python3", "./waf"
+    system "python3", "./waf", "install"
+  end
+
+  test do
+    # Validate mda.lv2 plugin metadata (needs definitions included from lv2)
+    system Formula["sord"].opt_bin/"sord_validate",
+           *Dir[Formula["lv2"].opt_lib/"**/*.ttl"],
+           *Dir[lib/"lv2/mda.lv2/*.ttl"]
   end
 end
