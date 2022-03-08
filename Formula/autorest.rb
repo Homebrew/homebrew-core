@@ -6,13 +6,12 @@ class Autorest < Formula
   url "https://registry.npmjs.org/autorest/-/autorest-3.5.1.tgz"
   sha256 "3361f0cf71b7013efb38376f65f973f0dfa83a86a59cfb749380344bcea8bdbe"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "42c2714757885b2ce0383b48ee0ae82ef1ba0e836bcc44706a9ea822cc0b09c4"
   end
 
-  depends_on arch: :x86_64
-  depends_on :macos # test fails on Linux
   depends_on "node"
 
   resource "homebrew-petstore" do
@@ -28,7 +27,7 @@ class Autorest < Formula
   test do
     resource("homebrew-petstore").stage do
       system (bin/"autorest"), "--input-file=petstore.yaml",
-                               "--nodejs",
+                               "--typescript",
                                "--output-folder=petstore"
       assert_includes File.read("petstore/package.json"), "Microsoft Corporation"
     end
