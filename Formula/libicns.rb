@@ -7,17 +7,12 @@ class Libicns < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "62da03a95a4b2b2342a762839e49c70887d9a01f5e097cc7881f9287384d1e45"
-    sha256 cellar: :any,                 arm64_big_sur:  "06b49357685dcaef31f7e32c7901ec217074a3b17d24c7a46456239e04ec3a9b"
-    sha256 cellar: :any,                 monterey:       "7f2427496f4dc8e1f04d350b4479406ffb6c9e815a93397c0255d98593274ab1"
-    sha256 cellar: :any,                 big_sur:        "6d503b029cbb646b11bae4d81c3537ea14f8c415039b196dace05a6ea691a846"
-    sha256 cellar: :any,                 catalina:       "33e4b9bf7de81d160ba9f8802c24e89c90903e6be9a3103c7e296536b1fe1511"
-    sha256 cellar: :any,                 mojave:         "fe7c57605e6f9b5626f5c2048aacd121c2c8973d24113f03275ed0659392a9fb"
-    sha256 cellar: :any,                 high_sierra:    "a2c03e94df9a8291b73c544d188d9e796161f49e0f14b8c88f94da40d3cfa04f"
-    sha256 cellar: :any,                 sierra:         "8fb5848fa2a111b3fc66aaea73c60a0795da6468e2ace92d2de57c9c8a5a3cde"
-    sha256 cellar: :any,                 el_capitan:     "12579e9f34ef57d3979b5a01206b543a67bf313cdb056d6c3e20e0b8cf0842b6"
-    sha256 cellar: :any,                 yosemite:       "aed1a7df05a8f98ea64dcdd8c4a406207239b7b187629fc03ae799308a142a4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2e62164cd0e78ae43714a373989b8543cb961ac177ae3b92ad7e2bc0e230818"
+    sha256 cellar: :any,                 arm64_monterey: "7f1629857173f47627750a68b5365c3b5302296077b9062022b82af8bae31d8f"
+    sha256 cellar: :any,                 arm64_big_sur:  "593fecff6cdb88a92fd91a09563d3c253013128c4b00537766b905dbf988e76c"
+    sha256 cellar: :any,                 monterey:       "4f58e79a5425fa0efa47388c5cb74d51f15f3f6ba5e97b32b92910004a78b933"
+    sha256 cellar: :any,                 big_sur:        "460930e37a288de03e036ecdcfeb2031bf5ccd44a6abd17a9374ec006cdfa388"
+    sha256 cellar: :any,                 catalina:       "b3a7a96858b1ccf7c772a4384df25b4442d021a9feb0ff3fef60d2aaf3243c33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d6d2b1f27b7e27161e362f4b90f4ab5783e2ad9c81525d411478c03fecfaebf"
   end
 
   depends_on "jasper"
