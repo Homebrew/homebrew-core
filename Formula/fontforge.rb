@@ -1,8 +1,8 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/releases/download/20201107/fontforge-20201107.tar.xz"
-  sha256 "68bcba8f602819eddc29cd356ee13fafbad7a80d19b652d354c6791343476c78"
+  url "https://github.com/fontforge/fontforge/releases/download/20220308/fontforge-20220308.tar.xz"
+  sha256 "01e4017f7a0ccecf436c74b8e1f6b374fc04a5283c1d68967996782e15618e59"
   license "GPL-3.0-or-later"
 
   bottle do
