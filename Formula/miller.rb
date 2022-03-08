@@ -7,12 +7,12 @@ class Miller < Formula
   head "https://github.com/johnkerl/miller.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "35d1a07fa389108687e94bdbdbf118ef035a1ce50d790093e7c0d456027eb737"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb7af9ece44ec5318f0586f8969092c26b63f96ef73aa6a3e07458aac476e73d"
-    sha256 cellar: :any_skip_relocation, monterey:       "dc0360836c924ea0ecbe28e3f0bfdf46972fab1e1e4eef441540c0c43e236b62"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6e85efa4a86dbd85b61ea43fe3b40c276391844f7ea850bbbaa2274bf4fa60ca"
-    sha256 cellar: :any_skip_relocation, catalina:       "734413718401968d16fd917f1e4a99d837686980b8fee2d580624e9569d4b3b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0420b1651e32d2aa129e7a9d61afd98b54beb24d0a20910315fb0ec4eacb5cb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fabfdac39358b9289f3ee5a9bba4a9c7bb1c08d25dda2d185be5a31fd293d463"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88bcb5b59092895020536ae6fa7ce86419880a13ff43ba689e248319de4a4f56"
+    sha256 cellar: :any_skip_relocation, monterey:       "6a0c523085b80b7eeba84e9d86eceb4fc8af6f88f711c70b401893f507dd389b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5a964563bf3d81c8bc16fdd42ce09fc68e788d5055133365ec8e66a23f74ffec"
+    sha256 cellar: :any_skip_relocation, catalina:       "65e720208f4f4f3888e247db35769bd51ed00a002062d12288f8bf4db3ad16ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c00ca6ea550c64d091eb1fbfadefeb55d579a53cd2ea00476f6bbb5d4b469552"
   end
 
   depends_on "go" => :build
