@@ -6,14 +6,12 @@ class Fontforge < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "96975c5c015c165eb5910588c295ea62434063ff468b477ac3d11e77735609f7"
-    sha256 arm64_big_sur:  "240744fcd44612d9208c1f47e81d8f01b9d94108b50afe54170be14329a95a5a"
-    sha256 monterey:       "3deb4786174659e76b9988079f7ef56b42deb3952ea67b13e5fcbafb553b127d"
-    sha256 big_sur:        "20f92c9d7e6405ca51bdf9f9a2f0216b527bd78e38c2c3bedecbfab3eeb12747"
-    sha256 catalina:       "de48bd3b27ae91d21b8f7d8724cf2b9100683bf02db99794bcd9d9c4ca3483de"
-    sha256 mojave:         "fc6b9c92f02f1e01d8850bfb595dad4f18faf2c3ba079d7bf8084699ec006d53"
-    sha256 x86_64_linux:   "5377794ced753c4220bfa33f5064b3b041819fe264d09b785e8138703a7e0812"
+    sha256 arm64_monterey: "523104e5ae79fddfcf373f8ed9ce4d103ae064009c725cf26f9d5df25a06c7cf"
+    sha256 arm64_big_sur:  "1930327e9bf9b50fc4d55c5279b2c2ace119e570772513ddf469de4cb9a64380"
+    sha256 monterey:       "899436bea1a2bd257f034e09b19874bd2a600885b025a20cb5439c66c0f27009"
+    sha256 big_sur:        "20d25fae548d111f036e5ea9d268652b24deb7f21e9a0188fa2da29b46125414"
+    sha256 catalina:       "5e25c98ac914f0a54c9d7cacc27eac8c5e415429f387c136b97aa2d6ea222ac8"
+    sha256 x86_64_linux:   "92810f5489f44a7ec3b372c8e0f4b9d0fcff671570c4ef6c56334cb4327bbe47"
   end
 
   depends_on "cmake" => :build
