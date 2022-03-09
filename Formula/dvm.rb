@@ -1,10 +1,9 @@
 class Dvm < Formula
   desc "Docker Version Manager"
   homepage "https://github.com/howtowhale/dvm"
-  url "https://github.com/howtowhale/dvm/archive/1.0.2.tar.gz"
-  sha256 "eb98d15c92762b36748a6f5fc94c0f795bf993340a4923be0eb907a8c17c6acc"
+  url "https://github.com/howtowhale/dvm/archive/1.0.3.tar.gz"
+  sha256 "148c2c48a17435ebcfff17476528522ec39c3f7a5be5866e723c245e0eb21098"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "b2406a596b3b067573a98903ccfba88e202cf6967f539b84f1f553ab4bbdc5c3"
@@ -16,26 +15,11 @@ class Dvm < Formula
   end
 
   depends_on "go" => :build
-  # Fails to build on ARM
-  depends_on arch: :x86_64
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-
     (buildpath/"src/github.com/howtowhale/dvm").install buildpath.children
 
     cd "src/github.com/howtowhale/dvm" do
-      # Upstream release has a vendored dependency placed in the wrong path,
-      # so adjust its location and relevant import statement.
-      # Upstream acknowledged issue at https://github.com/howtowhale/dvm/issues/193
-      mkdir "vendor/code.cloudfoundry.org"
-      mv "vendor/github.com/pivotal-golang/archiver",
-         "vendor/code.cloudfoundry.org/archiver"
-      inreplace "dvm-helper/internal/downloader/downloader.go",
-                "github.com/pivotal-golang/archiver/extractor",
-                "code.cloudfoundry.org/archiver/extractor"
-
       system "make", "VERSION=#{version}", "UPGRADE_DISABLED=true"
       prefix.install "dvm.sh"
       bash_completion.install "bash_completion" => "dvm"
