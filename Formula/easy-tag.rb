@@ -1,8 +1,9 @@
 class EasyTag < Formula
   desc "Application for viewing and editing audio file tags"
-  homepage "https://projects.gnome.org/easytag"
+  homepage "https://wiki.gnome.org/Apps/EasyTAG"
   url "https://download.gnome.org/sources/easytag/2.4/easytag-2.4.3.tar.xz"
   sha256 "fc51ee92a705e3c5979dff1655f7496effb68b98f1ada0547e8cbbc033b67dd5"
+  license "GPL-2.0-or-later"
   revision 6
 
   bottle do
