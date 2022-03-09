@@ -37,6 +37,22 @@ class Libpgm < Formula
       system "make", "install"
     end
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <pgm/pgm.h>
+
+      int main(void) {
+        pgm_error_t* pgm_err = NULL;
+        if (!pgm_init (&pgm_err)) {
+          return 1;
+        }
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}/pgm-5.3", "-L#{lib}", "-lpgm", "-o", "test"
+    system "./test"
+  end
 end
 
 __END__
