@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/c5/d0/6e42772040657ae8a88f05b95344315d1cd4774abfded68a03c3b8638737/moto-3.0.6.tar.gz"
-  sha256 "53ab3b6647382f61ad5aef8351ccba3712fa9595b7826883e4a38a4ac5c9b5a7"
+  url "https://files.pythonhosted.org/packages/9a/3e/48eddba4d8297d784541e49fc35778b468499424953d8cafb87e8bd3c2e2/moto-3.0.7.tar.gz"
+  sha256 "43a0c89eee6518ffaf77142b5ed3e0c1522f97a22368af2c90af5a8914dcdce9"
   license "Apache-2.0"
 
   bottle do
@@ -36,13 +36,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/a4/1f/ab159d65cd9c4524945fe8ba776fd0bfa6b5325c5db7cb831f9ce4baee2f/boto3-1.21.13.tar.gz"
-    sha256 "16fae86d0c4993fd5112128bb4622a879f02363bccd045153cc0bbd7722cc9a5"
+    url "https://files.pythonhosted.org/packages/57/49/06070a3f4e354751975c8c95e0b400366a2b8d2821deb435ff9bae4b8fb1/boto3-1.21.15.tar.gz"
+    sha256 "895489900eb882777124c3b64a13df49785cf77f7bd1504e783464fb3b4c8163"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d8/7c/31b6e0a0524dc4f92872cd4147f8a3ec80ef4ff7855feee443f89722430c/botocore-1.24.13.tar.gz"
-    sha256 "46e51f56f1c5784e4245e036503635fa71b722775657b6e1acf21ec5b906974c"
+    url "https://files.pythonhosted.org/packages/19/96/05b7bbe828410b4bdf93e5d2ad4c4a1dc60e8db11ceb80b27b23ecfd8f77/botocore-1.24.15.tar.gz"
+    sha256 "fa4816e94e72111a9341204061e760bcbde74ca5d900d3f2206c2c2e8e4b56e4"
   end
 
   resource "certifi" do
@@ -56,8 +56,8 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/ba/82/70a44ade5615b8b0482b46535d4cbe76366f99c48a94c4fc6c1fccb7bf42/cfn-lint-0.58.2.tar.gz"
-    sha256 "484484e0a849b4f5d621bc55b1af7b46104370a2c1629b49376ab8281787e9eb"
+    url "https://files.pythonhosted.org/packages/bb/3b/db6bb1e426131bd92893d1af26651e7b384a2255c30012abb789dd7769ff/cfn-lint-0.58.3.tar.gz"
+    sha256 "0dccd28a93671ad51773cf47c976d314d9334e431271b5affd4dfc6bb4a52b0a"
   end
 
   resource "charset-normalizer" do
@@ -216,8 +216,8 @@ class Moto < Formula
   end
 
   resource "responses" do
-    url "https://files.pythonhosted.org/packages/03/a5/186653e51cb20fe3ac793403334d4d077fbb7bb18a9c5c2fce8304d5a2e2/responses-0.18.0.tar.gz"
-    sha256 "380cad4c1c1dc942e5e8a8eaae0b4d4edf708f4f010db8b7bcfafad1fcd254ff"
+    url "https://files.pythonhosted.org/packages/37/b8/5e550b9b5b05778e38f1bdf12d7e7718502e6d0719b09f812fcc84829058/responses-0.19.0.tar.gz"
+    sha256 "3fc29c3117e14136b833a0a6d4e7f1217c6301bf08b6086db468e12f1e3290e2"
   end
 
   resource "rsa" do
