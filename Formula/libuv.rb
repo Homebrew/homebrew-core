@@ -6,6 +6,11 @@ class Libuv < Formula
   license "MIT"
   head "https://github.com/libuv/libuv.git", branch: "v1.x"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "729b79258effb55f6d0299e1a9183374c18f9b7a6b952285c77c9824151d62ab"
     sha256 cellar: :any,                 arm64_big_sur:  "879a2b183bb839026d2320c121ae6144abd3862a340a4ffa8d2030ec1736fe45"
