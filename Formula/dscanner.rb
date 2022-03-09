@@ -14,10 +14,14 @@ class Dscanner < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "8dc52ce3f3a82d9eba76280c8cbfc70a08227288cd05cf2c829cc32b76662fdc"
   end
 
-  depends_on "dmd" => :build
+  if Hardware::CPU.arm?
+    depends_on "ldc" => :build
+  else
+    depends_on "dmd" => :build
+  end
 
   def install
-    system "make", "dmdbuild"
+    system "make", "all", "DC=#{Hardware::CPU.arm? ? "ldc2" : "dmd"}"
     bin.install "bin/dscanner"
   end
 
