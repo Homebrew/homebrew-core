@@ -34,7 +34,8 @@ class Juman < Formula
   end
 
   test do
-    result = `echo \xe4\xba\xac\xe9\x83\xbd\xe5\xa4\xa7\xe5\xad\xa6 | juman | md5`.chomp
-    assert_equal "a5dd58c8ffa618649c5791f67149ab56", result
+    md5 = OS.mac? ? "md5" : "md5sum"
+    result = pipe_output(md5, pipe_output(bin/"juman", "\xe4\xba\xac\xe9\x83\xbd\xe5\xa4\xa7\xe5\xad\xa6"))
+    assert_equal "a5dd58c8ffa618649c5791f67149ab56", result.chomp.split.first
   end
 end
