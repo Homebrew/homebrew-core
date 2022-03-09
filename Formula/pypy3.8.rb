@@ -69,7 +69,7 @@ class Pypy38 < Formula
              "--make-jobs", ENV.make_jobs, "targetpypystandalone.py"
 
       with_env(PYTHONPATH: buildpath) do
-        system "./pypy3.8-c", buildpath/"lib_pypy/pypy_tools/build_cffi_imports.py"
+        system "./pypy3-c", buildpath/"lib_pypy/pypy_tools/build_cffi_imports.py"
       end
     end
 
@@ -80,14 +80,14 @@ class Pypy38 < Formula
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy3.tar.bz2"
     end
 
-    (libexec/"lib").install libexec/"bin/#{shared_library("libpypy3.8-c")}" => shared_library("libpypy3.8-c")
+    (libexec/"lib").install libexec/"bin/#{shared_library("libpypy3-c")}" => shared_library("libpypy3-c")
 
     if OS.mac?
       MachO::Tools.change_install_name("#{libexec}/bin/pypy3.8",
-                                       "@rpath/libpypy3.8-c.dylib",
-                                       "#{libexec}/lib/libpypy3.8-c.dylib")
-      MachO::Tools.change_dylib_id("#{libexec}/lib/libpypy3.8-c.dylib",
-                                   "#{opt_libexec}/lib/libpypy3.8-c.dylib")
+                                       "@rpath/libpypy3-c.dylib",
+                                       "#{libexec}/lib/libpypy3-c.dylib")
+      MachO::Tools.change_dylib_id("#{libexec}/lib/libpypy3-c.dylib",
+                                   "#{opt_libexec}/lib/libpypy3-c.dylib")
     end
 
     (libexec/"lib-python").install "lib-python/3"
@@ -98,12 +98,11 @@ class Pypy38 < Formula
     # we want to avoid putting PyPy's Python.h somewhere that configure
     # scripts will find it.
     bin.install_symlink libexec/"bin/pypy3.8"
-    lib.install_symlink libexec/"lib/#{shared_library("libpypy3.8-c")}"
 
     # Delete two files shipped which we do not want to deliver
     # These files make patchelf fail
     if OS.linux?
-      rm_f libexec/"bin/libpypy3.8-c.so.debug"
+      rm_f libexec/"bin/libpypy3-c.so.debug"
       rm_f libexec/"bin/pypy3.8.debug"
     end
   end
