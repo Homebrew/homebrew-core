@@ -16,6 +16,8 @@ class Rawgl < Formula
     sha256 cellar: :any, high_sierra:    "fb7f71cbce3b517ba8946cea53611c7577a2f1b1618a5f27dd0b67f23e278a25"
   end
 
+  deprecate! date: "2022-03-09", because: :repo_archived
+
   depends_on "sdl2"
   depends_on "sdl2_mixer"
 
