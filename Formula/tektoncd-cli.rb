@@ -11,12 +11,12 @@ class TektoncdCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "61583d36799bdc288c999f420be9cf344399cc4563778b99b93b5fc4652350a2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86da0c9047c2463ce21b619e96ec4071b257f60daff108085efbf451bbd85069"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f4b8897725c6144db96b15408600cecd475c57dd401b7aaae6dea55c566e131"
-    sha256 cellar: :any_skip_relocation, big_sur:        "050b5214be5bf3bbf68a58db54557a64f699d94b2a06eee5520d75aca2f0abda"
-    sha256 cellar: :any_skip_relocation, catalina:       "ca2398b83fe6a8bebb65ed6f1d62a1e4e0d06b21cb97dcaca042def904039cfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ec9cce77182fe8a54476b0764b0c0e887be371fcb0d239c98cff8a0960bf3e6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5cc4d5c7938201359dc2e7501aa43d132911cb6864dd2a90241175fb3e659d12"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "36609488807222e95fb00bd8247f98bb807b1df260d845890108934c7e0383a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "b2f62bf93ddda53da90fd996dbe09304b9b97121bb1819ef17cb242f2b020050"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a54719f01daf78164dbfae920b78faa52745136e756d46d26d0f3d62641220aa"
+    sha256 cellar: :any_skip_relocation, catalina:       "1c61e6d0f08c45d25bdde8ef3ea2e774b6a5740be28d599424e67e42145c7c9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fd8077f4dfa67d56468383626b555406707a1bf756f97dcbb23ef16eea49b86"
   end
 
   depends_on "go" => :build
