@@ -19,6 +19,12 @@ class Sfst < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "d2fc1beee93f11a89ec9dd1762d6eacf393e6b21752d5d0806deeed5aab8f014"
   end
 
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     cd "src" do
       system "make"
@@ -38,6 +44,10 @@ class Sfst < Formula
       stdin.write("Hello")
       stdin.close
       expected_output = "Hello\n"
+
+      # On Linux, the prompts are also captured in the output
+      expected_output = "analyze> Hello\n" + expected_output + "analyze> " if OS.linux?
+
       actual_output = stdout.read
       assert_equal expected_output, actual_output
     end
