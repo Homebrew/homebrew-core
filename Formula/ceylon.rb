@@ -14,8 +14,7 @@ class Ceylon < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1f342bf2e58a868fc50db9e9a241135c690afa264d853c46c148af971a3c4ec1"
+    sha256 cellar: :any_skip_relocation, all: "c9e8be2d72811dcc4310d1633801fa34e38a7e2bbc779e945ce732ff03172dc2"
   end
 
   depends_on "openjdk@8"
