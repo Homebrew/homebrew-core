@@ -7,12 +7,12 @@ class Starship < Formula
   head "https://github.com/starship/starship.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e7d52e926fdce2359549cd18a4b73958f7af6519192872884647da73a9206a3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1faf77205e00e029a79f0f4b91fd9ec20692e6369115f45612d1cb55eff1528"
-    sha256 cellar: :any_skip_relocation, monterey:       "e963afddc1937606c618baef8cdfa87c805202f838ee7c5580e80a69305e3836"
-    sha256 cellar: :any_skip_relocation, big_sur:        "63f081b4ec673db4525a80b8ce483abf5882aaa271b92952ee6a4b6ee23cf9be"
-    sha256 cellar: :any_skip_relocation, catalina:       "fe5841b1f33e298a03ebfd99e3ee021ddfa1bd66d6bf0ec2278c6992784ac8c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "001bddfeab4415c1c36b81926d983c38581d855e3bccd8a9bce0707101bdf6e2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "91283d72f765b1feb142aba3b7d3bc56fa23efa9b32173e89505be7cbd004d99"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f151aa4da5ce2b4118071d7cc123b4f8be7df6adf78ecef46fd427b7a1fda868"
+    sha256 cellar: :any_skip_relocation, monterey:       "74075d857c94fb65041dd9fba7343c6aaee04433369c40ca303ef8427db33bb7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "af14063369dafdfbfd90964cd2627c8cba5e99a9f9d3befc0dbfc4826c069666"
+    sha256 cellar: :any_skip_relocation, catalina:       "5a32ab0df6a8032172f63cee2febcbceb8a2909d3c5f74141060aa77de37bef3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8946c9686beff3fa931fe631ef0d87847ed0a80d95cd0275c6c3cbf2d01fc32c"
   end
 
   depends_on "rust" => :build
