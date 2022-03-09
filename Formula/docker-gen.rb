@@ -6,12 +6,12 @@ class DockerGen < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "408fb3592fb71371481318218eb6f8fb64f05924f513e301d897bbec1e1aec13"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6fadfd741b5e5b06e760af0c3f9b711fecd0ec53610ea639e667377da4a2f1ad"
-    sha256 cellar: :any_skip_relocation, monterey:       "318aa607e0417f547ee760c47fb349327aab3a3a58cfffc6548e83f78096ec0d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fa5e3021c6c7edb85cbff0ff22037233fcbb7d7fc65f8f5af503e98c361fb897"
-    sha256 cellar: :any_skip_relocation, catalina:       "e1977bae64bda60dab0c44bebabb18049291a7b12188e194585e0c5b077262ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce485d524315f8564b5d86d5523b6835e105660f78debf9c3414d13131423eab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e88c7e2a6b51893a39c2e0d952746d1c9f7870063839c5cacbbbaf771e304a42"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8aefc8f208ed87db3c948f57eebdf5e11aedd67f86c8dd54fbc3f64149c9182"
+    sha256 cellar: :any_skip_relocation, monterey:       "ba57d8f480799a37d6a0445e8fe1a3976dbbe6d1772b437f5ff775be601673c5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d63f28cca9ef8820cfd6c6111e0bf5c28f7343e33bb2049cd9a4fbaf75addf97"
+    sha256 cellar: :any_skip_relocation, catalina:       "342c503ffb4ee5e8a2722148ea3ac48555f84cae55cd4da9e1c73acd01ffd568"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bbb25452a6a7451c198ee3d3fb37a265e4135adda85e87b23e0754ad351b757a"
   end
 
   depends_on "go" => :build
