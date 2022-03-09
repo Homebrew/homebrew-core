@@ -12,8 +12,7 @@ class AmdatuBootstrap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7efb4581ff91f9931f43d21974df335b66497e8d05488f91cdb9868a4c6ea0ac"
+    sha256 cellar: :any_skip_relocation, all: "f59cda35ffdacba6fb9c7f4d29fe641164995b42cf6f3bfeb169882c501559cc"
   end
 
   depends_on "openjdk@8"
