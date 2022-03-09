@@ -6,7 +6,7 @@ class Serverless < Formula
   url "https://github.com/serverless/serverless/archive/v3.7.2.tar.gz"
   sha256 "2e94dc71e3b6970338be4012d2fa86b541b9a4ce535766a935390f96f5307a27"
   license "MIT"
-  head "https://github.com/serverless/serverless.git", branch: "master"
+  head "https://github.com/serverless/serverless.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7e335d5e191c86ba748eb2c8658d4b4fb850cd05add000d5ae051214fd5d5784"
