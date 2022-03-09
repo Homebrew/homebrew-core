@@ -4,7 +4,6 @@ class Dvm < Formula
   url "https://github.com/howtowhale/dvm/archive/1.0.3.tar.gz"
   sha256 "148c2c48a17435ebcfff17476528522ec39c3f7a5be5866e723c245e0eb21098"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "b2406a596b3b067573a98903ccfba88e202cf6967f539b84f1f553ab4bbdc5c3"
