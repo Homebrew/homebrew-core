@@ -252,7 +252,7 @@ jobs:
           rm bottles/bottle_output.txt
 
       - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
-        if: ${{always() && fromJson(needs.setup_tests.outputs.test-dependents)}}
+        if: ${{(success() || failure()) && fromJson(needs.setup_tests.outputs.test-dependents)}}
         run: |
           cd bottles
           brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
