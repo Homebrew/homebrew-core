@@ -25,20 +25,28 @@ class Aubio < Formula
   depends_on "numpy"
   depends_on "python@3.9"
 
+  resource "aiff" do
+    url "http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Samples/CCRMA/wood24.aiff"
+    sha256 "a87279e3a101162f6ab0d4f70df78594d613e16b80e6257cf19c5fc957a375f9"
+  end
+
   def install
     # Needed due to issue with recent clang (-fno-fused-madd))
     ENV.refurbish_args
 
-    system Formula["python@3.9"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}"
-    system Formula["python@3.9"].opt_bin/"python3", "./waf", "build"
-    system Formula["python@3.9"].opt_bin/"python3", "./waf", "install"
+    # Ensure `python` references use our python3
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf", "build"
+    system "python3", "./waf", "install"
+
+    system "python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
-    system "#{bin}/aubiocut", "--verbose", "/System/Library/Sounds/Glass.aiff"
-    system "#{bin}/aubioonset", "--verbose", "/System/Library/Sounds/Glass.aiff"
+    testpath.install resource("aiff")
+    system bin/"aubiocut", "--verbose", "wood24.aiff"
+    system bin/"aubioonset", "--verbose", "wood24.aiff"
   end
 end
