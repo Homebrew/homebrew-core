@@ -17,6 +17,7 @@ class Sfst < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "303e686c5216a73e74ef954e01dbce83b878531ad18df80cb7a29c0c03cd9138"
     sha256 cellar: :any_skip_relocation, catalina:       "d8c1b35f23af28cfab56a28664109b18e8b0f551f2f680ecfe2fee94cce6224c"
     sha256 cellar: :any_skip_relocation, mojave:         "d2fc1beee93f11a89ec9dd1762d6eacf393e6b21752d5d0806deeed5aab8f014"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af25d44ef848916d9a64bebf152b07cae7d697c1b5b8b1c2368ffa115d9e53ac"
   end
 
   uses_from_macos "flex" => :build
