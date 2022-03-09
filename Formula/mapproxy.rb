@@ -7,6 +7,15 @@ class Mapproxy < Formula
   sha256 "dd36278d60cdcaaf31f7f9bbc50e90e770f3feb65cf4b3eff287215ee85f018d"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "7c850b8bdf3952ca8e168227669526b563b5c08c95fdb55f230755a696dc653c"
+    sha256 cellar: :any,                 arm64_big_sur:  "54cb52477abef05e85d57a5cb128666dc33351c73da03cc781bb4a2756efba52"
+    sha256 cellar: :any,                 monterey:       "cb4a870be4c1fe07cc42f60c206070d36ebe74c1ee3666a477bc1cc31169b4de"
+    sha256 cellar: :any,                 big_sur:        "974d5bbfc286e0b64d11af5184d5eee2999c63a08560afdbdb9f545afb3b0b45"
+    sha256 cellar: :any,                 catalina:       "4ff88a2511ddb76dfda9a2ace63ddaceff0e0de0aa480ce5ae5ca53f5e5238d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2460e238630303105824e634f1e2f16b986025a4b7305be40ad51c5313db6766"
+  end
+
   depends_on "pillow"
   depends_on "proj"
   depends_on "python@3.9"
