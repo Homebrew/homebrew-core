@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.83.0",
-      revision: "ba762dc0853591797cd71ebfdfab337c157e14b2"
+      tag:      "v0.84.0",
+      revision: "8b5e88649225a121e46d24fddb90c55af779a790"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -77,6 +77,11 @@ class Semgrep < Formula
     sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
+  resource "defusedxml" do
+    url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
+    sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
     sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
@@ -93,8 +98,8 @@ class Semgrep < Formula
   end
 
   resource "peewee" do
-    url "https://files.pythonhosted.org/packages/84/37/001fa02f7dd2f7ff716820db307e3df4060fd184b0e235d37397a05020e2/peewee-3.14.9.tar.gz"
-    sha256 "69c1b88dc89b184231cc1ce6df241075aca5cec43e89749cc4a63108f9ceea47"
+    url "https://files.pythonhosted.org/packages/ca/2a/a3a01c86080c77369a5288554e619a0dc4efdacd9fabae2d2fdbbe393f82/peewee-3.14.10.tar.gz"
+    sha256 "23271422b332c82d30c92597dee905ee831b56c6d99c33e05901e6891c75fe15"
   end
 
   resource "pyparsing" do
@@ -128,8 +133,8 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
-    sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
+    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
+    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
   end
 
   resource "urllib3" do
