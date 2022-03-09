@@ -3,6 +3,7 @@ class TemplateGlib < Formula
   homepage "https://gitlab.gnome.org/GNOME/template-glib"
   url "https://download.gnome.org/sources/template-glib/3.34/template-glib-3.34.0.tar.xz"
   sha256 "216bef6ac3607666b8ca72b936467f7020ce6421c02755c301d079576c9c3dfd"
+  license "LGPL-2.1-or-later"
   revision 2
 
   bottle do
