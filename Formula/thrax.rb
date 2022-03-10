@@ -13,12 +13,12 @@ class Thrax < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4a2ff8207ecf653a483c97f6968e7cd63e4f37515fc7ff40f3aebbae06179b95"
-    sha256 cellar: :any,                 arm64_big_sur:  "f0e606af59de88f830aaf01bba3939b34c67fbe5afa745ce8c0f276ebb8fce7d"
-    sha256 cellar: :any,                 monterey:       "078fb8f91d67fc1444f1ce6c75297c381a62fa8caee4696ed216c4db2c088e0a"
-    sha256 cellar: :any,                 big_sur:        "b6fb5ed301f1cc233b82efcc07f16c075cb08daafda6c0d7185be7c8db9ff885"
-    sha256 cellar: :any,                 catalina:       "5fd16a93c02fee43cb9b1b2e0130e0d56fbbe531dff7dd375c73660cfd372e06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d0e00d373787505de5368a5004a5dd99e71c033628acb12d8872a9ba97a0eae"
+    sha256 cellar: :any,                 arm64_monterey: "c13867026b97d86192e436f4da236b7dce271a44b21c1b0388cd4aec700adc99"
+    sha256 cellar: :any,                 arm64_big_sur:  "fb098c0a6832a09efacef7252d8f472dddfc280c540b8190de18b1ae45b30fe6"
+    sha256 cellar: :any,                 monterey:       "653c405ae61061f57f17457657da161ded1ddc39056712dbb7d7dd9643509824"
+    sha256 cellar: :any,                 big_sur:        "4a09f5dcaccb60db82d0e034a8ab66b32e01756aa99f72c08531e0d5d3a98154"
+    sha256 cellar: :any,                 catalina:       "722203944df85f4144814246f34a3eeaabdfe110b4fa80584ca28b76e4334596"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17300c144318201c1ebeafe8cf01bf50ce47ded3a71b98096ae5a94ab98e585e"
   end
 
   # Regenerate `configure` to avoid `-flat_namespace` bug.
