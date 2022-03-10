@@ -13,10 +13,12 @@ class Trino < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "f50a3b205d48e88e3aa32689556d8e99b86c7dc18780ccca2aeca95696581baf"
-    sha256 cellar: :any_skip_relocation, big_sur:      "f50a3b205d48e88e3aa32689556d8e99b86c7dc18780ccca2aeca95696581baf"
-    sha256 cellar: :any_skip_relocation, catalina:     "f50a3b205d48e88e3aa32689556d8e99b86c7dc18780ccca2aeca95696581baf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b77abb5c5d25b39390dc1b4ae7ab0a5d0b4e77c54c2a9e29d8e4c99dee84bae3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7486dd7daa173ab967369426f5da4b08db8c60011a90b3c8cd483c44718687da"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7486dd7daa173ab967369426f5da4b08db8c60011a90b3c8cd483c44718687da"
+    sha256 cellar: :any_skip_relocation, monterey:       "7486dd7daa173ab967369426f5da4b08db8c60011a90b3c8cd483c44718687da"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7486dd7daa173ab967369426f5da4b08db8c60011a90b3c8cd483c44718687da"
+    sha256 cellar: :any_skip_relocation, catalina:       "7486dd7daa173ab967369426f5da4b08db8c60011a90b3c8cd483c44718687da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af6b45b7032ad147782851d21a51552553e2a06e45dcbc4578e588758c18db9e"
   end
 
   depends_on "gnu-tar" => :build
