@@ -16,13 +16,13 @@ class Getdns < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "10850358ef91882e727c103bfabbd4fa6c096ddbb02f6708f1cc91fc46ae16d2"
-    sha256 cellar: :any,                 arm64_big_sur:  "6418fbe20eac5674ac1492eccba8941c57ab6111fca7a174144a0f7732c037c1"
-    sha256 cellar: :any,                 monterey:       "9a8a08d251a2a8284b4535d6afef601b8a91162b0005eff783d62b726579160f"
-    sha256 cellar: :any,                 big_sur:        "d98dc03e72b3e2e6814f47c8d947ff7667d65b79cf4b11f3b1913d2e17f51e84"
-    sha256 cellar: :any,                 catalina:       "3481bfeb92cb2b50ad019c3cc816fe73c3f26dec20e80b4b52536e83c8ff9752"
-    sha256 cellar: :any,                 mojave:         "fabcba2c64119aa84e892266a93260d6c8a6d650e754568b6f5767c9223de001"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f445d5e97136b0171dac28b641e30d24461300978697259ae9272313695765c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "4d4343827478b52bd29d0a50f47b33dd0a593f6e7f1db26e1876f322cc2cc390"
+    sha256 cellar: :any,                 arm64_big_sur:  "a2f14b090e9f994e1a48960768a8aae3d67875c3c26c7dd2761d388f7198a685"
+    sha256 cellar: :any,                 monterey:       "5a1f9b22cd35ccb2beb53ab3cf9b2f7ef76b90e9a32f4e01ed944afaec1effa5"
+    sha256 cellar: :any,                 big_sur:        "cb3cc2fad2e4085344a33cf75ae1eea852c5973df22600a1857b70263547430b"
+    sha256 cellar: :any,                 catalina:       "a36147e16474bf12da43a8f0547bb91c7434bc0b18fd1bf685ad59016677a115"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a6f03909403cdc420e55a6af1dbba7bac9c0f554d5e1318f80aa11181b5ac8b"
   end
 
   depends_on "cmake" => :build
