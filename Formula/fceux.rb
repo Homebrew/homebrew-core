@@ -19,7 +19,7 @@ class Fceux < Formula
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "minizip"
-  depends_on "qt@5"
+  depends_on "qt"
   depends_on "sdl2"
   depends_on "x264"
 
@@ -30,7 +30,7 @@ class Fceux < Formula
 
   def install
     ENV["CXXFLAGS"] = "-DPUBLIC_RELEASE=1" if build.stable?
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DQT6=ON"
     system "make"
     cp "src/auxlib.lua", "output/luaScripts"
     libexec.install "src/fceux.app/Contents/MacOS/fceux"
