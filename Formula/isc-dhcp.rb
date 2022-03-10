@@ -11,13 +11,12 @@ class IscDhcp < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "5b868b5798b152e7ca4a3fdb15b2fca7cd61586a90dcb42ebe06f76680226f01"
-    sha256 arm64_big_sur:  "e994c20125e327516a98e9e7ea2f335dea02475c5b0307fb5b0a4ba172db0de6"
-    sha256 monterey:       "f813fe99dc4467fa9200db8970b99d344d5baaa8eb3bde40050f76acfdb258bc"
-    sha256 big_sur:        "5a7fa9501471abcbcfa6b16fdea099147b7c4540d3e75a91deba3c4385d4a897"
-    sha256 catalina:       "e2e473a84b9aa792d7f69be63c53cd32977fd9382346c4065edc60fafecef2cc"
-    sha256 mojave:         "1f4db32d6c086309ec633241b3106bfcf3cb13902eb529318b7f7b881258024a"
-    sha256 x86_64_linux:   "71ee54c56a1e20e9a7c3b745fd5abb2987dfe09ab5ef6f8759dd8ab7ade01df2"
+    sha256 arm64_monterey: "f8cadbaf43f606d695fe9b54df4d2ce16fc733f277b79184b9dfb425dc36fe22"
+    sha256 arm64_big_sur:  "fa545e13acdf113c1263f81982a7738e715df886792a6cb73780e2dad1478ea5"
+    sha256 monterey:       "8e8f544a2b0b2563b5e73f09ef0e158f4c05bc658ade948d2523a724069dc5f7"
+    sha256 big_sur:        "575a4286d3809339244093635bd660becb24701b3898d981f76f7c031450f54c"
+    sha256 catalina:       "7d503b4a52efa04cb73015ccb8bef335b8732b14a9ecf8590add0e53ed7e87ea"
+    sha256 x86_64_linux:   "b8aaea5afad5dbec95253adbb1b62ab74bbf9c6ca9357d7df14bcfcd97250357"
   end
 
   def install
