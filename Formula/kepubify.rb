@@ -7,12 +7,12 @@ class Kepubify < Formula
   head "https://github.com/pgaskin/kepubify.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c0ce08493ac1eeeeb0d6de786704c60f19865f46a2a83be25740d53fd9eda10"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1ffb2ca43618648f24f67a86545477330ef93ab1630cfb0869339cbc75fa420b"
-    sha256 cellar: :any_skip_relocation, monterey:       "583fb07c1136c2a70c752672be635ea0f0a175ebc1f25a1664e543bae0719d39"
-    sha256 cellar: :any_skip_relocation, big_sur:        "67afc66b3a4036cd114109971d797c52cb1f9c10b997b400968e287bd0f16e3b"
-    sha256 cellar: :any_skip_relocation, catalina:       "f81cff74730aa1b35205f8c9d3fc7dfb6c8675a09bcd5b10fde9314de324a885"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8e1c3ecf95832330a8275b62d09d81810973cff9a3d54ebb549aaf48a5782ec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6eed09543886f705e754733ad743a2a7a94616f62682dba4649698a93ccebb5e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79ae709163355512ca9e1c03be16705b14c9c6807ec0901669a02550eaccbfdf"
+    sha256 cellar: :any_skip_relocation, monterey:       "a1bdda9176651328920e0f2cbd324c1c25454a44c9eefeb1334a53d74bca9761"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ecbcea2b9d17e15d4fc6f97e794bb9b6b423e4c3934e9fb2c0ecd24984d8dee2"
+    sha256 cellar: :any_skip_relocation, catalina:       "55a0859a1695c34fc8edb2462211d7861042f059bee5bcfe359df3b3d65732fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86ad03277ca649f1f36c37ec388de04b120dc2dd865ffc1d0cf80ad1a83314c7"
   end
 
   depends_on "go" => :build
