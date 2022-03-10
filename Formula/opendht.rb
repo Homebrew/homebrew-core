@@ -24,7 +24,11 @@ class Opendht < Formula
   depends_on "readline"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DOPENDHT_C=ON", "-DOPENDHT_TOOLS=ON", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DOPENDHT_C=ON",
+                    "-DOPENDHT_TOOLS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
