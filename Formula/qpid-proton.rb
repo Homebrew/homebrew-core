@@ -16,18 +16,20 @@ class QpidProton < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
   depends_on "libuv"
   depends_on "openssl@1.1"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-DBUILD_BINDINGS=",
-                         "-DLIB_INSTALL_DIR=#{lib}",
-                         "-DBUILD_TESTING=OFF",
-                         "-Dproactor=libuv",
-                         *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_BINDINGS=",
+                    "-DLIB_INSTALL_DIR=#{lib}",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-Dproactor=libuv",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
