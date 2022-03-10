@@ -1,8 +1,8 @@
 class Jless < Formula
   desc "Command-line pager for JSON data"
   homepage "https://jless.io/"
-  url "https://github.com/PaulJuliusMartinez/jless/archive/refs/tags/v0.7.2.tar.gz"
-  sha256 "5d776cb6488743ccdaeeffb4bfc54d84862028170cee852a8bb5c156526ed263"
+  url "https://github.com/PaulJuliusMartinez/jless/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "3f1168c9b2432f7f4fa9dd3c31b55e371ef9d6f822dc98a8cdce5318a112bf2d"
   license "MIT"
 
   bottle do
@@ -15,6 +15,10 @@ class Jless < Formula
   end
 
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "libxcb"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
