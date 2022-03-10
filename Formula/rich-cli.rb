@@ -7,6 +7,15 @@ class RichCli < Formula
   sha256 "53c8087e432b0c9ecda83fac6c0173b0cb9995e2cfced8c3c17ce646b86a17a3"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17959a9b46bf2bfce223145a24cf15edf28005535224e147f4b3df112481db4f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c05577358a7b38f5b349d66a46275c753163619ab641fbe0b80a8a07e2773938"
+    sha256 cellar: :any_skip_relocation, monterey:       "ba6524cb997383dcd562a2ee60b9f6d2edad411809547ec5470ea5cfe75fa5cc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "61fcc74dba1e4652579728928f9c6f24abbe747c4165f0d12034d8dd6ed28f58"
+    sha256 cellar: :any_skip_relocation, catalina:       "406c6780c155aecb2d99fac80431c43a6e4789ae297e4215299bec00c46e75d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05c185131a0ff6f30265def1a4d30238833f227ac852c93e1c417388d2354031"
+  end
+
   depends_on "python@3.10"
 
   resource "certifi" do
