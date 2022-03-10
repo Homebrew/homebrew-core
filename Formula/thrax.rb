@@ -21,6 +21,12 @@ class Thrax < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d0e00d373787505de5368a5004a5dd99e71c033628acb12d8872a9ba97a0eae"
   end
 
+  # Regenerate `configure` to avoid `-flat_namespace` bug.
+  # None of our usual patches apply.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   depends_on "openfst"
 
   on_linux do
@@ -30,11 +36,8 @@ class Thrax < Formula
 
   fails_with gcc: "5"
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  # patch ref, https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff
-  patch :DATA
-
   def install
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
     rewrite_shebang detected_python_shebang, bin/"thraxmakedep" if OS.linux?
@@ -50,28 +53,3 @@ class Thrax < Formula
     end
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index a8c98ca..beb9f38 100755
---- a/configure
-+++ b/configure
-@@ -9073,15 +9073,10 @@ printf "%s\n" "$lt_cv_ld_force_load" >&6; }
-     darwin1.*)
-       _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
-     darwin*) # darwin 5.x on
--      # if running on 10.5 or later, the deployment target defaults
--      # to the OS version, if on x86, and 10.4, the deployment
--      # target defaults to 10.4. Don't you love it?
--      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
--	10.0,*86*-darwin8*|10.0,*-darwin[91]*)
--	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
--	10.[012][,.]*)
-+      case ${MACOSX_DEPLOYMENT_TARGET},$host in
-+	10.[012],*|,*powerpc*)
- 	  _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--	10.*|11.*)
-+	*)
- 	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
-       esac
-     ;;
