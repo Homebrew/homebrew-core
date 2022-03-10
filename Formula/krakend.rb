@@ -29,7 +29,7 @@ class Krakend < Formula
   test do
     (testpath/"krakend_unsupported_version.json").write <<~EOS
       {
-        "version": 1,
+        "version": 2,
         "extra_config": {
           "github_com/devopsfaith/krakend-gologging": {
             "level": "WARNING",
@@ -45,7 +45,7 @@ class Krakend < Formula
 
     (testpath/"krakend_bad_file.json").write <<~EOS
       {
-        "version": 2,
+        "version": 3,
         "bad": file
       }
     EOS
@@ -54,9 +54,9 @@ class Krakend < Formula
 
     (testpath/"krakend.json").write <<~EOS
       {
-        "version": 2,
+        "version": 3,
         "extra_config": {
-          "github_com/devopsfaith/krakend-gologging": {
+          "telemetry/logging": {
             "level": "WARNING",
             "prefix": "[KRAKEND]",
             "syslog": false,
@@ -66,41 +66,19 @@ class Krakend < Formula
         "endpoints": [
           {
             "endpoint": "/test",
-            "method": "GET",
-            "concurrent_calls": 1,
-            "extra_config": {
-              "github_com/devopsfaith/krakend-httpsecure": {
-                "disable": true,
-                "allowed_hosts": [],
-                "ssl_proxy_headers": {}
-              },
-              "github.com/devopsfaith/krakend-ratelimit/juju/router": {
-                "maxRate": 0,
-                "clientMaxRate": 0
-              }
-            },
             "backend": [
               {
                 "url_pattern": "/backend",
-                "extra_config": {
-                  "github.com/devopsfaith/krakend-oauth2-clientcredentials": {
-                    "is_disabled": true,
-                    "endpoint_params": {}
-                  }
-                },
-                "encoding": "json",
-                "sd": "dns",
                 "host": [
-                  "host1"
-                ],
-                "disable_host_sanitize": true
+                  "http://some-host"
+                ]
               }
             ]
           }
         ]
       }
     EOS
-    assert_match "OK",
+    assert_match "Syntax OK",
       shell_output("#{bin}/krakend check -c krakend.json 2>&1")
   end
 end
