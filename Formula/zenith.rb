@@ -13,12 +13,12 @@ class Zenith < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "62b6df64b918cefee14c046a30349c0e37122082f997b8b00e71ef668b7ecae5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d883fde3bda035e36d3107923e96362cb5e538753ad4366ac8fa04137143cb2"
-    sha256 cellar: :any_skip_relocation, monterey:       "2d7426f1b9de73de45d303c550d1e995c17cd2323ea3336ef2a6540e5aa06b8b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "eeb7ca6be51f678aaad01f4025ad62faf0068f48a6b8ef1eb908cb37676861e8"
-    sha256 cellar: :any_skip_relocation, catalina:       "929ff75d609fec1abe20a6fe0e1833949b0d1157821be5778c91b809a20d3193"
-    sha256 cellar: :any_skip_relocation, mojave:         "8e587b9ae59e970e0b3ee7a7e8f6076cdde1c002e81d61a2e373ca7bd8942443"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7dfcb6b50f3cd3a485ca6689a230557ebfa5711d82f8539879aeb6d114296b83"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a03f7329f0cdcd313fedbbd7173f7396fb2aa87d7ca9e762dd3d0b9382e5355d"
+    sha256 cellar: :any_skip_relocation, monterey:       "986b3c40d3829157ab79738cfef20d9abbfd1f80dcd7fe7e36e63f59bf619a58"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4e9c45bac27dbdf7b06d1e9c030f120a479e30373a9351345836f4a021f2cfb2"
+    sha256 cellar: :any_skip_relocation, catalina:       "8e53e8178188527bc7b459cab81127cad52824928b107556afcdd87b619ea138"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "285aedefd862799bf77496261d817cc410070e6112f236da1ec074934c2262d6"
   end
 
   depends_on "rust" => :build
