@@ -4,6 +4,7 @@ class Lima < Formula
   url "https://github.com/lima-vm/lima/archive/v0.8.3.tar.gz"
   sha256 "8c23daa9ff3835bc47b187c47202ff95efd6a767f58789c11b2674b4ae0da403"
   license "Apache-2.0"
+  head "https://github.com/lima-vm/lima.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c07481474fbe5f640f565aa481d2ab04005483fb052e64abfea268413f00164"
