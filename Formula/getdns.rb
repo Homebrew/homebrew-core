@@ -34,11 +34,12 @@ class Getdns < Formula
   depends_on "unbound"
 
   def install
-    system "cmake", ".", *std_cmake_args,
-                         "-DBUILD_TESTING=OFF",
-                         "-DPATH_TRUST_ANCHOR_FILE=#{etc}/getdns-root.key"
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DPATH_TRUST_ANCHOR_FILE=#{etc}/getdns-root.key",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
