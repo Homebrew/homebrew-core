@@ -12,12 +12,12 @@ class Castxml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d76eb4f4e3cce08d062334f2c99f1cba63a3f831857ad00899ac7f5d82ccb2d7"
-    sha256 cellar: :any,                 arm64_big_sur:  "90aa62c5229d1084a1f197090b3c44b9cd85abddaf1695e2fecce2a2720b3f12"
-    sha256 cellar: :any,                 monterey:       "d8f8b6e5b027ae5707cdd74aba6f194babf02413b2251dbbab747426fd21ccac"
-    sha256 cellar: :any,                 big_sur:        "edd91bafec4e441ccbbcacd735d204873db448e36a2c45e84342c7e8f33a21d1"
-    sha256 cellar: :any,                 catalina:       "f44f3a928ad632cc5dd323d1122b597fd93562f83ebad2fbe4663764ad449726"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3fad7d88989008f812bc20583e05db10f9489e8fd9315afc03a22c9f0f9f0fc"
+    sha256 cellar: :any,                 arm64_monterey: "a1b3a58769ebb3cdf0e42fd9ea907b34155e1bff987988936e810baa7cec08cc"
+    sha256 cellar: :any,                 arm64_big_sur:  "1b2d81fc9a9dd3830f323d70ed4f965a756394cae2d85d717802e577bfccc007"
+    sha256 cellar: :any,                 monterey:       "c79f9f01ef4de2a7ca9b982f9934d92eab64447c2ff4f6b0a51c203b6c3b8856"
+    sha256 cellar: :any,                 big_sur:        "26d6c7f54cfa7c772aee126440a5b39c9ea7849d1a835f964a190bdc1832b17c"
+    sha256 cellar: :any,                 catalina:       "a39f4d192bc2aa37dd111375d5d1771cc1ef3606333c51214f52746fc02549a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64a4eba1043aaca30763bbbe880491391b6b3260710f636521e30e4a58ea1a92"
   end
 
   depends_on "cmake" => :build
