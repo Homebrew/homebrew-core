@@ -1,8 +1,8 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
-  url "https://github.com/GitTools/GitVersion/archive/5.8.3.tar.gz"
-  sha256 "7949e1b4ad10b2da48cfba9f4dc96f0902a192a2729c2d6ec606e2b63a7e5f96"
+  url "https://github.com/GitTools/GitVersion/archive/5.9.0.tar.gz"
+  sha256 "ff67f91ed4ea5a208b9be37f9b52d76e20d3b8f63f5f6c407bf51a8c4f652446"
   license "MIT"
 
   bottle do
