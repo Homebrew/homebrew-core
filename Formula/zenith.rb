@@ -23,6 +23,8 @@ class Zenith < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "llvm" => :build
+
   def install
     system "cargo", "install", *std_cargo_args
   end
@@ -32,11 +34,14 @@ class Zenith < Formula
     require "io/console"
 
     (testpath/"zenith").mkdir
-    r, w, pid = PTY.spawn "#{bin}/zenith --db zenith"
+    cmd = "#{bin}/zenith --db zenith"
+    cmd += " | tee #{testpath}/out.log" unless OS.mac? # output not showing on PTY IO
+    r, w, pid = PTY.spawn cmd
     r.winsize = [80, 43]
     sleep 1
     w.write "q"
-    assert_match(/PID\s+USER\s+P\s+N\s+↓CPU%\s+MEM%/, r.read)
+    output = OS.mac? ? r.read : (testpath/"out.log").read
+    assert_match(/PID\s+USER\s+P\s+N\s+↓CPU%\s+MEM%/, output.gsub(/\e\[[;\d]*m/, ""))
   ensure
     Process.kill("TERM", pid)
   end
