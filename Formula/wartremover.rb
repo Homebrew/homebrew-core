@@ -8,7 +8,7 @@ class Wartremover < Formula
   head "https://github.com/wartremover/wartremover.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "582ff0ed5e2627e8dcfd360af6bd48958a67b9c495da68166ee28f01dae5f95b"
+    sha256 cellar: :any_skip_relocation, all: "da26653b22a38d54efa81e9e1d31befe857a932827ae5449611a7d9fc893314f"
   end
 
   depends_on "sbt" => :build
