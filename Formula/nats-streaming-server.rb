@@ -7,12 +7,12 @@ class NatsStreamingServer < Formula
   head "https://github.com/nats-io/nats-streaming-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1b35c722c8976e92b4eaf9ef9dbc2a158d073fdc0092b0d071fcbe1b233bab2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "99dec3ce3bfc946cf73686971ace44f8a893f340809c3ed311e6144108b5a320"
-    sha256 cellar: :any_skip_relocation, monterey:       "1435ba292fb77b3e9b0fff755dbe3d822831af9efce42f64845a4f24ffefd2f4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e7134bc9ed278cc73c664a4a350e8beac7755d5b212a4273ff06ce69a923bee9"
-    sha256 cellar: :any_skip_relocation, catalina:       "db44e6635bf0ca57ffda7fcda6d84ffbf5b12df4134a3a8ca0bb3fd7ffdcb325"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60b1022dac06d92b1aae432f7ff2773ca45817ae6eb485ee8589c57d0b8cae22"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fe4d9861829d5741b086169d2e14b1aa0346e285903a138835ff1f7a8b763ddf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a952f90dc4c3085629ed0ce8f59b9be3e230670d5e7694adc15361691ab65c7"
+    sha256 cellar: :any_skip_relocation, monterey:       "5ff7342712f7501014a0ef41e49f664ccae69a6e90a5469920892a060e921f47"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ceb2432c032aa6030b647d37fe59fe95b9348a669ff59b9a18c45b825ec73a43"
+    sha256 cellar: :any_skip_relocation, catalina:       "ef257bf5a7fd1fdacbdf4d56b9ff1393e3b344e9a5b3bbff7cb8c6c311252ec6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5edb609f2d3d5fe1c695489623480b65fa5fed2e8077039da851cde5b7470e11"
   end
 
   depends_on "go" => :build
