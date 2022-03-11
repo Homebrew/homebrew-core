@@ -3,15 +3,16 @@ class Lensfun < Formula
 
   desc "Remove defects from digital images"
   homepage "https://lensfun.github.io/"
-  url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
-  sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
+  url "https://github.com/lensfun/lensfun/archive/refs/tags/v0.3.3.tar.gz"
+  sha256 "57ba5a0377f24948972339e18be946af12eda22b7c707eb0ddd26586370f6765"
   license all_of: [
     "LGPL-3.0-only",
     "GPL-3.0-only",
     "CC-BY-3.0",
     :public_domain,
   ]
-  revision 4
+  version_scheme 1
+  head "https://github.com/lensfun/lensfun.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "530ebafb7cb54daaa3095f543ba8f05e331fd8a36265fbb2cfbe482e5822a223"
@@ -30,13 +31,9 @@ class Lensfun < Formula
   depends_on "libpng"
   depends_on "python@3.9"
 
-  # This patch can be removed when new Lensfun release (v0.3.96) is available.
-  patch do
-    url "https://github.com/lensfun/lensfun/commit/de954c952929316ea2ad0f6f1e336d9d8164ace0.patch?full_index=1"
-    sha256 "67f0d2f33160bb1ab2b4d1e0465ad5967dbd8f8e3ba1d231b5534ec641014e3b"
-  end
-
   def install
+    # setuptools>=60 prefers its own bundled distutils, which breaks the installation
+    ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
     system "cmake", ".", *std_cmake_args
     system "make", "install"
 
