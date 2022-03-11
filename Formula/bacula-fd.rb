@@ -5,13 +5,12 @@ class BaculaFd < Formula
   sha256 "0195a08bcd4f578ae4a9ce0d91f7f86731c634d56b810534722d721b2a9eecb7"
 
   bottle do
-    sha256                               arm64_monterey: "6a3d9d37ab790ea4ad9d785de89bbb98b3379664f105591d2766a72e43bbd688"
-    sha256                               arm64_big_sur:  "90c424f536aadb83c4532a7b32c2e1e63d3fb1bafc561b9746cfbc27cda3a39e"
-    sha256                               monterey:       "77e649a941a05b044cbba85fbd63fdf5eead80c70bc03638a1fc5b5e6fcd93d3"
-    sha256                               big_sur:        "0912e3a6669920a1935bb6d2fc9eebd610277ce3b2917db4558ca18fb14109bd"
-    sha256                               catalina:       "9d66cc373192f4c50a9a4c22a0cd162c7ce57604d7e89c95197a13e64a7b2973"
-    sha256                               mojave:         "6e21aa8aa033bf0393ce813ebd77890f3ad1b9e68ca58990d6177b219ddd6d71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49bdfa04ce4520b84cd06dcc07a45720712866d2a76c0a93bf0905712f45edf4"
+    sha256                               arm64_monterey: "9e4bd50607f95bd6d674e8c735dba12e2ad0764496845c89823461d8116b5c65"
+    sha256                               arm64_big_sur:  "f063999629535e0fd70ebd57b58f6b79e4119741b734d072ce509b1943d2bbe1"
+    sha256                               monterey:       "46b2043db486c8e8821b342e7892305634f3be0c320cd78e0240fd98cd4c5060"
+    sha256                               big_sur:        "513208f4394d97cf93cb235f7cf53528ff326f687ae749cb83836b7a8844a888"
+    sha256                               catalina:       "2c24e7d729ebea46a6a706b20add5274914ef21d43051613c391eec791768ee6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85685ff002be62bdc15d1a10975086a8abc4b587abe199d0078c605d71501a58"
   end
 
   depends_on "openssl@1.1"
