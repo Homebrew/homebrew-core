@@ -37,8 +37,11 @@ class HaskellStack < Formula
   uses_from_macos "zlib"
 
   def install
+    # https://github.com/JustusAdam/mustache/issues/41
+    cabal_install_constraints = ["--constraint=mustache^>=2.3.1"]
+
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", *std_cabal_v2_args, *cabal_install_constraints
 
     bin.env_script_all_files libexec, PATH: "${PATH}:#{Formula["llvm@12"].opt_bin}" if Hardware::CPU.arm?
   end
