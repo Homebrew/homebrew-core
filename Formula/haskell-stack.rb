@@ -7,17 +7,6 @@ class HaskellStack < Formula
   stable do
     url "https://github.com/commercialhaskell/stack/archive/v2.7.5.tar.gz"
     sha256 "7e77a91c9e2366b6be292188c1a36c96f8830f8a5f4a079fae7f73b9b0d2c8b6"
-
-    # Due to recent update of aeson-2.0.0.0, stack can no longer be built with
-    # cabal-install. So I patched stack to freeze cabal dependencies using
-    # stackage 17.15 LTS.
-    #
-    # Reference:
-    #   https://github.com/commercialhaskell/stack/pull/5677
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/05951f21.patch?full_index=1"
-      sha256 "bc12787bffb450ac7246a34987e2d546325e6ecb0b5c75f6bfccf1b32f9693aa"
-    end
   end
 
   livecheck do
