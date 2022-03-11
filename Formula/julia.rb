@@ -2,7 +2,6 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   url "https://github.com/JuliaLang/julia/releases/download/v1.8.0-beta1/julia-1.8.0-beta1.tar.gz"
-  version "1.8.0"
   sha256 "0847943dd65001f3322b00c7dc4e12f56e70e98c6b798ccbd4f02d27ce161fef"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
