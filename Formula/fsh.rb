@@ -23,6 +23,10 @@ class Fsh < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "8a49ad906b045a293259c199fd5d1737894099c487b1bfc83fb60d18acf065ac"
   end
 
+  # Requires Python 2.
+  # https://github.com/Homebrew/homebrew-core/issues/93940
+  deprecate! date: "2022-03-10", because: :unsupported
+
   def install
     # FCNTL was deprecated and needs to be changed to fcntl
     inreplace "fshcompat.py", "FCNTL", "fcntl"
