@@ -7,13 +7,12 @@ class Sops < Formula
   head "https://github.com/mozilla/sops.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "54c0b1d4cef71193bddb3010a8c1fff09fec36a3f6394d3da630d35f01ffe23c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6ed7327988bf2db73d4883d5c4e280cd5e576980b15cd584841175714e9a6a17"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa82abb0c1a38367f6c748b6f28eeb857a80a4c6d00f872382ffac11e1d502aa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "786527c0a00ac74579e50623298aef7f5a996d63211c08d14b87999255f41809"
-    sha256 cellar: :any_skip_relocation, catalina:       "f95b128d36ffb171695376d011dbf1fc971117152367c109f6232949b45e710a"
-    sha256 cellar: :any_skip_relocation, mojave:         "edc533e3636e05deb0a854a1c3950dfdbeb01ac38f7ef6d8857426d55991a542"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f81bba58cecb22d7d6f08383e77c7c137bfb93b76860fdf5e5da788ed6b7be2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b624e63dd53118056a25e59ca1e757e03adbf527d95e1c0eefe4487187c9706"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45d2aa787e93eb803eb6ff266a92c589ed76870afcf44176e768b573d9e16ee7"
+    sha256 cellar: :any_skip_relocation, monterey:       "6eebc96fa87ee730b79195166bdc06f27896c48541866f3c64105e32aa177c40"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a8e5994725fd84140926d5420fd86f4e5a3d26994a7a646196008b00dbd14944"
+    sha256 cellar: :any_skip_relocation, catalina:       "72e11a7d6e537e2c3cfe73c128c4fb63bfaf170fb25f76d1127ef5d9a3c71fb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "262fbf530682ad43100ff2e502cb869dfb8b1071e6396fc697ba843db3cff0f3"
   end
 
   depends_on "go" => :build
