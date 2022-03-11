@@ -19,6 +19,8 @@ class Gistit < Formula
   depends_on "automake" => :build
   depends_on "jansson"
 
+  uses_from_macos "curl"
+
   def install
     mv "configure.in", "configure.ac" # silence warning
     system "./autogen.sh", "--disable-dependency-tracking",
@@ -28,6 +30,9 @@ class Gistit < Formula
   end
 
   test do
-    system "#{bin}/gistit", "-v"
+    (testpath/"test.txt").write "Hello"
+
+    # Gist creation should fail due to lack of authentication token
+    assert_match "- code 401", shell_output("#{bin}/gistit -priv test.txt", 1)
   end
 end
