@@ -4,6 +4,7 @@ class Aria2 < Formula
   url "https://github.com/aria2/aria2/releases/download/release-1.36.0/aria2-1.36.0.tar.xz"
   sha256 "58d1e7608c12404f0229a3d9a4953d0d00c18040504498b483305bcb3de907a5"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "74859913b0f8dc82fede202f5b6cb3384202e76887549addc050009e4d277aec"
@@ -16,7 +17,9 @@ class Aria2 < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gettext"
   depends_on "libssh2"
+  depends_on "sqlite"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
