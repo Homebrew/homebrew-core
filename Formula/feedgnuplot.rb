@@ -39,6 +39,7 @@ class Feedgnuplot < Formula
     system "make"
     system "make", "install"
     prefix.install Dir[prefix/"local/*"]
+    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"] if OS.linux?
 
     bash_completion.install "completions/bash/feedgnuplot"
     zsh_completion.install "completions/zsh/_feedgnuplot"
