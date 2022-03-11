@@ -4,6 +4,7 @@ class Libpgm < Formula
   url "https://github.com/steve-o/openpgm/archive/release-5-3-128.tar.gz"
   version "5.3.128"
   sha256 "8d707ef8dda45f4a7bc91016d7f2fed6a418637185d76c7ab30b306499c6d393"
+  license "LGPL-2.1-or-later"
   head "https://github.com/steve-o/openpgm.git", branch: "master"
 
   bottle do
@@ -24,8 +25,11 @@ class Libpgm < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  # Fix build on ARM
-  patch :DATA
+  # Fix build on ARM. Remove in the next release.
+  patch do
+    url "https://github.com/steve-o/openpgm/commit/8d507fc0af472762f95da44036fb77662ff4cd2a.patch?full_index=1"
+    sha256 "070c3b52fd29f6c594bb6728a960bc19e4ea7d00b2c7eac51e33433e07d775b3"
+  end
 
   def install
     workdir = build.stable? ? "openpgm/pgm" : "pgm"
@@ -54,25 +58,3 @@ class Libpgm < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/openpgm/pgm/cpu.c b/openpgm/pgm/cpu.c
-index cbcc988..f5da471 100644
---- a/openpgm/pgm/cpu.c
-+++ b/openpgm/pgm/cpu.c
-@@ -33,6 +33,7 @@
- //#define CPU_DEBUG
-
-
-+#if defined(__i386__) || defined(__x86_64__)
- #ifndef _MSC_VER
- static
- void
-@@ -59,7 +60,6 @@ _xgetbv(uint32_t xcr) {
- #endif
-
-
--#if defined(__i386__) || defined(__x86_64__)
- PGM_GNUC_INTERNAL
- void
- pgm_cpuid (pgm_cpu_t* cpu)
