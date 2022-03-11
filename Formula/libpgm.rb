@@ -1,11 +1,20 @@
 class Libpgm < Formula
   desc "Implements the PGM reliable multicast protocol"
   homepage "https://github.com/steve-o/openpgm"
-  url "https://github.com/steve-o/openpgm/archive/release-5-3-128.tar.gz"
-  version "5.3.128"
-  sha256 "8d707ef8dda45f4a7bc91016d7f2fed6a418637185d76c7ab30b306499c6d393"
   license "LGPL-2.1-or-later"
   head "https://github.com/steve-o/openpgm.git", branch: "master"
+
+  stable do
+    url "https://github.com/steve-o/openpgm/archive/release-5-3-128.tar.gz"
+    version "5.3.128"
+    sha256 "8d707ef8dda45f4a7bc91016d7f2fed6a418637185d76c7ab30b306499c6d393"
+
+    # Fix build on ARM. Remove in the next release along with stable block
+    patch do
+      url "https://github.com/steve-o/openpgm/commit/8d507fc0af472762f95da44036fb77662ff4cd2a.patch?full_index=1"
+      sha256 "070c3b52fd29f6c594bb6728a960bc19e4ea7d00b2c7eac51e33433e07d775b3"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -24,12 +33,6 @@ class Libpgm < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-
-  # Fix build on ARM. Remove in the next release.
-  patch do
-    url "https://github.com/steve-o/openpgm/commit/8d507fc0af472762f95da44036fb77662ff4cd2a.patch?full_index=1"
-    sha256 "070c3b52fd29f6c594bb6728a960bc19e4ea7d00b2c7eac51e33433e07d775b3"
-  end
 
   def install
     workdir = build.stable? ? "openpgm/pgm" : "pgm"
