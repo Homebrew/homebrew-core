@@ -6,13 +6,12 @@ class Edbrowse < Formula
   license all_of: ["GPL-2.0-only", "MIT"]
   head "https://github.com/CMB/edbrowse.git", branch: "master"
 
-  depends_on "make" => :build
-  depends_on "perl" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre2"
   depends_on "readline"
   depends_on "tidy-html5"
   depends_on "unixodbc"
+  uses_from_macos "perl" => :build
   uses_from_macos "curl"
 
   resource "quickjs" do
@@ -39,14 +38,14 @@ class Edbrowse < Formula
     # Patch the Makefile, so readline is used instead of libedit on Mac OS
     inreplace "src/makefile",
       "-lreadline",
-      "-L/opt/homebrew/opt/readline/lib -lreadline"
+      `pkg-config --libs readline`.chomp
 
     Dir.chdir "src" do
       # Some required libraries come from Homebrew
       lib_includes = `\
         pkg-config --cflags-only-I \
-        libcurl libpcre2-8 odbc tidy \
-      `.chomp + " -I#{HOMEBREW_PREFIX}/opt/readline/include"
+        libcurl libpcre2-8 odbc readline tidy \
+      `.chomp
       with_env(
         "CFLAGS"          => lib_includes,
         "CXXFLAGS"        => lib_includes,
