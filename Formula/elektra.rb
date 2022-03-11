@@ -12,13 +12,12 @@ class Elektra < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "8e1d59c5be2d3130f43d06b1b3f9d5903024bea0ee9ba5e3c028af1c51ec224e"
-    sha256 arm64_big_sur:  "7e1dd629af27f13b6bfe769c221f4c976cb22ad1ac9716601be0c37371633490"
-    sha256 monterey:       "34466435979b032bc07256a5b3f0a2fd0c2b7d4e3fd75e56c641019dceb2a09c"
-    sha256 big_sur:        "aab3adfe2c4413d61a9b817e32e6eb9f8a13066f219bb4e889601db6a81871ff"
-    sha256 catalina:       "08adc201df239e698550c10cc565cba877b4a29656cc120c372e474567dd48f8"
-    sha256 mojave:         "3dbb5277e94c3b9e8cc2ad2e1304b8cbe37938f47727a643adf47ff3303bb8f6"
-    sha256 x86_64_linux:   "bcc445acf471321f69e511e11b03a3222119f9de1082e98c620991fa3d6e13f5"
+    sha256 arm64_monterey: "911dedf18b89fcc63cebaa401aabc8089c2e8d4f1a615ca1461f02e8e3e27868"
+    sha256 arm64_big_sur:  "0d372628746983f988cf4faf5c40f7e569abcfedd74ff9f9c3d99d212049472c"
+    sha256 monterey:       "674db8f4f9e12edc936c96398fa6f6c246b7d64d63d600ae242bb5eac8d0eb52"
+    sha256 big_sur:        "cfbb207afae121255568a4eceb82169c8e0c9d18cea4e503bc0f9c551108b06a"
+    sha256 catalina:       "e2107bc4de9b958667893f10e9b38091447a2496d60b7434b4ee508cff76e5ae"
+    sha256 x86_64_linux:   "719f982dd600aaab97c9c8a75475c995511be91bd243ac13576920bdf7f4413a"
   end
 
   depends_on "cmake" => :build
