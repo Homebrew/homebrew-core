@@ -14,6 +14,7 @@ class Julia < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "741aa32d988bcd48dba2f51ea58a21ef0461719768e14e53544aadccaa60d386"
   end
 
+  depends_on "cmake" => :build # Needed to build LLVM
   depends_on "ca-certificates"
   depends_on "curl"
   depends_on "gcc" # for gfortran
