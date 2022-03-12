@@ -57,10 +57,14 @@ class Giza < Formula
       -lgiza
     ]
 
-    testfiles = Dir.children("#{testpath}/C")
-
-    testfiles.first(5).each do |file|
-      system ENV.cc, "C/#{file}", *flags
+    %w[
+      test-XOpenDisplay.c
+      test-cairo-xw.c
+      test-giza-xw.c
+      test-rectangle.c
+      test-window.c
+    ].each do |file|
+      system ENV.cc, testpath/"C"/file, *flags
     end
   end
 end
