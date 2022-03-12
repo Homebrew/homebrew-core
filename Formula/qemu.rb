@@ -4,6 +4,7 @@ class Qemu < Formula
   url "https://download.qemu.org/qemu-6.2.0.tar.xz"
   sha256 "68e15d8e45ac56326e0b9a4afa8b49a3dfe8aba3488221d098c84698bca65b45"
   license "GPL-2.0-only"
+  revision 1
   head "https://git.qemu.org/git/qemu.git", branch: "master"
 
   bottle do
@@ -46,6 +47,25 @@ class Qemu < Formula
   resource "homebrew-test-image" do
     url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/official/FD12FLOPPY.zip"
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
+  end
+
+  # Backport the following commits from QEMU master (QEMU 7):
+  # - ad99f64f hvf: arm: Use macros for sysreg shift/masking
+  # - 7f6c295c hvf: arm: Handle unknown ID registers as RES0
+  #
+  # These patches are required for running the following guests:
+  # - Linux 5.17
+  # - Ubuntu 21.10, kernel 5.13.0-35.40  (March 2022)
+  # - Ubuntu 20.04, kernel 5.4.0-103.117 (March 2022)
+  #
+  # See https://gitlab.com/qemu-project/qemu/-/issues/899
+  patch do
+    url "https://gitlab.com/qemu-project/qemu/-/commit/ad99f64f1cfff7c5e7af0e697523d9b7e45423b6.diff"
+    sha256 "004e1b7b7c422628b3d6a95827bfca8a19ec36c0d2a0e6ee1f1046d0a2a101ad"
+  end
+  patch do
+    url "https://gitlab.com/qemu-project/qemu/-/commit/7f6c295cdfeaa229c360cac9a36e4e595aa902ae.diff"
+    sha256 "a8d02dcad74da3c3cb18c113a195477dcb76d1128761e48e6827f04d235ed3ce"
   end
 
   def install
