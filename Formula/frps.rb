@@ -7,12 +7,12 @@ class Frps < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3015ad5296d536227e46b27d8b0f8dbb67940682965c6bdd4aeb37f11256328d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3015ad5296d536227e46b27d8b0f8dbb67940682965c6bdd4aeb37f11256328d"
-    sha256 cellar: :any_skip_relocation, monterey:       "aedc135e88f5ef2063fc3c267a147c7a6bf9754a5e6ffe6dff7d6d5a2de47bd7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aedc135e88f5ef2063fc3c267a147c7a6bf9754a5e6ffe6dff7d6d5a2de47bd7"
-    sha256 cellar: :any_skip_relocation, catalina:       "aedc135e88f5ef2063fc3c267a147c7a6bf9754a5e6ffe6dff7d6d5a2de47bd7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7c0bfba22870868f4c3ea533544f6bee7513a0bf173fa5720b43d75f54faf9f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0706ecb32876d1bda4953d168103fcb097b215252bdbbf7e6008120f6cdcef02"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0706ecb32876d1bda4953d168103fcb097b215252bdbbf7e6008120f6cdcef02"
+    sha256 cellar: :any_skip_relocation, monterey:       "1114e22114b3babc12f1f144289ddbcd1a598853cc587f10c01264cd81c8b191"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1114e22114b3babc12f1f144289ddbcd1a598853cc587f10c01264cd81c8b191"
+    sha256 cellar: :any_skip_relocation, catalina:       "1114e22114b3babc12f1f144289ddbcd1a598853cc587f10c01264cd81c8b191"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a77fa718a3baa01cafb1e8254f6344c978a410f7c1c008debed553d0c926f869"
   end
 
   depends_on "go" => :build
