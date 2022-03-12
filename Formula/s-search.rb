@@ -7,12 +7,12 @@ class SSearch < Formula
   head "https://github.com/zquestz/s.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e79e0b5d4ce85ad4c648a46d315021a6ca0dcf1a89023df352e48ff20c62d13a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ce8039df0464923dd108ab72c4799b31ea4f395efea027bd6456f3637ec5f8c"
-    sha256 cellar: :any_skip_relocation, monterey:       "3ebfa69ef29c3423fe9c8b15ac391e4582760822185614263c8a7c2709bbe6e0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "eac55f5d82488848feeec851ee9c88560a5ac81a113116329f5e430e809be7a5"
-    sha256 cellar: :any_skip_relocation, catalina:       "038d686786ffdb37b219729d448b224b3e0ec469ece4740d563f2fb6d540909d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40de6a2bd36d0c0f5df5b01bcbe05905e4f9916ded0c9b2853c9819cd3779e70"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9285223361b339085b9493c85c54ae1159d7aa18629f781486570da215759762"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae70bca81296c94bfb3cc5b7d44c66823b8f4e18948b83c2c44a947559669fc7"
+    sha256 cellar: :any_skip_relocation, monterey:       "707e75797f8c2a14149c81be5ccb76931711096ef05bca605f78277681db34de"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bcb44ecf691dcf539570428efeda8ab9e3235f60c1653873d917f770f9283155"
+    sha256 cellar: :any_skip_relocation, catalina:       "4eb1c753639f85a936846589e27bd948fc09ce659e45158738d6b18463a796e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3a6f00ddc6c233f50bb6d103a2929740fb02d02fafbd6b4f82fbe0ed45b2428"
   end
 
   depends_on "go" => :build
