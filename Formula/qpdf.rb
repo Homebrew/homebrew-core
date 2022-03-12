@@ -6,12 +6,12 @@ class Qpdf < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b4bc03f5c24a4305261aaf31841f3588d08c4c9317712bcdd948b278a3bf14eb"
-    sha256 cellar: :any,                 arm64_big_sur:  "042f245db23934629bb538746ab287dd1cb4d096f16289f8068d07b98e9aa0c4"
-    sha256 cellar: :any,                 monterey:       "610f410788d9c34ea2c8a8af2f8935627305b2a3fc148969f7f7ca173e1ac6f6"
-    sha256 cellar: :any,                 big_sur:        "c7578fc7da02522ec78ed8df30abb0a3521a7bd9880320ed45750451055681b4"
-    sha256 cellar: :any,                 catalina:       "c206dcde8ac57e2a0c7c7cd1323972cee8cb536467051f600026d315bcaca9f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a076d5c24158183d68030ae051991b2fdf348f32896ad1da739d1c79ad98c84"
+    sha256 cellar: :any,                 arm64_monterey: "24944d4bf95fe2c8074f56a971fb02fc690debd23918e9167da0382610caca9f"
+    sha256 cellar: :any,                 arm64_big_sur:  "8f49d18dd8988cc2c63edbc62ca3fdfe588d8da7c42ed166ed3eb47a891d93e4"
+    sha256 cellar: :any,                 monterey:       "95850728bedd6bbc23746d6b3e9fb02178f622d66f4addc6b3e99bce78c7537c"
+    sha256 cellar: :any,                 big_sur:        "382f9055e985efc460822feb662b6adccc31c0cd261e45e857408a01180c88a1"
+    sha256 cellar: :any,                 catalina:       "68d14b83b59b4d0ca64b012aa7b57c90312c5eede3f0b5a7209512d4d8a1441f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b60263aafd42b76e159d8571dec80efa1ca5e411b592e92df1ea1d81935df399"
   end
 
   depends_on "jpeg"
