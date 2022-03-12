@@ -4,6 +4,7 @@ class Gromacs < Formula
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2022.tar.gz"
   sha256 "fad60d606c02e6164018692c6c9f2c159a9130c2bf32e8c5f4f1b6ba2dda2b68"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
@@ -50,11 +51,15 @@ class Gromacs < Formula
 
     inreplace "src/gromacs/gromacs-config.cmake.cmakein", "@GROMACS_CXX_COMPILER@", cxx
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DGROMACS_CXX_COMPILER=#{cxx}",
-                                             "-DGMX_VERSION_STRING_OF_FORK=#{tap.user}"
-      system "make", "install"
-    end
+    args = %W[
+      -DGROMACS_CXX_COMPILER=#{cxx}
+      -DGMX_VERSION_STRING_OF_FORK=#{tap.user}
+    ]
+    # Force SSE2/SSE4.1 for compatibility when building Intel bottles
+    args << "-DGMX_SIMD=#{MacOS.version.requires_sse41? ? "SSE4.1" : "SSE2"}" if Hardware::CPU.intel? && build.bottle?
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     bash_completion.install "build/scripts/GMXRC" => "gromacs-completion.bash"
     bash_completion.install bin/"gmx-completion-gmx.bash" => "gmx-completion-gmx.bash"
