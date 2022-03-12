@@ -4,7 +4,7 @@ class Mrbayes < Formula
   url "https://github.com/NBISweden/MrBayes/archive/v3.2.7a.tar.gz"
   sha256 "3eed2e3b1d9e46f265b6067a502a89732b6f430585d258b886e008e846ecc5c6"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/NBISweden/MrBayes.git", branch: "develop"
 
   livecheck do
@@ -26,7 +26,20 @@ class Mrbayes < Formula
   depends_on "open-mpi"
 
   def install
-    system "./configure", *std_configure_args, "--with-mpi=yes"
+    args = ["--with-mpi=yes"]
+    if Hardware::CPU.intel? && build.bottle?
+      args << "--disable-avx"
+      # There is no argument to override AX_EXT SIMD auto-detection, which is done in
+      # configure and adds -m<simd> to build flags and also defines HAVE_<simd> macros
+      args << "ax_cv_have_sse41_cpu_ext=no" unless MacOS.version.requires_sse41?
+      args << "ax_cv_have_sse42_cpu_ext=no" unless MacOS.version.requires_sse42?
+      args << "ax_cv_have_sse4a_cpu_ext=no"
+      args << "ax_cv_have_sha_cpu_ext=no"
+      args << "ax_cv_have_aes_cpu_ext=no"
+      args << "ax_cv_have_avx_os_support_ext=no"
+      args << "ax_cv_have_avx512_os_support_ext=no"
+    end
+    system "./configure", *std_configure_args, *args
     system "make", "install"
 
     doc.install share/"examples/mrbayes" => "examples"
