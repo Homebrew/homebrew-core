@@ -2,6 +2,7 @@ class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
   license "X11"
+  revision 1
 
   stable do
     url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.35.tar.xz"
@@ -48,15 +49,17 @@ class Libxslt < Formula
   end
 
   def install
+    libxml2 = Formula["libxml2"]
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--without-python",
                           "--with-crypto",
-                          "--with-libxml-prefix=#{Formula["libxml2"].opt_prefix}"
+                          "--with-libxml-prefix=#{libxml2.opt_prefix}"
     system "make"
     system "make", "install"
+    inreplace [bin/"xslt-config", lib/"xsltConf.sh"], libxml2.prefix.realpath, libxml2.opt_prefix
   end
 
   def caveats
