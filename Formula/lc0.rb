@@ -5,7 +5,7 @@ class Lc0 < Formula
       tag:      "v0.28.2",
       revision: "fa5864bb5838e131d832ad63300517f4684913e7"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0149c068236cfe521a6aafe5083ec174b066752d54f73cbc6c992e05695c5096"
