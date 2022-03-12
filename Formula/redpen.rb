@@ -4,7 +4,7 @@ class Redpen < Formula
   url "https://github.com/redpen-cc/redpen/releases/download/redpen-1.10.4/redpen-1.10.4.tar.gz"
   sha256 "6c3dc4a6a45828f9cc833ca7253fdb036179036631248288251cb9ac4520c39d"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -24,7 +24,9 @@ class Redpen < Formula
     libexec.install %w[conf lib sample-doc js]
 
     prefix.install "bin"
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk@11"].opt_prefix
+    env = Language::Java.java_home_env("11")
+    env["PATH"] = "$JAVA_HOME/bin:$PATH"
+    bin.env_script_all_files libexec/"bin", env
   end
 
   test do
