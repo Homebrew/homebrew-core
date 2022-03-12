@@ -468,6 +468,9 @@
   "stormssh": {
     "exclude_packages": ["six"]
   },
+  "streamlink": {
+    "exclude_packages": ["six"]
+  },
   "tarsnapper": {
     "exclude_packages": ["six"]
   },
