@@ -13,7 +13,7 @@ class Redpen < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a64e713c28e2030248d5bca045bbda57f33c876de674a89d6f9585101b570587"
+    sha256 cellar: :any_skip_relocation, all: "f782eba6bcc7fc6d4824b17538b279485410c8cf0d78b55d314c293c4d956d92"
   end
 
   depends_on "openjdk@11"
