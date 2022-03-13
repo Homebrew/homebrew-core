@@ -33,7 +33,11 @@ class Musepack < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-    lib.install "libmpcdec/libmpcdec.dylib"
+    if OS.mac?
+      lib.install "libmpcdec/libmpcdec.dylib"
+    else
+      lib.install "libmpcdec/libmpcdec.so"
+    end
   end
 
   test do
