@@ -1,8 +1,8 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "bb124905c7fdacd81e7c842b287c169bbf377d29c74c9dacc04f96c9793747bb"
+  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "66b953ae7fba61fd78969a2e24e350b26ec116cf2e6a7eb93d02c63939c6f9f7"
   license "Apache-2.0"
 
   bottle do
@@ -10,7 +10,7 @@ class Libtensorflow < Formula
     sha256 cellar: :any, catalina: "9c2f522b11cfba7188e8b9f1ffd49c5853c748c0ce98af0132226c097cb754ba"
   end
 
-  depends_on "bazel" => :build
+  depends_on "bazelisk" => :build
   depends_on "numpy" => :build
   depends_on "python@3.9" => :build
 
@@ -20,11 +20,15 @@ class Libtensorflow < Formula
   end
 
   def install
-    # Allow tensorflow to use current version of bazel
-    (buildpath / ".bazelversion").atomic_write Formula["bazel"].version
-
+    optflag = if Hardware::CPU.arm? && OS.mac?
+      "-mcpu=apple-m1"
+    elsif build.bottle?
+      "-march=#{Hardware.oldest_cpu}"
+    else
+      "-march=native"
+    end
+    ENV["CC_OPT_FLAGS"] = optflag
     ENV["PYTHON_BIN_PATH"] = Formula["python@3.9"].opt_bin/"python3"
-    ENV["CC_OPT_FLAGS"] = "-march=native"
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
     ENV["TF_NEED_GCP"] = "0"
@@ -46,10 +50,11 @@ class Libtensorflow < Formula
     ENV["TF_CONFIGURE_IOS"] = "0"
     system "./configure"
 
-    bazel_args =%W[
+    bazel_args = %W[
       --jobs=#{ENV.make_jobs}
       --compilation_mode=opt
-      --copt=-march=native
+      --copt=#{optflag}
+      --linkopt=-Wl,-rpath,#{rpath}
     ]
     targets = %w[
       tensorflow:libtensorflow.so
@@ -58,7 +63,7 @@ class Libtensorflow < Formula
       tensorflow/tools/graph_transforms:summarize_graph
       tensorflow/tools/graph_transforms:transform_graph
     ]
-    system "bazel", "build", *bazel_args, *targets
+    system Formula["bazelisk"].opt_bin/"bazelisk", "build", *bazel_args, *targets
 
     lib.install Dir["bazel-bin/tensorflow/*.so*", "bazel-bin/tensorflow/*.dylib*"]
     include.install "bazel-bin/tensorflow/include/tensorflow"
