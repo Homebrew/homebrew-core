@@ -6,12 +6,12 @@ class Torchvision < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0394759957632e095ce784d0498bdba485c7fc9b9e21cb6ee992d813f00fcef6"
-    sha256 cellar: :any,                 arm64_big_sur:  "c57b60bd4c4329944a3a22883da30100c826469c8858af6ca1f2217ee5ba7dd4"
-    sha256 cellar: :any,                 monterey:       "c11f820731ef9af7fc6c9292346e378a755eb7f0d5ef72455cb971bcd42262fc"
-    sha256 cellar: :any,                 big_sur:        "70fc77207f6be747ae5fa61739f068027ea1eec1fb3d65ae440066cb221fe452"
-    sha256 cellar: :any,                 catalina:       "946dec06a712985319e1382a5ccf5ce3f9a74839543850992bc80825f3ffe0c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92d8e1959a6e85240dfe38e2788c1992222682d64547f4b7211424cc75850764"
+    sha256 cellar: :any,                 arm64_monterey: "8e3da95bf3f38a7ae2c906c865aa1a957ba5d64cbfde891881b220cd58b128b0"
+    sha256 cellar: :any,                 arm64_big_sur:  "7b36479ebbee56621f533698eedb9672320cbb6171b61ac42f971367eb2f6a31"
+    sha256 cellar: :any,                 monterey:       "f3e2086e7663e12800f34ed5ec1c83dfcb527e1bd3a1c9eeae0008622d585232"
+    sha256 cellar: :any,                 big_sur:        "1392db123e9acfbe1b2e1bc31893995dd8394996c773ebae6b8f6150ca284d63"
+    sha256 cellar: :any,                 catalina:       "f2a7c2fbd0024e6fbcc4fa689b3c30c678bc2b1f65841d61bcc318ea30865099"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6f90b0a16f9376a8a78cb219320222e5a0b5eab97caec72412e5d3983b15d71"
   end
 
   depends_on "cmake" => :build
