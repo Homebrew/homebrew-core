@@ -39,11 +39,13 @@ class Fizz < Formula
     args = []
     args << "-DLIBRT_LIBRARY=/usr/lib/x86_64-linux-gnu/librt.so" if OS.linux?
 
-    mkdir "fizz/build" do
-      system "cmake", "..", "-DBUILD_TESTS=OFF", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args, *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", "fizz", "-B", "build",
+                    "-DBUILD_TESTS=OFF",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
