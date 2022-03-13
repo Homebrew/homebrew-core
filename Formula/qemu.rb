@@ -106,6 +106,25 @@ class Qemu < Formula
     sha256 "61422ab60ed9dfa3d9fe8a267c54fab230f100e9ba92275bc98cf5da9e388cde"
   end
 
+  # Backport the following commits from QEMU master (QEMU 7):
+  # - ad99f64f hvf: arm: Use macros for sysreg shift/masking
+  # - 7f6c295c hvf: arm: Handle unknown ID registers as RES0
+  #
+  # These patches are required for running the following guests:
+  # - Linux 5.17
+  # - Ubuntu 21.10, kernel 5.13.0-35.40  (March 2022)
+  # - Ubuntu 20.04, kernel 5.4.0-103.117 (March 2022)
+  #
+  # See https://gitlab.com/qemu-project/qemu/-/issues/899
+  patch do
+    url "https://gitlab.com/qemu-project/qemu/-/commit/ad99f64f1cfff7c5e7af0e697523d9b7e45423b6.diff"
+    sha256 "004e1b7b7c422628b3d6a95827bfca8a19ec36c0d2a0e6ee1f1046d0a2a101ad"
+  end
+  patch do
+    url "https://gitlab.com/qemu-project/qemu/-/commit/7f6c295cdfeaa229c360cac9a36e4e595aa902ae.diff"
+    sha256 "a8d02dcad74da3c3cb18c113a195477dcb76d1128761e48e6827f04d235ed3ce"
+  end
+
   def install
     ENV["LIBTOOL"] = "glibtool"
 
