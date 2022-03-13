@@ -34,7 +34,6 @@ class Rocksdb < Formula
   end
 
   def install
-    ENV.cxx11
     base_args = std_cmake_args + %W[
       -DPORTABLE=ON
       -DUSE_RTTI=ON
@@ -99,7 +98,7 @@ class Rocksdb < Formula
       extra_args << "-lstdc++"
     end
     system ENV.cxx, "test.cpp", "-o", "db_test", "-v",
-                                "-std=c++11",
+                                "-std=c++17",
                                 *extra_args,
                                 "-lz", "-lbz2",
                                 "-L#{lib}", "-lrocksdb",
@@ -108,7 +107,7 @@ class Rocksdb < Formula
                                 "-L#{Formula["zstd"].opt_lib}", "-lzstd"
     system "./db_test"
     system ENV.cxx, "test.cpp", "-o", "db_test_lite", "-v",
-                                "-std=c++11",
+                                "-std=c++17",
                                 *extra_args,
                                 "-lz", "-lbz2",
                                 "-L#{lib}", "-lrocksdb_lite",
