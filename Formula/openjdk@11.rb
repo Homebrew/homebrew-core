@@ -1,9 +1,22 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.13-ga.tar.gz"
-  sha256 "e98eb999aa5e85b330e4aa062567743e290dfe925c3fe854d9c6e2c55399da59"
   license "GPL-2.0-only"
+
+  if Hardware::CPU.arm?
+    # Temporarily use build of unreleased openjdk 11.0.15 on Apple Silicon
+    url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.15+5.tar.gz"
+    sha256 "c541dbc147a40b9cce987d4831970b96bb843471541bb25a140bbbfbd3e056de"
+    version "11.0.14.1"
+  else
+    url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.14.1-ga.tar.gz"
+    sha256 "27244faf7e34e66a0ca4bb6ebbbe8bf4884d4e2d93028bd99c1511304f27bac4"
+  end
+
+  livecheck do
+    url :stable
+    regex(/^jdk[._-]v?(11(?:\.\d+)*)-ga$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "dbf0b347060474c1aa0fbe3e58e33f4d81337e6f49209761da130ee776d66355"
@@ -23,14 +36,14 @@ class OpenjdkAT11 < Formula
     depends_on "alsa-lib"
     depends_on "cups"
     depends_on "fontconfig"
-    depends_on "unzip"
-    depends_on "zip"
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxrandr"
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
+    depends_on "unzip"
+    depends_on "zip"
 
     ignore_missing_libraries "libjvm.so"
   end
@@ -38,8 +51,8 @@ class OpenjdkAT11 < Formula
   resource "boot-jdk" do
     on_macos do
       if Hardware::CPU.arm?
-        url "https://cdn.azul.com/zulu/bin/zulu11.52.13-ca-jdk11.0.13-macosx_aarch64.tar.gz"
-        sha256 "eb8d593a61a9461a554e7bb1d67bca0f94242273f1d01a13f58c20c269b35fe5"
+        url "https://cdn.azul.com/zulu/bin/zulu11.54.25-ca-jdk11.0.14.1-macosx_aarch64.tar.gz"
+        sha256 "2076f8ce51c0e9ad7354e94b79513513b1697aa222f9503121d800c368b620a3"
       else
         url "https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_osx-x64_bin.tar.gz"
         sha256 "77ea7675ee29b85aa7df138014790f91047bfdafbc997cb41a1030a0417356d7"
@@ -48,14 +61,6 @@ class OpenjdkAT11 < Formula
     on_linux do
       url "https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_linux-x64_bin.tar.gz"
       sha256 "f3b26abc9990a0b8929781310e14a339a7542adfd6596afb842fa0dd7e3848b2"
-    end
-  end
-
-  if Hardware::CPU.arm?
-    # Patch for Apple Silicon support
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/92c00c116a39c1c48c3fb2e41aa42f7b50b7807f/openjdk%4011/aarch64.diff"
-      sha256 "cb0bc7396d29816bd7043023d1179c2bbbf8c3d1daea7a51ca0cb29fed4f875f"
     end
   end
 
