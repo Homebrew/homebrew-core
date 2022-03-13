@@ -24,6 +24,7 @@ class Libxmlsec1 < Formula
   depends_on "libgcrypt"
   depends_on "libxml2"
   depends_on "openssl@1.1"
+  uses_from_macos "libxslt"
 
   on_macos do
     depends_on xcode: :build
@@ -43,6 +44,10 @@ class Libxmlsec1 < Formula
             "--prefix=#{prefix}",
             "--disable-crypto-dl",
             "--disable-apps-crypto-dl",
+            "--with-nss=no",
+            "--with-nspr=no",
+            "--enable-mscrypto=no",
+            "--enable-mscng=no",
             "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"]
 
     system "./configure", *args
