@@ -12,12 +12,12 @@ class Xmrig < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "7dec3e753a79d58afbbcea902732b94b68750031fb57eac9e7446e871bdf7e4d"
-    sha256                               arm64_big_sur:  "d9752740049abcceb88a1f36b373059a809f87bdb50226eb8dc13beb36f414d2"
-    sha256                               monterey:       "ed6a11a74d73984f0ab21e13e8de8dd10c1484fde131c6aaa380d01a5d79e92c"
-    sha256                               big_sur:        "168639732fe4f0c2dc1d30b01f195cfc5ca78eacccd96d5663978f3230a8f2c7"
-    sha256                               catalina:       "dac5221dbbb32d6a92f67489a4e60f44cbb7ef6d141ce97151a26463fe361e25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "078d570abeca3c805325c17b0a3dbbdbb1d977dc94ea6f955e2c29fc9a1ad4b7"
+    sha256                               arm64_monterey: "32f3fd687c21621f0a64d65a6703d5943097a88617d67fdc7dc48dbc2641e61d"
+    sha256                               arm64_big_sur:  "bd975405078916b254a2d29ba99a217a13fc613c127f5b31f842fe80be77ec0c"
+    sha256                               monterey:       "f16c27056f9ceab6a16fb305ed10b187ef015a409ddfd08452f29f9c369bdad5"
+    sha256                               big_sur:        "25de38cb34629c93e854f73b1a109f0153aea8d417df6cdb6851944cb54c53ec"
+    sha256                               catalina:       "d3009e466747309eb0a544f15d4b6ce1d4f5502ee81c1a65e95203ba24337e32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bbdc135a7b8eef69904e3f8d5edc348ec766ecd301208a496c737f2dfaf9fc3f"
   end
 
   depends_on "cmake" => :build
