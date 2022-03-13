@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/9a/3e/48eddba4d8297d784541e49fc35778b468499424953d8cafb87e8bd3c2e2/moto-3.0.7.tar.gz"
-  sha256 "43a0c89eee6518ffaf77142b5ed3e0c1522f97a22368af2c90af5a8914dcdce9"
+  url "https://files.pythonhosted.org/packages/76/04/efe8dd36cbac752ad2962013266a68475632ac016c62115551460cd30488/moto-3.1.0.tar.gz"
+  sha256 "c4327b34228cc3d446e8e5434af5f997ab4c5f85cdf93a201833dca1ca0c0717"
   license "Apache-2.0"
 
   bottle do
@@ -36,13 +36,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/57/49/06070a3f4e354751975c8c95e0b400366a2b8d2821deb435ff9bae4b8fb1/boto3-1.21.15.tar.gz"
-    sha256 "895489900eb882777124c3b64a13df49785cf77f7bd1504e783464fb3b4c8163"
+    url "https://files.pythonhosted.org/packages/57/9a/dd4bf6cdb7c8584adadc90e7c8a3e0f68b3dadf9b11eb4dc0ab9a473e344/boto3-1.21.18.tar.gz"
+    sha256 "8d6f3c548f0ee03d742f404c96515e7579fc6968135aaa50dd855a046698ff79"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/19/96/05b7bbe828410b4bdf93e5d2ad4c4a1dc60e8db11ceb80b27b23ecfd8f77/botocore-1.24.15.tar.gz"
-    sha256 "fa4816e94e72111a9341204061e760bcbde74ca5d900d3f2206c2c2e8e4b56e4"
+    url "https://files.pythonhosted.org/packages/d0/c1/34c3a800ae9d8b9ac967bfaedb859c0eb6f528189af71edc85740a1eb82e/botocore-1.24.18.tar.gz"
+    sha256 "d2da7ccbc5ddd61fe3cd45fcbd3de380d9e3a15bfa8fbfd2d9259a93dcc60c56"
   end
 
   resource "certifi" do
@@ -111,8 +111,8 @@ class Moto < Formula
   end
 
   resource "itsdangerous" do
-    url "https://files.pythonhosted.org/packages/82/00/89037083314067f1605233f6f30b94fdddc89d18e283b30b0c5be9e7f801/itsdangerous-2.1.0.tar.gz"
-    sha256 "d848fcb8bc7d507c4546b448574e8a44fc4ea2ba84ebf8d783290d53e81992f5"
+    url "https://files.pythonhosted.org/packages/9d/86/39f81e23f49eaf62d22248d48771dbf3bce7c52dfdf566e3d8d4c0657f15/itsdangerous-2.1.1.tar.gz"
+    sha256 "7b7d3023cd35d9cb0c1fd91392f8c95c6fa02c59bf8ad64b8849be3401b95afb"
   end
 
   resource "Jinja2" do
@@ -256,8 +256,8 @@ class Moto < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/eb/f6/d81ccf43ac2a3c80ddb6647653ac8b53ce2d65796029369923be06b815b8/wrapt-1.13.3.tar.gz"
-    sha256 "1fea9cd438686e6682271d36f3481a9f3636195578bab9ca3382e2f5f01fc185"
+    url "https://files.pythonhosted.org/packages/c7/b4/3a937c7f8ee4751b38274c8542e02f42ebf3e080f1344c4a2aff6416630e/wrapt-1.14.0.tar.gz"
+    sha256 "8323a43bd9c91f62bb7d4be74cc9ff10090e7ef820e27bfe8815c57e68261311"
   end
 
   resource "xmltodict" do
