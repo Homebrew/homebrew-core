@@ -9,6 +9,7 @@ class PinentryMac < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "7ebbe0d43dcdf88c28e7df80ddb21ca669968107beaf7dd224efc461cc25474b"
     sha256 cellar: :any, arm64_big_sur:  "64958e3763e548e154a485382fdab8525e7df237c9198ce5b60e4966ba91fc41"
+    sha256 cellar: :any, monterey:       "3951ca662de62018c9a82921a29f9a06989f0efe25f68c84107c12f3a485be88"
     sha256 cellar: :any, big_sur:        "44b9e026ae382505ac98e01aca3d97727deff1dc57e7a15e6aae08371142439c"
     sha256 cellar: :any, catalina:       "2957715c9a914da6774f4f28523962aa512eb89858aae57a35bc299d2458932c"
     sha256 cellar: :any, mojave:         "e7a94a9c022f0996b24ff4da4b9e5cee34cf681a8571320b0f49e129d6fde8e0"
