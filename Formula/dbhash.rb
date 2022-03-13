@@ -11,12 +11,12 @@ class Dbhash < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "15902c7b416c4f8290f3d6c34155b2d7c7437562ea1704248ea9d1c0c623406a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f8c584fe9bd4669880ae0f79ae31bc305699dd8d9b0c9263b1477854b6aa98c6"
-    sha256 cellar: :any_skip_relocation, monterey:       "64a0c806ee0608691ff46e94820b918f42fc58d1a0b784975c33bf01a06b905d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a3921e7ba23438a099e363d877efc840cc6c04e57eab4487587e97c73c148486"
-    sha256 cellar: :any_skip_relocation, catalina:       "34eb60a7a194988f48dfde82d8bcc2da4f3a81941504f990a670e1e83c3fd5ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2456a9b777a97ea77ed6b150dba9dcaf247829dd0ff004e6d39bf4811eaf40b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35c747bdf0146af29a4b2b4af1904d99128eec397d6e3948e1dd1b995585707a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7cc580a3906fc58e50b1cfce2cef63f0c7a65ef52af741c243257ed1bfaa709d"
+    sha256 cellar: :any_skip_relocation, monterey:       "dfa72be3472e7bed4cd464c5dfd7ad832198587ad2d167256767775e7e092c7d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b3c447ffdbbc1fe28b25af757a1058aea6a7d31c1351337a59fdaae5837177bf"
+    sha256 cellar: :any_skip_relocation, catalina:       "c713a57ff08feb92f8475acbdbc5029023634f698b8b0b11c6683ef4bf49032c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da0d6591e78d73032ba11ba857c3d7535f9247f5bad07e4d8ae5d6f3f7e69c9f"
   end
 
   uses_from_macos "tcl-tk" => :build
