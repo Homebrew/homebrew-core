@@ -1,8 +1,8 @@
 class Edbrowse < Formula
   desc "Command-line editor and web browser"
   homepage "https://www.edbrowse.org"
-  url "https://github.com/CMB/edbrowse/archive/v3.8.2.tar.gz"
-  sha256 "fed3d2a2ffa5f296ed5edeb5e08ac4cf0f4aec55c8c50945e3f45e300dd3706e"
+  url "https://github.com/CMB/edbrowse/archive/v3.8.2.1.tar.gz"
+  sha256 "a9c1d1fd0665796b81f18b0556f80237c13594033062f9312a49aa9159086e7a"
   license all_of: ["GPL-2.0-only", "MIT"]
   head "https://github.com/CMB/edbrowse.git", branch: "master"
 
@@ -15,49 +15,22 @@ class Edbrowse < Formula
   uses_from_macos "curl"
 
   resource "quickjs" do
-    url "https://github.com/bellard/quickjs/archive/b5e62895c619d4ffc75c9d822c8d85f1ece77e5b.tar.gz"
-    sha256 "640fb75b3ca11eec37f9df4bea0afa48a39027ca2dc60806b96d29aa03e504a6"
+    url "https://github.com/n0ot/quickjs-edbrowse/archive/7732911eedf406d2e0e4f6860c5d83050e3bbb33.tar.gz"
+    sha256 "490bf0c5fb029bd3e2ca8265f5aa81ddfa466ba0066febdc3e0dcbac62878049"
   end
 
   def install
     resource("quickjs").stage do
-      # Add edbrowse-specific fields to quickjs
-      quickjs_edbrowse_additions = <<~EOF.chomp
-        // Tell edbrowse where the jobs field is within this structure.
-        int JSRuntimeJobIndex = (int) offsetof(struct JSRuntime, job_list);
-      EOF
-
-      inreplace "quickjs.c",
-        /(\nstruct JSRuntime +\{.*?\};\n)/m,
-        "\\1\n#{quickjs_edbrowse_additions}\n"
       system "make"
       mkdir "#{buildpath}/quickjs"
       cp_r(".", "#{buildpath}/quickjs/")
     end
 
-    # Patch the Makefile, so readline is used instead of libedit on Mac OS
-    inreplace "src/makefile",
-      "-lreadline",
-      `pkg-config --libs readline`.chomp
-
     Dir.chdir "src" do
-      # Some required libraries come from Homebrew
-      lib_includes = `\
-        pkg-config --cflags-only-I \
-        libcurl libpcre2-8 odbc readline tidy \
-      `.chomp
-      with_env(
-        "CFLAGS"          => lib_includes,
-        "CXXFLAGS"        => lib_includes,
-        "BUILD_EDBR_ODBC" => "on",
-        "QUICKJS_DIR"     => "#{buildpath}/quickjs",
-      ) do
-        system "make"
-      end
+      system "make", "QUICKJS_DIR=#{buildpath}/quickjs"
+      system "make", "install", "PREFIX=#{prefix}"
     end
 
-    bin.install "src/edbrowse"
-    doc.install "doc/usersguide.html"
     prefix.install "CHANGES"
     prefix.install "COPYING"
     prefix.install "README"
