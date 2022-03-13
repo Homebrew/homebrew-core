@@ -1,8 +1,8 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.34.0.tar.xz"
-  sha256 "82c2e5e5c71b0e10487a80d79140469ab1f8056349ca8545140a224dbbed7ded"
+  url "https://www.cpan.org/src/5.0/perl-5.34.1.tar.xz"
+  sha256 "6d52cf833ff1af27bb5e986870a2c30cec73c044b41e3458cd991f94374039f7"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/perl/perl5.git", branch: "blead"
 
