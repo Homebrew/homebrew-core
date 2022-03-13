@@ -35,6 +35,7 @@ class Fb303 < Formula
     system "cmake", "-S", ".", "-B", "build",
                     "-DPYTHON_EXTENSIONS=OFF",
                     "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
