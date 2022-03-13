@@ -1,8 +1,8 @@
 class Subfinder < Formula
   desc "Subdomain discovery tool"
   homepage "https://github.com/projectdiscovery/subfinder"
-  url "https://github.com/projectdiscovery/subfinder/archive/v2.4.9.tar.gz"
-  sha256 "0163626e69aa4ea4642633ab447ca2afcf2e06f7aec16c2aa95ec5ce301250cf"
+  url "https://github.com/projectdiscovery/subfinder/archive/v2.5.1.tar.gz"
+  sha256 "c93daf616ad3c0f60e91a2626a97c7cfcc3662735db5e6e0b1e2bd0706638fb2"
   license "MIT"
   head "https://github.com/projectdiscovery/subfinder.git", branch: "master"
 
@@ -20,7 +20,7 @@ class Subfinder < Formula
 
   def install
     cd "v2" do
-      system "go", "build", *std_go_args, "./cmd/subfinder"
+      system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/subfinder"
     end
   end
 
