@@ -7,12 +7,12 @@ class Seqkit < Formula
   head "https://github.com/shenwei356/seqkit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c89a2abce52fe88ae43fdd5a6bb7029c499650fed71a88a8423dbb401351734"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a18b67f654caf6f9177e004e0b22db570bc4e157ba8feb0d94c287df2875268"
-    sha256 cellar: :any_skip_relocation, monterey:       "44df9a540e423d15437fe39c3b65377a6ed3961b94678ba09bbe5ac6ba7a180a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bb8bf5408c4c2457061b08c3156c78d0327966b33f746525e65636b81fbd8d7b"
-    sha256 cellar: :any_skip_relocation, catalina:       "c36a35635fef319c1f63f792764a2bcecce3d2a00f1d66ba2bcb1b97c2f71c18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "419e6f1a7d61d28140f84fe99fa2e033ac182a5b0f658ecb7ea953f2d34129e0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c643716399f6ed26416ce5874b1799b39b5372786f0f9e8ab8c83e603afd433"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5317234e738eb747463b979490c089c4b076fe573556d08ae7df6141982c6b9"
+    sha256 cellar: :any_skip_relocation, monterey:       "57086e68433c69dacbaa152d5c9487ca7848a5932f1781afd1fad56e531ac342"
+    sha256 cellar: :any_skip_relocation, big_sur:        "16ca0d4eef7fe48661fd2ca9ed30701bac60edcad05643436378e90bee7400c6"
+    sha256 cellar: :any_skip_relocation, catalina:       "5935966181252b37b6bf80d97bd2e43651f51841fd74c76819f643eba08520b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cd0f87b8741865657d2bcad503e2b89ab3eba053457f02e5169261db531b233"
   end
 
   depends_on "go" => :build
