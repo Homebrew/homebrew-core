@@ -3,12 +3,7 @@ class Fsh < Formula
   homepage "https://www.lysator.liu.se/fsh/"
   url "https://www.lysator.liu.se/fsh/fsh-1.2.tar.gz"
   sha256 "9600882648966272c264cf3f1c41c11c91e704f473af43d8d4e0ac5850298826"
-  license "GPL-2.0"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?fsh[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b2814ac8d488659be42929df4fcbdcd3c8755d24fe990034c3125d3b9c61c8ef"
