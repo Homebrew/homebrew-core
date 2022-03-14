@@ -1,9 +1,9 @@
 class Activemq < Formula
   desc "Apache ActiveMQ: powerful open source messaging server"
   homepage "https://activemq.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=activemq/5.16.4/apache-activemq-5.16.4-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/activemq/5.16.4/apache-activemq-5.16.4-bin.tar.gz"
-  sha256 "f8e04d8a810141b386a5c9c3960b5f01e8fe73461f4c99b191e115d493840701"
+  url "https://www.apache.org/dyn/closer.lua?path=activemq/5.17.0/apache-activemq-5.17.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/activemq/5.17.0/apache-activemq-5.17.0-bin.tar.gz"
+  sha256 "eb06abd7f45efad42f4f56b671fee7dff4ccac387e0765b1d256e19bea66f897"
   license "Apache-2.0"
 
   bottle do
