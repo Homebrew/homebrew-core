@@ -2,7 +2,7 @@ class Dockutil < Formula
   desc "Tool for managing dock items"
   homepage "https://github.com/kcrawford/dockutil"
   url "https://github.com/kcrawford/dockutil/archive/refs/tags/3.0.2.tar.gz"
-  sha256 "175137ea747e83ed221d60b18b712b256ed31531534cde84f679487d337668fd"
+  sha256 "8d0117fccd836a14782107bdd3619df17dd4708470e3522f5b2ab0456769ba79"
   license "Apache-2.0"
 
   livecheck do
