@@ -19,6 +19,16 @@ class Libdv < Formula
 
   depends_on "popt"
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+  end
+
+  # remove SDL1 dependency by force
+  patch :DATA
+
   def install
     if OS.mac?
       # This fixes an undefined symbol error on compile.
@@ -27,6 +37,7 @@ class Libdv < Formula
       # This flag is the preferred method over what macports uses.
       # See the apple docs: https://cl.ly/2HeF bottom of the "Finding Imported Symbols" section
       ENV.append "LDFLAGS", "-undefined dynamic_lookup"
+      system "autoreconf", "-fvi"
     end
 
     system "./configure", "--disable-dependency-tracking",
@@ -38,3 +49,23 @@ class Libdv < Formula
     system "make", "install"
   end
 end
+
+__END__
+diff --git a/configure.ac b/configure.ac
+index 2b95735..1ba9370 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -173,13 +173,6 @@ dnl used in Makefile.am
+ AC_SUBST(GTK_CFLAGS)
+ AC_SUBST(GTK_LIBS)
+ 
+-if $use_sdl; then
+-	AM_PATH_SDL(1.1.6,
+-	[
+-		AC_DEFINE(HAVE_SDL) 
+- 	])
+-fi
+-
+ if [ $use_gtk && $use_xv ]; then
+ 	AC_CHECK_LIB(Xv, XvQueryAdaptors,
+ 		[AC_DEFINE(HAVE_LIBXV)
