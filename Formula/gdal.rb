@@ -68,12 +68,6 @@ class Gdal < Formula
 
   fails_with gcc: "5"
 
-  # Support hdf5 1.13, remove in next release
-  patch :p2 do
-    url "https://github.com/OSGeo/gdal/commit/2ad92c8d1afe8e36c5f075034c0938da4eff94f0.patch?full_index=1"
-    sha256 "9adf69784da0b5d0fdc6c418f61690f8f017a6fe5d01337b4cc68a8047e93e16"
-  end
-
   def install
     args = [
       # Base configuration
