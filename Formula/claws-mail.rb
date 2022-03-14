@@ -1,8 +1,8 @@
 class ClawsMail < Formula
   desc "User-friendly, lightweight, and fast email client"
   homepage "https://www.claws-mail.org/"
-  url "https://www.claws-mail.org/releases/claws-mail-3.18.0.tar.gz"
-  sha256 "f107deec1f0debfae77f7f0022aef713f85a5b1f7d0b1a0e98f6eebe1e3556f2"
+  url "https://www.claws-mail.org/releases/claws-mail-4.0.0.tar.gz"
+  sha256 "6f04364715f97acd8c26c7edd61a57598d926f57e796c03bb9d9080cfa3dc894"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -23,13 +23,19 @@ class ClawsMail < Formula
   depends_on "cairo"
   depends_on "glib"
   depends_on "gnutls"
-  depends_on "gtk+"
+  depends_on "gtk+3"
   depends_on "libetpan"
   depends_on "nettle"
 
+  # Fix compile on non-X11 platforms (macOS).
+  # https://www.thewildbeast.co.uk/claws-mail/bugzilla/show_bug.cgi?id=4505
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a9cc349d382629ff1e5c805b6f699f0c4a65a0e3/claws-mail/4.0.0-macos.patch"
+    sha256 "36f37cf26343b2b5fe51b6a8b3aa28c5824ecd655109d9e8f6cd88d24b2d351f"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "LDFLAGS=-Wl,-framework -Wl,Security",
                           "--disable-archive-plugin",
                           "--disable-dillo-plugin",
                           "--disable-notification-plugin"
