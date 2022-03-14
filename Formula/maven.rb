@@ -12,12 +12,12 @@ class Maven < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e032d44f0fef2a59373945e95b7f7522e4dc95069498b54fe9075d065883b5d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6e032d44f0fef2a59373945e95b7f7522e4dc95069498b54fe9075d065883b5d"
-    sha256 cellar: :any_skip_relocation, monterey:       "ff38bb52b93216582dbd13fb00be5679090ac4b66f7e7c5c8cae5f70626238bb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ff38bb52b93216582dbd13fb00be5679090ac4b66f7e7c5c8cae5f70626238bb"
-    sha256 cellar: :any_skip_relocation, catalina:       "ff38bb52b93216582dbd13fb00be5679090ac4b66f7e7c5c8cae5f70626238bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e032d44f0fef2a59373945e95b7f7522e4dc95069498b54fe9075d065883b5d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2cebb1dc17611d23752838368125c5b5cf96b520724492aefa7bd23c5074e897"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2cebb1dc17611d23752838368125c5b5cf96b520724492aefa7bd23c5074e897"
+    sha256 cellar: :any_skip_relocation, monterey:       "2f45f971e0d4f54b3200f7f0b1e99d793c4882200a44cba2f1c0b95daae264bf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2f45f971e0d4f54b3200f7f0b1e99d793c4882200a44cba2f1c0b95daae264bf"
+    sha256 cellar: :any_skip_relocation, catalina:       "2f45f971e0d4f54b3200f7f0b1e99d793c4882200a44cba2f1c0b95daae264bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cebb1dc17611d23752838368125c5b5cf96b520724492aefa7bd23c5074e897"
   end
 
   depends_on "openjdk"
