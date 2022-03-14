@@ -7,13 +7,11 @@ class Afsctool < Formula
   head "https://github.com/RJVB/afsctool.git"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "01af9a80d59e870a48adcbf1eb0cba0a3dd0a4013df397114c4c0f21f16e3916"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e7d401a4f723f58ad588e5b2fb5b19c6d76e7faed0385d0b3eef59d1f933e1ee"
-    sha256 cellar: :any_skip_relocation, catalina:      "f418e15be4bafdcb1a85e14c3148c8d4af1b300bd6ed3e4a30eca3725459ac48"
-    sha256 cellar: :any_skip_relocation, mojave:        "15c264a828ed98a42cc5ac68869c16b8306f73effe108e50bb1f731574311c51"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "72e92414d524b82ec1d8381ad50f55bd330f1109a5e10bca4235300fee557caf"
-    sha256 cellar: :any_skip_relocation, sierra:        "96437b04a2974c215979550d3d70b4c8e3f609e76954ca41059c6f246da452ee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb8354b43a3be62e15b67539367e0fc34fa818f56b758f5d8875811d1eb683d2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ad2029644ef5a0597750a5ef27f4da1f04441a49c2b9da63cf9d75e342ecff7"
+    sha256 cellar: :any_skip_relocation, monterey:       "0a31f139ac8d56aa796446d6458f02a7a700d425e33e66824b407deeece709a9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4d4d08188fb559874d969a3e17ec43f3758f2f884db81a917cb839fa2da0d3b2"
+    sha256 cellar: :any_skip_relocation, catalina:       "699723059b23cd7c9b91df35a38d0f0d308c61dc6ee3bcadd18b893ace2c9757"
   end
 
   depends_on "cmake" => :build
