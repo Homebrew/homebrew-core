@@ -6,12 +6,12 @@ class Feedgnuplot < Formula
   license any_of: ["GPL-1.0-or-later", "Artistic-1.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4e173e7fe3dc5d0c2a875cd8607b1f06e933242aff823d74615666f4675ae31"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1dac5f96953b5707c4e8a78bf674d6e767a870693ca438eef83fb251cda40311"
-    sha256 cellar: :any_skip_relocation, monterey:       "e4e173e7fe3dc5d0c2a875cd8607b1f06e933242aff823d74615666f4675ae31"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1dac5f96953b5707c4e8a78bf674d6e767a870693ca438eef83fb251cda40311"
-    sha256 cellar: :any_skip_relocation, catalina:       "f2cade7e47e498c9bd2590f2f44cec6e8546b6b70670d8915175fc61c9e51695"
-    sha256 cellar: :any_skip_relocation, mojave:         "488ac3106785ec103d653bec7ff854e3678583489c4f0e5320c8d984bbdda9ce"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e212950a0f1582e5ae1f1f469689830021b645f736ede9d0bcbff87d25ccf80"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffe0156164eea01d2646d88d19406d2cb662643584101e8faf57143ef27b365a"
+    sha256 cellar: :any_skip_relocation, monterey:       "6e212950a0f1582e5ae1f1f469689830021b645f736ede9d0bcbff87d25ccf80"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ffe0156164eea01d2646d88d19406d2cb662643584101e8faf57143ef27b365a"
+    sha256 cellar: :any_skip_relocation, catalina:       "15285bb2dc9eb7d54e0c065b0c7215af2cb013a05d438ebf127e0e9dc961ac8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36aa23ed676ec6497102bf43e2b09fb5ca1c21207611407b7a4aacbdaae99725"
   end
 
   depends_on "gnuplot"
