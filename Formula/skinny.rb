@@ -1,6 +1,6 @@
 class Skinny < Formula
   desc "Full-stack web app framework in Scala"
-  homepage "http://skinny-framework.org/"
+  homepage "https://skinny-framework.github.io"
   url "https://github.com/skinny-framework/skinny-framework/releases/download/4.0.0/skinny-4.0.0.tar.gz"
   sha256 "7d1370856927e2768c30be15c38dfbd5e322bc6eaf9b5ef14e69ddf2ddc91520"
   license "MIT"
@@ -14,12 +14,10 @@ class Skinny < Formula
   def install
     inreplace %w[skinny skinny-blank-app/skinny], "/usr/local", HOMEBREW_PREFIX
     libexec.install Dir["*"]
-    (bin/"skinny").write <<~EOS
-      #!/bin/bash
-      export PATH=#{bin}:$PATH
-      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-      PREFIX="#{libexec}" exec "#{libexec}/skinny" "$@"
-    EOS
+
+    skinny_env = Language::Java.overridable_java_home_env
+    skinny_env.merge!(PATH: "#{bin}:${PATH}", PREFIX: libexec)
+    (bin/"skinny").write_env_script libexec/"skinny", skinny_env
   end
 
   test do
