@@ -16,7 +16,8 @@ class Skinny < Formula
     libexec.install Dir["*"]
 
     skinny_env = Language::Java.overridable_java_home_env
-    skinny_env.merge!(PATH: "#{bin}:${PATH}", PREFIX: libexec)
+    skinny_env[:PATH] = "#{bin}:${PATH}"
+    skinny_env[:PREFIX] = libexec
     (bin/"skinny").write_env_script libexec/"skinny", skinny_env
   end
 
