@@ -7,12 +7,12 @@ class Lima < Formula
   head "https://github.com/lima-vm/lima.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d3b0346a25af72795b616858df16ad511a946e8e63b2308885883542f4928ca"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ec75bb007588f14fbabf53ae1906e3732c4d1bd75b64f9cd557281cba5cbf94"
-    sha256 cellar: :any_skip_relocation, monterey:       "4e87b30ec6f63bf786d34a0bcfc9b0574db143921ac5736c5ee00cdd785fcaed"
-    sha256 cellar: :any_skip_relocation, big_sur:        "377dd6a306e528d521b8d1153ba75a931852df7ffad2327ca29b56ffd60a23c1"
-    sha256 cellar: :any_skip_relocation, catalina:       "d764fd87f6ffe79e3e3ac699e9733b5b83ee9614a6bb360e44d643b34ac444ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4bc946f292fd7b28213740e611890783a367358dc28b82493c2d45c1d5451a0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "980ed1038f56923a830b2016c14bb1693b3cfd483e4902b95b124e9c58b936b6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e9819038a44a85734b55c7cf880797bf1f99ff672b0874c74e152e3640b4c9f"
+    sha256 cellar: :any_skip_relocation, monterey:       "14ae542f9998529ed0952cef4c74ea6bd28a99fbe15655e81421dfc7964ec114"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cfe45877c3777db3633c52967df098a5d6abcbe04ec0afa5f84fc112faf1d8a5"
+    sha256 cellar: :any_skip_relocation, catalina:       "0d35c0b10d4892034f7a9717b239457b099aa35415e228fb5ae79f93012f21fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bde2974f9446d7a4ba2b7d3c3f9e6af74f3eff3d823c079bf0ea1bd6b00630e"
   end
 
   depends_on "go" => :build
