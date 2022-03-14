@@ -7,10 +7,12 @@ class SwaggerCodegen < Formula
   head "https://github.com/swagger-api/swagger-codegen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "281a75df638297b421855c95d780f05bb9714ac6919230546b0d205506bf7a01"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e80155974fcec90421a52331825434df64e330df59967d685de26f013aeb3a50"
-    sha256 cellar: :any_skip_relocation, catalina:      "e7ce3919562e4d24b059bb30fd82b750f3d64ae01715f9bacee9b716cb5f4603"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4680b8f20c9b2f35d5f1119db4cd7bdf5a0dbff03708a3609ee47c2fe9eff4cd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "23e302324f6b1aa892e6cca34fc3a34a8a676c9e5ce474430817660f1d80adfd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "281a75df638297b421855c95d780f05bb9714ac6919230546b0d205506bf7a01"
+    sha256 cellar: :any_skip_relocation, monterey:       "9f22bbd9255c1d7635f684a9b441fdac1ebbcf5fcb32bb967d15010a801f487a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e80155974fcec90421a52331825434df64e330df59967d685de26f013aeb3a50"
+    sha256 cellar: :any_skip_relocation, catalina:       "e7ce3919562e4d24b059bb30fd82b750f3d64ae01715f9bacee9b716cb5f4603"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4680b8f20c9b2f35d5f1119db4cd7bdf5a0dbff03708a3609ee47c2fe9eff4cd"
   end
 
   depends_on "maven" => :build
