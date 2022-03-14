@@ -1,10 +1,11 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.4.6/hbase-2.4.6-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hbase/2.4.6/hbase-2.4.6-bin.tar.gz"
-  sha256 "536e5a3e72da29a4978a91075d4afe7478f56b4893470dd70ec0dcfd2dc2b939"
-  license "Apache-2.0"
+  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.4.10/hbase-2.4.10-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hbase/2.4.10/hbase-2.4.10-bin.tar.gz"
+  sha256 "7ea25b264c9d934f6d4ea25362ea8ede38b1c527747f55e4aa1ec9a700082219"
+  # We bundle hadoop-lzo which is GPL-3.0-or-later
+  license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
   bottle do
     sha256 arm64_big_sur: "cd254857676c86bba7937f4eb8fa6832b917a5ecd60a1d3bfc22b6c8d3ff99c8"
@@ -25,17 +26,24 @@ class Hbase < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/b89da3afad84bbf69deed0611e5dddaaa5d39325/hbase/build.xml.patch"
       sha256 "d1d65330a4367db3e17ee4f4045641b335ed42449d9e6e42cc687e2a2e3fa5bc"
     end
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+      directory "src/native"
+    end
   end
 
   def install
-    java_home = Formula["openjdk@11"].opt_prefix
+    java_home = Language::Java.java_home("11")
     rm_f Dir["bin/*.cmd", "conf/*.cmd"]
     libexec.install %w[bin conf lib hbase-webapps]
 
     # Some binaries have really generic names (like `test`) and most seem to be
     # too special-purpose to be permanently available via PATH.
     %w[hbase start-hbase.sh stop-hbase.sh].each do |script|
-      (bin/script).write_env_script "#{libexec}/bin/#{script}", JAVA_HOME: "${JAVA_HOME:-#{java_home}}"
+      (bin/script).write_env_script libexec/"bin"/script, Language::Java.overridable_java_home_env("11")
     end
 
     resource("hadoop-lzo").stage do
