@@ -1,10 +1,9 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/3.4.1/gdal-3.4.1.tar.xz"
-  sha256 "332f053516ca45101ef0f7fa96309b64242688a8024780a5d93be0230e42173d"
+  url "https://download.osgeo.org/gdal/3.4.2/gdal-3.4.2.tar.xz"
+  sha256 "16baf03dfccf9e3f72bb2e15cd2d5b3f4be0437cdff8a785bceab0c7be557335"
   license "MIT"
-  revision 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -68,12 +67,6 @@ class Gdal < Formula
   conflicts_with "cpl", because: "both install cpl_error.h"
 
   fails_with gcc: "5"
-
-  # Support hdf5 1.13, remove in next release
-  patch :p2 do
-    url "https://github.com/OSGeo/gdal/commit/2ad92c8d1afe8e36c5f075034c0938da4eff94f0.patch?full_index=1"
-    sha256 "9adf69784da0b5d0fdc6c418f61690f8f017a6fe5d01337b4cc68a8047e93e16"
-  end
 
   def install
     args = [
