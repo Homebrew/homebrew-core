@@ -13,6 +13,7 @@ class Logstash < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "4f0650dc1954ead75ebc78a8fa82a386b1126162c1e84f9abc018abeafc7111e"
     sha256 cellar: :any,                 big_sur:      "16a0784cac36cac4f63ed04e5bd3c34f007184da525f7f6cf8209489ab917e95"
     sha256 cellar: :any,                 catalina:     "51b3049ae3b47b4cfe5f2af2c4d27908e0deb084184392e7edae97e7cc2698c0"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "45dba95a34b5a20ccc228168735ac903996cda958c9021957eb68f30f11b4df4"
