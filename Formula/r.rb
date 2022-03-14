@@ -20,6 +20,7 @@ class R < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "texinfo" => :build
   depends_on "cairo"
   depends_on "gcc" # for gfortran
   depends_on "gettext"
@@ -65,6 +66,7 @@ class R < Formula
     if OS.mac?
       args << "--without-x"
       args << "--with-aqua"
+      ENV.prepend_path "PATH", "/Library/TeX/texbin" if File.exist? "/Library/TeX/texbin/tex"
     else
       args << "--libdir=#{lib}" # avoid using lib64 on CentOS
 
