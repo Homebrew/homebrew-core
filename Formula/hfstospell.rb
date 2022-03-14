@@ -11,12 +11,12 @@ class Hfstospell < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5314d28a778d6de8ab6b65101bade00515431c3416edd2da9e13255c5b7b4d87"
-    sha256 cellar: :any,                 arm64_big_sur:  "226621aba0afcb9a7a23e65b7af3c73369e6eca5ccd80f452effac5b8ce618c4"
-    sha256 cellar: :any,                 monterey:       "283661bedee8725b2e6d6644135c7c1496b52b3b2c55132f5e4d4d73ad91d341"
-    sha256 cellar: :any,                 big_sur:        "be7e07d571a2094bbd9c0d86defa90f7132a090e53c21b6bc4ae895b83b41321"
-    sha256 cellar: :any,                 catalina:       "842b60f97791b893cdac47ce6b02e25c498f76bfff30aa1e0c7f2c7496ce2c3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23c4748cd6148ace09310e44959b0af790174f125735cd9a523c68606520ca92"
+    sha256 cellar: :any,                 arm64_monterey: "39ee3dc725cb4535ab7750e6f9f029526c99dbd36272d3bebad6bd29cc1c94e6"
+    sha256 cellar: :any,                 arm64_big_sur:  "7b19c0410b74db35223a040b64d82fa5cbadba8f887c628b91088dfff5ff24ab"
+    sha256 cellar: :any,                 monterey:       "670813eb672ef2483f9a4e445bedadd75a45f20c6e4285740b5f95a4c676c638"
+    sha256 cellar: :any,                 big_sur:        "b29f67a02688c05044d90f26e34f9e741b99d51d6573f5e2a687f43370eaa265"
+    sha256 cellar: :any,                 catalina:       "934c5346eef7db979bc0dfc2ef6945731b58433fd5f223e5d4eb736207eadb2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8528124f05e18a4bc62ba750c190b6264bf8b7cbdc11032426844a20dc1b42fe"
   end
 
   depends_on "autoconf" => :build
