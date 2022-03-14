@@ -6,10 +6,12 @@ class JavaServiceWrapper < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "936b138d8bbd524fe0c676b6f47ef5a4c67404fa11d3a3d88240800489a0e23f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "404c97324a4b76bfe9a2799a65d779a4cbff8762ded3f1e7fa0418c6cf98fe0f"
-    sha256 cellar: :any_skip_relocation, catalina:      "3dd1fe51ccdd44b60bdb9bd1e6f9419868a39066f72e477cb85d41db95a68f33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "775861a1213aba71ce9605bd2aed80f78cd0110ed0490b328823399f36efefe8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f84b04de30d5752338cb1fe363604a0e2fac4ad5448891b43cf2db24d2ec3a09"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "936b138d8bbd524fe0c676b6f47ef5a4c67404fa11d3a3d88240800489a0e23f"
+    sha256 cellar: :any_skip_relocation, monterey:       "51f23410153cd00c6cf80821ab3732db0f25792271e4a13208c07a5dbe890b5d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "404c97324a4b76bfe9a2799a65d779a4cbff8762ded3f1e7fa0418c6cf98fe0f"
+    sha256 cellar: :any_skip_relocation, catalina:       "3dd1fe51ccdd44b60bdb9bd1e6f9419868a39066f72e477cb85d41db95a68f33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "775861a1213aba71ce9605bd2aed80f78cd0110ed0490b328823399f36efefe8"
   end
 
   depends_on "ant" => :build
