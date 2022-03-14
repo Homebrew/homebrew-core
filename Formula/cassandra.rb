@@ -10,10 +10,12 @@ class Cassandra < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "295d78b46ac3bca4c9d86f2ed95e4cdb674460eeb233a910b0eeee11954bf1bb"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a05b39bcb9190959ee54ca9e51d304fc355aa7685abb4811a728522f74f9276a"
-    sha256 cellar: :any_skip_relocation, catalina:      "6d9552d54cb712149d01ad9014911af25fb47f00604943db15f91bd81ce6ba21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8719f63db4e26e335895e243ce9f317b448cf9eeb83559530d6126e96ebe25dd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8cb489bf79d79223b5fce541a8a18923073e6369f5220434bf73dd2a386694dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "295d78b46ac3bca4c9d86f2ed95e4cdb674460eeb233a910b0eeee11954bf1bb"
+    sha256 cellar: :any_skip_relocation, monterey:       "a4eb8863783ca5c855e4e08176cd0f96da0a3fa2311f71c869527ff30469621e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a05b39bcb9190959ee54ca9e51d304fc355aa7685abb4811a728522f74f9276a"
+    sha256 cellar: :any_skip_relocation, catalina:       "6d9552d54cb712149d01ad9014911af25fb47f00604943db15f91bd81ce6ba21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8719f63db4e26e335895e243ce9f317b448cf9eeb83559530d6126e96ebe25dd"
   end
 
   depends_on "cython" => :build
