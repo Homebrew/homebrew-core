@@ -7,12 +7,12 @@ class Rover < Formula
   head "https://github.com/apollographql/rover.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "648a4fa8414956578ae05f1c28e52b7d9a8f1409fade31943c682b2d30fdb8b2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28881b4046f8076c02bbfb9a25caa77599d37eb4945fb8c93a8e94ccfdc54861"
-    sha256 cellar: :any_skip_relocation, monterey:       "3f60aff44642c1b710c29e9ee843d81d6a7663c2eb3ec3622d8bc30003bad46a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8efed2ad0ef8a638f49235bc02131690bb2967bb56dd28b56bf139fe4fb40389"
-    sha256 cellar: :any_skip_relocation, catalina:       "ad9cf46dc67b70b71449adcd2ff2b407e84bad8d629e44e27359550d74080b15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e27ecb89572553012e7a6cdf63476d16ea8e254606cedee4a018c5cb6db8ded3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "301927260be3f62e97543a20494f2b2c9dbd600806ba5fc5e0b8929b29ad78cc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6908740e8b77eb540549bad67494a4138da5620c9f2cfd0f6a01a88536bb13f0"
+    sha256 cellar: :any_skip_relocation, monterey:       "5cd0455ebf21f1dfc51dadd9f136d0855ef9dbe88b3c01bb5443f4d30b7e3130"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b622853c27b15d509fd924825eab7d2a62c7b0eebe03f90821c95c66c42579de"
+    sha256 cellar: :any_skip_relocation, catalina:       "e4b27ab77b089f555617e0cb26a9013a4be0e70f44ae12878ce508af6a0320d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11bc79786da2ab8b392f63b07011eec8a2a6e7802634d437de9cc84a2522ce33"
   end
 
   depends_on "rust" => :build
