@@ -24,8 +24,7 @@ class Sourcekitten < Formula
   end
 
   test do
-    # Rewrite test after sandbox issues investigated.
-    # https://github.com/Homebrew/homebrew/pull/50211
-    system "#{bin}/sourcekitten", "version"
+    system("#{bin}/sourcekitten", "version")
+    system({"IN_PROCESS_SOURCEKIT" => "YES"}, "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World")
   end
 end
