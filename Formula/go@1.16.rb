@@ -6,11 +6,6 @@ class GoAT116 < Formula
   sha256 "90a08c689279e35f3865ba510998c33a63255c36089b3ec206c912fc0568c3d3"
   license "BSD-3-Clause"
 
-  livecheck do
-    url "https://golang.org/dl/"
-    regex(/href=.*?go[._-]?v?(1\.16(?:\.\d+)*)[._-]src\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d0500786661f7cddfc20403a9daa9af648404e0564363783fb7d9fc44e884fe3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5dcd84f44f1231cf1d32cbe6ca5d5f158de11efe7ea24b1ae24b4ede68cc6361"
@@ -21,6 +16,8 @@ class GoAT116 < Formula
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2022-03-15", because: :unsupported
 
   depends_on "go" => :build
 
