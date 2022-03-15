@@ -1,9 +1,11 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.13/hdf5-1.13.0/src/hdf5-1.13.0.tar.bz2"
-  sha256 "1826e198df8dac679f0d3dc703aba02af4c614fd6b7ec936cf4a55e6aa0646ec"
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.1/src/hdf5-1.12.1.tar.bz2"
+  sha256 "aaf9f532b3eda83d3d3adc9f8b40a9b763152218fa45349c3bc77502ca1f8f1c"
   license "BSD-3-Clause"
+  revision 1
+  version_scheme 1
 
   # This regex isn't matching filenames within href attributes (as we normally
   # do on HTML pages) because this page uses JavaScript to handle the download
@@ -26,7 +28,7 @@ class Hdf5 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
-  depends_on "szip"
+  depends_on "libaec"
 
   uses_from_macos "zlib"
 
@@ -34,31 +36,31 @@ class Hdf5 < Formula
 
   def install
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
-      "${libdir}/libhdf5.settings",
-      "#{pkgshare}/libhdf5.settings"
+              "${libdir}/libhdf5.settings",
+              "#{pkgshare}/libhdf5.settings"
 
     inreplace "src/Makefile.am",
               "settingsdir=$(libdir)",
               "settingsdir=#{pkgshare}"
 
-    system "autoreconf", "-fiv"
+    system "autoreconf", "--force", "--install", "--verbose"
 
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
-      --with-szlib=#{Formula["szip"].opt_prefix}
       --enable-build-mode=production
       --enable-fortran
       --enable-cxx
+      --prefix=#{prefix}
+      --with-szlib=#{Formula["libaec"].opt_prefix}
     ]
     args << "--with-zlib=#{Formula["zlib"].opt_prefix}" if OS.linux?
 
     system "./configure", *args
 
     # Avoid shims in settings file
+    inreplace "src/libhdf5.settings", Superenv.shims_path/ENV.cxx, ENV.cxx
     inreplace "src/libhdf5.settings", Superenv.shims_path/ENV.cc, ENV.cc
-    inreplace "src/libhdf5.settings", Superenv.shims_path/ENV.cxx, ENV.cxx if OS.linux?
 
     system "make", "install"
   end
