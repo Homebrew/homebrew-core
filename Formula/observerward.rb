@@ -12,7 +12,7 @@ class Observerward < Formula
   end
 
   test do
-    system "#{bin}/observer_ward","-u"
-    assert_match "status_code", shell_output("#{bin}/observer_ward -t https://httpbin.org")
+    system "#{bin}/observer_ward", "-u"
+    assert_match "swagger", shell_output("#{bin}/observer_ward -t https://httpbin.org")
   end
 end
