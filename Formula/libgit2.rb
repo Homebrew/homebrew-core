@@ -4,6 +4,7 @@ class Libgit2 < Formula
   url "https://github.com/libgit2/libgit2/archive/v1.4.2.tar.gz"
   sha256 "901c2b4492976b86477569502a41c31b274b69adc177149c02099ea88404ef19"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/libgit2/libgit2.git", branch: "main"
 
   livecheck do
@@ -28,6 +29,7 @@ class Libgit2 < Formula
     args = std_cmake_args
     args << "-DBUILD_EXAMPLES=YES"
     args << "-DBUILD_CLAR=NO" # Don't build tests.
+    args << "-DUSE_SSH=YES"
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -45,9 +47,11 @@ class Libgit2 < Formula
   test do
     (testpath/"test.c").write <<~EOS
       #include <git2.h>
+      #include <assert.h>
 
       int main(int argc, char *argv[]) {
         int options = git_libgit2_features();
+        assert(options & GIT_FEATURE_SSH);
         return 0;
       }
     EOS
