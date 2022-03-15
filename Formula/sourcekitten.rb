@@ -2,8 +2,8 @@ class Sourcekitten < Formula
   desc "Framework and command-line tool for interacting with SourceKit"
   homepage "https://github.com/jpsim/SourceKitten"
   url "https://github.com/jpsim/SourceKitten.git",
-      tag:      "0.31.1",
-      revision: "558628392eb31d37cb251cfe626c53eafd330df6"
+      tag:      "0.32.0",
+      revision: "817dfa6f2e09b0476f3a6c9dbc035991f02f0241"
   license "MIT"
   head "https://github.com/jpsim/SourceKitten.git", branch: "master"
 
@@ -15,7 +15,7 @@ class Sourcekitten < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "32a08155e2e970e2c56dfe6007d1937366aac7e53f42dbbca2dbba5a5b799506"
   end
 
-  depends_on xcode: ["11.4", :build]
+  depends_on xcode: ["12.0", :build]
   depends_on :macos
   depends_on xcode: "6.0"
 
@@ -24,8 +24,10 @@ class Sourcekitten < Formula
   end
 
   test do
-    # Rewrite test after sandbox issues investigated.
-    # https://github.com/Homebrew/homebrew/pull/50211
     system "#{bin}/sourcekitten", "version"
+    return if MacOS::Xcode.version < 13
+
+    ENV["IN_PROCESS_SOURCEKIT"] = "YES"
+    system "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World"
   end
 end
