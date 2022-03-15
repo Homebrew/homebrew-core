@@ -21,16 +21,25 @@ class Libphonenumber < Formula
 
   depends_on "cmake" => :build
   depends_on "googletest" => :build
+  depends_on "abseil"
   depends_on "boost"
   depends_on "icu4c"
   depends_on "protobuf"
   depends_on "re2"
 
+  patch do
+    url "https://git.alpinelinux.org/aports/plain/community/libphonenumber/system-abseil.patch"
+    sha256 "71eb97590a93bf1aca289e9646aaa5e002e37a3d49c4c6ef99ecfe4e0450bd16"
+  end
+
   def install
     ENV.cxx11
-    system "cmake", "cpp", "-DGTEST_INCLUDE_DIR=#{Formula["googletest"].include}",
-                           *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", "cpp", "-B", "build",
+                    "-DGTEST_INCLUDE_DIR=#{Formula["googletest"].include}",
+                    "-DUSE_RE2=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -56,7 +65,8 @@ class Libphonenumber < Formula
         }
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lphonenumber", "-o", "test"
+    system ENV.cxx, "-std=c++17", "-I#{Formula["abseil"].opt_include}", "test.cpp",
+                    "-L#{lib}", "-lphonenumber", "-o", "test"
     system "./test"
   end
 end
