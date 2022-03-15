@@ -6,11 +6,11 @@ class Libqalculate < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "94cfc754a3f82039c24a7438fb060615f38428d0e765e28bbecf47964cab0f95"
-    sha256 arm64_big_sur:  "f8f4df3fe84120fd30ee89176f52c48db4149166ae0a0096b3e9f00387906afc"
-    sha256 monterey:       "863c4c1ac56c73210d41bf7f9621de281f1303d8222028be5bb0a58e7e708815"
-    sha256 big_sur:        "b37c13c6a799cecf2904b9f3ca68ebaee386b12da7ca6cf11a41d097f6ec7852"
-    sha256 catalina:       "1237bc763a1519d58e2c9526ddd43ecabfae09113a509e602a4442ac56f8d5c6"
+    sha256 arm64_monterey: "8dc382a92e7576d2759f1221edbe700be0f35c5bdcf04c090bf1eeede54919e5"
+    sha256 arm64_big_sur:  "a7432784871c69b39bf020a67ad1a54da501c18d39fbe81c181b0a07376f40a4"
+    sha256 monterey:       "3c8f1def4eff72d19b079f7468e301e292c0b26b855b38128b09767f1a754af8"
+    sha256 big_sur:        "3d4dd5a0685bf6853624648432dbb6d24a9ad060585358e63161a810c292d309"
+    sha256 catalina:       "2da6f88c87a8c2e75e67065e4efcbd6b035bf9ce7b2f4bfe11b6fb12cf118dad"
   end
 
   depends_on "intltool" => :build
