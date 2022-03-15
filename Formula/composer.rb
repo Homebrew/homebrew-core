@@ -11,12 +11,12 @@ class Composer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6cf3c6daa22a5d869ea1b8a673e7752cd2b63e27a74d3a334f0e8dda887c6018"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6cf3c6daa22a5d869ea1b8a673e7752cd2b63e27a74d3a334f0e8dda887c6018"
-    sha256 cellar: :any_skip_relocation, monterey:       "34070d0e7467447054ea6014f6a02652656d8893199a932126f13eae2f21c962"
-    sha256 cellar: :any_skip_relocation, big_sur:        "34070d0e7467447054ea6014f6a02652656d8893199a932126f13eae2f21c962"
-    sha256 cellar: :any_skip_relocation, catalina:       "34070d0e7467447054ea6014f6a02652656d8893199a932126f13eae2f21c962"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cf3c6daa22a5d869ea1b8a673e7752cd2b63e27a74d3a334f0e8dda887c6018"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "57a78460873a704ac1b52b5f96934f6f8bade3caa8be3706aad3fb7ca72b0858"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57a78460873a704ac1b52b5f96934f6f8bade3caa8be3706aad3fb7ca72b0858"
+    sha256 cellar: :any_skip_relocation, monterey:       "e27cb618da0f2938cdf8dba2eba9b37086107f63d9450c3ffee590d984f038b2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e27cb618da0f2938cdf8dba2eba9b37086107f63d9450c3ffee590d984f038b2"
+    sha256 cellar: :any_skip_relocation, catalina:       "e27cb618da0f2938cdf8dba2eba9b37086107f63d9450c3ffee590d984f038b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57a78460873a704ac1b52b5f96934f6f8bade3caa8be3706aad3fb7ca72b0858"
   end
 
   depends_on "php"
