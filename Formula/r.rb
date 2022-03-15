@@ -21,9 +21,6 @@ class R < Formula
 
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
-  on_macos do
-    depends_on "texlive" => :build
-  end
   depends_on "cairo"
   depends_on "gcc" # for gfortran
   depends_on "gettext"
@@ -38,6 +35,10 @@ class R < Formula
 
   uses_from_macos "curl"
   uses_from_macos "icu4c"
+
+  on_macos do
+    depends_on "texlive" => :build
+  end
 
   on_linux do
     depends_on "pango"
