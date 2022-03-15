@@ -25,6 +25,9 @@ class Sourcekitten < Formula
 
   test do
     system("#{bin}/sourcekitten", "version")
-    system({"IN_PROCESS_SOURCEKIT" => "YES"}, "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World")
+    system(
+      { "IN_PROCESS_SOURCEKIT" => "YES" },
+      "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World"
+    )
   end
 end
