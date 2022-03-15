@@ -1,9 +1,9 @@
 class Icecream < Formula
   desc "Distributed compiler with a central scheduler to share build load"
   homepage "https://en.opensuse.org/Icecream"
-  url "https://github.com/icecc/icecream/archive/1.3.1.tar.gz"
-  sha256 "9f45510fb2251d818baebcff19051c1cf059e48c6b830fb064a8379480159b9d"
-  license "GPL-2.0"
+  url "https://github.com/icecc/icecream/archive/1.4.tar.gz"
+  sha256 "249dcf74f0fc477ff9735ff0bdcdfaa4c257a864c4db5255d8b25c9f4fd20b6b"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_monterey: "6b5da13231142d20828ebd59f265652015450bc61406b0cf15777014cada7ff2"
@@ -20,12 +20,12 @@ class Icecream < Formula
   depends_on "automake" => :build
   depends_on "docbook2x" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "libarchive"
   depends_on "lzo"
   depends_on "zstd"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "llvm" => :test
     depends_on "libcap-ng"
   end
