@@ -9,12 +9,12 @@ class Serverless < Formula
   head "https://github.com/serverless/serverless.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4c72e47da08e09876de81761113fb5cd311b669103d47d1d2efbaa5e04939a8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f4c72e47da08e09876de81761113fb5cd311b669103d47d1d2efbaa5e04939a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "51dc7fbac8a78453c1eefef3ba4c44ab2009f3d5145b76f5a5d6877a0b68a4c6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "51dc7fbac8a78453c1eefef3ba4c44ab2009f3d5145b76f5a5d6877a0b68a4c6"
-    sha256 cellar: :any_skip_relocation, catalina:       "51dc7fbac8a78453c1eefef3ba4c44ab2009f3d5145b76f5a5d6877a0b68a4c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb738f461385af4720fd0a1f68bd6a5682d31c709283c4bbd44a55497050585c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b5464e27827b8f7bb9eb67e52f976cd0e84d9506ac003927874c82432a917c3b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5464e27827b8f7bb9eb67e52f976cd0e84d9506ac003927874c82432a917c3b"
+    sha256 cellar: :any_skip_relocation, monterey:       "3783d6b2c9f84b993ecbfa966975476c2c40129592185b141d698503a0f3731f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3783d6b2c9f84b993ecbfa966975476c2c40129592185b141d698503a0f3731f"
+    sha256 cellar: :any_skip_relocation, catalina:       "3783d6b2c9f84b993ecbfa966975476c2c40129592185b141d698503a0f3731f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b78682ed3b6869d5da4939a11b1ca04cea41c6ac4e44ef32de6ad9a1f588f088"
   end
 
   depends_on "node"
