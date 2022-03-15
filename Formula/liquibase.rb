@@ -6,6 +6,11 @@ class Liquibase < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url "https://liquibase.org/download"
+    regex(/href=.*?liquibase[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "40742fcfbaed353ffa82fe4d69ea39ca7cba8cec316e6e30e9ab7e451b2f2ddf"
   end
