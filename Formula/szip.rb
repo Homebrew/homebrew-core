@@ -23,7 +23,11 @@ class Szip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c3487d85f941aa0fcdd567ae2801c7c147f2bb1d9cc55b1cb82bcce1eec3d9c"
   end
 
-  conflicts_with "libaec", because: "libaec provides a replacement for szip"
+  keg_only "szip conflicts with libaec, which provides an open-source replacement"
+
+  # https://support.hdfgroup.org/doc_resource/SZIP/Commercial_szip.html
+  # https://github.com/Homebrew/homebrew-core/issues/96930
+  deprecate! date: "2022-03-15", because: "has an incompatible license. Check out `libaec` instead"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -57,7 +61,7 @@ class Szip < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L", lib, "test.c", "-o", "test", "-lsz"
+    system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lsz"
     system "./test"
   end
 end
