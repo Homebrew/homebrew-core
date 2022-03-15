@@ -6,11 +6,11 @@ class QalculateGtk < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "beb7ce63f37ed90091ce6e532f6e0b5a8bd456ecd45f0168ddb56d1aa6a0172c"
-    sha256 arm64_big_sur:  "c23118504c013f91448dd4adc9e71e5e3132c6cb16971aae9156b049d9f998d6"
-    sha256 monterey:       "a12d3155d392672125b59f8cea3340da6fc1b457d7ef210174ab7fe8a2de639d"
-    sha256 big_sur:        "268c069a300fed37259e2033fc80751488e9c15e8f51724bcc4509db7c94a650"
-    sha256 catalina:       "bfdece419f5a09959d20d637704d51747bb23cd244b66650aef60bc88f144e72"
+    sha256 arm64_monterey: "815aaa872c769fe92a4ebcdc05302eded0719cc31391426854023160bb587f94"
+    sha256 arm64_big_sur:  "d7d42d9c0cabcb83b8ca07d450bc97065bb16646be7a5339c59cc114afe23947"
+    sha256 monterey:       "5e56e60f9d551607f55257e0b2cc6a07b03bfeaaf4acf18949597dc63eba35fa"
+    sha256 big_sur:        "49b4f3146e8c166880801fbe2b5962df83c79ff0b6cbe87ec59c23c8fe4e15be"
+    sha256 catalina:       "81d643833a88969558f9417cfcf230fa4b83c23be9d2028da02af2395235c093"
   end
 
   depends_on "intltool" => :build
