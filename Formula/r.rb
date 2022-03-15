@@ -21,7 +21,7 @@ class R < Formula
 
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
-  depends_on "texlive" => :build
+  depends_on "texlive" => :build if OS.mac?
   depends_on "cairo"
   depends_on "gcc" # for gfortran
   depends_on "gettext"
