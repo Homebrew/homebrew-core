@@ -6,12 +6,12 @@ class Azcopy < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a30ed73bc46457cd5ef7869b1e32bd66a65caead10ecedefb1271bd8530fe8d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81b8ff92efa9acca3b59bfc20b36d0f1b70414a7bae971e7c2d885b43eb28b31"
-    sha256 cellar: :any_skip_relocation, monterey:       "ca64963640de4fecdb739f22dee63adfe4d70d73f9cbc26de4028a7f7fe03031"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cfad91024a726f0de4c3fde52076523bd605aecbbd4fa1e7f2bafab9616b96ca"
-    sha256 cellar: :any_skip_relocation, catalina:       "8fb9b33febb213977acd5d0533d89f951b2b07c113ff79836711edee5bdc408f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e74485941ea1280930a3506aa256a3bf311225f09ff70a1bc1e2a4691830f3e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c088ae07f46e676d90f6c9dcd104b2c77d5e8174a8cd06e890d8c0f0059e50d0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a051632c48668b7665e0626da21fd1db04d13bce85568032cbdbd7c09c0a405d"
+    sha256 cellar: :any_skip_relocation, monterey:       "6a9004e902d55f71dfe5d533b245d2327898213941448e0a02ef12d3773a7233"
+    sha256 cellar: :any_skip_relocation, big_sur:        "829202256ed5cfb0c7b08c130dec058912d0d78e5fbd8163a053369747690d59"
+    sha256 cellar: :any_skip_relocation, catalina:       "e7a53b2e80471386c06b5b6b0c257cbeeb1eb2e1f4ffdcd9c9232323d7e4ccc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67c0752afecd0bfeecf7485616612888e5c7d9690993fa9d476bd394c8a83625"
   end
 
   depends_on "go" => :build
