@@ -6,11 +6,12 @@ class RakudoStar < Formula
   license "Artistic-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "13f29562a836448fb820c7efa93eb2fd635eda7b428635bce9002ccac1e28a6a"
-    sha256 big_sur:       "a7dd4d2139e570762a78b60e505f62e581825732768ae49b4f9ca2ffc52bbb23"
-    sha256 catalina:      "40bf7dfbdda3c1091dc5d4b8fd5a776ca8e6ba722b48fb7c536deb1914263096"
-    sha256 mojave:        "4bb9fd2754e328dca6a7199f900a85bea5a673bd7ee4a1f47e330144eee81cff"
-    sha256 x86_64_linux:  "1b05bf9ce1cf2b663b0f7c2b25332352db5a4e848df0b49b7b55ed49c298e5d1"
+    sha256 arm64_monterey: "c9b64b922ecd90d9fdf216957f1f4eac36550e72c0c8bf8ad734a40d9f36fe67"
+    sha256 arm64_big_sur:  "7bd7f7d2530c7daabbcc92eab0b2bef5a12e87081e292d2c677c26b498d6279e"
+    sha256 monterey:       "1c89d13394cb956e2f84601aca508be1e172862da4dcd5e9328684935beddb7c"
+    sha256 big_sur:        "7bcae40d6e519d5eeb262d7fbe680612fd3e1d8c83e1bd44d9f1f2e949c85e7c"
+    sha256 catalina:       "7627c1c3b28e9fe804792535ae1e637c5950401285a97a5fc1fd118724f05d77"
+    sha256 x86_64_linux:   "65b324dd0afd9213b9ba82c229b9c8edeecd28ec0092d0c48da72e36f57d3185"
   end
 
   depends_on "bash" => :build
