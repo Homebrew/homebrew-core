@@ -6,12 +6,12 @@ class Bupstash < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "85d6ea7c7ea61a305cd2b977cb317119014476f8dda7266abb69c15537a00672"
-    sha256 cellar: :any,                 arm64_big_sur:  "0f9c7184cfb4ee251948a6795419cd35559f59ffa858d1899f431262e74fa57c"
-    sha256 cellar: :any,                 monterey:       "c0328dd66273382f9bf95f7b383aa213995304a5ab212cbebb21c4776243bd68"
-    sha256 cellar: :any,                 big_sur:        "59c13757da665e6b414cf3bff532149036f01a1f6efc198be4d73953cc08b8ba"
-    sha256 cellar: :any,                 catalina:       "e39ef2ac865f91f0bbeaa4149dd5e20372dfa5dabd018ed6bf61b84afced3772"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a52ce9354cda7117afb5dac38a3d75b4b0d0f516eb7a77fdd4b2de172a79f0be"
+    sha256 cellar: :any,                 arm64_monterey: "c2b3bfbd7075c0a64304667421815bb529183f9eb9bde61ecaf79923d2925f1d"
+    sha256 cellar: :any,                 arm64_big_sur:  "65104ae3ea862bc86dae1ce07a1c067ea45d88e75bea5926796faddfcbe6b5ab"
+    sha256 cellar: :any,                 monterey:       "e99ed02f65489c64106daee7952490084ac1e3093b45fb99da915be587028db1"
+    sha256 cellar: :any,                 big_sur:        "522831b729f52716a33cb2937453912dbd0c5c88edd962d120eae4ab7afa50f6"
+    sha256 cellar: :any,                 catalina:       "281410e6ef86bf6645d4f31c7bb8a97ce60f47ac5ab5e16537ce4fd355324e2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a9b5ee63438c71becbe6899c64b79ab78110fb0782a9185f9108bc78071f478"
   end
 
   depends_on "pkg-config" => :build
