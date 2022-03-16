@@ -16,7 +16,9 @@ class Docui < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b07a4c7b3432386b5708ec2a9fbc319fd30d1abd12ec03d802a2e2a49bfaf7b"
   end
 
-  depends_on "go" => :build
+  deprecate! date: "2022-03-16", because: :repo_archived
+
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
