@@ -18,7 +18,9 @@ class Armor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "506a0b09767c4cd594f3b4e3d2d46d04c36ff95d46f318911bf72d95e88e20ed"
   end
 
-  depends_on "go" => :build
+  deprecate! date: "2022-03-16", because: :unmaintained
+
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "cmd/armor/main.go"
