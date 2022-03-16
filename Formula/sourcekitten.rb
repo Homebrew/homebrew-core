@@ -24,8 +24,10 @@ class Sourcekitten < Formula
   end
 
   test do
-    # Rewrite test after sandbox issues investigated.
-    # https://github.com/Homebrew/homebrew/pull/50211
     system "#{bin}/sourcekitten", "version"
+    if `xcodebuild -version`.include? "Xcode 13"
+      ENV["IN_PROCESS_SOURCEKIT"] = "YES"
+      system "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World"
+    end
   end
 end
