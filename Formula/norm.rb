@@ -6,13 +6,12 @@ class Norm < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "a8a59ed661565f3cf10b7bc5eaedb45d90cc949031d5d36a9b098985e8da71cc"
-    sha256 cellar: :any, arm64_big_sur:  "658241c3120a66b68191f64e4009617d9ee0e43c5cd264e0db59f9dd2aeca966"
-    sha256 cellar: :any, monterey:       "024bbaf98d384ee89e3ff5db7e56dc706dcc6f445ea3ebd976bd32c21fe24bcf"
-    sha256 cellar: :any, big_sur:        "0d223adbb36c557616fbb8e026e93a36603ff5478ea3912978190389e409b04a"
-    sha256 cellar: :any, catalina:       "b01566af6d67555366f350e72a9717479c1510af885a89b60827356aeba7d2af"
-    sha256 cellar: :any, mojave:         "bc9f51046dc479949b480bb9a27143679bccb5f4bab0928c5968d280f9489d86"
-    sha256 cellar: :any, high_sierra:    "c46470e7594148cbee61f851b57373374abdc6a94e91c722efabd3c90f36ec06"
+    sha256 cellar: :any,                 arm64_monterey: "6db456e4648b7f8baec7a2d6af342594aa89cec71c375e5a6c5d7be34c4c3e62"
+    sha256 cellar: :any,                 arm64_big_sur:  "ba0f0331fe8419a2f9d34f0a89378c9ea351afd9d2f8efd140df2cf1830000a3"
+    sha256 cellar: :any,                 monterey:       "7d0f0fbc73e3ed79afad76ca563aa97532a7cee2c72f7c954ad0841c5407dc9a"
+    sha256 cellar: :any,                 big_sur:        "a1eff7c9b5a50e5524d5dddd7cd025e0f2392585f4f74b7dca1b71b29a72972e"
+    sha256 cellar: :any,                 catalina:       "58429af961d437979c286290c42508079f238e17cce066184944e0a404c0e829"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e73b7067d42e7b1b3efaa2f19698a1f409b2a55a5719b56f41ddf5249913e6c3"
   end
 
   depends_on "python@3.10" => :build
