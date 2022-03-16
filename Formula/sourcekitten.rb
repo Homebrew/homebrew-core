@@ -15,7 +15,7 @@ class Sourcekitten < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "32a08155e2e970e2c56dfe6007d1937366aac7e53f42dbbca2dbba5a5b799506"
   end
 
-  depends_on xcode: ["13.0", :build]
+  depends_on xcode: ["12.0", :build]
   depends_on :macos
   depends_on xcode: "6.0"
 
@@ -25,7 +25,9 @@ class Sourcekitten < Formula
 
   test do
     system "#{bin}/sourcekitten", "version"
-    ENV["IN_PROCESS_SOURCEKIT"] = "YES"
-    system "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World"
+    if `xcodebuild -version`.include? "Xcode 13"
+      ENV["IN_PROCESS_SOURCEKIT"] = "YES"
+      system "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World"
+    end
   end
 end
