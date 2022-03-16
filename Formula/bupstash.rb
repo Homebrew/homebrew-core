@@ -1,8 +1,8 @@
 class Bupstash < Formula
   desc "Easy and efficient encrypted backups"
   homepage "https://bupstash.io"
-  url "https://github.com/andrewchambers/bupstash/releases/download/v0.10.3/bupstash-v0.10.3-src+deps.tar.gz"
-  sha256 "fc813b8a4b8835aa30060a8df7d02398fc90a77614048c18528d2ad6e1bb1412"
+  url "https://github.com/andrewchambers/bupstash/releases/download/v0.11.0/bupstash-v0.11.0-src+deps.tar.gz"
+  sha256 "b763b71aad87e7ae8e9dec06c5de54796ad3cc6e59859374b9eef066d7f2f941"
   license "MIT"
 
   bottle do
@@ -19,8 +19,8 @@ class Bupstash < Formula
   depends_on "libsodium"
 
   resource "man" do
-    url "https://github.com/andrewchambers/bupstash/releases/download/v0.10.2/bupstash-v0.10.2-man.tar.gz"
-    sha256 "50720383e4154add1e948a59a9c75b90bef7a8848f38aadcaebaecd38181b732"
+    url "https://github.com/andrewchambers/bupstash/releases/download/v0.11.0/bupstash-v0.11.0-man.tar.gz"
+    sha256 "74645f4a243f786261123667e1849085cc2eda095bf3ebbb792cb0195adeeae9"
   end
 
   def install
