@@ -7,12 +7,12 @@ class Wasmer < Formula
   head "https://github.com/wasmerio/wasmer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7489cd7de8731f256beb27d2f3421302b2960cd4dc20d93e17d5a54b6d585f4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66887a0b474d62c5aa66c9db33413689f4abb1fe6766e4e676b4adedff9a94b0"
-    sha256 cellar: :any_skip_relocation, monterey:       "e79391c9d4b2511114de37b7717279b4d285577abf8a9a2f6701fe48fd8104ec"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5fdd20521ddcf8518e16318ba73271889ee825ad79fc4209ef29dfb459b3f87d"
-    sha256 cellar: :any_skip_relocation, catalina:       "3bc9c8ba279893639627c1ee740b327bee2194430cf21b0fd307c0bea226c3a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a89cab210faca2721d4db95f849d09f8b41c5da0908385298c231b4165a546b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cfcb96ce1f32091ce15f68763ed6fb1c2b6a274030618e6ff63725516b128a2b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2e8321de908d57a6012450235f154ba6d9cfa9a68e1ee0c66fa3c126190abf39"
+    sha256 cellar: :any_skip_relocation, monterey:       "03b7f8ebc3cdf6495bb8d603ed338ed42d2cbba80c4ed5323711e1d09f3d431b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bcbe55a5ddc2fe15b1b9a533ad1faba4af6fec0e4c7eb1fe6146928340767268"
+    sha256 cellar: :any_skip_relocation, catalina:       "08b296f5c3645d3f3f0584a674689efa99b05202026edf158feba549de9244d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80831b9e1c6020111f30790973e1a4a3cd034a18c75ddd3e3da617bb9ea83f24"
   end
 
   depends_on "cmake" => :build
