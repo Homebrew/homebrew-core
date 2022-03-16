@@ -17,13 +17,13 @@ class Eksctl < Formula
   end
 
   depends_on "counterfeiter" => :build
-  depends_on "go" => :build
   depends_on "go-bindata" => :build
+  depends_on "go@1.17" => :build
   depends_on "mockery" => :build
   depends_on "aws-iam-authenticator"
 
   def install
-    ENV["GOBIN"] = HOMEBREW_PREFIX/"bin"
+    ENV["GOBIN"] = Formula["go@1.17"].opt_libexec/"bin"
     system "make", "build"
     bin.install "eksctl"
 
