@@ -22,7 +22,8 @@ class Algernon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccdca9ac607c215c4981e35dc13101c5acc0533edd1a5441bd3c874dea275b2a"
   end
 
-  depends_on "go" => :build
+  # Go 1.18 can be used after the next release (1.12.15 or later).
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args, "-mod=vendor"
