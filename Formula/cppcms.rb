@@ -1,4 +1,6 @@
 class Cppcms < Formula
+  include Language::Python::Shebang
+
   desc "Free High Performance Web Development Framework"
   homepage "http://cppcms.com/wikipp/en/page/main"
   url "https://downloads.sourceforge.net/project/cppcms/cppcms/1.2.1/cppcms-1.2.1.tar.bz2"
@@ -24,11 +26,25 @@ class Cppcms < Formula
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
   depends_on "pcre"
+  depends_on "python@3.10"
 
   def install
     ENV.cxx11
-    system "cmake", *std_cmake_args
-    system "make", "install"
+
+    # Look explicitly for python3 and ignore python2
+    inreplace "CMakeLists.txt", "find_program(PYTHON NAMES python2 python)", "find_program(PYTHON NAMES python3)"
+
+    # Adjust cppcms_tmpl_cc for Python 3 compatibility (and rewrite shebang to use brewed Python)
+    rewrite_shebang detected_python_shebang, "bin/cppcms_tmpl_cc"
+    inreplace "bin/cppcms_tmpl_cc" do |s|
+      s.gsub! "import StringIO", "import io"
+      s.gsub! "StringIO.StringIO()", "io.StringIO()"
+      s.gsub! "md5(header_define)", "md5(header_define.encode('utf-8'))"
+    end
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -89,16 +105,14 @@ class Cppcms < Formula
           }
       }
     EOS
-    system ENV.cxx, "-o", "hello", "-std=c++11", "-stdlib=libc++", "-lc++",
-                    "-L#{lib}", "-lcppcms", "hello.cpp"
+    system ENV.cxx, "hello.cpp", "-std=c++11", "-L#{lib}", "-lcppcms", "-o", "hello"
     pid = fork { exec "./hello", "-c", "config.json" }
 
     sleep 1 # grace time for server start
     begin
-      assert_match(/Hello World/, shell_output("curl http://127.0.0.1:#{port}/hello"))
+      assert_match "Hello World", shell_output("curl http://127.0.0.1:#{port}/hello")
     ensure
-      Process.kill 9, pid
-      Process.wait pid
+      Process.kill "SIGTERM", pid
     end
   end
 end
