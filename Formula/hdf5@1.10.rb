@@ -6,13 +6,12 @@ class Hdf5AT110 < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "352e9d1e6a79915048862585bf43f37a7aadf7ded5e4491eaad8f53b75bf6175"
-    sha256                               arm64_big_sur:  "50f558462450a89684bf94338b6a0fe50579457fb73f16aec14b3a14250ea697"
-    sha256 cellar: :any,                 monterey:       "6414fa2d1bc2f02f6811557811b84d2cdcff8edb962e6328d22c352f1bdf1a94"
-    sha256 cellar: :any,                 big_sur:        "aaf4050cbc4a4dea9bf6fae1c54ce4f0a93537eaf3b45f5ed9041f6771e04583"
-    sha256 cellar: :any,                 catalina:       "d89eb59b029e32ff0689c73245f0dfc3d44a7750a9b84ffbfa05a03ecd24bc2f"
-    sha256 cellar: :any,                 mojave:         "386f4217757f910b24d2f5b9f931516c0c96d6bf53b7cfbd581f204b7292a524"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ca37238af9e72dfb071c55b682e3ece97e2fc9f1b45654439ba26be95b2e8c3"
+    sha256 cellar: :any,                 arm64_monterey: "4da7acce76c469df0bd29df9e3a682d72dfe5ed950aee37fe3157c9cd1b8b7e5"
+    sha256 cellar: :any,                 arm64_big_sur:  "43cad7526963c383835fd0e52dd238ddcfd45f02476f68ee757d47a0370d4c9e"
+    sha256 cellar: :any,                 monterey:       "a2ff25daabbc921a95cb6bebc2417a4f107a2a76aa700bdf77603ce90fb39a9a"
+    sha256 cellar: :any,                 big_sur:        "7872feb58d22896f72fd47e9c11fa95b20c08d132babcb7044df2f8ddb7cf277"
+    sha256 cellar: :any,                 catalina:       "6f7f756739d2b264501e6eae163fa9efd6f5c2829379d688d46768d12e416a27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e979cf53d92cc4a117d9e229c1c5914bda258a919c1b551972574f70b0a4a8f1"
   end
 
   keg_only :versioned_formula
