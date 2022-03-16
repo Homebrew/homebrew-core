@@ -36,7 +36,7 @@ class Activemq < Formula
   end
 
   service do
-    run [opt_bin/"activemq", "start"]
+    run [opt_bin/"activemq", "console"]
     working_dir opt_libexec
   end
 
