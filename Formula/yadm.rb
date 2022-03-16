@@ -6,7 +6,7 @@ class Yadm < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "71127b1a24c8590c29be1982b5577362ce9ccd8e3dbbb57f033a0769d1890264"
+    sha256 cellar: :any_skip_relocation, all: "65aeff364d8b3ee35a44a19631f827da7e1c777852030f1912c7efe727ce9f06"
   end
 
   def install
