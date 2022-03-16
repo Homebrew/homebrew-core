@@ -7,12 +7,12 @@ class Dnsx < Formula
   head "https://github.com/projectdiscovery/dnsx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2678e6d82b7003c305ca44e22c4b6e2da46ff20ee8d3cf2ae6a74158ae33fd4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42b4549ca9cf9b0efc0f62b85daf134f6d14921d8b930a3b9ff6bbe188bbb3e1"
-    sha256 cellar: :any_skip_relocation, monterey:       "af1d97e1025a2df13a3f3016c0ae74dce68c426e653532dcfd3eb7e336b9cbeb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b9b89bb5e451ec5942a503e239060dc939c581b76adc9ba5160697e3ab9d2f57"
-    sha256 cellar: :any_skip_relocation, catalina:       "88e91fa4e8ea1aa59e7f161662477f577154b9efe0a970e588ab812da8663fff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b71c7354b8214f70fd4a8117768116412b363b90c193652b6b422b17f3862e01"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8442bb5a58c6aa903e9190b9d8517c7b82dfe4d93cd356018c652da5030ed706"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea96682c14c48bb5078f285dfa289c58119a97c2132b3544961f39711532c074"
+    sha256 cellar: :any_skip_relocation, monterey:       "2174e1da2836796f0b0122a1bcef9a0a8a41a8c02b56c04f555b0e7509c209bf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f828ceee9507469f4b6be91652bfe262f4963593e040a931f0cf6362d13c95eb"
+    sha256 cellar: :any_skip_relocation, catalina:       "da6129ba9781e85b1281297f9a83b415d65f331011c1112d8da6a2f713d8f55c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5505a6b622555594c354ded016cc6f1f7e2fcb1cf302edf90de4a4fe9cf60341"
   end
 
   depends_on "go" => :build
