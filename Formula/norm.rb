@@ -1,8 +1,8 @@
 class Norm < Formula
   desc "NACK-Oriented Reliable Multicast"
   homepage "https://www.nrl.navy.mil/itd/ncs/products/norm"
-  url "https://github.com/USNavalResearchLaboratory/norm/archive/v1.5.8.tar.gz"
-  sha256 "ee7493c9ae9a129e7cbcd090a412fb0d0e25ab3acaa4748e5dc696bf822a62b5"
+  url "https://github.com/USNavalResearchLaboratory/norm/releases/download/v1.5.9/src-norm-1.5.9.tgz"
+  sha256 "ef6d7bbb7b278584e057acefe3bc764d30122e83fa41d41d8211e39f25b6e3fa"
   license "BSD-2-Clause"
 
   bottle do
@@ -15,16 +15,21 @@ class Norm < Formula
     sha256 cellar: :any, high_sierra:    "c46470e7594148cbee61f851b57373374abdc6a94e91c722efabd3c90f36ec06"
   end
 
-  resource "protolib" do
-    url "https://github.com/USNavalResearchLaboratory/protolib/archive/v3.0b1.tar.gz"
-    sha256 "1e15bbbef4758e0179672d456c2ad2b2087927a3796adc4a18e2338f300bc3e6"
+  depends_on "python@3.10" => :build
+
+  # Fix warning: 'visibility' attribute ignored [-Wignored-attributes]
+  # Remove in the next release
+  #
+  # Ref https://github.com/USNavalResearchLaboratory/norm/pull/27
+  patch do
+    url "https://github.com/USNavalResearchLaboratory/norm/commit/476b8bb7eba5a9ad02e094de4dce05a06584f5a0.patch?full_index=1"
+    sha256 "08f7cc7002dc1afe6834ec60d4fea5c591f88902d1e76c8c32854a732072ea56"
   end
 
   def install
-    (buildpath/"protolib").install resource("protolib")
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf", "install"
 
-    system "./waf", "configure", "--prefix=#{prefix}"
-    system "./waf", "install"
     include.install "include/normApi.h"
   end
 
@@ -42,7 +47,7 @@ class Norm < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lnorm", "-o", "test"
+    system ENV.cxx, "test.c", "-L#{lib}", "-lnorm", "-o", "test"
     system "./test"
   end
 end
