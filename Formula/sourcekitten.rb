@@ -25,9 +25,9 @@ class Sourcekitten < Formula
 
   test do
     system "#{bin}/sourcekitten", "version"
-    if `xcodebuild -version`.include? "Xcode 13"
-      ENV["IN_PROCESS_SOURCEKIT"] = "YES"
-      system "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World"
-    end
+    return if MacOS::Xcode.version < 13
+
+    ENV["IN_PROCESS_SOURCEKIT"] = "YES"
+    system "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World"
   end
 end
