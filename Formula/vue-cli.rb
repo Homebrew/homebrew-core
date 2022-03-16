@@ -8,12 +8,12 @@ class VueCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9522eb2fa4776aebf9d12fac856b2a1322a1cb6eb82f95e0f1ead581885ccf99"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9522eb2fa4776aebf9d12fac856b2a1322a1cb6eb82f95e0f1ead581885ccf99"
-    sha256 cellar: :any_skip_relocation, monterey:       "418c3ad13b479065e09518caff79f7dff6eed426f4bbdccca41895498c9fe7df"
-    sha256 cellar: :any_skip_relocation, big_sur:        "418c3ad13b479065e09518caff79f7dff6eed426f4bbdccca41895498c9fe7df"
-    sha256 cellar: :any_skip_relocation, catalina:       "418c3ad13b479065e09518caff79f7dff6eed426f4bbdccca41895498c9fe7df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6b49ffdd152968b2cebff8ae033120cb6c00ed6d4f5e3b8ebb1d3d00cba7a6c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6c5e203ec126aa6b5d95623a825cb25d0796e4273a2f6e1dc70a7d8754c478a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f6c5e203ec126aa6b5d95623a825cb25d0796e4273a2f6e1dc70a7d8754c478a"
+    sha256 cellar: :any_skip_relocation, monterey:       "67d68f35121095ee55c66ea352b44fe27b2c38d6283014b6a109b891227adf6c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "67d68f35121095ee55c66ea352b44fe27b2c38d6283014b6a109b891227adf6c"
+    sha256 cellar: :any_skip_relocation, catalina:       "67d68f35121095ee55c66ea352b44fe27b2c38d6283014b6a109b891227adf6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af33e17fd1fdbd0d55317548c89fe8ce6302476c1c61b83b8c5928affd44af6c"
   end
 
   depends_on "node"
