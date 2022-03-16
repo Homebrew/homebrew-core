@@ -8,12 +8,12 @@ class Autorest < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7af3dc683e96f877de0ba31239fd11c01649e6306066fd7cf804ebacf9f0de62"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7af3dc683e96f877de0ba31239fd11c01649e6306066fd7cf804ebacf9f0de62"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c8d4687059deeb64c56b99eece09ea5004052fbfbed3a291222e78ec58424bd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9c8d4687059deeb64c56b99eece09ea5004052fbfbed3a291222e78ec58424bd"
-    sha256 cellar: :any_skip_relocation, catalina:       "9c8d4687059deeb64c56b99eece09ea5004052fbfbed3a291222e78ec58424bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7af3dc683e96f877de0ba31239fd11c01649e6306066fd7cf804ebacf9f0de62"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8eaa1639b25a6878602092d78d3841e2f2c2f363542a60fb67d070dc403a3ab9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8eaa1639b25a6878602092d78d3841e2f2c2f363542a60fb67d070dc403a3ab9"
+    sha256 cellar: :any_skip_relocation, monterey:       "b5fbb8a8239c44630d21f2633fec1f9c5f6ce6e203f020bbea61ede4efced4b1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b5fbb8a8239c44630d21f2633fec1f9c5f6ce6e203f020bbea61ede4efced4b1"
+    sha256 cellar: :any_skip_relocation, catalina:       "b5fbb8a8239c44630d21f2633fec1f9c5f6ce6e203f020bbea61ede4efced4b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8eaa1639b25a6878602092d78d3841e2f2c2f363542a60fb67d070dc403a3ab9"
   end
 
   depends_on "node"
