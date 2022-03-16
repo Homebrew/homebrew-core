@@ -15,7 +15,8 @@ class Caddy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9d44625b45d2476bd1f8c049c30dac3bfc4732e7e00b88f0821d7b351995ace"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 with the next release (2.5).
+  depends_on "go@1.17" => :build
 
   resource "xcaddy" do
     url "https://github.com/caddyserver/xcaddy/archive/v0.2.0.tar.gz"
