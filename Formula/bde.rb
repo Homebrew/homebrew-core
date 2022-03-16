@@ -4,6 +4,7 @@ class Bde < Formula
   url "https://github.com/bloomberg/bde/archive/3.61.0.0.tar.gz"
   sha256 "46dcdcf06f3cf582170848721dd6d8ca9c993f9cfa34445103d3cee34a5d6dda"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,36 +20,55 @@ class Bde < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
+  depends_on "pcre2"
 
   resource "bde-tools" do
-    url "https://github.com/bloomberg/bde-tools/archive/v1.1.tar.gz"
-    sha256 "c5d77d5e811e79f824816ee06dbf92a2a7e3eb0b6d9f27088bcac8c06d930fd5"
+    url "https://github.com/bloomberg/bde-tools/archive/3.61.0.0.tar.gz"
+    sha256 "7d66eb149c7e59021467c386ba5c6149a8923e836c6a61b815651b3cac019a7d"
   end
 
   def install
     buildpath.install resource("bde-tools")
 
-    ENV.cxx11
+    # Use brewed pcre2 instead of bundled sources
+    inreplace "project.cmake", "${listDir}/thirdparty/pcre2\n", ""
+    inreplace "groups/bdl/group/bdl.dep", "pcre2", "libpcre2-posix"
+    inreplace "groups/bdl/bdlpcre/bdlpcre_regex.h", "#include <pcre2/pcre2.h>", "#include <pcre2.h>"
 
-    system "python", "./bin/waf", "configure", "--prefix=#{prefix}"
-    system "python", "./bin/waf", "build"
-    system "python", "./bin/waf", "install"
+    toolchain_file = "cmake/toolchains/#{OS.kernel_name.downcase}/default.cmake"
+    args = std_cmake_args + %W[
+      -DBUILD_BITNESS=64
+      -DUFID=opt_exc_mt_64_shr
+      -DCMAKE_MODULE_PATH=cmake
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_TOOLCHAIN_FILE=#{toolchain_file}
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin/"python3"}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # CMake install step does not conform to FHS
+    lib.install Dir[bin/"so/64/*"]
+    lib.install lib/"opt_exc_mt_shr/cmake"
   end
 
   test do
     # bde tests are incredibly performance intensive
     # test below does a simple sanity check for linking against bsl.
     (testpath/"test.cpp").write <<~EOS
-      #include <bsl/bsl_string.h>
-      #include <bsl/bslma_default.h>
+      #include <bsl_string.h>
+      #include <bslma_default.h>
       int main() {
         using namespace BloombergLP;
         bsl::string string(bslma::Default::globalAllocator());
         return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}/bsl", "test.cpp", "-L#{lib}", "-lbsl", "-o", "test"
+    system ENV.cxx, "-I#{include}", "test.cpp", "-L#{lib}", "-lbsl", "-o", "test"
     system "./test"
   end
 end
