@@ -8,10 +8,6 @@ class Postgraphile < Formula
   license "MIT"
   head "https://github.com/graphile/postgraphile.git", branch: "main"
 
-  livecheck do
-    url :stable
-  end
-
   depends_on "node"
   depends_on "postgresql"
 
