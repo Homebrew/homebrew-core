@@ -7,13 +7,12 @@ class Jsvc < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "803d721fac307b518b3abb22d398def6e1b23717b5db9143c0341d7412cce24c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "771e112751eb5c424f61c04f9a4aec6c02e0001ce88b400565c7a2b8fce71a51"
-    sha256 cellar: :any_skip_relocation, monterey:       "2d13f84d71f0e0fb68e89ee72766ae859a576d339a6875f51bd67eceaaaad5cb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "50894019268b0cc6757fb62da6756fbfe92138f79afa4eb363f0e14df81de9d4"
-    sha256 cellar: :any_skip_relocation, catalina:       "2e4c9e5eaf94ec1b3f9bc70288ea4dc4459e766dbc0f4df9c018f3bbdbf62456"
-    sha256 cellar: :any_skip_relocation, mojave:         "357dc6a1c7e9f7c5e07263e0e9985ed3e2a578e9319289479ca204f7c10efc8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69433491ae0f64432cc5235647d041fef5c8afeeef379d97590bc3c3d9ab2f02"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eaab68414a0b2baa923b44d8586f1fbf1a425d37c06870ca4e063dffa2bbb933"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43261838f40f1df64555476046fffb114742f7399297bdc414e9a177e87872f0"
+    sha256 cellar: :any_skip_relocation, monterey:       "b04c71b4afdd14a4e1867af564ebe444f44a1204b6b4615a4868d33ba85ed0cf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "de514757fbeafe3d8dbaeb1f4d097380c4b017d6e10937862f625f4c3968f75f"
+    sha256 cellar: :any_skip_relocation, catalina:       "5c7308e3495ffd2af09ac54f61df59a9ce3aa46899a96a1d4ab125f27149e5d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34999c468ea8a823fd2dd6a27a9ddd25a863a3c536e980f1a66d9e36745a3622"
   end
 
   depends_on "openjdk"
