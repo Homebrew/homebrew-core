@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/78/b3/855152dbef43a348a9e271e0458050d0121c0f808e4703262e6602534e5a/locust-2.8.3.tar.gz"
-  sha256 "9c5110bdaf2d6ab72d68091e6685abf20bd138df711fde8dc88d81b8cb012b78"
+  url "https://files.pythonhosted.org/packages/83/17/695ca13083293c16abb1e9d8013a28beed9ddd9a3e68914376a7368a8f9e/locust-2.8.4.tar.gz"
+  sha256 "fc195ecccf53248166d5ab30d88d2577ca6a7a139b4f784986b62cae2419297b"
   license "MIT"
 
   bottle do
@@ -80,8 +80,8 @@ class Locust < Formula
   end
 
   resource "itsdangerous" do
-    url "https://files.pythonhosted.org/packages/82/00/89037083314067f1605233f6f30b94fdddc89d18e283b30b0c5be9e7f801/itsdangerous-2.1.0.tar.gz"
-    sha256 "d848fcb8bc7d507c4546b448574e8a44fc4ea2ba84ebf8d783290d53e81992f5"
+    url "https://files.pythonhosted.org/packages/9d/86/39f81e23f49eaf62d22248d48771dbf3bce7c52dfdf566e3d8d4c0657f15/itsdangerous-2.1.1.tar.gz"
+    sha256 "7b7d3023cd35d9cb0c1fd91392f8c95c6fa02c59bf8ad64b8849be3401b95afb"
   end
 
   resource "Jinja2" do
@@ -90,8 +90,8 @@ class Locust < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/62/0f/52c009332fdadd484e898dc8f2acca0663c1031b3517070fd34ad9c1b64e/MarkupSafe-2.1.0.tar.gz"
-    sha256 "80beaf63ddfbc64a0452b841d8036ca0611e049650e20afcb882f5d3c266d65f"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "msgpack" do
