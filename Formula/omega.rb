@@ -11,11 +11,12 @@ class Omega < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "e93f8e12861eae4aef56482f4daad7d017060bb420cbb9b6973dc1e4756286e1"
-    sha256 big_sur:       "a9adc43192d3cfefc48b5102405b8542549336ae7c7a73c4f964c64f2f3c9306"
-    sha256 catalina:      "171d9ac0866a0124ef2da5c8f23bbe755ba8db69dd30b7ecf6ef2a924f288444"
-    sha256 mojave:        "21777656dec508784295f638ecce1a7c54aa32870b16d6d5bf9951b01a7803a2"
-    sha256 x86_64_linux:  "a8b1b2fafdc1bc9285c4be52516c8605f9e99c66cc0f82cb910b6d26698ee995"
+    sha256 arm64_monterey: "def2dad644651a029f624fdfcc049eb2c38615ac3abdd83dca5b16cc91dc6d1c"
+    sha256 arm64_big_sur:  "4888077491e9231306b5af3b504e84fd01c20a0d13fcb10140c1d1ead55ae279"
+    sha256 monterey:       "507ed2fb6350f5c59a50c8bb0da7e14d0aacb6651d29ff8ec921bbf01bd20612"
+    sha256 big_sur:        "75f151d449786a9b7dc439aa276a06c4df89aeb00cec7b58fb09241795b7b281"
+    sha256 catalina:       "f8712f187e62c9a7414f82c5eab0aefb7752372ece97e2ba9ba6ed1a70f5952d"
+    sha256 x86_64_linux:   "3135531c3195dd0190d48e2e8d4f29743d63ea9a9abbe9b22edb0c100cc4e542"
   end
 
   depends_on "pkg-config" => :build
