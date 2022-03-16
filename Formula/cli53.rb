@@ -7,13 +7,12 @@ class Cli53 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1285195c10242659d35858428692fd398a97c3031096f4cfeb4f7c94f5a1519"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98cb37be5b6af7dd7cc216a93ad0c5fb000d4bac22762e9731832de6119a9f0c"
-    sha256 cellar: :any_skip_relocation, monterey:       "3223d389c2439c44e687de2c0d13b361261b85f7e3b1179d11d58a2a34efd1a4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9f7f7b6f459a9d42e4f58bf32a618046e124e5544af3fece7a76e7e50005dbe4"
-    sha256 cellar: :any_skip_relocation, catalina:       "9bf273343ecbaadbae4b55c1bc48bc529d1e6ecfe651848db995f2cd70966756"
-    sha256 cellar: :any_skip_relocation, mojave:         "6e3fff5c7242c391fa6a43d1a9cb79467b56149102624b60abc8008e46280199"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e13f318c88bcdddce88b597b5739bdc53178d56db94f18ebe022a49445083d02"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f5849c18c169f394c6927c73ce11e24138adf502e74ca4b74120c2098f92498"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ad73cd56c4d7364e1139d2510e29cecf63a642cf38066243b329c11cbf7ad29"
+    sha256 cellar: :any_skip_relocation, monterey:       "a9bc2052505280534e55bcd7322b4ba189f74af6217a2c7b634eeac859ff9ee3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "41bb4f7c005387ef1d24468438b9b044e940832fb96f9c1a1e1b0dc0ef02b8ea"
+    sha256 cellar: :any_skip_relocation, catalina:       "a0e1334b7c9d281766c11087bb93b53583ece127bb07541e7e14e92514a26cfc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "277053f98b9c41c06694bc74d8455d8a2641d928e6e24d0621b574ab725a34c7"
   end
 
   depends_on "go" => :build
