@@ -4,7 +4,7 @@ class JvmMon < Formula
   url "https://github.com/ajermakovics/jvm-mon/releases/download/0.3/jvm-mon-0.3.tar.gz"
   sha256 "9b5dd3d280cb52b6e2a9a491451da2ee41c65c770002adadb61b02aa6690c940"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -22,12 +22,11 @@ class JvmMon < Formula
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
 
-    (bin/"jvm-mon").write_env_script "#{libexec}/bin/jvm-mon",
-      Language::Java.java_home_env("1.8")
-    system "unzip", "-j", libexec/"lib/j2v8_macosx_x86_64-4.6.0.jar", "libj2v8_macosx_x86_64.dylib", "-d", libexec
+    (bin/"jvm-mon").write_env_script libexec/"bin/jvm-mon", Language::Java.java_home_env("1.8")
   end
 
   test do
+    ENV.append "_JAVA_OPTIONS", "-Duser.home=#{testpath}"
     system "echo q | #{bin}/jvm-mon"
   end
 end
