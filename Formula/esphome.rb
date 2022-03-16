@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/19/1c/527ef238aed4622f538a1f73e18224e8781f0c0dbb4333792b21a3fce9dd/esphome-2022.2.6.tar.gz"
-  sha256 "5f9dfd0dbcbc9938c2c2e354febf1e5c4513ef096a8ba30523c3ba950b44586e"
+  url "https://files.pythonhosted.org/packages/6b/22/62e17c6c28cc07d13a6388698c1aea3f31a30722ec520e56f4caccfd5a02/esphome-2022.3.0.tar.gz"
+  sha256 "aceef6bf2a9dd7b9417a73a05800e66bb0fcc3228ee63d5b2729262aa86db13c"
   license "MIT"
 
   bottle do
@@ -83,8 +83,8 @@ class Esphome < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/f9/4b/1cf8e281f7ae4046a59e5e39dd7471d46db9f61bb564fddbff9084c4334f/cryptography-36.0.1.tar.gz"
-    sha256 "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
+    url "https://files.pythonhosted.org/packages/10/a7/51953e73828deef2b58ba1604de9167843ee9cd4185d8aaffcb45dd1932d/cryptography-36.0.2.tar.gz"
+    sha256 "70f8f4f7bb2ac9f340655cbac89d68c527af5bb4387522a8413e841e3e6628c9"
   end
 
   resource "ecdsa" do
@@ -93,8 +93,8 @@ class Esphome < Formula
   end
 
   resource "esphome-dashboard" do
-    url "https://files.pythonhosted.org/packages/b7/ce/18a131d59757d7a21cf4191ca325bfbbaddca8d397489b8eaaf45421c6ce/esphome-dashboard-20220209.0.tar.gz"
-    sha256 "16416edd2beca3072c3855efa969a9637284ca95d26fa29ca42fe725b4290c10"
+    url "https://files.pythonhosted.org/packages/4f/c6/3668d402f9187e7c2cedee3490e38df77a437b0eedf00e5405b02ce2374d/esphome-dashboard-20220309.0.tar.gz"
+    sha256 "27f4f702fd23c13d02252c1cd23f988da88a16ab3db282dfedcb698b3e6b9a6e"
   end
 
   resource "esptool" do
@@ -123,13 +123,18 @@ class Esphome < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/ff/04/9a03e7e8e68b1cee2396f51d41cd8741920a8c7b74b32a9e6b29da56e40f/marshmallow-3.14.1.tar.gz"
-    sha256 "4c05c1684e0e97fe779c62b91878f173b937fe097b356cd82f793464f5bc6138"
+    url "https://files.pythonhosted.org/packages/ef/d1/3c7c7d0ed4470c49c971cb5db4c5becdc37bd3969946bba434216c56c08c/marshmallow-3.15.0.tar.gz"
+    sha256 "2aaaab4f01ef4f5a011a21319af9fce17ab13bf28a026d1252adab0e035648d5"
   end
 
   resource "noiseprotocol" do
     url "https://files.pythonhosted.org/packages/76/17/fcf8a90dcf36fe00b475e395f34d92f42c41379c77b25a16066f63002f95/noiseprotocol-0.3.1.tar.gz"
     sha256 "b092a871b60f6a8f07f17950dc9f7098c8fe7d715b049bd4c24ee3752b90d645"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "paho-mqtt" do
@@ -150,6 +155,11 @@ class Esphome < Formula
   resource "pyelftools" do
     url "https://files.pythonhosted.org/packages/e9/80/00247e07e32e85b964ef81c9fd556b332f85e743e3eaf332325f579c82eb/pyelftools-0.28.tar.gz"
     sha256 "53e5609cac016471d40bd88dc410cd90755942c25e58a61021cfdf7abdfeacff"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
+    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
   end
 
   resource "pyserial" do
@@ -208,13 +218,13 @@ class Esphome < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/c5/ce/a2b14e28b557c813a7701540dac4872346dfd96af8624f1d5ca3ed948b14/uvicorn-0.17.5.tar.gz"
-    sha256 "c04a9c069111489c324f427501b3840d306c6b91a77b00affc136a840a3f45f1"
+    url "https://files.pythonhosted.org/packages/6d/7d/b97c120cad5fd1f66462afb0d5ddd043078f2380b89fccd8a97ef5c95b5c/uvicorn-0.17.6.tar.gz"
+    sha256 "5180f9d059611747d841a4a4c4ab675edf54c8489e97f96d0583ee90ac3bfc23"
   end
 
   resource "voluptuous" do
