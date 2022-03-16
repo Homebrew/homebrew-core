@@ -16,14 +16,17 @@ class Counterfeiter < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5e46a570a5d8914659a1184f373db09e096c9f3e4954daaff5bcb1328286266"
   end
 
-  depends_on "go"
+  depends_on "go@1.17"
 
   def install
+    ENV["GOROOT"] = Formula["go@1.17"].opt_libexec
+
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
-    ENV["GOROOT"] = Formula["go"].opt_libexec
+    ENV["GOROOT"] = Formula["go@1.17"].opt_libexec
+    ENV["PATH"] = "#{ENV["PATH"]}:#{ENV["GOROOT"]}/bin"
 
     output = shell_output("#{bin}/counterfeiter -p os 2>&1")
     assert_predicate testpath/"osshim", :exist?
