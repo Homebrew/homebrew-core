@@ -15,7 +15,8 @@ class Fsql < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f54460f0a2744214e28ad7a8d9ef8f583ca32a91bf60588cb2dc2cc467aff56"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/fsql"
