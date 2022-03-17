@@ -21,7 +21,19 @@ class Libbs2b < Formula
   depends_on "pkg-config" => :build
   depends_on "libsndfile"
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
+    if OS.mac?
+      # fix 'error: support for lzma-compressed distribution archives has been removed'
+      inreplace "configure.ac", "dist-lzma", ""
+      system "autoreconf", "--force", "--verbose", "--install"
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--disable-static",
                           "--enable-shared"
