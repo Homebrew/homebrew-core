@@ -4,7 +4,7 @@ class MingwW64 < Formula
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v9.0.0.tar.bz2"
   sha256 "1929b94b402f5ff4d7d37a9fe88daa9cc55515a6134805c104d1794ae22a4181"
   license "ZPL-2.1"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -32,6 +32,13 @@ class MingwW64 < Formula
     url "https://ftp.gnu.org/gnu/binutils/binutils-2.38.tar.xz"
     mirror "https://ftpmirror.gnu.org/binutils/binutils-2.38.tar.xz"
     sha256 "e316477a914f567eccc34d5d29785b8b0f5a10208d36bbacedcc39048ecfe024"
+
+    # Fix dlltool failures during parallel builds until the release after 2.38, upstream patch
+    # https://sourceware.org/bugzilla/show_bug.cgi?id=28885
+    #
+    # patch is from https://sourceware.org/git/?p=binutils-gdb.git;a=patch;h=d65c0ddddd85645cab6f11fd711d21638a74489f
+    # with ChangeLog patch removed
+    patch :DATA
   end
 
   resource "gcc" do
@@ -237,3 +244,24 @@ class MingwW64 < Formula
     end
   end
 end
+
+__END__
+diff --git a/binutils/dlltool.c b/binutils/dlltool.c
+index d95bf3f5470..89871510b45 100644
+--- a/binutils/dlltool.c
++++ b/binutils/dlltool.c
+@@ -3992,10 +3992,11 @@ main (int ac, char **av)
+   if (tmp_prefix == NULL)
+     {
+       /* If possible use a deterministic prefix.  */
+-      if (dll_name)
++      if (imp_name || delayimp_name)
+         {
+-          tmp_prefix = xmalloc (strlen (dll_name) + 2);
+-          sprintf (tmp_prefix, "%s_", dll_name);
++          const char *input = imp_name ? imp_name : delayimp_name;
++          tmp_prefix = xmalloc (strlen (input) + 2);
++          sprintf (tmp_prefix, "%s_", input);
+           for (i = 0; tmp_prefix[i]; i++)
+             if (!ISALNUM (tmp_prefix[i]))
+               tmp_prefix[i] = '_';
