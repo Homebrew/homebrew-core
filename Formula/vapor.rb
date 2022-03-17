@@ -16,6 +16,8 @@ class Vapor < Formula
 
   depends_on xcode: "11.4"
 
+  uses_from_macos "swift"
+
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc", \
       "-cross-module-optimization", "--enable-test-discovery"
