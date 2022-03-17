@@ -16,6 +16,8 @@ class Publish < Formula
   # https://github.com/JohnSundell/Publish#system-requirements
   depends_on xcode: ["12.5", :build]
 
+  uses_from_macos "swift"
+
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/publish-cli" => "publish"
