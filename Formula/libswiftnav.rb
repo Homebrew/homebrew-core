@@ -59,7 +59,7 @@ class Libswiftnav < Formula
         }
       }
     EOS
-    system ENV.cc, "-L", lib, "-lswiftnav", "-o", "test", "test.c"
+    system ENV.cc, "test.c", "-L", lib, "-lswiftnav", "-o", "test"
     system "./test"
   end
 end
