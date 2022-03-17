@@ -18,6 +18,8 @@ class Istioctl < Formula
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
+  uses_from_macos "curl" => :build
+
   def install
     ENV["VERSION"] = version.to_s
     ENV["TAG"] = version.to_s
