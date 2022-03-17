@@ -4,7 +4,7 @@ class VtkAT82 < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
 
   bottle do
     rebuild 1
@@ -38,15 +38,24 @@ class VtkAT82 < Formula
   uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+  end
+
   on_linux do
     depends_on "gcc"
     depends_on "icu4c"
+    depends_on "libaec"
     depends_on "libxt"
-    depends_on "szip"
     depends_on "mesa-glu"
   end
 
   fails_with gcc: "5"
+
+  # clang: error: unable to execute command: Bus error: 10
+  # clang: error: clang frontend command failed due to signal (use -v to see invocation)
+  # Apple clang version 13.1.6 (clang-1316.0.21.2)
+  fails_with :clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
   # TODO: use diff
   # Fix compile issues on Mojave and later
@@ -74,8 +83,13 @@ class VtkAT82 < Formula
   end
 
   def install
+    if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+      ENV.llvm_clang
+    end
+
     # Do not record compiler path because it references the shim directory
-    inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", "clang++"
+    inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
     # Fix build with GCC 10 or newer
     # Adapted from https://bugs.gentoo.org/attachment.cgi?id=641488&action=diff
@@ -141,6 +155,9 @@ class VtkAT82 < Formula
   end
 
   test do
+    # Force use of Apple Clang on macOS that needs LLVM to build
+    ENV.clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+
     (testpath/"CMakeLists.txt").write <<~EOS
       set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
       set(CMAKE_INSTALL_RPATH "#{Formula["vtk@8.2"].opt_lib}")
