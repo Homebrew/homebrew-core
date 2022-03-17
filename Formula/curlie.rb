@@ -14,7 +14,8 @@ class Curlie < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "69aa5acebd2adddc5fbd0058aa8acafb510e9f6988552c459f13cf4a63669bd1"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   uses_from_macos "curl"
 
