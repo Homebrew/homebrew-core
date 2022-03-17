@@ -1,15 +1,15 @@
 class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://vgmstream.org"
-  version "r1702"
+  version "r1721"
   license "ISC"
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
 
   stable do
     url "https://github.com/vgmstream/vgmstream.git",
-        tag:      "r1702",
-        revision: "a76ac04dcd41f1926a721e626657397bd9656a74"
+        tag:      "r1721",
+        revision: "f2f0b3f84a9a93fc2623736e738df16a6050901e"
 
     # patches for fixing macOS build error, remove them at next release
     patch do
