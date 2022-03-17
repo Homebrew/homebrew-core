@@ -17,9 +17,7 @@ class Pocsuite3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4849865c57e0246fea192119f5294846c8760500bdd2141db5ffa408c0a14a77"
   end
 
-  depends_on "rust" => :build # for cryptography
-  depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libffi"
@@ -118,6 +116,6 @@ class Pocsuite3 < Formula
   end
 
   test do
-    assert_match "Module (pocs_ecshop_rce) options:", shell_output("#{bin}/pocsuite -r ecshop_rce.py --options")
+    assert_match "Module (pocs_ecshop_rce) options:", shell_output("#{bin}/pocsuite -k ecshop --options")
   end
 end
