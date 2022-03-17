@@ -35,14 +35,6 @@ class Samba < Formula
     sha256 "3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5"
   end
 
-  # [PATCH] smbd: Safeguards for getpwuid
-  # Fix `Regression: Samba 4.15.2 on macOS segfaults intermittently during strcpy in tdbsam_getsampwnam`
-  # https://bugzilla.samba.org/show_bug.cgi?id=14900
-  patch do
-    url "https://attachments.samba.org/attachment.cgi?id=17147"
-    sha256 "ca414d668d4c669e9d1886ccfc81bf5215f002ae7a2ca9491ac99548dd88bf9b"
-  end
-
   def install
     # avoid `perl module "Parse::Yapp::Driver" not found` error on macOS 10.xx (not required on 11)
     if MacOS.version < :big_sur
