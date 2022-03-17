@@ -8,6 +8,15 @@ class Postgraphile < Formula
   license "MIT"
   head "https://github.com/graphile/postgraphile.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e977c5c5939788b20805dad251ee30df6da83535c1b10ce2176055f87a071f76"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e977c5c5939788b20805dad251ee30df6da83535c1b10ce2176055f87a071f76"
+    sha256 cellar: :any_skip_relocation, monterey:       "bbaa69dfb388ff4a7c9e95d20dc7b389eff49deabbd6b7e31217554f9184d4e7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bbaa69dfb388ff4a7c9e95d20dc7b389eff49deabbd6b7e31217554f9184d4e7"
+    sha256 cellar: :any_skip_relocation, catalina:       "bbaa69dfb388ff4a7c9e95d20dc7b389eff49deabbd6b7e31217554f9184d4e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e977c5c5939788b20805dad251ee30df6da83535c1b10ce2176055f87a071f76"
+  end
+
   depends_on "node"
   depends_on "postgresql"
 
