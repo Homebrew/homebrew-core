@@ -10,16 +10,6 @@ class Vgmstream < Formula
     url "https://github.com/vgmstream/vgmstream.git",
         tag:      "r1721",
         revision: "f2f0b3f84a9a93fc2623736e738df16a6050901e"
-
-    # patches for fixing macOS build error, remove them at next release
-    patch do
-      url "https://github.com/vgmstream/vgmstream/commit/04b5a1f098f348c4c438ada85ee86f5a9abce2ff.patch?full_index=1"
-      sha256 "37d5d9567435eda96bf4e51b5abbac1677391e08daf4e50b1d7edc6996772919"
-    end
-    patch do
-      url "https://github.com/vgmstream/vgmstream/commit/f9230158d953dfb0fb14a2a57052a8460a5d43dd.patch?full_index=1"
-      sha256 "10ff07d7c6f48275af235d720f279ef62d444c88cde78f2fecaf065e120d134d"
-    end
   end
 
   livecheck do
