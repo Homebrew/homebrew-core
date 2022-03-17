@@ -17,6 +17,8 @@ class Xcodegen < Formula
   depends_on xcode: ["10.2", :build]
   depends_on macos: :catalina
 
+  uses_from_macos "swift"
+
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/#{name}"
@@ -35,7 +37,7 @@ class Xcodegen < Formula
           sources: TestProject
     EOS
     (testpath/"TestProject").mkpath
-    system bin/"XcodeGen", "--spec", testpath/"xcodegen.yml"
+    system bin/"xcodegen", "--spec", testpath/"xcodegen.yml"
     assert_predicate testpath/"GeneratedProject.xcodeproj", :exist?
     assert_predicate testpath/"GeneratedProject.xcodeproj/project.pbxproj", :exist?
     output = (testpath/"GeneratedProject.xcodeproj/project.pbxproj").read
