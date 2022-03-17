@@ -4,7 +4,7 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.1/VTK-9.1.0.tar.gz"
   sha256 "8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
   head "https://github.com/Kitware/VTK.git", branch: "master"
 
   bottle do
@@ -46,16 +46,30 @@ class Vtk < Formula
   uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+  end
+
   on_linux do
     depends_on "gcc"
-    depends_on "szip"
+    depends_on "libaec"
     depends_on "mesa-glu"
   end
 
   fails_with gcc: "5"
 
+  # clang: error: unable to execute command: Segmentation fault: 11
+  # clang: error: clang frontend command failed due to signal (use -v to see invocation)
+  # Apple clang version 13.1.6 (clang-1316.0.21.2)
+  fails_with :clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+
   def install
-    args = std_cmake_args + %W[
+    if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+      ENV.llvm_clang
+    end
+
+    args = %W[
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_TESTING:BOOL=OFF
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{opt_lib}
@@ -97,14 +111,15 @@ class Vtk < Formula
 
     args << "-DVTK_USE_COCOA:BOOL=ON" if OS.mac?
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
+    # Force use of Apple Clang on macOS that needs LLVM to build
+    ENV.clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
       project(Distance2BetweenPoints LANGUAGES CXX)
