@@ -4,7 +4,7 @@ class Armadillo < Formula
   url "https://downloads.sourceforge.net/project/arma/armadillo-10.8.2.tar.xz"
   sha256 "89fdd898bf6bff75f6efc3a301817e4ede752b9a80927fb07ee358b13e353922"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -24,9 +24,9 @@ class Armadillo < Formula
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "hdf5"
+  depends_on "libaec"
   depends_on "openblas"
   depends_on "superlu"
-  depends_on "szip"
 
   def install
     ENV.prepend "CXXFLAGS", "-DH5_USE_110_API -DH5Ovisit_vers=1"
