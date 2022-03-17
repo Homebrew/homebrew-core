@@ -3,8 +3,8 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/76/ec/af7313f57e68b8f58d3fa04121430edda25f217e126d07338a9031317e01/sqlfluff-0.11.0.tar.gz"
-  sha256 "b1120713e412c7914207419503156d7a742d542ecde05256cb78a1138697966a"
+  url "https://files.pythonhosted.org/packages/99/14/0d5193fdf15c90fcbec76b12495c3d006df8a60a79def1bfdb4c2e5d6e78/sqlfluff-0.11.1.tar.gz"
+  sha256 "707507debcd6b0a504371d53e1f4ce16d020b462824f60004364fc0bcae9fc23"
   license "MIT"
 
   bottle do
@@ -59,8 +59,8 @@ class Sqlfluff < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/62/0f/52c009332fdadd484e898dc8f2acca0663c1031b3517070fd34ad9c1b64e/MarkupSafe-2.1.0.tar.gz"
-    sha256 "80beaf63ddfbc64a0452b841d8036ca0611e049650e20afcb882f5d3c266d65f"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "packaging" do
@@ -94,8 +94,8 @@ class Sqlfluff < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/3e/2c/a67ad48759051c7abf82ce182a4e6d766de371b183182d2dde03089e8dfb/pytest-7.0.1.tar.gz"
-    sha256 "e30905a0c131d3d94b89624a1cc5afec3e0ba2fbdb151867d8e0ebd49850f171"
+    url "https://files.pythonhosted.org/packages/6e/1c/5a8a4ae3548eaa9a082a25cd6118f166d6bbe440300b3c57c4904cc47935/pytest-7.1.0.tar.gz"
+    sha256 "f1089d218cfcc63a212c42896f1b7fbf096874d045e1988186861a1a87d27b47"
   end
 
   resource "PyYAML" do
@@ -104,8 +104,8 @@ class Sqlfluff < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/4f/17/21e7195da87bcdbdd4ec32fdfdc87ccd5cf97b0a18e0f08ecacbaefca284/regex-2022.3.2.tar.gz"
-    sha256 "79e5af1ff258bc0fe0bdd6f69bc4ae33935a898e3cbefbbccf22e88a27fa053b"
+    url "https://files.pythonhosted.org/packages/0c/06/8d851419ff870cbe2bf65ecdcfda59d80f11f41157392d794ee544f15bf6/regex-2022.3.15.tar.gz"
+    sha256 "0a7b75cc7bb4cc0334380053e4671c560e31272c9d2d5a6c4b8e9ae2c9bd0f82"
   end
 
   resource "tblib" do
