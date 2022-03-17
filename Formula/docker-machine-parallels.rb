@@ -17,7 +17,8 @@ class DockerMachineParallels < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "cce66a6fcdea79b33095c2ae7c49c93a9f730353d92738534fdbe03b3488ee43"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
   depends_on "docker-machine"
   depends_on :macos
 
