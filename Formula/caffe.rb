@@ -4,7 +4,7 @@ class Caffe < Formula
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
   license "BSD-2-Clause"
-  revision 36
+  revision 37
 
   livecheck do
     url :stable
@@ -25,13 +25,20 @@ class Caffe < Formula
   depends_on "glog"
   depends_on "hdf5"
   depends_on "leveldb"
+  depends_on "libaec"
   depends_on "lmdb"
   depends_on "opencv"
   depends_on "protobuf"
   depends_on "snappy"
-  depends_on "szip"
 
-  resource "test_model" do
+  on_linux do
+    depends_on "gcc"
+    depends_on "openblas"
+  end
+
+  fails_with gcc: "5" # opencv is compiled with GCC
+
+  resource "homebrew-test_model" do
     url "https://github.com/nandahkrishna/CaffeMNIST/archive/2483b0ba9b04728041f7d75a3b3cf428cb8edb12.tar.gz"
     sha256 "2d4683899e9de0949eaf89daeb09167591c060db2187383639c34d7cb5f46b31"
   end
@@ -67,6 +74,7 @@ class Caffe < Formula
       -DUSE_OPENCV=ON
       -DUSE_OPENMP=OFF
     ]
+    args << "-DBLAS=Open" if OS.linux?
 
     system "cmake", ".", *args
     system "make", "install"
@@ -74,7 +82,7 @@ class Caffe < Formula
   end
 
   test do
-    resource("test_model").stage do
+    resource("homebrew-test_model").stage do
       system "#{bin}/caffe", "test",
              "-model", "lenet_train_test.prototxt",
              "-weights", "lenet_iter_10000.caffemodel"
