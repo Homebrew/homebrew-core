@@ -16,7 +16,8 @@ class ConsulBackinator < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5b914861d80658228a91c3946d85609b07a780a9747e0302ebd4be3a5d1ea94"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.appVersion=#{version}")
