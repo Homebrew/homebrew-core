@@ -15,8 +15,9 @@ class Swiftlint < Formula
   end
 
   depends_on xcode: ["12.5", :build]
-  depends_on :macos # Depends on Swift.  May work on Linux once a Swift bottle is available for that OS.
   depends_on xcode: "8.0"
+
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release"
