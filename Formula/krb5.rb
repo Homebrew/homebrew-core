@@ -11,13 +11,12 @@ class Krb5 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "0dd1072480422dc447c27e560e6e09afc095d93f5edb0ca2b46183a972f8cab0"
-    sha256 arm64_big_sur:  "62a2882f4193d6871d9c8116b897a8d33d6a4fedb954646a0eefdc4bfe623110"
-    sha256 monterey:       "449d685b80fcb828f738a3b6b8002b885201feb38dd2da0390010d56545e4609"
-    sha256 big_sur:        "6ae8cffb08f9cba4842a21fc92618e22403a474fbd6d05820c3755401d55688d"
-    sha256 catalina:       "5d0157ff13610f06bc262350978ef1f754e2b7ed0721ba27c431cfd5b5b16639"
-    sha256 mojave:         "9dd6fca906e634be1c1b05a99fa8f28735a969e3eb4d939048e89f322c3a4278"
-    sha256 x86_64_linux:   "2626ed3b8a8e5448aabeac56f6fe91b199fe896a5fd84394d5475213fde1a139"
+    sha256 arm64_monterey: "7f30cce97c416b93645c3b253b645918c03198723d021455396fe36baafd4a2f"
+    sha256 arm64_big_sur:  "22079afd89def4206cd1fcd5d6ae2b9b1f993104ddee5e954b9e664a42467d6c"
+    sha256 monterey:       "8d46fa7a28cdb0090702246c7a3053f3a8aca434300e2ac78b6482cb6a2f9d57"
+    sha256 big_sur:        "3005212aa78341c000995454977553b1ea7cfacd11bd04e24feace7e829a7d02"
+    sha256 catalina:       "e269d5d0c19c6da2521b8ab8a51f5ac1229387b4ff17eea4df216d1e0031784f"
+    sha256 x86_64_linux:   "ddc056655dfc8c6b880729096c25968b52cb39de533c61053c0c74a69961bce6"
   end
 
   keg_only :provided_by_macos
