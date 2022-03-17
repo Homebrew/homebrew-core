@@ -16,6 +16,12 @@ class Bluetoothconnector < Formula
   depends_on xcode: ["11.0", :build]
   depends_on :macos
 
+  # Fix build failure in Xcode 13. Remove with next release.
+  patch do
+    url "https://github.com/lapfelix/BluetoothConnector/commit/b628be43c95115488576e8b9360ca2f503d50f5a.patch?full_index=1"
+    sha256 "996629003ec7a6c9487684c5e2c9cf7f093221f6e530ad0f25e59d41b5ab316d"
+  end
+
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "--static-swift-stdlib"
     bin.install ".build/release/BluetoothConnector"
