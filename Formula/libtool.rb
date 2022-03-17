@@ -1,11 +1,10 @@
 class Libtool < Formula
   desc "Generic library support script"
   homepage "https://www.gnu.org/software/libtool/"
-  url "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz"
-  mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
-  sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
+  url "https://ftp.gnu.org/gnu/libtool/libtool-2.4.7.tar.xz"
+  mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.7.tar.xz"
+  sha256 "4f7f217f057ce655ff22559ad221a0fd8ef84ad1fc5fcb6990cecc333aa1635d"
   license "GPL-2.0-or-later"
-  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "51902377c9a9595aa62838170d43102ca12bfc0c2f926b78ea380220edfc271e"
