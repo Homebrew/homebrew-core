@@ -27,6 +27,7 @@ class OrTools < Formula
   depends_on "cgl"
   depends_on "clp"
   depends_on "coinutils"
+  depends_on "eigen"
   depends_on "openblas"
   depends_on "osi"
   depends_on "protobuf"
