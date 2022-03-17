@@ -11,6 +11,7 @@ class Publish < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43e882a02f169464d3b72b91c4221e605658f7f6a8989e069caecfd1d2c4caf6"
     sha256 cellar: :any_skip_relocation, monterey:       "91a7e223302a9aa8617b3ec0f1d5b25470fae3b307c789b0c8d13f0e2a6370cf"
     sha256 cellar: :any_skip_relocation, big_sur:        "76ec25c3a77331097114f184bd69185e0b000d1b84f9f7be932021bcc62894cc"
+    sha256                               x86_64_linux:   "c1e393b661b98242b749ae27c2059e840a08926588debad995cbd45a81f872db"
   end
 
   # https://github.com/JohnSundell/Publish#system-requirements
