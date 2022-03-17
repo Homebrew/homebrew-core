@@ -16,11 +16,13 @@ class PerconaToolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "1877facb5a23a5eea41fd11e8f02373d151fbead2a9c6e32249fb83bc15107d3"
-    sha256 cellar: :any,                 big_sur:       "8da16ad8dae9b642f959763c04f504e8e844f608ad34ecb5c47f8118acec5d81"
-    sha256 cellar: :any,                 catalina:      "a4a756d4c47f72d67680d33eb3f6e179eb857d5d12aa90cfb4f665a9d7ff10b5"
-    sha256 cellar: :any,                 mojave:        "d702da603979b5205d7e762e4b7e387a954dd1b987b982730de15b0c44a553ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2f41f215b4e4a2a19b70c00e4f2fe91e8a8b3efe021b947dd3198859e5ec4a0"
+    sha256 cellar: :any,                 arm64_monterey: "7e8d55d6495e001a8fdb1bf48cbacc81b66bd24ef55cd10ef39bf9692bc2628c"
+    sha256 cellar: :any,                 arm64_big_sur:  "1877facb5a23a5eea41fd11e8f02373d151fbead2a9c6e32249fb83bc15107d3"
+    sha256 cellar: :any,                 monterey:       "211971169506f462c3f99752efb2baf440f9ef82b554c6d28c58d38ecb9e6596"
+    sha256 cellar: :any,                 big_sur:        "8da16ad8dae9b642f959763c04f504e8e844f608ad34ecb5c47f8118acec5d81"
+    sha256 cellar: :any,                 catalina:       "a4a756d4c47f72d67680d33eb3f6e179eb857d5d12aa90cfb4f665a9d7ff10b5"
+    sha256 cellar: :any,                 mojave:         "d702da603979b5205d7e762e4b7e387a954dd1b987b982730de15b0c44a553ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2f41f215b4e4a2a19b70c00e4f2fe91e8a8b3efe021b947dd3198859e5ec4a0"
   end
 
   depends_on "mysql-client"
