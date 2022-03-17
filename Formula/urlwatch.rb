@@ -8,11 +8,12 @@ class Urlwatch < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0372f489dd672ce1039e8e84b0314b8b107691f9bd5a92bcba6b5a67aae1f33e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f99f62a670d045ebe7108ea5becf75d16075ad1d4db390a9281240d01463fd4a"
-    sha256 cellar: :any_skip_relocation, monterey:       "ed67a5d09962cd875399777a3a58c698e717ee8191106137f48103260715549d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a292d078126a25ed8c65c7184f7b9e64336f176e1422350a85ea45279373c43d"
-    sha256 cellar: :any_skip_relocation, catalina:       "aee5f56d7c32a9aecf926e4767c4afed38aea1a6b7407609cf34ebfc89e281ee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d560f5b6137ba4f9ad58c6de1cb65cc9d1da986ab95a5f513a7e60fe4cbfecfe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28ee5a46a02d5d7a8732761684dd826f70ba34975d6e11024ee8f7ce2fe1a62d"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c8288dcf3f3ee5822e652131005f0121677a3e9483406ece63ed813b0307c5d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "498615bebad1f6bab0d74e39ad6b261f900fb9b20515e6842fc2265b0d4a3264"
+    sha256 cellar: :any_skip_relocation, catalina:       "369f17a3d4172c1663403c1b135df87120dd6723621265cdec9d26728446f51a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2130dad8d62d869d1d1563404aef5e4e01ba48360763a1a1c40c59184bbe79ca"
   end
 
   depends_on "python@3.10"
