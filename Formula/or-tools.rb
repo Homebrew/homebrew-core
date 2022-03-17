@@ -30,6 +30,7 @@ class OrTools < Formula
   depends_on "openblas"
   depends_on "osi"
   depends_on "protobuf"
+  depends_on "re2"
 
   uses_from_macos "zlib"
 
