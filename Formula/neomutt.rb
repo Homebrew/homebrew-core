@@ -7,10 +7,12 @@ class Neomutt < Formula
   head "https://github.com/neomutt/neomutt.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "4c237578e16c4e2206e9bf8fc60ec5748efa12a3709a0676b6b2438ade7da3f5"
-    sha256 big_sur:       "42d34fcc9c1b3d97623ae96833415c2c79b87453cd3c19d00e39b919a6c6241b"
-    sha256 catalina:      "fdd0baffcb5c94b761a9ed454f1d96a8f6719eab3842f4a3239019e1085cb9f7"
-    sha256 x86_64_linux:  "edfcc9cb08d618770605f3a0b9d6c97304277078b049675adc1629c2b1b333cd"
+    sha256 arm64_monterey: "ef1a1532b4fa3ce8241c71d3a543fa193a5c310c5117fa687bc695c3a7cf4bc8"
+    sha256 arm64_big_sur:  "4c237578e16c4e2206e9bf8fc60ec5748efa12a3709a0676b6b2438ade7da3f5"
+    sha256 monterey:       "5be05fc64b6f5b510873a35c7584955a24edab88622295d54f1c09fdf95f617c"
+    sha256 big_sur:        "42d34fcc9c1b3d97623ae96833415c2c79b87453cd3c19d00e39b919a6c6241b"
+    sha256 catalina:       "fdd0baffcb5c94b761a9ed454f1d96a8f6719eab3842f4a3239019e1085cb9f7"
+    sha256 x86_64_linux:   "edfcc9cb08d618770605f3a0b9d6c97304277078b049675adc1629c2b1b333cd"
   end
 
   depends_on "docbook-xsl" => :build
