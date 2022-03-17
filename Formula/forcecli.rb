@@ -15,7 +15,8 @@ class Forcecli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "69d52200ee937994496e91aacfaa32584f13e55964bd306cb26dd82397c3e23e"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", "-trimpath", "-o", bin/"force"
