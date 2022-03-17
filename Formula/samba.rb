@@ -4,10 +4,9 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.15.5.tar.gz"
-  sha256 "69115e33831937ba5151be0247943147765aece658ba743f44741672ad68d17f"
+  url "https://download.samba.org/pub/samba/stable/samba-4.15.6.tar.gz"
+  sha256 "0575b999a9048445820428dc540ba8a9527ce596fa66af02ea2ba1ea9578bcb4"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.samba.org/samba/download/"
@@ -34,14 +33,6 @@ class Samba < Formula
   resource "Parse::Yapp" do
     url "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
     sha256 "3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5"
-  end
-
-  # [PATCH] smbd: Safeguards for getpwuid
-  # Fix `Regression: Samba 4.15.2 on macOS segfaults intermittently during strcpy in tdbsam_getsampwnam`
-  # https://bugzilla.samba.org/show_bug.cgi?id=14900
-  patch do
-    url "https://attachments.samba.org/attachment.cgi?id=17147"
-    sha256 "ca414d668d4c669e9d1886ccfc81bf5215f002ae7a2ca9491ac99548dd88bf9b"
   end
 
   def install
