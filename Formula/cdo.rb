@@ -4,6 +4,7 @@ class Cdo < Formula
   url "https://code.mpimet.mpg.de/attachments/download/26823/cdo-2.0.5.tar.gz"
   sha256 "edeebbf1c3b1a1f0c642dae6bc8c7624e0c54babe461064dc5c7daca4a5b0dce"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://code.mpimet.mpg.de/projects/cdo/files"
@@ -21,9 +22,9 @@ class Cdo < Formula
 
   depends_on "eccodes"
   depends_on "hdf5"
+  depends_on "libaec"
   depends_on "netcdf"
   depends_on "proj"
-  depends_on "szip"
 
   def install
     args = %W[
@@ -32,7 +33,7 @@ class Cdo < Formula
       --with-eccodes=#{Formula["eccodes"].opt_prefix}
       --with-netcdf=#{Formula["netcdf"].opt_prefix}
       --with-hdf5=#{Formula["hdf5"].opt_prefix}
-      --with-szlib=#{Formula["szip"].opt_prefix}
+      --with-szlib=#{Formula["libaec"].opt_prefix}
     ]
 
     system "./configure", *args
