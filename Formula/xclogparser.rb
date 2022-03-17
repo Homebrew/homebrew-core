@@ -15,6 +15,8 @@ class Xclogparser < Formula
 
   depends_on xcode: "12.0"
 
+  uses_from_macos "swift"
+
   resource "test_log" do
     url "https://github.com/tinder-maxwellelliott/XCLogParser/releases/download/0.2.9/test.xcactivitylog"
     sha256 "bfcad64404f86340b13524362c1b71ef8ac906ba230bdf074514b96475dd5dca"
