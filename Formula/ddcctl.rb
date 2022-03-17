@@ -14,6 +14,18 @@ class Ddcctl < Formula
 
   depends_on :macos
 
+  # Apply 2 upstream commits to fix build failures with Xcode 13.
+  # Remove with next release.
+  patch do
+    url "https://github.com/kfix/ddcctl/commit/d3ab6ecfd649fa8c335cd45d632cfc8ee2069174.patch?full_index=1"
+    sha256 "59fbd6f9e0aefdc65de967c350b9ab353001972bbc1b8fbe1bffb458e81a2700"
+  end
+
+  patch do
+    url "https://github.com/kfix/ddcctl/commit/8395b07150508305ff92ead307f1563163212383.patch?full_index=1"
+    sha256 "11646455bcb08fd3d8daad4e311df39a26936c4bc5da9180474eed33ccc52256"
+  end
+
   def install
     bin.mkpath
     system "make", "install", "INSTALL_DIR=#{bin}"
