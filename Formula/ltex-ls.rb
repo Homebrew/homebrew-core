@@ -6,6 +6,15 @@ class LtexLs < Formula
   license "MPL-2.0"
   head "https://github.com/valentjn/ltex-ls.git", branch: "develop"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d82d420e9b4eef10741a489adc2b2bee0110bce30b97a9de047c8550f06c7ddf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8107834513e60324f8310d4e2013659e7e7121d322574236ea9d54de124fbc7b"
+    sha256 cellar: :any_skip_relocation, monterey:       "1a54a40b5905826e25ea25dbf3762a8f0230dcedd63872d0fdb3f512c41ae60f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2ec73bb6429df9a4afccef19dda5a19462481a09a0eb99ddd6b876fdc262626a"
+    sha256 cellar: :any_skip_relocation, catalina:       "28ab3330d21ac7e92cb20debadf017c84a09469e7b96d145e64d4c5553cd908a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a87c3dd609bd8bc26b8abc1a60a17dc29323fa6eb678ff31bf068bbed24aaf4"
+  end
+
   depends_on "maven" => :build
   depends_on "python@3.10" => :build
   depends_on "openjdk"
