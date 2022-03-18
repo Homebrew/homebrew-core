@@ -16,7 +16,8 @@ class Reg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e1f1396a2eec2571aed2861955e94d41c841e2e57d85202084f263e95ecb1ca"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args
