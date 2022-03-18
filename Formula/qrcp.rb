@@ -14,7 +14,8 @@ class Qrcp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0fca2937cc06d6c5d76e067b4bd69511fc24c8e9632b8bd5e2274658a5a1f6c"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args
