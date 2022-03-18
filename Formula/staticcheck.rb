@@ -4,6 +4,7 @@ class Staticcheck < Formula
   url "https://github.com/dominikh/go-tools/archive/2021.1.2.tar.gz"
   sha256 "c3fcadc203e20bc029abc9fc1d97b789de4e90dd8164e45489ec52f401a2bfd0"
   license "MIT"
+  revision 1
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
@@ -15,10 +16,13 @@ class Staticcheck < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ddc97876035c049806118c39f1033f2217675e72331131ba0153351177d73527"
   end
 
-  depends_on "go"
+  # Bump to 1.18 on the next release.
+  depends_on "go@1.17"
 
   def install
-    system "go", "build", *std_go_args, "./cmd/staticcheck"
+    output = libexec/"bin/staticcheck"
+    system "go", "build", *std_go_args(output: output), "./cmd/staticcheck"
+    (bin/"staticcheck").write_env_script(output, PATH: "$PATH:#{Formula["go@1.17"].opt_bin}")
   end
 
   test do
