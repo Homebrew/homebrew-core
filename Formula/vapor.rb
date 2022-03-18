@@ -12,6 +12,7 @@ class Vapor < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7a6b32eb224796649a9e2024e7a430124bdebaf4253c42ca90a755aa3fe4690b"
     sha256 cellar: :any_skip_relocation, big_sur:        "a2488d72900dbcd7147ef0b1c756baea6c69c3a976a63cdfc4f7537764a244ef"
     sha256 cellar: :any_skip_relocation, catalina:       "0622f5ae31e2f4be566727425b0fce7cc8b5d79b60d80fb54a7abc9c86d51e1b"
+    sha256                               x86_64_linux:   "56ae58ee4fc87aedec745769bc1a1e19bc9efd01f91a2d203d3e2e3f7ad3eb1c"
   end
 
   depends_on xcode: "11.4"
