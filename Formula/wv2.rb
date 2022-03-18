@@ -25,9 +25,71 @@ class Wv2 < Formula
   depends_on "glib"
   depends_on "libgsf"
 
+  uses_from_macos "libxml2"
+
   def install
-    ENV.append "LDFLAGS", "-liconv -lgobject-2.0" # work around broken detection
+    ENV.append "LDFLAGS", "-lgobject-2.0" # work around broken detection
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
+    ENV.append "CXXFLAGS", "-I#{Formula["libxml2"].include}/libxml2" unless OS.mac?
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+    (share/"test").install "tests/testole.doc"
+  end
+
+  test do
+    cp share/"test/testole.doc", testpath
+
+    (testpath/"test.cpp").write <<~EOS
+      #include <cstdlib>
+      #include <iostream>
+      #include <string>
+
+      #include <stdio.h>
+      #include <wv2/parser.h>
+      #include <wv2/parserfactory.h>
+      #include <wv2/global.h>
+
+      using namespace wvWare;
+
+      void test( bool result, const std::string& failureMessage, const std::string& successMessage = "" )
+      {
+          if ( result ) {
+              if ( !successMessage.empty() )
+                  std::cerr << successMessage << std::endl;
+          }
+          else {
+              std::cerr << failureMessage << std::endl;
+              std::cerr << "Test NOT finished successfully." << std::endl;
+              ::exit( 1 );
+          }
+      }
+
+      void test( bool result )
+      {
+          test( result, "Failed", "Passed" );
+      }
+
+      // A small testcase for the parser (Word97)
+      int main( int argc, char** argv )
+      {
+          std::string file;
+          file = "testole.doc";
+
+          std::cerr << "Testing the parser with " << file << "..." << std::endl;
+
+          SharedPtr<Parser> parser( ParserFactory::createParser( file ) );
+          std::cerr << "Trying... " << std::endl;
+          if ( parser )
+              test ( parser->parse() );
+          std::cerr << "Done." << std::endl;
+
+          return 0;
+      }
+    EOS
+
+    wv2_flags = shell_output("wv2-config --cflags --libs").chomp.split
+    system ENV.cxx, "test.cpp", "-L#{Formula["libgsf"].lib}",
+           "-L#{Formula["glib"].lib}", *wv2_flags, "-o", "test"
+    assert_match "Done", shell_output("#{testpath}/test 2>&1 testole.doc")
   end
 end
