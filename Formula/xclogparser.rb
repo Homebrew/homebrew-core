@@ -11,6 +11,7 @@ class Xclogparser < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "5b794bbec84c4dd4a4a867665928226b817791d0b95ee09fbee8759c1c5cc196"
     sha256 cellar: :any_skip_relocation, big_sur:        "e5ebb1b3504239807973329a8e6c4eae4a5cd1bf6839c7456aea36b9901ead0a"
     sha256 cellar: :any_skip_relocation, catalina:       "02a0e5a688b94de7bc21fc773a194a99f30b92f442563360593708e4ccbb6c82"
+    sha256                               x86_64_linux:   "420309e800cea377e95d196f305f3350c68427c0413899c445281c0f6bfd0e1e"
   end
 
   depends_on xcode: "12.0"
