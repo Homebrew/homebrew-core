@@ -7,12 +7,12 @@ class SpdxSbomGenerator < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "57860e65e9474a4afdd3cb01eef4997a32ce2b2160419f0fac8bbbb0d0b8e29f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "03ef31f7f9fd2439ee32bdc9a79da1791307f205aa469cfcc30a60ac6b9be9a4"
-    sha256 cellar: :any_skip_relocation, monterey:       "b57ac711147d01d9d18bc0d9248a7c1e294cdc8fda6b6ce71c9662c3f865ee59"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ce7f6258ee19eb11fed935a5fa39a462c0422d2370b2cec47adb504e46557739"
-    sha256 cellar: :any_skip_relocation, catalina:       "8afc7ba8305df4755757c2bb7d57e38436ccab3b9186cfc40781b30f52426a6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b9dfe484c574f4e8163880fc7d7ee4208be46154adc694295598ffe4f1db074"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d33ca829ee21a0368595ccfd056fd71b42adf885c56e9817873d59f5fa654e4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bcc70b1ee753b8dbfb6dfb570c252f9505cbc65dac76969226181d96d86e44ae"
+    sha256 cellar: :any_skip_relocation, monterey:       "6e61f76ae9777f7a240ae8334b3aeff2ec2d2938fe0cf3731b1ef3bff93db3ae"
+    sha256 cellar: :any_skip_relocation, big_sur:        "681616b30e0ef85abdb4a0d67e192960aba39734e370eaf0a7be21ecc47258f0"
+    sha256 cellar: :any_skip_relocation, catalina:       "8754edaf0d7acbefec80d9acfca5ef99261a040eeda5dd2af043b1d59a9c4228"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "001de0fb0d5df3c4da25c403dd93e9826e1b4dcec4cb9aaf52892c1686dbe167"
   end
 
   # Bump to 1.18 on the next release, if possible.
