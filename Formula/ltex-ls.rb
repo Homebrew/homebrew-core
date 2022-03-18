@@ -14,14 +14,20 @@ class LtexLs < Formula
     ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     ENV["TMPDIR"] = buildpath
-    system Formula["python@3.10"].bin/"python3", "-u", "tools/createCompletionLists.py"
+
+    system "python3", "-u", "tools/createCompletionLists.py"
+
     system "mvn", "-B", "-e", "-DskipTests", "package"
-    (buildpath/"build").mkpath
-    system "tar", "xzf", "target/ltex-ls-#{version}.tar.gz", "-C", "build"
-    # remove Windows files
-    rm Dir["build/ltex-ls-#{version}/bin/*.bat"]
-    bin.install Dir["build/ltex-ls-#{version}/bin/*"]
-    libexec.install Dir["build/ltex-ls-#{version}/*"]
+
+    mkdir "build" do
+      system "tar", "xzf", "../target/ltex-ls-#{version}.tar.gz", "-C", "."
+
+      # remove Windows files
+      rm Dir["ltex-ls-#{version}/bin/*.bat"]
+      bin.install Dir["ltex-ls-#{version}/bin/*"]
+      libexec.install Dir["ltex-ls-#{version}/*"]
+    end
+
     bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
