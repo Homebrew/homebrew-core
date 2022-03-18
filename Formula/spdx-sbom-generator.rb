@@ -4,6 +4,7 @@ class SpdxSbomGenerator < Formula
   url "https://github.com/opensbom-generator/spdx-sbom-generator/archive/refs/tags/v0.0.13.tar.gz"
   sha256 "7d088f136a53d1f608b1941362c568d78cc6279df9c1bdb3516de075cb7f10c3"
   license any_of: ["Apache-2.0", "CC-BY-4.0"]
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "57860e65e9474a4afdd3cb01eef4997a32ce2b2160419f0fac8bbbb0d0b8e29f"
@@ -14,7 +15,8 @@ class SpdxSbomGenerator < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b9dfe484c574f4e8163880fc7d7ee4208be46154adc694295598ffe4f1db074"
   end
 
-  depends_on "go" => [:build, :test]
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => [:build, :test]
 
   def install
     target = if Hardware::CPU.arm?
@@ -27,11 +29,13 @@ class SpdxSbomGenerator < Formula
 
     system "make", target
 
-    bin.install "bin/spdx-sbom-generator"
+    exe = "spdx-sbom-generator"
+    (libexec/"bin").install "bin/#{exe}"
+    (bin/exe).write_env_script(libexec/"bin/#{exe}", PATH: "$PATH:#{Formula["go@1.17"].opt_bin}")
   end
 
   test do
-    system "go", "mod", "init", "example.com/tester"
+    system Formula["go@1.17"].opt_bin/"go", "mod", "init", "example.com/tester"
 
     assert_equal "panic: runtime error: index out of range [0] with length 0",
                  shell_output("#{bin}/spdx-sbom-generator 2>&1", 2).split("\n")[3]
