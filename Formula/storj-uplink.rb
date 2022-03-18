@@ -1,8 +1,8 @@
 class StorjUplink < Formula
   desc "Uplink CLI for the Storj network"
   homepage "https://storj.io"
-  url "https://github.com/storj/storj/archive/v1.35.3.tar.gz"
-  sha256 "2cd45c68f75a301ed7a4efda5f69ed2fd5dbe97836a03f04acc72da79294e869"
+  url "https://github.com/storj/storj/archive/refs/tags/v1.50.4.tar.gz"
+  sha256 "8f507ffa4bf70eeeb3cf9dc5c4e7794c9913354495d497bdd1d1cdb2b8453fe5"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -26,6 +26,12 @@ class StorjUplink < Formula
   end
 
   test do
-    assert_match "invalid access grant format", shell_output("#{bin}/uplink ls 2>&1", 1)
+    (testpath/"config.ini").write <<~EOS
+      [metrics]
+      addr=
+    EOS
+    ENV["UPLINK_CONFIG_DIR"] = testpath.to_s
+    ENV["UPLINK_INTERACTIVE"] = "false"
+    assert_match "No accesses configured", shell_output("#{bin}/uplink ls 2>&1", 1)
   end
 end
