@@ -16,7 +16,8 @@ class Kcptun < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5d892ce0ccf516f9252e9f09eaa56896021a12ea4d14003d69dabc7559a4467"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", "-ldflags", "-X main.VERSION=#{version} -s -w",
