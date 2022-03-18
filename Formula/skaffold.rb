@@ -24,7 +24,8 @@ class Skaffold < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c98b914ea8004c5e9c2d7be0222e90c27c1e00e055d5d519ab452556995b387b"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "make"
