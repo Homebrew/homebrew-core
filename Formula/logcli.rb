@@ -19,7 +19,8 @@ class Logcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e1c676fe5b3133dceadab697f245f34d57a83c49793886095f8870d0cdab326"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
   depends_on "loki" => :test
 
   resource "testdata" do
