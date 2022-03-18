@@ -16,7 +16,8 @@ class Overmind < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c63f041aaf3949b972351ea2102a5405dc71d6c5e0de79cceb170745cf39d0a"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
   depends_on "tmux"
 
   def install
@@ -27,7 +28,7 @@ class Overmind < Formula
   test do
     expected_message = "overmind: open ./Procfile: no such file or directory"
     assert_match expected_message, shell_output("#{bin}/overmind start 2>&1", 1)
-    (testpath/"Procfile").write("test: echo 'test message'")
+    (testpath/"Procfile").write("test: echo 'test message'; sleep 1")
     expected_message = "test message"
     assert_match expected_message, shell_output("#{bin}/overmind start")
   end
