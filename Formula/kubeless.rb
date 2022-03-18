@@ -15,7 +15,9 @@ class Kubeless < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b87b97575b27569433e254396eaa15c265fd9f11de80c916e346e7fb0271559f"
   end
 
-  depends_on "go" => :build
+  deprecate! date: "2022-03-18", because: :repo_archived
+
+  depends_on "go@1.17" => :build
   depends_on "kubernetes-cli"
 
   def install
