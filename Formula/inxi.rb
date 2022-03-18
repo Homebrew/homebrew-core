@@ -14,6 +14,8 @@ class Inxi < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "ef47928c9f2cef54251859d947a0378cfad528f8fb01da4f31140ad3733fd848"
   end
 
+  uses_from_macos "perl"
+
   def install
     bin.install "inxi"
     man1.install "inxi.1"
@@ -26,8 +28,12 @@ class Inxi < Formula
   test do
     inxi_output = shell_output("#{bin}/inxi")
 
-    uname = shell_output("uname").strip
-    assert_match uname.to_str, inxi_output.to_s
+    # This test does not work on Linux, because on that platform
+    # inxi does not print the OS name, only the kernel version.
+    if OS.mac?
+      uname = shell_output("uname").strip
+      assert_match uname.to_str, inxi_output.to_s
+    end
 
     uname_r = shell_output("uname -r").strip
     assert_match uname_r.to_str, inxi_output.to_s
