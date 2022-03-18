@@ -11,7 +11,7 @@ class CaCertificates < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "40e00f88df310bc2dc42aefb3e834c0a3022f125fecdf21f26431d12a104dbc0"
+    sha256 cellar: :any_skip_relocation, all: "aa33f961541d9d09b503be6df89bed5834eec7bb67af24080f12625a82dbdf8d"
   end
 
   def install
