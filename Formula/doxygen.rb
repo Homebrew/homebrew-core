@@ -24,6 +24,9 @@ class Doxygen < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
+  depends_on "ghostscript" => :build
+  depends_on "graphviz" => :build
+  depends_on "texlive" => :build
 
   uses_from_macos "flex" => :build
 
@@ -37,11 +40,11 @@ class Doxygen < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "-Dbuild_doc=1", "..", *std_cmake_args
       system "make"
+      system "make", "docs"
+      system "make", "install"
     end
-    bin.install Dir["build/bin/*"]
-    man1.install Dir["doc/*.1"]
   end
 
   test do
