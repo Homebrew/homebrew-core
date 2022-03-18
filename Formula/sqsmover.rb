@@ -17,6 +17,13 @@ class Sqsmover < Formula
 
   depends_on "go" => :build
 
+  # Fix build with Go 1.18.
+  # Remove with the next release.
+  patch do
+    url "https://github.com/mercury2269/sqsmover/commit/2791c1912e4e262dca981dcf2219305b3d0e784a.patch?full_index=1"
+    sha256 "effd7cc9422b64944abada78cbd163c8900b3dd1254427cbdee76e106e8e540b"
+  end
+
   def install
     ldflags = %W[
       -s -w
