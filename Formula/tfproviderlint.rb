@@ -40,9 +40,6 @@ class Tfproviderlint < Formula
   end
 
   test do
-    assert_match "tfproviderlint: ./... matched no packages",
-      shell_output(bin/"tfproviderlint -fix ./... 2>&1", 1)
-
     testpath.install resource("test_resource")
     assert_match "S006: schema of TypeMap should include Elem",
       shell_output(bin/"tfproviderlint -fix #{testpath}/... 2>&1", 3)
