@@ -1,9 +1,16 @@
 class Libadwaita < Formula
   desc "Building blocks for modern adaptive GNOME applications"
   homepage "https://gnome.pages.gitlab.gnome.org/libadwaita/"
-  url "https://download.gnome.org/sources/libadwaita/1.0/libadwaita-1.0.2.tar.xz"
-  sha256 "79e56011f5532fba6cb02531249d2bcfb8a6c42495c7a7de92f8819661fea091"
+  url "https://download.gnome.org/sources/libadwaita/1.1/libadwaita-1.1.0.tar.xz"
+  sha256 "aff598803e810cc28266472cf5bf65e5ed5b90bb3523e206b06b14527325010e"
   license "LGPL-2.1-or-later"
+
+  # We use a common regex because libadwaita doesn't use GNOME's "even-numbered
+  # minor is stable" version scheme.
+  livecheck do
+    url :stable
+    regex(/libadwaita-(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_monterey: "c88a962ad53cc5965136aa38ebdd058f1fe2c34e5e21d3490b81435bc4d508d9"
