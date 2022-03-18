@@ -19,7 +19,8 @@ class Ooniprobe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1a9d290ccdcdbef535ddd9eca13dc7b184b8702e0fd132b3c7c31192618dab8"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
   depends_on "tor"
 
   def install
