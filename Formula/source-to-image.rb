@@ -18,7 +18,8 @@ class SourceToImage < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcecc2baa3cde24a76d98e4771268feff6c28f91f8e0b4260c3d355027c1988f"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "hack/build-go.sh"
