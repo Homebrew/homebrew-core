@@ -6,12 +6,12 @@ class Lout < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "3a87b31938c939e6462d9ac00da2d3763fc2559c82b52141260ab4e8f94e0dee"
-    sha256 arm64_big_sur:  "83b6f34bde01cfc2a8aa909d5e68dba9427c9bd1700859c83d0b57e4e8567dfd"
-    sha256 monterey:       "2fa62e7fb290e445eea34f2a7d8db547f0a8cacfd6b8189e277a3fc34586f293"
-    sha256 big_sur:        "890eb00501a3a7cf541dd546fd601b37a6d4e7500cff774db1889b8b5161a2fc"
-    sha256 catalina:       "16763515f05d7c6020a3b7a49e8ccac80c90363a792d3bc2d554f61f4f8e1a10"
-    sha256 x86_64_linux:   "f76b5af425172f298d3f79cd56ae6a2d74d67c2990c4951e52bcdc2b57cdc1f0"
+    sha256 arm64_monterey: "63e654e4a8a80650fd93e7753b02324fadf155859ed2033eefb86ff1e197d1c2"
+    sha256 arm64_big_sur:  "e582d850d93ad8ce569374f5154598dc0a0f4b96d99406cba59192765c7bb825"
+    sha256 monterey:       "58484f4b661d7717a51d040b24c5e713f2338b4f64ac9e9bb553ad1801df0ad0"
+    sha256 big_sur:        "9bd926fea1d826e067041b86414ef4b8fbe46db5a2ed56d0a4416be908c87d09"
+    sha256 catalina:       "600c4e098a6b6b72ea3b55d3e6c4ce2369181c1292f4529e14ab43a336eaccfb"
+    sha256 x86_64_linux:   "2f1be7368fbe1290b5c8e1751ad56ab8291b9369fa67c11d6ef999b51516f3a7"
   end
 
   def install
