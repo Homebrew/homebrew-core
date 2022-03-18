@@ -16,7 +16,8 @@ class Kubeval < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "92c4fe8b9a551d9f7a4fa58b620b703db28df4b422fc7740442b062ff5fbf31a"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     ldflags = %W[
