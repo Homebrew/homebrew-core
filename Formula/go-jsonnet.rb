@@ -15,7 +15,8 @@ class GoJsonnet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5dcfab621b2f70e5411635f841346ac28ce59328ac0508d775d4b394970effe9"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   conflicts_with "jsonnet", because: "both install binaries with the same name"
 
