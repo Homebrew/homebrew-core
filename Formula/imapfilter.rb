@@ -23,7 +23,7 @@ class Imapfilter < Formula
     ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
     ENV.append "LDFLAGS", "-L#{Formula["pcre2"].opt_lib}"
     ENV.append "LDFLAGS", "-L#{Formula["lua"].opt_lib}"
-    ENV.append "LDFLAGS", "-liconv"
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "MYCFLAGS=#{ENV.cflags}", "MYLDFLAGS=#{ENV.ldflags}"
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "install"
 
