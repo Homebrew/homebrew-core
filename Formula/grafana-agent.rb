@@ -14,7 +14,8 @@ class GrafanaAgent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cda0a043d29204e87815f0003cbc8f6082b0834aacb59e4fd84fd836bccb9fdf"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   on_linux do
     depends_on "systemd" => :build
