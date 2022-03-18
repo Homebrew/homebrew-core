@@ -14,7 +14,8 @@ class Sonobuoy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae93e6c2748cac69e61d591b1e673c8b64d9957a94055f84cfc977868aff7f55"
   end
 
-  depends_on "go" => :build
+  # Segfaults on Go 1.18 - try test it again when updating this formula.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/vmware-tanzu/sonobuoy/pkg/buildinfo.Version=v#{version}")
