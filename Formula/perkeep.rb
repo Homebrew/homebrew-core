@@ -26,7 +26,8 @@ class Perkeep < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3822eb5d2bc22fb31733101ca980db8baf8ebc4ab1994a47fc0739ab35a998d"
   end
 
-  depends_on "go" => :build
+  # This should match what gopherjs supports.
+  depends_on "go@1.17" => :build
   depends_on "pkg-config" => :build
 
   conflicts_with "hello", because: "both install `hello` binaries"
