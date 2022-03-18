@@ -3,7 +3,7 @@ class Libmusicbrainz < Formula
   homepage "https://musicbrainz.org/doc/libmusicbrainz"
   url "https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz"
   sha256 "6749259e89bbb273f3f5ad7acdffb7c47a2cf8fcaeab4c4695484cef5f4c6b46"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "fc0659a30defd25b9d1eb98acee0c6165d3a25c013a7a5bd4d77247af9096ddc"
@@ -21,9 +21,15 @@ class Libmusicbrainz < Formula
   depends_on "cmake" => :build
   depends_on "neon"
 
+  uses_from_macos "libxml2"
+
+  on_linux do
+    depends_on "pkg-config"
+  end
+
   def install
     neon = Formula["neon"]
-    neon_args = %W[-DNEON_LIBRARIES:FILEPATH=#{neon.lib}/libneon.dylib
+    neon_args = %W[-DNEON_LIBRARIES:FILEPATH=#{neon.lib}/#{shared_library("libneon")}
                    -DNEON_INCLUDE_DIR:PATH=#{neon.include}/neon]
     system "cmake", ".", *(std_cmake_args + neon_args)
     system "make", "install"
