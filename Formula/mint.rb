@@ -11,6 +11,7 @@ class Mint < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "5faf98e60b6d18332bcac4ab076f6ba861ee7daea4c23a85f97e6c8fa3d1f463"
     sha256 cellar: :any_skip_relocation, big_sur:        "3ccf422821dd5fc82488f8e0ab2a11efb645901527b8cf9c42979cc152a9ce02"
     sha256 cellar: :any_skip_relocation, catalina:       "d09ea36619994628564fb3d7e8e71b8c368c59f68e29174fb84b9b127bd9290e"
+    sha256                               x86_64_linux:   "1d73dd0102396a53abac4721557dc7d7c2897bdb0e95551e04869c48d11df764"
   end
 
   depends_on xcode: ["12.0", :build]
