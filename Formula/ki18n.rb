@@ -18,11 +18,11 @@ class Ki18n < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "8a25ca3c4e89e1e21d6ecc015fd4c454fe70952178650656d47a1515566dfa21"
-    sha256 arm64_big_sur:  "712779c93db0ca77b30353c9b68cba97332c4bfb742d8ccd82dc4dfaae1617a5"
-    sha256 monterey:       "abede5e43b9eb1fbca5113a1545eb646d7422b198cce653f0ba01ced68a499b7"
-    sha256 big_sur:        "432638a9391fc35b7674956fcfd180fc80d17d0c7eee397942f8c83302fbb569"
-    sha256 catalina:       "4144cec293ff3c4f47078eaacd40a54f32f32b26e6cc6b51d43f55a7052e56ce"
+    sha256 arm64_monterey: "e2ca0a67418a0363ba8148e1eb22cbbee03206773cfeaf42104a4035f70ad5ce"
+    sha256 arm64_big_sur:  "60af3a4dfe5ba9d71dc7014ddea5b2075de5f2f8bf7192f4af002ac311c62e2f"
+    sha256 monterey:       "024b0441dd3ea1ad6d34802a29e0dd6fa162de6332c2e88a99b920767e16ccdd"
+    sha256 big_sur:        "b6bd1aea9e64d046e30238edd4e2dac06c9a9b01c7103fc8afec2ed9ce24936a"
+    sha256 catalina:       "bb0b095703789a62e0cba55d52ed90564b222faf89cb0640b6cded2cfaa63a35"
   end
 
   depends_on "cmake" => [:build, :test]
