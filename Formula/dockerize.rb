@@ -17,6 +17,7 @@ class Dockerize < Formula
   end
 
   depends_on "go" => :build
+  conflicts_with "powerman-dockerize", because: "powerman-dockerize and dockerize install conflicting executables"
 
   def install
     ENV["GOPATH"] = buildpath
