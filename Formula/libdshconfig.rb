@@ -23,7 +23,15 @@ class Libdshconfig < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ad27e681ca7e49ff1b99f92fe3a62ecd6edd34bfb3fbc0f4f8cbc9ad386cc86"
   end
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
+    # Run autoreconf on macOS to fix -flat_namespace usage.
+    system "autoreconf", "--force", "--verbose", "--install" if OS.mac?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
