@@ -19,7 +19,8 @@ class Promtail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "355b0dfce83f87f0f724dc1e2b69ba302d266e6e42e6390f86db06112ff8c657"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   on_linux do
     depends_on "systemd"
