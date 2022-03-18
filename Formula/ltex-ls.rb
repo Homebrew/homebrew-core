@@ -43,7 +43,7 @@ class LtexLs < Formula
           Use 'said'
     EOS
 
-    got = shell_output("#{bin}/ltex-cli '#{testpath}/test'")
+    got = shell_output("#{bin}/ltex-cli '#{testpath}/test'", 3)
     assert_equal (testpath/"expected").read, got
   end
 end
