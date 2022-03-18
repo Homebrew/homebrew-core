@@ -21,7 +21,8 @@ class GitlabRunner < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f35695e9a23e1990e8df8c6b20e6242af74cc280bb718638757be9933ba15ae7"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 when x/sys is updated (likely 14.9).
+  depends_on "go@1.17" => :build
 
   def install
     proj = "gitlab.com/gitlab-org/gitlab-runner"
