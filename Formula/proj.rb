@@ -4,6 +4,7 @@ class Proj < Formula
   url "https://github.com/OSGeo/PROJ/releases/download/9.0.0/proj-9.0.0.tar.gz"
   sha256 "0620aa01b812de00b54d6c23e7c5cc843ae2cd129b24fabe411800302172b989"
   license "MIT"
+  revision 1
   head "https://github.com/OSGeo/proj.git", branch: "master"
 
   bottle do
@@ -38,6 +39,9 @@ class Proj < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "static"
+    lib.install Dir["static/lib/*.a"]
   end
 
   test do
