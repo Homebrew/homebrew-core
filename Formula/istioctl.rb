@@ -13,6 +13,7 @@ class Istioctl < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "916147387e88be3f4dc1e4a783d1becc717a0c6d2f345a7b5a9096adfa933da8"
     sha256 cellar: :any_skip_relocation, big_sur:        "916147387e88be3f4dc1e4a783d1becc717a0c6d2f345a7b5a9096adfa933da8"
     sha256 cellar: :any_skip_relocation, catalina:       "916147387e88be3f4dc1e4a783d1becc717a0c6d2f345a7b5a9096adfa933da8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a54d4949398540a678972bd6aef26704976b55379dc0ee25631845253e0b3435"
   end
 
   depends_on "go" => :build
