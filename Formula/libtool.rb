@@ -18,20 +18,7 @@ class Libtool < Formula
 
   depends_on "m4"
 
-  # Fixes the build on macOS 11:
-  # https://lists.gnu.org/archive/html/libtool-patches/2020-06/msg00001.html
-  patch :p0 do
-    url "https://github.com/Homebrew/formula-patches/raw/e5fbd46a25e35663059296833568667c7b572d9a/libtool/dynamic_lookup-11.patch"
-    sha256 "5ff495a597a876ce6e371da3e3fe5dd7f78ecb5ebc7be803af81b6f7fcef1079"
-  end
-
   def install
-    # Ensure configure is happy with the patched files
-    %w[aclocal.m4 libltdl/aclocal.m4 Makefile.in libltdl/Makefile.in
-       config-h.in libltdl/config-h.in configure libltdl/configure].each do |file|
-      touch file
-    end
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
