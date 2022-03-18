@@ -16,7 +16,8 @@ class TerraformLsp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eae59625f858958621455404b365659464230b5a54783cb20be44e4569d539f"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     ldflags = %W[
