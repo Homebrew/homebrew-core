@@ -14,7 +14,8 @@ class Lf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cc327c457adb1387fbecb627c2adef0de39c18cbcbf0848e0b6b8869a39280d"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.gVersion=#{version}")
