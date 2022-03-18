@@ -16,6 +16,13 @@ class Ko < Formula
 
   depends_on "go" => :build
 
+  # Fix build with Go 1.18.
+  # Remove with the next release.
+  patch do
+    url "https://github.com/google/ko/commit/f40d2dcca1b613531fd8b096aa841eafd3e9c931.patch?full_index=1"
+    sha256 "a1ef41b7c9db2aceb5fee0f38a2b63ae88c12c506564bbac38a4aa0ef6e639e3"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/google/ko/pkg/commands.Version=#{version}")
 
