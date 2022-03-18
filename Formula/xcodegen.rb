@@ -12,6 +12,7 @@ class Xcodegen < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "cecf4c25ddcf696c4b63027d5d21278b5a3a550bcb1d6b11911b9c3c4dd2c630"
     sha256 cellar: :any_skip_relocation, big_sur:        "12c836f28b0635f710cdf4aef0be0ab957ee22fde9bafbd4f1c68dd4ce683f32"
     sha256 cellar: :any_skip_relocation, catalina:       "a845d879aba3867a72047665e5a598556aa3745bb2f25e038e357a66e23a1b89"
+    sha256                               x86_64_linux:   "271a58fa570b85837819ed241b5e35736f2bb4b2ae5b8c03fa78f4afd540fda6"
   end
 
   depends_on xcode: ["10.2", :build]
