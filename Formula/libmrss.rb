@@ -27,11 +27,19 @@ class Libmrss < Formula
   depends_on "pkg-config" => :build
   depends_on "libnxml"
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
     if build.head?
       mkdir "m4"
       inreplace "autogen.sh", "libtoolize", "glibtoolize"
       system "./autogen.sh"
+    elsif OS.mac?
+      system "autoreconf", "--force", "--verbose", "--install"
     end
 
     system "./configure", "--disable-debug",
