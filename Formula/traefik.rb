@@ -18,6 +18,13 @@ class Traefik < Formula
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
+  # Fix build with Go 1.18.
+  # Remove with v2.7.
+  patch do
+    url "https://github.com/traefik/traefik/commit/9297055ad8f651c751473b5fd4103eb224a8337e.patch?full_index=1"
+    sha256 "b633710c7bde8737fbe0170066a765ee749f014d38afd06ef40085773e152fd0"
+  end
+
   def install
     ldflags = %W[
       -s -w
