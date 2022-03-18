@@ -13,6 +13,7 @@ class Xcbeautify < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "1d044b8a5dc9d404db984094befacd9da51c407b0b879c1f5334271b5b43fbbb"
     sha256 cellar: :any_skip_relocation, big_sur:        "61aae5b682dab20e275b2cfb26eddbca6c1d5bfe23f3ae8eda3df2e7a7c6853c"
     sha256 cellar: :any_skip_relocation, catalina:       "fece980ac56da3f6afe260969921299c8dd7b7ae366fcad2ea96ebfa35b9ed7f"
+    sha256                               x86_64_linux:   "9720c0a6db1ed83768a0df23cef1f06b69a4e250458cacb573fb3ed5f0668cfd"
   end
 
   depends_on xcode: ["11.4", :build]
