@@ -18,6 +18,13 @@ class Gitql < Formula
 
   depends_on "go" => :build
 
+  # Support 1.18 by updating dependencies.
+  # Remove with the next release.
+  patch do
+    url "https://github.com/filhodanuvem/gitql/commit/1bad3899592b0a8265e4a9c66e1c26e0bcbcd111.patch?full_index=1"
+    sha256 "b002683a2eac09f7342869cbbcb94a971f51db03fc7895bf7fa5a8069b030378"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
