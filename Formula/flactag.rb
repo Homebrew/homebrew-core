@@ -3,6 +3,7 @@ class Flactag < Formula
   homepage "https://flactag.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/flactag/v2.0.4/flactag-2.0.4.tar.gz"
   sha256 "c96718ac3ed3a0af494a1970ff64a606bfa54ac78854c5d1c7c19586177335b2"
+  license "GPL-3.0-or-later"
   revision 1
 
   bottle do
@@ -29,6 +30,8 @@ class Flactag < Formula
   depends_on "s-lang"
   depends_on "unac"
 
+  uses_from_macos "libxslt"
+
   # jpeg 9 compatibility
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/ed0e680/flactag/jpeg9.patch"
@@ -37,7 +40,7 @@ class Flactag < Formula
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-    ENV.append "LDFLAGS", "-liconv"
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.append "LDFLAGS", "-lFLAC"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
