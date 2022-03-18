@@ -6,13 +6,12 @@ class Grin < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5ed7b3c59bb2b06188c021935f8b865932c901a754cb4514887f822641a69e1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04b1548c4e5de7d5a6e13126825937f0f87aad4b81ce155f092798b84a94f9dd"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa85bf7c7a548be8ac4a557f32e2f5d658283d2a4af30bee8f27272211ff55c3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "49667390db7e89f2376813b8b0d627721361e9905a16b47dcb7868ec0766a751"
-    sha256 cellar: :any_skip_relocation, catalina:       "74529f59d9c4389e763216b1147065a0a54ec2641ad0dc1577475c50a81fdfc4"
-    sha256 cellar: :any_skip_relocation, mojave:         "5a9820a6fa169cb81b0767f46fd01875c35b78b297382d1ae6a486d5e5066631"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df9aeccdb26f87d51c226d93c21ae43db5045ae18940af6999e714a9e5a5e138"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ccbb426ce7d3830eca71f3b82cc20fbfbfd05b96716ce24e4b805700310adc23"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "151ca3ab278be9cb9d7a10b2c4cc5c5a0105a3a1624b688a10decba5d35ccadd"
+    sha256 cellar: :any_skip_relocation, monterey:       "93e0600ef02de4d29f87b918a013e447642c8a9611f88003a7f716876c2af8b8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "73575795db90d1014d77b9305d72eef7ea75b79a197f1add5253d93c9f4458eb"
+    sha256 cellar: :any_skip_relocation, catalina:       "724f041a16b20c09efc90ae96f37f03f221253bf2fa1c27dbbf8e1f086831421"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6abb67fa62bc612ebc6ba360aebaf5acaf2432b858c60d5556db50420eecc67"
   end
 
   depends_on "llvm" => :build # for libclang
