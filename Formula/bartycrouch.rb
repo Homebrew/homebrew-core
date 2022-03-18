@@ -2,8 +2,8 @@ class Bartycrouch < Formula
   desc "Incrementally update/translate your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
   url "https://github.com/Flinesoft/BartyCrouch.git",
-      tag:      "4.9.0",
-      revision: "0aa807a2e853a146ea55808edeb1431e1994b070"
+      tag:      "4.10.0",
+      revision: "a832f73a8b07b6875d055d9b2963d5b2eb157e54"
   license "MIT"
   head "https://github.com/Flinesoft/BartyCrouch.git", branch: "main"
 
@@ -14,7 +14,7 @@ class Bartycrouch < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "38fa4742fe695b7b88ace488d89941c83027f17dca38c4dd871e0491f2a9ef18"
   end
 
-  depends_on xcode: ["12.5", :build]
+  depends_on xcode: ["13.3", :build]
   depends_on :macos
 
   def install
