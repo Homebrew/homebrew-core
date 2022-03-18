@@ -8,6 +8,8 @@ class CreateDmg < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, all: "fbbb2e726579852cfa16abe27bc34bf78a2df0c991a9d9d6994c2ffbd5c2773d"
   end
+  
+  depends_on :macos
 
   def install
     system "make", "install", "prefix=#{prefix}"
