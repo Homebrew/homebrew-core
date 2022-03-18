@@ -32,7 +32,8 @@ class OpenshiftCli < Formula
   end
 
   depends_on "coreutils" => :build
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release.
+  depends_on "go@1.17" => :build
   depends_on "heimdal" => :build
   depends_on "socat"
 
