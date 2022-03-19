@@ -1,4 +1,4 @@
-class Go < Formula
+class GoAT118 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
   url "https://go.dev/dl/go1.18.src.tar.gz"
