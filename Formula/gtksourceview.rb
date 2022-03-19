@@ -23,7 +23,12 @@ class Gtksourceview < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
-  depends_on "gtk-mac-integration"
+
+  uses_from_macos "perl" => :build
+
+  on_macos do
+    depends_on "gtk-mac-integration"
+  end
 
   # patches added the ensure that gtk-mac-integration is supported properly instead
   # of the old released called ige-mac-integration.
@@ -35,6 +40,8 @@ class Gtksourceview < Formula
   end
 
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
@@ -89,17 +96,21 @@ class Gtksourceview < Formula
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
       -lgdk_pixbuf-2.0
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
       -lgtksourceview-2.0
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    if OS.mac?
+      flags += %w[
+        -lintl
+        -lgdk-quartz-2.0
+        -lgtk-quartz-2.0
+      ]
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
