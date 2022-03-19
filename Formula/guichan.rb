@@ -16,14 +16,26 @@ class Guichan < Formula
 
   depends_on "sdl_image"
 
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   resource "fixedfont.bmp" do
     url "https://guichan.sourceforge.io/oldsite/images/fixedfont.bmp"
     sha256 "fc6144c8fefa27c207560820450abb41378c705a0655f536ce33e44a5332c5cc"
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
+
   def install
+    gl_lib = OS.mac? ? "-framework OpenGL" : "-lGL"
     ENV.append "CPPFLAGS", "-I#{Formula["sdl_image"].opt_include}/SDL"
-    ENV.append "LDFLAGS", "-lSDL -lSDL_image -framework OpenGL"
+    ENV.append "LDFLAGS", "-lSDL -lSDL_image #{gl_lib}"
     inreplace "src/opengl/Makefile.in", "-no-undefined", " "
     inreplace "src/sdl/Makefile.in", "-no-undefined", " "
 
@@ -158,16 +170,28 @@ class Guichan < Formula
           return 0;
       }
     EOS
+
+    flags = [
+      "-I#{HOMEBREW_PREFIX}/include/SDL",
+      "-L#{Formula["sdl"].opt_lib}",
+      "-L#{Formula["sdl_image"].opt_lib}",
+      "-lSDL", "-lSDLmain", "-lSDL_image",
+      "-L#{lib}", "-lguichan", "-lguichan_sdl"
+    ]
+
+    if OS.mac?
+      flags += [
+        "-framework", "Foundation",
+        "-framework", "CoreGraphics",
+        "-framework", "Cocoa",
+        "-lobjc", "-lc++"
+      ]
+    else
+      flags << "-lstdc++"
+    end
+
     system ENV.cc, "helloworld.cpp", ENV.cppflags,
-                   "-I#{HOMEBREW_PREFIX}/include/SDL",
-                   "-L#{Formula["sdl"].opt_lib}",
-                   "-L#{Formula["sdl_image"].opt_lib}",
-                   "-framework", "Foundation",
-                   "-framework", "CoreGraphics",
-                   "-framework", "Cocoa",
-                   "-lSDL", "-lSDLmain", "-lSDL_image",
-                   "-L#{lib}", "-lguichan", "-lguichan_sdl",
-                   "-lobjc", "-lc++", "-o", "helloworld"
+                   *flags, "-o", "helloworld"
     helloworld = fork do
       system testpath/"helloworld"
     end
