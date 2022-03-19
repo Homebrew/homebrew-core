@@ -29,14 +29,23 @@ class LincityNg < Formula
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"
 
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   def install
     # Generate CREDITS
     system 'cat data/gui/creditslist.xml | grep -v "@" | cut -d\> -f2 | cut -d\< -f1 >CREDITS'
     system "./autogen.sh"
-    system "./configure", "--disable-sdltest",
-                          "--with-apple-opengl-framework",
-                          "--prefix=#{prefix}",
-                          "--datarootdir=#{pkgshare}"
+
+    args = std_configure_args + %W[
+      --disable-sdltest
+      --datarootdir=#{pkgshare}
+    ]
+    args << "--with-apple-opengl-framework" if OS.mac?
+
+    system "./configure", *args
     system "jam", "install"
     rm_rf ["#{pkgshare}/applications", "#{pkgshare}/pixmaps"]
   end
