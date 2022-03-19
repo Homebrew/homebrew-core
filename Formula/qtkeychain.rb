@@ -16,6 +16,13 @@ class Qtkeychain < Formula
   depends_on "cmake" => :build
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+    depends_on "libsecret"
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "cmake", ".", "-DBUILD_TRANSLATIONS=OFF", *std_cmake_args
     system "make", "install"
@@ -29,10 +36,21 @@ class Qtkeychain < Formula
         return 0;
       }
     EOS
+    flags = ["-I#{Formula["qt@5"].opt_include}"]
+    flags += if OS.mac?
+      [
+        "-F#{Formula["qt@5"].opt_lib}",
+        "-framework", "QtCore"
+      ]
+    else
+      [
+        "-fPIC",
+        "-L#{Formula["qt@5"].opt_lib}", "-lQt5Core",
+        "-Wl,-rpath,#{Formula["qt@5"].opt_lib}"
+      ]
+    end
     system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11", "-I#{include}",
-                    "-L#{lib}", "-lqt5keychain",
-                    "-I#{Formula["qt@5"].opt_include}",
-                    "-F#{Formula["qt@5"].opt_lib}", "-framework", "QtCore"
+                    "-L#{lib}", "-lqt5keychain", *flags
     system "./test"
   end
 end
