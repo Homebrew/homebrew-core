@@ -15,7 +15,7 @@ class Dockutil < Formula
   end
 
   depends_on :macos
-  
+
   uses_from_macos "swift"
 
   def install
