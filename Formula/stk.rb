@@ -21,6 +21,10 @@ class Stk < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   def install
     system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}", "--disable-debug"
