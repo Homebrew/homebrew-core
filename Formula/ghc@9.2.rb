@@ -1,4 +1,4 @@
-class GhcAT9 < Formula
+class GhcAT92 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
   url "https://downloads.haskell.org/~ghc/9.2.2/ghc-9.2.2-src.tar.xz"
