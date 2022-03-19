@@ -24,6 +24,7 @@ class Ircii < Formula
     sha256 big_sur:        "e7eae3e18034f4b13f64f83d538dae8b421245f03b3bd5c0c080a1a77db5414e"
     sha256 catalina:       "dc265a9d5875eff670c60a9e81bc0185ee74eee142ad09b8f0bc6c20ea663507"
     sha256 mojave:         "758aa15d57d51e9f2c97115e837cd10c9879bfeb46c84823380291a76573f669"
+    sha256 x86_64_linux:   "db2f3932ad47a98b6ba726189bba789c25404517581994c6ff99183907b2c05f"
   end
 
   depends_on "openssl@1.1"
