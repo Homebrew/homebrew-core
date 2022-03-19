@@ -2,8 +2,8 @@ class Licensefinder < Formula
   desc "Find licenses for your project's dependencies"
   homepage "https://github.com/pivotal/LicenseFinder"
   url "https://github.com/pivotal/LicenseFinder.git",
-      tag:      "v7.0.0",
-      revision: "09d68fb7d87a1104d535df61a5f43f1038e70839"
+      tag:      "v7.0.1",
+      revision: "b938cbfb33e8ec4eb9f2a4abcfb6e3462d226621"
   license "MIT"
 
   bottle do
