@@ -1,9 +1,20 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz"
-  sha256 "551553a4f82beaa8dadc9256800bcc284d7c000081e47aa6ecbb6ff36eacd05f"
   license "ISC"
+  revision 1
+
+  stable do
+    url "https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz"
+    sha256 "551553a4f82beaa8dadc9256800bcc284d7c000081e47aa6ecbb6ff36eacd05f"
+
+    # Fix occasional crash on exit.
+    # Remove with the next release (3.3).
+    patch do
+      url "https://github.com/tmux/tmux/commit/5fdea440cede1690db9a242a091df72f16e53d24.patch?full_index=1"
+      sha256 "3752098eb9ec21f4711b12d399eaa1a7dcebe9c66afc147790fba217edcf340f"
+    end
+  end
 
   livecheck do
     url :stable
