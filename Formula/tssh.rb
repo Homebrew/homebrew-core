@@ -15,7 +15,8 @@ class Tssh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "148c99f128411e59d6e67e73f70f1a5cf74ae7553afe9587dfdcc631bf38a2bc"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
