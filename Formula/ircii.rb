@@ -28,10 +28,12 @@ class Ircii < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "ncurses"
+
   def install
-    ENV.append "LIBS", "-liconv"
+    ENV.append "LIBS", "-liconv" if OS.mac?
     system "./configure", "--prefix=#{prefix}",
-                          "--with-default-server=irc.freenode.net",
+                          "--with-default-server=irc.libera.chat",
                           "--enable-ipv6"
     system "make"
     ENV.deparallelize
@@ -40,7 +42,7 @@ class Ircii < Formula
 
   test do
     IO.popen("#{bin}/irc -d", "r+") do |pipe|
-      assert_match "Connecting to port 6667 of server irc.freenode.net", pipe.gets
+      assert_match "Connecting to port 6667 of server irc.libera.chat", pipe.gets
       pipe.puts "/quit"
       pipe.close_write
       pipe.close
