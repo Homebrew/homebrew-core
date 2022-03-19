@@ -14,12 +14,13 @@ class Doxygen < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4480d3fc744af8e694082acf0f49eb1177efa777b052772dfae462d3d721c0a6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "394d436a05fa82a549ceff74805491fdc789c27a5ae93cfbf42d4990e24e19a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "861eb638fe0f4af8f43f53a0cb4c09ceb154695ff0896e9bab21531b99088a54"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0e08a4950256754440a961bbc22829fefeee4778c7b5249e59df0d145d247d47"
-    sha256 cellar: :any_skip_relocation, catalina:       "e725c473cf26d1f43e2b85bf5859c31f6ea87c9c367153cf85f63b29ce6c318f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14f8ff5de43df4782711ca36f9d667530f53c6c2c96e396f183e8cc29ab34c53"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "368ece92d696d30bb2001c98381df8db30a648a1419373749fd4ae4a917abfff"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "630d13f7ce33d9778d14c286ef8cdf6db8a3e4425687ce883dcd03432067559d"
+    sha256 cellar: :any_skip_relocation, monterey:       "d9890c4d75eab2b74894783bb8fe683c4f6f189a2deb5ed3a67d2ac6e1ee1eef"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b56fa527820cfbc37d6d73a1a5608d4bf030be4280d01247e2f90aa76e467f7c"
+    sha256 cellar: :any_skip_relocation, catalina:       "22b7ceee204ea77784f0f6a9ffeb0a4e46d816949cb7da247ad07c5690cebcf2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c61f9db9a0389820b164418e0b4a8982ba22556a3a94dbba3f16b3d8b0c4010d"
   end
 
   depends_on "bison" => :build
