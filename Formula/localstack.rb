@@ -8,12 +8,12 @@ class Localstack < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "63ee42b841c62d614fb7e92c5c4dee01301e657671e7a4d45cde496614b66216"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad83468905ff4945e241c3de3efe06c15677026b5079b97680d12e7b4ae32476"
-    sha256 cellar: :any_skip_relocation, monterey:       "6095a3eb203242558eb2ecb3756dd32417eecc2b59d444b403ff45e9a9ff768a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d644e289df8e4a7f6e6c2ea1bda0f5f55b25741f0557babf0c0267d45e131cf9"
-    sha256 cellar: :any_skip_relocation, catalina:       "1513a3ce97721205fcb48b06537bc1512bd97c9b60bb8eb45bc4fac9081894f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41d143b57d117e4c38af0f2d937048033e04df48a34e25a7f7c7108f8c20c992"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9efebbbeee6b77dff9c0e2e1a6d5bf198c2e543063d10396d7653866b830a6f7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c21a5c8c4dc37a1b705a47de43547def312dc498d0ce6837757b7166800f121"
+    sha256 cellar: :any_skip_relocation, monterey:       "a91e8cc2b8bcc37957aa150b0e59b37214fa81e490210b669538dbf7e8e29d2e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "453c646516a7b6509e128aa09b7b809e63415861295dbadb1738cf1478511f4b"
+    sha256 cellar: :any_skip_relocation, catalina:       "88168edeb5d8f8f86391ce3b610b9eae1ca928bac69ab9b11d7413155f8b94ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d204e537f6d3d5a29d8266730d9ff51a9850390551aa7ba39ad51c3edada875c"
   end
 
   depends_on "docker" => :test
