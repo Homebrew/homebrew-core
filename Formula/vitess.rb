@@ -18,7 +18,13 @@ class Vitess < Formula
   depends_on "etcd"
 
   def install
-    system "make", "install-local", "PREFIX=#{prefix}", "VTROOT=#{buildpath}"
+    # TODO: remove this after 1.18 update
+    buildvcs = if Formula["go"].version >= "1.18"
+      "-buildvcs=false"
+    else
+      ""
+    end
+    system "make", "install-local", "PREFIX=#{prefix}", "VTROOT=#{buildpath}", "VT_EXTRA_BUILD_FLAGS=#{buildvcs}"
     pkgshare.install "examples"
   end
 
