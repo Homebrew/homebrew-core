@@ -48,8 +48,8 @@ class Opencsg < Formula
         Test test;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lopencsg",
-           "-framework", "OpenGL"
+    gl_lib = OS.mac? ? ["-framework", "OpenGL"] : ["-lGL"]
+    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lopencsg", *gl_lib
     system "./test"
   end
 end
