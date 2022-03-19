@@ -52,8 +52,8 @@ class GdkPixbuf < Formula
       -Dman=false
       -Dgtk_doc=false
       -Dpng=enabled
-      -Dtiff=true
-      -Djpeg=true
+      -Dtiff=enabled
+      -Djpeg=enabled
       -Dintrospection=enabled
     ]
 
