@@ -14,7 +14,8 @@ class VirustotalCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fcbd0b2f05cf94fb0ca3ed38a0f9da6377cb783d361c91a2f209064f101b5b4"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", "-ldflags",
