@@ -11,7 +11,7 @@ class GradleProfiler < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "81650ffff52e598133f4fbbd99a954c75a2bf15381df84a5293ba7f5bfe9ffb3"
+    sha256 cellar: :any_skip_relocation, all: "c3cb58c2fb6c470c012c4ea7c89466c5327ba4dbe2660be27aaf1f0f4c6ba133"
   end
 
   # gradle currently does not support Java 17 (ARM)
