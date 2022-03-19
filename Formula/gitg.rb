@@ -36,6 +36,12 @@ class Gitg < Formula
   depends_on "libsecret"
   depends_on "libsoup@2"
 
+  # Apply upstream commit to fix build.  Remove with next release.
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gitg/-/commit/1978973b12848741b08695ec2020bac98584d636.diff"
+    sha256 "1787335100ab78bc044cda29613a40f3f85c3ef287646914e56b2ce578e05fdf"
+  end
+
   def install
     ENV["DESTDIR"] = "/"
 
@@ -53,7 +59,8 @@ class Gitg < Formula
 
   test do
     # test executable
-    assert_match version.to_s, shell_output("#{bin}/gitg --version")
+    # Disable this part of test on Linux because display is not available.
+    assert_match version.to_s, shell_output("#{bin}/gitg --version") if OS.mac?
     # test API
     (testpath/"test.c").write <<~EOS
       #include <libgitg/libgitg.h>
@@ -135,10 +142,10 @@ class Gitg < Formula
       -lgobject-2.0
       -lgthread-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
