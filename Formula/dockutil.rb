@@ -14,11 +14,12 @@ class Dockutil < Formula
     sha256 cellar: :any_skip_relocation, all: "f5f87d9e286c2b294bb157ac9f87baa2720fff044c7a92c0b80b9cb82db8a87e"
   end
 
-  uses_from_macos "swift"
   depends_on :macos
+  
+  uses_from_macos "swift"
 
   def install
-    system "xcodebuild", "-project", "dockutil.xcodeproj", "-scheme", "dockutil", "-configuration", "Release", "archive"
+    xcodebuild "-project", "dockutil.xcodeproj", "-scheme", "dockutil", "-configuration", "Release", "archive"
     bin.install "scripts/dockutil"
   end
 
