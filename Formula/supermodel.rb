@@ -27,10 +27,17 @@ class Supermodel < Formula
 
   def install
     makefile_dir = build.head? ? "Makefiles/Makefile.OSX" : "Makefiles/Makefile.SDL.OSX.GCC"
+    if OS.mac?
+      inreplace makefile_dir do |s|
+        # Set up SDL library correctly
+        s.gsub! "-framework SDL", "`sdl-config --libs`"
+        s.gsub!(/(\$\(COMPILER_FLAGS\))/, "\\1 -I#{Formula["sdl"].opt_prefix}/include")
+      end
+    else
+      makefile_dir = "Makefiles/Makefile.SDL.UNIX.GCC"
+    end
+
     inreplace makefile_dir do |s|
-      # Set up SDL library correctly
-      s.gsub! "-framework SDL", "`sdl-config --libs`"
-      s.gsub!(/(\$\(COMPILER_FLAGS\))/, "\\1 -I#{Formula["sdl"].opt_prefix}/include")
       # Fix missing label issue for auto-generated code
       s.gsub! %r{(\$\(OBJ_DIR\)/m68k\w+)\.o: \1.c (.*)\n(\s*\$\(CC\)) \$<}, "\\1.o: \\2\n\\3 \\1.c"
     end
