@@ -1,8 +1,8 @@
 class Ko < Formula
   desc "Build and deploy Go applications on Kubernetes"
   homepage "https://github.com/google/ko"
-  url "https://github.com/google/ko/archive/v0.10.0.tar.gz"
-  sha256 "55431dcb5c3c82cbc3e636ead9d04d5798154abe1f601785b99923be35b3d2cf"
+  url "https://github.com/google/ko/archive/v0.11.0.tar.gz"
+  sha256 "649efec3d62e4c4a5fcbb534b826b11af0ce586f9e49288fdc30badd25a9991b"
   license "Apache-2.0"
 
   bottle do
@@ -15,13 +15,6 @@ class Ko < Formula
   end
 
   depends_on "go" => :build
-
-  # Fix build with Go 1.18.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/google/ko/commit/f40d2dcca1b613531fd8b096aa841eafd3e9c931.patch?full_index=1"
-    sha256 "a1ef41b7c9db2aceb5fee0f38a2b63ae88c12c506564bbac38a4aa0ef6e639e3"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/google/ko/pkg/commands.Version=#{version}")
