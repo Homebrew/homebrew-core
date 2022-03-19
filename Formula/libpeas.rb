@@ -25,13 +25,6 @@ class Libpeas < Formula
   depends_on "pygobject3"
   depends_on "python@3.9"
 
-  # Fix parallel builds.
-  # https://gitlab.gnome.org/GNOME/libpeas/-/issues/42
-  patch do
-    url "https://gitlab.gnome.org/GNOME/libpeas/-/commit/2a976339f444d70f10949901a6ee2b1f8ccb24b6.diff"
-    sha256 "d095f5e21c365c2ea04f0df9a81e1f7d15386796a03a304e8e7d6fef2c961bd5"
-  end
-
   def install
     args = std_meson_args + %w[
       -Dpython3=true
