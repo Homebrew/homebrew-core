@@ -3,8 +3,8 @@ class Yamale < Formula
 
   desc "Schema and validator for YAML"
   homepage "https://github.com/23andMe/Yamale"
-  url "https://files.pythonhosted.org/packages/d7/b6/e4304b6c1227d3fafebe24a41658f487b0d7528d58af0dc25231a3297d7a/yamale-4.0.3.tar.gz"
-  sha256 "1efb07da8de7dbebecfd353daab9b42334d5e4904a7a2d4b454839d81ae01bfd"
+  url "https://files.pythonhosted.org/packages/0c/93/3002a45542579cdd626a011f39bbe19ddcc1fbe0541081824c39ef216147/yamale-4.0.4.tar.gz"
+  sha256 "e524caf71cbbbd15aa295e8bdda01688ac4b5edaf38dd60851ddff6baef383ba"
   license "MIT"
   head "https://github.com/23andMe/Yamale.git", branch: "master"
 
