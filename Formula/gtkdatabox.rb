@@ -86,6 +86,7 @@ class Gtkdatabox < Formula
       flags << "-lintl"
     end
     system ENV.cc, "test.c", "-o", "test", *flags
-    system "./test"
+    # Disable this part of test on Linux because display is not available.
+    system "./test" if OS.mac?
   end
 end
