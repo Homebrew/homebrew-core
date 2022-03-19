@@ -1,8 +1,8 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "https://people.engr.tamu.edu/davis/suitesparse.html"
-  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.10.1.tar.gz"
-  sha256 "acb4d1045f48a237e70294b950153e48dce5b5f9ca8190e86c2b8c54ce00a7ee"
+  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.11.0.tar.gz"
+  sha256 "fdd957ed06019465f7de73ce931afaf5d40e96e14ae57d91f60868b8c123c4c8"
   license all_of: [
     "BSD-3-Clause",
     "LGPL-2.1-or-later",
@@ -11,7 +11,6 @@ class SuiteSparse < Formula
     "GPL-3.0-only",
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
   ]
-  revision 1
 
   livecheck do
     url :stable
@@ -37,13 +36,14 @@ class SuiteSparse < Formula
   conflicts_with "mongoose", because: "suite-sparse vendors libmongoose.dylib"
 
   def install
+    cmake_args = *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     args = [
       "INSTALL=#{prefix}",
       "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "LAPACK=$(BLAS)",
       "MY_METIS_LIB=-L#{Formula["metis"].opt_lib} -lmetis",
       "MY_METIS_INC=#{Formula["metis"].opt_include}",
-      "CMAKE_OPTIONS=#{std_cmake_args.join(" ")}",
+      "CMAKE_OPTIONS=#{cmake_args.join(" ")}",
       "JOBS=#{ENV.make_jobs}",
     ]
 
