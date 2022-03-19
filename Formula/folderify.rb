@@ -9,11 +9,11 @@ class Folderify < Formula
   head "https://github.com/lgarron/folderify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "68b49ad69eb36e667248dc70d280aec004326bcc1ba2c8781bb4b4a9861d012d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f23140f05c7945a01956c497f99afb19d2311d698ed8517700ff6a9a258440cb"
-    sha256 cellar: :any_skip_relocation, monterey:       "ad381060d3f6c9f0ec3adfff8bcf097cf6641aafcb977c6a84ae23d4a3adb00c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "de3a4f0cf34914c5e213575c455fe118d68817cb8d00646af56974fc95043a89"
-    sha256 cellar: :any_skip_relocation, catalina:       "0b8b02a03816f925f515c998cac99c2c37111e1e329fffe6f1aa413069695af3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1b610453fd265bd5f0157f73f4583711f89a6c60cc43b268bbfcb3e2ac92d1af"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c63ee93c4d07a464d42c2eb7b031d499a5299cd212698e6837a9caac4ca057bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "b5bfc862becaed4ab92f5ea9e70e66b513519f2ff90e1ff11c5c3a2f1ab385f0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ea6a49e79e5751377bcad72652106a199ee8b3890ec107bbd7713bc210abea99"
+    sha256 cellar: :any_skip_relocation, catalina:       "bc8fe9f16503eb1c6d37770d799325aa6dd69a6801dcde99a9e43b4ab47eb697"
   end
 
   depends_on xcode: :build
