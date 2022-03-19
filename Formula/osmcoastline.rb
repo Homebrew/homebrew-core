@@ -24,6 +24,12 @@ class Osmcoastline < Formula
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     protozero = Formula["libosmium"].opt_libexec/"include"
     system "cmake", ".", "-DPROTOZERO_INCLUDE_DIR=#{protozero}", *std_cmake_args
