@@ -7,12 +7,12 @@ class Autorestic < Formula
   head "https://github.com/cupcakearmy/autorestic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5da6a80580f2c7769b8b61d80ea0704b849f018dd7c703efe230f47d9530bd95"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a987e71ca81f080627ab226d271a8bb59f9b6283e0c7e7aab79953ab398b328"
-    sha256 cellar: :any_skip_relocation, monterey:       "dfd48756037e66c555b2e200f7f19e79867249b43efb09847c4fcb5a2cce9949"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d0f86d6fc4f05098fe93c3d74dae04aaaf3c3b2c058ab282f2e0032248cc9057"
-    sha256 cellar: :any_skip_relocation, catalina:       "f4d73fc95ec3b9ca34beb32ddec721681b9eb46434e42b4a727694c39bef5814"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4941a75b88187d52bca80eccbffb1d132d052b98cdf8ed93ae5c442f99defea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ff780c0b3c099846b801337abd2a6d840d5b789e436081a4ca140e491f71076"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5fc1340227eef1fe42d0a40b751c132bcbffefe95327eadecc944bfb972f531"
+    sha256 cellar: :any_skip_relocation, monterey:       "198eef0c6194a0451e86594869a9517166737470b174f86e5d8ad75a0c549c40"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f6417f37236a48311b9385702ee472c5134cf73d413ba2b6bcf73e087b4759ef"
+    sha256 cellar: :any_skip_relocation, catalina:       "0fd58dd1a88a7bc9d3ffbad3eff5849b19753c828d2bb22469669cf0f04cc99d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a5a50264ee2c2b6685b86f75f0e2fc17fbdda908963e5dec3affd5fed3e30f6"
   end
 
   depends_on "go" => :build
