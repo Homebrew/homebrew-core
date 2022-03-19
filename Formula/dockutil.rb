@@ -19,8 +19,7 @@ class Dockutil < Formula
   uses_from_macos "swift"
 
   def install
-    xcodebuild "-project", "dockutil.xcodeproj", "-scheme", "dockutil", "-configuration", "Release", "archive"
-    bin.install "scripts/dockutil"
+    system "swift", "build", "--disable-sandbox", "-c", "release"
   end
 
   test do
