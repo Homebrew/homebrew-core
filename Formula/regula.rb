@@ -21,8 +21,8 @@ class Regula < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/fugue/regula/pkg/version.Version=#{version}
-      -X github.com/fugue/regula/pkg/version.GitCommit=#{Utils.git_short_head}
+      -X github.com/fugue/regula/v2/pkg/version.Version=#{version}
+      -X github.com/fugue/regula/v2/pkg/version.GitCommit=#{Utils.git_short_head}
     ].join(" ")
 
     system "go", "build", *std_go_args(ldflags: ldflags)
@@ -49,7 +49,7 @@ class Regula < Formula
       }
     EOS
 
-    assert_match "Found 8 problems", shell_output(bin/"regula run infra", 1)
+    assert_match "Found 10 problems", shell_output(bin/"regula run infra", 1)
 
     assert_match version.to_s, shell_output(bin/"regula version")
   end
