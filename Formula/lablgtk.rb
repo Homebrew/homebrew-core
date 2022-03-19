@@ -40,7 +40,7 @@ class Lablgtk < Formula
         GtkMain.Main.init ()
     EOS
     ENV["CAML_LD_LIBRARY_PATH"] = "#{lib}/ocaml/stublibs"
-    system "ocamlc", "-I", "#{opt_lib}/ocaml/lablgtk2", "lablgtk.cma", "gtkInit.cmo", "test.ml", "-o", "test",
+    cclibs = [
       "-cclib", "-latk-1.0",
       "-cclib", "-lcairo",
       "-cclib", "-lgdk-quartz-2.0",
@@ -50,9 +50,13 @@ class Lablgtk < Formula
       "-cclib", "-lgobject-2.0",
       "-cclib", "-lgtk-quartz-2.0",
       "-cclib", "-lgtksourceview-2.0",
-      "-cclib", "-lintl",
       "-cclib", "-lpango-1.0",
       "-cclib", "-lpangocairo-1.0"
-    system "./test"
+    ]
+    cclibs += ["-cclib", "-lintl"] if OS.mac?
+    system "ocamlc", "-I", "#{opt_lib}/ocaml/lablgtk2", "lablgtk.cma", "gtkInit.cmo", "test.ml",
+           "-o", "test", *cclibs
+    # Disable this part of the test because display is not available on Linux.
+    system "./test" if OS.mac?
   end
 end
