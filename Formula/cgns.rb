@@ -1,10 +1,9 @@
 class Cgns < Formula
   desc "CFD General Notation System"
   homepage "http://cgns.org/"
-  url "https://github.com/CGNS/CGNS/archive/v4.2.0.tar.gz"
-  sha256 "090ec6cb0916d90c16790183fc7c2bd2bd7e9a5e3764b36c8196ba37bf1dc817"
+  url "https://github.com/CGNS/CGNS/archive/v4.3.0.tar.gz"
+  sha256 "7709eb7d99731dea0dd1eff183f109eaef8d9556624e3fbc34dc5177afc0a032"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/CGNS/CGNS.git", branch: "develop"
 
   livecheck do
