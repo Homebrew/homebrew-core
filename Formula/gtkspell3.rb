@@ -26,7 +26,11 @@ class Gtkspell3 < Formula
   depends_on "enchant"
   depends_on "gtk+3"
 
+  uses_from_macos "perl" => :build
+
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     system "autoreconf", "-fi"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-debug",
@@ -98,10 +102,10 @@ class Gtkspell3 < Formula
       -lgobject-2.0
       -lgtk-3
       -lgtkspell3-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
