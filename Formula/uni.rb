@@ -14,7 +14,8 @@ class Uni < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e16dc6e74f5960d8b00e0feedd868c812219080bddbf2e8aec510b68c90c2462"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", "-o", bin/"uni"
