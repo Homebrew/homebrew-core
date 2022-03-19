@@ -11,6 +11,7 @@ class Gerbv < Formula
     sha256 monterey:       "49a9b2b0cdbdffc46674672b2059ad8d60c876a5e2c3f9152c2b68ff0cfa25ac"
     sha256 big_sur:        "1176f012cc14ceccedfdc2efa037bb8ade39999c768cd1e498d83959e3e19845"
     sha256 catalina:       "40348ebda0206d74e078b53fa1c9216695bcf42d5f6d9a9b01a1af43e6684a92"
+    sha256 x86_64_linux:   "44e9c379266b404e38397cf5982d75f9c835a59dc57a620057ff6fcd443ac18a"
   end
 
   depends_on "autoconf" => :build
