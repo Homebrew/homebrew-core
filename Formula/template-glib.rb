@@ -23,6 +23,8 @@ class TemplateGlib < Formula
   depends_on "glib"
   depends_on "gobject-introspection"
 
+  uses_from_macos "flex"
+
   def install
     mkdir "build" do
       system "meson", *std_meson_args, "-Dwith_vapi=false", ".."
@@ -58,11 +60,15 @@ class TemplateGlib < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -ltemplate_glib-1.0
-      -Wl,-framework
-      -Wl,CoreFoundation
     ]
+    if OS.mac?
+      flags += %w[
+        -lintl
+        -Wl,-framework
+        -Wl,CoreFoundation
+      ]
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
