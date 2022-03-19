@@ -16,6 +16,7 @@ class Stk < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "cb80d6ce6f9266932079b1edeb9acc6224335193889a873ed413a0659f8c29ce"
     sha256 cellar: :any_skip_relocation, big_sur:        "9dd7c364744901db0a21e8dfc95c02545ab6bf5ef47bb9dd8a6a2866f382f5c1"
     sha256 cellar: :any_skip_relocation, catalina:       "c5857693fa1111471c746d769db8bac3486db28d7eafb3c3e61d8a680ddbce4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "767854c871ad23240582a554a26385f0980d6847d4e8012eb06ff071800cc0c1"
   end
 
   depends_on "autoconf" => :build
