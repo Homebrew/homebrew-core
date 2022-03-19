@@ -1,8 +1,8 @@
 class Libpeas < Formula
   desc "GObject plugin library"
   homepage "https://wiki.gnome.org/Projects/Libpeas"
-  url "https://download.gnome.org/sources/libpeas/1.30/libpeas-1.30.0.tar.xz"
-  sha256 "0bf5562e9bfc0382a9dcb81f64340787542568762a3a367d9d90f6185898b9a3"
+  url "https://download.gnome.org/sources/libpeas/1.32/libpeas-1.32.0.tar.xz"
+  sha256 "d625520fa02e8977029b246ae439bc218968965f1e82d612208b713f1dcc3d0e"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -24,13 +24,6 @@ class Libpeas < Formula
   depends_on "gtk+3"
   depends_on "pygobject3"
   depends_on "python@3.9"
-
-  # Fix parallel builds.
-  # https://gitlab.gnome.org/GNOME/libpeas/-/issues/42
-  patch do
-    url "https://gitlab.gnome.org/GNOME/libpeas/-/commit/2a976339f444d70f10949901a6ee2b1f8ccb24b6.diff"
-    sha256 "d095f5e21c365c2ea04f0df9a81e1f7d15386796a03a304e8e7d6fef2c961bd5"
-  end
 
   def install
     args = std_meson_args + %w[
