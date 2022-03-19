@@ -12,6 +12,7 @@ class Inxi < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ef47928c9f2cef54251859d947a0378cfad528f8fb01da4f31140ad3733fd848"
     sha256 cellar: :any_skip_relocation, big_sur:        "ef47928c9f2cef54251859d947a0378cfad528f8fb01da4f31140ad3733fd848"
     sha256 cellar: :any_skip_relocation, catalina:       "ef47928c9f2cef54251859d947a0378cfad528f8fb01da4f31140ad3733fd848"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f053e694fd1909d133773c88d6be1ef03e80d5aa976c5f396a9535ea1877f7b"
   end
 
   uses_from_macos "perl"
