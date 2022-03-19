@@ -16,12 +16,12 @@ class Vgmstream < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "af643dfc03fec86043c11237e5d37cb2361950cd790996fd9dc5c2e8679993fc"
-    sha256 cellar: :any,                 arm64_big_sur:  "ab0f747f8e4d16fe25eb2705bfbfda69bd60b99615d811cf58b13be15d43ed25"
-    sha256 cellar: :any,                 monterey:       "ac7fe6850d70179edd15a5f0c791bfcbba90434d5051b85bd86cb34656c93102"
-    sha256 cellar: :any,                 big_sur:        "37496780f4f66b8f0abb1da2e94a02535e128b8d3c80308656c6366702f82832"
-    sha256 cellar: :any,                 catalina:       "c08665d1213fc63ce37aecd5e9d0fd01383c2c7ddffb3d0460336f690f304092"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fa68bd410e8c05d727d42614a8d2a394cdb639d5ff3c207ba4faecff55d7341"
+    sha256 cellar: :any,                 arm64_monterey: "0b8177e17308a4f8a185c3b1eba077dd03fd826dcc3cff9bb6354bd6e4b54329"
+    sha256 cellar: :any,                 arm64_big_sur:  "1d77b314ec191484a9a6c7c782191be9666bb7ed7fdfaa7c34cb195244457181"
+    sha256 cellar: :any,                 monterey:       "485b40895cf228ea7bf4eb9c6e96f5a115548e2b9a2249609797f409e7465d9a"
+    sha256 cellar: :any,                 big_sur:        "b808158bbf9ef50acd280853da0f5449bead4e740799449c76c2f7957d54bddd"
+    sha256 cellar: :any,                 catalina:       "b584b6efaadefba88b907ebd946cab0f5078f68c6c6e300a93cdc9c366c3b6de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1061e3d73b5a30248dd565a1d6821a4f1956aaa9c061011ad25e0218926c349"
   end
 
   depends_on "autoconf" => :build
