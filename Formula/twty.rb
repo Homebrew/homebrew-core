@@ -14,7 +14,8 @@ class Twty < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "35503d676346e1ec4f0467cd5851acb3787ce28a7b60849a08aa57ba7ae7bb02"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
