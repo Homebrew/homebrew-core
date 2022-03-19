@@ -24,6 +24,10 @@ class Libchamplain < Formula
   depends_on "gtk+3"
   depends_on "libsoup@2"
 
+  on_linux do
+    depends_on "vala" => :build
+  end
+
   def install
     mkdir "build" do
       system "meson", *std_meson_args, ".."
@@ -102,11 +106,11 @@ class Libchamplain < Formula
       -lglib-2.0
       -lgmodule-2.0
       -lgobject-2.0
-      -lintl
       -ljson-glib-1.0
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
