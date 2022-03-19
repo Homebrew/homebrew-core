@@ -3,6 +3,7 @@ class Perceptualdiff < Formula
   homepage "https://pdiff.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pdiff/pdiff/perceptualdiff-1.1.1/perceptualdiff-1.1.1-src.tar.gz"
   sha256 "ab349279a63018663930133b04852bde2f6a373cc175184b615944a10c1c7c6a"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "aada4032f19de165252aa13e584609103b36cb3c62e17ef5519122409cb7a0a4"
@@ -21,7 +22,25 @@ class Perceptualdiff < Formula
   depends_on "freeimage"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    # cstdio header should be included explicitly to placate older compilers
+    # Included upstream in https://sourceforge.net/p/pdiff/code/53/, remove on next release
+    inreplace "Metric.cpp", "#include \"Metric.h\"\n",
+              "#include <cstdio>\n#include \"Metric.h\"\n"
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+  end
+
+  test do
+    test_tiff = test_fixtures("test.tiff")
+    test_png = test_fixtures("test.png")
+
+    # Comparing an image against itself should give no diff
+    identical = shell_output("#{bin}/perceptualdiff #{test_tiff} #{test_tiff} 2>&1")
+    assert_empty identical
+
+    different = shell_output("#{bin}/perceptualdiff #{test_png} #{test_tiff} 2>&1", 1)
+    assert_equal "FAIL: Image dimensions do not match", different.strip
   end
 end
