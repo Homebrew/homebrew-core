@@ -15,7 +15,8 @@ class Triangle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dd51ff7e1d80c1107c0c95b854db0168fda43a65a7e4bfca3201ad3d949e7ab"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", "-mod=vendor", "-o", "#{bin}/triangle", "./cmd/triangle"
