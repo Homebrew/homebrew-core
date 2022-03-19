@@ -1,10 +1,9 @@
 class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
-  url "https://yarnpkg.com/downloads/1.22.17/yarn-v1.22.17.tar.gz"
-  sha256 "267982c61119a055ba2b23d9cf90b02d3d16c202c03cb0c3a53b9633eae37249"
+  url "https://yarnpkg.com/downloads/1.22.18/yarn-v1.22.18.tar.gz"
+  sha256 "816e5c073b3d35936a398d1fe769ebbcd517298e3510b649e8fc67cd3a62e113"
   license "BSD-2-Clause"
-  revision 2
 
   livecheck do
     skip("1.x line is frozen and features/bugfixes only happen on 2.x")
