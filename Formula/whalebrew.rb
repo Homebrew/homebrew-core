@@ -17,7 +17,8 @@ class Whalebrew < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b59f9c4635e9e1e469cfee07e7698c332313282f2ac01b1846a265fc5219394b"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", "-o", bin/"whalebrew", "."
@@ -25,6 +26,6 @@ class Whalebrew < Formula
 
   test do
     output = shell_output("#{bin}/whalebrew install whalebrew/whalesay -y", 255)
-    assert_match "Cannot connect to the Docker daemon", output
+    assert_match(/(denied while trying to|Cannot) connect to the Docker daemon/, output)
   end
 end
