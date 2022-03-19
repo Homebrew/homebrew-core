@@ -24,6 +24,7 @@ class Lcs < Formula
     sha256 sierra:         "a8fa614ec5adc3ee2d7417a024bf5e9c78e9f8d4e043e0b916dc5a99f1bb1d9c"
     sha256 el_capitan:     "621487b12c93a9b37e1330041f979a28d3d310c1d8c9efecf274808d081d510e"
     sha256 yosemite:       "9ca23650e17e177c4c9fa5352dc81a9f415bc3778b2fd8a55330936eb4d7d28c"
+    sha256 x86_64_linux:   "ce3d505b47a5ada5e5b895876e51c224c3c716117c2f84e9853c05347ecddc4c"
   end
 
   depends_on "autoconf" => :build
