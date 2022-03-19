@@ -43,7 +43,7 @@ class Dvdrtools < Formula
   end
 
   def install
-    ENV["LIBS"] = "-framework IOKit -framework CoreFoundation"
+    ENV["LIBS"] = "-framework IOKit -framework CoreFoundation" if OS.mac?
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
