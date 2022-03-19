@@ -19,6 +19,7 @@ class GnomeAutoar < Formula
     sha256 cellar: :any, monterey:       "eb9b26d88d0999f3eda261336868815893a94680dfb59041093ca108a38a278c"
     sha256 cellar: :any, big_sur:        "a6b34eb24dbdc52a7e616dc1fda7bd10b37428d97a182006da2f6b18b34bbdfb"
     sha256 cellar: :any, catalina:       "ac757f0f9b548f9a993d6f4f80bcb2b48abbed49189b7c7ebad0b13e9a75ec0d"
+    sha256               x86_64_linux:   "f19b2f3e7c3014bd7e65e2326b2d550ce10add78fc35c09bd6016cce51b98f6d"
   end
 
   depends_on "meson" => :build
