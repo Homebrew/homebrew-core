@@ -22,8 +22,6 @@ class Odin < Formula
   # Check if this can be switched to `llvm` at next release
   depends_on "llvm@11"
 
-  uses_from_macos "libiconv"
-
   # Fix test for 11.0. This should be removed with the next version.
   # https://github.com/odin-lang/Odin/pull/768
   patch :DATA
