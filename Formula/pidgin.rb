@@ -32,6 +32,16 @@ class Pidgin < Formula
   depends_on "libotr"
   depends_on "pango"
 
+  uses_from_macos "cyrus-sasl"
+  uses_from_macos "ncurses"
+  uses_from_macos "perl"
+  uses_from_macos "tcl-tk"
+
+  on_linux do
+    depends_on "libsm"
+    depends_on "libxscrnsaver"
+  end
+
   # Finch has an equal port called purple-otr but it is a NIGHTMARE to compile
   # If you want to fix this and create a PR on Homebrew please do so.
   resource "pidgin-otr" do
@@ -40,6 +50,8 @@ class Pidgin < Formula
   end
 
   def install
+    ENV.prepend "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -54,10 +66,21 @@ class Pidgin < Formula
       --disable-meanwhile
       --disable-vv
       --enable-gnutls=yes
-      --with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
-      --with-tkconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework
-      --without-x
     ]
+
+    args += if OS.mac?
+      %W[
+        --with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
+        --with-tkconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework
+        --without-x
+      ]
+    else
+      %W[
+        --with-tclconfig=#{Formula["tcl-tk"].opt_lib}
+        --with-tkconfig=#{Formula["tcl-tk"].opt_lib}
+        --with-ncurses-headers=#{Formula["ncurses"].opt_include}
+      ]
+    end
 
     ENV["ac_cv_func_perl_run"] = "yes" if MacOS.version == :high_sierra
 
