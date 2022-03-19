@@ -6,12 +6,13 @@ class Gtkdatabox < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "af11118be54316daf2c684ab1ed515c1150e151bc58ae7d59e4c9afcb40c5180"
-    sha256 cellar: :any, arm64_big_sur:  "23e28de98208139a408ecdca12fbe9a7008bbbbca2929a4cc7a85b29bf57edf6"
-    sha256 cellar: :any, monterey:       "f123f4e93272456caacfad30ae63252ea51001a0f5b2838f147c337ee6e2bf92"
-    sha256 cellar: :any, big_sur:        "534fd2192131f7d6a3b07e75bc02e1f184996f3bcadc01ef396cad541946f518"
-    sha256 cellar: :any, catalina:       "c9dc8748b00eddcc57d4d006c1f36bec576b4180bcd33458766e6c17d029c47b"
-    sha256 cellar: :any, mojave:         "7bd730c346c35c5a87d693e4c9bb4f87ae38031204bed90391027ad18c2786be"
+    sha256 cellar: :any,                 arm64_monterey: "af11118be54316daf2c684ab1ed515c1150e151bc58ae7d59e4c9afcb40c5180"
+    sha256 cellar: :any,                 arm64_big_sur:  "23e28de98208139a408ecdca12fbe9a7008bbbbca2929a4cc7a85b29bf57edf6"
+    sha256 cellar: :any,                 monterey:       "f123f4e93272456caacfad30ae63252ea51001a0f5b2838f147c337ee6e2bf92"
+    sha256 cellar: :any,                 big_sur:        "534fd2192131f7d6a3b07e75bc02e1f184996f3bcadc01ef396cad541946f518"
+    sha256 cellar: :any,                 catalina:       "c9dc8748b00eddcc57d4d006c1f36bec576b4180bcd33458766e6c17d029c47b"
+    sha256 cellar: :any,                 mojave:         "7bd730c346c35c5a87d693e4c9bb4f87ae38031204bed90391027ad18c2786be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15a45c4557baf53c2ad7131bb167ad88ca2d9521e51bf738fb4ec35f23750eda"
   end
 
   depends_on "pkg-config" => :build
