@@ -69,8 +69,8 @@ class GnomeAutoar < Formula
       -lglib-2.0
       -lgnome-autoar-0
       -lgobject-2.0
-      -lintl
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
