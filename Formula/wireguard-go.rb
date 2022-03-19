@@ -1,8 +1,8 @@
 class WireguardGo < Formula
   desc "Userspace Go implementation of WireGuard"
   homepage "https://www.wireguard.com/"
-  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20220117.tar.xz"
-  sha256 "f4496b6db6c2f99ebbb744738dd6c93ebdbda0571b56cfb857916d20a696fe80"
+  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20220316.tar.xz"
+  sha256 "fd6759c116e358d311309e049cc2dcc390bc326710f5fc175e0217b755330c2a"
   license "MIT"
   head "https://git.zx2c4.com/wireguard-go.git", branch: "master"
 
@@ -23,8 +23,6 @@ class WireguardGo < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-
     system "make", "PREFIX=#{prefix}", "install"
   end
 
