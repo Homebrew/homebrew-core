@@ -9,13 +9,12 @@ class Pyinvoke < Formula
   head "https://github.com/pyinvoke/invoke.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c658b67c5c75300ad6c9de3753943b807e545e62bb1024e74add694ad3634f20"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c658b67c5c75300ad6c9de3753943b807e545e62bb1024e74add694ad3634f20"
-    sha256 cellar: :any_skip_relocation, monterey:       "3f3952a15e8edb2422ebdcea9c4524df46ce45f1b4e0bacc5e1547995aec07c2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3f3952a15e8edb2422ebdcea9c4524df46ce45f1b4e0bacc5e1547995aec07c2"
-    sha256 cellar: :any_skip_relocation, catalina:       "3f3952a15e8edb2422ebdcea9c4524df46ce45f1b4e0bacc5e1547995aec07c2"
-    sha256 cellar: :any_skip_relocation, mojave:         "3f3952a15e8edb2422ebdcea9c4524df46ce45f1b4e0bacc5e1547995aec07c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2090caea6c04415c99277cc5c6fd9e9156015f3f4b390f34665eb2b8eeb6b847"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "100b3b1049f44efc6df39b9fed12d7f4ec81ce2ffa900b9cca21d49e87b3c3ea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "100b3b1049f44efc6df39b9fed12d7f4ec81ce2ffa900b9cca21d49e87b3c3ea"
+    sha256 cellar: :any_skip_relocation, monterey:       "3574a1c728a3641db90d5f48b6419a9338a30f9fae086d274affd8612281ffd5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3574a1c728a3641db90d5f48b6419a9338a30f9fae086d274affd8612281ffd5"
+    sha256 cellar: :any_skip_relocation, catalina:       "3574a1c728a3641db90d5f48b6419a9338a30f9fae086d274affd8612281ffd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d778e5dd3cc91de682f597593c7c4af5d8c7017cc263bc59693dd9947d7cfd5"
   end
 
   depends_on "python@3.10"
