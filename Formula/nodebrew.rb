@@ -7,8 +7,7 @@ class Nodebrew < Formula
   head "https://github.com/hokaccha/nodebrew.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "f9e68ad3b92827534fc9faf5d7b9c4d1fe61e4e1fa11a99e03c6cc476593fe09"
+    sha256 cellar: :any_skip_relocation, all: "eed2aeff4fd05a4c2969d670ce9a38bc01832ac90b65a1c773689532cb376660"
   end
 
   def install
