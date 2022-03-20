@@ -30,9 +30,6 @@ class Kore < Formula
     # Current Makefile hardcodes paths for default MacPorts/Homebrew.
     ENV.prepend "CFLAGS", "-I#{Formula["openssl@1.1"].opt_include}"
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
-    # Also hardcoded paths in src/cli.c at compile.
-    inreplace "src/cli.c", "/usr/local/opt/openssl/include",
-                            Formula["openssl@1.1"].opt_include
 
     ENV.deparallelize { system "make", "PREFIX=#{prefix}", "TASKS=1" }
     system "make", "install", "PREFIX=#{prefix}"
