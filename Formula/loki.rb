@@ -15,7 +15,8 @@ class Loki < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "384ab59b823643fc5ac574529d978f6744d1f755aa70d5fca1c420dcc45d83f6"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     cd "cmd/loki" do
