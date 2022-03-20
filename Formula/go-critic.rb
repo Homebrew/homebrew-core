@@ -13,12 +13,12 @@ class GoCritic < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "964d24f8981cf9f19ed6a178d20c90071b4552c7ed4f86e564ab13a2e48655dd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e409e5c08f008b7ba322c59aac43306cba3cc18290e4eaa75745791b9a7f2622"
-    sha256 cellar: :any_skip_relocation, monterey:       "896e324a2277836590b20b7522d24f3f636fba23cf83a3d3e821e2c9e5876d67"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1a8f310e0ad8f7c9cff6eea0e0330b90fb2798364389d2c812f16062735219e"
-    sha256 cellar: :any_skip_relocation, catalina:       "f7d4f1594485b52fc197a08792423446c3a368695a1b9ed6411f85fa6c86abaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "110174e2f99878edbc312d8d3bbc117b4e15b66b83b69774c94f4d7baa56b2be"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e409afca2bdc940c7ea610d6887bc4f4ef0567a472247408223a12442d7003cf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f598789a3c77f1d1bf29a8b9e1d537bbd0e50fb3e8dc0c67e4826e8cdd1d931e"
+    sha256 cellar: :any_skip_relocation, monterey:       "1faf958e9f80cd7e201a86998f6e90120f34d9cb84f0b8c48628301b1d0921cb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4d19b11c728b131bbcaf62f05dcb03e9a2775a556a5d52d4f1275a76352bc7e0"
+    sha256 cellar: :any_skip_relocation, catalina:       "c8f9abad4d5185472f6e5dbf64ee8517c9722e228076ab7c1d474ee32e043e97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8768f6535c24f8a25553846fe6a4e05153c839020c27e835af3a26a8babc59bb"
   end
 
   depends_on "go"
