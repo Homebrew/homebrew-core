@@ -12,11 +12,11 @@ class Cgns < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "b3794591ae0b846e2f1c728c18a5db5b3c97beca954cc4599d218a72f836de6b"
-    sha256 cellar: :any, arm64_big_sur:  "4909d07e2cae4653a55444bcb1992e1f532fb42f10cce3748cdba822c249f21f"
-    sha256 cellar: :any, monterey:       "dbbee3bae1e83039ef6aa333d7899f393f8f2ee6261cae2d8a66c3579eb5dc75"
-    sha256 cellar: :any, big_sur:        "8fad1a58b1be173ef9316a30e1ecabe4560c7dd8ef41fcab1c06205ce759a31a"
-    sha256 cellar: :any, catalina:       "c5a97b569c001723fa527a80b543a1b450fdff8fa19afd85af67ba13931450e0"
+    sha256 cellar: :any, arm64_monterey: "057bb4d7e50bc286171fa587de69efb9ce454b7fe7ab6bff425b7c8368b5b010"
+    sha256 cellar: :any, arm64_big_sur:  "db527fa7c0a2f0ead35df1392540897c71209d2a4bc1ea2e1cdb045a5d951ac3"
+    sha256 cellar: :any, monterey:       "16bb4d982bc42a946eeea3190340d91948aeb264ea3f9a9279a86bae77e891bc"
+    sha256 cellar: :any, big_sur:        "828170fcea5d6707fed2f5428c762ba57d75a36120bec5a4547543cc7df26995"
+    sha256 cellar: :any, catalina:       "b47c62791fb05f0038d712448c93de085f0101fcbbf89bee19602422a36e3887"
   end
 
   depends_on "cmake" => :build
