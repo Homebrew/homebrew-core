@@ -2,13 +2,12 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   license all_of: ["GPL-2.0-or-later", "MIT"]
-  revision 1
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   stable do
     url "https://github.com/HaxeFoundation/haxe.git",
-        tag:      "4.2.4",
-        revision: "ab0c0548ff80fcbbbc140a381a9031af13b5782c"
+        tag:      "4.2.5",
+        revision: "e5eec3122454bfc95412437d938d1d8d3e77ed68"
 
     # Remove when campl5 dependency is bumped to 8.00 in a release
     patch do
