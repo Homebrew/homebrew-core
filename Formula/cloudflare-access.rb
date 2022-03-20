@@ -12,7 +12,7 @@ class CloudflareAccess < Formula
     system "make", "install",
       "VERSION=#{version}",
       "DATE=#{time.iso8601}",
-      "PACKAGE_MANAGER=Homebrew",
+      "PACKAGE_MANAGER=#{tap.user}",
       "PREFIX=#{prefix}"
   end
 
@@ -22,7 +22,7 @@ class CloudflareAccess < Formula
     assert_match version.to_s, help_output
     assert_equal "unable to find config file\n", shell_output("#{bin}/cloudflared 2>&1", 1)
     assert_match "Error locating origin cert", shell_output("#{bin}/cloudflared tunnel run abcd 2>&1", 1)
-    assert_match "cloudflared was installed by Homebrew. Please update using the same method.",
+    assert_match "cloudflared was installed by #{tap.user}. Please update using the same method.",
       shell_output("#{bin}/cloudflared update 2>&1")
   end
 end
