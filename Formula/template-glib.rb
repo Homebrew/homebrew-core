@@ -14,6 +14,7 @@ class TemplateGlib < Formula
     sha256 cellar: :any, catalina:       "9076cc6161b090edf56b7ffdb0dcb31f3590c5b359b3e74fb78c1c0119b2c256"
     sha256 cellar: :any, mojave:         "b5cbd61d31bcf899a1940b0e0c00b2a788a6dc1316d90847a0668973525a6048"
     sha256 cellar: :any, high_sierra:    "4e0560a1eb5ac91fdd4ea3dc89086f0b50cc65d68c32c3c8bb4fa49e0d05454d"
+    sha256               x86_64_linux:   "c6817c5156f3ca6917d529ab1c8c75e259d72df8b49ea0ecd4cd079212514b7f"
   end
 
   depends_on "bison" => :build # does not appear to work with system bison
