@@ -32,9 +32,12 @@ class Blast < Formula
 
   on_linux do
     depends_on "libarchive" => :build
+    depends_on "gcc"
   end
 
   conflicts_with "proj", because: "both install a `libproj.a` library"
+
+  fails_with gcc: "5" # C++17
 
   def install
     cd "c++" do
