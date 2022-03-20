@@ -2,8 +2,8 @@ class KubernetesCliAT122 < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.22.7",
-      revision: "b56e432f2191419647a6a13b9f5867801850f969"
+      tag:      "v1.22.8",
+      revision: "7061dbbf75f9f82e8ab21f9be7e8ffcaae8e0d44"
   license "Apache-2.0"
 
   livecheck do
