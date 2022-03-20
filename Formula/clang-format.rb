@@ -61,18 +61,26 @@ class ClangFormat < Formula
                     *std_cmake_args
     system "cmake", "--build", "build"
 
-    bin.install llvmpath/"build/bin/clang-format"
-    bin.install llvmpath/"tools/clang/tools/clang-format/git-clang-format"
+    git_clang_format = llvmpath/"tools/clang/tools/clang-format/git-clang-format"
+    inreplace git_clang_format, %r{^#!/usr/bin/env python$}, "#!/usr/bin/env python3"
+
+    bin.install "build/bin/clang-format", git_clang_format
     (share/"clang").install llvmpath.glob("tools/clang/tools/clang-format/clang-format*")
   end
 
   test do
+    system "git", "commit", "--allow-empty", "-m", "initial commit", "--quiet"
+
     # NB: below C code is messily formatted on purpose.
     (testpath/"test.c").write <<~EOS
       int         main(char *args) { \n   \t printf("hello"); }
     EOS
+    system "git", "add", "test.c"
 
     assert_equal "int main(char *args) { printf(\"hello\"); }\n",
         shell_output("#{bin}/clang-format -style=Google test.c")
+
+    ENV.prepend_path "PATH", bin
+    assert_match "test.c", shell_output("git clang-format")
   end
 end
