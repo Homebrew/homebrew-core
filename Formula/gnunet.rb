@@ -7,12 +7,12 @@ class Gnunet < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6bad58cf144de22e85e7bc4a85f1031b1600a48853081c6ea781b69e5595c86e"
-    sha256 cellar: :any,                 arm64_big_sur:  "441f62d9d893661ecb673c98ea47b0150f0095e51bde1c21807649cd831edcf8"
-    sha256 cellar: :any,                 monterey:       "be78601e85b300ec3ff21d6a92ea41129516cbb063c95a7785024993ba25cef6"
-    sha256 cellar: :any,                 big_sur:        "407728549a1b319068dfcfd8b50312d558cee8f0aa878e026d4126545e65ddeb"
-    sha256 cellar: :any,                 catalina:       "af648249cd1012111ce4b25c9ff114bc53f91def0b45bb76e87ba86bd0f8313b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93acdc3700cb2c4c7aca9ee85a9df1ba77b5c38b60adb18811b1eff62834ee55"
+    sha256 cellar: :any,                 arm64_monterey: "de55ad7b59ee82375065931a70d9e1f84ecb772f18c1ffdb176cb60c1ba893b1"
+    sha256 cellar: :any,                 arm64_big_sur:  "a800f0ad74e22c1bd38d2c899d9349a80e1daea77b5cf4a20fb981df43b6caf5"
+    sha256 cellar: :any,                 monterey:       "a9feb7b41a7d1c1c69ed0840244a1616758cb129f2b2c60d1302140f4e23a135"
+    sha256 cellar: :any,                 big_sur:        "d6189389002b05470549a66d419e5903c5e8cbc3d3a13018208ea4436f0169a4"
+    sha256 cellar: :any,                 catalina:       "5a8e262752e7bcb0a522943a3d4b13b61625b4416a741676c44df1a018e5ed76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8c2fedd07e283c997c2c3c73db448534f08d51a72deb048e300697167f7af48"
   end
 
   depends_on "pkg-config" => :build
