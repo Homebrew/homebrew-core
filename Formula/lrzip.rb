@@ -1,8 +1,8 @@
 class Lrzip < Formula
   desc "Compression program with a very high compression ratio"
   homepage "http://lrzip.kolivas.org"
-  url "http://ck.kolivas.org/apps/lrzip/lrzip-0.641.tar.xz"
-  sha256 "2c6389a513a05cba3bcc18ca10ca820d617518f5ac6171e960cda476b5553e7e"
+  url "http://ck.kolivas.org/apps/lrzip/lrzip-0.651.tar.xz"
+  sha256 "48bd8decb097c1596c9b3777959cd3e332819434ed77a2823e65aa436f1602f9"
   license "GPL-2.0-or-later"
 
   livecheck do
