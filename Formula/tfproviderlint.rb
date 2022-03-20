@@ -4,6 +4,7 @@ class Tfproviderlint < Formula
   url "https://github.com/bflad/tfproviderlint/archive/v0.28.1.tar.gz"
   sha256 "df66a164256ffbacbb260e445313c0666bb14ce4b8363f123903259ecc0f4eb5"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/bflad/tfproviderlint.git", branch: "main"
 
   bottle do
@@ -15,7 +16,7 @@ class Tfproviderlint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "454ab4aa8c42595a9e9d3a6cc3a3658f4d76f3cff47a2e0934cccb34a2f498fb"
   end
 
-  depends_on "go" => [:build, :test]
+  depends_on "go@1.17" => [:build, :test]
 
   resource "test_resource" do
     url "https://github.com/russellcardullo/terraform-provider-pingdom/archive/v1.1.3.tar.gz"
@@ -36,7 +37,9 @@ class Tfproviderlint < Formula
       "-X github.com/bflad/tfproviderlint/version.VersionPrerelease="
     end
 
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd/tfproviderlint"
+    output = libexec/"bin/tfproviderlint"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" "), output: output), "./cmd/tfproviderlint"
+    (bin/"tfproviderlint").write_env_script(output, PATH: "$PATH:#{Formula["go@1.17"].opt_bin}")
   end
 
   test do
