@@ -6,12 +6,12 @@ class KotlinLanguageServer < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0f5fea7e740c7a461b7618d2fe99f794211aeac8bf95c0b3276767e72e33d74"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "48f56132fceac7ac1513c336ea0a107deac456517b1c64c326d72a6334058b29"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec4179c0fb818e80405e4e7c42c9fd63d185b57ec8395f847ae81aa4fae1180c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "baf223002af8e84ff3b4b95e021282bcaf819a11bca14c80adc208a905b0054a"
-    sha256 cellar: :any_skip_relocation, catalina:       "abe6ab5b194f23f2f4bc79b9f010e60e207bc603c11b18556b19b14a5a429fb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1ba039a5dd1d1cbee827e439dcdd102ecd3a665937faac51df192715282de48"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef1a6bbecfdc62410386d2f02acf4775806573636275434a41797d6921cd14aa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "018806306d3fe124273bf9ea742ac848c67218f5343c989d0d931dc639bbe1c0"
+    sha256 cellar: :any_skip_relocation, monterey:       "66407aa73f6db0ef7cbe35de4df502894ea98609cd23d43d6e058f8e29470fb9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a693dbc67f8ab34ee7decce3237cdb6a3960f5d5e46c73f564ee70a325e6257b"
+    sha256 cellar: :any_skip_relocation, catalina:       "aa1af6e2de79409ce1470619caf212960cad02ec317229248fa1f9147f5a5709"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57c74afd0401577513db5f79ed04c8903a1e36bac2aa3c3a8ca2a9b55c1a4ae8"
   end
 
   depends_on "gradle" => :build
