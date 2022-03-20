@@ -17,6 +17,7 @@ class Synfig < Formula
     sha256 arm64_big_sur: "248a8a69404babd55d6d1e678fb2022d42639f47e7e5a8b34c92a014abbbd7ed"
     sha256 big_sur:       "f85dbdbe02942899a886ad52ae90250d92eab5d9d107274f29d2f58051db47d2"
     sha256 catalina:      "5fab8763baffa4652cd3ff289ee4fad1530cd0a3dbbee0b74c17d0c52b785b4e"
+    sha256 x86_64_linux:  "b6865d57013ac63ae95ee4208b993e7123390758fe195bd278b377eb2f5b8823"
   end
 
   depends_on "intltool" => :build
