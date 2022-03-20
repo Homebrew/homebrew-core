@@ -2,8 +2,8 @@ class SwiftFormat < Formula
   desc "Formatting technology for Swift source code"
   homepage "https://github.com/apple/swift-format"
   url "https://github.com/apple/swift-format.git",
-      tag:      "0.50500.0",
-      revision: "f872223e16742fd97fabd319fbf4a939230cc796"
+      tag:      "0.50600.0",
+      revision: "c06258081a3f8703f55ff6e9647b32cf3144e247"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/apple/swift-format.git", branch: "main"
@@ -25,7 +25,7 @@ class SwiftFormat < Formula
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
 
-  depends_on xcode: ["13.0", :build]
+  depends_on xcode: ["13.3", :build]
 
   uses_from_macos "swift"
 
