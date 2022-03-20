@@ -3,8 +3,8 @@ require "language/node"
 class Gitmoji < Formula
   desc "Interactive command-line tool for using emoji in commit messages"
   homepage "https://gitmoji.dev"
-  url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-4.9.0.tgz"
-  sha256 "e3ea6baed50e49cc59794b6d1f0e0d1a0b4b8573c2b468d05966acb7f1669a6c"
+  url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-4.10.0.tgz"
+  sha256 "50a7074c9b89ebfe9428961c752fa1b46bdee9a06bbf637340ca4c014248afad"
   license "MIT"
 
   bottle do
@@ -18,9 +18,22 @@ class Gitmoji < Formula
 
   depends_on "node"
 
+  on_macos do
+    depends_on "macos-term-size"
+  end
+
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    term_size_vendor_dir = libexec/"lib/node_modules/gitmoji-cli/node_modules/term-size/vendor"
+    term_size_vendor_dir.rmtree # remove pre-built binaries
+    if OS.mac?
+      macos_dir = term_size_vendor_dir/"macos"
+      macos_dir.mkpath
+      # Replace the vendored pre-built term-size with one we build ourselves
+      ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
+    end
   end
 
   test do
