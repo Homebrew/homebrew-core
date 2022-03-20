@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/95/2f/5f1b3febeba0946c77f00baa0f4691919e9ff8618c43ef1768738c31b951/checkov-2.0.960.tar.gz"
-  sha256 "00ad3c6760115526a6f84a50d18d9dc07d23e36505bc9e3005988b10e7f24203"
+  url "https://files.pythonhosted.org/packages/98/15/fefd852c6183f5909b3c9e28c4909c02f7676d381a7f7dbe410ee2e9e306/checkov-2.0.975.tar.gz"
+  sha256 "68229ff9d4541146ba1f2fc39e1b69957511527260fa45632d06d81114771795"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/08/fe/64c6e7d074ca4368949f82e1c8db236184ba13380c893c3c82fe32292c16/boto3-1.21.21.tar.gz"
-    sha256 "6fa0622f308cfd1da758966fc98b52fbd74b80606d14586c8ad82c7a6c4f32d0"
+    url "https://files.pythonhosted.org/packages/de/2b/46a35b4e3160a3b894dee63a463c53fd5ab1177893b7effb4882ff65a6ae/boto3-1.21.22.tar.gz"
+    sha256 "334f14ffbd89ddd15090e90b32e4fcea73d83b60b19ca2737a9264fd44096f35"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/68/56/c4858a29beb127d95cebe5889251fac4e059513c51452c66cb4660d61bee/botocore-1.24.21.tar.gz"
-    sha256 "7e976cfd0a61601e74624ef8f5246b40a01f2cce73a011ef29cf80a6e371d0fa"
+    url "https://files.pythonhosted.org/packages/5c/39/25942906a8bc11f98ef948345d7988382082bbe5e01d7efd52febab4b8a6/botocore-1.24.22.tar.gz"
+    sha256 "92ba8afeda48f5d2467811d87df401d703a25191f82882994d8d09a7d8b5b965"
   end
 
   resource "cached-property" do
@@ -411,7 +411,7 @@ class Checkov < Formula
     EOS
 
     output = shell_output("#{bin}/checkov -f #{testpath}/test.tf 2>&1", 1)
-    assert_match "Passed checks: 4, Failed checks: 6, Skipped checks: 0", output
+    assert_match "Passed checks: 6, Failed checks: 9, Skipped checks: 0", output
 
     (testpath/"test2.tf").write <<~EOS
       resource "aws_s3_bucket" "foo-bucket" {
@@ -428,6 +428,6 @@ class Checkov < Formula
       }
     EOS
     output = shell_output("#{bin}/checkov -f #{testpath}/test2.tf 2>&1", 1)
-    assert_match "Passed checks: 4, Failed checks: 5, Skipped checks: 1", output
+    assert_match "Passed checks: 6, Failed checks: 8, Skipped checks: 1", output
   end
 end
