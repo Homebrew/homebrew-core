@@ -11,12 +11,12 @@ class Prometheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "83d3440acdf1cf5350069685e70b57d61f03534bb10f1fb4e217824ad7bac571"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "964553064fc2d2f6c425b6b8ef214ebc37299768ffa366c9df31de1571210704"
-    sha256 cellar: :any_skip_relocation, monterey:       "b9ee25df470a3c6b45b8ac738965b8669813ff14ce34d9af04f7f5aa68145545"
-    sha256 cellar: :any_skip_relocation, big_sur:        "02df6d1dfb67ff5ecfd7236c6469accde1af8f3fa95ea4e4804efb20911c766b"
-    sha256 cellar: :any_skip_relocation, catalina:       "6ab98b73a1ffc682fd0eb639aa78f1462f43c9aa6780065a4f0150f38da6c17e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b0183699d4008192d34906749eccc2d82f4857eb5d5351beb694dfdccada7be"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae862e0dd8ca43e833717b393b88944c5b6d36d3c05d737364b4ca8f23fb9aac"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "491f0e82bcf3042d2e776515646e05d1ed115bd8f754ffad7e5891ef4cbc8909"
+    sha256 cellar: :any_skip_relocation, monterey:       "86bbf44a53b8475915031171090257bf3894a3f65a16e54b0cc86976f1e4c236"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9ebfb0dbf6449e17ceb7db548a1f98f4fdbcad50b1f09850a1687b4c695c08f3"
+    sha256 cellar: :any_skip_relocation, catalina:       "712c4f66fcbe179d770ecc74b8d7f1ffa84bccb7e3c4e949a1a3f81ef34ee083"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "584036bab89255f6541ab6c61b19961981651b04f36386fbe65903b3b7aeef72"
   end
 
   depends_on "go" => :build
