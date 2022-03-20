@@ -62,6 +62,7 @@ class Qmmp < Formula
 
   def install
     cmake_args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
       -DCMAKE_STAGING_PREFIX=#{prefix}
       -DUSE_SKINNED=ON
       -DUSE_ENCA=ON
@@ -79,7 +80,7 @@ class Qmmp < Formula
 
     ENV.append_path "PKG_CONFIG_PATH", lib/"pkgconfig"
     resource("qmmp-plugin-pack").stage do
-      system "cmake", ".", *std_cmake_args
+      system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "cmake", "--build", "."
       system "cmake", "--install", "."
     end
