@@ -1,8 +1,8 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.40/file-roller-3.40.0.tar.xz"
-  sha256 "4a2886a3966200fb0a9cbba4e2b79f8dad9d26556498aacdaed71775590b3c0d"
+  url "https://download.gnome.org/sources/file-roller/3.42/file-roller-3.42.0.tar.xz"
+  sha256 "1c438e6d53ec10ff4f2eb5b22d7bbf28a7c2a84957ab64a751c1cdf3c52302c7"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -24,6 +24,7 @@ class FileRoller < Formula
   depends_on "hicolor-icon-theme"
   depends_on "json-glib"
   depends_on "libarchive"
+  depends_on "libhandy"
   depends_on "libmagic"
 
   def install
