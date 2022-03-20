@@ -1,8 +1,8 @@
 class Bond < Formula
   desc "Cross-platform framework for working with schematized data"
   homepage "https://github.com/microsoft/bond"
-  url "https://github.com/microsoft/bond/archive/9.0.5.tar.gz"
-  sha256 "53ee8a325c34136495a1568ca8f0740d4527b74efa0ff71c7d927971fad0dc82"
+  url "https://github.com/microsoft/bond/archive/10.0.0.tar.gz"
+  sha256 "87858b597a1da74421974d5c3cf3a9ea56339643b19b48274d44b13bc9483f29"
   license "MIT"
 
   bottle do
@@ -18,6 +18,8 @@ class Bond < Formula
   depends_on "haskell-stack" => :build
   depends_on "boost"
   depends_on "rapidjson"
+
+  uses_from_macos "xz" => :build
 
   def install
     mkdir "build" do
