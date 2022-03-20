@@ -3,6 +3,7 @@ class ClangFormat < Formula
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
+  revision 1
   version_scheme 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
@@ -34,6 +35,8 @@ class ClangFormat < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
+  depends_on "git" => :test
+
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "python", since: :catalina
@@ -60,18 +63,29 @@ class ClangFormat < Formula
       system "ninja", "clang-format"
     end
 
+    inreplace llvmpath/"tools/clang/tools/clang-format/git-clang-format",
+              %r{^#!/usr/bin/env python$},
+              "#!/usr/bin/env python3"
+
     bin.install llvmpath/"build/bin/clang-format"
     bin.install llvmpath/"tools/clang/tools/clang-format/git-clang-format"
     (share/"clang").install Dir[llvmpath/"tools/clang/tools/clang-format/clang-format*"]
   end
 
   test do
+    system Formula["git"].opt_bin/"git", "init", "--quiet"
+    system Formula["git"].opt_bin/"git", "commit", "--allow-empty", "-m", "initial commit", "--quiet"
+
     # NB: below C code is messily formatted on purpose.
     (testpath/"test.c").write <<~EOS
       int         main(char *args) { \n   \t printf("hello"); }
     EOS
+    system Formula["git"].opt_bin/"git", "add", "test.c"
 
     assert_equal "int main(char *args) { printf(\"hello\"); }\n",
         shell_output("#{bin}/clang-format -style=Google test.c")
+
+    ENV.prepend_path "PATH", bin
+    assert_match "test.c", shell_output("git clang-format")
   end
 end
