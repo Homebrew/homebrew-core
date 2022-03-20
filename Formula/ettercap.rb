@@ -27,6 +27,7 @@ class Ettercap < Formula
   depends_on "pcre"
 
   uses_from_macos "curl"
+  uses_from_macos "flex"
   uses_from_macos "libpcap"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
@@ -41,6 +42,7 @@ class Ettercap < Formula
 
     args = std_cmake_args + %W[
       -DBUNDLED_LIBS=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
       -DENABLE_CURSES=ON
       -DENABLE_GTK=ON
       -DENABLE_IPV6=ON
