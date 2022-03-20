@@ -6,12 +6,12 @@ class Roapi < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "860764039a521160940b729c54e99f46c635123e00a959da5ad7adda1ff63562"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f3df865db1db0b6c67f18a9c1d62a6e2cf6e6e45289af90cd6ef9949eb72548"
-    sha256 cellar: :any_skip_relocation, monterey:       "a0d5100d88ba4f4120703f8583779cbfbeef1ba6372741c337671c9ea770fbae"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9657fa78fc050f4e6171e64063b580d374048df1945e01e0cd1b83ab8f0c8a1b"
-    sha256 cellar: :any_skip_relocation, catalina:       "f77443e8516f3c5258fde1907e52570cf66b9fa3a877615888da1f1343ec98e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecae7c8fa73bcf5952eca610e8b60622659af0c4416b9ce75b33d45f061c46a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6989cb10b8b9a31a9d96c9005fc906eb554edb6fd2bba0a47269368819f66cb7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf60b80c586219ca68ca7064486712f419b4f118334e4f1c87e0805aaa35e574"
+    sha256 cellar: :any_skip_relocation, monterey:       "a37e8aa6a3f5ecfb53e0e1cf7f43b59a5c66f6189e4f43d8e054d6108c82b9cb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "661e817f76b84b0b22b48f5327afef4ffbc771a7a219bff5f9704a1d8a725e35"
+    sha256 cellar: :any_skip_relocation, catalina:       "65c5e29790633d44a203857289a82af0229bdddf04698d477be44b680d3a8b7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51a20faa69ca6e0bf11b967ad757c8118b1311e21043681e494efd9d8b9b0770"
   end
 
   depends_on "rust" => :build
