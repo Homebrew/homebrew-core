@@ -87,8 +87,9 @@ If you don't have Docker installed:
 
 ```
 brew install --formula docker lima
-limactl start "$(brew --prefix)/share/doc/lima/examples/docker.yaml"
-export DOCKER_HOST="unix://${HOME}/.lima/docker/sock/docker.sock"
+limactl start template://docker
+docker context create lima --docker "host=unix://${HOME}/.lima/docker/sock/docker.sock"
+docker context use lima
 ```
 
 You should now be able to run the `docker` command shown above.
