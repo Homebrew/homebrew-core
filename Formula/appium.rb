@@ -30,12 +30,9 @@ class Appium < Formula
     deuniversalize_machos
   end
 
-  plist_options manual: "appium"
-
   service do
     run opt_bin/"appium"
     environment_variables PATH: std_service_path_env
-    run_type :immediate
     keep_alive true
     error_log_path var/"log/appium-error.log"
     log_path var/"log/appium.log"
