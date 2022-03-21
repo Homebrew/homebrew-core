@@ -35,6 +35,7 @@ class Ffmpeg < Formula
   depends_on "libass"
   depends_on "libbluray"
   depends_on "librist"
+  depends_on "librsvg"
   depends_on "libsoxr"
   depends_on "libvidstab"
   depends_on "libvmaf"
@@ -89,6 +90,7 @@ class Ffmpeg < Formula
       --enable-libopus
       --enable-librav1e
       --enable-librist
+      --enable-librsvg
       --enable-librubberband
       --enable-libsnappy
       --enable-libsrt
