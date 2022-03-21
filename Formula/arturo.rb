@@ -1,8 +1,8 @@
 class Arturo < Formula
   desc "Simple, modern and portable programming language for efficient scripting"
   homepage "https://github.com/arturo-lang/arturo"
-  url "https://github.com/arturo-lang/arturo/archive/v0.9.78.tar.gz"
-  sha256 "c3b9f06e5eadb35e4c1c4c82fed02dc278175b786318918ee80baf42b8100953"
+  url "https://github.com/arturo-lang/arturo/archive/v0.9.80.tar.gz"
+  sha256 "25f4782e3ce1bc38bedf047ed06a3992cf765071acded79af202a1ab70b040e2"
   license "MIT"
 
   bottle do
@@ -18,8 +18,8 @@ class Arturo < Formula
   depends_on "mysql"
 
   def install
-    inreplace "install", "ROOT_DIR=\"$HOME/.arturo\"", "ROOT_DIR=\"#{prefix}\""
-    system "./install"
+    inreplace "build.nims", "ROOT_DIR    = r\"{getHomeDir()}.arturo\".fmt", "ROOT_DIR=\"#{prefix}\""
+    system "./build.nims", "install"
   end
 
   test do
