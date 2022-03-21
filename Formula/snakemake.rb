@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/fd/72/a0d8f55f70198aefb3bb29c73505112def26976bdbb76d4fdb7100cbb16f/snakemake-7.2.1.tar.gz"
-  sha256 "63036918e4dbdf764cb53e26e136963512219bc9ab08c62f5545835e63376bdf"
+  url "https://files.pythonhosted.org/packages/1d/6d/2930f4ade1bed4cd35a2cd4a2c4d35f163c151b3be64843c1d8dbae59a57/snakemake-7.3.0.tar.gz"
+  sha256 "866d15ed6fd7acf1eae39724ebaf36fe71841894fe178a569034b719b2549493"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -96,8 +96,8 @@ class Snakemake < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/62/0f/52c009332fdadd484e898dc8f2acca0663c1031b3517070fd34ad9c1b64e/MarkupSafe-2.1.0.tar.gz"
-    sha256 "80beaf63ddfbc64a0452b841d8036ca0611e049650e20afcb882f5d3c266d65f"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "nbformat" do
@@ -181,8 +181,8 @@ class Snakemake < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   resource "wrapt" do
