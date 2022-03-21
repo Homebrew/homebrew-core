@@ -1,8 +1,8 @@
 class Abcmidi < Formula
   desc "Converts abc music notation files to MIDI files"
   homepage "https://ifdo.ca/~seymour/runabc/top.html"
-  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2022.03.08.zip"
-  sha256 "bd72bc32694eb76e4ec79ccb001a2dbcdfcd3b9c3eefef8240a6fd7323083749"
+  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2022.03.20.zip"
+  sha256 "e164f3345104b74da693567b8f8703487d1abf7dab539de286007f8efa28cd05"
   license "GPL-2.0-or-later"
 
   livecheck do
