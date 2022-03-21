@@ -7,7 +7,7 @@ class Cask < Formula
   head "https://github.com/cask/cask.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bd85befe31659e948617b988ed604d70199af9e7dd22dcfc8be6d76ecd92ee0b"
+    sha256 cellar: :any_skip_relocation, all: "f50a59d4337bc0a5f0a82cb680cec21ca11c058eec8f22d0319d972af568b162"
   end
 
   depends_on "coreutils"
