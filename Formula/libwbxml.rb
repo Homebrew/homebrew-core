@@ -7,11 +7,13 @@ class Libwbxml < Formula
   head "https://github.com/libwbxml/libwbxml.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "a2513915ab52a7d38cd5ce8ad692687a73c4d236b9d76003cc5c73d02283f8f7"
-    sha256 cellar: :any, arm64_big_sur:  "eb325fe7f67e3c16920d8b76683f7571805c6cf86dd07c386c771a5484e5a0c9"
-    sha256 cellar: :any, monterey:       "a102e703053750d123cc5efe890bd8172ff8a64110ea4c1eb0fa882b61da8fe6"
-    sha256 cellar: :any, big_sur:        "4b43949c7ee441bfcc19bc6cdac54a1264f5343d5179aca233df6e07eba08079"
-    sha256 cellar: :any, catalina:       "66499727f77c70556d1e89ab37d42bfaa4737527808ac15199174dafd08917c9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "fe2ac6ea506094bb84685b873d59cb9b0ea225b2ce56cb13b2fc1197bcd6b906"
+    sha256 cellar: :any,                 arm64_big_sur:  "ac5e42ae5a76a5d3cf1d731b80b40ae019ffd90c0cef0ea4ad24d700958f3dc3"
+    sha256 cellar: :any,                 monterey:       "08e5267c81b874f8115b1fb110a3a0553553863b139c950e60aeead99701ac7f"
+    sha256 cellar: :any,                 big_sur:        "1d656b5fd3c1c1486db641b7e00a129b71071c1f26a522dad2bc29795d6c2a85"
+    sha256 cellar: :any,                 catalina:       "1a5739cb2c803bc0580ef5cab2c58effaa2d849f7f0d55060f325a5cd9cf8ec2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec4cdd3a2ead2da218798ef2a020fe2ef66f18b44d6a995977838af60257e8a2"
   end
 
   depends_on "cmake" => :build
