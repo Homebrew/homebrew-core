@@ -28,7 +28,9 @@ class Libwbxml < Formula
                                       "#{share}/cmake/Modules"
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_DOCUMENTATION=ON"
+      system "cmake", "..", *std_cmake_args,
+                            "-DBUILD_DOCUMENTATION=ON",
+                            "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make", "install"
     end
   end
