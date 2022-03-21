@@ -22,6 +22,8 @@ class Gdmap < Formula
   depends_on "glib"
   depends_on "gtk+"
 
+  uses_from_macos "perl" => :build
+
   # The code depends on some GTK macros that are flagged as deprecated in the brew version of GTK.
   # I assume they're not deprecated in normal GTK, because the config file disables deprecated GDK calls.
   # The first patch turns off this disablement, making the code work fine as intended
@@ -34,8 +36,9 @@ class Gdmap < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
+    system "./configure", *std_configure_args, "LIBS=-lm"
 
     system "make", "install"
   end
