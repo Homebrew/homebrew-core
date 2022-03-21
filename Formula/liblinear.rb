@@ -29,8 +29,10 @@ class Liblinear < Formula
   def install
     system "make", "all"
     bin.install "predict", "train"
-    lib.install "liblinear.dylib"
-    lib.install_symlink "liblinear.dylib" => "liblinear.1.dylib"
+
+    liblinear = Dir[shared_library("liblinear", "*")].first
+    lib.install liblinear
+    lib.install_symlink liblinear => shared_library("liblinear")
     include.install "linear.h"
   end
 
