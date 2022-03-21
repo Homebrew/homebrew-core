@@ -4,6 +4,7 @@ class Ispell < Formula
   url "https://www.cs.hmc.edu/~geoff/tars/ispell-3.4.05.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/i/ispell/ispell_3.4.05.orig.tar.gz"
   sha256 "cf0c6dede3fd25fada4375d86acafe583cb96d8fe546de746a92ebb6df895602"
+  license :cannot_represent # modified BSD license
 
   livecheck do
     url :homepage
