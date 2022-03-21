@@ -11,12 +11,12 @@ class GstPython < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "30a5860917c2089c5de5144ff6dc54628392413960bb62b33b2ff0ce8d0f428f"
-    sha256 arm64_big_sur:  "58570611a51759670c91d3f019df6c2409e88a31cc3b42d671bfda6430e2ff47"
-    sha256 monterey:       "c4b55a7de7a5016e08d524f603ce1562034fa7506ad6025ee30d0cf014b41e98"
-    sha256 big_sur:        "21f3ef42b44ecce8bd36ef823c7b0280f207f84e60764cce0ffd7f455266bd93"
-    sha256 catalina:       "6c24cbaf51a4e4faf3bbbf5daf4a6da584679125fc127770efd8e726d4881895"
-    sha256 x86_64_linux:   "7c1b9be91a791992c0310b74e7024611fbf3818daa1636f343f365bde2d1767a"
+    sha256 arm64_monterey: "3030f3cdf609a8c22cf92b3948cd5caa0373aa824640c62ac06555dae947bd8d"
+    sha256 arm64_big_sur:  "50ce4bb98ba3f5e2f795463cd5e550aac9f3acf85ac620ce9cb7e521948d246b"
+    sha256 monterey:       "d82d67857aaf0a331b3c167a9b8604e825e3e7d165026862124c6f52928cc801"
+    sha256 big_sur:        "4435c510ee5baf70f40bb18f32f8677da9318704b2b2daf5082b66bbf998bb54"
+    sha256 catalina:       "cda9309784d9f3809b966c8a1c932a2f5e3dc8ea198a3c16075318d72f3ba8e2"
+    sha256 x86_64_linux:   "9aaaaa6bd4b2a7198b23262c3938475f2b54390d42abaea4d269a1aa41ae9749"
   end
 
   depends_on "meson" => :build
