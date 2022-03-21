@@ -1,17 +1,17 @@
 class Spidermonkey < Formula
   desc "JavaScript-C Engine"
   homepage "https://spidermonkey.dev"
-  url "https://archive.mozilla.org/pub/firefox/releases/91.6.0esr/source/firefox-91.6.0esr.source.tar.xz"
-  version "91.6.0"
-  sha256 "7e802832152c39588b9a5c8392e90c1b00036bf948fa4a97a7af0d1435ba09a1"
+  url "https://archive.mozilla.org/pub/firefox/releases/91.7.1esr/source/firefox-91.7.1esr.source.tar.xz"
+  version "91.7.1"
+  sha256 "57494a445e72f7eacb0bb870a3a79cde3c2143e234873c0c3e269df1d4742c92"
   license "MPL-2.0"
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
-  # Firefox release versions.
+  # Firefox ESR release versions.
   livecheck do
     url "https://www.mozilla.org/en-US/firefox/releases/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/releasenotes/?["' >]}i)
+    regex(/data-esr-versions=["']?v?(\d+(?:\.\d+)+)["' >]/i)
   end
 
   bottle do
