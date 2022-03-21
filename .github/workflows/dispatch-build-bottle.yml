@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Prepare runner matrix
         id: runner-matrix
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           script: |
             return context.payload.inputs.runner.split(",")
