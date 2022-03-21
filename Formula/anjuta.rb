@@ -32,9 +32,14 @@ class Anjuta < Formula
   depends_on "vala"
   depends_on "vte3"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "perl" => :build
+
   def install
     ENV["PYTHON"] = which("python3")
     ENV.append "LDFLAGS", "-Wl,-undefined,dynamic_lookup" if OS.mac?
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -59,6 +64,7 @@ class Anjuta < Formula
   end
 
   test do
-    system "#{bin}/anjuta", "--version"
+    # Disable this part of the test on Linux because a display is not available.
+    system "#{bin}/anjuta", "--version" if OS.mac?
   end
 end
