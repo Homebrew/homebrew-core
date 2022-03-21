@@ -6,12 +6,15 @@ class Guichan < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "47af711b34d25f8d017492378a77a6ad97ae54b15541272341c742bd9b557b64"
-    sha256 cellar: :any, big_sur:       "d5218365358651743a5afd691b0d95103c97287d675c5355ad248b206d197efc"
-    sha256 cellar: :any, catalina:      "fcc36306d344d47e3151ee1447e00b590cf2d079397f4302301dd7a5fca4bb6f"
-    sha256 cellar: :any, mojave:        "20887eab0782fcd2eb3e922b1f388831057b0faaeab519e98590118853c48e3c"
-    sha256 cellar: :any, high_sierra:   "c685850224a216a61b5d0fb96aeb56935deb2187f2781bac7e64668e93baf3ab"
-    sha256 cellar: :any, sierra:        "d98d6bdc213bca6d4d6fbf904e91f45dd678996ae5522b194805e3bd098c87fb"
+    sha256 cellar: :any,                 arm64_monterey: "914c16ef323892ec80c0ac71fa4f50e089ed8ab5b384f0ed721bbea077943cf4"
+    sha256 cellar: :any,                 arm64_big_sur:  "47af711b34d25f8d017492378a77a6ad97ae54b15541272341c742bd9b557b64"
+    sha256 cellar: :any,                 monterey:       "f0110bd892fc6624c71df2855c67561c00d255e4576471e439e9130075d7c9f7"
+    sha256 cellar: :any,                 big_sur:        "d5218365358651743a5afd691b0d95103c97287d675c5355ad248b206d197efc"
+    sha256 cellar: :any,                 catalina:       "fcc36306d344d47e3151ee1447e00b590cf2d079397f4302301dd7a5fca4bb6f"
+    sha256 cellar: :any,                 mojave:         "20887eab0782fcd2eb3e922b1f388831057b0faaeab519e98590118853c48e3c"
+    sha256 cellar: :any,                 high_sierra:    "c685850224a216a61b5d0fb96aeb56935deb2187f2781bac7e64668e93baf3ab"
+    sha256 cellar: :any,                 sierra:         "d98d6bdc213bca6d4d6fbf904e91f45dd678996ae5522b194805e3bd098c87fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4c5a1a9753d9d0c7f6d4fe4093e0fe24c7a10eae548fc7f36677a363934051f"
   end
 
   depends_on "sdl_image"
