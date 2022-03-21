@@ -15,6 +15,7 @@ class Autodiff < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.10" => :build
   depends_on "eigen"
   depends_on "pybind11"
 
