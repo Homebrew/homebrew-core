@@ -37,7 +37,11 @@ class Geeqie < Formula
   depends_on "little-cms2"
   depends_on "pango"
 
+  uses_from_macos "perl" => :build
+
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     ENV["NOCONFIGURE"] = "yes"
     system "./autogen.sh" # Seems to struggle to find GTK headers without this
     system "./configure", "--disable-dependency-tracking",
@@ -49,6 +53,9 @@ class Geeqie < Formula
   end
 
   test do
+    # Disable test on Linux because geeqie cannot run without a display.
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     system "#{bin}/geeqie", "--version"
   end
 end
