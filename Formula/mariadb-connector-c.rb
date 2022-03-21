@@ -16,12 +16,12 @@ class MariadbConnectorC < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "ceb4ed8ef1577513f4a2894c84fc1493f934d5e0890e1604e0e87968f2eea440"
-    sha256 arm64_big_sur:  "6e4c10a0186b34fcad4bc34f25c15ad2d17a6be10ed826a42b41bb2417f6abc9"
-    sha256 monterey:       "a270d6a54be27de1b1046442f6f234838a4970d06cc36ff0d6eb329bbbfd3347"
-    sha256 big_sur:        "5689a9fc8d1f00df4f98eaae4c0d65de90089bad8e38d3ca21f00e89f8c507fd"
-    sha256 catalina:       "2776adc988cc46b619fc6b21ad17fca88612f32b3b4056975e0534d52532dcb4"
-    sha256 x86_64_linux:   "8003aa9abf2344e26b2534b243e021ee1dcc7fcc742450c4db5b2eded6da27c3"
+    sha256 arm64_monterey: "a26f011092cfc5962d0fe3331ace48a40e4d7fc9001bd7fca89efbfe68308a08"
+    sha256 arm64_big_sur:  "0631d039b19fa059891ebf8a1c4c60af89748db33932b10c4538d4a54ddefc0e"
+    sha256 monterey:       "e7de3468abc7b07e6c94034ba3ada6a968623dde712b6a21188ad222561e63ce"
+    sha256 big_sur:        "31f236b45772756f8999afb3f6199316f2932b95185dcec65ccce4a53e093822"
+    sha256 catalina:       "88bb6df52bfa57ead262cc0a5e9ec05efb6cd4c8ba31525d0fd52b7876b4fa37"
+    sha256 x86_64_linux:   "b76dab98adafa4669aee3c1e99615823d0288d2f8f140ac4fb5cf8180d1fa86f"
   end
 
   depends_on "cmake" => :build
