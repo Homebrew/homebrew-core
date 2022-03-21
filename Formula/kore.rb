@@ -23,14 +23,10 @@ class Kore < Formula
 
   depends_on macos: :sierra # needs clock_gettime
 
+  depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
   def install
-    # Ensure make finds our OpenSSL when Homebrew isn't in /usr/local.
-    # Current Makefile hardcodes paths for default MacPorts/Homebrew.
-    ENV.prepend "CFLAGS", "-I#{Formula["openssl@1.1"].opt_include}"
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
-
     ENV.deparallelize { system "make", "PREFIX=#{prefix}", "TASKS=1" }
     system "make", "install", "PREFIX=#{prefix}"
   end
