@@ -14,7 +14,7 @@ class Bond < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build
   depends_on "haskell-stack" => :build
   depends_on "boost"
   depends_on "rapidjson"
