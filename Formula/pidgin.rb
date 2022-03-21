@@ -18,6 +18,7 @@ class Pidgin < Formula
     sha256 big_sur:        "309a8ac7ee4e09f884ad79985d23895d77ddec13197a71ed764f73f9984d9175"
     sha256 catalina:       "fbea5ba3a0051d76282289dadc36ec61d0c466aa1dda6358ccae7a8f12f48b42"
     sha256 mojave:         "10159d6af23b8603b31160d0eba5dd689693e1cf8a6486e032ee0fc34dbbc703"
+    sha256 x86_64_linux:   "b3de7c6a27275ddd49e8e827b018b62b0663e77eb9bd58db6eb1a6c1ad162b2f"
   end
 
   depends_on "intltool" => :build
