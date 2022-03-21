@@ -17,6 +17,7 @@ class Gtksourceview < Formula
     sha256 big_sur:        "146b08e9b6c084de86ed9de2783f50b4c564826f102b0d917579ffa19b60ab94"
     sha256 catalina:       "633745bd26dcc7d96f3c102002a2cdfb1cb45ff2762a5c2c814d2af787b6a5c5"
     sha256 mojave:         "e4acd9c34e98b342eac330a7c7393b1199441474be6e3d7523c6b173e609febe"
+    sha256 x86_64_linux:   "d37f90eecf7dbc89d89af0efa8fe6f78d8912dc77fd525dff5d3a181cff9e22e"
   end
 
   depends_on "intltool" => :build
