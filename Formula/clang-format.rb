@@ -3,6 +3,7 @@ class ClangFormat < Formula
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
+  revision 1
   version_scheme 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
@@ -33,10 +34,10 @@ class ClangFormat < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
+  depends_on "python@3.10"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
-  uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
 
   on_linux do
