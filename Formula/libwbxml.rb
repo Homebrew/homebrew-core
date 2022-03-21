@@ -19,6 +19,8 @@ class Libwbxml < Formula
   depends_on "graphviz" => :build
   depends_on "wget"
 
+  uses_from_macos "expat"
+
   def install
     # Sandbox fix:
     # Install in Cellar & then automatically symlink into top-level Module path
@@ -26,7 +28,9 @@ class Libwbxml < Formula
                                       "#{share}/cmake/Modules"
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_DOCUMENTATION=ON"
+      system "cmake", "..", *std_cmake_args,
+                            "-DBUILD_DOCUMENTATION=ON",
+                            "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make", "install"
     end
   end
