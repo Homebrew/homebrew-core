@@ -21,9 +21,8 @@ class Kore < Formula
     sha256 x86_64_linux:   "915a0b5f6e3598f50e4e457c96221b07006490f5169c666dc745d8ee0c68bced"
   end
 
-  depends_on macos: :sierra # needs clock_gettime
-
   depends_on "pkg-config" => :build
+  depends_on macos: :sierra # needs clock_gettime
   depends_on "openssl@1.1"
 
   def install
