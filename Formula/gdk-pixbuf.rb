@@ -6,13 +6,12 @@ class GdkPixbuf < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_monterey: "328f6bdde8798f079a1b4abbd60f9ca9f6f1c308efb44eec863421817af4d7a8"
-    sha256 arm64_big_sur:  "1aa92bcea0846fe0b37a4d65bf5947f5c27ffc750a93bd94db69bfe25369fda3"
-    sha256 monterey:       "d8984c02730154183bde0adfcde24fa47bc7611eb134a77e20d15b17b3be4de9"
-    sha256 big_sur:        "f4cf795b20c84fb5074ceeeeaf7b1d22e164b7af13adb6d0b95e3655d867fd41"
-    sha256 catalina:       "94835aba06d5e7160fd19bb14e05d3aad2f27be4c7030c019e42208369cf6014"
-    sha256 mojave:         "4bd3543b83cd74bfd0de1bd94a9e0200374c0834ef636cfe99621fe3c2145aaa"
-    sha256 x86_64_linux:   "cd3d671f4129a4dddef888e1317b4e5840d217b75fee8e46a17b33630da674c8"
+    sha256 arm64_monterey: "a64b406a58be74567a9409ad763937b14a2619754734e5ee91c840965d1bd354"
+    sha256 arm64_big_sur:  "23e63e68d3a4e1b7d62a8380184d2070f054e4377331a2861bda7b9447bb3466"
+    sha256 monterey:       "da834da5d08e57860283a288993b954d978fd8b6bc5f441dfb9b9f42d28ff082"
+    sha256 big_sur:        "b2ad72a9e6f1b793e39cd9a079838342fe2e1ceae21a793a757a3e828e2c9b7e"
+    sha256 catalina:       "2767c9d0973ac43175331aa5f6b3d543cbde679343f813052bb4c5155a14b4eb"
+    sha256 x86_64_linux:   "46f21d535b3568bc3c3ec11ce063a220e7b01d7b9df164a497b5dc939bbf15e7"
   end
 
   depends_on "gobject-introspection" => :build
