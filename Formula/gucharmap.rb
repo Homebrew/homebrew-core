@@ -23,6 +23,8 @@ class Gucharmap < Formula
   depends_on "python@3.9" => :build
   depends_on "gtk+3"
 
+  uses_from_macos "perl" => :build
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
@@ -32,6 +34,7 @@ class Gucharmap < Formula
   def install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
     ENV["WGET"] = "curl"
 
     system "./configure", "--disable-debug",
