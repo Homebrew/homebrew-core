@@ -21,6 +21,8 @@ class Libwbxml < Formula
   depends_on "graphviz" => :build
   depends_on "wget"
 
+  uses_from_macos "expat"
+
   def install
     # Sandbox fix:
     # Install in Cellar & then automatically symlink into top-level Module path
