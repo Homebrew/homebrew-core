@@ -7,12 +7,12 @@ class Elvish < Formula
   head "https://github.com/elves/elvish.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "33e1bd7c5b826d749e9d9c5230061a750e99c1412a0eccd240526442d161de96"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "beb963831ef475de4031c539af501109a1d3feb4da3354abd2ade85ffc50ba79"
-    sha256 cellar: :any_skip_relocation, monterey:       "322407431bcee76924ecee9f066d6aa15e6f474b73cf85263cd90e708087394c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "27500b6c67ee49bc28c2c52c46cd52a8e50f37f13f7a323057d22fbbc6522dd7"
-    sha256 cellar: :any_skip_relocation, catalina:       "e388fef325ccae706bd8d1e5807bd90ea60d3067bd386f1343f9f59e6e8afc16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "908e3198e823605e9704f43db9a34e201f6ca7481f2adf0f5b78abd63777d50e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6187cc49a089a96a15fda4f1899b302dec13bf256febf4015fd5484a94a7bbe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "820a6cb5f7f706ab12717e23586d2eb788ca8d5a5140362092945d2a8d188620"
+    sha256 cellar: :any_skip_relocation, monterey:       "cf517bf55f67746b5a2a5094abc5e5d0dff66069aec220cb89e792af08ea0a6a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6158072faf7d59114696e5a7c23ec1ed0bfd7175ff970fc0f0b6a6e0933f0fdf"
+    sha256 cellar: :any_skip_relocation, catalina:       "64d1ccfdf5e9d3026277221274b5943225de6d65520a06bcf0eda6f13674fa9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc21b2de77e60c7193eae1dbb1e9d317b766e043dd4bb504c05c259970192467"
   end
 
   depends_on "go" => :build
