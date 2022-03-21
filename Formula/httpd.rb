@@ -7,12 +7,12 @@ class Httpd < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_monterey: "7c71a42a41693093015c11813cd3ec9e714f303884afde9bde61b3eb86f2fbae"
-    sha256 arm64_big_sur:  "2bda2c7798b135b519882bd010bc2b4c8b6fb243c69046713639b22cff689400"
-    sha256 monterey:       "6a35059e2c3f69635ac6035c0a638030a1038cc62e648604ab53b4a280a88ba8"
-    sha256 big_sur:        "59ee7e0491e7a79a8844b05d0f4075d9b76b707190e6f229b84f763b58b9728a"
-    sha256 catalina:       "af1a311706c4eb1adb63b2179e2677e305f49ec346e74c3a29e60fe9fa8e5d60"
-    sha256 x86_64_linux:   "6d602ea4372d756c6ffb622373c5daa750ddb79d65818e4fa686070025b7f8ae"
+    sha256 arm64_monterey: "ca20fbe67d7c6c6e9e0b55ac889c3c908f4272048c3f745af38ce63d0dbe6218"
+    sha256 arm64_big_sur:  "8021a3b93f3ffb9106622987fe3580427ee7dc371a34baf13080740e936ba0f4"
+    sha256 monterey:       "b4b0a143f3ff416a81cfe6ed6a196158e2256a5b01bf7d912c73f1709c835578"
+    sha256 big_sur:        "5ee5ad7767ed900faa30a884c1742333fc6a90e1ae4edffb27f2ee0ec7ed4786"
+    sha256 catalina:       "402b650c5953a9dba837223bb9a741337da35f100f5d1d07ddc9bc069f6a1c37"
+    sha256 x86_64_linux:   "aedfe95f2b748a91494d4993e11a0cba154b5bd74a1233cd2ece2a25956a4221"
   end
 
   depends_on "apr"
