@@ -6,11 +6,11 @@ class Arturo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "bba16a404620746dca1eb2021079ea586c75b8c15ec7dd660fd09f9c3951a2a3"
-    sha256 cellar: :any, arm64_big_sur:  "4da3f8e6a32e6c39a034baee47453976c7b83687c66d0802d5eed03c259a62a7"
-    sha256 cellar: :any, monterey:       "32205aa87b1c5a94284fc2ce9b6fcf71e68cd532826666ac86b8bf455f11acaa"
-    sha256 cellar: :any, big_sur:        "75df1175ce08e0bfb28fe9ca0fbedbdb63176b1cf3ea13a758526c40e55a94ff"
-    sha256 cellar: :any, catalina:       "e1ce00ec372026029129d2d17180303f00a81e05e290b763924188049608071f"
+    sha256 cellar: :any, arm64_monterey: "d2fefdc8b29ddcc25ec170ee951974c0f0639456ae44f3066b30ba9bfacff832"
+    sha256 cellar: :any, arm64_big_sur:  "2099288de81442cd767921ad6210904e33a8ebac246fc1a65c07411783116b39"
+    sha256 cellar: :any, monterey:       "9ff3e59d195ca8aaeba073c03981667094bf97d133e50e177cbafe9bf428095c"
+    sha256 cellar: :any, big_sur:        "65147c59e9070ca346499761685b22d97d6ce2ad189587ce9e868762dfe780f8"
+    sha256 cellar: :any, catalina:       "a538cff3a4ee46a2b7744b321815424afa4476e692ee5be671c55c5823bdd06b"
   end
 
   depends_on "nim" => :build
