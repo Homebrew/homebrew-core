@@ -11,12 +11,12 @@ class GstRtspServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "366d66c65b72e9fbdb198e6a7e3fa5394814160445f0ef7c5ec08930095873de"
-    sha256 cellar: :any,                 arm64_big_sur:  "cab76c385728c4bed6f7424353378bfc53fdec9e20bba3571dac89918ed6e0e6"
-    sha256 cellar: :any,                 monterey:       "6738798ca8d10fbf517786cd0904da358f4fa67d035ed72b4afe2298e36da1da"
-    sha256 cellar: :any,                 big_sur:        "b1fd69a32bb4e2b8269cfe2cc455f46ddbbbddc6db3c4ebeb6e12357e97f2965"
-    sha256 cellar: :any,                 catalina:       "24b89766d3d38b35b12b89add803ca04b8e7b42132646c82b59d9edd5c739fc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c335ab4a0fa350335cdc33ea3d3192ecf816e9b935d17f7545cc2c4388b21829"
+    sha256 cellar: :any, arm64_monterey: "393131e0d3f25db955044a19ca924f81f8df72221ec9ba1733892b8d47a1f756"
+    sha256 cellar: :any, arm64_big_sur:  "fce516d079fe95c44401c0d4050940d0c6c7152c4224ef2b35fb43278f71676c"
+    sha256 cellar: :any, monterey:       "ae3701b34e74a0166d2d5a8118ac9841646f66de7a17852b6ec785c153b03994"
+    sha256 cellar: :any, big_sur:        "f052c6224f2f03ba3ff2567e317bdff3e3e8caa06c34939d9029ae973555a67a"
+    sha256 cellar: :any, catalina:       "fd6f7fe3a362526b56b7e115ff52d57978cf7bc0da6c2b3c74a99e11ba6facd9"
+    sha256               x86_64_linux:   "9887ebba0889a6fb6fa48bdae86da122edf28bc294befefbb8b010e89da46c0f"
   end
 
   depends_on "gobject-introspection" => :build
