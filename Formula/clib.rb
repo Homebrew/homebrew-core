@@ -12,13 +12,12 @@ class Clib < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd7b0294eee70146184cc38c4d0f177e98e37243def58d237279642d835019be"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "44f5920711c2eb79e334cd7bc4b5972c9b3010a0345607b8c59ee71b1e2391c1"
-    sha256 cellar: :any_skip_relocation, monterey:       "40549f7255b1cdbbefebe03deccd815fbbf6477c3b603703615a287b6329a054"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8a4af428b5c74fed903aca3337334bf0d418fd9765ea50d73ac2f308c60f7061"
-    sha256 cellar: :any_skip_relocation, catalina:       "b1d926918eab64e133117b5089f17c51f0a0888d7ed33448fd3247e05a15e919"
-    sha256 cellar: :any_skip_relocation, mojave:         "277176751578539b28b96e3d18f1ca9efa576b270e6ee6a42a7f4fdea317c061"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "732a47d87de00dc02478feb7dede8ba1a5941ce10ededd895cf96f5111e71f4e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "52cf863b9e04e981a75a67b53d05b8a64c76f61db19e18bc6d5b4e0352cad370"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f8eaaa858e78080be30fcf73cfe83db9da902547e199dd3c8a5c0dba708d0d8"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa20d76a03c5150eb6fc7babde0d599f8f23846f114fde49c4c459f5391e2441"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d4ee7dffee98a71bb8bd190b919e31406e7ae9981f1b6496f54c7931eb87945a"
+    sha256 cellar: :any_skip_relocation, catalina:       "a5d05d90aa5d488a82f1b53776944a4f3efc257c991e19e9dce8f393efed39e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4427aa47bd0a56a0e35e70943ba8bc160cb8a83cac9f59378574aa234584e8f7"
   end
 
   uses_from_macos "curl"
