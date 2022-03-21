@@ -34,6 +34,6 @@ class Clair < Formula
     cp etc/"clair/config.yaml.sample", testpath
     output = shell_output("#{bin}/clair -conf #{testpath}/config.yaml.sample -mode combo 2>&1", 1)
     # requires a Postgres database
-    assert_match "service initialization failed: failed to initialize indexer: failed to create ConnPool", output
+    assert_match "error accessing \"optional/path/to/rootca\"", output
   end
 end
