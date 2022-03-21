@@ -3,8 +3,8 @@ require "language/node"
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-1.22.2.tgz"
-  sha256 "3442fe5e10bc37bb4213177e195e054ab884f2493b8ec5f541418272acd96dea"
+  url "https://registry.npmjs.org/appium/-/appium-1.22.3.tgz"
+  sha256 "74d9fbac66e08d9c3b0fde7f4deaa42e1f070167f0508e2891fad28558147fd6"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
@@ -30,12 +30,9 @@ class Appium < Formula
     deuniversalize_machos
   end
 
-  plist_options manual: "appium"
-
   service do
     run opt_bin/"appium"
     environment_variables PATH: std_service_path_env
-    run_type :immediate
     keep_alive true
     error_log_path var/"log/appium-error.log"
     log_path var/"log/appium.log"
