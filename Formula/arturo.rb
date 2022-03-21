@@ -18,8 +18,8 @@ class Arturo < Formula
   depends_on "mysql"
 
   def install
-    inreplace "install", "ROOT_DIR=\"$HOME/.arturo\"", "ROOT_DIR=\"#{prefix}\""
-    system "./install"
+    inreplace "build.nims", "ROOT_DIR    = r\"{getHomeDir()}.arturo\".fmt", "ROOT_DIR=\"#{prefix}\""
+    system "./build.nims", "install"
   end
 
   test do
