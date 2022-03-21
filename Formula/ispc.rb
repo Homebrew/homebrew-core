@@ -19,11 +19,24 @@ class Ispc < Formula
   depends_on "python@3.9" => :build
   depends_on "llvm@12"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
   end
 
   def install
+    # Force cmake to use our compiler shims instead of bypassing them.
+    inreplace "CMakeLists.txt", "set(CMAKE_C_COMPILER \"clang\")", "set(CMAKE_C_COMPILER \"#{ENV.cc}\")"
+    inreplace "CMakeLists.txt", "set(CMAKE_CXX_COMPILER \"clang++\")", "set(CMAKE_CXX_COMPILER \"#{ENV.cxx}\")"
+
+    # Disable building of i686 target on Linux, which we do not support.
+    inreplace "cmake/GenerateBuiltins.cmake", "set(target_arch \"i686\")", "return()" unless OS.mac?
+
     args = std_cmake_args + %W[
       -DISPC_INCLUDE_EXAMPLES=OFF
       -DISPC_INCLUDE_TESTS=OFF
