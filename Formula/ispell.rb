@@ -12,13 +12,12 @@ class Ispell < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "62553e9203c1553d699d0014224a6ff9f934844a3377b90362e2d33ed079f2dd"
-    sha256 arm64_big_sur:  "f48b72490babfc3d3debf6eeeb34fb27516dd7a360322e05217f75f9a060642d"
-    sha256 monterey:       "4cb7e05fb71b9db13a497fd2ef4df875187e5ba1976c79e8776aa9fbe2f6da63"
-    sha256 big_sur:        "ed399105823ef8d4c978b9f29675fe52766cefb3c33e969a36fc0ff0e33dba13"
-    sha256 catalina:       "bd78389107e1457352b3c9eb88a73d434cffae5764455ea461e4c201f5180b85"
-    sha256 mojave:         "85bb0fb8d13a18cffdc0ddd2e9ed1d4d007b884967d0952a7a174135ea5cc416"
-    sha256 x86_64_linux:   "83022ccd0a50207196c2d29a2b3c08003157b1e77bb48ed796baa4e9c3e9092f"
+    sha256 arm64_monterey: "cd60564b8dd85c18dcef91d4b5d90aa66fc4ccfbe2008009d33aa190554661bb"
+    sha256 arm64_big_sur:  "e76131c8422ce43a180cf8d13fd74c2ff9073b82f9f749f50ddb27bda01bdaaa"
+    sha256 monterey:       "eb6ac3922256a30c140ceb738cceacb4564ae5f80f23e06b0029743fda181902"
+    sha256 big_sur:        "e5c67fdf342bda317f71d1fee34817164fb2d8ec5d14c0bf4313d0fdc50499d5"
+    sha256 catalina:       "a21626f709579f26673e5bb5a9be7a5d8d58d4bcebb6d5ae214aca1cfc3bd6ab"
+    sha256 x86_64_linux:   "a5a1ed2e6abadcda57b87db07c2e06746460a5ebcc085f5838ded950f4989998"
   end
 
   uses_from_macos "bison" => :build
