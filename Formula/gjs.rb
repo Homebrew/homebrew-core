@@ -1,14 +1,10 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
+  url "https://download.gnome.org/sources/gjs/1.72/gjs-1.72.0.tar.xz"
+  sha256 "3ef0caf716e3920dd61f7748f6d56e476cc0fc18351ad0548e7df1a0ab9bdcad"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
-
-  stable do
-    url "https://download.gnome.org/sources/gjs/1.70/gjs-1.70.1.tar.xz"
-    sha256 "bbdc0eec7cf25fbc534769f6a1fb2c7a18e17b871efdb0ca58e9abf08b28003f"
-
-    depends_on "spidermonkey@78"
-  end
+  head "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
 
   bottle do
     sha256 monterey:     "4366423967ed653d2fa9ecf3ed9297456c1b7c9206d0ceb590a343af007600fe"
@@ -17,17 +13,11 @@ class Gjs < Formula
     sha256 x86_64_linux: "eb196582efbb21df0e6fb6e4632dbb2ea6c0b7b2c7deac1e068f2a9110409950"
   end
 
-  head do
-    url "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
-
-    depends_on "spidermonkey"
-  end
-
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "gobject-introspection"
-  depends_on "gtk+3"
   depends_on "readline"
+  depends_on "spidermonkey"
 
   on_linux do
     depends_on "gcc"
@@ -41,6 +31,7 @@ class Gjs < Formula
 
     args = std_meson_args + %w[
       -Dprofiler=disabled
+      -Dreadline=enabled
       -Dinstalled_tests=false
       -Dbsymbolic_functions=false
       -Dskip_dbus_tests=true
