@@ -24,6 +24,7 @@ class FileRoller < Formula
   depends_on "hicolor-icon-theme"
   depends_on "json-glib"
   depends_on "libarchive"
+  depends_on "libhandy"
   depends_on "libmagic"
 
   def install
