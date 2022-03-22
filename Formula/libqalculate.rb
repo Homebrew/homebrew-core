@@ -11,6 +11,7 @@ class Libqalculate < Formula
     sha256 monterey:       "3c8f1def4eff72d19b079f7468e301e292c0b26b855b38128b09767f1a754af8"
     sha256 big_sur:        "3d4dd5a0685bf6853624648432dbb6d24a9ad060585358e63161a810c292d309"
     sha256 catalina:       "2da6f88c87a8c2e75e67065e4efcbd6b035bf9ce7b2f4bfe11b6fb12cf118dad"
+    sha256 x86_64_linux:   "4d46f33bfc53d6daad6adf99248c5366e74670351e2104fde60a1427b4a6b310"
   end
 
   depends_on "intltool" => :build
