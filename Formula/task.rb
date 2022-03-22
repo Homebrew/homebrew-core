@@ -12,12 +12,12 @@ class Task < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "7c498b1efc7a8923f3778488f3e480e8eda87bd7265f21b78283e59d94599072"
-    sha256                               arm64_big_sur:  "676b1d1ff1010a1ca30608b7092fb2b38abbea1c2a3241e6ff72d322b7fa48ce"
-    sha256                               monterey:       "4bbf3cb74b79dd440809515a474daf1bbb5bab743c1333bbefa16569bd42e454"
-    sha256                               big_sur:        "2d36d56302bd104719d07cf57c4af247ee72af3f1d817367c54a449a539ccb7d"
-    sha256                               catalina:       "8e9d4141d866acf6deb820c9c10b498eb40234f93e7100ffa4b9419257fab8f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50e2d1e85ec8408f214a12f5d7346d0e25e72e43ff4c6c17f6321fd6de6649f4"
+    sha256                               arm64_monterey: "a1a3c706322405709ad4d89005abf423ae6252255b1f25857c68112d98f0cfc8"
+    sha256                               arm64_big_sur:  "4bfece330fa1a6951f49ce2539eee0a44cee4ac71e5f2d52f52cc98300cf4f6c"
+    sha256                               monterey:       "08ad2ecfcdb93b578bbc296c874c139225bd7a09b0130432232830a5cb6a916d"
+    sha256                               big_sur:        "5d7f4c9ab31bd5f2daa9b90e46c01fc75fa75c5dd59f53d71c470ca3453b4d18"
+    sha256                               catalina:       "d387254a93560ad965cf29753847fc830057f655361ba9f0b9e31c53843b3768"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e01eea1f420752a719c38be2e618506fa22b9c7b83d23ef7606d9e2c87f48257"
   end
 
   depends_on "cmake" => :build
