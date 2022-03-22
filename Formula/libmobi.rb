@@ -6,12 +6,12 @@ class Libmobi < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4f1747ba00caba7df453292c5443a646d87951b6d1007ee8cf0a54ba52701f10"
-    sha256 cellar: :any,                 arm64_big_sur:  "67babfb4198ee17ae835b379b1cdd9e30b079b1cb485d4670e7c497f6f627f1c"
-    sha256 cellar: :any,                 monterey:       "30fb67be80e69ae23b18b766105274e7280352ea6d33ed9b7b65ea343f15f936"
-    sha256 cellar: :any,                 big_sur:        "d32823a5428cca4c7d81be853e1733a2df36da67f93bf0ba4a969174d5b1ab72"
-    sha256 cellar: :any,                 catalina:       "7206d2e0b13453eeabe871518bc9961ad95e9bc0f2c223e31ec7ff134db64d6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cb122be57102c33446b67c9481926445e996c5b1711588a963268646ad70f9e"
+    sha256 cellar: :any,                 arm64_monterey: "b64a189baa7ffa21cd5e0b21f3e49ff3c396024e8ab3e9b780f5a313667a9423"
+    sha256 cellar: :any,                 arm64_big_sur:  "920a3edd8de815fa9fe96bf3bc0e07913aea92c80089e9cc8891db38bfd4c7e3"
+    sha256 cellar: :any,                 monterey:       "857eb9c7237663b10a91e185f8743ebf81c7d544bf9b10158e6d6b8a7e84f1bb"
+    sha256 cellar: :any,                 big_sur:        "acdf11b917bca3413222f44c0d52b488d47870486d880aba63ebdd22ba4aaf9c"
+    sha256 cellar: :any,                 catalina:       "eef537a7a5fcd5e757eb985c04d7c738028cf761a30e8462267cbf71b7b4de46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0de00065590b95dfacd672a3fb03d18844e31fc7b453c642cc35f3c76f007e1c"
   end
 
   uses_from_macos "libxml2"
