@@ -6,11 +6,12 @@ class Qtkeychain < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "9f6273da5cdc3a82058af46017b0ac4574e8a20f56849bc16794fe9b3ef945cf"
-    sha256 cellar: :any, arm64_big_sur:  "615cd8a1cfbd5daa8ae059e28917dc55ba419167883c7d8463fb94d5cea2cb7d"
-    sha256 cellar: :any, monterey:       "a78b8d50819e475246deea381583be33b13987dd4cacb41ca46b54b3a6cff350"
-    sha256 cellar: :any, big_sur:        "356725f06e060f9d4d35428475911611c0f5da9373ab5be3c798233d229a6fd1"
-    sha256 cellar: :any, catalina:       "e7c7b7c43afce3092702f14055dfd48afbdf92aec23adc443fbf31994a7df053"
+    sha256 cellar: :any,                 arm64_monterey: "9f6273da5cdc3a82058af46017b0ac4574e8a20f56849bc16794fe9b3ef945cf"
+    sha256 cellar: :any,                 arm64_big_sur:  "615cd8a1cfbd5daa8ae059e28917dc55ba419167883c7d8463fb94d5cea2cb7d"
+    sha256 cellar: :any,                 monterey:       "a78b8d50819e475246deea381583be33b13987dd4cacb41ca46b54b3a6cff350"
+    sha256 cellar: :any,                 big_sur:        "356725f06e060f9d4d35428475911611c0f5da9373ab5be3c798233d229a6fd1"
+    sha256 cellar: :any,                 catalina:       "e7c7b7c43afce3092702f14055dfd48afbdf92aec23adc443fbf31994a7df053"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb921e5618fc59a027a8189843e0397603b4237965a0c15fc4369b91caa8a41e"
   end
 
   depends_on "cmake" => :build
