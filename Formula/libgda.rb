@@ -13,6 +13,7 @@ class Libgda < Formula
     sha256 catalina:       "83d65ccf6e92620dd833dd23d1a02880f020ab24a0a6ed2ab5cb1a5149a32c5b"
     sha256 mojave:         "e48a5aea9d860765e58bcd756c8e81956974d4284189604755a63232fc13a806"
     sha256 high_sierra:    "8c9a8133c1fd1c554f995c089b12cbe049d2a8a01ac31cb5e68c089857a200a1"
+    sha256 x86_64_linux:   "65f1e3cae4f56ec7264a6d59421564c75f10f65bae8ea3e3914dbb5e08fb7eee"
   end
 
   depends_on "gobject-introspection" => :build
