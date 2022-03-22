@@ -19,7 +19,10 @@ class Prefixsuffix < Formula
   depends_on "pkg-config" => :build
   depends_on "gtkmm3"
 
+  uses_from_macos "perl" => :build
+
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -33,6 +36,7 @@ class Prefixsuffix < Formula
   end
 
   test do
-    system "#{bin}/prefixsuffix", "--version"
+    # Disable this part of the test on Linux because display is not available.
+    system "#{bin}/prefixsuffix", "--version" if OS.mac?
   end
 end
