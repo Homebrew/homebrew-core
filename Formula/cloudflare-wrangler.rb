@@ -7,12 +7,12 @@ class CloudflareWrangler < Formula
   head "https://github.com/cloudflare/wrangler.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "88444eaf4e8d000cc7668c0cb3c1f2220bebe2d9c8433ebc7553621381fbdb6e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49786bbdb195e4d0a8ed3060b4b74db5466142be1d16bda0cd0752a59163d11e"
-    sha256 cellar: :any_skip_relocation, monterey:       "8425e354c171efddb99785c1a70ba6802908d0199193ed120f5edcee9788e3e2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "af0a091809c8810abe69d9fdb3fc48567af432aab791530c016aeac7e4c8a861"
-    sha256 cellar: :any_skip_relocation, catalina:       "afda98171e77ddf16548843cbe6f6a34e8c06a4c70edb169de0640ee05584c2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3795f291dc7dc8db6a56432449d6298c7aec3e295361a46c1a61757348bba462"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9303d4d1affe68788231a3b5a666f8012cb7a5ffd3ee45f28ec6afa042e6ae91"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e721f9691be4d5f7073415e4268c0dabee4ad69268b146c17817b2c455836814"
+    sha256 cellar: :any_skip_relocation, monterey:       "e415c7b043184724fdd801644e3c4818e5a87800cc72fc903efaedb9270abfac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6a7ffa18ffdd625af922e2c1107f6acd91394ab214e532eabe7a312bad68bf97"
+    sha256 cellar: :any_skip_relocation, catalina:       "cc2d5c18f10add11051f523bb0b9f470fa31cee268f3261cdb359c8b373a67bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e02772057edb9c22e089c3947fe5710015edf4297e4c4ae11dce9d95e66a2abf"
   end
 
   depends_on "rust" => :build
