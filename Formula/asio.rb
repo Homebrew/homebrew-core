@@ -12,12 +12,12 @@ class Asio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "bb9bc380f31b310a58903d3279f8063bf43b8d01fcc0b017b7d27038cdff73cb"
-    sha256 cellar: :any,                 arm64_big_sur:  "f0c0a759b985698ae75f3518f6433709ec35e049b8dd31f6214d6f558a1866be"
-    sha256 cellar: :any,                 monterey:       "f0087aa5a0c0d1abc32f7012a83b5e1e20a8821d9dd64902982d6ef676571feb"
-    sha256 cellar: :any,                 big_sur:        "b9c4dcfc70f7f67ad60386c29c99295ebf1e175a9388983dd229cf5e0045678e"
-    sha256 cellar: :any,                 catalina:       "75f5d5616511210eb6e208b72c6676998c5354bb08751207f494cb9c4225a674"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a855ff871ff92b07db6dc50b667b0e97caa9f31f1963f6b1761d8dd9f8ec14a"
+    sha256 cellar: :any,                 arm64_monterey: "b3ea7931fb9e539f59bbf21f4647268487036aace40cda956d08507fe87bb90b"
+    sha256 cellar: :any,                 arm64_big_sur:  "5a8c945335115a2da264ec74162e57a5d92f4064544899c4df375a3cabc5e06a"
+    sha256 cellar: :any,                 monterey:       "98f1add58eeb5d6eb9d886781ef62dd0b6572dd8252252acdaa2bc1d3674c875"
+    sha256 cellar: :any,                 big_sur:        "dc03f2f6433eadeb86832d94a241c36a5be0eb23afde03644a11a62403a9b795"
+    sha256 cellar: :any,                 catalina:       "7c8ae5863a8abf20d8d811ec943c8bff0e702b7dc4e79ebbab9310bcc7a99e44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "723acb5f60519bdc4426ac9d6e4e5689f94c794b615b6f71759d26eda1385df1"
   end
 
   depends_on "autoconf" => :build
