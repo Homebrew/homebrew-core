@@ -7,12 +7,12 @@ class Gosec < Formula
   head "https://github.com/securego/gosec.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c0eed9e133f59b376b45ed1f24e7ac2500de5c6d34456b5fdfd76f7b6aa9e1a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ac779ce6820a6d3e0296758920f67d5a0005f59dd873e606fc290b6cb15bef5"
-    sha256 cellar: :any_skip_relocation, monterey:       "622ad0a63f5e7f8ec7c4c812472d146b844c5ff368eaec202d597da16e7bcf68"
-    sha256 cellar: :any_skip_relocation, big_sur:        "102ee60b9fd4bb3e3e6053d827fa4aede193e900bf3c76d2754ee69e1ea8302e"
-    sha256 cellar: :any_skip_relocation, catalina:       "98029151def94221f601b9949c5dea6628b22b2ba1e9021b3d9b500c691a69c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a4168d9cc2e6ce2845abe6a740a1d4fed0c6b39275a46f22a2f3b1524e435a3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6545337d124c50ca122f10f9d44cd546fcea1fb26d1a712bb2884037335548f7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef7ec18d830fed477413c62fcb2195d77283e77a4e96a96dcd79fec8a321dc11"
+    sha256 cellar: :any_skip_relocation, monterey:       "63faceb6f282172e2f4483356ef22b087c79e554a789dc911ff0d56a5fa81e44"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9c42f2b7a49a7579a664e23b7ec0fd2169ebbe15d3041590154557e1622dc1a9"
+    sha256 cellar: :any_skip_relocation, catalina:       "0815b07b4315bc430e374a91329550cc45dce6c617ad93ee8a8192c1df924bcc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "387b7b7a55d9cf05d8ba291636e1b34a40015d732ba4aa096b3a2e6160d93069"
   end
 
   depends_on "go"
