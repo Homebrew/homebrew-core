@@ -13,6 +13,7 @@ class Gucharmap < Formula
     sha256 catalina:       "007a3670270b9b8cbc2e0e9f36cb3854ba987d8b8105ec73e236fc56d28c2cbe"
     sha256 mojave:         "b8f34cbea2db76364e0a4e3a6d2e5ba3110e80ef6b76fa3c165b1ac6b30ee9f1"
     sha256 high_sierra:    "f8ad1728dd1e0124201e568ad0f69f004245368eb21527dea98ecf045ccad708"
+    sha256 x86_64_linux:   "6604c5046dbae96f07f30c6e4ee45c9b2e6e5a1030ae44c5dcd03870361c8fc4"
   end
 
   depends_on "coreutils" => :build
