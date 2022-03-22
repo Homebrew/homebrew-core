@@ -19,6 +19,7 @@ class Cutter < Formula
     sha256 catalina:       "237aebfb6d39c2efcbbc27e550fbac0a6d1477b549416b69aa71c53c06dce231"
     sha256 mojave:         "70999a7a96da94c5de52da9edb4bf9b3fe5e7b2372d189ccc5a7328f0c21400c"
     sha256 high_sierra:    "ccff0989fe28eeb233bf0cc1f3681041d1945f6e3b0c2700899b8f02581426b6"
+    sha256 x86_64_linux:   "1f0d55c82c767d2f7d947bdc054a43d381bc6c1b2b09adc2bd3e7e8381059eb2"
   end
 
   depends_on "intltool" => :build
