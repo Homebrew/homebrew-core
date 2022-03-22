@@ -39,6 +39,6 @@ class DjlServing < Formula
     end
     sleep 30
     cmd = "http://127.0.0.1:#{port}/ping"
-    assert_match "{}\n", shell_output("curl #{cmd}")
+    assert_match "{}\n", shell_output("curl --fail #{cmd}")
   end
 end
