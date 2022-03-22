@@ -20,7 +20,11 @@ class Libqalculate < Formula
   depends_on "mpfr"
   depends_on "readline"
 
+  uses_from_macos "perl" => :build
+  uses_from_macos "curl"
+
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
