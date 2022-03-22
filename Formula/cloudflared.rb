@@ -1,8 +1,8 @@
 class Cloudflared < Formula
   desc "Cloudflare Tunnel client (formerly Argo Tunnel)"
   homepage "https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide"
-  url "https://github.com/cloudflare/cloudflared/archive/refs/tags/2022.3.1.tar.gz"
-  sha256 "e3459bc83d9749d89d93e6ab2dcbc51872568d1fb144d7ab7d3656b29785e364"
+  url "https://github.com/cloudflare/cloudflared/archive/refs/tags/2022.3.3.tar.gz"
+  sha256 "da352ea84032f8d1143b239041e8092eff0a35a4966b63cf46d073522dc37672"
   license "Apache-2.0"
   head "https://github.com/cloudflare/cloudflared.git", branch: "master"
 
@@ -18,13 +18,11 @@ class Cloudflared < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "cloudflared", "VERSION=#{version}", "DATE=#{time.iso8601}"
-    inreplace "cloudflared_man_template" do |s|
-      s.gsub! "${DATE}", time.iso8601
-      s.gsub! "${VERSION}", version
-    end
-    bin.install "cloudflared"
-    man1.install "cloudflared_man_template" => "cloudflared.1"
+    system "make", "install",
+      "VERSION=#{version}",
+      "DATE=#{time.iso8601}",
+      "PACKAGE_MANAGER=#{tap.user}",
+      "PREFIX=#{prefix}"
   end
 
   test do
@@ -33,5 +31,7 @@ class Cloudflared < Formula
     assert_match version.to_s, help_output
     assert_equal "unable to find config file\n", shell_output("#{bin}/cloudflared 2>&1", 1)
     assert_match "Error locating origin cert", shell_output("#{bin}/cloudflared tunnel run abcd 2>&1", 1)
+    assert_match "cloudflared was installed by #{tap.user}. Please update using the same method.",
+      shell_output("#{bin}/cloudflared update 2>&1")
   end
 end
