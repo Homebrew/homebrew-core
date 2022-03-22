@@ -10,12 +10,12 @@ class QtAT5 < Formula
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f5be0f91e5f418c25a3ff17efb51416dd5b1ea1aa3da252f185d968f074201fb"
-    sha256 cellar: :any,                 arm64_big_sur:  "b5c28c8e55fb3174d0fa1a989f6faf1a4be87abff90569435b6eaa1509395256"
-    sha256 cellar: :any,                 monterey:       "e14df14d66096c6b17955a68ad8ed2de0eb0d9a5283036663558b8d003bd2ce4"
-    sha256 cellar: :any,                 big_sur:        "2d521e4bfdcbfcc6ac1ad6fc71805440941b0a391f5d3588ea6cec874616f8df"
-    sha256 cellar: :any,                 catalina:       "0af97a602f5b4582a53516877bbcab62d8c0d13e314f992c4347fd6ec5f00b29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7eb619d6a65c7237c87fbc33a68d69aaf75646c75c9aa4a45bf9ce1f672fc09"
+    sha256 cellar: :any,                 arm64_monterey: "5ac5153ebd4c55455f4e66c8ff709a8f6e5eaa4585b771d3713ff4157533c535"
+    sha256 cellar: :any,                 arm64_big_sur:  "6b1b9976f3d2156044a6417eea49950e032d3aa7868bce07f0b4f9a53566028f"
+    sha256 cellar: :any,                 monterey:       "c5b6845eaf185e11cfd8a34285b16c1abd00352a89d82940fc8dc6a9dc4c4270"
+    sha256 cellar: :any,                 big_sur:        "fac4e2200c7fd63370768cf50f7d094ea8de548a60c5bb48820815671ba7a772"
+    sha256 cellar: :any,                 catalina:       "0ee613de8e493575c529d25f3747375df84a5e0f3503535b0f227e86a055acca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c59614cf1a5d21a4ea8090bb063bedd49fdcf0dca166411f85930176431a4426"
   end
 
   keg_only :versioned_formula
