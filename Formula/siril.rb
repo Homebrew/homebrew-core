@@ -27,7 +27,6 @@ class Siril < Formula
   depends_on "fftw"
   depends_on "gnuplot"
   depends_on "gsl"
-  depends_on "gtk-mac-integration"
   depends_on "jpeg"
   depends_on "json-glib"
   depends_on "libconfig"
@@ -38,9 +37,22 @@ class Siril < Formula
   depends_on "opencv"
   depends_on "openjpeg"
 
+  uses_from_macos "perl" => :build
+
+  on_macos do
+    depends_on "gtk-mac-integration"
+  end
+
+  on_linux do
+    depends_on "gcc"
+    depends_on "gtk+3"
+  end
+
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     # siril uses pkg-config but it has wrong include paths for several
     # headers. Work around that by letting it find all includes.
     ENV.append_to_cflags "-I#{HOMEBREW_PREFIX}/include -Xpreprocessor -fopenmp -lomp"
