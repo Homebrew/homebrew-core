@@ -12,6 +12,7 @@ class Pioneers < Formula
     sha256 catalina:       "c2462078e412d1e2b60108f317550690b28675da5a248de69856a558fa4e07d4"
     sha256 mojave:         "47ca43b992b0590f90758d9eef7894361c510dce5279a602decdf8ec019086f4"
     sha256 high_sierra:    "fdd30d2f45b5b1f701b2f358c09a79ce04cea9793383f959811141617f3a4fc0"
+    sha256 x86_64_linux:   "ddd73b5ddca501f4e1f2087cdf571d5b5b9ceffdd3018917a22cdd423a078952"
   end
 
   depends_on "intltool" => :build
