@@ -6,10 +6,10 @@ class Mockolo < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "137aae60dcd2bdadf64bc38ff1d0ca8f23cfbc40966e61dd12c1f195a2c9b30f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "189657ede935330ef9f7a4884ec08b068594413f439f464a5566572bdad0842c"
-    sha256 cellar: :any_skip_relocation, monterey:       "3aff5eea6fae248f9c5ffed4cafbfe98bcd65315314ac30ba37c0ae11ab82913"
-    sha256 cellar: :any_skip_relocation, big_sur:        "43e30dec8ae85185b552f1fb3dc8e996def2ca3c669aaf573ced988eb10e0aac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd3fa5acd3f6579f3fc968f4bec3ee352e02313534ee9e80ae34dc9140fea240"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e436ecc136b7f9a66327c93090fb31345392dac61ba5a1a1cc6155a05c103bb"
+    sha256 cellar: :any_skip_relocation, monterey:       "68b348c545803f8e20294fee9882754bc99e6e7890248db34df255f522dad066"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fa228d10c41c6d10da3d529fbc65b64d122340528e2ad712033ebacf533f0786"
   end
 
   depends_on xcode: ["12.5", :build]
