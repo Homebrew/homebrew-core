@@ -9,12 +9,12 @@ class Meson < Formula
   head "https://github.com/mesonbuild/meson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e869d1bccc483c8048c4d34b0ec7f6cf60e60094135569763fd2fd6cf6d3bc9d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b33231e644e839ee9872594b7311e4833ffd0c390c4f30117233224177c4558"
-    sha256 cellar: :any_skip_relocation, monterey:       "a9d8f942d207b4801f80470b432dd1ab8af169824623374ddb81e6ff68e54290"
-    sha256 cellar: :any_skip_relocation, big_sur:        "18f6084128226bae2452c5cdf58b2a41be20c3af31eba0261712fef4630a0c5d"
-    sha256 cellar: :any_skip_relocation, catalina:       "29ec98d0196028cc9a70dda833554085b7bdd1ef0a4c100d7b59b60ec4362f9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c919806f5f6bd77f01ba8b6acfa875e71ee254f476c8f3d023c52d5f770b3ee1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "574cbd1941554288673cae34643fe51ec130f7a26ca19deec7d4f47707930a8b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "053f189c8e19e0a2e6d63479b0450237060b4b88bcec51a5d46b627ca1b74ea8"
+    sha256 cellar: :any_skip_relocation, monterey:       "d3d333492b00d8539418ff29776bed4e0259bd2b102ed805282e5997a0e0281e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5cdc50a7fee26aeb7d2b9e134ccf7af08e55001cc91925339765e9cf1baea8eb"
+    sha256 cellar: :any_skip_relocation, catalina:       "4a5fde510e6384e12039ca1e1ba0d766de1bd140d0a03aabc0b19a115210759b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46f6c33901fb68783eab08a21037f20b6923fc41cae21c416d8e9fb8e4eec439"
   end
 
   depends_on "ninja"
