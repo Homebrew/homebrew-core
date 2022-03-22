@@ -13,12 +13,12 @@ class GitlabRunner < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "09534481c4c806a871c51d9798be4f0ba6e3690afc67dc8c4716b7df75fc4b41"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baa7dae6facb7fd5f8d9d7c01a18bdfda515e354a06232033b28207d8dc4f307"
-    sha256 cellar: :any_skip_relocation, monterey:       "326fb6247caab3a09ef5a23f216375ba2782f9c1bf647e5885e5bd469ca823e1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2e5995d7c77ee44ad14adc7cdc3cd2451a6ad6b6756d4d91e0528b3ceea4768e"
-    sha256 cellar: :any_skip_relocation, catalina:       "c00f74b9b08276ea490efa3dc355b20236d0e059bac17850a2de68bb1cb8960e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f35695e9a23e1990e8df8c6b20e6242af74cc280bb718638757be9933ba15ae7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35bbad730547c39f53e2c9dd9c33bc0a55196dbff2f9a66a469f0c247b708a30"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c8c03c79edaee0dbc2f13659e4305e859906757438d22edfd6c9fef22031e35"
+    sha256 cellar: :any_skip_relocation, monterey:       "f3a8cfb4aab498d4a831250993ca97d108de0ab0f7cb31490420cfa52a7f3935"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9997bc19a7ff7a8d2425dc41cfcd5b36c2980dd384c06cd6372d969c0debba10"
+    sha256 cellar: :any_skip_relocation, catalina:       "33cfa780fe31dbe3881bc686582d89a323ec665992b48978aab608c75b6bfad1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78135ba81dafb50df792e45b52b5696d63f052822a64451696fe9d26588c9ba2"
   end
 
   # Bump to 1.18 when x/sys is updated (likely 14.9).
