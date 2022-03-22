@@ -21,7 +21,11 @@ class Utimer < Formula
   depends_on "gettext"
   depends_on "glib"
 
+  uses_from_macos "perl" => :build
+
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
