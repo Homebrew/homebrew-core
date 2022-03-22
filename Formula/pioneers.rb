@@ -21,7 +21,11 @@ class Pioneers < Formula
   depends_on "gtk+3"
   depends_on "librsvg" # svg images for gdk-pixbuf
 
+  uses_from_macos "perl" => :build
+
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     # fix usage of echo options not supported by sh
     inreplace "Makefile.in", /\becho/, "/bin/echo"
 
