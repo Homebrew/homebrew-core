@@ -1,8 +1,8 @@
 class Keptn < Formula
   desc "Is the CLI for keptn.sh a message-driven control-plane for application delivery"
   homepage "https://keptn.sh"
-  url "https://github.com/keptn/keptn/archive/0.13.3.tar.gz"
-  sha256 "0c647c17cf113b8d8b568d7f66f935d9e4fbba20d029576aa1a28e775016a9ae"
+  url "https://github.com/keptn/keptn/archive/0.13.4.tar.gz"
+  sha256 "c60aa30a91e5e10cff44d4416b651ceaa1ad4a4587551363b1ab69b896896f7d"
   license "Apache-2.0"
 
   livecheck do
