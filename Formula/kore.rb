@@ -12,13 +12,12 @@ class Kore < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "0903cb7198c7cee03d727ca1dff69ae17c143761702857c5d0925822067ceb9d"
-    sha256 arm64_big_sur:  "27b9278bca42a66ef991c721a6e9d4910c72eb5fd4fec1530cebb20444f65d6a"
-    sha256 monterey:       "9f6fb2a90b05326a0ee669a32f38487b9526e43bba7722efcc6feee1f9a8b56c"
-    sha256 big_sur:        "b9ee5f484ac7eb75b1282afee33da589de37ce1787b15eea441e63526996e47c"
-    sha256 catalina:       "1c361e384d9d76c042624f56a0e847f12e9db63a5e0fd49016827bcbdb71eb95"
-    sha256 mojave:         "111923e46a1a868241cea5eeed3477ef6de321684308168c8ffac582620ba95a"
-    sha256 x86_64_linux:   "915a0b5f6e3598f50e4e457c96221b07006490f5169c666dc745d8ee0c68bced"
+    sha256 arm64_monterey: "2dddc35360c125666c7e9dcf9da34b38ce9c544ff232f7fd30788143f72714c4"
+    sha256 arm64_big_sur:  "f096ed871959f72d0615082b84fb4f9b97ee8292c757c5997922cba56cd7ee63"
+    sha256 monterey:       "466738c9a60c4bc270ce6230bd7ecbe5f7e9460a2e93e77a5e60dcde036675e1"
+    sha256 big_sur:        "c72c788fddbab2c12e0fd1edf5f6fed06a3f3f1d83ad5315160f7fd3a014666a"
+    sha256 catalina:       "261f345465acbc3c48419e076eaf6c599571936e831ce69d503c314f2d15b395"
+    sha256 x86_64_linux:   "af7739d889d6170490c3e14ee85f5f90c65caa63b28b974376515352be3fb216"
   end
 
   depends_on "pkg-config" => :build
