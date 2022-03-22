@@ -17,6 +17,7 @@ class Klavaro < Formula
     sha256 big_sur:        "d6d1c7aaf96acb9061577df307bb98cb4d0b87e28b930d3a875b551d498d9f6e"
     sha256 catalina:       "76b1fc9787963e805dfe796c68450265d129797867bc1ac13a66bd489514cd32"
     sha256 mojave:         "886f52a4f91c189d2f5a3f9c68d2490842f0cb0d66f2d5d8b904b104c56fdf07"
+    sha256 x86_64_linux:   "37086fa81be9f3d2e3dc31036a72bcc635e9db942107a1f012ec1c6cf1bc0823"
   end
 
   depends_on "intltool" => :build
