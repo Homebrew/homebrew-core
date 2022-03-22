@@ -7,12 +7,12 @@ class Xcodegen < Formula
   head "https://github.com/yonaskolb/XcodeGen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "67808f91003859ba6c2e93cdab598aa2badd8880468e4035823c7dff355bc7a3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "572be1ef81ff8fc5d4548d606e9bcc4549f52cb25cda9f596bdbcce706aafe2a"
-    sha256 cellar: :any_skip_relocation, monterey:       "cecf4c25ddcf696c4b63027d5d21278b5a3a550bcb1d6b11911b9c3c4dd2c630"
-    sha256 cellar: :any_skip_relocation, big_sur:        "12c836f28b0635f710cdf4aef0be0ab957ee22fde9bafbd4f1c68dd4ce683f32"
-    sha256 cellar: :any_skip_relocation, catalina:       "a845d879aba3867a72047665e5a598556aa3745bb2f25e038e357a66e23a1b89"
-    sha256                               x86_64_linux:   "271a58fa570b85837819ed241b5e35736f2bb4b2ae5b8c03fa78f4afd540fda6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "968f228a77d3a25b66fbd8effe034f92837165a62a1ec5932814f0ac91ccd861"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b703c29270c3600c475b8ad97814c37350f84a6a6243535bcc26af1b8b6127c1"
+    sha256 cellar: :any_skip_relocation, monterey:       "bf7da2d2159851bd8ea79c24c25fecae520e7ac52f4bf7eee6f40aed2d6ed29b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b523b46556ef3f6d1912982cde443fe354dc0360148bacaa3c4aa9e0940eb4d6"
+    sha256 cellar: :any_skip_relocation, catalina:       "d6dc0185ffc184dd29c923bcaeb291332f0df5eb87d057d4715d6617449ce47a"
+    sha256                               x86_64_linux:   "8360eb78ec5a2fcfebbba9d32acbe24177675b2f69142a98832d3ccaacdc6519"
   end
 
   depends_on xcode: ["10.2", :build]
