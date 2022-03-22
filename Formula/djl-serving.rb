@@ -1,8 +1,8 @@
 class DjlServing < Formula
   desc "This module contains an universal model serving implementation"
   homepage "https://github.com/deepjavalibrary/djl-serving"
-  url "https://publish.djl.ai/djl-serving/serving-0.15.0.tar"
-  sha256 "8411ed6f0d723850e776dd3c72b93c5893d606f601d786aadd7cdf1c1b32cd3d"
+  url "https://publish.djl.ai/djl-serving/serving-0.16.0.tar"
+  sha256 "52cd5d36e9df8766d8f6fe502e1abce97b2d75a6fad38dc22c02728b2b2b10b9"
   license "Apache-2.0"
 
   bottle do
@@ -39,6 +39,6 @@ class DjlServing < Formula
     end
     sleep 30
     cmd = "http://127.0.0.1:#{port}/ping"
-    assert_match "{\n  \"status\": \"Healthy\"\n}\n", shell_output("curl #{cmd}")
+    assert_match "{}\n", shell_output("curl --fail #{cmd}")
   end
 end
