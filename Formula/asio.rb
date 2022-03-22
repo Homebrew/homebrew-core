@@ -1,8 +1,8 @@
 class Asio < Formula
   desc "Cross-platform C++ Library for asynchronous programming"
   homepage "https://think-async.com/Asio"
-  url "https://downloads.sourceforge.net/project/asio/asio/1.22.0%20%28Stable%29/asio-1.22.0.tar.bz2"
-  sha256 "1e0737d43fa192938c77c16d80809e5b40630549de44d649a1371a07c39d4550"
+  url "https://downloads.sourceforge.net/project/asio/asio/1.22.1%20%28Stable%29/asio-1.22.1.tar.bz2"
+  sha256 "6874d81a863d800ee53456b1cafcdd1abf38bbbf54ecf295056b053c0d7115ce"
   license "BSL-1.0"
   head "https://github.com/chriskohlhoff/asio.git", branch: "master"
 
@@ -60,7 +60,6 @@ class Asio < Formula
       assert_match "404 Not Found", shell_output("curl http://127.0.0.1:#{port}")
     ensure
       Process.kill 9, pid
-      Process.wait pid
     end
   end
 end
