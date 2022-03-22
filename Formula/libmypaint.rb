@@ -21,7 +21,11 @@ class Libmypaint < Formula
   depends_on "gettext"
   depends_on "json-c"
 
+  uses_from_macos "perl" => :build
+
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     system "./configure", "--disable-introspection",
                           "--without-glib",
                           "--prefix=#{prefix}"
