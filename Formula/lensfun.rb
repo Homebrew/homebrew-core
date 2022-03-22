@@ -15,13 +15,12 @@ class Lensfun < Formula
   head "https://github.com/lensfun/lensfun.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "530ebafb7cb54daaa3095f543ba8f05e331fd8a36265fbb2cfbe482e5822a223"
-    sha256 arm64_big_sur:  "976711172998eae467ddaba1feb590e0229cc0b41f11ac58e1db2d833a57c99c"
-    sha256 monterey:       "08fec3eeb7b95d1c468b2525e2b92a7df9c34f1b6c7f4003d2c0cdaeb72f983f"
-    sha256 big_sur:        "48cd331c4214979daa6c122e2b776000af76208cb051562e27f4cef4f3aa3b93"
-    sha256 catalina:       "b0d8cdbcf20af0b1d577626e04643687955030785f57911e9d0a708a7ef95997"
-    sha256 mojave:         "526b6752883c94e7e2807fa06e6803e9dc45060189be102be5ed79c24b187af6"
-    sha256 x86_64_linux:   "d5758ba26c4bb2d4134bc733a302a30b6534f7b5e64dbd25ec519c39f5234c7a"
+    sha256 arm64_monterey: "b7c1472fdec4cfa0c78c7be1d84cf62f1c1b5b9f243ea19d47a7d65d591029ee"
+    sha256 arm64_big_sur:  "b4f90befa38fc5f0a2d7b981c63712cd53b98704f989f7d373ac072e38effab5"
+    sha256 monterey:       "5dca57fa7d6429e104ab925f41e16f08d66adf767def8c523034c797721b50ce"
+    sha256 big_sur:        "2c8cf34ada4b76d9d5a48cd05f0fb81dbdfc161fc0613dde4f393171021d3a22"
+    sha256 catalina:       "f4e3e086ea86dc1475152084544beddfb8f6f2ec53b43c96b1be58b4cfdd65e0"
+    sha256 x86_64_linux:   "58a7d7e275aa8eea9088f385d3801c4b0264fed650831f619823cd80d3b78173"
   end
 
   depends_on "cmake" => :build
