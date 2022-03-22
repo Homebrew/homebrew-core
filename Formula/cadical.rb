@@ -4,6 +4,7 @@ class Cadical < Formula
   url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-1.5.2.tar.gz"
   sha256 "4a4251bf0191677ca8cda275cb7bf5e0cf074ae0056819642d5a7e5c1a952e6e"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -26,6 +27,8 @@ class Cadical < Formula
       bin.install "cadical"
       lib.install "libcadical.a"
       include.install "../src/cadical.hpp"
+      include.install "../src/ccadical.h"
+      include.install "../src/ipasir.h"
     end
   end
 
