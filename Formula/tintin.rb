@@ -11,13 +11,12 @@ class Tintin < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ebbbc301281083b40f6681ce3e3c305261cfdfa8ff5539b814e0eff7b8a55f03"
-    sha256 cellar: :any,                 arm64_big_sur:  "73d0bbde0e88409ccc7a46c0aea1df8fd50c627f35d9e90fe3f2fa9d2c07467b"
-    sha256 cellar: :any,                 monterey:       "66816b03eff95a19f251bf229e312482c87458bbbba2b24e04b39cdc6bad1b26"
-    sha256 cellar: :any,                 big_sur:        "a2c52474736bbf2789f2595d045b9257c92fd547d8943ed023fc14d99e96cd52"
-    sha256 cellar: :any,                 catalina:       "38f0217f785c1218c73f2dfd066d27e551d6f4930108a8b69524b5f11b19010e"
-    sha256 cellar: :any,                 mojave:         "23d1eaf2dd6b6a14b167353b6edcbf6934c58b5c105451e44377a30b29e46f48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e61815e3d0602667ddac1ba5eec6601f051baf43d267b9f2fec6ecfbea74eb2e"
+    sha256 cellar: :any,                 arm64_monterey: "22df076cf26294cfcc4916a5207da44c5b09e666214ac492f00a4cc834cf5686"
+    sha256 cellar: :any,                 arm64_big_sur:  "edb2f64c84e44ad7f1b76a1c5ec412dc94070fda47e902d1a69d9baa3db611f7"
+    sha256 cellar: :any,                 monterey:       "09bbec9d3b0c8fa2ea32b82a338cb8ccfcaa5f14c563fc5d1fd9b22ff0f47a69"
+    sha256 cellar: :any,                 big_sur:        "4395014464314a01722a142094b0ac57a3287f444dea2b188d42db858f215332"
+    sha256 cellar: :any,                 catalina:       "61e87a3cbbecbf6a0675d03118edb516a6e570ed9f442f92afacaa0979437986"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17d90efb0dcd0a31a260531ffe10e5e2e87253ad8570f2dc931082acba886d94"
   end
 
   depends_on "gnutls"
