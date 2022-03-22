@@ -1,9 +1,9 @@
 class QpidProton < Formula
   desc "High-performance, lightweight AMQP 1.0 messaging library"
   homepage "https://qpid.apache.org/proton/"
-  url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.36.0/qpid-proton-0.36.0.tar.gz"
-  mirror "https://archive.apache.org/dist/qpid/proton/0.36.0/qpid-proton-0.36.0.tar.gz"
-  sha256 "d2a6bf00265a07ba526983b07604534c7c7b564923254565b42d1f97274e92d8"
+  url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.37.0/qpid-proton-0.37.0.tar.gz"
+  mirror "https://archive.apache.org/dist/qpid/proton/0.37.0/qpid-proton-0.37.0.tar.gz"
+  sha256 "265a76896bf6ede91aa5e3da3d9c26f5392a2d74f5f047318f3e79cbd348021e"
   license "Apache-2.0"
   head "https://gitbox.apache.org/repos/asf/qpid-proton.git", branch: "main"
 
