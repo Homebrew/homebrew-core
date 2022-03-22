@@ -9,8 +9,9 @@ class Libmarpa < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "libtool" => :build
-  depends_on "texinfo" => :build
   depends_on "texlive" => :build
+
+  uses_from_macos "texinfo" => :build
 
   def install
     ENV.deparallelize
