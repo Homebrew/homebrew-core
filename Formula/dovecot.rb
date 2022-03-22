@@ -1,10 +1,9 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.17.tar.gz"
-  sha256 "224412cd77a23a3ffb857da294da200883d956082cff7257942eff2789bd2df9"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.18.tar.gz"
+  sha256 "06e73f668c6c093c45bdeeeb7c20398ab8dc49317234f4b5781ac5e2cc5d6c33"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
-  revision 1
 
   livecheck do
     url "https://www.dovecot.org/download/"
@@ -31,10 +30,8 @@ class Dovecot < Formula
   end
 
   resource "pigeonhole" do
-    # Syystem curl errors with:
-    # curl: (35) error:1400442E:SSL routines:CONNECT_CR_SRVR_HELLO:tlsv1 alert protocol version
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.17.tar.gz", using: :homebrew_curl
-    sha256 "031e823966c53121e289b3ecdcfa4bc35ed9d22ecbf5d93a8eb140384e78d648"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.18.tar.gz"
+    sha256 "a6d828f8d6f2decba5105343ece5c7a65245bd94e46a8ae4432a6d97543108a5"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -97,5 +94,12 @@ class Dovecot < Formula
 
   test do
     assert_match version.to_s, shell_output("#{sbin}/dovecot --version")
+
+    cp_r share/"doc/dovecot/example-config", testpath/"example"
+    inreplace testpath/"example/conf.d/10-master.conf" do |s|
+      s.gsub! "#default_login_user = dovenull", "default_login_user = #{ENV["USER"]}"
+      s.gsub! "#default_internal_user = dovecot", "default_internal_user = #{ENV["USER"]}"
+    end
+    system bin/"doveconf", "-c", testpath/"example/dovecot.conf"
   end
 end
