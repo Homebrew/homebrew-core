@@ -48,7 +48,7 @@ class GitFlowAvh < Formula
     resource("completion").stage do
       bash_completion.install "git-flow-completion.bash"
       zsh_completion.install "git-flow-completion.zsh"
-      fish_completion.install "git.fish"
+      fish_completion.install "git.fish" => "git-flow.fish"
     end
   end
 
