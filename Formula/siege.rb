@@ -11,13 +11,12 @@ class Siege < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "c57f85c927a9a67ab09980855cf2498335ed2a9849bae6eb8eb58ce58bc7db89"
-    sha256 arm64_big_sur:  "14c77189b3ea80705dd31c790cd65aca11d8752a5ff60f9f56abc190fb5dd860"
-    sha256 monterey:       "01dc1bb6290f7ada1158c978971ebae843e1c58e74aa59716a770286a159baf9"
-    sha256 big_sur:        "3a0700e1b41361e960dd0266bde486ab89afb27a706de7d970325889ae39bc7c"
-    sha256 catalina:       "45ac6999d1446257c046416c6be4ebea0e8aae69ca49ef6ac2aba2844fde3281"
-    sha256 mojave:         "650238923f354fcec454b5bd6219ab26bbb3680d440420216446a3878b382b92"
-    sha256 x86_64_linux:   "14d0a4594a88c19185f06de0bc12a626b2dde2740868250bc58312e57dabbc74"
+    sha256 arm64_monterey: "be440f6540a10977b1c5d7b6406fba6912d1180f02166a182bcdb36d1f19cd68"
+    sha256 arm64_big_sur:  "bc2eb934f93364fa2bf0e19778df12a07e52bab918b723cd6e2165368cdcdc9d"
+    sha256 monterey:       "69201e329616cc0f6c3b1b96f83f3082bae76933fc32245902761219c2fde29c"
+    sha256 big_sur:        "1cef6df6277b9a7e8365777d33fdc93001bf018b0f84c914e4acfb4cba2f489f"
+    sha256 catalina:       "8f0fe495d1c2f315fbd264cd46c96df2deb4c637c8107da8add5571d91a655f8"
+    sha256 x86_64_linux:   "ef1e5a8d7ca1ad4b4bbf0ea5b19f68e75a69b61661cc3efcb4742b66830eb52e"
   end
 
   depends_on "openssl@1.1"
