@@ -1,8 +1,8 @@
 class Opendht < Formula
-  desc "C++14 Distributed Hash Table implementation"
+  desc "C++17 Distributed Hash Table implementation"
   homepage "https://github.com/savoirfairelinux/opendht"
-  url "https://github.com/savoirfairelinux/opendht/archive/refs/tags/2.3.5.tar.gz"
-  sha256 "fd762832ec82094f9b95a21a6ee54b082db2c81a5860dd24cf0599810df8b1a3"
+  url "https://github.com/savoirfairelinux/opendht/archive/refs/tags/2.4.0.tar.gz"
+  sha256 "4ecc41014add4f9165163072fff2fe72e4f4dd542b799c5baf181ec69c858942"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -22,6 +22,12 @@ class Opendht < Formula
   depends_on "msgpack-cxx"
   depends_on "nettle"
   depends_on "readline"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", "-S", ".", "-B", "build",
@@ -47,7 +53,7 @@ class Opendht < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++14", "-L#{lib}", "-lopendht", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++17", "-L#{lib}", "-lopendht", "-o", "test"
     system "./test"
   end
 end
