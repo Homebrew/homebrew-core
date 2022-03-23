@@ -35,6 +35,7 @@ class Csfml < Formula
       }
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lcsfml-window", "-o", "test"
-    system "./test"
+    # Disable this part of the test on Linux because display is not available.
+    system "./test" if OS.mac?
   end
 end
