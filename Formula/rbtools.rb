@@ -3,10 +3,9 @@ class Rbtools < Formula
 
   desc "CLI and API for working with code and document reviews on Review Board"
   homepage "https://www.reviewboard.org/downloads/rbtools/"
-  url "https://files.pythonhosted.org/packages/be/83/969a103b00d7075e3f76b197f63edcca4b10c2e65000c4d48cef31a8c5c0/RBTools-2.0.1.tar.gz"
-  sha256 "df8d5e834ad291c6e743907e27e50fc2f6006cdc6b8a4f9035acc86b87dcba31"
+  url "https://files.pythonhosted.org/packages/50/e6/461ac31f26064acf3a1ba1c5f3b75bf32bfb82732b5982c08455c0bc7fe8/RBTools-3.0.tar.gz"
+  sha256 "344b81f23ff271d02d20fd8751c0de1dbad5271ef4b0e0ec1a1df6f540f66294"
   license "MIT"
-  revision 1
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
@@ -20,15 +19,16 @@ class Rbtools < Formula
   end
 
   depends_on "python@3.10"
+  depends_on "six"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
     sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  resource "pydiffx" do
+    url "https://files.pythonhosted.org/packages/e0/0c/296d4f8ebb4574214b66fcb491bd5f7aa1990683bef480f762ca1d1da9eb/pydiffx-1.0.1.tar.gz"
+    sha256 "853216435008c23a0e2cd2c2a8ed15108bca449d6c31bc59d2e894246aff6bfa"
   end
 
   resource "texttable" do
@@ -37,8 +37,8 @@ class Rbtools < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/0d/dd/78f7e080d3bfc87fc19bed54513b430659d38efb2d9ea6e3ad815a665a02/tqdm-4.61.2.tar.gz"
-    sha256 "8bb94db0d4468fea27d004a0f1d1c02da3cdedc00fe491c0de986b76a04d6b0a"
+    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
+    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
   end
 
   def install
