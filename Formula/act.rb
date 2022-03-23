@@ -7,12 +7,12 @@ class Act < Formula
   head "https://github.com/nektos/act.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "47d3eb0fc2dbada73a1937c215287f930e9b03cf6a4879782349dd381778be9f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "85d3415d0a4094059f11e32e9b070559057765440b4924ddbe242702d7963975"
-    sha256 cellar: :any_skip_relocation, monterey:       "bccab3b5369faf45d225c123636907f976b71501530854543a8253a83bb2b437"
-    sha256 cellar: :any_skip_relocation, big_sur:        "47c7487e6912f21585dc65190ad55aa9eb242033f69f3cc301690f5f548eeb67"
-    sha256 cellar: :any_skip_relocation, catalina:       "368b81473f0ecd36275e4a1bfaf46650a84d1460697bcbc401af7b4764c769e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ad2f9019a2f54b6871b0a9a00cdb30b09b010e3dab4600b66d25200d36e53c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6c78735184593a5e15e0a8e64780847f6c99d742e684260a76372920dba886d6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a32edcfb870f9673d308642dbef766605e638113aee43d50d953139ec4e8eec"
+    sha256 cellar: :any_skip_relocation, monterey:       "2496ab9860c76d1bc812aefde82bdae3503b95971a0111a8c51841e301cce841"
+    sha256 cellar: :any_skip_relocation, big_sur:        "aadf3bd1976442dd8769a0b246a49e518a7ae1c0f25f3d7cf6bbb21194b2534c"
+    sha256 cellar: :any_skip_relocation, catalina:       "6b36d0a79c3b9e300c5cb46087ff9cf4529650e4f1c2b5e141cbed14a75b1013"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efe487851ab306ecd77cdf30cd3eec49e1793ed26aded73f34c00fa8c2da4c7f"
   end
 
   depends_on "go" => :build
