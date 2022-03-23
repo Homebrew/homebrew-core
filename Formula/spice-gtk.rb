@@ -19,6 +19,7 @@ class SpiceGtk < Formula
     sha256 big_sur:        "e51c47902eb3a8d5bf146330d3ed7a8965ce66b3d6d425ef5a39ebf4965c3a2c"
     sha256 catalina:       "a6346dd1e7a827900d7dbeaa647588fa56af3dfc72dec3686241eff1f94deaca"
     sha256 mojave:         "512587bfec950e40a3df1f3254427ca736af13c4e222701f32ca7a53c50d4c0f"
+    sha256 x86_64_linux:   "396144a5e9cc5e36f459104d59b7223000a8f575596f253b6ead1a2ba8f31f31"
   end
 
   depends_on "gobject-introspection" => :build
