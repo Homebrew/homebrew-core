@@ -7,13 +7,12 @@ class ProtocGenGo < Formula
   head "https://github.com/protocolbuffers/protobuf-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "08363c023c5841eff91cbea29452c902b615516196fcb68d826b4dc877d2e3d8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "577196328ed1d829d999d7eb7a1fbdcd340831619b5e53db1e9ff880bb0514cb"
-    sha256 cellar: :any_skip_relocation, monterey:       "eb5cf886304f8d4079b81e5f698f2999b9c1f1b9d63abe7a156a21f9dc620baa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3990c0be0447ef4cebc03575c737a01a8a7af9e3766cb014addc4c932eeb4228"
-    sha256 cellar: :any_skip_relocation, catalina:       "3990c0be0447ef4cebc03575c737a01a8a7af9e3766cb014addc4c932eeb4228"
-    sha256 cellar: :any_skip_relocation, mojave:         "3990c0be0447ef4cebc03575c737a01a8a7af9e3766cb014addc4c932eeb4228"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf23c02b98cfea6ed4a0d293a6f669b61fa11c6a04f5288ae6d910b20c0a8f4c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d9f6e11bd47c856b87e044a25e47467c7bf9ef5e921ff8474f05feed23488ac"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d9f6e11bd47c856b87e044a25e47467c7bf9ef5e921ff8474f05feed23488ac"
+    sha256 cellar: :any_skip_relocation, monterey:       "887edab7a650f705dc5d42e2f1cdd9f9770bd5b8b21cd1bb8c5f2f87b696589b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "887edab7a650f705dc5d42e2f1cdd9f9770bd5b8b21cd1bb8c5f2f87b696589b"
+    sha256 cellar: :any_skip_relocation, catalina:       "887edab7a650f705dc5d42e2f1cdd9f9770bd5b8b21cd1bb8c5f2f87b696589b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a12ab9c9f7c4d280391c2b5a0b607fd8f493a2ba3d3d6faba49d77a1653c878f"
   end
 
   depends_on "go" => :build
