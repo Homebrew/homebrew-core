@@ -22,6 +22,8 @@ class Cpmtools < Formula
   depends_on "autoconf" => :build
   depends_on "libdsk"
 
+  uses_from_macos "ncurses"
+
   def install
     # The ./configure script that comes with the 2.21 tarball is too old to work with Xcode 12
     system "autoconf", "--force"
