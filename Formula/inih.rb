@@ -5,6 +5,15 @@ class Inih < Formula
   sha256 "01b0366fdfdf6363efc070c2f856f1afa33e7a6546548bada5456ad94a516241"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "c4427517fd0fd9ee58cef1bdaee10c99abf83522cc3b3c0aa750d20d6080b742"
+    sha256 cellar: :any,                 arm64_big_sur:  "b590c77d00e4d93ada33935c04f976fea1aa736c85cff378cc5180eaf881f485"
+    sha256 cellar: :any,                 monterey:       "92fdccdc79ffd515d9a7d038273b54d68d67e818e5d5eb0fdf6373104432e7fe"
+    sha256 cellar: :any,                 big_sur:        "695ae960d4c26d0b11e87227319c9e17a9bc5882e169d3d006d13b391f6d821b"
+    sha256 cellar: :any,                 catalina:       "e99fa791a1127ab1c205a19176be14e0fb5e7709d0f44525e6a15c30ce639da9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e6e3860a48e514660ca4bde2724a5b3275f246eec1a25309c0cedfe44875aa6"
+  end
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
 
