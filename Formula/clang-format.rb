@@ -7,12 +7,12 @@ class ClangFormat < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.1/llvm-13.0.1.src.tar.xz"
-    sha256 "ec6b80d82c384acad2dc192903a6cf2cdbaffb889b84bfb98da9d71e630fc834"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/llvm-14.0.0.src.tar.xz"
+    sha256 "4df7ed50b8b7017b90dc22202f6b59e9006a29a9568238c6af28df9c049c7b9b"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.1/clang-13.0.1.src.tar.xz"
-      sha256 "787a9e2d99f5c8720aa1773e4be009461cd30d3bd40fdd24591e473467c917c9"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/clang-14.0.0.src.tar.xz"
+      sha256 "f5d7ffb86ed57f97d7c471d542c4e5685db4b75fb817c4c3f027bfa49e561b9b"
     end
   end
 
@@ -32,7 +32,6 @@ class ClangFormat < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ninja" => :build
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
@@ -44,25 +43,27 @@ class ClangFormat < Formula
   end
 
   def install
-    if build.head?
+    llvmpath = if build.head?
       ln_s buildpath/"clang", buildpath/"llvm/tools/clang"
+
+      buildpath/"llvm"
     else
-      (buildpath/"tools/clang").install resource("clang")
+      resource("clang").stage do |r|
+        (buildpath/"llvm-#{version}.src/tools/clang").install Pathname("clang-#{r.version}.src").children
+      end
+
+      buildpath/"llvm-#{version}.src"
     end
 
-    llvmpath = build.head? ? buildpath/"llvm" : buildpath
-
-    mkdir llvmpath/"build" do
-      args = std_cmake_args
-      args << "-DLLVM_EXTERNAL_PROJECTS=\"clang\""
-      args << ".."
-      system "cmake", "-G", "Ninja", *args
-      system "ninja", "clang-format"
-    end
+    system "cmake", "-S", llvmpath, "-B", "build",
+                    "-DLLVM_EXTERNAL_PROJECTS=clang",
+                    "-DLLVM_INCLUDE_BENCHMARKS=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
 
     bin.install llvmpath/"build/bin/clang-format"
     bin.install llvmpath/"tools/clang/tools/clang-format/git-clang-format"
-    (share/"clang").install Dir[llvmpath/"tools/clang/tools/clang-format/clang-format*"]
+    (share/"clang").install llvmpath.glob("tools/clang/tools/clang-format/clang-format*")
   end
 
   test do
