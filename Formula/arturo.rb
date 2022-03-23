@@ -19,7 +19,9 @@ class Arturo < Formula
 
   def install
     inreplace "build.nims", "ROOT_DIR    = r\"{getHomeDir()}.arturo\".fmt", "ROOT_DIR=\"#{prefix}\""
-    system "./build.nims", "install"
+    # Use mini install on Linux to avoid webkit2gtk dependency, which does not have a formula.
+    args = OS.mac? ? "" : "mini"
+    system "./build.nims", "install", args
   end
 
   test do
