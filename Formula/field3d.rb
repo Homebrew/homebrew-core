@@ -19,6 +19,12 @@ class Field3d < Formula
   depends_on "hdf5"
   depends_on "ilmbase"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     ENV.cxx11
     ENV.prepend "CXXFLAGS", "-DH5_USE_110_API"
