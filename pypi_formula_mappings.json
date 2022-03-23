@@ -297,6 +297,9 @@
   "pywhat": {
     "exclude_packages": ["six"]
   },
+  "rbtools": {
+    "exclude_packages": ["six"]
+  },
   "regipy": {
     "exclude_packages": ["tabulate"],
     "extra_packages": ["click"]
