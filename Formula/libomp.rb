@@ -32,10 +32,15 @@ class Libomp < Formula
     args = ["-DLIBOMP_INSTALL_ALIASES=OFF"]
     args << "-DOPENMP_ENABLE_LIBOMPTARGET=OFF" if OS.linux?
 
-    system "cmake", ".", *std_cmake_args, *args
-    system "make", "install"
-    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args, *args
-    system "make", "install"
+    system "cmake", "-S", "openmp-#{version}.src", "-B", "build/shared", *std_cmake_args, *args
+    system "cmake", "--build", "build/shared"
+    system "cmake", "--install", "build/shared"
+
+    system "cmake", "-S", "openmp-#{version}.src", "-B", "build/static",
+                    "-DLIBOMP_ENABLE_SHARED=OFF",
+                    *std_cmake_args, *args
+    system "cmake", "--build", "build/static"
+    system "cmake", "--install", "build/static"
   end
 
   test do
