@@ -15,11 +15,6 @@ class OpenshiftCli < Formula
     patch :DATA
   end
 
-  livecheck do
-    url :stable
-    regex(/^openshift-clients[._-](\d+(?:\.\d+)+)(?:[._-]p?\d+)?$/i)
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b1dd03d660dd23ec473ec2277e29f1d373220630544de94dae14eb70f69a350b"
@@ -30,6 +25,10 @@ class OpenshiftCli < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "59b89010cda9ee308ff728704dccd919be1a12f3a1ea3454cf3f31e9c900d273"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9aa2fe20e8fb4212f2ee01ea32ff1cfa255e1c5135f50ce27658b699de97ea49"
   end
+
+  # Ref: https://github.com/Homebrew/homebrew-core/issues/97389
+  # Ref: https://github.com/openshift/oc/issues/954
+  deprecate! date: "2021-10-10", because: "cannot be updated since releases are no longer tagged"
 
   depends_on "coreutils" => :build
   # Bump to 1.18 on the next release.
@@ -59,6 +58,15 @@ class OpenshiftCli < Formula
 
     bash_completion.install "contrib/completions/bash/oc"
     zsh_completion.install "contrib/completions/zsh/oc" => "_oc"
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        You can install a newer version from Homebrew Cask:
+          brew install --cask openshift-client
+      EOS
+    end
   end
 
   test do
