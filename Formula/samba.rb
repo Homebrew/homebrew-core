@@ -4,8 +4,8 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.15.6.tar.gz"
-  sha256 "0575b999a9048445820428dc540ba8a9527ce596fa66af02ea2ba1ea9578bcb4"
+  url "https://download.samba.org/pub/samba/stable/samba-4.16.0.tar.gz"
+  sha256 "97c47de35915d1637b254f02643c3230c3e73617851700edc7a2a8c958a3310c"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -25,6 +25,7 @@ class Samba < Formula
   # configure requires python3 binary to be present, even when --disable-python is set.
   depends_on "python@3.10" => :build
   depends_on "gnutls"
+  depends_on "krb5"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -65,6 +66,7 @@ class Samba < Formula
            "--without-utmp",
            "--without-winbind",
            "--with-shared-modules=!vfs_snapper",
+           "--with-system-mitkrb5",
            "--prefix=#{prefix}",
            "--sysconfdir=#{etc}",
            "--localstatedir=#{var}"
