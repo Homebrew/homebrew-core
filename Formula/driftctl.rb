@@ -1,8 +1,8 @@
 class Driftctl < Formula
   desc "Detect, track and alert on infrastructure drift"
   homepage "https://driftctl.com"
-  url "https://github.com/snyk/driftctl/archive/v0.24.0.tar.gz"
-  sha256 "baa7e1f34fc9b7f0fd29eccaea6a880906fb966827d9fa8ac395444c47321f88"
+  url "https://github.com/snyk/driftctl/archive/v0.25.0.tar.gz"
+  sha256 "b8b9230616db1c594a61bad87c47a602aa28afff4751ec5f2d7d20dd2dad3b78"
   license "Apache-2.0"
 
   bottle do
