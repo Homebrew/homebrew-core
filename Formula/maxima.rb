@@ -18,6 +18,7 @@ class Maxima < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "7eb3ed75bfe3a2786dc959724c99769c123e9fcc9ac2293ad887c2c280d7e974"
     sha256 cellar: :any_skip_relocation, catalina:       "ffb175c92077e3d87cc659bc888113d656c37a0c3cb75d479a385627a9cd2ce0"
     sha256 cellar: :any_skip_relocation, mojave:         "0d18434459d1c811395e78b2c08ad797332fd34b0d35fe22aa4f409ae6e3500b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "618501ffc053e46a7501dab5aa12e7ab8bc3e0bd27110b98b04236e8fcc418ed"
   end
 
   depends_on "gawk" => :build
