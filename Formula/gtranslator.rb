@@ -29,6 +29,12 @@ class Gtranslator < Formula
   depends_on "libhandy"
   depends_on "libsoup@2"
 
+  # Apply upstream commit to fix build with meson. Remove with next release.
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtranslator/-/commit/7ac572cc8c8c37ca3826ecf0d395edd3c38e8e22.diff"
+    sha256 "cc93ba73ab5e010171fa21d5e345a2b4f69773bc786d07952181f86d1b66f368"
+  end
+
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
