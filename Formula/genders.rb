@@ -22,6 +22,11 @@ class Genders < Formula
     sha256 cellar: :any, high_sierra:    "31a726904f22c156b763a8bc95bd3db6e85b8bc0cf7d8a82d584bb8684241f6c"
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "perl" => :build
+  uses_from_macos "python" => :build
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
@@ -29,8 +34,12 @@ class Genders < Formula
   end
 
   def install
+    ENV["PYTHON"] = which("python3")
     system "./configure", "--prefix=#{prefix}", "--with-java-extensions=no"
     system "make", "install"
+
+    # Move man page out of top level mandir on Linux
+    man3.install (prefix/"man/man3").children unless OS.mac?
   end
 
   test do
