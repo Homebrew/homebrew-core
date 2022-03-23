@@ -32,6 +32,18 @@ class Pcb2gcode < Formula
   depends_on "boost"
   depends_on "gerbv"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
+  # Apply upstream commit to fix build with GCC 11.  Remove with next release.
+  patch do
+    url "https://github.com/pcb2gcode/pcb2gcode/commit/01cd18a6d859ab1aac6c532c99be9109f083448d.patch?full_index=1"
+    sha256 "b5b316b14e9b615ee9114261eb5d04a0b234823847a18bb5ab4d8e2af4210750"
+  end
+
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
