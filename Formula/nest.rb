@@ -6,11 +6,11 @@ class Nest < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "79980487fd0ed24002a4ff53f6bcc07b0d5238069e101e419c6322414d710add"
-    sha256 arm64_big_sur:  "37c157798ba38e922c6a6d24abeb7244f99170b21972b38d9dad45470894f32a"
-    sha256 monterey:       "40c3f23231b04a2dc90c0c075e0180dce0f1809903a298c33f7c8795040724c4"
-    sha256 big_sur:        "088cd5b26ef3658e34a22143c8858a927d26f0954f692cc8787f7426cca64c6d"
-    sha256 catalina:       "007670f4a858fc98ac500bd49e4df64787bd7c5d7049bd69dae5f4d459d332ae"
+    sha256 arm64_monterey: "bd86e86c4725591e48faa03a59f2bc31d3bc91eca1dff6445a586cbf0592c62d"
+    sha256 arm64_big_sur:  "03bc734c832fd24a0f2a46554c6c1b04f21c832861a2a478a946e6323a0847e5"
+    sha256 monterey:       "2e726432e90deff4137df825c2996840f83557a679c979e7bb93763bc85bb5f9"
+    sha256 big_sur:        "c2e1d71a36d08f0a89536f62743850c35118df7c6529cf8b285b9526eda90be8"
+    sha256 catalina:       "f77781c41103a4cabdf5b7323761b70451ba0ced67d4266babf7b371b92aa0cf"
   end
 
   depends_on "cmake" => :build
