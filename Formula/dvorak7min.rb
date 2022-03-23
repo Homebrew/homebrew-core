@@ -18,6 +18,8 @@ class Dvorak7min < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "42cad6dbf3f41053e5ba7509657dcf7e02c6211412efb246eaaa9de853a09d35"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     # Remove pre-built ELF binary first
     system "make", "clean"
