@@ -1,8 +1,8 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://wiki.gnome.org/Projects/Vala"
-  url "https://download.gnome.org/sources/vala/0.54/vala-0.54.7.tar.xz"
-  sha256 "62079ca1ff02e5d17ae72aa9a5adc61ae6afdcfebb0d9f06063a36efbeaca0c7"
+  url "https://download.gnome.org/sources/vala/0.56/vala-0.56.0.tar.xz"
+  sha256 "d92bd13c5630905eeb6a983dcb702204da9731460c2a6e4e39f867996f371040"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -23,9 +23,7 @@ class Vala < Formula
   uses_from_macos "flex" => :build
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make" # Fails to compile as a single step
     system "make", "install"
   end
