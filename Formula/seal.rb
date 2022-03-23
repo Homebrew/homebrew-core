@@ -1,8 +1,8 @@
 class Seal < Formula
   desc "Easy-to-use homomorphic encryption library"
   homepage "https://github.com/microsoft/SEAL"
-  url "https://github.com/microsoft/SEAL/archive/v3.7.3.tar.gz"
-  sha256 "995bec08778aa8f90ac4b4592de759c179dc977ffac0dda3a7f1f4a8a6fcc69d"
+  url "https://github.com/microsoft/SEAL/archive/v4.0.0.tar.gz"
+  sha256 "616653498ba8f3e0cd23abef1d451c6e161a63bd88922f43de4b3595348b5c7e"
   license "MIT"
 
   bottle do
@@ -80,10 +80,11 @@ class Seal < Formula
               1_bfv_basics.cpp
               2_encoders.cpp
               3_levels.cpp
-              4_ckks_basics.cpp
-              5_rotation.cpp
-              6_serialization.cpp
-              7_performance.cpp
+              4_bgv_basics.cpp
+              5_ckks_basics.cpp
+              6_rotation.cpp
+              7_serialization.cpp
+              8_performance.cpp
       )
 
       # Import Microsoft SEAL
