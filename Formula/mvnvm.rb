@@ -1,8 +1,8 @@
 class Mvnvm < Formula
   desc "Maven version manager"
   homepage "https://mvnvm.org/"
-  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.16.tar.gz"
-  sha256 "a21675dc5816d52b2e90d84c36c3899fd19c66ac3d63f3f635f54d0cd3761176"
+  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.17.tar.gz"
+  sha256 "75ffcb6a970d4ba24e4cd8d29e582162f75ad22796a83ebd93b7f9ad0480e49a"
   license "Apache-2.0"
   head "https://bitbucket.org/mjensen/mvnvm.git", branch: "master"
 
