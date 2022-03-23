@@ -12,13 +12,12 @@ class Volta < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "44c1672b22ac6997816975c06a185151dc1a6305c06b1bb7dbc6e02882f1ec25"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4dbcd14a0a63d19d4ac28d20b20d849a14369374cb36f68cc4ae994208324ff6"
-    sha256 cellar: :any_skip_relocation, monterey:       "73c1e9af6126f410f2c83804faf14676441e02bb96b51c75d1ead9cf3037cb1e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f43ad29f446309d9c9fca3031b58dec129134a24dbabdca703e8bf1de6b035cb"
-    sha256 cellar: :any_skip_relocation, catalina:       "8587132e7bc5b76dcac2f47372494a0bc1ceccf19e4eeecc6e29f12f9f8bc824"
-    sha256 cellar: :any_skip_relocation, mojave:         "ade25632752bf387752f88e015694a0b1e353df3922357b51f846b4bfde9ccf5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dc1d22a589d988d41f306aca5078cae2686849b57b31dbae88f963a2b89f6b6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa45d030db63b2712bc8a0171778cd0948593175b345b3cc0132bd4195ab5710"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65f1794cb06b3529b1ec7fb35cc7a42f6b81a1808b5840ba8d47840b6771921d"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa1b1a3dd051cec48fa3e3a071d4a97d3b9f9369108ad0e4b4cefb949a4d6805"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0f94e94367a4c143c5030d25019edbef187de65168541017f002d7b883f81413"
+    sha256 cellar: :any_skip_relocation, catalina:       "59b00d625ad61b3ec4b4cefbf8fffe30ba949bda277abfeb063d67da4ff08a4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ec7abb3eddfb19529c8b8ea465d8dfe2af014d35087e3dbe6a4836d1df5b2cc"
   end
 
   depends_on "rust" => :build
