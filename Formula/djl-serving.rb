@@ -6,7 +6,7 @@ class DjlServing < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6e0a932609f33b10119be3c09f2d90c8b4219960043c2583d150f9f01269bfaf"
+    sha256 cellar: :any_skip_relocation, all: "aca44346531b303612d7b22151453294b6fb0268f4af954c344c337209a39f87"
   end
 
   depends_on "openjdk"
