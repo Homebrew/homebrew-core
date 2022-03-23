@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/5c/69/b4ad8fd1cba77524e3eb7deb416430edf17b08defd2cc3e303995814a16e/pdm-1.13.4.tar.gz"
-  sha256 "5644fec425d1c0af04f135ad05b15b5a87be5a42e07f64e1706e3aac5dc89fcb"
+  url "https://files.pythonhosted.org/packages/0e/9e/a97cebd283e0f0e767b62c6e87ec5d87353a5cf4cd45f937f2bb68ab4d1d/pdm-1.13.5.tar.gz"
+  sha256 "754bff35794b34f006b1c9c9077d95eeb36a68f06c0899a1aa74eded2c561894"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -31,8 +31,8 @@ class Pdm < Formula
   end
 
   resource "findpython" do
-    url "https://files.pythonhosted.org/packages/ec/8f/30913986b7a2f880cf4e3cc276aedbfb5560b28840d5b85e591651b2d6c6/findpython-0.1.3.tar.gz"
-    sha256 "b55a416b9fcf2d28721bfbea1ceb2a6cb67a00f99ec4b94a76da22c7a2002870"
+    url "https://files.pythonhosted.org/packages/ae/2c/648fda96049222b48ef21fad19ef137e45362dc1a4c670e7a9005b5b55e8/findpython-0.1.4.tar.gz"
+    sha256 "4ce198454696ee539ca7990d4eadcd0471ca5ef03b5c4ef2f925891ac64f8289"
   end
 
   resource "installer" do
@@ -46,8 +46,8 @@ class Pdm < Formula
   end
 
   resource "pdm-pep517" do
-    url "https://files.pythonhosted.org/packages/9d/81/1f4e15e6a59a66952c18a73b86a3959ddacf305d6c97f71640a7d9865d94/pdm-pep517-0.12.0.tar.gz"
-    sha256 "fdc8b6564fbba5fd1d01e37d2cef21bca11e698f70ab0b95740b9f6f0854a789"
+    url "https://files.pythonhosted.org/packages/8c/c6/62224b8d6417b8bb95a6a92c1974eb06cd0d555f90908a5595b164290d37/pdm-pep517-0.12.1.tar.gz"
+    sha256 "c3f9acfdc7832635628e94235320e0f6c19cbcd926eb041c454fb12463bc7504"
   end
 
   resource "pep517" do
