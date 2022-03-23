@@ -22,6 +22,8 @@ class ExVi < Formula
     sha256 yosemite:       "6e3195cd61b05a482e13162a5559ca90d65b1805b8559c006ffc960b56cbe935"
   end
 
+  uses_from_macos "ncurses"
+
   conflicts_with "vim",
     because: "ex-vi and vim both install bin/ex and bin/view"
 
