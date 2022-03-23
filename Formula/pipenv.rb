@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/82/71/cd2c9501b2796784eea65213c7a787a2aec6393009a134a6f01c2b89b2a1/pipenv-2022.1.8.tar.gz"
-  sha256 "f84d7119239b22ab2ac2b8fbc7d619d83cf41135206d72a17c4f151cda529fd0"
+  url "https://files.pythonhosted.org/packages/fd/e4/5c4ba63cb042df89fd7891d1214263b4160105e05d65d046a05f397d315b/pipenv-2022.3.23.tar.gz"
+  sha256 "a6df41751df55537dee54349e1dcb7781e7ceb34bb985b084e985a7e0dc43fc5"
   license "MIT"
 
   bottle do
@@ -30,18 +30,18 @@ class Pipenv < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/11/d1/22318a1b5bb06c9be4c065ad6a09cb7bfade737758dc08235c99cd6cf216/filelock-3.4.2.tar.gz"
-    sha256 "38b4f4c989f9d06d44524df1b24bd19e167d851f19b50bf3e3559952dddc5b80"
+    url "https://files.pythonhosted.org/packages/4d/cd/3b1244a19d61c4cf5bd65966eef97e6bc41e51fe84110916f26554d6ac8c/filelock-3.6.0.tar.gz"
+    sha256 "9cd540a9352e432c7246a48fe4e8712b10acb1df2ad1f30e8c070b82ae1fed85"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/be/00/bd080024010e1652de653bd61181e2dfdbef5fa73bfd32fec4c808991c31/platformdirs-2.4.1.tar.gz"
-    sha256 "440633ddfebcc36264232365d7840a970e75e1018d15b4327d11f91909045fda"
+    url "https://files.pythonhosted.org/packages/33/66/61da40aa546141b0d70b37fe6bb4ef1200b4b4cb98849f131b58faa9a5d2/platformdirs-2.5.1.tar.gz"
+    sha256 "7535e70dfa32e84d4b34996ea99c5e432fa29a708d0f4e394bbcb2a8faa4f16d"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/f1/db/4498de0294f0c72a2e0a099d1588e7b55d0c849db740c89978ff73700519/virtualenv-20.13.0.tar.gz"
-    sha256 "d8458cf8d59d0ea495ad9b34c2599487f8a7772d796f9910858376d1600dd2dd"
+    url "https://files.pythonhosted.org/packages/4a/71/5d3cefcf514e2edb468669558092caa8673c352fd798e47cf8a4bb3a1566/virtualenv-20.13.4.tar.gz"
+    sha256 "ce8901d3bbf3b90393498187f2d56797a8a452fb2d0d7efc6fd837554d6f679c"
   end
 
   resource "virtualenv-clone" do
