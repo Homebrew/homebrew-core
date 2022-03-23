@@ -7,13 +7,12 @@ class Ctop < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "518c92b0c3e0bc973d2e8b5c68f23d8e67167d71d3801a067c981254fcbb4dce"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "92a1aa5a1b27ddcc1499d196a3e1e87f67a0bbf89664308b8dc009030cf29d5a"
-    sha256 cellar: :any_skip_relocation, monterey:       "27b7fcf883e5e9c5b2c3f3390f70358f0ce8cfe9a3e28a008c1b7bfeb1e13a81"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c654814649f0fdefb159bda66af0926fe0615c6ac185f6234a88642e7add2947"
-    sha256 cellar: :any_skip_relocation, catalina:       "517e520dc241ade15a6f493b394efa25e212e779ec2d6f1bfd6b9ecd0f0a9627"
-    sha256 cellar: :any_skip_relocation, mojave:         "8186e049abc8b0e5f1253c5f310ffb6884b7defad2a8ed6fe50dceee573e5bcd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8f57a35650d0f5373da569e048732603b8325e345b74680a49f47bc55860ef8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cacf1e287ff25e701de9c1472d462377e8bf90cc5733defe595b5c0f5848ab64"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ec4b96f4c4eddacb20dbb142c430ed9b8ba975519e7b383eb0613bf7f62092a0"
+    sha256 cellar: :any_skip_relocation, monterey:       "523a700771377a75e6da967df31d5f878d9a8ab52ab4412e10aa294ac183074f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6dc1e0a2f6cb7fe27e7657e3bb0ba2825e8f730f4a1da6e98273f9f88aff0b2b"
+    sha256 cellar: :any_skip_relocation, catalina:       "0a358054ae920a6c520fbee9fc3d3d18b5a78d12aa77918240ead37aa56fae1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30607fe87d023df1ab88efe82c18af28e5276cfb8281de6b51bdedea41b5179e"
   end
 
   # Bump to 1.18 on the next release (0.7.7 or later).
