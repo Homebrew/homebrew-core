@@ -25,6 +25,9 @@ class ArgusClients < Formula
   depends_on "readline"
   depends_on "rrdtool"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     ENV.append "CFLAGS", "-std=gnu89"
     system "./configure", "--prefix=#{prefix}"
