@@ -1,8 +1,8 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.1/openmp-13.0.1.src.tar.xz"
-  sha256 "6b79261371616c31fea18cd3ee1797c79ee38bcaf8417676d4fa366a24c96b4f"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/openmp-14.0.0.src.tar.xz"
+  sha256 "28a1cbdd3dfdd331e4ed2dda2b4477fc418e455c883bd0d1d6acc331118e4688"
   license "MIT"
 
   livecheck do
@@ -32,10 +32,15 @@ class Libomp < Formula
     args = ["-DLIBOMP_INSTALL_ALIASES=OFF"]
     args << "-DOPENMP_ENABLE_LIBOMPTARGET=OFF" if OS.linux?
 
-    system "cmake", ".", *std_cmake_args, *args
-    system "make", "install"
-    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args, *args
-    system "make", "install"
+    system "cmake", "-S", "openmp-#{version}.src", "-B", "build/shared", *std_cmake_args, *args
+    system "cmake", "--build", "build/shared"
+    system "cmake", "--install", "build/shared"
+
+    system "cmake", "-S", "openmp-#{version}.src", "-B", "build/static",
+                    "-DLIBOMP_ENABLE_SHARED=OFF",
+                    *std_cmake_args, *args
+    system "cmake", "--build", "build/static"
+    system "cmake", "--install", "build/static"
   end
 
   test do
