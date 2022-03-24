@@ -11,12 +11,12 @@ class Msmtp < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "cc09836a4d4006b9e20e348e2489b7ff94bf3fe0bca96bad7c6524b5398e21dd"
-    sha256 arm64_big_sur:  "afdf2c4eab253086bd05d3d17bb4fd9a4e6ec5b1f7278fe045691a42d196d5b9"
-    sha256 monterey:       "5b04585e765b4eb238737921a5fd482c5c7f6cb6d50e28401088af359f7ee3a7"
-    sha256 big_sur:        "78aa3acd39b6a9ae44490a55990835836cf5b10d3f5f47180d52313f90c334f5"
-    sha256 catalina:       "49ef11f00b1ec162a5e6c0d7ab457dd6a9cbfee963bbe5a37a7c65309aaf8178"
-    sha256 x86_64_linux:   "6824e305e82046605a01143e3f3dd00ce66ec9a3a71526c24e29026668e58c99"
+    sha256 arm64_monterey: "8508ac9dfbeac3274e8b90b458ce4d23e763d69dcda5c433f95a26c2850549d0"
+    sha256 arm64_big_sur:  "b5dcd7d18d087c04bde608df5229416315c15a7b48f2551a20ae1bf443b0936d"
+    sha256 monterey:       "a61abd779581e23ffee661d226448a5897e16d1ba1b7cbdaec926d7711127e9a"
+    sha256 big_sur:        "f354e83b318837c07c0dddf7f194f3b7b777017616bc7ebce5a79bb037163c8b"
+    sha256 catalina:       "34bc2d711bcf14a0f42d2fd9a5500b9fa3e662ea0387de45d3dd1907638e1e73"
+    sha256 x86_64_linux:   "758636ba630b46c2edc955438a6828ececd7b2ce79d3960cc9467d80aa7859f5"
   end
 
   depends_on "pkg-config" => :build
