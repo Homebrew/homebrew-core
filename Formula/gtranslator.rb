@@ -11,6 +11,7 @@ class Gtranslator < Formula
     sha256 arm64_big_sur: "e787ad4e441d4ecd4d9c328fb18d2384a21862b0a389170ee54cbbd01879a556"
     sha256 big_sur:       "8a5b528e062820cdc3ebd9b024b4e96f3ec2d65d521b03026828d32d748774e1"
     sha256 catalina:      "91dd2d4c85608fb04f7a4f92423dce39ab2ab04a3f11152c30efad1bd96f14c6"
+    sha256 x86_64_linux:  "8e7e8ca6e284f89497170bd47e232d47c9db1566b2e6c5835cc615086bdeeb58"
   end
 
   depends_on "meson" => :build
