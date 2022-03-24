@@ -5,6 +5,7 @@ class Swiftlint < Formula
       tag:      "0.47.0",
       revision: "e5791ec16ccc1560840c46ed57122c888167d740"
   license "MIT"
+  revision 1
   head "https://github.com/realm/SwiftLint.git", branch: "master"
 
   bottle do
