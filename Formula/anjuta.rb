@@ -13,6 +13,7 @@ class Anjuta < Formula
     sha256 big_sur:        "cb89537f1f0f79d74b348604fdf02a0d8c7e48a8b9211aade1a18e2d4eb1d70b"
     sha256 catalina:       "2b2f88450c12c599e2c730bafabd678006b75ab74eee017743ba9a34338e1f3c"
     sha256 mojave:         "1c63382333afdfbcb3cc0c9b2c75f2dff445bbdc749464252067ab707dab7e85"
+    sha256 x86_64_linux:   "9d232f13f3f221cd68ea362c23b2c7b236eae999fa1186c0223c2ba9abc345c2"
   end
 
   depends_on "intltool" => :build
