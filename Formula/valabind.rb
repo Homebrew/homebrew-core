@@ -4,7 +4,7 @@ class Valabind < Formula
   url "https://github.com/radare/valabind/archive/1.8.0.tar.gz"
   sha256 "3eba8c36c923eda932a95b8d0c16b7b30e8cdda442252431990436519cf87cdd"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/radare/valabind.git", branch: "master"
 
   bottle do
