@@ -33,8 +33,14 @@ class Gkrellm < Formula
   depends_on "openssl@1.1"
   depends_on "pango"
 
+  on_linux do
+    depends_on "libsm"
+  end
+
   def install
-    system "make", "INSTALLROOT=#{prefix}", "macosx"
+    args = ["INSTALLROOT=#{prefix}"]
+    args << "macosx" if OS.mac?
+    system "make", *args
     system "make", "INSTALLROOT=#{prefix}", "install"
   end
 
