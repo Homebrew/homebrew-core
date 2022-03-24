@@ -8,12 +8,12 @@ class Jinja2Cli < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2c27fed222d1b4d9fd23854b30559a8d0b5a520d8f08410f2b3be48758f21e3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2959f96e55b3d8e3f9030db4ac9d6c8c5ba06e51a1411dd854dcd7765ee46619"
-    sha256 cellar: :any_skip_relocation, monterey:       "8a68d03e07b8c6c0c6a70ec8bf40f70efd96aa0b0af1e51a1e3c860f9989a2f2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5084fb300d9dbc82aa6a7438f8eafe65595d637b537e18851fbbd4d2b4ab2d11"
-    sha256 cellar: :any_skip_relocation, catalina:       "5e58a0cd15e7e8e2fa144ee3ad83a4c9ecb702ba7ded94c463bb9ed59a22a42d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e7d85123642611a753faffec7b98fb20ceec023aa550f0f27bc11bce1633749"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d15c574661a2a28a9474ab16fde2e4d47987d4f7b7915e76c38ecfe09409c779"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95b2246e33ed7fcfb0cf0452e624997e96c38f6c708b5eb9c6c17b6f82735562"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b99f3649702d5e1529d6015b444fe6204676194d3da43dd65bc535c027ac00b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "56521fe9ca80ffa1d4bca8ba522ef1eefe6fb4f4d87a135c81cc93cd94487a91"
+    sha256 cellar: :any_skip_relocation, catalina:       "ccaeed2da13e56248c3da0beabc6575e67a5c7055c60931311206488e3a8fabd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77a81b6935066677a44a744e9fa1d979f1e3241f5975bb3a462de208722947e7"
   end
 
   depends_on "python@3.10"
