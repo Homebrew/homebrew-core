@@ -1,8 +1,8 @@
 class PythonAT310 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz"
-  sha256 "3c0ede893011319f9b0a56b44953a3d52c7abf9657c23fb4bc9ced93b86e9c97"
+  url "https://www.python.org/ftp/python/3.10.4/Python-3.10.4.tgz"
+  sha256 "f3bcc65b1d5f1dc78675c746c98fcee823c038168fc629c5935b044d0911ad28"
   license "Python-2.0"
 
   livecheck do
@@ -45,13 +45,13 @@ class PythonAT310 < Formula
               "bin/easy_install-3.7", "bin/easy_install-3.8", "bin/easy_install-3.9"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/8f/89/9fec81ec84737c925a1ee992af2c6c7153aec4051c26afeadd6b822354d2/setuptools-60.6.0.tar.gz"
-    sha256 "eb83b1012ae6bf436901c2a2cee35d45b7260f31fd4b65fd1e50a9f99c11d7f8"
+    url "https://files.pythonhosted.org/packages/af/e8/894c71e914dfbe01276a42dfad40025cd96119f2eefc39c554b6e8b9df86/setuptools-60.10.0.tar.gz"
+    sha256 "6599055eeb23bfef457d5605d33a4d68804266e6cb430b0fb12417c5efeae36c"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/d9/c1/146b24a7648fdf3f8b4dc6521ab0b26ac151ef903bac0b63a4e1450cb4d1/pip-22.0.2.tar.gz"
-    sha256 "27b4b70c34ec35f77947f777070d8331adbb1e444842e98e7150c288dc0caea4"
+    url "https://files.pythonhosted.org/packages/33/c9/e2164122d365d8f823213a53970fa3005eb16218edcfc56ca24cb6deba2b/pip-22.0.4.tar.gz"
+    sha256 "b3a9de2c6ef801e9247d1527a4b16f92f2cc141cd1489f3fffaf6a9e96729764"
   end
 
   resource "wheel" do
