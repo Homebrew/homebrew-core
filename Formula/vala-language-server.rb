@@ -4,6 +4,7 @@ class ValaLanguageServer < Formula
   url "https://github.com/Prince781/vala-language-server/releases/download/0.48.4/vala-language-server-0.48.4.tar.xz"
   sha256 "0fd65b641a4bd6e0385502f0536f803bf542fd8bae6a2adb04e2e299ccca4551"
   license "LGPL-2.1-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "aafa52097b542644b26934efca5da76c93acf015870c0f1cddb6977d76884afd"
