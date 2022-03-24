@@ -11,12 +11,12 @@ class Jruby < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "965d47958ee5ad0812e9831b73870fdf83cb809b3fbb2788f5afbfdcc5547cdb"
-    sha256 cellar: :any,                 arm64_big_sur:  "e89a1ecd1c46005bc13e65e0a97835c91d853ec522499e544ba767c0aa12c55a"
-    sha256 cellar: :any,                 monterey:       "f18e20c760c97fec3c298e79f1ad2d5a0929a96f0f6500ce9f9fadb168ae472d"
-    sha256 cellar: :any,                 big_sur:        "f18e20c760c97fec3c298e79f1ad2d5a0929a96f0f6500ce9f9fadb168ae472d"
-    sha256 cellar: :any,                 catalina:       "f18e20c760c97fec3c298e79f1ad2d5a0929a96f0f6500ce9f9fadb168ae472d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65aa8c31e29fcfc34245a54a13e6e5dcd9e6cce38edb4443368f500bcca1aaed"
+    sha256 cellar: :any,                 arm64_monterey: "e022e3dc4dbc12d276aa99270abe8338d020f493e2f0e6b00b833b9faa496a59"
+    sha256 cellar: :any,                 arm64_big_sur:  "a05511fe1054255459898272efc6a83e4a8a02b229dcd12d0fbe4d8faaa9c3dd"
+    sha256 cellar: :any,                 monterey:       "9674759c6995bc806f494228416f8bbe67f5df3f40f54bfb7f2071c4f43b3c53"
+    sha256 cellar: :any,                 big_sur:        "9674759c6995bc806f494228416f8bbe67f5df3f40f54bfb7f2071c4f43b3c53"
+    sha256 cellar: :any,                 catalina:       "9674759c6995bc806f494228416f8bbe67f5df3f40f54bfb7f2071c4f43b3c53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8873fb47a4f28318b0f4324ac9dc1ee336edead5efcff358ccfc6999e0f7944b"
   end
 
   depends_on "openjdk"
