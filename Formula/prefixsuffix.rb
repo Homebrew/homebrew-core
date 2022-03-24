@@ -13,6 +13,7 @@ class Prefixsuffix < Formula
     sha256 big_sur:        "4300af03702b1873b307890bfb3bf9e08da08e43c401c958a2dcf796d56a34e8"
     sha256 catalina:       "8384f85dfc725d9a754030a2f94320124845b3d63968a2a3348a918afd096415"
     sha256 mojave:         "3e25c1930c085b61c073b5015895db250ec1113b3102384ebf84c1f8d0a65731"
+    sha256 x86_64_linux:   "fc0145d8cfcf008d3801cf7d90611303c510c4529974d4f2fa5b7224d09c027b"
   end
 
   depends_on "intltool" => :build
