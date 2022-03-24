@@ -1,8 +1,8 @@
 class Lean < Formula
   desc "Theorem prover"
   homepage "https://leanprover-community.github.io/"
-  url "https://github.com/leanprover-community/lean/archive/v3.41.0.tar.gz"
-  sha256 "1147d5cc990ea1d8c3a39df8e895a6401b12fe545dac984206fc024db3650f69"
+  url "https://github.com/leanprover-community/lean/archive/v3.42.0.tar.gz"
+  sha256 "b6f96feb25f55c346daadee4f7277fbd9694d3f3f3507ce8cfd9539a04066680"
   license "Apache-2.0"
   head "https://github.com/leanprover-community/lean.git", branch: "master"
 
@@ -33,6 +33,10 @@ class Lean < Formula
   depends_on "gmp"
   depends_on "jemalloc"
   depends_on macos: :mojave
+
+  on_linux do
+    depends_on "gcc"
+  end
 
   conflicts_with "elan-init", because: "`lean` and `elan-init` install the same binaries"
 
