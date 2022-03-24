@@ -18,6 +18,7 @@ class Libxmi < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "d14120dd7ec249b6375da84c5dbf49631d8e8aaf7c0ee9e6c8e9c42f341cc91f"
     sha256 cellar: :any_skip_relocation, el_capitan:     "d7be88ce4d945b11adc82fe6bac6aca8a837e0206cd781e4cab82c8c1b684e20"
     sha256 cellar: :any_skip_relocation, yosemite:       "b8a406a6559eb59890d519e41c824f75f1b37027e6dda108f3648d85480ba5f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a82bdaa8f3c6d1d63dc572bf315c10418d39a0f1e12407dc187f793d8e6e9609"
   end
 
   on_linux do
