@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/6b/22/62e17c6c28cc07d13a6388698c1aea3f31a30722ec520e56f4caccfd5a02/esphome-2022.3.0.tar.gz"
-  sha256 "aceef6bf2a9dd7b9417a73a05800e66bb0fcc3228ee63d5b2729262aa86db13c"
+  url "https://files.pythonhosted.org/packages/4d/4a/fbb626a5a0caf0731e03ed6060e0680c7e6a00972b15b45097fb14d08ef2/esphome-2022.3.1.tar.gz"
+  sha256 "9f53e1f4744bd3e4649eb2c1ef50f78b7b16cd15425f77daa8b6f9f2bd01c510"
   license "MIT"
 
   bottle do
@@ -208,8 +208,8 @@ class Esphome < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/9e/04/320468ac0a37db42c313dfcc24160fec94f72f23740147c5018084ea3a8a/tzdata-2021.5.tar.gz"
-    sha256 "68dbe41afd01b867894bbdfd54fa03f468cfa4f0086bfb4adcd8de8f24f3ee21"
+    url "https://files.pythonhosted.org/packages/df/c7/2d8ea31840794fb341bc2c2ea72bf1bd16bd778bd8c0d7c9e1e5f9df1de3/tzdata-2022.1.tar.gz"
+    sha256 "8b536a8ec63dc0751342b3984193a3118f8fca2afe25752bb9b7fffd398552d3"
   end
 
   resource "tzlocal" do
