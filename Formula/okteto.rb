@@ -21,6 +21,13 @@ class Okteto < Formula
     ldflags = "-s -w -X github.com/okteto/okteto/pkg/config.VersionString=#{version}"
     tags = "osusergo netgo static_build"
     system "go", "build", *std_go_args(ldflags: ldflags), "-tags", tags
+
+    bash_output = Utils.safe_popen_read(bin/"okteto", "completion", "bash")
+    (bash_completion/"okteto").write bash_output
+    zsh_output = Utils.safe_popen_read(bin/"okteto", "completion", "zsh")
+    (zsh_completion/"_okteto").write zsh_output
+    fish_output = Utils.safe_popen_read(bin/"okteto", "completion", "fish")
+    (fish_completion/"okteto.fish").write fish_output
   end
 
   test do
