@@ -19,6 +19,14 @@ class Bcpp < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "1872e08cd8d7addb8459865d451622d05ed4f4fc2f91e3a6f144ba1fe483b27a"
   end
 
+  # Build succeeds with system gcc (5.4.0) but seems to segfault at runtime.
+  # Unclear whether this is an issue with the compiler itself or the libc++ runtime.
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
