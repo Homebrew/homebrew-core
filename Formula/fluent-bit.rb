@@ -12,12 +12,12 @@ class FluentBit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3258422aacc0235db6b2701db0557907d6802a9b99936caf1154e840768b8672"
-    sha256 cellar: :any,                 arm64_big_sur:  "7d0bf37cd794c7b56216458a6f3196c9cf7f3bd0153cb8d72101bae151500dba"
-    sha256 cellar: :any,                 monterey:       "284efdeebec48481ab1f9c98f358483c39b422049756bdcdd2e179f349ca7855"
-    sha256 cellar: :any,                 big_sur:        "1eeae8b0ec546211e01840f2bde0911c9c68fbe4d6d5ceade33b02bdfd667619"
-    sha256 cellar: :any,                 catalina:       "88dd3813c5220acf34f9d71d6a29229adf3bf8b1903e1b02fb4a05910a84afa2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52c58015cd9252b6ddc78119d703d698b810b101cf1efe60313a9108034f346a"
+    sha256 cellar: :any,                 arm64_monterey: "023c5cf74f7178402544c55ff164168769611dd764d19b1ca218b370625297c0"
+    sha256 cellar: :any,                 arm64_big_sur:  "e02250c2fec91daf85b2aea46ff3083f273de8bb253cb7a998c20c8680773a6d"
+    sha256 cellar: :any,                 monterey:       "cbd4b1851faeb1d25f4538a3ec5b3e6add4f6163c0c3307e3de452b08a46e082"
+    sha256 cellar: :any,                 big_sur:        "96eb4a1ee33b86d388df6d860f8a4d8a30a95085040d8d6d17e5b21dee94e203"
+    sha256 cellar: :any,                 catalina:       "9e9a9a6fca7e14a511f6e88641dc9935df12f43a19a0a5302bebaa6d464d72a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9ee623ac914ef92e13f6f1cd094e0d8ed6a7f5a6aaf0def114e637bbf359f3d"
   end
 
   depends_on "bison" => :build
