@@ -1,8 +1,8 @@
 class KubeLinter < Formula
   desc "Static analysis tool for Kubernetes YAML files and Helm charts"
   homepage "https://github.com/stackrox/kube-linter"
-  url "https://github.com/stackrox/kube-linter/archive/0.2.5.tar.gz"
-  sha256 "5d2e724e291b00b6a61ebd2bd97f3f3c26298f890be2b555b60f0fb719c5384f"
+  url "https://github.com/stackrox/kube-linter/archive/0.2.6.tar.gz"
+  sha256 "2fa6a286f2a8563b0b80186e06100f9b00c7698f528bb7ef563b0b508c2d8458"
   license "Apache-2.0"
   head "https://github.com/stackrox/kube-linter.git", branch: "master"
 
@@ -37,7 +37,7 @@ class KubeLinter < Formula
           fsGroup: 2000
         containers:
         - name: homebrew-test
-          image: busybox
+          image: busybox:stable
           resources:
             limits:
               memory: "128Mi"
