@@ -7,12 +7,12 @@ class ValaLanguageServer < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "aafa52097b542644b26934efca5da76c93acf015870c0f1cddb6977d76884afd"
-    sha256 cellar: :any, arm64_big_sur:  "d0c7d068b5bec716e17c39591384d60a08bdd82b655bca866840878c67f9358c"
-    sha256 cellar: :any, monterey:       "fa3273c84ac17406a6bc1601613565036766021e734ce3e04b0a4b1be15070e6"
-    sha256 cellar: :any, big_sur:        "d296ad4b78e5929b7d40b4396935c1f73421306065a3d41d223c2206f5adafe2"
-    sha256 cellar: :any, catalina:       "080acb613db0332326799ef24609f56e443e087f192709ea6cd32827d35dc855"
-    sha256               x86_64_linux:   "078aeddd7a515c66e5bc58dc569e77ec0f578647c3f4aa154f34f8193e5b7f6f"
+    sha256 cellar: :any, arm64_monterey: "a23bbac929f9a26ce34722df50036ba8bcedfd701b44c98aa2672ccdcb32c5eb"
+    sha256 cellar: :any, arm64_big_sur:  "f1d742cc6026cedaec272a18d61ff0c1e5dbccc1c1e345e0baacfb4f3319963e"
+    sha256 cellar: :any, monterey:       "40d80fa55a2f767a97e17e7b7b21e39557b44bfa34eddc131971e5f62c6a838b"
+    sha256 cellar: :any, big_sur:        "7de4d55be1e5d00de01010688738af7ba5274788b9367b42197cea77972c26dd"
+    sha256 cellar: :any, catalina:       "aba8a72cab7b03e5051e3a33e2c9288aaeedecfbb85b88055d51ffedf8ee85fc"
+    sha256               x86_64_linux:   "6478587d4b72b39e375e691703681768c46b8d2685f9d4b7f7a49c101a607ee9"
   end
 
   depends_on "meson" => :build
