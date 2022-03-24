@@ -4,6 +4,7 @@ class Micronaut < Formula
   url "https://github.com/micronaut-projects/micronaut-starter/archive/v3.4.0.tar.gz"
   sha256 "1feed38c38e3f0cb66cb392d472c269260fdb8de8418117749c5354b9ba81d56"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -20,7 +21,7 @@ class Micronaut < Formula
   end
 
   # Uses a hardcoded list of supported JDKs. Try switching to `openjdk` on update.
-  depends_on "openjdk"
+  depends_on "openjdk@17"
 
   def install
     system "./gradlew", "micronaut-cli:assemble", "-x", "test"
@@ -30,7 +31,7 @@ class Micronaut < Formula
     mv "starter-cli/build/exploded/lib", libexec/"lib"
 
     bash_completion.install "starter-cli/build/exploded/bin/mn_completion"
-    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env
+    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env("17")
   end
 
   test do
