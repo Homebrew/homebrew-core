@@ -7,12 +7,12 @@ class Rocksdb < Formula
   head "https://github.com/facebook/rocksdb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a3e1f8bf0944a0dd8f17d9c0ca9c20082c3171565522bc0ef48c42b9770f60a4"
-    sha256 cellar: :any,                 arm64_big_sur:  "fb6ebd4dd040044d7ff2fd2c747d025b78ea47fbd26365f23164c1c21c4ddce6"
-    sha256 cellar: :any,                 monterey:       "bd7860a32ad44e5e3eed5a91b524f750da9eb4c455bbe971a4dde22aa220a40a"
-    sha256 cellar: :any,                 big_sur:        "5b17ecf93ea2a1d9a1f544afc0bf17af1ab5c2887b23c9455a280b6d20f81fc6"
-    sha256 cellar: :any,                 catalina:       "38fa6226ba1ebad07f9d80295388ffca6c50619801f0b8369f4c6701dfc0db8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18e97411a598d5f3337105a999585d209ddbb415dfc6e857d21d38cd8eadabdd"
+    sha256 cellar: :any,                 arm64_monterey: "72d280af1e3cc131ef2de59781a7eb89d4ce61df0defc23a2e3ddb0c8d21bb4e"
+    sha256 cellar: :any,                 arm64_big_sur:  "7749fba348ffefb6fe0830146c031d038e2e5cf3d5e863abf6a8b61ae200dcee"
+    sha256 cellar: :any,                 monterey:       "7ec3031bd34da67798b9b5aa6090b5ba438e1aea18ff7a098b3834c0051e15c2"
+    sha256 cellar: :any,                 big_sur:        "bc59c25326447c43172e92f784533d722dca9ae1edf5cd4b0200056fc046dda3"
+    sha256 cellar: :any,                 catalina:       "94b0de194cd78db1eaeb43220754fdec2349734b7098a6fc44bb681e8e712e88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "262d1ae78f4a4c82220f64d915aec54bdc4e6e923268b7848524bae2e314b754"
   end
 
   depends_on "cmake" => :build
