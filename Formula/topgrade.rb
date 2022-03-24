@@ -6,12 +6,12 @@ class Topgrade < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea0b2ef10e1dd2875e10b2adc940fe1afda9eafb7757feba50a6afcceb7c065c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "87020ea515d4f51e67e0c0df3b80a50f787c79708bb752bf44083ea00272f035"
-    sha256 cellar: :any_skip_relocation, monterey:       "5fe4a8b351db46efa12f98781fed1acf8705f9846e89d457ea712e43d2b494f7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ab9e955518844bdb34c01d1e5331825146cf75f395f08c8a5f29dbeba0e3f32c"
-    sha256 cellar: :any_skip_relocation, catalina:       "3effde42f63353395c69a41300e5b4108d73b5276189d000d6119d3f486a97ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76aac7b5595c1ef680d263e7d327998053cee7ecac865205a72ddc0bcc728f8a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fc26d3fc86b470e937565feadad718581658bf6e64fd51c8cc82dd704da3d5a4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28c59ae0bd0d8cc997d87b55f0343aecd722be0b44c39940c95ffe1967526542"
+    sha256 cellar: :any_skip_relocation, monterey:       "a758d48253e222e78e6a2a8fddcd5076fc0ca85890e8e89759fb3d100e091abc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0f23b782598430c3870fa542ee43e0d655e38542888047a0a8eaf967ebbecfb0"
+    sha256 cellar: :any_skip_relocation, catalina:       "88051de1a733b8e7d89da3692494c496a54f44b183e853516f54d6d49c42eb6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb329e1aa7af290a3261ab2ca3caf50fe2ce18b7a82a7e465ac0da6e0a0bde3f"
   end
 
   depends_on "rust" => :build
