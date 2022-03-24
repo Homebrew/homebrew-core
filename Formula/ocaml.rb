@@ -14,8 +14,8 @@ class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
   # Remove `coq` from `flat_namespace_allowlist` at version bump.
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.12/ocaml-4.12.0.tar.xz"
-  sha256 "39ee9db8dc1e3eb65473dd81a71fabab7cc253dbd7b85e9f9b5b28271319bec3"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.13/ocaml-4.13.1.tar.xz"
+  sha256 "931d78dfad5bf938800c7a00eb647a27bbfe465a96a8eaae858ecbdb22e6fde8"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
@@ -43,12 +43,6 @@ class Ocaml < Formula
   # We embed a patch here so we don't have to regenerate configure.
   patch :p0, :DATA
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
 
@@ -71,14 +65,38 @@ class Ocaml < Formula
 end
 
 __END__
---- configure.orig	2021-10-24 09:34:12.145636659 +0800
-+++ configure	2021-10-24 09:34:30.504944693 +0800
-@@ -13644,7 +13644,7 @@
- if test x"$enable_shared" != "xno"; then :
+--- ./configure.orig	2022-03-24 23:24:25.991306046 +0300
++++ ./configure		2022-03-24 23:24:49.433857301 +0300
+@@ -7681,17 +7681,12 @@
+       _lt_dar_allow_undefined='$wl-undefined ${wl}suppress' ;;
+     darwin1.*)
+       _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
+-    darwin*) # darwin 5.x on
+-      # if running on 10.5 or later, the deployment target defaults
+-      # to the OS version, if on x86, and 10.4, the deployment
+-      # target defaults to 10.4. Don't you love it?
+-      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
+-	10.0,*86*-darwin8*|10.0,*-darwin[91]*)
+-	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
+-	10.[012][,.]*)
+-	  _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
+-	10.*)
+-	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
++    darwin*)
++       case ${MACOSX_DEPLOYMENT_TARGET},$host in
++       10.[012],*|,*powerpc*)
++         _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
++       *)
++         _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
+       esac
+     ;;
+   esac
+@@ -14030,7 +14025,7 @@
    case $host in #(
    *-apple-darwin*) :
--    mksharedlib="$CC -shared -flat_namespace -undefined suppress \
-+    mksharedlib="$CC -shared -undefined dynamic_lookup \
-                    -Wl,-no_compact_unwind"
+     mksharedlib="$CC -shared \
+-                   -flat_namespace -undefined suppress -Wl,-no_compact_unwind \
++                   -undefined dynamic_lookup -Wl,-no_compact_unwind \
+                    \$(LDFLAGS)"
        shared_libraries_supported=true ;; #(
    *-*-mingw32) :
