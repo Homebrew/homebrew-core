@@ -25,6 +25,12 @@ class Gtkmm4 < Formula
   depends_on "gtk4"
   depends_on "pangomm"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     ENV.cxx11
 
