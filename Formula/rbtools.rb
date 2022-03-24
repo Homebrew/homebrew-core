@@ -9,13 +9,12 @@ class Rbtools < Formula
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "445427064b85368a7212172972481aea4fc53a51f17b82bd0140056a7eda27c7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf7d5f2acc18804b3df7972f615259422b2334982c67c9e804837ee89ef1713c"
-    sha256 cellar: :any_skip_relocation, monterey:       "144152843b36fcd76c3fe84b8a14f76442d6a82863c81d474ca83e394672806a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "10d468168e0f8a76694e044cfbb775228110e417ff382f675ee966c8eb02c27c"
-    sha256 cellar: :any_skip_relocation, catalina:       "f07f1d3b118761076d77532e415fb725d284f1a4e131826119e81128d33b2c04"
-    sha256 cellar: :any_skip_relocation, mojave:         "b4a7c29fa71adde81123ce5bc2b9219ea49026ab0726168da7d8e10adc9ad20d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19cfd5c8412bb1c3d79f530bd097cd4187ec3fec8673fbf29cd5e1b12e906ff9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "61fbb58c12263f9aacbcf55cfc82fe037f7c1c3e4ff4fcc66c118eb9a36226ce"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97b5537cbecb0546c35ec34f1a85ae1462237a646dacf198c7aea41f060093a3"
+    sha256 cellar: :any_skip_relocation, monterey:       "aeae28bf5939133b4f12a686d28910a55de9c0ae9e3052cd8ae7a4c9d85875ad"
+    sha256 cellar: :any_skip_relocation, big_sur:        "de0bfda19e6c31a29e7d5b12571fb404d0b1da5a7f96ab2a6e7f8bd8e943fd95"
+    sha256 cellar: :any_skip_relocation, catalina:       "8cdd3319dc129639bd2a17f3473935bb37591ad4a50a26578f6b7201a1199b74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2f4859711ee408d4a7285d9c7ffff5735fc52798c2c6f6af0518df96e632d35"
   end
 
   depends_on "python@3.10"
