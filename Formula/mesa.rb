@@ -37,6 +37,7 @@ class Mesa < Formula
   on_linux do
     depends_on "elfutils"
     depends_on "gcc"
+    depends_on "gzip"
     depends_on "libdrm"
     depends_on "libva"
     depends_on "libvdpau"
