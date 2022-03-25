@@ -16,7 +16,7 @@ class Ship < Formula
   end
 
   # depends indirectly on python@2 and is superseded by kots
-  deprecate! date: "2019-11-22", because: :deprecated_upstream
+  deprecate! date: "2022-03-25", because: :deprecated_upstream
 
   # Bump to 1.18 on the next release, if possible.
   depends_on "go@1.17" => :build
