@@ -4,7 +4,7 @@ class OcamlFindlib < Formula
   url "http://download.camlcity.org/download/findlib-1.9.1.tar.gz"
   sha256 "2b42b8bd54488d64c4bf3cb7054b4b37bd30c1dc12bd431ea1e4d7ad8a980fe2"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "http://download.camlcity.org/download/"
