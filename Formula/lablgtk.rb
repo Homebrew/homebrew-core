@@ -4,6 +4,7 @@ class Lablgtk < Formula
   url "https://github.com/garrigue/lablgtk/archive/2.18.12.tar.gz"
   sha256 "43b2640b6b6d6ba352fa0c4265695d6e0b5acb8eb1da17290493e99ae6879b18"
   license "LGPL-2.1"
+  revision 1
 
   livecheck do
     url :stable
