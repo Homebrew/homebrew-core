@@ -4,6 +4,7 @@ class Pdal < Formula
   url "https://github.com/PDAL/PDAL/releases/download/2.4.0/PDAL-2.4.0-src.tar.gz"
   sha256 "c08e56c0d3931ab9e612172d5836673dfa2d5e6b2bf4f8d22c912b126b590b15"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   # The upstream GitHub repository sometimes tags a commit with only a
@@ -33,6 +34,12 @@ class Pdal < Formula
   depends_on "numpy"
   depends_on "pcl"
   depends_on "postgresql"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # gdal is compiled with GCC
 
   def install
     system "cmake", ".", *std_cmake_args,
