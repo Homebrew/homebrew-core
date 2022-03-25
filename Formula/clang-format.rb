@@ -69,6 +69,7 @@ class ClangFormat < Formula
   end
 
   test do
+    system "git", "init"
     system "git", "commit", "--allow-empty", "-m", "initial commit", "--quiet"
 
     # NB: below C code is messily formatted on purpose.
