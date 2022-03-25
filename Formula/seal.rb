@@ -80,10 +80,11 @@ class Seal < Formula
               1_bfv_basics.cpp
               2_encoders.cpp
               3_levels.cpp
-              4_ckks_basics.cpp
-              5_rotation.cpp
-              6_serialization.cpp
-              7_performance.cpp
+              4_bgv_basics.cpp
+              5_ckks_basics.cpp
+              6_rotation.cpp
+              7_serialization.cpp
+              8_performance.cpp
       )
 
       # Import Microsoft SEAL
