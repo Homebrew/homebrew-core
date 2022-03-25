@@ -4,6 +4,7 @@ class Comby < Formula
   url "https://github.com/comby-tools/comby/archive/1.7.0.tar.gz"
   sha256 "fd1351d534c905774ceb4b1e908d81e67eeff007c8b9c4a28fe145e85c7c5f5d"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "b485975d5d68e312bd3484b39e4d773952e484bdf67e7b73ce97adbd006c921a"
