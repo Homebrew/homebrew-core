@@ -3,8 +3,8 @@ require "language/node"
 class Insect < Formula
   desc "High precision scientific calculator with support for physical units"
   homepage "https://insect.sh/"
-  url "https://registry.npmjs.org/insect/-/insect-5.6.0.tgz"
-  sha256 "e971a797c49b1b2aac8a29ad2b7696b80b7f9da2d302ddc3e1a46b195f4edfd0"
+  url "https://registry.npmjs.org/insect/-/insect-5.7.0.tgz"
+  sha256 "3add7ce952b0cbc4138986cbe0764767939f71ce4fb1898dd487f42ad17dbe09"
   license "MIT"
 
   bottle do
