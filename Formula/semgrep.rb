@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.85.0",
-      revision: "40841051f43e87117143e6f15e033440196d2e44"
+      tag:      "v0.86.3",
+      revision: "72971997ef3ba0892c75b2df2aefb55811052a86"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -47,6 +47,11 @@ class Semgrep < Formula
     sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
   end
 
+  resource "boltons" do
+    url "https://files.pythonhosted.org/packages/ad/1f/6c0608d86e0fc77c982a2923ece80eef85f091f2332fc13cbce41d70d502/boltons-21.0.0.tar.gz"
+    sha256 "65e70a79a731a7fe6e98592ecfb5ccf2115873d01dbc576079874629e5c90f13"
+  end
+
   resource "bracex" do
     url "https://files.pythonhosted.org/packages/bd/ef/6273bba9e5bc615aab4997159eeaddfe03c825eeabe2942c39e91be5afec/bracex-2.2.1.tar.gz"
     sha256 "1c8d1296e00ad9a91030ccb4c291f9e4dc7c054f12c707ba3c5ff3e9a81bcd21"
@@ -80,6 +85,16 @@ class Semgrep < Formula
   resource "defusedxml" do
     url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
     sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
+  end
+
+  resource "face" do
+    url "https://files.pythonhosted.org/packages/ae/ab/2b18c4815f3db1e04bce325271fefda55d0893738ea84e3a655218944b03/face-20.1.1.tar.gz"
+    sha256 "7d59ca5ba341316e58cf72c6aff85cca2541cf5056c4af45cb63af9a814bed3e"
+  end
+
+  resource "glom" do
+    url "https://files.pythonhosted.org/packages/3f/d1/69432deefa6f5283ec75b246d0540097ae26f618b915519ee3824c4c5dd6/glom-22.1.0.tar.gz"
+    sha256 "1510c6587a8f9c64a246641b70033cbc5ebde99f02ad245693678038e821aeb5"
   end
 
   resource "idna" do
@@ -133,8 +148,8 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
-    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
+    url "https://files.pythonhosted.org/packages/3c/77/e75fb048907ccc065030bf7d9d2d1441247e4e234dbfceb5466207190962/tqdm-4.63.1.tar.gz"
+    sha256 "4230a49119a416c88cc47d0d2d32d5d90f1a282d5e497d49801950704e49863d"
   end
 
   resource "urllib3" do
