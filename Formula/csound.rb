@@ -5,7 +5,7 @@ class Csound < Formula
       tag:      "6.17.0",
       revision: "f5b4258794a82c99f7d85f1807c6638f2e80ccac"
   license "LGPL-2.1-or-later"
-  revision 3
+  revision 4
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -90,6 +90,12 @@ class Csound < Formula
     EOS
 
     resource("csound-plugins").stage do
+      # Fix build on macOS 12.3+ by replacing old system Python/Python.h with Homebrew's Python.h
+      # TODO: Remove when fixed upstream.
+      inreplace Dir["py/src/{pythonopcodes.c,pythonopcodes.h,pythonhelper.h}"],
+                "include <Python/Python.h>",
+                "include <Python.h>"
+
       resource("ableton-link").stage buildpath/"ableton-link"
       resource("getfem").stage { cp_r "src/gmm", buildpath }
 
