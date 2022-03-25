@@ -7,12 +7,12 @@ class Tfupdate < Formula
   head "https://github.com/minamijoyo/tfupdate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d6405be952566e507669a68b346eabb2cdd3b35cecea297b5c75ead573598eb1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b926a4b5f0d845de160ab825901f82e4af73f50121dff4abe66393f50ebb4bfe"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c7bbccb97ef8640b03b896db4c5fe90194a8166b6dbe37491340442563142c3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "71bb3ce39818e94fa18e4a100d3c246df4b514061ae4358d4e142f32a2fafbe5"
-    sha256 cellar: :any_skip_relocation, catalina:       "0b7cfdb3eacfee7c1fe43e5234678eb267ac9282f7b425fe23a56cd771f85f0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cf3f0e6d15d1f0263ecd4484bb0a799762870ccc969506e1e651676239102fa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3940408c49a6cb6ba93254ce681595ad3f87b1c729b2b2cdffa524f7c57e4867"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9a234069868f6957dd9e04553c984d15634455bc441aeb5e4b05f9de8d7f647"
+    sha256 cellar: :any_skip_relocation, monterey:       "987bcfc87d642b0329d0970f419453d169241d671b28d4fcafdf6bf9b662b69c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cc6f30520257e7f9e0ec2a9bcefc1ba6cf53d0d275d400e7bb930497199f8989"
+    sha256 cellar: :any_skip_relocation, catalina:       "d1038eda2c1c4e0a00a49db12991ed37f3c7e392e9ba9a433fab9f05e37ffd1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5806c388f61682b2b3167efb79acbfd4799cf83a2205a8c698c79377ddbc3961"
   end
 
   depends_on "go" => :build
