@@ -3,7 +3,7 @@ class Mkhexgrid < Formula
   homepage "https://www.nomic.net/~uckelman/mkhexgrid/"
   url "https://www.nomic.net/~uckelman/mkhexgrid/releases/mkhexgrid-0.1.1.src.tar.bz2"
   sha256 "122609261cc91c2063ab5315d4316a27c9a0ab164f663a6cb781dd87310be3dc"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
@@ -30,12 +30,21 @@ class Mkhexgrid < Formula
     inreplace "Makefile" do |s|
       s.change_make_var! "DESTDIR", prefix
       s.change_make_var! "CC", ENV.cc
+
       # don't chown/chgrp the installed files
       s.gsub! "-o 0 -g 0", ""
+
+      # Use LDLIBS instead of LDFLAGS to ensure that library flags are specified in the correct order
+      s.gsub! "LDFLAGS=", "LDLIBS="
     end
-    inreplace "mkhexgrid.cpp" do |s|
-      s.sub! "catch (exception &e)", "catch (std::exception &e)"
-    end
+
+    # Explicitly refer to std::exception (not boost::exception)
+    inreplace "mkhexgrid.cpp", "catch (exception &e)", "catch (std::exception &e)"
+
+    # cstring header is needed for memset function
+    inreplace "png.cpp", "#include <string>\n",
+              "#include <string>\n#include <cstring>\n"
+
     system "make" # needs to be separate
     system "make", "install"
   end
