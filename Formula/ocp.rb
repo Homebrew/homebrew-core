@@ -12,10 +12,12 @@ class Ocp < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4e39e14e21a39d835a98ac386b88cbc01d1eb7c45cf590a982a38b48691c6da2"
-    sha256 big_sur:       "b1a86ede27aa902aa73ae8d304c1b48a6fd51f4c40597a6d7c96c8f6f9b25195"
-    sha256 catalina:      "796c250a21ccae79be58dd293a9a46544e0dcdbbdce2e6eb75f168213ff4fe60"
-    sha256 mojave:        "c1d02d5c7f9c8e0b4de6ddecec03dffc9347b0b52d4597fd9e480c94ac63630f"
+    sha256 arm64_monterey: "4cc24afa1801076f49fe41a24de65ba812aaf1bba577088c92f7a6424ae44658"
+    sha256 arm64_big_sur:  "7d8d2c2ce8478701d8297cce25daf82fd4fd07d41f57dbe47907ddfb51b57d3b"
+    sha256 monterey:       "0dac7fa3bbd1108fd6b6d4c3f9203c38ac9a221c9b88cb0e0bde1f7281d6ff62"
+    sha256 big_sur:        "143894d4658f2c7fad5852d1c3c4d9b72c136c1172eebd3991d9cc8a8b0582d3"
+    sha256 catalina:       "4e1ed4098098c347f44d9f6b64fd4ae8686231a2903967e228a9f4910e3f6853"
+    sha256 x86_64_linux:   "c59e438b69ab327ea8b46d4b0c5493beaab5e07f52e46d7449eb63614bc3d20a"
   end
 
   depends_on "pkg-config" => :build
