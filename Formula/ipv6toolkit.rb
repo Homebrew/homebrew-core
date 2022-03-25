@@ -21,6 +21,8 @@ class Ipv6toolkit < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "b589fdd1d51db357ecda7452f10ac8daa48266dc4bb52bd6f3b18864e8e8bcbb"
   end
 
+  uses_from_macos "libpcap"
+
   def install
     system "make"
     system "make", "install", "DESTDIR=#{prefix}", "PREFIX=", "MANPREFIX=/share"
