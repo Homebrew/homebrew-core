@@ -3,6 +3,7 @@ class Hevea < Formula
   homepage "http://hevea.inria.fr/"
   url "http://hevea.inria.fr/old/hevea-2.35.tar.gz"
   sha256 "f189bada5d3e5b35855dfdfdb5b270c994fc7a2366b01250d761359ad66c9ecb"
+  revision 1
 
   livecheck do
     url "http://hevea.inria.fr/old/"
