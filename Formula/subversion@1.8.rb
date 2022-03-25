@@ -16,6 +16,8 @@ class SubversionAT18 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2020-12-21", because: :versioned_formula
+
   depends_on "pkg-config" => :build
   depends_on "scons" => :build # For Serf
   depends_on "apr"
