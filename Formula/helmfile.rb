@@ -6,12 +6,12 @@ class Helmfile < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4876e8fe1d90e1948fcd53016ce12f63784946db8cc1fe5bcc6bfa3e04617681"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5bfce7329410d0692550f82ee5460009d4b521a23a8a42fa3c844b46ac9a370b"
-    sha256 cellar: :any_skip_relocation, monterey:       "6fb4de7e675f5b642ef4519f8534fa9928654d506330b60b8857441260af5cf9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ddedff48bc5c100b8d5766a88553bc3934615b5900274aa2e5e1feeae8b72aea"
-    sha256 cellar: :any_skip_relocation, catalina:       "d0b2f3d5b78ac9c81055b2191142ba1e839c66f31026654de1efbdd3ca17940a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a35ecba4cf6a49f76961b23d624754da8e7169c6c7b3ad34a1ad1e480cfefc19"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "efd7453de9be775e338d27de865ce4e7942dfe943812197e7f2d489391d37bbc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83524e0fc8e7f5824e8fd391f78c8052ea8c272234d4cc510ecdba4057264e9b"
+    sha256 cellar: :any_skip_relocation, monterey:       "4cbdf92d6c646bcd8a3835b073076b46b600d8b88ed3b9da7366a345e37e8708"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e8d9a3d36e516c03fe651f77fd39b365bfdbb6e563d0f0fb365747b2614a1be5"
+    sha256 cellar: :any_skip_relocation, catalina:       "b63b91e167b141b0e8170602713b44181aed440cd19498517303ef64b9baa5ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55b53f686dd0539344beb9bf8be0aa448f00f9607c36c8a030d6501bc715b04b"
   end
 
   depends_on "go" => :build
