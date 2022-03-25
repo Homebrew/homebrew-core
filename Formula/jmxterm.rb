@@ -11,11 +11,11 @@ class Jmxterm < Formula
     sha256 cellar: :any_skip_relocation, all: "2e3d2fb1fd7afec204e7556a5c7567cab6c7ce3484e91730dcf0b34c1e8729aa"
   end
 
-  depends_on "openjdk@8"
+  depends_on "openjdk"
 
   def install
     libexec.install "jmxterm-#{version}-uber.jar"
-    bin.write_jar_script libexec/"jmxterm-#{version}-uber.jar", "jmxterm", "", java_version: "1.8"
+    bin.write_jar_script libexec/"jmxterm-#{version}-uber.jar", "jmxterm", ""
   end
 
   test do
