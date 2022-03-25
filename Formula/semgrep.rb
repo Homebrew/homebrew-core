@@ -7,6 +7,7 @@ class Semgrep < Formula
       tag:      "v0.85.0",
       revision: "40841051f43e87117143e6f15e033440196d2e44"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
   livecheck do
