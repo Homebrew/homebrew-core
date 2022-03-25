@@ -1,10 +1,9 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/rel8.00.tar.gz"
-  sha256 "906d5325798cd0985a634e9b6b5c76c6810f3f3b8e98b80a7c30b899082c2332"
+  url "https://github.com/camlp5/camlp5/archive/refs/tags/rel8.00.03.tar.gz"
+  sha256 "1a710e2a6dbb0f4440867850d605f31fe8407ee8a56c9e067866e34e584385b4"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/camlp5/camlp5.git", branch: "master"
 
   livecheck do
@@ -22,6 +21,7 @@ class Camlp5 < Formula
     sha256 x86_64_linux:   "bf2ef6220fef116a8deb1cc76be1172c98b764a36980317aa81fe44eb2cc4354"
   end
 
+  depends_on "ocaml-findlib" => :build
   depends_on "ocaml"
 
   def install
