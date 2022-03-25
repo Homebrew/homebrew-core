@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/64/eb/e7301515d7037a181e43dd53524590f0bebf607e77d2a5252d0578286e24/snakemake-7.3.1.tar.gz"
-  sha256 "a5c3f0729a1b8b65f6293b8af41521deb2f02ae298dc3f5223f9b11aae103e4c"
+  url "https://files.pythonhosted.org/packages/d4/48/371cf870d34a12fed14cd1bf6970f0cb619f47704512e61b6e793a1a2e2a/snakemake-7.3.2.tar.gz"
+  sha256 "d5038542bed04aa2bbd0485ecf5c9d7abe9e75ace569d5d73cbd29aa30397ec9"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -81,8 +81,8 @@ class Snakemake < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/1f/93/99a76d0fa1a8fc14442a6421abee323f8d15964979336eabd2a1834e9118/Jinja2-3.1.0.tar.gz"
+    sha256 "a2f09a92f358b96b5f6ca6ecb4502669c4acb55d8733bbb2b2c9c4af5564c605"
   end
 
   resource "jsonschema" do
