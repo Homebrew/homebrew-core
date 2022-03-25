@@ -1,14 +1,9 @@
 class Telnet < Formula
   desc "User interface to the TELNET protocol"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
-  sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
+  url "https://github.com/apple-oss-distributions/remote_cmds/archive/refs/tags/remote_cmds-64.tar.gz"
+  sha256 "9beae91af0ac788227119c4ed17c707cd3bb3e4ed71422ab6ed230129cbb9362"
   license all_of: ["BSD-4-Clause-UC", "APSL-1.0"]
-
-  livecheck do
-    url "https://opensource.apple.com/tarballs/remote_cmds/"
-    regex(/href=.*?remote_cmds[._-]v?(\d+(?:\.\d+)*)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "83fb633f08504f7f2e89c866530c4ee83798e043eeb5a1974919311651c99c37"
@@ -42,9 +37,6 @@ class Telnet < Formula
       libtelnet_dst.install "build/Release/usr/local/include/libtelnet/"
     end
 
-    # Workaround for
-    # error: 'vfork' is deprecated: Use posix_spawn or fork
-    ENV.append_to_cflags "-Wno-deprecated-declarations"
     ENV.append_to_cflags "-isystembuild/Products/"
     system "make", "-C", "telnet.tproj",
                    "OBJROOT=build/Intermediates",
