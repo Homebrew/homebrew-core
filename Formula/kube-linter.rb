@@ -37,7 +37,7 @@ class KubeLinter < Formula
           fsGroup: 2000
         containers:
         - name: homebrew-test
-          image: busybox
+          image: busybox:stable
           resources:
             limits:
               memory: "128Mi"
