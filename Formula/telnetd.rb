@@ -1,14 +1,9 @@
 class Telnetd < Formula
   desc "TELNET server"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
-  sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
+  url "https://github.com/apple-oss-distributions/remote_cmds/archive/refs/tags/remote_cmds-64.tar.gz"
+  sha256 "9beae91af0ac788227119c4ed17c707cd3bb3e4ed71422ab6ed230129cbb9362"
   license all_of: ["BSD-4-Clause-UC", "BSD-3-Clause"]
-
-  livecheck do
-    url "https://opensource.apple.com/tarballs/remote_cmds/"
-    regex(/href=.*?remote_cmds[._-]v?(\d+(?:\.\d+)*)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "13567bd6d3032b016085dcba115e8e298c1a95408339ee3ec8fe83ba66252e3e"
@@ -21,6 +16,7 @@ class Telnetd < Formula
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   resource "libtelnet" do
     url "https://opensource.apple.com/tarballs/libtelnet/libtelnet-13.tar.gz"
@@ -36,12 +32,13 @@ class Telnetd < Formula
       libtelnet_dst.install "build/Release/usr/local/include/libtelnet/"
     end
 
+    ENV.append_to_cflags "-isystembuild/Products/"
     system "make", "-C", "telnetd.tproj",
                    "OBJROOT=build/Intermediates",
                    "SYMROOT=build/Products",
                    "DSTROOT=build/Archive",
                    "CC=#{ENV.cc}",
-                   "CFLAGS=$(CC_Flags) -isystembuild/Products/",
+                   "CFLAGS=$(CC_Flags) #{ENV.cflags}",
                    "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
                    "RC_ARCHS=#{Hardware::CPU.arch}"
 
