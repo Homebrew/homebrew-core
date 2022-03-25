@@ -38,6 +38,6 @@ class Nushell < Formula
 
   test do
     assert_match "homebrew_test",
-      pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar" : "homebrew_test"}\' | from json | get bar')
+      pipe_output("#{bin}/nu -c \'{ foo: 1, bar: homebrew_test} | get bar\'", nil)
   end
 end
