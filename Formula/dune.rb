@@ -4,6 +4,7 @@ class Dune < Formula
   url "https://github.com/ocaml/dune/releases/download/3.0.3/fiber-3.0.3.tbz"
   sha256 "d504499a1658f0d99caefbffd7386f2e31d46ceca73167157fe4686c41e5732f"
   license "MIT"
+  revision 1
   head "https://github.com/ocaml/dune.git", branch: "main"
 
   bottle do
