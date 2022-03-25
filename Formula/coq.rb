@@ -4,6 +4,7 @@ class Coq < Formula
   url "https://github.com/coq/coq/archive/V8.15.0.tar.gz"
   sha256 "73466e61f229b23b4daffdd964be72bd7a110963b9d84bd4a86bb05c5dc19ef3"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/coq/coq.git", branch: "master"
 
   livecheck do
