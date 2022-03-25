@@ -23,6 +23,12 @@ class Opendht < Formula
   depends_on "nettle"
   depends_on "readline"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DOPENDHT_C=ON",
