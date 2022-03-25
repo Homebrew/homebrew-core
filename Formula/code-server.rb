@@ -28,6 +28,11 @@ class CodeServer < Formula
   def install
     node = Formula["node@14"]
     system "yarn", "--production", "--frozen-lockfile"
+    # @parcel/watcher bundles all binaries for other platforms & architectures
+    # This deletes the non-matching architecture otherwise brew audit will complain.
+    prebuilds = buildpath/"vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds"
+    (prebuilds/"darwin-x64").rmtree if Hardware::CPU.arm?
+    (prebuilds/"darwin-arm64").rmtree if Hardware::CPU.intel?
     libexec.install Dir["*"]
     env = { PATH: "#{node.opt_bin}:$PATH" }
     (bin/"code-server").write_env_script "#{libexec}/out/node/entry.js", env
