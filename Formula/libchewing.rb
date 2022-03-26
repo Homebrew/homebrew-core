@@ -22,6 +22,7 @@ class Libchewing < Formula
   end
 
   depends_on "texinfo" => :build
+  uses_from_macos "sqlite"
 
   def install
     system "./autogen.sh" if build.head?
