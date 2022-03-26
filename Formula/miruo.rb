@@ -17,6 +17,8 @@ class Miruo < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "f39aa9336ac2ec07ec0bd25bc7f7d3ae1b7a76c8af8c4d5e1f7e0ffdcfcbc9fe"
   end
 
+  uses_from_macos "libpcap"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
