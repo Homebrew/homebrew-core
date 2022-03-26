@@ -34,6 +34,12 @@ class Nushell < Formula
 
   def install
     system "cargo", "install", "--features", "extra", *std_cargo_args
+
+    buildpath.glob("crates/nu_plugin_*").each do |plugindir|
+      next unless (plugindir/"Cargo.toml").exist?
+
+      system "cargo", "install", *std_cargo_args(path: plugindir)
+    end
   end
 
   test do
