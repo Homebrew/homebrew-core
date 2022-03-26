@@ -4,6 +4,7 @@ class Libsquish < Formula
   url "https://downloads.sourceforge.net/project/libsquish/libsquish-1.15.tgz"
   sha256 "628796eeba608866183a61d080d46967c9dda6723bc0a3ec52324c85d2147269"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:    "904c64da3dfb66597dfcad1afdb70ff5f14984fa69f37d7386592a3bbd49012b"
@@ -19,8 +20,17 @@ class Libsquish < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    # Static and shared libraries have to be built using separate calls to cmake.
+    args = []
+    args << "-DBUILD_SQUISH_WITH_SSE2=OFF" if Hardware::CPU.arm?
+    system "cmake", "-S", ".", "-B", "build_static", *std_cmake_args, *args
+    system "cmake", "--build", "build_static"
+    lib.install "build_static/libsquish.a"
+
+    args << "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", "-S", ".", "-B", "build_shared", *std_cmake_args, *args
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
   end
 
   test do
@@ -32,7 +42,7 @@ class Libsquish < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-o", "test", "test.cc", lib/"libsquish.a"
+    system ENV.cxx, "-o", "test", "test.cc", "-L#{lib}", "-lsquish"
     assert_equal "153600", shell_output("./test")
   end
 end
