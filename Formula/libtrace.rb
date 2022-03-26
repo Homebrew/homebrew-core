@@ -22,6 +22,9 @@ class Libtrace < Formula
   depends_on "openssl@1.1"
   depends_on "wandio"
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "libpcap"
+
   resource "8021x.pcap" do
     url "https://github.com/LibtraceTeam/libtrace/raw/9e82eabc39bc491c74cc4215d7eda5f07b85a8f5/test/traces/8021x.pcap"
     sha256 "aa036e997d7bec2fa3d387e3ad669eba461036b9a89b79dcf63017a2c4dac725"
