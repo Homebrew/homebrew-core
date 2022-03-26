@@ -25,6 +25,8 @@ class Mikmod < Formula
 
   depends_on "libmikmod"
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
