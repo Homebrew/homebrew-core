@@ -2,8 +2,9 @@ class Rtmidi < Formula
   desc "API for realtime MIDI input/output"
   homepage "https://www.music.mcgill.ca/~gary/rtmidi/"
   url "https://www.music.mcgill.ca/~gary/rtmidi/release/rtmidi-5.0.0.tar.gz"
-  sha256 "c0f57eca5e7ebc8773375d5e9f56405d2b37a255a509fa57d2dc4f7e87d2c564"
+  sha256 "48db0ed58c8c0e207b5d7327a0210b5bcaeb50e26387935d02829239b0f3c2b9"
   license "MIT"
+  revision 1
 
   livecheck do
     url :homepage
