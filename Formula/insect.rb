@@ -20,9 +20,22 @@ class Insect < Formula
   depends_on "purescript" => :build
   depends_on "node"
 
+  on_linux do
+    depends_on "xsel"
+  end
+
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink Dir[libexec/"bin/*"]
+
+    clipboardy_fallbacks_dir = libexec/"lib/node_modules/#{name}/node_modules/clipboardy/fallbacks"
+    clipboardy_fallbacks_dir.rmtree # remove pre-built binaries
+    if OS.linux?
+      linux_dir = clipboardy_fallbacks_dir/"linux"
+      linux_dir.mkpath
+      # Replace the vendored pre-built xsel with one we build ourselves
+      ln_sf (Formula["xsel"].opt_bin/"xsel").relative_path_from(linux_dir), linux_dir
+    end
 
     # Replace universal binaries with their native slices
     deuniversalize_machos
