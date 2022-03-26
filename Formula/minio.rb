@@ -17,12 +17,12 @@ class Minio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c6322d112b76f9411bc2d485c4d09ebae6e817133ae7b5985dde72475e340cb4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a4d0cccb9dd6121dd4d467cf225947c4aade1c286dae3bc9945992b8abe0b74e"
-    sha256 cellar: :any_skip_relocation, monterey:       "edb4b3bba5a71a337303247fa5d643b3f09ee2436b6966bf18d9be888b0751b1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "89ff42147385d28de40b80294a9d2873fcb04f8b7375f15e4ab78e2d875e904d"
-    sha256 cellar: :any_skip_relocation, catalina:       "b86b40ccb53ebb6f045dc2f462dcdab9ca1c8c3269aa2fd99904fd203834e672"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49dcbb627e9ad9d16a449889e5bf4b0cc499b8b89ef7c5ce95f48d7a7175f477"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "499cfb469efe700c7b504f337b71c6e547dc731eb68c4cf628c3a6e2da927610"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49bf8083d780119551e4b37eafcd379609d73505dbfc69828454295ebea625e3"
+    sha256 cellar: :any_skip_relocation, monterey:       "1ed696b9fe7d39791bb20818ad58db122313a7212c8af9f19fc1a813b3fd2bad"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b12599a18501d42549bb728c3d692f0ad4f14938e7ac9414d7cf4b05bcad14c2"
+    sha256 cellar: :any_skip_relocation, catalina:       "8f18f720f0371dff836eae00d58abaf55f3973fe3d2a7b17a00b9066fa3cb9b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eac065d30af37e4b17dee45ca4b95214edd99563cc9729d01db9cff86b13623"
   end
 
   depends_on "go" => :build
