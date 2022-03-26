@@ -1,8 +1,8 @@
 class Atk < Formula
   desc "GNOME accessibility toolkit"
   homepage "https://library.gnome.org/devel/atk/"
-  url "https://download.gnome.org/sources/atk/2.36/atk-2.36.0.tar.xz"
-  sha256 "fb76247e369402be23f1f5c65d38a9639c1164d934e40f6a9cf3c9e96b652788"
+  url "https://download.gnome.org/sources/atk/2.38/atk-2.38.0.tar.xz"
+  sha256 "ac4de2a4ef4bd5665052952fe169657e65e895c5057dffb3c2a810f6191a0c36"
   license "GPL-2.0-or-later"
 
   bottle do
