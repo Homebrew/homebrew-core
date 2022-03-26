@@ -7,13 +7,12 @@ class Lsyncd < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_monterey: "426dd58ae80fc69dee4b34367ade886d432c238d1a93b98d86dd50a081833375"
-    sha256 cellar: :any, arm64_big_sur:  "2351ed804db55c557bbd623de74d8da034bc97ab1174edc361e3b735586e8b3b"
-    sha256 cellar: :any, monterey:       "0962fcbdf87bfa07927a1436986d34ad7473a114df6e2c5f9aac2acdbea94054"
-    sha256 cellar: :any, big_sur:        "5551d7d77b7fca7fe4a6193d924c3a04e5940856a837d108c9212951b65c3980"
-    sha256 cellar: :any, catalina:       "e25b5027f2f2d0776ad8df8b1f3cc788167234263bac8843ed3fd18f3222fd0a"
-    sha256 cellar: :any, mojave:         "5dbf799c6709769315f3d495e4a7e3a6988e64c00c2d69dd4d3e774879d8b5f3"
+    sha256 cellar: :any,                 arm64_monterey: "165c395578ec77b4fd2245acf892614374a34a7bd5e7ea35bba962543330fb42"
+    sha256 cellar: :any,                 arm64_big_sur:  "6ffc6208ece7bca906962b2bfac750bf44577b633c0e0e3b063c19b2c82d2e59"
+    sha256 cellar: :any,                 monterey:       "3e6af0900bacbd5232e39697812b49e14d321a0cf355d50d5a3b94dfe9341036"
+    sha256 cellar: :any,                 big_sur:        "8da2a07aa79a0dc8398c1a7140a4d0052fa01ad70a9a7e1a502e46842884e063"
+    sha256 cellar: :any,                 catalina:       "ae1272e27d3aa44d42a79a4840b7e0d91cd5eca2e48e4df3e8bbc82c0db04849"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "787d4f0b68f03feff9ec497f4cbbbffa4f53e487558c4f5de381c679c9f55c09"
   end
 
   depends_on "cmake" => :build
