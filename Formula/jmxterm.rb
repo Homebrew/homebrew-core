@@ -7,8 +7,8 @@ class Jmxterm < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "2e3d2fb1fd7afec204e7556a5c7567cab6c7ce3484e91730dcf0b34c1e8729aa"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "be1cdf19cb1f7ca3fe0b5a19b41622e57eda0e4e2343c0468ea7cfb88ce628d3"
   end
 
   depends_on "openjdk"
