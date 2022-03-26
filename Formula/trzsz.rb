@@ -16,16 +16,12 @@ class Trzsz < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f28ee46bd735a4db1ff2539e59edb9250a06aa2df5f647500aef8e5326c112a"
   end
 
+  depends_on "protobuf"
   depends_on "python@3.10"
 
   resource "iterm2" do
     url "https://files.pythonhosted.org/packages/09/e7/d9a1b01cc278ba685ab5b741278ebed3205107e9cc35f66c29ef8e2b3407/iterm2-2.0.tar.gz"
     sha256 "dbe4b6a484fa5bba93a68ecd7a0c8b179bb52c0ba5bcdd96a0dd712b79ae554e"
-  end
-
-  resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/6c/49/f864b9fd6310d9a15ddae5b37d78dff1df0e2e1da476442fee062c6032b2/protobuf-3.19.4.tar.gz"
-    sha256 "9df0c10adf3e83015ced42a9a7bd64e13d06c4cf45c340d2c63020ea04499d0a"
   end
 
   resource "trzsz-iterm2" do
