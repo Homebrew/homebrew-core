@@ -25,6 +25,8 @@ class Lasso < Formula
   depends_on "libxmlsec1"
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxml2"
+
   def install
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
@@ -48,10 +50,11 @@ class Lasso < Formula
         return lasso_init();
       }
     EOS
+    libxml = OS.mac? ? MacOS.sdk_path/"usr/include/libxml2" : Formula["libxml2"].include/"libxml2"
     system ENV.cc, "test.c",
                    "-I#{Formula["glib"].include}/glib-2.0",
                    "-I#{Formula["glib"].lib}/glib-2.0/include",
-                   "-I#{MacOS.sdk_path}/usr/include/libxml2",
+                   "-I#{libxml}",
                    "-I#{Formula["libxmlsec1"].include}/xmlsec1",
                    "-L#{lib}", "-llasso", "-o", "test"
     system "./test"
