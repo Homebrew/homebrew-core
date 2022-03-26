@@ -6,12 +6,12 @@ class Inih < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2aee36a6e3545037a78000ecb68b049372bfafeca4d5e099732edaeae6ca652c"
-    sha256 cellar: :any,                 arm64_big_sur:  "5325549177417afeeadac37bb9f9ac41a9a473d5e02b630841866c2811dbea93"
-    sha256 cellar: :any,                 monterey:       "2ec4ede0030148c462a673b654923ca765b3fc99a64f6f8978d8ca1835a2284b"
-    sha256 cellar: :any,                 big_sur:        "9003490e3a5106343541963798f2761c44a0f94b0a11e58128a824fd8d70274e"
-    sha256 cellar: :any,                 catalina:       "bb1c8a8363bc30003bfb534692ee19e7b14e2219ed8acee60e3493aaed777a4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0cefc483d1663181a5825890c0465a2de46740611ccca0afe49a82ed1b92586"
+    sha256 cellar: :any,                 arm64_monterey: "5ebb6e242ad1b3edf6960c4650db959df095a1d7e4047ab0bfa6747d6fd1f0fc"
+    sha256 cellar: :any,                 arm64_big_sur:  "c0f1ba13977cacda5b6e4a028d22e249e479fc295aba5ed7de36d14ebbcc5a3c"
+    sha256 cellar: :any,                 monterey:       "0c9f810156a2ffd617512a53082db6e21c47c91d9185485de1e384838f9d376d"
+    sha256 cellar: :any,                 big_sur:        "71b1efdf3603ab0cc218840f7ffd0678fa4fdf6187c92b3dbeb8fbba41484d3a"
+    sha256 cellar: :any,                 catalina:       "e7d70a5291a18636ed73c3226f260069a63b09f77b2282d6a085a2048d310cd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "071eac9277f03b4c092f5b766fe38b6448fd50104bec4399b3358ba5759ea31c"
   end
 
   depends_on "meson" => :build
