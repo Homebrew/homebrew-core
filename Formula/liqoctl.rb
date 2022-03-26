@@ -6,12 +6,12 @@ class Liqoctl < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c91b34d162b5cf365a1945e1d416b92558426fd1c7a91caa637f6375b338169c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c91b34d162b5cf365a1945e1d416b92558426fd1c7a91caa637f6375b338169c"
-    sha256 cellar: :any_skip_relocation, monterey:       "1823aa833fe178ec3cc374b0a6f5099340f1fd2efbca377c04da303924c7c79a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1823aa833fe178ec3cc374b0a6f5099340f1fd2efbca377c04da303924c7c79a"
-    sha256 cellar: :any_skip_relocation, catalina:       "1823aa833fe178ec3cc374b0a6f5099340f1fd2efbca377c04da303924c7c79a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8f799b185489af096e5b70b9943e2f42edc7a7ee648e942e067304fce53d371"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4cfa4ac6a79eb5a877fe4819868e6f473384c9070e0c1fbfa134dec03c612a5e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4cfa4ac6a79eb5a877fe4819868e6f473384c9070e0c1fbfa134dec03c612a5e"
+    sha256 cellar: :any_skip_relocation, monterey:       "be2cd231858a7ce57e8fb5535a6a61fbd25c6b136f01c3ff4453e4ae2382ae1c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "be2cd231858a7ce57e8fb5535a6a61fbd25c6b136f01c3ff4453e4ae2382ae1c"
+    sha256 cellar: :any_skip_relocation, catalina:       "be2cd231858a7ce57e8fb5535a6a61fbd25c6b136f01c3ff4453e4ae2382ae1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51623471fabc6d8a2e11ec8a57bf2bd163db170a2e8feeeb666e1ad150951128"
   end
 
   depends_on "go@1.17" => :build
