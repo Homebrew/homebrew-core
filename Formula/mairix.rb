@@ -23,6 +23,10 @@ class Mairix < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "207bd087f9675c188a430ead82700870c9d3088597a788c334d020d92148caa8"
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "zlib"
+
   def install
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
