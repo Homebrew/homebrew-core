@@ -139,6 +139,9 @@
   "esptool": {
     "exclude_packages": ["six"]
   },
+  "fabric": {
+    "exclude_packages": ["six"]
+  },
   "fava": {
     "exclude_packages": ["six"]
   },
