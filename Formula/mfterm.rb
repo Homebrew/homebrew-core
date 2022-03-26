@@ -27,6 +27,9 @@ class Mfterm < Formula
   depends_on "libusb"
   depends_on "openssl@1.1"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include}"
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
