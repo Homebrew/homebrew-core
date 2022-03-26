@@ -1,6 +1,6 @@
 class Zion < Formula
   desc "Provides E2EE gateway to create secure communication"
-  homepage "http://zion244k2d5snr6uao5mxukpacqbr4z25oaji5kegjw43ypd72pri3qd.onion/"
+  homepage "https://nullby1e.github.io/zion/"
   url "https://github.com/a1eaiactaest/zion-formula/releases/download/0.0.2/zion-0.0.2.tar.gz"
   version "0.0.2"
   sha256 "11d089faa1332743d4f02e199e244962fb770857fe6e2f577c2fe152f8f94e41"
