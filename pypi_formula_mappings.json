@@ -494,7 +494,8 @@
     "exclude_packages": ["six"]
   },
   "trzsz": {
-    "extra_packages": ["trzsz-iterm2"]
+    "extra_packages": ["trzsz-iterm2"],
+    "exclude_packages": ["protobuf"]
   },
   "twarc": {
     "exclude_packages": ["six"]
