@@ -22,6 +22,10 @@ class Libgig < Formula
   depends_on "pkg-config" => :build
   depends_on "libsndfile"
 
+  on_linux do
+    depends_on "e2fsprogs"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -41,7 +45,12 @@ class Libgig < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}/libgig", "-lgig", "-o", "test"
+    args = %W[
+      -L#{lib}/libgig
+      -lgig
+    ]
+    args << "-Wl,-rpath,#{lib}/libgig" unless OS.mac?
+    system ENV.cxx, "-std=c++11", "test.cpp", *args, "-o", "test"
     assert_match "libgig", shell_output("./test")
   end
 end
