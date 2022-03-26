@@ -1,9 +1,9 @@
 class K3d < Formula
-  desc "Little helper to run Rancher Lab's k3s in Docker"
+  desc "Little helper to run CNCF's k3s in Docker"
   homepage "https://k3d.io"
-  url "https://github.com/rancher/k3d.git",
-    tag:      "v5.3.0",
-    revision: "bb8a2b0bb57ad69680e4e2a0772a0bf31f35a457"
+  url "https://github.com/k3d-io/k3d.git",
+    tag:      "v5.4.0",
+    revision: "ed3aede715217883ad2fb521ad41467207d97c14"
   license "MIT"
 
   livecheck do
@@ -31,8 +31,8 @@ class K3d < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/rancher/k3d/v#{version.major}/version.Version=v#{version}
-      -X github.com/rancher/k3d/v#{version.major}/version.K3sVersion=#{k3s_version}
+      -X github.com/k3d-io/k3d/v#{version.major}/version.Version=v#{version}
+      -X github.com/k3d-io/k3d/v#{version.major}/version.K3sVersion=#{k3s_version}
     ]
 
     system "go", "build",
