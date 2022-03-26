@@ -17,6 +17,7 @@ class Cpmtools < Formula
     sha256 big_sur:        "72ac1f5c8c685e8a8e9e10ce3ba100883473f9578994752d0bcaab1bb987d27f"
     sha256 catalina:       "d685ce1a2f98dbab825d3b7c7584303214682f55fbd4222740a314ee9225d3e5"
     sha256 mojave:         "189b7777108827592800a7b8182357721a5314d2dae1559ec0d3663d5072870b"
+    sha256 x86_64_linux:   "383545b1998781d320884df6f77fb354e81fbb1d482140f7a161548c4cc760b0"
   end
 
   depends_on "autoconf" => :build
