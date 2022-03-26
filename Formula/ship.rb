@@ -15,6 +15,9 @@ class Ship < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "c3974dea38bf106223fc9bccb8c3e2eaff6f8d951a95ddad849a63edc6040578"
   end
 
+  # depends indirectly on python@2 and is superseded by kots
+  deprecate! date: "2022-03-25", because: :deprecated_upstream
+
   # Bump to 1.18 on the next release, if possible.
   depends_on "go@1.17" => :build
   # Switch to `node` when ship updates dependency node-sass>=6.0.0
