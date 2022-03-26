@@ -27,6 +27,12 @@ class Threadweaver < Formula
   depends_on "graphviz" => :build
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = std_cmake_args + %w[
       -S .
@@ -43,8 +49,9 @@ class Threadweaver < Formula
 
   test do
     ENV.delete "CPATH"
-    qt5_arg = "-DQt5Core_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Core"
-    system "cmake", (pkgshare/"examples/HelloWorld"), *std_cmake_args, qt5_arg
+    qt5_args = ["-DQt5Core_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Core"]
+    qt5_args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{Formula["qt@5"].opt_lib}" unless OS.mac?
+    system "cmake", (pkgshare/"examples/HelloWorld"), *std_cmake_args, *qt5_args
     system "make"
 
     assert_equal "Hello World!", shell_output("./ThreadWeaver_HelloWorld 2>&1").strip
