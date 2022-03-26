@@ -493,6 +493,9 @@
   "tox": {
     "exclude_packages": ["six"]
   },
+  "trzsz": {
+    "extra_packages": ["trzsz-iterm2"]
+  },
   "twarc": {
     "exclude_packages": ["six"]
   },
