@@ -17,6 +17,9 @@ class Lifelines < Formula
     sha256 yosemite:       "69108c01987d30c1e82b2928fdaf0817ba2b2883fc6fef886e3e559dd49d29c2"
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
