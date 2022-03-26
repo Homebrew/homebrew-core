@@ -26,6 +26,8 @@ class Libfreehand < Formula
   depends_on "librevenge"
   depends_on "little-cms2"
 
+  uses_from_macos "gperf" => :build
+
   # remove with version >=0.1.3
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/7bb2149f314dd174f242a76d4dde8d95d20cbae0/libfreehand/0.1.2.patch"
