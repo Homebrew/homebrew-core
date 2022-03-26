@@ -19,6 +19,11 @@ class Glbinding < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   def install
     ENV.cxx11
     system "cmake", ".", *std_cmake_args, "-DGLFW_LIBRARY_RELEASE="
@@ -34,8 +39,9 @@ class Glbinding < Formula
         glbinding::Binding::initialize();
       }
     EOS
-    system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11", "-stdlib=libc++",
-                    "-I#{include}/glbinding", "-I#{lib}/glbinding", "-framework", "OpenGL",
+    open_gl = OS.mac? ? ["-framework", "OpenGL"] : ["-L#{Formula["mesa-glu"].lib}", "-lGL"]
+    system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11",
+                    "-I#{include}/glbinding", "-I#{lib}/glbinding", *open_gl,
                     "-L#{lib}", "-lglbinding", *ENV.cflags.to_s.split
     system "./test"
   end
