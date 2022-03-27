@@ -3,8 +3,8 @@ class Volatility < Formula
 
   desc "Advanced memory forensics framework"
   homepage "https://github.com/volatilityfoundation/volatility3"
-  url "https://files.pythonhosted.org/packages/00/61/272892bd1b5396370260042c486bc0914074c53c86c497588aa6a4526409/volatility3-2.0.0.tar.gz"
-  sha256 "05b19ae8f7928f24acb4f4a430ebf817096fe73cf655d3d6830cc3c6e7a4e53f"
+  url "https://files.pythonhosted.org/packages/7a/2a/4bbd676f58d9b4b4846b0c6eecaa2603fcb5b6d4aa35cef2df3df9d757af/volatility3-2.0.1.tar.gz"
+  sha256 "e4f3f3a26b2e34e744a2d475b278556b53be769a3c897bfc4bdcbd4feb9089eb"
   license :cannot_represent
   version_scheme 1
   head "https://github.com/volatilityfoundation/volatility3.git", branch: "develop"
@@ -24,8 +24,8 @@ class Volatility < Formula
 
   # Extra resources are from `requirements.txt`: https://github.com/volatilityfoundation/volatility3#requirements
   resource "capstone" do
-    url "https://files.pythonhosted.org/packages/f2/ae/21dbb3ccc30d5cc9e8cdd8febfbf5d16d93b8c10e595280d2aa4631a0d1f/capstone-4.0.2.tar.gz"
-    sha256 "2842913092c9b69fd903744bc1b87488e1451625460baac173056e1808ec1c66"
+    url "https://files.pythonhosted.org/packages/0d/25/3496d5e23573bce9c1b753c215b80615e7b557680fcf4f1f804ac7defc97/capstone-5.0.0.tar.gz"
+    sha256 "6e18ee140463881c627b7ff7fd655752ddf37d9036295d3dba7b130408fbabaf"
   end
 
   resource "future" do
@@ -39,13 +39,13 @@ class Volatility < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/7e/1a/0dd70814ba29f7f6511a32d168d7fe9a175166ee92459869e03c6daeacd4/pycryptodome-3.14.0.tar.gz"
-    sha256 "ceea92a4b8ba6c50d8d70f2efbb4ea14b002dac4160ce4dda33f1b7442f8158a"
+    url "https://files.pythonhosted.org/packages/32/09/41ea2633fea5b973dac9829de871b417ff3ce2963d07fd92e3f2d2a9ee9b/pycryptodome-3.14.1.tar.gz"
+    sha256 "e04e40a7f8c1669195536a37979dd87da2c32dbdc73d6fe35f0077b0c17c803b"
   end
 
   resource "yara-python" do
-    url "https://files.pythonhosted.org/packages/bb/52/792913c765ea17bdaf3d91fb2b358a337acf8403079b57329c41f1848213/yara-python-4.1.3.tar.gz"
-    sha256 "348d80039c3b499ad8ec9ce02ceaef0c1d5b7282b84e3b6fe6adb6a158c8e0cf"
+    url "https://files.pythonhosted.org/packages/c9/d9/f0e15174adae818a8dd9bb5989a8343abc3a1df29757c5b1f00aecdd1276/yara-python-4.2.0.tar.gz"
+    sha256 "d02f239f429c6c94e60b500246d376595fbed8d9124209d332b6f8e7cfb5ec6e"
   end
 
   def install
