@@ -4,6 +4,7 @@ class Libarchive < Formula
   url "https://www.libarchive.org/downloads/libarchive-3.6.0.tar.xz"
   sha256 "df283917799cb88659a5b33c0a598f04352d61936abcd8a48fe7b64e74950de7"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :homepage
@@ -45,6 +46,8 @@ class Libarchive < Formula
            "--with-expat"       # best xar hashing option
 
     system "make", "install"
+
+    return unless OS.mac?
 
     # Just as apple does it.
     ln_s bin/"bsdtar", bin/"tar"
