@@ -21,12 +21,12 @@ class Libgeotiff < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2b379fd55e155f1cf49d117e6ab6befb88dc0f61fe2c2bf2141578a3e1cb744b"
-    sha256 cellar: :any,                 arm64_big_sur:  "c2d88650ef8a8b880658a960f272aa9a10891d6117d3cb54bcd992d4c09f590a"
-    sha256 cellar: :any,                 monterey:       "30105a58aabbf6e29f07bd304426ae7df451d5f1ebdf902878b7766ee439c50a"
-    sha256 cellar: :any,                 big_sur:        "1c2ec26c434921ed86ffbf0f0873966cbe18ab6f25f09aad4acf993d8013bef3"
-    sha256 cellar: :any,                 catalina:       "f04dd417b7b222b3a90897cb81530d81a216f61d5bde0a4c14da07dd6e0cd809"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57023323cf635ee70cbfe50d62fb175feb2d36c53d944419949c6a9c2e02f5be"
+    sha256 cellar: :any,                 arm64_monterey: "615f768061ab2ac581ccb0e574d9f7fdde6bbe16e22b4ee8062d25b48410f967"
+    sha256 cellar: :any,                 arm64_big_sur:  "d8442fb7541204b9ede5e102c854baf3157cc4813e8fa9975b9a8e13052f59c5"
+    sha256 cellar: :any,                 monterey:       "90a3a8ab11c000fd87ea68a11a110175aa38053c6ef3e8a11be68bf9ffc67814"
+    sha256 cellar: :any,                 big_sur:        "05347cfdc6122b60956c631a067fadc51f07c6d8362edf26aaa0c073895292f9"
+    sha256 cellar: :any,                 catalina:       "bbdddfdbecc383bdac026cb0769c7148ef34f921accfe83d0b29bce17c44829b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a84070c619a3a8cfb9cec0960d5431cb83570713999462fbd4d8a0d15857e32f"
   end
 
   head do
