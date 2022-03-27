@@ -18,7 +18,9 @@ class Pk < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "2e86bd1b33521a5856308b58ab35f7384988e9cb6506a4f3d9191ea38361235d"
   end
 
-  depends_on "argp-standalone"
+  on_macos do
+    depends_on "argp-standalone"
+  end
 
   def install
     system "./configure", "--disable-debug",
