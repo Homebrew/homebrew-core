@@ -1,6 +1,6 @@
 class Restic < Formula
   desc "Fast, efficient and secure backup program"
-  homepage "https://restic.github.io/"
+  homepage "https://restic.net/"
   url "https://github.com/restic/restic/archive/v0.13.0.tar.gz"
   sha256 "b3c09137b462548f44d764f98909534bef6e85fe029d4daf60545642cdefd3dd"
   license "BSD-2-Clause"
@@ -19,10 +19,7 @@ class Restic < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    ENV["CGO_ENABLED"] = "1"
-
-    system "go", "run", "-mod=vendor", "build.go", "--enable-cgo"
+    system "go", "run", "build.go"
 
     mkdir "completions"
     system "./restic", "generate", "--bash-completion", "completions/restic"
