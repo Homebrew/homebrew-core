@@ -14,8 +14,11 @@ class Freeipmi < Formula
     sha256 catalina:       "5d14764fbabda846afaf0ea7d7cd662aaadded927ff71961367a7ca139bbcefa"
   end
 
-  depends_on "argp-standalone"
   depends_on "libgcrypt"
+
+  on_macos do
+    depends_on "argp-standalone"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -28,7 +31,7 @@ class Freeipmi < Formula
     # https://github.com/Homebrew/brew/issues/5153
     inreplace "man/Makefile.in",
       "$(CPP_FOR_BUILD) -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre $@",
-      "clang -E -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre > $@"
+      "#{ENV.cxx} -E -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre > $@"
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
