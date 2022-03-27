@@ -26,7 +26,7 @@ class Nfdump < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}", "--enable-readpcap"
+    system "./configure", *std_configure_args, "--enable-readpcap", "LEXLIB="
     system "make", "install"
   end
 
