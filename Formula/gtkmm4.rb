@@ -16,6 +16,7 @@ class Gtkmm4 < Formula
     sha256 cellar: :any, monterey:       "cbebe92ac8a5dd174e22ade3a4b2462572f7d86aedd9f6ed3e808743408b1c3c"
     sha256 cellar: :any, big_sur:        "be3236c68c6ff0c3d949b6c3bccd0abc78a622e7b860d7a3e559fcaed0616880"
     sha256 cellar: :any, catalina:       "344bd014f985af0e55bea9109ad1a43ce19c2509d2efc58a65795adb0d2eb354"
+    sha256               x86_64_linux:   "70f6fc379644d5a4625153ca7e0ebca3cc12b5e025e8f6e7cd4457804e4451f5"
   end
 
   depends_on "meson" => :build
