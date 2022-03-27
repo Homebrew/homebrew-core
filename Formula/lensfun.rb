@@ -14,6 +14,11 @@ class Lensfun < Formula
   version_scheme 1
   head "https://github.com/lensfun/lensfun.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 arm64_monterey: "b7c1472fdec4cfa0c78c7be1d84cf62f1c1b5b9f243ea19d47a7d65d591029ee"
     sha256 arm64_big_sur:  "b4f90befa38fc5f0a2d7b981c63712cd53b98704f989f7d373ac072e38effab5"
