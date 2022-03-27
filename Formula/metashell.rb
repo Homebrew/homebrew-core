@@ -19,6 +19,12 @@ class Metashell < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     ENV.cxx11
 
