@@ -31,11 +31,6 @@ class Libarchive < Formula
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
-  on_linux do
-    conflicts_with "cpio", because: "both install `cpio` binaries"
-    conflicts_with "gnu-tar", because: "both install `tar` binaries"
-  end
-
   def install
     system "./configure",
            "--prefix=#{prefix}",
