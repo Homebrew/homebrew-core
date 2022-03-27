@@ -14,15 +14,13 @@ class GitFlowAvh < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "75416cf7069631b648859caefd1efd85ebfec2e4781acfeb4215889460439a69"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3b1f734a2df3a919e1f62e8bbcf6a1f3c2a188cfeebce09c7e4f62fdca4242f"
-    sha256 cellar: :any_skip_relocation, monterey:       "62e5e3eabc08ca2cfebdaf45e23f2ba04f68906dae71858795bd5db36badd572"
-    sha256 cellar: :any_skip_relocation, big_sur:        "908021867768ca0b772288052b4518aeec2e682d2141b6b912c539176a069fce"
-    sha256 cellar: :any_skip_relocation, catalina:       "d9d8011ee6b4167e321077e44c0e99485a80f8bc1f294390495231c392d1bbba"
-    sha256 cellar: :any_skip_relocation, mojave:         "945e9ba05a169b32c86f5bd347542e803625791cf9a4b50a4a42fafb5e0b9c85"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "945e9ba05a169b32c86f5bd347542e803625791cf9a4b50a4a42fafb5e0b9c85"
-    sha256 cellar: :any_skip_relocation, sierra:         "0e68b196dd24d9d41f9b0c5545d115c9ca8327dd799facbed2e619f8ceea221b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75416cf7069631b648859caefd1efd85ebfec2e4781acfeb4215889460439a69"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f559b035f16d9f56bb1750bfd441785df1f094a3838b20c1c51503cc75c2f319"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f559b035f16d9f56bb1750bfd441785df1f094a3838b20c1c51503cc75c2f319"
+    sha256 cellar: :any_skip_relocation, monterey:       "fe31ea33fecc7177f22fa64b15430512ea2ae728536d3c3d21b9121d97e311e6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fe31ea33fecc7177f22fa64b15430512ea2ae728536d3c3d21b9121d97e311e6"
+    sha256 cellar: :any_skip_relocation, catalina:       "fe31ea33fecc7177f22fa64b15430512ea2ae728536d3c3d21b9121d97e311e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f559b035f16d9f56bb1750bfd441785df1f094a3838b20c1c51503cc75c2f319"
   end
 
   head do
