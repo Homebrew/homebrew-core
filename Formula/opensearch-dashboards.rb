@@ -4,8 +4,8 @@ class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://opensearch.org/docs/dashboards/index/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "1.2.0",
-      revision: "caf668e73304bac890f41c37cd6c3a41257cd289"
+      tag:      "1.3.0",
+      revision: "00e06934211e9819f99aabbf139885682f33e95e"
   license "Apache-2.0"
 
   bottle do
