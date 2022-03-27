@@ -7,12 +7,12 @@ class Librasterlite2 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "954d42bad006a1564d10ef4dab4f01309b561019309d8c1240a57785fa49b56f"
-    sha256 cellar: :any,                 arm64_big_sur:  "e75aedb1481b518abe8604322c6cb2eb9d65e41660615109fa0aef0b057993d7"
-    sha256 cellar: :any,                 monterey:       "0e88777916b6b91f5e738fd6bf807a0201db1b0301631f09cd46cedd1c070ab5"
-    sha256 cellar: :any,                 big_sur:        "794be42718985e2d7af7e329ef9180faad6f50da76c17ef59aefcf7d3a38dd23"
-    sha256 cellar: :any,                 catalina:       "85b26685a584ae48bca118ce78369eef1d31510fad29096821ff295d974f38fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83594e1a63cf7024bc281c86141e320c4c6415705f8b2fcc6edabc9ec8ab6f94"
+    sha256 cellar: :any,                 arm64_monterey: "6926eed7e1e104406e4a815f4d9e8fab13e2735b84dda7392fca457b2940bd06"
+    sha256 cellar: :any,                 arm64_big_sur:  "82f2c1f5712023609e7568dc56abd98aedf885bbab0b6db8a3ad4430ae27c0f2"
+    sha256 cellar: :any,                 monterey:       "a1df1a6819fe44834b1c7e94dbbe6ebaf20d1ef58e4011b950127e3b967545fb"
+    sha256 cellar: :any,                 big_sur:        "9e0bbfb1741867d70f9f96b7b4b80010b772c10dcdcf6192acbb4c17c77c6946"
+    sha256 cellar: :any,                 catalina:       "57893a161c2564985466586e366ca65c27f477fba41cd6a081f3f813fbc08d57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23befb28023f4b87d3c18e6d49a19016ce17e4d8640b9506e3b82eea84fab7b5"
   end
 
   depends_on "pkg-config" => :build
