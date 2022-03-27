@@ -21,6 +21,7 @@ class Mikmod < Formula
     sha256 sierra:         "a9586a9306006e8fd451aecb6c3259fc57cb0bb328a2b0ce8c064e5518f943bc"
     sha256 el_capitan:     "ae0b4480b6b34327b9c99601d7e2cbc9648ece54344bd4bda3582ef048e1f1de"
     sha256 yosemite:       "7d52131b792e01d3037dac4be52811744dfad23c2a11f4ee3d1985a8fb8f0331"
+    sha256 x86_64_linux:   "4e4b77ce15ebf81c0bbaf79ca476bc05de760eaeedc28ffbfbcfdb33df94127d"
   end
 
   depends_on "libmikmod"
