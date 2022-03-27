@@ -23,13 +23,12 @@ class Libspatialite < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0a2b9cbcf782fb1550dcb5524a61ca69ec22a2cbbb426506b418b9fe9138e4b6"
-    sha256 cellar: :any,                 arm64_big_sur:  "dc8b7f36b4f7aba60fdb088ec17ca69bddb353fed99a1e6d0200590a0ee0adb2"
-    sha256 cellar: :any,                 monterey:       "ef04ad217e063418d0d404c66c9621de3fc3bfd1c9b8a55d4b512dca9c534ff4"
-    sha256 cellar: :any,                 big_sur:        "f740afb58268b4babe07a123e1b7857b754abea2ffced3b37b8edf7140408652"
-    sha256 cellar: :any,                 catalina:       "abf71f3882743f1bebf560c66a0f211f0298f0498ed0093b29d1feaa6c5c425f"
-    sha256 cellar: :any,                 mojave:         "64a4c76c3cc6aa7ae20c510a4688182af14bb9f1da38bed1409dcd6a1a333a5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e92d770bacb404f5e3573b8353ed78735fcb618f93dc070d220a9e9413700eb"
+    sha256 cellar: :any,                 arm64_monterey: "8dc0901eff2763a59d1ddc22f3ed19ef1a1b706ba2d4069a092e1c86e730db91"
+    sha256 cellar: :any,                 arm64_big_sur:  "bdc286c42eb9dcead8e145ae385f4764cc6b081b4284388749b3e0ee270b4431"
+    sha256 cellar: :any,                 monterey:       "87c4d5eedbd6657e5bbb5f02c64f82dd9d7de502c57fecd44a2059cdff476724"
+    sha256 cellar: :any,                 big_sur:        "001ef9d46fb1b508459bf5a1aac259643def005b8fb808663dd32e49c89cff5a"
+    sha256 cellar: :any,                 catalina:       "d403ece87a9d8349fc2bad142f52b1c44c423cc17fbc7da5ee3f2a2a168dd796"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7936163e48b970c168ccd0b53d917b47364d91b4698aed7cd1199858d0e30b8"
   end
 
   head do
