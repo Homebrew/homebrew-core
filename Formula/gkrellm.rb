@@ -19,6 +19,7 @@ class Gkrellm < Formula
     sha256 mojave:         "641f4e27054dacd25dd91dc2f6d8d608918321ae06cf06eb17f2d62132125e7a"
     sha256 high_sierra:    "71f4e92d308a39b38ac97bf2f06cea12ccee0072cbd27b8443e1d33f11fb7c5b"
     sha256 sierra:         "f90adbb22bdbc169d95c932591d4c5a7c5e869f61c79744bb743c50a4698acc9"
+    sha256 x86_64_linux:   "ca8de16de4f193874d68b638ac2a0d3b007fdf178967b45a7945814167ada700"
   end
 
   depends_on "pkg-config" => :build
