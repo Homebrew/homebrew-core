@@ -12,6 +12,7 @@ class Libchewing < Formula
     sha256 cellar: :any, catalina:      "19b9c38b3036f5ad16c413135e5424c8174789129cafe3c488fecdaffa39f281"
     sha256 cellar: :any, mojave:        "b00710a74c619461b99eb3043b927248ccc0e2c2f3607683dfbcad61b82e4fe3"
     sha256 cellar: :any, high_sierra:   "c346c2dbf72ea2d97f88cc9fc694b61eccc7db44c38092e9d652a31612f60ef1"
+    sha256               x86_64_linux:  "e655d141d9a30243dd3059296cddacb68138eaee3ad064dde0a0de81b5b35c1a"
   end
 
   head do
