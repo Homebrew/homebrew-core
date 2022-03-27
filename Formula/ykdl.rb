@@ -3,10 +3,9 @@ class Ykdl < Formula
 
   desc "Video downloader that focus on China mainland video sites"
   homepage "https://github.com/SeaHOH/ykdl"
-  url "https://files.pythonhosted.org/packages/bb/15/ab7977a060f55a90f5cffb86dbc1327f3eaffbfdf88f0844a04add1199a8/ykdl-1.7.2.tar.gz"
-  sha256 "abef7b5f3fbdbfc240fe3a6222b3feecc8d1f71969ad09d5f82779088272b9a8"
+  url "https://files.pythonhosted.org/packages/72/b1/2b860383f3568fc168f9e843d367675724f2c67feabc2207da90d7fbe47f/ykdl-1.8.0.tar.gz"
+  sha256 "29588ec771d364ed91446a5f7f0dcee914119e7e7c99c6860ac46f0ad9622790"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39aefc022aa9daea3338724628bf3002e33472493c10ffe9ff73f27607cd46aa"
@@ -21,23 +20,18 @@ class Ykdl < Formula
   depends_on "python@3.10"
 
   resource "iso8601" do
-    url "https://files.pythonhosted.org/packages/45/66/a943f702763c879e2754b46089a136ee1e58f0f720c58fa640c00281d3fd/iso8601-0.1.16.tar.gz"
-    sha256 "36532f77cc800594e8f16641edae7f1baf7932f05d8e508545b95fc53c6dc85b"
+    url "https://files.pythonhosted.org/packages/28/97/d2d3d96952c77e7593e0f4a634656fb384f7282327f7fef74b726b3b4c1c/iso8601-1.0.2.tar.gz"
+    sha256 "27f503220e6845d9db954fb212b95b0362d8b7e6c1b2326a87061c3de93594b1"
+  end
+
+  resource "jsengine" do
+    url "https://files.pythonhosted.org/packages/1c/1c/899994765c0395caec18b3e5381e61bac256c35a43f80fb468f3de689f95/jsengine-1.0.5.tar.gz"
+    sha256 "f9676bad44904483f0b17bf2838b07893c9fbaf575f2153e46735b767243199f"
   end
 
   resource "m3u8" do
-    url "https://files.pythonhosted.org/packages/f4/1f/6370b6c5ba1975f5299bdda0e953e381880accbad1d2daa8fb0da3548051/m3u8-0.9.0.tar.gz"
-    sha256 "3ee058855c430dc364db6b8026269d2b4c1894b198bcc5c824039c551c05f497"
-  end
-
-  resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/88/7f/740b99ffb8173ba9d20eb890cc05187677df90219649645aca7e44eb8ff4/pycryptodome-3.10.1.tar.gz"
-    sha256 "3e2e3a06580c5f190df843cdb90ea28d61099cf4924334d5297a995de68e4673"
-  end
-
-  resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
-    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
+    url "https://files.pythonhosted.org/packages/23/aa/fe3796bc467b8108462854dcc12143c8f083b918028f179f02b1a7c33f79/m3u8-1.0.0.tar.gz"
+    sha256 "e9886ff0df35d81fadc522df5ef9b516708b09f8109492f1175720e006b9b8e8"
   end
 
   def install
