@@ -14,6 +14,7 @@ class Msktutil < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "c81aaec915e611272f5c74d5a4ee7b14d9e7342d7bc2639f45dd90b0f3fc639b"
     sha256 cellar: :any_skip_relocation, high_sierra:    "8f3695f42884ee17bc1b701ee968c60e5ff115c17b9514986c7dd499b8e229c2"
     sha256 cellar: :any_skip_relocation, sierra:         "05fc6f711b6109052fa1a795bf88063490e5c2ed73bcf2f2168610c77e996d88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b0b351e66db0c0f3aa14df7568d854e76cbf8d9dd4bc256f780cbe856af0d3e"
   end
 
   uses_from_macos "cyrus-sasl"
