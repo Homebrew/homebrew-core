@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/f5/ac/51e3a9329e73d1b7b9bbaf03e7def4692ab7e294e363557955055b9deb3a/moto-3.1.1.tar.gz"
-  sha256 "9b5446b3d1f7505d32616209ae09f02123ebc583387f7c182f11e4175754034f"
+  url "https://files.pythonhosted.org/packages/01/53/dccd9e2a0bcf133d201d4c193803efb30e1f77fbd03950ed556a36cc5b75/moto-3.1.2.tar.gz"
+  sha256 "b4497c885bceca2f8bfb4635accfd490b8af1adfdae20a27e0e2b1b7cc43d63e"
   license "Apache-2.0"
 
   bottle do
@@ -26,8 +26,8 @@ class Moto < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/f2/76/2b5c76cc8ae4d3373a793059b2073af1bb5f37189532dacd4788d2d142d3/aws-sam-translator-1.42.0.tar.gz"
-    sha256 "8a7976c0ee2fca004a590e17d3551a49c8d8ba14ed0cb3674ea270d41d0dcd5b"
+    url "https://files.pythonhosted.org/packages/40/85/f0eecd063a65de84f944c6a020ca3599b9d3c08efc9d856991bc76e20326/aws-sam-translator-1.43.0.tar.gz"
+    sha256 "07820609c0de16ec9824aa8b482c48a217bd431f437bcd980a65e7e841626d5d"
   end
 
   resource "aws-xray-sdk" do
@@ -36,13 +36,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/de/2b/46a35b4e3160a3b894dee63a463c53fd5ab1177893b7effb4882ff65a6ae/boto3-1.21.22.tar.gz"
-    sha256 "334f14ffbd89ddd15090e90b32e4fcea73d83b60b19ca2737a9264fd44096f35"
+    url "https://files.pythonhosted.org/packages/fb/31/97b628ed56a63164bced939fc353a70f83075d225038228b610c141c39a3/boto3-1.21.27.tar.gz"
+    sha256 "ef41b9c7b6311d5152bdc78f7de56912c1ed265debf7da14133e1ad00246ad50"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/5c/39/25942906a8bc11f98ef948345d7988382082bbe5e01d7efd52febab4b8a6/botocore-1.24.22.tar.gz"
-    sha256 "92ba8afeda48f5d2467811d87df401d703a25191f82882994d8d09a7d8b5b965"
+    url "https://files.pythonhosted.org/packages/78/14/7ed89fcf90f4e52343106051ec587a903467461c12d8f9921dac99562c12/botocore-1.24.27.tar.gz"
+    sha256 "2c11db4b94b4b9504d2782acb758d29a7e5cbdfaa826601f222ac9ddcf004dde"
   end
 
   resource "certifi" do
@@ -56,8 +56,8 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/bb/3b/db6bb1e426131bd92893d1af26651e7b384a2255c30012abb789dd7769ff/cfn-lint-0.58.3.tar.gz"
-    sha256 "0dccd28a93671ad51773cf47c976d314d9334e431271b5affd4dfc6bb4a52b0a"
+    url "https://files.pythonhosted.org/packages/c4/d7/285de572a2581211d93e45a5123d6aca52fb53a56de4246f75bcf50cb816/cfn-lint-0.58.4.tar.gz"
+    sha256 "37bcef7275e4f4c5680857ec715e180a155856ba882c463576e8058c2ae1be09"
   end
 
   resource "charset-normalizer" do
@@ -111,13 +111,13 @@ class Moto < Formula
   end
 
   resource "itsdangerous" do
-    url "https://files.pythonhosted.org/packages/9d/86/39f81e23f49eaf62d22248d48771dbf3bce7c52dfdf566e3d8d4c0657f15/itsdangerous-2.1.1.tar.gz"
-    sha256 "7b7d3023cd35d9cb0c1fd91392f8c95c6fa02c59bf8ad64b8849be3401b95afb"
+    url "https://files.pythonhosted.org/packages/7f/a1/d3fb83e7a61fa0c0d3d08ad0a94ddbeff3731c05212617dff3a94e097f08/itsdangerous-2.1.2.tar.gz"
+    sha256 "5dbbc68b317e5e42f327f9021763545dc3fc3bfe22e6deb96aaf1fc38874156a"
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/89/e3/b36266381ae7a1310a653bb85f4f3658c462a69634fa9b2fef76252a50ed/Jinja2-3.1.1.tar.gz"
+    sha256 "640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9"
   end
 
   resource "jmespath" do
@@ -201,8 +201,8 @@ class Moto < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/e3/8e/1cde9d002f48a940b9d9d38820aaf444b229450c0854bdf15305ce4a3d1a/pytz-2021.3.tar.gz"
-    sha256 "acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"
+    url "https://files.pythonhosted.org/packages/2f/5f/a0f653311adff905bbcaa6d3dfaf97edcf4d26138393c6ccd37a484851fb/pytz-2022.1.tar.gz"
+    sha256 "1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7"
   end
 
   resource "PyYAML" do
