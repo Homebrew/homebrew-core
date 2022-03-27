@@ -17,6 +17,7 @@ class LibxmlxxAT4 < Formula
     sha256 cellar: :any, big_sur:        "c1c5969140b08c3360dcfa048373c5414d7898963ce1e2e86087dfe9ee3ad78d"
     sha256 cellar: :any, catalina:       "7c7babf431b2224efb566afc5053c26c9df31609cc136bdb901ca419c8e6e11e"
     sha256 cellar: :any, mojave:         "e0fc524dd6afd8094de610a76bfed2b2e96147c5aa05b8d24150721ec2eafd6e"
+    sha256               x86_64_linux:   "cd4e8524a0aa1f6924d8015a73637f3bfe13b8e7653953bce5c35cfaadc34599"
   end
 
   depends_on "meson" => :build
