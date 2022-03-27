@@ -16,10 +16,14 @@ class F3 < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "55da39f3758797df44426b7744542b4322ddc84b20fc7a5664e2da672cef0d1a"
   end
 
-  depends_on "argp-standalone"
+  on_macos do
+    depends_on "argp-standalone"
+  end
 
   def install
-    system "make", "all", "ARGP=#{Formula["argp-standalone"].opt_prefix}"
+    args = []
+    args << "ARGP=#{Formula["argp-standalone"].opt_prefix}" if OS.mac?
+    system "make", "all", *args
     bin.install %w[f3read f3write]
     man1.install "f3read.1"
     man1.install_symlink "f3read.1" => "f3write.1"
