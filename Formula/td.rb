@@ -17,14 +17,7 @@ class Td < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GOBIN"] = bin
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/Swatto/td").install buildpath.children
-    cd "src/github.com/Swatto/td" do
-      system "go", "install"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
