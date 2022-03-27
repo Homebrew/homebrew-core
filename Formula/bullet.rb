@@ -1,8 +1,9 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
-  url "https://github.com/bulletphysics/bullet3/archive/3.21.tar.gz"
-  sha256 "49d1ee47aa8cbb0bc6bb459f0a4cfb9579b40e28f5c7d9a36c313e3031fb3965"
+  url "https://github.com/bulletphysics/bullet3/archive/3.22a.tar.gz"
+  version "3.22a"
+  sha256 "c40a0e832751c1590474cf21679972d2938e0705a45c29fed846ddb523d82b03"
   license "Zlib"
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
 
