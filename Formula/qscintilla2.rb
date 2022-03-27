@@ -1,8 +1,8 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.13.1/QScintilla_src-2.13.1.tar.gz"
-  sha256 "800e3d2071a96bcccd7581346af0d2fe28fc30cd68530cb8302685d013afd54a"
+  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.13.2/QScintilla_src-2.13.2.tar.gz"
+  sha256 "b6c7e5f27b51d25f09fe6cf84ae9a7f0876af0d65d8ccb551109e6e7b25885f4"
   license "GPL-3.0-only"
 
   # The downloads page also lists pre-release versions, which use the same file
