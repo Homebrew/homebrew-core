@@ -4,8 +4,8 @@ class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
   # gatsby-cli should only be updated every 10 releases on multiples of 10
-  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-4.7.0.tgz"
-  sha256 "46f6c9bf0fd0ed0d9160616dd2a625b63017009cfdd4d245603c0696dfbf0b25"
+  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-4.10.0.tgz"
+  sha256 "2635d4a9e30d9db38419ff6246e961d21d035efa8124d3bf1e717fb586950f9f"
   license "MIT"
 
   bottle do
@@ -32,9 +32,21 @@ class GatsbyCli < Formula
     bin.install_symlink Dir[libexec/"bin/*"]
 
     # Avoid references to Homebrew shims
-    rm_f libexec/"lib/node_modules/gatsby-cli/node_modules/websocket/builderror.log"
+    node_modules = libexec/"lib/node_modules/#{name}/node_modules"
+    rm_f node_modules/"websocket/builderror.log"
 
-    term_size_vendor_dir = libexec/"lib/node_modules/#{name}/node_modules/term-size/vendor"
+    # Remove incompatible pre-built binaries
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    node_modules.glob("{lmdb,msgpackr-extract}/prebuilds/*").each do |dir|
+      if dir.basename.to_s != "#{os}-#{arch}"
+        dir.rmtree
+      elsif OS.linux?
+        dir.glob("*.musl.node").map(&:unlink)
+      end
+    end
+
+    term_size_vendor_dir = node_modules/"term-size/vendor"
     term_size_vendor_dir.rmtree # remove pre-built binaries
     if OS.mac?
       macos_dir = term_size_vendor_dir/"macos"
@@ -43,7 +55,7 @@ class GatsbyCli < Formula
       ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
     end
 
-    clipboardy_fallbacks_dir = libexec/"lib/node_modules/#{name}/node_modules/clipboardy/fallbacks"
+    clipboardy_fallbacks_dir = node_modules/"clipboardy/fallbacks"
     clipboardy_fallbacks_dir.rmtree # remove pre-built binaries
     if OS.linux?
       linux_dir = clipboardy_fallbacks_dir/"linux"
