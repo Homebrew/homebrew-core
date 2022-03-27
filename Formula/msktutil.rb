@@ -16,6 +16,10 @@ class Msktutil < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "05fc6f711b6109052fa1a795bf88063490e5c2ed73bcf2f2168610c77e996d88"
   end
 
+  uses_from_macos "cyrus-sasl"
+  uses_from_macos "krb5"
+  uses_from_macos "openldap"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
