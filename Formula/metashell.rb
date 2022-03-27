@@ -15,6 +15,7 @@ class Metashell < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "05387acf4adf651aaa011d02f5a08ddf49725a550440cc7eb496c1112166852b"
     sha256 cellar: :any_skip_relocation, sierra:         "14fc35b7b932170333d8260b8bda881844ffc68870aeb1a120ebd74072ef900c"
     sha256 cellar: :any_skip_relocation, el_capitan:     "209c4c475fa58cb42a2e98bd34c11a983463465ce4ee5470474177d6740fb2e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1e3a47564c136eedecb087617ebf7b7b9da158d0eef5497cfd04b5ffa74d814"
   end
 
   depends_on "cmake" => :build
