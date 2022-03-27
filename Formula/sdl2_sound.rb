@@ -29,7 +29,7 @@ class Sdl2Sound < Formula
       "-DSDLSOUND_DECODER_MP3=TRUE",
       "-DSDLSOUND_DECODER_MIDI=TRUE",
     ]
-    args += "-DSDLSOUND_DECODER_COREAUDIO=TRUE" if OS.mac?
+    args << "-DSDLSOUND_DECODER_COREAUDIO=TRUE" if OS.mac?
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
