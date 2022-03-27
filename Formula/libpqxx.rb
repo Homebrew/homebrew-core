@@ -27,6 +27,7 @@ class Libpqxx < Formula
   fails_with gcc: "5"
 
   def install
+    ENV.append "CXXFLAGS", "-std=c++17"
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
 
