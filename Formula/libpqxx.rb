@@ -1,8 +1,8 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "http://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/7.7.0.tar.gz"
-  sha256 "2d99de960aa3016915bc69326b369fcee04425e57fbe9dad48dd3fa6203879fb"
+  url "https://github.com/jtv/libpqxx/archive/7.7.2.tar.gz"
+  sha256 "4b7a0b67cbd75d1c31e1e8a07c942ffbe9eec4e32c29b15d71cc225dc737e243"
   license "BSD-3-Clause"
 
   bottle do
@@ -27,6 +27,7 @@ class Libpqxx < Formula
   fails_with gcc: "5"
 
   def install
+    ENV.append "CXXFLAGS", "-std=c++17"
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
 
