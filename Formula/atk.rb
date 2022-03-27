@@ -6,14 +6,12 @@ class Atk < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "2bbb8f77fc0b5cccd3a01e0d1f18e4f7c26a085f8224430b2e5ea094357e91d6"
-    sha256 cellar: :any, arm64_big_sur:  "e7d40dbacc2c965c8b23224a5e1cd2a90d6c54758b957dcf3d66c2238feec518"
-    sha256 cellar: :any, monterey:       "52624a3ef69933bcac6b9fd22ce4c0aed8c7d038cc21fc4b7a5d7d5b059c4756"
-    sha256 cellar: :any, big_sur:        "8321e0ee7364e1de1a3667c50954b4b4f629cba7c2d8077114c4a5bc38a24655"
-    sha256 cellar: :any, catalina:       "1065293046ab2984940dfa0b9c9e724439838e63f685c932d508ccd74bcf921b"
-    sha256 cellar: :any, mojave:         "68c7b621339c03964036877987db69806f663612ba275e68554a97d218a2b5b4"
-    sha256 cellar: :any, high_sierra:    "fa8f525bfeacab676f795bac37f622fc100e63c9e9661fbd6ddd3e1725ebd097"
-    sha256               x86_64_linux:   "22fce3b8041576c4ab184bef170f8902c73ad9b79809b2aa0ef79049f5c5ac43"
+    sha256 cellar: :any, arm64_monterey: "078fba0fd9c27175313b3232fdf2fe36e72a19e1efdef97a3c622d23869313c4"
+    sha256 cellar: :any, arm64_big_sur:  "97a4d14824805cdd1c6b9bdee415e3420bfd54beab814d343648395fcc684f69"
+    sha256 cellar: :any, monterey:       "faca1ff938b34b23e284321d8037673f270030aae0c7ea8b44f8a4088c8e9ab5"
+    sha256 cellar: :any, big_sur:        "254605e7c9a5f95f7e1aaec2d58e60c8cdaf4fde910e92a0a032938cb98efc57"
+    sha256 cellar: :any, catalina:       "048076e890b1b184892bd58f1059f701a1665ac378f5e1431ae681210ae28b0c"
+    sha256               x86_64_linux:   "4ffb42482b22fe9150193395fc3fc0a41d1f92e3a8c0aa7e9dd17aaef8ff6f7c"
   end
 
   depends_on "gobject-introspection" => :build
