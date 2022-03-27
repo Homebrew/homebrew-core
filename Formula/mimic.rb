@@ -12,6 +12,7 @@ class Mimic < Formula
     sha256 catalina:       "72b346f8eefbbc70abc0a67bc72265b3bec7f99e53b18418ad6835df52518f1e"
     sha256 mojave:         "a185641e0d84aae004df33923ca0612b9ba0d59c9a1d4a5fd80ebd6d1de69f58"
     sha256 high_sierra:    "98a927ebfffb3a965506102d758fe4a5e76d0c6bd732972e6b113505d28241c8"
+    sha256 x86_64_linux:   "027d95ecca63daf3f9c20419da6630b9a6a2d00e92dbdccbbc5d1747e0aca4d4"
   end
 
   depends_on "autoconf" => :build
