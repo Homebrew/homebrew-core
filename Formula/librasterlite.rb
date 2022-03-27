@@ -11,13 +11,13 @@ class Librasterlite < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3c1d39f40a46b6bf657e0bf55600787e07c1262e348268a3e7b2412685c90612"
-    sha256 cellar: :any,                 arm64_big_sur:  "9a685c2da2eca32a3b8e277e224465cb37c896717043407e64bcf54dbbe2fe67"
-    sha256 cellar: :any,                 monterey:       "75e64137694f0d9908da6201eb12fb428d6350026b796618338035724c69946c"
-    sha256 cellar: :any,                 big_sur:        "cf093e2b4e2d5e1e86f089d0dd47cf9fcb7197e2f7028cedc728ce174e5abeaa"
-    sha256 cellar: :any,                 catalina:       "87bda7a32b6106dd10a0a7b69ab9e2eb7795d72f09be14a264e3cf57c37706e0"
-    sha256 cellar: :any,                 mojave:         "58f04df469c79fdf8e57077e7ed2226bca0ebda941b527950baefc792df365ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6daf56bea60e8cff42c3375976009255c9998ae09c65d939700f81f1db4a1449"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "631ed6e41434a21f397ba2e46abc9a21b38a02ffb242826de1ec41279e542c47"
+    sha256 cellar: :any,                 arm64_big_sur:  "965a159592b0bdd5356394ec249e5d9b39fbc8f639d588fa8785e3017d4ed7d1"
+    sha256 cellar: :any,                 monterey:       "064b6c1643772873e6677a7bb3b55c0fd619bc24f99a0d61e0dd339bec3e9703"
+    sha256 cellar: :any,                 big_sur:        "8490d5b9dc2d9f6f1e4e5c0e8793618f7a40b5c1227ec2157bfbaaf49ce0e5d9"
+    sha256 cellar: :any,                 catalina:       "77b16b08a0879b323bfdc17c437809fef2a4350820ab1c754acb8d9b91cf6921"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43fd1aa1f5992cc5bc82499d6a8c0783e8560caaf1d5f83fd74b226846e5c1e5"
   end
 
   deprecate! date: "2022-03-05", because: :deprecated_upstream
