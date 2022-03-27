@@ -1,10 +1,14 @@
 class Gource < Formula
   desc "Version Control Visualization Tool"
   homepage "https://github.com/acaudwell/Gource"
-  url "https://github.com/acaudwell/Gource/releases/download/gource-0.51/gource-0.51.tar.gz"
-  sha256 "19a3f888b1825aa7ed46f52cebce5012e3c62439e3d281102f21814c7a58e79a"
   license "GPL-3.0-or-later"
   revision 2
+
+  stable do
+    url "https://github.com/acaudwell/Gource/releases/download/gource-0.51/gource-0.51.tar.gz"
+    sha256 "19a3f888b1825aa7ed46f52cebce5012e3c62439e3d281102f21814c7a58e79a"
+    depends_on "pcre"
+  end
 
   bottle do
     sha256 arm64_monterey: "e6a90d692a0d3efefc8374dc9076a01ebbdbf0dd29a7c124c8094c147f1ec2da"
@@ -21,6 +25,7 @@ class Gource < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+    depends_on "pcre2"
   end
 
   depends_on "glm" => :build
@@ -29,7 +34,6 @@ class Gource < Formula
   depends_on "freetype"
   depends_on "glew"
   depends_on "libpng"
-  depends_on "pcre"
   depends_on "sdl2"
   depends_on "sdl2_image"
 
