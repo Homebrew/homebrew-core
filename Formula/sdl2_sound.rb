@@ -1,15 +1,12 @@
 class Sdl2Sound < Formula
   desc "Abstract soundfile decoder for SDL"
   homepage "https://icculus.org/SDL_sound/"
+  # Includes fixes for CMake, just ahead of the release tag
+  url "https://github.com/icculus/SDL_sound/archive/06c8946983ca9b9ed084648f417f60f21c0697f1.tar.gz"
+  version "2.0.1"
+  sha256 "41f4d779192dea82086c8da8b8cbd47ba99b52cd45fdf39c96b63f75f51293e1"
   license "Zlib"
   head "https://github.com/icculus/SDL_sound.git", branch: "main"
-
-  stable do
-    # Includes fixes for CMake, just ahead of the release tag
-    url "https://github.com/icculus/SDL_sound/archive/06c8946983ca9b9ed084648f417f60f21c0697f1.tar.gz"
-    sha256 "41f4d779192dea82086c8da8b8cbd47ba99b52cd45fdf39c96b63f75f51293e1"
-    version "2.0.1"
-  end
 
   depends_on "cmake" => :build
   depends_on "libmodplug"
@@ -117,10 +114,9 @@ class Sdl2Sound < Formula
          https://icculus.org/SDL_sound/
     EOS
     if OS.mac?
-      space = " "
       expected += <<~EOS
 
-        #{space}* Decode audio through Core Audio through
+        \ * Decode audio through Core Audio through
            File extension "aif"
            File extension "aiff"
            File extension "aifc"
