@@ -13,12 +13,12 @@ class Wireshark < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "2750c5fd1aa4db267b99c916967e5810c8bb6d2f1ed4f87961a67003500a7dc1"
-    sha256 arm64_big_sur:  "aca403fe7d74ab00d6e82fab5157d01409ae5568a79e6598424a291f78098720"
-    sha256 monterey:       "33db69c67599f9b81a85e257ab07660beeb4d78bf9ea21ca6cee7edb787ddd7b"
-    sha256 big_sur:        "f7eead53b95144a4b39b6a98e000602a63b7e2b33b2cb61b968fbba9ff652eca"
-    sha256 catalina:       "0e8d964c02226e998a208c0cca9ef0dadaf9ebefbb19bb1ec9aae51731d71141"
-    sha256 x86_64_linux:   "ca3913d3dae139bedc50bdac5af4a3139baac816df1e65d9f571b8f21a39bfb2"
+    sha256 arm64_monterey: "59c21886f999452a3117f8d4020d3d0910bb3af82306f29f376a762d98f590b0"
+    sha256 arm64_big_sur:  "493b3af8670cea6b03b5f8784bad6027a3459b5a82e83dfa0267fc0fd0897bba"
+    sha256 monterey:       "c0c22bd223551f83b38560827588909a704f9751fe30f3abeb5b9e503c39c2a4"
+    sha256 big_sur:        "e56ef121514786e41c7e944dfde4b08a4de66ad60a253960c0b47ed2fefb4a47"
+    sha256 catalina:       "9ba04871c84ed5548304b2707f695a9849ee444d33a43ce22cef223ed6b06882"
+    sha256 x86_64_linux:   "0c40df575d629c1f8174fcd36fdb5a17fcb5b34e199cc09ab5e64a2131431550"
   end
 
   depends_on "cmake" => :build
