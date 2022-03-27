@@ -30,6 +30,7 @@ class Xsane < Formula
   end
 
   def install
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if OS.mac?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
