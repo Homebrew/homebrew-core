@@ -12,12 +12,12 @@ class Cadical < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fba92fd3b9fd396ef6af40f719f5f65e00af68f1689fc5d148f2e0372d52c0fc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc60f414d905e5ee39f875b62737bfd20efc49167f82c0f843482266e9c61687"
-    sha256 cellar: :any_skip_relocation, monterey:       "e5c1c3c8005992e5417c44d7336a0897fd95f1063403112020368869ac8aa987"
-    sha256 cellar: :any_skip_relocation, big_sur:        "131d790150f919a92dae5c03146329d5b817cbac67c1fba45d5429d8dae085eb"
-    sha256 cellar: :any_skip_relocation, catalina:       "b8f42f3bc6f87b5f83afb425a1b404d489d35f52c55e68925b2d4398e5e3be94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "649f8f12906a0c307cebfd28cd1a107eca9901638ad3ca0999789827f83550da"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "56c14010ece80c5889af1c9f4f87b0e7890dad48a686c8f5c8430299812eaf48"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2ede739d74122cd47e687aab34bcaae1ed69e0c7ff41e2b8390befd0c959d31"
+    sha256 cellar: :any_skip_relocation, monterey:       "bec982b9cd3bd2ffe04b0226dd34cdde9278f1fe54184fde851d9648b0932cee"
+    sha256 cellar: :any_skip_relocation, big_sur:        "abf51a356e0c2567a306981f4178a76279169e7040fdb0cbed914c5ef0f67c66"
+    sha256 cellar: :any_skip_relocation, catalina:       "b31d7cb63660964c6382e78f49065b67a106ba19d7ba0b0e108e7438413bb058"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a508084a9b72046fda4f6cf6543b4402626aa14705b12813f73bd343edaf57f"
   end
 
   def install
