@@ -3,6 +3,7 @@ class Pngnq < Formula
   homepage "https://pngnq.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pngnq/pngnq/1.1/pngnq-1.1.tar.gz"
   sha256 "c147fe0a94b32d323ef60be9fdcc9b683d1a82cd7513786229ef294310b5b6e2"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
@@ -22,30 +23,33 @@ class Pngnq < Formula
   depends_on "pkg-config" => :build
   depends_on "libpng"
 
-  # Fixes compilation on OSX Lion
-  # png.h on Lion does not, in fact, include zlib.h
-  # See: https://sourceforge.net/p/pngnq/bugs/13/
-  # See: https://sourceforge.net/p/pngnq/bugs/14/
-  patch :DATA
+  uses_from_macos "zlib"
 
   def install
+    # Starting from libpng 1.5, the zlib.h header file
+    # is no longer included internally by libpng.
+    # See: https://sourceforge.net/p/pngnq/bugs/13/
+    # See: https://sourceforge.net/p/pngnq/bugs/14/
+    inreplace "src/rwpng.c",
+              "#include <stdlib.h>\n",
+              "#include <stdlib.h>\n#include <zlib.h>\n"
+
+    # The Makefile passes libpng link flags too early in the
+    # command invocation, resulting in undefined references to
+    # libpng symbols due to incorrect link order.
+    # See: https://sourceforge.net/p/pngnq/bugs/17/
+    inreplace "src/Makefile.in",
+              "AM_LDFLAGS = `libpng-config --ldflags` -lz\n",
+              "LDADD = `libpng-config --ldflags` -lz\n"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    cp test_fixtures("test.png"), "test.png"
+    system bin/"pngnq", "-v", "test.png"
+    assert_predicate testpath/"test-nq8.png", :exist?
+  end
 end
-
-
-__END__
-diff --git a/src/rwpng.c b/src/rwpng.c
-index aaa21fc..5324afe 100644
---- a/src/rwpng.c
-+++ b/src/rwpng.c
-@@ -31,6 +31,7 @@
-
- #include <stdio.h>
- #include <stdlib.h>
-+#include <zlib.h>
-
- #include "png.h"        /* libpng header; includes zlib.h */
- #include "rwpng.h"      /* typedefs, common macros, public prototypes */
