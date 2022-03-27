@@ -11,12 +11,12 @@ class Wcslib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3f6b7e50b0fd00675b6dd093b140533dc19f5b1e1298ea880fa1efb3d7939221"
-    sha256 cellar: :any,                 arm64_big_sur:  "9b0c79918950b07c469e52173c52a5c857cf2394fe99c730029b34799422d216"
-    sha256 cellar: :any,                 monterey:       "14aaea9146428150c32b6f26d25ed741e4861bd80812872e265d2fc3bc3e9e13"
-    sha256 cellar: :any,                 big_sur:        "9cd921c6a11d5075bd1624f08f6676fc608331012b9a26898cba8163738dfcce"
-    sha256 cellar: :any,                 catalina:       "be4df383d03584640fb3a40abf50c77ccc82e0157f8d15e08aec02b78564a9e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "779f37d90e851900aaa0e71ca51904101f40018e2aa1ca382c0a3b95fb4bf268"
+    sha256 cellar: :any,                 arm64_monterey: "31883ae8cbdfe7fef884b78c70c5bee9a3cd7fdbeb8595e0dd4dfc55c5df65aa"
+    sha256 cellar: :any,                 arm64_big_sur:  "b5c399159bdb649af8473d0bbff2719d67ca3bfdc9333c7f793d555254649364"
+    sha256 cellar: :any,                 monterey:       "96de43cfcba8574071dfdf55da0873b2b46ec925a3dca3f270eddffcf3f3f1b4"
+    sha256 cellar: :any,                 big_sur:        "d1c9a78ec527f051ea75c139da1531ab273ea536fe7968fba816f7461ad4c821"
+    sha256 cellar: :any,                 catalina:       "575a06b0f80ed5289859f3e064f27411ed1d525ba890b2f2db1f03ee066274f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df52267dfba060f5fe8823275235e5cacc7f9834fb2be32cc336f690c56c44a0"
   end
 
   depends_on "cfitsio"
