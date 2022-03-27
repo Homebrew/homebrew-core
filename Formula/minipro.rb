@@ -28,11 +28,7 @@ class Minipro < Formula
 
   test do
     output_minipro = shell_output("#{bin}/minipro 2>&1", 1)
-    if build.head?
-      assert_match "minipro version", output_minipro
-    else
-      assert_match "minipro version #{version}", output_minipro
-    end
+    assert_match "minipro version #{version}", output_minipro
     output_miniprohex = shell_output("#{bin}/miniprohex 2>&1", 1)
     assert_match "miniprohex by Al Williams", output_miniprohex
 
