@@ -4,6 +4,7 @@ class Minipro < Formula
   url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.5/minipro-0.5.tar.gz"
   sha256 "80ce742675f93fd4e2a30ab31a7e4f3fcfed8d56aa7cf9b3938046268004dae7"
   license "GPL-3.0-or-later"
+  head "https://gitlab.com/DavidGriffith/minipro.git", branch: "master"
 
   bottle do
     rebuild 1
