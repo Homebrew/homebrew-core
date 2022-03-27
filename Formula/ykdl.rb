@@ -8,13 +8,12 @@ class Ykdl < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "39aefc022aa9daea3338724628bf3002e33472493c10ffe9ff73f27607cd46aa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d82ad8983d2cd9766a29cd8f7415151460f5cabac0782b6d597a0d6bc4226b97"
-    sha256 cellar: :any_skip_relocation, monterey:       "bf0188f59eca3eac428d48b6ed0d4bd1903d76a8accb50231272ba4c17650b82"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ec883ed447e8ee74d10904010377223e0b9bf042ebbeeaa92ff869080e33d77b"
-    sha256 cellar: :any_skip_relocation, catalina:       "692e3b5bb7fabef1923b442cd22ac031cfabeeb6611c957dbfc2b093f86a2db9"
-    sha256 cellar: :any_skip_relocation, mojave:         "13076db8244670953c255a987d418b9246194bb0f77ebdb750cf39fb33298dde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45bc962c832fab796962b9822ae4e21715231da50e9cb98a2caff4c390984472"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3505a806ade983e0f51e361b436e084a2b63efba6b3fa245465eee7025126daa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "980647710cc5dcd8a7cc434ba431bcab6771c2d8e180f0724147c0ce30df2340"
+    sha256 cellar: :any_skip_relocation, monterey:       "83fa9f7ae1f8330b895d92f6a58375557558b6d4531398c662101609126d88e5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bff00bf48e76078d2d64ae55c730e2c0d4d5d4785436c9233fe1ba9f8764328d"
+    sha256 cellar: :any_skip_relocation, catalina:       "e505527a15ef8eb67df22cd6edfd6c113d7d51475f98d29e03a284ccf2b36148"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebe84e64f4690d6ede807ea533b9b4a145f9cfbeea74b26160535360f2e52454"
   end
 
   depends_on "python@3.10"
