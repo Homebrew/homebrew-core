@@ -14,9 +14,12 @@ class BalenaCli < Formula
   end
 
   bottle do
-    sha256 catalina:    "1d68785ff12ddc57c8a6e93a0b83d3613e29ccf0ae8331dc8197a06bd1f47336"
-    sha256 mojave:      "c2e8432c28bb7875f42d7815befa98001dbc72a65cffc121fb8dd6bf2d75290e"
-    sha256 high_sierra: "0e670f3cc482565ddc1a166316407fab2fd008f12128a06f7f73c3bcf07a641d"
+    sha256                               arm64_monterey: "e2361d555fd51932c89f181367bc6562a5533b289ba1b52863ad768554145320"
+    sha256                               arm64_big_sur:  "1da4ae81bd85c7bccd1cb020d7af1fbed697a3fd1eda5b6208d9bba217419bb2"
+    sha256                               monterey:       "4dd6dd5555bb834cc6caa6f72c81df711ce95d8d1b6fafa292f840114cc05df5"
+    sha256                               big_sur:        "91b914137dfdabdaf586bd45418e2cfca1872875efa8aff19f3bacb79add8f2b"
+    sha256                               catalina:       "bbd6eec46e7b64fcad2d4f8361aa3a6504f4c68388d5f091403f1245674adb0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "407a6b0b8083c6c68929fd4f82cc01c5dbd45bd2d85a36f9b802b527829ea9f1"
   end
 
   depends_on "node@14"
