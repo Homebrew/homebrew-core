@@ -12,7 +12,8 @@ class Zion < Formula
 
   depends_on "go" => :build
   depends_on "tor" => :build
-  depends_on "unzip" => :build
+
+  uses_from_macos "unzip" => :build
 
   def install
     system "./configure"
