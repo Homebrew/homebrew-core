@@ -12,6 +12,7 @@ class Jinx < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "0500e01d366b1f61c140570eeaae54003e30ad139b3f169d7dafdb08b2fd7b59"
     sha256 cellar: :any_skip_relocation, mojave:        "f12580f7319652bf5309ef767509d2f2c823bbedadeb8a85b2b6f35d0a65a747"
     sha256 cellar: :any_skip_relocation, high_sierra:   "22146d4fcd750935d4f125820ee3cb33088a977106fa630e22c7487e3a3a8132"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f8396e3e4b0e75717697ac35f01a0eab8a05b211e3238a415fa5420ae504cef"
   end
 
   depends_on "cmake" => :build
