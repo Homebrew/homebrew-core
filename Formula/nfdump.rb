@@ -20,6 +20,8 @@ class Nfdump < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
+  uses_from_macos "flex" => :build
+
   def install
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}", "--enable-readpcap"
