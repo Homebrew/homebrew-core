@@ -21,6 +21,7 @@ class Blast < Formula
 
   depends_on "lmdb"
 
+  uses_from_macos "cpio" => :build
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
@@ -29,7 +30,6 @@ class Blast < Formula
   end
 
   on_linux do
-    depends_on "libarchive" => :build
     depends_on "gcc"
   end
 
@@ -40,13 +40,17 @@ class Blast < Formula
   def install
     cd "c++" do
       # Boost is only used for unit tests.
-      args = %W[--prefix=#{prefix}
-                --with-bin-release
-                --with-mt
-                --with-strip
-                --with-experimental=Int8GI
-                --without-debug
-                --without-boost]
+      args = %W[
+        --prefix=#{prefix}
+        --with-bin-release
+        --with-mt
+        --with-strip
+        --with-experimental=Int8GI
+        --without-debug
+        --without-boost
+      ]
+      # Allow SSE4.2 on some platforms. The --with-bin-release sets --without-sse42
+      args << "--with-sse42" if Hardware::CPU.intel? && MacOS.version.requires_sse42?
 
       if OS.mac?
         args += ["OPENMP_FLAGS=-Xpreprocessor -fopenmp",
