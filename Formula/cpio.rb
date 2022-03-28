@@ -4,7 +4,8 @@ class Cpio < Formula
   url "https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2"
   mirror "https://ftpmirror.gnu.org/cpio/cpio-2.13.tar.bz2"
   sha256 "eab5bdc5ae1df285c59f2a4f140a98fc33678a0bf61bdba67d9436ae26b46f6d"
-  revision 2
+  license "GPL-3.0-or-later"
+  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "86744e53b4827c9247d7e4bb5a35c6bb1a018da2a060fae5d1bb3691ea2fd13a"
@@ -20,12 +21,14 @@ class Cpio < Formula
   keg_only :shadowed_by_macos, "macOS provides cpio"
 
   def install
-    system "./configure",
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
+
+    return if OS.mac?
+
+    # Delete rmt, which causes conflict with `gnu-tar`
+    (libexec/"rmt").unlink
+    (man8/"rmt.8").unlink
   end
 
   test do
