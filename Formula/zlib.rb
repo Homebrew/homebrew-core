@@ -35,6 +35,11 @@ class Zlib < Formula
     sha256 "68140a82582ede938159630bca0fb13a93b4bf1cb2e85b08943c26242cf8f3a6"
   end
 
+  patch do
+    url "https://github.com/madler/zlib/commit/80d086357a55b94a13e43756cf3e131f25eef0e4.patch?full_index=1"
+    sha256 "ba7056ea9a12b7d360990d8afb583cbabeb4beef8f7a5f9a350dbcb92499118e"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
