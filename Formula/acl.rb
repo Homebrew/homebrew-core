@@ -10,6 +10,10 @@ class Acl < Formula
     regex(/href=.*?acl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 x86_64_linux: "bda9616eeceada8e39117a143c7ab5a581e58d26c9a6c32acb930c07d8a934d8"
+  end
+
   depends_on "attr"
   depends_on :linux
 
