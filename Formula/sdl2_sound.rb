@@ -17,6 +17,7 @@ class Sdl2Sound < Formula
     args = std_cmake_args
     args += [
       "-DCMAKE_INSTALL_RPATH=#{rpath}",
+      "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}",
       "-DSDLSOUND_DECODER_WAV=TRUE",
       "-DSDLSOUND_DECODER_AIFF=TRUE",
       "-DSDLSOUND_DECODER_AU=TRUE",
@@ -144,6 +145,6 @@ class Sdl2Sound < Formula
            https://playcontrol.net
       EOS
     end
-    assert_equal expected.strip, shell_output("#{bin/"playsound"} --decoders").strip
+    assert_equal expected.strip, shell_output("#{bin}/playsound --decoders").strip
   end
 end
