@@ -59,7 +59,7 @@ class ClangFormat < Formula
                     "-DLLVM_EXTERNAL_PROJECTS=clang",
                     "-DLLVM_INCLUDE_BENCHMARKS=OFF",
                     *std_cmake_args
-    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "clang-format"
 
     git_clang_format = llvmpath/"tools/clang/tools/clang-format/git-clang-format"
     inreplace git_clang_format, %r{^#!/usr/bin/env python$}, "#!/usr/bin/env python3"
