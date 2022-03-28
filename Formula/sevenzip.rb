@@ -24,7 +24,7 @@ class Sevenzip < Formula
         ["gcc", "g"]
       end
 
-      system "make", "-f", "../../cmpl_#{mk_suffix}.mak"
+      system "make", "-f", "../../cmpl_#{mk_suffix}.mak", "DISABLE_RAR_COMPRESS=1"
 
       # Cherry pick the binary manually. This should be changed to something
       # like `make install' if the upstream adds an install target.
