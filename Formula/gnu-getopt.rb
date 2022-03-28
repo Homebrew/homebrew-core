@@ -1,8 +1,8 @@
 class GnuGetopt < Formula
   desc "Command-line option parsing utility"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.4.tar.xz"
-  sha256 "634e6916ad913366c3536b6468e7844769549b99a7b2bf80314de78ab5655b83"
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.38/util-linux-2.38.tar.xz"
+  sha256 "6d111cbe4d55b336db2f1fbeffbc65b89908704c01136371d32aa9bec373eb64"
   license "GPL-2.0-or-later"
 
   bottle do
