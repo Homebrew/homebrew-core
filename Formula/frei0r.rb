@@ -11,14 +11,12 @@ class Frei0r < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bbe34892f59b38e123a2749bc068933dbe1163427bc6124cdc7fad334fa04f57"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "284401af98f9f86f7f4aa8dd2a2cd7ccd22841decc2065d730b9811cc683cd3d"
-    sha256 cellar: :any_skip_relocation, monterey:       "682822c4f6f71ac68dc89db870e06dbdda7563a991652d3cc9b5808e3b818f74"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cafe9dbba970e60d275480465cf7f87b7847063fb2113e7fd862947de0735865"
-    sha256 cellar: :any_skip_relocation, catalina:       "5076041b5f3d76b94866ab2b97ad34523ee40cfa314e6f7d2bf460ce304de872"
-    sha256 cellar: :any_skip_relocation, mojave:         "5e23b93a7ff4a2ee64c5a969b17bf6a52329e6da17c0612b46aa2ceec3fb5b39"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "a6a4648e1ff6263616f532a4648e1eb56e68d510d04e768becb2caf5ca961e3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd92d047a4e4cf723f8b22eb120622bd026d7c016316b7dd15c61f787ca93924"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc29537f1ea00bd0f303886fa5819ef44890f0435b12276919c952104843247b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c45ba867a2cc39664a405db9cb2ee9f97289f101fff6be8ca9ba88dcfcb19f8e"
+    sha256 cellar: :any_skip_relocation, monterey:       "27768088554351600fcc15987a3671cf7cd133533c41fad06776383c4f96cb2c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e97f700c8a5a2df70aeb941217314d313df4f343992c9dfa8a4f1b80300add27"
+    sha256 cellar: :any_skip_relocation, catalina:       "0287b2caef7477439e9e07420e68ba794524b9348807c36903d5c22caf84134e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d33e8b0bd9932b996d6d2f612b4d1484ca9c41466b2c5df1e3db6fcbebf5bf6"
   end
 
   depends_on "cmake" => :build
