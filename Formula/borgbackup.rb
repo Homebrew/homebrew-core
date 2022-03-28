@@ -23,6 +23,10 @@ class Borgbackup < Formula
   depends_on "xxhash"
   depends_on "zstd"
 
+  on_linux do
+    depends_on "acl"
+  end
+
   resource "msgpack" do
     url "https://files.pythonhosted.org/packages/61/3c/2206f39880d38ca7ad8ac1b28d2d5ca81632d163b2d68ef90e46409ca057/msgpack-1.0.3.tar.gz"
     sha256 "51fdc7fb93615286428ee7758cecc2f374d5ff363bdd884c7ea622a7a327a81e"
