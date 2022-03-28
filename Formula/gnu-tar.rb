@@ -5,6 +5,7 @@ class GnuTar < Formula
   mirror "https://ftpmirror.gnu.org/tar/tar-1.34.tar.gz"
   sha256 "03d908cf5768cfe6b7ad588c921c6ed21acabfb2b79b788d1330453507647aed"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be51eda1c4fe90214822f47ff0e49b3e6cf87791890cd69bb198ef6fb9ac082d"
@@ -17,11 +18,15 @@ class GnuTar < Formula
   end
 
   head do
-    url "https://git.savannah.gnu.org/git/tar.git"
+    url "https://git.savannah.gnu.org/git/tar.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
+  end
+
+  on_linux do
+    depends_on "acl"
   end
 
   def install
@@ -47,12 +52,11 @@ class GnuTar < Formula
     system "./configure", *args
     system "make", "install"
 
-    if OS.mac?
-      # Symlink the executable into libexec/gnubin as "tar"
-      (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
-      (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
-    end
+    return unless OS.mac?
 
+    # Symlink the executable into libexec/gnubin as "tar"
+    (libexec/"gnubin").install_symlink bin/"gtar" => "tar"
+    (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
     libexec.install_symlink "gnuman" => "man"
   end
 
