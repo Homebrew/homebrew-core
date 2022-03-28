@@ -1,10 +1,9 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/v0.8.0.tar.gz"
-  sha256 "4a08e914c17204cb3ab303b62362ca30d44cf457b3b1d7bde117b8ab4cb2fa64"
+  url "https://github.com/killercup/cargo-edit/archive/v0.9.0.tar.gz"
+  sha256 "96c231b30339b1a05444c8faa036be84ecbb7f8eaead95c77de9a05f0c190b64"
   license "MIT"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7d091fde5db86f4ba07d5423e04ef2f24737b8bd6f512c55dfad03e7f3cec7d6"
@@ -18,19 +17,6 @@ class CargoEdit < Formula
   depends_on "libgit2"
   depends_on "openssl@1.1"
   depends_on "rust" # uses `cargo` at runtime
-
-  # Fix build with newer crates-index needed for libgit2 fix.
-  # TODO: Remove in the next release
-  patch do
-    url "https://github.com/killercup/cargo-edit/commit/2c25b5fbcd0924ac0f962a799bcfdf77b168410b.patch?full_index=1"
-    sha256 "45ad9a6e2a898320a9653327949db854a4c9ee1f1b3ca9da03109662950da1af"
-  end
-
-  # Fix issue with libgit2 >= 1.4 and git2-rs < 0.14.
-  # Issue ref: https://github.com/killercup/cargo-edit/issues/641
-  # Issue ref: https://github.com/rust-lang/git2-rs/issues/813
-  # TODO: Remove in the next release
-  patch :DATA
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -61,24 +47,3 @@ class CargoEdit < Formula
     end
   end
 end
-
-__END__
-diff --git a/Cargo.toml b/Cargo.toml
-index 18c744ce..177a71dd 100644
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -51,12 +51,12 @@ required-features = ["set-version"]
- [dependencies]
- atty = { version = "0.2.14", optional = true }
- cargo_metadata = "0.14.0"
--crates-index = "0.18.1"
-+crates-index = "0.18.7"
- dunce = "1.0"
- dirs-next = "2.0.0"
- env_proxy = "0.4.1"
- error-chain = "0.12.4"
--git2 = "0.13.22"
-+git2 = "0.14"
- hex = "0.4.2"
- regex = "1.3.9"
- serde = "1.0.116"
