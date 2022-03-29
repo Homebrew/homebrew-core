@@ -90,13 +90,9 @@ class Libhandy < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     # Don't have X/Wayland in Docker
-    on_macos do
-      system "./test"
-    end
+    system "./test" if OS.mac?
   end
 end
