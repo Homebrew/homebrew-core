@@ -100,11 +100,10 @@ class Gtksourceview4 < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
+    if OS.mac?
       flags << "-lintl"
       flags << "-lgtksourceview-4.0"
-    end
-    on_linux do
+    else
       flags << "-lgtksourceview-4"
     end
     system ENV.cc, "test.c", "-o", "test", *flags
