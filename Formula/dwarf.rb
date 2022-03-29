@@ -41,12 +41,10 @@ class Dwarf < Formula
       }
     EOS
     system ENV.cc, "test.c", "-o", "test"
-    on_macos do
+    if OS.mac?
       output = shell_output("#{bin}/dwarf -c 'pp $mac' test")
       assert_equal "magic: 0xfeedfacf (-17958193)", output.lines[0].chomp
-    end
-    on_linux do
-      # pp may not be installed on Linux, test something else
+    else
       assert_match "main header: elf", shell_output("#{bin}/dwarf -p test")
     end
   end
