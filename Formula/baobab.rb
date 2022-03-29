@@ -1,8 +1,8 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://wiki.gnome.org/Apps/Baobab"
-  url "https://download.gnome.org/sources/baobab/41/baobab-41.0.tar.xz"
-  sha256 "cad6278d2dcc80c84b57105aa5bb58d8a30ce98d6fabd767519ddb86c857e855"
+  url "https://download.gnome.org/sources/baobab/42/baobab-42.0.tar.xz"
+  sha256 "4b1aabe6bab1582b3fea79a2829bce7f2415bb6e5062f25357aeedd5317a50dc"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -20,9 +20,9 @@ class Baobab < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "adwaita-icon-theme"
-  depends_on "gtk+3"
+  depends_on "gtk4"
   depends_on "hicolor-icon-theme"
-  depends_on "libhandy"
+  depends_on "libadwaita"
 
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
@@ -36,7 +36,7 @@ class Baobab < Formula
 
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do
