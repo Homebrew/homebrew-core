@@ -24,9 +24,10 @@ class Ttf2eot < Formula
   end
 
   test do
-    font_name = (MacOS.version >= :catalina) ? "Arial Unicode" : "Arial"
-    font_dir = "/Library/Fonts"
-    on_linux do
+    if OS.mac?
+      font_name = (MacOS.version >= :catalina) ? "Arial Unicode" : "Arial"
+      font_dir = "/Library/Fonts"
+    else
       font_name = "DejaVuSans"
       font_dir = "/usr/share/fonts/truetype/dejavu"
     end
