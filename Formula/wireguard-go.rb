@@ -28,11 +28,10 @@ class WireguardGo < Formula
 
   test do
     prog = "#{bin}/wireguard-go -f notrealutun 2>&1"
-    on_macos do
+    if OS.mac?
       assert_match "be utun", pipe_output(prog)
-    end
+    else
 
-    on_linux do
       assert_match "Running wireguard-go is not required because this", pipe_output(prog)
     end
   end
