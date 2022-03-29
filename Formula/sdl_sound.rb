@@ -1,10 +1,9 @@
 class SdlSound < Formula
   desc "Library to decode several popular sound file formats"
   homepage "https://icculus.org/SDL_sound/"
-  url "https://icculus.org/SDL_sound/downloads/SDL_sound-1.0.3.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/s/sdl-sound1.2/sdl-sound1.2_1.0.3.orig.tar.gz"
-  sha256 "3999fd0bbb485289a52be14b2f68b571cb84e380cc43387eadf778f64c79e6df"
-  revision 1
+  url "https://github.com/icculus/SDL_sound/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "3527f05b7a3f00d8523cf25671598c85568b4e8b615ce7570113b44cbb7d555c"
+  license "Zlib"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3d4f5a23c1903de8dd7af9d9c736213c0d9acc103b842b87bced96d4d1f271aa"
@@ -21,28 +20,45 @@ class SdlSound < Formula
   end
 
   head do
-    url "https://github.com/icculus/SDL_sound.git", branch: "stable-1.0"
+    url "https://github.com/icculus/SDL_sound.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
-  deprecate! date: "2013-08-17", because: :deprecated_upstream
-
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "libogg"
-  depends_on "libvorbis"
   depends_on "sdl"
 
   def install
-    system "./autogen.sh" if build.head?
+    inreplace "CMakeLists.txt",
+    'sdlsound_decoder_option(COREAUDIO "CoreAudio" "various audio formats")',
+    'sdlsound_decoder_option(COREAUDIO "CoreAudio" "various audio formats" TRUE)'
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-sdltest"
-    system "make"
-    system "make", "install"
+    args = [
+      "-DSDLSOUND_DECODER_COREAUDIO=ON",
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    pkgshare.install "examples"
+  end
+
+  test do
+    flags = %W[
+      -I#{include}/SDL2
+      -I#{Formula["sdl2"].include}/SDL2
+      -L#{lib}
+      -L#{Formula["sdl2"].lib}
+      -lSDL2_sound
+      -lSDL2
+    ]
+
+    Dir["#{pkgshare}/examples/*.c"].each do |r|
+      system ENV.cc, r, "-o", "#{File.basename(r, ".c")}.out", *flags
+    end
   end
 end
