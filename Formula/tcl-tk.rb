@@ -141,10 +141,8 @@ class TclTk < Formula
   test do
     assert_equal "honk", pipe_output("#{bin}/tclsh", "puts honk\n").chomp
 
-    on_linux do
-      # Fails with: no display name and no $DISPLAY environment variable
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # Fails with: no display name and no $DISPLAY environment variable
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     test_itk = <<~EOS
       # Check that Itcl and Itk load, and that we can define, instantiate,
