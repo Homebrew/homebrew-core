@@ -92,9 +92,10 @@ class Samba < Formula
   end
 
   test do
-    smbd = "#{sbin}/smbd"
-    on_macos do
-      smbd = "#{sbin}/samba-dot-org-smbd"
+    smbd = if OS.mac?
+      "#{sbin}/smbd"
+    else
+      "#{sbin}/samba-dot-org-smbd"
     end
 
     system smbd, "--build-options", "--configfile=/dev/null"
