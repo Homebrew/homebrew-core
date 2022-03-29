@@ -8,14 +8,12 @@ class Cpio < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "86744e53b4827c9247d7e4bb5a35c6bb1a018da2a060fae5d1bb3691ea2fd13a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88bef9fc6dd8b882e98bf245b7a9cca1a44155d7987725a547bd63877fa216da"
-    sha256 cellar: :any_skip_relocation, monterey:       "10f927b46fc83ef07e40f32e82a9a9588e9a442a74d6651d252bd5363c8c4446"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5536f0e39997060791f3b7defe996e48e163068342a32340903783a74220347b"
-    sha256 cellar: :any_skip_relocation, catalina:       "1e2e8f240d9455593a653d4cc0759ee1a0596fe88641ad6a79d652f6596bb21b"
-    sha256 cellar: :any_skip_relocation, mojave:         "566b73ec056c1441e84e5be4d8f22ae0e9eec609e340d56d9ba22ebefaa273c6"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "35cc00b8c97558822cc49cca1f40ba7a3a65af06be17317721ff471414c6f430"
-    sha256                               x86_64_linux:   "cc0acbb967d8ec3b91bda22a59afa341569d0b4e6635cd0e4050e364a6bc2524"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f22c470e6b85be477298907f64e9d6c0c8261d81f244ee9f7977b37f64bc2d53"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f0f5625adf815f5dcbce9016b20df0ea0f41475343954e057422f9bd006ab87"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b04d03bdfdb091451d3c6602e7dfbefe18c3a719c5382c6636245b9d5403c91"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dc6d56c513f95660d835533ad45717ac448767692216f22f39971e28da045bb0"
+    sha256 cellar: :any_skip_relocation, catalina:       "63775ad863bde22691bf678e67982fbb21488c2e86843133bd34461aa5a61586"
+    sha256                               x86_64_linux:   "42071ea523978d2b2ea5a5129cb29084fef728f270577709fc1595d5a8cfbef2"
   end
 
   keg_only :shadowed_by_macos, "macOS provides cpio"
