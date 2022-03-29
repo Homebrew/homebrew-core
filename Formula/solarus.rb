@@ -8,12 +8,13 @@ class Solarus < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "e02ef9bfa00c637a6e43e91eebdcb064a85465c72bfd2dbab0344512400bc614"
-    sha256 cellar: :any, arm64_big_sur:  "f3b35b5252b2ee2c4068f7f4e2b952a1f88cbc9cacd4d84fb19680cea344bd7e"
-    sha256 cellar: :any, monterey:       "820ab24962729c085bad240f89d02f7a313a33b0ed7a7fc67f6ddc02e07b030d"
-    sha256 cellar: :any, big_sur:        "21eb9b511e6d49a1f17830ba8a7adcab4f0e3265c63f02679efba837ff77c55b"
-    sha256 cellar: :any, catalina:       "819dc6f84e1b4e56ba679d8b798412b2a3f71350c0923cf340ab49e76075e202"
-    sha256 cellar: :any, mojave:         "417dff62c280dd7e9bb742eef82fbae408a6e5fefcf427daf8d2af5955cc660a"
+    sha256 cellar: :any,                 arm64_monterey: "e02ef9bfa00c637a6e43e91eebdcb064a85465c72bfd2dbab0344512400bc614"
+    sha256 cellar: :any,                 arm64_big_sur:  "f3b35b5252b2ee2c4068f7f4e2b952a1f88cbc9cacd4d84fb19680cea344bd7e"
+    sha256 cellar: :any,                 monterey:       "820ab24962729c085bad240f89d02f7a313a33b0ed7a7fc67f6ddc02e07b030d"
+    sha256 cellar: :any,                 big_sur:        "21eb9b511e6d49a1f17830ba8a7adcab4f0e3265c63f02679efba837ff77c55b"
+    sha256 cellar: :any,                 catalina:       "819dc6f84e1b4e56ba679d8b798412b2a3f71350c0923cf340ab49e76075e202"
+    sha256 cellar: :any,                 mojave:         "417dff62c280dd7e9bb742eef82fbae408a6e5fefcf427daf8d2af5955cc660a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c16e58513972223e10041e08fb72653fbc8ea1c7f85eb27d2aa4ae841e8183d"
   end
 
   depends_on "cmake" => :build
