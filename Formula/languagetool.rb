@@ -13,12 +13,12 @@ class Languagetool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1c8739494cda61d938cf4302d222f0854e8691a892c0537eb450e88101eee2c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f45b959adfa17dadeaf94774ccab302dc8d57d4e96b2f5170e345712d4912bf"
-    sha256 cellar: :any_skip_relocation, monterey:       "2fb5d941ec7f34f5be3b078c633c7075b486a4402ec5633339a36fd441bd517b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ad70857fd5e0bd6a1ceb6779286fb25ee4d7c1a1cc9b964ef8ef582aad4c473d"
-    sha256 cellar: :any_skip_relocation, catalina:       "29ff4bd293e7ac389c1c0db6ebe76c87719a9426271d9b4ec365d022e5fcf5b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2da21638d0ce92a4fe5c72b4f2e00ff92e33703212ec18c4c76468a0921b9d8d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "76b6e84cbcaf6e3cff9919db0bc2c878edcedf443c121440a0a42bd4e6628e44"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "52da62ec625153b1f785103f1a3e3086f3925123a0a3f34f3203b6d2fa7707f2"
+    sha256 cellar: :any_skip_relocation, monterey:       "721a4898a93243d3ea9c3ca20bc5901b77e914d4bc98d3c4b943212adf1986b8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "03b221baba14ee0e13a6d57d1ffda7b20a657c425fd488309b0e16fec2069cac"
+    sha256 cellar: :any_skip_relocation, catalina:       "42bff670a922542770ea16acd7bc30e84e61b3e7614c4e895eec02d823b7ebfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd8d29c7aac9805ccefc9ee6810197a5350bb6c1ebb701bfc7fd71c9333e7576"
   end
 
   depends_on "maven" => :build
