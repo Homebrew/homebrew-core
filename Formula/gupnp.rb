@@ -69,9 +69,10 @@ class Gupnp < Formula
       }
     EOS
 
-    libxml2 = "-I#{MacOS.sdk_path}/usr/include/libxml2"
-    on_linux do
-      libxml2 = "-I#{Formula["libxml2"].include}/libxml2"
+    libxml2 = if OS.mac?
+      "-I#{MacOS.sdk_path}/usr/include/libxml2"
+    else
+      "-I#{Formula["libxml2"].include}/libxml2"
     end
 
     system ENV.cc, testpath/"test.c", "-I#{include}/gupnp-1.2", "-L#{lib}", "-lgupnp-1.2",
