@@ -73,9 +73,7 @@ class Libgusb < Formula
       -lusb-1.0
       -lgusb
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
