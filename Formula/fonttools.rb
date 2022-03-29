@@ -24,11 +24,10 @@ class Fonttools < Formula
   end
 
   test do
-    on_macos do
+    if OS.mac?
       cp "/System/Library/Fonts/ZapfDingbats.ttf", testpath
       system bin/"ttx", "ZapfDingbats.ttf"
-    end
-    on_linux do
+    else
       assert_match "usage", shell_output("#{bin}/ttx -h")
     end
   end
