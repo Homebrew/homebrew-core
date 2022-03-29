@@ -12,14 +12,12 @@ class Jython < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f573f01ccb166b2988aef09b26f6a4a6e88bd8919c138fde090fad93698d053"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f573f01ccb166b2988aef09b26f6a4a6e88bd8919c138fde090fad93698d053"
-    sha256 cellar: :any_skip_relocation, monterey:       "72783566b912198b75aad24a009b77e1c70f61888aac0735012b4cf1541d3741"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b6d2e1a6bc8a60010eb0357f7ca775160930005f2270f511f867b4341aa47a40"
-    sha256 cellar: :any_skip_relocation, catalina:       "ecac33d533e405e4bd45cdf7023cd334fa655e17446cbfa5231dbf1e580166c5"
-    sha256 cellar: :any_skip_relocation, mojave:         "3bd7cbb55035525c113c7608b9e18215b1a214c0f21e45203c900029765ba09f"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "644da593101c796e9b39e10ad7cd65f96e8e0d9ccf19109c8337a1f262ef005a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d646b100ffc6a75064902f9db2918cad5471df3e0e352c37725198b55f0f09f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "df7449a61b5503533837daa4e6b482433846bcd7711fb6a217ffe3186c359870"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "df7449a61b5503533837daa4e6b482433846bcd7711fb6a217ffe3186c359870"
+    sha256 cellar: :any_skip_relocation, monterey:       "839d5567f080b613bfd533136098e600f6364b371aad688dd2427dd33a7eea1f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "774e319da7e0c604ac7c6bd894aee3e4bebe83a94d0c87ec847e63ba3f4dca33"
+    sha256 cellar: :any_skip_relocation, catalina:       "01daf9373cdf4140ff89acb5dd8b6a3537eae8cc6a9d3200cc8dddff83ce9e0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2a44cf702b9351f1687ada2ac71f552e641d3230fe39fccd30a101c40946f7f"
   end
 
   depends_on "openjdk"
