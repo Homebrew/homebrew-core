@@ -28,10 +28,8 @@ class Zenity < Formula
   end
 
   test do
-    on_linux do
-      # (zenity:30889): Gtk-WARNING **: 13:12:26.818: cannot open display
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # (zenity:30889): Gtk-WARNING **: 13:12:26.818: cannot open display
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     system bin/"zenity", "--help"
   end
