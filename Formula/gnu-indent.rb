@@ -57,12 +57,12 @@ class GnuIndent < Formula
 
   test do
     (testpath/"test.c").write("int main(){ return 0; }")
-    on_macos do
-      system "#{bin}/gindent", "test.c"
+    binary = if OS.mac?
+      "#{bin}/gindent"
+    else
+      "#{bin}/indent"
     end
-    on_linux do
-      system "#{bin}/indent", "test.c"
-    end
+    system binary, "test.c"
     assert_equal File.read("test.c"), <<~EOS
       int
       main ()
