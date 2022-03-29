@@ -48,10 +48,7 @@ class PythonTkAT39 < Formula
   test do
     system Formula["python@3.9"].bin/"python3", "-c", "import tkinter"
 
-    on_linux do
-      # tk does not work in headless mode
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     system Formula["python@3.9"].bin/"python3", "-c", "import tkinter; root = tkinter.Tk()"
   end
