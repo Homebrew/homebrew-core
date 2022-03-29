@@ -207,9 +207,10 @@ class Buku < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
 
-    expect = "/usr/bin/expect"
-    on_linux do
-      expect = Formula["expect"].opt_bin/"expect"
+    expect = if OS.mac?
+      "/usr/bin/expect"
+    else
+      Formula["expect"].opt_bin/"expect"
     end
 
     # Firefox exported bookmarks file
