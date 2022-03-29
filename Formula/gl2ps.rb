@@ -34,9 +34,10 @@ class Gl2ps < Formula
   end
 
   test do
-    glu = "GLUT"
-    on_linux do
-      glu = "GL"
+    glu = if OS.mac?
+      "GLUT"
+    else
+      "GL"
     end
     (testpath/"test.c").write <<~EOS
       #include <#{glu}/glut.h>
@@ -68,11 +69,10 @@ class Gl2ps < Formula
         return 0;
       }
     EOS
-    on_macos do
+    if OS.mac?
       system ENV.cc, "-L#{lib}", "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT",
                      "-framework", "Cocoa", "test.c", "-o", "test"
-    end
-    on_linux do
+    else
       system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lgl2ps", "-lglut", "-lGL"
 
       # Fails without an X11 display: freeglut (./test): failed to open display ''
