@@ -5,6 +5,10 @@ class Jdtls < Formula
   sha256 "b8af1925cb3b817fd1061e00a45ffbc6aca76819d8b2f5939626009ebf432fc7"
   license "EPL-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "cca45acde6eb4d63b7f91b70c010b9804809bcdb4efbe22f7c190e1e5c5fc11b"
+  end
+
   depends_on "openjdk@11"
   depends_on "python@3.9"
 
