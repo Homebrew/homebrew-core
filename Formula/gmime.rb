@@ -75,9 +75,7 @@ class Gmime < Formula
       -lgmime-3.0
       -lgobject-2.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "-o", "test", "test.c", *flags
     system "./test"
   end
