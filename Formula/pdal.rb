@@ -18,11 +18,11 @@ class Pdal < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "8b2d3dd5e4390a118e9e35980cef058f079ba3a0d1e25ccbd753f3d322e65870"
-    sha256 arm64_big_sur:  "724be1381656a8f68eb38d2380d998801e94103a11a7a1b08fddc294c570c5c1"
-    sha256 monterey:       "f839188c4a7a921115f1cc1e044d13206472cfb32bd06ebafe5d13269143227c"
-    sha256 big_sur:        "0a6c761f34ba44be7fa15ef1c08c7129940a8a848bfcd898fec8d7665f2e3990"
-    sha256 catalina:       "cc81422d2d7108f16bc0f0262781caa633b299afd6f6bab3cc0bfd8a841a5eb3"
+    sha256 arm64_monterey: "65769ba2cb7f1313a735c2fd515cf286ae3ceb823734e60881f52aa410b8023d"
+    sha256 arm64_big_sur:  "e60a5c2ba1b023d78c238ad1e01131ff5ba1aab26ad168c9ece60a64efdf571b"
+    sha256 monterey:       "f3df8b0aa4884651da6b2d7969ab3956c87c5be7ffdbf84ec1dac4a51ee36c2b"
+    sha256 big_sur:        "245777c47ac3cfecf7161c9769635f7b9946c16d54e7919bc05d36cf351f4424"
+    sha256 catalina:       "98a4bb40444a2b46a15c7f65c2962e78cfd342f45158265e0a16ef2ae2bc7324"
   end
 
   depends_on "cmake" => :build
