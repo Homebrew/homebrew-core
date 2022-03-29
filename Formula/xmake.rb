@@ -27,9 +27,7 @@ class Xmake < Formula
   end
 
   test do
-    on_linux do
-      ENV["XMAKE_ROOT"] = "y" if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    ENV["XMAKE_ROOT"] = "y" if OS.linux? && (ENV["HOMEBREW_GITHUB_ACTIONS"])
     system bin/"xmake", "create", "test"
     cd "test" do
       system bin/"xmake"
