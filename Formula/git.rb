@@ -183,7 +183,7 @@ class Git < Formula
     assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip
 
     # Check Net::SMTP or Net::SMTP::SSL works for git-send-email
-    on_macos do
+    if OS.mac?
       %w[foo bar].each { |f| touch testpath/f }
       system bin/"git", "add", "foo", "bar"
       system bin/"git", "commit", "-a", "-m", "Second Commit"
