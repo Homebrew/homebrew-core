@@ -81,10 +81,9 @@ class Unzip < Formula
     (testpath/"test2").write "Bonjour!"
     (testpath/"test3").write "Hej!"
 
-    on_macos do
+    if OS.mac?
       system "/usr/bin/zip", "test.zip", "test1", "test2", "test3"
-    end
-    on_linux do
+    else
       system Formula["zip"].bin/"zip", "test.zip", "test1", "test2", "test3"
     end
     %w[test1 test2 test3].each do |f|
