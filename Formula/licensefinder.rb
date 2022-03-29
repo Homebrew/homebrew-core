@@ -27,7 +27,8 @@ class Licensefinder < Formula
   test do
     gem_home = testpath/"gem_home"
     ENV["GEM_HOME"] = gem_home
-    system "gem", "install", "bundler"
+    gem_command = (MacOS.version <= :mojave) ? Formula["ruby@2.7"].bin/"gem" : "gem"
+    system gem_command, "install", "bundler"
 
     mkdir "test"
     (testpath/"test/Gemfile").write <<~EOS
