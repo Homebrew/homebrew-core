@@ -1,10 +1,10 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-3.22.3.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/cmake-3.22.3.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.22.3.tar.gz"
-  sha256 "9f8469166f94553b6978a16ee29227ec49a2eb5ceb608275dec40d8ae0d1b5a0"
+  url "https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-3.23.0.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.23.0.tar.gz"
+  sha256 "5ab0a12f702f44013be7e19534cd9094d65cc9fe7b2cd0f8c9e5318e0fe4ac82"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
@@ -58,10 +58,6 @@ class Cmake < Formula
                                        "-DCMake_BUILD_LTO=ON"
     system "make"
     system "make", "install"
-
-    # Remove deprecated and unusable binary
-    # https://gitlab.kitware.com/cmake/cmake/-/issues/20235
-    (pkgshare/"Modules/Internal/CPack/CPack.OSXScriptLauncher.in").unlink
   end
 
   def caveats
