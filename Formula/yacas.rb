@@ -3,7 +3,7 @@ class Yacas < Formula
   homepage "https://www.yacas.org/"
   url "https://github.com/grzegorzmazur/yacas/archive/v1.9.1.tar.gz"
   sha256 "36333e9627a0ed27def7a3d14628ecaab25df350036e274b37f7af1d1ff7ef5b"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9f0be1f32ea2b38ee4066785a1b32d0872a526f9808a9bf5c1b001d044a187b7"
@@ -16,7 +16,15 @@ class Yacas < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on xcode: :build
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with :gcc do
+    version "6"
+    cause "needs std::string_view"
+  end
 
   def install
     cmake_args = std_cmake_args + [
@@ -25,15 +33,9 @@ class Yacas < Formula
       "-DCMAKE_C_COMPILER=#{ENV.cc}",
       "-DCMAKE_CXX_COMPILER=#{ENV.cxx}",
     ]
-    mkdir "build" do
-      system "cmake", "..", "-G", "Xcode", *cmake_args
-      ln_s "../libyacas/Release", "cyacas/libyacas_mp/Release"
-      xcodebuild "-project", "yacas.xcodeproj", "-scheme", "ALL_BUILD",
-                 "-configuration", "Release", "SYMROOT=build/cyacas/libyacas"
-    end
-    bin.install "build/cyacas/libyacas/Release/yacas"
-    lib.install "build/cyacas/libyacas/Release/libyacas.a",
-                "build/cyacas/libyacas/Release/libyacas_mp.a"
+    system "cmake", "-S", ".", "-B", "build", *cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "scripts"
   end
 
