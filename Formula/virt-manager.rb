@@ -92,13 +92,20 @@ class VirtManager < Formula
   end
 
   test do
-    pid = fork do
+    libvirt_pid = fork do
+      exec Formula["libvirt"].opt_sbin/"libvirtd", "-f", Formula["libvirt"].etc/"libvirt/libvirtd.conf"
+    end
+
+    virt_manager_pid = fork do
       exec bin/"virt-manager -c test:///default --debug 2> test.log"
     end
+
     sleep 10
     system "grep", "-F", "conn=test:///default changed to state=Active", "test.log"
   ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    Process.kill("TERM", libvirt_pid)
+    Process.kill("TERM", virt_manager_pid)
+    Process.wait(libvirt_pid)
+    Process.wait(virt_manager_pid)
   end
 end
