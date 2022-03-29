@@ -97,10 +97,8 @@ class Abuse < Formula
   end
 
   test do
-    on_linux do
-      # Fails in Linux CI with "Unable to initialise SDL : No available video device"
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # Fails in Linux CI with "Unable to initialise SDL : No available video device"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     system "#{bin}/abuse", "--help"
   end
