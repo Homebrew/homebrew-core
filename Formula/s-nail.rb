@@ -10,12 +10,12 @@ class SNail < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "c5ace160fdc2671c6a1c52ea2760e8f614c9a690ae176b7fdb20c75d59e81c60"
-    sha256 arm64_big_sur:  "15b9e3df58b3e03c15e04956712a79b24741aeb0d123bb8d9dd1102ca0a13e5c"
-    sha256 monterey:       "ae61db0f36b0994a31987e3f458fd71065a9bc80960307259eda7181f5126ba2"
-    sha256 big_sur:        "1d8cc34a179d0a8644db640370e1519c19eb6283c2eff81828d6a2116fa7ed1d"
-    sha256 catalina:       "1843b6d24d7f7b1a7723a140bf8c85a810324ef7adb0b1020e8201bd29283914"
-    sha256 x86_64_linux:   "0ec52dce52c2c2cd9e606b969b06f6fd3b71b15250b5acd05187971c820ebef6"
+    sha256 arm64_monterey: "c76c42e8a887cf6ab33dbcecfd0644c6bc6aef38e27234bdf97e56aac6cd5372"
+    sha256 arm64_big_sur:  "f3124f53d46be06a975bd71b9ddebb1eead0104094a32c97e55a8e6f0b3cc635"
+    sha256 monterey:       "4d68b331ebc8b46aad429e3e91adc5009ee9ea936467979c2744b24b5304b35d"
+    sha256 big_sur:        "60c960dbe634d90101cd9c1fb9efc6119ae896a9ed8387592cf9300b6ac81573"
+    sha256 catalina:       "7eebdbe58288d603c2f584e961839fd233437c887b1e3bcd0f200c7f6a3436a5"
+    sha256 x86_64_linux:   "1783d8ab84a3d696f709685f91dff33cc1decbc5424271d9f2adc0f39e43aeef"
   end
 
   depends_on "awk" => :build
