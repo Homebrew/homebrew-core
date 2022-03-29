@@ -45,9 +45,10 @@ class Gcsfuse < Formula
 
   test do
     system "#{bin}/gcsfuse", "--help"
-    separator = "_"
-    on_linux do
-      separator = "."
+    separator = if OS.mac?
+      "_"
+    else
+      "."
     end
     system "#{sbin}/mount#{separator}gcsfuse", "--help"
   end
