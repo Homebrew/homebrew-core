@@ -7,6 +7,15 @@ class Compiledb < Formula
   sha256 "3f288e4897e2b17b4dd8070d3ad9e9fc627961faa4d0be29a78f6c619e055f36"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d82cc1ece9f88d70cd443b32bef3e71fa319982dfa0b876e55d00dde32f61db4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe4bddd8fb67d28ac1c9d10e0078dce97c7497d429f8736e12ee2f4cf4792e3a"
+    sha256 cellar: :any_skip_relocation, monterey:       "a892459ea54ed2d3aa70f299edc94cb4d5eb20a7f0f03a2c4a71f6ac6ede703c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2bb45a15c3910221420ca2d1dd4e48dc1fbefc664f7f27598947dc2b38dd3342"
+    sha256 cellar: :any_skip_relocation, catalina:       "97c2ca46cf9fd86957425791125638a96087a69ed2caa8095b3d0f3552ec1265"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fac936844ac832c53bf10ff12b2104e224496c08e632cd11465580ef7f74b456"
+  end
+
   depends_on "python@3.10"
 
   resource "click" do
