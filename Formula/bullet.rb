@@ -74,9 +74,10 @@ class Bullet < Formula
       }
     EOS
 
-    cxx_lib = "-lc++"
-    on_linux do
-      cxx_lib = "-lstdc++"
+    cxx_lib = if OS.mac?
+      "-lc++"
+    else
+      "-lstdc++"
     end
 
     # Test single-precision library
