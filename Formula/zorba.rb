@@ -12,6 +12,7 @@ class Zorba < Formula
     sha256 monterey:       "24180554c7ab32f17c200c0449cf84edc53e55fbcc7521ba54cdc664dc57d1c9"
     sha256 big_sur:        "abd2c1bf5b37980d577e3e4813f36dfc8ed9ddb1cfbbc89d4ac4a3c84353fb43"
     sha256 catalina:       "25f7600f74bde8eddaa0201b177e2fdf1d58d3e6642824caebf8117e69da9b53"
+    sha256 x86_64_linux:   "1ff07ad15f4ed840dcf1faa096b6c9bd30e3f78cb778e3da656323dc7ce0a598"
   end
 
   depends_on "cmake" => :build
