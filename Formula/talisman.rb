@@ -13,12 +13,12 @@ class Talisman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "26143f107f651cba6f724fe73a8b6bf8a6d727a1e6d836977537e4a05b2afe5e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7eaba421e70acdd7b321fab608de434954c00a58b6a25b2774705efbbe5feac"
-    sha256 cellar: :any_skip_relocation, monterey:       "02f61d6766dd252a33352f007699cdad4be741167274b40ec26ab88d6ce5c07e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2feff7680aba6ddcd044d633d95aaa356bda7ccc0719f37eaebf4bf715ac4604"
-    sha256 cellar: :any_skip_relocation, catalina:       "87a3a909d25a2169614f2f74c40da2afbf1f39924e5f346fb0f85e7256e0ae79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fd2f37b7d3e6d51b984e767981472ed41deafe8e1776bdcc15268523937e68f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "72ee70262379eb0f96a518f312932b217b0fd0644d96b7698b88bb00bacb0659"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8408b2279ac5f2858118fc55de6396410dee53cc17e7727df4caeca32b56b53f"
+    sha256 cellar: :any_skip_relocation, monterey:       "5cda93c419a3eb2e8c5b812d5e0281dcc505e2078e61173c59ad47ffe37a023d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3af630daff7bdab295b0b8146af5c2ea012a15c9ac174dc500595b3c0656f6d6"
+    sha256 cellar: :any_skip_relocation, catalina:       "a8cce90009934e11a566008c28a959217b7fbd2511862e0842f68f9b79d130f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9a54edf4357fb9f057f6a794f86002da25923fc5890cbe08cf20148ff7cf4cc"
   end
 
   depends_on "go" => :build
