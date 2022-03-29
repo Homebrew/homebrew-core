@@ -102,11 +102,9 @@ class Mpd < Formula
   end
 
   test do
-    on_linux do
-      # oss_output: Error opening OSS device "/dev/dsp": No such file or directory
-      # oss_output: Error opening OSS device "/dev/sound/dsp": No such file or directory
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # oss_output: Error opening OSS device "/dev/dsp": No such file or directory
+    # oss_output: Error opening OSS device "/dev/sound/dsp": No such file or directory
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     require "expect"
 
