@@ -54,9 +54,7 @@ class Mednafen < Formula
 
   test do
     # Test fails on headless CI: Could not initialize SDL: No available video device
-    on_linux do
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     cmd = "#{bin}/mednafen | head -n1 | grep -o '[0-9].*'"
     assert_equal version.to_s, shell_output(cmd).chomp
