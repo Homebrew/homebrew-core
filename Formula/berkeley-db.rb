@@ -5,6 +5,7 @@ class BerkeleyDb < Formula
   mirror "https://fossies.org/linux/misc/db-18.1.40.tar.gz"
   sha256 "0cecb2ef0c67b166de93732769abdeba0555086d51de1090df325e18ee8da9c8"
   license "AGPL-3.0-only"
+  revision 1
 
   livecheck do
     url "https://www.oracle.com/database/technologies/related/berkeleydb-downloads.html"
@@ -20,6 +21,8 @@ class BerkeleyDb < Formula
     sha256 cellar: :any,                 mojave:         "ef85a6b6fb93f8dcee4144acf22665a331c5b2398822a5f183aed0fb863718f5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f33ddf91965070b68d81c110cda45797bfd5e75f1e23d90f4b66497335833dc"
   end
+
+  keg_only :provided_by_macos
 
   depends_on "openssl@1.1"
 
