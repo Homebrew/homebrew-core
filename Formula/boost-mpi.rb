@@ -109,7 +109,7 @@ class BoostMpi < Formula
             "-lboost_mpi-mt",
             "-lboost_serialization"]
 
-    on_linux do
+    if OS.linux?
       args << "-Wl,-rpath,#{lib}"
       args << "-Wl,-rpath,#{boost.lib}"
     end
