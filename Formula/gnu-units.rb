@@ -48,11 +48,10 @@ class GnuUnits < Formula
   end
 
   test do
-    on_macos do
+    if OS.mac?
       assert_equal "* 18288", shell_output("#{bin}/gunits '600 feet' 'cm' -1").strip
       assert_equal "* 18288", shell_output("#{opt_libexec}/gnubin/units '600 feet' 'cm' -1").strip
-    end
-    on_linux do
+    else
       assert_equal "* 18288", shell_output("#{bin}/units '600 feet' 'cm' -1").strip
     end
   end
