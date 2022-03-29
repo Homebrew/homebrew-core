@@ -93,7 +93,7 @@ class VirtManager < Formula
 
   test do
     pid = fork do
-      exec bin/"virt-manager -c test:///default --debug &> test.log"
+      exec bin/"virt-manager -c test:///default --debug 2> test.log"
     end
     sleep 10
     system "grep", "-F", "conn=test:///default changed to state=Active", "test.log"
