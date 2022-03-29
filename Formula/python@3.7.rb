@@ -383,10 +383,8 @@ class PythonAT37 < Formula
     system "#{bin}/python#{version.major_minor}", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
 
-    on_macos do
-      # Temporary failure on macOS 11.1 due to https://bugs.python.org/issue42480
-      # Reenable unconditionnaly once Apple fixes the Tcl/Tk issue
-      system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()" if MacOS.full_version < "11.1"
+    if OS.mac? && (MacOS.full_version < "11.1")
+      system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()"
     end
 
     system "#{bin}/python#{version.major_minor}", "-c", "import _decimal"
