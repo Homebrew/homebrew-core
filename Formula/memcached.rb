@@ -43,9 +43,7 @@ class Memcached < Formula
       --daemon
       --pidfile=#{pidfile}
     ]
-    on_linux do
-      args << "--user=#{ENV["USER"]}" if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    args << "--user=#{ENV["USER"]}" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
     system bin/"memcached", *args
     sleep 1
     assert_predicate pidfile, :exist?, "Failed to start memcached daemon"
