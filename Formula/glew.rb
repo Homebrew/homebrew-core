@@ -58,9 +58,10 @@ class Glew < Formula
     system "cmake", ".", "-Wno-dev"
     system "make"
 
-    glut = "GLUT"
-    on_linux do
-      glut = "GL"
+    glut = if OS.mac?
+      "GLUT"
+    else
+      "GL"
     end
     (testpath/"test.c").write <<~EOS
       #include <GL/glew.h>
@@ -77,17 +78,15 @@ class Glew < Formula
       }
     EOS
     flags = %W[-L#{lib} -lGLEW]
-    on_macos do
+    if OS.mac?
       flags << "-framework" << "GLUT"
-    end
-    on_linux do
+    else
       flags << "-lglut"
     end
     system ENV.cc, testpath/"test.c", "-o", "test", *flags
-    on_linux do
-      # Fails in Linux CI with: freeglut (./test): failed to open display ''
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # Fails in Linux CI with: freeglut (./test): failed to open display ''
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     system "./test"
   end
 end
