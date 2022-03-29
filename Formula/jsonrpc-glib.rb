@@ -63,7 +63,7 @@ class JsonrpcGlib < Formula
       -ljson-glib-1.0
       -ljsonrpc-glib-1.0
     ]
-    on_macos do
+    if OS.mac?
       flags << "-lintl"
       flags << "-Wl,-framework"
       flags << "-Wl,CoreFoundation"
