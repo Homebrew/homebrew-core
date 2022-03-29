@@ -91,11 +91,10 @@ class Amtk < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
+    if OS.mac?
       flags << "-lintl"
       flags << "-lamtk-5.0"
-    end
-    on_linux do
+    else
       flags << "-lamtk-5"
     end
     system ENV.cc, "test.c", "-o", "test", *flags
