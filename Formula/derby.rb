@@ -8,7 +8,7 @@ class Derby < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8d519c0911344bd9a2fe8848778602f606a6e108cecdb41c53b5193b02ca1d8f"
+    sha256 cellar: :any_skip_relocation, all: "0993ea0e1fb88004c2e3522254e0069f69965ac1dbe0dedaf0e998ce68100cea"
   end
 
   depends_on "openjdk@17"
