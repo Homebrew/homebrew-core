@@ -1,11 +1,16 @@
 class Premake < Formula
   desc "Write once, build anywhere Lua-based build system"
   homepage "https://premake.github.io/"
-  url "https://downloads.sourceforge.net/project/premake/Premake/4.4/premake-4.4-beta5-src.zip"
-  sha256 "0fa1ed02c5229d931e87995123cdb11d44fcc8bd99bba8e8bb1bbc0aaa798161"
+  url "https://github.com/premake/premake-core/releases/download/v5.0.0-beta1/premake-5.0.0-beta1-src.zip"
+  sha256 "07b77cac3aacd4bcacd5ce0d1269332cb260363b78c2a8ae7718f4016bf2892f"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/premake/premake-core.git", branch: "master"
+
+  livecheck do
+    url "https://premake.github.io/download/"
+    regex(/href=.*?premake[._-]v?(\d+(?:\.\d+)+(?:[._-][a-z]+\d*)?)[._-]src\.zip/i)
+  end
 
   bottle do
     rebuild 1
@@ -19,37 +24,22 @@ class Premake < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d2ba7e57d942fb6296be5d0a7ede7d1e7f21775e9479d926960d8b038d07751"
   end
 
-  # See: https://groups.google.com/g/premake-development/c/i1uA1Wk6zYM/m/kbp9q4Awu70J
-  deprecate! date: "2015-05-28", because: "premake4 is unsupported and premake5 is still alpha"
-
   def install
     if build.head?
-      platform = if OS.mac?
-        "osx"
-      else
-        "linux"
-      end
+      platform = OS.mac? ? "osx" : "linux"
       system "make", "-f", "Bootstrap.mak", platform
       system "./bin/release/premake5", "gmake2"
       system "./bin/release/premake5", "embed"
       system "make"
-      bin.install "bin/release/premake5"
     else
-      platform = if OS.mac?
-        "macosx"
-      else
-        "unix"
-      end
-      system "make", "-C", "build/gmake.#{platform}"
-      bin.install "bin/release/premake4"
+      platform = OS.mac? ? "macosx" : "unix"
+      system "make", "-C", "build/gmake2.#{platform}", "config=release"
     end
+    bin.install "bin/release/premake5"
   end
 
   test do
-    if build.head?
-      assert_match "5.0.0-dev", shell_output("#{bin}/premake5 --version")
-    else
-      assert_match version.to_s, shell_output("#{bin}/premake4 --version", 1)
-    end
+    expected_version = build.head? ? "-dev" : version.to_s
+    assert_match expected_version, shell_output("#{bin}/premake5 --version")
   end
 end
