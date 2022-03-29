@@ -371,19 +371,16 @@ class PythonAT38 < Formula
     system "#{bin}/python#{version.major_minor}", "-c", "import _decimal"
     system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
     system "#{bin}/python#{version.major_minor}", "-c", "import zlib"
-    on_macos do
-      system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()"
-    end
+    system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()" if OS.mac?
 
     system bin/"pip3", "list", "--format=columns"
 
-    on_macos do
+    if OS.mac?
       assert_match "#{opt_frameworks}/Python.framework/Versions/#{version.major_minor}",
-                   shell_output("#{bin}/python#{version.major_minor}-config --prefix")
-    end
-    on_linux do
+                         shell_output("#{bin}/python#{version.major_minor}-config --prefix")
+    else
       assert_match opt_prefix.to_s,
-                   shell_output("#{bin}/python#{version.major_minor}-config --prefix")
+                         shell_output("#{bin}/python#{version.major_minor}-config --prefix")
       assert_match opt_lib.to_s,
                    shell_output("#{bin}/python#{version.major_minor}-config --ldflags")
     end
