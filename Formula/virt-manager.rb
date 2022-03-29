@@ -19,6 +19,7 @@ class VirtManager < Formula
   depends_on "libosinfo"
   depends_on "libvirt-glib"
   depends_on "libxml2" # can't use from macos, since we need python3 bindings
+  depends_on :macos
   depends_on "osinfo-db"
   depends_on "py3cairo"
   depends_on "pygobject3"
@@ -96,12 +97,15 @@ class VirtManager < Formula
       exec Formula["libvirt"].opt_sbin/"libvirtd", "-f", Formula["libvirt"].etc/"libvirt/libvirtd.conf"
     end
 
+    output = testpath/"virt-manager.log"
     virt_manager_pid = fork do
-      exec bin/"virt-manager -c test:///default --debug 2> test.log"
+      $stdout.reopen(output)
+      $stderr.reopen(output)
+      exec bin/"virt-manager", "-c", "test:///default", "--debug"
     end
-
     sleep 10
-    system "grep", "-F", "conn=test:///default changed to state=Active", "test.log"
+
+    assert_match "conn=test:///default changed to state=Active", output.read
   ensure
     Process.kill("TERM", libvirt_pid)
     Process.kill("TERM", virt_manager_pid)
