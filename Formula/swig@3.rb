@@ -49,14 +49,13 @@ class SwigAT3 < Formula
       puts Test.add(1, 1)
     EOS
     system "#{bin}/swig", "-ruby", "test.i"
-    on_macos do
+    if OS.mac?
       system ENV.cc, "-c", "test.c"
       system ENV.cc, "-c", "test_wrap.c",
              "-I#{MacOS.sdk_path}/System/Library/Frameworks/Ruby.framework/Headers/"
       system ENV.cc, "-bundle", "-undefined", "dynamic_lookup", "test.o",
              "test_wrap.o", "-o", "test.bundle"
-    end
-    on_linux do
+    else
       ruby = Formula["ruby"]
       args = Utils.safe_popen_read(
         ruby.opt_bin/"ruby", "-e", "'puts RbConfig::CONFIG[\"LIBRUBYARG\"]'"
