@@ -13,6 +13,7 @@ class Yacas < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "be746c1eb1e965cb3d87195fd0094eee7987dbd74b5f3945e1cfe3e6df3a73cb"
     sha256 cellar: :any_skip_relocation, mojave:         "80089e9a9b1e3d64648af1cc34b1142d79332510c6797ea3a2a922d4bf4ccbc2"
     sha256 cellar: :any_skip_relocation, high_sierra:    "10557868ce4e8aa9d146a15b79e0c13e30d3d73c5fee3edaff8e0475678d31bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5ebea55387b89efbff789561075f32ce00b0ffa39df63caf4402365c3b281b5"
   end
 
   depends_on "cmake" => :build
