@@ -54,16 +54,14 @@ class Raylib < Formula
           return 42 <= num && num <= 1337 ? EXIT_SUCCESS : EXIT_FAILURE;
       }
     EOS
-    flags = []
-    on_macos do
-      flags = %w[
+    flags = if OS.mac?
+      %w[
         -framework Cocoa
         -framework IOKit
         -framework OpenGL
       ]
-    end
-    on_linux do
-      flags = %w[
+    else
+      %w[
         -lm
         -ldl
         -lGL
