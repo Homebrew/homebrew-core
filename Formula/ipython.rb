@@ -21,7 +21,6 @@ class Ipython < Formula
   depends_on "six"
   depends_on "zeromq"
 
-  # use resources from ipykernel (which includes ipython)
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/e9/bc/2d2c567fe5ac1924f35df879dbf529dd7e7cabd94745dc9d89024a934e76/appnope-0.1.2.tar.gz"
     sha256 "dd83cd4b5b460958838f6eb3000c660b1f9caf2a5b1de4264e941512f603258a"
@@ -38,8 +37,8 @@ class Ipython < Formula
   end
 
   resource "debugpy" do
-    url "https://files.pythonhosted.org/packages/9c/45/8e3384e99b8bf79f8ba937aa3e726331789bdfb65ab03aedaedda9e2d30b/debugpy-1.6.0.zip"
-    sha256 "7b79c40852991f7b6c3ea65845ed0f5f6b731c37f4f9ad9c61e2ab4bd48a9275"
+    url "https://files.pythonhosted.org/packages/68/8a/aba73af65eb84e0c61c658d2aa2f2a9b4d2939a7f87294dd396f4987efac/debugpy-1.5.1.zip"
+    sha256 "d2b09e91fbd1efa4f4fda121d49af89501beda50c18ed7499712c71a4bf3452e"
   end
 
   resource "decorator" do
