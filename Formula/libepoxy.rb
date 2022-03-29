@@ -68,9 +68,7 @@ class Libepoxy < Formula
       }
     EOS
     args = %w[-lepoxy]
-    on_macos do
-      args += %w[-framework OpenGL -DOS_MAC]
-    end
+    args += %w[-framework OpenGL -DOS_MAC] if OS.mac?
     args += %w[-o test]
     system ENV.cc, "test.c", "-L#{lib}", *args
     system "ls", "-lh", "test"
