@@ -19,6 +19,7 @@ class ObjcCodegenutils < Formula
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   def install
     xcodebuild "-arch", Hardware::CPU.arch, "-project", "codegenutils.xcodeproj", "-target", "assetgen",
