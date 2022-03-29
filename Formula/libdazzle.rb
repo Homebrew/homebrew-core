@@ -96,7 +96,7 @@ class Libdazzle < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
+    if OS.mac?
       flags << "-lintl"
       flags << "-Wl,-framework"
       flags << "-Wl,CoreFoundation"
