@@ -321,7 +321,7 @@ class LlvmAT7 < Formula
     end
     assert_equal "Hello World!", shell_output("./testlibc++").chomp
 
-    on_linux do
+    if OS.linux?
       # Link installed libc++, libc++abi, and libunwind archives both into
       # a position independent executable (PIE), as well as into a fully
       # position independent (PIC) DSO for things like plugins that export
@@ -334,9 +334,9 @@ class LlvmAT7 < Formula
       # linking statically.
 
       system "#{bin}/clang++", "-v", "-o", "test_pie_runtimes",
-             "-pie", "-fPIC", "test.cpp", "-L#{opt_lib}",
-             "-stdlib=libc++", "-rtlib=compiler-rt",
-             "-static-libstdc++", "-lpthread", "-ldl"
+                   "-pie", "-fPIC", "test.cpp", "-L#{opt_lib}",
+                   "-stdlib=libc++", "-rtlib=compiler-rt",
+                   "-static-libstdc++", "-lpthread", "-ldl"
       assert_equal "Hello World!", shell_output("./test_pie_runtimes").chomp
       (testpath/"test_pie_runtimes").dynamically_linked_libraries.each do |lib|
         refute_match(/lib(std)?c\+\+/, lib)
