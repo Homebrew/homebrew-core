@@ -6,7 +6,6 @@ class Deheader < Formula
   url "http://www.catb.org/~esr/deheader/deheader-1.8.tar.gz"
   sha256 "ebf144b441cc12ff5003e3e36c16e772382a153968c44334d5d6a892b44cab06"
   license "BSD-2-Clause"
-  head "https://gitlab.com/esr/deheader.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -17,17 +16,19 @@ class Deheader < Formula
     sha256 cellar: :any_skip_relocation, all: "35fcae1dfb59ef0c9fce339453c212eabfc380c70b1820ca4b69275606cc2678"
   end
 
-  depends_on "xmlto" => :build
-  depends_on "python@3.10"
-
-  on_linux do
-    depends_on "libarchive" => :build
+  head do
+    url "https://gitlab.com/esr/deheader.git", branch: "master"
+    depends_on "xmlto" => :build
   end
 
-  def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+  depends_on "python@3.10"
 
-    system "make"
+  def install
+    if build.head?
+      ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+      system "make"
+    end
+
     bin.install "deheader"
     man1.install "deheader.1"
 
