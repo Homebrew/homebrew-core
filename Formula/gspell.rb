@@ -76,7 +76,7 @@ class Gspell < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
     ]
-    on_macos do
+    if OS.mac?
       gtk_mac_integration = Formula["gtk-mac-integration"]
       flags << "-I#{gtk_mac_integration.opt_include}/gtkmacintegration"
     end
@@ -111,9 +111,7 @@ class Gspell < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     ENV["G_DEBUG"] = "fatal-warnings"
 
