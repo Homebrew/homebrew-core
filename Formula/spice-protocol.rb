@@ -38,9 +38,10 @@ class SpiceProtocol < Formula
       }
     EOS
 
-    cc = ENV.cc
-    on_linux do
-      cc = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].any_installed_version.major}"
+    cc = if OS.mac?
+      ENV.cc
+    else
+      Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].any_installed_version.major}"
     end
 
     system cc, "test.cpp", "-I#{include}/spice-1", "-o", "test"
