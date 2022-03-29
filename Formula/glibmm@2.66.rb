@@ -67,9 +67,7 @@ class GlibmmAT266 < Formula
       -lgobject-2.0
       -lsigc-2.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end
