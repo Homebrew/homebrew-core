@@ -1,8 +1,8 @@
 class Mp4v2 < Formula
   desc "Read, create, and modify MP4 files"
   homepage "https://mp4v2.org"
-  url "https://github.com/enzo1982/mp4v2/releases/download/v2.1.0/mp4v2-2.1.0.tar.bz2"
-  sha256 "e3bf43e6d0951d50c731c97e502e41d175cf4f9ad5b77e07dfe3309876cb4f73"
+  url "https://github.com/enzo1982/mp4v2/releases/download/v2.1.1/mp4v2-2.1.1.tar.bz2"
+  sha256 "29420c62e56a2e527fd8979d59d05ed6d83ebe27e0e2c782c1ec19a3a402eaee"
   license "MPL-1.1"
 
   bottle do
