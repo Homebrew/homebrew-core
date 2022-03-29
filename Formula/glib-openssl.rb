@@ -67,9 +67,7 @@ class GlibOpenssl < Formula
       -lgobject-2.0
       -lglib-2.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "gtls-test.c", "-o", "gtls-test", *flags
     system "./gtls-test"
   end
