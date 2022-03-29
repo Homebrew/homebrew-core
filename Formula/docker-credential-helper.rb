@@ -45,13 +45,10 @@ class DockerCredentialHelper < Formula
   end
 
   test do
-    on_macos do
-      # A more complex test isn't possible as this tool operates using the macOS
-      # user keychain (incompatible with CI).
+    if OS.mac?
       run_output = shell_output("#{bin}/docker-credential-osxkeychain", 1)
       assert_match %r{^Usage: .*/docker-credential-osxkeychain.*}, run_output
-    end
-    on_linux do
+    else
       run_output = shell_output("#{bin}/docker-credential-pass list")
       assert_match "{}", run_output
 
