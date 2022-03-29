@@ -22,13 +22,7 @@ class Tkdiff < Formula
   end
 
   test do
-    on_macos do
-      system "#{bin}/tkdiff", "--help"
-    end
-
-    on_linux do
-      # Fails with: no display name and no $DISPLAY environment variable
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # Fails with: no display name and no $DISPLAY environment variable on GitHub Actions
+    system "#{bin}/tkdiff", "--help" if OS.mac?
   end
 end
