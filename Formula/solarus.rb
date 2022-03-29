@@ -27,19 +27,22 @@ class Solarus < Formula
   depends_on "sdl2_image"
   depends_on "sdl2_ttf"
 
+  on_linux do
+    depends_on "openal-soft"
+  end
+
   def install
-    mkdir "build" do
-      ENV.append_to_cflags "-I#{Formula["glm"].opt_include}"
-      ENV.append_to_cflags "-I#{Formula["physfs"].opt_include}"
-      system "cmake", "..",
-                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                      "-DSOLARUS_ARCH=#{Hardware::CPU.arch}",
-                      "-DSOLARUS_GUI=OFF",
-                      "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
-                      "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}",
-                      *std_cmake_args
-      system "make", "install"
-    end
+    ENV.append_to_cflags "-I#{Formula["glm"].opt_include}"
+    ENV.append_to_cflags "-I#{Formula["physfs"].opt_include}"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DSOLARUS_ARCH=#{Hardware::CPU.arch}",
+                    "-DSOLARUS_GUI=OFF",
+                    "-DSOLARUS_TESTS=OFF",
+                    "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
+                    "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
