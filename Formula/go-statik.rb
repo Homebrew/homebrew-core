@@ -26,9 +26,10 @@ class GoStatik < Formula
 
   test do
     font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
-    font_path = "/Library/Fonts/#{font_name}"
-    on_linux do
-      font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+    font_path = if OS.mac?
+      "/Library/Fonts/#{font_name}"
+    else
+      "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
     end
     system bin/"statik", "-src", font_path
     assert_predicate testpath/"statik/statik.go", :exist?
