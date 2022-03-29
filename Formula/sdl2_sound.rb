@@ -18,22 +18,13 @@ class Sdl2Sound < Formula
     args += [
       "-DCMAKE_INSTALL_RPATH=#{rpath}",
       "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}",
-      "-DSDLSOUND_DECODER_WAV=TRUE",
-      "-DSDLSOUND_DECODER_AIFF=TRUE",
-      "-DSDLSOUND_DECODER_AU=TRUE",
-      "-DSDLSOUND_DECODER_VOC=TRUE",
-      "-DSDLSOUND_DECODER_FLAC=TRUE",
-      "-DSDLSOUND_DECODER_VORBIS=TRUE",
-      "-DSDLSOUND_DECODER_RAW=TRUE",
-      "-DSDLSOUND_DECODER_SHN=TRUE",
-      "-DSDLSOUND_DECODER_MODPLUG=TRUE",
-      "-DSDLSOUND_DECODER_MP3=TRUE",
       "-DSDLSOUND_DECODER_MIDI=TRUE",
     ]
     args << "-DSDLSOUND_DECODER_COREAUDIO=TRUE" if OS.mac?
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    pkgshare.install "examples"
   end
 
   test do
@@ -146,5 +137,17 @@ class Sdl2Sound < Formula
       EOS
     end
     assert_equal expected.strip, shell_output("#{bin}/playsound --decoders").strip
+
+    flags = %W[
+      -I#{include}/SDL2
+      -I#{Formula["sdl2"].include}/SDL2
+      -L#{lib}
+      -L#{Formula["sdl2"].lib}
+      -lSDL2_sound
+      -lSDL2
+    ]
+    Dir["#{pkgshare}/examples/*.c"].each do |r|
+      system ENV.cc, r, "-o", "#{File.basename(r, ".c")}.out", *flags
+    end
   end
 end
