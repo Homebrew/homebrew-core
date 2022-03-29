@@ -40,7 +40,7 @@ class Ncspot < Formula
     assert_match "portaudio", shell_output("#{bin}/ncspot --help")
 
     # Linux CI has an issue running `script`-based testcases
-    on_macos do
+    if OS.mac?
       stdin, stdout, wait_thr = Open3.popen2 "script -q /dev/null"
       stdin.puts "stty rows 80 cols 130"
       stdin.puts "env LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 TERM=xterm #{bin}/ncspot -b ."
