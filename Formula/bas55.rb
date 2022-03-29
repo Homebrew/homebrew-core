@@ -17,6 +17,7 @@ class Bas55 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "c9a50cf6904cafd3a75cbb762ea68d3545eadc832be0b2c0313aaadf03dfe453"
     sha256 cellar: :any_skip_relocation, catalina:       "7eaaf506f35bbc8f2149028c7b379f3b5fc7d5bd7899d021b016f94272e9441e"
     sha256 cellar: :any_skip_relocation, mojave:         "1c7f697e391226ba6ba292cdb80801b2b221ed355918fa6ef14deb61abbb73ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8fc36f305cced35e0845d73296dc55d8a6dd8ef7a645c0e9fe74f4a926564af"
   end
 
   def install
