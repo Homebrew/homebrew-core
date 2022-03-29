@@ -22,6 +22,12 @@ class Zebra < Formula
   depends_on "icu4c"
   depends_on "yaz"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "expat"
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
