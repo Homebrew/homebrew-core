@@ -54,7 +54,7 @@ class Wdc < Formula
     pugixml = Formula["pugixml"]
     openssl = Formula["openssl@1.1"]
     curl_args = ["-lcurl"]
-    on_linux do
+    if OS.linux?
       curl = Formula["curl"]
       curl_args << "-L#{curl.opt_lib}"
       curl_args << "-I#{curl.opt_include}"
