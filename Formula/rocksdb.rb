@@ -93,7 +93,7 @@ class Rocksdb < Formula
     EOS
 
     extra_args = []
-    on_macos do
+    if OS.mac?
       extra_args << "-stdlib=libc++"
       extra_args << "-lstdc++"
     end
