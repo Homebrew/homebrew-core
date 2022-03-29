@@ -6,13 +6,12 @@ class Sha3sum < Formula
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2612ba6b36a58c1b56c779c1049d9e36b6ae4a74c2564c3729d8dd6f16a63df4"
-    sha256 cellar: :any,                 arm64_big_sur:  "90742599d666acfad990ce1247b16f12e4c7c120f2a18aacd09161f8630ef40a"
-    sha256 cellar: :any,                 monterey:       "063a82bb8d6deaec69352deea724492139e126426bcce4ac37e5370594e11bef"
-    sha256 cellar: :any,                 big_sur:        "6bc4ecb769628672f3d40e61986f7a581a1fc42c67fc3a27ae684cd5a9ed2c78"
-    sha256 cellar: :any,                 catalina:       "86132112430a1b8e5b9c22ab18e0c7e9ef037bbfdb1e17739a61834bfbdc55c0"
-    sha256 cellar: :any,                 mojave:         "f163e7452142623f7e819066f8f137d7e9b311026514bf2d8a44c7b45f4fab07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32512065a15428036cf70071b620ecc3828384b00e83649cd6c0e2505877b2e9"
+    sha256 cellar: :any,                 arm64_monterey: "a71bf2beb54a0ec5ef6defe1651d404239b16aa724cfc11e56c7a479dd5afd45"
+    sha256 cellar: :any,                 arm64_big_sur:  "6a982032346aa17ceb4d050e6dd1334a4428039883036758e514f14d6c9b2c6c"
+    sha256 cellar: :any,                 monterey:       "3db74567332ebcf2abe80d544df93b937bdff3ff4a593491265c647c23926aae"
+    sha256 cellar: :any,                 big_sur:        "96f9780c5cb6ee06dbcca4b28eabbc7e92a4ae705db98a3f3ab66366280f1200"
+    sha256 cellar: :any,                 catalina:       "23d79754d2579e0ea0bd2757dbf6f8f47ae2f093dfa54f4869e437f7ee0ab73a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9eff34d53d4a0f794bcd8303ad66ff23056a1a3f89b56bf737dae3689e5cb6f4"
   end
 
   depends_on "libkeccak"
