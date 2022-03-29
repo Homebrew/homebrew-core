@@ -37,7 +37,7 @@ class Glui < Formula
   end
 
   test do
-    on_macos do
+    if OS.mac?
       (testpath/"test.cpp").write <<~EOS
         #include <cassert>
         #include <GL/glui.h>
@@ -50,9 +50,7 @@ class Glui < Formula
       system ENV.cxx, "-framework", "GLUT", "-framework", "OpenGL", "-I#{include}",
         "-L#{lib}", "-lglui", "-std=c++11", "test.cpp"
       system "./a.out"
-    end
-
-    on_linux do
+    else
       (testpath/"test.cpp").write <<~EOS
         #include <cassert>
         #include <GL/glui.h>
