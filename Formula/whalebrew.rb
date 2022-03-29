@@ -2,8 +2,8 @@ class Whalebrew < Formula
   desc "Homebrew, but with Docker images"
   homepage "https://github.com/whalebrew/whalebrew"
   url "https://github.com/whalebrew/whalebrew.git",
-      tag:      "0.3.1",
-      revision: "372a6bcd5c154128f88d7a11d898dbf89ccca00e"
+      tag:      "0.4.0",
+      revision: "1722002db3f1618f7af9d400343bf502d03b508f"
   license "Apache-2.0"
   head "https://github.com/whalebrew/whalebrew.git", branch: "master"
 
@@ -17,11 +17,10 @@ class Whalebrew < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b59f9c4635e9e1e469cfee07e7698c332313282f2ac01b1846a265fc5219394b"
   end
 
-  # Bump to 1.18 on the next release.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"whalebrew", "."
+    system "go", "build", *std_go_args
   end
 
   test do
