@@ -19,6 +19,9 @@ class Zsxd < Formula
   depends_on "cmake" => :build
   depends_on "solarus"
 
+  uses_from_macos "zip" => :build
+  uses_from_macos "unzip" => :test
+
   def install
     system "cmake", ".", *std_cmake_args, "-DSOLARUS_INSTALL_DATADIR=#{share}"
     system "make", "install"
@@ -26,6 +29,6 @@ class Zsxd < Formula
 
   test do
     system Formula["solarus"].bin/"solarus-run", "-help"
-    system "/usr/bin/unzip", pkgshare/"data.solarus"
+    system "unzip", pkgshare/"data.solarus"
   end
 end
