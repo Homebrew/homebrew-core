@@ -52,15 +52,13 @@ class Ed < Formula
     testfile = testpath/"test"
     testfile.write "Hello world\n"
 
-    on_macos do
+    if OS.mac?
       pipe_output("#{bin}/ged -s #{testfile}", ",s/o//\nw\n", 0)
       assert_equal "Hell world\n", testfile.read
 
       pipe_output("#{opt_libexec}/gnubin/ed -s #{testfile}", ",s/l//g\nw\n", 0)
       assert_equal "He word\n", testfile.read
-    end
-
-    on_linux do
+    else
       pipe_output("#{bin}/ed -s #{testfile}", ",s/o//\nw\n", 0)
       assert_equal "Hell world\n", testfile.read
     end
