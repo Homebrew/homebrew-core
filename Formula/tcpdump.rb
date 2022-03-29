@@ -37,9 +37,10 @@ class Tcpdump < Formula
     assert_match "libpcap version #{Formula["libpcap"].version}", output
     assert_match "OpenSSL #{Formula["openssl@1.1"].version}", output
 
-    match = "tcpdump: (cannot open BPF device) /dev/bpf0: Operation not permitted"
-    on_linux do
-      match = <<~EOS
+    match = if OS.mac?
+      "tcpdump: (cannot open BPF device) /dev/bpf0: Operation not permitted"
+    else
+      <<~EOS
         tcpdump: eth0: You don't have permission to capture on that device
         (socket: Operation not permitted)
       EOS
