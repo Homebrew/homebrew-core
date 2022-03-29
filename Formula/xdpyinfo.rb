@@ -36,10 +36,8 @@ class Xdpyinfo < Formula
   end
 
   test do
-    on_linux do
-      # xdpyinfo:  unable to open display "".
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # xdpyinfo:  unable to open display "".
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     assert_match("xdpyinfo #{version}", shell_output("DISPLAY= xdpyinfo -version 2>&1"))
   end
