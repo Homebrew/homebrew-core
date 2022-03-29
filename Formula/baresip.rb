@@ -1,8 +1,8 @@
 class Baresip < Formula
   desc "Modular SIP useragent"
   homepage "https://github.com/baresip/baresip"
-  url "https://github.com/baresip/baresip/archive/v1.1.0.tar.gz"
-  sha256 "f9230b27c4a62f31223847bc485c51f3d960f8a09f36998dedb73358e1784b4e"
+  url "https://github.com/baresip/baresip/archive/v2.0.1.tar.gz"
+  sha256 "8e7a5d228d2003aec8b4e570a32de5937e9bcbceff14803198fba767c514d362"
   license "BSD-3-Clause"
 
   bottle do
@@ -26,21 +26,26 @@ class Baresip < Formula
     libre = Formula["libre"]
     librem = Formula["librem"]
     # NOTE: `LIBRE_SO` is a directory but `LIBREM_SO` is a shared library.
-    system "make", "install", "PREFIX=#{prefix}",
-                              "LIBRE_MK=#{libre.opt_share}/re/re.mk",
-                              "LIBRE_INC=#{libre.opt_include}/re",
-                              "LIBRE_SO=#{libre.opt_lib}",
-                              "LIBREM_PATH=#{librem.opt_prefix}",
-                              "LIBREM_SO=#{librem.opt_lib/shared_library("librem")}",
-                              "MOD_AUTODETECT=",
-                              "USE_AVCAPTURE=1",
-                              "USE_COREAUDIO=1",
-                              "USE_G711=1",
-                              "USE_OPENGL=1",
-                              "USE_STDIO=1",
-                              "USE_UUID=1",
-                              "HAVE_GETOPT=1",
-                              "V=1"
+    args = %W[
+      PREFIX=#{prefix}
+      LIBRE_MK=#{libre.opt_share}/re/re.mk
+      LIBRE_INC=#{libre.opt_include}/re
+      LIBRE_SO=#{libre.opt_lib}
+      LIBREM_PATH=#{librem.opt_prefix}
+      LIBREM_SO=#{librem.opt_lib/shared_library("librem")}
+      MOD_AUTODETECT=
+      USE_G711=1
+      USE_OPENGL=1
+      USE_STDIO=1
+      USE_UUID=1
+      HAVE_GETOPT=1
+      V=1
+    ]
+    if OS.mac?
+      args << "USE_AVCAPTURE=1"
+      args << "USE_COREAUDIO=1"
+    end
+    system "make", "install", *args
   end
 
   test do
