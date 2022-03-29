@@ -1,8 +1,8 @@
 class Onefetch < Formula
   desc "Git repository summary on your terminal"
   homepage "https://github.com/o2sh/onefetch"
-  url "https://github.com/o2sh/onefetch/archive/v2.11.0.tar.gz"
-  sha256 "ffd3cc3bd24e299ede1fada2b2da8bf066d59219da167477e1997c860650c192"
+  url "https://github.com/o2sh/onefetch/archive/v2.12.0.tar.gz"
+  sha256 "f57b16dfa2bb95dd1fb805257a1761baa20d69eb9ce7c311d369609894c53897"
   license "MIT"
 
   bottle do
@@ -30,6 +30,6 @@ class Onefetch < Formula
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "BrewTestBot@test.com"
     system "echo \"puts 'Hello, world'\" > main.rb && git add main.rb && git commit -m \"First commit\""
-    assert_match(/Language:.*Ruby/, shell_output("#{bin}/onefetch").chomp)
+    assert_match("Ruby (100.0 %)", shell_output("#{bin}/onefetch").chomp)
   end
 end
