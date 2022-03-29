@@ -30,12 +30,12 @@ class Tio < Formula
   test do
     # Test that tio emits the correct error output when run with an argument that is not a tty.
     # Use `script` to run tio with its stdio attached to a PTY, otherwise it will complain about that instead.
-    test_str = "Error: Not a tty device"
-    on_macos do
-      assert_match test_str, shell_output("script -q /dev/null #{bin}/tio /dev/null", 1).strip
+    expected = "Error: Not a tty device"
+    output = if OS.mac?
+      shell_output("script -q /dev/null #{bin}/tio /dev/null", 1).strip
+    else
+      shell_output("script -q /dev/null -e -c \"#{bin}/tio /dev/null\"", 1).strip
     end
-    on_linux do
-      assert_match test_str, shell_output("script -q /dev/null -e -c \"#{bin}/tio /dev/null\"", 1).strip
-    end
+    assert_match expected, output
   end
 end
