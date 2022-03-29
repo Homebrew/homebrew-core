@@ -1,8 +1,8 @@
 class Stm32flash < Formula
   desc "Open source flash program for STM32 using the ST serial bootloader"
   homepage "https://sourceforge.net/projects/stm32flash/"
-  url "https://downloads.sourceforge.net/project/stm32flash/stm32flash-0.6.tar.gz"
-  sha256 "ee9b40d4d3e5cd28b993e08ae2a2c3c559b6bea8730cd7e1d40727dedb1dda09"
+  url "https://downloads.sourceforge.net/project/stm32flash/stm32flash-0.7.tar.gz"
+  sha256 "c4c9cd8bec79da63b111d15713ef5cc2cd947deca411d35d6e3065e227dc414a"
 
   livecheck do
     url :stable
