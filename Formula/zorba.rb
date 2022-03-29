@@ -24,10 +24,14 @@ class Zorba < Formula
 
   conflicts_with "xqilla", because: "both supply `xqc.h`"
 
-  def install
-    # icu4c 61.1 compatibility
-    ENV.append "CXXFLAGS", "-DU_USING_ICU_NAMESPACE=1"
+  # Fixes for missing headers and namespaces from open PR in GitHub repo linked via homepage
+  # PR ref: https://github.com/zorba-processor/zorba/pull/19
+  patch do
+    url "https://github.com/zorba-processor/zorba/commit/e2fddf7bd618dad9dc1e684a2c1ad61103b6e8d2.patch?full_index=1"
+    sha256 "2c4f0ade4f83ca2fd1ee8344682326d7e0ab3037d0de89941281c90875fcd914"
+  end
 
+  def install
     # Workaround for error: use of undeclared identifier 'TRUE'
     ENV.append "CFLAGS", "-DU_DEFINE_FALSE_AND_TRUE=1"
     ENV.append "CXXFLAGS", "-DU_DEFINE_FALSE_AND_TRUE=1"
@@ -40,10 +44,9 @@ class Zorba < Formula
     # usual superenv fix doesn't work since zorba doesn't use HAVE_CLOCK_GETTIME
     args << "-DZORBA_HAVE_CLOCKGETTIME=OFF" if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
