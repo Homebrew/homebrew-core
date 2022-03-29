@@ -10,13 +10,12 @@ class Stm32flash < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e65b35e5c13aef89af07d0dfac8aea7b26e940b1dd149db1a9f5a577ef80f56"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9835c9d67c457937dacb848a9ab1f75e7ab01d6474dc8c14d88bb25d37171841"
-    sha256 cellar: :any_skip_relocation, monterey:       "0cab19a25220c5bf262e3130290d4bede807dff101f832ec912bd4f9a00b1ef5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fe29b3d63844a3249407be1df0837f642c7d4eec039efbca4d6e5974f505ec18"
-    sha256 cellar: :any_skip_relocation, catalina:       "a35cb8508eaace5fe7c788ac88d2e11f1a9df9243269901601a563c12473e1c0"
-    sha256 cellar: :any_skip_relocation, mojave:         "f66f44494b1f47898d95061c1117f7c9234c6731e7f365badce53768e2c8cfd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfa891293f0366530abbcd9736e30820b4a3b4bb683156ec586859f46c2f8c4e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "38b8fa0ed69728d5241842266710e1a788e50bd1ceab7fa2a01606dbb62cf887"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8d0be7957abf2048e99a1fea198a207be5edbd7ccdb402b8bfe650575ac64ef"
+    sha256 cellar: :any_skip_relocation, monterey:       "eb2bcf9748b22a6d1809d675ad765345f0f539d0dbf49449d0977618e4e7f019"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b3a9d072fce40d5fd3af1f86019966abf4d4a711b26ad8539ec382aa6dfc5848"
+    sha256 cellar: :any_skip_relocation, catalina:       "8e76969a80aef9a483e6ad09064f1b7d08e2d5e02829c12d2dc0e9a31256f9a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b63e10544099db4a148fefe54fe036746f96ab2e1d637e73702ae458cb442f93"
   end
 
   def install
