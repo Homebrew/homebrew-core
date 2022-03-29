@@ -6,12 +6,12 @@ class Mp4v2 < Formula
   license "MPL-1.1"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d9455498d43db563aa85f82ac1f2d6c24a991d169a804e3eb5847d29694e8761"
-    sha256 cellar: :any,                 arm64_big_sur:  "c80ca531e43f5064215f4a36cfb0cc50d37dc0d20c26c1898ff8953fa4a4ffc9"
-    sha256 cellar: :any,                 monterey:       "8681d99982fd6168c8fa3331362aae60828e2ff4e6362d941b7de524b82cfa15"
-    sha256 cellar: :any,                 big_sur:        "e29b4006cbd5df13e1f51c23740c09fafcfb8cb5213cc3831c074ebf773b08df"
-    sha256 cellar: :any,                 catalina:       "94b95f575752de10d3750f714f91c436e9e35023f037d896bf9f60e1c8f797f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6ee79238286bd16db6368f2b351445cc61571cc956d2f1adf9ef1038065d96a"
+    sha256 cellar: :any,                 arm64_monterey: "8df3b3e7bd1fc6800cb3763528b1d8bc7b073151be7feaafd80f6ee27f516c4b"
+    sha256 cellar: :any,                 arm64_big_sur:  "42bbed27ea0af8368259c8b4a601ff0d4708445e9abf3e6e7d1b267a9951229b"
+    sha256 cellar: :any,                 monterey:       "4d352b9521211a6c20d3f4bbcc15dfa7c7438e46e09325b3af889a58b62107e2"
+    sha256 cellar: :any,                 big_sur:        "15a021638c2230c8cf08b35cb4ec3fa7b6f3a2ba3cbf0350edace7e6fb8d39e8"
+    sha256 cellar: :any,                 catalina:       "d69a185550432da8ffa321afdf176abe98d2a30710e9d1a7154caac707e68033"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3d4b79d24929179bfb200ddbb0af619c863d5342cde5a3ee113e97fee488437"
   end
 
   conflicts_with "bento4",
