@@ -28,7 +28,6 @@
   ["logcli", "loki", "promtail"],
   ["mame", "rom-tools"],
   ["mecab-unidic", "mecab-unidic-extended"],
-  ["minizip", "zlib"],
   ["moarvm", "nqp", "rakudo"],
   ["moreutils", "sponge"],
   ["mupdf", "mupdf-tools"],
