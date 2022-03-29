@@ -32,9 +32,11 @@ class Minizip < Formula
   conflicts_with "minizip-ng",
     because: "both install a `libminizip.a` library"
 
+  # Patch for configure issue
+  # https://github.com/madler/zlib/pull/607
   patch do
-    url "https://github.com/madler/zlib/commit/80d086357a55b94a13e43756cf3e131f25eef0e4.patch?full_index=1"
-    sha256 "ba7056ea9a12b7d360990d8afb583cbabeb4beef8f7a5f9a350dbcb92499118e"
+    url "https://github.com/madler/zlib/commit/05796d3d8d5546cf1b4dfe2cd72ab746afae505d.patch?full_index=1"
+    sha256 "68573842f1619bb8de1fa92071e38e6e51b8df71371e139e4e96be19dd7e9694"
   end
 
   def install
