@@ -22,16 +22,23 @@ class Objfw < Formula
   end
 
   head do
-    url "https://github.com/ObjFW/ObjFW.git"
+    url "https://github.com/ObjFW/ObjFW.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
+  on_linux do
+    depends_on "llvm"
+  end
+
+  fails_with :gcc
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+    inreplace bin/"objfw-config", "llvm_clang", "clang" if OS.linux?
   end
 
   test do
