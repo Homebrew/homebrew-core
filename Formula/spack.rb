@@ -33,11 +33,11 @@ class Spack < Formula
   test do
     system bin/"spack", "--version"
     assert_match "zlib", shell_output("#{bin}/spack info zlib")
-    on_macos do
-      assert_match "clang", shell_output("spack compiler list")
+    expected = if OS.mac?
+      "clang"
+    else
+      "gcc"
     end
-    on_linux do
-      assert_match "gcc", shell_output("spack compiler list")
-    end
+    assert_match expected, shell_output("spack compiler list")
   end
 end
