@@ -16,35 +16,29 @@ class Nest < Formula
   depends_on "cmake" => :build
   depends_on "cython" => :build
   depends_on "gsl"
-  depends_on "libomp"
   depends_on "libtool"
   depends_on "numpy"
   depends_on "python@3.9"
   depends_on "readline"
 
+  uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "libomp"
+  end
+
   def install
-    args = ["-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}"]
+    # Help FindReadline find macOS system ncurses library
+    sdk = MacOS.sdk_path_if_needed
+    args = sdk ? ["-DNCURSES_LIBRARY=#{sdk}/usr/lib/libncurses.tbd"] : []
 
-    libomp = Formula["libomp"]
-    args << "-Dwith-openmp=ON"
-    args << "-Dwith-libraries=#{libomp.opt_lib}/libomp.dylib"
-    args << "-DOpenMP_C_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
-    args << "-DOpenMP_C_LIB_NAMES=omp"
-    args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
-    args << "-DOpenMP_CXX_LIB_NAMES=omp"
-    args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
-
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Replace internally accessible gcc with externally accessible version
     # in nest-config if required
-    inreplace bin/"nest-config",
-        %r{#{HOMEBREW_REPOSITORY}/Library/Homebrew/shims.*/super}o,
-        "#{HOMEBREW_PREFIX}/bin"
+    inreplace bin/"nest-config", Superenv.shims_path/ENV.cxx, ENV.cxx
   end
 
   def caveats
