@@ -19,6 +19,7 @@ class Objfw < Formula
     sha256 mojave:         "abc09195b6abf66d1d638af2999abe712a41cdcbb4bbf8d7ea422443150ae637"
     sha256 high_sierra:    "33c72d86bb5a56ff4a2c9607707edb31f7af21bf863c8d34d95f6c527d9ee483"
     sha256 sierra:         "2369c4233bafe95aeea87f678cc5e0f0b001d36b5aeff6a7b6512f766d77eb5e"
+    sha256 x86_64_linux:   "57dcb7565015413f1fb668f18b03af564e8b631b47e051c6b98dfb57d1530fa0"
   end
 
   head do
