@@ -55,9 +55,7 @@ class Pyvim < Formula
   end
 
   test do
-    on_linux do
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     # Need a pty due to https://github.com/jonathanslenders/pyvim/issues/101
     require "pty"
