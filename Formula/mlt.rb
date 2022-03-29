@@ -7,10 +7,10 @@ class Mlt < Formula
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "134fce14fc1a84429b9612ea8de0efeee380ce553025682e0c63e02a1f239b1a"
-    sha256 big_sur:       "efe2661c2906b0a9d3c50f9d79c3b03f174ce93a68bcf731fbc8210092d46656"
-    sha256 catalina:      "12d78ae602fef7cfdd2ac81c9daa2156f912dc52be9a492f1c63502cdee3c8e1"
-    sha256 x86_64_linux:  "4701398d6369a88c79790db45992a4259eee83e41f040eef14523d2642cda485"
+    sha256 arm64_big_sur: "75ebe6e53d6d94f41b774d6657a6b9e634af506a3f81222e90bf586f3d89cabf"
+    sha256 big_sur:       "cdf94bf5644bad214e7002f8c58bee10076ae981b5128a8e99802a4350ee3756"
+    sha256 catalina:      "9846d56f31fa1b65f4343c3ad607e19ee77e399cc018b32b337ec8167ea39f04"
+    sha256 x86_64_linux:  "82a103b511b1b1b1a43f2d2d9d0df154a30d79ec60bc2317553d9bcc7999dd8a"
   end
 
   depends_on "cmake" => :build
