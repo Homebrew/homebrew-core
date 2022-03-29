@@ -37,10 +37,8 @@ class Pympress < Formula
   end
 
   test do
-    on_linux do
-      # (pympress:48790): Gtk-WARNING **: 13:03:37.080: cannot open display
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # (pympress:48790): Gtk-WARNING **: 13:03:37.080: cannot open display
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     system bin/"pympress", "--quit"
   end
