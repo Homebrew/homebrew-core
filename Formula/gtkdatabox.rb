@@ -83,9 +83,7 @@ class Gtkdatabox < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     # Disable this part of test on Linux because display is not available.
     system "./test" if OS.mac?
