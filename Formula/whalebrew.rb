@@ -8,13 +8,12 @@ class Whalebrew < Formula
   head "https://github.com/whalebrew/whalebrew.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3f9b68779a61f3a4985dd6eba211db678f96b9d19040c963f9b00f5bba5c83c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e631a8b2926e1889419048610e4cf971afe61941e03525a1e5658a1da05b10e6"
-    sha256 cellar: :any_skip_relocation, monterey:       "f690d3a9fa2450558ce0b98b3827c9830e5377eb58947fde8efd932ebcc373e9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b895a6a75c4018afe7513cb505faddc40cbfb2adc147b9d392d2d78228da5745"
-    sha256 cellar: :any_skip_relocation, catalina:       "76af29939b18de9fa8814ac0a1e22ed180f71ecbea55656bd76057a3f6c133cf"
-    sha256 cellar: :any_skip_relocation, mojave:         "c1ab9e50235621d22b1176896ab682868aeddd81516a4374c485d217c0fb6b55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b59f9c4635e9e1e469cfee07e7698c332313282f2ac01b1846a265fc5219394b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "adc2032cb648b90f43903e425a4f117b104a65bbe31259cd3e6099f5ca895adf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8124f6c257d211ad2ea6f26fd1803efe6408ea7c91e12b8e2f75f7c993feba31"
+    sha256 cellar: :any_skip_relocation, monterey:       "21e0746c7700f2e3755d99ee64f85c89767dc611a5280dee81f8e58b60dfcc80"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0ba0c1e96cb7b482e7053e897c2ed50a22fffded6e939d552237b6c54f7f612f"
+    sha256 cellar: :any_skip_relocation, catalina:       "f18d17d362d27dd2fe1df05591c679653395e0a56e39cec148770b5f89011b87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8c4059b725199ee59d80e73f44502223d32dcee3d457c8fd8b86764ca6139ef"
   end
 
   depends_on "go" => :build
