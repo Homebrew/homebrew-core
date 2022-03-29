@@ -72,9 +72,7 @@ class Libpeas < Formula
       -lgobject-2.0
       -lpeas-1.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
