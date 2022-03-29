@@ -73,13 +73,11 @@ class GnuTar < Formula
 
   test do
     (testpath/"test").write("test")
-    on_macos do
+    if OS.mac?
       system bin/"gtar", "-czvf", "test.tar.gz", "test"
       assert_match "test", shell_output("#{bin}/gtar -xOzf test.tar.gz")
       assert_match "test", shell_output("#{opt_libexec}/gnubin/tar -xOzf test.tar.gz")
-    end
-
-    on_linux do
+    else
       system bin/"tar", "-czvf", "test.tar.gz", "test"
       assert_match "test", shell_output("#{bin}/tar -xOzf test.tar.gz")
     end
