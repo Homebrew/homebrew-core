@@ -135,8 +135,7 @@ class R < Formula
                      "Failed to install gss package"
 
     winsys = "[1] \"aqua\""
-    on_linux do
-      # Fails in Linux CI with: no DISPLAY variable so Tk is not available
+    if OS.linux?
       return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
       winsys = "[1] \"x11\""
