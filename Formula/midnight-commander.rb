@@ -12,13 +12,12 @@ class MidnightCommander < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "24f29d448f363b0c3cf793dbdf88fbf850b66a3fd550eb6dd01fd64f655f95e2"
-    sha256 arm64_big_sur:  "3f45e1b92e6f263924e4544f0c935b4d18c1e37fdfcf0b7f7d5be369e05910b9"
-    sha256 monterey:       "da16e0137f6702c18965c063cf6194e818dbb1a5e7f4db93ebc2d2606644469d"
-    sha256 big_sur:        "31c1399b014432a36b0dcbb7b3834c50f7c5ac0809a8d1ae7bf8df8afbe838c1"
-    sha256 catalina:       "1b39f54060789701af81163180ae7dab3fffcee18cc07bc6255f3f712504a3a3"
-    sha256 mojave:         "dc2578f9825aa95824489fe52bfde70a130dadcd1c232c4fb07d538f1d9b19d1"
-    sha256 x86_64_linux:   "2c3ec573057f385886b1c20515a8788e3c0b0d9767829dd3a93c74b5973a5cb3"
+    sha256 arm64_monterey: "feee2456db02de756ee8d624dbf2170d67e61e9f2c57cc6fd2c7c19fc0ff2a41"
+    sha256 arm64_big_sur:  "30d7ec30f929bab59cb60fa0265abf41f5afc696851be7c0c80ce0756cb05ccc"
+    sha256 monterey:       "e421f892bd35e97be008972a38c3cf3e80f87009d8c9cbe03fc976b4e2792b95"
+    sha256 big_sur:        "feaa7ababc4fa2b2ed201d222e4e6a24c055b3962f2661a9a930aa37922fec3b"
+    sha256 catalina:       "51c915284413c26f18f27ed47a6bee028a6c0e8d9a4debd25ec4550f95e0fdf3"
+    sha256 x86_64_linux:   "8b8d63b9bc38ad634047402e4cb57ee048c74f29e5dd4db95d75b0b2b45cd289"
   end
 
   head do
