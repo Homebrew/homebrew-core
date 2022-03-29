@@ -8,13 +8,12 @@ class GnuTar < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "be51eda1c4fe90214822f47ff0e49b3e6cf87791890cd69bb198ef6fb9ac082d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "660e573b78965f1d3fa9f8f7f78a72d38f7f26f77ca66e9f72fec26fe9be6c3a"
-    sha256 cellar: :any_skip_relocation, monterey:       "224ab3345410f4a88f9314c0adf3d397bbf387df2080c1d94cc77e886c5b0594"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a6ab3eb4a49d609f5f1dde43710b847fd827ebc03195aee052c7aeb528aa9bcc"
-    sha256 cellar: :any_skip_relocation, catalina:       "53b9fc4011ca3ca3e669aa96a95a5394ef45138b9b2d52c76c3a17fceb432229"
-    sha256 cellar: :any_skip_relocation, mojave:         "c4f9fcc7bdbb2bc5591a6650cf3bbfc1aa791e85f6d299f165a9466c235c83ae"
-    sha256                               x86_64_linux:   "f4206b84b3b5d4a8244b6cae99226877cf3e4927b149465ab44cbb1edce8b382"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "68b05e32ab65f9d196f7c27921ee9b517078023a095484180cc8712878d53342"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3abefa0307a46f6ff26f3801e329e1c9c44cf51879db396533278e1953741b6f"
+    sha256 cellar: :any_skip_relocation, monterey:       "dc04edcba6fb8c7df23e7a97eedb84a2ea9026b12e9c2a8efe78a9c7b41de1ec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a40e1e3d3f573e0c124286f0548e89929d51282369488028f962baa28c8131ab"
+    sha256 cellar: :any_skip_relocation, catalina:       "6d7e3c0ad1386d482b70ff70de07ff6e10c3eb57db7f74ad8b9aedcc6167df51"
+    sha256                               x86_64_linux:   "d0488c8e6bc4d603f0820c8d84fb2cacaee44d59917b9be8cc896d0b48ee7a1e"
   end
 
   head do
