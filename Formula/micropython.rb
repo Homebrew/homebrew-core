@@ -35,11 +35,7 @@ class Micropython < Formula
   end
 
   test do
-    lib_version = nil
-
-    on_linux do
-      lib_version = "6"
-    end
+    lib_version = "6" if OS.linux?
 
     # Test the FFI module
     (testpath/"ffi-hello.py").write <<~EOS
