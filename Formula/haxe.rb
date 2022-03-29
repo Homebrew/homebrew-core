@@ -113,9 +113,10 @@ class Haxe < Formula
     EOS
     system "#{bin}/haxe", "-js", "out.js", "-main", "HelloWorld"
 
-    cmd = "osascript -so -lJavaScript out.js 2>&1"
-    on_linux do
-      cmd = "node out.js"
+    cmd = if OS.mac?
+      "osascript -so -lJavaScript out.js 2>&1"
+    else
+      "node out.js"
     end
     assert_equal "Hello world!", shell_output(cmd).strip
   end
