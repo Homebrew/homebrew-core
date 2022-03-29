@@ -67,10 +67,9 @@ class ShairportSync < Formula
 
   test do
     output = shell_output("#{bin}/shairport-sync -V")
-    on_macos do
+    if OS.mac?
       assert_match "libdaemon-OpenSSL-dns_sd-ao-pa-stdout-pipe-soxr-metadata", output
-    end
-    on_linux do
+    else
       assert_match "OpenSSL-ao-pa-stdout-pipe-soxr-metadata-sysconfdir", output
     end
   end
