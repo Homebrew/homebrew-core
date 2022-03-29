@@ -54,10 +54,10 @@ class SpirvTools < Formula
   test do
     cp libexec/"examples"/"main.cpp", "test.cpp"
 
-    args = "-lc++"
-
-    on_linux do
-      args = ["-lstdc++", "-lm"]
+    args = if OS.mac?
+      ["-lc++"]
+    else
+      ["-lstdc++", "-lm"]
     end
 
     system ENV.cc, "-o", "test", "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}",
