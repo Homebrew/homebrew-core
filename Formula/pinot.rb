@@ -7,7 +7,7 @@ class Pinot < Formula
   head "https://github.com/apache/pinot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5e2a741e6ea7370a8a476c6972fbacecf0a507718335acca4e2769a046382d8a"
+    sha256 cellar: :any_skip_relocation, all: "8323dd5ffe20cd57eb84997675d05ccb927668c7717b37e31a41ec41dc27293a"
   end
 
   depends_on "openjdk"
