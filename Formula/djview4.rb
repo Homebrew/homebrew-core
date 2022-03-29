@@ -50,11 +50,11 @@ class Djview4 < Formula
   end
 
   test do
-    on_macos do
-      assert_predicate prefix/"djview.app", :exist?
+    name = if OS.mac?
+      "djview.app"
+    else
+      "djview"
     end
-    on_linux do
-      assert_predicate prefix/"djview", :exist?
-    end
+    assert_predicate prefix/name, :exist?
   end
 end
