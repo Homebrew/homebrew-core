@@ -56,11 +56,10 @@ class Make < Formula
       \t@echo Homebrew
     EOS
 
-    on_macos do
+    if OS.mac?
       assert_equal "Homebrew\n", shell_output("#{bin}/gmake")
       assert_equal "Homebrew\n", shell_output("#{opt_libexec}/gnubin/make")
-    end
-    on_linux do
+    else
       assert_equal "Homebrew\n", shell_output("#{bin}/make")
     end
   end
