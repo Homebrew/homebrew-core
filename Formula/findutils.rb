@@ -73,11 +73,10 @@ class Findutils < Formula
 
   test do
     touch "HOMEBREW"
-    on_macos do
+    if OS.mac?
       assert_match "HOMEBREW", shell_output("#{bin}/gfind .")
       assert_match "HOMEBREW", shell_output("#{opt_libexec}/gnubin/find .")
-    end
-    on_linux do
+    else
       assert_match "HOMEBREW", shell_output("#{bin}/find .")
     end
   end
