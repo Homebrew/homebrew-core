@@ -65,10 +65,8 @@ class Libgosu < Formula
 
     system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lgosu", "-I#{include}", "-std=c++17"
 
-    on_linux do
-      # Fails in Linux CI with "Could not initialize SDL Video: No available video device"
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # Fails in Linux CI with "Could not initialize SDL Video: No available video device"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     system "./test"
   end
