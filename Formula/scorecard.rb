@@ -18,8 +18,14 @@ class Scorecard < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
-    cd("docs/checks/internal/generate") { system "go", "run", "main.go", "../../checks.md" }
+    ldflags = [
+      "-X \"github.com/ossf/scorecard/v4/pkg.gitVersion=#{version}\"",
+      "-X \"github.com/ossf/scorecard/v4/pkg.gitCommit=33f80c93dc79f860d874857c511c4d26d399609d\"",
+      "-X \"github.com/ossf/scorecard/v4/pkg.gitTreeState=clean\"",
+      "-X \"github.com/ossf/scorecard/v4/pkg.buildDate=#{time.iso8601}\"",
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "make", "generate-docs"
     doc.install "docs/checks.md"
   end
 
