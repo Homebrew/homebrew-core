@@ -4,7 +4,6 @@ class Chapel < Formula
   url "https://chapel-lang.org/tmp/chapel-1.26.0.tar.gz"
   sha256 "77b0aebdb948507314a91bdf2c5969ec2cc7a1b0e4be93df7cfb3c3d8caa0d4a"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 arm64_monterey: "229f22e29b0cc7a904841636c924d0c94c00299f817ed294247957d43c128cf3"
