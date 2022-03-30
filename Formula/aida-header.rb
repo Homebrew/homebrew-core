@@ -17,6 +17,8 @@ class AidaHeader < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "d4559d46451c98728a32679f6d62b7ee4c9a5fa57c18e7ba9315e33d2e7150b8"
   end
 
+  deprecate! date: "2022-03-30", because: :unmaintained
+
   def install
     include.install "src/cpp/AIDA"
   end
