@@ -12,6 +12,7 @@ class Yamcha < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, monterey:    "31ace70fbbf4e2da60850ccc2cea0bd4131e6acc98560cb3230d38c334ec2d2d"
     sha256 cellar: :any, big_sur:     "18f032ddd520debefef3e67422089660c9222e1a8098d4c9b5128cb7a517e87a"
     sha256 cellar: :any, catalina:    "703da9d88502c3e8ede9d567a816f7b7856112175f07f8b4c720bc7b0f540e64"
     sha256 cellar: :any, mojave:      "37ce1ca98c2de4978de9d8877752570680fffae4c41026c5e560c83b5f4b3473"
