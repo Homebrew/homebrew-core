@@ -3,6 +3,7 @@ class Hilite < Formula
   homepage "https://sourceforge.net/projects/hilite/"
   url "https://downloads.sourceforge.net/project/hilite/hilite/1.5/hilite.c"
   sha256 "e15bdff2605e8d23832d6828a62194ca26dedab691c9d75df2877468c2f6aaeb"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f3e960b26ed8e81acab99dd342d1e2946b1ec8003fb99dd65b91add5af31c93"
@@ -18,7 +19,7 @@ class Hilite < Formula
   end
 
   def install
-    system ENV.cc, ENV.cflags, "hilite.c", "-o", "hilite"
+    system ENV.cc, "hilite.c", "-o", "hilite", *ENV.cflags.to_s.split
     bin.install "hilite"
   end
 
