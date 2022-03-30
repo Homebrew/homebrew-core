@@ -81,7 +81,7 @@ class Litecli < Formula
       VALUES
         ('Homebrew');
     EOS
-    system "/usr/bin/sqlite3 test.db < test.sql"
+    system "sqlite3 test.db < test.sql"
 
     require "pty"
 
