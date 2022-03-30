@@ -18,6 +18,9 @@ class Chapel < Formula
   depends_on "llvm"
   depends_on "python@3.10"
 
+  # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
+  fails_with gcc: "5"
+
   def install
     libexec.install Dir["*"]
     # Chapel uses this ENV to work out where to install.
