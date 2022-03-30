@@ -17,6 +17,7 @@ class Litecli < Formula
 
   depends_on "python-tabulate"
   depends_on "python@3.9"
+  depends_on "six"
 
   uses_from_macos "sqlite"
 
@@ -43,11 +44,6 @@ class Litecli < Formula
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
     sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "sqlparse" do

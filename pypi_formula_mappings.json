@@ -192,7 +192,7 @@
     "exclude_packages": ["six"]
   },
   "litecli": {
-    "exclude_packages": ["tabulate"]
+    "exclude_packages": ["six", "tabulate"]
   },
   "localstack": {
     "exclude_packages": ["six", "tabulate"]
