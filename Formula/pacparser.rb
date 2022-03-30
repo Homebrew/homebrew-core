@@ -7,14 +7,12 @@ class Pacparser < Formula
   head "https://github.com/pacparser/pacparser.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_monterey: "30ceddf59723263d52009377de9a4003f962239dddd7f4033935e31b9efd90cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "1999482c32deaa8c6b9a38800b6dbc4f6d18076177f6a8a0dad49c21c4327781"
-    sha256 cellar: :any,                 monterey:       "861d3e460101ce328b440dd01e53e1bb0ff7d17bb344ec11f6bac6d160733a05"
-    sha256 cellar: :any,                 big_sur:        "55ce66921189d2ba41d3cf58f7548237442c5387372b8cc4bab891cf1ed7766f"
-    sha256 cellar: :any,                 catalina:       "ca13d2507c9c6616bc6c3604c19a7f6f1652bb3b3c1fed3168c4d832a10b0174"
-    sha256 cellar: :any,                 mojave:         "3544e7aed8d310d3407997f46b8b51cbbc2b1d962f90535175baff72301e375e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "171b897e20fc774db40f8d7e3a61e6367216cd485894f8b04c8a0d14a7bae9ed"
+    sha256 cellar: :any,                 arm64_monterey: "bca149211d2b46f6ca8e38e56721b89ec70eaeb3221391fff13b2003e1648e3e"
+    sha256 cellar: :any,                 arm64_big_sur:  "f0a683baea4447d1d592372d8f0033be536a0e669dcbfe05a2f106fc3d0d5137"
+    sha256 cellar: :any,                 monterey:       "c5e40234a2302eec8e4399dfeee3956d81782b1e98d95312e10439aa6d578f93"
+    sha256 cellar: :any,                 big_sur:        "04c2df271cf3b1b590f9e07db969175a4d26e0811682c82afc0913bd94d64aaf"
+    sha256 cellar: :any,                 catalina:       "bc0836bbe1ec53795234e0573f9c6b211fc35de3bd327f61fe5db2a3b2541185"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52ee42a6f1031f07277f576020ef0bbcc568c989e09da76afc59aa99de3a9d51"
   end
 
   def install
