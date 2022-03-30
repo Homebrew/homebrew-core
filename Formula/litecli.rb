@@ -80,12 +80,18 @@ class Litecli < Formula
     system "sqlite3 test.db < test.sql"
 
     require "pty"
+    output = ""
+    PTY.spawn("#{bin}/litecli test.db") do |r, w, _pid|
+      sleep 2
+      w.puts "SELECT name FROM package_manager"
+      w.puts "quit"
 
-    r, w, pid = PTY.spawn("#{bin}/litecli test.db")
-    sleep 2
-    w.puts "SELECT name FROM package_manager"
-    w.puts "quit"
-    output = r.read
+      begin
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+    end
 
     # remove ANSI colors
     output.gsub!(/\e\[([;\d]+)?m/, "")
@@ -99,8 +105,5 @@ class Litecli < Formula
     EOS
 
     assert_match expected, output
-
-    Process.wait(pid)
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
