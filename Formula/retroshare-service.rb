@@ -9,7 +9,7 @@ class RetroshareService < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "rapidjson" => :build
   depends_on "miniupnpc"
   depends_on "openssl@1.1"
