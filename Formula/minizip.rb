@@ -2,6 +2,7 @@ class Minizip < Formula
   desc "C library for zip/unzip via zLib"
   homepage "https://www.winimage.com/zLibDll/minizip.html"
   url "https://zlib.net/zlib-1.2.12.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.2.12/zlib-1.2.12.tar.gz"
   sha256 "91844808532e5ce316b3c010929493c0244f3d37593afd6de04f71821d5136d9"
   license "Zlib"
 
