@@ -11,10 +11,12 @@ class Xaric < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "9f89bb7adc21f31a7721a5b3cc0586820cc59e50e82f6316ef74f2dbce1c512f"
-    sha256 big_sur:       "4c9e9e9d0ef2e7f5c8bb8996ef72220f2315e756e1a4c9c8e23869b8e0abc84e"
-    sha256 catalina:      "5438f46156ba60b6658275aefdda7617296691d949f7dd0f85dcdac1225d254e"
-    sha256 mojave:        "e8c40aad03fec80e9566a1bb9c7100cbb3a4e0fca3dbc9f79f65271d3e29631f"
+    sha256 arm64_monterey: "0679cb45a723581f21bd4295225c92e01a303155e772e07ad598303d8d3acff0"
+    sha256 arm64_big_sur:  "9f89bb7adc21f31a7721a5b3cc0586820cc59e50e82f6316ef74f2dbce1c512f"
+    sha256 monterey:       "914abc6071ee13379b8238fac06093d1e35277d1b36365ad346bc75dc7ee688c"
+    sha256 big_sur:        "4c9e9e9d0ef2e7f5c8bb8996ef72220f2315e756e1a4c9c8e23869b8e0abc84e"
+    sha256 catalina:       "5438f46156ba60b6658275aefdda7617296691d949f7dd0f85dcdac1225d254e"
+    sha256 mojave:         "e8c40aad03fec80e9566a1bb9c7100cbb3a4e0fca3dbc9f79f65271d3e29631f"
   end
 
   depends_on "openssl@1.1"
