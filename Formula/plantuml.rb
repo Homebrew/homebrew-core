@@ -1,12 +1,9 @@
 class Plantuml < Formula
   desc "Draw UML diagrams"
   homepage "https://plantuml.com/"
-  # Temporarily using tarball to patch in compatibility with graphviz 3+.
-  # TODO: Switch back to official Jar url when issue is fixed.
-  url "https://downloads.sourceforge.net/project/plantuml/1.2022.2/plantuml-1.2022.2.tar.gz"
-  sha256 "f99dd7d35c2aa57e119c78ebb76ca80b5adf229c7a5a46166bac16cb6e550e63"
+  url "https://downloads.sourceforge.net/project/plantuml/1.2022.3/plantuml.1.2022.3.jar"
+  sha256 "bb8d0fdd816259de35f41cf536f848b0f6bb9c04a5fc8f73fcbd90e6ff5e380a"
   license "GPL-3.0-or-later"
-  revision 1
   version_scheme 1
 
   livecheck do
@@ -23,16 +20,12 @@ class Plantuml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "80879633e2aef94bfcd75c387ed10f126d0cf22ca4d299a0be565036929c5ad8"
   end
 
-  depends_on "ant" => :build # remove when switching to Jar url
   depends_on "graphviz"
   depends_on "openjdk"
 
-  patch :DATA
-
   def install
-    system "ant", "dist"
     jar = "plantuml.jar"
-    libexec.install jar
+    libexec.install "plantuml.#{version}.jar" => jar
     (bin/"plantuml").write <<~EOS
       #!/bin/bash
       if [[ "$*" != *"-gui"* ]]; then
@@ -47,24 +40,3 @@ class Plantuml < Formula
     system bin/"plantuml", "-testdot"
   end
 end
-
-__END__
-diff --git a/src/net/sourceforge/plantuml/cucadiagram/dot/GraphvizUtils.java b/src/net/sourceforge/plantuml/cucadiagram/dot/GraphvizUtils.java
-index faebb12..95f0696 100644
---- a/src/net/sourceforge/plantuml/cucadiagram/dot/GraphvizUtils.java
-+++ b/src/net/sourceforge/plantuml/cucadiagram/dot/GraphvizUtils.java
-@@ -195,12 +195,12 @@ public class GraphvizUtils {
- 		if (s == null) {
- 			return -1;
- 		}
--		final Pattern p = Pattern.compile("\\s([12].\\d\\d)\\D");
-+		final Pattern p = Pattern.compile("\\s([123])\\.(\\d\\d?)\\D");
- 		final Matcher m = p.matcher(s);
- 		if (m.find() == false) {
- 			return -1;
- 		}
--		return Integer.parseInt(m.group(1).replaceAll("\\.", ""));
-+		return 100 * Integer.parseInt(m.group(1)) + Integer.parseInt(m.group(2));
- 	}
- 
- 	public static int getDotVersion() throws IOException, InterruptedException {
