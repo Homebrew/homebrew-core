@@ -27,6 +27,12 @@ class Djview4 < Formula
   depends_on "djvulibre"
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # qt@5 is built with GCC
+
   def install
     system "autoreconf", "-fiv"
 
