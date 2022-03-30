@@ -8,6 +8,15 @@ class GiDocgen < Formula
   license any_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://gitlab.gnome.org/GNOME/gi-docgen.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1b896b52edaa0ae0af8f9ad8f275539df09e886c80c1d0f92c86f7322767a37c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1282d4e5566aa024fbd9939809a4b86e7544f17084210d014d0a6c09a2bc71b"
+    sha256 cellar: :any_skip_relocation, monterey:       "0b9bcdfa19aa1446f6a0a98fb8a415368d4cc1770f48fb916eaf4b56ad453e77"
+    sha256 cellar: :any_skip_relocation, big_sur:        "646ce619052b219f6c62802b0f12d268269804b447568dda883000cdcba2c441"
+    sha256 cellar: :any_skip_relocation, catalina:       "7c06ecc57e6600897f0c27dba25850ce8d245fca2bee122fa135b06a09031eaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "369a44267f3b9dfe01771e4abc3a07789bf5abd10d6b16c848a20028fc1a9fa3"
+  end
+
   depends_on "python@3.10"
 
   # Source for latest version is not available on PyPI, so using GitHub tarball instead.
