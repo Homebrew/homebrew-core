@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/79/97/12218b36c5eae0d7dfd06855b2ffeba6aad1e96fb597f6197babcc03302a/checkov-2.0.990.tar.gz"
-  sha256 "6d25a31a268b8d21e0c19a359a333b9baba99658da26ebfd46918e5122f8689c"
+  url "https://files.pythonhosted.org/packages/fb/91/31e65ea6d1bb2ee6599d381c2d455003c271d8d28f91da761cbbafb9c051/checkov-2.0.1005.tar.gz"
+  sha256 "028605a186eefca1d03ad69a84cf5f73f4a7867d4b68ad3b8e60c8aa116c6c8a"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/fb/31/97b628ed56a63164bced939fc353a70f83075d225038228b610c141c39a3/boto3-1.21.27.tar.gz"
-    sha256 "ef41b9c7b6311d5152bdc78f7de56912c1ed265debf7da14133e1ad00246ad50"
+    url "https://files.pythonhosted.org/packages/fd/2f/fe2b44be11e97d8056f56e6881666d2e215ab3ed1aa18e6f9d4da56f6326/boto3-1.21.29.tar.gz"
+    sha256 "127ebdf58c8825b53f1eff111e08c49ffffeb1f6d7a5665c9907ce8128fe14b1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/78/14/7ed89fcf90f4e52343106051ec587a903467461c12d8f9921dac99562c12/botocore-1.24.27.tar.gz"
-    sha256 "2c11db4b94b4b9504d2782acb758d29a7e5cbdfaa826601f222ac9ddcf004dde"
+    url "https://files.pythonhosted.org/packages/72/c2/beeb5b9efbd2bf9353898ad07968acc443d7bb376b02d8193b93d2590ede/botocore-1.24.29.tar.gz"
+    sha256 "b467d64cd773dc4d49ef31b18a8dded554f284f799720bd12e989fe2138fd5b8"
   end
 
   resource "cached-property" do
@@ -102,8 +102,8 @@ class Checkov < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
-    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
+    url "https://files.pythonhosted.org/packages/45/2b/7ebad1e59a99207d417c0784f7fb67893465eef84b5b47c788324f1b4095/click-8.1.0.tar.gz"
+    sha256 "977c213473c7665d3aa092b41ff12063227751c41d7b17165013e10069cc5cd2"
   end
 
   resource "click-option-group" do
@@ -272,8 +272,8 @@ class Checkov < Formula
   end
 
   resource "pycep-parser" do
-    url "https://files.pythonhosted.org/packages/65/16/3a54d9314c9de5e464e586cd5f075f34b4cae07632ddcce83dd5401561e6/pycep-parser-0.3.2.tar.gz"
-    sha256 "88f6926ee907d5f233284bb25d591fdac0ca7292b3487e7f951b1ec489521635"
+    url "https://files.pythonhosted.org/packages/46/b5/4b4983c2eef92151d60b45072d1d31f9bb17c46ea28a374ef0ee0fa65934/pycep-parser-0.3.3.tar.gz"
+    sha256 "b45bfef3410ddf77122ef7b618b5ab5d724f07696e48b2fc2703a649bec8277e"
   end
 
   resource "pycparser" do
@@ -382,8 +382,8 @@ class Checkov < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/8d/12/cd10d050f7714ccc675b486cdcbbaed54c782a5b77da2bb82e5c7b31fb40/websocket-client-1.3.1.tar.gz"
-    sha256 "6278a75065395418283f887de7c3beafb3aa68dada5cacbe4b214e8d26da499b"
+    url "https://files.pythonhosted.org/packages/7c/de/9f5354b4b37df453b7d664f587124c70a75c81805095d491d39f5b591818/websocket-client-1.3.2.tar.gz"
+    sha256 "50b21db0058f7a953d67cc0445be4b948d7fc196ecbeb8083d68d94628e4abf6"
   end
 
   resource "yarl" do
@@ -411,7 +411,7 @@ class Checkov < Formula
     EOS
 
     output = shell_output("#{bin}/checkov -f #{testpath}/test.tf 2>&1", 1)
-    assert_match "Passed checks: 6, Failed checks: 9, Skipped checks: 0", output
+    assert_match "Passed checks: 4, Failed checks: 6, Skipped checks: 0", output
 
     (testpath/"test2.tf").write <<~EOS
       resource "aws_s3_bucket" "foo-bucket" {
@@ -428,6 +428,6 @@ class Checkov < Formula
       }
     EOS
     output = shell_output("#{bin}/checkov -f #{testpath}/test2.tf 2>&1", 1)
-    assert_match "Passed checks: 6, Failed checks: 8, Skipped checks: 1", output
+    assert_match "Passed checks: 4, Failed checks: 5, Skipped checks: 1", output
   end
 end
