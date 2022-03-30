@@ -3,6 +3,7 @@ class Yamdi < Formula
   homepage "https://yamdi.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/yamdi/yamdi/1.9/yamdi-1.9.tar.gz"
   sha256 "4a6630f27f6c22bcd95982bf3357747d19f40bd98297a569e9c77468b756f715"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f6796b10d1af7ae38ed559313b5646047cb1456c66428d9c32f5e3a0981f1f4c"
@@ -16,7 +17,7 @@ class Yamdi < Formula
   end
 
   def install
-    system ENV.cc, ENV.cflags, "yamdi.c", "-o", "yamdi"
+    system ENV.cc, "yamdi.c", "-o", "yamdi", *ENV.cflags.to_s.split
     bin.install "yamdi"
     man1.install "man1/yamdi.1"
   end
