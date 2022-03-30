@@ -3,6 +3,7 @@ class WithReadline < Formula
   homepage "https://www.greenend.org.uk/rjk/sw/withreadline.html"
   url "https://www.greenend.org.uk/rjk/sw/with-readline-0.1.1.tar.gz"
   sha256 "d12c71eb57ef1dbe35e7bd7a1cc470a4cb309c63644116dbd9c88762eb31b55d"
+  license "GPL-2.0-or-later"
   revision 2
 
   livecheck do
@@ -23,14 +24,15 @@ class WithReadline < Formula
 
   depends_on "readline"
 
+  uses_from_macos "expect" => :test
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    pipe_output("#{bin}/with-readline /usr/bin/expect", "exit", 0)
+    expect = OS.mac? ? "/usr/bin/expect" : Formula["expect"].bin/"expect"
+    pipe_output("#{bin}/with-readline #{expect}", "exit", 0)
   end
 end
