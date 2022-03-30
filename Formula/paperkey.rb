@@ -19,9 +19,9 @@ class Paperkey < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "fecd3e866173f93ddd6d89e91f2850d29c10e8edf27bb969a95de581ec382c56"
   end
 
-  resource "secret.gpg" do
-    url "https://gist.github.com/bfontaine/5b0e3efa97e2dc42a970/raw/915e802578339ddde2967de541ed65cb76cd14b9/secret.gpg"
-    sha256 "eec8f32a401d1077feb19ea4b8e1816feeac02b9bfe6bd09e75c9985ff740890"
+  resource "homebrew-test_sec" do
+    url "https://raw.githubusercontent.com/dmshaw/paperkey/46adad971458a798e203bf8ec65d6bc897494754/checks/papertest-rsa.sec"
+    sha256 "0f39397227339171209760e0f27aa60ecf7eae31c32d0ec3a358434afd38eacd"
   end
 
   def install
@@ -32,8 +32,8 @@ class Paperkey < Formula
   end
 
   test do
-    resource("secret.gpg").stage do
-      system "#{bin}/paperkey", "--secret-key", "secret.gpg", "--output", "test"
+    resource("homebrew-test_sec").stage do
+      system "#{bin}/paperkey", "--secret-key", "papertest-rsa.sec", "--output", "test"
       assert_predicate Pathname.pwd/"test", :exist?
     end
   end
