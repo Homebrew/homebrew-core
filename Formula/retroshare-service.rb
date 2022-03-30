@@ -23,9 +23,9 @@ class RetroshareService < Formula
   def install
     system "cmake", "-S", "retroshare-service", "-B", "builddir",
                     "-DRS_FORUM_DEEP_INDEX=ON",
-                    "-DRS_MAJOR_VERSION=0",
-                    "-DRS_MINOR_VERSION=6",
-                    "-DRS_MINI_VERSION=6",
+                    "-DRS_MAJOR_VERSION=#{version.major}",
+                    "-DRS_MINOR_VERSION=#{version.minor}",
+                    "-DRS_MINI_VERSION=#{version.patch}",
                     "-DRS_EXTRA_VERSION=-497-g2b4e57133-homebrew",
                     "-DCMAKE_VERBOSE_MAKEFILE=ON",
                     *std_cmake_args
