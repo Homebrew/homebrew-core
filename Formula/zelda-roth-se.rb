@@ -14,6 +14,7 @@ class ZeldaRothSe < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "1531cd6fc89cca4cc08287e569cdd8b86e41a52bb8c66fb10f6a74bb5006bc24"
     sha256 cellar: :any_skip_relocation, mojave:         "b0451d1eb512280f9dcb2c6057188cbe02e9b2c71fbf337ac463a4e284ba1987"
     sha256 cellar: :any_skip_relocation, high_sierra:    "dcf7800dd6c2e8798abb867733a79acda20e3ce7745b7d489eeac3050a7bf829"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f752b830f0e4e894b560e50ee2418fb889c938ddcdfc85fe9011a528647173e8"
   end
 
   depends_on "cmake" => :build
