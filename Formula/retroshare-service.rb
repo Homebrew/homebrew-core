@@ -27,7 +27,6 @@ class RetroshareService < Formula
                     "-DRS_MINOR_VERSION=#{version.minor}",
                     "-DRS_MINI_VERSION=#{version.patch}",
                     "-DRS_EXTRA_VERSION=-497-g2b4e57133-homebrew",
-                    "-DCMAKE_VERBOSE_MAKEFILE=ON",
                     *std_cmake_args
     system "cmake", "--build", "builddir"
     system "cmake", "--install", "builddir"
