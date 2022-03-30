@@ -4,10 +4,9 @@ class Dpkg < Formula
   # Please use a mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.21.2.tar.xz"
-  sha256 "b8fc67fca696c6bea2f40f737c80574d53384db25202f72effc7e4de4662e1ac"
+  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.21.6.tar.xz"
+  sha256 "060b62c0f63268f207513fdbca70c9c4a473164fa015c79ae4292ce8ddd6b42f"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/d/dpkg/"
@@ -36,14 +35,6 @@ class Dpkg < Formula
 
   on_linux do
     keg_only "not linked to prevent conflicts with system dpkg"
-  end
-
-  # enables fully-qualified tool paths needed for config below
-  # review for deletion when new version is released
-  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1007816
-  patch do
-    url "https://bugs.debian.org/cgi-bin/bugreport.cgi?att=1;bug=1007816;filename=dpkg.diff;msg=5"
-    sha256 "66b0cb11813df2b6135345afe40a4570058048bab880229e76d3d22a48d8f818"
   end
 
   patch :DATA
