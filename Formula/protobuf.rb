@@ -30,7 +30,6 @@ class Protobuf < Formula
   depends_on "python@3.10" => [:build, :test]
   # The Python3.9 bindings can be removed when Python3.9 is made keg-only.
   depends_on "python@3.9" => [:build, :test]
-  depends_on "six"
 
   uses_from_macos "zlib"
 
