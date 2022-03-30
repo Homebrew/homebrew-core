@@ -1,8 +1,8 @@
 class Kore < Formula
   desc "Web application framework for writing web APIs in C"
   homepage "https://kore.io/"
-  url "https://kore.io/releases/kore-4.2.0.tar.gz"
-  sha256 "3cc7d1a0d4a3b568bc15886cceebec208ebfd0a94293eaa3b275754d13c5445d"
+  url "https://kore.io/releases/kore-4.2.1.tar.gz"
+  sha256 "f76b108a4eefa27c89123f5d6a36b493b171e429be7a85d3dd1466ac87e7f15a"
   license "ISC"
   head "https://github.com/jorisvink/kore.git", branch: "master"
 
