@@ -17,6 +17,7 @@ class Xaric < Formula
     sha256 big_sur:        "4c9e9e9d0ef2e7f5c8bb8996ef72220f2315e756e1a4c9c8e23869b8e0abc84e"
     sha256 catalina:       "5438f46156ba60b6658275aefdda7617296691d949f7dd0f85dcdac1225d254e"
     sha256 mojave:         "e8c40aad03fec80e9566a1bb9c7100cbb3a4e0fca3dbc9f79f65271d3e29631f"
+    sha256 x86_64_linux:   "407b5776d290e11fa9dc958d03d7035c623ff5876bc2f2fa37de4462f9f6547d"
   end
 
   depends_on "openssl@1.1"
