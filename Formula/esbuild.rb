@@ -3,8 +3,8 @@ require "language/node"
 class Esbuild < Formula
   desc "Extremely fast JavaScript bundler and minifier"
   homepage "https://esbuild.github.io/"
-  url "https://registry.npmjs.org/esbuild/-/esbuild-0.14.28.tgz"
-  sha256 "ec1e8d5f6e78970fb521fde9ceebf7ab1ef0b92a74722db468e92d5b262b0c73"
+  url "https://registry.npmjs.org/esbuild/-/esbuild-0.14.29.tgz"
+  sha256 "e8305398fdc5a490058101b3eef341d787ee77ec6749623ab67da86086fdbfa4"
   license "MIT"
 
   bottle do
@@ -35,6 +35,6 @@ class Esbuild < Formula
     system Formula["node"].libexec/"bin/npm", "install", "react", "react-dom"
     system bin/"esbuild", "app.jsx", "--bundle", "--outfile=out.js"
 
-    assert_equal "<h1 data-reactroot=\"\">Hello, world!</h1>\n", shell_output("node out.js")
+    assert_equal "<h1>Hello, world!</h1>\n", shell_output("node out.js")
   end
 end
