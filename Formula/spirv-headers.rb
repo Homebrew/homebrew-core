@@ -5,7 +5,7 @@ class SpirvHeaders < Formula
   sha256 "262864053968c217d45b24b89044a7736a32361894743dd6cfe788df258c746c"
   license "MIT"
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
