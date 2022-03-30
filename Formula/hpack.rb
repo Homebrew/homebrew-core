@@ -7,12 +7,12 @@ class Hpack < Formula
   head "https://github.com/sol/hpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4547d44abc0430152312179e3add1b5992177a5370b4c464d7111b60c455064b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "262e9631bc059b760ebaf90d9c19d2d5b7ca08c545775a8bebdf9f72ff121ea9"
-    sha256 cellar: :any_skip_relocation, monterey:       "eb09a7631dfd336c6c413594d147e9b9256786e6dd95527f0dc6f72b230e1d1f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6d25241104086d39f58c6b57af690d88e5b50d6427528eaef58f2955d910b6c3"
-    sha256 cellar: :any_skip_relocation, catalina:       "7b5badf2e34c119540f82194c1fd55bf85a67af7f48083d2a839af86cde740db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3057ec78424d592bcb1a3e9173a119573ab6648187f50ffea9b7370dd1e80d7e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d18bd435a0fe0b891f212320e697f25a35757b51f2ddd581b92b4401ffe213c4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6692c6be0b4c7b1914ee7ec5e83435e38f34d5019414ed7aa64300ad236f150f"
+    sha256 cellar: :any_skip_relocation, monterey:       "f45d2e7079d888906b6920c051ed742906dc4ed23c737d7684fced5e951a3832"
+    sha256 cellar: :any_skip_relocation, big_sur:        "84332baf3417325603d33b6b31e6b906c038eba223eb331f1b5bcd3909a3b806"
+    sha256 cellar: :any_skip_relocation, catalina:       "90a1ac57d94e60b1613494eaa2ec1dea42cd481a41a391958b5c736d515d2812"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff4d2204baa90231b4940640b00d5b2bfd40518a583f0d108c4117603b1200d5"
   end
 
   depends_on "cabal-install" => :build
