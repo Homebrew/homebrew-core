@@ -20,10 +20,21 @@ class Xlslib < Formula
   depends_on "libtool" => :build
 
   def install
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    ENV.append "LIBS", "-lstdc++" if OS.linux?
+
     cd "xlslib"
     system "autoreconf", "-i" # shipped configure hardcodes automake-1.13
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
+
+    (pkgshare/"test").install Dir["targets/test/*.{cpp,c,h,md5}"]
+  end
+
+  test do
+    cp_r (pkgshare/"test").children, testpath
+    system ENV.cxx, "mainCPP.cpp", "md5cpp.cpp", "-o", "test", "-I#{include}/xlslib", "-L#{lib}", "-lxls"
+    assert_match "# Test finished", shell_output("./test 2>&1")
   end
 end
