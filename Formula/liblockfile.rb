@@ -18,12 +18,13 @@ class Liblockfile < Formula
     # brew runs without root privileges (and the group is named "wheel" anyway)
     inreplace "Makefile.in", " -g root ", " "
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-debug",
-                          "--with-mailgroup=staff",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--mandir=#{man}"
+    args = %W[
+      --sysconfdir=#{etc}
+      --mandir=#{man}
+    ]
+    args << "--with-mailgroup=staff" if OS.mac?
+
+    system "./configure", *std_configure_args, *args
     bin.mkpath
     lib.mkpath
     include.mkpath
