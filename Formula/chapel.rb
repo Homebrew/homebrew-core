@@ -16,7 +16,7 @@ class Chapel < Formula
   end
 
   depends_on "gmp"
-  depends_on "llvm@13"
+  depends_on "llvm"
   depends_on "python@3.10"
 
   def install
