@@ -3,8 +3,8 @@ class AwsSsoUtil < Formula
 
   desc "Smooth out the rough edges of AWS SSO (temporarily, until AWS makes it better)"
   homepage "https://github.com/benkehoe/aws-sso-util"
-  url "https://files.pythonhosted.org/packages/96/af/4605e5ab4f0979aa1678c65a39a35164d683706d5fe889d8af951034027b/aws-sso-util-4.27.0.tar.gz"
-  sha256 "7fb9a9eeab36b0731489c7927d20419b7daf98e2687105dc3606b62a3f45a939"
+  url "https://files.pythonhosted.org/packages/b4/c3/917e6858249056e5d0bba19f52813e726fba29da456c2db7952053048529/aws-sso-util-4.28.0.tar.gz"
+  sha256 "2300079d57aec85f7ed4e8c01548b5c8ea49e6f838b8532701bf91c975dbba1d"
   license "Apache-2.0"
   head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
 
@@ -36,18 +36,18 @@ class AwsSsoUtil < Formula
   end
 
   resource "aws-sso-lib" do
-    url "https://files.pythonhosted.org/packages/d4/14/31dff409363cc243eb5407ebe7fa71e8cc6ddc5c90e3708898adb3c98d19/aws-sso-lib-1.10.0.tar.gz"
-    sha256 "2f4e2d10c85286598bab665d8c64dcf8dd3f958fb87dcc9a51967605cf9761ec"
+    url "https://files.pythonhosted.org/packages/64/97/f2c08a8a1b60d42d8083392669962a2218cdf4ed7e4d62f961a89f4a4375/aws-sso-lib-1.11.0.tar.gz"
+    sha256 "ec95a1a690e618961b9304554c647c933aeb17e2ef5bad290a83e554bea24008"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/72/4c/e3dab7ff6795f43a8b50581b805815ca94c3714fc2dfe54ebc8852d6748b/boto3-1.20.38.tar.gz"
-    sha256 "edeae6d38c98691cb9da187c541f3033e0f30d6b2a0b54b5399a44d9b3ba4f61"
+    url "https://files.pythonhosted.org/packages/fd/2f/fe2b44be11e97d8056f56e6881666d2e215ab3ed1aa18e6f9d4da56f6326/boto3-1.21.29.tar.gz"
+    sha256 "127ebdf58c8825b53f1eff111e08c49ffffeb1f6d7a5665c9907ce8128fe14b1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/f7/d9/cac2d315df95037cfbb5ce14146ea61c4687b4ab65cd9630b32dcfb00b7c/botocore-1.23.38.tar.gz"
-    sha256 "f733bc565f144f0ec97ffe0d51235d358ad2f5f12b331563b69d9e9227262a36"
+    url "https://files.pythonhosted.org/packages/72/c2/beeb5b9efbd2bf9353898ad07968acc443d7bb376b02d8193b93d2590ede/botocore-1.24.29.tar.gz"
+    sha256 "b467d64cd773dc4d49ef31b18a8dded554f284f799720bd12e989fe2138fd5b8"
   end
 
   resource "certifi" do
@@ -56,8 +56,8 @@ class AwsSsoUtil < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/48/44/76b179e0d1afe6e6a91fd5661c284f60238987f3b42b676d141d01cd5b97/charset-normalizer-2.0.10.tar.gz"
-    sha256 "876d180e9d7432c5d1dfd4c5d26b72f099d503e8fcc0feb7532c9289be60fcbd"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "click" do
@@ -71,8 +71,8 @@ class AwsSsoUtil < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/3c/56/3f325b1eef9791759784aa5046a8f6a1aff8f7c898a2e34506771d3b99d8/jmespath-0.10.0.tar.gz"
-    sha256 "b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"
+    url "https://files.pythonhosted.org/packages/06/7e/44686b986ef9ca6069db224651baaa8300b93af2a085a5b135997bf659b3/jmespath-1.0.0.tar.gz"
+    sha256 "a490e280edd1f57d6de88636992d05b71e97d69a26a19f058ecf7d304474bf5e"
   end
 
   resource "jsonschema" do
@@ -101,13 +101,13 @@ class AwsSsoUtil < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/88/ef/4d1b3f52ae20a7e72151fde5c9f254cd83f8a49047351f34006e517e1655/s3transfer-0.5.0.tar.gz"
-    sha256 "50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c"
+    url "https://files.pythonhosted.org/packages/7e/19/f82e4af435a19b28bdbfba63f338ea20a264f4df4beaf8f2ab9bfa34072b/s3transfer-0.5.2.tar.gz"
+    sha256 "95c58c194ce657a5f4fb0b9e60a84968c808888aed628cd98ab8771fe1db98ed"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   def install
