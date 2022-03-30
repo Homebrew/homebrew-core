@@ -13,12 +13,11 @@ class Epic5 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "a840f83399674d45b45c29bd41cbaf6a901779e33226c83cc4d71e08cbc93ec6"
-    sha256 arm64_big_sur:  "5139ccc0ee27332891de4634edccab4b74d39c0a65b9bac8034c4f76ae8dc8be"
-    sha256 monterey:       "e91fcbf5d7cc3af521719f0172836dab56634f0f7a8c52854343d38151e11f04"
-    sha256 big_sur:        "e34de29881ed577de6ffbc5fdec471f59707c4e6a91bce1f453656d93612c37f"
-    sha256 catalina:       "882c365f9c32d24c729464e83b399a35d4620944bffc5732cc21bff52751836f"
-    sha256 mojave:         "1ddec44e5b0af07dd5a434ebd913c7139a3270cb8bf6a0807eafca9795aa5dc0"
+    sha256 arm64_monterey: "6e1ce5354ed3d4db90bf4fcb967efc260759698bddfc3efff61496482ba66f63"
+    sha256 arm64_big_sur:  "36abf84918060064f79935e49bcaad31e2c9c835eece141c757e0399c66a489a"
+    sha256 monterey:       "7e284146e725708f61b7cf3a11687036ed88e00c03256c247295204ceb50890f"
+    sha256 big_sur:        "a2949e863afccbf53fd8de505c4a4b06651f56b003fc1592cc3d72227aa5f3eb"
+    sha256 catalina:       "7ab5e04e421d2d435680540de8dcd2268adf3de9612fa9dc47b9c1075c6c5c81"
   end
 
   depends_on "openssl@1.1"
