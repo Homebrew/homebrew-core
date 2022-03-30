@@ -12,6 +12,7 @@ class Licensefinder < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "369e2affccf92dfb4d1869d1abc23118094553f062b78c1470635fb2347bda41"
     sha256 cellar: :any_skip_relocation, big_sur:        "4944b6336d9316648a52b2a1a21a7f11cebcde1b746fc772f25d39d9672e2af3"
     sha256 cellar: :any_skip_relocation, catalina:       "4944b6336d9316648a52b2a1a21a7f11cebcde1b746fc772f25d39d9672e2af3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fad2104fa2186844235e5628d8afe03f34b08e7b9c62631399dde2b3947b493"
   end
 
   depends_on "ruby@2.7" if MacOS.version <= :mojave
