@@ -1,8 +1,8 @@
 class Pacparser < Formula
   desc "Library to parse proxy auto-config (PAC) files"
   homepage "https://github.com/pacparser/pacparser"
-  url "https://github.com/pacparser/pacparser/archive/1.3.7.tar.gz"
-  sha256 "575c5d8096b4c842b2af852bbb8bcfde96170b28b49f33249dbe2057a8beea13"
+  url "https://github.com/pacparser/pacparser/archive/v1.3.9.tar.gz"
+  sha256 "4eed48923f4430eca15e5483cf535c10d4442fdf353a9bb90a68e4e9ad6b1abb"
   license "LGPL-3.0-or-later"
   head "https://github.com/pacparser/pacparser.git", branch: "master"
 
@@ -15,12 +15,6 @@ class Pacparser < Formula
     sha256 cellar: :any,                 catalina:       "ca13d2507c9c6616bc6c3604c19a7f6f1652bb3b3c1fed3168c4d832a10b0174"
     sha256 cellar: :any,                 mojave:         "3544e7aed8d310d3407997f46b8b51cbbc2b1d962f90535175baff72301e375e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "171b897e20fc774db40f8d7e3a61e6367216cd485894f8b04c8a0d14a7bae9ed"
-  end
-
-  # Fix build for MacOS 11.1
-  patch do
-    url "https://github.com/manugarg/pacparser/commit/28afea85c7578d033132f3817b62d3bb707cc3a3.patch?full_index=1"
-    sha256 "52fc5b276caf6e95a3ae4ac21e75c9751daaf429f344fdc6b62c85de4aa40d48"
   end
 
   def install
