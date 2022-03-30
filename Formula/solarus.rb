@@ -29,8 +29,12 @@ class Solarus < Formula
   depends_on "sdl2_ttf"
 
   on_linux do
+    depends_on "gcc"
+    depends_on "mesa"
     depends_on "openal-soft"
   end
+
+  fails_with gcc: "5" # needs same GLIBCXX as mesa at runtime
 
   def install
     ENV.append_to_cflags "-I#{Formula["glm"].opt_include}"
