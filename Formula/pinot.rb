@@ -11,6 +11,7 @@ class Pinot < Formula
   end
 
   depends_on "openjdk"
+  depends_on "zookeeper"
 
   def install
     (var/"lib/pinot/data").mkpath
@@ -24,7 +25,7 @@ class Pinot < Formula
   end
 
   service do
-    run [opt_bin/"pinot-admin", "QuickStart", "-type", "BATCH", "-dataDir", var/"lib/pinot/data"]
+    run [opt_bin/"pinot-admin", "QuickStart", "-type", "DEFAULT", "-dataDir", var/"lib/pinot/data", "-zkAddress", "localhost:2181"]
     keep_alive true
     working_dir var/"lib/pinot"
     log_path var/"log/pinot/pinot_output.log"
