@@ -11,6 +11,7 @@ class Nest < Formula
     sha256 monterey:       "2e726432e90deff4137df825c2996840f83557a679c979e7bb93763bc85bb5f9"
     sha256 big_sur:        "c2e1d71a36d08f0a89536f62743850c35118df7c6529cf8b285b9526eda90be8"
     sha256 catalina:       "f77781c41103a4cabdf5b7323761b70451ba0ced67d4266babf7b371b92aa0cf"
+    sha256 x86_64_linux:   "250502b46ccc825980322c4b7511c520fe636d2ed46a3561e929529dbc35888f"
   end
 
   depends_on "cmake" => :build
