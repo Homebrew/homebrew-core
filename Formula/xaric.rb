@@ -24,13 +24,19 @@ class Xaric < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 
   test do
-    assert_match(/Xaric #{version}/, shell_output("script -q /dev/null xaric -v"))
+    require "pty"
+    output = ""
+    PTY.spawn("#{bin}/xaric", "-v") do |r, _w, _pid|
+      r.each_line { |line| output += line }
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    end
+    assert_match "Xaric #{version}", output
   end
 end
