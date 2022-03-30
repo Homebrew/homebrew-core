@@ -34,6 +34,9 @@ class Opencbm < Formula
       LIBUSB_CONFIG=#{Formula["libusb-compat"].bin}/libusb-config
       PREFIX=#{prefix}
       MANDIR=#{man1}
+      ETCDIR=#{etc}
+      UDEVRULESDIR=#{lib}/udev/rules.d
+      LDCONFIG=
     ]
 
     system "make", *args
