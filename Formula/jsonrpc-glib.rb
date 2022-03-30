@@ -1,8 +1,8 @@
 class JsonrpcGlib < Formula
   desc "GNOME library to communicate with JSON-RPC based peers"
   homepage "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
-  url "https://download.gnome.org/sources/jsonrpc-glib/3.40/jsonrpc-glib-3.40.0.tar.xz"
-  sha256 "c2e3d16257c7266cd3901884e22375575bf61a8e1f67596c88e0d87ae70d0ef4"
+  url "https://download.gnome.org/sources/jsonrpc-glib/3.42/jsonrpc-glib-3.42.0.tar.xz"
+  sha256 "221989a57ca82a12467dc427822cd7651b0cad038140c931027bf1074208276b"
   license "LGPL-2.1-or-later"
 
   bottle do
