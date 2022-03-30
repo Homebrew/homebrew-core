@@ -7,9 +7,10 @@ class Xmount < Formula
 
   bottle do
     rebuild 1
-    sha256 catalina:    "55de429679b12e85dcfb854d4add045363a287c172b7b77765591d7d1d89324c"
-    sha256 mojave:      "ae937d5fdba6c278bef72a4f87d62a6dafc2f78ad642ee6995bc228743ed37cd"
-    sha256 high_sierra: "a4436c7060d9b84abfa6450c7156cd994f42c130eebf1281e21319d6e5c00415"
+    sha256 catalina:     "55de429679b12e85dcfb854d4add045363a287c172b7b77765591d7d1d89324c"
+    sha256 mojave:       "ae937d5fdba6c278bef72a4f87d62a6dafc2f78ad642ee6995bc228743ed37cd"
+    sha256 high_sierra:  "a4436c7060d9b84abfa6450c7156cd994f42c130eebf1281e21319d6e5c00415"
+    sha256 x86_64_linux: "e33278ea02578921565961c9671d64fe13d5290a0f3bf0db08e636099c382fb8"
   end
 
   depends_on "cmake" => :build
