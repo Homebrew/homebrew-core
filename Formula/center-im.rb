@@ -1,7 +1,7 @@
 class CenterIm < Formula
   desc "Text-mode multi-protocol instant messaging client"
   homepage "https://github.com/petrpavlu/centerim5"
-  url "https://www.centerim.org/download/releases/centerim-4.22.10.tar.gz"
+  url "https://web.archive.org/web/20191105151123/https://www.centerim.org/download/releases/centerim-4.22.10.tar.gz"
   sha256 "93ce15eb9c834a4939b5aa0846d5c6023ec2953214daf8dc26c85ceaa4413f6e"
   revision 2
 
@@ -36,6 +36,10 @@ class CenterIm < Formula
   end
 
   def install
+    # Work around for C++ version header picking up VERSION file on
+    # case-insensitive systems. Can be removed on next update.
+    (buildpath/"intl/VERSION").unlink if OS.mac?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-msn",
