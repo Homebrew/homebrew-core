@@ -45,13 +45,6 @@ class Fontconfig < Formula
     depends_on "util-linux"
   end
 
-  # Fix crash issues on arm64.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/freedesktop/fontconfig/commit/6def66164a36eed968aae872d76acfac3173d44a.patch?full_index=1"
-    sha256 "1dbe6247786c75f2b3f5a7e21133a3f9c09189f59fff08b2df7cb15389b0e405"
-  end
-
   def install
     font_dirs = %w[
       /System/Library/Fonts
