@@ -11,6 +11,7 @@ class NeopopSdl < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 monterey:     "735c39be0cdfe7a56e4d395859d097b9a48dbea26b219bf922cdddb3ffa5e40f"
     sha256 cellar: :any,                 big_sur:      "53e2a47e1f4e3bc4b35a31ea06f757ef62fc11de24347fcca5f4d1799f1adf94"
     sha256 cellar: :any,                 catalina:     "c4bd22db58945139a07d7c007c546e2edb3be1c3763f2d3f3008b575f30cef84"
     sha256 cellar: :any,                 mojave:       "d84d1d9e2304a21ce915b8a65001a310da3c797e1f89e4d8a86a102e53f92f10"
