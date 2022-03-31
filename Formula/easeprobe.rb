@@ -2,8 +2,8 @@ class Easeprobe < Formula
   desc "Simple, standalone, and lightWeight tool that can do health/status checking"
   homepage "https://github.com/megaease/easeprobe"
   url "https://github.com/megaease/easeprobe.git",
-      tag:      "v1.1.0",
-      revision: "593a5b714a9fe247c0c38e013dd72598590f0092"
+      tag:      "v1.2.0",
+      revision: "ed0988acb0a7581f8ae778048fd16843872e8882"
   license "Apache-2.0"
   head "https://github.com/megaease/easeprobe.git", branch: "main"
 
