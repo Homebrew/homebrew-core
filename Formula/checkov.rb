@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/fb/91/31e65ea6d1bb2ee6599d381c2d455003c271d8d28f91da761cbbafb9c051/checkov-2.0.1005.tar.gz"
-  sha256 "028605a186eefca1d03ad69a84cf5f73f4a7867d4b68ad3b8e60c8aa116c6c8a"
+  url "https://files.pythonhosted.org/packages/66/4c/fe61b1d94e9769bca6a69a75d7353dcda46216db81c66e87f2f198393dbd/checkov-2.0.1020.tar.gz"
+  sha256 "c6c3813cd449dbad89287777c9cca9d37871d034fe7fc95781bde7d0f3447a5b"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/fd/2f/fe2b44be11e97d8056f56e6881666d2e215ab3ed1aa18e6f9d4da56f6326/boto3-1.21.29.tar.gz"
-    sha256 "127ebdf58c8825b53f1eff111e08c49ffffeb1f6d7a5665c9907ce8128fe14b1"
+    url "https://files.pythonhosted.org/packages/91/1b/7e84cbce4b22e837375e137e77eb1e7b24554a907ef9743b7f923b201ab8/boto3-1.21.30.tar.gz"
+    sha256 "f0af8f4ef5fe6353c794cd3cce627d469a618b58ace7ca75a63cfd719df615ce"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/72/c2/beeb5b9efbd2bf9353898ad07968acc443d7bb376b02d8193b93d2590ede/botocore-1.24.29.tar.gz"
-    sha256 "b467d64cd773dc4d49ef31b18a8dded554f284f799720bd12e989fe2138fd5b8"
+    url "https://files.pythonhosted.org/packages/32/bc/ef79f0598110dc884bf8dddd9907cc3da241b140591fe3bbc20556d60119/botocore-1.24.30.tar.gz"
+    sha256 "af4bdc51eeecbe9fdcdadbed9ad58c5c91380ef30f3560022bbc2ee1d78f0ad6"
   end
 
   resource "cached-property" do
@@ -102,8 +102,8 @@ class Checkov < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/45/2b/7ebad1e59a99207d417c0784f7fb67893465eef84b5b47c788324f1b4095/click-8.1.0.tar.gz"
-    sha256 "977c213473c7665d3aa092b41ff12063227751c41d7b17165013e10069cc5cd2"
+    url "https://files.pythonhosted.org/packages/ba/1c/9490d7fd88dd612f2f6ced0fac0560f160d434f28bf3f2fe4173d6b79cae/click-8.1.1.tar.gz"
+    sha256 "7ab900e38149c9872376e8f9b5986ddcaf68c0f413cf73678a0bca5547e6f976"
   end
 
   resource "click-option-group" do
