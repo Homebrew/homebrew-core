@@ -14,6 +14,7 @@ class Clockywock < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d25af48f1f063a64f514a632ffd1c017ba4dd2c0abc2b428489147247eb8cfaf"
     sha256 cellar: :any_skip_relocation, el_capitan:    "12ce1b232f8dfa658e774f8ae08b99f40ca6ae12ee2d5df41af67412412c2b43"
     sha256 cellar: :any_skip_relocation, yosemite:      "fccbf3e83841993156fa544c0b0f30a92058facf07ce5b1e622aec78e2573aff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6645c5e005c3d94fb8474f181190058c87e64ddbd26196c300f2cd8b6f67caa8"
   end
 
   deprecate! date: "2022-03-30", because: :unmaintained
