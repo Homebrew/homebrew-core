@@ -12,11 +12,12 @@ class Pazpar2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "3aa56446afff401c334ab750e18eb49161bdbc576abed93c8b604f2466c65043"
-    sha256 cellar: :any, arm64_big_sur:  "10a49c1be55e77d741cb5e5a78037fe123fafd371087bca63114ce3622f662aa"
-    sha256 cellar: :any, monterey:       "eaa9630b359a5e829528011599c7f3aeda1464562b13cb5258c461ce11d8657e"
-    sha256 cellar: :any, big_sur:        "4ccab6ab3e93d2e41fd19053aa14bf3cfa79016be44c42203a81098cb92e42b2"
-    sha256 cellar: :any, catalina:       "ef08edbcc9fa2d979dbd31fbe8ee32f296fd0b4d29d2091f0b0cf3b39f8f25e6"
+    sha256 cellar: :any,                 arm64_monterey: "3aa56446afff401c334ab750e18eb49161bdbc576abed93c8b604f2466c65043"
+    sha256 cellar: :any,                 arm64_big_sur:  "10a49c1be55e77d741cb5e5a78037fe123fafd371087bca63114ce3622f662aa"
+    sha256 cellar: :any,                 monterey:       "eaa9630b359a5e829528011599c7f3aeda1464562b13cb5258c461ce11d8657e"
+    sha256 cellar: :any,                 big_sur:        "4ccab6ab3e93d2e41fd19053aa14bf3cfa79016be44c42203a81098cb92e42b2"
+    sha256 cellar: :any,                 catalina:       "ef08edbcc9fa2d979dbd31fbe8ee32f296fd0b4d29d2091f0b0cf3b39f8f25e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e0de42993b51c92330d1556e2e5b3e8cbdc805f561ebd6333b58d6d72feef47"
   end
 
   head do
