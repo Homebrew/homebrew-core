@@ -15,6 +15,7 @@ class Chapel < Formula
   end
 
   depends_on "gmp"
+  depends_on "python@3.10"
   on_macos do
     depends_on "llvm" if MacOS.version > :catalina
     depends_on "llvm@11" if MacOS.version <= :catalina
@@ -22,7 +23,7 @@ class Chapel < Formula
   on_linux do
     depends_on "llvm"
   end
-  depends_on "python@3.10"
+
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
   fails_with gcc: "5"
