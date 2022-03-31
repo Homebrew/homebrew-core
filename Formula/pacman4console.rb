@@ -1,7 +1,7 @@
 class Pacman4console < Formula
   desc "Pacman for console"
   homepage "https://sites.google.com/site/doctormike/pacman.html"
-  url "https://sites.google.com/site/doctormike/pacman-1.3.tar.gz"
+  url "https://ftp.debian.org/debian/pool/main/p/pacman4console/pacman4console_1.3.orig.tar.gz"
   sha256 "9a5c4a96395ce4a3b26a9896343a2cdf488182da1b96374a13bf5d811679eb90"
   license "GPL-2.0"
 
