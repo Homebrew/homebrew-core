@@ -28,7 +28,12 @@ class Nsuds < Formula
     depends_on "automake" => :build
   end
 
+  uses_from_macos "ncurses"
+
   def install
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    ENV["LDADD"] = "-lncurses -lm" unless OS.mac?
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
