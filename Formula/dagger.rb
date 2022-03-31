@@ -7,6 +7,15 @@ class Dagger < Formula
   license "Apache-2.0"
   head "https://github.com/dagger/dagger.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f046a5423ab8d5b5380bab96afc08a521ef9b50da5aa047c7f6471a2e84a0c83"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f046a5423ab8d5b5380bab96afc08a521ef9b50da5aa047c7f6471a2e84a0c83"
+    sha256 cellar: :any_skip_relocation, monterey:       "0f39805cecfe1ebae8cac7234c5d951b547ee4c33ebdbe64b77ff3379996c774"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0f39805cecfe1ebae8cac7234c5d951b547ee4c33ebdbe64b77ff3379996c774"
+    sha256 cellar: :any_skip_relocation, catalina:       "0f39805cecfe1ebae8cac7234c5d951b547ee4c33ebdbe64b77ff3379996c774"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f129270f2f34272065120db6e810dbf234d7d1947b95315bc4c7e10f6250143"
+  end
+
   depends_on "go" => :build
   depends_on "docker" => :test
 
