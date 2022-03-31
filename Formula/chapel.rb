@@ -44,7 +44,16 @@ class Chapel < Formula
         CHPL_GMP=system
       EOS
 
-      system "echo CHPL_LLVM_CONFIG=#{HOMEBREW_PREFIX}/opt/llvm@13/bin/llvm-config >> chplconfig"
+      if OS.mac?
+        if MacOS.version > :catalina
+          system "echo CHPL_LLVM_CONFIG=#{HOMEBREW_PREFIX}/opt/llvm@13/bin/llvm-config >> chplconfig"
+        else
+          system "echo CHPL_LLVM_CONFIG=#{HOMEBREW_PREFIX}/opt/llvm@11/bin/llvm-config >> chplconfig"
+        end
+      else
+        system "echo CHPL_LLVM_CONFIG=#{HOMEBREW_PREFIX}/opt/llvm@13/bin/llvm-config >> chplconfig"
+      end
+
       # don't try to set CHPL_LLVM_GCC_PREFIX since the llvm@13
       # package should be configured to use a reasonable GCC
       system 'echo CHPL_LLVM_GCC_PREFIX="none" >> chplconfig'
