@@ -1,8 +1,8 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/1.3.0.tar.gz"
-  sha256 "9ab025597532348ea7404eb43cce629f668eff17f23e9fb736a0089049c9b295"
+  url "https://github.com/opensearch-project/OpenSearch/archive/1.3.1.tar.gz"
+  sha256 "1a368a9057eede7a0c20792cbae72a7b1bbcbbbee7ebb3fc3c6bb7782a7bd345"
   license "Apache-2.0"
 
   bottle do
@@ -16,7 +16,7 @@ class Opensearch < Formula
   depends_on "openjdk"
 
   def install
-    system "gradle", ":distribution:archives:no-jdk-darwin-tar:assemble"
+    system "gradle", "-Dbuild.snapshot=false", ":distribution:archives:no-jdk-darwin-tar:assemble"
 
     mkdir "tar" do
       # Extract the package to the tar directory
@@ -93,7 +93,7 @@ class Opensearch < Formula
                                 "-Epath.data=#{testpath}/data",
                                 "-Epath.logs=#{testpath}/logs"
     end
-    sleep 20
+    sleep 60
     output = shell_output("curl -s -XGET localhost:#{port}/")
     assert_equal "opensearch", JSON.parse(output)["version"]["distribution"]
 
