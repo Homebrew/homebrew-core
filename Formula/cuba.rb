@@ -26,8 +26,7 @@ class Cuba < Formula
   end
 
   test do
-    system ENV.cc, "-o", "demo", "-L#{lib}", "-lcuba",
-                   "#{pkgshare}/demo/demo-c.c"
+    system ENV.cc, pkgshare/"demo/demo-c.c", "-o", "demo", "-L#{lib}", "-lcuba", "-lm"
     system "./demo"
   end
 end
