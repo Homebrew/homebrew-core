@@ -3,8 +3,8 @@ class Doc8 < Formula
 
   desc "Style checker for Sphinx documentation"
   homepage "https://github.com/PyCQA/doc8"
-  url "https://files.pythonhosted.org/packages/d3/2d/1f8d269bace89280cf6e11cee89738832e74a768f1fd1a580b32aeffb111/doc8-0.11.0.tar.gz"
-  sha256 "282c1375e414292683738125d0d150b6639039be83ea0ee12def745d235ff1e7"
+  url "https://files.pythonhosted.org/packages/31/86/c681a7f2f685c05ed7a8f2f6e0df340309322ee527b6d0a664cd816f2fa0/doc8-0.11.1.tar.gz"
+  sha256 "6dbcb5472efd332763ffb2862b4fdeec40c8a6fdc6bb67e68713ad749ca5808c"
   license "Apache-2.0"
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
