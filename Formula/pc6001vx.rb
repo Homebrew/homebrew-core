@@ -43,6 +43,7 @@ class Pc6001vx < Formula
   end
 
   test do
+    ENV["QT_QPA_PLATFORM"] = "minimal" unless OS.mac?
     user_config_dir = testpath/".pc6001vx"
     user_config_dir.mkpath
     pid = fork do
