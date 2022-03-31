@@ -19,7 +19,12 @@ class Npush < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "d334de125247efff9ce8031cedbb240a493b355a66cae5e6687cefb414d69ffb"
   end
 
+  uses_from_macos "ncurses"
+
   def install
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    inreplace "Makefile", "$(PROGRAM) $(OBJECTS)", "$(PROGRAM) $(OBJECTS) -lncurses" unless OS.mac?
     system "make"
     pkgshare.install ["npush", "levels"]
     (bin/"npush").write <<~EOS
