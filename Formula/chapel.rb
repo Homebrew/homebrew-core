@@ -33,8 +33,11 @@ class Chapel < Formula
     # Must be built from within CHPL_HOME to prevent build bugs.
     # https://github.com/Homebrew/legacy-homebrew/pull/35166
     cd libexec do
-      system "echo CHPL_RE2=bundled > chplconfig"
-      system "echo CHPL_GMP=system >> chplconfig"
+      (libexec/"chplconfig").write <<~EOS
+        CHPL_RE2=bundled
+        CHPL_GMP=system
+      EOS
+
       system "echo CHPL_LLVM_CONFIG=#{HOMEBREW_PREFIX}/opt/llvm@13/bin/llvm-config >> chplconfig"
       # don't try to set CHPL_LLVM_GCC_PREFIX since the llvm@13
       # package should be configured to use a reasonable GCC
@@ -52,6 +55,7 @@ class Chapel < Formula
       with_env(CHPL_PIP_FROM_SOURCE: "1") do
         system "make", "chpldoc"
       end
+      system "./util/printchplenv", "--all", "--internal"
       system "make", "mason"
       system "make", "cleanall"
       rm_rf("third-party/llvm/llvm-src/")
