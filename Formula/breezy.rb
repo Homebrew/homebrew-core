@@ -2,11 +2,11 @@ class Breezy < Formula
   include Language::Python::Virtualenv
 
   desc "Version control system implemented in Python with multi-format support"
-  homepage "https://www.breezy-vcs.org"
-  url "https://files.pythonhosted.org/packages/e4/93/101bb70d7e6c171c7a3a99d50d9f9b64a17a5845cfd6c8ecb95d844bac68/breezy-3.2.1.tar.gz"
-  sha256 "e0b268eb1a28a2af045280c37d021ae32d7ff175f4c9b99f33aad7db0b29d85c"
+  # homepage "https://www.breezy-vcs.org" temporary? 503
+  homepage "https://github.com/breezy-team/breezy"
+  url "https://files.pythonhosted.org/packages/e4/56/bc9f139cfb5eaeb9f0e155bbe2071f97167994b7cbc4c2cced04c48e4a80/breezy-3.2.2.tar.gz"
+  sha256 "187a6e45208dd05d81750736720c83710cf48094f547ec4081c571259559a4d5"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ce18d109ba318dd50c753cd3d02fc90ad6df9575ebdb7c515a1847dfc931598f"
@@ -21,14 +21,14 @@ class Breezy < Formula
   depends_on "cython" => :build
   depends_on "gettext" => :build
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   conflicts_with "bazaar", because: "both install `bzr` binaries"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
-    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
   resource "configobj" do
@@ -37,8 +37,13 @@ class Breezy < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/7c/d2/a361b4831494531d5112e000d92762fc2926ed45ca7f9e9013f2e90c011c/dulwich-0.20.24.tar.gz"
-    sha256 "6b61ac0a2a8b1b1e18914310f3f7a422396334208b426b9de570f1de31644cf1"
+    url "https://files.pythonhosted.org/packages/28/0d/e89036c08fd49722ca7091cc574c0f133d667a7ec37bbdff763b15ec0913/dulwich-0.20.35.tar.gz"
+    sha256 "953f6301a9df8a091fa88d55eed394a88bf9988cde8be341775354910918c196"
+  end
+
+  resource "fastbencode" do
+    url "https://files.pythonhosted.org/packages/27/8c/b98694c74535f984f220c3762842e7aa17c60d5c12103093e0ce0da8edb0/fastbencode-0.0.7.tar.gz"
+    sha256 "b6bc9abe542d0663793529576f49ba8891508554f85d09b5d6d5ed7af7e0c6e4"
   end
 
   resource "patiencediff" do
@@ -47,8 +52,8 @@ class Breezy < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
-    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   def install
@@ -61,7 +66,7 @@ class Breezy < Formula
 
   test do
     brz = "#{bin}/brz"
-    whoami = "Homebrew"
+    whoami = "Homebrew <homebrew@example.com>"
     system brz, "whoami", whoami
     assert_match whoami, shell_output("#{bin}/brz whoami")
 
