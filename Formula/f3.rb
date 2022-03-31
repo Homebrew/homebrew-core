@@ -14,6 +14,7 @@ class F3 < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "198f9b2d578a294fb61e2b9203cc1285c9c0a2fa6048fb1e34130f7d8a2039ff"
     sha256 cellar: :any_skip_relocation, mojave:         "70d5966a5afb44fe91225d81f54adf80cd7b254ac9253423234d4c99d4a2435d"
     sha256 cellar: :any_skip_relocation, high_sierra:    "55da39f3758797df44426b7744542b4322ddc84b20fc7a5664e2da672cef0d1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bd928c111d89adb6098858ab9a2f4332b1aa86004d3cc7b424312978638e7e9"
   end
 
   on_macos do
