@@ -15,7 +15,13 @@ class Chapel < Formula
   end
 
   depends_on "gmp"
-  depends_on "llvm"
+  on_macos do
+    depends_on "llvm" if MacOS.version > :catalina
+    depends_on "llvm@11" if MacOS.version <= :catalina
+  end
+  on_linux do
+    depends_on "llvm"
+  end
   depends_on "python@3.10"
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
@@ -55,7 +61,6 @@ class Chapel < Formula
       with_env(CHPL_PIP_FROM_SOURCE: "1") do
         system "make", "chpldoc"
       end
-      system "./util/printchplenv", "--all", "--internal"
       system "make", "mason"
       system "make", "cleanall"
       rm_rf("third-party/llvm/llvm-src/")
