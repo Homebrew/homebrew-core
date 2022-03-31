@@ -37,14 +37,6 @@ class Dpkg < Formula
     keg_only "not linked to prevent conflicts with system dpkg"
   end
 
-  # enables fully-qualified tool paths needed for config below
-  # review for deletion when new version is released
-  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1007816
-  patch do
-    url "https://bugs.debian.org/cgi-bin/bugreport.cgi?att=1;bug=1007816;filename=dpkg.diff;msg=5"
-    sha256 "66b0cb11813df2b6135345afe40a4570058048bab880229e76d3d22a48d8f818"
-  end
-
   patch :DATA
 
   def install
