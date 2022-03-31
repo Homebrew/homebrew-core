@@ -2,7 +2,8 @@ class Breezy < Formula
   include Language::Python::Virtualenv
 
   desc "Version control system implemented in Python with multi-format support"
-  homepage "https://www.breezy-vcs.org"
+  # homepage "https://www.breezy-vcs.org" temporary? 503
+  homepage "https://github.com/breezy-team/breezy"
   url "https://files.pythonhosted.org/packages/e4/56/bc9f139cfb5eaeb9f0e155bbe2071f97167994b7cbc4c2cced04c48e4a80/breezy-3.2.2.tar.gz"
   sha256 "187a6e45208dd05d81750736720c83710cf48094f547ec4081c571259559a4d5"
   license "GPL-2.0-or-later"
