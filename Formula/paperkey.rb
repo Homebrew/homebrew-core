@@ -11,12 +11,14 @@ class Paperkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "71c9db30e077414c7504d8b20e9f5809b2cde37997881c1715e51e953d90d76d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c6af240418bfb7c29113a1861966302d2be55fc578298f6fb0a4f71bc8dbf89e"
-    sha256 cellar: :any_skip_relocation, catalina:      "12be9f841cfb0d4069be3e461cd5e783ba4ea11195507a13763f90ccc026f31e"
-    sha256 cellar: :any_skip_relocation, mojave:        "894ef3339013be6574f736e316c61cbf54fbc3dcac358df14f1d54b1d7387854"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "82e49c6aa559a349ce73521a90881acb74a540de03d355ad7461c177d00bb8e8"
-    sha256 cellar: :any_skip_relocation, sierra:        "fecd3e866173f93ddd6d89e91f2850d29c10e8edf27bb969a95de581ec382c56"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e56628d74d3ba424c3c801ee83d03408a8fe0e72644b493504c1511d84eea422"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71c9db30e077414c7504d8b20e9f5809b2cde37997881c1715e51e953d90d76d"
+    sha256 cellar: :any_skip_relocation, monterey:       "8a3f3bdec644389ce5de309eb2ce36e5829d9da8b611bb30bbb7a73c32efc669"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c6af240418bfb7c29113a1861966302d2be55fc578298f6fb0a4f71bc8dbf89e"
+    sha256 cellar: :any_skip_relocation, catalina:       "12be9f841cfb0d4069be3e461cd5e783ba4ea11195507a13763f90ccc026f31e"
+    sha256 cellar: :any_skip_relocation, mojave:         "894ef3339013be6574f736e316c61cbf54fbc3dcac358df14f1d54b1d7387854"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "82e49c6aa559a349ce73521a90881acb74a540de03d355ad7461c177d00bb8e8"
+    sha256 cellar: :any_skip_relocation, sierra:         "fecd3e866173f93ddd6d89e91f2850d29c10e8edf27bb969a95de581ec382c56"
   end
 
   resource "homebrew-test_sec" do
