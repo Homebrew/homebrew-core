@@ -7,14 +7,12 @@ class VtkAT82 < Formula
   revision 8
 
   bottle do
-    rebuild 1
-    sha256                               arm64_monterey: "ee325de2481066de0d5a310681be27d8b69075761de970b03c3ac5d4f623fa94"
-    sha256                               arm64_big_sur:  "5ada273760e541d09da596b14552ce792ee9844a243b592a7fae76e988df4714"
-    sha256                               monterey:       "c99f5d89e48984c565431fdcd66fa30a95fea2f2939738d7b809d052cbfba3e0"
-    sha256                               big_sur:        "f588c1f6c99f842c807a440bfeebd7b2411dadec4c869f2348348668054ca2a8"
-    sha256                               catalina:       "5fbc2c1c449782fe77a92febe6872dee0b2487e5da4462f3255318e84e1a9292"
-    sha256                               mojave:         "5509812315e9589e0adeff8b780bab961ee9d89233179653d508d8a9f620977b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13f56b55f3986c1892cfc9161fec794b45a0d4a25bc481346695bee510ae897a"
+    sha256                               arm64_monterey: "b249cb4defffee5aac3aa5058a5d4f4e909bd91991b3fa580a77cdcb798b1692"
+    sha256                               arm64_big_sur:  "830e29cf629cd97413d77f679cecdc21a3795edcf336a0aa6efdec032022d5fc"
+    sha256                               monterey:       "e3890c6dfba19c6cf7bdcb99a46eab9a7069dfd3520af226d6b1efe0e62080ca"
+    sha256                               big_sur:        "fc747c1da6b5a001f288319ba2936b88eb38e0cf178ae99622cf525dd56f2249"
+    sha256                               catalina:       "027471c93128e75e8183d70274e0aedefb7ef9b7c905a85432283f45481206b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4873f8d2cede30b4969fc5a7bb91d22718f4d1e3cd18b438ef65cf9a6c42e149"
   end
 
   keg_only :versioned_formula
