@@ -1,13 +1,9 @@
 class Pkcrack < Formula
   desc "Implementation of an algorithm for breaking the PkZip cipher"
-  homepage "https://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html"
-  url "https://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack/pkcrack-1.2.2.tar.gz"
+  homepage "https://web.archive.org/web/20220128084028/https://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html"
+  url "https://web.archive.org/web/20140725082030/https://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack/pkcrack-1.2.2.tar.gz"
+  mirror "https://pkg.freebsd.org/ports-distfiles/pkcrack-1.2.2.tar.gz"
   sha256 "4d2dc193ffa4342ac2ed3a6311fdf770ae6a0771226b3ef453dca8d03e43895a"
-
-  livecheck do
-    url "https://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack/download1.html"
-    regex(/href=.*?pkcrack[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     rebuild 1
@@ -21,6 +17,8 @@ class Pkcrack < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "47f2ffa2e27f0dc5e6df45de7335e316a8ea83288153b274ae5d8e11c7157055"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7166064fd3c5a549df696d4d889b4de6c5d2596f70c598de71a3d975a42a8f3c"
   end
+
+  deprecate! date: "2022-03-30", because: :unmaintained # and upstream site is gone
 
   conflicts_with "csound", because: "both install `extract` binaries"
   conflicts_with "libextractor", because: "both install `extract` binaries"
