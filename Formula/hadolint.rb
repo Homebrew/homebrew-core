@@ -6,12 +6,12 @@ class Hadolint < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "610529133b9963fadf098f8aa335237483941ff1175b8c6f9a2bf77f546f3c9a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1a6a63b5736d9e8e510e0460ab95403b5c8dc84be352f1624f769b4b2c8f92a"
-    sha256 cellar: :any_skip_relocation, monterey:       "1f23793885e5213ab3ceaef0282b8777d1a22613a3eac40fe2e810f19e2b129e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "be47e2d084751e1e49bfd2c24298caae72f2c632322c044b21b03d173e2ca1b3"
-    sha256 cellar: :any_skip_relocation, catalina:       "577a5ca21fe46f687742b7db07dc77fcf8ca970bae03db33312631ccccc64f18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a63ba52e858570e0b8b14734a39290069d07fba445f93a7f57b013e244c7dee0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "47a602a05d2f725975fee4437606cfde8930db9dc9ce897c5b123243fd25eb25"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf554d10927910209503c4a673d378d8ba5be9c7d2f6e1f2761de08ab77a9985"
+    sha256 cellar: :any_skip_relocation, monterey:       "b8efaf46aa705bde9b6174d613e7c388b00571e8180e0f3578383ceb59198278"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c580ee4ab092afe88ccf8b68c8654cb4a639d68432e72a6532c3a8bbcb5b92f6"
+    sha256 cellar: :any_skip_relocation, catalina:       "cdbd9bf2d766b0d75df8bc8cfe6397eaf7ba91f3ccf4519703f0aad148ff99f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80adffee09ee9cf1121b7d286871c6751806a8ce2b81115e77a106c4e27d3866"
   end
 
   depends_on "ghc" => :build
