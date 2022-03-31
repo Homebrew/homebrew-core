@@ -23,8 +23,8 @@ class Pgrouting < Formula
   depends_on "boost"
   depends_on "cgal"
   depends_on "gmp"
+  depends_on "libpq"
   depends_on "postgis"
-  depends_on "postgresql"
 
   def install
     mkdir "stage"
@@ -34,8 +34,13 @@ class Pgrouting < Formula
       system "make", "install", "DESTDIR=#{buildpath}/stage"
     end
 
-    lib.install Dir["stage/**/lib/*"]
-    (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
+    libpq_prefix = Formula["libpq"].prefix.realpath
+    libpq_stage_path = File.join("stage", libpq_prefix)
+    share.install (buildpath/libpq_stage_path/"share").children
+
+    libpq_opt_prefix = Formula["libpq"].prefix
+    libpq_opt_stage_path = File.join("stage", libpq_opt_prefix)
+    lib.install (buildpath/libpq_opt_stage_path/"lib").children
 
     # write the postgres version in the install to ensure rebuilds on new major versions
     inreplace share/"postgresql/extension/pgrouting.control",
