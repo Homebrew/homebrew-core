@@ -1,8 +1,8 @@
 class Pict < Formula
   desc "Pairwise Independent Combinatorial Tool"
   homepage "https://github.com/Microsoft/pict/"
-  url "https://github.com/Microsoft/pict/archive/v3.7.3.tar.gz"
-  sha256 "43279d0ea93c2c4576c049a67f13a845aa75ad1d70f1ce65535a89ba09daba33"
+  url "https://github.com/Microsoft/pict/archive/v3.7.4.tar.gz"
+  sha256 "42af3ac7948d5dfed66525c4b6a58464dfd8f78a370b1fc03a8d35be2179928f"
   license "MIT"
 
   bottle do
