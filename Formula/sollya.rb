@@ -10,11 +10,10 @@ class Sollya < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "e85099273aa58bed86a2f3f5cecd630d6ef34733eb82781db493baf17e3beecb"
-    sha256 cellar: :any,                 big_sur:       "c4bfa257d2e396ec055f3032d5ece3753d47f582db360d2f5c639d5d21304bc9"
-    sha256 cellar: :any,                 catalina:      "2a005ddf4e5215f870f20efd84297d27d7683b5acc5ff771545893cf729da2a4"
-    sha256 cellar: :any,                 mojave:        "711853a4670a2951c6160f5681c8c511136f3f731e7a7806dd4a9f39b3eff209"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1127e4744b2256e940f48537cea591c7f2f717619e8a8a3c93d053b8e3cf97ee"
+    sha256 cellar: :any,                 arm64_big_sur: "c07fef942ebff9171d52926e76947ad8eeccdc74be40290b18799c7dd67046fb"
+    sha256 cellar: :any,                 big_sur:       "b3a49a1f76957bcbd5a81c8ea141b952b814eb45ff32063451550a7775d9f97b"
+    sha256 cellar: :any,                 catalina:      "614701c860f55043408ff5f1d3a6f4d527db39e07ea4f72715b969bacdeb9826"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7ca886155f71257dd0fa97945db31705c58028169ea4c51f7c8f22631109db5"
   end
 
   depends_on "automake" => :build
