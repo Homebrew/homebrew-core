@@ -32,7 +32,7 @@ class Mongocli < Formula
 
   test do
     assert_match "mongocli version: #{version}", shell_output("#{bin}/mongocli --version")
-    assert_match "Error: missing credentials", shell_output("#{bin}/mongocli iam projects ls 2>&1", 1)
+    assert_match "Error: this action requires authentication", shell_output("#{bin}/mongocli iam projects ls 2>&1", 1)
     assert_match "PROFILE NAME", shell_output("#{bin}/mongocli config ls")
   end
 end
