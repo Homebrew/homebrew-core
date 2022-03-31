@@ -16,12 +16,12 @@ class Hdf5 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "59fda0940bc858fd82262243a122b81031be566ccb7250b00e236945c680360d"
-    sha256 cellar: :any,                 arm64_big_sur:  "6d87fb1aa186b5bb6676ab90747f585c3a2e35f77b979d39da2bfe724461ec56"
-    sha256 cellar: :any,                 monterey:       "00998257c99a4e0c04f8a2242b46203557a4adc9b291b2adf6d48b3252e29a09"
-    sha256 cellar: :any,                 big_sur:        "1cc618692bc853a40603ebbb3701d1e8b9402ad914c703880cc61e62f9b23d64"
-    sha256 cellar: :any,                 catalina:       "47d2b0ab27665ba57d69b177d0f6bbc49b4af2d80d420707c63c0d086055c6fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f8f4c1b2ff5a9e5bd5e9842b822e8263206559d39fa82da947504bbc791436c"
+    sha256 cellar: :any,                 arm64_monterey: "823ea99d10515125b68fae9a062e729e16a589235ff47747d8c49db80c0975ac"
+    sha256 cellar: :any,                 arm64_big_sur:  "d53d554afab11f19e9de3029fe2b95de35b10195039c76cea28e41da630f62dc"
+    sha256 cellar: :any,                 monterey:       "c77af349741708a76fee2be590a10380143c9d4af4f5b28b41fa0f00e404c4f3"
+    sha256 cellar: :any,                 big_sur:        "99b02da5cf2447ecf0094331f55ed064070126955d8f8f12af50e28fc49205a0"
+    sha256 cellar: :any,                 catalina:       "0d3532971a76448a9d862d6a3796e4e234cd05a1f6b099baa04959f2bdd0af88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c79185e0323616f77cbf2db740a2562391e1944d74d2be95c29022e13dc8e4d0"
   end
 
   depends_on "autoconf" => :build
