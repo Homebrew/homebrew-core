@@ -31,11 +31,15 @@ class Openmsx < Formula
   depends_on "sdl2_ttf"
   depends_on "theora"
 
+  uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "gcc"
   end
+
+  fails_with gcc: "5"
 
   def install
     # Hardcode prefix
@@ -43,7 +47,7 @@ class Openmsx < Formula
     inreplace "build/probe.py", "/usr/local", HOMEBREW_PREFIX
 
     # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
-    ENV["TCL_CONFIG"] = "#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework" if OS.mac?
+    ENV["TCL_CONFIG"] = OS.mac? ? MacOS.sdk_path/"System/Library/Frameworks/Tcl.framework" : Formula["tcl-tk"].lib
 
     system "./configure"
     system "make"
