@@ -1,8 +1,8 @@
 class Flarectl < Formula
   desc "CLI application for interacting with a Cloudflare account"
   homepage "https://github.com/cloudflare/cloudflare-go/tree/master/cmd/flarectl"
-  url "https://github.com/cloudflare/cloudflare-go/archive/v0.35.1.tar.gz"
-  sha256 "8d37113e9faf1ba63666fd6cb33b14a66a96eb0f0f354f9f15faac8c94942305"
+  url "https://github.com/cloudflare/cloudflare-go/archive/v0.36.0.tar.gz"
+  sha256 "2a453f021be34a9406e91f4452eae6138e8355f5fa30cd140560dd995177ccd5"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/cloudflare-go.git", branch: "master"
 
@@ -23,6 +23,6 @@ class Flarectl < Formula
 
   test do
     ENV["CF_API_TOKEN"] = "invalid"
-    assert_match "HTTP status 400: Invalid request headers (6003)", shell_output("#{bin}/flarectl u i", 1)
+    assert_match "Invalid request headers (6003)", shell_output("#{bin}/flarectl u i", 1)
   end
 end
