@@ -16,6 +16,7 @@ class Pk < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "790f7e9670dcda15b7472264eea54666e7e34e8adb4343b3699ab87a60c9f3b1"
     sha256 cellar: :any_skip_relocation, el_capitan:     "74c7822b2e3a74bc657d5e8490f184af120eddf9230695fe26dbb075391e10e6"
     sha256 cellar: :any_skip_relocation, yosemite:       "2e86bd1b33521a5856308b58ab35f7384988e9cb6506a4f3d9191ea38361235d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eebcfa3e63674f0aed1d0e541cfa74edd1efcdb1e1a4a4919ef993c14b4b9b6b"
   end
 
   on_macos do
