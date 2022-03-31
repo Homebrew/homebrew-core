@@ -1,9 +1,22 @@
 class OpentelemetryCpp < Formula
   desc "OpenTelemetry C++ Client"
   homepage "https://opentelemetry.io/"
-  url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "7a6420f9e4fa44b81a5b06e30e5e116da71decc9086e5cc4f126e1efc8a397c2"
   license "Apache-2.0"
+
+  stable do
+    url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.2.0.tar.gz"
+    sha256 "7a6420f9e4fa44b81a5b06e30e5e116da71decc9086e5cc4f126e1efc8a397c2"
+
+    # cmake install misses a header open-telemetry/opentelemetry-cpp#1273
+    patch do
+      url "https://github.com/open-telemetry/opentelemetry-cpp/commit/e072daa229f72431b1c50986645d51180a586d09.patch?full_index=1"
+      sha256 "ce54f49532f81e6bc984d8e2e2436d96be1abd2f819f42029168f45aa7b068ed"
+    end
+  end
+
+  head do
+    url "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
+  end
 
   depends_on "cmake" => :build
   depends_on "boost"
