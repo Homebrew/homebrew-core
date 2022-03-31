@@ -57,11 +57,6 @@ class Ghostscript < Formula
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
   end
 
-  patch do
-    url "http://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=830afae5454dea3bff903869d82022306890a96c"
-    sha256 "9c282e3f732b5c182ab761e187850d9f4c29d938a93e3785d9cb6ced13111d6c"
-  end
-
   def install
     # Fix vendored tesseract build error: 'cstring' file not found
     # Remove when possible to link to system tesseract
