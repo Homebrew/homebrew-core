@@ -41,6 +41,8 @@ class Pit < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "20d5d870a4a2cb926cfcdbf4ad8066281c0bc8c4318e7a74d316077c71fdf175"
   end
 
+  uses_from_macos "ruby"
+
   def install
     bin.mkpath
 
