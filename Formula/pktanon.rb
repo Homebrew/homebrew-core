@@ -25,6 +25,12 @@ class Pktanon < Formula
   depends_on "boost"
   depends_on "xerces-c"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     # fix compile failure caused by undefined function 'sleep'.
     inreplace "src/Timer.cpp", %Q(#include "Timer.h"\r\n),
