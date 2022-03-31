@@ -7,12 +7,12 @@ class Libmatio < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3791b5964bfbf7fce08c52629b62ff302db1a037e65d58aba5e57dfea264d19e"
-    sha256 cellar: :any,                 arm64_big_sur:  "ba06c58df165b0550cd8d9807ab66df831d2491aab1cacbd3ddba5ca07be5169"
-    sha256 cellar: :any,                 monterey:       "d995f05ac10bbb93c564b4eb0434d2423971d4c742b32a2454b1d83af14c335d"
-    sha256 cellar: :any,                 big_sur:        "3913f0461bbb1dfd96e1769e8ab2f47cca16e8c5f997ac4180db1d16dad11990"
-    sha256 cellar: :any,                 catalina:       "cd51a4f4185607dc05fbf2c790f3481a8a6bc1fe1da5eda84c8209f4c851ec36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4053df10fe94a36caf42367e5484bfa4a29969f92f6d8b71b225784310224b2c"
+    sha256 cellar: :any,                 arm64_monterey: "24a8ecfe96e86e1949e2404a8973d1bc43a2d8c86aa014f0bfb0b7d137348adc"
+    sha256 cellar: :any,                 arm64_big_sur:  "460be5d7a32ab867d1ee81628a76d02777615629b87eb18894e749c81ec5e105"
+    sha256 cellar: :any,                 monterey:       "541e9c48ca5482f1cb56617994447994dfe084a2c9fb3ba1d227f3e4134c6207"
+    sha256 cellar: :any,                 big_sur:        "168a296da2c49443171a5153aa9de40ef397d171dcd8a7770a8cb36afa6482d8"
+    sha256 cellar: :any,                 catalina:       "ac4c00a118d4193c6bb1008e534db2bd81eed9efa3a1b9262849360cc8a31a42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23924d2738e02983f476e1500aa75833aeb2c421b006b10bb53c73e97bdb4918"
   end
 
   depends_on "hdf5"
