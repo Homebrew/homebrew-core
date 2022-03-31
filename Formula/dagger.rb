@@ -5,7 +5,7 @@ class Dagger < Formula
       tag:      "v0.2.4",
       revision: "b32c8732bc7bd932dbdb5dc42fe2434c53cfeb38"
   license "Apache-2.0"
-  head "https://github.com/dagger/dagger.git"
+  head "https://github.com/dagger/dagger.git", branch: "main"
 
   depends_on "go" => :build
   depends_on "docker" => :test
