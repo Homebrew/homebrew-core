@@ -12,6 +12,7 @@ class Freeipmi < Formula
     sha256 monterey:       "e5ea92942763199ad1e53b7ebf95418466ff707e851e10914c2ed9a490e2f950"
     sha256 big_sur:        "961dddefca891df95335bffcca5e6bdc7c6e906ea6ecf77f48be8fa14d833a6d"
     sha256 catalina:       "5d14764fbabda846afaf0ea7d7cd662aaadded927ff71961367a7ca139bbcefa"
+    sha256 x86_64_linux:   "98b8c41ab586aa9ffbe28356dc3da20251d58925fcdac865fa90edae7e158dba"
   end
 
   depends_on "libgcrypt"
