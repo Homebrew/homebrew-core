@@ -17,6 +17,7 @@ class Zebra < Formula
     sha256 monterey:       "a3cd36cd15f5a012207aed8aaa48fc7b547e16d08e43c35f6c062ae219f9590f"
     sha256 big_sur:        "554b0d6622e3389395412417585b0d35c7c4abf37369d4c01ab414cdfb181e4c"
     sha256 catalina:       "42a4a51e46fe3168a7a07628916ad2968ab9831633383ce2dbcefc3033dc8691"
+    sha256 x86_64_linux:   "d14fc965c009ad0a3c9e085e8392f83996c78d4ce1dbafbd2e02c305da832d6c"
   end
 
   depends_on "icu4c"
