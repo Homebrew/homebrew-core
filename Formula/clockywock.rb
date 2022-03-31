@@ -6,15 +6,17 @@ class Clockywock < Formula
   sha256 "278c01e0adf650b21878e593b84b3594b21b296d601ee0f73330126715a4cce4"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfa5f241cbf228f38c8d43e80776e38d14a6daddb433cea08da610be0e02b541"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6816f78abb433f6680474028cf20d219d8b6a51dfe7a185e90f12e8092a9ee89"
-    sha256 cellar: :any_skip_relocation, catalina:      "5bc4dcd5f3b6d995d6245d3f67a55fb2b5bb6d604e9ad214bc687f4ca8d40bd8"
-    sha256 cellar: :any_skip_relocation, mojave:        "3b3b0faab6694a2572ad18b332b0711d43a7bf73715d0826df0adeacef0c64ed"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "4d1b976443480421f6b666121b31b350d7881b26832a65f13866a81fda61aa9e"
-    sha256 cellar: :any_skip_relocation, sierra:        "d25af48f1f063a64f514a632ffd1c017ba4dd2c0abc2b428489147247eb8cfaf"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "12ce1b232f8dfa658e774f8ae08b99f40ca6ae12ee2d5df41af67412412c2b43"
-    sha256 cellar: :any_skip_relocation, yosemite:      "fccbf3e83841993156fa544c0b0f30a92058facf07ce5b1e622aec78e2573aff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6645c5e005c3d94fb8474f181190058c87e64ddbd26196c300f2cd8b6f67caa8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "65fa33df30cb24e484ded3464b69e1bb5118ed1ab6956c8b2aa7f0ee7051ae07"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfa5f241cbf228f38c8d43e80776e38d14a6daddb433cea08da610be0e02b541"
+    sha256 cellar: :any_skip_relocation, monterey:       "24f3d1eb61bd2d75d7601b694907d2d2005132e389e987c42c1189d83d2da4d1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6816f78abb433f6680474028cf20d219d8b6a51dfe7a185e90f12e8092a9ee89"
+    sha256 cellar: :any_skip_relocation, catalina:       "5bc4dcd5f3b6d995d6245d3f67a55fb2b5bb6d604e9ad214bc687f4ca8d40bd8"
+    sha256 cellar: :any_skip_relocation, mojave:         "3b3b0faab6694a2572ad18b332b0711d43a7bf73715d0826df0adeacef0c64ed"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "4d1b976443480421f6b666121b31b350d7881b26832a65f13866a81fda61aa9e"
+    sha256 cellar: :any_skip_relocation, sierra:         "d25af48f1f063a64f514a632ffd1c017ba4dd2c0abc2b428489147247eb8cfaf"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "12ce1b232f8dfa658e774f8ae08b99f40ca6ae12ee2d5df41af67412412c2b43"
+    sha256 cellar: :any_skip_relocation, yosemite:       "fccbf3e83841993156fa544c0b0f30a92058facf07ce5b1e622aec78e2573aff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6645c5e005c3d94fb8474f181190058c87e64ddbd26196c300f2cd8b6f67caa8"
   end
 
   deprecate! date: "2022-03-30", because: :unmaintained
