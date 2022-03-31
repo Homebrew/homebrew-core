@@ -24,7 +24,6 @@ class Chapel < Formula
     depends_on "llvm"
   end
 
-
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
   fails_with gcc: "5"
 
