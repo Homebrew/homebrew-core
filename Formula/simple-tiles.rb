@@ -16,11 +16,24 @@ class SimpleTiles < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
   depends_on "cairo"
   depends_on "gdal"
   depends_on "pango"
 
+  # Apply upstream commits for waf to work with Python 3.
+  patch do
+    url "https://github.com/propublica/simple-tiles/commit/556b25682afab595ad467761530a34a26bee225b.patch?full_index=1"
+    sha256 "410c9b82e54365ded6f06b5f72b0eb8b25ec0eb1e015f39b1b54ebfa6114aab2"
+  end
+
+  patch do
+    url "https://github.com/propublica/simple-tiles/commit/2dba11101d5de7be239e07b1f31c08e18cc055a7.patch?full_index=1"
+    sha256 "138365fa0c5efd3b8e92fa86bc1ce08c3802e59947dff82f003dfe8a82e5eda6"
+  end
+
   def install
+    ENV.prepend_path "PATH", Formula["python@3.10"].libexec/"bin"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -35,14 +48,14 @@ class SimpleTiles < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lsimple-tiles",
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lsimple-tiles",
            "-I#{Formula["cairo"].opt_include}/cairo",
            "-I#{Formula["gdal"].opt_include}",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["pango"].opt_include}/pango-1.0",
-           "test.c", "-o", "test"
+           "-o", "test"
     system testpath/"test"
   end
 end
