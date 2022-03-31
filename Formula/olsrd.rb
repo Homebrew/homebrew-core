@@ -20,7 +20,38 @@ class Olsrd < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "70402085753c70fb12f3e0f249bf109ac77e0a22d7be890ac6484d7ffce8501f"
   end
 
-  depends_on "coreutils" => :build # needs GNU cp
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
+  on_macos do
+    depends_on "coreutils" => :build # needs GNU cp
+  end
+
+  on_linux do
+    depends_on "gpsd"
+  end
+
+  # Apply upstream commit to fix build with bison >= 3.7.1
+  patch do
+    url "https://github.com/OLSR/olsrd/commit/be461986c6b3180837ad776a852be9ce22da56c0.patch?full_index=1"
+    sha256 "6ec65c73a09f124f7e7f904cc6620699713b814eed95cd3bc44a0a3c846d28bd"
+  end
+
+  # Apply 3 upstream commits to fix build with gpsd >= 3.20
+  patch do
+    url "https://github.com/OLSR/olsrd/commit/b2dfb6c27fcf4ddae87b0e99492f4bb8472fa39a.patch?full_index=1"
+    sha256 "a49a20a853a1f0f1f65eb251cd2353cdbc89e6bbd574e006723c419f152ecbe3"
+  end
+
+  patch do
+    url "https://github.com/OLSR/olsrd/commit/79a28cdb4083b66c5d3a5f9c0d70dbdc86c0420c.patch?full_index=1"
+    sha256 "6295918ed6affdca40c256c046483752893475f40644ec8c881ae1865139cedf"
+  end
+
+  patch do
+    url "https://github.com/OLSR/olsrd/commit/665051a845464c0f95edb81432104dac39426f79.patch?full_index=1"
+    sha256 "e49ee41d980bc738c0e4682c2eca47e25230742f9bdbd69b8bd9809d2e25d5ab"
+  end
 
   def install
     ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin"
@@ -29,6 +60,9 @@ class Olsrd < Formula
       DESTDIR=#{prefix}
       USRDIR=#{prefix}
       LIBDIR=#{lib}
+      SBINDIR=#{sbin}
+      SHAREDIR=#{pkgshare}
+      MANDIR=#{man}
       ETCDIR=#{etc}
     ]
     system "make", "build_all", *args
