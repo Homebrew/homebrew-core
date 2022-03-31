@@ -11,10 +11,11 @@ class Cuba < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "01567f5b76f7baad0d2fd5a08083d545d0d0543795e03bb8759953f317090cf4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6fe604c61d01768a99cb42321606f6b5feb5ed709f6d7fb419c3efb3e7e83f3a"
-    sha256 cellar: :any_skip_relocation, catalina:      "758999a8bef3aeaf37f38402affd375ff55b4293cbdb52ee76846a25ba7f5209"
-    sha256 cellar: :any_skip_relocation, mojave:        "abd47d8d13cfefdaf542675e465b717cb95e8b1a8ba0ca2c3745bbcf0c6bd1d0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ce1fa8a1cf71b27ebeb02406214231dcafcab672b7c38bc5a664c9e2c69d424"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d8f141d10928d1ce281f6bb744886de1ba9f2274476d3b6b257bcc9d587231e3"
+    sha256 cellar: :any_skip_relocation, monterey:       "238e6efde7346d58330b4ebbe562a5f52375d66bd21555867883c3fe2c0405e5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "897095ff3030916d5470e15f85ca3a0d0460416484232cc7c821dc6e98c4406d"
+    sha256 cellar: :any_skip_relocation, catalina:       "566d4ddc7e4e3a278dceb6b83abc5ce1298b9ca715ac152695bf1e5fbb8cacc4"
   end
 
   def install
