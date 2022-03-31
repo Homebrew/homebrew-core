@@ -1,8 +1,8 @@
 class Pict < Formula
   desc "Pairwise Independent Combinatorial Tool"
   homepage "https://github.com/Microsoft/pict/"
-  url "https://github.com/Microsoft/pict/archive/v3.7.3.tar.gz"
-  sha256 "43279d0ea93c2c4576c049a67f13a845aa75ad1d70f1ce65535a89ba09daba33"
+  url "https://github.com/Microsoft/pict/archive/v3.7.4.tar.gz"
+  sha256 "42af3ac7948d5dfed66525c4b6a58464dfd8f78a370b1fc03a8d35be2179928f"
   license "MIT"
 
   bottle do
@@ -12,6 +12,10 @@ class Pict < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "2f08584a5024865fdb0b31eef4e3c21cdfcda79e8fbb9730a1fe8432d1a51cde"
     sha256 cellar: :any_skip_relocation, catalina:       "680c75c7dcfc952e3553957b58b1f9e132dba1f398cb2b3ed1f91d7df1d2fe82"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbc58f036d00ae3d485030e8dc8f1d23e756f8982de86404d12a32c264f11e86"
+  end
+
+  on_linux do
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"
