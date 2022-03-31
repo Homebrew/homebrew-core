@@ -1,9 +1,8 @@
 class Sollya < Formula
   desc "Library for safe floating-point code development"
   homepage "https://www.sollya.org/"
-  url "https://www.sollya.org/releases/sollya-7.0/sollya-7.0.tar.gz"
-  sha256 "30487b8242fb40ba0f4bc2ef23a8ef216477e57b1db277712fde1f53ceebb92a"
-  revision 1
+  url "https://www.sollya.org/releases/sollya-8.0/sollya-8.0.tar.gz"
+  sha256 "58d734f9a2fc8e6733c11f96d2df9ab25bef24d71c401230e29f0a1339a81192"
 
   livecheck do
     url "https://www.sollya.org/download.php"
