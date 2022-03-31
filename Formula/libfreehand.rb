@@ -11,13 +11,14 @@ class Libfreehand < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "7960ce23fc10f7c545aa6ff36704340626b5652cdf514e2cc30abfd06923f158"
-    sha256 cellar: :any, arm64_big_sur:  "1cd27b1d82fe6261a9def131e7a09143b35fe7547cbf539b720fc9d8bdc257b6"
-    sha256 cellar: :any, monterey:       "52bf47cdb858c77f4745bae826181ff0790fa3bad79e8997fb6b4a5702fa218a"
-    sha256 cellar: :any, big_sur:        "736e40282e91275e85e6586f9601bebf05a7111e484776a3a1cf8df1e266b329"
-    sha256 cellar: :any, catalina:       "337aeb3f1454487fc132f9d67e3662dc6c3f0ba40a38a9a9c58d9f0b9bfc1955"
-    sha256 cellar: :any, mojave:         "b2e7566024327688b13ce6ba4a2bc93108d61d46923b0e6f59a6bc577ccc4eb9"
-    sha256 cellar: :any, high_sierra:    "fed031e8bfce818f39ea578792a3ed1f1b74c9f86192f37b372e1c4fc493bc90"
+    sha256 cellar: :any,                 arm64_monterey: "7960ce23fc10f7c545aa6ff36704340626b5652cdf514e2cc30abfd06923f158"
+    sha256 cellar: :any,                 arm64_big_sur:  "1cd27b1d82fe6261a9def131e7a09143b35fe7547cbf539b720fc9d8bdc257b6"
+    sha256 cellar: :any,                 monterey:       "52bf47cdb858c77f4745bae826181ff0790fa3bad79e8997fb6b4a5702fa218a"
+    sha256 cellar: :any,                 big_sur:        "736e40282e91275e85e6586f9601bebf05a7111e484776a3a1cf8df1e266b329"
+    sha256 cellar: :any,                 catalina:       "337aeb3f1454487fc132f9d67e3662dc6c3f0ba40a38a9a9c58d9f0b9bfc1955"
+    sha256 cellar: :any,                 mojave:         "b2e7566024327688b13ce6ba4a2bc93108d61d46923b0e6f59a6bc577ccc4eb9"
+    sha256 cellar: :any,                 high_sierra:    "fed031e8bfce818f39ea578792a3ed1f1b74c9f86192f37b372e1c4fc493bc90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "231727d040b34c931b60d06ad1f0fa86d08dbde4d00736e6233645d635393a7f"
   end
 
   depends_on "boost" => :build
