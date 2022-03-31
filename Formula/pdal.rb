@@ -34,6 +34,12 @@ class Pdal < Formula
   depends_on "pcl"
   depends_on "postgresql"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "cmake", ".", *std_cmake_args,
                          "-DWITH_LASZIP=TRUE",
