@@ -15,6 +15,7 @@ class Noweb < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "b52d3febc8494ae943db6f99e0734b61333f95d67994b6b609d4c5129d52f788"
     sha256 cellar: :any_skip_relocation, mojave:         "17439b95ee2d05eacf81c621aa76645e5bfd9a3c5b5ad61ffd98e1438bb69264"
     sha256 cellar: :any_skip_relocation, high_sierra:    "f3ca23f070a74c5e499232667ef64e73d68943d13f6344e70b74426feccca524"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62301f6bc93e64de80a0eb63a862fcbd6580d25a7355303a2b70ac6a95a92ae7"
   end
 
   depends_on "icon"
