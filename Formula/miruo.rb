@@ -15,6 +15,7 @@ class Miruo < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "dbe92dd3ab515528597eb76aa986f4e9d8dd512504d76ca60b86b5dc5dc70449"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8a5402f68bcb73e22f13fb0b049caea5d186520e81bf77889c91a558d9988c59"
     sha256 cellar: :any_skip_relocation, yosemite:      "f39aa9336ac2ec07ec0bd25bc7f7d3ae1b7a76c8af8c4d5e1f7e0ffdcfcbc9fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f079697d80cff4b00726c8c149727a4a19c3db789e417692f470175ad9f24f25"
   end
 
   uses_from_macos "libpcap"
