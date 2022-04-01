@@ -6,12 +6,12 @@ class Triangle < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "79e90e83cf69c04ad4e56ead54679de71721d3cbd0b086030d57e8e46c6e8154"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "92bf94dad8d334504ed77d7777ef0e942997657aaf1a76f7238490c4c4812793"
-    sha256 cellar: :any_skip_relocation, monterey:       "a9950b4c9f3b44c0332195a3cfd2cd702277d9c8d86e442b26f848434db8d3ee"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f66d8b95ad883512b775af5eed483e7d8f8dd6ea454fca03512597d97f700c99"
-    sha256 cellar: :any_skip_relocation, catalina:       "cf24c5ae87f11383ea5a20ffc809882153aaa715cea7cb5b0a41892bf8549b7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c94da2e8ba34060c472ec2e448bd9f2b4be039491313109a1237e577e0a10a2d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d271336d258f7b6e7aaa4b6ab02c8b212cd7da270d5e3165f8bc08d933e2ffc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a1e9e261e512bbac21587bf240e2ff1dbad618136113338fbb509d50facc2a1"
+    sha256 cellar: :any_skip_relocation, monterey:       "b35a46733330343bcc1f97f763f4f35f580c1285042b13248b4b70dbebe1d136"
+    sha256 cellar: :any_skip_relocation, big_sur:        "34b54850c650f6c92276b9b06afa3b39701b5a2dd732b0eb9b6172f1a09cdda7"
+    sha256 cellar: :any_skip_relocation, catalina:       "013e43ccdf7f8af67aa680faad3e2655cf7cbd44a08e5a459260eff43225d25f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58a213dc45b97b2bf52c5403f52cdae98793da95dd1ac5b9bbaa6fe56197c346"
   end
 
   # Bump to 1.18 on the next release, if possible.
