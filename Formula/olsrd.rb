@@ -18,6 +18,7 @@ class Olsrd < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "95e531e19da3a6e11bf48851691e411d3fb27acf7dc18ccf5bed5c32aa3df4ff"
     sha256 cellar: :any_skip_relocation, mojave:        "5ba1b0c584a2efe1d518be4032432818fca8bbccd3078e23ef7bbb3a9359a73e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "70402085753c70fb12f3e0f249bf109ac77e0a22d7be890ac6484d7ffce8501f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e08df34e776e92e556f54d28be4788d4ba83fc9af8ace4b6c08dee49faae5270"
   end
 
   uses_from_macos "bison" => :build
