@@ -3,6 +3,7 @@ class Libsmf < Formula
   homepage "https://sourceforge.net/projects/libsmf/"
   url "https://downloads.sourceforge.net/project/libsmf/libsmf/1.3/libsmf-1.3.tar.gz"
   sha256 "d3549f15de94ac8905ad365639ac6a2689cb1b51fdfa02d77fa6640001b18099"
+  license "BSD-2-Clause"
   revision 1
 
   bottle do
@@ -15,6 +16,13 @@ class Libsmf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "5670da1ec13772870636e0cfe96e851f021ebe997a3307725331cbea22062246"
   end
 
+  # Linked development repo is gone: https://github.com/nilsgey/libsmf
+  # Potential alt repo has no activity: https://github.com/stump/libsmf
+  deprecate! date: "2022-04-02", because: :unmaintained
+
+  # Added automake as a build dependency to update config files for ARM support.
+  # Issue ref in alt repo: https://github.com/stump/libsmf/issues/10
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
 
@@ -25,8 +33,12 @@ class Libsmf < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # Workaround for ancient config files not recognizing aarch64 macos.
+    %w[config.guess config.sub].each do |fn|
+      (buildpath/fn).unlink
+      cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+    end
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 end
