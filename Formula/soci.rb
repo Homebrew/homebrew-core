@@ -18,6 +18,7 @@ class Soci < Formula
 
   def install
     args = std_cmake_args + %w[
+      -DCMAKE_CXX_STANDARD=11
       -DSOCI_TESTS:BOOL=OFF
       -DWITH_SQLITE3:BOOL=ON
       -DWITH_BOOST:BOOL=OFF
