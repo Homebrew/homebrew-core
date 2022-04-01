@@ -8,12 +8,12 @@ class Twarc < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e17f2b29ecc3883a86e8c2ed9ee39775230fd1d6c32fa6361e27fe974e0d8bd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f3e2cef7baaa53ca2d603028093b4da52c1e4562b50ec64413123d3e03e55b0"
-    sha256 cellar: :any_skip_relocation, monterey:       "728965e66b70d4ba1005b009d2b694ec5be325935dacb5ce1c7e21f01bb8b0b5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c434403932d1cef0fb9378d9bd33b0d3455948ce7026063e29d4837c75482ecd"
-    sha256 cellar: :any_skip_relocation, catalina:       "f45793aead9ac36fca4206fd7ae7ce78a3334502b2879f5585ae204a57ca7b33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a47a9987fb1fe63d8c91dddeaed5e05dfd313943e6e98d838212d9fe0b4ad87"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c26b35c9ff75c65f76a8eaab3460c4a2d5e6a27530b2e91deec1eff39ebe0ad"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d516d0d249b176491e55c5a3c7f107b278ee6fc2261e04ad3d25ea219dc2c1e"
+    sha256 cellar: :any_skip_relocation, monterey:       "e6254304ceee5d89c3cc888659cb9eed40f34eaf2f0ce943245c02c4f6e5e62c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "50c66d4b627cee289bef8b35283d1761be15b68fb4f40bd0f0b96359af91083f"
+    sha256 cellar: :any_skip_relocation, catalina:       "0f44046d12b6f0d17360f08b228ea328c6e5f3f68ca00a32974d4b616f268afe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "446956811bc8d397ff1ae8399af50c72f2dc76a74aa775c704ed3e2fbf7c261c"
   end
 
   depends_on "python@3.10"
