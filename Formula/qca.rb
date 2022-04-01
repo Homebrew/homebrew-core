@@ -30,6 +30,12 @@ class Qca < Formula
   depends_on "pkcs11-helper"
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = std_cmake_args
     args << "-DBUILD_TESTS=OFF"
