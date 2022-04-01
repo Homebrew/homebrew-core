@@ -14,11 +14,12 @@ class Openmsx < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_monterey: "f2adab2e188fe3359050eac24577a703a3ca28be607033525b44cee9bc8f48bc"
-    sha256 cellar: :any, arm64_big_sur:  "08121d09a6958b097d45b35f3db2b9cf172c3448ea3cfa1a42d9c5806ab55270"
-    sha256 cellar: :any, monterey:       "4bb067ee6ba11fd48cbe4a97281835bd44df215d4e7b7473cadc6e0a698f4de2"
-    sha256 cellar: :any, big_sur:        "0d2b0c7de2234c34935f11f952ea5ae8b4b818a4d87d83b5617bc28999956ab4"
-    sha256 cellar: :any, catalina:       "39fc0cf97185508d3d107c73495f64cf6f44285f165b17852679e57caf8376b9"
+    sha256 cellar: :any,                 arm64_monterey: "f2adab2e188fe3359050eac24577a703a3ca28be607033525b44cee9bc8f48bc"
+    sha256 cellar: :any,                 arm64_big_sur:  "08121d09a6958b097d45b35f3db2b9cf172c3448ea3cfa1a42d9c5806ab55270"
+    sha256 cellar: :any,                 monterey:       "4bb067ee6ba11fd48cbe4a97281835bd44df215d4e7b7473cadc6e0a698f4de2"
+    sha256 cellar: :any,                 big_sur:        "0d2b0c7de2234c34935f11f952ea5ae8b4b818a4d87d83b5617bc28999956ab4"
+    sha256 cellar: :any,                 catalina:       "39fc0cf97185508d3d107c73495f64cf6f44285f165b17852679e57caf8376b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a7ecec109af5105fe217ddcd1e43f40d4290431a3e075bb1587b17350c47adf"
   end
 
   depends_on "python@3.10" => :build
