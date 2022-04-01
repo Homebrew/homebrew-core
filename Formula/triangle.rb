@@ -1,8 +1,8 @@
 class Triangle < Formula
   desc "Convert images to computer generated art using Delaunay triangulation"
   homepage "https://github.com/esimov/triangle"
-  url "https://github.com/esimov/triangle/archive/v1.2.4.tar.gz"
-  sha256 "afa9e43e44e5103950113dc947724c83c03f7e655653974fb534f685f5dc0493"
+  url "https://github.com/esimov/triangle/archive/v1.2.5.tar.gz"
+  sha256 "e7b729601023620aaba3707db80aeeeee06286e131095da25d248a8325d2c549"
   license "MIT"
 
   bottle do
