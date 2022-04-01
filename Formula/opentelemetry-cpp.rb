@@ -2,6 +2,7 @@ class OpentelemetryCpp < Formula
   desc "OpenTelemetry C++ Client"
   homepage "https://opentelemetry.io/"
   license "Apache-2.0"
+  head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   stable do
     url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.2.0.tar.gz"
@@ -12,10 +13,6 @@ class OpentelemetryCpp < Formula
       url "https://github.com/open-telemetry/opentelemetry-cpp/commit/e072daa229f72431b1c50986645d51180a586d09.patch?full_index=1"
       sha256 "ce54f49532f81e6bc984d8e2e2436d96be1abd2f819f42029168f45aa7b068ed"
     end
-  end
-
-  head do
-    url "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
   end
 
   depends_on "cmake" => :build
