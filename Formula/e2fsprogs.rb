@@ -20,6 +20,7 @@ class E2fsprogs < Formula
   bottle do
     sha256 arm64_monterey: "0704bc2eb7f67d1ae9359ce0a88df93c5fea7983bc244aeb056b76ff862bbd90"
     sha256 arm64_big_sur:  "b089beb986fdbc2f9a699c98ea0d7453b434a819b18e09183c8a2e54368b4652"
+    sha256 monterey:       "b5f7734b3d5f8fc599814c035f5a81e2b5c519dfa0269d8c777babc794cc9f80"
     sha256 big_sur:        "93c43050723e83dc54e9acda04b49bb9651d561a8f179b0a2837dc0b4dbc488d"
     sha256 catalina:       "e629177b97c03f0c073ab805dd1d452b210f4b206e63da826793420c64d151eb"
     sha256 mojave:         "d494d4d21d05c76acdeb381b38d2bd343cd4d1b5e536a1d2f99ebceb8fb5d917"
