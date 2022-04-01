@@ -6,12 +6,12 @@ class Mongocli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "16912240d60ab1bd7b2fb20d7db73a438cb2ef1dc53784487a9b00f17fcab531"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c99cf5343c43a10e8686dac00dccac788f9bed3d57c85ab688cfd2d6173af2ec"
-    sha256 cellar: :any_skip_relocation, monterey:       "125ecbb70ed3a03c19e909a27375d76aa2d35cbfc793af18dc4b4180452bffba"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1117de116deb51f38d13c5d5bf6ee84bac35be5bfedce02e277c764a190dae64"
-    sha256 cellar: :any_skip_relocation, catalina:       "00bf954883b4aa5d8ed19da373a12f9203fd056457ce0f22864e8c8ed40fbd46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df845bd3d67672cb468b00614abaa89d7a7eff35bb30a6cde67cd0236fcdaa7b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd81f8626fe5e3c50be74803b89e7048f36bac8a635401fd170169de96286ffa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c00e7bb2a0e263f328b274bcb304bbc12f506548c5454ffda0708ef3ec5d45f"
+    sha256 cellar: :any_skip_relocation, monterey:       "79df811351b86ac786aa4faea34e54dd3e9d34d3be9ea564b33bbcb54ee4f697"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8b1dbdd4060d44b18ba4ac3e77d51d08503daf63797d8a52f3e56641691ebae9"
+    sha256 cellar: :any_skip_relocation, catalina:       "0550ec59036339561d05c5b13c9e18bdd1e39cc866e9cca5f2e3a7cfb06fd146"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d43bc0064a2083e281b01710d7651ec8e1238fa0ddb02034a9307ee93c456bd"
   end
 
   depends_on "go" => :build
