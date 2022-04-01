@@ -21,6 +21,9 @@ class Regldg < Formula
   end
 
   def install
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    inreplace "Makefile", "-o regldg", "-o regldg -lm" unless OS.mac?
     system "make"
     bin.install "regldg"
   end
