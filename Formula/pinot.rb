@@ -25,7 +25,8 @@ class Pinot < Formula
   end
 
   service do
-    run [opt_bin/"pinot-admin", "QuickStart", "-type", "DEFAULT", "-dataDir", var/"lib/pinot/data", "-zkAddress", "localhost:2181"]
+    run [opt_bin/"pinot-admin", "QuickStart", "-type", "DEFAULT",
+         "-dataDir", var/"lib/pinot/data", "-zkAddress", "localhost:2181"]
     keep_alive true
     working_dir var/"lib/pinot"
     log_path var/"log/pinot/pinot_output.log"
