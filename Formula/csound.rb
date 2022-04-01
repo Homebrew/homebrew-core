@@ -5,7 +5,7 @@ class Csound < Formula
       tag:      "6.17.0",
       revision: "f5b4258794a82c99f7d85f1807c6638f2e80ccac"
   license "LGPL-2.1-or-later"
-  revision 4
+  revision 5
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -54,13 +54,19 @@ class Csound < Formula
   conflicts_with "pkcrack", because: "both install `extract` binaries"
 
   resource "ableton-link" do
-    url "https://github.com/Ableton/link/archive/Link-3.0.4.tar.gz"
-    sha256 "c7bb6f75ec805e1314d0181332285c3b3d7a81c9ec7d962b54f727283dac442a"
+    url "https://github.com/Ableton/link/archive/Link-3.0.5.tar.gz"
+    sha256 "74a470c8ae8f9c325e65e981839852e821ec56b980f8b923cb77ca833c4603ed"
   end
 
   resource "csound-plugins" do
     url "https://github.com/csound/plugins/archive/refs/tags/1.0.2.tar.gz"
     sha256 "8c2f0625ad1d38400030f414b92d82cfdec5c04b7dc178852f3e1935abf75d30"
+
+    # Fix build on macOS 12.3+ by replacing old system Python/Python.h with Homebrew's Python.h
+    patch do
+      url "https://github.com/csound/plugins/commit/13800c4dd58e3c214e5d7207180ad7115b4e2f27.patch?full_index=1"
+      sha256 "e088cc300845408f3956f070fa34a900b700c7860678bc6d37f7506d615787a6"
+    end
   end
 
   resource "getfem" do
@@ -90,12 +96,6 @@ class Csound < Formula
     EOS
 
     resource("csound-plugins").stage do
-      # Fix build on macOS 12.3+ by replacing old system Python/Python.h with Homebrew's Python.h
-      # TODO: Remove when fixed upstream.
-      inreplace Dir["py/src/{pythonopcodes.c,pythonopcodes.h,pythonhelper.h}"],
-                "include <Python/Python.h>",
-                "include <Python.h>"
-
       resource("ableton-link").stage buildpath/"ableton-link"
       resource("getfem").stage { cp_r "src/gmm", buildpath }
 
