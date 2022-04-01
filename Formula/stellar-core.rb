@@ -8,12 +8,12 @@ class StellarCore < Formula
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0d345d8e571beb4937082694c062a553e9fb0bddbf5cc79a3c5ff8661938a6eb"
-    sha256 cellar: :any,                 arm64_big_sur:  "665e205c4d9c4ba444ed43f94d8ccc5f898becbd29e2068fbae9c0f52664e6eb"
-    sha256 cellar: :any,                 monterey:       "92bd2a6c61961089a8308ce68d23cef5288e8ca86e9a73e62c53c344f3983ab1"
-    sha256 cellar: :any,                 big_sur:        "1e01e46e0d0ddd087caafa140a1a738b38ba0ca7271c7443a999f5edc659acb2"
-    sha256 cellar: :any,                 catalina:       "f4b8f02dca775eaf9dded2504d62f72933ff5fcef8875b2a90ae81698c2323ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6cc582b0bb8a2636bb071bfaba8abe0ae0f7536f9459d07069364befff4f5ad"
+    sha256 cellar: :any,                 arm64_monterey: "11a3b74170d606d3bf4c51249759d10b843d66521e7de1943dbfd3ec3e186531"
+    sha256 cellar: :any,                 arm64_big_sur:  "d8532a5c496876b87253ad8a36555b0c52839db239f7ef9fb1aa1437966e78e6"
+    sha256 cellar: :any,                 monterey:       "7db773c16d46a328b96ec10ca7b4dfa7fd0c18949d6605c8675e438d3801320b"
+    sha256 cellar: :any,                 big_sur:        "9ba2eb078a4aa55ebe4f72109609a1235313cf5d03aa38358e8c6b0a77f8e6dc"
+    sha256 cellar: :any,                 catalina:       "8a62fe1017d33b31b5bc9ceeb58e59321dfa69d9bd96117a778e04ed43df87e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd3cafc74d62dd91b32a6d87a321ef32fc7c224b0bd6863e8ab9e53b3aceb4f6"
   end
 
   depends_on "autoconf" => :build
