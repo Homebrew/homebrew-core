@@ -12,12 +12,12 @@ class GstPluginsUgly < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "7b867439e878a489ba7711eeee5246fe11b22d45b6a31fa3bdcbe92262321dc8"
-    sha256 arm64_big_sur:  "c26fcfcb00d379e78ca6ef6604bb6fbd2009a115f4539028ceb30ad285e4f5cb"
-    sha256 monterey:       "4cefe0973223b6cadbcdc25c689c79b99ffd9f223c766fd084c70aba589b0a3a"
-    sha256 big_sur:        "68e560c958f51b56fca506ecec7184eb9b7e5ff65975bea175b89a4356b32bcb"
-    sha256 catalina:       "802a9a55d3b39fc00acb53a457bcc6cf1e94660c314d4560ffaba928191706d6"
-    sha256 x86_64_linux:   "57829a3d6af878758e67e6f6fd5642aac37a6ed8f199a9e334599f796223546d"
+    sha256 arm64_monterey: "c10bb4e208b4b0a365b11f5a1db6caa3f81d84bb7068d5d0531ba0c6ac84ab9f"
+    sha256 arm64_big_sur:  "7850cc79f7a37e90ce45be14440a52129522846b84f78e073e3a7d3b8ed39fe9"
+    sha256 monterey:       "2bfa4940846d3ab0ca62e185c168c20795e6b35dd073af27ba2a738771f4a84e"
+    sha256 big_sur:        "90c4a81f113917509a2a321c593836f907dfc5972972f3a82db8e0d04f379c6a"
+    sha256 catalina:       "60a3f0a3264e8f1cc42660cb3fe5eb32f03dda311065ea3008f9b15b95ab3905"
+    sha256 x86_64_linux:   "ec842b0e266d5c0ab23b5c6a6bba9ede158295f341f5944b0814f3e58149b950"
   end
 
   depends_on "meson" => :build
