@@ -17,6 +17,8 @@ class Sqtop < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "29291fedaa06b7b680e44e1b82f643f7ddffc67435312b7c2f3654df0728cb8b"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
