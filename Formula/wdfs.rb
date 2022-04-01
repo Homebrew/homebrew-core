@@ -3,6 +3,7 @@ class Wdfs < Formula
   homepage "http://noedler.de/projekte/wdfs/"
   url "http://noedler.de/projekte/wdfs/wdfs-1.4.2.tar.gz"
   sha256 "fcf2e1584568b07c7f3683a983a9be26fae6534b8109e09167e5dff9114ba2e5"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
