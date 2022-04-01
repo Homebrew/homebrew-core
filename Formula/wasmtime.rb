@@ -13,12 +13,12 @@ class Wasmtime < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "11ead3dd358bb4954c82e1ebef59bf8562c7e63aa65c798bf7f61461c336dea5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ec3abbaebe108a17f9e8a15376295083170159c66e4277b07ce2684bbcce7aec"
-    sha256 cellar: :any_skip_relocation, monterey:       "39f215ebd601fbbb4af27dd1da660f9331587f154cb1279103af9f7f20e23158"
-    sha256 cellar: :any_skip_relocation, big_sur:        "89509935fd9c36fa168797eba08731d52846ec6a612d7b52e14963b7d0184baf"
-    sha256 cellar: :any_skip_relocation, catalina:       "f63ee2c693766fda802f4f6bff7c7463212215402b12f425ad067b0575637069"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c243a49c3c8447aedf3e86783ba3da20a8ec47af9ce45360fc3455cbbe5afd8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3be81da4ce65944d99ce9f2559adc05885ef884f4be86e5ae9918b6c58670b9f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "462a0817514a713282edebc3a5f963108231b843e94f0e0338d3c3e35ae7a565"
+    sha256 cellar: :any_skip_relocation, monterey:       "0bba14a9f7586961f8b07f9358e66eadb4feb8c3325ed047def5d4c83050b93e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "abbfedd86ebda0417a80b619da066361f6edaef2f35eb08e52dc0ef208a596f5"
+    sha256 cellar: :any_skip_relocation, catalina:       "73d4a6255f29d440c8a5b69c7c7e940a2686fb5a98662a8154ae0b9b68818489"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba53f02942f8143118bc6670aa9329410a56cd5da0a6fb31545edbf9aff8d3b6"
   end
 
   depends_on "rust" => :build
