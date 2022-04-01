@@ -3,6 +3,7 @@ class Gucharmap < Formula
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
   url "https://download.gnome.org/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz"
   sha256 "39de8aad9d7f0af33c29db1a89f645e76dad2fce00d1a0f7c8a689252a2c2155"
+  license "GPL-3.0-or-later"
   revision 4
 
   bottle do
