@@ -3,11 +3,7 @@ class Juman < Formula
   homepage "https://nlp.ist.i.kyoto-u.ac.jp/index.php?JUMAN"
   url "https://nlp.ist.i.kyoto-u.ac.jp/nl-resource/juman/juman-7.01.tar.bz2"
   sha256 "64bee311de19e6d9577d007bb55281e44299972637bd8a2a8bc2efbad2f917c6"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?juman[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  license "BSD-3-Clause"
 
   bottle do
     sha256 arm64_big_sur: "9b0c1166c946ef258a558961fa82660502d705bbbecf6b8735a805b093802432"
