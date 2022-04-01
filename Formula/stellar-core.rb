@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v18.4.0",
-      revision: "13ef7c0f3ae85306ddb8633702c649c8f6ee94bb"
+      tag:      "v18.5.0",
+      revision: "d387c6a710322135ac076804490af22c4587b96d"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
@@ -39,14 +39,6 @@ class StellarCore < Formula
   fails_with :gcc do
     version "7"
     cause "Requires C++17 filesystem"
-  end
-
-  # Fix GCC error: xdrpp/marshal.cc:24:59: error: 'size' is not a constant expression.
-  # Remove when release has updated `xdrpp` submodule.
-  patch do
-    url "https://github.com/xdrpp/xdrpp/commit/b4979a55fe19b1fd6b716f6bd2400d519aced435.patch?full_index=1"
-    sha256 "5c74c40b0e412c80d994cec28e9d0c2d92d127bc5b9f8173fd525d2812513073"
-    directory "lib/xdrpp"
   end
 
   def install
