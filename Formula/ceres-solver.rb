@@ -38,7 +38,6 @@ class CeresSolver < Formula
     system "make"
     system "make", "install"
     pkgshare.install "examples", "data"
-    doc.install "docs/html" unless build.head?
   end
 
   test do
