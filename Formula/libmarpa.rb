@@ -15,16 +15,11 @@ class Libmarpa < Formula
 
   def install
     ENV.deparallelize
-    system "tar", "-xzf", "libmarpa-" + version.to_s + ".tar.gz"
-    chdir "libmarpa-#{version}" do
-      system "make", "dists"
-    end
-    mkdir "build" do
-      system "cmake", "../libmarpa-" + version.to_s + "/cm_dist", *std_cmake_args, "--install-prefix", prefix.to_s
-      system "cmake", "--build", "."
-      system "cmake", "--install", "."
-      File.rename prefix.to_s + "/inc", include.to_s
-    end
+    system "make", "dists"
+    system "cmake", "-S", "cm_dist", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+    include.install (prefix/"inc").children
   end
 
   test do
