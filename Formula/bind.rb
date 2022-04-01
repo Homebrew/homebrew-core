@@ -23,12 +23,12 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "658ae1bb03fdb3bcb470ce4d21bb9351a2577af742ebc09b8a886c400a26bd00"
-    sha256 arm64_big_sur:  "adb7948d739d2f3ff10e5450f6a5e509d151b4e5fb06b7ba0487a44f2e97ae17"
-    sha256 monterey:       "6b0a5867d2b05c745e484c104bb925c276e24d6e2deb323ca40e231835a52193"
-    sha256 big_sur:        "85eb740653c2c08e1a643607ca8bf17758ef35bb1cf35497c73d19260639ad9f"
-    sha256 catalina:       "e9619f8e805114d3168321d1e64f6d2667babc030ddca9861c170a58e0673b02"
-    sha256 x86_64_linux:   "b8e2ca668a4fff0b59e6ca99b556eddff60ab712bafeda2212159787cecf91ef"
+    sha256 arm64_monterey: "7bea41b940a9685654573fede45cdd3beff80933041ac1dfaa896465e8d18fc7"
+    sha256 arm64_big_sur:  "e4aa1c250aca44c7b52456ed8fcd703e3893a4870473d4a675c50bed0619e948"
+    sha256 monterey:       "247f68f79dc6781aa9614a7655f3ad17ba3f02e0b6116d7a81e8027b043e1138"
+    sha256 big_sur:        "8b63b979d6aec80f240ecea263f48c1d3315a1e6db9f2ee655aabecc0ef7ea65"
+    sha256 catalina:       "863939241b4b36ab4c4fca4c0a4f1f240136471849619a008a187d0ee975dce4"
+    sha256 x86_64_linux:   "a33df0dd6e907191dbe3c8cfe6470d42734f38375b314751281e73643b7809cd"
   end
 
   depends_on "pkg-config" => :build
