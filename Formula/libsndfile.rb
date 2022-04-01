@@ -11,13 +11,12 @@ class Libsndfile < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b95e41094fd2755ad5337b313c03234b08ae0587e811fb4c80f2d397ce3d2d98"
-    sha256 cellar: :any,                 arm64_big_sur:  "8e2fc3b0df09a21840f8643f644bd3a0bb3c3551d21f600b344f6b316d3ef44d"
-    sha256 cellar: :any,                 monterey:       "be628de52cd5464d69bd4c1558c44fd4ed0f9ed29ce2f3d8f2e6baf0be2c26fc"
-    sha256 cellar: :any,                 big_sur:        "a4a734e58220fc8615d86e4563e9a874447d568151b366aa94391dfe07c4e0fb"
-    sha256 cellar: :any,                 catalina:       "671a3cc9c7dafd89cbaffeccf4de826262c144184bf5779320c236e87e7636cc"
-    sha256 cellar: :any,                 mojave:         "8b2876610f9188e8125f636e85bcbd525343b216c6d0787954e78b88dfe8f101"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3949f7d627ea3a217a8f9461ee8ad7f333ed48f0490db897a5f03d9dfd5995f5"
+    sha256 cellar: :any,                 arm64_monterey: "dbbcfc8f13b9a8ba9972e7b7b801b7157468d722450fc58e43e6a0e790376a89"
+    sha256 cellar: :any,                 arm64_big_sur:  "c3520f174dbeb0a4437bbdd620f2a5d50c5ef2c69f6f629d25fdcef96e27a1bc"
+    sha256 cellar: :any,                 monterey:       "b0ecbc68df351810a9c7b787488b0dc20eb7315cc77363a94e5959aba91e694a"
+    sha256 cellar: :any,                 big_sur:        "6a1e5ff8f9a83925cb92ca2fd4e898a231fb553607d0b209d5d101972c1f04c4"
+    sha256 cellar: :any,                 catalina:       "7d5dc49ca6e980ecc8eaa5950973ac5a51451bac0074a97483afdf2cf1f0a922"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cda053c640ee0d504ce50f32bf61085599cfd961db3be6cef2ba9f8013e79863"
   end
 
   depends_on "autoconf" => :build
