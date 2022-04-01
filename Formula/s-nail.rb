@@ -9,7 +9,7 @@ class SNail < Formula
     "BSD-4-Clause",
     "ISC",
     "HPND-sell-variant", # GSSAPI code
-    "RSA-MD" # MD5 code
+    "RSA-MD", # MD5 code
   ]
 
   livecheck do
