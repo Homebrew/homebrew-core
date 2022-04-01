@@ -7,12 +7,12 @@ class Staticcheck < Formula
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aae46d9d823020102a04bbd7105d1464706c11dc5d9a38fffad8a1ee5139bd82"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc402285ad915ab298629a6cf36cb7665f4f06b6930abfd3a397b05ce9243e7b"
-    sha256 cellar: :any_skip_relocation, monterey:       "f84807e06de699c7d59d496448cd22b26b408ad3eca0d28b3d0ffb1bbc84957e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "15af4a9bef8104f871fd4ac6c2e98e56326ba9a791642f0431984bb49b423d42"
-    sha256 cellar: :any_skip_relocation, catalina:       "53f88a9880924137a2eca5d6ea2a0281e40c56601716e2ec522ad5e699cf2c0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "251f993f13ee9988c0e074b087fefa03eb83a9a4a58c74473cb8420bdff7af9f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "713b2331e3491b90fded2129d8c8e3e0aece85fa17a294e32276d227ac7c06d2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33371bac06520a5c72772dae5ee442fc070946d0a9559d7372584dcebe6f7818"
+    sha256 cellar: :any_skip_relocation, monterey:       "589194bc56d52e1c2d4a069ef1d953b6101644079a5eb55bb1cd8be427173f95"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c4928baae580c74e51a8917207f6a717b6704bf678374971463dc9f9e24fb2c5"
+    sha256 cellar: :any_skip_relocation, catalina:       "bbc1d022792158774f07554e1705ebb2be414665813be279884e1a2efe34cee9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c101d6ba2c26032cc51cabb2ab1ea67f7513cce233f8925f4c8c483742a55d17"
   end
 
   # Bump to 1.18 on the next release.
