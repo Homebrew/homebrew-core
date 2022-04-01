@@ -6,12 +6,12 @@ class Chapel < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_monterey: "229f22e29b0cc7a904841636c924d0c94c00299f817ed294247957d43c128cf3"
-    sha256 arm64_big_sur:  "9f4a5b7644f18da492f75b4442bc7e22d0b59fa72d6952b15f14f15a2949f57b"
-    sha256 monterey:       "bd3d8c066ce51d66b44e0430fc12f01ce5b99701f337304bf609b185bdbdefec"
-    sha256 big_sur:        "20b698193b5f7efb99c0eee60126a3e47a420fe99a65ed83aba919fac1cfacac"
-    sha256 catalina:       "8eeb73c3884680831146792096af481b1f2c23902eed1ad798f3aa890d2a1e49"
-    sha256 x86_64_linux:   "f351e793925739313b0025b6e90287688da278ebe60191000b5a6e5e239b60ef"
+    sha256 arm64_monterey: "65a2b089a00f6a1c02f0cac3bad10cd372c937cf07f664354418b87d56221f72"
+    sha256 arm64_big_sur:  "4daa238828d07cff728e0ae602b3e6955a4d1f054cd02684aa1f9f3cd149996a"
+    sha256 monterey:       "c7050ba4fbf49fd22dade453009d7b0cd92556e2b5cb6cc2d7523422bff2c0ae"
+    sha256 big_sur:        "65a230e55331dd250dc43731ed5074982039d2a7b20a1d010e688381135b57e1"
+    sha256 catalina:       "5492f95a8bb2e0d95bcd39b5307edb3bf194fe5e23b467c70dd03a08ff235bab"
+    sha256 x86_64_linux:   "c4f03593a52e0deab8295d4356e823094bc1bd0fbd44ebd72f131269ef217c1a"
   end
 
   depends_on "gmp"
