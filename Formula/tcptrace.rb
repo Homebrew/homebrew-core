@@ -6,6 +6,7 @@ class Tcptrace < Formula
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/tcptrace/tcptrace-6.6.7.tar.gz"
   mirror "https://distfiles.macports.org/tcptrace/tcptrace-6.6.7.tar.gz"
   sha256 "63380a4051933ca08979476a9dfc6f959308bc9f60d45255202e388eb56910bd"
+  license "GPL-2.0-or-later"
 
   # This site has a history of going down for periods of time, which is why the
   # formula uses mirrors. This is something to be aware of if livecheck is
