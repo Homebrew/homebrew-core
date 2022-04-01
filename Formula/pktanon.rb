@@ -14,12 +14,13 @@ class Pktanon < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e853faa62dd62e2663e5d9b551e79cd492927baab2b472aca01d981a6ef7913c"
-    sha256 cellar: :any, big_sur:       "53338eaa0e9e00d44d1084d7aee1aacfd498b568c5a145edc8da2da4b7054177"
-    sha256 cellar: :any, catalina:      "a8509ba2a13056c218fca682edf990df133b67e2b471eb561aac0d49d446bc7e"
-    sha256 cellar: :any, mojave:        "8d5bb1d5ac9f2cc9bcf73d45b22a0c724e42da26ac0dccc6c66c2e2a4e8a024d"
-    sha256 cellar: :any, high_sierra:   "5a3c101ebf3a3bb948c6005977367da0f72fa17fe2ffc3c410b8428325a140f8"
-    sha256 cellar: :any, sierra:        "20773e51330880065df3de1c5e80107f1f20cfe53c4735be80b39d9e1d0cca41"
+    sha256 cellar: :any,                 arm64_big_sur: "e853faa62dd62e2663e5d9b551e79cd492927baab2b472aca01d981a6ef7913c"
+    sha256 cellar: :any,                 big_sur:       "53338eaa0e9e00d44d1084d7aee1aacfd498b568c5a145edc8da2da4b7054177"
+    sha256 cellar: :any,                 catalina:      "a8509ba2a13056c218fca682edf990df133b67e2b471eb561aac0d49d446bc7e"
+    sha256 cellar: :any,                 mojave:        "8d5bb1d5ac9f2cc9bcf73d45b22a0c724e42da26ac0dccc6c66c2e2a4e8a024d"
+    sha256 cellar: :any,                 high_sierra:   "5a3c101ebf3a3bb948c6005977367da0f72fa17fe2ffc3c410b8428325a140f8"
+    sha256 cellar: :any,                 sierra:        "20773e51330880065df3de1c5e80107f1f20cfe53c4735be80b39d9e1d0cca41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e572f713027ec32a5f98ff0c55a6fd10d8ea70254277c897d9648fa106498de1"
   end
 
   depends_on "boost"
