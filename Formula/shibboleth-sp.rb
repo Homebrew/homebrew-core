@@ -22,7 +22,7 @@ class ShibbolethSp < Formula
   depends_on "apr-util" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "httpd" if MacOS.version >= :high_sierra
+  depends_on "httpd"
   depends_on "log4shib"
   depends_on "opensaml"
   depends_on "openssl@1.1"
@@ -43,10 +43,9 @@ class ShibbolethSp < Formula
       --with-xmltooling=#{Formula["xml-tooling-c"].opt_prefix}
       --with-saml=#{Formula["opensaml"].opt_prefix}
       --enable-apache-24
+      --with-apxs24=#{Formula["httpd"].opt_bin}/apxs
       DYLD_LIBRARY_PATH=#{lib}
     ]
-
-    args << "--with-apxs24=#{Formula["httpd"].opt_bin}/apxs" if MacOS.version >= :high_sierra
 
     system "./configure", *args
     system "make", "install"
