@@ -1,7 +1,7 @@
 class Libmarpa < Formula
   desc "Marpa parse engine C library -- STABLE"
   homepage "https://jeffreykegler.github.io/Marpa-web-site/libmarpa.html"
-  url "https://github.com/jeffreykegler/libmarpa/archive/refs/tags/v8.6.2.tar.gz", using: :nounzip
+  url "https://github.com/jeffreykegler/libmarpa/archive/refs/tags/v8.6.2.tar.gz"
   sha256 "b7eb539143959c406ced4a3afdb56419cc5836e679f4094630697e7dd2b7f55a"
   license "MIT"
 
