@@ -17,5 +17,6 @@ class SpirvHeaders < Formula
 
   test do
     system "cmake", "-S", pkgshare/"example", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
   end
 end
