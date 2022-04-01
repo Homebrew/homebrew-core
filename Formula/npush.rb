@@ -17,6 +17,7 @@ class Npush < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "ce2f958ef8d766791137266e74b7c2cd0843755d080ecbbd6a7074bc7d035c19"
     sha256 cellar: :any_skip_relocation, el_capitan:     "c37e743784c68e9c1bb1527d4c6161a5653831de44b3203be8c1cb07d9eeb7c2"
     sha256 cellar: :any_skip_relocation, yosemite:       "d334de125247efff9ce8031cedbb240a493b355a66cae5e6687cefb414d69ffb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0f8e3339f262c42ed5d697817a274e292bdd647d5a6410f71d9a9752f044047"
   end
 
   uses_from_macos "ncurses"
