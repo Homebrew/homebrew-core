@@ -41,14 +41,6 @@ class StellarCore < Formula
     cause "Requires C++17 filesystem"
   end
 
-  # Fix GCC error: xdrpp/marshal.cc:24:59: error: 'size' is not a constant expression.
-  # Remove when release has updated `xdrpp` submodule.
-  patch do
-    url "https://github.com/xdrpp/xdrpp/commit/b4979a55fe19b1fd6b716f6bd2400d519aced435.patch?full_index=1"
-    sha256 "5c74c40b0e412c80d994cec28e9d0c2d92d127bc5b9f8173fd525d2812513073"
-    directory "lib/xdrpp"
-  end
-
   def install
     system "./autogen.sh"
     system "./configure", "--disable-debug",
