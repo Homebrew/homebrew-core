@@ -17,10 +17,10 @@ class Mahout < Formula
   end
 
   depends_on "hadoop"
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
 
     if build.head?
       chmod 755, "./bin"
