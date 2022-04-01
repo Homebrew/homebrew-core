@@ -8,11 +8,12 @@ class Pc6001vx < Formula
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "73d707de08c1ce389e5403c7f1d664ae75d87493ee8bc0fc0b3830f978219c6d"
-    sha256 cellar: :any, arm64_big_sur:  "73d707de08c1ce389e5403c7f1d664ae75d87493ee8bc0fc0b3830f978219c6d"
-    sha256 cellar: :any, monterey:       "942ef1ebe6393fdafacc173b10cedfba80094b547fb0fe1c40fea1de9ab3a87e"
-    sha256 cellar: :any, big_sur:        "58bca7fa9e3ae2225da6a740640f62272a5242b2f8438a8584071a4bc280b0cd"
-    sha256 cellar: :any, catalina:       "a7c28f9c58413ddb04a1da6dade0116deebbeb77332ab4e49f471c912ea369b3"
+    sha256 cellar: :any,                 arm64_monterey: "73d707de08c1ce389e5403c7f1d664ae75d87493ee8bc0fc0b3830f978219c6d"
+    sha256 cellar: :any,                 arm64_big_sur:  "73d707de08c1ce389e5403c7f1d664ae75d87493ee8bc0fc0b3830f978219c6d"
+    sha256 cellar: :any,                 monterey:       "942ef1ebe6393fdafacc173b10cedfba80094b547fb0fe1c40fea1de9ab3a87e"
+    sha256 cellar: :any,                 big_sur:        "58bca7fa9e3ae2225da6a740640f62272a5242b2f8438a8584071a4bc280b0cd"
+    sha256 cellar: :any,                 catalina:       "a7c28f9c58413ddb04a1da6dade0116deebbeb77332ab4e49f471c912ea369b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d6af2f2cd7d3739d6efbb2c24d4739cf22537d49e58b2291f9fb7e962997fe1"
   end
 
   depends_on "pkg-config" => :build
