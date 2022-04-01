@@ -3,6 +3,7 @@ class Mp3splt < Formula
   homepage "https://mp3splt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mp3splt/mp3splt/2.6.2/mp3splt-2.6.2.tar.gz"
   sha256 "3ec32b10ddd8bb11af987b8cd1c76382c48d265d0ffda53041d9aceb1f103baa"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
