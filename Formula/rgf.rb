@@ -24,8 +24,7 @@ class Rgf < Formula
     cd "RGF" do
       mkdir "build" do
         system "cmake", *std_cmake_args, ".."
-        system "make"
-        system "make", "install" # installs to bin/rgf
+        system "cmake", "--build", "."
       end
       bin.install "bin/rgf"
       pkgshare.install "examples"
