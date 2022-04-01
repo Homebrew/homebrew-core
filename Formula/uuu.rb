@@ -13,12 +13,12 @@ class Uuu < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "56a412dd091e6e8f16eece2399fe09a6bb60f17f27b3cc9e7ba3a2fa831a1f32"
-    sha256 arm64_big_sur:  "3155b7adc7452904671c7da18cbaa59766dfdd567e85a2b242c24cd8dfede40a"
-    sha256 monterey:       "e05933d505e1ff45f462b6a45621166895816388efc4fed9a18a4b99f1d49081"
-    sha256 big_sur:        "90095bd9997651cf9ae3a7b50fd4766968913f2652f2ce47a272ce84e3ce4277"
-    sha256 catalina:       "a66ab4d8c2f44e2ed70106f45765591192b74726f6a1bb2e9e2475c3b9741a2d"
-    sha256 x86_64_linux:   "174d6f56a091fc444337cf21fe0b69595ee87d6bf7da58da597f045bb053de3e"
+    sha256 arm64_monterey: "a44aa408d7a07a11cbeb20c642dd276b51eb4574858d1a7479df0e180126e33b"
+    sha256 arm64_big_sur:  "bdf2b936c008aaf09c4a2f819a3c030beb51097aef6f7b29963d03ef885b1de8"
+    sha256 monterey:       "f5b631847fc6d9339e73639d94f44f54ffd7e8f53c766372efdcdc5aa7ba3028"
+    sha256 big_sur:        "2b5b9e290dea1d298e8fda32f7c9cb31866a58603ebd372073e38a8434afe863"
+    sha256 catalina:       "c5bf3f74dd5c610b5a340bced3b71fd18af0b6972cb7491e431b793224d46fac"
+    sha256 x86_64_linux:   "27bf7f8fcb8200129bc7a01b6450e548bac6449ddc4660a1dc5929740f5ebf73"
   end
 
   depends_on "cmake" => :build
