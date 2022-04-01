@@ -7,12 +7,12 @@ class Tm < Formula
   head "https://github.com/triggermesh/tm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d80fa3093b6b1977102b08a1d77f4feba3d510ca57f7d8eaae99a1a2b8b5dcbd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5cd0ba63217a2acc6ea5a7dd22937753340972b2ee4adaf2287176c89ce57b59"
-    sha256 cellar: :any_skip_relocation, monterey:       "7913630c5b6228ec5e15bec6cc287dcd0f3e40c82d47146fb5eb7421e8cceb1e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0603f2379ab75795c83309d73f96831c0712d1a52c651819a6a580a9b2386510"
-    sha256 cellar: :any_skip_relocation, catalina:       "03c1748cc8ceaa36dec7657c61b1071de7f2b781bd27c4ca97eb80978d98c41a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3b8dfedcc955b34bf53772f39fe0c757b02e9b76a731586a0641583955e374d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bbd91d59cb089c0df468a4e4846cd16a381b4d17bffae48dd99965bd903f7568"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23f09702f15e046c68f951c606ed88c312a9dcbed701dab94d3ac4132e91fef7"
+    sha256 cellar: :any_skip_relocation, monterey:       "7df892bebb3c0b2db143bf4a5bd42e9e87d4a57b16c2076816732692231d5d9c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e4ebf7082f64fadb2f9e32edf71d95189dfa622b92015053b8d4baa12ba22300"
+    sha256 cellar: :any_skip_relocation, catalina:       "ab52e13a06ffc1478ee78663a2266df23379b69a1efefc9551a6555c181b2143"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e1f0748b37b620253178b4f1b3ad40d7595f3dff0e14302ed79bb525b475a57"
   end
 
   depends_on "go" => :build
