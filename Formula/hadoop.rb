@@ -15,7 +15,7 @@ class Hadoop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e80b0972bb123a83d2076efc902ff2acbfcf64406708453802aee24efbb9e23"
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   conflicts_with "yarn", because: "both install `yarn` binaries"
 
@@ -23,13 +23,13 @@ class Hadoop < Formula
     rm_f Dir["bin/*.cmd", "sbin/*.cmd", "libexec/*.cmd", "etc/hadoop/*.cmd"]
     libexec.install %w[bin sbin libexec share etc]
     Dir["#{libexec}/bin/*"].each do |path|
-      (bin/File.basename(path)).write_env_script path, JAVA_HOME: Formula["openjdk"].opt_prefix
+      (bin/File.basename(path)).write_env_script path, JAVA_HOME: Formula["openjdk@11"].opt_prefix
     end
     Dir["#{libexec}/sbin/*"].each do |path|
-      (sbin/File.basename(path)).write_env_script path, JAVA_HOME: Formula["openjdk"].opt_prefix
+      (sbin/File.basename(path)).write_env_script path, JAVA_HOME: Formula["openjdk@11"].opt_prefix
     end
     Dir["#{libexec}/libexec/*.sh"].each do |path|
-      (libexec/File.basename(path)).write_env_script path, JAVA_HOME: Formula["openjdk"].opt_prefix
+      (libexec/File.basename(path)).write_env_script path, JAVA_HOME: Formula["openjdk@11"].opt_prefix
     end
     # Temporary fix until https://github.com/Homebrew/brew/pull/4512 is fixed
     chmod 0755, Dir["#{libexec}/*.sh"]
