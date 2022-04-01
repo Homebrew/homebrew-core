@@ -3,6 +3,7 @@ class Alure < Formula
   homepage "https://kcat.tomasu.net/alure.html"
   url "https://kcat.tomasu.net/alure-releases/alure-1.2.tar.bz2"
   sha256 "465e6adae68927be3a023903764662d64404e40c4c152d160e3a8838b1d70f71"
+  license "MIT"
   revision 1
 
   livecheck do
