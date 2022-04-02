@@ -14,10 +14,17 @@ class Dfmt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "852cdd41ee99f72be5b7e22af09e07a5da3457791016a78ec0038f3172c96120"
   end
 
-  depends_on "dmd" => :build
+  on_macos do
+    depends_on "ldc" => :build
+  end
+
+  on_linux do
+    depends_on "dmd" => :build
+  end
 
   def install
-    system "make"
+    target = OS.mac? ? "ldc" : "dmd"
+    system "make", target
     bin.install "bin/dfmt"
   end
 
