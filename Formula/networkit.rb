@@ -17,6 +17,7 @@ class Networkit < Formula
 
   depends_on "cmake" => :build
   depends_on "cython" => :build
+  depends_on "ninja" => :build
   depends_on "tlx" => :build
 
   depends_on "libnetworkit"
