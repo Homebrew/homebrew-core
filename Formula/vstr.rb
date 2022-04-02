@@ -22,8 +22,12 @@ class Vstr < Formula
 
   depends_on "pkg-config" => :build
 
+  # Fix flat namespace usage on macOS.
+  patch :DATA
+
   def install
-    ENV.append "CFLAGS", "--std=gnu89" if ENV.compiler == :clang
+    ENV.append "CFLAGS", "--std=gnu89"
+    ENV["ac_cv_func_stat64"] = "no" if Hardware::CPU.arm?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
@@ -63,3 +67,18 @@ class Vstr < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index 84b6b1b..ffa2faf 100755
+--- a/configure
++++ b/configure
+@@ -8313,7 +8313,7 @@ if test -z "$aix_libpath"; then aix_libpath="/usr/lib:/lib"; fi
+          ;;
+        *) # Darwin 1.3 on
+          if test -z ${MACOSX_DEPLOYMENT_TARGET} ; then
+-           allow_undefined_flag='${wl}-flat_namespace ${wl}-undefined ${wl}suppress'
++           allow_undefined_flag='${wl}-undefined ${wl}dynamic_lookup'
+          else
+            case ${MACOSX_DEPLOYMENT_TARGET} in
+              10.[012])
