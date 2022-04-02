@@ -1,8 +1,8 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.17.src.tar.gz"
-  sha256 "eca7c04f8b416b6385ed00e33669a7fa4693cd26cb72b522cde558828eb0c665"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.18.src.tar.gz"
+  sha256 "9102fc8419294757df86a89ce6ec305f8d90a818d1f2598a139d15eb1894b8f3"
   license "NCSA"
   head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
@@ -86,7 +86,7 @@ class IncludeWhatYouUse < Formula
       ---
     EOS
     assert_match expected_output,
-      shell_output("#{bin}/include-what-you-use main.c 2>&1", 4)
+      shell_output("#{bin}/include-what-you-use main.c 2>&1")
 
     (testpath/"main.cc").write <<~EOS
       #include <iostream>
@@ -99,6 +99,6 @@ class IncludeWhatYouUse < Formula
       (main.cc has correct #includes/fwd-decls)
     EOS
     assert_match expected_output,
-      shell_output("#{bin}/include-what-you-use main.cc 2>&1", 2)
+      shell_output("#{bin}/include-what-you-use main.cc 2>&1")
   end
 end
