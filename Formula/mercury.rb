@@ -1,8 +1,8 @@
 class Mercury < Formula
   desc "Logic/functional programming language"
   homepage "https://mercurylang.org/"
-  url "https://dl.mercurylang.org/release/mercury-srcdist-20.06.1.tar.gz"
-  sha256 "ef093ae81424c4f3fe696eff9aefb5fb66899e11bb17ae0326adfb70d09c1c1f"
+  url "https://dl.mercurylang.org/release/mercury-srcdist-22.01.tar.gz"
+  sha256 "14be3143302cfbb76383dac626e6bf64538c84748289595e6966319479775d47"
   license all_of: ["GPL-2.0-only", "LGPL-2.0-only", "MIT"]
 
   livecheck do
