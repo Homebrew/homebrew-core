@@ -1,10 +1,9 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.0/qmmp-2.0.3.tar.bz2"
-  sha256 "a0c22071bedfcc44deb37428faeeecafb095b7a0ce28ade8907adb300453542e"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.0/qmmp-2.0.4.tar.bz2"
+  sha256 "3786a687b366abec91e279772176b6881e44daa9102136026be765f903b9822e"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -45,7 +44,6 @@ class Qmmp < Formula
   depends_on "libxmp"
   depends_on "mad"
   depends_on "mplayer"
-  depends_on "musepack"
   depends_on "opus"
   depends_on "opusfile"
   depends_on "projectm"
@@ -57,11 +55,21 @@ class Qmmp < Formula
 
   uses_from_macos "curl"
 
+  on_macos do
+    # musepack is not bottled on Linux
+    # https://github.com/Homebrew/homebrew-core/pull/92041
+    depends_on "musepack"
+  end
+
+  on_linux do
+    depends_on "gcc"
+  end
+
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "qmmp-plugin-pack" do
-    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.0/qmmp-plugin-pack-2.0.1.tar.bz2"
-    sha256 "73f0d5c62b518eb1843546c8440f528a5de6795f1f4c3740f28b8ed0d4c3dbca"
+    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.0/qmmp-plugin-pack-2.0.2.tar.bz2"
+    sha256 "c8d50f1cb76b38757697aa358b841b622cbbd026ef28055d972a30a8328a3fd4"
   end
 
   def install
@@ -71,14 +79,14 @@ class Qmmp < Formula
       -DUSE_SKINNED=ON
       -DUSE_ENCA=ON
       -DUSE_QMMP_DIALOG=ON
-      -DCMAKE_EXE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup
-      -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup
-      -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup
-
-      -S .
     ]
+    if OS.mac?
+      cmake_args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
+      cmake_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
+      cmake_args << "-DCMAKE_MODULE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
+    end
 
-    system "cmake", *cmake_args
+    system "cmake", "-S", ".", *cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."
 
@@ -91,6 +99,8 @@ class Qmmp < Formula
   end
 
   test do
+    # Set QT_QPA_PLATFORM to minimal to avoid error "qt.qpa.xcb: could not connect to display"
+    ENV["QT_QPA_PLATFORM"] = "minimal" unless OS.mac?
     system bin/"qmmp", "--version"
   end
 end
