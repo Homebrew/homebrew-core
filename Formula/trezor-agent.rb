@@ -16,6 +16,7 @@ class TrezorAgent < Formula
     sha256 cellar: :any, catalina:       "480b6bad50684dc8e8786aeafd42720a0b335a39c0f9745f772cf3cb8b585df4"
   end
 
+  depends_on "rust" => :build # python-daemon resource depends on cryptography
   depends_on "libusb"
   depends_on "pillow"
   depends_on "python@3.9"
@@ -209,6 +210,7 @@ class TrezorAgent < Formula
   end
 
   def install
+    ENV.append "CFLAGS", "-I#{Formula["libusb"].include}/libusb-1.0"
     virtualenv_install_with_resources
   end
 
