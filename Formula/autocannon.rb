@@ -7,6 +7,10 @@ class Autocannon < Formula
   sha256 "9b7bdd863b3fc66158aa0f69db75ac40369bdbcd28fd0a8d38d94f86435c1583"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "ba11f16363703c8ae1d01c8961a4ec17fe1e3947b4206691442c5f95151ebcd4"
+  end
+
   depends_on "node"
 
   def install
