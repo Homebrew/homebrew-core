@@ -28,6 +28,8 @@ class Trimage < Formula
   end
 
   test do
+    # Set QT_QPA_PLATFORM to minimal to avoid error "qt.qpa.xcb: could not connect to display"
+    ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
     cp test_fixtures("test.png"), testpath
     cp test_fixtures("test.jpg"), testpath
     assert_match "New Size", shell_output("#{bin}/trimage -f #{testpath}/test.png 2>1")
