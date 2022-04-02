@@ -7,12 +7,12 @@ class Mockery < Formula
   head "https://github.com/vektra/mockery.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "24ee8afd3bb40008043a858a6af3f8991f4f3368b065d7bc39507bce507412a0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0bc088d067640fab78e3047c52f60cae2fc47e4756c083fcd0ab9e4dc41023c"
-    sha256 cellar: :any_skip_relocation, monterey:       "b0203b946d37aaf80a0ffc7fbc3076bbf98246611a487a9427e486f0e7f63b6f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f83a6cc31d6ba6318b4a47bc25a97ad9ac37db408ce28c4330818c9424f09dd8"
-    sha256 cellar: :any_skip_relocation, catalina:       "3e8b29805a942aaec44b9fd54644314489f8decf436794f370178decdd2c0b63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "761e9d9c086138291eda6a4f7bb717512366a75931b44d2073fdf8b2c454f707"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "15d2ce7d2b1e356a5689f84b8a0422ea46d55d5eeb42567108b7e214f7277662"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8288e20fab12ed588049262b6f7527980bdd03a84e86dd5c6cb1ac528398edf4"
+    sha256 cellar: :any_skip_relocation, monterey:       "a9eb11d6cae51a87719dc29eab96e50daea6d7b8a67dd3fc5afe037315f107d9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f1082b1b6b4671e7fdb313e9f01f65d02e066b29b655039c17b93f9050bdbb00"
+    sha256 cellar: :any_skip_relocation, catalina:       "088809a272f0e65f7bfeb75a8b32006700f16f3e79733c27e34192b57a421b6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36a7f5c4f15e1e18e1ff73e223fc2d67e8777a541e74474026317eec3ac18f12"
   end
 
   depends_on "go" => :build
