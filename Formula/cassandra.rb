@@ -18,7 +18,7 @@ class Cassandra < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8719f63db4e26e335895e243ce9f317b448cf9eeb83559530d6126e96ebe25dd"
   end
 
-  depends_on "cython" => :build
+  depends_on "libcython" => :build
   depends_on "openjdk@11"
   depends_on "python@3.9"
   depends_on "six"
