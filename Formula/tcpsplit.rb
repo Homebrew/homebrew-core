@@ -22,6 +22,8 @@ class Tcpsplit < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "c87bf331cb20c6301b922ee3fb37f0c92957f3e32d0391b07aa7b36980b20819"
   end
 
+  uses_from_macos "libpcap"
+
   def install
     system "make"
     bin.install "tcpsplit"
