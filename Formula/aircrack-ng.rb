@@ -26,11 +26,49 @@ class AircrackNg < Formula
   depends_on "pcre"
   depends_on "sqlite"
 
+  uses_from_macos "libpcap"
+
+  # Fix build for Apple Silicon.
+  # TODO: Remove in the next release
+  if Hardware::CPU.arm?
+    patch do
+      url "https://github.com/aircrack-ng/aircrack-ng/commit/a4cdb89cae06545d547a6c15a5a92f7972fad38d.patch?full_index=1"
+      sha256 "63ebf16f510533c94a3a1922fe09a98957da337bbb6988887349f5fe17d4ca6c"
+    end
+
+    patch do
+      url "https://github.com/aircrack-ng/aircrack-ng/commit/00fd71f1fe8e5451cfff3210f2b401eddc2d5fbd.patch?full_index=1"
+      sha256 "b5ac52c4c4574c470118151c0737bbd06c0f7af38f65e90d40c0a14bfb08477d"
+    end
+
+    patch do
+      url "https://github.com/aircrack-ng/aircrack-ng/commit/aab7db82306a3da43f75dd6adad7909f08f795c5.patch?full_index=1"
+      sha256 "eda226f147b6cc5ded0b0bd21f0a8d061989917da79596a1468b42bd8eaa7f99"
+    end
+
+    patch do
+      url "https://github.com/aircrack-ng/aircrack-ng/commit/dcf87db21139d56825c1e628c24b84bf2232dcef.patch?full_index=1"
+      sha256 "54d21261eadb066fc54eb5ca60717571cc3168a9154bce4b73647637c85c29c9"
+    end
+  end
+
+  # MacPorts backport of fix for VERSION file conflict with C++20 version header
+  # Upstream ref: https://github.com/aircrack-ng/aircrack-ng/commit/35169a66becf48fd014cb5124da3b61b4d25d812
+  # TODO: Remove this in next release.
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/fc65d53dc398f8216b837889b3b5e5f41e9b9473/security/aircrack-ng/files/VERSION.patch"
+    sha256 "62706ad1814ed28f06ee2dd600c6ae5516f4c57d36439dc37a8fdccddc9738ac"
+  end
+
   # Remove root requirement from OUI update script. See:
   # https://github.com/Homebrew/homebrew/pull/12755
   patch :DATA
 
   def install
+    # TODO: Align with VERSION patch. Remove this in next release.
+    mv "VERSION", "AC_VERSION"
+    mv "VERSION.in", "AC_VERSION.in"
+
     system "./autogen.sh", "--disable-silent-rules",
                            "--disable-dependency-tracking",
                            "--prefix=#{prefix}",
@@ -45,7 +83,10 @@ class AircrackNg < Formula
   end
 
   test do
-    system "#{bin}/aircrack-ng", "--help"
+    assert_match "usage: aircrack-ng", shell_output("#{bin}/aircrack-ng --help")
+    assert_match "Logical CPUs", shell_output("#{bin}/aircrack-ng -u")
+    expected_simd = Hardware::CPU.arm? ? "neon" : "sse2"
+    assert_match expected_simd, shell_output("#{bin}/aircrack-ng --simd-list")
   end
 end
 
