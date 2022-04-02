@@ -24,13 +24,16 @@ class Vecx < Formula
   def install
     # Fix missing symobls for inline functions
     # https://github.com/jhawthorn/vecx/pull/3
-    inreplace ["e6809.c", "vecx.c"], /__inline/, 'static \1'
+    inreplace ["e6809.c", "vecx.c"], /__inline/, 'static \1' if OS.mac?
 
     system "make"
     bin.install "vecx"
   end
 
   test do
+    # Disable this part of the test on Linux because display is not available.
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     assert_match "rom.dat: No such file or directory", shell_output("#{bin}/vecx 2>&1", 1)
   end
 end
