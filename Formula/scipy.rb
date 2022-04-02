@@ -15,7 +15,7 @@ class Scipy < Formula
     sha256               x86_64_linux:   "b953884a721170689cec7207e3e416606a030a1e61542a83502dd643b086cc45"
   end
 
-  depends_on "cython" => :build
+  depends_on "libcython" => :build
   depends_on "pythran" => :build
   depends_on "swig" => :build
   depends_on "gcc" # for gfortran
@@ -46,7 +46,7 @@ class Scipy < Formula
     Pathname("site.cfg").write config
 
     site_packages = Language::Python.site_packages("python3")
-    ENV.prepend_create_path "PYTHONPATH", Formula["cython"].opt_libexec/site_packages
+    ENV.prepend_create_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
     ENV.prepend_create_path "PYTHONPATH", Formula["pythran"].opt_libexec/site_packages
     ENV.prepend_create_path "PYTHONPATH", Formula["numpy"].opt_prefix/site_packages
     ENV.prepend_create_path "PYTHONPATH", site_packages
