@@ -16,6 +16,7 @@ class Juman < Formula
     sha256 sierra:         "5c1dfea7f62d1afce55c9d1ed2478f9ff3b1744285fbbf08c29eb171cc672fa7"
     sha256 el_capitan:     "6bd46cdc6ff4e159463f8d4fecda2b803c3054ec28305f3baa1ea4969c4da723"
     sha256 yosemite:       "b2ccfe90011dead77ca0789cbdcdf30aa24e2ebcd3dd19c8d01b6adacbf7c816"
+    sha256 x86_64_linux:   "dc72214b5b06cb06dee3a256586b433541d36d3c1af89282952dbdc5e1f232b4"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
