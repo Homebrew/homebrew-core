@@ -27,6 +27,6 @@ class Naabu < Formula
   end
 
   test do
-    assert_match "brew.sh:443", shell_output("#{bin}/naabu -host brew.sh -p 443")
+    assert_match "brew.sh:443", shell_output("#{bin}/naabu -scan-type c -host brew.sh -port 443")
   end
 end
