@@ -9,12 +9,12 @@ class Jhipster < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1762f57c8cdcd3575ecab96f08f07ec86d33283696188f91033321d1528de51c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1762f57c8cdcd3575ecab96f08f07ec86d33283696188f91033321d1528de51c"
-    sha256 cellar: :any_skip_relocation, monterey:       "44bed5b853f8545d3fb664c3df44fc8863c4c630b3d31257ffc13b6ffa1c49f0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "44bed5b853f8545d3fb664c3df44fc8863c4c630b3d31257ffc13b6ffa1c49f0"
-    sha256 cellar: :any_skip_relocation, catalina:       "44bed5b853f8545d3fb664c3df44fc8863c4c630b3d31257ffc13b6ffa1c49f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1762f57c8cdcd3575ecab96f08f07ec86d33283696188f91033321d1528de51c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f786c4c114b2c52d0dac6f504926815d431902a52d0c11b42329d7fd1c07fa5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f786c4c114b2c52d0dac6f504926815d431902a52d0c11b42329d7fd1c07fa5"
+    sha256 cellar: :any_skip_relocation, monterey:       "c0220a45f0195d13cd5fc15a172b2f5b85bab9ba4d4c393f7fa3e13d1f774ea8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c0220a45f0195d13cd5fc15a172b2f5b85bab9ba4d4c393f7fa3e13d1f774ea8"
+    sha256 cellar: :any_skip_relocation, catalina:       "c0220a45f0195d13cd5fc15a172b2f5b85bab9ba4d4c393f7fa3e13d1f774ea8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f786c4c114b2c52d0dac6f504926815d431902a52d0c11b42329d7fd1c07fa5"
   end
 
   depends_on "node"
