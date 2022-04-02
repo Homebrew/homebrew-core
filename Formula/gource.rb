@@ -6,7 +6,7 @@ class Gource < Formula
   stable do
     url "https://github.com/acaudwell/Gource/releases/download/gource-0.52/gource-0.52.tar.gz"
     sha256 "92e713291936cc4688b6d3d52868f4cca4263c2efec9b3848086e93cd9935e08"
-    depends_on "pcre"
+    depends_on "pcre2"
   end
 
   bottle do
