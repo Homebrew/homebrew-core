@@ -38,7 +38,9 @@ class Vc < Formula
          return 0;
        }
     EOS
-    system ENV.cc, "test.cpp", "-std=c++11", "-L#{lib}", "-lvc", "-o", "test"
+    extra_flags = []
+    extra_flags += ["-lm", "-lstdc++"] unless OS.mac?
+    system ENV.cc, "test.cpp", "-std=c++11", "-L#{lib}", "-lVc", *extra_flags, "-o", "test"
     system "./test"
   end
 end
