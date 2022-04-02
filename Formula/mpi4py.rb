@@ -14,7 +14,7 @@ class Mpi4py < Formula
     sha256               x86_64_linux:   "eef31e997cf6327384c7c9b861dfe7133c91448f30382c45cef0e8e1f4a31b21"
   end
 
-  depends_on "cython" => :build
+  depends_on "libcython" => :build
   depends_on "open-mpi"
   depends_on "python@3.9"
 
