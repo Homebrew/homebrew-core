@@ -7,6 +7,7 @@
   ["bundler-completion", "gem-completion", "rails-completion", "ruby-completion"],
   ["buildifier", "buildozer"],
   ["cmake", "cmake-docs"],
+  ["cython", "libcython"],
   ["dbhash", "sqldiff", "sqlite", "sqlite-analyzer"],
   ["docker", "docker-completion"],
   ["etl", "synfig"],
