@@ -4,7 +4,7 @@ class OsmPbf < Formula
   url "https://github.com/scrosby/OSM-binary/archive/v1.5.0.tar.gz"
   sha256 "2abf3126729793732c3380763999cc365e51bffda369a008213879a3cd90476c"
   license "LGPL-3.0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7c54ae6cece29667791513344f8ca1f07412dbf7c0030eb000c835864dda96b7"
