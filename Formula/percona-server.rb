@@ -4,6 +4,7 @@ class PerconaServer < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.26-17/source/tarball/percona-server-8.0.26-17.tar.gz"
   sha256 "b861ba44c83ed3a233d255fc04c3e3e6c0c3b204a375d3287ef4325834e13764"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-Server-LATEST/"
