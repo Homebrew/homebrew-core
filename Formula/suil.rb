@@ -22,6 +22,7 @@ class Suil < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
   depends_on "gtk+"
   depends_on "gtk+3"
   depends_on "lv2"
@@ -36,8 +37,20 @@ class Suil < Formula
 
   def install
     ENV.cxx11
-    system "./waf", "configure", "--prefix=#{prefix}", "--no-x11",
-        "--gtk2-lib-name=#{shared_library("libgtk-quartz-2.0.0")}", "--gtk3-lib-name=#{shared_library("libgtk-3.0")}"
+    ENV.prepend_path "PATH", Formula["python@3.10"].libexec/"bin"
+    args = [
+      "--prefix=#{prefix}",
+      "--gtk3-lib-name=#{shared_library("libgtk-3.0")}",
+    ]
+    if OS.mac?
+      args += [
+        "--no-x11",
+        "--gtk2-lib-name=#{shared_library("libgtk-quartz-2.0.0")}",
+      ]
+    else
+      args << ["--gtk2-lib-name=#{shared_library("libgtk-x11-2.0")}"]
+    end
+    system "./waf", "configure", *args
     system "./waf", "install"
   end
 
@@ -51,7 +64,7 @@ class Suil < Formula
       }
     EOS
     lv2 = Formula["lv2"].opt_include
-    system ENV.cc, "-I#{lv2}", "-I#{include}/suil-0", "-L#{lib}", "-lsuil-0", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-I#{lv2}", "-I#{include}/suil-0", "-L#{lib}", "-lsuil-0", "-o", "test"
     system "./test"
   end
 end
