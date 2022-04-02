@@ -30,6 +30,6 @@ class Onefetch < Formula
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "BrewTestBot@test.com"
     system "echo \"puts 'Hello, world'\" > main.rb && git add main.rb && git commit -m \"First commit\""
-    assert_match(/Ruby (100.0 %)/, shell_output("#{bin}/onefetch").chomp)
+    assert_match("Ruby (100.0 %)", shell_output("#{bin}/onefetch").chomp)
   end
 end
