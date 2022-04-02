@@ -18,6 +18,8 @@ class Xrick < Formula
 
   depends_on "sdl"
 
+  uses_from_macos "zlib"
+
   def install
     inreplace "src/xrick.c", "data.zip", "#{pkgshare}/data.zip"
     system "make"
