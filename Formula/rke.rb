@@ -5,6 +5,11 @@ class Rke < Formula
   sha256 "4087a7e04a106dac40db3a84a61eed757e87ccac8dc792aeab4c328576099013"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "624d3fb1fb11ddc6265d594cf8bf005d29739259ed39ef108f02e1a6ef65c059"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b897ec23aba479db91b2671b79cf388c3abe4c880bc3968752f372b61994ee05"
