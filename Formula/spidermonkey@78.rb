@@ -13,6 +13,8 @@ class SpidermonkeyAT78 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "4b9188b778310a6365e4b879cc94b593ab6b3eb4fc879eed813f9001eb252ec2"
   end
 
+  deprecate! date: "2022-04-02", because: :unsupported
+
   depends_on "autoconf@2.13" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
