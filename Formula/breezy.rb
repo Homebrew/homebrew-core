@@ -17,8 +17,8 @@ class Breezy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c914a0b4b10bf2eed4c6f6cfa8a218b9f0a7204ce41652cea707b3dd446b5905"
   end
 
-  depends_on "cython" => :build
   depends_on "gettext" => :build
+  depends_on "libcython" => :build
   depends_on "openssl@1.1"
   depends_on "python@3.10"
   depends_on "six"
