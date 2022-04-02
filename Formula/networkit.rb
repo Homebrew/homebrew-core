@@ -16,7 +16,7 @@ class Networkit < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "cython" => :build
+  depends_on "libcython" => :build
   depends_on "ninja" => :build
   depends_on "tlx" => :build
 
@@ -30,7 +30,7 @@ class Networkit < Formula
     rpath_addons = Formula["libnetworkit"].opt_lib
 
     ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python#{xy}/site-packages/"
-    ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["libcython"].opt_libexec/"lib/python#{xy}/site-packages"
     system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build_ext",
           "--networkit-external-core",
           "--external-tlx=#{Formula["tlx"].opt_prefix}",
