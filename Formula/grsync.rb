@@ -6,14 +6,12 @@ class Grsync < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 arm64_monterey: "3bea8e3c2c4cf7cc80114866420b4fbbf4155d84fa230e6a5f3bd5f484a80032"
-    sha256 arm64_big_sur:  "55955b7e18bcb06ad62fa0bca9102901b15b47ae9ea5f69324b987db553cb929"
-    sha256 monterey:       "40f70235563cec32800bf0ce720038532397505ce9c05c434cc6a3f9a97ee395"
-    sha256 big_sur:        "e5a84736533563fda92cc9173a70b6fed4dd450f75b6280734d069a6e1609139"
-    sha256 catalina:       "07f40176b0bfb08d3b461fceb2d4e18f249354ef60a57dd550c11c31d26fee6a"
-    sha256 mojave:         "b0bf1fe191950905e46c81953e93a72c6c6c185c146b1a79d09e388348e1c5f1"
-    sha256 high_sierra:    "741b7306a6373fc2d86a416a2def2a06c1fd25ab6b30585755faa8326c497c2b"
-    sha256 x86_64_linux:   "ce94b087a3540ee9e441ace3289db2ff586ead5bf00321e3f31d6cc9a368543d"
+    sha256 arm64_monterey: "082de39502badb7f49207a7b6b96a2ca985c02dddfa1aabd2955cd4d1533fd4f"
+    sha256 arm64_big_sur:  "bb4de095eca6a8d58af878417ac45a713e4c955c1014c9e0d0b73238c67dbee2"
+    sha256 monterey:       "c715d641af3a381a822643467956169f6ccd66486d411958ec39867548c51c59"
+    sha256 big_sur:        "82f793ddc998272c4af6505feed3c5ea51c180494e193b69fb29d362a7976e52"
+    sha256 catalina:       "43fbb798927566ee060d236702170c38b3eafa7cf9cdadfea323d4e52998c272"
+    sha256 x86_64_linux:   "1948dee6681260c48017e6a3ba53f78776c07123665eb8111a1f463bbdf3e277"
   end
 
   depends_on "intltool" => :build
