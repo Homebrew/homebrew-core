@@ -18,6 +18,8 @@ class Tenyr < Formula
   depends_on "bison" => :build # tenyr requires bison >= 2.5
   depends_on "sdl2_image"
 
+  uses_from_macos "flex" => :build
+
   def install
     system "make", "BISON=#{Formula["bison"].opt_bin}/bison",
                    "JIT=0", "BUILDDIR=build/homebrew"
@@ -25,7 +27,7 @@ class Tenyr < Formula
     pkgshare.install "rsrc", "plugins"
     cd "build/homebrew" do
       bin.install "tsim", "tas", "tld"
-      lib.install Dir["*.dylib"]
+      lib.install Dir[shared_library("*")]
     end
   end
 
