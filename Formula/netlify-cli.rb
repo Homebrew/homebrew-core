@@ -9,12 +9,12 @@ class NetlifyCli < Formula
   head "https://github.com/netlify/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "377582b29e602266732b5526b49500d333e74bdbb380a2c3663cee55b6699d91"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "377582b29e602266732b5526b49500d333e74bdbb380a2c3663cee55b6699d91"
-    sha256 cellar: :any_skip_relocation, monterey:       "234ac70461d105f9efafa56fe862a310bafa301bc2469ab54dd46fd0cb9d9e75"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7916e81212cd0dc4c3e3cfc14915620796172a60803f8e750eecd36a498e2c04"
-    sha256 cellar: :any_skip_relocation, catalina:       "7916e81212cd0dc4c3e3cfc14915620796172a60803f8e750eecd36a498e2c04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32911af1b58d05a8df63d2311d4889fd9053ab5d03cf28322995928223c1cf40"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be8baf65b4a6d29ca6c849c00c8ecf9fdc49b40d96ca4bec794e6a83fdd623b4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be8baf65b4a6d29ca6c849c00c8ecf9fdc49b40d96ca4bec794e6a83fdd623b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "d59502b4d85ef23517c8502b2da2a8d07897f1f74cf40a9be15f5da4668b48d4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d59502b4d85ef23517c8502b2da2a8d07897f1f74cf40a9be15f5da4668b48d4"
+    sha256 cellar: :any_skip_relocation, catalina:       "dcb5a82b7349e24a68e50e92722e4f00b84911936fdd0b1c87c83439283d608f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd02a29431e517b892e3aab527266d2fe48003c40bec631ef1ef723b4e96e8ad"
   end
 
   depends_on "node"
