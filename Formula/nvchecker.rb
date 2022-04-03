@@ -3,8 +3,8 @@ class Nvchecker < Formula
 
   desc "New version checker for software releases"
   homepage "https://github.com/lilydjwg/nvchecker"
-  url "https://github.com/lilydjwg/nvchecker/archive/tags/v2.7.tar.gz"
-  sha256 "b4b97c3a853311bb2515b1802726fc6fc8c7fec549b621899ad2ac5e7a9a0dd8"
+  url "https://files.pythonhosted.org/packages/71/23/c8839d59b5f7bb64bd8ebc7117c85f18431ca1fc645fce8162762658beca/nvchecker-2.7.tar.gz"
+  sha256 "08ce8629025bdfbc3afeceace5319e7dab5f1304f02684aec8f84b8b416e1876"
   license "MIT"
 
   depends_on "jq" => [:test]
