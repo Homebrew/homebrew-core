@@ -7,12 +7,12 @@ class Ifacemaker < Formula
   head "https://github.com/vburenin/ifacemaker.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fad9412e1b854ee824e7e02094591fa390a91669407bfe918d41273ac9e39b10"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fad9412e1b854ee824e7e02094591fa390a91669407bfe918d41273ac9e39b10"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b7cce651aa5e1078136f44d975b0cb82edadda113c36c169cc02ea8ead0a298"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9b7cce651aa5e1078136f44d975b0cb82edadda113c36c169cc02ea8ead0a298"
-    sha256 cellar: :any_skip_relocation, catalina:       "9b7cce651aa5e1078136f44d975b0cb82edadda113c36c169cc02ea8ead0a298"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3030a7be7c380c654ef1434fe106932f6c897eab9675c15da34239b3dec0305"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "22085cff161ce23c252e0d1780662e4dd5491ae0e5c529a32aa988cfcf92a3a2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22085cff161ce23c252e0d1780662e4dd5491ae0e5c529a32aa988cfcf92a3a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ff04b231be4840bf83ff3afc38f0ad27452ddcd79f4ac43e5a42bad7585dc1c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2ff04b231be4840bf83ff3afc38f0ad27452ddcd79f4ac43e5a42bad7585dc1c"
+    sha256 cellar: :any_skip_relocation, catalina:       "2ff04b231be4840bf83ff3afc38f0ad27452ddcd79f4ac43e5a42bad7585dc1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75c226bb22000f3e24951913dfc4d1566e88f2c415bdcadf51262588e1ebd23d"
   end
 
   depends_on "go" => :build
