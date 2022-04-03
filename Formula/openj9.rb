@@ -1,9 +1,9 @@
 class Openj9 < Formula
   desc "High performance, scalable, Java virtual machine"
   homepage "https://www.eclipse.org/openj9/"
-  url "https://github.com/eclipse/openj9.git",
-      tag:      "openj9-0.29.1",
-      revision: "7d055dfcb71452077db01fddfc3ccd845cd461d0"
+  url "https://github.com/eclipse-openj9/openj9.git",
+      tag:      "openj9-0.30.1",
+      revision: "9dccbe076db9055f4020bae78513f52c02572ba4"
   license any_of: [
     "EPL-2.0",
     "Apache-2.0",
@@ -30,7 +30,7 @@ class Openj9 < Formula
   depends_on "nasm" => :build if Hardware::CPU.intel?
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on arch: :x86_64
+  depends_on arch: :x86_64 # https://github.com/eclipse-openj9/openj9/issues/11164
 
   depends_on "fontconfig"
   depends_on "giflib"
@@ -41,23 +41,45 @@ class Openj9 < Formula
 
   uses_from_macos "cups"
   uses_from_macos "libffi"
+  uses_from_macos "unzip"
+  uses_from_macos "zip"
   uses_from_macos "zlib"
 
+  on_linux do
+    keg_only "it conflicts with openjdk"
+
+    depends_on "alsa-lib"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxrandr"
+    depends_on "libxrender"
+    depends_on "libxt"
+    depends_on "libxtst"
+    depends_on "numactl"
+  end
+
+  # From https://github.com/eclipse-openj9/openj9/blob/openj9-#{version}/doc/build-instructions/
   resource "boot-jdk" do
-    url "https://github.com/AdoptOpenJDK/openjdk16-binaries/releases/download/jdk-16.0.1%2B9/OpenJDK16U-jdk_x64_mac_hotspot_16.0.1_9.tar.gz"
-    sha256 "3be78eb2b0bf0a6edef2a8f543958d6e249a70c71e4d7347f9edb831135a16b8"
+    on_macos do
+      url "https://github.com/AdoptOpenJDK/semeru16-binaries/releases/download/jdk-16.0.2%2B7_openj9-0.27.0/ibm-semeru-open-jdk_x64_mac_16.0.2_7_openj9-0.27.0.tar.gz"
+      sha256 "89e807261145243a358a2a626f64340944c03622f34eaa35429053e2085d7aef"
+    end
+    on_linux do
+      url "https://github.com/AdoptOpenJDK/semeru16-binaries/releases/download/jdk-16.0.2%2B7_openj9-0.27.0/ibm-semeru-open-jdk_x64_linux_16.0.2_7_openj9-0.27.0.tar.gz"
+      sha256 "1349eb9a1d9af491a1984d66a80126730357c4a5c4fcbe7112a2c832f6c0886e"
+    end
   end
 
   resource "omr" do
-    url "https://github.com/eclipse/openj9-omr.git",
-        tag:      "openj9-0.29.1",
-        revision: "e30892e2b525e89712747040b4186b9a055a93ce"
+    url "https://github.com/eclipse-openj9/openj9-omr.git",
+        tag:      "openj9-0.30.1",
+        revision: "56c3376ba057f905dc2ccd38fb4056d33f9e1f7c"
   end
 
   resource "openj9-openjdk-jdk" do
-    url "https://github.com/ibmruntimes/openj9-openjdk-jdk16.git",
-        branch:   "v0.27.1-release",
-        revision: "a269b697f0c4ad5f8d16ff510aa7058c37c1da0b"
+    url "https://github.com/ibmruntimes/openj9-openjdk-jdk17.git",
+        branch:   "v0.30.0-release",
+        revision: "64cd399ca2808c6c514e22a565c30f592d3f25c9"
   end
 
   def install
@@ -65,17 +87,28 @@ class Openj9 < Formula
     (buildpath/"openj9").install openj9_files
     resource("openj9-openjdk-jdk").stage buildpath
     resource("omr").stage buildpath/"omr"
-    resource("boot-jdk").stage buildpath/"boot-jdk"
+    boot_jdk = buildpath/"boot-jdk"
+    resource("boot-jdk").stage boot_jdk
+    boot_jdk /= "Contents/Home" if OS.mac?
+    java_options = ENV.delete("_JAVA_OPTIONS")
 
     config_args = %W[
-      --with-boot-jdk=#{buildpath}/boot-jdk/Contents/Home
+      --disable-warnings-as-errors-omr
+      --disable-warnings-as-errors-openj9
+      --with-boot-jdk-jvmargs=#{java_options}
+      --with-boot-jdk=#{boot_jdk}
+      --with-debug-level=release
+      --with-jvm-variants=server
       --with-native-debug-symbols=none
+
       --with-vendor-bug-url=#{tap.issues_url}
       --with-vendor-name=#{tap.user}
       --with-vendor-url=#{tap.issues_url}
       --with-vendor-version-string=#{tap.user}
       --with-vendor-vm-bug-url=#{tap.issues_url}
-      --with-sysroot=#{MacOS.sdk_path}
+      --with-version-build=#{revision}
+      --without-version-opt
+      --without-version-pre
 
       --with-giflib=system
       --with-harfbuzz=system
@@ -85,32 +118,52 @@ class Openj9 < Formula
       --with-zlib=system
 
       --enable-ddr=no
-      --enable-dtrace
       --enable-full-docs=no
     ]
+    config_args += if OS.mac?
+      %W[
+        --enable-dtrace
+        --with-sysroot=#{MacOS.sdk_path}
+      ]
+    else
+      # Override hardcoded /usr/include directory when checking for numa headers
+      inreplace "closed/autoconf/custom-hook.m4", "/usr/include/numa", Formula["numactl"].opt_include/"numa"
 
-    ENV.delete "_JAVA_OPTIONS"
+      %W[
+        --with-x=#{HOMEBREW_PREFIX}
+        --with-cups=#{Formula["cups"].opt_prefix}
+        --with-fontconfig=#{Formula["fontconfig"].opt_prefix}
+      ]
+    end
+
     ENV["CMAKE_CONFIG_TYPE"] = "Release"
 
     system "bash", "./configure", *config_args
     system "make", "all", "-j"
 
-    jdk = Dir["build/*/images/jdk-bundle/*"].first
-    libexec.install jdk => "openj9.jdk"
-    rm libexec/"openj9.jdk/Contents/Home/lib/src.zip"
-    rm_rf Dir.glob(libexec/"openj9.jdk/Contents/Home/**/*.dSYM")
+    jdk = libexec
+    if OS.mac?
+      libexec.install Dir["build/*/images/jdk-bundle/*"].first => "openj9.jdk"
+      jdk /= "openj9.jdk/Contents/Home"
+      rm jdk/"lib/src.zip"
+      rm_rf Dir.glob(jdk/"**/*.dSYM")
+    else
+      libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
+    end
 
-    bin.install_symlink Dir["#{libexec}/openj9.jdk/Contents/Home/bin/*"]
-    include.install_symlink Dir["#{libexec}/openj9.jdk/Contents/Home/include/*.h"]
-    include.install_symlink Dir["#{libexec}/openj9.jdk/Contents/Home/include/darwin/*.h"]
-    share.install_symlink libexec/"openj9.jdk/Contents/Home/man"
+    bin.install_symlink Dir[jdk/"bin/*"]
+    include.install_symlink Dir[jdk/"include/*.h"]
+    include.install_symlink Dir[jdk/"include"/OS.kernel_name.downcase/"*.h"]
+    man1.install_symlink Dir[jdk/"man/man1/*"]
   end
 
   def caveats
-    <<~EOS
-      For the system Java wrappers to find this JDK, symlink it with
-        sudo ln -sfn #{opt_libexec}/openj9.jdk /Library/Java/JavaVirtualMachines/openj9.jdk
-    EOS
+    on_macos do
+      <<~EOS
+        For the system Java wrappers to find this JDK, symlink it with
+          sudo ln -sfn #{opt_libexec}/openj9.jdk /Library/Java/JavaVirtualMachines/openj9.jdk
+      EOS
+    end
   end
 
   test do
