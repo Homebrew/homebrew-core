@@ -7,10 +7,6 @@ class Nvchecker < Formula
   sha256 "b4b97c3a853311bb2515b1802726fc6fc8c7fec549b621899ad2ac5e7a9a0dd8"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   depends_on "jq" => [:test]
   depends_on "python@3.10"
 
