@@ -25,6 +25,12 @@ class Qsoas < Formula
 
   uses_from_macos "ruby"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   # Needs mruby 2, see https://github.com/fourmond/QSoas/issues/2
   resource "mruby2" do
     url "https://github.com/mruby/mruby/archive/2.1.2.tar.gz"
@@ -50,11 +56,17 @@ class Qsoas < Formula
                     "QMAKE_LFLAGS=-L#{libexec}/lib -L#{gsl}/lib"
     system "make"
 
-    prefix.install "QSoas.app"
-    bin.write_exec_script "#{prefix}/QSoas.app/Contents/MacOS/QSoas"
+    if OS.mac?
+      prefix.install "QSoas.app"
+      bin.write_exec_script "#{prefix}/QSoas.app/Contents/MacOS/QSoas"
+    else
+      bin.install "QSoas"
+    end
   end
 
   test do
+    # Set QT_QPA_PLATFORM to minimal to avoid error "qt.qpa.xcb: could not connect to display"
+    ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
     assert_match "mfit-linear-kinetic-system",
                  shell_output("#{bin}/QSoas --list-commands")
   end
