@@ -27,8 +27,11 @@ class CKermit < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "fe01b123ec7cddfbf46908bbf2071542a92f195d75733230896b5de78d92cdef"
   end
 
+  uses_from_macos "ncurses"
+
   def install
-    system "make", "macosx"
+    os = OS.mac? ? "macosx" : "linux"
+    system "make", os
     man1.mkpath
 
     # The makefile adds /man to the end of manroot when running install
