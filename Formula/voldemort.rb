@@ -12,6 +12,7 @@ class Voldemort < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey: "e50c8b4278d1c10e0374fd08c569e6dfc121b33ca778f6db241f92f220c746fc"
     sha256 cellar: :any_skip_relocation, big_sur:  "dfd48d6516ae04989d577dc18fe490a678c2fccc562d62f9832e2dcc0449a191"
     sha256 cellar: :any_skip_relocation, catalina: "f0b69b617d5a983452c62ad06b316a3faf7ae088528afc492a660d370c120e2f"
     sha256 cellar: :any_skip_relocation, mojave:   "c9b88175b71d839d1afe3d4a3407f982f14f31194065f87bbaff8dbc33198e0b"
