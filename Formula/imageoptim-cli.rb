@@ -20,15 +20,29 @@ class ImageoptimCli < Formula
 
   depends_on "node" => :build
   depends_on "yarn" => :build
-  depends_on arch: :x86_64 # Installs pre-built x86-64 binaries
   depends_on :macos
 
   def install
     Language::Node.setup_npm_environment
     system "yarn"
-    system "npm", "run", "build"
+    if Hardware::CPU.arm?
+      system "npm", "run", "build:ts"
+      # Install nexe beta version to fix build issue: https://github.com/nexe/nexe/issues/804
+      system "npm", "install", *Language::Node.local_npm_install_args, "nexe@4.0.0-beta.19"
+      cd "dist" do
+        ENV["PYTHON"] = which("python3")
+        # `npm run build` executes both `npm run build:ts` and `npm run build:bin`.
+        # The latter command targets 'mac-x64-12.18.2' and nexe doesn't provide arm64
+        # binaries, so need to use `--build` flag to manually build Node.js from source
+        system "../node_modules/.bin/nexe", "--verbose", "--temp", buildpath/".nexe",
+               "--build", "--target", "mac-arm64-12.18.2", "--python", which("python3"),
+               "--input", "./imageoptim.js", "--output", "./imageoptim"
+      end
+    else
+      system "npm", "run", "build"
+    end
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink Dir[libexec/"bin/*"]
   end
 
   test do
