@@ -5,11 +5,6 @@ class NeopopSdl < Formula
   sha256 "2df1b717faab9e7cb597fab834dc80910280d8abf913aa8b0dcfae90f472352e"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?NeoPop-SDL[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 monterey:     "735c39be0cdfe7a56e4d395859d097b9a48dbea26b219bf922cdddb3ffa5e40f"
     sha256 cellar: :any,                 big_sur:      "53e2a47e1f4e3bc4b35a31ea06f757ef62fc11de24347fcca5f4d1799f1adf94"
@@ -24,19 +19,30 @@ class NeopopSdl < Formula
 
   head do
     url "https://github.com/nih-at/NeoPop-SDL.git", branch: "master"
+
     depends_on "autoconf" => :build
-    depends_on "automake" => :build
     depends_on "pkg-config" => :build
     depends_on "ffmpeg"
   end
 
-  depends_on arch: :x86_64
+  # Homepage says: "Development on this project has stopped. It will no longer be updated."
+  deprecate! date: "2022-04-02", because: :unmaintained
+
+  # Added automake as a build dependency to update config files for ARM support.
+  depends_on "automake" => :build
   depends_on "libpng"
   depends_on "sdl"
   depends_on "sdl_net"
 
   def install
-    system "autoreconf", "-i" if build.head?
+    if build.head?
+      system "autoreconf", "-i"
+    else
+      # Workaround for ancient config files not recognizing aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+      end
+    end
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
