@@ -12,12 +12,12 @@ class Freetype < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ef390f0021a584396d8f168de0666d9f4d2dec560b7f7b58f60ca93d3b795fad"
-    sha256 cellar: :any,                 arm64_big_sur:  "7621db36f0e51ae0bb9094d56ae5462fbf249969aff225555c1e5845fe7477c1"
-    sha256 cellar: :any,                 monterey:       "e1320cb3ec023546f9d436a65b7a1421027fbe7ec87a1ecb158b6c78fe6098e3"
-    sha256 cellar: :any,                 big_sur:        "5cbd30acd1a8447bd66a3d3933b3f7cb9836d2c9cd49a6bd7f64b2225ef1fc4b"
-    sha256 cellar: :any,                 catalina:       "e5f8d1d7a2ed7c60cce95358f33503301280e147beed7fbed0fd1c2c06d26fb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc2ddc421163f9ee9cbb7743921b26daf6d49c44938d5eb264db1ecbdfe0f835"
+    sha256 cellar: :any,                 arm64_monterey: "be3cb9b02246eba786391282c6a9a2f522ef6675eda2aaef77ba72cbce7e4567"
+    sha256 cellar: :any,                 arm64_big_sur:  "171677a9c53044381b2a1d9e1060e6153617e72ddaed4867b95f1982850a9e5b"
+    sha256 cellar: :any,                 monterey:       "3424dbc7bc95ec38890c3ff7b6bd3c6a1ed6e56a9a42814951076f4485516547"
+    sha256 cellar: :any,                 big_sur:        "e43fe6566bbb42a76cb09e3bb5a0efa201a6a25555ae4c057d856e20fb6d540e"
+    sha256 cellar: :any,                 catalina:       "c16bc37cc0d9840f87b7f89eb54f6c3e79f3757d8eb1acc371dd5af5d5cdbb7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9bf649c16033dc4fcea694384136f8ee13fe2f924b4a443b02fd7bab0ff368b"
   end
 
   depends_on "libpng"
