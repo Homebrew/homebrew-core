@@ -8,12 +8,12 @@ class PreCommit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6c6102333900e439caa2003c2c62b61d507093899d3c9f813bd1345b41ad86c8"
-    sha256 cellar: :any,                 arm64_big_sur:  "533af1f831f78d3818e3519fe75bd18f4e36685faffa9dc9e4e96d988827234d"
-    sha256 cellar: :any,                 monterey:       "47e38b0e5db277b87d9fee0c728c5016b2f94012f8266d07342986b721d07fd8"
-    sha256 cellar: :any,                 big_sur:        "7fe22d1dee16a24767cea01f3eafeec54a39ff4a9c93402447aaf42575f0d627"
-    sha256 cellar: :any,                 catalina:       "80eed61b62c8d9a76e8278c4e87f29ff6ccdbd47b5ed82089b5889fcd36134bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b75b1ae11c986afa01d77a1fa147f04ed5556870d6c9ac69b50dd2a61a15ea7b"
+    sha256 cellar: :any,                 arm64_monterey: "55643e1b35da1e839e6b04f3c56e7ba443ee2d552912c89dde93c62a979f0964"
+    sha256 cellar: :any,                 arm64_big_sur:  "681fbfef68e15d147cbb07300769b1fed16d7fca48b8511e10d3bfd199f9dc15"
+    sha256 cellar: :any,                 monterey:       "a029c996600ac11b3efda59cc5fac22ffe751e0cd9c286d34a61426a43f59761"
+    sha256 cellar: :any,                 big_sur:        "8682d70e01a2f4a111a78bd26be72002d463610db5bb192845405668b05086de"
+    sha256 cellar: :any,                 catalina:       "6ab32f6e215e23ee10c76a35cee2b6ccb9cbc8d8179aaaaaa3cfe8a40fe83074"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cd0c648f0b0f2edc735616cfa967d0012f8410b97067925fc6303ca1c0f68ef"
   end
 
   depends_on "libyaml"
