@@ -506,13 +506,9 @@ class Biber < Formula
     url "https://cpan.metacpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz"
     sha256 "2d99975685242980d0a9904f639144c059d6ece15899efde4acb742d3253f105"
   end
-  resource "test-dev.bcf" do
-    url "https://downloads.sourceforge.net/project/biblatex-biber/biblatex-biber/testfiles/test-dev.bcf"
+  resource "test.bcf" do
+    url "https://downloads.sourceforge.net/project/biblatex-biber/biblatex-biber/testfiles/test.bcf"
     sha256 "7239ac502a8fc6d90fcaf9e9630d939a21e28456312ee7e041f6627ebb8fed24"
-  end
-  resource "test.bib" do
-    url "https://downloads.sourceforge.net/project/biblatex-biber/biblatex-biber/testfiles/test.bib"
-    sha256 "9bc875cdda0093db27f4890dc5801f6677117a495bafd16fa41625441f099368"
   end
 
   def install
@@ -521,10 +517,8 @@ class Biber < Formula
     ENV["PERL_MM_USE_DEFAULT"] = "1"
     ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
 
-    testresources = %w[test-dev.bcf test.bib]
-
     resources.each do |r|
-      next if testresources.include?(r.name)
+      next if r.name == "test.bcf"
 
       r.stage do
         # fix libbtparse.so linkage failure on Linux
@@ -558,8 +552,15 @@ class Biber < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/biber --version")
 
-    resource("test-dev.bcf").stage { testpath.install Dir["*.bcf"].first => "test.bcf" }
-    resource("test.bib").stage testpath
+    resource("test.bcf").stage testpath
+    (testpath/"test.bib").write <<~EOS
+      @BOOK{test1,
+        AUTHOR = {Terrence Test},
+        TITLE = {Testing is Trying and Troubling},
+        YEAR = {1987},
+      }
+    EOS
+
     assert_match "Output to test.bbl", shell_output("#{bin}/biber --validate-control --convert-control test")
     assert_predicate testpath/"test.bcf.html", :exist?
     assert_predicate testpath/"test.blg", :exist?
