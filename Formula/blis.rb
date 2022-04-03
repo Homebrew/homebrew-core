@@ -7,22 +7,6 @@ class Blis < Formula
   stable do
     url "https://github.com/flame/blis/archive/0.9.0.tar.gz"
     sha256 "1135f664be7355427b91025075562805cdc6cc730d3173f83533b2c5dcc2f308"
-
-    # Fix non-generic build for Apple ARM and compilation with Clang.
-    # Upstream ref: https://github.com/flame/blis/pull/506
-    # Remove in the next release.
-    patch do
-      url "https://github.com/flame/blis/commit/bf727636632a368f3247dc8ab1d4b6119e9c511a.patch?full_index=1"
-      sha256 "55962e5df20308c08a5b10a2b7186268dfc905127e360af17e271198d2cde687"
-    end
-
-    # Allow using `thunderx2` config on Apple ARM with Clang
-    # Upstream ref: https://github.com/flame/blis/pull/492
-    # Remove in the next release.
-    patch do
-      url "https://github.com/flame/blis/commit/6548cebaf55a1f9bdb8417cc89dd0444d8f9c2e4.patch?full_index=1"
-      sha256 "c7f2ae70662b33f8db0aeb2773467288a9fba03fd26005d71d9ac0b9ff712c60"
-    end
   end
 
   bottle do
