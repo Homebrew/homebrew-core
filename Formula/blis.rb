@@ -5,8 +5,8 @@ class Blis < Formula
   head "https://github.com/flame/blis.git", branch: "master"
 
   stable do
-    url "https://github.com/flame/blis/archive/0.8.1.tar.gz"
-    sha256 "729694128719801e82fae7b5f2489ab73e4a467f46271beff09588c9265a697b"
+    url "https://github.com/flame/blis/archive/0.9.0.tar.gz"
+    sha256 "1135f664be7355427b91025075562805cdc6cc730d3173f83533b2c5dcc2f308"
 
     # Fix non-generic build for Apple ARM and compilation with Clang.
     # Upstream ref: https://github.com/flame/blis/pull/506
