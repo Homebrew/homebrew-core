@@ -1,8 +1,8 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://github.com/nickg/nvc"
-  url "https://github.com/nickg/nvc/releases/download/r1.6.1/nvc-1.6.1.tar.gz"
-  sha256 "d41c501b3bb3be8030ef07ceabc3f95c29ab169495af6a8cf2ba665ad84eb5c5"
+  url "https://github.com/nickg/nvc/releases/download/r1.6.2/nvc-1.6.2.tar.gz"
+  sha256 "e6e2db8e086ef0e54e0745b0346e83fbc5664f9c4bda11645843656736382d3c"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -15,7 +15,7 @@ class Nvc < Formula
   end
 
   head do
-    url "https://github.com/nickg/nvc.git"
+    url "https://github.com/nickg/nvc.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -36,8 +36,14 @@ class Nvc < Formula
 
   def install
     system "./autogen.sh" if build.head?
+
     # Avoid hardcoding path to the `ld` shim.
-    inreplace "configure", "\\\"$linker_path\\\"", "\\\"ld\\\"" if OS.linux?
+    if build.head? && OS.linux?
+      inreplace "configure", "#define LINKER_PATH \\\"$linker_path\\\"", "#define LINKER_PATH \\\"ld\\\""
+    elsif OS.linux?
+      inreplace "configure", "#define LINKER_PATH \"$linker_path\"", "#define LINKER_PATH \"ld\""
+    end
+
     system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
                           "--with-system-cc=#{ENV.cc}",
