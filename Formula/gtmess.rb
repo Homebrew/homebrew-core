@@ -27,6 +27,8 @@ class Gtmess < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "ncurses"
+
   def install
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-dependency-tracking",
