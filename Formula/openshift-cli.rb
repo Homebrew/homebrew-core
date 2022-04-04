@@ -6,13 +6,18 @@ class OpenshiftCli < Formula
 
   stable do
     url "https://github.com/openshift/oc.git",
-        tag:      "openshift-clients-4.6.0-202006250705.p0",
-        revision: "51011e4849252c723b520643d27d3fa164d28c61"
-    version "4.6.0"
+        tag:      "openshift-clients-4.11.0-202204020828",
+        revision: "f1f09a392fd18029f681c06c3bd0c44420684efa"
+    version "4.11.0"
 
     # Add Makefile target to build arm64 binary
     # Upstream PR: https://github.com/openshift/oc/pull/889
     patch :DATA
+  end
+
+  livecheck do
+    url :stable
+    regex(/^openshift-clients[._-](\d+(?:\.\d+)+)(?:[._-]p?\d+)?$/i)
   end
 
   bottle do
@@ -26,9 +31,6 @@ class OpenshiftCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9aa2fe20e8fb4212f2ee01ea32ff1cfa255e1c5135f50ce27658b699de97ea49"
   end
 
-  # Ref: https://github.com/Homebrew/homebrew-core/issues/97389
-  # Ref: https://github.com/openshift/oc/issues/954
-  deprecate! date: "2021-10-10", because: "cannot be updated since releases are no longer tagged"
 
   depends_on "coreutils" => :build
   # Bump to 1.18 on the next release.
@@ -58,15 +60,6 @@ class OpenshiftCli < Formula
 
     bash_completion.install "contrib/completions/bash/oc"
     zsh_completion.install "contrib/completions/zsh/oc" => "_oc"
-  end
-
-  def caveats
-    on_macos do
-      <<~EOS
-        You can install a newer version from Homebrew Cask:
-          brew install --cask openshift-client
-      EOS
-    end
   end
 
   test do
