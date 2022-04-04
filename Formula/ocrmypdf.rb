@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/94/6f/a9c8beed3aca6ade311016461bf2789d976d64f2890374d485f06f53f959/ocrmypdf-13.4.1.tar.gz"
-  sha256 "201ed2f589f851be73908fce35fbb6fb05e4739289d3cd8765f9519f49ea1cd9"
+  url "https://files.pythonhosted.org/packages/24/09/7b6dc26872916431f5689102d4c415308bc118a1a6ada61420396519f74c/ocrmypdf-13.4.2.tar.gz"
+  sha256 "d52410bc38cf5b66da27668e38c66ac41fd3136457c1ec388b311f0a78ee213c"
   license "MPL-2.0"
 
   bottle do
@@ -55,8 +55,8 @@ class Ocrmypdf < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/f9/4b/1cf8e281f7ae4046a59e5e39dd7471d46db9f61bb564fddbff9084c4334f/cryptography-36.0.1.tar.gz"
-    sha256 "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
+    url "https://files.pythonhosted.org/packages/10/a7/51953e73828deef2b58ba1604de9167843ee9cd4185d8aaffcb45dd1932d/cryptography-36.0.2.tar.gz"
+    sha256 "70f8f4f7bb2ac9f340655cbac89d68c527af5bb4387522a8413e841e3e6628c9"
   end
 
   resource "humanfriendly" do
@@ -65,8 +65,8 @@ class Ocrmypdf < Formula
   end
 
   resource "img2pdf" do
-    url "https://files.pythonhosted.org/packages/3c/b2/0483a18ae81c99ceccffb7482b26262f01eec8dee00bb63c0546ef27789e/img2pdf-0.4.3.tar.gz"
-    sha256 "8e51c5043efa95d751481b516071a006f87c2a4059961a9ac43ec238915de09f"
+    url "https://files.pythonhosted.org/packages/95/b5/f933f482a811fb9a7b3707f60e28f2925fed84726e5a6283ba07fdd54f49/img2pdf-0.4.4.tar.gz"
+    sha256 "8ec898a9646523fd3862b154f3f47cd52609c24cc3e2dc1fb5f0168f0cbe793c"
   end
 
   resource "lxml" do
@@ -80,13 +80,13 @@ class Ocrmypdf < Formula
   end
 
   resource "pdfminer.six" do
-    url "https://files.pythonhosted.org/packages/ac/0a/b01677bb31bd79756f05ff3e052ad369ac0ebb2e64b47fc6d6bad290d981/pdfminer.six-20211012.tar.gz"
-    sha256 "0351f17d362ee2d48b158be52bcde6576d96460efd038a3e89a043fba6d634d7"
+    url "https://files.pythonhosted.org/packages/a0/e2/cf4782c86fbe487da3c9aed105878a4af7fbd64c7e3f85403722e6a82dae/pdfminer.six-20220319.tar.gz"
+    sha256 "eff2ce0abeaa4df94dc3461f70eab104487c7b4a2b3c7e9fd0aeec6c5f44d6a6"
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/2a/12/11349bb3789fa5120691c2c2da11dfe3cc2b9bc4ee538c4745c5477b68ec/pikepdf-5.0.1.tar.gz"
-    sha256 "5fae9eeb7a0120d466fb219aea643a94a1423d68ee9171639a44cf0329ebe7aa"
+    url "https://files.pythonhosted.org/packages/b5/b7/b1ae6cb14af447e3b7401d03a035192d97e1ef42838c717b10b32d7d52a0/pikepdf-5.1.1.tar.gz"
+    sha256 "710535c679ab0d7b8249f72247832773e7a9a121dfbe9cad7f6465bd9bb45fae"
   end
 
   resource "pluggy" do
@@ -110,14 +110,11 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
-    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
+    url "https://files.pythonhosted.org/packages/98/2a/838de32e09bd511cf69fe4ae13ffc748ac143449bfc24bb3fd172d53a84f/tqdm-4.64.0.tar.gz"
+    sha256 "40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"
   end
 
   def install
-    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
-
     virtualenv_install_with_resources
 
     bash_completion.install "misc/completion/ocrmypdf.bash" => "ocrmypdf"
