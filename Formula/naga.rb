@@ -18,6 +18,8 @@ class Naga < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "fe303605603697993def097e9557a0dcec83d323a0b43d51fb1811108937da6c"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     bin.mkpath
     system "make", "install", "INSTALL_PATH=#{bin}/naga"
