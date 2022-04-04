@@ -2,5 +2,6 @@
   "balena-cli",
   "faust",
   "lima",
-  "qemu"
+  "qemu",
+  "truffle"
 ]
