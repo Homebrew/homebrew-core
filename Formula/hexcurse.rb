@@ -18,6 +18,8 @@ class Hexcurse < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "ef5644e4e96604f6f3bbe802e7824a7fd82e01163d532d0e2be6a93cc6595eab"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
