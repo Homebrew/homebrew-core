@@ -15,6 +15,8 @@ class Wy60 < Formula
     sha256 yosemite:      "80508e33f12142eec20ff0e8866ed191b03facea5b6653a6f5331cb017ff78af"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
