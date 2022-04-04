@@ -5,6 +5,7 @@ class Dfix < Formula
       tag:      "v0.3.5",
       revision: "5265a8db4b0fdc54a3d0837a7ddf520ee94579c4"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/dlang-community/dfix.git", branch: "master"
 
   livecheck do
@@ -24,16 +25,14 @@ class Dfix < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "18eaa549250f741f4459b82c5425b4378587006db96f83f76ffd3967df9eaefd"
   end
 
-  on_macos do
+  if Hardware::CPU.arm?
     depends_on "ldc" => :build
-  end
-
-  on_linux do
+  else
     depends_on "dmd" => :build
   end
 
   def install
-    ENV["DMD"] = "ldmd2" if OS.mac?
+    ENV["DMD"] = "ldmd2" if Hardware::CPU.arm?
     system "make"
     bin.install "bin/dfix"
     pkgshare.install "test/testfile_expected.d", "test/testfile_master.d"
