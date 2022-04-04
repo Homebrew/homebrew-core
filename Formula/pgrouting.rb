@@ -17,6 +17,7 @@ class Pgrouting < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d0776935c96441cf3467b1b522760de5e617496e3cee0abab89981f125ed573d"
     sha256 cellar: :any_skip_relocation, big_sur:        "8160f9e8421d16996fe418bf82637acc0cf9eafe72a6e482df8dca5e41feb404"
     sha256 cellar: :any_skip_relocation, catalina:       "e649753bce351dde13226665c14f5260302d3fd010880f52c2783133f0144974"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8a0b7441ae375712bc920e8ee37cb11692613ba897ded8e54fae2bcfd04fd00"
   end
 
   depends_on "cmake" => :build
