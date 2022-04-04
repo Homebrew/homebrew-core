@@ -11,12 +11,12 @@ class Qmmp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "1671f58d72794803f7f362138bcaface7e2217a83cd066df90de9385c35cf21d"
-    sha256 arm64_big_sur:  "3a50839939cbf8eec8628f179761165ed7327f5369f6bac36a640a85ea543de8"
-    sha256 monterey:       "e1a35c6f863bb97ba1ab84d3022ebe8d02e1fff5ca84bd0af45ef52d0194e832"
-    sha256 big_sur:        "5ba38b280d3a4509d28ac70198764c90940608a11b72e5742251d925430830f9"
-    sha256 catalina:       "66e601feb0678c707bb4bc59131443a3fed4cf0992667e282591ac672e6a2d23"
+    sha256 arm64_monterey: "5075402202c279f1d66c5587296fe9902de7a0505ee800d7cb58c0bd5e68e066"
+    sha256 arm64_big_sur:  "d7c5baf9463236ec73618eaaf17ebdcce48fd4fda5c7a675b27b5dc656ba1573"
+    sha256 monterey:       "3c60765d93ad5656792cb9f5e8608605288a48dd8378802365d078b3ced320c9"
+    sha256 big_sur:        "ac508090df0fbe069b80e5ec6ed7929aceba929fae8581f34a84c9dccc017627"
+    sha256 catalina:       "410fd1219143fa3f311d5f1881b544843df3f9d10d7c07a84b6aaf2cf18ce57e"
+    sha256 x86_64_linux:   "863a0d0e7bc288be2de7c297589eea467336d689c115f25404386524ab29ffbc"
   end
 
   depends_on "cmake"      => :build
