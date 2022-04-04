@@ -1,8 +1,8 @@
 class Sourcedocs < Formula
   desc "Generate Markdown files from inline source code documentation"
   homepage "https://github.com/eneko/SourceDocs"
-  url "https://github.com/eneko/sourcedocs/archive/2.0.0.tar.gz"
-  sha256 "da33b0186d6b1ea07b67cbdf666d2ea91f55a9892557b47b1d6e2f1abec3dd44"
+  url "https://github.com/eneko/sourcedocs/archive/2.0.1.tar.gz"
+  sha256 "07547c929071124264ec9cc601331f21dc67a104ffc76fbc1801c1ecb4c35bbf"
   license "MIT"
 
   bottle do
@@ -14,6 +14,7 @@ class Sourcedocs < Formula
   end
 
   depends_on xcode: ["12.0", :build, :test]
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
