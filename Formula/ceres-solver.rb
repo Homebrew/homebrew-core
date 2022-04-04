@@ -30,14 +30,6 @@ class CeresSolver < Formula
   depends_on "suite-sparse"
   depends_on "tbb"
 
-  # Fix compatibility with TBB 2021.1
-  # See https://github.com/ceres-solver/ceres-solver/issues/669
-  # Remove in the next release
-  patch do
-    url "https://github.com/ceres-solver/ceres-solver/commit/941ea13475913ef8322584f7401633de9967ccc8.patch?full_index=1"
-    sha256 "c61ca2ff1e92cc2134ba8e154bd9052717ba3fcae085e8f44957b9c22e6aa4ff"
-  end
-
   def install
     system "cmake", ".", *std_cmake_args,
                     "-DBUILD_SHARED_LIBS=ON",
@@ -46,7 +38,6 @@ class CeresSolver < Formula
     system "make"
     system "make", "install"
     pkgshare.install "examples", "data"
-    doc.install "docs/html" unless build.head?
   end
 
   test do
