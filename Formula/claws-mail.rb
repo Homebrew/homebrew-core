@@ -1,8 +1,8 @@
 class ClawsMail < Formula
   desc "User-friendly, lightweight, and fast email client"
   homepage "https://www.claws-mail.org/"
-  url "https://www.claws-mail.org/releases/claws-mail-4.0.0.tar.gz"
-  sha256 "6f04364715f97acd8c26c7edd61a57598d926f57e796c03bb9d9080cfa3dc894"
+  url "https://www.claws-mail.org/releases/claws-mail-4.1.0.tar.gz"
+  sha256 "534603d60200f3be346830d2fafd90dbdf0b59b9b3b928bc0aa7f8c1c218ec31"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -30,8 +30,8 @@ class ClawsMail < Formula
   # Fix compile on non-X11 platforms (macOS).
   # https://www.thewildbeast.co.uk/claws-mail/bugzilla/show_bug.cgi?id=4505
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a9cc349d382629ff1e5c805b6f699f0c4a65a0e3/claws-mail/4.0.0-macos.patch"
-    sha256 "36f37cf26343b2b5fe51b6a8b3aa28c5824ecd655109d9e8f6cd88d24b2d351f"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b6836564317a093d48d05ec1612ce591a21aa719/claws-mail/4.1.0-macos.patch"
+    sha256 "36aaab30291ccbd5d67f0a98e6b42531da5ab50dff4c78b6da46ce561d8712cd"
   end
 
   def install
