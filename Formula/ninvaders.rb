@@ -17,6 +17,8 @@ class Ninvaders < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "fc7369a82b14fa5879d2e072ac7ceaa1b6b7bd6cabd163e6bea8adb3a5670b80"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     ENV.deparallelize # this formula's build system can't parallelize
     inreplace "Makefile" do |s|
