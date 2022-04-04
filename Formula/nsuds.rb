@@ -11,15 +11,17 @@ class Nsuds < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "983aff6a207bb1a4224ca713567000ccb578b108d6c358982654e2fcd59313d9"
-    sha256 big_sur:       "17ff896355ee4f8905783422f8e1dbb68b88d45ba1ca6cc46116c93ec35bc2ef"
-    sha256 catalina:      "dcccae0ffd504a9a09ed57bfe0ac26127723c92513177eb862fa132e21c6968a"
-    sha256 mojave:        "60d318290bb60415eb4abfdd7ffad468a24294892ac4ff90895cc0e589ea3da6"
-    sha256 high_sierra:   "26e82eae22288d51eda3742c0ae4f3e1b0b17a003461f1baec38ccaa52495d9f"
-    sha256 sierra:        "89ae2f310d8b21d98ababce7110f20d3d41da06b7a751447c56aa6dbd13a1950"
-    sha256 el_capitan:    "596fc55d7e2cc63e8fdc4f3648a23d2c3c9c9eee9775a6579410c28708c0a358"
-    sha256 yosemite:      "9bc60ceced759f079112d97d9fc0a408fbe6d7d18d21d3cdcf5a3a2cbf2185cc"
-    sha256 x86_64_linux:  "bebff61d5efe0ebc66d905824e0316e2c2f46b0c48128855478271de5abb9bb0"
+    sha256 arm64_monterey: "711432e1f5a30ba46ddd772ed79b173a0091abbeb96792d10f25180ab2a763d2"
+    sha256 arm64_big_sur:  "983aff6a207bb1a4224ca713567000ccb578b108d6c358982654e2fcd59313d9"
+    sha256 monterey:       "2a9d8df67a2c0b7689a48960487bc7f240db19f321f492448c30608de7f59c2d"
+    sha256 big_sur:        "17ff896355ee4f8905783422f8e1dbb68b88d45ba1ca6cc46116c93ec35bc2ef"
+    sha256 catalina:       "dcccae0ffd504a9a09ed57bfe0ac26127723c92513177eb862fa132e21c6968a"
+    sha256 mojave:         "60d318290bb60415eb4abfdd7ffad468a24294892ac4ff90895cc0e589ea3da6"
+    sha256 high_sierra:    "26e82eae22288d51eda3742c0ae4f3e1b0b17a003461f1baec38ccaa52495d9f"
+    sha256 sierra:         "89ae2f310d8b21d98ababce7110f20d3d41da06b7a751447c56aa6dbd13a1950"
+    sha256 el_capitan:     "596fc55d7e2cc63e8fdc4f3648a23d2c3c9c9eee9775a6579410c28708c0a358"
+    sha256 yosemite:       "9bc60ceced759f079112d97d9fc0a408fbe6d7d18d21d3cdcf5a3a2cbf2185cc"
+    sha256 x86_64_linux:   "bebff61d5efe0ebc66d905824e0316e2c2f46b0c48128855478271de5abb9bb0"
   end
 
   head do
