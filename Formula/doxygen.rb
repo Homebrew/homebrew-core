@@ -41,6 +41,8 @@ class Doxygen < Formula
       system "cmake", "..", *std_cmake_args
       system "make"
       system "make", "install"
+      system "cmake", "-Dbuild_doc=1", "..", *std_cmake_args
+      man1.install Dir["man/*.1"]
     end
   end
 
