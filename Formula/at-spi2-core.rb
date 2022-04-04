@@ -6,7 +6,7 @@ class AtSpi2Core < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 x86_64_linux: "11e6f8a8b722433b79a17af7f25eef6c0f061a441baf6d9705e677af0afb562c"
+    sha256 x86_64_linux: "2beaf53f3d12cfc30d1402122f5648b2e0637fdad8691b62a3e88f40b0206423"
   end
 
   depends_on "gobject-introspection" => :build
