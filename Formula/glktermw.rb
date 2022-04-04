@@ -25,6 +25,8 @@ class Glktermw < Formula
 
   keg_only "conflicts with other Glk libraries"
 
+  uses_from_macos "ncurses"
+
   def install
     inreplace "gtoption.h", "/* #define LOCAL_NCURSESW */", "#define LOCAL_NCURSESW"
     inreplace "Makefile", "-lncursesw", "-lncurses"
