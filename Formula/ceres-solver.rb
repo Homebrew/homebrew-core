@@ -1,10 +1,9 @@
 class CeresSolver < Formula
   desc "C++ library for large-scale optimization"
   homepage "http://ceres-solver.org/"
-  url "http://ceres-solver.org/ceres-solver-2.0.0.tar.gz"
-  sha256 "10298a1d75ca884aa0507d1abb0e0f04800a92871cd400d4c361b56a777a7603"
+  url "http://ceres-solver.org/ceres-solver-2.1.0.tar.gz"
+  sha256 "f7d74eecde0aed75bfc51ec48c91d01fe16a6bf16bce1987a7073286701e2fc6"
   license "BSD-3-Clause"
-  revision 4
   head "https://ceres-solver.googlesource.com/ceres-solver.git", branch: "master"
 
   livecheck do
@@ -31,13 +30,11 @@ class CeresSolver < Formula
   depends_on "suite-sparse"
   depends_on "tbb"
 
-  # Fix compatibility with TBB 2021.1
-  # See https://github.com/ceres-solver/ceres-solver/issues/669
-  # Remove in the next release
-  patch do
-    url "https://github.com/ceres-solver/ceres-solver/commit/941ea13475913ef8322584f7401633de9967ccc8.patch?full_index=1"
-    sha256 "c61ca2ff1e92cc2134ba8e154bd9052717ba3fcae085e8f44957b9c22e6aa4ff"
+  on_linux do
+    depends_on "gcc"
   end
+
+  fails_with gcc: "5" # C++17
 
   def install
     system "cmake", ".", *std_cmake_args,
@@ -47,7 +44,6 @@ class CeresSolver < Formula
     system "make"
     system "make", "install"
     pkgshare.install "examples", "data"
-    doc.install "docs/html" unless build.head?
   end
 
   test do
