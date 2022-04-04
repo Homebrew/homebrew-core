@@ -19,12 +19,12 @@ class Re2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "be3a2099f2704a7eea6d34ce1e5cec66c14d326bac15e27a2fdf07bec73f67fa"
-    sha256 cellar: :any,                 arm64_big_sur:  "1689eb21538ee19e08e38b0375b6e3652c348481c77f5edd1689b7fcce5b391b"
-    sha256 cellar: :any,                 monterey:       "74d3a79c0f3dbce844594c8bbcfa8626f42fd67c41a724c5c8bc90414f57704b"
-    sha256 cellar: :any,                 big_sur:        "75e0f519ff35a091f097fbeb1ea6ca4222e661c3c88b94275b6fdcdbc6dff211"
-    sha256 cellar: :any,                 catalina:       "cabc0b7793bb1cbdb453e37efe4b31f96507bc9f2c84304d17614845f34fd365"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b31a2d24c951cca0080b6a8450ebeefe285a1ab2f987da0ab9da91e89e959a6a"
+    sha256 cellar: :any,                 arm64_monterey: "37132b360c414438108478cce8b4a2e0f3f0cda6964a0f2234b43db286c2fd21"
+    sha256 cellar: :any,                 arm64_big_sur:  "34486668ba2da5ea41ad6fd8a66af1b43ba1b019597c6b44fe7804da093dc80b"
+    sha256 cellar: :any,                 monterey:       "62cd468dafec02c1a1c0d28fd93b93364b5ea67f0fdbdcbb3b91044c9a5bfeec"
+    sha256 cellar: :any,                 big_sur:        "eed008dc0f16e4e27c6261a485e2de246129fdf2ee6e66c68377bba5a801c0fc"
+    sha256 cellar: :any,                 catalina:       "1de4aeb39e788675d4fed079ce848e18bdcda373034030ae282f74f4776880e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d42453c1a06530cd54dbcc66dd71f8707eb5c06e15f9233abcbf3aeeb4cc321e"
   end
 
   depends_on "cmake" => :build
