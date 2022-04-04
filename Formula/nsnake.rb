@@ -17,6 +17,8 @@ class Nsnake < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "5f8de3bf4148a6d9fdb32b5584e4aa5890c8f373ad5be36b17473e4d7c2f0a96"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
 
