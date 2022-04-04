@@ -18,6 +18,7 @@ class Regldg < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "26f12ca7e41b36a167d94f403b97557490fd1ad0ed1a2d4d0b30c86164ae9d39"
     sha256 cellar: :any_skip_relocation, el_capitan:    "52c64d6766b68a1ed602d3878368109d3ac3e5e60d6fc14a4606518d14f6e678"
     sha256 cellar: :any_skip_relocation, yosemite:      "c4157a77e2620b868b2dbbb3ebf126193b238c6a69d2a895420950d4203d7a17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69cdbf331fd88fc5891aadd99835d8497f30a27a5bc42c3e10c0d32792f43d0c"
   end
 
   def install
