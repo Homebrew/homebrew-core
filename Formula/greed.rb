@@ -22,6 +22,8 @@ class Greed < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "9685dcc52ad08b19964cfb61f4fd0d9e28ec0d42cde2f112da4e9be1e1d15b5b"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     # Handle hard-coded destination
     inreplace "Makefile", "/usr/share/man/man6", man6
