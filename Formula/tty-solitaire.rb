@@ -14,6 +14,8 @@ class TtySolitaire < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "ae38452ea77edde4a1c62085e6f1703cce1f91f04f869783761fa71399c03bf5"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
