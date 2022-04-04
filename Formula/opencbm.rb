@@ -17,6 +17,7 @@ class Opencbm < Formula
     sha256 monterey:       "d650f6b29d9bb6e28834ae32065a1589ec06ca738ebf615ea3a62109442abde6"
     sha256 big_sur:        "f1843a75ae047aa93f9e6614462fabc2f87691fb977487c2e5db92f3b78a0aa5"
     sha256 catalina:       "455a3ac134295766c1752bd861ab6109262e3dd780751d5227219c9970226640"
+    sha256 x86_64_linux:   "4526b2743b3a0ff4cf54f874099bb2f8c1779f709f7b97ba156796e7db504449"
   end
 
   # cc65 is only used to build binary blobs included with the programs; it's
