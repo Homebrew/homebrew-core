@@ -1,8 +1,8 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2022.01.tar.bz2"
-  sha256 "81b4543227db228c03f8a1bf5ddbc813b0bb8f6555ce46064ef721a6fc680413"
+  url "https://ftp.denx.de/pub/u-boot/u-boot-2022.04.tar.bz2"
+  sha256 "68e065413926778e276ec3abd28bb32fa82abaa4a6898d570c1f48fbdb08bcd0"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later", "BSD-3-Clause"]
 
   livecheck do
@@ -25,6 +25,8 @@ class UBootTools < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  patch :p1, :DATA
+
   def install
     # Replace keyword not present in make 3.81
     inreplace "Makefile", "undefine MK_ARCH", "unexport MK_ARCH"
@@ -41,3 +43,17 @@ class UBootTools < Formula
     system bin/"dumpimage", "-V"
   end
 end
+
+__END__
+--- a/tools/Makefile    2022-04-05 00:28:56.000000000 +0200
++++ b/tools/Makefile    2022-04-05 00:29:07.000000000 +0200
+@@ -241,9 +241,6 @@
+ hostprogs-$(CONFIG_ASN1_COMPILER)      += asn1_compiler
+ HOSTCFLAGS_asn1_compiler.o = -idirafter $(srctree)/include
+ 
+-HOSTLDLIBS_mkeficapsule += -lgnutls -luuid
+-hostprogs-$(CONFIG_TOOLS_MKEFICAPSULE) += mkeficapsule
+-
+ # We build some files with extra pedantic flags to try to minimize things
+ # that won't build on some weird host compiler -- though there are lots of
+ # exceptions for files that aren't complaint.
