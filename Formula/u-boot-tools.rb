@@ -1,8 +1,8 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2022.01.tar.bz2"
-  sha256 "81b4543227db228c03f8a1bf5ddbc813b0bb8f6555ce46064ef721a6fc680413"
+  url "https://ftp.denx.de/pub/u-boot/u-boot-2022.04.tar.bz2"
+  sha256 "68e065413926778e276ec3abd28bb32fa82abaa4a6898d570c1f48fbdb08bcd0"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later", "BSD-3-Clause"]
 
   livecheck do
@@ -20,8 +20,9 @@ class UBootTools < Formula
   end
 
   depends_on "coreutils" => :build # Makefile needs $(gdate)
+  depends_on "ossp-uuid" => :build
   depends_on "openssl@1.1"
-
+  
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
