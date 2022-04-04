@@ -25,6 +25,8 @@ class Glkterm < Formula
 
   keg_only "conflicts with other Glk libraries"
 
+  uses_from_macos "ncurses"
+
   def install
     system "make"
 
