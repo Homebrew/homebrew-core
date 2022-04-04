@@ -21,6 +21,8 @@ class Robotfindskitten < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  uses_from_macos "ncurses"
+
   def install
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
