@@ -12,6 +12,7 @@ class Vc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "8850a8e86a3ff2810f491ce25af976ec85e49601ba0b094a6543e3c0b665540b"
     sha256 cellar: :any_skip_relocation, catalina:       "b1f8a4e74cae6267405569a0e4c774c8c68cd258cb61e56e50208f4a32d65d2a"
     sha256 cellar: :any_skip_relocation, mojave:         "b2b19a6798b4dd6db4355ab6d069e4b645dec1790c231a18c09e6a2a9ecf0a3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5076779bd0624e0642a1bdcdd1e85289afd79156716913c7a68c83192438c213"
   end
 
   depends_on "cmake" => :build
