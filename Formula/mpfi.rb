@@ -1,8 +1,8 @@
 class Mpfi < Formula
   desc "Multiple precision interval arithmetic library"
   homepage "https://perso.ens-lyon.fr/nathalie.revol/software.html"
-  url "https://gforge.inria.fr/frs/download.php/file/37331/mpfi-1.5.3.tar.bz2"
-  sha256 "2383d457b208c6cd3cf2e66b69c4ce47477b2a0db31fbec0cd4b1ebaa247192f"
+  url "https://perso.ens-lyon.fr/nathalie.revol/softwares/mpfi-1.5.4.tar.bz2"
+  sha256 "d20ba56a8d57d0816f028be8b18a4aa909a068efcb9a260e69577939e4199752"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
@@ -16,15 +16,20 @@ class Mpfi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bc5ac4e71fcaf3e978ef82410d544f274e4652899bcb06bf2685d9df6a63bed"
   end
 
-  # Formula does not build, https://gforge.inria.fr/tracker/index.php?func=detail&aid=21721&group_id=157&atid=709
-  # and upstream is not actively maintaining (last commit was on 2019-08-01)
-  deprecate! date: "2021-08-15", because: :unmaintained
+  head do
+    url "https://gitlab.inria.fr/mpfi/mpfi.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
 
   depends_on "gmp"
   depends_on "mpfr"
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./autogen.sh" if build.head?
+    system "./configure", *std_configure_args
     system "make"
     system "make", "check"
     system "make", "install"
