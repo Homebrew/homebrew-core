@@ -20,6 +20,8 @@ class Mp3blaster < Formula
 
   depends_on "sdl"
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
