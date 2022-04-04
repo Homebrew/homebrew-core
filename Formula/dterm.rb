@@ -23,6 +23,10 @@ class Dterm < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "353231f24cda3e48779652002067ac2650b0182f4e7f69fc86b059139daf4511"
   end
 
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     bin.mkpath
     system "make"
