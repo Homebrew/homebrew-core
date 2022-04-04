@@ -1,5 +1,5 @@
 class Dmd < Formula
-  desc "D programming language compiler for macOS"
+  desc "D programming language compiler"
   homepage "https://dlang.org/"
   license "BSL-1.0"
 
@@ -31,18 +31,18 @@ class Dmd < Formula
   end
 
   head do
-    url "https://github.com/dlang/dmd.git"
+    url "https://github.com/dlang/dmd.git", branch: "master"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime.git"
+      url "https://github.com/dlang/druntime.git", branch: "master"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos.git"
+      url "https://github.com/dlang/phobos.git", branch: "master"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools.git"
+      url "https://github.com/dlang/tools.git", branch: "master"
     end
   end
 
@@ -51,26 +51,42 @@ class Dmd < Formula
   uses_from_macos "unzip" => :build
   uses_from_macos "xz" => :build
 
+  # Match version from https://github.com/dlang/dmd/blob/v#{version}/src/bootstrap.sh
+  resource "bootstrap" do
+    # Temporarily use newer version to avoid build error on Xcode 13.3+
+    # ld: section __DATA/__thread_bss has type zero-fill but non-zero file offset file
+    on_macos do
+      url "http://downloads.dlang.org/releases/2022/dmd.2.099.1.osx.tar.xz"
+      sha256 "7da14279b9b6ad64ea062169fac1dfd374399f43888a9951f34525355e01af05"
+    end
+
+    on_linux do
+      url "http://downloads.dlang.org/releases/2021/dmd.2.095.0.linux.tar.xz"
+      sha256 "02853f8a4988f55dab5daa1e0e9910ea91905b85bcaa7a5ffd83079147dc7d93"
+    end
+  end
+
   def install
-    # DMD defaults to v2.088.0 to bootstrap as of DMD 2.090.0
-    # On MacOS Catalina, a version < 2.087.1 would not work due to TLS related symbols missing
+    (buildpath/"bootstrap").install resource("bootstrap")
+    os_model_path = OS.mac? ? "osx/bin" : "linux/bin64"
+    rdmd = buildpath/"bootstrap"/os_model_path/"rdmd"
 
     make_args = %W[
       INSTALL_DIR=#{prefix}
       MODEL=64
       BUILD=release
-      -f posix.mak
     ]
 
-    dmd_make_args = %W[
+    dmd_build_args = %W[
+      HOST_DMD=#{buildpath}/bootstrap/#{os_model_path}/dmd
       SYSCONFDIR=#{etc}
       TARGET_CPU=X86
-      AUTO_BOOTSTRAP=1
       ENABLE_RELEASE=1
     ]
 
-    system "make", *dmd_make_args, *make_args
+    system rdmd, "src/build.d", "dmd", *dmd_build_args, *make_args
 
+    make_args += %w[-f posix.mak]
     make_args.unshift "DMD_DIR=#{buildpath}", "DRUNTIME_PATH=#{buildpath}/druntime", "PHOBOS_PATH=#{buildpath}/phobos"
 
     (buildpath/"druntime").install resource("druntime")
