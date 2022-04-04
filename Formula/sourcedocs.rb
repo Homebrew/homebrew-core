@@ -14,6 +14,7 @@ class Sourcedocs < Formula
   end
 
   depends_on xcode: ["12.0", :build, :test]
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
