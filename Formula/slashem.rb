@@ -27,6 +27,10 @@ class Slashem < Formula
 
   depends_on "pkg-config" => :build
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "ncurses"
+
   skip_clean "slashemdir/save"
 
   # Fixes compilation error in OS X: https://sourceforge.net/p/slashem/bugs/896/
