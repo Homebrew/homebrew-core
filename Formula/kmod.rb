@@ -5,6 +5,10 @@ class Kmod < Formula
   sha256 "0b80eea7aa184ac6fd20cafa2a1fdf290ffecc70869a797079e2cc5c6225a52a"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0880a765bade6c140e9c0f8901e46db2f97d39951abf418ed701e03103f812d5"
+  end
+
   depends_on :linux
 
   def install
