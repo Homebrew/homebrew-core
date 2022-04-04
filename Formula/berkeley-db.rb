@@ -13,13 +13,12 @@ class BerkeleyDb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "676c2b4f7fc4d0e988f04f3c8474b8bd962979ad6fd93720dc5b200674dc6239"
-    sha256 cellar: :any,                 arm64_big_sur:  "fb300ebe3dcc5b308c6fbc383856545a6b35e883889c95f0bfeee40d6d07b02d"
-    sha256 cellar: :any,                 monterey:       "5193fb2dfd137612487dd3d1644151c342db13760f64bd5913a964efb502f7ab"
-    sha256 cellar: :any,                 big_sur:        "dc8c2c76f315ea02737e9277f74cc9f8faba1733c10c20e2ef62d50b4abce4b7"
-    sha256 cellar: :any,                 catalina:       "f4d82916099a1023af6a72675dce0a445000efd2286866d1f36bf0b1063b24aa"
-    sha256 cellar: :any,                 mojave:         "ef85a6b6fb93f8dcee4144acf22665a331c5b2398822a5f183aed0fb863718f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f33ddf91965070b68d81c110cda45797bfd5e75f1e23d90f4b66497335833dc"
+    sha256 cellar: :any,                 arm64_monterey: "8da7ddbf86ba57c94235796b4acddefba7a67b20cef9c4955e5601f80f8a0e23"
+    sha256 cellar: :any,                 arm64_big_sur:  "5a9de497a3fb74b8b7fd3b1be77fcd0b808361a3adf228c04132106a16f03aa5"
+    sha256 cellar: :any,                 monterey:       "923b8995be6b3da9742b8c283d18dbf3142f73b478b60f85f76db97c37e9b280"
+    sha256 cellar: :any,                 big_sur:        "eca9cf2bbc656225f096789d5e5f5f73fc62e82aae70233835a7bb29e0e8220c"
+    sha256 cellar: :any,                 catalina:       "8b868ae69e708c22e04ba3d7ab6164d31d9de5611458f6aae0a0c636b1bf6dc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed8bbe73f3996dce31e082f325cb5230e6026d2067824e6ceaaceeafc146ff0c"
   end
 
   keg_only :provided_by_macos
