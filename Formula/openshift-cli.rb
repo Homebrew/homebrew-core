@@ -31,7 +31,6 @@ class OpenshiftCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9aa2fe20e8fb4212f2ee01ea32ff1cfa255e1c5135f50ce27658b699de97ea49"
   end
 
-
   depends_on "coreutils" => :build
   # Bump to 1.18 on the next release.
   depends_on "go@1.17" => :build
