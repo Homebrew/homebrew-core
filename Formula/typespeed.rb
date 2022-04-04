@@ -18,6 +18,8 @@ class Typespeed < Formula
     sha256 yosemite:       "23d3acaedb26f5bedccc2186dec138679fdea40f036edd57ce84ff363c082206"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     # Fix the hardcoded gcc.
     inreplace "src/Makefile.in", "gcc", ENV.cc
