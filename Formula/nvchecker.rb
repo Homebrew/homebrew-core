@@ -7,6 +7,15 @@ class Nvchecker < Formula
   sha256 "08ce8629025bdfbc3afeceace5319e7dab5f1304f02684aec8f84b8b416e1876"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad940b8747a66ae199e29ee5dbc78343393e70829325dc93c04a71ce02e3a57c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "888b6250a3a6a0e9d22253c580d79b686fe0bd62b8011b03e13f0d9551e100b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "c950f0601b938cd1c2b32675f7cc2a5a072ef1c5f78e4c721340467acf638984"
+    sha256 cellar: :any_skip_relocation, big_sur:        "579a8ac1b36136aa893fbc9a65941b5498a1d22e4eddfd873e919565224f7157"
+    sha256 cellar: :any_skip_relocation, catalina:       "ab42194df2f9ca3483b953bb64a129c515f1c1730cf24bfa7500b4571947d15a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec281e84b81957e45bf5e2db1cd3fddfd26c7412e24088d12a28c6d8593497d8"
+  end
+
   depends_on "jq" => [:test]
   depends_on "python@3.10"
 
