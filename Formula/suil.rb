@@ -19,6 +19,7 @@ class Suil < Formula
     sha256 big_sur:        "02a8eed42b15c099954dce4741c71b0e5f9ae652fce48921e4920a3efc779e01"
     sha256 catalina:       "4a74f4c1cbf9b1e67c7fbda45e5ca67b5163757b70ee62c33a7e66b136a2d4c1"
     sha256 mojave:         "2bc87e39cf2cb0a66c983c01834d39c2f1cccdddbe4db28331e0dcb6cf64c3fb"
+    sha256 x86_64_linux:   "b652f25be19c7044ef7f11818488054459a23719afe5cca1118be8a9dfac1547"
   end
 
   depends_on "pkg-config" => :build
