@@ -16,6 +16,8 @@ class Curseofwar < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "b2a0646e145b7ef8f502b6f544d106c05c90974c0f8972285a5dfa753305eece"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "make", "VERSION=#{version}"
     bin.install "curseofwar"
