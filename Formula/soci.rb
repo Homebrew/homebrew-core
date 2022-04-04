@@ -11,6 +11,7 @@ class Soci < Formula
     sha256 monterey:       "09ea83bf0e12deff7e63da0f41f1c16573f6eb017336c907648bec515430e0f1"
     sha256 big_sur:        "6e2001b1bf50eb5c6d913f61abcfb9074ac4a8dba810cc7f80546ca1157b5311"
     sha256 catalina:       "0ce9776bb40a4b6d3dc6d1ea62885a952e32c868fff1305b8e7f33a1e09689f2"
+    sha256 x86_64_linux:   "9a6461d6ec0bc9a1306f59a8a80c5c750f46b6bf13691f0e89b94c69399c0853"
   end
 
   depends_on "cmake" => :build
