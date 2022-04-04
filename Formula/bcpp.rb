@@ -17,6 +17,7 @@ class Bcpp < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "447070d7c227cdb2e5c8df360c8ea31c8f9fa89b39e2092a3a888a40caedb523"
     sha256 cellar: :any_skip_relocation, catalina:       "1f2a9da46190bde2855e3bdc5d430302c831e3ff0eb3e3c34f8754bbe73744da"
     sha256 cellar: :any_skip_relocation, mojave:         "1872e08cd8d7addb8459865d451622d05ed4f4fc2f91e3a6f144ba1fe483b27a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec23404179ff7f080c3af852e5df992e01126b5a7d22b34ff509c20c863f7e18"
   end
 
   # Build succeeds with system gcc (5.4.0) but seems to segfault at runtime.
