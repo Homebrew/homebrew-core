@@ -15,6 +15,8 @@ class Gnuski < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "3163ed8b9f1487e0f5f5a42006e0edfbfdb3a4dbea9b917c0aa692db282ec13b"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "make"
     bin.install "gnuski"
