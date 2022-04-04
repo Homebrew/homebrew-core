@@ -2,8 +2,8 @@ class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://fortio.org/"
   url "https://github.com/fortio/fortio.git",
-      tag:      "v1.24.0",
-      revision: "fb00657cd46406b6660f5fc1fa4894d6c426d295"
+      tag:      "v1.25.0",
+      revision: "3eed83884d1264b2faa10dc3fc2b0517ae2eae8d"
   license "Apache-2.0"
 
   livecheck do
