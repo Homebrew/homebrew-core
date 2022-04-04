@@ -18,6 +18,8 @@ class Netris < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "1a1e54ff92dd1e8ecd745e149874071cb6e67662296c96d84538cf71b65b9bfe"
   end
 
+  uses_from_macos "ncurses"
+
   # Debian has been applying fixes and security patches, so let's re-use their work.
   # Also fixes case of "TERM=xterm-color256" which otherwise segfaults.
   patch do
