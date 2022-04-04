@@ -3,6 +3,14 @@ class SNail < Formula
   homepage "https://www.sdaoden.eu/code.html"
   url "https://www.sdaoden.eu/downloads/s-nail-14.9.24.tar.xz"
   sha256 "2714d6b8fb2af3b363fc7c79b76d058753716345d1b6ebcd8870ecd0e4f7ef8c"
+  license all_of: [
+    "BSD-2-Clause", # file-dotlock.h
+    "BSD-3-Clause",
+    "BSD-4-Clause",
+    "ISC",
+    "HPND-sell-variant", # GSSAPI code
+    "RSA-MD", # MD5 code
+  ]
 
   livecheck do
     url :homepage

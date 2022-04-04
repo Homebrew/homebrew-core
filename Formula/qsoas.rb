@@ -12,11 +12,12 @@ class Qsoas < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "13d591fadbb428a0fbef8090685b5d93489a5d1ea8b7414c1353ba2ff6ba0ecb"
-    sha256 cellar: :any, arm64_big_sur:  "025ebba3b2548d8bff4df22b14531d39ce5f43b21fb0a8ce726d0ac29f30f7fb"
-    sha256 cellar: :any, monterey:       "2f98550e8aa3740ef339886368cc4934a75418a4e6dfae36c72993d8e74dfaa4"
-    sha256 cellar: :any, big_sur:        "36f444f910ab011d56e9d109c9e1526be465efec24be4ecccf75f1232e9d115e"
-    sha256 cellar: :any, catalina:       "c6fac9f46c8365e23ecc2dee06c29272724039c58ebe347339da1bee9eeae149"
+    sha256 cellar: :any,                 arm64_monterey: "13d591fadbb428a0fbef8090685b5d93489a5d1ea8b7414c1353ba2ff6ba0ecb"
+    sha256 cellar: :any,                 arm64_big_sur:  "025ebba3b2548d8bff4df22b14531d39ce5f43b21fb0a8ce726d0ac29f30f7fb"
+    sha256 cellar: :any,                 monterey:       "2f98550e8aa3740ef339886368cc4934a75418a4e6dfae36c72993d8e74dfaa4"
+    sha256 cellar: :any,                 big_sur:        "36f444f910ab011d56e9d109c9e1526be465efec24be4ecccf75f1232e9d115e"
+    sha256 cellar: :any,                 catalina:       "c6fac9f46c8365e23ecc2dee06c29272724039c58ebe347339da1bee9eeae149"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2385f9ae773e2c991ed4b1802d0fdb895f26136ad5ba1780c1c664828ab5544"
   end
 
   depends_on "bison" => :build
@@ -24,6 +25,12 @@ class Qsoas < Formula
   depends_on "qt@5"
 
   uses_from_macos "ruby"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   # Needs mruby 2, see https://github.com/fourmond/QSoas/issues/2
   resource "mruby2" do
@@ -50,11 +57,17 @@ class Qsoas < Formula
                     "QMAKE_LFLAGS=-L#{libexec}/lib -L#{gsl}/lib"
     system "make"
 
-    prefix.install "QSoas.app"
-    bin.write_exec_script "#{prefix}/QSoas.app/Contents/MacOS/QSoas"
+    if OS.mac?
+      prefix.install "QSoas.app"
+      bin.write_exec_script "#{prefix}/QSoas.app/Contents/MacOS/QSoas"
+    else
+      bin.install "QSoas"
+    end
   end
 
   test do
+    # Set QT_QPA_PLATFORM to minimal to avoid error "qt.qpa.xcb: could not connect to display"
+    ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
     assert_match "mfit-linear-kinetic-system",
                  shell_output("#{bin}/QSoas --list-commands")
   end
