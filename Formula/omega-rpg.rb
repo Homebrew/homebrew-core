@@ -19,6 +19,8 @@ class OmegaRpg < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "0b08d090868aa2b1da56645e74ea87d6a15043c473aba35e56f3fbf2e4b4f4d4"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     # Set up our target folders
     inreplace "defs.h", "#define OMEGALIB \"./omegalib/\"", "#define OMEGALIB \"#{libexec}/\""
@@ -41,6 +43,7 @@ class OmegaRpg < Formula
 
   def post_install
     # omega refuses to run without license.txt in OMEGALIB
-    ln_s prefix/"license.txt", libexec/"license.txt"
+    license_file = libexec/"license.txt"
+    ln_s prefix/"license.txt", license_file unless license_file.exist?
   end
 end
