@@ -4,12 +4,7 @@ class Mlpack < Formula
   url "https://mlpack.org/files/mlpack-3.4.2.tar.gz"
   sha256 "9e5c4af5c276c86a0dcc553289f6fe7b1b340d61c1e59844b53da0debedbb171"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
-  revision 4
-
-  livecheck do
-    url "https://mlpack.org/files/"
-    regex(/href=.*?mlpack[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ed0099d51ab2ea2ea0cd6dea36dbb9e910d8392759b64d01138fec8d6b108a52"
@@ -18,6 +13,12 @@ class Mlpack < Formula
     sha256 cellar: :any,                 big_sur:        "d34ef6b922a4c823b27a50dff5e5c493a5a10d53a9df8d18280120dc7e26156c"
     sha256 cellar: :any,                 catalina:       "1ee7f05bffff56eb1e587cc8077e2c582ab657ddfffbc0aa3b919e888a526ffd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9c61cc6e856603b9f43b28e2683b09953422e3fa6998ebdc8a7fe0cd9ac1409"
+  end
+
+  head do
+    url "https://github.com/mlpack/mlpack.git", branch: "master"
+
+    depends_on "cereal"
   end
 
   depends_on "cmake" => :build
