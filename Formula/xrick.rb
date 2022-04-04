@@ -14,6 +14,7 @@ class Xrick < Formula
     sha256 big_sur:        "07143daa9065782675e5288a66dc2ea8ce418754d4842175b016dbc097b982cd"
     sha256 catalina:       "67d2a811a5ecd67de860f226fc88feec5ed479ae05fc22e917d6fbe0686be783"
     sha256 mojave:         "1a2f4d0cc564fd627d83f2b54606c59845b50fb3db04e7a118ca281377b4805a"
+    sha256 x86_64_linux:   "d75168c2036f46eac7dec382ad49aadce2df5253df37f94a5f47a286d3810904"
   end
 
   depends_on "sdl"
