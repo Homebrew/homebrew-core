@@ -20,6 +20,9 @@ class Tcpstat < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "313fe3a9402b65b6f44b583c49ba83d301b63708b2e0a554100a5e83c03559d8"
   end
 
+  uses_from_macos "expect" => :test
+  uses_from_macos "ncurses"
+
   def install
     system "make"
     bin.install "tcpstat"
