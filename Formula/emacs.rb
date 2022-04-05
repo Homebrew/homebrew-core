@@ -7,13 +7,12 @@ class Emacs < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "89d8ecc54baa2d25ffed5cb54ed2f4a088c8b7907446bbf320bf2334adacef72"
-    sha256 arm64_big_sur:  "f08cd18fa19f49b85606cc4a871272ef4ff9da656c4c952bd91ac03a70dbb0e3"
-    sha256 monterey:       "6b5cf4c587d0b36c4ab36596006721399e073b766ee5a1ca2e798d7a1fdce051"
-    sha256 big_sur:        "5d3af874e5acd76ddc881406ed1e7db8b84f96e01812961f3bee347d278a28ac"
-    sha256 catalina:       "53b0d78af688a20e12e89751217c9da81cc9621222f289836d44011762355879"
-    sha256 mojave:         "4b3cd25d5f6977ecad49d9b5ebd2dec3c7e41efa8f4f22d2805917e0024cf3af"
-    sha256 x86_64_linux:   "3a22201d4ecf2d32fc7a0d402e14e20ce043bc25b6ac53ec15d48f585e51c9e2"
+    sha256 arm64_monterey: "5d5b7979695c455cd0a9155c839ad8781633946801f49e380eb08eff61360a9d"
+    sha256 arm64_big_sur:  "7d92995b203d41d78f20bf1684f84dd07309f65dbfb1cdb4924be51210f61b63"
+    sha256 monterey:       "88cc27885119741d9721968636687d2ca9be3d7ebd8c2e5b2cf83c3bf8d5e878"
+    sha256 big_sur:        "fb1317cd13820dd4ebee6b7ba7196bb3486bc1636f4dde79e73b3533bd94d7d8"
+    sha256 catalina:       "7b4630d3158d31b3db01c16c45e9a62a4b6a219dcde1d7fe952718a16f7538a6"
+    sha256 x86_64_linux:   "0cd470905fed77977b8df909c0f1d4fc80b230207857bd79cb940d156d09eabb"
   end
 
   head do
