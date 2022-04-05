@@ -1,8 +1,8 @@
 class Eva < Formula
   desc "Calculator REPL, similar to bc(1)"
   homepage "https://github.com/NerdyPepper/eva/"
-  url "https://github.com/NerdyPepper/eva/archive/v0.2.7.tar.gz"
-  sha256 "72b2e47e987102d67c9dcbb60e26c4ff0b20e6f844d0d2b9d91c3f073374aee0"
+  url "https://github.com/NerdyPepper/eva/archive/v0.3.0.tar.gz"
+  sha256 "05e2cdcfd91e6abef91cb01ad3074583b8289f6e74054e070bfbf6a4e684865e"
   license "MIT"
   head "https://github.com/NerdyPepper/eva.git", branch: "master"
 
