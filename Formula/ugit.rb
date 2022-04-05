@@ -5,6 +5,10 @@ class Ugit < Formula
   sha256 "52e72f9d44c3160987cdc0a393ccce3c0c76e76aa6b3e792e4b7ef2891a2b09d"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "60defa582e785947c52c9489f03d5834e6e83853612e221c2869630c7621643a"
+  end
+
   depends_on "bash"
   depends_on "fzf"
 
