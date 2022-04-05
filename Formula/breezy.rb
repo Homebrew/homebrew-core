@@ -9,12 +9,13 @@ class Breezy < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f8a5763087458c87de1a7bc1bae7d52a9ddd4241a082070c087236ec9be6519"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a116bcb078c8dec25d71d95d86ae296130f704ebc9c98e9407d7e1e5f317db3"
-    sha256 cellar: :any_skip_relocation, monterey:       "461e03ba2625e54d5da2c08e17939e4ca501506edbcf5d0a6216950e5896c76f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "706c12693a87e7669f3bf4855523afe1ae7f27e3f61fe7675e3867ce943ccc1d"
-    sha256 cellar: :any_skip_relocation, catalina:       "6b0121c56e6d0025d1410157b04b3219cacb6a6d2a6a95f611f8b271ded0656e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c914a0b4b10bf2eed4c6f6cfa8a218b9f0a7204ce41652cea707b3dd446b5905"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4efa2014683c95cb84b1936f18d2781ea93c790c7a571551411ca2f523c3aa2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef29a6820cadc6c5f32229f1c3ca057b9f99853267ae6617c168b5cd7528d303"
+    sha256 cellar: :any_skip_relocation, monterey:       "413b94764ce73c52587dfff3374ca4f46cbe4e6b72bbe9f37e872d669235ea84"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8f4f42c1ef5c277eea920f6f54eff4365958b138805525e1fe397b427ba665fd"
+    sha256 cellar: :any_skip_relocation, catalina:       "0d380ba60255d48e882758b26782899b0b1b3c440b0ea63d4c0922b03cbe7295"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6b1aef85237286c781dbb36c1e88ac822862001368b6c6b48f46c429292eb26"
   end
 
   depends_on "gettext" => :build
