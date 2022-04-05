@@ -7,12 +7,12 @@ class Sslscan < Formula
   head "https://github.com/rbsec/sslscan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f677c1e116c5495901b81a4b00a313508ef40878e3c3973c2e4eeb7353a5e76b"
-    sha256 cellar: :any,                 arm64_big_sur:  "464bab8562a9459731c06c39f00020f1bc5f63a099aece08ae574adf79945e2f"
-    sha256 cellar: :any,                 monterey:       "7921cd2103a9d6b7145b87d852dd4f229ff8ec49ec451dfad0573615a8127609"
-    sha256 cellar: :any,                 big_sur:        "c183f60f3ed7073dadccd20e691c6d87e33a5e573694485d58bc52a9b2b5c61d"
-    sha256 cellar: :any,                 catalina:       "f5ef2ab35fd23934b0068b3f5a00916c95466de2a9bfc25fca1d8c417133461d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0457169f9981b0612ee9e6210c6f8633d7072892db61c29caeed332d602ff70c"
+    sha256 cellar: :any,                 arm64_monterey: "836951f43d6608b813d7bc1c6ef6de2a6533a5cb9b9935358d0c57d6ffc7f302"
+    sha256 cellar: :any,                 arm64_big_sur:  "96ad7d01e342880dd402746d097e9717688f3d1cfb92d62db9d3c912277d5dc4"
+    sha256 cellar: :any,                 monterey:       "dbe8db7512295737f7b425df3d722774a64e3e3df0b8fc41e6217a29c6d26703"
+    sha256 cellar: :any,                 big_sur:        "4716a56b36bf8b640213057818393bd043104043075f0076cd8484f46bba9b6d"
+    sha256 cellar: :any,                 catalina:       "7206ababb391c78d0fea16bc4d256dd1ad2ecf46dbd2ffbcc19239751babde79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a14c08ecd33e99e69ab5ba041ed5440ce75c4f72fa2e9438acd2921ef47f582"
   end
 
   depends_on "openssl@1.1"
