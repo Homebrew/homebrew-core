@@ -6,6 +6,7 @@ class Ykman < Formula
   url "https://files.pythonhosted.org/packages/26/be/0256cb9aa09f4f17c2cdae28cf61487d02876b7dd539d9420394efebb4e1/yubikey-manager-4.0.8.tar.gz"
   sha256 "f48df70df141012f250f1a3f75b4e336eecbaa9ce7f82e1e2801dd9989eff87e"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
   bottle do
@@ -20,7 +21,7 @@ class Ykman < Formula
   depends_on "rust" => :build
   depends_on "swig" => :build
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libffi"
 
