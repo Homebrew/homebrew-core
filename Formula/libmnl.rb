@@ -11,7 +11,7 @@ class Libmnl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1ece867c29037eab669864263d1c09e53a590f105916b86bcd9673c279eb6462"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9dda4262d4878c4e458feb9b1b696d0fb88367fca602c4ce35182d28f3787c67"
   end
 
   depends_on :linux
