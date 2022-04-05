@@ -39,7 +39,7 @@ class WasmTools < Formula
           local.get 1
           i32.add
         )
-        (export \"sum\" (func 0))
+        (export "sum" (func 0))
       )
     EOS
     assert_equal expected, shell_output("#{bin}/wasm-tools print #{testpath}/sum.wasm")
