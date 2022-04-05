@@ -11,13 +11,11 @@ class Aubio < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "1042328e9b10eaa62a59bc41675f72274ca60eb8cf324cd118aaf32b2f4e85af"
-    sha256 cellar: :any, arm64_big_sur:  "f6db53233e1b2855491b4b9310a579e4ac51c3dab7ac426f5c1c64b2fc0820f0"
-    sha256 cellar: :any, monterey:       "90c6f81ecc23cf88ef8a800b6fefd8487dcdb6f9606e427b5fbfebe678b8a2fb"
-    sha256 cellar: :any, big_sur:        "53bc8066ab50f4e4c24aad5f31e96f1ce0abac84930e5fcce43fa8f6083a878e"
-    sha256 cellar: :any, catalina:       "9b24159cf4c8adbb1a78c5cab192453ebebd47260612d38005683ff093250b45"
-    sha256 cellar: :any, mojave:         "653f41a951b87cf01049ed6a7019a3d2c96e635fc16d3be4d5edf3225b0a5f52"
-    sha256 cellar: :any, high_sierra:    "d6cc3ba3c3a257f4d5b4c1c3a9c0c8cca4fccf09ffc682901888d26c039886a8"
+    sha256 cellar: :any, arm64_monterey: "24480a57c922ecce159a8c51c7b6cbd888534ad071f8e6e44c2673d9af3cc123"
+    sha256 cellar: :any, arm64_big_sur:  "1109fc08328664e84eff65a547737b1ac602e23519e6a88855fbd9a25a341a2c"
+    sha256 cellar: :any, monterey:       "81bde2bc55939b498d263f6486f80f2c29b67ef6927db247ace8345ae34b2357"
+    sha256 cellar: :any, big_sur:        "ce2477e78e0ddf5c3d2801c571c65e73a73a33967650aa067a94d49695a144d4"
+    sha256 cellar: :any, catalina:       "3a0a2bcf355eef8bb66385c5bda82105569c2a7f999182626ca0b417d44e6255"
   end
 
   depends_on "libtool" => :build
