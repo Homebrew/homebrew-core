@@ -6,6 +6,15 @@ class Criterion < Formula
   license "MIT"
   head "https://github.com/Snaipe/Criterion.git", branch: "bleeding"
 
+  bottle do
+    sha256 cellar: :any, arm64_monterey: "0023dd52165f159b3714626e60a968b2fae23aa4252136a9719a1f008038fafd"
+    sha256 cellar: :any, arm64_big_sur:  "ad565bdd7ddeace8056dbb89fbc278c9af1864a6a8c4573ac56bcd5a466cada0"
+    sha256 cellar: :any, monterey:       "4540263d2c6013dd60143e7f0f5b0c090b20ddf760bdf027c07b8478dd90c69f"
+    sha256 cellar: :any, big_sur:        "5e2cd7bcf2ae4cab91c4b2c9669d48d295e3bfa3f32ef101eb0fc4a4c5f9efe3"
+    sha256 cellar: :any, catalina:       "2bd7d304278a9593d08bba3849ab157b248a7e901efa86e56bd1169773f4ccd5"
+    sha256               x86_64_linux:   "e39a40f48b213e37f0270174ca0836e22459df5c95567de9f498eafa79869534"
+  end
+
   depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
