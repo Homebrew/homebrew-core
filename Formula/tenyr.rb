@@ -7,12 +7,13 @@ class Tenyr < Formula
   head "https://github.com/kulp/tenyr.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "7423a06a07cb6618597fb303682fcd78cd017265f221c41002bc334f180bc7c1"
-    sha256 cellar: :any, arm64_big_sur:  "7b8b35a252d9db09b9ab058ffde1bef392c747b7e2940e9f35c436bf8329e1e4"
-    sha256 cellar: :any, monterey:       "d7835b60738972c5deb0bac9cd4a2cf0b7a6cec663aeec0260a2024b25b5e476"
-    sha256 cellar: :any, big_sur:        "ba35781ed62b538a435c64602786456562d489eb4e9b70c6393e512cb2e86815"
-    sha256 cellar: :any, catalina:       "f98eebfa349c23b2ed1ee5cdd0bb7882fb7469e93ce5fd253fbdadb0cb96c4d8"
-    sha256 cellar: :any, mojave:         "725a4444c154dcbe5c2c835a82c246e044ab71d1769c240a0fc376af0c36a71c"
+    sha256 cellar: :any,                 arm64_monterey: "7423a06a07cb6618597fb303682fcd78cd017265f221c41002bc334f180bc7c1"
+    sha256 cellar: :any,                 arm64_big_sur:  "7b8b35a252d9db09b9ab058ffde1bef392c747b7e2940e9f35c436bf8329e1e4"
+    sha256 cellar: :any,                 monterey:       "d7835b60738972c5deb0bac9cd4a2cf0b7a6cec663aeec0260a2024b25b5e476"
+    sha256 cellar: :any,                 big_sur:        "ba35781ed62b538a435c64602786456562d489eb4e9b70c6393e512cb2e86815"
+    sha256 cellar: :any,                 catalina:       "f98eebfa349c23b2ed1ee5cdd0bb7882fb7469e93ce5fd253fbdadb0cb96c4d8"
+    sha256 cellar: :any,                 mojave:         "725a4444c154dcbe5c2c835a82c246e044ab71d1769c240a0fc376af0c36a71c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "386367651c0bfc95ebe005843ccd093350a508b0c6e8a0f848c5c9e79dea68cf"
   end
 
   depends_on "bison" => :build # tenyr requires bison >= 2.5
