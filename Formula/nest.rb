@@ -4,6 +4,7 @@ class Nest < Formula
   url "https://github.com/nest/nest-simulator/archive/v3.3.tar.gz"
   sha256 "179462b966cc61f5785d2fee770bc36f86745598ace9cd97dd620622b62043ed"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "bd86e86c4725591e48faa03a59f2bc31d3bc91eca1dff6445a586cbf0592c62d"
@@ -19,7 +20,7 @@ class Nest < Formula
   depends_on "gsl"
   depends_on "libtool"
   depends_on "numpy"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "readline"
 
   uses_from_macos "ncurses"
@@ -43,23 +44,21 @@ class Nest < Formula
   end
 
   def caveats
-    python = Formula["python@3.9"]
     <<~EOS
       The PyNEST bindings and its dependencies are installed with the python@3.9 formula.
       If you want to use PyNEST, use the Python interpreter from this path:
 
-          #{python.bin}
+          #{Formula["python@3.10"].bin}
 
       You may want to add this to your PATH.
     EOS
   end
 
   test do
-    python = Formula["python@3.9"]
     # check whether NEST was compiled & linked
     system bin/"nest", "--version"
 
     # check whether NEST is importable form python
-    system python.bin/"python3.9", "-c", "'import nest'"
+    system Formula["python@3.10"].bin/"python3.10", "-c", "'import nest'"
   end
 end
