@@ -7,12 +7,12 @@ class Caire < Formula
   head "https://github.com/esimov/caire.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bee65859e250a2a4956ac79d801d153ebb9bba79855af30b044cd46163270b7a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4131ae8539f485e273560df33d4805f6fe36d8e40a246f6a0493cff1ac857c8"
-    sha256 cellar: :any_skip_relocation, monterey:       "fb89fb30bcca34b701351098260051614d177b5688396116f9c64cdde8a2b3cf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "392b71adf8059ca52b33e368141453086732d7d9ca887226d2bfaa339ffd8f58"
-    sha256 cellar: :any_skip_relocation, catalina:       "98882a53c798df215e9989b351870aa5250334256799a7ed24e8daada3c3b743"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eddfdd672969291471f7690ae96a379d3b0e4fc2bca1911ca441b646cbece01e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4dd11795109c0ee09d0ab81c1a35861215b8a7afedb6fa7d4148535ffb23a8b4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a35ffdc4052f39ff43b89c2cac5b55385d46ecf0501b014ba5cad3b3f96b4249"
+    sha256 cellar: :any_skip_relocation, monterey:       "1ad74bdcdc3786d799e8394748683aa78137f97a7ed98c10cc6d287cf9be2fe5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8754892375d921d9700607d68d85ac0a430f0e98759a787b76bc20586490faf5"
+    sha256 cellar: :any_skip_relocation, catalina:       "58836775c2ee4ac9a78747499daf4582cbb193461a280cd798beb0dcba7e7291"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f80998cf1355ffaf5939ae34b17b747c999132b18b5efeffee2dc945b72cdd41"
   end
 
   depends_on "go" => :build
