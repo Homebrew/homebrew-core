@@ -15,7 +15,7 @@ class Nvc < Formula
   end
 
   head do
-    url "https://github.com/nickg/nvc.git"
+    url "https://github.com/nickg/nvc.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -36,6 +36,14 @@ class Nvc < Formula
 
   def install
     system "./autogen.sh" if build.head?
+
+    # Avoid hardcoding path to the `ld` shim.
+    if build.head? && OS.linux?
+      inreplace "configure", "#define LINKER_PATH \\\"$linker_path\\\"", "#define LINKER_PATH \\\"ld\\\""
+    elsif OS.linux?
+      inreplace "configure", "#define LINKER_PATH \"$linker_path\"", "#define LINKER_PATH \"ld\""
+    end
+
     system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
                           "--with-system-cc=#{ENV.cc}",
