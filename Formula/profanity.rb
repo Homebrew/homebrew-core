@@ -1,8 +1,8 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "https://profanity-im.github.io"
-  url "https://profanity-im.github.io/profanity-0.11.1.tar.gz"
-  sha256 "6f1b4df6c2971f51d03d48d2bfd4f69b4404410d800b43f029ea1cf08a02bd45"
+  url "https://profanity-im.github.io/tarballs/profanity-0.12.1.tar.gz"
+  sha256 "e344481e7bf3b16baf58a169d321b809c4700becffb70db6f1c39adc3fad306e"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -44,11 +44,6 @@ class Profanity < Formula
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     system "./bootstrap.sh" if build.head?
-
-    # `configure` hardcodes `/usr/local/opt/readline`, which isn't portable.
-    # https://github.com/profanity-im/profanity/issues/1612
-    # Remove in version 0.12.0.
-    inreplace "configure", "/usr/local/opt/readline", Formula["readline"].opt_prefix
 
     # We need to pass `BREW` to `configure` to make sure it can be found inside the sandbox in non-default
     # prefixes. `configure` knows to check `/opt/homebrew` and `/usr/local`, but the sanitised build
