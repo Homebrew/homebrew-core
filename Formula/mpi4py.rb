@@ -6,12 +6,13 @@ class Mpi4py < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "9e0dc01ca3c56bd8307b84a344531150afdaa466f75579b57755d2a5e2a6dd5f"
-    sha256 cellar: :any, arm64_big_sur:  "5e87a7ce5f7b2e702272c825e1ce772e66d1c9765524d38f8cb0c9650ca505e3"
-    sha256 cellar: :any, monterey:       "8aad47e805537da4625fab7f300fb8be6e3ada89116c134c31e7bba07bfcc0f6"
-    sha256 cellar: :any, big_sur:        "3e42d2f36fba22025e3c7c9a01096e4f79eb0872b449fb00ef0a1cf4a5c703a1"
-    sha256 cellar: :any, catalina:       "f851c6383fabf7db02ed5570a4605d0b1bcb926f27be04ce2cda08b68c87ef4d"
-    sha256               x86_64_linux:   "eef31e997cf6327384c7c9b861dfe7133c91448f30382c45cef0e8e1f4a31b21"
+    rebuild 1
+    sha256 cellar: :any, arm64_monterey: "2450810fe0211f381bb0ef21509b36b9e5f2f39a11d66f40bfe8682d3f2a173a"
+    sha256 cellar: :any, arm64_big_sur:  "6f18b4c0ee6f7442309cf2080d726e9f5304099a369b73bd0c707bf3052fd4c2"
+    sha256 cellar: :any, monterey:       "ad2feec973870a61669dbdff6e12339221fea235d0c9b86d42ce8c208871a8c2"
+    sha256 cellar: :any, big_sur:        "3b5d7c9bcf52b1f8372c73647cbbc08a6bedda23608aa90e64de509ba04d030a"
+    sha256 cellar: :any, catalina:       "2b264bab7b5d9d1b1510ce4c1b32d5e121d3ada6a16ff876c95eb103250aa1d8"
+    sha256               x86_64_linux:   "0e82afb7d7b13191157454c8913f09349609b52e2cf62be72537855af59da183"
   end
 
   depends_on "libcython" => :build
