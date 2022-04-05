@@ -274,7 +274,7 @@ class Julia < Formula
     system bin/"julia", *args, "--eval", 'Base.runtests("core")'
 
     # Check that installing packages works.
-    # https://github.com/Homebrew/discussions/discussions/2749
+    # https://github.com/orgs/Homebrew/discussions/2749
     system bin/"julia", *args, "--eval", 'using Pkg; Pkg.add("Example")'
 
     # Check that Julia can load stdlibs that load non-Julia code.
