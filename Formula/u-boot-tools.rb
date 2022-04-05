@@ -11,12 +11,12 @@ class UBootTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "540ca23af7b3630dba1033ca61fd38b14010c9a3f85d68b6831fae853419b1d1"
-    sha256 cellar: :any,                 arm64_big_sur:  "9a7e2c34ded817c84bc1fb3fc48c24f1328981e1b249b9a5a8136220e3dbb8fe"
-    sha256 cellar: :any,                 monterey:       "6450fd699e181bfdf425e0589e4229f393eb2de18f1129813596f27cc6e8b482"
-    sha256 cellar: :any,                 big_sur:        "e0d92420fc18761ba5d57fc6673c32a0a15b6f2fc53d157710a342f0ed5becc1"
-    sha256 cellar: :any,                 catalina:       "d900a6999720ab8f639315dac583e84096d96114d6f247f7e9cbd1cb7c7c2443"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a448c182c1e5929fb71642fd0a7a9674430ab003f363d6974ecdcc5eeef3c000"
+    sha256 cellar: :any,                 arm64_monterey: "c545e0aadb914f5b535149ce3423fcbafa5f7931b514ed630e9518a65862116f"
+    sha256 cellar: :any,                 arm64_big_sur:  "f3d13f8b5f7cbda3a7714a70eb05a2f2026972de55735de95e58b8df2d43dac8"
+    sha256 cellar: :any,                 monterey:       "6028f04c201c11d97174bc4a03a7a84fe6c58cf013ed8f1e3fab873db1329541"
+    sha256 cellar: :any,                 big_sur:        "a7b15c98c78d8527fe852a8a8416f5ead7016515c31e8d537e22bb0448540e8c"
+    sha256 cellar: :any,                 catalina:       "f42d910896dcccb113a2d3749ab727b48c5d267180d6bcf71d2049f171796c43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dea488937c1c9374a39d0bb07cb376079da1860fdbd1c6b9e70a6290648188e"
   end
 
   depends_on "coreutils" => :build # Makefile needs $(gdate)
