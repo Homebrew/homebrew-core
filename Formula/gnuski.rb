@@ -13,6 +13,7 @@ class Gnuski < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "3874907a4ad715492c026d969ec3265dcd5f71424dde07a83aa1c21a1e36fa38"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ce14d8ee8b8d58c710b93adb2f4cedfb9d78fb64746f38daee4ea38aa977ae43"
     sha256 cellar: :any_skip_relocation, yosemite:      "3163ed8b9f1487e0f5f5a42006e0edfbfdb3a4dbea9b917c0aa692db282ec13b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19ecc1577888f0186d9880b9048a0fa9e4bdf931d3f2710adf807419f7a64310"
   end
 
   uses_from_macos "ncurses"
