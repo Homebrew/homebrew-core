@@ -6,9 +6,9 @@ class OpenshiftCli < Formula
 
   stable do
     url "https://github.com/openshift/oc.git",
-        tag:      "openshift-clients-4.11.0-202204020828",
-        revision: "f1f09a392fd18029f681c06c3bd0c44420684efa"
-    version "4.11.0"
+        tag:      "openshift-clients-4.6.0-202006250705.p0",
+        revision: "51011e4849252c723b520643d27d3fa164d28c61"
+    version "4.6.0"
 
     # Add Makefile target to build arm64 binary
     # Upstream PR: https://github.com/openshift/oc/pull/889
