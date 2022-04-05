@@ -34,13 +34,11 @@ class InfluxdbCli < Formula
 
     system "go", "build", *std_go_args(output: bin/"influx", ldflags: ldflags), "./cmd/influx"
 
-    bash_complete = buildpath/"bash-completion"
-    bash_complete.write Utils.safe_popen_read(bin/"influx", "completion", "bash")
-    bash_completion.install bash_complete => "influx"
+    output = Utils.safe_popen_read(bin/"influx", "completion", "bash")
+    (bash_completion/"influx").write output
 
-    zsh_complete = buildpath/"zsh-completion"
-    zsh_complete.write Utils.safe_popen_read(bin/"influx", "completion", "zsh")
-    zsh_completion.install zsh_complete => "_influx"
+    output = Utils.safe_popen_read(bin/"influx", "completion", "zsh")
+    (zsh_completion/"_influx").write output
   end
 
   test do
