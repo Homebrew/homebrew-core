@@ -3,7 +3,7 @@ class Aubio < Formula
   homepage "https://aubio.org/"
   url "https://aubio.org/pub/aubio-0.4.9.tar.bz2"
   sha256 "d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://aubio.org/pub/"
@@ -23,7 +23,7 @@ class Aubio < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "numpy"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "aiff" do
     url "http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Samples/CCRMA/wood24.aiff"
@@ -35,13 +35,14 @@ class Aubio < Formula
     ENV.refurbish_args
 
     # Ensure `python` references use our python3
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
 
     system "python3", "./waf", "configure", "--prefix=#{prefix}"
     system "python3", "./waf", "build"
     system "python3", "./waf", "install"
 
-    system "python3", *Language::Python.setup_install_args(prefix)
+    system "python3", *Language::Python.setup_install_args(prefix),
+                      "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
   end
 
   test do
