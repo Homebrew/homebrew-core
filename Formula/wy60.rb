@@ -13,6 +13,7 @@ class Wy60 < Formula
     sha256 sierra:        "f03706d166cfcc0679e696493bd13df30ad0617a92b602b79e3494ba3b1f46fb"
     sha256 el_capitan:    "84d3bfa45582f2816808006f192c7580cedad24de3941a0786b5b36ce29e469c"
     sha256 yosemite:      "80508e33f12142eec20ff0e8866ed191b03facea5b6653a6f5331cb017ff78af"
+    sha256 x86_64_linux:  "a6e03720948c91ccddf6881bf9770a13ff9b1560b52e4ab007da15257c1bb3c1"
   end
 
   uses_from_macos "ncurses"
