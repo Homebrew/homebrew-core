@@ -6,8 +6,11 @@ class Ibazel < Formula
   license "Apache-2.0"
 
   depends_on "bazel" => [:build, :test]
+  depends_on "go" => [:build, :test]
   depends_on xcode: :build
 
+  # Patch to use Homebrew's Go
+  patch :DATA
   def install
     system "bazel", "build", "--config=release", "--workspace_status_command", "echo STABLE_GIT_VERSION #{version}", "//ibazel"
     bin.install "bazel-bin/ibazel/ibazel_/ibazel"
@@ -27,11 +30,11 @@ class Ibazel < Formula
         ],
       )
 
-      load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
+      load("@io_bazel_rules_go//go:deps.bzl", "go_host_sdk", "go_rules_dependencies")
 
       go_rules_dependencies()
 
-      go_register_toolchains(version = "1.18")
+      go_host_sdk(name = "go_sdk")
     EOS
 
     (testpath/"test.go").write <<~EOS
@@ -54,10 +57,27 @@ class Ibazel < Formula
     pid = fork { exec("ibazel", "build", "//:bazel-test") }
     out_file = "bazel-bin/bazel-test_/bazel-test"
     sleep 1 until File.exist?(out_file)
-    assert_equal "Hi!\n", pipe_output(out_file)
+    assert_equal "Hi!\n", shell_output(out_file)
   ensure
     Process.kill("TERM", pid)
     sleep 1
     Process.kill("TERM", pid)
   end
 end
+
+__END__
+--- a/WORKSPACE
++++ b/WORKSPACE
+@@ -62,11 +62,11 @@ http_archive(
+     ],
+ )
+ 
+-load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
++load("@io_bazel_rules_go//go:deps.bzl", "go_host_sdk", "go_rules_dependencies")
+ 
+ go_rules_dependencies()
+ 
+-go_register_toolchains(version = "1.17.6")
++go_host_sdk(name = "go_sdk")
+ 
+ load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies"
