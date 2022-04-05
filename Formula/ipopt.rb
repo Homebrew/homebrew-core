@@ -3,7 +3,7 @@ class Ipopt < Formula
   homepage "https://coin-or.github.io/Ipopt/"
   url "https://github.com/coin-or/Ipopt/archive/releases/3.14.5.tar.gz"
   sha256 "9ebbbbf14a64e998e3fba5d2662a8f9bd03f97b1406017e78ae54e5d105ae932"
-  license "EPL-1.0"
+  license "EPL-2.0"
   head "https://github.com/coin-or/Ipopt.git", branch: "stable/3.14"
 
   bottle do
