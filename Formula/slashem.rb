@@ -23,6 +23,7 @@ class Slashem < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "80a4df38057ec2bef889b92b4edfc80158add542a1bd9f1ca50ed8d39eb21e2c"
     sha256 cellar: :any_skip_relocation, el_capitan:     "3b0ec09db5b1e2abccc22d2cc9282de211d9a15e4d2d66c404f898af2768d1b3"
     sha256 cellar: :any_skip_relocation, yosemite:       "9220e4e678c8302cd7c1ae15b4af08a733899c38717021c867e35decf79f00a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03e6ce8d29f4ebd5eba336525f8d314b1f26c032d935389c704698f5881396f0"
   end
 
   depends_on "pkg-config" => :build
