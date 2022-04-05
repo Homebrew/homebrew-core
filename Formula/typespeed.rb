@@ -16,6 +16,7 @@ class Typespeed < Formula
     sha256 sierra:         "8c4af1a3e4e8c32eab5da01fc3b30604eaad86bf84f4a96af7878599c92a4a36"
     sha256 el_capitan:     "82223614505b9fac677ba4ac4ad9f3b646597cddde604f8c981cc000b8ed7bf6"
     sha256 yosemite:       "23d3acaedb26f5bedccc2186dec138679fdea40f036edd57ce84ff363c082206"
+    sha256 x86_64_linux:   "4fcef57ff481d6947275a5b93e1489379a2ba7d1938d9de031fddd4bc4199f1d"
   end
 
   uses_from_macos "ncurses"
