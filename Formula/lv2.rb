@@ -7,7 +7,7 @@ class Lv2 < Formula
   url "https://lv2plug.in/spec/lv2-1.18.2.tar.bz2"
   sha256 "4e891fbc744c05855beb5dfa82e822b14917dd66e98f82b8230dbd1c7ab2e05e"
   license "ISC"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://lv2plug.in/spec/"
@@ -23,14 +23,8 @@ class Lv2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cd1af0b46fa048cb14ce09b527e4899d785f2abf6d11a3e8978e97db41f2839"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
-
-  # importlib_metadata can be removed after switching this formula to use python@3.10 (or newer)
-  resource "importlib_metadata" do
-    url "https://files.pythonhosted.org/packages/73/0f/def168c6162596051dcc6acaffc4984ec742eb0c79ce02e51ddc11772b1c/importlib_metadata-4.11.2.tar.gz"
-    sha256 "b36ffa925fe3139b2f6ff11d6925ffd4fa7bc47870165e3ac260ac7b4f91e6ac"
-  end
 
   resource "isodate" do
     url "https://files.pythonhosted.org/packages/db/7a/c0a56c7d56c7fa723988f122fa1f1ccf8c5c4ccc48efad0d214b49e5b1af/isodate-0.6.1.tar.gz"
