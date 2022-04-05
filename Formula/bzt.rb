@@ -6,6 +6,7 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/2d/cd/69d864c9d306f767751648edb3cebe2c8532913f8c4be74cc2223ffda5bf/bzt-1.16.3.tar.gz"
   sha256 "effb95393b67ae95f26a1bd1d927a76b7e66abf118a4f0c099f489373a8bc004"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Blazemeter/taurus.git"
 
   bottle do
@@ -19,7 +20,7 @@ class Bzt < Formula
 
   depends_on "rust" => :build
   depends_on "numpy"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libxml2"
