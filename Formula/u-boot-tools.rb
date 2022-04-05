@@ -25,11 +25,12 @@ class UBootTools < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
-  patch :p1, :DATA
-
   def install
     # Replace keyword not present in make 3.81
     inreplace "Makefile", "undefine MK_ARCH", "unexport MK_ARCH"
+
+    # Disable mkeficapsule
+    inreplace "configs/tools-only_defconfig", "CONFIG_TOOLS_MKEFICAPSULE=y", "CONFIG_TOOLS_MKEFICAPSULE=n"
 
     system "make", "tools-only_defconfig"
     system "make", "tools-only", "NO_SDL=1"
@@ -43,17 +44,3 @@ class UBootTools < Formula
     system bin/"dumpimage", "-V"
   end
 end
-
-__END__
---- a/tools/Makefile    2022-04-05 00:28:56.000000000 +0200
-+++ b/tools/Makefile    2022-04-05 00:29:07.000000000 +0200
-@@ -241,9 +241,6 @@
- hostprogs-$(CONFIG_ASN1_COMPILER)      += asn1_compiler
- HOSTCFLAGS_asn1_compiler.o = -idirafter $(srctree)/include
- 
--HOSTLDLIBS_mkeficapsule += -lgnutls -luuid
--hostprogs-$(CONFIG_TOOLS_MKEFICAPSULE) += mkeficapsule
--
- # We build some files with extra pedantic flags to try to minimize things
- # that won't build on some weird host compiler -- though there are lots of
- # exceptions for files that aren't complaint.
