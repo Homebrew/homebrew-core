@@ -3,7 +3,7 @@ class Cgl < Formula
   homepage "https://github.com/coin-or/Cgl"
   url "https://github.com/coin-or/Cgl/archive/releases/0.60.5.tar.gz"
   sha256 "5a2e7ca380425b3d7279d0759c625a367d06ec8293698b59f82fae38ae5df64e"
-  license "EPL-1.0"
+  license "EPL-2.0"
 
   livecheck do
     url :stable
