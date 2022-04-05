@@ -18,6 +18,7 @@ class Tcpstat < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "378e42522ee14d64c0f5bf9bceeb0100c9193210eea2ee2ff80433b2b3da0166"
     sha256 cellar: :any_skip_relocation, el_capitan:     "e483bf39d0e42a8124c3e2e50f117e66b285bada33df94c1b070460c6df622ea"
     sha256 cellar: :any_skip_relocation, yosemite:       "313fe3a9402b65b6f44b583c49ba83d301b63708b2e0a554100a5e83c03559d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "036527a4c4492a1ca44c9b7c29ab1437108fc2c57105ade2f98fa8cf43a4e839"
   end
 
   uses_from_macos "expect" => :test
