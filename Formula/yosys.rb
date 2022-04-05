@@ -7,12 +7,12 @@ class Yosys < Formula
   head "https://github.com/YosysHQ/yosys.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "65fb3b85a45695f72ed44730e27da8b4910a0cde269574017037beb0f107c4bc"
-    sha256 arm64_big_sur:  "a6477367178c2a98bd194d79872bed34cd64e5e91aa5bbd7e9d1eee8692f15e8"
-    sha256 monterey:       "9a68e6464ea816cc24fdf2a2d28fb1c88a3c3dbb35baa167178215fa40f3a7d2"
-    sha256 big_sur:        "22fa7c905ca72c935c1cb8501d1f03f83bc4d614bef18492e146d9e72d8e9e0a"
-    sha256 catalina:       "d2cc79d8d097bde7c0191fb8d5af0991f3174fc527067ac132248790e509637d"
-    sha256 x86_64_linux:   "9601025166b57f2c24004af72e91a6d0c464d3b1b750a4e0132ae4c770dc6d1a"
+    sha256 arm64_monterey: "5e63b69e211a427390ecce46654db44cd41b149814aef7dd94a7e9e2f167619a"
+    sha256 arm64_big_sur:  "79e186372603cf019fafb01c1c9fbb9060642661d0a9714a8f837f3cd17da6ef"
+    sha256 monterey:       "0b4972b9cdaf1aa9dac8da8f90c3b050a8a3cb0ba7a8610f0ed3d29ee9fa094c"
+    sha256 big_sur:        "37679369e072785bfe3c44d1619ae3a49c3dc6a6f9da0332c400dd0121881304"
+    sha256 catalina:       "5024f8c47cda4703c3e8598007d545708b28ceb6f0b2f6f9ef86ecadf0262242"
+    sha256 x86_64_linux:   "3b8d615341c3b7fe7f8e00cff0d196aaab62c4a4cb530bff32a8feb1dcd7420e"
   end
 
   depends_on "bison" => :build
