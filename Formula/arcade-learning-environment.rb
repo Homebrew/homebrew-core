@@ -11,12 +11,12 @@ class ArcadeLearningEnvironment < Formula
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f48743856e7b5c5cabcaa5c679ed3e4125f1e140a9ccec675649471809549c22"
-    sha256 cellar: :any,                 arm64_big_sur:  "a1ce427d316f550ea3b0caa3ec599a6902acabb2984ed11057f85013ccb197df"
-    sha256 cellar: :any,                 monterey:       "cdace3dae128c5db8c5ccac3f287fbbc11bb53441afe88a273530ece7a7e1b93"
-    sha256 cellar: :any,                 big_sur:        "ab5c24294ed10dbf24aff5443728b2d74904e4ae5a10dad7606acc449de1680d"
-    sha256 cellar: :any,                 catalina:       "1d1eeee25208be527357cc2d48856e77d0a4f8633a0e216a1504af3eef29ef0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e952625790585e200774051d118c2fb86af4d9ab8bbe50880eaa52cc08ab237b"
+    sha256 cellar: :any,                 arm64_monterey: "d2af5cc5f2142ae169ee8f084ee0dee9737387fe4d29b000800f3e6e9d7d9f92"
+    sha256 cellar: :any,                 arm64_big_sur:  "cb88b66ecaf3b0d5f4fa48d9e168c55085380f378e7084653312bb7efde3533d"
+    sha256 cellar: :any,                 monterey:       "0d727d6a027d45b8f06d60c80af02b34c0702a3b9bdcb186b1d10a28be5a6535"
+    sha256 cellar: :any,                 big_sur:        "29832ccb62b2e63e7a70067ae1a9c5766caab4f1a40e9a1041847b8269a42d96"
+    sha256 cellar: :any,                 catalina:       "6f70478d210592616e3a11e881ada9681943b35937694c90639f278f1c3f200d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96879a347e05c3f50da2fd59d3995fad10895d6bc39f964af5a963332128b6d8"
   end
 
   depends_on "cmake" => :build
