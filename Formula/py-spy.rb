@@ -15,7 +15,7 @@ class PySpy < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.9" => :test
+  depends_on "python@3.10" => :test
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -29,7 +29,7 @@ class PySpy < Formula
   end
 
   test do
-    output = shell_output("#{bin}/py-spy record python3.9 2>&1", 1)
+    output = shell_output("#{bin}/py-spy record python3.10 2>&1", 1)
     assert_match "This program requires root", output
   end
 end
