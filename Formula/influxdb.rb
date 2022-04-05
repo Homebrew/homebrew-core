@@ -2,8 +2,8 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v2.1.1",
-      revision: "657e1839de9e8a734abad1207ca28e7d02444207"
+      tag:      "v2.2.0",
+      revision: "a2f85388377fe454257b6da6ad1e723e52b5438b"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git", branch: "master"
 
@@ -31,8 +31,8 @@ class Influxdb < Formula
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.9.tar.gz"
-    sha256 "25843e58a3e6994bdafffbc0ef0844978a3d1f999915d6770cb73505fcf87e44"
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.11.tar.gz"
+    sha256 "52b22c151163dfb051fd44e7d103fc4cde6ae8ff852ffc13adeef19d21c36682"
   end
 
   # NOTE: The version/URL here is specified in scripts/fetch-ui-assets.sh in influxdb.
