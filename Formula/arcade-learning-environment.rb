@@ -7,6 +7,7 @@ class ArcadeLearningEnvironment < Formula
       tag:      "v0.7.4",
       revision: "069f8bd860b9da816cea58c5ade791025a51c105"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class ArcadeLearningEnvironment < Formula
   depends_on "cmake" => :build
   depends_on macos: :catalina # requires std::filesystem
   depends_on "numpy"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sdl2"
 
   uses_from_macos "zlib"
@@ -40,20 +41,6 @@ class ArcadeLearningEnvironment < Formula
   resource "importlib-resources" do
     url "https://files.pythonhosted.org/packages/b5/d8/51ace1c1ea6609c01c7f46ca2978e11821aa0efaaa7516002ef6df000731/importlib_resources-5.4.0.tar.gz"
     sha256 "d756e2f85dd4de2ba89be0b21dba2a3bbec2e871a42a3a16719258a11f87506b"
-  end
-
-  # TODO: Check to see if `importlib-metadata` resource should be removed when switching to `python@3.10`
-  # https://github.com/mgbellemare/Arcade-Learning-Environment/blob/v#{version}/setup.cfg
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/82/10/600b88188a4e94562cfdf202ef1aca6fedda0723acae8a47376350ec0d5d/importlib_metadata-4.11.1.tar.gz"
-    sha256 "175f4ee440a0317f6e8d81b7f8d4869f93316170a65ad2b007d2929186c8052c"
-  end
-
-  # TODO: Check to see if `zipp` resource should be removed when switching to `python@3.10`
-  # https://github.com/python/importlib_resources/blob/#{importlib-resources.version}/setup.cfg
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/94/64/3115548d41cb001378099cb4fc6a6889c64ef43ac1b0e68c9e80b55884fa/zipp-3.7.0.tar.gz"
-    sha256 "9f50f446828eb9d45b267433fd3e9da8d801f614129124863f9c51ebceafb87d"
   end
 
   def install
@@ -106,7 +93,7 @@ class ArcadeLearningEnvironment < Formula
       assert len(ale.getLegalActionSet()) == 18
     EOS
 
-    output = shell_output("#{Formula["python@3.9"].opt_bin}/python3 test.py 2>&1")
+    output = shell_output("#{Formula["python@3.10"].opt_bin}/python3 test.py 2>&1")
     assert_match <<~EOS, output
       Game console created:
         ROM file:  tetris.bin
