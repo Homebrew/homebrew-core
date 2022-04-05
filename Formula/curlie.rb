@@ -6,12 +6,12 @@ class Curlie < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5e258bc851da6382ecd91feeb7a3ee6be43521040e28a1127bf988bf3fecdcf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f5e258bc851da6382ecd91feeb7a3ee6be43521040e28a1127bf988bf3fecdcf"
-    sha256 cellar: :any_skip_relocation, monterey:       "ace5b733c4cc5290044ef382c42d72c67ad813fded0d3cbafba7aacf66dc9df1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ace5b733c4cc5290044ef382c42d72c67ad813fded0d3cbafba7aacf66dc9df1"
-    sha256 cellar: :any_skip_relocation, catalina:       "ace5b733c4cc5290044ef382c42d72c67ad813fded0d3cbafba7aacf66dc9df1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69aa5acebd2adddc5fbd0058aa8acafb510e9f6988552c459f13cf4a63669bd1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "98627f52c4737c631f5e7f90b3f036bdbe9f9e1c11932ee451794eb7add782c5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98627f52c4737c631f5e7f90b3f036bdbe9f9e1c11932ee451794eb7add782c5"
+    sha256 cellar: :any_skip_relocation, monterey:       "bb9cbbb7ca13f987707332837474404f606c499d9f411db18d88e5d86d995cb6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bb9cbbb7ca13f987707332837474404f606c499d9f411db18d88e5d86d995cb6"
+    sha256 cellar: :any_skip_relocation, catalina:       "bb9cbbb7ca13f987707332837474404f606c499d9f411db18d88e5d86d995cb6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a851ca189f46f1d4b7a76c29cb6f0d36c37f6a73f0800e944a0bda4632fe3ff"
   end
 
   # Bump to 1.18 on the next release, if possible.
