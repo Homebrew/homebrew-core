@@ -15,7 +15,11 @@ class PySpy < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.9" => :test
+  depends_on "python@3.10" => :test
+
+  on_linux do
+    depends_on "libunwind"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -29,7 +33,8 @@ class PySpy < Formula
   end
 
   test do
-    output = shell_output("#{bin}/py-spy record python3.9 2>&1", 1)
-    assert_match "This program requires root", output
+    python = Formula["python@3.10"].opt_bin/"python3"
+    output = shell_output("#{bin}/py-spy record #{python} 2>&1", 1)
+    assert_match "Try running again with elevated permissions by going", output
   end
 end
