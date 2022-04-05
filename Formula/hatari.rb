@@ -4,6 +4,7 @@ class Hatari < Formula
   url "https://download.tuxfamily.org/hatari/2.3.1/hatari-2.3.1.tar.bz2"
   sha256 "44a2f62ca995e38d9e0874806956f0b9c3cc84ea89e0169a63849b63cd3b64bd"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://git.tuxfamily.org/hatari/hatari.git", branch: "master"
 
   livecheck do
@@ -21,7 +22,7 @@ class Hatari < Formula
   depends_on "cmake" => :build
   depends_on "libpng"
   depends_on "portaudio"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sdl2"
 
   # Download EmuTOS ROM image
@@ -33,7 +34,7 @@ class Hatari < Formula
   def install
     # Set .app bundle destination
     inreplace "src/CMakeLists.txt", "/Applications", prefix
-    system "cmake", *std_cmake_args, "-DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3"
+    system "cmake", *std_cmake_args, "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3"
     system "make"
     prefix.install "src/Hatari.app"
     bin.write_exec_script "#{prefix}/Hatari.app/Contents/MacOS/hatari"
