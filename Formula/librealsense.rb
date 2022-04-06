@@ -20,6 +20,9 @@ class Librealsense < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  # Build on Apple Silicon fails when generating Unix Makefiles.
+  # Ref: https://github.com/IntelRealSense/librealsense/issues/8090
+  depends_on xcode: :build if Hardware::CPU.arm?
   depends_on "glfw"
   depends_on "libusb"
   depends_on "openssl@1.1"
@@ -27,11 +30,19 @@ class Librealsense < Formula
   def install
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@1.1"].prefix
 
-    args = std_cmake_args
-    args << "-DENABLE_CCACHE=OFF"
+    args = %W[
+      -DENABLE_CCACHE=OFF
+      -DBUILD_WITH_OPENMP=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    if Hardware::CPU.arm?
+      args << "-DCMAKE_CONFIGURATION_TYPES=Release"
+      args << "-GXcode"
+    end
 
-    system "cmake", ".", "-DBUILD_WITH_OPENMP=OFF", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
