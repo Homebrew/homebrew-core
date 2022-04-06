@@ -3,12 +3,11 @@ class Abook < Formula
   homepage "https://abook.sourceforge.io/"
   url "https://abook.sourceforge.io/devel/abook-0.6.1.tar.gz"
   sha256 "f0a90df8694fb34685ecdd45d97db28b88046c15c95e7b0700596028bd8bc0f9"
-  license "GPL-2.0"
+  license all_of: ["GPL-2.0-only", "GPL-2.0-or-later", "GPL-3.0-or-later", :public_domain, "X11"]
   head "https://git.code.sf.net/p/abook/git.git", branch: "master"
 
   livecheck do
     url :homepage
-    strategy :page_match
     regex(/href=.*?abook[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
