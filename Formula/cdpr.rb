@@ -17,9 +17,11 @@ class Cdpr < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "3f0fbd6fe9862b367f64354ad6ce3b2deacd35ae627f8d73d5095739325be378"
   end
 
+  uses_from_macos "libpcap"
+
   def install
     # Makefile hardcodes gcc and other atrocities
-    system ENV.cc, ENV.cflags, "cdpr.c", "cdprs.c", "conffile.c", ENV.ldflags, "-lpcap", "-o", "cdpr"
+    system ENV.cc, "cdpr.c", "cdprs.c", "conffile.c", "-lpcap", "-o", "cdpr"
     bin.install "cdpr"
   end
 
