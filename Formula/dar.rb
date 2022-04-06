@@ -17,9 +17,10 @@ class Dar < Formula
     sha256               x86_64_linux: "51757e65e184a21baa924cf987bc201f4d97345dbcd8da90260e488dfe6bc8db"
   end
 
-  depends_on "upx" => :build
+  depends_on "upx" => :build unless Hardware::CPU.arm?
   depends_on "libgcrypt"
   depends_on "lzo"
+
   uses_from_macos "zlib"
 
   def install
