@@ -6,11 +6,13 @@ class Termshark < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9fc25d8ee00903f6f3ce91d3cde70c12dc636d51050f938f2230a1bb6eaabbba"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4e8111a7730d4d042b4654689d0baa4e1cec23c658fc75f62f552d5d7f553843"
-    sha256 cellar: :any_skip_relocation, catalina:      "8dc2114b14d2738361021fef34e5069de185371c5828c1528fe7fbd3a5543aec"
-    sha256 cellar: :any_skip_relocation, mojave:        "a665f8f658b7699ff18acf7a8ac29658a90b694d368438fb7082b068d0ae426c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3502b76bdc682ba2dea3ec1fc463c52e087ea5f9a390a0e26314d7e5402ca869"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf549bc000877e1862c26ed6d3a1f466c09bc48fcb4488f6fe464738c717c986"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fc25d8ee00903f6f3ce91d3cde70c12dc636d51050f938f2230a1bb6eaabbba"
+    sha256 cellar: :any_skip_relocation, monterey:       "6da8cd2b25fecd0edbac43ee4cc688932f46212624735c4cb655e76b7276d690"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4e8111a7730d4d042b4654689d0baa4e1cec23c658fc75f62f552d5d7f553843"
+    sha256 cellar: :any_skip_relocation, catalina:       "8dc2114b14d2738361021fef34e5069de185371c5828c1528fe7fbd3a5543aec"
+    sha256 cellar: :any_skip_relocation, mojave:         "a665f8f658b7699ff18acf7a8ac29658a90b694d368438fb7082b068d0ae426c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3502b76bdc682ba2dea3ec1fc463c52e087ea5f9a390a0e26314d7e5402ca869"
   end
 
   depends_on "go" => :build
