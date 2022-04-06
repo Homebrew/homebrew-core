@@ -6,12 +6,13 @@ class Ispc < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "95e78ba62fbcd1d290db0d04e1738b339a40c0d600f67bd6cc7ac3158e2ec58d"
-    sha256 cellar: :any,                 arm64_big_sur:  "7847016c49b86fde9b9807d33090a81997b9736a5a564b4ca696324815a4d2d2"
-    sha256 cellar: :any,                 monterey:       "18c71e795071937755b19b4ad1d38352305e5135fa376cdf822760f818ff2384"
-    sha256 cellar: :any,                 big_sur:        "87c6ea89cf9c56e909ec1467fa738e554e0e72c2692401bd6d487bb1de0cb6ee"
-    sha256 cellar: :any,                 catalina:       "9db07b42653f019b89aa885e92c15b471444116dc7e899857ecfe77ef3c3d5c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11562bc7936e0b25c2a496738ed9766b7b31b96284fbf0640eaecb7b2bc56b8b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "b27e31b04bdf6f1aebe3d6696b9bb58cf443983750d0f8f4351669e7ac4181c6"
+    sha256 cellar: :any,                 arm64_big_sur:  "c5d80025cd446ee1662da3f4797ca77cfe3f84e6d5d28526a51f8e38b83a45d6"
+    sha256 cellar: :any,                 monterey:       "8181e437ca72955573dfef8d695252cbb1d2000a0a86a2453a186c903a97eb0c"
+    sha256 cellar: :any,                 big_sur:        "c189680f9709868a8ecec85b5289ce320e666d1bc05a67b380bbcef0fbb49954"
+    sha256 cellar: :any,                 catalina:       "0e5c8348e224cb4113e815e7027997ab9010416de92d5fbdddff68d1fbd7ff35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44a8c1b1e5a395d15c95c99577d23dfb66e4ca0acc45fd8cb87a2d948aba1fca"
   end
 
   depends_on "bison" => :build
