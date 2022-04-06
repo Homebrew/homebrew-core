@@ -295,8 +295,8 @@ class AnsibleAT28 < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/39/2b/0a66d5436f237aff76b91e68b4d8c041d145ad0a2cdeefe2c42f76ba2857/lxml-4.5.0.tar.gz"
-    sha256 "8620ce80f50d023d414183bf90cc2576c2837b88e00bea3f33ad2630133bbb60"
+    url "https://files.pythonhosted.org/packages/3b/94/e2b1b3bad91d15526c7e38918795883cee18b93f6785ea8ecf13f8ffa01e/lxml-4.8.0.tar.gz"
+    sha256 "f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23"
   end
 
   resource "monotonic" do
@@ -601,11 +601,6 @@ class AnsibleAT28 < Formula
 
   def install
     ENV.prepend_path "PATH", Formula["python@3.7"].opt_libexec/"bin"
-
-    if OS.mac? && (MacOS.version <= :sierra)
-      # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
 
     virtualenv_install_with_resources
 
