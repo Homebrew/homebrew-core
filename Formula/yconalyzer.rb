@@ -16,6 +16,8 @@ class Yconalyzer < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "e3e3fcebfdd0d25fbdad33c8f2aa13976c70ab4ff4bb81ed1fbae5cb8a7c2ffd"
   end
 
+  uses_from_macos "libpcap"
+
   # Fix build issues issue on OS X 10.9/clang
   # Patch reported to upstream - https://sourceforge.net/p/yconalyzer/bugs/3/
   patch :p0 do
