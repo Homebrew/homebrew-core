@@ -509,6 +509,9 @@
   "volatility": {
     "extra_packages": ["capstone", "pycryptodome", "yara-python"]
   },
+  "west": {
+    "exclude_packages": ["six"]
+  },
   "woob": {
     "exclude_packages": ["pillow", "six"],
     "extra_packages": ["colorama"]
