@@ -19,6 +19,7 @@ class Influxdb < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "5a9344498c796383d0ac7f99ab7b23daa6b215f71275734d52459abe98831ebd"
     sha256 cellar: :any_skip_relocation, big_sur:        "fac54d7d0332e8c8a7dc457f1ad2696ab1af0afbf807da07639448a61475fa48"
     sha256 cellar: :any_skip_relocation, catalina:       "dee85db3544e4ab2dbd8ae022d8dfe8318e355d8ffa180cd54adcceda16624fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0de0b0c00c70d8edf7add72aee60cd05fda3201f808810a5001bdf2a9a9ecde8"
   end
 
   depends_on "breezy" => :build
