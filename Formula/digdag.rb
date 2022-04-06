@@ -4,6 +4,7 @@ class Digdag < Formula
   url "https://dl.digdag.io/digdag-0.10.4.jar"
   sha256 "2020fa9395e74e14fdf4ada93bff0684dcea64f564788afd6a3ecc54e3bbd4bf"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://github.com/treasure-data/digdag.git"
@@ -14,11 +15,11 @@ class Digdag < Formula
     sha256 cellar: :any_skip_relocation, all: "47b5fff24344ebadc086f1ea9421a2f96fe9816e115e568cabafdc94aabdbf4d"
   end
 
-  depends_on "openjdk@8"
+  depends_on "openjdk@11"
 
   def install
     libexec.install "digdag-#{version}.jar"
-    bin.write_jar_script libexec/"digdag-#{version}.jar", "digdag", java_version: "1.8"
+    bin.write_jar_script libexec/"digdag-#{version}.jar", "digdag", java_version: "11"
   end
 
   test do
