@@ -30,12 +30,13 @@ class VowpalWabbit < Formula
     # The following should be equivalent, while supporting Homebrew's standard args.
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
-                            "-DBUILD_TESTS=OFF",
+                            "-DBUILD_TESTING=OFF",
                             "-DRAPIDJSON_SYS_DEP=ON",
                             "-DFMT_SYS_DEP=ON",
                             "-DSPDLOG_SYS_DEP=ON",
                             "-DVW_BOOST_MATH_SYS_DEP=On",
-                            "-DBUILD_FLATBUFFERS=ON"
+                            "-DBUILD_FLATBUFFERS=ON",
+                            "-DVW_INSTALL=On"
       system "make", "install"
     end
     bin.install Dir["utl/*"]
