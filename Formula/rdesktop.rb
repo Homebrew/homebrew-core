@@ -16,6 +16,8 @@ class Rdesktop < Formula
 
   deprecate! date: "2020-11-12", because: :unmaintained
 
+  # Added automake as a build dependency to update config files for ARM support.
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "libao"
@@ -25,7 +27,14 @@ class Rdesktop < Formula
   depends_on "libxrandr"
   depends_on "nettle"
 
+  uses_from_macos "pcsc-lite"
+
   def install
+    # Workaround for ancient config files not recognizing aarch64 macos.
+    %w[config.guess config.sub].each do |fn|
+      cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+    end
+
     args = %W[
       --prefix=#{prefix}
       --disable-credssp
