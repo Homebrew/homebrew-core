@@ -12,7 +12,12 @@ class Groovy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0018cd5b490e92fc9c23fac010f8aa85cf91b97758974efd2fc1e98af5612542"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "90613eabe8da435ac0697a7a059e012b595aa485a7bcb014e5f79742a32fc8ba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f34e3166ceecc0e675f37cded000707d9d9033ca74a98abdaf7b7a127a009a35"
+    sha256 cellar: :any_skip_relocation, monterey:       "7ff4de759bd3345532b147dba85db467363a3f4f0e6aea47fd5c142d6712b573"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d2359a8c03df545ac2372e1994424a7ab010322a33be33d00708810970d912a0"
+    sha256 cellar: :any_skip_relocation, catalina:       "86c9ea05cadf658a53ebc205adde088e33d897c859d18811c3bf67b5b4c6483f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efa7689c88367e8684becdb467e611644d5b7bde162c62d4cf125be0eae04ad3"
   end
 
   depends_on "openjdk"
