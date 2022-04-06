@@ -8,12 +8,12 @@ class Esbuild < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2495bcee2ceb88351dabb7f0d9608a4dba198db08c5c89ee4ba933bca6f288b6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2495bcee2ceb88351dabb7f0d9608a4dba198db08c5c89ee4ba933bca6f288b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "8e3d2825f80aa29c54258b166481b4034e3d54c0e52428face947176031fc0e4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8e3d2825f80aa29c54258b166481b4034e3d54c0e52428face947176031fc0e4"
-    sha256 cellar: :any_skip_relocation, catalina:       "8e3d2825f80aa29c54258b166481b4034e3d54c0e52428face947176031fc0e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cfa7b4e88e481b10e37291032f3c770267d0d62906e9b9272c46900dbd4468f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f241d76a7de3a93cebb144784e071270227ac767c6e8d152786c58084696c7be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f241d76a7de3a93cebb144784e071270227ac767c6e8d152786c58084696c7be"
+    sha256 cellar: :any_skip_relocation, monterey:       "e7dc9bd143ad3c5d0dc14f96b699b090bb31c404b61cf72256c201b12ac60e30"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e7dc9bd143ad3c5d0dc14f96b699b090bb31c404b61cf72256c201b12ac60e30"
+    sha256 cellar: :any_skip_relocation, catalina:       "e7dc9bd143ad3c5d0dc14f96b699b090bb31c404b61cf72256c201b12ac60e30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "734154fe48854e437e3fc012ed5b24d068bf8a22968bc9a81d954ef570d6bd64"
   end
 
   depends_on "node"
