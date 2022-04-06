@@ -23,7 +23,7 @@ class Libtorch < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "eigen"
   depends_on "libomp"
   depends_on "libyaml"
@@ -41,7 +41,7 @@ class Libtorch < Formula
   end
 
   def install
-    venv = virtualenv_create(buildpath/"venv", Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(buildpath/"venv", Formula["python@3.10"].opt_bin/"python3")
     venv.pip_install resources
 
     args = %W[
