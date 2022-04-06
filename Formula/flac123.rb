@@ -6,14 +6,15 @@ class Flac123 < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "beb35321efa9b0d023ede66ba6e8df9e906da354d654088a48e147f9f5c5dd6a"
-    sha256 cellar: :any, big_sur:       "898d28a19dd90787cf49ecb1af955f7f65da13423f5bbfdc43a1fd0c6993c4d0"
-    sha256 cellar: :any, catalina:      "e9d6f0e34bf00197859eb997f353123f67a75d644ed9a3dba400207a83a18d6b"
-    sha256 cellar: :any, mojave:        "c1aa5158e16136453e09b384480a6aa4faaefc818c14243a0c4b5359cdab2fb4"
-    sha256 cellar: :any, high_sierra:   "ac4ee518533f4b043fd380d0ed6e2077ec410c16acdf952b733df533a4750889"
-    sha256 cellar: :any, sierra:        "f62d8e1f08e8cd5d952f02a35ebcdc921a1295035a2b66e843d80aacb8d9843e"
-    sha256 cellar: :any, el_capitan:    "669b5ff8922496fe8abe8b020ef92118847539095a0d281f73b85e965be1f708"
-    sha256 cellar: :any, yosemite:      "3bc22230d8e4ed12c794a0784173e576d17cfae249bb87d4540680d3f0483957"
+    sha256 cellar: :any, arm64_monterey: "9e8e7554170d4be1bf7bc9ae5444b1773df9a3b884b5a58c64ed740f785975d3"
+    sha256 cellar: :any, arm64_big_sur:  "beb35321efa9b0d023ede66ba6e8df9e906da354d654088a48e147f9f5c5dd6a"
+    sha256 cellar: :any, big_sur:        "898d28a19dd90787cf49ecb1af955f7f65da13423f5bbfdc43a1fd0c6993c4d0"
+    sha256 cellar: :any, catalina:       "e9d6f0e34bf00197859eb997f353123f67a75d644ed9a3dba400207a83a18d6b"
+    sha256 cellar: :any, mojave:         "c1aa5158e16136453e09b384480a6aa4faaefc818c14243a0c4b5359cdab2fb4"
+    sha256 cellar: :any, high_sierra:    "ac4ee518533f4b043fd380d0ed6e2077ec410c16acdf952b733df533a4750889"
+    sha256 cellar: :any, sierra:         "f62d8e1f08e8cd5d952f02a35ebcdc921a1295035a2b66e843d80aacb8d9843e"
+    sha256 cellar: :any, el_capitan:     "669b5ff8922496fe8abe8b020ef92118847539095a0d281f73b85e965be1f708"
+    sha256 cellar: :any, yosemite:       "3bc22230d8e4ed12c794a0784173e576d17cfae249bb87d4540680d3f0483957"
   end
 
   depends_on "autoconf" => :build
