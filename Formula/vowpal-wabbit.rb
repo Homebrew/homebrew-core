@@ -43,6 +43,7 @@ class VowpalWabbit < Formula
     rm bin/"active_interactor.py"
     rm bin/"vw-validate.html"
     rm bin/"clang-format"
+    rm bin/"release_blog_post_template.md"
     rm_r bin/"flatbuffer"
     rm_r bin/"dump_options"
   end
