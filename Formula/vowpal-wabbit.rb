@@ -1,10 +1,9 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
-  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.0.1.tar.gz"
-  sha256 "50c0a766c3f0f4a4ba29ac1db8949ee352e0d7e4f2df819fb410f8a34e3ea051"
+  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.1.0.tar.gz"
+  sha256 "7bc826681872e5f38677b94f54159c3c7e4014d5f098a020c7068a0cb37c5c68"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
   bottle do
@@ -31,17 +30,20 @@ class VowpalWabbit < Formula
     # The following should be equivalent, while supporting Homebrew's standard args.
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
-                            "-DBUILD_TESTS=OFF",
+                            "-DBUILD_TESTING=OFF",
                             "-DRAPIDJSON_SYS_DEP=ON",
                             "-DFMT_SYS_DEP=ON",
                             "-DSPDLOG_SYS_DEP=ON",
-                            "-DBUILD_FLATBUFFERS=ON"
+                            "-DVW_BOOST_MATH_SYS_DEP=On",
+                            "-DBUILD_FLATBUFFERS=ON",
+                            "-DVW_INSTALL=On"
       system "make", "install"
     end
     bin.install Dir["utl/*"]
     rm bin/"active_interactor.py"
     rm bin/"vw-validate.html"
     rm bin/"clang-format"
+    rm bin/"release_blog_post_template.md"
     rm_r bin/"flatbuffer"
     rm_r bin/"dump_options"
   end
