@@ -7,11 +7,12 @@ class Cp2k < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "95a6fc3748ba6bd26e0d4aabd1d59f81e8e959b80852b58bf1be52297db4cfb4"
-    sha256 cellar: :any, monterey:      "28a6583b2318c6d511782ecefa932693eadf0b67908aa3096c6b96a93c2bb3c6"
-    sha256 cellar: :any, big_sur:       "10c351fabd61ce78659ae98e48b5e81eae9b4ca713269027e45253c4d49beaf4"
-    sha256 cellar: :any, catalina:      "27878e3f33287a1a79d24888d3f688dbc4718515017e2862f683d2f05349b0e4"
-    sha256 cellar: :any, mojave:        "4f020460fbca04eda6e50977c0fee89804a93a1eb11e2f0f4e7abd775b0be587"
+    sha256 cellar: :any, arm64_monterey: "ef6bb7c803d002b2137cdbc8ce2b84f7ae7be46f8a87fe8c82745722dbbf9e45"
+    sha256 cellar: :any, arm64_big_sur:  "95a6fc3748ba6bd26e0d4aabd1d59f81e8e959b80852b58bf1be52297db4cfb4"
+    sha256 cellar: :any, monterey:       "28a6583b2318c6d511782ecefa932693eadf0b67908aa3096c6b96a93c2bb3c6"
+    sha256 cellar: :any, big_sur:        "10c351fabd61ce78659ae98e48b5e81eae9b4ca713269027e45253c4d49beaf4"
+    sha256 cellar: :any, catalina:       "27878e3f33287a1a79d24888d3f688dbc4718515017e2862f683d2f05349b0e4"
+    sha256 cellar: :any, mojave:         "4f020460fbca04eda6e50977c0fee89804a93a1eb11e2f0f4e7abd775b0be587"
   end
 
   depends_on "python@3.10" => :build
