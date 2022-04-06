@@ -17,6 +17,10 @@ class PySpy < Formula
   depends_on "rust" => :build
   depends_on "python@3.10" => :test
 
+  on_linux do
+    depends_on "libunwind"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 
