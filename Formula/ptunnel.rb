@@ -23,6 +23,8 @@ class Ptunnel < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "72db3faba8fbd7c268acf22d02ae0df4dbb5dde2db8a17ca4d62b2293d0763e0"
   end
 
+  uses_from_macos "libpcap"
+
   def install
     system "make", "install", "prefix=#{prefix}"
   end
