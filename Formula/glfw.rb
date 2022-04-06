@@ -1,8 +1,8 @@
 class Glfw < Formula
   desc "Multi-platform library for OpenGL applications"
   homepage "https://www.glfw.org/"
-  url "https://github.com/glfw/glfw/archive/3.3.6.tar.gz"
-  sha256 "ed07b90e334dcd39903e6288d90fa1ae0cf2d2119fec516cf743a0a404527c02"
+  url "https://github.com/glfw/glfw/archive/3.3.7.tar.gz"
+  sha256 "fd21a5f65bcc0fc3c76e0f8865776e852de09ef6fbc3620e09ce96d2b2807e04"
   license "Zlib"
   head "https://github.com/glfw/glfw.git", branch: "master"
 
