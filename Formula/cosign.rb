@@ -8,12 +8,12 @@ class Cosign < Formula
   head "https://github.com/sigstore/cosign.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "12b87ab081c298504d49e9a1f800c63b69555caf1d08230dda0becb841afc90f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "267e562453216fb8aab4c1c551163f6da3ba303ec48a0834492f8e85c70e8b59"
-    sha256 cellar: :any_skip_relocation, monterey:       "cb854addbbf8e798d1cd8cb9a91e0ff944c0807189bd12dfcc3dd08eac9a84cc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "12dbd9cd66eeee26ad870deb60833a81f2a8eec700a11b36df6fe2dfcef041e7"
-    sha256 cellar: :any_skip_relocation, catalina:       "313ac6f45cf96c17d6416692672b6377a91c65c1c2d75211bf1b1abaacb65ee6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7dae40a1fa2769d233865f883621832212bfb6f8fd7037c7dfae888f7dad2f23"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aada32a3b4ff6c2a9519b740c3150fa16af41e5fdb0a3af43f863f62621c9283"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9bb1023b00cdb6b39b130b6dab536c08fcc3763935475745ccd870247a625096"
+    sha256 cellar: :any_skip_relocation, monterey:       "afcdc471a6c659468166a8046be6e5e521946e122ed107b59aaf0f1db592491f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "55e6a4c45717a1e07bc72388b22e520dd42f9f7bdf7775109841a03efbd057ce"
+    sha256 cellar: :any_skip_relocation, catalina:       "7171a0d78571d53c7337827bffb0dd73e1ff0cb742d378aaa571da779b62399e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5acccb4984b6cfb898423b6d4cc284a0a23ad7dd34880074b3418ecb344878b2"
   end
 
   depends_on "go" => :build
