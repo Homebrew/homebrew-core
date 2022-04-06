@@ -14,12 +14,13 @@ class Libtorch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "294098094a8026bec52a0aefcb948b3314367f56cb293802ed9574ca0563357c"
-    sha256 cellar: :any,                 arm64_big_sur:  "3e9b2aac71e5219e2e71b7abd0a896a1efe4636b7afc45958309c66b5d9ab6cc"
-    sha256 cellar: :any,                 monterey:       "56ba61203dc6991f8fe9c72aa61dd1de92c1ff8bbde6608703b379cd7136bbef"
-    sha256 cellar: :any,                 big_sur:        "d835f3937ff7ebfaa0c11df6903f27a70e3dfe2b35767b0fd6a663795ee2f4ec"
-    sha256 cellar: :any,                 catalina:       "d0bc7aa8026a04a55cc8f106db5574e7c3a5fa0144ad7a3809c58810dcaa9687"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "135719d44d32cc98ee4e879c9ce420a0dc3cc9f6d05cc48e663184eb8b369da7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "dc1fc8f4effb97499be315a119404cf5d0cdd25b0fec510567b42a86181d5ab6"
+    sha256 cellar: :any,                 arm64_big_sur:  "68e63b2242af7c6428e8ab47d390ef28425ac128fddec9508c54874308118b8b"
+    sha256 cellar: :any,                 monterey:       "d709083b53b72079ce3540d4d352d9d965a711eacc72a05ca4a1a0ba82275402"
+    sha256 cellar: :any,                 big_sur:        "dd5610a0aec0f081cf7e6caddd99038c4127dd35958899269ca4827cc647be16"
+    sha256 cellar: :any,                 catalina:       "838b03af23bd68b21b66f1764cd6a8e70ddc14fa81820124db67672460b79a5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11aad0417538747f11d22289e50fa6feab91db7d4edfed385f5fcf5700b5f706"
   end
 
   depends_on "cmake" => :build
