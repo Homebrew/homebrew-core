@@ -6,7 +6,7 @@ class AnsibleAT28 < Formula
   url "https://files.pythonhosted.org/packages/e6/a3/d68781949f0b6d261ef8f17a4d1c6ee75df261ff168f4ead585604899e26/ansible-2.8.20.tar.gz"
   sha256 "f0672d138cf79cd39197952df0f8c761aac27c639a8ff7bdbd62cf463a7edaea"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 big_sur:      "94e517f56308b730aa6489d492d7031ba6ba14780cff64ae0c6a218c7f287e19"
