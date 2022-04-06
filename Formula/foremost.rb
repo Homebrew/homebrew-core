@@ -7,8 +7,7 @@ class Foremost < Formula
   revision 1
 
   livecheck do
-    url "http://foremost.sourceforge.net/"
-    strategy :page_match
+    url :homepage
     regex(/href=.*?foremost[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
