@@ -6,12 +6,13 @@ class Libpqxx < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fe1aa09e787c6a6ef9f9d18cba4a941defd84abc0d7587383bf82300c9101a18"
-    sha256 cellar: :any,                 arm64_big_sur:  "88de1e1f59c011cccf76a6a3fcd4352b20803b6b191eee9658d5ef1ce8b2bbe7"
-    sha256 cellar: :any,                 monterey:       "c143db5c27b7e7dc30bcba40f1465b58e68fcf8b2fd1de9d651a9598355ab033"
-    sha256 cellar: :any,                 big_sur:        "5f4d16846e7590e7697e0aa5ad620cf559867c14bd99f4f9371f5369ab933312"
-    sha256 cellar: :any,                 catalina:       "567272fec74fd895f9d2c37686af837ee1dcb0b610a766b19e84889d83147421"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e427ded0fcd5f22b8069b17cb1a264cdfbe88fe8de92b8f97807b305f782e98b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "bb4e6211a5dac2a3b2fc5d8c4aa59935fe8b0faf10331019609498cf1f37111d"
+    sha256 cellar: :any,                 arm64_big_sur:  "212613f58fea12834c6b2509611b088a0f107dd7c8034101f0ad0bdb249efd3d"
+    sha256 cellar: :any,                 monterey:       "624cf91610d110aa868effbf3d2d6edd9801fc4f781a182e407c14248174e515"
+    sha256 cellar: :any,                 big_sur:        "a0c563d98010ceb86e95150df2b35a58bb4d514c20bd617f1c2b49b678c8407b"
+    sha256 cellar: :any,                 catalina:       "9141884c598544669b068dcc42c9af896a84d065efd87b83f3661bd2409d6141"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b26053f14cb3f20725c7f9491fb033ec03132136a1d8597e67f20676a69f2973"
   end
 
   depends_on "pkg-config" => :build
