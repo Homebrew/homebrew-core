@@ -7,14 +7,12 @@ class Eva < Formula
   head "https://github.com/NerdyPepper/eva.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd68adf80b50a921c0312d3064056ca7b80e99423e93990c009b1d587abcd75f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb89730bdb4a21db79cee25cf670c594015066205d7f30107f0b9141512be349"
-    sha256 cellar: :any_skip_relocation, monterey:       "2acc6b1c137a581a886903a55ca0260cdfc111854e5d8a5dde0791bb0bd6f0a7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "56ca7b33a9a468d35c1124392cd5ea666c739bc8a51b3c160dce58a8435e8896"
-    sha256 cellar: :any_skip_relocation, catalina:       "351a6e7946aa8597d3c321b47aec89d487f49261146dc1f04cdaadb380f5021a"
-    sha256 cellar: :any_skip_relocation, mojave:         "efed876746895ddcf247f4c90d7b90f1333129d8cc8f789789555045047e1260"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "706a6ad7ac61b8e8e1247fe1b52ead8c6c5b7b76fe750148a6a38904f3a4ef23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8eb8baf33bef3ece2fca2e919803a583f18940c327dc24bf75c7e865b12408f7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f57e5a6318ce5885415bd7bb44246fc115df0159c9576ed7c181cc0f7c9e7d5f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c2116a5a6e1a5a7bd08b01fcb8020565f4144bf9e73a95bad3955a4ddd6e1a41"
+    sha256 cellar: :any_skip_relocation, monterey:       "7879b80f272a66dfbd720ff962e7e06486520f220e48b792deb93acbe2147393"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d08201d6c431e6663c8044004b31d3a581b3f9ae15c29aa47d0db6f4c913a81e"
+    sha256 cellar: :any_skip_relocation, catalina:       "c6fa72af2cf3d0def023fedfd53d9e9d9235d45bab4f3c2f2bed92811cb8baac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ae6f7369bc50480893ae64685774ade66ba56b185eead7fba5faa0863ba438b"
   end
 
   depends_on "rust" => :build
