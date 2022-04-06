@@ -3,8 +3,8 @@ class Pylint < Formula
 
   desc "It's not just a linter that annoys you!"
   homepage "https://github.com/PyCQA/pylint"
-  url "https://files.pythonhosted.org/packages/f5/3d/8296010885be5c42bc2cf4f04287ae11cebdef65d7819984d1be4d1584bd/pylint-2.13.4.tar.gz"
-  sha256 "7cc6d0c4f61dff440f9ed8b657f4ecd615dcfe35345953eb7b1dc74afe901d7a"
+  url "https://files.pythonhosted.org/packages/aa/b2/e19502f2419ef2da4ac2785da42e77c5bf598a7f2ab59261917f2419b028/pylint-2.13.5.tar.gz"
+  sha256 "dab221658368c7a05242e673c275c488670144123f4bd262b2777249c1c0de9b"
   license "GPL-2.0-or-later"
 
   bottle do
