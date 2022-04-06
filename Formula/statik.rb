@@ -6,7 +6,7 @@ class Statik < Formula
   url "https://files.pythonhosted.org/packages/c1/f7/c1dc03a0ed218cb5d3e72f0983dcc18b441cc9d3275b527a5cb0a479dc2a/statik-0.23.0.tar.gz"
   sha256 "9ce2c5a76284aa7d3eba2dc5b167c39d0249f96da08213a14c89f0b7edcb7746"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/thanethomson/statik.git", branch: "master"
 
   bottle do
@@ -19,7 +19,7 @@ class Statik < Formula
   end
 
   depends_on "libpq"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libffi"
 
