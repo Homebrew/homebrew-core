@@ -4,12 +4,12 @@ class Crystal < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/1.3.2.tar.gz"
-    sha256 "0dceb2fde610c479466ebe1ce03745c51ba9def9f0da3aff1601532693741e0a"
+    url "https://github.com/crystal-lang/crystal/archive/1.4.0.tar.gz"
+    sha256 "543443a253fe338d0dec4f4158d728806a8db65bdd4bf3dbe3d0afcd1361b495"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.16.0.tar.gz"
-      sha256 "e23a51fdcb9747e86b3c58d733a1c7556a78002b46482ca0fdacfe63924dc454"
+      url "https://github.com/crystal-lang/shards/archive/v0.17.0.tar.gz"
+      sha256 "b3f0a2261437b21b3e2465b7755edf0c33f0305a112bd9a36e1b3ec74f96b098"
     end
   end
 
@@ -51,20 +51,20 @@ class Crystal < Formula
   fails_with gcc: "5"
 
   # Every new crystal release is built from the previous one. The exceptions are
-  # when crystal make a minor release (only bug fixes). Resason is because those
+  # when crystal make a minor release (only bug fixes). Reason is because those
   # bugs could make the compiler from stopping compiling the next compiler.
   #
   # See: https://github.com/Homebrew/homebrew-core/pull/81318
   resource "boot" do
     on_macos do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.2.0/crystal-1.2.0-1-darwin-universal.tar.gz"
-      version "1.2.0-1"
-      sha256 "ce9e671abec489a95df39e347d109e6a99b7388dffe1942b726cb62e2f433ac3"
+      url "https://github.com/crystal-lang/crystal/releases/download/1.3.2/crystal-1.3.2-1-darwin-universal.tar.gz"
+      version "1.3.2-1"
+      sha256 "ef7c509e29313ad024a54352abc9b9c30269efc2e81c5796b7b64a5f2c68470d"
     end
     on_linux do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.2.2/crystal-1.2.2-1-linux-x86_64.tar.gz"
-      version "1.2.2-1"
-      sha256 "b16e67862856ffa0e4abde62def24d5acd83d42b5086e8e1c556e040201ab3a1"
+      url "https://github.com/crystal-lang/crystal/releases/download/1.3.2/crystal-1.3.2-1-linux-x86_64.tar.gz"
+      version "1.3.2-1"
+      sha256 "6e102e55d658f2cc0c56d23fcb50bd2edbd98959aa6b59b8e1210c6860651ed4"
     end
   end
 
