@@ -11,14 +11,12 @@ class Dropbear < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c358a02ddb77666f1a523422e27f6805186a07d73cc5a20faf9b4fb134f64e29"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8681650c799bb023d972a9cc0dc9c07fd0ce37fc6f801a4b990af151f364b3b"
-    sha256 cellar: :any_skip_relocation, monterey:       "b9215fe593f1f1e709c85c05493ef7c1738cb28317e96bcaa0033ed6a7c345af"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ba4a09e7636d2629bdc11bfc5a99f9cab29eb351fb52a05c82533c76c29c87c8"
-    sha256 cellar: :any_skip_relocation, catalina:       "9659a7bdf1475748311e5a1e768ffb01d9020ddf7e19c7f8412bb62dc883d817"
-    sha256 cellar: :any_skip_relocation, mojave:         "55f1c51b6d253bcf03c6957139fae7e3b4f4cdcbdc90416ff9bd63f98d21a26d"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "59f3c740122b0f90b294d8b6e465cb9685b76617056cf9ae6554c221c681ed1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f09dda4db15d4d21a36d0bd9218c46bd78207c0670ff7756723a1f3e4efb7e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6aa3eb25000550815f3538bd8e43119d040e72ef5b8153ba65f7734c46f5817c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "874b0b702a08ed53d0c047e227b63a0c9f19e5f3e05c6ecea9b1c06020e49f38"
+    sha256 cellar: :any_skip_relocation, monterey:       "e433cf6cd9d31f3212057b1dfdc179e0e4afb9387ea4da0f88063cd32b5adcb8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5c772c987dddbf9376d497d25f453cf5e9e583e4b192836a30b89d07bee3ade6"
+    sha256 cellar: :any_skip_relocation, catalina:       "763bc9e50c22d55f5a0cf94e3cfb6b27f78360747bb47e4adeb2b608ef56651a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ea56ead9adcc4aafa405fcf25af3c2e6ab00252df3f140bbc0723d366ea4ffd"
   end
 
   head do
