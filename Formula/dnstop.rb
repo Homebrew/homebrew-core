@@ -19,6 +19,9 @@ class Dnstop < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "aa3b72d1432e7c13b9b7e0722cde3f7fafef17aff557489662029698929638dc"
   end
 
+  uses_from_macos "libpcap"
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
