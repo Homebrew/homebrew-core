@@ -5,7 +5,7 @@ class Cedille < Formula
       tag:      "v1.1.2",
       revision: "4d8a343a8d3f0b318e3c1b3209d216912dbc06ee"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/cedille/cedille.git", branch: "master"
 
   bottle do
@@ -18,7 +18,7 @@ class Cedille < Formula
   end
 
   depends_on "haskell-stack" => :build
-  depends_on "ghc@8.8"
+  depends_on "ghc"
 
   # needed to build with agda 2.6.1
   # taken from https://github.com/cedille/cedille/pull/144/files
@@ -30,6 +30,8 @@ class Cedille < Formula
   def install
     inreplace "stack.yaml", "resolver: lts-12.26", <<~EOS
       resolver: lts-16.12
+      compiler: ghc-#{Formula["ghc"].version}
+      compiler-check: newer-minor
       allow-newer: true
       system-ghc: true
       install-ghc: false
