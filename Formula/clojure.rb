@@ -1,8 +1,8 @@
 class Clojure < Formula
   desc "Dynamic, general-purpose programming language"
   homepage "https://clojure.org"
-  url "https://download.clojure.org/install/clojure-tools-1.11.0.1100.tar.gz"
-  sha256 "f4a12c3b7db5d7c7ef284d4696cfbd9c079176585329f989ca5b224980a828a5"
+  url "https://download.clojure.org/install/clojure-tools-1.11.1.1105.tar.gz"
+  sha256 "991cad02a2ac459dc4222c9f8233e2145458ed8576a254b64c262798cae40567"
   license "EPL-1.0"
   version_scheme 1
 
