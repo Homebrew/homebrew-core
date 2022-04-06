@@ -19,6 +19,8 @@ class Lft < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "e0370a6053bedd5c24f62583c2d19c3d0d2fab2fa5cf9003561e60694dad8642"
   end
 
+  uses_from_macos "libpcap"
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
