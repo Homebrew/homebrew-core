@@ -7,12 +7,12 @@ class Glfw < Formula
   head "https://github.com/glfw/glfw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "8f155b434f74ac11c303fab7887b5b41b2ea6440f438e101172b2b0a813ca004"
-    sha256 cellar: :any,                 arm64_big_sur:  "dca3eaac840e35f4e56f57a0825b557e932fcdc1bc9963b98fa18bf90c0af647"
-    sha256 cellar: :any,                 monterey:       "0eca3ff0166f1ece7deceb367e65b4edfbca79796b39675c6cb5e97e062908c2"
-    sha256 cellar: :any,                 big_sur:        "9cbe17a177731240a8fc404aa28610f9377001e6b22c0d9824f06ba7079a6177"
-    sha256 cellar: :any,                 catalina:       "843ed388610abf58783e081e47974eaa000cd67a1146b5795df6e17fba4c2062"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0f4bed83bf9ff81bb0bb0d78b35b07c6405777e5ad82b9e8e73606ab4f24677"
+    sha256 cellar: :any,                 arm64_monterey: "8ee8f78d6379db633345f9d51bdd9924c0392521b09647e5a0db19231222431b"
+    sha256 cellar: :any,                 arm64_big_sur:  "05b75b5525eb543cd01deb20ff1fda5e606b62bc15d45e7a5d25c47eb7c7835a"
+    sha256 cellar: :any,                 monterey:       "76fa6ed8a21701f59d2d9fc3085f2e4fbd6dab4bf4cf12171ec2e9480fbe3b32"
+    sha256 cellar: :any,                 big_sur:        "2c7bf990e4a3c50884748cf8076f5cf7798a62797523f4100f7a8016e47d42d8"
+    sha256 cellar: :any,                 catalina:       "6732f2291ca4a5438818dda21411f18f37f14649fa13139f8e26988dbe14076e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d667993dc9496b0beebe0c52e8d9b878a76942e47836ff667bc5111b9abafc1d"
   end
 
   depends_on "cmake" => :build
