@@ -1,8 +1,8 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/v3.0.7.tar.gz"
-  sha256 "db461c6ba07a8e3735a51a1d2e706d249ae30436519f543fa5931d414019c770"
+  url "https://github.com/dankamongmen/notcurses/archive/v3.0.8.tar.gz"
+  sha256 "56c33ffe2a2bc4d0b6e3ac14bdf620cf41e3293789135f76825057d0166974fd"
   license "Apache-2.0"
 
   bottle do
