@@ -18,6 +18,8 @@ class Bittwist < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "279cade886758dfabfbaa319c6afb302c7e254db0377f0eed1f1155afb800175"
   end
 
+  uses_from_macos "libpcap"
+
   def install
     system "make"
     system "make", "install", "prefix=#{prefix}"
