@@ -1,11 +1,10 @@
 class Monkeysphere < Formula
   desc "Use the OpenPGP web of trust to verify ssh connections"
-  homepage "https://web.monkeysphere.info/"
+  homepage "https://tracker.debian.org/pkg/monkeysphere"
   url "https://deb.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.44.orig.tar.gz"
   sha256 "6ac6979fa1a4a0332cbea39e408b9f981452d092ff2b14ed3549be94918707aa"
   license "GPL-3.0-or-later"
   revision 4
-  head "git://git.monkeysphere.info/monkeysphere"
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/m/monkeysphere/"
