@@ -22,10 +22,14 @@ class Libnids < Formula
   depends_on "glib"
   depends_on "libnet"
 
+  uses_from_macos "libpcap"
+
   # Patch fixes -soname and .so shared library issues. Unreported.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9dc80757ba32bf5d818d70fc26bb24b6f/libnids/1.24.patch"
-    sha256 "d9339c16f89915a02025f10f26aab5bb77c2af85926d2d9ff52e9c7bf2092215"
+  on_macos do
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9dc80757ba32bf5d818d70fc26bb24b6f/libnids/1.24.patch"
+      sha256 "d9339c16f89915a02025f10f26aab5bb77c2af85926d2d9ff52e9c7bf2092215"
+    end
   end
 
   def install
