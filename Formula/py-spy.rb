@@ -33,7 +33,8 @@ class PySpy < Formula
   end
 
   test do
-    output = shell_output("#{bin}/py-spy record python3.10 2>&1", 1)
-    assert_match "This program requires root", output
+    python = Formula["python@3.10"].opt_bin/"python3"
+    output = shell_output("#{bin}/py-spy record #{python} 2>&1", 1)
+    assert_match "Try running again with elevated permissions by going", output
   end
 end
