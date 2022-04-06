@@ -17,14 +17,28 @@ class GitAnnex < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pkg-config" => :build
-  depends_on "gsasl"
   depends_on "libmagic"
-  depends_on "quvi"
+
+  uses_from_macos "rsync"
+  uses_from_macos "zlib"
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args,
-                    "--flags=+S3"
+
+    if Hardware::CPU.arm?
+      system "cabal", "v2-install", *std_cabal_v2_args.reject { |s| s["--install"] }, "--only-dependencies",
+                      "-f-assistant", "-f-webapp", "-f-webdav", "-f-pairing", "-f-dbus", "-f-magicmime"
+      system "cabal", "v2-configure",
+                      "-f-assistant", "-f-webapp", "-f-webdav", "-f-pairing", "-f-dbus", "-f-magicmime"
+      ENV.deparallelize
+      cabal_args = std_cabal_v2_args.reject { |s| s["--jobs"] }
+      cabal_args += %w[--jobs=1 --ghc-option=-v3]
+      system "cabal", "v2-install", *cabal_args
+    else
+      system "cabal", "v2-install", *std_cabal_v2_args,
+                      "--flags=+S3"
+    end
+
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
