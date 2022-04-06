@@ -17,6 +17,9 @@ class Darkstat < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
+  uses_from_macos "libpcap"
+  uses_from_macos "zlib"
+
   # Patch reported to upstream on 2017-10-08
   # Work around `redefinition of clockid_t` issue on 10.12 SDK or newer
   patch do
