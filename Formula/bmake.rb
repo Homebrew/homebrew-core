@@ -11,12 +11,12 @@ class Bmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "74f3d7297d0e43e051ebc25df8e6b6c937522e1eb7a6895479f5eee0e65f1850"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8089cd842adb172141c112baf8db676d392e7849894b8aaee63401e4f8da01ae"
-    sha256                               monterey:       "217b6ce35f1aeb7c59fbc35bbe04ade7290abb2b99c9538f7f375056088155c9"
-    sha256                               big_sur:        "9590fa688cbaf287271bbca8548420dde6c62603bc4b075f70660b561d72e19e"
-    sha256                               catalina:       "8da02f75fcdb4e85960a24da424e76c077cc58649935684d841e71521075827e"
-    sha256                               x86_64_linux:   "7a53a49414a8e399b846c5451923ef2eef3de96ce6998b1d2d61b162a473bda2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e7fb3b9dde9cfae3104ad90df8c4bec26bec2da7957e45f705c68de5d0b29da6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86e2ab73eb983e55c9008d0a2e9b7a452aa4714c51968ffef351e501502c7da1"
+    sha256                               monterey:       "35465bf9615ccf297c45315c54f2d24423a136d89d032bba3e768a1bac33b258"
+    sha256                               big_sur:        "63400c4d08f286c5e14c0394f2994f39948dca884f673e6c6f400134c4afaf81"
+    sha256                               catalina:       "2063d9ef8d86787598d41b606e5475b8282aae24d717d813b343acc22f35505b"
+    sha256                               x86_64_linux:   "e06166d7e19f8d6bf9326253f6153c5832d47cf439b0f0ba113d6f2c9b51e3a3"
   end
 
   def install
