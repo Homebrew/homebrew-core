@@ -14,6 +14,7 @@ class Rdesktop < Formula
     sha256 catalina:       "8b22a2d1f52ff40334a16fc4614bc2f2c9e50386f0732e8e4478f68c7008f961"
     sha256 mojave:         "91b95a137be4361dee7d8bf2e442fa75eaf159469c09e238a127aa1186534638"
     sha256 high_sierra:    "84ca9f1d74ad63108e320f2cae63a2afdfafd3995aa2d37837d551cc5dda8688"
+    sha256 x86_64_linux:   "05b175c2263baf72cb59debeaf49a974d31db23caf9f1c2b5e9eb3007a02e791"
   end
 
   deprecate! date: "2020-11-12", because: :unmaintained
