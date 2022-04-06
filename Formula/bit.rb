@@ -10,9 +10,10 @@ class Bit < Formula
   head "https://github.com/teambit/bit.git", branch: "master"
 
   bottle do
-    sha256 monterey: "1b4cefb9480be0579cc849bed266ee8602d5d074f280c9e2c88c47ed28ac3404"
-    sha256 big_sur:  "387868e05ed7c459fde2b0d7c6eb31f889002bfb2628fa54bcc8a33b91f3c6de"
-    sha256 catalina: "c8122cc1152f05f8daf5087cc02e864d68246412180c927bca1d2cd06123ac70"
+    sha256                               monterey:     "1b4cefb9480be0579cc849bed266ee8602d5d074f280c9e2c88c47ed28ac3404"
+    sha256                               big_sur:      "387868e05ed7c459fde2b0d7c6eb31f889002bfb2628fa54bcc8a33b91f3c6de"
+    sha256                               catalina:     "c8122cc1152f05f8daf5087cc02e864d68246412180c927bca1d2cd06123ac70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c52d219252d60ad76c2cae5d1358d24d4e1de6b787beb6cf53832b972e89adcc"
   end
 
   depends_on "node"
