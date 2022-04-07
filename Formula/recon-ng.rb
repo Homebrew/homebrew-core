@@ -5,7 +5,7 @@ class ReconNg < Formula
   homepage "https://github.com/lanmaster53/recon-ng"
   url "https://github.com/lanmaster53/recon-ng/archive/v5.1.2.tar.gz"
   sha256 "18d05030b994c9b37f624628251d3376d590f3d1eec155f67aca88fa5f3490cc"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
   revision 1
 
   bottle do
@@ -183,9 +183,6 @@ class ReconNg < Formula
   end
 
   def install
-    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
-
     libexec.install Dir["*"]
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
