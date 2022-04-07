@@ -3,8 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/b5/6e/5806eafaa71ab5471cfc390089a89c7815ab841657d6517fd72df3d41862/ansible-5.5.0.tar.gz"
-  sha256 "b8a76d737889c9bfd0e6b0f2276dcf8d836da667067a355776f3504d7a66d518"
+  url "https://files.pythonhosted.org/packages/be/ac/323afe010699c446eceb17fd19e4d0a92a40f549b374c967615b7b8637d6/ansible-5.6.0.tar.gz"
+  sha256 "acd30731434154da376ceeeb416ee1541cdfb8ea3c648023a55a34cb3ecaf9f3"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
@@ -82,13 +82,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/c2/41/1e03f8a19501f86453c9e49c97865fcd4607177afdd4431ce43bd862c7de/boto3-1.21.31.tar.gz"
-    sha256 "7f3f93ee97215862ccd1a216f37deb7d64055c71f826b821805904df7b84ee6a"
+    url "https://files.pythonhosted.org/packages/c4/8d/42578db5fa179cd9d25c65486f1b7e2f20aa75f627ddb9a058665e2b4a0f/boto3-1.21.35.tar.gz"
+    sha256 "ab6e001ba9de1db986634424abff6c79d938c15d0d2fa3ef95eb0939c120b4f6"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e7/0e/582dda95926389c28e063faf9b56d643268dec0881c5144ef9dd5386b3ff/botocore-1.24.31.tar.gz"
-    sha256 "3bb21e3ee5e4de3ed76bb99b4496a46e9b5c82e7b7fdb62702f11dda1b57b769"
+    url "https://files.pythonhosted.org/packages/fd/0c/7be713341c583986a4f49cab0dfef8e263b636ba9a30c30179c3ad136343/botocore-1.24.35.tar.gz"
+    sha256 "36b5422d8f0c312983582b8b4b056c98e1fd6121cb0b2ddb1f67e882e1ae6867"
   end
 
   resource "cachetools" do
@@ -558,11 +558,6 @@ class Ansible < Formula
 
   def install
     ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
-
-    if OS.mac? && (MacOS.version <= :sierra)
-      # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
 
     venv = virtualenv_create(libexec, "python3")
     # Install all of the resources declared on the formula into the virtualenv.
