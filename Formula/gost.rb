@@ -1,8 +1,8 @@
 class Gost < Formula
   desc "GO Simple Tunnel - a simple tunnel written in golang"
   homepage "https://github.com/ginuerzh/gost"
-  url "https://github.com/ginuerzh/gost/archive/v2.11.1.tar.gz"
-  sha256 "d94b570a7a84094376b8c299d740528f51b540d9162f1db562247a15a89340bf"
+  url "https://github.com/ginuerzh/gost/archive/v2.11.2.tar.gz"
+  sha256 "143174a9ba5b0b6251d1d9a52267220f97bec1319676618746c1a5d7a7a86d96"
   license "MIT"
   head "https://github.com/ginuerzh/gost.git", branch: "master"
 
