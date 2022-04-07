@@ -142,6 +142,6 @@ class Sqlfluff < Formula
     (testpath/"test.sql").write <<~EOS
       SELECT 1;
     EOS
-    assert_match "All Finished!", shell_output("#{bin}/sqlfluff lint --nocolor #{testpath}/test.sql")
+    assert_match "All Finished!", shell_output("#{bin}/sqlfluff lint --dialect sqlite --nocolor #{testpath}/test.sql")
   end
 end
