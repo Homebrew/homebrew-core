@@ -3,8 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4274"
-  version "10.86.31"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4311"
+  version "10.86.32"
   license "GPL-3.0-or-later"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
@@ -36,10 +36,6 @@ class Netpbm < Formula
   conflicts_with "jbigkit", because: "both install `pbm.5` and `pgm.5` files"
 
   def install
-    # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
-    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
-
     cp "config.mk.in", "config.mk"
 
     inreplace "config.mk" do |s|
