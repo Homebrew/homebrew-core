@@ -32,9 +32,6 @@ class Dnsdist < Formula
   uses_from_macos "libedit"
 
   def install
-    # error: unknown type name 'mach_port_t'
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
