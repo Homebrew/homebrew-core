@@ -15,6 +15,12 @@ class Julius < Formula
 
   depends_on "libsndfile"
 
+  uses_from_macos "zlib"
+
+  # A pull request to fix this has been submitted upstream:
+  # https://github.com/julius-speech/julius/pull/184
+  patch :DATA
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -29,3 +35,18 @@ class Julius < Formula
     shell_output("#{bin}/julius --help", 1)
   end
 end
+
+__END__
+diff --git a/libsent/src/phmm/calc_dnn.c b/libsent/src/phmm/calc_dnn.c
+index aed91ef..a8a9f35 100644
+--- a/libsent/src/phmm/calc_dnn.c
++++ b/libsent/src/phmm/calc_dnn.c
+@@ -45,7 +45,7 @@ static void cpu_id_check()
+ 
+   use_simd = USE_SIMD_NONE;
+ 
+-#if defined(__arm__) || TARGET_OS_IPHONE
++#if defined(__arm__) || TARGET_OS_IPHONE || defined(__aarch64__)
+   /* on ARM NEON */
+ 
+ #if defined(HAS_SIMD_NEONV2)
