@@ -19,6 +19,9 @@ class Grap < Formula
     sha256 high_sierra:    "b7394034b2898da9e7a61d578f9789f642f29d3191f84041b4fb9763bdfdcc73"
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
