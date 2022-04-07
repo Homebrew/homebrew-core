@@ -3,8 +3,8 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/88/e4/02b9e7389e4aac60c0d21b3ea8a62a9febb0499fc2a54101516db9f3a86e/sqlfluff-0.11.2.tar.gz"
-  sha256 "6e246fb8f2a6a2c307d905d826cf00fe5b639b05e1f09ce58e96eeb8460919cd"
+  url "https://files.pythonhosted.org/packages/39/88/921161854c45d426c92c2c954dede005600d47cf346de26f89bb56931480/sqlfluff-0.12.0.tar.gz"
+  sha256 "98670f26fb8f94d953e32a1239b2d3b3e69839708c8daed8ba94d5d836df8889"
   license "MIT"
 
   bottle do
@@ -34,8 +34,8 @@ class Sqlfluff < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
-    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
+    url "https://files.pythonhosted.org/packages/42/e1/4cb2d3a2416bcd871ac93f12b5616f7755a6800bccae05e5a99d3673eb69/click-8.1.2.tar.gz"
+    sha256 "479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72"
   end
 
   resource "colorama" do
@@ -124,8 +124,8 @@ class Sqlfluff < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3c/77/e75fb048907ccc065030bf7d9d2d1441247e4e234dbfceb5466207190962/tqdm-4.63.1.tar.gz"
-    sha256 "4230a49119a416c88cc47d0d2d32d5d90f1a282d5e497d49801950704e49863d"
+    url "https://files.pythonhosted.org/packages/98/2a/838de32e09bd511cf69fe4ae13ffc748ac143449bfc24bb3fd172d53a84f/tqdm-4.64.0.tar.gz"
+    sha256 "40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"
   end
 
   resource "typing-extensions" do
@@ -142,6 +142,6 @@ class Sqlfluff < Formula
     (testpath/"test.sql").write <<~EOS
       SELECT 1;
     EOS
-    assert_match "All Finished!", shell_output("#{bin}/sqlfluff lint --nocolor #{testpath}/test.sql")
+    assert_match "All Finished!", shell_output("#{bin}/sqlfluff lint --dialect sqlite --nocolor #{testpath}/test.sql")
   end
 end
