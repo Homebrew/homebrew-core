@@ -28,6 +28,12 @@ class ZeroInstall < Formula
   depends_on "pkg-config" => :build
   depends_on "gnupg"
 
+  uses_from_macos "curl"
+
+  on_linux do
+    depends_on "pkg-config"
+  end
+
   def install
     ENV.append_path "PATH", Formula["gnupg"].opt_bin
 
@@ -39,6 +45,8 @@ class ZeroInstall < Formula
       ENV["OPAMYES"] = "1"
       ENV["OPAMVERBOSE"] = "1"
       system "opam", "init", "--no-setup", "--disable-sandboxing"
+      # Tell opam not to try to install external dependencies
+      system "opam", "option", "depext=false"
       modules = %w[
         yojson
         xmlm
