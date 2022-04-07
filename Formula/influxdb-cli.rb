@@ -2,8 +2,8 @@ class InfluxdbCli < Formula
   desc "CLI for managing resources in InfluxDB v2"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influx-cli.git",
-      tag:      "v2.2.1",
-      revision: "31ac78361b8aaae2aba966eb69054ea107028044"
+      tag:      "v2.3.0",
+      revision: "88ba3464cd07599375b4f21589f93bf5a9b1e7e1"
   license "MIT"
   head "https://github.com/influxdata/influx-cli.git", branch: "main"
 
