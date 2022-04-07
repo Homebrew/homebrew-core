@@ -1,8 +1,8 @@
 class Shadowenv < Formula
   desc "Reversible directory-local environment variable manipulations"
   homepage "https://shopify.github.io/shadowenv/"
-  url "https://github.com/Shopify/shadowenv/archive/2.0.6.tar.gz"
-  sha256 "53b8cb45db599596d07fe5eada7411d71ceb75c6e4ca22ae33b7196720eece42"
+  url "https://github.com/Shopify/shadowenv/archive/2.0.7.tar.gz"
+  sha256 "9e0605f2d6928d1db59e2b86b8767a115bd9ea7bba940c028372b87d3d049bac"
   license "MIT"
 
   bottle do
