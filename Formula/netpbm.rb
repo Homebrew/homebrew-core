@@ -16,12 +16,12 @@ class Netpbm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a88b4f76eab9b8a0019916513ac200f0b12ea4890c07e7c1a54813864d854262"
-    sha256 cellar: :any,                 arm64_big_sur:  "0f3a70dd877861cba30868809fc6d127068d0bc26edadeaa4d4c7d7b4f6086a3"
-    sha256 cellar: :any,                 monterey:       "06091d0a0756c97af3c2742e2583da78b9b3ad015dadab50f2baa6e3aefdcb88"
-    sha256 cellar: :any,                 big_sur:        "f5a3a66fa96f6214993b016445b8f05c385209c38cacb8f4bc76cd853333d279"
-    sha256 cellar: :any,                 catalina:       "39f1c3367985eea2ff1678225f9acc1717d1d5373c65eb44bfa77bf916d8f129"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35ce7514415b575a919e6934ad0705e8d2a4e8d130726d16f4c3746eb37089c3"
+    sha256 cellar: :any,                 arm64_monterey: "631f1cab0394dcfa01aba30eb971fdb0532207eb327f854668dd18568c1e671b"
+    sha256 cellar: :any,                 arm64_big_sur:  "0448d80545090f5e4922c82d8e776b21fe23bcd4e32c4910b664dd7e1bac22db"
+    sha256 cellar: :any,                 monterey:       "ea9046815c5d1803c0bbb53d221f308baf57bf647a87424ff321a6a0f3ceb748"
+    sha256 cellar: :any,                 big_sur:        "cfc749333431aa07b626edac0e73a1f8f2512aed00656044ae3fc4a7b8da7518"
+    sha256 cellar: :any,                 catalina:       "69ced83f7701dd74f5fb944ee66f4e9822a70afece7a27586880db5c19bef960"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3492eefa5aefe8173e943bccd7b85fd4cdf2b7f309c4509c5ce66ed91f17bcc"
   end
 
   depends_on "jasper"
