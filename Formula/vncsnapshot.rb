@@ -25,6 +25,8 @@ class Vncsnapshot < Formula
 
   depends_on "jpeg"
 
+  uses_from_macos "zlib"
+
   patch :DATA # remove old PPC __APPLE__ ifdef from sockets.cxx
 
   def install
