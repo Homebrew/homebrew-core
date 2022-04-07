@@ -20,6 +20,8 @@ class Tin < Formula
 
   depends_on "gettext"
 
+  uses_from_macos "bison" => :build
+
   conflicts_with "mutt", because: "both install mmdf.5 and mbox.5 man pages"
 
   def install
