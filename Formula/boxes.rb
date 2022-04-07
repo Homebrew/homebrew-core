@@ -19,6 +19,8 @@ class Boxes < Formula
   depends_on "libunistring"
   depends_on "pcre2"
 
+  uses_from_macos "flex" => :build
+
   def install
     # distro uses /usr/share/boxes change to prefix
     system "make", "GLOBALCONF=#{share}/boxes-config",
