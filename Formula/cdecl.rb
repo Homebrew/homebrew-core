@@ -17,6 +17,13 @@ class Cdecl < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "e8f53a0e5b3649f0c691c60380b9c77af573387240f3479a41550583fcc4e22c"
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     # Fix namespace clash with Lion's getline
     inreplace "cdecl.c", "getline", "cdecl_getline"
