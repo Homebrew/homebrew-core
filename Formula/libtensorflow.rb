@@ -12,11 +12,22 @@ class Libtensorflow < Formula
 
   depends_on "bazelisk" => :build
   depends_on "numpy" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   resource "test-model" do
     url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
     sha256 "147fab50ddc945972818516418942157de5e7053d4b67e7fca0b0ada16733ecb"
+  end
+
+  # Fix build for host without python2
+  # Remove in the next 2.9 release
+  patch do
+    url "https://github.com/tensorflow/tensorflow/commit/1dd61c1f744227ad2434a7a9813fc57f623bc9a2.patch?full_index=1"
+    sha256 "f73a590f19962c097251efa6f4f40b80dfa944e3440b298973436016aea67c70"
+  end
+  patch do
+    url "https://github.com/tensorflow/tensorflow/commit/739002567ff81d731179a4b949def7e0f14737c8.patch?full_index=1"
+    sha256 "23c96cf491a6445db18353504bdb0b01f58770f1c0da405da42b91381259ce0e"
   end
 
   def install
@@ -28,7 +39,7 @@ class Libtensorflow < Formula
       "-march=native"
     end
     ENV["CC_OPT_FLAGS"] = optflag
-    ENV["PYTHON_BIN_PATH"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON_BIN_PATH"] = Formula["python@3.10"].opt_bin/"python3"
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
     ENV["TF_NEED_GCP"] = "0"
@@ -55,6 +66,7 @@ class Libtensorflow < Formula
       --compilation_mode=opt
       --copt=#{optflag}
       --linkopt=-Wl,-rpath,#{rpath}
+      --verbose_failures
     ]
     targets = %w[
       tensorflow:libtensorflow.so
