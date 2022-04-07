@@ -12,7 +12,7 @@ class Digdag < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "47b5fff24344ebadc086f1ea9421a2f96fe9816e115e568cabafdc94aabdbf4d"
+    sha256 cellar: :any_skip_relocation, all: "1e8af040e14f05c1f648ef90f3e0e7da9037d7e813cfb1fc7c644d174244d0cf"
   end
 
   depends_on "openjdk@11"
