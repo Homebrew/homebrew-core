@@ -33,6 +33,9 @@ class Intercal < Formula
     depends_on "automake" => :build
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     if build.head?
       cd "buildaux" do
