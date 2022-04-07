@@ -48,9 +48,6 @@ class Gperftools < Formula
   end
 
   def install
-    # Fix "error: unknown type name 'mach_port_t'"
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
-
     ENV.append_to_cflags "-D_XOPEN_SOURCE" if OS.mac?
 
     system "autoreconf", "-fiv" if build.head?
