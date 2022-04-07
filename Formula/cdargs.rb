@@ -20,6 +20,8 @@ class Cdargs < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
 
+  uses_from_macos "ncurses"
+
   # fixes zsh usage using the patch provided at the cdargs homepage
   # (See https://www.skamphausen.de/cgi-bin/ska/CDargs)
   patch do
