@@ -24,6 +24,8 @@ class Cvsync < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   def install
     ENV["PREFIX"] = prefix
     ENV["MANDIR"] = man
