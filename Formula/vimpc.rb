@@ -25,6 +25,8 @@ class Vimpc < Formula
   depends_on "pcre"
   depends_on "taglib"
 
+  uses_from_macos "curl"
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
