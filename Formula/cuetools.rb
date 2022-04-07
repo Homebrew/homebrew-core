@@ -23,6 +23,9 @@ class Cuetools < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   # see https://github.com/svend/cuetools/pull/18
   patch :DATA
 
