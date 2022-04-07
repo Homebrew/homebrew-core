@@ -1,8 +1,8 @@
 class Faust < Formula
   desc "Functional programming language for real time signal processing"
   homepage "https://faust.grame.fr"
-  url "https://github.com/grame-cncm/faust/releases/download/2.37.3/faust-2.37.3.tar.gz"
-  sha256 "f14577e9f63041ec341f40a64dae5e9362be8ed77571aa389ed7d389484a31d7"
+  url "https://github.com/grame-cncm/faust/releases/download/2.40.0/faust-2.40.0.tar.gz"
+  sha256 "0a8170ee8e037ee62f92d71ad8a5c3c4a9bfee5a995adfc1be9785f66727e818"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -25,7 +25,16 @@ class Faust < Formula
 
   fails_with gcc: "5"
 
+  # Fix parallel build of Make.llvm.static
+  # PR ref: https://github.com/grame-cncm/faust/pull/728
+  # Remove in the next release.
+  patch do
+    url "https://github.com/grame-cncm/faust/commit/c0e82fd2e261bae7b4614c2cee7f2e1d913cdb4f.patch?full_index=1"
+    sha256 "6beaac00630c8d6947e6e67b9e0b0ac45f573cd44aac3de4a347715127eb3ba9"
+  end
+
   def install
+    ENV.delete "TMP" # don't override Makefile variable
     system "make", "world"
     system "make", "install", "PREFIX=#{prefix}"
   end
