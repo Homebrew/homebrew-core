@@ -178,8 +178,6 @@ class AwsGoogleAuth < Formula
   end
 
   def install
-    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
     virtualenv_install_with_resources
   end
 
