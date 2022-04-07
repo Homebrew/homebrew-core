@@ -19,9 +19,18 @@ class Cpansearch < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "ncurses"
+
+  uses_from_macos "curl"
 
   def install
+    unless OS.mac?
+      # Help find some ncursesw headers
+      ENV.append "CPPFLAGS", "-I#{Formula["ncurses"].include}/ncursesw"
+      # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+      # Remove after migration to 18.04.
+      inreplace "Makefile", "$(LDFLAGS) $(OBJS)", "$(OBJS) $(LDFLAGS)"
+    end
     system "make"
     bin.install "cpans"
   end
