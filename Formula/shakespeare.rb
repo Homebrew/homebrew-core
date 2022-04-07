@@ -25,6 +25,8 @@ class Shakespeare < Formula
 
   depends_on "flex"
 
+  uses_from_macos "bison" => :build
+
   def install
     system "make", "install"
     bin.install "spl/bin/spl2c"
