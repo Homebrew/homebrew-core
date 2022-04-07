@@ -8,6 +8,7 @@ class QtAT5 < Formula
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.3/single/qt-everywhere-opensource-src-5.15.3.tar.xz"
   sha256 "b7412734698a87f4a0ae20751bab32b1b07fdc351476ad8e35328dbe10efdedb"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5ac5153ebd4c55455f4e66c8ff709a8f6e5eaa4585b771d3713ff4157533c535"
@@ -60,8 +61,8 @@ class QtAT5 < Formula
 
   resource "qtwebengine" do
     url "https://code.qt.io/qt/qtwebengine.git",
-        tag:      "v5.15.8-lts",
-        revision: "96e932d73057c3e705b849249fb02e1837b7576d"
+        tag:      "v5.15.9-lts",
+        revision: "4f570bd7add21725d66ac8396dcf21917c3a603f"
   end
 
   # Backport of https://code.qt.io/cgit/qt/qtbase.git/commit/src/plugins/platforms/cocoa?id=dece6f5840463ae2ddf927d65eb1b3680e34a547
