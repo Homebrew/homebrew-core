@@ -2,8 +2,8 @@ class Arkade < Formula
   desc "Open Source Kubernetes Marketplace"
   homepage "https://blog.alexellis.io/kubernetes-marketplace-two-year-update/"
   url "https://github.com/alexellis/arkade.git",
-      tag:      "0.8.20",
-      revision: "da44ab16b931f9aa10553827210645ce55b90aec"
+      tag:      "0.8.22",
+      revision: "2d3df2c8eb2ea261aee0f13bf6c7550a5c41750c"
   license "MIT"
 
   livecheck do
