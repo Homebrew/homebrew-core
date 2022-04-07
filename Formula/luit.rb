@@ -18,6 +18,8 @@ class Luit < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "6076f38bc562ff5408f986b767a20301c5c61c805881f836df3608152ae2c31c"
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--prefix=#{prefix}", "--without-x"
     system "make", "install"
@@ -28,6 +30,8 @@ class Luit < Formula
     (testpath/"input").write("#end {bye}\n")
     PTY.spawn(bin/"luit", "-encoding", "GBK", "echo", "foobar") do |r, _w, _pid|
       assert_match "foobar", r.read
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
     end
   end
 end
