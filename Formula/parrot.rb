@@ -40,6 +40,8 @@ class Parrot < Formula
     sha256 yosemite:       "37a9ad2396bcf355d6d7ae2d432489e316d3290528947a6f1a30e753fed59902"
   end
 
+  uses_from_macos "zlib"
+
   conflicts_with "rakudo-star"
 
   def install
