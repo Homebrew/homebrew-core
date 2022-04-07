@@ -5,7 +5,7 @@ class Unisonlang < Formula
   homepage "https://unison-lang.org/"
   url "https://github.com/unisonweb/unison.git",
       tag:      "release/M2l",
-      revision: "97cce8d23147df30b0f80ae745968db09f4e1a44"
+      revision: "be6bb2a76b7f217ce8d0c92d1e915fcca2213404"
   version "1.0.0-M2l"
   license "MIT"
   head "https://github.com/unisonweb/unison.git", branch: "trunk"
