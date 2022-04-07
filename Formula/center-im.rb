@@ -28,6 +28,8 @@ class CenterIm < Formula
   depends_on "gettext"
   depends_on "openssl@1.1"
 
+  uses_from_macos "curl"
+
   # Fix build with clang; 4.22.10 is an outdated release and 5.0 is a rewrite,
   # so this is not reported upstream
   patch :DATA
