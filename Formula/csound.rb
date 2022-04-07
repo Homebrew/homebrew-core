@@ -59,14 +59,8 @@ class Csound < Formula
   end
 
   resource "csound-plugins" do
-    url "https://github.com/csound/plugins/archive/refs/tags/1.0.2.tar.gz"
-    sha256 "8c2f0625ad1d38400030f414b92d82cfdec5c04b7dc178852f3e1935abf75d30"
-
-    # Fix build on macOS 12.3+ by replacing old system Python/Python.h with Homebrew's Python.h
-    patch do
-      url "https://github.com/csound/plugins/commit/13800c4dd58e3c214e5d7207180ad7115b4e2f27.patch?full_index=1"
-      sha256 "e088cc300845408f3956f070fa34a900b700c7860678bc6d37f7506d615787a6"
-    end
+    url "https://github.com/csound/plugins/archive/a5fd7f194e14833c2bb4f574963613537d6460cb.tar.gz"
+    sha256 "c7b8f29f301c64f877070bb3738a9410f45b8ae00145545471c17317bb66bdd7"
   end
 
   resource "getfem" do
