@@ -37,6 +37,9 @@ class Renameutils < Formula
   end
 
   def install
+    # Work around build failure on Apple Silicon due to trying to use deprecated stat64.
+    # io-utils.c:93:19: error: variable has incomplete type 'struct stat64'
+    ENV["ac_cv_func_lstat64"] = "no" if Hardware::CPU.arm?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-packager=Homebrew"
