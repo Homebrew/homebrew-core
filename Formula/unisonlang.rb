@@ -13,6 +13,10 @@ class Unisonlang < Formula
   depends_on "haskell-stack" => :build
   depends_on "node" => :build
 
+  on_linux do
+    depends_on "xz" => :build
+  end
+
   resource "unison-ui" do
     url "https://github.com/unisonweb/codebase-ui.git",
         tag:      "release/M2l",
