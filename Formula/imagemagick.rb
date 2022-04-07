@@ -28,6 +28,7 @@ class Imagemagick < Formula
   depends_on "liblqr"
   depends_on "libomp"
   depends_on "libpng"
+  depends_on "libraw"
   depends_on "libtiff"
   depends_on "libtool"
   depends_on "little-cms2"
@@ -65,6 +66,7 @@ class Imagemagick < Formula
       "--with-openexr",
       "--with-webp=yes",
       "--with-heic=yes",
+      "--with-raw=yes",
       "--with-gslib",
       "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts",
       "--with-lqr",
@@ -87,11 +89,18 @@ class Imagemagick < Formula
 
   test do
     assert_match "PNG", shell_output("#{bin}/identify #{test_fixtures("test.png")}")
+
     # Check support for recommended features and delegates.
-    features = shell_output("#{bin}/convert -version")
-    %w[Modules freetype jpeg png tiff].each do |feature|
+    features = shell_output("#{bin}/magick -version")
+    %w[Modules freetype heic jpeg png raw tiff].each do |feature|
       assert_match feature, features
     end
-    assert_match "Helvetica", shell_output("#{bin}/identify -list font")
+
+    # Check support for a few specific image formats, mostly to ensure LibRaw linked correctly.
+    formats = shell_output("#{bin}/magick -list format")
+    ["AVIF* HEIC      rw+", "ARW  DNG       r--", "DNG  DNG       r--"].each do |format|
+      assert_match format, formats
+    end
+    assert_match "Helvetica", shell_output("#{bin}/magick -list font")
   end
 end
