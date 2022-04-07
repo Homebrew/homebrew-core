@@ -26,6 +26,9 @@ class Freediameter < Formula
   depends_on "libgcrypt"
   depends_on "libidn"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DDEFAULT_CONF_PATH=#{etc}",
