@@ -20,6 +20,8 @@ class Openjazz < Formula
   depends_on "libmodplug"
   depends_on "sdl"
 
+  uses_from_macos "zlib"
+
   # From LICENSE.DOC:
   # "Epic MegaGames allows and encourages all bulletin board systems and online
   # services to distribute this game by modem as long as no files are altered
