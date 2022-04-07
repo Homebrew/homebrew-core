@@ -5,6 +5,15 @@ class Imposm3 < Formula
   sha256 "14045272aa0157dc5fde1cfe885fecc2703f3bf33506603f2922cdf28310ebf0"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "fdafcbc08f1e074d72e2cb9c4b1fac78bfce27bc7a13a8bcec66ef9772500ebb"
+    sha256 cellar: :any,                 arm64_big_sur:  "3de66aef5a6ac996404b8649533154c33556f89bff203e25ddd6629c5aaa5996"
+    sha256 cellar: :any,                 monterey:       "a21df3f6a6b84b27a6dc765c484b77369999a8bb3491a05a58a4443f2716e0ff"
+    sha256 cellar: :any,                 big_sur:        "0adc7ed5a958cc0383b156184ceb0a07c567d8826480a7e0d2de56355d74e787"
+    sha256 cellar: :any,                 catalina:       "d82aea779d17f54eef2f96d032a0d4332757afbb0f490e1f8dccb98cb519b5c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a792e769a9d5319b62ae64048ec8f88bf33f9d35eef724a66b5fca1a10b4496d"
+  end
+
   depends_on "go" => :build
   depends_on "osmium-tool" => :test
   depends_on "geos"
