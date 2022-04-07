@@ -9,9 +9,11 @@ class Pympress < Formula
   head "https://github.com/Cimbali/pympress.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey: "269509fc2d58e1d0319bb0799556287b57d4d25e5a7e2481d70a3ebc70dd27bf"
-    sha256 cellar: :any_skip_relocation, big_sur:  "ead363489a8fbe39769636a5e5acf5ccc062daa5fc83d4ec27e6218c595faae6"
-    sha256 cellar: :any_skip_relocation, catalina: "99da6a30b038eccc64d69c514f0c6e60212389bac7e6c2ba94f86d8089484154"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e182e85a285464afff947ad42d25fccbeebfd802722c4c6668e610bb03c54165"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d73a5236bf39d3b088ed79701623775ba520e0c666999c21305c9781a182a800"
+    sha256 cellar: :any_skip_relocation, monterey:       "269509fc2d58e1d0319bb0799556287b57d4d25e5a7e2481d70a3ebc70dd27bf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ead363489a8fbe39769636a5e5acf5ccc062daa5fc83d4ec27e6218c595faae6"
+    sha256 cellar: :any_skip_relocation, catalina:       "99da6a30b038eccc64d69c514f0c6e60212389bac7e6c2ba94f86d8089484154"
   end
 
   depends_on "gobject-introspection"
