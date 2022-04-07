@@ -22,6 +22,8 @@ class Shellinabox < Formula
   depends_on "libtool" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   # Upstream (Debian) patch for OpenSSL 1.1 compatibility
   # Original patch cluster: https://github.com/shellinabox/shellinabox/pull/467
   patch do
