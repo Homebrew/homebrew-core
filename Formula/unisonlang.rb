@@ -40,11 +40,6 @@ class Unisonlang < Formula
   end
 
   test do
-    (testpath/"getbase.md").write <<~EOS
-      ```ucm
-      .> pull https://github.com/unisonweb/base:.releases._latest .base
-      ```
-    EOS
-    system "ucm", "transcript", testpath/"getbase.md"
+    assert_match "ucm version:", shell_output("#{bin}/ucm version")
   end
 end
