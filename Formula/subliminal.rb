@@ -18,6 +18,9 @@ class Subliminal < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1840458efc8a0b046a0b45ed8a223c02a94bb47848b292e89d9013e28ee093dd"
   end
 
+  # https://github.com/Diaoul/subliminal/issues/1046
+  deprecate! date: "2022-04-07", because: :unmaintained
+
   depends_on "python@3.9"
 
   resource "appdirs" do
