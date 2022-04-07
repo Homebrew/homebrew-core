@@ -18,6 +18,8 @@ class Esniper < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "d269d258369cfb214baa129ade61616121341c0129d820e9c77dec6b841ce0e1"
   end
 
+  uses_from_macos "curl"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
