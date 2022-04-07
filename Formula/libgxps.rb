@@ -32,7 +32,13 @@ class Libgxps < Formula
   depends_on "libarchive"
   depends_on "little-cms2"
 
+  uses_from_macos "zip" => :test
+  uses_from_macos "zlib"
+
   def install
+    # Tell meson to search for brewed zlib before host zlib on Linux.
+    # This is not the same variable as setting LD_LIBRARY_PATH!
+    ENV.append "LIBRARY_PATH", Formula["zlib"].opt_lib unless OS.mac?
     mkdir "build" do
       system "meson", *std_meson_args, ".."
       system "ninja", "-v"
@@ -81,8 +87,9 @@ class Libgxps < Formula
       EOS
     end
 
+    zip = OS.mac? ? "/usr/bin/zip" : Formula["zip"].opt_bin/"zip"
     Dir.chdir(testpath) do
-      system "/usr/bin/zip", "-qr", (testpath/"test.xps"), "_rels", "Documents", "FixedDocumentSequence.fdseq"
+      system zip, "-qr", (testpath/"test.xps"), "_rels", "Documents", "FixedDocumentSequence.fdseq"
     end
     system "#{bin}/xpstopdf", (testpath/"test.xps")
   end
