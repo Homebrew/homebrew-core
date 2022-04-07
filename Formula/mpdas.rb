@@ -24,6 +24,8 @@ class Mpdas < Formula
   depends_on "pkg-config" => :build
   depends_on "libmpdclient"
 
+  uses_from_macos "curl"
+
   def install
     system "make", "PREFIX=#{prefix}", "MANPREFIX=#{man1}", "CONFIG=#{etc}", "install"
     etc.install "mpdasrc.example"
