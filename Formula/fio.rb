@@ -6,12 +6,12 @@ class Fio < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a54298558d6ec284b0c386c805321908737dc18dcf7f863ea117eb96885e443c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c6acb5047002646b69bad67a43080def0c766ee3e0b43bc2ab93e7f4ab181cce"
-    sha256 cellar: :any_skip_relocation, monterey:       "16f60ea089a5ea940a2b98e564e37bf1a0dcdbbad3c3f826c4e2cabb387d0986"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5edec27c8f2bc586d4241dfc4d5a9ec4d1b614c09caba66ed0635553f5e0c45c"
-    sha256 cellar: :any_skip_relocation, catalina:       "11861fee3b424af0e5442b62d54e458b1039bd6ce3917b8ff4a61ea4396eef16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3330391889dd52011905de2aac9ba77605fb9a96c97cd961959d3a1838e8638b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b1e6c68228927de946af436462430570baa8a76a1c671fb3164859dd40d645bc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "db7765c3d2e3f844d39f1856142e02e9805e733a66a6d7eee0e328a3f830744d"
+    sha256 cellar: :any_skip_relocation, monterey:       "73784fe2a10c41133ae795e2cefa5bb0abeb523caaa8094f03d0fdeeecea260b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "23f365e06226826d7721235d5854dda333ad4e6b958376fbf5164a18b67c42a1"
+    sha256 cellar: :any_skip_relocation, catalina:       "b0c3cc845dbebc6f7539cce887926876ea3bde736cb3fee0f50acd9c2f2f7680"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9081d3d0bcc57384a19805690d692cc35861e2f7b0dff788140964c9ab501e31"
   end
 
   uses_from_macos "zlib"
