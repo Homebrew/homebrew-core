@@ -30,6 +30,8 @@ class Coccinelle < Formula
   depends_on "ocaml"
   depends_on "pcre"
 
+  uses_from_macos "unzip" => :build
+
   # Bootstap resource for Ocaml 4.12 compatibility.
   # Remove when Coccinelle supports Ocaml 4.12 natively
   resource "stdcompat" do
