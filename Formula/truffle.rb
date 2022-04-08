@@ -14,9 +14,10 @@ class Truffle < Formula
   license "MIT"
 
   bottle do
-    sha256 big_sur:  "c39fe4aef87c1c78a58b1d7dd791519e2e608a9b1eddf9c4865c4a42626f3c23"
-    sha256 catalina: "dd0c6c697882c291dd6e697ed430f2c864a5f1ebe38544a3d563507c5dc5dea7"
-    sha256 mojave:   "5b19919e36101ef6cf0020a3a75b8087a5a766644138ebd8a08893b9765503cf"
+    sha256                               monterey:     "92195fe1c55b1c75e21d31444b4b102f5de62b8f6c63b68745ee91d90b9c1ba0"
+    sha256                               big_sur:      "59bbd014769f96d93abcc6a7c31b3ec02fb098d8e937acfa8ef11cdfa0c27e82"
+    sha256                               catalina:     "24a3f755bceb56ea67d0821f8c7738225b0f527ce40622c71274a1454a9667cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "be1dc91dc96de713bf506d8fece22df6c2a77d266eb3fd3ddf2da22ad23e1c16"
   end
 
   # needs fsevents>=2.2.2 for Apple Silicon: https://github.com/fsevents/fsevents/pull/350
