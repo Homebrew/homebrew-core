@@ -21,6 +21,7 @@ class Dterm < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "a0f9f7bfcadc790624975724244e30d4459e0eb3172dc2646db2b58f7643589c"
     sha256 cellar: :any_skip_relocation, el_capitan:     "6e18a2f46faa55e99fe070c7fd5e95940d66a5295f694605c9e90b416b577d37"
     sha256 cellar: :any_skip_relocation, yosemite:       "353231f24cda3e48779652002067ac2650b0182f4e7f69fc86b059139daf4511"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e32e1bc798fb4622c7fc33cd62f36fad897329075a8f738708fc319c08e82505"
   end
 
   on_linux do
