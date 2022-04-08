@@ -1,9 +1,9 @@
 class Gzip < Formula
   desc "Popular GNU data compression program"
   homepage "https://www.gnu.org/software/gzip"
-  url "https://ftp.gnu.org/gnu/gzip/gzip-1.11.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gzip/gzip-1.11.tar.gz"
-  sha256 "3e8a0e0c45bad3009341dce17d71536c4c655d9313039021ce7554a26cd50ed9"
+  url "https://ftp.gnu.org/gnu/gzip/gzip-1.12.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gzip/gzip-1.12.tar.gz"
+  sha256 "5b4fb14d38314e09f2fc8a1c510e7cd540a3ea0e3eb9b0420046b82c3bf41085"
   license "GPL-3.0-or-later"
 
   bottle do
