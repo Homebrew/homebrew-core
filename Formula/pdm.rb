@@ -108,6 +108,7 @@ class Pdm < Formula
       name = "testproj"
       requires-python = ">=3.9"
       version = "1.0"
+      license-expression = "MIT"
 
     EOS
     system bin/"pdm", "add", "requests==2.24.0"
