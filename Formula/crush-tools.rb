@@ -28,13 +28,15 @@ class CrushTools < Formula
   end
 
   head do
-    url "https://github.com/google/crush-tools.git"
+    url "https://github.com/google/crush-tools.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pcre"
+
+  uses_from_macos "m4" => :build
 
   conflicts_with "aggregate", because: "both install an `aggregate` binary"
   conflicts_with "num-utils", because: "both install an `range` binary"
