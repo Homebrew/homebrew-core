@@ -4,6 +4,7 @@ class Tracker < Formula
   url "https://download.gnome.org/sources/tracker/3.3/tracker-3.3.3.tar.xz"
   sha256 "4094f704e338f2247fa6b94633279cfd07f7e952bb24627128fab78edb242464"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
 
   # Tracker doesn't follow GNOME's "even-numbered minor is stable" version scheme.
   livecheck do
