@@ -6,12 +6,12 @@ class Libqalculate < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "8dc382a92e7576d2759f1221edbe700be0f35c5bdcf04c090bf1eeede54919e5"
-    sha256 arm64_big_sur:  "a7432784871c69b39bf020a67ad1a54da501c18d39fbe81c181b0a07376f40a4"
-    sha256 monterey:       "3c8f1def4eff72d19b079f7468e301e292c0b26b855b38128b09767f1a754af8"
-    sha256 big_sur:        "3d4dd5a0685bf6853624648432dbb6d24a9ad060585358e63161a810c292d309"
-    sha256 catalina:       "2da6f88c87a8c2e75e67065e4efcbd6b035bf9ce7b2f4bfe11b6fb12cf118dad"
-    sha256 x86_64_linux:   "4d46f33bfc53d6daad6adf99248c5366e74670351e2104fde60a1427b4a6b310"
+    sha256 arm64_monterey: "51223e387b3e266d4e3164e7ce0f70a491795bcb3d23a01282ece8c852a58a7c"
+    sha256 arm64_big_sur:  "719bb2e428ef547f4ed259dd72ed7cbac7ab1adee98cbb4bd280205ad9a520d7"
+    sha256 monterey:       "b69ad7f0bb0c7b2bc0549cf4b178f5aed2515509de6147785acaa1e4a3706aff"
+    sha256 big_sur:        "eac439b4d69a0fdf15a32db34a9b4dbb96a8e0475fa27df826a3891972c31b1e"
+    sha256 catalina:       "1eca3c358a46786d35dfbf6dbfff9428eaed71ea9798f119f9087dc6d5f6659a"
+    sha256 x86_64_linux:   "ad0603e0e68e6a2f1451cd36c454fdabd1acda18c315247f4988d56de709d87f"
   end
 
   depends_on "intltool" => :build
