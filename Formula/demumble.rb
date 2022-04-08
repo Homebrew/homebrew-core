@@ -13,6 +13,7 @@ class Demumble < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "f7dc50c58c1188bd07b90c0ecb57031f24ad3b463f41befd78ea5b5cfd1577e0"
     sha256 cellar: :any_skip_relocation, catalina:       "c79b46404de20da59fb13b225006147666199f6a03b56e43820d20ae818dafff"
     sha256 cellar: :any_skip_relocation, mojave:         "f843e7116cf05d2a7dff4fb8351d0609e8120d49aad84e810f44cc85d6b62811"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "addf214742de13338bbbc8f19e8f41593bc66bcacb6870f9add57a9e00c0eca9"
   end
 
   depends_on "cmake" => :build
