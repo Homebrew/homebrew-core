@@ -3,7 +3,7 @@ class Urweb < Formula
   homepage "http://www.impredicative.com/ur/"
   url "https://github.com/urweb/urweb/releases/download/20200209/urweb-20200209.tar.gz"
   sha256 "ac3010c57f8d90f09f49dfcd6b2dc4d5da1cdbb41cbf12cb386e96e93ae30662"
-  revision 5
+  revision 6
 
   bottle do
     sha256 monterey:     "2fb09ccebbdbfdc2998bf14704d9c492b8ae6f2f8a64666dda46f22bf27592f7"
