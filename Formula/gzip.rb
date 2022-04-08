@@ -7,13 +7,12 @@ class Gzip < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b290a5b6a62c6a052a9952fcb0bb75a7b8076b380728c7f92a3b775983880b4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d996baa1c8f5384514e0a8ba4945cf07012664cfb481f2c9f7309d30053d5844"
-    sha256 cellar: :any_skip_relocation, monterey:       "30fef75bcd856c7dc7bc2c3e677bd10f0d8837fe26b87ea03277316328038fa4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "46d768ebba1aa240540fd620fe856d259b8e316567204b7002052dd6a6241696"
-    sha256 cellar: :any_skip_relocation, catalina:       "50c51fd0770177e688cf98f358b2383e2ebe250b0bd8bf25def80a1b8da1c318"
-    sha256 cellar: :any_skip_relocation, mojave:         "2eae57977bdfcade27141c865d01aac1ace6be66828e9e0294f12a473fd7a35d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7993153f7f73005baf13fa6ab5b1dfe011fdd92c188d4cd69aad9bee98e432de"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17d882a783a96c603e4960caceab2d5ea2d2e838d9eee516652d388d23be33b2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f20559cd8d35e9db646d3d7ff5c56e3d07352ae1fd2f1463de778b0609cb49ae"
+    sha256 cellar: :any_skip_relocation, monterey:       "9bf75c712f706f499314df85c82a0e386eac45f7770144a6ed3736955a8d21c0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bfcd96abd7479f2071b49d6d381ed08934c27f5b1b2b13d7627adaa85e350ec2"
+    sha256 cellar: :any_skip_relocation, catalina:       "d29972e532493ff47adbb064b0a5c54b893ef2ae8c7d6b2f4edc104a4f203014"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0112fa3e595f2f5e7b95c939aba21ddaeca8e710138e9c7d1258442c8ad758aa"
   end
 
   def install
