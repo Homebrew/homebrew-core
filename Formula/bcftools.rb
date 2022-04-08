@@ -13,12 +13,12 @@ class Bcftools < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "720e4440201c8f4d048337811dfc84da26b0454d9eb9151a77b5f32c4e346f60"
-    sha256                               arm64_big_sur:  "fbafbf36e4be779d0882d97cbbc3bd1dec5d27c20b124b7be21bb1c6f01f5892"
-    sha256                               monterey:       "59833175a820a810fc9c7b40fcbf94c4e6491e38351ac1fe4dc639e4a81ca5fb"
-    sha256                               big_sur:        "42bd1f0da1b5d7a2a46e2d6f1de19b37c758bf4757965f32d6d83f8ad4e762b4"
-    sha256                               catalina:       "edee39c4d848d735047cebe889dd25de093ace43f60483d5a782e0d38ab6e105"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "def6f84ec99d8fe9990ff9df452730d239afe527b55a60fefbbe3ea245173c04"
+    sha256                               arm64_monterey: "547be287eadb9b767ab27232071c0fbd6895cea8de8470a657912d82ea90183c"
+    sha256                               arm64_big_sur:  "856cc821f42aa3a34efc45c71fe5be9139605e52373d123bd04be511d1476380"
+    sha256                               monterey:       "51b716a9f1b3b6889ee91f67135f0b3ef19bd4fbc298f1c3607497842684a5a2"
+    sha256                               big_sur:        "da96ced1e7dea42220ef0bea1deecc4f38bb1f30d68cd980dbdb37cdd61a719c"
+    sha256                               catalina:       "622b3e4e56e7b716824e3552e7cb9468753ba4dddacb7ef9b14e7e128cf68fc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7d57e0c0fbe7639362ba27ef336000e43e6be81c68d920cf7f86d6b4f50eeb5"
   end
 
   depends_on "gsl"
