@@ -16,6 +16,7 @@ class Hexcurse < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "580efaffc5d8dccb0f4f6532ad5be35e372c6b8d91dfb6d3930aa773c9bf7ea1"
     sha256 cellar: :any_skip_relocation, el_capitan:     "ffe690a87522627dc0088c391f7237fc6a3f2aa12fc5a3487c0aa6694905dc4d"
     sha256 cellar: :any_skip_relocation, yosemite:       "ef5644e4e96604f6f3bbe802e7824a7fd82e01163d532d0e2be6a93cc6595eab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a77e765183c6f25ab2334662999e980f9c3ee127394682d3723262e0e80b64a"
   end
 
   uses_from_macos "ncurses"
