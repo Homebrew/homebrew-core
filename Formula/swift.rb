@@ -7,6 +7,7 @@ class Swift < Formula
   url "https://github.com/apple/swift/archive/refs/tags/swift-5.6.2-RELEASE.tar.gz"
   sha256 "8176efb376e83b358cd088683e5214d8db864386dae745f94618745b1ab89a19"
   license "Apache-2.0"
+  revision 1
 
   # This uses the `GithubLatest` strategy because a `-RELEASE` tag is often
   # created several days before the version is officially released.
@@ -341,9 +342,9 @@ class Swift < Formula
           --lldb-no-debugserver
           --lldb-use-system-debugserver
         ]
-        extra_cmake_options += %w[
+        extra_cmake_options += %W[
           -DLLDB_FRAMEWORK_COPY_SWIFT_RESOURCES=0
-          -DCMAKE_INSTALL_RPATH=@loader_path
+          -DCMAKE_INSTALL_RPATH=#{loader_path}
         ]
 
         # Some scripts still reference "python" rather than "python3".
@@ -368,7 +369,8 @@ class Swift < Formula
           --install-libdispatch
           --install-xctest
         ]
-        extra_cmake_options << "-DCMAKE_INSTALL_RPATH=$ORIGIN:$ORIGIN/../lib:$ORIGIN/../lib/swift/linux"
+        rpaths = [loader_path, rpath, rpath(target: lib/"swift/linux")]
+        extra_cmake_options << "-DCMAKE_INSTALL_RPATH=#{rpaths.join(":")}"
 
         ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin" # Remove with Swift 5.7
         ENV["CMAKE_Swift_COMPILER"] = "" # Ignore our shim
