@@ -30,7 +30,7 @@ class SstpClient < Formula
                           "--disable-silent-rules",
                           "--disable-ppp-plugin",
                           "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-runtime-dir=#{var}/run/sstpc"
     system "make", "install"
 
