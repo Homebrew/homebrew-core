@@ -2,7 +2,7 @@ class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/resources/software/yaz/"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   stable do
     url "https://ftp.indexdata.com/pub/yaz/yaz-5.32.0.tar.gz"
