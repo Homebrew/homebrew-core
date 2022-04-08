@@ -24,6 +24,8 @@ class Csmith < Formula
     sha256 cellar: :any, yosemite:       "277a9e03f3bfdd03f1e3136ef867604c7f6c4f9763346223bb41b47f0fa72f0d"
   end
 
+  uses_from_macos "m4" => :build
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
