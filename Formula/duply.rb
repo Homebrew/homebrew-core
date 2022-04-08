@@ -19,6 +19,7 @@ class Duply < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "9b8892466a36e8f58b5148c6c4770187266961364d8dda1971cce8f78f68da72"
     sha256 cellar: :any_skip_relocation, catalina:       "9b8892466a36e8f58b5148c6c4770187266961364d8dda1971cce8f78f68da72"
     sha256 cellar: :any_skip_relocation, mojave:         "9b8892466a36e8f58b5148c6c4770187266961364d8dda1971cce8f78f68da72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84068ad28382385d0d2a73ba47ec81d03da0b4e02aa715f574d01b538727f827"
   end
 
   depends_on "duplicity"
