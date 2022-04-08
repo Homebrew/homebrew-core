@@ -21,6 +21,7 @@ class Glktermw < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "8f62b5b2b920573742886d31a7c579b174bb60fad1bfeabae346f8893dc440cf"
     sha256 cellar: :any_skip_relocation, el_capitan:     "5b302ada83cd6185c262277c3836d9e071a050a677fd41d86cab31aa0e8257d0"
     sha256 cellar: :any_skip_relocation, yosemite:       "9e1cce9e7bbc7d1bb1ea781bcd49c8cd1a3a933ca00637bf5c637a5dfa7c5ccc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6227f4c828cb24588c204db1c1a820204f2046fc22b573b71e7e3f6971909430"
   end
 
   keg_only "conflicts with other Glk libraries"
