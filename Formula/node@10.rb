@@ -4,7 +4,7 @@ class NodeAT10 < Formula
   url "https://nodejs.org/dist/v10.24.1/node-v10.24.1.tar.xz"
   sha256 "d72fc2c244603b4668da94081dc4d6067d467fdfa026e06a274012f16600480c"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, monterey: "00f77d95e0903bd845a11e90d382066c6ffe493bd3ee8ba25d57663f1f4f3585"
