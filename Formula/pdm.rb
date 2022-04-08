@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/aa/b0/44aa36cc60954b5963c7b64a06e3943d11f586cde1ccf6967719cd560266/pdm-1.13.6.tar.gz"
-  sha256 "a30a86ff236c290f2ca315ac731819d7313a112fc6d959fc2e492d7732e94f39"
+  url "https://files.pythonhosted.org/packages/8c/88/ff2e3147960796048ea204d58ef37b7dbf7028c0d93830d018f22e252a73/pdm-1.14.0.tar.gz"
+  sha256 "6546dcb8846eb52a075b97a00a9c0229c6b62190a042c44077bdae783cc6c922"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -26,18 +26,18 @@ class Pdm < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
-    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
+    url "https://files.pythonhosted.org/packages/42/e1/4cb2d3a2416bcd871ac93f12b5616f7755a6800bccae05e5a99d3673eb69/click-8.1.2.tar.gz"
+    sha256 "479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72"
   end
 
   resource "findpython" do
-    url "https://files.pythonhosted.org/packages/ae/2c/648fda96049222b48ef21fad19ef137e45362dc1a4c670e7a9005b5b55e8/findpython-0.1.4.tar.gz"
-    sha256 "4ce198454696ee539ca7990d4eadcd0471ca5ef03b5c4ef2f925891ac64f8289"
+    url "https://files.pythonhosted.org/packages/96/d4/1ca75916cfe1647d0f3b99e886e6337bce92c9ed5bed6c5df56e898a9e0a/findpython-0.1.5.tar.gz"
+    sha256 "0234e64ca2215a1977f4ed7c4b65d1571783888cc2a4a1f6a9d8e463687e8bc3"
   end
 
   resource "installer" do
-    url "https://files.pythonhosted.org/packages/3c/b2/43a6ba5ca6d387adbb63a947a6123324e6f4a91932e0b2b739c3b8417610/installer-0.3.0.tar.gz"
-    sha256 "e7dc5ec8b737fe3fa7c1872a6ebe120d7abc7cf780aa39af669c382a0fcb6de7"
+    url "https://files.pythonhosted.org/packages/74/b7/9187323cd732840f1cddd6a9f05961406636b50c799eef37c920b63110c0/installer-0.5.1.tar.gz"
+    sha256 "f970995ec2bb815e2fdaf7977b26b2091e1e386f0f42eafd5ac811953dc5d445"
   end
 
   resource "packaging" do
@@ -46,8 +46,8 @@ class Pdm < Formula
   end
 
   resource "pdm-pep517" do
-    url "https://files.pythonhosted.org/packages/8c/c6/62224b8d6417b8bb95a6a92c1974eb06cd0d555f90908a5595b164290d37/pdm-pep517-0.12.1.tar.gz"
-    sha256 "c3f9acfdc7832635628e94235320e0f6c19cbcd926eb041c454fb12463bc7504"
+    url "https://files.pythonhosted.org/packages/cd/29/5ccfe04da3d1c138e464a05244640d83f88881f99f7733391b7944aed994/pdm-pep517-0.12.3.tar.gz"
+    sha256 "117bfb1619b86beb34fe009b8d41acacf790d1fc5240ccc11f6cada151d46887"
   end
 
   resource "pep517" do
@@ -108,6 +108,11 @@ class Pdm < Formula
       name = "testproj"
       requires-python = ">=3.9"
       version = "1.0"
+      license = {text = "MIT"}
+
+      [build-system]
+      requires = ["pdm-pep517>=0.12.0"]
+      build-backend = "pdm.pep517.api"
 
     EOS
     system bin/"pdm", "add", "requests==2.24.0"
