@@ -15,6 +15,8 @@ class Aoeui < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "19f622466c20ad4ddff2fc97ac186e189d5a8bb02dd405ed2a93c5d13a88b1f4"
   end
 
+  uses_from_macos "m4" => :build
+
   def install
     system "make", "INST_DIR=#{prefix}", "install"
   end
