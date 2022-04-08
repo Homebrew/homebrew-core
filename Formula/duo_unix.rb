@@ -5,10 +5,6 @@ class DuoUnix < Formula
   sha256 "a4479f893e036f38a5809d71ce47f69118f6ef61822cc1c66afccf143c5d71f8"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url "https://github.com/duosecurity/duo_unix.git"
-  end
-
   bottle do
     sha256 arm64_monterey: "d0a13ed5c65f4f57bde81d5145ade4c2940136462b5a0b4f3f43dced52966290"
     sha256 arm64_big_sur:  "4b7eebf362ed0e9bd22ee9137d1b0effeda2e1cd21d9bdceedd71e7ee99bd0c9"
