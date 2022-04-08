@@ -4,6 +4,7 @@ class Zk < Formula
   url "https://github.com/mickael-menu/zk/archive/refs/tags/v0.11.1.tar.gz"
   sha256 "c38e88cbf8a6b1a00df51e1d87d6dbff4d13279c18bfef6ed275e7dc28dce0d8"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/mickael-menu/zk.git", branch: "main"
 
   bottle do
