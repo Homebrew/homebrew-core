@@ -20,6 +20,7 @@ class Greed < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "64d0028754d683a8bbe1de0bb1a7319dcf6d8020c6d3624e58df5b5be3bf4e42"
     sha256 cellar: :any_skip_relocation, mojave:         "9cba951e4fd73d29a1e4899a4f2a7d5f0158f6f5b6d02bb75837c7296530e65c"
     sha256 cellar: :any_skip_relocation, high_sierra:    "9685dcc52ad08b19964cfb61f4fd0d9e28ec0d42cde2f112da4e9be1e1d15b5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ab888e57c904b28bca019bcbf06b8439d8d0f3594acb3f5306441797af4da55"
   end
 
   uses_from_macos "ncurses"
