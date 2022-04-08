@@ -15,6 +15,7 @@ class Robotfindskitten < Formula
     sha256 catalina:       "fa1f963cf39fb320c4b8e0867a05c9e96944d59d6c18222a9d6b33acb4384622"
     sha256 mojave:         "8b25c148f43ad7c70d43810639b7c812cbd612b347386be3f7e913b4d0cc14b5"
     sha256 high_sierra:    "9c6b045c69a6ff5e74f4f184ec109d3bfd293c7dab223e87ba80e7bb150e8dae"
+    sha256 x86_64_linux:   "7d44526e0b657e25b0bec3f36112f6bc9196f8a9a0b74ae2dec9e7b86801abe4"
   end
 
   depends_on "autoconf" => :build
