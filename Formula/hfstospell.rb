@@ -4,6 +4,7 @@ class Hfstospell < Formula
   url "https://github.com/hfst/hfst-ospell/releases/download/v0.5.3/hfst-ospell-0.5.3.tar.bz2"
   sha256 "01bc5af763e4232d8aace8e4e8e03e1904de179d9e860b7d2d13f83c66f17111"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
