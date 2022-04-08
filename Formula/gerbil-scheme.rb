@@ -27,7 +27,6 @@ class GerbilScheme < Formula
   def install
     cd "src" do
       ENV.append_path "PATH", "#{Formula["gambit-scheme"].opt_prefix}/current/bin"
-      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
       system "./configure", "--prefix=#{prefix}",
                             "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}/current",
                             "--enable-leveldb",
