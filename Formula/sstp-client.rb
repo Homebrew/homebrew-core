@@ -23,14 +23,13 @@ class SstpClient < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-ppp-plugin",
                           "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-runtime-dir=#{var}/run/sstpc"
     system "make", "install"
 
