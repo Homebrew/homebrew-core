@@ -15,6 +15,7 @@ class Nsnake < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "6ff26e57639f58e6bc2bbd36c511d3c21cf0b5e818b270efb6ae14e542c780c0"
     sha256 cellar: :any_skip_relocation, mojave:         "195e486eb84a9fa230bfa31558d6b3fb8ae6715ab444f3aead9c997a43f981d8"
     sha256 cellar: :any_skip_relocation, high_sierra:    "5f8de3bf4148a6d9fdb32b5584e4aa5890c8f373ad5be36b17473e4d7c2f0a96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bac278d384ea2b61e61c9baaf5b6bbbc388a520f5c39ca4978f8d2c60cdbede"
   end
 
   uses_from_macos "ncurses"
