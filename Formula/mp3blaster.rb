@@ -16,6 +16,7 @@ class Mp3blaster < Formula
     sha256 sierra:         "6dd3817fae76ae7d928688836c580a46e0a6c2f3111507ea6c7a5ae17a1728a7"
     sha256 el_capitan:     "a9e7e56d97d45cd2e06819f15dedc2db738b70836a5897fb23a682202e2fb5b5"
     sha256 yosemite:       "87ba8218ac7bceab2d0f388aae88e6c6a0f6dba2aad11b434d2370ab8ce8251a"
+    sha256 x86_64_linux:   "3d3c3a98bbdf2ad483c1dcb5df27963a3a62caa61a29af39e7b6c127e80b848d"
   end
 
   depends_on "sdl"
