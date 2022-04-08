@@ -4,7 +4,7 @@ class Boost < Formula
   url "https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.tar.bz2"
   sha256 "475d589d51a7f8b3ba2ba4eda022b170e562ca3b760ee922c146b6c65856ef39"
   license "BSL-1.0"
-  revision 1
+  revision 2
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
