@@ -16,6 +16,7 @@ class Netris < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "4ac49c49b3d000fcb5c9161f4b217231e9bee9faf29d5e4e7fc9f5d8e10772ec"
     sha256 cellar: :any_skip_relocation, el_capitan:     "0e793cab922cded47c3eccbf4e9ba8840a71f24830d7e01da8e2262d08d61c56"
     sha256 cellar: :any_skip_relocation, yosemite:       "1a1e54ff92dd1e8ecd745e149874071cb6e67662296c96d84538cf71b65b9bfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7209cea9b9b79f4bc89a1aafdf2ac00af1b76aefcc9fb3f0e90f5d2dc3873232"
   end
 
   uses_from_macos "ncurses"
