@@ -1,8 +1,8 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
-  url "https://github.com/halide/Halide/archive/v13.0.4.tar.gz"
-  sha256 "4cab247cc1406a66a35ebea8f957995b484e2029e27d390b51fa40744cf350f5"
+  url "https://github.com/halide/Halide/archive/v14.0.0.tar.gz"
+  sha256 "f9fc9765217cbd10e3a3e3883a60fc8f2dbbeaac634b45c789577a8a87999a01"
   license "MIT"
 
   livecheck do
@@ -29,7 +29,7 @@ class Halide < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DHalide_SHARED_LLVM=ON"
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DHalide_SHARED_LLVM=ON"
       system "make"
       system "make", "install"
     end
