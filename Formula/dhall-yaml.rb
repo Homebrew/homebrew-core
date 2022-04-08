@@ -12,6 +12,7 @@ class DhallYaml < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "259387c4c0b3aa6899e30944bad7505e284e1da5b797372d9a5aaf5f410a691b"
     sha256 cellar: :any_skip_relocation, big_sur:        "ad37e985cdcd2b1b1e6234d3de0dab2698a08e3fc834b378e9f0abb60544dd78"
     sha256 cellar: :any_skip_relocation, catalina:       "bb98644bfa4a52e96d46331b2918399efefcc0a743f541be12836b27aff58895"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e58f86bcdff44823b02d16259cc49adfa7da6e5b41b3fc4b54879d3e5e47f324"
   end
 
   depends_on "cabal-install" => :build
