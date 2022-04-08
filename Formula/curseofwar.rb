@@ -14,6 +14,7 @@ class Curseofwar < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "ddd5726a8951c2ec18c9f26bbed80d2d22baeef02eb6e1f313d4591f0db7064b"
     sha256 cellar: :any_skip_relocation, mojave:         "5847323530aec077f4a17d4c4eb78ee0f90499940dbce3608aba6d4f39e3719e"
     sha256 cellar: :any_skip_relocation, high_sierra:    "b2a0646e145b7ef8f502b6f544d106c05c90974c0f8972285a5dfa753305eece"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c3b72a5583689d3c22ed79c41229339e374695ea4975f38ba74cc72ea37cfe7"
   end
 
   uses_from_macos "ncurses"
