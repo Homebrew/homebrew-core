@@ -13,6 +13,7 @@ class GerritTools < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "e4094d8655a172f89aea151baea9298f35827c09fad7ea4d696e5c542d724c06"
     sha256 cellar: :any_skip_relocation, catalina:       "e4094d8655a172f89aea151baea9298f35827c09fad7ea4d696e5c542d724c06"
     sha256 cellar: :any_skip_relocation, mojave:         "e4094d8655a172f89aea151baea9298f35827c09fad7ea4d696e5c542d724c06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e944c907ac7f5bb3d468a7adfa14bdd52c22d0f0261b201f006407f2dc425506"
   end
 
   def install
