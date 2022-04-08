@@ -10,11 +10,11 @@ class Offlineimap < Formula
   head "https://github.com/OfflineIMAP/offlineimap3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca6ca7b5637188d594991786dd26549070571cde325550c4ec301fd0b50d9d3b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f1fb2cdac203f0fd3d933f0448b0d33eddd68088302f5ae3b0c2feb50ae2597"
-    sha256 cellar: :any_skip_relocation, monterey:       "37cb69a7d2cb44b30f248c823dd60861a24e9c12275c064903fe4d36a2791994"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c9df9bac321c169322310691fc2e9727221d1f8692cd21bed9588f05521b8d35"
-    sha256 cellar: :any_skip_relocation, catalina:       "42b1a6148dfed890446dc73e0cdc63214089b1eb0f1623b24ac298f043998fc8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ab3fae7e96d819b5a576dab660a43438c93ad4f8f0137e29dc07f93add6d76c3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35280d4036bda75925c508f8edcf53e7b9431165071a1391b5fc024fe527f374"
+    sha256 cellar: :any_skip_relocation, monterey:       "99a7aabd972badba906e4430609217c5f03f5267cc76d4eb349ca327487ba549"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e53430590b20390cae4f5c291ed585fca5ecb23d06a6d47e27213bc66af76098"
+    sha256 cellar: :any_skip_relocation, catalina:       "c204ddc3b02a6f1bfd747610baa696d70ed02710e336f902f7d53a4610325632"
   end
 
   depends_on "python@3.10"
