@@ -7,12 +7,12 @@ class Whois < Formula
   head "https://github.com/rfc1036/whois.git", branch: "next"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b4720acfa1b987e9738c3acd8948698fd325588763a7593b5f87a276b9595b93"
-    sha256 cellar: :any,                 arm64_big_sur:  "dd6d8c5e9bb131addb48082059705d0abbe7f4ecc71b6d59a539ce8e9ae08dcf"
-    sha256 cellar: :any,                 monterey:       "83b24159f0fca357cb892915ae6a249a32736966e789cfd3539721b00b479ece"
-    sha256 cellar: :any,                 big_sur:        "66c3e022a8c075da62d4df8bb4500bce90d7ee9fb82d638cc93a71399f40fc2c"
-    sha256 cellar: :any,                 catalina:       "55d9dd9d902b5467555633eacb61ca356eba7b48b2712b13b7861735ddaafaf1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "723ca03647ec2a5e6179a9d1d227bef92589d79a0f699aacd13151c416754358"
+    sha256 cellar: :any,                 arm64_monterey: "3b8a8d276e28ba2565cde46aede77fcfdbe014693aa336d50e17002324c9461f"
+    sha256 cellar: :any,                 arm64_big_sur:  "1f6cde04177d329370ef24f19f61f30da1f8a618da92b2184432a72da57a7e4c"
+    sha256 cellar: :any,                 monterey:       "033954b7cc2e31dafcbae6cb07913037247b9cbf21be439889fdd2cfdd2ee437"
+    sha256 cellar: :any,                 big_sur:        "05f047c3e6808289fcd5061fb0c3a96f267b3287fdd282e953ea179e20e60902"
+    sha256 cellar: :any,                 catalina:       "656da1332e3434bcdb20c1a18fab72ea96002433281b0bc8060544e98764c5bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac4e1d3fe13d6e208d613c446820f3838b91e30f04735a5951830c58454e7146"
   end
 
   keg_only :provided_by_macos
