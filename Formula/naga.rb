@@ -16,6 +16,7 @@ class Naga < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "8baa28b92a0d6970a857c859b11e4a1df878db5270f259bd3ccfe3b5f57f3303"
     sha256 cellar: :any_skip_relocation, el_capitan:     "6ff3dd51d1cdeed9364c36c25d1c2794f973e2927077eaeb251fa0dbfc48a531"
     sha256 cellar: :any_skip_relocation, yosemite:       "fe303605603697993def097e9557a0dcec83d323a0b43d51fb1811108937da6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8ea8f618dc69a283560a3a51335c476824cee8bf5da7233620021e3c95f6fa7"
   end
 
   uses_from_macos "ncurses"
