@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Jan2022-SP1/MonetDB-11.43.9.tar.xz"
-  sha256 "19b01e195e4323b6cee7aafae7aebe7226153f9b11dc96f1d97fbd6f0b8a8ef4"
+  url "https://www.monetdb.org/downloads/sources/Jan2022-SP2/MonetDB-11.43.13.tar.xz"
+  sha256 "fc02d6c1b6326c47b843e21257386be20b97d3788c793e217fa640be6bec5025"
   license "MPL-2.0"
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
@@ -25,7 +25,6 @@ class Monetdb < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
   depends_on "lz4"
-  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "readline" # Compilation fails with libedit
   depends_on "xz"
@@ -53,9 +52,7 @@ class Monetdb < Formula
                       "-DWITH_PROJ=OFF",
                       "-DWITH_SNAPPY=OFF",
                       "-DWITH_XML2=ON",
-                      "-DWITH_ZLIB=ON",
-                      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
-                      "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
+                      "-DWITH_ZLIB=ON"
       # remove reference to shims directory from compilation/linking info
       inreplace "tools/mserver/monet_version.c", %r{"/[^ ]*/}, "\""
       system "cmake", "--build", "."
