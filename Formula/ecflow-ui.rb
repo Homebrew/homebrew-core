@@ -5,6 +5,15 @@ class EcflowUi < Formula
   sha256 "1d890008414017da578dbd5a95cb1b4d599f01d5a3bb3e0297fe94a87fbd81a6"
   license "Apache-2.0"
 
+  bottle do
+    sha256                               arm64_monterey: "86e6d6883e027f5c3bd6c2bfcae9e7ccab9b65106549f66d8428b9700e4af6bc"
+    sha256                               arm64_big_sur:  "ba72b11ed9b1d3f48e05b55b64038848a71faceb938358fd5373ee86881222b9"
+    sha256                               monterey:       "43514c728d08c672163f83888ac80816decda1c3ab40bd9072e3295ee2e6f833"
+    sha256                               big_sur:        "0743fa962cda76a4f4b2b1ca4d1f7709fd94c548dd934fd0c2c7607fd437b97e"
+    sha256                               catalina:       "f4a15c29f3ef85fafbd3570ea5916faf61cf7df4bab5df40db9088c471ccf949"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "daecd6c25b804a444dc996fb7e6409d429a46df4f971b27d3c6cc25c788ad470"
+  end
+
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
