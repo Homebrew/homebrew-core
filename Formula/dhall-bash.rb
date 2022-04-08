@@ -12,6 +12,7 @@ class DhallBash < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7f1007390145c0b45b374a2b7eb0d956143fa88b3ffb35807bfef971109f0d33"
     sha256 cellar: :any_skip_relocation, big_sur:        "e93ab3c056dae0d029ff346018e1e49a45343f126fc523af5ada94dd73e8da75"
     sha256 cellar: :any_skip_relocation, catalina:       "c388e918ddc4a2416535cf53173325e483216d92e9dfd24fbfad46acaf6b1ea3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f4ddd5de1e559f1c2e0b5398e9176cb93283b7caae47d9fc6a6e12ca4ee3a02"
   end
 
   depends_on "cabal-install" => :build
