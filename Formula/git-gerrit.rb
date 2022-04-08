@@ -13,6 +13,7 @@ class GitGerrit < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "911fa65cea72dfe849d36ab108a6a36acd1295ea9c8f395a8f8ded8bdd930fbf"
     sha256 cellar: :any_skip_relocation, catalina:       "911fa65cea72dfe849d36ab108a6a36acd1295ea9c8f395a8f8ded8bdd930fbf"
     sha256 cellar: :any_skip_relocation, mojave:         "911fa65cea72dfe849d36ab108a6a36acd1295ea9c8f395a8f8ded8bdd930fbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f787bba2e4465a7f5df3bebcdb625c3815331a721abc0024ab09b14b868b3ec5"
   end
 
   def install
