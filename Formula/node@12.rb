@@ -4,6 +4,7 @@ class NodeAT12 < Formula
   url "https://nodejs.org/dist/v12.22.12/node-v12.22.12.tar.xz"
   sha256 "bc42b7f8495b9bfc7f7850dd180bb02a5bdf139cc232b8c6f02a6967e20714f2"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "55ac811bdbf7b23af17685ffc6ca8f856b24eb12cdacf0090ba4db180601fcd0"
