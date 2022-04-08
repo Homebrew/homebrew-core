@@ -108,7 +108,11 @@ class Pdm < Formula
       name = "testproj"
       requires-python = ">=3.9"
       version = "1.0"
-      license-expression = "MIT"
+      license = {text = "MIT"}
+
+      [build-system]
+      requires = ["pdm-pep517>=0.12.0"]
+      build-backend = "pdm.pep517.api"
 
     EOS
     system bin/"pdm", "add", "requests==2.24.0"
