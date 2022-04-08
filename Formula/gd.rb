@@ -7,13 +7,12 @@ class Gd < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "8b02b582f999c504b656184aec72c1e5ee3e1f443ea2bed1195051af9d7938f8"
-    sha256 cellar: :any,                 arm64_big_sur:  "51c8942dcbcb0e57422efca417690f5fb268b05cb61a9c71b4eabf41547128d9"
-    sha256 cellar: :any,                 monterey:       "9a2d77f89bfc016eed59dcfb103009644fa6b60b12f736b7f87daaf40672b50b"
-    sha256 cellar: :any,                 big_sur:        "9e56662c33e3584d442e383eefc14b928f706c2b9b7750ca40c2bf640b349ae2"
-    sha256 cellar: :any,                 catalina:       "04e25cf024186191731fd94808802bb1a1dd7dfb900d963abc1ef8737abb53e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "180a1fcde66b5ddf8beea325c1c82e3b974e15da56fba22b0a0d4b503d593f83"
+    sha256 cellar: :any,                 arm64_monterey: "08396f5ebf194ac40aee435158ccfa5405f214c5dbcf37bf6e253c1bd085123a"
+    sha256 cellar: :any,                 arm64_big_sur:  "6c7673cab6618b0a9e0d41531150d65c8eebd1f252c17dba38ad0f44790f6828"
+    sha256 cellar: :any,                 monterey:       "570313a4b9170b71de90d87c66d638beafe6aca33c919a0a3864f750e1e65599"
+    sha256 cellar: :any,                 big_sur:        "7580452407899ec5ba045a9d48af158bbefa50a5b561b826ae2ac845119dfac7"
+    sha256 cellar: :any,                 catalina:       "23cf2d9d302fdadd217d1a6c2f9a10f32090bda59f0202a657b3af4eec59ff2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "760128cc65a8e50be67fd0c8f29b307dc89886ed2b7a66f9cf40db5d1d03e5c3"
   end
 
   head do
