@@ -12,6 +12,7 @@ class Dehydrated < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "fb2330cd8c498ee40af3981951e324ef819b632b6c569c30f6ec6b5ae5c4ecd4"
     sha256 cellar: :any_skip_relocation, catalina:       "fb2330cd8c498ee40af3981951e324ef819b632b6c569c30f6ec6b5ae5c4ecd4"
     sha256 cellar: :any_skip_relocation, mojave:         "fb2330cd8c498ee40af3981951e324ef819b632b6c569c30f6ec6b5ae5c4ecd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4f179282544d70d072f6ebea22527d7dfbb8a0d810d5965fc7266918fef4f6d"
   end
 
   def install
