@@ -20,6 +20,9 @@ class Wwwoffle < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "0877d44d105e2ec35e38e2d2e760f6c2973f53f98d784ccf16bed6d47e37db38"
   end
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
