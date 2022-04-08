@@ -4,6 +4,7 @@ class Zebra < Formula
   url "https://ftp.indexdata.com/pub/zebra/idzebra-2.2.5.tar.gz"
   sha256 "747714b33b653cbe5697193703b9955489fa2f51597433f9b072ab2bf9cf92bb"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.indexdata.com/pub/zebra/"
