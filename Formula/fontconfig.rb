@@ -29,6 +29,7 @@ class Fontconfig < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build if MacOS.version <= :high_sierra
   depends_on "freetype"
 
   uses_from_macos "gperf" => :build
