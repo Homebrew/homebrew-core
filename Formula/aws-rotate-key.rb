@@ -1,8 +1,8 @@
 class AwsRotateKey < Formula
   desc "Easily rotate your AWS access key"
   homepage "https://github.com/stefansundin/aws-rotate-key"
-  url "https://github.com/stefansundin/aws-rotate-key/archive/v1.0.7.tar.gz"
-  sha256 "9dadb689583dc4d8869a346c2e7f12201e1fe65d5bf1d64eb09b69f65518bc44"
+  url "https://github.com/stefansundin/aws-rotate-key/archive/v1.0.8.tar.gz"
+  sha256 "84a0df21f8ec4e1816094136c7ed4c8a559b3f74e32b5ac58a9a3f25582e7f2a"
   license "MIT"
   head "https://github.com/stefansundin/aws-rotate-key.git", branch: "master"
 
