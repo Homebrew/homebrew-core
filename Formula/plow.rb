@@ -12,6 +12,7 @@ class Plow < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "35efcee910b6391bcb00a74e174bd2c7961742c75b7ce5d81cf739f5f8907e41"
     sha256 cellar: :any_skip_relocation, catalina:       "d30cae49b41472ed81c454b2e5ef2031e1e46307f8b838b4892fedd80c41d318"
     sha256 cellar: :any_skip_relocation, mojave:         "beb6ba83885124eb4ba8e2e4bb5bcaf8951bb574ef8d9b94c2c48307b92caff6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "528c3066e659d894685009cc237c87d3dabca4a64c5a0d2e9e2fc8d021ecdbcf"
   end
 
   depends_on "go" => :build
