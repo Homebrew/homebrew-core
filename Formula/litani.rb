@@ -7,6 +7,7 @@ class Litani < Formula
       tag:      "1.24.0",
       revision: "93cb710327388b69f82cc3bd897d1ad7cddb6eb4"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7eda89e682e2f9372871229a9e92c64271349ed498823006329203f3d51e8209"
