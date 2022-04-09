@@ -13,6 +13,7 @@ class Sqsmover < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "e92a20b5b57e04747e869551f42d86bba14acb26c0ef88acf1a73f12429f43c3"
     sha256 cellar: :any_skip_relocation, catalina:       "964183c1530b7ec057849d57a9c63b188c2b5aab4f1bf3fe0db6073d4063c086"
     sha256 cellar: :any_skip_relocation, mojave:         "0874e450ddbdfa8b1a4d364ed7467a50d7f79d90ae33e0a147c3f291b055d20e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d101d0f696e787fae56b2bf5ae24f85a64411b332fabc938fdd399377436b9e"
   end
 
   depends_on "go" => :build
