@@ -3,8 +3,8 @@ require "language/node"
 class Httpyac < Formula
   desc "Quickly and easily send REST, SOAP, GraphQL and gRPC requests"
   homepage "https://httpyac.github.io/"
-  url "https://registry.npmjs.org/httpyac/-/httpyac-5.2.3.tgz"
-  sha256 "5d5d67a6dc4cdf67415b29f6999174f5138f7e4fc4bca81e4ca0144ff3052782"
+  url "https://registry.npmjs.org/httpyac/-/httpyac-5.3.0.tgz"
+  sha256 "5f0a012d25832632d94434fe6c4e0d9277ebd7139e075d3af7a3598a09b9f721"
   license "MIT"
 
   bottle do
@@ -55,7 +55,7 @@ class Httpyac < Formula
     # for httpbin call
     assert_match "HTTP/1.1 200  - OK", output
     # for mqtt calls
-    assert_match "testtopic/2:  Check with Mazin", output
+    assert_match "2 requests tested (2 succeeded, 0 failed)", output
 
     assert_match version.to_s, shell_output("#{bin}/httpyac --version")
   end
