@@ -5,9 +5,15 @@ class Rke < Formula
   sha256 "4087a7e04a106dac40db3a84a61eed757e87ccac8dc792aeab4c328576099013"
   license "Apache-2.0"
 
+  # It's necessary to check releases instead of tags here (to avoid upstream
+  # tag issues) but we can't use the `GithubLatest` strategy because upstream
+  # creates releases for more than one minor version (i.e., the "latest" release
+  # isn't the newest version at times). We normally avoid checking the releases
+  # page because pagination can cause problems but this is our only choice.
   livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://github.com/rancher/rke/releases?q=prerelease%3Afalse"
+    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :page_match
   end
 
   bottle do
