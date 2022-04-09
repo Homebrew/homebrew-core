@@ -12,12 +12,12 @@ class Fheroes2 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f5e724ca4b140ea066c7c109f292e747df0d81833161bfb28077b4d1074d2c7a"
-    sha256 arm64_big_sur:  "8f0fc8030c58fd6033cca535a9d3ead3df81c966bfe87d017b0c945632dc8532"
-    sha256 monterey:       "c9f05ba7d077eedaf76b86690296c6ac1c31bf56e9e0acb08ee56455b83d9c29"
-    sha256 big_sur:        "567db3c66181f34d846d8a6a2aa2b8a52779a0eebcfbb221b6e587fe65f8f110"
-    sha256 catalina:       "ca570648ec27195dec25a33ba30c24efd3ce09220dd7523827d274a10c74cb96"
-    sha256 x86_64_linux:   "f175bb8ede34364fc656cdc5af301c28540690e3be7995dfec0148e7ec5e3242"
+    sha256 arm64_monterey: "6161f02c0c98850e2342c646caff6bb651091d327c33dfd5cf2df82082a3aeee"
+    sha256 arm64_big_sur:  "2f5c2ac443d15b8b332f250639d3670a56fc33af623a6c5536ab8890ea7e9daa"
+    sha256 monterey:       "b6c075231c89f6e8120bff962570d9bf2f01e33561887859314f81668a37ddbc"
+    sha256 big_sur:        "399e347791e1adcdef994993849f7e71900c53f84d537600e6b04204bdd77fbf"
+    sha256 catalina:       "7dbe42591224b3f9408ddc7f86fc9a2b833f2faf96c041bf618a230b94505a9f"
+    sha256 x86_64_linux:   "77d5ead6152422c395c9da3533dfcddd2482961ec6324b61717da15a85d3cf92"
   end
 
   depends_on "cmake" => :build
