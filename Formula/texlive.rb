@@ -4,16 +4,32 @@ class Texlive < Formula
 
   desc "Free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
-  url "https://github.com/TeX-Live/texlive-source/archive/refs/tags/svn58837.tar.gz"
-  sha256 "0afa6919e44675b7afe0fa45344747afef07b6ee98eeb14ff6a2ef78f458fc12"
+  url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/texlive-20220321-source.tar.xz"
+  mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-source.tar.xz"
+  sha256 "5ffa3485e51eb2c4490496450fc69b9d7bd7cb9e53357d92db4bcd4fd6179b56"
   license :public_domain
-  revision 1
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
-    url :stable
-    regex(%r{href=["']?[^"' >]*?/tag/\D+(\d+(?:\.\d+)*)["' >]}i)
-    strategy :github_latest
+    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/"
+    regex(/href=.*?texlive[._-]v?(\d+(?:\.\d+)*)[._-]source\.t/i)
+    strategy :page_match do |page, regex|
+      # Match years from directories
+      years = page.scan(%r{href=["']?v?(\d+(?:\.\d+)*)/?["' >]}i)
+                  .flatten
+                  .uniq
+                  .map { |v| Version.new(v) }
+                  .sort
+      next if years.blank?
+
+      # Fetch the page for the newest year directory
+      newest_year = years.last.to_s
+      year_page = Homebrew::Livecheck::Strategy.page_content(URI.join(@url, newest_year))
+      next if year_page[:content].blank?
+
+      # Match version from source tarball filenames
+      year_page[:content].scan(regex).flatten
+    end
   end
 
   bottle do
@@ -73,18 +89,21 @@ class Texlive < Formula
   fails_with gcc: "5"
 
   resource "texlive-extra" do
-    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2021/texlive-20210325-extra.tar.xz"
-    sha256 "46a3f385d0b30893eec6b39352135d2929ee19a0a81df2441bfcaa9f6c78339c"
+    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/texlive-20220321-extra.tar.xz"
+    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-extra.tar.xz"
+    sha256 "0284cf368947be8cc7becd61c816432a7d301db3c1e682ddc0a180bd3b6d9296"
   end
 
   resource "install-tl" do
-    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2021/install-tl-unx.tar.gz"
-    sha256 "74eac0855e1e40c8db4f28b24ef354bd7263c1f76031bdc02b52156b572b7a1d"
+    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/install-tl-unx.tar.gz"
+    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/install-tl-unx.tar.gz"
+    sha256 "e67edec49df6b7c4a987a7d5a9b31bcf41258220f9ac841c7a836080cd334fb5"
   end
 
   resource "texlive-texmf" do
-    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2021/texlive-20210325-texmf.tar.xz"
-    sha256 "ff12d436c23e99fb30aad55924266104356847eb0238c193e839c150d9670f1c"
+    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/texlive-20220321-texmf.tar.xz"
+    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-texmf.tar.xz"
+    sha256 "372b2b07b1f7d1dd12766cfc7f6656e22c34a5a20d03c1fe80510129361a3f16"
   end
 
   resource "Module::Build" do
@@ -334,7 +353,7 @@ class Texlive < Formula
 
         if File.exist? "Makefile.PL"
           system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
-            "CCFLAGS=-I#{Formula["freetype"].opt_include}/freetype2"
+                 "CCFLAGS=-I#{Formula["freetype"].opt_include}/freetype2"
           system "make"
           system "make", "install"
         else
@@ -372,29 +391,14 @@ class Texlive < Formula
 
     # Set up config files to use the correct path for the TeXLive root
     inreplace buildpath/"texk/kpathsea/texmf.cnf",
-      "TEXMFROOT = $SELFAUTOPARENT", "TEXMFROOT = $SELFAUTODIR/share"
+              "TEXMFROOT = $SELFAUTOPARENT", "TEXMFROOT = $SELFAUTODIR/share"
     inreplace share/"texmf-dist/web2c/texmfcnf.lua",
-      "selfautoparent:texmf", "selfautodir:share/texmf"
+              "selfautoparent:texmf", "selfautodir:share/texmf"
 
-    # Fix path resolution in some scripts.  The fix for tlmgr.pl, TLUTils.pm, and
-    # tlshell is being upstreamed here: https://www.tug.org/pipermail/tex-live/2021-September/047394.html.
-    # The fix for cjk-gs-integrate.pl is being upstreamed here: https://github.com/texjporg/cjk-gs-support/pull/50.
-    # The author of crossrefware and pedigree-perl has been contacted by email.
-    pathfix_files = %W[
-      #{buildpath}/texk/texlive/linked_scripts/cjk-gs-integrate/cjk-gs-integrate.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/bbl2bib.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/bibdoiadd.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/bibmradd.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/biburl2doi.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/bibzbladd.pl
-      #{buildpath}/texk/texlive/linked_scripts/crossrefware/ltx2crossrefxml.pl
-      #{buildpath}/texk/texlive/linked_scripts/texlive/tlmgr.pl
-      #{buildpath}/texk/texlive/linked_scripts/pedigree-perl/pedigree.pl
-      #{buildpath}/texk/texlive/linked_scripts/tlshell/tlshell.tcl
-      #{share}/tlpkg/TeXLive/TLUtils.pm
-    ]
-
-    inreplace pathfix_files, "SELFAUTOPARENT", "TEXMFROOT"
+    # Fix build failure due to conflicting config.h files.  Reported upstream here:
+    # https://www.tug.org/pipermail/tex-live/2022-May/048183.html
+    inreplace buildpath/"texk/web2c/Makefile.in", "$(DEFAULT_INCLUDES) $(INCLUDES) $(libmfluapotrace_a_CPPFLAGS)",
+              "$(libmfluapotrace_a_CPPFLAGS) $(DEFAULT_INCLUDES) $(INCLUDES)"
 
     args = std_configure_args + [
       "--disable-dvisvgm", # needs its own formula
@@ -483,9 +487,9 @@ class Texlive < Formula
     rm bin/"pythontex"
     rm bin/"depythontex"
     (bin/"pygmentex").write_env_script(share/"texmf-dist/scripts/pygmentex/pygmentex.py",
-      PYTHONPATH: ENV["PYTHONPATH"])
+                                       PYTHONPATH: ENV["PYTHONPATH"])
     (bin/"pythontex").write_env_script(share/"texmf-dist/scripts/pythontex/pythontex3.py",
-      PYTHONPATH: ENV["PYTHONPATH"])
+                                       PYTHONPATH: ENV["PYTHONPATH"])
     ln_sf share/"texmf-dist/scripts/pythontex/depythontex3.py", bin/"depythontex"
 
     # Rewrite shebangs in some Python scripts so they use brewed Python.
