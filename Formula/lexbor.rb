@@ -6,12 +6,13 @@ class Lexbor < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "049e9dcce3ab4f13d659346cd8e437df6fa1436835148cd77b9a692c892247a5"
-    sha256 cellar: :any, arm64_big_sur:  "7ff7b35d9f6c4eb4ed63a7dde659430d17ca5c48564d6702dc9b4e1ea955592c"
-    sha256 cellar: :any, monterey:       "f6d5df6a5a8b4a0c68276927883bcf9950d79e0c8534671345be60abb8cf5eda"
-    sha256 cellar: :any, big_sur:        "e553e88f89c5fb07eb2e5da0950888f1f8e60a6c23c05999119f5fdc50acc9a2"
-    sha256 cellar: :any, catalina:       "717a39abae12061410e36356219b4f44a31d4ca6c050966d48a5cf941ac13421"
-    sha256 cellar: :any, mojave:         "d6ad60202c6e4b55b3a88fedd550a87c644592ff42d391f322d177ca7bbbf829"
+    sha256 cellar: :any,                 arm64_monterey: "049e9dcce3ab4f13d659346cd8e437df6fa1436835148cd77b9a692c892247a5"
+    sha256 cellar: :any,                 arm64_big_sur:  "7ff7b35d9f6c4eb4ed63a7dde659430d17ca5c48564d6702dc9b4e1ea955592c"
+    sha256 cellar: :any,                 monterey:       "f6d5df6a5a8b4a0c68276927883bcf9950d79e0c8534671345be60abb8cf5eda"
+    sha256 cellar: :any,                 big_sur:        "e553e88f89c5fb07eb2e5da0950888f1f8e60a6c23c05999119f5fdc50acc9a2"
+    sha256 cellar: :any,                 catalina:       "717a39abae12061410e36356219b4f44a31d4ca6c050966d48a5cf941ac13421"
+    sha256 cellar: :any,                 mojave:         "d6ad60202c6e4b55b3a88fedd550a87c644592ff42d391f322d177ca7bbbf829"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "352ac6adcbff469c1f691015b623f41f864ab4425225a0606a333a47e66d137c"
   end
 
   depends_on "cmake" => :build
