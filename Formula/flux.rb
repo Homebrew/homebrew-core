@@ -2,8 +2,8 @@ class Flux < Formula
   desc "Lightweight scripting language for querying databases"
   homepage "https://www.influxdata.com/products/flux/"
   url "https://github.com/influxdata/flux.git",
-      tag:      "v0.161.0",
-      revision: "7213ec1a15afa12dc0f2fa402cb0018187e602d4"
+      tag:      "v0.163.0",
+      revision: "bc7b33e2d7379da4b717e42ec1b19c5f939cb774"
   license "MIT"
   head "https://github.com/influxdata/flux.git", branch: "master"
 
@@ -31,8 +31,8 @@ class Flux < Formula
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/v0.2.11.tar.gz"
-    sha256 "52b22c151163dfb051fd44e7d103fc4cde6ae8ff852ffc13adeef19d21c36682"
+    url "https://github.com/influxdata/pkg-config/archive/v0.2.12.tar.gz"
+    sha256 "23b2ed6a2f04d42906f5a8c28c8d681d03d47a1c32435b5df008adac5b935f1a"
   end
 
   def install
@@ -50,6 +50,10 @@ class Flux < Formula
   end
 
   test do
-    assert_equal "8\n", shell_output(bin/"flux execute \"5.0 + 3.0\"")
+    (testpath/"test.flux").write <<~EOS
+      1.0   + 2.0
+    EOS
+    system bin/"flux", "fmt", "--write-result-to-source", testpath/"test.flux"
+    assert_equal "1.0 + 2.0\n", (testpath/"test.flux").read
   end
 end
