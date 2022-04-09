@@ -1,11 +1,10 @@
 class Hive < Formula
   desc "Hadoop-based data summarization, query, and analysis"
   homepage "https://hive.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz"
-  sha256 "d75dcf36908b4e7b9b0ec9aec57a46a6628b97b276c233cb2c2f1a3e89b13462"
+  url "https://www.apache.org/dyn/closer.lua?path=hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz"
+  sha256 "0c9b6a6359a7341b6029cc9347435ee7b379f93846f779d710b13f795b54bb16"
   license "Apache-2.0"
-  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "9285f82cbdeef73e9e050edf733f21e35bf99be5873eb2da34994b8a04764b2e"
