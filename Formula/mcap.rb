@@ -22,6 +22,7 @@ class Mcap < Formula
 
   test do
     resource("testdata").stage do
+      assert_equal File.binread("OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap", 8), "\x89MCAP0\r\n".b
       assert_equal "v#{version}", shell_output("#{bin}/mcap version").strip
 
       assert_equal "2 example [Example] [1 2 3 7 25 0 0 0 0 0]...",
