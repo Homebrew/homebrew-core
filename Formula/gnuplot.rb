@@ -4,6 +4,7 @@ class Gnuplot < Formula
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.3/gnuplot-5.4.3.tar.gz"
   sha256 "51f89bbab90f96d3543f95235368d188eb1e26eda296912256abcd3535bd4d84"
   license "gnuplot"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "eb85e735b54d3525eebc7e9023e35e0265633a189a0a7a28eb67d923c2672503"
