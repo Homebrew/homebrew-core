@@ -6,8 +6,7 @@ class LibcapNg < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d1ebadf56af8023e0f2476d8d74827ba4a821c9d9e8319458ba360a185e51ec5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "09874a93df04e5be6d46acfd1956f2cebc440d6c5aeffd578cee8d318ba7d247"
   end
 
   depends_on "autoconf" => :build
