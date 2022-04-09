@@ -12,6 +12,7 @@ class Kickstart < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "312faa72771af3a139b1de745f164e7a95ac8705ab3db7f2bf6a7ddc451f372f"
     sha256 cellar: :any_skip_relocation, catalina:       "6dbb7cc02996cbde1ead056a058e26adc420f6d7d8e0892ed072659c72e6d141"
     sha256 cellar: :any_skip_relocation, mojave:         "ba2d8ea34e7bf6aa226c2c6dd5ffeea606a2046113250fdb85a3d92655456bbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71d29fb08937a0af034f04671c91c5cf5ee19f31088a0089aa1f5347248988d6"
   end
 
   depends_on "rust" => :build
