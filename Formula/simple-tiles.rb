@@ -4,7 +4,7 @@ class SimpleTiles < Formula
   url "https://github.com/propublica/simple-tiles/archive/v0.6.1.tar.gz"
   sha256 "2391b2f727855de28adfea9fc95d8c7cbaca63c5b86c7286990d8cbbcd640d6f"
   license "MIT"
-  revision 12
+  revision 13
   head "https://github.com/propublica/simple-tiles.git", branch: "master"
 
   bottle do
