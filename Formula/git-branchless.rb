@@ -25,7 +25,7 @@ class GitBranchless < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "git-branchless")
   end
 
   test do
