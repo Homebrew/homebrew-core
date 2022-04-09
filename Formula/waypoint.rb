@@ -7,12 +7,12 @@ class Waypoint < Formula
   head "https://github.com/hashicorp/waypoint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d49182a24743c6dad030bbe6e9b263fbc4f51a2be994931f397adad2e506c10f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffc8af52200e105a282f5a50e84f2ae17c3b34555a0dcef7dae0ed347cd4e3b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "589971eb383c34c3dd1c241eb27f5cf4f816a187a1c7acac8afecd3cd1485943"
-    sha256 cellar: :any_skip_relocation, big_sur:        "08f2898fc1799ba6059e4b44ffcf6489ebb018c732dce036f3f01a6d9e74cabc"
-    sha256 cellar: :any_skip_relocation, catalina:       "2a63b32836b81fed556233eb8b75eee068b5733f867a50cc99a6b6cf491af892"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "631c8263daf7c276541291d4da73d4ca6766b90726e8e93c022622b252a58e84"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5fc64ecb69cf5206a7b49a3a694ba17355dce90de582d0fefc77a5f5eaaefc81"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97c43de5b5e15f199b25ce473105c8905a946e73793d2fa7bbbf2a740d3315e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "95a1acd530c196592fdeaa804e559cc4b4d4ca2949ad0f3d7522c9eac9cfdf67"
+    sha256 cellar: :any_skip_relocation, big_sur:        "061fb004a5d055067dfdf199a7ce6a2c7bbc13c718db285fd0c9a4b51a161fa2"
+    sha256 cellar: :any_skip_relocation, catalina:       "e05ed36da7a1b4f8c4045356a99b5ef526a7b898ef38acb342f0e5d0b6bc516b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f920bf5ecb1a4a63fef52336cfefbb51278694831ac27989a326a8f7fa2d2849"
   end
 
   depends_on "go" => :build
