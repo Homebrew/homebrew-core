@@ -7,8 +7,8 @@ class Camlp5 < Formula
   head "https://github.com/camlp5/camlp5.git", branch: "master"
 
   livecheck do
-    url :homepage
-    regex(%r{The current distributed version is <b>v?(\d+(?:\.\d+)+)</b>}i)
+    url :stable
+    regex(/^rel[._-]?v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
