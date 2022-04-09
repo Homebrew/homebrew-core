@@ -2,8 +2,8 @@ class OpenAdventure < Formula
   include Language::Python::Virtualenv
   desc "Colossal Cave Adventure, the 1995 430-point version"
   homepage "http://www.catb.org/~esr/open-adventure/"
-  url "http://www.catb.org/~esr/open-adventure/advent-1.9.tar.gz"
-  sha256 "36466882af195d402b62deaa08e4cef26d1646cf1329f14503ea06fdc5c7219e"
+  url "http://www.catb.org/~esr/open-adventure/advent-1.10.tar.gz"
+  sha256 "e0fc4c5d1aae0f27ace48af7cc45c9bde582a0eb305bdcb95e31b1310f32daa1"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/open-adventure", branch: "master"
 
