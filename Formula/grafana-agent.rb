@@ -21,6 +21,12 @@ class GrafanaAgent < Formula
     depends_on "systemd" => :build
   end
 
+  # Remove with next release.
+  patch do
+    url "https://github.com/grafana/agent/commit/78aa6238ab8a17fd9ab661625a0ecd36076077cc.patch?full_index=1"
+    sha256 "b6217de2a25d64c47ac95f99cdd7555bdf3bb436c82542e3e958f0f594357e1b"
+  end
+
   def install
     ldflags = %W[
       -X github.com/grafana/agent/pkg/build.Branch=HEAD
