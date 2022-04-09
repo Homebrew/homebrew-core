@@ -1,10 +1,9 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
-  homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.64/vte-0.64.2.tar.xz"
-  sha256 "2b3c820b65a667c1d8859ba20478be626d1519cc3159dac25f703330c6d07e18"
+  homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
+  url "https://download.gnome.org/sources/vte/0.68/vte-0.68.0.tar.xz"
+  sha256 "13e7d4789ca216a33780030d246c9b13ddbfd04094c6316eea7ff92284dd1749"
   license "LGPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_monterey: "be757081c2174226aa18516a2eed57c1c2ab3e7d408c4ab7102a4e0f6e49b26b"
@@ -27,18 +26,33 @@ class Vte3 < Formula
   depends_on macos: :mojave
   depends_on "pcre2"
 
+  on_macos do
+    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1200
+  end
+
   on_linux do
     depends_on "linux-headers@4.15" => :build
-    depends_on "gcc" # for C++17
+    depends_on "gcc" # for C++20
     depends_on "systemd"
   end
 
-  fails_with gcc: "5"
+  fails_with :clang do
+    build 1200
+    cause "Requires C++20"
+  end
+
+  fails_with :gcc do
+    build "9"
+    cause "Requires C++20"
+  end
 
   # submitted upstream as https://gitlab.gnome.org/tschoonj/vte/merge_requests/1
   patch :DATA
 
   def install
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
+
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = std_meson_args + %w[
@@ -57,6 +71,8 @@ class Vte3 < Formula
   end
 
   test do
+    ENV.clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
+
     (testpath/"test.c").write <<~EOS
       #include <vte/vte.h>
 
