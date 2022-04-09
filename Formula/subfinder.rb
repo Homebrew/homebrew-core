@@ -1,8 +1,8 @@
 class Subfinder < Formula
   desc "Subdomain discovery tool"
   homepage "https://github.com/projectdiscovery/subfinder"
-  url "https://github.com/projectdiscovery/subfinder/archive/v2.5.0.tar.gz"
-  sha256 "0586df92336658c64bff60843441eab3ef750cab3b872e0fffcc0c745b4052d6"
+  url "https://github.com/projectdiscovery/subfinder/archive/v2.5.1.tar.gz"
+  sha256 "c93daf616ad3c0f60e91a2626a97c7cfcc3662735db5e6e0b1e2bd0706638fb2"
   license "MIT"
   head "https://github.com/projectdiscovery/subfinder.git", branch: "master"
 
@@ -25,24 +25,7 @@ class Subfinder < Formula
   end
 
   test do
-    # example config.yml from https://github.com/projectdiscovery/subfinder#post-installation-instructions
-    (testpath/"config.yml").write <<~EOS
-      binaryedge:
-        - 0bf8919b-aab9-42e4-9574-d3b639324597
-        - ac244e2f-b635-4581-878a-33f4e79a2c13
-      censys:
-        - ac244e2f-b635-4581-878a-33f4e79a2c13:dd510d6e-1b6e-4655-83f6-f347b363def9
-      certspotter: []
-      passivetotal:
-        - sample-email@user.com:sample_password
-      securitytrails: []
-      shodan:
-        - AAAAClP1bJJSRMEYJazgwhJKrggRwKA
-      github:
-        - ghp_lkyJGU3jv1xmwk4SDXavrLDJ4dl2pSJMzj4X
-        - ghp_gkUuhkIYdQPj13ifH4KA3cXRn8JD2lqir2d4
-    EOS
-
-    assert_match "docs.brew.sh", shell_output("#{bin}/subfinder -d brew.sh -config #{testpath}/config.yml")
+    assert_match "docs.brew.sh", shell_output("#{bin}/subfinder -d brew.sh")
+    assert_predicate testpath/".config/subfinder/config.yaml", :exist?
   end
 end
