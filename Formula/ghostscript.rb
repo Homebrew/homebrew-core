@@ -1,15 +1,16 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9550/ghostpdl-9.55.0.tar.gz"
-  sha256 "b73cdfcb7b1c2a305748d23b00a765bcba48310564940b1eff1457f19f898172"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9561/ghostpdl-9.56.1.tar.xz"
+  sha256 "05e64c19853e475290fd608a415289dc21892c4d08ee9086138284b6addcb299"
   license "AGPL-3.0-or-later"
 
   # We check the tags from the `head` repository because the GitHub tags are
   # formatted ambiguously, like `gs9533` (corresponding to version 9.53.3).
   livecheck do
-    url :head
-    regex(/^ghostpdl[._-]v?(\d+(?:\.\d+)+)$/i)
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads"
+    strategy :page_match
+    regex(/^ghostpdl(?:\s)?v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -24,7 +25,7 @@ class Ghostscript < Formula
 
   head do
     # Can't use shallow clone. Doing so = fatal errors.
-    url "https://git.ghostscript.com/ghostpdl.git"
+    url "https://git.ghostscript.com/ghostpdl.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -55,11 +56,6 @@ class Ghostscript < Formula
   resource "fonts" do
     url "https://downloads.sourceforge.net/project/gs-fonts/gs-fonts/8.11%20%28base%2035%2C%20GPL%29/ghostscript-fonts-std-8.11.tar.gz"
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
-  end
-
-  patch do
-    url "http://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=830afae5454dea3bff903869d82022306890a96c"
-    sha256 "9c282e3f732b5c182ab761e187850d9f4c29d938a93e3785d9cb6ced13111d6c"
   end
 
   def install
