@@ -13,6 +13,7 @@ class SpringCompletion < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "1110b2611a3d8dc08fe1731e46692b9d77234e60aba14602f0ad1f9380933eeb"
     sha256 cellar: :any_skip_relocation, catalina:       "1110b2611a3d8dc08fe1731e46692b9d77234e60aba14602f0ad1f9380933eeb"
     sha256 cellar: :any_skip_relocation, mojave:         "1110b2611a3d8dc08fe1731e46692b9d77234e60aba14602f0ad1f9380933eeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cff62b143ba4126ebde03eca3822b4e1b3af6977a3a26b798d94286fd423cf47"
   end
 
   def install
