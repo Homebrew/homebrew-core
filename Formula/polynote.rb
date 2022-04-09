@@ -31,6 +31,12 @@ class Polynote < Formula
 
     with_env(JAVA_HOME: Formula["openjdk"].opt_prefix) do
       resource("jep").stage do
+        # Help native shared library in jep resource find libjvm.so on Linux.
+        unless OS.mac?
+          ENV.append "LDFLAGS", "-L#{Formula["openjdk"].libexec}/lib/server"
+          ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["openjdk"].libexec}/lib/server"
+        end
+
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
