@@ -30,28 +30,6 @@ class Klee < Formula
     sha256 "129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e"
   end
 
-  # Patches for LLVM 12 Support
-  # https://github.com/klee/klee/pull/1389
-  patch do
-    url "https://github.com/klee/klee/commit/8ac323db7d367799fba9435b64fe715c603e60ba.patch?full_index=1"
-    sha256 "e8c325ebe471b4f36eabd9d041f3ad9461061cc261c898e078d4dd211a1f3632"
-  end
-
-  patch do
-    url "https://github.com/klee/klee/commit/96aa751760b4efc3424a82b573057008bc639c3b.patch?full_index=1"
-    sha256 "1cbc17d413992f211f077687c4187f70b82d7129594fb178c7694fe1d897dac1"
-  end
-
-  patch do
-    url "https://github.com/klee/klee/commit/3d7c05a7e86a72a4fc8df115591bd1e7a50f9d84.patch?full_index=1"
-    sha256 "6eb99a36c25eaf311bcf666d4b893f9e9bdfd06b72cca63d570b6f3e8a8013bc"
-  end
-
-  patch do
-    url "https://github.com/klee/klee/commit/8775b9cf6c716f51fe90d668e734a1288c8b5404.patch?full_index=1"
-    sha256 "baefa3e332b2fb699d5329ba2e7c0d87485654dd7ae0a49e6da3a71102ef4ca0"
-  end
-
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
   end
