@@ -33,6 +33,12 @@ class Protobuf < Formula
 
   uses_from_macos "zlib"
 
+  # Patch for versioning issue - remove with 3.20.1
+  patch do
+    url "https://github.com/protocolbuffers/protobuf/commit/25045e3f69933dfc5582487eae2500bc5dea1be6.patch?full_index=1"
+    sha256 "81cdaf2ffea585ee5419659f051ef5289afb6958fb9c2da47b56d7fdc2cc8fb3"
+  end
+
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
