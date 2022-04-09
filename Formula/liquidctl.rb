@@ -3,8 +3,8 @@ class Liquidctl < Formula
 
   desc "Cross-platform tool and drivers for liquid coolers and other devices"
   homepage "https://github.com/liquidctl/liquidctl"
-  url "https://files.pythonhosted.org/packages/95/94/8c5a48699eaae4519e538f98ddae2d2c0810554c7b9efb2aac53817ef593/liquidctl-1.8.1.tar.gz"
-  sha256 "0859dfe673babe9af10e4f431e0baa974961f0b2c973a37e64eb6c6c2fddbe73"
+  url "https://files.pythonhosted.org/packages/cc/0d/0d014ab062eb831c53d745bd61836f9247a7e9695d21aea40276f2aa3c17/liquidctl-1.9.1.tar.gz"
+  sha256 "b4467e842d9a6adc804317a991354db041417f4f7dcf7d76799f2b1593ed1276"
   license "GPL-3.0-or-later"
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
@@ -36,8 +36,8 @@ class Liquidctl < Formula
   end
 
   resource "hidapi" do
-    url "https://files.pythonhosted.org/packages/dc/aa/38708a1d85d13dec22e756feb4e02f8b3adc5937bfe976f8f998717ff0a3/hidapi-0.11.0.post2.tar.gz"
-    sha256 "da815e0d1d4b2ef1ebbcc85034572105dca29627eb61881337aa39010f2ef8cb"
+    url "https://files.pythonhosted.org/packages/c0/36/1ae403d51262337de39bb026b2ccbe588668273c3361f5d49f0e2094f318/hidapi-0.11.2.tar.gz"
+    sha256 "c984b7ec2fc2ea987cd44cf06947e55572498ed2d43c64890b4ab58b29af72bc"
   end
 
   resource "pyusb" do
