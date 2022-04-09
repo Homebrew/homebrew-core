@@ -16,12 +16,12 @@ class Skaffold < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ef61316e015cab0c8944025e34c92cf6c8fc03069e3fa3e5bcdb3f4c68da338"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7d21655afaf450ca64e515c13c081ce89b5bfc315d1671714487127ba85c652"
-    sha256 cellar: :any_skip_relocation, monterey:       "7d6ef4ae4bbde0a72e670a3ec246946c5c8cb3dbc3f901604e3b527ad09705df"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e15e58c39e7190e05c5dff1a1e617673360416c2dbf5c320d1b18cac13b2a87c"
-    sha256 cellar: :any_skip_relocation, catalina:       "dea233fc260993d186abfebea22cbc5985d87daef0e77b9d84aed6b2599b3403"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bd8ee2b07612653330e87c8aca9d8332a0b1fb2b40ed211c5c836db02d57086"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5f86e0f2c7df648c93973f1d1f5bb3fd36a6e70732755ba8e0275fe6a9827cd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "267f1056fb46f40e4b80385b65aeced63274b4834e84ca180a18c16500026260"
+    sha256 cellar: :any_skip_relocation, monterey:       "8aa5361678edd51d0186a62ce9846c0bd114bfa934dacc897d8cf5e050b232ba"
+    sha256 cellar: :any_skip_relocation, big_sur:        "86b4b0cf661910e5f405c55d5d6272a3a5bc5d5204a071e9580946ef03c089d1"
+    sha256 cellar: :any_skip_relocation, catalina:       "e7f0b3a1532b269a9779de0ed47116cccc2aa62df86b6f6ecd328c3d07a8182a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30fb90ce26b77c73a6acedf99b399558d1f5a02853862209dfac2e6cb53f1982"
   end
 
   # Bump to 1.18 on the next release, if possible.
