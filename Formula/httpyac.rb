@@ -44,18 +44,11 @@ class Httpyac < Formula
       GET https://httpbin.org/anything HTTP/1.1
       Content-Type: text/html
       Authorization: Bearer token
-
-      # @keepStreaming
-      MQTT tcp://broker.hivemq.com
-      Topic: testtopic/1
-      Topic: testtopic/2
     EOS
 
     output = shell_output("#{bin}/httpyac send test_cases --all")
     # for httpbin call
     assert_match "HTTP/1.1 200  - OK", output
-    # for mqtt calls
-    assert_match "testtopic/2:  Check with Mazin", output
 
     assert_match version.to_s, shell_output("#{bin}/httpyac --version")
   end
