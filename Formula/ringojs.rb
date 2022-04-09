@@ -18,6 +18,7 @@ class Ringojs < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "445095a17c58cb61c8275e174c2630cd4ac2acba61198fdf7fe978544815ad9d"
     sha256 cellar: :any_skip_relocation, catalina:       "445095a17c58cb61c8275e174c2630cd4ac2acba61198fdf7fe978544815ad9d"
     sha256 cellar: :any_skip_relocation, mojave:         "445095a17c58cb61c8275e174c2630cd4ac2acba61198fdf7fe978544815ad9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d737033338e11f8af0d51d220ad0cc9ce4d64231670489ca3036b3df338f6970"
   end
 
   depends_on "openjdk@11"
