@@ -3,8 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/a0/f2/d6bc1c4ea9a0d120ebf2fd8c8aab21748b5ba4b374e28eaece67197f56f3/jupyterlab-3.3.2.tar.gz"
-  sha256 "3c716bf5592cb28c5c55c615c6e5bd3efc71898f6957d13719b56478bbbb587a"
+  url "https://files.pythonhosted.org/packages/29/e1/49f9577a959f0dbc00d4b02d5f2c18299e0581ee613a60b43648a837b9f3/jupyterlab-3.3.3.tar.gz"
+  sha256 "294d67126015ba397f6b1c80563deec862e47e042623851bbe2a7d870d69eb6a"
   license "BSD-3-Clause"
 
   bottle do
@@ -30,8 +30,8 @@ class Jupyterlab < Formula
   end
 
   resource "appnope" do
-    url "https://files.pythonhosted.org/packages/e9/bc/2d2c567fe5ac1924f35df879dbf529dd7e7cabd94745dc9d89024a934e76/appnope-0.1.2.tar.gz"
-    sha256 "dd83cd4b5b460958838f6eb3000c660b1f9caf2a5b1de4264e941512f603258a"
+    url "https://files.pythonhosted.org/packages/6a/cd/355842c0db33192ac0fc822e2dcae835669ef317fe56c795fb55fcddb26f/appnope-0.1.3.tar.gz"
+    sha256 "02bd91c4de869fbb1e1c50aafc4098827a7a54ab2f39d9dcba6c9547ed920e24"
   end
 
   resource "argon2-cffi" do
@@ -65,13 +65,13 @@ class Jupyterlab < Formula
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/a1/69/daeee6d8f22c997e522cdbeb59641c4d31ab120aba0f2c799500f7456b7e/beautifulsoup4-4.10.0.tar.gz"
-    sha256 "c23ad23c521d818955a4151a67d81580319d4bf548d3d49f4223ae041ff98891"
+    url "https://files.pythonhosted.org/packages/e8/b0/cd2b968000577ec5ce6c741a54d846dfa402372369b8b6861720aa9ecea7/beautifulsoup4-4.11.1.tar.gz"
+    sha256 "ad9aa55b65ef2808eb405f46cf74df7fcb7044d5cbc26487f96eb2ef2e436693"
   end
 
   resource "bleach" do
-    url "https://files.pythonhosted.org/packages/6a/a3/217842324374fd3fb33db0eb4c2909ccf3ecc5a94f458088ac68581f8314/bleach-4.1.0.tar.gz"
-    sha256 "0900d8b37eba61a802ee40ac0061f8c2b5dee29c1927dd1d233e075ebf5a71da"
+    url "https://files.pythonhosted.org/packages/54/65/5e8705bf754535f44b9c711ae655ed78908e8c5b370cfd29bdc8b8a1e93c/bleach-5.0.0.tar.gz"
+    sha256 "c6d6cc054bdc9c83b48b8083e236e5f00f238428666d2ce2e083eaa5fd568565"
   end
 
   resource "certifi" do
@@ -90,8 +90,8 @@ class Jupyterlab < Formula
   end
 
   resource "debugpy" do
-    url "https://files.pythonhosted.org/packages/68/8a/aba73af65eb84e0c61c658d2aa2f2a9b4d2939a7f87294dd396f4987efac/debugpy-1.5.1.zip"
-    sha256 "d2b09e91fbd1efa4f4fda121d49af89501beda50c18ed7499712c71a4bf3452e"
+    url "https://files.pythonhosted.org/packages/9c/45/8e3384e99b8bf79f8ba937aa3e726331789bdfb65ab03aedaedda9e2d30b/debugpy-1.6.0.zip"
+    sha256 "7b79c40852991f7b6c3ea65845ed0f5f6b731c37f4f9ad9c61e2ab4bd48a9275"
   end
 
   resource "decorator" do
@@ -114,19 +114,24 @@ class Jupyterlab < Formula
     sha256 "c6554e21c6b060590a6d3be4b82fb78f8f0194d809de5ea7df1c093763311501"
   end
 
+  resource "fastjsonschema" do
+    url "https://files.pythonhosted.org/packages/50/1e/44bf3d37e60f36af7c3f1462425082c2d925080bb9926a32c3b8439e67de/fastjsonschema-2.15.3.tar.gz"
+    sha256 "0a572f0836962d844c1fc435e200b2e4f4677e4e6611a2e3bdd01ba697c275ec"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
     sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/e7/b2/0db7e5e7c2de514de42f9a95a09b421d18b7cd6f4a69af19f4cf46c48d13/ipykernel-6.9.2.tar.gz"
-    sha256 "4c3cc8cb359f2ead70c30f5504971c0d285e2c1c699d2ce9af0216fe9c9fb17c"
+    url "https://files.pythonhosted.org/packages/62/23/374fc7d075dd0683ba0e3c95490c72856cf13e809f9957d57bab5f946097/ipykernel-6.12.1.tar.gz"
+    sha256 "0868f5561729ade444011f8ca7d3502dc9f27f7f44e20f1d5fee7e1f2b7183a1"
   end
 
   resource "ipython" do
-    url "https://files.pythonhosted.org/packages/fb/09/3501e84f146738e509d2ce98b862542b0f1e3448634e116b83acd7cb0c74/ipython-8.1.1.tar.gz"
-    sha256 "8138762243c9b3a3ffcf70b37151a2a35c23d3a29f9743878c33624f4207be3d"
+    url "https://files.pythonhosted.org/packages/24/65/7f9da61ec569eb4e96081ef802755295a213141908be2958c6771db4b04c/ipython-8.2.0.tar.gz"
+    sha256 "70e5eb132cac594a34b5f799bd252589009905f05104728aea6a403ec2519dc1"
   end
 
   resource "ipython_genutils" do
@@ -140,8 +145,8 @@ class Jupyterlab < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/89/e3/b36266381ae7a1310a653bb85f4f3658c462a69634fa9b2fef76252a50ed/Jinja2-3.1.1.tar.gz"
+    sha256 "640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9"
   end
 
   resource "json5" do
@@ -155,8 +160,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyter-client" do
-    url "https://files.pythonhosted.org/packages/2d/8b/4c9c3623608b31370f5dd02963801adc36a81ba95b8e1a1a4deacdd84973/jupyter_client-7.1.2.tar.gz"
-    sha256 "4ea61033726c8e579edb55626d8ee2e6bf0a83158ddf3751b8dd46b2c5cd1e96"
+    url "https://files.pythonhosted.org/packages/52/ae/9948b7d19c384c4f5176715073df5745cdf725272ee05e4e326c11fc6cbc/jupyter_client-7.2.2.tar.gz"
+    sha256 "8fdbad344a8baa6a413d86d25bbf87ce21cb2b4aa5a8e0413863b9754eb8eb8a"
   end
 
   resource "jupyter-core" do
@@ -165,18 +170,18 @@ class Jupyterlab < Formula
   end
 
   resource "jupyter-server" do
-    url "https://files.pythonhosted.org/packages/12/5f/d8bb2cc084ade361e881b1e13fbdcd11be647dff27c23da24f57127b47fe/jupyter_server-1.15.6.tar.gz"
-    sha256 "56bd6f580d1f46b62294990e8e78651025729f5d3fc798f10f2c03f0cdcbf28d"
+    url "https://files.pythonhosted.org/packages/94/1f/b459045b6a4c4c94a461cbf14026c15153baaf3116402a3db1744c8416de/jupyter_server-1.16.0.tar.gz"
+    sha256 "c756f87ad64b84e2aa522ef482445e1a93f7fe4a5fc78358f4636e53c9a0463a"
   end
 
   resource "jupyterlab-pygments" do
-    url "https://files.pythonhosted.org/packages/d1/79/3677d138eeacbba7cf6d0e51e6b8c094448329f7b8a523a5d2599bc898e7/jupyterlab_pygments-0.1.2.tar.gz"
-    sha256 "cfcda0873626150932f438eccf0f8bf22bfa92345b814890ab360d666b254146"
+    url "https://files.pythonhosted.org/packages/3a/58/89dce3fa935c1c14f00aca23d7e2fbf0072f098a6cb25e6b8253ed92b298/jupyterlab_pygments-0.2.0.tar.gz"
+    sha256 "2d48bcdd666043afc086af56adaf6bb79bbeffb1d73ed00ec4a2113f6cc22581"
   end
 
   resource "jupyterlab-server" do
-    url "https://files.pythonhosted.org/packages/7c/8e/519d47a0a96772de7e3d224db64a965b48470267c09558498313d22ab626/jupyterlab_server-2.11.2.tar.gz"
-    sha256 "5d8dc70f6803dc48efb69fb43e3cd2f8c6aad4ba011670318e5efd26c7487bb9"
+    url "https://files.pythonhosted.org/packages/22/42/b01b5ce8633bd6513cc5fda7d4a1cf9b50cb295561f022b76bd022bd2bfd/jupyterlab_server-2.12.0.tar.gz"
+    sha256 "00e0f4b4c399f55938323ea10cf92d915288fe12753e35d1069f6ca08b72abbf"
   end
 
   resource "MarkupSafe" do
@@ -205,18 +210,18 @@ class Jupyterlab < Formula
   end
 
   resource "nbconvert" do
-    url "https://files.pythonhosted.org/packages/6e/d8/69385c6f0ed02347810c37c031ba5990cd453f53f44e5d89c2712612a553/nbconvert-6.4.4.tar.gz"
-    sha256 "ee0dfe34bbd1082ac9bfc750aae3c73fcbc34a70c5574c6986ff83c10a3541fd"
+    url "https://files.pythonhosted.org/packages/27/59/80e892f69ada6d9be25b1f71c5b0b67ff084feaef9875ff1e120264e974d/nbconvert-6.4.5.tar.gz"
+    sha256 "21163a8e2073c07109ca8f398836e45efdba2aacea68d6f75a8a545fef070d4e"
   end
 
   resource "nbformat" do
-    url "https://files.pythonhosted.org/packages/6d/61/6aea9318a9b323d651823b92e02dc13671b100db061acafed519f8e25f4e/nbformat-5.2.0.tar.gz"
-    sha256 "93df0b9c67221d38fb970c48f6d361819a6c388299a0ef3171bbb912edfe1324"
+    url "https://files.pythonhosted.org/packages/eb/51/ad97f33007b51095f551fc06391f13d28a45f62c0c051837331970e01557/nbformat-5.3.0.tar.gz"
+    sha256 "fcc5ab8cb74e20b19570b5be809e2dba9b82836fd2761a89066ad43394ba29f5"
   end
 
   resource "nest-asyncio" do
-    url "https://files.pythonhosted.org/packages/60/51/b74def9b027b864d1d9b22dfffec4ddd83f9c15f757a5a4a412566f27670/nest_asyncio-1.5.4.tar.gz"
-    sha256 "f969f6013a16fadb4adcf09d11a68a4f617c6049d7af7ac2c676110169a63abd"
+    url "https://files.pythonhosted.org/packages/7b/19/efddf713ba62f738d2bf410a6f5ead6e621f9354d5824091ce8b7a233e11/nest_asyncio-1.5.5.tar.gz"
+    sha256 "e442291cd942698be619823a17a86a5759eabe1f8613084790de189fe9e16d65"
   end
 
   resource "notebook" do
@@ -255,13 +260,13 @@ class Jupyterlab < Formula
   end
 
   resource "prometheus-client" do
-    url "https://files.pythonhosted.org/packages/a0/e4/af0c31d69c985e83774f5b3ee1b0e28f129a7606e3cfeb3e08b6a1fe8a12/prometheus_client-0.13.1.tar.gz"
-    sha256 "ada41b891b79fca5638bd5cfe149efa86512eaa55987893becd2c6d8d0a5dfc5"
+    url "https://files.pythonhosted.org/packages/98/71/2f16cce64055263146eff950affe7b1ab2ff78736ff0d2b5578bc0817e49/prometheus_client-0.14.1.tar.gz"
+    sha256 "5459c427624961076277fdc6dc50540e2bacb98eebde99886e59ec55ed92093a"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/37/34/c34c376882305c5051ed7f086daf07e68563d284015839bfb74d6e61d402/prompt_toolkit-3.0.28.tar.gz"
-    sha256 "9f1cd16b1e86c2968f2519d7fb31dd9d669916f515612c269d14e9ed52b51650"
+    url "https://files.pythonhosted.org/packages/59/68/4d80f22e889ea34f20483ae3d4ca3f8d15f15264bcfb75e52b90fb5aefa5/prompt_toolkit-3.0.29.tar.gz"
+    sha256 "bd640f60e8cecd74f0dc249713d433ace2ddc62b65ee07f96d358e0b152b6ea7"
   end
 
   resource "psutil" do
@@ -330,8 +335,8 @@ class Jupyterlab < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/e1/25/a3005eedafb34e1258458e8a4b94900a60a41a2b4e459e0e19631648a2a0/soupsieve-2.3.1.tar.gz"
-    sha256 "b8d49b1cd4f037c7082a9683dfa1801aa2597fb11c3a1155b7a5b94829b4f1f9"
+    url "https://files.pythonhosted.org/packages/3b/3d/a7865440c393baf403899d79e724ad0a9805199962917745d9277f1db40e/soupsieve-2.3.2.tar.gz"
+    sha256 "0bcc6d7432153063e3df09c3ac9442af3eba488715bfcad6a4c38ccb2a523124"
   end
 
   resource "stack-data" do
@@ -375,8 +380,8 @@ class Jupyterlab < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/8d/12/cd10d050f7714ccc675b486cdcbbaed54c782a5b77da2bb82e5c7b31fb40/websocket-client-1.3.1.tar.gz"
-    sha256 "6278a75065395418283f887de7c3beafb3aa68dada5cacbe4b214e8d26da499b"
+    url "https://files.pythonhosted.org/packages/7c/de/9f5354b4b37df453b7d664f587124c70a75c81805095d491d39f5b591818/websocket-client-1.3.2.tar.gz"
+    sha256 "50b21db0058f7a953d67cc0445be4b948d7fc196ecbeb8083d68d94628e4abf6"
   end
 
   def install
