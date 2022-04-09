@@ -12,6 +12,7 @@ class Phpbrew < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d9b4ec02efb50c18f7ddc1c4b341fd7ef954c7af9b779a4a705b67b299978135"
     sha256 cellar: :any_skip_relocation, big_sur:        "da1a09ea403685c424d6808c9486a76182ca29e689243ae703f4f9e0820b756a"
     sha256 cellar: :any_skip_relocation, catalina:       "da1a09ea403685c424d6808c9486a76182ca29e689243ae703f4f9e0820b756a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c9a253bc9b4c2f88baf9754ca9fae76bd61f573999faeb2a0af3d90d9dde644"
   end
 
   depends_on "php"
