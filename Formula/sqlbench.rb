@@ -13,6 +13,7 @@ class Sqlbench < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "9a74a774e1c5c5512b9230713af78f3694d38f237241817740c8f244febe8e09"
     sha256 cellar: :any_skip_relocation, catalina:       "a138dbb8bf3fa6293e51b49e91e35078c8c2d7dc399c70a61705f047b519a8f1"
     sha256 cellar: :any_skip_relocation, mojave:         "382ff90c210126e6803b47d1b267761d592b1d9898f6804730beb26df80af917"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0e961ada32e3e6588b0a328d3030f39e7bcc1457b63573608347e28cd5960cf"
   end
 
   depends_on "go" => :build
