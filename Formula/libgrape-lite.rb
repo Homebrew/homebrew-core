@@ -4,6 +4,7 @@ class LibgrapeLite < Formula
   url "https://github.com/alibaba/libgrape-lite/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "aafc8e5e9b122c4bde4370ee3f2ab8afb043f2a1547cacc062991ad420e3b9a4"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a522e2d270893e0abb9a24679444c7b1cea1fb09c19679ee28c908778b00d09f"
