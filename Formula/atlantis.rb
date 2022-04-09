@@ -6,6 +6,11 @@ class Atlantis < Formula
   license "Apache-2.0"
   head "https://github.com/runatlantis/atlantis.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09eebaa12ee2741b1e5ebba4f1f41b929fae1b1fef97b2ef104c7bfb50c1b38e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7632380740cda545a5dc2ab606a3beed71bec4b28f8ba7f5e350ffd25e971cf"
