@@ -25,6 +25,14 @@ class Pokerstove < Formula
 
   def install
     rm_rf "src/ext/googletest"
+
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    unless OS.mac?
+      inreplace "src/lib/pokerstove/util/CMakeLists.txt",
+                "gtest_main", "gtest_main pthread"
+    end
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
@@ -47,7 +55,7 @@ __END__
 -add_subdirectory(src/ext/googletest)
 -find_library(gtest REQUIRED)
 +#add_subdirectory(src/ext/googletest)
-+find_package(gtest REQUIRED)
++find_package(GTest REQUIRED)
  include_directories(${GTEST_INCLUDE_DIRS})
  link_directories(${GTEST_LIBS_DIR})
  add_definitions("-fPIC")
