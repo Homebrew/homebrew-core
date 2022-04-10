@@ -1,15 +1,10 @@
 class Portmidi < Formula
   desc "Cross-platform library for real-time MIDI I/O"
-  homepage "https://sourceforge.net/projects/portmedia/"
-  url "https://downloads.sourceforge.net/project/portmedia/portmidi/217/portmidi-src-217.zip"
-  sha256 "08e9a892bd80bdb1115213fb72dc29a7bf2ff108b378180586aa65f3cfd42e0f"
+  homepage "https://github.com/PortMidi/portmidi"
+  url "https://github.com/PortMidi/portmidi/archive/refs/tags/v2.0.3.tar.gz"
+  sha256 "934f80e1b09762664d995e7ab5a9932033bc70639e8ceabead817183a54c60d0"
   license "MIT"
-  revision 2
-
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/portmidi-src[._-]v?(\d+(?:\.\d+)*)\.}i)
-  end
+  version_scheme 1
 
   bottle do
     rebuild 2
@@ -26,30 +21,6 @@ class Portmidi < Formula
 
   on_linux do
     depends_on "alsa-lib"
-
-    # Fix hardcoded "/usr/local" paths to install libraries and headers
-    patch do
-      url "https://sources.debian.org/data/main/p/portmidi/1:217-6/debian/patches/00_cmake.diff"
-      sha256 "9a73c4453e784f97927d4412a916814b6f2ed864bd5f49d383c6650b8590fd26"
-    end
-
-    # Fix build error: midithru.c:(.text+0x374): undefined reference to `Pt_Start'
-    patch do
-      url "https://sources.debian.org/data/main/p/portmidi/1:217-6/debian/patches/20-movetest.diff"
-      sha256 "938560fc3a6910f9451b11136ab295b68d8b0e0539a3cd0f02550d209bb39202"
-    end
-
-    # Install porttime libraries
-    patch do
-      url "https://sources.debian.org/data/main/p/portmidi/1:217-6/debian/patches/30-porttime_cmake.diff"
-      sha256 "e6d26bfd2018e90d68c86cf5c7275480111873487d202bed7b1717a38dfa0fe2"
-    end
-  end
-
-  # Do not build pmjni.
-  patch do
-    url "https://sources.debian.org/data/main/p/portmidi/1:217-6/debian/patches/13-disablejni.patch"
-    sha256 "c11ce1e8fe620d5eb850a9f1ca56506f708e37d4390f1e7edb165544f717749e"
   end
 
   def install
@@ -58,22 +29,23 @@ class Portmidi < Formula
     lib.mkpath
 
     if OS.mac?
+      # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
+      # "error: expected function body after function declarator" on 10.12
+      # Requires the CLT to be the active developer directory if Xcode is installed
       ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
       inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
 
-      # Fix outdated SYSROOT to avoid:
-      # No rule to make target `/Developer/SDKs/MacOSX10.5.sdk/...'
-      inreplace "pm_common/CMakeLists.txt",
-                "set(CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk CACHE",
-                "set(CMAKE_OSX_SYSROOT /#{MacOS.sdk_path} CACHE"
-
       system "make", "-f", "pm_mac/Makefile.osx"
       system "make", "-f", "pm_mac/Makefile.osx", "install"
+      mv lib/shared_library("libportmidi"), lib/shared_library("libportmidi", version)
     else
       system "cmake", ".", *std_cmake_args, "-DCMAKE_CACHEFILE_DIR=#{buildpath}/build"
       system "make", "install"
+      lib.install_symlink shared_library("libportmidi", version) => shared_library("libportmidi", 0)
     end
+    lib.install_symlink shared_library("libportmidi", version) => shared_library("libportmidi")
+    lib.install_symlink shared_library("libportmidi", version) => shared_library("libportmidi", version.major.to_s)
   end
 
   test do
