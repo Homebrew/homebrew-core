@@ -3,6 +3,7 @@ class Pgbouncer < Formula
   homepage "https://www.pgbouncer.org/"
   url "https://www.pgbouncer.org/downloads/files/1.17.0/pgbouncer-1.17.0.tar.gz"
   sha256 "657309b7bc5c7a85cbf70a9a441b535f7824123081eabb7ba86d00349a256e23"
+  license "ISC"
 
   livecheck do
     url "https://github.com/pgbouncer/pgbouncer"
