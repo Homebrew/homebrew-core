@@ -4,7 +4,7 @@ class Fail2ban < Formula
   url "https://github.com/fail2ban/fail2ban/archive/0.11.2.tar.gz"
   sha256 "383108e5f8644cefb288537950923b7520f642e7e114efb843f6e7ea9268b1e0"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -35,6 +35,14 @@ class Fail2ban < Formula
   patch do
     url "https://github.com/fail2ban/fail2ban/commit/2b6bb2c1bed8f7009631e8f8c306fa3160324a49.patch?full_index=1"
     sha256 "ff0aa188dbcfedaff6f882dba00963f4faf3fa774da9cfeb7f96030050e9d8e3"
+  end
+  patch do
+    url "https://github.com/fail2ban/fail2ban/commit/42dee38ad2ac5c3f23bdf297d824022923270dd9.patch?full_index=1"
+    sha256 "b8755368fe3de255aca948d850afa9dbdc66676029c98ebf1869def14b4638f0"
+  end
+  patch do
+    url "https://github.com/fail2ban/fail2ban/commit/9f1d1f4fbd0804695a976beb191f2c49a2739834.patch?full_index=1"
+    sha256 "81a71e608a2ce8bfe484651fa3ab744709dfab7d769699f0d937d15519082350"
   end
 
   def install
@@ -91,7 +99,9 @@ class Fail2ban < Formula
     inreplace "setup.py", "platform_system in ('linux',", "platform_system in ('linux', 'darwin',"
 
     system "./fail2ban-2to3"
-    system "python3", "setup.py", "install", "--prefix=#{libexec}"
+    system "python3", *Language::Python.setup_install_args(libexec),
+                      "--install-lib=#{libexec/Language::Python.site_packages("python3")}",
+                      "--without-tests"
 
     cd "doc" do
       system "make", "dirhtml", "SPHINXBUILD=sphinx-build"
@@ -139,5 +149,10 @@ class Fail2ban < Formula
 
   test do
     system "#{bin}/fail2ban-client", "--test"
+
+    (testpath/"test.log").write <<~EOS
+      Jan 31 11:59:59 [sshd] error: PAM: Authentication failure for test from 127.0.0.1
+    EOS
+    system "#{bin}/fail2ban-regex", "test.log", "sshd"
   end
 end
