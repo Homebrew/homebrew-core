@@ -7,12 +7,12 @@ class Jql < Formula
   head "https://github.com/yamafaktory/jql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1008dcba0962183c8c664fd9b0d749e539fc789094f55c73b98ce530357e66a0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "94522c1dc07da4005c6c5d7b5ce1a7117dd046b3612d9a6a8a4375ffe1a3bf82"
-    sha256 cellar: :any_skip_relocation, monterey:       "65bc03245426442cdb1d16817358bb5a2939a06b92c0a4cc47d5e5d93dc565e4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0224857d8f638d0b68d57ae2c09b68b612e2e7e6e3862a3fd6abc62fdb7abdce"
-    sha256 cellar: :any_skip_relocation, catalina:       "924ee8c0fc347aec762711a543bbeea1cd46fcdd855cf30f0168a80e0c5fab61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2006fd6defdf010c9c53e73b6aedf8340061f93b22021cf3e377427604b488c0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "88a2ef1cc8e9058f7b8dc547b45d78bf66421eee38e7312586e728cd78ae5fd2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "146e0d78be88ab1a31f746f84fbd0592cda7e1baadf628010dbb5b024b282876"
+    sha256 cellar: :any_skip_relocation, monterey:       "d85efeeadb0c4b22fa643389822ca101866bbc3171829372b63c5bb1517521ef"
+    sha256 cellar: :any_skip_relocation, big_sur:        "62824a3e2c0cc521810a74d19c3738d54ca60b9dbce14807d6603f2e197a0ebe"
+    sha256 cellar: :any_skip_relocation, catalina:       "6fef8e594c2ff05962f13c1d1d02af0652b279b81d81143a1fef1fe75e65285f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c223382723e7e1b4ac37a543ee82a76cdbb5ea4457d2dd8ac34fa7311781033a"
   end
 
   depends_on "rust" => :build
