@@ -28,9 +28,6 @@ class KimApi < Formula
   uses_from_macos "xz"
 
   def install
-    # change file(COPY) to configure_file() to avoid symlink issue; will be fixed in 2.2.2
-    inreplace "cmake/items-macros.cmake.in", /file\(COPY ([^ ]+) DESTINATION ([^ ]*)\)/,
-                                             "configure_file(\\1 \\2 COPYONLY)"
     args = std_cmake_args + [
       # adjust libexec dir
       "-DCMAKE_INSTALL_LIBEXECDIR=lib",
