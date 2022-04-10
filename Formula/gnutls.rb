@@ -20,8 +20,6 @@ class Gnutls < Formula
     sha256 x86_64_linux:   "e01881a84a775b5cc5f5c76bde81f15da2dafc1f0dffe38e5fbe004ea178d446"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "ca-certificates"
   depends_on "gmp"
@@ -33,14 +31,10 @@ class Gnutls < Formula
   depends_on "p11-kit"
   depends_on "unbound"
 
-  on_linux do
-    depends_on "autogen"
-  end
-
   def install
-    # Fix build with Xcode 12
-    # https://gitlab.com/gnutls/gnutls/-/issues/1116
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    # Fix compile crash on Apple Silicon.
+    # https://gitlab.com/gnutls/gnutls/-/issues/1347
+    inreplace "lib/accelerated/aarch64/Makefile.in", /^(AM_CCASFLAGS =) -Wa,-march=all$/, "\\1" if OS.mac?
 
     args = %W[
       --disable-dependency-tracking
@@ -57,9 +51,7 @@ class Gnutls < Formula
     ]
 
     system "./configure", *args
-    # Adding LDFLAGS= to allow the build on Catalina 10.15.4
-    # See https://gitlab.com/gnutls/gnutls/-/issues/966
-    system "make", "LDFLAGS=", "install"
+    system "make", "install"
 
     # certtool shadows the macOS certtool utility
     mv bin/"certtool", bin/"gnutls-certtool"
