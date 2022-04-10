@@ -12,13 +12,12 @@ class Fail2ban < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8bbb8f762200e892130d7f5fe082f75057f8d5fe8950c85686182872ae1cd0d0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bbb8f762200e892130d7f5fe082f75057f8d5fe8950c85686182872ae1cd0d0"
-    sha256 cellar: :any_skip_relocation, monterey:       "9db5992983e4db132111565b5eee72e6f7fd5f00eb63b00f5386e7b370ae0a21"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9db5992983e4db132111565b5eee72e6f7fd5f00eb63b00f5386e7b370ae0a21"
-    sha256 cellar: :any_skip_relocation, catalina:       "9db5992983e4db132111565b5eee72e6f7fd5f00eb63b00f5386e7b370ae0a21"
-    sha256 cellar: :any_skip_relocation, mojave:         "9db5992983e4db132111565b5eee72e6f7fd5f00eb63b00f5386e7b370ae0a21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e842d2c8d7fe34eefe7e889fe31b597dbf398c2345efaec38af1cfabd268d0ec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "febbc601485ec3f52a408c28dfdde5455197c9857789cda8ecadbf19961cfe2e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "febbc601485ec3f52a408c28dfdde5455197c9857789cda8ecadbf19961cfe2e"
+    sha256 cellar: :any_skip_relocation, monterey:       "a81c3b3ea79be5241226d49afc2c67c785d388eb01a0e4c7e7fd25397444bc30"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a81c3b3ea79be5241226d49afc2c67c785d388eb01a0e4c7e7fd25397444bc30"
+    sha256 cellar: :any_skip_relocation, catalina:       "a81c3b3ea79be5241226d49afc2c67c785d388eb01a0e4c7e7fd25397444bc30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "824dbe231518bf8ab1d51552c318616f237eead4618807c05e289190f5b1490b"
   end
 
   depends_on "help2man" => :build
