@@ -23,6 +23,6 @@ class Melody < Formula
   test do
     mdy = "regex.mdy"
     File.write mdy, '"#"; some of <word>;'
-    assert_match "#(?:\\w)+", shell_output("melody --no-color #{mdy}")
+    assert_match "#\\w+", shell_output("#{bin}/melody --no-color #{mdy}")
   end
 end
