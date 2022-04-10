@@ -17,6 +17,7 @@ class Gtksourceview5 < Formula
     sha256 big_sur:        "707dccdc76932f3cc415aa2023e11a2da4954802e6e7ff78e02f34ed5232244f"
     sha256 catalina:       "9de90cd3cfdd86fdb73fea825ee99e0d16ac2a3cd667eff86e8964a05bc33e56"
     sha256 mojave:         "ac9537f6f10d0240d6eda7d94a755c7e5a62a1009c27ea894d310dd9d1109d45"
+    sha256 x86_64_linux:   "0d44c0f7e0435eb55e46450ca5b535928aec4bba17588f35acf3b7e6c129dd24"
   end
 
   depends_on "gobject-introspection" => :build
