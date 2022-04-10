@@ -3,8 +3,8 @@ class OrganizeTool < Formula
 
   desc "File management automation tool"
   homepage "https://github.com/tfeldmann/organize"
-  url "https://files.pythonhosted.org/packages/93/2a/c9463d10ace823cb26311774ba61ba31740524dce058c118746357303904/organize-tool-2.1.2.tar.gz"
-  sha256 "dd4c894d1c864b68995fbc28c136b986c0a795facfa2e89d1488dd8bac4b0457"
+  url "https://files.pythonhosted.org/packages/5e/2e/6afb23be979828a638a42ee767f25c3f703f5e85f4142095666d717a5e64/organize-tool-2.2.0.tar.gz"
+  sha256 "f912ce6d71baaf163f8961da9dcc283dd0ad38a6186f6f6590c4efadcdf34cac"
   license "MIT"
 
   bottle do
@@ -32,8 +32,8 @@ class OrganizeTool < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
-    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
+    url "https://files.pythonhosted.org/packages/42/e1/4cb2d3a2416bcd871ac93f12b5616f7755a6800bccae05e5a99d3673eb69/click-8.1.2.tar.gz"
+    sha256 "479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72"
   end
 
   resource "colorama" do
@@ -62,8 +62,8 @@ class OrganizeTool < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/89/e3/b36266381ae7a1310a653bb85f4f3658c462a69634fa9b2fef76252a50ed/Jinja2-3.1.1.tar.gz"
+    sha256 "640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9"
   end
 
   resource "macos-tags" do
@@ -72,8 +72,8 @@ class OrganizeTool < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
-    sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "mdfind-wrapper" do
@@ -92,18 +92,18 @@ class OrganizeTool < Formula
   end
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/59/b0/abf64f846a4c3c115b546b4fa68b734bb750eed87fd5af6f73a5489eecd6/pyobjc-core-8.2.tar.gz"
-    sha256 "6afb8ee1dd0647cbfaaf99906eca3b43ce045b27e3d4510462d04e7e5361c89b"
+    url "https://files.pythonhosted.org/packages/38/2e/577f709fd6ef54cfa7cfa0ee177f98d36d5292b5231cc13e62b1548fca46/pyobjc-core-8.4.1.tar.gz"
+    sha256 "df98669e957adb33566d9ef46773a5ac876a81afe8849c282d6a80448e35dd74"
   end
 
   resource "pyobjc-framework-Cocoa" do
-    url "https://files.pythonhosted.org/packages/d2/75/0e01d51f4b4cc5c1bf2509fe622f5d3eac09626bc5ebe3c7ad34fe5cfdff/pyobjc-framework-Cocoa-8.2.tar.gz"
-    sha256 "f0901998e2f18415ef6d1f8a12b083f69fc93bd56b3e88040002e3c09bd8c304"
+    url "https://files.pythonhosted.org/packages/c9/f1/a6abd1b9af00e07593755818f52f8c370750b55bb9ea2e0dba262d559913/pyobjc-framework-Cocoa-8.4.1.tar.gz"
+    sha256 "dc596bac0f5d424f67944e95b2d0d7c94a07c4166359d7b4a4d4ae4f8e112822"
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/e3/8e/1cde9d002f48a940b9d9d38820aaf444b229450c0854bdf15305ce4a3d1a/pytz-2021.3.tar.gz"
-    sha256 "acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"
+    url "https://files.pythonhosted.org/packages/2f/5f/a0f653311adff905bbcaa6d3dfaf97edcf4d26138393c6ccd37a484851fb/pytz-2022.1.tar.gz"
+    sha256 "1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7"
   end
 
   resource "PyYAML" do
