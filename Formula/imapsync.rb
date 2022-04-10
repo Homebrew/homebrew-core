@@ -1,9 +1,9 @@
 class Imapsync < Formula
   desc "Migrate or backup IMAP mail accounts"
   homepage "https://imapsync.lamiral.info/"
-  url "https://imapsync.lamiral.info/dist2/imapsync-2.178.tgz"
+  url "https://imapsync.lamiral.info/dist2/imapsync-2.200.tgz"
   # NOTE: The mirror will return 404 until the version becomes outdated.
-  sha256 "215777a7720f336b1a30632f7f828ab5877e02af9c910ef227145f2fd36e1007"
+  sha256 "115f3e3be2ec5fd5235501240292c5f15bd289d47e39f7581da861b92bca5be5"
   license "NLPL"
   head "https://github.com/imapsync/imapsync.git", branch: "master"
 
