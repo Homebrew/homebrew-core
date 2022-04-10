@@ -7,13 +7,12 @@ class Subfinder < Formula
   head "https://github.com/projectdiscovery/subfinder.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b2116f221af97bf51db37c86020f027ed9aaf8b2c73410859d6746779e8c9e80"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "275f012045f782e5097a506b112e3c09b81c87a93259705d0ea13e41585a1704"
-    sha256 cellar: :any_skip_relocation, monterey:       "e709497a74455408d0bf5daecb8d6058698e36c7db8406241587d635a5560670"
-    sha256 cellar: :any_skip_relocation, big_sur:        "77319ca3d1d8360938b24c81487c301205070ce81d7fda7f75b957b633bbff86"
-    sha256 cellar: :any_skip_relocation, catalina:       "0e8874bad100d4d2cfa29de2498fe991508f4f67545e72a39e0edd1075344a96"
-    sha256 cellar: :any_skip_relocation, mojave:         "6d9d8773ef562f6852bbec33cba7b40f4e73fa33b814dd6e40562140e6e0dd90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7dade6ab43d55abf77ad24a09da38b0d1d0f47cd74b93d665eeb3689a3cba31"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f989c20846cbb92f2a8043e65dd0983a8661eecc2dd6a9dc014f05b0e36ac1d9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "725087785fcee040aa761b1dca9181898c95895a48eb18da6b361a7cb7a9517b"
+    sha256 cellar: :any_skip_relocation, monterey:       "d676ccd958202dbff5a37d30b26f2ab26c2e0e2ae17877d711931784b20db758"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4a023742880227c798f5a71788ca03ba2066a15e9462015988a5552b1827d686"
+    sha256 cellar: :any_skip_relocation, catalina:       "138af7cf381b382b4a8ca9286b8a00543f74c3b455b0f2d3511f8f434bb94eef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16523ce07ed480354e4dc17f4a8d5094c0ffa9755e26c0c0cd2e6913df49c7d8"
   end
 
   depends_on "go" => :build
