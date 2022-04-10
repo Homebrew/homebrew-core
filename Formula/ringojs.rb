@@ -1,10 +1,9 @@
 class Ringojs < Formula
   desc "CommonJS-based JavaScript runtime"
   homepage "https://ringojs.org"
-  url "https://github.com/ringo/ringojs/releases/download/v2.0.0/ringojs-2.0.0.tar.gz"
-  sha256 "5991953012f3c493abb8c7256fa48e885bd284976bd1ec36f20fef77ff37fac9"
+  url "https://github.com/ringo/ringojs/releases/download/v3.0.0/ringojs-3.0.0.tar.gz"
+  sha256 "7f37388f5c0f05deec29c429151478a3758510566707bc0baf91f865126ca526"
   license "Apache-2.0"
-  revision 2
 
   livecheck do
     url :stable
