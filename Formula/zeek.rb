@@ -5,6 +5,7 @@ class Zeek < Formula
       tag:      "v4.2.2",
       revision: "40eb7f80378284202e52e6c45299cac10abf07ab"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/zeek/zeek.git", branch: "master"
 
   livecheck do
@@ -24,7 +25,6 @@ class Zeek < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "caf"
   depends_on "geoip"
   depends_on "libmaxminddb"
   depends_on macos: :mojave
@@ -57,11 +57,12 @@ class Zeek < Formula
                       "-DINSTALL_AUX_TOOLS=on",
                       "-DINSTALL_ZEEKCTL=on",
                       "-DUSE_GEOIP=on",
-                      "-DCAF_ROOT=#{Formula["caf"].opt_prefix}",
                       "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                      "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3",
                       "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                       "-DZEEK_LOCAL_STATE_DIR=#{var}"
       system "make", "install"
+      (lib/"cmake/CAF").rmtree
     end
   end
 
