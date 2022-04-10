@@ -7,6 +7,11 @@ class Flyctl < Formula
   license "Apache-2.0"
   head "https://github.com/superfly/flyctl.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fb870802df5acf376c8e63e0cf0204d145ccf1ac6346cd666f508ff1fac1e11f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb870802df5acf376c8e63e0cf0204d145ccf1ac6346cd666f508ff1fac1e11f"
