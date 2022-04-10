@@ -1,8 +1,8 @@
 class MoltenVk < Formula
   desc "Implementation of the Vulkan graphics and compute API on top of Metal"
   homepage "https://github.com/KhronosGroup/MoltenVK"
-  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.8.tar.gz"
-  sha256 "f316c814d0cb6d60a0e8ad164d8cafa64010dee9dd41748b038b6b67fa40f08a"
+  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.9.tar.gz"
+  sha256 "ea455a14decb85ec4bc66ffd2b963492afa7b53297b7064a11ca47ca8d2464ea"
   license "Apache-2.0"
 
   bottle do
