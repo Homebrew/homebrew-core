@@ -9,7 +9,7 @@ class Icdiff < Formula
   head "https://github.com/jeffkaufman/icdiff.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fc5be5fa45223aa9fd58fa6230a7e15c65a1878b94add36c62328f5295438b8e"
+    sha256 cellar: :any_skip_relocation, all: "41ff3bcb114db25d6bc5e12278e5c2e958f5178bea55959b9e0a0f22bb7d26c1"
   end
 
   depends_on "python@3.10"
