@@ -1,8 +1,8 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support"
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.6.11/eigenpy-2.6.11.tar.gz"
-  sha256 "53a2f33d34d937fd716fe24f731b647e050da08f792de3769a8f1f9c64ecc6e4"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.7.1/eigenpy-2.7.1.tar.gz"
+  sha256 "00ccf08ce6e72859c5c91f703e4cb91ba724bace2338aa9f7c230d072ddbac19"
   license "BSD-2-Clause"
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
