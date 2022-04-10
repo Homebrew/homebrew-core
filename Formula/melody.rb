@@ -1,8 +1,8 @@
 class Melody < Formula
   desc "Language that compiles to regular expressions"
   homepage "https://yoav-lavi.github.io/melody/book"
-  url "https://github.com/yoav-lavi/melody/archive/refs/tags/v0.13.5.tar.gz"
-  sha256 "05fe3930f5e17de90ca15e515092055f1d3db5f2481ade0861a8bcef9e006c0f"
+  url "https://github.com/yoav-lavi/melody/archive/refs/tags/v0.13.10.tar.gz"
+  sha256 "1922d6d668d2107c83f9fa729a1e37701920296640b5fce14a732c62840ffd00"
   license "MIT"
 
   bottle do
@@ -23,6 +23,6 @@ class Melody < Formula
   test do
     mdy = "regex.mdy"
     File.write mdy, '"#"; some of <word>;'
-    assert_match "#(?:\\w)+", shell_output("melody --no-color #{mdy}")
+    assert_match "#\\w+", shell_output("#{bin}/melody --no-color #{mdy}")
   end
 end
