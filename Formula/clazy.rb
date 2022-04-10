@@ -28,6 +28,10 @@ class Clazy < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   fails_with gcc: "5" # C++17
 
   def install
@@ -38,6 +42,8 @@ class Clazy < Formula
   end
 
   test do
+    gcc_version = Formula["gcc"].version.major unless OS.mac?
+
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION #{Formula["cmake"].version})
 
@@ -45,6 +51,12 @@ class Clazy < Formula
 
       set(CMAKE_CXX_STANDARD 17)
       set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+      if (UNIX AND NOT APPLE)
+        include_directories(#{Formula["gcc"].opt_include}/c++/#{gcc_version})
+        include_directories(#{Formula["gcc"].opt_include}/c++/#{gcc_version}/x86_64-pc-linux-gnu)
+        link_directories(#{Formula["gcc"].opt_lib}/gcc/#{gcc_version})
+      endif()
 
       set(CMAKE_AUTOMOC ON)
       set(CMAKE_AUTORCC ON)
