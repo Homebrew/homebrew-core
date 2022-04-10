@@ -1,10 +1,9 @@
 class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org/"
-  url "https://www.dynare.org/release/source/dynare-5.0.tar.xz"
-  sha256 "557bc7d8d7bbbf7d4746dd1e015b273eeeb0b53dc66b9d4004d2efef8f4fe16e"
+  url "https://www.dynare.org/release/source/dynare-5.1.tar.xz"
+  sha256 "269b2b52d9e7af0bf06041b48e730dd5c2fb89577bed24ad5e4b51e0dca9dbbe"
   license "GPL-3.0-or-later"
-  revision 3
 
   livecheck do
     url "https://www.dynare.org/download/"
