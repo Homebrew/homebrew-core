@@ -4,22 +4,22 @@ class Dmd < Formula
   license "BSL-1.0"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.099.0.tar.gz"
-    sha256 "8c8575b2b68b7dfe236fec13bbdf26d063365b4ed08563320f429b202c5b8a2e"
+    url "https://github.com/dlang/dmd/archive/v2.099.1.tar.gz"
+    sha256 "0832686dc213e85eda627d531fce7aced9cde3297a928947f647775baee866ab"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.099.0.tar.gz"
-      sha256 "de1f9ae7c15806bcd1459d56c7ac7216479ff88f5a3b0ea883d50d639f7dfc42"
+      url "https://github.com/dlang/druntime/archive/v2.099.1.tar.gz"
+      sha256 "17237e89f21fb652929a6f8290e3aa11426103216d7f824d98d18bd11756a8c7"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.099.0.tar.gz"
-      sha256 "10075c768d5a5fb3e03f044eabee56ebf7889be8dbcbc2196300c3e23aafa2f7"
+      url "https://github.com/dlang/phobos/archive/v2.099.1.tar.gz"
+      sha256 "7110b2154b6b10239e9c7c942aa0c9178fd613eca6e15d29f1c695292718c8d8"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.099.0.tar.gz"
-      sha256 "8a0c6b3aa98647342bd2e22832e7268a343c5d86f6ae39729f2637421dd7a607"
+      url "https://github.com/dlang/tools/archive/v2.099.1.tar.gz"
+      sha256 "d0e37b2688ba1cbfe077ef6b153929fe89bedf6719029cce5e016e37e20fc96f"
     end
   end
 
