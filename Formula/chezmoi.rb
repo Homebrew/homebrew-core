@@ -8,12 +8,12 @@ class Chezmoi < Formula
   head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1318f8b51deaa22d89ed4fa90a130f7c92e07c704e3ce145e008e26599f4be4f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57cfcc576ac4eeaee6b26fb0e8247df18df846595fb4fbbf7602baca42edd842"
-    sha256 cellar: :any_skip_relocation, monterey:       "934bb9d095202021148adec9d77c52930353052a2f48de4a9ce52b1f683d3037"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b3cb355e12ca6852ebbd6db744adcd051d05cbda72a90789e34530b873c1c45c"
-    sha256 cellar: :any_skip_relocation, catalina:       "d2f48858cb7feab826ae758e35d3d98fe80627eeac21f2f1784699522aec2b5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09f202918206a57b70786d2b961a792cc491cd6e340520959ba7cb946732654f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ee7334bb116ebaf11d9d9c844643e76774ac25ae5656e63bcba3f0292477d5c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "125a9fffaddd26da5f66fa42e136160f089242ceaae9eb1300044fe34b2749fa"
+    sha256 cellar: :any_skip_relocation, monterey:       "28f25bf9f6e64399ecbea35afec397d87a458c04df3da80aae26ee290a1226e5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a401dc2cf471b24d0e6e6b1db3eae29d608da5924dc78ce9fd494ce26f7751bc"
+    sha256 cellar: :any_skip_relocation, catalina:       "4b88e7563d4fcf367ddb2e4bc4b4faf0f3c3cee9628c1aa7ddd3faa2fcb7a581"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78af2378cba0d4fef11f99af0f896563ba8cfa824c3a107e15d869803cbe49f3"
   end
 
   depends_on "go" => :build
