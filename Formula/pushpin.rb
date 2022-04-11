@@ -21,6 +21,12 @@ class Pushpin < Formula
   depends_on "zeromq"
   depends_on "zurl"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = *std_configure_args + ["--configdir=#{etc}",
                                   "--rundir=#{var}/run",
