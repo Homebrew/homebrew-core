@@ -11,12 +11,12 @@ class ArxLibertatis < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "15ab54bf945b2d7916c4a69091d9284d9189b84292892bb62a0a5991c6f70bc3"
-    sha256 arm64_big_sur:  "b320af2fcd3cac6c47927cb10371136efe9928e6130e764e557ec630bafbbd16"
-    sha256 monterey:       "6c08a82f715868097a114724112d5c468a2f62fdef7ce3101693280a5395decd"
-    sha256 big_sur:        "4d83d5a5f88214af1b7288fafc58d8514dd1abfbd1099c521560fcad539e34a9"
-    sha256 catalina:       "6be181fec69da0fa1f513004361cc56543c6a9cdc8123730635714c4016ffd61"
-    sha256 x86_64_linux:   "a3f69d5cecb4c1cfba16d5dbf7ca16f8e593b8b8007ea44bd1ee5c7b54c02bd5"
+    sha256 arm64_monterey: "9fd235faef3f4cac1fa1bc33acace5545839c5bf9a4344793225f734dc0f4b7e"
+    sha256 arm64_big_sur:  "5b7dd893fd8ab89d9265dc031d48781b14437ba175265f89a316a0d60686927e"
+    sha256 monterey:       "d9c218e036852e73dea349e17eaa6e03358f7118bd41acd98a5f4bae7b25bc9d"
+    sha256 big_sur:        "e855dfe524dd05d0ebf94acee4cb2e74f2037d0c4c44eb76fd5f49fbbb8477f8"
+    sha256 catalina:       "a8a9036477373bd0065f739c0bbc8bd6e20b09da4d643f20483ab6aec6a6d289"
+    sha256 x86_64_linux:   "fcdc6dcedd23cc35e9bf57f97b4aa5946fe36adc3ffc9e15140224f79cc7d14f"
   end
 
   head do
