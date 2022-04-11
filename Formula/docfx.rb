@@ -6,7 +6,7 @@ class Docfx < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "280a36a298319b3eb2314f4dc2f1d5c80fde6e53b875bc61530b12d2ec76e02d"
+    sha256 cellar: :any_skip_relocation, all: "06e3f9805d8ee8ca62ef4113f7659cb20b0259df0eb60e8b490a5e187e71604c"
   end
 
   depends_on "mono"
