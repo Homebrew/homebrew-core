@@ -4,6 +4,7 @@ class PythonTabulate < Formula
   url "https://files.pythonhosted.org/packages/ae/3d/9d7576d94007eaf3bb685acbaaec66ff4cdeb0b18f1bf1f17edbeebffb0a/tabulate-0.8.9.tar.gz"
   sha256 "eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -16,10 +17,12 @@ class PythonTabulate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5bd465f5fd9a0e3eb107c4cdd244b63090a2ce102346f7d7fecfcdbabc1812a"
   end
 
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "python@3.10"
 
   def install
-    system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
+    # Install the binary only, the lib part is provided by libpython-tabulate
+    system "python3", "setup.py", "--no-user-cfg", "install_scripts", "--install-dir=#{bin}", "--skip-build"
   end
 
   test do
@@ -40,6 +43,5 @@ class PythonTabulate < Formula
     EOS
 
     assert_equal (testpath/"out.txt").read, shell_output("#{bin}/tabulate -f grid #{testpath}/in.txt")
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "from tabulate import tabulate"
   end
 end
