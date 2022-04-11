@@ -20,10 +20,16 @@ class Pyqt < Formula
   depends_on "python@3.9"
   depends_on "qt"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   # extra components
   resource "PyQt6-sip" do
-    url "https://files.pythonhosted.org/packages/50/24/743c4dd6a93d25570186a7940c4f072db1cf3fa919169b0ba598fcfc820a/PyQt6_sip-13.1.0.tar.gz"
-    sha256 "7c31073fe8e6cb8a42e85d60d3a096700a9047c772b354d6227dfe965566ec8a"
+    url "https://files.pythonhosted.org/packages/61/2b/37c42814d979359c25e5fccd456ac11506fc86d3e6ca0262284a37b71b1e/PyQt6_sip-13.2.1.tar.gz"
+    sha256 "b7bce59900b2e0a04f70246de2ccf79ee7933036b6b9183cf039b62eeae2b858"
   end
 
   resource "3d" do
