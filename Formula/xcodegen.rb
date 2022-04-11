@@ -16,7 +16,7 @@ class Xcodegen < Formula
   end
 
   depends_on xcode: ["10.2", :build]
-  depends_on macos: :catalina
+  depends_on :macos
 
   uses_from_macos "swift"
 
