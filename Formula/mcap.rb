@@ -22,11 +22,10 @@ class Mcap < Formula
 
   test do
     resource("testdata").stage do
-      assert_equal File.binread("OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap", 8), "\x89MCAP0\r\n".b
-      assert_equal "v#{version}", shell_output("#{bin}/mcap version").strip
+      assert_equal "v#{version}", pipe_output("#{bin}/mcap version").strip
 
-      assert_equal "2 example [Example] [1 2 3 7 25 0 0 0 0 0]...",
-        shell_output("#{bin}/mcap cat OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap").strip
+      assert_equal "2 example [Example] [1 2 3 0 0 0 102 111 111 3]...",
+        shell_output("cat OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap | #{bin}/mcap cat").strip
 
       expected_info = <<~EOF
         library:
