@@ -16,6 +16,7 @@ class Bittwist < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "b69084cc099ecb0fcea860d9d07fb8a271b1bd645bef603abfe0cb20f4979902"
     sha256 cellar: :any_skip_relocation, el_capitan:     "215b6353dcedd6ad0908e725c68204f2aa8413bf32ae3eb0a3afa96eb6c17d60"
     sha256 cellar: :any_skip_relocation, yosemite:       "279cade886758dfabfbaa319c6afb302c7e254db0377f0eed1f1155afb800175"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "902f1bc2ee8dcf4eae6b9e4395dd72ec589d5f5267566073c7daf418b589baf4"
   end
 
   uses_from_macos "libpcap"
