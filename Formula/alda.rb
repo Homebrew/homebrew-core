@@ -6,12 +6,12 @@ class Alda < Formula
   license "EPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d16e896c820bdff6de0747c19d7a1a59c98f2c73f60d0017609603a6e963eb4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd1d2e2c39c83ebffa15f8bb5d2e7b9865f409bd7946b40e9cce30767f3f7033"
-    sha256 cellar: :any_skip_relocation, monterey:       "1974f5d77f016c4a7c952d05fdc3fcd2aa847e8b031cb3eb0390ac01ae625914"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d6d6b881fd78c2fcd33b2ce555be3de598e03c5a4498d7915971c71251a0f3da"
-    sha256 cellar: :any_skip_relocation, catalina:       "57394d6f22b493324ed638bb4183245a0f5473ae7b8f122d1dc1a822f93b762b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "206a7d349863cb665b55e0042db6cb702c8c3cd8529d5f56f332ad7c851d5bb5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc965cb30f76b8b9bcb52b892f249c56ec9ee98c52bea0cb4cd5c756141c8980"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "633f43033473a796a7a646de4a305b999a5ae6263aec74518d75b7fc2cd2ddc2"
+    sha256 cellar: :any_skip_relocation, monterey:       "3da06bca3b2156ec0394de66eead46ab974e80696effbf9652b70da091969bf6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d1092136558dfba7b14d4f64af2b04dc92fc60e0bb0c81f473bab3e78e55e40a"
+    sha256 cellar: :any_skip_relocation, catalina:       "16a67e492daa32508016f9d79a1d7eddefc9f368755ea04e17230d46eb670682"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5d1ac156688181d35fe34da184e0bdf5e1ffc54f765e3c315bb99d7d2912a3c"
   end
 
   depends_on "go" => :build
