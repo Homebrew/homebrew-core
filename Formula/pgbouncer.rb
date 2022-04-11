@@ -10,12 +10,12 @@ class Pgbouncer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6265ece64ed901a2646b09af720353630e645342a785ae9561c25d65fc11892f"
-    sha256 cellar: :any,                 arm64_big_sur:  "bc48b321d3f1f2e4b8a4c6c9665c55945d83ae3975287888460e5e6eb5d5b71f"
-    sha256 cellar: :any,                 monterey:       "acf061f094b6d05ca5e2224e114dd50f75dc921bfb43c21a69aa680b419c919c"
-    sha256 cellar: :any,                 big_sur:        "63ed65039f2fcd7884a7b163c92747837adb19c2f680a449e1a026d0934bec1a"
-    sha256 cellar: :any,                 catalina:       "b929b536892a66052c5da82d02c6fe56dbfd5df79317e0b8508fbca24ef781e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3cc2d2fa16d3a53f452eb38e82d78159a42ae5b205147e47f9f090653e18199"
+    sha256 cellar: :any,                 arm64_monterey: "24c0ed2e7272aab2e94b5104d7242795b16f459856af89d16b035f17c1645033"
+    sha256 cellar: :any,                 arm64_big_sur:  "f1356d0a3300f049b351b1b2fdb3f93d298c1533091b61048323f3a8788ac1ec"
+    sha256 cellar: :any,                 monterey:       "73da393d7738c2a742dc4d994ace39152312e1d9b8f5d06b1a33d6090e011985"
+    sha256 cellar: :any,                 big_sur:        "e382cad5b439674062a98fdb2ac72069b8b1fec351a17e7c9ab886f35b695cf8"
+    sha256 cellar: :any,                 catalina:       "758e33e22b99bd1bf02af15564ff829c82cbac74facdd5462ee6f9691e8f24b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1da1373bd7fa36da801193159f10bc9128b82a60a03d9da5b0bcbe35b75f04cd"
   end
 
   depends_on "pkg-config" => :build
