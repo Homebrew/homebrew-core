@@ -6,12 +6,12 @@ class Melody < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a2fd43c5718b336b2f91ba874320dc3514ec9927d53931e451fba4db22863454"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ec5a6e1da0df92f23cf7d799f772b550567bb236438770e2a6edce8bf39c60f"
-    sha256 cellar: :any_skip_relocation, monterey:       "6fa6ed1f79d7ce9fcbaf2ed04989b4893329fbddcdaefa448c941ab9077344c1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "60444297fe6bc7e2c3af4de2c417cb2903514a2be0e7358c20550c572661e56f"
-    sha256 cellar: :any_skip_relocation, catalina:       "d10f18d8a4a2cac97cbe82fc017aa5f4730ccd64bcb4ec19d2d75b7d811e1535"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b652a7aac81c0f35d21d7d096d3584d63caf839cd69e729f5f0bfd34427510e4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e33fea76f7857c0589a577399d2e9a0aeca4eca9454d03b66d7b2cad895435a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97f5b61e1bdbe5215ffd9bfe88030a0ae161e9be4da581ea0f9ee956f82b286c"
+    sha256 cellar: :any_skip_relocation, monterey:       "72fbd456c97dd04a91ff84b4739b669e45c83d91edb44fda322a6a28f8d56bd8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "10897106f499e9351b6b603c48948477e61c2f52b42cf36c988675b41b515c9c"
+    sha256 cellar: :any_skip_relocation, catalina:       "abf7c12669405850cf096044c66edf925771ddc22416dc17706fb3258c797d27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "749786b2af2d85999323bc050084c7b39ebd06965311c60608c3b342f4ce3424"
   end
 
   depends_on "rust" => :build
