@@ -12,6 +12,7 @@ class Darkstat < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "8449dc87a9567d043d9cb0639213e0be3e3a664dcbc9829b7a4fd4fa02de5d68"
     sha256 cellar: :any_skip_relocation, big_sur:        "d7f108870e81eb677b299a42824f4680a7f837614d26af49d6cee24519bb21fc"
     sha256 cellar: :any_skip_relocation, catalina:       "ea01bd86053287a7fce043527aa68ad0dc138d6cdb8e800602947b581687f18c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b32d27fc6e9539499c8d1c4ca716f2a489814fce3e71929b676339eb54425d9"
   end
 
   depends_on "autoconf" => :build
