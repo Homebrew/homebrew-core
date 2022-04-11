@@ -11,12 +11,12 @@ class Graphicsmagick < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "319d87f145b215cba30aaa3d1f8833f52472b67807a298fa6b63f3277985ec04"
-    sha256 arm64_big_sur:  "41b4e1a6e9820b8cdabfc6555c3d5e96fed52b54a447c91ea88863bd8954a25e"
-    sha256 monterey:       "35116969eab459fc1e4ccc1562ea894ac1c78e1b8411b1770f8bf4c376dcbb32"
-    sha256 big_sur:        "9b56a9e0cb6ecede62950218794fb88358de577a6dd78e8139a563e6c2e4c056"
-    sha256 catalina:       "fbfda29e643b21b269279e144c1dcb060c273ec934a0ea7d9636a3bd2beeb63e"
-    sha256 x86_64_linux:   "70d5ff183bc56898f699203a72988d7524ec1b5669432500e20aef0dc7e7c5be"
+    sha256 arm64_monterey: "60a324b98f4e6a8015f0b304df612b70fb64b5f51ad2d43bfcddfb951257125d"
+    sha256 arm64_big_sur:  "17e64fd18bd459648e31e463e6765fc8a39496324c2df9b977ce7b6d27ba77b6"
+    sha256 monterey:       "4aabbd3fa3fb9a3dbdf111d2d06cc1b78bf8fdfb8f1ea9f440aeabd6f40e9627"
+    sha256 big_sur:        "357ff0c2523d8015ec3000ad3aeca4b474c5816cd055ed3ee2435200ba580deb"
+    sha256 catalina:       "a7138441a365f8cb115b325d30f462e5ee1e5c9ec4454240cadf6cc7172be8d7"
+    sha256 x86_64_linux:   "77642a448d7ce30d4324b45eb0ec62e710e2b9c6c813ad240d2a05a756360d81"
   end
 
   depends_on "pkg-config" => :build
