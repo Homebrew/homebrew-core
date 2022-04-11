@@ -43,11 +43,11 @@ class Duckdb < Formula
     EOS
 
     expected_output = <<~EOS
-      ┌───────────┐
-      │ avg(temp) │
-      ├───────────┤
-      │ 45.0      │
-      └───────────┘
+      ┌─────────────┐
+      │ avg("temp") │
+      ├─────────────┤
+      │ 45.0        │
+      └─────────────┘
     EOS
 
     assert_equal expected_output, shell_output("#{bin}/duckdb_cli < #{path}")
