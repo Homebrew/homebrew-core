@@ -8,7 +8,7 @@ class Ghc < Formula
     "BSD-3-Clause",
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
   ]
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
@@ -24,7 +24,7 @@ class Ghc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bea0a8011b453e37e99855a6640642303d60c6611db366cb5f2d02a7546da19b"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "sphinx-doc" => :build
   # GHC 8.10.7 user manual recommend use LLVM 9 through 12
   # https://downloads.haskell.org/~ghc/8.10.7/docs/html/users_guide/8.10.7-notes.html
@@ -68,10 +68,14 @@ class Ghc < Formula
     end
   end
 
+  # Fix llc process leak.
+  # This isn't an issue in GHC 9, and 8.10 is no longer receiving updates.
+  patch :DATA
+
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
 
     args = %w[--enable-numa=no]
     if OS.mac?
@@ -129,3 +133,26 @@ class Ghc < Formula
     assert_match "Hello Homebrew", shell_output("#{bin}/runghc hello.hs")
   end
 end
+
+__END__
+diff --git a/compiler/main/SysTools/Tasks.hs b/compiler/main/SysTools/Tasks.hs
+index 721e1836b1..e318d53ddb 100644
+--- a/compiler/main/SysTools/Tasks.hs
++++ b/compiler/main/SysTools/Tasks.hs
+@@ -216,7 +216,7 @@ figureLlvmVersion dflags = traceToolCommand dflags "llc" $ do
+       -- options are specified when '-version' is used.
+       args' = args ++ ["-version"]
+   catchIO (do
+-              (pin, pout, perr, _) <- runInteractiveProcess pgm args'
++              (pin, pout, perr, p) <- runInteractiveProcess pgm args'
+                                               Nothing Nothing
+               {- > llc -version
+                   LLVM (http://llvm.org/):
+@@ -230,6 +230,7 @@ figureLlvmVersion dflags = traceToolCommand dflags "llc" $ do
+               hClose pin
+               hClose pout
+               hClose perr
++              _ <- waitForProcess p
+               return mb_ver
+             )
+             (\err -> do
