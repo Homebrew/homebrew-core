@@ -7,12 +7,12 @@ class Mdcat < Formula
   head "https://codeberg.org/flausch/mdcat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "12f57010161981a444c3026977e1eebeda9f3719e85d8036eb3c01426055fe6e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "10f6d24300205f1d513976d8abe7a7dfe1efd045383956fca7c19272ca9896b2"
-    sha256 cellar: :any_skip_relocation, monterey:       "b2dfb2acadf101ca418cc96a2f3de30ac03fab1b7d7977f47e13e880cdb5cc9f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2dacdc8793ee6cedc0fa76db28153fb57c27ba42260714d3fcbec84fdad800d3"
-    sha256 cellar: :any_skip_relocation, catalina:       "9ab6093b76b7903b60780ad348a4780087ca5cdc19052e851a198e8920f413da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9fdbe394e6c5ba0e940d52ed35aeea543ba679b20bb577a75f825d549280890"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0b8482cac7a6ff3b84999bca961ce781a308f2c8b85942ccb9d9dc01bef77d0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c587e22c8897f17e1c118f6ba43a051348706e66510317ad9e5e912346d371e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "8ec378322faf9031245452e40380a062fd49e3e8e002aa64a1be1fbd8eaac00a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9b3e421f2f1d1de1585064c70217da2ba79f52389006e1b1f90295d7243a2adc"
+    sha256 cellar: :any_skip_relocation, catalina:       "afab085c88ffa799df153867a2ec49d451272fc15b5e7d27135ab7a2f486fd4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fea82da505ebeb846172efd4afcfd884a81d6d5d57d63484f1c16fb0eb97d4a"
   end
 
   depends_on "cmake" => :build
