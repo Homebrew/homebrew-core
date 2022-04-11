@@ -19,6 +19,13 @@ class Timewarrior < Formula
   depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "man-db" => :test
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
@@ -28,7 +35,8 @@ class Timewarrior < Formula
     (testpath/".timewarrior/data").mkpath
     (testpath/".timewarrior/extensions").mkpath
     touch testpath/".timewarrior/timewarrior.cfg"
-    system "man", "-P", "cat", "timew-summary"
+    man = OS.mac? ? "man" : "gman"
+    system man, "-P", "cat", "timew-summary"
     assert_match "Tracking foo", shell_output("#{bin}/timew start foo")
   end
 end
