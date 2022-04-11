@@ -11,13 +11,12 @@ class Ringojs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d737033338e11f8af0d51d220ad0cc9ce4d64231670489ca3036b3df338f6970"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86b956cc3c7d0279529323450abaf3bca2a61ae520cdc262c44a2ff5035b810c"
-    sha256 cellar: :any_skip_relocation, monterey:       "e704fda56cce28b10c4bdb8a3d1362e9d48178c826f676bbf33d138f615e3632"
-    sha256 cellar: :any_skip_relocation, big_sur:        "445095a17c58cb61c8275e174c2630cd4ac2acba61198fdf7fe978544815ad9d"
-    sha256 cellar: :any_skip_relocation, catalina:       "445095a17c58cb61c8275e174c2630cd4ac2acba61198fdf7fe978544815ad9d"
-    sha256 cellar: :any_skip_relocation, mojave:         "445095a17c58cb61c8275e174c2630cd4ac2acba61198fdf7fe978544815ad9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d737033338e11f8af0d51d220ad0cc9ce4d64231670489ca3036b3df338f6970"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b5975c01f8c0407cdbfb815fb7535f9cb008b2dd141446c10f167714bd88f6e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b5975c01f8c0407cdbfb815fb7535f9cb008b2dd141446c10f167714bd88f6e"
+    sha256 cellar: :any_skip_relocation, monterey:       "6b31c53a9b6168901c52dddfccb9671150401e2a2873f7708c6fce35605bf1e0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6b31c53a9b6168901c52dddfccb9671150401e2a2873f7708c6fce35605bf1e0"
+    sha256 cellar: :any_skip_relocation, catalina:       "6b31c53a9b6168901c52dddfccb9671150401e2a2873f7708c6fce35605bf1e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b5975c01f8c0407cdbfb815fb7535f9cb008b2dd141446c10f167714bd88f6e"
   end
 
   depends_on "openjdk@11"
