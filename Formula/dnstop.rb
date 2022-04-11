@@ -17,6 +17,7 @@ class Dnstop < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "dc995c2857fdd5093ae753844ce5c45ed00bae59184528a184e0313b25882802"
     sha256 cellar: :any_skip_relocation, el_capitan:     "1d5b1ad056475ce9a27f40b48cbbf58421e4eb66fd134ac318413de2d025db66"
     sha256 cellar: :any_skip_relocation, yosemite:       "aa3b72d1432e7c13b9b7e0722cde3f7fafef17aff557489662029698929638dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d8b4de6f9441442ff6c59476101ebf5fbcf6073882c971556fa566afda211bd"
   end
 
   uses_from_macos "libpcap"
