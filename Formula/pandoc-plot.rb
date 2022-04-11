@@ -51,9 +51,7 @@ class PandocPlot < Formula
 
     expected_html_2 = <<~EOS
       <h1 id="repeat-the-same-thing">repeat the same thing</h1>
-      <figure>
-      <img src="#{filename}" />
-      </figure>
+      <p><img src="#{filename}" /></p>
     EOS
 
     assert_equal expected_html_2, output_html_2
