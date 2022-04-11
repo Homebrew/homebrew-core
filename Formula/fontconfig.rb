@@ -29,10 +29,10 @@ class Fontconfig < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build if MacOS.version <= :high_sierra
   depends_on "freetype"
 
   uses_from_macos "gperf" => :build
+  uses_from_macos "python" => :build, since: :catalina
   uses_from_macos "bzip2"
   uses_from_macos "expat"
 
