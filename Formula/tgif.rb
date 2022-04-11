@@ -1,6 +1,6 @@
 class Tgif < Formula
   desc "Xlib-based interactive 2D drawing tool"
-  homepage "http://bourbon.usc.edu/tgif/"
+  homepage "https://bourbon.usc.edu/tgif/"
   url "https://downloads.sourceforge.net/project/tgif/tgif/4.2.5/tgif-QPL-4.2.5.tar.gz"
   sha256 "2f24e9fecafae6e671739bd80691a06c9d032bdd1973ca164823e72ab1c567ba"
   license "QPL-1.0"
@@ -23,6 +23,8 @@ class Tgif < Formula
   depends_on "libxext"
   depends_on "libxmu"
   depends_on "libxt"
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
