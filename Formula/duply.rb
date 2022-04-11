@@ -3,8 +3,8 @@ class Duply < Formula
   # Canonical domain: duply.net
   # Historical homepage: https://web.archive.org/web/20131126005707/ftplicity.sourceforge.net
   homepage "https://sourceforge.net/projects/ftplicity/"
-  url "https://downloads.sourceforge.net/project/ftplicity/duply%20%28simple%20duplicity%29/2.3.x/duply_2.3.1.tgz"
-  sha256 "f044f9d4b81891785212f856ace2064e8a08da19330587d580a5c233575a3091"
+  url "https://downloads.sourceforge.net/project/ftplicity/duply%20%28simple%20duplicity%29/2.4.x/duply_2.4.tgz"
+  sha256 "0c2ae9de8fee93391f9d568b6c82bce1b9989d7bea2acbe59069f718963788d8"
   license "GPL-2.0-only"
 
   livecheck do
