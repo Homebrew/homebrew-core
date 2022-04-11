@@ -6,11 +6,11 @@ class MoltenVk < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "40ecbe1cb7fa39206e044bb65de6d1d947ce8c3b9c66dc6d1ad4d13d9852e100"
-    sha256 cellar: :any, arm64_big_sur:  "21f71933c797a2dd8707b185de6e73cfe3019ed74a745798ad92e5e3bffa19b4"
-    sha256 cellar: :any, monterey:       "dbf1a33eb34c9a29dd9655ebe0f4f1ea4f5fa5312297ddef629599ef7514cdd7"
-    sha256 cellar: :any, big_sur:        "740ca02b3a6099e098a309615e3226cfb689e6b6618faa405eb16ac062524845"
-    sha256 cellar: :any, catalina:       "54a083e8b4cd0e6e9da512cd9f8112c866ac58ef36e016a1dffd96111244ddfb"
+    sha256 cellar: :any, arm64_monterey: "d3380eb1e2234964a9b4a894202bd5014f7d10101aec25a7d705b07862bdb2fa"
+    sha256 cellar: :any, arm64_big_sur:  "6ea6c1e03cc7486cf4a595ca02d3d90b02aebdd9101364a109aef78043a56694"
+    sha256 cellar: :any, monterey:       "be16618f4cdf82853581fdab5baa6b600212b311902d8adc4b36a3783406ed4b"
+    sha256 cellar: :any, big_sur:        "d6307ba1a0fdb082b2ed26c1a82dd2c98c84d9104e82bd86e60d86e3c4a8882d"
+    sha256 cellar: :any, catalina:       "c8166a6755af71f3dd462b3e7f8c4556b2e4a9edae88cfe66557822b0053e4a9"
   end
 
   depends_on "cmake" => :build
