@@ -7,14 +7,12 @@ class Eureka < Formula
   head "https://github.com/simeg/eureka.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "d7f5807419b0fafbbe4aaed2140567ec9fbd7cf4ad96c7da03f47638d8ad4109"
-    sha256 cellar: :any,                 arm64_big_sur:  "528bd9719bd743bbe9e496ca2c856983c8acdf89fbf4364a6a1a349c8560aff1"
-    sha256 cellar: :any,                 monterey:       "fc90de8c735e615872b18000a8af2ce4b5c9c30ea135d674dddae304c1955205"
-    sha256 cellar: :any,                 big_sur:        "3447e5073ee6dd2026b39fcc2dac86465806fa57a263127b92d672a142efcbfe"
-    sha256 cellar: :any,                 catalina:       "616a745506e35e1ab0a7645d7d122f204cbf94e292d2fc56958795a056af0a9a"
-    sha256 cellar: :any,                 mojave:         "998ed401c748a0916768a566ccf44e4295c56cd6f23a90b156087588f23e7e2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee46d57066b0a55284dcf9561ec1104133aa58bb3f1900bec1dbb2b94d14486a"
+    sha256 cellar: :any,                 arm64_monterey: "055f23fe08b6fcc571118f2d1c7b287e54df49ecd9ef9967adae398d7e7d4a51"
+    sha256 cellar: :any,                 arm64_big_sur:  "5c402baebf764d85e7c045d2f3b4e89ed87cc72ae07ebac225307ea868cd316a"
+    sha256 cellar: :any,                 monterey:       "b0e06fa85b6abf97fe50673a6a7ad32c11e6b804127176d82bcbaf4f53cdaf9f"
+    sha256 cellar: :any,                 big_sur:        "affcb7b51d750d66987a5c1d1a46099327f33770711e9e720d0d6bc77746bace"
+    sha256 cellar: :any,                 catalina:       "9222213a6c7510c26fd4768070764b5bbe4150333066153f1972630578c247ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7dffec2bb02fd80e9d907e87b7080b67c19c98a24878dab67595e88beff5817b"
   end
 
   depends_on "rust" => :build
