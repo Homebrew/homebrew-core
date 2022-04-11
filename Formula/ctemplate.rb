@@ -21,6 +21,12 @@ class Ctemplate < Formula
   depends_on "libtool" => :build
   depends_on "python@3.10" => :build
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
