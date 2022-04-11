@@ -12,12 +12,12 @@ class Glslang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d36ff2a45c0d734b259e90dcf37c9b245cc64ea3a648f4ed0b3f596603005635"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "978c82606215edc52643da92321b6e14dddfac221a1bf8ec873ce71c47daf742"
-    sha256 cellar: :any_skip_relocation, monterey:       "2d5fdac8308224813f8d9823db40ed4d89c242a8c9710f9ba37883766b5b6f5d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "829bba8260c3c7c277982f73b6090f831087c1c89851bee49aab07228fa873a5"
-    sha256 cellar: :any_skip_relocation, catalina:       "c92a65f5ad771714fb8adbe84bf640e5b665d89125fc0e0471dec28b3e0d47c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3e484e8ccba2def41c4e318d6e4ba792e2217d70c027664e11a2e3618063a03"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9bc7e69b382cd909ad211e53996b9e45f31b776f369de4f80ff2ddd8b3506479"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aee6accfc43b01ff82a6846967745e40ee6a55624b7a658e58d85d3cb2c7fc2e"
+    sha256 cellar: :any_skip_relocation, monterey:       "cc6d5b07febfdf260c09dc2b3b5679d666ad7ce66ca0903d3f27e4464d19d793"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6bb91a121866b43c730066d23713dec3c7192dfa0d08f5b9338950009608c267"
+    sha256 cellar: :any_skip_relocation, catalina:       "731aaa2823df30f9ffb32697487247770705b588050c3e547471d263b24ee94a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a91b542709e475772a5f101912e528304137c3d1421c8a1d4fbcb1e91af74e1"
   end
 
   depends_on "cmake" => :build
