@@ -11,12 +11,12 @@ class Libarchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "54bd0cfb0847f35990507648974084966866566a38b8acee649ee2a6481bd566"
-    sha256 cellar: :any,                 arm64_big_sur:  "839dd824c6943ed6ef4e593762563e619abf105d9b09693f100e6748fd1d44cf"
-    sha256 cellar: :any,                 monterey:       "b51d802d4af60858d2d3259f59552a275291137f8d7916011fbb2c24d4a152af"
-    sha256 cellar: :any,                 big_sur:        "3c340236b3b61281ca13015331428aac177b8e90a139f2e1d786b63ee693bc24"
-    sha256 cellar: :any,                 catalina:       "30b3839d8b57d2c06c2364565409f9a3546abd114641c23fecfd3967682029d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b60cb71bfd0f562574efeeafb4d79fa3e456672df83371f1f493b65477a6e37"
+    sha256 cellar: :any,                 arm64_monterey: "0cf4a68e9bd6d24a4579bdf08eb33348151464d525e279f569f0b51e60ccc2cd"
+    sha256 cellar: :any,                 arm64_big_sur:  "305f6be2e4fe73076a065ac7ebf82158d13e702ef8cfa8be1494a9f29ed1dd19"
+    sha256 cellar: :any,                 monterey:       "652e949db4255c0dca6feee1a8cc96361a66458f4439c58a7dfd0c8215840b80"
+    sha256 cellar: :any,                 big_sur:        "a241d5e65955c8fcbbebac59b8eb85fb2949131d89352adced58929b5cd9b755"
+    sha256 cellar: :any,                 catalina:       "9d6b54ed2a65936461827076e3e1e8addb96d06ca2ff318e8fe0d89f144146da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e1bfdebe427e1ccb2816a1e393aef985d2d2e6530d96dc166e1914c5c10b59d"
   end
 
   keg_only :provided_by_macos
