@@ -6,12 +6,12 @@ class Libx11 < Formula
   license "MIT"
 
   bottle do
-    sha256 arm64_monterey: "83dffe0e016e562bff0348a889be9aa5f073a248574b160ca9a5bbb898303749"
-    sha256 arm64_big_sur:  "043f7cc424992bff6091f9703fd871899cb418a78d8037f90ca95abed8178d92"
-    sha256 monterey:       "229810a6d7e1c1c1bb6660a2f6fc14283e3f8788163494f8c8206bdf3517aa27"
-    sha256 big_sur:        "3f8f45380f6c356d12209c7de7b145a4715a79d79713e8364ec04ab5ab187cae"
-    sha256 catalina:       "61f5bff3afeaae4aed525b31e2648fe95bf73c48cbf4c4aa65cc2706221ba694"
-    sha256 x86_64_linux:   "f58969cf7aaf3ccdf3d06f6100b9d7efc42dd31b34b0999dcb38d71d638b310d"
+    sha256 arm64_monterey: "bfbdc0d5131a5de5af488a3bca4d21bf0b234fdeb5e815d27118185797dfb504"
+    sha256 arm64_big_sur:  "d5844f2f5eb76760b8018d99f7260ad1288e464cba8fdadce290d51087923ccf"
+    sha256 monterey:       "bdbae40d452075838a74df3b078aee8a64bfa399fe1df65a3897995bf193dbf0"
+    sha256 big_sur:        "9c6cae8533144284adc333fd7f7d7718fcdcaff9f37a0979b0b6e358b661134c"
+    sha256 catalina:       "9ac01c5ba3fe93243188303cdd652cbe0c7f4607b412c2596f54eb4f92ad5453"
+    sha256 x86_64_linux:   "0ecf5a4ebc6f6e2153dd4883b3c24565f6db2d48667a2d3a71ee19ccd8d55dcb"
   end
 
   depends_on "pkg-config" => :build
