@@ -69,7 +69,7 @@ class GrafanaAgent < Formula
 
     fork do
       exec bin/"grafana-agent", "-config.file=#{testpath}/grafana-agent.yaml",
-        "-prometheus.wal-directory=#{testpath}/wal"
+        "-metrics.wal-directory=#{testpath}/wal"
     end
     sleep 10
 
