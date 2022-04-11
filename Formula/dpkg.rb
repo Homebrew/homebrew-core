@@ -14,12 +14,12 @@ class Dpkg < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "94af14bb83659c61b97df3be1266c8cfaf16bf4b49bfeeff2e85d569ad793873"
-    sha256 arm64_big_sur:  "c67fc8e314f773ec7bcbfa61181e7b836c46d2beac45bb1c01cbd1c8bedf7ffb"
-    sha256 monterey:       "59f5a3e624096cd4d9b682cea3f48a1db9d3907858e778127aee3eff9ecad2ff"
-    sha256 big_sur:        "e9b886a6da5792df1a21a27ed83c28c6cbf28a59aabea02ae969af01668037ff"
-    sha256 catalina:       "5c345f1f2fb99f2452292204bea2a03b35efd11afb1b3c0de05af3bb4a93d73c"
-    sha256 x86_64_linux:   "b3ecfd490eeda36ccc94d05daa689362a80017697f7d734b662f89bebdef62ee"
+    sha256 arm64_monterey: "ded515fda266f0ee78af239b4fe56c182e66141ea8f185e83bfebd0e65c25f3c"
+    sha256 arm64_big_sur:  "4366afbb1f85a770cc529c3124b8de51942a15ddcae63c0f65bd361b4423064c"
+    sha256 monterey:       "289d12ebf11daeae009c73e15e8693a840cafc6801ea2efc825fea04f43d6391"
+    sha256 big_sur:        "c2d993ec38fbd0cb1a312f34aab0405b1753586e099dc6ccb2f08264c023c33a"
+    sha256 catalina:       "e2182078eee9356c3bd286a5fd0d0397c0742be207bf282cd0244c5623646b92"
+    sha256 x86_64_linux:   "f51ae91d39c260bf61153f8d313e19b44fee1ae7a85f0b93564ce8305cd8ae44"
   end
 
   depends_on "pkg-config" => :build
