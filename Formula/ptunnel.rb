@@ -21,6 +21,7 @@ class Ptunnel < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "048404c7b3fe3365abfc24fb623bf9548ed7e61458a00148348bbdc2f5f12f33"
     sha256 cellar: :any_skip_relocation, el_capitan:     "516181dbd16539c1f8817d65637bd42cc951d551e1a3b61a4d83dc6c71dc6397"
     sha256 cellar: :any_skip_relocation, yosemite:       "72db3faba8fbd7c268acf22d02ae0df4dbb5dde2db8a17ca4d62b2293d0763e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "635b36ee0d56fa5b28aebb302aad7d8d3e922c4a143854b17cc8087e7f2c0683"
   end
 
   uses_from_macos "libpcap"
