@@ -1,8 +1,8 @@
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://github.com/fabiolb/fabio"
-  url "https://github.com/fabiolb/fabio/archive/v1.5.15.tar.gz"
-  sha256 "19dcd4d8c6e4fe16e63e4208564d08ed442a0c724661ef4d91e9dbc85a9afbe1"
+  url "https://github.com/fabiolb/fabio/archive/v1.6.0.tar.gz"
+  sha256 "2a3a678a3ee7a5415512a1b3b799352186859f5d4dd50330d1117b21a643c398"
   license "MIT"
   head "https://github.com/fabiolb/fabio.git", branch: "master"
 
@@ -18,7 +18,7 @@ class Fabio < Formula
   end
 
   # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go@1.18" => :build
   depends_on "consul"
 
   def install
