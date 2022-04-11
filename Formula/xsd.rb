@@ -36,6 +36,11 @@ class Xsd < Formula
   end
 
   def install
+    # Rename version files so that the C++ preprocess doesn't try to include these as headers.
+    mv "xsd/version", "xsd/version.txt"
+    mv "libxsd-frontend/version", "libxsd-frontend/version.txt"
+    mv "libcutl/version", "libcutl/version.txt"
+
     ENV.append "LDFLAGS", `pkg-config --libs --static xerces-c`.chomp
     ENV.cxx11
     system "make", "install", "install_prefix=#{prefix}"
@@ -72,7 +77,7 @@ class Xsd < Formula
     system "#{bin}/xsd", "cxx-tree", schema
     assert_predicate testpath/"meaningoflife.hxx", :exist?
     assert_predicate testpath/"meaningoflife.cxx", :exist?
-    system "c++", "-o", "xsdtest", "xsdtest.cxx", "meaningoflife.cxx",
+    system ENV.cxx, "-o", "xsdtest", "xsdtest.cxx", "meaningoflife.cxx", "-std=c++11",
                   "-L#{Formula["xerces-c"].opt_lib}", "-lxerces-c"
     assert_predicate testpath/"xsdtest", :exist?
     system testpath/"xsdtest", instance
