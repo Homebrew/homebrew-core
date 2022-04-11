@@ -7,12 +7,12 @@ class Dsq < Formula
   head "https://github.com/multiprocessio/dsq.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c1a6e70620f8362a6c7dfd94c5b2db8bda9526c1f74d619448b21b6f691df6a3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2e2dba4a3722d8bd215da0527c4cb2bc27da7dde53b8e1ec9b76729633fb4806"
-    sha256 cellar: :any_skip_relocation, monterey:       "db13c808fdd1eeca8de5df7410f6022d03b8d922725cdbac02eb9c383d87999b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6ecfa8eb58b49ae75398f947c413915a6d7c2c755de7bbd244fa29209d712c96"
-    sha256 cellar: :any_skip_relocation, catalina:       "16feba3c4a1b9833427122d5fa52879cf011022b95b792f125a980e5523f3d25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f591dbd361ed32b9cffd2bed92e139fe3199d78d178551fdf7e1e032177d4f2a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ee20afb4700afd6bbf55e2051b89c47961d1cf7d19d6948745cb445bb6947d5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1385958e57b9b40483702978cfc4c33560742c860f3ceccac5822c0b46abfe26"
+    sha256 cellar: :any_skip_relocation, monterey:       "778eb3151965569a5984d821861a493280e44df6b650a62d6c0aa13c17d38544"
+    sha256 cellar: :any_skip_relocation, big_sur:        "15e7700f225dc64c653b6fa47e37848a468ffc8bb13e1145f86109d6e1bbf83f"
+    sha256 cellar: :any_skip_relocation, catalina:       "bf1022c51e25c3caaa0b6101cf28ee8d2c6e7b3e968d2aa7b1d24dc93a9d577e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14ed81d1384d9368313cb8d1963842b188580853d52b9f98c5be78b6f4e0de1f"
   end
 
   depends_on "go" => :build
