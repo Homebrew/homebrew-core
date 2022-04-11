@@ -7,12 +7,12 @@ class Blaze < Formula
   head "https://bitbucket.org/blaze-lib/blaze.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "e676198508a07e72b458183d74de06780ca32fc98281e7fa433a70eede4094cd"
-    sha256 cellar: :any_skip_relocation, big_sur:      "c05e15582afef1b0d7961736731a844b1939a8c99c1d60aa412aee5c5c5507f0"
-    sha256 cellar: :any_skip_relocation, catalina:     "a0ee08be16bbc07c8c3447d05768a736d577a78fdf8ad920cf4cf071cecb4ce4"
-    sha256 cellar: :any_skip_relocation, mojave:       "d4c4f3f85b1d9f7759fa7fa9a9c850fd031fd5204b3b0beff5caa879a9561ea8"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "4cd2aa850c2749e6b8b9c82687e377bf48b0c97e55dba47c99182439677d042b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3ff47ebef0f77fa62899a10829de9949ca752fb3bb8d921eeb363a67c8a080b4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "56c29be29451bf0ad3ba1a644f859bb55c36a655c5ae26cf3808218819443ff3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56c29be29451bf0ad3ba1a644f859bb55c36a655c5ae26cf3808218819443ff3"
+    sha256 cellar: :any_skip_relocation, monterey:       "f9dd9f5ebcc97bad584ef931e68d9bf160ffa8f5ebb5443f53ce8ca8a39a4504"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f9dd9f5ebcc97bad584ef931e68d9bf160ffa8f5ebb5443f53ce8ca8a39a4504"
+    sha256 cellar: :any_skip_relocation, catalina:       "f9dd9f5ebcc97bad584ef931e68d9bf160ffa8f5ebb5443f53ce8ca8a39a4504"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "498f8d2f640474b8304983d8ec8753e3c038577bd24122808fd8ab23f4c57e19"
   end
 
   depends_on "cmake" => :build
