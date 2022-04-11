@@ -33,6 +33,14 @@ class DosboxStaging < Formula
   depends_on "sdl2"
   depends_on "sdl2_net"
 
+  on_linux do
+    depends_on "gcc"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
+  fails_with gcc: "5"
+
   def install
     mkdir "build" do
       system "meson", *std_meson_args, "-Db_lto=true", ".."
@@ -45,9 +53,10 @@ class DosboxStaging < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/dosbox-staging -version")
-    mkdir testpath/"Library/Preferences/DOSBox"
-    touch testpath/"Library/Preferences/DOSBox/dosbox-staging.conf"
+    config_path = OS.mac? ? "Library/Preferences/DOSBox" : ".config/dosbox"
+    mkdir testpath/config_path
+    touch testpath/config_path/"dosbox-staging.conf"
     output = shell_output("#{bin}/dosbox-staging -printconf")
-    assert_equal "#{testpath}/Library/Preferences/DOSBox/dosbox-staging.conf", output.chomp
+    assert_equal testpath/config_path/"dosbox-staging.conf", Pathname(output.chomp)
   end
 end
