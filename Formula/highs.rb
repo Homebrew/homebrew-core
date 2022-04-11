@@ -4,6 +4,7 @@ class Highs < Formula
   url "https://github.com/ERGO-Code/HiGHS/archive/refs/tags/v1.2.1.tar.gz"
   sha256 "8d0230369762a1835e075fe41fa4f83b403c21355958135c44dd214203a43edd"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "509970f3c2ca824ebd2bc2df412f1d5c5c3ed0fa11a1802c98dad94ba0e5ae2c"
@@ -16,8 +17,6 @@ class Highs < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "gcc" # for gfortran
-  depends_on "osi"
 
   def install
     system "cmake", "-B", "build", *std_cmake_args
