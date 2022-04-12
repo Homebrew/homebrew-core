@@ -16,6 +16,9 @@ class Dict < Formula
   depends_on "libtool" => :build
   depends_on "libmaa"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     ENV["LIBTOOL"] = "glibtool"
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
