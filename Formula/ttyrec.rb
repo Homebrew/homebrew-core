@@ -30,9 +30,12 @@ class Ttyrec < Formula
   def install
     # macOS has openpty() in <util.h>
     # Reported by email to satoru@0xcc.net on 2017-12-20
-    inreplace "ttyrec.c", "<libutil.h>", "<util.h>"
+    inreplace "ttyrec.c", "<libutil.h>", "<util.h>" if OS.mac?
 
-    system "make", "CFLAGS=#{ENV.cflags} -DHAVE_openpty"
+    # openpty is a BSD function
+    cflags = OS.mac? ? "-DHAVE_openpty" : nil
+
+    system "make", "CFLAGS=#{cflags}"
     bin.install %w[ttytime ttyplay ttyrec]
     man1.install Dir["*.1"]
   end
