@@ -21,6 +21,10 @@ class PureFtpd < Formula
   depends_on "libsodium"
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
