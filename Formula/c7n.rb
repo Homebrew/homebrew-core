@@ -6,6 +6,7 @@ class C7n < Formula
   url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.16.0.tar.gz"
   sha256 "65a20d879bee71a99f8e7717cd7287e27d23684e2a9fe6c4ee6a5b8ab5f69b5a"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,7 +22,7 @@ class C7n < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ecfa9a54d3e75267560cf4c84052e01f49cfc033afc07f951eff3ba5d557858"
   end
 
-  depends_on "python-tabulate"
+  depends_on "libpython-tabulate"
   depends_on "python@3.9"
   depends_on "six"
 
