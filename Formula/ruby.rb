@@ -1,8 +1,8 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.1.tar.gz"
-  sha256 "fe6e4782de97443978ddba8ba4be38d222aa24dc3e3f02a6a8e7701c0eeb619d"
+  url "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.2.tar.gz"
+  sha256 "61843112389f02b735428b53bb64cf988ad9fb81858b8248e22e57336f24a83e"
   license "Ruby"
 
   livecheck do
@@ -38,8 +38,8 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.3.7.tgz"
-    sha256 "537475b3a75d4989a9f61c552c7249001a617e84e6cdfb533ff19ecfdeeaf183"
+    url "https://rubygems.org/rubygems/rubygems-3.3.11.tgz"
+    sha256 "64184aec5bf3d4314eca3b8bae2085c5ddec50564b822340035187431dc1c074"
   end
 
   def api_version
@@ -104,16 +104,21 @@ class Ruby < Formula
 
       system "#{bin}/ruby", "setup.rb", "--prefix=#{buildpath}/vendor_gem"
       rg_in = lib/"ruby/#{api_version}"
+      rg_gems_in = lib/"ruby/gems/#{api_version}"
 
       # Remove bundled Rubygem and Bundler
-      rm_rf rg_in/"bundler"
-      rm_rf rg_in/"rubygems"
-      rm_f rg_in/"rubygems.rb"
-      rm_f rg_in/"ubygems.rb"
-      rm_f bin/"gem"
+      rm_r rg_in/"bundler"
+      rm rg_in/"bundler.rb"
+      rm_r Dir[rg_gems_in/"gems/bundler-*"]
+      rm Dir[rg_gems_in/"specifications/default/bundler-*.gemspec"]
+      rm_r rg_in/"rubygems"
+      rm rg_in/"rubygems.rb"
+      rm bin/"gem"
 
       # Drop in the new version.
       rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
+      (rg_gems_in/"gems").install Dir[buildpath/"vendor_gem/gems/*"]
+      (rg_gems_in/"specifications/default").install Dir[buildpath/"vendor_gem/specifications/default/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem"
       (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle"
       (libexec/"gembin").install_symlink "bundle" => "bundler"
