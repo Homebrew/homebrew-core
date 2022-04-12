@@ -1,8 +1,8 @@
 class Yj < Formula
   desc "CLI to convert between YAML, TOML, JSON and HCL"
   homepage "https://github.com/sclevine/yj"
-  url "https://github.com/sclevine/yj/archive/v5.0.0.tar.gz"
-  sha256 "df9a4f5b6d067842ea3da68ff92c374b98560dce1086337d39963a1346120574"
+  url "https://github.com/sclevine/yj/archive/v5.1.0.tar.gz"
+  sha256 "9a3e9895181d1cbd436a1b02ccf47579afacd181c73f341e697a8fe74f74f99d"
   license "Apache-2.0"
   head "https://github.com/sclevine/yj.git", branch: "master"
 
