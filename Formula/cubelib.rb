@@ -23,6 +23,13 @@ class Cubelib < Formula
     depends_on "pkg-config" => :build
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    directory "build-frontend"
+  end
+
   def install
     ENV.deparallelize
 
@@ -36,6 +43,8 @@ class Cubelib < Formula
     system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
+
+    inreplace pkgshare/"cubelib.summary", "#{Superenv.shims_path}/", ""
   end
 
   test do
