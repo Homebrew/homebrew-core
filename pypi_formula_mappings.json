@@ -185,6 +185,7 @@
   "jenkins-job-builder": {
     "exclude_packages": ["six"]
   },
+  "jinja2-cli": "jinja2-cli[yaml,toml,xml]",
   "jupyterlab": {
     "exclude_packages": ["six"]
   },
