@@ -1,8 +1,8 @@
 class RubyAT26 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.9.tar.xz"
-  sha256 "6a041d82ae6e0f02ccb1465e620d94a7196489d8a13d6018a160da42ebc1eece"
+  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.10.tar.xz"
+  sha256 "5fd8ded51321b88fdc9c1b4b0eb1b951d2eddbc293865da0151612c2e814c1f2"
   license "Ruby"
 
   livecheck do
@@ -21,7 +21,7 @@ class RubyAT26 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2022-04-05", because: :unsupported
+  deprecate! date: "2022-04-12", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
