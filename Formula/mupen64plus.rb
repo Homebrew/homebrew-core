@@ -4,6 +4,7 @@ class Mupen64plus < Formula
   url "https://github.com/mupen64plus/mupen64plus-core/releases/download/2.5/mupen64plus-bundle-src-2.5.tar.gz"
   sha256 "9c75b9d826f2d24666175f723a97369b3a6ee159b307f7cc876bbb4facdbba66"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +26,12 @@ class Mupen64plus < Formula
   depends_on "boost"
   depends_on "freetype"
   depends_on "libpng"
-  depends_on "sdl"
+  depends_on "sdl2"
+
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
 
   resource "rom" do
     url "https://github.com/mupen64plus/mupen64plus-rom/raw/76ef14c876ed036284154444c7bdc29d19381acc/m64p_test_rom.v64"
@@ -44,7 +50,12 @@ class Mupen64plus < Formula
     inreplace "source/mupen64plus-video-glide64mk2/src/Glide64/3dmath.cpp",
               "__builtin_ia32_storeups", "_mm_storeu_ps"
 
-    args = ["install", "PREFIX=#{prefix}", "INSTALL_STRIP_FLAG=-S"]
+    args = ["install", "PREFIX=#{prefix}"]
+    args << if OS.mac?
+      "INSTALL_STRIP_FLAG=-S"
+    else
+      "USE_GLES=1"
+    end
 
     cd "source/mupen64plus-core/projects/unix" do
       system "make", *args
@@ -76,6 +87,9 @@ class Mupen64plus < Formula
   end
 
   test do
+    # Disable test in Linux CI because it hangs because a display is not available.
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     resource("rom").stage do
       system bin/"mupen64plus", "--testshots", "1",
              "m64p_test_rom.v64"
