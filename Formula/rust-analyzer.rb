@@ -2,9 +2,9 @@ class RustAnalyzer < Formula
   desc "Experimental Rust compiler front-end for IDEs"
   homepage "https://rust-analyzer.github.io/"
   url "https://github.com/rust-analyzer/rust-analyzer.git",
-       tag:      "2022-04-04",
-       revision: "46d7ee68f26285db26b2640f2c07d6332380c756"
-  version "2022-04-04"
+       tag:      "2022-04-11",
+       revision: "24cf957627d5ede1b395f92ff871fd7a281d49a4"
+  version "2022-04-11"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
