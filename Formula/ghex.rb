@@ -19,15 +19,18 @@ class Ghex < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "gtk+3"
+  depends_on "gtk+4"
   depends_on "hicolor-icon-theme"
+
+  # ignore `gnome.post_install`
+  patch :DATA
 
   def install
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
 
     mkdir "build" do
-      system "meson", *std_meson_args, ".."
+      system "meson", *std_meson_args, "-Dmmap-buffer-backend=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
@@ -42,3 +45,20 @@ class Ghex < Formula
     system "#{bin}/ghex", "--help"
   end
 end
+
+__END__
+diff --git a/meson.build b/meson.build
+index 94adbad..85e1e84 100644
+--- a/meson.build
++++ b/meson.build
+@@ -146,11 +146,6 @@ subdir('icons')
+ subdir('po')
+ subdir('help')
+
+-gnome.post_install(
+-  glib_compile_schemas: true,
+-  gtk_update_icon_cache: true,
+-  update_desktop_database: true,
+-)
+
+ ### SUMMARY PRINTOUT ###
