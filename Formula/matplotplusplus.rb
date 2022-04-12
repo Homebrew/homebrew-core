@@ -31,7 +31,7 @@ class Matplotplusplus < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON", "-DBUILD_EXAMPLES=OFF"
       system "make"
       system "make", "install"
     end
