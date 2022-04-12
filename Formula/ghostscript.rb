@@ -8,9 +8,9 @@ class Ghostscript < Formula
   # We check the tags from the `head` repository because the GitHub tags are
   # formatted ambiguously, like `gs9533` (corresponding to version 9.53.3).
   livecheck do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads"
-    strategy :page_match
-    regex(/^ghostpdl(?:\s)?v?(\d+(?:\.\d+)+)$/i)
+    url :stable
+    regex(/href=.*?ghostpdl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    strategy :github_latest
   end
 
   bottle do
