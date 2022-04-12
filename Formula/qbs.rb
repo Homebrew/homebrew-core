@@ -22,6 +22,12 @@ class Qbs < Formula
   depends_on "cmake" => :build
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     qt5 = Formula["qt@5"].opt_prefix
     system "cmake", ".", "-DQt5_DIR=#{qt5}/lib/cmake/Qt5", "-DQBS_ENABLE_RPATH=NO",
