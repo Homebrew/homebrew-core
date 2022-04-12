@@ -6,6 +6,7 @@ class Platformio < Formula
   url "https://files.pythonhosted.org/packages/d2/9c/dc9d6373311ca5ab8c4fda3fc4c160473e730b4015dccf558acbf7e06c45/platformio-6.0.2.tar.gz"
   sha256 "e4cb9d45327d93b5888ba0c5d4c9ca22a30411952056e55b79d714c7f84f9b83"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
@@ -17,7 +18,7 @@ class Platformio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "84dffa9399b60b8c0352d2452cceec9197ad5265c5da5bf452e35fa555f5c8ea"
   end
 
-  depends_on "python-tabulate"
+  depends_on "libpython-tabulate"
   depends_on "python@3.9"
 
   resource "aiofiles" do
