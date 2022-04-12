@@ -1,10 +1,11 @@
 class Klee < Formula
+  include Language::Python::Shebang
+
   desc "Symbolic Execution Engine"
   homepage "https://klee.github.io/"
-  url "https://github.com/klee/klee/archive/v2.2.tar.gz"
-  sha256 "1ff2e37ed3128e005b89920fad7bcf98c7792a11a589dd443186658f5eb91362"
+  url "https://github.com/klee/klee/archive/v2.3.tar.gz"
+  sha256 "6155fcaa4e86e7af8a73e8e4b63102abaea3a62d17e4021beeec47b0a3a6eff9"
   license "NCSA"
-  revision 3
   head "https://github.com/klee/klee.git", branch: "master"
 
   bottle do
@@ -16,10 +17,12 @@ class Klee < Formula
   end
 
   depends_on "cmake" => :build
+  # Does not build on ARM: error: invalid application of 'sizeof' to an incomplete type 'struct stat64'
+  depends_on arch: :x86_64
   depends_on "gperftools"
-  depends_on "llvm@12"
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "llvm"
+  depends_on "python@3.10"
   depends_on "sqlite"
   depends_on "stp"
   depends_on "wllvm"
@@ -35,30 +38,8 @@ class Klee < Formula
 
   # klee needs a version of libc++ compiled with wllvm
   resource "libcxx" do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.1/llvm-project-12.0.1.src.tar.xz"
-    sha256 "129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e"
-  end
-
-  # Patches for LLVM 12 Support
-  # https://github.com/klee/klee/pull/1389
-  patch do
-    url "https://github.com/klee/klee/commit/8ac323db7d367799fba9435b64fe715c603e60ba.patch?full_index=1"
-    sha256 "e8c325ebe471b4f36eabd9d041f3ad9461061cc261c898e078d4dd211a1f3632"
-  end
-
-  patch do
-    url "https://github.com/klee/klee/commit/96aa751760b4efc3424a82b573057008bc639c3b.patch?full_index=1"
-    sha256 "1cbc17d413992f211f077687c4187f70b82d7129594fb178c7694fe1d897dac1"
-  end
-
-  patch do
-    url "https://github.com/klee/klee/commit/3d7c05a7e86a72a4fc8df115591bd1e7a50f9d84.patch?full_index=1"
-    sha256 "6eb99a36c25eaf311bcf666d4b893f9e9bdfd06b72cca63d570b6f3e8a8013bc"
-  end
-
-  patch do
-    url "https://github.com/klee/klee/commit/8775b9cf6c716f51fe90d668e734a1288c8b5404.patch?full_index=1"
-    sha256 "baefa3e332b2fb699d5329ba2e7c0d87485654dd7ae0a49e6da3a71102ef4ca0"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.1/llvm-project-13.0.1.src.tar.xz"
+    sha256 "326335a830f2e32d06d0a36393b5455d17dc73e0bd1211065227ee014f92cbf8"
   end
 
   def llvm
@@ -149,6 +130,8 @@ class Klee < Formula
       system "make"
       system "make", "install"
     end
+
+    rewrite_shebang detected_python_shebang, *bin.children
   end
 
   # Test adapted from
@@ -182,6 +165,7 @@ class Klee < Formula
     expected_output = <<~EOS
       KLEE: done: total instructions = 33
       KLEE: done: completed paths = 3
+      KLEE: done: partially completed paths = 0
       KLEE: done: generated tests = 3
     EOS
     output = pipe_output("#{bin}/klee get_sign.bc 2>&1")
