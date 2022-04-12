@@ -20,7 +20,7 @@ class Ghex < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "gtk+4"
+  depends_on "gtk4"
   depends_on "hicolor-icon-theme"
 
   # ignore `gnome.post_install`
