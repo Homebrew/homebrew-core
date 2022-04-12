@@ -1,8 +1,8 @@
 class Gopls < Formula
   desc "Language server for the Go language"
   homepage "https://github.com/golang/tools/tree/master/gopls"
-  url "https://github.com/golang/tools/archive/gopls/v0.8.2.tar.gz"
-  sha256 "761aa768e82a958e6f803db39215c995fe0f263df825ed1cbb9f6b2989f0cd00"
+  url "https://github.com/golang/tools/archive/gopls/v0.8.3.tar.gz"
+  sha256 "a3128372f8bbd84b254a1e1ff6e417feba0d4b5ae01dfb640556331d7bed025e"
   license "BSD-3-Clause"
 
   livecheck do
