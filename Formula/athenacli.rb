@@ -6,6 +6,7 @@ class Athenacli < Formula
   url "https://files.pythonhosted.org/packages/38/1a/d9cd6c68a4a1cd2ce779b163f8cec390ae82c684caa920d0360094886b1f/athenacli-1.6.8.tar.gz"
   sha256 "c7733433f2795d250e3c23b134136fea571ea9868c15f424875cd194eaeb7246"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "612fbf2fee22c4c519962861dd862c90a5244e66810afb79726dd2c4a7aa5f21"
@@ -16,7 +17,7 @@ class Athenacli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c74df7b94d58e4e2e034ba51d6971f3619103fdd203126c13f737956f7676c1"
   end
 
-  depends_on "python-tabulate"
+  depends_on "libpython-tabulate"
   depends_on "python@3.9"
   depends_on "six"
 
