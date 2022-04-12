@@ -22,9 +22,6 @@ class Ghex < Formula
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
 
-  # submitted upstream as https://gitlab.gnome.org/GNOME/ghex/merge_requests/8
-  patch :DATA
-
   def install
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
@@ -45,29 +42,3 @@ class Ghex < Formula
     system "#{bin}/ghex", "--help"
   end
 end
-
-__END__
-diff --git a/src/meson.build b/src/meson.build
-index fdcdcc2..ac45c93 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -23,9 +23,9 @@ libghex_c_args = [
-   '-DG_LOG_DOMAIN="libgtkhex-3"'
- ]
-
--libghex_link_args = [
-+libghex_link_args = cc.get_supported_link_arguments([
-   '-Wl,--no-undefined'
--]
-+])
-
- install_headers(
-   libghex_headers,
-@@ -36,6 +36,7 @@ libghex = library(
-   'gtkhex-@0@'.format(libghex_version_major),
-   libghex_sources + libghex_headers,
-   version: '0.0.0',
-+  darwin_versions: ['1', '1.0'],
-   include_directories: ghex_root_dir,
-   dependencies: libghex_deps,
-   c_args: libghex_c_args,
