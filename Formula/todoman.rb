@@ -6,6 +6,7 @@ class Todoman < Formula
   url "https://files.pythonhosted.org/packages/2d/b0/ffe9e812fa710579d07369763262e418cadb2a99fc5d0ec0d685c7f33a69/todoman-4.1.0.tar.gz"
   sha256 "ce3caa481d923e91da9b492b46509810a754e2d3ef857f5d20bc5a8e362b50c8"
   license "ISC"
+  revision 1
   head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
@@ -17,7 +18,7 @@ class Todoman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8487a64b4a5ba1f7fa89426140d104e9c41e53de6a4008920bd2887867050194"
   end
 
-  depends_on "python-tabulate"
+  depends_on "libpython-tabulate"
   depends_on "python@3.9"
   depends_on "six"
 
