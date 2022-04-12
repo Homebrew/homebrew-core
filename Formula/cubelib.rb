@@ -3,6 +3,7 @@ class Cubelib < Formula
   homepage "https://scalasca.org/software/cube-4.x/download.html"
   url "https://apps.fz-juelich.de/scalasca/releases/cube/4.7/dist/cubelib-4.7.tar.gz"
   sha256 "e44352c80a25a49b0fa0748792ccc9f1be31300a96c32de982b92477a8740938"
+  license "BSD-3-Clause"
 
   livecheck do
     url :homepage
@@ -16,16 +17,23 @@ class Cubelib < Formula
     sha256 mojave:        "5eca16fc5e707d28e6595f070a49516d65a46aa495b95ab78616777027e36114"
   end
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     ENV.deparallelize
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--with-nocross-compiler-suite=clang",
-                          "CXXFLAGS=-stdlib=libc++",
-                          "LDFLAGS=-stdlib=libc++",
-                          "--prefix=#{prefix}"
+    args = %w[--disable-silent-rules]
+    if ENV.compiler == :clang
+      args << "--with-nocross-compiler-suite=clang"
+      args << "CXXFLAGS=-stdlib=libc++"
+      args << "LDFLAGS=-stdlib=libc++"
+    end
+
+    system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
   end
