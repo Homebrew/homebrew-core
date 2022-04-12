@@ -1,8 +1,8 @@
 class Antlr4CppRuntime < Formula
   desc "ANother Tool for Language Recognition C++ Runtime Library"
   homepage "https://www.antlr.org/"
-  url "https://www.antlr.org/download/antlr4-cpp-runtime-4.9.3-source.zip"
-  sha256 "5f0af6efd81f476c3e775c486eb0a71c25d6bbc14373e88a64690e2738d68e03"
+  url "https://www.antlr.org/download/antlr4-cpp-runtime-4.10-source.zip"
+  sha256 "417b5d5ff2df0c3a642fc7c56b7754344ed28b5aab861e9e8c8982663fa76762"
   license "BSD-3-Clause"
 
   livecheck do
