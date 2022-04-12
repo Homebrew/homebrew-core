@@ -6,7 +6,7 @@ class AnimeDownloader < Formula
   url "https://files.pythonhosted.org/packages/00/8b/2f354c0c2e56f1fe45e805698bd6a81c472473a48b814c44aaed2d41016d/anime-downloader-5.0.9.tar.gz"
   sha256 "40eaded9508a30f35993b2fc0f436c357d9939d58625a10bd595bfc11816ead4"
   license "Unlicense"
-  revision 1
+  revision 2
   head "https://github.com/anime-dl/anime-downloader.git", branch: "master"
 
   bottle do
@@ -19,8 +19,8 @@ class AnimeDownloader < Formula
   end
 
   depends_on "aria2"
+  depends_on "libpython-tabulate"
   depends_on "node"
-  depends_on "python-tabulate"
   depends_on "python@3.9"
 
   resource "beautifulsoup4" do
