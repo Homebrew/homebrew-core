@@ -1,8 +1,8 @@
 class Links < Formula
   desc "Lynx-like WWW browser that supports tables, menus, etc."
   homepage "http://links.twibright.com/"
-  url "http://links.twibright.com/download/links-2.25.tar.gz"
-  sha256 "5c0b3b0b8fe1f3c8694f5fb7fbdb19c63278ac68ae4646da69b49640b20283b1"
+  url "http://links.twibright.com/download/links-2.26.tar.gz"
+  sha256 "c42a4dba21dcfb4525034139489cd47f30aa0c5f9d05b37d4e2eaaea943fe2b1"
   license "GPL-2.0-or-later"
 
   livecheck do
