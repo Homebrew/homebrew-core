@@ -35,23 +35,6 @@ class Gedit < Formula
   depends_on "libxml2"
   depends_on "pango"
 
-  # Fix build error due to missing function 'gedit_dirs_get_user_cache_dir'
-  # ../gedit/gedit-app.c:675:14: error: implicit declaration of function 'gedit_dirs_get_user_cache_dir'
-  # TODO: Remove in the next release
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gedit/-/commit/741be1b11b977abd529aa2f633e50c2e80864afc.diff"
-    sha256 "e5ffa72b430abe60b357286c7079e8da9da1a05c31c023cb0f6885ed9c69e4cf"
-  end
-
-  # Fix build error due to missing file 'gedit-recent-osx.c'
-  # ../gedit/meson.build:182:0: ERROR: File gedit-recent-osx.c does not exist.
-  # PR ref: https://gitlab.gnome.org/GNOME/gedit/-/merge_requests/128
-  # TODO: Remove when PR is merged and available in release
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gedit/-/commit/b075623f0d21f9d960999aa6dfc2a1072b7f12aa.diff"
-    sha256 "e82c3b38c17887313b9d6d88254427cba3fbbca259571bfa318fcaf917b13143"
-  end
-
   def install
     ENV["DESTDIR"] = "/"
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/gedit" if OS.linux?
