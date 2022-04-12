@@ -3,8 +3,8 @@ class Nvchecker < Formula
 
   desc "New version checker for software releases"
   homepage "https://github.com/lilydjwg/nvchecker"
-  url "https://files.pythonhosted.org/packages/71/23/c8839d59b5f7bb64bd8ebc7117c85f18431ca1fc645fce8162762658beca/nvchecker-2.7.tar.gz"
-  sha256 "08ce8629025bdfbc3afeceace5319e7dab5f1304f02684aec8f84b8b416e1876"
+  url "https://files.pythonhosted.org/packages/7a/c0/61b7c2dab2e9d3526d8542ccab27577cf82fa5c4534ce661740dd2670beb/nvchecker-2.8.post1.tar.gz"
+  sha256 "bba8cf0bfa7af6c412b87d9d9e9d8b1d0711a04e2fc0d69839fc78fbdde90f91"
   license "MIT"
 
   bottle do
@@ -26,9 +26,19 @@ class Nvchecker < Formula
     sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+  end
+
   resource "pycurl" do
     url "https://files.pythonhosted.org/packages/09/ca/0b6da1d0f391acb8991ac6fdf8823ed9cf4c19680d4f378ab1727f90bd5c/pycurl-7.45.1.tar.gz"
     sha256 "a863ad18ff478f5545924057887cdae422e1b2746e41674615f687498ea5b88a"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
+    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
   end
 
   resource "structlog" do
@@ -54,10 +64,8 @@ class Nvchecker < Formula
     file = testpath/"example.toml"
     file.write <<~EOS
       [nvchecker]
-      source = "github"
-      github = "lilydjwg/nvchecker"
-      use_max_tag = true
-      prefix = "v"
+      source = "pypi"
+      pypi = "nvchecker"
     EOS
 
     out = shell_output("#{bin}/nvchecker -c #{file} --logger=json | jq '.[\"version\"]' ").strip
