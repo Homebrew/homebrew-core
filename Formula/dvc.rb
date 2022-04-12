@@ -6,6 +6,7 @@ class Dvc < Formula
   url "https://files.pythonhosted.org/packages/43/84/2b29a5ef7348221f0ad0ed175ca750b236e7805dace7e75455be1eca4cc2/dvc-2.11.0.tar.gz"
   sha256 "26f5ba2a89a94874a4cc5046835717f8122c6e9adcf7097f5ec93a3a816388a0"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a2ed3472a21f69116d863403221e9b2738b493954cfaf243d39acd7cd200fb7e"
@@ -21,9 +22,9 @@ class Dvc < Formula
   depends_on "rust" => :build
   depends_on "apache-arrow"
   depends_on "libgit2"
+  depends_on "libpython-tabulate"
   depends_on "openssl@1.1"
   depends_on "protobuf"
-  depends_on "python-tabulate"
   depends_on "python@3.9"
   depends_on "six"
 
