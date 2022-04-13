@@ -1,10 +1,19 @@
 class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
-  url "https://github.com/FreeRADIUS/freeradius-server/archive/release_3_0_25.tar.gz"
-  sha256 "493b0b9bef3d9f0e6949fcfd6aa282164f6b8e6404231f2b0d1353739199ffcd"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/FreeRADIUS/freeradius-server.git", branch: "master"
+
+  stable do
+    url "https://github.com/FreeRADIUS/freeradius-server/archive/release_3_0_25.tar.gz"
+    sha256 "493b0b9bef3d9f0e6949fcfd6aa282164f6b8e6404231f2b0d1353739199ffcd"
+
+    # Fix -flat_namespace being used
+    patch do
+      url "https://github.com/FreeRADIUS/freeradius-server/commit/6c1cdb0e75ce36f6fadb8ade1a69ba5e16283689.patch?full_index=1"
+      sha256 "7e7d055d72736880ca8e1be70b81271dd02f2467156404280a117cb5dc8dccdc"
+    end
+  end
 
   livecheck do
     url :stable
