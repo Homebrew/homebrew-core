@@ -32,8 +32,8 @@ class RubyAT27 < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.2.22.tgz"
-    sha256 "368979ef8103b550a98fc6479543831f0d55c3567d5ee4622d5aa569ee17418b"
+    url "https://rubygems.org/rubygems/rubygems-3.3.11.tgz"
+    sha256 "64184aec5bf3d4314eca3b8bae2085c5ddec50564b822340035187431dc1c074"
   end
 
   def api_version
