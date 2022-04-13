@@ -36,7 +36,7 @@ class OsrmBackend < Formula
     mkdir "build" do
       system "cmake", "..", "-DENABLE_CCACHE:BOOL=OFF",
                             "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua#{luaversion}",
-                            "-DLUA_LIBRARY=#{lua.opt_lib}/liblua.#{luaversion}.dylib",
+                            "-DLUA_LIBRARY=#{lua.opt_lib}/#{shared_library("liblua", luaversion)}",
                             *std_cmake_args
       system "make"
       system "make", "install"
