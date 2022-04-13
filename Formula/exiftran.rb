@@ -27,6 +27,22 @@ class Exiftran < Formula
   depends_on "libexif"
   depends_on "pixman"
 
+  on_linux do
+    depends_on "cairo"
+    depends_on "fontconfig"
+    depends_on "freetype"
+    depends_on "ghostscript"
+    depends_on "libdrm"
+    depends_on "libepoxy"
+    depends_on "libpng"
+    depends_on "libtiff"
+    depends_on "libxpm"
+    depends_on "mesa"
+    depends_on "openmotif"
+    depends_on "poppler"
+    depends_on "webp"
+  end
+
   # Fix build on Darwin
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/185c281/exiftran/fix-build.diff"
@@ -35,7 +51,7 @@ class Exiftran < Formula
 
   def install
     system "make"
-    system "make", "prefix=#{prefix}", "install"
+    system "make", "prefix=#{prefix}", "RESDIR=#{share}", "install"
   end
 
   test do
