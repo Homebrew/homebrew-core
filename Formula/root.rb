@@ -7,17 +7,6 @@ class Root < Formula
   stable do
     url "https://root.cern.ch/download/root_v6.26.02.source.tar.gz"
     sha256 "7ba96772271a726079506c5bf629c3ceb21bf0682567ed6145be30606d7cd9bb"
-
-    # ROOT 6.26.00 doesn't support installation in directories starting with a
-    # dot (.linuxbrew, for example) - two commit merge
-    patch do
-      url "https://github.com/root-project/root/commit/6802514256e948582c26ad938c2c34f22b2d1bc3.patch?full_index=1"
-      sha256 "7988fa9e842c821c9be681c0e783dc299ecc74805750a4323e2921da26e7fc5b"
-    end
-    patch do
-      url "https://github.com/root-project/root/commit/efc67e432206771fe934ad7763529cf3621696a1.patch?full_index=1"
-      sha256 "b3ca4e06abd9c69315433717ae3a75677d8175cb53b8731c93f655634df1e22c"
-    end
   end
 
   livecheck do
