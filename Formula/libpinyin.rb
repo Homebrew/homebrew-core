@@ -31,9 +31,6 @@ class Libpinyin < Formula
   end
 
   def install
-    # Fix linker flags used in building/linking libzhuyin: https://github.com/libpinyin/libpinyin/pull/151
-    inreplace "src/Makefile.am", "-exported_symbols_list=$(srcdir)", "-exported_symbols_list,$(srcdir)"
-
     resource("model").stage buildpath/"data"
     system "./autogen.sh", "--enable-libzhuyin=yes",
                            "--prefix=#{prefix}"
