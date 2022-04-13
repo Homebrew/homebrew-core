@@ -18,17 +18,30 @@ class Libnetworkit < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libomp"
   depends_on "tlx"
+
+  on_macos do
+    depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     mkdir "build" do
-      system "cmake", ".", *std_cmake_args,
-                           "-DNETWORKIT_EXT_TLX=#{Formula["tlx"].opt_prefix}",
-                           "-DOpenMP_CXX_FLAGS='-Xpreprocessor -fopenmp -I#{Formula["libomp"].opt_prefix}/include'",
-                           "-DOpenMP_CXX_LIB_NAMES='omp'",
-                           "-DOpenMP_omp_LIBRARY=#{Formula["libomp"].opt_prefix}/lib/libomp.dylib",
-                           ".."
+      flags = ["-DNETWORKIT_EXT_TLX=#{Formula["tlx"].opt_prefix}"]
+      # GCC includes libgomp for OpenMP support and does not need any extra flags to use it.
+      if OS.mac?
+        flags += [
+          "-DOpenMP_CXX_FLAGS='-Xpreprocessor -fopenmp -I#{Formula["libomp"].opt_prefix}/include'",
+          "-DOpenMP_CXX_LIB_NAMES='omp'",
+          "-DOpenMP_omp_LIBRARY=#{Formula["libomp"].opt_prefix}/lib/libomp.dylib",
+        ]
+      end
+      system "cmake", ".", *std_cmake_args, *flags, ".."
       system "make", "install"
     end
   end
