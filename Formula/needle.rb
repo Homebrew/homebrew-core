@@ -2,8 +2,8 @@ class Needle < Formula
   desc "Compile-time safe Swift dependency injection framework with real code"
   homepage "https://github.com/uber/needle"
   url "https://github.com/uber/needle.git",
-      tag:      "v0.17.2",
-      revision: "6a2d5e25cd3c77ddfa57835e991469db791c4744"
+      tag:      "v0.18.1",
+      revision: "bf2d46c461476fec7398f3b6a7bb70556e6925f0"
   license "Apache-2.0"
 
   bottle do
@@ -12,12 +12,18 @@ class Needle < Formula
     sha256 cellar: :any, catalina:      "f45fa77b9e00be408206fc2cf945f41ca3f4661bbb06c8d2aadd015f4d75dfdd"
   end
 
-  depends_on xcode: ["12.2", :build]
+  depends_on "swift" => :build # for copying lib_InternalSwiftSyntaxParser.dylib
 
   def install
-    system "make", "install", "BINARY_FOLDER_PREFIX=#{prefix}"
-    bin.install "./Generator/bin/needle"
-    libexec.install "./Generator/bin/lib_InternalSwiftSyntaxParser.dylib"
+    # Install lib_InternalSwiftSyntaxParser.dylib from swift formula to guarantee
+    # an open-source copy as opposed to copying from Xcode.app toolchain
+    inreplace "Makefile", "$(XCODE_PATH)/Toolchains/XcodeDefault.xctoolchain",
+                          Formula["swift"].opt_prefix.glob("Swift-*.xctoolchain").first
+
+    system "make", "install", "BINARY_FOLDER_PREFIX=#{prefix}",
+                              "SWIFT_BUILD_FLAGS=--disable-sandbox -c release"
+    bin.install "Generator/bin/needle"
+    libexec.install "Generator/bin/lib_InternalSwiftSyntaxParser.dylib"
   end
 
   test do
