@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.103-source-build",
-      revision: "2c677ffc1e93aea3b6c92d6121d04fdaeba32d32"
+      tag:      "v6.0.104",
+      revision: "915d644e451858f4f7c6e1416ea202695ddd54fb"
   license "MIT"
 
   bottle do
@@ -41,6 +41,13 @@ class Dotnet < Formula
   # GCC builds have limited support via community.
   fails_with :gcc
 
+  # Fixes race condition in MSBuild.
+  # Remove with 6.0.3xx or later.
+  resource "homebrew-msbuild-patch" do
+    url "https://github.com/dotnet/msbuild/commit/64edb33a278d1334bd6efc35fecd23bd3af4ed48.patch?full_idex=1"
+    sha256 "8e0ca4583e1ccae4be70aea860c3d2645fe591628779ef003e609e9c9592b9cd"
+  end
+
   # Fix build failure on macOS due to missing ILAsm/ILDAsm
   # Fix build failure on macOS ARM due to `osx-x64` override
   patch :DATA
@@ -52,10 +59,29 @@ class Dotnet < Formula
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
     end
 
+    (buildpath/"src/SourceBuild/tarball/patches/msbuild").install resource("homebrew-msbuild-patch")
+
+    # Fix usage of GNU-specific flag.
+    # TODO: Remove this when upstreamed
+    inreplace "src/SourceBuild/tarball/content/repos/Directory.Build.targets",
+              "--block-size=1M", "-m"
+
     Dir.mktmpdir do |sourcedir|
       system "./build.sh", "/p:ArcadeBuildTarball=true", "/p:TarballDir=#{sourcedir}"
 
       cd sourcedir
+
+      # Use our libunwind rather than the bundled one.
+      inreplace Dir["src/runtime.*/eng/SourceBuild.props"],
+                "/p:BuildDebPackage=false",
+                "\\0 --cmakeargs -DCLR_CMAKE_USE_SYSTEM_LIBUNWIND=ON"
+
+      # Fix missing macOS conditional for system unwind searching.
+      # TODO: Remove this when upstreamed
+      inreplace Dir["src/runtime.*/src/native/corehost/apphost/static/CMakeLists.txt"],
+                "if(CLR_CMAKE_USE_SYSTEM_LIBUNWIND)",
+                "if(CLR_CMAKE_USE_SYSTEM_LIBUNWIND AND NOT CLR_CMAKE_TARGET_OSX)"
+
       # Workaround for error MSB4018 while building 'installer in tarball' due
       # to trying to find aspnetcore-runtime-internal v6.0.0 rather than current.
       # TODO: Remove when packaging is fixed
@@ -67,7 +93,7 @@ class Dotnet < Formula
       # TODO: Remove whenever patch is no longer used
       rm Dir["src/nuget-client.*/eng/source-build-patches/0001-Rename-NuGet.Config*.patch"].first if OS.mac?
       system "./prep.sh", "--bootstrap"
-      system "./build.sh"
+      system "./build.sh", "--", "/p:CleanWhileBuilding=true"
 
       libexec.mkpath
       tarball = Dir["artifacts/*/Release/dotnet-sdk-#{version}-*.tar.gz"].first
