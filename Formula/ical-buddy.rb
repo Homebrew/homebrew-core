@@ -1,10 +1,11 @@
 class IcalBuddy < Formula
   desc "Get events and tasks from the macOS calendar database"
   homepage "https://hasseg.org/icalBuddy/"
-  url "https://github.com/DavidKaluta/icalBuddy64/releases/download/v1.10.1/icalBuddy-v1.10.1.zip"
-  sha256 "720a6a3344ce32c2cab7c3d2b686ad8de8d9744b747ac48b275247ed54cb3945"
+  url "https://github.com/dkaluta/icalBuddy64/archive/refs/tags/v1.10.1.tar.gz"
+  sha256 "aff42b809044efbf9a1f7df7598e9e110c1c4de0a4c27ddccde5ea325ddc4b77"
   license "MIT"
-  head "https://github.com/DavidKaluta/icalBuddy64.git", branch: "master"
+  revision 1
+  head "https://github.com/dkaluta/icalBuddy64.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fde583324695c0393cad4e545697c010d2e14dca39281ceff644dee8ed9230ab"
@@ -18,8 +19,17 @@ class IcalBuddy < Formula
   depends_on :macos
 
   def install
-    args = %W[icalBuddy icalBuddy.1 icalBuddyLocalization.1
-              icalBuddyConfig.1 COMPILER=#{ENV.cc}]
+    # Allow native builds rather than only x86_64
+    inreplace "Makefile", "-arch x86_64", ""
+
+    args = %W[
+      icalBuddy
+      icalBuddy.1
+      icalBuddyLocalization.1
+      icalBuddyConfig.1
+      COMPILER=#{ENV.cc}
+      APP_VERSION=#{version}
+    ]
     system "make", *args
     bin.install "icalBuddy"
     man1.install Dir["*.1"]
