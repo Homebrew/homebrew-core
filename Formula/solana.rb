@@ -1,13 +1,15 @@
 class Solana < Formula
   desc "Web-Scale Blockchain for decentralized apps and marketplaces"
   homepage "https://solana.com"
-  url "https://github.com/solana-labs/solana/archive/v1.9.13.tar.gz"
-  sha256 "65f6a162a8443067bcf1c7abc51ebe2ac579b8af090c677c8077a0636cf44354"
+  url "https://github.com/solana-labs/solana/archive/v1.9.15.tar.gz"
+  sha256 "3fee2d2b65bb57ff58128748b2ced35edfd2c52b7692bf696c5d28ec6c61e0c3"
   license "Apache-2.0"
 
+  # Currently, it tracks down 1.9.x release (as it is for mainnet),
+  # while 1.10.x release train is for testnet
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(1\.9(?:\.\d+)+)$/i)
   end
 
   bottle do
