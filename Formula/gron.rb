@@ -1,8 +1,8 @@
 class Gron < Formula
   desc "Make JSON greppable"
   homepage "https://github.com/tomnomnom/gron"
-  url "https://github.com/tomnomnom/gron/archive/v0.6.1.tar.gz"
-  sha256 "eef150a425aa4eaa8b2e36a75ee400d4247525403f79e24ed32ccb346dc653ff"
+  url "https://github.com/tomnomnom/gron/archive/v0.7.1.tar.gz"
+  sha256 "1c98f2ef2ba03558864b1ab5e9c4b47a2e89d3ffaf24cfa0ac75cd38d775feb4"
   license "MIT"
   head "https://github.com/tomnomnom/gron.git", branch: "master"
 
