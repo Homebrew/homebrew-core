@@ -52,11 +52,10 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 8bd825f..c70b651 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -71,7 +71,7 @@ if(WITH_JSON)
-         message(FATAL_ERROR "Did not find libjson")
+@@ -72,6 +72,7 @@
      endif()
 
--    add_definitions("-DJSON")
+     add_definitions("-DJSON")
 +    string(REPLACE ";" " " JSON_CFLAGS "${JSON_CFLAGS}")
      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${JSON_CFLAGS}")
  endif()
