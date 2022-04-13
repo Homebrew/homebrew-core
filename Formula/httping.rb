@@ -1,11 +1,11 @@
 class Httping < Formula
   desc "Ping-like tool for HTTP requests"
   homepage "https://www.vanheusden.com/httping/"
-  url "https://www.vanheusden.com/httping/httping-2.5.tgz"
+  url "https://www.mirrorservice.org/sites/distfiles.macports.org/httping/httping-2.5.tgz"
+  mirror "https://fossies.org/linux/www/httping-2.5.tgz"
   sha256 "3e895a0a6d7bd79de25a255a1376d4da88eb09c34efdd0476ab5a907e75bfaf8"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/flok99/httping.git"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2061528a8b8a03b6d8276af007c617b8a4937e06c7b871dd729664f50f47eef2"
@@ -21,10 +21,12 @@ class Httping < Formula
   depends_on "gettext"
   depends_on "openssl@1.1"
 
+  uses_from_macos "ncurses"
+
   def install
     # Reported upstream, see: https://github.com/Homebrew/homebrew/pull/28653
     inreplace %w[configure Makefile], "ncursesw", "ncurses"
-    ENV.append "LDFLAGS", "-lintl"
+    ENV.append "LDFLAGS", "-lintl" if OS.mac?
     inreplace "Makefile", "cp nl.mo $(DESTDIR)/$(PREFIX)/share/locale/nl/LC_MESSAGES/httping.mo", ""
     system "make", "install", "PREFIX=#{prefix}"
   end
