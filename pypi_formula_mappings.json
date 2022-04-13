@@ -230,9 +230,7 @@
   "nox": {
     "exclude_packages": ["six"]
   },
-  "nvchecker": {
-    "extra_packages": ["packaging"]
-  },
+  "nvchecker": "nvchecker[pypi]",
   "oci-cli": {
     "exclude_packages": ["six"]
   },
