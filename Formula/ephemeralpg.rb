@@ -1,8 +1,8 @@
 class Ephemeralpg < Formula
   desc "Run tests on an isolated, temporary Postgres database"
   homepage "https://eradman.com/ephemeralpg/"
-  url "https://eradman.com/ephemeralpg/code/ephemeralpg-3.1.tar.gz"
-  sha256 "4693d195778c09a8e4b0fd3ec6790efcc7b4887e922d8f417bca7c8fe214e2aa"
+  url "https://eradman.com/ephemeralpg/code/ephemeralpg-3.2.tar.gz"
+  sha256 "c07df30687191dc632460d96997561d0adfc32b198f3b59b14081783f4a1b95d"
 
   livecheck do
     url "https://eradman.com/ephemeralpg/code/"
