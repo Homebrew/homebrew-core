@@ -1,9 +1,9 @@
 class JsonC < Formula
   desc "JSON parser for C"
   homepage "https://github.com/json-c/json-c/wiki"
-  url "https://github.com/json-c/json-c/archive/json-c-0.15-20200726.tar.gz"
-  version "0.15"
-  sha256 "4ba9a090a42cf1e12b84c64e4464bb6fb893666841d5843cc5bef90774028882"
+  url "https://github.com/json-c/json-c/archive/refs/tags/json-c-0.16-20220414.tar.gz"
+  version "0.16"
+  sha256 "3ecaeedffd99a60b1262819f9e60d7d983844073abc74e495cb822b251904185"
   license "MIT"
   head "https://github.com/json-c/json-c.git", branch: "master"
 
