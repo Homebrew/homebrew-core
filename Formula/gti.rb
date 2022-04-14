@@ -1,8 +1,8 @@
 class Gti < Formula
   desc "ASCII-art displaying typo-corrector for commands"
   homepage "https://r-wos.org/hacks/gti"
-  url "https://github.com/rwos/gti/archive/v1.7.0.tar.gz"
-  sha256 "cea8baf25ac5e6272f9031bd5e36a17a4b55038830b108f4f24e7f55690198f7"
+  url "https://github.com/rwos/gti/archive/v1.8.0.tar.gz"
+  sha256 "65339ee1d52dede5e862b30582b2adf8aff2113cd6b5ece91775e1510b24ffb9"
   head "https://github.com/rwos/gti.git", branch: "master"
 
   bottle do
