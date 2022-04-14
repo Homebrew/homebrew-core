@@ -4,6 +4,7 @@ class Wxmaxima < Formula
   url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-22.04.0.tar.gz"
   sha256 "48744a3f29fa9abf20788bc0b136c283cbbb0397c74ec79b41e5e6d856d7d65a"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
 
   bottle do
