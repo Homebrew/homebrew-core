@@ -6,7 +6,7 @@ class Liquibase < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://liquibase.org/download"
+    url "https://www.liquibase.org/download"
     regex(/href=.*?liquibase[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
