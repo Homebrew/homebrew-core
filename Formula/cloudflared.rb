@@ -6,6 +6,10 @@ class Cloudflared < Formula
   license "Apache-2.0"
   head "https://github.com/cloudflare/cloudflared.git", branch: "master"
 
+  livecheck do
+    url :stable
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c57673c788197e62d089ebe0a60a1c5c78505671ed680763345e4469244ccb7b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baa1645c47a973c4a62573250a7171a1c7aa6bfad4a9b36ae5944beb4e5d4f2c"
