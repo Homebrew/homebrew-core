@@ -29,12 +29,6 @@ class Exult < Formula
   depends_on "libvorbis"
   depends_on "sdl2"
 
-  # Xcode 12 compile fix for 1.6.x branch - https://github.com/exult/exult/pull/61
-  patch do
-    url "https://github.com/exult/exult/commit/b98a9eb195bf8b3f55df56499d2a7c2c5d8809d0.patch?full_index=1"
-    sha256 "c1c5b1e9e4994ecdfaba6285b86222123ee6b5590bcd8e7400871a4e65836fe0"
-  end
-
   def install
     # Use ~/Library/... instead of /Library for the games
     inreplace "files/utils.cc" do |s|
