@@ -18,6 +18,7 @@ class Dict < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "zlib"
 
   def install
     ENV["LIBTOOL"] = "glibtool"
