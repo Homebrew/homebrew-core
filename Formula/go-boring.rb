@@ -1,9 +1,9 @@
 class GoBoring < Formula
   desc "Go programming language with BoringCrypto"
   homepage "https://go.googlesource.com/go/+/dev.boringcrypto/README.boringcrypto.md"
-  url "https://go-boringcrypto.storage.googleapis.com/go1.18b7.src.tar.gz"
-  version "1.18b7"
-  sha256 "6028ffee59903934a3182d45ee3e0c1c9f47fb98f05d9bbb2fabb4771db60792"
+  url "https://go-boringcrypto.storage.googleapis.com/go1.18.1b7.src.tar.gz"
+  version "1.18.1b7"
+  sha256 "c7f91549b3a197e4a08f64e07546855ca8f82d597f60fd23c7ad2f082640a9fe"
   license "BSD-3-Clause"
 
   livecheck do
