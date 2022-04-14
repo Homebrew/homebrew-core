@@ -3,8 +3,8 @@ require "language/node"
 class Postgraphile < Formula
   desc "GraphQL schema created by reflection over a PostgreSQL schema 🐘"
   homepage "https://www.graphile.org/postgraphile/"
-  url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.12.9.tgz"
-  sha256 "dd9a8446cc8e29640ce6ddc94cb7a9e812718755598053686f63fbe49a71c166"
+  url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.12.10.tgz"
+  sha256 "83c7045124f3d0f60f6adba0b8d6c174af2a50b05b619387c4012931120d3283"
   license "MIT"
   head "https://github.com/graphile/postgraphile.git", branch: "main"
 
