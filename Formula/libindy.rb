@@ -1,8 +1,8 @@
 class Libindy < Formula
   desc "Indy-sdk for macOS including libindy and indy-cli"
   homepage "https://github.com/hyperledger/indy-sdk"
-  url "https://github.com/hyperledger/indy-sdk/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "63e42389cd53c66574b8af0979d6ff7acfb5ff0da7a9d5bf37c789ac99ca0dd4"
+  url "https://github.com/conanoc/indy-sdk/archive/refs/tags/v1.16.1.tar.gz"
+  sha256 "27fe05b8231fee5e36b63a76f516ad4bbe1a30a56dc7da701e749aa8479255aa"
   license "Apache-2.0"
 
   depends_on "autoconf" => :build
