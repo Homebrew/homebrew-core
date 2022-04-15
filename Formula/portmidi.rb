@@ -25,6 +25,7 @@ class Portmidi < Formula
     # need to create include/lib directories since make won't create them itself
     include.mkpath
     lib.mkpath
+    (lib/"pkgconfig").mkpath
 
     if OS.mac?
       # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
@@ -37,6 +38,8 @@ class Portmidi < Formula
       system "make", "-f", "pm_mac/Makefile.osx"
       system "make", "-f", "pm_mac/Makefile.osx", "install"
       mv lib/shared_library("libportmidi"), lib/shared_library("libportmidi", version)
+      # awaiting https://github.com/PortMidi/portmidi/issues/24
+      (lib/"pkgconfig").install "Release/packaging/portmidi.pc"
     else
       system "cmake", ".", *std_cmake_args, "-DCMAKE_CACHEFILE_DIR=#{buildpath}/build"
       system "make", "install"
