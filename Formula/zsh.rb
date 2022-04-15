@@ -6,6 +6,11 @@ class Zsh < Formula
   sha256 "b6973520bace600b4779200269b1e5d79e5f505ac4952058c11ad5bbf0dd9919"
   license "MIT-Modern-Variant"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/zsh/files/zsh/.*?[-_/](\d+(?:[-.]\d+)+)[-_/%.]}i)
+  end
+
   bottle do
     sha256 arm64_monterey: "750505b1f918835561d0faed812ba007b26ca6f85f658407874a7e764d05aec7"
     sha256 arm64_big_sur:  "f6150fb2971ff3e1f127d5a41e2178593723bfe83dbff1162024581aa657f790"
