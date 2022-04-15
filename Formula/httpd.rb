@@ -5,6 +5,7 @@ class Httpd < Formula
   mirror "https://downloads.apache.org/httpd/httpd-2.4.53.tar.bz2"
   sha256 "d0bbd1121a57b5f2a6ff92d7b96f8050c5a45d3f14db118f64979d525858db63"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "ca20fbe67d7c6c6e9e0b55ac889c3c908f4272048c3f745af38ce63d0dbe6218"
@@ -20,7 +21,7 @@ class Httpd < Formula
   depends_on "brotli"
   depends_on "libnghttp2"
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
@@ -77,7 +78,7 @@ class Httpd < Formula
                           "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["libnghttp2"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--with-pcre=#{Formula["pcre"].opt_prefix}",
+                          "--with-pcre=#{Formula["pcre2"].opt_prefix}/bin/pcre2-config",
                           "--with-z=#{zlib}",
                           "--disable-lua",
                           "--disable-luajit"
@@ -112,7 +113,7 @@ class Httpd < Formula
     end
 
     inreplace "#{lib}/httpd/build/config_vars.mk" do |s|
-      pcre = Formula["pcre"]
+      pcre = Formula["pcre2"]
       s.gsub! pcre.prefix.realpath, pcre.opt_prefix
       s.gsub! "${prefix}/lib/httpd/modules", HOMEBREW_PREFIX/"lib/httpd/modules"
       s.gsub! Superenv.shims_path, HOMEBREW_PREFIX/"bin"
