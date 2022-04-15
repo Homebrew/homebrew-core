@@ -31,10 +31,10 @@ class Cataclysm < Formula
   depends_on "sdl2_ttf"
 
   def install
+    os = OS.mac? ? "osx" : "linux"
     args = %W[
-      NATIVE=osx
+      NATIVE=#{os}
       RELEASE=1
-      OSX_MIN=#{MacOS.version}
       USE_HOME_DIR=1
       TILES=1
       SOUND=1
@@ -43,6 +43,7 @@ class Cataclysm < Formula
       LINTJSON=0
     ]
 
+    args << "OSX_MIN=#{MacOS.version}" if OS.mac?
     args << "CLANG=1" if ENV.compiler == :clang
 
     system "make", *args
@@ -57,6 +58,10 @@ class Cataclysm < Formula
   end
 
   test do
+    # Disable test on Linux because it fails with this error:
+    # Error while initializing the interface: SDL_Init failed: No available video device
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     # make user config directory
     user_config_dir = testpath/"Library/Application Support/Cataclysm/"
     user_config_dir.mkpath
