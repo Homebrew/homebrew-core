@@ -30,13 +30,19 @@ class Minidjvu < Formula
   depends_on "djvulibre"
   depends_on "libtiff"
 
+  on_linux do
+    depends_on "gzip"
+  end
+
   def install
+    inreplace "Makefile.in", "/usr/bin/gzip", Formula["gzip"].opt_bin/"gzip" unless OS.mac?
+
     ENV.deparallelize
     # force detection of BSD mkdir
-    system "autoreconf", "-vfi"
+    system "autoreconf", "-vfi" if OS.mac?
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    lib.install Dir["#{prefix}/*.dylib"]
+    lib.install Dir[prefix/shared_library("*")]
   end
 end
