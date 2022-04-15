@@ -28,6 +28,7 @@ class Pcre2 < Formula
   end
 
   uses_from_macos "bzip2"
+  uses_from_macos "libedit"
   uses_from_macos "zlib"
 
   def install
