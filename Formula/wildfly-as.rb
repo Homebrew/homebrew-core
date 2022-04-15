@@ -14,8 +14,6 @@ class WildflyAs < Formula
     sha256 cellar: :any, all: "b04e4e4beb6c592f3aeb1a0478a14b829a6f7d7bbc9a00c4c9fa70b6fb8e6cba"
   end
 
-  # Installs a pre-built x86_64-only `libwfssl`
-  depends_on arch: :x86_64
   # Installs a pre-built `libartemis-native-64.so` file with linkage to libaio.so.1
   depends_on :macos
   depends_on "openjdk"
@@ -23,6 +21,16 @@ class WildflyAs < Formula
   def install
     buildpath.glob("bin/*.{bat,ps1}").map(&:unlink)
     buildpath.glob("**/win-x86_64").map(&:rmtree)
+    buildpath.glob("**/linux-i686").map(&:rmtree)
+    buildpath.glob("**/linux-s390x").map(&:rmtree)
+    buildpath.glob("**/linux-x86_64").map(&:rmtree)
+    buildpath.glob("**/netty-transport-native-epoll/**/native").map(&:rmtree)
+    if Hardware::CPU.intel?
+      buildpath.glob("**/*_aarch_64.jnilib").map(&:unlink)
+    else
+      buildpath.glob("**/macosx-x86_64").map(&:rmtree)
+      buildpath.glob("**/*_x86_64.jnilib").map(&:unlink)
+    end
 
     inreplace "bin/standalone.sh", /JAVA="[^"]*"/, "JAVA='#{Formula["openjdk"].opt_bin}/java'"
 
