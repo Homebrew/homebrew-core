@@ -5,8 +5,8 @@ class Pcre2 < Formula
 
   # Remove `stable` block next release when patches are no longer needed
   stable do
-    url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.39/pcre2-10.39.tar.bz2"
-    sha256 "0f03caf57f81d9ff362ac28cd389c055ec2bf0678d277349a1a4bee00ad6d440"
+    url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.40/pcre2-10.40.tar.bz2"
+    sha256 "14e4b83c4783933dc17e964318e6324f7cae1bc75d8f3c79bc6969f00c159d68"
 
     # enable JIT again in Apple Silicon with 11.2+ (sljit PR zherczeg/sljit#105)
     patch :p2 do
