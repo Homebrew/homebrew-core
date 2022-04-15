@@ -1,8 +1,8 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.6.1.tar.gz"
-  sha256 "dd882c21a52e5999f656cae3f336b5fc702d52addd4d9b5cd3dc39cfff35e864"
+  url "https://github.com/neovim/neovim/archive/v0.7.0.tar.gz"
+  sha256 "792a9c55d5d5f4a5148d475847267df309d65fb20f05523f21c1319ea8a6c7df"
   license "Apache-2.0"
   head "https://github.com/neovim/neovim.git", branch: "master"
 
@@ -45,7 +45,7 @@ class Neovim < Formula
   # TODO: Use `libvterm` formula when the following is resolved:
   # https://github.com/neovim/neovim/pull/16219
   resource "libvterm" do
-    url "http://www.leonerd.org.uk/code/libvterm/libvterm-0.1.4.tar.gz"
+    url "https://www.leonerd.org.uk/code/libvterm/libvterm-0.1.4.tar.gz"
     sha256 "bc70349e95559c667672fc8c55b9527d9db9ada0fb80a3beda533418d782d3dd"
   end
 
