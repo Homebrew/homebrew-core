@@ -8,13 +8,6 @@ class Pcre2 < Formula
     url "https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.40/pcre2-10.40.tar.bz2"
     sha256 "14e4b83c4783933dc17e964318e6324f7cae1bc75d8f3c79bc6969f00c159d68"
 
-    # enable JIT again in Apple Silicon with 11.2+ (sljit PR zherczeg/sljit#105)
-    patch :p2 do
-      url "https://github.com/zherczeg/sljit/commit/d6a0fa61e09266ad2e36d8ccd56f775e37b749e9.patch?full_index=1"
-      sha256 "8d699f6c8ae085f50cf8823dcfadb8591f7ad8f9aa0db9666bd126bb625d7543"
-      directory "src/sljit"
-    end
-
     # https://lists.gnu.org/archive/html/libtool-patches/2020-06/msg00001.html
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
