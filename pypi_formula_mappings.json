@@ -123,12 +123,8 @@
     "exclude_packages": ["six"]
   },
   "dvc": {
-    "extra_packages": [
-        "gcsfs", "pydrive2", "adlfs", "azure-identity", "knack",
-        "oss2", "pycryptodome", "sshfs", "webdav4",
-        "s3fs", "aiobotocore[boto3]"
-    ],
-    "exclude_packages": ["protobuf", "six", "tabulate"]
+    "package_name": "dvc[all]",
+    "exclude_packages": ["protobuf", "pyarrow", "six", "tabulate"]
   },
   "dxpy": {
     "exclude_packages": ["six"]
