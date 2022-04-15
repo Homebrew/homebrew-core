@@ -17,7 +17,7 @@ class JpegArchive < Formula
   depends_on "mozjpeg"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "MOZJPEG_PREFIX=#{Formula["mozjpeg"].opt_prefix}"
   end
 
   test do
