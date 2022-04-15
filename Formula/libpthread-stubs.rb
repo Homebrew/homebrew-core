@@ -16,7 +16,7 @@ class LibpthreadStubs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "06a9f3556eefaa9d243d18b484a38f89bcc999b84d3e9722ddf3645479bce44b"
   end
 
-  depends_on "pkg-config"
+  depends_on "pkg-config" => [:build, :test]
 
   def install
     system "./configure", "--prefix=#{prefix}"
