@@ -174,7 +174,7 @@ class Llvm < Formula
       ]
 
       # Prevent compiler-rt from building i386 targets, as this is not portable.
-      builtins_cmake_args << "-DBUILTINS_CMAKE_ARGS=-DCOMPILER_RT_DEFAULT_TARGET_ONLY=ON"
+      builtins_cmake_args << "-DCOMPILER_RT_DEFAULT_TARGET_ONLY=ON"
 
       false
     end
