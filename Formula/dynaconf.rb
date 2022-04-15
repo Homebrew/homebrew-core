@@ -3,8 +3,8 @@ class Dynaconf < Formula
 
   desc "Configuration Management for Python"
   homepage "https://www.dynaconf.com/"
-  url "https://files.pythonhosted.org/packages/59/d5/bfd2aa456d1c3b335ef32fb4ff7dc765278060ab7a9f3408e0b798d8bef6/dynaconf-3.1.7.tar.gz"
-  sha256 "e9d80b46ba4d9372f2f40c812594c963f74178140c0b596e57f2881001fc4d35"
+  url "https://files.pythonhosted.org/packages/2c/45/76c978c725b020be65a95b8b427e3550c76478a90e5396a33b0b204cae45/dynaconf-3.1.8.tar.gz"
+  sha256 "d141a6664fca3648d2d8e84440966af9f58c4f4201ca78353a3f595a67c19ab4"
   license "MIT"
 
   bottle do
