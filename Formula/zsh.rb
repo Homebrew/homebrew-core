@@ -7,8 +7,7 @@ class Zsh < Formula
   license "MIT-Modern-Variant"
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/zsh/files/zsh/.*?[-_/](\d+(?:[-.]\d+)+)[-_/%.]}i)
+    url "https://sourceforge.net/projects/zsh/rss?path=/zsh"
   end
 
   bottle do
