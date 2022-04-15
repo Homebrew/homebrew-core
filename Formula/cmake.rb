@@ -3,6 +3,7 @@ class Cmake < Formula
   homepage "https://www.cmake.org/"
   url "https://github.com/Kitware/CMake/releases/download/v3.23.1/cmake-3.23.1.tar.gz"
   mirror "http://fresh-center.net/linux/misc/cmake-3.23.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.23.1.tar.gz"
   sha256 "33fd10a8ec687a4d0d5b42473f10459bb92b3ae7def2b745dc10b192760869f3"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
