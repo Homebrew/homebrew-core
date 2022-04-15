@@ -17,12 +17,20 @@ class Fq < Formula
   depends_on "jlog"
   depends_on "openssl@1.1"
 
+  uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     ENV.append_to_cflags "-DNO_BCD=1"
     inreplace "Makefile", "-lbcd", ""
     inreplace "Makefile", "/usr/lib/dtrace", "#{lib}/dtrace"
     system "make", "PREFIX=#{prefix}"
-    system "make", "install", "PREFIX=#{prefix}"
+    args = ["PREFIX=#{prefix}"]
+    args << "ENABLE_DTRACE=0" unless OS.mac?
+    system "make", "install", *args
     bin.install "fqc", "fq_sndr", "fq_rcvr"
   end
 
