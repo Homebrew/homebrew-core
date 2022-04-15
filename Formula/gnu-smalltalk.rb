@@ -26,6 +26,8 @@ class GnuSmalltalk < Formula
   depends_on "libtool"
   depends_on "readline"
 
+  uses_from_macos "zip" => :build
+
   def install
     args = %W[
       --disable-debug
