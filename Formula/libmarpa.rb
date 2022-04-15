@@ -4,6 +4,7 @@ class Libmarpa < Formula
   url "https://github.com/jeffreykegler/libmarpa/archive/refs/tags/v8.6.2.tar.gz"
   sha256 "b7eb539143959c406ced4a3afdb56419cc5836e679f4094630697e7dd2b7f55a"
   license "MIT"
+  head "https://github.com/jeffreykegler/libmarpa.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "140c12d4c31564e6be52416703b42d2625873d9c2cc9c25abeb87c77d2dc38b5"
@@ -28,7 +29,7 @@ class Libmarpa < Formula
     system "cmake", "-S", "cm_dist", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    include.install (prefix/"inc").children
+    include.install (prefix/"inc").children unless build.head?
   end
 
   test do
