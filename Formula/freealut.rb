@@ -23,7 +23,13 @@ class Freealut < Formula
   depends_on "libtool" => :build
 
   # Adds the OpenAL frameworks to the library list so linking succeeds
-  patch :DATA
+  on_macos do
+    patch :DATA
+  end
+
+  on_linux do
+    depends_on "openal-soft"
+  end
 
   def install
     system "./autogen.sh"
