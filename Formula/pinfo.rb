@@ -22,6 +22,8 @@ class Pinfo < Formula
   depends_on "libtool" => :build
   depends_on "gettext"
 
+  uses_from_macos "texinfo" => :build
+
   def install
     system "autoreconf", "--force", "--install"
     system "./configure", "--disable-debug",
