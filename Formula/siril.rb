@@ -1,8 +1,8 @@
 class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://www.siril.org"
-  url "https://free-astro.org/download/siril-1.0.0.tar.bz2"
-  sha256 "22fec7b88b94c40c4180e6637fef8a7cd8ea95ccaf23323e403bf2296ec274bc"
+  url "https://free-astro.org/download/siril-1.0.1.tar.bz2"
+  sha256 "88bd69dfef04a61a38a9a5a1b0d7e69e2f45321ce6d9ef61a617d8a1a52671cc"
   license "GPL-3.0-or-later"
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
