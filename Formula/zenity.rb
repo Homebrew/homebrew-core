@@ -1,9 +1,8 @@
 class Zenity < Formula
   desc "GTK+ dialog boxes for the command-line"
   homepage "https://wiki.gnome.org/Projects/Zenity"
-  url "https://download.gnome.org/sources/zenity/3.32/zenity-3.32.0.tar.xz"
-  sha256 "e786e733569c97372c3ef1776e71be7e7599ebe87e11e8ad67dcc2e63a82cd95"
-  revision 1
+  url "https://download.gnome.org/sources/zenity/3.42/zenity-3.42.0.tar.xz"
+  sha256 "c24c7fe6bb43163ced8adf232d583b2e013d3ba6c28deb5fcf807985e3deb5ef"
 
   bottle do
     sha256 arm64_monterey: "9410eaf14b7b10fc44ca257a2619860456b6d4da683ba0e5965427f49debbd7c"
@@ -18,13 +17,20 @@ class Zenity < Formula
   end
 
   depends_on "itstool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "glib"
   depends_on "gtk+3"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
-    system "make", "install"
+    ENV["DESTDIR"] = "/"
+
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
