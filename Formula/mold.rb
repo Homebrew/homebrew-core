@@ -20,6 +20,7 @@ class Mold < Formula
 
   on_macos do
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1200
+    depends_on macos: :monterey
   end
 
   on_linux do
