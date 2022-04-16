@@ -27,7 +27,7 @@ class Gptfdisk < Formula
     if OS.mac?
       inreplace "Makefile.mac" do |s|
         s.gsub! "/usr/local/Cellar/ncurses/6.2/lib/libncurses.dylib", "-L/usr/lib -lncurses"
-        s.gsub! "-L/usr/local/lib -lpopt", "-L#{Formula["popt"].opt_lib} -lpopt"
+        s.gsub! "-L/usr/local/lib $(LDLIBS) -lpopt", "-L#{Formula["popt"].opt_lib} $(LDLIBS) -lpopt"
       end
 
       system "make", "-f", "Makefile.mac"
