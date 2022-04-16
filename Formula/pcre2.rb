@@ -6,7 +6,7 @@ class Pcre2 < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url :stable
+    url :url
     regex(/^pcre2[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
@@ -39,6 +39,7 @@ class Pcre2 < Formula
       --enable-pcre2-32
       --enable-pcre2grep-libz
       --enable-pcre2grep-libbz2
+      --enable-pcre2test-libedit
       --enable-jit
     ]
 
