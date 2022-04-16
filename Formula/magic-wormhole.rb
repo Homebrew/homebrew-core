@@ -165,11 +165,7 @@ class MagicWormhole < Formula
 
   def install
     ENV["SODIUM_INSTALL"] = "system"
-    venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resource("wheel")
-    venv.pip_install resource("cffi")
-    venv.pip_install resources
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do
