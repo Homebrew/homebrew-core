@@ -5,6 +5,11 @@ class Brev < Formula
   sha256 "6c11ecb7dc80ae0433b32ebac0ea77baac55fe71a1d42d0a49f6e929d444134f"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e74f927c300aaf307b7db7daae79a1ed58ba08b3ad295654853b20b3db266bac"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3dd5bcab40ec7911a7ab39b9b17db224cbc86aeb91c22f88166533cf90e8b061"
