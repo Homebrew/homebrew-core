@@ -1,8 +1,8 @@
 class Zenith < Formula
   desc "In terminal graphical metrics for your *nix system"
   homepage "https://github.com/bvaisvil/zenith/"
-  url "https://github.com/bvaisvil/zenith/archive/0.13.0.tar.gz"
-  sha256 "e3f914e5effb842f5931b5b8310e05e90a40f6aff7384b54a9f18a73ba567032"
+  url "https://github.com/bvaisvil/zenith/archive/0.13.1.tar.gz"
+  sha256 "1f2914a1ddd7dd76cca0e0c07ca77bd048addfd80fc6329ea7b83647ea66020a"
   license "MIT"
   version_scheme 1
   head "https://github.com/bvaisvil/zenith.git", branch: "master"
