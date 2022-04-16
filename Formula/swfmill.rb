@@ -26,6 +26,8 @@ class Swfmill < Formula
   depends_on "freetype"
   depends_on "libpng"
 
+  uses_from_macos "libxslt"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
