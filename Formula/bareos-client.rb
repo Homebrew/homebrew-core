@@ -1,8 +1,8 @@
 class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.org/"
-  url "https://github.com/bareos/bareos/archive/Release/19.2.9.tar.gz"
-  sha256 "ea203d4bdacc8dcc86164a74f628888ce31cc90858398498137bd25900b8f723"
+  url "https://github.com/bareos/bareos/archive/Release/21.1.2.tar.gz"
+  sha256 "d5fb2ac7965c820be1a6e04c279e1bb7438b81b2959af16c194909206e572362"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -17,9 +17,20 @@ class BareosClient < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "googletest" => :build
   depends_on "gettext"
+  depends_on "jansson"
+  depends_on "lzo"
   depends_on "openssl@1.1"
   depends_on "readline"
+
+  on_linux do
+    depends_on "acl"
+    depends_on "libcap"
+    depends_on "libtirpc"
+    depends_on "linux-pam"
+    depends_on "systemd"
+  end
 
   conflicts_with "bacula-fd",
     because: "both install a `bconsole` executable"
@@ -33,6 +44,7 @@ class BareosClient < Formula
                             "-Dconfigtemplatedir=#{lib}/bareos/defaultconfigs",
                             "-Dscriptdir=#{lib}/bareos/scripts",
                             "-Dplugindir=#{lib}/bareos/plugins",
+                            "-DENABLE_PYTHON=OFF",
                             "-Dfd-password=XXX_REPLACE_WITH_CLIENT_PASSWORD_XXX",
                             "-Dmon-fd-password=XXX_REPLACE_WITH_CLIENT_MONITOR_PASSWORD_XXX",
                             "-Dbasename=XXX_REPLACE_WITH_LOCAL_HOSTNAME_XXX",
