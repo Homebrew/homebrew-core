@@ -14,6 +14,9 @@ class BrewPip < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "d2cc472aef77f711ebb4890a1f669e9d7bf1668c5e024ef97b8e09fb8e6565aa"
   end
 
+  # Repository is not maintained in 9+ years
+  deprecate! date: "2022-04-16", because: :unmaintained
+
   def install
     bin.install "bin/brew-pip"
   end
