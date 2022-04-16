@@ -20,11 +20,10 @@ class Kubescape < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/armosec/kubescape/core/cautils.BuildNumber=v#{version}
+      -X github.com/armosec/kubescape/v2/core/cautils.BuildNumber=v#{version}
     ]
-    cd "cmd" do
-      system "go", "build", *std_go_args(ldflags: ldflags)
-    end
+
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     output = Utils.safe_popen_read(bin/"kubescape", "completion", "bash")
     (bash_completion/"kubescape").write output
