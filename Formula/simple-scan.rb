@@ -26,13 +26,6 @@ class SimpleScan < Formula
   depends_on "sane-backends"
   depends_on "webp"
 
-  # Fix build with Meson 0.60+. Remove when the following commit is in a tagged release:
-  # https://gitlab.gnome.org/GNOME/simple-scan/-/commit/da6626debe00be1a0660f30cf2bf7629186c01d5
-  patch do
-    url "https://gitlab.gnome.org/GNOME/simple-scan/-/commit/da6626debe00be1a0660f30cf2bf7629186c01d5.diff"
-    sha256 "3a96ea449fe1a7b8bee34efdf21ca48f893f0cadb3ba3d4cb742afea3b8c4c03"
-  end
-
   def install
     ENV["DESTDIR"] = "/"
     mkdir "build" do
