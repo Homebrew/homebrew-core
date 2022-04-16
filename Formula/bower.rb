@@ -3,15 +3,9 @@ require "language/node"
 class Bower < Formula
   desc "Package manager for the web"
   homepage "https://bower.io/"
-  # Use Github tarball to avoid bowers npm 4+ incompatible bundled dep usage
-  url "https://github.com/bower/bower/archive/v1.8.10.tar.gz"
-  sha256 "1485f6b216cde0e156dc22b576ebcf895b3088930393967c26f5bc30a1ac624a"
+  url "https://registry.npmjs.org/bower/-/bower-1.8.14.tgz"
+  sha256 "00df3dcc6e8b3a4dd7668934a20e60e6fc0c4269790192179388c928553a3f7e"
   license "MIT"
-
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "12dda43e777c9dbd82c5af6679a1017f5d58c881fa032635c4d5d73be32e9a78"
