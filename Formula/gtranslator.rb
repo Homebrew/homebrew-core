@@ -1,10 +1,9 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/40/gtranslator-40.0.tar.xz"
-  sha256 "ec3eba36dee1c549377d1475aef71748dbaebd295005e1990ea9821f02b38834"
+  url "https://download.gnome.org/sources/gtranslator/42/gtranslator-42.0.tar.xz"
+  sha256 "2a67bcbfe643061b0696d89a10847d50bf35905ff3361b9871357d3e3422f13b"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     rebuild 1
