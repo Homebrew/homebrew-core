@@ -21,6 +21,10 @@ class AzureStorageCpp < Formula
   depends_on "gettext"
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     system "cmake", "Microsoft.WindowsAzure.Storage",
                     "-DBUILD_SAMPLES=OFF",
@@ -43,7 +47,7 @@ class AzureStorageCpp < Formula
         catch(...){ return 1; }
       }
     EOS
-    flags = ["-stdlib=libc++", "-std=c++11", "-I#{include}",
+    flags = ["-std=c++11", "-I#{include}",
              "-I#{Formula["boost"].include}",
              "-I#{Formula["openssl@1.1"].include}",
              "-I#{Formula["cpprestsdk"].include}",
@@ -51,7 +55,8 @@ class AzureStorageCpp < Formula
              "-L#{Formula["cpprestsdk"].lib}",
              "-L#{Formula["openssl@1.1"].lib}",
              "-L#{lib}",
-             "-lcpprest", "-lboost_system-mt", "-lssl", "-lcrypto", "-lazurestorage"] + ENV.cflags.to_s.split
+             "-lcpprest", "-lboost_system-mt", "-lssl", "-lcrypto", "-lazurestorage"]
+    flags << "-stdlib=libc++" if OS.mac?
     system ENV.cxx, "-o", "test_azurestoragecpp", "test.cpp", *flags
     system "./test_azurestoragecpp"
   end
