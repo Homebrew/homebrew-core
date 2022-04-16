@@ -4,6 +4,7 @@ class Bear < Formula
   url "https://github.com/rizsotto/Bear/archive/3.0.19.tar.gz"
   sha256 "2fcfe2c6e029182cfc54ed26b3505c0ef12b0f43df03fb587f335afdc2ca9431"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
