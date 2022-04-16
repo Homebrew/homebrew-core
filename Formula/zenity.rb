@@ -3,6 +3,7 @@ class Zenity < Formula
   homepage "https://wiki.gnome.org/Projects/Zenity"
   url "https://download.gnome.org/sources/zenity/3.42/zenity-3.42.0.tar.xz"
   sha256 "c24c7fe6bb43163ced8adf232d583b2e013d3ba6c28deb5fcf807985e3deb5ef"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 arm64_monterey: "9410eaf14b7b10fc44ca257a2619860456b6d4da683ba0e5965427f49debbd7c"
