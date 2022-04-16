@@ -17,9 +17,18 @@ class Partio < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
 
+  on_linux do
+    depends_on "freeglut"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   def install
+    args = std_cmake_args
+    args << "-DPARTIO_USE_GLVND=OFF" unless OS.mac?
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "make"
       system "make", "doc"
       system "make", "install"
