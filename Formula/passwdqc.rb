@@ -19,9 +19,13 @@ class Passwdqc < Formula
     sha256 cellar: :any, mojave:         "e5f0c3879c811e178aed95c5541ea0f3b8967865d75a425bc3ac1b102a9b1014"
   end
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     # https://github.com/openwall/passwdqc/issues/15
-    inreplace "passwdqc_filter.h", "<endian.h>", "<machine/endian.h>"
+    inreplace "passwdqc_filter.h", "<endian.h>", "<machine/endian.h>" if OS.mac?
 
     args = %W[
       BINDIR=#{bin}
@@ -31,9 +35,14 @@ class Passwdqc < Formula
       INCLUDEDIR=#{include}
       MANDIR=#{man}
       PREFIX=#{prefix}
-      SECUREDIR_DARWIN=#{prefix}/pam
       SHARED_LIBDIR=#{lib}
     ]
+
+    args << if OS.mac?
+      "SECUREDIR_DARWIN=#{prefix}/pam"
+    else
+      "SECUREDIR=#{prefix}/pam"
+    end
 
     system "make", *args
     system "make", "install", *args
