@@ -28,6 +28,25 @@ class Pdf2djvu < Formula
 
   fails_with gcc: "5" # poppler compiles with GCC
 
+  # poppler 22.04.0 compatibility, remove in next release
+  patch do
+    url "https://github.com/jwilk/pdf2djvu/commit/e170ad557d5f13daeeac047dfaa79347bbe5062f.patch?full_index=1"
+    sha256 "424c4fe330e01d9fbf33eb7bce638ea6d3788e1e1b8b3932364257631c867d8a"
+  end
+
+  # poppler 22.04.0 compatibility, remove in next release
+  # TODO: switch to main repo after this PR is merged: https://github.com/Homebrew/formula-patches/pull/858
+  patch do
+    url "https://raw.githubusercontent.com/yurikoles/formula-patches/4c18443/pdf2djvu/main-use-pdf-link-Destination-copy-constructor.patch"
+    sha256 "3d1e9fc0d7f2861142721befff9e33b5c2665dacc78ac12b613af7b1e6fb0ce6"
+  end
+
+  # poppler 22.04.0 compatibility, remove in next release
+  patch do
+    url "https://github.com/jwilk/pdf2djvu/commit/956fedc7e0831126b9006efedad5519c14201c52.patch?full_index=1"
+    sha256 "4ab8d3ff7f8474b86949d4acf23da6f6ac77303e94feeb849fb3298358efd23f"
+  end
+
   def install
     ENV.append "CXXFLAGS", "-std=gnu++17" # poppler uses std::optional
     ENV.append "CXXFLAGS", "-D_LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR=1" if ENV.compiler == :clang
