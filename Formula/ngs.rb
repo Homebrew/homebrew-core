@@ -27,11 +27,10 @@ class Ngs < Formula
   uses_from_macos "libffi"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
-    share.install prefix/"man"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+    share.install prefix/"man" unless OS.mac?
   end
 
   test do
