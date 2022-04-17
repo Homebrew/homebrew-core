@@ -5,6 +5,11 @@ class MongodbAtlasCli < Formula
   sha256 "11b324e1024793fb0b82b98e67838e4060e137bdc176180ed94fc623a275ac24"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(%r{^atlascli/v?(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6c62a5c6090337cd5f5ca2a263b368d2b7ffb9726b2c6898a2cb8950f62c5327"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67d3076b36e2baf2b51c8d18c22262b6e8bc4ae27032c73e8d131f0c8e76541e"
