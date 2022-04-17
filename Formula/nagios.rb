@@ -23,7 +23,7 @@ class Nagios < Formula
   depends_on "gd"
   depends_on "libpng"
   depends_on "nagios-plugins"
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
 
   def nagios_sbin
     prefix/"cgi-bin"
@@ -65,7 +65,7 @@ class Nagios < Formula
                           "--with-command-user=#{user}",
                           "--with-command-group=_www",
                           "--with-httpd-conf=#{share}",
-                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--disable-libtool"
     system "make", "all"
     system "make", "install"
