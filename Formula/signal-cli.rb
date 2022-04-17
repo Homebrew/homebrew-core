@@ -49,13 +49,13 @@ class SignalCli < Formula
 
       libsignal_client_jar = libexec/"lib/libsignal-client-#{r.version}.jar"
       # rm originally-embedded libsignal_jni lib
-      system "zip", "-d", libsignal_client_jar, "libsignal_jni.so"
+      system "zip", "-d", libsignal_client_jar, "libsignal_jni.so", "libsignal_jni.dylib", "signal_jni.dll"
 
       # build & embed library for current platform
       cd "java" do
         inreplace "settings.gradle", "include ':android'", ""
         system "./build_jni.sh", "desktop"
-        cd "java/src/main/resources" do
+        cd "shared/resources" do
           system "zip", "-u", libsignal_client_jar, shared_library("libsignal_jni")
         end
       end
