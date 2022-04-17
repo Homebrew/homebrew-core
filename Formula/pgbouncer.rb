@@ -6,7 +6,8 @@ class Pgbouncer < Formula
   license "ISC"
 
   livecheck do
-    url "https://github.com/pgbouncer/pgbouncer"
+    url "https://www.pgbouncer.org/downloads/"
+    regex(/href=.*?pgbouncer[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
