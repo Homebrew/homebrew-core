@@ -21,7 +21,7 @@ class Zabbix < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   def install
     args = %W[
@@ -29,7 +29,7 @@ class Zabbix < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/zabbix
       --enable-agent
-      --with-libpcre=#{Formula["pcre"].opt_prefix}
+      --with-libpcre=#{Formula["pcre2"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
