@@ -32,6 +32,12 @@ class Cherrytree < Formula
 
   uses_from_macos "curl"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # Needs std::optional
+
   def install
     system "cmake", ".", "-DBUILD_TESTING=''", "-GNinja", *std_cmake_args
     system "ninja"
