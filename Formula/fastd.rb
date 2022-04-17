@@ -26,6 +26,11 @@ class Fastd < Formula
   depends_on "libuecc"
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "libcap"
+    depends_on "libmnl"
+  end
+
   # remove in next release
   patch do
     url "https://github.com/NeoRaider/fastd/commit/89abc48e60e182f8d57e924df16acf33c6670a9b.patch?full_index=1"
