@@ -1,8 +1,8 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/20211029.tar.gz"
-  sha256 "08245cfa7aec80b895771fd1adcbb7b86e9c0434dfa64574e3c8c4d692aaa078"
+  url "https://github.com/neomutt/neomutt/archive/20220415.tar.gz"
+  sha256 "84982cb4c2fed63e90d71fab45faa90738bfc58050430606135cbd8924d94682"
   license "GPL-2.0-or-later"
   head "https://github.com/neomutt/neomutt.git", branch: "main"
 
@@ -21,6 +21,7 @@ class Neomutt < Formula
   depends_on "libidn2"
   depends_on "lmdb"
   depends_on "lua"
+  depends_on "ncurses"
   depends_on "notmuch"
   depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
