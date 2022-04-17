@@ -1,8 +1,8 @@
 class Ngs < Formula
   desc "Powerful programming language and shell designed specifically for Ops"
   homepage "https://ngs-lang.org/"
-  url "https://github.com/ngs-lang/ngs/archive/v0.2.13.tar.gz"
-  sha256 "7648761edb3695292d3289b91f9644c204d42269b8af697c765707ce192e45b5"
+  url "https://github.com/ngs-lang/ngs/archive/v0.2.14.tar.gz"
+  sha256 "9432377548ef76c57918b020b2abb258137703ff0172016d58d713186fcafed3"
   license "GPL-3.0-only"
   head "https://github.com/ngs-lang/ngs.git", branch: "master"
 
