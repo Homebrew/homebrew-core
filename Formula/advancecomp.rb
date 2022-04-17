@@ -1,10 +1,9 @@
 class Advancecomp < Formula
   desc "Recompression utilities for .PNG, .MNG, .ZIP, and .GZ files"
   homepage "https://www.advancemame.it/comp-readme.html"
-  url "https://github.com/amadvance/advancecomp/releases/download/v2.1/advancecomp-2.1.tar.gz"
-  sha256 "3ac0875e86a8517011976f04107186d5c60d434954078bc502ee731480933eb8"
+  url "https://github.com/amadvance/advancecomp/releases/download/v2.3/advancecomp-2.3.tar.gz"
+  sha256 "811f661dfbbdddefdcb5eaf133e403ca2af99328b850b22c1249f7bebe657578"
   license "GPL-3.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "15d65e064ee44f6847db2bf123ba7902476d9a78ce411acb34da2c03be3d1ed0"
