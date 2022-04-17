@@ -2,8 +2,7 @@ class Pyinstaller < Formula
   include Language::Python::Virtualenv
 
   desc "Bundle a Python application and all its dependencies"
-  # Change to main site when back online: https://github.com/pyinstaller/pyinstaller/issues/6490
-  homepage "https://pyinstaller.readthedocs.io/"
+  homepage "https://pyinstaller.org/"
   url "https://files.pythonhosted.org/packages/cf/b0/69585629b023056e801a99ee4d669e2d3b85fb5a68fe461c1660af9ea514/pyinstaller-5.0.tar.gz"
   sha256 "0b7f1a09e1ae617867d4e9b56285dd670bcf0b1362b272c96a933b0195fce226"
   license "GPL-2.0-or-later"
