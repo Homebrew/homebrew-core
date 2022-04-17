@@ -3,8 +3,8 @@ class Charmcraft < Formula
 
   desc "Tool to build charms and publish them on Charmhub"
   homepage "https://charmhub.io"
-  url "https://files.pythonhosted.org/packages/a2/1f/a92190a0a66c89b4aa92c9d0bafacaab914eee093bf504cb4960a2e462e4/charmcraft-1.5.0.tar.gz"
-  sha256 "bff07a5c3eac381191529b233b328294002f8cd1df888bed182387d1e7c0a536"
+  url "https://files.pythonhosted.org/packages/83/9b/610ca8408e6e399e5923272bc0f36c2074ddbc40005a8ee8bafd560398aa/charmcraft-1.6.0.tar.gz"
+  sha256 "05afd7afda2810cb6a8c2c92e4998933216dc24acf851a2df56454698dd55e60"
   license "Apache-2.0"
 
   bottle do
@@ -49,18 +49,18 @@ class Charmcraft < Formula
   end
 
   resource "craft-cli" do
-    url "https://files.pythonhosted.org/packages/d4/c9/038fca354cf2ab2cd055e59805c536a68120d859135a5a23ec264e11c228/craft-cli-0.3.0.tar.gz"
-    sha256 "e493a8bac3fa745decef76af6974b6e3150ec206fd78d2e7e598d455f6c195de"
+    url "https://files.pythonhosted.org/packages/85/4f/ce6419b5a92b691a76b52920bfa58751f45f5cef1f1bb309e4c4d001ed34/craft-cli-0.4.0.tar.gz"
+    sha256 "09cb34a390a12c507affc2c19a0f6e172711ec39b37ccdf9d456f03f87955892"
   end
 
   resource "craft-parts" do
-    url "https://files.pythonhosted.org/packages/83/eb/e76a3c34bd13d2cd772122b0a7a52a8103885d971a6e49d43d8192fa2ebd/craft-parts-1.3.0.tar.gz"
-    sha256 "b1803707e71e5586c40dd9552dea324c869d372760016a20a38d04ab17e35499"
+    url "https://files.pythonhosted.org/packages/33/be/83ef2dc525276740f522f6b90aef795db73d982077bb8d0140b25600a52b/craft-parts-1.4.2.tar.gz"
+    sha256 "3b4ef8390663f61b9e6146a45a7ba6e514f5a8a1b8aa78e61fc6c08f58c454f6"
   end
 
   resource "craft-providers" do
-    url "https://files.pythonhosted.org/packages/08/07/32dc5843ccc06ce9379d8c0a759cc01a297b51bf00a8033a7f86a68e22ac/craft-providers-1.1.0.tar.gz"
-    sha256 "94b2f6274f0688c061e76d021c2d0824fa49aa82cbe5a55420ad9e262f4b2876"
+    url "https://files.pythonhosted.org/packages/56/77/b670ba4a26016d68322d29392871bdbada2d9c6f46653cc0e630a85a652a/craft-providers-1.2.0.tar.gz"
+    sha256 "72e1e2e7666e96f60b5bb0be02f063f1b0438e8d145469adf3e6aed18a92b180"
   end
 
   resource "craft-store" do
@@ -246,13 +246,6 @@ class Charmcraft < Formula
   resource "zipp" do
     url "https://files.pythonhosted.org/packages/94/64/3115548d41cb001378099cb4fc6a6889c64ef43ac1b0e68c9e80b55884fa/zipp-3.7.0.tar.gz"
     sha256 "9f50f446828eb9d45b267433fd3e9da8d801f614129124863f9c51ebceafb87d"
-  end
-
-  # Fixes unspecified dependency: https://github.com/canonical/charmcraft/issues/617
-  # Remove this and `extra_packages` from `pypi_formula_mappings.json` when fixed
-  resource "craft-cli" do
-    url "https://github.com/canonical/craft-cli/archive/4af19f9c0da733321dc754be1180aea28f3feeb1.tar.gz"
-    sha256 "c568748b7e6b114af7d4ecfc90a1705dc40ee665fc059f0997c2cb3138053177"
   end
 
   def install
