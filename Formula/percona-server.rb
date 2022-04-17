@@ -36,6 +36,7 @@ class PerconaServer < Formula
 
   on_linux do
     depends_on "patchelf" => :build
+    depends_on "gcc"
     depends_on "readline"
 
     # Fix build with OpenLDAP 2.5+, which merged libldap_r into libldap
@@ -50,6 +51,11 @@ class PerconaServer < Formula
   fails_with :clang do
     build 800
     cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
+  end
+
+  fails_with :gcc do
+    version "6"
+    cause "GCC 7.1 or newer is required"
   end
 
   # https://github.com/percona/percona-server/blob/Percona-Server-#{version}/cmake/boost.cmake
