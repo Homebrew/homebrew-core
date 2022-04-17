@@ -27,10 +27,10 @@ class SignalCli < Formula
   uses_from_macos "zip" => :build
 
   # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libsignal-client
-  # we want the specific libsignal-client version from 'signal-cli-#{version}/lib/signal-client-java-X.X.X.jar'
+  # we want the specific libsignal-client version from 'signal-cli-#{version}/lib/libsignal-client-X.X.X.jar'
   resource "libsignal-client" do
-    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.16.0.tar.gz", using: :nounzip
-    sha256 "98cff75cec917960cd51fe38dcd2d003cc260257949c69d6e614dee584b53a7e"
+    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.15.0.tar.gz"
+    sha256 "48e0b8d92c4482a2a79045bc72cf538421ea461f0cbfa1cdc2351678b188350a"
   end
 
   def install
@@ -47,13 +47,13 @@ class SignalCli < Formula
     resource("libsignal-client").stage do |r|
       # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#building-libsignal-client-yourself
 
-      libsignal_client_jar = libexec/"lib/signal-client-java-#{r.version}.jar"
+      libsignal_client_jar = libexec/"lib/libsignal-client-#{r.version}.jar"
       # rm originally-embedded libsignal_jni lib
       system "zip", "-d", libsignal_client_jar, "libsignal_jni.so"
 
       # build & embed library for current platform
       cd "java" do
-        inreplace "settings.gradle", ", ':android'", ""
+        inreplace "settings.gradle", "include ':android'", ""
         system "./build_jni.sh", "desktop"
         cd "java/src/main/resources" do
           system "zip", "-u", libsignal_client_jar, shared_library("libsignal_jni")
