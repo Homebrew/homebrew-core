@@ -1,11 +1,10 @@
 class Libshout < Formula
   desc "Data and connectivity library for the icecast server"
   homepage "https://icecast.org/"
-  url "https://downloads.xiph.org/releases/libshout/libshout-2.4.5.tar.gz", using: :homebrew_curl
-  mirror "https://ftp.osuosl.org/pub/xiph/releases/libshout/libshout-2.4.5.tar.gz"
-  sha256 "d9e568668a673994ebe3f1eb5f2bee06e3236a5db92b8d0c487e1c0f886a6890"
+  url "https://downloads.xiph.org/releases/libshout/libshout-2.4.6.tar.gz", using: :homebrew_curl
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/libshout/libshout-2.4.6.tar.gz"
+  sha256 "39cbd4f0efdfddc9755d88217e47f8f2d7108fa767f9d58a2ba26a16d8f7c910"
   license "LGPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/libshout/?C=M&O=D"
@@ -21,6 +20,9 @@ class Libshout < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd94f36cce287abf74b00f18dd17f995afb81accc1199daf5fe07cfa9693c9a8"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libogg"
   depends_on "libvorbis"
@@ -31,24 +33,8 @@ class Libshout < Formula
     depends_on "openssl@1.1"
   end
 
-  # libshout's libtool.m4 doesn't properly support macOS >= 11.x (see
-  # libtool.rb formula). This causes the library to be linked with a flat
-  # namespace which might cause issues when dynamically loading the library with
-  # dlopen under some modes, see:
-  #
-  #  https://lists.gnupg.org/pipermail/gcrypt-devel/2021-September/005176.html
-  #
-  # We patch `configure` directly so we don't need additional build dependencies
-  # (e.g. autoconf, automake, libtool)
-  #
-  # Patch has been submitted upstream:
-  # https://gitlab.xiph.org/xiph/icecast-libshout/-/issues/2332
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-  end
-
   def install
+    system "autoreconf", "-fiv"
     system "./configure", *std_configure_args
     system "make", "install"
   end
