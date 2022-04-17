@@ -432,6 +432,7 @@ env:
     libdap
     libgetdata
     libgr
+    liblinear
     libnfs
     liboqs
     libpano
@@ -445,6 +446,7 @@ env:
     localstack
     log4cxx
     lout
+    luau
     lychee
     macchina
     mage
@@ -460,6 +462,7 @@ env:
     mdcat
     mdzk
     meilisearch
+    melody
     memcached
     mesa
     meson
@@ -477,24 +480,32 @@ env:
     moco
     molecule
     mongocli
+    mongodb-atlas-cli
     monolith
     moto
     mpv
     muffet
     murex
+    mutt
     mypy
     naabu
+    nagios
     nanoflann
     nativefier
     nats-server
     nats-streaming-server
     navi
     ncspot
+    needle
     neo4j
     neofetch
+    neomutt
     nest
+    netdata
+    nethogs
     netlify-cli
     newrelic-cli
+    newrelic-infra-agent
     nexus
     nfpm
     nng
@@ -614,6 +625,7 @@ env:
     shellharden
     shellz
     shfmt
+    signal-cli
     silicon
     singularity
     sjk
@@ -649,7 +661,9 @@ env:
     stress-ng
     structurizr-cli
     stunnel
+    stylish-haskell
     subversion
+    suite-sparse
     sundials
     suricata
     svgbob
@@ -657,6 +671,7 @@ env:
     svtplay-dl
     swagger-codegen
     swagger-codegen@2
+    swagger2markup-cli
     syncthing
     talisman
     tanka
@@ -665,6 +680,7 @@ env:
     tealdeer
     tectonic
     tektoncd-cli
+    teku
     teleport
     tendermint
     tengo
@@ -723,6 +739,7 @@ env:
     wabt
     wakatime-cli
     wallpaper
+    wartremover
     wasm-pack
     wasmer
     wasmtime
@@ -738,9 +755,11 @@ env:
     wildfly-as
     wiremock-standalone
     wolfssl
+    wxwidgets
     xalan-c
     xcbeautify
     xclogparser
+    xdpyinfo
     xerces-c
     xgboost
     xh
@@ -752,12 +771,15 @@ env:
     youtubedr
     yq
     z3
+    zabbix
     zbctl
     zellij
+    zenith
     zola
     zookeeper
     zoxide
     zstd
+    zydis
 
 jobs:
   autobump:
