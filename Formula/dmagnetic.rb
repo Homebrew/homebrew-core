@@ -26,11 +26,15 @@ class Dmagnetic < Formula
   end
 
   test do
-    command_output = pipe_output("#{bin}/dMagnetic "\
-                                 "-vmode none -vcols 300 -vrows 300 -vecho -sres 1024x768 "\
-                                 "-mag #{share}/games/dMagnetic/minitest.mag "\
-                                 "-gfx #{share}/games/dMagnetic/minitest.gfx", "Hello\n "\
-                                 "2>&1")
-    assert_match 'd41d8cd98f00b204e9800998ecf8427e', Digest::MD5.hexdigest(command_output)
+    args = %W[
+      -vmode none
+      -vcols 300
+      -vrows 300
+      -vecho -sres 1024x768
+      -mag #{share}/games/dMagnetic/minitest.mag
+      -gfx #{share}/games/dMagnetic/minitest.gfx
+    ]
+    command_output = pipe_output("#{bin}/dMagnetic #{args.join(" ")}", "Hello\n")
+    assert_match(/^Virtual machine is running\..*\n> HELLO$/, command_output)
   end
 end
