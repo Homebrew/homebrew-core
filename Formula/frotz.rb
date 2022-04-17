@@ -25,10 +25,10 @@ class Frotz < Formula
   depends_on "libsamplerate"
   depends_on "libsndfile"
   depends_on "libvorbis"
+  depends_on "ncurses"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
 
-  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   resource("testdata") do
