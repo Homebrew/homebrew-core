@@ -20,6 +20,7 @@ class S2geometry < Formula
   depends_on "cmake" => :build
   depends_on "glog" => :build
   depends_on "googletest" => :build
+  depends_on "abseil"
   depends_on "openssl@1.1"
 
   def install
