@@ -6,6 +6,35 @@ class Dotnet < Formula
       revision: "915d644e451858f4f7c6e1416ea202695ddd54fb"
   license "MIT"
 
+  # https://github.com/dotnet/source-build/#support
+  livecheck do
+    url "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json"
+    regex(/unused/i)
+    strategy :page_match do |page|
+      index = JSON.parse(page)["releases-index"]
+
+      # Find latest release channel still supported.
+      valid_channels = index.select do |release|
+        ["preview", "eol"].exclude?(release["support-phase"])
+      end
+      latest_channel = valid_channels.max_by do |release|
+        Version.new(release["channel-version"])
+      end
+
+      # Fetch the releases.json for that channel and find the latest release info.
+      channel_page = Homebrew::Livecheck::Strategy.page_content(latest_channel["releases.json"])
+      channel_json = JSON.parse(channel_page[:content])
+      latest_release = channel_json["releases"].find do |release|
+        release["release-version"] == channel_json["latest-release"]
+      end
+
+      # Get _oldest_ SDK version.
+      latest_release["sdks"].map do |sdk|
+        Version.new(sdk["version"])
+      end.min.to_s
+    end
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7b9f1a8f369dd996aa4963e42069e22c54a85e544191edaa9a2a3c68c39ab887"
     sha256 cellar: :any,                 arm64_big_sur:  "f6979bedbc0808c9d83c49eccdb3b5060fc039b194530781c9e1d3e8e4cc67da"
