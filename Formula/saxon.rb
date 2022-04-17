@@ -21,7 +21,7 @@ class Saxon < Formula
   depends_on "openjdk"
 
   def install
-    libexec.install Dir["*.jar", "doc", "notices"]
+    libexec.install Dir["*.jar", "doc", "lib", "notices"]
     bin.write_jar_script libexec/"saxon-he-#{version.major_minor}.jar", "saxon"
   end
 
