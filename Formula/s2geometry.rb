@@ -1,10 +1,9 @@
 class S2geometry < Formula
   desc "Computational geometry and spatial indexing on the sphere"
   homepage "https://github.com/google/s2geometry"
-  url "https://github.com/google/s2geometry/archive/v0.9.0.tar.gz"
-  sha256 "54c09b653f68929e8929bffa60ea568e26f3b4a51e1b1734f5c3c037f1d89062"
+  url "https://github.com/google/s2geometry/archive/v0.10.0.tar.gz"
+  sha256 "1c17b04f1ea20ed09a67a83151ddd5d8529716f509dde49a8190618d70532a3d"
   license "Apache-2.0"
-  revision 2
 
   livecheck do
     url :homepage
