@@ -46,6 +46,7 @@ env:
     armadillo
     arrayfire
     artifactory
+    arturo
     asciidoctorj
     ask-cli
     assh
@@ -59,6 +60,7 @@ env:
     aws-cdk
     aws-elasticbeanstalk
     aws-es-proxy
+    aws-rotate-key
     azcopy
     b3sum
     bagit
@@ -113,6 +115,7 @@ env:
     cassandra-reaper
     catch2
     cdk8s
+    certigo
     cfr-decompiler
     cfssl
     cgl
@@ -160,10 +163,12 @@ env:
     crowdin
     crun
     css-crush
+    csvq
     csvtk
     cubejs-cli
     cweb
     cypher-shell
+    cyrus-sasl
     dafny
     darkstat
     datree
@@ -213,6 +218,7 @@ env:
     dune
     dust
     dvc
+    dynare
     easyengine
     efm-langserver
     ehco
@@ -241,8 +247,10 @@ env:
     fennel
     feroxbuster
     ffsend
+    findomain
     firebase-cli
     firefoxpwa
+    flac
     flank
     flarectl
     fleet-cli
@@ -253,6 +261,7 @@ env:
     flyway
     fmt
     fn
+    fontforge
     fop
     ford
     fortio
@@ -321,6 +330,7 @@ env:
     gromacs
     groovy
     groovysdk
+    gsmartcontrol
     gsoap
     gupnp-tools
     hadoop
@@ -375,6 +385,7 @@ env:
     jmeter
     jnethack
     jql
+    jrnl
     jruby
     jsonnet
     jsonschema
@@ -391,6 +402,7 @@ env:
     kalker
     kamel
     kapacitor
+    kcat
     kcptun
     keptn
     kepubify
@@ -427,10 +439,12 @@ env:
     kumactl
     kustomize
     kyma-cli
+    kyverno
     languagetool
     latex2html
     latexml
     lazydocker
+    ld-find-code-refs
     lean-cli
     lefthook
     lego
@@ -438,6 +452,7 @@ env:
     lexbor
     lf
     libdap
+    libepoxy
     libgetdata
     libgr
     liblinear
@@ -447,8 +462,10 @@ env:
     libpipeline
     librdkafka
     librespot
+    libsndfile
     lima
     linkerd
+    linode-cli
     liquibase
     lmod
     localstack
@@ -478,6 +495,7 @@ env:
     micro
     micronaut
     mill
+    minetest
     minikube
     miniserve
     mitmproxy
@@ -485,6 +503,7 @@ env:
     mmctl
     moar
     mockery
+    mockserver
     moco
     molecule
     mongocli
@@ -503,6 +522,7 @@ env:
     nativefier
     nats-server
     nats-streaming-server
+    naturaldocs
     navi
     ncspot
     needle
@@ -549,13 +569,16 @@ env:
     oras
     orc-tools
     orientdb
+    orocos-kdl
     ortp
     osm
+    ott
     oxipng
     pacapt
     packer
     packr
     passenger
+    patchelf
     payara
     pdftk-java
     pdm
@@ -582,6 +605,7 @@ env:
     pocsuite3
     podman
     postgis
+    powerman
     pre-commit
     prestd
     presto
@@ -604,9 +628,11 @@ env:
     rbspy
     rbw
     rclone
+    rcs
     rebar3
     recode
     regina-rexx
+    regula
     reminiscence
     reposurgeon
     revive
@@ -615,6 +641,7 @@ env:
     rke
     rollup
     rosa-cli
+    rover
     rpg-cli
     rqlite
     rubberband
@@ -624,6 +651,7 @@ env:
     saml2aws
     sbt
     scala
+    scalapack
     scorecard
     scotch
     scummvm
@@ -648,6 +676,7 @@ env:
     sjk
     skaffold
     skopeo
+    skylighting
     slackcat
     sleuthkit
     slides
@@ -672,6 +701,7 @@ env:
     sslyze
     stanford-corenlp
     starship
+    staticcheck
     statix
     stdman
     stellar-core
@@ -682,6 +712,7 @@ env:
     structurizr-cli
     stunnel
     stylish-haskell
+    subfinder
     subversion
     suite-sparse
     sundials
@@ -719,6 +750,7 @@ env:
     thrift
     tika
     tile38
+    timg
     tm
     toast
     tomcat
@@ -732,6 +764,7 @@ env:
     traefik@1
     trafficserver
     tree-sitter
+    triangle
     trino
     trivy
     trojan-go
@@ -764,12 +797,14 @@ env:
     wabt
     wakatime-cli
     wallpaper
+    wapm
     wartremover
     wasm-pack
     wasmer
     wasmtime
     watchexec
     waypoint
+    webdis
     webp
     webpack
     websocat
@@ -778,6 +813,7 @@ env:
     whistle
     whois
     wildfly-as
+    wireguard-go
     wiremock-standalone
     wolfssl
     wxwidgets
@@ -800,6 +836,7 @@ env:
     zbctl
     zellij
     zenith
+    znapzend
     zola
     zookeeper
     zoxide
