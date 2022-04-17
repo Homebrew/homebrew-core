@@ -5,6 +5,7 @@ class Dcd < Formula
       tag:      "v0.13.6",
       revision: "02acaa534b9be65142aed7b202a6a8d5524abf2a"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/dlang-community/dcd.git", branch: "master"
 
   bottle do
@@ -17,16 +18,14 @@ class Dcd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "58b613aa6a40fb855b592944f97bc7d66cbf87ee30e2243fd4e1551536b02d4f"
   end
 
-  on_macos do
+  if Hardware::CPU.arm?
     depends_on "ldc" => :build
-  end
-
-  on_linux do
+  else
     depends_on "dmd" => :build
   end
 
   def install
-    target = OS.mac? ? "ldc" : "dmd"
+    target = Hardware::CPU.arm? ? "ldc" : "dmd"
     system "make", target
     bin.install "bin/dcd-client", "bin/dcd-server"
   end
