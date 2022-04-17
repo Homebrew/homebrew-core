@@ -353,7 +353,6 @@ env:
     htmltest
     htpdate
     httpx
-    hugo
     hyperfine
     iamy
     igv
