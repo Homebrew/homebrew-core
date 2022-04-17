@@ -4,8 +4,8 @@ class Pyinstaller < Formula
   desc "Bundle a Python application and all its dependencies"
   # Change to main site when back online: https://github.com/pyinstaller/pyinstaller/issues/6490
   homepage "https://pyinstaller.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/b0/e6/e5760666896739115b0e4538a42cdd895215581618ec885ad043dd35ee57/pyinstaller-4.10.tar.gz"
-  sha256 "7749c868d2e2dc84df7d6f65437226183c8a366f3a99bb2737785625c3a3cca1"
+  url "https://files.pythonhosted.org/packages/cf/b0/69585629b023056e801a99ee4d669e2d3b85fb5a68fe461c1660af9ea514/pyinstaller-5.0.tar.gz"
+  sha256 "0b7f1a09e1ae617867d4e9b56285dd670bcf0b1362b272c96a933b0195fce226"
   license "GPL-2.0-or-later"
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
@@ -26,13 +26,13 @@ class Pyinstaller < Formula
   end
 
   resource "macholib" do
-    url "https://files.pythonhosted.org/packages/c2/c1/09a06315332fc6c46539a1df57195c21ba944517181f85f728559f1d0ecb/macholib-1.15.2.tar.gz"
-    sha256 "1542c41da3600509f91c165cb897e7e54c0e74008bd8da5da7ebbee519d593d2"
+    url "https://files.pythonhosted.org/packages/16/1b/85fd523a1d5507e9a5b63e25365e0a26410d5b6ee89082426e6ffff30792/macholib-1.16.tar.gz"
+    sha256 "001bf281279b986a66d7821790d734e61150d52f40c080899df8fefae056e9f7"
   end
 
   resource "pyinstaller-hooks-contrib" do
-    url "https://files.pythonhosted.org/packages/07/92/1b5fb9a40cba9c87db8242fef50797b1408156c31960279be2d7652a82e1/pyinstaller-hooks-contrib-2022.2.tar.gz"
-    sha256 "ab1d14fe053016fff7b0c6aea51d980bac6d02114b04063b46ef7dac70c70e1e"
+    url "https://files.pythonhosted.org/packages/4c/c9/065f97b7e89dcb438ce3e270f3f28af5cba759f4127afe14ce6038701270/pyinstaller-hooks-contrib-2022.4.tar.gz"
+    sha256 "b7f7da20e5b83c22219a21b8f849525e5f735197975313208f4e07ff9549cdaf"
   end
 
   def install
