@@ -3,8 +3,8 @@ class Tmuxp < Formula
 
   desc "Tmux session manager. Built on libtmux"
   homepage "https://tmuxp.git-pull.com/"
-  url "https://files.pythonhosted.org/packages/3d/27/ac56ef2ef6231fc090430e56224a7e3e3e5f5e5208309119460a443c5f22/tmuxp-1.10.0.tar.gz"
-  sha256 "1f841965760f1153516f65899918336aedcbf61d9aeac473155b43a91903dcfd"
+  url "https://files.pythonhosted.org/packages/b2/0d/d53f5ac7eac150b0292ac427813ad5c91a79b4d6fa4812cabc5d6f342c4e/tmuxp-1.10.1.tar.gz"
+  sha256 "7ac9556d3a92cedf703846532e5ae8004f1c37731d686a54b046fa01f38b7c92"
   license "MIT"
 
   bottle do
@@ -20,8 +20,8 @@ class Tmuxp < Formula
   depends_on "tmux"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
-    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
+    url "https://files.pythonhosted.org/packages/42/e1/4cb2d3a2416bcd871ac93f12b5616f7755a6800bccae05e5a99d3673eb69/click-8.1.2.tar.gz"
+    sha256 "479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72"
   end
 
   resource "colorama" do
