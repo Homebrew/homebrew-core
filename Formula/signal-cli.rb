@@ -29,7 +29,7 @@ class SignalCli < Formula
   # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libsignal-client
   # we want the specific libsignal-client version from 'signal-cli-#{version}/lib/signal-client-java-X.X.X.jar'
   resource "libsignal-client" do
-    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.16.0.tar.gz"
+    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.16.0.tar.gz", using: :nounzip
     sha256 "98cff75cec917960cd51fe38dcd2d003cc260257949c69d6e614dee584b53a7e"
   end
 
