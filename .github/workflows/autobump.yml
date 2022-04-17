@@ -36,6 +36,7 @@ env:
     apache-spark
     apidoc
     apktool
+    apt
     arb
     argo
     argocd
@@ -78,6 +79,7 @@ env:
     bnd
     bosh-cli
     bottom
+    brev
     brew-php-switcher
     brook
     broot
@@ -179,6 +181,7 @@ env:
     diamond
     diesel
     diffoscope
+    difftastic
     digdag
     django-completion
     djl-serving
@@ -333,17 +336,21 @@ env:
     himalaya
     hive
     hivemind
+    hledger
+    hpack
     htmldoc
     htmlq
     htmltest
     htpdate
     httpx
+    hugo
     hyperfine
     iamy
     igv
     imagemagick
     imagemagick@6
     imap-backup
+    imapsync
     imgproxy
     influxdb
     influxdb-cli
@@ -429,6 +436,7 @@ env:
     lego
     leiningen
     lexbor
+    lf
     libdap
     libgetdata
     libgr
@@ -487,6 +495,7 @@ env:
     muffet
     murex
     mutt
+    mydumper
     mypy
     naabu
     nagios
@@ -500,6 +509,7 @@ env:
     neo4j
     neofetch
     neomutt
+    nerdctl
     nest
     netdata
     nethogs
@@ -535,6 +545,7 @@ env:
     openrtsp
     opensearch
     operator-sdk
+    or-tools
     oras
     orc-tools
     orientdb
@@ -544,9 +555,13 @@ env:
     pacapt
     packer
     packr
+    passenger
     payara
     pdftk-java
     pdm
+    pdnsrec
+    pgbadger
+    pgbouncer
     pgloader
     pgweb
     phoronix-test-suite
@@ -566,6 +581,7 @@ env:
     pnpm
     pocsuite3
     podman
+    postgis
     pre-commit
     prestd
     presto
@@ -573,6 +589,7 @@ env:
     procs
     protoc-gen-go-grpc
     psalm
+    pstoedit
     pueue
     pushpin
     pwntools
@@ -639,6 +656,7 @@ env:
     sniffer
     sniffglue
     solana
+    sollya
     solr
     solr@7.7
     sonarqube
@@ -650,11 +668,13 @@ env:
     sqlc
     sqlmap
     sqlx-cli
+    sshs
     sslyze
     stanford-corenlp
     starship
     statix
     stdman
+    stellar-core
     step
     storm
     streamlink
@@ -673,6 +693,7 @@ env:
     swagger-codegen@2
     swagger2markup-cli
     syncthing
+    sysdig
     talisman
     tanka
     tcsh
@@ -712,13 +733,17 @@ env:
     trafficserver
     tree-sitter
     trino
+    trivy
     trojan-go
     typedb
     tz
     uni
     universal-ctags
     v2ray
+    vala
+    valabind
     vale
+    vapoursynth
     vault
     vault-cli
     veclibfort
