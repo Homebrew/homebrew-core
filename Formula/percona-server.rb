@@ -65,13 +65,6 @@ class PerconaServer < Formula
     sha256 "6709edb2393000bd89acf2d86ad0876bde3b84f46884d3cba7463cd346234f6f"
   end
 
-  # Fix build on Monterey.
-  # Remove with the next version.
-  patch do
-    url "https://github.com/percona/percona-server/commit/e5b2df737987ce72d285b68fb802cf5b1a15f843.patch?full_index=1"
-    sha256 "6b529dc9e756d137429c36625aafb309298510c46705d0bef71b9265d53e6d80"
-  end
-
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
