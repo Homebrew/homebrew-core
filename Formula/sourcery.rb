@@ -13,7 +13,7 @@ class Sourcery < Formula
     sha256 cellar: :any, big_sur:        "c33358f787a7ef84d96815b9e7b06fdfea204490cab7e27f6dc00404b3f2c88d"
   end
 
-  depends_on xcode: "13.0"
+  depends_on xcode: "13.3"
 
   uses_from_macos "ruby" => :build
 
