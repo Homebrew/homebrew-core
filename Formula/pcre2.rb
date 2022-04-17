@@ -28,7 +28,6 @@ class Pcre2 < Formula
   end
 
   uses_from_macos "bzip2"
-  uses_from_macos "libedit"
   uses_from_macos "zlib"
 
   def install
@@ -39,9 +38,10 @@ class Pcre2 < Formula
       --enable-pcre2-32
       --enable-pcre2grep-libz
       --enable-pcre2grep-libbz2
-      --enable-pcre2test-libedit
       --enable-jit
     ]
+
+    args << "--enable-pcre2test-libedit" if OS.mac?
 
     system "./autogen.sh" if build.head?
 
