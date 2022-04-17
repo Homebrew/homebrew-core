@@ -29,7 +29,8 @@ class Dmagnetic < Formula
     command_output = pipe_output("#{bin}/dMagnetic "\
                                  "-vmode none -vcols 300 -vrows 300 -vecho -sres 1024x768 "\
                                  "-mag #{share}/games/dMagnetic/minitest.mag "\
-                                 "-gfx #{share}/games/dMagnetic/minitest.gfx", "Hello\n")
-    assert_equal "ab9ec7787593e310ac4d8187db3f6cee", Digest::MD5.hexdigest(command_output)
+                                 "-gfx #{share}/games/dMagnetic/minitest.gfx", "Hello\n "\
+                                 "2>&1")
+    assert_match 'd41d8cd98f00b204e9800998ecf8427e', Digest::MD5.hexdigest(command_output)
   end
 end
