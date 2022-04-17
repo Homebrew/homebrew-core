@@ -45,6 +45,9 @@ class Cherrytree < Formula
   end
 
   test do
+    # (cherrytree:46081): Gtk-WARNING **: 17:33:48.386: cannot open display
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     (testpath/"homebrew.ctd").write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <cherrytree>
