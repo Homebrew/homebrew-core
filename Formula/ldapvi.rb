@@ -31,6 +31,8 @@ class Ldapvi < Formula
   depends_on "popt"
   depends_on "readline"
 
+  uses_from_macos "openldap"
+
   # These patches are applied upstream but release process seems to be dead.
   # http://www.lichteblau.com/git/?p=ldapvi.git;a=commit;h=256ced029c235687bfafdffd07be7d47bf7af39b
   # http://www.lichteblau.com/git/?p=ldapvi.git;a=commit;h=a2717927f297ff9bc6752f281d4eecab8bd34aad
