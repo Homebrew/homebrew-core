@@ -7,6 +7,13 @@ class NewrelicInfraAgent < Formula
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git", branch: "master"
 
+  # Upstream sometimes creates a tag with a stable version format but marks it
+  # as pre-release on GitHub.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "7554dbce8578c9355db7464dd65a5b2b3b21c46572e771e01e48e69eb399c8ad"
     sha256 cellar: :any_skip_relocation, big_sur:      "00546cc0512d4f0bff406111b137c229bc2ac745c3d6056411f01b5de3184d13"
