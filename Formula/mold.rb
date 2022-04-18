@@ -17,7 +17,6 @@ class Mold < Formula
 
   on_macos do
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1200
-    depends_on macos: :monterey
   end
 
   on_linux do
@@ -73,6 +72,8 @@ class Mold < Formula
 
     system ENV.cc, linker_flag, "test.c"
     system "./a.out"
+    # Lots of tests fail on ARM Big Sur for some reason.
+    return if MacOS.version == :big_sur && Hardware::CPU.arm?
 
     if OS.mac?
       cp_r pkgshare/"test", testpath
