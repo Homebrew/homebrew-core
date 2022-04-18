@@ -39,19 +39,17 @@ class S2geometry < Formula
     args = std_cmake_args + %w[
       -DWITH_GFLAGS=1
       -DWITH_GLOG=1
-      ..
     ]
 
-    mkdir "build-shared" do
-      system "cmake", *args
-      system "make", "s2"
-      lib.install "libs2.dylib"
-    end
-    mkdir "build" do
-      system "cmake", *args, "-DBUILD_SHARED_LIBS=OFF",
-                             "-DOPENSSL_USE_STATIC_LIBS=TRUE"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build/shared", *args
+    system "cmake", "--build", "build/shared"
+    system "cmake", "--install", "build/shared"
+
+    system "cmake", "-S", ".", "-B", "build/static", *args,
+                    "-DBUILD_SHARED_LIBS=OFF",
+                    "-DOPENSSL_USE_STATIC_LIBS=TRUE"
+    system "cmake", "--build", "build/static"
+    lib.install "build/static/libs2.a"
   end
 
   test do
@@ -61,27 +59,28 @@ class S2geometry < Formula
       #include <cstdio>
       #include "s2/base/commandlineflags.h"
       #include "s2/s2earth.h"
+      #include "absl/flags/flag.h"
       #include "s2/s1chord_angle.h"
       #include "s2/s2closest_point_query.h"
       #include "s2/s2point_index.h"
       #include "s2/s2testing.h"
 
-      DEFINE_int32(num_index_points, 10000, "Number of points to index");
-      DEFINE_int32(num_queries, 10000, "Number of queries");
-      DEFINE_double(query_radius_km, 100, "Query radius in kilometers");
+      S2_DEFINE_int32(num_index_points, 10000, "Number of points to index");
+      S2_DEFINE_int32(num_queries, 10000, "Number of queries");
+      S2_DEFINE_double(query_radius_km, 100, "Query radius in kilometers");
 
       int main(int argc, char **argv) {
         S2PointIndex<int> index;
-        for (int i = 0; i < FLAGS_num_index_points; ++i) {
+        for (int i = 0; i < absl::GetFlag(FLAGS_num_index_points); ++i) {
           index.Add(S2Testing::RandomPoint(), i);
         }
 
         S2ClosestPointQuery<int> query(&index);
-        query.mutable_options()->set_max_distance(
-            S1Angle::Radians(S2Earth::KmToRadians(FLAGS_query_radius_km)));
+        query.mutable_options()->set_max_distance(S1Angle::Radians(
+          S2Earth::KmToRadians(absl::GetFlag(FLAGS_query_radius_km))));
 
         int64_t num_found = 0;
-        for (int i = 0; i < FLAGS_num_queries; ++i) {
+        for (int i = 0; i < absl::GetFlag(FLAGS_num_queries); ++i) {
           S2ClosestPointQuery<int>::PointTarget target(S2Testing::RandomPoint());
           num_found += query.FindClosestPoints(&target).size();
         }
@@ -89,9 +88,9 @@ class S2geometry < Formula
         return  0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}",
-                    "-ls2", "-ls2testing",
-                    "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-I#{Formula["openssl@1.1"].opt_include}",
+                    "-L#{lib}", "-ls2", "-ls2testing"
     system "./test"
   end
 end
