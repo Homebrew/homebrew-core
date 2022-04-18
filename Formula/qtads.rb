@@ -28,21 +28,36 @@ class Qtads < Formula
   depends_on "qt@5"
   depends_on "sdl2"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     sdl_sound_include = Formula["sdl_sound"].opt_include
     inreplace "qtads.pro",
       "$$T3DIR \\",
       "$$T3DIR #{sdl_sound_include}/SDL \\"
 
-    qt5 = Formula["qt@5"].opt_prefix
-    system "#{qt5}/bin/qmake", "DEFINES+=NO_STATIC_TEXTCODEC_PLUGINS"
+    args = ["DEFINES+=NO_STATIC_TEXTCODEC_PLUGINS"]
+    args << "PREFIX=#{prefix}" unless OS.mac?
+
+    system "qmake", *args
     system "make"
-    prefix.install "QTads.app"
-    bin.write_exec_script "#{prefix}/QTads.app/Contents/MacOS/QTads"
+
+    if OS.mac?
+      prefix.install "QTads.app"
+      bin.write_exec_script "#{prefix}/QTads.app/Contents/MacOS/QTads"
+    else
+      system "make", "install"
+    end
+
     man6.install "desktop/man/man6/qtads.6"
   end
 
   test do
-    assert_predicate testpath/"#{bin}/QTads", :exist?, "I'm an untestable GUI app."
+    bin_name = OS.mac? ? "QTads" : "qtads"
+    assert_predicate testpath/"#{bin}/#{bin_name}", :exist?, "I'm an untestable GUI app."
   end
 end
