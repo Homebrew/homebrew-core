@@ -14,14 +14,23 @@ class Plowshare < Formula
   end
 
   depends_on "bash"
-  depends_on "coreutils"
   depends_on "feh"
-  depends_on "gnu-sed"
   depends_on "libcaca"
   depends_on "recode"
   depends_on "spidermonkey"
 
+  on_macos do
+    depends_on "coreutils"
+    depends_on "gnu-sed"
+  end
+
   def install
-    system "make", "install", "patch_gnused", "GNU_SED=#{Formula["gnu-sed"].opt_bin}/gsed", "PREFIX=#{prefix}"
+    sed_args = OS.mac? ? ["patch_gnused", "GNU_SED=#{Formula["gnu-sed"].opt_bin}/gsed"] : []
+    system "make", "install", *sed_args, "PREFIX=#{prefix}"
+  end
+
+  test do
+    output = shell_output("#{bin}/plowlist 2>&1", 15)
+    assert_match "no folder URL specified!", output
   end
 end
