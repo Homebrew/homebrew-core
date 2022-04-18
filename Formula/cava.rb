@@ -22,6 +22,7 @@ class Cava < Formula
   depends_on "iniparser"
   depends_on "portaudio"
 
+  uses_from_macos "vim" => :build # needed for xxd
   uses_from_macos "ncurses"
 
   def install
