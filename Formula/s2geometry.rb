@@ -23,11 +23,21 @@ class S2geometry < Formula
   depends_on "abseil"
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # C++17
+
   def install
+    # Abseil is built with C++17 and s2geometry needs to use the same C++ standard.
+    inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 11)", "set(CMAKE_CXX_STANDARD 17)"
+
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@1.1"].opt_prefix
     ENV.append "CXXFLAGS", "-I#{Formula["googletest"].opt_include}"
 
     args = std_cmake_args + %w[
+      -DWITH_GFLAGS=1
       -DWITH_GLOG=1
       ..
     ]
