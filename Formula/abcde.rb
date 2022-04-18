@@ -4,7 +4,7 @@ class Abcde < Formula
   url "https://abcde.einval.com/download/abcde-2.9.3.tar.gz"
   sha256 "046cd0bba78dd4bbdcbcf82fe625865c60df35a005482de13a6699c5a3b83124"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://git.einval.com/git/abcde.git", branch: "master"
 
   livecheck do
