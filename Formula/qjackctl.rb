@@ -23,6 +23,12 @@ class Qjackctl < Formula
   depends_on "jack"
   depends_on "qt"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = std_cmake_args + %w[
       -DCONFIG_DBUS=OFF
@@ -34,11 +40,16 @@ class Qjackctl < Formula
     system "cmake", "--build", "."
     system "cmake", "--install", "."
 
-    prefix.install bin/"qjackctl.app"
-    bin.install_symlink prefix/"qjackctl.app/Contents/MacOS/qjackctl"
+    if OS.mac?
+      prefix.install bin/"qjackctl.app"
+      bin.install_symlink prefix/"qjackctl.app/Contents/MacOS/qjackctl"
+    end
   end
 
   test do
+    # Set QT_QPA_PLATFORM to minimal to avoid error "qt.qpa.xcb: could not connect to display"
+    ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     assert_match version.to_s, shell_output("#{bin}/qjackctl --version 2>&1")
   end
 end
