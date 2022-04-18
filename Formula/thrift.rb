@@ -43,19 +43,10 @@ class Thrift < Formula
     args = %W[
       --disable-debug
       --disable-tests
+      --disable-libs
       --prefix=#{prefix}
       --libdir=#{lib}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
-      --without-erlang
-      --without-haskell
-      --without-java
-      --without-perl
-      --without-php
-      --without-php_extension
-      --without-python
-      --without-py3
-      --without-ruby
-      --without-swift
     ]
 
     ENV.cxx11 if ENV.compiler == :clang
