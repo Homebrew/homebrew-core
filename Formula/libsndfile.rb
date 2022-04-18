@@ -28,6 +28,14 @@ class Libsndfile < Formula
   depends_on "libvorbis"
   depends_on "opus"
 
+  # Fix unsubstituted variable @EXTERNAL_MPEG_LIBS@ in sndfile.pc
+  # PR ref: https://github.com/libsndfile/libsndfile/pull/828
+  # Remove in the next release.
+  patch do
+    url "https://github.com/libsndfile/libsndfile/commit/e4fdaeefddd39bae1db27d48ccb7db7733e0c009.patch?full_index=1"
+    sha256 "af1e9faf1b7f414ff81ef3f1641e2e37f3502f0febd17f70f0db6ecdd02dc910"
+  end
+
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
