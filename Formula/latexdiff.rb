@@ -4,6 +4,7 @@ class Latexdiff < Formula
   url "https://github.com/ftilmann/latexdiff/releases/download/1.3.2/latexdiff-1.3.2.tar.gz"
   sha256 "95771fc61cbc5d3f684a85e171ea94710aee6f2eda2374b9b0f6fb7f15f40bf8"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6cb7541c9dcddb8fa58cff401cea3313d9602f1829f77d16a8bab42e9909253c"
