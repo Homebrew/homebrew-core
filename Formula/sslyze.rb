@@ -12,6 +12,11 @@ class Sslyze < Formula
     resource "nassl" do
       url "https://github.com/nabla-c0d3/nassl/archive/4.0.2.tar.gz"
       sha256 "440296e07ee021dc283bfe7b810f3139349e26445bc21b5e05820808e15186a2"
+      # patch is needed until https://github.com/nabla-c0d3/nassl/pull/89 is merged
+      patch do
+        url "https://github.com/nabla-c0d3/nassl/commit/f210a0d15d65c6ec11f43d3fef9f6004549bf19a.patch?full_index=1"
+        sha256 "270d5a76c8753afa318cd3fa0d53fe29f89786cba57096e384697acc1259552d"
+      end
     end
   end
 
