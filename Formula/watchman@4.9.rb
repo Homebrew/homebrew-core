@@ -7,19 +7,19 @@ class WatchmanAT49 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "pkg-config" => :build
+  option "without-python", "Disable python bindings"
+  option "with-ruby", "Enable ruby bindings (requires ruby, gem, bundler)"
+  option "without-pcre", "Don't enable PCRE support"
+
   depends_on "autoconf@2.69" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "pcre" => :recommended
 
   # To reduce building time
   uses_from_macos "python" => :build
   uses_from_macos "ruby" => [:build, :optional]
-
-  option "without-python", "Disable python bindings"
-  option "with-ruby", "Enable ruby bindings (requires ruby, gem, bundler)"
-  option "without-pcre", "Don't enable PCRE support"
 
   def install
     args = %W[
@@ -68,6 +68,6 @@ class WatchmanAT49 < Formula
   end
 
   test do
-    assert_equal("#{version}.0", shell_output("#{bin}/watchman -v").chomp)
+    assert_equal(version.to_s, shell_output("#{bin}/watchman -v").chomp)
   end
 end
