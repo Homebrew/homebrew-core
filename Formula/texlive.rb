@@ -7,7 +7,7 @@ class Texlive < Formula
   url "https://github.com/TeX-Live/texlive-source/archive/refs/tags/svn58837.tar.gz"
   sha256 "0afa6919e44675b7afe0fa45344747afef07b6ee98eeb14ff6a2ef78f458fc12"
   license :public_domain
-  revision 1
+  revision 2
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
