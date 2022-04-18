@@ -18,6 +18,9 @@ class Jove < Formula
     sha256 yosemite:       "4e741042364faa5ef07f7957d9e811c204561ecad03ebbcd98f82761211ec78c"
   end
 
+  uses_from_macos "groff" => :build
+  uses_from_macos "ncurses"
+
   # Per MacPorts, avoid clash with libc getline
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/3cada68f/jove/patch-getline.diff"
