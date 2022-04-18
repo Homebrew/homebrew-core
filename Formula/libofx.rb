@@ -25,6 +25,14 @@ class Libofx < Formula
   def install
     ENV.cxx11
 
+    # Fix missing header - https://github.com/libofx/libofx/issues/57
+    # tree.hh:138:13: error: ‘ptrdiff_t’ does not name a type
+    if OS.linux?
+      inreplace "lib/tree.hh",
+                "#include <cassert>\n",
+                "#include <cassert>\n#include <cstddef>\n"
+    end
+
     opensp = Formula["open-sp"]
     system "./configure", "--disable-dependency-tracking",
                           "--with-opensp-includes=#{opensp.opt_include}/OpenSP",
