@@ -57,6 +57,7 @@ class Coreutils < Formula
       --program-prefix=g
       --with-gmp
       --without-selinux
+      --enable-install-program=hostname
     ]
 
     system "./configure", *args
