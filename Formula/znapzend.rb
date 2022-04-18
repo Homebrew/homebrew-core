@@ -6,6 +6,14 @@ class Znapzend < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/oetiker/znapzend.git", branch: "master"
 
+  # The `stable` URL uses a download from the GitHub release, so the release
+  # needs to exist before the formula can be version bumped. It's more
+  # appropriate to check the GitHub releases instead of tags in this context.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "851d5b6216c7083c7d4d3e164f1bd60ec2b2fdaf28a8f1ef186d2a61666a95e3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "712e06398c1865796cc896a7d8c0d6c0baf4c10a52ac5006cc4c8d69b6359fcb"
