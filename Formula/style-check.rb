@@ -23,6 +23,8 @@ class StyleCheck < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "08759f3a407af4dab0310f4a02ee18f15f2104011d702a300adbe9d33bcde0f5"
   end
 
+  uses_from_macos "ruby"
+
   def install
     inreplace "style-check.rb", "/etc/style-check.d/", etc/"style-check.d/"
     system "make", "PREFIX=#{prefix}",
