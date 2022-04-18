@@ -4,7 +4,7 @@ class Libming < Formula
   url "https://github.com/libming/libming/archive/ming-0_4_8.tar.gz"
   sha256 "2a44cc8b7f6506adaa990027397b6e0f60ba0e3c1fe8c9514be5eb8e22b2375c"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d6ca20b38c61c2b2aa00a1b21fa33cac79ef9c5afe287a498a6a10d06f397c74"
