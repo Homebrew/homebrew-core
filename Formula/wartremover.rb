@@ -6,6 +6,11 @@ class Wartremover < Formula
   license "Apache-2.0"
   head "https://github.com/wartremover/wartremover.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "796eaeafeae5f9b8b4573ffa23c5c828764d0699d9289311febb108481132f7a"
   end
