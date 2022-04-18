@@ -14,8 +14,9 @@ class Dotnet < Formula
       index = JSON.parse(page)["releases-index"]
 
       # Find latest release channel still supported.
+      avoid_phases = ["preview", "eol"].freeze
       valid_channels = index.select do |release|
-        ["preview", "eol"].exclude?(release["support-phase"])
+        avoid_phases.exclude?(release["support-phase"])
       end
       latest_channel = valid_channels.max_by do |release|
         Version.new(release["channel-version"])
