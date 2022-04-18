@@ -24,6 +24,9 @@ class Libvisio < Formula
   depends_on "icu4c"
   depends_on "librevenge"
 
+  uses_from_macos "gperf" => :build
+  uses_from_macos "libxml2"
+
   def install
     # Needed for Boost 1.59.0 compatibility.
     ENV["LDFLAGS"] = "-lboost_system-mt"
