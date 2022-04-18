@@ -14,6 +14,10 @@ class Geogram < Formula
   depends_on "cmake" => :build
   depends_on "glfw"
 
+  on_linux do
+    depends_on "doxygen" => :build
+  end
+
   resource "bunny" do
     url "https://raw.githubusercontent.com/FreeCAD/Examples/be0b4f9/Point_cloud_ExampleFiles/PointCloud-Data_Stanford-Bunny.asc"
     sha256 "4fc5496098f4f4aa106a280c24255075940656004c6ef34b3bf3c78989cbad08"
@@ -28,7 +32,8 @@ class Geogram < Formula
     EOS
 
     system "./configure.sh"
-    cd "build/Darwin-clang-dynamic-Release" do
+    platform = OS.mac? ? "Darwin-clang" : "Linux64-gcc"
+    cd "build/#{platform}-dynamic-Release" do
       system "make", "install"
     end
 
