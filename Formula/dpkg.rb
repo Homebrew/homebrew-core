@@ -7,6 +7,7 @@ class Dpkg < Formula
   url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.21.7.tar.xz"
   sha256 "bd9b66bd92ff9b851ce1d79eed4bf710427d8d39a33c91f1b5da8e3dde524c39"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/d/dpkg/"
