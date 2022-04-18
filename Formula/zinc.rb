@@ -8,7 +8,8 @@ class Zinc < Formula
     sha256 cellar: :any_skip_relocation, all: "86fb3d24eab6f75b51641311d7f9f574a31878f1c93ec1af0938ae2428178cc5"
   end
 
-  deprecate! date: "2018-06-10", because: :repo_archived
+  # Deprecated since 2020-08-19 in homebrew
+  disable! date: "2022-04-18", because: :repo_archived
 
   depends_on "openjdk@11"
 
