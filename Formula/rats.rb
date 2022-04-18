@@ -18,6 +18,8 @@ class Rats < Formula
     sha256 yosemite:       "7c26f10919e103d7e57c232e0e07840ad309fd04878831c04829d70506767157"
   end
 
+  uses_from_macos "expat"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
