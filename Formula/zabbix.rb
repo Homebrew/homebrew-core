@@ -29,7 +29,7 @@ class Zabbix < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/zabbix
       --enable-agent
-      --with-libpcre2=#{Formula["pcre2"].opt_prefix}
+      --with-libpcre2
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
