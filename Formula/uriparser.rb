@@ -17,8 +17,6 @@ class Uriparser < Formula
 
   depends_on "cmake" => :build
 
-  conflicts_with "libkml", because: "both install `liburiparser.dylib`"
-
   def install
     system "cmake", ".", "-DURIPARSER_BUILD_TESTS=OFF",
                          "-DURIPARSER_BUILD_DOCS=OFF",
