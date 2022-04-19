@@ -4,6 +4,7 @@ class Criterion < Formula
   url "https://github.com/Snaipe/Criterion/releases/download/v2.4.0/criterion-2.4.0.tar.xz"
   sha256 "b13bdb9e007d4d2e87a13446210630e95e3e3d92bb731951bcea4993464b9911"
   license "MIT"
+  revision 1
   head "https://github.com/Snaipe/Criterion.git", branch: "bleeding"
 
   bottle do
