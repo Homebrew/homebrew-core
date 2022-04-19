@@ -4,6 +4,7 @@ class Tbb < Formula
   url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.5.0.tar.gz"
   sha256 "e5b57537c741400cf6134b428fc1689a649d7d38d9bb9c1b6d64f092ea28178a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "804b72c51e22dfa98d7252a3e187b06c22244ac09ddcdee8aa78ece343083f18"
@@ -29,9 +30,13 @@ class Tbb < Formula
     ]
 
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make"
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=OFF"
+      system "make"
+      lib.install Dir["**/libtbb*.a"]
     end
 
     cd "python" do
