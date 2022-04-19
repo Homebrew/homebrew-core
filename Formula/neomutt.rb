@@ -29,7 +29,6 @@ class Neomutt < Formula
   uses_from_macos "libxslt" => :build # for xsltproc
   uses_from_macos "cyrus-sasl"
   uses_from_macos "krb5"
-  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   on_linux do
