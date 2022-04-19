@@ -1,8 +1,8 @@
 class Kettle < Formula
   desc "Pentaho Data Integration software"
   homepage "https://www.hitachivantara.com/en-us/products/data-management-analytics.html"
-  url "https://downloads.sourceforge.net/project/pentaho/Pentaho-9.2/client-tools/pdi-ce-9.2.0.0-290.zip"
-  sha256 "8e64d1125b2403df66f212488762f1558968a3900d079c730b2f6943e346a7e7"
+  url "https://downloads.sourceforge.net/project/pentaho/Pentaho-9.3/client-tools/pdi-ce-9.3.0.0-428.zip"
+  sha256 "5c7a453ec448d4b8a568e445b119bcf4f0f41517b42e3626bc437f882c9f46c1"
 
   livecheck do
     url :stable
