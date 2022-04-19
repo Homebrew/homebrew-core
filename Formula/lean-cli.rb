@@ -1,8 +1,8 @@
 class LeanCli < Formula
   desc "Command-line tool to develop and manage LeanCloud apps"
   homepage "https://github.com/leancloud/lean-cli"
-  url "https://github.com/leancloud/lean-cli/archive/v0.29.2.tar.gz"
-  sha256 "b5d39383335ced9f7b9adb5bf9701cd3e4b4df19bae251b8a603c71b896ec32b"
+  url "https://github.com/leancloud/lean-cli/archive/v1.0.0.tar.gz"
+  sha256 "4e8b9d33fd57e68e2f3e94f69572945ae2860e4eaf25a72fd6d72b8580dce8ba"
   license "Apache-2.0"
   head "https://github.com/leancloud/lean-cli.git", branch: "master"
 
@@ -31,6 +31,6 @@ class LeanCli < Formula
 
   test do
     assert_match "lean version #{version}", shell_output("#{bin}/lean --version")
-    assert_match "Please log in first.", shell_output("#{bin}/lean init 2>&1", 1)
+    assert_match "Invalid access token.", shell_output("#{bin}/lean login --region us-w1 --token foobar 2>&1", 1)
   end
 end
