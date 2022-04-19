@@ -13,11 +13,6 @@ class Luajit < Formula
     patch :DATA
   end
 
-  livecheck do
-    url "https://luajit.org/download.html"
-    regex(/href=.*?LuaJIT[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 5
     sha256 cellar: :any,                 monterey:     "351112e416f845b313dc71cb2a54d349330a6c676ea381d30f5d9d1c676e795c"
@@ -25,6 +20,12 @@ class Luajit < Formula
     sha256 cellar: :any,                 catalina:     "ee0c6394223cff8789452c0fc413d91cefeea1a3b5b5e2e39931620e8037c628"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "67663e6413774ef4b8be6678e389a6adb8e23ef50f52d5bb6d44f2b1069f6e8a"
   end
+
+  keg_only "it conflicts with the LuaJIT OpenResty formula"
+
+  # LuaJIT has abandoned versioned releases and recommends build from git HEAD.
+  # See https://github.com/Homebrew/homebrew-core/issues/68013
+  deprecate! date: "2022-04-18", because: "has abandoned versioned releases. Check out `luajit-openresty` instead"
 
   def install
     # 1 - Override the hardcoded gcc.
