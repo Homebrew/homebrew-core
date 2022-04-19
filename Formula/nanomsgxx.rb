@@ -4,7 +4,7 @@ class Nanomsgxx < Formula
   url "https://github.com/achille-roussel/nanomsgxx/archive/0.2.tar.gz"
   sha256 "116ad531b512d60ea75ef21f55fd9d31c00b172775548958e5e7d4edaeeedbaa"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 4
