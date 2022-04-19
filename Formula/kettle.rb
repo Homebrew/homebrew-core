@@ -3,6 +3,7 @@ class Kettle < Formula
   homepage "https://www.hitachivantara.com/en-us/products/data-management-analytics.html"
   url "https://downloads.sourceforge.net/project/pentaho/Pentaho-9.3/client-tools/pdi-ce-9.3.0.0-428.zip"
   sha256 "5c7a453ec448d4b8a568e445b119bcf4f0f41517b42e3626bc437f882c9f46c1"
+  license "Apache-2.0"
 
   livecheck do
     url :stable
