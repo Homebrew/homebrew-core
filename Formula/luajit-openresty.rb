@@ -27,7 +27,16 @@ class LuajitOpenresty < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d4e0b55a6e9f1397b50799fd33b4f0ee86bf749c1f36a595a309ca4b866dd6f"
   end
 
-  keg_only "it conflicts with the LuaJIT formula"
+  link_overwrite "bin/luajit"
+  link_overwrite "lib/libluajit.a"
+  link_overwrite "lib/libluajit-5.1.a"
+  link_overwrite "lib/libluajit.dylib"
+  link_overwrite "lib/libluajit-5.1.dylib"
+  link_overwrite "lib/libluajit-5.1.2.dylib"
+  link_overwrite "lib/libluajit-5.1.so"
+  link_overwrite "lib/libluajit-5.1.so.2"
+  link_overwrite "lib/pkgconfig/luajit.pc"
+  link_overwrite "share/man/man1/luajit.1"
 
   def install
     # 1 - Override the hardcoded gcc.
