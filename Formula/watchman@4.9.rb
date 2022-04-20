@@ -47,6 +47,9 @@ class WatchmanAT49 < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+
+    ENV.deparallelize
+    system "make", build.with?("python") ? "integration" : "check"
   end
 
   def caveats
