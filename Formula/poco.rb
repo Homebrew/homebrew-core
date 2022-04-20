@@ -22,15 +22,20 @@ class Poco < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
+  depends_on "pcre"
+
+  uses_from_macos "expat"
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                            "-DENABLE_DATA_MYSQL=OFF",
-                            "-DENABLE_DATA_ODBC=OFF",
-                            "-DCMAKE_INSTALL_RPATH=#{rpath}"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DENABLE_DATA_MYSQL=OFF",
+                    "-DENABLE_DATA_ODBC=OFF",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DPOCO_UNBUNDLED=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
