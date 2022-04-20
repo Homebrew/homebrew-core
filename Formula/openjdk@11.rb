@@ -9,8 +9,8 @@ class OpenjdkAT11 < Formula
     sha256 "c541dbc147a40b9cce987d4831970b96bb843471541bb25a140bbbfbd3e056de"
     version "11.0.14.1"
   else
-    url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.14.1-ga.tar.gz"
-    sha256 "27244faf7e34e66a0ca4bb6ebbbe8bf4884d4e2d93028bd99c1511304f27bac4"
+    url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.15-ga.tar.gz"
+    sha256 "6ed94f08aa8aed0f466cb107c5366c20124d64248f788ec75bcc24823ad93a40"
   end
 
   livecheck do
