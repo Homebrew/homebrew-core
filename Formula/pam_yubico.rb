@@ -24,6 +24,10 @@ class PamYubico < Formula
   depends_on "ykclient"
   depends_on "ykpers"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
