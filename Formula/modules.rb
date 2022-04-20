@@ -46,9 +46,10 @@ class Modules < Formula
   def caveats
     <<~EOS
       To activate modules, add the following at the end of your .zshrc:
+
         source #{opt_prefix}/init/zsh
-      You will also need to reload your .zshrc:
-        source ~/.zshrc
+
+      You will also need to restart your terminal for this change to take effect.
     EOS
   end
 
