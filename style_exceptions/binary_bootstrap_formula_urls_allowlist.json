@@ -2,6 +2,7 @@
   "cabal-install",
   "clozure-cl",
   "crystal",
+  "dmd",
   "fpc",
   "ghc",
   "ghc@8.6",
