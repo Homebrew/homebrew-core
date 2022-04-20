@@ -21,6 +21,11 @@ class KeepkeyAgent < Formula
   depends_on "python@3.10"
   depends_on "six"
 
+  on_linux do
+    # python-daemon depends on cryptography
+    depends_on "rust" => :build
+  end
+
   resource "backports.shutil_which" do
     url "https://files.pythonhosted.org/packages/a0/22/51b896a4539f1bff6a7ab8514eb031b9f43f12bff23f75a4c3f4e9a666e5/backports.shutil_which-3.5.2.tar.gz"
     sha256 "fe39f567cbe4fad89e8ac4dbeb23f87ef80f7fe8e829669d0221ecdb0437c133"
@@ -117,6 +122,8 @@ class KeepkeyAgent < Formula
   end
 
   def install
+    # Help gcc to find libusb headers on Linux.
+    ENV.append "CFLAGS", "-I#{Formula["libusb"].opt_include}/libusb-1.0" unless OS.mac?
     virtualenv_install_with_resources
   end
 
