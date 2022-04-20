@@ -18,6 +18,8 @@ class Kstart < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "c024af687ae576958110ee27c4f8437c6893f4c25cec966e9f5a6e13f2aea8e9"
   end
 
+  uses_from_macos "krb5"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
