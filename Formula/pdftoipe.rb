@@ -24,6 +24,12 @@ class Pdftoipe < Formula
 
   fails_with gcc: "5"
 
+  # https://github.com/otfried/ipe-tools/pull/48
+  patch do
+    url "https://github.com/otfried/ipe-tools/commit/14335180432152ad094300d0afd00d8e390469b2.patch?full_index=1"
+    sha256 "544d891bfab2c297f659895761cb296d6ed2b4aa76a888e9ca2c215d497a48e5"
+  end
+
   def install
     cd "pdftoipe" do
       system "make"
