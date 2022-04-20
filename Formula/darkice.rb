@@ -29,6 +29,7 @@ class Darkice < Formula
   depends_on "two-lame"
 
   def install
+    ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
