@@ -34,6 +34,12 @@ class FsUae < Formula
   depends_on "libpng"
   depends_on "sdl2"
 
+  uses_from_macos "zip"
+
+  on_linux do
+    depends_on "openal-soft"
+  end
+
   def install
     system "./bootstrap" if build.head?
     system "./configure", "--disable-debug",
