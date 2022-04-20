@@ -27,6 +27,10 @@ class PamU2f < Formula
   depends_on "pkg-config" => :build
   depends_on "libfido2"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     system "autoreconf", "--install"
 
