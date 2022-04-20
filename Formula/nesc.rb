@@ -19,7 +19,10 @@ class Nesc < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "openjdk" => :build
-  depends_on "emacs" if MacOS.version >= :catalina
+  depends_on "emacs"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
