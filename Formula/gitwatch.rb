@@ -26,6 +26,8 @@ class Gitwatch < Formula
 
   test do
     repo = testpath/"repo"
+    system "git", "config", "--global", "user.email", "gitwatch-ci-test@brew.sh"
+    system "git", "config", "--global", "user.name", "gitwatch"
     system "git", "init", repo
     pid = spawn "gitwatch", "-m", "Update", repo, pgroup: true
     sleep 15
