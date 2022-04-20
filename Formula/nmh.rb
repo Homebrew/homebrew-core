@@ -28,6 +28,12 @@ class Nmh < Formula
   depends_on "openssl@1.1"
   depends_on "w3m"
 
+  uses_from_macos "cyrus-sasl"
+
+  on_linux do
+    depends_on "gdbm"
+  end
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
@@ -36,6 +42,9 @@ class Nmh < Formula
                           "--with-cyrus-sasl",
                           "--with-tls"
     system "make", "install"
+
+    # Remove shim references
+    inreplace prefix/"etc/nmh/mhn.defaults", Superenv.shims_path/"curl", "curl"
   end
 
   test do
