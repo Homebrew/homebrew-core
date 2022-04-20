@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk/archive/jdk-18-ga.tar.gz"
-  sha256 "a57f568bb77a8a737a83f3488c645ab57596e146e6026a0fcca307ff706d90bd"
+  url "https://github.com/openjdk/jdk18u/archive/jdk-18.0.1-ga.tar.gz"
+  sha256 "4728da4676601af35c6ad998f2283e595ca9ce9b8528a75d74fddf7d03932d71"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -22,6 +22,7 @@ class Openjdk < Formula
   keg_only :shadowed_by_macos
 
   depends_on "autoconf" => :build
+  depends_on xcode: :build
 
   on_linux do
     depends_on "pkg-config" => :build
