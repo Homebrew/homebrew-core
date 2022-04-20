@@ -18,6 +18,10 @@ class Clens < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "b08580c90a8ed647005c437158972a1dbd770792c2db74391eec8ed5f4ec1b6e"
   end
 
+  on_linux do
+    depends_on "libbsd"
+  end
+
   patch do
     url "https://github.com/conformal/clens/commit/83648cc9027d9f76a1bc79ddddcbed1349b9d5cd.patch?full_index=1"
     sha256 "c70833eff6f98eab6166e9c341bb444eae542617f4937a29514fe5c6bbd3d8b0"
