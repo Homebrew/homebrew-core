@@ -19,18 +19,12 @@ class NetlifyCli < Formula
 
   depends_on "node"
 
-  uses_from_macos "expect" => :test
-
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
-    (testpath/"test.exp").write <<~EOS
-      spawn #{bin}/netlify login
-      expect "Opening"
-    EOS
-    assert_match "Logging in", shell_output("expect -f test.exp")
+    assert_match "Not logged in. Please log in to see site status.", shell_output("#{bin}/netlify status")
   end
 end
