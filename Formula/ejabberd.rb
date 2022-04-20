@@ -30,6 +30,10 @@ class Ejabberd < Formula
   depends_on "libyaml"
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   conflicts_with "couchdb", because: "both install `jiffy` lib"
 
   def install
@@ -50,7 +54,7 @@ class Ejabberd < Formula
 
     # Set CPP to work around cpp shim issue:
     # https://github.com/Homebrew/brew/issues/5153
-    system "make", "CPP=clang -E"
+    system "make", "CPP=#{ENV.cc} -E"
 
     ENV.deparallelize
     system "make", "install"
