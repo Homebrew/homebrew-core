@@ -18,6 +18,8 @@ class Redir < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "76c6d218033c27de7a5030e8d9fe1356e0a152e3a31e4210b589314643b9fd0d"
   end
 
+  uses_from_macos "netcat" => :test
+
   def install
     system "make"
     bin.install "redir"
