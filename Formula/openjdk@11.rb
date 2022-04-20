@@ -80,21 +80,18 @@ class OpenjdkAT11 < Formula
       --without-version-pre
     ]
 
-    if OS.mac?
-      framework_path = File.expand_path(
-        "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
-        MacOS::Xcode.prefix,
-      )
-
-      args += %W[
+    args += if OS.mac?
+      %W[
         --with-sysroot=#{MacOS.sdk_path}
         --enable-dtrace=auto
         --with-extra-ldflags=-headerpad_max_install_names
       ]
     else
-      args << "--with-x=#{HOMEBREW_PREFIX}"
-      args << "--with-cups=#{HOMEBREW_PREFIX}"
-      args << "--with-fontconfig=#{HOMEBREW_PREFIX}"
+      %W[
+        --with-x=#{HOMEBREW_PREFIX}
+        --with-cups=#{HOMEBREW_PREFIX}
+        --with-fontconfig=#{HOMEBREW_PREFIX}
+      ]
     end
 
     chmod 0755, "configure"
