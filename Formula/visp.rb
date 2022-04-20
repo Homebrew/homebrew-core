@@ -33,6 +33,12 @@ class Visp < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     ENV.cxx11
 
@@ -41,9 +47,9 @@ class Visp < Formula
       s.sub!(/CMake build tool:"\s+\${CMAKE_BUILD_TOOL}/,
              "CMake build tool:            gmake\"")
       s.sub!(/C\+\+ Compiler:"\s+\${VISP_COMPILER_STR}/,
-             "C++ Compiler:                clang++\"")
+             "C++ Compiler:                #{ENV.cxx}\"")
       s.sub!(/C Compiler:"\s+\${CMAKE_C_COMPILER}/,
-             "C Compiler:                  clang\"")
+             "C Compiler:                  #{ENV.cc}\"")
     end
 
     system "cmake", ".", "-DBUILD_DEMOS=OFF",
@@ -52,16 +58,16 @@ class Visp < Formula
                          "-DBUILD_TUTORIALS=OFF",
                          "-DUSE_DC1394=ON",
                          "-DDC1394_INCLUDE_DIR=#{Formula["libdc1394"].opt_include}",
-                         "-DDC1394_LIBRARY=#{Formula["libdc1394"].opt_lib}/libdc1394.dylib",
+                         "-DDC1394_LIBRARY=#{Formula["libdc1394"].opt_lib/shared_library("libdc1394")}",
                          "-DUSE_EIGEN3=ON",
                          "-DEigen3_DIR=#{Formula["eigen"].opt_share}/eigen3/cmake",
                          "-DUSE_GSL=ON",
                          "-DGSL_INCLUDE_DIR=#{Formula["gsl"].opt_include}",
-                         "-DGSL_cblas_LIBRARY=#{Formula["gsl"].opt_lib}/libgslcblas.dylib",
-                         "-DGSL_gsl_LIBRARY=#{Formula["gsl"].opt_lib}/libgsl.dylib",
+                         "-DGSL_cblas_LIBRARY=#{Formula["gsl"].opt_lib/shared_library("libgslcblas")}",
+                         "-DGSL_gsl_LIBRARY=#{Formula["gsl"].opt_lib/shared_library("libgsl")}",
                          "-DUSE_JPEG=ON",
                          "-DJPEG_INCLUDE_DIR=#{Formula["jpeg"].opt_include}",
-                         "-DJPEG_LIBRARY=#{Formula["jpeg"].opt_lib}/libjpeg.dylib",
+                         "-DJPEG_LIBRARY=#{Formula["jpeg"].opt_lib/shared_library("libjpeg")}",
                          "-DUSE_LAPACK=ON",
                          "-DUSE_LIBUSB_1=OFF",
                          "-DUSE_OPENCV=ON",
@@ -69,7 +75,7 @@ class Visp < Formula
                          "-DUSE_PCL=ON",
                          "-DUSE_PNG=ON",
                          "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}",
-                         "-DPNG_LIBRARY_RELEASE=#{Formula["libpng"].opt_lib}/libpng.dylib",
+                         "-DPNG_LIBRARY_RELEASE=#{Formula["libpng"].opt_lib/shared_library("libpng")}",
                          "-DUSE_PTHREAD=ON",
                          "-DUSE_PYLON=OFF",
                          "-DUSE_REALSENSE=OFF",
@@ -78,7 +84,7 @@ class Visp < Formula
                          "-DUSE_XML2=ON",
                          "-DUSE_ZBAR=ON",
                          "-DZBAR_INCLUDE_DIRS=#{Formula["zbar"].opt_include}",
-                         "-DZBAR_LIBRARIES=#{Formula["zbar"].opt_lib}/libzbar.dylib",
+                         "-DZBAR_LIBRARIES=#{Formula["zbar"].opt_lib/shared_library("libzbar")}",
                          "-DUSE_ZLIB=ON",
                          *std_cmake_args
 
