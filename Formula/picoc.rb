@@ -29,6 +29,10 @@ class Picoc < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "5b2c6a5c8c3404cbd75b4b0e1c6f6cbf1be0246ca0b3d1df70d78a6785e51711"
   end
 
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags} -DUNIX_HOST"
     bin.install "picoc"
