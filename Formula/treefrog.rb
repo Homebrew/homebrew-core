@@ -23,8 +23,19 @@ class Treefrog < Formula
   depends_on "mongo-c-driver"
   depends_on "qt"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
-    inreplace "src/corelib.pro", "/usr/local", HOMEBREW_PREFIX
+    # src/corelib.pro hardcodes different paths for mongo-c-driver headers on macOS and Linux.
+    if OS.mac?
+      inreplace "src/corelib.pro", "/usr/local", HOMEBREW_PREFIX
+    else
+      inreplace "src/corelib.pro", "/usr/include", HOMEBREW_PREFIX/"include"
+    end
 
     system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc"
 
