@@ -60,14 +60,6 @@ class OpenjdkAT17 < Formula
     end
   end
 
-  # Fix build with the latest xcode on M1
-  #
-  # Remove in the next release
-  patch do
-    url "https://github.com/openjdk/jdk17u/commit/c36c1c2213f0ce92eed1dd3ed994d0309c4cc3d8.patch?full_index=1"
-    sha256 "1a94c5994026b2f122a3d8627c037a705ff3ab7ace28ee806763346398302daa"
-  end
-
   def install
     boot_jdk = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
