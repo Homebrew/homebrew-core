@@ -72,6 +72,11 @@ class PerconaServer < Formula
   end
 
   def install
+    # Fix mysqlrouter_passwd RPATH to link to metadata_cache.so
+    inreplace "router/src/http/src/CMakeLists.txt",
+              "ADD_INSTALL_RPATH(mysqlrouter_passwd \"${ROUTER_INSTALL_RPATH}\")",
+              "\\0\nADD_INSTALL_RPATH(mysqlrouter_passwd \"${RPATH_ORIGIN}/../${ROUTER_INSTALL_PLUGINDIR}\")"
+
     # Disable ABI checking
     inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
 
