@@ -21,6 +21,12 @@ class Dmagnetic < Formula
   end
 
   def install
+    # Look for configuration and other data within the Homebrew prefix rather than the default paths
+    inreplace "src/toplevel/dMagnetic_pathnames.h" do |s|
+      s.gsub! "/etc/", "#{etc}/"
+      s.gsub! "/usr/local/", "#{HOMEBREW_PREFIX}/"
+    end
+
     system "make", "PREFIX=#{prefix}", "install"
     (share/"games/dMagnetic").install "testcode/minitest.mag", "testcode/minitest.gfx"
   end
