@@ -42,6 +42,10 @@ class Xdot < Formula
   end
 
   test do
+    # Disable test on Linux because it fails with this error:
+    # Gtk couldn't be initialized. Use Gtk.init_check() if you want to handle this case.
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     system "#{bin}/xdot", "--help"
   end
 end
