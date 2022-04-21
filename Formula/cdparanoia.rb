@@ -43,9 +43,17 @@ class Cdparanoia < Formula
   end
 
   def install
+    ENV.deparallelize
+
     # Libs are installed as keg-only because most software that searches for cdparanoia
     # will fail to link against it cleanly due to our patches
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{libexec}" if OS.linux?
+    # RPATH to libexec on Linux must be added so that the linker can find keg-only libraries.
+    unless OS.mac?
+      ENV.append "LDFLAGS", "-Wl,-rpath,#{libexec}"
+      inreplace "paranoia/Makefile.in",
+                "-L ../interface",
+                "-Wl,-rpath,#{Formula["cdparanoia"].libexec} -L ../interface"
+    end
 
     system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}",
