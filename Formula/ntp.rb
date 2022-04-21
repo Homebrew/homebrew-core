@@ -34,10 +34,14 @@ class Ntp < Formula
     ]
 
     system "./configure", *args
-    system "make", "install", "LDADD_LIBNTP=-lresolv -undefined dynamic_lookup"
+    ldflags = "-lresolv"
+    ldflags = "#{ldflags} -undefined dynamic_lookup" if OS.mac?
+    system "make", "install", "LDADD_LIBNTP=#{ldflags}"
   end
 
   test do
-    assert_match "step time server ", shell_output("#{sbin}/ntpdate -bq pool.ntp.org")
+    # On Linux all binaries are installed in bin, while on macOS they are split between bin and sbin.
+    ntpdate_bin = OS.mac? ? sbin/"ntpdate" : bin/"ntpdate"
+    assert_match "step time server ", shell_output("#{ntpdate_bin} -bq pool.ntp.org")
   end
 end
