@@ -28,7 +28,7 @@ class Vice < Formula
   depends_on "yasm" => :build
 
   depends_on "adwaita-icon-theme"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "flac"
   depends_on "giflib"
   depends_on "glew"
@@ -39,6 +39,8 @@ class Vice < Formula
   depends_on "libpng"
   depends_on "librsvg"
   depends_on "libvorbis"
+
+  uses_from_macos "flex" => :build
 
   def install
     configure_flags = %W[
