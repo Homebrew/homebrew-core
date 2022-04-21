@@ -19,6 +19,8 @@ class Hbase < Formula
   depends_on "lzo"
   depends_on "openjdk@11"
 
+  uses_from_macos "netcat" => :test
+
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"
     sha256 "aa8ddbb8b3f9e1c4b8cc3523486acdb7841cd97c002a9f2959c5b320c7bb0e6c"
@@ -48,6 +50,13 @@ class Hbase < Formula
     end
 
     resource("hadoop-lzo").stage do
+      # Help configure to find liblzo on Linux.
+      unless OS.mac?
+        inreplace "src/native/configure",
+        "#define HADOOP_LZO_LIBRARY ${ac_cv_libname_lzo2}",
+        "#define HADOOP_LZO_LIBRARY \"#{Formula["lzo"].opt_lib/shared_library("liblzo2")}\""
+      end
+
       # Fixed upstream: https://github.com/cloudera/hadoop-lzo/blob/HEAD/build.xml#L235
       ENV["CLASSPATH"] = Dir["#{libexec}/lib/hadoop-common-*.jar"].first
       ENV["CFLAGS"] = "-m64"
@@ -141,6 +150,9 @@ class Hbase < Formula
       s.gsub!(/(hbase.rootdir.*)\n.*/, "\\1\n<value>file://#{testpath}/hbase</value>")
       s.gsub!(/(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>")
       s.gsub!(/(hbase.zookeeper.property.clientPort.*)\n.*/, "\\1\n<value>#{port}</value>")
+
+      # Interface name is lo on Linux, not lo0.
+      s.gsub!("lo0", "lo") unless OS.mac?
     end
 
     ENV["HBASE_LOG_DIR"]  = testpath/"logs"
