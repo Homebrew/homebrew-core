@@ -1,10 +1,9 @@
 class Unpaper < Formula
   desc "Post-processing for scanned/photocopied books"
   homepage "https://www.flameeyes.com/projects/unpaper"
-  url "https://www.flameeyes.com/files/unpaper-6.1.tar.xz"
-  sha256 "237c84f5da544b3f7709827f9f12c37c346cdf029b1128fb4633f9bafa5cb930"
+  url "https://www.flameeyes.com/files/unpaper-7.0.0.tar.xz"
+  sha256 "2575fbbf26c22719d1cb882b59602c9900c7f747118ac130883f63419be46a80"
   license "GPL-2.0-or-later"
-  revision 8
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "15a1aa7548aed02a7f8c82e541386b9122b2d74e628f0e123c3381c1690b11da"
@@ -22,7 +21,7 @@ class Unpaper < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
 
   uses_from_macos "libxslt"
 
