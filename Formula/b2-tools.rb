@@ -3,8 +3,8 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://files.pythonhosted.org/packages/5f/95/a9e540e7e4e525c4d429c86120b04683702a9a47dfaf5142d5e0999f3e60/b2-3.2.1.tar.gz"
-  sha256 "351bf1c26b6147edce4245d09fc0b608b10d3665cf4358bd3ebdb40318b6e562"
+  url "https://files.pythonhosted.org/packages/fc/5f/e9f217e03a260dff316c90131ba1e5f79cac298c5c41ec92473cd319ee23/b2-3.3.0.tar.gz"
+  sha256 "edf6eae5d2f3e073d1586c8e64271bef1016485c6fd61159521f07b8c6df9c50"
   license "MIT"
 
   bottle do
@@ -27,8 +27,8 @@ class B2Tools < Formula
   end
 
   resource "b2sdk" do
-    url "https://files.pythonhosted.org/packages/b7/bc/f93e2636fd0e262f403da0431c20ffcf80fc43c20ac69f15f6cb895504e8/b2sdk-1.14.1.tar.gz"
-    sha256 "7d839eca12a6f66453eb535c41569714a7910bc012f657c864c3bfb3a88569e8"
+    url "https://files.pythonhosted.org/packages/0f/b3/b11a8d578a2e3f4e278a7803e63a26efca6a8d59e7d790733d8a8a9f9309/b2sdk-1.15.0.tar.gz"
+    sha256 "398e6198cd405bc819639bb79357b0a09ff867f354d366420874fc68471f3a64"
   end
 
   resource "certifi" do
@@ -77,13 +77,13 @@ class B2Tools < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
-    sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
+    url "https://files.pythonhosted.org/packages/98/2a/838de32e09bd511cf69fe4ae13ffc748ac143449bfc24bb3fd172d53a84f/tqdm-4.64.0.tar.gz"
+    sha256 "40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   def install
