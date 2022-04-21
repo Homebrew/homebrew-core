@@ -3,8 +3,8 @@ class West < Formula
 
   desc "Zephyr meta-tool"
   homepage "https://github.com/zephyrproject-rtos/west"
-  url "https://files.pythonhosted.org/packages/0a/4a/ffdeea989c54f855ca5e7e41d4dcf30108ff0d329de6271f6d2b38389b3f/west-0.13.0.tar.gz"
-  sha256 "8e53a678833a35f818ca48e182cecaa6701714c6d3fe5a5b4ff6c1689d82198e"
+  url "https://files.pythonhosted.org/packages/f4/6e/abf9f0bbfc9803b988ed2a98143480ba121cb5c55e799fab829c64fdff9f/west-0.13.1.tar.gz"
+  sha256 "07a07bb2167c14ce69c97cd792726ff66c2bf8446ae24884cd17f98cb4c289c3"
   license "Apache-2.0"
   head "https://github.com/zephyrproject-rtos/west.git", branch: "main"
 
@@ -41,8 +41,8 @@ class West < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
-    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
+    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
+    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
   end
 
   resource "python-dateutil" do
