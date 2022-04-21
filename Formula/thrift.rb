@@ -46,15 +46,24 @@ class Thrift < Formula
       --prefix=#{prefix}
       --libdir=#{lib}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
-      --without-erlang
-      --without-haskell
       --without-java
-      --without-perl
-      --without-php
-      --without-php_extension
+      --without-kotlin
       --without-python
       --without-py3
       --without-ruby
+      --without-haxe
+      --without-netstd
+      --without-perl
+      --without-php
+      --without-php_extension
+      --without-dart
+      --without-erlang
+      --without-go
+      --without-d
+      --without-nodejs
+      --without-nodets
+      --without-lua
+      --without-rs
       --without-swift
     ]
 
