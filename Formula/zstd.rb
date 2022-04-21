@@ -20,13 +20,12 @@ class Zstd < Formula
 
   depends_on "cmake" => :build
 
-  uses_from_macos "zlib"
-
   def install
     # Legacy support is the default after
     # https://github.com/facebook/zstd/commit/db104f6e839cbef94df4df8268b5fecb58471274
     # Set it to `ON` to be explicit about the configuration.
     system "cmake", "-S", "build/cmake", "-B", "builddir",
+                    "-DZSTD_PROGRAMS_LINK_SHARED=ON", # link `zstd` to `libzstd`
                     "-DZSTD_BUILD_CONTRIB=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DZSTD_LEGACY_SUPPORT=ON",
