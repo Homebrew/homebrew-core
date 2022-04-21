@@ -31,17 +31,14 @@ class Benthos < Formula
       logger:
         level: ERROR
       input:
-        type: file
         file:
-          path: ./sample.txt
+          paths: [ ./sample.txt ]
       pipeline:
         threads: 1
         processors:
-         - type: decode
-           decode:
-             scheme: base64
+         - bloblang: 'root = content().decode("base64")'
       output:
-        type: stdout
+        stdout: {}
     EOS
     output = shell_output("#{bin}/benthos -c test_pipeline.yaml")
     assert_match "Benthos rocks!", output.strip
