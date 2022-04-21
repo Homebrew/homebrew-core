@@ -20,6 +20,8 @@ class Daemonlogger < Formula
 
   depends_on "libdnet"
 
+  uses_from_macos "libpcap"
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
