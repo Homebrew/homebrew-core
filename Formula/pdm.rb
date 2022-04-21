@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/8c/88/ff2e3147960796048ea204d58ef37b7dbf7028c0d93830d018f22e252a73/pdm-1.14.0.tar.gz"
-  sha256 "6546dcb8846eb52a075b97a00a9c0229c6b62190a042c44077bdae783cc6c922"
+  url "https://files.pythonhosted.org/packages/61/22/814213bc9a757f664a30c718ff2b238c3835499a04c229df764eb1aefd69/pdm-1.14.1.tar.gz"
+  sha256 "170b3c1a9541bb53f91fff7b25c54afae796464ccb58caa8a0b9ff37646120dd"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -31,8 +31,8 @@ class Pdm < Formula
   end
 
   resource "findpython" do
-    url "https://files.pythonhosted.org/packages/96/d4/1ca75916cfe1647d0f3b99e886e6337bce92c9ed5bed6c5df56e898a9e0a/findpython-0.1.5.tar.gz"
-    sha256 "0234e64ca2215a1977f4ed7c4b65d1571783888cc2a4a1f6a9d8e463687e8bc3"
+    url "https://files.pythonhosted.org/packages/a6/10/2235c5e4f64f70c05b60d5b7c3a2139e5effcdeb7831e980464e93f03397/findpython-0.1.6.tar.gz"
+    sha256 "9fd6185cdcb96baa7109308447efb493b2c7f1a8f569e128af14d726b2a69e18"
   end
 
   resource "installer" do
@@ -56,13 +56,13 @@ class Pdm < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/33/66/61da40aa546141b0d70b37fe6bb4ef1200b4b4cb98849f131b58faa9a5d2/platformdirs-2.5.1.tar.gz"
-    sha256 "7535e70dfa32e84d4b34996ea99c5e432fa29a708d0f4e394bbcb2a8faa4f16d"
+    url "https://files.pythonhosted.org/packages/ff/7b/3613df51e6afbf2306fc2465671c03390229b55e3ef3ab9dd3f846a53be6/platformdirs-2.5.2.tar.gz"
+    sha256 "58c8abb07dcb441e6ee4b11d8df0ac856038f944ab98b7be6b27b2a3c7feef19"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
-    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
+    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
+    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
   end
 
   resource "python-dotenv" do
