@@ -55,7 +55,7 @@ class Httpyac < Formula
     # for httpbin call
     assert_match "HTTP/1.1 200  - OK", output
     # for mqtt calls
-    assert_match "2 requests tested (2 succeeded, 0 failed)", output
+    assert_match "2 requests processed (2 succeeded, 0 failed)", output
 
     assert_match version.to_s, shell_output("#{bin}/httpyac --version")
   end
