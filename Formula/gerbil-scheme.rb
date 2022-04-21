@@ -24,6 +24,9 @@ class GerbilScheme < Formula
   depends_on "lmdb"
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "sqlite"
+
   def install
     cd "src" do
       ENV.append_path "PATH", "#{Formula["gambit-scheme"].opt_prefix}/current/bin"
