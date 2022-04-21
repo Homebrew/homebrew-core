@@ -89,33 +89,7 @@ class Lsyncd < Formula
     end
   end
 
-  # Fix issues with 10.15+ volume layout.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/lsyncd/lsyncd/commit/7bb8715bfd425621a57068e39fac37bac3456318.patch?full_index=1"
-    sha256 "578278ca7a1f2e23a53da207daeb58bc946e2fe03751b8e2990af008f580c3da"
-  end
-
-  # Fix finding of unversioned Lua.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/lsyncd/lsyncd/commit/0af99d8d5ba35118e8799684a2d4a8ea4b0c6957.patch?full_index=1"
-    sha256 "a4f9eba3246c611febec68a0599935fa5ec0e4ad16a165ae19cd634afea45523"
-  end
-
-  # Fix compile with Lua 5.4.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/lsyncd/lsyncd/commit/a609f34971955450c90db246e992c511cc933d5e.patch?full_index=1"
-    sha256 "69d32ae25704523e11c0774983f43bdadf1d7d22bb693eb18b62523bc716c9c4"
-  end
-
   def install
-    # Fix manpage install location.
-    # https://github.com/lsyncd/lsyncd/commit/a410ddebb88bdc346476e80b3e50f5d2e35b4e41
-    # Remove with the next release.
-    inreplace "CMakeLists.txt", "DESTINATION man", "DESTINATION share/man/man1 COMPONENT man"
-
     args = []
     if OS.mac?
       resource("xnu").stage buildpath/"xnu"
