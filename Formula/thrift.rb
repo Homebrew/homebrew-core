@@ -36,6 +36,7 @@ class Thrift < Formula
   depends_on "bison" => :build
   depends_on "boost" => [:build, :test]
   depends_on "openssl@1.1"
+  uses_from_macos "zlib"
 
   def install
     system "./bootstrap.sh" unless build.stable?
