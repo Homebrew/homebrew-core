@@ -23,6 +23,12 @@ class Anttweakbar < Formula
     sha256 cellar: :any, yosemite:       "a2e29104a5ef51621faaebd72ccc39bd5fe7bd6e977af74a358c5cc83c65c2c2"
   end
 
+  on_linux do
+    depends_on "libxcursor"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   # See:
   # https://sourceforge.net/p/anttweakbar/code/ci/5a076d13f143175a6bda3c668e29a33406479339/tree/src/LoadOGLCore.h?diff=5528b167ed12395a60949d7c643262b6668f15d5&diformat=regular
   # https://sourceforge.net/p/anttweakbar/tickets/14/
@@ -41,8 +47,9 @@ class Anttweakbar < Formula
       ENV.delete("HOMEBREW_SDKROOT")
     end
 
-    system "make", "-C", "src", "-f", "Makefile.osx"
-    lib.install "lib/libAntTweakBar.dylib", "lib/libAntTweakBar.a"
+    makefile = OS.mac? ? "Makefile.osx" : "Makefile"
+    system "make", "-C", "src", "-f", makefile
+    lib.install shared_library("lib/libAntTweakBar"), "lib/libAntTweakBar.a"
     include.install "include/AntTweakBar.h"
   end
 
@@ -54,7 +61,7 @@ class Anttweakbar < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-anttweakbar", "-o", "test"
+    system ENV.cc, "test.cpp", "-L#{lib}", "-lAntTweakBar", "-o", "test"
     system "./test"
   end
 end
