@@ -2,7 +2,7 @@ class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   stable do
