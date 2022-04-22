@@ -66,14 +66,16 @@ class Cataclysm < Formula
     user_config_dir = testpath/"Library/Application Support/Cataclysm/"
     user_config_dir.mkpath
 
-    # run cataclysm for 7 seconds
+    # run cataclysm for 30 seconds
     pid = fork do
       exec bin/"cataclysm"
     end
-    sleep 30
-    assert_predicate user_config_dir/"config",
-                     :exist?, "User config directory should exist"
-  ensure
-    Process.kill("TERM", pid)
+    begin
+      sleep 30
+      assert_predicate user_config_dir/"config",
+                       :exist?, "User config directory should exist"
+    ensure
+      Process.kill("TERM", pid)
+    end
   end
 end
