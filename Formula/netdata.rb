@@ -86,11 +86,6 @@ class Netdata < Formula
   end
 
   def post_install
-    config = etc/"netdata/netdata.conf"
-    inreplace config do |s|
-      s.gsub!(/web files owner = .*/, "web files owner = #{ENV["USER"]}")
-      s.gsub!(/web files group = .*/, "web files group = #{Etc.getgrgid(prefix.stat.gid).name}")
-    end
     (var/"cache/netdata/unittest-dbengine/dbengine").mkpath
     (var/"lib/netdata/registry").mkpath
     (var/"log/netdata").mkpath
