@@ -45,6 +45,6 @@ class Dagger < Formula
     assert_predicate testpath/"cue.mod/module.cue", :exist?
 
     output = shell_output("#{bin}/dagger do test 2>&1", 1)
-    assert_match(/(denied while trying to|Cannot) connect to the Docker daemon/, output)
+    assert_match(/failed to load plan: no CUE files in /, output)
   end
 end
