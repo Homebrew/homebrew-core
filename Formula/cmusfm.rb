@@ -17,6 +17,8 @@ class Cmusfm < Formula
   depends_on "pkg-config" => :build
   depends_on "libfaketime" => :test
 
+  uses_from_macos "curl"
+
   def install
     system "autoreconf", "--install"
     mkdir "build" do
@@ -47,8 +49,12 @@ class Cmusfm < Formula
     begin
       server = fork do
         faketime_conf.write "+0"
-        ENV["DYLD_INSERT_LIBRARIES"] = Formula["libfaketime"].lib/"faketime"/"libfaketime.1.dylib"
-        ENV["DYLD_FORCE_FLAT_NAMESPACE"] = "1"
+        if OS.mac?
+          ENV["DYLD_INSERT_LIBRARIES"] = Formula["libfaketime"].lib/"faketime"/"libfaketime.1.dylib"
+          ENV["DYLD_FORCE_FLAT_NAMESPACE"] = "1"
+        else
+          ENV["LD_PRELOAD"] = Formula["libfaketime"].lib/"faketime"/"libfaketime.so.1"
+        end
         ENV["FAKETIME_NO_CACHE"] = "1"
         exec bin/"cmusfm", "server"
       end
