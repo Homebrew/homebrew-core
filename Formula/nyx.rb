@@ -28,6 +28,6 @@ class Nyx < Formula
   end
 
   test do
-    assert_match "Errno 61", shell_output("#{bin}/nyx -i 127.0.0.1:9000", 1)
+    assert_match "Connection refused", shell_output("#{bin}/nyx -i 127.0.0.1:#{free_port}", 1)
   end
 end
