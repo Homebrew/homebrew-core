@@ -18,6 +18,8 @@ class GitTracker < Formula
     sha256 cellar: :any_skip_relocation, all:           "d010189ba8fe4ce89198ee964ce6d86d2ac95e63d2ef199847379e7a26d79d32"
   end
 
+  uses_from_macos "ruby"
+
   def install
     system "rake", "standalone:install", "prefix=#{prefix}"
   end
