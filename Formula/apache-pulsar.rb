@@ -63,6 +63,8 @@ class ApachePulsar < Formula
   end
 
   test do
+    ENV["PULSAR_GC_LOG"] = "-Xlog:gc*:#{testpath}/pulsar_gc_%p.log:time,uptime:filecount=10,filesize=20M"
+    ENV["PULSAR_LOG_DIR"] = testpath
     fork do
       exec bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", " --bookkeeper-dir", "#{testpath}/bk"
     end
