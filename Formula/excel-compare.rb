@@ -17,7 +17,7 @@ class ExcelCompare < Formula
   end
 
   def install
-    libexec.install Dir["ExcelCompare-0.7.0/lib/*"]
+    libexec.install Dir["lib/*"]
 
     (bin/"excel_cmp").write <<~EOS
       #!/bin/bash
