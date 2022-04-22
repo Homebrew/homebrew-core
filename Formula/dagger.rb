@@ -42,6 +42,7 @@ class Dagger < Formula
     assert_match "v#{version}", shell_output("#{bin}/dagger version")
 
     system bin/"dagger", "project", "init", "--template=hello"
+    system bin/"dagger", "project", "update"
     assert_predicate testpath/"cue.mod/module.cue", :exist?
 
     output = shell_output("#{bin}/dagger do hello 2>&1", 1)
