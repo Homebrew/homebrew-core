@@ -17,7 +17,20 @@ class Ne < Formula
 
   depends_on "texinfo" => :build
 
+  uses_from_macos "ncurses"
+
+  on_linux do
+    # The version of `env` in CI is too old, so we need to use brewed coreutils.
+    depends_on "coreutils" => :build
+  end
+
   def install
+    # Use newer env on Linux that supports -S option.
+    unless OS.mac?
+      inreplace "version.pl",
+                "/usr/bin/env",
+                Formula["coreutils"].libexec/"gnubin/env"
+    end
     ENV.deparallelize
     cd "src" do
       system "make"
@@ -26,6 +39,8 @@ class Ne < Formula
   end
 
   test do
+    require "pty"
+
     ENV["TERM"] = "xterm"
     document = testpath/"test.txt"
     macros = testpath/"macros"
@@ -38,7 +53,10 @@ class Ne < Formula
       InsertLine
       Exit
     EOS
-    system "script", "-q", "/dev/null", bin/"ne", "--macro", macros, document
+    PTY.spawn(bin/"ne", "--macro", macros, document) do |_r, _w, pid|
+      sleep 1
+      Process.kill "KILL", pid
+    end
     assert_equal <<~EOS, document.read
       This is a test document.
       line 2
