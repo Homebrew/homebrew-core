@@ -14,17 +14,20 @@ class Libseccomp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "cb9632f847a27aa62f7e4ce9ec786550ebf2b45d1b9e909ffe74fcb888fa705d"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://github.com/seccomp/libseccomp.git", branch: "main"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "gperf" => :build
-  depends_on "libtool" => :build
   depends_on :linux
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./autogen.sh" if build.head?
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
