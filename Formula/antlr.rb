@@ -1,12 +1,12 @@
 class Antlr < Formula
   desc "ANother Tool for Language Recognition"
   homepage "https://www.antlr.org/"
-  url "https://www.antlr.org/download/antlr-4.9.3-complete.jar"
-  sha256 "afcd40946d3de4d81e28d7c88d467289e0587285d27adb172aecc5494a17df36"
+  url "https://www.antlr.org/download/antlr-4.10.1-complete.jar"
+  sha256 "41949d41f20d31d5b8277187735dd755108df52b38db6c865108d3382040f918"
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://www.antlr.org/download/"
+    url "https://www.antlr.org/download.html"
     regex(/href=.*?antlr[._-]v?(\d+(?:\.\d+)+)-complete\.jar/i)
   end
 
