@@ -31,7 +31,7 @@ class Cataclysm < Formula
   depends_on "sdl2_ttf"
 
   def install
-    os = OS.mac? ? "osx" : "linux"
+    os = OS.mac? ? "osx" : OS.kernel_name.downcase
     args = %W[
       NATIVE=#{os}
       RELEASE=1
