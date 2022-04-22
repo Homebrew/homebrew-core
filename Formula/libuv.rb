@@ -4,6 +4,7 @@ class Libuv < Formula
   url "https://github.com/libuv/libuv/archive/v1.44.1.tar.gz"
   sha256 "e91614e6dc2dd0bfdd140ceace49438882206b7a6fb00b8750914e67a9ed6d6b"
   license "MIT"
+  revision 1
   head "https://github.com/libuv/libuv.git", branch: "v1.x"
 
   livecheck do
@@ -25,6 +26,13 @@ class Libuv < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
+
+  # Fix posix_spawnp bug on macOS. https://github.com/Homebrew/homebrew-core/issues/99688
+  # Remove at next release.
+  patch do
+    url "https://github.com/libuv/libuv/commit/7c9b3938df9cc1eb9e1efec249a171c31b1a9a3a.patch?full_index=1"
+    sha256 "5fb73337d841504ad514709146ba6715f6a6f91e69a9b07b48dee4e9b6617bdc"
+  end
 
   def install
     # This isn't yet handled by the make install process sadly.
