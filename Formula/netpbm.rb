@@ -6,6 +6,7 @@ class Netpbm < Formula
   url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4311"
   version "10.86.32"
   license "GPL-3.0-or-later"
+  revision 1
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
@@ -46,6 +47,7 @@ class Netpbm < Formula
       s.change_make_var! "ZLIB", "-lz"
       s.change_make_var! "JASPERLIB", "-ljasper"
       s.change_make_var! "JASPERHDR_DIR", "#{Formula["jasper"].opt_include}/jasper"
+      s.gsub! "/usr/local/netpbm/rgb.txt", "#{prefix}/misc/rgb.txt"
 
       if OS.mac?
         s.change_make_var! "CFLAGS_SHLIB", "-fno-common"
@@ -79,5 +81,32 @@ class Netpbm < Formula
     (testpath/"test.pam").write fwrite
     system "#{bin}/pamdice", "test.pam", "-outstem", testpath/"testing"
     assert_predicate testpath/"testing_0_0.", :exist?
+    (testpath/"test.xpm").write <<~EOS
+      /* XPM */
+      static char * favicon_xpm[] = {
+      "16 16 4 1",
+      " 	c white",
+      ".	c blue",
+      "X	c black",
+      "o	c red",
+      "                ",
+      "                ",
+      "                ",
+      "                ",
+      "  ....    ....  ",
+      " .    .  .    . ",
+      ".  ..  ..  ..  .",
+      "  .  . .. .  .  ",
+      " .   XXXXXX   . ",
+      " .   XXXXXX   . ",
+      "oooooooooooooooo",
+      "oooooooooooooooo",
+      "oooooooooooooooo",
+      "oooooooooooooooo",
+      "XXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXX"};
+    EOS
+    ppmout = shell_output("#{bin}/xpmtoppm test.xpm")
+    refute_predicate ppmout, :empty?
   end
 end
