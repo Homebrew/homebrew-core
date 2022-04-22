@@ -18,6 +18,7 @@ class Lsyncd < Formula
   depends_on "lua"
 
   on_macos do
+    # From https://opensource.apple.com/releases/
     xnu_headers = {
       "10.10"   => ["xnu-2782.1.97.tar.gz",       "612a0eb12d2b2fad3b2df33224abd1c65b89f1c95cd1cea6853694840d48d322"],
       "10.10.1" => ["xnu-2782.1.97.tar.gz",       "612a0eb12d2b2fad3b2df33224abd1c65b89f1c95cd1cea6853694840d48d322"],
@@ -90,7 +91,7 @@ class Lsyncd < Formula
   end
 
   def install
-    args = []
+    args = ["-DCMAKE_INSTALL_MANDIR=#{man}"]
     if OS.mac?
       resource("xnu").stage buildpath/"xnu"
       args += %W[-DWITH_INOTIFY=OFF -DWITH_FSEVENTS=ON -DXNU_DIR=#{buildpath}/xnu]
