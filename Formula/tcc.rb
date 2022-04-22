@@ -20,10 +20,17 @@ class Tcc < Formula
   end
 
   def install
+    # Add appropriate include paths for macOS or Linux.
+    os_include_path = if OS.mac?
+      MacOS.sdk_path/"usr/include"
+    else
+      "/usr/include:/usr/include/x86_64-linux-gnu"
+    end
+
     args = %W[
       --prefix=#{prefix}
       --source-path=#{buildpath}
-      --sysincludepaths=/usr/local/include:#{MacOS.sdk_path}/usr/include:{B}/include
+      --sysincludepaths=#{HOMEBREW_PREFIX}/include:#{os_include_path}:{B}/include
       --enable-cross
     ]
     args << "--cc=#{ENV.cc}" if build.head?
