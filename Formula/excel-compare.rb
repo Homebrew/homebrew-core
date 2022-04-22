@@ -12,17 +12,17 @@ class ExcelCompare < Formula
   depends_on "openjdk"
 
   resource "sample_workbook" do
-    url "https://github.com/na-ka-na/ExcelCompare/raw/0.6.1/test/resources/ss1.xlsx"
+    url "https://github.com/na-ka-na/ExcelCompare/raw/0.7.0/src/test/resources/ss1.xlsx"
     sha256 "f362153aea24092e45a3d306a16a49e4faa19939f83cdcb703a215fe48cc196a"
   end
 
   def install
-    libexec.install Dir["bin/dist/*"]
+    libexec.install Dir["ExcelCompare-0.7.0/lib/*"]
 
     (bin/"excel_cmp").write <<~EOS
       #!/bin/bash
       export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-      exec "${JAVA_HOME}/bin/java" -ea -Xmx512m -cp "#{libexec}/*" com.ka.spreadsheet.diff.SpreadSheetDiffer "$@"
+      exec "${JAVA_HOME}/bin/java" -ea -cp "#{libexec}/*" com.ka.spreadsheet.diff.SpreadSheetDiffer "$@"
     EOS
   end
 
