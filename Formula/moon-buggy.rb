@@ -24,6 +24,8 @@ class MoonBuggy < Formula
     depends_on "automake" => :build
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
