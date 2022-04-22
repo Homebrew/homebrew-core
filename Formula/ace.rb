@@ -20,8 +20,9 @@ class Ace < Formula
   end
 
   def install
-    ln_sf "config-macosx.h", "ace/config.h"
-    ln_sf "platform_macosx.GNU", "include/makeinclude/platform_macros.GNU"
+    os = OS.mac? ? "macosx" : "linux"
+    ln_sf "config-#{os}.h", "ace/config.h"
+    ln_sf "platform_#{os}.GNU", "include/makeinclude/platform_macros.GNU"
 
     # Set up the environment the way ACE expects during build.
     ENV.cxx11
