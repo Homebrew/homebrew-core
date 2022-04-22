@@ -25,6 +25,10 @@ class NagiosPlugins < Formula
   depends_on "automake" => :build
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "bind"
+  end
+
   conflicts_with "monitoring-plugins", because: "both install their plugins to the same folder"
 
   def install
