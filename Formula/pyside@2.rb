@@ -16,10 +16,12 @@ class PysideAT2 < Formula
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "ninja" => :build
   depends_on "llvm"
   depends_on "python@3.10"
   depends_on "qt@5"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   fails_with gcc: "5"
 
@@ -30,28 +32,24 @@ class PysideAT2 < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
-
     args = std_cmake_args + %W[
       -DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}
-      -GNinja
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python#{xy}
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3
       -DCMAKE_INSTALL_RPATH=#{lib}
       -DFORCE_LIMITED_API=yes
     ]
 
-    mkdir "build" do
-      system "cmake", *args, ".."
-      system "ninja", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
-    ENV.append_path "PYTHONPATH", "#{lib}/python#{xy}/site-packages"
+    python = Formula["python@3.10"].opt_bin/"python3"
+    ENV.append_path "PYTHONPATH", prefix/Language::Python.site_packages(python)
 
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import PySide2"
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import shiboken2"
+    system python, "-c", "import PySide2"
+    system python, "-c", "import shiboken2"
 
     modules = %w[
       Core
@@ -68,10 +66,10 @@ class PysideAT2 < Formula
     # Qt web engine is not supported on Apple Silicon.
     modules << "WebEngineWidgets" unless Hardware::CPU.arm?
 
-    modules.each { |mod| system Formula["python@3.10"].opt_bin/"python3", "-c", "import PySide2.Qt#{mod}" }
+    modules.each { |mod| system python, "-c", "import PySide2.Qt#{mod}" }
 
-    pyincludes = shell_output("#{Formula["python@3.10"].opt_bin}/python3-config --includes").chomp.split
-    pylib = shell_output("#{Formula["python@3.10"].opt_bin}/python3-config --ldflags --embed").chomp.split
+    pyincludes = shell_output("#{python}-config --includes").chomp.split
+    pylib = shell_output("#{python}-config --ldflags --embed").chomp.split
 
     (testpath/"test.cpp").write <<~EOS
       #include <shiboken.h>
