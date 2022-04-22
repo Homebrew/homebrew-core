@@ -23,8 +23,17 @@ class Chuck < Formula
 
   depends_on xcode: :build
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "pulseaudio"
+  end
+
   def install
-    system "make", "-C", "src", "osx"
+    os = OS.mac? ? "osx" : "linux-pulse"
+    system "make", "-C", "src", os
     bin.install "src/chuck"
     pkgshare.install "examples"
   end
