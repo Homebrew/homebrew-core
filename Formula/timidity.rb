@@ -36,11 +36,19 @@ class Timidity < Formula
   end
 
   def install
+    audio_options = %w[
+      vorbis
+      flac
+      speex
+      ao
+    ]
+    audio_options << "darwin" if OS.mac?
+
     system "./autogen.sh" if Hardware::CPU.arm?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--enable-audio=darwin,vorbis,flac,speex,ao"
+                          "--enable-audio=#{audio_options.join(",")}"
     system "make", "install"
 
     # Freepats instrument patches from https://freepats.zenvoid.org/
