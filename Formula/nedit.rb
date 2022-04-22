@@ -25,8 +25,11 @@ class Nedit < Formula
   depends_on "libxt"
   depends_on "openmotif"
 
+  uses_from_macos "bison" => :build
+
   def install
-    system "make", "macosx", "MOTIFLINK='-lXm'"
+    os = OS.mac? ? "macosx" : OS.kernel_name.downcase
+    system "make", os, "MOTIFLINK='-lXm'"
     system "make", "-C", "doc", "man", "doc"
 
     bin.install "source/nedit"
