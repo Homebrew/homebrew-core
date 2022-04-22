@@ -22,6 +22,9 @@ class Coin3d < Formula
         url "https://github.com/coin3d/pivy/commit/4b919a3f6b9f477d0e95a2fd2b6a149a55eb9792.patch?full_index=1"
         sha256 "41107612702d9eec17d225d52f4b8b26a84d95492e418b265dc4c40284d595a3"
       end
+
+      # Fix segmentation fault on Apple Silicon
+      patch :DATA
     end
   end
 
@@ -104,3 +107,18 @@ class Coin3d < Formula
     EOS
   end
 end
+
+__END__
+diff --git a/interfaces/pivy_common_typemaps.i b/interfaces/pivy_common_typemaps.i
+index 27e26a6..73162c0 100644
+--- a/interfaces/pivy_common_typemaps.i
++++ b/interfaces/pivy_common_typemaps.i
+@@ -76,7 +76,7 @@ SWIGEXPORT PyObject *
+ cast(PyObject * self, PyObject * args)
+ {
+   char * type_name;
+-  int type_len;
++  Py_ssize_t type_len;
+   PyObject * obj = 0;
+ 
+   if (!PyArg_ParseTuple(args, "Os#:cast", &obj, &type_name, &type_len)) {
