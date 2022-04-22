@@ -20,6 +20,10 @@ class Skktools < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
 
+  on_linux do
+    depends_on "berkeley-db"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-skkdic-expr2"
