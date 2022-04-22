@@ -1,8 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.20.0/protobuf-all-3.20.0.tar.gz"
-  sha256 "a1c076e83f45b64b9e30ae89a990ba4aae9f7dc18aca90f7690f458dc5ae0681"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.20.1/protobuf-all-3.20.1.tar.gz"
+  sha256 "3a400163728db996e8e8d21c7dfb3c239df54d0813270f086c4030addeae2fad"
   license "BSD-3-Clause"
 
   livecheck do
@@ -32,12 +32,6 @@ class Protobuf < Formula
   depends_on "python@3.9" => [:build, :test]
 
   uses_from_macos "zlib"
-
-  # Patch for versioning issue - remove with 3.20.1
-  patch do
-    url "https://github.com/protocolbuffers/protobuf/commit/25045e3f69933dfc5582487eae2500bc5dea1be6.patch?full_index=1"
-    sha256 "81cdaf2ffea585ee5419659f051ef5289afb6958fb9c2da47b56d7fdc2cc8fb3"
-  end
 
   def install
     # Don't build in debug mode. See:
