@@ -23,6 +23,10 @@ class Aubio < Formula
   depends_on "numpy"
   depends_on "python@3.10"
 
+  on_linux do
+    depends_on "libsndfile"
+  end
+
   resource "aiff" do
     url "http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Samples/CCRMA/wood24.aiff"
     sha256 "a87279e3a101162f6ab0d4f70df78594d613e16b80e6257cf19c5fc957a375f9"
