@@ -41,10 +41,10 @@ class Dagger < Formula
   test do
     assert_match "v#{version}", shell_output("#{bin}/dagger version")
 
-    system bin/"dagger", "project", "init"
+    system bin/"dagger", "project", "init", "--template=hello"
     assert_predicate testpath/"cue.mod/module.cue", :exist?
 
-    output = shell_output("#{bin}/dagger do test 2>&1", 1)
+    output = shell_output("#{bin}/dagger do hello 2>&1", 1)
     assert_match(/(denied while trying to|Cannot) connect to the Docker daemon/, output)
   end
 end
