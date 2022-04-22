@@ -5,6 +5,7 @@ class Dotnet < Formula
       tag:      "v6.0.104",
       revision: "915d644e451858f4f7c6e1416ea202695ddd54fb"
   license "MIT"
+  revision 1
 
   # https://github.com/dotnet/source-build/#support
   livecheck do
@@ -74,8 +75,8 @@ class Dotnet < Formula
   # Fixes race condition in MSBuild.
   # Remove with 6.0.3xx or later.
   resource "homebrew-msbuild-patch" do
-    url "https://github.com/dotnet/msbuild/commit/64edb33a278d1334bd6efc35fecd23bd3af4ed48.patch?full_idex=1"
-    sha256 "8e0ca4583e1ccae4be70aea860c3d2645fe591628779ef003e609e9c9592b9cd"
+    url "https://github.com/dotnet/msbuild/commit/64edb33a278d1334bd6efc35fecd23bd3af4ed48.patch?full_index=1"
+    sha256 "5870bcdd12164668472094a2f9f1b73a4124e72ac99bbbe43028370be3648ccd"
   end
 
   # Fix build failure on macOS due to missing ILAsm/ILDAsm
