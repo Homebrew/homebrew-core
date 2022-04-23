@@ -34,14 +34,16 @@ class Pypy3 < Formula
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
+  # setuptools >= 60 required sysconfig patch
+  # See https://github.com/Homebrew/homebrew-core/pull/99892#issuecomment-1108492321
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/1e/5c/3d7b3d91a86d71faf5038c5d259ed36b5d05b7804648e2c43251d574a6e6/setuptools-58.2.0.tar.gz"
-    sha256 "2c55bdb85d5bb460bd2e3b12052b677879cffcf46c0c688f2e5bf51d36001145"
+    url "https://files.pythonhosted.org/packages/ef/75/2bc7bef4d668f9caa9c6ed3f3187989922765403198243040d08d2a52725/setuptools-59.8.0.tar.gz"
+    sha256 "09980778aa734c3037a47997f28d6db5ab18bdf2af0e49f719bfc53967fd2e82"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/00/5f/d6959d6f25f202e3e68e3a53b815af42d770c829c19382d0acbf2c3e2112/pip-21.3.tar.gz"
-    sha256 "741a61baab1dbce2d8ca415effa48a2b6a964564f81a9f4f1fce4c433346c034"
+    url "https://files.pythonhosted.org/packages/33/c9/e2164122d365d8f823213a53970fa3005eb16218edcfc56ca24cb6deba2b/pip-22.0.4.tar.gz"
+    sha256 "b3a9de2c6ef801e9247d1527a4b16f92f2cc141cd1489f3fffaf6a9e96729764"
   end
 
   # Build fixes:
