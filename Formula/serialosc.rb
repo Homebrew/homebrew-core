@@ -16,14 +16,20 @@ class Serialosc < Formula
     sha256 cellar: :any, mojave:         "5a3de26553f48565604602e830be11e3334663dd839b83890a7545b5024631a2"
   end
 
+  depends_on "python@3.10" => :build
   depends_on "confuse"
   depends_on "liblo"
   depends_on "libmonome"
 
+  on_linux do
+    depends_on "avahi"
+    depends_on "systemd" # for libudev
+  end
+
   def install
-    system "./waf", "configure", "--prefix=#{prefix}"
-    system "./waf", "build"
-    system "./waf", "install"
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf", "build"
+    system "python3", "./waf", "install"
   end
 
   service do
