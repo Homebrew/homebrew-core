@@ -3,6 +3,7 @@ class Libkml < Formula
   homepage "https://github.com/libkml/libkml"
   url "https://github.com/libkml/libkml/archive/refs/tags/1.3.0.tar.gz"
   sha256 "8892439e5570091965aaffe30b08631fdf7ca7f81f6495b4648f0950d7ea7963"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a563610ef8923bbc46478295b172df18acf09807708db7bcc678342f9fc1edcb"
