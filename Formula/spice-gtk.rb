@@ -29,6 +29,7 @@ class SpiceGtk < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+  depends_on "six" => :build
   depends_on "vala" => :build
 
   depends_on "atk"
@@ -54,33 +55,18 @@ class SpiceGtk < Formula
   depends_on "spice-protocol"
   depends_on "usbredir"
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
+    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(buildpath/"venv", "python3")
     venv.pip_install resources
-    ENV.prepend_path "PATH", libexec/"bin"
-
-    # https://gitlab.freedesktop.org/spice/spice-gtk/-/issues/144
-    inreplace "subprojects/spice-common/meson.build", "py_module.find_installation()",
-                                                      "py_module.find_installation('python3')"
-
-    # usb-device-cd.c not compiling, see: https://gitlab.freedesktop.org/spice/spice-gtk/-/issues/107
-    args = std_meson_args + %w[
-      -Dsmartcard=disabled
-      -Dusbredir=disabled
-    ]
+    ENV.prepend_path "PATH", buildpath/"venv/bin"
 
     mkdir "build" do
-      system "meson", *args, ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end
