@@ -3,6 +3,7 @@ class GitCrypt < Formula
   homepage "https://www.agwa.name/projects/git-crypt/"
   url "https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.7.0.tar.gz"
   sha256 "50f100816a636a682404703b6c23a459e4d30248b2886a5cf571b0d52527c7d8"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :homepage
