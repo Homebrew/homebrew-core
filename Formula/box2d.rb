@@ -30,8 +30,8 @@ class Box2d < Formula
   end
 
   test do
-    system ENV.cxx, "-L#{lib}", "-lbox2d", "-std=c++11",
-      pkgshare/"hello_world.cpp", "-o", testpath/"test"
+    system ENV.cxx, pkgshare/"hello_world.cpp", "-L#{lib}", "-lbox2d",
+      "-std=c++11", "-o", testpath/"test"
     assert_match "[doctest] Status: SUCCESS!", shell_output("./test")
   end
 end
