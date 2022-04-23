@@ -15,6 +15,10 @@ class GitRemoteHg < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "1380e5053a25462f27d9be329840b6dda55b08e01b70ed6c581f3c625c7b332d"
   end
 
+  # Requires Python2.
+  # https://github.com/Homebrew/homebrew-core/issues/93940
+  deprecate! date: "2022-04-23", because: :unsupported
+
   depends_on "asciidoc" => :build
   depends_on :macos # Due to Python 2
 
