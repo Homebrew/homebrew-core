@@ -4,6 +4,7 @@ class Saxon < Formula
   url "https://downloads.sourceforge.net/project/saxon/Saxon-HE/11/Java/SaxonHE11-3J.zip"
   version "11.3"
   sha256 "c462e29994e1622d1cdc50514469fd4c9eb13cb7658abe129667b2be8df35fb4"
+  license all_of: ["BSD-3-Clause", "MIT", "MPL-2.0"]
 
   livecheck do
     url :stable
