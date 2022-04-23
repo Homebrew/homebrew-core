@@ -46,10 +46,14 @@ class Exult < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "EXULT_DATADIR=#{pkgshare}/data"
-    system "make", "bundle"
-    pkgshare.install "Exult.app/Contents/Resources/data"
-    prefix.install "Exult.app"
-    bin.write_exec_script "#{prefix}/Exult.app/Contents/MacOS/exult"
+    if OS.mac?
+      system "make", "bundle"
+      pkgshare.install "Exult.app/Contents/Resources/data"
+      prefix.install "Exult.app"
+      bin.write_exec_script "#{prefix}/Exult.app/Contents/MacOS/exult"
+    else
+      system "make", "install"
+    end
   end
 
   def caveats
