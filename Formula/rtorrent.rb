@@ -4,7 +4,7 @@ class Rtorrent < Formula
   url "https://github.com/rakshasa/rtorrent/releases/download/v0.9.8/rtorrent-0.9.8.tar.gz"
   sha256 "9edf0304bf142215d3bc85a0771446b6a72d0ad8218efbe184b41e4c9c7542af"
   license "GPL-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3e9039176b270be8676195b8296e8c4e3cebef932b220508405f7af34d49a229"
