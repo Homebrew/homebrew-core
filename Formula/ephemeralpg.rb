@@ -3,6 +3,7 @@ class Ephemeralpg < Formula
   homepage "https://eradman.com/ephemeralpg/"
   url "https://eradman.com/ephemeralpg/code/ephemeralpg-3.2.tar.gz"
   sha256 "c07df30687191dc632460d96997561d0adfc32b198f3b59b14081783f4a1b95d"
+  license "ISC"
 
   livecheck do
     url "https://eradman.com/ephemeralpg/code/"
