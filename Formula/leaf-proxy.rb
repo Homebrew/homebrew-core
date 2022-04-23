@@ -42,6 +42,6 @@ class LeafProxy < Formula
     EOS
     output = shell_output "#{bin}/leaf -c #{testpath}/config.conf -t SS"
 
-    assert_match "dispatch to outbound SS failed", output
+    assert_match "TCP failed: all attempts failed", output
   end
 end
