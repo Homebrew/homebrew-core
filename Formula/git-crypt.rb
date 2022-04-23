@@ -1,9 +1,8 @@
 class GitCrypt < Formula
   desc "Enable transparent encryption/decryption of files in a git repo"
   homepage "https://www.agwa.name/projects/git-crypt/"
-  url "https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.6.0.tar.gz"
-  sha256 "6d30fcd99442d50f4b3c8d554067ff1d980cdf9f3120ee774131172dba98fd6f"
-  revision 1
+  url "https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.7.0.tar.gz"
+  sha256 "50f100816a636a682404703b6c23a459e4d30248b2886a5cf571b0d52527c7d8"
 
   livecheck do
     url :homepage
