@@ -20,11 +20,11 @@ class Dsocks < Formula
   end
 
   def install
-    system ENV.cc, ENV.cflags, "-shared", "-o", "libdsocks.dylib", "dsocks.c",
+    system ENV.cc, "-fPIC", "-shared", "-o", shared_library("libdsocks"), "dsocks.c",
                    "atomicio.c", "-lresolv"
     inreplace "dsocks.sh", "/usr/local", HOMEBREW_PREFIX
 
-    lib.install "libdsocks.dylib"
+    lib.install shared_library("libdsocks")
     bin.install "dsocks.sh"
   end
 end
