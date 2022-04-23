@@ -1,8 +1,8 @@
 class Hcxtools < Formula
   desc "Utils for conversion of cap/pcap/pcapng WiFi dump files"
   homepage "https://github.com/ZerBea/hcxtools"
-  url "https://github.com/ZerBea/hcxtools/archive/6.2.5.tar.gz"
-  sha256 "7ce5f8263cf9354f01008ba710c6e3cc2dcc861c550bd7a943ca33d29738bec3"
+  url "https://github.com/ZerBea/hcxtools/archive/6.2.6.tar.gz"
+  sha256 "b2dc393d24809b5b85ec41e879a5aa41ffd4c5d15f3b30f6d37c62374d20eeb5"
   license "MIT"
   head "https://github.com/ZerBea/hcxtools.git", branch: "master"
 
