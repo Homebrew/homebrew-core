@@ -19,7 +19,8 @@ class Stone < Formula
   end
 
   def install
-    system "make", "macosx"
+    os = OS.mac? ? "macosx" : OS.kernel_name.downcase
+    system "make", os
     bin.install "stone"
   end
 
