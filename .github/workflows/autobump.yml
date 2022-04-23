@@ -650,7 +650,6 @@ env:
     saml2aws
     sbt
     scala
-    scalapack
     scorecard
     scotch
     scummvm
