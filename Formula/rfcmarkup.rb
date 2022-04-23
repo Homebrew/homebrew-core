@@ -19,6 +19,10 @@ class Rfcmarkup < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "993672e2e414a95a06259ac6960d37ac9cf324093766fbf28adf3579fd450678"
   end
 
+  # Requires Python2.
+  # https://github.com/Homebrew/homebrew-core/issues/93940
+  deprecate! date: "2022-04-23", because: :unsupported
+
   depends_on :macos # Due to Python 2
 
   def install
