@@ -3,6 +3,7 @@ class Jags < Formula
   homepage "https://mcmc-jags.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mcmc-jags/JAGS/4.x/Source/JAGS-4.3.1.tar.gz"
   sha256 "f9258355b5e9eb13bd33c5fa720f0cbebacea7d0a4a42b71b0fb14501ee14229"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
