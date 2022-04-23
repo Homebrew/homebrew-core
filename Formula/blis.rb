@@ -1,29 +1,10 @@
 class Blis < Formula
   desc "BLAS-like Library Instantiation Software Framework"
   homepage "https://github.com/flame/blis"
+  url "https://github.com/flame/blis/archive/0.9.0.tar.gz"
+  sha256 "1135f664be7355427b91025075562805cdc6cc730d3173f83533b2c5dcc2f308"
   license "BSD-3-Clause"
   head "https://github.com/flame/blis.git", branch: "master"
-
-  stable do
-    url "https://github.com/flame/blis/archive/0.8.1.tar.gz"
-    sha256 "729694128719801e82fae7b5f2489ab73e4a467f46271beff09588c9265a697b"
-
-    # Fix non-generic build for Apple ARM and compilation with Clang.
-    # Upstream ref: https://github.com/flame/blis/pull/506
-    # Remove in the next release.
-    patch do
-      url "https://github.com/flame/blis/commit/bf727636632a368f3247dc8ab1d4b6119e9c511a.patch?full_index=1"
-      sha256 "55962e5df20308c08a5b10a2b7186268dfc905127e360af17e271198d2cde687"
-    end
-
-    # Allow using `thunderx2` config on Apple ARM with Clang
-    # Upstream ref: https://github.com/flame/blis/pull/492
-    # Remove in the next release.
-    patch do
-      url "https://github.com/flame/blis/commit/6548cebaf55a1f9bdb8417cc89dd0444d8f9c2e4.patch?full_index=1"
-      sha256 "c7f2ae70662b33f8db0aeb2773467288a9fba03fd26005d71d9ac0b9ff712c60"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "08a927f8360cd8cf29762341a080e86bda1a84098fdd99884136f0a25e10cf2e"
@@ -35,6 +16,8 @@ class Blis < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7726592ecf1b90f66c73ca7be6f18a76ff9a208887e677e291a81036b467a3e9"
   end
 
+  uses_from_macos "python" => :build
+
   on_linux do
     depends_on "gcc" => [:build, :test]
   end
@@ -42,13 +25,18 @@ class Blis < Formula
   fails_with gcc: "5"
 
   def install
-    # Work around for Apple ARM as there isn't an optimized framework config yet
-    # and auto-detection isn't implemented. With patches, we can use existing
-    # `thunderx2` config, which probably performs better than `generic` config.
-    # This should be changed when Apple ARM-specific config is available.
-    # Ref: https://github.com/flame/blis/issues/495
-    # Ref: https://github.com/flame/blis/pull/492#issuecomment-850797713
-    config = Hardware::CPU.arm? ? "thunderx2" : "auto"
+    # https://github.com/flame/blis/blob/master/docs/ConfigurationHowTo.md
+    ENV.runtime_cpu_detection
+    config = if !build.bottle?
+      "auto"
+    elsif OS.mac?
+      # For Apple Silicon, we can optimize using the dedicated "firestorm" config.
+      # For Intel Macs, we build multiple Intel x86_64 to allow runtime optimization.
+      Hardware::CPU.arm? ? "firestorm" : "intel64"
+    else
+      # For x86_64 Linux, we build full "x86_64" family with Intel and AMD processors.
+      Hardware::CPU.arch
+    end
 
     system "./configure", "--prefix=#{prefix}", "--enable-cblas", config
     system "make"
