@@ -3,6 +3,7 @@ class Aoeui < Formula
   homepage "https://code.google.com/archive/p/aoeui/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/aoeui/aoeui-1.6.tgz"
   sha256 "0655c3ca945b75b1204c5f25722ac0a07e89dd44bbf33aca068e918e9ef2a825"
+  license "GPL-2.0-only"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "daa6bd80f0cf479ba65187c2834ce38add2aeb37f93094596dcac9eda5001a68"
