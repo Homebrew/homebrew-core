@@ -23,6 +23,9 @@ class Cproto < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "9f2cdd0ade5c49f112c2e87c5a18c9990805bc8447ad4e0350fafa26b08ac244"
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
