@@ -1,9 +1,9 @@
 class Earthly < Formula
   desc "Build automation tool for the container era"
   homepage "https://earthly.dev/"
-  url "https://github.com/earthly/earthly/archive/v0.5.17.tar.gz"
-  sha256 "1dcc56b419413480fa2e116606cab2c8003483e0b8052443aa7b7da0572ce47f"
-  license "BUSL-1.1"
+  url "https://github.com/earthly/earthly/archive/v0.6.14.tar.gz"
+  sha256 "ffedb6f8a6b2285ab00a6866838121d00bc507f793ce079bcb6a52e993260abc"
+  license "MPL-2.0"
   head "https://github.com/earthly/earthly.git", branch: "main"
 
   bottle do
@@ -14,13 +14,11 @@ class Earthly < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "78f6b33643db61f1944ceaf27d27ad001f8ba7a865b358a040cf1374fd618a96"
   end
 
-  disable! date: "2021-07-15", because: "has an incompatible license"
-
   depends_on "go" => :build
 
   def install
     ldflags = "-X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version} -X main.Version=v#{version} " \
-              "-X main.GitSha=bdeda2542465cb0bc0c8985a905aa2e3579a3f7b "
+              "-X main.GitSha=831d37ee160252d612e6c8cbaf8681e8062f8227 "
     tags = "dfrunmount dfrunsecurity dfsecrets dfssh dfrunnetwork"
     system "go", "build",
         "-tags", tags,
