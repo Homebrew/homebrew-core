@@ -1,8 +1,8 @@
 class GnuGetopt < Formula
   desc "Command-line option parsing utility"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.4.tar.xz"
-  sha256 "634e6916ad913366c3536b6468e7844769549b99a7b2bf80314de78ab5655b83"
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.38/util-linux-2.38.tar.xz"
+  sha256 "6d111cbe4d55b336db2f1fbeffbc65b89908704c01136371d32aa9bec373eb64"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -17,9 +17,18 @@ class GnuGetopt < Formula
   keg_only :provided_by_macos
 
   depends_on "asciidoctor" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   on_linux do
     keg_only "conflicts with util-linux"
+  end
+
+  # address `sys/vfs.h` header file missing issue on macos
+  # remove in next release
+  patch do
+    url "https://github.com/util-linux/util-linux/commit/3671d4a878fb58aa953810ecf9af41809317294f.patch?full_index=1"
+    sha256 "d38c9ae06c387da151492dd5862c58551559dd6d2b1877c74cc1e11754221fe4"
   end
 
   def install
