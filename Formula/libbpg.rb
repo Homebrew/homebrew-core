@@ -3,6 +3,7 @@ class Libbpg < Formula
   homepage "https://bellard.org/bpg/"
   url "https://bellard.org/bpg/libbpg-0.9.8.tar.gz"
   sha256 "c0788e23bdf1a7d36cb4424ccb2fae4c7789ac94949563c4ad0e2569d3bf0095"
+  license "MIT"
 
   livecheck do
     url :homepage
