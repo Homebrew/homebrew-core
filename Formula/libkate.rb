@@ -4,6 +4,7 @@ class Libkate < Formula
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/libkate/libkate-0.4.1.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/libk/libkate/libkate_0.4.1.orig.tar.gz"
   sha256 "c40e81d5866c3d4bf744e76ce0068d8f388f0e25f7e258ce0c8e76d7adc87b68"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
@@ -25,13 +26,17 @@ class Libkate < Formula
   depends_on "libpng"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    # Workaround to disable Python detection. The configure script finds python3;
+    # however, this breaks install as it needs python2 to compile the KateDJ tool.
+    ENV["PYTHON"] = ":"
+
+    system "./configure", *std_configure_args,
                           "--enable-shared",
-                          "--enable-static",
-                          "--prefix=#{prefix}"
+                          "--enable-static"
     system "make", "check"
     system "make", "install"
+
+    (man1/"KateDJ.1").unlink
   end
 
   test do
