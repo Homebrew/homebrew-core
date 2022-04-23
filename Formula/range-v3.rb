@@ -16,6 +16,12 @@ class RangeV3 < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "cmake", ".",
                     "-DRANGE_V3_TESTS=OFF",
@@ -38,8 +44,10 @@ class RangeV3 < Formula
         std::cout << std::endl;
       }
     EOS
-    system ENV.cc, "-std=c++14", "-stdlib=libc++", "-lc++",
-                   "-o", "test", "test.cpp"
+    stdlib_ldflag = OS.mac? ? "-lc++" : "-lstdc++"
+    flags = [stdlib_ldflag]
+    flags << "-stdlib=libc++" if OS.mac?
+    system ENV.cc, "test.cpp", "-std=c++14", *flags, "-o", "test"
     assert_equal "h e l l o \n", shell_output("./test")
   end
 end
