@@ -19,14 +19,7 @@ class LeafProxy < Formula
 
   conflicts_with "leaf", because: "both install a `leaf` binary"
 
-  resource "lwip" do
-    url "https://github.com/eycorsican/lwip-leaf.git",
-        revision: "86632e2747c926a75d32be8bd9af059aa38ae75e"
-  end
-
   def install
-    (buildpath/"leaf/src/proxy/tun/netstack/lwip").install resource("lwip")
-
     cd "leaf-bin" do
       system "cargo", "install", *std_cargo_args
     end
