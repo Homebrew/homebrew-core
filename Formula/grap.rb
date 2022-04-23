@@ -3,6 +3,7 @@ class Grap < Formula
   homepage "https://www.lunabase.org/~faber/Vault/software/grap/"
   url "https://www.lunabase.org/~faber/Vault/software/grap/grap-1.46.tar.gz"
   sha256 "7a8ecefdecfee96699913f2a412da68703911fa640bac3b964a413131f848bb4"
+  license "BSD-2-Clause"
 
   livecheck do
     url :homepage
