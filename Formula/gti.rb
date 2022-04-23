@@ -3,6 +3,7 @@ class Gti < Formula
   homepage "https://r-wos.org/hacks/gti"
   url "https://github.com/rwos/gti/archive/v1.8.0.tar.gz"
   sha256 "65339ee1d52dede5e862b30582b2adf8aff2113cd6b5ece91775e1510b24ffb9"
+  license "MIT"
   head "https://github.com/rwos/gti.git", branch: "master"
 
   bottle do
