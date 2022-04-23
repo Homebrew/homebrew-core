@@ -24,7 +24,6 @@ class TraefikAT1 < Formula
   depends_on "go-bindata" => :build
   depends_on "node@14" => :build
   depends_on "yarn" => :build
-  depends_on :macos # Due to Python 2 for node-sass <= 4
 
   def install
     cd "webui" do
