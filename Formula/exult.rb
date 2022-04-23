@@ -30,12 +30,6 @@ class Exult < Formula
   depends_on "sdl2"
 
   def install
-    # Use ~/Library/... instead of /Library for the games
-    inreplace "files/utils.cc" do |s|
-      s.gsub!(/(gamehome_dir)\("\."\)/, '\1(home_dir)')
-      s.gsub!(/(gamehome_dir) =/, '\1 +=')
-    end
-
     system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
