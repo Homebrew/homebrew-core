@@ -3,6 +3,7 @@ class UrdfdomHeaders < Formula
   homepage "https://wiki.ros.org/urdfdom_headers/"
   url "https://github.com/ros/urdfdom_headers/archive/1.0.5.tar.gz"
   sha256 "76a68657c38e54bb45bddc4bd7d823a3b04edcd08064a56d8e7d46b9912035ac"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9d1960994a18f178a7ff7b5f6a0b479bbd5abcba370fb72b816fd99ff044283c"
