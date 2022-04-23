@@ -19,6 +19,12 @@ class Snobol4 < Formula
     sha256 yosemite:       "6903e1b05a795eae13f2f97fd2f1f4b883b03e1c94ba28e3747b3df98c6a955d"
   end
 
+  uses_from_macos "m4" => :build
+
+  on_linux do
+    depends_on "gnu-time" => :build
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
