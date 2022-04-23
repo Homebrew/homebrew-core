@@ -4,6 +4,7 @@ class Mpi4py < Formula
   url "https://github.com/mpi4py/mpi4py/releases/download/3.1.3/mpi4py-3.1.3.tar.gz"
   sha256 "f1e9fae1079f43eafdd9f817cdb3fd30d709edc093b5d5dada57a461b2db3008"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     rebuild 1
@@ -17,20 +18,21 @@ class Mpi4py < Formula
 
   depends_on "libcython" => :build
   depends_on "open-mpi"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    system "#{Formula["python@3.9"].opt_bin}/python3",
-           *Language::Python.setup_install_args(libexec)
+    system "python3", *Language::Python.setup_install_args(libexec),
+                      "--install-lib=#{libexec/Language::Python.site_packages("python3")}"
 
-    system Formula["python@3.9"].bin/"python3", "setup.py",
-      "build", "--mpicc=mpicc -shared", "--parallel=#{ENV.make_jobs}",
-      "install", "--prefix=#{prefix}",
-      "--single-version-externally-managed", "--record=installed.txt"
+    system "python3", "setup.py",
+                      "build", "--mpicc=mpicc -shared", "--parallel=#{ENV.make_jobs}",
+                      "install", "--prefix=#{prefix}",
+                      "--single-version-externally-managed", "--record=installed.txt",
+                      "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
   end
 
   test do
-    python = Formula["python@3.9"].opt_bin/"python3"
+    python = Formula["python@3.10"].opt_bin/"python3"
 
     system python, "-c", "import mpi4py"
     system python, "-c", "import mpi4py.MPI"
