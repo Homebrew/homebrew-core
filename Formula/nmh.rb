@@ -3,6 +3,7 @@ class Nmh < Formula
   homepage "https://www.nongnu.org/nmh/"
   url "https://download.savannah.gnu.org/releases/nmh/nmh-1.7.1.tar.gz"
   sha256 "f1fb94bbf7d95fcd43277c7cfda55633a047187f57afc6c1bb9321852bd07c11"
+  license "BSD-3-Clause"
   revision 1
 
   livecheck do
