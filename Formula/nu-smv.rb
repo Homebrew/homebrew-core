@@ -22,6 +22,10 @@ class NuSmv < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "64f825eac53c6c16c9b3db4b505d37a6de9f1f3471863b39081b5a98d517fb3e"
   end
 
+  # Requires Python2 to run a build script.
+  # https://github.com/Homebrew/homebrew-core/issues/93940
+  deprecate! date: "2022-04-23", because: :unsupported
+
   depends_on "cmake" => :build
 
   def install
