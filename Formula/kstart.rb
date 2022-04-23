@@ -3,6 +3,7 @@ class Kstart < Formula
   homepage "https://www.eyrie.org/~eagle/software/kstart/"
   url "https://archives.eyrie.org/software/kerberos/kstart-4.3.tar.xz"
   sha256 "7a3388ae79927c6698dc1bf20b29717e6bc34f692e00f12b3369d896f6702060"
+  license "MIT"
 
   livecheck do
     url :homepage
