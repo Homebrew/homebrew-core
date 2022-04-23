@@ -19,6 +19,7 @@ class GnuGetopt < Formula
   depends_on "asciidoctor" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "pkg-config" => :build
 
   on_linux do
     keg_only "conflicts with util-linux"
