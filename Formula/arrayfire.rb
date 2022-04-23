@@ -20,6 +20,12 @@ class Arrayfire < Formula
   depends_on "freeimage"
   depends_on "openblas"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     # Fix for: `ArrayFire couldn't locate any backends.`
     if OS.mac?
