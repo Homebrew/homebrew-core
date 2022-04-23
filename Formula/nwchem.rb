@@ -24,6 +24,8 @@ class Nwchem < Formula
   depends_on "python@3.10"
   depends_on "scalapack"
 
+  uses_from_macos "libxcrypt"
+
   # patches for compatibility with python@3.10
   # https://github.com/nwchemgit/nwchem/issues/271
   patch do
@@ -63,10 +65,11 @@ class Nwchem < Formula
       ENV["BLAS_SIZE"] = "4"
       ENV["SCALAPACK"] = "-L#{Formula["scalapack"].opt_prefix}/lib -lscalapack"
       ENV["USE_64TO32"] = "y"
+      os = OS.mac? ? "MACX64" : "LINUX64"
       system "make", "nwchem_config", "NWCHEM_MODULES=all python"
-      system "make", "NWCHEM_TARGET=MACX64", "USE_MPI=Y"
+      system "make", "NWCHEM_TARGET=#{os}", "USE_MPI=Y"
 
-      bin.install "../bin/MACX64/nwchem"
+      bin.install "../bin/#{os}/nwchem"
       pkgshare.install "basis/libraries"
       pkgshare.install "nwpw/libraryps"
       pkgshare.install Dir["data/*"]
@@ -77,7 +80,7 @@ class Nwchem < Formula
     cp_r pkgshare/"QA", testpath
     cd "QA" do
       ENV["NWCHEM_TOP"] = pkgshare
-      ENV["NWCHEM_TARGET"] = "MACX64"
+      ENV["NWCHEM_TARGET"] = OS.mac? ? "MACX64" : "LINUX64"
       ENV["NWCHEM_EXECUTABLE"] = "#{bin}/nwchem"
       system "./runtests.mpi.unix", "procs", "0", "dft_he2+", "pyqa3", "prop_mep_gcube", "pspw", "tddft_h2o", "tce_n2"
     end
