@@ -28,6 +28,14 @@ class Svg2png < Formula
   depends_on "libsvg-cairo"
 
   def install
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    unless OS.mac?
+      inreplace "src/Makefile.in",
+                "$(LINK) $(svg2png_LDFLAGS) $(svg2png_OBJECTS)",
+                "$(LINK) $(svg2png_OBJECTS) $(svg2png_LDFLAGS)"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
