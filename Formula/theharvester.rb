@@ -6,6 +6,7 @@ class Theharvester < Formula
   url "https://github.com/laramies/theHarvester/archive/4.0.3.tar.gz"
   sha256 "d4f1bb1cb0e3aa124489b5e71f6b9980a5054d48bcae2209b38a7aec1880e670"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
@@ -20,7 +21,7 @@ class Theharvester < Formula
   depends_on "maturin" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libxml2"
