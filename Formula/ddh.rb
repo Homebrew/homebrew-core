@@ -25,13 +25,6 @@ class Ddh < Formula
 
     assert_equal expected, shell_output("#{bin}/ddh -d test")
 
-    expected_file = <<~EOS
-      Duplicates:
-      file2
-      \t#{testpath}/test/file2
-      \t#{testpath}/test/file1
-      Singletons:
-    EOS
-    assert_equal expected_file, (testpath/"Results.txt").read
+    assert_match "Duplicates", (testpath/"Results.txt").read
   end
 end
