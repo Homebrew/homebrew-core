@@ -1,10 +1,19 @@
 class Qbs < Formula
   desc "Build tool for developing projects across multiple platforms"
   homepage "https://wiki.qt.io/Qbs"
-  url "https://download.qt.io/official_releases/qbs/1.22.0/qbs-src-1.22.0.tar.gz"
-  sha256 "ebfd4b4f115f7ad235477ddf74cc7216dfa66b6166372dc0be454691078f9f3e"
   license :cannot_represent
   head "https://code.qt.io/qbs/qbs.git", branch: "master"
+
+  stable do
+    url "https://download.qt.io/official_releases/qbs/1.22.0/qbs-src-1.22.0.tar.gz"
+    sha256 "ebfd4b4f115f7ad235477ddf74cc7216dfa66b6166372dc0be454691078f9f3e"
+
+    # Fix Xcode support for 13.3. Remove in the next release.
+    patch do
+      url "https://code.qt.io/cgit/qbs/qbs.git/patch/?id=d64c7802fef2872aa6a78c06648a0aed45250955"
+      sha256 "cccc3fc3a00ddd71e12ad7f89d4e391c476b537719ba904a3afc42e658df4313"
+    end
+  end
 
   livecheck do
     url "https://download.qt.io/official_releases/qbs/"
