@@ -2,6 +2,7 @@ class Harbour < Formula
   desc "Portable, xBase-compatible programming language and environment"
   homepage "https://harbour.github.io"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/harbour/core.git", branch: "master"
 
   # Missing a header that was deprecated by libcurl @ version 7.12.0 and
@@ -25,11 +26,64 @@ class Harbour < Formula
     sha256 cellar: :any, sierra:      "ddf71a29c41a874b1d6e787d07f8f66d284ac2bbc24c7a77c1dedfe8d243c76a"
   end
 
+  depends_on "jpeg"
+  depends_on "libharu"
+  depends_on "libpng"
+  depends_on "libxdiff"
+  depends_on "minizip"
   depends_on "pcre"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "curl"
+  uses_from_macos "expat"
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
+
   def install
+    # Delete files that cause vendored libraries for minizip and expat to be built.
+    rm "contrib/hbmzip/3rd/minizip/minizip.hbp"
+    rm "contrib/hbexpat/3rd/expat/expat.hbp"
+
+    # Fix flat namespace usage.
+    # Upstreamed here: https://github.com/harbour/core/pull/263.
+    inreplace "config/darwin/clang.mk", "-flat_namespace -undefined warning", "-undefined dynamic_lookup"
+
+    # The following optional dependencies are not being used at this time:
+    # allegro, cairo, cups, freeimage, gd, ghostscript, libmagic, mysql, postgresql, qt@5, unixodbc
+    # openssl can not included because the hbssl extension does not support OpenSSL 1.1.
+
+    # The below dependencies are included because they will be built as vendored libraries by default.
+    # The vendored version of liblzf is used instead of the Homebrew one because the Homebrew version
+    # is missing header files and the extension will not build
+    # The vendored version of libmxml is used because it needs config.h, which is not included in
+    # the Homebrew version of libmxml.
+    # The vendored version of minilzo is used because the Homebrew version of lzo does not include minilzo.
     ENV["HB_INSTALL_PREFIX"] = prefix
     ENV["HB_WITH_X11"] = "no"
+    ENV["HB_WITH_JPEG"] = Formula["jpeg"].opt_include
+    ENV["HB_WITH_LIBHARU"] = Formula["libharu"].opt_include
+    ENV["HB_WITH_MINIZIP"] = Formula["minizip"].opt_include/"minizip"
+    ENV["HB_WITH_PCRE"] = Formula["pcre"].opt_include
+    ENV["HB_WITH_PNG"] = Formula["libpng"].opt_include
+    ENV["HB_WITH_XDIFF"] = Formula["libxdiff"].opt_include
+
+    if OS.mac?
+      ENV["HB_COMPILER"] = ENV.cc
+      ENV["HB_USER_DFLAGS"] = "-L#{MacOS.sdk_path}/usr/lib"
+      ENV["HB_WITH_BZIP2"] = MacOS.sdk_path/"usr/include"
+      ENV["HB_WITH_CURL"] = MacOS.sdk_path/"usr/include"
+      ENV["HB_WITH_CURSES"] = MacOS.sdk_path/"usr/include"
+      ENV["HB_WITH_EXPAT"] = MacOS.sdk_path/"usr/include"
+      ENV["HB_WITH_SQLITE3"] = MacOS.sdk_path/"usr/include"
+      ENV["HB_WITH_ZLIB"] = MacOS.sdk_path/"usr/include"
+    else
+      ENV["HB_WITH_BZIP2"] = Formula["bzip2"].opt_include
+      ENV["HB_WITH_CURL"] = Formula["curl"].opt_include
+      ENV["HB_WITH_CURSES"] = Formula["ncurses"].opt_include
+      ENV["HB_WITH_EXPAT"] = Formula["expat"].opt_include
+      ENV["HB_WITH_SQLITE3"] = Formula["sqlite"].opt_include
+      ENV["HB_WITH_ZLIB"] = Formula["zlib"].opt_include
+    end
 
     ENV.deparallelize
 
