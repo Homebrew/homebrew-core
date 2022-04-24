@@ -18,16 +18,13 @@ class RedisLeveldb < Formula
     sha256 cellar: :any, yosemite:      "4cf802ff434be42c86043c45f539cfdb0f137cfd37df4815560e3495da5f9d1b"
   end
 
-  # https://github.com/KDr2/redis-leveldb/issues/17
-  disable! date: "2021-06-19", because: :no_license
-
   depends_on "gmp"
   depends_on "leveldb"
   depends_on "libev"
   depends_on "snappy"
 
   def install
-    inreplace "src/Makefile", "../vendor/libleveldb.a", Formula["leveldb"].opt_lib+"libleveldb.a"
+    inreplace "src/Makefile", "../vendor/libleveldb.a", Formula["leveldb"].opt_lib/"libleveldb.a"
     ENV.prepend "LDFLAGS", "-lsnappy"
     system "make"
     bin.install "redis-leveldb"
