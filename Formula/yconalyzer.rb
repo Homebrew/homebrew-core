@@ -3,6 +3,7 @@ class Yconalyzer < Formula
   homepage "https://sourceforge.net/projects/yconalyzer/"
   url "https://downloads.sourceforge.net/project/yconalyzer/yconalyzer-1.0.4.tar.bz2"
   sha256 "3b2bd33ffa9f6de707c91deeb32d9e9a56c51e232be5002fbed7e7a6373b4d5b"
+  license "BSD-3-Clause"
 
   bottle do
     rebuild 1
