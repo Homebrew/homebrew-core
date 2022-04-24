@@ -18,6 +18,12 @@ class Quazip < Formula
   depends_on xcode: :build
   depends_on "qt"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # C++17
+
   def install
     system "cmake", ".", "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}", *std_cmake_args
     system "make"
