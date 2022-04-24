@@ -1,8 +1,8 @@
 class Cpufetch < Formula
   desc "CPU architecture fetching tool"
   homepage "https://github.com/Dr-Noob/cpufetch"
-  url "https://github.com/Dr-Noob/cpufetch/archive/v1.01.tar.gz"
-  sha256 "d4fe25adc4d12f5f1dc7a7e70a4ed92e9807b6a1ad0294c563a0250f7bd6aca1"
+  url "https://github.com/Dr-Noob/cpufetch/archive/v1.02.tar.gz"
+  sha256 "3d1c80aba3daa5fe300b6de6e06d9030f97b7be5210f8ea4110de733ea4373f8"
   license "MIT"
   head "https://github.com/Dr-Noob/cpufetch.git", branch: "master"
 
