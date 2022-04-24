@@ -3,6 +3,7 @@ class Cdpr < Formula
   homepage "http://www.monkeymental.com/"
   url "https://downloads.sourceforge.net/project/cdpr/cdpr/2.4/cdpr-2.4.tgz"
   sha256 "32d3b58d8be7e2f78834469bd5f48546450ccc2a86d513177311cce994dfbec5"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09f09ac98ad3c7e738e0d31bc9d37bdec2cd3745aa5d8d28db3953ef27541561"
