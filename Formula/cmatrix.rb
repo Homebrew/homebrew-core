@@ -3,7 +3,7 @@ class Cmatrix < Formula
   homepage "https://github.com/abishekvashok/cmatrix/"
   url "https://github.com/abishekvashok/cmatrix/archive/v2.0.tar.gz"
   sha256 "ad93ba39acd383696ab6a9ebbed1259ecf2d3cf9f49d6b97038c66f80749e99a"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5c7aa22beeabe078fe1e0f9a3cac02a1b8b895750a9f311ee621891b276d7012"
