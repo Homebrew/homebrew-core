@@ -37,7 +37,7 @@ class LuaAT53 < Formula
 
     # Add shared library for linux
     # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
-    # Inspired from http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+    # Inspired from https://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/c2d33768512f73b3590e15c47b319af50576b24c/lua@5.3/lua-so.patch"
       sha256 "b9bba9d10ed5d34335c831972a02ec48471ca1dbf95230edc13fe5f575d5542c"
@@ -48,7 +48,7 @@ class LuaAT53 < Formula
     if OS.linux?
       # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
       # when making a shared object; recompile with -fPIC
-      # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+      # See https://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
       ENV.append_to_cflags "-fPIC"
     end
 
