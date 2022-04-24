@@ -1,10 +1,21 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://files.pythonhosted.org/packages/88/7f/bd83f99ce0de2a6b05dbf2b67657b167f5c23b46d86029f4b8f17bef6cc8/yle-dl-20220213.tar.gz"
-  sha256 "b6b1cc9d03d5416f342bcfd2c0304988e6cc3f8bd09e0c1bf5a63790cf775f9d"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
+
+  stable do
+    url "https://files.pythonhosted.org/packages/88/7f/bd83f99ce0de2a6b05dbf2b67657b167f5c23b46d86029f4b8f17bef6cc8/yle-dl-20220213.tar.gz"
+    sha256 "b6b1cc9d03d5416f342bcfd2c0304988e6cc3f8bd09e0c1bf5a63790cf775f9d"
+
+    # Remove call to an old Areena API which was deleted in Areena update.
+    # Backport of https://github.com/aajanki/yle-dl/commit/5f3b6246213b76fb0af60eef96caabbb5141d615
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7257f96f43d6fdd9df4027ae16b7c3f400bdf7b4/yle-dl/20220213.patch"
+      sha256 "dd744ee75cbf1b12e7396755d84ca0c40594c85b46c68d20872cbef4e4f03185"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "96ffd398b7d2dc5e1cac3b40e83932def14b356a59d4965712bec1c5a5b16ce1"
