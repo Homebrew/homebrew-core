@@ -6,7 +6,7 @@ class Ciphey < Formula
   url "https://files.pythonhosted.org/packages/a5/db/9e0411803c768cd7f5c6986c9da406ae7e4b6b6a1d8ad0dc191cff6dbdaf/ciphey-5.14.0.tar.gz"
   sha256 "302a90261e9acc9b56ea29c313192f0c6f6ce112d37f4f9d404915052e19bf09"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "19e54cff97fbbb9e081780f1ed09ae9ef57e2c6573e9ffae85b38952616aeb74"
@@ -22,7 +22,7 @@ class Ciphey < Formula
   depends_on "poetry" => :build
   depends_on "swig" => :build
   depends_on "libyaml"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   on_linux do
@@ -168,12 +168,12 @@ class Ciphey < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    venv = virtualenv_create(libexec, "python3")
+    xy = Language::Python.major_minor_version "python3"
     python_path = if OS.mac?
-      Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{xy}"
+      Formula["python@#{xy}"].opt_frameworks/"Python.framework/Versions/#{xy}"
     else
-      Formula["python@3.9"].opt_include/"python#{xy}"
+      Formula["python@#{xy}"].opt_include/"python#{xy}"
     end
 
     resource("cipheycore").stage do
@@ -197,7 +197,7 @@ class Ciphey < Formula
     end
     venv.pip_install_and_link buildpath
 
-    site_packages = "lib/python#{xy}/site-packages"
+    site_packages = Language::Python.site_packages("python3")
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-ciphey.pth").write pth_contents
   end
@@ -207,7 +207,8 @@ class Ciphey < Formula
     expected_text = "Hello from Homebrew"
     assert_equal shell_output("#{bin}/ciphey -g -t #{input_string}").chomp, expected_text
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "from ciphey import decrypt"
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "from ciphey.iface import Config"
+    python = Formula["python@3.10"].opt_bin/"python3"
+    system python, "-c", "from ciphey import decrypt"
+    system python, "-c", "from ciphey.iface import Config"
   end
 end
