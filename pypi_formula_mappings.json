@@ -477,9 +477,9 @@
   "tarsnapper": {
     "exclude_packages": ["six"]
   },
-  "trezor-agent": {
-    "exclude_packages": ["pillow", "six"],
-    "extra_packages": ["ledger-agent", "keepkey-agent"]
+  "termius": {
+    "package_name": "termius",
+    "exclude_packages": ["six"]
   },
   "theharvester": {
     "exclude_packages": ["six"]
@@ -489,6 +489,10 @@
   },
   "tox": {
     "exclude_packages": ["six"]
+  },
+  "trezor-agent": {
+    "exclude_packages": ["pillow", "six"],
+    "extra_packages": ["ledger-agent", "keepkey-agent"]
   },
   "trzsz": {
     "extra_packages": ["trzsz-iterm2"],
