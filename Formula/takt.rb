@@ -3,6 +3,7 @@ class Takt < Formula
   homepage "https://takt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/takt/takt-0.310-src.tar.gz"
   sha256 "eb2947eb49ef84b6b3644f9cf6f1ea204283016c4abcd1f7c57b24b896cc638f"
+  license "GPL-2.0-or-later"
   revision 2
 
   bottle do
