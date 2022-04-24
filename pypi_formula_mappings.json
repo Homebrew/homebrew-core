@@ -287,6 +287,9 @@
   "protobuf": {
     "exclude_packages": ["six"]
   },
+  "pwntools": {
+    "exclude_packages": ["six"]
+  },
   "pydocstyle": "pydocstyle[toml]",
   "pyqt-builder": {
     "exclude_packages": ["packaging", "pyparsing", "sip", "toml"]
