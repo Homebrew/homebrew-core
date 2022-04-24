@@ -1,8 +1,8 @@
 class Quazip < Formula
   desc "C++ wrapper over Gilles Vollant's ZIP/UNZIP package"
   homepage "https://github.com/stachenov/quazip/"
-  url "https://github.com/stachenov/quazip/archive/v1.2.tar.gz"
-  sha256 "2dfb911d6b27545de0b98798d967c40430312377e6ade57096d6ec80c720cb61"
+  url "https://github.com/stachenov/quazip/archive/v1.3.tar.gz"
+  sha256 "c1239559cd6860cab80a0fd81f4204e606f9324f702dab6166b0960676ee1754"
   license "LGPL-2.1-only"
 
   bottle do
