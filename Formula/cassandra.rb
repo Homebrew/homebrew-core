@@ -8,6 +8,7 @@ class Cassandra < Formula
   mirror "https://archive.apache.org/dist/cassandra/4.0.3/apache-cassandra-4.0.3-bin.tar.gz"
   sha256 "33623300bef39c75c73c3b51ad45b453e40e27a0816af3a1466537aa79e5f50d"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -21,7 +22,7 @@ class Cassandra < Formula
 
   depends_on "libcython" => :build
   depends_on "openjdk@11"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "thrift" do
