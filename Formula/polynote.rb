@@ -3,8 +3,8 @@ class Polynote < Formula
 
   desc "Polyglot notebook with first-class Scala support"
   homepage "https://polynote.org/"
-  url "https://github.com/polynote/polynote/releases/download/0.4.2/polynote-dist.tar.gz"
-  sha256 "3d217ef7206d398ecd912959e9e8960d784ab77b2e151a27c08235937a63d802"
+  url "https://github.com/polynote/polynote/releases/download/0.4.5/polynote-dist.tar.gz"
+  sha256 "32b02e7e0b42849b660c70f40afe42450eb60807327770c4c7f5a5269ccaebd4"
   license "Apache-2.0"
 
   bottle do
@@ -19,18 +19,18 @@ class Polynote < Formula
 
   depends_on "numpy" # used by `jep` for Java primitive arrays
   depends_on "openjdk"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "jep" do
-    url "https://files.pythonhosted.org/packages/99/e6/c2e22cfe92762a7add980a40d0d784a0365d53ea656d47610a40d069c086/jep-3.9.1.tar.gz"
-    sha256 "7ccd25a92a19a391504e766940190bdcd4d6b3a8488ca4a3adc8eb8cd581c0cb"
+    url "https://files.pythonhosted.org/packages/19/6e/745f9805f5cec38e03e7fed70b8c66d4c4ec3997cd7de824d54df1dfb597/jep-4.0.0.tar.gz"
+    sha256 "fb27b1e95c58d1080dabbbc9eba9e99e69e4295f67df017b70df20f340c150bb"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    site_packages = libexec/"vendor"/Language::Python.site_packages("python3")
+    ENV.prepend_create_path "PYTHONPATH", site_packages
 
-    with_env(JAVA_HOME: Formula["openjdk"].opt_prefix) do
+    with_env(JAVA_HOME: Language::Java.java_home) do
       resource("jep").stage do
         # Help native shared library in jep resource find libjvm.so on Linux.
         unless OS.mac?
@@ -38,7 +38,8 @@ class Polynote < Formula
           ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["openjdk"].libexec}/lib/server"
         end
 
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor"),
+                          "--install-lib=#{site_packages}"
       end
     end
 
