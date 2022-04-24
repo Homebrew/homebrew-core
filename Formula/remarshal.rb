@@ -6,7 +6,7 @@ class Remarshal < Formula
   url "https://files.pythonhosted.org/packages/24/37/1f167687b2d9f3bac3e7e73508f86c7e6c1bf26a37ca5443182c8f596625/remarshal-0.14.0.tar.gz"
   sha256 "16425aa1575a271dd3705d812b06276eeedc3ac557e7fd28e06822ad14cd0667"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/dbohdan/remarshal.git", branch: "master"
 
   bottle do
@@ -21,7 +21,7 @@ class Remarshal < Formula
 
   depends_on "poetry" => :build
   depends_on "libyaml" # for faster PyYAML
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   conflicts_with "msgpack-tools", because: "both install 'json2msgpack' binary"
