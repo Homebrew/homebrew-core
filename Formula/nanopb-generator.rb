@@ -1,9 +1,12 @@
 class NanopbGenerator < Formula
+  include Language::Python::Shebang
+
   desc "C library for encoding and decoding Protocol Buffer messages"
   homepage "https://jpa.kapsi.fi/nanopb/docs/index.html"
   url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.5.tar.gz"
   sha256 "7efc553d3d861bceb1221f79d29b03e4353f0df2db690cbced0f4a81882d95fd"
   license "Zlib"
+  revision 1
 
   livecheck do
     url "https://jpa.kapsi.fi/nanopb/download/"
@@ -20,7 +23,7 @@ class NanopbGenerator < Formula
   end
 
   depends_on "protobuf"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "mesos",
     because: "they depend on an incompatible version of protobuf"
@@ -28,8 +31,7 @@ class NanopbGenerator < Formula
   def install
     cd "generator" do
       system "make", "-C", "proto"
-      inreplace "nanopb_generator.py", %r{^#!/usr/bin/env python3$},
-                                       "#!/usr/bin/env #{Formula["python@3.9"].opt_bin}/python3"
+      rewrite_shebang detected_python_shebang, "nanopb_generator.py"
       libexec.install "nanopb_generator.py", "protoc-gen-nanopb", "proto"
       bin.install_symlink libexec/"protoc-gen-nanopb", libexec/"nanopb_generator.py"
     end
