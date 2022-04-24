@@ -16,15 +16,15 @@ class Quazip < Formula
 
   depends_on "cmake" => :build
   depends_on xcode: :build
-  depends_on "qt@5"
+  depends_on "qt"
 
   def install
-    system "cmake", ".", "-DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}", *std_cmake_args
+    system "cmake", ".", "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}", *std_cmake_args
     system "make"
     system "make", "install"
 
     cd include do
-      include.install_symlink "QuaZip-Qt#{Formula["qt@5"].version.major}-#{version}/quazip" => "quazip"
+      include.install_symlink "QuaZip-Qt#{Formula["qt"].version.major}-#{version}/quazip" => "quazip"
     end
   end
 
@@ -38,7 +38,7 @@ class Quazip < Formula
       SOURCES     += test.cpp
       INCLUDEPATH += #{include}
       LIBPATH     += #{lib}
-      LIBS        += -lquazip#{version.major}-qt#{Formula["qt@5"].version.major}
+      LIBS        += -lquazip#{version.major}-qt#{Formula["qt"].version.major}
     EOS
 
     (testpath/"test.cpp").write <<~EOS
@@ -49,7 +49,7 @@ class Quazip < Formula
       }
     EOS
 
-    system "#{Formula["qt@5"].bin}/qmake", "test.pro"
+    system "#{Formula["qt"].bin}/qmake", "test.pro"
     system "make"
     assert_predicate testpath/"test", :exist?, "test output file does not exist!"
     system "./test"
