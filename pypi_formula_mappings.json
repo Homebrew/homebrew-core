@@ -75,6 +75,7 @@
     "exclude_packages": ["junit-xml", "six"]
   },
   "charm-tools": {
+    "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
   },
   "checkov": {
