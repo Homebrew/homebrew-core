@@ -3,6 +3,7 @@ class CenterIm < Formula
   homepage "https://github.com/petrpavlu/centerim5"
   url "https://web.archive.org/web/20191105151123/https://www.centerim.org/download/releases/centerim-4.22.10.tar.gz"
   sha256 "93ce15eb9c834a4939b5aa0846d5c6023ec2953214daf8dc26c85ceaa4413f6e"
+  license "GPL-2.0-or-later"
   revision 2
 
   # Modify this to use `url :stable` if/when the formula is updated to use an
