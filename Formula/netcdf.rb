@@ -1,6 +1,6 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
-  homepage "https://www.unidata.ucar.edu/software/netcdf"
+  homepage "https://www.unidata.ucar.edu/software/netcdf/"
   url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz"
   sha256 "bc018cc30d5da402622bf76462480664c6668b55eb16ba205a0dfb8647161dd0"
   license "BSD-3-Clause"
@@ -8,8 +8,8 @@ class Netcdf < Formula
   head "https://github.com/Unidata/netcdf-c.git", branch: "main"
 
   livecheck do
-    url "https://downloads.unidata.ucar.edu/netcdf-c/release_info.json"
-    regex(/["']version["']:\s*["']v?(\d+(?:\.\d+)+)["']/i)
+    url :stable
+    regex(/^(?:netcdf[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
