@@ -126,7 +126,7 @@ class GccAT5 < Formula
       args << "--disable-multilib"
 
       # Change the default directory name for 64-bit libraries to `lib`
-      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+      # https://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc-pass2.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
 
       # Fix for system gccs that do not support -static-libstdc++
