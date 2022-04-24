@@ -45,7 +45,7 @@ class Redex < Formula
     inreplace "Makefile.am", "/usr/include/jsoncpp", Formula["jsoncpp"].opt_include
 
     system "autoreconf", "-ivf"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--with-boost=#{Formula["boost"].opt_prefix}"
     system "make"
     system "make", "install"
   end
