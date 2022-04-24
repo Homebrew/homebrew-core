@@ -58,7 +58,7 @@ class Luabind < Formula
     when :clang
       args << "--toolset=clang"
     when :gcc
-      args << "--toolset=darwin"
+      args << "--toolset=darwin" if OS.mac?
     end
     args << "--prefix=#{prefix}"
     system "b2", *args
@@ -100,11 +100,11 @@ class Luabind < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "-shared", "hello.cpp", "-o", "hello.dylib",
+    system ENV.cxx, "-fPIC", "-shared", "hello.cpp", "-o", shared_library("hello"),
                     "-I#{Formula["lua@5.1"].include}/lua-5.1",
                     "-L#{lib}", "-lluabind",
                     "-L#{Formula["lua@5.1"].lib}", "-llua5.1"
-    output = `lua5.1 -e "package.loadlib('#{testpath}/hello.dylib', 'init')(); greet()"`
+    output = shell_output("lua5.1 -e \"package.loadlib('#{testpath/shared_library("hello")}', 'init')(); greet()\"")
     assert_match "hello world!", output
   end
 end
