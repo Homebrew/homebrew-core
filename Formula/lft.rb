@@ -3,6 +3,7 @@ class Lft < Formula
   homepage "https://pwhois.org/lft/"
   url "https://pwhois.org/dl/index.who?file=lft-3.91.tar.gz"
   sha256 "aad13e671adcfc471ab99417161964882d147893a54664f3f465ec5c8398e6af"
+  license "VOSTROM"
 
   livecheck do
     url :homepage
