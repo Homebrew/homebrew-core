@@ -46,7 +46,7 @@ class LuaAT51 < Formula
     if OS.linux?
       # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
       # when making a shared object; recompile with -fPIC
-      # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+      # See https://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
       ENV.append_to_cflags "-fPIC"
     end
 
