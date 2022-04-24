@@ -27,7 +27,14 @@ class Pgroonga < Formula
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
 
-    lib.install Dir["stage/**/lib/*"]
-    (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
+    stage_path = File.join("stage", HOMEBREW_PREFIX)
+    lib.install (buildpath/stage_path/"lib").children
+    share.install (buildpath/stage_path/"share").children
+    include.install (buildpath/stage_path/"include").children
+  end
+
+  test do
+    expected = "PGroonga database management module"
+    assert_match expected, (share/"postgresql/extension/pgroonga_database.control").read
   end
 end
