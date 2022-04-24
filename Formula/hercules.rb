@@ -28,9 +28,13 @@ class Hercules < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  uses_from_macos "zlib"
+
   skip_clean :la
 
   def install
+    ENV.deparallelize
+
     if build.head?
       system "./autogen.sh"
     elsif Hardware::CPU.arm?
