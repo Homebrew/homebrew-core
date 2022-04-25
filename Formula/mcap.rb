@@ -8,7 +8,7 @@ class Mcap < Formula
 
   depends_on "go" => :build
 
-  resource "testdata" do
+  resource "homebrew-testdata" do
     url "https://media.githubusercontent.com/media/foxglove/mcap/releases/mcap-cli/v0.0.6/tests/conformance/data/OneMessage/OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap"
     sha256 "9db644f7fad2a256b891946a011fb23127b95d67dc03551b78224aa6cad8c5db"
   end
@@ -21,11 +21,11 @@ class Mcap < Formula
   end
 
   test do
-    resource("testdata").stage do
-      assert_equal "v#{version}", pipe_output("#{bin}/mcap version").strip
+    assert_equal "v#{version}", pipe_output("#{bin}/mcap version").strip
 
+    resource("homebrew-testdata").stage do
       assert_equal "2 example [Example] [1 2 3]",
-        shell_output("cat OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap | #{bin}/mcap cat").strip
+      pipe_output("#{bin}/mcap cat", File.read("OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap")).strip
 
       expected_info = <<~EOF
         library:
