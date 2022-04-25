@@ -19,10 +19,15 @@ class Libchaos < Formula
   depends_on "cmake" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-DLIBCHAOS_ENABLE_TESTING=OFF", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DLIBCHAOS_ENABLE_TESTING=OFF",
+           "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    system "cmake", "-S", ".", "-B", "build", "-DLIBCHAOS_ENABLE_TESTING=OFF",
+           "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    lib.install buildpath/"build/libchaos.a"
   end
 
   test do
@@ -42,7 +47,7 @@ class Libchaos < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-L#{lib}", "-lchaos", "-o", "test", "test.cc"
+    system ENV.cxx, "test.cc", "-std=c++11", "-L#{lib}", "-lchaos", "-o", "test"
     system "./test"
   end
 end
