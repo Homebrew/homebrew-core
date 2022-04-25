@@ -29,6 +29,9 @@ class OpenZwave < Formula
     # The following is needed to bypass an issue that will not be fixed upstream
     ENV["pkgconfigdir"] = "#{lib}/pkgconfig"
 
+    # Make sure library is installed in lib and not lib64 on Linux.
+    inreplace "cpp/build/support.mk", "instlibdir.x86_64 = /lib64/", "instlibdir.x86_64 = /lib/"
+
     system "make", "install"
   end
 
@@ -43,7 +46,7 @@ class OpenZwave < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}/openzwave",
-                    "-L#{lib}", "-lopenzwave", "-o", "test"
+                    "-L#{lib}", "-lopenzwave", "-lpthread", "-o", "test"
     system "./test"
   end
 end
