@@ -1,8 +1,8 @@
 class Chafa < Formula
   desc "Versatile and fast Unicode/ASCII/ANSI graphics renderer"
   homepage "https://hpjansson.org/chafa/"
-  url "https://hpjansson.org/chafa/releases/chafa-1.10.1.tar.xz"
-  sha256 "5791b726a02a449d7c4d6306ed97b711d7df22c51c891d8c64a60015b8e448ec"
+  url "https://hpjansson.org/chafa/releases/chafa-1.10.2.tar.xz"
+  sha256 "171042f71f4a1da72322c170d81c4715ac5ac2c907aa663912f74b7a4b1b9bbb"
   license "LGPL-3.0-or-later"
 
   livecheck do
