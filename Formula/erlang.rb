@@ -78,7 +78,7 @@ class Erlang < Formula
 
     # Build the doc chunks (manpages are also built by default)
     system "make", "docs", "DOC_TARGETS=chunks"
-    system "make", "install-docs"
+    ENV.deparallelize { system "make", "install-docs" }
 
     doc.install resource("html")
   end
