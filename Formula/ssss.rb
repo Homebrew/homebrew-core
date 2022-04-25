@@ -32,6 +32,10 @@ class Ssss < Formula
       s.gsub! "-W ", "-W -DNOMLOCK $(CFLAGS) $(LDFLAGS)"
     end
 
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    inreplace "Makefile", "-lgmp -o ssss-split ssss.c", "ssss.c -lgmp -o ssss-split"
+
     system "make"
     man1.install "ssss.1"
     bin.install %w[ssss-combine ssss-split]
