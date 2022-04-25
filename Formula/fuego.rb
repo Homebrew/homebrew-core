@@ -24,7 +24,7 @@ class Fuego < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--with-boost=#{Formula["boost"].opt_prefix}"
-    system "make", "install"
+    system "make", "install", "LIBS=-lpthread"
   end
 
   test do
