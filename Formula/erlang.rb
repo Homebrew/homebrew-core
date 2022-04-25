@@ -38,6 +38,12 @@ class Erlang < Formula
     sha256 "a555923a0360cf1acd9c440216a06be7cc663ce0a067966600142d16f9e99bbb"
   end
 
+  # Required for build against wxwidgets-3.1.6+
+  patch do
+    url "https://github.com/erlang/otp/commit/c2eb69239622046093c25e986dd606ea339c59a9.patch?full_index=1"
+    sha256 "7817f1407760c22a46c8a708ea44dd86befc611022abd66b2eaccbe8b4abc0da"
+  end
+
   def install
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligible error.
