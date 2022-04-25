@@ -141,12 +141,11 @@ class Pypy3 < Formula
       end
     end
 
-    # Symlinks to easy_install_pypy3 and pip_pypy3
-    bin.install_symlink scripts_folder/"easy_install" => "easy_install_pypy3"
+    # Symlinks to pip_pypy3
     bin.install_symlink scripts_folder/"pip" => "pip_pypy3"
 
     # post_install happens after linking
-    %w[easy_install_pypy3 pip_pypy3].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
+    (HOMEBREW_PREFIX/"bin").install_symlink bin/"pip_pypy3"
   end
 
   def caveats
@@ -156,13 +155,12 @@ class Pypy3 < Formula
       specifying the install-scripts folder as:
         #{scripts_folder}
 
-      If you install Python packages via "pypy3 setup.py install", easy_install_pypy3,
-      or pip_pypy3, any provided scripts will go into the install-scripts folder
+      If you install Python packages via "pypy3 setup.py install" or pip_pypy3,
+      any provided scripts will go into the install-scripts folder
       above, so you may want to add it to your PATH *after* #{HOMEBREW_PREFIX}/bin
       so you don't overwrite tools from CPython.
 
-      Setuptools and pip have been installed, so you can use easy_install_pypy3 and
-      pip_pypy3.
+      Setuptools and pip have been installed, so you can use pip_pypy3.
       To update pip and setuptools between pypy3 releases, run:
           pip_pypy3 install --upgrade pip setuptools
 
