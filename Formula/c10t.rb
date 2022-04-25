@@ -42,7 +42,15 @@ class C10t < Formula
 
   def install
     inreplace "test/CMakeLists.txt", "boost_unit_test_framework", "boost_unit_test_framework-mt"
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args
+    unless OS.mac?
+      args += %W[
+        -DCMAKE_LINK_WHAT_YOU_USE=ON
+        -DZLIB_LIBRARY=#{Formula["zlib"].opt_lib}/libz.so.1
+        -DZLIB_INCLUDE_DIR=#{Formula["zlib"].include}
+      ]
+    end
+    system "cmake", ".", *args
     system "make"
     bin.install "c10t"
   end
