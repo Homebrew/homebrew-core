@@ -35,12 +35,21 @@ class Hatari < Formula
   def install
     # Set .app bundle destination
     inreplace "src/CMakeLists.txt", "/Applications", prefix
-    system "cmake", *std_cmake_args, "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3"
-    system "make"
-    prefix.install "src/Hatari.app"
-    bin.write_exec_script "#{prefix}/Hatari.app/Contents/MacOS/hatari"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+      "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3"
+    system "cmake", "--build", "build"
+    if OS.mac?
+      prefix.install "build/src/Hatari.app"
+      bin.write_exec_script "#{prefix}/Hatari.app/Contents/MacOS/hatari"
+    else
+      system "cmake", "--install", "build"
+    end
     resource("emutos").stage do
-      (prefix/"Hatari.app/Contents/Resources").install "etos512k.img" => "tos.img"
+      if OS.mac?
+        (prefix/"Hatari.app/Contents/Resources").install "etos512k.img" => "tos.img"
+      else
+        pkgshare.install "etos512k.img" => "tos.img"
+      end
     end
   end
 
