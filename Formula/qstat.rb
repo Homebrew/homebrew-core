@@ -18,6 +18,7 @@ class Qstat < Formula
   depends_on "automake" => :build
 
   def install
+    system "autoupdate" unless OS.mac?
     system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
