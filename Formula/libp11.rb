@@ -49,8 +49,8 @@ class Libp11 < Formula
   end
 
   test do
-    system ENV.cc, "-I#{Formula["openssl@1.1"].include}", "-L#{lib}",
-                   "-L#{Formula["openssl@1.1"].lib}", "-lp11", "-lcrypto",
-                   pkgshare/"auth.c", "-o", "test"
+    system ENV.cc, pkgshare/"auth.c", "-I#{Formula["openssl@1.1"].include}",
+                   "-L#{lib}", "-L#{Formula["openssl@1.1"].lib}",
+                   "-lp11", "-lcrypto", "-o", "test"
   end
 end
