@@ -20,14 +20,9 @@ class Html2text < Formula
   def install
     ENV.cxx11
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-debug",
-                          "--prefix=#{prefix}"
+    system "./configure"
     system "make", "all"
-
-    bin.install "html2text"
-    man1.install "html2text.1"
-    man5.install "html2textrc.5"
+    system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
   end
 
   test do
