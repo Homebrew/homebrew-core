@@ -21,9 +21,11 @@ class BbftpClient < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "bdb7c899dab18816b4cc1d573291ba4691f365c9ed1c9951e73f9225810a8557"
   end
 
+  uses_from_macos "zlib"
+
   def install
     # Fix ntohll errors; reported 14 Jan 2015.
-    ENV.append_to_cflags "-DHAVE_NTOHLL"
+    ENV.append_to_cflags "-DHAVE_NTOHLL" if OS.mac?
 
     cd "bbftpc" do
       system "./configure", "--disable-debug",
