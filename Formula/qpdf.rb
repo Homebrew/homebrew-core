@@ -5,6 +5,11 @@ class Qpdf < Formula
   sha256 "e8fc23b2a584ea68c963a897515d3eb3129186741dd19d13c86d31fa33493811"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^release-qpdf[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "24944d4bf95fe2c8074f56a971fb02fc690debd23918e9167da0382610caca9f"
     sha256 cellar: :any,                 arm64_big_sur:  "8f49d18dd8988cc2c63edbc62ca3fdfe588d8da7c42ed166ed3eb47a891d93e4"
