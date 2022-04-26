@@ -95,15 +95,6 @@ class Mysql < Formula
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
     end
 
-    # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
-    # Reported upstream at https://bugs.mysql.com/bug.php?id=103227
-    rm_rf lib/"libssl.dylib"
-    rm_rf lib/"libssl.1.1.dylib"
-    rm_rf lib/"libcrypto.1.1.dylib"
-    rm_rf lib/"libcrypto.dylib"
-    rm_rf lib/"plugin/libcrypto.1.1.dylib"
-    rm_rf lib/"plugin/libssl.1.1.dylib"
-
     # Remove the tests directory
     rm_rf prefix/"mysql-test"
 
