@@ -1,8 +1,8 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.27-19/source/tarball/percona-xtrabackup-8.0.27-19.tar.gz"
-  sha256 "0bcfc60b2b19723ea348e43b04bd904c49142f58d326ab32db11e69dda00b733"
+  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.28-20/source/tarball/percona-xtrabackup-8.0.28-20.tar.gz"
+  sha256 "bfcdd838d19daa98ae8d7ddf7f84ffc89597c67edc9cc50d342f03fcca361616"
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
@@ -71,27 +71,6 @@ class PerconaXtrabackup < Formula
     sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
   end
 
-  # Fix build on Monterey.
-  # Remove with the next version.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fcbea58e245ea562fbb749bfe6e1ab178fd10025/mysql/monterey.diff"
-    sha256 "6709edb2393000bd89acf2d86ad0876bde3b84f46884d3cba7463cd346234f6f"
-  end
-
-  # Fix linkage errors on macOS.
-  # Remove with the next version.
-  patch do
-    url "https://github.com/percona/percona-xtrabackup/commit/89004bb0a67b73daeafc6a5008d0eefc2e80134b.patch?full_index=1"
-    sha256 "53f1f444e7d924b6a58844a3f9be521ccde70d2adeed7e6ba4f513ceedc82ec4"
-  end
-
-  # Fix compilation error on macOS.
-  # https://github.com/percona/percona-xtrabackup/pull/1265
-  patch do
-    url "https://github.com/percona/percona-xtrabackup/commit/b3884892797f405c88a130923d35d0d3350098d1.patch?full_index=1"
-    sha256 "2c9287f807a796ff538f2f0d3527fbe384f3f2cc01ad8daba991f176f3a9a9e7"
-  end
-
   # Fix CMake install error with manpages.
   # https://github.com/percona/percona-xtrabackup/pull/1266
   patch do
@@ -121,10 +100,6 @@ class PerconaXtrabackup < Formula
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
     ]
-
-    # macOS has this value empty by default.
-    # See https://bugs.python.org/issue18378#msg215215
-    ENV["LC_ALL"] = "en_US.UTF-8"
 
     (buildpath/"boost").install resource("boost")
     cmake_args << "-DWITH_BOOST=#{buildpath}/boost"
