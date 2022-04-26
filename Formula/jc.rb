@@ -3,8 +3,8 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/0e/8c/f8859a1c2f5c7de35dd020ecd66489b6570e83b609d064e9249a610036ed/jc-1.18.6.tar.gz"
-  sha256 "5e164ec324182aa35571b3868e7718b163d315bea2b86b2457e554b5c0912a2f"
+  url "https://files.pythonhosted.org/packages/fb/f8/38dfcd8cd2c2a49e79d9433942a81af502c590d05dd32b0107114b94fb14/jc-1.18.7.tar.gz"
+  sha256 "0b1261a2c3631b67bf0b540d36ad49ee9c5648ba61fddd5f8dd953af3d7cde96"
   license "MIT"
 
   bottle do
@@ -19,8 +19,8 @@ class Jc < Formula
   depends_on "python@3.10"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
-    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
+    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
+    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
   end
 
   resource "ruamel.yaml" do
