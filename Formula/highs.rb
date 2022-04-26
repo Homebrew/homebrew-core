@@ -1,8 +1,8 @@
 class Highs < Formula
   desc "Linear optimization software"
   homepage "https://www.maths.ed.ac.uk/hall/HiGHS/"
-  url "https://github.com/ERGO-Code/HiGHS/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "8d0230369762a1835e075fe41fa4f83b403c21355958135c44dd214203a43edd"
+  url "https://github.com/ERGO-Code/HiGHS/archive/refs/tags/v1.2.2.tar.gz"
+  sha256 "e849276134eb0e7d876be655ff5fe3aa6ecf1030d605edee760620469f9e97cf"
   license "MIT"
 
   bottle do
@@ -18,6 +18,8 @@ class Highs < Formula
   depends_on "pkg-config" => :build
   depends_on "gcc" # for gfortran
   depends_on "osi"
+
+  uses_from_macos "zlib"
 
   def install
     system "cmake", "-B", "build", *std_cmake_args
