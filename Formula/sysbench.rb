@@ -4,7 +4,7 @@ class Sysbench < Formula
   url "https://github.com/akopytov/sysbench/archive/1.0.20.tar.gz"
   sha256 "e8ee79b1f399b2d167e6a90de52ccc90e52408f7ade1b9b7135727efe181347f"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/akopytov/sysbench.git", branch: "master"
 
   bottle do
@@ -29,7 +29,7 @@ class Sysbench < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}", "--with-mysql", "--with-system-luajit"
+    system "./configure", *std_configure_args, "--with-mysql", "--with-system-luajit"
     system "make", "install"
   end
 
