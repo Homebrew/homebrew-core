@@ -28,13 +28,15 @@ class Density < Formula
   end
 
   def install
+    # The `gcc-ar` wrapper must be used for LTO to work for the static library on Linux.
+    ENV["AR"] = "gcc-ar" unless OS.mac?
     (buildpath/"benchmark/libs/cputime").install resource("cputime")
     (buildpath/"benchmark/libs/spookyhash").install resource("spookyhash")
     system "make"
     include.install "src/density_api.h"
     pkgshare.install "build/benchmark"
     lib.install "build/libdensity.a"
-    lib.install "build/libdensity.dylib"
+    lib.install "build/#{shared_library("libdensity")}"
   end
 
   test do
