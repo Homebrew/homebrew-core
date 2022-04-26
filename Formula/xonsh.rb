@@ -3,8 +3,8 @@ class Xonsh < Formula
 
   desc "Python-powered, cross-platform, Unix-gazing shell language and command prompt"
   homepage "https://xon.sh/"
-  url "https://files.pythonhosted.org/packages/8b/29/7079a56c46901ddeb8f4edd5d313877182be548d04808c02bf582be22211/xonsh-0.12.1.tar.gz"
-  sha256 "e9aacd7272ac7c76d69d5318275b718e8e19b1a6b7ebc3cf5896baf5d2a5f7c1"
+  url "https://files.pythonhosted.org/packages/19/f3/f23a5412cc1dbf3f7190d7674c9e1b30f1cd0ede442c63462ff80ed8484f/xonsh-0.12.2.tar.gz"
+  sha256 "0876164a54f95f0bcf574236850c0880397238274cc4de31d89086f086dbeb09"
   license "BSD-2-Clause-Views"
   head "https://github.com/xonsh/xonsh.git", branch: "main"
 
@@ -28,8 +28,8 @@ class Xonsh < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
-    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
+    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
+    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
   end
 
   resource "pyperclip" do
