@@ -4,7 +4,7 @@ class Innotop < Formula
   url "https://github.com/innotop/innotop/archive/v1.13.0.tar.gz"
   sha256 "6ec91568e32bda3126661523d9917c7fbbd4b9f85db79224c01b2a740727a65c"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
-  revision 1
+  revision 2
   head "https://github.com/innotop/innotop.git"
 
   bottle do
@@ -48,7 +48,7 @@ class Innotop < Formula
         # from a relative path -- while in the middle of our build we need to
         # refer to them by their full path.  Workaround adapted from:
         #   https://github.com/fink/fink-distributions/issues/461#issuecomment-563331868
-        inreplace "Makefile", "blib/", "$(shell pwd)/blib/" if r.name == "TermReadKey"
+        inreplace "Makefile", "blib/", "$(shell pwd)/blib/" if OS.mac? && r.name == "TermReadKey"
         system "make", "install"
       end
     end
