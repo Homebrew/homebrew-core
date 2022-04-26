@@ -6,6 +6,7 @@ class Prestodb < Formula
   url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.272/presto-server-0.272.tar.gz"
   sha256 "4e696f874a3bfa0c712f283e4012fad332a9d71ea982ce24f8a91acc6a5d8372"
   license "Apache-2.0"
+  revision 1
 
   # Upstream has said that we should check Maven for Presto version information
   # and the highest version found there is newest:
@@ -19,7 +20,9 @@ class Prestodb < Formula
     sha256 cellar: :any_skip_relocation, all: "4f52ed17e534be51ca8a6e6f551850bb948c301e78a467589394edc5152ffdc3"
   end
 
-  depends_on "openjdk"
+  # https://github.com/prestodb/presto/issues/17146
+  depends_on arch: :x86_64
+  depends_on "openjdk@11"
   depends_on "python@3.10"
 
   resource "presto-cli" do
@@ -63,11 +66,13 @@ class Prestodb < Formula
     (libexec/"etc/catalog/jmx.properties").write "connector.name=jmx"
 
     rewrite_shebang detected_python_shebang, libexec/"bin/launcher.py"
-    (bin/"presto-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
+    env = Language::Java.overridable_java_home_env("11")
+    env["PATH"] = "$JAVA_HOME/bin:$PATH"
+    (bin/"presto-server").write_env_script libexec/"bin/launcher", env
 
     resource("presto-cli").stage do
       libexec.install "presto-cli-#{version}-executable.jar"
-      bin.write_jar_script libexec/"presto-cli-#{version}-executable.jar", "presto"
+      bin.write_jar_script libexec/"presto-cli-#{version}-executable.jar", "presto", java_version: "11"
     end
 
     # Remove incompatible pre-built binaries
@@ -95,7 +100,21 @@ class Prestodb < Formula
   end
 
   test do
-    system bin/"presto-server", "run", "--help"
-    assert_match "Presto CLI #{version}", shell_output("#{bin}/presto --version").chomp
+    port = free_port
+    cp libexec/"etc/config.properties", testpath/"config.properties"
+    inreplace testpath/"config.properties", "8080", port.to_s
+    server = fork do
+      exec bin/"presto-server", "run", "--verbose",
+                                       "--data-dir", testpath,
+                                       "--config", testpath/"config.properties"
+    end
+    sleep 30
+
+    query = "SELECT state FROM system.runtime.nodes"
+    output = shell_output(bin/"presto --debug --server localhost:#{port} --execute '#{query}'")
+    assert_match "\"active\"", output
+  ensure
+    Process.kill("TERM", server)
+    Process.wait server
   end
 end
