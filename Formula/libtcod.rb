@@ -19,6 +19,7 @@ class Libtcod < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
+  depends_on macos: :catalina
   depends_on "sdl2"
 
   on_linux do
