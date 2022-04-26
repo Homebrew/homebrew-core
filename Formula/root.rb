@@ -2,6 +2,7 @@ class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   stable do
