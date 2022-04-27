@@ -27,12 +27,22 @@ class Ffmpeg2theora < Formula
   depends_on "libvorbis"
   depends_on "theora"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   # Use python3 print()
   patch do
     url "https://salsa.debian.org/multimedia-team/ffmpeg2theora/-/raw/master/debian/patches/0002-Use-python3-print.patch"
     sha256 "8cf333e691cf19494962b51748b8246502432867d9feb3d7919d329cb3696e97"
+  end
+
+  # Fix missing linker flags
+  patch do
+    url "https://salsa.debian.org/multimedia-team/ffmpeg2theora/-/raw/debian/0.30-2/debian/patches/link-libm.patch"
+    sha256 "1cf00c93617ecc4833e9d2267d68b70eeb6aa6183f0c939f7caf0af5ce8460b5"
   end
 
   def install
@@ -42,8 +52,8 @@ class Ffmpeg2theora < Formula
     args = [
       "prefix=#{prefix}",
       "mandir=PREFIX/share/man",
-      "APPEND_LINKFLAGS=-headerpad_max_install_names",
     ]
+    args << "APPEND_LINKFLAGS=-headerpad_max_install_names" if OS.mac?
     system "scons", "install", *args
   end
 
