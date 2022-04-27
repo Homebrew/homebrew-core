@@ -7,8 +7,8 @@ class ClangFormat < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.1/llvm-14.0.1.src.tar.xz"
-    sha256 "5b89017dec2729311ab143402f03da1dea6d0c79dd5c701bc939cf8b34f01ec2"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.2/llvm-14.0.2.src.tar.xz"
+    sha256 "46811f451d0074836bd0a04afcd15942d85daba8520901fd5a3a57cf0945d482"
 
     resource "clang" do
       url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.1/clang-14.0.1.src.tar.xz"
