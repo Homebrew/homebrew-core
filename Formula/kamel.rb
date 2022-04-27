@@ -27,7 +27,7 @@ class Kamel < Formula
 
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
-    system "make"
+    system "make build-kamel"
     bin.install "kamel"
 
     output = Utils.safe_popen_read("#{bin}/kamel", "completion", "bash")
