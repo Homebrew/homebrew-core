@@ -5,7 +5,7 @@ class AprUtil < Formula
   mirror "https://archive.apache.org/dist/apr/apr-util-1.6.1.tar.bz2"
   sha256 "d3e12f7b6ad12687572a3a39475545a072608f4ba03a6ce8a3778f607dd0035b"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 arm64_monterey: "c47c937968e788d0a274e6bd214d20fcbfde6b5d23908b469a954d2f3e6aee59"
@@ -25,6 +25,7 @@ class AprUtil < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "expat"
+  uses_from_macos "libxcrypt"
   uses_from_macos "sqlite"
 
   on_linux do
@@ -43,6 +44,7 @@ class AprUtil < Formula
     system "make", "install"
 
     # Install symlinks so that linkage doesn't break for reverse dependencies.
+    # This should be removed on the next ABI breaking update.
     (libexec/"lib").install_symlink Dir["#{lib}/#{shared_library("*")}"]
 
     rm Dir[lib/"**/*.{la,exp}"]
