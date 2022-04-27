@@ -1,10 +1,8 @@
-require "language/node"
-
 class Fx < Formula
-  desc "Command-line JSON processing tool"
-  homepage "https://github.com/antonmedv/fx"
-  url "https://registry.npmjs.org/fx/-/fx-20.0.2.tgz"
-  sha256 "7ec01246c8291cd6194587e4fe0eba92a554336ec2342a74c9eb47cf1b41179c"
+  desc "Terminal JSON viewer"
+  homepage "https://fx.wtf"
+  url "https://github.com/antonmedv/fx/archive/refs/tags/23.0.1.tar.gz"
+  sha256 "2a889077829befe39660baf76923652ef37159e7b6ef6a25dd2f4e0a9435f6aa"
   license "MIT"
 
   bottle do
@@ -18,14 +16,13 @@ class Fx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "91533eff62e86951a9b67f7d9ced7673627add44ac66320199f8336b6fc576ad"
   end
 
-  depends_on "node"
+  depends_on "go" => :build
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "go", "build", *std_go_args
   end
 
   test do
-    assert_match "bar", shell_output("echo '{\"foo\": \"bar\"}' #{bin}/fx .foo")
+    assert_equal "42", shell_output("echo 42 | #{bin}/fx").strip
   end
 end
