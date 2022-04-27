@@ -4,7 +4,7 @@ class Ccls < Formula
   url "https://github.com/MaskRay/ccls/archive/0.20210330.tar.gz"
   sha256 "28c228f49dfc0f23cb5d581b7de35792648f32c39f4ca35f68ff8c9cb5ce56c2"
   license "Apache-2.0"
-  revision 4
+  revision 5
   head "https://github.com/MaskRay/ccls.git", branch: "master"
 
   bottle do
@@ -18,7 +18,7 @@ class Ccls < Formula
 
   depends_on "cmake" => :build
   depends_on "rapidjson" => :build
-  depends_on "llvm"
+  depends_on "llvm@13"
   depends_on macos: :high_sierra # C++ 17 is required
 
   on_linux do
@@ -28,8 +28,8 @@ class Ccls < Formula
   fails_with gcc: "5"
 
   def install
-    resource_dir = Utils.safe_popen_read(Formula["llvm"].bin/"clang", "-print-resource-dir").chomp
-    resource_dir.gsub! Formula["llvm"].prefix.realpath, Formula["llvm"].opt_prefix
+    resource_dir = Utils.safe_popen_read(Formula["llvm@13"].bin/"clang", "-print-resource-dir").chomp
+    resource_dir.gsub! Formula["llvm@13"].prefix.realpath, Formula["llvm@13"].opt_prefix
     system "cmake", *std_cmake_args, "-DCLANG_RESOURCE_DIR=#{resource_dir}"
     system "make", "install"
   end
