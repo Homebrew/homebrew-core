@@ -14,9 +14,7 @@ class Libxcrypt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "84269a82afe1a9e94ba6828c983a4b8e65d8d672d36d88232daac832017ab327"
   end
 
-  on_macos do
-    keg_only "provided by macOS"
-  end
+  keg_only :provided_by_macos
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
